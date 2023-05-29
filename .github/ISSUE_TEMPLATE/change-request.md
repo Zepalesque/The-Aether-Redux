@@ -2,7 +2,7 @@
 name: Change request
 about: Request an alteration to existing content
 title: 'Change Request: INSERT TITLE'
-labels: ''
+labels: change-request
 assignees: ''
 
 ---

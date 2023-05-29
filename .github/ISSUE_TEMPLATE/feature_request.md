@@ -2,7 +2,7 @@
 name: Feature request
 about: Request a new feature for the mod
 title: 'Feature Request:'
-labels: ''
+labels: feature-request
 assignees: ''
 
 ---
