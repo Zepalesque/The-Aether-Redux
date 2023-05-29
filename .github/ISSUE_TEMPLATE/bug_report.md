@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Create a report to help us improve
+about: Report a bug or similar issue in the mod
 title: 'bug: ISSUE NAME HERE'
 labels: ''
 assignees: ''
@@ -23,5 +23,8 @@ A clear and concise description of what you expected to happen.
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
 
+**Crash log (if necessary and/or applicable)**
+ex: [upload file here]
+
 **Additional context**
-Add any other context about the problem here.
+ex: it only seems to happen under [circumstances]
