@@ -13,5 +13,5 @@ ex: [item] is too powerful, and it should be nerfed (MORE DETAIL THAN THIS PLEAS
 **Why do you think it should be done?**
 ex: It is currently too powerful (MORE DETAIL THAN THIS PLEASE)
 
-**Do you have any specific ways of implementation in mind?**
+**Do you have any specific ways of implementation in mind? (OPTIONAL)**
 ex: Its attack damage should be changed to [number] and [potion effect] should be removed from its effects
