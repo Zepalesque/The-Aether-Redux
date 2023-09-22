@@ -1,11 +1,14 @@
 ---
 name: Bug report
 about: Report a bug or similar issue in the mod
-title: 'Bug: ISSUE NAME HERE'
+title: 'Bug [MC Version goes here as well]: ISSUE NAME HERE'
 labels: bug-report
 assignees: ''
 
 ---
+
+**What version of the mod, Forge/Neoforge and Minecraft are you using?**
+Note that ‘latest’ is not a valid answer here, as the latest changes over time. Please type the actual versions.
 
 **Describe the bug**
 A clear and concise description of what the bug is.
