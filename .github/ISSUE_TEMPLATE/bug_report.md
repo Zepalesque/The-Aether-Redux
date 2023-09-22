@@ -1,7 +1,7 @@
 ---
 name: Bug report
 about: Report a bug or similar issue in the mod
-title: 'Bug [MC Version goes here as well]: ISSUE NAME HERE'
+title: 'Bug [MC Version goes here!!]: ISSUE NAME HERE'
 labels: bug-report
 assignees: ''
 
