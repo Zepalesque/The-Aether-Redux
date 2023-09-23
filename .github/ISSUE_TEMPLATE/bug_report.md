@@ -26,7 +26,10 @@ A clear and concise description of what you expected to happen.
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
 
-**Crash log (if necessary and/or applicable)**
+**Crash report (if necessary and/or applicable)**
+ex: [upload file here]
+
+**Log file (should be titled latest.log, if applicable)**
 ex: [upload file here]
 
 **Additional context**
