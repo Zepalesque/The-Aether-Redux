@@ -1,5 +1,6 @@
 # Aether-Redux-Issue-Tracker
 Issue/Feedback tracker for the Aether: Redux addon mod for Minecraft's Aether mod.
+**NOTE: This is a place you can put suggestions and feedback, NOT just issues!**
 
 [![CurseForge Version](http://cf.way2muchnoise.eu/versions/867237_latest.svg)](https://www.curseforge.com/minecraft/mc-mods/the-aether-redux)
 [![CurseForge Downloads](http://cf.way2muchnoise.eu/867237.svg)](https://www.curseforge.com/minecraft/mc-mods/the-aether-redux)
