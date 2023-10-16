@@ -1,4 +1,4 @@
-# Aether-Redux-Issue-Tracker
+# The Aether: Redux | Issue and Feedback Tracker
 Issue/Feedback tracker for the Aether: Redux addon mod for Minecraft's Aether mod.<br>
 **NOTE: This is a place you can put suggestions and feedback, NOT just issues!**
 
