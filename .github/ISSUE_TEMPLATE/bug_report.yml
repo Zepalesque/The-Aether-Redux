@@ -55,7 +55,7 @@ body:
       value: ""
     validations:
       required: false
-    - type: textarea
+  - type: textarea
     id: media
     attributes:
       label: "Screenshots or video (if applicable)"
