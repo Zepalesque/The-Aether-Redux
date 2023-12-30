@@ -1,0 +1,35 @@
+name: Feature Request
+description: Request a new feature for the mod
+title: '[Feature Request]: '
+labels:
+  - feature-request
+body:
+  - type: textarea
+    id: feature
+    attributes:
+      label: What is your request?
+      description: Please describe what your idea is in detail.
+      placeholder: 'ex: There should be a new item with [ability]'
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why do you think the feature should be added?
+      description: >-
+        Having a good reason for the feature’s implementation will increase the
+        chance of it getting added
+      placeholder: >-
+        ex: It would enhance the feel of the mod / It would make [X] connect
+        better with [X]
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 'Please confirm the following:'
+      options:
+        - label: This suggestion is not a duplicate
+          required: true
+        - label: This suggestion fits nicely with the rest of the mod
+          required: true
