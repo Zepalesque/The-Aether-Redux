@@ -8,7 +8,7 @@ body:
     id: feature
     attributes:
       label: What is your request?
-      description: Please describe what your idea is in detail.
+      description: Please describe what your idea is in detail. If you have a specific idea for how it should be implemented, include that as well.
       placeholder: 'ex: There should be a new item with [ability]'
     validations:
       required: true
@@ -18,7 +18,7 @@ body:
       label: Why do you think the feature should be added?
       description: >-
         Having a good reason for the feature’s implementation will increase the
-        chance of it getting added
+        chance of it getting added.
       placeholder: >-
         ex: It would enhance the feel of the mod / It would make [X] connect
         better with [X]
