@@ -106,8 +106,3 @@ body:
             If the issue is a modpack-related issue, it has been reported to the
             modpack devs as well
           required: false
-  - type: markdown
-    attributes:
-      value: >-
-        This template was generated with [Issue Forms
-        Creator](https://issue-forms-creator.netlify.app)
