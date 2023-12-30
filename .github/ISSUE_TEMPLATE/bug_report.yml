@@ -35,7 +35,7 @@ body:
       description: "Please make sure to clearly list each step"
       placeholder: "Insert a numbered list here..."
       value: ""
-          validations:
+    validations:
       required: true
   - type: textarea
     id: log
@@ -44,7 +44,7 @@ body:
       description: "Uploading a file is helpful, but if it fails then copy-pasting the log is fine."
       placeholder: "Insert log here..."
       value: ""
-          validations:
+    validations:
       required: false
   - type: textarea
     id: crash
@@ -53,7 +53,7 @@ body:
       description:  "Uploading a file is helpful, but if it fails then copy-pasting the crash report is fine."
       placeholder: "Insert crash report here..."
       value: ""
-          validations:
+    validations:
       required: false
     - type: textarea
     id: media
@@ -62,7 +62,7 @@ body:
       description:  "Screenshots or video footage showing the bug in action"
       placeholder: "Insert files..."
       value: ""
-          validations:
+    validations:
       required: false
 - type: textarea
     id: additional
@@ -71,5 +71,5 @@ body:
       description:  "Anything more you might want to add relating to the bug."
       placeholder: "ex: it only seems to happen under [circumstances]"
       value: ""
-          validations:
+    validations:
       required: false
