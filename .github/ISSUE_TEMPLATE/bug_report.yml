@@ -1,30 +1,29 @@
-name: Bug Report
-description: Report a bug or glitch in the mod
+name: "Bug Report"
+description: "Report a bug or glitch in the mod"
 title: "[Bug]: "
 labels: ["bug-report"]
 body:
   - type: input
     id: modversion
     attributes:
-      label: Mod Version
-      description: What version of the mod are you using? Please note that 'latest' is not a valid answer.
+      label: "Mod Version"
+      description: "What version of the mod are you using? Please note that 'latest' is not a valid answer."
       placeholder: "ex: 1.0.0"
     validations:
       required: true
-  
   - type: input
     id: forgeversion
     attributes:
-      label: Forge/Neoforge Version
-      description: What version of the modloader are you using? Note that this is DIFFERENT from the mod version, so make sure it's the modloader version you're inputting!
+      label: "Forge/Neoforge Version"
+      description: "What version of the modloader are you using? Note that this is DIFFERENT from the mod version, so make sure it's the modloader version you're inputting!"
       placeholder: "ex: 45.0.0"
     validations:
       required: true
   - type: textarea
     id: describe-bug
     attributes:
-      label: Please describe the bug
-      description: Also include what you expected to happen, if applicable
+      label: "Please describe the bug"
+      description: "Also include what you expected to happen, if applicable"
       placeholder: "ex: [Item] spawns 60 bats at the player's cursor!"
       value: ""
     validations:
@@ -32,45 +31,44 @@ body:
   - type: textarea
     id: steps
     attributes:
-      label: Steps to reproduce the bug
-      description: Please make sure to clearly list each step
+      label: "Steps to reproduce the bug"
+      description: "Please make sure to clearly list each step"
       placeholder: "Insert a numbered list here..."
       value: ""
           validations:
       required: true
-    - type: textarea
+  - type: textarea
     id: log
     attributes:
-      label: Log output (if applicable)
-      description: Uploading a file is helpful, but if it fails then copy-pasting the log is fine.
+      label: "Log output (if applicable)"
+      description: "Uploading a file is helpful, but if it fails then copy-pasting the log is fine."
       placeholder: "Insert log here..."
       value: ""
           validations:
       required: false
-        - type: textarea
+  - type: textarea
     id: crash
     attributes:
-      label: Crash report (if applicable)
-      description:  Uploading a file is helpful, but if it fails then copy-pasting the crash report is fine.
+      label: "Crash report (if applicable)"
+      description:  "Uploading a file is helpful, but if it fails then copy-pasting the crash report is fine."
       placeholder: "Insert crash report here..."
       value: ""
           validations:
       required: false
-              - type: textarea
+    - type: textarea
     id: media
     attributes:
-      label: Screenshots or video
-      description:  Screenshots or video footage showing the bug in action, if applicable
+      label: "Screenshots or video (if applicable)"
+      description:  "Screenshots or video footage showing the bug in action"
       placeholder: "Insert files..."
       value: ""
           validations:
       required: false
-
-                  - type: textarea
+- type: textarea
     id: additional
     attributes:
-      label: Additional context/information
-      description:  Anything more you might want to add relating to the bug.
+      label: "Additional context/information"
+      description:  "Anything more you might want to add relating to the bug."
       placeholder: "ex: it only seems to happen under [circumstances]"
       value: ""
           validations:
