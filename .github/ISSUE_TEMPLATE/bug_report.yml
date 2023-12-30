@@ -8,7 +8,7 @@ body:
     attributes:
       label: Mod Version
       description: What version of the mod are you using? Please note that 'latest' is not a valid answer.
-      placeholder: ex: 1.0.0
+      placeholder: "ex: 1.0.0"
     validations:
       required: true
         - type: input
@@ -16,7 +16,7 @@ body:
     attributes:
       label: Forge/Neoforge Version
       description: What version of the modloader are you using? Note that this is DIFFERENT from the mod version, so make sure it's the modloader version you're inputting!
-      placeholder: ex: 45.0.0
+      placeholder: "ex: 45.0.0"
     validations:
       required: true
   - type: textarea
@@ -24,7 +24,7 @@ body:
     attributes:
       label: Please describe the bug
       description: Also include what you expected to happen, if applicable
-      placeholder: ex: [Item] spawns 60 bats at the player's cursor!
+      placeholder: "ex: [Item] spawns 60 bats at the player's cursor!"
       value: ""
     validations:
       required: true
@@ -33,7 +33,7 @@ body:
     attributes:
       label: Steps to reproduce the bug
       description: Please make sure to clearly list each step
-      placeholder: Insert a numbered list here...
+      placeholder: "Insert a numbered list here..."
       value: ""
           validations:
       required: true
@@ -42,7 +42,7 @@ body:
     attributes:
       label: Log output (if applicable)
       description: Uploading a file is helpful, but if it fails then copy-pasting the log is fine.
-      placeholder: Insert log here...
+      placeholder: "Insert log here..."
       value: ""
           validations:
       required: false
@@ -51,7 +51,7 @@ body:
     attributes:
       label: Crash report (if applicable)
       description:  Uploading a file is helpful, but if it fails then copy-pasting the crash report is fine.
-      placeholder: Insert crash report here...
+      placeholder: "Insert crash report here..."
       value: ""
           validations:
       required: false
@@ -60,7 +60,7 @@ body:
     attributes:
       label: Screenshots or video
       description:  Screenshots or video footage showing the bug in action, if applicable
-      placeholder: Insert files...
+      placeholder: "Insert files..."
       value: ""
           validations:
       required: false
@@ -70,7 +70,7 @@ body:
     attributes:
       label: Additional context/information
       description:  Anything more you might want to add relating to the bug.
-      placeholder: ex: it only seems to happen under [circumstances]
+      placeholder: "ex: it only seems to happen under [circumstances]"
       value: ""
           validations:
       required: false
