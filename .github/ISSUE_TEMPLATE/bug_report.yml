@@ -1,75 +1,113 @@
-name: 'Issue Report'
-description: 'Report a bug or glitch in the mod'
+name: Issue Report
+description: Report a bug or issue in the mod
 title: '[Bug]: '
-labels: ["bug-report"]
+labels:
+  - bug-report
 body:
   - type: input
-    id: modversion
+    id: mc-version
     attributes:
-      label: "Mod Version"
-      description: "What version of the mod are you using? Please note that 'latest' is not a valid answer."
-      placeholder: "ex: 1.0.0"
+      label: Minecraft Version
+      description: The version of Minecraft you are using
+      placeholder: 'ex: 1.20.1'
     validations:
       required: true
   - type: input
-    id: forgeversion
+    id: mod-version
     attributes:
-      label: "Forge/Neoforge Version"
-      description: "What version of the modloader are you using? Note that this is DIFFERENT from the mod version, so make sure it's the modloader version you're inputting!"
-      placeholder: "ex: 45.0.0"
+      label: Mod Version
+      description: >-
+        What version of the mod are you using? Note: ‘Latest’ is not a valid
+        answer, please use the exact version.
+      placeholder: 'ex: 1.3.4'
+    validations:
+      required: true
+  - type: input
+    id: forge-version
+    attributes:
+      label: Forge/Neoforge Version
+      description: >-
+        What version of the modloader are you using? Note that this can be found
+        on the bottom right of the main menu screen on most versions.
+      placeholder: 'ex: 45.0.0'
     validations:
       required: true
   - type: textarea
-    id: describe-bug
+    id: report
     attributes:
-      label: "Please describe the bug"
-      description: "Also include what you expected to happen, if applicable"
-      placeholder: "ex: [Item] spawns 60 bats at the player's cursor!"
-      value: ""
+      label: What happened?
+      description: Please clearly and concisely describe the bug
+      placeholder: 'ex: [Item] spawns 64 bats when placed in an item frame!'
+    validations:
+      required: true
+  - type: textarea
+    id: expected-result
+    attributes:
+      label: What was the expected result?
+      description: What were you expecting to happen?
+      placeholder: >-
+        ex: [Item] would just go into the item frame as normal, and not spawn
+        any bats!
     validations:
       required: true
   - type: textarea
     id: steps
     attributes:
-      label: "Steps to reproduce the bug"
-      description: "Please make sure to clearly list each step"
-      placeholder: "Insert a numbered list here..."
-      value: ""
+      label: Steps to Reproduce
+      description: >-
+        How do you cause this bug? Please clearly enter all steps required in an
+        ordered list.
+      placeholder: Make sure to place each step on a seperate line!
     validations:
       required: true
   - type: textarea
-    id: log
+    id: log-output
     attributes:
-      label: "Log output (if applicable)"
-      description: "Uploading a file is helpful, but if it fails then copy-pasting the log is fine."
-      placeholder: "Insert log here..."
-      value: ""
-    validations:
-      required: false
+      label: Log Output (if applicable)
+      description: >-
+        A log file may not be applicable for all issues, but it can be helpful
+        in some.
+      placeholder: Please drag-and-drop your log file here
   - type: textarea
-    id: crash
+    id: crash-report
     attributes:
-      label: "Crash report (if applicable)"
-      description:  "Uploading a file is helpful, but if it fails then copy-pasting the crash report is fine."
-      placeholder: "Insert crash report here..."
-      value: ""
-    validations:
-      required: false
+      label: Crash Report (if applicable)
+      description: >-
+        Not all issues have crash reports, but if your game crashed then having
+        the error log can be very helpful for fixing the problem.
+      placeholder: Please drag-and-drop your crash file here
+  - type: input
+    id: compat
+    attributes:
+      label: Is this a compatibility issue with another mod?
+      description: 'If so, please input what mod it was:'
+      placeholder: If not, just leave this field blank
   - type: textarea
-    id: media
+    id: additional-context
     attributes:
-      label: "Screenshots or video (if applicable)"
-      description:  "Screenshots or video footage showing the bug in action"
-      placeholder: "Insert files..."
-      value: ""
-    validations:
-      required: false
-- type: textarea
-    id: additional
+      label: Additional Context/Information
+      description: >-
+        Videos or screenshots can go here, along with anything else you may want
+        to add about the bug.
+  - type: checkboxes
+    id: important-checks
     attributes:
-      label: "Additional context/information"
-      description:  "Anything more you might want to add relating to the bug."
-      placeholder: "ex: it only seems to happen under [circumstances]"
-      value: ""
-    validations:
-      required: false
+      label: 'Make sure to confirm these as well:'
+      options:
+        - label: The issue persists on the latest version of the mod.
+          required: true
+        - label: All version numbers are properly recorded, no instances of ‘latest’
+          required: false
+        - label: All details are reported clearly and concisely
+          required: false
+        - label: This issue is not a duplicate of another issue
+          required: false
+        - label: >-
+            If the issue is a modpack-related issue, it has been reported to the
+            modpack devs as well
+          required: false
+  - type: markdown
+    attributes:
+      value: >-
+        This template was generated with [Issue Forms
+        Creator](https://issue-forms-creator.netlify.app)
