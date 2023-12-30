@@ -15,3 +15,6 @@ If you want to contribute code or language translations, you can create a [pull 
 
 # License
 The code and assets for this mod are all [ARR,](https://en.wikipedia.org/wiki/All_rights_reserved) *however* if you are trying to figure out how to do something, feel free to look at the mod's code for reference on how to implement whatever that may be. If other mods didn't do this, I'd likely never have been able to make a lot of really cool features in the mod, so I want other people to be able to do the same using my code as well.
+
+# Credits (WIP)
+Issue templates for this repository were created using [Issue Forms Creator](https://issue-forms-creator.netlify.app/new)
