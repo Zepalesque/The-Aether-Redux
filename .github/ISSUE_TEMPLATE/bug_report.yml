@@ -1,4 +1,4 @@
-name: 'Bug Report'
+name: 'Issue Report'
 description: 'Report a bug or glitch in the mod'
 title: '[Bug]: '
 labels: ["bug-report"]
