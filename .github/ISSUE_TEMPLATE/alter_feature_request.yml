@@ -1,0 +1,37 @@
+name: Change Request
+description: Request a change to an existing feature in the mod
+title: '[Change Request]: '
+labels:
+  - change-request
+body:
+  - type: textarea
+    id: feature
+    attributes:
+      label: What would you like to see changed?
+      description: >-
+        Please describe your request in detail. If you have a specific way of
+        implementation in mind, include that as well.
+      placeholder: 'ex: [Item] should have its damage reduced to [X]'
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why do you think this change should be made?
+      description: >-
+        Having a good reason for the change will increase its likelihood of
+        implementation.
+      placeholder: >-
+        ex: The item is currently too powerful compared to when it is obtained /
+        The item is too powerful compared to other items at that level
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 'Please confirm the following:'
+      options:
+        - label: This suggestion is not a duplicate
+          required: false
+        - label: This suggestion does not change the general feel of the mod too much
+          required: true
