@@ -11,7 +11,8 @@ body:
       placeholder: "ex: 1.0.0"
     validations:
       required: true
-        - type: input
+  
+  - type: input
     id: forgeversion
     attributes:
       label: Forge/Neoforge Version
