@@ -72,8 +72,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.VALKYRIE_RING, "Valkyrie Ring");
         addLore(ReduxItems.VALKYRIE_RING, "A ring found in the Silver Dungeon. It allows the wearer to reach farther!");
 
-        addItem(ReduxItems.PHOENIX_EMBLEM, "Phoenix Ring");
-        addLore(ReduxItems.PHOENIX_EMBLEM, "A ring found in the Gold Dungeon. It allows the wearer to shoot fireballs!");
+        addItem(ReduxItems.PHOENIX_EMBLEM, "Phoenix Emblem");
+        addLore(ReduxItems.PHOENIX_EMBLEM, "An ancient emblem used by followers of the Sun Spirit. It allows the wearer to shoot fireballs!");
 
         addItem(ReduxItems.VANILLA_SWET_SPAWN_EGG, "Vanilla Swet Spawn Egg");
         addLore(ReduxItems.VANILLA_SWET_SPAWN_EGG, "A spawn egg. Spawns a Vanilla Swet");
@@ -469,7 +469,6 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addSubtitle("item.accessory", "equip_enchanted_ring", "Enchanted Ring jingles");
         addSubtitle("item.accessory", "equip_valkyrie_ring", "Valkyrie Ring clinks");
         addSubtitle("item.accessory", "equip_sentry_ring", "Sentry Ring clanks");
-        addSubtitle("item.accessory", "equip_phoenix_ring", "Phoenix Ring clinks");
         addSubtitle("item.accessory", "equip_vampire_amulet", "Vampire Amulet clinks");
         addSubtitle("generic", "boost_jump", "Something double-jumps");
         addSubtitle("generic", "fireball_shoot", "Fireball shoots");
@@ -520,7 +519,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addAdvancement("mine_extended", "Telekinesis");
         addAdvancementDesc("mine_extended", "Obtain the Valkyrie Ring from the Silver Dungeon and use it to mine a block farther away than you could before");
         addAdvancement("kill_sheepuff_with_fireball", "Pyromaniac");
-        addAdvancementDesc("kill_sheepuff_with_fireball", "Obtain the Phoenix Ring from the Gold Dungeon and kill a Sheepuff with a fireball");
+        addAdvancementDesc("kill_sheepuff_with_fireball", "Obtain the Phoenix Emblem from the Gold Dungeon and kill a Sheepuff with a fireball");
 
         addAdvancement("enter_highfields", "Prismacolor Photosynthesis");
         addAdvancementDesc("enter_highfields", "Enter the Highfields, a biome filled with colorful flora and abundant fauna");
