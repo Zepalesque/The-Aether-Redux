@@ -1,13 +1,9 @@
 {
   "values": [
-    "aether_redux:vitrium",
-    "aether_redux:vitrium_wall",
-    "aether_redux:vitrium_slab",
-    "aether_redux:vitrium_stairs",
-    "aether_redux:vitrium_bricks",
-    "aether_redux:vitrium_brick_wall",
-    "aether_redux:vitrium_brick_slab",
-    "aether_redux:vitrium_brick_stairs",
+    "aether_redux:divinite",
+    "aether_redux:divinite_wall",
+    "aether_redux:divinite_slab",
+    "aether_redux:divinite_stairs",
     "aether_redux:gilded_holystone",
     "aether_redux:gilded_holystone_wall",
     "aether_redux:gilded_holystone_slab",

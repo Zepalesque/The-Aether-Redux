@@ -1,4 +1,4 @@
-// 1.20.1	2023-12-31T10:31:07.4122804	Item Models: aether_redux
+// 1.20.1	2023-12-31T17:53:18.0845428	Item Models: aether_redux
 6f45fa050423c9b607daf5caacd141b44e4f2105 assets/aether_redux/models/item/aether_grass.json
 ef6d226766d61d6460247665062a399d3613d946 assets/aether_redux/models/item/aevelium.json
 e89330a549c5d1169758ec3314e9285fb8db827a assets/aether_redux/models/item/aevelium_growth.json
@@ -91,6 +91,10 @@ dbbdca14ceaedb205161f43206c1b0e438e0a50d assets/aether_redux/models/item/crystal
 577e2a8c85a9dc1eaf822e80158c336c9fb0c3d6 assets/aether_redux/models/item/crystal_wood.json
 749dc7628b80f06cc7997496b72fbb4e204c11f5 assets/aether_redux/models/item/crystal_wood_wall.json
 011c8d6b83e431932be03505de9ab9716711ff6c assets/aether_redux/models/item/daggerbloom.json
+a5e3d18c9751a9ec185ddc0223f95b47e1307c2a assets/aether_redux/models/item/divinite.json
+b91cd5f8a586f37ffe16803b8f5b563e751668e9 assets/aether_redux/models/item/divinite_slab.json
+e24bcc1b074b86d43ccd158fd5efde16a4bb156f assets/aether_redux/models/item/divinite_stairs.json
+6d540c067552a05397934bb294384a03aaaf2f0b assets/aether_redux/models/item/divinite_wall.json
 e84293f118dd89b0047dc9e4dbaab830818070e7 assets/aether_redux/models/item/enchanted_aether_grass.json
 96affe245dcaad11ed1d16c2abce148117ef5304 assets/aether_redux/models/item/enchanted_blueberry_pie.json
 bbdcf1aaa0310eecd15726f69481b9f7f7ed9229 assets/aether_redux/models/item/enchanted_ring.json
@@ -243,12 +247,4 @@ a10d36269b90a11c03ea84847453473095fbaeb0 assets/aether_redux/models/item/veridiu
 0d78cc71932909a7fc306a4d5de2ec8c29ce63d4 assets/aether_redux/models/item/veridium_pickaxe.json
 0800d9276da8f932e06518a5176f0d34864d3c4f assets/aether_redux/models/item/veridium_shovel.json
 25fab51c204f0bf36a3595fcd57e8202736fd397 assets/aether_redux/models/item/veridium_sword.json
-c74bfffb1391eb09b874aa43e6d190c6f3f3eb58 assets/aether_redux/models/item/vitrium.json
-0bb71f3ed5f6b7b1ccd45d38608e93893b04e8b3 assets/aether_redux/models/item/vitrium_bricks.json
-7cd83380c6fd6d9ce73a5688a1908433d9a92ddc assets/aether_redux/models/item/vitrium_brick_slab.json
-5ca6b87afe96be4fbf6f2cd801c2acc004265db3 assets/aether_redux/models/item/vitrium_brick_stairs.json
-4bb6e4458d4b035c2e464fd10671707541a80f09 assets/aether_redux/models/item/vitrium_brick_wall.json
-34ceb1dd2df64c2bb711fed69fd9c9614dad34fc assets/aether_redux/models/item/vitrium_slab.json
-4211bac48e9f27c8c0193f0c31e838be9c1ee8fd assets/aether_redux/models/item/vitrium_stairs.json
-8428ba3d00f6e97638424d210a1308010a767619 assets/aether_redux/models/item/vitrium_wall.json
 34b38059dc7d69f9087ee41a5efa8cffb04c83fd assets/aether_redux/models/item/wyndsprouts.json

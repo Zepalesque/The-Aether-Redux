@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "#aether_redux:has/vitrium",
-  "features": "aether_redux:ore/vitrium_ore",
-  "step": "underground_ores"
-}

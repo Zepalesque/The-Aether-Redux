@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "aether_redux:block/natural/divinite",
+    "side": "aether_redux:block/natural/divinite",
+    "top": "aether_redux:block/natural/divinite"
+  }
+}

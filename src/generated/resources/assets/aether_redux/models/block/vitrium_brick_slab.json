@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "aether_redux:block/construction/vitrium_bricks",
-    "side": "aether_redux:block/construction/vitrium_bricks",
-    "top": "aether_redux:block/construction/vitrium_bricks"
-  }
-}
