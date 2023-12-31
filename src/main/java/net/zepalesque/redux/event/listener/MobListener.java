@@ -3,9 +3,11 @@ package net.zepalesque.redux.event.listener;
 
 import com.aetherteam.aether.entity.monster.Cockatrice;
 import com.aetherteam.aether.item.EquipmentUtil;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
@@ -21,6 +23,8 @@ import net.zepalesque.redux.event.hook.MobHooks;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.misc.ReduxTags;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Optional;
 
 @Mod.EventBusSubscriber(modid = Redux.MODID)
 public class MobListener {
@@ -54,6 +58,11 @@ public class MobListener {
     public static void livingUpdate(LivingEvent.LivingTickEvent event) {
         LivingEntity entity = event.getEntity();
         MobHooks.updateCapabilities(entity);
+
+        if (entity instanceof Player player && !player.level().isClientSide()) {
+            Optional<ResourceKey<Biome>> b = player.level().getBiome(player.blockPosition()).unwrapKey();
+            b.ifPresent(biomeResourceKey -> ReduxPlayer.get(player).ifPresent(reduxPlayer -> reduxPlayer.getLoreModule().tickBiome(biomeResourceKey.location())));
+        }
 
     }
 

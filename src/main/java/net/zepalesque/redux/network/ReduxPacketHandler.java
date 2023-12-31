@@ -33,6 +33,7 @@ public class ReduxPacketHandler {
         register(SubzeroArrowHitGroundPacket.class, SubzeroArrowHitGroundPacket::decode);
         register(InfuseItemPacket.class, InfuseItemPacket::decode);
         register(VampireAmuletSyncPacket.class, VampireAmuletSyncPacket::decode);
+        register(LoreUnlockPacket.class, LoreUnlockPacket::decode);
     }
 
     private static int index;
