@@ -61,7 +61,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addLore(ReduxItems.PURIFIED_LUXBUDS, "The purified form of Luxbuds. Unlike their raw counterpart, these will ALWAYS give you a resistance to the blight, and for a longer duration.");
 
         addItem(ReduxItems.ENCHANTED_RING, "Enchanted Ring");
-        addLore(ReduxItems.ENCHANTED_RING, "A ring sometimes found in Bronze Dungeon chests. It makes the wearer collect slightly more experience from mob drops.");
+        addLore(ReduxItems.ENCHANTED_RING, "A ring with a large amount of magical potential. You can use it to craft many other types of rings with a variety of abilities!");
 
         addItem(ReduxItems.VAMPIRE_AMULET, "Vampire Amulet");
         addLore(ReduxItems.VAMPIRE_AMULET, "A pendant found in Bronze Dungeon reward chests. It gives the wearer life steal at night, but decreases their damage resistance at day");
@@ -401,7 +401,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBiome(ReduxBiomes.THE_BLIGHT, "The Blight");
 
         addGuiText("bittersweet_charm_poison_chance", "10% chance to poison targets of melee attacks");
-        addGuiText("enchanted_ring_xp_increase", "+20-30% mob experience drops");
+        addGuiText("wisdom_ring_xp_increase", "+20-30% XP from Mobs");
         // TODO: Bring back this ability?
         //addGuiText("valkyrie_ring_regen", "Regeneration which increases as health drops");
         addGuiText("airbound_cape_jump_boost", "Grants ability to double jump");

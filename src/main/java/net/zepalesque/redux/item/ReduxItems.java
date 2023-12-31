@@ -1,6 +1,7 @@
 package net.zepalesque.redux.item;
 
 import com.aetherteam.aether.item.AetherItems;
+import com.aetherteam.aether.item.accessories.ring.RingItem;
 import com.aetherteam.aether.item.combat.DartItem;
 import com.aetherteam.aether.item.combat.DartShooterItem;
 import com.aetherteam.aether.item.food.GummySwetItem;
@@ -66,7 +67,7 @@ public class ReduxItems {
     public static final RegistryObject<Item> SPECTRAL_DART = ITEMS.register("spectral_dart", () -> new DartItem(ReduxEntityTypes.SPECTRAL_DART, new Item.Properties()));
     public static final RegistryObject<Item> SPECTRAL_DART_SHOOTER = ITEMS.register("spectral_dart_shooter", () -> new DartShooterItem(SPECTRAL_DART, (new Item.Properties()).stacksTo(1)));
 
-    public static final RegistryObject<Item> ENCHANTED_RING = register("enchanted_ring", () -> new AbilityTooltipRingItem(ReduxSoundEvents.EQUIP_ENCHANTED_RING, new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT), "enchanted_ring_xp_increase"));
+    public static final RegistryObject<Item> ENCHANTED_RING = register("enchanted_ring", () -> new RingItem(ReduxSoundEvents.EQUIP_ENCHANTED_RING, new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> VALKYRIE_RING = register("valkyrie_ring", () -> new ValkyrieRingItem(ReduxSoundEvents.EQUIP_VALKYRIE_RING, new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT)));
     public static final RegistryObject<Item> AIRBOUND_CAPE = register("airbound_cape", () -> new AirboundCapeItem("airbound_cape", new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT), "airbound_cape_jump_boost"));
     public static final RegistryObject<Item> PHOENIX_EMBLEM = register("phoenix_emblem", () -> new AbilityTooltipMiscItem(new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT), "phoenix_emblem_fireball"));
@@ -113,7 +114,7 @@ public class ReduxItems {
     public static final RegistryObject<AxeItem> INFUSED_VERIDIUM_AXE = register("infused_veridium_axe", () -> new VeridiumAxeItem(ReduxItemTiers.INFUSED_VERIDIUM, 1, -2.9F, new Item.Properties()));
     public static final RegistryObject<HoeItem> INFUSED_VERIDIUM_HOE = register("infused_veridium_hoe", () -> new VeridiumHoeItem(ReduxItemTiers.INFUSED_VERIDIUM, 0, -1.4F, new Item.Properties()));
 
-    public static final RegistryObject<Item> COCKATRICE_FEATHER = register("cockatrice_feather", () -> new AbilityTooltipMiscItem(new Item.Properties(), "cockatrice_feather_immunity"));
+    public static final RegistryObject<Item> COCKATRICE_FEATHER = register("cockatrice_feather", () -> new AbilityTooltipMiscItem(new Item.Properties().stacksTo(1), "cockatrice_feather_immunity"));
 
     public static final RegistryObject<Item> OAT_MUFFIN = register("oat_muffin", () -> new Item(new Item.Properties().food(ReduxFoods.OAT_MUFFIN)));
 

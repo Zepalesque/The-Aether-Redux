@@ -266,6 +266,15 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .unlockedBy(getHasName(ReduxItems.VERIDIUM_NUGGET.get()), has(ReduxItems.VERIDIUM_NUGGET.get()))
                 .save(consumer);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ReduxItems.ENCHANTED_RING.get(), 1)
+                .define('P', AetherTags.Items.PLANKS_CRAFTING)
+                .define('A', AetherItems.AMBROSIUM_SHARD.get())
+                .pattern("PAP")
+                .pattern("P P")
+                .pattern("PPP")
+                .unlockedBy(getHasName(AetherItems.AMBROSIUM_SHARD.get()), has(AetherItems.AMBROSIUM_SHARD.get()))
+                .save(consumer);
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ReduxBlocks.VERIDIUM_LANTERN.get(), 1)
                 .define('N', ReduxItems.VERIDIUM_NUGGET.get())
                 .define('A', AetherBlocks.AMBROSIUM_TORCH.get())
