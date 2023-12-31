@@ -10,7 +10,6 @@ import com.google.common.base.Supplier;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
@@ -51,35 +50,23 @@ public class ReduxBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Redux.MODID);
     public static final DeferredRegister<Item> ITEMS = ReduxItems.ITEMS;
 
-    public static RegistryObject<Block> VITRIUM = register("vitrium",
-            () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).requiresCorrectToolForDrops().strength(0.5F, 6.0F).sound(SoundType.NETHER_ORE)));
+    public static RegistryObject<Block> DIVINITE = register("divinite",
+            () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).requiresCorrectToolForDrops().strength(0.5F, 6.0F).sound(SoundType.NETHER_ORE)));
 
-    public static RegistryObject<StairBlock> VITRIUM_STAIRS = register("vitrium_stairs",
-            () -> new StairBlock(() -> (VITRIUM.get()).defaultBlockState(), BlockBehaviour.Properties.copy(VITRIUM.get())));
+    public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_stairs",
+            () -> new StairBlock(() -> (DIVINITE.get()).defaultBlockState(), BlockBehaviour.Properties.copy(DIVINITE.get())));
 
-    public static RegistryObject<WallBlock> VITRIUM_WALL = register("vitrium_wall",
-            () -> new WallBlock(BlockBehaviour.Properties.copy(VITRIUM.get())));
+    public static RegistryObject<WallBlock> DIVINITE_WALL = register("divinite_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.copy(DIVINITE.get())));
 
-    public static RegistryObject<SlabBlock> VITRIUM_SLAB = register("vitrium_slab",
-            () -> new SlabBlock(BlockBehaviour.Properties.copy(VITRIUM.get()).strength(0.5F, 6.0F)));
-
-    public static RegistryObject<Block> VITRIUM_BRICKS = register("vitrium_bricks",
-            () -> new Block(BlockBehaviour.Properties.copy(VITRIUM.get()).destroyTime(2.0F)));
-
-    public static RegistryObject<StairBlock> VITRIUM_BRICK_STAIRS = register("vitrium_brick_stairs",
-            () -> new StairBlock(() -> (VITRIUM_BRICKS.get()).defaultBlockState(), BlockBehaviour.Properties.copy(VITRIUM.get())));
+    public static RegistryObject<SlabBlock> DIVINITE_SLAB = register("divinite_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(DIVINITE.get()).strength(0.5F, 6.0F)));
 
     public static RegistryObject<FieldsproutPetalsBlock> FIELDSPROUT_PETALS = register("fieldsprout_petals",
             () -> new FieldsproutPetalsBlock(BlockBehaviour.Properties.of().noCollission().hasPostProcess((state, lvl, pos) -> true).sound(SoundType.PINK_PETALS)));
 
     public static RegistryObject<Block> FLOWERING_FIELDSPROUT_LEAVES = register("flowering_fieldsprout_leaves", () -> new FloweringFieldsproutLeafBlock(
             FloweringFieldsproutLeafBlock::particleFromState, BlockBehaviour.Properties.copy(AetherBlocks.SKYROOT_LEAVES.get()).hasPostProcess((state, lvl, pos) -> true).isSuffocating(ReduxBlocks::never).isViewBlocking(ReduxBlocks::never).mapColor(FloweringFieldsproutLeafBlock::colorFromState).sound(SoundType.CHERRY_LEAVES)));
-
-    public static RegistryObject<WallBlock> VITRIUM_BRICK_WALL = register("vitrium_brick_wall",
-            () -> new WallBlock(BlockBehaviour.Properties.copy(VITRIUM_BRICKS.get())));
-
-    public static RegistryObject<SlabBlock> VITRIUM_BRICK_SLAB = register("vitrium_brick_slab",
-            () -> new SlabBlock(BlockBehaviour.Properties.copy(VITRIUM_BRICKS.get()).strength(1.5F, 6.0F)));
 
     public static RegistryObject<Block> HOLYSILT = register("holysilt",
             () -> new HolysiltBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).strength(0.5F).sound(SoundType.SAND)));

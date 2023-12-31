@@ -65,10 +65,10 @@ public class BlockBreakHooks {
             .put(ReduxBlocks.FROSTED_HOLYSTONE_WALL.get(), Blocks.STONE)
             .put(ReduxBlocks.FROSTED_HOLYSTONE_STAIRS.get(), Blocks.STONE)
             .put(ReduxBlocks.FROSTED_HOLYSTONE_SLAB.get(), Blocks.STONE_SLAB)
-            .put(ReduxBlocks.VITRIUM.get(), Blocks.ANDESITE)
-            .put(ReduxBlocks.VITRIUM_WALL.get(), Blocks.ANDESITE)
-            .put(ReduxBlocks.VITRIUM_STAIRS.get(), Blocks.ANDESITE)
-            .put(ReduxBlocks.VITRIUM_SLAB.get(), Blocks.ANDESITE_SLAB)
+            .put(ReduxBlocks.DIVINITE.get(), Blocks.ANDESITE)
+            .put(ReduxBlocks.DIVINITE_WALL.get(), Blocks.ANDESITE)
+            .put(ReduxBlocks.DIVINITE_STAIRS.get(), Blocks.ANDESITE)
+            .put(ReduxBlocks.DIVINITE_SLAB.get(), Blocks.ANDESITE_SLAB)
             .build());
 
     public static float getBreakSpeed(Block block, float speed)

@@ -51,10 +51,10 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
 
     public void generate() {
         dropSelf(ReduxBlocks.HOLYSILT.get());
-        dropSelf(ReduxBlocks.VITRIUM.get());
-        this.add(ReduxBlocks.VITRIUM_SLAB.get(), this::createSlabItemTable);
-        dropSelf(ReduxBlocks.VITRIUM_STAIRS.get());
-        dropSelf(ReduxBlocks.VITRIUM_WALL.get());
+        dropSelf(ReduxBlocks.DIVINITE.get());
+        this.add(ReduxBlocks.DIVINITE_SLAB.get(), this::createSlabItemTable);
+        dropSelf(ReduxBlocks.DIVINITE_STAIRS.get());
+        dropSelf(ReduxBlocks.DIVINITE_WALL.get());
 
         dropSelf(ReduxBlocks.VITRIUM_BRICKS.get());
         this.add(ReduxBlocks.VITRIUM_BRICK_SLAB.get(), this::createSlabItemTable);

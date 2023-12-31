@@ -33,8 +33,7 @@ public class ReduxBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_SKYSPROUTS = createKey(FEATURE + "skysprouts");
     public static final ResourceKey<BiomeModifier> ADD_VANILLA_SWET = createKey(MOB + "vanilla_swet");
     public static final ResourceKey<BiomeModifier> ADD_VERIDIUM = createKey(FEATURE + "veridium_ore");
-    public static final ResourceKey<BiomeModifier> ADD_VITRIUM = createKey(FEATURE + "vitrium");
-    public static final ResourceKey<BiomeModifier> ADD_VITRIUM_LAYER = createKey(FEATURE + "vitrium_layer");
+    public static final ResourceKey<BiomeModifier> ADD_DIVINITE = createKey(FEATURE + "divinite");
     public static final ResourceKey<BiomeModifier> WATER_COLOR_AETHER = createKey(MODIFY + "water_color");
 
     private static ResourceKey<BiomeModifier> createKey(String name) {
@@ -70,12 +69,8 @@ public class ReduxBiomeModifiers {
                 biomes.getOrThrow(ReduxTags.Biomes.HAS_VERIDIUM_ORE), HolderSet.direct(features.getOrThrow(ReduxPlacedFeatures.VERIDIUM_ORE)),
                 GenerationStep.Decoration.UNDERGROUND_ORES));
 
-        context.register(ADD_VITRIUM, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
-                biomes.getOrThrow(ReduxTags.Biomes.HAS_VITRIUM), HolderSet.direct(features.getOrThrow(ReduxPlacedFeatures.VITRIUM_ORE)),
-                GenerationStep.Decoration.UNDERGROUND_ORES));
-
-        context.register(ADD_VITRIUM_LAYER, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
-                biomes.getOrThrow(ReduxTags.Biomes.HAS_VITRIUM_LAYER), HolderSet.direct(features.getOrThrow(ReduxPlacedFeatures.VITRIUM_LAYER)),
+        context.register(ADD_DIVINITE, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(ReduxTags.Biomes.HAS_DIVINITE), HolderSet.direct(features.getOrThrow(ReduxPlacedFeatures.DIVINITE_ORE)),
                 GenerationStep.Decoration.UNDERGROUND_ORES));
 
         context.register(WATER_COLOR_AETHER, new WaterColorBiomeModifier(biomes.getOrThrow(ReduxTags.Biomes.HAS_REDUX_WATER_COLOR), 5403045, 791347));

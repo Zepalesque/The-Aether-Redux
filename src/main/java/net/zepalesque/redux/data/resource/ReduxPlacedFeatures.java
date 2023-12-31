@@ -82,8 +82,7 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> SURFACE_RULE_WATER_LAKE = copyKey(ReduxConfiguredFeatures.SURFACE_RULE_WATER_LAKE);
     public static final ResourceKey<PlacedFeature> THORNCAP_PATCH  = copyKey(ReduxConfiguredFeatures.THORNCAP_PATCH);
     public static final ResourceKey<PlacedFeature> VERIDIUM_ORE = copyKey(ReduxConfiguredFeatures.VERIDIUM_ORE);
-    public static final ResourceKey<PlacedFeature> VITRIUM_ORE = copyKey(ReduxConfiguredFeatures.VITRIUM_ORE);
-    public static final ResourceKey<PlacedFeature> VITRIUM_LAYER = copyKey(ReduxConfiguredFeatures.VITRIUM_LAYER);
+    public static final ResourceKey<PlacedFeature> DIVINITE_ORE = copyKey(ReduxConfiguredFeatures.DIVINITE_ORE);
     public static final ResourceKey<PlacedFeature> HOLYSILT_DISK = copyKey(ReduxConfiguredFeatures.HOLYSILT_DISK);
     public static final ResourceKey<PlacedFeature> CLOUD_LAYER = copyKey(ReduxConfiguredFeatures.CLOUD_LAYER);
 
@@ -100,9 +99,6 @@ public class ReduxPlacedFeatures {
                 BiomeFilter.biome()
         );
         register(context, CLOUD_LAYER, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.CLOUD_LAYER)
-        );
-
-        register(context, VITRIUM_LAYER, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.VITRIUM_LAYER)
         );
 
         register(context, AEVYRN_BUSH_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.AEVYRN_BUSH_PATCH),
@@ -440,7 +436,7 @@ public class ReduxPlacedFeatures {
                 BiomeFilter.biome()
         );
 
-        register(context, VITRIUM_ORE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.VITRIUM_ORE),
+        register(context, DIVINITE_ORE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.DIVINITE_ORE),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(TrapezoidHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.aboveBottom(128))),
                 BiomeFilter.biome()

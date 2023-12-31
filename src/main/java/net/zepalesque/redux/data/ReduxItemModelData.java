@@ -31,14 +31,10 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlockFlat(ReduxBlocks.ENCHANTED_AETHER_GRASS, "natural/");
         itemBlockFlat(ReduxBlocks.FIRECAP, "natural/");
         itemBlock(ReduxBlocks.HOLYSILT);
-        itemBlock(ReduxBlocks.VITRIUM);
-        itemBlock(ReduxBlocks.VITRIUM_SLAB);
-        itemBlock(ReduxBlocks.VITRIUM_STAIRS);
-        itemWallBlock(ReduxBlocks.VITRIUM_WALL, ReduxBlocks.VITRIUM, "natural/");
-        itemBlock(ReduxBlocks.VITRIUM_BRICKS);
-        itemBlock(ReduxBlocks.VITRIUM_BRICK_SLAB);
-        itemBlock(ReduxBlocks.VITRIUM_BRICK_STAIRS);
-        itemWallBlock(ReduxBlocks.VITRIUM_BRICK_WALL, ReduxBlocks.VITRIUM_BRICKS, "construction/");
+        itemBlock(ReduxBlocks.DIVINITE);
+        itemBlock(ReduxBlocks.DIVINITE_SLAB);
+        itemBlock(ReduxBlocks.DIVINITE_STAIRS);
+        itemWallBlock(ReduxBlocks.DIVINITE_WALL, ReduxBlocks.DIVINITE, "natural/");
 
         itemBlockFlat(ReduxBlocks.IRIDIA, "natural/");
         itemBlockFlatGlow(ReduxBlocks.TALL_CLOUDCAP, "natural/", "_top");

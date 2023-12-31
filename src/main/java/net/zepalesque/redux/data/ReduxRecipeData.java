@@ -59,10 +59,10 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
 
-        stairs(ReduxBlocks.VITRIUM_STAIRS, ReduxBlocks.VITRIUM).save(consumer);
-        slab(consumer, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.VITRIUM_SLAB.get(), ReduxBlocks.VITRIUM.get());
-        wall(consumer, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.VITRIUM_WALL.get(), ReduxBlocks.VITRIUM.get());
-        enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, Blocks.GLOWSTONE, ReduxBlocks.VITRIUM.get(), 0.0F, 200).save(consumer, Redux.locate("agiosite_to_glowstone"));
+        stairs(ReduxBlocks.DIVINITE_STAIRS, ReduxBlocks.DIVINITE).save(consumer);
+        slab(consumer, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.DIVINITE_SLAB.get(), ReduxBlocks.DIVINITE.get());
+        wall(consumer, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.DIVINITE_WALL.get(), ReduxBlocks.DIVINITE.get());
+        enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, Blocks.GLOWSTONE, ReduxBlocks.DIVINITE.get(), 0.0F, 200).save(consumer, Redux.locate(ReduxBlocks.DIVINITE.getId().getPath() + "_to_glowstone"));
 
         smeltingOreRecipe(ReduxItems.VERIDIUM_INGOT.get(), ReduxBlocks.VERIDIUM_ORE.get(), 0.8F).save(consumer, name("smelt_veridium"));
         blastingOreRecipe(ReduxItems.VERIDIUM_INGOT.get(), ReduxBlocks.VERIDIUM_ORE.get(), 0.8F).save(consumer, name("blast_veridium"));
@@ -75,13 +75,29 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
 
 
 
-        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.VITRIUM_WALL.get(), ReduxBlocks.VITRIUM.get())
-                .save(consumer, Redux.locate("agiosite_wall_stonecutting"));
-        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.VITRIUM_SLAB.get(), ReduxBlocks.VITRIUM.get())
-                .save(consumer, Redux.locate("agiosite_slab_stonecutting"));
-        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.VITRIUM_STAIRS.get(), ReduxBlocks.VITRIUM.get())
-                .save(consumer, Redux.locate("agiosite_stairs_stonecutting"));
+        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.DIVINITE_WALL.get(), ReduxBlocks.DIVINITE.get())
+                .save(consumer, Redux.locate(ReduxBlocks.DIVINITE.getId().getPath() + "_wall_stonecutting"));
+        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.DIVINITE_SLAB.get(), ReduxBlocks.DIVINITE.get())
+                .save(consumer, Redux.locate(ReduxBlocks.DIVINITE.getId().getPath() + "_slab_stonecutting"));
+        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.DIVINITE_STAIRS.get(), ReduxBlocks.DIVINITE.get())
+                .save(consumer, Redux.locate(ReduxBlocks.DIVINITE.getId().getPath() + "_stairs_stonecutting"));
 
+
+        stonecut(RecipeCategory.BUILDING_BLOCKS, AetherBlocks.ANGELIC_STONE.get(), ReduxBlocks.DIVINITE.get())
+                .save(consumer, Redux.locate(ReduxBlocks.DIVINITE.getId().getPath() + "_to_angelic_stone_stonecutting"));
+        stonecut(RecipeCategory.BUILDING_BLOCKS, AetherBlocks.ANGELIC_WALL.get(), ReduxBlocks.DIVINITE.get())
+                .save(consumer, Redux.locate(ReduxBlocks.DIVINITE.getId().getPath() + "_to_angelic_wall_stonecutting"));
+        stonecut(RecipeCategory.BUILDING_BLOCKS, AetherBlocks.ANGELIC_SLAB.get(), ReduxBlocks.DIVINITE.get())
+                .save(consumer, Redux.locate(ReduxBlocks.DIVINITE.getId().getPath() + "_to_angelic_slab_stonecutting"));
+        stonecut(RecipeCategory.BUILDING_BLOCKS, AetherBlocks.ANGELIC_STAIRS.get(), ReduxBlocks.DIVINITE.get())
+                .save(consumer, Redux.locate(ReduxBlocks.DIVINITE.getId().getPath() + "_to_angelic_stairs_stonecutting"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, AetherBlocks.ANGELIC_STONE.get(), 4)
+                .define('#', ReduxBlocks.DIVINITE.get())
+                .pattern("##")
+                .pattern("##")
+                .unlockedBy(getHasName(ReduxBlocks.DIVINITE.get()), has(ReduxBlocks.DIVINITE.get()))
+                .save(consumer);
 
         swetBall(AetherItems.SWET_BALL, ReduxTags.Items.BLUE_SWET_JELLY).save(consumer, Redux.locate("blue_swet_ball"));
         swetBall(ReduxItems.VANILLA_SWET_BALL, ReduxItems.VANILLA_SWET_BALL).save(consumer, Redux.locate("vanilla_swet_ball"));

@@ -122,8 +122,7 @@ public class    ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> SURFACE_RULE_WATER_LAKE = createKey(Folders.SURFACE + "surface_rule_water_lake");
     public static final ResourceKey<ConfiguredFeature<?, ?>> THORNCAP_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.BLIGHTED_FUNGI) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> VERIDIUM_ORE = createKey(Folders.ORE + name(ReduxBlocks.VERIDIUM_ORE));
-    public static final ResourceKey<ConfiguredFeature<?, ?>> VITRIUM_ORE = createKey(Folders.ORE + name(ReduxBlocks.VITRIUM) + "_ore");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> VITRIUM_LAYER = createKey(Folders.ORE + name(ReduxBlocks.VITRIUM) + "_layer");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DIVINITE_ORE = createKey(Folders.ORE + name(ReduxBlocks.DIVINITE) + "_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CRYSTAL_TREE_OVERRIDE = aetherKey("crystal_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_OAK_TREE_OVERRIDE = aetherKey("golden_oak_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GRASS_PATCH_OVERRIDE = aetherKey("grass_patch");
@@ -190,8 +189,6 @@ public class    ReduxConfiguredFeatures {
         register(context, CLOUD_LAYER, ReduxFeatureRegistry.CLOUD_LAYER.get(),
                 new CloudLayerConfig(prov(AetherBlocks.COLD_AERCLOUD), BlockPredicate.matchesBlocks(Blocks.AIR, Blocks.CAVE_AIR, Blocks.VOID_AIR), 8, 1D));
 
-        register(context, VITRIUM_LAYER, ReduxFeatureRegistry.STONE_LAYER.get(),
-                new CloudLayerConfig(prov(ReduxBlocks.VITRIUM), BlockPredicate.matchesTag(AetherTags.Blocks.HOLYSTONE), 24, 2D));
         register(context, BLIGHT_ROCK, Feature.FOREST_ROCK,
                 new BlockStateConfiguration(drops(ReduxBlocks.BLIGHTMOSS_HOLYSTONE)));
         register(context, BLIGHTMOSS_VEGETATION, Feature.SIMPLE_BLOCK,
@@ -485,8 +482,10 @@ public class    ReduxConfiguredFeatures {
 
         register(context, VERIDIUM_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
                 drops(ReduxBlocks.VERIDIUM_ORE), 9, 0.1F));
-        register(context, VITRIUM_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
-                drops(ReduxBlocks.VITRIUM), 64, 0.0F));
+
+        register(context, DIVINITE_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
+                drops(ReduxBlocks.DIVINITE), 64, 0.0F));
+
         register(context, GRASS_PATCH_OVERRIDE, ReduxFeatureRegistry.BIOME_BORDER_PLACEMENT_PATCH.get(),
                 biomePlacementPatch(32, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.AETHER_GRASS))));
         register(context, TALL_GRASS_PATCH_OVERRIDE, Feature.NO_OP, FeatureConfiguration.NONE);

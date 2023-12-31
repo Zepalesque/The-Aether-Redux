@@ -245,14 +245,14 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.POTTED_GLACIA_SAPLING, "Potted Glacia Sapling");
         addLore(ReduxBlocks.GLACIA_SAPLING, "The sapling of the Glacia tree. It can be grown by waiting or using Bone Meal.");
 
-        addBlock(ReduxBlocks.VITRIUM, "Vitrium");
-        addLore(ReduxBlocks.VITRIUM, "A black rock found in the Aether. This rock is said to transmute into a dazzling, brilliant substance when enchanted at an Altar.");
-        addBlock(ReduxBlocks.VITRIUM_SLAB, "Vitrium Slab");
-        addLore(ReduxBlocks.VITRIUM_SLAB, "Crafted from Vitrium. Slabs are half blocks, versatile for decoration and smooth slopes. Try adding some to a building's roofing!");
-        addBlock(ReduxBlocks.VITRIUM_STAIRS, "Vitrium Stairs");
-        addLore(ReduxBlocks.VITRIUM_STAIRS, "Crafted from Vitrium. Stairs are useful for adding verticality to builds and are often used for decoration too!");
-        addBlock(ReduxBlocks.VITRIUM_WALL, "Vitrium Wall");
-        addLore(ReduxBlocks.VITRIUM_WALL, "Crafted from Vitrium. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
+        addBlock(ReduxBlocks.DIVINITE, "Vitrium");
+        addLore(ReduxBlocks.DIVINITE, "A black rock found in the Aether. This rock is said to transmute into a dazzling, brilliant substance when enchanted at an Altar.");
+        addBlock(ReduxBlocks.DIVINITE_SLAB, "Vitrium Slab");
+        addLore(ReduxBlocks.DIVINITE_SLAB, "Crafted from Vitrium. Slabs are half blocks, versatile for decoration and smooth slopes. Try adding some to a building's roofing!");
+        addBlock(ReduxBlocks.DIVINITE_STAIRS, "Vitrium Stairs");
+        addLore(ReduxBlocks.DIVINITE_STAIRS, "Crafted from Vitrium. Stairs are useful for adding verticality to builds and are often used for decoration too!");
+        addBlock(ReduxBlocks.DIVINITE_WALL, "Vitrium Wall");
+        addLore(ReduxBlocks.DIVINITE_WALL, "Crafted from Vitrium. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
 
         addBlock(ReduxBlocks.HOLYSILT, "Holysilt");
         addLore(ReduxBlocks.HOLYSILT, "Fine particles of broken up holystone and other minerals. Can be found underground, and around the blight. Careful, it's not very stable and may fall beneath your feet!");

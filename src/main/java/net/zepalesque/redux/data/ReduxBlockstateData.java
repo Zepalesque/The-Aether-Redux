@@ -36,16 +36,10 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
         this.blockDoubleDrops(ReduxBlocks.HOLYSILT, "natural/");
 
-        this.blockDoubleDrops(ReduxBlocks.VITRIUM.get(), "natural/");
-        this.slab(ReduxBlocks.VITRIUM_SLAB.get(), ReduxBlocks.VITRIUM.get(), "natural/");
-        this.stairs(ReduxBlocks.VITRIUM_STAIRS.get(), ReduxBlocks.VITRIUM.get(), "natural/");
-        this.wallBlock(ReduxBlocks.VITRIUM_WALL.get(), ReduxBlocks.VITRIUM.get(), "natural/");
-
-        this.block(ReduxBlocks.VITRIUM_BRICKS.get(), "construction/");
-        this.slab(ReduxBlocks.VITRIUM_BRICK_SLAB.get(), ReduxBlocks.VITRIUM_BRICKS.get(), "construction/");
-        this.stairs(ReduxBlocks.VITRIUM_BRICK_STAIRS.get(), ReduxBlocks.VITRIUM_BRICKS.get(), "construction/");
-        this.wallBlock(ReduxBlocks.VITRIUM_BRICK_WALL.get(), ReduxBlocks.VITRIUM_BRICKS.get(), "construction/");
-
+        this.blockDoubleDrops(ReduxBlocks.DIVINITE.get(), "natural/");
+        this.slab(ReduxBlocks.DIVINITE_SLAB.get(), ReduxBlocks.DIVINITE.get(), "natural/");
+        this.stairs(ReduxBlocks.DIVINITE_STAIRS.get(), ReduxBlocks.DIVINITE.get(), "natural/");
+        this.wallBlock(ReduxBlocks.DIVINITE_WALL.get(), ReduxBlocks.DIVINITE.get(), "natural/");
 
         this.crossBlock(ReduxBlocks.AEVELIUM_SPROUTS.get(), "natural/");
         this.crossBlock(ReduxBlocks.AEVELIUM_GROWTH.get(), "natural/");

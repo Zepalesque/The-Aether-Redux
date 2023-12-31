@@ -11,7 +11,6 @@ import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.ReduxBlocks;
@@ -129,10 +128,10 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.LIGHTROOT_AETHER_DIRT.get()
         );
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
-                ReduxBlocks.VITRIUM.get(),
-                ReduxBlocks.VITRIUM_WALL.get(),
-                ReduxBlocks.VITRIUM_SLAB.get(),
-                ReduxBlocks.VITRIUM_STAIRS.get(),
+                ReduxBlocks.DIVINITE.get(),
+                ReduxBlocks.DIVINITE_WALL.get(),
+                ReduxBlocks.DIVINITE_SLAB.get(),
+                ReduxBlocks.DIVINITE_STAIRS.get(),
                 ReduxBlocks.VITRIUM_BRICKS.get(),
                 ReduxBlocks.VITRIUM_BRICK_WALL.get(),
                 ReduxBlocks.VITRIUM_BRICK_SLAB.get(),
@@ -183,7 +182,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.GILDED_LEAF_PILE.get()
         );
         this.tag(BlockTags.STAIRS).add(
-                ReduxBlocks.VITRIUM_STAIRS.get(),
+                ReduxBlocks.DIVINITE_STAIRS.get(),
                 ReduxBlocks.VITRIUM_BRICK_STAIRS.get(),
                 ReduxBlocks.GILDED_HOLYSTONE_STAIRS.get(),
                 ReduxBlocks.BLIGHTMOSS_HOLYSTONE_STAIRS.get(),
@@ -205,7 +204,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         this.tag(ReduxTags.Blocks.LIGHTROOT_GROWABLE).add(ReduxBlocks.LIGHTROOT_AETHER_DIRT.get());
 
         this.tag(BlockTags.SLABS).add(
-                ReduxBlocks.VITRIUM_SLAB.get(),
+                ReduxBlocks.DIVINITE_SLAB.get(),
                 ReduxBlocks.VITRIUM_BRICK_SLAB.get(),
                 ReduxBlocks.GILDED_HOLYSTONE_SLAB.get(),
                 ReduxBlocks.BLIGHTMOSS_HOLYSTONE_SLAB.get(),
@@ -270,7 +269,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.FLOWERING_FIELDSPROUT_SAPLING.get()
         );
         this.tag(BlockTags.WALLS).add(
-                ReduxBlocks.VITRIUM_WALL.get(),
+                ReduxBlocks.DIVINITE_WALL.get(),
                 ReduxBlocks.VITRIUM_BRICK_WALL.get(),
                 ReduxBlocks.CARVED_STONE_BRICK_WALL.get(),
                 ReduxBlocks.FROSTED_HOLYSTONE_WALL.get()

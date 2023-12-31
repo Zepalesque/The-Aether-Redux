@@ -40,15 +40,10 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.FROSTED_HOLYSTONE_STAIRS, ReduxBlocks.FROSTED_HOLYSTONE_SLAB, event);
             putAfter(ReduxBlocks.FROSTED_HOLYSTONE_SLAB, ReduxBlocks.FROSTED_HOLYSTONE_WALL, event);
 
-            putAfter(AetherBlocks.ICESTONE_WALL, ReduxBlocks.VITRIUM, event);
-            putAfter(ReduxBlocks.VITRIUM, ReduxBlocks.VITRIUM_STAIRS, event);
-            putAfter(ReduxBlocks.VITRIUM_STAIRS, ReduxBlocks.VITRIUM_SLAB, event);
-            putAfter(ReduxBlocks.VITRIUM_SLAB, ReduxBlocks.VITRIUM_WALL, event);
-
-            putAfter(ReduxBlocks.VITRIUM_WALL, ReduxBlocks.VITRIUM_BRICKS, event);
-            putAfter(ReduxBlocks.VITRIUM_BRICKS, ReduxBlocks.VITRIUM_BRICK_STAIRS, event);
-            putAfter(ReduxBlocks.VITRIUM_BRICK_STAIRS, ReduxBlocks.VITRIUM_BRICK_SLAB, event);
-            putAfter(ReduxBlocks.VITRIUM_BRICK_SLAB, ReduxBlocks.VITRIUM_BRICK_WALL, event);
+            putAfter(AetherBlocks.ICESTONE_WALL, ReduxBlocks.DIVINITE, event);
+            putAfter(ReduxBlocks.DIVINITE, ReduxBlocks.DIVINITE_STAIRS, event);
+            putAfter(ReduxBlocks.DIVINITE_STAIRS, ReduxBlocks.DIVINITE_SLAB, event);
+            putAfter(ReduxBlocks.DIVINITE_SLAB, ReduxBlocks.DIVINITE_WALL, event);
 
             putAfter(AetherBlocks.ZANITE_BLOCK, ReduxBlocks.VERIDIUM_BLOCK, event);
 
@@ -63,8 +58,8 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK, ReduxBlocks.FROSTED_AETHER_GRASS_BLOCK, event);
             putAfter(ReduxBlocks.FROSTED_AETHER_GRASS_BLOCK, ReduxBlocks.AEVELIUM, event);
 
-            putAfter(AetherBlocks.HOLYSTONE, ReduxBlocks.VITRIUM, event);
-            putAfter(ReduxBlocks.VITRIUM, ReduxBlocks.HOLYSILT, event);
+            putAfter(AetherBlocks.HOLYSTONE, ReduxBlocks.DIVINITE, event);
+            putAfter(ReduxBlocks.DIVINITE, ReduxBlocks.HOLYSILT, event);
 
             putAfter(AetherBlocks.AETHER_DIRT, ReduxBlocks.COARSE_AETHER_DIRT, event);
             putAfter(ReduxBlocks.COARSE_AETHER_DIRT, ReduxBlocks.LIGHTROOT_AETHER_DIRT, event);
