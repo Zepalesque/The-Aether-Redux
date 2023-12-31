@@ -144,10 +144,11 @@ dependencies {
     implementation fg.deobf("curse.maven:geckolib-388172:${project.geckolib_version}")
     implementation fg.deobf("curse.maven:aether-lost-content-318602:${project.lost_content_version}")
     implementation fg.deobf("curse.maven:structure-gel-api-378802:${project.structure_gel_version}")
-    implementation fg.deobf("curse.maven:appleskin-248787:${project.appleskin_version}")
+    runtimeOnly fg.deobf("curse.maven:appleskin-248787:${project.appleskin_version}")
     implementation fg.deobf("blank:aether_genesis-${project.genesis_version}:${project.genesis_version}")
     implementation fg.deobf("curse.maven:terrablender-563928:${project.terrablender_version}")
-    implementation fg.deobf("curse.maven:spark-361579:${project.spark_version}")
+    runtimeOnly fg.deobf("curse.maven:spark-361579:${project.spark_version}")
+    runtimeOnly fg.deobf("curse.maven:suggestion-provider-fix-469647:${project.suggestion_provider_fix_version}")
 }
 
 jar {
