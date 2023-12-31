@@ -79,15 +79,11 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
 
         this.doSwetBallIncreases();
 
-        this.add("enchanted_ring", new GenesisAddDungeonLootModifier(
-                new LootItemCondition[] { LootTableIdCondition.builder(AetherLoot.BRONZE_DUNGEON_LOOT).build(), LootItemRandomChanceCondition.randomChance(0.35F).build() }, List.of(WeightedEntry.wrap(new ItemStack(ReduxItems.ENCHANTED_RING.get()), 1)),
-                BiasedToBottomInt.of(0, 1)));
-
         this.add("vampire_amulet", new GenesisAddDungeonLootModifier(
                 new LootItemCondition[] { LootTableIdCondition.builder(AetherLoot.BRONZE_DUNGEON_REWARD).build(), LootItemRandomChanceCondition.randomChance(0.35F).build() }, List.of(WeightedEntry.wrap(new ItemStack(ReduxItems.VAMPIRE_AMULET.get()), 1)),
                 ConstantInt.of(1)));
 
-        this.add("sentry_ring", new GenesisAddDungeonLootModifier(
+        this.add("airbound_cape", new GenesisAddDungeonLootModifier(
                 new LootItemCondition[] { LootTableIdCondition.builder(AetherLoot.BRONZE_DUNGEON_REWARD).build() }, List.of(WeightedEntry.wrap(new ItemStack(ReduxItems.AIRBOUND_CAPE.get()), 1)),
                 UniformInt.of(0, 1)));
 
@@ -95,7 +91,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                 new LootItemCondition[] { LootTableIdCondition.builder(AetherLoot.SILVER_DUNGEON_REWARD).build() }, List.of(WeightedEntry.wrap(new ItemStack(ReduxItems.VALKYRIE_RING.get()), 1)),
                 UniformInt.of(0, 1)));
 
-        this.add("phoenix_ring", new GenesisAddDungeonLootModifier(
+        this.add("phoenix_emblem", new GenesisAddDungeonLootModifier(
                 new LootItemCondition[] { LootTableIdCondition.builder(AetherLoot.GOLD_DUNGEON_REWARD).build() }, List.of(WeightedEntry.wrap(new ItemStack(ReduxItems.PHOENIX_EMBLEM.get()), 1)),
                 UniformInt.of(0, 1)));
 
