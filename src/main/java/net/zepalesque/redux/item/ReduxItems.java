@@ -110,7 +110,7 @@ public class ReduxItems {
     public static final RegistryObject<ShovelItem> VERIDIUM_SHOVEL = register("veridium_shovel", () -> new VeridiumShovelItem(ReduxItemTiers.VERIDIUM, 0, -3.1F, new Item.Properties()));
     public static final RegistryObject<AxeItem> VERIDIUM_AXE = register("veridium_axe", () -> new VeridiumAxeItem(ReduxItemTiers.VERIDIUM, 1, 0 -3.2F, new Item.Properties()));
     public static final RegistryObject<HoeItem> VERIDIUM_HOE = register("veridium_hoe", () -> new VeridiumHoeItem(ReduxItemTiers.VERIDIUM, 0, -1.7F, new Item.Properties()));
-    public static final RegistryObject<SwordItem> INFUSED_VERIDIUM_SWORD = register("infused_veridium_sword", () -> new VeridiumSwordItem(ReduxItemTiers.INFUSED_VERIDIUM, 2, -2.2F, new Item.Properties()));
+    public static final RegistryObject<SwordItem> INFUSED_VERIDIUM_SWORD = register("infused_veridium_sword", () -> new VeridiumSwordItem(ReduxItemTiers.INFUSED_VERIDIUM, 5, -2.2F, new Item.Properties()));
     public static final RegistryObject<PickaxeItem> INFUSED_VERIDIUM_PICKAXE = register("infused_veridium_pickaxe", () -> new VeridiumPickaxeItem(ReduxItemTiers.INFUSED_VERIDIUM, 1, -2.6F, new Item.Properties()));
     public static final RegistryObject<ShovelItem> INFUSED_VERIDIUM_SHOVEL = register("infused_veridium_shovel", () -> new VeridiumShovelItem(ReduxItemTiers.INFUSED_VERIDIUM, 0, -2.8F, new Item.Properties()));
     public static final RegistryObject<AxeItem> INFUSED_VERIDIUM_AXE = register("infused_veridium_axe", () -> new VeridiumAxeItem(ReduxItemTiers.INFUSED_VERIDIUM, 1, -2.9F, new Item.Properties()));
