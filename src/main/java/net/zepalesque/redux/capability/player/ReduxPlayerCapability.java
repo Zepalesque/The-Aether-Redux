@@ -29,11 +29,12 @@ public class ReduxPlayerCapability implements ReduxPlayer {
     private final Map<String, Triple<Type, Consumer<Object>, Supplier<Object>>> synchableFunctions = Map.ofEntries(
             Map.entry("setMaxAirJumps", Triple.of(Type.INT, (object) -> this.setMaxAirJumps((int) object), this::getMaxAirJumps))
     );
-
     @Override
     public Map<String, Triple<Type, Consumer<Object>, Supplier<Object>>> getSynchableFunctions() {
         return this.synchableFunctions;
     }
+
+    private final LoreBookModule lore;
 
     private int blightshadeCooldown;
     private int blightshadeEffectCooldown;
@@ -52,6 +53,7 @@ public class ReduxPlayerCapability implements ReduxPlayer {
 
     public ReduxPlayerCapability(Player pPlayer) {
         this.player = pPlayer;
+        this.lore = new LoreBookModule();
     }
 
     @Override
@@ -100,6 +102,10 @@ public class ReduxPlayerCapability implements ReduxPlayer {
         return ticksInAir;
     }
 
+    @Override
+    public LoreBookModule getLoreModule() {
+        return this.lore;
+    }
 
 
     @Override
@@ -217,6 +223,7 @@ public class ReduxPlayerCapability implements ReduxPlayer {
         tag.putInt("max_jumps", this.maxAirJumps);
         tag.putInt("jumps", this.airJumps);
         tag.putInt("ticks_in_air", this.ticksInAir);
+        tag.put("lore_module", this.lore.serializeNBT());
         return tag;
     }
 
@@ -225,7 +232,7 @@ public class ReduxPlayerCapability implements ReduxPlayer {
         this.maxAirJumps = nbt.getInt("max_jumps");
         this.airJumps = nbt.getInt("jumps");
         this.ticksInAir = nbt.getInt("ticks_in_air");
-
+        this.lore.deserializeNBT(nbt.get("lore_module"));
     }
 
 

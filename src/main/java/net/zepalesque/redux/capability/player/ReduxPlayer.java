@@ -21,6 +21,7 @@ public interface ReduxPlayer extends INBTSynchable<CompoundTag> {
 
     int ticksInAir();
 
+    LoreBookModule getLoreModule();
 
     void tick();
     boolean doubleJump();
