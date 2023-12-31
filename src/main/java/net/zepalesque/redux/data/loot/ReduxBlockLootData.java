@@ -56,16 +56,9 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         dropSelf(ReduxBlocks.DIVINITE_STAIRS.get());
         dropSelf(ReduxBlocks.DIVINITE_WALL.get());
 
-        dropSelf(ReduxBlocks.VITRIUM_BRICKS.get());
-        this.add(ReduxBlocks.VITRIUM_BRICK_SLAB.get(), this::createSlabItemTable);
-        dropSelf(ReduxBlocks.VITRIUM_BRICK_STAIRS.get());
-        dropSelf(ReduxBlocks.VITRIUM_BRICK_WALL.get());
-
         this.add(ReduxBlocks.AEVELIUM_SPROUTS.get(), this.shearsOr(Blocks.AIR));
         this.dropPottedContents(ReduxBlocks.POTTED_AEVELIUM_GROWTH.get());
         this.add(ReduxBlocks.AEVELIUM_GROWTH.get(), this.shearsOr(Blocks.AIR));
-
-
 
         this.dropPottedContents(ReduxBlocks.POTTED_FIRECAP.get());
         this.dropSelf(ReduxBlocks.FIRECAP.get());

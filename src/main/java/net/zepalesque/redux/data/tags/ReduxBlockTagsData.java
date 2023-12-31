@@ -132,10 +132,6 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.DIVINITE_WALL.get(),
                 ReduxBlocks.DIVINITE_SLAB.get(),
                 ReduxBlocks.DIVINITE_STAIRS.get(),
-                ReduxBlocks.VITRIUM_BRICKS.get(),
-                ReduxBlocks.VITRIUM_BRICK_WALL.get(),
-                ReduxBlocks.VITRIUM_BRICK_SLAB.get(),
-                ReduxBlocks.VITRIUM_BRICK_STAIRS.get(),
                 ReduxBlocks.GILDED_HOLYSTONE.get(),
                 ReduxBlocks.GILDED_HOLYSTONE_WALL.get(),
                 ReduxBlocks.GILDED_HOLYSTONE_SLAB.get(),
@@ -205,7 +201,6 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
 
         this.tag(BlockTags.SLABS).add(
                 ReduxBlocks.DIVINITE_SLAB.get(),
-                ReduxBlocks.VITRIUM_BRICK_SLAB.get(),
                 ReduxBlocks.GILDED_HOLYSTONE_SLAB.get(),
                 ReduxBlocks.BLIGHTMOSS_HOLYSTONE_SLAB.get(),
                 ReduxBlocks.CARVED_STONE_BRICK_SLAB.get(),
