@@ -7,12 +7,14 @@
         "type": "minecraft:weighted_list",
         "distribution": [
           {
-            "data": 14,
-            "weight": 9
-          },
-          {
-            "data": 16,
-            "weight": 3
+            "data": {
+              "type": "minecraft:uniform",
+              "value": {
+                "max_inclusive": 12,
+                "min_inclusive": 10
+              }
+            },
+            "weight": 5
           },
           {
             "data": 19,

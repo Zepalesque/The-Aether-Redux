@@ -1,7 +1,8 @@
-// 1.20.1	2023-12-30T11:27:42.5213482	Tags for minecraft:item mod id aether_redux
+// 1.20.1	2023-12-30T19:44:46.5559421	Tags for minecraft:item mod id aether_redux
 300781e4ca600daa56e90c34c0dbde6d8e83a30f data/aether/tags/items/accessories_capes.json
+94840e9b40698d0060327b6cae55109b6f9ee45c data/aether/tags/items/accessories_miscellaneous.json
 c7ceecd87828b5f75fc2154808a391855b1cf836 data/aether/tags/items/accessories_pendants.json
-cccbcb61ae059c404c76b56e14095fb974a649a7 data/aether/tags/items/accessories_rings.json
+0e34bbeebc95843a40c7ffd20d8383c68db96985 data/aether/tags/items/accessories_rings.json
 a40f3f5f697011f9966eb49c6599322302a28195 data/aether/tags/items/flying_cow_temptation_items.json
 850be376b429515944edcef7b8692399e619c835 data/aether/tags/items/phyg_temptation_items.json
 243259d4c584b5876ed092159fc145440c545379 data/aether/tags/items/planks_crafting.json

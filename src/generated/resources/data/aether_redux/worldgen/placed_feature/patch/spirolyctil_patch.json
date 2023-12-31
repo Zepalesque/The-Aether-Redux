@@ -9,15 +9,15 @@
     },
     {
       "type": "minecraft:rarity_filter",
-      "chance": 2
+      "chance": 5
     },
     {
       "type": "aether:improved_layer_placement",
       "count": {
         "type": "minecraft:uniform",
         "value": {
-          "max_inclusive": 2,
-          "min_inclusive": 0
+          "max_inclusive": 3,
+          "min_inclusive": 1
         }
       },
       "heightmap": "MOTION_BLOCKING",

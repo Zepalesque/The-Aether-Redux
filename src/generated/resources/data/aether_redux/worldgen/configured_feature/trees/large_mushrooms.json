@@ -34,7 +34,7 @@
         }
       },
       {
-        "chance": 0.15,
+        "chance": 0.35,
         "feature": {
           "feature": "aether_redux:trees/mega_cloudcap",
           "placement": [

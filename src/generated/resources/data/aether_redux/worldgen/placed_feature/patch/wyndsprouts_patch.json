@@ -20,6 +20,10 @@
       "verticalBounds": 4
     },
     {
+      "type": "minecraft:rarity_filter",
+      "chance": 2
+    },
+    {
       "type": "minecraft:biome"
     }
   ]
