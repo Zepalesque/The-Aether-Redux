@@ -7,11 +7,13 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingExperienceDropEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.capability.player.ReduxPlayer;
 import net.zepalesque.redux.item.ReduxItems;
@@ -25,10 +27,11 @@ public class ReduxAccessoryListener {
     @SubscribeEvent
     public static void increaseXP(LivingExperienceDropEvent event)
     {
-        if (event.getAttackingPlayer() != null && EquipmentUtil.hasCurio(event.getAttackingPlayer(), ReduxItems.ENCHANTED_RING.get()))
+        RegistryObject<Item> ring = ReduxItems.RING_OF_WISDOM;
+        if (event.getAttackingPlayer() != null && EquipmentUtil.hasCurio(event.getAttackingPlayer(), ring.get()))
         {
             float multiplier = 1F;
-            List<SlotResult> ringList = EquipmentUtil.getCurios(event.getAttackingPlayer(), ReduxItems.ENCHANTED_RING.get());
+            List<SlotResult> ringList = EquipmentUtil.getCurios(event.getAttackingPlayer(), ring.get());
             for (SlotResult ignored : ringList)
             {
                 multiplier *= (1.2F + event.getAttackingPlayer().getRandom().nextFloat() * 0.1F);
