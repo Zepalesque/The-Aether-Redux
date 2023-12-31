@@ -64,12 +64,7 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
         );
         this.add(ReduxSoundEvents.EQUIP_ENCHANTED_RING,
                 definition().with(
-                        sound("minecraft:item/armor/equip_diamond1"),
-                        sound("minecraft:item/armor/equip_diamond2"),
-                        sound("minecraft:item/armor/equip_diamond3"),
-                        sound("minecraft:item/armor/equip_diamond4"),
-                        sound("minecraft:item/armor/equip_diamond5"),
-                        sound("minecraft:item/armor/equip_diamond6")
+                        sound("minecraft:mob/turtle/armor")
                 ).subtitle("subtitles.aether_redux.item.accessory.equip_enchanted_ring")
         );
         this.add(ReduxSoundEvents.EQUIP_VALKYRIE_RING,
@@ -82,7 +77,7 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
                         sound("minecraft:item/armor/equip_gold6")
                 ).subtitle("subtitles.aether_redux.item.accessory.equip_valkyrie_ring")
         );
-        this.add(ReduxSoundEvents.EQUIP_AIRBOUND_CAPE,
+        this.add(ReduxSoundEvents.EQUIP_WISDOM_RING,
                 definition().with(
                         sound("minecraft:item/armor/equip_iron1"),
                         sound("minecraft:item/armor/equip_iron2"),
@@ -90,7 +85,7 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
                         sound("minecraft:item/armor/equip_iron4"),
                         sound("minecraft:item/armor/equip_iron5"),
                         sound("minecraft:item/armor/equip_iron6")
-                ).subtitle("subtitles.aether_redux.item.accessory.equip_sentry_ring")
+                ).subtitle("subtitles.aether_redux.item.accessory.equip_wisdom_ring")
         );
         this.add(ReduxSoundEvents.EQUIP_PHOENIX_RING,
                 definition().with(

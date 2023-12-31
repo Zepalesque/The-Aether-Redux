@@ -72,6 +72,8 @@ public class ReduxItems {
     public static final RegistryObject<Item> AIRBOUND_CAPE = register("airbound_cape", () -> new AirboundCapeItem("airbound_cape", new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT), "airbound_cape_jump_boost"));
     public static final RegistryObject<Item> PHOENIX_EMBLEM = register("phoenix_emblem", () -> new AbilityTooltipMiscItem(new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT), "phoenix_emblem_fireball"));
 
+    public static final RegistryObject<Item> RING_OF_WISDOM = register("ring_of_wisdom", () -> new AbilityTooltipRingItem(ReduxSoundEvents.EQUIP_ENCHANTED_RING, new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT), "enchanted_ring_xp_increase"));
+
     public static final RegistryObject<Item> MOUSE_EAR_SOUP = register("mouse_ear_soup", () -> new SkyrootBowlFoodItem(new Item.Properties().food(ReduxFoods.MOUSE_EAR_SOUP)));
 
     public static final RegistryObject<Item> SUBZERO_CROSSBOW = register("subzero_crossbow", () -> new SubzeroCrossbowItem(new Item.Properties().stacksTo(1).durability(1024).rarity(AetherItems.AETHER_LOOT)));

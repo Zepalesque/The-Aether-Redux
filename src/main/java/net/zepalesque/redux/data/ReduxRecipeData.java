@@ -275,6 +275,16 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .unlockedBy(getHasName(AetherItems.AMBROSIUM_SHARD.get()), has(AetherItems.AMBROSIUM_SHARD.get()))
                 .save(consumer);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ReduxItems.RING_OF_WISDOM.get(), 1)
+                .define('H', AetherTags.Items.HOLYSTONE)
+                .define('E', Items.EMERALD)
+                .define('R', ReduxItems.ENCHANTED_RING.get())
+                .pattern("HEH")
+                .pattern("HRH")
+                .pattern("HHH")
+                .unlockedBy(getHasName(ReduxItems.ENCHANTED_RING.get()), has(ReduxItems.ENCHANTED_RING.get()))
+                .save(consumer);
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ReduxBlocks.VERIDIUM_LANTERN.get(), 1)
                 .define('N', ReduxItems.VERIDIUM_NUGGET.get())
                 .define('A', AetherBlocks.AMBROSIUM_TORCH.get())
