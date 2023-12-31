@@ -379,9 +379,9 @@ public class    ReduxConfiguredFeatures {
                 ));
         register(context, LARGE_MUSHROOMS, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
-                        PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(LARGE_SPRINGSHROOM), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.SPRINGSHROOM.get())), 0.3F),
+                                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(LARGE_SPRINGSHROOM), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.SPRINGSHROOM.get())), 0.3F),
                         new WeightedPlacedFeature(
-                                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(MEGA_CLOUDCAP), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.CLOUDCAP_MUSHLING.get())), 0.15F)),
+                                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(MEGA_CLOUDCAP), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.CLOUDCAP_MUSHLING.get())), 0.35F)),
                         PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(LARGE_CLOUDCAP), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.CLOUDCAP_MUSHLING.get()))));
         register(context, LARGE_SPRINGSHROOM, ReduxFeatureRegistry.LARGE_SPRINGSHROOM.get(),
                 new HugeAetherMushroomFeatureConfiguration(
@@ -457,16 +457,16 @@ public class    ReduxConfiguredFeatures {
 
         register(context, BLIGHT_TREES, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
-                                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(BLIGHTED_SKYROOT_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.BLIGHTED_SKYROOT_SAPLING.get())), 0.25F)),
+                        PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(BLIGHTED_SKYROOT_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.BLIGHTED_SKYROOT_SAPLING.get())), 0.25F)),
                         PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(BLIGHTWILLOW_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.BLIGHTWILLOW_SAPLING.get()))));
 
         register(context, GROVE_TREES, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
-                                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(GOLDEN_OAK_TREE_OVERRIDE), PlacementUtils.filteredByBlockSurvival(AetherBlocks.GOLDEN_OAK_SAPLING.get())), 0.67F)),
+                        PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(GOLDEN_OAK_TREE_OVERRIDE), PlacementUtils.filteredByBlockSurvival(AetherBlocks.GOLDEN_OAK_SAPLING.get())), 0.67F)),
                         PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(GILDED_OAK_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.GILDED_OAK_SAPLING.get()))));
         register(context, FROSTED_TREES, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
-                                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(LARGE_GLACIA_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.GLACIA_SAPLING.get())), 0.45F)),
+                        PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(LARGE_GLACIA_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.GLACIA_SAPLING.get())), 0.45F)),
                         PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(SMALL_GLACIA_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.GLACIA_SAPLING.get()))));
         register(context, HIGHFIELDS_TREES, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(
@@ -522,14 +522,14 @@ public class    ReduxConfiguredFeatures {
     private static BlockStateProvider createLeafPileLayers(BlockState state)
     {
         if (state.hasProperty(ReduxStateProperties.LEAF_LAYERS)) {
-        return new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                .add(state.setValue(ReduxStateProperties.LEAF_LAYERS, 1), 6)
-                .add(state.setValue(ReduxStateProperties.LEAF_LAYERS, 2), 5)
-                .add(state.setValue(ReduxStateProperties.LEAF_LAYERS, 3), 4)
-                .add(state.setValue(ReduxStateProperties.LEAF_LAYERS, 4), 3)
-                .add(state.setValue(ReduxStateProperties.LEAF_LAYERS, 5), 2)
-                .add(state.setValue(ReduxStateProperties.LEAF_LAYERS, 6), 1)
-        ); } else {
+            return new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                    .add(state.setValue(ReduxStateProperties.LEAF_LAYERS, 1), 6)
+                    .add(state.setValue(ReduxStateProperties.LEAF_LAYERS, 2), 5)
+                    .add(state.setValue(ReduxStateProperties.LEAF_LAYERS, 3), 4)
+                    .add(state.setValue(ReduxStateProperties.LEAF_LAYERS, 4), 3)
+                    .add(state.setValue(ReduxStateProperties.LEAF_LAYERS, 5), 2)
+                    .add(state.setValue(ReduxStateProperties.LEAF_LAYERS, 6), 1)
+            ); } else {
             return BlockStateProvider.simple(state);
         }
     }

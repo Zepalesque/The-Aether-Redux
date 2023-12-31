@@ -37,7 +37,7 @@ import java.util.List;
 import static net.zepalesque.redux.data.resource.Folders.ORE;
 
 public class ReduxPlacedFeatures {
-    
+
     public static final DungeonBlacklistFilter DUNGEON_BLACKLIST = new DungeonBlacklistFilter();
     public static final NoiseThresholdCountPlacement NOISE_THRESHOLD = NoiseThresholdCountPlacement.of(-0.8D, 5, 10);
 
@@ -60,13 +60,11 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> FROSTED_PURPLE_FLOWER_PATCH = copyKey(ReduxConfiguredFeatures.FROSTED_PURPLE_FLOWER_PATCH);
     public static final ResourceKey<PlacedFeature> FROSTED_TREES = copyKey(ReduxConfiguredFeatures.FROSTED_TREES);
     public static final ResourceKey<PlacedFeature> GILDED_HOLYSTONE_ORE = copyKey(ReduxConfiguredFeatures.GILDED_HOLYSTONE_ORE);
-    public static final ResourceKey<PlacedFeature> GILDED_LEAF_PATCH  =copyKey(ReduxConfiguredFeatures.GILDED_LEAF_PATCH);
     public static final ResourceKey<PlacedFeature> GILDED_ROCK  = copyKey(ReduxConfiguredFeatures.GILDED_ROCK);
     public static final ResourceKey<PlacedFeature> GILDED_WHITE_FLOWER_PATCH = copyKey(ReduxConfiguredFeatures.GILDED_WHITE_FLOWER_PATCH);
     public static final ResourceKey<PlacedFeature> GLOWSPROUTS_PATCH = copyKey(ReduxConfiguredFeatures.GLOWSPROUTS_PATCH);
     public static final ResourceKey<PlacedFeature> GOLDEN_CLOVER_PATCH = copyKey(ReduxConfiguredFeatures.GOLDEN_CLOVER_PATCH);
     public static final ResourceKey<PlacedFeature> GOLDEN_HEIGHTS_GILDED_HOLYSTONE_ORE = createKey(ORE + "golden_heights_" + name(ReduxBlocks.GILDED_HOLYSTONE) + "_ore");
-    public static final ResourceKey<PlacedFeature> GOLDEN_LEAF_PATCH = copyKey(ReduxConfiguredFeatures.GOLDEN_LEAF_PATCH);
     public static final ResourceKey<PlacedFeature> GROVE_TREES = copyKey(ReduxConfiguredFeatures.GROVE_TREES);
     public static final ResourceKey<PlacedFeature> HIGHFIELDS_ROCK  = copyKey(ReduxConfiguredFeatures.HIGHFIELDS_ROCK);
     public static final ResourceKey<PlacedFeature> SKYSPROUTS_PATCH = copyKey(ReduxConfiguredFeatures.SKYSPROUTS_PATCH);
@@ -96,7 +94,7 @@ public class ReduxPlacedFeatures {
 
         register(context, AEVELIUM_GRASSES_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.AEVELIUM_GRASSES_PATCH),
                 NOISE_THRESHOLD,
-                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(1, 2), 4),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
                 new ConfigFilter(AetherConfig.SERVER.generate_tall_grass),
                 BiomeFilter.biome()
         );
@@ -106,16 +104,19 @@ public class ReduxPlacedFeatures {
         register(context, AEVYRN_BUSH_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.AEVYRN_BUSH_PATCH),
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, BiasedToBottomInt.of(0, 3), 4),
+                RarityFilter.onAverageOnceEvery(3),
                 BiomeFilter.biome());
 
         register(context, AURUM_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.AURUM_PATCH),
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, BiasedToBottomInt.of(0, 2), 4),
+                RarityFilter.onAverageOnceEvery(5),
                 BiomeFilter.biome());
 
         register(context, GILDED_WHITE_FLOWER_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GILDED_WHITE_FLOWER_PATCH),
                 NOISE_THRESHOLD,
-                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 2), 4),
+                RarityFilter.onAverageOnceEvery(5),
                 BiomeFilter.biome()
         );
 
@@ -136,10 +137,10 @@ public class ReduxPlacedFeatures {
                 BiomeFilter.biome());
 
         register(context, BLIGHT_ROCK, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.BLIGHT_ROCK),
-        NOISE_THRESHOLD,
+                NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING,
                         new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
-                                .add(ConstantInt.of(0), 4)
+                                .add(ConstantInt.of(0), 7)
                                 .add(UniformInt.of(1, 2), 5)
                                 .add(UniformInt.of(1, 3), 3)
                                 .build()), 4),
@@ -150,7 +151,7 @@ public class ReduxPlacedFeatures {
 
         register(context, BLIGHTED_GRASS_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.BLIGHTED_GRASS_PATCH),
                 NOISE_THRESHOLD,
-                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(1, 2), 4),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
                 new ConfigFilter(AetherConfig.SERVER.generate_tall_grass),
                 BiomeFilter.biome()
         );
@@ -158,12 +159,12 @@ public class ReduxPlacedFeatures {
         register(context, BLIGHTSHADE_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.BLIGHTSHADE_PATCH),
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(1  , 3), 4),
-                RarityFilter.onAverageOnceEvery(2),
+                RarityFilter.onAverageOnceEvery(4),
                 BiomeFilter.biome()
         );
 
 
-        
+
         register(context, LARGE_MUSHROOMS, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.LARGE_MUSHROOMS),
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
                         .add(ConstantInt.of(10), 9)
@@ -174,23 +175,24 @@ public class ReduxPlacedFeatures {
                 BiomeFilter.biome(),
                 DUNGEON_BLACKLIST
         );
-        
+
         register(context, FIRECAP_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.FIRECAP_PATCH),
                 NOISE_THRESHOLD,
-                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
-                RarityFilter.onAverageOnceEvery(3),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 2), 4),
+                RarityFilter.onAverageOnceEvery(6),
                 BiomeFilter.biome(),
                 PlacementUtils.filteredByBlockSurvival(ReduxBlocks.FIRECAP.get()));
 
         register(context, CLOUDCAP_MUSHLING_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.CLOUDCAP_MUSHLING_PATCH),
                 NOISE_THRESHOLD,
-                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 3), 4),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 2), 4),
                 BiomeFilter.biome(),
+                RarityFilter.onAverageOnceEvery(3),
                 PlacementUtils.filteredByBlockSurvival(ReduxBlocks.CLOUDCAP_MUSHLING.get()));
 
         register(context, ENCHANTED_GRASS_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.ENCHANTED_GRASS_PATCH),
                 NOISE_THRESHOLD,
-                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(1, 2), 4),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
                 new ConfigFilter(AetherConfig.SERVER.generate_tall_grass),
                 BiomeFilter.biome()
         );
@@ -200,19 +202,20 @@ public class ReduxPlacedFeatures {
         register(context, FROSTBUD_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.FROSTBUD_PATCH),
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 2), 4),
-                RarityFilter.onAverageOnceEvery(3),
+                RarityFilter.onAverageOnceEvery(5),
                 BiomeFilter.biome()
         );
 
         register(context, FROSTED_FERN_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.FROSTED_FERN_PATCH),
                 NOISE_THRESHOLD,
-                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 2), 4),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 3), 4),
+                RarityFilter.onAverageOnceEvery(3),
                 BiomeFilter.biome());
 
         register(context, FROSTED_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.FROSTED_TREES),
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
-                        .add(ConstantInt.of(32), 9)
-                        .add(ConstantInt.of(20), 1)
+                        .add(ConstantInt.of(24), 9)
+                        .add(ConstantInt.of(16), 1)
                         .build())),
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.OCEAN_FLOOR, UniformInt.of(0, 1), 4),
                 BiomeFilter.biome(),
@@ -222,7 +225,7 @@ public class ReduxPlacedFeatures {
 
         register(context, FROSTED_GRASS_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.FROSTED_GRASS_PATCH),
                 NOISE_THRESHOLD,
-                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(1, 2), 4),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
                 new ConfigFilter(AetherConfig.SERVER.generate_tall_grass),
                 BiomeFilter.biome()
         );
@@ -252,14 +255,14 @@ public class ReduxPlacedFeatures {
 
         register(context, GROVE_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GROVE_TREES),
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
-                        .add(ConstantInt.of(16), 9)
-                        .add(ConstantInt.of(9), 1)
+                        .add(ConstantInt.of(12), 9)
+                        .add(ConstantInt.of(7), 1)
                         .build())),
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
                 BiomeFilter.biome(),
                 DUNGEON_BLACKLIST,
                 PlacementUtils.filteredByBlockSurvival(ReduxBlocks.GILDED_OAK_SAPLING.get())
-                );
+        );
 
         register(context, GOLDEN_HEIGHTS_GILDED_HOLYSTONE_ORE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GILDED_HOLYSTONE_ORE),
                 CountPlacement.of(24),
@@ -269,17 +272,12 @@ public class ReduxPlacedFeatures {
                 BiomeFilter.biome()
         );
 
-        register(context, GILDED_LEAF_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GILDED_LEAF_PATCH),
-                NOISE_THRESHOLD,
-                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4), 
-                BiomeFilter.biome()
-        );
 
         register(context, GILDED_ROCK, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GILDED_ROCK),
-        NOISE_THRESHOLD,
+                NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING,
                         new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
-                                .add(ConstantInt.of(0), 4)
+                                .add(ConstantInt.of(0), 7)
                                 .add(UniformInt.of(1, 2), 5)
                                 .add(UniformInt.of(1, 3), 3)
                                 .build()), 4),
@@ -293,27 +291,24 @@ public class ReduxPlacedFeatures {
         register(context, GLOWSPROUTS_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GLOWSPROUTS_PATCH),
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(1, 2), 4),
+                RarityFilter.onAverageOnceEvery(2),
                 BiomeFilter.biome()
         );
 
         register(context, GOLDEN_CLOVER_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GOLDEN_CLOVER_PATCH),
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 2), 4),
+                RarityFilter.onAverageOnceEvery(4),
                 BiomeFilter.biome()
         );
 
-        register(context, GOLDEN_LEAF_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GOLDEN_LEAF_PATCH),
-                NOISE_THRESHOLD,
-                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
-                BiomeFilter.biome()
-        );
 
         register(context, HIGHFIELDS_ROCK, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.HIGHFIELDS_ROCK),
-        NOISE_THRESHOLD,
+                NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING,
                         new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
-                                .add(ConstantInt.of(0), 4)
-                                .add(UniformInt.of(1, 2), 5)
+                                .add(ConstantInt.of(0), 7)
+                                .add(UniformInt.of(1, 2), 2)
                                 .add(UniformInt.of(1, 3), 3)
                                 .build()), 4),
                 RarityFilter.onAverageOnceEvery(6),
@@ -336,7 +331,8 @@ public class ReduxPlacedFeatures {
 
         register(context, IRIDIA_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.IRIDIA_PATCH),
                 NOISE_THRESHOLD,
-                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 3), 4),
+                RarityFilter.onAverageOnceEvery(3),
                 BiomeFilter.biome());
 
         register(context, LIGHTROOT_AETHER_DIRT_ORE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.LIGHTROOT_AETHER_DIRT_ORE),
@@ -348,7 +344,7 @@ public class ReduxPlacedFeatures {
         register(context, LUMINA_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.LUMINA_PATCH),
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(1, 2), 4),
-                RarityFilter.onAverageOnceEvery(3),
+                RarityFilter.onAverageOnceEvery(7),
                 BiomeFilter.biome());
 
         register(context, MOSSY_HOLYSTONE_ORE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.MOSSY_HOLYSTONE_ORE),
@@ -360,10 +356,10 @@ public class ReduxPlacedFeatures {
         );
 
         register(context, MOSSY_ROCK, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.MOSSY_ROCK),
-        NOISE_THRESHOLD,
+                NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING,
                         new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
-                                .add(ConstantInt.of(0), 4)
+                                .add(ConstantInt.of(0), 7)
                                 .add(UniformInt.of(1, 2), 5)
                                 .add(UniformInt.of(1, 3), 3)
                                 .build()), 4),
@@ -382,53 +378,55 @@ public class ReduxPlacedFeatures {
                 RarityFilter.onAverageOnceEvery(15),
                 HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE_WG),
                 BiomeFilter.biome()
-                );
+        );
 
         register(context, WYNDSPROUTS_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.WYNDSPROUTS_PATCH),
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
+                RarityFilter.onAverageOnceEvery(2),
                 BiomeFilter.biome()
-                );
+        );
 
         register(context, SKYSPROUTS_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.SKYSPROUTS_PATCH),
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, BiasedToBottomInt.of(0, 1), 4),
+                RarityFilter.onAverageOnceEvery(3),
                 BiomeFilter.biome()
         );
 
         register(context, SPIROLYCTIL_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.SPIROLYCTIL_PATCH),
                 NOISE_THRESHOLD,
-                RarityFilter.onAverageOnceEvery(2),
-                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 2), 4),
+                RarityFilter.onAverageOnceEvery(5),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(1, 3), 4),
                 BiomeFilter.biome());
 
         register(context, SPRINGSHROOM_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.SPRINGSHROOM_PATCH),
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
+                RarityFilter.onAverageOnceEvery(5),
                 BiomeFilter.biome());
 
         register(context, SPROUTING_LIGHTROOTS_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.SPROUTING_LIGHTROOTS_PATCH),
                 NOISE_THRESHOLD,
-                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(1, 2), 4),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, ConstantInt.of(1), 4),
                 BiomeFilter.biome());
 
 
         register(context, BLIGHT_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.BLIGHT_TREES),
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
-                        .add(ConstantInt.of(14), 9)
-                        .add(ConstantInt.of(16), 3)
+                        .add(UniformInt.of(10, 12), 5)
                         .add(ConstantInt.of(19), 1)
                         .build())),
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.OCEAN_FLOOR, UniformInt.of(0, 1), 4),
                 BiomeFilter.biome(),
                 PlacementUtils.filteredByBlockSurvival(ReduxBlocks.BLIGHTWILLOW_SAPLING.get()),
                 DUNGEON_BLACKLIST
-                );
+        );
 
         register(context, THORNCAP_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.THORNCAP_PATCH),
                 NOISE_THRESHOLD,
-                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 2), 4),
-                RarityFilter.onAverageOnceEvery(3),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
+                RarityFilter.onAverageOnceEvery(8),
                 BiomeFilter.biome());
 
         register(context, VERIDIUM_ORE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.VERIDIUM_ORE),
@@ -442,14 +440,14 @@ public class ReduxPlacedFeatures {
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(TrapezoidHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.aboveBottom(128))),
                 BiomeFilter.biome()
-                );
+        );
 
         register(context, QUICKSOIL_SHELF_OVERRIDE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.ROOTED_QUICKSOIL_SHELF),
                 RarityFilter.onAverageOnceEvery(5),
                 HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE_WG),
                 BiomeFilter.biome(),
                 DUNGEON_BLACKLIST
-                );
+        );
 
 
     }
