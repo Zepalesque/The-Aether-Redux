@@ -1,4 +1,4 @@
-// 1.20.1	2023-12-30T20:49:40.8731555	Global Loot Modifiers : aether_redux
+// 1.20.1	2023-12-31T18:08:23.9080835	Global Loot Modifiers : aether_redux
 6f6b55056cb75cbe939e7f6d30f3015c8f30048c data/aether_redux/loot_modifiers/airbound_cape.json
 3d526ec7ff2e7751ec592badda5b36db05e74e9c data/aether_redux/loot_modifiers/blue_swet_ball_increase.json
 de86c4ed9e89858b8b2699e4cf40f93733d290b3 data/aether_redux/loot_modifiers/cockatrice_feather.json
@@ -8,9 +8,10 @@ de86c4ed9e89858b8b2699e4cf40f93733d290b3 data/aether_redux/loot_modifiers/cockat
 051215d891dfd5e340fd4da4eeebb2f8af9e6ac0 data/aether_redux/loot_modifiers/phoenix_emblem.json
 f0f457f0f542b27d23e2a1a60ac467ccb723be32 data/aether_redux/loot_modifiers/remove_blue_swet_cloud.json
 6501a691dffadb49ae229531d342e6434c2e2080 data/aether_redux/loot_modifiers/remove_golden_swet_glowstone.json
+74d870a49035bfea801b9fb0d242fa41809a6a0d data/aether_redux/loot_modifiers/sentry_circuit.json
 a9bd9440a0b5eed36b47d8229c9e680b12e032bf data/aether_redux/loot_modifiers/subzero_crossbow.json
 e4231263acb9dd478415c6ce7472cec561bb3fdb data/aether_redux/loot_modifiers/swet_sugar_no_genesis.json
 794ae417d58b75632a890d87d76bbc85e47149c5 data/aether_redux/loot_modifiers/valkyrie_ring.json
 57302c6ea4c6a3dcce6b7e5c75cc73a7c69f86e1 data/aether_redux/loot_modifiers/vampire_amulet.json
 a6510148f055c0977ddec62900e164e79ac43da4 data/aether_redux/loot_modifiers/vanilla_gummy_swet.json
-6843be7f01863e745e5f7383c8a80d64d909b600 data/forge/loot_modifiers/global_loot_modifiers.json
+b1f369475720ed3a8259a825127e3eb68acf9182 data/forge/loot_modifiers/global_loot_modifiers.json
