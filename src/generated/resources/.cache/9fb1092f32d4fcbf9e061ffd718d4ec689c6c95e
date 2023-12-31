@@ -1,4 +1,4 @@
-// 1.20.1	2023-12-30T19:44:46.560941	Recipes
+// 1.20.1	2023-12-30T20:49:40.8791578	Recipes
 94dc065fa9db175a9df14a38fb02767fe57f9007 data/aether_redux/advancements/recipes/blightwillow_log_wall.json
 face3502fc56302d50e0da3d35b0a9c02e390dfd data/aether_redux/advancements/recipes/blightwillow_wood_wall.json
 19f30b02ee52379ffc3020a76507f0c040fc699b data/aether_redux/advancements/recipes/blue_gummy_swet.json
@@ -73,6 +73,7 @@ e1b71c73f369c83f40d6545f4782ad957bfbd7e6 data/aether_redux/advancements/recipes/
 780c6c57717a0ce4f5a3d59a76a06494d2d57a5a data/aether_redux/advancements/recipes/building_blocks/vitrium_wall.json
 2c6eb18b5985b574cf7cdb4323efd212094033c1 data/aether_redux/advancements/recipes/cloudcap_hyphae_wall.json
 916bd20cbad60992198a409ab15acd71f6eb78c2 data/aether_redux/advancements/recipes/cloudcap_stem_wall.json
+d42f6d940145339b6df166a159a63f6a40b37c37 data/aether_redux/advancements/recipes/combat/enchanted_ring.json
 14e4e4b9ad7e570b1a82183f523c6f9a71537240 data/aether_redux/advancements/recipes/combat/spectral_dart.json
 20f057c44960d7ee3386e2fa5aa8bb1c5024809a data/aether_redux/advancements/recipes/combat/spectral_dart_shooter.json
 961a9265d275fc6b95ee4f9e1d4b9480451c3d77 data/aether_redux/advancements/recipes/combat/veridium_sword.json
@@ -249,6 +250,7 @@ f141db9c0f5928a879bc857678bd73aa503c2235 data/aether_redux/recipes/crystal_trapd
 61d7c1add74de70a7aef521441a6e40d1af264f9 data/aether_redux/recipes/crystal_wood.json
 b009e31f7c9e97d9b88256143f89d3f35a26591e data/aether_redux/recipes/crystal_wood_wall.json
 d9ef3f3ecc17b82e9330772e187dc4ab64b28e6d data/aether_redux/recipes/enchanted_blueberry_pie_enchanting.json
+4cfd9f3623a5f792ad1e0952595c3fa20f527c10 data/aether_redux/recipes/enchanted_ring.json
 d2693d4f7bfa0bb7bca16878ebb52087da4e23d1 data/aether_redux/recipes/enchant_mossy_holystone.json
 6fdb041888b11ce44001732598141769ad135cf0 data/aether_redux/recipes/fieldsprout_boat.json
 fb6c3eddb4cbdc40f8360d86964e825bd962507a data/aether_redux/recipes/fieldsprout_button.json
