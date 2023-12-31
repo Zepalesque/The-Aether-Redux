@@ -23,6 +23,7 @@ import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.common.data.GlobalLootModifierProvider;
 import net.minecraftforge.common.loot.LootTableIdCondition;
@@ -45,11 +46,14 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
     @Override
     protected void start() {
 
-        this.add("cockatrice_rib", new GenesisAddEntityDropsModifier(new ItemStack(ReduxItems.COCKATRICE_FEATHER.get()),
+        this.add("cockatrice_feather", new GenesisAddEntityDropsModifier(new ItemStack(ReduxItems.COCKATRICE_FEATHER.get()),
                 new LootItemFunction[] {
-                        SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 1.0F)).build(),
+                        SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)).build(),
                         LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)).build() },
-                new LootItemCondition[] {LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(AetherEntityTypes.COCKATRICE.get())).build()}));
+                new LootItemCondition[] {
+                        LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(AetherEntityTypes.COCKATRICE.get())).build(),
+                        LootItemRandomChanceCondition.randomChance(0.02F).build()
+                }));
 
         this.add("swet_sugar_no_genesis", new GenesisAddEntityDropsModifier(new ItemStack(Items.SUGAR),
                 new LootItemFunction[] {
