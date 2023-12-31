@@ -404,7 +404,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBiome(ReduxBiomes.THE_BLIGHT, "The Blight");
 
         addGuiText("bittersweet_charm_poison_chance", "10% chance to poison targets of melee attacks");
-        addGuiText("wisdom_ring_xp_increase", "+20-30% XP from Mobs");
+        addGuiText("wisdom_ring_xp_increase", "+20-30% XP from mobs");
         // TODO: Bring back this ability?
         //addGuiText("valkyrie_ring_regen", "Regeneration which increases as health drops");
         addGuiText("airbound_cape_jump_boost", "Grants ability to double jump");
