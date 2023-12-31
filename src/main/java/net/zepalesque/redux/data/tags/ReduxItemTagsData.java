@@ -81,7 +81,8 @@ public class ReduxItemTagsData extends ItemTagsProvider {
         this.tag(AetherTags.Items.ACCESSORIES_CAPES).add(
                 ReduxItems.AIRBOUND_CAPE.get()
         );
-        this.tag(AetherTags.Items.ACCESSORIES_RINGS).add(ReduxItems.ENCHANTED_RING.get(), ReduxItems.VALKYRIE_RING.get(), ReduxItems.PHOENIX_EMBLEM.get());
+        this.tag(AetherTags.Items.ACCESSORIES_RINGS).add(ReduxItems.ENCHANTED_RING.get(), ReduxItems.VALKYRIE_RING.get());
+        this.tag(AetherTags.Items.ACCESSORIES_MISCELLANEOUS).add(ReduxItems.PHOENIX_EMBLEM.get(), ReduxItems.COCKATRICE_FEATHER.get());
         this.tag(ReduxTags.Items.BLUEBERRY_PIE_EGGS).addTag(AetherTags.Items.MOA_EGGS).add(Items.EGG).addOptional(DAItems.QUAIL_EGG.getId());
         this.tag(ReduxTags.Items.SKYROOT_BOWLS).addOptional(new ResourceLocation("aether_genesis", "skyroot_bowl"));
         this.tag(ReduxTags.Items.MOUSE_EAR_CAPS).addOptional(new ResourceLocation("aether_genesis", "mouse_ear_caps"));
