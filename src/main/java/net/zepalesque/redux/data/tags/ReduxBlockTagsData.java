@@ -11,6 +11,7 @@ import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.ReduxBlocks;
@@ -190,6 +191,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.FROSTED_HOLYSTONE_STAIRS.get()
 
         );
+        this.tag(AetherTags.Blocks.HOLYSTONE).add(ReduxBlocks.GILDED_HOLYSTONE.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), ReduxBlocks.FROSTED_HOLYSTONE.get());
 
         this.tag(AetherTags.Blocks.AETHER_ANIMALS_SPAWNABLE_ON).add(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(),ReduxBlocks.FROSTED_AETHER_GRASS_BLOCK.get(), ReduxBlocks.AEVELIUM.get(), ReduxBlocks.COARSE_AETHER_DIRT.get(), ReduxBlocks.LIGHTROOT_AETHER_DIRT.get(), Blocks.SNOW_BLOCK, AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get());
 
