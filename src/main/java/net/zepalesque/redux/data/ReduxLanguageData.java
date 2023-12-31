@@ -245,26 +245,17 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.POTTED_GLACIA_SAPLING, "Potted Glacia Sapling");
         addLore(ReduxBlocks.GLACIA_SAPLING, "The sapling of the Glacia tree. It can be grown by waiting or using Bone Meal.");
 
-        addBlock(ReduxBlocks.DIVINITE, "Vitrium");
-        addLore(ReduxBlocks.DIVINITE, "A black rock found in the Aether. This rock is said to transmute into a dazzling, brilliant substance when enchanted at an Altar.");
-        addBlock(ReduxBlocks.DIVINITE_SLAB, "Vitrium Slab");
-        addLore(ReduxBlocks.DIVINITE_SLAB, "Crafted from Vitrium. Slabs are half blocks, versatile for decoration and smooth slopes. Try adding some to a building's roofing!");
-        addBlock(ReduxBlocks.DIVINITE_STAIRS, "Vitrium Stairs");
-        addLore(ReduxBlocks.DIVINITE_STAIRS, "Crafted from Vitrium. Stairs are useful for adding verticality to builds and are often used for decoration too!");
-        addBlock(ReduxBlocks.DIVINITE_WALL, "Vitrium Wall");
-        addLore(ReduxBlocks.DIVINITE_WALL, "Crafted from Vitrium. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
+        addBlock(ReduxBlocks.DIVINITE, "Divinite");
+        addLore(ReduxBlocks.DIVINITE, "A rock found in the Aether. This rock is commonly used in structures built by Valkyries. Additionally, when enchanted, it buds into a dazzlingly bright glowing stone!");
+        addBlock(ReduxBlocks.DIVINITE_SLAB, "Divinite Slab");
+        addLore(ReduxBlocks.DIVINITE_SLAB, "Crafted from Divinite. Slabs are half blocks, versatile for decoration and smooth slopes. Try adding some to a building's roofing!");
+        addBlock(ReduxBlocks.DIVINITE_STAIRS, "Divinite Stairs");
+        addLore(ReduxBlocks.DIVINITE_STAIRS, "Crafted from Divinite. Stairs are useful for adding verticality to builds and are often used for decoration too!");
+        addBlock(ReduxBlocks.DIVINITE_WALL, "Divinite Wall");
+        addLore(ReduxBlocks.DIVINITE_WALL, "Crafted from Divinite. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
 
         addBlock(ReduxBlocks.HOLYSILT, "Holysilt");
         addLore(ReduxBlocks.HOLYSILT, "Fine particles of broken up holystone and other minerals. Can be found underground, and around the blight. Careful, it's not very stable and may fall beneath your feet!");
-
-        addBlock(ReduxBlocks.VITRIUM_BRICKS, "Vitrium Bricks");
-        addLore(ReduxBlocks.VITRIUM_BRICKS, "Bricks made of Vitrium. These can be used as a nice building block!");
-        addBlock(ReduxBlocks.VITRIUM_BRICK_SLAB, "Vitrium Brick Slab");
-        addLore(ReduxBlocks.VITRIUM_BRICK_SLAB, "Crafted from Vitrium Bricks. Slabs are half blocks, versatile for decoration and smooth slopes. Try adding some to a building's roofing!");
-        addBlock(ReduxBlocks.VITRIUM_BRICK_STAIRS, "Vitrium Brick Stairs");
-        addLore(ReduxBlocks.VITRIUM_BRICK_STAIRS, "Crafted from Vitrium Bricks. Stairs are useful for adding verticality to builds and are often used for decoration too!");
-        addBlock(ReduxBlocks.VITRIUM_BRICK_WALL, "Vitrium Brick Wall");
-        addLore(ReduxBlocks.VITRIUM_BRICK_WALL, "Crafted from Vitrium Bricks. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
 
         addBlock(ReduxBlocks.IRIDIA, "Iridia");
         addBlock(ReduxBlocks.POTTED_IRIDIA, "Potted Iridia");
