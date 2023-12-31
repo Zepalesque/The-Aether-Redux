@@ -354,6 +354,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.LIGHTROOT_CLUMP, "Lightroot Clump");
         addLore(ReduxItems.LIGHTROOT_CLUMP, "A clump of the glowing roots that grow in the Cloudcap Jungle. These can be eaten, and give night vision.");
 
+        addItem(ReduxItems.SENTRY_CIRCUIT, "Sentry Circuit");
+        addLore(ReduxItems.SENTRY_CIRCUIT, "Some internal parts of a sentry. No one knows who made them, some say the Valkyries, others say they existed longer.");
+
 
         addBlock(ReduxBlocks.GOLDEN_CLOVER, "Golden Clover");
         addBlock(ReduxBlocks.POTTED_GOLDEN_CLOVER, "Potted Golden Clover");

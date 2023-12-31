@@ -57,6 +57,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         item(ReduxItems.RING_OF_WISDOM, "accessories/");
         item(ReduxItems.SPECTRAL_DART, "weapons/");
         item(ReduxItems.SPECTRAL_DART_SHOOTER, "weapons/");
+        item(ReduxItems.SENTRY_CIRCUIT, "materials/");
         item(ReduxItems.OATS, "materials/");
         itemBlock(ReduxBlocks.AEVYRN_BUSH);
         item(ReduxItems.BLUEBERRY_PIE, "food/");

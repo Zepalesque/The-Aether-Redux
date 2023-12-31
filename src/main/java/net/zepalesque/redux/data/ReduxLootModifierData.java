@@ -55,6 +55,16 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                         LootItemRandomChanceCondition.randomChance(0.02F).build()
                 }));
 
+
+        this.add("sentry_circuit", new GenesisAddEntityDropsModifier(new ItemStack(ReduxItems.SENTRY_CIRCUIT.get()),
+                new LootItemFunction[] {
+                        SetItemCountFunction.setCount(UniformGenerator.between(0, 2.0F)).build(),
+                        LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)).build() },
+                new LootItemCondition[] {
+                        LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(AetherEntityTypes.SENTRY.get())).build(),
+                        LootItemRandomChanceCondition.randomChance(0.75F).build()
+                }));
+
         this.add("swet_sugar_no_genesis", new GenesisAddEntityDropsModifier(new ItemStack(Items.SUGAR),
                 new LootItemFunction[] {
                         SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F)).build(),
@@ -144,6 +154,5 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                         .build(),
                         DataLootCondition.conditionOf(Conditions.GENESIS).build()
                 }));
-
     }
 }

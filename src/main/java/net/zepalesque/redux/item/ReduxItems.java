@@ -120,6 +120,7 @@ public class ReduxItems {
 
     public static final RegistryObject<Item> OAT_MUFFIN = register("oat_muffin", () -> new Item(new Item.Properties().food(ReduxFoods.OAT_MUFFIN)));
 
+
     public static final RegistryObject<Item> QUICKROOT = register("quickroot", () -> new ItemNameBlockItem(ReduxBlocks.QUICKROOTS.get(), new Item.Properties().food(ReduxFoods.QUICKROOT)));
 
     public static final RegistryObject<Item> CHROMABERRY = register("chromaberry", () -> new Item(new Item.Properties().food(ReduxFoods.CHROMABERRY)));
@@ -127,6 +128,8 @@ public class ReduxItems {
     public static final RegistryObject<Item> LIGHTROOT_CLUMP = register("lightroot_clump", () -> new ItemNameBlockItem(ReduxBlocks.SPROUTING_LIGHTROOTS.get(), new Item.Properties().food(ReduxFoods.LIGHTROOT_CLUMP)));
 
     public static final RegistryObject<Item> VAMPIRE_AMULET = register("vampire_amulet", () -> new VampireAmuletItem(ReduxSoundEvents.EQUIP_VAMPIRE_AMULET, new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT), "vampire_amulet_night_ability", "vampire_amulet_day_debuff"));
+
+    public static final RegistryObject<Item> SENTRY_CIRCUIT = register("sentry_circuit", () -> new Item(new Item.Properties()));
 
     public static <T extends Item> RegistryObject<T> register(final String name, final Supplier<T> item)
     {
