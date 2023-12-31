@@ -28,7 +28,7 @@ import javax.annotation.Nullable;
 import java.util.Map;
 import java.util.UUID;
 
-// TODO: Move to mixin
+// TODO: Move to mixin, merge all extra layers and add glow layer
 public class ReduxMoaRenderer extends MobRenderer<Moa, ReduxMoaModel> {
     private static final ResourceLocation DEFAULT_TEXTURE = new ResourceLocation("aether", "textures/entity/mobs/moa/white_moa.png");
     private static final ResourceLocation MOS_TEXTURE = new ResourceLocation(Aether.MODID, "textures/entity/mobs/moa/mos.png");
