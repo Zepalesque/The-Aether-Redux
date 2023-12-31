@@ -241,7 +241,7 @@ public class ReduxPlacedFeatures {
         register(context, FROSTED_PURPLE_FLOWER_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.FROSTED_PURPLE_FLOWER_PATCH),
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 2), 4),
-                RarityFilter.onAverageOnceEvery(2),
+                RarityFilter.onAverageOnceEvery(7),
                 BiomeFilter.biome()
         );
 
