@@ -20,9 +20,6 @@ import net.zepalesque.redux.client.render.entity.model.entity.cockatrice.Updated
 import net.zepalesque.redux.client.render.entity.model.entity.moa.MoaExtrasModel;
 import net.zepalesque.redux.client.render.entity.model.entity.moa.MoaLegsModel;
 import net.zepalesque.redux.client.render.entity.model.entity.moa.MoaWingsModel;
-import net.zepalesque.redux.client.render.entity.model.entity.sheepuff.ConfiguredSheepuffModel;
-import net.zepalesque.redux.client.render.entity.model.entity.sheepuff.ConfiguredSheepuffWoolModel;
-import net.zepalesque.redux.client.render.entity.model.entity.sheepuff.PuffedConfiguredSheepuffWoolModel;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.item.ReduxItems;
 import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
@@ -52,7 +49,6 @@ public class ReduxRenderers {
         event.registerEntityRenderer(ReduxEntityTypes.VANILLA_SWET.get(), VanillaSwetRenderer::new);
         event.registerEntityRenderer(ReduxEntityTypes.SPECTRAL_DART.get(), SpectralDartRenderer::new);
         event.registerEntityRenderer(ReduxEntityTypes.VOLATILE_FIRE_CRYSTAL.get(), VolatileFireCrystalRenderer::new);
-        event.registerEntityRenderer(AetherEntityTypes.SHEEPUFF.get(), ReduxSheepuffRenderer::new);
 
         event.registerEntityRenderer(AetherEntityTypes.MIMIC.get(), ReduxMimicRenderer::new);
         event.registerEntityRenderer(AetherEntityTypes.SENTRY.get(), ReduxSentryRenderer::new);
@@ -75,9 +71,6 @@ public class ReduxRenderers {
         event.registerLayerDefinition(ReduxModelLayers.MOA_TALONS, MoaLegsModel::createTalonsLayer);
         event.registerLayerDefinition(ReduxModelLayers.MOA_EXTRAS, MoaExtrasModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.REDUX_COCKATRICE, UpdatedCockatriceModel::createBodyLayer);
-        event.registerLayerDefinition(ReduxModelLayers.SHEEPUFF_BODY, ConfiguredSheepuffModel::createBodyLayer);
-        event.registerLayerDefinition(ReduxModelLayers.SHEEPUFF_WOOL, ConfiguredSheepuffWoolModel::createBodyLayer);
-        event.registerLayerDefinition(ReduxModelLayers.SHEEPUFF_WOOL_PUFFED, PuffedConfiguredSheepuffWoolModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.MIMIC, ReduxMimicModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.SENTRY, ReduxSentryModel::createBodyLayer);
         if (Redux.aetherGenesisCompat()) {
