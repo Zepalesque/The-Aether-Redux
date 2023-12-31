@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "aether_redux:gilded_white_flower"
+    }
+  ],
+  "result": {
+    "item": "minecraft:white_dye"
+  }
+}

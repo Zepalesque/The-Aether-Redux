@@ -1,0 +1,48 @@
+{
+  "required": true,
+  "package": "net.zepalesque.redux.mixin",
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "aether_redux.refmap.json",
+  "mixins": [
+    "common.block.AetherGrassBlockMixin",
+    "common.block.BlockPropertiesAccessor",
+    "common.block.DoubleBlockMixin",
+    "common.block.EnchantedAetherGrassBlockMixin",
+    "common.block.FrictionCappedMixin",
+    "common.block.GrassBlockMixin",
+    "common.block.IForgeBlockQuicksoilBehaviorMixin",
+    "common.block.ParticleLeavesAccessor",
+    "common.block.ParticleLeavesMixin",
+    "common.block.ReduxWallBlockAccessor",
+    "common.entity.ArrowMixin",
+    "common.entity.MimicMixin",
+    "common.entity.MobMixin",
+    "common.entity.SentryMixin",
+    "common.entity.SlimeMixin",
+    "common.event.DimensionHooksMixin",
+    "common.item.AmbrosiumShardMixin",
+    "common.item.DiggerItemMixin",
+    "common.item.GummySwetItemMixin",
+    "common.item.ItemMixin",
+    "common.item.PickaxeItemMixin",
+    "common.world.BiomeGenerationSettingsMixin",
+    "common.world.BronzeDungeonRoomMixin",
+    "common.world.ChunkAccessAccessor",
+    "common.world.GoldDungeonStructureMixin",
+    "common.world.NoiseRouterAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "client.block.AetherLeavesClientMixin",
+    "client.block.LeafBlockClientMixin",
+    "client.gui.PackEntryMixin",
+    "client.gui.PackSelectionScreenMixin",
+    "client.gui.TransferableSelectionListMixin",
+    "client.render.AerbunnyRendererMixin",
+    "client.render.ArrowRendererMixin",
+    "client.render.HandItemMixin"
+  ]
+}

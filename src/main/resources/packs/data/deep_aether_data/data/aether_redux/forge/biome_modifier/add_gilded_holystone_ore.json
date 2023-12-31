@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "deep_aether:golden_heights",
+  "features": "aether_redux:ore/golden_heights_gilded_holystone_ore",
+  "step": "underground_ores"
+}

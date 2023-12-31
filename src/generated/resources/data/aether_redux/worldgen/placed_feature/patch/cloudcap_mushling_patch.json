@@ -1,0 +1,35 @@
+{
+  "feature": "aether_redux:patch/cloudcap_mushling_patch",
+  "placement": [
+    {
+      "type": "minecraft:noise_threshold_count",
+      "above_noise": 10,
+      "below_noise": 5,
+      "noise_level": -0.8
+    },
+    {
+      "type": "aether:improved_layer_placement",
+      "count": {
+        "type": "minecraft:uniform",
+        "value": {
+          "max_inclusive": 3,
+          "min_inclusive": 0
+        }
+      },
+      "heightmap": "MOTION_BLOCKING",
+      "verticalBounds": 4
+    },
+    {
+      "type": "minecraft:biome"
+    },
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:would_survive",
+        "state": {
+          "Name": "aether_redux:cloudcap_mushling"
+        }
+      }
+    }
+  ]
+}

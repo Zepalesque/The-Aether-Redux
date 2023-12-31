@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "aether_redux:item/tools/infused_veridium_axe"
+  }
+}

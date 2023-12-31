@@ -1,0 +1,9 @@
+{
+  "values": [
+    "aether_redux:blue_swet_jelly",
+    {
+      "id": "aether_genesis:blue_swet_jelly",
+      "required": false
+    }
+  ]
+}

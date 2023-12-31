@@ -1,0 +1,655 @@
+package net.zepalesque.redux.data.resource;
+
+import com.aetherteam.aether.Aether;
+import com.aetherteam.aether.AetherTags;
+import com.aetherteam.aether.block.AetherBlockStateProperties;
+import com.aetherteam.aether.block.AetherBlocks;
+import com.aetherteam.aether.data.resources.AetherFeatureStates;
+import com.aetherteam.aether.data.resources.registries.AetherConfiguredFeatures;
+import com.aetherteam.aether.world.configuration.ShelfConfiguration;
+import com.aetherteam.aether.world.feature.AetherFeatures;
+import com.aetherteam.aether.world.foliageplacer.CrystalFoliagePlacer;
+import com.aetherteam.aether.world.foliageplacer.GoldenOakFoliagePlacer;
+import com.aetherteam.aether.world.trunkplacer.CrystalTreeTrunkPlacer;
+import com.aetherteam.aether.world.trunkplacer.GoldenOakTrunkPlacer;
+import net.minecraft.core.*;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.valueproviders.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.PinkPetalsBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.*;
+import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.BushFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.FancyFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.rootplacers.AboveRootPlacement;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.FancyTrunkPlacer;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
+import net.minecraft.world.level.levelgen.placement.CaveSurface;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
+import net.minecraftforge.registries.RegistryObject;
+import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.block.util.ReduxStateProperties;
+import net.zepalesque.redux.misc.ReduxTags;
+import net.zepalesque.redux.world.feature.ReduxFeatureRegistry;
+import net.zepalesque.redux.world.feature.config.*;
+import net.zepalesque.redux.world.tree.decorator.EnchantedVineDecorator;
+import net.zepalesque.redux.world.tree.decorator.PatchTreeDecorator;
+import net.zepalesque.redux.world.tree.foliage.BlightwillowFoliagePlacer;
+import net.zepalesque.redux.world.tree.foliage.GlaciaFoliagePlacer;
+import net.zepalesque.redux.world.tree.root.BlightwillowRootConfig;
+import net.zepalesque.redux.world.tree.root.BlightwillowRootPlacer;
+import net.zepalesque.redux.world.tree.trunk.BlightwillowTrunkPlacer;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+import java.util.OptionalInt;
+
+public class    ReduxConfiguredFeatures {
+
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> AA_QUICKSOIL_SHELF = createKey(Folders.COMPAT + "aa_quicksoil_shelf");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FIRECAP_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.FIRECAP) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> AEVELIUM_GRASSES_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.AEVELIUM) + "_grasses_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> AEVYRN_BUSH_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.AEVYRN_BUSH) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> AURUM_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.AURUM) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTED_GRASS_PATCH = createKey(Folders.PATCH + "blighted_grass_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTED_SKYROOT_TREE = createKey(Folders.TREE + "blighted_skyroot_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTMOSS_PATCH = createKey(Folders.CAVE + "blightmoss_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTMOSS_PATCH_BONEMEAL = createKey(Folders.CAVE + "blightmoss_patch_bonemeal");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTMOSS_VEGETATION = createKey(Folders.CAVE + "blightmoss_vegetation");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTSHADE_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.BLIGHTSHADE) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTWILLOW_TREE = createKey(Folders.TREE + "blightwillow_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHT_ROCK = createKey(Folders.SURFACE + "blight_rock");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHT_TREES = createKey(Folders.TREE + "blight_trees");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CHROMATIC_BUSH = createKey(Folders.PATCH + "chromatic_bush");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CLOUDCAP_MUSHLING_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.CLOUDCAP_MUSHLING) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ENCHANTED_GRASS_PATCH = createKey(Folders.PATCH + "enchanted_grass_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_GILDED_OAK_TREE = createKey(Folders.TREE + "fancy_gilded_oak_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_GOLDEN_OAK_TREE = createKey(Folders.TREE + "fancy_golden_oak_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTBUD_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.DAGGERBLOOM) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTED_FERN_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.FROSTED_FERN) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTED_GRASS_PATCH = createKey(Folders.PATCH + "frosted_grass_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTED_HOLYSTONE_ORE = createKey(Folders.ORE + name(ReduxBlocks.FROSTED_HOLYSTONE) + "_ore");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTED_PURPLE_FLOWER_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.FROSTED_PURPLE_FLOWER) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTED_TREES = createKey(Folders.TREE + "frosted_trees");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GILDED_HOLYSTONE_ORE = createKey(Folders.ORE + name(ReduxBlocks.GILDED_HOLYSTONE) + "_ore");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GILDED_LEAF_PATCH  = createKey(Folders.PATCH + "gilded_leaf_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GILDED_OAK_TREE = createKey(Folders.TREE + "gilded_oak_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GILDED_ROCK  = createKey(Folders.SURFACE + "gilded_rock");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GILDED_WHITE_FLOWER_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.GILDED_WHITE_FLOWER) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GLOWSPROUTS_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.LUXWEED) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_CLOVER_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.GOLDEN_CLOVER) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_LEAF_PATCH = createKey(Folders.PATCH + "golden_leaf_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GROVE_TREES = createKey(Folders.TREE + "grove_trees");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> HIGHFIELDS_ROCK  = createKey(Folders.SURFACE + "highfields_rock");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> HOLYSILT_DISK  = createKey(Folders.SURFACE + "holysilt_disk");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SKYSPROUTS_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.SKYSPROUTS) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> HIGHFIELDS_TREES = createKey(Folders.TREE + "highfields_trees");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> IRIDIA_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.IRIDIA) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_CLOUDCAP  = createKey(Folders.TREE + "large_cloudcap");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_GLACIA_TREE = createKey(Folders.TREE + "large_glacia_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_MUSHROOMS = createKey(Folders.TREE + "large_mushrooms");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_SPRINGSHROOM  = createKey(Folders.TREE + "large_springshroom");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LIGHTROOT_AETHER_DIRT_ORE  = createKey(Folders.ORE + name(ReduxBlocks.LIGHTROOT_AETHER_DIRT) + "_ore");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LUMINA_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.LUMINA) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> MEGA_CLOUDCAP  = createKey(Folders.TREE + "mega_cloudcap");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> MOSSY_HOLYSTONE_ORE  = createKey(Folders.ORE + name(AetherBlocks.MOSSY_HOLYSTONE) + "_ore");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> MOSSY_ROCK  = createKey(Folders.SURFACE + "mossy_rock");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWERING_FIELDSPROUT_TREE = createKey(Folders.TREE + "flowering_fieldsprout_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ROOTED_QUICKSOIL_SHELF = createKey(Folders.SURFACE + "rooted_quicksoil_shelf");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> WYNDSPROUTS_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.WYNDSPROUTS) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_GLACIA_TREE = createKey(Folders.TREE + "small_glacia_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SPIROLYCTIL_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.SPIROLYCTIL) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SPRINGSHROOM_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.SPRINGSHROOM) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SPROUTING_LIGHTROOTS_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.SPROUTING_LIGHTROOTS) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SURFACE_RULE_WATER_LAKE = createKey(Folders.SURFACE + "surface_rule_water_lake");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> THORNCAP_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.BLIGHTED_FUNGI) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> VERIDIUM_ORE = createKey(Folders.ORE + name(ReduxBlocks.VERIDIUM_ORE));
+    public static final ResourceKey<ConfiguredFeature<?, ?>> VITRIUM_ORE = createKey(Folders.ORE + name(ReduxBlocks.VITRIUM) + "_ore");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CRYSTAL_TREE_OVERRIDE = aetherKey("crystal_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_OAK_TREE_OVERRIDE = aetherKey("golden_oak_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GRASS_PATCH_OVERRIDE = aetherKey("grass_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TALL_GRASS_PATCH_OVERRIDE = aetherKey("tall_grass_patch");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CLOUD_LAYER = createKey(Folders.MISC + "cloud_layer");
+
+    private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
+        return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(Redux.MODID, name));
+    }
+
+    private static ResourceKey<ConfiguredFeature<?, ?>> aetherKey(String name) {
+        return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(Aether.MODID, name));
+    }
+
+
+    public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
+        HolderGetter<Block> blocks = context.lookup(Registries.BLOCK);
+        HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
+        register(context, AEVELIUM_GRASSES_PATCH, ReduxFeatureRegistry.SUPPORT_TEST_PATCH.get(),
+                blockBelowPlacementPatch(32, 7, 3, (new WeightedStateProvider(
+                                SimpleWeightedRandomList.<BlockState>builder()
+                                        .add(drops(ReduxBlocks.AEVELIUM_SPROUTS), 5)
+                                        .add(drops(ReduxBlocks.AEVELIUM_GROWTH), 3))),
+                        BlockPredicate.matchesBlocks(ReduxBlocks.AEVELIUM.get())));
+        register(context, AEVYRN_BUSH_PATCH, ReduxFeatureRegistry.BIOME_BORDER_PLACEMENT_FLOWER.get(),
+                biomePlacementPatch(16, 5, 3, BlockStateProvider.simple(drops(ReduxBlocks.AEVYRN_BUSH))));
+        register(context, AA_QUICKSOIL_SHELF, ReduxFeatureRegistry.ROOTED_SHELF.get(),
+                new RootedShelfConfiguration(BlockStateProvider.simple(drops(AetherBlocks.QUICKSOIL)),
+                        BlockStateProvider.simple(drops(ReduxBlocks.QUICKROOTS).setValue(ReduxStateProperties.HARVESTED, false)),
+                        ConstantFloat.of(7.5F), UniformInt.of(78, 80), blocks.getOrThrow(AetherTags.Blocks.AETHER_ISLAND_BLOCKS)));
+        register(context, AURUM_PATCH, ReduxFeatureRegistry.BIOME_BORDER_PLACEMENT_FLOWER.get(),
+                biomePlacementPatch(12, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.AURUM))));
+        register(context, GILDED_WHITE_FLOWER_PATCH, ReduxFeatureRegistry.BIOME_BORDER_PLACEMENT_FLOWER.get(),
+                biomePlacementPatch(16, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.GILDED_WHITE_FLOWER))));
+        register(context, HOLYSILT_DISK, AetherFeatures.SHELF.get(),
+                new ShelfConfiguration(BlockStateProvider.simple(drops(ReduxBlocks.HOLYSILT)),
+                        ConstantFloat.of(3.5F), UniformInt.of(0, 48), HolderSet.direct(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.getHolder().get(), ReduxBlocks.COARSE_AETHER_DIRT.getHolder().get())));
+        register(context, BLIGHTMOSS_PATCH, Feature.VEGETATION_PATCH,
+                new VegetationPatchConfiguration(ReduxTags.Blocks.BLIGHT_REPLACEABLES,
+                        prov(ReduxBlocks.BLIGHTMOSS_BLOCK),
+                        Holder.direct(new PlacedFeature(configuredFeatures.getOrThrow(BLIGHTMOSS_VEGETATION),
+                                List.of())),
+                        CaveSurface.FLOOR,
+                        ConstantInt.of(1),
+                        0.0F,
+                        2,
+                        0.8F,
+                        UniformInt.of(4, 7),
+                        0.3F));
+        register(context, BLIGHTMOSS_PATCH_BONEMEAL, Feature.VEGETATION_PATCH,
+                new VegetationPatchConfiguration(ReduxTags.Blocks.AETHER_CARVER_REPLACEABLES,
+                        prov(ReduxBlocks.BLIGHTMOSS_BLOCK),
+                        Holder.direct(new PlacedFeature(configuredFeatures.getOrThrow(BLIGHTMOSS_VEGETATION),
+                                List.of())),
+                        CaveSurface.FLOOR,
+                        ConstantInt.of(1),
+                        0.0F,
+                        2,
+                        0.8F,
+                        UniformInt.of(1, 2),
+                        0.75F));
+
+        register(context, CLOUD_LAYER, ReduxFeatureRegistry.CLOUD_LAYER.get(),
+                new CloudLayerConfig(prov(AetherBlocks.COLD_AERCLOUD), 8, 24, 1D));
+        register(context, BLIGHT_ROCK, Feature.FOREST_ROCK,
+                new BlockStateConfiguration(drops(ReduxBlocks.BLIGHTMOSS_HOLYSTONE)));
+        register(context, BLIGHTMOSS_VEGETATION, Feature.SIMPLE_BLOCK,
+                new SimpleBlockConfiguration(new WeightedStateProvider(
+                        SimpleWeightedRandomList.<BlockState>builder()
+                                .add(drops(ReduxBlocks.BLIGHTSHADE), 11)
+                                .add(drops(ReduxBlocks.BLIGHTED_FUNGI), 4)
+                                .add(drops(ReduxBlocks.SPIROLYCTIL), 7)
+                                .add(drops(ReduxBlocks.BLIGHTMOSS_CARPET), 75)
+                                .add(drops(ReduxBlocks.BLIGHTED_AETHER_GRASS), 150)
+                                .add(drops(ReduxBlocks.LUXWEED), 120)
+                )));
+        register(context, BLIGHTED_GRASS_PATCH, ReduxFeatureRegistry.SUPPORT_TEST_PATCH.get(),
+                blockBelowPlacementPatch(32, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.BLIGHTED_AETHER_GRASS)),
+                        BlockPredicate.matchesBlocks(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get())));
+        register(context, BLIGHTED_SKYROOT_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+                BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LOG),
+                new StraightTrunkPlacer(4, 2, 0),
+                BlockStateProvider.simple(drops(ReduxBlocks.BLIGHTED_SKYROOT_LEAVES)),
+                new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 3),
+                new TwoLayersFeatureSize(1, 0, 1)
+        ).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT)).build());
+        register(context, BLIGHTSHADE_PATCH, ReduxFeatureRegistry.SUPPORT_TEST_FLOWER.get(),
+                blockBelowPlacementPatch(24, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.BLIGHTSHADE)),
+                        BlockPredicate.matchesBlocks(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get())));
+        register(context, BLIGHTWILLOW_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+                new WeightedStateProvider(
+                        SimpleWeightedRandomList.<BlockState>builder()
+                                .add(drops(Redux.Handlers.Wood.BLIGHTWILLOW.log), 7)
+                                .add(drops(Redux.Handlers.Wood.BLIGHTWILLOW.sporingLog.orElseThrow()), 1)
+                ),
+                new BlightwillowTrunkPlacer(5, 2, 2, new WeightedStateProvider(
+                        SimpleWeightedRandomList.<BlockState>builder()
+                                .add(drops(Redux.Handlers.Wood.BLIGHTWILLOW.wood), 7)
+                                .add(drops(Redux.Handlers.Wood.BLIGHTWILLOW.sporingWood.orElseThrow()), 1)
+                ), UniformInt.of(4, 6), UniformInt.of(3, 4)),
+                BlockStateProvider.simple(drops(ReduxBlocks.BLIGHTWILLOW_LEAVES)),
+                new BlightwillowFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
+                Optional.of(
+                        new BlightwillowRootPlacer(ConstantInt.of(1), BlockStateProvider.simple(drops(ReduxBlocks.BLIGHTWILLOW_ROOTS)),
+                                Optional.of(new AboveRootPlacement(BlockStateProvider.simple(drops(ReduxBlocks.BLIGHTMOSS_CARPET)), 0.8F)),
+                                new BlightwillowRootConfig(blocks.getOrThrow(ReduxTags.Blocks.BLIGHTWILLOW_ROOTS_CAN_GROW_THROUGH), 3))
+                ),
+                new TwoLayersFeatureSize(2, 0, 2)
+        ).ignoreVines().dirt(BlockStateProvider.simple(Blocks.AIR)).build());
+        register(context, FIRECAP_PATCH, ReduxFeatureRegistry.BIOME_BORDER_PLACEMENT_FLOWER.get(),
+                biomePlacementPatch(12, 3, 3, BlockStateProvider.simple(drops(ReduxBlocks.FIRECAP))));
+        register(context, CLOUDCAP_MUSHLING_PATCH, ReduxFeatureRegistry.SUPPORT_TEST_FLOWER.get(),
+                blockBelowPlacementPatch(16, 5, 3, BlockStateProvider.simple(drops(ReduxBlocks.CLOUDCAP_MUSHLING)),
+                        BlockPredicate.matchesBlocks(ReduxBlocks.AEVELIUM.get())));
+        register(context, ENCHANTED_GRASS_PATCH, ReduxFeatureRegistry.SUPPORT_TEST_PATCH.get(),
+                blockBelowPlacementPatch(32, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.ENCHANTED_AETHER_GRASS)),
+                        BlockPredicate.matchesBlocks(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get())));
+        register(context, FROSTBUD_PATCH, ReduxFeatureRegistry.BIOME_BORDER_PLACEMENT_FLOWER.get(),
+                biomePlacementPatch(12, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.DAGGERBLOOM))));
+        register(context, FROSTED_FERN_PATCH, ReduxFeatureRegistry.BIOME_BORDER_PLACEMENT_FLOWER.get(),
+                biomePlacementPatch(24, 9, 3, BlockStateProvider.simple(drops(ReduxBlocks.FROSTED_FERN))));
+        register(context, FROSTED_GRASS_PATCH, ReduxFeatureRegistry.BIOME_BORDER_PLACEMENT_PATCH.get(),
+                biomePlacementPatch(32, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.FROSTED_AETHER_GRASS))));
+        register(context, FROSTED_HOLYSTONE_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
+                drops(ReduxBlocks.FROSTED_HOLYSTONE), 64, 0.3F));
+        register(context, FROSTED_PURPLE_FLOWER_PATCH, ReduxFeatureRegistry.BIOME_BORDER_PLACEMENT_FLOWER.get(),
+                biomePlacementPatch(16, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.FROSTED_PURPLE_FLOWER))));
+        register(context, GILDED_HOLYSTONE_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
+                drops(ReduxBlocks.GILDED_HOLYSTONE), 32, 0.3F));
+        register(context, GILDED_LEAF_PATCH, ReduxFeatureRegistry.BLOCK_TEST_PATCH.get(),
+                blockTestPatch(8, 3, 3, createLeafPileLayers(ReduxBlocks.GILDED_LEAF_PILE),
+                        BlockPredicate.wouldSurvive(ReduxBlocks.AURUM.get().defaultBlockState(), BlockPos.ZERO)));
+        register(context, GILDED_ROCK, Feature.FOREST_ROCK,
+                new BlockStateConfiguration(drops(ReduxBlocks.GILDED_HOLYSTONE)));
+
+        register(context, GILDED_OAK_TREE, Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        new WeightedStateProvider(
+                                SimpleWeightedRandomList.<BlockState>builder()
+                                        .add(AetherFeatureStates.SKYROOT_LOG, 3)
+                                        .add(AetherFeatureStates.GOLDEN_OAK_LOG, 1)
+                        ),
+                        new GoldenOakTrunkPlacer(10, 0, 0),
+                        BlockStateProvider.simple(drops(ReduxBlocks.GILDED_OAK_LEAVES)),
+                        new GoldenOakFoliagePlacer(ConstantInt.of(3), ConstantInt.of(1), ConstantInt.of(7)),
+                        new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(10))
+                ).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT))
+                        .decorators(Arrays.asList(
+                                new EnchantedVineDecorator(0.125F, 0.35F,
+                                        BlockStateProvider.simple(drops(ReduxBlocks.GILDED_VINES_PLANT)),
+                                        BlockStateProvider.simple(drops(ReduxBlocks.GILDED_VINES)),
+                                        UniformInt.of(1, 2),
+                                        UniformInt.of(2, 3)),
+                                new PatchTreeDecorator(createLeafPileLayers(ReduxBlocks.GILDED_LEAF_PILE), 7, 3, 32))).build());
+
+        register(context, ReduxConfiguredFeatures.FANCY_GILDED_OAK_TREE, Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        new WeightedStateProvider(
+                                SimpleWeightedRandomList.<BlockState>builder()
+                                        .add(AetherFeatureStates.SKYROOT_LOG, 3)
+                                        .add(AetherFeatureStates.GOLDEN_OAK_LOG, 1)
+                        ),
+                        new FancyTrunkPlacer(10, 0, 0),
+                        BlockStateProvider.simple(drops(ReduxBlocks.GILDED_OAK_LEAVES)),
+                        new FancyFoliagePlacer(ConstantInt.of(2), ConstantInt.of(4), 4),
+                        new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(10))
+                ).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT))
+                        .decorators(Arrays.asList(
+                                new EnchantedVineDecorator(0.5F, 0.75F,
+                                        BlockStateProvider.simple(drops(ReduxBlocks.GILDED_VINES_PLANT)),
+                                        BlockStateProvider.simple(drops(ReduxBlocks.GILDED_VINES)),
+                                        UniformInt.of(1, 2),
+                                        UniformInt.of(3, 5)
+                                ), new PatchTreeDecorator(createLeafPileLayers(ReduxBlocks.GILDED_LEAF_PILE), 7, 3, 32))).build());
+
+        register(context, GOLDEN_OAK_TREE_OVERRIDE, Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        BlockStateProvider.simple(AetherFeatureStates.GOLDEN_OAK_LOG),
+                        new GoldenOakTrunkPlacer(10, 0, 0),
+                        BlockStateProvider.simple(AetherFeatureStates.GOLDEN_OAK_LEAVES),
+                        new GoldenOakFoliagePlacer(ConstantInt.of(3), ConstantInt.of(1), ConstantInt.of(7)),
+                        new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(10))
+                ).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT))
+                        .decorators(Arrays.asList(
+                                new EnchantedVineDecorator(0.125F, 0.35F,
+                                        BlockStateProvider.simple(drops(ReduxBlocks.GOLDEN_VINES_PLANT)),
+                                        BlockStateProvider.simple(drops(ReduxBlocks.GOLDEN_VINES)),
+                                        UniformInt.of(1, 2),
+                                        UniformInt.of(2, 3)),
+                                new PatchTreeDecorator(createLeafPileLayers(ReduxBlocks.GOLDEN_LEAF_PILE), 7, 3, 32))).build());
+
+        register(context, ReduxConfiguredFeatures.FANCY_GOLDEN_OAK_TREE, Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        BlockStateProvider.simple(AetherFeatureStates.GOLDEN_OAK_LOG),
+                        new FancyTrunkPlacer(10, 0, 0),
+                        BlockStateProvider.simple(drops(AetherBlocks.GOLDEN_OAK_LEAVES)),
+                        new FancyFoliagePlacer(ConstantInt.of(2), ConstantInt.of(4), 4),
+                        new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(10))
+                ).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT))
+                        .decorators(Arrays.asList(
+                                new EnchantedVineDecorator(0.5F, 0.75F,
+                                        BlockStateProvider.simple(drops(ReduxBlocks.GOLDEN_VINES_PLANT)),
+                                        BlockStateProvider.simple(drops(ReduxBlocks.GOLDEN_VINES)),
+                                        UniformInt.of(1, 2),
+                                        UniformInt.of(3, 5)
+                                ), new PatchTreeDecorator(createLeafPileLayers(ReduxBlocks.GOLDEN_LEAF_PILE), 7, 3, 32))).build());
+
+        register(context, CRYSTAL_TREE_OVERRIDE, Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        BlockStateProvider.simple(drops(Redux.Handlers.Wood.CRYSTAL.log)),
+                        new CrystalTreeTrunkPlacer(7, 0, 0),
+                        new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(AetherFeatureStates.CRYSTAL_LEAVES, 4).add(AetherFeatureStates.CRYSTAL_FRUIT_LEAVES, 1).build()),
+                        new CrystalFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0), ConstantInt.of(6)),
+                        new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
+
+        register(context, LARGE_GLACIA_TREE, Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        BlockStateProvider.simple(drops(Redux.Handlers.Wood.GLACIA.log)),
+                        new StraightTrunkPlacer(9, 10, 0),
+                        prov(ReduxBlocks.GLACIA_LEAVES),
+                        new GlaciaFoliagePlacer(ConstantInt.of(1), ConstantInt.of(0), ConstantInt.of(1)),
+                        new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT)).build());
+
+        register(context, SMALL_GLACIA_TREE, Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        BlockStateProvider.simple(drops(Redux.Handlers.Wood.GLACIA.log)),
+                        new StraightTrunkPlacer(5, 2, 0),
+                        prov(ReduxBlocks.GLACIA_LEAVES),
+                        new GlaciaFoliagePlacer(ConstantInt.of(1), ConstantInt.of(0), ConstantInt.of(1)),
+                        new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT)).build());
+
+        register(context, GLOWSPROUTS_PATCH, ReduxFeatureRegistry.SUPPORT_TEST_FLOWER.get(),
+                blockBelowPlacementPatch(24, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.LUXWEED)),
+                        BlockPredicate.matchesBlocks(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get())));
+
+        register(context, GOLDEN_CLOVER_PATCH, ReduxFeatureRegistry.BIOME_BORDER_PLACEMENT_FLOWER.get(),
+                biomePlacementPatch(12, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.GOLDEN_CLOVER))));
+
+        register(context, GOLDEN_LEAF_PATCH, ReduxFeatureRegistry.BLOCK_TEST_PATCH.get(),
+                blockTestPatch(8, 3, 3, createLeafPileLayers(ReduxBlocks.GOLDEN_LEAF_PILE),
+                        BlockPredicate.wouldSurvive(ReduxBlocks.AURUM.get().defaultBlockState(), BlockPos.ZERO)));
+        register(context, HIGHFIELDS_ROCK, Feature.FOREST_ROCK,
+                new BlockStateConfiguration(AetherFeatureStates.HOLYSTONE));
+
+        register(context, IRIDIA_PATCH, ReduxFeatureRegistry.BIOME_BORDER_PLACEMENT_FLOWER.get(),
+                biomePlacementPatch(4, 3, 3, BlockStateProvider.simple(drops(ReduxBlocks.IRIDIA))));
+        register(context, LARGE_CLOUDCAP, ReduxFeatureRegistry.LARGE_CLOUDCAP.get(),
+                new HugeAetherMushroomFeatureConfiguration(
+                        prov(ReduxBlocks.CLOUD_CAP_BLOCK),
+                        prov(ReduxBlocks.CLOUDCAP_SPORES),
+                        prov(Redux.Handlers.Wood.CLOUDCAP.log),
+                        2
+                ));
+        register(context, LARGE_MUSHROOMS, Feature.RANDOM_SELECTOR,
+                new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
+                        PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(LARGE_SPRINGSHROOM), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.SPRINGSHROOM.get())), 0.3F),
+                        new WeightedPlacedFeature(
+                                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(MEGA_CLOUDCAP), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.CLOUDCAP_MUSHLING.get())), 0.15F)),
+                        PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(LARGE_CLOUDCAP), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.CLOUDCAP_MUSHLING.get()))));
+        register(context, LARGE_SPRINGSHROOM, ReduxFeatureRegistry.LARGE_SPRINGSHROOM.get(),
+                new HugeAetherMushroomFeatureConfiguration(
+                        prov(ReduxBlocks.SPRINGSHROOM_CAP_BLOCK),
+                        prov(ReduxBlocks.SPRINGSHROOM_SPORES),
+                        prov(Redux.Handlers.Wood.SPRINGSHROOM.log),
+                        2
+                ));
+        register(context, LIGHTROOT_AETHER_DIRT_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.AETHER_DIRT),
+                drops(ReduxBlocks.LIGHTROOT_AETHER_DIRT), 32, 0.3F));
+        register(context, LUMINA_PATCH, ReduxFeatureRegistry.BIOME_BORDER_PLACEMENT_FLOWER.get(),
+                biomePlacementPatch(12, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.LUMINA))));
+        register(context, MEGA_CLOUDCAP, ReduxFeatureRegistry.MEGA_CLOUDCAP.get(),
+                new MegaCloudcapFeatureConfiguration(
+                        prov(ReduxBlocks.CLOUD_CAP_BLOCK),
+                        prov(ReduxBlocks.CLOUDCAP_SPORES),
+                        prov(Redux.Handlers.Wood.CLOUDCAP.log),
+                        prov(Redux.Handlers.Wood.CLOUDCAP.wood)
+                ));
+        register(context, MOSSY_HOLYSTONE_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
+                drops(AetherBlocks.MOSSY_HOLYSTONE), 32, 0.3F));
+        register(context, MOSSY_ROCK, Feature.FOREST_ROCK,
+                new BlockStateConfiguration(drops(AetherBlocks.MOSSY_HOLYSTONE)));
+
+        register(context, FLOWERING_FIELDSPROUT_TREE, ReduxFeatureRegistry.FIELDSPROUT_TREE.get(),
+                new FieldsproutTreeConfig(
+                        prov(ReduxBlocks.FLOWERING_FIELDSPROUT_LEAVES),
+                        prov(Redux.Handlers.Wood.FIELDSPROUT.log),
+                        prov(Redux.Handlers.Wood.FIELDSPROUT.wood),
+                        new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
+                                .add(ConstantInt.of(0), 5)
+                                .add(ConstantInt.of(1), 4)
+                                .add(ConstantInt.of(2), 3)
+                                .add(ConstantInt.of(3), 2)
+                                .add(ConstantInt.of(4), 1)
+                                .build()), 7, 3, 32));
+
+        register(context, CHROMATIC_BUSH, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+                prov(Redux.Handlers.Wood.FIELDSPROUT.log),
+                new StraightTrunkPlacer(1, 0, 0),
+                new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(drops(ReduxBlocks.CHROMATIC_LEAVES), 4).add(drops(ReduxBlocks.CHROMATIC_BERRY_LEAVES), 1).build()),
+                new BushFoliagePlacer(ConstantInt.of(2), ConstantInt.of(1), 2),
+                new TwoLayersFeatureSize(0, 0, 0)
+        ).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT)).build());
+
+
+        register(context, SURFACE_RULE_WATER_LAKE, ReduxFeatureRegistry.SURFACE_RULE_LAKE.get(),
+                new SurfaceRuleLakeConfig(BlockStateProvider.simple(Blocks.WATER)));
+
+        register(context, ROOTED_QUICKSOIL_SHELF, ReduxFeatureRegistry.ROOTED_SHELF.get(),
+                new RootedShelfConfiguration(BlockStateProvider.simple(drops(AetherBlocks.QUICKSOIL)),
+                        BlockStateProvider.simple(drops(ReduxBlocks.QUICKROOTS).setValue(ReduxStateProperties.HARVESTED, false)),
+                        ConstantFloat.of(3.5F), UniformInt.of(0, 48), blocks.getOrThrow(AetherTags.Blocks.AETHER_ISLAND_BLOCKS)));
+        register(context, WYNDSPROUTS_PATCH, ReduxFeatureRegistry.BIOME_BORDER_PLACEMENT_FLOWER.get(),
+                biomePlacementPatch(24, 5, 3, BlockStateProvider.simple(drops(ReduxBlocks.WYNDSPROUTS))));
+        register(context, SKYSPROUTS_PATCH, ReduxFeatureRegistry.BIOME_BORDER_PLACEMENT_FLOWER.get(),
+                biomePlacementPatch(24, 5, 3, BlockStateProvider.simple(drops(ReduxBlocks.SKYSPROUTS    ))));
+        register(context, SPIROLYCTIL_PATCH, ReduxFeatureRegistry.SUPPORT_TEST_FLOWER.get(),
+                blockBelowPlacementPatch(16, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.SPIROLYCTIL)),
+                        BlockPredicate.matchesBlocks(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get())));
+        register(context, SPRINGSHROOM_PATCH, ReduxFeatureRegistry.SUPPORT_TEST_FLOWER.get(),
+                blockBelowPlacementPatch(8, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.SPRINGSHROOM)),
+                        BlockPredicate.matchesBlocks(ReduxBlocks.AEVELIUM.get())));
+        register(context, SPROUTING_LIGHTROOTS_PATCH, ReduxFeatureRegistry.SUPPORT_TEST_PATCH.get(),
+                blockBelowPlacementPatch(32, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.SPROUTING_LIGHTROOTS)),
+                        BlockPredicate.matchesBlocks(ReduxBlocks.LIGHTROOT_AETHER_DIRT.get())));
+
+
+
+        register(context, THORNCAP_PATCH, ReduxFeatureRegistry.SUPPORT_TEST_FLOWER.get(),
+                blockBelowPlacementPatch(8, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.BLIGHTED_FUNGI)),
+                        BlockPredicate.matchesBlocks(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get())));
+
+        register(context, BLIGHT_TREES, Feature.RANDOM_SELECTOR,
+                new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
+                                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(BLIGHTED_SKYROOT_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.BLIGHTED_SKYROOT_SAPLING.get())), 0.25F)),
+                        PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(BLIGHTWILLOW_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.BLIGHTWILLOW_SAPLING.get()))));
+
+        register(context, GROVE_TREES, Feature.RANDOM_SELECTOR,
+                new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
+                                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(GOLDEN_OAK_TREE_OVERRIDE), PlacementUtils.filteredByBlockSurvival(AetherBlocks.GOLDEN_OAK_SAPLING.get())), 0.67F)),
+                        PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(GILDED_OAK_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.GILDED_OAK_SAPLING.get()))));
+        register(context, FROSTED_TREES, Feature.RANDOM_SELECTOR,
+                new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
+                                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(LARGE_GLACIA_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.GLACIA_SAPLING.get())), 0.45F)),
+                        PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(SMALL_GLACIA_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.GLACIA_SAPLING.get()))));
+        register(context, HIGHFIELDS_TREES, Feature.RANDOM_SELECTOR,
+                new RandomFeatureConfiguration(List.of(
+                        new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(AetherConfiguredFeatures.SKYROOT_TREE_CONFIGURATION),
+                                PlacementUtils.filteredByBlockSurvival(AetherBlocks.SKYROOT_SAPLING.get())), 0.15F),
+                        new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(CHROMATIC_BUSH),
+                                PlacementUtils.filteredByBlockSurvival(ReduxBlocks.CHROMATIC_SHRUB.get())), 0.25F)
+                ),
+                        PlacementUtils.inlinePlaced(
+                                configuredFeatures.getOrThrow(FLOWERING_FIELDSPROUT_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.FLOWERING_FIELDSPROUT_SAPLING.get()))
+                ));
+
+        register(context, VERIDIUM_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
+                drops(ReduxBlocks.VERIDIUM_ORE), 9, 0.1F));
+        register(context, VITRIUM_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
+                drops(ReduxBlocks.VITRIUM), 64, 0.0F));
+        register(context, GRASS_PATCH_OVERRIDE, ReduxFeatureRegistry.BIOME_BORDER_PLACEMENT_PATCH.get(),
+                biomePlacementPatch(32, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.AETHER_GRASS))));
+        register(context, TALL_GRASS_PATCH_OVERRIDE, Feature.NO_OP, FeatureConfiguration.NONE);
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    private static RandomPatchConfiguration biomePlacementPatch(int tries, int xz, int y, BlockStateProvider state)
+    {
+        return new RandomPatchConfiguration(tries, xz, y, PlacementUtils.onlyWhenEmpty(
+                Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(state)));
+    }
+    private static TestBelowPlaceConfig blockBelowPlacementPatch(int tries, int xz, int y, BlockStateProvider state, BlockPredicate predicate)
+    {
+        return new TestBelowPlaceConfig(predicate, tries, xz, y, PlacementUtils.onlyWhenEmpty(
+                Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(state)));
+    }
+    private static TestAtPlaceConfig blockTestPatch(int tries, int xz, int y, BlockStateProvider state, BlockPredicate predicate)
+    {
+        return new TestAtPlaceConfig(predicate, tries, xz, y, PlacementUtils.onlyWhenEmpty(
+                Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(state)));
+    }
+    private static BlockStateProvider createLeafPileLayers(BlockState state)
+    {
+        if (state.hasProperty(ReduxStateProperties.LEAF_LAYERS)) {
+        return new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                .add(state.setValue(ReduxStateProperties.LEAF_LAYERS, 1), 6)
+                .add(state.setValue(ReduxStateProperties.LEAF_LAYERS, 2), 5)
+                .add(state.setValue(ReduxStateProperties.LEAF_LAYERS, 3), 4)
+                .add(state.setValue(ReduxStateProperties.LEAF_LAYERS, 4), 3)
+                .add(state.setValue(ReduxStateProperties.LEAF_LAYERS, 5), 2)
+                .add(state.setValue(ReduxStateProperties.LEAF_LAYERS, 6), 1)
+        ); } else {
+            return BlockStateProvider.simple(state);
+        }
+    }
+
+    private static BlockStateProvider createFlowerbedProvider(BlockState state) {
+        if (state.hasProperty(PinkPetalsBlock.FACING) || state.hasProperty(PinkPetalsBlock.AMOUNT)) {
+            SimpleWeightedRandomList.Builder<BlockState> builder = SimpleWeightedRandomList.builder();
+            if (state.hasProperty(PinkPetalsBlock.FACING))
+            {
+                for (Direction d : PinkPetalsBlock.FACING.getPossibleValues())
+                {
+                    if (state.hasProperty(PinkPetalsBlock.AMOUNT))
+                    {
+                        BlockState temp = state.setValue(PinkPetalsBlock.FACING, d);
+                        for (int i : PinkPetalsBlock.AMOUNT.getPossibleValues()) {
+                            builder.add(temp.setValue(PinkPetalsBlock.AMOUNT, i), i);
+                        }
+                    } else {
+                        builder.add(state.setValue(PinkPetalsBlock.FACING, d), 1);
+                    }
+                }
+            } else if (state.hasProperty(PinkPetalsBlock.AMOUNT))
+            {
+                for (int i : PinkPetalsBlock.AMOUNT.getPossibleValues()) {
+                    builder.add(state.setValue(PinkPetalsBlock.AMOUNT, i), i);
+                }
+            }
+            return new WeightedStateProvider(builder);
+        }
+        return BlockStateProvider.simple(state);
+    }
+
+
+
+    private static BlockStateProvider createFlowerbedProvider(BlockState state, BlockState uncommon) {
+        if (state.hasProperty(PinkPetalsBlock.FACING) || state.hasProperty(PinkPetalsBlock.AMOUNT) || uncommon.hasProperty(PinkPetalsBlock.FACING) || uncommon.hasProperty(PinkPetalsBlock.AMOUNT)) {
+            SimpleWeightedRandomList.Builder<BlockState> builder = SimpleWeightedRandomList.builder();
+            if (state.hasProperty(PinkPetalsBlock.FACING))
+            {
+                for (Direction d : PinkPetalsBlock.FACING.getPossibleValues())
+                {
+                    if (state.hasProperty(PinkPetalsBlock.AMOUNT))
+                    {
+                        BlockState temp = state.setValue(PinkPetalsBlock.FACING, d);
+                        for (int i : PinkPetalsBlock.AMOUNT.getPossibleValues()) {
+                            builder.add(temp.setValue(PinkPetalsBlock.AMOUNT, i), i * 3);
+                        }
+                    } else {
+                        builder.add(state.setValue(PinkPetalsBlock.FACING, d), 6);
+                    }
+                }
+            } else if (state.hasProperty(PinkPetalsBlock.AMOUNT))
+            {
+                for (int i : PinkPetalsBlock.AMOUNT.getPossibleValues()) {
+                    builder.add(state.setValue(PinkPetalsBlock.AMOUNT, i), i * 3);
+                }
+            }
+            else {
+                builder.add(state, 6);
+            }
+
+
+
+            if (uncommon.hasProperty(PinkPetalsBlock.FACING))
+            {
+                for (Direction d : PinkPetalsBlock.FACING.getPossibleValues())
+                {
+                    if (uncommon.hasProperty(PinkPetalsBlock.AMOUNT))
+                    {
+                        BlockState temp = uncommon.setValue(PinkPetalsBlock.FACING, d);
+                        for (int i : PinkPetalsBlock.AMOUNT.getPossibleValues()) {
+                            builder.add(temp.setValue(PinkPetalsBlock.AMOUNT, i), i * 3);
+                        }
+                    } else {
+                        builder.add(uncommon.setValue(PinkPetalsBlock.FACING, d), 3);
+                    }
+                }
+            } else if (uncommon.hasProperty(PinkPetalsBlock.AMOUNT))
+            {
+                for (int i : PinkPetalsBlock.AMOUNT.getPossibleValues()) {
+                    builder.add(uncommon.setValue(PinkPetalsBlock.AMOUNT, i), i * 3);
+                }
+            }
+            else {
+                builder.add(uncommon, 2);
+            }
+            return new WeightedStateProvider(builder);
+        }
+
+        return BlockStateProvider.simple(state);
+    }
+    private static BlockStateProvider createLeafPileLayers(RegistryObject<? extends Block> block)
+    {
+        return createLeafPileLayers(drops(block));
+    }
+
+    private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
+        context.register(key, new ConfiguredFeature(feature, configuration));
+    }
+
+    private static String name(RegistryObject<?> reg)
+    {
+        return reg.getId().getPath();
+    }
+    private static BlockStateProvider prov(BlockState state)
+    {
+        return BlockStateProvider.simple(drops(state));
+    }
+    private static BlockStateProvider prov(RegistryObject<? extends Block> block)
+    {
+        return prov(block.get().defaultBlockState());
+    }
+
+
+    private static BlockState drops(BlockState state)
+    {
+        return state.hasProperty(AetherBlockStateProperties.DOUBLE_DROPS) ? state.setValue(AetherBlockStateProperties.DOUBLE_DROPS, true) : state;
+    }
+    private static BlockState drops(RegistryObject<? extends Block> block)
+    {
+        return drops(block.get().defaultBlockState());
+    }
+}

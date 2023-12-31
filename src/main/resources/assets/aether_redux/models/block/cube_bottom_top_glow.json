@@ -1,0 +1,18 @@
+{
+    "parent": "aether_redux:block/cube_glow",
+    "textures": {
+        "particle": "#side",
+        "down": "#bottom",
+        "up": "#top",
+        "north": "#side",
+        "east": "#side",
+        "south": "#side",
+        "west": "#side",
+        "down_glow": "#bottom_glow",
+        "up_glow": "#top_glow",
+        "north_glow": "#side_glow",
+        "east_glow": "#side_glow",
+        "south_glow": "#side_glow",
+        "west_glow": "#side_glow"
+    }
+}

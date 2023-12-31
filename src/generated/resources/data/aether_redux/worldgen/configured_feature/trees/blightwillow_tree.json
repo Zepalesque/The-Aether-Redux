@@ -1,0 +1,134 @@
+{
+  "type": "minecraft:tree",
+  "config": {
+    "decorators": [],
+    "dirt_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:air"
+      }
+    },
+    "foliage_placer": {
+      "type": "aether_redux:blightwillow_foliage_placer",
+      "offset": 0,
+      "radius": 2
+    },
+    "foliage_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "aether_redux:blightwillow_leaves",
+        "Properties": {
+          "distance": "7",
+          "double_drops": "true",
+          "persistent": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "force_dirt": false,
+    "ignore_vines": true,
+    "minimum_size": {
+      "type": "minecraft:two_layers_feature_size",
+      "limit": 2,
+      "lower_size": 0,
+      "upper_size": 2
+    },
+    "root_placer": {
+      "type": "aether_redux:blightwillow_root_placer",
+      "above_root_placement": {
+        "above_root_placement_chance": 0.8,
+        "above_root_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "aether_redux:blightmoss_carpet"
+          }
+        }
+      },
+      "root_config": {
+        "can_grow_through": "#aether_redux:blightwillow_roots_can_grow_through",
+        "max_root_length": 3
+      },
+      "root_provider": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "aether_redux:blightwillow_roots",
+          "Properties": {
+            "double_drops": "true",
+            "waterlogged": "false"
+          }
+        }
+      },
+      "trunk_offset_y": 1
+    },
+    "trunk_placer": {
+      "type": "aether_redux:blightwillow_trunk_placer",
+      "base_height": 5,
+      "height_rand_a": 2,
+      "height_rand_b": 2,
+      "large_branch_base_height": {
+        "type": "minecraft:uniform",
+        "value": {
+          "max_inclusive": 6,
+          "min_inclusive": 4
+        }
+      },
+      "small_branch_base_height": {
+        "type": "minecraft:uniform",
+        "value": {
+          "max_inclusive": 4,
+          "min_inclusive": 3
+        }
+      },
+      "wood_provider": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "data": {
+              "Name": "aether_redux:blightwillow_wood",
+              "Properties": {
+                "axis": "y",
+                "double_drops": "true"
+              }
+            },
+            "weight": 7
+          },
+          {
+            "data": {
+              "Name": "aether_redux:sporing_blightwillow_wood",
+              "Properties": {
+                "axis": "y",
+                "double_drops": "true"
+              }
+            },
+            "weight": 1
+          }
+        ]
+      }
+    },
+    "trunk_provider": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "aether_redux:blightwillow_log",
+            "Properties": {
+              "axis": "y",
+              "double_drops": "true"
+            }
+          },
+          "weight": 7
+        },
+        {
+          "data": {
+            "Name": "aether_redux:sporing_blightwillow_log",
+            "Properties": {
+              "axis": "y",
+              "double_drops": "true"
+            }
+          },
+          "weight": 1
+        }
+      ]
+    }
+  }
+}

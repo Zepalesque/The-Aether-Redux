@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "aether_redux:cockatrice_rib"
+    }
+  ],
+  "result": {
+    "count": 3,
+    "item": "minecraft:bone_meal"
+  }
+}

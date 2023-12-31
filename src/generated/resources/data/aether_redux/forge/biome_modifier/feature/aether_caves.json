@@ -1,0 +1,5 @@
+{
+  "type": "aether_redux:add_carver",
+  "biomes": "#aether_redux:has/aether_caves",
+  "carver": "aether_redux:aether_caves"
+}

@@ -1,0 +1,7 @@
+{
+  "block.aether_redux.gilded_oak_leaves": "Gilded Skyroot Leaves",
+  "block.aether_redux.gilded_oak_sapling": "Gilded Skyroot Sapling",
+  "block.aether_redux.potted_gilded_oak_sapling": "Potted Gilded Skyroot Sapling",
+  "lore.block.aether_redux.gilded_oak_leaves": "The leaves of the Gilded Skyroot tree. These sometimes drop Gilded Skyroot Saplings.",
+  "lore.block.aether_redux.gilded_oak_sapling": "The sapling of the Gilded Skyroot tree. It can be grown by waiting or using Bone Meal."
+}

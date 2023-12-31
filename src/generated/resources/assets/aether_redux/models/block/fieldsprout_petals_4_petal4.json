@@ -1,0 +1,8 @@
+{
+  "parent": "aether_redux:block/flowerbed_4",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "flowerbed": "aether_redux:block/natural/fieldsprout_petals_4",
+    "stem": "aether_redux:block/natural/fieldsprout_petals_stem"
+  }
+}

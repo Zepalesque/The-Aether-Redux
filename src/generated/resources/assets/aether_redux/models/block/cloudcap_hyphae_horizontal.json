@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "aether_redux:block/natural/cloudcap_stem",
+    "side": "aether_redux:block/natural/cloudcap_stem"
+  }
+}

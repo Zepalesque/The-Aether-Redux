@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "J": {
+      "item": "aether_redux:vanilla_swet_ball"
+    }
+  },
+  "pattern": [
+    "JJ",
+    "JJ"
+  ],
+  "result": {
+    "item": "aether_redux:vanilla_swet_ball"
+  },
+  "show_notification": true
+}

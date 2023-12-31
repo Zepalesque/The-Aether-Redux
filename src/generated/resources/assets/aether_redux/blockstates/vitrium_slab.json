@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "aether_redux:block/vitrium_slab"
+    },
+    "type=double": {
+      "model": "aether_redux:block/vitrium"
+    },
+    "type=top": {
+      "model": "aether_redux:block/vitrium_slab_top"
+    }
+  }
+}

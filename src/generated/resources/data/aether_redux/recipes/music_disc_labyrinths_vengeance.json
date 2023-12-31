@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "tag": "aether:accepted_music_discs"
+    },
+    "P": {
+      "item": "aether:carved_stone"
+    }
+  },
+  "pattern": [
+    "PPP",
+    "PGP",
+    "PPP"
+  ],
+  "result": {
+    "item": "aether_redux:music_disc_labyrinths_vengeance"
+  },
+  "show_notification": true
+}

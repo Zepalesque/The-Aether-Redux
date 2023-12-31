@@ -1,0 +1,9 @@
+{
+  "type": "aether_redux:spore_blighting",
+  "ingredient": {
+    "block": "aether:mossy_holystone"
+  },
+  "result": {
+    "block": "aether_redux:blightmoss_holystone"
+  }
+}

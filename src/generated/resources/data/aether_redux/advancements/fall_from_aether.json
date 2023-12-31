@@ -1,0 +1,31 @@
+{
+  "parent": "aether:enter_aether",
+  "criteria": {
+    "fall_from_aether": {
+      "conditions": {},
+      "trigger": "aether_redux:fall_from_aether"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.aether_redux.fall_from_aether.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "aether:golden_parachute",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.aether_redux.fall_from_aether"
+    }
+  },
+  "requirements": [
+    [
+      "fall_from_aether"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

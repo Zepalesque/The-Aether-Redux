@@ -1,0 +1,50 @@
+{
+  "advancements": [
+    {
+      "advancement": {
+        "parent": "minecraft:recipes/root",
+        "criteria": {
+          "has_the_recipe": {
+            "conditions": {
+              "recipe": "aether_redux:vanilla_gummy_swet"
+            },
+            "trigger": "minecraft:recipe_unlocked"
+          },
+          "has_vanilla_swet_ball": {
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "aether_redux:vanilla_swet_ball"
+                  ]
+                }
+              ]
+            },
+            "trigger": "minecraft:inventory_changed"
+          }
+        },
+        "requirements": [
+          [
+            "has_vanilla_swet_ball",
+            "has_the_recipe"
+          ]
+        ],
+        "rewards": {
+          "recipes": [
+            "aether_redux:vanilla_gummy_swet"
+          ]
+        },
+        "sends_telemetry_event": false
+      },
+      "conditions": [
+        {
+          "type": "aether_redux:data_recipe_condition",
+          "data_recipe_condition": {
+            "condition": "aether_redux:redux_config",
+            "config_path": "[Gameplay Changes, Nerf Gummy Swets]"
+          }
+        }
+      ]
+    }
+  ]
+}

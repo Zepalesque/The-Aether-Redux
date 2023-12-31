@@ -1,0 +1,66 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+license = "All rights reserved"
+
+[[mods]]
+    modId = "aether_redux"
+    version = "1.20.1"
+    displayName = "The Aether: Redux"
+    displayURL = "https://github.com/Zepalesque/Aether-Redux-Issue-Tracker"
+    logoFile = "redux.png"
+    credits = "The Aether Team, Aerod, BrianIsBro, Emile van Kreiken, 345boneshoss, RazorDevs, unroman, Parallel113, IcyCrystal"
+    authors = "Zepalesque"
+    description = '''
+    The Aether: Redux is an addon mod for the Aether!
+
+    The mod adds several things, ranging from improved mob models to new biomes! Find yourself fighting off the nasty dangers of the new Blight biome, exploring the upgraded Bronze Dungeon, and much, much more!
+    '''
+[[dependencies.aether_redux]]
+    modId = "forge"
+    mandatory = true
+    versionRange = "[47,)"
+    ordering = "NONE"
+    side = "BOTH"
+[[dependencies.aether_redux]]
+    modId = "minecraft"
+    mandatory = true
+    versionRange = "[1.20.1,1.21)"
+    ordering = "NONE"
+    side = "BOTH"
+[[dependencies.aether_redux]]
+    modId = "aether"
+    mandatory = true
+    versionRange = "[1.20.1-,)"
+    ordering = "AFTER"
+    side = "BOTH"
+[[dependencies.aether_redux]]
+    modId = "aeroblender"
+    mandatory = true
+    versionRange = "[0,)"
+    ordering = "AFTER"
+    side = "BOTH"
+[[dependencies.aether_redux]]
+    modId = "deep_aether"
+    mandatory = false
+    versionRange = "[1.20.1-,)"
+    ordering = "AFTER"
+    side = "BOTH"
+[[dependencies.aether_redux]]
+    modId = "lost_aether_content"
+    mandatory = false
+    versionRange = "[1.0.0,)"
+    ordering = "AFTER"
+    side = "BOTH"
+[[dependencies.aether_redux]]
+    modId = "aether_genesis"
+    mandatory = false
+    versionRange = "[1.20.1-,)"
+    ordering = "AFTER"
+    side = "BOTH"
+[[dependencies.aether_redux]]
+    modId = "ancient_aether"
+    mandatory = false
+    versionRange = "[0.6.0-,)"
+    ordering = "AFTER"
+    side = "BOTH"
+

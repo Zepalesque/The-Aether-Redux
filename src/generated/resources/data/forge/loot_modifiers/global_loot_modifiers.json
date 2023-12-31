@@ -1,0 +1,20 @@
+{
+  "entries": [
+    "aether_redux:remove_blue_swet_cloud",
+    "aether_redux:golden_swet_ball_add",
+    "aether_redux:enchanted_ring",
+    "aether_redux:subzero_crossbow",
+    "aether_redux:genesis_golden_swet_ball_increase",
+    "aether_redux:swet_sugar_no_genesis",
+    "aether_redux:sentry_ring",
+    "aether_redux:valkyrie_ring",
+    "aether_redux:vampire_amulet",
+    "aether_redux:blue_swet_ball_increase",
+    "aether_redux:genesis_dark_swet_ball_increase",
+    "aether_redux:cockatrice_rib",
+    "aether_redux:remove_golden_swet_glowstone",
+    "aether_redux:vanilla_gummy_swet",
+    "aether_redux:phoenix_ring"
+  ],
+  "replace": false
+}

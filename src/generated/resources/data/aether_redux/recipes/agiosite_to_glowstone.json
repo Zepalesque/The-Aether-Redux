@@ -1,0 +1,10 @@
+{
+  "type": "aether:enchanting",
+  "category": "enchanting_blocks",
+  "cookingtime": 200,
+  "experience": 0.0,
+  "ingredient": {
+    "item": "aether_redux:vitrium"
+  },
+  "result": "minecraft:glowstone"
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "snow_layer=false,snowy_texture=false": {
+      "model": "aether_redux:block/daggerbloom"
+    },
+    "snow_layer=false,snowy_texture=true": {
+      "model": "aether_redux:block/daggerbloom_snowy"
+    },
+    "snow_layer=true,snowy_texture=false": {
+      "model": "aether_redux:block/daggerbloom"
+    },
+    "snow_layer=true,snowy_texture=true": {
+      "model": "aether_redux:block/daggerbloom_snowy"
+    }
+  }
+}

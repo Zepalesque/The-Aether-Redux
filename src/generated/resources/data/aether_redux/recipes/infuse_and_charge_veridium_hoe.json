@@ -1,0 +1,10 @@
+{
+  "type": "aether_redux:infusion",
+  "infusion_increase": 8,
+  "ingredient": {
+    "item": "aether_redux:veridium_hoe"
+  },
+  "result": {
+    "item": "aether_redux:infused_veridium_hoe"
+  }
+}

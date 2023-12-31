@@ -1,0 +1,24 @@
+{
+  "values": [
+    "aether:skyroot_forest",
+    "aether:skyroot_grove",
+    "aether:skyroot_meadow",
+    "aether:skyroot_woodland",
+    {
+      "id": "deep_aether:aerglow_forest",
+      "required": false
+    },
+    {
+      "id": "deep_aether:blue_aerglow_forest",
+      "required": false
+    },
+    {
+      "id": "deep_aether:mystic_aerglow_forest",
+      "required": false
+    },
+    {
+      "id": "deep_aether:aerlavender_fields",
+      "required": false
+    }
+  ]
+}

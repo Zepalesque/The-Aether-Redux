@@ -1,0 +1,3 @@
+// 1.20.1	2023-09-20T13:21:45.9929458	Tags for minecraft:damage_type mod id aether_redux
+9e1dc96240d9ed6a361f6a560b9f199f7af29fb1 data/aether_redux/tags/damage_type/fireball.json
+b57c109ecfae9adbfd0a70a88d4e1addf3b12776 data/aether_redux/tags/damage_type/is_attack.json

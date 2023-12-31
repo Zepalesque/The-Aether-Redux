@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "aether_redux:blightshade"
+    }
+  ],
+  "result": {
+    "item": "minecraft:purple_dye"
+  }
+}

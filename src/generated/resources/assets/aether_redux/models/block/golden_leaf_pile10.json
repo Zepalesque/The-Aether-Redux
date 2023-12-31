@@ -1,0 +1,7 @@
+{
+  "parent": "aether_redux:block/layer_size10",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "block": "aether:block/natural/golden_oak_leaves"
+  }
+}

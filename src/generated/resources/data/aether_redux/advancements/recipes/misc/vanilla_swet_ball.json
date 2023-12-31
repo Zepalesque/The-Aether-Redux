@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "aether_redux:vanilla_swet_ball"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_vanilla_swet_ball": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "aether_redux:vanilla_swet_ball"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_vanilla_swet_ball",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "aether_redux:vanilla_swet_ball"
+    ]
+  },
+  "sends_telemetry_event": false
+}

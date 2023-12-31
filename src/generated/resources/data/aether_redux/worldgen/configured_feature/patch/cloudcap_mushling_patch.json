@@ -1,0 +1,34 @@
+{
+  "type": "aether_redux:support_test_flower",
+  "config": {
+    "block_below": {
+      "type": "minecraft:matching_blocks",
+      "blocks": "aether_redux:aevelium"
+    },
+    "feature": {
+      "feature": {
+        "type": "minecraft:simple_block",
+        "config": {
+          "to_place": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "aether_redux:cloudcap_mushling"
+            }
+          }
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:air"
+          }
+        }
+      ]
+    },
+    "tries": 16,
+    "xz_spread": 5,
+    "y_spread": 3
+  }
+}

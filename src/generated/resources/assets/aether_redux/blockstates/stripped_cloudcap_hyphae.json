@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "aether_redux:block/stripped_cloudcap_hyphae_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "aether_redux:block/stripped_cloudcap_hyphae"
+    },
+    "axis=z": {
+      "model": "aether_redux:block/stripped_cloudcap_hyphae_horizontal",
+      "x": 90
+    }
+  }
+}

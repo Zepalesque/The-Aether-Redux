@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#aether_redux:has/vanilla_swet",
+  "spawners": {
+    "type": "aether_redux:vanilla_swet",
+    "maxCount": 2,
+    "minCount": 1,
+    "weight": 5
+  }
+}

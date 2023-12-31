@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "stage=0": {
+      "model": "aether_redux:block/blighted_skyroot_sapling"
+    },
+    "stage=1": {
+      "model": "aether_redux:block/blighted_skyroot_sapling"
+    }
+  }
+}

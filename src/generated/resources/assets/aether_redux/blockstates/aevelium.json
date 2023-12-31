@@ -1,0 +1,38 @@
+{
+  "variants": {
+    "snowy=false": [
+      {
+        "model": "aether_redux:block/aevelium"
+      },
+      {
+        "model": "aether_redux:block/aevelium",
+        "y": 90
+      },
+      {
+        "model": "aether_redux:block/aevelium",
+        "y": 180
+      },
+      {
+        "model": "aether_redux:block/aevelium",
+        "y": 270
+      }
+    ],
+    "snowy=true": [
+      {
+        "model": "aether_redux:block/aevelium_snowy"
+      },
+      {
+        "model": "aether_redux:block/aevelium_snowy",
+        "y": 90
+      },
+      {
+        "model": "aether_redux:block/aevelium_snowy",
+        "y": 180
+      },
+      {
+        "model": "aether_redux:block/aevelium_snowy",
+        "y": 270
+      }
+    ]
+  }
+}

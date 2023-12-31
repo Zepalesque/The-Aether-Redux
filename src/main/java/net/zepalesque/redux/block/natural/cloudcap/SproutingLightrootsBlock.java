@@ -1,0 +1,118 @@
+package net.zepalesque.redux.block.natural.cloudcap;
+
+import com.aetherteam.aether.block.natural.AetherBushBlock;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.BonemealableBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.common.PlantType;
+import net.zepalesque.redux.misc.ReduxTags;
+import net.zepalesque.redux.block.util.ReduxPlantTypes;
+import net.zepalesque.redux.block.util.ReduxStateProperties;
+import net.zepalesque.redux.client.audio.ReduxSoundEvents;
+import net.zepalesque.redux.item.ReduxItems;
+import org.jetbrains.annotations.Nullable;
+
+public class SproutingLightrootsBlock extends AetherBushBlock implements BonemealableBlock
+{
+
+    protected static final VoxelShape SHAPE_FULL = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 11.0D, 14.0D);
+    protected static final VoxelShape SHAPE_HARVESTED = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 5.0D, 14.0D);
+
+    public SproutingLightrootsBlock(Properties properties) {
+        super(properties);
+        this.registerDefaultState(this.defaultBlockState().setValue(ReduxStateProperties.HARVESTED, Boolean.FALSE));
+    }
+    @Nullable
+    @Override
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
+        BlockState blockstate = super.getStateForPlacement(context);
+        return blockstate.setValue(ReduxStateProperties.HARVESTED, true);
+    }
+
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> stateBuilder) {
+        super.createBlockStateDefinition(stateBuilder);
+        stateBuilder.add(ReduxStateProperties.HARVESTED);
+    }
+
+
+    public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
+        if (pState.getValue(ReduxStateProperties.HARVESTED) && pLevel.getRawBrightness(pPos.above(), 0) >= 3 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(pLevel, pPos, pState, pRandom.nextInt(10) == 0)) {
+            BlockState blockstate = pState.setValue(ReduxStateProperties.HARVESTED, false);
+            pLevel.setBlock(pPos, blockstate, 2);
+            pLevel.gameEvent(GameEvent.BLOCK_CHANGE, pPos, GameEvent.Context.of(blockstate));
+            net.minecraftforge.common.ForgeHooks.onCropsGrowPost(pLevel, pPos, pState);
+        }
+
+    }
+
+    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+
+        if (!pState.getValue(ReduxStateProperties.HARVESTED)) {
+            int j = 1 + pLevel.random.nextInt(2);
+            popResource(pLevel, pPos, new ItemStack(ReduxItems.LIGHTROOT_CLUMP.get(), j));
+            pLevel.playSound(null, pPos, ReduxSoundEvents.LIGHTROOTS_PICK.get(), SoundSource.BLOCKS, 1.0F, 0.8F + pLevel.random.nextFloat() * 0.4F);
+            BlockState blockstate = pState.setValue(ReduxStateProperties.HARVESTED, true);
+            pLevel.setBlock(pPos, blockstate, 2);
+            pLevel.gameEvent(GameEvent.BLOCK_CHANGE, pPos, GameEvent.Context.of(pPlayer, blockstate));
+            return InteractionResult.sidedSuccess(pLevel.isClientSide);
+        } else {
+            return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
+        }
+    }
+
+
+    public ItemStack getCloneItemStack(BlockGetter pLevel, BlockPos pPos, BlockState pState) {
+        return new ItemStack(ReduxItems.LIGHTROOT_CLUMP.get());
+    }
+
+    public boolean isRandomlyTicking(BlockState pState) {
+        return pState.getValue(ReduxStateProperties.HARVESTED);
+    }
+
+    @Override
+    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        Vec3 vec3 = state.getOffset(level, pos);
+        return state.getValue(ReduxStateProperties.HARVESTED) ? SHAPE_HARVESTED.move(vec3.x, vec3.y, vec3.z) : SHAPE_FULL.move(vec3.x, vec3.y, vec3.z);
+    }
+
+
+    @Override
+    protected boolean mayPlaceOn(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
+        return pState.is(ReduxTags.Blocks.LIGHTROOT_GROWABLE);
+    }
+
+    public boolean isValidBonemealTarget(LevelReader pLevel, BlockPos pPos, BlockState pState, boolean pIsClient) {
+        return pState.getValue(ReduxStateProperties.HARVESTED);
+    }
+
+    public PlantType getPlantType(BlockGetter level, BlockPos pos) {
+        return ReduxPlantTypes.AETHER_REDUX_CUSTOM_PLANT;
+    }
+
+
+    public boolean isBonemealSuccess(Level pLevel, RandomSource pRandom, BlockPos pPos, BlockState pState) {
+        return true;
+    }
+
+    public void performBonemeal(ServerLevel pLevel, RandomSource pRandom, BlockPos pPos, BlockState pState) {
+        pLevel.setBlock(pPos, pState.setValue(ReduxStateProperties.HARVESTED, false), 2);
+    }
+}

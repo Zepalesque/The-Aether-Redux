@@ -1,0 +1,51 @@
+{
+  "parent": "aether:gold_dungeon",
+  "criteria": {
+    "kill_sheepuff_with_fireball": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "aether:sheepuff"
+            }
+          }
+        ],
+        "killing_blow": {
+          "direct_entity": {
+            "type": "aether_redux:volatile_fire_crystal"
+          },
+          "tags": [
+            {
+              "expected": true,
+              "id": "aether_redux:fireball"
+            }
+          ]
+        }
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.aether_redux.kill_sheepuff_with_fireball.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "aether_redux:phoenix_ring"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.aether_redux.kill_sheepuff_with_fireball"
+    }
+  },
+  "requirements": [
+    [
+      "kill_sheepuff_with_fireball"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

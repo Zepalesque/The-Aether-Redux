@@ -1,0 +1,30 @@
+{
+  "values": [
+    "aether_redux:crystal_log_wall",
+    "aether_redux:crystal_wood_wall",
+    "aether_redux:stripped_crystal_log_wall",
+    "aether_redux:stripped_crystal_wood_wall",
+    "aether_redux:blightwillow_log_wall",
+    "aether_redux:blightwillow_wood_wall",
+    "aether_redux:stripped_blightwillow_log_wall",
+    "aether_redux:stripped_blightwillow_wood_wall",
+    "aether_redux:glacia_log_wall",
+    "aether_redux:glacia_wood_wall",
+    "aether_redux:stripped_glacia_log_wall",
+    "aether_redux:stripped_glacia_wood_wall",
+    "aether_redux:fieldsprout_log_wall",
+    "aether_redux:fieldsprout_wood_wall",
+    "aether_redux:stripped_fieldsprout_log_wall",
+    "aether_redux:stripped_fieldsprout_wood_wall",
+    "aether_redux:cloudcap_stem_wall",
+    "aether_redux:cloudcap_hyphae_wall",
+    "aether_redux:stripped_cloudcap_stem_wall",
+    "aether_redux:stripped_cloudcap_hyphae_wall",
+    "aether_redux:springshroom_stem_wall",
+    "aether_redux:springshroom_hyphae_wall",
+    "aether_redux:vitrium_wall",
+    "aether_redux:vitrium_brick_wall",
+    "aether_redux:carved_stone_brick_wall",
+    "aether_redux:frosted_holystone_wall"
+  ]
+}

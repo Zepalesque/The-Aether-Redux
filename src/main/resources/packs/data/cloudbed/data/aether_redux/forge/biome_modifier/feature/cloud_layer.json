@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#aether:is_aether",
+  "features": "aether_redux:misc/cloud_layer",
+  "step": "underground_structures"
+}

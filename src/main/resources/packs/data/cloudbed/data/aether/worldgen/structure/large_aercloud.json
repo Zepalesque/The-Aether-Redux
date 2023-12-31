@@ -1,0 +1,6 @@
+{
+  "type": "aether_redux:empty",
+  "biomes": "#aether:is_aether",
+  "spawn_overrides": {},
+  "step": "surface_structures"
+}

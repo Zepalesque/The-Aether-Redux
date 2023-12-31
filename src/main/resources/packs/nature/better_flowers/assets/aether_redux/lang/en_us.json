@@ -1,0 +1,9 @@
+{
+  "block.aether_redux.gilded_white_flower": "Gilded White Rose",
+  "block.aether_redux.potted_gilded_white_flower": "Potted Gilded White Rose",
+  "lore.block.aether_redux.gilded_white_flower": "A variant of the White Rose, this pale flower is found in the Gilded Groves.",
+
+  "block.aether_redux.frosted_purple_flower": "Frosted Nightbloom",
+  "block.aether_redux.potted_frosted_purple_flower": "Potted Frosted Nightbloom",
+  "lore.block.aether_redux.frosted_purple_flower": "A variation of the Aether's common Nightbloom. Founnd in the Frosted Forests."
+}

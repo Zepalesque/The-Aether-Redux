@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "/": {
+      "tag": "aether:skyroot_stick"
+    },
+    "F": {
+      "tag": "forge:feathers"
+    },
+    "G": {
+      "tag": "aether_redux:golden_swet_ball"
+    }
+  },
+  "pattern": [
+    "F",
+    "/",
+    "G"
+  ],
+  "result": {
+    "count": 4,
+    "item": "aether_redux:spectral_dart"
+  },
+  "show_notification": true
+}

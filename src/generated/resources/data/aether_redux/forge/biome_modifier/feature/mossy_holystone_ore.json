@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#aether_redux:has/mossy_holystone_ore",
+  "features": "aether_redux:ore/mossy_holystone_ore",
+  "step": "underground_ores"
+}

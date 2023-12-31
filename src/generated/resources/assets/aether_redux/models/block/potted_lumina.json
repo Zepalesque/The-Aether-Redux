@@ -1,0 +1,8 @@
+{
+  "parent": "aether_redux:block/flower_pot_cross_glow",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "overlay": "aether_redux:block/natural/lumina_glow",
+    "plant": "aether_redux:block/natural/lumina"
+  }
+}

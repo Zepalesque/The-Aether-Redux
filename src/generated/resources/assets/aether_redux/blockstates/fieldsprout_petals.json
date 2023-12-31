@@ -1,0 +1,1096 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_0_petal1"
+      },
+      "when": {
+        "facing": "north",
+        "petal_1_val": "spectral"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_0_petal2"
+      },
+      "when": {
+        "facing": "north",
+        "petal_2_val": "spectral"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_0_petal3"
+      },
+      "when": {
+        "facing": "north",
+        "petal_3_val": "spectral"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_0_petal4"
+      },
+      "when": {
+        "facing": "north",
+        "petal_4_val": "spectral"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_0_petal1",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "petal_1_val": "spectral"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_0_petal2",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "petal_2_val": "spectral"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_0_petal3",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "petal_3_val": "spectral"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_0_petal4",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "petal_4_val": "spectral"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_0_petal1",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "petal_1_val": "spectral"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_0_petal2",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "petal_2_val": "spectral"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_0_petal3",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "petal_3_val": "spectral"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_0_petal4",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "petal_4_val": "spectral"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_0_petal1",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "petal_1_val": "spectral"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_0_petal2",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "petal_2_val": "spectral"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_0_petal3",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "petal_3_val": "spectral"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_0_petal4",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "petal_4_val": "spectral"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_1_petal1"
+      },
+      "when": {
+        "facing": "north",
+        "petal_1_val": "sp2_sa1"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_1_petal2"
+      },
+      "when": {
+        "facing": "north",
+        "petal_2_val": "sp2_sa1"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_1_petal3"
+      },
+      "when": {
+        "facing": "north",
+        "petal_3_val": "sp2_sa1"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_1_petal4"
+      },
+      "when": {
+        "facing": "north",
+        "petal_4_val": "sp2_sa1"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_1_petal1",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "petal_1_val": "sp2_sa1"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_1_petal2",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "petal_2_val": "sp2_sa1"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_1_petal3",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "petal_3_val": "sp2_sa1"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_1_petal4",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "petal_4_val": "sp2_sa1"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_1_petal1",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "petal_1_val": "sp2_sa1"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_1_petal2",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "petal_2_val": "sp2_sa1"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_1_petal3",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "petal_3_val": "sp2_sa1"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_1_petal4",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "petal_4_val": "sp2_sa1"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_1_petal1",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "petal_1_val": "sp2_sa1"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_1_petal2",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "petal_2_val": "sp2_sa1"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_1_petal3",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "petal_3_val": "sp2_sa1"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_1_petal4",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "petal_4_val": "sp2_sa1"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_2_petal1"
+      },
+      "when": {
+        "facing": "north",
+        "petal_1_val": "sp1_sa2"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_2_petal2"
+      },
+      "when": {
+        "facing": "north",
+        "petal_2_val": "sp1_sa2"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_2_petal3"
+      },
+      "when": {
+        "facing": "north",
+        "petal_3_val": "sp1_sa2"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_2_petal4"
+      },
+      "when": {
+        "facing": "north",
+        "petal_4_val": "sp1_sa2"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_2_petal1",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "petal_1_val": "sp1_sa2"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_2_petal2",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "petal_2_val": "sp1_sa2"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_2_petal3",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "petal_3_val": "sp1_sa2"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_2_petal4",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "petal_4_val": "sp1_sa2"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_2_petal1",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "petal_1_val": "sp1_sa2"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_2_petal2",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "petal_2_val": "sp1_sa2"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_2_petal3",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "petal_3_val": "sp1_sa2"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_2_petal4",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "petal_4_val": "sp1_sa2"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_2_petal1",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "petal_1_val": "sp1_sa2"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_2_petal2",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "petal_2_val": "sp1_sa2"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_2_petal3",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "petal_3_val": "sp1_sa2"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_2_petal4",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "petal_4_val": "sp1_sa2"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_3_petal1"
+      },
+      "when": {
+        "facing": "north",
+        "petal_1_val": "sapphire"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_3_petal2"
+      },
+      "when": {
+        "facing": "north",
+        "petal_2_val": "sapphire"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_3_petal3"
+      },
+      "when": {
+        "facing": "north",
+        "petal_3_val": "sapphire"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_3_petal4"
+      },
+      "when": {
+        "facing": "north",
+        "petal_4_val": "sapphire"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_3_petal1",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "petal_1_val": "sapphire"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_3_petal2",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "petal_2_val": "sapphire"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_3_petal3",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "petal_3_val": "sapphire"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_3_petal4",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "petal_4_val": "sapphire"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_3_petal1",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "petal_1_val": "sapphire"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_3_petal2",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "petal_2_val": "sapphire"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_3_petal3",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "petal_3_val": "sapphire"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_3_petal4",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "petal_4_val": "sapphire"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_3_petal1",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "petal_1_val": "sapphire"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_3_petal2",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "petal_2_val": "sapphire"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_3_petal3",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "petal_3_val": "sapphire"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_3_petal4",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "petal_4_val": "sapphire"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_4_petal1"
+      },
+      "when": {
+        "facing": "north",
+        "petal_1_val": "sa2_pr1"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_4_petal2"
+      },
+      "when": {
+        "facing": "north",
+        "petal_2_val": "sa2_pr1"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_4_petal3"
+      },
+      "when": {
+        "facing": "north",
+        "petal_3_val": "sa2_pr1"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_4_petal4"
+      },
+      "when": {
+        "facing": "north",
+        "petal_4_val": "sa2_pr1"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_4_petal1",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "petal_1_val": "sa2_pr1"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_4_petal2",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "petal_2_val": "sa2_pr1"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_4_petal3",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "petal_3_val": "sa2_pr1"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_4_petal4",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "petal_4_val": "sa2_pr1"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_4_petal1",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "petal_1_val": "sa2_pr1"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_4_petal2",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "petal_2_val": "sa2_pr1"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_4_petal3",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "petal_3_val": "sa2_pr1"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_4_petal4",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "petal_4_val": "sa2_pr1"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_4_petal1",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "petal_1_val": "sa2_pr1"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_4_petal2",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "petal_2_val": "sa2_pr1"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_4_petal3",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "petal_3_val": "sa2_pr1"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_4_petal4",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "petal_4_val": "sa2_pr1"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_5_petal1"
+      },
+      "when": {
+        "facing": "north",
+        "petal_1_val": "sa1_pr2"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_5_petal2"
+      },
+      "when": {
+        "facing": "north",
+        "petal_2_val": "sa1_pr2"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_5_petal3"
+      },
+      "when": {
+        "facing": "north",
+        "petal_3_val": "sa1_pr2"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_5_petal4"
+      },
+      "when": {
+        "facing": "north",
+        "petal_4_val": "sa1_pr2"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_5_petal1",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "petal_1_val": "sa1_pr2"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_5_petal2",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "petal_2_val": "sa1_pr2"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_5_petal3",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "petal_3_val": "sa1_pr2"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_5_petal4",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "petal_4_val": "sa1_pr2"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_5_petal1",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "petal_1_val": "sa1_pr2"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_5_petal2",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "petal_2_val": "sa1_pr2"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_5_petal3",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "petal_3_val": "sa1_pr2"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_5_petal4",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "petal_4_val": "sa1_pr2"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_5_petal1",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "petal_1_val": "sa1_pr2"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_5_petal2",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "petal_2_val": "sa1_pr2"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_5_petal3",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "petal_3_val": "sa1_pr2"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_5_petal4",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "petal_4_val": "sa1_pr2"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_6_petal1"
+      },
+      "when": {
+        "facing": "north",
+        "petal_1_val": "prismatic"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_6_petal2"
+      },
+      "when": {
+        "facing": "north",
+        "petal_2_val": "prismatic"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_6_petal3"
+      },
+      "when": {
+        "facing": "north",
+        "petal_3_val": "prismatic"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_6_petal4"
+      },
+      "when": {
+        "facing": "north",
+        "petal_4_val": "prismatic"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_6_petal1",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "petal_1_val": "prismatic"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_6_petal2",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "petal_2_val": "prismatic"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_6_petal3",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "petal_3_val": "prismatic"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_6_petal4",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "petal_4_val": "prismatic"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_6_petal1",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "petal_1_val": "prismatic"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_6_petal2",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "petal_2_val": "prismatic"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_6_petal3",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "petal_3_val": "prismatic"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_6_petal4",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "petal_4_val": "prismatic"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_6_petal1",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "petal_1_val": "prismatic"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_6_petal2",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "petal_2_val": "prismatic"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_6_petal3",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "petal_3_val": "prismatic"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/fieldsprout_petals_6_petal4",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "petal_4_val": "prismatic"
+      }
+    }
+  ]
+}

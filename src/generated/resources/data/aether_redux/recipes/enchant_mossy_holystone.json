@@ -1,0 +1,10 @@
+{
+  "type": "aether:enchanting",
+  "category": "enchanting_misc",
+  "cookingtime": 100,
+  "experience": 0.0,
+  "ingredient": {
+    "item": "aether:mossy_holystone"
+  },
+  "result": "aether_redux:gilded_holystone"
+}

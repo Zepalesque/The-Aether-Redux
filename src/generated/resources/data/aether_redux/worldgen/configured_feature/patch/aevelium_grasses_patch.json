@@ -1,0 +1,45 @@
+{
+  "type": "aether_redux:support_test_patch",
+  "config": {
+    "block_below": {
+      "type": "minecraft:matching_blocks",
+      "blocks": "aether_redux:aevelium"
+    },
+    "feature": {
+      "feature": {
+        "type": "minecraft:simple_block",
+        "config": {
+          "to_place": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "data": {
+                  "Name": "aether_redux:aevelium_sprouts"
+                },
+                "weight": 5
+              },
+              {
+                "data": {
+                  "Name": "aether_redux:aevelium_growth"
+                },
+                "weight": 3
+              }
+            ]
+          }
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:air"
+          }
+        }
+      ]
+    },
+    "tries": 32,
+    "xz_spread": 7,
+    "y_spread": 3
+  }
+}

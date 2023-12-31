@@ -1,0 +1,31 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "aether_redux:data_recipe_condition",
+          "data_recipe_condition": {
+            "condition": "aether_redux:mod_loaded",
+            "mod_id": "aether_genesis"
+          }
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "tag": "aether_redux:compat/skyroot_bowls"
+          },
+          {
+            "tag": "aether_redux:compat/mouse_ear_caps"
+          }
+        ],
+        "result": {
+          "item": "aether_redux:mouse_ear_soup"
+        }
+      }
+    }
+  ]
+}

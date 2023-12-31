@@ -1,0 +1,38 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "aether_redux:data_recipe_condition",
+          "data_recipe_condition": {
+            "condition": "aether_redux:redux_config",
+            "config_path": "[Gameplay Changes, Nerf Gummy Swets]"
+          }
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "group": "gummy_swet",
+        "key": {
+          "J": {
+            "item": "aether_redux:vanilla_swet_ball"
+          },
+          "S": {
+            "item": "minecraft:sugar"
+          }
+        },
+        "pattern": [
+          " J ",
+          "JSJ",
+          " J "
+        ],
+        "result": {
+          "item": "aether_redux:vanilla_gummy_swet"
+        },
+        "show_notification": true
+      }
+    }
+  ]
+}

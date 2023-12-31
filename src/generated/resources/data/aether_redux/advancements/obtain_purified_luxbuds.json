@@ -1,0 +1,38 @@
+{
+  "parent": "aether:enter_aether",
+  "criteria": {
+    "obtain_purified_luxbuds": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "aether_redux:purified_luxbuds"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.aether_redux.obtain_purified_luxbuds.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "aether_redux:purified_luxbuds"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.aether_redux.obtain_purified_luxbuds"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_purified_luxbuds"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

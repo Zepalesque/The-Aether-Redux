@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "snow_layer=false,snowy_texture=false,stage=0": {
+      "model": "aether_redux:block/glacia_sapling"
+    },
+    "snow_layer=false,snowy_texture=false,stage=1": {
+      "model": "aether_redux:block/glacia_sapling"
+    },
+    "snow_layer=false,snowy_texture=true,stage=0": {
+      "model": "aether_redux:block/glacia_sapling_snowy"
+    },
+    "snow_layer=false,snowy_texture=true,stage=1": {
+      "model": "aether_redux:block/glacia_sapling_snowy"
+    },
+    "snow_layer=true,snowy_texture=false,stage=0": {
+      "model": "aether_redux:block/glacia_sapling"
+    },
+    "snow_layer=true,snowy_texture=false,stage=1": {
+      "model": "aether_redux:block/glacia_sapling"
+    },
+    "snow_layer=true,snowy_texture=true,stage=0": {
+      "model": "aether_redux:block/glacia_sapling_snowy"
+    },
+    "snow_layer=true,snowy_texture=true,stage=1": {
+      "model": "aether_redux:block/glacia_sapling_snowy"
+    }
+  }
+}

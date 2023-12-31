@@ -1,0 +1,6 @@
+{
+  "type": "aether_redux:water_color",
+  "biomes": "#aether_redux:has/redux_water_color",
+  "water_color": 5403045,
+  "water_fog_color": 791347
+}

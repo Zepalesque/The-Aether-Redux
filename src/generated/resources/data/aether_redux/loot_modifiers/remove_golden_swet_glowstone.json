@@ -1,0 +1,13 @@
+{
+  "type": "aether_redux:remove_entity_drops",
+  "conditions": [
+    {
+      "condition": "minecraft:entity_properties",
+      "entity": "this",
+      "predicate": {
+        "type": "aether:golden_swet"
+      }
+    }
+  ],
+  "item": "minecraft:glowstone"
+}

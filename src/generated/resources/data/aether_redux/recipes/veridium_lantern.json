@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "aether:ambrosium_torch"
+    },
+    "N": {
+      "item": "aether_redux:veridium_nugget"
+    }
+  },
+  "pattern": [
+    "NNN",
+    "NAN",
+    "NNN"
+  ],
+  "result": {
+    "item": "aether_redux:veridium_lantern"
+  },
+  "show_notification": true
+}

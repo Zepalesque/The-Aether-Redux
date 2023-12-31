@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "aether_redux:block/carved_stone_brick_slab"
+    },
+    "type=double": {
+      "model": "aether_redux:block/carved_stone_bricks"
+    },
+    "type=top": {
+      "model": "aether_redux:block/carved_stone_brick_slab_top"
+    }
+  }
+}

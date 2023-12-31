@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "harvested=false": {
+      "model": "aether_redux:block/sprouting_lightroots"
+    },
+    "harvested=true": {
+      "model": "aether_redux:block/harvested_sprouting_lightroots"
+    }
+  }
+}

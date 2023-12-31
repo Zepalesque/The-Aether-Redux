@@ -1,0 +1,86 @@
+{
+  "type": "minecraft:tree",
+  "config": {
+    "decorators": [],
+    "dirt_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:dirt"
+      }
+    },
+    "foliage_placer": {
+      "type": "aether_genesis:hooked_foliage_placer",
+      "offset": 1,
+      "radius": 2,
+      "trunk_height": 2
+    },
+    "foliage_provider": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "aether_genesis:purple_crystal_leaves",
+            "Properties": {
+              "distance": "7",
+              "double_drops": "true",
+              "persistent": "false",
+              "waterlogged": "false"
+            }
+          },
+          "weight": 4
+        },
+        {
+          "data": {
+            "Name": "aether_genesis:purple_crystal_fruit_leaves",
+            "Properties": {
+              "distance": "7",
+              "double_drops": "true",
+              "persistent": "false",
+              "waterlogged": "false"
+            }
+          },
+          "weight": 1
+        }
+      ]
+    },
+    "force_dirt": false,
+    "ignore_vines": true,
+    "minimum_size": {
+      "type": "minecraft:two_layers_feature_size",
+      "limit": 2,
+      "lower_size": 1,
+      "upper_size": 4
+    },
+    "trunk_placer": {
+      "type": "aether_genesis:skinny_hooked_trunk_placer",
+      "base_height": 8,
+      "height_rand_a": 5,
+      "height_rand_b": 0,
+      "skinnyTrunkProvider": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "aether_redux:crystal_log_wall",
+          "Properties": {
+            "double_drops": "true",
+            "east": "none",
+            "north": "none",
+            "south": "none",
+            "up": "true",
+            "waterlogged": "false",
+            "west": "none"
+          }
+        }
+      }
+    },
+    "trunk_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "aether_redux:crystal_log",
+        "Properties": {
+          "axis": "y",
+          "double_drops": "true"
+        }
+      }
+    }
+  }
+}

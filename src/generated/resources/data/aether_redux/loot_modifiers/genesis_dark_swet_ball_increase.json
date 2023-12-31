@@ -1,0 +1,42 @@
+{
+  "type": "aether_redux:genesis_add_entity_drops",
+  "conditions": [
+    {
+      "condition": "minecraft:entity_properties",
+      "entity": "this",
+      "predicate": {
+        "type": "aether_genesis:dark_swet"
+      }
+    },
+    {
+      "condition": "aether_redux:data_loot_condition",
+      "data_loot_condition": {
+        "condition": "aether_redux:mod_loaded",
+        "mod_id": "aether_genesis"
+      }
+    }
+  ],
+  "functions": [
+    {
+      "add": false,
+      "count": {
+        "type": "minecraft:uniform",
+        "max": 2.0,
+        "min": 0.0
+      },
+      "function": "minecraft:set_count"
+    },
+    {
+      "count": {
+        "type": "minecraft:uniform",
+        "max": 1.0,
+        "min": 0.0
+      },
+      "function": "minecraft:looting_enchant"
+    }
+  ],
+  "item": {
+    "Count": 1,
+    "id": "aether_genesis:dark_swet_ball"
+  }
+}

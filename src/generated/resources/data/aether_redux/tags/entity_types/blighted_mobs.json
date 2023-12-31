@@ -1,0 +1,9 @@
+{
+  "values": [
+    "aether:cockatrice",
+    {
+      "id": "aether_genesis:tempest",
+      "required": false
+    }
+  ]
+}

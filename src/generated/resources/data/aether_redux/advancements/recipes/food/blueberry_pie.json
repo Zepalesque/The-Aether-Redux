@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_blue_berry": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "aether:blue_berry"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_oats": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "aether_redux:oats"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "aether_redux:blueberry_pie"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_blue_berry",
+      "has_oats",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "aether_redux:blueberry_pie"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -1,0 +1,36 @@
+{
+  "parent": "aether:enter_aether",
+  "criteria": {
+    "convert_with_blighted_spores": {
+      "conditions": {
+        "recipe_type": {
+          "recipes": [
+            "aether_redux:spore_blighting"
+          ]
+        }
+      },
+      "trigger": "aether_redux:block_state_recipe"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.aether_redux.convert_with_blighted_spores.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "aether_redux:blighted_spores"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.aether_redux.convert_with_blighted_spores"
+    }
+  },
+  "requirements": [
+    [
+      "convert_with_blighted_spores"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

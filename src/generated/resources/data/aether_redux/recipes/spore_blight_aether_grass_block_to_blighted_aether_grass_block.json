@@ -1,0 +1,9 @@
+{
+  "type": "aether_redux:spore_blighting",
+  "ingredient": {
+    "block": "aether:aether_grass_block"
+  },
+  "result": {
+    "block": "aether_redux:blighted_aether_grass_block"
+  }
+}

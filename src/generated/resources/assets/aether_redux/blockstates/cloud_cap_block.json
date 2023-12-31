@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "aether_redux:block/cloud_cap_block"
+    }
+  }
+}

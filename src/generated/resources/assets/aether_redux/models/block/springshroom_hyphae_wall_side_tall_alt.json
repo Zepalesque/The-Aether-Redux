@@ -1,0 +1,8 @@
+{
+  "parent": "aether_redux:block/wooden_side_tall_alt",
+  "textures": {
+    "particle": "aether_redux:block/natural/springshroom_stem",
+    "side": "aether_redux:block/natural/springshroom_stem",
+    "top": "aether_redux:block/natural/springshroom_stem"
+  }
+}

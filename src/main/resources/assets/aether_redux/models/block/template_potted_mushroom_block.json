@@ -1,0 +1,68 @@
+{
+	"credit": "Made with Blockbench",
+	"ambientocclusion": false,
+	"texture_size": [64, 32],
+	"textures": {
+		"particle": "block/flower_pot",
+		"flowerpot": "block/flower_pot"
+	},
+	"elements": [
+		{
+			"from": [5, 0, 5],
+			"to": [11, 6, 11],
+			"faces": {
+				"north": {"uv": [5, 10, 11, 16], "texture": "#flowerpot"},
+				"east": {"uv": [5, 10, 11, 16], "texture": "#flowerpot"},
+				"south": {"uv": [5, 10, 11, 16], "texture": "#flowerpot"},
+				"west": {"uv": [5, 10, 11, 16], "texture": "#flowerpot"},
+				"up": {"uv": [5, 5, 11, 11], "texture": "#flowerpot"},
+				"down": {"uv": [5, 5, 6, 11], "texture": "#flowerpot", "cullface": "down"}
+			}
+		},
+		{
+			"name": "stem",
+			"from": [6, 5, 6],
+			"to": [10, 13, 10],
+			"faces": {
+				"north": {"uv": [1, 2, 2, 6], "texture": "#mushroom"},
+				"east": {"uv": [0, 2, 1, 6], "texture": "#mushroom"},
+				"south": {"uv": [3, 2, 4, 6], "texture": "#mushroom"},
+				"west": {"uv": [2, 2, 3, 6], "texture": "#mushroom"},
+				"up": {"uv": [2, 2, 1, 0], "texture": "#mushroom"},
+				"down": {"uv": [3, 0, 2, 2], "texture": "#mushroom"}
+			}
+		},
+		{
+			"from": [1, 13, 1],
+			"to": [15, 19, 15],
+			"faces": {
+				"north": {"uv": [4, 7, 7.5, 10], "texture": "#mushroom"},
+				"east": {"uv": [0.5, 7, 4, 10], "texture": "#mushroom"},
+				"south": {"uv": [11, 7, 14.5, 10], "texture": "#mushroom"},
+				"west": {"uv": [7.5, 7, 11, 10], "texture": "#mushroom"},
+				"up": {"uv": [7.5, 7, 4, 0], "texture": "#mushroom"},
+				"down": {"uv": [11, 0, 7.5, 7], "texture": "#mushroom"}
+			}
+		},
+		{
+			"name": "spores2",
+			"from": [8, 9, 2.5],
+			"to": [8, 13, 13.5],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"east": {"uv": [11, 0, 13, 2], "texture": "#mushroom"},
+				"west": {"uv": [11, 0, 13, 2], "texture": "#mushroom"}
+			}
+		},
+		{
+			"name": "spores1",
+			"from": [8, 9, 2.5],
+			"to": [8, 13, 13.5],
+			"rotation": {"angle": -45, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"east": {"uv": [11, 0, 13, 2], "texture": "#mushroom"},
+				"west": {"uv": [11, 0, 13, 2], "texture": "#mushroom"}
+			}
+		}
+	]
+}

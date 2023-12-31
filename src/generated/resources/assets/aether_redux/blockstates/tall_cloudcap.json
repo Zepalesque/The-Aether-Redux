@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "aether_redux:block/tall_cloudcap_bottom"
+    },
+    "half=upper": {
+      "model": "aether_redux:block/tall_cloudcap_top"
+    }
+  }
+}

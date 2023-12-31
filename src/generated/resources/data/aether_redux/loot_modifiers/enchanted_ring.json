@@ -1,0 +1,29 @@
+{
+  "type": "aether_redux:genesis_add_dungeon_loot",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "aether:chests/dungeon/bronze/bronze_dungeon_loot"
+    },
+    {
+      "chance": 0.35,
+      "condition": "minecraft:random_chance"
+    }
+  ],
+  "entries": [
+    {
+      "data": {
+        "Count": 1,
+        "id": "aether_redux:enchanted_ring"
+      },
+      "weight": 1
+    }
+  ],
+  "rolls": {
+    "type": "minecraft:biased_to_bottom",
+    "value": {
+      "max_inclusive": 1,
+      "min_inclusive": 0
+    }
+  }
+}

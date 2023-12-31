@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "J": {
+      "tag": "aether_redux:blue_swet_jelly"
+    }
+  },
+  "pattern": [
+    "JJ",
+    "JJ"
+  ],
+  "result": {
+    "item": "aether:swet_ball"
+  },
+  "show_notification": true
+}

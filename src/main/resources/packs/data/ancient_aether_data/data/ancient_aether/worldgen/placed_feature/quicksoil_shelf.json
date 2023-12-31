@@ -1,0 +1,19 @@
+{
+  "feature": "aether_redux:compat/aa_quicksoil_shelf",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 255
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "WORLD_SURFACE_WG"
+    },
+    {
+      "type": "minecraft:biome"
+    },
+    {
+      "type": "aether:dungeon_blacklist_filter"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:simple_block",
+  "config": {
+    "to_place": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "deep_aether:aether_moss_carpet"
+          },
+          "weight": 25
+        },
+        {
+          "data": {
+            "Name": "aether_redux:aether_grass"
+          },
+          "weight": 50
+        }
+      ]
+    }
+  }
+}

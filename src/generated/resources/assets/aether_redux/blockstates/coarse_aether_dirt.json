@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "aether_redux:block/coarse_aether_dirt"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "type": "aether_redux:genesis_add_dungeon_loot",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "aether:chests/dungeon/gold/gold_dungeon_reward"
+    },
+    {
+      "chance": 0.65,
+      "condition": "minecraft:random_chance"
+    }
+  ],
+  "entries": [
+    {
+      "data": {
+        "Count": 1,
+        "id": "aether_redux:subzero_crossbow",
+        "tag": {
+          "Damage": 0
+        }
+      },
+      "weight": 1
+    }
+  ],
+  "rolls": {
+    "type": "minecraft:uniform",
+    "value": {
+      "max_inclusive": 1,
+      "min_inclusive": 0
+    }
+  }
+}

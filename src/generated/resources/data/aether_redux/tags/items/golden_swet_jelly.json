@@ -1,0 +1,9 @@
+{
+  "values": [
+    "aether_redux:golden_swet_jelly",
+    {
+      "id": "aether_genesis:golden_swet_jelly",
+      "required": false
+    }
+  ]
+}
