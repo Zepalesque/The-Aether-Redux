@@ -58,6 +58,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         item(ReduxItems.VANILLA_GUMMY_SWET, "food/");
         vampireAmulet(ReduxItems.VAMPIRE_AMULET, "accessories/");
         item(ReduxItems.ENCHANTED_RING, "accessories/");
+        item(ReduxItems.RING_OF_WISDOM, "accessories/");
         item(ReduxItems.SPECTRAL_DART, "weapons/");
         item(ReduxItems.SPECTRAL_DART_SHOOTER, "weapons/");
         item(ReduxItems.OATS, "materials/");
