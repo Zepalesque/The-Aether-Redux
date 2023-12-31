@@ -45,7 +45,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
     @Override
     protected void start() {
 
-        this.add("cockatrice_rib", new GenesisAddEntityDropsModifier(new ItemStack(ReduxItems.COCKATRICE_RIB.get()),
+        this.add("cockatrice_rib", new GenesisAddEntityDropsModifier(new ItemStack(ReduxItems.COCKATRICE_FEATHER.get()),
                 new LootItemFunction[] {
                         SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 1.0F)).build(),
                         LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)).build() },
@@ -92,7 +92,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                 UniformInt.of(0, 1)));
 
         this.add("phoenix_ring", new GenesisAddDungeonLootModifier(
-                new LootItemCondition[] { LootTableIdCondition.builder(AetherLoot.GOLD_DUNGEON_REWARD).build() }, List.of(WeightedEntry.wrap(new ItemStack(ReduxItems.PHOENIX_RING.get()), 1)),
+                new LootItemCondition[] { LootTableIdCondition.builder(AetherLoot.GOLD_DUNGEON_REWARD).build() }, List.of(WeightedEntry.wrap(new ItemStack(ReduxItems.PHOENIX_EMBLEM.get()), 1)),
                 UniformInt.of(0, 1)));
 
         this.add("subzero_crossbow", new GenesisAddDungeonLootModifier(

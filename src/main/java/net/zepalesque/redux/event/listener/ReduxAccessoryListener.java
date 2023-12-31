@@ -1,10 +1,14 @@
 package net.zepalesque.redux.event.listener;
 
+import com.aetherteam.aether.effect.AetherEffects;
 import com.aetherteam.aether.item.EquipmentUtil;
 import com.aetherteam.nitrogen.capability.INBTSynchable;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingExperienceDropEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -39,10 +43,6 @@ public class ReduxAccessoryListener {
         }
     }
 
-
-
-
-
     @SubscribeEvent
     public static void joinAndSetDoubleJumps(EntityJoinLevelEvent event)
     {
@@ -54,6 +54,11 @@ public class ReduxAccessoryListener {
         }
     }
 
-
+    @SubscribeEvent
+    public static void removeInebriation(LivingEvent.LivingTickEvent event) {
+        if (event.getEntity() instanceof Player player && EquipmentUtil.hasCurio(player, ReduxItems.COCKATRICE_FEATHER.get())) {
+            player.removeEffect(AetherEffects.INEBRIATION.get());
+        }
+    }
 
 }

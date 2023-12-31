@@ -288,23 +288,10 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
         makeHoe(ReduxItems.VERIDIUM_HOE, ReduxItems.VERIDIUM_INGOT).save(consumer);
         makeSword(ReduxItems.VERIDIUM_SWORD, ReduxItems.VERIDIUM_INGOT).save(consumer);
 
-
-
-
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, Items.ARROW, 4).define('#', AetherTags.Items.SKYROOT_STICKS).define('X', ReduxItems.COCKATRICE_RIB.get()).define('Y', Items.FEATHER).pattern("X").pattern("#").pattern("Y").unlockedBy("has_feather", has(Items.FEATHER)).unlockedBy("has_cockatrice_rib", has(ReduxItems.COCKATRICE_RIB.get())).group("arrow").save(consumer, Redux.locate("cockatrice_rib_arrow"));
-
-        oneToOneConversionRecipe(consumer, Items.BONE_MEAL, ReduxItems.COCKATRICE_RIB.get(), null, 3);
-
-
-
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ReduxItems.OAT_MUFFIN.get()).requires(ReduxItems.OATS.get(), 2).requires(AetherItems.BLUE_BERRY.get()).unlockedBy("has_oats", inventoryTrigger(ItemPredicate.Builder.item()
                 .of(ReduxItems.OATS.get()).build())).save(consumer);
 
-
         oreBlockStorageRecipesRecipesWithCustomUnpacking(consumer, RecipeCategory.MISC, ReduxItems.VERIDIUM_NUGGET.get(), RecipeCategory.MISC, ReduxItems.VERIDIUM_INGOT.get(), "veridium_nugget", "veridium_nugget_to_veridium_ingot");
-
-
 
         for (WoodHandler woodHandler : Redux.Handlers.Wood.WOOD_HANDLERS) {
             woodFromLogs(consumer, woodHandler.wood.get(), woodHandler.log.get());

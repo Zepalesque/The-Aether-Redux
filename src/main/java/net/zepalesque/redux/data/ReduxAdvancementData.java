@@ -74,7 +74,7 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
 
             Advancement pyromaniac = Advancement.Builder.advancement()
                     .parent(new ResourceLocation(Aether.MODID, "gold_dungeon"))
-                    .display(ReduxItems.PHOENIX_RING.get(),
+                    .display(ReduxItems.PHOENIX_EMBLEM.get(),
                             Component.translatable("advancement.aether_redux.kill_sheepuff_with_fireball"),
                             Component.translatable("advancement.aether_redux.kill_sheepuff_with_fireball.desc"),
                             null,

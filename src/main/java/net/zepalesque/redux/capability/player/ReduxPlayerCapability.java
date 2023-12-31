@@ -160,7 +160,7 @@ public class ReduxPlayerCapability implements ReduxPlayer {
 
     @Override
     public boolean canShootFireball() {
-        return !this.player.level().isClientSide() && (this.fireballCooldown <= 0) && EquipmentUtil.hasCurio(this.player, ReduxItems.PHOENIX_RING.get());
+        return !this.player.level().isClientSide() && (this.fireballCooldown <= 0) && EquipmentUtil.hasCurio(this.player, ReduxItems.PHOENIX_EMBLEM.get());
     }
 
     public boolean doubleFireball()

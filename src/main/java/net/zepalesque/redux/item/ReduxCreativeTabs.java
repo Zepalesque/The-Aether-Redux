@@ -190,21 +190,22 @@ public class ReduxCreativeTabs {
             putAfter(ReduxItems.LUXBUDS, ReduxItems.BUNDLE_OF_AETHER_GRASS, event);
             putAfter(ReduxItems.BUNDLE_OF_AETHER_GRASS, ReduxItems.LIGHTROOT_CLUMP, event);
 
-            putAfter(AetherItems.SKYROOT_POISON_BUCKET, ReduxItems.COCKATRICE_RIB, event);
-
             putAfter(AetherItems.SWET_BALL, Redux.aetherGenesisCompat() ? ReduxItems.VANILLA_SWET_BALL : ReduxItems.GOLDEN_SWET_BALL, event);
             if (!Redux.aetherGenesisCompat()) { putAfter(ReduxItems.GOLDEN_SWET_BALL, ReduxItems.VANILLA_SWET_BALL, event); }
 
         }
         if (tab == AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES.get()) {
-            putAfter(AetherItems.SENTRY_BOOTS, ReduxItems.AIRBOUND_CAPE, event);
 
             putAfter(AetherItems.VALKYRIE_CAPE, ReduxItems.VALKYRIE_RING, event);
+            putAfter(ReduxItems.VALKYRIE_RING, ReduxItems.COCKATRICE_FEATHER, event);
 
-            putAfter(AetherItems.ICE_PENDANT, ReduxItems.PHOENIX_RING, event);
-            putAfter(ReduxItems.PHOENIX_RING, ReduxItems.ENCHANTED_RING, event);
+            putAfter(AetherItems.ICE_PENDANT, ReduxItems.ENCHANTED_RING, event);
+            
+            putAfter(AetherItems.IRON_BUBBLE, ReduxItems.PHOENIX_EMBLEM, event);
 
             putAfter(AetherItems.REGENERATION_STONE, ReduxItems.VAMPIRE_AMULET, event);
+
+            putAfter(AetherItems.SWET_CAPE, ReduxItems.AIRBOUND_CAPE, event);
         }
         if (tab == AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES.get()) {
 

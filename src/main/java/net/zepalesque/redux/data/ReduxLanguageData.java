@@ -72,8 +72,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.VALKYRIE_RING, "Valkyrie Ring");
         addLore(ReduxItems.VALKYRIE_RING, "A ring found in the Silver Dungeon. It allows the wearer to reach farther!");
 
-        addItem(ReduxItems.PHOENIX_RING, "Phoenix Ring");
-        addLore(ReduxItems.PHOENIX_RING, "A ring found in the Gold Dungeon. It allows the wearer to shoot fireballs!");
+        addItem(ReduxItems.PHOENIX_EMBLEM, "Phoenix Ring");
+        addLore(ReduxItems.PHOENIX_EMBLEM, "A ring found in the Gold Dungeon. It allows the wearer to shoot fireballs!");
 
         addItem(ReduxItems.VANILLA_SWET_SPAWN_EGG, "Vanilla Swet Spawn Egg");
         addLore(ReduxItems.VANILLA_SWET_SPAWN_EGG, "A spawn egg. Spawns a Vanilla Swet");
@@ -351,8 +351,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.RAW_VERIDIUM, "Raw Veridium");
         addLore(ReduxItems.RAW_VERIDIUM, "A chunk of Raw Veridium. This can be smelted into an ingot.");
 
-        addItem(ReduxItems.COCKATRICE_RIB, "Cockatrice Rib");
-        addLore(ReduxItems.COCKATRICE_RIB, "The rib of a Cockatrice. These can be turned into bone meal, or used to craft arrows.");
+        addItem(ReduxItems.COCKATRICE_FEATHER, "Cockatrice Feather");
+        addLore(ReduxItems.COCKATRICE_FEATHER, "A feather from a Cockatrice. It is said that it will protect the user from Cockatrices' venom.");
 
         addItem(ReduxItems.OAT_MUFFIN, "Oat Muffin");
         addLore(ReduxItems.OAT_MUFFIN, "A nice little snack made of oats. It's delicious with a porkchop for breakfast");
@@ -405,7 +405,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         // TODO: Bring back this ability?
         //addGuiText("valkyrie_ring_regen", "Regeneration which increases as health drops");
         addGuiText("airbound_cape_jump_boost", "Grants ability to double jump");
-        addGuiText("phoenix_ring_fireball", "Grants ability to shoot fireballs");
+        addGuiText("phoenix_emblem_fireball", "Grants ability to shoot fireballs");
+        addGuiText("cockatrice_feather_immunity", "Grants immunity to Inebriation");
 
         addGuiText("vampire_amulet_night_ability", "After being worn for one overworld day (as symbolized by a gold highlight), will grant the ability to absorb dealt damage");
         addGuiText("vampire_amulet_day_debuff", "Causes more damage to be taken at day");

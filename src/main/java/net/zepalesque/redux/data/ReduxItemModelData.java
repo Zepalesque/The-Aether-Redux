@@ -79,7 +79,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         eggItem(ReduxItems.VANILLA_SWET_SPAWN_EGG);
         item(ReduxItems.VALKYRIE_RING, "accessories/");
         item(ReduxItems.AIRBOUND_CAPE, "accessories/");
-        item(ReduxItems.PHOENIX_RING, "accessories/");
+        item(ReduxItems.PHOENIX_EMBLEM, "accessories/");
         item(ReduxItems.MUSIC_DISC_LABYRINTHS_VENGEANCE, "misc/");
         item(ReduxItems.MOUSE_EAR_SOUP, "food/");
         itemBlock(ReduxBlocks.COARSE_AETHER_DIRT);
@@ -176,7 +176,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         this.itemBlock(ReduxBlocks.VERIDIUM_ORE.get());
         this.itemBlock(ReduxBlocks.RAW_VERIDIUM_BLOCK.get());
 
-        this.itemGlow(ReduxItems.COCKATRICE_RIB, "materials/");
+        this.itemGlow(ReduxItems.COCKATRICE_FEATHER, "accessories/");
         this.item(ReduxItems.OAT_MUFFIN, "food/");
 
         this.item(ReduxItems.QUICKROOT, "materials/");
