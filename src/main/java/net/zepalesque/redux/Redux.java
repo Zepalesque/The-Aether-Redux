@@ -192,7 +192,6 @@ public class Redux
 
     private void clientSetup(final FMLClientSetupEvent event)
     {
-        PackConfigBootstrap.bootstrap();
         ReduxRenderers.registerCuriosRenderers();
         event.enqueueWork(
                 () -> {
@@ -261,6 +260,7 @@ public class Redux
     public  void packSetup(AddPackFindersEvent event) {
 
 
+        PackConfigBootstrap.bootstrap();
 
         overridesPack(event);
 
