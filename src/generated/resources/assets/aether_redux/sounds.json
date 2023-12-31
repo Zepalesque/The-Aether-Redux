@@ -293,12 +293,7 @@
   },
   "item.accessory.equip_enchanted_ring": {
     "sounds": [
-      "item/armor/equip_diamond1",
-      "item/armor/equip_diamond2",
-      "item/armor/equip_diamond3",
-      "item/armor/equip_diamond4",
-      "item/armor/equip_diamond5",
-      "item/armor/equip_diamond6"
+      "mob/turtle/armor"
     ],
     "subtitle": "subtitles.aether_redux.item.accessory.equip_enchanted_ring"
   },
@@ -312,17 +307,6 @@
       "item/armor/equip_gold6"
     ],
     "subtitle": "subtitles.aether_redux.item.accessory.equip_phoenix_ring"
-  },
-  "item.accessory.equip_sentry_ring": {
-    "sounds": [
-      "item/armor/equip_iron1",
-      "item/armor/equip_iron2",
-      "item/armor/equip_iron3",
-      "item/armor/equip_iron4",
-      "item/armor/equip_iron5",
-      "item/armor/equip_iron6"
-    ],
-    "subtitle": "subtitles.aether_redux.item.accessory.equip_sentry_ring"
   },
   "item.accessory.equip_valkyrie_ring": {
     "sounds": [
@@ -345,6 +329,17 @@
       "item/armor/equip_gold6"
     ],
     "subtitle": "subtitles.aether_redux.item.accessory.equip_vampire_amulet"
+  },
+  "item.accessory.equip_wisdom_ring": {
+    "sounds": [
+      "item/armor/equip_iron1",
+      "item/armor/equip_iron2",
+      "item/armor/equip_iron3",
+      "item/armor/equip_iron4",
+      "item/armor/equip_iron5",
+      "item/armor/equip_iron6"
+    ],
+    "subtitle": "subtitles.aether_redux.item.accessory.equip_wisdom_ring"
   },
   "item.convert.ambrosium": {
     "sounds": [

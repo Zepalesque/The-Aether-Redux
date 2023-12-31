@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "E": {
+      "item": "minecraft:emerald"
+    },
+    "H": {
+      "tag": "aether:holystone"
+    },
+    "R": {
+      "item": "aether_redux:enchanted_ring"
+    }
+  },
+  "pattern": [
+    "HEH",
+    "HRH",
+    "HHH"
+  ],
+  "result": {
+    "item": "aether_redux:ring_of_wisdom"
+  },
+  "show_notification": true
+}

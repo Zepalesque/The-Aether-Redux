@@ -1,4 +1,4 @@
-// 1.20.1	2023-12-30T19:44:46.5569407	Registries
+// 1.20.1	2023-12-31T10:03:07.9050084	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 cd3a6aa44fc8b5997f2f84db9e1a1ff8f22527b5 data/aether/worldgen/configured_feature/golden_oak_tree.json
 8e77842b0e094fe36228fd31b94d4f660e244270 data/aether/worldgen/configured_feature/grass_patch.json
@@ -105,7 +105,7 @@ c6714485362ddb307e9232816baa1d8cdbd0b773 data/aether_redux/worldgen/placed_featu
 d2061c4d04b1760ad6dbac2930892d794a0eb0a2 data/aether_redux/worldgen/placed_feature/patch/firecap_patch.json
 b62d9122273fd470bc3d1666fb84df61a205a3c1 data/aether_redux/worldgen/placed_feature/patch/frosted_fern_patch.json
 1dbc1e8b93eb0bf4b99940a016f89b827bd30b5b data/aether_redux/worldgen/placed_feature/patch/frosted_grass_patch.json
-7e04b231d657bace0809080d363671b072886376 data/aether_redux/worldgen/placed_feature/patch/frosted_purple_flower_patch.json
+12d33218fb0f496c131b0307edee5a65fae3c75c data/aether_redux/worldgen/placed_feature/patch/frosted_purple_flower_patch.json
 d4752a78ed8b5dcd04a7bf9aa17798aa11e71f14 data/aether_redux/worldgen/placed_feature/patch/gilded_white_flower_patch.json
 39fff5a74b5e74d095fa193c8a7f61d9f01ee70f data/aether_redux/worldgen/placed_feature/patch/golden_clover_patch.json
 85ea491bccfddfbcdfaa12a0dc2c1bdc9f464f66 data/aether_redux/worldgen/placed_feature/patch/iridia_patch.json
