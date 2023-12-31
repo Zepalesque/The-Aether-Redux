@@ -27,4 +27,5 @@ public class ReduxFeatureRegistry {
     public static RegistryObject<Feature<TestAtPlaceConfig>> BLOCK_TEST_PATCH = FEATURES.register("block_test_patch", () -> new TestBlockAtPlacementPatch(TestAtPlaceConfig.CODEC));
     public static RegistryObject<Feature<FieldsproutTreeConfig>> FIELDSPROUT_TREE = FEATURES.register("fieldsprout_tree", () -> new FieldsproutTreeFeature(FieldsproutTreeConfig.CODEC));
     public static RegistryObject<Feature<CloudLayerConfig>> CLOUD_LAYER = FEATURES.register("cloud_layer", () -> new CloudLayerFeature(CloudLayerConfig.CODEC));
+    public static RegistryObject<Feature<CloudLayerConfig>> STONE_LAYER = FEATURES.register("stone_layer", () -> new StoneLayerFeature(CloudLayerConfig.CODEC));
 }

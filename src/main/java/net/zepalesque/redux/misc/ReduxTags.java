@@ -82,7 +82,8 @@ public class ReduxTags {
         public static final TagKey<Biome> HAS_SWEETBLOSSOM = tag("has/sweetblossom");
         public static final TagKey<Biome> HAS_VANILLA_SWET = tag("has/vanilla_swet");
         public static final TagKey<Biome> HAS_VERIDIUM_ORE = tag("has/veridium_ore");
-        public static final TagKey<Biome> HAS_VOLITITE = tag("has/vitrium");
+        public static final TagKey<Biome> HAS_VITRIUM = tag("has/vitrium");
+        public static final TagKey<Biome> HAS_VITRIUM_LAYER = tag("has/vitrium_layer");
         public static final TagKey<Biome> HAS_REDUX_WATER_COLOR = tag("has/redux_water_color");
 
         public static final TagKey<Biome> DENSE_LEAF_FALL = tag("dense_leaf_fall");
