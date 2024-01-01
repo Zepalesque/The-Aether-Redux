@@ -105,8 +105,6 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue moa_improvements;
         public final ForgeConfigSpec.EnumValue<MoaFeetType> moa_feet_type;
         public final ForgeConfigSpec.BooleanValue cockatrice_improvements;
-        public final ForgeConfigSpec.BooleanValue zephyr_improvements;
-        public final ForgeConfigSpec.BooleanValue sheepuff_improvements;
         public final ForgeConfigSpec.BooleanValue change_aether_configs;
         public final ForgeConfigSpec.BooleanValue mimic_slam_sound;
         public final ForgeConfigSpec.BooleanValue sentry_improvements;
@@ -122,8 +120,6 @@ public class ReduxConfig {
             this.moa_improvements = builder.comment("Makes Moas resemble their Mutation models").translation("config.aether_redux.client.mob_models.moa").define("Moa Model Improvements", false);
             this.moa_feet_type = builder.comment("Determines whether the updated Moa model should use more peaceful-appearing toes, or more aggressive talons").translation("config.aether_redux.client.mob_models.moa_feet").defineEnum("Moa Foot Type", MoaFeetType.toes);
             this.cockatrice_improvements = builder.comment("Makes Cockatrices look far better").translation("config.aether_redux.client.mob_models.cockatrice").define("Cockatrice Model Improvements", true);
-            this.zephyr_improvements = builder.comment("Makes some small edits to the zephyr model to make it more lore-accurate").translation("config.aether_redux.client.mob_models.zephyr").define("Zephyr Model Improvements", true);
-            this.sheepuff_improvements = builder.comment("Improves the Sheepuff model, using a design taking elements both from older Aether II: Highlands Builds, and the lore-accurate design.").translation("config.aether_redux.client.mob_models.sheepuff").define("Sheepuff Model Improvements", true);
             this.sentry_improvements = builder.comment("Improves the model for Sentries, giving them a new model and a springy jump animation").translation("config.aether_redux.client.mob_models.sentry").define("Sentry Model Improvements", true);
             builder.pop();
             builder.push("Particles");
