@@ -68,7 +68,7 @@ public class ReduxRenderers {
 
     @SubscribeEvent
     public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
-        event.registerLayerDefinition(ReduxModelLayers.MOA_ADDITIONS, MoaReduxModel::createBodyLayer);
+        event.registerLayerDefinition(ReduxModelLayers.MOA_REDUX, MoaReduxModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.REDUX_COCKATRICE, UpdatedCockatriceModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.MIMIC, ReduxMimicModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.SENTRY, ReduxSentryModel::createBodyLayer);
@@ -85,7 +85,7 @@ public class ReduxRenderers {
         while(iterator.hasNext()) {
             EntityRenderer<?> renderer = (EntityRenderer<?>) iterator.next();
             if (renderer instanceof MoaRenderer moa) {
-                moa.addLayer(new MoaReduxLayer(moa, new MoaReduxModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.MOA_ADDITIONS))));
+                moa.addLayer(new MoaReduxLayer(moa, new MoaReduxModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.MOA_REDUX))));
             }
         }
     }

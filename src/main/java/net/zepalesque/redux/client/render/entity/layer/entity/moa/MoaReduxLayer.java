@@ -1,5 +1,6 @@
 package net.zepalesque.redux.client.render.entity.layer.entity.moa;
 
+import com.aetherteam.aether.client.renderer.entity.MoaRenderer;
 import com.aetherteam.aether.client.renderer.entity.model.MoaModel;
 import com.aetherteam.aether.entity.passive.Moa;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -21,10 +22,10 @@ import javax.annotation.Nonnull;
 
 public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
 
-    protected final RenderLayerParent<Moa, MoaModel> parent;
+    protected final MoaRenderer parent;
     private final MoaReduxModel updated;
 
-    public MoaReduxLayer(RenderLayerParent<Moa, MoaModel> entityRenderer, MoaReduxModel pUpdated) {
+    public MoaReduxLayer(MoaRenderer entityRenderer, MoaReduxModel pUpdated) {
         super(entityRenderer);
         this.updated = pUpdated;
         this.parent = entityRenderer;
@@ -34,7 +35,7 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
     public void render(@Nonnull PoseStack poseStack, @Nonnull MultiBufferSource buffer, int packedLight, Moa moa, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (MoaUtils.useNewModel(moa)) {
             poseStack.scale(0.5F, 0.5F, 0.5F);
-            poseStack.translate(0F, 1.5F, -0.125F);
+            poseStack.translate(0F, 1.5F, /*-0.125F*/ 0F);
             MoaReduxModel model = this.updated;
             model.neck.yRot = this.getParentModel().head.yRot * 0.333F;
             model.neck.xRot = this.getParentModel().head.xRot * 0.125F;
@@ -54,6 +55,7 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
                 float rot = baseRot * (((float) Math.PI) * 0.125F);
                 model.neck_hurtanim.xRot = 0.6667F * rot;
                 model.body_additions.xRot = (0.3333F * rot) + breathe;
+//                this.parent.getModel().body.xRot = (float) (Math.PI * 0.5F) + (0.3333F * rot) - breathe;
                 model.head_hurtanim.xRot = -rot;
             } else {
                 model.neck_hurtanim.xRot = breathe * 0.5F;
@@ -61,8 +63,8 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
                 model.neck_hurtanim.yRot = 0.0F;
                 model.head_hurtanim.yRot =  0.0F;
                 model.body_additions.xRot = breathe;
+//                this.parent.getModel().body.xRot = (float) (Math.PI * 0.5F) - breathe;
             }
-            this.parent.getModel().body.xRot = model.body_additions.xRot;
 
 
             model.middle_feather.xRot = MathUtil.breatheBase(moa, partialTicks, 0.1F, 0.1F, 0.0F);
@@ -112,8 +114,9 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
                 VertexConsumer consumer = buffer.getBuffer(RenderType.entityCutoutNoCull(feathersLoc));
                 model.renderToBuffer(poseStack, consumer, packedLight, LivingEntityRenderer.getOverlayCoords(moa, 0.0F), 1.0F, 1.0F, 1.0F, 0.25F);
             }
+        } else {
+            this.parent.getModel().body.xRot = 0;
         }
-        this.parent.getModel().body.xRot = 0;
     }
 
     @Nonnull

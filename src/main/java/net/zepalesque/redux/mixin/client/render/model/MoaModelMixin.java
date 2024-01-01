@@ -51,6 +51,7 @@ public class MoaModelMixin extends BipedBirdModel<Moa> {
     public void renderToBuffer(PoseStack poseStack, VertexConsumer consumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha, CallbackInfo ci) {
         this.leftWing.skipDraw = this.useNewModel;
         this.rightWing.skipDraw = this.useNewModel;
+        this.body.render(poseStack, consumer, packedLight, packedOverlay);
 
         if (!this.useNewModel) {
             this.head.render(poseStack, consumer, packedLight, packedOverlay);
@@ -62,7 +63,6 @@ public class MoaModelMixin extends BipedBirdModel<Moa> {
             this.rightLeg.render(poseStack, consumer, packedLight, packedOverlay);
             this.leftLeg.render(poseStack, consumer, packedLight, packedOverlay);
         }
-        this.body.render(poseStack, consumer, packedLight, packedOverlay);
         ci.cancel();
     }
 

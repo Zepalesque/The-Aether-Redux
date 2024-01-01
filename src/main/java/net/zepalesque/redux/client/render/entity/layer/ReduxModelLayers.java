@@ -8,7 +8,7 @@ import net.zepalesque.redux.Redux;
 // TODO: Go through these and remove any unused ones
 public class ReduxModelLayers {
     public static final ModelLayerLocation MOA_EXTRAS = register("redux_moa", "extras");
-    public static final ModelLayerLocation MOA_ADDITIONS = register("moa", "redux_additions");
+    public static final ModelLayerLocation MOA_REDUX = register("moa", "redux_model");
     public static final ModelLayerLocation MOA_TOES = register("redux_moa", "toes");
     public static final ModelLayerLocation MOA_TALONS = register("redux_moa", "talons");
     public static final ModelLayerLocation MOA_WINGS = register("redux_moa", "wings");
