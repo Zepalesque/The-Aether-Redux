@@ -45,7 +45,6 @@
     "client.render.AerbunnyRendererMixin",
     "client.render.ArrowRendererMixin",
     "client.render.HandItemMixin",
-    "client.render.MoaRendererMixin",
     "client.render.model.MoaModelMixin"
   ]
 }
