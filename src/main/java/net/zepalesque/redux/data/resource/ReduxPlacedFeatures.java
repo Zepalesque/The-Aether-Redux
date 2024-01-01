@@ -320,11 +320,13 @@ public class ReduxPlacedFeatures {
 
         register(context, HIGHFIELDS_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.HIGHFIELDS_TREES),
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
-                        .add(ConstantInt.of(3), 9)
-                        .add(ConstantInt.of(2), 1)
+                        .add(ConstantInt.of(1), 9)
+                        .add(ConstantInt.of(2), 3)
+                        .add(ConstantInt.of(0), 5)
                         .build())),
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.OCEAN_FLOOR, ConstantInt.of(2), 4),
                 BiomeFilter.biome(),
+                RarityFilter.onAverageOnceEvery(2),
                 PlacementUtils.filteredByBlockSurvival(ReduxBlocks.FLOWERING_FIELDSPROUT_SAPLING.get()),
                 DUNGEON_BLACKLIST
         );

@@ -472,9 +472,9 @@ public class    ReduxConfiguredFeatures {
         register(context, HIGHFIELDS_TREES, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(
                         new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(AetherConfiguredFeatures.SKYROOT_TREE_CONFIGURATION),
-                                PlacementUtils.filteredByBlockSurvival(AetherBlocks.SKYROOT_SAPLING.get())), 0.15F),
+                                PlacementUtils.filteredByBlockSurvival(AetherBlocks.SKYROOT_SAPLING.get())), 0.35F),
                         new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(CHROMATIC_BUSH),
-                                PlacementUtils.filteredByBlockSurvival(ReduxBlocks.CHROMATIC_SHRUB.get())), 0.25F)
+                                PlacementUtils.filteredByBlockSurvival(ReduxBlocks.CHROMATIC_SHRUB.get())), 0.1F)
                 ),
                         PlacementUtils.inlinePlaced(
                                 configuredFeatures.getOrThrow(FLOWERING_FIELDSPROUT_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.FLOWERING_FIELDSPROUT_SAPLING.get()))
