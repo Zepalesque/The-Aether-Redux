@@ -177,7 +177,6 @@ public class Redux
             ReduxBlocks.registerFlammability();
             registerDispenserBehaviors();
             replaceBlockSounds();
-            ReduxRegion.resetBiomeParameters();
             Regions.register(new ReduxRegion(new ResourceLocation(MODID, "aether_redux_region"), ReduxConfig.COMMON.region_size.get()));
             SurfaceRuleManager.addSurfaceRules(AetherRuleCategory.THE_AETHER, "aether_redux", ReduxSurfaceData.makeRules());
             if (ReduxConfig.COMMON.better_mimics.get()) {
