@@ -28,28 +28,6 @@ public class MoaRendererMixin extends MobRenderer<Moa, MoaModel> {
 
 
 
-    @Override
-    public void render(Moa moa, float pEntityYaw, float partialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
-        if (MoaUtils.useNewModel(moa))
-        {
-            float breathe = MathUtil.breathe(moa, partialTicks);
-
-            if (moa.hurtTime > 0 && moa.hurtTime - partialTicks > 0.0F)
-            {
-                int hit = moa.hurtDuration - moa.hurtTime;
-                float hitSmooth = hit + partialTicks;
-                final float baseRot = hitSmooth >= (moa.hurtDuration * 0.25F) + 0.0F ? (-Mth.cos(0.133333333F * ((float) Math.PI) * (hitSmooth + 5.0F)) + 1) : (-Mth.cos(0.4F * ((float) Math.PI) * hitSmooth));
-
-                float rot = baseRot * (((float) Math.PI) * 0.125F);
-
-                this.model.body.xRot = (float) ((0.3333F * rot) + (Math.PI * 0.5F)) + breathe;
-            } else {
-
-                this.model.body.xRot = (float) (Math.PI * 0.5F) + breathe;
-            }
-        }
-        super.render(moa, pEntityYaw, partialTicks, pMatrixStack, pBuffer, pPackedLight);
-    }
 
     @Override
     public ResourceLocation getTextureLocation(Moa entity) {

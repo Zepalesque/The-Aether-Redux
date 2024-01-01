@@ -33,6 +33,9 @@ public class MoaAdditionsLayer extends RenderLayer<Moa, MoaModel> {
     @Override
     public void render(@Nonnull PoseStack poseStack, @Nonnull MultiBufferSource buffer, int packedLight, Moa moa, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (MoaUtils.useNewModel(moa)) {
+
+
+
             MoaAdditionsModel model = this.updated;
             model.neck.yRot = this.getParentModel().head.yRot * 0.333F;
             model.neck.xRot = this.getParentModel().head.xRot * 0.125F;
@@ -53,13 +56,16 @@ public class MoaAdditionsLayer extends RenderLayer<Moa, MoaModel> {
                 model.neck_hurtanim.xRot = 0.6667F * rot;
                 model.body_additions.xRot = (0.3333F * rot) + breathe;
                 model.head_hurtanim.xRot = -rot;
+                this.parent.getModel().body.xRot = (float) ((0.3333F * rot) + (Math.PI * 0.5F)) + breathe;
             } else {
                 model.neck_hurtanim.xRot = breathe * 0.5F;
                 model.head_hurtanim.xRot = -1.5F * breathe;
                 model.neck_hurtanim.yRot = 0.0F;
                 model.head_hurtanim.yRot =  0.0F;
                 model.body_additions.xRot = breathe;
+                this.parent.getModel().body.xRot = (float) (Math.PI * 0.5F) + breathe;
             }
+
             model.middle_feather.xRot = MathUtil.breatheBase(moa, partialTicks, 0.1F, 0.1F, 0.0F);
             model.left_feather.xRot = MathUtil.breatheBase(moa, partialTicks, 0.1F, 0.1F, 0.6667F);
             model.right_feather.xRot = MathUtil.breatheBase(moa, partialTicks, 0.1F, 0.1F, 0.3333F);
