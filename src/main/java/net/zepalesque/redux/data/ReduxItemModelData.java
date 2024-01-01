@@ -94,6 +94,8 @@ public class ReduxItemModelData extends AetherItemModelProvider {
 
         itemBlock(ReduxBlocks.GLACIA_LEAVES);
         this.itemBlockFlat(ReduxBlocks.GLACIA_SAPLING.get(), "natural/");
+        itemBlock(ReduxBlocks.PURPLE_GLACIA_LEAVES);
+        this.itemBlockFlat(ReduxBlocks.PURPLE_GLACIA_SAPLING.get(), "natural/");
 
         itemBlock(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK);
         itemBlock(ReduxBlocks.AEVELIUM);
