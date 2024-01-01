@@ -85,7 +85,8 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
 
 
             if (!moa.isSitting() || !moa.isEntityOnGround() && moa.isSitting()) {
-
+                model.leg1.skipDraw = false;
+                model.leg2.skipDraw = false;
                 float progress = moa.isEntityOnGround() ? 0 : 1;
 
                 if (MoaAnimation.get(moa).isPresent()) {
@@ -106,7 +107,11 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
                 model.toes_leg2.xRot = MathUtil.costrp(progress, 0F, MathUtil.degToRad(10F));
                 model.back_toes_leg1.xRot = MathUtil.costrp(progress, 0F, MathUtil.degToRad(-75F));
                 model.back_toes_leg2.xRot = MathUtil.costrp(progress, 0F, MathUtil.degToRad(-75F));
+            } else {
+                model.leg1.skipDraw = true;
+                model.leg2.skipDraw = true;
             }
+
 
             model.setupAnim(moa, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
             if (Minecraft.getInstance().player != null && !moa.isInvisibleTo(Minecraft.getInstance().player)) {
