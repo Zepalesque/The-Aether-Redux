@@ -143,7 +143,6 @@ public class MoaAdditionsModel  extends EntityModel<Moa> {
 
         PartDefinition tail3_r1 = left_feather.addOrReplaceChild("tail3_r1", CubeListBuilder.create().texOffs(53, 43).addBox(-0.5F, 0.0F, 0.0F, 3.0F, 0.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(3.0F, 0.0F, 0.0F, 0.2618F, 0.5236F, 0.0F));
 
-
         PartDefinition wing_1 = body_additions.addOrReplaceChild("wing_1", CubeListBuilder.create(), PartPose.offsetAndRotation(-4.1F, -2.0F, -2.0F, 1.5708F, 0.0F, 0.0F));
 
         PartDefinition z_rot_wing_1 = wing_1.addOrReplaceChild("z_rot_wing_1", CubeListBuilder.create().texOffs(27, 20).addBox(-1.5F, -0.5F, -2.0F, 1.0F, 8.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(1.5F, -0.5F, 1.0F));
