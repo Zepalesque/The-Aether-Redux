@@ -1,4 +1,4 @@
-// 1.20.1	2023-12-31T17:53:18.0945397	Loot Tables
+// 1.20.1	2023-12-31T21:27:05.4733342	Loot Tables
 0127c81d6fc6a29bce459466bc70cfe29335fe9e data/aether_redux/loot_tables/blocks/aether_grass.json
 48b55d99420ce1afaca551876e87bdbccae62e08 data/aether_redux/loot_tables/blocks/aevelium.json
 101eb9ac681437f2db38085324dfcca14a759f7a data/aether_redux/loot_tables/blocks/aevelium_growth.json
@@ -180,6 +180,9 @@ c8a2a7b592ef9664b2ac679b84029f1c5264d986 data/aether_redux/loot_tables/blocks/po
 4c842f25cf221c44d2a16820e778e01d76c48c90 data/aether_redux/loot_tables/blocks/potted_spirolyctil.json
 1fde6a8a815edde2b6a7fb0817e7b5fc06abaa43 data/aether_redux/loot_tables/blocks/potted_springshroom.json
 a8bc8724f9f839107bd4f743549a92ecd6053197 data/aether_redux/loot_tables/blocks/potted_wyndsprouts.json
+e60e90e3b70f3f3b8904cf994e7c0c46dcb72003 data/aether_redux/loot_tables/blocks/purple_glacia_leaves.json
+a8655c14dcb62175a9ab8cf34bfb7372d0c8f805 data/aether_redux/loot_tables/blocks/purple_glacia_sapling.json
+214b296579c2e9375836091351f46f81b52b014a data/aether_redux/loot_tables/blocks/purple_potted_glacia_sapling.json
 e713530dd4ee13be3284a01ded2570b799a2c592 data/aether_redux/loot_tables/blocks/quickroots.json
 31634f3ccbb1109ba54691cd7c7c94d822fddafa data/aether_redux/loot_tables/blocks/raw_veridium_block.json
 275ddc1d2fb5941416f14b4e3cb8146c5145e008 data/aether_redux/loot_tables/blocks/skysprouts.json

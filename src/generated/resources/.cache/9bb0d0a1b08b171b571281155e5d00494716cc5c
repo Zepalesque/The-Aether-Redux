@@ -1,8 +1,8 @@
-// 1.20.1	2023-12-31T17:53:18.1325413	Tags for minecraft:block mod id aether_redux
+// 1.20.1	2023-12-31T21:27:05.6988553	Tags for minecraft:block mod id aether_redux
 8dfef7533420134b3e6a022e43bcc7e4571ebf20 data/aether/tags/blocks/aether_animals_spawnable_on.json
 c5199c5b6857fbe1d5e1228b62469fc21245a14c data/aether/tags/blocks/aether_dirt.json
 be858bbcc6c70f54eda7d60496915fa5aef21064 data/aether/tags/blocks/holystone.json
-e640668fa99edb73690cde5aa0b9242b2a687084 data/aether/tags/blocks/treated_as_aether_block.json
+6ac88ed819e7255ac6abf1dfb6224d0c9a9c41ee data/aether/tags/blocks/treated_as_aether_block.json
 85b1ad865db965e78fb0da827f9f619ffe9f5878 data/aether_redux/tags/blocks/aether_carver_replaceables.json
 89e570d3ed2e4927f7ede090fad49d26110aba17 data/aether_redux/tags/blocks/blighted_grasses.json
 edd28d843e4d50fffcd62491dda0fa5e4ba1749b data/aether_redux/tags/blocks/blightwillow_logs.json
@@ -27,18 +27,18 @@ ce3087631d37c89562a170802a2473a14f8d9153 data/aether_redux/tags/blocks/quicksoil
 f02fc1acc525d916cbb46f0f6294c117d719b18f data/minecraft/tags/blocks/climbable.json
 7eda84e8c65eed5d88a254c1edfe709a99743806 data/minecraft/tags/blocks/fence_gates.json
 25d0c58129bf71c659041cc80d7f70c58253128a data/minecraft/tags/blocks/flowers.json
-d53c58e33b50a2ce895fe17cc7a2c3d4d7e69610 data/minecraft/tags/blocks/flower_pots.json
-6af869225b5a5ec421f9c2c5a6c64dc8922e5a98 data/minecraft/tags/blocks/leaves.json
+dd072162dab63688ce959bd2f86d43af6e79e7d3 data/minecraft/tags/blocks/flower_pots.json
+951dc06ff37457fd4f12395a4afc329ff217256c data/minecraft/tags/blocks/leaves.json
 4f7b3213a116abc36b8cbd6009c692ba143e2027 data/minecraft/tags/blocks/logs.json
 88885cc74ba8e2217671a2f2238fbdd90faa7346 data/minecraft/tags/blocks/mineable/axe.json
-dcd0561fc675fe8371136221924b1160b1e60d15 data/minecraft/tags/blocks/mineable/hoe.json
+a6bba4643413211565cf422cbb2d7e757c9e60a9 data/minecraft/tags/blocks/mineable/hoe.json
 8095bffdfa50d094750a9a0ae39571a759452118 data/minecraft/tags/blocks/mineable/pickaxe.json
 55a3571c5ab48f6a6311f7bb6653d66d27967a5b data/minecraft/tags/blocks/mineable/shovel.json
 3c030154a63f8d3e1984ec879d6e419a7a6d4e6a data/minecraft/tags/blocks/mushroom_grow_block.json
 b79514a8b5c826d6a8f58e263a531ca73b575041 data/minecraft/tags/blocks/needs_stone_tool.json
 243259d4c584b5876ed092159fc145440c545379 data/minecraft/tags/blocks/planks.json
 c22fd6878bd5ca6d2a9375ce121ae34e87c78e7e data/minecraft/tags/blocks/replaceable.json
-a9724dbaf487baf8893a044e851e1f9916163576 data/minecraft/tags/blocks/saplings.json
+25875fe1e49c6866afceac17fb5b4d411dbebe4a data/minecraft/tags/blocks/saplings.json
 437b773a916ddc0e46d095bca4afc7ff1be914ee data/minecraft/tags/blocks/slabs.json
 673f5ae06d6450cd2de78d16fbda2d7fe1357d56 data/minecraft/tags/blocks/stairs.json
 624127aa4c5db0a3daca23ebce3197e950e5fdc6 data/minecraft/tags/blocks/standing_signs.json

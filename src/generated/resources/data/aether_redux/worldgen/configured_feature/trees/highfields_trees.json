@@ -20,7 +20,7 @@
     },
     "features": [
       {
-        "chance": 0.15,
+        "chance": 0.35,
         "feature": {
           "feature": "aether:skyroot_tree",
           "placement": [
@@ -40,7 +40,7 @@
         }
       },
       {
-        "chance": 0.25,
+        "chance": 0.1,
         "feature": {
           "feature": "aether_redux:patch/chromatic_bush",
           "placement": [
