@@ -177,6 +177,7 @@ public class ReduxCreativeTabs {
             putAfter(AetherItems.ZANITE_GEMSTONE, ReduxItems.RAW_VERIDIUM, event);
             putAfter(ReduxItems.RAW_VERIDIUM, ReduxItems.VERIDIUM_INGOT, event);
             putAfter(ReduxItems.VERIDIUM_INGOT, ReduxItems.VERIDIUM_NUGGET, event);
+            putAfter(ReduxItems.VERIDIUM_NUGGET, ReduxItems.SENTRY_CIRCUIT, event);
 
             putAfter(AetherItems.SKYROOT_STICK, ReduxItems.BLIGHTED_SPORES, event);
 
@@ -195,7 +196,8 @@ public class ReduxCreativeTabs {
             putAfter(ReduxItems.VALKYRIE_RING, ReduxItems.COCKATRICE_FEATHER, event);
 
             putAfter(AetherItems.ICE_PENDANT, ReduxItems.ENCHANTED_RING, event);
-            
+            putAfter(ReduxItems.ENCHANTED_RING, ReduxItems.RING_OF_WISDOM, event);
+
             putAfter(AetherItems.IRON_BUBBLE, ReduxItems.PHOENIX_EMBLEM, event);
 
             putAfter(AetherItems.REGENERATION_STONE, ReduxItems.VAMPIRE_AMULET, event);
