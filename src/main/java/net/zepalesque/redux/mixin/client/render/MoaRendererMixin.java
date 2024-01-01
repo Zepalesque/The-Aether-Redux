@@ -26,10 +26,6 @@ public class MoaRendererMixin extends MobRenderer<Moa, MoaModel> {
         super(context, model, shadowRadius);
     }
 
-    @Inject(method = "<init>", at = @At(value = "TAIL"))
-    public void init(EntityRendererProvider.Context context, CallbackInfo ci) {
-        this.addLayer(new MoaAdditionsLayer((MoaRenderer) (Object) this, new MoaAdditionsModel(context.bakeLayer(ReduxModelLayers.MOA_ADDITIONS))));
-    }
 
 
     @Override

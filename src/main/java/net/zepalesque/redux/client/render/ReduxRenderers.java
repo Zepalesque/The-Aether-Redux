@@ -1,7 +1,10 @@
 package net.zepalesque.redux.client.render;
 
+import com.aetherteam.aether.client.renderer.entity.MoaRenderer;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
+import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -10,6 +13,7 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.client.render.entity.*;
 import net.zepalesque.redux.client.render.entity.layer.ReduxModelLayers;
+import net.zepalesque.redux.client.render.entity.layer.entity.moa.MoaAdditionsLayer;
 import net.zepalesque.redux.client.render.entity.misc.ReduxBoatRenderer;
 import net.zepalesque.redux.client.render.entity.model.entity.bronze.ReduxBattleSentryModel;
 import net.zepalesque.redux.client.render.entity.model.entity.bronze.ReduxMimicModel;
@@ -19,6 +23,8 @@ import net.zepalesque.redux.client.render.entity.model.entity.moa.MoaAdditionsMo
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.item.ReduxItems;
 import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
+
+import java.util.Iterator;
 
 @Mod.EventBusSubscriber(
         modid = Redux.MODID,
@@ -68,6 +74,19 @@ public class ReduxRenderers {
         event.registerLayerDefinition(ReduxModelLayers.SENTRY, ReduxSentryModel::createBodyLayer);
         if (Redux.aetherGenesisCompat()) {
             event.registerLayerDefinition(ReduxModelLayers.BATTLE_SENTRY, ReduxBattleSentryModel::createBodyLayer);
+        }
+    }
+
+    @SubscribeEvent
+    public static void addRenderLayers(EntityRenderersEvent.AddLayers event) {
+        Minecraft mc = Minecraft.getInstance();
+        Iterator iterator = mc.getEntityRenderDispatcher().renderers.values().iterator();
+
+        while(iterator.hasNext()) {
+            EntityRenderer<?> renderer = (EntityRenderer<?>) iterator.next();
+            if (renderer instanceof MoaRenderer moa) {
+                moa.addLayer(new MoaAdditionsLayer(moa, new MoaAdditionsModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.MOA_ADDITIONS))));
+            }
         }
     }
 
