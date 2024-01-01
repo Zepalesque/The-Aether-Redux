@@ -104,6 +104,11 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropPottedContents(ReduxBlocks.POTTED_GLACIA_SAPLING.get());
         this.dropPottedContents(ReduxBlocks.POTTED_FLOWERING_FIELDSPROUT_SAPLING.get());
 
+        this.add(ReduxBlocks.PURPLE_GLACIA_LEAVES.get(),
+                (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.PURPLE_GLACIA_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
+        this.dropSelf(ReduxBlocks.PURPLE_GLACIA_SAPLING.get());
+        this.dropPottedContents(ReduxBlocks.POTTED_PURPLE_GLACIA_SAPLING.get());
+
         dropSelf(ReduxBlocks.IRIDIA.get());
         this.dropPottedContents(ReduxBlocks.POTTED_IRIDIA.get());
         this.add(ReduxBlocks.AETHER_GRASS.get(), shearsOr(ReduxItems.BUNDLE_OF_AETHER_GRASS.get()));

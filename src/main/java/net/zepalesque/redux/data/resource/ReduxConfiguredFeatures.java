@@ -104,7 +104,7 @@ public class    ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> HIGHFIELDS_TREES = createKey(Folders.TREE + "highfields_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> IRIDIA_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.IRIDIA) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_CLOUDCAP  = createKey(Folders.TREE + "large_cloudcap");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_GLACIA_TREE = createKey(Folders.TREE + "large_glacia_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GLACIA_TREE = createKey(Folders.TREE + "glacia_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_MUSHROOMS = createKey(Folders.TREE + "large_mushrooms");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_SPRINGSHROOM  = createKey(Folders.TREE + "large_springshroom");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LIGHTROOT_AETHER_DIRT_ORE  = createKey(Folders.ORE + name(ReduxBlocks.LIGHTROOT_AETHER_DIRT) + "_ore");
@@ -115,7 +115,7 @@ public class    ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWERING_FIELDSPROUT_TREE = createKey(Folders.TREE + "flowering_fieldsprout_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROOTED_QUICKSOIL_SHELF = createKey(Folders.SURFACE + "rooted_quicksoil_shelf");
     public static final ResourceKey<ConfiguredFeature<?, ?>> WYNDSPROUTS_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.WYNDSPROUTS) + "_patch");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_GLACIA_TREE = createKey(Folders.TREE + "small_glacia_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PURPLE_GLACIA_TREE = createKey(Folders.TREE + "purple_glacia_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPIROLYCTIL_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.SPIROLYCTIL) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRINGSHROOM_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.SPRINGSHROOM) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPROUTING_LIGHTROOTS_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.SPROUTING_LIGHTROOTS) + "_patch");
@@ -340,7 +340,7 @@ public class    ReduxConfiguredFeatures {
                         new CrystalFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0), ConstantInt.of(6)),
                         new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
 
-        register(context, LARGE_GLACIA_TREE, Feature.TREE,
+        register(context, GLACIA_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
                         BlockStateProvider.simple(drops(Redux.Handlers.Wood.GLACIA.log)),
                         new StraightTrunkPlacer(9, 10, 0),
@@ -348,11 +348,11 @@ public class    ReduxConfiguredFeatures {
                         new GlaciaFoliagePlacer(ConstantInt.of(1), ConstantInt.of(0), ConstantInt.of(1)),
                         new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT)).build());
 
-        register(context, SMALL_GLACIA_TREE, Feature.TREE,
+        register(context, PURPLE_GLACIA_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
                         BlockStateProvider.simple(drops(Redux.Handlers.Wood.GLACIA.log)),
                         new StraightTrunkPlacer(5, 2, 0),
-                        prov(ReduxBlocks.GLACIA_LEAVES),
+                        prov(ReduxBlocks.PURPLE_GLACIA_LEAVES),
                         new GlaciaFoliagePlacer(ConstantInt.of(1), ConstantInt.of(0), ConstantInt.of(1)),
                         new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT)).build());
 
@@ -467,8 +467,8 @@ public class    ReduxConfiguredFeatures {
                         PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(GILDED_OAK_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.GILDED_OAK_SAPLING.get()))));
         register(context, FROSTED_TREES, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
-                        PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(LARGE_GLACIA_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.GLACIA_SAPLING.get())), 0.45F)),
-                        PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(SMALL_GLACIA_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.GLACIA_SAPLING.get()))));
+                        PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(GLACIA_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.GLACIA_SAPLING.get())), 0.45F)),
+                        PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(PURPLE_GLACIA_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.GLACIA_SAPLING.get()))));
         register(context, HIGHFIELDS_TREES, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(
                         new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(AetherConfiguredFeatures.SKYROOT_TREE_CONFIGURATION),

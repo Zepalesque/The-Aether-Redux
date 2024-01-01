@@ -8,12 +8,12 @@ import net.zepalesque.redux.data.resource.ReduxConfiguredFeatures;
 
 import javax.annotation.Nullable;
 
-public class GlaciaTree extends AbstractTreeGrower {
-    public GlaciaTree() {
+public class PurpleGlaciaTree extends AbstractTreeGrower {
+    public PurpleGlaciaTree() {
     }
 
     @Nullable
     protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean largeHive) {
-        return ReduxConfiguredFeatures.GLACIA_TREE;
+        return ReduxConfiguredFeatures.PURPLE_GLACIA_TREE;
     }
 }

@@ -112,6 +112,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         this.tag(BlockTags.LEAVES).add(
                 ReduxBlocks.BLIGHTWILLOW_LEAVES.get(),
                 ReduxBlocks.GLACIA_LEAVES.get(),
+                ReduxBlocks.PURPLE_GLACIA_LEAVES.get(),
                 ReduxBlocks.GILDED_OAK_LEAVES.get(),
                 ReduxBlocks.CHROMATIC_BERRY_LEAVES.get(),
                 ReduxBlocks.CHROMATIC_LEAVES.get(),
@@ -167,6 +168,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.CHROMATIC_SHRUB.get(),
                 ReduxBlocks.AEVYRN_BUSH.get(),
                 ReduxBlocks.GLACIA_LEAVES.get(),
+                ReduxBlocks.PURPLE_GLACIA_LEAVES.get(),
                 ReduxBlocks.GILDED_OAK_LEAVES.get(),
                 ReduxBlocks.BLIGHTED_SKYROOT_LEAVES.get(),
                 ReduxBlocks.BLIGHTWILLOW_LEAVES.get(),
@@ -242,6 +244,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.POTTED_BLIGHTWILLOW_SAPLING.get(),
                 ReduxBlocks.POTTED_FLOWERING_FIELDSPROUT_SAPLING.get(),
                 ReduxBlocks.POTTED_GLACIA_SAPLING.get(),
+                ReduxBlocks.POTTED_PURPLE_GLACIA_SAPLING.get(),
                 ReduxBlocks.POTTED_GILDED_OAK_SAPLING.get(),
                 ReduxBlocks.POTTED_BLIGHTED_SKYROOT_SAPLING.get(),
                 ReduxBlocks.POTTED_LUMINA.get(),
@@ -257,6 +260,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         this.tag(BlockTags.SAPLINGS).add(
                 ReduxBlocks.BLIGHTWILLOW_SAPLING.get(),
                 ReduxBlocks.GLACIA_SAPLING.get(),
+                ReduxBlocks.PURPLE_GLACIA_SAPLING.get(),
                 ReduxBlocks.CHROMATIC_SHRUB.get(),
                 ReduxBlocks.GILDED_OAK_SAPLING.get(),
                 ReduxBlocks.BLIGHTED_SKYROOT_SAPLING.get(),

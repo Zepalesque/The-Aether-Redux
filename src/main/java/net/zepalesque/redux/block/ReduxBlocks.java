@@ -261,12 +261,24 @@ public class ReduxBlocks {
 
     public static RegistryObject<Block> GLACIA_LEAVES = register("glacia_leaves", () -> new AetherDoubleDropsLeaves(BlockBehaviour.Properties.of().mapColor(MapColor.LAPIS).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(ReduxBlocks::ocelotOrParrot).isSuffocating(ReduxBlocks::never).isViewBlocking(ReduxBlocks::never)));
 
+    public static RegistryObject<Block> PURPLE_GLACIA_LEAVES = register("purple_glacia_leaves", () -> new AetherDoubleDropsLeaves(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(ReduxBlocks::ocelotOrParrot).isSuffocating(ReduxBlocks::never).isViewBlocking(ReduxBlocks::never)));
+
     public static final RegistryObject<SaplingBlock> GLACIA_SAPLING = register("glacia_sapling", () ->
             new FrostedSaplingBlock(new GlaciaTree(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING))
     );
     public static final RegistryObject<FlowerPotBlock> POTTED_GLACIA_SAPLING = BLOCKS.register("potted_glacia_sapling",
             () -> new FlowerPotBlock(() ->
                     (FlowerPotBlock)Blocks.FLOWER_POT, GLACIA_SAPLING,
+                    BlockBehaviour.Properties.copy(Blocks.FLOWER_POT))
+    );
+
+
+    public static final RegistryObject<SaplingBlock> PURPLE_GLACIA_SAPLING = register("purple_glacia_sapling", () ->
+            new FrostedSaplingBlock(new GlaciaTree(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING))
+    );
+    public static final RegistryObject<FlowerPotBlock> POTTED_PURPLE_GLACIA_SAPLING = BLOCKS.register("purple_potted_glacia_sapling",
+            () -> new FlowerPotBlock(() ->
+                    (FlowerPotBlock)Blocks.FLOWER_POT, PURPLE_GLACIA_SAPLING,
                     BlockBehaviour.Properties.copy(Blocks.FLOWER_POT))
     );
 
@@ -422,6 +434,7 @@ public class ReduxBlocks {
         pot.addPlant(ReduxBlocks.CHROMATIC_SHRUB.getId(), ReduxBlocks.POTTED_CHROMATIC_SHRUB);
         pot.addPlant(ReduxBlocks.BLIGHTWILLOW_SAPLING.getId(), ReduxBlocks.POTTED_BLIGHTWILLOW_SAPLING);
         pot.addPlant(ReduxBlocks.GLACIA_SAPLING.getId(), ReduxBlocks.POTTED_GLACIA_SAPLING);
+        pot.addPlant(ReduxBlocks.PURPLE_GLACIA_SAPLING.getId(), ReduxBlocks.POTTED_PURPLE_GLACIA_SAPLING);
         pot.addPlant(ReduxBlocks.LUMINA.getId(), ReduxBlocks.POTTED_LUMINA);
         pot.addPlant(ReduxBlocks.FROSTED_PURPLE_FLOWER.getId(), ReduxBlocks.POTTED_FROSTED_PURPLE_FLOWER);
         pot.addPlant(ReduxBlocks.DAGGERBLOOM.getId(), ReduxBlocks.POTTED_DAGGERBLOOM);
