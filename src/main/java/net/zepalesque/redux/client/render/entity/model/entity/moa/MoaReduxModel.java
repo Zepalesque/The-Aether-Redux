@@ -8,7 +8,7 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 
-public class MoaAdditionsModel  extends EntityModel<Moa> {
+public class MoaReduxModel extends EntityModel<Moa> {
 
 
     public final ModelPart base;
@@ -52,7 +52,7 @@ public class MoaAdditionsModel  extends EntityModel<Moa> {
     public final ModelPart feathers_2_wing2;
     public final ModelPart feathers_3_wing2;
 
-    public MoaAdditionsModel(ModelPart root) {
+    public MoaReduxModel(ModelPart root) {
         this.base = root.getChild("base");
         this.body_additions = base.getChild("body_additions");
         this.head = body_additions.getChild("head");
@@ -94,7 +94,7 @@ public class MoaAdditionsModel  extends EntityModel<Moa> {
         this.feathers_2_wing2 = z_rot_wing_2.getChild("feathers_2_wing2");
         this.feathers_3_wing2 = z_rot_wing_2.getChild("feathers_3_wing2");
     }
-    
+
     public static LayerDefinition createBodyLayer() {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();

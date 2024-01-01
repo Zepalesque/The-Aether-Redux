@@ -13,13 +13,13 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.client.render.entity.*;
 import net.zepalesque.redux.client.render.entity.layer.ReduxModelLayers;
-import net.zepalesque.redux.client.render.entity.layer.entity.moa.MoaAdditionsLayer;
+import net.zepalesque.redux.client.render.entity.layer.entity.moa.MoaReduxLayer;
 import net.zepalesque.redux.client.render.entity.misc.ReduxBoatRenderer;
 import net.zepalesque.redux.client.render.entity.model.entity.bronze.ReduxBattleSentryModel;
 import net.zepalesque.redux.client.render.entity.model.entity.bronze.ReduxMimicModel;
 import net.zepalesque.redux.client.render.entity.model.entity.bronze.ReduxSentryModel;
 import net.zepalesque.redux.client.render.entity.model.entity.cockatrice.UpdatedCockatriceModel;
-import net.zepalesque.redux.client.render.entity.model.entity.moa.MoaAdditionsModel;
+import net.zepalesque.redux.client.render.entity.model.entity.moa.MoaReduxModel;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.item.ReduxItems;
 import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
@@ -68,7 +68,7 @@ public class ReduxRenderers {
 
     @SubscribeEvent
     public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
-        event.registerLayerDefinition(ReduxModelLayers.MOA_ADDITIONS, MoaAdditionsModel::createBodyLayer);
+        event.registerLayerDefinition(ReduxModelLayers.MOA_ADDITIONS, MoaReduxModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.REDUX_COCKATRICE, UpdatedCockatriceModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.MIMIC, ReduxMimicModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.SENTRY, ReduxSentryModel::createBodyLayer);
@@ -85,7 +85,7 @@ public class ReduxRenderers {
         while(iterator.hasNext()) {
             EntityRenderer<?> renderer = (EntityRenderer<?>) iterator.next();
             if (renderer instanceof MoaRenderer moa) {
-                moa.addLayer(new MoaAdditionsLayer(moa, new MoaAdditionsModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.MOA_ADDITIONS))));
+                moa.addLayer(new MoaReduxLayer(moa, new MoaReduxModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.MOA_ADDITIONS))));
             }
         }
     }

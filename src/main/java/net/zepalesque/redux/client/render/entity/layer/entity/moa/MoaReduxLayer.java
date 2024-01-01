@@ -13,18 +13,18 @@ import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.zepalesque.redux.capability.animation.moa.MoaAnimation;
-import net.zepalesque.redux.client.render.entity.model.entity.moa.MoaAdditionsModel;
+import net.zepalesque.redux.client.render.entity.model.entity.moa.MoaReduxModel;
 import net.zepalesque.redux.client.render.util.MoaUtils;
 import net.zepalesque.redux.util.math.MathUtil;
 
 import javax.annotation.Nonnull;
 
-public class MoaAdditionsLayer extends RenderLayer<Moa, MoaModel> {
+public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
 
     protected final RenderLayerParent<Moa, MoaModel> parent;
-    private final MoaAdditionsModel updated;
+    private final MoaReduxModel updated;
 
-    public MoaAdditionsLayer(RenderLayerParent<Moa, MoaModel> entityRenderer, MoaAdditionsModel pUpdated) {
+    public MoaReduxLayer(RenderLayerParent<Moa, MoaModel> entityRenderer, MoaReduxModel pUpdated) {
         super(entityRenderer);
         this.updated = pUpdated;
         this.parent = entityRenderer;
@@ -35,7 +35,7 @@ public class MoaAdditionsLayer extends RenderLayer<Moa, MoaModel> {
         if (MoaUtils.useNewModel(moa)) {
             poseStack.scale(0.5F, 0.5F, 0.5F);
             poseStack.translate(0F, 1.5F, -0.125F);
-            MoaAdditionsModel model = this.updated;
+            MoaReduxModel model = this.updated;
             model.neck.yRot = this.getParentModel().head.yRot * 0.333F;
             model.neck.xRot = this.getParentModel().head.xRot * 0.125F;
             model.head_part.yRot = this.getParentModel().head.yRot * 0.667F;
@@ -55,15 +55,15 @@ public class MoaAdditionsLayer extends RenderLayer<Moa, MoaModel> {
                 model.neck_hurtanim.xRot = 0.6667F * rot;
                 model.body_additions.xRot = (0.3333F * rot) + breathe;
                 model.head_hurtanim.xRot = -rot;
-                this.parent.getModel().body.xRot = (float) ((0.3333F * rot) + (Math.PI * 0.5F)) + breathe;
             } else {
                 model.neck_hurtanim.xRot = breathe * 0.5F;
                 model.head_hurtanim.xRot = -1.5F * breathe;
                 model.neck_hurtanim.yRot = 0.0F;
                 model.head_hurtanim.yRot =  0.0F;
                 model.body_additions.xRot = breathe;
-                this.parent.getModel().body.xRot = (float) (Math.PI * 0.5F) + breathe;
             }
+            this.parent.getModel().body.xRot = model.body_additions.xRot;
+
 
             model.middle_feather.xRot = MathUtil.breatheBase(moa, partialTicks, 0.1F, 0.1F, 0.0F);
             model.left_feather.xRot = MathUtil.breatheBase(moa, partialTicks, 0.1F, 0.1F, 0.6667F);
@@ -113,6 +113,7 @@ public class MoaAdditionsLayer extends RenderLayer<Moa, MoaModel> {
                 model.renderToBuffer(poseStack, consumer, packedLight, LivingEntityRenderer.getOverlayCoords(moa, 0.0F), 1.0F, 1.0F, 1.0F, 0.25F);
             }
         }
+        this.parent.getModel().body.xRot = 0;
     }
 
     @Nonnull

@@ -43,18 +43,16 @@ public class MoaModelMixin extends BipedBirdModel<Moa> {
     @Inject(method = "prepareMobModel(Lcom/aetherteam/aether/entity/passive/Moa;FFF)V", at = @At(value = "TAIL"), remap = false)
     public void prepareMobModel(Moa moa, float limbSwing, float limbSwingAmount, float partialTicks, CallbackInfo ci) {
         this.useNewModel = MoaUtils.useNewModel(moa);
-        this.renderLegs = ((!moa.isSitting() || !moa.isEntityOnGround() && moa.isSitting()) && !ReduxConfig.CLIENT.moa_improvements.get()) ;
+        this.renderLegs = ((!moa.isSitting() || (!moa.isEntityOnGround() && moa.isSitting())) && !useNewModel);
     }
 
 
-    @Inject(method = "renderToBuffer", at = @At(value = "HEAD"))
+    @Inject(method = "renderToBuffer", at = @At(value = "HEAD"), cancellable = true)
     public void renderToBuffer(PoseStack poseStack, VertexConsumer consumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha, CallbackInfo ci) {
-        this.body.render(poseStack, consumer, packedLight, packedOverlay);
         this.leftWing.skipDraw = this.useNewModel;
         this.rightWing.skipDraw = this.useNewModel;
 
-        if (this.useNewModel) {
-
+        if (!this.useNewModel) {
             this.head.render(poseStack, consumer, packedLight, packedOverlay);
             this.rightTailFeather.render(poseStack, consumer, packedLight, packedOverlay);
             this.middleTailFeather.render(poseStack, consumer, packedLight, packedOverlay);
@@ -64,6 +62,8 @@ public class MoaModelMixin extends BipedBirdModel<Moa> {
             this.rightLeg.render(poseStack, consumer, packedLight, packedOverlay);
             this.leftLeg.render(poseStack, consumer, packedLight, packedOverlay);
         }
+        this.body.render(poseStack, consumer, packedLight, packedOverlay);
+        ci.cancel();
     }
 
 
