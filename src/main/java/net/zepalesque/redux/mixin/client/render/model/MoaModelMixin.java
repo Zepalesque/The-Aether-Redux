@@ -25,7 +25,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class MoaModelMixin extends BipedBirdModel<Moa> {
 
 
-    @Shadow public boolean renderLegs;
+    @Shadow(remap = false) public boolean renderLegs;
 
     @Unique public boolean useNewModel;
 
@@ -33,14 +33,14 @@ public class MoaModelMixin extends BipedBirdModel<Moa> {
         super(root);
     }
 
-    @Inject(method = "setupAnim(Lcom/aetherteam/aether/entity/passive/Moa;FFFFF)V", at = @At(value = "TAIL"))
+    @Inject(method = "setupAnim(Lcom/aetherteam/aether/entity/passive/Moa;FFFFF)V", at = @At(value = "TAIL"), remap = false)
     public void setupAnim(Moa moa, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, CallbackInfo ci) {
         if (this.useNewModel && !moa.isSitting()) {
             this.jaw.xRot = 0.15F;
         }
     }
 
-    @Inject(method = "prepareMobModel(Lcom/aetherteam/aether/entity/passive/Moa;FFF)V", at = @At(value = "TAIL"))
+    @Inject(method = "prepareMobModel(Lcom/aetherteam/aether/entity/passive/Moa;FFF)V", at = @At(value = "TAIL"), remap = false)
     public void prepareMobModel(Moa moa, float limbSwing, float limbSwingAmount, float partialTicks, CallbackInfo ci) {
         this.useNewModel = MoaUtils.useNewModel(moa);
         this.renderLegs = ((!moa.isSitting() || !moa.isEntityOnGround() && moa.isSitting()) && !ReduxConfig.CLIENT.moa_improvements.get()) ;

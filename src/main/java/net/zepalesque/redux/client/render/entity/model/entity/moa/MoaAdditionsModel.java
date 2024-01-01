@@ -100,7 +100,9 @@ public class MoaAdditionsModel  extends EntityModel<Moa> {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();
 
-        PartDefinition body_additions = partdefinition.addOrReplaceChild("body_additions", CubeListBuilder.create(), PartPose.offset(0.0F, 16.0F, 0.0F));
+        PartDefinition base = partdefinition.addOrReplaceChild("base", CubeListBuilder.create(), PartPose.offset(0.0F, 16.0F, 0.0F));
+
+        PartDefinition body_additions = base.addOrReplaceChild("body_additions", CubeListBuilder.create(), PartPose.offset(0.0F, 16.0F, 0.0F));
 
         PartDefinition head = body_additions.addOrReplaceChild("head", CubeListBuilder.create(), PartPose.offset(0.0F, -6.0F, -5.0F));
 
@@ -142,7 +144,7 @@ public class MoaAdditionsModel  extends EntityModel<Moa> {
         PartDefinition tail3_r1 = left_feather.addOrReplaceChild("tail3_r1", CubeListBuilder.create().texOffs(53, 43).addBox(-0.5F, 0.0F, 0.0F, 3.0F, 0.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(3.0F, 0.0F, 0.0F, 0.2618F, 0.5236F, 0.0F));
 
 
-        PartDefinition leg1 = partdefinition.addOrReplaceChild("leg1", CubeListBuilder.create(), PartPose.offset(4.0F, 7.0F, 2.0F));
+        PartDefinition leg1 = base.addOrReplaceChild("leg1", CubeListBuilder.create(), PartPose.offset(4.0F, 7.0F, 2.0F));
 
         PartDefinition base_leg1 = leg1.addOrReplaceChild("base_leg1", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
 
@@ -172,7 +174,7 @@ public class MoaAdditionsModel  extends EntityModel<Moa> {
 
         PartDefinition back_toes_leg1 = toes_stepanim_leg1.addOrReplaceChild("back_toes_leg1", CubeListBuilder.create().texOffs(0, 0).addBox(0.0F, -0.25F, 0.0F, 0.0F, 1.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -5.0F, -6.0F));
 
-        PartDefinition leg2 = partdefinition.addOrReplaceChild("leg2", CubeListBuilder.create(), PartPose.offset(4.0F, 7.0F, 2.0F));
+        PartDefinition leg2 = base.addOrReplaceChild("leg2", CubeListBuilder.create(), PartPose.offset(4.0F, 7.0F, 2.0F));
 
         PartDefinition base_leg2 = leg2.addOrReplaceChild("base_leg2", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
 
