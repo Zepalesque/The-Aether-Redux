@@ -126,7 +126,7 @@ public class ReduxConfig {
             this.better_leaf_particles = builder.comment("Improves the leaf particles for Golden Oaks, Gilded Oaks, and Crystal Trees, based on Minecraft 1.20's new cherry tree particles.").translation("config.aether_redux.client.particles.better_leaf_particles").define("Better Leaf Particles", true);
             builder.pop(2);
             builder.push("Audio");
-            this.mimic_slam_sound = builder.comment("Enables a slamming sound for mimics. Disable if it gets too annoying XD").translation("config.aether_redux.client.particles.mimic_slam_sound").define("Mimic Slam Sound Effect", true);
+            this.mimic_slam_sound = builder.comment("Enables a slamming sound for mimics when using the new model. Disable if it gets too annoying XD").translation("config.aether_redux.client.particles.mimic_slam_sound").define("Mimic Slam Sound Effect", true);
             builder.pop();
             builder.push("Packs");
             this.auto_apply_overrides = builder.comment("Automatically adds the overrides pack when disabled.").translation("config.aether_redux.client.packs.auto_apply_overrides").define("Auto-Apply Overrides Pack", true);
