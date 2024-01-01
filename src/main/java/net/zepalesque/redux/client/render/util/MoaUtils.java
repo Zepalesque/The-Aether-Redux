@@ -7,15 +7,16 @@ import com.aetherteam.aether.perk.types.MoaData;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.resources.ResourceLocation;
+import net.zepalesque.redux.config.ReduxConfig;
 
 import java.util.Map;
 import java.util.UUID;
 
 public class MoaUtils {
 
-    public static boolean overrideModelChange(Moa moa) {
+    public static boolean useNewModel(Moa moa) {
         ResourceLocation loc = getMoaSkinLocation(moa);
-        return loc != null && (loc.getPath().equals("stratus") || loc.getPath().equals("chicken_moa") || loc.getPath().equals("construction_bot"));
+        return loc == null && ReduxConfig.CLIENT.moa_improvements.get();
     }
 
     public static ResourceLocation getMoaSkinLocation(Moa moa) {

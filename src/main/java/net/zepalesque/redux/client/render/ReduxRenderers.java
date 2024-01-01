@@ -1,7 +1,5 @@
 package net.zepalesque.redux.client.render;
 
-import com.aetherteam.aether.entity.AetherEntityTypes;
-import com.aetherteam.aether_genesis.entity.GenesisEntityTypes;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraftforge.api.distmarker.Dist;
@@ -17,9 +15,7 @@ import net.zepalesque.redux.client.render.entity.model.entity.bronze.ReduxBattle
 import net.zepalesque.redux.client.render.entity.model.entity.bronze.ReduxMimicModel;
 import net.zepalesque.redux.client.render.entity.model.entity.bronze.ReduxSentryModel;
 import net.zepalesque.redux.client.render.entity.model.entity.cockatrice.UpdatedCockatriceModel;
-import net.zepalesque.redux.client.render.entity.model.entity.moa.MoaExtrasModel;
-import net.zepalesque.redux.client.render.entity.model.entity.moa.MoaLegsModel;
-import net.zepalesque.redux.client.render.entity.model.entity.moa.MoaWingsModel;
+import net.zepalesque.redux.client.render.entity.model.entity.moa.MoaAdditionsModel;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.item.ReduxItems;
 import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
@@ -44,19 +40,19 @@ public class ReduxRenderers {
 
 
 
-        event.registerEntityRenderer(AetherEntityTypes.MOA.get(), ReduxMoaRenderer::new);
-        event.registerEntityRenderer(AetherEntityTypes.COCKATRICE.get(), ReduxCockatriceRenderer::new);
+//        event.registerEntityRenderer(AetherEntityTypes.MOA.get(), ReduxMoaRenderer::new);
+//        event.registerEntityRenderer(AetherEntityTypes.COCKATRICE.get(), ReduxCockatriceRenderer::new);
         event.registerEntityRenderer(ReduxEntityTypes.VANILLA_SWET.get(), VanillaSwetRenderer::new);
         event.registerEntityRenderer(ReduxEntityTypes.SPECTRAL_DART.get(), SpectralDartRenderer::new);
         event.registerEntityRenderer(ReduxEntityTypes.VOLATILE_FIRE_CRYSTAL.get(), VolatileFireCrystalRenderer::new);
 
-        event.registerEntityRenderer(AetherEntityTypes.MIMIC.get(), ReduxMimicRenderer::new);
-        event.registerEntityRenderer(AetherEntityTypes.SENTRY.get(), ReduxSentryRenderer::new);
+//        event.registerEntityRenderer(AetherEntityTypes.MIMIC.get(), ReduxMimicRenderer::new);
+//        event.registerEntityRenderer(AetherEntityTypes.SENTRY.get(), ReduxSentryRenderer::new);
 
         if (Redux.aetherGenesisCompat())
         {
-            event.registerEntityRenderer(GenesisEntityTypes.SKYROOT_MIMIC.get(), ReduxSkyrootMimicRenderer::new);
-            event.registerEntityRenderer(GenesisEntityTypes.BATTLE_SENTRY.get(), ReduxBattleSentryRenderer::new);
+//            event.registerEntityRenderer(GenesisEntityTypes.SKYROOT_MIMIC.get(), ReduxSkyrootMimicRenderer::new);
+//            event.registerEntityRenderer(GenesisEntityTypes.BATTLE_SENTRY.get(), ReduxBattleSentryRenderer::new);
         }
     }
 
@@ -66,10 +62,7 @@ public class ReduxRenderers {
 
     @SubscribeEvent
     public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
-        event.registerLayerDefinition(ReduxModelLayers.MOA_WINGS, MoaWingsModel::createBodyLayer);
-        event.registerLayerDefinition(ReduxModelLayers.MOA_TOES, MoaLegsModel::createToesLayer);
-        event.registerLayerDefinition(ReduxModelLayers.MOA_TALONS, MoaLegsModel::createTalonsLayer);
-        event.registerLayerDefinition(ReduxModelLayers.MOA_EXTRAS, MoaExtrasModel::createBodyLayer);
+        event.registerLayerDefinition(ReduxModelLayers.MOA_ADDITIONS, MoaAdditionsModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.REDUX_COCKATRICE, UpdatedCockatriceModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.MIMIC, ReduxMimicModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.SENTRY, ReduxSentryModel::createBodyLayer);
