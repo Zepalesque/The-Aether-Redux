@@ -33,9 +33,8 @@ public class MoaAdditionsLayer extends RenderLayer<Moa, MoaModel> {
     @Override
     public void render(@Nonnull PoseStack poseStack, @Nonnull MultiBufferSource buffer, int packedLight, Moa moa, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (MoaUtils.useNewModel(moa)) {
-
-
-
+            poseStack.scale(0.5F, 0.5F, 0.5F);
+            poseStack.translate(0F, 1.5F, -0.125F);
             MoaAdditionsModel model = this.updated;
             model.neck.yRot = this.getParentModel().head.yRot * 0.333F;
             model.neck.xRot = this.getParentModel().head.xRot * 0.125F;
@@ -84,8 +83,7 @@ public class MoaAdditionsLayer extends RenderLayer<Moa, MoaModel> {
 
 
             if (!moa.isSitting() || !moa.isEntityOnGround() && moa.isSitting()) {
-                poseStack.scale(0.5F, 0.5F, 0.5F);
-                poseStack.translate(0F, 1.5F, -0.125F);
+
                 float progress = moa.isEntityOnGround() ? 0 : 1;
 
                 if (MoaAnimation.get(moa).isPresent()) {
