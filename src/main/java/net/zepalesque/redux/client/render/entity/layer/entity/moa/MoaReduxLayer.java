@@ -114,8 +114,6 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
                 VertexConsumer consumer = buffer.getBuffer(RenderType.entityCutoutNoCull(feathersLoc));
                 model.renderToBuffer(poseStack, consumer, packedLight, LivingEntityRenderer.getOverlayCoords(moa, 0.0F), 1.0F, 1.0F, 1.0F, 0.25F);
             }
-        } else {
-            this.parent.getModel().body.xRot = 0;
         }
     }
 

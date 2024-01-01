@@ -34,6 +34,9 @@ public class MoaRendererMixin extends MobRendererMixin<Moa, MoaModel> {
 
                 this.model.body.xRot = (float) (Math.PI * 0.5F) + breathe;
             }
+        } else {
+            this.model.body.xRot = (float) (Math.PI * 0.5F);
+
         }
         super.renderMob(moa, entityYaw, partialTicks, poseStack, buffer, packedLight, ci);
     }
