@@ -10,11 +10,11 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Collection;
 
-public interface ReduxCockatrice extends INBTSynchable<CompoundTag> {
+public interface CockatriceExtension extends INBTSynchable<CompoundTag> {
     Cockatrice getCockatrice();
 
-    static LazyOptional<ReduxCockatrice> get(Cockatrice cockatrice) {
-        return cockatrice.getCapability(ReduxCapabilities.REDUX_COCKATRICE);
+    static LazyOptional<CockatriceExtension> get(Cockatrice cockatrice) {
+        return cockatrice.getCapability(ReduxCapabilities.COCKATRICE_EXTENSION);
     }
 
     void setShooting(boolean melee);

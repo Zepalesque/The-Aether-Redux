@@ -1,5 +1,6 @@
 package net.zepalesque.redux.client.render;
 
+import com.aetherteam.aether.client.renderer.entity.CockatriceRenderer;
 import com.aetherteam.aether.client.renderer.entity.MoaRenderer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
@@ -13,18 +14,17 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.client.render.entity.*;
 import net.zepalesque.redux.client.render.entity.layer.ReduxModelLayers;
+import net.zepalesque.redux.client.render.entity.layer.entity.cockatrice.CockatriceReduxLayer;
 import net.zepalesque.redux.client.render.entity.layer.entity.moa.MoaReduxLayer;
 import net.zepalesque.redux.client.render.entity.misc.ReduxBoatRenderer;
 import net.zepalesque.redux.client.render.entity.model.entity.bronze.ReduxBattleSentryModel;
 import net.zepalesque.redux.client.render.entity.model.entity.bronze.ReduxMimicModel;
 import net.zepalesque.redux.client.render.entity.model.entity.bronze.ReduxSentryModel;
-import net.zepalesque.redux.client.render.entity.model.entity.cockatrice.UpdatedCockatriceModel;
+import net.zepalesque.redux.client.render.entity.model.entity.cockatrice.CockatriceReduxModel;
 import net.zepalesque.redux.client.render.entity.model.entity.moa.MoaReduxModel;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.item.ReduxItems;
 import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
-
-import java.util.Iterator;
 
 @Mod.EventBusSubscriber(
         modid = Redux.MODID,
@@ -69,7 +69,7 @@ public class ReduxRenderers {
     @SubscribeEvent
     public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(ReduxModelLayers.MOA_REDUX, MoaReduxModel::createBodyLayer);
-        event.registerLayerDefinition(ReduxModelLayers.REDUX_COCKATRICE, UpdatedCockatriceModel::createBodyLayer);
+        event.registerLayerDefinition(ReduxModelLayers.REDUX_COCKATRICE, CockatriceReduxModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.MIMIC, ReduxMimicModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.SENTRY, ReduxSentryModel::createBodyLayer);
         if (Redux.aetherGenesisCompat()) {
@@ -80,12 +80,12 @@ public class ReduxRenderers {
     @SubscribeEvent
     public static void addRenderLayers(EntityRenderersEvent.AddLayers event) {
         Minecraft mc = Minecraft.getInstance();
-        Iterator iterator = mc.getEntityRenderDispatcher().renderers.values().iterator();
-
-        while(iterator.hasNext()) {
-            EntityRenderer<?> renderer = (EntityRenderer<?>) iterator.next();
+        for (EntityRenderer<?> renderer : mc.getEntityRenderDispatcher().renderers.values()) {
             if (renderer instanceof MoaRenderer moa) {
                 moa.addLayer(new MoaReduxLayer(moa, new MoaReduxModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.MOA_REDUX))));
+            }
+            if (renderer instanceof CockatriceRenderer cockatrice) {
+                cockatrice.addLayer(new CockatriceReduxLayer(cockatrice, new CockatriceReduxModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.REDUX_COCKATRICE))));
             }
         }
     }

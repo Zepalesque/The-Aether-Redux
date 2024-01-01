@@ -3,7 +3,7 @@ package net.zepalesque.redux.entity.ai.goal;
 import com.aetherteam.aether.entity.monster.Cockatrice;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraftforge.common.util.LazyOptional;
-import net.zepalesque.redux.capability.cockatrice.ReduxCockatrice;
+import net.zepalesque.redux.capability.cockatrice.CockatriceExtension;
 
 
 public class CockatriceMeleeAttackGoal extends MeleeAttackGoal {
@@ -19,7 +19,7 @@ public class CockatriceMeleeAttackGoal extends MeleeAttackGoal {
 
     protected boolean isShooting()
     {
-        LazyOptional<ReduxCockatrice> capability = ReduxCockatrice.get((Cockatrice) this.mob);
+        LazyOptional<CockatriceExtension> capability = CockatriceExtension.get((Cockatrice) this.mob);
         return !capability.isPresent() || capability.orElseThrow(() -> new IllegalStateException("Cockatrice capability was missing!")).isShooting();
     }
 

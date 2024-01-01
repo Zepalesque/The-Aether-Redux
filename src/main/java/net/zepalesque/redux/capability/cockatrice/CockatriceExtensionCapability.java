@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-public class ReduxCockatriceCapability implements ReduxCockatrice {
+public class CockatriceExtensionCapability implements CockatriceExtension {
     private final Cockatrice cockatrice;
 
     // Synched
@@ -41,7 +41,7 @@ public class ReduxCockatriceCapability implements ReduxCockatrice {
     // Client-Only
     private byte prevLegAnim;
 
-    public ReduxCockatriceCapability(Cockatrice pCockatrice) {
+    public CockatriceExtensionCapability(Cockatrice pCockatrice) {
         this.cockatrice = pCockatrice;
     }
 

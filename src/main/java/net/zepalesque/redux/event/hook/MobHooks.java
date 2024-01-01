@@ -17,7 +17,7 @@ import net.zepalesque.redux.capability.animation.mimic.MimicAnimation;
 import net.zepalesque.redux.capability.animation.moa.MoaAnimation;
 import net.zepalesque.redux.capability.animation.sentry.SentryAnimation;
 import net.zepalesque.redux.capability.animation.sentry.battle.BattleSentryAnimation;
-import net.zepalesque.redux.capability.cockatrice.ReduxCockatrice;
+import net.zepalesque.redux.capability.cockatrice.CockatriceExtension;
 import net.zepalesque.redux.capability.living.VampireAmulet;
 import net.zepalesque.redux.capability.player.ReduxPlayer;
 import net.zepalesque.redux.entity.ai.goal.CockatriceMeleeAttackGoal;
@@ -65,7 +65,7 @@ public class MobHooks {
     {
         if (living instanceof Cockatrice cockatrice)
         {
-            ReduxCockatrice.get(cockatrice).ifPresent(ReduxCockatrice::tick);
+            CockatriceExtension.get(cockatrice).ifPresent(CockatriceExtension::tick);
         }
         if (living instanceof Moa moa && moa.level().isClientSide())
         {

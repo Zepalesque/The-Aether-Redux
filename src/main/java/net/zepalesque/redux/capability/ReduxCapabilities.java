@@ -28,8 +28,8 @@ import net.zepalesque.redux.capability.animation.sentry.battle.BattleSentryAnima
 import net.zepalesque.redux.capability.animation.sentry.battle.BattleSentryAnimationCapability;
 import net.zepalesque.redux.capability.arrow.SubzeroArrow;
 import net.zepalesque.redux.capability.arrow.SubzeroArrowCapability;
-import net.zepalesque.redux.capability.cockatrice.ReduxCockatrice;
-import net.zepalesque.redux.capability.cockatrice.ReduxCockatriceCapability;
+import net.zepalesque.redux.capability.cockatrice.CockatriceExtension;
+import net.zepalesque.redux.capability.cockatrice.CockatriceExtensionCapability;
 import net.zepalesque.redux.capability.living.VampireAmulet;
 import net.zepalesque.redux.capability.living.VampireAmuletCapability;
 import net.zepalesque.redux.capability.player.ReduxPlayer;
@@ -38,7 +38,7 @@ import net.zepalesque.redux.capability.player.ReduxPlayerCapability;
 
 @Mod.EventBusSubscriber(modid = Redux.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ReduxCapabilities {
-    public static final Capability<ReduxCockatrice> REDUX_COCKATRICE = CapabilityManager.get(new CapabilityToken<>() {
+    public static final Capability<CockatriceExtension> COCKATRICE_EXTENSION = CapabilityManager.get(new CapabilityToken<>() {
     });
     public static final Capability<MoaAnimation> MOA_ANIM = CapabilityManager.get(new CapabilityToken<>() {
     });
@@ -57,7 +57,7 @@ public class ReduxCapabilities {
 
     @SubscribeEvent
     public static void register(RegisterCapabilitiesEvent event) {
-        event.register(ReduxCockatrice.class);
+        event.register(CockatriceExtension.class);
         event.register(MoaAnimation.class);
         event.register(ReduxPlayer.class);
         event.register(SentryAnimation.class);
@@ -73,7 +73,7 @@ public class ReduxCapabilities {
         public static <T extends Sentry> void attachEntityCapabilities(AttachCapabilitiesEvent<Entity> event) {
 
             if (event.getObject() instanceof Cockatrice cockatrice) {
-                event.addCapability(Redux.locate("cockatrice_anim"), new CapabilityProvider(ReduxCapabilities.REDUX_COCKATRICE, new ReduxCockatriceCapability(cockatrice)));
+                event.addCapability(Redux.locate("cockatrice_extension"), new CapabilityProvider(ReduxCapabilities.COCKATRICE_EXTENSION, new CockatriceExtensionCapability(cockatrice)));
             }
             if (event.getObject() instanceof Moa moa && moa.level().isClientSide()) {
                 event.addCapability(Redux.locate("moa_anim"), new CapabilityProvider(ReduxCapabilities.MOA_ANIM, new MoaAnimationCapability(moa)));

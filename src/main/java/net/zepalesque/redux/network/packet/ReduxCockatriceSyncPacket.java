@@ -7,10 +7,10 @@ import com.aetherteam.nitrogen.network.packet.SyncEntityPacket;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.Entity;
 import net.minecraftforge.common.util.LazyOptional;
-import net.zepalesque.redux.capability.cockatrice.ReduxCockatrice;
+import net.zepalesque.redux.capability.cockatrice.CockatriceExtension;
 import oshi.util.tuples.Quartet;
 
-public class ReduxCockatriceSyncPacket extends SyncEntityPacket<ReduxCockatrice> {
+public class ReduxCockatriceSyncPacket extends SyncEntityPacket<CockatriceExtension> {
 
     public ReduxCockatriceSyncPacket(Quartet<Integer, String, INBTSynchable.Type, Object> values) {
         super(values);
@@ -25,7 +25,7 @@ public class ReduxCockatriceSyncPacket extends SyncEntityPacket<ReduxCockatrice>
     }
 
     @Override
-    public LazyOptional<ReduxCockatrice> getCapability(Entity entity) {
-        return ReduxCockatrice.get((Cockatrice) entity);
+    public LazyOptional<CockatriceExtension> getCapability(Entity entity) {
+        return CockatriceExtension.get((Cockatrice) entity);
     }
 }

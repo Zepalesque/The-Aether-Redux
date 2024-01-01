@@ -1,6 +1,7 @@
 package net.zepalesque.redux.client.render.entity.layer.entity.cockatrice;
 
 import com.aetherteam.aether.Aether;
+import com.aetherteam.aether.client.renderer.entity.model.CockatriceModel;
 import com.aetherteam.aether.entity.monster.Cockatrice;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -13,23 +14,22 @@ import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.zepalesque.redux.config.ReduxConfig;
-import net.zepalesque.redux.capability.cockatrice.ReduxCockatrice;
-import net.zepalesque.redux.client.render.entity.model.entity.cockatrice.ReduxCockatriceModel;
-import net.zepalesque.redux.client.render.entity.model.entity.cockatrice.UpdatedCockatriceModel;
+import net.zepalesque.redux.capability.cockatrice.CockatriceExtension;
+import net.zepalesque.redux.client.render.entity.model.entity.cockatrice.CockatriceReduxModel;
 import net.zepalesque.redux.util.math.MathUtil;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 
-// TODO: potentially use as alternate model in main render method
-public class UpdatedCockatriceLayer extends RenderLayer<Cockatrice, ReduxCockatriceModel> {
-    private final UpdatedCockatriceModel model;
+public class CockatriceReduxLayer extends RenderLayer<Cockatrice, CockatriceModel> {
+    private final CockatriceReduxModel model;
 
     private static final ResourceLocation COCKATRICE_TEXTURE = new ResourceLocation(Aether.MODID, "textures/entity/mobs/cockatrice/updated_cockatrice.png");
     private static final RenderType COCKATRICE_MARKINGS = RenderType.entityTranslucentEmissive(new ResourceLocation(Aether.MODID, "textures/entity/mobs/cockatrice/updated_cockatrice_emissive.png"));
     private static final RenderType COCKATRICE_EYES = RenderType.eyes(new ResourceLocation(Aether.MODID, "textures/entity/mobs/cockatrice/updated_cockatrice_eyes.png"));
 
 
-    public UpdatedCockatriceLayer(RenderLayerParent<Cockatrice, ReduxCockatriceModel> entityRenderer, UpdatedCockatriceModel legsModel) {
+    public CockatriceReduxLayer(RenderLayerParent<Cockatrice, CockatriceModel> entityRenderer, CockatriceReduxModel legsModel) {
         super(entityRenderer);
         this.model = legsModel;
 
@@ -37,7 +37,7 @@ public class UpdatedCockatriceLayer extends RenderLayer<Cockatrice, ReduxCockatr
 
 
     @Override
-    public void render(@Nonnull PoseStack poseStack, @Nonnull MultiBufferSource buffer, int packedLight, Cockatrice cockatrice, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
+    public void render(@Nonnull PoseStack poseStack, @Nonnull MultiBufferSource buffer, int packedLight, @NotNull Cockatrice cockatrice, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (ReduxConfig.CLIENT.cockatrice_improvements.get() && !cockatrice.isInvisibleTo(Minecraft.getInstance().player)) {
             poseStack.scale(0.5F, 0.5F, 0.5F);
             poseStack.translate(0F, 1.5F, -0.125F);
@@ -45,13 +45,13 @@ public class UpdatedCockatriceLayer extends RenderLayer<Cockatrice, ReduxCockatr
             float progressAttack = 0F;
             float progressAttackAlways = 0F;
 
-            if (ReduxCockatrice.get(cockatrice).isPresent())
+            if (CockatriceExtension.get(cockatrice).isPresent())
             {
-                ReduxCockatrice moaAnim = ReduxCockatrice.get(cockatrice).orElse(null);
-                if (moaAnim != null) {
-                    progress = Mth.lerp(partialTicks, moaAnim.getPrevLegAnim(), moaAnim.getLegAnim()) * 0.2F;
-                    progressAttack = (1F - progress) * Mth.lerp(partialTicks, moaAnim.getPrevTargetAnim(), moaAnim.getTargetAnim()) * 0.1F;
-                    progressAttackAlways = Mth.lerp(partialTicks, moaAnim.getPrevTargetAnim(), moaAnim.getTargetAnim()) * 0.1F;
+                CockatriceExtension cockatriceAnim = CockatriceExtension.get(cockatrice).orElse(null);
+                if (cockatriceAnim != null) {
+                    progress = Mth.lerp(partialTicks, cockatriceAnim.getPrevLegAnim(), cockatriceAnim.getLegAnim()) * 0.2F;
+                    progressAttack = (1F - progress) * Mth.lerp(partialTicks, cockatriceAnim.getPrevTargetAnim(), cockatriceAnim.getTargetAnim()) * 0.1F;
+                    progressAttackAlways = Mth.lerp(partialTicks, cockatriceAnim.getPrevTargetAnim(), cockatriceAnim.getTargetAnim()) * 0.1F;
                 }
             }
             float left = Mth.cos((float)((double)(limbSwing * 0.6662F) + Math.PI)) * 1.4F * limbSwingAmount;

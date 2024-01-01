@@ -118,6 +118,7 @@ public class ReduxConfig {
             builder.pop();
             builder.push(List.of("Rendering", "Mob Model Improvements"));
             this.moa_improvements = builder.comment("Makes Moas resemble their Mutation models").translation("config.aether_redux.client.mob_models.moa").define("Moa Model Improvements", false);
+            // TODO: Reimplement
             this.moa_feet_type = builder.comment("Determines whether the updated Moa model should use more peaceful-appearing toes, or more aggressive talons").translation("config.aether_redux.client.mob_models.moa_feet").defineEnum("Moa Foot Type", MoaFeetType.toes);
             this.cockatrice_improvements = builder.comment("Makes Cockatrices look far better").translation("config.aether_redux.client.mob_models.cockatrice").define("Cockatrice Model Improvements", true);
             this.sentry_improvements = builder.comment("Improves the model for Sentries, giving them a new model and a springy jump animation").translation("config.aether_redux.client.mob_models.sentry").define("Sentry Model Improvements", true);

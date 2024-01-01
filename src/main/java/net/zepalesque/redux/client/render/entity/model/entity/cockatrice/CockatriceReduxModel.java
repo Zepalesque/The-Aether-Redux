@@ -8,7 +8,7 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 
-public class UpdatedCockatriceModel extends EntityModel<Cockatrice> {
+public class CockatriceReduxModel extends EntityModel<Cockatrice> {
     public final ModelPart cockatrice;
     public final ModelPart body_base;
     public final ModelPart body;
@@ -66,7 +66,7 @@ public class UpdatedCockatriceModel extends EntityModel<Cockatrice> {
     public final ModelPart toes_stepanim_leg2;
     public final ModelPart back_toes_leg2;
 
-    public UpdatedCockatriceModel(ModelPart root) {
+    public CockatriceReduxModel(ModelPart root) {
         this.cockatrice = root.getChild("cockatrice");
         this.body_base = cockatrice.getChild("body_base");
         this.body = body_base.getChild("body");
