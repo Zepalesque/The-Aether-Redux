@@ -1,6 +1,7 @@
 package net.zepalesque.redux.mixin;
 
 import com.google.common.collect.ImmutableMap;
+import net.minecraftforge.fml.loading.LoadingModList;
 import net.zepalesque.redux.Redux;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
@@ -16,8 +17,8 @@ import java.util.function.Supplier;
 public final class ReduxMixinPlugin implements IMixinConfigPlugin {
 
     Map<String, Supplier<Boolean>> OVERRIDES = ImmutableMap.<String, Supplier<Boolean>>builder()
-            .put("net.zepalesque.redux.mixin.client.render.BattleSentryRendererMixin", Redux::aetherGenesisCompat)
-            .put("net.zepalesque.redux.mixin.client.render.layer.BattleSentryLayerMixin", Redux::aetherGenesisCompat)
+            .put("net.zepalesque.redux.mixin.client.render.BattleSentryRendererMixin", () -> LoadingModList.get().getModFileById("aether_genesis") != null)
+            .put("net.zepalesque.redux.mixin.client.render.layer.BattleSentryLayerMixin", () -> LoadingModList.get().getModFileById("aether_genesis") != null)
             .build();
 
     @Override
