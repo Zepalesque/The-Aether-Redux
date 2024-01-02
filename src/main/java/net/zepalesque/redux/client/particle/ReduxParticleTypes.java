@@ -49,6 +49,7 @@ public class ReduxParticleTypes {
     public static final RegistryObject<SimpleParticleType> FALLING_BLIGHTED_SKYROOT_LEAVES = PARTICLES.register("falling_blighted_skyroot_leaves", () -> new SimpleParticleType(false));
     public static final RegistryObject<SimpleParticleType> FALLING_PRISMATIC_LEAVES = PARTICLES.register("falling_prismatic_leaves", () -> new SimpleParticleType(false));
     public static final RegistryObject<SimpleParticleType> FALLING_GLACIA_NEEDLES = PARTICLES.register("falling_glacia_needles", () -> new SimpleParticleType(false));
+    public static final RegistryObject<SimpleParticleType> FALLING_PURPLE_GLACIA_NEEDLES = PARTICLES.register("falling_purple_glacia_needles", () -> new SimpleParticleType(false));
 
     public static final RegistryObject<SimpleParticleType> FROST = PARTICLES.register("frost", () -> new SimpleParticleType(false));
     public static final RegistryObject<SimpleParticleType> FALLING_ICE = PARTICLES.register("falling_ice", () -> new SimpleParticleType(false));
@@ -85,6 +86,7 @@ public class ReduxParticleTypes {
         event.registerSpriteSet(FALLING_BLIGHTWILLOW_LEAVES.get(), FallingLeafParticle.Provider::new);
         event.registerSpriteSet(FALLING_PRISMATIC_LEAVES.get(), FallingLeafParticle.Provider::new);
         event.registerSpriteSet(FALLING_GLACIA_NEEDLES.get(), FallingLeafParticle.Provider::new);
+        event.registerSpriteSet(FALLING_PURPLE_GLACIA_NEEDLES.get(), FallingLeafParticle.Provider::new);
         event.registerSpriteSet(FROST.get(), FrostParticle.Provider::new);
         event.registerSpriteSet(FALLING_ICE.get(), FrostParticle.DripProvider::new);
         event.registerSpriteSet(ICE_SPLASH.get(), SplashParticle.Provider::new);

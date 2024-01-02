@@ -52,6 +52,7 @@ public class AetherLeavesClientMixin extends LeafBlockClientMixin {
             if (self == AetherBlocks.SKYROOT_LEAVES.get()) { particle = ReduxParticleTypes.FALLING_SKYROOT_LEAVES; }
             if (self == ReduxBlocks.BLIGHTWILLOW_LEAVES.get()) { particle = ReduxParticleTypes.FALLING_BLIGHTWILLOW_LEAVES; }
             if (self == ReduxBlocks.GLACIA_LEAVES.get()) { particle = ReduxParticleTypes.FALLING_GLACIA_NEEDLES; }
+            if (self == ReduxBlocks.PURPLE_GLACIA_LEAVES.get()) { particle = ReduxParticleTypes.FALLING_PURPLE_GLACIA_NEEDLES; }
             if (self == ReduxBlocks.BLIGHTED_SKYROOT_LEAVES.get()) { particle = ReduxParticleTypes.FALLING_BLIGHTED_SKYROOT_LEAVES; }
             return particle;
         } else {
