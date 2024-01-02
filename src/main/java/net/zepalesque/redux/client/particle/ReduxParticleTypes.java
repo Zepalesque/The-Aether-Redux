@@ -1,6 +1,5 @@
 package net.zepalesque.redux.client.particle;
 
-import com.mojang.serialization.Codec;
 import net.minecraft.client.particle.SplashParticle;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
@@ -14,7 +13,6 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.client.particle.options.SparkOptions;
 
 @EventBusSubscriber(
     modid = Redux.MODID,
@@ -56,13 +54,6 @@ public class ReduxParticleTypes {
     public static final RegistryObject<SimpleParticleType> FALLING_ICE = PARTICLES.register("falling_ice", () -> new SimpleParticleType(false));
 
     public static final RegistryObject<SimpleParticleType> ICE_SPLASH = PARTICLES.register("ice_splash", () -> new SimpleParticleType(false));
-
-    public static final RegistryObject<ParticleType<SparkOptions>> SPARK = PARTICLES.register("spark", () -> new ParticleType<>(false, SparkOptions.DESERIALIZER) {
-        @Override
-        public Codec<SparkOptions> codec() {
-            return SparkOptions.CODEC;
-        }
-    });
 
 
     @SubscribeEvent
