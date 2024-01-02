@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "aether_redux:block/natural/purple_glacia_sapling"
+  }
+}

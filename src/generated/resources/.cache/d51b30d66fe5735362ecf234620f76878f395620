@@ -1,4 +1,4 @@
-// 1.20.1	2023-12-31T18:08:23.8940809	Item Models: aether_redux
+// 1.20.1	2024-01-01T19:26:58.5136011	Item Models: aether_redux
 6f45fa050423c9b607daf5caacd141b44e4f2105 assets/aether_redux/models/item/aether_grass.json
 ef6d226766d61d6460247665062a399d3613d946 assets/aether_redux/models/item/aevelium.json
 e89330a549c5d1169758ec3314e9285fb8db827a assets/aether_redux/models/item/aevelium_growth.json
@@ -178,6 +178,8 @@ dee757b76cfc5fd9fa5ad3649b7898499a4493c0 assets/aether_redux/models/item/oats.js
 5ebd15c6e4552f6d898c46a534139c153b4e4d98 assets/aether_redux/models/item/oat_muffin.json
 250d1c7fcd3397552a7b522bdc46c3ccdefc2043 assets/aether_redux/models/item/phoenix_emblem.json
 62cabf6bc621a205cf1aead068552db23dd9d85c assets/aether_redux/models/item/purified_luxbuds.json
+e2015d8ef1a31186ff40937a0cfe131c89ec3631 assets/aether_redux/models/item/purple_glacia_leaves.json
+8dc6fb58d1be53bc2dc005d016b961b25d246fec assets/aether_redux/models/item/purple_glacia_sapling.json
 195c4a572b3c5feb44a0e10ded7459364762e4e6 assets/aether_redux/models/item/quickroot.json
 d8de2565b035201fb855f38b6083299efcc91e31 assets/aether_redux/models/item/raw_veridium.json
 8a433ef11c34eda652a3186b21612f69a875b6e8 assets/aether_redux/models/item/raw_veridium_block.json

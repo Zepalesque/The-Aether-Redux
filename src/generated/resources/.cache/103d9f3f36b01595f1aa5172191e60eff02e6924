@@ -1,4 +1,4 @@
-// 1.20.1	2023-12-31T21:27:05.7038546	Registries
+// 1.20.1	2024-01-01T19:26:58.5396018	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 cd3a6aa44fc8b5997f2f84db9e1a1ff8f22527b5 data/aether/worldgen/configured_feature/golden_oak_tree.json
 8e77842b0e094fe36228fd31b94d4f660e244270 data/aether/worldgen/configured_feature/grass_patch.json
@@ -14,7 +14,7 @@ c2b1e97a3905a13baa6570add58571f62cfb5b57 data/aether_redux/forge/biome_modifier/
 ca44dac2cb19531c54ddb862618ed5fc5b7d66ba data/aether_redux/forge/biome_modifier/feature/skysprouts.json
 2acc59af9d74cad52ab9af082ddc93f1d4f4bf0a data/aether_redux/forge/biome_modifier/feature/veridium_ore.json
 e821e866730bbb97a50bc4179294316049dd4457 data/aether_redux/forge/biome_modifier/mob/vanilla_swet.json
-fcc67e5935c198a55433227a9470b5d2431d1dea data/aether_redux/forge/biome_modifier/modify/water_color.json
+bf88691d5f6d2c8077dac660837ce15c39c240e3 data/aether_redux/forge/biome_modifier/modify/water_color.json
 9c84435dac2978cb43eb42b032718debed9cfb05 data/aether_redux/worldgen/biome/cloudcap_jungle.json
 238cb9e4b11d8886a2803a8292b1028e5683e79b data/aether_redux/worldgen/biome/frosted_forests.json
 7b7439869857af1c0351672b550aa1b2098e5855 data/aether_redux/worldgen/biome/gilded_groves.json
