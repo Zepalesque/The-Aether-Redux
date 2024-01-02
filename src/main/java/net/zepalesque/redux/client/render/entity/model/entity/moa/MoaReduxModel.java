@@ -240,9 +240,7 @@ public class MoaReduxModel extends EntityModel<Moa> {
 
     @Override
     public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-        body_additions.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-        leg1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-        leg2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+        base.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
     }
 
 }
