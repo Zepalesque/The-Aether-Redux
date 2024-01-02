@@ -7,6 +7,7 @@ import com.aetherteam.aether_genesis.entity.monster.BattleSentry;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.model.SlimeModel;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.world.entity.LivingEntity;
 import net.zepalesque.redux.config.ReduxConfig;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -22,8 +23,8 @@ public class BattleSentryRendererMixin extends MobRendererMixin<Sentry, SlimeMod
         super.renderMob(moa, entityYaw, partialTicks, poseStack, buffer, packedLight, ci);
     }
 
-    @Inject(at = @At("HEAD"), method = "scale(Lcom/aetherteam/aether_genesis/entity/monster/BattleSentry;Lcom/mojang/blaze3d/vertex/PoseStack;F)V", cancellable = true)
-    public void renderMob(BattleSentry sentry, PoseStack poseStack, float partialTickTime, CallbackInfo ci) {
+    @Inject(at = @At("HEAD"), method = "scale(Lnet/minecraft/world/entity/LivingEntity;Lcom/mojang/blaze3d/vertex/PoseStack;F)V", cancellable = true)
+    public void scaleMob(LivingEntity par1, PoseStack par2, float par3, CallbackInfo ci) {
         if (ReduxConfig.CLIENT.sentry_improvements.get()) {
             ci.cancel();
         }

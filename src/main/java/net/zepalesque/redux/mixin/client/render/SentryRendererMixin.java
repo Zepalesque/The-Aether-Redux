@@ -11,6 +11,7 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.zepalesque.redux.client.render.util.MoaUtils;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.util.math.MathUtil;
@@ -30,8 +31,8 @@ public class SentryRendererMixin extends MobRendererMixin<Sentry, SlimeModel<Sen
         super.renderMob(moa, entityYaw, partialTicks, poseStack, buffer, packedLight, ci);
     }
 
-    @Inject(at = @At("HEAD"), method = "scale(Lcom/aetherteam/aether/entity/monster/dungeon/Sentry;Lcom/mojang/blaze3d/vertex/PoseStack;F)V", cancellable = true)
-    public void renderMob(Sentry sentry, PoseStack poseStack, float partialTicks, CallbackInfo ci) {
+    @Inject(at = @At("HEAD"), method = "scale(Lnet/minecraft/world/entity/LivingEntity;Lcom/mojang/blaze3d/vertex/PoseStack;F)V", cancellable = true)
+    public void scaleMob(LivingEntity par1, PoseStack par2, float par3, CallbackInfo ci) {
         if (ReduxConfig.CLIENT.sentry_improvements.get()) {
             ci.cancel();
         }
