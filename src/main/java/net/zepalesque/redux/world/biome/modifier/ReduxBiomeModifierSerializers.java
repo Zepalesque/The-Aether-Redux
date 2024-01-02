@@ -21,7 +21,7 @@ public class ReduxBiomeModifierSerializers {
             ).apply(builder, WaterColorBiomeModifier::new)));
 
 
-    static RegistryObject<Codec<WaterColorReplacementBiomeModifier>> REPLACE_WATER_COLOR_CODEC = BIOME_MODIFIER_SERIALIZERS.register("water_color", () ->
+    static RegistryObject<Codec<WaterColorReplacementBiomeModifier>> REPLACE_WATER_COLOR_CODEC = BIOME_MODIFIER_SERIALIZERS.register("water_color_replacement", () ->
             RecordCodecBuilder.create(builder -> builder.group(
                     Biome.LIST_CODEC.fieldOf("biomes").forGetter(WaterColorReplacementBiomeModifier::biomes),
                     WaterColorReplacementBiomeModifier.WaterColorPredicate.CODEC.fieldOf("predicate").forGetter(WaterColorReplacementBiomeModifier::predicate),
