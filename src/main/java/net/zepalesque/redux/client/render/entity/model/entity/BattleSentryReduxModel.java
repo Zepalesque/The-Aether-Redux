@@ -1,4 +1,4 @@
-package net.zepalesque.redux.client.render.entity.model.entity.bronze;
+package net.zepalesque.redux.client.render.entity.model.entity;
 
 import com.aetherteam.aether_genesis.entity.monster.BattleSentry;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -13,14 +13,14 @@ import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.util.math.EasingUtil;
 import net.zepalesque.redux.util.math.MathUtil;
 
-public class ReduxBattleSentryModel<T extends BattleSentry> extends EntityModel<T> {
+public class BattleSentryReduxModel<T extends BattleSentry> extends EntityModel<T> {
 	private final ModelPart body;
 	private final ModelPart legFL;
 	private final ModelPart legFR;
 	private final ModelPart legBL;
 	private final ModelPart legBR;
 
-	public ReduxBattleSentryModel(ModelPart root) {
+	public BattleSentryReduxModel(ModelPart root) {
 		this.body = root.getChild("body");
 		this.legFL = this.body.getChild("legFL");
 		this.legFR = this.body.getChild("legFR");

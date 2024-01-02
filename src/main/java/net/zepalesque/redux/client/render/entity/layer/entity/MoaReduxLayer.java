@@ -1,4 +1,4 @@
-package net.zepalesque.redux.client.render.entity.layer.entity.moa;
+package net.zepalesque.redux.client.render.entity.layer.entity;
 
 import com.aetherteam.aether.client.renderer.entity.MoaRenderer;
 import com.aetherteam.aether.client.renderer.entity.model.MoaModel;
@@ -9,12 +9,11 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
-import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.zepalesque.redux.capability.animation.moa.MoaAnimation;
-import net.zepalesque.redux.client.render.entity.model.entity.moa.MoaReduxModel;
+import net.zepalesque.redux.client.render.entity.model.entity.MoaReduxModel;
 import net.zepalesque.redux.client.render.util.MoaUtils;
 import net.zepalesque.redux.util.math.MathUtil;
 

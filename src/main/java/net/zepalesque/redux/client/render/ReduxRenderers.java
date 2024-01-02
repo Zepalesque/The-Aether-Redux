@@ -2,6 +2,8 @@ package net.zepalesque.redux.client.render;
 
 import com.aetherteam.aether.client.renderer.entity.CockatriceRenderer;
 import com.aetherteam.aether.client.renderer.entity.MoaRenderer;
+import com.aetherteam.aether.client.renderer.entity.SentryRenderer;
+import com.aetherteam.aether_genesis.client.renderer.entity.BattleSentryRenderer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
@@ -14,14 +16,16 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.client.render.entity.*;
 import net.zepalesque.redux.client.render.entity.layer.ReduxModelLayers;
-import net.zepalesque.redux.client.render.entity.layer.entity.cockatrice.CockatriceReduxLayer;
-import net.zepalesque.redux.client.render.entity.layer.entity.moa.MoaReduxLayer;
+import net.zepalesque.redux.client.render.entity.layer.entity.BattleSentryReduxLayer;
+import net.zepalesque.redux.client.render.entity.layer.entity.SentryReduxLayer;
+import net.zepalesque.redux.client.render.entity.layer.entity.CockatriceReduxLayer;
+import net.zepalesque.redux.client.render.entity.layer.entity.MoaReduxLayer;
 import net.zepalesque.redux.client.render.entity.misc.ReduxBoatRenderer;
-import net.zepalesque.redux.client.render.entity.model.entity.bronze.ReduxBattleSentryModel;
+import net.zepalesque.redux.client.render.entity.model.entity.BattleSentryReduxModel;
 import net.zepalesque.redux.client.render.entity.model.entity.bronze.ReduxMimicModel;
-import net.zepalesque.redux.client.render.entity.model.entity.bronze.ReduxSentryModel;
-import net.zepalesque.redux.client.render.entity.model.entity.cockatrice.CockatriceReduxModel;
-import net.zepalesque.redux.client.render.entity.model.entity.moa.MoaReduxModel;
+import net.zepalesque.redux.client.render.entity.model.entity.SentryReduxModel;
+import net.zepalesque.redux.client.render.entity.model.entity.CockatriceReduxModel;
+import net.zepalesque.redux.client.render.entity.model.entity.MoaReduxModel;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.item.ReduxItems;
 import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
@@ -71,9 +75,9 @@ public class ReduxRenderers {
         event.registerLayerDefinition(ReduxModelLayers.MOA_REDUX, MoaReduxModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.REDUX_COCKATRICE, CockatriceReduxModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.MIMIC, ReduxMimicModel::createBodyLayer);
-        event.registerLayerDefinition(ReduxModelLayers.SENTRY, ReduxSentryModel::createBodyLayer);
+        event.registerLayerDefinition(ReduxModelLayers.SENTRY, SentryReduxModel::createBodyLayer);
         if (Redux.aetherGenesisCompat()) {
-            event.registerLayerDefinition(ReduxModelLayers.BATTLE_SENTRY, ReduxBattleSentryModel::createBodyLayer);
+            event.registerLayerDefinition(ReduxModelLayers.BATTLE_SENTRY, BattleSentryReduxModel::createBodyLayer);
         }
     }
 
@@ -86,6 +90,12 @@ public class ReduxRenderers {
             }
             if (renderer instanceof CockatriceRenderer cockatrice) {
                 cockatrice.addLayer(new CockatriceReduxLayer(cockatrice, new CockatriceReduxModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.REDUX_COCKATRICE))));
+            }
+            if (renderer instanceof SentryRenderer sentry) {
+                sentry.addLayer(new SentryReduxLayer(sentry, new SentryReduxModel<>(mc.getEntityModels().bakeLayer(ReduxModelLayers.SENTRY))));
+            }
+            if (Redux.aetherGenesisCompat() && renderer instanceof BattleSentryRenderer sentry) {
+                sentry.addLayer(new BattleSentryReduxLayer(sentry, new BattleSentryReduxModel<>(mc.getEntityModels().bakeLayer(ReduxModelLayers.BATTLE_SENTRY))));
             }
         }
     }

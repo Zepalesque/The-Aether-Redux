@@ -18,7 +18,7 @@ public class ReduxModelLayers {
     public static final ModelLayerLocation SHEEPUFF_WOOL_PUFFED = register("sheepuff_wool_puffed");
 
     public static final ModelLayerLocation MIMIC = register("mimic");
-    public static final ModelLayerLocation SENTRY = register("sentry");
+    public static final ModelLayerLocation SENTRY = register("sentry", "redux_model");
     public static final ModelLayerLocation BATTLE_SENTRY = register("batlle_sentry");
 
 

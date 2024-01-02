@@ -1,4 +1,4 @@
-package net.zepalesque.redux.client.render.entity.model.entity.cockatrice;
+package net.zepalesque.redux.client.render.entity.model.entity;
 
 import com.aetherteam.aether.entity.monster.Cockatrice;
 import com.mojang.blaze3d.vertex.PoseStack;

@@ -1,4 +1,4 @@
-package net.zepalesque.redux.client.render.entity.model.entity.moa;
+package net.zepalesque.redux.client.render.entity.model.entity;
 
 import com.aetherteam.aether.entity.passive.Moa;
 import com.mojang.blaze3d.vertex.PoseStack;

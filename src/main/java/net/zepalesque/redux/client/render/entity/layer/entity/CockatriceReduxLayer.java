@@ -1,4 +1,4 @@
-package net.zepalesque.redux.client.render.entity.layer.entity.cockatrice;
+package net.zepalesque.redux.client.render.entity.layer.entity;
 
 import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.client.renderer.entity.model.CockatriceModel;
@@ -15,7 +15,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.capability.cockatrice.CockatriceExtension;
-import net.zepalesque.redux.client.render.entity.model.entity.cockatrice.CockatriceReduxModel;
+import net.zepalesque.redux.client.render.entity.model.entity.CockatriceReduxModel;
 import net.zepalesque.redux.util.math.MathUtil;
 import org.jetbrains.annotations.NotNull;
 

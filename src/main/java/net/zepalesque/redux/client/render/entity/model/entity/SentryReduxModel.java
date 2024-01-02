@@ -1,4 +1,4 @@
-package net.zepalesque.redux.client.render.entity.model.entity.bronze;
+package net.zepalesque.redux.client.render.entity.model.entity;
 
 
 import com.aetherteam.aether.entity.monster.dungeon.Sentry;
@@ -13,13 +13,13 @@ import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.capability.animation.sentry.SentryAnimation;
 import net.zepalesque.redux.util.math.EasingUtil;
 
-public class ReduxSentryModel<T extends Sentry> extends EntityModel<T> {
+public class SentryReduxModel<T extends Sentry> extends EntityModel<T> {
 	private final ModelPart main;
 	private final ModelPart spring_part;
 	public	 final ModelPart spring_control;
 	public	 final ModelPart spring_main;
 
-	public ReduxSentryModel(ModelPart root) {
+	public SentryReduxModel(ModelPart root) {
 		this.main = root.getChild("main");
 		this.spring_part = this.main.getChild("spring_part");
 		this.spring_main = this.spring_part.getChild("spring_main");
