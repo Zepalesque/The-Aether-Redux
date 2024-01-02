@@ -18,6 +18,7 @@ import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.world.biome.modifier.CarverModifier;
 import net.zepalesque.redux.world.biome.modifier.WaterColorBiomeModifier;
+import net.zepalesque.redux.world.biome.modifier.WaterColorReplacementBiomeModifier;
 
 import java.util.List;
 
@@ -73,7 +74,7 @@ public class ReduxBiomeModifiers {
                 biomes.getOrThrow(ReduxTags.Biomes.HAS_DIVINITE), HolderSet.direct(features.getOrThrow(ReduxPlacedFeatures.DIVINITE_ORE)),
                 GenerationStep.Decoration.UNDERGROUND_ORES));
 
-        context.register(WATER_COLOR_AETHER, new WaterColorBiomeModifier(biomes.getOrThrow(ReduxTags.Biomes.HAS_REDUX_WATER_COLOR), 5403045, 791347));
+        context.register(WATER_COLOR_AETHER, new WaterColorReplacementBiomeModifier(biomes.getOrThrow(ReduxTags.Biomes.HAS_REDUX_WATER_COLOR), WaterColorReplacementBiomeModifier.WaterColorPredicate.of(4159204, 329011), 5403045, 791347));
 
     }
 }

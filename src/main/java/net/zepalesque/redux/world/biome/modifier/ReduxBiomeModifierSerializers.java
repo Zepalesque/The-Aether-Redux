@@ -20,6 +20,15 @@ public class ReduxBiomeModifierSerializers {
                     Codec.INT.fieldOf("water_fog_color").forGetter(WaterColorBiomeModifier::fog)
             ).apply(builder, WaterColorBiomeModifier::new)));
 
+
+    static RegistryObject<Codec<WaterColorReplacementBiomeModifier>> REPLACE_WATER_COLOR_CODEC = BIOME_MODIFIER_SERIALIZERS.register("water_color", () ->
+            RecordCodecBuilder.create(builder -> builder.group(
+                    Biome.LIST_CODEC.fieldOf("biomes").forGetter(WaterColorReplacementBiomeModifier::biomes),
+                    WaterColorReplacementBiomeModifier.WaterColorPredicate.CODEC.fieldOf("predicate").forGetter(WaterColorReplacementBiomeModifier::predicate),
+                    Codec.INT.fieldOf("water_color").forGetter(WaterColorReplacementBiomeModifier::water),
+                    Codec.INT.fieldOf("water_fog_color").forGetter(WaterColorReplacementBiomeModifier::fog)
+            ).apply(builder, WaterColorReplacementBiomeModifier::new)));
+
     static RegistryObject<Codec<CarverModifier>> CARVER_CODEC = BIOME_MODIFIER_SERIALIZERS.register("add_carver", () ->
             RecordCodecBuilder.create(builder -> builder.group(
                     Biome.LIST_CODEC.fieldOf("biomes").forGetter(CarverModifier::biomes),

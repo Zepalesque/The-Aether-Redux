@@ -46,7 +46,7 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
         this.tag(ReduxTags.Biomes.HAS_VANILLA_SWET).addTag(ReduxTags.Biomes.IS_HIGHLANDS);
         this.tag(ReduxTags.Biomes.HAS_VERIDIUM_ORE).addTag(AetherTags.Biomes.IS_AETHER);
         this.tag(ReduxTags.Biomes.HAS_DIVINITE).addTag(AetherTags.Biomes.IS_AETHER);
-        this.tag(ReduxTags.Biomes.HAS_REDUX_WATER_COLOR).addTag(ReduxTags.Biomes.IS_HIGHLANDS);
+        this.tag(ReduxTags.Biomes.HAS_REDUX_WATER_COLOR).addTag(AetherTags.Biomes.IS_AETHER);
 
         this.tag(ReduxTags.Biomes.DENSE_LEAF_FALL).add(AetherBiomes.SKYROOT_FOREST, AetherBiomes.SKYROOT_WOODLAND);
 
