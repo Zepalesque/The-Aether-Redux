@@ -518,7 +518,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addAdvancementDesc("obtain_purified_luxbuds", "Obtain Purified Luxbuds, which give extended resistance to many of the Blight's dangers when eaten");
 
         addAdvancement("double_jump", "Take THAT, Physics!");
-        addAdvancementDesc("double_jump", "Obtain a Sentry Ring from a Bronze Dungeon and use it to double-jump");
+        addAdvancementDesc("double_jump", "Obtain an Airbound cape from a Bronze Dungeon and use it to double-jump");
         addAdvancement("mine_extended", "Telekinesis");
         addAdvancementDesc("mine_extended", "Obtain the Valkyrie Ring from the Silver Dungeon and use it to mine a block farther away than you could before");
         addAdvancement("kill_sheepuff_with_fireball", "Pyromaniac");
