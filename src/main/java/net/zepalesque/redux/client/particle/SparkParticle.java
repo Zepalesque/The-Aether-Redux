@@ -15,7 +15,7 @@ public class SparkParticle extends TextureSheetParticle {
    SparkParticle(ClientLevel pLevel, double pX, double pY, double pZ) {
       super(pLevel, pX, pY, pZ, 0.0D, 0.0D, 0.0D);
       this.quadSize *= this.random.nextFloat() * 1.5 + 0.15F;
-      this.lifetime = 100;
+      this.lifetime = 5;
    }
 
    @Override
@@ -29,8 +29,7 @@ public class SparkParticle extends TextureSheetParticle {
    }
 
    public float getQuadSize(float pScaleFactor) {
-      float f = ((float)this.age + pScaleFactor) / (float)this.lifetime;
-      return this.quadSize * (1.0F - f * f);
+      return this.quadSize;
    }
 
    public void tick() {
