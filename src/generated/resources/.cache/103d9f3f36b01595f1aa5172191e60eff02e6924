@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-01T19:26:58.5396018	Registries
+// 1.20.1	2024-01-03T09:09:00.2170901	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 cd3a6aa44fc8b5997f2f84db9e1a1ff8f22527b5 data/aether/worldgen/configured_feature/golden_oak_tree.json
 8e77842b0e094fe36228fd31b94d4f660e244270 data/aether/worldgen/configured_feature/grass_patch.json
@@ -6,6 +6,7 @@ cbc01407f81c547e1384753574d83f4983bc738b data/aether/worldgen/configured_feature
 5f73e75d49039861ef93edb74f34f2d81afb08af data/aether/worldgen/placed_feature/quicksoil_shelf.json
 d2709b2e1ab92c811489ec70b7553c01aa59bee3 data/aether_redux/damage_type/blighted_fungi.json
 13c5b547626a5035f1f16ef84b948c988e8c6b30 data/aether_redux/damage_type/chromatic_berry_bush.json
+74036a96eb20b53432cb5a953fa663e5c4f3af12 data/aether_redux/damage_type/ember.json
 cce57696dd289fff76ee00d2ab68f953edaf8a81 data/aether_redux/forge/biome_modifier/feature/aether_caves.json
 c2b1e97a3905a13baa6570add58571f62cfb5b57 data/aether_redux/forge/biome_modifier/feature/blighted_caves.json
 5bb8c378139ea578723d8717e59af34bf5089f3b data/aether_redux/forge/biome_modifier/feature/divinite.json
