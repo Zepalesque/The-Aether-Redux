@@ -178,6 +178,7 @@ public class Ember extends Projectile {
       super.onHitEntity(result);
       Entity entity = this.getOwner();
       if (entity instanceof LivingEntity livingentity && livingentity != this.getEmberSource()) {
+         // TODO: fix
          result.getEntity().hurt(ReduxDamageTypes.entitySource(this.level(), ReduxDamageTypes.EMBER, this.getOwner()), 1.0F);
       }
 

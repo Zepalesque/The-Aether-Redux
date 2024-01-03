@@ -63,7 +63,7 @@ public class EmberRenderer extends EntityRenderer<Ember> {
     }
 
     private static void vertex(VertexConsumer consumer, Matrix4f pose, Matrix3f normal, int lightmapUV, float x, float y, int u, int v) {
-        consumer.vertex(pose, x - 0.125F, y - 0.125F, -0.1250F).color(255, 255, 255, 255).uv((float)u, (float)v).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(lightmapUV).normal(normal, 0.0F, 1.0F, 0.0F).endVertex();
+        consumer.vertex(pose, x - 0.125F, y + 0.125F, 0F).color(255, 255, 255, 255).uv((float)u, (float)v).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(lightmapUV).normal(normal, 0.0F, 1.0F, 0.0F).endVertex();
     }
 
 

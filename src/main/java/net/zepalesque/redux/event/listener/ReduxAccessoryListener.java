@@ -74,7 +74,7 @@ public class ReduxAccessoryListener {
     public static void shootEmbers(LivingHurtEvent event) {
         LivingEntity target = event.getEntity();
 
-        if (target == null && event.getSource().getDirectEntity() instanceof Player player && !event.getSource().is(ReduxDamageTypes.EMBER)) {
+        if (target != null && event.getSource().getDirectEntity() instanceof Player player && !event.getSource().is(ReduxDamageTypes.EMBER)) {
             if (EquipmentUtil.hasCurio(player, ReduxItems.SENTRY_RING.get())) {
                 int count = EquipmentUtil.getCurios(player, ReduxItems.SENTRY_RING.get()).size();
                 RandomSource source = target.level().getRandom();
