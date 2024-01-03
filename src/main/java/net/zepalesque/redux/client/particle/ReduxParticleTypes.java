@@ -56,6 +56,8 @@ public class ReduxParticleTypes {
 
     public static final RegistryObject<SimpleParticleType> ICE_SPLASH = PARTICLES.register("ice_splash", () -> new SimpleParticleType(false));
 
+    public static final RegistryObject<SimpleParticleType> SPARK = PARTICLES.register("spark", () -> new SimpleParticleType(false));
+
 
     @SubscribeEvent
     @OnlyIn(Dist.CLIENT)
@@ -90,5 +92,7 @@ public class ReduxParticleTypes {
         event.registerSpriteSet(FROST.get(), FrostParticle.Provider::new);
         event.registerSpriteSet(FALLING_ICE.get(), FrostParticle.DripProvider::new);
         event.registerSpriteSet(ICE_SPLASH.get(), SplashParticle.Provider::new);
+
+        event.registerSpriteSet(SPARK.get(), SparkParticle.Provider::new);
     }
 }

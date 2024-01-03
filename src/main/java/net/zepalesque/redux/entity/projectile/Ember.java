@@ -4,6 +4,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -15,8 +16,10 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
+import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.data.resource.ReduxDamageTypes;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
+import net.zepalesque.redux.util.math.MathUtil;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -184,11 +187,46 @@ public class Ember extends Projectile {
 
    protected void onHitBlock(BlockHitResult result) {
       super.onHitBlock(result);
+      Direction d = result.getDirection();
+      Direction.Axis axis = d.getAxis();
+      Vec3 loc = result.getLocation();
       Vec3 velocity = this.getDeltaMovement();
       velocity = velocity.multiply(Math.abs(velocity.x)>0.1 ? 1 : 0, Math.abs(velocity.y)>0.1 ? 1 : 0, Math.abs(velocity.z)>0.1 ? 1 : 0);
-      Vec3 bounce = this.bounceAxis(velocity, result.getDirection());
+      Vec3 bounce = this.bounceAxis(velocity, d);
+      // Spawn spark particles
+
+      if (axis == Direction.Axis.X) {
+         for (int i = 0; i < Mth.floor(velocity.length() * 20); i++) {
+            double spread = velocity.length() * 2.5;
+            float angle = MathUtil.degToRad(this.level().getRandom().nextFloat() * 360);
+            // trigonometry, how fun
+            double opp = Mth.sin(angle) * spread;
+            double adj = Mth.cos(angle) * spread;
+            this.level().addParticle(ReduxParticleTypes.SPARK.get(), loc.x(), loc.y(), loc.z(), d.getStepX(), opp, adj);
+         }
+      }
+      if (axis == Direction.Axis.Y) {
+         for (int i = 0; i < Mth.floor(velocity.length() * 20); i++) {
+            double spread = velocity.length() * 2.5;
+            float angle = MathUtil.degToRad(this.level().getRandom().nextFloat() * 360);
+            // trigonometry, how fun
+            double opp = Mth.sin(angle) * spread;
+            double adj = Mth.cos(angle) * spread;
+            this.level().addParticle(ReduxParticleTypes.SPARK.get(), loc.x(), loc.y(), loc.z(), opp, d.getStepY(), adj);
+         }
+      }
+      if (axis == Direction.Axis.Z) {
+         for (int i = 0; i < Mth.floor(velocity.length() * 20); i++) {
+            double spread = velocity.length() * 2.5;
+            float angle = MathUtil.degToRad(this.level().getRandom().nextFloat() * 360);
+            // trigonometry, how fun
+            double opp = Mth.sin(angle) * spread;
+            double adj = Mth.cos(angle) * spread;
+            this.level().addParticle(ReduxParticleTypes.SPARK.get(), loc.x(), loc.y(), loc.z(), opp, adj, d.getStepZ());
+         }
+      }
       this.setDeltaMovement(bounce.scale(0.5D));
-      this.setPos(result.getLocation());
+      this.setPos(loc);
    }
 
 

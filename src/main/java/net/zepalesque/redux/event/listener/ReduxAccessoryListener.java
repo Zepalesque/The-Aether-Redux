@@ -76,13 +76,14 @@ public class ReduxAccessoryListener {
 
         if (target != null && event.getSource().getDirectEntity() instanceof Player player && !event.getSource().is(ReduxDamageTypes.EMBER)) {
             if (EquipmentUtil.hasCurio(player, ReduxItems.SENTRY_RING.get())) {
-                int count = EquipmentUtil.getCurios(player, ReduxItems.SENTRY_RING.get()).size();
+                int ringcount = EquipmentUtil.getCurios(player, ReduxItems.SENTRY_RING.get()).size();
                 RandomSource source = target.level().getRandom();
-                for (int i = 0; i < (count * 5); i++) {
+                int embers = event.getAmount() < 0.5 ? 0 : Mth.ceil(((event.getAmount() * 0.5D) + 2.5D) * (ringcount == 2 ? 1.5D : 1D)) - source.nextInt(1);
+                for (int i = 1; i <= embers; i++) {
                     float rotation = Mth.wrapDegrees(source.nextInt(360));
                     Ember ember = new Ember(target.level(), player, target);
                     ember.setPos(target.getX(), target.getY() + (target.getBbHeight() / 2) + ((source.nextFloat() * 2) - 1), target.getZ());
-                    ember.shootFromRotation(target, 360 * Mth.square((source.nextFloat() * 2) - 1), rotation, 0.0F, 1.0F, 1.0F);
+                    ember.shootFromRotation(target, 90 + (180 * Mth.square((source.nextFloat() * 2) - 0.5F)), rotation, 0.0F, 0.5F, 1.0F);
                     if (!player.level().isClientSide()) {
                         player.level().addFreshEntity(ember);
                     }
