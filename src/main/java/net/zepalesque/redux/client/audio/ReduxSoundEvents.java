@@ -40,7 +40,7 @@ public class ReduxSoundEvents {
     public static final RegistryObject<SoundEvent> EQUIP_ENCHANTED_RING = register("item.accessory.equip_enchanted_ring");
     public static final RegistryObject<SoundEvent> EQUIP_VALKYRIE_RING = register("item.accessory.equip_valkyrie_ring");
     public static final RegistryObject<SoundEvent> EQUIP_WISDOM_RING = register("item.accessory.equip_wisdom_ring");
-    public static final RegistryObject<SoundEvent> EQUIP_PHOENIX_RING = register("item.accessory.equip_phoenix_ring");
+    public static final RegistryObject<SoundEvent> EQUIP_SENTRY_RING = register("item.accessory.equip_sentry_ring");
     public static final RegistryObject<SoundEvent> EQUIP_VAMPIRE_AMULET = register("item.accessory.equip_vampire_amulet");
 
     public static final RegistryObject<SoundEvent> CONVERT_AMBROSIUM = register("item.convert.ambrosium");

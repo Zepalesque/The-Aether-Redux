@@ -69,6 +69,7 @@ public class ReduxItems {
 
     public static final RegistryObject<Item> ENCHANTED_RING = register("enchanted_ring", () -> new RingItem(ReduxSoundEvents.EQUIP_ENCHANTED_RING, new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> VALKYRIE_RING = register("valkyrie_ring", () -> new ValkyrieRingItem(ReduxSoundEvents.EQUIP_VALKYRIE_RING, new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT)));
+    public static final RegistryObject<Item> SENTRY_RING = register("sentry_ring", () -> new AbilityTooltipRingItem(ReduxSoundEvents.EQUIP_SENTRY_RING, new Item.Properties().stacksTo(1), "sentry_ring_embers"));
     public static final RegistryObject<Item> AIRBOUND_CAPE = register("airbound_cape", () -> new AirboundCapeItem("airbound_cape", new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT), "airbound_cape_jump_boost"));
     public static final RegistryObject<Item> PHOENIX_EMBLEM = register("phoenix_emblem", () -> new AbilityTooltipMiscItem(new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT), "phoenix_emblem_fireball"));
 

@@ -1,7 +1,9 @@
 package net.zepalesque.redux.entity.projectile;
 
 import net.minecraft.core.Direction;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -17,26 +19,79 @@ import net.zepalesque.redux.data.resource.ReduxDamageTypes;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.UUID;
+
 public class Ember extends Projectile {
    public Ember(EntityType<? extends Ember> entityType, Level level) {
       super(entityType, level);
    }
 
-   private @Nullable LivingEntity source;
+   private @Nullable Entity cachedSource;
+   private @Nullable UUID sourceUUID;
+   private @Nullable ArrayList<Entity> cachedHits = new ArrayList<>();
+   private @Nullable ArrayList<UUID> hitUUIDs = new ArrayList<>();
    public Ember(Level level, Player owner) {
       this(ReduxEntityTypes.EMBER.get(), level);
       this.setOwner(owner);
    }
 
-   public Ember(Level level, Player owner, LivingEntity source) {
+   public Ember(Level level, Player owner, Entity source) {
       this(level, owner);
-      this.source = source;
+      this.setEmberSource(source);
 
    }
 
-   public @Nullable LivingEntity getEmberSource() {
-      return this.source;
+   protected void hit(Entity entity) {
+      this.cachedHits.add(entity);
+      this.hitUUIDs.add(entity.getUUID());
    }
+
+   protected void setEmberSource(Entity entity) {
+      this.cachedSource = entity;
+      this.sourceUUID = entity.getUUID();
+   }
+
+   public Entity getEmberSource() {
+      if (this.cachedSource != null && !this.cachedSource.isRemoved()) {
+         return this.cachedSource;
+      } else if (this.sourceUUID != null && this.level() instanceof ServerLevel) {
+         this.cachedSource = ((ServerLevel)this.level()).getEntity(this.sourceUUID);
+         return this.cachedSource;
+      } else {
+         return null;
+      }
+   }
+   
+   public ArrayList<Entity> getHits() {
+      if (this.cachedHits != null && !this.cachedHits.isEmpty()) {
+         return this.cachedHits;
+      } else if (this.hitUUIDs != null && !this.hitUUIDs.isEmpty() && this.level() instanceof ServerLevel serverLevel) {
+         ArrayList<Entity> collection = new ArrayList<>();
+         for (UUID id : this.hitUUIDs) {
+            Entity e = serverLevel.getEntity(id);
+            if (e != null && !e.isRemoved()) {
+               collection.add(e);
+            } else {
+               this.hitUUIDs.remove(id);
+            }
+         }
+         this.cachedHits = collection;
+         return this.cachedHits;
+      } else {
+         return new ArrayList<>();
+      }
+   }
+
+   protected boolean originatedFrom(Entity entity) {
+      return entity.getUUID().equals(this.sourceUUID);
+   }
+   
+   protected boolean hasHit(Entity entity) {
+      return this.hitUUIDs.contains(entity.getUUID());
+   }
+
 
    /**
     * Called to update the entity's position/logic.
@@ -55,7 +110,7 @@ public class Ember extends Projectile {
       this.setDeltaMovement(vec3.scale((double)0.99F));
       if (hitresult.getType() != HitResult.Type.MISS && !net.minecraftforge.event.ForgeEventFactory.onProjectileImpact(this, hitresult))
          this.onHit(hitresult);
-      if (!this.isNoGravity()) {
+      if (!this.isNoGravity() && hitresult.getType() != HitResult.Type.BLOCK) {
          this.setDeltaMovement(this.getDeltaMovement().add(0.0D, -0.04D, 0.0D));
       }
       if (hitresult.getType() == HitResult.Type.MISS) {
@@ -63,7 +118,36 @@ public class Ember extends Projectile {
       }
    }
 
-   public Vec3 bounceVector(Vec3 velocity, Direction face) {
+   protected void addAdditionalSaveData(CompoundTag compound) {
+       super.addAdditionalSaveData(compound);
+       if (this.sourceUUID != null) {
+          compound.putUUID("Source", this.sourceUUID);
+       }
+       if (this.hitUUIDs != null && !this.hitUUIDs.isEmpty()) {
+          CompoundTag hits = new CompoundTag();
+          for (int i = 0; i < this.hitUUIDs.size(); i++) {
+             UUID id = this.hitUUIDs.get(i);
+             hits.putUUID(String.valueOf(i), id);
+          }
+          compound.put("Hits", hits);
+       }
+   }
+   protected void readAdditionalSaveData(CompoundTag compound) {
+      super.readAdditionalSaveData(compound);
+      if (compound.hasUUID("Source")) {
+         this.sourceUUID = compound.getUUID("Source");
+         this.cachedSource = null;
+      }
+      if (compound.contains("Hits") && compound.get("Hits") instanceof CompoundTag hits) {
+         this.hitUUIDs = new ArrayList<>();
+         for (String s : hits.getAllKeys()) {
+            this.hitUUIDs.add(hits.getUUID(s));
+         }
+         this.cachedHits = new ArrayList<>();
+      }
+   }
+
+      public Vec3 bounceVector(Vec3 velocity, Direction face) {
       Vec3 normal = new Vec3(face.getStepX(), face.getStepY(), face.getStepZ());
       double mult = velocity.x * normal.x + velocity.y * normal.y + velocity.z * normal.z;
       return new Vec3(
@@ -102,9 +186,9 @@ public class Ember extends Projectile {
    protected void onHitBlock(BlockHitResult result) {
       super.onHitBlock(result);
       Vec3 velocity = this.getDeltaMovement();
-      velocity = velocity.multiply(Math.abs(velocity.x)>1e-4 ? 1 : 0, Math.abs(velocity.y)>1e-4 ? 1 : 0, Math.abs(velocity.z)>1e-4 ? 1 : 0);
+      velocity = velocity.multiply(Math.abs(velocity.x)>0.1 ? 1 : 0, Math.abs(velocity.y)>0.1 ? 1 : 0, Math.abs(velocity.z)>0.1 ? 1 : 0);
       Vec3 bounce = this.bounceAxis(velocity, result.getDirection());
-      this.setDeltaMovement(bounce.scale(0.33D));
+      this.setDeltaMovement(bounce.scale(0.5D));
       this.setPos(result.getLocation());
    }
 

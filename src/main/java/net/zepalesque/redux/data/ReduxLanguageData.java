@@ -67,6 +67,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.RING_OF_WISDOM, "Ring of Wisdom");
         addLore(ReduxItems.RING_OF_WISDOM, "One of many variations of the enchanted ring, this one is crafted using Holystone and a strange green crystal not native to the Aether, known as an Emerald");
 
+        addItem(ReduxItems.SENTRY_RING, "Sentry Ring");
+        addLore(ReduxItems.SENTRY_RING, "One of many different variations of the enchanted ring. When worn, hitting mobs will release buring blue embers that can strike nearby mobs!");
+
         addItem(ReduxItems.VAMPIRE_AMULET, "Vampire Amulet");
         addLore(ReduxItems.VAMPIRE_AMULET, "A pendant found in Bronze Dungeon reward chests. It gives the wearer life steal at night, but decreases their damage resistance at day");
 
@@ -410,6 +413,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         //addGuiText("valkyrie_ring_regen", "Regeneration which increases as health drops");
         addGuiText("airbound_cape_jump_boost", "Grants ability to double jump");
         addGuiText("phoenix_emblem_fireball", "Grants ability to shoot fireballs");
+        addGuiText("sentry_ring_embers", "Targets of melee attacks release burning embers");
         addGuiText("cockatrice_feather_immunity", "Grants immunity to Inebriation");
 
         addGuiText("vampire_amulet_night_ability", "After being worn for one overworld day (as symbolized by a gold highlight), will grant the ability to absorb dealt damage");
@@ -478,6 +482,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addSubtitle("item.accessory", "equip_enchanted_ring", "Enchanted Ring thunks");
         addSubtitle("item.accessory", "equip_valkyrie_ring", "Valkyrie Ring clinks");
         addSubtitle("item.accessory", "equip_wisdom_ring", "Ring of Wisdom clanks");
+        addSubtitle("item.accessory", "equip_sentry_ring", "Sentry Ring clanks");
         addSubtitle("item.accessory", "equip_vampire_amulet", "Vampire Amulet clinks");
         addSubtitle("generic", "boost_jump", "Something double-jumps");
         addSubtitle("generic", "fireball_shoot", "Fireball shoots");

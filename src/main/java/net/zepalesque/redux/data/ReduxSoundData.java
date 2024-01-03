@@ -87,15 +87,15 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
                         sound("minecraft:item/armor/equip_iron6")
                 ).subtitle("subtitles.aether_redux.item.accessory.equip_wisdom_ring")
         );
-        this.add(ReduxSoundEvents.EQUIP_PHOENIX_RING,
+        this.add(ReduxSoundEvents.EQUIP_SENTRY_RING,
                 definition().with(
-                        sound("minecraft:item/armor/equip_gold1"),
-                        sound("minecraft:item/armor/equip_gold2"),
-                        sound("minecraft:item/armor/equip_gold3"),
-                        sound("minecraft:item/armor/equip_gold4"),
-                        sound("minecraft:item/armor/equip_gold5"),
-                        sound("minecraft:item/armor/equip_gold6")
-                ).subtitle("subtitles.aether_redux.item.accessory.equip_phoenix_ring")
+                        sound("minecraft:item/armor/equip_iron1"),
+                        sound("minecraft:item/armor/equip_iron2"),
+                        sound("minecraft:item/armor/equip_iron3"),
+                        sound("minecraft:item/armor/equip_iron4"),
+                        sound("minecraft:item/armor/equip_iron5"),
+                        sound("minecraft:item/armor/equip_iron6")
+                ).subtitle("subtitles.aether_redux.item.accessory.equip_sentry_ring")
         );
         this.add(ReduxSoundEvents.EQUIP_VAMPIRE_AMULET,
                 definition().with(

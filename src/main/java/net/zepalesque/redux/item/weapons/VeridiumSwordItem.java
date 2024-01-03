@@ -25,23 +25,7 @@ public class VeridiumSwordItem extends SwordItem implements VeridiumItem {
     public VeridiumSwordItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
         super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
     }
-
-    /** Debug method for spark spawning */
-    @Override
-    public boolean onEntitySwing(ItemStack stack, LivingEntity entity) {
-        if (entity instanceof Player player) {
-            Vec3 look = player.getViewVector(1.0F).normalize();
-            float rotation = Mth.wrapDegrees(entity.getYRot());
-            Ember ember = new Ember(entity.level(), player);
-            ember.setPos(entity.getX(), entity.getY() + entity.getEyeHeight(), entity.getZ());
-            ember.shootFromRotation(player, entity.getXRot(), rotation, 0.0F, 1.0F, 1.0F);
-            if (!player.level().isClientSide()) {
-                entity.level().addFreshEntity(ember);
-            }
-        }
-        return super.onEntitySwing(stack, entity);
-
-    }
+    
 
     @Override
     public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
