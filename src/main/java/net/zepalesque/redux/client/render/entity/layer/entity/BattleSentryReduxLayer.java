@@ -19,9 +19,9 @@ import net.zepalesque.redux.config.ReduxConfig;
 
 public class BattleSentryReduxLayer extends RenderLayer<BattleSentry, SlimeModel<BattleSentry>> {
 
-    private static final ResourceLocation SENTRY_OFF = new ResourceLocation(Aether.MODID, "textures/entity/mobs/sentry/sentry_redux_dormant.png");
-    private static final ResourceLocation SENTRY_ON = new ResourceLocation(Aether.MODID, "textures/entity/mobs/sentry/sentry_redux.png");
-    private static final RenderType SENTRY_EYE = RenderType.eyes(new ResourceLocation(Redux.MODID, "textures/entity/mobs/sentry/sentry_eye.png"));
+    private static final ResourceLocation SENTRY_OFF = new ResourceLocation(Aether.MODID, "textures/entity/mobs/sentry/battle_sentry_redux_dormant.png");
+    private static final ResourceLocation SENTRY_ON = new ResourceLocation(Aether.MODID, "textures/entity/mobs/sentry/battle_sentry_redux.png");
+    private static final RenderType SENTRY_EYE = RenderType.eyes(new ResourceLocation(Aether.MODID, "textures/entity/mobs/sentry/battle_sentry_redux_eye.png"));
 
     private final BattleSentryReduxModel<BattleSentry> model;
 

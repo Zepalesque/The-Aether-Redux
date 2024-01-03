@@ -21,7 +21,7 @@ public class SentryReduxLayer extends RenderLayer<Sentry, SlimeModel<Sentry>> {
 
     private static final ResourceLocation SENTRY_OFF = new ResourceLocation(Aether.MODID, "textures/entity/mobs/sentry/sentry_redux_dormant.png");
     private static final ResourceLocation SENTRY_ON = new ResourceLocation(Aether.MODID, "textures/entity/mobs/sentry/sentry_redux.png");
-    private static final RenderType SENTRY_EYE = RenderType.eyes(new ResourceLocation(Redux.MODID, "textures/entity/mobs/sentry/sentry_eye.png"));
+    private static final RenderType SENTRY_EYE = RenderType.eyes(new ResourceLocation(Aether.MODID, "textures/entity/mobs/sentry/sentry_redux_eye.png"));
 
     private final SentryReduxModel<Sentry> model;
 
