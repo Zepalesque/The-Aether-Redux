@@ -25,7 +25,7 @@ public class VeridiumSwordItem extends SwordItem implements VeridiumItem {
     public VeridiumSwordItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
         super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
     }
-    
+
 
     @Override
     public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {

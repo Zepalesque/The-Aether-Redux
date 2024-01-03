@@ -81,14 +81,15 @@ public class ReduxAccessoryListener {
                 for (int i = 0; i < (count * 5); i++) {
                     float rotation = Mth.wrapDegrees(source.nextInt(360));
                     Ember ember = new Ember(target.level(), player, target);
-                    ember.setPos(target.getX(), target.getY() + (target.getBbHeight() /2) + ((source.nextFloat() * 2) - 1), target.getZ());
-                    ember.shootFromRotation(target,  360 * Mth.square((source.nextFloat() * 2) - 1), rotation, 0.0F, 1.0F, 1.0F);
+                    ember.setPos(target.getX(), target.getY() + (target.getBbHeight() / 2) + ((source.nextFloat() * 2) - 1), target.getZ());
+                    ember.shootFromRotation(target, 360 * Mth.square((source.nextFloat() * 2) - 1), rotation, 0.0F, 1.0F, 1.0F);
                     if (!player.level().isClientSide()) {
                         player.level().addFreshEntity(ember);
                     }
                 }
 
             }
+        }
 
     }
 
