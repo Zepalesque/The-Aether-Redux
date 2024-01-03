@@ -16,11 +16,12 @@ import javax.annotation.Nullable;
 public class ReduxDamageTypes {
     public static final ResourceKey<DamageType> CHROMATIC_SHRUB = createKey("chromatic_berry_bush");
     public static final ResourceKey<DamageType> BLIGHTED_FUNGI = createKey("blighted_fungi");
+    public static final ResourceKey<DamageType> EMBER = createKey("ember");
 
     public static void bootstrap(BootstapContext<DamageType> context) {
         context.register(CHROMATIC_SHRUB, new DamageType("aether_redux.chromatic_shrub", 0.1F, DamageEffects.POKING));
         context.register(BLIGHTED_FUNGI, new DamageType("aether_redux.blighted_fungi", 0.1F, DamageEffects.POKING));
-
+        context.register(EMBER, new DamageType("aether_redux.ember", 0.1F, DamageEffects.BURNING));
     }
 
     private static ResourceKey<DamageType> createKey(String name) {

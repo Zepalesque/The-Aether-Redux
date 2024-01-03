@@ -4,12 +4,15 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
+import net.zepalesque.redux.entity.projectile.Ember;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.item.util.VeridiumItem;
 import org.jetbrains.annotations.Nullable;
@@ -21,6 +24,23 @@ public class VeridiumSwordItem extends SwordItem implements VeridiumItem {
 
     public VeridiumSwordItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
         super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
+    }
+
+    /** Debug method for spark spawning */
+    @Override
+    public boolean onEntitySwing(ItemStack stack, LivingEntity entity) {
+        if (entity instanceof Player player) {
+            Vec3 look = player.getViewVector(1.0F).normalize();
+            float rotation = Mth.wrapDegrees(entity.getYRot());
+            Ember ember = new Ember(entity.level(), player);
+            ember.setPos(entity.getX(), entity.getY() + entity.getEyeHeight(), entity.getZ());
+            ember.shootFromRotation(player, entity.getXRot(), rotation, 0.0F, 1.0F, 1.0F);
+            if (!player.level().isClientSide()) {
+                entity.level().addFreshEntity(ember);
+            }
+        }
+        return super.onEntitySwing(stack, entity);
+
     }
 
     @Override

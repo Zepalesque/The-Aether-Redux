@@ -21,11 +21,8 @@ import net.zepalesque.redux.client.render.entity.layer.entity.SentryReduxLayer;
 import net.zepalesque.redux.client.render.entity.layer.entity.CockatriceReduxLayer;
 import net.zepalesque.redux.client.render.entity.layer.entity.MoaReduxLayer;
 import net.zepalesque.redux.client.render.entity.misc.ReduxBoatRenderer;
-import net.zepalesque.redux.client.render.entity.model.entity.BattleSentryReduxModel;
+import net.zepalesque.redux.client.render.entity.model.entity.*;
 import net.zepalesque.redux.client.render.entity.model.entity.bronze.ReduxMimicModel;
-import net.zepalesque.redux.client.render.entity.model.entity.SentryReduxModel;
-import net.zepalesque.redux.client.render.entity.model.entity.CockatriceReduxModel;
-import net.zepalesque.redux.client.render.entity.model.entity.MoaReduxModel;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.item.ReduxItems;
 import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
@@ -56,6 +53,8 @@ public class ReduxRenderers {
         event.registerEntityRenderer(ReduxEntityTypes.SPECTRAL_DART.get(), SpectralDartRenderer::new);
         event.registerEntityRenderer(ReduxEntityTypes.VOLATILE_FIRE_CRYSTAL.get(), VolatileFireCrystalRenderer::new);
 
+        event.registerEntityRenderer(ReduxEntityTypes.EMBER.get(), EmberRenderer::new);
+
 //        event.registerEntityRenderer(AetherEntityTypes.MIMIC.get(), ReduxMimicRenderer::new);
 //        event.registerEntityRenderer(AetherEntityTypes.SENTRY.get(), ReduxSentryRenderer::new);
 
@@ -73,6 +72,7 @@ public class ReduxRenderers {
     @SubscribeEvent
     public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(ReduxModelLayers.MOA_REDUX, MoaReduxModel::createBodyLayer);
+        event.registerLayerDefinition(ReduxModelLayers.CUBE, CubeModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.REDUX_COCKATRICE, CockatriceReduxModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.MIMIC, ReduxMimicModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.SENTRY, SentryReduxModel::createBodyLayer);

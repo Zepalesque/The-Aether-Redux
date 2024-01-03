@@ -14,6 +14,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.entity.projectile.Ember;
 import net.zepalesque.redux.entity.projectile.SpectralDart;
 import net.zepalesque.redux.entity.projectile.VolatileFireCrystal;
 
@@ -30,6 +31,9 @@ public class ReduxEntityTypes {
 
     public static final RegistryObject<EntityType<SpectralDart>> SPECTRAL_DART = ENTITY_TYPES.register("spectral_dart",
             () -> EntityType.Builder.<SpectralDart>of(SpectralDart::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20).build("spectral_dart"));
+
+    public static final RegistryObject<EntityType<Ember>> EMBER = ENTITY_TYPES.register("ember",
+            () -> EntityType.Builder.<Ember>of(Ember::new, MobCategory.MISC).sized(0.25F, 0.25F).clientTrackingRange(4).updateInterval(20).build("ember"));
 
     @SubscribeEvent
     public static void registerSpawnPlacements(SpawnPlacementRegisterEvent event) {

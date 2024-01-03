@@ -11,6 +11,7 @@ import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.data.resource.ReduxBiomes;
 import net.zepalesque.redux.data.resource.ReduxDamageTypes;
 import net.zepalesque.redux.effect.ReduxEffects;
+import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.item.ReduxItems;
 
 public class ReduxLanguageData extends AetherLanguageProvider {
@@ -426,6 +427,11 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addGuiText("config_top", "Top of Hierarchy");
         addGuiText("config_page", "Page %s");
 
+        addEntityType(ReduxEntityTypes.VANILLA_SWET, "Vanilla Swet");
+        addEntityType(ReduxEntityTypes.EMBER, "Ember");
+        addEntityType(ReduxEntityTypes.SPECTRAL_DART, "Spectral Dart");
+        addEntityType(ReduxEntityTypes.VOLATILE_FIRE_CRYSTAL, "Volatile Fire Crystal");
+
         addPackConfigCategory("nature", "Nature", "Changes to the Aether's natural environment");
         addPackConfig("blue_icestone", "Blue Icestone", "Blue-colored, less glowstone-y icestone!");
         addPackConfig("better_aerclouds", "Better Aerclouds", "Improved textures for Aerclouds, to fit in with the newer minecraft textures");
@@ -538,8 +544,10 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addDeath(ReduxDamageTypes.CHROMATIC_SHRUB, "%1$s was poked to death by a chromatic shrub, how sad");
         addDeath(ReduxDamageTypes.BLIGHTED_FUNGI, "%1$s was poked to death by a patch of blighted fungi");
+        addDeath(ReduxDamageTypes.EMBER, "%1$s was hit by a flying ember");
+        addDeathByPlayer(ReduxDamageTypes.EMBER, "%1$s was hit by %2$s's flying ember");
 
-        for (WoodHandler woodHandler : Redux.Handlers.Wood.WOOD_HANDLERS)        {
+        for (WoodHandler woodHandler : Redux.Handlers.Wood.WOOD_HANDLERS) {
             woodHandler.generateLanguageData(this);
         }
 
@@ -574,6 +582,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
     public void addDeath(ResourceKey<DamageType> key, String name) {
         this.add("death.attack." + this.id + "." + key.location().getPath(), name);
+    }
+    public void addDeathByPlayer(ResourceKey<DamageType> key, String name) {
+        this.add("death.attack." + this.id + "." + key.location().getPath() + ".player", name);
     }
 
     public void addPackConfig(String key, String name, String desc) {
