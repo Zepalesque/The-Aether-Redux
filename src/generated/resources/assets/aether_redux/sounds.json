@@ -297,16 +297,16 @@
     ],
     "subtitle": "subtitles.aether_redux.item.accessory.equip_enchanted_ring"
   },
-  "item.accessory.equip_phoenix_ring": {
+  "item.accessory.equip_sentry_ring": {
     "sounds": [
-      "item/armor/equip_gold1",
-      "item/armor/equip_gold2",
-      "item/armor/equip_gold3",
-      "item/armor/equip_gold4",
-      "item/armor/equip_gold5",
-      "item/armor/equip_gold6"
+      "item/armor/equip_iron1",
+      "item/armor/equip_iron2",
+      "item/armor/equip_iron3",
+      "item/armor/equip_iron4",
+      "item/armor/equip_iron5",
+      "item/armor/equip_iron6"
     ],
-    "subtitle": "subtitles.aether_redux.item.accessory.equip_phoenix_ring"
+    "subtitle": "subtitles.aether_redux.item.accessory.equip_sentry_ring"
   },
   "item.accessory.equip_valkyrie_ring": {
     "sounds": [
