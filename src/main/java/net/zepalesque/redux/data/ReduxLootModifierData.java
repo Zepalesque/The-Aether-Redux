@@ -58,11 +58,11 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
 
         this.add("sentry_circuit", new GenesisAddEntityDropsModifier(new ItemStack(ReduxItems.SENTRY_CIRCUIT.get()),
                 new LootItemFunction[] {
-                        SetItemCountFunction.setCount(UniformGenerator.between(0, 2.0F)).build(),
+                        SetItemCountFunction.setCount(UniformGenerator.between(0, 1.0F)).build(),
                         LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)).build() },
                 new LootItemCondition[] {
                         LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(AetherEntityTypes.SENTRY.get())).build(),
-                        LootItemRandomChanceCondition.randomChance(0.75F).build()
+                        LootItemRandomChanceCondition.randomChance(0.5F).build()
                 }));
 
         this.add("swet_sugar_no_genesis", new GenesisAddEntityDropsModifier(new ItemStack(Items.SUGAR),
@@ -107,7 +107,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
 
         this.add("subzero_crossbow", new GenesisAddDungeonLootModifier(
                 new LootItemCondition[] { LootTableIdCondition.builder(AetherLoot.GOLD_DUNGEON_REWARD).build(), LootItemRandomChanceCondition.randomChance(0.65F).build() }, List.of(WeightedEntry.wrap(new ItemStack(ReduxItems.SUBZERO_CROSSBOW.get()), 1)),
-                UniformInt.of(0, 1)));
+                ConstantInt.of(1)));
 
         this.add("vanilla_gummy_swet", new GenesisAddDungeonLootModifier(
                 new LootItemCondition[] { LootTableIdCondition.builder(AetherLoot.BRONZE_DUNGEON_REWARD).build() }, List.of(WeightedEntry.wrap(new ItemStack(ReduxItems.VANILLA_GUMMY_SWET.get()), 1)),

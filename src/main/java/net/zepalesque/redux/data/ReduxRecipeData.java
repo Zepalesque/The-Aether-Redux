@@ -301,6 +301,16 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .unlockedBy(getHasName(ReduxItems.ENCHANTED_RING.get()), has(ReduxItems.ENCHANTED_RING.get()))
                 .save(consumer);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ReduxItems.SENTRY_RING.get(), 1)
+                .define('H', AetherBlocks.CARVED_STONE.get())
+                .define('E', ReduxItems.SENTRY_CIRCUIT.get())
+                .define('R', ReduxItems.ENCHANTED_RING.get())
+                .pattern("HEH")
+                .pattern("HRH")
+                .pattern("HHH")
+                .unlockedBy(getHasName(ReduxItems.SENTRY_CIRCUIT.get()), has(ReduxItems.SENTRY_CIRCUIT.get()))
+                .save(consumer);
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ReduxBlocks.VERIDIUM_LANTERN.get(), 1)
                 .define('N', ReduxItems.VERIDIUM_NUGGET.get())
                 .define('A', AetherBlocks.AMBROSIUM_TORCH.get())
