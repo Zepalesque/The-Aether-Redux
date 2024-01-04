@@ -202,37 +202,21 @@ public class Ember extends Projectile {
          Vec3 bounce = this.bounceAxis(velocity, d);
       // Spawn spark particles
 
-      if (axis == Direction.Axis.X) {
-         for (int i = 0; i < Mth.floor(velocity.length() * 20); i++) {
-            double spread = velocity.length() * 2.5;
-            float angle = MathUtil.degToRad(this.level().getRandom().nextFloat() * 360);
-            // trigonometry, how fun
-            double opp = Mth.sin(angle) * spread;
-            double adj = Mth.cos(angle) * spread;
+      double spread = velocity.length() * 2.5;
+      for (int i = 0; i < Mth.floor(velocity.length() * 35); i++) {
+         float angle = MathUtil.degToRad(this.level().getRandom().nextFloat() * 360);
+         // trigonometry, how fun
+         double opp = Mth.sin(angle) * spread;
+         double adj = Mth.cos(angle) * spread;
+         if (axis == Direction.Axis.X) {
             this.level().addParticle(ReduxParticleTypes.SPARK.get(), loc.x(), loc.y(), loc.z(), velocity.length(), opp, adj);
-         }
-      }
-      if (axis == Direction.Axis.Y) {
-         for (int i = 0; i < Mth.floor(velocity.length() * 20); i++) {
-            double spread = velocity.length() * 2.5;
-            float angle = MathUtil.degToRad(this.level().getRandom().nextFloat() * 360);
-            // trigonometry, how fun
-            double opp = Mth.sin(angle) * spread;
-            double adj = Mth.cos(angle) * spread;
+         } else if (axis == Direction.Axis.Y) {
             this.level().addParticle(ReduxParticleTypes.SPARK.get(), loc.x(), loc.y(), loc.z(), opp, velocity.length(), adj);
-         }
-      }
-      if (axis == Direction.Axis.Z) {
-         for (int i = 0; i < Mth.floor(velocity.length() * 20); i++) {
-            double spread = velocity.length() * 2.5;
-            float angle = MathUtil.degToRad(this.level().getRandom().nextFloat() * 360);
-            // trigonometry, how fun
-            double opp = Mth.sin(angle) * spread;
-            double adj = Mth.cos(angle) * spread;
+         } else if (axis == Direction.Axis.Z) {
             this.level().addParticle(ReduxParticleTypes.SPARK.get(), loc.x(), loc.y(), loc.z(), opp, adj, velocity.length());
          }
       }
-      SoundEvent sound = velocity.length() <= 0.2 ? ReduxSoundEvents.EMBER_BOUNCE_SMALL.get() : velocity.length() <= 0.7 ? ReduxSoundEvents.EMBER_BOUNCE_MED.get() : ReduxSoundEvents.EMBER_BOUNCE_BIG.get();
+      SoundEvent sound = velocity.length() <= 0.5 ? ReduxSoundEvents.EMBER_BOUNCE_SMALL.get() : velocity.length() <= 1 ? ReduxSoundEvents.EMBER_BOUNCE_MED.get() : ReduxSoundEvents.EMBER_BOUNCE_BIG.get();
       this.level().playSound(null, loc.x(), loc.y(), loc.z(), sound, SoundSource.NEUTRAL, (float) (velocity.length() * 10D), 0.8F + (this.level().random.nextFloat() * 0.4F));
       this.setDeltaMovement(bounce.scale(0.5D));
       this.setPos(loc);
