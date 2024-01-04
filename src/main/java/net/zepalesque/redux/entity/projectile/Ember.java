@@ -203,7 +203,7 @@ public class Ember extends Projectile {
       // Spawn spark particles
 
       double spread = velocity.length() * 2.5;
-      for (int i = 0; i < Mth.floor(velocity.length() * 35); i++) {
+      for (int i = 0; i < Mth.floor(velocity.length() * 15); i++) {
          float angle = MathUtil.degToRad(this.level().getRandom().nextFloat() * 360);
          // trigonometry, how fun
          double opp = Mth.sin(angle) * spread;
@@ -216,7 +216,7 @@ public class Ember extends Projectile {
             this.level().addParticle(ReduxParticleTypes.SPARK.get(), loc.x(), loc.y(), loc.z(), opp, adj, velocity.length());
          }
       }
-      SoundEvent sound = velocity.length() <= 0.5 ? ReduxSoundEvents.EMBER_BOUNCE_SMALL.get() : velocity.length() <= 1 ? ReduxSoundEvents.EMBER_BOUNCE_MED.get() : ReduxSoundEvents.EMBER_BOUNCE_BIG.get();
+      SoundEvent sound = velocity.length() <= 0.75 ? ReduxSoundEvents.EMBER_BOUNCE_SMALL.get() : velocity.length() <= 1.5 ? ReduxSoundEvents.EMBER_BOUNCE_MED.get() : ReduxSoundEvents.EMBER_BOUNCE_BIG.get();
       this.level().playSound(null, loc.x(), loc.y(), loc.z(), sound, SoundSource.NEUTRAL, (float) (velocity.length() * 10D), 0.8F + (this.level().random.nextFloat() * 0.4F));
       this.setDeltaMovement(bounce.scale(0.5D));
       this.setPos(loc);
