@@ -138,6 +138,24 @@
     ],
     "subtitle": "subtitles.aether.entity.cockatrice.hurt"
   },
+  "entity.ember.bounce_big": {
+    "sounds": [
+      "aether_redux:entity/ember/ember_bouncebig"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.ember_bounce"
+  },
+  "entity.ember.bounce_med": {
+    "sounds": [
+      "aether_redux:entity/ember/ember_bouncemed"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.ember_bounce"
+  },
+  "entity.ember.bounce_small": {
+    "sounds": [
+      "aether_redux:entity/ember/ember_bouncemed"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.ember_bounce"
+  },
   "entity.mimic.awaken": {
     "sounds": [
       "aether_redux:entity/mimic/awaken"
