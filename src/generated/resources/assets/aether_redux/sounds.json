@@ -152,7 +152,7 @@
   },
   "entity.ember.bounce_small": {
     "sounds": [
-      "aether_redux:entity/ember/ember_bouncemed"
+      "aether_redux:entity/ember/ember_bouncesmall"
     ],
     "subtitle": "subtitles.aether_redux.entity.ember_bounce"
   },
