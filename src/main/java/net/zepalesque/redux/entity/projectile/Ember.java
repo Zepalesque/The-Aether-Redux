@@ -1,5 +1,6 @@
 package net.zepalesque.redux.entity.projectile;
 
+import com.aetherteam.nitrogen.entity.BossMob;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
@@ -186,7 +187,7 @@ public class Ember extends Projectile {
 
    protected void onHitEntity(EntityHitResult result) {
       super.onHitEntity(result);
-      if (result.getEntity() instanceof LivingEntity livingentity && !this.ownedBy(livingentity) && !this.originatedFrom(livingentity) && !this.hasHit(livingentity)) {
+      if (result.getEntity() instanceof LivingEntity livingentity && !this.ownedBy(livingentity) && !this.originatedFrom(livingentity) && !this.hasHit(livingentity) && !(livingentity instanceof BossMob<?>)) {
          livingentity.hurt(ReduxDamageTypes.entitySource(this.level(), ReduxDamageTypes.EMBER, this.getOwner()), 1.0F);
       }
 
