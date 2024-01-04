@@ -4,6 +4,8 @@ import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -16,6 +18,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
+import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.data.resource.ReduxDamageTypes;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
@@ -35,6 +38,7 @@ public class Ember extends Projectile {
    private @Nullable UUID sourceUUID;
    private @Nullable ArrayList<Entity> cachedHits = new ArrayList<>();
    private @Nullable ArrayList<UUID> hitUUIDs = new ArrayList<>();
+   public final int lifetime = 80;
    public Ember(Level level, Player owner) {
       this(ReduxEntityTypes.EMBER.get(), level);
       this.setOwner(owner);
@@ -119,6 +123,9 @@ public class Ember extends Projectile {
       if (hitresult.getType() == HitResult.Type.MISS) {
          this.setPos(d0, d1, d2);
       }
+      if (this.tickCount >= this.lifetime && !this.isRemoved()) {
+         this.remove(RemovalReason.DISCARDED);
+      }
    }
 
    protected void addAdditionalSaveData(CompoundTag compound) {
@@ -192,7 +199,7 @@ public class Ember extends Projectile {
       Vec3 loc = result.getLocation();
       Vec3 velocity = this.getDeltaMovement();
       velocity = velocity.multiply(Math.abs(velocity.x)>0.1 ? 1 : 0, Math.abs(velocity.y)>0.1 ? 1 : 0, Math.abs(velocity.z)>0.1 ? 1 : 0);
-      Vec3 bounce = this.bounceAxis(velocity, d);
+         Vec3 bounce = this.bounceAxis(velocity, d);
       // Spawn spark particles
 
       if (axis == Direction.Axis.X) {
@@ -202,7 +209,7 @@ public class Ember extends Projectile {
             // trigonometry, how fun
             double opp = Mth.sin(angle) * spread;
             double adj = Mth.cos(angle) * spread;
-            this.level().addParticle(ReduxParticleTypes.SPARK.get(), loc.x(), loc.y(), loc.z(), d.getStepX(), opp, adj);
+            this.level().addParticle(ReduxParticleTypes.SPARK.get(), loc.x(), loc.y(), loc.z(), velocity.length(), opp, adj);
          }
       }
       if (axis == Direction.Axis.Y) {
@@ -212,7 +219,7 @@ public class Ember extends Projectile {
             // trigonometry, how fun
             double opp = Mth.sin(angle) * spread;
             double adj = Mth.cos(angle) * spread;
-            this.level().addParticle(ReduxParticleTypes.SPARK.get(), loc.x(), loc.y(), loc.z(), opp, d.getStepY(), adj);
+            this.level().addParticle(ReduxParticleTypes.SPARK.get(), loc.x(), loc.y(), loc.z(), opp, velocity.length(), adj);
          }
       }
       if (axis == Direction.Axis.Z) {
@@ -222,9 +229,11 @@ public class Ember extends Projectile {
             // trigonometry, how fun
             double opp = Mth.sin(angle) * spread;
             double adj = Mth.cos(angle) * spread;
-            this.level().addParticle(ReduxParticleTypes.SPARK.get(), loc.x(), loc.y(), loc.z(), opp, adj, d.getStepZ());
+            this.level().addParticle(ReduxParticleTypes.SPARK.get(), loc.x(), loc.y(), loc.z(), opp, adj, velocity.length());
          }
       }
+      SoundEvent sound = velocity.length() <= 0.2 ? ReduxSoundEvents.EMBER_BOUNCE_SMALL.get() : velocity.length() <= 0.7 ? ReduxSoundEvents.EMBER_BOUNCE_MED.get() : ReduxSoundEvents.EMBER_BOUNCE_BIG.get();
+      this.level().playSound(null, loc.x(), loc.y(), loc.z(), sound, SoundSource.NEUTRAL, (float) (velocity.length() * 10D), 0.8F + (this.level().random.nextFloat() * 0.4F));
       this.setDeltaMovement(bounce.scale(0.5D));
       this.setPos(loc);
    }

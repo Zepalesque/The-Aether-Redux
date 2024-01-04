@@ -32,32 +32,32 @@ import java.util.Iterator;
 public class EmberRenderer extends EntityRenderer<Ember> {
 
     private static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation(Redux.MODID, "textures/entity/ember.png");
-    private static final RenderType RENDER_TYPE = RenderType.entityTranslucentEmissive(TEXTURE_LOCATION);
+    private static final RenderType RENDER_TYPE = RenderType.entityTranslucent(TEXTURE_LOCATION);
 
-    protected final ItemRenderer itemRenderer;
 
-    private final CubeModel box;
     public EmberRenderer(EntityRendererProvider.Context context) {
         super(context);
-        this.box = new CubeModel(context.bakeLayer(ReduxModelLayers.CUBE));
-        this.itemRenderer = context.getItemRenderer();
     }
 
     @Override
     public void render(Ember entity, float entityYaw, float partialTick, PoseStack poseStack, MultiBufferSource buffer, int packedLight) {
+        int i = 10;
+        int alpha = entity.lifetime - entity.tickCount < i ? (int) (255F * ((float)(entity.lifetime - entity.tickCount) / i)) : 255;
+        int light = 15728880;
+        float size = 0.125F;
+        float radius = size / 2;
         poseStack.pushPose();
-//        poseStack.scale(2.0F, 2.0F, 2.0F);
+        poseStack.translate(0.0F, radius, 0.0F);
         poseStack.mulPose(this.entityRenderDispatcher.cameraOrientation());
         poseStack.mulPose(Axis.YP.rotationDegrees(180.0F));
         PoseStack.Pose posestack$pose = poseStack.last();
         Matrix4f matrix4f = posestack$pose.pose();
         Matrix3f matrix3f = posestack$pose.normal();
         VertexConsumer vertexconsumer = buffer.getBuffer(RENDER_TYPE);
-        float size = 0.25F;
-        vertex(vertexconsumer, matrix4f, matrix3f, packedLight, 0.0F, 0.0F, 0, 1);
-        vertex(vertexconsumer, matrix4f, matrix3f, packedLight, size, 0.0F, 1, 1);
-        vertex(vertexconsumer, matrix4f, matrix3f, packedLight, size, size, 1, 0);
-        vertex(vertexconsumer, matrix4f, matrix3f, packedLight, 0.0F, size, 0, 0);
+        vertex(vertexconsumer, matrix4f, matrix3f, light, -radius, -radius, 0, 1, alpha);
+        vertex(vertexconsumer, matrix4f, matrix3f, light, radius, -radius, 1, 1, alpha);
+        vertex(vertexconsumer, matrix4f, matrix3f, light, radius, radius, 1, 0, alpha);
+        vertex(vertexconsumer, matrix4f, matrix3f, light, -radius, radius, 0, 0, alpha);
         poseStack.popPose();
         super.render(entity, entityYaw, partialTick, poseStack, buffer, packedLight);
     }
@@ -66,7 +66,7 @@ public class EmberRenderer extends EntityRenderer<Ember> {
         vertex(consumer, pose, normal, lightmapUV, x, y, u, v, 255);
     }
     private static void vertex(VertexConsumer consumer, Matrix4f pose, Matrix3f normal, int lightmapUV, float x, float y, int u, int v, int alpha) {
-        consumer.vertex(pose, x - 0.125F, y/* + 0.0625F*/, 0F).color(255, 255, 255, 255).uv((float)u, (float)v).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(lightmapUV).normal(normal, 0.0F, 1.0F, 0.0F).endVertex();
+        consumer.vertex(pose, x, y, 0F).color(255, 255, 255, alpha).uv((float)u, (float)v).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(lightmapUV).normal(normal, 0.0F, 1.0F, 0.0F).endVertex();
     }
 
 

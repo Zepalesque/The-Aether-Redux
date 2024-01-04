@@ -36,6 +36,10 @@ public class ReduxSoundEvents {
     public static final RegistryObject<SoundEvent> TEMPEST_DEATH = register("entity.tempest.death");
     public static final RegistryObject<SoundEvent> TEMPEST_ZAP = register("entity.tempest.zap");
 
+    public static final RegistryObject<SoundEvent> EMBER_BOUNCE_BIG = register("entity.ember.bounce_big");
+    public static final RegistryObject<SoundEvent> EMBER_BOUNCE_MED = register("entity.ember.bounce_med");
+    public static final RegistryObject<SoundEvent> EMBER_BOUNCE_SMALL = register("entity.ember.bounce_small");
+
     public static final RegistryObject<SoundEvent> EQUIP_BITTERSWEET_CHARM = register("item.accessory.equip_bittersweet_charm");
     public static final RegistryObject<SoundEvent> EQUIP_ENCHANTED_RING = register("item.accessory.equip_enchanted_ring");
     public static final RegistryObject<SoundEvent> EQUIP_VALKYRIE_RING = register("item.accessory.equip_valkyrie_ring");

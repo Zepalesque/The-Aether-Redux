@@ -478,6 +478,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addSubtitle("entity", "sentry_ambient", "Sentry grumbles");
         addSubtitle("entity", "sentry_hurt", "Sentry hurts");
         addSubtitle("entity", "sentry_death", "Sentry dies");
+        addSubtitle("entity", "ember_bounce", "Ember impacts");
         addSubtitle("item.accessory", "equip_bittersweet_charm", "Bittersweet Charm jingles");
         addSubtitle("item.accessory", "equip_enchanted_ring", "Enchanted Ring thunks");
         addSubtitle("item.accessory", "equip_valkyrie_ring", "Valkyrie Ring clinks");

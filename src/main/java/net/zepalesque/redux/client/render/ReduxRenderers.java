@@ -72,7 +72,6 @@ public class ReduxRenderers {
     @SubscribeEvent
     public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(ReduxModelLayers.MOA_REDUX, MoaReduxModel::createBodyLayer);
-        event.registerLayerDefinition(ReduxModelLayers.CUBE, CubeModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.REDUX_COCKATRICE, CockatriceReduxModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.MIMIC, ReduxMimicModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.SENTRY, SentryReduxModel::createBodyLayer);

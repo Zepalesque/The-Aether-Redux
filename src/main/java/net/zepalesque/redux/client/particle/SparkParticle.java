@@ -26,24 +26,20 @@ public class SparkParticle extends TextureSheetParticle {
       this.xd *= 0.8F;
       this.yd *= 0.8F;
       this.zd *= 0.8F;
-//      this.yd = this.random.nextFloat() * 0.4F + 0.05F;
       this.quadSize = 0.125F;
-      this.lifetime = (int)(32.0D / (Math.random() * 0.8D + 0.2D));
+      this.scale((random.nextFloat() * 0.2F) + 0.4F);
+//      this.yd = this.random.nextFloat() * 0.4F + 0.05F;
+      this.lifetime = (int)(32.0D / (Math.random() * 0.6D + 0.4D));
    }
 
    public ParticleRenderType getRenderType() {
-      return ParticleRenderType.PARTICLE_SHEET_OPAQUE;
+      return ParticleRenderType.PARTICLE_SHEET_TRANSLUCENT;
    }
 
    public int getLightColor(float pPartialTick) {
       return 15728880;
    }
 
-
-   public float getQuadSize(float pScaleFactor) {
-      float f = ((float)this.age + pScaleFactor) / (float)this.lifetime;
-      return this.quadSize * (1.0F - f * f);
-   }
 
 
    public Vec3 bounceAxis(Vec3 velocity, Direction direction) {
@@ -64,7 +60,7 @@ public class SparkParticle extends TextureSheetParticle {
    public void tick() {
       Vec3 velocity = new Vec3(this.xd, this.yd, this.zd);
       velocity = velocity.multiply(Math.abs(velocity.x)>0.1 ? 1 : 0, Math.abs(velocity.y)>0.1 ? 1 : 0, Math.abs(velocity.z)>0.1 ? 1 : 0);
-      HitResult hitresult = getHitResult(this.getPos(), velocity, this.level);
+      HitResult hitresult = getHitResult(this.getPos(), velocity.length() == 0 ? velocity.add(0, -0.04, 0) : velocity, this.level);
       if (velocity.length() > 0D && hitresult.getType() == HitResult.Type.BLOCK) {
          Vec3 bounce = this.bounceAxis(velocity, ((BlockHitResult)hitresult).getDirection());
          Vec3 scaled = bounce.scale(0.5D);

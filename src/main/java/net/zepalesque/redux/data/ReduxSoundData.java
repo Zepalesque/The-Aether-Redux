@@ -167,6 +167,18 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
                         .subtitle("subtitles.aether_redux.block.fungus_bounce")
         );
 
+        this.add(ReduxSoundEvents.EMBER_BOUNCE_BIG, definition().with(
+                sound("aether_redux:entity/ember/ember_bouncebig")
+        ).subtitle("subtitles.aether_redux.entity.ember_bounce"));
+
+        this.add(ReduxSoundEvents.EMBER_BOUNCE_MED, definition().with(
+                sound("aether_redux:entity/ember/ember_bouncemed")
+        ).subtitle("subtitles.aether_redux.entity.ember_bounce"));
+
+        this.add(ReduxSoundEvents.EMBER_BOUNCE_SMALL, definition().with(
+                sound("aether_redux:entity/ember/ember_bouncemed")
+        ).subtitle("subtitles.aether_redux.entity.ember_bounce"));
+
         this.add(ReduxSoundEvents.GLOWSTONE_BREAK,
                 definition().with(
                         sound("aether_redux:block/glowstone/break1"),
