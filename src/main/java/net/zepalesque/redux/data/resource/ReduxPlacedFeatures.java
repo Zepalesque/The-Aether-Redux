@@ -51,10 +51,11 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> BLIGHT_ROCK = copyKey(ReduxConfiguredFeatures.BLIGHT_ROCK);
     public static final ResourceKey<PlacedFeature> BLIGHT_TREES = copyKey(ReduxConfiguredFeatures.BLIGHT_TREES);
     public static final ResourceKey<PlacedFeature> CLOUDCAP_MUSHLING_PATCH = copyKey(ReduxConfiguredFeatures.CLOUDCAP_MUSHLING_PATCH);
-    public static final ResourceKey<PlacedFeature> FROSTBUD_PATCH = copyKey(ReduxConfiguredFeatures.FROSTBUD_PATCH);
+    public static final ResourceKey<PlacedFeature> DAGGERBLOOM_PATCH = copyKey(ReduxConfiguredFeatures.DAGGERBLOOM_PATCH);
     public static final ResourceKey<PlacedFeature> FROSTED_FERN_PATCH = copyKey(ReduxConfiguredFeatures.FROSTED_FERN_PATCH);
-    public static final ResourceKey<PlacedFeature> FROSTED_HOLYSTONE_ORE = copyKey(ReduxConfiguredFeatures.FROSTED_HOLYSTONE_ORE);
+    public static final ResourceKey<PlacedFeature> AEROGEL_ORE = copyKey(ReduxConfiguredFeatures.AEROGEL_ORE);
     public static final ResourceKey<PlacedFeature> FROSTED_PURPLE_FLOWER_PATCH = copyKey(ReduxConfiguredFeatures.FROSTED_PURPLE_FLOWER_PATCH);
+    public static final ResourceKey<PlacedFeature> GLACIAL_TREES = copyKey(ReduxConfiguredFeatures.GLACIAL_TREES);
     public static final ResourceKey<PlacedFeature> FROSTED_TREES = copyKey(ReduxConfiguredFeatures.FROSTED_TREES);
     public static final ResourceKey<PlacedFeature> GILDED_HOLYSTONE_ORE = copyKey(ReduxConfiguredFeatures.GILDED_HOLYSTONE_ORE);
     public static final ResourceKey<PlacedFeature> GILDED_ROCK  = copyKey(ReduxConfiguredFeatures.GILDED_ROCK);
@@ -183,7 +184,7 @@ public class ReduxPlacedFeatures {
 
 
 
-        register(context, FROSTBUD_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.FROSTBUD_PATCH),
+        register(context, DAGGERBLOOM_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.DAGGERBLOOM_PATCH),
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 2), 4),
                 RarityFilter.onAverageOnceEvery(5),
@@ -196,7 +197,7 @@ public class ReduxPlacedFeatures {
                 RarityFilter.onAverageOnceEvery(3),
                 BiomeFilter.biome());
 
-        register(context, FROSTED_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.FROSTED_TREES),
+        register(context, GLACIAL_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GLACIAL_TREES),
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
                         .add(ConstantInt.of(24), 9)
                         .add(ConstantInt.of(16), 1)
@@ -207,7 +208,18 @@ public class ReduxPlacedFeatures {
                 PlacementUtils.filteredByBlockSurvival(ReduxBlocks.GLACIA_SAPLING.get())
         );
 
-        register(context, FROSTED_HOLYSTONE_ORE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.FROSTED_HOLYSTONE_ORE),
+        register(context, FROSTED_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.FROSTED_TREES),
+                CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
+                        .add(ConstantInt.of(15), 9)
+                        .add(ConstantInt.of(12), 1)
+                        .build())),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.OCEAN_FLOOR, UniformInt.of(0, 1), 4),
+                BiomeFilter.biome(),
+                DUNGEON_BLACKLIST,
+                PlacementUtils.filteredByBlockSurvival(/*TODO*/ReduxBlocks.GLACIA_SAPLING.get())
+        );
+
+        register(context, AEROGEL_ORE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.AEROGEL_ORE),
                 CountPlacement.of(32),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(UniformHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(128))),

@@ -10,26 +10,42 @@ import net.minecraft.world.level.levelgen.feature.configurations.TreeConfigurati
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 
-public class GenesisHookedFoliagePlacer extends FoliagePlacer {
-    public static final Codec<GenesisHookedFoliagePlacer> CODEC = RecordCodecBuilder.create((codec) -> foliagePlacerParts(codec)
+public class GenesisPineFoliagePlacer extends FoliagePlacer {
+    public static final Codec<GenesisPineFoliagePlacer> CODEC = RecordCodecBuilder.create((codec) -> foliagePlacerParts(codec)
             .and(IntProvider.codec(0, 24).fieldOf("trunk_height").forGetter((placer) -> placer.trunkHeight))
-            .apply(codec, GenesisHookedFoliagePlacer::new));
+            .apply(codec, GenesisPineFoliagePlacer::new));
     private final IntProvider trunkHeight;
 
-    public GenesisHookedFoliagePlacer(IntProvider radius, IntProvider offset, IntProvider height) {
+    public GenesisPineFoliagePlacer(IntProvider radius, IntProvider offset, IntProvider height) {
         super(radius, offset);
         this.trunkHeight = height;
     }
 
     @Override
     protected FoliagePlacerType<?> type() {
-        return ReduxFoliagePlacers.GENESIS_HOOKED.get();
+        return ReduxFoliagePlacers.GENESIS_PINE.get();
     }
 
     @Override
     protected void createFoliage(LevelSimulatedReader level, FoliagePlacer.FoliageSetter setter, RandomSource random, TreeConfiguration configuration, int maxTreeHeight, FoliagePlacer.FoliageAttachment attachment, int foliageHeight, int foliageRadius, int offset) {
         BlockPos blockpos = attachment.pos();
-        this.placeLeavesRow(level, setter, random, configuration, blockpos, attachment.radiusOffset(), 0, attachment.doubleTrunk());
+        int i = 0;
+        int j = 2;
+        int k = 1;
+
+        if (foliageHeight % 2 != 0) {
+            j -= 1;
+        }
+
+        for (int l = offset; l >= -foliageHeight; --l) {
+            this.placeLeavesRow(level, setter, random, configuration, blockpos, i, l, attachment.doubleTrunk());
+            if (i >= j) {
+                i = k;
+                j = Math.min(j + 1, foliageRadius + attachment.radiusOffset());
+            } else {
+                ++i;
+            }
+        }
     }
 
     @Override

@@ -25,7 +25,7 @@ public class GlaciaFoliagePlacer extends FoliagePlacer {
     }
 
     protected FoliagePlacerType<?> type() {
-        return ReduxFoliagePlacers.GLACIA_FOLIAGE_PLACER.get();
+        return ReduxFoliagePlacers.GLACIA.get();
     }
 
 

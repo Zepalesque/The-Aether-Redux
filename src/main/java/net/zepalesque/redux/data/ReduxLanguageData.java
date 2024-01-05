@@ -395,7 +395,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addLore(ReduxBlocks.RAW_VERIDIUM_BLOCK, "A block of raw Veridium. This can be crafted from Raw Veridium.");
 
         addBiome(ReduxBiomes.CLOUDCAP_JUNGLE, "Cloudcap Jungle");
-        addBiome(ReduxBiomes.FROSTED_FORESTS, "Frosted Forests");
+        addBiome(ReduxBiomes.GLACIAL_TAIGA, "Frosted Forests");
         addBiome(ReduxBiomes.GILDED_GROVES, "Gilded Groves");
         addBiome(ReduxBiomes.HIGHFIELDS, "Highfields");
         addBiome(ReduxBiomes.THE_BLIGHT, "The Blight");

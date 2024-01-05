@@ -23,7 +23,7 @@ public class BlightwillowFoliagePlacer extends FoliagePlacer {
     }
 
     protected FoliagePlacerType<?> type() {
-        return ReduxFoliagePlacers.BLIGHTWILLOW_FOLIAGE_PLACER.get();
+        return ReduxFoliagePlacers.BLIGHTWILLOW.get();
     }
 
 

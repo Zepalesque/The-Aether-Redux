@@ -31,7 +31,7 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
         this.tag(ReduxTags.Biomes.IS_FORGOTTEN).add(AetherBiomes.SKYROOT_FOREST, AetherBiomes.SKYROOT_GROVE, AetherBiomes.SKYROOT_MEADOW, AetherBiomes.SKYROOT_WOODLAND);
         this.tag(AetherTags.Biomes.IS_AETHER).add(
                 ReduxBiomes.THE_BLIGHT,
-                ReduxBiomes.FROSTED_FORESTS,
+                ReduxBiomes.GLACIAL_TAIGA,
                 ReduxBiomes.GILDED_GROVES,
                 ReduxBiomes.HIGHFIELDS,
                 ReduxBiomes.CLOUDCAP_JUNGLE
@@ -50,6 +50,6 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
 
         this.tag(ReduxTags.Biomes.DENSE_LEAF_FALL).add(AetherBiomes.SKYROOT_FOREST, AetherBiomes.SKYROOT_WOODLAND);
 
-        this.tag(ReduxTags.Biomes.HAS_SENTRY_LAB).add(ReduxBiomes.FROSTED_FORESTS);
+        this.tag(ReduxTags.Biomes.HAS_SENTRY_LAB).add(ReduxBiomes.GLACIAL_TAIGA);
     }
 }

@@ -7,15 +7,12 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Climate;
-import net.minecraftforge.common.ForgeConfigSpec;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.data.resource.ReduxBiomes;
-import org.jetbrains.annotations.Nullable;
 import teamrazor.aeroblender.aether.AetherRegionType;
 import terrablender.api.Region;
 
 import java.util.function.Consumer;
-import java.util.function.Supplier;
 
 public class ReduxRegion extends Region {
 
@@ -27,7 +24,7 @@ public class ReduxRegion extends Region {
         Climate.Parameter fullRange = range(-1.0F, 1.0F);
         this.addBiome(mapper, new Climate.ParameterPoint(range(-1.0, -0.8), fullRange, fullRange, fullRange, fullRange, fullRange, 0L), AetherBiomes.SKYROOT_MEADOW);
         if (ReduxConfig.COMMON.enable_frosted_forests.get()) {
-            this.addBiome(mapper, new Climate.ParameterPoint(range(-0.8D, 0.0D), range(-1.0D, 0.0D), fullRange, fullRange, fullRange, fullRange, 0L), ReduxBiomes.FROSTED_FORESTS);
+            this.addBiome(mapper, new Climate.ParameterPoint(range(-0.8D, 0.0D), range(-1.0D, 0.0D), fullRange, fullRange, fullRange, fullRange, 0L), ReduxBiomes.GLACIAL_TAIGA);
         } else {
             this.addBiome(mapper, new Climate.ParameterPoint(range(-0.8, 0.0), range(-1.0, 0.0), fullRange, fullRange, fullRange, fullRange, 0L), AetherBiomes.SKYROOT_MEADOW);
         }
