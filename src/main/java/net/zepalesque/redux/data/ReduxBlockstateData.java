@@ -381,7 +381,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
     public void frostedCrossBlockGlow(Block block, String location) {
         BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/cross_glow"))
                 .texture("cross", this.texture(this.name(block), location))
-                .texture("overlay", this.texture(this.name(block) + "_glow", location)).renderType("cutout");
+                .texture("overlay", this.texture(this.name(block) + "_glow", location)).renderType("cutout" );
         BlockModelBuilder crossSnowy = models().withExistingParent(this.name(block) + "_snowy", Redux.locate(BLOCK_FOLDER + "/cross_glow"))
                 .texture("cross", this.texture(this.name(block) + "_snowy", location))
                 .texture("overlay", this.texture(this.name(block) + "_glow_snowy", location)).renderType("cutout");
