@@ -195,6 +195,8 @@ public class ReduxCreativeTabs {
             putAfter(AetherItems.ICE_PENDANT, ReduxItems.ENCHANTED_RING, event);
             putAfter(ReduxItems.ENCHANTED_RING, ReduxItems.RING_OF_WISDOM, event);
 
+            putAfter(AetherItems.SENTRY_BOOTS, ReduxItems.SENTRY_RING, event);
+
             putAfter(AetherItems.IRON_BUBBLE, ReduxItems.PHOENIX_EMBLEM, event);
 
             putAfter(AetherItems.REGENERATION_STONE, ReduxItems.VAMPIRE_AMULET, event);
