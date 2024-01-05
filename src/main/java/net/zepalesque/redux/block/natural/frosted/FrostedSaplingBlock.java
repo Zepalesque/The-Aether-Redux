@@ -13,20 +13,20 @@ import net.minecraft.world.level.block.grower.AbstractTreeGrower;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.zepalesque.redux.misc.ReduxTags;
-import net.zepalesque.redux.block.util.ReduxStateProperties;
+import net.zepalesque.redux.block.util.ReduxStates;
 
 public class FrostedSaplingBlock extends SaplingBlock {
     public FrostedSaplingBlock(AbstractTreeGrower pTreeGrower, Properties pProperties) {
         super(pTreeGrower, pProperties);
-        this.registerDefaultState(this.defaultBlockState().setValue(ReduxStateProperties.SNOWY_TEXTURE, false).setValue(ReduxStateProperties.SNOW_LAYER, false));
+        this.registerDefaultState(this.defaultBlockState().setValue(ReduxStates.SNOWY_TEXTURE, false).setValue(ReduxStates.SNOW_LAYER, false));
 
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);
-        builder.add(ReduxStateProperties.SNOWY_TEXTURE);
-        builder.add(ReduxStateProperties.SNOW_LAYER);
+        builder.add(ReduxStates.SNOWY_TEXTURE);
+        builder.add(ReduxStates.SNOW_LAYER);
     }
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
@@ -61,9 +61,9 @@ public class FrostedSaplingBlock extends SaplingBlock {
         if (level.getBlockState(pos.west()).getBlock() == Blocks.SNOW) { snowSides++; }
         if (level.getBlockState(pos.north()).getBlock() == Blocks.SNOW) { snowSides++; }
         if (level.getBlockState(pos.south()).getBlock() == Blocks.SNOW) { snowSides++; }
-        if (snowSides >= 2 && level.getBlockState(pos.below()).is(ReduxTags.Blocks.FROSTED_GRASSES)) { state = state.setValue(ReduxStateProperties.SNOW_LAYER, true); }
+        if (snowSides >= 2 && level.getBlockState(pos.below()).is(ReduxTags.Blocks.FROSTED_GRASSES)) { state = state.setValue(ReduxStates.SNOW_LAYER, true); }
         if (level.getBlockState(pos.below()).is(ReduxTags.Blocks.FROSTED_PLANTS_PLACEMENT) || (snowSides >= 2 && level.getBlockState(pos.below()).is(ReduxTags.Blocks.FROSTED_GRASSES)))
-        { state = state.setValue(ReduxStateProperties.SNOWY_TEXTURE, true); }
+        { state = state.setValue(ReduxStates.SNOWY_TEXTURE, true); }
         return state;
     }
     @Override

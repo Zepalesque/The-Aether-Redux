@@ -25,7 +25,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.common.PlantType;
 import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.block.util.ReduxPlantTypes;
-import net.zepalesque.redux.block.util.ReduxStateProperties;
+import net.zepalesque.redux.block.util.ReduxStates;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.item.ReduxItems;
 import org.jetbrains.annotations.Nullable;
@@ -38,24 +38,24 @@ public class SproutingLightrootsBlock extends AetherBushBlock implements Bonemea
 
     public SproutingLightrootsBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.defaultBlockState().setValue(ReduxStateProperties.HARVESTED, Boolean.FALSE));
+        this.registerDefaultState(this.defaultBlockState().setValue(ReduxStates.HARVESTED, Boolean.FALSE));
     }
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         BlockState blockstate = super.getStateForPlacement(context);
-        return blockstate.setValue(ReduxStateProperties.HARVESTED, true);
+        return blockstate.setValue(ReduxStates.HARVESTED, true);
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> stateBuilder) {
         super.createBlockStateDefinition(stateBuilder);
-        stateBuilder.add(ReduxStateProperties.HARVESTED);
+        stateBuilder.add(ReduxStates.HARVESTED);
     }
 
 
     public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
-        if (pState.getValue(ReduxStateProperties.HARVESTED) && pLevel.getRawBrightness(pPos.above(), 0) >= 3 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(pLevel, pPos, pState, pRandom.nextInt(10) == 0)) {
-            BlockState blockstate = pState.setValue(ReduxStateProperties.HARVESTED, false);
+        if (pState.getValue(ReduxStates.HARVESTED) && pLevel.getRawBrightness(pPos.above(), 0) >= 3 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(pLevel, pPos, pState, pRandom.nextInt(10) == 0)) {
+            BlockState blockstate = pState.setValue(ReduxStates.HARVESTED, false);
             pLevel.setBlock(pPos, blockstate, 2);
             pLevel.gameEvent(GameEvent.BLOCK_CHANGE, pPos, GameEvent.Context.of(blockstate));
             net.minecraftforge.common.ForgeHooks.onCropsGrowPost(pLevel, pPos, pState);
@@ -65,11 +65,11 @@ public class SproutingLightrootsBlock extends AetherBushBlock implements Bonemea
 
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
 
-        if (!pState.getValue(ReduxStateProperties.HARVESTED)) {
+        if (!pState.getValue(ReduxStates.HARVESTED)) {
             int j = 1 + pLevel.random.nextInt(2);
             popResource(pLevel, pPos, new ItemStack(ReduxItems.LIGHTROOT_CLUMP.get(), j));
             pLevel.playSound(null, pPos, ReduxSoundEvents.LIGHTROOTS_PICK.get(), SoundSource.BLOCKS, 1.0F, 0.8F + pLevel.random.nextFloat() * 0.4F);
-            BlockState blockstate = pState.setValue(ReduxStateProperties.HARVESTED, true);
+            BlockState blockstate = pState.setValue(ReduxStates.HARVESTED, true);
             pLevel.setBlock(pPos, blockstate, 2);
             pLevel.gameEvent(GameEvent.BLOCK_CHANGE, pPos, GameEvent.Context.of(pPlayer, blockstate));
             return InteractionResult.sidedSuccess(pLevel.isClientSide);
@@ -84,13 +84,13 @@ public class SproutingLightrootsBlock extends AetherBushBlock implements Bonemea
     }
 
     public boolean isRandomlyTicking(BlockState pState) {
-        return pState.getValue(ReduxStateProperties.HARVESTED);
+        return pState.getValue(ReduxStates.HARVESTED);
     }
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         Vec3 vec3 = state.getOffset(level, pos);
-        return state.getValue(ReduxStateProperties.HARVESTED) ? SHAPE_HARVESTED.move(vec3.x, vec3.y, vec3.z) : SHAPE_FULL.move(vec3.x, vec3.y, vec3.z);
+        return state.getValue(ReduxStates.HARVESTED) ? SHAPE_HARVESTED.move(vec3.x, vec3.y, vec3.z) : SHAPE_FULL.move(vec3.x, vec3.y, vec3.z);
     }
 
 
@@ -100,7 +100,7 @@ public class SproutingLightrootsBlock extends AetherBushBlock implements Bonemea
     }
 
     public boolean isValidBonemealTarget(LevelReader pLevel, BlockPos pPos, BlockState pState, boolean pIsClient) {
-        return pState.getValue(ReduxStateProperties.HARVESTED);
+        return pState.getValue(ReduxStates.HARVESTED);
     }
 
     public PlantType getPlantType(BlockGetter level, BlockPos pos) {
@@ -113,6 +113,6 @@ public class SproutingLightrootsBlock extends AetherBushBlock implements Bonemea
     }
 
     public void performBonemeal(ServerLevel pLevel, RandomSource pRandom, BlockPos pPos, BlockState pState) {
-        pLevel.setBlock(pPos, pState.setValue(ReduxStateProperties.HARVESTED, false), 2);
+        pLevel.setBlock(pPos, pState.setValue(ReduxStates.HARVESTED, false), 2);
     }
 }

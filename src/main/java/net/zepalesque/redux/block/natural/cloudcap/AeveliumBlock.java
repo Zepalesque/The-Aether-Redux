@@ -1,4 +1,4 @@
-package net.zepalesque.redux.block.natural;
+package net.zepalesque.redux.block.natural.cloudcap;
 
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.natural.AetherGrassBlock;
@@ -14,15 +14,14 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.zepalesque.redux.block.ReduxBlocks;
-import net.zepalesque.redux.block.util.ShortGrassType;
 import org.apache.commons.lang3.function.TriFunction;
 
 import java.util.List;
 
-public class ReduxGrassBlock extends AetherGrassBlock {
+public class AeveliumBlock extends AetherGrassBlock {
 
 
-    public ReduxGrassBlock(Properties properties) {
+    public AeveliumBlock(Properties properties) {
         super(properties);
     }
 
@@ -59,7 +58,7 @@ public class ReduxGrassBlock extends AetherGrassBlock {
                 } else {
                     if (level.ensureCanWrite(blockPos))
                     {
-                        level.setBlock(blockPos, ReduxBlocks.AETHER_GRASS.get().defaultBlockState(), 3);
+                        level.setBlock(blockPos, random.nextFloat() < 0.6F ? ReduxBlocks.AEVELIUM_SPROUTS.get().defaultBlockState() : ReduxBlocks.AEVELIUM_GROWTH.get().defaultBlockState(), 3);
                     }
                 }
             }

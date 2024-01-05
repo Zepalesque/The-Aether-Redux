@@ -16,7 +16,7 @@ import net.minecraft.world.level.levelgen.XoroshiroRandomSource;
 import net.minecraft.world.level.levelgen.synth.PerlinNoise;
 import net.minecraft.world.level.material.MapColor;
 import net.zepalesque.redux.block.natural.ExtendedDistanceLeavesBlock;
-import net.zepalesque.redux.block.util.ReduxStateProperties;
+import net.zepalesque.redux.block.util.ReduxStates;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 
 import java.util.function.BiFunction;
@@ -33,7 +33,7 @@ public class FloweringFieldsproutLeafBlock extends ExtendedDistanceLeavesBlock {
 
     public FloweringFieldsproutLeafBlock(BiFunction<RandomSource, BlockState, ? extends ParticleOptions> particle, Properties properties) {
         super(properties);
-        this.registerDefaultState(this.defaultBlockState().setValue(ReduxStateProperties.PRISMATICNESS, 0));
+        this.registerDefaultState(this.defaultBlockState().setValue(ReduxStates.PRISMATICNESS, 0));
         this.particle = particle;
 
     }
@@ -41,7 +41,7 @@ public class FloweringFieldsproutLeafBlock extends ExtendedDistanceLeavesBlock {
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);
-        builder.add(ReduxStateProperties.PRISMATICNESS);
+        builder.add(ReduxStates.PRISMATICNESS);
     }
 
     @Override
@@ -55,10 +55,10 @@ public class FloweringFieldsproutLeafBlock extends ExtendedDistanceLeavesBlock {
 
     public static ParticleOptions particleFromState(RandomSource rand, BlockState state) {
 
-        if (!state.hasProperty(ReduxStateProperties.PRISMATICNESS) || rand.nextFloat() < 0.2F) {
+        if (!state.hasProperty(ReduxStates.PRISMATICNESS) || rand.nextFloat() < 0.2F) {
             return ReduxParticleTypes.FALLING_PRISMATIC_LEAVES.get();
         } else {
-            int i = state.getValue(ReduxStateProperties.PRISMATICNESS);
+            int i = state.getValue(ReduxStates.PRISMATICNESS);
             return
               i == 0 ? ReduxParticleTypes.FIELDSPROUT_PETALS_0.get() :
               i == 1 ? ReduxParticleTypes.FIELDSPROUT_PETALS_1.get() :
@@ -72,10 +72,10 @@ public class FloweringFieldsproutLeafBlock extends ExtendedDistanceLeavesBlock {
     }
     public static MapColor colorFromState(BlockState state) {
 
-        if (!state.hasProperty(ReduxStateProperties.PRISMATICNESS)) {
+        if (!state.hasProperty(ReduxStates.PRISMATICNESS)) {
             return MapColor.COLOR_BLUE;
         } else {
-            int i = state.getValue(ReduxStateProperties.PRISMATICNESS);
+            int i = state.getValue(ReduxStates.PRISMATICNESS);
             return i <= 1 ? MapColor.COLOR_LIGHT_BLUE : i >= 5 ? MapColor.COLOR_PINK : MapColor.COLOR_PURPLE;
         }
     }
@@ -98,7 +98,7 @@ public class FloweringFieldsproutLeafBlock extends ExtendedDistanceLeavesBlock {
         double noiseVal = PERLIN.getValue(x, y, z);
         double clamped = Mth.clamp(noiseVal, -0.5D, 0.5D);
         int prism = Mth.lerpInt((float) clamped + 0.5F, 0, 6);
-        return state.setValue(ReduxStateProperties.PRISMATICNESS, prism);
+        return state.setValue(ReduxStates.PRISMATICNESS, prism);
     }
 
 

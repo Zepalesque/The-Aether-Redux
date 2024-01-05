@@ -21,7 +21,7 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.util.PetalPrismaticness;
-import net.zepalesque.redux.block.util.ReduxStateProperties;
+import net.zepalesque.redux.block.util.ReduxStates;
 import net.zepalesque.redux.world.feature.config.FieldsproutTreeConfig;
 import org.jetbrains.annotations.Nullable;
 
@@ -168,10 +168,10 @@ public class FieldsproutTreeFeature extends Feature<FieldsproutTreeConfig> {
             Direction d = r == 0 ? Direction.NORTH : r == 1 ? Direction.EAST : r == 2 ? Direction.SOUTH : Direction.EAST;
 
             BlockState state = ReduxBlocks.FIELDSPROUT_PETALS.get().defaultBlockState()
-                    .setValue(ReduxStateProperties.PETAL_1, PetalPrismaticness.getFromIndex(p1))
-                    .setValue(ReduxStateProperties.PETAL_2, PetalPrismaticness.getFromIndex(p2))
-                    .setValue(ReduxStateProperties.PETAL_3, PetalPrismaticness.getFromIndex(p3))
-                    .setValue(ReduxStateProperties.PETAL_4, PetalPrismaticness.getFromIndex(p4))
+                    .setValue(ReduxStates.PETAL_1, PetalPrismaticness.getFromIndex(p1))
+                    .setValue(ReduxStates.PETAL_2, PetalPrismaticness.getFromIndex(p2))
+                    .setValue(ReduxStates.PETAL_3, PetalPrismaticness.getFromIndex(p3))
+                    .setValue(ReduxStates.PETAL_4, PetalPrismaticness.getFromIndex(p4))
                     .setValue(BlockStateProperties.HORIZONTAL_FACING, d);
 
             stateMap.put(immutable, state);

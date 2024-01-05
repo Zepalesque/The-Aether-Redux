@@ -65,10 +65,7 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.COARSE_AETHER_DIRT, ReduxBlocks.LIGHTROOT_AETHER_DIRT, event);
 
             putAfter(AetherBlocks.AETHER_FARMLAND, ReduxBlocks.AETHER_GRASS, event);
-            putAfter(ReduxBlocks.AETHER_GRASS, ReduxBlocks.ENCHANTED_AETHER_GRASS, event);
-            putAfter(ReduxBlocks.ENCHANTED_AETHER_GRASS, ReduxBlocks.BLIGHTED_AETHER_GRASS, event);
-            putAfter(ReduxBlocks.BLIGHTED_AETHER_GRASS, ReduxBlocks.FROSTED_AETHER_GRASS, event);
-            putAfter(ReduxBlocks.FROSTED_AETHER_GRASS, ReduxBlocks.AEVELIUM_GROWTH, event);
+            putAfter(ReduxBlocks.AETHER_GRASS, ReduxBlocks.AEVELIUM_GROWTH, event);
             putAfter(ReduxBlocks.AEVELIUM_GROWTH, ReduxBlocks.AEVELIUM_SPROUTS, event);
 
             putAfter(AetherBlocks.MOSSY_HOLYSTONE, ReduxBlocks.GILDED_HOLYSTONE, event);

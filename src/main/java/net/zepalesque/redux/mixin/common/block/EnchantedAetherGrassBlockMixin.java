@@ -22,7 +22,6 @@ public class EnchantedAetherGrassBlockMixin extends GrassBlockMixin{
     protected boolean placeGrass(PlacedFeature instance, WorldGenLevel pLevel, ChunkGenerator pGenerator, RandomSource pRandom, BlockPos pPos) {
 
         Optional<Holder.Reference<PlacedFeature>> optional = pLevel.registryAccess().registryOrThrow(Registries.PLACED_FEATURE).getHolder(VegetationPlacements.GRASS_BONEMEAL);
-        if ((Object) this == AetherBlocks.AETHER_GRASS_BLOCK.get()) {
             if (instance.equals(optional.get().value())) {
                 if (pLevel.ensureCanWrite(pPos)) {
                     pLevel.setBlock(pPos, ReduxBlocks.AETHER_GRASS.get().defaultBlockState(), 3);
@@ -31,25 +30,6 @@ public class EnchantedAetherGrassBlockMixin extends GrassBlockMixin{
                     return false;
                 }
             }
-        } else if ((Object) this == AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get()) {
-            if (instance.equals(optional.get().value())) {
-                if (pLevel.ensureCanWrite(pPos)) {
-                    pLevel.setBlock(pPos, ReduxBlocks.ENCHANTED_AETHER_GRASS.get().defaultBlockState(), 3);
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        } else if ((Object) this == ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get()) {
-            if (instance.equals(optional.get().value())) {
-                if (pLevel.ensureCanWrite(pPos)) {
-                    pLevel.setBlock(pPos, ReduxBlocks.ENCHANTED_AETHER_GRASS.get().defaultBlockState(), 3);
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        }
         return instance.place(pLevel, pGenerator, pRandom, pPos);
     }
 }

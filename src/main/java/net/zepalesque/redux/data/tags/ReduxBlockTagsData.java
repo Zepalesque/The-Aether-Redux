@@ -121,7 +121,6 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         );
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
                 ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(),
-                ReduxBlocks.FROSTED_AETHER_GRASS.get(),
                 ReduxBlocks.AEVELIUM.get(),
                 ReduxBlocks.COARSE_AETHER_DIRT.get(),
                 ReduxBlocks.BLIGHTMOSS_BLOCK.get(),
@@ -229,7 +228,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.BLIGHTSHADE.get()
                 );
         this.tag(AetherTags.Blocks.HOLYSTONE).add(ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), ReduxBlocks.FROSTED_HOLYSTONE.get(), ReduxBlocks.GILDED_HOLYSTONE.get());
-        this.tag(BlockTags.MUSHROOM_GROW_BLOCK).add(ReduxBlocks.BLIGHTED_AETHER_GRASS.get());
+        this.tag(BlockTags.MUSHROOM_GROW_BLOCK).add(ReduxBlocks.AEVELIUM.get());
         this.tag(BlockTags.FLOWER_POTS).add(
                 ReduxBlocks.POTTED_IRIDIA.get(),
                 ReduxBlocks.POTTED_AURUM.get(),
@@ -274,10 +273,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         );
 
         this.tag(BlockTags.REPLACEABLE).add(
-                ReduxBlocks.AETHER_GRASS.get(),
-                ReduxBlocks.ENCHANTED_AETHER_GRASS.get(),
-                ReduxBlocks.BLIGHTED_AETHER_GRASS.get(),
-                ReduxBlocks.FROSTED_AETHER_GRASS.get()
+                ReduxBlocks.AETHER_GRASS.get()
         );
 
 

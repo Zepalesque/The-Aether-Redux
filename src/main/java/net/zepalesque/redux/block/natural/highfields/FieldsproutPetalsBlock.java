@@ -22,7 +22,7 @@ import net.minecraft.world.level.levelgen.XoroshiroRandomSource;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.zepalesque.redux.block.util.PetalPrismaticness;
-import net.zepalesque.redux.block.util.ReduxStateProperties;
+import net.zepalesque.redux.block.util.ReduxStates;
 
 import java.util.List;
 
@@ -34,10 +34,10 @@ public class FieldsproutPetalsBlock extends BushBlock implements BonemealableBlo
    public FieldsproutPetalsBlock(Properties properties) {
       super(properties);
       this.registerDefaultState(this.stateDefinition.any()
-              .setValue(ReduxStateProperties.PETAL_1, PetalPrismaticness.ZERO)
-              .setValue(ReduxStateProperties.PETAL_2, PetalPrismaticness.NONE)
-              .setValue(ReduxStateProperties.PETAL_3, PetalPrismaticness.NONE)
-              .setValue(ReduxStateProperties.PETAL_4, PetalPrismaticness.NONE)
+              .setValue(ReduxStates.PETAL_1, PetalPrismaticness.ZERO)
+              .setValue(ReduxStates.PETAL_2, PetalPrismaticness.NONE)
+              .setValue(ReduxStates.PETAL_3, PetalPrismaticness.NONE)
+              .setValue(ReduxStates.PETAL_4, PetalPrismaticness.NONE)
               .setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH)
       );
    }
@@ -67,7 +67,7 @@ public class FieldsproutPetalsBlock extends BushBlock implements BonemealableBlo
       if (state.hasProperty(BlockStateProperties.HORIZONTAL_FACING) && state.getValue(BlockStateProperties.HORIZONTAL_FACING) != d) {
          b = state.setValue(BlockStateProperties.HORIZONTAL_FACING, d);
       }
-      List<Property<PetalPrismaticness>> list = List.of(ReduxStateProperties.PETAL_1, ReduxStateProperties.PETAL_2, ReduxStateProperties.PETAL_3, ReduxStateProperties.PETAL_4);
+      List<Property<PetalPrismaticness>> list = List.of(ReduxStates.PETAL_1, ReduxStates.PETAL_2, ReduxStates.PETAL_3, ReduxStates.PETAL_4);
       for (Property<PetalPrismaticness> prop : list) {
          if (b.hasProperty(prop) && b.getValue(prop) != PetalPrismaticness.NONE) {
             RandomSource rand = new XoroshiroRandomSource(Mth.getSeed(currentPos) + getCountFromProperty(prop));
@@ -103,7 +103,7 @@ public class FieldsproutPetalsBlock extends BushBlock implements BonemealableBlo
 
 
    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-      builder.add(ReduxStateProperties.PETAL_1, ReduxStateProperties.PETAL_2, ReduxStateProperties.PETAL_3, ReduxStateProperties.PETAL_4, BlockStateProperties.HORIZONTAL_FACING);
+      builder.add(ReduxStates.PETAL_1, ReduxStates.PETAL_2, ReduxStates.PETAL_3, ReduxStates.PETAL_4, BlockStateProperties.HORIZONTAL_FACING);
    }
 
    /**
@@ -118,28 +118,28 @@ public class FieldsproutPetalsBlock extends BushBlock implements BonemealableBlo
    }
 
    public static int getFlowerCount(BlockState b) {
-      if (!b.hasProperty(ReduxStateProperties.PETAL_1) || !b.hasProperty(ReduxStateProperties.PETAL_2) || !b.hasProperty(ReduxStateProperties.PETAL_3) || !b.hasProperty(ReduxStateProperties.PETAL_4)) {
+      if (!b.hasProperty(ReduxStates.PETAL_1) || !b.hasProperty(ReduxStates.PETAL_2) || !b.hasProperty(ReduxStates.PETAL_3) || !b.hasProperty(ReduxStates.PETAL_4)) {
          return 0;
       }
-      boolean hasFirst = b.getValue(ReduxStateProperties.PETAL_1) != PetalPrismaticness.NONE;
-      boolean hasSecond = b.getValue(ReduxStateProperties.PETAL_2) != PetalPrismaticness.NONE;
-      boolean hasThird = b.getValue(ReduxStateProperties.PETAL_3) != PetalPrismaticness.NONE;
-      boolean hasFourth = b.getValue(ReduxStateProperties.PETAL_4) != PetalPrismaticness.NONE;
+      boolean hasFirst = b.getValue(ReduxStates.PETAL_1) != PetalPrismaticness.NONE;
+      boolean hasSecond = b.getValue(ReduxStates.PETAL_2) != PetalPrismaticness.NONE;
+      boolean hasThird = b.getValue(ReduxStates.PETAL_3) != PetalPrismaticness.NONE;
+      boolean hasFourth = b.getValue(ReduxStates.PETAL_4) != PetalPrismaticness.NONE;
 
       return hasFirst ? (hasSecond ? (hasThird ? (hasFourth ? 4 : 3) : 2) : 1) : 0;
    }
 
    public static Property<PetalPrismaticness> getPropertyFromCount(int i) {
-      return i <= 1 ? ReduxStateProperties.PETAL_1 :
-              i == 2 ? ReduxStateProperties.PETAL_2 :
-              i == 3 ? ReduxStateProperties.PETAL_3 :
-                      ReduxStateProperties.PETAL_4;
+      return i <= 1 ? ReduxStates.PETAL_1 :
+              i == 2 ? ReduxStates.PETAL_2 :
+              i == 3 ? ReduxStates.PETAL_3 :
+                      ReduxStates.PETAL_4;
    }
    public static int getCountFromProperty(Property<PetalPrismaticness> i) {
-      return i == ReduxStateProperties.PETAL_1 ? 1:
-             i == ReduxStateProperties.PETAL_2 ? 2 :
-             i == ReduxStateProperties.PETAL_3 ? 3 :
-             i == ReduxStateProperties.PETAL_4 ? 4 : 0;
+      return i == ReduxStates.PETAL_1 ? 1:
+             i == ReduxStates.PETAL_2 ? 2 :
+             i == ReduxStates.PETAL_3 ? 3 :
+             i == ReduxStates.PETAL_4 ? 4 : 0;
    }
 
    public void performBonemeal(ServerLevel level, RandomSource rand, BlockPos pos, BlockState state) {

@@ -18,7 +18,8 @@ import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.natural.ExtendedDistanceLeavesBlock;
 import net.zepalesque.redux.block.natural.LeafPileBlock;
 import net.zepalesque.redux.block.util.PetalPrismaticness;
-import net.zepalesque.redux.block.util.ReduxStateProperties;
+import net.zepalesque.redux.block.util.ReduxStates;
+import net.zepalesque.redux.block.util.ShortGrassType;
 
 import java.util.Map;
 import java.util.function.Supplier;
@@ -46,10 +47,9 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.pottedPlantAltTexture(ReduxBlocks.POTTED_AEVELIUM_GROWTH.get(), ReduxBlocks.AEVELIUM_GROWTH.get(), "natural/");
 
         this.crossBlock(ReduxBlocks.IRIDIA.get(), "natural/");
-        this.crossBlock(ReduxBlocks.AETHER_GRASS.get(), "natural/");
+        this.aetherShortGrass(ReduxBlocks.AETHER_GRASS.get(), "natural/");
         this.crossBlock(ReduxBlocks.GILDED_WHITE_FLOWER.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_GILDED_WHITE_FLOWER.get(), ReduxBlocks.GILDED_WHITE_FLOWER.get(), "natural/");
-        this.crossBlock(ReduxBlocks.ENCHANTED_AETHER_GRASS.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_IRIDIA.get(), ReduxBlocks.IRIDIA.get(), "natural/");
         block(ReduxBlocks.GILDED_HOLYSTONE.get(), "natural/");
         wallBlock(ReduxBlocks.GILDED_HOLYSTONE_WALL.get(), ReduxBlocks.GILDED_HOLYSTONE.get(), "natural/");
@@ -106,7 +106,6 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.block(ReduxBlocks.CLOUD_CAP_BLOCK.get(), "natural/");
         this.block(ReduxBlocks.CLOUDCAP_SPORES.get(), "natural/");
 
-        this.crossBlock(ReduxBlocks.BLIGHTED_AETHER_GRASS.get(), "natural/");
         this.glowingCrossBlock(ReduxBlocks.LUXWEED.get(), "natural/");
         this.glowingPottedPlantAltTexture(ReduxBlocks.POTTED_LUXWEED.get(), ReduxBlocks.LUXWEED.get(), "natural/");
         this.crossBlock(ReduxBlocks.SPIROLYCTIL.get(), "natural/");
@@ -124,7 +123,6 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
         block(ReduxBlocks.BLIGHTMOSS_BLOCK.get(), "natural/");
         carpet(ReduxBlocks.BLIGHTMOSS_CARPET.get(), ReduxBlocks.BLIGHTMOSS_BLOCK.get(), "natural/");
-        this.frostedCrossBlock(ReduxBlocks.FROSTED_AETHER_GRASS.get(), "natural/");
         this.frostedGrass(ReduxBlocks.FROSTED_AETHER_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT);
         this.frostedCrossBlockGlow(ReduxBlocks.LUMINA.get(), "natural/");
         this.glowingPottedPlant(ReduxBlocks.POTTED_LUMINA.get(), ReduxBlocks.LUMINA.get(), "natural/");
@@ -251,7 +249,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
     public void floweringFieldsproutLeafBlock(Supplier<? extends Block> block, String location) {
         getVariantBuilder(block.get())
                 .forAllStatesExcept(state -> {
-                            int i = state.getValue(ReduxStateProperties.PRISMATICNESS);
+                            int i = state.getValue(ReduxStates.PRISMATICNESS);
                             return ConfiguredModel.builder().modelFile(models().cubeAll(name(block) + "_" + i, texture(name(block) + "_" + i, location)).renderType(new ResourceLocation("cutout_mipped"))).build();
                         }
                         , AetherBlockStateProperties.DOUBLE_DROPS, ExtendedDistanceLeavesBlock.EXTENDED_DISTANCE);
@@ -278,10 +276,10 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
                     .texture("stem", this.texture(stemTexture))
                     .renderType(new ResourceLocation("cutout"));
             for (Direction d : Direction.Plane.HORIZONTAL) {
-                builder.part().modelFile(flowerbed_petal1).rotationY(d.getOpposite().get2DDataValue() * 90).addModel().condition(ReduxStateProperties.PETAL_1, PetalPrismaticness.getFromIndex(color)).condition(PinkPetalsBlock.FACING, d).end();
-                builder.part().modelFile(flowerbed_petal2).rotationY(d.getOpposite().get2DDataValue() * 90).addModel().condition(ReduxStateProperties.PETAL_2, PetalPrismaticness.getFromIndex(color)).condition(PinkPetalsBlock.FACING, d).end();
-                builder.part().modelFile(flowerbed_petal3).rotationY(d.getOpposite().get2DDataValue() * 90).addModel().condition(ReduxStateProperties.PETAL_3, PetalPrismaticness.getFromIndex(color)).condition(PinkPetalsBlock.FACING, d).end();
-                builder.part().modelFile(flowerbed_petal4).rotationY(d.getOpposite().get2DDataValue() * 90).addModel().condition(ReduxStateProperties.PETAL_4, PetalPrismaticness.getFromIndex(color)).condition(PinkPetalsBlock.FACING, d).end();
+                builder.part().modelFile(flowerbed_petal1).rotationY(d.getOpposite().get2DDataValue() * 90).addModel().condition(ReduxStates.PETAL_1, PetalPrismaticness.getFromIndex(color)).condition(PinkPetalsBlock.FACING, d).end();
+                builder.part().modelFile(flowerbed_petal2).rotationY(d.getOpposite().get2DDataValue() * 90).addModel().condition(ReduxStates.PETAL_2, PetalPrismaticness.getFromIndex(color)).condition(PinkPetalsBlock.FACING, d).end();
+                builder.part().modelFile(flowerbed_petal3).rotationY(d.getOpposite().get2DDataValue() * 90).addModel().condition(ReduxStates.PETAL_3, PetalPrismaticness.getFromIndex(color)).condition(PinkPetalsBlock.FACING, d).end();
+                builder.part().modelFile(flowerbed_petal4).rotationY(d.getOpposite().get2DDataValue() * 90).addModel().condition(ReduxStates.PETAL_4, PetalPrismaticness.getFromIndex(color)).condition(PinkPetalsBlock.FACING, d).end();
             }
         }
 
@@ -333,7 +331,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
                 this.getVariantBuilder(block).forAllStatesExcept((state) -> {
             boolean snowy = state.getValue(SnowyDirtBlock.SNOWY);
-            boolean super_snowed = state.getValue(ReduxStateProperties.SNOWED);
+            boolean super_snowed = state.getValue(ReduxStates.SNOWED);
             return ConfiguredModel.allYRotations(super_snowed ? grassSuperSnowed : snowy ? grassSnowed : grass, 0, false);
         }, AetherBlockStateProperties.DOUBLE_DROPS);
     }
@@ -362,11 +360,23 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
     public void frostedCrossBlock(Block block, ModelFile noSnow, ModelFile snowy) {
 
         this.getVariantBuilder(block).forAllStates((state) -> {
-                boolean snowiness = state.getValue(ReduxStateProperties.SNOWY_TEXTURE);
-        return ConfiguredModel.builder().modelFile(snowiness ? snowy : noSnow).build();         }       );
+            boolean snowiness = state.getValue(ReduxStates.SNOWY_TEXTURE);
+            return ConfiguredModel.builder().modelFile(snowiness ? snowy : noSnow).build();         }       );
     }
+
+
+
+
     public void frostedCrossBlock(Block block, String location) {
         this.frostedCrossBlock(block, models().cross(this.name(block), this.texture(this.name(block), location)).renderType(new ResourceLocation("cutout")), models().cross(this.name(block) + "_snowy", this.texture(this.name(block) + "_snowy", location)).renderType(new ResourceLocation("cutout")));
+    }
+
+    public void aetherShortGrass(Block block, String location) {
+
+        this.getVariantBuilder(block).forAllStates((state) -> {
+            ShortGrassType type = state.getValue(ReduxStates.GRASS_TYPE);
+            return ConfiguredModel.builder().modelFile(models().cross(type.getSerializedName(), modLoc("block/" + location + type.getSerializedName()))).build();
+        }       );
     }
     public void frostedCrossBlockGlow(Block block, String location) {
         BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/cross_glow"))
@@ -416,7 +426,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
     public void harvestableCrossBlock(Block block, ModelFile harvested, ModelFile full) {
 
         this.getVariantBuilder(block).forAllStates((state) -> {
-            boolean isHarvested = state.getValue(ReduxStateProperties.HARVESTED);
+            boolean isHarvested = state.getValue(ReduxStates.HARVESTED);
             return ConfiguredModel.builder().modelFile(isHarvested ? harvested : full).build();
         });
     }

@@ -71,22 +71,22 @@ public class ReduxBlocks {
     public static RegistryObject<Block> HOLYSILT = register("holysilt",
             () -> new HolysiltBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).strength(0.5F).sound(SoundType.SAND)));
 
-    public static RegistryObject<AetherTallGrassBlock> AETHER_GRASS = register("aether_grass",
-                () -> new AetherTallGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).hasPostProcess(ReduxBlocks::always), ReduxTags.Blocks.HIGHLANDS_GRASSES));
+    public static RegistryObject<AetherShortGrassBlock> AETHER_GRASS = register("aether_short_grass",
+                () -> new AetherShortGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).hasPostProcess(ReduxBlocks::always)));
+/*
 
     public static RegistryObject<AetherTallGrassBlock> ENCHANTED_AETHER_GRASS = register("enchanted_aether_grass",
             () -> new AetherTallGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).hasPostProcess(ReduxBlocks::always), ReduxTags.Blocks.ENCHANTED_GRASSES));
 
     public static RegistryObject<AetherTallGrassBlock> BLIGHTED_AETHER_GRASS = register("blighted_aether_grass",
             () -> new AetherTallGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).hasPostProcess(ReduxBlocks::always), ReduxTags.Blocks.BLIGHTED_GRASSES));
+*/
 
     public static RegistryObject<Block> BLIGHTED_AETHER_GRASS_BLOCK = register("blighted_aether_grass_block",
-            () -> new ReduxGrassBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_PURPLE).randomTicks().strength(0.2F).sound(SoundType.GRASS),
-                    (levelAccessor, pos, source) -> ReduxBlocks.BLIGHTED_AETHER_GRASS.get().defaultBlockState()));
+            () -> new ReduxGrassBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_PURPLE).randomTicks().strength(0.2F).sound(SoundType.GRASS)));
 
     public static RegistryObject<Block> AEVELIUM = register("aevelium",
-            () -> new ReduxGrassBlock(BlockBehaviour.Properties.of().mapColor(MapColor.LAPIS).randomTicks().strength(0.2F).sound(SoundType.ROOTED_DIRT),
-                    (levelAccessor, pos, source) -> source.nextFloat() < 0.6F ? ReduxBlocks.AEVELIUM_SPROUTS.get().defaultBlockState() : ReduxBlocks.AEVELIUM_GROWTH.get().defaultBlockState()));
+            () -> new AeveliumBlock(BlockBehaviour.Properties.of().mapColor(MapColor.LAPIS).randomTicks().strength(0.2F).sound(SoundType.ROOTED_DIRT)));
 
 
     public static RegistryObject<Block> AEVELIUM_SPROUTS = register("aevelium_sprouts",
@@ -109,11 +109,7 @@ public class ReduxBlocks {
             () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PINK).strength(0.3F).sound(SoundType.WART_BLOCK)));
 
     public static RegistryObject<Block> FROSTED_AETHER_GRASS_BLOCK = register("frosted_aether_grass_block",
-            () -> new FrostedGrassBlock(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).randomTicks().strength(0.2F).sound(SoundType.GRASS),
-                    (levelAccessor, pos, source) -> ReduxBlocks.FROSTED_AETHER_GRASS.get().defaultBlockState()));
-
-    public static RegistryObject<AetherTallGrassBlock> FROSTED_AETHER_GRASS = register("frosted_aether_grass",
-            () -> new FrostedTallGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).hasPostProcess(ReduxBlocks::always), ReduxTags.Blocks.FROSTED_GRASSES));
+            () -> new FrostedGrassBlock(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).randomTicks().strength(0.2F).sound(SoundType.GRASS)));
 
     public static final RegistryObject<Block> SPRINGSHROOM = register("springshroom", () -> new SpringshroomBlock(Block.Properties.of().strength(0.5F).sound(SoundType.FUNGUS).mapColor(MapColor.QUARTZ), ReduxConfiguredFeatures.LARGE_SPRINGSHROOM));
     public static final RegistryObject<FlowerPotBlock> POTTED_SPRINGSHROOM = BLOCKS.register("potted_springshroom", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SPRINGSHROOM, Block.Properties.copy(Blocks.FLOWER_POT)));

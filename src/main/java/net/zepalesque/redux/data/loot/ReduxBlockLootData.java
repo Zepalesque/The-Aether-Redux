@@ -32,7 +32,7 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.util.PetalPrismaticness;
-import net.zepalesque.redux.block.util.ReduxStateProperties;
+import net.zepalesque.redux.block.util.ReduxStates;
 import net.zepalesque.redux.item.ReduxItems;
 
 import java.util.List;
@@ -111,11 +111,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
 
         dropSelf(ReduxBlocks.IRIDIA.get());
         this.dropPottedContents(ReduxBlocks.POTTED_IRIDIA.get());
-        this.add(ReduxBlocks.AETHER_GRASS.get(), shearsOr(ReduxItems.BUNDLE_OF_AETHER_GRASS.get()));
-        this.add(ReduxBlocks.BLIGHTED_AETHER_GRASS.get(), shearsOr(ReduxItems.BUNDLE_OF_AETHER_GRASS.get()));
-        this.add(ReduxBlocks.FROSTED_AETHER_GRASS.get(), shearsOr(ReduxItems.BUNDLE_OF_AETHER_GRASS.get()));
-        this.add(ReduxBlocks.ENCHANTED_AETHER_GRASS.get(), shearsOr(ReduxItems.BUNDLE_OF_AETHER_GRASS.get()));
-
+        this.add(ReduxBlocks.AETHER_GRASS.get(), shears());
         this.dropSelf(ReduxBlocks.GILDED_HOLYSTONE.get());
         this.add(ReduxBlocks.GILDED_HOLYSTONE_SLAB.get(), this::createSlabItemTable);
         this.dropSelf(ReduxBlocks.GILDED_HOLYSTONE_STAIRS.get());
@@ -185,10 +181,10 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropSelf(ReduxBlocks.RAW_VERIDIUM_BLOCK.get());
         this.add(ReduxBlocks.VERIDIUM_ORE.get(), createOreDrop(ReduxBlocks.VERIDIUM_ORE.get(), ReduxItems.RAW_VERIDIUM.get()));
         this.add(ReduxBlocks.QUICKROOTS.get(), LootTable.lootTable().withPool(
-                LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(ReduxBlocks.QUICKROOTS.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(ReduxStateProperties.HARVESTED, true)))
+                LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(ReduxBlocks.QUICKROOTS.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(ReduxStates.HARVESTED, true)))
                         .setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(ReduxItems.QUICKROOT.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))
         ).withPool(
-                LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(ReduxBlocks.QUICKROOTS.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(ReduxStateProperties.HARVESTED, false)))
+                LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(ReduxBlocks.QUICKROOTS.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(ReduxStates.HARVESTED, false)))
                         .setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(ReduxItems.QUICKROOT.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 3))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2)))));
         this.dropSelf(ReduxBlocks.VERIDIUM_CHAIN.get());
         this.dropSelf(ReduxBlocks.VERIDIUM_LANTERN.get());
@@ -213,6 +209,12 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
     public Function<Block, LootTable.Builder> shearsOr(ItemLike drop, float chance)
     {
         return shearsOr(drop, chance, 1.0F, 1.0F);
+    }
+
+
+    public Function<Block, LootTable.Builder> shears()
+    {
+        return shearsOr(Blocks.AIR);
     }
 
 
@@ -263,7 +265,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
 
     protected LootTable.Builder createFieldsproutPetalsDrops(Block block) {
         LootTable.Builder base = LootTable.lootTable();
-        List<Property<PetalPrismaticness>> props = List.of(ReduxStateProperties.PETAL_1, ReduxStateProperties.PETAL_2, ReduxStateProperties.PETAL_3, ReduxStateProperties.PETAL_4);
+        List<Property<PetalPrismaticness>> props = List.of(ReduxStates.PETAL_1, ReduxStates.PETAL_2, ReduxStates.PETAL_3, ReduxStates.PETAL_4);
 
         for (Property<PetalPrismaticness> prop : props) {
             LootItemCondition.Builder hasPetal =

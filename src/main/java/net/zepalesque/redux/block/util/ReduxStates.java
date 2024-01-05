@@ -5,7 +5,7 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.zepalesque.redux.block.natural.ExtendedDistanceLeavesBlock;
 
-public class ReduxStateProperties {
+public class ReduxStates {
     public static final BooleanProperty SNOWY_TEXTURE = BooleanProperty.create("snowy_texture");
     public static final BooleanProperty SNOW_LAYER = BooleanProperty.create("snow_layer");
 
@@ -20,6 +20,7 @@ public class ReduxStateProperties {
 
     public static final IntegerProperty EXTENDED_DISTANCE = IntegerProperty.create("distance", 1, ExtendedDistanceLeavesBlock.DECAY_DISTANCE);
 
+    public static final EnumProperty<ShortGrassType> GRASS_TYPE = EnumProperty.create("aether_grass_type", ShortGrassType.class);
 
     public static final EnumProperty<PetalPrismaticness> PETAL_1 = EnumProperty.create("petal_1_val", PetalPrismaticness.class, petalPrismaticness -> petalPrismaticness != PetalPrismaticness.NONE);
     public static final EnumProperty<PetalPrismaticness> PETAL_2 = EnumProperty.create("petal_2_val", PetalPrismaticness.class);

@@ -28,14 +28,12 @@ public class ReduxItemModelData extends AetherItemModelProvider {
     protected void registerModels() {
 
         itemBlockFlat(ReduxBlocks.AETHER_GRASS, "natural/");
-        itemBlockFlat(ReduxBlocks.ENCHANTED_AETHER_GRASS, "natural/");
         itemBlockFlat(ReduxBlocks.FIRECAP, "natural/");
         itemBlock(ReduxBlocks.HOLYSILT);
         itemBlock(ReduxBlocks.DIVINITE);
         itemBlock(ReduxBlocks.DIVINITE_SLAB);
         itemBlock(ReduxBlocks.DIVINITE_STAIRS);
         itemWallBlock(ReduxBlocks.DIVINITE_WALL, ReduxBlocks.DIVINITE, "natural/");
-
         itemBlockFlat(ReduxBlocks.IRIDIA, "natural/");
         itemBlockFlatGlow(ReduxBlocks.TALL_CLOUDCAP, "natural/", "_top");
         itemBlock(ReduxBlocks.GILDED_HOLYSTONE);
@@ -103,7 +101,6 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlock(ReduxBlocks.CLOUD_CAP_BLOCK);
         itemBlock(ReduxBlocks.CLOUDCAP_SPORES);
         itemBlock(ReduxBlocks.SPRINGSHROOM);
-        itemBlockFlat(ReduxBlocks.BLIGHTED_AETHER_GRASS, "natural/");
         itemBlockFlatGlow(ReduxBlocks.LUXWEED, "natural/");
         itemBlockFlat(ReduxBlocks.SPIROLYCTIL, "natural/");
         itemBlockFlat(ReduxBlocks.BLIGHTSHADE, "natural/");
@@ -138,7 +135,6 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         this.itemBlock(ReduxBlocks.BLIGHTMOSS_CARPET.get());
         this.itemBlock(ReduxBlocks.GILDED_OAK_LEAVES.get());
         this.itemBlock(ReduxBlocks.FROSTED_AETHER_GRASS_BLOCK.get());
-        this.itemBlockFlat(ReduxBlocks.FROSTED_AETHER_GRASS.get(), "natural/");
         this.itemBlockFlat(ReduxBlocks.GILDED_OAK_SAPLING.get(), "natural/");
 
         this.itemBlockFlat(ReduxBlocks.BLIGHTED_SKYROOT_SAPLING.get(), "natural/");

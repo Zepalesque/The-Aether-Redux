@@ -25,13 +25,13 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.zepalesque.redux.block.util.ReduxStateProperties;
+import net.zepalesque.redux.block.util.ReduxStates;
 
 import java.util.OptionalInt;
 
 public class ExtendedDistanceLeavesBlock extends Block implements SimpleWaterloggedBlock, net.minecraftforge.common.IForgeShearable {
    public static final int DECAY_DISTANCE = 14;
-   public static final IntegerProperty EXTENDED_DISTANCE  = ReduxStateProperties.EXTENDED_DISTANCE;
+   public static final IntegerProperty EXTENDED_DISTANCE  = ReduxStates.EXTENDED_DISTANCE;
    public static final BooleanProperty PERSISTENT = BlockStateProperties.PERSISTENT;
    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
