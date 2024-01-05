@@ -19,7 +19,7 @@
                   }
                 }
               ],
-              "name": "aether_redux:enchanted_aether_grass"
+              "name": "aether_redux:aether_short_grass"
             },
             {
               "type": "minecraft:item",
@@ -51,7 +51,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "aether_redux:bundle_of_aether_grass"
+              "name": "minecraft:air"
             }
           ]
         }
@@ -59,5 +59,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "aether_redux:blocks/enchanted_aether_grass"
+  "random_sequence": "aether_redux:blocks/aether_short_grass"
 }

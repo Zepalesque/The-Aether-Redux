@@ -1,8 +1,8 @@
-// 1.20.1	2023-12-31T21:27:05.6988553	Tags for minecraft:block mod id aether_redux
+// 1.20.1	2024-01-05T13:17:28.2762048	Tags for minecraft:block mod id aether_redux
 8dfef7533420134b3e6a022e43bcc7e4571ebf20 data/aether/tags/blocks/aether_animals_spawnable_on.json
 c5199c5b6857fbe1d5e1228b62469fc21245a14c data/aether/tags/blocks/aether_dirt.json
 be858bbcc6c70f54eda7d60496915fa5aef21064 data/aether/tags/blocks/holystone.json
-6ac88ed819e7255ac6abf1dfb6224d0c9a9c41ee data/aether/tags/blocks/treated_as_aether_block.json
+beed5636c74fb9cf7ed5c4332d0fbdcbb4bae307 data/aether/tags/blocks/treated_as_aether_block.json
 85b1ad865db965e78fb0da827f9f619ffe9f5878 data/aether_redux/tags/blocks/aether_carver_replaceables.json
 89e570d3ed2e4927f7ede090fad49d26110aba17 data/aether_redux/tags/blocks/blighted_grasses.json
 edd28d843e4d50fffcd62491dda0fa5e4ba1749b data/aether_redux/tags/blocks/blightwillow_logs.json
@@ -33,11 +33,11 @@ dd072162dab63688ce959bd2f86d43af6e79e7d3 data/minecraft/tags/blocks/flower_pots.
 88885cc74ba8e2217671a2f2238fbdd90faa7346 data/minecraft/tags/blocks/mineable/axe.json
 a6bba4643413211565cf422cbb2d7e757c9e60a9 data/minecraft/tags/blocks/mineable/hoe.json
 8095bffdfa50d094750a9a0ae39571a759452118 data/minecraft/tags/blocks/mineable/pickaxe.json
-55a3571c5ab48f6a6311f7bb6653d66d27967a5b data/minecraft/tags/blocks/mineable/shovel.json
-3c030154a63f8d3e1984ec879d6e419a7a6d4e6a data/minecraft/tags/blocks/mushroom_grow_block.json
+207236d07dace667964b3a3c63b3b488a03063e8 data/minecraft/tags/blocks/mineable/shovel.json
+157018c11dd661fb28ac51f3536b64843c26cc51 data/minecraft/tags/blocks/mushroom_grow_block.json
 b79514a8b5c826d6a8f58e263a531ca73b575041 data/minecraft/tags/blocks/needs_stone_tool.json
 243259d4c584b5876ed092159fc145440c545379 data/minecraft/tags/blocks/planks.json
-c22fd6878bd5ca6d2a9375ce121ae34e87c78e7e data/minecraft/tags/blocks/replaceable.json
+21dcfc7ea866b1daa9bf6481745656f739282ecc data/minecraft/tags/blocks/replaceable.json
 25875fe1e49c6866afceac17fb5b4d411dbebe4a data/minecraft/tags/blocks/saplings.json
 437b773a916ddc0e46d095bca4afc7ff1be914ee data/minecraft/tags/blocks/slabs.json
 673f5ae06d6450cd2de78d16fbda2d7fe1357d56 data/minecraft/tags/blocks/stairs.json

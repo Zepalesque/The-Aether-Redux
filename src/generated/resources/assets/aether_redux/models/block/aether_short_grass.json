@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "aether_redux:block/natural/aether_short_grass"
+  }
+}

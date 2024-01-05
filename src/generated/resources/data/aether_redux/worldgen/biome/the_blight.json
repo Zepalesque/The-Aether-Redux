@@ -43,7 +43,7 @@
     ],
     [
       "aether_redux:trees/blight_trees",
-      "aether_redux:patch/blighted_grass_patch",
+      "aether:grass_patch",
       "aether_redux:patch/luxweed_patch",
       "aether_redux:patch/spirolyctil_patch",
       "aether_redux:patch/blightshade_patch",

@@ -43,7 +43,7 @@
     [
       "aether_redux:patch/frosted_fern_patch",
       "aether_redux:trees/frosted_trees",
-      "aether_redux:patch/frosted_grass_patch",
+      "aether:grass_patch",
       "aether_redux:patch/lumina_patch",
       "aether_redux:patch/frosted_purple_flower_patch",
       "aether_redux:patch/daggerbloom_patch"
