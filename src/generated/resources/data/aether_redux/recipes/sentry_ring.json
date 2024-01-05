@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "E": {
+      "item": "aether_redux:sentry_circuit"
+    },
+    "H": {
+      "item": "aether:carved_stone"
+    },
+    "R": {
+      "item": "aether_redux:enchanted_ring"
+    }
+  },
+  "pattern": [
+    "HEH",
+    "HRH",
+    "HHH"
+  ],
+  "result": {
+    "item": "aether_redux:sentry_ring"
+  },
+  "show_notification": true
+}

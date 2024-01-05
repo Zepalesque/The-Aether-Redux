@@ -1,4 +1,4 @@
-// 1.20.1	2023-12-31T17:53:18.1455407	Recipes
+// 1.20.1	2024-01-04T14:01:24.5923239	Recipes
 028a41c44667802045298aed21a46f931203df96 data/aether/advancements/recipes/building_blocks/angelic_stone.json
 a49c9d5d0232fb78da74b8a0551483991e22b8c9 data/aether/recipes/angelic_stone.json
 94dc065fa9db175a9df14a38fb02767fe57f9007 data/aether_redux/advancements/recipes/blightwillow_log_wall.json
@@ -81,6 +81,7 @@ edd7df15b7630a2cc93a62eb5cf6f3ac28378c1d data/aether_redux/advancements/recipes/
 916bd20cbad60992198a409ab15acd71f6eb78c2 data/aether_redux/advancements/recipes/cloudcap_stem_wall.json
 d42f6d940145339b6df166a159a63f6a40b37c37 data/aether_redux/advancements/recipes/combat/enchanted_ring.json
 3903afde3de2336ec94ce518ba8512a7505c7a7a data/aether_redux/advancements/recipes/combat/ring_of_wisdom.json
+fd97967971569a062c10f1e64f3967a88adbdfca data/aether_redux/advancements/recipes/combat/sentry_ring.json
 14e4e4b9ad7e570b1a82183f523c6f9a71537240 data/aether_redux/advancements/recipes/combat/spectral_dart.json
 20f057c44960d7ee3386e2fa5aa8bb1c5024809a data/aether_redux/advancements/recipes/combat/spectral_dart_shooter.json
 961a9265d275fc6b95ee4f9e1d4b9480451c3d77 data/aether_redux/advancements/recipes/combat/veridium_sword.json
@@ -328,6 +329,7 @@ c76372e91fa67824ebd24a9f2b76f8b3cd8b80a2 data/aether_redux/recipes/mouse_ear_sou
 6a22b6c6293d12f5a9a62207ef19dd3d6d6a61b3 data/aether_redux/recipes/raw_veridium_block.json
 6390228529b203ebc3053b1491fd112be2fdff54 data/aether_redux/recipes/raw_veridium_from_raw_veridium_block.json
 514573c94785e22d40abf9487c0377c7cd1d586c data/aether_redux/recipes/ring_of_wisdom.json
+037bc537be2c1233e2dd0fac6e3b9ddec3ab6514 data/aether_redux/recipes/sentry_ring.json
 eb2e4ab63473a9a7d48e87b15b13bf8e10853e8e data/aether_redux/recipes/smelt_raw_veridium.json
 03b3ea8d8c57e333e9db2f962a6ea1bb33b699f5 data/aether_redux/recipes/smelt_veridium.json
 b9714c5893bc24cc667798815cb6d5831c4b8f5b data/aether_redux/recipes/spectral_dart.json
