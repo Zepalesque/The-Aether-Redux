@@ -191,14 +191,14 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
                 .texture("top", this.extend(this.texture(this.name(block), "natural/"), "_top"))
                 .texture("side_glow", this.extend(this.texture(this.name(block), "natural/"), "_side_glow"))
                 .texture("bottom_glow", glowDirt ? this.texture(this.name(dirtBlock) + "_glow", "natural/") : this.texture("misc/glow_none"))
-                .texture("top_glow", topGlow ? this.extend(this.texture(this.name(block), "natural/"), "_top_glow") : this.texture("misc/glow_none")).renderType(new ResourceLocation("cutout"));
+                .texture("top_glow", topGlow ? this.extend(this.texture(this.name(block), "natural/"), "_top_glow") : this.texture("misc/glow_none")).renderType("cutout");
         ModelFile grassSnowed = this.models().withExistingParent(this.name(block) + "_snowy", Redux.locate(BLOCK_FOLDER + "/cube_bottom_top_glow"))
                 .texture("side", this.extend(this.texture(this.name(block), "natural/"), "_snow"))
                 .texture("bottom", this.texture(this.name(dirtBlock), "natural/"))
                 .texture("top", this.extend(this.texture(this.name(block), "natural/"), "_top"))
                 .texture("side_glow", this.extend(this.texture(this.name(block), "natural/"), "_snow_glow"))
                 .texture("bottom_glow", glowDirt ? this.texture(this.name(dirtBlock) + "_glow", "natural/") : this.texture("misc/glow_none"))
-                .texture("top_glow", topGlow ? this.extend(this.texture(this.name(block), "natural/"), "_top_glow") : this.texture("misc/glow_none")).renderType(new ResourceLocation("cutout"));
+                .texture("top_glow", topGlow ? this.extend(this.texture(this.name(block), "natural/"), "_top_glow") : this.texture("misc/glow_none")).renderType("cutout");
         this.getVariantBuilder(block).forAllStatesExcept((state) -> {
             boolean snowy = state.getValue(SnowyDirtBlock.SNOWY);
             return ConfiguredModel.allYRotations(snowy ? grassSnowed : grass, 0, false);
@@ -221,19 +221,19 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         ModelFile flowerbed1 = this.models().withExistingParent(this.name(block) + "_1", mcLoc("flowerbed_1"))
                 .texture("flowerbed", this.texture(this.name(block), "natural/"))
                 .texture("stem", this.extend(this.texture(this.name(block), "natural/"), "_stem"))
-                .renderType(new ResourceLocation("cutout"));
+                .renderType("cutout");
         ModelFile flowerbed2 = this.models().withExistingParent(this.name(block) + "_2", mcLoc("flowerbed_2"))
                 .texture("flowerbed", this.texture(this.name(block), "natural/"))
                 .texture("stem", this.extend(this.texture(this.name(block), "natural/"), "_stem"))
-                .renderType(new ResourceLocation("cutout"));
+                .renderType("cutout");
         ModelFile flowerbed3 = this.models().withExistingParent(this.name(block) + "_3", mcLoc("flowerbed_3"))
                 .texture("flowerbed", this.texture(this.name(block), "natural/"))
                 .texture("stem", this.extend(this.texture(this.name(block), "natural/"), "_stem"))
-                .renderType(new ResourceLocation("cutout"));
+                .renderType("cutout");
         ModelFile flowerbed4 = this.models().withExistingParent(this.name(block) + "_4", mcLoc("flowerbed_4"))
                 .texture("flowerbed", this.texture(this.name(block), "natural/"))
                 .texture("stem", this.extend(this.texture(this.name(block), "natural/"), "_stem"))
-                .renderType(new ResourceLocation("cutout"));
+                .renderType("cutout");
         MultiPartBlockStateBuilder builder = this.getMultipartBuilder(block);
         for (Direction d : new Direction[] {Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST})
         {
@@ -262,19 +262,19 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
             ModelFile flowerbed_petal1 = this.models().withExistingParent(this.name(block) + "_" + color + "_petal1", modLoc("flowerbed_1"))
                     .texture("flowerbed", this.texture(this.name(block) + "_" + color, "natural/"))
                     .texture("stem", this.texture(stemTexture))
-                    .renderType(new ResourceLocation("cutout"));
+                    .renderType("cutout");
             ModelFile flowerbed_petal2 = this.models().withExistingParent(this.name(block) + "_" + color + "_petal2", modLoc("flowerbed_2"))
                     .texture("flowerbed", this.texture(this.name(block) + "_" + color, "natural/"))
                     .texture("stem", this.texture(stemTexture))
-                    .renderType(new ResourceLocation("cutout"));
+                    .renderType("cutout");
             ModelFile flowerbed_petal3 = this.models().withExistingParent(this.name(block) + "_" + color + "_petal3", modLoc("flowerbed_3"))
                     .texture("flowerbed", this.texture(this.name(block) + "_" + color, "natural/"))
                     .texture("stem", this.texture(stemTexture))
-                    .renderType(new ResourceLocation("cutout"));
+                    .renderType("cutout");
             ModelFile flowerbed_petal4 = this.models().withExistingParent(this.name(block) +"_" + color + "_petal4", modLoc("flowerbed_4"))
                     .texture("flowerbed", this.texture(this.name(block) + "_" + color, "natural/"))
                     .texture("stem", this.texture(stemTexture))
-                    .renderType(new ResourceLocation("cutout"));
+                    .renderType("cutout");
             for (Direction d : Direction.Plane.HORIZONTAL) {
                 builder.part().modelFile(flowerbed_petal1).rotationY(d.getOpposite().get2DDataValue() * 90).addModel().condition(ReduxStates.PETAL_1, PetalPrismaticness.getFromIndex(color)).condition(PinkPetalsBlock.FACING, d).end();
                 builder.part().modelFile(flowerbed_petal2).rotationY(d.getOpposite().get2DDataValue() * 90).addModel().condition(ReduxStates.PETAL_2, PetalPrismaticness.getFromIndex(color)).condition(PinkPetalsBlock.FACING, d).end();
@@ -292,19 +292,19 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         ModelFile flowerbed1 = this.models().withExistingParent(this.name(block) + "_1", mcLoc("flowerbed_1"))
                 .texture("flowerbed", this.texture(this.name(block), "natural/"))
                 .texture("stem", this.texture(stemTexture, "natural/"))
-                .renderType(new ResourceLocation("cutout"));
+                .renderType("cutout");
         ModelFile flowerbed2 = this.models().withExistingParent(this.name(block) + "_2", mcLoc("flowerbed_2"))
                 .texture("flowerbed", this.texture(this.name(block), "natural/"))
                 .texture("stem", this.texture(stemTexture, "natural/"))
-                .renderType(new ResourceLocation("cutout"));
+                .renderType("cutout");
         ModelFile flowerbed3 = this.models().withExistingParent(this.name(block) + "_3", mcLoc("flowerbed_3"))
                 .texture("flowerbed", this.texture(this.name(block), "natural/"))
                 .texture("stem", this.texture(stemTexture, "natural/"))
-                .renderType(new ResourceLocation("cutout"));
+                .renderType("cutout");
         ModelFile flowerbed4 = this.models().withExistingParent(this.name(block) + "_4", mcLoc("flowerbed_4"))
                 .texture("flowerbed", this.texture(this.name(block), "natural/"))
                 .texture("stem", this.texture(stemTexture, "natural/"))
-                .renderType(new ResourceLocation("cutout"));
+                .renderType("cutout");
         MultiPartBlockStateBuilder builder = this.getMultipartBuilder(block);
         for (Direction d : new Direction[] {Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST})
         {
@@ -368,36 +368,36 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
 
     public void frostedCrossBlock(Block block, String location) {
-        this.frostedCrossBlock(block, models().cross(this.name(block), this.texture(this.name(block), location)).renderType(new ResourceLocation("cutout")), models().cross(this.name(block) + "_snowy", this.texture(this.name(block) + "_snowy", location)).renderType(new ResourceLocation("cutout")));
+        this.frostedCrossBlock(block, models().cross(this.name(block), this.texture(this.name(block), location)).renderType("cutout"), models().cross(this.name(block) + "_snowy", this.texture(this.name(block) + "_snowy", location)).renderType("cutout"));
     }
 
     public void aetherShortGrass(Block block, String location) {
 
         this.getVariantBuilder(block).forAllStates((state) -> {
             ShortGrassType type = state.getValue(ReduxStates.GRASS_TYPE);
-            return ConfiguredModel.builder().modelFile(models().cross(type.getSerializedName(), modLoc("block/" + location + type.getSerializedName()))).build();
+            return ConfiguredModel.builder().modelFile(models().cross(type.getSerializedName(), modLoc("block/" + location + type.getSerializedName())).renderType("cutout")).build();
         }       );
     }
     public void frostedCrossBlockGlow(Block block, String location) {
         BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/cross_glow"))
                 .texture("cross", this.texture(this.name(block), location))
-                .texture("overlay", this.texture(this.name(block) + "_glow", location)).renderType(new ResourceLocation("cutout"));
+                .texture("overlay", this.texture(this.name(block) + "_glow", location)).renderType("cutout");
         BlockModelBuilder crossSnowy = models().withExistingParent(this.name(block) + "_snowy", Redux.locate(BLOCK_FOLDER + "/cross_glow"))
                 .texture("cross", this.texture(this.name(block) + "_snowy", location))
-                .texture("overlay", this.texture(this.name(block) + "_glow_snowy", location)).renderType(new ResourceLocation("cutout"));
+                .texture("overlay", this.texture(this.name(block) + "_glow_snowy", location)).renderType("cutout");
         this.frostedCrossBlock(block, cross, crossSnowy);
     }
 
     public void lantern(Block block, String location) {
         BlockModelBuilder lantern = models().withExistingParent(this.name(block), mcLoc("template_lantern"))
-                .texture("lantern", this.texture(this.name(block), location)).renderType(new ResourceLocation("cutout"));
+                .texture("lantern", this.texture(this.name(block), location)).renderType("cutout");
         BlockModelBuilder hangingLantern = models().withExistingParent("hanging_" + this.name(block), mcLoc("template_hanging_lantern"))
-                .texture("lantern", this.texture(this.name(block), location)).renderType(new ResourceLocation("cutout"));
+                .texture("lantern", this.texture(this.name(block), location)).renderType("cutout");
         this.getVariantBuilder(block).forAllStates((state -> ConfiguredModel.builder().modelFile(state.getValue(LanternBlock.HANGING) ? hangingLantern : lantern).build()));
     }
     public void chain(Block block, String location) {
         BlockModelBuilder chain = models().withExistingParent(this.name(block), Redux.locate("template_chain"))
-                .texture("chain", this.texture(this.name(block), location)).renderType(new ResourceLocation("cutout"));
+                .texture("chain", this.texture(this.name(block), location)).renderType("cutout");
         this.getVariantBuilder(block).forAllStates((state -> {
             Direction.Axis axis = state.getValue(ChainBlock.AXIS);
             ConfiguredModel.Builder<?> builder = ConfiguredModel.builder().modelFile(chain);
@@ -410,13 +410,13 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
     public void harvestableCrossBlockGlow(Block block, String location) {
         BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/cross_full_glow"))
-                .texture("cross", this.texture(this.name(block), location)).renderType(new ResourceLocation("cutout"));
+                .texture("cross", this.texture(this.name(block), location)).renderType("cutout");
         BlockModelBuilder crossHarvested = models().withExistingParent("harvested_" + this.name(block), Redux.locate(BLOCK_FOLDER + "/cross_full_glow"))
-                .texture("cross", this.texture("harvested_" + this.name(block), location)).renderType(new ResourceLocation("cutout"));
+                .texture("cross", this.texture("harvested_" + this.name(block), location)).renderType("cutout");
         this.harvestableCrossBlock(block, crossHarvested, cross);
     }
     public void harvestableCrossBlockOccluded(Block block, String location) {
-        this.harvestableCrossBlock(block, occludedCross("harvested_" + this.name(block), this.texture("harvested_" + this.name(block), location)).renderType(new ResourceLocation("cutout")), occludedCross(this.name(block), this.texture(this.name(block), location)).renderType(new ResourceLocation("cutout")));
+        this.harvestableCrossBlock(block, occludedCross("harvested_" + this.name(block), this.texture("harvested_" + this.name(block), location)).renderType("cutout"), occludedCross(this.name(block), this.texture(this.name(block), location)).renderType("cutout"));
     }
 
     public ModelBuilder<BlockModelBuilder> occludedCross(String name, ResourceLocation cross) {
@@ -434,10 +434,10 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
     public void doubleCrossBlockTopGlow(Block block, String location) {
         this.getVariantBuilder(block).forAllStates(state -> {
-            ModelFile bottom = models().cross(this.name(block) + "_bottom", this.texture(this.name(block) + "_bottom", location)).renderType(new ResourceLocation("cutout"));
+            ModelFile bottom = models().cross(this.name(block) + "_bottom", this.texture(this.name(block) + "_bottom", location)).renderType("cutout");
             ModelFile top = models().withExistingParent(this.name(block) + "_top", Redux.locate(BLOCK_FOLDER + "/cross_glow"))
                     .texture("cross", this.texture(this.name(block) + "_top", location))
-                    .texture("overlay", this.texture(this.name(block) + "_top" + "_glow", location)).renderType(new ResourceLocation("cutout"));
+                    .texture("overlay", this.texture(this.name(block) + "_top" + "_glow", location)).renderType("cutout");
 
 
             return ConfiguredModel.builder().modelFile(state.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER ? bottom : top).build();
@@ -447,8 +447,8 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
     }
     public void doubleCrossBlock(Block block, String location) {
         this.getVariantBuilder(block).forAllStates(state -> {
-            ModelFile top = models().cross(this.name(block) + "_top", this.texture(this.name(block) + "_top", location)).renderType(new ResourceLocation("cutout"));
-            ModelFile bottom = models().cross(this.name(block) + "_bottom", this.texture(this.name(block) + "_bottom", location)).renderType(new ResourceLocation("cutout"));
+            ModelFile top = models().cross(this.name(block) + "_top", this.texture(this.name(block) + "_top", location)).renderType("cutout");
+            ModelFile bottom = models().cross(this.name(block) + "_bottom", this.texture(this.name(block) + "_bottom", location)).renderType("cutout");
             return ConfiguredModel.builder().modelFile(state.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER ? bottom : top).build();
         });
 
@@ -456,8 +456,8 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
     }
     public void doubleCrossBlockFullGlow(Block block, String location) {
         this.getVariantBuilder(block).forAllStates(state -> {
-            ModelFile top = models().singleTexture(this.name(block) + "_top", Redux.locate(BLOCK_FOLDER + "/cross_full_glow"), "cross", this.texture(this.name(block) + "_top", location)).renderType(new ResourceLocation("cutout"));
-            ModelFile bottom = models().singleTexture(this.name(block) + "_bottom", Redux.locate(BLOCK_FOLDER + "/cross_full_glow"), "cross", this.texture(this.name(block) + "_bottom", location)).renderType(new ResourceLocation("cutout"));
+            ModelFile top = models().singleTexture(this.name(block) + "_top", Redux.locate(BLOCK_FOLDER + "/cross_full_glow"), "cross", this.texture(this.name(block) + "_top", location)).renderType("cutout");
+            ModelFile bottom = models().singleTexture(this.name(block) + "_bottom", Redux.locate(BLOCK_FOLDER + "/cross_full_glow"), "cross", this.texture(this.name(block) + "_bottom", location)).renderType("cutout");
             return ConfiguredModel.builder().modelFile(state.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER ? bottom : top).build();
         });
 
@@ -477,7 +477,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
     }
     public void cutoutCarpet(Block block, Block baseBlock, String location) {
-        this.simpleBlock(block, this.models().singleTexture(this.name(block), mcLoc(BLOCK_FOLDER + "/carpet"), "wool", this.texture(this.name(baseBlock), location)).renderType(new ResourceLocation("cutout")));
+        this.simpleBlock(block, this.models().singleTexture(this.name(block), mcLoc(BLOCK_FOLDER + "/carpet"), "wool", this.texture(this.name(baseBlock), location)).renderType("cutout"));
 
     }
 
@@ -487,7 +487,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
                         .modelFile(this.models().singleTexture(
                                 this.name(block) + state.getValue(LeafPileBlock.LAYERS),
                                 modLoc(BLOCK_FOLDER + "/layer_size" + state.getValue(LeafPileBlock.LAYERS)),
-                                "block", this.texture(baseBlock, location)).renderType(new ResourceLocation("cutout"))).build());
+                                "block", this.texture(baseBlock, location)).renderType("cutout")).build());
 
     }
 
@@ -495,7 +495,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
     public void glowingPottedPlant(Block block, Block flower, String location) {
         ModelFile pot = this.models().withExistingParent(this.name(block), Redux.locate("block/flower_pot_cross_glow"))
                 .texture("plant", this.modLoc("block/" + location + this.name(flower)))
-                .texture("overlay", this.modLoc("block/" + location + this.name(flower) + "_glow")).renderType(new ResourceLocation("cutout"));
+                .texture("overlay", this.modLoc("block/" + location + this.name(flower) + "_glow")).renderType("cutout");
         this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
     }
 
@@ -508,14 +508,14 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
     }
 
     public ModelFile cubeAllCutout(Block block, String location) {
-        return this.models().cubeAll(this.name(block), this.texture(this.name(block), location)).renderType(new ResourceLocation("cutout"));
+        return this.models().cubeAll(this.name(block), this.texture(this.name(block), location)).renderType("cutout");
     }
     public void randomBlockDoubleDrops(Supplier<? extends Block> block, String location) {
         getVariantBuilder(block.get()).forAllStatesExcept(state -> ConfiguredModel.allYRotations(cubeAll(block, location), 0, false), AetherBlockStateProperties.DOUBLE_DROPS);
     }
 
     public void crossBlock(Supplier<? extends Block> block, String location) {
-        crossBlock(block, models().cross(name(block), texture(name(block), location)).renderType(new ResourceLocation("cutout")));
+        crossBlock(block, models().cross(name(block), texture(name(block), location)).renderType("cutout"));
     }
 
 
@@ -530,12 +530,12 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         ModelFile model = models().withExistingParent(this.name(mushroom), modLoc(BLOCK_FOLDER + "/template_mushroom_block"))
                 .texture("mushroom", this.texture(name(mushroom), location))
                 .texture("particle", this.texture(name(particle), particleLoc))
-                .renderType(new ResourceLocation("cutout"));
+                .renderType("cutout");
         getVariantBuilder(mushroom.get()).forAllStates((state -> ConfiguredModel.builder().modelFile(model).build()));
     }
 
     public void pottedMushroomBlock(Block potBlock, Block mushroom, String location) {
-        ModelFile pot = this.models().withExistingParent(this.name(potBlock), Redux.locate(BLOCK_FOLDER + "/template_potted_mushroom_block")).texture("mushroom", this.modLoc("block/" + location + "potted_" + this.name(mushroom))).renderType(new ResourceLocation("cutout"));
+        ModelFile pot = this.models().withExistingParent(this.name(potBlock), Redux.locate(BLOCK_FOLDER + "/template_potted_mushroom_block")).texture("mushroom", this.modLoc("block/" + location + "potted_" + this.name(mushroom))).renderType("cutout");
         this.getVariantBuilder(potBlock).partialState().addModels(new ConfiguredModel(pot));
     }
 
@@ -546,7 +546,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
                 .texture("mushroom", this.texture(name(mushroom), location))
                 .texture("particle", this.texture(name(particle), particleLoc))
                 .texture("glow", this.texture(name(mushroom) + "_glow", location))
-                .renderType(new ResourceLocation("cutout"));
+                .renderType("cutout");
         getVariantBuilder(mushroom.get()).forAllStates((state -> ConfiguredModel.builder().modelFile(model).build()));
     }
 
@@ -554,25 +554,25 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
     public void glowingCrossBlock(Block block, String location) {
         BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/cross_glow"))
                 .texture("cross", this.texture(this.name(block), location))
-                .texture("overlay", this.texture(this.name(block) + "_glow", location)).renderType(new ResourceLocation("cutout"));
+                .texture("overlay", this.texture(this.name(block) + "_glow", location)).renderType("cutout");
         this.crossBlock(block, cross);
     }
 
     public void cropPlantNoOffset(Block block, String location) {
         BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/template_crop_plant"))
-                .texture("plant", this.texture(this.name(block), location)).renderType(new ResourceLocation("cutout"));
+                .texture("plant", this.texture(this.name(block), location)).renderType("cutout");
         this.crossBlock(block, cross);
     }
     public void cropPlantNoOffsetOccluded(Block block, String location) {
         BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/template_crop_plant_occluded"))
-                .texture("plant", this.texture(this.name(block), location)).renderType(new ResourceLocation("cutout"));
+                .texture("plant", this.texture(this.name(block), location)).renderType("cutout");
         this.crossBlock(block, cross);
     }
 
     public void glowingBlock(Block block, String location) {
         BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/cube_all_glow"))
                 .texture("all", this.texture(this.name(block), location))
-                .texture("glow", this.texture(this.name(block) + "_glow", location)).renderType(new ResourceLocation("cutout"));
+                .texture("glow", this.texture(this.name(block) + "_glow", location)).renderType("cutout");
         this.simpleBlock(block, cross);
     }
 
@@ -709,8 +709,8 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
     }
 
     public void torchBlock(Supplier<? extends Block> block, Supplier<? extends Block> wall) {
-        ModelFile torch = models().torch(name(block), texture(name(block), "utility/")).renderType(new ResourceLocation("cutout"));
-        ModelFile torchwall = models().torchWall(name(wall), texture(name(block), "utility/")).renderType(new ResourceLocation("cutout"));
+        ModelFile torch = models().torch(name(block), texture(name(block), "utility/")).renderType("cutout");
+        ModelFile torchwall = models().torchWall(name(wall), texture(name(block), "utility/")).renderType("cutout");
         simpleBlock(block.get(), torch);
         getVariantBuilder(wall.get()).forAllStates(state ->
                 ConfiguredModel.builder()
@@ -770,7 +770,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
     }
 
     public void pottedStem(Supplier<? extends Block> stem, String location) {
-        ModelFile pot = pottedStemModel(stem, stem, location).renderType(new ResourceLocation("cutout"));
+        ModelFile pot = pottedStemModel(stem, stem, location).renderType("cutout");
         getVariantBuilder(stem.get()).partialState().addModels(new ConfiguredModel(pot));
     }
 
@@ -784,12 +784,12 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
                 .face(Direction.WEST).uvs(3.0F, 3.0F, 13.0F, 13.0F).texture("#bush").end()
                 .face(Direction.UP).uvs(3.0F, 3.0F, 13.0F, 13.0F).texture("#bush").end()
                 .face(Direction.DOWN).uvs(3.0F, 3.0F, 13.0F, 13.0F).texture("#bush").end().end()
-                .renderType(new ResourceLocation("cutout"));
+                .renderType("cutout");
         getVariantBuilder(bush.get()).partialState().addModels(new ConfiguredModel(pot));
     }
 
     public void pottedPlant(Supplier<? extends Block> block, Supplier<? extends Block> flower, String location) {
-        ModelFile pot = models().withExistingParent(name(block), mcLoc("block/flower_pot_cross")).texture("plant", modLoc("block/" + location + name(flower))).renderType(new ResourceLocation("cutout"));
+        ModelFile pot = models().withExistingParent(name(block), mcLoc("block/flower_pot_cross")).texture("plant", modLoc("block/" + location + name(flower))).renderType("cutout");
         getVariantBuilder(block.get()).partialState().addModels(new ConfiguredModel(pot));
     }
 
@@ -844,14 +844,14 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
     }
 
     private void doorBlockInternal(DoorBlock block, String baseName, ResourceLocation bottom, ResourceLocation top) {
-        ModelFile bottomLeft = models().doorBottomLeft(baseName + "_bottom_left", bottom, top).renderType(new ResourceLocation("cutout"));
-        ModelFile bottomLeftOpen = models().doorBottomLeftOpen(baseName + "_bottom_left_open", bottom, top).renderType(new ResourceLocation("cutout"));
-        ModelFile bottomRight = models().doorBottomRight(baseName + "_bottom_right", bottom, top).renderType(new ResourceLocation("cutout"));
-        ModelFile bottomRightOpen = models().doorBottomRightOpen(baseName + "_bottom_right_open", bottom, top).renderType(new ResourceLocation("cutout"));
-        ModelFile topLeft = models().doorTopLeft(baseName + "_top_left", bottom, top).renderType(new ResourceLocation("cutout"));
-        ModelFile topLeftOpen = models().doorTopLeftOpen(baseName + "_top_left_open", bottom, top).renderType(new ResourceLocation("cutout"));
-        ModelFile topRight = models().doorTopRight(baseName + "_top_right", bottom, top).renderType(new ResourceLocation("cutout"));
-        ModelFile topRightOpen = models().doorTopRightOpen(baseName + "_top_right_open", bottom, top).renderType(new ResourceLocation("cutout"));
+        ModelFile bottomLeft = models().doorBottomLeft(baseName + "_bottom_left", bottom, top).renderType("cutout");
+        ModelFile bottomLeftOpen = models().doorBottomLeftOpen(baseName + "_bottom_left_open", bottom, top).renderType("cutout");
+        ModelFile bottomRight = models().doorBottomRight(baseName + "_bottom_right", bottom, top).renderType("cutout");
+        ModelFile bottomRightOpen = models().doorBottomRightOpen(baseName + "_bottom_right_open", bottom, top).renderType("cutout");
+        ModelFile topLeft = models().doorTopLeft(baseName + "_top_left", bottom, top).renderType("cutout");
+        ModelFile topLeftOpen = models().doorTopLeftOpen(baseName + "_top_left_open", bottom, top).renderType("cutout");
+        ModelFile topRight = models().doorTopRight(baseName + "_top_right", bottom, top).renderType("cutout");
+        ModelFile topRightOpen = models().doorTopRightOpen(baseName + "_top_right_open", bottom, top).renderType("cutout");
         doorBlock(block, bottomLeft, bottomLeftOpen, bottomRight, bottomRightOpen, topLeft, topLeftOpen, topRight, topRightOpen);
     }
 
@@ -861,9 +861,9 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
     }
 
     private void trapdoorBlockInternal(TrapDoorBlock block, String baseName, ResourceLocation texture, boolean orientable) {
-        ModelFile bottom = orientable ? models().trapdoorOrientableBottom(baseName + "_bottom", texture) : models().trapdoorBottom(baseName + "_bottom", texture).renderType(new ResourceLocation("cutout"));
-        ModelFile top = orientable ? models().trapdoorOrientableTop(baseName + "_top", texture) : models().trapdoorTop(baseName + "_top", texture).renderType(new ResourceLocation("cutout"));
-        ModelFile open = orientable ? models().trapdoorOrientableOpen(baseName + "_open", texture) : models().trapdoorOpen(baseName + "_open", texture).renderType(new ResourceLocation("cutout"));
+        ModelFile bottom = orientable ? models().trapdoorOrientableBottom(baseName + "_bottom", texture) : models().trapdoorBottom(baseName + "_bottom", texture).renderType("cutout");
+        ModelFile top = orientable ? models().trapdoorOrientableTop(baseName + "_top", texture) : models().trapdoorTop(baseName + "_top", texture).renderType("cutout");
+        ModelFile open = orientable ? models().trapdoorOrientableOpen(baseName + "_open", texture) : models().trapdoorOpen(baseName + "_open", texture).renderType("cutout");
         trapdoorBlock(block, bottom, top, open, orientable);
     }
 
@@ -893,7 +893,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
     }
 
     public void crossBlockExclude(Supplier<? extends Block> block, String location, Property property) {
-        crossBlockExclude(block, models().cross(name(block), texture(name(block), location)).renderType(new ResourceLocation("cutout")), property);
+        crossBlockExclude(block, models().cross(name(block), texture(name(block), location)).renderType("cutout"), property);
     }
     private void crossBlockExclude(Supplier<? extends Block> block, ModelFile model, Property property) {
         getVariantBuilder(block.get()).forAllStatesExcept(state -> ConfiguredModel.builder().modelFile(model).build(), property);
@@ -902,7 +902,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         ambientCrossBlockExclude(block, models().singleTexture(name(block),
                         Redux.locate(models().BLOCK_FOLDER + "/ambient_cross"),
                         "cross", texture(name(block), location))
-                .renderType(new ResourceLocation("cutout")), property);
+                .renderType("cutout"), property);
     }
     private void ambientCrossBlockExclude(Supplier<? extends Block> block, ModelFile model, Property property) {
         getVariantBuilder(block.get()).forAllStatesExcept(state -> ConfiguredModel.builder().modelFile(model).build(), property);
@@ -910,12 +910,12 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
     public void glowingPottedPlantAltTexture(Block block, Block flower, String location) {
         ModelFile pot = this.models().withExistingParent(this.name(block), Redux.locate("block/flower_pot_cross_glow"))
                 .texture("plant", this.modLoc("block/" + location + "potted_" + this.name(flower)))
-                .texture("overlay", this.modLoc("block/" + location + "potted_" + this.name(flower) + "_glow")).renderType(new ResourceLocation("cutout"));
+                .texture("overlay", this.modLoc("block/" + location + "potted_" + this.name(flower) + "_glow")).renderType("cutout");
         this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
     }
     public void pottedPlantAltTexture(Block block, Block flower, String location) {
         ModelFile pot = this.models().withExistingParent(this.name(block), mcLoc("block/flower_pot_cross"))
-                .texture("plant", this.modLoc("block/" + location + "potted_" + this.name(flower))).renderType(new ResourceLocation("cutout"));
+                .texture("plant", this.modLoc("block/" + location + "potted_" + this.name(flower))).renderType("cutout");
         this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
     }
 
@@ -947,12 +947,12 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
                         .texture("side", side)
                         .texture("end", end)
                         .texture("side_glow", this.extend(side, "_glow"))
-                        .texture("end_glow", this.extend(end, "_glow")).renderType(new ResourceLocation("cutout")),
+                        .texture("end_glow", this.extend(end, "_glow")).renderType("cutout"),
                 models().withExistingParent(name(block), Redux.locate(BLOCK_FOLDER) + "/cube_column_horizontal_glow")
                         .texture("side", side)
                         .texture("end", end)
                         .texture("side_glow", this.extend(side, "_glow"))
-                        .texture("end_glow", this.extend(end, "_glow")).renderType(new ResourceLocation("cutout")));
+                        .texture("end_glow", this.extend(end, "_glow")).renderType("cutout"));
     }
 
 
@@ -960,7 +960,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
             getVariantBuilder(block).forAllStatesExcept(state ->
                     ConfiguredModel.builder().modelFile(models().withExistingParent(name(block), Redux.locate(BLOCK_FOLDER) + "/template_roots")
                         .texture("side", side)
-                        .texture("top", top).renderType(new ResourceLocation("cutout"))).build(), AetherBlockStateProperties.DOUBLE_DROPS);
+                        .texture("top", top).renderType("cutout")).build(), AetherBlockStateProperties.DOUBLE_DROPS);
     }
     public void roots(Block block, String loc) {
         roots(block, this.extend(this.texture(this.name(block), loc), "_side"), this.extend(this.texture(this.name(block), loc), "_top"));
