@@ -45,17 +45,14 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> AEVELIUM_GRASSES_PATCH = copyKey(ReduxConfiguredFeatures.AEVELIUM_GRASSES_PATCH);
     public static final ResourceKey<PlacedFeature> AEVYRN_BUSH_PATCH = copyKey(ReduxConfiguredFeatures.AEVYRN_BUSH_PATCH);
     public static final ResourceKey<PlacedFeature> AURUM_PATCH = copyKey(ReduxConfiguredFeatures.AURUM_PATCH);
-    public static final ResourceKey<PlacedFeature> BLIGHTED_GRASS_PATCH = copyKey(ReduxConfiguredFeatures.BLIGHTED_GRASS_PATCH);
     public static final ResourceKey<PlacedFeature> BLIGHTMOSS_SPARSE_VEGETATION = createKey(Folders.CAVE + "blightmoss_sparse_vegetation");
     public static final ResourceKey<PlacedFeature> BLIGHTMOSS_VEGETATION = createKey(Folders.CAVE + "blightmoss_vegetation");
     public static final ResourceKey<PlacedFeature> BLIGHTSHADE_PATCH = copyKey(ReduxConfiguredFeatures.BLIGHTSHADE_PATCH);
     public static final ResourceKey<PlacedFeature> BLIGHT_ROCK = copyKey(ReduxConfiguredFeatures.BLIGHT_ROCK);
     public static final ResourceKey<PlacedFeature> BLIGHT_TREES = copyKey(ReduxConfiguredFeatures.BLIGHT_TREES);
     public static final ResourceKey<PlacedFeature> CLOUDCAP_MUSHLING_PATCH = copyKey(ReduxConfiguredFeatures.CLOUDCAP_MUSHLING_PATCH);
-    public static final ResourceKey<PlacedFeature> ENCHANTED_GRASS_PATCH = copyKey(ReduxConfiguredFeatures.ENCHANTED_GRASS_PATCH);
     public static final ResourceKey<PlacedFeature> FROSTBUD_PATCH = copyKey(ReduxConfiguredFeatures.FROSTBUD_PATCH);
     public static final ResourceKey<PlacedFeature> FROSTED_FERN_PATCH = copyKey(ReduxConfiguredFeatures.FROSTED_FERN_PATCH);
-    public static final ResourceKey<PlacedFeature> FROSTED_GRASS_PATCH = copyKey(ReduxConfiguredFeatures.FROSTED_GRASS_PATCH);
     public static final ResourceKey<PlacedFeature> FROSTED_HOLYSTONE_ORE = copyKey(ReduxConfiguredFeatures.FROSTED_HOLYSTONE_ORE);
     public static final ResourceKey<PlacedFeature> FROSTED_PURPLE_FLOWER_PATCH = copyKey(ReduxConfiguredFeatures.FROSTED_PURPLE_FLOWER_PATCH);
     public static final ResourceKey<PlacedFeature> FROSTED_TREES = copyKey(ReduxConfiguredFeatures.FROSTED_TREES);
@@ -149,12 +146,6 @@ public class ReduxPlacedFeatures {
                 BiomeFilter.biome()
         );
 
-        register(context, BLIGHTED_GRASS_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.BLIGHTED_GRASS_PATCH),
-                NOISE_THRESHOLD,
-                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
-                new ConfigFilter(AetherConfig.SERVER.generate_tall_grass),
-                BiomeFilter.biome()
-        );
 
         register(context, BLIGHTSHADE_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.BLIGHTSHADE_PATCH),
                 NOISE_THRESHOLD,
@@ -190,13 +181,6 @@ public class ReduxPlacedFeatures {
                 RarityFilter.onAverageOnceEvery(3),
                 PlacementUtils.filteredByBlockSurvival(ReduxBlocks.CLOUDCAP_MUSHLING.get()));
 
-        register(context, ENCHANTED_GRASS_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.ENCHANTED_GRASS_PATCH),
-                NOISE_THRESHOLD,
-                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
-                new ConfigFilter(AetherConfig.SERVER.generate_tall_grass),
-                BiomeFilter.biome()
-        );
-
 
 
         register(context, FROSTBUD_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.FROSTBUD_PATCH),
@@ -221,13 +205,6 @@ public class ReduxPlacedFeatures {
                 BiomeFilter.biome(),
                 DUNGEON_BLACKLIST,
                 PlacementUtils.filteredByBlockSurvival(ReduxBlocks.GLACIA_SAPLING.get())
-        );
-
-        register(context, FROSTED_GRASS_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.FROSTED_GRASS_PATCH),
-                NOISE_THRESHOLD,
-                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
-                new ConfigFilter(AetherConfig.SERVER.generate_tall_grass),
-                BiomeFilter.biome()
         );
 
         register(context, FROSTED_HOLYSTONE_ORE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.FROSTED_HOLYSTONE_ORE),
