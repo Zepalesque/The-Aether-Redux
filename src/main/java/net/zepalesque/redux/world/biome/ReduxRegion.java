@@ -24,8 +24,8 @@ public class ReduxRegion extends Region {
         Climate.Parameter fullRange = range(-1.0F, 1.0F);
         this.addBiome(mapper, new Climate.ParameterPoint(range(-1.0, -0.8), fullRange, fullRange, fullRange, fullRange, fullRange, 0L), AetherBiomes.SKYROOT_MEADOW);
         if (ReduxConfig.COMMON.enable_snowy_biomes.get()) {
-            this.addBiome(mapper, new Climate.ParameterPoint(range(-0.8D, -0.4D), range(-1.0D, -0.6D), fullRange, fullRange, fullRange, fullRange, 0L), ReduxBiomes.GLACIAL_TAIGA);
-            this.addBiome(mapper, new Climate.ParameterPoint(range(-0.4D, -0.0D), range(-0.6D, 0.0D), fullRange, fullRange, fullRange, fullRange, 0L), ReduxBiomes.FROSTED_TUNDRA);
+            this.addBiome(mapper, new Climate.ParameterPoint(range(-0.8D, -0.2D), range(-1.0D, -0.6D), fullRange, fullRange, fullRange, fullRange, 0L), ReduxBiomes.GLACIAL_TAIGA);
+            this.addBiome(mapper, new Climate.ParameterPoint(range(-0.3D, 0.1D), range(-0.6D, 0.0D), fullRange, fullRange, fullRange, fullRange, 0L), ReduxBiomes.FROSTED_TUNDRA);
         } else {
             this.addBiome(mapper, new Climate.ParameterPoint(range(-0.8, 0.0), range(-1.0, 0.0), fullRange, fullRange, fullRange, fullRange, 0L), AetherBiomes.SKYROOT_MEADOW);
         }
