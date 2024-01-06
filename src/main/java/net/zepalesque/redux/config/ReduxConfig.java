@@ -4,7 +4,6 @@ import net.minecraftforge.common.ForgeConfigSpec;
 import net.zepalesque.redux.config.enums.QuicksoilSetting;
 import net.zepalesque.redux.config.enums.MoaFeetType;
 import net.zepalesque.redux.config.enums.SpawnerType;
-import net.zepalesque.redux.world.biome.ReduxRegion;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.List;
@@ -52,7 +51,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.ConfigValue<Integer> region_size;
         public final ForgeConfigSpec.BooleanValue enable_the_blight;
         public final ForgeConfigSpec.BooleanValue enable_gilded_groves;
-        public final ForgeConfigSpec.BooleanValue enable_frosted_forests;
+        public final ForgeConfigSpec.BooleanValue enable_snowy_biomes;
         public final ForgeConfigSpec.BooleanValue enable_highfields;
         public final ForgeConfigSpec.BooleanValue enable_cloudcap_jungle;
 
@@ -89,7 +88,7 @@ public class ReduxConfig {
 
             this.enable_the_blight = builder.comment("Enables the Blight biome.").worldRestart().translation("config.aether_redux.biomes.blight.enable").define("Enable the Blight", true);
             this.enable_gilded_groves = builder.comment("Enables the Gilded Groves biome.").worldRestart().translation("config.aether_redux.biomes.grove.enable").define("Enable Gilded Groves", true);
-            this.enable_frosted_forests = builder.comment("Enables the Frosted Forests biome.").worldRestart().translation("config.aether_redux.biomes.frost.enable").define("Enable Frosted Forests", true);
+            this.enable_snowy_biomes = builder.comment("Enables the Frosted Forests biome.").worldRestart().translation("config.aether_redux.biomes.frost.enable").define("Enable Frosted Forests", true);
             this.enable_highfields = builder.comment("Enables the Highfields biome.").worldRestart().translation("config.aether_redux.biomes.high.enable").define("Enable Highfields", true);
             this.enable_cloudcap_jungle = builder.comment("Enables the Cloudcap Jungle biome.").worldRestart().translation("config.aether_redux.biomes.cap.enable").define("Enable Cloudcap Jungle", true);
 
