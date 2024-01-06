@@ -2,7 +2,7 @@
   "type": "minecraft:random_selector",
   "config": {
     "default": {
-      "feature": "aether_redux:trees/frosted_skyroot_tree",
+      "feature": "aether_redux:trees/purple_glacia_tree",
       "placement": [
         {
           "type": "minecraft:block_predicate_filter",
@@ -22,7 +22,7 @@
     },
     "features": [
       {
-        "chance": 0.05,
+        "chance": 0.35,
         "feature": {
           "feature": "aether_redux:trees/glacia_tree",
           "placement": [
@@ -44,16 +44,16 @@
         }
       },
       {
-        "chance": 0.05,
+        "chance": 0.1,
         "feature": {
-          "feature": "aether_redux:trees/purple_glacia_tree",
+          "feature": "aether_redux:trees/frosted_skyroot_tree",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",
               "predicate": {
                 "type": "minecraft:would_survive",
                 "state": {
-                  "Name": "aether_redux:purple_glacia_sapling",
+                  "Name": "aether_redux:glacia_sapling",
                   "Properties": {
                     "snow_layer": "false",
                     "snowy_texture": "false",

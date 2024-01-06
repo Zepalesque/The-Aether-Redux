@@ -12,7 +12,7 @@
       }
     },
     "foliage_placer": {
-      "type": "aether_redux:glacia_foliage_placer",
+      "type": "aether_redux:glacia",
       "offset": 0,
       "radius": 1,
       "trunk_height": 1

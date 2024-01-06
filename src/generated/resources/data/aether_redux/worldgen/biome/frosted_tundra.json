@@ -33,8 +33,7 @@
       "aether:ambrosium_ore",
       "aether:zanite_ore",
       "aether:gravitite_ore_buried",
-      "aether:gravitite_ore",
-      "aether_redux:ore/frosted_holystone_ore"
+      "aether:gravitite_ore"
     ],
     [],
     [
@@ -44,7 +43,6 @@
       "aether_redux:patch/frosted_fern_patch",
       "aether_redux:trees/frosted_trees",
       "aether:grass_patch",
-      "aether_redux:patch/lumina_patch",
       "aether_redux:patch/frosted_purple_flower_patch",
       "aether_redux:patch/daggerbloom_patch"
     ],

@@ -5,22 +5,19 @@
     "dirt_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "aether:aether_dirt",
-        "Properties": {
-          "double_drops": "true"
-        }
+        "Name": "minecraft:dirt"
       }
     },
     "foliage_placer": {
-      "type": "aether_redux:glacia",
-      "offset": 0,
-      "radius": 1,
-      "trunk_height": 1
+      "type": "aether_redux:genesis_pine",
+      "offset": 1,
+      "radius": 2,
+      "trunk_height": 2
     },
     "foliage_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "aether_redux:purple_glacia_leaves",
+        "Name": "aether:holiday_leaves",
         "Properties": {
           "distance": "7",
           "double_drops": "true",
@@ -33,20 +30,20 @@
     "ignore_vines": true,
     "minimum_size": {
       "type": "minecraft:two_layers_feature_size",
-      "limit": 1,
+      "limit": 2,
       "lower_size": 0,
-      "upper_size": 1
+      "upper_size": 2
     },
     "trunk_placer": {
       "type": "minecraft:straight_trunk_placer",
       "base_height": 5,
-      "height_rand_a": 2,
+      "height_rand_a": 5,
       "height_rand_b": 0
     },
     "trunk_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "aether_redux:glacia_log",
+        "Name": "aether:skyroot_log",
         "Properties": {
           "axis": "y",
           "double_drops": "true"

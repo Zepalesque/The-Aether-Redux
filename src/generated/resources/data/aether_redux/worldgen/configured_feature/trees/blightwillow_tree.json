@@ -9,7 +9,7 @@
       }
     },
     "foliage_placer": {
-      "type": "aether_redux:blightwillow_foliage_placer",
+      "type": "aether_redux:blightwillow",
       "offset": 0,
       "radius": 2
     },

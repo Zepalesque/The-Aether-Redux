@@ -6,10 +6,7 @@
     "targets": [
       {
         "state": {
-          "Name": "aether_redux:frosted_holystone",
-          "Properties": {
-            "double_drops": "true"
-          }
+          "Name": "aether:aerogel"
         },
         "target": {
           "predicate_type": "minecraft:tag_match",
