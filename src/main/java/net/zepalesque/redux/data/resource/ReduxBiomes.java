@@ -87,7 +87,7 @@ public class ReduxBiomes {
                 WATER_FOG,
                 false,
                 -1.6F,
-                0.0F
+                0.4F
         ));
 
 
@@ -105,7 +105,7 @@ public class ReduxBiomes {
                 WATER_FOG,
                 false,
                 -1.1F,
-                0.0F
+                0.5F
         ));
 
         context.register(GILDED_GROVES, biomeBase(
