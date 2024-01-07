@@ -1,6 +1,9 @@
 {
   "variants": {
-    "": {
+    "snowy=false": {
+      "model": "aether_redux:block/purple_glacia_leaves"
+    },
+    "snowy=true": {
       "model": "aether_redux:block/purple_glacia_leaves_snowy"
     }
   }
