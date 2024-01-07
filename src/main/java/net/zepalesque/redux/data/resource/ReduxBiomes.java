@@ -84,7 +84,10 @@ public class ReduxBiomes {
                 defaultMobSpawns(new MobSpawnSettings.Builder()),
                 ReduxMusic.DEFAULT_AETHER_MUSIC,
                 WATER,
-                WATER_FOG
+                WATER_FOG,
+                false,
+                0.2F,
+                0.0F
         ));
 
 
@@ -99,7 +102,10 @@ public class ReduxBiomes {
                 defaultMobSpawns(new MobSpawnSettings.Builder()),
                 ReduxMusic.DEFAULT_AETHER_MUSIC,
                 WATER,
-                WATER_FOG
+                WATER_FOG,
+                false,
+                0.3F,
+                0.0F
         ));
 
         context.register(GILDED_GROVES, biomeBase(
@@ -138,11 +144,11 @@ public class ReduxBiomes {
 
 
 
-    public static Biome biomeBase(BiomeGenerationSettings.Builder gen, MobSpawnSettings.Builder mobSpawns, Music music, int waterColor, int waterFogColor) {
+    public static Biome biomeBase(BiomeGenerationSettings.Builder gen, MobSpawnSettings.Builder mobSpawns, Music music, int waterColor, int waterFogColor, boolean precip, float temp, float downfall) {
         return fullDefinition(
-                false,
-                0.8F,
-                0.0F,
+                precip,
+                temp,
+                downfall,
                 new BiomeSpecialEffects.Builder()
                         .fogColor(0x93_93_bc)
                         .skyColor(0xc0_c0_ff)
@@ -157,6 +163,10 @@ public class ReduxBiomes {
                 gen.build(),
                 Biome.TemperatureModifier.NONE
         );
+    }
+
+    public static Biome biomeBase(BiomeGenerationSettings.Builder gen, MobSpawnSettings.Builder mobSpawns, Music music, int waterColor, int waterFogColor) {
+        return biomeBase(gen, mobSpawns, music, waterColor, waterFogColor, false, 0.8F, 0.0F);
     }
 
     public static MobSpawnSettings.Builder defaultMobSpawnsNoPassive(MobSpawnSettings.Builder builder)
