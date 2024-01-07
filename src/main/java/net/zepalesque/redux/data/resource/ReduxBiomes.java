@@ -6,6 +6,7 @@ import com.aetherteam.aether.entity.AetherEntityTypes;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.placement.MiscOverworldPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.Music;
 import net.minecraft.world.entity.MobCategory;
@@ -80,12 +81,13 @@ public class ReduxBiomes {
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.FROSTED_PURPLE_FLOWER_PATCH)
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.DAGGERBLOOM_PATCH)
                         .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ReduxPlacedFeatures.AEROGEL_ORE)
+                        .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, MiscOverworldPlacements.FREEZE_TOP_LAYER)
                 ,
                 defaultMobSpawns(new MobSpawnSettings.Builder()),
                 ReduxMusic.DEFAULT_AETHER_MUSIC,
                 WATER,
                 WATER_FOG,
-                true,
+                false,
                 -1.6F,
                 0.4F
         ));
@@ -98,7 +100,8 @@ public class ReduxBiomes {
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.GRASS_PATCH_PLACEMENT)
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.FROSTED_PURPLE_FLOWER_PATCH)
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.DAGGERBLOOM_PATCH)
-                ,
+                        .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, MiscOverworldPlacements.FREEZE_TOP_LAYER)
+                                ,
                 defaultMobSpawns(new MobSpawnSettings.Builder()),
                 ReduxMusic.DEFAULT_AETHER_MUSIC,
                 WATER,

@@ -50,10 +50,11 @@
     ],
     [
       "aether:cold_aercloud",
-      "aether:blue_aercloud"
+      "aether:blue_aercloud",
+      "minecraft:freeze_top_layer"
     ]
   ],
-  "has_precipitation": true,
+  "has_precipitation": false,
   "spawn_costs": {
     "aether:aechor_plant": {
       "charge": 0.4,
