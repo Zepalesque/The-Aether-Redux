@@ -3,6 +3,6 @@
   "textures": {
     "bottom": "aether_redux:block/natural/glacia_leaves",
     "side": "aether_redux:block/natural/glacia_leaves_snowy",
-    "top": "minecraft:snow"
+    "top": "minecraft:blocks/snow"
   }
 }
