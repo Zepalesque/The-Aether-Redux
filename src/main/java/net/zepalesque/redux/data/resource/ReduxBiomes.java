@@ -85,7 +85,7 @@ public class ReduxBiomes {
                 ReduxMusic.DEFAULT_AETHER_MUSIC,
                 WATER,
                 WATER_FOG,
-                false,
+                true,
                 -1.6F,
                 0.4F
         ));
@@ -103,7 +103,7 @@ public class ReduxBiomes {
                 ReduxMusic.DEFAULT_AETHER_MUSIC,
                 WATER,
                 WATER_FOG,
-                false,
+                true,
                 -1.1F,
                 0.5F
         ));
