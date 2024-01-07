@@ -221,7 +221,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.getVariantBuilder(block).forAllStatesExcept(state -> {
             boolean snowy = state.getValue(BlockStateProperties.SNOWY);
             return ConfiguredModel.builder().modelFile(snowy ? this.cubeBottomTop(this.name(block) + "_snowy", this.extend(this.texture(this.name(block), location), "_snowy"), this.texture(this.name(block), location), this.mcLoc("blocks/snow")) : this.cubeAll(block, location)).build();
-        }, LeavesBlock.PERSISTENT, LeavesBlock.DISTANCE, LeavesBlock.WATERLOGGED, SnowableLeavesBlock.SNOWY, AetherBlockStateProperties.DOUBLE_DROPS);
+        }, LeavesBlock.PERSISTENT, LeavesBlock.DISTANCE, LeavesBlock.WATERLOGGED, AetherBlockStateProperties.DOUBLE_DROPS);
     }
 
     public void flowerbed(Block block)
