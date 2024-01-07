@@ -86,7 +86,7 @@ public class ReduxBiomes {
                 WATER,
                 WATER_FOG,
                 false,
-                0.2F,
+                -1.6F,
                 0.0F
         ));
 
@@ -104,7 +104,7 @@ public class ReduxBiomes {
                 WATER,
                 WATER_FOG,
                 false,
-                0.3F,
+                -1.1F,
                 0.0F
         ));
 
