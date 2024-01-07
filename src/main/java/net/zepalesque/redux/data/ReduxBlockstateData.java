@@ -2,6 +2,7 @@ package net.zepalesque.redux.data;
 
 import com.aetherteam.aether.block.AetherBlockStateProperties;
 import com.aetherteam.aether.block.AetherBlocks;
+import com.aetherteam.aether.block.natural.AetherDoubleDropsLeaves;
 import com.aetherteam.aether.data.providers.AetherBlockStateProvider;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
@@ -17,6 +18,7 @@ import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.natural.ExtendedDistanceLeavesBlock;
 import net.zepalesque.redux.block.natural.LeafPileBlock;
+import net.zepalesque.redux.block.natural.frosted.SnowableLeavesBlock;
 import net.zepalesque.redux.block.util.PetalPrismaticness;
 import net.zepalesque.redux.block.util.ReduxStates;
 import net.zepalesque.redux.block.util.ShortGrassType;
@@ -218,8 +220,8 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
     public void snowableLeaves(Block block, String location) {
         this.getVariantBuilder(block).forAllStatesExcept(state -> {
             boolean snowy = state.getValue(BlockStateProperties.SNOWY);
-            return ConfiguredModel.builder().modelFile(snowy ? this.cubeBottomTop(this.name(block) + "_snowy", this.extend(this.texture(this.name(block), location), "_snowy"), this.texture(this.name(block), location), this.mcLoc("snow")) : this.cubeAll(block, location)).build();
-        });
+            return ConfiguredModel.builder().modelFile(snowy ? this.cubeBottomTop(this.name(block) + "_snowy", this.extend(this.texture(this.name(block), location), "_snowy"), this.texture(this.name(block), location), this.mcLoc("blocks/snow")) : this.cubeAll(block, location)).build();
+        }, LeavesBlock.PERSISTENT, LeavesBlock.DISTANCE, LeavesBlock.WATERLOGGED, SnowableLeavesBlock.SNOWY, AetherBlockStateProperties.DOUBLE_DROPS);
     }
 
     public void flowerbed(Block block)

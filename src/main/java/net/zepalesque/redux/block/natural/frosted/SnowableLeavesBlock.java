@@ -18,6 +18,7 @@ public class SnowableLeavesBlock extends AetherDoubleDropsLeaves {
 
     public SnowableLeavesBlock(Properties properties) {
         super(properties);
+        this.registerDefaultState(this.defaultBlockState().setValue(SNOWY, false));
     }
 
     public BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor level, BlockPos currentPos, BlockPos facingPos) {
