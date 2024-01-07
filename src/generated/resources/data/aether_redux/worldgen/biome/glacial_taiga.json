@@ -53,7 +53,7 @@
       "aether:blue_aercloud"
     ]
   ],
-  "has_precipitation": false,
+  "has_precipitation": true,
   "spawn_costs": {
     "aether:aechor_plant": {
       "charge": 0.4,
