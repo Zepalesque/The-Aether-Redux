@@ -95,11 +95,11 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.grass(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT);
         this.grassGlow(ReduxBlocks.AEVELIUM.get(), ReduxBlocks.LIGHTROOT_AETHER_DIRT, true, false);
 
-        this.block(ReduxBlocks.GLACIA_LEAVES.get(), "natural/");
+        this.snowableLeaves(ReduxBlocks.GLACIA_LEAVES.get(), "natural/");
         this.frostedCrossBlock(ReduxBlocks.GLACIA_SAPLING.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_GLACIA_SAPLING.get(), ReduxBlocks.GLACIA_SAPLING.get(), "natural/");
 
-        this.block(ReduxBlocks.PURPLE_GLACIA_LEAVES.get(), "natural/");
+        this.snowableLeaves(ReduxBlocks.PURPLE_GLACIA_LEAVES.get(), "natural/");
         this.frostedCrossBlock(ReduxBlocks.PURPLE_GLACIA_SAPLING.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_PURPLE_GLACIA_SAPLING.get(), ReduxBlocks.PURPLE_GLACIA_SAPLING.get(), "natural/");
 
@@ -215,6 +215,12 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         }, AetherBlockStateProperties.DOUBLE_DROPS);
     }
 
+    public void snowableLeaves(Block block, String location) {
+        this.getVariantBuilder(block).forAllStatesExcept(state -> {
+            boolean snowy = state.getValue(BlockStateProperties.SNOWY);
+            return ConfiguredModel.builder().modelFile(snowy ? this.cubeBottomTop(this.name(block) + "_snowy", this.extend(this.texture(this.name(block), location), "_snowy"), this.texture(this.name(block), location), this.mcLoc("snow")) : this.cubeAll(block, location)).build();
+        });
+    }
 
     public void flowerbed(Block block)
     {
