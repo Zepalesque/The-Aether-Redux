@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
   "biomes": "#aether:is_aether",
-  "features": "minecraft:freeze_top_layer",
+  "features": "aether_redux:surface/snow_layer",
   "step": "top_layer_modification"
 }
