@@ -10,7 +10,6 @@ import com.aetherteam.aether_genesis.item.GenesisItems;
 import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.data.PackOutput;
 import net.minecraft.util.random.WeightedEntry;
-import net.minecraft.util.valueproviders.BiasedToBottomInt;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.ItemStack;
@@ -20,6 +19,7 @@ import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.functions.LootItemFunction;
 import net.minecraft.world.level.storage.loot.functions.LootingEnchantFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
@@ -33,8 +33,8 @@ import net.zepalesque.redux.api.condition.NotCondition;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.loot.condition.DataLootCondition;
 import net.zepalesque.redux.loot.modifiers.GenesisAddDungeonLootModifier;
-import net.zepalesque.redux.loot.modifiers.GenesisAddEntityDropsModifier;
-import net.zepalesque.redux.loot.modifiers.RemoveEntityDropsModifier;
+import net.zepalesque.redux.loot.modifiers.GenesisAddDropsModifier;
+import net.zepalesque.redux.loot.modifiers.RemoveDropsModifier;
 
 import java.util.List;
 
@@ -46,7 +46,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
     @Override
     protected void start() {
 
-        this.add("cockatrice_feather", new GenesisAddEntityDropsModifier(new ItemStack(ReduxItems.COCKATRICE_FEATHER.get()),
+        this.add("cockatrice_feather", new GenesisAddDropsModifier(new ItemStack(ReduxItems.COCKATRICE_FEATHER.get()),
                 new LootItemFunction[] {
                         SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)).build(),
                         LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)).build() },
@@ -55,8 +55,22 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                         LootItemRandomChanceCondition.randomChance(0.02F).build()
                 }));
 
+        this.add("raw_gravitite", new GenesisAddDropsModifier(new ItemStack(ReduxItems.RAW_GRAVITITE.get()),
+                new LootItemFunction[] {
+                        SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)).build(),
+                        LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)).build() },
+                new LootItemCondition[] {
+                        DataLootCondition.conditionOf(Conditions.RAW_GRAVITITE).build(),
+                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(AetherBlocks.GRAVITITE_ORE.get()).build()}));
 
-        this.add("sentry_circuit", new GenesisAddEntityDropsModifier(new ItemStack(ReduxItems.SENTRY_CIRCUIT.get()),
+
+        this.add("remove_gravitite_ore", new RemoveDropsModifier(AetherBlocks.GRAVITITE_ORE.get().asItem(),
+                new LootItemCondition[] {
+                        DataLootCondition.conditionOf(Conditions.RAW_GRAVITITE).build(),
+                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(AetherBlocks.GRAVITITE_ORE.get()).build()}));
+
+
+        this.add("sentry_circuit", new GenesisAddDropsModifier(new ItemStack(ReduxItems.SENTRY_CIRCUIT.get()),
                 new LootItemFunction[] {
                         SetItemCountFunction.setCount(UniformGenerator.between(0, 1.0F)).build(),
                         LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)).build() },
@@ -65,7 +79,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                         LootItemRandomChanceCondition.randomChance(0.5F).build()
                 }));
 
-        this.add("swet_sugar_no_genesis", new GenesisAddEntityDropsModifier(new ItemStack(Items.SUGAR),
+        this.add("swet_sugar_no_genesis", new GenesisAddDropsModifier(new ItemStack(Items.SUGAR),
                 new LootItemFunction[] {
                         SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F)).build(),
                         LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)).build() },
@@ -76,12 +90,12 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
 
                 }));
 
-        this.add("remove_blue_swet_cloud", new RemoveEntityDropsModifier(AetherBlocks.BLUE_AERCLOUD.get().asItem(),
+        this.add("remove_blue_swet_cloud", new RemoveDropsModifier(AetherBlocks.BLUE_AERCLOUD.get().asItem(),
                 new LootItemCondition[]{LootItemEntityPropertyCondition
                         .hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(AetherEntityTypes.BLUE_SWET.get()))
                         .build()
         }));
-        this.add("remove_golden_swet_glowstone", new RemoveEntityDropsModifier(Blocks.GLOWSTONE.asItem(),
+        this.add("remove_golden_swet_glowstone", new RemoveDropsModifier(Blocks.GLOWSTONE.asItem(),
                 new LootItemCondition[]{LootItemEntityPropertyCondition
                         .hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(AetherEntityTypes.GOLDEN_SWET.get()))
                         .build()
@@ -118,7 +132,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
     private void doSwetBallIncreases() {
 
 
-        this.add("blue_swet_ball_increase", new GenesisAddEntityDropsModifier(new ItemStack(AetherItems.SWET_BALL.get()),
+        this.add("blue_swet_ball_increase", new GenesisAddDropsModifier(new ItemStack(AetherItems.SWET_BALL.get()),
                 new LootItemFunction[] {
                         SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F)).build(),
                         LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)).build() },
@@ -127,7 +141,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                         .build()
 
                 }));
-        this.add("golden_swet_ball_add", new GenesisAddEntityDropsModifier(new ItemStack(ReduxItems.GOLDEN_SWET_BALL.get()),
+        this.add("golden_swet_ball_add", new GenesisAddDropsModifier(new ItemStack(ReduxItems.GOLDEN_SWET_BALL.get()),
                 new LootItemFunction[] {
                         SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F)).build(),
                         LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)).build() },
@@ -136,7 +150,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                         .build(),
                         DataLootCondition.conditionOf(new NotCondition<>(Conditions.GENESIS)).build()
                 }));
-        this.add("genesis_golden_swet_ball_increase", new GenesisAddEntityDropsModifier(new ItemStack(GenesisItems.GOLDEN_SWET_BALL.get()),
+        this.add("genesis_golden_swet_ball_increase", new GenesisAddDropsModifier(new ItemStack(GenesisItems.GOLDEN_SWET_BALL.get()),
                 new LootItemFunction[] {
                         SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F)).build(),
                         LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)).build() },
@@ -145,7 +159,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                         .build(),
                         DataLootCondition.conditionOf(Conditions.GENESIS).build()
                 }));
-        this.add("genesis_dark_swet_ball_increase", new GenesisAddEntityDropsModifier(new ItemStack(GenesisItems.DARK_SWET_BALL.get()),
+        this.add("genesis_dark_swet_ball_increase", new GenesisAddDropsModifier(new ItemStack(GenesisItems.DARK_SWET_BALL.get()),
                 new LootItemFunction[] {
                         SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F)).build(),
                         LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)).build() },

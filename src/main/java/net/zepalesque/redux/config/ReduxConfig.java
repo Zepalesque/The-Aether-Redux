@@ -57,6 +57,7 @@ public class ReduxConfig {
 
         public final ForgeConfigSpec.BooleanValue change_double_plant_hitbox;
         public final ForgeConfigSpec.BooleanValue better_conversion_sounds;
+        public final ForgeConfigSpec.BooleanValue raw_gravitite;
 
         public Common(ForgeConfigSpec.Builder builder) {
             builder.push("Gameplay Changes");
@@ -67,6 +68,7 @@ public class ReduxConfig {
             this.vanilla_consistent_mine_speeds = builder.comment("Makes some Aether blocks take longer to break, to be more consistent with vanilla blocks").translation("config.aether_redux.gameplay.vanilla_consistent_mine_speeds").define("Vanilla-Consistent Mining Speeds", false);
             this.change_double_plant_hitbox = builder.comment("Changes the hitboxes of vanilla double plants. Disable if it causes odd behavior.").translation("config.aether_redux.gameplay.change_double_plant_hitbox").define("Change Double Plant Hitboxes", true);
             this.better_conversion_sounds = builder.comment("Makes blockstate conversion sounds (ambrosium, swet ball) better").translation("config.aether_redux.gameplay.better_conversion_sounds").define("Better Conversion Sounds", true);
+            this.raw_gravitite = builder.comment("Makes Gravitite Ore drop Raw Gravitite when mined.").translation("config.aether_redux.gameplay.raw_gravitite").define("Raw Gravitite", true);
             builder.pop();
             builder.push("Mob Sound Changes");
             this.improved_moa_sounds = builder.comment("Gives Moas their sounds from older builds of the Aether II: Highlands").translation("config.aether_redux.mob_sounds.improved_moa_sounds").define("Improved Moa Sounds", true);
