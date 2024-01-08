@@ -1,0 +1,10 @@
+{
+  "type": "aether:enchanting",
+  "category": "enchanting_blocks",
+  "cookingtime": 750,
+  "experience": 1.0,
+  "ingredient": {
+    "item": "aether_redux:raw_gravitite"
+  },
+  "result": "aether:enchanted_gravitite"
+}
