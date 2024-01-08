@@ -348,6 +348,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.RAW_VERIDIUM, "Raw Veridium");
         addLore(ReduxItems.RAW_VERIDIUM, "A chunk of Raw Veridium. This can be smelted into an ingot.");
 
+        addItem(ReduxItems.RAW_GRAVITITE, "Raw Gravitite");
+        addLore(ReduxItems.RAW_GRAVITITE, "A chunk of the Aether's rarest ore. This can be enchanted into Enchanted Gravitite blocks.");
+
         addItem(ReduxItems.COCKATRICE_FEATHER, "Cockatrice Feather");
         addLore(ReduxItems.COCKATRICE_FEATHER, "A feather from a Cockatrice. It is said that it will protect the user from Cockatrices' venom.");
 

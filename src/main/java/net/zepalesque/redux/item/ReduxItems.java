@@ -64,6 +64,8 @@ public class ReduxItems {
 
     public static final RegistryObject<Item> OATS = register("oats", () -> new Item(new Item.Properties().food(ReduxFoods.OATS)));
 
+    public static final RegistryObject<Item> RAW_GRAVITITE = register("raw_gravitite", () -> new Item(new Item.Properties()));
+
     public static final RegistryObject<Item> SPECTRAL_DART = ITEMS.register("spectral_dart", () -> new DartItem(ReduxEntityTypes.SPECTRAL_DART, new Item.Properties()));
     public static final RegistryObject<Item> SPECTRAL_DART_SHOOTER = ITEMS.register("spectral_dart_shooter", () -> new DartShooterItem(SPECTRAL_DART, (new Item.Properties()).stacksTo(1)));
 

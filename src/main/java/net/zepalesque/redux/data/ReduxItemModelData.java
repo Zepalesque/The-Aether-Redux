@@ -169,6 +169,8 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         this.item(ReduxItems.VERIDIUM_INGOT, "materials/");
         this.item(ReduxItems.RAW_VERIDIUM, "materials/");
 
+        this.item(ReduxItems.RAW_GRAVITITE, "materials/");
+
         this.itemBlock(ReduxBlocks.VERIDIUM_BLOCK.get());
         this.itemBlock(ReduxBlocks.VERIDIUM_ORE.get());
         this.itemBlock(ReduxBlocks.RAW_VERIDIUM_BLOCK.get());
