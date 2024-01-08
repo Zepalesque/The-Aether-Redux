@@ -9,6 +9,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -29,7 +30,7 @@ public class AetherShortGrassBlock extends AetherBushBlock {
 
     public AetherShortGrassBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.defaultBlockState().setValue(ReduxStates.GRASS_TYPE, ShortGrassType.AETHER));
+        this.registerDefaultState(this.defaultBlockState().setValue(ReduxStates.GRASS_TYPE, ShortGrassType.AETHER).setValue(ReduxStates.SNOW_LAYER, false));
     }
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return SHAPE;
@@ -44,6 +45,7 @@ public class AetherShortGrassBlock extends AetherBushBlock {
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);
         builder.add(ReduxStates.GRASS_TYPE);
+        builder.add(ReduxStates.SNOW_LAYER);
     }
 
     protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
@@ -61,6 +63,8 @@ public class AetherShortGrassBlock extends AetherBushBlock {
 
         }
         return b != pState.getValue(ReduxStates.GRASS_TYPE) ? b : null;
+
+
     }
 
     @Nullable
@@ -68,16 +72,33 @@ public class AetherShortGrassBlock extends AetherBushBlock {
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         @Nullable ShortGrassType type = check(this.defaultBlockState(), context.getLevel().getBlockState(context.getClickedPos().below()));
         if (type != null) {
-            return this.defaultBlockState().setValue(ReduxStates.GRASS_TYPE, type);
+            return modifySnow(this.defaultBlockState().setValue(ReduxStates.GRASS_TYPE, type), context.getLevel(), context.getClickedPos());
         }
-        return super.getStateForPlacement(context);
+        return modifySnow(super.getStateForPlacement(context), context.getLevel(), context.getClickedPos());
     }
 
+    public BlockState modifySnow(BlockState state, LevelAccessor level, BlockPos pos) {
+        int snowSides = 0;
+        for (Direction d : Direction.Plane.HORIZONTAL) {
+            BlockState b = level.getBlockState(pos.relative(d));
+            if (b.getBlock() == Blocks.SNOW || (b.hasProperty(ReduxStates.SNOWY_TEXTURE) && b.getValue(ReduxStates.SNOWY_TEXTURE)) || (b.hasProperty(ReduxStates.GRASS_TYPE) && b.getValue(ReduxStates.GRASS_TYPE) == ShortGrassType.FROSTED_SNOWY)) { snowSides++; }
+
+        }
+        if (state.getValue(ReduxStates.GRASS_TYPE) == ShortGrassType.FROSTED) {
+            if (snowSides >= 2 && level.getBlockState(pos.below()).is(ReduxTags.Blocks.FROSTED_GRASSES)) {
+                state = state.setValue(ReduxStates.SNOW_LAYER, true);
+            }
+            if (snowSides >= 2 && level.getBlockState(pos.below()).is(ReduxTags.Blocks.FROSTED_GRASSES)) {
+                state = state.setValue(ReduxStates.GRASS_TYPE, ShortGrassType.FROSTED_SNOWY);
+            }
+        }
+        return state;
+    }
     @Override
     @NotNull
     public BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor level, BlockPos currentPos, BlockPos facingPos) {
         @Nullable ShortGrassType type = check(state, level.getBlockState(currentPos.below()));
         BlockState b = super.updateShape(state, facing, facingState, level, currentPos, facingPos);
-        return type != null && b.hasProperty(ReduxStates.GRASS_TYPE) ? b.setValue(ReduxStates.GRASS_TYPE, type) : b;
+        return modifySnow(type != null && b.hasProperty(ReduxStates.GRASS_TYPE) ? b.setValue(ReduxStates.GRASS_TYPE, type) : b, level, currentPos);
     }
 }

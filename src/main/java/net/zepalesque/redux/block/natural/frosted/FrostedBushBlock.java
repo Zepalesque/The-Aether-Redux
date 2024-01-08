@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.zepalesque.redux.block.util.ShortGrassType;
 import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.block.util.ReduxStates;
 import org.jetbrains.annotations.Nullable;
@@ -59,10 +60,11 @@ public class FrostedBushBlock extends AetherBushBlock {
 
     public BlockState checkSnow(BlockState state, LevelAccessor level, BlockPos pos) {
         int snowSides = 0;
-        if (level.getBlockState(pos.east()).getBlock() == Blocks.SNOW) { snowSides++; }
-        if (level.getBlockState(pos.west()).getBlock() == Blocks.SNOW) { snowSides++; }
-        if (level.getBlockState(pos.north()).getBlock() == Blocks.SNOW) { snowSides++; }
-        if (level.getBlockState(pos.south()).getBlock() == Blocks.SNOW) { snowSides++; }
+        for (Direction d : Direction.Plane.HORIZONTAL) {
+            BlockState b = level.getBlockState(pos.relative(d));
+            if (b.getBlock() == Blocks.SNOW || (b.hasProperty(ReduxStates.SNOWY_TEXTURE) && b.getValue(ReduxStates.SNOWY_TEXTURE)) || (b.hasProperty(ReduxStates.GRASS_TYPE) && b.getValue(ReduxStates.GRASS_TYPE) == ShortGrassType.FROSTED_SNOWY)) { snowSides++; }
+
+        }
         if (snowSides >= 2 && level.getBlockState(pos.below()).is(ReduxTags.Blocks.FROSTED_GRASSES)) { state = state.setValue(ReduxStates.SNOW_LAYER, true); }
         if (level.getBlockState(pos.below()).is(ReduxTags.Blocks.FROSTED_PLANTS_PLACEMENT) || (snowSides >= 2 && level.getBlockState(pos.below()).is(ReduxTags.Blocks.FROSTED_GRASSES)))
         { state = state.setValue(ReduxStates.SNOWY_TEXTURE, true); }

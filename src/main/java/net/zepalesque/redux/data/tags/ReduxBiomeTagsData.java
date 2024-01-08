@@ -32,6 +32,7 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
         this.tag(AetherTags.Biomes.IS_AETHER).add(
                 ReduxBiomes.THE_BLIGHT,
                 ReduxBiomes.GLACIAL_TAIGA,
+                ReduxBiomes.FROSTED_TUNDRA,
                 ReduxBiomes.GILDED_GROVES,
                 ReduxBiomes.HIGHFIELDS,
                 ReduxBiomes.CLOUDCAP_JUNGLE

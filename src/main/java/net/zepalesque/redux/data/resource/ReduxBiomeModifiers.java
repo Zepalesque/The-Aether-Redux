@@ -1,9 +1,11 @@
 package net.zepalesque.redux.data.resource;
 
+import com.aetherteam.aether.AetherTags;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.placement.MiscOverworldPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.MobSpawnSettings;
@@ -35,6 +37,7 @@ public class ReduxBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_VANILLA_SWET = createKey(MOB + "vanilla_swet");
     public static final ResourceKey<BiomeModifier> ADD_VERIDIUM = createKey(FEATURE + "veridium_ore");
     public static final ResourceKey<BiomeModifier> ADD_DIVINITE = createKey(FEATURE + "divinite");
+    public static final ResourceKey<BiomeModifier> ADD_SNOW = createKey(FEATURE + "snow");
     public static final ResourceKey<BiomeModifier> WATER_COLOR_AETHER = createKey(MODIFY + "water_color");
 
     private static ResourceKey<BiomeModifier> createKey(String name) {
@@ -57,6 +60,10 @@ public class ReduxBiomeModifiers {
 
         context.register(ADD_MOSSY_ROCKS, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
                 biomes.getOrThrow(ReduxTags.Biomes.HAS_MOSSY_ROCKS), HolderSet.direct(features.getOrThrow(ReduxPlacedFeatures.MOSSY_ROCK)),
+                GenerationStep.Decoration.TOP_LAYER_MODIFICATION));
+
+        context.register(ADD_SNOW, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(AetherTags.Biomes.IS_AETHER), HolderSet.direct(features.getOrThrow(MiscOverworldPlacements.FREEZE_TOP_LAYER)),
                 GenerationStep.Decoration.TOP_LAYER_MODIFICATION));
 
         context.register(ADD_SKYSPROUTS, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(

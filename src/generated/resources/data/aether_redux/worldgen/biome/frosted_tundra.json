@@ -48,8 +48,7 @@
     ],
     [
       "aether:cold_aercloud",
-      "aether:blue_aercloud",
-      "minecraft:freeze_top_layer"
+      "aether:blue_aercloud"
     ]
   ],
   "has_precipitation": true,
