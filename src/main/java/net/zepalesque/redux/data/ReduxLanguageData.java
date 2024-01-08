@@ -343,7 +343,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addLore(ReduxItems.INFUSED_VERIDIUM_SWORD, "A sword made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it far more powerful for a short time!");
 
         addItem(ReduxItems.VERIDIUM_INGOT, "Veridium Ingot");
-        addLore(ReduxItems.VERIDIUM_INGOT, "An ingot of Veridium. This can be crafted into tools, but not armor.");
+        addLore(ReduxItems.VERIDIUM_INGOT, "An bar of pure Veridium, a metal that when coming in contact with ambrosium, takes on a glowing light blue color, strengthening temporarily.");
 
         addItem(ReduxItems.RAW_VERIDIUM, "Raw Veridium");
         addLore(ReduxItems.RAW_VERIDIUM, "A chunk of Raw Veridium. This can be smelted into an ingot.");
