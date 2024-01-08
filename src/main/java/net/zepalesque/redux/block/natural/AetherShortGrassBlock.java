@@ -78,6 +78,9 @@ public class AetherShortGrassBlock extends AetherBushBlock {
     }
 
     public BlockState modifySnow(BlockState state, LevelAccessor level, BlockPos pos) {
+        if (!state.hasProperty(ReduxStates.GRASS_TYPE) || !state.hasProperty(ReduxStates.SNOW_LAYER)) {
+            return state;
+        }
         int snowSides = 0;
         for (Direction d : Direction.Plane.HORIZONTAL) {
             BlockState b = level.getBlockState(pos.relative(d));
