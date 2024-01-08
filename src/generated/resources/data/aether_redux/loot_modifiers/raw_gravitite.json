@@ -2,28 +2,21 @@
   "type": "aether_redux:genesis_add_drops",
   "conditions": [
     {
-      "condition": "minecraft:entity_properties",
-      "entity": "this",
-      "predicate": {
-        "type": "aether_genesis:dark_swet"
+      "condition": "aether_redux:data_loot_condition",
+      "data_loot_condition": {
+        "condition": "aether_redux:redux_config",
+        "config_path": "[Gameplay Changes, Raw Gravitite]"
       }
     },
     {
-      "condition": "aether_redux:data_loot_condition",
-      "data_loot_condition": {
-        "condition": "aether_redux:mod_loaded",
-        "mod_id": "aether_genesis"
-      }
+      "block": "aether:gravitite_ore",
+      "condition": "minecraft:block_state_property"
     }
   ],
   "functions": [
     {
       "add": false,
-      "count": {
-        "type": "minecraft:uniform",
-        "max": 2.0,
-        "min": 0.0
-      },
+      "count": 1.0,
       "function": "minecraft:set_count"
     },
     {
@@ -37,6 +30,6 @@
   ],
   "item": {
     "Count": 1,
-    "id": "aether_genesis:dark_swet_ball"
+    "id": "aether_redux:raw_gravitite"
   }
 }

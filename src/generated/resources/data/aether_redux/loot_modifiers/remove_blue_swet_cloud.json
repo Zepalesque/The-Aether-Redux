@@ -1,5 +1,5 @@
 {
-  "type": "aether_redux:remove_entity_drops",
+  "type": "aether_redux:remove_drops",
   "conditions": [
     {
       "condition": "minecraft:entity_properties",

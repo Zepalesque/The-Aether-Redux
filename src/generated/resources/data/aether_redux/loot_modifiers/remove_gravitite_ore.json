@@ -1,0 +1,17 @@
+{
+  "type": "aether_redux:remove_drops",
+  "conditions": [
+    {
+      "condition": "aether_redux:data_loot_condition",
+      "data_loot_condition": {
+        "condition": "aether_redux:redux_config",
+        "config_path": "[Gameplay Changes, Raw Gravitite]"
+      }
+    },
+    {
+      "block": "aether:gravitite_ore",
+      "condition": "minecraft:block_state_property"
+    }
+  ],
+  "item": "aether:gravitite_ore"
+}
