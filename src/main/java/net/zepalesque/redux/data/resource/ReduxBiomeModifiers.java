@@ -63,7 +63,7 @@ public class ReduxBiomeModifiers {
                 GenerationStep.Decoration.TOP_LAYER_MODIFICATION));
 
         context.register(ADD_SNOW, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
-                biomes.getOrThrow(AetherTags.Biomes.IS_AETHER), HolderSet.direct(features.getOrThrow(MiscOverworldPlacements.FREEZE_TOP_LAYER)),
+                biomes.getOrThrow(AetherTags.Biomes.IS_AETHER), HolderSet.direct(features.getOrThrow(ReduxPlacedFeatures.AETHER_SNOW_LAYER)),
                 GenerationStep.Decoration.TOP_LAYER_MODIFICATION));
 
         context.register(ADD_SKYSPROUTS, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(

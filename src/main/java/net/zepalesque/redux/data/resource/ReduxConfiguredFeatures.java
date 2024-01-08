@@ -128,6 +128,7 @@ public class    ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> GRASS_PATCH_OVERRIDE = aetherKey("grass_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TALL_GRASS_PATCH_OVERRIDE = aetherKey("tall_grass_patch");
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>> AETHER_SNOW_LAYER = createKey(Folders.SURFACE + "snow_layer");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> CLOUD_LAYER = createKey(Folders.MISC + "cloud_layer");
 
@@ -157,6 +158,7 @@ public class    ReduxConfiguredFeatures {
                         ConstantFloat.of(7.5F), UniformInt.of(78, 80), blocks.getOrThrow(AetherTags.Blocks.AETHER_ISLAND_BLOCKS)));
         register(context, AURUM_PATCH, ReduxFeatureRegistry.BIOME_BORDER_PLACEMENT_FLOWER.get(),
                 biomePlacementPatch(12, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.AURUM))));
+        register(context, AETHER_SNOW_LAYER, ReduxFeatureRegistry.TREE_CHECKING_SNOW.get(), FeatureConfiguration.NONE);
         register(context, GILDED_WHITE_FLOWER_PATCH, ReduxFeatureRegistry.BIOME_BORDER_PLACEMENT_FLOWER.get(),
                 biomePlacementPatch(16, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.GILDED_WHITE_FLOWER))));
         register(context, HOLYSILT_DISK, AetherFeatures.SHELF.get(),

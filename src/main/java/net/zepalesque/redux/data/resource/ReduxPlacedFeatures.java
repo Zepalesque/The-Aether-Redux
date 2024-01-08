@@ -84,6 +84,7 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> HOLYSILT_DISK = copyKey(ReduxConfiguredFeatures.HOLYSILT_DISK);
     public static final ResourceKey<PlacedFeature> CLOUD_LAYER = copyKey(ReduxConfiguredFeatures.CLOUD_LAYER);
 
+    public static final ResourceKey<PlacedFeature> AETHER_SNOW_LAYER = copyKey(ReduxConfiguredFeatures.AETHER_SNOW_LAYER);
 
     public static final ResourceKey<PlacedFeature> QUICKSOIL_SHELF_OVERRIDE = aetherKey("quicksoil_shelf");
 
@@ -99,7 +100,8 @@ public class ReduxPlacedFeatures {
         );
         register(context, CLOUD_LAYER, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.CLOUD_LAYER)
         );
-
+        register(context, AETHER_SNOW_LAYER, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.AETHER_SNOW_LAYER)
+        );
 
         register(context, AEVYRN_BUSH_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.AEVYRN_BUSH_PATCH),
                 NOISE_THRESHOLD,

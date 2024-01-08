@@ -29,4 +29,5 @@ public class ReduxFeatureRegistry {
     public static RegistryObject<Feature<FieldsproutTreeConfig>> FIELDSPROUT_TREE = FEATURES.register("fieldsprout_tree", () -> new FieldsproutTreeFeature(FieldsproutTreeConfig.CODEC));
     public static RegistryObject<Feature<CloudLayerConfig>> CLOUD_LAYER = FEATURES.register("cloud_layer", () -> new CloudLayerFeature(CloudLayerConfig.CODEC));
     public static RegistryObject<Feature<CloudLayerConfig>> STONE_LAYER = FEATURES.register("stone_layer", () -> new StoneLayerFeature(CloudLayerConfig.CODEC));
+    public static RegistryObject<Feature<NoneFeatureConfiguration>> TREE_CHECKING_SNOW = FEATURES.register("tree_checking_snow", () -> new TreeCheckingSnowLayerFeature(NoneFeatureConfiguration.CODEC));
 }
