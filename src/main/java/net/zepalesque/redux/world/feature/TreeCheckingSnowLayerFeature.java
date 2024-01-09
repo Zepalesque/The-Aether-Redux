@@ -13,6 +13,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.zepalesque.redux.block.util.ReduxStates;
 
 public class TreeCheckingSnowLayerFeature extends Feature<NoneFeatureConfiguration> {
    public TreeCheckingSnowLayerFeature(Codec<NoneFeatureConfiguration> p_66836_) {
@@ -63,8 +64,12 @@ public class TreeCheckingSnowLayerFeature extends Feature<NoneFeatureConfigurati
          worldgenlevel.setBlock(pos, Blocks.SNOW.defaultBlockState(), 2);
          BlockState blockstate = worldgenlevel.getBlockState(below);
          if (blockstate.hasProperty(SnowyDirtBlock.SNOWY)) {
-            worldgenlevel.setBlock(below, blockstate.setValue(SnowyDirtBlock.SNOWY, Boolean.valueOf(true)), 2);
+            worldgenlevel.setBlock(below, blockstate.setValue(SnowyDirtBlock.SNOWY, Boolean.TRUE), 2);
          }
+      }
+      BlockState block = worldgenlevel.getBlockState(pos);
+      if (block.hasProperty(ReduxStates.SNOWLOGGED)) {
+         worldgenlevel.setBlock(below, block.setValue(ReduxStates.SNOWLOGGED, Boolean.TRUE), 2);
       }
    }
 }
