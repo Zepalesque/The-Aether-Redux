@@ -7,7 +7,7 @@ import net.zepalesque.redux.block.natural.ExtendedDistanceLeavesBlock;
 
 public class ReduxStates {
     public static final BooleanProperty SNOWY_TEXTURE = BooleanProperty.create("snowy_texture");
-    public static final BooleanProperty SNOW_LAYER = BooleanProperty.create("snow_layer");
+    public static final BooleanProperty SNOWLOGGED = BooleanProperty.create("snowlogged");
 
     public static final BooleanProperty SNOWED = BooleanProperty.create("snowed");
 

@@ -20,14 +20,14 @@ public class FrostedTallGrassBlock extends AetherTallGrassBlock {
 
     public FrostedTallGrassBlock(Properties properties, TagKey<Block> grassBlockTag) {
         super(properties, grassBlockTag);
-        this.registerDefaultState(this.defaultBlockState().setValue(ReduxStates.SNOWY_TEXTURE, false).setValue(ReduxStates.SNOW_LAYER, false));
+        this.registerDefaultState(this.defaultBlockState().setValue(ReduxStates.SNOWY_TEXTURE, false).setValue(ReduxStates.SNOWLOGGED, false));
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);
         builder.add(ReduxStates.SNOWY_TEXTURE);
-        builder.add(ReduxStates.SNOW_LAYER);
+        builder.add(ReduxStates.SNOWLOGGED);
     }
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
@@ -73,7 +73,7 @@ public class FrostedTallGrassBlock extends AetherTallGrassBlock {
         if (level.getBlockState(pos.west()).getBlock() == Blocks.SNOW) { snowSides++; }
         if (level.getBlockState(pos.north()).getBlock() == Blocks.SNOW) { snowSides++; }
         if (level.getBlockState(pos.south()).getBlock() == Blocks.SNOW) { snowSides++; }
-        if (snowSides >= 2 && level.getBlockState(pos.below()).is(ReduxTags.Blocks.FROSTED_GRASSES)) { state = state.setValue(ReduxStates.SNOW_LAYER, true); }
+        if (snowSides >= 2 && level.getBlockState(pos.below()).is(ReduxTags.Blocks.FROSTED_GRASSES)) { state = state.setValue(ReduxStates.SNOWLOGGED, true); }
         if (level.getBlockState(pos.below()).is(ReduxTags.Blocks.FROSTED_PLANTS_PLACEMENT) || (snowSides >= 2 && level.getBlockState(pos.below()).is(ReduxTags.Blocks.FROSTED_GRASSES)))
         { state = state.setValue(ReduxStates.SNOWY_TEXTURE, true); }
         return state;

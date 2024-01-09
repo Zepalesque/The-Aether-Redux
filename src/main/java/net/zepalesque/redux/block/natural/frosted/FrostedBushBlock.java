@@ -21,14 +21,14 @@ public class FrostedBushBlock extends AetherBushBlock {
 
     public FrostedBushBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.defaultBlockState().setValue(ReduxStates.SNOWY_TEXTURE, false).setValue(ReduxStates.SNOW_LAYER, false));
+        this.registerDefaultState(this.defaultBlockState().setValue(ReduxStates.SNOWY_TEXTURE, false).setValue(ReduxStates.SNOWLOGGED, false));
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);
         builder.add(ReduxStates.SNOWY_TEXTURE);
-        builder.add(ReduxStates.SNOW_LAYER);
+        builder.add(ReduxStates.SNOWLOGGED);
     }
     @Nullable
     @Override
@@ -65,7 +65,7 @@ public class FrostedBushBlock extends AetherBushBlock {
             if (b.getBlock() == Blocks.SNOW || (b.hasProperty(ReduxStates.SNOWY_TEXTURE) && b.getValue(ReduxStates.SNOWY_TEXTURE)) || (b.hasProperty(ReduxStates.GRASS_TYPE) && b.getValue(ReduxStates.GRASS_TYPE) == ShortGrassType.FROSTED_SNOWY)) { snowSides++; }
 
         }
-        if (snowSides >= 2 && level.getBlockState(pos.below()).is(ReduxTags.Blocks.FROSTED_GRASSES)) { state = state.setValue(ReduxStates.SNOW_LAYER, true); }
+        if (snowSides >= 2 && level.getBlockState(pos.below()).is(ReduxTags.Blocks.FROSTED_GRASSES)) { state = state.setValue(ReduxStates.SNOWLOGGED, true); }
         if (level.getBlockState(pos.below()).is(ReduxTags.Blocks.FROSTED_PLANTS_PLACEMENT) || (snowSides >= 2 && level.getBlockState(pos.below()).is(ReduxTags.Blocks.FROSTED_GRASSES)))
         { state = state.setValue(ReduxStates.SNOWY_TEXTURE, true); }
         return state;

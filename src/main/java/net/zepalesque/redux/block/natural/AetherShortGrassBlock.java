@@ -7,7 +7,6 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -21,7 +20,6 @@ import net.zepalesque.redux.misc.ReduxTags;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Map;
 
 public class AetherShortGrassBlock extends AetherBushBlock {
@@ -30,7 +28,7 @@ public class AetherShortGrassBlock extends AetherBushBlock {
 
     public AetherShortGrassBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.defaultBlockState().setValue(ReduxStates.GRASS_TYPE, ShortGrassType.AETHER).setValue(ReduxStates.SNOW_LAYER, false));
+        this.registerDefaultState(this.defaultBlockState().setValue(ReduxStates.GRASS_TYPE, ShortGrassType.AETHER).setValue(ReduxStates.SNOWLOGGED, false));
     }
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return SHAPE;
@@ -45,7 +43,7 @@ public class AetherShortGrassBlock extends AetherBushBlock {
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);
         builder.add(ReduxStates.GRASS_TYPE);
-        builder.add(ReduxStates.SNOW_LAYER);
+        builder.add(ReduxStates.SNOWLOGGED);
     }
 
     protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
@@ -78,7 +76,7 @@ public class AetherShortGrassBlock extends AetherBushBlock {
     }
 
     public BlockState modifySnow(BlockState state, LevelAccessor level, BlockPos pos) {
-        if (!state.hasProperty(ReduxStates.GRASS_TYPE) || !state.hasProperty(ReduxStates.SNOW_LAYER)) {
+        if (!state.hasProperty(ReduxStates.GRASS_TYPE) || !state.hasProperty(ReduxStates.SNOWLOGGED)) {
             return state;
         }
         int snowSides = 0;
@@ -89,7 +87,7 @@ public class AetherShortGrassBlock extends AetherBushBlock {
         }
         if (state.getValue(ReduxStates.GRASS_TYPE) == ShortGrassType.FROSTED) {
             if (snowSides >= 2 && level.getBlockState(pos.below()).is(ReduxTags.Blocks.FROSTED_GRASSES)) {
-                state = state.setValue(ReduxStates.SNOW_LAYER, true);
+                state = state.setValue(ReduxStates.SNOWLOGGED, true);
             }
             if (snowSides >= 2 && level.getBlockState(pos.below()).is(ReduxTags.Blocks.FROSTED_GRASSES)) {
                 state = state.setValue(ReduxStates.GRASS_TYPE, ShortGrassType.FROSTED_SNOWY);
