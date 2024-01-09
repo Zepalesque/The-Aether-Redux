@@ -11,7 +11,7 @@
               "Name": "aether_redux:aether_short_grass",
               "Properties": {
                 "aether_grass_type": "aether_short_grass",
-                "snow_layer": "false"
+                "snowlogged": "false"
               }
             }
           }

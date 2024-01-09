@@ -1,33 +1,33 @@
 {
   "variants": {
-    "aether_grass_type=aether_short_grass,snow_layer=false": {
+    "aether_grass_type=aether_short_grass,snowlogged=false": {
       "model": "aether_redux:block/aether_short_grass"
     },
-    "aether_grass_type=aether_short_grass,snow_layer=true": {
+    "aether_grass_type=aether_short_grass,snowlogged=true": {
       "model": "aether_redux:block/aether_short_grass"
     },
-    "aether_grass_type=blighted_short_grass,snow_layer=false": {
+    "aether_grass_type=blighted_short_grass,snowlogged=false": {
       "model": "aether_redux:block/blighted_short_grass"
     },
-    "aether_grass_type=blighted_short_grass,snow_layer=true": {
+    "aether_grass_type=blighted_short_grass,snowlogged=true": {
       "model": "aether_redux:block/blighted_short_grass"
     },
-    "aether_grass_type=enchanted_short_grass,snow_layer=false": {
+    "aether_grass_type=enchanted_short_grass,snowlogged=false": {
       "model": "aether_redux:block/enchanted_short_grass"
     },
-    "aether_grass_type=enchanted_short_grass,snow_layer=true": {
+    "aether_grass_type=enchanted_short_grass,snowlogged=true": {
       "model": "aether_redux:block/enchanted_short_grass"
     },
-    "aether_grass_type=frosted_short_grass,snow_layer=false": {
+    "aether_grass_type=frosted_short_grass,snowlogged=false": {
       "model": "aether_redux:block/frosted_short_grass"
     },
-    "aether_grass_type=frosted_short_grass,snow_layer=true": {
+    "aether_grass_type=frosted_short_grass,snowlogged=true": {
       "model": "aether_redux:block/frosted_short_grass"
     },
-    "aether_grass_type=frosted_short_grass_snowy,snow_layer=false": {
+    "aether_grass_type=frosted_short_grass_snowy,snowlogged=false": {
       "model": "aether_redux:block/frosted_short_grass_snowy"
     },
-    "aether_grass_type=frosted_short_grass_snowy,snow_layer=true": {
+    "aether_grass_type=frosted_short_grass_snowy,snowlogged=true": {
       "model": "aether_redux:block/frosted_short_grass_snowy"
     }
   }

@@ -10,7 +10,7 @@
             "state": {
               "Name": "aether_redux:lumina",
               "Properties": {
-                "snow_layer": "false",
+                "snowlogged": "false",
                 "snowy_texture": "false"
               }
             }
