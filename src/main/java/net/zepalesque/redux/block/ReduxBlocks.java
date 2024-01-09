@@ -109,7 +109,7 @@ public class ReduxBlocks {
             () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PINK).strength(0.3F).sound(SoundType.WART_BLOCK)));
 
     public static RegistryObject<Block> FROSTED_AETHER_GRASS_BLOCK = register("frosted_aether_grass_block",
-            () -> new FrostedGrassBlock(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).randomTicks().strength(0.2F).sound(SoundType.GRASS)));
+            () -> new FrostedGrassBlock(BlockBehaviour.Properties.of().hasPostProcess(ReduxBlocks::always).mapColor(MapColor.ICE).randomTicks().strength(0.2F).sound(SoundType.GRASS)));
 
     public static final RegistryObject<Block> SPRINGSHROOM = register("springshroom", () -> new SpringshroomBlock(Block.Properties.of().strength(0.5F).sound(SoundType.FUNGUS).mapColor(MapColor.QUARTZ), ReduxConfiguredFeatures.LARGE_SPRINGSHROOM));
     public static final RegistryObject<FlowerPotBlock> POTTED_SPRINGSHROOM = BLOCKS.register("potted_springshroom", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SPRINGSHROOM, Block.Properties.copy(Blocks.FLOWER_POT)));

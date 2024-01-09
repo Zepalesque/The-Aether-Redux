@@ -67,9 +67,5 @@ public class TreeCheckingSnowLayerFeature extends Feature<NoneFeatureConfigurati
             worldgenlevel.setBlock(below, blockstate.setValue(SnowyDirtBlock.SNOWY, Boolean.TRUE), 2);
          }
       }
-      BlockState block = worldgenlevel.getBlockState(pos);
-      if (block.hasProperty(ReduxStates.SNOWLOGGED)) {
-         worldgenlevel.setBlock(pos, block.setValue(ReduxStates.SNOWLOGGED, Boolean.TRUE), 2);
-      }
    }
 }
