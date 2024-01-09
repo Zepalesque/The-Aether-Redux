@@ -29,10 +29,8 @@ public class ReduxParticleTypes {
     public static final RegistryObject<SimpleParticleType> FALLING_GOLDEN_LEAVES = PARTICLES.register("falling_golden_leaves", () -> new SimpleParticleType(false));
     public static final RegistryObject<SimpleParticleType> FALLING_CRYSTAL_LEAVES = PARTICLES.register("falling_crystal_leaves", () -> new SimpleParticleType(false));
 
-    public static final RegistryObject<SimpleParticleType> FALLING_BLUE_ROSEROOT_LEAVES = PARTICLES.register("falling_blue_roseroot_leaves", () -> new SimpleParticleType(false));
     public static final RegistryObject<SimpleParticleType> FALLING_CONBERRY_LEAVES = PARTICLES.register("falling_conberry_leaves", () -> new SimpleParticleType(false));
     public static final RegistryObject<SimpleParticleType> FALLING_CRUDEROOT_NEEDLES = PARTICLES.register("falling_cruderoot_needles", () -> new SimpleParticleType(false));
-    public static final RegistryObject<SimpleParticleType> FALLING_ROSEROOT_LEAVES = PARTICLES.register("falling_roseroot_leaves", () -> new SimpleParticleType(false));
     public static final RegistryObject<SimpleParticleType> FALLING_SUNROOT_LEAVES = PARTICLES.register("falling_sunroot_leaves", () -> new SimpleParticleType(false));
     public static final RegistryObject<SimpleParticleType> FALLING_YAGROOT_LEAVES = PARTICLES.register("falling_yagroot_leaves", () -> new SimpleParticleType(false));
 
@@ -72,10 +70,8 @@ public class ReduxParticleTypes {
         event.registerSpriteSet(FIELDSPROUT_PETALS_4.get(), FallingLeafParticle.Provider::new);
         event.registerSpriteSet(FIELDSPROUT_PETALS_5.get(), FallingLeafParticle.Provider::new);
         event.registerSpriteSet(FIELDSPROUT_PETALS_6.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(FALLING_BLUE_ROSEROOT_LEAVES.get(), FallingLeafParticle.Provider::new);
         event.registerSpriteSet(FALLING_CONBERRY_LEAVES.get(), FallingLeafParticle.Provider::new);
         event.registerSpriteSet(FALLING_CRUDEROOT_NEEDLES.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(FALLING_ROSEROOT_LEAVES.get(), FallingLeafParticle.Provider::new);
         event.registerSpriteSet(FALLING_SUNROOT_LEAVES.get(), FallingLeafParticle.Provider::new);
         event.registerSpriteSet(FALLING_YAGROOT_LEAVES.get(), FallingLeafParticle.Provider::new);
         event.registerSpriteSet(PINK_PRISMATIC_PETALS.get(), FallingLeafParticle.Provider::new);
