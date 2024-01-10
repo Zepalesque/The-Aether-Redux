@@ -12,7 +12,7 @@
   "render_types": {},
   "textures": {
     "layer0": "aether_redux:block/natural/lumina",
-    "layer1": "aether_redux:block/natural/lumina_glow",
-    "layer2": "aether_redux:block/natural/lumina_overlay"
+    "layer1": "aether_redux:block/natural/lumina_overlay",
+    "layer2": "aether_redux:block/natural/lumina_glow"
   }
 }

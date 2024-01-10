@@ -26,11 +26,7 @@ public class ReduxPackConfig {
 
     public final PackConfig<Boolean> blue_icestone;
     public final PackConfig<Boolean> better_aerclouds;
-    public final PackConfig<Boolean> better_skyroots;
-    public final PackConfig<Boolean> better_saplings;
-    public final PackConfig<Boolean> better_flowers;
     public final PackConfig<Boolean> better_aechor_plants;
-    public final PackConfig<Boolean> better_crystal_leaves;
     public final PackConfig<DungeonType> dungeon_type;
     public final PackConfig<ClassicOption> classic_blight;
     public final PackConfig<ClassicOption> classic_moas;
@@ -39,7 +35,6 @@ public class ReduxPackConfig {
     public final PackConfig<Boolean> use_jappafied_textures;
     public final PackConfig<Boolean> menu_panorama;
     public final PackConfig<ClassicAnyOption> smelter_menu_type;
-    public final PackConfig<Boolean> alternate_enchanted_grass;
 
     public final PackConfig<Boolean> auto_apply;
 
@@ -53,18 +48,8 @@ public class ReduxPackConfig {
         this.blue_icestone = builder.comment().cfg("blue_icestone", true, WidgetMappers.BOOL);
         // Self-explanatory
         this.better_aerclouds = builder.comment().cfg("better_aerclouds", true, WidgetMappers.BOOL);
-        // Improvements to various saplings
-        this.better_saplings = builder.comment().cfg("better_saplings", true, WidgetMappers.BOOL);
-        // Gilded and Golden SKYROOT, names + retextures, Skyroot Log retexture, along with log top!
-        this.better_skyroots = builder.comment().cfg("better_skyroots", true, WidgetMappers.BOOL);
-        // Purple Flower -> Nightbloom, White Flower -> White Rose
-        this.better_flowers = builder.comment().cfg("better_flowers", true, WidgetMappers.BOOL);
-        // Self-explanatory
-        this.better_crystal_leaves = builder.comment().cfg("better_crystal_leaves", true, WidgetMappers.BOOL);
         // Self-explanatory
         this.classic_blight = builder.comment().cfg("classic_blight", ClassicOption.modern, ClassicOption.MAPPER);
-        // Self-explanatory
-        this.alternate_enchanted_grass = builder.comment().cfg("alternate_enchanted_grass", true, WidgetMappers.BOOL);
         builder.pop();
         builder.push("mob");
         // Self-explanatory
@@ -99,16 +84,7 @@ public class ReduxPackConfig {
         ReduxPackConfig config = Redux.packConfig;
 
         List<Conditional<PackResources>> packs = List.of(
-                Conditional.of(BuiltinPackUtils.createPack("nature/alternate_enchanted_grass"), config.alternate_enchanted_grass),
                 Conditional.of(BuiltinPackUtils.createPack("nature/classic_blight"), () -> config.classic_blight.get() == ClassicOption.classic),
-                Conditional.of(BuiltinPackUtils.createPack("nature/better_crystal_leaves"), config.better_crystal_leaves),
-                Conditional.of(BuiltinPackUtils.createPack("nature/better_flowers"), config.better_flowers),
-                Conditional.of(BuiltinPackUtils.createPack("nature/better_saplings"), config.better_saplings),
-                Conditional.of(BuiltinPackUtils.createPack("nature/better_skyroots"), config.better_skyroots),
-                Conditional.of(BuiltinPackUtils.createPack("nature/jappa_better_leaves"), () -> config.better_skyroots.get() && config.use_jappafied_textures.get()),
-                Conditional.of(BuiltinPackUtils.createPack("nature/ozzified_better_leaves"), () -> config.better_skyroots.get() && !config.use_jappafied_textures.get()),
-                Conditional.of(BuiltinPackUtils.createPack("nature/jappa_better_sapling"), () -> config.better_saplings.get() && config.use_jappafied_textures.get()),
-                Conditional.of(BuiltinPackUtils.createPack("nature/ozzified_better_sapling"), () -> config.better_saplings.get() && !config.use_jappafied_textures.get()),
                 Conditional.of(BuiltinPackUtils.createPack("nature/blue_icestone"), config.blue_icestone),
                 Conditional.of(BuiltinPackUtils.createPack("nature/better_aerclouds"), config.better_aerclouds),
                 Conditional.of(BuiltinPackUtils.createPack("nature/golder_vines"), config.use_jappafied_textures::get),
