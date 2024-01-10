@@ -313,10 +313,10 @@ public class ReduxItemModelData extends AetherItemModelProvider {
     }
     public ItemModelBuilder itemBlockFlatTintGlowOverlay(Supplier<? extends Block> block, String location) {
         return withExistingParent(blockName(block), mcLoc("item/generated"))
-                .texture("layer0", texture(blockName(block), location))
+                .texture("layer1", texture(blockName(block), location))
                 .texture("layer2", texture(blockName(block) + "_glow", location)).customLoader((itemModelBuilder,existingFileHelper) ->
                         ItemLayerModelBuilder.begin(itemModelBuilder, existingFileHelper).emissive(15, 15, 1)).end()
-                .texture("layer1", texture(blockName(block) + "_overlay", location));
+                .texture("layer0", texture(blockName(block) + "_overlay", location));
     }
     public ItemModelBuilder itemBlockFlatTintGlow(Supplier<? extends Block> block, String location) {
         return withExistingParent(blockName(block), mcLoc("item/generated"))
