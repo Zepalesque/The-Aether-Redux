@@ -113,7 +113,7 @@ public class ReduxBlocks {
     public static final RegistryObject<FlowerPotBlock> POTTED_AURUM = BLOCKS.register("potted_aurum", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, AURUM, Block.Properties.copy(Blocks.FLOWER_POT)));
 
     public static RegistryObject<Block> DAGGERBLOOM = register("daggerbloom",
-            () -> new FrostedFernShapeFlower(() -> MobEffects.MOVEMENT_SLOWDOWN, 60, BlockBehaviour.Properties.copy(Blocks.POPPY).hasPostProcess(ReduxBlocks::always).mapColor(MapColor.ICE)));
+            () -> new FernShapedFlowerBlock(() -> MobEffects.MOVEMENT_SLOWDOWN, 60, BlockBehaviour.Properties.copy(Blocks.POPPY).hasPostProcess(ReduxBlocks::always).mapColor(MapColor.ICE)));
     public static final RegistryObject<FlowerPotBlock> POTTED_DAGGERBLOOM = BLOCKS.register("potted_daggerbloom", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, DAGGERBLOOM, Block.Properties.copy(Blocks.FLOWER_POT)));
 
     public static RegistryObject<Block> BLIGHTSHADE = register("blightshade",
@@ -132,7 +132,7 @@ public class ReduxBlocks {
             () -> new TallCloudcapBlock(BlockBehaviour.Properties.of().lightLevel((state) -> state.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.UPPER ? 4 : 0).noCollission().instabreak().sound(SoundType.NETHER_SPROUTS).offsetType(BlockBehaviour.OffsetType.XZ), ReduxConfiguredFeatures.MEGA_CLOUDCAP));
 
     public static RegistryObject<Block> LUMINA = register("lumina",
-            () -> new FrostedFlowerBlock(() -> MobEffects.NIGHT_VISION, 60, BlockBehaviour.Properties.copy(Blocks.POPPY).hasPostProcess(ReduxBlocks::always).lightLevel((state) -> 9).mapColor(MapColor.COLOR_ORANGE)));
+            () -> new FlowerBlock(() -> MobEffects.NIGHT_VISION, 60, BlockBehaviour.Properties.copy(Blocks.POPPY).hasPostProcess(ReduxBlocks::always).lightLevel((state) -> 9).mapColor(MapColor.COLOR_ORANGE)));
     public static final RegistryObject<FlowerPotBlock> POTTED_LUMINA = BLOCKS.register("potted_lumina", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, LUMINA, Block.Properties.copy(Blocks.FLOWER_POT)));
 
     public static RegistryObject<Block> COARSE_AETHER_DIRT = register("coarse_aether_dirt",
@@ -232,7 +232,7 @@ public class ReduxBlocks {
     public static RegistryObject<Block> PURPLE_GLACIA_LEAVES = register("purple_glacia_leaves", () -> new SnowableLeavesBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(ReduxBlocks::ocelotOrParrot).isSuffocating(ReduxBlocks::never).isViewBlocking(ReduxBlocks::never)));
 
     public static final RegistryObject<SaplingBlock> GLACIA_SAPLING = register("glacia_sapling", () ->
-            new FrostedSaplingBlock(new GlaciaTree(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING))
+            new SaplingBlock(new GlaciaTree(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING))
     );
     public static final RegistryObject<FlowerPotBlock> POTTED_GLACIA_SAPLING = BLOCKS.register("potted_glacia_sapling",
             () -> new FlowerPotBlock(() ->
@@ -242,7 +242,7 @@ public class ReduxBlocks {
 
 
     public static final RegistryObject<SaplingBlock> PURPLE_GLACIA_SAPLING = register("purple_glacia_sapling", () ->
-            new FrostedSaplingBlock(new GlaciaTree(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING))
+            new SaplingBlock(new GlaciaTree(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING))
     );
     public static final RegistryObject<FlowerPotBlock> POTTED_PURPLE_GLACIA_SAPLING = BLOCKS.register("purple_potted_glacia_sapling",
             () -> new FlowerPotBlock(() ->
@@ -309,7 +309,7 @@ public class ReduxBlocks {
     public static final RegistryObject<LeafPileBlock> GILDED_LEAF_PILE = register("gilded_leaf_pile", () -> new LeafPileBlock(BlockBehaviour.Properties.copy(GILDED_OAK_LEAVES.get()).strength(0.1F).sound(SoundType.CHERRY_LEAVES)));
 
     public static RegistryObject<Block> FROSTED_FERN = register("frosted_fern",
-            () -> new FrostedFernBlock(BlockBehaviour.Properties.of().hasPostProcess(ReduxBlocks::always).noCollission().instabreak().sound(SoundType.MOSS_CARPET).offsetType(BlockBehaviour.OffsetType.XZ)));
+            () -> new FernShapedBushBlock()BlockBehaviour.Properties.of().hasPostProcess(ReduxBlocks::always).noCollission().instabreak().sound(SoundType.MOSS_CARPET).offsetType(BlockBehaviour.OffsetType.XZ)));
     public static final RegistryObject<FlowerPotBlock> POTTED_FROSTED_FERN = BLOCKS.register("potted_frosted_fern", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, FROSTED_FERN, Block.Properties.copy(Blocks.FLOWER_POT)));
 
     public static RegistryObject<Block> VERIDIUM_ORE = register("veridium_ore",
