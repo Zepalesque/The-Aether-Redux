@@ -52,7 +52,6 @@ import net.zepalesque.redux.world.feature.config.*;
 import net.zepalesque.redux.world.tree.decorator.EnchantedVineDecorator;
 import net.zepalesque.redux.world.tree.decorator.PatchTreeDecorator;
 import net.zepalesque.redux.world.tree.foliage.BlightwillowFoliagePlacer;
-import net.zepalesque.redux.world.tree.foliage.GenesisPineFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.GlaciaFoliagePlacer;
 import net.zepalesque.redux.world.tree.root.BlightwillowRootConfig;
 import net.zepalesque.redux.world.tree.root.BlightwillowRootPlacer;
@@ -201,7 +200,7 @@ public class    ReduxConfiguredFeatures {
                                 .add(drops(ReduxBlocks.BLIGHTED_FUNGI), 4)
                                 .add(drops(ReduxBlocks.SPIROLYCTIL), 7)
                                 .add(drops(ReduxBlocks.BLIGHTMOSS_CARPET), 75)
-                                .add(drops(ReduxBlocks.AETHER_GRASS).setValue(ReduxStates.GRASS_TYPE, ShortGrassType.BLIGHTED), 150)
+                                .add(drops(ReduxBlocks.AETHER_SHORT_GRASS), 150)
                                 .add(drops(ReduxBlocks.LUXWEED), 120)
                 )));
 
@@ -492,7 +491,7 @@ public class    ReduxConfiguredFeatures {
                 drops(ReduxBlocks.DIVINITE), 64, 0.0F));
 
         register(context, GRASS_PATCH_OVERRIDE, ReduxFeatureRegistry.BIOME_BORDER_PLACEMENT_PATCH.get(),
-                biomePlacementPatch(32, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.AETHER_GRASS))));
+                biomePlacementPatch(32, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.AETHER_SHORT_GRASS))));
         register(context, TALL_GRASS_PATCH_OVERRIDE, Feature.NO_OP, FeatureConfiguration.NONE);
 
     }

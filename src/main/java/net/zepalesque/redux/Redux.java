@@ -54,7 +54,7 @@ import net.zepalesque.redux.block.util.ReduxSoundTypes;
 import net.zepalesque.redux.blockentity.ReduxBlockEntityTypes;
 import net.zepalesque.redux.builtin.BuiltinPackUtils;
 import net.zepalesque.redux.client.ReduxClient;
-import net.zepalesque.redux.client.ReduxOverridesPackResources;
+import net.zepalesque.redux.client.resource.ReduxOverridesPackResources;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.client.render.ReduxRenderers;
@@ -110,6 +110,7 @@ public class Redux
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         bus.addListener(this::commonSetup);
         bus.addListener(this::clientSetup);
+        bus.addListener(ReduxClient::blockColors);
         bus.addListener(this::applyResourcePack);
         bus.addListener(EventPriority.HIGH, this::packSetup);
         bus.addListener(this::dataSetup);

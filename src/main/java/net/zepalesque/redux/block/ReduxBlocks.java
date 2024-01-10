@@ -71,8 +71,12 @@ public class ReduxBlocks {
     public static RegistryObject<Block> HOLYSILT = register("holysilt",
             () -> new HolysiltBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).strength(0.5F).sound(SoundType.SAND)));
 
-    public static RegistryObject<AetherShortGrassBlock> AETHER_GRASS = register("aether_short_grass",
-                () -> new AetherShortGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).hasPostProcess(ReduxBlocks::always)));
+    public static RegistryObject<TintableAetherShortGrassBlock> AETHER_SHORT_GRASS = register("aether_short_grass",
+                () -> new TintableAetherShortGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).hasPostProcess(ReduxBlocks::always)));
+
+    public static RegistryObject<Block> REDUX_GRASS_BLOCK = register("redux_grass_block",
+            () -> new ReduxAetherGrassBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).randomTicks().strength(0.2F).sound(SoundType.GRASS)));
+
 /*
 
     public static RegistryObject<AetherTallGrassBlock> ENCHANTED_AETHER_GRASS = register("enchanted_aether_grass",

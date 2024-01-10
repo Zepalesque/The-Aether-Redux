@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-05T13:17:28.2512053	Loot Tables
+// 1.20.1	2024-01-09T20:58:24.8449775	Loot Tables
 9bb0a6fae9e80234bb0bad9086af314acf3e9894 data/aether_redux/loot_tables/blocks/aether_short_grass.json
 48b55d99420ce1afaca551876e87bdbccae62e08 data/aether_redux/loot_tables/blocks/aevelium.json
 101eb9ac681437f2db38085324dfcca14a759f7a data/aether_redux/loot_tables/blocks/aevelium_growth.json
@@ -182,6 +182,7 @@ a8655c14dcb62175a9ab8cf34bfb7372d0c8f805 data/aether_redux/loot_tables/blocks/pu
 214b296579c2e9375836091351f46f81b52b014a data/aether_redux/loot_tables/blocks/purple_potted_glacia_sapling.json
 e713530dd4ee13be3284a01ded2570b799a2c592 data/aether_redux/loot_tables/blocks/quickroots.json
 31634f3ccbb1109ba54691cd7c7c94d822fddafa data/aether_redux/loot_tables/blocks/raw_veridium_block.json
+edc40a9d64dc35789e39eafd3b819bbc4c19b1d8 data/aether_redux/loot_tables/blocks/redux_grass_block.json
 275ddc1d2fb5941416f14b4e3cb8146c5145e008 data/aether_redux/loot_tables/blocks/skysprouts.json
 96c5ceab0b7e05e25b12f676cbea823aebb21601 data/aether_redux/loot_tables/blocks/spirolyctil.json
 1e761e125c140713bbedbb874ad41e48f2a7b01c data/aether_redux/loot_tables/blocks/sporing_blightwillow_log.json

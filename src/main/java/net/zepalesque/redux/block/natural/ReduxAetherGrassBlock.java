@@ -1,26 +1,57 @@
 package net.zepalesque.redux.block.natural;
 
+import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.natural.AetherGrassBlock;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.block.util.GrassBlockTint;
+import net.zepalesque.redux.block.util.ReduxStates;
 
 import java.util.List;
 
-public class ReduxGrassBlock extends AetherGrassBlock {
+public class ReduxAetherGrassBlock extends AetherGrassBlock {
 
 
-    public ReduxGrassBlock(Properties properties) {
+    public ReduxAetherGrassBlock(Properties properties) {
         super(properties);
+        this.registerDefaultState(this.defaultBlockState().setValue(ReduxStates.GRASS_BLOCK_TINT, GrassBlockTint.TINTABLE));
+    }
+
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        super.createBlockStateDefinition(builder);
+        builder.add(ReduxStates.GRASS_BLOCK_TINT);
+    }
+
+    @Override
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
+        return setValues(context.getLevel(), context.getClickedPos(), super.getStateForPlacement(context));
+    }
+
+    public BlockState setValues(LevelAccessor level, BlockPos pos, BlockState state) {
+        if (state != null && state.hasProperty(ReduxStates.GRASS_BLOCK_TINT) && !level.getBiome(pos).is(AetherTags.Biomes.IS_AETHER)) {
+            return state.setValue(ReduxStates.GRASS_BLOCK_TINT, GrassBlockTint.AETHER_COLOR);
+        }
+        return state;
+    }
+
+    @Override
+    public BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor level, BlockPos currentPos, BlockPos facingPos) {
+        return setValues(level, currentPos, super.updateShape(state, facing, facingState, level, currentPos, facingPos));
     }
 
     @Override

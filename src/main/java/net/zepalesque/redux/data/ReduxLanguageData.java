@@ -105,8 +105,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addBlock(ReduxBlocks.QUICKROOTS, "Quickroots");
 
-        addBlock(ReduxBlocks.AETHER_GRASS, "Aether Grass");
-        addLore(ReduxBlocks.AETHER_GRASS, "Blades of the Aether's grass. It feels slightly cool to the touch.");
+        addBlock(ReduxBlocks.AETHER_SHORT_GRASS, "Aether Grass");
+        addLore(ReduxBlocks.AETHER_SHORT_GRASS, "Blades of the Aether's grass. It feels slightly cool to the touch.");
 
         addBlock(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK, "Blighted Aether Grass Block");
         addLore(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK, "The Aether's grass, but infected by the blight. It is almost rough to the touch");

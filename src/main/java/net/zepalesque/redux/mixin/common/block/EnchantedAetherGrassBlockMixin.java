@@ -1,6 +1,5 @@
 package net.zepalesque.redux.mixin.common.block;
 
-import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.natural.EnchantedAetherGrassBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -24,7 +23,7 @@ public class EnchantedAetherGrassBlockMixin extends GrassBlockMixin{
         Optional<Holder.Reference<PlacedFeature>> optional = pLevel.registryAccess().registryOrThrow(Registries.PLACED_FEATURE).getHolder(VegetationPlacements.GRASS_BONEMEAL);
             if (instance.equals(optional.get().value())) {
                 if (pLevel.ensureCanWrite(pPos)) {
-                    pLevel.setBlock(pPos, ReduxBlocks.AETHER_GRASS.get().defaultBlockState(), 3);
+                    pLevel.setBlock(pPos, ReduxBlocks.AETHER_SHORT_GRASS.get().defaultBlockState(), 3);
                     return true;
                 } else {
                     return false;

@@ -11,7 +11,7 @@ import net.zepalesque.redux.api.packconfig.Category;
 import net.zepalesque.redux.api.packconfig.PackConfig;
 import net.zepalesque.redux.api.serialization.client.WidgetMappers;
 import net.zepalesque.redux.builtin.BuiltinPackUtils;
-import net.zepalesque.redux.client.ReduxOverridesPackResources;
+import net.zepalesque.redux.client.resource.ReduxOverridesPackResources;
 import net.zepalesque.redux.config.enums.pack.ClassicAnyOption;
 import net.zepalesque.redux.config.enums.pack.ClassicOption;
 import net.zepalesque.redux.config.enums.pack.DungeonType;

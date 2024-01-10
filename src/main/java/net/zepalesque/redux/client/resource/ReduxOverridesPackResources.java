@@ -1,5 +1,5 @@
 
-package net.zepalesque.redux.client;
+package net.zepalesque.redux.client.resource;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
@@ -38,7 +38,6 @@ public class ReduxOverridesPackResources extends AbstractPackResources
 
     public ReduxOverridesPackResources(String packId, boolean isBuiltin, PackMetadataSection packMeta, List<Conditional<PackResources>> packs)
     {
-
         super(packId, isBuiltin);
         this.source = BuiltinPackUtils.path(packId);
         this.packMeta = packMeta;

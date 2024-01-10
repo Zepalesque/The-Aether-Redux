@@ -1,8 +1,8 @@
 package net.zepalesque.redux.data;
 
+import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.block.AetherBlockStateProperties;
 import com.aetherteam.aether.block.AetherBlocks;
-import com.aetherteam.aether.block.natural.AetherDoubleDropsLeaves;
 import com.aetherteam.aether.data.providers.AetherBlockStateProvider;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
@@ -18,9 +18,10 @@ import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.natural.ExtendedDistanceLeavesBlock;
 import net.zepalesque.redux.block.natural.LeafPileBlock;
-import net.zepalesque.redux.block.natural.frosted.SnowableLeavesBlock;
+import net.zepalesque.redux.block.natural.TintableAetherShortGrassBlock;
 import net.zepalesque.redux.block.util.PetalPrismaticness;
 import net.zepalesque.redux.block.util.ReduxStates;
+import net.zepalesque.redux.block.util.ShortGrassTint;
 import net.zepalesque.redux.block.util.ShortGrassType;
 
 import java.util.Map;
@@ -49,7 +50,8 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.pottedPlantAltTexture(ReduxBlocks.POTTED_AEVELIUM_GROWTH.get(), ReduxBlocks.AEVELIUM_GROWTH.get(), "natural/");
 
         this.crossBlock(ReduxBlocks.IRIDIA.get(), "natural/");
-        this.aetherShortGrass(ReduxBlocks.AETHER_GRASS.get(), "natural/");
+        this.tintableShortGrass(ReduxBlocks.AETHER_SHORT_GRASS.get(), "natural/");
+        this.tintedGrass(ReduxBlocks.REDUX_GRASS_BLOCK);
         this.crossBlock(ReduxBlocks.GILDED_WHITE_FLOWER.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_GILDED_WHITE_FLOWER.get(), ReduxBlocks.GILDED_WHITE_FLOWER.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_IRIDIA.get(), ReduxBlocks.IRIDIA.get(), "natural/");
@@ -386,6 +388,30 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
             return ConfiguredModel.builder().modelFile(models().cross(type.getSerializedName(), modLoc("block/" + location + type.getSerializedName())).renderType("cutout")).build();
         }       );
     }
+    public void tintableShortGrass(TintableAetherShortGrassBlock block, String location) {
+        this.getVariantBuilder(block).forAllStates((state) -> {
+            ShortGrassTint type = state.getValue(ReduxStates.SHORT_GRASS_TINT);
+            if (type == ShortGrassTint.ENCHANTED) {
+                return ConfiguredModel.builder().modelFile(models().cross("enchanted_aether_short_grass", modLoc("block/natural/enchanted_short_grass")).renderType("cutout")).build();
+            }
+            return ConfiguredModel.builder().modelFile(models().singleTexture("aether_short_grass", mcLoc(BLOCK_FOLDER + "/tinted_cross"), "cross", modLoc("block/natural/aether_short_grass_tint")).renderType("cutout")).build();       }       );
+    }
+
+    public void tintedGrass(Supplier<? extends Block> block) {
+        ResourceLocation dirt = new ResourceLocation(Aether.MODID, BLOCK_FOLDER + "/natural/aether_dirt");
+        ResourceLocation side = new ResourceLocation(Aether.MODID, BLOCK_FOLDER + "/natural/aether_grass_block_side");
+        ResourceLocation snow = new ResourceLocation(Aether.MODID, BLOCK_FOLDER + "/natural/aether_grass_block_snow");
+        ResourceLocation top = Redux.locate(BLOCK_FOLDER + "/natural/aether_grass_block_top_overlay");
+        ResourceLocation overlay = Redux.locate(BLOCK_FOLDER + "/natural/aether_grass_block_side_overlay");
+        ModelFile grass = models().withExistingParent(name(block), modLoc(BLOCK_FOLDER + "/tinted_grass_block"))
+                .texture("particle", dirt).texture("bottom", dirt).texture("side", side).texture("top", top).texture("overlay", overlay);
+        ModelFile grassSnowed = cubeBottomTop(name(block) + "_snow", snow, dirt, top);
+        getVariantBuilder(block.get()).forAllStatesExcept(state -> {
+            boolean snowy = state.getValue(SnowyDirtBlock.SNOWY);
+            return ConfiguredModel.allYRotations(snowy ? grassSnowed : grass, 0, false);
+        }, AetherBlockStateProperties.DOUBLE_DROPS, ReduxStates.GRASS_BLOCK_TINT);
+    }
+
     public void frostedCrossBlockGlow(Block block, String location) {
         BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/cross_glow"))
                 .texture("cross", this.texture(this.name(block), location))

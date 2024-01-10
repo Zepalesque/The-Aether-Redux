@@ -1,5 +1,6 @@
 package net.zepalesque.redux.data;
 
+import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.providers.AetherItemModelProvider;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
@@ -27,7 +28,8 @@ public class ReduxItemModelData extends AetherItemModelProvider {
     @Override
     protected void registerModels() {
 
-        itemBlockFlat(ReduxBlocks.AETHER_GRASS, "natural/");
+        itemBlockFlat(ReduxBlocks.AETHER_SHORT_GRASS, "natural/");
+        itemBlockOther(ReduxBlocks.REDUX_GRASS_BLOCK, AetherBlocks.AETHER_GRASS_BLOCK);
         itemBlockFlat(ReduxBlocks.FIRECAP, "natural/");
         itemBlock(ReduxBlocks.HOLYSILT);
         itemBlock(ReduxBlocks.DIVINITE);
@@ -272,6 +274,9 @@ public class ReduxItemModelData extends AetherItemModelProvider {
 
     public ItemModelBuilder itemBlock(Supplier<? extends Block> block) {
         return withExistingParent(blockName(block), texture(blockName(block)));
+    }
+    public ItemModelBuilder itemBlockOther(Supplier<? extends Block> block, Supplier<? extends Block> other) {
+        return withExistingParent(blockName(block), new ResourceLocation(ForgeRegistries.BLOCKS.getKey(other.get()).getNamespace(), "block/" +blockName(other)));
     }
 
     public ItemModelBuilder itemBlock(Supplier<? extends Block> block, String suffix) {
