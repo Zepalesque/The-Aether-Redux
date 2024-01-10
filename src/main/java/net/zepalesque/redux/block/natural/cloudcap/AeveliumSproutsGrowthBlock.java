@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.zepalesque.redux.block.natural.AetherShortGrassBlock;
 
 public class AeveliumSproutsGrowthBlock extends AetherBushBlock {
 
@@ -28,7 +29,7 @@ public class AeveliumSproutsGrowthBlock extends AetherBushBlock {
 
     @Override
     public boolean canBeReplaced(BlockState pState, BlockPlaceContext pUseContext) {
-        return super.canBeReplaced(pState, pUseContext) && (pUseContext.getItemInHand().getItem() instanceof BlockItem blockItem && !(blockItem.getBlock() instanceof AetherTallGrassBlock || blockItem.getBlock() instanceof AeveliumSproutsGrowthBlock));
+        return super.canBeReplaced(pState, pUseContext) && (pUseContext.getItemInHand().getItem() instanceof BlockItem blockItem && !(blockItem.getBlock() instanceof AeveliumSproutsGrowthBlock));
     }
 
 }
