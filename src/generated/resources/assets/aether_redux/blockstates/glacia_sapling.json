@@ -1,28 +1,10 @@
 {
   "variants": {
-    "snowlogged=false,snowy_texture=false,stage=0": {
+    "stage=0": {
       "model": "aether_redux:block/glacia_sapling"
     },
-    "snowlogged=false,snowy_texture=false,stage=1": {
+    "stage=1": {
       "model": "aether_redux:block/glacia_sapling"
-    },
-    "snowlogged=false,snowy_texture=true,stage=0": {
-      "model": "aether_redux:block/glacia_sapling_snowy"
-    },
-    "snowlogged=false,snowy_texture=true,stage=1": {
-      "model": "aether_redux:block/glacia_sapling_snowy"
-    },
-    "snowlogged=true,snowy_texture=false,stage=0": {
-      "model": "aether_redux:block/glacia_sapling"
-    },
-    "snowlogged=true,snowy_texture=false,stage=1": {
-      "model": "aether_redux:block/glacia_sapling"
-    },
-    "snowlogged=true,snowy_texture=true,stage=0": {
-      "model": "aether_redux:block/glacia_sapling_snowy"
-    },
-    "snowlogged=true,snowy_texture=true,stage=1": {
-      "model": "aether_redux:block/glacia_sapling_snowy"
     }
   }
 }

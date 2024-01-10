@@ -1,9 +1,0 @@
-{
-  "parent": "aether_redux:block/cube_bottom_top_super_snowed",
-  "textures": {
-    "bottom": "aether:block/natural/aether_dirt",
-    "particle": "aether_redux:block/natural/frosted_aether_grass_block_snow",
-    "side": "aether_redux:block/natural/frosted_aether_grass_block_snow",
-    "top": "aether_redux:block/natural/frosted_aether_grass_block_top"
-  }
-}

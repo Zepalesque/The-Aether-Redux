@@ -3,10 +3,10 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "aether_redux:gilded_white_flower"
+      "item": "aether_redux:aurum"
     }
   ],
   "result": {
-    "item": "minecraft:white_dye"
+    "item": "minecraft:yellow_dye"
   }
 }

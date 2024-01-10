@@ -1,16 +1,7 @@
 {
   "variants": {
-    "snowlogged=false,snowy_texture=false": {
+    "": {
       "model": "aether_redux:block/frosted_fern"
-    },
-    "snowlogged=false,snowy_texture=true": {
-      "model": "aether_redux:block/frosted_fern_snowy"
-    },
-    "snowlogged=true,snowy_texture=false": {
-      "model": "aether_redux:block/frosted_fern"
-    },
-    "snowlogged=true,snowy_texture=true": {
-      "model": "aether_redux:block/frosted_fern_snowy"
     }
   }
 }

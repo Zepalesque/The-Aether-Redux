@@ -1,13 +1,12 @@
-// 1.20.1	2024-01-09T22:11:14.2855324	Tags for minecraft:block mod id aether_redux
-8dfef7533420134b3e6a022e43bcc7e4571ebf20 data/aether/tags/blocks/aether_animals_spawnable_on.json
-c5199c5b6857fbe1d5e1228b62469fc21245a14c data/aether/tags/blocks/aether_dirt.json
+// 1.20.1	2024-01-10T17:32:04.395513	Tags for minecraft:block mod id aether_redux
+51fe750dc7c2eb55cf0859c6996f68d14ac97391 data/aether/tags/blocks/aether_animals_spawnable_on.json
+aab7add654761370e3feb528b5c5e8e55eef0f07 data/aether/tags/blocks/aether_dirt.json
 be858bbcc6c70f54eda7d60496915fa5aef21064 data/aether/tags/blocks/holystone.json
-beed5636c74fb9cf7ed5c4332d0fbdcbb4bae307 data/aether/tags/blocks/treated_as_aether_block.json
+fa2bbeeeabdd9a1a0297bfe295eddc56186d17b0 data/aether/tags/blocks/treated_as_aether_block.json
 85b1ad865db965e78fb0da827f9f619ffe9f5878 data/aether_redux/tags/blocks/aether_carver_replaceables.json
-89e570d3ed2e4927f7ede090fad49d26110aba17 data/aether_redux/tags/blocks/blighted_grasses.json
 edd28d843e4d50fffcd62491dda0fa5e4ba1749b data/aether_redux/tags/blocks/blightwillow_logs.json
-4b9e4d3a01947f113e6552c4eb0d985c81006606 data/aether_redux/tags/blocks/blightwillow_logs_can_grow_through.json
-dc93c9d250fcf29caa5541cb448690d881546306 data/aether_redux/tags/blocks/blightwillow_roots_can_grow_through.json
+75914e012f2e201c871a044aeb871eaea0fe2e24 data/aether_redux/tags/blocks/blightwillow_logs_can_grow_through.json
+f22b4f152390cd318ef2c4782e7818a8d1b53f4e data/aether_redux/tags/blocks/blightwillow_roots_can_grow_through.json
 fd01915c57cee8effe17fe38cbedcefa19a98fb3 data/aether_redux/tags/blocks/blight_replaceables.json
 f935ac962426e9e6830b7063f7ff690dd48898cf data/aether_redux/tags/blocks/cloudcap_stems.json
 3d201dc420fd8363161adf615bfc60e31883a2a8 data/aether_redux/tags/blocks/coarse_aether_dirt.json
@@ -16,7 +15,6 @@ f88e31ba010e8b41d4256635de26d1cf8a0aa221 data/aether_redux/tags/blocks/enchanted
 cfa8f11bb1b7280f4421cd627b807061781b78b8 data/aether_redux/tags/blocks/enchanted_vines_skip_placement.json
 4040f25e47af494a954cf298b91aa37aec210545 data/aether_redux/tags/blocks/enchanted_vines_survive.json
 3201ecb4f0731636e9fb0e3a14bb2797a8f0add8 data/aether_redux/tags/blocks/fieldsprout_logs.json
-496e979b613ea0b91df50b354523f2c4c7b36053 data/aether_redux/tags/blocks/frosted_grasses.json
 efc061c9dfb2dd7e812e035162091fb307075fe5 data/aether_redux/tags/blocks/frosted_plants_placement.json
 82cdd6960b818e0e4b249c6f1b960a9ef8e0cc1c data/aether_redux/tags/blocks/glacia_logs.json
 fc9b66cee900f1b4f341fcec6da19eb45d575f43 data/aether_redux/tags/blocks/highlands_grasses.json
@@ -26,14 +24,14 @@ ce3087631d37c89562a170802a2473a14f8d9153 data/aether_redux/tags/blocks/quicksoil
 3323c9f7960d9cc45e5f36d8b6c6006c16c72916 data/aether_redux/tags/blocks/springshroom_stems.json
 f02fc1acc525d916cbb46f0f6294c117d719b18f data/minecraft/tags/blocks/climbable.json
 7eda84e8c65eed5d88a254c1edfe709a99743806 data/minecraft/tags/blocks/fence_gates.json
-25d0c58129bf71c659041cc80d7f70c58253128a data/minecraft/tags/blocks/flowers.json
-dd072162dab63688ce959bd2f86d43af6e79e7d3 data/minecraft/tags/blocks/flower_pots.json
+9497d1b0e6a6221a8cf7adccd08583725900e5fa data/minecraft/tags/blocks/flowers.json
+34dc1b691ad39aa8da8c8cd1fe1cb8016db44e3f data/minecraft/tags/blocks/flower_pots.json
 951dc06ff37457fd4f12395a4afc329ff217256c data/minecraft/tags/blocks/leaves.json
 4f7b3213a116abc36b8cbd6009c692ba143e2027 data/minecraft/tags/blocks/logs.json
 88885cc74ba8e2217671a2f2238fbdd90faa7346 data/minecraft/tags/blocks/mineable/axe.json
 a6bba4643413211565cf422cbb2d7e757c9e60a9 data/minecraft/tags/blocks/mineable/hoe.json
 8095bffdfa50d094750a9a0ae39571a759452118 data/minecraft/tags/blocks/mineable/pickaxe.json
-207236d07dace667964b3a3c63b3b488a03063e8 data/minecraft/tags/blocks/mineable/shovel.json
+aab7add654761370e3feb528b5c5e8e55eef0f07 data/minecraft/tags/blocks/mineable/shovel.json
 157018c11dd661fb28ac51f3536b64843c26cc51 data/minecraft/tags/blocks/mushroom_grow_block.json
 b79514a8b5c826d6a8f58e263a531ca73b575041 data/minecraft/tags/blocks/needs_stone_tool.json
 243259d4c584b5876ed092159fc145440c545379 data/minecraft/tags/blocks/planks.json
