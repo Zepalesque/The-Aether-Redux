@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-10T17:46:02.1168118	Item Models: aether_redux
+// 1.20.1	2024-01-10T17:59:52.9804727	Item Models: aether_redux
 055dd4b0c8fc6e204bff205a78076040e1d5bfad assets/aether_redux/models/item/aether_short_grass.json
 ef6d226766d61d6460247665062a399d3613d946 assets/aether_redux/models/item/aevelium.json
 e89330a549c5d1169758ec3314e9285fb8db827a assets/aether_redux/models/item/aevelium_growth.json
@@ -162,7 +162,7 @@ eda2c58aa3fa9afd5dfdff5068c17cc884b60f27 assets/aether_redux/models/item/infused
 5ac9099170a70b2826495b9d9afa1acdb8cf921f assets/aether_redux/models/item/iridia.json
 935ed4d1e32cd476bb773ee3977e2a6f9b65b84f assets/aether_redux/models/item/lightroot_aether_dirt.json
 7e5c9c8ea05cc15e0c568d691bccc3a500cb1903 assets/aether_redux/models/item/lightroot_clump.json
-dec7db98dd26776b2fe3c6de77cbaff689a9ba75 assets/aether_redux/models/item/lumina.json
+e3c66959a3a6b675edcec6fe8b6cdde3b3b82073 assets/aether_redux/models/item/lumina.json
 2a699772a6636fcf3c80aac2def07425bdd913dd assets/aether_redux/models/item/luxbuds.json
 94bc37735521fd75d014f764b6c177ad5704d10e assets/aether_redux/models/item/luxweed.json
 47516c71de9a063c4c70bd0fe9c269f3f4e5c946 assets/aether_redux/models/item/mouse_ear_soup.json

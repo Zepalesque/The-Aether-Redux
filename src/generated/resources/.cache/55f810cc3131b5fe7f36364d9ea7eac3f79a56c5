@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-10T17:32:04.3755116	Block States: aether_redux
+// 1.20.1	2024-01-10T17:59:52.9904764	Block States: aether_redux
 19e9315e23d333c40449958daf734f971a3bff53 assets/aether_redux/blockstates/aether_short_grass.json
 103ff0aa6feeaaf74b4a76fc8cdd87b27b7fbc61 assets/aether_redux/blockstates/aevelium.json
 839da9eb72bebfe44879f5abc71bbd50e6ef1b23 assets/aether_redux/blockstates/aevelium_growth.json
@@ -677,7 +677,7 @@ a7b3d68b7ca243dc9b16741d5e8e5c0c8e5528d4 assets/aether_redux/models/block/purple
 58723c63e576416d70ba487e69560561fb89e2c2 assets/aether_redux/models/block/quickroots.json
 0638c603c5030a516adc0ede83a5ca5685cad939 assets/aether_redux/models/block/raw_veridium_block.json
 746b2bd86973079ddf1aa0970c2d3055c92f261a assets/aether_redux/models/block/skysprouts.json
-cd96084a6cde1f06c3015eb0a6021983510fad6e assets/aether_redux/models/block/spirolyctil.json
+245a51a69146df2db100e517289d8f3596953ca6 assets/aether_redux/models/block/spirolyctil.json
 88e8fb10b5732b2ce95f2ff3e60deae90d3966da assets/aether_redux/models/block/sporing_blightwillow_log.json
 2243f0edd0b3bd2ce62288a308d1f8c4827531f9 assets/aether_redux/models/block/sporing_blightwillow_wood.json
 4094f338e9a08a93584986d3e59aac6f8e802984 assets/aether_redux/models/block/springshroom.json

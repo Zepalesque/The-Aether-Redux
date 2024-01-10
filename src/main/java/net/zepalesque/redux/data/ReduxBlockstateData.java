@@ -47,7 +47,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.crossBlock(ReduxBlocks.AEVELIUM_GROWTH.get(), "natural/");
         this.pottedPlantAltTexture(ReduxBlocks.POTTED_AEVELIUM_GROWTH.get(), ReduxBlocks.AEVELIUM_GROWTH.get(), "natural/");
 
-        this.tintedCrossBlock(ReduxBlocks.IRIDIA.get(), "natural/");
+        this.tintedCrossBlockOverlay(ReduxBlocks.IRIDIA.get(), "natural/");
         this.tintableShortGrass(ReduxBlocks.AETHER_SHORT_GRASS.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_IRIDIA.get(), ReduxBlocks.IRIDIA.get(), "natural/");
         block(ReduxBlocks.GILDED_HOLYSTONE.get(), "natural/");
@@ -60,7 +60,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         wallBlock(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_WALL.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), "natural/");
         stairs(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_STAIRS.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), "natural/");
         slab(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_SLAB.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), "natural/");
-        this.tintedCrossBlock(ReduxBlocks.AURUM.get(), "natural/");
+        this.tintedCrossBlockOverlay(ReduxBlocks.AURUM.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_AURUM.get(), ReduxBlocks.AURUM.get(), "natural/");
         block(ReduxBlocks.CARVED_STONE_BRICKS.get(), "construction/");
         wallBlock(ReduxBlocks.CARVED_STONE_BRICK_WALL.get(), ReduxBlocks.CARVED_STONE_BRICKS.get(), "construction/");
@@ -106,7 +106,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
         this.tintedGlowingCrossBlock(ReduxBlocks.LUXWEED.get(), "natural/");
         this.glowingPottedPlantAltTexture(ReduxBlocks.POTTED_LUXWEED.get(), ReduxBlocks.LUXWEED.get(), "natural/");
-        this.tintedCrossBlock(ReduxBlocks.SPIROLYCTIL.get(), "natural/");
+        this.tintedCrossBlockOverlay(ReduxBlocks.SPIROLYCTIL.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_SPIROLYCTIL.get(), ReduxBlocks.SPIROLYCTIL.get(), "natural/");
         this.crossBlock(ReduxBlocks.BLIGHTSHADE.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_BLIGHTSHADE.get(), ReduxBlocks.BLIGHTSHADE.get(), "natural/");
@@ -136,11 +136,11 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.crossBlock(ReduxBlocks.BLIGHTED_SKYROOT_SAPLING.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_BLIGHTED_SKYROOT_SAPLING.get(), ReduxBlocks.BLIGHTED_SKYROOT_SAPLING.get(), "natural/");
 
-        this.crossBlock(ReduxBlocks.DAGGERBLOOM.get(), "natural/");
+        this.tintedCrossBlockOverlay(ReduxBlocks.DAGGERBLOOM.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_DAGGERBLOOM.get(), ReduxBlocks.DAGGERBLOOM.get(), "natural/");
 
-        this.tintedCrossBlock(ReduxBlocks.WYNDSPROUTS.get(), "natural/");
-        this.tintedCrossBlock(ReduxBlocks.SKYSPROUTS.get(), "natural/");
+        this.tintedCrossBlockOverlay(ReduxBlocks.WYNDSPROUTS.get(), "natural/");
+        this.tintedCrossBlockOverlay(ReduxBlocks.SKYSPROUTS.get(), "natural/");
         this.pottedPlantAltTexture(ReduxBlocks.POTTED_WYNDSPROUTS.get(), ReduxBlocks.WYNDSPROUTS.get(), "natural/");
         this.pottedPlantAltTexture(ReduxBlocks.POTTED_SKYSPROUTS.get(), ReduxBlocks.SKYSPROUTS.get(), "natural/");
 
@@ -590,10 +590,15 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
                 .texture("overlay", this.texture(this.name(block) + "_overlay", location)).renderType("cutout");
         this.crossBlock(block, cross);
     }
-    public void tintedCrossBlock(Block block, String location) {
+    public void tintedCrossBlockOverlay(Block block, String location) {
         BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/tinted_cross_overlay"))
                 .texture("cross", this.texture(this.name(block), location))
                 .texture("overlay", this.texture(this.name(block) + "_overlay", location)).renderType("cutout");
+        this.crossBlock(block, cross);
+    }
+    public void tintedCrossBlock(Block block, String location) {
+        BlockModelBuilder cross = models().withExistingParent(this.name(block), mcLoc(BLOCK_FOLDER + "/tinted_cross"))
+                .texture("cross", this.texture(this.name(block), location));
         this.crossBlock(block, cross);
     }
 
