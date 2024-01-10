@@ -15,16 +15,12 @@ public class ReduxStates {
 
     public static final IntegerProperty LEAF_LAYERS = IntegerProperty.create("layers", 1, 12);
 
-
     public static final IntegerProperty PRISMATICNESS = IntegerProperty.create("prismaticness", 0, 6);
 
     public static final IntegerProperty EXTENDED_DISTANCE = IntegerProperty.create("distance", 1, ExtendedDistanceLeavesBlock.DECAY_DISTANCE);
 
-    public static final EnumProperty<ShortGrassType> GRASS_TYPE = EnumProperty.create("aether_grass_type", ShortGrassType.class);
-
     public static final BooleanProperty ENCHANTED = BooleanProperty.create("enchanted");
 
-    public static final EnumProperty<ShortGrassTint> SHORT_GRASS_TINT = EnumProperty.create("short_grass_tint", ShortGrassTint.class);
     public static final EnumProperty<GrassBlockTint> GRASS_BLOCK_TINT = EnumProperty.create("grass_block_tint", GrassBlockTint.class);
 
     public static final EnumProperty<PetalPrismaticness> PETAL_1 = EnumProperty.create("petal_1_val", PetalPrismaticness.class, petalPrismaticness -> petalPrismaticness != PetalPrismaticness.NONE);

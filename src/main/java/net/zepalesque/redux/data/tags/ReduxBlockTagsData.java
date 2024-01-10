@@ -38,8 +38,8 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         );
 
 
-        this.tag(ReduxTags.Blocks.BLIGHTWILLOW_LOGS_CAN_GROW_THROUGH).add(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT.get(), ReduxBlocks.BLIGHTWILLOW_ROOTS.get(), ReduxBlocks.BLIGHTWILLOW_LEAVES.get(), Redux.Handlers.Wood.BLIGHTWILLOW.log.get(), Redux.Handlers.Wood.BLIGHTWILLOW.wood.get(), ReduxBlocks.BLIGHTMOSS_CARPET.get());
-        this.tag(ReduxTags.Blocks.BLIGHTWILLOW_ROOTS_CAN_GROW_THROUGH).add(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT.get(), ReduxBlocks.BLIGHTWILLOW_ROOTS.get(), ReduxBlocks.BLIGHTMOSS_CARPET.get());
+        this.tag(ReduxTags.Blocks.BLIGHTWILLOW_LOGS_CAN_GROW_THROUGH).add(AetherBlocks.AETHER_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT.get(), ReduxBlocks.BLIGHTWILLOW_ROOTS.get(), ReduxBlocks.BLIGHTWILLOW_LEAVES.get(), Redux.Handlers.Wood.BLIGHTWILLOW.log.get(), Redux.Handlers.Wood.BLIGHTWILLOW.wood.get(), ReduxBlocks.BLIGHTMOSS_CARPET.get());
+        this.tag(ReduxTags.Blocks.BLIGHTWILLOW_ROOTS_CAN_GROW_THROUGH).add(AetherBlocks.AETHER_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT.get(), ReduxBlocks.BLIGHTWILLOW_ROOTS.get(), ReduxBlocks.BLIGHTMOSS_CARPET.get());
 
         this.tag(ReduxTags.Blocks.ENCHANTED_VINES_SURVIVE).add(
                 AetherBlocks.GOLDEN_OAK_LEAVES.get(),
@@ -102,9 +102,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
 
 
         this.tag(AetherTags.Blocks.AETHER_DIRT).add(
-                ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(),
                 ReduxBlocks.AEVELIUM.get(),
-                ReduxBlocks.FROSTED_AETHER_GRASS_BLOCK.get(),
                 ReduxBlocks.COARSE_AETHER_DIRT.get(),
                 ReduxBlocks.BLIGHTMOSS_BLOCK.get(),
                 ReduxBlocks.LIGHTROOT_AETHER_DIRT.get()
@@ -120,11 +118,9 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.BLIGHTED_SKYROOT_LEAVES.get()
         );
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
-                ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(),
                 ReduxBlocks.AEVELIUM.get(),
                 ReduxBlocks.COARSE_AETHER_DIRT.get(),
                 ReduxBlocks.BLIGHTMOSS_BLOCK.get(),
-                ReduxBlocks.FROSTED_AETHER_GRASS_BLOCK.get(),
                 ReduxBlocks.LIGHTROOT_AETHER_DIRT.get()
         );
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
@@ -188,7 +184,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         );
         this.tag(AetherTags.Blocks.HOLYSTONE).add(ReduxBlocks.GILDED_HOLYSTONE.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), ReduxBlocks.FROSTED_HOLYSTONE.get());
 
-        this.tag(AetherTags.Blocks.AETHER_ANIMALS_SPAWNABLE_ON).add(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(),ReduxBlocks.FROSTED_AETHER_GRASS_BLOCK.get(), ReduxBlocks.AEVELIUM.get(), ReduxBlocks.COARSE_AETHER_DIRT.get(), ReduxBlocks.LIGHTROOT_AETHER_DIRT.get(), Blocks.SNOW_BLOCK, AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get());
+        this.tag(AetherTags.Blocks.AETHER_ANIMALS_SPAWNABLE_ON).add(ReduxBlocks.AEVELIUM.get(), ReduxBlocks.COARSE_AETHER_DIRT.get(), ReduxBlocks.LIGHTROOT_AETHER_DIRT.get(), Blocks.SNOW_BLOCK, AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get());
 
         // Adds every single Redux block as a block that should be treaded as an Aether Block and get the tool debuff
         IntrinsicTagAppender<Block> tag = this.tag(AetherTags.Blocks.TREATED_AS_AETHER_BLOCK);
@@ -223,7 +219,6 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         this.tag(BlockTags.FLOWERS).add(
                 ReduxBlocks.IRIDIA.get(),
                 ReduxBlocks.AURUM.get(),
-                ReduxBlocks.GILDED_WHITE_FLOWER.get(),
                 ReduxBlocks.SPIROLYCTIL.get(),
                 ReduxBlocks.BLIGHTSHADE.get()
                 );
@@ -232,7 +227,6 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         this.tag(BlockTags.FLOWER_POTS).add(
                 ReduxBlocks.POTTED_IRIDIA.get(),
                 ReduxBlocks.POTTED_AURUM.get(),
-                ReduxBlocks.POTTED_GILDED_WHITE_FLOWER.get(),
                 ReduxBlocks.POTTED_GOLDEN_CLOVER.get(),
                 ReduxBlocks.POTTED_SPIROLYCTIL.get(),
                 ReduxBlocks.POTTED_BLIGHTSHADE.get(),
@@ -247,15 +241,12 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.POTTED_GILDED_OAK_SAPLING.get(),
                 ReduxBlocks.POTTED_BLIGHTED_SKYROOT_SAPLING.get(),
                 ReduxBlocks.POTTED_LUMINA.get(),
-                ReduxBlocks.POTTED_FROSTED_PURPLE_FLOWER.get(),
                 ReduxBlocks.POTTED_DAGGERBLOOM.get(),
                 ReduxBlocks.POTTED_WYNDSPROUTS.get(),
                 ReduxBlocks.POTTED_FROSTED_FERN.get()
                 );
         this.tag(ReduxTags.Blocks.HIGHLANDS_GRASSES).add(AetherBlocks.AETHER_GRASS_BLOCK.get());
         this.tag(ReduxTags.Blocks.ENCHANTED_GRASSES).add(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get());
-        this.tag(ReduxTags.Blocks.BLIGHTED_GRASSES).add(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get());
-        this.tag(ReduxTags.Blocks.FROSTED_GRASSES).add(ReduxBlocks.FROSTED_AETHER_GRASS_BLOCK.get()).addTag(ReduxTags.Blocks.FROSTED_PLANTS_PLACEMENT);
         this.tag(BlockTags.SAPLINGS).add(
                 ReduxBlocks.BLIGHTWILLOW_SAPLING.get(),
                 ReduxBlocks.GLACIA_SAPLING.get(),

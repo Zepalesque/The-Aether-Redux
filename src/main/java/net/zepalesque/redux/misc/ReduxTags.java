@@ -20,7 +20,6 @@ public class ReduxTags {
         public static final TagKey<Block> HIGHLANDS_GRASSES = tag("highlands_grasses");
         public static final TagKey<Block> ENCHANTED_GRASSES = tag("enchanted_grasses");
         public static final TagKey<Block> BLIGHTED_GRASSES = tag("blighted_grasses");
-        public static final TagKey<Block> FROSTED_GRASSES = tag("frosted_grasses");
         public static final TagKey<Block> QUICKSOIL_BEHAVIOR = tag("quicksoil_behavior");
         public static final TagKey<Block> LOG_WALLS = tagGenesis("log_walls");
         public static final TagKey<Block> LIGHTROOT_GROWABLE = tag("lightroot_growable");

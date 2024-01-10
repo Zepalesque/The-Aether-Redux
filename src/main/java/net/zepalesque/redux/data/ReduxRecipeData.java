@@ -107,12 +107,10 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
         oneToOneConversionRecipe(consumer, Items.YELLOW_DYE, ReduxBlocks.SPIROLYCTIL.get(), null);
         oneToOneConversionRecipe(consumer, Items.PURPLE_DYE, ReduxBlocks.BLIGHTSHADE.get(), null);
 
-        oneToOneConversionRecipe(consumer, Items.WHITE_DYE, ReduxBlocks.GILDED_WHITE_FLOWER.get(), null);
-        oneToOneConversionRecipe(consumer, Items.ORANGE_DYE, ReduxBlocks.AURUM.get(), null);
+        oneToOneConversionRecipe(consumer, Items.YELLOW_DYE, ReduxBlocks.AURUM.get(), null);
 
         oneToOneConversionRecipe(consumer, Items.WHITE_DYE, ReduxBlocks.DAGGERBLOOM.get(), null);
         oneToOneConversionRecipe(consumer, Items.GRAY_DYE, ReduxBlocks.LUMINA.get(), null);
-        oneToOneConversionRecipe(consumer, Items.PURPLE_DYE, ReduxBlocks.FROSTED_PURPLE_FLOWER.get(), null);
 
         oneToOneConversionRecipe(consumer, Items.PINK_DYE, ReduxBlocks.IRIDIA.get(), null);
 
@@ -120,7 +118,6 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
 
         ambrosiumEnchanting(ReduxBlocks.GILDED_HOLYSTONE.get(), AetherBlocks.MOSSY_HOLYSTONE.get()).save(consumer, name("ambrosium_enchant_mossy_holystone_to_gilded_holystone"));
         sporeBlighting(ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), AetherBlocks.MOSSY_HOLYSTONE.get()).save(consumer, name("spore_blight_mossy_holystone_to_blightmoss_holystone"));
-        sporeBlighting(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(), AetherBlocks.AETHER_GRASS_BLOCK.get()).save(consumer, name("spore_blight_aether_grass_block_to_blighted_aether_grass_block"));
         sporeBlighting(ReduxBlocks.BLIGHTMOSS_BLOCK.get(), DABlocks.AETHER_MOSS_BLOCK.get()).save(consumer, name("spore_blight_deep_aether_aether_moss_block_to_blightmoss_block"));
         sporeBlighting(ReduxBlocks.BLIGHTMOSS_CARPET.get(), DABlocks.AETHER_MOSS_CARPET.get()).save(consumer, name("spore_blight_deep_aether_aether_moss_carpet_to_blightmoss_carpet"));
 

@@ -55,8 +55,6 @@ public class ReduxToolHooks {
      * Blocks able to be flattened with {@link ToolActions#SHOVEL_FLATTEN}, and the equivalent result block.
      */
     public static final Map<Block, Block> FLATTENABLES = Maps.newHashMap((new ImmutableMap.Builder<Block, Block>())
-            .put(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT_PATH.get())
-            .put(ReduxBlocks.FROSTED_AETHER_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT_PATH.get())
             .put(ReduxBlocks.AEVELIUM.get(), AetherBlocks.AETHER_DIRT_PATH.get())
             .put(ReduxBlocks.LIGHTROOT_AETHER_DIRT.get(), AetherBlocks.AETHER_DIRT_PATH.get())
             .build());
@@ -65,8 +63,6 @@ public class ReduxToolHooks {
      * Blocks able to be tilled with {@link ToolActions#HOE_TILL}, and the equivalent result block.
      */
     public static final Map<Block, Block> TILLABLES = Maps.newHashMap((new ImmutableMap.Builder<Block, Block>())
-            .put(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(), AetherBlocks.AETHER_FARMLAND.get())
-            .put(ReduxBlocks.FROSTED_AETHER_GRASS_BLOCK.get(), AetherBlocks.AETHER_FARMLAND.get())
             .put(ReduxBlocks.AEVELIUM.get(), AetherBlocks.AETHER_FARMLAND.get())
             .put(ReduxBlocks.LIGHTROOT_AETHER_DIRT.get(), AetherBlocks.AETHER_FARMLAND.get())
             .build());

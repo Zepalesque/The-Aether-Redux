@@ -16,13 +16,11 @@ import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.block.natural.AetherShortGrassBlock;
 import net.zepalesque.redux.block.natural.ExtendedDistanceLeavesBlock;
 import net.zepalesque.redux.block.natural.LeafPileBlock;
-import net.zepalesque.redux.block.natural.TintableAetherShortGrassBlock;
 import net.zepalesque.redux.block.util.PetalPrismaticness;
 import net.zepalesque.redux.block.util.ReduxStates;
-import net.zepalesque.redux.block.util.ShortGrassTint;
-import net.zepalesque.redux.block.util.ShortGrassType;
 
 import java.util.Map;
 import java.util.function.Supplier;
@@ -51,8 +49,6 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
         this.tintedCrossBlock(ReduxBlocks.IRIDIA.get(), "natural/");
         this.tintableShortGrass(ReduxBlocks.AETHER_SHORT_GRASS.get(), "natural/");
-        this.crossBlock(ReduxBlocks.GILDED_WHITE_FLOWER.get(), "natural/");
-        this.pottedPlant(ReduxBlocks.POTTED_GILDED_WHITE_FLOWER.get(), ReduxBlocks.GILDED_WHITE_FLOWER.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_IRIDIA.get(), ReduxBlocks.IRIDIA.get(), "natural/");
         block(ReduxBlocks.GILDED_HOLYSTONE.get(), "natural/");
         wallBlock(ReduxBlocks.GILDED_HOLYSTONE_WALL.get(), ReduxBlocks.GILDED_HOLYSTONE.get(), "natural/");
@@ -95,7 +91,6 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.leafPile(ReduxBlocks.GOLDEN_LEAF_PILE, AetherBlocks.GOLDEN_OAK_LEAVES, "natural/");
         this.leafPile(ReduxBlocks.GILDED_LEAF_PILE, ReduxBlocks.GILDED_OAK_LEAVES, "natural/");
 
-        this.grass(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT);
         this.grassGlow(ReduxBlocks.AEVELIUM.get(), ReduxBlocks.LIGHTROOT_AETHER_DIRT, true, false);
 
         this.snowableLeaves(ReduxBlocks.GLACIA_LEAVES.get(), "natural/");
@@ -126,8 +121,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
         block(ReduxBlocks.BLIGHTMOSS_BLOCK.get(), "natural/");
         carpet(ReduxBlocks.BLIGHTMOSS_CARPET.get(), ReduxBlocks.BLIGHTMOSS_BLOCK.get(), "natural/");
-        this.frostedGrass(ReduxBlocks.FROSTED_AETHER_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT);
-        this.frostedCrossBlockGlow(ReduxBlocks.LUMINA.get(), "natural/");
+        this.tintedGlowingCrossBlockWithOverlay(ReduxBlocks.LUMINA.get(), "natural/");
         this.glowingPottedPlant(ReduxBlocks.POTTED_LUMINA.get(), ReduxBlocks.LUMINA.get(), "natural/");
 
         this.pottedPlant(ReduxBlocks.POTTED_BLIGHTWILLOW_SAPLING.get(), ReduxBlocks.BLIGHTWILLOW_SAPLING.get(), "natural/");
@@ -144,8 +138,6 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
         this.frostedCrossBlock(ReduxBlocks.DAGGERBLOOM.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_DAGGERBLOOM.get(), ReduxBlocks.DAGGERBLOOM.get(), "natural/");
-        this.frostedCrossBlock(ReduxBlocks.FROSTED_PURPLE_FLOWER.get(), "natural/");
-        this.pottedPlant(ReduxBlocks.POTTED_FROSTED_PURPLE_FLOWER.get(), ReduxBlocks.FROSTED_PURPLE_FLOWER.get(), "natural/");
 
         this.tintedCrossBlock(ReduxBlocks.WYNDSPROUTS.get(), "natural/");
         this.tintedCrossBlock(ReduxBlocks.SKYSPROUTS.get(), "natural/");
@@ -380,14 +372,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.frostedCrossBlock(block, models().cross(this.name(block), this.texture(this.name(block), location)).renderType("cutout"), models().cross(this.name(block) + "_snowy", this.texture(this.name(block) + "_snowy", location)).renderType("cutout"));
     }
 
-    public void aetherShortGrass(Block block, String location) {
-
-        this.getVariantBuilder(block).forAllStates((state) -> {
-            ShortGrassType type = state.getValue(ReduxStates.GRASS_TYPE);
-            return ConfiguredModel.builder().modelFile(models().cross(type.getSerializedName(), modLoc("block/" + location + type.getSerializedName())).renderType("cutout")).build();
-        }       );
-    }
-    public void tintableShortGrass(TintableAetherShortGrassBlock block, String location) {
+    public void tintableShortGrass(AetherShortGrassBlock block, String location) {
         this.getVariantBuilder(block).forAllStates((state) -> {
             boolean enchanted = state.getValue(ReduxStates.ENCHANTED);
             if (enchanted) {
@@ -595,6 +580,14 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/cross_glow_tinted"))
                 .texture("cross", this.texture(this.name(block), location))
                 .texture("overlay", this.texture(this.name(block) + "_glow", location)).renderType("cutout");
+        this.crossBlock(block, cross);
+    }
+
+    public void tintedGlowingCrossBlockWithOverlay(Block block, String location) {
+        BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/cross_glow_tinted_dual_overlay"))
+                .texture("cross", this.texture(this.name(block), location))
+                .texture("glow", this.texture(this.name(block) + "_glow", location)).renderType("cutout")
+                .texture("overlay", this.texture(this.name(block) + "_overlay", location)).renderType("cutout");
         this.crossBlock(block, cross);
     }
     public void tintedCrossBlock(Block block, String location) {

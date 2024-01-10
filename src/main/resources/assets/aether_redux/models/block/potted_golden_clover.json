@@ -1,7 +1,7 @@
 {
 	"credit": "Made with Blockbench",
 	"parent": "minecraft:block/block",
-	"render_type": "minecraft:cutout",
+	"render_type": "minecraft:translucent",
         "ambientocclusion": false,
 	"textures": {
 		"2": "aether_redux:block/natural/golden_clover_stem",

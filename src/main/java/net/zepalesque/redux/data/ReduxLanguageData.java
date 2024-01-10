@@ -108,9 +108,6 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.AETHER_SHORT_GRASS, "Aether Grass");
         addLore(ReduxBlocks.AETHER_SHORT_GRASS, "Blades of the Aether's grass. It feels slightly cool to the touch.");
 
-        addBlock(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK, "Blighted Aether Grass Block");
-        addLore(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK, "The Aether's grass, but infected by the blight. It is almost rough to the touch");
-
         addBlock(ReduxBlocks.AEVELIUM, "Aevelium");
         addLore(ReduxBlocks.AEVELIUM, "A fungal grass-like growth that spreads across Aether Dirt. Found in the Cloudcap Jungle.");
 
@@ -127,9 +124,6 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addLore(ReduxBlocks.SPRINGSHROOM_CAP_BLOCK, "The cap of the large Springshroom Fungi, found in the Cloudcap Jungle.");
         addBlock(ReduxBlocks.SPRINGSHROOM_SPORES, "Springshroom Spores");
         addLore(ReduxBlocks.SPRINGSHROOM_SPORES, "A block of spores from the large Springshroom Fungi, found in the Cloudcap Jungle.");
-
-        addBlock(ReduxBlocks.FROSTED_AETHER_GRASS_BLOCK, "Frosted Aether Grass Block");
-        addLore(ReduxBlocks.FROSTED_AETHER_GRASS_BLOCK, "The frosted variant of the Aether Grass Block. This spawns in the Frosted Forest biome.");
 
         addBlock(ReduxBlocks.COARSE_AETHER_DIRT, "Coarse Aether Dirt");
         addLore(ReduxBlocks.COARSE_AETHER_DIRT, "A variant of Aether Dirt that does not regrow any grass.");
@@ -263,9 +257,6 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.IRIDIA, "Iridia");
         addBlock(ReduxBlocks.POTTED_IRIDIA, "Potted Iridia");
         addLore(ReduxBlocks.IRIDIA, "An iridescent flower found in the Highfields.");
-        addBlock(ReduxBlocks.GILDED_WHITE_FLOWER, "Gilded White Flower");
-        addBlock(ReduxBlocks.POTTED_GILDED_WHITE_FLOWER, "Potted Gilded White Flower");
-        addLore(ReduxBlocks.GILDED_WHITE_FLOWER, "A variant of the White Flower, this pale flower is found in the Gilded Groves.");
 
         addBlock(ReduxBlocks.GILDED_HOLYSTONE, "Gilded Holystone");
         addLore(ReduxBlocks.GILDED_HOLYSTONE, "The enchanted form of Mossy Holystone. This rock covered in golden moss glitters in the sunlight.");
@@ -379,10 +370,6 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.LUMINA, "Lumina");
         addBlock(ReduxBlocks.POTTED_LUMINA, "Potted Lumina");
         addLore(ReduxBlocks.LUMINA, "A flower found in the Frosted Forest. It gives off a glow, lighting the area around it");
-
-        addBlock(ReduxBlocks.FROSTED_PURPLE_FLOWER, "Frosted Purple Flower");
-        addBlock(ReduxBlocks.POTTED_FROSTED_PURPLE_FLOWER, "Potted Frosted Purple Flower");
-        addLore(ReduxBlocks.FROSTED_PURPLE_FLOWER, "A variation of the Aether's common Purple Flower. Founnd in the Frosted Forests.");
 
         addBlock(ReduxBlocks.DAGGERBLOOM, "Daggerbloom");
         addBlock(ReduxBlocks.POTTED_DAGGERBLOOM, "Potted Daggerbloom");

@@ -68,7 +68,6 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlock(ReduxBlocks.CARVED_STONE_BRICK_STAIRS);
         itemWallBlock(ReduxBlocks.CARVED_STONE_BRICK_WALL, ReduxBlocks.CARVED_STONE_BRICKS, "construction/");
         itemBlock(ReduxBlocks.CARVED_STONE_PILLAR);
-        itemBlockFlat(ReduxBlocks.GILDED_WHITE_FLOWER, "natural/");
         itemBlock(ReduxBlocks.FROSTED_HOLYSTONE);
         itemBlock(ReduxBlocks.FROSTED_HOLYSTONE_SLAB);
         itemBlock(ReduxBlocks.FROSTED_HOLYSTONE_STAIRS);
@@ -97,13 +96,12 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlock(ReduxBlocks.PURPLE_GLACIA_LEAVES);
         this.itemBlockFlat(ReduxBlocks.PURPLE_GLACIA_SAPLING.get(), "natural/");
 
-        itemBlock(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK);
         itemBlock(ReduxBlocks.AEVELIUM);
         itemBlock(ReduxBlocks.CLOUD_CAP_BLOCK);
         itemBlock(ReduxBlocks.CLOUDCAP_SPORES);
         itemBlock(ReduxBlocks.SPRINGSHROOM);
-        itemBlockFlatGlow(ReduxBlocks.LUXWEED, "natural/");
-        itemBlockFlat(ReduxBlocks.SPIROLYCTIL, "natural/");
+        itemBlockFlatTintGlow(ReduxBlocks.LUXWEED, "natural/");
+        itemBlockFlatOverlay(ReduxBlocks.SPIROLYCTIL, "natural/");
         itemBlockFlat(ReduxBlocks.BLIGHTSHADE, "natural/");
         itemBlockFlatGlow(ReduxBlocks.BLIGHTED_FUNGI, "natural/");
 
@@ -135,7 +133,6 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         this.itemBlock(ReduxBlocks.BLIGHTMOSS_BLOCK.get());
         this.itemBlock(ReduxBlocks.BLIGHTMOSS_CARPET.get());
         this.itemBlock(ReduxBlocks.GILDED_OAK_LEAVES.get());
-        this.itemBlock(ReduxBlocks.FROSTED_AETHER_GRASS_BLOCK.get());
         this.itemBlockFlat(ReduxBlocks.GILDED_OAK_SAPLING.get(), "natural/");
 
         this.itemBlockFlat(ReduxBlocks.BLIGHTED_SKYROOT_SAPLING.get(), "natural/");
@@ -144,9 +141,8 @@ public class ReduxItemModelData extends AetherItemModelProvider {
 
         this.itemBlock(ReduxBlocks.BLIGHTWILLOW_ROOTS.get());
 
-        this.itemBlockFlatGlow(ReduxBlocks.LUMINA, "natural/");
+        this.itemBlockFlatTintGlowOverlay(ReduxBlocks.LUMINA, "natural/");
         this.itemBlockFlat(ReduxBlocks.DAGGERBLOOM, "natural/");
-        this.itemBlockFlat(ReduxBlocks.FROSTED_PURPLE_FLOWER, "natural/");
 
         itemBlockFlatOverlay(ReduxBlocks.WYNDSPROUTS, "natural/");
         itemBlockFlatOverlay(ReduxBlocks.SKYSPROUTS, "natural/");
@@ -290,6 +286,10 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         return withExistingParent(blockName(block), mcLoc("item/generated"))
                 .texture("layer0", texture(blockName(block), location));
     }
+    public ItemModelBuilder itemBlockFlatTint(Supplier<? extends Block> block, String location) {
+        return withExistingParent(blockName(block), mcLoc("item/generated"))
+                .texture("layer1", texture(blockName(block), location));
+    }
     public ItemModelBuilder itemBlockFlatWithPottedTexture(Supplier<? extends Block> block, String location) {
         return withExistingParent(blockName(block), mcLoc("item/generated"))
                 .texture("layer0", texture("potted_" + blockName(block), location));
@@ -302,14 +302,27 @@ public class ReduxItemModelData extends AetherItemModelProvider {
     }
     public ItemModelBuilder itemBlockFlatOverlay(Supplier<? extends Block> block, String location) {
         return withExistingParent(blockName(block), mcLoc("item/generated"))
-                .texture("layer0", texture(blockName(block), location))
-                .texture("layer1", texture(blockName(block) + "_overlay", location)).customLoader(ItemLayerModelBuilder::begin).end();
+                .texture("layer1", texture(blockName(block), location))
+                .texture("layer0", texture(blockName(block) + "_overlay", location));
     }
     public ItemModelBuilder itemBlockFlatGlow(Supplier<? extends Block> block, String location, String suffix) {
         return withExistingParent(blockName(block), mcLoc("item/generated"))
-                .texture("layer0", texture(blockName(block), location) + suffix)
-                .texture("layer1", texture(blockName(block) + suffix + "_glow", location)).customLoader((itemModelBuilder,existingFileHelper) ->
+                .texture("layer1", texture(blockName(block), location) + suffix)
+                .texture("layer0", texture(blockName(block) + suffix + "_glow", location)).customLoader((itemModelBuilder,existingFileHelper) ->
                 ItemLayerModelBuilder.begin(itemModelBuilder, existingFileHelper).emissive(15, 15, 1)).end();
+    }
+    public ItemModelBuilder itemBlockFlatTintGlowOverlay(Supplier<? extends Block> block, String location) {
+        return withExistingParent(blockName(block), mcLoc("item/generated"))
+                .texture("layer0", texture(blockName(block), location))
+                .texture("layer1", texture(blockName(block) + "_glow", location)).customLoader((itemModelBuilder,existingFileHelper) ->
+                        ItemLayerModelBuilder.begin(itemModelBuilder, existingFileHelper).emissive(15, 15, 1)).end()
+                .texture("layer2", texture(blockName(block) + "_overlay", location));
+    }
+    public ItemModelBuilder itemBlockFlatTintGlow(Supplier<? extends Block> block, String location) {
+        return withExistingParent(blockName(block), mcLoc("item/generated"))
+                .texture("layer0", texture(blockName(block), location))
+                .texture("layer1", texture(blockName(block) + "_glow", location)).customLoader((itemModelBuilder,existingFileHelper) ->
+                        ItemLayerModelBuilder.begin(itemModelBuilder, existingFileHelper).emissive(15, 15, 1)).end();
     }
     public ItemModelBuilder itemFence(Supplier<? extends Block> block, Supplier<? extends Block> baseBlock, String location) {
         return withExistingParent(blockName(block), mcLoc("block/fence_inventory"))

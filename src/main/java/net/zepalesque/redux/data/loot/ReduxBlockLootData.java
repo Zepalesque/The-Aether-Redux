@@ -132,15 +132,12 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.add(ReduxBlocks.CARVED_STONE_BRICK_SLAB.get(), this::createSlabItemTable);
         dropSelf(ReduxBlocks.CARVED_STONE_BRICK_WALL.get());
         dropSelf(ReduxBlocks.CARVED_STONE_PILLAR.get());
-        dropSelf(ReduxBlocks.GILDED_WHITE_FLOWER.get());
         this.dropPottedContents(ReduxBlocks.POTTED_GILDED_WHITE_FLOWER.get());
         this.dropSelf(ReduxBlocks.FROSTED_HOLYSTONE.get());
         this.add(ReduxBlocks.FROSTED_HOLYSTONE_SLAB.get(), this::createSlabItemTable);
         this.dropSelf(ReduxBlocks.FROSTED_HOLYSTONE_STAIRS.get());
         this.dropSelf(ReduxBlocks.FROSTED_HOLYSTONE_WALL.get());
-        this.dropDoubleWithSilk(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT.get());
         this.dropDoubleWithSilk(ReduxBlocks.AEVELIUM.get(), AetherBlocks.AETHER_DIRT.get());
-        this.dropDoubleWithSilk(ReduxBlocks.FROSTED_AETHER_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT.get());
         this.add(ReduxBlocks.LUXWEED.get(), shearsOr(ReduxItems.LUXBUDS.get(), 0.75F, 1F, 2F));
         this.dropPottedContents(ReduxBlocks.POTTED_LUXWEED.get());
         this.dropSelf(ReduxBlocks.SPIROLYCTIL.get());
@@ -166,8 +163,6 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropSelf(ReduxBlocks.BLIGHTMOSS_CARPET.get());
         this.dropSelf(ReduxBlocks.LUMINA.get());
         this.dropPottedContents(ReduxBlocks.POTTED_LUMINA.get());
-        this.dropSelf(ReduxBlocks.FROSTED_PURPLE_FLOWER.get());
-        this.dropPottedContents(ReduxBlocks.POTTED_FROSTED_PURPLE_FLOWER.get());
         this.dropSelf(ReduxBlocks.DAGGERBLOOM.get());
         this.dropPottedContents(ReduxBlocks.POTTED_DAGGERBLOOM.get());
         this.add(ReduxBlocks.WYNDSPROUTS.get(), shearsOr(ReduxItems.OATS.get(), 0.75F, 1F, 2F));

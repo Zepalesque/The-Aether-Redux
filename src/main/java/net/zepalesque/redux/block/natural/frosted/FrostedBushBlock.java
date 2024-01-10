@@ -11,7 +11,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.zepalesque.redux.block.util.ShortGrassType;
 import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.block.util.ReduxStates;
 import org.jetbrains.annotations.Nullable;

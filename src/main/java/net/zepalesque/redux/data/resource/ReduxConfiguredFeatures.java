@@ -45,7 +45,6 @@ import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.util.ReduxStates;
-import net.zepalesque.redux.block.util.ShortGrassType;
 import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.world.feature.ReduxFeatureRegistry;
 import net.zepalesque.redux.world.feature.config.*;
@@ -85,14 +84,14 @@ public class    ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> DAGGERBLOOM_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.DAGGERBLOOM) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTED_FERN_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.FROSTED_FERN) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AEROGEL_ORE = createKey(Folders.ORE + name(AetherBlocks.AEROGEL) + "_ore");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTED_PURPLE_FLOWER_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.FROSTED_PURPLE_FLOWER) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTED_PURPLE_FLOWER_PATCH = createKey(Folders.PATCH + "frosted_purple_flower_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLACIAL_TREES = createKey(Folders.TREE + "glacial_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTED_TREES = createKey(Folders.TREE + "frosted_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GILDED_HOLYSTONE_ORE = createKey(Folders.ORE + name(ReduxBlocks.GILDED_HOLYSTONE) + "_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GILDED_LEAF_PATCH  = createKey(Folders.PATCH + "gilded_leaf_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GILDED_OAK_TREE = createKey(Folders.TREE + "gilded_oak_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GILDED_ROCK  = createKey(Folders.SURFACE + "gilded_rock");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> GILDED_WHITE_FLOWER_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.GILDED_WHITE_FLOWER) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GILDED_WHITE_FLOWER_PATCH = createKey(Folders.PATCH + "gilded_white_flower_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLOWSPROUTS_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.LUXWEED) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_CLOVER_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.GOLDEN_CLOVER) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_LEAF_PATCH = createKey(Folders.PATCH + "golden_leaf_patch");
@@ -159,10 +158,10 @@ public class    ReduxConfiguredFeatures {
                 biomePlacementPatch(12, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.AURUM))));
         register(context, AETHER_SNOW_LAYER, ReduxFeatureRegistry.TREE_CHECKING_SNOW.get(), FeatureConfiguration.NONE);
         register(context, GILDED_WHITE_FLOWER_PATCH, ReduxFeatureRegistry.BIOME_BORDER_PLACEMENT_FLOWER.get(),
-                biomePlacementPatch(16, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.GILDED_WHITE_FLOWER))));
+                biomePlacementPatch(16, 7, 3, BlockStateProvider.simple(drops(AetherBlocks.WHITE_FLOWER))));
         register(context, HOLYSILT_DISK, AetherFeatures.SHELF.get(),
                 new ShelfConfiguration(BlockStateProvider.simple(drops(ReduxBlocks.HOLYSILT)),
-                        ConstantFloat.of(3.5F), UniformInt.of(0, 48), HolderSet.direct(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.getHolder().get(), ReduxBlocks.COARSE_AETHER_DIRT.getHolder().get())));
+                        ConstantFloat.of(3.5F), UniformInt.of(0, 48), HolderSet.direct(AetherBlocks.AETHER_GRASS_BLOCK.getHolder().get(), ReduxBlocks.COARSE_AETHER_DIRT.getHolder().get())));
         register(context, BLIGHTMOSS_PATCH, Feature.VEGETATION_PATCH,
                 new VegetationPatchConfiguration(ReduxTags.Blocks.BLIGHT_REPLACEABLES,
                         prov(ReduxBlocks.BLIGHTMOSS_BLOCK),
@@ -213,7 +212,7 @@ public class    ReduxConfiguredFeatures {
         ).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT)).build());
         register(context, BLIGHTSHADE_PATCH, ReduxFeatureRegistry.SUPPORT_TEST_FLOWER.get(),
                 blockBelowPlacementPatch(24, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.BLIGHTSHADE)),
-                        BlockPredicate.matchesBlocks(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get())));
+                        BlockPredicate.matchesBlocks(AetherBlocks.AETHER_GRASS_BLOCK.get())));
         register(context, BLIGHTWILLOW_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 new WeightedStateProvider(
                         SimpleWeightedRandomList.<BlockState>builder()
@@ -247,7 +246,7 @@ public class    ReduxConfiguredFeatures {
         register(context, AEROGEL_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
                 drops(AetherBlocks.AEROGEL), 64, 0.3F));
         register(context, FROSTED_PURPLE_FLOWER_PATCH, ReduxFeatureRegistry.BIOME_BORDER_PLACEMENT_FLOWER.get(),
-                biomePlacementPatch(16, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.FROSTED_PURPLE_FLOWER))));
+                biomePlacementPatch(16, 7, 3, BlockStateProvider.simple(drops(AetherBlocks.PURPLE_FLOWER))));
         register(context, GILDED_HOLYSTONE_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
                 drops(ReduxBlocks.GILDED_HOLYSTONE), 32, 0.3F));
         register(context, GILDED_LEAF_PATCH, ReduxFeatureRegistry.BLOCK_TEST_PATCH.get(),
@@ -355,7 +354,7 @@ public class    ReduxConfiguredFeatures {
 
         register(context, GLOWSPROUTS_PATCH, ReduxFeatureRegistry.SUPPORT_TEST_FLOWER.get(),
                 blockBelowPlacementPatch(24, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.LUXWEED)),
-                        BlockPredicate.matchesBlocks(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get())));
+                        BlockPredicate.matchesBlocks(AetherBlocks.AETHER_GRASS_BLOCK.get())));
 
         register(context, GOLDEN_CLOVER_PATCH, ReduxFeatureRegistry.BIOME_BORDER_PLACEMENT_FLOWER.get(),
                 biomePlacementPatch(12, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.GOLDEN_CLOVER))));
@@ -439,7 +438,7 @@ public class    ReduxConfiguredFeatures {
                 biomePlacementPatch(24, 5, 3, BlockStateProvider.simple(drops(ReduxBlocks.SKYSPROUTS    ))));
         register(context, SPIROLYCTIL_PATCH, ReduxFeatureRegistry.SUPPORT_TEST_FLOWER.get(),
                 blockBelowPlacementPatch(16, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.SPIROLYCTIL)),
-                        BlockPredicate.matchesBlocks(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get())));
+                        BlockPredicate.matchesBlocks(AetherBlocks.AETHER_GRASS_BLOCK.get())));
         register(context, SPRINGSHROOM_PATCH, ReduxFeatureRegistry.SUPPORT_TEST_FLOWER.get(),
                 blockBelowPlacementPatch(8, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.SPRINGSHROOM)),
                         BlockPredicate.matchesBlocks(ReduxBlocks.AEVELIUM.get())));
@@ -451,7 +450,7 @@ public class    ReduxConfiguredFeatures {
 
         register(context, THORNCAP_PATCH, ReduxFeatureRegistry.SUPPORT_TEST_FLOWER.get(),
                 blockBelowPlacementPatch(8, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.BLIGHTED_FUNGI)),
-                        BlockPredicate.matchesBlocks(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get())));
+                        BlockPredicate.matchesBlocks(AetherBlocks.AETHER_GRASS_BLOCK.get())));
 
         register(context, BLIGHT_TREES, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(

@@ -71,11 +71,8 @@ public class ReduxBlocks {
     public static RegistryObject<Block> HOLYSILT = register("holysilt",
             () -> new HolysiltBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).strength(0.5F).sound(SoundType.SAND)));
 
-    public static RegistryObject<TintableAetherShortGrassBlock> AETHER_SHORT_GRASS = register("aether_short_grass",
-                () -> new TintableAetherShortGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).hasPostProcess(ReduxBlocks::always)));
-
-    public static RegistryObject<Block> BLIGHTED_AETHER_GRASS_BLOCK = register("blighted_aether_grass_block",
-            () -> new ReduxGrassBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_PURPLE).randomTicks().strength(0.2F).sound(SoundType.GRASS)));
+    public static RegistryObject<AetherShortGrassBlock> AETHER_SHORT_GRASS = register("aether_short_grass",
+                () -> new AetherShortGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).hasPostProcess(ReduxBlocks::always)));
 
     public static RegistryObject<Block> AEVELIUM = register("aevelium",
             () -> new AeveliumBlock(BlockBehaviour.Properties.of().mapColor(MapColor.LAPIS).randomTicks().strength(0.2F).sound(SoundType.ROOTED_DIRT)));
@@ -99,13 +96,8 @@ public class ReduxBlocks {
     public static RegistryObject<Block> SPRINGSHROOM_SPORES = register("springshroom_spores",
             () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PINK).strength(0.3F).sound(SoundType.WART_BLOCK)));
 
-    public static RegistryObject<Block> FROSTED_AETHER_GRASS_BLOCK = register("frosted_aether_grass_block",
-            () -> new FrostedGrassBlock(BlockBehaviour.Properties.of().hasPostProcess(ReduxBlocks::always).mapColor(MapColor.ICE).randomTicks().strength(0.2F).sound(SoundType.GRASS)));
-
     public static final RegistryObject<Block> SPRINGSHROOM = register("springshroom", () -> new SpringshroomBlock(Block.Properties.of().strength(0.5F).sound(SoundType.FUNGUS).mapColor(MapColor.QUARTZ), ReduxConfiguredFeatures.LARGE_SPRINGSHROOM));
     public static final RegistryObject<FlowerPotBlock> POTTED_SPRINGSHROOM = BLOCKS.register("potted_springshroom", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SPRINGSHROOM, Block.Properties.copy(Blocks.FLOWER_POT)));
-
-
 
     public static final RegistryObject<Block> IRIDIA = register("iridia", () -> new FlowerBlock(() -> MobEffects.HEAL, 4, Block.Properties.copy(Blocks.DANDELION).mapColor(MapColor.QUARTZ)));
     public static final RegistryObject<FlowerPotBlock> POTTED_IRIDIA = BLOCKS.register("potted_iridia", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IRIDIA, Block.Properties.copy(Blocks.FLOWER_POT)));
@@ -120,20 +112,9 @@ public class ReduxBlocks {
             () -> new FlowerBlock(() -> MobEffects.LUCK, 60, BlockBehaviour.Properties.copy(Blocks.POPPY).mapColor(MapColor.COLOR_ORANGE)));
     public static final RegistryObject<FlowerPotBlock> POTTED_AURUM = BLOCKS.register("potted_aurum", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, AURUM, Block.Properties.copy(Blocks.FLOWER_POT)));
 
-    public static RegistryObject<Block> FROSTED_PURPLE_FLOWER = register("frosted_purple_flower",
-            () -> new FrostedFlowerBlock(AetherEffects.INEBRIATION, 12, Block.Properties.copy(Blocks.DANDELION).hasPostProcess(ReduxBlocks::always).mapColor(MapColor.COLOR_PURPLE)));
-    public static final RegistryObject<FlowerPotBlock> POTTED_FROSTED_PURPLE_FLOWER = BLOCKS.register("potted_frosted_purple_flower", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, FROSTED_PURPLE_FLOWER, Block.Properties.copy(Blocks.FLOWER_POT)));
-
     public static RegistryObject<Block> DAGGERBLOOM = register("daggerbloom",
             () -> new FrostedFernShapeFlower(() -> MobEffects.MOVEMENT_SLOWDOWN, 60, BlockBehaviour.Properties.copy(Blocks.POPPY).hasPostProcess(ReduxBlocks::always).mapColor(MapColor.ICE)));
     public static final RegistryObject<FlowerPotBlock> POTTED_DAGGERBLOOM = BLOCKS.register("potted_daggerbloom", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, DAGGERBLOOM, Block.Properties.copy(Blocks.FLOWER_POT)));
-
-    public static final RegistryObject<Block> GILDED_WHITE_FLOWER = register("gilded_white_flower", () ->
-            new FlowerBlock(() ->
-                    MobEffects.SLOW_FALLING,
-                    4, BlockBehaviour.Properties.copy(Blocks.DANDELION))
-    );
-    public static final RegistryObject<FlowerPotBlock> POTTED_GILDED_WHITE_FLOWER = BLOCKS.register("potted_gilded_white_flower", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, GILDED_WHITE_FLOWER, Block.Properties.copy(Blocks.FLOWER_POT)));
 
     public static RegistryObject<Block> BLIGHTSHADE = register("blightshade",
             () -> new BlightshadeBlock(() -> MobEffects.DARKNESS, 60, BlockBehaviour.Properties.copy(Blocks.WITHER_ROSE).mapColor(MapColor.COLOR_BLACK)));
@@ -395,7 +376,6 @@ public class ReduxBlocks {
         fireBlockAccessor.callSetFlammable(AURUM.get(), 60, 100);
         fireBlockAccessor.callSetFlammable(GOLDEN_CLOVER.get(), 60, 100);
         fireBlockAccessor.callSetFlammable(FROSTED_FERN.get(), 60, 100);
-        fireBlockAccessor.callSetFlammable(GILDED_WHITE_FLOWER.get(), 60, 100);
         fireBlockAccessor.callSetFlammable(LUXWEED.get(), 60, 100);
         fireBlockAccessor.callSetFlammable(SPIROLYCTIL.get(), 60, 100);
         fireBlockAccessor.callSetFlammable(BLIGHTSHADE.get(), 60, 100);
@@ -413,7 +393,6 @@ public class ReduxBlocks {
         pot.addPlant(ReduxBlocks.IRIDIA.getId(), ReduxBlocks.POTTED_IRIDIA);
         pot.addPlant(ReduxBlocks.GOLDEN_CLOVER.getId(), ReduxBlocks.POTTED_GOLDEN_CLOVER);
         pot.addPlant(ReduxBlocks.AURUM.getId(), ReduxBlocks.POTTED_AURUM);
-        pot.addPlant(ReduxBlocks.GILDED_WHITE_FLOWER.getId(), ReduxBlocks.POTTED_GILDED_WHITE_FLOWER);
         pot.addPlant(ReduxBlocks.LUXWEED.getId(), ReduxBlocks.POTTED_LUXWEED);
         pot.addPlant(ReduxBlocks.SPIROLYCTIL.getId(), ReduxBlocks.POTTED_SPIROLYCTIL);
         pot.addPlant(ReduxBlocks.BLIGHTSHADE.getId(), ReduxBlocks.POTTED_BLIGHTSHADE);
@@ -423,7 +402,6 @@ public class ReduxBlocks {
         pot.addPlant(ReduxBlocks.GLACIA_SAPLING.getId(), ReduxBlocks.POTTED_GLACIA_SAPLING);
         pot.addPlant(ReduxBlocks.PURPLE_GLACIA_SAPLING.getId(), ReduxBlocks.POTTED_PURPLE_GLACIA_SAPLING);
         pot.addPlant(ReduxBlocks.LUMINA.getId(), ReduxBlocks.POTTED_LUMINA);
-        pot.addPlant(ReduxBlocks.FROSTED_PURPLE_FLOWER.getId(), ReduxBlocks.POTTED_FROSTED_PURPLE_FLOWER);
         pot.addPlant(ReduxBlocks.DAGGERBLOOM.getId(), ReduxBlocks.POTTED_DAGGERBLOOM);
         pot.addPlant(ReduxBlocks.WYNDSPROUTS.getId(), ReduxBlocks.POTTED_WYNDSPROUTS);
         pot.addPlant(ReduxBlocks.FROSTED_FERN.getId(), ReduxBlocks.POTTED_FROSTED_FERN);

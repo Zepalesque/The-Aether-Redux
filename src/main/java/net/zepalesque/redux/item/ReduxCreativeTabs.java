@@ -54,9 +54,7 @@ public class ReduxCreativeTabs {
 
         if (tab == AetherCreativeTabs.AETHER_NATURAL_BLOCKS.get()) {
 
-            putAfter(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK, ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK, event);
-            putAfter(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK, ReduxBlocks.FROSTED_AETHER_GRASS_BLOCK, event);
-            putAfter(ReduxBlocks.FROSTED_AETHER_GRASS_BLOCK, ReduxBlocks.AEVELIUM, event);
+            putAfter(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK, ReduxBlocks.AEVELIUM, event);
 
 
             putAfter(AetherBlocks.HOLYSTONE, ReduxBlocks.DIVINITE, event);
@@ -112,15 +110,13 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.SKYSPROUTS, ReduxBlocks.FIELDSPROUT_PETALS, event);
             putAfter(ReduxBlocks.FIELDSPROUT_PETALS, ReduxBlocks.IRIDIA, event);
             putAfter(ReduxBlocks.IRIDIA, ReduxBlocks.AURUM, event);
-            putAfter(ReduxBlocks.AURUM, ReduxBlocks.GILDED_WHITE_FLOWER, event);
-            putAfter(ReduxBlocks.GILDED_WHITE_FLOWER, ReduxBlocks.GOLDEN_CLOVER, event);
+            putAfter(ReduxBlocks.AURUM, ReduxBlocks.GOLDEN_CLOVER, event);
             putAfter(ReduxBlocks.GOLDEN_CLOVER, ReduxBlocks.LUXWEED, event);
             putAfter(ReduxBlocks.LUXWEED, ReduxBlocks.SPIROLYCTIL, event);
             putAfter(ReduxBlocks.SPIROLYCTIL, ReduxBlocks.BLIGHTSHADE, event);
             putAfter(ReduxBlocks.BLIGHTSHADE, ReduxBlocks.BLIGHTED_FUNGI, event);
             putAfter(ReduxBlocks.BLIGHTED_FUNGI, ReduxBlocks.LUMINA, event);
-            putAfter(ReduxBlocks.LUMINA, ReduxBlocks.FROSTED_PURPLE_FLOWER, event);
-            putAfter(ReduxBlocks.FROSTED_PURPLE_FLOWER, ReduxBlocks.DAGGERBLOOM, event);
+            putAfter(ReduxBlocks.LUMINA, ReduxBlocks.DAGGERBLOOM, event);
             putAfter(ReduxBlocks.DAGGERBLOOM, ReduxBlocks.FROSTED_FERN, event);
             putAfter(ReduxBlocks.FROSTED_FERN, ReduxBlocks.FIRECAP, event);
             putAfter(ReduxBlocks.CLOUDCAP_MUSHLING, ReduxBlocks.CLOUDCAP_MUSHLING, event);

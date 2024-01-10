@@ -11,7 +11,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.zepalesque.redux.block.natural.AetherTallGrassBlock;
 import net.zepalesque.redux.block.util.ReduxStates;
 import net.zepalesque.redux.misc.ReduxTags;
 
