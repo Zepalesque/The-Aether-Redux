@@ -51,7 +51,6 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
         this.crossBlock(ReduxBlocks.IRIDIA.get(), "natural/");
         this.tintableShortGrass(ReduxBlocks.AETHER_SHORT_GRASS.get(), "natural/");
-        this.tintedGrass(ReduxBlocks.REDUX_GRASS_BLOCK);
         this.crossBlock(ReduxBlocks.GILDED_WHITE_FLOWER.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_GILDED_WHITE_FLOWER.get(), ReduxBlocks.GILDED_WHITE_FLOWER.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_IRIDIA.get(), ReduxBlocks.IRIDIA.get(), "natural/");
@@ -390,8 +389,8 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
     }
     public void tintableShortGrass(TintableAetherShortGrassBlock block, String location) {
         this.getVariantBuilder(block).forAllStates((state) -> {
-            ShortGrassTint type = state.getValue(ReduxStates.SHORT_GRASS_TINT);
-            if (type == ShortGrassTint.ENCHANTED) {
+            boolean enchanted = state.getValue(ReduxStates.ENCHANTED);
+            if (enchanted) {
                 return ConfiguredModel.builder().modelFile(models().cross("enchanted_aether_short_grass", modLoc("block/natural/enchanted_short_grass")).renderType("cutout")).build();
             }
             return ConfiguredModel.builder().modelFile(models().singleTexture("aether_short_grass", mcLoc(BLOCK_FOLDER + "/tinted_cross"), "cross", modLoc("block/natural/aether_short_grass_tint")).renderType("cutout")).build();       }       );

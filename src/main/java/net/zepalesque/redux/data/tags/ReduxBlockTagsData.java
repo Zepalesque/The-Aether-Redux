@@ -103,7 +103,6 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
 
         this.tag(AetherTags.Blocks.AETHER_DIRT).add(
                 ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(),
-                ReduxBlocks.REDUX_GRASS_BLOCK.get(),
                 ReduxBlocks.AEVELIUM.get(),
                 ReduxBlocks.FROSTED_AETHER_GRASS_BLOCK.get(),
                 ReduxBlocks.COARSE_AETHER_DIRT.get(),

@@ -1,16 +1,10 @@
 {
   "variants": {
-    "short_grass_tint=depends_on_below": {
+    "enchanted=false": {
       "model": "aether_redux:block/aether_short_grass"
     },
-    "short_grass_tint=enchanted": {
+    "enchanted=true": {
       "model": "aether_redux:block/enchanted_aether_short_grass"
-    },
-    "short_grass_tint=highlands": {
-      "model": "aether_redux:block/aether_short_grass"
-    },
-    "short_grass_tint=tintable": {
-      "model": "aether_redux:block/aether_short_grass"
     }
   }
 }

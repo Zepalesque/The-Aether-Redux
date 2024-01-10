@@ -1,6 +1,7 @@
 package net.zepalesque.redux.block.natural;
 
 import com.aetherteam.aether.AetherTags;
+import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.natural.AetherBushBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -27,7 +28,7 @@ public class TintableAetherShortGrassBlock extends AetherBushBlock {
 
     public TintableAetherShortGrassBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.defaultBlockState().setValue(ReduxStates.SHORT_GRASS_TINT, ShortGrassTint.TINTABLE));
+        this.registerDefaultState(this.defaultBlockState().setValue(ReduxStates.ENCHANTED, false));
     }
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return SHAPE;
@@ -41,7 +42,7 @@ public class TintableAetherShortGrassBlock extends AetherBushBlock {
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);
-        builder.add(ReduxStates.SHORT_GRASS_TINT);
+        builder.add(ReduxStates.ENCHANTED);
     }
 
     protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
@@ -57,15 +58,10 @@ public class TintableAetherShortGrassBlock extends AetherBushBlock {
 
     public BlockState setValues(Level level, BlockPos pos, BlockState state) {
         BlockPos below = pos.below();
-        if (level.getBlockState(below).is(ReduxTags.Blocks.ENCHANTED_GRASSES)) {
-            return state.setValue(ReduxStates.SHORT_GRASS_TINT, ShortGrassTint.ENCHANTED);
+        if (level.getBlockState(below).is(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get())) {
+            return state.setValue(ReduxStates.ENCHANTED, true);
         }
-        if (level.getBlockState(below).is(ReduxBlocks.REDUX_GRASS_BLOCK.get())) {
-            return state.setValue(ReduxStates.SHORT_GRASS_TINT, ShortGrassTint.BLOCK_DEPENDENT);
-        }
-        if (level.getBlockState(below).is(ReduxTags.Blocks.HIGHLANDS_GRASSES) || !level.getBiome(pos).is(AetherTags.Biomes.IS_AETHER)) {
-            return state.setValue(ReduxStates.SHORT_GRASS_TINT, ShortGrassTint.AETHER_COLOR);
-        }
+
         return state;
     }
 
@@ -73,19 +69,13 @@ public class TintableAetherShortGrassBlock extends AetherBushBlock {
     @Override
     @NotNull
     public BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor level, BlockPos currentPos, BlockPos facingPos) {
-        BlockState spr = super.updateShape(state, facing, facingState, level, currentPos, facingPos);
-        if (state.hasProperty(ReduxStates.SHORT_GRASS_TINT) && spr.hasProperty(ReduxStates.SHORT_GRASS_TINT)) {
-            if (state.getValue(ReduxStates.SHORT_GRASS_TINT) != ShortGrassTint.ENCHANTED && level.getBlockState(currentPos.below()).is(ReduxTags.Blocks.ENCHANTED_GRASSES)) {
-                return spr.setValue(ReduxStates.SHORT_GRASS_TINT, ShortGrassTint.ENCHANTED);
+        BlockState b = super.updateShape(state, facing, facingState, level, currentPos, facingPos);
+        if (b.hasProperty(ReduxStates.ENCHANTED)) {
+            if (facing == Direction.DOWN && level.getBlockState(facingPos).is(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get())) {
+                return b.setValue(ReduxStates.ENCHANTED, true);
             }
-            if (state.getValue(ReduxStates.SHORT_GRASS_TINT) != ShortGrassTint.BLOCK_DEPENDENT && level.getBlockState(currentPos.below()).is(ReduxBlocks.REDUX_GRASS_BLOCK.get())) {
-                return spr.setValue(ReduxStates.SHORT_GRASS_TINT, ShortGrassTint.BLOCK_DEPENDENT);
-            }
-            if (state.getValue(ReduxStates.SHORT_GRASS_TINT) != ShortGrassTint.AETHER_COLOR && (level.getBlockState(currentPos.below()).is(ReduxTags.Blocks.HIGHLANDS_GRASSES) || !level.getBiome(currentPos).is(AetherTags.Biomes.IS_AETHER))) {
-                return spr.setValue(ReduxStates.SHORT_GRASS_TINT, ShortGrassTint.AETHER_COLOR);
-            }
-            return spr.setValue(ReduxStates.SHORT_GRASS_TINT, ShortGrassTint.TINTABLE);
+            return b.setValue(ReduxStates.ENCHANTED, false);
         }
-        return spr;
+        return b;
     }
 }

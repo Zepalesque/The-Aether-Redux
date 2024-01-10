@@ -29,7 +29,6 @@ public class ReduxItemModelData extends AetherItemModelProvider {
     protected void registerModels() {
 
         itemBlockFlat(ReduxBlocks.AETHER_SHORT_GRASS, "natural/");
-        itemBlockOther(ReduxBlocks.REDUX_GRASS_BLOCK, AetherBlocks.AETHER_GRASS_BLOCK);
         itemBlockFlat(ReduxBlocks.FIRECAP, "natural/");
         itemBlock(ReduxBlocks.HOLYSILT);
         itemBlock(ReduxBlocks.DIVINITE);

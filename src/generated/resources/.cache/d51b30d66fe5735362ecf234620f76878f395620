@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-09T20:58:24.8309769	Item Models: aether_redux
+// 1.20.1	2024-01-09T22:11:14.2085323	Item Models: aether_redux
 055dd4b0c8fc6e204bff205a78076040e1d5bfad assets/aether_redux/models/item/aether_short_grass.json
 ef6d226766d61d6460247665062a399d3613d946 assets/aether_redux/models/item/aevelium.json
 e89330a549c5d1169758ec3314e9285fb8db827a assets/aether_redux/models/item/aevelium_growth.json
@@ -181,7 +181,6 @@ e2015d8ef1a31186ff40937a0cfe131c89ec3631 assets/aether_redux/models/item/purple_
 1709c24cc08e79ca78246932b84e07b0cba0f215 assets/aether_redux/models/item/raw_gravitite.json
 d8de2565b035201fb855f38b6083299efcc91e31 assets/aether_redux/models/item/raw_veridium.json
 8a433ef11c34eda652a3186b21612f69a875b6e8 assets/aether_redux/models/item/raw_veridium_block.json
-8fa635af5a0b9c672f3635d8696856e78ef1e70e assets/aether_redux/models/item/redux_grass_block.json
 2b0580de8e9f79ef8502204a23d3575928546d05 assets/aether_redux/models/item/ring_of_wisdom.json
 33ce1684f4df82d84441e81d2e84cc0744e1df58 assets/aether_redux/models/item/sentry_circuit.json
 4eee3a2d738aac7cbe95f745f56831509105792b assets/aether_redux/models/item/sentry_ring.json

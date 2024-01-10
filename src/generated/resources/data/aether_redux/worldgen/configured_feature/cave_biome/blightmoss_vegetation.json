@@ -32,7 +32,7 @@
           "data": {
             "Name": "aether_redux:aether_short_grass",
             "Properties": {
-              "short_grass_tint": "tintable"
+              "enchanted": "false"
             }
           },
           "weight": 150

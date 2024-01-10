@@ -43,6 +43,8 @@ public class ReduxPackConfig {
 
     public final PackConfig<Boolean> auto_apply;
 
+    public final PackConfig<Boolean> tintable_grass;
+
     public ReduxPackConfig(Category base) {
         this.base = base;
         PackConfig.Builder builder = base.builder();
@@ -90,6 +92,7 @@ public class ReduxPackConfig {
         this.use_jappafied_textures = builder.comment().cfg("use_jappafied_textures", false, WidgetMappers.BOOL);
         // Auto-apply the resource pack
         this.auto_apply = builder.comment().cfg("auto_apply", true, WidgetMappers.BOOL);
+        this.tintable_grass = builder.comment().cfg("tintable_grass", true, WidgetMappers.BOOL);
     }
 
     public static ReduxOverridesPackResources generate(String id, String title, Component desc) {
@@ -109,6 +112,7 @@ public class ReduxPackConfig {
                 Conditional.of(BuiltinPackUtils.createPack("nature/blue_icestone"), config.blue_icestone),
                 Conditional.of(BuiltinPackUtils.createPack("nature/better_aerclouds"), config.better_aerclouds),
                 Conditional.of(BuiltinPackUtils.createPack("nature/golder_vines"), config.use_jappafied_textures::get),
+                Conditional.of(BuiltinPackUtils.createPack("nature/tintable_grass"), config.tintable_grass::get),
                 Conditional.of(BuiltinPackUtils.createPack("mob/better_aechor_plants"), config.better_aechor_plants),
                 Conditional.of(BuiltinPackUtils.createPack("mob/classic_moas"), () -> config.classic_moas.get() == ClassicOption.classic),
                 Conditional.of(BuiltinPackUtils.createPack("mob/classic_cockatrices"), () -> config.classic_cockatrices.get() == ClassicOption.classic),

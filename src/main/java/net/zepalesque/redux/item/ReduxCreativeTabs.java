@@ -58,7 +58,6 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK, ReduxBlocks.FROSTED_AETHER_GRASS_BLOCK, event);
             putAfter(ReduxBlocks.FROSTED_AETHER_GRASS_BLOCK, ReduxBlocks.AEVELIUM, event);
 
-            putAfter(ReduxBlocks.AEVELIUM, ReduxBlocks.REDUX_GRASS_BLOCK, event);
 
             putAfter(AetherBlocks.HOLYSTONE, ReduxBlocks.DIVINITE, event);
             putAfter(ReduxBlocks.DIVINITE, ReduxBlocks.HOLYSILT, event);
