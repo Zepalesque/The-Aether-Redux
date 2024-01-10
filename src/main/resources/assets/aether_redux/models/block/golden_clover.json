@@ -1,10 +1,11 @@
 {
 	"credit": "Made with Blockbench",
-	"render_type": "minecraft:translucent",
+	"render_type": "minecraft:cutout",
 	"textures": {
 		"top": "aether_redux:block/natural/golden_clover_top",
 		"stem": "aether_redux:block/natural/golden_clover_stem",
 		"overlay": "aether_redux:block/natural/golden_clover_stem_overlay",
+		"halftint": "aether_redux:block/natural/golden_clover_stem_partial_tint",
 		"particle": "aether_redux:block/natural/golden_clover_stem"
 	},
 	"elements": [
@@ -37,9 +38,37 @@
 			}
 		},
 		{
+			"name": "stem_tint1",
+			"from": [8, 0, -3],
+			"to": [8, 16, 19],
+			"rotation": {"angle": -45, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#halftint", "tintindex": 2},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#halftint", "tintindex": 2},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#halftint", "tintindex": 2},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#halftint", "tintindex": 2},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#halftint", "tintindex": 2},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#halftint", "tintindex": 2}
+			}
+		},
+		{
+			"name": "stem_tint1",
+			"from": [8, 0, -3],
+			"to": [8, 16, 19],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#halftint", "tintindex": 2},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#halftint", "tintindex": 2},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#halftint", "tintindex": 2},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#halftint", "tintindex": 2},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#halftint", "tintindex": 2},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#halftint", "tintindex": 2}
+			}
+		},
+		{
 			"name": "stem_overlay",
-			"from": [7.99, 0, -3],
-			"to": [8.01, 16, 19],
+			"from": [8, 0, -3],
+			"to": [8, 16, 19],
 			"rotation": {"angle": 45, "axis": "y", "origin": [8, 0, 8]},
 			"faces": {
 				"east": {"uv": [0, 0, 16, 16], "texture": "#overlay"},
@@ -61,8 +90,8 @@
 		},
 		{
 			"name": "stem_overlay",
-			"from": [7.99, 0, -3],
-			"to": [8.01, 16, 19],
+			"from": [8, 0, -3],
+			"to": [8, 16, 19],
 			"rotation": {"angle": -45, "axis": "y", "origin": [8, 0, 8]},
 			"faces": {
 				"east": {"uv": [0, 0, 16, 16], "texture": "#overlay"},

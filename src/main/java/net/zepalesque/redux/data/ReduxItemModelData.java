@@ -1,6 +1,5 @@
 package net.zepalesque.redux.data;
 
-import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.providers.AetherItemModelProvider;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
@@ -35,7 +34,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlock(ReduxBlocks.DIVINITE_SLAB);
         itemBlock(ReduxBlocks.DIVINITE_STAIRS);
         itemWallBlock(ReduxBlocks.DIVINITE_WALL, ReduxBlocks.DIVINITE, "natural/");
-        itemBlockFlatOverlay(ReduxBlocks.IRIDIA, "natural/");
+        itemBlockFlatTintOverlay(ReduxBlocks.IRIDIA, "natural/");
         itemBlockFlatGlow(ReduxBlocks.TALL_CLOUDCAP, "natural/", "_top");
         itemBlock(ReduxBlocks.GILDED_HOLYSTONE);
         itemBlock(ReduxBlocks.GILDED_HOLYSTONE_SLAB);
@@ -62,7 +61,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         item(ReduxItems.BLUEBERRY_PIE, "food/");
         item(ReduxItems.ENCHANTED_BLUEBERRY_PIE, "food/");
         item(ReduxBlocks.GOLDEN_CLOVER.get().asItem(), "misc/");
-        itemBlockFlatOverlay(ReduxBlocks.AURUM, "natural/");
+        itemBlockFlatTintOverlay(ReduxBlocks.AURUM, "natural/");
         itemBlock(ReduxBlocks.CARVED_STONE_BRICKS);
         itemBlock(ReduxBlocks.CARVED_STONE_BRICK_SLAB);
         itemBlock(ReduxBlocks.CARVED_STONE_BRICK_STAIRS);
@@ -101,8 +100,8 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlock(ReduxBlocks.CLOUDCAP_SPORES);
         itemBlock(ReduxBlocks.SPRINGSHROOM);
         itemBlockFlatTintGlow(ReduxBlocks.LUXWEED, "natural/");
-        itemBlockFlatOverlay(ReduxBlocks.SPIROLYCTIL, "natural/");
-        itemBlockFlat(ReduxBlocks.BLIGHTSHADE, "natural/");
+        itemBlockFlatTintOverlay(ReduxBlocks.SPIROLYCTIL, "natural/");
+        itemBlockFlatTintOverlay(ReduxBlocks.BLIGHTSHADE, "natural/");
         itemBlockFlatGlow(ReduxBlocks.BLIGHTED_FUNGI, "natural/");
 
         itemFullGlow(ReduxItems.LIGHTROOT_CLUMP, "food/");
@@ -144,8 +143,8 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         this.itemBlockFlatTintGlowOverlay(ReduxBlocks.LUMINA, "natural/");
         this.itemBlockFlat(ReduxBlocks.DAGGERBLOOM, "natural/");
 
-        itemBlockFlatOverlay(ReduxBlocks.WYNDSPROUTS, "natural/");
-        itemBlockFlatOverlay(ReduxBlocks.SKYSPROUTS, "natural/");
+        itemBlockFlatTintOverlay(ReduxBlocks.WYNDSPROUTS, "natural/");
+        itemBlockFlatTintOverlay(ReduxBlocks.SKYSPROUTS, "natural/");
         itemBlockFlat(ReduxBlocks.FROSTED_FERN, "natural/");
         this.item(ReduxItems.BUNDLE_OF_AETHER_GRASS, "materials/");
 
@@ -300,7 +299,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
                 .texture("layer1", texture(blockName(block) + "_glow", location)).customLoader((itemModelBuilder,existingFileHelper) ->
                 ItemLayerModelBuilder.begin(itemModelBuilder, existingFileHelper).emissive(15, 15, 1)).end();
     }
-    public ItemModelBuilder itemBlockFlatOverlay(Supplier<? extends Block> block, String location) {
+    public ItemModelBuilder itemBlockFlatTintOverlay(Supplier<? extends Block> block, String location) {
         return withExistingParent(blockName(block), mcLoc("item/generated"))
                 .texture("layer1", texture(blockName(block), location))
                 .texture("layer0", texture(blockName(block) + "_overlay", location));
