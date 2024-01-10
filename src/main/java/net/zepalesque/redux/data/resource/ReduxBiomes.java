@@ -128,7 +128,7 @@ public class ReduxBiomes {
                 ReduxMusic.DEFAULT_AETHER_MUSIC,
                 WATER,
                 WATER_FOG,
-                AETHER_GRASS_COLOR
+                GILDED_GRASS_COLOR
                 ));
 
         context.register(HIGHFIELDS, biomeBase(

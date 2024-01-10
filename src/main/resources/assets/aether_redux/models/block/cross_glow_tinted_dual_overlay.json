@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"ambientocclusion": false,
 	"textures": {
-		"particle": "#glow"
+		"particle": "#overlay"
 	},
 	"elements": [
 		{
