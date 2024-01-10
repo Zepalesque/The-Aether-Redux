@@ -111,6 +111,7 @@ public class Redux
         bus.addListener(this::commonSetup);
         bus.addListener(this::clientSetup);
         bus.addListener(ReduxClient::blockColors);
+        bus.addListener(ReduxClient::itemColors);
         bus.addListener(this::applyResourcePack);
         bus.addListener(EventPriority.HIGH, this::packSetup);
         bus.addListener(this::dataSetup);
