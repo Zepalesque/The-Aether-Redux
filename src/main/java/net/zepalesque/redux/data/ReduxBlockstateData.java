@@ -106,7 +106,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
         this.tintedGlowingCrossBlock(ReduxBlocks.LUXWEED.get(), "natural/");
         this.glowingPottedPlantAltTexture(ReduxBlocks.POTTED_LUXWEED.get(), ReduxBlocks.LUXWEED.get(), "natural/");
-        this.crossBlock(ReduxBlocks.SPIROLYCTIL.get(), "natural/");
+        this.tintedCrossBlock(ReduxBlocks.SPIROLYCTIL.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_SPIROLYCTIL.get(), ReduxBlocks.SPIROLYCTIL.get(), "natural/");
         this.crossBlock(ReduxBlocks.BLIGHTSHADE.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_BLIGHTSHADE.get(), ReduxBlocks.BLIGHTSHADE.get(), "natural/");
