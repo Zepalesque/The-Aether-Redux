@@ -3,7 +3,7 @@
   "config": {
     "block_below": {
       "type": "minecraft:matching_blocks",
-      "blocks": "aether_redux:blighted_aether_grass_block"
+      "blocks": "aether:aether_grass_block"
     },
     "feature": {
       "feature": {

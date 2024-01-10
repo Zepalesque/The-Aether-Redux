@@ -42,8 +42,6 @@
         "state": {
           "Name": "aether_redux:glacia_sapling",
           "Properties": {
-            "snowlogged": "false",
-            "snowy_texture": "false",
             "stage": "0"
           }
         }

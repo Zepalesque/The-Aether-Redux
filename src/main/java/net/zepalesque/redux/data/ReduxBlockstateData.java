@@ -94,11 +94,11 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.grassGlow(ReduxBlocks.AEVELIUM.get(), ReduxBlocks.LIGHTROOT_AETHER_DIRT, true, false);
 
         this.snowableLeaves(ReduxBlocks.GLACIA_LEAVES.get(), "natural/");
-        this.frostedCrossBlock(ReduxBlocks.GLACIA_SAPLING.get(), "natural/");
+        this.crossBlock(ReduxBlocks.GLACIA_SAPLING.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_GLACIA_SAPLING.get(), ReduxBlocks.GLACIA_SAPLING.get(), "natural/");
 
         this.snowableLeaves(ReduxBlocks.PURPLE_GLACIA_LEAVES.get(), "natural/");
-        this.frostedCrossBlock(ReduxBlocks.PURPLE_GLACIA_SAPLING.get(), "natural/");
+        this.crossBlock(ReduxBlocks.PURPLE_GLACIA_SAPLING.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_PURPLE_GLACIA_SAPLING.get(), ReduxBlocks.PURPLE_GLACIA_SAPLING.get(), "natural/");
 
         this.block(ReduxBlocks.CLOUD_CAP_BLOCK.get(), "natural/");
@@ -136,7 +136,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.crossBlock(ReduxBlocks.BLIGHTED_SKYROOT_SAPLING.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_BLIGHTED_SKYROOT_SAPLING.get(), ReduxBlocks.BLIGHTED_SKYROOT_SAPLING.get(), "natural/");
 
-        this.frostedCrossBlock(ReduxBlocks.DAGGERBLOOM.get(), "natural/");
+        this.crossBlock(ReduxBlocks.DAGGERBLOOM.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_DAGGERBLOOM.get(), ReduxBlocks.DAGGERBLOOM.get(), "natural/");
 
         this.tintedCrossBlock(ReduxBlocks.WYNDSPROUTS.get(), "natural/");
@@ -144,7 +144,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.pottedPlantAltTexture(ReduxBlocks.POTTED_WYNDSPROUTS.get(), ReduxBlocks.WYNDSPROUTS.get(), "natural/");
         this.pottedPlantAltTexture(ReduxBlocks.POTTED_SKYSPROUTS.get(), ReduxBlocks.SKYSPROUTS.get(), "natural/");
 
-        this.frostedCrossBlock(ReduxBlocks.FROSTED_FERN.get(), "natural/");
+        this.crossBlock(ReduxBlocks.FROSTED_FERN.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_FROSTED_FERN.get(), ReduxBlocks.FROSTED_FERN.get(), "natural/");
         this.blockDoubleDrops(ReduxBlocks.VERIDIUM_ORE.get(), "natural/");
         this.block(ReduxBlocks.RAW_VERIDIUM_BLOCK.get(), "natural/");

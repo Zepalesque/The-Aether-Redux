@@ -8,11 +8,7 @@
           "to_place": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "aether_redux:frosted_purple_flower",
-              "Properties": {
-                "snowlogged": "false",
-                "snowy_texture": "false"
-              }
+              "Name": "aether:purple_flower"
             }
           }
         }
