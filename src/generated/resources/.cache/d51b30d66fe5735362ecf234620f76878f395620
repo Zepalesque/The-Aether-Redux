@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-10T17:59:52.9804727	Item Models: aether_redux
+// 1.20.1	2024-01-10T18:51:08.5141207	Item Models: aether_redux
 055dd4b0c8fc6e204bff205a78076040e1d5bfad assets/aether_redux/models/item/aether_short_grass.json
 ef6d226766d61d6460247665062a399d3613d946 assets/aether_redux/models/item/aevelium.json
 e89330a549c5d1169758ec3314e9285fb8db827a assets/aether_redux/models/item/aevelium_growth.json
@@ -16,7 +16,7 @@ a083a7311bfd77483a76afa2e0b34a2dca856c28 assets/aether_redux/models/item/blightm
 693490b382231c95e748c88f8daa13be00cd8ceb assets/aether_redux/models/item/blightmoss_holystone_slab.json
 e073f529066aa534f560372ff463759fa6a01401 assets/aether_redux/models/item/blightmoss_holystone_stairs.json
 01182452db12ba6aaf27b32a62ee4b122ee5541c assets/aether_redux/models/item/blightmoss_holystone_wall.json
-f65b9182ca4803aa588a341dfcfb70ba1c9f05fd assets/aether_redux/models/item/blightshade.json
+898f0449a6ab5c3819b92431f9a21ba6b8b3a63c assets/aether_redux/models/item/blightshade.json
 b6adca5c2ea110994ea1812254e89f051651ed99 assets/aether_redux/models/item/blightwillow_boat.json
 36b35ca804cd86db98042e93fb7bf47dd4a70a11 assets/aether_redux/models/item/blightwillow_button.json
 2b204ffa139aedb704f5deaa01fd4afc219cb54c assets/aether_redux/models/item/blightwillow_chest_boat.json

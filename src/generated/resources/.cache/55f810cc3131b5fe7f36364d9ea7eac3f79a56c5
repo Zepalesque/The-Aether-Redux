@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-10T17:59:52.9904764	Block States: aether_redux
+// 1.20.1	2024-01-10T18:51:08.5271175	Block States: aether_redux
 19e9315e23d333c40449958daf734f971a3bff53 assets/aether_redux/blockstates/aether_short_grass.json
 103ff0aa6feeaaf74b4a76fc8cdd87b27b7fbc61 assets/aether_redux/blockstates/aevelium.json
 839da9eb72bebfe44879f5abc71bbd50e6ef1b23 assets/aether_redux/blockstates/aevelium_growth.json
@@ -244,7 +244,7 @@ aa86d98c44e41ff03cfb68d09ff4ef0d2a8685e1 assets/aether_redux/models/block/blight
 590c935b339dd2eb39b6854e1d050f9cb140491a assets/aether_redux/models/block/blightmoss_holystone_wall_post.json
 285c81f5d1594f434caad60b7cef9602c2c3a671 assets/aether_redux/models/block/blightmoss_holystone_wall_side.json
 97ff87875386708b1e88cfd72e1c09707a20c155 assets/aether_redux/models/block/blightmoss_holystone_wall_side_tall.json
-55f54eed7465dbf624fe348bc0845d229d3fe128 assets/aether_redux/models/block/blightshade.json
+13f2533efa02c25a0d1efba32f1e353707bf0e34 assets/aether_redux/models/block/blightshade.json
 121f0e60ad6e02da7a6a8c8df15b68e99f4ceaca assets/aether_redux/models/block/blightwillow_button.json
 5d218942aa8ada4604eaa8aee9208de51d982d83 assets/aether_redux/models/block/blightwillow_button_pressed.json
 8dc57cc28e8f4a79200d3f991e18a31c33afed7e assets/aether_redux/models/block/blightwillow_door_bottom_left.json
@@ -431,7 +431,7 @@ b9b66853067143d438bb05b7b996fbb89d4de90e assets/aether_redux/models/block/crysta
 fa24d74c6cacd72fc28d9e7eba20a008c3f58afc assets/aether_redux/models/block/crystal_wood_wall_side_tall_alt.json
 ae7307eddb056f5c7edf83843543e66d6559e6b8 assets/aether_redux/models/block/crystal_wood_wall_side_tall_alt_short.json
 54268b5a0262e24820badd95902dda0f8bc8863b assets/aether_redux/models/block/crystal_wood_wall_side_tall_short.json
-c8c4dd330174a5c331a397cf0df5bf9339f7955e assets/aether_redux/models/block/daggerbloom.json
+90958bc82d01c6846751217f2d0b99f9d7b38ca8 assets/aether_redux/models/block/daggerbloom.json
 0e3e33bc6aba0d92441a9bdab34dc73b755394fe assets/aether_redux/models/block/divinite.json
 40bd018144e01c5866c930e8fd9a529b251a3d4a assets/aether_redux/models/block/divinite_slab.json
 3793d617cef100a99a459fb5cc4421ea9273a957 assets/aether_redux/models/block/divinite_slab_top.json

@@ -152,7 +152,9 @@ public class ReduxBiomes {
     public static final int GILDED_GRASS_COLOR = 0xFFF2B2;
     public static final int BLIGHT_GRASS_COLOR = 0xD5BAFF;
     public static final int FROSTED_GRASS_COLOR = 0xCCF7FF;
-    public static final int HIGHFIELDS_GRASS_COLOR = 0xB2FFE5;
+    public static final int HIGHFIELDS_GRASS_COLOR = 0xCCFFED;
+    public static final int unused = 0xD6FDDD;
+
 
 
     public static Biome biomeBase(BiomeGenerationSettings.Builder gen, MobSpawnSettings.Builder mobSpawns, Music music, int waterColor, int waterFogColor, int grassColor, boolean precip, float temp, float downfall) {
