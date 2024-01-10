@@ -16,6 +16,7 @@ import net.zepalesque.redux.block.util.GrassBlockTint;
 import net.zepalesque.redux.block.util.ReduxStates;
 import net.zepalesque.redux.block.util.ShortGrassTint;
 import net.zepalesque.redux.capability.living.VampireAmulet;
+import net.zepalesque.redux.data.resource.ReduxBiomes;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.item.accessory.VampireAmuletItem;
 import net.zepalesque.redux.item.weapons.SubzeroCrossbowItem;
@@ -25,9 +26,7 @@ import javax.annotation.Nullable;
 import java.util.Optional;
 
 public class ReduxClient {
-    public static final int AETHER_GRASS_COLOR = 0xB1FFCB;
-    public static final int BLIGHT_GRASS_COLOR = 0xD5BAFF;
-    public static final int FROSTED_GRASS_COLOR = 0xCCF7FF;
+
 
     public static void registerItemModelProperties() {
         ItemProperties.register(ReduxItems.SUBZERO_CROSSBOW.get(), new ResourceLocation("pull"), (stack, level, entity, seed) -> {
@@ -47,8 +46,17 @@ public class ReduxClient {
         });
     }
     public static void blockColors(RegisterColorHandlersEvent.Block event) {
-        event.getBlockColors().register((state, level, pos, index) -> level != null && pos != null ? BiomeColors.getAverageGrassColor(level, pos) : AETHER_GRASS_COLOR, AetherBlocks.AETHER_GRASS_BLOCK.get());
-        event.getBlockColors().register((state, level, pos, index) -> level != null && pos != null ? level.getBlockState(pos.below()).is(ReduxBlocks.BLIGHTMOSS_BLOCK.get()) ? BLIGHT_GRASS_COLOR : BiomeColors.getAverageGrassColor(level, pos) : AETHER_GRASS_COLOR, ReduxBlocks.AETHER_SHORT_GRASS.get());
+        event.getBlockColors().register((state, level, pos, index) -> level != null && pos != null ? BiomeColors.getAverageGrassColor(level, pos) : ReduxBiomes.AETHER_GRASS_COLOR, AetherBlocks.AETHER_GRASS_BLOCK.get());
+        event.getBlockColors().register((state, level, pos, index) -> level != null && pos != null ? level.getBlockState(pos.below()).is(ReduxBlocks.BLIGHTMOSS_BLOCK.get()) ? ReduxBiomes.BLIGHT_GRASS_COLOR : BiomeColors.getAverageGrassColor(level, pos) : ReduxBiomes.AETHER_GRASS_COLOR, ReduxBlocks.AETHER_SHORT_GRASS.get());
+        event.getBlockColors().register((state, level, pos, index) -> level != null && pos != null ? index == 0 ? level.getBlockState(pos.below()).is(ReduxBlocks.BLIGHTMOSS_BLOCK.get()) ? ReduxBiomes.BLIGHT_GRASS_COLOR : BiomeColors.getAverageGrassColor(level, pos) : ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.WYNDSPROUTS.get());
+        event.getBlockColors().register((state, level, pos, index) -> level != null && pos != null ? index == 0 ? level.getBlockState(pos.below()).is(ReduxBlocks.BLIGHTMOSS_BLOCK.get()) ? ReduxBiomes.BLIGHT_GRASS_COLOR : BiomeColors.getAverageGrassColor(level, pos) : ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.SKYSPROUTS.get());
+        event.getBlockColors().register((state, level, pos, index) -> level != null && pos != null ? index == 0 ? level.getBlockState(pos.below()).is(ReduxBlocks.BLIGHTMOSS_BLOCK.get()) ? ReduxBiomes.BLIGHT_GRASS_COLOR : BiomeColors.getAverageGrassColor(level, pos) : ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.LUXWEED.get());
+    }
+    public static void blockColors(RegisterColorHandlersEvent.Item event) {
+        event.getItemColors().register((stack, tintIndex) -> tintIndex == 0 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.AETHER_SHORT_GRASS.get());
+        event.getItemColors().register((stack, tintIndex) -> tintIndex == 0 ? ReduxBiomes.BLIGHT_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.LUXWEED.get());
+        event.getItemColors().register((stack, tintIndex) -> tintIndex == 0 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.WYNDSPROUTS.get());
+        event.getItemColors().register((stack, tintIndex) -> tintIndex == 0 ? ReduxBiomes.HIGHFIELDS_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.SKYSPROUTS.get());
     }
 
 

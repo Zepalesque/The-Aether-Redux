@@ -19,6 +19,7 @@ import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.audio.ReduxMusic;
+import org.checkerframework.checker.units.qual.A;
 
 public class ReduxBiomes {
     public static final ResourceKey<Biome> THE_BLIGHT = createKey("the_blight");
@@ -56,7 +57,8 @@ public class ReduxBiomes {
                         .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(AetherEntityTypes.COCKATRICE.get(), 8, 2, 5)),
                 ReduxMusic.DEFAULT_AETHER_MUSIC,
                 4607385,
-                723770
+                723770,
+                BLIGHT_GRASS_COLOR
                 ));
 
         context.register(CLOUDCAP_JUNGLE, biomeBase(
@@ -69,7 +71,8 @@ public class ReduxBiomes {
                 defaultMobSpawns(new MobSpawnSettings.Builder()),
                 ReduxMusic.DEFAULT_AETHER_MUSIC,
                 WATER,
-                WATER_FOG
+                WATER_FOG,
+                AETHER_GRASS_COLOR
                 ));
 
         context.register(GLACIAL_TAIGA, biomeBase(
@@ -86,6 +89,7 @@ public class ReduxBiomes {
                 ReduxMusic.DEFAULT_AETHER_MUSIC,
                 WATER,
                 WATER_FOG,
+                FROSTED_GRASS_COLOR,
                 true,
                 -1.6F,
                 0.4F
@@ -104,6 +108,7 @@ public class ReduxBiomes {
                 ReduxMusic.DEFAULT_AETHER_MUSIC,
                 WATER,
                 WATER_FOG,
+                FROSTED_GRASS_COLOR,
                 true,
                 -1.1F,
                 0.5F
@@ -122,7 +127,8 @@ public class ReduxBiomes {
                 defaultMobSpawns(new MobSpawnSettings.Builder()),
                 ReduxMusic.DEFAULT_AETHER_MUSIC,
                 WATER,
-                WATER_FOG
+                WATER_FOG,
+                AETHER_GRASS_COLOR
                 ));
 
         context.register(HIGHFIELDS, biomeBase(
@@ -138,14 +144,17 @@ public class ReduxBiomes {
                 increasedMobSpawns(new MobSpawnSettings.Builder()),
                 ReduxMusic.DEFAULT_AETHER_MUSIC,
                 WATER,
-                WATER_FOG
+                WATER_FOG,
+                HIGHFIELDS_GRASS_COLOR
                 ));
     }
+    public static final int AETHER_GRASS_COLOR = 0xB1FFCB;
+    public static final int BLIGHT_GRASS_COLOR = 0xD5BAFF;
+    public static final int FROSTED_GRASS_COLOR = 0xCCF7FF;
+    public static final int HIGHFIELDS_GRASS_COLOR = 0xB2FFE5;
 
 
-
-
-    public static Biome biomeBase(BiomeGenerationSettings.Builder gen, MobSpawnSettings.Builder mobSpawns, Music music, int waterColor, int waterFogColor, boolean precip, float temp, float downfall) {
+    public static Biome biomeBase(BiomeGenerationSettings.Builder gen, MobSpawnSettings.Builder mobSpawns, Music music, int waterColor, int waterFogColor, int grassColor, boolean precip, float temp, float downfall) {
         return fullDefinition(
                 precip,
                 temp,
@@ -155,7 +164,7 @@ public class ReduxBiomes {
                         .skyColor(0xc0_c0_ff)
                         .waterColor(waterColor)
                         .waterFogColor(waterFogColor)
-                        .grassColorOverride(0xb1_ff_cb)
+                        .grassColorOverride(grassColor)
                         .foliageColorOverride(0xb1_ff_cb)
                         .grassColorModifier(BiomeSpecialEffects.GrassColorModifier.NONE)
                         .backgroundMusic(music)
@@ -166,8 +175,8 @@ public class ReduxBiomes {
         );
     }
 
-    public static Biome biomeBase(BiomeGenerationSettings.Builder gen, MobSpawnSettings.Builder mobSpawns, Music music, int waterColor, int waterFogColor) {
-        return biomeBase(gen, mobSpawns, music, waterColor, waterFogColor, false, 0.8F, 0.0F);
+    public static Biome biomeBase(BiomeGenerationSettings.Builder gen, MobSpawnSettings.Builder mobSpawns, Music music, int waterColor, int waterFogColor, int grassColor) {
+        return biomeBase(gen, mobSpawns, music, waterColor, waterFogColor, grassColor, false, 0.8F, 0.0F);
     }
 
     public static MobSpawnSettings.Builder defaultMobSpawnsNoPassive(MobSpawnSettings.Builder builder)

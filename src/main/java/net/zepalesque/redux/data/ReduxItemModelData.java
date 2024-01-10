@@ -148,8 +148,8 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         this.itemBlockFlat(ReduxBlocks.DAGGERBLOOM, "natural/");
         this.itemBlockFlat(ReduxBlocks.FROSTED_PURPLE_FLOWER, "natural/");
 
-        itemBlockFlat(ReduxBlocks.WYNDSPROUTS, "natural/");
-        itemBlockFlat(ReduxBlocks.SKYSPROUTS, "natural/");
+        itemBlockFlatOverlay(ReduxBlocks.WYNDSPROUTS, "natural/");
+        itemBlockFlatOverlay(ReduxBlocks.SKYSPROUTS, "natural/");
         itemBlockFlat(ReduxBlocks.FROSTED_FERN, "natural/");
         this.item(ReduxItems.BUNDLE_OF_AETHER_GRASS, "materials/");
 
@@ -299,6 +299,11 @@ public class ReduxItemModelData extends AetherItemModelProvider {
                 .texture("layer0", texture(blockName(block), location))
                 .texture("layer1", texture(blockName(block) + "_glow", location)).customLoader((itemModelBuilder,existingFileHelper) ->
                 ItemLayerModelBuilder.begin(itemModelBuilder, existingFileHelper).emissive(15, 15, 1)).end();
+    }
+    public ItemModelBuilder itemBlockFlatOverlay(Supplier<? extends Block> block, String location) {
+        return withExistingParent(blockName(block), mcLoc("item/generated"))
+                .texture("layer0", texture(blockName(block), location))
+                .texture("layer1", texture(blockName(block) + "_overlay", location)).customLoader(ItemLayerModelBuilder::begin).end();
     }
     public ItemModelBuilder itemBlockFlatGlow(Supplier<? extends Block> block, String location, String suffix) {
         return withExistingParent(blockName(block), mcLoc("item/generated"))
