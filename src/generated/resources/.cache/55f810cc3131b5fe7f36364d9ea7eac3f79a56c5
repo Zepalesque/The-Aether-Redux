@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-09T22:11:14.2285322	Block States: aether_redux
+// 1.20.1	2024-01-10T13:39:42.8371326	Block States: aether_redux
 19e9315e23d333c40449958daf734f971a3bff53 assets/aether_redux/blockstates/aether_short_grass.json
 103ff0aa6feeaaf74b4a76fc8cdd87b27b7fbc61 assets/aether_redux/blockstates/aevelium.json
 839da9eb72bebfe44879f5abc71bbd50e6ef1b23 assets/aether_redux/blockstates/aevelium_growth.json
@@ -666,7 +666,7 @@ a2293c7d59f833441ab43dcc69d98912854faf94 assets/aether_redux/models/block/holysi
 94fd965a65d76dde8f2f1e85f4f7ff4568451b84 assets/aether_redux/models/block/lightroot_aether_dirt.json
 f9155c2584097d4fb318ee242e8681f1b4b17e00 assets/aether_redux/models/block/lumina.json
 873e06391fb880c7cc8c0194bf4eb0caefef4575 assets/aether_redux/models/block/lumina_snowy.json
-de17cf4286fb3366291d8853a82d6f983d06557a assets/aether_redux/models/block/luxweed.json
+ea0ab0f05b17e91c286de2cf768f5a6470f71ce6 assets/aether_redux/models/block/luxweed.json
 8a3d70a4f4380d6ae79cf68b130f1df51fd101b0 assets/aether_redux/models/block/potted_aevelium_growth.json
 d0fe827384b7b1286c41cc9d37009d23ecebe870 assets/aether_redux/models/block/potted_aurum.json
 ee44553bd993a27e4d8b0f78b887a7c320aa1a57 assets/aether_redux/models/block/potted_blighted_fungi.json
@@ -697,7 +697,7 @@ a7b3d68b7ca243dc9b16741d5e8e5c0c8e5528d4 assets/aether_redux/models/block/purple
 0bc3a2aebf1f69795d6398103354fc07cf87035c assets/aether_redux/models/block/purple_potted_glacia_sapling.json
 58723c63e576416d70ba487e69560561fb89e2c2 assets/aether_redux/models/block/quickroots.json
 0638c603c5030a516adc0ede83a5ca5685cad939 assets/aether_redux/models/block/raw_veridium_block.json
-ff0a1deeb8645c19b9c64b7d45264e60a78db4d8 assets/aether_redux/models/block/skysprouts.json
+746b2bd86973079ddf1aa0970c2d3055c92f261a assets/aether_redux/models/block/skysprouts.json
 cd96084a6cde1f06c3015eb0a6021983510fad6e assets/aether_redux/models/block/spirolyctil.json
 88e8fb10b5732b2ce95f2ff3e60deae90d3966da assets/aether_redux/models/block/sporing_blightwillow_log.json
 2243f0edd0b3bd2ce62288a308d1f8c4827531f9 assets/aether_redux/models/block/sporing_blightwillow_wood.json
@@ -907,4 +907,4 @@ a8b365e5750684b76a0dcb247654ad63919d5962 assets/aether_redux/models/block/wooden
 636d621be5d85bd257200daf591f9c6581532884 assets/aether_redux/models/block/wooden_side_tall_alt.json
 12fefa37b900a2091929dcda6ca3d9b60a3b6b24 assets/aether_redux/models/block/wooden_side_tall_alt_short.json
 f13421221a49b2306b79a6648af64fc358935247 assets/aether_redux/models/block/wooden_side_tall_short.json
-c0606618c25c5460b1c3ab0d8af9d6da3972ba67 assets/aether_redux/models/block/wyndsprouts.json
+b7228a386d28ca1a4da065ff5af475edf9d831ff assets/aether_redux/models/block/wyndsprouts.json

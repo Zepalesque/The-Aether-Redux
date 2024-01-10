@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-09T22:11:14.2085323	Item Models: aether_redux
+// 1.20.1	2024-01-10T13:39:42.8181265	Item Models: aether_redux
 055dd4b0c8fc6e204bff205a78076040e1d5bfad assets/aether_redux/models/item/aether_short_grass.json
 ef6d226766d61d6460247665062a399d3613d946 assets/aether_redux/models/item/aevelium.json
 e89330a549c5d1169758ec3314e9285fb8db827a assets/aether_redux/models/item/aevelium_growth.json
@@ -184,7 +184,7 @@ d8de2565b035201fb855f38b6083299efcc91e31 assets/aether_redux/models/item/raw_ver
 2b0580de8e9f79ef8502204a23d3575928546d05 assets/aether_redux/models/item/ring_of_wisdom.json
 33ce1684f4df82d84441e81d2e84cc0744e1df58 assets/aether_redux/models/item/sentry_circuit.json
 4eee3a2d738aac7cbe95f745f56831509105792b assets/aether_redux/models/item/sentry_ring.json
-3173e7adf7da2daeaad11adc6201ed0ce7605cfb assets/aether_redux/models/item/skysprouts.json
+4c4d9b772e0a5b72f36c477f1ad8d47978d7f618 assets/aether_redux/models/item/skysprouts.json
 1a714fcc969395ab809f838beead90437b3f7458 assets/aether_redux/models/item/spectral_dart.json
 ad57a76a128ff919184952827f3bb1d420514d70 assets/aether_redux/models/item/spectral_dart_shooter.json
 4a7a06483d6f1eebeedf5e91fd358129037584a5 assets/aether_redux/models/item/spirolyctil.json
@@ -249,4 +249,4 @@ a10d36269b90a11c03ea84847453473095fbaeb0 assets/aether_redux/models/item/veridiu
 0d78cc71932909a7fc306a4d5de2ec8c29ce63d4 assets/aether_redux/models/item/veridium_pickaxe.json
 0800d9276da8f932e06518a5176f0d34864d3c4f assets/aether_redux/models/item/veridium_shovel.json
 25fab51c204f0bf36a3595fcd57e8202736fd397 assets/aether_redux/models/item/veridium_sword.json
-34b38059dc7d69f9087ee41a5efa8cffb04c83fd assets/aether_redux/models/item/wyndsprouts.json
+27cbe76afc35132896ad789df720b7ddafe78251 assets/aether_redux/models/item/wyndsprouts.json
