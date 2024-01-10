@@ -49,7 +49,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.crossBlock(ReduxBlocks.AEVELIUM_GROWTH.get(), "natural/");
         this.pottedPlantAltTexture(ReduxBlocks.POTTED_AEVELIUM_GROWTH.get(), ReduxBlocks.AEVELIUM_GROWTH.get(), "natural/");
 
-        this.crossBlock(ReduxBlocks.IRIDIA.get(), "natural/");
+        this.tintedCrossBlock(ReduxBlocks.IRIDIA.get(), "natural/");
         this.tintableShortGrass(ReduxBlocks.AETHER_SHORT_GRASS.get(), "natural/");
         this.crossBlock(ReduxBlocks.GILDED_WHITE_FLOWER.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_GILDED_WHITE_FLOWER.get(), ReduxBlocks.GILDED_WHITE_FLOWER.get(), "natural/");
@@ -64,7 +64,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         wallBlock(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_WALL.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), "natural/");
         stairs(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_STAIRS.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), "natural/");
         slab(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_SLAB.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), "natural/");
-        this.crossBlock(ReduxBlocks.AURUM.get(), "natural/");
+        this.tintedCrossBlock(ReduxBlocks.AURUM.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_AURUM.get(), ReduxBlocks.AURUM.get(), "natural/");
         block(ReduxBlocks.CARVED_STONE_BRICKS.get(), "construction/");
         wallBlock(ReduxBlocks.CARVED_STONE_BRICK_WALL.get(), ReduxBlocks.CARVED_STONE_BRICKS.get(), "construction/");
@@ -393,7 +393,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
             if (enchanted) {
                 return ConfiguredModel.builder().modelFile(models().cross("enchanted_aether_short_grass", modLoc("block/natural/enchanted_short_grass")).renderType("cutout")).build();
             }
-            return ConfiguredModel.builder().modelFile(models().singleTexture("aether_short_grass", mcLoc(BLOCK_FOLDER + "/tinted_cross"), "cross", modLoc("block/natural/aether_short_grass_tint")).renderType("cutout")).build();       }       );
+            return ConfiguredModel.builder().modelFile(models().singleTexture("aether_short_grass", mcLoc(BLOCK_FOLDER + "/tinted_cross"), "cross", modLoc("block/natural/aether_short_grass")).renderType("cutout")).build();       }       );
     }
 
     public void tintedGrass(Supplier<? extends Block> block) {
