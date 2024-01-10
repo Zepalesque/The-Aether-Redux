@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-10T13:50:14.9386165	Block States: aether_redux
+// 1.20.1	2024-01-10T13:57:56.4099856	Block States: aether_redux
 19e9315e23d333c40449958daf734f971a3bff53 assets/aether_redux/blockstates/aether_short_grass.json
 103ff0aa6feeaaf74b4a76fc8cdd87b27b7fbc61 assets/aether_redux/blockstates/aevelium.json
 839da9eb72bebfe44879f5abc71bbd50e6ef1b23 assets/aether_redux/blockstates/aevelium_growth.json
@@ -235,7 +235,7 @@ c2249fdc83325219c0c73cc9a456fa6e181a05e8 assets/aether_redux/models/block/aeveli
 0f7de56023e72ea21feaf07f34cf3f8f55b3e192 assets/aether_redux/models/block/aevelium_growth.json
 6ff47d5648cd4f8b6dbb8f04ec9b9fc3bb0df592 assets/aether_redux/models/block/aevelium_snowy.json
 6bd4120ea9574c7f2a87f01dd6945d956a3e1f57 assets/aether_redux/models/block/aevelium_sprouts.json
-1e4d7040e5eb9c7949a715c6a1c655f104f067f1 assets/aether_redux/models/block/aurum.json
+d214b7cf92705467774607e2eaac25533b628d4d assets/aether_redux/models/block/aurum.json
 1c3b7fc189f3ba181fdab4841ddfb39f9494566d assets/aether_redux/models/block/blighted_aether_grass_block.json
 0e2c461f8de9d82b6df6c0f42d7809fc339333cf assets/aether_redux/models/block/blighted_aether_grass_block_snow.json
 3814782f455eab462cef517669981ed78f16fd71 assets/aether_redux/models/block/blighted_fungi.json
@@ -662,7 +662,7 @@ bb29a0d27cb53bb6030587014d4c236245686bd7 assets/aether_redux/models/block/golden
 872000dc2cb4febdc11763d547d5e83d021d0e56 assets/aether_redux/models/block/harvested_quickroots.json
 68c616ec29e288aeb57926e901c01186a065c9c8 assets/aether_redux/models/block/harvested_sprouting_lightroots.json
 a2293c7d59f833441ab43dcc69d98912854faf94 assets/aether_redux/models/block/holysilt.json
-4b9affbb8b0b19825c9a195fac06160a0d33eefd assets/aether_redux/models/block/iridia.json
+a76d15c73f8fb9164b2fe3eb23a2b9b8dc74fc28 assets/aether_redux/models/block/iridia.json
 94fd965a65d76dde8f2f1e85f4f7ff4568451b84 assets/aether_redux/models/block/lightroot_aether_dirt.json
 f9155c2584097d4fb318ee242e8681f1b4b17e00 assets/aether_redux/models/block/lumina.json
 873e06391fb880c7cc8c0194bf4eb0caefef4575 assets/aether_redux/models/block/lumina_snowy.json
