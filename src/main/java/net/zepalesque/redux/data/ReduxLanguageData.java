@@ -76,11 +76,11 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.AIRBOUND_CAPE, "Airbound Cape");
         addLore(ReduxItems.AIRBOUND_CAPE, "A cape found in the Bronze Dungeon. It allows the wearer to double-jump!");
 
-        addItem(ReduxItems.GRAND_VICTORY_MEDAL, "Valkyrie Ring");
-        addLore(ReduxItems.GRAND_VICTORY_MEDAL, "A ring found in the Silver Dungeon. It allows the wearer to reach farther!");
+        addItem(ReduxItems.GRAND_VICTORY_MEDAL, "Grand Victory Medal");
+        addLore(ReduxItems.GRAND_VICTORY_MEDAL, "A pendant dropped by the Valkyrie Queen. In Valkyrie culture, having one of these shows you are a noble warrior.");
 
         addItem(ReduxItems.PHOENIX_EMBLEM, "Phoenix Emblem");
-        addLore(ReduxItems.PHOENIX_EMBLEM, "An ancient emblem used by followers of the Sun Spirit. It allows the wearer to shoot fireballs!");
+        addLore(ReduxItems.PHOENIX_EMBLEM, "An ancient emblem once used by followers of the Sun Spirit. It allows the wearer to shoot fireballs!");
 
         addItem(ReduxItems.VANILLA_SWET_SPAWN_EGG, "Vanilla Swet Spawn Egg");
         addLore(ReduxItems.VANILLA_SWET_SPAWN_EGG, "A spawn egg. Spawns a Vanilla Swet");
@@ -390,10 +390,13 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addGuiText("bittersweet_charm_poison_chance", "10% chance to poison targets of melee attacks");
         addGuiText("wisdom_ring_xp_increase", "+20-30% XP from mobs");
         addGuiText("grand_medal_regen", "Regeneration which increases as health drops");
+        addGuiText("grand_medal_queen_refight", "Allows replaying the Valkyrie Queen fight without collecting more medals");
         addGuiText("airbound_cape_jump_boost", "Grants ability to double jump");
         addGuiText("phoenix_emblem_fireball", "Grants ability to shoot fireballs");
         addGuiText("sentry_ring_embers", "Targets of melee attacks release burning embers");
         addGuiText("cockatrice_feather_immunity", "Grants immunity to Inebriation");
+
+        addGuiText("player.dialog.has_grand_medal", "I'm ready, I have a Grand Victory Medal!");
 
         addGuiText("vampire_amulet_night_ability", "After being worn for one overworld day (as symbolized by a gold highlight), will grant the ability to absorb dealt damage");
         addGuiText("vampire_amulet_day_debuff", "Causes more damage to be taken at day");

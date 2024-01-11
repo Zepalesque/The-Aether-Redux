@@ -17,7 +17,7 @@ public class ValkQueenMixin {
 
     @Redirect(method = "handleNpcInteraction", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/player/Inventory;countItem(Lnet/minecraft/world/item/Item;)I"))
     public int initialize(Inventory instance, Item item) {
-        return EquipmentUtil.hasCurio(instance.player, ReduxItems.GRAND_VICTORY_MEDAL.get()) ? 10 : instance.countItem(item);
+        return instance.countItem(ReduxItems.GRAND_VICTORY_MEDAL.get()) >= 1 ? 10 : instance.countItem(item);
     }
 
 }

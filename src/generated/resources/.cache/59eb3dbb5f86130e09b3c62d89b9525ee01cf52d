@@ -1,9 +1,8 @@
-// 1.20.1	2024-01-10T17:32:04.3715118	Loot Tables
+// 1.20.1	2024-01-10T21:40:54.217728	Loot Tables
 9bb0a6fae9e80234bb0bad9086af314acf3e9894 data/aether_redux/loot_tables/blocks/aether_short_grass.json
 48b55d99420ce1afaca551876e87bdbccae62e08 data/aether_redux/loot_tables/blocks/aevelium.json
 101eb9ac681437f2db38085324dfcca14a759f7a data/aether_redux/loot_tables/blocks/aevelium_growth.json
 2425890534ab096b13370fed54e36a07e1fc0b45 data/aether_redux/loot_tables/blocks/aevelium_sprouts.json
-d4ed18fe66945aa43ffea0586683d5fd686b978d data/aether_redux/loot_tables/blocks/aevyrn_bush.json
 c6156555dc4897939b617dabc4521b7fa52feba0 data/aether_redux/loot_tables/blocks/aurum.json
 79bec45030f53949c324d5be205a8bf0371a3324 data/aether_redux/loot_tables/blocks/blighted_fungi.json
 761fdc7bcbd04035f563fc96f119efb692a36278 data/aether_redux/loot_tables/blocks/blighted_skyroot_leaves.json

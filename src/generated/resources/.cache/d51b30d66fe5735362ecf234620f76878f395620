@@ -1,9 +1,8 @@
-// 1.20.1	2024-01-10T19:28:35.3085024	Item Models: aether_redux
+// 1.20.1	2024-01-10T21:40:54.2057328	Item Models: aether_redux
 055dd4b0c8fc6e204bff205a78076040e1d5bfad assets/aether_redux/models/item/aether_short_grass.json
 ef6d226766d61d6460247665062a399d3613d946 assets/aether_redux/models/item/aevelium.json
 e89330a549c5d1169758ec3314e9285fb8db827a assets/aether_redux/models/item/aevelium_growth.json
 b33b28bb801d1267d9f65e4fa6cbb6743ca4f691 assets/aether_redux/models/item/aevelium_sprouts.json
-aea7fdeb6125f97ffd7d221e7f6479085c9e2fe2 assets/aether_redux/models/item/aevyrn_bush.json
 2445055af5b1b7f3c6045199ffce74108003cef6 assets/aether_redux/models/item/airbound_cape.json
 0de3202eda683e31eb5d788e8a4f63f5a8db8cb7 assets/aether_redux/models/item/aurum.json
 64d23a0c3388e81dfb76e3af6af1230453ce2146 assets/aether_redux/models/item/blighted_fungi.json
@@ -153,6 +152,7 @@ ec6020f97fb066b3e9dd794f0fa17206b61a077a assets/aether_redux/models/item/golden_
 14c80ebf62c0434a511f00fdb22074d51f8aaf39 assets/aether_redux/models/item/golden_swet_ball.json
 3994332af9ecb56255184897abf849dae60ff939 assets/aether_redux/models/item/golden_swet_jelly.json
 830712522b96695b2c26d31f844efcaa964e0d48 assets/aether_redux/models/item/golden_vines.json
+b44ba989c4d354d86fe40c3a15fcda20449de04f assets/aether_redux/models/item/grand_victory_medal.json
 186625fae587a1449999bdcd0e11a53b78579f7a assets/aether_redux/models/item/holysilt.json
 dafc79f9f8a5bba4984aee6d037b93287c34f352 assets/aether_redux/models/item/infused_veridium_axe.json
 9c201a53753dcf467732b8045c7e73e7a687a668 assets/aether_redux/models/item/infused_veridium_hoe.json
@@ -227,7 +227,6 @@ d431727282e6d3bb0325ab1b51b4f46da7c66fca assets/aether_redux/models/item/strippe
 992aeafec1f8963ef1d11e6693991358baa283c4 assets/aether_redux/models/item/stripped_glacia_wood.json
 2bd3490fb4474d386bd50208e65422901c06a9a5 assets/aether_redux/models/item/stripped_glacia_wood_wall.json
 8d2fe00123e8ce67bf857912835275eec3e67f59 assets/aether_redux/models/item/tall_cloudcap.json
-29dcba2c0af50d5760d798818fc41963f832fa0f assets/aether_redux/models/item/valkyrie_ring.json
 e4bcb896b9819368f3ebd96a6ad2d6d110372065 assets/aether_redux/models/item/vampire_amulet.json
 f638ac2f718eaf0082e4a7e6cd54b463ce4c2b59 assets/aether_redux/models/item/vampire_amulet_active.json
 1f0d2056a180c972a1ad921f3773687252abf2fa assets/aether_redux/models/item/vanilla_gummy_swet.json

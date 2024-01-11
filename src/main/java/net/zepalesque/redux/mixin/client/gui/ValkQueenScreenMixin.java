@@ -35,7 +35,7 @@ public abstract class ValkQueenScreenMixin extends ScreenMixin {
         }), new DialogueChoiceComponent(this.buildDialogueChoice("challenge"), (button) -> {
             this.setDialogueAnswer(Component.translatable("gui.aether.queen.dialog.challenge"));
             int medals = this.getMinecraft().player.getInventory().countItem((Item) AetherItems.VICTORY_MEDAL.get());
-            /* injected line */ boolean hasGrandMedal = EquipmentUtil.hasCurio(this.getMinecraft().player, ReduxItems.GRAND_VICTORY_MEDAL.get());
+            /* injected line */ boolean hasGrandMedal = this.getMinecraft().player.getInventory().countItem(ReduxItems.GRAND_VICTORY_MEDAL.get()) >= 1;
             DialogueChoiceComponent startFightChoice =
             /* injected line */ hasGrandMedal ? new DialogueChoiceComponent(Component.translatable("gui.aether_redux.player.dialog.has_grand_medal"), (button1) -> {this.finishChat((byte)1);}) :
             medals >= 10 ? new DialogueChoiceComponent(this.buildDialogueChoice("have_medals"), (button1) -> {
