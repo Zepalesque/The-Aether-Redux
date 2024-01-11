@@ -122,7 +122,6 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.add(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_SLAB.get(), this::createSlabItemTable);
         this.dropSelf(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_STAIRS.get());
         this.dropSelf(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_WALL.get());
-        dropSelf(ReduxBlocks.AEVYRN_BUSH.get());
         this.add(ReduxBlocks.GOLDEN_CLOVER.get(), shearsOr(Blocks.AIR));
         this.dropPottedContents(ReduxBlocks.POTTED_GOLDEN_CLOVER.get());
         dropSelf(ReduxBlocks.AURUM.get());

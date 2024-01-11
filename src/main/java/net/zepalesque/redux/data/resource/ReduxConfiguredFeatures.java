@@ -67,7 +67,6 @@ public class    ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> AA_QUICKSOIL_SHELF = createKey(Folders.COMPAT + "aa_quicksoil_shelf");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FIRECAP_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.FIRECAP) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AEVELIUM_GRASSES_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.AEVELIUM) + "_grasses_patch");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> AEVYRN_BUSH_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.AEVYRN_BUSH) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AURUM_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.AURUM) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTED_SKYROOT_TREE = createKey(Folders.TREE + "blighted_skyroot_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTMOSS_PATCH = createKey(Folders.CAVE + "blightmoss_patch");
@@ -148,8 +147,7 @@ public class    ReduxConfiguredFeatures {
                                         .add(drops(ReduxBlocks.AEVELIUM_SPROUTS), 5)
                                         .add(drops(ReduxBlocks.AEVELIUM_GROWTH), 3))),
                         BlockPredicate.matchesBlocks(ReduxBlocks.AEVELIUM.get())));
-        register(context, AEVYRN_BUSH_PATCH, ReduxFeatureRegistry.BIOME_BORDER_PLACEMENT_FLOWER.get(),
-                biomePlacementPatch(16, 5, 3, BlockStateProvider.simple(drops(ReduxBlocks.AEVYRN_BUSH))));
+
         register(context, AA_QUICKSOIL_SHELF, ReduxFeatureRegistry.ROOTED_SHELF.get(),
                 new RootedShelfConfiguration(BlockStateProvider.simple(drops(AetherBlocks.QUICKSOIL)),
                         BlockStateProvider.simple(drops(ReduxBlocks.QUICKROOTS).setValue(ReduxStates.HARVESTED, false)),

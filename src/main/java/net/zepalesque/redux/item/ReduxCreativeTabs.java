@@ -102,7 +102,6 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.GILDED_OAK_SAPLING, ReduxBlocks.FLOWERING_FIELDSPROUT_SAPLING, event);
             putAfter(ReduxBlocks.FLOWERING_FIELDSPROUT_SAPLING, ReduxBlocks.CHROMATIC_SHRUB, event);
 
-            putAfter(AetherBlocks.BERRY_BUSH, ReduxBlocks.AEVYRN_BUSH, event);
 
 
             putAfter(AetherBlocks.WHITE_FLOWER, ReduxBlocks.WYNDSPROUTS, event);

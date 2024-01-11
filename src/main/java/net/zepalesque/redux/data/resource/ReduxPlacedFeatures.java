@@ -43,7 +43,6 @@ public class ReduxPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> FIRECAP_PATCH = copyKey(ReduxConfiguredFeatures.FIRECAP_PATCH);
     public static final ResourceKey<PlacedFeature> AEVELIUM_GRASSES_PATCH = copyKey(ReduxConfiguredFeatures.AEVELIUM_GRASSES_PATCH);
-    public static final ResourceKey<PlacedFeature> AEVYRN_BUSH_PATCH = copyKey(ReduxConfiguredFeatures.AEVYRN_BUSH_PATCH);
     public static final ResourceKey<PlacedFeature> AURUM_PATCH = copyKey(ReduxConfiguredFeatures.AURUM_PATCH);
     public static final ResourceKey<PlacedFeature> BLIGHTMOSS_SPARSE_VEGETATION = createKey(Folders.CAVE + "blightmoss_sparse_vegetation");
     public static final ResourceKey<PlacedFeature> BLIGHTMOSS_VEGETATION = createKey(Folders.CAVE + "blightmoss_vegetation");
@@ -103,11 +102,6 @@ public class ReduxPlacedFeatures {
         register(context, AETHER_SNOW_LAYER, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.AETHER_SNOW_LAYER)
         );
 
-        register(context, AEVYRN_BUSH_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.AEVYRN_BUSH_PATCH),
-                NOISE_THRESHOLD,
-                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, BiasedToBottomInt.of(0, 3), 4),
-                RarityFilter.onAverageOnceEvery(3),
-                BiomeFilter.biome());
 
         register(context, AURUM_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.AURUM_PATCH),
                 NOISE_THRESHOLD,

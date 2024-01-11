@@ -296,9 +296,6 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.CARVED_STONE_BRICK_WALL, "Carved Stone Brick Wall");
         addLore(ReduxBlocks.CARVED_STONE_BRICK_WALL, "Crafted from Carved Stone Bricks. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
 
-        addBlock(ReduxBlocks.AEVYRN_BUSH, "Aevyrn Bush");
-        addLore(ReduxBlocks.AEVYRN_BUSH, "An off-white bush found in the Gilded Groves. Goldbugs will hide in this when scared.");
-
         addBlock(ReduxBlocks.VERIDIUM_LANTERN, "Veridium Lantern");
         addLore(ReduxBlocks.VERIDIUM_LANTERN, "A lantern made of Veridium. You can place it on the ground or hang it on the ceiling!");
 

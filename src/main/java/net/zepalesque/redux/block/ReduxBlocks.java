@@ -165,9 +165,6 @@ public class ReduxBlocks {
     public static RegistryObject<SlabBlock> BLIGHTMOSS_HOLYSTONE_SLAB = register("blightmoss_holystone_slab",
             () -> new SlabBlock(BlockBehaviour.Properties.copy(BLIGHTMOSS_HOLYSTONE.get()).strength(2.0F, 6.0F)));
 
-        public static RegistryObject<Block> AEVYRN_BUSH = register("aevyrn_bush",
-            () -> new AuburnBushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).strength(0.5F).sound(SoundType.AZALEA).noOcclusion()));
-
 
 
     public static final RegistryObject<Block> CARVED_STONE_BRICKS = register("carved_stone_bricks", () -> new Block(Block.Properties.of().strength(0.5F, 6.0F).requiresCorrectToolForDrops()));
@@ -379,7 +376,6 @@ public class ReduxBlocks {
         fireBlockAccessor.callSetFlammable(LUXWEED.get(), 60, 100);
         fireBlockAccessor.callSetFlammable(SPIROLYCTIL.get(), 60, 100);
         fireBlockAccessor.callSetFlammable(BLIGHTSHADE.get(), 60, 100);
-        fireBlockAccessor.callSetFlammable(AEVYRN_BUSH.get(), 30, 60);
     }
     public static void registerWoodTypes() {
         for (WoodHandler woodHandler : Redux.Handlers.Wood.WOOD_HANDLERS)

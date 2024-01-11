@@ -161,7 +161,6 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.BLIGHTMOSS_CARPET.get(),
                 ReduxBlocks.CHROMATIC_BERRY_LEAVES.get(),
                 ReduxBlocks.CHROMATIC_SHRUB.get(),
-                ReduxBlocks.AEVYRN_BUSH.get(),
                 ReduxBlocks.GLACIA_LEAVES.get(),
                 ReduxBlocks.PURPLE_GLACIA_LEAVES.get(),
                 ReduxBlocks.GILDED_OAK_LEAVES.get(),
