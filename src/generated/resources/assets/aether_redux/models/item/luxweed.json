@@ -2,7 +2,7 @@
   "parent": "minecraft:item/generated",
   "forge_data": {
     "layers": {
-      "1": {
+      "0": {
         "block_light": 15,
         "sky_light": 15
       }

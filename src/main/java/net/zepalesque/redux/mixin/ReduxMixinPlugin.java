@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Supplier;
 
-
+// TODO (putting it here because idk where else to) Re-evaluate ALL mixins, see if some can be removed
 public final class ReduxMixinPlugin implements IMixinConfigPlugin {
 
     Map<String, Supplier<Boolean>> OVERRIDES = ImmutableMap.<String, Supplier<Boolean>>builder()
