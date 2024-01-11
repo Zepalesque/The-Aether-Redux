@@ -23,6 +23,7 @@ import net.zepalesque.redux.data.resource.ReduxDamageTypes;
 import net.zepalesque.redux.entity.projectile.Ember;
 import net.zepalesque.redux.entity.projectile.VolatileFireCrystal;
 import net.zepalesque.redux.item.ReduxItems;
+import net.zepalesque.redux.util.math.MathUtil;
 import top.theillusivec4.curios.api.SlotResult;
 
 import java.util.List;
@@ -91,7 +92,20 @@ public class ReduxAccessoryListener {
 
             }
         }
-
     }
 
+    @SubscribeEvent
+    public static void tickPlayer(LivingEvent.LivingTickEvent event)
+    {
+        LivingEntity entity = event.getEntity();
+        if (EquipmentUtil.hasCurio(entity, ReduxItems.GRAND_VICTORY_MEDAL.get())) {
+            // 'i' is a value that decreases as your health goes down, starting at 200 at full health, going down to a minimum of 20 at 1/10 health
+            int i = MathUtil.clampedLerpInt((entity.getHealth() / entity.getMaxHealth()), 20, 200);
+            // Once every i ticks, the player has a 50% chance of getting healed 1 point of health
+            if (i > 0 && entity.tickCount % i == 0 && entity.level().getRandom().nextBoolean())
+            {
+                entity.heal(1);
+            }
+        }
+    }
 }

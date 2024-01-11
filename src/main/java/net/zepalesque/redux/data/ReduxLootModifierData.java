@@ -112,7 +112,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                 UniformInt.of(0, 1)));
 
         this.add("valkyrie_ring", new GenesisAddDungeonLootModifier(
-                new LootItemCondition[] { LootTableIdCondition.builder(AetherLoot.SILVER_DUNGEON_REWARD).build() }, List.of(WeightedEntry.wrap(new ItemStack(ReduxItems.VALKYRIE_RING.get()), 1)),
+                new LootItemCondition[] { LootTableIdCondition.builder(AetherLoot.SILVER_DUNGEON_REWARD).build() }, List.of(WeightedEntry.wrap(new ItemStack(ReduxItems.GRAND_VICTORY_MEDAL.get()), 1)),
                 UniformInt.of(0, 1)));
 
         this.add("phoenix_emblem", new GenesisAddDungeonLootModifier(

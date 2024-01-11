@@ -76,13 +76,21 @@ public class ReduxItemTagsData extends ItemTagsProvider {
         this.tag(ReduxTags.Items.BLUE_SWET_JELLY).add(ReduxItems.BLUE_SWET_JELLY.get()).addOptional(new ResourceLocation("aether_genesis","blue_swet_jelly"));
         this.tag(ReduxTags.Items.GOLDEN_SWET_BALL).add(ReduxItems.GOLDEN_SWET_BALL.get()).addOptional(new ResourceLocation("aether_genesis","golden_swet_ball")).addOptional(DAItems.GOLDEN_SWET_BALL.getId());
         this.tag(AetherTags.Items.ACCESSORIES_PENDANTS).add(
-                ReduxItems.VAMPIRE_AMULET.get()
+                ReduxItems.VAMPIRE_AMULET.get(),
+                ReduxItems.GRAND_VICTORY_MEDAL.get()
         );
         this.tag(AetherTags.Items.ACCESSORIES_CAPES).add(
                 ReduxItems.AIRBOUND_CAPE.get()
         );
-        this.tag(AetherTags.Items.ACCESSORIES_RINGS).add(ReduxItems.ENCHANTED_RING.get(), ReduxItems.RING_OF_WISDOM.get(), ReduxItems.VALKYRIE_RING.get(), ReduxItems.SENTRY_RING.get());
-        this.tag(AetherTags.Items.ACCESSORIES_MISCELLANEOUS).add(ReduxItems.PHOENIX_EMBLEM.get(), ReduxItems.COCKATRICE_FEATHER.get());
+        this.tag(AetherTags.Items.ACCESSORIES_RINGS).add(
+                ReduxItems.ENCHANTED_RING.get(),
+                ReduxItems.RING_OF_WISDOM.get(),
+                ReduxItems.SENTRY_RING.get()
+        );
+        this.tag(AetherTags.Items.ACCESSORIES_MISCELLANEOUS).add(
+                ReduxItems.PHOENIX_EMBLEM.get(),
+                ReduxItems.COCKATRICE_FEATHER.get()
+        );
         this.tag(ReduxTags.Items.BLUEBERRY_PIE_EGGS).addTag(AetherTags.Items.MOA_EGGS).add(Items.EGG).addOptional(DAItems.QUAIL_EGG.getId());
         this.tag(ReduxTags.Items.SKYROOT_BOWLS).addOptional(new ResourceLocation("aether_genesis", "skyroot_bowl"));
         this.tag(ReduxTags.Items.MOUSE_EAR_CAPS).addOptional(new ResourceLocation("aether_genesis", "mouse_ear_caps"));

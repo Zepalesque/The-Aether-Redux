@@ -23,6 +23,9 @@ public class MathUtil {
     public static float clampedInverp(float delta, float min, float max) {
         return Mth.clamp(Mth.inverseLerp(delta, min, max), min, max);
     }
+    public static int clampedLerpInt(float delta, int min, int max) {
+        return Mth.clamp(Mth.lerpInt(delta, min, max), min, max);
+    }
 
     public static int toNearestEven(float f)
     {

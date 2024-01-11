@@ -62,16 +62,6 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
                     .addCriterion("double_jump", DoubleJumpTrigger.TriggerInstance.jump())
                     .save(consumer, Redux.locate("double_jump"), existingFileHelper);
 
-            Advancement telekinesis = Advancement.Builder.advancement()
-                    .parent(new ResourceLocation(Aether.MODID, "silver_dungeon"))
-                    .display(ReduxItems.VALKYRIE_RING.get(),
-                            Component.translatable("advancement.aether_redux.mine_extended"),
-                            Component.translatable("advancement.aether_redux.mine_extended.desc"),
-                            null,
-                            FrameType.TASK, true, true, false)
-                    .addCriterion("mine_extended", ExtendedReachBreakBlockTrigger.TriggerInstance.mineBlock())
-                    .save(consumer, Redux.locate("mine_extended"), existingFileHelper);
-
             Advancement pyromaniac = Advancement.Builder.advancement()
                     .parent(new ResourceLocation(Aether.MODID, "gold_dungeon"))
                     .display(ReduxItems.PHOENIX_EMBLEM.get(),

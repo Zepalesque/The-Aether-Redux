@@ -52,10 +52,6 @@ public class BlockBreakListener {
         float f7 = f2 * f4;
         Vec3 vec31 = eyePos.add((double)f6 * reach, (double)f5 * reach, (double)f7 * reach);
         BlockHitResult bhr = level.clip(new ClipContext(eyePos, vec31, ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, player));
-        if (!bhr.getLocation().closerThan(eyePos, baseReach) && EquipmentUtil.hasCurio(player, ReduxItems.VALKYRIE_RING.get()) && player instanceof ServerPlayer sp)
-        {
-            ExtendedReachBreakBlockTrigger.INSTANCE.trigger(sp);
-        }
 
     }
 }

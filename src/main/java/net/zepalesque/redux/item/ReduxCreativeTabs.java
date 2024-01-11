@@ -185,8 +185,8 @@ public class ReduxCreativeTabs {
         }
         if (tab == AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES.get()) {
 
-            putAfter(AetherItems.VALKYRIE_CAPE, ReduxItems.VALKYRIE_RING, event);
-            putAfter(ReduxItems.VALKYRIE_RING, ReduxItems.COCKATRICE_FEATHER, event);
+            putAfter(AetherItems.VALKYRIE_CAPE, ReduxItems.GRAND_VICTORY_MEDAL, event);
+            putAfter(ReduxItems.GRAND_VICTORY_MEDAL, ReduxItems.COCKATRICE_FEATHER, event);
 
             putAfter(AetherItems.ICE_PENDANT, ReduxItems.ENCHANTED_RING, event);
             putAfter(ReduxItems.ENCHANTED_RING, ReduxItems.RING_OF_WISDOM, event);

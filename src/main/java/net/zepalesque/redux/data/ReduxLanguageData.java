@@ -76,8 +76,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.AIRBOUND_CAPE, "Airbound Cape");
         addLore(ReduxItems.AIRBOUND_CAPE, "A cape found in the Bronze Dungeon. It allows the wearer to double-jump!");
 
-        addItem(ReduxItems.VALKYRIE_RING, "Valkyrie Ring");
-        addLore(ReduxItems.VALKYRIE_RING, "A ring found in the Silver Dungeon. It allows the wearer to reach farther!");
+        addItem(ReduxItems.GRAND_VICTORY_MEDAL, "Valkyrie Ring");
+        addLore(ReduxItems.GRAND_VICTORY_MEDAL, "A ring found in the Silver Dungeon. It allows the wearer to reach farther!");
 
         addItem(ReduxItems.PHOENIX_EMBLEM, "Phoenix Emblem");
         addLore(ReduxItems.PHOENIX_EMBLEM, "An ancient emblem used by followers of the Sun Spirit. It allows the wearer to shoot fireballs!");
@@ -389,8 +389,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addGuiText("bittersweet_charm_poison_chance", "10% chance to poison targets of melee attacks");
         addGuiText("wisdom_ring_xp_increase", "+20-30% XP from mobs");
-        // TODO: Bring back this ability?
-        //addGuiText("valkyrie_ring_regen", "Regeneration which increases as health drops");
+        addGuiText("grand_medal_regen", "Regeneration which increases as health drops");
         addGuiText("airbound_cape_jump_boost", "Grants ability to double jump");
         addGuiText("phoenix_emblem_fireball", "Grants ability to shoot fireballs");
         addGuiText("sentry_ring_embers", "Targets of melee attacks release burning embers");
@@ -461,7 +460,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addSubtitle("entity", "ember_bounce", "Ember impacts");
         addSubtitle("item.accessory", "equip_bittersweet_charm", "Bittersweet Charm jingles");
         addSubtitle("item.accessory", "equip_enchanted_ring", "Enchanted Ring thunks");
-        addSubtitle("item.accessory", "equip_valkyrie_ring", "Valkyrie Ring clinks");
+        addSubtitle("item.accessory", "equip_grand_medal", "Grand Victory Medal clinks");
         addSubtitle("item.accessory", "equip_wisdom_ring", "Ring of Wisdom clanks");
         addSubtitle("item.accessory", "equip_sentry_ring", "Sentry Ring clanks");
         addSubtitle("item.accessory", "equip_vampire_amulet", "Vampire Amulet clinks");
@@ -511,8 +510,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addAdvancement("double_jump", "Take THAT, Physics!");
         addAdvancementDesc("double_jump", "Obtain an Airbound cape from a Bronze Dungeon and use it to double-jump");
-        addAdvancement("mine_extended", "Telekinesis");
-        addAdvancementDesc("mine_extended", "Obtain the Valkyrie Ring from the Silver Dungeon and use it to mine a block farther away than you could before");
+//        addAdvancement("mine_extended", "Telekinesis");
+//        addAdvancementDesc("mine_extended", "Obtain the Valkyrie Ring from the Silver Dungeon and use it to mine a block farther away than you could before");
         addAdvancement("kill_sheepuff_with_fireball", "Pyromaniac");
         addAdvancementDesc("kill_sheepuff_with_fireball", "Obtain the Phoenix Emblem from the Gold Dungeon and kill a Sheepuff with a fireball");
 
