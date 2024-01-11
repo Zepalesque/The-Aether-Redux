@@ -141,7 +141,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         this.itemBlock(ReduxBlocks.BLIGHTWILLOW_ROOTS.get());
 
         this.itemBlockFlatTintGlowOverlay(ReduxBlocks.LUMINA, "natural/");
-        this.itemBlockFlat(ReduxBlocks.DAGGERBLOOM, "natural/");
+        this.itemBlockFlatTintOverlay(ReduxBlocks.DAGGERBLOOM, "natural/");
 
         itemBlockFlatTintOverlay(ReduxBlocks.WYNDSPROUTS, "natural/");
         itemBlockFlatTintOverlay(ReduxBlocks.SKYSPROUTS, "natural/");

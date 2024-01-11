@@ -309,7 +309,7 @@ public class ReduxBlocks {
     public static final RegistryObject<LeafPileBlock> GILDED_LEAF_PILE = register("gilded_leaf_pile", () -> new LeafPileBlock(BlockBehaviour.Properties.copy(GILDED_OAK_LEAVES.get()).strength(0.1F).sound(SoundType.CHERRY_LEAVES)));
 
     public static RegistryObject<Block> FROSTED_FERN = register("frosted_fern",
-            () -> new FernShapedBushBlock(BlockBehaviour.Properties.of().hasPostProcess(ReduxBlocks::always).noCollission().instabreak().sound(SoundType.MOSS_CARPET).offsetType(BlockBehaviour.OffsetType.XZ)));
+            () -> new FrostedFernBlock(BlockBehaviour.Properties.of().hasPostProcess(ReduxBlocks::always).noCollission().instabreak().sound(SoundType.MOSS_CARPET).offsetType(BlockBehaviour.OffsetType.XZ)));
     public static final RegistryObject<FlowerPotBlock> POTTED_FROSTED_FERN = BLOCKS.register("potted_frosted_fern", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, FROSTED_FERN, Block.Properties.copy(Blocks.FLOWER_POT)));
 
     public static RegistryObject<Block> VERIDIUM_ORE = register("veridium_ore",

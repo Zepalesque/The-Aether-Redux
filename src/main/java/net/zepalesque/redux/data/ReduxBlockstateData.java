@@ -144,7 +144,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.pottedPlantAltTexture(ReduxBlocks.POTTED_WYNDSPROUTS.get(), ReduxBlocks.WYNDSPROUTS.get(), "natural/");
         this.pottedPlantAltTexture(ReduxBlocks.POTTED_SKYSPROUTS.get(), ReduxBlocks.SKYSPROUTS.get(), "natural/");
 
-        this.crossBlock(ReduxBlocks.FROSTED_FERN.get(), "natural/");
+        this.tintedCrossBlock(ReduxBlocks.FROSTED_FERN.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_FROSTED_FERN.get(), ReduxBlocks.FROSTED_FERN.get(), "natural/");
         this.blockDoubleDrops(ReduxBlocks.VERIDIUM_ORE.get(), "natural/");
         this.block(ReduxBlocks.RAW_VERIDIUM_BLOCK.get(), "natural/");
