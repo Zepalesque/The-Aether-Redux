@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-10T18:51:08.5141207	Item Models: aether_redux
+// 1.20.1	2024-01-10T19:28:35.3085024	Item Models: aether_redux
 055dd4b0c8fc6e204bff205a78076040e1d5bfad assets/aether_redux/models/item/aether_short_grass.json
 ef6d226766d61d6460247665062a399d3613d946 assets/aether_redux/models/item/aevelium.json
 e89330a549c5d1169758ec3314e9285fb8db827a assets/aether_redux/models/item/aevelium_growth.json
@@ -88,7 +88,7 @@ dbbdca14ceaedb205161f43206c1b0e438e0a50d assets/aether_redux/models/item/crystal
 663722001bdbda25f3979e9f5071b22877d8a1f3 assets/aether_redux/models/item/crystal_trapdoor.json
 577e2a8c85a9dc1eaf822e80158c336c9fb0c3d6 assets/aether_redux/models/item/crystal_wood.json
 749dc7628b80f06cc7997496b72fbb4e204c11f5 assets/aether_redux/models/item/crystal_wood_wall.json
-011c8d6b83e431932be03505de9ab9716711ff6c assets/aether_redux/models/item/daggerbloom.json
+f1a9d76ded853be5d395c6661d16e54f029afca8 assets/aether_redux/models/item/daggerbloom.json
 a5e3d18c9751a9ec185ddc0223f95b47e1307c2a assets/aether_redux/models/item/divinite.json
 b91cd5f8a586f37ffe16803b8f5b563e751668e9 assets/aether_redux/models/item/divinite_slab.json
 e24bcc1b074b86d43ccd158fd5efde16a4bb156f assets/aether_redux/models/item/divinite_stairs.json
