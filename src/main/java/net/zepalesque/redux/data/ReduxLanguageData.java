@@ -31,8 +31,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.SUBZERO_CROSSBOW, "Subzero Crossbow");
         addLore(ReduxItems.SUBZERO_CROSSBOW, "An icy crossbow found in Gold Dungeons. This slows enemies when they are hit.");
 
-        addItem(ReduxItems.CHROMABERRY, "Chromaberry");
-        addLore(ReduxItems.CHROMABERRY, "A type of berry found on bushes in the Highfields. This can be eaten, and nourishes slightly more hunger than Blueberries.");
+        addItem(ReduxItems.ZANBERRY, "Chromaberry");
+        addLore(ReduxItems.ZANBERRY, "A type of berry found on bushes in the Highfields. This can be eaten, and nourishes slightly more hunger than Blueberries.");
 
         addItem(ReduxItems.BLUE_SWET_JELLY, "Blue Swet Jelly");
         addLore(ReduxItems.BLUE_SWET_JELLY, "A delicious treat made with the remains of a Blue Swet.");
@@ -161,16 +161,13 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.SKYSPROUTS, "Skysprouts");
         addBlock(ReduxBlocks.POTTED_SKYSPROUTS, "Potted Skysprouts");
         addLore(ReduxBlocks.SKYSPROUTS, "A relative of the common Wyndsprouts, this flowering grass is found in the Highfields.");
-        
-        addBlock(ReduxBlocks.CHROMATIC_LEAVES, "Chromatic Leaves");
-        addLore(ReduxBlocks.CHROMATIC_LEAVES, "Leaves from the Chromatic Bush, which will occasionally drop Chromatic Shrubs which can be bonemealed into new bushes");
 
-        addBlock(ReduxBlocks.CHROMATIC_BERRY_LEAVES, "Chromatic Berry Leaves");
-        addLore(ReduxBlocks.CHROMATIC_BERRY_LEAVES, "Leaves from the Chromatic Bush, which will drop Chromaberries");
+        addBlock(ReduxBlocks.ZANBERRY_BUSH, "Zanberry Bush");
+        addLore(ReduxBlocks.ZANBERRY_BUSH, "A nice bush of Zanberries!");
 
-        addBlock(ReduxBlocks.CHROMATIC_SHRUB, "Chromatic Shrub");
-        addBlock(ReduxBlocks.POTTED_CHROMATIC_SHRUB, "Potted Chromatic Shrub");
-        addLore(ReduxBlocks.CHROMATIC_SHRUB, "A small version of the Chromatic Bush, kind of like a sapling. Can be bonemealed into the full thing.");
+        addBlock(ReduxBlocks.ZANBERRY_SHRUB, "Zanberry Shrub");
+        addBlock(ReduxBlocks.POTTED_ZANBERRY_SHRUB, "Potted Zanberry Shrub");
+        addLore(ReduxBlocks.ZANBERRY_SHRUB, "The stem of the Zanberry Bush. This will grow into a full bush, and will have Zanberries, which can be picked!");
 
         addBlock(ReduxBlocks.BLIGHTED_FUNGI, "Blighted Fungi");
         addBlock(ReduxBlocks.POTTED_BLIGHTED_FUNGI, "Potted Blighted Fungi");

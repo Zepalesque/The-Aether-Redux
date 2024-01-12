@@ -76,7 +76,7 @@ public class    ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTWILLOW_TREE = createKey(Folders.TREE + "blightwillow_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHT_ROCK = createKey(Folders.SURFACE + "blight_rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHT_TREES = createKey(Folders.TREE + "blight_trees");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> CHROMATIC_BUSH = createKey(Folders.PATCH + "chromatic_bush");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SKYROOT_BUSH = createKey(Folders.PATCH + "skyroot_bush");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CLOUDCAP_MUSHLING_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.CLOUDCAP_MUSHLING) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_GILDED_OAK_TREE = createKey(Folders.TREE + "fancy_gilded_oak_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_GOLDEN_OAK_TREE = createKey(Folders.TREE + "fancy_golden_oak_tree");
@@ -414,10 +414,10 @@ public class    ReduxConfiguredFeatures {
                                 .add(ConstantInt.of(4), 1)
                                 .build()), 7, 3, 32));
 
-        register(context, CHROMATIC_BUSH, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
-                prov(Redux.Handlers.Wood.FIELDSPROUT.log),
+        register(context, SKYROOT_BUSH, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+                prov(AetherFeatureStates.SKYROOT_LOG),
                 new StraightTrunkPlacer(1, 0, 0),
-                new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(drops(ReduxBlocks.CHROMATIC_LEAVES), 4).add(drops(ReduxBlocks.CHROMATIC_BERRY_LEAVES), 1).build()),
+                prov(AetherFeatureStates.SKYROOT_LEAVES),
                 new BushFoliagePlacer(ConstantInt.of(2), ConstantInt.of(1), 2),
                 new TwoLayersFeatureSize(0, 0, 0)
         ).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT)).build());
@@ -473,9 +473,7 @@ public class    ReduxConfiguredFeatures {
         register(context, HIGHFIELDS_TREES, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(
                         new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(AetherConfiguredFeatures.SKYROOT_TREE_CONFIGURATION),
-                                PlacementUtils.filteredByBlockSurvival(AetherBlocks.SKYROOT_SAPLING.get())), 0.35F),
-                        new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(CHROMATIC_BUSH),
-                                PlacementUtils.filteredByBlockSurvival(ReduxBlocks.CHROMATIC_SHRUB.get())), 0.1F)
+                                PlacementUtils.filteredByBlockSurvival(AetherBlocks.SKYROOT_SAPLING.get())), 0.35F)
                 ),
                         PlacementUtils.inlinePlaced(
                                 configuredFeatures.getOrThrow(FLOWERING_FIELDSPROUT_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.FLOWERING_FIELDSPROUT_SAPLING.get()))

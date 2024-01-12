@@ -4,7 +4,6 @@ import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.natural.AetherDoubleDropBlock;
 import com.aetherteam.aether.block.natural.AetherDoubleDropsLeaves;
 import com.aetherteam.aether.block.natural.LeavesWithParticlesBlock;
-import com.aetherteam.aether.effect.AetherEffects;
 import com.aetherteam.aether.mixin.mixins.common.accessor.FireBlockAccessor;
 import com.google.common.base.Supplier;
 import net.minecraft.core.BlockPos;
@@ -30,13 +29,12 @@ import net.zepalesque.redux.block.natural.blight.BlightedFungiBlock;
 import net.zepalesque.redux.block.natural.blight.BlightmossBlock;
 import net.zepalesque.redux.block.natural.blight.BlightshadeBlock;
 import net.zepalesque.redux.block.natural.cloudcap.*;
-import net.zepalesque.redux.block.natural.enchanted.AuburnBushBlock;
 import net.zepalesque.redux.block.natural.enchanted.EnchantedVinesHeadBlock;
 import net.zepalesque.redux.block.natural.enchanted.EnchantedVinesPlantBlock;
 import net.zepalesque.redux.block.natural.frosted.*;
 import net.zepalesque.redux.block.natural.highfields.FieldsproutPetalsBlock;
 import net.zepalesque.redux.block.natural.highfields.FloweringFieldsproutLeafBlock;
-import net.zepalesque.redux.block.natural.highlands.QuickrootsBlock;
+import net.zepalesque.redux.block.natural.QuickrootsBlock;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.data.resource.ReduxConfiguredFeatures;
 import net.zepalesque.redux.item.ReduxItems;
@@ -276,10 +274,10 @@ public class ReduxBlocks {
 
 
 
-    public static final RegistryObject<Block> CHROMATIC_LEAVES = register("chromatic_leaves", () -> new AetherDoubleDropsLeaves(Block.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).strength(0.2F).sound(SoundType.GRASS).noOcclusion().isValidSpawn(ReduxBlocks::ocelotOrParrot).isSuffocating(ReduxBlocks::never).isViewBlocking(ReduxBlocks::never)));
-    public static final RegistryObject<Block> CHROMATIC_BERRY_LEAVES = register("chromatic_berry_leaves", () -> new AetherDoubleDropsLeaves(Block.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).strength(0.2F).sound(SoundType.GRASS).noOcclusion().isValidSpawn(ReduxBlocks::ocelotOrParrot).isSuffocating(ReduxBlocks::never).isViewBlocking(ReduxBlocks::never)));
-    public static final RegistryObject<Block> CHROMATIC_SHRUB = register("chromatic_shrub", () -> new SaplingBlock(new ChromaticBush(), Block.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).strength(0.2F).sound(SoundType.GRASS).noCollission()));
-    public static final RegistryObject<FlowerPotBlock> POTTED_CHROMATIC_SHRUB = BLOCKS.register("potted_chromatic_shrub", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CHROMATIC_SHRUB, Block.Properties.copy(Blocks.FLOWER_POT)));
+    public static final RegistryObject<Block> ZANBERRY_BUSH = register("zanberry_bush", () -> new AetherDoubleDropsLeaves(Block.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).strength(0.2F).sound(SoundType.GRASS).noOcclusion().isValidSpawn(ReduxBlocks::ocelotOrParrot).isSuffocating(ReduxBlocks::never).isViewBlocking(ReduxBlocks::never)));
+    public static final RegistryObject<Block> ZANBERRY_SHRUB = register("zanberry_shrub", () -> new SaplingBlock(new ChromaticBush(), Block.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).strength(0.2F).sound(SoundType.GRASS).noCollission()));
+    public static final RegistryObject<FlowerPotBlock> POTTED_ZANBERRY_SHRUB = BLOCKS.register("potted_zanberry_shrub", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, ZANBERRY_SHRUB, Block.Properties.copy(Blocks.FLOWER_POT)));
+    public static final RegistryObject<FlowerPotBlock> POTTED_ZANBERRY_BUSH = BLOCKS.register("potted_zanberry_bush", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, ZANBERRY_SHRUB, Block.Properties.copy(Blocks.FLOWER_POT)));
 
 
     public static final RegistryObject<SaplingBlock> GILDED_OAK_SAPLING = register("gilded_oak_sapling", () ->
@@ -393,7 +391,8 @@ public class ReduxBlocks {
         pot.addPlant(ReduxBlocks.SPIROLYCTIL.getId(), ReduxBlocks.POTTED_SPIROLYCTIL);
         pot.addPlant(ReduxBlocks.BLIGHTSHADE.getId(), ReduxBlocks.POTTED_BLIGHTSHADE);
         pot.addPlant(ReduxBlocks.BLIGHTED_FUNGI.getId(), ReduxBlocks.POTTED_BLIGHTED_FUNGI);
-        pot.addPlant(ReduxBlocks.CHROMATIC_SHRUB.getId(), ReduxBlocks.POTTED_CHROMATIC_SHRUB);
+        pot.addPlant(ReduxBlocks.ZANBERRY_SHRUB.getId(), ReduxBlocks.POTTED_ZANBERRY_SHRUB);
+        pot.addPlant(ReduxBlocks.ZANBERRY_BUSH.getId(), ReduxBlocks.POTTED_ZANBERRY_BUSH);
         pot.addPlant(ReduxBlocks.BLIGHTWILLOW_SAPLING.getId(), ReduxBlocks.POTTED_BLIGHTWILLOW_SAPLING);
         pot.addPlant(ReduxBlocks.GLACIA_SAPLING.getId(), ReduxBlocks.POTTED_GLACIA_SAPLING);
         pot.addPlant(ReduxBlocks.PURPLE_GLACIA_SAPLING.getId(), ReduxBlocks.POTTED_PURPLE_GLACIA_SAPLING);

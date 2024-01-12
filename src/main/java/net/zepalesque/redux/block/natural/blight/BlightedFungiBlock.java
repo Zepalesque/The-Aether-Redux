@@ -18,7 +18,7 @@ import net.zepalesque.redux.data.resource.ReduxDamageTypes;
 import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.effect.ReduxEffects;
 
-public class BlightedFungiBlock extends AetherBushBlock {
+public class                    BlightedFungiBlock extends AetherBushBlock {
     protected static final VoxelShape SHAPE = Block.box(2.0, 0.0, 2.0, 14.0, 13.0, 14.0);
 
     public BlightedFungiBlock(Properties properties) {

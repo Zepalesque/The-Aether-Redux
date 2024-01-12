@@ -14,6 +14,6 @@ public class ChromaticBush extends AbstractTreeGrower {
 
     @Nullable
     protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean largeHive) {
-        return ReduxConfiguredFeatures.CHROMATIC_BUSH;
+        return ReduxConfiguredFeatures.SKYROOT_BUSH;
     }
 }

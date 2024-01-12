@@ -112,8 +112,6 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.GLACIA_LEAVES.get(),
                 ReduxBlocks.PURPLE_GLACIA_LEAVES.get(),
                 ReduxBlocks.GILDED_OAK_LEAVES.get(),
-                ReduxBlocks.CHROMATIC_BERRY_LEAVES.get(),
-                ReduxBlocks.CHROMATIC_LEAVES.get(),
                 ReduxBlocks.FLOWERING_FIELDSPROUT_LEAVES.get(),
                 ReduxBlocks.BLIGHTED_SKYROOT_LEAVES.get()
         );
@@ -159,17 +157,14 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         this.tag(BlockTags.MINEABLE_WITH_HOE).add(
                 ReduxBlocks.BLIGHTMOSS_BLOCK.get(),
                 ReduxBlocks.BLIGHTMOSS_CARPET.get(),
-                ReduxBlocks.CHROMATIC_BERRY_LEAVES.get(),
-                ReduxBlocks.CHROMATIC_SHRUB.get(),
+                ReduxBlocks.ZANBERRY_BUSH.get(),
+                ReduxBlocks.ZANBERRY_SHRUB.get(),
                 ReduxBlocks.GLACIA_LEAVES.get(),
                 ReduxBlocks.PURPLE_GLACIA_LEAVES.get(),
                 ReduxBlocks.GILDED_OAK_LEAVES.get(),
                 ReduxBlocks.BLIGHTED_SKYROOT_LEAVES.get(),
                 ReduxBlocks.BLIGHTWILLOW_LEAVES.get(),
-                ReduxBlocks.CHROMATIC_LEAVES.get(),
-                ReduxBlocks.CHROMATIC_BERRY_LEAVES.get(),
                 ReduxBlocks.FLOWERING_FIELDSPROUT_LEAVES.get(),
-
                 ReduxBlocks.GOLDEN_LEAF_PILE.get(),
                 ReduxBlocks.GILDED_LEAF_PILE.get()
         );
@@ -232,7 +227,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.POTTED_FIRECAP.get(),
                 ReduxBlocks.POTTED_LUXWEED.get(),
                 ReduxBlocks.POTTED_BLIGHTED_FUNGI.get(),
-                ReduxBlocks.POTTED_CHROMATIC_SHRUB.get(),
+                ReduxBlocks.POTTED_ZANBERRY_SHRUB.get(),
                 ReduxBlocks.POTTED_BLIGHTWILLOW_SAPLING.get(),
                 ReduxBlocks.POTTED_FLOWERING_FIELDSPROUT_SAPLING.get(),
                 ReduxBlocks.POTTED_GLACIA_SAPLING.get(),
@@ -250,7 +245,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.BLIGHTWILLOW_SAPLING.get(),
                 ReduxBlocks.GLACIA_SAPLING.get(),
                 ReduxBlocks.PURPLE_GLACIA_SAPLING.get(),
-                ReduxBlocks.CHROMATIC_SHRUB.get(),
+                ReduxBlocks.ZANBERRY_SHRUB.get(),
                 ReduxBlocks.GILDED_OAK_SAPLING.get(),
                 ReduxBlocks.BLIGHTED_SKYROOT_SAPLING.get(),
                 ReduxBlocks.FLOWERING_FIELDSPROUT_SAPLING.get()

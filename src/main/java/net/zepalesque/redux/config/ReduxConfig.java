@@ -58,6 +58,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue change_double_plant_hitbox;
         public final ForgeConfigSpec.BooleanValue better_conversion_sounds;
         public final ForgeConfigSpec.BooleanValue raw_gravitite;
+        public final ForgeConfigSpec.BooleanValue enchanted_gilded_grass;
 
         public Common(ForgeConfigSpec.Builder builder) {
             builder.push("Gameplay Changes");
@@ -93,6 +94,7 @@ public class ReduxConfig {
             this.enable_snowy_biomes = builder.comment("Enables the Frosted Forests biome.").worldRestart().translation("config.aether_redux.biomes.frost.enable").define("Enable Frosted Forests", true);
             this.enable_highfields = builder.comment("Enables the Highfields biome.").worldRestart().translation("config.aether_redux.biomes.high.enable").define("Enable Highfields", true);
             this.enable_cloudcap_jungle = builder.comment("Enables the Cloudcap Jungle biome.").worldRestart().translation("config.aether_redux.biomes.cap.enable").define("Enable Cloudcap Jungle", true);
+            this.enchanted_gilded_grass = builder.comment("Uses Enchanted Aether Grass for the ground in the Gilded Groves. May require a Minecraft restart.").worldRestart().translation("config.aether_redux.worldgen.enchanted_gilded_grass").define("Enchanted Gilded Grass", false);
 
             builder.pop(2);
             builder.push("Fun");

@@ -115,9 +115,8 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlockFlatItemTexture(ReduxBlocks.VERIDIUM_LANTERN, "misc/");
         itemBlockFlatItemTexture(ReduxBlocks.VERIDIUM_CHAIN, "misc/");
 
-        this.itemBlock(ReduxBlocks.CHROMATIC_BERRY_LEAVES.get());
-        this.itemBlock(ReduxBlocks.CHROMATIC_LEAVES.get());
-        this.itemBlockFlat(ReduxBlocks.CHROMATIC_SHRUB.get(), "natural/");
+        this.itemBlock(ReduxBlocks.ZANBERRY_BUSH.get());
+        this.itemBlockFlat(ReduxBlocks.ZANBERRY_SHRUB.get(), "natural/");
         this.itemFullGlow(ReduxItems.LUXBUDS, "materials/");
         this.itemFullGlow(ReduxItems.PURIFIED_LUXBUDS, "materials/");
         this.itemFullGlow(ReduxItems.BLIGHTED_SPORES, "materials/");
@@ -175,7 +174,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
 
         this.item(ReduxItems.QUICKROOT, "materials/");
 
-        this.item(ReduxItems.CHROMABERRY, "food/");
+        this.item(ReduxItems.ZANBERRY, "food/");
 
         for (WoodHandler woodHandler : Redux.Handlers.Wood.WOOD_HANDLERS)        {
             woodHandler.generateItemModels(this);

@@ -88,9 +88,7 @@ public class ReduxCreativeTabs {
 
 
             putAfter(AetherBlocks.DECORATED_HOLIDAY_LEAVES, ReduxBlocks.FLOWERING_FIELDSPROUT_LEAVES, event);
-            putAfter(ReduxBlocks.FLOWERING_FIELDSPROUT_LEAVES, ReduxBlocks.CHROMATIC_LEAVES, event);
-            putAfter(ReduxBlocks.CHROMATIC_LEAVES, ReduxBlocks.CHROMATIC_BERRY_LEAVES, event);
-            putAfter(ReduxBlocks.CHROMATIC_BERRY_LEAVES, ReduxBlocks.CLOUD_CAP_BLOCK, event);
+            putAfter(ReduxBlocks.FLOWERING_FIELDSPROUT_LEAVES, ReduxBlocks.CLOUD_CAP_BLOCK, event);
             putAfter(ReduxBlocks.CLOUD_CAP_BLOCK, ReduxBlocks.CLOUDCAP_SPORES, event);
             putAfter(ReduxBlocks.CLOUDCAP_SPORES, ReduxBlocks.SPRINGSHROOM_CAP_BLOCK, event);
             putAfter(ReduxBlocks.SPRINGSHROOM_CAP_BLOCK, ReduxBlocks.SPRINGSHROOM_SPORES, event);
@@ -100,7 +98,7 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.BLIGHTED_SKYROOT_SAPLING, ReduxBlocks.GLACIA_SAPLING, event);
             putAfter(ReduxBlocks.GLACIA_SAPLING, ReduxBlocks.GILDED_OAK_SAPLING, event);
             putAfter(ReduxBlocks.GILDED_OAK_SAPLING, ReduxBlocks.FLOWERING_FIELDSPROUT_SAPLING, event);
-            putAfter(ReduxBlocks.FLOWERING_FIELDSPROUT_SAPLING, ReduxBlocks.CHROMATIC_SHRUB, event);
+            putAfter(ReduxBlocks.FLOWERING_FIELDSPROUT_SAPLING, ReduxBlocks.ZANBERRY_SHRUB, event);
 
 
 
@@ -158,7 +156,7 @@ public class ReduxCreativeTabs {
                     putAfter(ReduxItems.BLUE_SWET_JELLY, ReduxItems.GOLDEN_SWET_JELLY, event);
                     putAfter(ReduxItems.GOLDEN_SWET_JELLY, ReduxItems.VANILLA_SWET_JELLY, event);
             }
-            putAfter(AetherItems.WHITE_APPLE, ReduxItems.CHROMABERRY, event);
+            putAfter(AetherItems.WHITE_APPLE, ReduxItems.ZANBERRY, event);
 
             putBefore(AetherItems.SKYROOT_MILK_BUCKET, ReduxItems.MOUSE_EAR_SOUP, event);
 

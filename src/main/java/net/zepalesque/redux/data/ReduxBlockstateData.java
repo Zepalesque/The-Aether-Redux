@@ -114,10 +114,10 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.glowingCrossBlock(ReduxBlocks.CLOUDCAP_MUSHLING.get(), "natural/");
         this.glowingPottedPlantAltTexture(ReduxBlocks.POTTED_BLIGHTED_FUNGI.get(), ReduxBlocks.BLIGHTED_FUNGI.get(), "natural/");
         this.glowingPottedPlant(ReduxBlocks.POTTED_CLOUDCAP_MUSHLING.get(), ReduxBlocks.CLOUDCAP_MUSHLING.get(), "natural/");
-        this.crossBlock(ReduxBlocks.CHROMATIC_SHRUB.get(), "natural/");
-        this.block(ReduxBlocks.CHROMATIC_BERRY_LEAVES.get(), "natural/");
-        this.block(ReduxBlocks.CHROMATIC_LEAVES.get(), "natural/");
-        this.pottedPlantAltTexture(ReduxBlocks.POTTED_CHROMATIC_SHRUB.get(), ReduxBlocks.CHROMATIC_SHRUB.get(), "natural/");
+        this.crossBlock(ReduxBlocks.ZANBERRY_SHRUB.get(), "natural/");
+        this.berryBush(ReduxBlocks.ZANBERRY_BUSH.get(), ReduxBlocks.ZANBERRY_SHRUB.get());
+        this.pottedStem(ReduxBlocks.POTTED_ZANBERRY_SHRUB.get(), "natural/");
+        this.pottedBush(ReduxBlocks.POTTED_ZANBERRY_SHRUB.get(), ReduxBlocks.ZANBERRY_SHRUB.get(), "natural/");
 
         block(ReduxBlocks.BLIGHTMOSS_BLOCK.get(), "natural/");
         carpet(ReduxBlocks.BLIGHTMOSS_CARPET.get(), ReduxBlocks.BLIGHTMOSS_BLOCK.get(), "natural/");

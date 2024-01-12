@@ -127,7 +127,7 @@ public class ReduxItems {
 
     public static final RegistryObject<Item> QUICKROOT = register("quickroot", () -> new ItemNameBlockItem(ReduxBlocks.QUICKROOTS.get(), new Item.Properties().food(ReduxFoods.QUICKROOT)));
 
-    public static final RegistryObject<Item> CHROMABERRY = register("chromaberry", () -> new Item(new Item.Properties().food(ReduxFoods.CHROMABERRY)));
+    public static final RegistryObject<Item> ZANBERRY = register("zanberry", () -> new Item(new Item.Properties().food(ReduxFoods.CHROMABERRY)));
 
     public static final RegistryObject<Item> LIGHTROOT_CLUMP = register("lightroot_clump", () -> new ItemNameBlockItem(ReduxBlocks.SPROUTING_LIGHTROOTS.get(), new Item.Properties().food(ReduxFoods.LIGHTROOT_CLUMP)));
 
