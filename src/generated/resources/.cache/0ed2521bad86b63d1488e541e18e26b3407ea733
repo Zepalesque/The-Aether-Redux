@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-07T20:33:16.7673468	Tags for minecraft:worldgen/biome mod id aether_redux
+// 1.20.1	2024-01-12T19:48:36.1632758	Tags for minecraft:worldgen/biome mod id aether_redux
 03a289d487c7f3e4bc392c889efcb2fe292525d2 data/aether/tags/worldgen/biome/is_aether.json
 809da989aa462c425e80ef6b479be91b6fed4b3e data/aether_redux/tags/worldgen/biome/dense_leaf_fall.json
 6425e7e0a57a451843094090fa1e31c9fbd4c5e0 data/aether_redux/tags/worldgen/biome/has/aether_caves.json
@@ -7,10 +7,9 @@
 cdd0d52a4fd1880139bef757a562fedacc1f5a0e data/aether_redux/tags/worldgen/biome/has/mossy_holystone_ore.json
 809da989aa462c425e80ef6b479be91b6fed4b3e data/aether_redux/tags/worldgen/biome/has/mossy_rocks.json
 6425e7e0a57a451843094090fa1e31c9fbd4c5e0 data/aether_redux/tags/worldgen/biome/has/redux_water_color.json
-2c70b0b5f1bf6d947dbd0241e1925fd5e9a2154f data/aether_redux/tags/worldgen/biome/has/skysprouts.json
-cdd0d52a4fd1880139bef757a562fedacc1f5a0e data/aether_redux/tags/worldgen/biome/has/sweetblossom.json
 2c70b0b5f1bf6d947dbd0241e1925fd5e9a2154f data/aether_redux/tags/worldgen/biome/has/vanilla_swet.json
 6425e7e0a57a451843094090fa1e31c9fbd4c5e0 data/aether_redux/tags/worldgen/biome/has/veridium_ore.json
+f60ed1511ced922e996aed19dbe2fcf7f6ba2054 data/aether_redux/tags/worldgen/biome/has/wyndsprouts.json
 f60ed1511ced922e996aed19dbe2fcf7f6ba2054 data/aether_redux/tags/worldgen/biome/is/forgotten.json
 f577961f98e6ed820cd27de0036892be3709958e data/aether_redux/tags/worldgen/biome/is/highlands.json
 ba6c8950a1ee6388bcc69a588cbdb40ca503c39e data/ancient_aether/tags/worldgen/biome/has_structure/sentry_lab.json

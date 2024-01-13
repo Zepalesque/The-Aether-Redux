@@ -59,8 +59,8 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         item(ReduxItems.OATS, "materials/");
         item(ReduxItems.BLUEBERRY_PIE, "food/");
         item(ReduxItems.ENCHANTED_BLUEBERRY_PIE, "food/");
-        item(ReduxBlocks.GOLDEN_CLOVER.get().asItem(), "misc/");
-        itemBlockFlatTintOverlay(ReduxBlocks.AURUM, "natural/");
+        enchantedClover(ReduxBlocks.GOLDEN_CLOVER.get()::asItem, "misc/");
+        aurum(ReduxBlocks.AURUM, "natural/");
         itemBlock(ReduxBlocks.CARVED_STONE_BRICKS);
         itemBlock(ReduxBlocks.CARVED_STONE_BRICK_SLAB);
         itemBlock(ReduxBlocks.CARVED_STONE_BRICK_STAIRS);
@@ -205,6 +205,29 @@ public class ReduxItemModelData extends AetherItemModelProvider {
                 .texture("layer0", modLoc("item/" + location + id.getPath() + "_active"));
         return withExistingParent(id.getPath(), mcLoc("item/generated"))
                 .texture("layer0", modLoc("item/" + location + id.getPath() + "_inactive")).override().predicate(Redux.locate("active"), 1.0F).model(this.getExistingFile(this.modLoc("item/" + active))).end();
+    }
+
+    public ItemModelBuilder enchantedClover(Supplier<? extends Item> item, String location) {
+        ResourceLocation id = ForgeRegistries.ITEMS.getKey(item.get());
+        String active = "enchanted_" + id.getPath();
+        ItemModelBuilder builder = withExistingParent(active, mcLoc("item/generated"))
+                .texture("layer0", modLoc("item/" + location + "enchanted_" + id.getPath()));
+        return withExistingParent(id.getPath(), mcLoc("item/generated"))
+                .texture("layer0", modLoc("item/" + location + id.getPath()) + "_overlay")
+                .texture("layer1", modLoc("item/" + location + id.getPath() + "_partial_tint"))
+                .texture("layer2", modLoc("item/" + location + id.getPath()))
+                .override().predicate(Redux.locate("enchanted"), 1.0F).model(this.getExistingFile(this.modLoc("item/" + active))).end();
+    }
+
+    public ItemModelBuilder aurum(Supplier<? extends Block> block, String location) {
+        ResourceLocation id = ForgeRegistries.ITEMS.getKey(block.get().asItem());
+        String active = "enchanted_" + id.getPath();
+        ItemModelBuilder builder = withExistingParent(active, mcLoc("item/generated"))
+                .texture("layer0", modLoc("item/" + location + "enchanted_" + id.getPath()));
+        return withExistingParent(blockName(block), mcLoc("item/generated"))
+                .texture("layer1", texture(blockName(block), location))
+                .texture("layer0", texture(blockName(block) + "_overlay", location))
+                .override().predicate(Redux.locate("enchanted"), 1.0F).model(this.getExistingFile(this.modLoc("item/" + active))).end();
     }
 
     public ItemModelBuilder itemGlow(Supplier<? extends Item> item, String location) {

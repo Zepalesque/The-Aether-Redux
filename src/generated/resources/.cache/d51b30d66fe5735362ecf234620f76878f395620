@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-11T13:26:35.9710515	Item Models: aether_redux
+// 1.20.1	2024-01-12T19:48:36.1732798	Item Models: aether_redux
 055dd4b0c8fc6e204bff205a78076040e1d5bfad assets/aether_redux/models/item/aether_short_grass.json
 ef6d226766d61d6460247665062a399d3613d946 assets/aether_redux/models/item/aevelium.json
 e89330a549c5d1169758ec3314e9285fb8db827a assets/aether_redux/models/item/aevelium_growth.json
@@ -44,10 +44,6 @@ a503a359f9fce16dd0d2c43b71c84c70ff35915d assets/aether_redux/models/item/carved_
 d0c9b7220f8ee064bd6b2d343099792d4fd72c0f assets/aether_redux/models/item/carved_stone_brick_stairs.json
 62c0cee458b928ab54f160fb2290d566e4848949 assets/aether_redux/models/item/carved_stone_brick_wall.json
 6f2d8b47f3fbf96c466c1904b0894fcb77b6491b assets/aether_redux/models/item/carved_stone_pillar.json
-15ccb563b89927d107e30eeeee8bc9bde4016cff assets/aether_redux/models/item/chromaberry.json
-475ce947ebdc8598ac21f86cd4491e1bc9ee766e assets/aether_redux/models/item/chromatic_berry_leaves.json
-7a95b31de8019c1d60352ad5ae322ff6a0edab22 assets/aether_redux/models/item/chromatic_leaves.json
-a8e63d1047e63f35d9ed40f30d473435f1cf3178 assets/aether_redux/models/item/chromatic_shrub.json
 23672e9631f487255e8e01b1ca696f62f9cd9d61 assets/aether_redux/models/item/cloudcap_boat.json
 1660a61023308e084004647f9bba17abad72904e assets/aether_redux/models/item/cloudcap_button.json
 ec130d79d4a6efbd6598a7b0fe2c7e09ead66403 assets/aether_redux/models/item/cloudcap_chest_boat.json
@@ -245,3 +241,6 @@ a10d36269b90a11c03ea84847453473095fbaeb0 assets/aether_redux/models/item/veridiu
 0800d9276da8f932e06518a5176f0d34864d3c4f assets/aether_redux/models/item/veridium_shovel.json
 25fab51c204f0bf36a3595fcd57e8202736fd397 assets/aether_redux/models/item/veridium_sword.json
 599bcfee1cc00ba1bb268ce17e64bc719d3f4269 assets/aether_redux/models/item/wyndsprouts.json
+9f827a41b1b512474d1d6a2ce1b25e6efbcc4d75 assets/aether_redux/models/item/zanberry.json
+50ca60d8fc1bd373c9832f7e2ab05d1d6ff81d80 assets/aether_redux/models/item/zanberry_bush.json
+f8fb405b415a2f0c74ddcab880be64f17504d03b assets/aether_redux/models/item/zanberry_shrub.json

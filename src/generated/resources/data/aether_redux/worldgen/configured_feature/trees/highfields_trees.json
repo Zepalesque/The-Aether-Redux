@@ -38,26 +38,6 @@
             }
           ]
         }
-      },
-      {
-        "chance": 0.1,
-        "feature": {
-          "feature": "aether_redux:patch/chromatic_bush",
-          "placement": [
-            {
-              "type": "minecraft:block_predicate_filter",
-              "predicate": {
-                "type": "minecraft:would_survive",
-                "state": {
-                  "Name": "aether_redux:chromatic_shrub",
-                  "Properties": {
-                    "stage": "0"
-                  }
-                }
-              }
-            }
-          ]
-        }
       }
     ]
   }

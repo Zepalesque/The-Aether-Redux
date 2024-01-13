@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "aether_redux:block/potted_zanberry_shrub"
+      },
+      {
+        "model": "aether_redux:block/potted_zanberry_shrub"
+      }
+    ]
+  }
+}

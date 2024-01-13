@@ -29,6 +29,7 @@ import net.zepalesque.redux.block.natural.blight.BlightedFungiBlock;
 import net.zepalesque.redux.block.natural.blight.BlightmossBlock;
 import net.zepalesque.redux.block.natural.blight.BlightshadeBlock;
 import net.zepalesque.redux.block.natural.cloudcap.*;
+import net.zepalesque.redux.block.natural.enchanted.EnchantableFlowerBlock;
 import net.zepalesque.redux.block.natural.enchanted.EnchantedVinesHeadBlock;
 import net.zepalesque.redux.block.natural.enchanted.EnchantedVinesPlantBlock;
 import net.zepalesque.redux.block.natural.frosted.*;
@@ -107,7 +108,7 @@ public class ReduxBlocks {
     public static final RegistryObject<FlowerPotBlock> POTTED_GOLDEN_CLOVER = BLOCKS.register("potted_golden_clover", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, GOLDEN_CLOVER, Block.Properties.copy(Blocks.FLOWER_POT)));
 
     public static RegistryObject<Block> AURUM = register("aurum",
-            () -> new FlowerBlock(() -> MobEffects.LUCK, 60, BlockBehaviour.Properties.copy(Blocks.POPPY).mapColor(MapColor.COLOR_ORANGE)));
+            () -> new EnchantableFlowerBlock(() -> MobEffects.LUCK, 60, BlockBehaviour.Properties.copy(Blocks.POPPY).mapColor(MapColor.COLOR_ORANGE)));
     public static final RegistryObject<FlowerPotBlock> POTTED_AURUM = BLOCKS.register("potted_aurum", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, AURUM, Block.Properties.copy(Blocks.FLOWER_POT)));
 
     public static RegistryObject<Block> DAGGERBLOOM = register("daggerbloom",

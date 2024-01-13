@@ -60,7 +60,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         wallBlock(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_WALL.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), "natural/");
         stairs(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_STAIRS.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), "natural/");
         slab(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_SLAB.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), "natural/");
-        this.tintedCrossBlockOverlay(ReduxBlocks.AURUM.get(), "natural/");
+        this.aurum(ReduxBlocks.AURUM.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_AURUM.get(), ReduxBlocks.AURUM.get(), "natural/");
         block(ReduxBlocks.CARVED_STONE_BRICKS.get(), "construction/");
         wallBlock(ReduxBlocks.CARVED_STONE_BRICK_WALL.get(), ReduxBlocks.CARVED_STONE_BRICKS.get(), "construction/");
@@ -595,6 +595,15 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
                 .texture("cross", this.texture(this.name(block), location))
                 .texture("overlay", this.texture(this.name(block) + "_overlay", location)).renderType("cutout");
         this.crossBlock(block, cross);
+    }
+
+
+    public void aurum(Block block, String location) {
+        BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/tinted_cross_overlay"))
+                .texture("cross", this.texture(this.name(block), location))
+                .texture("overlay", this.texture(this.name(block) + "_overlay", location)).renderType("cutout");
+        BlockModelBuilder ench = models().cross("enchanted_" + this.name(block), this.texture("enchanted_" + this.name(block), location));
+        this.getVariantBuilder(block).forAllStates((state) ->  ConfiguredModel.builder().modelFile(state.getValue(ReduxStates.ENCHANTED) ? ench : cross).build());
     }
     public void tintedCrossBlock(Block block, String location) {
         BlockModelBuilder cross = models().withExistingParent(this.name(block), mcLoc(BLOCK_FOLDER + "/tinted_cross"))

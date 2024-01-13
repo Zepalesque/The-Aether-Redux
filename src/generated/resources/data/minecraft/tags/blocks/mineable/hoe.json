@@ -2,15 +2,13 @@
   "values": [
     "aether_redux:blightmoss_block",
     "aether_redux:blightmoss_carpet",
-    "aether_redux:chromatic_berry_leaves",
-    "aether_redux:chromatic_shrub",
+    "aether_redux:zanberry_bush",
+    "aether_redux:zanberry_shrub",
     "aether_redux:glacia_leaves",
     "aether_redux:purple_glacia_leaves",
     "aether_redux:gilded_oak_leaves",
     "aether_redux:blighted_skyroot_leaves",
     "aether_redux:blightwillow_leaves",
-    "aether_redux:chromatic_leaves",
-    "aether_redux:chromatic_berry_leaves",
     "aether_redux:flowering_fieldsprout_leaves",
     "aether_redux:golden_leaf_pile",
     "aether_redux:gilded_leaf_pile"

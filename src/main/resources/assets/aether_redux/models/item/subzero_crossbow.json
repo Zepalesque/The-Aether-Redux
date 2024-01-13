@@ -28,34 +28,34 @@
     "overrides": [
         {
             "predicate": {
-                "pulling": 1
+                "aether_redux:pulling": 1
             },
             "model": "aether_redux:item/subzero_crossbow_pulling_0"
         },
         {
             "predicate": {
-                "pulling": 1,
-                "pull": 0.58
+                "aether_redux:pulling": 1,
+                "aether_redux:pull": 0.58
             },
             "model": "aether_redux:item/subzero_crossbow_pulling_1"
         },
         {
             "predicate": {
-                "pulling": 1,
-                "pull": 1.0
+                "aether_redux:pulling": 1,
+                "aether_redux:pull": 1.0
             },
             "model": "aether_redux:item/subzero_crossbow_pulling_2"
         },
         {
             "predicate": {
-                "charged": 1
+                "aether_redux:charged": 1
             },
             "model": "aether_redux:item/subzero_crossbow_arrow"
         },
         {
             "predicate": {
-                "charged": 1,
-                "firework": 1
+                "aether_redux:charged": 1,
+                "aether_redux:firework": 1
             },
             "model": "aether_redux:item/subzero_crossbow_firework"
         }

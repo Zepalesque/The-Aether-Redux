@@ -1,11 +1,14 @@
 package net.zepalesque.redux.client;
 
+import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.block.AetherBlocks;
+import com.aetherteam.aether.item.AetherItems;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.FastColor;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.GrassColor;
@@ -17,6 +20,7 @@ import net.zepalesque.redux.block.util.GrassBlockTint;
 import net.zepalesque.redux.block.util.ReduxStates;
 import net.zepalesque.redux.block.util.ShortGrassTint;
 import net.zepalesque.redux.capability.living.VampireAmulet;
+import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.data.resource.ReduxBiomes;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.item.accessory.VampireAmuletItem;
@@ -37,14 +41,16 @@ public class ReduxClient {
                 return SubzeroCrossbowItem.isCharged(stack) ? 0.0F : (float)(stack.getUseDuration() - entity.getUseItemRemainingTicks()) / (float)SubzeroCrossbowItem.getChargeDuration(stack);
             }
         });
-        ItemProperties.register(ReduxItems.SUBZERO_CROSSBOW.get(), new ResourceLocation("pulling"), (stack, level, entity, seed) -> entity != null && entity.isUsingItem() && entity.getUseItem() == stack && !SubzeroCrossbowItem.isCharged(stack) ? 1.0F : 0.0F);
-        ItemProperties.register(ReduxItems.SUBZERO_CROSSBOW.get(), new ResourceLocation("charged"), (stack, level, entity, seed) -> SubzeroCrossbowItem.isCharged(stack) ? 1.0F : 0.0F);
-        ItemProperties.register(ReduxItems.SUBZERO_CROSSBOW.get(), new ResourceLocation("firework"), (stack, level, entity, seed) -> SubzeroCrossbowItem.isCharged(stack) && SubzeroCrossbowItem.containsChargedProjectile(stack, Items.FIREWORK_ROCKET) ? 1.0F : 0.0F);
+        ItemProperties.register(ReduxItems.SUBZERO_CROSSBOW.get(), Redux.locate("pulling"), (stack, level, entity, seed) -> entity != null && entity.isUsingItem() && entity.getUseItem() == stack && !SubzeroCrossbowItem.isCharged(stack) ? 1.0F : 0.0F);
+        ItemProperties.register(ReduxItems.SUBZERO_CROSSBOW.get(), Redux.locate("charged"), (stack, level, entity, seed) -> SubzeroCrossbowItem.isCharged(stack) ? 1.0F : 0.0F);
+        ItemProperties.register(ReduxItems.SUBZERO_CROSSBOW.get(), Redux.locate("firework"), (stack, level, entity, seed) -> SubzeroCrossbowItem.isCharged(stack) && SubzeroCrossbowItem.containsChargedProjectile(stack, Items.FIREWORK_ROCKET) ? 1.0F : 0.0F);
         ItemProperties.register(ReduxItems.VAMPIRE_AMULET.get(), Redux.locate("active"), (stack, level, entity, seed) -> {
             if (entity == null) return 0.0F;
             Optional<Boolean> isActive = VampireAmulet.get(entity).map(VampireAmulet::canUseAbility);
             return VampireAmuletItem.validForActivation(stack) && isActive.isPresent() && isActive.get() ? 1.0F : 0.0F;
         });
+
+        ItemProperties.register(ReduxBlocks.AURUM.get().asItem(), Redux.locate("enchanted"), (stack, world, living, i) -> ReduxConfig.COMMON.enchanted_gilded_grass.get() ? 1.0F : 0.0F);
     }
     public static void blockColors(RegisterColorHandlersEvent.Block event) {
         event.getBlockColors().register((state, level, pos, index) -> index == 1 ? level != null && pos != null  ? BiomeColors.getAverageGrassColor(level, pos) : ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AetherBlocks.AETHER_GRASS_BLOCK.get());
@@ -55,6 +61,8 @@ public class ReduxClient {
         }, ReduxBlocks.GOLDEN_CLOVER.get());
         event.getBlockColors().register((state, level, pos, index) -> getColor(state, level, pos, index, 1),
                 ReduxBlocks.WYNDSPROUTS.get(),
+                AetherBlocks.WHITE_FLOWER.get(),
+                AetherBlocks.PURPLE_FLOWER.get(),
                 ReduxBlocks.SKYSPROUTS.get(),
                 ReduxBlocks.LUXWEED.get(),
                 ReduxBlocks.BLIGHTSHADE.get(),
@@ -68,6 +76,8 @@ public class ReduxClient {
     }
     public static void itemColors(RegisterColorHandlersEvent.Item event) {
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AetherBlocks.AETHER_GRASS_BLOCK.get());
+        event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AetherBlocks.WHITE_FLOWER.get());
+        event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AetherBlocks.PURPLE_FLOWER.get());
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 0 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.AETHER_SHORT_GRASS.get());
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 0 ? ReduxBiomes.FROSTED_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.FROSTED_FERN.get());
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.BLIGHT_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.LUXWEED.get());
@@ -80,6 +90,7 @@ public class ReduxClient {
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.FROSTED_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.LUMINA.get());
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.BLIGHT_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.SPIROLYCTIL.get());
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.BLIGHT_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.BLIGHTSHADE.get());
+        event.getItemColors().register((stack, index) -> index == 1 ? ReduxBiomes.GILDED_GRASS_COLOR : index == 2 ? FastColor.ARGB32.color(255, (FastColor.ARGB32.red(ReduxBiomes.GILDED_GRASS_COLOR) + 255) / 2, (FastColor.ARGB32.green(ReduxBiomes.GILDED_GRASS_COLOR) + 255) / 2, (FastColor.ARGB32.blue(ReduxBiomes.GILDED_GRASS_COLOR) + 255) / 2) : 0xFFFFFF, ReduxBlocks.GOLDEN_CLOVER.get());
     }
 
     public static int getColor(BlockState state, @Nullable BlockAndTintGetter level, @Nullable BlockPos pos, int index, int indexGoal) {

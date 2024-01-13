@@ -16,11 +16,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "aether_redux:chromatic_shrub"
+          "name": "aether_redux:zanberry_shrub"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "aether_redux:blocks/chromatic_shrub"
+  "random_sequence": "aether_redux:blocks/zanberry_shrub"
 }
