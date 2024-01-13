@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#aether_redux:has/both_sprouts",
+  "features": [
+    "aether_redux:patch/genesis_skysprouts_patch",
+    "aether_redux:patch/genesis_wyndsprouts_patch"
+  ],
+  "step": "vegetal_decoration"
+}

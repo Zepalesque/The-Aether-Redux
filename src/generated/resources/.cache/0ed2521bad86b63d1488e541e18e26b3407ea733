@@ -1,8 +1,9 @@
-// 1.20.1	2024-01-12T19:48:36.1632758	Tags for minecraft:worldgen/biome mod id aether_redux
+// 1.20.1	2024-01-12T22:35:44.8827198	Tags for minecraft:worldgen/biome mod id aether_redux
 03a289d487c7f3e4bc392c889efcb2fe292525d2 data/aether/tags/worldgen/biome/is_aether.json
 809da989aa462c425e80ef6b479be91b6fed4b3e data/aether_redux/tags/worldgen/biome/dense_leaf_fall.json
 6425e7e0a57a451843094090fa1e31c9fbd4c5e0 data/aether_redux/tags/worldgen/biome/has/aether_caves.json
 2c70b0b5f1bf6d947dbd0241e1925fd5e9a2154f data/aether_redux/tags/worldgen/biome/has/blighted_caves.json
+ea3444bb23065af04f4e9571f45f4dabe1565c7d data/aether_redux/tags/worldgen/biome/has/both_sprouts.json
 6425e7e0a57a451843094090fa1e31c9fbd4c5e0 data/aether_redux/tags/worldgen/biome/has/divinite.json
 cdd0d52a4fd1880139bef757a562fedacc1f5a0e data/aether_redux/tags/worldgen/biome/has/mossy_holystone_ore.json
 809da989aa462c425e80ef6b479be91b6fed4b3e data/aether_redux/tags/worldgen/biome/has/mossy_rocks.json
