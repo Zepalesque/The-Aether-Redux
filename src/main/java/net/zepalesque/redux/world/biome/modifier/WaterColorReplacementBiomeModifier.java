@@ -7,13 +7,12 @@ import net.minecraft.core.HolderSet;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.common.world.ModifiableBiomeInfo;
+import net.zepalesque.redux.api.condition.AbstractCondition;
 
-import java.util.function.Predicate;
-
-public record WaterColorReplacementBiomeModifier(HolderSet<Biome> biomes, WaterColorPredicate predicate, int water, int fog) implements BiomeModifier {
+public record WaterColorReplacementBiomeModifier(HolderSet<Biome> biomes, WaterColorPredicate predicate, int water, int fog, AbstractCondition<?> condition) implements BiomeModifier {
     @Override
     public void modify(Holder<Biome> biome, Phase phase, ModifiableBiomeInfo.BiomeInfo.Builder builder) {
-        if (phase == Phase.AFTER_EVERYTHING && biomes.contains(biome) && predicate.test(builder.getSpecialEffects().waterColor(), builder.getSpecialEffects().getWaterFogColor()))
+        if (phase == Phase.AFTER_EVERYTHING && biomes.contains(biome) && condition.isConditionMet() && predicate.test(builder.getSpecialEffects().waterColor(), builder.getSpecialEffects().getWaterFogColor()))
         { builder.getSpecialEffects().waterColor(water).waterFogColor(fog); }
 
     }
@@ -21,13 +20,16 @@ public record WaterColorReplacementBiomeModifier(HolderSet<Biome> biomes, WaterC
     public static class WaterColorPredicate {
 
         public static Codec<WaterColorPredicate> CODEC = RecordCodecBuilder.create((condition) ->
-                    condition.group(Codec.INT.fieldOf("water").forGetter((config) -> config.w), Codec.INT.fieldOf("fog").forGetter((config) -> config.f))
+                    condition.group(
+                            Codec.INT.fieldOf("water").forGetter((config) -> config.water),
+                            Codec.INT.fieldOf("fog").forGetter((config) -> config.fog)
+                            )
                         .apply(condition, WaterColorPredicate::new));
 
-        final int w, f;
+        final int water, fog;
         WaterColorPredicate(int water, int fog) {
-            w = water;
-            f = fog;
+            this.water = water;
+            this.fog = fog;
         }
 
         public static WaterColorPredicate of(int water, int fog) {
@@ -35,7 +37,7 @@ public record WaterColorReplacementBiomeModifier(HolderSet<Biome> biomes, WaterC
         }
 
         public boolean test(int water, int fog) {
-            return water == w && fog == f;
+            return water == this.water && fog == this.fog;
         }
     }
 

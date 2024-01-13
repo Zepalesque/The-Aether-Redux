@@ -15,6 +15,7 @@ import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.common.world.ForgeBiomeModifiers;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.api.condition.Conditions;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.world.biome.modifier.CarverModifier;
@@ -84,7 +85,7 @@ public class ReduxBiomeModifiers {
                 biomes.getOrThrow(ReduxTags.Biomes.HAS_DIVINITE), HolderSet.direct(features.getOrThrow(ReduxPlacedFeatures.DIVINITE_ORE)),
                 GenerationStep.Decoration.UNDERGROUND_ORES));
 
-        context.register(WATER_COLOR_AETHER, new WaterColorReplacementBiomeModifier(biomes.getOrThrow(ReduxTags.Biomes.HAS_REDUX_WATER_COLOR), WaterColorReplacementBiomeModifier.WaterColorPredicate.of(4159204, 329011), 5403045, 791347));
+        context.register(WATER_COLOR_AETHER, new WaterColorReplacementBiomeModifier(biomes.getOrThrow(ReduxTags.Biomes.HAS_REDUX_WATER_COLOR), WaterColorReplacementBiomeModifier.WaterColorPredicate.of(4159204, 329011), 5403045, 791347, Conditions.WATER));
 
     }
 }

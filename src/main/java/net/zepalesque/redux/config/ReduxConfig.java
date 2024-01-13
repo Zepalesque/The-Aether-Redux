@@ -59,6 +59,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue better_conversion_sounds;
         public final ForgeConfigSpec.BooleanValue raw_gravitite;
         public final ForgeConfigSpec.BooleanValue enchanted_gilded_grass;
+        public final ForgeConfigSpec.BooleanValue better_water_color;
 
         public Common(ForgeConfigSpec.Builder builder) {
             builder.push("Gameplay Changes");
@@ -70,6 +71,9 @@ public class ReduxConfig {
             this.change_double_plant_hitbox = builder.comment("Changes the hitboxes of vanilla double plants. Disable if it causes odd behavior.").translation("config.aether_redux.gameplay.change_double_plant_hitbox").define("Change Double Plant Hitboxes", true);
             this.better_conversion_sounds = builder.comment("Makes blockstate conversion sounds (ambrosium, swet ball) better").translation("config.aether_redux.gameplay.better_conversion_sounds").define("Better Conversion Sounds", true);
             this.raw_gravitite = builder.comment("Makes Gravitite Ore drop Raw Gravitite when mined.").translation("config.aether_redux.gameplay.raw_gravitite").define("Raw Gravitite", true);
+            builder.pop();
+            builder.push("Visual Changes");
+            this.better_water_color = builder.comment("Improves the water color of Aether biomes, making the color match the rest of the dimension better").translation("config.aether_redux.visual.better_water_color").define("Better Water Color", true);
             builder.pop();
             builder.push("Mob Sound Changes");
             this.improved_moa_sounds = builder.comment("Gives Moas their sounds from older builds of the Aether II: Highlands").translation("config.aether_redux.mob_sounds.improved_moa_sounds").define("Improved Moa Sounds", true);

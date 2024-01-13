@@ -9,6 +9,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.api.condition.AbstractCondition;
 
 public class ReduxBiomeModifierSerializers {
     public static final DeferredRegister<Codec<? extends BiomeModifier>> BIOME_MODIFIER_SERIALIZERS = DeferredRegister.create(ForgeRegistries.Keys.BIOME_MODIFIER_SERIALIZERS, Redux.MODID);
@@ -26,7 +27,8 @@ public class ReduxBiomeModifierSerializers {
                     Biome.LIST_CODEC.fieldOf("biomes").forGetter(WaterColorReplacementBiomeModifier::biomes),
                     WaterColorReplacementBiomeModifier.WaterColorPredicate.CODEC.fieldOf("predicate").forGetter(WaterColorReplacementBiomeModifier::predicate),
                     Codec.INT.fieldOf("water_color").forGetter(WaterColorReplacementBiomeModifier::water),
-                    Codec.INT.fieldOf("water_fog_color").forGetter(WaterColorReplacementBiomeModifier::fog)
+                    Codec.INT.fieldOf("water_fog_color").forGetter(WaterColorReplacementBiomeModifier::fog),
+                    AbstractCondition.CODEC.fieldOf("condition").forGetter(WaterColorReplacementBiomeModifier::condition)
             ).apply(builder, WaterColorReplacementBiomeModifier::new)));
 
     static RegistryObject<Codec<CarverModifier>> CARVER_CODEC = BIOME_MODIFIER_SERIALIZERS.register("add_carver", () ->
