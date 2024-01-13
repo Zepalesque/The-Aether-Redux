@@ -6,9 +6,16 @@
         "type": "minecraft:simple_block",
         "config": {
           "to_place": {
-            "type": "minecraft:simple_state_provider",
-            "state": {
+            "type": "aether_redux:simple_alternative",
+            "alternative_state": {
               "Name": "aether:white_flower"
+            },
+            "base_state": {
+              "Name": "aether_redux:enchanted_white_flower"
+            },
+            "condition": {
+              "condition": "aether_redux:redux_config",
+              "config_path": "[Worldgen, Biomes, Enchanted Gilded Grass]"
             }
           }
         }

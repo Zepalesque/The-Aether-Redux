@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-12T21:20:32.5717317	Item Models: aether_redux
+// 1.20.1	2024-01-12T21:59:04.8707923	Item Models: aether_redux
 055dd4b0c8fc6e204bff205a78076040e1d5bfad assets/aether_redux/models/item/aether_short_grass.json
 ef6d226766d61d6460247665062a399d3613d946 assets/aether_redux/models/item/aevelium.json
 e89330a549c5d1169758ec3314e9285fb8db827a assets/aether_redux/models/item/aevelium_growth.json
@@ -88,7 +88,7 @@ a5e3d18c9751a9ec185ddc0223f95b47e1307c2a assets/aether_redux/models/item/divinit
 b91cd5f8a586f37ffe16803b8f5b563e751668e9 assets/aether_redux/models/item/divinite_slab.json
 e24bcc1b074b86d43ccd158fd5efde16a4bb156f assets/aether_redux/models/item/divinite_stairs.json
 6d540c067552a05397934bb294384a03aaaf2f0b assets/aether_redux/models/item/divinite_wall.json
-ee30cab3cf346b9186d3a95d5e79da3b56f7789b assets/aether_redux/models/item/enchanted_aurum.json
+795ee016e7dad0d6ac42593c58ba258161615647 assets/aether_redux/models/item/enchanted_aurum.json
 96affe245dcaad11ed1d16c2abce148117ef5304 assets/aether_redux/models/item/enchanted_blueberry_pie.json
 30a34b7ef4d85b8223f8b28e7b60337f683061c8 assets/aether_redux/models/item/enchanted_golden_clover.json
 bbdcf1aaa0310eecd15726f69481b9f7f7ed9229 assets/aether_redux/models/item/enchanted_ring.json
