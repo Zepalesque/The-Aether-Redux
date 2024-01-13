@@ -5,7 +5,6 @@ import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
-import net.minecraft.data.worldgen.placement.MiscOverworldPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.MobSpawnSettings;
@@ -19,7 +18,6 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.world.biome.modifier.CarverModifier;
-import net.zepalesque.redux.world.biome.modifier.WaterColorBiomeModifier;
 import net.zepalesque.redux.world.biome.modifier.WaterColorReplacementBiomeModifier;
 
 import java.util.List;
@@ -67,7 +65,7 @@ public class ReduxBiomeModifiers {
                 GenerationStep.Decoration.TOP_LAYER_MODIFICATION));
 
         context.register(ADD_SKYSPROUTS, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
-                biomes.getOrThrow(ReduxTags.Biomes.HAS_SKYSPROUTS), HolderSet.direct(features.getOrThrow(ReduxPlacedFeatures.WYNDSPROUTS_PATCH)),
+                biomes.getOrThrow(ReduxTags.Biomes.HAS_WYNDSPROUTS), HolderSet.direct(features.getOrThrow(ReduxPlacedFeatures.WYNDSPROUTS_PATCH)),
                 GenerationStep.Decoration.VEGETAL_DECORATION));
 
         context.register(ADD_VANILLA_SWET, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
