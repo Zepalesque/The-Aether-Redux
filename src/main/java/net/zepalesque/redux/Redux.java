@@ -60,6 +60,9 @@ import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.client.render.ReduxRenderers;
 import net.zepalesque.redux.config.ReduxConfig;
+import net.zepalesque.redux.config.enums.dungeon.BossRoomType;
+import net.zepalesque.redux.config.enums.dungeon.ChestRoomType;
+import net.zepalesque.redux.config.enums.dungeon.LobbyType;
 import net.zepalesque.redux.config.pack.ReduxPackConfig;
 import net.zepalesque.redux.data.*;
 import net.zepalesque.redux.data.loot.ReduxLootData;
@@ -266,16 +269,23 @@ public class Redux
     public  void packSetup(AddPackFindersEvent event) {
 
 
-        PackConfigBootstrap.bootstrap();
+        if (event.getPackType() == PackType.CLIENT_RESOURCES) {
+            PackConfigBootstrap.bootstrap();
 
-        overridesPack(event);
+            overridesPack(event);
+        } else if (event.getPackType() == PackType.SERVER_DATA) {
+            if (aetherGenesisCompat()) { this.setupMandatoryDataPack(event, "data/genesis_data", "Redux - Genesis Tweaks", "Small tweaks to the Aether: Genesis"); }
+            if (deepAetherCompat()) { this.setupMandatoryDataPack(event, "data/deep_aether_data", "Redux - Deep Aether Tweaks", "Small tweaks to the Deep Aether Addon"); }
+            if (ancientAetherCompat()) {
+                this.setupMandatoryDataPack(event, "data/ancient_aether_data", "Redux - Ancient Aether Tweaks", "Small tweaks to the Ancient Aether Addon");
+            }
+            this.setupBuiltinDatapack(event, "data/cloudbed", "Redux - Cloudbed", "Highlands-like Cloudbed");
 
-        if (aetherGenesisCompat()) { this.setupMandatoryDataPack(event, "data/genesis_data", "Redux - Genesis Tweaks", "Small tweaks to the Aether: Genesis"); }
-        if (deepAetherCompat()) { this.setupMandatoryDataPack(event, "data/deep_aether_data", "Redux - Deep Aether Tweaks", "Small tweaks to the Deep Aether Addon"); }
-        if (ancientAetherCompat()) {
-            this.setupMandatoryDataPack(event, "data/ancient_aether_data", "Redux - Ancient Aether Tweaks", "Small tweaks to the Ancient Aether Addon");
+            if (ReduxConfig.COMMON.bronze_boss_room.get() != BossRoomType.classic) { this.setupBuiltinDatapack(event, "data/dungeon/boss_room/" + ReduxConfig.COMMON.bronze_boss_room.get().getSerializedName(), "Redux - Bronze Boss Room", "Boss Room Override"); }
+            if (ReduxConfig.COMMON.bronze_chest_room.get() != ChestRoomType.classic) { this.setupBuiltinDatapack(event, "data/dungeon/chest_room/" + ReduxConfig.COMMON.bronze_chest_room.get().getSerializedName(), "Redux - Bronze Chest Room", "Chest Room Override"); }
+            if (ReduxConfig.COMMON.bronze_lobby.get() != LobbyType.classic) { this.setupBuiltinDatapack(event, "data/dungeon/lobby/" + ReduxConfig.COMMON.bronze_lobby.get().getSerializedName(), "Redux - Bronze Lobby", "Lobby Override"); }
+
         }
-        this.setupBuiltinDatapack(event, "data/cloudbed", "Redux - Cloudbed", "Highlands-like Cloudbed");
 
     }
 

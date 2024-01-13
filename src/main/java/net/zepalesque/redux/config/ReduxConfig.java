@@ -4,6 +4,9 @@ import net.minecraftforge.common.ForgeConfigSpec;
 import net.zepalesque.redux.config.enums.QuicksoilSetting;
 import net.zepalesque.redux.config.enums.MoaFeetType;
 import net.zepalesque.redux.config.enums.SpawnerType;
+import net.zepalesque.redux.config.enums.dungeon.BossRoomType;
+import net.zepalesque.redux.config.enums.dungeon.ChestRoomType;
+import net.zepalesque.redux.config.enums.dungeon.LobbyType;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.List;
@@ -61,6 +64,10 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue enchanted_gilded_grass;
         public final ForgeConfigSpec.BooleanValue better_water_color;
 
+        public final ForgeConfigSpec.EnumValue<BossRoomType> bronze_boss_room;
+        public final ForgeConfigSpec.EnumValue<ChestRoomType> bronze_chest_room;
+        public final ForgeConfigSpec.EnumValue<LobbyType> bronze_lobby;
+
         public Common(ForgeConfigSpec.Builder builder) {
             builder.push("Gameplay Changes");
             this.cockatrice_ai_improvements = builder.comment("Makes Cockatrices shoot at you and chase you if they hit you. Requires world restart to refresh existing mob AI.").worldRestart().translation("config.aether_redux.gameplay.cockatrice_ai").define("Improved Cockatrice Behavior", true);
@@ -87,7 +94,12 @@ public class ReduxConfig {
             builder.pop();
             builder.push("Worldgen");
             this.mossy_holystone_ores = builder.comment("Enables Mossy Holystone as an ore. Configurable so that if you disable it, it's easier to tell if you've come across a dungeon.").worldRestart().translation("config.aether_redux.worldgen.mossy_holystone_ores").define("Mossy Holystone Ores", true);
-            this.genesis_spawner_mobs = builder.comment("Adds dungeon mobs from the Aether: Genesis to the spawners added to the Bronze Dungeon if it is installed").translation("config.aether_redux.worldgen.genesis_spawner_mobs").defineEnum("Genesis Mobs in Spawners", SpawnerType.all);
+            builder.push("Bronze Dungeon");
+            this.genesis_spawner_mobs = builder.comment("Adds dungeon mobs from the Aether: Genesis to the spawners added to the Bronze Dungeon if it is installed").translation("config.aether_redux.worldgen.dungeon.genesis_spawner_mobs").defineEnum("Genesis Mobs in Spawners", SpawnerType.all);
+            this.bronze_boss_room = builder.comment("Which type of Bronze Dungeon Boss Room to use").translation("config.aether_redux.worldgen.dungeon.bronze_boss_room").defineEnum("Bronze Boss Room Type", BossRoomType.vault);
+            this.bronze_chest_room = builder.comment("Which type of Bronze Dungeon Chest Room to use").translation("config.aether_redux.worldgen.dungeon.bronze_chest_room").defineEnum("Bronze Chest Room Type", ChestRoomType.pillars);
+            this.bronze_lobby = builder.comment("Which type of Bronze Dungeon Lobby Room to use").translation("config.aether_redux.worldgen.dungeon.bronze_lobby").defineEnum("Bronze Lobby Type", LobbyType.doors);
+            builder.pop();
             builder.push("Biomes");
 
             this.auto_reset_biome_values = builder.comment("When enabled, any biome value config changes will be reset. It is recommended that you disable this if you want to keep any custom biome parameters you may have set.").translation("config.aether_redux.biomes.auto_reset_biome_values").define("Auto-Reset Biome Values", true);

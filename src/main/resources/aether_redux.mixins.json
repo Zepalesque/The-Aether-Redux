@@ -30,6 +30,7 @@
     "common.item.ItemMixin",
     "common.item.PickaxeItemMixin",
     "common.world.BiomeGenerationSettingsMixin",
+    "common.world.BronzeDungeonBuilderMixin",
     "common.world.BronzeDungeonRoomMixin",
     "common.world.ChunkAccessAccessor",
     "common.world.GoldDungeonStructureMixin",
