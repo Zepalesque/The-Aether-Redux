@@ -10,4 +10,5 @@ public class Conditions {
     public static final AbstractCondition<?> GUMMY_NERF = ReduxConfigCondition.of(ReduxConfig.COMMON.nerf_gummy_swets);
     public static final AbstractCondition<?> MOSSY_ORE = ReduxConfigCondition.of(ReduxConfig.COMMON.mossy_holystone_ores);
     public static final AbstractCondition<?> RAW_GRAVITITE = ReduxConfigCondition.of(ReduxConfig.COMMON.raw_gravitite);
+    public static final AbstractCondition<?> ENCHGRASS = ReduxConfigCondition.of(ReduxConfig.COMMON.enchanted_gilded_grass);
 }

@@ -77,6 +77,7 @@ import net.zepalesque.redux.recipe.serializer.ReduxRecipeSerializers;
 import net.zepalesque.redux.world.biome.ReduxRegion;
 import net.zepalesque.redux.world.biome.ReduxSurfaceData;
 import net.zepalesque.redux.world.biome.modifier.ReduxBiomeModifierSerializers;
+import net.zepalesque.redux.world.biome.surfacerule.ReduxConditionSources;
 import net.zepalesque.redux.world.carver.ReduxCarvers;
 import net.zepalesque.redux.world.density.ReduxDensityFunctionTypes;
 import net.zepalesque.redux.world.feature.ReduxFeatureRegistry;
@@ -138,6 +139,7 @@ public class Redux
         ReduxRootPlacers.ROOT_PLACERS.register(bus);
         ReduxLootConditions.LOOT_CONDITION_TYPES.register(bus);
         ReduxStructureTypes.STRUCTURE_TYPES.register(bus);
+        ReduxConditionSources.CONDITIONS.register(bus);
         ReduxBlocks.registerWoodTypes();
         ReduxBlocks.registerPots();
         MinecraftForge.EVENT_BUS.register(this);
