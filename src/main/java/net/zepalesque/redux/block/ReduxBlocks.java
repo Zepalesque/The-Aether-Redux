@@ -40,6 +40,8 @@ import net.zepalesque.redux.block.natural.frosted.*;
 import net.zepalesque.redux.block.natural.highfields.FieldsproutPetalsBlock;
 import net.zepalesque.redux.block.natural.highfields.FloweringFieldsproutLeafBlock;
 import net.zepalesque.redux.block.natural.QuickrootsBlock;
+import net.zepalesque.redux.block.natural.shrublands.ZanberryBushBlock;
+import net.zepalesque.redux.block.natural.shrublands.ZanberryShrubBlock;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.data.resource.ReduxConfiguredFeatures;
 import net.zepalesque.redux.item.ReduxItems;
@@ -291,8 +293,8 @@ public class ReduxBlocks {
 
 
 
-    public static final RegistryObject<Block> ZANBERRY_BUSH = register("zanberry_bush", () -> new AetherDoubleDropsLeaves(Block.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).strength(0.2F).sound(SoundType.GRASS).noOcclusion().isValidSpawn(ReduxBlocks::ocelotOrParrot).isSuffocating(ReduxBlocks::never).isViewBlocking(ReduxBlocks::never)));
-    public static final RegistryObject<Block> ZANBERRY_SHRUB = register("zanberry_shrub", () -> new SaplingBlock(new ChromaticBush(), Block.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).strength(0.2F).sound(SoundType.GRASS).noCollission()));
+    public static final RegistryObject<Block> ZANBERRY_BUSH = register("zanberry_bush", () -> new ZanberryBushBlock(Block.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).strength(0.2F).sound(SoundType.GRASS).noOcclusion().isValidSpawn(ReduxBlocks::ocelotOrParrot).isSuffocating(ReduxBlocks::never).isViewBlocking(ReduxBlocks::never)));
+    public static final RegistryObject<Block> ZANBERRY_SHRUB = register("zanberry_shrub", () -> new ZanberryShrubBlock(new ChromaticBush(), Block.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).strength(0.2F).sound(SoundType.GRASS).noCollission()));
     public static final RegistryObject<FlowerPotBlock> POTTED_ZANBERRY_SHRUB = BLOCKS.register("potted_zanberry_shrub", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, ZANBERRY_SHRUB, Block.Properties.copy(Blocks.FLOWER_POT)));
     public static final RegistryObject<FlowerPotBlock> POTTED_ZANBERRY_BUSH = BLOCKS.register("potted_zanberry_bush", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, ZANBERRY_SHRUB, Block.Properties.copy(Blocks.FLOWER_POT)));
 

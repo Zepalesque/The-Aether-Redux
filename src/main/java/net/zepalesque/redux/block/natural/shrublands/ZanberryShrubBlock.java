@@ -24,10 +24,10 @@ import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.data.resource.ReduxDamageTypes;
 import org.jetbrains.annotations.NotNull;
 
-public class BerryBushStemBlock extends AetherBushBlock implements BonemealableBlock {
+public class ZanberryShrubBlock extends AetherBushBlock implements BonemealableBlock {
     protected static final VoxelShape SHAPE = Block.box(2.0, 0.0, 2.0, 14.0, 13.0, 14.0);
 
-    public BerryBushStemBlock(BlockBehaviour.Properties properties) {
+    public ZanberryShrubBlock(BlockBehaviour.Properties properties) {
         super(properties);
         this.registerDefaultState(this.defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, false));
     }
