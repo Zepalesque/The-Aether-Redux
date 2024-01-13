@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-12T19:48:36.1822742	Loot Tables
+// 1.20.1	2024-01-12T21:20:32.5807313	Loot Tables
 9bb0a6fae9e80234bb0bad9086af314acf3e9894 data/aether_redux/loot_tables/blocks/aether_short_grass.json
 48b55d99420ce1afaca551876e87bdbccae62e08 data/aether_redux/loot_tables/blocks/aevelium.json
 101eb9ac681437f2db38085324dfcca14a759f7a data/aether_redux/loot_tables/blocks/aevelium_growth.json
@@ -82,6 +82,7 @@ c1ac8e3bb91221dcf14feef492e358a211e2be48 data/aether_redux/loot_tables/blocks/di
 b90e773a77a95ad6721ea40eecd206d2b4510c79 data/aether_redux/loot_tables/blocks/divinite_slab.json
 51aed8c24eb2622ff769ae429c855c5c636ed003 data/aether_redux/loot_tables/blocks/divinite_stairs.json
 b515d9ce3913c4e14ccb5375e4824763b2aef122 data/aether_redux/loot_tables/blocks/divinite_wall.json
+b1c12030df43e1ef8a056e2a8d47cbcd3ddfe07d data/aether_redux/loot_tables/blocks/enchanted_white_flower.json
 a498d8650877fd45abc59242cf864e0494b05675 data/aether_redux/loot_tables/blocks/fieldsprout_button.json
 555a5d9dd9f3f805dba498f63c0e96bbaeab0b37 data/aether_redux/loot_tables/blocks/fieldsprout_door.json
 fc949953d6569ad6a8e13132b3f4fa486becc1fe data/aether_redux/loot_tables/blocks/fieldsprout_fence.json

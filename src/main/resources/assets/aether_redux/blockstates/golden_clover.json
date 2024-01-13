@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "enchanted=false": {
       "model": "aether_redux:block/golden_clover"
+    },
+    "enchanted=true": {
+      "model": "aether_redux:block/enchanted_golden_clover"
     }
   }
 }

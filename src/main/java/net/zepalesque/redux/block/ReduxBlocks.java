@@ -35,6 +35,7 @@ import net.zepalesque.redux.block.natural.cloudcap.*;
 import net.zepalesque.redux.block.natural.enchanted.EnchantableFlowerBlock;
 import net.zepalesque.redux.block.natural.enchanted.EnchantedVinesHeadBlock;
 import net.zepalesque.redux.block.natural.enchanted.EnchantedVinesPlantBlock;
+import net.zepalesque.redux.block.natural.enchanted.GoldenCloverBlock;
 import net.zepalesque.redux.block.natural.frosted.*;
 import net.zepalesque.redux.block.natural.highfields.FieldsproutPetalsBlock;
 import net.zepalesque.redux.block.natural.highfields.FloweringFieldsproutLeafBlock;
@@ -107,7 +108,7 @@ public class ReduxBlocks {
     public static final RegistryObject<Block> SPIROLYCTIL = register("spirolyctil", () -> new FlowerBlock(() -> MobEffects.LEVITATION, 4, Block.Properties.copy(Blocks.DANDELION).mapColor(MapColor.DIAMOND)));
     public static final RegistryObject<FlowerPotBlock> POTTED_SPIROLYCTIL = BLOCKS.register("potted_spirolyctil", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SPIROLYCTIL, Block.Properties.copy(Blocks.FLOWER_POT)));
     public static RegistryObject<Block> GOLDEN_CLOVER = register("golden_clover",
-            () -> new OffsetPlantBlock(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
+            () -> new GoldenCloverBlock(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
     public static final RegistryObject<FlowerPotBlock> POTTED_GOLDEN_CLOVER = BLOCKS.register("potted_golden_clover", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, GOLDEN_CLOVER, Block.Properties.copy(Blocks.FLOWER_POT)));
 
     public static RegistryObject<Block> AURUM = register("aurum",

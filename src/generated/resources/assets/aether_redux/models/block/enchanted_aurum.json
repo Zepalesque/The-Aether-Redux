@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "aether_redux:block/natural/enchanted_aurum"
+  }
+}
