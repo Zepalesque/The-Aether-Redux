@@ -67,8 +67,8 @@ public class AetherShortGrassBlock extends AetherBushBlock {
     @NotNull
     public BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor level, BlockPos currentPos, BlockPos facingPos) {
         BlockState b = super.updateShape(state, facing, facingState, level, currentPos, facingPos);
-        if (b.hasProperty(ReduxStates.ENCHANTED)) {
-            if (facing == Direction.DOWN && level.getBlockState(facingPos).is(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get())) {
+        if (b.hasProperty(ReduxStates.ENCHANTED) && facing == Direction.DOWN) {
+            if (level.getBlockState(facingPos).is(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get())) {
                 return b.setValue(ReduxStates.ENCHANTED, true);
             }
             return b.setValue(ReduxStates.ENCHANTED, false);
