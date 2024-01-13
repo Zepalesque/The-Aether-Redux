@@ -25,7 +25,7 @@ public class PlacementListener {
     @SubscribeEvent
     public static void update(BlockEvent.NeighborNotifyEvent event) {
         if (event.getNotifiedSides().contains(Direction.UP) && event.getState().is(AetherBlocks.WHITE_FLOWER.get()) && event.getLevel().getBlockState(event.getPos().below()).is(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get())) {
-            event.getLevel().setBlock(event.getPos(), ReduxBlocks.ENCHANTED_WHITE_ROSE.get().defaultBlockState(), 3);
+            event.getLevel().setBlock(event.getPos(), ReduxBlocks.ENCHANTED_WHITE_FLOWER.get().defaultBlockState(), 3);
         }
     }
 }

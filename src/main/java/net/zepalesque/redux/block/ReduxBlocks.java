@@ -111,7 +111,7 @@ public class ReduxBlocks {
             () -> new EnchantableFlowerBlock(() -> MobEffects.LUCK, 60, BlockBehaviour.Properties.copy(Blocks.POPPY).mapColor(MapColor.GOLD)));
     public static final RegistryObject<FlowerPotBlock> POTTED_AURUM = BLOCKS.register("potted_aurum", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, AURUM, Block.Properties.copy(Blocks.FLOWER_POT)));
 
-    public static RegistryObject<Block> ENCHANTED_WHITE_ROSE = BLOCKS.register("enchanted_white_flower",
+    public static RegistryObject<Block> ENCHANTED_WHITE_FLOWER = BLOCKS.register("enchanted_white_flower",
             () -> new FlowerBlock(() -> MobEffects.SLOW_FALLING, 60, BlockBehaviour.Properties.copy(Blocks.POPPY).mapColor(MapColor.WOOL)));
 
     public static RegistryObject<Block> DAGGERBLOOM = register("daggerbloom",

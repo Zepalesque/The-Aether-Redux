@@ -99,7 +99,7 @@ public class ReduxPackConfig {
                 Conditional.of(BuiltinPackUtils.createPack("gui/menu_panorama"), config.menu_panorama),
                 Conditional.of(BuiltinPackUtils.createPack("gui/classic_smelters"), () -> config.smelter_menu_type.get() == ClassicAnyOption.classic),
                 Conditional.of(BuiltinPackUtils.createPack("gui/modern_smelters"), () -> config.smelter_menu_type.get() == ClassicAnyOption.modern),
-                Conditional.of(BuiltinPackUtils.createPack("ozzified_textures"), () -> !config.use_jappafied_textures.get()),
+                Conditional.of(BuiltinPackUtils.createPack("jappafied_textures"), () -> config.use_jappafied_textures.get()),
                 Conditional.of(BuiltinPackUtils.createPack("item/genesis_jelly"), Redux::aetherGenesisCompat)
         );
 
