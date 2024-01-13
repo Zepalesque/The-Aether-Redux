@@ -114,6 +114,8 @@ public class    ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWERING_FIELDSPROUT_TREE = createKey(Folders.TREE + "flowering_fieldsprout_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROOTED_QUICKSOIL_SHELF = createKey(Folders.SURFACE + "rooted_quicksoil_shelf");
     public static final ResourceKey<ConfiguredFeature<?, ?>> WYNDSPROUTS_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.WYNDSPROUTS) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GENESIS_WYNDSPROUTS_PATCH = createKey(Folders.PATCH + "genesis_" +  name(ReduxBlocks.WYNDSPROUTS) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GENESIS_SKYSPROUTS_PATCH = createKey(Folders.PATCH + "genesis_" + name(ReduxBlocks.SKYSPROUTS) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PURPLE_GLACIA_TREE = createKey(Folders.TREE + "purple_glacia_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPIROLYCTIL_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.SPIROLYCTIL) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRINGSHROOM_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.SPRINGSHROOM) + "_patch");
@@ -434,6 +436,10 @@ public class    ReduxConfiguredFeatures {
                         ConstantFloat.of(3.5F), UniformInt.of(0, 48), blocks.getOrThrow(AetherTags.Blocks.AETHER_ISLAND_BLOCKS)));
         register(context, WYNDSPROUTS_PATCH, ReduxFeatureRegistry.BIOME_BORDER_PLACEMENT_FLOWER.get(),
                 biomePlacementPatch(24, 5, 3, BlockStateProvider.simple(drops(ReduxBlocks.WYNDSPROUTS))));
+        register(context, GENESIS_WYNDSPROUTS_PATCH, ReduxFeatureRegistry.BIOME_BORDER_PLACEMENT_FLOWER.get(),
+                biomePlacementPatch(24, 5, 3, BlockStateProvider.simple(drops(ReduxBlocks.WYNDSPROUTS))));
+        register(context, GENESIS_SKYSPROUTS_PATCH, ReduxFeatureRegistry.BIOME_BORDER_PLACEMENT_FLOWER.get(),
+                biomePlacementPatch(24, 5, 3, BlockStateProvider.simple(drops(ReduxBlocks.SKYSPROUTS))));
         register(context, SKYSPROUTS_PATCH, ReduxFeatureRegistry.BIOME_BORDER_PLACEMENT_FLOWER.get(),
                 biomePlacementPatch(24, 5, 3, BlockStateProvider.simple(drops(ReduxBlocks.SKYSPROUTS    ))));
         register(context, SPIROLYCTIL_PATCH, ReduxFeatureRegistry.SUPPORT_TEST_FLOWER.get(),

@@ -31,7 +31,8 @@ public class ReduxBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_BLIGHTED_CAVES = createKey(FEATURE + "blighted_caves");
     public static final ResourceKey<BiomeModifier> ADD_MOSSY_HOLYSTONE_ORE = createKey(FEATURE + "mossy_holystone_ore");
     public static final ResourceKey<BiomeModifier> ADD_MOSSY_ROCKS = createKey(FEATURE + "mossy_rocks");
-    public static final ResourceKey<BiomeModifier> ADD_SKYSPROUTS = createKey(FEATURE + "skysprouts");
+    public static final ResourceKey<BiomeModifier> ADD_WYNDSPROUTS = createKey(FEATURE + "wyndsprouts");
+    public static final ResourceKey<BiomeModifier> ADD_GENESIS_SPROUTS = createKey(FEATURE + "genesis_sprouts");
     public static final ResourceKey<BiomeModifier> ADD_VANILLA_SWET = createKey(MOB + "vanilla_swet");
     public static final ResourceKey<BiomeModifier> ADD_VERIDIUM = createKey(FEATURE + "veridium_ore");
     public static final ResourceKey<BiomeModifier> ADD_DIVINITE = createKey(FEATURE + "divinite");
@@ -64,8 +65,12 @@ public class ReduxBiomeModifiers {
                 biomes.getOrThrow(AetherTags.Biomes.IS_AETHER), HolderSet.direct(features.getOrThrow(ReduxPlacedFeatures.AETHER_SNOW_LAYER)),
                 GenerationStep.Decoration.TOP_LAYER_MODIFICATION));
 
-        context.register(ADD_SKYSPROUTS, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
+        context.register(ADD_WYNDSPROUTS, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
                 biomes.getOrThrow(ReduxTags.Biomes.HAS_WYNDSPROUTS), HolderSet.direct(features.getOrThrow(ReduxPlacedFeatures.WYNDSPROUTS_PATCH)),
+                GenerationStep.Decoration.VEGETAL_DECORATION));
+
+        context.register(ADD_GENESIS_SPROUTS, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(ReduxTags.Biomes.HAS_BOTH_SPROUTS), HolderSet.direct(features.getOrThrow(ReduxPlacedFeatures.GENESIS_SKYSPROUTS_PATCH), features.getOrThrow(ReduxPlacedFeatures.GENESIS_WYNDSPROUTS_PATCH)),
                 GenerationStep.Decoration.VEGETAL_DECORATION));
 
         context.register(ADD_VANILLA_SWET, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(

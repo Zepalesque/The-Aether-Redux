@@ -1,9 +1,9 @@
 {
   "variants": {
-    "stage=0": {
+    "double_drops=false": {
       "model": "aether_redux:block/zanberry_shrub"
     },
-    "stage=1": {
+    "double_drops=true": {
       "model": "aether_redux:block/zanberry_shrub"
     }
   }

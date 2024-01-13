@@ -2,6 +2,7 @@ package net.zepalesque.redux.data.tags;
 
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.data.resources.registries.AetherBiomes;
+import com.aetherteam.aether_genesis.data.resources.registries.GenesisBiomes;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.BiomeTagsProvider;
@@ -51,6 +52,11 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
                 AetherBiomes.SKYROOT_GROVE,
                 AetherBiomes.SKYROOT_MEADOW,
                 AetherBiomes.SKYROOT_WOODLAND);
+        this.tag(ReduxTags.Biomes.HAS_BOTH_SPROUTS)
+                .addOptional(GenesisBiomes.VIBRANT_FOREST.location())
+                .addOptional(GenesisBiomes.VIBRANT_WOODLAND.location())
+                .addOptional(GenesisBiomes.VIBRANT_GROVE.location())
+                .addOptional(GenesisBiomes.VIBRANT_MEADOW.location());
         this.tag(ReduxTags.Biomes.HAS_VANILLA_SWET).addTag(ReduxTags.Biomes.IS_HIGHLANDS);
         this.tag(ReduxTags.Biomes.HAS_VERIDIUM_ORE).addTag(AetherTags.Biomes.IS_AETHER);
         this.tag(ReduxTags.Biomes.HAS_DIVINITE).addTag(AetherTags.Biomes.IS_AETHER);

@@ -73,6 +73,8 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> MOSSY_HOLYSTONE_ORE  = createKey(ORE + name(AetherBlocks.MOSSY_HOLYSTONE) + "_ore");
     public static final ResourceKey<PlacedFeature> MOSSY_ROCK  = copyKey(ReduxConfiguredFeatures.MOSSY_ROCK);
     public static final ResourceKey<PlacedFeature> WYNDSPROUTS_PATCH = copyKey(ReduxConfiguredFeatures.WYNDSPROUTS_PATCH);
+    public static final ResourceKey<PlacedFeature> GENESIS_WYNDSPROUTS_PATCH = copyKey(ReduxConfiguredFeatures.GENESIS_WYNDSPROUTS_PATCH);
+    public static final ResourceKey<PlacedFeature> GENESIS_SKYSPROUTS_PATCH = copyKey(ReduxConfiguredFeatures.GENESIS_SKYSPROUTS_PATCH);
     public static final ResourceKey<PlacedFeature> SPIROLYCTIL_PATCH  = copyKey(ReduxConfiguredFeatures.SPIROLYCTIL_PATCH);
     public static final ResourceKey<PlacedFeature> SPRINGSHROOM_PATCH  = copyKey(ReduxConfiguredFeatures.SPRINGSHROOM_PATCH);
     public static final ResourceKey<PlacedFeature> SPROUTING_LIGHTROOTS_PATCH  = copyKey(ReduxConfiguredFeatures.SPROUTING_LIGHTROOTS_PATCH);
@@ -373,6 +375,19 @@ public class ReduxPlacedFeatures {
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
                 RarityFilter.onAverageOnceEvery(2),
+                BiomeFilter.biome()
+        );
+        register(context, GENESIS_WYNDSPROUTS_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GENESIS_WYNDSPROUTS_PATCH),
+                NOISE_THRESHOLD,
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
+                RarityFilter.onAverageOnceEvery(4),
+                BiomeFilter.biome()
+        );
+
+        register(context, GENESIS_SKYSPROUTS_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GENESIS_SKYSPROUTS_PATCH),
+                NOISE_THRESHOLD,
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
+                RarityFilter.onAverageOnceEvery(4),
                 BiomeFilter.biome()
         );
 
