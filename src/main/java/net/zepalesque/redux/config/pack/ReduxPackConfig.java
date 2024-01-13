@@ -82,27 +82,28 @@ public class ReduxPackConfig {
 
     public static ReduxOverridesPackResources generate(String id, String title, Component desc) {
         ReduxPackConfig config = Redux.packConfig;
-
-        List<Conditional<PackResources>> packs = List.of(
-                Conditional.of(BuiltinPackUtils.createPack("nature/classic_blight"), () -> config.classic_blight.get() == ClassicOption.classic),
-                Conditional.of(BuiltinPackUtils.createPack("nature/blue_icestone"), config.blue_icestone),
-                Conditional.of(BuiltinPackUtils.createPack("nature/better_aerclouds"), config.better_aerclouds),
-                Conditional.of(BuiltinPackUtils.createPack("nature/golder_vines"), config.use_jappafied_textures::get),
-                Conditional.of(BuiltinPackUtils.createPack("nature/tintable_grass"), config.tintable_grass::get),
-                Conditional.of(BuiltinPackUtils.createPack("mob/better_aechor_plants"), config.better_aechor_plants),
-                Conditional.of(BuiltinPackUtils.createPack("mob/classic_moas"), () -> config.classic_moas.get() == ClassicOption.classic),
-                Conditional.of(BuiltinPackUtils.createPack("mob/classic_cockatrices"), () -> config.classic_cockatrices.get() == ClassicOption.classic),
-                Conditional.of(BuiltinPackUtils.createPack("dungeon/ancient_vaults"), () -> config.dungeon_type.get() == DungeonType.ancient),
-                Conditional.of(BuiltinPackUtils.createPack("dungeon/retro_dungeon"), () -> config.dungeon_type.get() == DungeonType.retro),
-                Conditional.of(BuiltinPackUtils.createPack("item/swet_ball"), () -> config.swet_ball_type.get() == SwetBallType.consistent_name),
-                Conditional.of(BuiltinPackUtils.createPack("item/swet_gel"), () -> config.swet_ball_type.get() == SwetBallType.gel),
-                Conditional.of(BuiltinPackUtils.createPack("gui/menu_panorama"), config.menu_panorama),
-                Conditional.of(BuiltinPackUtils.createPack("gui/classic_smelters"), () -> config.smelter_menu_type.get() == ClassicAnyOption.classic),
-                Conditional.of(BuiltinPackUtils.createPack("gui/modern_smelters"), () -> config.smelter_menu_type.get() == ClassicAnyOption.modern),
-                Conditional.of(BuiltinPackUtils.createPack("jappafied_textures"), () -> config.use_jappafied_textures.get()),
-                Conditional.of(BuiltinPackUtils.createPack("item/genesis_jelly"), Redux::aetherGenesisCompat)
-        );
-
+        List<Conditional<PackResources>> packs = List.of();
+        if (config != null) {
+            packs = List.of(
+                    Conditional.of(BuiltinPackUtils.createPack("nature/classic_blight"), () -> config.classic_blight.get() == ClassicOption.classic),
+                    Conditional.of(BuiltinPackUtils.createPack("nature/blue_icestone"), config.blue_icestone),
+                    Conditional.of(BuiltinPackUtils.createPack("nature/better_aerclouds"), config.better_aerclouds),
+                    Conditional.of(BuiltinPackUtils.createPack("nature/golder_vines"), config.use_jappafied_textures),
+                    Conditional.of(BuiltinPackUtils.createPack("nature/tintable_grass"), config.tintable_grass),
+                    Conditional.of(BuiltinPackUtils.createPack("mob/better_aechor_plants"), config.better_aechor_plants),
+                    Conditional.of(BuiltinPackUtils.createPack("mob/classic_moas"), () -> config.classic_moas.get() == ClassicOption.classic),
+                    Conditional.of(BuiltinPackUtils.createPack("mob/classic_cockatrices"), () -> config.classic_cockatrices.get() == ClassicOption.classic),
+                    Conditional.of(BuiltinPackUtils.createPack("dungeon/ancient_vaults"), () -> config.dungeon_type.get() == DungeonType.ancient),
+                    Conditional.of(BuiltinPackUtils.createPack("dungeon/retro_dungeon"), () -> config.dungeon_type.get() == DungeonType.retro),
+                    Conditional.of(BuiltinPackUtils.createPack("item/swet_ball"), () -> config.swet_ball_type.get() == SwetBallType.consistent_name),
+                    Conditional.of(BuiltinPackUtils.createPack("item/swet_gel"), () -> config.swet_ball_type.get() == SwetBallType.gel),
+                    Conditional.of(BuiltinPackUtils.createPack("gui/menu_panorama"), config.menu_panorama),
+                    Conditional.of(BuiltinPackUtils.createPack("gui/classic_smelters"), () -> config.smelter_menu_type.get() == ClassicAnyOption.classic),
+                    Conditional.of(BuiltinPackUtils.createPack("gui/modern_smelters"), () -> config.smelter_menu_type.get() == ClassicAnyOption.modern),
+                    Conditional.of(BuiltinPackUtils.createPack("jappafied_textures"), config.use_jappafied_textures::get),
+                    Conditional.of(BuiltinPackUtils.createPack("item/genesis_jelly"), Redux::aetherGenesisCompat)
+            );
+        }
         return new ReduxOverridesPackResources(id, true, new PackMetadataSection(
                 desc, SharedConstants.getCurrentVersion().getPackVersion(PackType.CLIENT_RESOURCES)), packs);
 
