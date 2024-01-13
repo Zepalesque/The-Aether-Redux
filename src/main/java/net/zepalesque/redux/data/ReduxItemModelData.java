@@ -221,13 +221,13 @@ public class ReduxItemModelData extends AetherItemModelProvider {
 
     public ItemModelBuilder aurum(Supplier<? extends Block> block, String location) {
         ResourceLocation id = ForgeRegistries.ITEMS.getKey(block.get().asItem());
-        String active = "enchanted_" + id.getPath();
-        ItemModelBuilder builder = withExistingParent(active, mcLoc("item/generated"))
-                .texture("layer0", modLoc("item/" + location + "enchanted_" + id.getPath()));
+        String ench = "enchanted_" + id.getPath();
+        ItemModelBuilder builder = withExistingParent(ench, mcLoc("item/generated"))
+                .texture("layer0", modLoc("block/" + location + "enchanted_" + id.getPath()));
         return withExistingParent(blockName(block), mcLoc("item/generated"))
                 .texture("layer1", texture(blockName(block), location))
                 .texture("layer0", texture(blockName(block) + "_overlay", location))
-                .override().predicate(Redux.locate("enchanted"), 1.0F).model(this.getExistingFile(this.modLoc("item/" + active))).end();
+                .override().predicate(Redux.locate("enchanted"), 1.0F).model(this.getExistingFile(this.modLoc("item/" + ench))).end();
     }
 
     public ItemModelBuilder itemGlow(Supplier<? extends Item> item, String location) {

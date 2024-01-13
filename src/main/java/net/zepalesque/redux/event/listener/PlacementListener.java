@@ -18,7 +18,7 @@ public class PlacementListener {
     @SubscribeEvent
     public static void placeBlock(BlockEvent.EntityPlaceEvent event) {
         if (event.getPlacedBlock().is(AetherBlocks.WHITE_FLOWER.get()) && event.getLevel().getBlockState(event.getPos().below()).is(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get())) {
-            net.minecraftforge.event.ForgeEventFactory.onNeighborNotify(event.getEntity().level(), event.getPos().below(), event.getLevel().getBlockState(event.getPos().below()), EnumSet.of(Direction.UP), false);
+            event.getLevel().setBlock(event.getPos(), ReduxBlocks.ENCHANTED_WHITE_FLOWER.get().defaultBlockState(), 3);
         }
     }
 

@@ -1,6 +1,7 @@
 package net.zepalesque.redux;
 
 import com.aetherteam.aether.AetherConfig;
+import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.dispenser.DispenseUsableItemBehavior;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether_genesis.entity.GenesisEntityTypes;
@@ -82,6 +83,7 @@ import net.zepalesque.redux.world.carver.ReduxCarvers;
 import net.zepalesque.redux.world.density.ReduxDensityFunctionTypes;
 import net.zepalesque.redux.world.feature.ReduxFeatureRegistry;
 import net.zepalesque.redux.world.placement.ReduxPlacementModifiers;
+import net.zepalesque.redux.world.stateprov.ReduxStateProviders;
 import net.zepalesque.redux.world.structure.ReduxStructureTypes;
 import net.zepalesque.redux.world.tree.decorator.ReduxTreeDecorators;
 import net.zepalesque.redux.world.tree.foliage.ReduxFoliagePlacers;
@@ -140,6 +142,7 @@ public class Redux
         ReduxLootConditions.LOOT_CONDITION_TYPES.register(bus);
         ReduxStructureTypes.STRUCTURE_TYPES.register(bus);
         ReduxConditionSources.CONDITIONS.register(bus);
+        ReduxStateProviders.PROVIDERS.register(bus);
         ReduxBlocks.registerWoodTypes();
         ReduxBlocks.registerPots();
         MinecraftForge.EVENT_BUS.register(this);

@@ -43,11 +43,13 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.api.condition.Conditions;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.util.ReduxStates;
 import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.world.feature.ReduxFeatureRegistry;
 import net.zepalesque.redux.world.feature.config.*;
+import net.zepalesque.redux.world.stateprov.SimpleConditionAlternativeStateProvider;
 import net.zepalesque.redux.world.tree.decorator.EnchantedVineDecorator;
 import net.zepalesque.redux.world.tree.decorator.PatchTreeDecorator;
 import net.zepalesque.redux.world.tree.foliage.BlightwillowFoliagePlacer;
@@ -156,7 +158,7 @@ public class    ReduxConfiguredFeatures {
                 biomePlacementPatch(12, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.AURUM))));
         register(context, AETHER_SNOW_LAYER, ReduxFeatureRegistry.TREE_CHECKING_SNOW.get(), FeatureConfiguration.NONE);
         register(context, GILDED_WHITE_FLOWER_PATCH, ReduxFeatureRegistry.BIOME_BORDER_PLACEMENT_FLOWER.get(),
-                biomePlacementPatch(16, 7, 3, BlockStateProvider.simple(drops(AetherBlocks.WHITE_FLOWER))));
+                biomePlacementPatch(16, 7, 3, new SimpleConditionAlternativeStateProvider(drops(ReduxBlocks.ENCHANTED_WHITE_FLOWER), Conditions.ENCHGRASS, AetherFeatureStates.WHITE_FLOWER)));
         register(context, HOLYSILT_DISK, AetherFeatures.SHELF.get(),
                 new ShelfConfiguration(BlockStateProvider.simple(drops(ReduxBlocks.HOLYSILT)),
                         ConstantFloat.of(3.5F), UniformInt.of(0, 48), HolderSet.direct(AetherBlocks.AETHER_GRASS_BLOCK.getHolder().get(), ReduxBlocks.COARSE_AETHER_DIRT.getHolder().get())));
