@@ -1,6 +1,10 @@
 {
   "type": "aether_redux:water_color_replacement",
   "biomes": "#aether_redux:has/redux_water_color",
+  "condition": {
+    "condition": "aether_redux:redux_config",
+    "config_path": "[Visual Changes, Better Water Color]"
+  },
   "predicate": {
     "fog": 329011,
     "water": 4159204
