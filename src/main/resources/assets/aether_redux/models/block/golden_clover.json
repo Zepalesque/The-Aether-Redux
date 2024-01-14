@@ -6,7 +6,7 @@
 		"stem": "aether_redux:block/natural/golden_clover_stem",
 		"overlay": "aether_redux:block/natural/golden_clover_stem_overlay",
 		"halftint": "aether_redux:block/natural/golden_clover_stem_partial_tint",
-		"particle": "aether_redux:block/natural/golden_clover_stem"
+		"particle": "aether_redux:block/natural/golden_clover_top"
 	},
 	"elements": [
 		{

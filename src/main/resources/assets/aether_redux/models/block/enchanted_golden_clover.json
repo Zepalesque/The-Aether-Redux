@@ -4,7 +4,7 @@
 	"textures": {
 		"top": "aether_redux:block/natural/golden_clover_top",
 		"stem": "aether_redux:block/natural/enchanted_golden_clover_stem",
-		"particle": "aether_redux:block/natural/enchanted_golden_clover_stem"
+		"particle": "aether_redux:block/natural/golden_clover_top"
 	},
 	"elements": [
 		{
