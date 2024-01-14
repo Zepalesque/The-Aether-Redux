@@ -503,7 +503,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
     public void leafPile(RegistryObject<? extends Block> block, RegistryObject<? extends Block> baseBlock, String location) {
         this.getVariantBuilder(block.get()).forAllStates(
                 state -> ConfiguredModel.builder()
-                        .modelFile(this.models().singleTexture(
+                        .modelFile(state.getValue(LeafPileBlock.LAYERS) == 16 ? this.models().cubeAll(this.name(block) + "_full", this.texture(baseBlock, location)) : this.models().singleTexture(
                                 this.name(block) + state.getValue(LeafPileBlock.LAYERS),
                                 modLoc(BLOCK_FOLDER + "/layer_size" + state.getValue(LeafPileBlock.LAYERS)),
                                 "block", this.texture(baseBlock, location)).renderType("cutout")).build());
