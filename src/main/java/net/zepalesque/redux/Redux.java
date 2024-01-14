@@ -294,7 +294,7 @@ public class Redux
         if (event.getPackType() == PackType.CLIENT_RESOURCES) {
 
             if (packConfig != null) {
-                String id = "overrides_pack";
+                String id = "resource/overrides_pack";
                 String title = "pack.aether_redux.overrides.title";
                 Component desc = Component.translatable("pack.aether_redux.overrides.description");
                 ReduxOverridesPackResources combined = ReduxPackConfig.generate(id, title, desc);
