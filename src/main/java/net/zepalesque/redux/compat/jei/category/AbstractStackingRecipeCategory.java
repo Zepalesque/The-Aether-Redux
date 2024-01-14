@@ -10,10 +10,12 @@ import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
 import net.zepalesque.redux.recipe.AbstractStackingRecipe;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public abstract class AbstractStackingRecipeCategory<T extends AbstractStackingRecipe> extends AbstractRecipeCategory<T> {
 
@@ -24,7 +26,7 @@ public abstract class AbstractStackingRecipeCategory<T extends AbstractStackingR
     public void setRecipe(IRecipeLayoutBuilder builder, T recipe, IFocusGroup focusGroup) {
 
         builder.addSlot(RecipeIngredientRole.INPUT, 8, 6).addItemStacks(Arrays.stream(recipe.getIngredient().getItems()).toList());
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 60, 6).addItemStacks(List.of(recipe.getResult()));
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 60, 6).addItemStacks(Arrays.stream(recipe.getIngredient().getItems()).map(stack -> Objects.requireNonNullElse(recipe.getResultStack(stack), ItemStack.EMPTY)).toList());
 
     }
 
