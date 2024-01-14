@@ -25,7 +25,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class AetherShortGrassBlock extends AetherBushBlock {
     protected static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 7.0D, 14.0D);
-    protected static final VoxelShape SHAPE_TALL = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 14.0D, 14.0D);
+    protected static final VoxelShape SHAPE_TALL = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
     protected static final VoxelShape SHAPE_SHORT = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 4.0D, 14.0D);
     protected static VoxelShape COLLISION_SHAPE = Shapes.empty();
 
@@ -85,11 +85,14 @@ public class AetherShortGrassBlock extends AetherBushBlock {
     @Override
     @NotNull
     public BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor level, BlockPos currentPos, BlockPos facingPos) {
-        long r = Mth.getSeed(currentPos);
-        RandomSource rand = new XoroshiroRandomSource(r);
-        int i = rand.nextInt(3);
-        GrassSize size = GrassSize.values()[i];
-        BlockState b = super.updateShape(state, facing, facingState, level, currentPos, facingPos).setValue(ReduxStates.GRASS_SIZE, size);
+        BlockState b = super.updateShape(state, facing, facingState, level, currentPos, facingPos);
+        if (b.hasProperty(ReduxStates.GRASS_SIZE)) {
+            long r = Mth.getSeed(currentPos);
+            RandomSource rand = new XoroshiroRandomSource(r);
+            int i = rand.nextInt(3);
+            GrassSize size = GrassSize.values()[i];
+            b = b.setValue(ReduxStates.GRASS_SIZE, size);
+        }
         if (b.hasProperty(ReduxStates.ENCHANTED) && facing == Direction.DOWN) {
             if (level.getBlockState(facingPos).is(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get())) {
                 return b.setValue(ReduxStates.ENCHANTED, true);

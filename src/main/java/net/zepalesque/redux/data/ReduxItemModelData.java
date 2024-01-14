@@ -27,7 +27,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
     @Override
     protected void registerModels() {
 
-        itemBlockFlat(ReduxBlocks.AETHER_SHORT_GRASS, "natural/");
+        itemBlockFlatCustomTexture(ReduxBlocks.AETHER_SHORT_GRASS, "natural/aether_medium_grass");
         itemBlockFlat(ReduxBlocks.FIRECAP, "natural/");
         itemBlock(ReduxBlocks.HOLYSILT);
         itemBlock(ReduxBlocks.DIVINITE);
@@ -305,6 +305,10 @@ public class ReduxItemModelData extends AetherItemModelProvider {
     public ItemModelBuilder itemBlockFlat(Supplier<? extends Block> block, String location) {
         return withExistingParent(blockName(block), mcLoc("item/generated"))
                 .texture("layer0", texture(blockName(block), location));
+    }
+    public ItemModelBuilder itemBlockFlatCustomTexture(Supplier<? extends Block> block, String locationPlusName) {
+        return withExistingParent(blockName(block), mcLoc("item/generated"))
+                .texture("layer0", texture(locationPlusName));
     }
     public ItemModelBuilder itemBlockFlatTint(Supplier<? extends Block> block, String location) {
         return withExistingParent(blockName(block), mcLoc("item/generated"))
