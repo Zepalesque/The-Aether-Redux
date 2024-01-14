@@ -25,6 +25,8 @@ import org.jetbrains.annotations.Nullable;
 
 public class AetherShortGrassBlock extends AetherBushBlock {
     protected static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 7.0D, 14.0D);
+    protected static final VoxelShape SHAPE_TALL = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 14.0D, 14.0D);
+    protected static final VoxelShape SHAPE_SHORT = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 4.0D, 14.0D);
     protected static VoxelShape COLLISION_SHAPE = Shapes.empty();
 
     public AetherShortGrassBlock(Properties properties) {
@@ -32,7 +34,8 @@ public class AetherShortGrassBlock extends AetherBushBlock {
         this.registerDefaultState(this.defaultBlockState().setValue(ReduxStates.ENCHANTED, false).setValue(ReduxStates.GRASS_SIZE, GrassSize.med));
     }
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return SHAPE;
+        GrassSize size = pState.getValue(ReduxStates.GRASS_SIZE);
+        return size == GrassSize.shrt ? SHAPE_SHORT : size == GrassSize.tall ? SHAPE_TALL : SHAPE;
     }
 
     @Override
