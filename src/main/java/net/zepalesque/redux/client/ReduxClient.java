@@ -55,7 +55,7 @@ public class ReduxClient {
     }
     public static void blockColors(RegisterColorHandlersEvent.Block event) {
         event.getBlockColors().register((state, level, pos, index) -> index == 1 ? level != null && pos != null  ? BiomeColors.getAverageGrassColor(level, pos) : ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AetherBlocks.AETHER_GRASS_BLOCK.get());
-        event.getBlockColors().register((state, level, pos, index) -> getColor(state, level, pos, index, 0), ReduxBlocks.AETHER_SHORT_GRASS.get(), ReduxBlocks.FROSTED_FERN.get());
+        event.getBlockColors().register((state, level, pos, index) -> state.hasProperty(ReduxStates.ENCHANTED) && state.getValue(ReduxStates.ENCHANTED) ? 0xFFFFFF : getColor(state, level, pos, index, 0), ReduxBlocks.AETHER_SHORT_GRASS.get(), ReduxBlocks.FROSTED_FERN.get());
         event.getBlockColors().register((state, level, pos, index) -> {
             int color = getColor(state, level, pos, 1, 1);
             return index == 1 ? color : index == 2 ? FastColor.ARGB32.color(255, (FastColor.ARGB32.red(color) + 255) / 2, (FastColor.ARGB32.green(color) + 255) / 2, (FastColor.ARGB32.blue(color) + 255) / 2) : 0xFFFFFF;
