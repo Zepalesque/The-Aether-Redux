@@ -32,7 +32,8 @@
           "data": {
             "Name": "aether_redux:aether_short_grass",
             "Properties": {
-              "enchanted": "false"
+              "enchanted": "false",
+              "grass_size": "medium"
             }
           },
           "weight": 150

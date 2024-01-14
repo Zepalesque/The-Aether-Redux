@@ -22,6 +22,7 @@ public class ReduxStates {
     public static final BooleanProperty ENCHANTED = BooleanProperty.create("enchanted");
 
     public static final EnumProperty<GrassBlockTint> GRASS_BLOCK_TINT = EnumProperty.create("grass_block_tint", GrassBlockTint.class);
+    public static final EnumProperty<GrassSize> GRASS_SIZE = EnumProperty.create("grass_size", GrassSize.class);
 
     public static final EnumProperty<PetalPrismaticness> PETAL_1 = EnumProperty.create("petal_1_val", PetalPrismaticness.class, petalPrismaticness -> petalPrismaticness != PetalPrismaticness.NONE);
     public static final EnumProperty<PetalPrismaticness> PETAL_2 = EnumProperty.create("petal_2_val", PetalPrismaticness.class);

@@ -377,9 +377,9 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.getVariantBuilder(block).forAllStates((state) -> {
             boolean enchanted = state.getValue(ReduxStates.ENCHANTED);
             if (enchanted) {
-                return ConfiguredModel.builder().modelFile(models().cross("enchanted_aether_short_grass", modLoc("block/natural/enchanted_short_grass")).renderType("cutout")).build();
+                return ConfiguredModel.builder().modelFile(models().cross("enchanted_" + state.getValue(ReduxStates.GRASS_SIZE).getSerializedName()  + "_grass", modLoc("block/natural/enchanted_" + state.getValue(ReduxStates.GRASS_SIZE).getSerializedName()  + "_grass")).renderType("cutout")).build();
             }
-            return ConfiguredModel.builder().modelFile(models().singleTexture("aether_short_grass", mcLoc(BLOCK_FOLDER + "/tinted_cross"), "cross", modLoc("block/natural/aether_short_grass")).renderType("cutout")).build();       }       );
+            return ConfiguredModel.builder().modelFile(models().singleTexture("aether_" + state.getValue(ReduxStates.GRASS_SIZE).getSerializedName() + "_grass", mcLoc(BLOCK_FOLDER + "/tinted_cross"), "cross", modLoc("block/natural/aether_" + state.getValue(ReduxStates.GRASS_SIZE).getSerializedName() + "_grass")).renderType("cutout")).build();       }       );
     }
 
     public void tintedGrass(Supplier<? extends Block> block) {
