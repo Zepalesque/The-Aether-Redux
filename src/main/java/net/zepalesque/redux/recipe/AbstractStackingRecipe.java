@@ -40,6 +40,9 @@ public abstract class AbstractStackingRecipe implements StackingRecipe {
     @Nullable
     @Override
     public ItemStack getResultStack(ItemStack originalStack) {
+        if (!this.getIngredient().test(originalStack)) {
+            return null;
+        }
         ItemStack resultStack = this.getResult();
         resultStack.setTag(originalStack.getTag());
         ItemStack i = VeridiumItem.infuse(resultStack, this.infusionAmount);

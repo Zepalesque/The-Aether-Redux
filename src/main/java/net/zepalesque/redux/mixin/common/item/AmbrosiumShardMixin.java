@@ -27,14 +27,16 @@ public abstract class AmbrosiumShardMixin extends ItemMixin {
 
         for (InfusionRecipe recipe : level.getRecipeManager().getAllRecipesFor(ReduxRecipeTypes.INFUSION.get())) {
             if (recipe != null) {
-                ItemStack newStack = recipe.getResultStack(other);
-                if (newStack != null && recipe.matches(level, other)) {
-                    ReduxPacketHandler.sendToServer(new InfuseItemPacket(player.getUUID(), new InfusionHolder(other, newStack)));
-                    slot.set(newStack);
-                    slot.setChanged();
-                    stack.shrink(1);
-                    VeridiumItem.infuseSound(player);
-                    cir.setReturnValue(true);
+                if (recipe.matches(level, other)) {
+                    ItemStack newStack = recipe.getResultStack(other);
+                    if (newStack != null) {
+                        ReduxPacketHandler.sendToServer(new InfuseItemPacket(player.getUUID(), new InfusionHolder(other, newStack)));
+                        slot.set(newStack);
+                        slot.setChanged();
+                        stack.shrink(1);
+                        VeridiumItem.infuseSound(player);
+                        cir.setReturnValue(true);
+                    }
                 }
             }
         }
