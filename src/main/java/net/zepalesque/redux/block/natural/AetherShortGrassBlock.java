@@ -26,7 +26,7 @@ import org.jetbrains.annotations.Nullable;
 public class AetherShortGrassBlock extends AetherBushBlock {
     protected static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 7.0D, 14.0D);
     protected static final VoxelShape SHAPE_TALL = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
-    protected static final VoxelShape SHAPE_SHORT = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 4.0D, 14.0D);
+    protected static final VoxelShape SHAPE_SHORT = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 5.0D, 14.0D);
     protected static VoxelShape COLLISION_SHAPE = Shapes.empty();
 
     public AetherShortGrassBlock(Properties properties) {
