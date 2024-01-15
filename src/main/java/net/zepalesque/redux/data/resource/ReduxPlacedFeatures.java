@@ -64,6 +64,7 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> GROVE_TREES = copyKey(ReduxConfiguredFeatures.GROVE_TREES);
     public static final ResourceKey<PlacedFeature> GRASSLAND_TREES = copyKey(ReduxConfiguredFeatures.GRASSLAND_TREES);
     public static final ResourceKey<PlacedFeature> HIGHFIELDS_ROCK  = copyKey(ReduxConfiguredFeatures.HIGHFIELDS_ROCK);
+    public static final ResourceKey<PlacedFeature> SHRUBLANDS_ROCK  = copyKey(ReduxConfiguredFeatures.SHRUBLANDS_ROCK);
     public static final ResourceKey<PlacedFeature> SKYSPROUTS_PATCH = copyKey(ReduxConfiguredFeatures.SKYSPROUTS_PATCH);
     public static final ResourceKey<PlacedFeature> HIGHFIELDS_TREES = copyKey(ReduxConfiguredFeatures.HIGHFIELDS_TREES);
     public static final ResourceKey<PlacedFeature> IRIDIA_PATCH  = copyKey(ReduxConfiguredFeatures.IRIDIA_PATCH);
@@ -304,6 +305,19 @@ public class ReduxPlacedFeatures {
                                 .add(UniformInt.of(1, 3), 3)
                                 .build()), 4),
                 RarityFilter.onAverageOnceEvery(6),
+                InSquarePlacement.spread(),
+                BiomeFilter.biome()
+        );
+
+        register(context, SHRUBLANDS_ROCK, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.SHRUBLANDS_ROCK),
+                NOISE_THRESHOLD,
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING,
+                        new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
+                                .add(ConstantInt.of(0), 6)
+                                .add(UniformInt.of(1, 2), 3)
+                                .add(UniformInt.of(1, 5), 1)
+                                .build()), 4),
+                RarityFilter.onAverageOnceEvery(5),
                 InSquarePlacement.spread(),
                 BiomeFilter.biome()
         );

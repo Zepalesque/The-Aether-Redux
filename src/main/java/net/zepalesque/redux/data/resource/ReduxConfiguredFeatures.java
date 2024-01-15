@@ -98,6 +98,7 @@ public class    ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> GROVE_TREES = createKey(Folders.TREE + "grove_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GRASSLAND_TREES = createKey(Folders.TREE + "grassland_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> HIGHFIELDS_ROCK  = createKey(Folders.SURFACE + "highfields_rock");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SHRUBLANDS_ROCK  = createKey(Folders.SURFACE + "shrublands_rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> HOLYSILT_DISK  = createKey(Folders.SURFACE + "holysilt_disk");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYSPROUTS_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.SKYSPROUTS) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> HIGHFIELDS_TREES = createKey(Folders.TREE + "highfields_trees");
@@ -361,6 +362,9 @@ public class    ReduxConfiguredFeatures {
                 blockTestPatch(8, 3, 3, createLeafPileLayers(ReduxBlocks.GOLDEN_LEAF_PILE),
                         BlockPredicate.wouldSurvive(ReduxBlocks.AURUM.get().defaultBlockState(), BlockPos.ZERO)));
         register(context, HIGHFIELDS_ROCK, Feature.FOREST_ROCK,
+                new BlockStateConfiguration(AetherFeatureStates.HOLYSTONE));
+
+        register(context, SHRUBLANDS_ROCK, Feature.FOREST_ROCK,
                 new BlockStateConfiguration(AetherFeatureStates.HOLYSTONE));
 
         register(context, IRIDIA_PATCH, Feature.FLOWER,
