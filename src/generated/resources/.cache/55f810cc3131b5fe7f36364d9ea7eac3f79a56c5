@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-14T20:14:25.325177	Block States: aether_redux
+// 1.20.1	2024-01-14T20:37:41.0690347	Block States: aether_redux
 3b65fcf4de37be76dd1ac46b4118458043237e15 assets/aether_redux/blockstates/aether_short_grass.json
 103ff0aa6feeaaf74b4a76fc8cdd87b27b7fbc61 assets/aether_redux/blockstates/aevelium.json
 839da9eb72bebfe44879f5abc71bbd50e6ef1b23 assets/aether_redux/blockstates/aevelium_growth.json
@@ -565,7 +565,7 @@ ff67ae9145d58eb96250f7ccd3d6b426b0c5bef4 assets/aether_redux/models/block/gilded
 b0e3ebc3384f494a82239c590734c1d788933217 assets/aether_redux/models/block/gilded_leaf_pile7.json
 e85f32e421f83d6499554ddcc555398b3193929b assets/aether_redux/models/block/gilded_leaf_pile8.json
 5fa32cbcf74a0b9d6868c5ac97238bd3ed6c49e7 assets/aether_redux/models/block/gilded_leaf_pile9.json
-11c7eb016d19467855a90a808c4111c5910478db assets/aether_redux/models/block/gilded_leaf_pile_full.json
+491e420e28dfba09253317b636254d4ade2a4ba9 assets/aether_redux/models/block/gilded_leaf_pile_full.json
 11c7eb016d19467855a90a808c4111c5910478db assets/aether_redux/models/block/gilded_oak_leaves.json
 83d4f10bb566bc992eea228134a27e25522eba74 assets/aether_redux/models/block/gilded_oak_sapling.json
 5fa40d0932d54df81fd5c8d50acf10da74ce805e assets/aether_redux/models/block/gilded_vines.json
@@ -643,7 +643,7 @@ e5832eaf8646109c83ddf6872ffb88e8be835789 assets/aether_redux/models/block/golden
 d32bdd80b19ea5b279f66fd463f2c31198b0a519 assets/aether_redux/models/block/golden_leaf_pile7.json
 c74db62d82ca82502f60ecac32a45e58133bd17a assets/aether_redux/models/block/golden_leaf_pile8.json
 e7fcdd5d700c581af7f9ab4b1033c6ded6b3c1cc assets/aether_redux/models/block/golden_leaf_pile9.json
-4bd9c1b9bb7f9f78afb0778d3dce398349df8fba assets/aether_redux/models/block/golden_leaf_pile_full.json
+1ddd69b6b15b3445d9aa9c536b3e46994c50fba9 assets/aether_redux/models/block/golden_leaf_pile_full.json
 db53f61c5e34608f7386e47dd5b2bcab03da00b8 assets/aether_redux/models/block/golden_vines.json
 bb29a0d27cb53bb6030587014d4c236245686bd7 assets/aether_redux/models/block/golden_vines_plant.json
 4f6a76cb628663691f7f9573ad7531519662a13e assets/aether_redux/models/block/hanging_veridium_lantern.json
