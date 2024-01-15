@@ -35,9 +35,6 @@ public class ReduxPackConfig {
     public ReduxPackConfig(Category base) {
         this.base = base;
         PackConfig.Builder builder = base.builder();
-        builder.push("nature");
-
-        builder.pop();
         builder.push("mob");
         // Self-explanatory
         this.better_aechor_plants = builder.comment().cfg("better_aechor_plants", true, WidgetMappers.BOOL);
