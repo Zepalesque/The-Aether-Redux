@@ -36,7 +36,8 @@ public class ReduxRegion extends Region {
             this.addBiome(mapper, new Climate.ParameterPoint(range(0.0, 0.4), range(-1.0, 0.0), fullRange, fullRange, fullRange, fullRange, 0L), AetherBiomes.SKYROOT_GROVE);
         }
         if (ReduxConfig.COMMON.enable_gilded_groves.get()) {
-            this.addBiome(mapper, new Climate.ParameterPoint(range(0.0D, 0.4D), range(0.0D, 0.8D), fullRange, fullRange, fullRange, fullRange, 0L), ReduxBiomes.GILDED_GROVES);
+            this.addBiome(mapper, new Climate.ParameterPoint(range(-0.1D, 0.4D), range(0.4D, 0.8D), fullRange, fullRange, fullRange, fullRange, 0L), ReduxBiomes.GILDED_GROVES);
+            this.addBiome(mapper, new Climate.ParameterPoint(range(0.0D, 0.5D), range(0.0D, 0.4D), fullRange, fullRange, fullRange, fullRange, 0L), ReduxBiomes.GILDED_GRASSLANDS);
         } else {
             this.addBiome(mapper, new Climate.ParameterPoint(range(0.0, 0.4), range(0.0, 0.8), fullRange, fullRange, fullRange, fullRange, 0L), AetherBiomes.SKYROOT_FOREST);
         }

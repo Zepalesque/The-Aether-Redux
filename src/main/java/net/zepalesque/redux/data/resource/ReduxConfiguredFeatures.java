@@ -96,6 +96,7 @@ public class    ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_CLOVER_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.GOLDEN_CLOVER) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_LEAF_PATCH = createKey(Folders.PATCH + "golden_leaf_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GROVE_TREES = createKey(Folders.TREE + "grove_trees");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GRASSLAND_TREES = createKey(Folders.TREE + "grassland_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> HIGHFIELDS_ROCK  = createKey(Folders.SURFACE + "highfields_rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> HOLYSILT_DISK  = createKey(Folders.SURFACE + "holysilt_disk");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYSPROUTS_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.SKYSPROUTS) + "_patch");
@@ -456,6 +457,11 @@ public class    ReduxConfiguredFeatures {
         register(context, GROVE_TREES, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
                         PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(GOLDEN_OAK_TREE_OVERRIDE), PlacementUtils.filteredByBlockSurvival(AetherBlocks.GOLDEN_OAK_SAPLING.get())), 0.67F)),
+                        PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(GILDED_OAK_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.GILDED_OAK_SAPLING.get()))));
+
+        register(context, GRASSLAND_TREES, Feature.RANDOM_SELECTOR,
+                new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
+                        PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(GOLDEN_OAK_TREE_OVERRIDE), PlacementUtils.filteredByBlockSurvival(AetherBlocks.GOLDEN_OAK_SAPLING.get())), 0.33F)),
                         PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(GILDED_OAK_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.GILDED_OAK_SAPLING.get()))));
         register(context, GLACIAL_TREES, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(

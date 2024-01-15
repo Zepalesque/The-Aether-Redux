@@ -62,6 +62,7 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> GOLDEN_CLOVER_PATCH = copyKey(ReduxConfiguredFeatures.GOLDEN_CLOVER_PATCH);
     public static final ResourceKey<PlacedFeature> GOLDEN_HEIGHTS_GILDED_HOLYSTONE_ORE = createKey(ORE + "golden_heights_" + name(ReduxBlocks.GILDED_HOLYSTONE) + "_ore");
     public static final ResourceKey<PlacedFeature> GROVE_TREES = copyKey(ReduxConfiguredFeatures.GROVE_TREES);
+    public static final ResourceKey<PlacedFeature> GRASSLAND_TREES = copyKey(ReduxConfiguredFeatures.GRASSLAND_TREES);
     public static final ResourceKey<PlacedFeature> HIGHFIELDS_ROCK  = copyKey(ReduxConfiguredFeatures.HIGHFIELDS_ROCK);
     public static final ResourceKey<PlacedFeature> SKYSPROUTS_PATCH = copyKey(ReduxConfiguredFeatures.SKYSPROUTS_PATCH);
     public static final ResourceKey<PlacedFeature> HIGHFIELDS_TREES = copyKey(ReduxConfiguredFeatures.HIGHFIELDS_TREES);
@@ -237,6 +238,16 @@ public class ReduxPlacedFeatures {
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
                         .add(ConstantInt.of(12), 9)
                         .add(ConstantInt.of(7), 1)
+                        .build())),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
+                BiomeFilter.biome(),
+                DUNGEON_BLACKLIST,
+                PlacementUtils.filteredByBlockSurvival(ReduxBlocks.GILDED_OAK_SAPLING.get())
+        );
+        register(context, GRASSLAND_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GRASSLAND_TREES),
+                CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
+                        .add(ConstantInt.of(7), 9)
+                        .add(ConstantInt.of(4), 1)
                         .build())),
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
                 BiomeFilter.biome(),

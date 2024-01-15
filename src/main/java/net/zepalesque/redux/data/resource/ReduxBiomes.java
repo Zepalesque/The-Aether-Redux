@@ -26,6 +26,7 @@ public class ReduxBiomes {
     public static final ResourceKey<Biome> GLACIAL_TAIGA = createKey("glacial_taiga");
     public static final ResourceKey<Biome> FROSTED_TUNDRA = createKey("frosted_tundra");
     public static final ResourceKey<Biome> GILDED_GROVES = createKey("gilded_groves");
+    public static final ResourceKey<Biome> GILDED_GRASSLANDS = createKey("gilded_grasslands");
     public static final ResourceKey<Biome> HIGHFIELDS = createKey("highfields");
     public static final ResourceKey<Biome> CLOUDCAP_JUNGLE = createKey("cloudcap_jungle");
 
@@ -114,11 +115,25 @@ public class ReduxBiomes {
         ));
 
         context.register(GILDED_GROVES, biomeBase(
-                ores(baseFeatures(new BiomeGenerationSettings.Builder(placedFeatures, configuredCarvers), false, false, true, true, false))
+                ores(baseFeatures(new BiomeGenerationSettings.Builder(placedFeatures, configuredCarvers), false, false, true, true, true))
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.GROVE_TREES)
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.GRASS_PATCH_PLACEMENT)
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.GILDED_WHITE_FLOWER_PATCH)
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.GOLDEN_CLOVER_PATCH)
+                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.AURUM_PATCH)
+                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ReduxPlacedFeatures.GILDED_HOLYSTONE_ORE)
+                ,
+                defaultMobSpawns(new MobSpawnSettings.Builder()),
+                ReduxMusic.DEFAULT_AETHER_MUSIC,
+                WATER,
+                WATER_FOG,
+                GILDED_GRASS_COLOR
+                ));
+        context.register(GILDED_GRASSLANDS, biomeBase(
+                ores(baseFeatures(new BiomeGenerationSettings.Builder(placedFeatures, configuredCarvers), false, false, true, true, true))
+                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.GRASSLAND_TREES)
+                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.GRASS_PATCH_PLACEMENT)
+                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.GILDED_WHITE_FLOWER_PATCH)
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.AURUM_PATCH)
                         .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ReduxPlacedFeatures.GILDED_HOLYSTONE_ORE)
                 ,

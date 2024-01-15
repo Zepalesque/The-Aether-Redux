@@ -39,6 +39,7 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
                 ReduxBiomes.GLACIAL_TAIGA,
                 ReduxBiomes.FROSTED_TUNDRA,
                 ReduxBiomes.GILDED_GROVES,
+                ReduxBiomes.GILDED_GRASSLANDS,
                 ReduxBiomes.HIGHFIELDS,
                 ReduxBiomes.CLOUDCAP_JUNGLE
         );
