@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-13T19:47:57.2333909	Item Models: aether_redux
+// 1.20.1	2024-01-14T19:13:58.5953628	Item Models: aether_redux
 262070202f715ccbb93ebca7b4dd3b04851bc0ce assets/aether_redux/models/item/aether_short_grass.json
 ef6d226766d61d6460247665062a399d3613d946 assets/aether_redux/models/item/aevelium.json
 e89330a549c5d1169758ec3314e9285fb8db827a assets/aether_redux/models/item/aevelium_growth.json
@@ -152,11 +152,11 @@ f2ce34057db0e9dc709688e4f1edd9bcd660a53a assets/aether_redux/models/item/glacia_
 830712522b96695b2c26d31f844efcaa964e0d48 assets/aether_redux/models/item/golden_vines.json
 b44ba989c4d354d86fe40c3a15fcda20449de04f assets/aether_redux/models/item/grand_victory_medal.json
 186625fae587a1449999bdcd0e11a53b78579f7a assets/aether_redux/models/item/holysilt.json
-dafc79f9f8a5bba4984aee6d037b93287c34f352 assets/aether_redux/models/item/infused_veridium_axe.json
-9c201a53753dcf467732b8045c7e73e7a687a668 assets/aether_redux/models/item/infused_veridium_hoe.json
-57faf76af8d5961d1edffbb5946870122649926c assets/aether_redux/models/item/infused_veridium_pickaxe.json
-eda2c58aa3fa9afd5dfdff5068c17cc884b60f27 assets/aether_redux/models/item/infused_veridium_shovel.json
-1b620e41b1b11572ff7839f8c53d53ac21090ff0 assets/aether_redux/models/item/infused_veridium_sword.json
+5ac15283821f82852afb37f646709d38aa90a988 assets/aether_redux/models/item/infused_veridium_axe.json
+beba14ffeb6f81501238130d80b9ec2c0c2c0b54 assets/aether_redux/models/item/infused_veridium_hoe.json
+51e15d16de911db9e46cb87c2783445c9b3674b7 assets/aether_redux/models/item/infused_veridium_pickaxe.json
+b4a44f772d90f5d514c42d0a71967d476c2a596f assets/aether_redux/models/item/infused_veridium_shovel.json
+bf979c410ebfbb3a159019265912c389275b6ba8 assets/aether_redux/models/item/infused_veridium_sword.json
 5ac9099170a70b2826495b9d9afa1acdb8cf921f assets/aether_redux/models/item/iridia.json
 935ed4d1e32cd476bb773ee3977e2a6f9b65b84f assets/aether_redux/models/item/lightroot_aether_dirt.json
 7e5c9c8ea05cc15e0c568d691bccc3a500cb1903 assets/aether_redux/models/item/lightroot_clump.json
