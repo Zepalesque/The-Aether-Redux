@@ -35,6 +35,7 @@ import net.zepalesque.redux.loot.condition.DataLootCondition;
 import net.zepalesque.redux.loot.modifiers.GenesisAddDungeonLootModifier;
 import net.zepalesque.redux.loot.modifiers.GenesisAddDropsModifier;
 import net.zepalesque.redux.loot.modifiers.RemoveDropsModifier;
+import net.zepalesque.redux.misc.ReduxTags;
 
 import java.util.List;
 
@@ -70,14 +71,15 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                         LootItemBlockStatePropertyCondition.hasBlockStateProperties(AetherBlocks.GRAVITITE_ORE.get()).build()}));
 
 
-        this.add("sentry_circuit", new GenesisAddDropsModifier(new ItemStack(ReduxItems.SENTRY_CIRCUIT.get()),
+        this.add("sentry_chip", new GenesisAddDropsModifier(new ItemStack(ReduxItems.SENTRY_CHIP.get()),
                 new LootItemFunction[] {
                         SetItemCountFunction.setCount(UniformGenerator.between(0, 1.0F)).build(),
                         LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)).build() },
                 new LootItemCondition[] {
-                        LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(AetherEntityTypes.SENTRY.get())).build(),
-                        LootItemRandomChanceCondition.randomChance(0.5F).build()
+                        LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(ReduxTags.EntityTypes.SENTRIES.get())).build(),
+                        LootItemRandomChanceCondition.randomChance(0.25F).build()
                 }));
+
 
         this.add("swet_sugar_no_genesis", new GenesisAddDropsModifier(new ItemStack(Items.SUGAR),
                 new LootItemFunction[] {

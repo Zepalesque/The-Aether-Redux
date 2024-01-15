@@ -1,6 +1,7 @@
 package net.zepalesque.redux.data.tags;
 
 import com.aetherteam.aether.entity.AetherEntityTypes;
+import com.aetherteam.aether_genesis.entity.GenesisEntityTypes;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.EntityTypeTagsProvider;
@@ -19,6 +20,9 @@ public class ReduxEntityTypeTagData extends EntityTypeTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
-        this.tag(ReduxTags.EntityTypes.BLIGHTED_MOBS).add(AetherEntityTypes.COCKATRICE.get()).addOptional(new ResourceLocation("aether_genesis", "tempest"));
+        this.tag(ReduxTags.EntityTypes.BLIGHTED_MOBS).add(AetherEntityTypes.COCKATRICE.get()).addOptional(GenesisEntityTypes.TEMPEST.getId());
+        this.tag(ReduxTags.EntityTypes.SENTRIES).add(AetherEntityTypes.SENTRY.get())
+                .addOptional(GenesisEntityTypes.BATTLE_SENTRY.getId())
+                .addOptional(GenesisEntityTypes.TRACKING_GOLEM.getId());
     }
 }

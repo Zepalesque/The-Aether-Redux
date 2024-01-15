@@ -167,7 +167,7 @@ public class ReduxCreativeTabs {
             putAfter(AetherItems.ZANITE_GEMSTONE, ReduxItems.RAW_VERIDIUM, event);
             putAfter(ReduxItems.RAW_VERIDIUM, ReduxItems.VERIDIUM_INGOT, event);
             putAfter(ReduxItems.VERIDIUM_INGOT, ReduxItems.VERIDIUM_NUGGET, event);
-            putAfter(ReduxItems.VERIDIUM_NUGGET, ReduxItems.SENTRY_CIRCUIT, event);
+            putAfter(ReduxItems.VERIDIUM_NUGGET, ReduxItems.SENTRY_CHIP, event);
 
             putAfter(AetherItems.SKYROOT_STICK, ReduxItems.BLIGHTED_SPORES, event);
 

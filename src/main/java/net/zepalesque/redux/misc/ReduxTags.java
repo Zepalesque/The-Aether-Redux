@@ -60,6 +60,7 @@ public class ReduxTags {
     public static class EntityTypes {
         public static final TagKey<EntityType<?>> BLIGHTED_MOBS = tag("blighted_mobs");
         public static final TagKey<EntityType<?>> CAN_WALK_THROUGH_AUBURN_BUSH = tag("can_walk_through_auburn_bush");
+        public static final TagKey<EntityType<?>> SENTRIES = tag("sentries");
 
         private static TagKey<EntityType<?>> tag(String name) {
             return TagKey.create(Registries.ENTITY_TYPE, Redux.locate(name));

@@ -133,7 +133,7 @@ public class ReduxItems {
 
     public static final RegistryObject<Item> VAMPIRE_AMULET = register("vampire_amulet", () -> new VampireAmuletItem(ReduxSoundEvents.EQUIP_VAMPIRE_AMULET, new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT), "vampire_amulet_night_ability", "vampire_amulet_day_debuff"));
 
-    public static final RegistryObject<Item> SENTRY_CIRCUIT = register("sentry_circuit", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> SENTRY_CHIP = register("sentry_chip", () -> new Item(new Item.Properties()));
 
     public static <T extends Item> RegistryObject<T> register(final String name, final Supplier<T> item)
     {
