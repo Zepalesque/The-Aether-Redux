@@ -1,5 +1,5 @@
 {
-  "feature": "aether_redux:patch/frosted_fern_patch",
+  "feature": "aether_redux:patch/splitfern_patch",
   "placement": [
     {
       "type": "minecraft:noise_threshold_count",
@@ -21,7 +21,7 @@
     },
     {
       "type": "minecraft:rarity_filter",
-      "chance": 3
+      "chance": 7
     },
     {
       "type": "minecraft:biome"

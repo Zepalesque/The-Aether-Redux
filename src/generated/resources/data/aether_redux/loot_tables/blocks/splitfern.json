@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "aether_redux:frosted_fern"
+          "name": "aether_redux:splitfern"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "aether_redux:blocks/frosted_fern"
+  "random_sequence": "aether_redux:blocks/splitfern"
 }

@@ -24,7 +24,7 @@
     },
     {
       "type": "minecraft:rarity_filter",
-      "chance": 3
+      "chance": 12
     },
     {
       "type": "minecraft:block_predicate_filter",

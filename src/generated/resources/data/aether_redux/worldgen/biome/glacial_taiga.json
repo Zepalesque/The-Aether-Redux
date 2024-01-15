@@ -41,7 +41,7 @@
       "aether:water_spring"
     ],
     [
-      "aether_redux:patch/frosted_fern_patch",
+      "aether_redux:patch/splitfern_patch",
       "aether_redux:trees/glacial_trees",
       "aether:grass_patch",
       "aether_redux:patch/lumina_patch",
