@@ -154,11 +154,11 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         this.handheldItem(ReduxItems.VERIDIUM_AXE.get(), "tools/");
         this.handheldItem(ReduxItems.VERIDIUM_SHOVEL.get(), "tools/");
         this.handheldItem(ReduxItems.VERIDIUM_HOE.get(), "tools/");
-        this.handheldItem(ReduxItems.INFUSED_VERIDIUM_SWORD.get(), "weapons/");
-        this.handheldItem(ReduxItems.INFUSED_VERIDIUM_PICKAXE.get(), "tools/");
-        this.handheldItem(ReduxItems.INFUSED_VERIDIUM_AXE.get(), "tools/");
-        this.handheldItem(ReduxItems.INFUSED_VERIDIUM_SHOVEL.get(), "tools/");
-        this.handheldItem(ReduxItems.INFUSED_VERIDIUM_HOE.get(), "tools/");
+        this.handheldGlow(ReduxItems.INFUSED_VERIDIUM_SWORD, "weapons/");
+        this.handheldGlow(ReduxItems.INFUSED_VERIDIUM_PICKAXE, "tools/");
+        this.handheldGlow(ReduxItems.INFUSED_VERIDIUM_AXE, "tools/");
+        this.handheldGlow(ReduxItems.INFUSED_VERIDIUM_SHOVEL, "tools/");
+        this.handheldGlow(ReduxItems.INFUSED_VERIDIUM_HOE, "tools/");
 
         this.item(ReduxItems.VERIDIUM_INGOT, "materials/");
         this.item(ReduxItems.RAW_VERIDIUM, "materials/");
@@ -236,6 +236,13 @@ public class ReduxItemModelData extends AetherItemModelProvider {
                 .texture("layer0", modLoc("item/" + location + id.getPath())).texture("layer1", modLoc("item/" + location + id.getPath() + "_glow")).customLoader((itemModelBuilder,existingFileHelper) ->
                         ItemLayerModelBuilder.begin(itemModelBuilder, existingFileHelper).emissive(15, 15, 1)).end();
     }
+    public ItemModelBuilder handheldGlow(Supplier<? extends Item> item, String location) {
+        ResourceLocation id = ForgeRegistries.ITEMS.getKey(item.get());
+        return withExistingParent(id.getPath(), mcLoc("item/handheld"))
+                .texture("layer0", modLoc("item/" + location + id.getPath())).texture("layer1", modLoc("item/" + location + id.getPath() + "_glow")).customLoader((itemModelBuilder,existingFileHelper) ->
+                        ItemLayerModelBuilder.begin(itemModelBuilder, existingFileHelper).emissive(15, 15, 1)).end();
+    }
+
 
     public ItemModelBuilder itemFullGlow(Supplier<? extends Item> item, String location) {
         ResourceLocation id = ForgeRegistries.ITEMS.getKey(item.get());
