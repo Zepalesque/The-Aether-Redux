@@ -2,6 +2,7 @@ package net.zepalesque.redux.client.gui.component;
 
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.network.chat.Component;
 import org.jetbrains.annotations.Nullable;
 
@@ -19,9 +20,12 @@ public class DynamicButton extends Button implements IDisplayPage {
         this.page = page;
     }
 
-    public DynamicButton(Builder builder, int page) {
+    public DynamicButton(Builder builder, int page, @Nullable Component hoverText) {
         super(builder);
         this.page = page;
+        if (hoverText != null) {
+            this.setTooltip(Tooltip.create(hoverText));
+        }
     }
 
     public DynamicButton setActiveSupplier(@Nullable Supplier<Boolean> activeSupplier) {

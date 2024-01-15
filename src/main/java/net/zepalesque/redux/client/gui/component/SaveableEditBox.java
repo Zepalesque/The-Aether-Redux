@@ -21,7 +21,7 @@ public class SaveableEditBox extends EditBox implements ISaveable, IDisplayPage
         this.menu = menu;
         this.setResponder(s -> this.validateColor());
             if (config.hasComment()) {
-                this.setTooltip(Tooltip.create(Component.translatable("gui.aether_redux.config_desc." + config.id())));
+                this.setTooltip(Tooltip.create(Component.translatable("gui.aether_redux.pack_config.config_desc." + config.id())));
             }
     }
 

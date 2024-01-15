@@ -22,7 +22,7 @@ public class SaveableBooleanButton extends Button implements ISaveable, IDisplay
         this.page = page;
         this.menu = menu;
         if (config.hasComment()) {
-            this.setTooltip(Tooltip.create(Component.translatable("gui.aether_redux.config_desc." + config.id())));
+            this.setTooltip(Tooltip.create(Component.translatable("gui.aether_redux.pack_config.config_desc." + config.id())));
         }
     }
 

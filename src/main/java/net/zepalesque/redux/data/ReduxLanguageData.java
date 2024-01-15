@@ -525,19 +525,19 @@ public class ReduxLanguageData extends AetherLanguageProvider {
     }
 
     public void addPackConfig(String key, String name) {
-        this.addGuiText("pack_config." + key, name);
+        this.addGuiText("pack_config.config." + key, name);
     }
     public void addPackConfigDesc(String key, String name) {
-        this.addGuiText("config_desc." + key, name);
+        this.addGuiText("pack_config.config_desc." + key, name);
     }
     public void addPackConfigCategory(String key, String name) {
-        this.addGuiText("pack_category." + key, name);
+        this.addGuiText("pack_config.category." + key, name);
     }
     public void addPackConfigCategoryDesc(String key, String name) {
-        this.addGuiText("category_desc." + key, name);
+        this.addGuiText("pack_config.category_desc." + key, name);
     }
     public void addPackConfigEnum(String key, String name) {
-        this.addGuiText("enums." + key, name);
+        this.addGuiText("pack_config.enums." + key, name);
     }
 
     public void addPackConfigCategory(String key, String name, String desc) {

@@ -23,7 +23,7 @@ public class SaveableEnumButton<T extends Enum<T>> extends Button implements ISa
         this.page = page;
         this.menu = menu;
         if (config.hasComment()) {
-            this.setTooltip(Tooltip.create(Component.translatable("gui.aether_redux.config_desc." + config.id())));
+            this.setTooltip(Tooltip.create(Component.translatable("gui.aether_redux.pack_config.config_desc." + config.id())));
         }
     }
 
@@ -52,7 +52,7 @@ public class SaveableEnumButton<T extends Enum<T>> extends Button implements ISa
 
     @Override
     public Component getMessage() {
-        return Component.translatable("gui.aether_redux.enums." + this.value.name());
+        return Component.translatable("gui.aether_redux.pack_config.enums." + this.value.name());
     }
 
     public void setValue(T value) {

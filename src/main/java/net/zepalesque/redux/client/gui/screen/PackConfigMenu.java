@@ -157,9 +157,9 @@ public class PackConfigMenu extends Screen {
         int titleY = this.centerYStart(this.frameHeight()) + 21;
         int wide = this.frameWidth() - 64;
 
-        this.addRenderableOnly(new RenderableString(Component.translatable("gui.aether_redux.config_file", this.top.id()), titleX, titleY, wide, 0xFFFFFF, this.font));
-        this.addRenderableOnly(new RenderableString(Component.translatable(this.category.parent() == null ? "gui.aether_redux.config_top" : "gui.aether_redux.config_category",
-                Component.translatable("gui.aether_redux.pack_category." + this.category.id())), titleX, titleY - this.font.lineHeight, wide, 0xFFFFFF, this.font));
+        this.addRenderableOnly(new RenderableString(Component.translatable("gui.aether_redux.pack_config.file", this.top.id()), titleX, titleY, wide, 0xFFFFFF, this.font));
+        this.addRenderableOnly(new RenderableString(Component.translatable(this.category.parent() == null ? "gui.aether_redux.pack_config.top" : "gui.aether_redux.pack_config.category",
+                Component.translatable("gui.aether_redux.pack_config.category." + this.category.id())), titleX, titleY - this.font.lineHeight, wide, 0xFFFFFF, this.font));
 
         List<Category> cats = new ArrayList<>();
         for (IConfigSaving iid : this.category.members.values()) {
@@ -192,11 +192,11 @@ public class PackConfigMenu extends Screen {
                     this.addRenderableWidget(widget);
                     if (widget instanceof ISaveable sav) { this.saveables.add(sav); }
                     int width = this.frameWidth() - 98;
-                    PageDependentString string = new PageDependentString(Component.translatable("gui.aether_redux.pack_config." + config.id()), this, baseXCat, baseY + i * 24 + (10 - this.font.lineHeight / 2), width, 0xFFFFFF, this.font, pg);
+                    PageDependentString string = new PageDependentString(Component.translatable("gui.aether_redux.pack_config.config." + config.id()), this, baseXCat, baseY + i * 24 + (10 - this.font.lineHeight / 2), width, 0xFFFFFF, this.font, pg);
                     this.addRenderableOnly(string);
                 } else if (id instanceof Category cat)
                 {
-                    DynamicButton button = new DynamicButton(Button.builder(Component.translatable("gui.aether_redux.pack_category." + cat.id()), b -> this.goInto(cat, this.minecraft)).bounds(baseXCat, baseY + i * 24,  this.frameWidth() - 32, 20), pg);
+                    DynamicButton button = new DynamicButton(Button.builder(Component.translatable("gui.aether_redux.pack_config.category." + cat.id()), b -> this.goInto(cat, this.minecraft)).bounds(baseXCat, baseY + i * 24,  this.frameWidth() - 32, 20), pg, Component.translatable("gui.aether_redux.pack_config.category_desc." + cat.id())) ;
                     Supplier<Boolean> rightPage = () -> button.getPage() == this.getCurrentPage();
                     button.setActiveSupplier(rightPage);
                     button.setVisibleSupplier(rightPage);
@@ -208,7 +208,7 @@ public class PackConfigMenu extends Screen {
 
         Supplier<Component> supplier = () -> {
             int page = (this.currentPageNumber + 1);
-            return Component.translatable("gui.aether_redux.config_page", page + "/" + this.pages.size());
+            return Component.translatable("gui.aether_redux.pack_config.page", page + "/" + this.pages.size());
         };
         Supplier<Integer> width = () -> Math.min(this.frameWidth() - 54, this.font.width(supplier.get()));
         DynamicRenderableString pages = new DynamicRenderableString(
