@@ -76,7 +76,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                         SetItemCountFunction.setCount(UniformGenerator.between(0, 1.0F)).build(),
                         LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)).build() },
                 new LootItemCondition[] {
-                        LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(ReduxTags.EntityTypes.SENTRIES.get())).build(),
+                        LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(ReduxTags.EntityTypes.SENTRIES)).build(),
                         LootItemRandomChanceCondition.randomChance(0.25F).build()
                 }));
 
