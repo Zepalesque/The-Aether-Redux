@@ -41,7 +41,6 @@ public class ReduxPlacedFeatures {
     public static final DungeonBlacklistFilter DUNGEON_BLACKLIST = new DungeonBlacklistFilter();
     public static final NoiseThresholdCountPlacement NOISE_THRESHOLD = NoiseThresholdCountPlacement.of(-0.8D, 5, 10);
 
-    public static final ResourceKey<PlacedFeature> FIRECAP_PATCH = copyKey(ReduxConfiguredFeatures.FIRECAP_PATCH);
     public static final ResourceKey<PlacedFeature> AEVELIUM_GRASSES_PATCH = copyKey(ReduxConfiguredFeatures.AEVELIUM_GRASSES_PATCH);
     public static final ResourceKey<PlacedFeature> AURUM_PATCH = copyKey(ReduxConfiguredFeatures.AURUM_PATCH);
     public static final ResourceKey<PlacedFeature> BLIGHTMOSS_SPARSE_VEGETATION = createKey(Folders.CAVE + "blightmoss_sparse_vegetation");
@@ -167,13 +166,6 @@ public class ReduxPlacedFeatures {
                 BiomeFilter.biome(),
                 DUNGEON_BLACKLIST
         );
-
-        register(context, FIRECAP_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.FIRECAP_PATCH),
-                NOISE_THRESHOLD,
-                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 2), 4),
-                RarityFilter.onAverageOnceEvery(6),
-                BiomeFilter.biome(),
-                PlacementUtils.filteredByBlockSurvival(ReduxBlocks.FIRECAP.get()));
 
         register(context, CLOUDCAP_MUSHLING_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.CLOUDCAP_MUSHLING_PATCH),
                 NOISE_THRESHOLD,

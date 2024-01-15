@@ -68,8 +68,6 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         stairs(ReduxBlocks.CARVED_STONE_BRICK_STAIRS.get(), ReduxBlocks.CARVED_STONE_BRICKS.get(), "construction/");
         slab(ReduxBlocks.CARVED_STONE_BRICK_SLAB.get(), ReduxBlocks.CARVED_STONE_BRICKS.get(), "construction/");
         this.pillar(ReduxBlocks.CARVED_STONE_PILLAR::get, "construction/");
-        this.crossBlock(ReduxBlocks.FIRECAP.get(), "natural/");
-        this.pottedPlant(ReduxBlocks.POTTED_FIRECAP.get(), ReduxBlocks.FIRECAP.get(), "natural/");
         this.roots(ReduxBlocks.BLIGHTWILLOW_ROOTS.get(), "natural/");
 
         block(ReduxBlocks.FROSTED_HOLYSTONE.get(), "natural/");

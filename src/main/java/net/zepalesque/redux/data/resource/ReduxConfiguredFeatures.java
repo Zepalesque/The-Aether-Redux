@@ -67,7 +67,6 @@ public class    ReduxConfiguredFeatures {
 
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> AA_QUICKSOIL_SHELF = createKey(Folders.COMPAT + "aa_quicksoil_shelf");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> FIRECAP_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.FIRECAP) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AEVELIUM_GRASSES_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.AEVELIUM) + "_grasses_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AURUM_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.AURUM) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTED_SKYROOT_TREE = createKey(Folders.TREE + "blighted_skyroot_tree");
@@ -235,8 +234,6 @@ public class    ReduxConfiguredFeatures {
                 ),
                 new TwoLayersFeatureSize(2, 0, 2)
         ).ignoreVines().dirt(BlockStateProvider.simple(Blocks.AIR)).build());
-        register(context, FIRECAP_PATCH, Feature.FLOWER,
-                randomPatch(12, 3, 3, BlockStateProvider.simple(drops(ReduxBlocks.FIRECAP))));
         register(context, CLOUDCAP_MUSHLING_PATCH, Feature.FLOWER,
                 blockBelowPlacementPatch(16, 5, 3, BlockStateProvider.simple(drops(ReduxBlocks.CLOUDCAP_MUSHLING)),
                         BlockPredicate.matchesBlocks(ReduxBlocks.AEVELIUM.get())));

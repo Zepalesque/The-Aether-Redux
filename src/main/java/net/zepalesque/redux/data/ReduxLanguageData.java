@@ -150,10 +150,6 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.POTTED_LUXWEED, "Potted Luxweed");
         addLore(ReduxBlocks.LUXWEED, "A plant in the blight biome, which is a distant relative to Wyndsprouts. It gives off a subtle glow, lighting the area around it.");
 
-        addBlock(ReduxBlocks.FIRECAP, "Firecap");
-        addBlock(ReduxBlocks.POTTED_FIRECAP, "Potted Firecap");
-        addLore(ReduxBlocks.FIRECAP, "A mushroom found in the Highfields. Its vibrant color resembles that of a flame.");
-
         addBlock(ReduxBlocks.WYNDSPROUTS, "Wyndsprouts");
         addBlock(ReduxBlocks.POTTED_WYNDSPROUTS, "Potted Wyndsprouts");
         addLore(ReduxBlocks.WYNDSPROUTS, "A common plant found in the Aether. They occasionally drop Oats, the main edible source of grain in the Aether.");

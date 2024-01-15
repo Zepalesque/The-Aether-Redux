@@ -199,15 +199,7 @@ public class ReduxBlocks {
 
     public static RegistryObject<Block> FROSTED_HOLYSTONE = register("frosted_holystone",
             () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.copy(AetherBlocks.MOSSY_HOLYSTONE.get()).mapColor(MapColor.SAND).friction(0.75F)));
-
-
-    public static RegistryObject<Block> FIRECAP = register("firecap",
-            () -> new FlowerShapedBushBlock(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.NETHER_SPROUTS).offsetType(BlockBehaviour.OffsetType.XZ)));
-    public static final RegistryObject<FlowerPotBlock> POTTED_FIRECAP = BLOCKS.register("potted_firecap", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, FIRECAP, Block.Properties.copy(Blocks.FLOWER_POT)));
-
-
-
-
+    
     public static RegistryObject<StairBlock> FROSTED_HOLYSTONE_STAIRS = register("frosted_holystone_stairs",
             () -> new StairBlock(() -> (FROSTED_HOLYSTONE.get()).defaultBlockState(), BlockBehaviour.Properties.copy(FROSTED_HOLYSTONE.get())));
 
@@ -424,7 +416,6 @@ public class ReduxBlocks {
         pot.addPlant(ReduxBlocks.SPRINGSHROOM.getId(), ReduxBlocks.POTTED_SPRINGSHROOM);
         pot.addPlant(ReduxBlocks.GILDED_OAK_SAPLING.getId(), ReduxBlocks.POTTED_GILDED_OAK_SAPLING);
         pot.addPlant(ReduxBlocks.BLIGHTED_SKYROOT_SAPLING.getId(), ReduxBlocks.POTTED_BLIGHTED_SKYROOT_SAPLING);
-        pot.addPlant(ReduxBlocks.FIRECAP.getId(), ReduxBlocks.POTTED_FIRECAP);
         pot.addPlant(ReduxBlocks.SKYSPROUTS.getId(), ReduxBlocks.POTTED_SKYSPROUTS);
     }
 

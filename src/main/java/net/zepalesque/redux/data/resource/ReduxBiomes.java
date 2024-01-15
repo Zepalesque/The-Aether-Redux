@@ -138,7 +138,6 @@ public class ReduxBiomes {
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.TALL_GRASS_PATCH_PLACEMENT)
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.SKYSPROUTS_PATCH)
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.IRIDIA_PATCH)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.FIRECAP_PATCH)
                 ,
                 increasedMobSpawns(new MobSpawnSettings.Builder()),
                 ReduxMusic.DEFAULT_AETHER_MUSIC,
