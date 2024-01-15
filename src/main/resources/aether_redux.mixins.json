@@ -43,6 +43,7 @@
     "client.block.AetherLeavesClientMixin",
     "client.block.LeafBlockClientMixin",
     "client.gui.PackEntryMixin",
+    "client.gui.PackSelectionModelAccessor",
     "client.gui.PackSelectionScreenMixin",
     "client.gui.ScreenMixin",
     "client.gui.TransferableSelectionListMixin",

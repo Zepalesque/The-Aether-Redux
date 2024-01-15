@@ -26,7 +26,7 @@ import java.util.Objects;
 @Mixin(TransferableSelectionList.PackEntry.class)
 public class PackEntryMixin implements MixinMenuStorage {
     @Unique private static final ResourceLocation SETTINGS_BUTTON = Redux.locate("textures/gui/menu/config/settings.png");
-    @Unique private static final String ID = "builtin/overrides_pack";
+    @Unique private static final String ID = "builtin/resource/overrides_pack";
 
 
 

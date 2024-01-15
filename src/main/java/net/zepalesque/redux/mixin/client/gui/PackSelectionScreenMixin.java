@@ -1,18 +1,26 @@
 package net.zepalesque.redux.mixin.client.gui;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.packs.PackSelectionModel;
 import net.minecraft.client.gui.screens.packs.PackSelectionScreen;
+import net.minecraft.server.packs.repository.Pack;
 import net.zepalesque.redux.api.MixinMenuStorage;
 import net.zepalesque.redux.client.gui.screen.PackConfigMenu;
 import org.jetbrains.annotations.Nullable;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.util.HashSet;
+import java.util.List;
+
 @Mixin(PackSelectionScreen.class)
 public class PackSelectionScreenMixin implements MixinMenuStorage {
+    @Shadow @Final private PackSelectionModel model;
     @Unique
     @Nullable
     public PackConfigMenu menu;
@@ -31,7 +39,11 @@ public class PackSelectionScreenMixin implements MixinMenuStorage {
     @Inject(method = "onClose", at = @At(value = "TAIL"))
     public void close(CallbackInfo ci) {
         if (this.menu != null && this.menu.isMarked()) {
-            Minecraft.getInstance().reloadResourcePacks();
+            HashSet<String> a = new HashSet<>(((PackSelectionModelAccessor) this.model).getPacks().stream().map(Pack::getId).toList());
+            HashSet<String> b = new HashSet<>(Minecraft.getInstance().options.resourcePacks);
+            if (a.containsAll(b) && b.containsAll(a)) {
+                Minecraft.getInstance().reloadResourcePacks();
+            }
         }
     }
 }
