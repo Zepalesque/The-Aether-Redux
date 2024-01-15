@@ -12,10 +12,7 @@ import net.zepalesque.redux.api.packconfig.PackConfig;
 import net.zepalesque.redux.api.serialization.client.WidgetMappers;
 import net.zepalesque.redux.builtin.BuiltinPackUtils;
 import net.zepalesque.redux.client.resource.ReduxOverridesPackResources;
-import net.zepalesque.redux.config.enums.pack.ClassicAnyOption;
-import net.zepalesque.redux.config.enums.pack.ClassicOption;
-import net.zepalesque.redux.config.enums.pack.DungeonType;
-import net.zepalesque.redux.config.enums.pack.SwetBallType;
+import net.zepalesque.redux.config.enums.pack.*;
 
 import java.util.List;
 
@@ -27,6 +24,7 @@ public class ReduxPackConfig {
     public final PackConfig<Boolean> better_aechor_plants;
     public final PackConfig<ClassicOption> classic_cockatrices;
     public final PackConfig<SwetBallType> swet_ball_type;
+    public final PackConfig<VeridiumType> veridium_type;
     public final PackConfig<Boolean> use_jappafied_textures;
     public final PackConfig<Boolean> menu_panorama;
 
@@ -50,6 +48,7 @@ public class ReduxPackConfig {
         builder.push("item");
         // Which behavior for swet balls to use
         this.swet_ball_type = builder.comment().cfg("swet_ball_type", SwetBallType.gel, SwetBallType.MAPPER);
+        this.veridium_type = builder.comment().cfg("veridium_type", VeridiumType.modern, VeridiumType.MAPPER);
         builder.pop();
         builder.push("gui");
         // Use Redux menu panorama
@@ -76,7 +75,9 @@ public class ReduxPackConfig {
                     Conditional.of(BuiltinPackUtils.createPack("resource/item/swet_gel"), () -> config.swet_ball_type.get() == SwetBallType.gel),
                     Conditional.of(BuiltinPackUtils.createPack("resource/gui/menu_panorama"), config.menu_panorama),
                     Conditional.of(BuiltinPackUtils.createPack("resource/jappafied_textures"), config.use_jappafied_textures),
-                    Conditional.of(BuiltinPackUtils.createPack("resource/item/genesis_jelly"), Redux::aetherGenesisCompat)
+                    Conditional.of(BuiltinPackUtils.createPack("resource/item/genesis_jelly"), Redux::aetherGenesisCompat),
+                    Conditional.of(BuiltinPackUtils.createPack("resource/item/shadow_veridium"), () -> config.veridium_type.get() == VeridiumType.shadow),
+                    Conditional.of(BuiltinPackUtils.createPack("resource/item/classic_veridium"), () -> config.veridium_type.get() == VeridiumType.classic)
             );
         }
         return new ReduxOverridesPackResources(id, true, new PackMetadataSection(
