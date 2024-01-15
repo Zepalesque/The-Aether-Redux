@@ -9,10 +9,10 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class FrostedFernBlock extends AetherBushBlock {
+public class SkyfernBlock extends AetherBushBlock {
     protected static final VoxelShape SHAPE_FERN = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 15.0D, 13.0D);
 
-    public FrostedFernBlock(Properties pProperties) {
+    public SkyfernBlock(Properties pProperties) {
         super(pProperties);
     }
 

@@ -235,7 +235,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.POTTED_LUMINA.get(),
                 ReduxBlocks.POTTED_DAGGERBLOOM.get(),
                 ReduxBlocks.POTTED_WYNDSPROUTS.get(),
-                ReduxBlocks.POTTED_FROSTED_FERN.get()
+                ReduxBlocks.POTTED_SPLITFERN.get()
                 );
         this.tag(ReduxTags.Blocks.HIGHLANDS_GRASSES).add(AetherBlocks.AETHER_GRASS_BLOCK.get());
         this.tag(ReduxTags.Blocks.ENCHANTED_GRASSES).add(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get());

@@ -141,7 +141,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
 
         itemBlockFlatTintOverlay(ReduxBlocks.WYNDSPROUTS, "natural/");
         itemBlockFlatTintOverlay(ReduxBlocks.SKYSPROUTS, "natural/");
-        itemBlockFlat(ReduxBlocks.FROSTED_FERN, "natural/");
+        itemBlockFlat(ReduxBlocks.SPLITFERN, "natural/");
         this.item(ReduxItems.BUNDLE_OF_AETHER_GRASS, "materials/");
 
         this.itemBlockFlatOtherBlockTexture(ReduxBlocks.GOLDEN_VINES, ReduxBlocks.GOLDEN_VINES_PLANT, "natural/");

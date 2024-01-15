@@ -345,9 +345,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.POTTED_GOLDEN_CLOVER, "Potted Golden Clover");
         addLore(ReduxBlocks.GOLDEN_CLOVER, "A four-leaved clover found in the Gilded Groves. Makes a nice decoration, and can be placed in a flower pot!");
 
-        addBlock(ReduxBlocks.FROSTED_FERN, "Frosted Fern");
-        addBlock(ReduxBlocks.POTTED_FROSTED_FERN, "Potted Frosted Fern");
-        addLore(ReduxBlocks.FROSTED_FERN, "A soft, fern-like plant with smooth leaves. This grows in the Frosted Forests.");
+        addBlock(ReduxBlocks.SPLITFERN, "Splitfern");
+        addBlock(ReduxBlocks.POTTED_SPLITFERN, "Potted Splitfern");
+        addLore(ReduxBlocks.SPLITFERN, "A soft, fern-like plant with smooth leaves, with a split-end top.");
 
         addBlock(ReduxBlocks.AURUM, "Aurum");
         addBlock(ReduxBlocks.POTTED_AURUM, "Potted Aurum");

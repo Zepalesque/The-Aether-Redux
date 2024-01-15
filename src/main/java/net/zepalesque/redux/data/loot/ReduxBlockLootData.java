@@ -165,8 +165,8 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         // TODO: Add a drop item? maybe?
         this.add(ReduxBlocks.SKYSPROUTS.get(), shearsOr(Blocks.AIR, 0.75F, 1F, 2F));
         this.dropPottedContents(ReduxBlocks.POTTED_SKYSPROUTS.get());
-        this.dropSelf(ReduxBlocks.FROSTED_FERN.get());
-        this.dropPottedContents(ReduxBlocks.POTTED_FROSTED_FERN.get());
+        this.dropSelf(ReduxBlocks.SPLITFERN.get());
+        this.dropPottedContents(ReduxBlocks.POTTED_SPLITFERN.get());
         this.dropSelf(ReduxBlocks.VERIDIUM_BLOCK.get());
         this.dropSelf(ReduxBlocks.RAW_VERIDIUM_BLOCK.get());
         this.add(ReduxBlocks.VERIDIUM_ORE.get(), createOreDrop(ReduxBlocks.VERIDIUM_ORE.get(), ReduxItems.RAW_VERIDIUM.get()));

@@ -309,9 +309,9 @@ public class ReduxBlocks {
     public static final RegistryObject<LeafPileBlock> GOLDEN_LEAF_PILE = register("golden_leaf_pile", () -> new LeafPileBlock(BlockBehaviour.Properties.copy(AetherBlocks.GOLDEN_OAK_LEAVES.get()).strength(0.1F).sound(SoundType.CHERRY_LEAVES)));
     public static final RegistryObject<LeafPileBlock> GILDED_LEAF_PILE = register("gilded_leaf_pile", () -> new LeafPileBlock(BlockBehaviour.Properties.copy(GILDED_OAK_LEAVES.get()).strength(0.1F).sound(SoundType.CHERRY_LEAVES)));
 
-    public static RegistryObject<Block> FROSTED_FERN = register("frosted_fern",
-            () -> new FrostedFernBlock(BlockBehaviour.Properties.of().hasPostProcess(ReduxBlocks::always).noCollission().instabreak().sound(SoundType.MOSS_CARPET).offsetType(BlockBehaviour.OffsetType.XZ)));
-    public static final RegistryObject<FlowerPotBlock> POTTED_FROSTED_FERN = BLOCKS.register("potted_frosted_fern", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, FROSTED_FERN, Block.Properties.copy(Blocks.FLOWER_POT)));
+    public static RegistryObject<Block> SPLITFERN = register("splitfern",
+            () -> new SkyfernBlock(BlockBehaviour.Properties.of().hasPostProcess(ReduxBlocks::always).noCollission().instabreak().sound(SoundType.MOSS_CARPET).offsetType(BlockBehaviour.OffsetType.XZ)));
+    public static final RegistryObject<FlowerPotBlock> POTTED_SPLITFERN = BLOCKS.register("potted_splitfern", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SPLITFERN, Block.Properties.copy(Blocks.FLOWER_POT)));
 
     public static RegistryObject<Block> VERIDIUM_ORE = register("veridium_ore",
             () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOL).strength(3.0F).requiresCorrectToolForDrops()));
@@ -376,7 +376,7 @@ public class ReduxBlocks {
         fireBlockAccessor.callSetFlammable(IRIDIA.get(), 60, 100);
         fireBlockAccessor.callSetFlammable(AURUM.get(), 60, 100);
         fireBlockAccessor.callSetFlammable(GOLDEN_CLOVER.get(), 60, 100);
-        fireBlockAccessor.callSetFlammable(FROSTED_FERN.get(), 60, 100);
+        fireBlockAccessor.callSetFlammable(SPLITFERN.get(), 60, 100);
         fireBlockAccessor.callSetFlammable(LUXWEED.get(), 60, 100);
         fireBlockAccessor.callSetFlammable(SPIROLYCTIL.get(), 60, 100);
         fireBlockAccessor.callSetFlammable(BLIGHTSHADE.get(), 60, 100);
@@ -404,7 +404,7 @@ public class ReduxBlocks {
         pot.addPlant(ReduxBlocks.LUMINA.getId(), ReduxBlocks.POTTED_LUMINA);
         pot.addPlant(ReduxBlocks.DAGGERBLOOM.getId(), ReduxBlocks.POTTED_DAGGERBLOOM);
         pot.addPlant(ReduxBlocks.WYNDSPROUTS.getId(), ReduxBlocks.POTTED_WYNDSPROUTS);
-        pot.addPlant(ReduxBlocks.FROSTED_FERN.getId(), ReduxBlocks.POTTED_FROSTED_FERN);
+        pot.addPlant(ReduxBlocks.SPLITFERN.getId(), ReduxBlocks.POTTED_SPLITFERN);
         pot.addPlant(ReduxBlocks.CLOUDCAP_MUSHLING.getId(), ReduxBlocks.POTTED_CLOUDCAP_MUSHLING);
         pot.addPlant(ReduxBlocks.AEVELIUM_GROWTH.getId(), ReduxBlocks.POTTED_AEVELIUM_GROWTH);
         pot.addPlant(ReduxBlocks.SPRINGSHROOM.getId(), ReduxBlocks.POTTED_SPRINGSHROOM);
