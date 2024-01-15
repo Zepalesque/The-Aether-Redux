@@ -57,6 +57,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue enable_snowy_biomes;
         public final ForgeConfigSpec.BooleanValue enable_highfields;
         public final ForgeConfigSpec.BooleanValue enable_cloudcap_jungle;
+        public final ForgeConfigSpec.BooleanValue enable_skyroot_shrublands;
 
         public final ForgeConfigSpec.BooleanValue change_double_plant_hitbox;
         public final ForgeConfigSpec.BooleanValue better_conversion_sounds;
@@ -105,11 +106,12 @@ public class ReduxConfig {
             this.auto_reset_biome_values = builder.comment("When enabled, any biome value config changes will be reset. It is recommended that you disable this if you want to keep any custom biome parameters you may have set.").translation("config.aether_redux.biomes.auto_reset_biome_values").define("Auto-Reset Biome Values", true);
             this.region_size = builder.comment("The value of Redux's biome region size. Larger values correspond to larger biome clumps").translation("config.aether_redux.biomes.region_size").define("Region Size", 20);
 
-            this.enable_the_blight = builder.comment("Enables the Blight biome.").worldRestart().translation("config.aether_redux.biomes.blight.enable").define("Enable the Blight", true);
-            this.enable_gilded_groves = builder.comment("Enables the Gilded Groves biome.").worldRestart().translation("config.aether_redux.biomes.grove.enable").define("Enable Gilded Groves", true);
-            this.enable_snowy_biomes = builder.comment("Enables the Frosted Forests biome.").worldRestart().translation("config.aether_redux.biomes.frost.enable").define("Enable Frosted Forests", true);
-            this.enable_highfields = builder.comment("Enables the Highfields biome.").worldRestart().translation("config.aether_redux.biomes.high.enable").define("Enable Highfields", true);
-            this.enable_cloudcap_jungle = builder.comment("Enables the Cloudcap Jungle biome.").worldRestart().translation("config.aether_redux.biomes.cap.enable").define("Enable Cloudcap Jungle", true);
+            this.enable_the_blight = builder.comment("Enables the Blight biome.").worldRestart().translation("config.aether_redux.biomes.blight").define("Enable the Blight", true);
+            this.enable_gilded_groves = builder.comment("Enables the Gilded Groves biome.").worldRestart().translation("config.aether_redux.biomes.gilded").define("Enable Gilded Groves", true);
+            this.enable_snowy_biomes = builder.comment("Enables the Frosted Forests biome.").worldRestart().translation("config.aether_redux.biomes.frosted").define("Enable Frosted Forests", true);
+            this.enable_highfields = builder.comment("Enables the Highfields biome.").worldRestart().translation("config.aether_redux.biomes.highfields").define("Enable Highfields", true);
+            this.enable_cloudcap_jungle = builder.comment("Enables the Cloudcap Jungle biome.").worldRestart().translation("config.aether_redux.biomes.cloudcap").define("Enable Cloudcap Jungle", true);
+            this.enable_skyroot_shrublands = builder.comment("Enables the Skyroot Shrublands biome.").worldRestart().translation("config.aether_redux.biomes.shrublands").define("Enable Skyroot Shrublands", true);
             this.enchanted_gilded_grass = builder.comment("Uses Enchanted Aether Grass for the ground in the Gilded Groves. May require a Minecraft restart.").worldRestart().translation("config.aether_redux.worldgen.enchanted_gilded_grass").define("Enchanted Gilded Grass", false);
 
             builder.pop(2);
