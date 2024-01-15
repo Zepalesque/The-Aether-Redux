@@ -34,7 +34,6 @@ public record InfuseItemPacket(UUID playerID, InfusionHolder holder) implements 
                     ItemStack s = this.holder().getResult();
                     s.setCount(1);
                     boolean flag = sp.getInventory().add(s);
-                    Redux.LOGGER.debug("Recieved item packet, Threw on ground: {}", !flag);
                     if (!flag) {
                         double d0 = sp.getEyeY() - (double)0.3F;
                         ItemEntity itementity = new ItemEntity(sp.level(), sp.getX(), d0, sp.getZ(), s);

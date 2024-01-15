@@ -33,7 +33,6 @@ public abstract class AmbrosiumShardMixin extends ItemMixin {
                     ItemStack newStack = recipe.getResultStack(other);
                     if (newStack != null) {
                         ReduxPacketHandler.sendToServer(new InfuseItemPacket(player.getUUID(), new InfusionHolder(other, newStack)));
-                        Redux.LOGGER.debug("Sent item packet to server");
                         if (other.getCount() <= 1) {
                             slot.set(newStack);
                         } else {
