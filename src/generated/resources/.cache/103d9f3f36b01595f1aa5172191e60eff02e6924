@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-15T14:31:42.5928132	Registries
+// 1.20.1	2024-01-15T16:48:54.3103114	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 cd3a6aa44fc8b5997f2f84db9e1a1ff8f22527b5 data/aether/worldgen/configured_feature/golden_oak_tree.json
 ed5af58b49c3097be8598f4b57d2dd256fb1c93a data/aether/worldgen/configured_feature/grass_patch.json
@@ -19,7 +19,7 @@ dc98065bb00fb6e3ad1cd5298e83a097d1b0cdf0 data/aether_redux/forge/biome_modifier/
 e821e866730bbb97a50bc4179294316049dd4457 data/aether_redux/forge/biome_modifier/mob/vanilla_swet.json
 a8193a2c207f18d7a39f39469af585aabc7125b1 data/aether_redux/forge/biome_modifier/modify/water_color.json
 9c84435dac2978cb43eb42b032718debed9cfb05 data/aether_redux/worldgen/biome/cloudcap_jungle.json
-bbecdb9a909a5c88fd5d35163f2a93b2cecff1e7 data/aether_redux/worldgen/biome/frosted_tundra.json
+a1f4ae5209d58a26206e3566cae149e159019c4e data/aether_redux/worldgen/biome/frosted_tundra.json
 da775042d3c15e46f99720ee19f5f28c8359b148 data/aether_redux/worldgen/biome/gilded_grasslands.json
 55f6243e30ba7b8316e282102a918a206e3e187c data/aether_redux/worldgen/biome/gilded_groves.json
 ee3c50dbb1c84c1ca4e26a6e4aeedea0fac9a244 data/aether_redux/worldgen/biome/glacial_taiga.json
