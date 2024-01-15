@@ -13,7 +13,7 @@ public class ReduxStates {
 
     public static final BooleanProperty HARVESTED = BooleanProperty.create("harvested");
 
-    public static final IntegerProperty LEAF_LAYERS = IntegerProperty.create("layers", 1, 12);
+    public static final IntegerProperty LEAF_LAYERS = IntegerProperty.create("layers", 1, 16);
 
     public static final IntegerProperty PRISMATICNESS = IntegerProperty.create("prismaticness", 0, 6);
 
