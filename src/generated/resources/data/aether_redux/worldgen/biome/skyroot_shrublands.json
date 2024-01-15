@@ -1,19 +1,20 @@
 {
   "carvers": {},
+  "creature_spawn_probability": 0.25,
   "downfall": 0.0,
   "effects": {
-    "fog_color": 10850748,
+    "fog_color": 9671612,
     "foliage_color": 11665355,
-    "grass_color": 14007039,
+    "grass_color": 12713905,
     "music": {
       "max_delay": 24000,
       "min_delay": 12000,
       "replace_current_music": true,
       "sound": "aether:music.aether"
     },
-    "sky_color": 13025791,
-    "water_color": 4607385,
-    "water_fog_color": 723770
+    "sky_color": 12632319,
+    "water_color": 5403045,
+    "water_fog_color": 791347
   },
   "features": [
     [
@@ -35,20 +36,19 @@
       "aether:gravitite_ore"
     ],
     [
-      "aether_redux:cave_biome/blightmoss_vegetation"
+      "aether_redux:trees/shrublands_trees"
     ],
     [
       "aether:water_spring",
-      "aether_redux:surface/blight_rock"
+      "aether_redux:surface/shrublands_rock"
     ],
     [
-      "aether_redux:trees/blight_trees",
       "aether:grass_patch",
-      "aether_redux:patch/luxweed_patch",
-      "aether_redux:patch/spirolyctil_patch",
-      "aether_redux:patch/blightshade_patch",
-      "aether_redux:cave_biome/blightmoss_vegetation",
-      "aether_redux:surface/holysilt_disk"
+      "aether:tall_grass_patch",
+      "aether:purple_flower_patch",
+      "aether:white_flower_patch",
+      "aether_redux:patch/aurum_patch",
+      "aether_redux:patch/zanberry_bush_patch"
     ],
     [
       "aether:cold_aercloud",
@@ -151,9 +151,33 @@
     "axolotls": [],
     "creature": [
       {
-        "type": "aether:cockatrice",
-        "maxCount": 5,
-        "minCount": 2,
+        "type": "aether:phyg",
+        "maxCount": 7,
+        "minCount": 5,
+        "weight": 10
+      },
+      {
+        "type": "aether:sheepuff",
+        "maxCount": 6,
+        "minCount": 5,
+        "weight": 12
+      },
+      {
+        "type": "aether:flying_cow",
+        "maxCount": 6,
+        "minCount": 4,
+        "weight": 12
+      },
+      {
+        "type": "aether:aerbunny",
+        "maxCount": 9,
+        "minCount": 3,
+        "weight": 18
+      },
+      {
+        "type": "aether:moa",
+        "maxCount": 4,
+        "minCount": 1,
         "weight": 8
       }
     ],
