@@ -412,6 +412,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addPackConfigCategory("mob", "Mobs", "Changes to the textures of the Aether's mobs");
         addPackConfig("better_aechor_plants", "Better Aechor Plants", "Makes Aechor Plants more consistent with their petal items");
         addPackConfig("classic_cockatrices", "Cockatrice Appearance", "Switch between classic and modern textures for the upgraded Cockatrice models");
+        addPackConfig("tintable_grass", "Tinted Grass", "Use modified models to allow tintable Aether Grass blocks and plants. Only disable if you know what you're doing!");
         addPackConfigCategory("dungeon", "Dungeons", "Changes to the textures of the Aether's dungeons");
         addPackConfigCategory("item", "Items", "Changes to Items from the Aether");
         addPackConfig("swet_ball_type", "Swet Ball Type", "Switch between three different behaviors for Swet Balls: The original, consistently named, and replacing them with Swet Gel");
