@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-14T20:05:46.7666464	Registries
+// 1.20.1	2024-01-15T13:19:44.2380436	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 cd3a6aa44fc8b5997f2f84db9e1a1ff8f22527b5 data/aether/worldgen/configured_feature/golden_oak_tree.json
 ed5af58b49c3097be8598f4b57d2dd256fb1c93a data/aether/worldgen/configured_feature/grass_patch.json
@@ -65,6 +65,7 @@ ac15e65cd740438998c211eab9cab69788f0d16b data/aether_redux/worldgen/configured_f
 22c7206faf09bca70b3c14495cddc6b338d7076c data/aether_redux/worldgen/configured_feature/surface/holysilt_disk.json
 7268d792ea5b821050a92bcfc6df833ecf4f6780 data/aether_redux/worldgen/configured_feature/surface/mossy_rock.json
 086f5b3509bfaa8440e9e27981d445ddc977ed48 data/aether_redux/worldgen/configured_feature/surface/rooted_quicksoil_shelf.json
+ac15e65cd740438998c211eab9cab69788f0d16b data/aether_redux/worldgen/configured_feature/surface/shrublands_rock.json
 327eb98d605f7d400cd0e70ed14976e8556fbaed data/aether_redux/worldgen/configured_feature/surface/snow_layer.json
 c508ac603a9cc73b375c52f510767e28871ce1be data/aether_redux/worldgen/configured_feature/surface/surface_rule_water_lake.json
 fc0e5c7100de7edcd74c85f73a606f9e95bd9d8e data/aether_redux/worldgen/configured_feature/trees/blighted_skyroot_tree.json
@@ -121,6 +122,7 @@ ffe6576f149a209185b4a68009bd229486d6a718 data/aether_redux/worldgen/placed_featu
 37cd8452c4d0e7428eb79511abdfac4090822aab data/aether_redux/worldgen/placed_feature/surface/highfields_rock.json
 c6847a66486e842278a4cb993c2cf4ec848de62d data/aether_redux/worldgen/placed_feature/surface/holysilt_disk.json
 e1d8a75559910406dbe0ef6ac1a7b9301745c3c0 data/aether_redux/worldgen/placed_feature/surface/mossy_rock.json
+43bd43f2712e715caea82ad832576780cb894598 data/aether_redux/worldgen/placed_feature/surface/shrublands_rock.json
 9046232a15ef6439cb19339e2a5d3989b86ac3e4 data/aether_redux/worldgen/placed_feature/surface/snow_layer.json
 9cf115ac37324080a4fbeb36fd0990dd7798a7e9 data/aether_redux/worldgen/placed_feature/surface/surface_rule_water_lake.json
 a627676eb53ac1f9faffb0e16f525776b1eab19c data/aether_redux/worldgen/placed_feature/trees/blight_trees.json
