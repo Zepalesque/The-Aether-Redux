@@ -246,8 +246,8 @@ public class ReduxPlacedFeatures {
         );
         register(context, GRASSLAND_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GRASSLAND_TREES),
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
-                        .add(ConstantInt.of(7), 9)
-                        .add(ConstantInt.of(4), 1)
+                        .add(ConstantInt.of(5), 9)
+                        .add(ConstantInt.of(2), 1)
                         .build())),
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
                 BiomeFilter.biome(),
