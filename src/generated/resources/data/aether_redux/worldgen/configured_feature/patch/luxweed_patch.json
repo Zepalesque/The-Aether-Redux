@@ -1,14 +1,14 @@
 {
-  "type": "aether_redux:support_test_flower",
+  "type": "minecraft:flower",
   "config": {
-    "block_below": {
-      "type": "minecraft:matching_blocks",
-      "blocks": "aether:aether_grass_block"
-    },
     "feature": {
       "feature": {
-        "type": "minecraft:simple_block",
+        "type": "aether_redux:test_below_block",
         "config": {
+          "predicate": {
+            "type": "minecraft:matching_blocks",
+            "blocks": "aether:aether_grass_block"
+          },
           "to_place": {
             "type": "minecraft:simple_state_provider",
             "state": {

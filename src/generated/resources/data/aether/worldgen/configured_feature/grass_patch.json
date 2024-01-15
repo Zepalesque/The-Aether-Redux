@@ -1,5 +1,5 @@
 {
-  "type": "aether_redux:biome_border_placement_patch",
+  "type": "minecraft:random_patch",
   "config": {
     "feature": {
       "feature": {

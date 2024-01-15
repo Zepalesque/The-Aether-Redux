@@ -1,10 +1,19 @@
 {
-  "type": "aether_redux:block_test_patch",
+  "type": "minecraft:random_patch",
   "config": {
     "feature": {
       "feature": {
-        "type": "minecraft:simple_block",
+        "type": "aether_redux:test_at_block",
         "config": {
+          "predicate": {
+            "type": "minecraft:would_survive",
+            "state": {
+              "Name": "aether_redux:aurum",
+              "Properties": {
+                "enchanted": "false"
+              }
+            }
+          },
           "to_place": {
             "type": "minecraft:weighted_state_provider",
             "entries": [
@@ -75,15 +84,6 @@
           }
         }
       ]
-    },
-    "predicate": {
-      "type": "minecraft:would_survive",
-      "state": {
-        "Name": "aether_redux:aurum",
-        "Properties": {
-          "enchanted": "false"
-        }
-      }
     },
     "tries": 8,
     "xz_spread": 3,

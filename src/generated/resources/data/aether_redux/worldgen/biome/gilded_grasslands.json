@@ -5,7 +5,7 @@
   "effects": {
     "fog_color": 9671612,
     "foliage_color": 11665355,
-    "grass_color": 13434861,
+    "grass_color": 16318399,
     "music": {
       "max_delay": 24000,
       "min_delay": 12000,
@@ -33,24 +33,23 @@
       "aether:ambrosium_ore",
       "aether:zanite_ore",
       "aether:gravitite_ore_buried",
-      "aether:gravitite_ore"
+      "aether:gravitite_ore",
+      "aether_redux:ore/gilded_holystone_ore"
+    ],
+    [],
+    [
+      "aether:water_spring"
     ],
     [
-      "aether_redux:trees/highfields_trees"
-    ],
-    [
-      "aether:water_spring",
-      "aether_redux:surface/highfields_rock"
-    ],
-    [
+      "aether_redux:trees/grassland_trees",
       "aether:grass_patch",
-      "aether:tall_grass_patch",
-      "aether_redux:patch/skysprouts_patch",
-      "aether_redux:patch/iridia_patch"
+      "aether_redux:patch/gilded_white_flower_patch",
+      "aether_redux:patch/aurum_patch"
     ],
     [
       "aether:cold_aercloud",
-      "aether:blue_aercloud"
+      "aether:blue_aercloud",
+      "aether:golden_aercloud"
     ]
   ],
   "has_precipitation": false,
@@ -150,31 +149,31 @@
     "creature": [
       {
         "type": "aether:phyg",
-        "maxCount": 7,
-        "minCount": 5,
+        "maxCount": 4,
+        "minCount": 3,
         "weight": 10
       },
       {
         "type": "aether:sheepuff",
-        "maxCount": 6,
-        "minCount": 5,
+        "maxCount": 4,
+        "minCount": 3,
         "weight": 12
       },
       {
         "type": "aether:flying_cow",
-        "maxCount": 6,
-        "minCount": 4,
+        "maxCount": 5,
+        "minCount": 2,
         "weight": 12
       },
       {
         "type": "aether:aerbunny",
-        "maxCount": 9,
+        "maxCount": 3,
         "minCount": 3,
-        "weight": 18
+        "weight": 11
       },
       {
         "type": "aether:moa",
-        "maxCount": 4,
+        "maxCount": 3,
         "minCount": 1,
         "weight": 8
       }

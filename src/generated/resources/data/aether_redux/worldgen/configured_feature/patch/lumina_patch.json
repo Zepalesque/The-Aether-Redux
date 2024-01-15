@@ -1,5 +1,5 @@
 {
-  "type": "aether_redux:biome_border_placement_flower",
+  "type": "minecraft:flower",
   "config": {
     "feature": {
       "feature": {

@@ -48,7 +48,6 @@
       "aether_redux:patch/spirolyctil_patch",
       "aether_redux:patch/blightshade_patch",
       "aether_redux:cave_biome/blightmoss_vegetation",
-      "aether_redux:patch/blighted_fungi_patch",
       "aether_redux:surface/holysilt_disk"
     ],
     [

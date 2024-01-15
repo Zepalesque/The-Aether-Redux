@@ -1,8 +1,0 @@
-{
-  "parent": "aether_redux:block/cross_glow",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "cross": "aether_redux:block/natural/blighted_fungi",
-    "overlay": "aether_redux:block/natural/blighted_fungi_glow"
-  }
-}

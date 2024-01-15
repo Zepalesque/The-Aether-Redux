@@ -1,14 +1,14 @@
 {
-  "type": "aether_redux:support_test_patch",
+  "type": "minecraft:random_patch",
   "config": {
-    "block_below": {
-      "type": "minecraft:matching_blocks",
-      "blocks": "aether_redux:lightroot_aether_dirt"
-    },
     "feature": {
       "feature": {
-        "type": "minecraft:simple_block",
+        "type": "aether_redux:test_below_block",
         "config": {
+          "predicate": {
+            "type": "minecraft:matching_blocks",
+            "blocks": "aether_redux:lightroot_aether_dirt"
+          },
           "to_place": {
             "type": "minecraft:simple_state_provider",
             "state": {

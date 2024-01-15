@@ -1,4 +1,4 @@
 {
-  "type": "aether_redux:tree_checking_snow",
+  "type": "aether_redux:tree_aware_snow",
   "config": {}
 }

@@ -1,11 +1,10 @@
-// 1.20.1	2024-01-14T19:13:58.5953628	Item Models: aether_redux
+// 1.20.1	2024-01-14T19:55:20.1227698	Item Models: aether_redux
 262070202f715ccbb93ebca7b4dd3b04851bc0ce assets/aether_redux/models/item/aether_short_grass.json
 ef6d226766d61d6460247665062a399d3613d946 assets/aether_redux/models/item/aevelium.json
 e89330a549c5d1169758ec3314e9285fb8db827a assets/aether_redux/models/item/aevelium_growth.json
 b33b28bb801d1267d9f65e4fa6cbb6743ca4f691 assets/aether_redux/models/item/aevelium_sprouts.json
 2445055af5b1b7f3c6045199ffce74108003cef6 assets/aether_redux/models/item/airbound_cape.json
 2fa1343a8119a1f49af334c002773099174965bd assets/aether_redux/models/item/aurum.json
-64d23a0c3388e81dfb76e3af6af1230453ce2146 assets/aether_redux/models/item/blighted_fungi.json
 41d6989c51ca5da73479ac751b963fcdf87ffa6e assets/aether_redux/models/item/blighted_skyroot_leaves.json
 35a48d8eed3d98c024b886fed8c1b4d21d4f5381 assets/aether_redux/models/item/blighted_skyroot_sapling.json
 be3b9c77cd45147caf3bf5ad56fc9eaff3feef39 assets/aether_redux/models/item/blighted_spores.json
@@ -110,7 +109,6 @@ c953282baa32249b28d02e98928f425c18123a5c assets/aether_redux/models/item/fieldsp
 9f73214f5e6202ac6accb8b67742032d28ecb6d2 assets/aether_redux/models/item/fieldsprout_trapdoor.json
 21a1a4dfb3e80fbea9035184ab7cc0a2527c51a9 assets/aether_redux/models/item/fieldsprout_wood.json
 a09154523552791769f22990327538661fd35c7e assets/aether_redux/models/item/fieldsprout_wood_wall.json
-acf0fe39247a15bbcf01279f6f19f9abc36e34d6 assets/aether_redux/models/item/firecap.json
 507f76812868eda49e39721f70a91288e28d4cfc assets/aether_redux/models/item/flowering_fieldsprout_leaves.json
 3127ab105e88958079848faac0ce5063995667e5 assets/aether_redux/models/item/flowering_fieldsprout_sapling.json
 db62fd78b64279c7e773d075297601fb18a4d7bc assets/aether_redux/models/item/frosted_fern.json
