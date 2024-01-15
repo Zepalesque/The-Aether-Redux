@@ -24,7 +24,7 @@ public class BronzeDungeonRoomMixin {
     @Inject(method = "handleDataMarker", at = @At(value = "TAIL"))
     protected void processSpawners(String name, BlockPos pos, ServerLevelAccessor level, RandomSource random, BoundingBox box, CallbackInfo ci) {
         if (name.equals("Spawner")) {
-            if (random.nextInt(2) == 0) {
+            if (random.nextInt(3) == 0) {
                 level.setBlock(pos, Blocks.SPAWNER.defaultBlockState(), 2);
                 if (level.getBlockEntity(pos) instanceof SpawnerBlockEntity spawner) {
                     if (Redux.aetherGenesisCompat() && ReduxConfig.COMMON.genesis_spawner_mobs.get() == SpawnerType.all)
