@@ -6,7 +6,6 @@ import com.aetherteam.aether.entity.AetherEntityTypes;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
-import net.minecraft.data.worldgen.placement.MiscOverworldPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.Music;
 import net.minecraft.world.entity.MobCategory;
@@ -19,7 +18,6 @@ import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.audio.ReduxMusic;
-import org.checkerframework.checker.units.qual.A;
 
 public class ReduxBiomes {
     public static final ResourceKey<Biome> THE_BLIGHT = createKey("the_blight");
@@ -29,6 +27,7 @@ public class ReduxBiomes {
     public static final ResourceKey<Biome> GILDED_GRASSLANDS = createKey("gilded_grasslands");
     public static final ResourceKey<Biome> HIGHFIELDS = createKey("highfields");
     public static final ResourceKey<Biome> CLOUDCAP_JUNGLE = createKey("cloudcap_jungle");
+    public static final ResourceKey<Biome> SKYROOT_SHRUBLANDS = createKey("skyroot_shrublands");
 
     private static ResourceKey<Biome> createKey(String name) {
         return ResourceKey.create(Registries.BIOME, Redux.locate(name));
@@ -42,7 +41,7 @@ public class ReduxBiomes {
         HolderGetter<PlacedFeature> placedFeatures = context.lookup(Registries.PLACED_FEATURE);
         HolderGetter<ConfiguredWorldCarver<?>> configuredCarvers = context.lookup(Registries.CONFIGURED_CARVER);
 
-        context.register(THE_BLIGHT, biomeBase(
+        context.register(THE_BLIGHT, biomeSky(
                 ores(baseFeatures(new BiomeGenerationSettings.Builder(placedFeatures, configuredCarvers), false, false, true, true, false))
                         .addFeature(GenerationStep.Decoration.FLUID_SPRINGS, ReduxPlacedFeatures.BLIGHT_ROCK)
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.BLIGHT_TREES)
@@ -58,10 +57,12 @@ public class ReduxBiomes {
                 ReduxMusic.DEFAULT_AETHER_MUSIC,
                 4607385,
                 723770,
-                BLIGHT_GRASS_COLOR
+                BLIGHT_GRASS_COLOR,
+                0xC6C1FF,
+                0xA591BC
                 ));
 
-        context.register(CLOUDCAP_JUNGLE, biomeBase(
+        context.register(CLOUDCAP_JUNGLE, simpleBiome(
                 ores(baseFeatures(new BiomeGenerationSettings.Builder(placedFeatures, configuredCarvers), false, false, true, true, true))
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.LARGE_MUSHROOMS)
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.AEVELIUM_GRASSES_PATCH)
@@ -75,7 +76,7 @@ public class ReduxBiomes {
                 AETHER_GRASS_COLOR
                 ));
 
-        context.register(GLACIAL_TAIGA, biomeBase(
+        context.register(GLACIAL_TAIGA, climateBiome(
                 ores(baseFeatures(new BiomeGenerationSettings.Builder(placedFeatures, configuredCarvers), false, false, true, true, false))
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.FROSTED_FERN_PATCH)
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.GLACIAL_TREES)
@@ -96,7 +97,7 @@ public class ReduxBiomes {
         ));
 
 
-        context.register(FROSTED_TUNDRA, biomeBase(
+        context.register(FROSTED_TUNDRA, climateBiome(
                 ores(baseFeatures(new BiomeGenerationSettings.Builder(placedFeatures, configuredCarvers), false, false, true, true, false))
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.FROSTED_FERN_PATCH)
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.FROSTED_TREES)
@@ -114,7 +115,7 @@ public class ReduxBiomes {
                 0.5F
         ));
 
-        context.register(GILDED_GROVES, biomeBase(
+        context.register(GILDED_GROVES, simpleBiome(
                 ores(baseFeatures(new BiomeGenerationSettings.Builder(placedFeatures, configuredCarvers), false, false, true, true, true))
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.GROVE_TREES)
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.GRASS_PATCH_PLACEMENT)
@@ -129,7 +130,7 @@ public class ReduxBiomes {
                 WATER_FOG,
                 GILDED_GRASS_COLOR
                 ));
-        context.register(GILDED_GRASSLANDS, biomeBase(
+        context.register(GILDED_GRASSLANDS, simpleBiome(
                 ores(baseFeatures(new BiomeGenerationSettings.Builder(placedFeatures, configuredCarvers), false, false, true, true, true))
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.GRASSLAND_TREES)
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.GRASS_PATCH_PLACEMENT)
@@ -144,7 +145,7 @@ public class ReduxBiomes {
                 GILDED_GRASS_COLOR
                 ));
 
-        context.register(HIGHFIELDS, biomeBase(
+        context.register(HIGHFIELDS, simpleBiome(
                 ores(baseFeatures(new BiomeGenerationSettings.Builder(placedFeatures, configuredCarvers), false, false, true, true, false))
                         .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, ReduxPlacedFeatures.HIGHFIELDS_TREES)
                         .addFeature(GenerationStep.Decoration.FLUID_SPRINGS, ReduxPlacedFeatures.HIGHFIELDS_ROCK)
@@ -158,7 +159,25 @@ public class ReduxBiomes {
                 WATER,
                 WATER_FOG,
                 HIGHFIELDS_GRASS_COLOR
-                ));
+        ));
+
+        context.register(SKYROOT_SHRUBLANDS, simpleBiome(
+                ores(baseFeatures(new BiomeGenerationSettings.Builder(placedFeatures, configuredCarvers), false, false, true, true, false))
+                        .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, ReduxPlacedFeatures.SHRUBLANDS_TREES)
+                        .addFeature(GenerationStep.Decoration.FLUID_SPRINGS, ReduxPlacedFeatures.SHRUBLANDS_ROCK)
+                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.GRASS_PATCH_PLACEMENT)
+                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.TALL_GRASS_PATCH_PLACEMENT)
+                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.PURPLE_FLOWER_PATCH_PLACEMENT)
+                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.WHITE_FLOWER_PATCH_PLACEMENT)
+                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.AURUM_PATCH)
+                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.ZANBERRY_BUSH_PATCH)
+                ,
+                increasedMobSpawns(new MobSpawnSettings.Builder()),
+                ReduxMusic.DEFAULT_AETHER_MUSIC,
+                WATER,
+                WATER_FOG,
+                SHRUBLANDS_GRASS_COLOR
+        ));
     }
     public static final int AETHER_GRASS_COLOR = 0xB1FFCB;
     public static final int GILDED_GRASS_COLOR = 0xF8FFBF;
@@ -169,14 +188,14 @@ public class ReduxBiomes {
 
 
 
-    public static Biome biomeBase(BiomeGenerationSettings.Builder gen, MobSpawnSettings.Builder mobSpawns, Music music, int waterColor, int waterFogColor, int grassColor, boolean precip, float temp, float downfall) {
+    public static Biome biomeBase(BiomeGenerationSettings.Builder gen, MobSpawnSettings.Builder mobSpawns, Music music, int waterColor, int waterFogColor, int grassColor, int skyColor, int skyFogColor, boolean precip, float temp, float downfall) {
         return fullDefinition(
                 precip,
                 temp,
                 downfall,
                 new BiomeSpecialEffects.Builder()
-                        .fogColor(0x93_93_bc)
-                        .skyColor(0xc0_c0_ff)
+                        .fogColor(skyFogColor)
+                        .skyColor(skyColor)
                         .waterColor(waterColor)
                         .waterFogColor(waterFogColor)
                         .grassColorOverride(grassColor)
@@ -190,9 +209,18 @@ public class ReduxBiomes {
         );
     }
 
-    public static Biome biomeBase(BiomeGenerationSettings.Builder gen, MobSpawnSettings.Builder mobSpawns, Music music, int waterColor, int waterFogColor, int grassColor) {
-        return biomeBase(gen, mobSpawns, music, waterColor, waterFogColor, grassColor, false, 0.8F, 0.0F);
+    public static Biome simpleBiome(BiomeGenerationSettings.Builder gen, MobSpawnSettings.Builder mobSpawns, Music music, int waterColor, int waterFogColor, int grassColor) {
+        return biomeBase(gen, mobSpawns, music, waterColor, waterFogColor, grassColor, 0xc0_c0_ff, 0x93_93_bc, false, 0.8F, 0.0F);
     }
+
+    public static Biome climateBiome(BiomeGenerationSettings.Builder gen, MobSpawnSettings.Builder mobSpawns, Music music, int waterColor, int waterFogColor, int grassColor, boolean precip, float temp, float downfall) {
+        return biomeBase(gen, mobSpawns, music, waterColor, waterFogColor, grassColor, 0xc0_c0_ff, 0x93_93_bc, precip, temp, downfall);
+    }
+
+    public static Biome biomeSky(BiomeGenerationSettings.Builder gen, MobSpawnSettings.Builder mobSpawns, Music music, int waterColor, int waterFogColor, int grassColor, int skyColor, int skyFogColor) {
+        return biomeBase(gen, mobSpawns, music, waterColor, waterFogColor, grassColor, skyColor, skyFogColor, false, 0.8F, 0.0F);
+    }
+
 
     public static MobSpawnSettings.Builder defaultMobSpawnsNoPassive(MobSpawnSettings.Builder builder)
     {
