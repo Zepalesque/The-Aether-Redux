@@ -45,8 +45,8 @@
     [
       "aether:grass_patch",
       "aether:tall_grass_patch",
-      "aether:purple_flower_patch",
-      "aether:white_flower_patch",
+      "aether_redux:patch/shrublands_purple_patch",
+      "aether_redux:patch/shrublands_white_patch",
       "aether_redux:patch/aurum_patch",
       "aether_redux:patch/zanberry_bush_patch"
     ],

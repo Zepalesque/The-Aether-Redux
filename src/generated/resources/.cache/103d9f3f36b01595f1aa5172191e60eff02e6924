@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-15T13:46:52.0640399	Registries
+// 1.20.1	2024-01-15T13:57:59.2952777	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 cd3a6aa44fc8b5997f2f84db9e1a1ff8f22527b5 data/aether/worldgen/configured_feature/golden_oak_tree.json
 ed5af58b49c3097be8598f4b57d2dd256fb1c93a data/aether/worldgen/configured_feature/grass_patch.json
@@ -24,7 +24,7 @@ da775042d3c15e46f99720ee19f5f28c8359b148 data/aether_redux/worldgen/biome/gilded
 55f6243e30ba7b8316e282102a918a206e3e187c data/aether_redux/worldgen/biome/gilded_groves.json
 4ef74e69d308f80615ce17e2caec0c40683ced18 data/aether_redux/worldgen/biome/glacial_taiga.json
 df5b432a1daed92487084d08ad21f4b91a51c1d0 data/aether_redux/worldgen/biome/highfields.json
-067b47a8fae73626f5feb92b13b210eaafee1182 data/aether_redux/worldgen/biome/skyroot_shrublands.json
+d3e00228f22e73d19756038ebe9bd9e4683a8a1d data/aether_redux/worldgen/biome/skyroot_shrublands.json
 9794a4db9265df604879f4cf89edd4111535deec data/aether_redux/worldgen/biome/the_blight.json
 cfe421e90aabe262a399e053328abe2cf9f7b843 data/aether_redux/worldgen/configured_carver/aether_caves.json
 4c222a5e5a1589451206b1882dd0b845f41efaf5 data/aether_redux/worldgen/configured_feature/cave_biome/blightmoss_patch.json
@@ -115,6 +115,8 @@ d4752a78ed8b5dcd04a7bf9aa17798aa11e71f14 data/aether_redux/worldgen/placed_featu
 85ea491bccfddfbcdfaa12a0dc2c1bdc9f464f66 data/aether_redux/worldgen/placed_feature/patch/iridia_patch.json
 58ca73dfc3f2b6fb1e6311fb08fb86c61a96dd81 data/aether_redux/worldgen/placed_feature/patch/lumina_patch.json
 f78fda45c48183d1020111bd0503acfa292674d0 data/aether_redux/worldgen/placed_feature/patch/luxweed_patch.json
+77bc93c9acb698814701f80b5b06336bcc00ba91 data/aether_redux/worldgen/placed_feature/patch/shrublands_purple_patch.json
+7238cab7e7e677ea43527a7b4a1445c0b1d65116 data/aether_redux/worldgen/placed_feature/patch/shrublands_white_patch.json
 054a4a0b2af17f3053aacfb314ec0f1408b34b2b data/aether_redux/worldgen/placed_feature/patch/skysprouts_patch.json
 ae6c29e50d9a2e42f5a253ee0a17f3cc752fee02 data/aether_redux/worldgen/placed_feature/patch/spirolyctil_patch.json
 e2a06f7f9f36822e8bc4e9d9af2e32aca8d34865 data/aether_redux/worldgen/placed_feature/patch/springshroom_patch.json
