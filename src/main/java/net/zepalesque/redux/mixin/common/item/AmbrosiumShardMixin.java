@@ -21,6 +21,7 @@ public abstract class AmbrosiumShardMixin extends ItemMixin {
 
     @Override
     protected void overrideStackedOnOther(ItemStack stack, Slot slot, ClickAction action, Player player, CallbackInfoReturnable<Boolean> cir) {
+        Redux.LOGGER.debug("Overriden stack on other");
 
         ItemStack other = slot.getItem();
 
@@ -37,9 +38,11 @@ public abstract class AmbrosiumShardMixin extends ItemMixin {
                             slot.set(newStack);
                         } else {
                             other.shrink(1);
+                            newStack.setCount(1);
+                            player.getInventory().add(newStack);
                         }
-                        slot.setChanged();
                         stack.shrink(1);
+                        slot.setChanged();
                         VeridiumItem.infuseSound(player);
                         cir.setReturnValue(true);
                     }

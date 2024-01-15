@@ -33,13 +33,15 @@ public record InfuseItemPacket(UUID playerID, InfusionHolder holder) implements 
                 if (this.holder.getInfused().getCount() >= 1) {
                     ItemStack s = this.holder().getResult();
                     s.setCount(1);
-                    boolean b = sp.addItem(s);
-                    Redux.LOGGER.debug("Recieved item packet, Threw on ground: {}", !b);
-                    if (!b) {
+                    boolean flag = sp.getInventory().add(s);
+                    Redux.LOGGER.debug("Recieved item packet, Threw on ground: {}", !flag);
+                    if (!flag) {
                         double d0 = sp.getEyeY() - (double)0.3F;
                         ItemEntity itementity = new ItemEntity(sp.level(), sp.getX(), d0, sp.getZ(), s);
                         itementity.setPickUpDelay(40);
                         sp.level().addFreshEntity(itementity);
+                    } else {
+                        sp.containerMenu.broadcastChanges();
                     }
                 }
             }
