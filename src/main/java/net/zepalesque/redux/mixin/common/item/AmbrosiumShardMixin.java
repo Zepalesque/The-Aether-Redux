@@ -21,7 +21,6 @@ public abstract class AmbrosiumShardMixin extends ItemMixin {
 
     @Override
     protected void overrideStackedOnOther(ItemStack stack, Slot slot, ClickAction action, Player player, CallbackInfoReturnable<Boolean> cir) {
-        Redux.LOGGER.debug("Overriden stack on other");
 
         ItemStack other = slot.getItem();
 
