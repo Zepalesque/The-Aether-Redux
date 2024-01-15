@@ -31,7 +31,11 @@ public abstract class AmbrosiumShardMixin extends ItemMixin {
                     ItemStack newStack = recipe.getResultStack(other);
                     if (newStack != null) {
                         ReduxPacketHandler.sendToServer(new InfuseItemPacket(player.getUUID(), new InfusionHolder(other, newStack)));
-                        slot.set(newStack);
+                        if (other.getCount() <= 1) {
+                            slot.set(newStack);
+                        } else {
+                            other.shrink(1);
+                        }
                         slot.setChanged();
                         stack.shrink(1);
                         VeridiumItem.infuseSound(player);
