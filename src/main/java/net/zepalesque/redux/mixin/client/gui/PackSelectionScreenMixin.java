@@ -36,7 +36,7 @@ public class PackSelectionScreenMixin implements MixinMenuStorage {
         this.menu.setSelectionScreen((PackSelectionScreen) (Object) this);
     }
 
-    @Inject(method = "onClose", at = @At(value = "TAIL"))
+    @Inject(method = "onClose", at = @At(value = "HEAD"))
     public void close(CallbackInfo ci) {
         if (this.menu != null && this.menu.isMarked()) {
             HashSet<String> a = new HashSet<>(((PackSelectionModelAccessor) this.model).getPacks().stream().map(Pack::getId).toList());
