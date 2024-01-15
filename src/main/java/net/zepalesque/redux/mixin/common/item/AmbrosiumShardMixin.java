@@ -6,6 +6,7 @@ import net.minecraft.world.inventory.ClickAction;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.item.util.VeridiumItem;
 import net.zepalesque.redux.network.ReduxPacketHandler;
 import net.zepalesque.redux.network.packet.InfuseItemPacket;
@@ -31,6 +32,7 @@ public abstract class AmbrosiumShardMixin extends ItemMixin {
                     ItemStack newStack = recipe.getResultStack(other);
                     if (newStack != null) {
                         ReduxPacketHandler.sendToServer(new InfuseItemPacket(player.getUUID(), new InfusionHolder(other, newStack)));
+                        Redux.LOGGER.debug("Sent item packet to server");
                         if (other.getCount() <= 1) {
                             slot.set(newStack);
                         } else {
