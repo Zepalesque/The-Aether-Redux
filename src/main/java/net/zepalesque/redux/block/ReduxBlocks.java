@@ -28,7 +28,6 @@ import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.natural.*;
-import net.zepalesque.redux.block.natural.blight.BlightedFungiBlock;
 import net.zepalesque.redux.block.natural.blight.BlightmossBlock;
 import net.zepalesque.redux.block.natural.blight.BlightshadeBlock;
 import net.zepalesque.redux.block.natural.cloudcap.*;
@@ -136,10 +135,6 @@ public class ReduxBlocks {
     public static RegistryObject<Block> BLIGHTSHADE = register("blightshade",
             () -> new BlightshadeBlock(() -> MobEffects.DARKNESS, 60, BlockBehaviour.Properties.copy(Blocks.WITHER_ROSE).mapColor(MapColor.COLOR_BLACK)));
     public static final RegistryObject<FlowerPotBlock> POTTED_BLIGHTSHADE = BLOCKS.register("potted_blightshade", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, BLIGHTSHADE, Block.Properties.copy(Blocks.FLOWER_POT)));
-
-    public static RegistryObject<Block> BLIGHTED_FUNGI = register("blighted_fungi",
-            () -> new BlightedFungiBlock(BlockBehaviour.Properties.of().lightLevel((state) -> 5).noCollission().instabreak().sound(SoundType.NETHER_SPROUTS).offsetType(BlockBehaviour.OffsetType.XZ)));
-    public static final RegistryObject<FlowerPotBlock> POTTED_BLIGHTED_FUNGI = BLOCKS.register("potted_blighted_fungi", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, BLIGHTED_FUNGI, Block.Properties.copy(Blocks.FLOWER_POT).lightLevel((state) -> 5)));
 
     public static RegistryObject<Block> CLOUDCAP_MUSHLING = register("cloudcap_mushling",
             () -> new CloudcapMushlingBlock(BlockBehaviour.Properties.of().lightLevel((state) -> 3).noCollission().instabreak().sound(SoundType.NETHER_SPROUTS).offsetType(BlockBehaviour.OffsetType.XZ), ReduxConfiguredFeatures.LARGE_CLOUDCAP));
@@ -401,7 +396,6 @@ public class ReduxBlocks {
         pot.addPlant(ReduxBlocks.LUXWEED.getId(), ReduxBlocks.POTTED_LUXWEED);
         pot.addPlant(ReduxBlocks.SPIROLYCTIL.getId(), ReduxBlocks.POTTED_SPIROLYCTIL);
         pot.addPlant(ReduxBlocks.BLIGHTSHADE.getId(), ReduxBlocks.POTTED_BLIGHTSHADE);
-        pot.addPlant(ReduxBlocks.BLIGHTED_FUNGI.getId(), ReduxBlocks.POTTED_BLIGHTED_FUNGI);
         pot.addPlant(ReduxBlocks.ZANBERRY_SHRUB.getId(), ReduxBlocks.POTTED_ZANBERRY_SHRUB);
         pot.addPlant(ReduxBlocks.ZANBERRY_BUSH.getId(), ReduxBlocks.POTTED_ZANBERRY_BUSH);
         pot.addPlant(ReduxBlocks.BLIGHTWILLOW_SAPLING.getId(), ReduxBlocks.POTTED_BLIGHTWILLOW_SAPLING);

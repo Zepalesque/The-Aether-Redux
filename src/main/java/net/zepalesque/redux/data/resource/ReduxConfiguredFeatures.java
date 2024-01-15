@@ -120,7 +120,6 @@ public class    ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRINGSHROOM_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.SPRINGSHROOM) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPROUTING_LIGHTROOTS_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.SPROUTING_LIGHTROOTS) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SURFACE_RULE_WATER_LAKE = createKey(Folders.SURFACE + "surface_rule_water_lake");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> THORNCAP_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.BLIGHTED_FUNGI) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> VERIDIUM_ORE = createKey(Folders.ORE + name(ReduxBlocks.VERIDIUM_ORE));
     public static final ResourceKey<ConfiguredFeature<?, ?>> DIVINITE_ORE = createKey(Folders.ORE + name(ReduxBlocks.DIVINITE) + "_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CRYSTAL_TREE_OVERRIDE = aetherKey("crystal_tree");
@@ -197,7 +196,6 @@ public class    ReduxConfiguredFeatures {
                 new SimpleBlockConfiguration(new WeightedStateProvider(
                         SimpleWeightedRandomList.<BlockState>builder()
                                 .add(drops(ReduxBlocks.BLIGHTSHADE), 11)
-                                .add(drops(ReduxBlocks.BLIGHTED_FUNGI), 4)
                                 .add(drops(ReduxBlocks.SPIROLYCTIL), 7)
                                 .add(drops(ReduxBlocks.BLIGHTMOSS_CARPET), 75)
                                 .add(drops(ReduxBlocks.AETHER_SHORT_GRASS), 150)
@@ -449,11 +447,6 @@ public class    ReduxConfiguredFeatures {
                 blockBelowPlacementPatch(32, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.SPROUTING_LIGHTROOTS)),
                         BlockPredicate.matchesBlocks(ReduxBlocks.LIGHTROOT_AETHER_DIRT.get())));
 
-
-
-        register(context, THORNCAP_PATCH, Feature.FLOWER,
-                blockBelowPlacementPatch(8, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.BLIGHTED_FUNGI)),
-                        BlockPredicate.matchesBlocks(AetherBlocks.AETHER_GRASS_BLOCK.get())));
 
         register(context, BLIGHT_TREES, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(

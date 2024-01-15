@@ -100,7 +100,6 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlockFlatTintGlow(ReduxBlocks.LUXWEED, "natural/");
         itemBlockFlatTintOverlay(ReduxBlocks.SPIROLYCTIL, "natural/");
         itemBlockFlatTintOverlay(ReduxBlocks.BLIGHTSHADE, "natural/");
-        itemBlockFlatGlow(ReduxBlocks.BLIGHTED_FUNGI, "natural/");
 
         itemFullGlow(ReduxItems.LIGHTROOT_CLUMP, "food/");
 

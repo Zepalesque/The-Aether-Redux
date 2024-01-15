@@ -225,7 +225,6 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.POTTED_SPIROLYCTIL.get(),
                 ReduxBlocks.POTTED_BLIGHTSHADE.get(),
                 ReduxBlocks.POTTED_LUXWEED.get(),
-                ReduxBlocks.POTTED_BLIGHTED_FUNGI.get(),
                 ReduxBlocks.POTTED_ZANBERRY_SHRUB.get(),
                 ReduxBlocks.POTTED_BLIGHTWILLOW_SAPLING.get(),
                 ReduxBlocks.POTTED_FLOWERING_FIELDSPROUT_SAPLING.get(),

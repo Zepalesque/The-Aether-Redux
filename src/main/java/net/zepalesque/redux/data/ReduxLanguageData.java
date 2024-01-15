@@ -165,10 +165,6 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.POTTED_ZANBERRY_SHRUB, "Potted Zanberry Shrub");
         addLore(ReduxBlocks.ZANBERRY_SHRUB, "The stem of the Zanberry Bush. This will grow into a full bush, and will have Zanberries, which can be picked!");
 
-        addBlock(ReduxBlocks.BLIGHTED_FUNGI, "Blighted Fungi");
-        addBlock(ReduxBlocks.POTTED_BLIGHTED_FUNGI, "Potted Blighted Fungi");
-        addLore(ReduxBlocks.BLIGHTED_FUNGI, "A patch of small mushrooms found in the Blight. Careful, it's sharp and poisonous!");
-
         addBlock(ReduxBlocks.CLOUDCAP_MUSHLING, "Cloudcap Mushling");
         addBlock(ReduxBlocks.POTTED_CLOUDCAP_MUSHLING, "Potted Cloudcap Mushling");
         addLore(ReduxBlocks.CLOUDCAP_MUSHLING, "A mushroom found commonly in the Cloudcap Jungle and occasionally in the Highfields. It glows faintly.");

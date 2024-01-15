@@ -78,7 +78,6 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> SPRINGSHROOM_PATCH  = copyKey(ReduxConfiguredFeatures.SPRINGSHROOM_PATCH);
     public static final ResourceKey<PlacedFeature> SPROUTING_LIGHTROOTS_PATCH  = copyKey(ReduxConfiguredFeatures.SPROUTING_LIGHTROOTS_PATCH);
     public static final ResourceKey<PlacedFeature> SURFACE_RULE_WATER_LAKE = copyKey(ReduxConfiguredFeatures.SURFACE_RULE_WATER_LAKE);
-    public static final ResourceKey<PlacedFeature> THORNCAP_PATCH  = copyKey(ReduxConfiguredFeatures.THORNCAP_PATCH);
     public static final ResourceKey<PlacedFeature> VERIDIUM_ORE = copyKey(ReduxConfiguredFeatures.VERIDIUM_ORE);
     public static final ResourceKey<PlacedFeature> DIVINITE_ORE = copyKey(ReduxConfiguredFeatures.DIVINITE_ORE);
     public static final ResourceKey<PlacedFeature> HOLYSILT_DISK = copyKey(ReduxConfiguredFeatures.HOLYSILT_DISK);
@@ -418,12 +417,6 @@ public class ReduxPlacedFeatures {
                 PlacementUtils.filteredByBlockSurvival(ReduxBlocks.BLIGHTWILLOW_SAPLING.get()),
                 DUNGEON_BLACKLIST
         );
-
-        register(context, THORNCAP_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.THORNCAP_PATCH),
-                NOISE_THRESHOLD,
-                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
-                RarityFilter.onAverageOnceEvery(8),
-                BiomeFilter.biome());
 
         register(context, VERIDIUM_ORE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.VERIDIUM_ORE),
                 CountPlacement.of(6),

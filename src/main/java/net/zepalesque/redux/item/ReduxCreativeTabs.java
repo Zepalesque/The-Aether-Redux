@@ -111,8 +111,7 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.GOLDEN_CLOVER, ReduxBlocks.LUXWEED, event);
             putAfter(ReduxBlocks.LUXWEED, ReduxBlocks.SPIROLYCTIL, event);
             putAfter(ReduxBlocks.SPIROLYCTIL, ReduxBlocks.BLIGHTSHADE, event);
-            putAfter(ReduxBlocks.BLIGHTSHADE, ReduxBlocks.BLIGHTED_FUNGI, event);
-            putAfter(ReduxBlocks.BLIGHTED_FUNGI, ReduxBlocks.LUMINA, event);
+            putAfter(ReduxBlocks.BLIGHTSHADE, ReduxBlocks.LUMINA, event);
             putAfter(ReduxBlocks.LUMINA, ReduxBlocks.DAGGERBLOOM, event);
             putAfter(ReduxBlocks.DAGGERBLOOM, ReduxBlocks.FROSTED_FERN, event);
             putAfter(ReduxBlocks.CLOUDCAP_MUSHLING, ReduxBlocks.CLOUDCAP_MUSHLING, event);
