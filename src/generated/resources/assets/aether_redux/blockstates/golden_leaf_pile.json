@@ -12,6 +12,18 @@
     "layers=12": {
       "model": "aether_redux:block/golden_leaf_pile12"
     },
+    "layers=13": {
+      "model": "aether_redux:block/golden_leaf_pile13"
+    },
+    "layers=14": {
+      "model": "aether_redux:block/golden_leaf_pile14"
+    },
+    "layers=15": {
+      "model": "aether_redux:block/golden_leaf_pile15"
+    },
+    "layers=16": {
+      "model": "aether_redux:block/golden_leaf_pile_full"
+    },
     "layers=2": {
       "model": "aether_redux:block/golden_leaf_pile2"
     },
