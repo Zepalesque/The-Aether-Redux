@@ -3,6 +3,7 @@ package net.zepalesque.redux.network.packet;
 import com.aetherteam.nitrogen.network.BasePacket;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.zepalesque.redux.advancement.trigger.InfuseItemTrigger;
@@ -31,7 +32,12 @@ public record InfuseItemPacket(UUID playerID, InfusionHolder holder) implements 
                 if (this.holder.getInfused().getCount() >= 1) {
                     ItemStack s = this.holder().getResult();
                     s.setCount(1);
-                    sp.addItem(s);
+                    if (!sp.addItem(s)) {
+                        double d0 = sp.getEyeY() - (double)0.3F;
+                        ItemEntity itementity = new ItemEntity(sp.level(), sp.getX(), d0, sp.getZ(), s);
+                        itementity.setPickUpDelay(40);
+                        sp.level().addFreshEntity(itementity);
+                    }
                 }
             }
         }
