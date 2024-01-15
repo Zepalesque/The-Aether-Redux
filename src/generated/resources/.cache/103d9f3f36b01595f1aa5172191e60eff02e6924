@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-15T13:57:59.2952777	Registries
+// 1.20.1	2024-01-15T14:00:21.2858121	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 cd3a6aa44fc8b5997f2f84db9e1a1ff8f22527b5 data/aether/worldgen/configured_feature/golden_oak_tree.json
 ed5af58b49c3097be8598f4b57d2dd256fb1c93a data/aether/worldgen/configured_feature/grass_patch.json
@@ -115,8 +115,8 @@ d4752a78ed8b5dcd04a7bf9aa17798aa11e71f14 data/aether_redux/worldgen/placed_featu
 85ea491bccfddfbcdfaa12a0dc2c1bdc9f464f66 data/aether_redux/worldgen/placed_feature/patch/iridia_patch.json
 58ca73dfc3f2b6fb1e6311fb08fb86c61a96dd81 data/aether_redux/worldgen/placed_feature/patch/lumina_patch.json
 f78fda45c48183d1020111bd0503acfa292674d0 data/aether_redux/worldgen/placed_feature/patch/luxweed_patch.json
-77bc93c9acb698814701f80b5b06336bcc00ba91 data/aether_redux/worldgen/placed_feature/patch/shrublands_purple_patch.json
-7238cab7e7e677ea43527a7b4a1445c0b1d65116 data/aether_redux/worldgen/placed_feature/patch/shrublands_white_patch.json
+10fb91106dbfb8d2d108a93de4332c5ce7306624 data/aether_redux/worldgen/placed_feature/patch/shrublands_purple_patch.json
+67c31d69707a075d2648205418f95fe381fcb75d data/aether_redux/worldgen/placed_feature/patch/shrublands_white_patch.json
 054a4a0b2af17f3053aacfb314ec0f1408b34b2b data/aether_redux/worldgen/placed_feature/patch/skysprouts_patch.json
 ae6c29e50d9a2e42f5a253ee0a17f3cc752fee02 data/aether_redux/worldgen/placed_feature/patch/spirolyctil_patch.json
 e2a06f7f9f36822e8bc4e9d9af2e32aca8d34865 data/aether_redux/worldgen/placed_feature/patch/springshroom_patch.json
