@@ -13,10 +13,9 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.zepalesque.redux.block.util.ReduxStates;
 
-public class TreeCheckingSnowLayerFeature extends Feature<NoneFeatureConfiguration> {
-   public TreeCheckingSnowLayerFeature(Codec<NoneFeatureConfiguration> p_66836_) {
+public class TreeAwareSnowLayerFeature extends Feature<NoneFeatureConfiguration> {
+   public TreeAwareSnowLayerFeature(Codec<NoneFeatureConfiguration> p_66836_) {
       super(p_66836_);
    }
 
