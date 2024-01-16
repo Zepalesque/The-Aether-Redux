@@ -79,15 +79,6 @@ public class MobSoundListener {
             }
         }
 
-        if (ReduxConfig.COMMON.improved_aechor_plant_sounds.get()) {
-            if (sound == AetherSoundEvents.ENTITY_AECHOR_PLANT_DEATH.get()) {
-                newSound = ReduxSoundEvents.AECHOR_PLANT_DEATH;
-            }
-            if (sound == AetherSoundEvents.ENTITY_AECHOR_PLANT_HURT.get()) {
-                newSound = ReduxSoundEvents.AECHOR_PLANT_HURT;
-            }
-        }
-
         if (ReduxConfig.COMMON.improved_aerwhale_sounds.get()) {
             if (sound == AetherSoundEvents.ENTITY_AERWHALE_AMBIENT.get()) {
                 newSound = ReduxSoundEvents.AERWHALE_AMBIENT;

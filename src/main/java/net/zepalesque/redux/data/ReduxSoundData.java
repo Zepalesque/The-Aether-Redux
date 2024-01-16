@@ -44,9 +44,7 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
         this.add(ReduxSoundEvents.COCKATRICE_AMBIENT, definition().with(sound("aether_redux:entity/cockatrice/say1"), sound("aether_redux:entity/cockatrice/say2")).subtitle("subtitles.aether.entity.cockatrice.ambient"));
         this.add(ReduxSoundEvents.COCKATRICE_DEATH, definition().with(sound("aether_redux:entity/cockatrice/hurt1"), sound("aether_redux:entity/cockatrice/hurt2")).subtitle("subtitles.aether.entity.cockatrice.death"));
         this.add(ReduxSoundEvents.COCKATRICE_HURT, definition().with(sound("aether_redux:entity/cockatrice/hurt1"), sound("aether_redux:entity/cockatrice/hurt2")).subtitle("subtitles.aether.entity.cockatrice.hurt"));
-        this.add(ReduxSoundEvents.AECHOR_PLANT_DEATH, definition().with(sound("aether_redux:entity/aechor_plant/death")).subtitle("subtitles.aether.entity.aechor_plant.death"));
-        this.add(ReduxSoundEvents.AECHOR_PLANT_HURT, definition().with(sound("aether_redux:entity/aechor_plant/hurt1"), sound("aether_redux:entity/aechor_plant/hurt2"), sound("aether_redux:entity/aechor_plant/hurt3"), sound("aether_redux:entity/aechor_plant/hurt4")).subtitle("subtitles.aether.entity.aechor_plant.hurt"));
-        this.add(ReduxSoundEvents.SLIDER_HURT,
+    this.add(ReduxSoundEvents.SLIDER_HURT,
                 definition().with(sound("aether_redux:entity/slider/hit1"), sound("aether_redux:entity/slider/hit2"), sound("aether_redux:entity/slider/hit3"))
                         .subtitle("subtitles.aether.entity.slider.hurt"));
         this.add(ReduxSoundEvents.SLIDER_AMBIENT,

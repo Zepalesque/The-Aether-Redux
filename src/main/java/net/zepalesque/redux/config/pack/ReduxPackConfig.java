@@ -30,6 +30,8 @@ public class ReduxPackConfig {
 
     public final PackConfig<Boolean> auto_apply;
 
+    public final PackConfig<Boolean> better_aechor_sounds;
+
     public final PackConfig<Boolean> tintable_grass;
 
     public ReduxPackConfig(Category base) {
@@ -41,6 +43,9 @@ public class ReduxPackConfig {
         // Classic green cockatrices
         this.classic_cockatrices = builder.comment().cfg("classic_cockatrices", ClassicOption.modern, ClassicOption.MAPPER);
         builder.pop();
+        // Various sound improvements
+        builder.push("audio");
+        this.better_aechor_sounds = builder.comment().cfg("better_aechor_sounds", true, WidgetMappers.BOOL);
         builder.pop();
         builder.push("item");
         // Which behavior for swet balls to use
@@ -74,7 +79,8 @@ public class ReduxPackConfig {
                     Conditional.of(BuiltinPackUtils.createPack("resource/jappafied_textures"), config.use_jappafied_textures),
                     Conditional.of(BuiltinPackUtils.createPack("resource/item/genesis_jelly"), Redux::aetherGenesisCompat),
                     Conditional.of(BuiltinPackUtils.createPack("resource/item/shadow_veridium"), () -> config.veridium_type.get() == VeridiumType.shadow),
-                    Conditional.of(BuiltinPackUtils.createPack("resource/item/classic_veridium"), () -> config.veridium_type.get() == VeridiumType.classic)
+                    Conditional.of(BuiltinPackUtils.createPack("resource/item/classic_veridium"), () -> config.veridium_type.get() == VeridiumType.classic),
+                    Conditional.of(BuiltinPackUtils.createPack("resource/sounds/aechor"), config.better_aechor_sounds)
             );
         }
         return new ReduxOverridesPackResources(id, true, new PackMetadataSection(

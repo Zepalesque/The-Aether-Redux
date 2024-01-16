@@ -63,8 +63,6 @@ public class ReduxSoundEvents {
     public static final RegistryObject<SoundEvent> COCKATRICE_HURT = register("entity.cockatrice.hurt");
     public static final RegistryObject<SoundEvent> COCKATRICE_DEATH = register("entity.cockatrice.death");
 
-    public static final RegistryObject<SoundEvent> AECHOR_PLANT_DEATH = register("entity.aechor_plant.death");
-    public static final RegistryObject<SoundEvent> AECHOR_PLANT_HURT = register("entity.aechor_plant.hurt");
     public static final RegistryObject<SoundEvent> MUSIC_DISC_LABYRINTHS_VENGEANCE = register("item.music_disc.labyrinths_vengeance");
 
     private static RegistryObject<SoundEvent> register(String name) {
