@@ -1,6 +1,6 @@
 name: Change Request
 description: Request a change to an existing feature in the mod
-title: '[Change Request]: (ADD TITLE HERE PLEASE)'
+title: '[Change Request]: >>Title goes here!!<<'
 labels:
   - change-request
 body:
