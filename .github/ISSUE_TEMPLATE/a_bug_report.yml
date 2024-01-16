@@ -1,6 +1,6 @@
 name: Issue Report
 description: Report a bug or issue in the mod
-title: '[Bug]: (ADD TITLE HERE PLEASE)'
+title: '[Bug]: >>Title goes here!!<<'
 labels:
   - bug-report
 body:
