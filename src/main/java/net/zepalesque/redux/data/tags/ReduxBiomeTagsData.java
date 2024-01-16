@@ -41,7 +41,8 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
                 ReduxBiomes.GILDED_GROVES,
                 ReduxBiomes.GILDED_GRASSLANDS,
                 ReduxBiomes.HIGHFIELDS,
-                ReduxBiomes.CLOUDCAP_JUNGLE
+                ReduxBiomes.CLOUDCAP_JUNGLE,
+                ReduxBiomes.SKYROOT_SHRUBLANDS
         );
 
         this.tag(ReduxTags.Biomes.HAS_AETHER_CAVES).addTag(AetherTags.Biomes.IS_AETHER);
