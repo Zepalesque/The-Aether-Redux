@@ -1,0 +1,19 @@
+{
+  "entity.sentry.land_base": {
+    "replace": true,
+    "sounds": [
+      "aether_redux:entity/sentry/land1",
+      "aether_redux:entity/sentry/land2"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.sentry_land"
+  },
+  "entity.sentry.ambient": {
+    "replace": true,
+    "sounds": [
+      "aether_redux:entity/sentry/say1",
+      "aether_redux:entity/sentry/say2",
+      "aether_redux:entity/sentry/say3"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.sentry_ambient"
+  }
+}

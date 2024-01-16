@@ -1,0 +1,24 @@
+{
+  "entity.moa.ambient": {
+    "replace": true,
+    "sounds": [
+      "aether_redux:entity/moa/say1",
+      "aether_redux:entity/moa/say2"
+    ],
+    "subtitle": "subtitles.aether.entity.moa.ambient"
+  },
+  "entity.moa.death": {
+    "replace": true,
+    "sounds": [
+      "aether_redux:entity/moa/hurt"
+    ],
+    "subtitle": "subtitles.aether.entity.moa.death"
+  },
+  "entity.moa.hurt": {
+    "replace": true,
+    "sounds": [
+      "aether_redux:entity/moa/hurt"
+    ],
+    "subtitle": "subtitles.aether.entity.moa.hurt"
+  }
+}

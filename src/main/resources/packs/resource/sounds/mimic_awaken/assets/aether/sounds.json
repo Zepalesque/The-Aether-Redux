@@ -1,0 +1,9 @@
+{
+  "block.chest_mimic.open": {
+    "replace": true,
+    "sounds": [
+      "aether_redux:entity/mimic/awaken"
+    ],
+    "subtitle": "subtitles.aether.block.chest_mimic.open"
+  }
+}

@@ -31,6 +31,13 @@ public class ReduxPackConfig {
     public final PackConfig<Boolean> auto_apply;
 
     public final PackConfig<Boolean> better_aechor_sounds;
+    public final PackConfig<Boolean> better_aerwhale_sounds;
+    public final PackConfig<Boolean> better_cockatrice_sounds;
+    public final PackConfig<Boolean> better_mimic_awaken_sound;
+    public final PackConfig<Boolean> better_moa_sounds;
+    public final PackConfig<Boolean> better_sentry_sounds;
+    public final PackConfig<Boolean> better_slider_sounds;
+    public final PackConfig<Boolean> better_tempest_sounds;
 
     public final PackConfig<Boolean> tintable_grass;
 
@@ -46,6 +53,13 @@ public class ReduxPackConfig {
         // Various sound improvements
         builder.push("audio");
         this.better_aechor_sounds = builder.comment().cfg("better_aechor_sounds", true, WidgetMappers.BOOL);
+        this.better_aerwhale_sounds = builder.comment().cfg("better_aerwhale_sounds", true, WidgetMappers.BOOL);
+        this.better_cockatrice_sounds = builder.comment().cfg("better_cockatrice_sounds", true, WidgetMappers.BOOL);
+        this.better_mimic_awaken_sound = builder.comment().cfg("better_mimic_awaken_sound", true, WidgetMappers.BOOL);
+        this.better_moa_sounds = builder.comment().cfg("better_moa_sounds", true, WidgetMappers.BOOL);
+        this.better_sentry_sounds = builder.comment().cfg("better_sentry_sounds", true, WidgetMappers.BOOL);
+        this.better_slider_sounds = builder.comment().cfg("better_slider_sounds", true, WidgetMappers.BOOL);
+        this.better_tempest_sounds = builder.comment().cfg("better_tempest_sounds", true, WidgetMappers.BOOL);
         builder.pop();
         builder.push("item");
         // Which behavior for swet balls to use
@@ -80,7 +94,14 @@ public class ReduxPackConfig {
                     Conditional.of(BuiltinPackUtils.createPack("resource/item/genesis_jelly"), Redux::aetherGenesisCompat),
                     Conditional.of(BuiltinPackUtils.createPack("resource/item/shadow_veridium"), () -> config.veridium_type.get() == VeridiumType.shadow),
                     Conditional.of(BuiltinPackUtils.createPack("resource/item/classic_veridium"), () -> config.veridium_type.get() == VeridiumType.classic),
-                    Conditional.of(BuiltinPackUtils.createPack("resource/sounds/aechor"), config.better_aechor_sounds)
+                    Conditional.of(BuiltinPackUtils.createPack("resource/sounds/aechor"), config.better_aechor_sounds),
+                    Conditional.of(BuiltinPackUtils.createPack("resource/sounds/aerwhale"), config.better_aerwhale_sounds),
+                    Conditional.of(BuiltinPackUtils.createPack("resource/sounds/cockatrice"), config.better_cockatrice_sounds),
+                    Conditional.of(BuiltinPackUtils.createPack("resource/sounds/mimic_awaken"), config.better_mimic_awaken_sound),
+                    Conditional.of(BuiltinPackUtils.createPack("resource/sounds/moa"), config.better_moa_sounds),
+                    Conditional.of(BuiltinPackUtils.createPack("resource/sounds/sentry"), config.better_sentry_sounds),
+                    Conditional.of(BuiltinPackUtils.createPack("resource/sounds/slider"), config.better_slider_sounds),
+                    Conditional.of(BuiltinPackUtils.createPack("resource/sounds/tempest"), config.better_tempest_sounds)
             );
         }
         return new ReduxOverridesPackResources(id, true, new PackMetadataSection(

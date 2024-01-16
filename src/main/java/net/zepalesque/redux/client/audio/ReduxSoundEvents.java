@@ -9,19 +9,8 @@ import net.zepalesque.redux.Redux;
 public class ReduxSoundEvents {
     public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, Redux.MODID);
     public static final RegistryObject<SoundEvent> SENTRY_LAND_BASE = register("entity.sentry.land_base");
-    public static final RegistryObject<SoundEvent> SENTRY_HURT = register("entity.sentry.hurt");
-    public static final RegistryObject<SoundEvent> SENTRY_AMBIENT = register("entity.sentry.ambient");
-    public static final RegistryObject<SoundEvent> SENTRY_DEATH = register("entity.sentry.death");
-    public static final RegistryObject<SoundEvent> SENTRY_POUNCE = register("entity.sentry.pounce");
-    public static final RegistryObject<SoundEvent> SENTRY_LAND = register("entity.sentry.land");
-    public static final RegistryObject<SoundEvent> MOA_AMBIENT = register("entity.moa.ambient");
-    public static final RegistryObject<SoundEvent> MOA_HURT = register("entity.moa.hurt");
-    public static final RegistryObject<SoundEvent> MOA_DEATH = register("entity.moa.death");
-    public static final RegistryObject<SoundEvent> AERWHALE_AMBIENT = register("entity.aerwhale.ambient");
-    public static final RegistryObject<SoundEvent> SLIDER_HURT = register("entity.slider.hurt");
-    public static final RegistryObject<SoundEvent> SLIDER_AMBIENT = register("entity.slider.ambient");
+    public static final RegistryObject<SoundEvent> SENTRY_AMBIENT = register("entity.sentry.ambient");;
     public static final RegistryObject<SoundEvent> MIMIC_SLAM = register("entity.mimic.slam");
-    public static final RegistryObject<SoundEvent> MIMIC_AWAKEN = register("entity.mimic.awaken");
 
     public static final RegistryObject<SoundEvent> GLOWSTONE_BREAK = register("block.glowstone.break");
     public static final RegistryObject<SoundEvent> GLOWSTONE_PLACE = register("block.glowstone.place");
@@ -58,10 +47,6 @@ public class ReduxSoundEvents {
     public static final RegistryObject<SoundEvent> BLIGHTSHADE_SPRAY = register("block.blightshade_spray");
     public static final RegistryObject<SoundEvent> QUICKROOTS_PICK = register("block.quickroots_pick");
     public static final RegistryObject<SoundEvent> LIGHTROOTS_PICK = register("block.lightroots_pick");
-
-    public static final RegistryObject<SoundEvent> COCKATRICE_AMBIENT = register("entity.cockatrice.ambient");
-    public static final RegistryObject<SoundEvent> COCKATRICE_HURT = register("entity.cockatrice.hurt");
-    public static final RegistryObject<SoundEvent> COCKATRICE_DEATH = register("entity.cockatrice.death");
 
     public static final RegistryObject<SoundEvent> MUSIC_DISC_LABYRINTHS_VENGEANCE = register("item.music_disc.labyrinths_vengeance");
 

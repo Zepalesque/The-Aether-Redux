@@ -20,7 +20,7 @@ public abstract class SentryMixin extends SlimeMixin {
     @Override
     protected void getAmbientSound(CallbackInfoReturnable<SoundEvent> cir) {
         Sentry mob = (Sentry) (Object) this;
-        if (ReduxConfig.COMMON.improved_sentry_sounds.get() && mob.isAwake())
+        if (mob.isAwake())
         {
             cir.setReturnValue(ReduxSoundEvents.SENTRY_AMBIENT.get());
         }

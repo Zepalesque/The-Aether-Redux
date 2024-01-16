@@ -426,6 +426,15 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addPackConfig("use_jappafied_textures", "Use Jappafied Textures", "Uses textures designed to fit with the Jappafied Aethers resource pack slightly better");
         addPackConfig("auto_apply", "Automatic Application", "Enables the resource pack automatically when removed");
         addPackConfig("smelter_menu_type", "Smelter Menu Type", "Switch between three different types of Aether Smelter Menus: The originals, classic-styled improvemenets, and modernized menus");
+        addPackConfigCategory("audio", "Audio", "Changes to different sounds heard in the Aether");
+        addPackConfig("better_aechor_sounds", "Better Aechor Plant Sounds", "Improves the sounds of the Aechor Plants, giving them more natural and plant-like sounds.");
+        addPackConfig("better_aerwhale_sounds", "Better Aerwhale Sounds", "Improves the sounds of Aerwhales, giving them their sounds heard in early builds of the Aether II: Highlands.");
+        addPackConfig("better_cockatrice_sounds", "Better Cockatrice Sounds", "Improves the sounds of Cockatrices, giving them their sounds heard in early builds of the Aether II: Highlands.");
+        addPackConfig("better_mimic_awaken_sound", "Better Mimic Awaken Sound", "Improves the sound of a Mimic appearing, making you slightly hear a sound similar to when you awaken the Slider.");
+        addPackConfig("better_moa_sounds", "Better Moa Sounds", "Improves the sounds of Moas, giving them their sounds heard in early builds of the Aether II: Highlands.");
+        addPackConfig("better_sentry_sounds", "Better Sentry Sounds", "Improves the sounds of Sentries, giving them some of their sounds heard in early builds of the Aether II: Highlands.");
+        addPackConfig("better_slider_sounds", "Better Slider Sounds", "Improves the sounds of the Slider, with more labyrinth-themed ambient droning and a more Sentry-like hurt sound.");
+        addPackConfig("better_tempest_sounds", "Better Tempest Sounds (Requires: The Aether: Genesis)", "Improves the sounds of the Aether: Genesis's Tempests, giving them their sounds heard in early builds of the Aether II: Highlands.");
 
 
         addPackTitle("overrides", "Redux - Aether Overrides");
@@ -436,8 +445,6 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addSubtitle("entity", "sentry_pounce", "Sentry pounces");
         addSubtitle("entity", "sentry_land", "Sentry lands");
         addSubtitle("entity", "sentry_ambient", "Sentry grumbles");
-        addSubtitle("entity", "sentry_hurt", "Sentry hurts");
-        addSubtitle("entity", "sentry_death", "Sentry dies");
         addSubtitle("entity", "ember_bounce", "Ember impacts");
         addSubtitle("item.accessory", "equip_bittersweet_charm", "Bittersweet Charm jingles");
         addSubtitle("item.accessory", "equip_enchanted_ring", "Enchanted Ring thunks");

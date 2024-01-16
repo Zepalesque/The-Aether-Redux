@@ -1,0 +1,25 @@
+{
+  "entity.sentry.death": {
+    "replace": true,
+    "sounds": [
+      "aether_redux:entity/sentry/death"
+    ],
+    "subtitle": "subtitles.aether.entity.sentry_death"
+  },
+  "entity.sentry.hurt": {
+    "replace": true,
+    "sounds": [
+      "aether_redux:entity/sentry/hurt1",
+      "aether_redux:entity/sentry/hurt2"
+    ],
+    "subtitle": "subtitles.aether.entity.sentry_hurt"
+  },
+  "entity.sentry.jump": {
+    "replace": true,
+    "sounds": [
+      "aether_redux:entity/sentry/jump1",
+      "aether_redux:entity/sentry/jump2"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.sentry_pounce"
+  }
+}

@@ -17,39 +17,10 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
         this.add(ReduxSoundEvents.MIMIC_SLAM,
                 definition().with(sound("aether_redux:entity/mimic/mimic_slam"))
                         .subtitle("subtitles.aether_redux.entity.mimic_slam"));
-        this.add(ReduxSoundEvents.MIMIC_AWAKEN,
-                definition().with(sound("aether_redux:entity/mimic/awaken"))
-                        .subtitle("subtitles.aether.block.chest_mimic.open"));
-        this.add(ReduxSoundEvents.SENTRY_POUNCE,
-                definition().with(sound("aether_redux:entity/sentry/jump1"), sound("aether_redux:entity/sentry/jump2"))
-                        .subtitle("subtitles.aether_redux.entity.sentry_pounce"));
-        this.add(ReduxSoundEvents.SENTRY_LAND,
-                definition().with(sound("aether_redux:entity/sentry/land1"), sound("aether_redux:entity/sentry/land2"))
-                        .subtitle("subtitles.aether_redux.entity.sentry_land"));
-        this.add(ReduxSoundEvents.SENTRY_AMBIENT,
-                definition().with(sound("aether_redux:entity/sentry/say1"), sound("aether_redux:entity/sentry/say2"), sound("aether_redux:entity/sentry/say3"))
-                        .subtitle("subtitles.aether_redux.entity.sentry_ambient"));
-        this.add(ReduxSoundEvents.SENTRY_HURT,
-                definition().with(sound("aether_redux:entity/sentry/hurt1"), sound("aether_redux:entity/sentry/hurt2"))
-                        .subtitle("subtitles.aether_redux.entity.sentry_hurt"));
-        this.add(ReduxSoundEvents.SENTRY_DEATH,
-                definition().with(sound("aether_redux:entity/sentry/death"))
-                        .subtitle("subtitles.aether_redux.entity.sentry_death"));
         this.add(ReduxSoundEvents.SENTRY_LAND_BASE,
                 definition().with(sound("minecraft:mob/slime/big1"), sound("minecraft:mob/slime/big2"), sound("minecraft:mob/slime/big3"), sound("minecraft:mob/slime/big4"))
                         .subtitle("subtitles.aether.entity.sentry.jump"));
-        this.add(ReduxSoundEvents.MOA_AMBIENT, definition().with(sound("aether_redux:entity/moa/say1"), sound("aether_redux:entity/moa/say2")).subtitle("subtitles.aether.entity.moa.ambient"));
-        this.add(ReduxSoundEvents.MOA_DEATH, definition().with(sound("aether_redux:entity/moa/hurt")).subtitle("subtitles.aether.entity.moa.death"));
-        this.add(ReduxSoundEvents.MOA_HURT, definition().with(sound("aether_redux:entity/moa/hurt")).subtitle("subtitles.aether.entity.moa.hurt"));
-        this.add(ReduxSoundEvents.COCKATRICE_AMBIENT, definition().with(sound("aether_redux:entity/cockatrice/say1"), sound("aether_redux:entity/cockatrice/say2")).subtitle("subtitles.aether.entity.cockatrice.ambient"));
-        this.add(ReduxSoundEvents.COCKATRICE_DEATH, definition().with(sound("aether_redux:entity/cockatrice/hurt1"), sound("aether_redux:entity/cockatrice/hurt2")).subtitle("subtitles.aether.entity.cockatrice.death"));
-        this.add(ReduxSoundEvents.COCKATRICE_HURT, definition().with(sound("aether_redux:entity/cockatrice/hurt1"), sound("aether_redux:entity/cockatrice/hurt2")).subtitle("subtitles.aether.entity.cockatrice.hurt"));
-    this.add(ReduxSoundEvents.SLIDER_HURT,
-                definition().with(sound("aether_redux:entity/slider/hit1"), sound("aether_redux:entity/slider/hit2"), sound("aether_redux:entity/slider/hit3"))
-                        .subtitle("subtitles.aether.entity.slider.hurt"));
-        this.add(ReduxSoundEvents.SLIDER_AMBIENT,
-                definition().with(sound("aether_redux:entity/slider/drone1").pitch(1.00001F), sound("aether_redux:entity/slider/drone2").pitch(1.00001F), sound("aether_redux:entity/slider/drone3").pitch(1.00001F), sound("aether_redux:entity/slider/drone4").pitch(1F))
-                        .subtitle("subtitles.aether.entity.slider.ambient"));
+        this.add(ReduxSoundEvents.SENTRY_AMBIENT, definition());
         this.add(ReduxSoundEvents.EQUIP_BITTERSWEET_CHARM,
                 definition().with(
                         sound("minecraft:item/armor/equip_chain1"),
@@ -114,14 +85,6 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
         this.add(ReduxSoundEvents.BLIGHTSHADE_SPRAY,
                 definition().with(sound("aether_redux:block/blightshade_spray"))
                         .subtitle("subtitles.aether_redux.block.blightshade_spray"));
-        this.add(ReduxSoundEvents.AERWHALE_AMBIENT,
-                definition().with(
-                        sound("aether_redux:entity/aerwhale/say1"),
-                        sound("aether_redux:entity/aerwhale/say2"),
-                        sound("aether_redux:entity/aerwhale/say3"),
-                        sound("aether_redux:entity/aerwhale/say4"),
-                        sound("aether_redux:entity/aerwhale/say5")
-                ).subtitle("subtitles.aether.entity.aerwhale.ambient"));
         this.add(ReduxSoundEvents.MUSIC_DISC_LABYRINTHS_VENGEANCE, definition().with(sound("aether_redux:music/evk/labyrinths_vengeance_mono").stream()));
         this.add(ReduxSoundEvents.CONVERT_AMBROSIUM,
                 definition().with(sound("aether_redux:item/convert_ambrosium"))
@@ -135,23 +98,6 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
         this.add(ReduxSoundEvents.INFUSE_ITEM,
                 definition().with(sound("aether_redux:item/infuse_item"))
                         .subtitle("subtitles.aether_redux.item.infuse_item"));
-        this.add(ReduxSoundEvents.TEMPEST_AMBIENT, definition().with(
-                sound("aether_redux:entity/tempest/say1"),
-                sound("aether_redux:entity/tempest/say2"),
-                sound("aether_redux:entity/tempest/say3"),
-                sound("aether_redux:entity/tempest/say4"),
-                sound("aether_redux:entity/tempest/say5")
-        ).subtitle("subtitles.aether_genesis.entity.tempest.ambient"));
-        this.add(ReduxSoundEvents.TEMPEST_HURT, definition().with(
-                sound("aether_redux:entity/tempest/hurt1")
-        ).subtitle("subtitles.aether_genesis.entity.tempest.hurt"));
-        this.add(ReduxSoundEvents.TEMPEST_DEATH, definition().with(
-                sound("aether_redux:entity/tempest/death1"),
-                sound("aether_redux:entity/tempest/death2")
-        ).subtitle("subtitles.aether_genesis.entity.tempest.death"));
-        this.add(ReduxSoundEvents.TEMPEST_ZAP, definition().with(
-                sound("aether_redux:entity/tempest/zap")
-        ).subtitle("subtitles.aether_genesis.entity.tempest.shoot"));
         this.add(ReduxSoundEvents.QUICKROOTS_PICK, definition().with(
                 sound("minecraft:item/sweet_berries/pick_from_bush1"),
                 sound("minecraft:item/sweet_berries/pick_from_bush2")
