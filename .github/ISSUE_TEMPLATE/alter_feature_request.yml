@@ -1,6 +1,6 @@
 name: Change Request
 description: Request a change to an existing feature in the mod
-title: '[Change Request]: '
+title: '[Change Request]: >>Title goes here!!<<'
 labels:
   - change-request
 body:
@@ -29,9 +29,9 @@ body:
   - type: checkboxes
     id: confirm
     attributes:
-      label: 'Please confirm the following:'
+      label: 'Please also confirm the following before submitting the request:'
       options:
         - label: This suggestion is not a duplicate
-          required: false
+          required: true
         - label: This suggestion does not change the general feel of the mod too much
           required: true

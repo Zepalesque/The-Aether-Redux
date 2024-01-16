@@ -1,6 +1,6 @@
 name: Issue Report
 description: Report a bug or issue in the mod
-title: '[Bug]: '
+title: '[Bug]: >>Title goes here!!<<'
 labels:
   - bug-report
 body:
@@ -92,17 +92,17 @@ body:
   - type: checkboxes
     id: important-checks
     attributes:
-      label: 'Make sure to confirm these as well:'
+      label: 'Make sure to confirm these as well before submitting the report:'
       options:
         - label: The issue persists on the latest version of the mod.
           required: true
         - label: All version numbers are properly recorded, no instances of ‘latest’
-          required: false
+          required: true
         - label: All details are reported clearly and concisely
-          required: false
+          required: true
         - label: This issue is not a duplicate of another issue
-          required: false
+          required: true
         - label: >-
             If the issue is a modpack-related issue, it has been reported to the
             modpack devs as well
-          required: false
+          required: true
