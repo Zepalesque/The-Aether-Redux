@@ -1,6 +1,6 @@
 name: Issue Report
 description: Report a bug or issue in the mod
-title: '[Bug]: '
+title: '[Bug]: (ADD TITLE HERE PLEASE)'
 labels:
   - bug-report
 body:
@@ -92,7 +92,7 @@ body:
   - type: checkboxes
     id: important-checks
     attributes:
-      label: 'Make sure to confirm these as well:'
+      label: 'Make sure to confirm these as well before submitting the report:'
       options:
         - label: The issue persists on the latest version of the mod.
           required: true
