@@ -97,12 +97,12 @@ body:
         - label: The issue persists on the latest version of the mod.
           required: true
         - label: All version numbers are properly recorded, no instances of ‘latest’
-          required: false
+          required: true
         - label: All details are reported clearly and concisely
-          required: false
+          required: true
         - label: This issue is not a duplicate of another issue
-          required: false
+          required: true
         - label: >-
             If the issue is a modpack-related issue, it has been reported to the
             modpack devs as well
-          required: false
+          required: true
