@@ -41,12 +41,12 @@
       "aether:water_spring"
     ],
     [
-      "aether_redux:patch/splitfern_patch",
       "aether_redux:trees/glacial_trees",
       "aether:grass_patch",
       "aether_redux:patch/lumina_patch",
       "aether_redux:patch/frosted_purple_flower_patch",
-      "aether_redux:patch/daggerbloom_patch"
+      "aether_redux:patch/daggerbloom_patch",
+      "aether_redux:patch/splitfern_patch"
     ],
     [
       "aether:cold_aercloud",
