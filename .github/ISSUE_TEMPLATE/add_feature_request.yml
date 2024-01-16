@@ -1,6 +1,6 @@
 name: Feature Request
 description: Request a new feature for the mod
-title: '[Feature Request]: '
+title: '[Feature Request]: (ADD TITLE HERE PLEASE)'
 labels:
   - feature-request
 body:
@@ -27,7 +27,7 @@ body:
   - type: checkboxes
     id: confirm
     attributes:
-      label: 'Please confirm the following:'
+      label: 'Please also confirm the following before submitting the request:'
       options:
         - label: This suggestion is not a duplicate
           required: true
