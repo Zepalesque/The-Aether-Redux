@@ -5,11 +5,11 @@
       "condition": "minecraft:entity_properties",
       "entity": "this",
       "predicate": {
-        "type": "aether:sentry"
+        "type": "#aether_redux:sentries"
       }
     },
     {
-      "chance": 0.5,
+      "chance": 0.25,
       "condition": "minecraft:random_chance"
     }
   ],
@@ -34,6 +34,6 @@
   ],
   "item": {
     "Count": 1,
-    "id": "aether_redux:sentry_circuit"
+    "id": "aether_redux:sentry_chip"
   }
 }

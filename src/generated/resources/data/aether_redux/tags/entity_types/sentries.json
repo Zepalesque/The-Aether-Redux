@@ -1,0 +1,13 @@
+{
+  "values": [
+    "aether:sentry",
+    {
+      "id": "aether_genesis:battle_sentry",
+      "required": false
+    },
+    {
+      "id": "aether_genesis:tracking_golem",
+      "required": false
+    }
+  ]
+}

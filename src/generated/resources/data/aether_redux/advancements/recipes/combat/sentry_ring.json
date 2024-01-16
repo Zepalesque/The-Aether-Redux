@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_sentry_circuit": {
+    "has_sentry_chip": {
       "conditions": {
         "items": [
           {
             "items": [
-              "aether_redux:sentry_circuit"
+              "aether_redux:sentry_chip"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_sentry_circuit",
+      "has_sentry_chip",
       "has_the_recipe"
     ]
   ],
