@@ -56,7 +56,7 @@ public class ReduxPackConfig {
         // Use Redux menu panorama
         this.menu_panorama = builder.comment().cfg("menu_panorama", true, WidgetMappers.BOOL);
         builder.pop();
-        // Jappafied Aethers compat TODO: use ozzified as true 'default' textures rather than using ozzified when this is disabled
+        // Jappafied Aethers compat
         this.use_jappafied_textures = builder.comment().cfg("use_jappafied_textures", false, WidgetMappers.BOOL);
         // Auto-apply the resource pack
         this.auto_apply = builder.comment().cfg("auto_apply", true, WidgetMappers.BOOL);
