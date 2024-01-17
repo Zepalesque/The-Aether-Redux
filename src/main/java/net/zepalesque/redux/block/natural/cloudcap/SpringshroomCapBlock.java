@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 
+// TODO: Change to a more honey-like substance perhaps, with bounciness still?
 public class SpringshroomCapBlock extends AetherDoubleDropBlock {
 
     public SpringshroomCapBlock(BlockBehaviour.Properties pProperties) {

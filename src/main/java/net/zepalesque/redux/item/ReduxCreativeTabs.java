@@ -90,8 +90,8 @@ public class ReduxCreativeTabs {
             putAfter(AetherBlocks.DECORATED_HOLIDAY_LEAVES, ReduxBlocks.FLOWERING_FIELDSPROUT_LEAVES, event);
             putAfter(ReduxBlocks.FLOWERING_FIELDSPROUT_LEAVES, ReduxBlocks.CLOUD_CAP_BLOCK, event);
             putAfter(ReduxBlocks.CLOUD_CAP_BLOCK, ReduxBlocks.CLOUDCAP_SPORES, event);
-            putAfter(ReduxBlocks.CLOUDCAP_SPORES, ReduxBlocks.SPRINGSHROOM_CAP_BLOCK, event);
-            putAfter(ReduxBlocks.SPRINGSHROOM_CAP_BLOCK, ReduxBlocks.SPRINGSHROOM_SPORES, event);
+            putAfter(ReduxBlocks.CLOUDCAP_SPORES, ReduxBlocks.SPRINGSHROOM_JELLY_BLOCK, event);
+            putAfter(ReduxBlocks.SPRINGSHROOM_JELLY_BLOCK, ReduxBlocks.SPRINGSHROOM_SPORES, event);
 
             putAfter(AetherBlocks.GOLDEN_OAK_SAPLING, ReduxBlocks.BLIGHTWILLOW_SAPLING, event);
             putAfter(ReduxBlocks.BLIGHTWILLOW_SAPLING, ReduxBlocks.BLIGHTED_SKYROOT_SAPLING, event);

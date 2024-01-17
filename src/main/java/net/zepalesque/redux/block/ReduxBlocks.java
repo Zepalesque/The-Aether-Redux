@@ -91,7 +91,7 @@ public class ReduxBlocks {
     public static RegistryObject<Block> CLOUD_CAP_BLOCK = register("cloud_cap_block",
             () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.LAPIS).strength(0.5F).sound(SoundType.FUNGUS)));
 
-    public static RegistryObject<Block> SPRINGSHROOM_CAP_BLOCK = register("springshroom_cap_block",
+    public static RegistryObject<Block> SPRINGSHROOM_JELLY_BLOCK = register("springshroom_jelly_block",
             () -> new SpringshroomCapBlock(BlockBehaviour.Properties.of().mapColor(MapColor.QUARTZ).strength(0.5F).sound(SoundType.FUNGUS)));
 
     public static RegistryObject<Block> CLOUDCAP_SPORES = register("cloudcap_spores",
@@ -100,8 +100,13 @@ public class ReduxBlocks {
     public static RegistryObject<Block> SPRINGSHROOM_SPORES = register("springshroom_spores",
             () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PINK).strength(0.3F).sound(SoundType.WART_BLOCK)));
 
-    public static final RegistryObject<Block> SPRINGSHROOM = register("springshroom", () -> new SpringshroomBlock(Block.Properties.of().strength(0.5F).sound(SoundType.FUNGUS).mapColor(MapColor.QUARTZ), ReduxConfiguredFeatures.LARGE_SPRINGSHROOM));
+    public static final RegistryObject<Block> SPRINGSHROOM = register("springshroom", () -> new AetherMushroom(Block.Properties.of().strength(0.5F).sound(SoundType.FUNGUS).mapColor(MapColor.COLOR_PURPLE),
+            ReduxConfiguredFeatures.LARGE_SPRINGSHROOM,
+            Block.box(2D, 0D, 3D, 12D, 13D, 12D)));
     public static final RegistryObject<FlowerPotBlock> POTTED_SPRINGSHROOM = BLOCKS.register("potted_springshroom", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SPRINGSHROOM, Block.Properties.copy(Blocks.FLOWER_POT)));
+
+    public static final RegistryObject<Block> SHIMMERSTOOL = register("shimmerstool", () -> new ShimmerstoolBlock(Block.Properties.of().strength(0.5F).sound(SoundType.FUNGUS /* TODO: Amethyst-like sounds */).mapColor(MapColor.TERRACOTTA_LIGHT_BLUE)));
+    public static final RegistryObject<FlowerPotBlock> POTTED_SHIMMERSTOOL = BLOCKS.register("potted_shimmerstool", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SHIMMERSTOOL, Block.Properties.copy(Blocks.FLOWER_POT)));
 
     public static final RegistryObject<Block> IRIDIA = register("iridia", () -> new FlowerBlock(() -> MobEffects.HEAL, 4, Block.Properties.copy(Blocks.DANDELION).mapColor(MapColor.QUARTZ)));
     public static final RegistryObject<FlowerPotBlock> POTTED_IRIDIA = BLOCKS.register("potted_iridia", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IRIDIA, Block.Properties.copy(Blocks.FLOWER_POT)));
@@ -137,7 +142,9 @@ public class ReduxBlocks {
     public static final RegistryObject<FlowerPotBlock> POTTED_BLIGHTSHADE = BLOCKS.register("potted_blightshade", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, BLIGHTSHADE, Block.Properties.copy(Blocks.FLOWER_POT)));
 
     public static RegistryObject<Block> CLOUDCAP_MUSHLING = register("cloudcap_mushling",
-            () -> new CloudcapMushlingBlock(BlockBehaviour.Properties.of().lightLevel((state) -> 3).noCollission().instabreak().sound(SoundType.NETHER_SPROUTS).offsetType(BlockBehaviour.OffsetType.XZ), ReduxConfiguredFeatures.LARGE_CLOUDCAP));
+            () -> new AetherMushroom(BlockBehaviour.Properties.of().lightLevel((state) -> 3).noCollission().instabreak().sound(SoundType.NETHER_SPROUTS).offsetType(BlockBehaviour.OffsetType.XZ),
+                    ReduxConfiguredFeatures.LARGE_CLOUDCAP,
+                    Block.box(4.0D, 0.0D, 4.0D, 12.0D, 12.0D, 12.0D)));
     public static final RegistryObject<FlowerPotBlock> POTTED_CLOUDCAP_MUSHLING = BLOCKS.register("potted_cloudcap_mushling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CLOUDCAP_MUSHLING, Block.Properties.copy(Blocks.FLOWER_POT).lightLevel((state) -> 3)));
 
     public static RegistryObject<Block> TALL_CLOUDCAP = register("tall_cloudcap",

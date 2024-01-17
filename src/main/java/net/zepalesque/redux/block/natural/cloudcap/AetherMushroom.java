@@ -10,7 +10,6 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -21,19 +20,20 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.Optional;
 
-public class CloudcapMushlingBlock extends AetherBushBlock implements BonemealableBlock {
+public class AetherMushroom extends AetherBushBlock implements BonemealableBlock {
 
     private final ResourceKey<ConfiguredFeature<?, ?>> feature;
 
-    protected static final VoxelShape SHAPE_MUSHROOM = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 12.0D, 12.0D);
-    public CloudcapMushlingBlock(BlockBehaviour.Properties pProperties, ResourceKey<ConfiguredFeature<?, ?>> pFeature) {
+    protected final VoxelShape shape;
+    public AetherMushroom(BlockBehaviour.Properties pProperties, ResourceKey<ConfiguredFeature<?, ?>> pFeature, VoxelShape shape) {
         super(pProperties);
         this.feature = pFeature;
+        this.shape = shape;
     }
 
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         Vec3 vec3 = pState.getOffset(pLevel, pPos);
-        return SHAPE_MUSHROOM.move(vec3.x, vec3.y, vec3.z);
+        return shape.move(vec3.x, vec3.y, vec3.z);
     }
 
     public boolean growMushroom(ServerLevel pLevel, BlockPos pPos, BlockState pState, RandomSource pRandom) {

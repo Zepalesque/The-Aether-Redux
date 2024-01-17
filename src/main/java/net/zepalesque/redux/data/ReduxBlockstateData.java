@@ -152,9 +152,9 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.harvestableCrossBlockOccluded(ReduxBlocks.QUICKROOTS.get(), "natural/");
 
         this.lantern(ReduxBlocks.VERIDIUM_LANTERN.get(), "construction/");
-        this.largeMushroomBlock(ReduxBlocks.SPRINGSHROOM, ReduxBlocks.SPRINGSHROOM_CAP_BLOCK, "model/", "natural/");
-        this.pottedMushroomBlock(ReduxBlocks.POTTED_SPRINGSHROOM.get(), ReduxBlocks.SPRINGSHROOM.get(), "model/");
-        this.block(ReduxBlocks.SPRINGSHROOM_CAP_BLOCK, "natural/");
+        this.crossBlock(ReduxBlocks.SPRINGSHROOM, "natural/");
+        this.pottedPlant(ReduxBlocks.POTTED_SPRINGSHROOM.get(), ReduxBlocks.SPRINGSHROOM.get(), "natural/");
+        this.block(ReduxBlocks.SPRINGSHROOM_JELLY_BLOCK, "natural/");
         this.block(ReduxBlocks.SPRINGSHROOM_SPORES, "natural/");
         this.chain(ReduxBlocks.VERIDIUM_CHAIN.get(), "construction/");
         this.cropPlantNoOffsetOccluded(ReduxBlocks.GOLDEN_VINES_PLANT.get(), "natural/");
@@ -540,11 +540,19 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
     }
 
     @Deprecated
-    public void largeMushroomBlock(Supplier<? extends Block> mushroom, Supplier<? extends Block> particle, String location, String particleLoc)
-    {
+    public void largeMushroomBlock(Supplier<? extends Block> mushroom, Supplier<? extends Block> particle, String location, String particleLoc) {
         ModelFile model = models().withExistingParent(this.name(mushroom), modLoc(BLOCK_FOLDER + "/template_mushroom_block"))
                 .texture("mushroom", this.texture(name(mushroom), location))
                 .texture("particle", this.texture(name(particle), particleLoc))
+                .renderType("cutout");
+        getVariantBuilder(mushroom.get()).forAllStates((state -> ConfiguredModel.builder().modelFile(model).build()));
+    }
+    @Deprecated
+    public void shimmerstool(Supplier<? extends Block> mushroom, String location) {
+        ModelFile model = models().withExistingParent(this.name(mushroom), modLoc(BLOCK_FOLDER + "/template_shimmerstool"))
+                .texture("side", this.texture(name(mushroom) + "_side", location))
+                .texture("top", this.texture(name(mushroom) + "_top", location))
+                .texture("bottom", this.texture(name(mushroom) + "_bottom", location))
                 .renderType("cutout");
         getVariantBuilder(mushroom.get()).forAllStates((state -> ConfiguredModel.builder().modelFile(model).build()));
     }

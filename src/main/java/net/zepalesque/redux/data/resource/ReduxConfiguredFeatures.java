@@ -392,7 +392,7 @@ public class    ReduxConfiguredFeatures {
                         PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(LARGE_CLOUDCAP), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.CLOUDCAP_MUSHLING.get()))));
         register(context, LARGE_SPRINGSHROOM, ReduxFeatureRegistry.LARGE_SPRINGSHROOM.get(),
                 new HugeAetherMushroomFeatureConfiguration(
-                        prov(ReduxBlocks.SPRINGSHROOM_CAP_BLOCK),
+                        prov(ReduxBlocks.SPRINGSHROOM_JELLY_BLOCK),
                         prov(ReduxBlocks.SPRINGSHROOM_SPORES),
                         prov(Redux.Handlers.Wood.SPRINGSHROOM.log),
                         2

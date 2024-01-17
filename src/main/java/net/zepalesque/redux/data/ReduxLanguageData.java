@@ -120,8 +120,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.CLOUDCAP_SPORES, "Cloudcap Spores");
         addLore(ReduxBlocks.CLOUDCAP_SPORES, "A block of spores from the large Cloudcap Mushrooms, found in the Cloudcap Jungle.");
 
-        addBlock(ReduxBlocks.SPRINGSHROOM_CAP_BLOCK, "Springshroom Cap Block");
-        addLore(ReduxBlocks.SPRINGSHROOM_CAP_BLOCK, "The cap of the large Springshroom Fungi, found in the Cloudcap Jungle.");
+        addBlock(ReduxBlocks.SPRINGSHROOM_JELLY_BLOCK, "Springshroom Cap Block");
+        addLore(ReduxBlocks.SPRINGSHROOM_JELLY_BLOCK, "The cap of the large Springshroom Fungi, found in the Cloudcap Jungle.");
         addBlock(ReduxBlocks.SPRINGSHROOM_SPORES, "Springshroom Spores");
         addLore(ReduxBlocks.SPRINGSHROOM_SPORES, "A block of spores from the large Springshroom Fungi, found in the Cloudcap Jungle.");
 

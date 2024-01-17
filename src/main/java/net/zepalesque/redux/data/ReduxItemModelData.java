@@ -123,7 +123,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         this.item(ReduxBlocks.AEVELIUM_SPROUTS.get().asItem(), "misc/");
 
         this.itemBlock(ReduxBlocks.SPRINGSHROOM_SPORES.get());
-        this.itemBlock(ReduxBlocks.SPRINGSHROOM_CAP_BLOCK.get());
+        this.itemBlock(ReduxBlocks.SPRINGSHROOM_JELLY_BLOCK.get());
 
         this.itemBlock(ReduxBlocks.BLIGHTMOSS_BLOCK.get());
         this.itemBlock(ReduxBlocks.BLIGHTMOSS_CARPET.get());
