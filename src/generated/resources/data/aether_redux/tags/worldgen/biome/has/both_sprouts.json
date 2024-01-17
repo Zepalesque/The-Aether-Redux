@@ -1,14 +1,6 @@
 {
   "values": [
     {
-      "id": "aether_genesis:vibrant_forest",
-      "required": false
-    },
-    {
-      "id": "aether_genesis:vibrant_woodland",
-      "required": false
-    },
-    {
       "id": "aether_genesis:vibrant_grove",
       "required": false
     },
