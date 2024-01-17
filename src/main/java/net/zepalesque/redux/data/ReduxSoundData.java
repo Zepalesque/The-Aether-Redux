@@ -20,7 +20,7 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
         this.add(ReduxSoundEvents.SENTRY_LAND_BASE,
                 definition().with(sound("minecraft:mob/slime/big1"), sound("minecraft:mob/slime/big2"), sound("minecraft:mob/slime/big3"), sound("minecraft:mob/slime/big4"))
                         .subtitle("subtitles.aether.entity.sentry.jump"));
-        this.add(ReduxSoundEvents.SENTRY_AMBIENT, definition().with(sound("minecraft:empty_pls_do_not_give_any_ogg_files")));
+        this.add(ReduxSoundEvents.SENTRY_AMBIENT, definition().with(sound("aether_redux:generic/silence")));
         this.add(ReduxSoundEvents.EQUIP_BITTERSWEET_CHARM,
                 definition().with(
                         sound("minecraft:item/armor/equip_chain1"),
