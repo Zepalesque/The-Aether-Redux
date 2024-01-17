@@ -30,7 +30,7 @@ public record InfuseItemPacket(UUID playerID, InfusionHolder holder) implements 
             Player player = playerEntity.level().getPlayerByUUID(this.playerID());
             if (player instanceof ServerPlayer sp) {
                 InfuseItemTrigger.INSTANCE.trigger(sp, this.holder.getInfused(), this.holder.getResult());
-                if (this.holder.getInfused().getCount() >= 1) {
+                if (this.holder.getInfused().getCount() > 1) {
                     ItemStack s = this.holder().getResult();
                     s.setCount(1);
                     boolean flag = sp.getInventory().add(s);
