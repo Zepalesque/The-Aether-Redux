@@ -50,13 +50,10 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
         this.tag(ReduxTags.Biomes.HAS_MOSSY_HOLYSTONE_ORE).addTag(ReduxTags.Biomes.IS_FORGOTTEN);
         this.tag(ReduxTags.Biomes.HAS_MOSSY_ROCKS).add(AetherBiomes.SKYROOT_FOREST, AetherBiomes.SKYROOT_WOODLAND);
         this.tag(ReduxTags.Biomes.HAS_WYNDSPROUTS).add(
-                AetherBiomes.SKYROOT_FOREST,
                 AetherBiomes.SKYROOT_GROVE,
                 AetherBiomes.SKYROOT_MEADOW,
                 AetherBiomes.SKYROOT_WOODLAND);
         this.tag(ReduxTags.Biomes.HAS_BOTH_SPROUTS)
-                .addOptional(GenesisBiomes.VIBRANT_FOREST.location())
-                .addOptional(GenesisBiomes.VIBRANT_WOODLAND.location())
                 .addOptional(GenesisBiomes.VIBRANT_GROVE.location())
                 .addOptional(GenesisBiomes.VIBRANT_MEADOW.location());
         this.tag(ReduxTags.Biomes.HAS_VANILLA_SWET).addTag(ReduxTags.Biomes.IS_HIGHLANDS);
