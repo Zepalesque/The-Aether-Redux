@@ -4,7 +4,7 @@
     "cap_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "aether_redux:springshroom_cap_block",
+        "Name": "aether_redux:springshroom_jelly_block",
         "Properties": {
           "double_drops": "true"
         }

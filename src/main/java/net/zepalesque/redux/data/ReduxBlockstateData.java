@@ -557,6 +557,15 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         getVariantBuilder(mushroom.get()).forAllStates((state -> ConfiguredModel.builder().modelFile(model).build()));
     }
 
+    public void pottedShimmerstool(Block potBlock, Block mushroom, String location) {
+        ModelFile pot = this.models().withExistingParent(this.name(potBlock), Redux.locate(BLOCK_FOLDER + "/template_potted_shimmerstool"))
+                .texture("side", this.texture(name(mushroom) + "_side", location))
+                .texture("top", this.texture(name(mushroom) + "_top", location))
+                .texture("bottom", this.texture(name(mushroom) + "_bottom", location))
+                .renderType("cutout");
+        this.getVariantBuilder(potBlock).partialState().addModels(new ConfiguredModel(pot));
+    }
+
     public void pottedMushroomBlock(Block potBlock, Block mushroom, String location) {
         ModelFile pot = this.models().withExistingParent(this.name(potBlock), Redux.locate(BLOCK_FOLDER + "/template_potted_mushroom_block")).texture("mushroom", this.modLoc("block/" + location + "potted_" + this.name(mushroom))).renderType("cutout");
         this.getVariantBuilder(potBlock).partialState().addModels(new ConfiguredModel(pot));

@@ -1,8 +1,7 @@
 {
-  "parent": "aether_redux:block/template_mushroom_block",
+  "parent": "minecraft:block/cross",
   "render_type": "minecraft:cutout",
   "textures": {
-    "mushroom": "aether_redux:block/model/springshroom",
-    "particle": "aether_redux:block/natural/springshroom_cap_block"
+    "cross": "aether_redux:block/natural/springshroom"
   }
 }

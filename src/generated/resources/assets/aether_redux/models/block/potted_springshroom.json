@@ -1,7 +1,7 @@
 {
-  "parent": "aether_redux:block/template_potted_mushroom_block",
+  "parent": "minecraft:block/flower_pot_cross",
   "render_type": "minecraft:cutout",
   "textures": {
-    "mushroom": "aether_redux:block/model/potted_springshroom"
+    "plant": "aether_redux:block/natural/springshroom"
   }
 }
