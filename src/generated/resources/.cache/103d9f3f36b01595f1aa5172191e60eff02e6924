@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-15T21:21:24.9831089	Registries
+// 1.20.1	2024-01-17T14:23:13.0684207	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 cd3a6aa44fc8b5997f2f84db9e1a1ff8f22527b5 data/aether/worldgen/configured_feature/golden_oak_tree.json
 ed5af58b49c3097be8598f4b57d2dd256fb1c93a data/aether/worldgen/configured_feature/grass_patch.json
@@ -85,7 +85,7 @@ f489c5ac4baf262889a488d48e9540beb2a1ea08 data/aether_redux/worldgen/configured_f
 b0a4dd6003aab1d28dcc7aedd61ddd00f1f0239e data/aether_redux/worldgen/configured_feature/trees/highfields_trees.json
 bd2681cc58056befc62860f93fe5a56a7aa240c3 data/aether_redux/worldgen/configured_feature/trees/large_cloudcap.json
 8ed1ce4c791fc2909338853d50631a4940a5505b data/aether_redux/worldgen/configured_feature/trees/large_mushrooms.json
-eefb445df3f0a2299577c0238ffc2abc75b20ba9 data/aether_redux/worldgen/configured_feature/trees/large_springshroom.json
+0b1bdd900dd21af48132e41d8a3bb1cf17fdcaa7 data/aether_redux/worldgen/configured_feature/trees/large_springshroom.json
 2c00d4ff1a8f95a8b1ee239073c215588b0a1ad2 data/aether_redux/worldgen/configured_feature/trees/mega_cloudcap.json
 86078242fa632aec69ce0073a2a941f964d3b1a9 data/aether_redux/worldgen/configured_feature/trees/purple_glacia_tree.json
 c547ac8ee4ae9f42cf475581609f98a6bbf3063c data/aether_redux/worldgen/configured_feature/trees/shrublands_trees.json

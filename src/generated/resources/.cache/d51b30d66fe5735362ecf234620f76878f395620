@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-15T17:11:14.07973	Item Models: aether_redux
+// 1.20.1	2024-01-17T14:23:13.0374176	Item Models: aether_redux
 262070202f715ccbb93ebca7b4dd3b04851bc0ce assets/aether_redux/models/item/aether_short_grass.json
 ef6d226766d61d6460247665062a399d3613d946 assets/aether_redux/models/item/aevelium.json
 e89330a549c5d1169758ec3314e9285fb8db827a assets/aether_redux/models/item/aevelium_growth.json
@@ -185,7 +185,6 @@ f77e24c2923c9754de00f40add7e8a671ad1a307 assets/aether_redux/models/item/splitfe
 288bfc1151ded4c993f1b089dc9dd7a6e2e9fdd5 assets/aether_redux/models/item/springshroom.json
 683c22d7ba18df884cda0afa150278596436cf75 assets/aether_redux/models/item/springshroom_boat.json
 39665d9c764627c7244f00c4a7b4c82e0f1f682f assets/aether_redux/models/item/springshroom_button.json
-83ae0ce927f3596c1ccd53ec58a8a694fc5e6230 assets/aether_redux/models/item/springshroom_cap_block.json
 8f592ab36edb40c1a378f3cf2f74eb55817e8e44 assets/aether_redux/models/item/springshroom_chest_boat.json
 a145681a399a4e30b0b3a2e0a6a5d0b0375a71ab assets/aether_redux/models/item/springshroom_door.json
 877f7dc20aff63cae8e094e52f7f0892281b77b6 assets/aether_redux/models/item/springshroom_fence.json
@@ -193,6 +192,7 @@ a145681a399a4e30b0b3a2e0a6a5d0b0375a71ab assets/aether_redux/models/item/springs
 252c95dc44d0455add53a317b9bb9f6c554219f2 assets/aether_redux/models/item/springshroom_hanging_sign.json
 728c91304ded00fa32e3f44c9ff710e38720f42f assets/aether_redux/models/item/springshroom_hyphae.json
 2cb86e294a79a84367c568e71a64d272495de814 assets/aether_redux/models/item/springshroom_hyphae_wall.json
+7dbf95b980c7640a90da2bae0ef185fcdbb9ad90 assets/aether_redux/models/item/springshroom_jelly_block.json
 368e6c3c6557f9ba024171d2dd517b15c4f746a4 assets/aether_redux/models/item/springshroom_planks.json
 81723284b8cdab73041d664e8e894a045ebe0119 assets/aether_redux/models/item/springshroom_pressure_plate.json
 ca583d3a8bd0bfeb81c9ff25e169153ad286e383 assets/aether_redux/models/item/springshroom_sign.json
