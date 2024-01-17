@@ -154,6 +154,8 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.lantern(ReduxBlocks.VERIDIUM_LANTERN.get(), "construction/");
         this.crossBlock(ReduxBlocks.SPRINGSHROOM, "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_SPRINGSHROOM.get(), ReduxBlocks.SPRINGSHROOM.get(), "natural/");
+        this.shimmerstool(ReduxBlocks.SHIMMERSTOOL, "natural/");
+        this.pottedShimmerstool(ReduxBlocks.POTTED_SHIMMERSTOOL.get(), ReduxBlocks.SHIMMERSTOOL.get(), "natural/");
         this.block(ReduxBlocks.SPRINGSHROOM_JELLY_BLOCK, "natural/");
         this.block(ReduxBlocks.SPRINGSHROOM_SPORES, "natural/");
         this.chain(ReduxBlocks.VERIDIUM_CHAIN.get(), "construction/");
@@ -547,13 +549,12 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
                 .renderType("cutout");
         getVariantBuilder(mushroom.get()).forAllStates((state -> ConfiguredModel.builder().modelFile(model).build()));
     }
-    @Deprecated
+
     public void shimmerstool(Supplier<? extends Block> mushroom, String location) {
         ModelFile model = models().withExistingParent(this.name(mushroom), modLoc(BLOCK_FOLDER + "/template_shimmerstool"))
                 .texture("side", this.texture(name(mushroom) + "_side", location))
                 .texture("top", this.texture(name(mushroom) + "_top", location))
-                .texture("bottom", this.texture(name(mushroom) + "_bottom", location))
-                .renderType("cutout");
+                .texture("bottom", this.texture(name(mushroom) + "_bottom", location));
         getVariantBuilder(mushroom.get()).forAllStates((state -> ConfiguredModel.builder().modelFile(model).build()));
     }
 
@@ -561,8 +562,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         ModelFile pot = this.models().withExistingParent(this.name(potBlock), Redux.locate(BLOCK_FOLDER + "/template_potted_shimmerstool"))
                 .texture("side", this.texture(name(mushroom) + "_side", location))
                 .texture("top", this.texture(name(mushroom) + "_top", location))
-                .texture("bottom", this.texture(name(mushroom) + "_bottom", location))
-                .renderType("cutout");
+                .texture("bottom", this.texture(name(mushroom) + "_bottom", location));
         this.getVariantBuilder(potBlock).partialState().addModels(new ConfiguredModel(pot));
     }
 
