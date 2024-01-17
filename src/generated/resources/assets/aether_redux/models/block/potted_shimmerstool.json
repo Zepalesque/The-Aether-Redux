@@ -1,0 +1,8 @@
+{
+  "parent": "aether_redux:block/template_potted_shimmerstool",
+  "textures": {
+    "bottom": "aether_redux:block/natural/shimmerstool_bottom",
+    "side": "aether_redux:block/natural/shimmerstool_side",
+    "top": "aether_redux:block/natural/shimmerstool_top"
+  }
+}
