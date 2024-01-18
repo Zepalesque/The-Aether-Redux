@@ -96,7 +96,8 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlock(ReduxBlocks.AEVELIUM);
         itemBlock(ReduxBlocks.CLOUD_CAP_BLOCK);
         itemBlock(ReduxBlocks.CLOUDCAP_SPORES);
-        itemBlock(ReduxBlocks.SPRINGSHROOM);
+        itemBlockFlat(ReduxBlocks.SPRINGSHROOM, "natural/");
+        itemBlock(ReduxBlocks.SHIMMERSTOOL);
         itemBlockFlatTintGlow(ReduxBlocks.LUXWEED, "natural/");
         itemBlockFlatTintOverlay(ReduxBlocks.SPIROLYCTIL, "natural/");
         itemBlockFlatTintOverlay(ReduxBlocks.BLIGHTSHADE, "natural/");
