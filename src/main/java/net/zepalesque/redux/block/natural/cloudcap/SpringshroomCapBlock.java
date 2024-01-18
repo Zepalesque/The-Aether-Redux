@@ -1,5 +1,6 @@
 package net.zepalesque.redux.block.natural.cloudcap;
 
+import com.aetherteam.aether.block.AetherBlockStateProperties;
 import com.aetherteam.aether.block.natural.AetherDoubleDropBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundSource;
@@ -8,16 +9,26 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.AbstractGlassBlock;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.Vec3;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 
 // TODO: Change to a more honey-like substance perhaps, with bounciness still?
-public class SpringshroomCapBlock extends AetherDoubleDropBlock {
+public class SpringshroomCapBlock extends AbstractGlassBlock {
 
     public SpringshroomCapBlock(BlockBehaviour.Properties pProperties) {
         super(pProperties);
+        this.registerDefaultState(this.defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, false));
+    }
+
+
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        builder.add(AetherBlockStateProperties.DOUBLE_DROPS);
     }
 
 
