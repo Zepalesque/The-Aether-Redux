@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-17T14:23:13.0524186	Block States: aether_redux
+// 1.20.1	2024-01-17T21:14:33.1961608	Block States: aether_redux
 3b65fcf4de37be76dd1ac46b4118458043237e15 assets/aether_redux/blockstates/aether_short_grass.json
 103ff0aa6feeaaf74b4a76fc8cdd87b27b7fbc61 assets/aether_redux/blockstates/aevelium.json
 839da9eb72bebfe44879f5abc71bbd50e6ef1b23 assets/aether_redux/blockstates/aevelium_growth.json
@@ -718,7 +718,7 @@ f32fc3762b3e2082e2ad22cb5694c8d7e0adbb7c assets/aether_redux/models/block/spring
 e506bc19d69fc062040bed4e93844f6269627e3f assets/aether_redux/models/block/springshroom_hyphae_wall_side_tall_alt.json
 44401c9978ae48c13522e8010f4db54f14c3322a assets/aether_redux/models/block/springshroom_hyphae_wall_side_tall_alt_short.json
 49300eafe5aa20445343bec2fd687c391d92490a assets/aether_redux/models/block/springshroom_hyphae_wall_side_tall_short.json
-97c9fc0c8e8ba29aaf72f1bbc404d0097c58dc78 assets/aether_redux/models/block/springshroom_jelly_block.json
+3762f3bf3a82363314609d7c6419d2f21f782d51 assets/aether_redux/models/block/springshroom_jelly_block.json
 40d4ce0325456d743f3ff4268e6d52466f54b030 assets/aether_redux/models/block/springshroom_planks.json
 ae953570796e7d97b19f131478d4b5e0c9da4174 assets/aether_redux/models/block/springshroom_pressure_plate.json
 958a7865f83a383d625cd587e00f2ef6c7fa521b assets/aether_redux/models/block/springshroom_pressure_plate_down.json

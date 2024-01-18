@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-17T14:23:13.0374176	Item Models: aether_redux
+// 1.20.1	2024-01-17T21:14:33.1751614	Item Models: aether_redux
 262070202f715ccbb93ebca7b4dd3b04851bc0ce assets/aether_redux/models/item/aether_short_grass.json
 ef6d226766d61d6460247665062a399d3613d946 assets/aether_redux/models/item/aevelium.json
 e89330a549c5d1169758ec3314e9285fb8db827a assets/aether_redux/models/item/aevelium_growth.json
@@ -175,6 +175,7 @@ d8de2565b035201fb855f38b6083299efcc91e31 assets/aether_redux/models/item/raw_ver
 2b0580de8e9f79ef8502204a23d3575928546d05 assets/aether_redux/models/item/ring_of_wisdom.json
 00dbab3f5b05a8c03d58eaf816c2eae9e244a466 assets/aether_redux/models/item/sentry_chip.json
 4eee3a2d738aac7cbe95f745f56831509105792b assets/aether_redux/models/item/sentry_ring.json
+8bc1a67532a1f855aaa43f67825d21a9491ddde3 assets/aether_redux/models/item/shimmerstool.json
 6eb82aa73b8f464c031aede636157d1f9fb79678 assets/aether_redux/models/item/skysprouts.json
 1a714fcc969395ab809f838beead90437b3f7458 assets/aether_redux/models/item/spectral_dart.json
 ad57a76a128ff919184952827f3bb1d420514d70 assets/aether_redux/models/item/spectral_dart_shooter.json
@@ -182,7 +183,7 @@ ca66221312d21063f168e38f805dbbc79c16414b assets/aether_redux/models/item/spiroly
 f77e24c2923c9754de00f40add7e8a671ad1a307 assets/aether_redux/models/item/splitfern.json
 0dc1c284d9c72e48c2b830de2c0adbfc5ed7bedb assets/aether_redux/models/item/sporing_blightwillow_log.json
 569139fa5e22ddb750644fecbfa21e36b2a1601a assets/aether_redux/models/item/sporing_blightwillow_wood.json
-288bfc1151ded4c993f1b089dc9dd7a6e2e9fdd5 assets/aether_redux/models/item/springshroom.json
+b6cc585254ae860406c536a7f3fae2f2a054d60f assets/aether_redux/models/item/springshroom.json
 683c22d7ba18df884cda0afa150278596436cf75 assets/aether_redux/models/item/springshroom_boat.json
 39665d9c764627c7244f00c4a7b4c82e0f1f682f assets/aether_redux/models/item/springshroom_button.json
 8f592ab36edb40c1a378f3cf2f74eb55817e8e44 assets/aether_redux/models/item/springshroom_chest_boat.json
