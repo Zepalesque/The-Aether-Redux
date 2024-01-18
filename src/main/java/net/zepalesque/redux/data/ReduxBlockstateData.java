@@ -707,9 +707,9 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         wallBlock(block, models().wallPost(baseName + "_post", texture), models().wallSide(baseName + "_side", texture), models().wallSideTall(baseName + "_side_tall", texture));
     }
 
-    public void grass(Supplier<? extends Block> block, Supplier<? extends Block> dirtBlock) {
-        ModelFile grass = cubeBottomTop(name(block), extend(texture(name(block), "natural/"), "_side"), texture(name(dirtBlock), "natural/"), extend(texture(name(block), "natural/"), "_top"));
-        ModelFile grassSnowed = cubeBottomTop(name(block) + "_snow", extend(texture(name(block), "natural/"), "_snow"), texture(name(dirtBlock), "natural/"), extend(texture(name(block), "natural/"), "_top"));
+    public void grass(Supplier<? extends Block> block, RegistryObject<? extends Block> dirtBlock) {
+        ModelFile grass = cubeBottomTop(name(block), extend(texture(name(block), "natural/"), "_side"), texture(dirtBlock, "natural/"), extend(texture(name(block), "natural/"), "_top"));
+        ModelFile grassSnowed = cubeBottomTop(name(block) + "_snow", extend(texture(name(block), "natural/"), "_snow"), texture(dirtBlock, "natural/"), extend(texture(name(block), "natural/"), "_top"));
         getVariantBuilder(block.get()).forAllStatesExcept(state -> {
             boolean snowy = state.getValue(SnowyDirtBlock.SNOWY);
             return ConfiguredModel.allYRotations(snowy ? grassSnowed : grass, 0, false);
