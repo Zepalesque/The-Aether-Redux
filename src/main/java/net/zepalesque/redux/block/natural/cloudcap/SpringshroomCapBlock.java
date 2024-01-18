@@ -26,6 +26,9 @@ public class SpringshroomCapBlock extends AbstractGlassBlock {
         this.registerDefaultState(this.defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, false));
     }
 
+    public float getShadeBrightness(BlockState state, BlockGetter level, BlockPos pos) {
+        return 0.5F;
+    }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(AetherBlockStateProperties.DOUBLE_DROPS);

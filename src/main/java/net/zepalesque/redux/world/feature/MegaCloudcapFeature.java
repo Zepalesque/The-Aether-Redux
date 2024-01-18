@@ -254,6 +254,7 @@ public class MegaCloudcapFeature extends Feature<MegaCloudcapFeatureConfiguratio
             }
          }
 
+
          int currentSporeSize = radius - 1;
          boolean isCorrectHeightLvl = heightIterator == height - 1;
 

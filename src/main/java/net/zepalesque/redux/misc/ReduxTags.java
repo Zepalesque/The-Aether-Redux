@@ -25,6 +25,7 @@ public class ReduxTags {
         public static final TagKey<Block> LIGHTROOT_GROWABLE = tag("lightroot_growable");
         public static final TagKey<Block> ENCHANTED_VINES_SKIP_PLACEMENT = tag("enchanted_vines_skip_placement");
         public static final TagKey<Block> ENCHANTED_VINES_SURVIVE = tag("enchanted_vines_survive");
+        public static final TagKey<Block> MUSHROOM_CAPS = tag("enchanted_vines_survive");
 
         public static final TagKey<Block> BLIGHTWILLOW_ROOTS_CAN_GROW_THROUGH = tag("blightwillow_roots_can_grow_through");
         public static final TagKey<Block> BLIGHTWILLOW_LOGS_CAN_GROW_THROUGH = tag("blightwillow_logs_can_grow_through");

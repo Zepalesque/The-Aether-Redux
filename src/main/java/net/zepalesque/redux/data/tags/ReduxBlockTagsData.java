@@ -46,6 +46,11 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.GILDED_OAK_LEAVES.get()
         );
 
+        this.tag(ReduxTags.Blocks.MUSHROOM_CAPS).add(
+                ReduxBlocks.SPRINGSHROOM_JELLY_BLOCK.get(),
+                ReduxBlocks.CLOUD_CAP_BLOCK.get()
+        );
+
         for (WoodHandler woodHandler : Redux.Handlers.Wood.WOOD_HANDLERS)        {
             woodHandler.sporingBlocksBlockTag.ifPresent(
                     (tag) -> {

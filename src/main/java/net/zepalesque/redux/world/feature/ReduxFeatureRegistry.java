@@ -22,5 +22,6 @@ public class ReduxFeatureRegistry {
     public static RegistryObject<Feature<SurfaceRuleLakeConfig>> SURFACE_RULE_LAKE = FEATURES.register("surface_rule_lake", () -> new SurfaceRuleLakeFeature(SurfaceRuleLakeConfig.CODEC));
     public static RegistryObject<Feature<FieldsproutTreeConfig>> FIELDSPROUT_TREE = FEATURES.register("fieldsprout_tree", () -> new FieldsproutTreeFeature(FieldsproutTreeConfig.CODEC));
     public static RegistryObject<Feature<CloudLayerConfig>> CLOUD_LAYER = FEATURES.register("cloud_layer", () -> new CloudLayerFeature(CloudLayerConfig.CODEC));
+    public static RegistryObject<Feature<JellyshroomConfig>> JELLYSHROOM = FEATURES.register("jellyshroom", () -> new HugeJellyshroomFeature(JellyshroomConfig.CODEC));
     public static RegistryObject<Feature<NoneFeatureConfiguration>> TREE_AWARE_SNOW = FEATURES.register("tree_aware_snow", () -> new TreeAwareSnowLayerFeature(NoneFeatureConfiguration.CODEC));
 }
