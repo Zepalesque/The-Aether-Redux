@@ -75,6 +75,7 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> IRIDIA_PATCH  = copyKey(ReduxConfiguredFeatures.IRIDIA_PATCH);
     public static final ResourceKey<PlacedFeature> LARGE_MUSHROOMS = copyKey(ReduxConfiguredFeatures.LARGE_MUSHROOMS);
     public static final ResourceKey<PlacedFeature> LUMINA_PATCH = copyKey(ReduxConfiguredFeatures.LUMINA_PATCH);
+    public static final ResourceKey<PlacedFeature> LIGHTROOTS = copyKey(ReduxConfiguredFeatures.LIGHTROOTS);
     public static final ResourceKey<PlacedFeature> MOSSY_HOLYSTONE_ORE  = createKey(ORE + name(AetherBlocks.MOSSY_HOLYSTONE) + "_ore");
     public static final ResourceKey<PlacedFeature> MOSSY_ROCK  = copyKey(ReduxConfiguredFeatures.MOSSY_ROCK);
     public static final ResourceKey<PlacedFeature> WYNDSPROUTS_PATCH = copyKey(ReduxConfiguredFeatures.WYNDSPROUTS_PATCH);
@@ -382,6 +383,12 @@ public class ReduxPlacedFeatures {
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(1, 2), 4),
                 RarityFilter.onAverageOnceEvery(7),
+                BiomeFilter.biome());
+
+        register(context, LIGHTROOTS, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.LIGHTROOTS),
+                CountPlacement.of(UniformInt.of(104, 157)),
+                HeightRangePlacement.of(UniformHeight.of(VerticalAnchor.BOTTOM, new VerticalAnchor.Absolute(256))),
+                InSquarePlacement.spread(),
                 BiomeFilter.biome());
 
         register(context, MOSSY_HOLYSTONE_ORE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.MOSSY_HOLYSTONE_ORE),

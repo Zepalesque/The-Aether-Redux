@@ -106,6 +106,7 @@ public class    ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> SHRUBLANDS_TREES = createKey(Folders.TREE + "shrublands_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> IRIDIA_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.IRIDIA) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_CLOUDCAP  = createKey(Folders.TREE + "large_cloudcap");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LIGHTROOTS  = createKey(Folders.MISC + "lightroots");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLACIA_TREE = createKey(Folders.TREE + "glacia_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_MUSHROOMS = createKey(Folders.TREE + "large_mushrooms");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_SPRINGSHROOM  = createKey(Folders.TREE + "large_springshroom");
@@ -347,6 +348,14 @@ public class    ReduxConfiguredFeatures {
                         prov(ReduxBlocks.GLACIA_LEAVES),
                         new GlaciaFoliagePlacer(ConstantInt.of(1), ConstantInt.of(0), ConstantInt.of(1)),
                         new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT)).build());
+
+        register(context, LIGHTROOTS, Feature.MULTIFACE_GROWTH,
+                new MultifaceGrowthConfiguration(ReduxBlocks.LIGHTROOTS.get(),
+                        20, false, false, true, 0.5F,
+                        HolderSet.direct(
+                                ReduxBlocks.AEVELIUM.getHolder().orElseThrow(),
+                                AetherBlocks.AETHER_DIRT.getHolder().orElseThrow()
+                        )));
 
         register(context, PURPLE_GLACIA_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(

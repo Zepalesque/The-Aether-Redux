@@ -332,7 +332,7 @@ public class ReduxBlocks {
 
 
     // TODO: Make this not a reskin of glow lichen lol
-    public static RegistryObject<Block> LIGHTROOTS = BLOCKS.register("lightroots",
+    public static RegistryObject<MultifaceBlock> LIGHTROOTS = BLOCKS.register("lightroots",
             () -> new GlowLichenBlock(BlockBehaviour.Properties.copy(Blocks.GLOW_LICHEN).mapColor(MapColor.DIAMOND).randomTicks()));
 
     public static RegistryObject<EnchantedVinesHeadBlock> GOLDEN_VINES = register("golden_vines",

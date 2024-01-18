@@ -68,6 +68,7 @@ public class ReduxBiomes {
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.AEVELIUM_GRASSES_PATCH)
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.CLOUDCAP_MUSHLING_PATCH)
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.SPRINGSHROOM_PATCH)
+                        .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, ReduxPlacedFeatures.LIGHTROOTS)
                 , defaultMobSpawns(new MobSpawnSettings.Builder()),
                 ReduxMusic.DEFAULT_AETHER_MUSIC,
                 WATER,
