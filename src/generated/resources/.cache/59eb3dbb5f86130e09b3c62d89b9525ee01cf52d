@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-17T21:53:41.770188	Loot Tables
+// 1.20.1	2024-01-17T22:11:18.7407741	Loot Tables
 9bb0a6fae9e80234bb0bad9086af314acf3e9894 data/aether_redux/loot_tables/blocks/aether_short_grass.json
 48b55d99420ce1afaca551876e87bdbccae62e08 data/aether_redux/loot_tables/blocks/aevelium.json
 101eb9ac681437f2db38085324dfcca14a759f7a data/aether_redux/loot_tables/blocks/aevelium_growth.json
@@ -140,6 +140,7 @@ ac2abed3902c6173f2d959271dc99f09d17c45ae data/aether_redux/loot_tables/blocks/go
 f15144dfea5b253651aa6b01316a89dd3692df72 data/aether_redux/loot_tables/blocks/golden_vines_plant.json
 f19ac148b4cfafe1b17cb63724960dbe1a10bbeb data/aether_redux/loot_tables/blocks/holysilt.json
 4787a11d3b711287c9b7a6ee4efabeabe011dd1a data/aether_redux/loot_tables/blocks/iridia.json
+199512251a6e687658aa723d790526f56a8e927a data/aether_redux/loot_tables/blocks/lightroots.json
 a588c1ccff39b719dba3d266940ab1eb21caa21b data/aether_redux/loot_tables/blocks/lumina.json
 014784bd1b313e4f3bc7e37240880cdb78e93b38 data/aether_redux/loot_tables/blocks/luxweed.json
 f48909d8f90b025bdb3d140c3895f25eacd9acfb data/aether_redux/loot_tables/blocks/potted_aevelium_growth.json
