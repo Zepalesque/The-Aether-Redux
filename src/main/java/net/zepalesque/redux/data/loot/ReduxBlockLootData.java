@@ -68,7 +68,6 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.add(ReduxBlocks.TALL_CLOUDCAP.get(), (block) -> {
             return this.createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER);
         });
-        dropOther(ReduxBlocks.SPROUTING_LIGHTROOTS.get(), ReduxItems.LIGHTROOT_CLUMP.get());
         this.dropPottedContents(ReduxBlocks.POTTED_BLIGHTWILLOW_SAPLING.get());
 
         this.dropSelf(ReduxBlocks.BLIGHTWILLOW_ROOTS.get());
@@ -115,7 +114,6 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropSelf(ReduxBlocks.GILDED_HOLYSTONE_STAIRS.get());
         this.dropSelf(ReduxBlocks.GILDED_HOLYSTONE_WALL.get());
         this.dropSelf(ReduxBlocks.COARSE_AETHER_DIRT.get());
-        this.dropSelf(ReduxBlocks.LIGHTROOT_AETHER_DIRT.get());
         this.dropSelf(ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get());
         this.add(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_SLAB.get(), this::createSlabItemTable);
         this.dropSelf(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_STAIRS.get());

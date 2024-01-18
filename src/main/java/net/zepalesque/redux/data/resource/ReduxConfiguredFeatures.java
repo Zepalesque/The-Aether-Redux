@@ -109,7 +109,6 @@ public class    ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLACIA_TREE = createKey(Folders.TREE + "glacia_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_MUSHROOMS = createKey(Folders.TREE + "large_mushrooms");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_SPRINGSHROOM  = createKey(Folders.TREE + "large_springshroom");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> LIGHTROOT_AETHER_DIRT_ORE  = createKey(Folders.ORE + name(ReduxBlocks.LIGHTROOT_AETHER_DIRT) + "_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LUMINA_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.LUMINA) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> MEGA_CLOUDCAP  = createKey(Folders.TREE + "mega_cloudcap");
     public static final ResourceKey<ConfiguredFeature<?, ?>> MOSSY_HOLYSTONE_ORE  = createKey(Folders.ORE + name(AetherBlocks.MOSSY_HOLYSTONE) + "_ore");
@@ -122,7 +121,6 @@ public class    ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> PURPLE_GLACIA_TREE = createKey(Folders.TREE + "purple_glacia_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPIROLYCTIL_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.SPIROLYCTIL) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPRINGSHROOM_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.SPRINGSHROOM) + "_patch");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SPROUTING_LIGHTROOTS_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.SPROUTING_LIGHTROOTS) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SURFACE_RULE_WATER_LAKE = createKey(Folders.SURFACE + "surface_rule_water_lake");
     public static final ResourceKey<ConfiguredFeature<?, ?>> VERIDIUM_ORE = createKey(Folders.ORE + name(ReduxBlocks.VERIDIUM_ORE));
     public static final ResourceKey<ConfiguredFeature<?, ?>> DIVINITE_ORE = createKey(Folders.ORE + name(ReduxBlocks.DIVINITE) + "_ore");
@@ -397,8 +395,7 @@ public class    ReduxConfiguredFeatures {
                         prov(Redux.Handlers.Wood.SPRINGSHROOM.log),
                         2
                 ));
-        register(context, LIGHTROOT_AETHER_DIRT_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.AETHER_DIRT),
-                drops(ReduxBlocks.LIGHTROOT_AETHER_DIRT), 32, 0.3F));
+
         register(context, LUMINA_PATCH, Feature.FLOWER,
                 randomPatch(12, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.LUMINA))));
         register(context, MEGA_CLOUDCAP, ReduxFeatureRegistry.MEGA_CLOUDCAP.get(),
@@ -456,9 +453,6 @@ public class    ReduxConfiguredFeatures {
         register(context, SPRINGSHROOM_PATCH, Feature.FLOWER,
                 blockBelowPlacementPatch(8, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.SPRINGSHROOM)),
                         BlockPredicate.matchesBlocks(ReduxBlocks.AEVELIUM.get())));
-        register(context, SPROUTING_LIGHTROOTS_PATCH, Feature.RANDOM_PATCH,
-                blockBelowPlacementPatch(32, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.SPROUTING_LIGHTROOTS)),
-                        BlockPredicate.matchesBlocks(ReduxBlocks.LIGHTROOT_AETHER_DIRT.get())));
 
 
         register(context, BLIGHT_TREES, Feature.RANDOM_SELECTOR,

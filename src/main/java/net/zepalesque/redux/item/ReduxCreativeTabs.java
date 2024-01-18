@@ -61,7 +61,6 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.DIVINITE, ReduxBlocks.HOLYSILT, event);
 
             putAfter(AetherBlocks.AETHER_DIRT, ReduxBlocks.COARSE_AETHER_DIRT, event);
-            putAfter(ReduxBlocks.COARSE_AETHER_DIRT, ReduxBlocks.LIGHTROOT_AETHER_DIRT, event);
 
             putAfter(AetherBlocks.AETHER_FARMLAND, ReduxBlocks.AETHER_SHORT_GRASS, event);
             putAfter(ReduxBlocks.AETHER_SHORT_GRASS, ReduxBlocks.AEVELIUM_GROWTH, event);
@@ -118,7 +117,6 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.CLOUDCAP_MUSHLING, ReduxBlocks.CLOUDCAP_MUSHLING, event);
             putAfter(ReduxBlocks.CLOUDCAP_MUSHLING, ReduxBlocks.SPRINGSHROOM, event);
             putAfter(ReduxBlocks.CLOUDCAP_MUSHLING, ReduxBlocks.TALL_CLOUDCAP, event);
-            putAfter(ReduxBlocks.TALL_CLOUDCAP, ReduxBlocks.SPROUTING_LIGHTROOTS, event);
 
             putAfter(AetherBlocks.ZANITE_ORE, ReduxBlocks.VERIDIUM_ORE, event);
             putAfter(AetherBlocks.GRAVITITE_ORE, ReduxBlocks.RAW_VERIDIUM_BLOCK, event);

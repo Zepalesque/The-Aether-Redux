@@ -157,9 +157,6 @@ public class ReduxBlocks {
     public static RegistryObject<Block> COARSE_AETHER_DIRT = register("coarse_aether_dirt",
             () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_CYAN).strength(0.2F).sound(SoundType.GRAVEL)));
 
-    public static RegistryObject<Block> LIGHTROOT_AETHER_DIRT = register("lightroot_aether_dirt",
-            () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_CYAN).strength(0.2F).sound(SoundType.ROOTED_DIRT)));
-
     public static RegistryObject<Block> GILDED_HOLYSTONE = register("gilded_holystone",
             () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.copy(AetherBlocks.MOSSY_HOLYSTONE.get()).mapColor(MapColor.SAND)));
 
@@ -354,11 +351,7 @@ public class ReduxBlocks {
 
     public static RegistryObject<Block> VERIDIUM_LANTERN = register("veridium_lantern",
             () -> new LanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).lightLevel((p_187433_) -> 13).noOcclusion()));
-
-    public static final RegistryObject<Block> SPROUTING_LIGHTROOTS = BLOCKS.register("sprouting_lightroots", () ->
-            new SproutingLightrootsBlock(BlockBehaviour.Properties.of().noCollission().instabreak().offsetType(BlockBehaviour.OffsetType.XZ).sound(SoundType.WEEPING_VINES).lightLevel((state) -> 6))
-    );
-
+    
     public static void registerFlammability() {
         FireBlockAccessor fireBlockAccessor = (FireBlockAccessor)Blocks.FIRE;
         fireBlockAccessor.callSetFlammable(BLIGHTWILLOW_LEAVES.get(), 30, 60);

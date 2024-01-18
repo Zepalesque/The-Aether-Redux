@@ -102,10 +102,6 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlockFlatTintOverlay(ReduxBlocks.SPIROLYCTIL, "natural/");
         itemBlockFlatTintOverlay(ReduxBlocks.BLIGHTSHADE, "natural/");
 
-        itemFullGlow(ReduxItems.LIGHTROOT_CLUMP, "food/");
-
-        itemBlock(ReduxBlocks.LIGHTROOT_AETHER_DIRT.get());
-
 
         blockCustomTexture(ReduxBlocks.FLOWERING_FIELDSPROUT_LEAVES, "natural/", "flowering_fieldsprout_leaves");
         itemCustomTexture(ReduxBlocks.FIELDSPROUT_PETALS, "misc/", "fieldsprout_petals");

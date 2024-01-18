@@ -74,7 +74,6 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> SHRUBLANDS_TREES = copyKey(ReduxConfiguredFeatures.SHRUBLANDS_TREES);
     public static final ResourceKey<PlacedFeature> IRIDIA_PATCH  = copyKey(ReduxConfiguredFeatures.IRIDIA_PATCH);
     public static final ResourceKey<PlacedFeature> LARGE_MUSHROOMS = copyKey(ReduxConfiguredFeatures.LARGE_MUSHROOMS);
-    public static final ResourceKey<PlacedFeature> LIGHTROOT_AETHER_DIRT_ORE  = copyKey(ReduxConfiguredFeatures.LIGHTROOT_AETHER_DIRT_ORE);
     public static final ResourceKey<PlacedFeature> LUMINA_PATCH = copyKey(ReduxConfiguredFeatures.LUMINA_PATCH);
     public static final ResourceKey<PlacedFeature> MOSSY_HOLYSTONE_ORE  = createKey(ORE + name(AetherBlocks.MOSSY_HOLYSTONE) + "_ore");
     public static final ResourceKey<PlacedFeature> MOSSY_ROCK  = copyKey(ReduxConfiguredFeatures.MOSSY_ROCK);
@@ -83,7 +82,6 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> GENESIS_SKYSPROUTS_PATCH = copyKey(ReduxConfiguredFeatures.GENESIS_SKYSPROUTS_PATCH);
     public static final ResourceKey<PlacedFeature> SPIROLYCTIL_PATCH  = copyKey(ReduxConfiguredFeatures.SPIROLYCTIL_PATCH);
     public static final ResourceKey<PlacedFeature> SPRINGSHROOM_PATCH  = copyKey(ReduxConfiguredFeatures.SPRINGSHROOM_PATCH);
-    public static final ResourceKey<PlacedFeature> SPROUTING_LIGHTROOTS_PATCH  = copyKey(ReduxConfiguredFeatures.SPROUTING_LIGHTROOTS_PATCH);
     public static final ResourceKey<PlacedFeature> SURFACE_RULE_WATER_LAKE = copyKey(ReduxConfiguredFeatures.SURFACE_RULE_WATER_LAKE);
     public static final ResourceKey<PlacedFeature> VERIDIUM_ORE = copyKey(ReduxConfiguredFeatures.VERIDIUM_ORE);
     public static final ResourceKey<PlacedFeature> DIVINITE_ORE = copyKey(ReduxConfiguredFeatures.DIVINITE_ORE);
@@ -380,12 +378,6 @@ public class ReduxPlacedFeatures {
                 RarityFilter.onAverageOnceEvery(3),
                 BiomeFilter.biome());
 
-        register(context, LIGHTROOT_AETHER_DIRT_ORE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.LIGHTROOT_AETHER_DIRT_ORE),
-                CountPlacement.of(24),
-                InSquarePlacement.spread(),
-                HeightRangePlacement.of(UniformHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(128))),
-                BiomeFilter.biome()
-        );
         register(context, LUMINA_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.LUMINA_PATCH),
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(1, 2), 4),
@@ -463,12 +455,6 @@ public class ReduxPlacedFeatures {
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
                 RarityFilter.onAverageOnceEvery(5),
                 BiomeFilter.biome());
-
-        register(context, SPROUTING_LIGHTROOTS_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.SPROUTING_LIGHTROOTS_PATCH),
-                NOISE_THRESHOLD,
-                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, ConstantInt.of(1), 4),
-                BiomeFilter.biome());
-
 
         register(context, BLIGHT_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.BLIGHT_TREES),
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()

@@ -55,7 +55,6 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         stairs(ReduxBlocks.GILDED_HOLYSTONE_STAIRS.get(), ReduxBlocks.GILDED_HOLYSTONE.get(), "natural/");
         slab(ReduxBlocks.GILDED_HOLYSTONE_SLAB.get(), ReduxBlocks.GILDED_HOLYSTONE.get(), "natural/");
         block(ReduxBlocks.COARSE_AETHER_DIRT.get(), "natural/");
-        glowingBlock(ReduxBlocks.LIGHTROOT_AETHER_DIRT.get(), "natural/");
         block(ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), "natural/");
         wallBlock(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_WALL.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), "natural/");
         stairs(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_STAIRS.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), "natural/");
@@ -147,7 +146,6 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.block(ReduxBlocks.RAW_VERIDIUM_BLOCK.get(), "natural/");
         this.block(ReduxBlocks.VERIDIUM_BLOCK.get(), "construction/");
 
-        this.harvestableCrossBlockGlow(ReduxBlocks.SPROUTING_LIGHTROOTS.get(), "natural/");
 
         this.harvestableCrossBlockOccluded(ReduxBlocks.QUICKROOTS.get(), "natural/");
 

@@ -104,8 +104,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         this.tag(AetherTags.Blocks.AETHER_DIRT).add(
                 ReduxBlocks.AEVELIUM.get(),
                 ReduxBlocks.COARSE_AETHER_DIRT.get(),
-                ReduxBlocks.BLIGHTMOSS_BLOCK.get(),
-                ReduxBlocks.LIGHTROOT_AETHER_DIRT.get()
+                ReduxBlocks.BLIGHTMOSS_BLOCK.get()
         );
         this.tag(BlockTags.LEAVES).add(
                 ReduxBlocks.BLIGHTWILLOW_LEAVES.get(),
@@ -118,8 +117,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
                 ReduxBlocks.AEVELIUM.get(),
                 ReduxBlocks.COARSE_AETHER_DIRT.get(),
-                ReduxBlocks.BLIGHTMOSS_BLOCK.get(),
-                ReduxBlocks.LIGHTROOT_AETHER_DIRT.get()
+                ReduxBlocks.BLIGHTMOSS_BLOCK.get()
         );
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
                 ReduxBlocks.DIVINITE.get(),
@@ -178,7 +176,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         );
         this.tag(AetherTags.Blocks.HOLYSTONE).add(ReduxBlocks.GILDED_HOLYSTONE.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), ReduxBlocks.FROSTED_HOLYSTONE.get());
 
-        this.tag(AetherTags.Blocks.AETHER_ANIMALS_SPAWNABLE_ON).add(ReduxBlocks.AEVELIUM.get(), ReduxBlocks.COARSE_AETHER_DIRT.get(), ReduxBlocks.LIGHTROOT_AETHER_DIRT.get(), Blocks.SNOW_BLOCK, AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get());
+        this.tag(AetherTags.Blocks.AETHER_ANIMALS_SPAWNABLE_ON).add(ReduxBlocks.AEVELIUM.get(), ReduxBlocks.COARSE_AETHER_DIRT.get(), Blocks.SNOW_BLOCK, AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get());
 
         // Adds every single Redux block as a block that should be treaded as an Aether Block and get the tool debuff
         IntrinsicTagAppender<Block> tag = this.tag(AetherTags.Blocks.TREATED_AS_AETHER_BLOCK);
@@ -187,7 +185,6 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
 
         this.tag(ReduxTags.Blocks.QUICKSOIL_BEHAVIOR).add(AetherBlocks.QUICKSOIL.get(), AetherBlocks.QUICKSOIL_GLASS.get(), AetherBlocks.QUICKSOIL_GLASS_PANE.get());
 
-        this.tag(ReduxTags.Blocks.LIGHTROOT_GROWABLE).add(ReduxBlocks.LIGHTROOT_AETHER_DIRT.get());
 
         this.tag(BlockTags.SLABS).add(
                 ReduxBlocks.DIVINITE_SLAB.get(),

@@ -44,7 +44,6 @@ public class BlockBreakHooks {
             .put(AetherBlocks.PILLAR.get(), Blocks.QUARTZ_PILLAR)
             .put(AetherBlocks.PILLAR_TOP.get(), Blocks.QUARTZ_PILLAR)
             .put(AetherBlocks.AETHER_DIRT.get(), Blocks.DIRT)
-            .put(ReduxBlocks.LIGHTROOT_AETHER_DIRT.get(), Blocks.ROOTED_DIRT)
             .put(AetherBlocks.AETHER_FARMLAND.get(), Blocks.FARMLAND)
             .put(AetherBlocks.AETHER_DIRT_PATH.get(), Blocks.DIRT_PATH)
             .put(AetherBlocks.AETHER_GRASS_BLOCK.get(), Blocks.GRASS_BLOCK)

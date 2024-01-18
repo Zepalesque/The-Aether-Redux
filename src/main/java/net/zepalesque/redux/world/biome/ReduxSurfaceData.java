@@ -32,7 +32,7 @@ public class ReduxSurfaceData {
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.GILDED_GROVES), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.ICE, 0.0, 0.2), SurfaceRules.state(AetherFeatureStates.HOLYSTONE)))),
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.GILDED_GROVES), SurfaceRules.ifTrue(new ConditionCondition(Conditions.ENCHGRASS), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state((AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get().defaultBlockState()))))),
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.GILDED_GRASSLANDS), SurfaceRules.ifTrue(new ConditionCondition(Conditions.ENCHGRASS), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state((AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get().defaultBlockState()))))),
-                SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.CLOUDCAP_JUNGLE), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.ICE, 0.0, 0.2), SurfaceRules.state(ReduxBlocks.LIGHTROOT_AETHER_DIRT.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true))))),
+                SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.CLOUDCAP_JUNGLE), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.ICE, 0.0, 0.2), SurfaceRules.state(getCoarseDirtBlock().get().defaultBlockState())))),
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.CLOUDCAP_JUNGLE), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state((ReduxBlocks.AEVELIUM.get()).defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true))))
         );
     }

@@ -56,7 +56,6 @@ public class ReduxToolHooks {
      */
     public static final Map<Block, Block> FLATTENABLES = Maps.newHashMap((new ImmutableMap.Builder<Block, Block>())
             .put(ReduxBlocks.AEVELIUM.get(), AetherBlocks.AETHER_DIRT_PATH.get())
-            .put(ReduxBlocks.LIGHTROOT_AETHER_DIRT.get(), AetherBlocks.AETHER_DIRT_PATH.get())
             .build());
 
     /**
@@ -64,7 +63,6 @@ public class ReduxToolHooks {
      */
     public static final Map<Block, Block> TILLABLES = Maps.newHashMap((new ImmutableMap.Builder<Block, Block>())
             .put(ReduxBlocks.AEVELIUM.get(), AetherBlocks.AETHER_FARMLAND.get())
-            .put(ReduxBlocks.LIGHTROOT_AETHER_DIRT.get(), AetherBlocks.AETHER_FARMLAND.get())
             .build());
 
     /**

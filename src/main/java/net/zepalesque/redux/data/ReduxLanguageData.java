@@ -128,11 +128,6 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.COARSE_AETHER_DIRT, "Coarse Aether Dirt");
         addLore(ReduxBlocks.COARSE_AETHER_DIRT, "A variant of Aether Dirt that does not regrow any grass.");
 
-        addBlock(ReduxBlocks.LIGHTROOT_AETHER_DIRT, "Lightroot Aether Dirt");
-        addLore(ReduxBlocks.LIGHTROOT_AETHER_DIRT, "A variant of Aether Dirt that has Lightroots growing through it.");
-
-        addBlock(ReduxBlocks.SPROUTING_LIGHTROOTS, "Sprouting Lightroots");
-
         addBlock(ReduxBlocks.BLIGHTMOSS_BLOCK, "Blightmoss Block");
         addLore(ReduxBlocks.BLIGHTMOSS_BLOCK, "Moss that has been infected by the Blight. This can be found in some caves in the Aether.");
 
