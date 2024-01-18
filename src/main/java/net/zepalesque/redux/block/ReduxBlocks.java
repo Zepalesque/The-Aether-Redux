@@ -330,6 +330,11 @@ public class ReduxBlocks {
     public static RegistryObject<Block> QUICKROOTS = BLOCKS.register("quickroots",
             () -> new QuickrootsBlock(BlockBehaviour.Properties.copy(Blocks.HANGING_ROOTS).mapColor(MapColor.SAND).randomTicks()));
 
+
+    // TODO: Make this not a reskin of glow lichen lol
+    public static RegistryObject<Block> LIGHTROOTS = BLOCKS.register("lightroots",
+            () -> new GlowLichenBlock(BlockBehaviour.Properties.copy(Blocks.GLOW_LICHEN).mapColor(MapColor.DIAMOND).randomTicks()));
+
     public static RegistryObject<EnchantedVinesHeadBlock> GOLDEN_VINES = register("golden_vines",
             () -> new EnchantedVinesHeadBlock(BlockBehaviour.Properties.copy(Blocks.WEEPING_VINES)
                     .mapColor(MapColor.GOLD).sound(SoundType.CAVE_VINES), (state) -> state.is(ReduxTags.Blocks.ENCHANTED_VINES_SURVIVE), ReduxBlocks.GOLDEN_VINES_PLANT));
@@ -351,7 +356,7 @@ public class ReduxBlocks {
 
     public static RegistryObject<Block> VERIDIUM_LANTERN = register("veridium_lantern",
             () -> new LanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).lightLevel((p_187433_) -> 13).noOcclusion()));
-    
+
     public static void registerFlammability() {
         FireBlockAccessor fireBlockAccessor = (FireBlockAccessor)Blocks.FIRE;
         fireBlockAccessor.callSetFlammable(BLIGHTWILLOW_LEAVES.get(), 30, 60);

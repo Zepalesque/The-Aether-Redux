@@ -1,7 +1,0 @@
-{
-  "parent": "aether_redux:block/cross_full_glow",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "cross": "aether_redux:block/natural/harvested_sprouting_lightroots"
-  }
-}

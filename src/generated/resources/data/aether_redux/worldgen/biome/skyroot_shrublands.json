@@ -153,31 +153,31 @@
     "creature": [
       {
         "type": "aether:phyg",
-        "maxCount": 7,
-        "minCount": 5,
+        "maxCount": 4,
+        "minCount": 3,
         "weight": 10
       },
       {
         "type": "aether:sheepuff",
-        "maxCount": 6,
-        "minCount": 5,
+        "maxCount": 4,
+        "minCount": 3,
         "weight": 12
       },
       {
         "type": "aether:flying_cow",
-        "maxCount": 6,
-        "minCount": 4,
+        "maxCount": 5,
+        "minCount": 2,
         "weight": 12
       },
       {
         "type": "aether:aerbunny",
-        "maxCount": 9,
+        "maxCount": 3,
         "minCount": 3,
-        "weight": 18
+        "weight": 11
       },
       {
         "type": "aether:moa",
-        "maxCount": 4,
+        "maxCount": 3,
         "minCount": 1,
         "weight": 8
       }

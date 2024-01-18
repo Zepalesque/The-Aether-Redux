@@ -1,0 +1,17 @@
+{
+    "ambientocclusion": false,
+    "render_type": "minecraft:cutout",
+    "textures": {
+        "particle": "aether_redux:block/natural/lightroots",
+        "glow_lichen": "aether_redux:block/natural/lightroots"
+    },
+    "elements": [
+        {   "from": [ 0, 0, 0.1 ],
+            "to": [ 16, 16, 0.1 ],
+            "faces": {
+                "north": { "uv": [ 16, 0, 0, 16 ], "texture": "#glow_lichen" },
+                "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#glow_lichen" }
+            }
+        }
+    ]
+}

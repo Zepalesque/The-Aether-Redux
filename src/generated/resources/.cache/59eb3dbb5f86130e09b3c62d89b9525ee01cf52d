@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-17T14:23:13.04742	Loot Tables
+// 1.20.1	2024-01-17T21:53:41.770188	Loot Tables
 9bb0a6fae9e80234bb0bad9086af314acf3e9894 data/aether_redux/loot_tables/blocks/aether_short_grass.json
 48b55d99420ce1afaca551876e87bdbccae62e08 data/aether_redux/loot_tables/blocks/aevelium.json
 101eb9ac681437f2db38085324dfcca14a759f7a data/aether_redux/loot_tables/blocks/aevelium_growth.json
@@ -140,7 +140,6 @@ ac2abed3902c6173f2d959271dc99f09d17c45ae data/aether_redux/loot_tables/blocks/go
 f15144dfea5b253651aa6b01316a89dd3692df72 data/aether_redux/loot_tables/blocks/golden_vines_plant.json
 f19ac148b4cfafe1b17cb63724960dbe1a10bbeb data/aether_redux/loot_tables/blocks/holysilt.json
 4787a11d3b711287c9b7a6ee4efabeabe011dd1a data/aether_redux/loot_tables/blocks/iridia.json
-0cccb8af600af6fe2d5070a551f0ed73aee505aa data/aether_redux/loot_tables/blocks/lightroot_aether_dirt.json
 a588c1ccff39b719dba3d266940ab1eb21caa21b data/aether_redux/loot_tables/blocks/lumina.json
 014784bd1b313e4f3bc7e37240880cdb78e93b38 data/aether_redux/loot_tables/blocks/luxweed.json
 f48909d8f90b025bdb3d140c3895f25eacd9acfb data/aether_redux/loot_tables/blocks/potted_aevelium_growth.json
@@ -196,7 +195,6 @@ daa42c2f096755e390d6f47b420e4feb68a8ee8f data/aether_redux/loot_tables/blocks/sp
 5e728c345fe2b8ab3fb0039cf824eb1fb60adf36 data/aether_redux/loot_tables/blocks/springshroom_trapdoor.json
 5d08336be08fb996115787275c3a203f29c92000 data/aether_redux/loot_tables/blocks/springshroom_wall_hanging_sign.json
 5764894d4f0209dd49f04bda9056c92d3785185d data/aether_redux/loot_tables/blocks/springshroom_wall_sign.json
-3c87ca4fd79e2fa97b2afa22dc9cce640f9a5b86 data/aether_redux/loot_tables/blocks/sprouting_lightroots.json
 3ba5acf2bdbfacd77281874e7680504eb6ea8097 data/aether_redux/loot_tables/blocks/stripped_blightwillow_log.json
 904fab20712d97fea44fd4d004bd3fcdeeaa17a2 data/aether_redux/loot_tables/blocks/stripped_blightwillow_log_wall.json
 39d3bb664c0a091b941aba996af468eb47631623 data/aether_redux/loot_tables/blocks/stripped_blightwillow_wood.json

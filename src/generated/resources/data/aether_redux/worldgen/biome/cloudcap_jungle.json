@@ -43,8 +43,7 @@
       "aether_redux:trees/large_mushrooms",
       "aether_redux:patch/aevelium_grasses_patch",
       "aether_redux:patch/cloudcap_mushling_patch",
-      "aether_redux:patch/springshroom_patch",
-      "aether_redux:patch/sprouting_lightroots_patch"
+      "aether_redux:patch/springshroom_patch"
     ],
     [
       "aether:cold_aercloud",

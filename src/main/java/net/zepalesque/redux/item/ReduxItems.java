@@ -129,7 +129,7 @@ public class ReduxItems {
 
     public static final RegistryObject<Item> ZANBERRY = register("zanberry", () -> new Item(new Item.Properties().food(ReduxFoods.CHROMABERRY)));
 
-    public static final RegistryObject<Item> LIGHTROOT_CLUMP = register("lightroot_clump", () -> new Item(/*ReduxBlocks.SPROUTING_LIGHTROOTS.get(), TODO: Replace with new vine-like block. NOTE: class is ItemNameBlockItem */ new Item.Properties().food(ReduxFoods.LIGHTROOT_CLUMP)));
+    public static final RegistryObject<Item> LIGHTROOT_CLUMP = register("lightroot_clump", () -> new ItemNameBlockItem(ReduxBlocks.LIGHTROOTS.get(),  new Item.Properties().food(ReduxFoods.LIGHTROOT_CLUMP)));
 
     public static final RegistryObject<Item> VAMPIRE_AMULET = register("vampire_amulet", () -> new VampireAmuletItem(ReduxSoundEvents.EQUIP_VAMPIRE_AMULET, new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT), "vampire_amulet_night_ability", "vampire_amulet_day_debuff"));
 

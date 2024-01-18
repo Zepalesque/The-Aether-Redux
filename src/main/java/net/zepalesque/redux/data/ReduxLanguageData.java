@@ -329,6 +329,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.OAT_MUFFIN, "Oat Muffin");
         addLore(ReduxItems.OAT_MUFFIN, "A nice little snack made of oats. It's delicious with a porkchop for breakfast");
 
+        addBlock(ReduxBlocks.LIGHTROOTS, "Lightroots");
         addItem(ReduxItems.LIGHTROOT_CLUMP, "Lightroot Clump");
         addLore(ReduxItems.LIGHTROOT_CLUMP, "A clump of the glowing roots that grow in the Cloudcap Jungle. These can be eaten, and give night vision.");
 
