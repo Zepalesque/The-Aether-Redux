@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_bottom_top",
   "textures": {
-    "bottom": "aether_redux:block/natural/aether_dirt",
+    "bottom": "aether:block/natural/aether_dirt",
     "side": "aether_redux:block/natural/aevelium_snow",
     "top": "aether_redux:block/natural/aevelium_top"
   }
