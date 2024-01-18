@@ -90,7 +90,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.leafPile(ReduxBlocks.GOLDEN_LEAF_PILE, AetherBlocks.GOLDEN_OAK_LEAVES, "natural/");
         this.leafPile(ReduxBlocks.GILDED_LEAF_PILE, ReduxBlocks.GILDED_OAK_LEAVES, "natural/");
 
-        this.grassGlow(ReduxBlocks.AEVELIUM.get(), ReduxBlocks.LIGHTROOT_AETHER_DIRT, true, false);
+        this.grass(ReduxBlocks.AEVELIUM, AetherBlocks.AETHER_DIRT);
 
         this.snowableLeaves(ReduxBlocks.GLACIA_LEAVES.get(), "natural/");
         this.crossBlock(ReduxBlocks.GLACIA_SAPLING.get(), "natural/");
