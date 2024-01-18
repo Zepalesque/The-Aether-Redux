@@ -92,7 +92,7 @@ public class ReduxBlocks {
             () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.LAPIS).strength(0.5F).sound(SoundType.FUNGUS)));
 
     public static RegistryObject<Block> SPRINGSHROOM_JELLY_BLOCK = register("springshroom_jelly_block",
-            () -> new SpringshroomCapBlock(BlockBehaviour.Properties.of().mapColor(MapColor.QUARTZ).strength(0.5F).sound(SoundType.FUNGUS).noOcclusion().isSuffocating(ReduxBlocks::never).isViewBlocking(ReduxBlocks::never)));
+            () -> new SpringshroomCapBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).strength(0.5F).sound(SoundType.HONEY_BLOCK).noOcclusion().isSuffocating(ReduxBlocks::never).isViewBlocking(ReduxBlocks::never)));
 
     public static RegistryObject<Block> CLOUDCAP_SPORES = register("cloudcap_spores",
             () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(0.3F).sound(SoundType.WART_BLOCK).lightLevel((state) -> 15).emissiveRendering(ReduxBlocks::always).noOcclusion()));
@@ -100,7 +100,7 @@ public class ReduxBlocks {
     public static RegistryObject<Block> SPRINGSHROOM_SPORES = register("springshroom_spores",
             () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PINK).strength(0.3F).sound(SoundType.WART_BLOCK)));
 
-    public static final RegistryObject<Block> SPRINGSHROOM = register("springshroom", () -> new AetherMushroom(Block.Properties.of().strength(0.5F).sound(SoundType.FUNGUS).mapColor(MapColor.COLOR_PURPLE),
+    public static final RegistryObject<Block> SPRINGSHROOM = register("springshroom", () -> new AetherMushroom(Block.Properties.of().noCollission().strength(0.5F).sound(SoundType.FUNGUS).mapColor(MapColor.COLOR_PURPLE),
             ReduxConfiguredFeatures.LARGE_SPRINGSHROOM,
             Block.box(2D, 0D, 3D, 12D, 13D, 12D)));
     public static final RegistryObject<FlowerPotBlock> POTTED_SPRINGSHROOM = BLOCKS.register("potted_springshroom", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SPRINGSHROOM, Block.Properties.copy(Blocks.FLOWER_POT)));
