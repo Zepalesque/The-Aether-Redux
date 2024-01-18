@@ -35,7 +35,9 @@
       "aether:gravitite_ore_buried",
       "aether:gravitite_ore"
     ],
-    [],
+    [
+      "aether_redux:misc/lightroots"
+    ],
     [
       "aether:water_spring"
     ],
