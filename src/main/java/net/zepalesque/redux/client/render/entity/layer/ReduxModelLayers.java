@@ -16,6 +16,7 @@ public class ReduxModelLayers {
     public static final ModelLayerLocation SHEEPUFF_BODY = register("sheepuff_body");
     public static final ModelLayerLocation SHEEPUFF_WOOL = register("sheepuff_wool");
     public static final ModelLayerLocation SHEEPUFF_WOOL_PUFFED = register("sheepuff_wool_puffed");
+    public static final ModelLayerLocation SHIMMERCOW = register("shimmercow");
 
 
     public static final ModelLayerLocation MIMIC = register("mimic");

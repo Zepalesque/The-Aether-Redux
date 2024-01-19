@@ -14,6 +14,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.entity.passive.Shimmercow;
 import net.zepalesque.redux.entity.projectile.Ember;
 import net.zepalesque.redux.entity.projectile.SpectralDart;
 import net.zepalesque.redux.entity.projectile.VolatileFireCrystal;
@@ -34,6 +35,9 @@ public class ReduxEntityTypes {
 
     public static final RegistryObject<EntityType<Ember>> EMBER = ENTITY_TYPES.register("ember",
             () -> EntityType.Builder.<Ember>of(Ember::new, MobCategory.MISC).sized(0.125F, 0.125F).clientTrackingRange(4).updateInterval(20).build("ember"));
+
+    public static final RegistryObject<EntityType<Shimmercow>> SHIMMERCOW = ENTITY_TYPES.register("shimmercow",
+            () -> EntityType.Builder.<Shimmercow>of(Shimmercow::new, MobCategory.MISC).sized(0.125F, 0.125F).clientTrackingRange(4).updateInterval(20).build("shimmercow"));
 
     @SubscribeEvent
     public static void registerSpawnPlacements(SpawnPlacementRegisterEvent event) {
