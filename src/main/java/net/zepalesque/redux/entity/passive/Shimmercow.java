@@ -4,9 +4,16 @@ import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.client.AetherSoundEvents;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.entity.ai.goal.FallingRandomStrollGoal;
+import com.aetherteam.aether.entity.monster.dungeon.Sentry;
+import com.aetherteam.aether.entity.passive.AetherAnimal;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
@@ -21,7 +28,9 @@ import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.misc.ReduxTags;
@@ -29,11 +38,32 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 
-public class Shimmercow extends Animal {
+public class Shimmercow extends AetherAnimal {
+
+    private static final EntityDataAccessor<Boolean> CRAZY = SynchedEntityData.defineId(Shimmercow.class, EntityDataSerializers.BOOLEAN);
 
     public Shimmercow(EntityType<? extends Shimmercow> type, Level level) {
         super(type, level);
     }
+
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.getEntityData().define(CRAZY, false);
+    }
+
+    public boolean isCrazy() {
+        return this.getEntityData().get(CRAZY);
+    }
+
+    public void setCrazy(boolean crazy) {
+        this.getEntityData().set(CRAZY, crazy);
+    }
+
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason, @org.jetbrains.annotations.Nullable SpawnGroupData spawnData, @org.jetbrains.annotations.Nullable CompoundTag tag) {
+        this.setCrazy(this.getRandom().nextFloat() < 0.01);
+        return spawnData;
+    }
+
 
 
     protected void registerGoals() {
@@ -48,7 +78,7 @@ public class Shimmercow extends Animal {
     }
 
     public static AttributeSupplier.@NotNull Builder createMobAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 10.0).add(Attributes.MOVEMENT_SPEED, 0.2);
+        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 20.0).add(Attributes.MOVEMENT_SPEED, 0.1).add(Attributes.KNOCKBACK_RESISTANCE, 0.6F);
     }
 
 

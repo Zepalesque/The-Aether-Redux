@@ -218,6 +218,7 @@ public class ReduxCreativeTabs {
         if (tab == AetherCreativeTabs.AETHER_SPAWN_EGGS.get())
         {
             putBefore(AetherItems.WHIRLWIND_SPAWN_EGG, ReduxItems.VANILLA_SWET_SPAWN_EGG, event);
+            putAfter(AetherItems.SHEEPUFF_SPAWN_EGG, ReduxItems.SHIMMERCOW_SPAWN_EGG, event);
         }
     }
 

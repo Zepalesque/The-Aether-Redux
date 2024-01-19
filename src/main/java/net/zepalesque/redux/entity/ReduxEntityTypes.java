@@ -2,6 +2,7 @@ package net.zepalesque.redux.entity;
 
 import com.aetherteam.aether.data.resources.AetherMobCategory;
 import com.aetherteam.aether.entity.monster.Swet;
+import com.aetherteam.aether.entity.passive.AetherAnimal;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.SpawnPlacements;
@@ -37,16 +38,18 @@ public class ReduxEntityTypes {
             () -> EntityType.Builder.<Ember>of(Ember::new, MobCategory.MISC).sized(0.125F, 0.125F).clientTrackingRange(4).updateInterval(20).build("ember"));
 
     public static final RegistryObject<EntityType<Shimmercow>> SHIMMERCOW = ENTITY_TYPES.register("shimmercow",
-            () -> EntityType.Builder.<Shimmercow>of(Shimmercow::new, MobCategory.MISC).sized(0.125F, 0.125F).clientTrackingRange(4).updateInterval(20).build("shimmercow"));
+            () -> EntityType.Builder.<Shimmercow>of(Shimmercow::new, MobCategory.MISC).sized(1.125F, 1.625F).clientTrackingRange(10).build("shimmercow"));
 
     @SubscribeEvent
     public static void registerSpawnPlacements(SpawnPlacementRegisterEvent event) {
         event.register(ReduxEntityTypes.VANILLA_SWET.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Swet::checkSwetSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
+        event.register(ReduxEntityTypes.SHIMMERCOW.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AetherAnimal::checkAetherAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
     }
 
     @SubscribeEvent
     public static void registerEntityAttributes(EntityAttributeCreationEvent event) {
         event.put(ReduxEntityTypes.VANILLA_SWET.get(), Swet.createMobAttributes().build());
+        event.put(ReduxEntityTypes.SHIMMERCOW.get(), Shimmercow.createMobAttributes().build());
     }
 }
 
