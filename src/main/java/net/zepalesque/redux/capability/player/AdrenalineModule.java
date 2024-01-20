@@ -76,7 +76,7 @@ public class AdrenalineModule implements INBTSerializable, PlayerTickModule {
     }
 
     private static boolean isAdrenalineShader(String shader) {
-        return shader.equals(HIGH) || shader.equals(MED) || shader.equals(LOW);
+        return shader != null && (shader.equals(HIGH) || shader.equals(MED) || shader.equals(LOW));
     }
 
 

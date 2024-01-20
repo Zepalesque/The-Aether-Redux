@@ -6,7 +6,7 @@
     ],
     "passes": [
         {
-            "name": "motion_blur",
+            "name": "aether_redux:motion_blur",
             "intarget": "minecraft:main",
             "outtarget": "motion",
             "auxtargets": [
@@ -32,7 +32,7 @@
             }
         },
         {
-            "name": "screen_shake",
+            "name": "aether_redux:screen_shake",
             "intarget": "blur",
             "outtarget": "shake"
         },
