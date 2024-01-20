@@ -22,6 +22,7 @@ public interface ReduxPlayer extends INBTSynchable<CompoundTag> {
     int ticksInAir();
 
     LoreBookModule getLoreModule();
+    BlightshadeModule getBlightshadeModule();
 
     void tick();
     boolean doubleJump();
@@ -37,12 +38,10 @@ public interface ReduxPlayer extends INBTSynchable<CompoundTag> {
 
     int fireballCooldown();
 
-    int getBlightshadeCooldown();
 
     boolean fireballSetup();
 
     boolean canShootFireball();
 
-    boolean blightshade(BlockPos pos, AABB bounds);
 
 }

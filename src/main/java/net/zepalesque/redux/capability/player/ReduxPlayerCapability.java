@@ -36,9 +36,7 @@ public class ReduxPlayerCapability implements ReduxPlayer {
 
     private final LoreBookModule lore;
 
-    private int blightshadeCooldown;
-    private int blightshadeEffectCooldown;
-
+    private final BlightshadeModule blightshade;
 
     private int maxPulseTicks = 0;
     private int currPulseTicks = 0;
@@ -59,6 +57,7 @@ public class ReduxPlayerCapability implements ReduxPlayer {
     public ReduxPlayerCapability(Player pPlayer) {
         this.player = pPlayer;
         this.lore = new LoreBookModule();
+        this.blightshade = new BlightshadeModule(this.player);
     }
 
     @Override
@@ -112,21 +111,15 @@ public class ReduxPlayerCapability implements ReduxPlayer {
         return this.lore;
     }
 
+    @Override
+    public BlightshadeModule getBlightshadeModule() {
+        return this.blightshade;
+    }
+
 
     @Override
     public void tick() {
-        if (this.blightshadeCooldown > 0)
-        {
-            this.blightshadeCooldown--;
-        }
-        if (this.blightshadeEffectCooldown > 0)
-        {
-            if (this.blightshadeEffectCooldown == 1)
-            {
-                this.getPlayer().addEffect(new MobEffectInstance(MobEffects.DARKNESS, 210, 0));
-            }
-            this.blightshadeEffectCooldown--;
-        }
+
 
         this.prevTickAirJumps = airJumps;
         if (this.getPlayer().onGround()) {
@@ -186,24 +179,6 @@ public class ReduxPlayerCapability implements ReduxPlayer {
 
 
     @Override
-    public int getBlightshadeCooldown() {
-        return this.blightshadeCooldown;
-    }
-    @Override
-    public boolean blightshade(BlockPos pos, AABB bounds) {
-        if (!this.getPlayer().level().isClientSide()) {
-            if (this.blightshadeCooldown > 0) {
-                return false;
-            } else {
-                this.blightshadeCooldown = 100;
-                ((ServerLevel)this.getPlayer().level()).sendParticles(ParticleTypes.WARPED_SPORE, bounds.getCenter().x(), bounds.getCenter().y() + 0.25, bounds.getCenter().z(), 100, 0.1, 0.1, 0.1, 1.0);
-                this.getPlayer().level().playSound(null, pos, ReduxSoundEvents.BLIGHTSHADE_SPRAY.get(), SoundSource.BLOCKS, 0.8F, 0.9F + this.getPlayer().level().random.nextFloat() * 0.2F);
-                this.blightshadeEffectCooldown = 10;
-                return true;
-            }
-        } else { return false; }
-    }
-    @Override
     public BasePacket getSyncPacket(String key, Type type, Object value) {
         return new ReduxPlayerSyncPacket(this.getPlayer().getId(), key, type, value);
     }
@@ -229,6 +204,7 @@ public class ReduxPlayerCapability implements ReduxPlayer {
         tag.putInt("jumps", this.airJumps);
         tag.putInt("ticks_in_air", this.ticksInAir);
         tag.put("lore_module", this.lore.serializeNBT());
+        tag.put("blightshade_module", this.blightshade.serializeNBT());
         return tag;
     }
 
@@ -238,6 +214,7 @@ public class ReduxPlayerCapability implements ReduxPlayer {
         this.airJumps = nbt.getInt("jumps");
         this.ticksInAir = nbt.getInt("ticks_in_air");
         this.lore.deserializeNBT(nbt.get("lore_module"));
+        this.blightshade.deserializeNBT(nbt.get("blightshade_module"));
     }
 
 

@@ -1,20 +1,13 @@
 package net.zepalesque.redux.capability.player;
 
-import com.google.common.collect.Maps;
-import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.common.util.INBTSerializable;
 import net.zepalesque.redux.Redux;
-import org.w3c.dom.css.Counter;
 
 import java.util.*;
 
@@ -29,7 +22,7 @@ public class LoreBookModule implements INBTSerializable {
 
     private Map<ResourceLocation, Integer> biomes = new HashMap<>();
 
-    public void tick(EntityType<?> entityType) {
+    public void incrementEntity(EntityType<?> entityType) {
         if (entities.containsKey(entityType)) {
             int i = entities.get(entityType) + 1;
             entities.put(entityType, i);
@@ -44,7 +37,7 @@ public class LoreBookModule implements INBTSerializable {
         }
     }
 
-    public void tickBiome(ResourceLocation biome) {
+    public void incrementBiome(ResourceLocation biome) {
         if (biomes.containsKey(biome)) {
             int i = biomes.get(biome) + 1;
             biomes.put(biome, i);

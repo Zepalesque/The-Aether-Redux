@@ -48,7 +48,7 @@ public class MobListener {
         }
         if (plr != null) {
             EntityType<?> type = event.getEntity().getType();
-            ReduxPlayer.get(plr).ifPresent(reduxPlayer -> reduxPlayer.getLoreModule().tick(type));
+            ReduxPlayer.get(plr).ifPresent(reduxPlayer -> reduxPlayer.getLoreModule().incrementEntity(type));
         }
     }
 
@@ -62,7 +62,7 @@ public class MobListener {
         double d1 = Math.abs(entity.getZ() - entity.zOld);
         if ((d0 >= (double)0.003F || d1 >= (double)0.003F) && entity instanceof Player player && !player.level().isClientSide()) {
             Optional<ResourceKey<Biome>> b = player.level().getBiome(player.blockPosition()).unwrapKey();
-            b.ifPresent(biomeResourceKey -> ReduxPlayer.get(player).ifPresent(reduxPlayer -> reduxPlayer.getLoreModule().tickBiome(biomeResourceKey.location())));
+            b.ifPresent(biomeResourceKey -> ReduxPlayer.get(player).ifPresent(reduxPlayer -> reduxPlayer.getLoreModule().incrementBiome(biomeResourceKey.location())));
         }
 
     }
