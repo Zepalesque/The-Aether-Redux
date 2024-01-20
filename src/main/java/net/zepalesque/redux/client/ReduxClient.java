@@ -1,7 +1,12 @@
 package net.zepalesque.redux.client;
 
 import com.aetherteam.aether.block.AetherBlocks;
+import com.mojang.blaze3d.vertex.DefaultVertexFormat;
+import com.mojang.blaze3d.vertex.VertexFormat;
+import net.minecraft.Util;
 import net.minecraft.client.renderer.BiomeColors;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.ShaderInstance;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
@@ -9,21 +14,44 @@ import net.minecraft.util.FastColor;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
+import net.minecraftforge.client.event.RegisterEntitySpectatorShadersEvent;
+import net.minecraftforge.client.event.RegisterShadersEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.util.ReduxStates;
 import net.zepalesque.redux.capability.living.VampireAmulet;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.data.resource.ReduxBiomes;
+import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.item.accessory.VampireAmuletItem;
 import net.zepalesque.redux.item.weapons.SubzeroCrossbowItem;
 
 import javax.annotation.Nullable;
+import java.io.IOException;
 import java.util.Optional;
+import java.util.function.Function;
 
+@Mod.EventBusSubscriber(
+        modid = Redux.MODID,
+        value = {Dist.CLIENT},
+        bus = Mod.EventBusSubscriber.Bus.MOD
+)
 public class ReduxClient {
+
+    @SubscribeEvent
+    public static void registerSpectatorShaders(RegisterEntitySpectatorShadersEvent event) {
+        event.register(ReduxEntityTypes.SHIMMERCOW.get(), Redux.locate("shaders/post/radial_blur.json"));
+    }
+
+    @SubscribeEvent
+    public static void shaderRegistry(RegisterShadersEvent event) throws IOException {
+        event.registerShader(new ShaderInstance(event.getResourceProvider(), Redux.locate("radial_blur"), DefaultVertexFormat.POSITION_TEX), shaderInstance -> ReduxRenderTypes.radialBlurShader = shaderInstance);
+    }
 
 
     public static void registerItemModelProperties() {
@@ -91,5 +119,27 @@ public class ReduxClient {
         return index == indexGoal ? level != null && pos != null ? level.getBlockState(pos.below()).is(ReduxBlocks.BLIGHTMOSS_BLOCK.get()) ? ReduxBiomes.BLIGHT_GRASS_COLOR : BiomeColors.getAverageGrassColor(level, pos) : ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF;
     }
 
+    private static class ReduxRenderTypes extends RenderType {
+        private static ShaderInstance radialBlurShader;
+
+        private static final ShaderStateShard RENDERTYPE_RADIAL_BLUR_SHADER = new ShaderStateShard(() -> radialBlurShader);
+
+        private ReduxRenderTypes(String s, VertexFormat v, VertexFormat.Mode m, int i, boolean b, boolean b2, Runnable r, Runnable r2) {
+            super(s, v, m, i, b, b2, r, r2);
+            throw new IllegalStateException("This class is not meant to be constructed!");
+        }
+
+        public static final Function<ResourceLocation, RenderType> RADIAL_BLUR = Util.memoize(texture -> {
+            RenderType.CompositeState renderState = RenderType.CompositeState.builder()
+                    .setShaderState(RENDERTYPE_RADIAL_BLUR_SHADER)
+                    .setTransparencyState(TRANSLUCENT_TRANSPARENCY)
+                    .setCullState(NO_CULL)
+                    .setDepthTestState(LEQUAL_DEPTH_TEST)
+                    .setLightmapState(NO_LIGHTMAP)
+                    .setOutputState(ITEM_ENTITY_TARGET)
+                    .createCompositeState(false);
+            return create("radial_blur", DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.QUADS, 256, true, true, renderState);
+        });
+    }
 
 }
