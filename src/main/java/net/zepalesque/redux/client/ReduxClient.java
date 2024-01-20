@@ -45,7 +45,7 @@ public class ReduxClient {
 
     @SubscribeEvent
     public static void registerSpectatorShaders(RegisterEntitySpectatorShadersEvent event) {
-        event.register(ReduxEntityTypes.SHIMMERCOW.get(), Redux.locate("shaders/post/radial_blur.json"));
+        event.register(ReduxEntityTypes.SHIMMERCOW.get(), Redux.locate("shaders/post/adrenaline_low.json"));
     }
 /*
 

@@ -1,0 +1,45 @@
+{
+    "targets": [
+        "motion",
+        "blur",
+        "shake"
+    ],
+    "passes": [
+        {
+            "name": "motion_blur",
+            "intarget": "minecraft:main",
+            "outtarget": "motion",
+            "auxtargets": [
+                {
+                    "name": "PrevSampler",
+                    "id": "previous"
+                }
+            ]
+        },
+        {
+            "name": "blit",
+            "intarget": "motion",
+            "outtarget": "previous"
+        },
+        {
+            "name": "aether_redux:radial_blur",
+            "intarget": "motion",
+            "outtarget": "blur",
+            "uniforms":
+            {
+                "name": "BlurStrength",
+                "values": [ 0.66 ]
+            }
+        },
+        {
+            "name": "screen_shake",
+            "intarget": "blur",
+            "outtarget": "shake"
+        },
+        {
+            "name": "blit",
+            "intarget": "shake",
+            "outtarget": "minecraft:main"
+        }
+    ]
+}

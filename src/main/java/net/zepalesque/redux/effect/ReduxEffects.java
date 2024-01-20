@@ -15,9 +15,9 @@ public class ReduxEffects {
     public static final RegistryObject<MobEffect> BLIGHTWARD = EFFECTS.register("blightward", BlightwardEffect::new);
     public static final RegistryObject<MobEffect> ADRENALINE_RUSH = EFFECTS.register("adrenaline_rush", () ->
             new IncurableEffect(MobEffectCategory.BENEFICIAL, 0x8E5252)
-                    .addAttributeModifier(Attributes.MOVEMENT_SPEED, "112ed4c9-f427-4103-8427-034bdc37134d", 0.2, AttributeModifier.Operation.MULTIPLY_BASE)
-                    .addAttributeModifier(Attributes.ATTACK_DAMAGE, "4a0257e4-9d12-49c7-91b7-4c346cd51f80", 0.2, AttributeModifier.Operation.MULTIPLY_BASE)
-                    .addAttributeModifier(Attributes.ARMOR, "b76c2751-d4a4-44bf-84a8-be428999a4cb", 2.0, AttributeModifier.Operation.ADDITION)
+                    .addAttributeModifier(Attributes.MOVEMENT_SPEED, "112ed4c9-f427-4103-8427-034bdc37134d", 0.1, AttributeModifier.Operation.MULTIPLY_BASE)
+                    .addAttributeModifier(Attributes.ATTACK_DAMAGE, "4a0257e4-9d12-49c7-91b7-4c346cd51f80", 0.1, AttributeModifier.Operation.MULTIPLY_BASE)
+                    .addAttributeModifier(Attributes.ARMOR, "b76c2751-d4a4-44bf-84a8-be428999a4cb", 1.0, AttributeModifier.Operation.ADDITION)
     );
     public static final RegistryObject<MobEffect> ADRENALINE_WITHDRAWAL = EFFECTS.register("adrenaline_withdrawal", () ->
             new IncurableEffect(MobEffectCategory.HARMFUL, 0x54303D)
