@@ -142,6 +142,21 @@
     ],
     "subtitle": "subtitles.aether_redux.generic.fireball_shoot"
   },
+  "generic.heartbeat_fast": {
+    "sounds": [
+      "aether_redux:generic/heartbeat/heartbeat_fast"
+    ]
+  },
+  "generic.heartbeat_med": {
+    "sounds": [
+      "aether_redux:generic/heartbeat/heartbeat_med"
+    ]
+  },
+  "generic.heartbeat_slow": {
+    "sounds": [
+      "aether_redux:generic/heartbeat/heartbeat_slow"
+    ]
+  },
   "item.accessory.equip_bittersweet_charm": {
     "sounds": [
       "item/armor/equip_chain1",
