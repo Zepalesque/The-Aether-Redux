@@ -1,8 +1,11 @@
 package net.zepalesque.redux.capability.player;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.client.renderer.PostChain;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -10,8 +13,10 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.common.util.INBTSerializable;
+import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.effect.ReduxEffects;
+import org.jetbrains.annotations.Nullable;
 
 public class AdrenalineModule implements INBTSerializable, PlayerTickModule {
 
@@ -28,12 +33,22 @@ public class AdrenalineModule implements INBTSerializable, PlayerTickModule {
 
     public void tick() {
         if (this.player.level().isClientSide()) {
+
             if (this.player.hasEffect(ReduxEffects.ADRENALINE_RUSH.get())) {
                 MobEffectInstance i = this.player.getEffect(ReduxEffects.ADRENALINE_RUSH.get());
                 double amount = Math.min(i.getDuration() / 600D, 1D);
                 this.adrenalineStrength = (amount / 3D) * Math.min(3, i.getAmplifier() + 1);
             } else {
                 this.adrenalineStrength = 0D;
+            }
+            GameRenderer renderer = Minecraft.getInstance().gameRenderer;
+            String shaderTarget = getProperShader(this.adrenalineStrength);
+            String currentShader = renderer.currentEffect() == null ? null : renderer.currentEffect().getName();
+            if (shaderTarget != null && !shaderTarget.equals(currentShader)) {
+                renderer.loadEffect(new ResourceLocation(shaderTarget));
+            }
+            if (shaderTarget == null && isAdrenalineShader(currentShader)) {
+                renderer.shutdownEffect();
             }
             if (this.adrenalineStrength > 0) {
                 this.maxPulseTicks = Mth.lerpInt((float) this.adrenalineStrength, 20, 10);
@@ -51,6 +66,19 @@ public class AdrenalineModule implements INBTSerializable, PlayerTickModule {
             }
         }
     }
+
+    private static final String HIGH = Redux.MODID + ":shaders/post/adrenaline_high.json";
+    private static final String MED = Redux.MODID + ":shaders/post/adrenaline_med.json";
+    private static final String LOW = Redux.MODID + ":shaders/post/adrenaline_low.json";
+
+    private static @Nullable String getProperShader(double adrenalineStrength) {
+        return adrenalineStrength >= 0.67 ? HIGH : adrenalineStrength >= 0.33 ? MED : adrenalineStrength > 0 ? LOW : null;
+    }
+
+    private static boolean isAdrenalineShader(String shader) {
+        return shader.equals(HIGH) || shader.equals(MED) || shader.equals(LOW);
+    }
+
 
     public float getTransparency(float partial) {
         float delta = (currPulseTicks + partial) / maxPulseTicks + 1;
