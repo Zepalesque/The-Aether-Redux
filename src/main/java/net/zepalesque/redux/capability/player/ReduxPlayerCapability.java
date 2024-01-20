@@ -35,12 +35,10 @@ public class ReduxPlayerCapability implements ReduxPlayer {
     }
 
     private final LoreBookModule lore;
-
     private final BlightshadeModule blightshade;
+    private final AdrenalineModule adrenaline;
 
-    private int maxPulseTicks = 0;
-    private int currPulseTicks = 0;
-    private float adrenalineStrength = 0F;
+
 
     int maxAirJumps = 0;
 
@@ -57,7 +55,8 @@ public class ReduxPlayerCapability implements ReduxPlayer {
     public ReduxPlayerCapability(Player pPlayer) {
         this.player = pPlayer;
         this.lore = new LoreBookModule();
-        this.blightshade = new BlightshadeModule(this.player);
+        this.blightshade = new BlightshadeModule(pPlayer);
+        this.adrenaline = new AdrenalineModule(pPlayer);
     }
 
     @Override
@@ -115,10 +114,16 @@ public class ReduxPlayerCapability implements ReduxPlayer {
     public BlightshadeModule getBlightshadeModule() {
         return this.blightshade;
     }
+    @Override
+    public AdrenalineModule getAdrenalineModule() {
+        return this.adrenaline;
+    }
 
 
     @Override
     public void tick() {
+        this.blightshade.tick();
+        this.adrenaline.tick();
 
 
         this.prevTickAirJumps = airJumps;

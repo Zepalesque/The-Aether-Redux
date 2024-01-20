@@ -17,6 +17,12 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
         this.add(ReduxSoundEvents.MIMIC_SLAM,
                 definition().with(sound("aether_redux:entity/mimic/mimic_slam"))
                         .subtitle("subtitles.aether_redux.entity.mimic_slam"));
+        this.add(ReduxSoundEvents.HEARTBEAT_FAST,
+                definition().with(sound("aether_redux:generic/heartbeat/heartbeat_fast")));
+        this.add(ReduxSoundEvents.HEARTBEAT_MED,
+                definition().with(sound("aether_redux:generic/heartbeat/heartbeat_med")));
+        this.add(ReduxSoundEvents.HEARTBEAT_SLOW,
+                definition().with(sound("aether_redux:generic/heartbeat/heartbeat_slow")));
         this.add(ReduxSoundEvents.SENTRY_LAND_BASE,
                 definition().with(sound("minecraft:mob/slime/big1"), sound("minecraft:mob/slime/big2"), sound("minecraft:mob/slime/big3"), sound("minecraft:mob/slime/big4"))
                         .subtitle("subtitles.aether.entity.sentry.jump"));

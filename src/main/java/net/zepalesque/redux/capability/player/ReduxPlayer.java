@@ -23,6 +23,7 @@ public interface ReduxPlayer extends INBTSynchable<CompoundTag> {
 
     LoreBookModule getLoreModule();
     BlightshadeModule getBlightshadeModule();
+    AdrenalineModule getAdrenalineModule();
 
     void tick();
     boolean doubleJump();

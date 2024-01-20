@@ -12,6 +12,7 @@ public class ReduxSoundEvents {
     public static final RegistryObject<SoundEvent> SENTRY_AMBIENT = register("entity.sentry.ambient");;
     public static final RegistryObject<SoundEvent> MIMIC_SLAM = register("entity.mimic.slam");
 
+
     public static final RegistryObject<SoundEvent> GLOWSTONE_BREAK = register("block.glowstone.break");
     public static final RegistryObject<SoundEvent> GLOWSTONE_PLACE = register("block.glowstone.place");
     public static final RegistryObject<SoundEvent> GLOWSTONE_STEP = register("block.glowstone.step");
@@ -43,6 +44,9 @@ public class ReduxSoundEvents {
 
     public static final RegistryObject<SoundEvent> BOOST_JUMP = register("generic.boost_jump");
     public static final RegistryObject<SoundEvent> FIREBALL_SHOOT = register("generic.fireball_shoot");
+    public static final RegistryObject<SoundEvent> HEARTBEAT_FAST = register("generic.heartbeat_fast");
+    public static final RegistryObject<SoundEvent> HEARTBEAT_MED = register("generic.heartbeat_med");
+    public static final RegistryObject<SoundEvent> HEARTBEAT_SLOW = register("generic.heartbeat_slow");
 
     public static final RegistryObject<SoundEvent> BLIGHTSHADE_SPRAY = register("block.blightshade_spray");
     public static final RegistryObject<SoundEvent> QUICKROOTS_PICK = register("block.quickroots_pick");

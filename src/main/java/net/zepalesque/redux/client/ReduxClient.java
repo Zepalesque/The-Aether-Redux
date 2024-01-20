@@ -47,11 +47,13 @@ public class ReduxClient {
     public static void registerSpectatorShaders(RegisterEntitySpectatorShadersEvent event) {
         event.register(ReduxEntityTypes.SHIMMERCOW.get(), Redux.locate("shaders/post/radial_blur.json"));
     }
+/*
 
     @SubscribeEvent
     public static void shaderRegistry(RegisterShadersEvent event) throws IOException {
         event.registerShader(new ShaderInstance(event.getResourceProvider(), Redux.locate("radial_blur"), DefaultVertexFormat.POSITION_TEX), shaderInstance -> ReduxRenderTypes.radialBlurShader = shaderInstance);
     }
+*/
 
 
     public static void registerItemModelProperties() {
