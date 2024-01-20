@@ -4,6 +4,7 @@ package net.zepalesque.redux.event.listener;
 import com.aetherteam.aether.entity.monster.Cockatrice;
 import com.aetherteam.aether.item.EquipmentUtil;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -12,6 +13,7 @@ import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.zepalesque.redux.Redux;
@@ -19,6 +21,7 @@ import net.zepalesque.redux.capability.living.VampireAmulet;
 import net.zepalesque.redux.capability.player.ReduxPlayer;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.config.enums.QuicksoilSetting;
+import net.zepalesque.redux.effect.ReduxEffects;
 import net.zepalesque.redux.event.hook.MobHooks;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.misc.ReduxTags;
@@ -86,6 +89,13 @@ public class MobListener {
                 float hurt = event.getAmount() * 1.25F;
                 event.setAmount(hurt);
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void adrenalineDeplete(MobEffectEvent.Expired event) {
+        if (event.getEffectInstance().getEffect() == ReduxEffects.ADRENALINE_RUSH.get()) {
+            event.getEntity().addEffect(new MobEffectInstance(ReduxEffects.ADRENALINE_WITHDRAWAL.get(), 600, 1, false, false, true));
         }
     }
 

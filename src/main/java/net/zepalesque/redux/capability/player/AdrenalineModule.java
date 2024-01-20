@@ -1,14 +1,17 @@
 package net.zepalesque.redux.capability.player;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.common.util.INBTSerializable;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
+import net.zepalesque.redux.effect.ReduxEffects;
 
 public class AdrenalineModule implements INBTSerializable, PlayerTickModule {
 
@@ -25,6 +28,13 @@ public class AdrenalineModule implements INBTSerializable, PlayerTickModule {
 
     public void tick() {
         if (this.player.level().isClientSide()) {
+            if (this.player.hasEffect(ReduxEffects.ADRENALINE_RUSH.get())) {
+                MobEffectInstance i = this.player.getEffect(ReduxEffects.ADRENALINE_RUSH.get());
+                double amount = Math.min(i.getDuration() / 600D, 1D);
+                this.adrenalineStrength = (amount / 3D) * Math.min(3, i.getAmplifier() + 1);
+            } else {
+                this.adrenalineStrength = 0D;
+            }
             if (this.adrenalineStrength > 0) {
                 this.maxPulseTicks = Mth.lerpInt((float) this.adrenalineStrength, 20, 10);
             } else {
@@ -44,12 +54,12 @@ public class AdrenalineModule implements INBTSerializable, PlayerTickModule {
 
     public float getTransparency(float partial) {
         float delta = (currPulseTicks + partial) / maxPulseTicks + 1;
-        return sinWaveInterp(delta);
+        return this.adrenalineStrength <= 0D ? 0F : sinWaveInterp(delta) * (((float)adrenalineStrength/2F) + 0.5F);
     }
 
 
     private static float sinWaveInterp(float delta) {
-        return (Mth.sin(Mth.PI * (delta + 0.5F)) / 2) + 0.5F;
+        return (Mth.sin((Mth.PI * 2 * delta)) / 2) + 0.5F;
     }
 
 
