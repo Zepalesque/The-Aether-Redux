@@ -39,6 +39,11 @@ public class ReduxPlayerCapability implements ReduxPlayer {
     private int blightshadeCooldown;
     private int blightshadeEffectCooldown;
 
+
+    private int maxPulseTicks = 0;
+    private int currPulseTicks = 0;
+    private float adrenalineStrength = 0F;
+
     int maxAirJumps = 0;
 
     int fireballCooldown;
