@@ -466,6 +466,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addKeyInfo("shoot_fireball.desc", "Shoot Fireball");
 
         addEffect(ReduxEffects.BLIGHTWARD, "Blightward");
+        addEffect(ReduxEffects.ADRENALINE_RUSH, "Adrenaline Rush");
+        addEffect(ReduxEffects.ADRENAL_FATIGUE, "Adrenal Fatigue");
 
         addTooltip("ambrosium_charge", "Infusion Level: %s");
 

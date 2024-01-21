@@ -95,7 +95,7 @@ public class MobListener {
     @SubscribeEvent
     public static void adrenalineDeplete(MobEffectEvent.Expired event) {
         if (event.getEffectInstance().getEffect() == ReduxEffects.ADRENALINE_RUSH.get()) {
-            event.getEntity().addEffect(new MobEffectInstance(ReduxEffects.ADRENALINE_WITHDRAWAL.get(), 600, 1, false, false, true));
+            event.getEntity().addEffect(new MobEffectInstance(ReduxEffects.ADRENAL_FATIGUE.get(), 600, 1, false, false, true));
         }
     }
 

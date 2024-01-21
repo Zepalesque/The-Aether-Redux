@@ -19,7 +19,7 @@ public class ReduxEffects {
                     .addAttributeModifier(Attributes.ATTACK_DAMAGE, "4a0257e4-9d12-49c7-91b7-4c346cd51f80", 0.1, AttributeModifier.Operation.MULTIPLY_BASE)
                     .addAttributeModifier(Attributes.ARMOR, "b76c2751-d4a4-44bf-84a8-be428999a4cb", 1.0, AttributeModifier.Operation.ADDITION)
     );
-    public static final RegistryObject<MobEffect> ADRENALINE_WITHDRAWAL = EFFECTS.register("adrenaline_withdrawal", () ->
+    public static final RegistryObject<MobEffect> ADRENAL_FATIGUE = EFFECTS.register("adrenal_fatigue", () ->
             new IncurableEffect(MobEffectCategory.HARMFUL, 0x54303D)
                     .addAttributeModifier(Attributes.MOVEMENT_SPEED, "09d3aa36-16b3-4bcd-8d27-0e0307d58d43", -0.1, AttributeModifier.Operation.MULTIPLY_BASE)
                     .addAttributeModifier(Attributes.ATTACK_DAMAGE, "f2c1afa3-1c28-4f78-bfa1-2668cb598a71", -0.35, AttributeModifier.Operation.MULTIPLY_BASE)
