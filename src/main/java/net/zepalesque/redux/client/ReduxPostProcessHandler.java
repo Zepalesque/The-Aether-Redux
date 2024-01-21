@@ -49,7 +49,7 @@ public class ReduxPostProcessHandler {
         }
     }
     public static @Nullable PostChain getAdrenaline() {
-        return adrenaline == null || ReduxConfig.CLIENT.enable_adrenaline_postproccess.get() ? null : adrenaline;
+        return adrenaline == null || !ReduxConfig.CLIENT.enable_adrenaline_postproccess.get() ? null : adrenaline;
     }
 
 }
