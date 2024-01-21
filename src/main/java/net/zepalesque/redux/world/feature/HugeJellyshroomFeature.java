@@ -59,20 +59,19 @@ public class HugeJellyshroomFeature extends Feature<JellyshroomConfig> {
 
       // if tall enough, add two side shrooms
       if (height >= 7) {
-         Direction d1 = Direction.getRandom(context.random());
-         Direction d2 = Util.getRandom(Arrays.stream(Direction.values()).filter(direction -> direction != d1).toList(), context.random());
+         Direction d1 = Direction.Plane.HORIZONTAL.getRandomDirection(context.random());
+         Direction d2 = Util.getRandom(Direction.Plane.HORIZONTAL.stream().filter(direction -> direction != d1).toList(), context.random());
          int minAbove = 1;
          int max = height - 5;
          int h1 = context.random().nextInt(max - minAbove) + minAbove;
          int h2 = context.random().nextInt(max - minAbove) + minAbove;
-         mutable.setWithOffset(jellyOrigin, 0, h1, 0);
+         mutable.setWithOffset(origin, d1.getStepX(), h1, d1.getStepZ());
          BlockPos immutable3 = mutable.immutable();
-         mutable.setWithOffset(immutable3, d1);
+
          toPlace.putIfAbsent(immutable3, context.config().jelly.getState(context.random(), immutable3));
 
-         mutable.setWithOffset(jellyOrigin, 0, h2, 0);
+         mutable.setWithOffset(origin, d2.getStepX(), h2, d2.getStepZ());
          BlockPos immutable4 = mutable.immutable();
-         mutable.setWithOffset(immutable4, d2);
          toPlace.putIfAbsent(immutable4, context.config().jelly.getState(context.random(), immutable4));
       }
 
