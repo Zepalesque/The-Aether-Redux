@@ -1,8 +1,7 @@
 {
-  "parent": "aether_redux:block/template_potted_shimmerstool",
+  "parent": "minecraft:block/flower_pot_cross",
+  "render_type": "minecraft:cutout",
   "textures": {
-    "bottom": "aether_redux:block/natural/shimmerstool_bottom",
-    "side": "aether_redux:block/natural/shimmerstool_side",
-    "top": "aether_redux:block/natural/shimmerstool_top"
+    "plant": "aether_redux:block/natural/shimmerstool"
   }
 }
