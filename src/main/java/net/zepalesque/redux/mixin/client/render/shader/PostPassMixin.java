@@ -7,6 +7,7 @@ import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.PostPass;
 import net.zepalesque.redux.capability.player.ReduxPlayer;
 import net.zepalesque.redux.client.ReduxPostProcessHandler;
+import net.zepalesque.redux.config.ReduxConfig;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -22,10 +23,12 @@ public class PostPassMixin {
 
     @Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/EffectInstance;apply()V", shift = At.Shift.BEFORE), method = "process")
     private void processInvoke(float partialTicks, CallbackInfo ci) {
-        if (Minecraft.getInstance().player != null && Minecraft.getInstance().options.graphicsMode().get() == GraphicsStatus.FABULOUS) {
-            ReduxPlayer.get(Minecraft.getInstance().player).ifPresent(reduxPlayer -> this.effect.safeGetUniform("AetherRedux_AdrenalineStrength").set(reduxPlayer.getAdrenalineModule().getShaderStrength()));
-        } else {
-            this.effect.safeGetUniform("AetherRedux_AdrenalineStrength").set(0.0F);
+        if (ReduxConfig.CLIENT.enable_adrenaline_postproccess.get()) {
+            if (Minecraft.getInstance().player != null && Minecraft.getInstance().options.graphicsMode().get() == GraphicsStatus.FABULOUS) {
+                ReduxPlayer.get(Minecraft.getInstance().player).ifPresent(reduxPlayer -> this.effect.safeGetUniform("AetherRedux_AdrenalineStrength").set(reduxPlayer.getAdrenalineModule().getShaderStrength()));
+            } else {
+                this.effect.safeGetUniform("AetherRedux_AdrenalineStrength").set(0.0F);
+            }
         }
     }
 }
