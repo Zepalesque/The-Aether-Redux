@@ -43,17 +43,18 @@ public class ShimmercowModel<T extends Shimmercow> extends QuadrupedModel   <T> 
    @Override
    public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
       if (entity.isCrazy()) {
-         float realLimb = limbSwingAmount * 1.5F;
-         this.head.xRot = headPitch * ((float)Math.PI / 180F) + (Mth.cos(limbSwing * 0.6662F) * 1.4F* realLimb);
-         this.head.yRot = netHeadYaw * ((float)Math.PI / 180F) + (Mth.cos(limbSwing * 0.6662F) * 1.4F* realLimb);
-         this.rightHindLeg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * realLimb;
-         this.body.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * realLimb;
-         this.leftHindLeg.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * realLimb;
-         this.rightFrontLeg.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * realLimb;
-         this.leftFrontLeg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * realLimb;
+         float realLimb = limbSwingAmount /* * 1.5F*/;
+         this.head.xRot = headPitch * ((float)Math.PI / 180F) + (Mth.cos(limbSwing * 2F) * 1.4F * realLimb);
+         this.head.yRot = netHeadYaw * ((float)Math.PI / 180F) + (Mth.cos(limbSwing * 2F) * 1.4F * realLimb);
+         this.rightHindLeg.xRot = Mth.cos(limbSwing * 2F) * 1.4F * realLimb;
+         this.body.xRot = Mth.cos(limbSwing * 2F) * 1.4F * realLimb;
+         this.leftHindLeg.xRot = Mth.cos(limbSwing * 2F + (float)Math.PI) * 1.4F * realLimb;
+         this.rightFrontLeg.xRot = Mth.cos(limbSwing * 2F + (float)Math.PI) * 1.4F * realLimb;
+         this.leftFrontLeg.xRot = Mth.cos(limbSwing * 2F) * 1.4F * realLimb;
 
       } else{
          super.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
+         this.body.xRot = 0F;
       }
    }
 }
