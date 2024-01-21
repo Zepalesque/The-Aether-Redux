@@ -4,12 +4,14 @@ import net.minecraft.client.model.QuadrupedModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.zepalesque.redux.entity.passive.Shimmercow;
 
 @OnlyIn(Dist.CLIENT)
-public class ShimmercowModel<T extends Entity> extends QuadrupedModel   <T> {
+public class ShimmercowModel<T extends Shimmercow> extends QuadrupedModel   <T> {
    public ShimmercowModel(ModelPart root) {
       super(root, false, 10.0F, 4.0F, 2.0F, 2.0F, 24);
    }
@@ -36,5 +38,22 @@ public class ShimmercowModel<T extends Entity> extends QuadrupedModel   <T> {
 
    public ModelPart getHead() {
       return this.head;
+   }
+
+   @Override
+   public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+      if (entity.isCrazy()) {
+         float realLimb = limbSwingAmount * 1.5F;
+         this.head.xRot = headPitch * ((float)Math.PI / 180F) + (Mth.cos(limbSwing * 0.6662F) * 1.4F* realLimb);
+         this.head.yRot = netHeadYaw * ((float)Math.PI / 180F) + (Mth.cos(limbSwing * 0.6662F) * 1.4F* realLimb);
+         this.rightHindLeg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * realLimb;
+         this.body.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * realLimb;
+         this.leftHindLeg.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * realLimb;
+         this.rightFrontLeg.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * realLimb;
+         this.leftFrontLeg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * realLimb;
+
+      } else{
+         super.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
+      }
    }
 }

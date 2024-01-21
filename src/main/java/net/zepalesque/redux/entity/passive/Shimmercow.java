@@ -133,4 +133,17 @@ public class Shimmercow extends AetherAnimal {
         return this.isBaby() ? size.height * 0.95F : 1.3F;
     }
 
+    @Override
+    public void addAdditionalSaveData(CompoundTag compound) {
+        super.addAdditionalSaveData(compound);
+        compound.putBoolean("IsCrazy", this.isCrazy());
+    }
+
+    @Override
+    public void readAdditionalSaveData(CompoundTag compound) {
+        super.readAdditionalSaveData(compound);
+        if (compound.contains("IsCrazy")) {
+            this.setCrazy(compound.getBoolean("IsCrazy"));
+        }
+    }
 }
