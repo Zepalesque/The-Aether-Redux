@@ -115,7 +115,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addLore(ReduxBlocks.AEVELIUM, "A fungal grass-like growth that spreads across Aether Dirt. Found in the Cloudcaps.");
 
         addBlock(ReduxBlocks.JELLYSHROOM, "Jellyshroom");
-        addBlock(ReduxBlocks.POTTED_SPRINGSHROOM, "Potted Jellyshroom");
+        addBlock(ReduxBlocks.POTTED_JELLYSHROOM, "Potted Jellyshroom");
         addLore(ReduxBlocks.JELLYSHROOM, "A jelly-based mushroom, which is found in the Cloudcaps.");
 
         addBlock(ReduxBlocks.CLOUD_CAP_BLOCK, "Cloud Cap Block");

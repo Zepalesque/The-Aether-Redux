@@ -143,7 +143,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropSelf(ReduxBlocks.CLOUD_CAP_BLOCK.get());
         this.dropSelf(ReduxBlocks.JELLYSHROOM.get());
         this.dropSelf(ReduxBlocks.SHIMMERSTOOL.get());
-        this.dropPottedContents(ReduxBlocks.POTTED_SPRINGSHROOM.get());
+        this.dropPottedContents(ReduxBlocks.POTTED_JELLYSHROOM.get());
         this.dropPottedContents(ReduxBlocks.POTTED_SHIMMERSTOOL.get());
 
         this.add(ReduxBlocks.FIELDSPROUT_PETALS.get(), this.createFieldsproutPetalsDrops(ReduxBlocks.FIELDSPROUT_PETALS.get()));
