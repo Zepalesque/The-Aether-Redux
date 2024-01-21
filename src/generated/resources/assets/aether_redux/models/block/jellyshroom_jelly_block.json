@@ -172,18 +172,18 @@
   ],
   "render_type": "minecraft:translucent",
   "textures": {
-    "down_inside": "aether_redux:block/natural/springshroom_jelly_block",
-    "down_outside": "aether_redux:block/natural/springshroom_jelly_block",
-    "east_inside": "aether_redux:block/natural/springshroom_jelly_block",
-    "east_outside": "aether_redux:block/natural/springshroom_jelly_block",
-    "north_inside": "aether_redux:block/natural/springshroom_jelly_block",
-    "north_outside": "aether_redux:block/natural/springshroom_jelly_block",
-    "particle": "aether_redux:block/natural/springshroom_jelly_block",
-    "south_inside": "aether_redux:block/natural/springshroom_jelly_block",
-    "south_outside": "aether_redux:block/natural/springshroom_jelly_block",
-    "up_inside": "aether_redux:block/natural/springshroom_jelly_block",
-    "up_outside": "aether_redux:block/natural/springshroom_jelly_block",
-    "west_inside": "aether_redux:block/natural/springshroom_jelly_block",
-    "west_outside": "aether_redux:block/natural/springshroom_jelly_block"
+    "down_inside": "aether_redux:block/natural/jellyshroom_jelly_block",
+    "down_outside": "aether_redux:block/natural/jellyshroom_jelly_block",
+    "east_inside": "aether_redux:block/natural/jellyshroom_jelly_block",
+    "east_outside": "aether_redux:block/natural/jellyshroom_jelly_block",
+    "north_inside": "aether_redux:block/natural/jellyshroom_jelly_block",
+    "north_outside": "aether_redux:block/natural/jellyshroom_jelly_block",
+    "particle": "aether_redux:block/natural/jellyshroom_jelly_block",
+    "south_inside": "aether_redux:block/natural/jellyshroom_jelly_block",
+    "south_outside": "aether_redux:block/natural/jellyshroom_jelly_block",
+    "up_inside": "aether_redux:block/natural/jellyshroom_jelly_block",
+    "up_outside": "aether_redux:block/natural/jellyshroom_jelly_block",
+    "west_inside": "aether_redux:block/natural/jellyshroom_jelly_block",
+    "west_outside": "aether_redux:block/natural/jellyshroom_jelly_block"
   }
 }

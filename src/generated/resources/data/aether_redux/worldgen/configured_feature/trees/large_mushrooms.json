@@ -19,14 +19,14 @@
       {
         "chance": 0.3,
         "feature": {
-          "feature": "aether_redux:trees/large_springshroom",
+          "feature": "aether_redux:trees/large_jellyshroom",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",
               "predicate": {
                 "type": "minecraft:would_survive",
                 "state": {
-                  "Name": "aether_redux:springshroom"
+                  "Name": "aether_redux:jellyshroom"
                 }
               }
             }

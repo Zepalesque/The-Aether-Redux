@@ -2,10 +2,7 @@
   "type": "minecraft:multiface_growth",
   "config": {
     "block": "aether_redux:lightroots",
-    "can_be_placed_on": [
-      "aether_redux:aevelium",
-      "aether:aether_dirt"
-    ],
+    "can_be_placed_on": "aether:aether_dirt",
     "can_place_on_ceiling": false,
     "can_place_on_floor": false,
     "can_place_on_wall": true,

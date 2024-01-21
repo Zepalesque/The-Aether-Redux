@@ -1,5 +1,5 @@
 {
-  "feature": "aether_redux:patch/springshroom_patch",
+  "feature": "aether_redux:patch/jellyshroom_patch",
   "placement": [
     {
       "type": "minecraft:noise_threshold_count",

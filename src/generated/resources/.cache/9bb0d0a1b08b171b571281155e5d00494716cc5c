@@ -1,8 +1,8 @@
-// 1.20.1	2024-01-18T14:31:00.1467545	Tags for minecraft:block mod id aether_redux
+// 1.20.1	2024-01-20T21:25:26.7162537	Tags for minecraft:block mod id aether_redux
 e6adebf67a77ca9d3e2dc5d5c5d11e9ac045edf6 data/aether/tags/blocks/aether_animals_spawnable_on.json
 99b502c1ad12be8d7982d8743e12d23288d08868 data/aether/tags/blocks/aether_dirt.json
 be858bbcc6c70f54eda7d60496915fa5aef21064 data/aether/tags/blocks/holystone.json
-2898e7185b4883ca10ab45943a96844520294478 data/aether/tags/blocks/treated_as_aether_block.json
+dae35641cc9aa2d2329e12a16fc427622ed2b098 data/aether/tags/blocks/treated_as_aether_block.json
 85b1ad865db965e78fb0da827f9f619ffe9f5878 data/aether_redux/tags/blocks/aether_carver_replaceables.json
 edd28d843e4d50fffcd62491dda0fa5e4ba1749b data/aether_redux/tags/blocks/blightwillow_logs.json
 75914e012f2e201c871a044aeb871eaea0fe2e24 data/aether_redux/tags/blocks/blightwillow_logs_can_grow_through.json
@@ -13,7 +13,7 @@ f935ac962426e9e6830b7063f7ff690dd48898cf data/aether_redux/tags/blocks/cloudcap_
 ff76e071710735bec611ec58205f07d13cb675bd data/aether_redux/tags/blocks/crystal_logs.json
 f88e31ba010e8b41d4256635de26d1cf8a0aa221 data/aether_redux/tags/blocks/enchanted_grasses.json
 cfa8f11bb1b7280f4421cd627b807061781b78b8 data/aether_redux/tags/blocks/enchanted_vines_skip_placement.json
-f3f8e7b67e767d775115b90c7ed3e51f8bab3aa0 data/aether_redux/tags/blocks/enchanted_vines_survive.json
+93465d80a03465fc6157106b3b318e15f03523cd data/aether_redux/tags/blocks/enchanted_vines_survive.json
 3201ecb4f0731636e9fb0e3a14bb2797a8f0add8 data/aether_redux/tags/blocks/fieldsprout_logs.json
 efc061c9dfb2dd7e812e035162091fb307075fe5 data/aether_redux/tags/blocks/frosted_plants_placement.json
 82cdd6960b818e0e4b249c6f1b960a9ef8e0cc1c data/aether_redux/tags/blocks/glacia_logs.json

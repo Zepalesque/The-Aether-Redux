@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "aether_redux:springshroom_spores"
+          "name": "aether_redux:jellyshroom_jelly_block"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "aether_redux:blocks/springshroom_spores"
+  "random_sequence": "aether_redux:blocks/jellyshroom_jelly_block"
 }

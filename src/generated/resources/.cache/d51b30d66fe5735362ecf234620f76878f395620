@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-19T13:28:24.1693577	Item Models: aether_redux
+// 1.20.1	2024-01-20T21:25:26.689254	Item Models: aether_redux
 262070202f715ccbb93ebca7b4dd3b04851bc0ce assets/aether_redux/models/item/aether_short_grass.json
 ef6d226766d61d6460247665062a399d3613d946 assets/aether_redux/models/item/aevelium.json
 e89330a549c5d1169758ec3314e9285fb8db827a assets/aether_redux/models/item/aevelium_growth.json
@@ -155,6 +155,8 @@ beba14ffeb6f81501238130d80b9ec2c0c2c0b54 assets/aether_redux/models/item/infused
 b4a44f772d90f5d514c42d0a71967d476c2a596f assets/aether_redux/models/item/infused_veridium_shovel.json
 bf979c410ebfbb3a159019265912c389275b6ba8 assets/aether_redux/models/item/infused_veridium_sword.json
 5ac9099170a70b2826495b9d9afa1acdb8cf921f assets/aether_redux/models/item/iridia.json
+481706b2a228e5e43e2ca6e8b18f19add3aeceef assets/aether_redux/models/item/jellyshroom.json
+e43dc1b335dcced9921ac6433360bc99bf5f07ff assets/aether_redux/models/item/jellyshroom_jelly_block.json
 7e5c9c8ea05cc15e0c568d691bccc3a500cb1903 assets/aether_redux/models/item/lightroot_clump.json
 419e1a027022a941d08e3625e84160befb2571da assets/aether_redux/models/item/lumina.json
 2a699772a6636fcf3c80aac2def07425bdd913dd assets/aether_redux/models/item/luxbuds.json
@@ -183,7 +185,6 @@ ca66221312d21063f168e38f805dbbc79c16414b assets/aether_redux/models/item/spiroly
 f77e24c2923c9754de00f40add7e8a671ad1a307 assets/aether_redux/models/item/splitfern.json
 0dc1c284d9c72e48c2b830de2c0adbfc5ed7bedb assets/aether_redux/models/item/sporing_blightwillow_log.json
 569139fa5e22ddb750644fecbfa21e36b2a1601a assets/aether_redux/models/item/sporing_blightwillow_wood.json
-b6cc585254ae860406c536a7f3fae2f2a054d60f assets/aether_redux/models/item/springshroom.json
 683c22d7ba18df884cda0afa150278596436cf75 assets/aether_redux/models/item/springshroom_boat.json
 39665d9c764627c7244f00c4a7b4c82e0f1f682f assets/aether_redux/models/item/springshroom_button.json
 8f592ab36edb40c1a378f3cf2f74eb55817e8e44 assets/aether_redux/models/item/springshroom_chest_boat.json
@@ -193,12 +194,10 @@ a145681a399a4e30b0b3a2e0a6a5d0b0375a71ab assets/aether_redux/models/item/springs
 252c95dc44d0455add53a317b9bb9f6c554219f2 assets/aether_redux/models/item/springshroom_hanging_sign.json
 728c91304ded00fa32e3f44c9ff710e38720f42f assets/aether_redux/models/item/springshroom_hyphae.json
 2cb86e294a79a84367c568e71a64d272495de814 assets/aether_redux/models/item/springshroom_hyphae_wall.json
-7dbf95b980c7640a90da2bae0ef185fcdbb9ad90 assets/aether_redux/models/item/springshroom_jelly_block.json
 368e6c3c6557f9ba024171d2dd517b15c4f746a4 assets/aether_redux/models/item/springshroom_planks.json
 81723284b8cdab73041d664e8e894a045ebe0119 assets/aether_redux/models/item/springshroom_pressure_plate.json
 ca583d3a8bd0bfeb81c9ff25e169153ad286e383 assets/aether_redux/models/item/springshroom_sign.json
 a9281503d29a097990f4577bc6291b36d2be54c5 assets/aether_redux/models/item/springshroom_slab.json
-2e5e779ef9c6f359407f86ff8dbbb9ff976af8b8 assets/aether_redux/models/item/springshroom_spores.json
 301a450b3c00675e818b205e461ad3b49e0811e7 assets/aether_redux/models/item/springshroom_stairs.json
 cc6f3186599b93dd1ef281b95139593c08aecb91 assets/aether_redux/models/item/springshroom_stem.json
 75125186bc41060dd7675e13406f98f36a8fd996 assets/aether_redux/models/item/springshroom_stem_wall.json
