@@ -2,7 +2,8 @@
     "targets": [
         "motion",
         "blur",
-        "shake"
+        "shake",
+        "previous"
     ],
     "passes": [
         {
@@ -25,11 +26,12 @@
             "name": "aether_redux:radial_blur",
             "intarget": "motion",
             "outtarget": "blur",
-            "uniforms":
-            {
-                "name": "BlurStrength",
-                "values": [ 0.66 ]
-            }
+            "uniforms":[
+                {
+                    "name": "BlurStrength",
+                    "values": [ 0.67 ]
+                }
+            ]
         },
         {
             "name": "aether_redux:screen_shake",
