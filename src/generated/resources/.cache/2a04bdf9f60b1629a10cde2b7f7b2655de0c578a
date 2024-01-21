@@ -1,14 +1,14 @@
-// 1.20.1	2024-01-10T21:40:54.2337266	Tags for minecraft:item mod id aether_redux
+// 1.20.1	2024-01-20T21:38:00.22396	Tags for minecraft:item mod id aether_redux
 300781e4ca600daa56e90c34c0dbde6d8e83a30f data/aether/tags/items/accessories_capes.json
 94840e9b40698d0060327b6cae55109b6f9ee45c data/aether/tags/items/accessories_miscellaneous.json
 dee038e142bc18a39fdeae6abccd9121ad40e466 data/aether/tags/items/accessories_pendants.json
-5636fe4f64d0c8ad26d8b4d1efe4ca611442cdea data/aether/tags/items/accessories_rings.json
+7456d84480312581639e6fc8807df19fca330563 data/aether/tags/items/accessories_rings.json
 a40f3f5f697011f9966eb49c6599322302a28195 data/aether/tags/items/flying_cow_temptation_items.json
 850be376b429515944edcef7b8692399e619c835 data/aether/tags/items/phyg_temptation_items.json
-243259d4c584b5876ed092159fc145440c545379 data/aether/tags/items/planks_crafting.json
-243259d4c584b5876ed092159fc145440c545379 data/aether/tags/items/skyroot_repairing.json
-243259d4c584b5876ed092159fc145440c545379 data/aether/tags/items/skyroot_stick_crafting.json
-243259d4c584b5876ed092159fc145440c545379 data/aether/tags/items/skyroot_tool_crafting.json
+945c56b8e0d8affefca486d4bab686d6f79d0d06 data/aether/tags/items/planks_crafting.json
+945c56b8e0d8affefca486d4bab686d6f79d0d06 data/aether/tags/items/skyroot_repairing.json
+945c56b8e0d8affefca486d4bab686d6f79d0d06 data/aether/tags/items/skyroot_stick_crafting.json
+945c56b8e0d8affefca486d4bab686d6f79d0d06 data/aether/tags/items/skyroot_tool_crafting.json
 d7419f8329f04e3bc18cdcf761b7c6288bfbf50b data/aether/tags/items/slider_damaging_items.json
 3758660b59c341f28e9f356022746007acc660d4 data/aether/tags/items/treated_as_aether_item.json
 edd28d843e4d50fffcd62491dda0fa5e4ba1749b data/aether_redux/tags/items/blightwillow_logs.json
@@ -22,14 +22,14 @@ ff76e071710735bec611ec58205f07d13cb675bd data/aether_redux/tags/items/crystal_lo
 82cdd6960b818e0e4b249c6f1b960a9ef8e0cc1c data/aether_redux/tags/items/glacia_logs.json
 17600d146a829b25bb9feb9e792f27a4075dd967 data/aether_redux/tags/items/golden_swet_ball.json
 d32d35f24367f8cf0d9ce8950b593a3fc9082779 data/aether_redux/tags/items/golden_swet_jelly.json
+06247534cf8f39fc0ad017530554c6010915a1d8 data/aether_redux/tags/items/jellyshroom_stems.json
 a2d06d6cc7ede39796b67966ac0f0248e93f9811 data/aether_redux/tags/items/redux_flying_cow_food_items.json
 c6d078dc312a915c08b063bbbffc93830418adc7 data/aether_redux/tags/items/redux_phyg_food_items.json
-3323c9f7960d9cc45e5f36d8b6c6006c16c72916 data/aether_redux/tags/items/springshroom_stems.json
 e562bf49b5db2bd55155c842940656f9060d37f6 data/aether_redux/tags/items/swet_jelly.json
 4d8f9f1d15bcad0b6bc2b49fb104f1768134ed52 data/aether_redux/tags/items/veridium_advancement_infusable.json
 cfe48fd28023b2449cb40cc8fb5671de94ee19c2 data/minecraft/tags/items/axes.json
-94b5bd634c41921787a625c3f389e2fff1d19154 data/minecraft/tags/items/boats.json
-dac35e6c0e0f72eebeb3fc729bf1e6fa951dbe56 data/minecraft/tags/items/chest_boats.json
+aca08d2819be2358b2b8d8f0b37f7462f53d1b67 data/minecraft/tags/items/boats.json
+3f48d7a9c7b3b4e011fd4a6b6a5fa0044e2cc980 data/minecraft/tags/items/chest_boats.json
 e60767be7710a7d974af090a872ab20f4d199986 data/minecraft/tags/items/hoes.json
 629b9b20186f00a3a3547798c63f129dd81d0abb data/minecraft/tags/items/music_discs.json
 d7419f8329f04e3bc18cdcf761b7c6288bfbf50b data/minecraft/tags/items/pickaxes.json

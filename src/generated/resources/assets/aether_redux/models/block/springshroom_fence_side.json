@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/fence_side",
-  "textures": {
-    "texture": "aether_redux:block/construction/springshroom_planks"
-  }
-}

@@ -20,7 +20,7 @@
     "stem_block": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "aether_redux:springshroom_stem",
+        "Name": "aether_redux:jellyshroom_stem",
         "Properties": {
           "axis": "y",
           "double_drops": "true"
