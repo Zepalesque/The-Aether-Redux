@@ -28,8 +28,7 @@ import java.util.Optional;
 
 public class ShimmerstoolBlock extends AetherBushBlock /*implements BonemealableBlock TODO: spread patch when bonemealed?*/ {
 
-    protected static final VoxelShape SHAPE_CAP = Block.box(1.0D, 3.0D, 1.0D, 15.0D, 7.0D, 15.0D);
-    protected static final VoxelShape SHAPE_STEM = Block.box(6.0D, 0.0D, 6.0D, 10.0D, 3.0D, 10.0D);
+    protected static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 8.0D, 15.0D);
 
 
     public ShimmerstoolBlock(Properties pProperties) {
@@ -37,6 +36,6 @@ public class ShimmerstoolBlock extends AetherBushBlock /*implements Bonemealable
     }
 
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return Shapes.or(SHAPE_CAP, SHAPE_STEM);
+        return SHAPE;
     }
 }

@@ -97,12 +97,12 @@ public class ReduxBlocks {
     public static RegistryObject<Block> CLOUDCAP_SPORES = register("cloudcap_spores",
             () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(0.3F).sound(SoundType.WART_BLOCK).lightLevel((state) -> 15).emissiveRendering(ReduxBlocks::always).noOcclusion()));
 
-    public static final RegistryObject<Block> JELLYSHROOM = register("jellyshroom", () -> new AetherMushroom(Block.Properties.of().noCollission().strength(0.5F).sound(SoundType.FUNGUS).mapColor(MapColor.COLOR_PURPLE),
+    public static final RegistryObject<Block> JELLYSHROOM = register("jellyshroom", () -> new AetherMushroom(Block.Properties.of().offsetType(BlockBehaviour.OffsetType.XZ).noCollission().instabreak().sound(SoundType.FUNGUS).mapColor(MapColor.COLOR_PURPLE),
             ReduxConfiguredFeatures.LARGE_JELLYSHROOM,
             Block.box(2D, 0D, 3D, 12D, 13D, 12D)));
     public static final RegistryObject<FlowerPotBlock> POTTED_JELLYSHROOM = BLOCKS.register("potted_jellyshroom", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, JELLYSHROOM, Block.Properties.copy(Blocks.FLOWER_POT)));
 
-    public static final RegistryObject<Block> SHIMMERSTOOL = register("shimmerstool", () -> new ShimmerstoolBlock(Block.Properties.of().strength(0.5F).sound(SoundType.FUNGUS /* TODO: Amethyst-like sounds */).mapColor(MapColor.TERRACOTTA_LIGHT_BLUE)));
+    public static final RegistryObject<Block> SHIMMERSTOOL = register("shimmerstool", () -> new ShimmerstoolBlock(Block.Properties.of().sound(SoundType.FUNGUS /* TODO: Amethyst-like sounds? */).noCollission().offsetType(BlockBehaviour.OffsetType.XZ).instabreak().mapColor(MapColor.TERRACOTTA_LIGHT_BLUE)));
     public static final RegistryObject<FlowerPotBlock> POTTED_SHIMMERSTOOL = BLOCKS.register("potted_shimmerstool", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SHIMMERSTOOL, Block.Properties.copy(Blocks.FLOWER_POT)));
 
     public static final RegistryObject<Block> IRIDIA = register("iridia", () -> new FlowerBlock(() -> MobEffects.HEAL, 4, Block.Properties.copy(Blocks.DANDELION).mapColor(MapColor.QUARTZ)));

@@ -245,6 +245,8 @@
   "death.attack.aether_redux.chromatic_berry_bush": "%1$s was poked to death by a chromatic shrub, how sad",
   "death.attack.aether_redux.ember": "%1$s was hit by a flying ember",
   "death.attack.aether_redux.ember.player": "%1$s was hit by %2$s's flying ember",
+  "effect.aether_redux.adrenal_fatigue": "Adrenal Fatigue",
+  "effect.aether_redux.adrenaline_rush": "Adrenaline Rush",
   "effect.aether_redux.blightward": "Blightward",
   "entity.aether_redux.ember": "Ember",
   "entity.aether_redux.spectral_dart": "Spectral Dart",
