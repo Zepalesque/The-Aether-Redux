@@ -1,7 +1,8 @@
 {
-  "parent": "minecraft:block/cross",
+  "parent": "aether_redux:block/cross_glow",
   "render_type": "minecraft:cutout",
   "textures": {
-    "cross": "aether_redux:block/natural/shimmerstool"
+    "cross": "aether_redux:block/natural/shimmerstool",
+    "overlay": "aether_redux:block/natural/shimmerstool_glow"
   }
 }
