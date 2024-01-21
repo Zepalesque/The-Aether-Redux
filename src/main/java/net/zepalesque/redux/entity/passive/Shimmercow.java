@@ -6,6 +6,7 @@ import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.entity.ai.goal.FallingRandomStrollGoal;
 import com.aetherteam.aether.entity.monster.dungeon.Sentry;
 import com.aetherteam.aether.entity.passive.AetherAnimal;
+import net.minecraft.client.renderer.entity.PiglinRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -31,6 +32,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
+import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.misc.ReduxTags;
@@ -63,8 +65,6 @@ public class Shimmercow extends AetherAnimal {
         this.setCrazy(this.getRandom().nextFloat() < 0.01);
         return spawnData;
     }
-
-
 
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
@@ -101,17 +101,17 @@ public class Shimmercow extends AetherAnimal {
 
     @Nullable
     protected SoundEvent getAmbientSound() {
-        return AetherSoundEvents.ENTITY_FLYING_COW_AMBIENT.get();
+        return this.isCrazy() ? ReduxSoundEvents.CRAZY_COW_AMBIENT.get() : ReduxSoundEvents.SHIMMERCOW_AMBIENT.get();
     }
 
     @Nullable
     protected SoundEvent getHurtSound(DamageSource damageSource) {
-        return AetherSoundEvents.ENTITY_FLYING_COW_HURT.get();
+        return this.isCrazy() ? ReduxSoundEvents.CRAZY_COW_HURT.get() : ReduxSoundEvents.SHIMMERCOW_HURT.get();
     }
 
     @Nullable
     protected SoundEvent getDeathSound() {
-        return AetherSoundEvents.ENTITY_FLYING_COW_DEATH.get();
+        return this.isCrazy() ? ReduxSoundEvents.CRAZY_COW_DEATH.get() : ReduxSoundEvents.SHIMMERCOW_DEATH.get();
     }
 
 

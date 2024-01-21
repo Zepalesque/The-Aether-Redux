@@ -12,6 +12,14 @@ public class ReduxSoundEvents {
     public static final RegistryObject<SoundEvent> SENTRY_AMBIENT = register("entity.sentry.ambient");;
     public static final RegistryObject<SoundEvent> MIMIC_SLAM = register("entity.mimic.slam");
 
+    public static final RegistryObject<SoundEvent> SHIMMERCOW_AMBIENT = register("entity.shimmercow.ambient");
+    public static final RegistryObject<SoundEvent> SHIMMERCOW_HURT = register("entity.shimmercow.hurt");
+    public static final RegistryObject<SoundEvent> SHIMMERCOW_DEATH = register("entity.shimmercow.death");
+
+    public static final RegistryObject<SoundEvent> CRAZY_COW_AMBIENT = register("entity.shimmercow.crazy_ambient");
+    public static final RegistryObject<SoundEvent> CRAZY_COW_HURT = register("entity.shimmercow.crazy_hurt");
+    public static final RegistryObject<SoundEvent> CRAZY_COW_DEATH = register("entity.shimmercow.crazy_death");
+
 
     public static final RegistryObject<SoundEvent> GLOWSTONE_BREAK = register("block.glowstone.break");
     public static final RegistryObject<SoundEvent> GLOWSTONE_PLACE = register("block.glowstone.place");
@@ -20,11 +28,6 @@ public class ReduxSoundEvents {
     public static final RegistryObject<SoundEvent> GLOWSTONE_HIT = register("block.glowstone.hit");
 
     public static final RegistryObject<SoundEvent> FUNGUS_BOUNCE = register("block.fungus.bounce");
-
-    public static final RegistryObject<SoundEvent> TEMPEST_AMBIENT = register("entity.tempest.ambient");
-    public static final RegistryObject<SoundEvent> TEMPEST_HURT = register("entity.tempest.hurt");
-    public static final RegistryObject<SoundEvent> TEMPEST_DEATH = register("entity.tempest.death");
-    public static final RegistryObject<SoundEvent> TEMPEST_ZAP = register("entity.tempest.zap");
 
     public static final RegistryObject<SoundEvent> EMBER_BOUNCE_BIG = register("entity.ember.bounce_big");
     public static final RegistryObject<SoundEvent> EMBER_BOUNCE_MED = register("entity.ember.bounce_med");

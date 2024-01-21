@@ -2,6 +2,7 @@ package net.zepalesque.redux.client;
 
 import com.google.gson.JsonSyntaxException;
 import com.mojang.blaze3d.pipeline.RenderTarget;
+import net.minecraft.client.GraphicsStatus;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.PostChain;
 import net.minecraft.client.renderer.PostPass;
@@ -49,7 +50,8 @@ public class ReduxPostProcessHandler {
         }
     }
     public static @Nullable PostChain getAdrenaline() {
-        return adrenaline == null || !ReduxConfig.CLIENT.enable_adrenaline_postproccess.get() ? null : adrenaline;
+        Minecraft mc = Minecraft.getInstance();
+        return mc.options.graphicsMode().get() != GraphicsStatus.FABULOUS || adrenaline == null || !ReduxConfig.CLIENT.enable_adrenaline_postproccess.get() ? null : adrenaline;
     }
 
 }

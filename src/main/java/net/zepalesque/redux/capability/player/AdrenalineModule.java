@@ -53,7 +53,7 @@ public class AdrenalineModule implements PlayerTickModule {
     }
 
     public float getShaderStrength() {
-        return ((float) this.adrenalineStrength * 0.67F) + 0.33F;
+        return this.adrenalineStrength > 0.0 ? ((float) this.adrenalineStrength * 0.67F) + 0.33F: 0.0F;
     }
 
 

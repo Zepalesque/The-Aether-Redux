@@ -23,7 +23,8 @@ public class PostPassMixin {
 
     @Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/EffectInstance;apply()V", shift = At.Shift.BEFORE), method = "process")
     private void processInvoke(float partialTicks, CallbackInfo ci) {
-        if (ReduxConfig.CLIENT.enable_adrenaline_postproccess.get()) {
+        Minecraft mc = Minecraft.getInstance();
+        if (mc != null && mc.options.graphicsMode().get() == GraphicsStatus.FABULOUS && ReduxConfig.CLIENT.enable_adrenaline_postproccess.get()) {
             if (Minecraft.getInstance().player != null && Minecraft.getInstance().options.graphicsMode().get() == GraphicsStatus.FABULOUS) {
                 ReduxPlayer.get(Minecraft.getInstance().player).ifPresent(reduxPlayer -> this.effect.safeGetUniform("AetherRedux_AdrenalineStrength").set(reduxPlayer.getAdrenalineModule().getShaderStrength()));
             } else {

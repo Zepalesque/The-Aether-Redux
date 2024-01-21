@@ -198,6 +198,27 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
                 )
         );
 
+
+        this.add(ReduxSoundEvents.SHIMMERCOW_AMBIENT,
+                definition().with(sound("aether_redux:entity/shimmercow/ambient1")).with(sound("aether_redux:entity/shimmercow/ambient2"))
+                        .subtitle("subtitles.aether_redux.entity.shimmercow_ambient"));
+        this.add(ReduxSoundEvents.SHIMMERCOW_HURT,
+                definition().with(sound("aether_redux:entity/shimmercow/hurt"))
+                        .subtitle("subtitles.aether_redux.entity.shimmercow_hurt"));
+        this.add(ReduxSoundEvents.SHIMMERCOW_DEATH,
+                definition().with(sound("aether_redux:entity/shimmercow/hurt"))
+                        .subtitle("subtitles.aether_redux.entity.shimmercow_death"))
+        ;
+        this.add(ReduxSoundEvents.CRAZY_COW_AMBIENT,
+                definition().with(sound("aether_redux:entity/shimmercow/vwakazoom"))
+                        .subtitle("subtitles.aether_redux.entity.crazy_cow_ambient"));
+        this.add(ReduxSoundEvents.SHIMMERCOW_HURT,
+                definition().with(sound("aether_redux:entity/shimmercow/noo"))
+                        .subtitle("subtitles.aether_redux.entity.crazy_cow_hurt"));
+        this.add(ReduxSoundEvents.SHIMMERCOW_DEATH,
+                definition().with(sound("aether_redux:entity/shimmercow/y_do_u_do_dis"))
+                        .subtitle("subtitles.aether_redux.entity.crazy_cow_death"));
+
     }
 
 }

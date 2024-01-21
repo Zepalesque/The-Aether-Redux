@@ -440,6 +440,12 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
 
         addSubtitle("entity", "mimic_slam", "Mimic slams");
+        addSubtitle("entity", "shimmercow_ambient", "Shimmercow moos");
+        addSubtitle("entity", "shimmercow_hurt", "Shimmercow hurts");
+        addSubtitle("entity", "shimmercow_death", "Shimmercow dies");
+        addSubtitle("entity", "crazy_cow_ambient", "Shimmercow §kvwakazoom moo dae§rs");
+        addSubtitle("entity", "crazy_cow_hurt", "Shimmercow §kscream§rs");
+        addSubtitle("entity", "crazy_cow_death", "Shimmercow §kasks u why u did dis§r");
         addSubtitle("entity", "sentry_pounce", "Sentry pounces");
         addSubtitle("entity", "sentry_land", "Sentry lands");
         addSubtitle("entity", "sentry_ambient", "Sentry grumbles");
