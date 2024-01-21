@@ -64,7 +64,8 @@ public class ReduxCreativeTabs {
 
             putAfter(AetherBlocks.AETHER_FARMLAND, ReduxBlocks.AETHER_SHORT_GRASS, event);
             putAfter(ReduxBlocks.AETHER_SHORT_GRASS, ReduxBlocks.AEVELIUM_GROWTH, event);
-            putAfter(ReduxBlocks.AEVELIUM_GROWTH, ReduxBlocks.AEVELIUM_SPROUTS, event);
+            putAfter(ReduxBlocks.AETHER_SHORT_GRASS, ReduxBlocks.SPLITFERN, event);
+            putAfter(ReduxBlocks.SPLITFERN, ReduxBlocks.AEVELIUM_SPROUTS, event);
 
             putAfter(AetherBlocks.MOSSY_HOLYSTONE, ReduxBlocks.GILDED_HOLYSTONE, event);
             putAfter(ReduxBlocks.GILDED_HOLYSTONE, ReduxBlocks.BLIGHTMOSS_HOLYSTONE, event);
@@ -112,10 +113,9 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.SPIROLYCTIL, ReduxBlocks.BLIGHTSHADE, event);
             putAfter(ReduxBlocks.BLIGHTSHADE, ReduxBlocks.LUMINA, event);
             putAfter(ReduxBlocks.LUMINA, ReduxBlocks.DAGGERBLOOM, event);
-            putAfter(ReduxBlocks.DAGGERBLOOM, ReduxBlocks.SPLITFERN, event);
-            putAfter(ReduxBlocks.CLOUDCAP_MUSHLING, ReduxBlocks.CLOUDCAP_MUSHLING, event);
+            putAfter(ReduxBlocks.DAGGERBLOOM, ReduxBlocks.CLOUDCAP_MUSHLING, event);
             putAfter(ReduxBlocks.CLOUDCAP_MUSHLING, ReduxBlocks.JELLYSHROOM, event);
-            putAfter(ReduxBlocks.CLOUDCAP_MUSHLING, ReduxBlocks.TALL_CLOUDCAP, event);
+            putAfter(ReduxBlocks.JELLYSHROOM, ReduxBlocks.SHIMMERSTOOL, event);
 
             putAfter(AetherBlocks.ZANITE_ORE, ReduxBlocks.VERIDIUM_ORE, event);
             putAfter(AetherBlocks.GRAVITITE_ORE, ReduxBlocks.RAW_VERIDIUM_BLOCK, event);
@@ -167,6 +167,8 @@ public class ReduxCreativeTabs {
             putAfter(ReduxItems.VERIDIUM_NUGGET, ReduxItems.SENTRY_CHIP, event);
 
             putAfter(AetherItems.SKYROOT_STICK, ReduxItems.BLIGHTED_SPORES, event);
+
+            putAfter(AetherBlocks.ENCHANTED_GRAVITITE, ReduxItems.RAW_GRAVITITE, event);
 
             putAfter(AetherItems.AECHOR_PETAL, ReduxItems.OATS, event);
             putAfter(ReduxItems.OATS, ReduxItems.LUXBUDS, event);

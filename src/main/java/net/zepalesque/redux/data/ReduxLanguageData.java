@@ -88,6 +88,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.VANILLA_SWET_SPAWN_EGG, "Vanilla Swet Spawn Egg");
         addLore(ReduxItems.VANILLA_SWET_SPAWN_EGG, "A spawn egg. Spawns a Vanilla Swet");
 
+        addItem(ReduxItems.SHIMMERCOW_SPAWN_EGG, "Shimmercow Spawn Egg");
+        addLore(ReduxItems.SHIMMERCOW_SPAWN_EGG, "A spawn egg. Spawns a Shimmercow");
+
         addItem(ReduxItems.BLIGHTED_SPORES, "Blighted Spores");
         addLore(ReduxItems.BLIGHTED_SPORES, "Spores from the Blightwillow tree. They act like an opposite to Ambrosium, turning some things into their blighted variant");
 
@@ -401,6 +404,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addGuiText("config_page", "Page %s");
 
         addEntityType(ReduxEntityTypes.VANILLA_SWET, "Vanilla Swet");
+        addEntityType(ReduxEntityTypes.SHIMMERCOW, "Shimmercow");
         addEntityType(ReduxEntityTypes.EMBER, "Ember");
         addEntityType(ReduxEntityTypes.SPECTRAL_DART, "Spectral Dart");
         addEntityType(ReduxEntityTypes.VOLATILE_FIRE_CRYSTAL, "Volatile Fire Crystal");
