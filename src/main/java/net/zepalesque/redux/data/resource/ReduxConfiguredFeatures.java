@@ -353,7 +353,6 @@ public class    ReduxConfiguredFeatures {
                 new MultifaceGrowthConfiguration(ReduxBlocks.LIGHTROOTS.get(),
                         20, false, false, true, 0.5F,
                         HolderSet.direct(
-                                ReduxBlocks.AEVELIUM.getHolder().orElseThrow(),
                                 AetherBlocks.AETHER_DIRT.getHolder().orElseThrow()
                         )));
 
