@@ -130,6 +130,43 @@
     ],
     "subtitle": "subtitles.aether.entity.sentry.jump"
   },
+  "entity.shimmercow.ambient": {
+    "sounds": [
+      "aether_redux:entity/shimmercow/ambient1",
+      "aether_redux:entity/shimmercow/ambient2"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.shimmercow_ambient"
+  },
+  "entity.shimmercow.crazy_ambient": {
+    "sounds": [
+      "aether_redux:entity/shimmercow/vwakazoom"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.crazy_cow_ambient"
+  },
+  "entity.shimmercow.crazy_death": {
+    "sounds": [
+      "aether_redux:entity/shimmercow/y_do_u_do_dis"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.crazy_cow_death"
+  },
+  "entity.shimmercow.crazy_hurt": {
+    "sounds": [
+      "aether_redux:entity/shimmercow/noo"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.crazy_cow_hurt"
+  },
+  "entity.shimmercow.death": {
+    "sounds": [
+      "aether_redux:entity/shimmercow/hurt"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.shimmercow_death"
+  },
+  "entity.shimmercow.hurt": {
+    "sounds": [
+      "aether_redux:entity/shimmercow/hurt"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.shimmercow_hurt"
+  },
   "generic.boost_jump": {
     "sounds": [
       "aether_redux:generic/boost_jump"
