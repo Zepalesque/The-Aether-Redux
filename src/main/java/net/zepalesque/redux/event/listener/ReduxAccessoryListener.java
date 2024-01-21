@@ -6,7 +6,7 @@ import com.aetherteam.nitrogen.capability.INBTSynchable;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -20,8 +20,8 @@ import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.capability.player.ReduxPlayer;
 import net.zepalesque.redux.data.resource.ReduxDamageTypes;
+import net.zepalesque.redux.effect.ReduxEffects;
 import net.zepalesque.redux.entity.projectile.Ember;
-import net.zepalesque.redux.entity.projectile.VolatileFireCrystal;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.util.math.MathUtil;
 import top.theillusivec4.curios.api.SlotResult;
@@ -72,8 +72,26 @@ public class ReduxAccessoryListener {
     }
 
     @SubscribeEvent
-    public static void shootEmbers(LivingHurtEvent event) {
+    public static void hurt(LivingHurtEvent event) {
         LivingEntity target = event.getEntity();
+
+        if (!target.level().isClientSide() && EquipmentUtil.hasCurio(target, ReduxItems.SHROOM_RING.get()) && (target.getHealth() / target.getMaxHealth()) <= 0.5F) {
+            float delta = 1 - ((target.getHealth() / target.getMaxHealth()) * 2F);
+            if (target.hasEffect(ReduxEffects.ADRENALINE_RUSH.get())) {
+                MobEffectInstance i = target.getEffect(ReduxEffects.ADRENALINE_RUSH.get());
+                if (i != null) {
+                    int curr = i.getAmplifier();
+                    if (curr < 2) {
+                        MobEffectInstance instance = new MobEffectInstance(i.getEffect(), i.getDuration(), i.getAmplifier() + 1, i.isAmbient(), i.isVisible(), i.showIcon());
+                        target.removeEffect(ReduxEffects.ADRENALINE_RUSH.get());
+                        target.addEffect(instance);
+                    }
+                }
+            }
+            if (target.level().getRandom().nextFloat() <= ((delta * 0.5F) + 0.25F)) {
+                target.addEffect(new MobEffectInstance(ReduxEffects.ADRENALINE_RUSH.get(), 600, 0, false, false, true));
+            }
+        }
 
         if (target != null && event.getSource().getDirectEntity() instanceof Player player && !event.getSource().is(ReduxDamageTypes.EMBER)) {
             if (EquipmentUtil.hasCurio(player, ReduxItems.SENTRY_RING.get())) {

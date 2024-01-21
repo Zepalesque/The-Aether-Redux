@@ -63,7 +63,7 @@ public class SpringshroomCapBlock extends AbstractGlassBlock {
     private void bounceUp(Entity pEntity) {
         Vec3 vec3 = pEntity.getDeltaMovement();
         if (vec3.y < 0.0D) {
-            double d0 = pEntity instanceof LivingEntity ? 0.75D : 0.65D;
+            double d0 = pEntity instanceof LivingEntity ? 0.95D : 0.85D;
             pEntity.setDeltaMovement(vec3.x, -vec3.y * d0, vec3.z);
         }
 

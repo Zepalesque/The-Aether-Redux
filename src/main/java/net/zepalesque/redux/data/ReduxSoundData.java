@@ -42,6 +42,11 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
                         sound("minecraft:mob/turtle/armor")
                 ).subtitle("subtitles.aether_redux.item.accessory.equip_enchanted_ring")
         );
+        this.add(ReduxSoundEvents.EQUIP_SHROOM_RING,
+                definition().with(
+                        sound("minecraft:mob/turtle/armor")
+                ).subtitle("subtitles.aether_redux.item.accessory.equip_shroom_ring")
+        );
         this.add(ReduxSoundEvents.EQUIP_GRAND_MEDAL,
                 definition().with(
                         sound("minecraft:item/armor/equip_gold1"),
