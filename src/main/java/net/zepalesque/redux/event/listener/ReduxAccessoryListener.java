@@ -77,19 +77,18 @@ public class ReduxAccessoryListener {
 
         if (!target.level().isClientSide() && EquipmentUtil.hasCurio(target, ReduxItems.SHROOM_RING.get()) && (target.getHealth() / target.getMaxHealth()) <= 0.5F) {
             float delta = 1 - ((target.getHealth() / target.getMaxHealth()) * 2F);
-            if (target.hasEffect(ReduxEffects.ADRENALINE_RUSH.get())) {
-                MobEffectInstance i = target.getEffect(ReduxEffects.ADRENALINE_RUSH.get());
-                if (i != null) {
-                    int curr = i.getAmplifier();
-                    if (curr < 2) {
-                        MobEffectInstance instance = new MobEffectInstance(i.getEffect(), i.getDuration(), i.getAmplifier() + 1, i.isAmbient(), i.isVisible(), i.showIcon());
-                        target.removeEffect(ReduxEffects.ADRENALINE_RUSH.get());
-                        target.addEffect(instance);
+            if (target.level().getRandom().nextFloat() <= ((delta * 0.5F) + 0.5F)) {
+                if (target.hasEffect(ReduxEffects.ADRENALINE_RUSH.get())) {
+                    MobEffectInstance i = target.getEffect(ReduxEffects.ADRENALINE_RUSH.get());
+                    if (i != null) {
+                        int curr = i.getAmplifier();
+                        if (curr < 2) {
+                            MobEffectInstance instance = new MobEffectInstance(i.getEffect(), i.getDuration(), i.getAmplifier() + 1, i.isAmbient(), i.isVisible(), i.showIcon());
+                            target.removeEffect(ReduxEffects.ADRENALINE_RUSH.get());
+                            target.addEffect(instance);
+                        }
                     }
-                }
-            }
-            if (target.level().getRandom().nextFloat() <= ((delta * 0.5F) + 0.25F)) {
-                target.addEffect(new MobEffectInstance(ReduxEffects.ADRENALINE_RUSH.get(), 600, 0, false, false, true));
+                }  target.addEffect(new MobEffectInstance(ReduxEffects.ADRENALINE_RUSH.get(), 600, 0, false, false, true));
             }
         }
 
