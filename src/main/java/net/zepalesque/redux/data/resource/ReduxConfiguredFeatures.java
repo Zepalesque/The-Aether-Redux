@@ -399,7 +399,7 @@ public class    ReduxConfiguredFeatures {
         register(context, LARGE_JELLYSHROOM, ReduxFeatureRegistry.JELLYSHROOM.get(),
                 new JellyshroomConfig(
                         prov(ReduxBlocks.JELLYSHROOM_JELLY_BLOCK),
-                        prov(Redux.Handlers.Wood.SPRINGSHROOM.log),
+                        prov(Redux.Handlers.Wood.JELLYSHROOM.log),
                         UniformInt.of(7, 9)
                         ));
 
