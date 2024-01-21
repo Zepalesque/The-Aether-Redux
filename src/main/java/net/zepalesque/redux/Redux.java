@@ -1,7 +1,6 @@
 package net.zepalesque.redux;
 
 import com.aetherteam.aether.AetherConfig;
-import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.dispenser.DispenseUsableItemBehavior;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether_genesis.entity.GenesisEntityTypes;
@@ -55,6 +54,7 @@ import net.zepalesque.redux.block.util.ReduxSoundTypes;
 import net.zepalesque.redux.blockentity.ReduxBlockEntityTypes;
 import net.zepalesque.redux.builtin.BuiltinPackUtils;
 import net.zepalesque.redux.client.ReduxClient;
+import net.zepalesque.redux.client.ReduxPostProcessHandler;
 import net.zepalesque.redux.client.resource.ReduxOverridesPackResources;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
@@ -210,7 +210,7 @@ public class Redux
                         ReduxConfig.CLIENT.change_aether_configs.set(false);
                     }
                     ReduxClient.registerItemModelProperties();
-
+                    ReduxPostProcessHandler.initAdrenalineShader();
                 });
     }
 

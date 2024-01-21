@@ -3,7 +3,7 @@
 uniform sampler2D DiffuseSampler;
 uniform vec2 Center;
 uniform float Radius;
-uniform float BlurStrength;
+uniform float AetherRedux_AdrenalineStrength;
 
 in vec2 texCoord;
 out vec4 fragColor;
@@ -11,13 +11,14 @@ out vec4 fragColor;
 const int NUM_SAMPLES = 20;
 
 void main() {
-    vec2 dir = texCoord - Center; // direction to center
+    if (AetherRedux_AdrenalineStrength > 0.0) {
+        vec2 dir = texCoord - Center; // direction to center
     vec4 color = vec4(0.0);
 
     // sample texture
     for (int i = 0; i < NUM_SAMPLES; ++i) {
         float t = float(i) / float(NUM_SAMPLES - 1);
-        vec2 offset = dir * t * Radius * (BlurStrength * 0.05);  // decrease blur strength, so that the base value can be 1.0
+        vec2 offset = dir * t * Radius * (AetherRedux_AdrenalineStrength * 0.05);  // decrease blur strength, so that the base value can be 1.0
         color += texture(DiffuseSampler, texCoord + offset);
     }
 
@@ -30,4 +31,7 @@ void main() {
     color = mix(color, vec4(1.0), edgeFade);
 
     fragColor = color;
+    } else {
+        fragColor = texture(DiffuseSampler, texCoord);
+    }
 }

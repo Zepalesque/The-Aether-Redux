@@ -132,6 +132,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.ConfigValue<String> version_id;
         public final ForgeConfigSpec.BooleanValue better_leaf_particles;
         public final ForgeConfigSpec.BooleanValue auto_apply_overrides;
+        public final ForgeConfigSpec.BooleanValue enable_adrenaline_postproccess;
 
         public Client(ForgeConfigSpec.Builder builder) {
 
@@ -143,6 +144,9 @@ public class ReduxConfig {
             this.moa_feet_type = builder.comment("Determines whether the updated Moa model should use more peaceful-appearing toes, or more aggressive talons").translation("config.aether_redux.client.mob_models.moa_feet").defineEnum("Moa Foot Type", MoaFeetType.toes);
             this.cockatrice_improvements = builder.comment("Makes Cockatrices look far better").translation("config.aether_redux.client.mob_models.cockatrice").define("Cockatrice Model Improvements", true);
             this.sentry_improvements = builder.comment("Improves the model for Sentries, giving them a new model and a springy jump animation").translation("config.aether_redux.client.mob_models.sentry").define("Sentry Model Improvements", true);
+            builder.pop();
+            builder.push("Visual");
+            this.enable_adrenaline_postproccess = builder.comment("Enables a post processing effect for the Shroom Ring's adrenaline ability. Only works with Fabulous graphics.").translation("config.aether_redux.client.visual.enable_adrenaline_postproccess").define("Enable Adrenaline Post Processing Effect", true);
             builder.pop();
             builder.push("Particles");
             this.better_leaf_particles = builder.comment("Improves the leaf particles for Golden Oaks, Gilded Oaks, and Crystal Trees, based on Minecraft 1.20's new cherry tree particles.").translation("config.aether_redux.client.particles.better_leaf_particles").define("Better Leaf Particles", true);
