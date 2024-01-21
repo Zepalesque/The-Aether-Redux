@@ -5,18 +5,13 @@
 
 package net.zepalesque.redux.client.render.entity;
 
-import com.aetherteam.aether.entity.passive.FlyingCow;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.client.renderer.entity.layers.MushroomCowMushroomLayer;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.monster.piglin.AbstractPiglin;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.render.entity.layer.ReduxModelLayers;
-import net.zepalesque.redux.client.render.entity.layer.ShimmercowLayer;
 import net.zepalesque.redux.client.render.entity.model.entity.ShimmercowModel;
 import net.zepalesque.redux.entity.passive.Shimmercow;
 
@@ -26,7 +21,6 @@ public class ShimmercowRenderer extends MobRenderer<Shimmercow, ShimmercowModel<
 
     public ShimmercowRenderer(EntityRendererProvider.Context context) {
         super(context, new ShimmercowModel<>(context.bakeLayer(ReduxModelLayers.SHIMMERCOW)), 0.7F);
-        this.addLayer(new ShimmercowLayer<>(this, context.getBlockRenderDispatcher()));
     }
 
     @Override
