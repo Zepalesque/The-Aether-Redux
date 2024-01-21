@@ -112,21 +112,19 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addLore(ReduxBlocks.AETHER_SHORT_GRASS, "Blades of the Aether's grass. It feels slightly cool to the touch.");
 
         addBlock(ReduxBlocks.AEVELIUM, "Aevelium");
-        addLore(ReduxBlocks.AEVELIUM, "A fungal grass-like growth that spreads across Aether Dirt. Found in the Cloudcap Jungle.");
+        addLore(ReduxBlocks.AEVELIUM, "A fungal grass-like growth that spreads across Aether Dirt. Found in the Cloudcaps.");
 
-        addBlock(ReduxBlocks.SPRINGSHROOM, "Springshroom");
-        addBlock(ReduxBlocks.POTTED_SPRINGSHROOM, "Potted Springshroom");
-        addLore(ReduxBlocks.SPRINGSHROOM, "A large fungus found in the Cloudcap Jungle. It is bouncy when landed on.");
+        addBlock(ReduxBlocks.JELLYSHROOM, "Jellyshroom");
+        addBlock(ReduxBlocks.POTTED_SPRINGSHROOM, "Potted Jellyshroom");
+        addLore(ReduxBlocks.JELLYSHROOM, "A jelly-based mushroom, which is found in the Cloudcaps.");
 
         addBlock(ReduxBlocks.CLOUD_CAP_BLOCK, "Cloud Cap Block");
-        addLore(ReduxBlocks.CLOUD_CAP_BLOCK, "The cap of the large Cloudcap Mushrooms, found in the Cloudcap Jungle.");
+        addLore(ReduxBlocks.CLOUD_CAP_BLOCK, "The cap of the large Cloudcap Mushrooms, found in the Cloudcaps.");
         addBlock(ReduxBlocks.CLOUDCAP_SPORES, "Cloudcap Spores");
-        addLore(ReduxBlocks.CLOUDCAP_SPORES, "A block of spores from the large Cloudcap Mushrooms, found in the Cloudcap Jungle.");
+        addLore(ReduxBlocks.CLOUDCAP_SPORES, "A block of spores from the large Cloudcap Mushrooms, found in the Cloudcaps.");
 
-        addBlock(ReduxBlocks.SPRINGSHROOM_JELLY_BLOCK, "Springshroom Cap Block");
-        addLore(ReduxBlocks.SPRINGSHROOM_JELLY_BLOCK, "The cap of the large Springshroom Fungi, found in the Cloudcap Jungle.");
-        addBlock(ReduxBlocks.SPRINGSHROOM_SPORES, "Springshroom Spores");
-        addLore(ReduxBlocks.SPRINGSHROOM_SPORES, "A block of spores from the large Springshroom Fungi, found in the Cloudcap Jungle.");
+        addBlock(ReduxBlocks.JELLYSHROOM_JELLY_BLOCK, "Jellyshroom Jelly Block");
+        addLore(ReduxBlocks.JELLYSHROOM_JELLY_BLOCK, "Jelly from a large Jellyshroom, which can be found in the Cloudcaps.");
 
         addBlock(ReduxBlocks.COARSE_AETHER_DIRT, "Coarse Aether Dirt");
         addLore(ReduxBlocks.COARSE_AETHER_DIRT, "A variant of Aether Dirt that does not regrow any grass.");
@@ -165,7 +163,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addBlock(ReduxBlocks.CLOUDCAP_MUSHLING, "Cloudcap Mushling");
         addBlock(ReduxBlocks.POTTED_CLOUDCAP_MUSHLING, "Potted Cloudcap Mushling");
-        addLore(ReduxBlocks.CLOUDCAP_MUSHLING, "A mushroom found commonly in the Cloudcap Jungle and occasionally in the Highfields. It glows faintly.");
+        addLore(ReduxBlocks.CLOUDCAP_MUSHLING, "A mushroom found commonly in the Cloudcaps and occasionally in the Highfields. It glows faintly.");
 
         addBlock(ReduxBlocks.TALL_CLOUDCAP, "Tall Cloudcap");
         addLore(ReduxBlocks.TALL_CLOUDCAP, "The taller variant of the Cloudcap Mushling. This can be grown into Giant Cloudcap Mushrooms");
@@ -200,10 +198,10 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addBlock(ReduxBlocks.AEVELIUM_GROWTH, "Aevelium Growth");
         addBlock(ReduxBlocks.POTTED_AEVELIUM_GROWTH, "Potted Aevelium Growth");
-        addLore(ReduxBlocks.AEVELIUM_GROWTH, "Some grass-like growth that grows on Aevelium in the Cloudcap Jungle.");
+        addLore(ReduxBlocks.AEVELIUM_GROWTH, "Some grass-like growth that grows on Aevelium in the Cloudcaps.");
 
         addBlock(ReduxBlocks.AEVELIUM_SPROUTS, "Aevelium Sprouts");
-        addLore(ReduxBlocks.AEVELIUM_SPROUTS, "A smaller variant of Aevelium Growth. Can be found in the Cloudcap Jungle.");
+        addLore(ReduxBlocks.AEVELIUM_SPROUTS, "A smaller variant of Aevelium Growth. Can be found in the Cloudcaps.");
 
         addBlock(ReduxBlocks.GILDED_OAK_LEAVES, "Gilded Oak Leaves");
         addLore(ReduxBlocks.GILDED_OAK_LEAVES, "The leaves of the Gilded Oak tree. These sometimes drop Gilded Oak Saplings.");
@@ -334,7 +332,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addBlock(ReduxBlocks.LIGHTROOTS, "Lightroots");
         addItem(ReduxItems.LIGHTROOT_CLUMP, "Lightroot Clump");
-        addLore(ReduxItems.LIGHTROOT_CLUMP, "A clump of the glowing roots that grow in the Cloudcap Jungle. These can be eaten, and give night vision.");
+        addLore(ReduxItems.LIGHTROOT_CLUMP, "A clump of the glowing roots that grow in the Cloudcaps. These can be eaten, and give night vision.");
 
         addItem(ReduxItems.SENTRY_CHIP, "Sentry Chip");
         addLore(ReduxItems.SENTRY_CHIP, "A circuitboard piece from a Sentry. Nobody knows who created these, just that the Valkyries have utilized them for all of recorded history.");
@@ -369,7 +367,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.RAW_VERIDIUM_BLOCK, "Block of Raw Veridium");
         addLore(ReduxBlocks.RAW_VERIDIUM_BLOCK, "A block of raw Veridium. This can be crafted from Raw Veridium.");
 
-        addBiome(ReduxBiomes.CLOUDCAP_JUNGLE, "Cloudcap Jungle");
+        addBiome(ReduxBiomes.CLOUDCAP_JUNGLE, "Cloudcaps");
         addBiome(ReduxBiomes.GLACIAL_TAIGA, "Frosted Forests");
         addBiome(ReduxBiomes.GILDED_GROVES, "Gilded Groves");
         addBiome(ReduxBiomes.HIGHFIELDS, "Highfields");
@@ -514,7 +512,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addAdvancementDesc("enter_frosted_forests", "Enter the Frosted Forests, an ice-cold forest covered in snow");
 
         addAdvancement("enter_cloudcap_jungle", "Moolander");
-        addAdvancementDesc("enter_cloudcap_jungle", "Enter the Cloudcap Jungle, a fungal forest with various types of mushrooms");
+        addAdvancementDesc("enter_cloudcap_jungle", "Enter the Cloudcaps, a fungal forest with various types of mushrooms");
 
         addDeath(ReduxDamageTypes.CHROMATIC_SHRUB, "%1$s was poked to death by a chromatic shrub, how sad");
         addDeath(ReduxDamageTypes.BLIGHTED_FUNGI, "%1$s was poked to death by a patch of blighted fungi");

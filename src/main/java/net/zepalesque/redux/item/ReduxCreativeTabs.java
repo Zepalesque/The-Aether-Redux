@@ -89,8 +89,7 @@ public class ReduxCreativeTabs {
             putAfter(AetherBlocks.DECORATED_HOLIDAY_LEAVES, ReduxBlocks.FLOWERING_FIELDSPROUT_LEAVES, event);
             putAfter(ReduxBlocks.FLOWERING_FIELDSPROUT_LEAVES, ReduxBlocks.CLOUD_CAP_BLOCK, event);
             putAfter(ReduxBlocks.CLOUD_CAP_BLOCK, ReduxBlocks.CLOUDCAP_SPORES, event);
-            putAfter(ReduxBlocks.CLOUDCAP_SPORES, ReduxBlocks.SPRINGSHROOM_JELLY_BLOCK, event);
-            putAfter(ReduxBlocks.SPRINGSHROOM_JELLY_BLOCK, ReduxBlocks.SPRINGSHROOM_SPORES, event);
+            putAfter(ReduxBlocks.CLOUDCAP_SPORES, ReduxBlocks.JELLYSHROOM_JELLY_BLOCK, event);
 
             putAfter(AetherBlocks.GOLDEN_OAK_SAPLING, ReduxBlocks.BLIGHTWILLOW_SAPLING, event);
             putAfter(ReduxBlocks.BLIGHTWILLOW_SAPLING, ReduxBlocks.BLIGHTED_SKYROOT_SAPLING, event);
@@ -115,7 +114,7 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.LUMINA, ReduxBlocks.DAGGERBLOOM, event);
             putAfter(ReduxBlocks.DAGGERBLOOM, ReduxBlocks.SPLITFERN, event);
             putAfter(ReduxBlocks.CLOUDCAP_MUSHLING, ReduxBlocks.CLOUDCAP_MUSHLING, event);
-            putAfter(ReduxBlocks.CLOUDCAP_MUSHLING, ReduxBlocks.SPRINGSHROOM, event);
+            putAfter(ReduxBlocks.CLOUDCAP_MUSHLING, ReduxBlocks.JELLYSHROOM, event);
             putAfter(ReduxBlocks.CLOUDCAP_MUSHLING, ReduxBlocks.TALL_CLOUDCAP, event);
 
             putAfter(AetherBlocks.ZANITE_ORE, ReduxBlocks.VERIDIUM_ORE, event);

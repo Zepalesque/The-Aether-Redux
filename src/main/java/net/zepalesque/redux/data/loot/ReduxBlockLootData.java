@@ -141,7 +141,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropPottedContents(ReduxBlocks.POTTED_BLIGHTSHADE.get());
 
         this.dropSelf(ReduxBlocks.CLOUD_CAP_BLOCK.get());
-        this.dropSelf(ReduxBlocks.SPRINGSHROOM.get());
+        this.dropSelf(ReduxBlocks.JELLYSHROOM.get());
         this.dropSelf(ReduxBlocks.SHIMMERSTOOL.get());
         this.dropPottedContents(ReduxBlocks.POTTED_SPRINGSHROOM.get());
         this.dropPottedContents(ReduxBlocks.POTTED_SHIMMERSTOOL.get());
@@ -186,8 +186,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropSelf(ReduxBlocks.CLOUDCAP_SPORES.get());
 
 
-        this.dropSelf(ReduxBlocks.SPRINGSHROOM_JELLY_BLOCK.get());
-        this.dropSelf(ReduxBlocks.SPRINGSHROOM_SPORES.get());
+        this.dropSelf(ReduxBlocks.JELLYSHROOM_JELLY_BLOCK.get());
 
         for (WoodHandler woodHandler : Redux.Handlers.Wood.WOOD_HANDLERS)
         {

@@ -47,7 +47,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         );
 
         this.tag(ReduxTags.Blocks.MUSHROOM_CAPS).add(
-                ReduxBlocks.SPRINGSHROOM_JELLY_BLOCK.get(),
+                ReduxBlocks.JELLYSHROOM_JELLY_BLOCK.get(),
                 ReduxBlocks.CLOUD_CAP_BLOCK.get()
         );
 

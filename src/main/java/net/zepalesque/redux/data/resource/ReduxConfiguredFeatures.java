@@ -109,7 +109,7 @@ public class    ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> LIGHTROOTS  = createKey(Folders.MISC + "lightroots");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLACIA_TREE = createKey(Folders.TREE + "glacia_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_MUSHROOMS = createKey(Folders.TREE + "large_mushrooms");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_SPRINGSHROOM  = createKey(Folders.TREE + "large_springshroom");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_JELLYSHROOM = createKey(Folders.TREE + "large_jellyshroom");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LUMINA_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.LUMINA) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> MEGA_CLOUDCAP  = createKey(Folders.TREE + "mega_cloudcap");
     public static final ResourceKey<ConfiguredFeature<?, ?>> MOSSY_HOLYSTONE_ORE  = createKey(Folders.ORE + name(AetherBlocks.MOSSY_HOLYSTONE) + "_ore");
@@ -121,7 +121,7 @@ public class    ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> GENESIS_SKYSPROUTS_PATCH = createKey(Folders.PATCH + "genesis_" + name(ReduxBlocks.SKYSPROUTS) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PURPLE_GLACIA_TREE = createKey(Folders.TREE + "purple_glacia_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPIROLYCTIL_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.SPIROLYCTIL) + "_patch");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SPRINGSHROOM_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.SPRINGSHROOM) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> JELLYSHROOM_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.JELLYSHROOM) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SURFACE_RULE_WATER_LAKE = createKey(Folders.SURFACE + "surface_rule_water_lake");
     public static final ResourceKey<ConfiguredFeature<?, ?>> VERIDIUM_ORE = createKey(Folders.ORE + name(ReduxBlocks.VERIDIUM_ORE));
     public static final ResourceKey<ConfiguredFeature<?, ?>> DIVINITE_ORE = createKey(Folders.ORE + name(ReduxBlocks.DIVINITE) + "_ore");
@@ -393,17 +393,16 @@ public class    ReduxConfiguredFeatures {
                 ));
         register(context, LARGE_MUSHROOMS, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
-                                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(LARGE_SPRINGSHROOM), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.SPRINGSHROOM.get())), 0.3F),
+                                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(LARGE_JELLYSHROOM), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.JELLYSHROOM.get())), 0.3F),
                         new WeightedPlacedFeature(
                                 PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(MEGA_CLOUDCAP), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.CLOUDCAP_MUSHLING.get())), 0.35F)),
                         PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(LARGE_CLOUDCAP), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.CLOUDCAP_MUSHLING.get()))));
-        register(context, LARGE_SPRINGSHROOM, ReduxFeatureRegistry.LARGE_SPRINGSHROOM.get(),
-                new HugeAetherMushroomFeatureConfiguration(
-                        prov(ReduxBlocks.SPRINGSHROOM_JELLY_BLOCK),
-                        prov(ReduxBlocks.SPRINGSHROOM_SPORES),
+        register(context, LARGE_JELLYSHROOM, ReduxFeatureRegistry.JELLYSHROOM.get(),
+                new JellyshroomConfig(
+                        prov(ReduxBlocks.JELLYSHROOM_JELLY_BLOCK),
                         prov(Redux.Handlers.Wood.SPRINGSHROOM.log),
-                        2
-                ));
+                        UniformInt.of(7, 9)
+                        ));
 
         register(context, LUMINA_PATCH, Feature.FLOWER,
                 randomPatch(12, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.LUMINA))));
@@ -459,8 +458,8 @@ public class    ReduxConfiguredFeatures {
         register(context, SPIROLYCTIL_PATCH, Feature.FLOWER,
                 blockBelowPlacementPatch(16, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.SPIROLYCTIL)),
                         BlockPredicate.matchesBlocks(AetherBlocks.AETHER_GRASS_BLOCK.get())));
-        register(context, SPRINGSHROOM_PATCH, Feature.FLOWER,
-                blockBelowPlacementPatch(8, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.SPRINGSHROOM)),
+        register(context, JELLYSHROOM_PATCH, Feature.FLOWER,
+                blockBelowPlacementPatch(8, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.JELLYSHROOM)),
                         BlockPredicate.matchesBlocks(ReduxBlocks.AEVELIUM.get())));
 
 

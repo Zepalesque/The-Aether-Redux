@@ -97,7 +97,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlock(ReduxBlocks.AEVELIUM);
         itemBlock(ReduxBlocks.CLOUD_CAP_BLOCK);
         itemBlock(ReduxBlocks.CLOUDCAP_SPORES);
-        itemBlockFlat(ReduxBlocks.SPRINGSHROOM, "natural/");
+        itemBlockFlat(ReduxBlocks.JELLYSHROOM, "natural/");
         itemBlock(ReduxBlocks.SHIMMERSTOOL);
         itemBlockFlatTintGlow(ReduxBlocks.LUXWEED, "natural/");
         itemBlockFlatTintOverlay(ReduxBlocks.SPIROLYCTIL, "natural/");
@@ -122,8 +122,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         this.itemBlockFlat(ReduxBlocks.AEVELIUM_GROWTH.get(), "natural/");
         this.item(ReduxBlocks.AEVELIUM_SPROUTS.get().asItem(), "misc/");
 
-        this.itemBlock(ReduxBlocks.SPRINGSHROOM_SPORES.get());
-        this.itemBlock(ReduxBlocks.SPRINGSHROOM_JELLY_BLOCK.get());
+        this.itemBlock(ReduxBlocks.JELLYSHROOM_JELLY_BLOCK.get());
 
         this.itemBlock(ReduxBlocks.BLIGHTMOSS_BLOCK.get());
         this.itemBlock(ReduxBlocks.BLIGHTMOSS_CARPET.get());
