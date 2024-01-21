@@ -185,6 +185,7 @@ public class ReduxCreativeTabs {
 
             putAfter(AetherItems.ICE_PENDANT, ReduxItems.ENCHANTED_RING, event);
             putAfter(ReduxItems.ENCHANTED_RING, ReduxItems.RING_OF_WISDOM, event);
+            putAfter(ReduxItems.RING_OF_WISDOM, ReduxItems.SHROOM_RING, event);
 
             putAfter(AetherItems.SENTRY_BOOTS, ReduxItems.SENTRY_RING, event);
 
