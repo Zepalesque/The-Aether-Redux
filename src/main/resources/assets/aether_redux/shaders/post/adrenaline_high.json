@@ -10,6 +10,12 @@
             "name": "aether_redux:motion_blur",
             "intarget": "minecraft:main",
             "outtarget": "motion",
+            "uniforms":[
+                {
+                    "name": "BlurStrength",
+                    "values": [ 1.0 ]
+                }
+            ],
             "auxtargets": [
                 {
                     "name": "PrevSampler",
@@ -36,7 +42,13 @@
         {
             "name": "aether_redux:screen_shake",
             "intarget": "blur",
-            "outtarget": "shake"
+            "outtarget": "shake",
+            "uniforms":[
+                {
+                    "name": "ShakeStrength",
+                    "values": [ 1.0 ]
+                }
+            ]
         },
         {
             "name": "blit",

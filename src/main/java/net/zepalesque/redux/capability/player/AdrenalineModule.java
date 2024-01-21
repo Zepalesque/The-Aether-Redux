@@ -1,5 +1,6 @@
 package net.zepalesque.redux.capability.player;
 
+import net.minecraft.client.GraphicsStatus;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.PostChain;
@@ -72,6 +73,10 @@ public class AdrenalineModule implements INBTSerializable, PlayerTickModule {
     private static final String LOW = Redux.MODID + ":shaders/post/adrenaline_low.json";
 
     private static @Nullable String getProperShader(double adrenalineStrength) {
+        // the shaders do not work properly outside Fabulous graphics
+        if (Minecraft.getInstance().options.graphicsMode().get() != GraphicsStatus.FABULOUS) {
+            return null;
+        }
         return adrenalineStrength >= 0.67 ? HIGH : adrenalineStrength >= 0.33 ? MED : adrenalineStrength > 0 ? LOW : null;
     }
 
@@ -82,7 +87,7 @@ public class AdrenalineModule implements INBTSerializable, PlayerTickModule {
 
     public float getTransparency(float partial) {
         float delta = (currPulseTicks + partial) / maxPulseTicks + 1;
-        return this.adrenalineStrength <= 0D ? 0F : sinWaveInterp(delta) * (((float)adrenalineStrength/2F) + 0.5F);
+        return this.adrenalineStrength <= 0D ? 0F : sinWaveInterp(delta) * 0.5F * (((float)adrenalineStrength/2F) + 0.5F);
     }
 
 
