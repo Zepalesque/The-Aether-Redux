@@ -8,6 +8,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.zepalesque.redux.config.ReduxConfig;
 
 import java.util.List;
 
@@ -45,7 +46,7 @@ public class FallingLeafParticle extends TextureSheetParticle {
         }
 
         if (!this.removed) {
-            if (!this.onGround) {
+            if (!this.onGround || !ReduxConfig.CLIENT.realistic_leaf_behavior.get()) {
                 float f = (float)(300 - this.lifetime);
                 float f1 = Math.min(f / 300.0F, 1.0F);  double d0 = Math.cos(Math.toRadians(this.particleRandom * 60.0F)) * 2.0D * Math.pow(f1, 1.25D);
                 double d1 = Math.sin(Math.toRadians(this.particleRandom * 60.0F)) * 2.0D * Math.pow(f1, 1.25D);   this.xd += d0 * (double) 0.0025F;
@@ -56,16 +57,23 @@ public class FallingLeafParticle extends TextureSheetParticle {
                 this.roll += this.rotSpeed / 20.0F;
             }
             this.move(this.xd, this.yd, this.zd);
-            if ((this.onGround || this.onGroundTime < 40) && this.lifetime < 299) {
-                this.onGroundTime--;
-            }
-            if (this.onGroundTime < 0) {
-                this.remove();
-            }
+            if (ReduxConfig.CLIENT.realistic_leaf_behavior.get()) {
+                if ((this.onGround || this.onGroundTime < 40) && this.lifetime < 299) {
+                    this.onGroundTime--;
+                }
+                if (this.onGroundTime < 0) {
+                    this.remove();
+                }
 
 
-            if (onGroundTime <= 20) {
-                this.alpha = this.onGroundTime / 20;
+                if (onGroundTime <= 20) {
+                    this.alpha = this.onGroundTime / 20;
+                }
+            } else {
+                if (this.onGround || this.lifetime < 299 && (this.xd == 0.0D || this.zd == 0.0D)) {
+                    this.remove();
+                    this.onGroundTime--;
+                }
             }
 
             if (!this.removed) {
@@ -78,29 +86,32 @@ public class FallingLeafParticle extends TextureSheetParticle {
 
     @Override
     public void move(double x, double y, double z) {
-        double d0 = x;
-        double d1 = y;
-        double d2 = z;
-        if (this.hasPhysics && (x != 0.0D || y != 0.0D || z != 0.0D) && x * x + y * y + z * z < MAXIMUM_COLLISION_VELOCITY_SQUARED) {
-            Vec3 vec3 = Entity.collideBoundingBox(null, new Vec3(x, y, z), this.getBoundingBox(), this.level, List.of());
-            x = vec3.x;
-            y = vec3.y;
-            z = vec3.z;
-        }
-        if (x != 0.0D || y != 0.0D || z != 0.0D) {
-            this.setBoundingBox(this.getBoundingBox().move(x, y, z));
-            this.setLocationFromBoundingbox();
-        }
-        this.onGround = d1 != y && d1 < 0.0D;
+        if (ReduxConfig.CLIENT.realistic_leaf_behavior.get()) {
+            double d0 = x;
+            double d1 = y;
+            double d2 = z;
+            if (this.hasPhysics && (x != 0.0D || y != 0.0D || z != 0.0D) && x * x + y * y + z * z < MAXIMUM_COLLISION_VELOCITY_SQUARED) {
+                Vec3 vec3 = Entity.collideBoundingBox(null, new Vec3(x, y, z), this.getBoundingBox(), this.level, List.of());
+                x = vec3.x;
+                y = vec3.y;
+                z = vec3.z;
+            }
+            if (x != 0.0D || y != 0.0D || z != 0.0D) {
+                this.setBoundingBox(this.getBoundingBox().move(x, y, z));
+                this.setLocationFromBoundingbox();
+            }
+            this.onGround = d1 != y && d1 < 0.0D;
 
-        if (d0 != x) {
-            this.xd = 0.0D;
-        }
+            if (d0 != x) {
+                this.xd = 0.0D;
+            }
 
-        if (d2 != z) {
-            this.zd = 0.0D;
+            if (d2 != z) {
+                this.zd = 0.0D;
+            }
+        } else {
+            super.move(x, y, z);
         }
-
     }
 
     @OnlyIn(Dist.CLIENT)

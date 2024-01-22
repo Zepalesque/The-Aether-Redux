@@ -135,6 +135,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue better_leaf_particles;
         public final ForgeConfigSpec.BooleanValue auto_apply_overrides;
         public final ForgeConfigSpec.BooleanValue enable_adrenaline_postproccess;
+        public final ForgeConfigSpec.BooleanValue realistic_leaf_behavior;
 
         public Client(ForgeConfigSpec.Builder builder) {
 
@@ -152,6 +153,7 @@ public class ReduxConfig {
             builder.pop();
             builder.push("Particles");
             this.better_leaf_particles = builder.comment("Improves the leaf particles for Golden Oaks, Gilded Oaks, and Crystal Trees, based on Minecraft 1.20's new cherry tree particles.").translation("config.aether_redux.client.particles.better_leaf_particles").define("Better Leaf Particles", true);
+            this.realistic_leaf_behavior = builder.comment("Leaf particles will use slightly tweaked behavior, landing and then fading rather than disappearing when touching a surface. **MAY** minimally impact performance, only does anything when Better Leaf Particles is enabled.").translation("config.aether_redux.client.particles.realistic_leaf_behavior").define("Realistic Leaf Behavior", true);
             builder.pop(2);
             builder.push("Audio");
             this.mimic_slam_sound = builder.comment("Enables a slamming sound for mimics when using the new model. Disable if it gets too annoying XD").translation("config.aether_redux.client.particles.mimic_slam_sound").define("Mimic Slam Sound Effect", true);
