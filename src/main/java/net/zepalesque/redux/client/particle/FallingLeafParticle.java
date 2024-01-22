@@ -3,15 +3,21 @@ package net.zepalesque.redux.client.particle;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+
+import java.util.List;
 
 @OnlyIn(Dist.CLIENT)
 public class FallingLeafParticle extends TextureSheetParticle {
     private float rotSpeed;
     private final float particleRandom;
     private final float spinAcceleration;
-    private float onGroundTime = 20;
+    private float onGroundTime = 40;
+    protected static final double MAXIMUM_COLLISION_VELOCITY_SQUARED = Mth.square(100.0D);
 
     protected FallingLeafParticle(ClientLevel level, double x, double y, double z) {
         super(level, x, y, z);
@@ -50,12 +56,15 @@ public class FallingLeafParticle extends TextureSheetParticle {
                 this.roll += this.rotSpeed / 20.0F;
             }
             this.move(this.xd, this.yd, this.zd);
-            if (this.onGround || this.lifetime < 299 && (this.xd == 0.0D || this.zd == 0.0D)) {
+            if ((this.onGround || this.onGroundTime < 40) && this.lifetime < 299) {
                 this.onGroundTime--;
+            }
+            if (this.onGroundTime < 0) {
+                this.remove();
             }
 
 
-            if (onGroundTime < 20) {
+            if (onGroundTime <= 20) {
                 this.alpha = this.onGroundTime / 20;
             }
 
@@ -65,6 +74,33 @@ public class FallingLeafParticle extends TextureSheetParticle {
                 this.zd *= this.friction;
             }
         }
+    }
+
+    @Override
+    public void move(double x, double y, double z) {
+        double d0 = x;
+        double d1 = y;
+        double d2 = z;
+        if (this.hasPhysics && (x != 0.0D || y != 0.0D || z != 0.0D) && x * x + y * y + z * z < MAXIMUM_COLLISION_VELOCITY_SQUARED) {
+            Vec3 vec3 = Entity.collideBoundingBox(null, new Vec3(x, y, z), this.getBoundingBox(), this.level, List.of());
+            x = vec3.x;
+            y = vec3.y;
+            z = vec3.z;
+        }
+        if (x != 0.0D || y != 0.0D || z != 0.0D) {
+            this.setBoundingBox(this.getBoundingBox().move(x, y, z));
+            this.setLocationFromBoundingbox();
+        }
+        this.onGround = d1 != y && d1 < 0.0D;
+
+        if (d0 != x) {
+            this.xd = 0.0D;
+        }
+
+        if (d2 != z) {
+            this.zd = 0.0D;
+        }
+
     }
 
     @OnlyIn(Dist.CLIENT)
