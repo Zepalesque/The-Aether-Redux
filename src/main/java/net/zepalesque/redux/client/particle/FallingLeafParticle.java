@@ -11,6 +11,7 @@ public class FallingLeafParticle extends TextureSheetParticle {
     private float rotSpeed;
     private final float particleRandom;
     private final float spinAcceleration;
+    private float onGroundTime = 20;
 
     protected FallingLeafParticle(ClientLevel level, double x, double y, double z) {
         super(level, x, y, z);
@@ -26,7 +27,7 @@ public class FallingLeafParticle extends TextureSheetParticle {
     }
 
     public ParticleRenderType getRenderType() {
-        return ParticleRenderType.PARTICLE_SHEET_OPAQUE;
+        return ParticleRenderType.PARTICLE_SHEET_TRANSLUCENT;
     }
 
     public void tick() {
@@ -38,19 +39,24 @@ public class FallingLeafParticle extends TextureSheetParticle {
         }
 
         if (!this.removed) {
-            float f = (float)(300 - this.lifetime);
-            float f1 = Math.min(f / 300.0F, 1.0F);
-            double d0 = Math.cos(Math.toRadians(this.particleRandom * 60.0F)) * 2.0D * Math.pow(f1, 1.25D);
-            double d1 = Math.sin(Math.toRadians(this.particleRandom * 60.0F)) * 2.0D * Math.pow(f1, 1.25D);
-            this.xd += d0 * (double)0.0025F;
-            this.zd += d1 * (double)0.0025F;
-            this.yd -= this.gravity;
-            this.rotSpeed += this.spinAcceleration / 20.0F;
-            this.oRoll = this.roll;
-            this.roll += this.rotSpeed / 20.0F;
+            if (!this.onGround) {
+                float f = (float)(300 - this.lifetime);
+                float f1 = Math.min(f / 300.0F, 1.0F);  double d0 = Math.cos(Math.toRadians(this.particleRandom * 60.0F)) * 2.0D * Math.pow(f1, 1.25D);
+                double d1 = Math.sin(Math.toRadians(this.particleRandom * 60.0F)) * 2.0D * Math.pow(f1, 1.25D);   this.xd += d0 * (double) 0.0025F;
+                this.zd += d1 * (double) 0.0025F;
+                this.yd -= this.gravity;
+                this.rotSpeed += this.spinAcceleration / 20.0F;
+                this.oRoll = this.roll;
+                this.roll += this.rotSpeed / 20.0F;
+            }
             this.move(this.xd, this.yd, this.zd);
             if (this.onGround || this.lifetime < 299 && (this.xd == 0.0D || this.zd == 0.0D)) {
-                this.remove();
+                this.onGroundTime--;
+            }
+
+
+            if (onGroundTime < 20) {
+                this.alpha = this.onGroundTime / 20;
             }
 
             if (!this.removed) {
