@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-21T11:47:17.803698	Block States: aether_redux
+// 1.20.1	2024-01-22T14:26:58.2409018	Block States: aether_redux
 3b65fcf4de37be76dd1ac46b4118458043237e15 assets/aether_redux/blockstates/aether_short_grass.json
 0a0f21b01afc7514adf77a09aca842eb1a0055b4 assets/aether_redux/blockstates/aevelium.json
 839da9eb72bebfe44879f5abc71bbd50e6ef1b23 assets/aether_redux/blockstates/aevelium_growth.json
@@ -733,7 +733,7 @@ a7b3d68b7ca243dc9b16741d5e8e5c0c8e5528d4 assets/aether_redux/models/block/purple
 0bc3a2aebf1f69795d6398103354fc07cf87035c assets/aether_redux/models/block/purple_potted_glacia_sapling.json
 58723c63e576416d70ba487e69560561fb89e2c2 assets/aether_redux/models/block/quickroots.json
 0638c603c5030a516adc0ede83a5ca5685cad939 assets/aether_redux/models/block/raw_veridium_block.json
-5042b9fd403f0a1ab6547752aaaf68e95e67814d assets/aether_redux/models/block/shimmerstool.json
+196fb8236cafa4d25112ffa90b418046c6905062 assets/aether_redux/models/block/shimmerstool.json
 746b2bd86973079ddf1aa0970c2d3055c92f261a assets/aether_redux/models/block/skysprouts.json
 245a51a69146df2db100e517289d8f3596953ca6 assets/aether_redux/models/block/spirolyctil.json
 b878ac8a118f5c088b66c1eb47da214994c46a7f assets/aether_redux/models/block/splitfern.json

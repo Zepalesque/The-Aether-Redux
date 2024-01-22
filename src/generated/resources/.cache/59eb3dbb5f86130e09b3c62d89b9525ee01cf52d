@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-20T21:33:48.398146	Loot Tables
+// 1.20.1	2024-01-22T14:26:58.2369016	Loot Tables
 9bb0a6fae9e80234bb0bad9086af314acf3e9894 data/aether_redux/loot_tables/blocks/aether_short_grass.json
 48b55d99420ce1afaca551876e87bdbccae62e08 data/aether_redux/loot_tables/blocks/aevelium.json
 101eb9ac681437f2db38085324dfcca14a759f7a data/aether_redux/loot_tables/blocks/aevelium_growth.json
@@ -159,7 +159,7 @@ dd2397aa3c310140a7a2ac84ac458d43f821b84d data/aether_redux/loot_tables/blocks/je
 297800d0d254ea247cf3c6676e751e9f880f98e9 data/aether_redux/loot_tables/blocks/jellyshroom_trapdoor.json
 0c8c397ba0e8789f4a15652ddef752ed521ecbfa data/aether_redux/loot_tables/blocks/jellyshroom_wall_hanging_sign.json
 05fa5113127f8bccbeacf69c7871313120c80084 data/aether_redux/loot_tables/blocks/jellyshroom_wall_sign.json
-199512251a6e687658aa723d790526f56a8e927a data/aether_redux/loot_tables/blocks/lightroots.json
+0f2f2a87de556b778131d5632b49dd898ad2178d data/aether_redux/loot_tables/blocks/lightroots.json
 a588c1ccff39b719dba3d266940ab1eb21caa21b data/aether_redux/loot_tables/blocks/lumina.json
 014784bd1b313e4f3bc7e37240880cdb78e93b38 data/aether_redux/loot_tables/blocks/luxweed.json
 f48909d8f90b025bdb3d140c3895f25eacd9acfb data/aether_redux/loot_tables/blocks/potted_aevelium_growth.json
@@ -223,5 +223,6 @@ ef05b4368c46e8f3e6cb052735d9f05aef4d2822 data/aether_redux/loot_tables/blocks/ve
 cfea2c6a630f024fcf594381c604d68da4b61c4c data/aether_redux/loot_tables/blocks/wyndsprouts.json
 ff98b9fb26abee5615d05ea6a79362d916973b03 data/aether_redux/loot_tables/blocks/zanberry_bush.json
 dac18fafe5e8a726d15bedfce3afae0d0113e177 data/aether_redux/loot_tables/blocks/zanberry_shrub.json
+6a64016797a5ac8d9fe91904db7fa259d27e7f81 data/aether_redux/loot_tables/entities/shimmercow.json
 5f8d4bdef19ef87d6a912869cb1ea2bb3d3bd199 data/aether_redux/loot_tables/entities/vanilla_swet.json
 aee3ab539e3471c2e79566dd0797bc43a01094c2 data/aether_redux/loot_tables/stripping/strip_blightwillow.json
