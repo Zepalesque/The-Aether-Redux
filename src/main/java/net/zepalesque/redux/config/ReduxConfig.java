@@ -64,6 +64,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue raw_gravitite;
         public final ForgeConfigSpec.BooleanValue enchanted_gilded_grass;
         public final ForgeConfigSpec.BooleanValue better_water_color;
+        public final ForgeConfigSpec.BooleanValue enchanted_vines;
 
         public final ForgeConfigSpec.EnumValue<BossRoomType> bronze_boss_room;
         public final ForgeConfigSpec.EnumValue<ChestRoomType> bronze_chest_room;
@@ -95,6 +96,7 @@ public class ReduxConfig {
             builder.pop();
             builder.push("Worldgen");
             this.mossy_holystone_ores = builder.comment("Enables Mossy Holystone as an ore. Configurable so that if you disable it, it's easier to tell if you've come across a dungeon.").worldRestart().translation("config.aether_redux.worldgen.mossy_holystone_ores").define("Mossy Holystone Ores", true);
+            this.enchanted_vines = builder.comment("Enables Enchanted/Gilded vines on trees").worldRestart().translation("config.aether_redux.worldgen.enchanted_vines").define("Enable Enchanted and Gilded Vines", true);
             builder.push("Bronze Dungeon");
             this.genesis_spawner_mobs = builder.comment("Adds dungeon mobs from the Aether: Genesis to the spawners added to the Bronze Dungeon if it is installed").translation("config.aether_redux.worldgen.dungeon.genesis_spawner_mobs").defineEnum("Genesis Mobs in Spawners", SpawnerType.all);
             this.bronze_boss_room = builder.comment("Which type of Bronze Dungeon Boss Room to use").translation("config.aether_redux.worldgen.dungeon.bronze_boss_room").defineEnum("Bronze Boss Room Type", BossRoomType.vault);

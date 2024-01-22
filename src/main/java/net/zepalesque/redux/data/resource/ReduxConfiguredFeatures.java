@@ -278,7 +278,7 @@ public class    ReduxConfiguredFeatures {
                                         BlockStateProvider.simple(drops(ReduxBlocks.GILDED_VINES_PLANT)),
                                         BlockStateProvider.simple(drops(ReduxBlocks.GILDED_VINES)),
                                         UniformInt.of(1, 2),
-                                        UniformInt.of(2, 3)),
+                                        UniformInt.of(2, 3), Conditions.VINES),
                                 new PatchTreeDecorator(createLeafPileLayers(ReduxBlocks.GILDED_LEAF_PILE), 7, 3, 32))).build());
 
         register(context, ReduxConfiguredFeatures.FANCY_GILDED_OAK_TREE, Feature.TREE,
@@ -298,7 +298,7 @@ public class    ReduxConfiguredFeatures {
                                         BlockStateProvider.simple(drops(ReduxBlocks.GILDED_VINES_PLANT)),
                                         BlockStateProvider.simple(drops(ReduxBlocks.GILDED_VINES)),
                                         UniformInt.of(1, 2),
-                                        UniformInt.of(3, 5)
+                                        UniformInt.of(3, 5), Conditions.VINES
                                 ), new PatchTreeDecorator(createLeafPileLayers(ReduxBlocks.GILDED_LEAF_PILE), 7, 3, 32))).build());
 
         register(context, GOLDEN_OAK_TREE_OVERRIDE, Feature.TREE,
@@ -314,7 +314,7 @@ public class    ReduxConfiguredFeatures {
                                         BlockStateProvider.simple(drops(ReduxBlocks.GOLDEN_VINES_PLANT)),
                                         BlockStateProvider.simple(drops(ReduxBlocks.GOLDEN_VINES)),
                                         UniformInt.of(1, 2),
-                                        UniformInt.of(2, 3)),
+                                        UniformInt.of(2, 3), Conditions.VINES),
                                 new PatchTreeDecorator(createLeafPileLayers(ReduxBlocks.GOLDEN_LEAF_PILE), 7, 3, 32))).build());
 
         register(context, ReduxConfiguredFeatures.FANCY_GOLDEN_OAK_TREE, Feature.TREE,
@@ -330,7 +330,7 @@ public class    ReduxConfiguredFeatures {
                                         BlockStateProvider.simple(drops(ReduxBlocks.GOLDEN_VINES_PLANT)),
                                         BlockStateProvider.simple(drops(ReduxBlocks.GOLDEN_VINES)),
                                         UniformInt.of(1, 2),
-                                        UniformInt.of(3, 5)
+                                        UniformInt.of(3, 5), Conditions.VINES
                                 ), new PatchTreeDecorator(createLeafPileLayers(ReduxBlocks.GOLDEN_LEAF_PILE), 7, 3, 32))).build());
 
         register(context, CRYSTAL_TREE_OVERRIDE, Feature.TREE,
