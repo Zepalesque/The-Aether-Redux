@@ -25,7 +25,7 @@ public class TestBelowBlockFeature extends Feature<PredicateStateConfig> {
       WorldGenLevel level = context.level();
       BlockPos pos = context.origin();
       BlockState state = config.toPlace().getState(context.random(), pos);
-      if (config.predicate().test(level, pos) && state.canSurvive(level, pos)) {
+      if (config.predicate().test(level, pos.below()) && state.canSurvive(level, pos)) {
          if (state.getBlock() instanceof DoublePlantBlock) {
             if (!level.isEmptyBlock(pos.above())) {
                return false;
