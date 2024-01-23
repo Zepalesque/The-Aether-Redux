@@ -8,7 +8,9 @@ import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.util.ParticleUtils;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.zepalesque.redux.block.natural.ExtendedDistanceLeavesBlock;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import org.spongepowered.asm.mixin.Mixin;
@@ -37,7 +39,7 @@ public class ParticleLeavesMixin {
                 if (random.nextInt(15) == 0) {
                     BlockPos blockpos = pos.below();
                     BlockState blockstate = level.getBlockState(blockpos);
-                    if (!blockstate.canOcclude() || !blockstate.isFaceSturdy(level, blockpos, Direction.UP)) {
+                    if ((!blockstate.canOcclude() || !blockstate.isFaceSturdy(level, blockpos, Direction.UP)) && !(blockstate.getBlock() instanceof LeavesBlock) && !(blockstate.getBlock() instanceof ExtendedDistanceLeavesBlock)) {
                         ParticleUtils.spawnParticleBelow(level, pos, random, newParticle);
                     }
                 }

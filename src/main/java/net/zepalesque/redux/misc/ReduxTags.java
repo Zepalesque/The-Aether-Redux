@@ -19,10 +19,8 @@ public class ReduxTags {
         public static final TagKey<Block> FROSTED_PLANTS_PLACEMENT = tag("frosted_plants_placement");
         public static final TagKey<Block> HIGHLANDS_GRASSES = tag("highlands_grasses");
         public static final TagKey<Block> ENCHANTED_GRASSES = tag("enchanted_grasses");
-        public static final TagKey<Block> BLIGHTED_GRASSES = tag("blighted_grasses");
         public static final TagKey<Block> QUICKSOIL_BEHAVIOR = tag("quicksoil_behavior");
         public static final TagKey<Block> LOG_WALLS = tagGenesis("log_walls");
-        public static final TagKey<Block> LIGHTROOT_GROWABLE = tag("lightroot_growable");
         public static final TagKey<Block> ENCHANTED_VINES_SKIP_PLACEMENT = tag("enchanted_vines_skip_placement");
         public static final TagKey<Block> ENCHANTED_VINES_SURVIVE = tag("enchanted_vines_survive");
         public static final TagKey<Block> MUSHROOM_CAPS = tag("enchanted_vines_survive");
