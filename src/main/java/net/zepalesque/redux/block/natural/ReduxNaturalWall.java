@@ -1,6 +1,5 @@
 package net.zepalesque.redux.block.natural;
 
-import com.aetherteam.aether.block.AetherBlockStateProperties;
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -15,27 +14,27 @@ public class ReduxNaturalWall extends ReduxDoubleDropsWall {
     public ReduxNaturalWall(Properties properties) {
         super(properties);
         this.registerDefaultState(this.defaultBlockState().setValue(ReduxStates.NATURAL_GEN, false));
+        this.fixShapeMaps2();
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);
         builder.add(ReduxStates.NATURAL_GEN);
-        this.fixShapeMaps();
     }
 
-    private void fixShapeMaps() {
+    private void fixShapeMaps2() {
         ReduxWallBlockAccessor reduxWallBlockAccessor = (ReduxWallBlockAccessor) this;
         Map<BlockState, VoxelShape> shapeByIndex = reduxWallBlockAccessor.getShapeByIndex();
-        shapeByIndex = fixShapeMap(shapeByIndex);
+        shapeByIndex = fixShapeMap2(shapeByIndex);
         reduxWallBlockAccessor.setShapeByIndex(shapeByIndex);
 
         Map<BlockState, VoxelShape> collisionShapeByIndex = reduxWallBlockAccessor.getCollisionShapeByIndex();
-        collisionShapeByIndex = fixShapeMap(collisionShapeByIndex);
+        collisionShapeByIndex = fixShapeMap2(collisionShapeByIndex);
         reduxWallBlockAccessor.setCollisionShapeByIndex(collisionShapeByIndex);
     }
 
-    private static Map<BlockState, VoxelShape> fixShapeMap(Map<BlockState, VoxelShape> map) {
+    private static Map<BlockState, VoxelShape> fixShapeMap2(Map<BlockState, VoxelShape> map) {
         ImmutableMap.Builder<BlockState, VoxelShape> builder = ImmutableMap.builder();
         builder.putAll(map);
         for (BlockState state : map.keySet()) {

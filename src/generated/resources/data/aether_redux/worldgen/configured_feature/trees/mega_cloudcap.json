@@ -22,7 +22,8 @@
         "Name": "aether_redux:cloudcap_hyphae",
         "Properties": {
           "axis": "y",
-          "double_drops": "true"
+          "double_drops": "true",
+          "natural_gen": "true"
         }
       }
     },

@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 
 import java.util.Map;
 
-@Mixin({WallBlock.class})
+@Mixin(WallBlock.class)
 public interface ReduxWallBlockAccessor {
     @Accessor("shapeByIndex")
     Map<BlockState, VoxelShape> getShapeByIndex();
