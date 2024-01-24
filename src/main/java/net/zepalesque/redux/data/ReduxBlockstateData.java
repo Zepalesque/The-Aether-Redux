@@ -5,10 +5,21 @@ import com.aetherteam.aether.block.AetherBlockStateProperties;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.providers.AetherBlockStateProvider;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Vec3i;
 import net.minecraft.data.PackOutput;
+import net.minecraft.data.models.blockstates.Condition;
+import net.minecraft.data.models.blockstates.MultiPartGenerator;
+import net.minecraft.data.models.blockstates.Variant;
+import net.minecraft.data.models.blockstates.VariantProperties;
+import net.minecraft.data.models.model.ModelLocationUtils;
+import net.minecraft.data.models.model.ModelTemplates;
+import net.minecraft.data.models.model.TextureMapping;
+import net.minecraft.data.models.model.TexturedModel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.properties.*;
+import net.minecraft.world.phys.Vec2;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.client.model.generators.*;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -99,7 +110,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.crossBlock(ReduxBlocks.PURPLE_GLACIA_SAPLING.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_PURPLE_GLACIA_SAPLING.get(), ReduxBlocks.PURPLE_GLACIA_SAPLING.get(), "natural/");
 
-        this.block(ReduxBlocks.CLOUD_CAP_BLOCK.get(), "natural/");
+        this.createCloudcapBlock(ReduxBlocks.CLOUD_CAP_BLOCK, "natural/");
         this.block(ReduxBlocks.CLOUDCAP_SPORES.get(), "natural/");
 
         this.tintedGlowingCrossBlock(ReduxBlocks.LUXWEED.get(), "natural/");
@@ -166,6 +177,67 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
             woodHandler.generateBlockstateData(this);
         }
 
+    }
+
+
+    private void createMushroomBlock(RegistryObject<Block> block, String loc) {
+        ModelFile out = this.models().singleTexture(this.name(block), mcLoc("block/template_single_face"), this.texture(block, loc));
+        ModelFile in = this.models().singleTexture(this.name(block) + "_inside", mcLoc("block/template_single_face"), this.texture(block, loc).withSuffix("_inside"));
+//        ResourceLocation resourcelocation = ModelTemplates.SINGLE_FACE.create(block, TextureMapping.defaultTexture(block), this.modelOutput);
+//        ResourceLocation resourcelocation1 = this.modLoc("mushroom_block_inside");
+        MultiPartBlockStateBuilder builder = this.getMultipartBuilder(block.get());
+        for (Direction d : Direction.values())
+        {
+            Vec3i v3 = rot(d);
+            // exterior
+            builder.part().modelFile(out).rotationX(v3.getX()).rotationY(v3.getY()).addModel().condition(dirToProp(d), true).end();
+            // interior
+            builder.part().modelFile(in).rotationX(v3.getX()).rotationY(v3.getY()).addModel().condition(dirToProp(d), false).end();
+        }
+    }
+
+    private void createCloudcapBlock(RegistryObject<Block> block, String loc) {
+        ModelFile out0 = this.models().singleTexture(this.name(block) + "0", mcLoc("block/template_single_face"), this.texture(block, loc).withSuffix("0"));
+        ModelFile out1 = this.models().singleTexture(this.name(block) + "1", mcLoc("block/template_single_face"), this.texture(block, loc).withSuffix("1"));
+        ModelFile out2 = this.models().singleTexture(this.name(block) + "2", mcLoc("block/template_single_face"), this.texture(block, loc).withSuffix("2"));
+        ModelFile out3 = this.models().singleTexture(this.name(block) + "3", mcLoc("block/template_single_face"), this.texture(block, loc).withSuffix("3"));
+        ModelFile out4 = this.models().singleTexture(this.name(block) + "4", mcLoc("block/template_single_face"), this.texture(block, loc).withSuffix("4"));
+        ModelFile in = this.models().singleTexture(this.name(block) + "_inside", mcLoc("block/template_single_face"), this.texture(block, loc).withSuffix("_inside"));
+//        ResourceLocation resourcelocation = ModelTemplates.SINGLE_FACE.create(block, TextureMapping.defaultTexture(block), this.modelOutput);
+//        ResourceLocation resourcelocation1 = this.modLoc("mushroom_block_inside");
+        MultiPartBlockStateBuilder builder = this.getMultipartBuilder(block.get());
+        for (Direction d : Direction.values())
+        {
+            Vec3i v3 = rot(d);
+            // exterior
+            builder.part()
+                    .modelFile(out0).weight(10).rotationX(v3.getX()).rotationY(v3.getY())
+                    .modelFile(out1).weight(7).rotationX(v3.getX()).rotationY(v3.getY())
+                    .modelFile(out2).weight(5).rotationX(v3.getX()).rotationY(v3.getY())
+                    .modelFile(out3).weight(5).rotationX(v3.getX()).rotationY(v3.getY())
+                    .modelFile(out4).weight(3).rotationX(v3.getX()).rotationY(v3.getY())
+                    .addModel().condition(dirToProp(d), true).end();
+            // interior
+            builder.part().modelFile(in).rotationX(v3.getX()).rotationY(v3.getY()).addModel().condition(dirToProp(d), false).end();
+        }
+    }
+
+
+    private Vec3i rot(Direction d) {
+        return d == Direction.NORTH ? new Vec3i(0, 0, 0) :
+               d == Direction.EAST ? new Vec3i(0, 90, 0) :
+               d == Direction.SOUTH ? new Vec3i(0, 180, 0) :
+               d == Direction.WEST ? new Vec3i(0, 270, 0) :
+               d == Direction.UP ? new Vec3i(270, 0, 0) :
+               new Vec3i(90, 0, 0);
+    }
+    private BooleanProperty dirToProp(Direction d) {
+        return d == Direction.DOWN ? BlockStateProperties.DOWN :
+               d == Direction.UP ? BlockStateProperties.UP :
+               d == Direction.WEST ? BlockStateProperties.WEST :
+               d == Direction.EAST ? BlockStateProperties.EAST :
+               d == Direction.SOUTH ? BlockStateProperties.SOUTH :
+                BlockStateProperties.NORTH;
     }
     public void grass(Block block, RegistryObject<Block> dirtBlock) {
         ModelFile grass = this.grassBlock(block, dirtBlock);
