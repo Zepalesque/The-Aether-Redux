@@ -95,7 +95,7 @@ public class ReduxBlocks {
             () -> new SpringshroomCapBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).strength(0.5F).sound(SoundType.HONEY_BLOCK).noOcclusion().isSuffocating(ReduxBlocks::never).isViewBlocking(ReduxBlocks::never)));
 
     public static RegistryObject<Block> CLOUDCAP_SPORES = register("cloudcap_spores",
-            () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(0.3F).sound(SoundType.WART_BLOCK).lightLevel((state) -> 15).emissiveRendering(ReduxBlocks::always).noOcclusion()));
+            () -> new CloudcapSporesBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(0.3F).sound(SoundType.WART_BLOCK).lightLevel((state) -> 15).emissiveRendering(ReduxBlocks::always).noOcclusion()));
 
     public static final RegistryObject<Block> JELLYSHROOM = register("jellyshroom", () -> new AetherMushroom(Block.Properties.of().offsetType(BlockBehaviour.OffsetType.XZ).noCollission().instabreak().sound(SoundType.FUNGUS).mapColor(MapColor.COLOR_PURPLE),
             ReduxConfiguredFeatures.LARGE_JELLYSHROOM,
