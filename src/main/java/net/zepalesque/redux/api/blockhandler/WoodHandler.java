@@ -22,6 +22,7 @@ import net.minecraftforge.client.model.generators.ModelBuilder;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.block.natural.ReduxNaturalLog;
 import net.zepalesque.redux.block.natural.ReduxNaturalWall;
 import net.zepalesque.redux.block.sign.ReduxCeilingHangingSignBlock;
 import net.zepalesque.redux.block.sign.ReduxWallHangingSignBlock;
@@ -231,7 +232,7 @@ public class WoodHandler implements BlockHandler {
         this.chestBoatEntity = ReduxEntityTypes.ENTITY_TYPES.register(pWoodName + "_chest_boat",
                 () -> EntityType.Builder.<ReduxChestBoat>of(ReduxChestBoat::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build(pWoodName + "_chest_boat"));
         this.log = ReduxBlocks.register(pWoodName + "_" + pLogSuffix, () -> new AetherLogBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).sound(pLogSoundType).mapColor(barkColor)));
-        this.wood = ReduxBlocks.register(pWoodName + "_" + pWoodSuffix, () -> new AetherLogBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD).sound(pLogSoundType).mapColor(barkColor)));
+        this.wood = ReduxBlocks.register(pWoodName + "_" + pWoodSuffix, () -> new ReduxNaturalLog(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD).sound(pLogSoundType).mapColor(barkColor)));
         if (this.hasStrippedLogs)
         {
             RegistryObject<RotatedPillarBlock> strippedLog = ReduxBlocks.register("stripped_" + pWoodName + "_" + pLogSuffix, () -> new AetherLogBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_LOG).sound(pLogSoundType).mapColor(woodColor)));
