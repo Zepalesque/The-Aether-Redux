@@ -1,7 +1,110 @@
 {
-  "variants": {
-    "": {
-      "model": "aether_redux:block/cloud_cap_block"
+  "multipart": [
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block4",
+        "x": 90
+      },
+      "when": {
+        "down": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block_inside",
+        "x": 90
+      },
+      "when": {
+        "down": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block4",
+        "x": 270
+      },
+      "when": {
+        "up": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block_inside",
+        "x": 270
+      },
+      "when": {
+        "up": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block4"
+      },
+      "when": {
+        "north": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block_inside"
+      },
+      "when": {
+        "north": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block4",
+        "y": 180
+      },
+      "when": {
+        "south": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block_inside",
+        "y": 180
+      },
+      "when": {
+        "south": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block4",
+        "y": 270
+      },
+      "when": {
+        "west": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block_inside",
+        "y": 270
+      },
+      "when": {
+        "west": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block4",
+        "y": 90
+      },
+      "when": {
+        "east": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block_inside",
+        "y": 90
+      },
+      "when": {
+        "east": "false"
+      }
     }
-  }
+  ]
 }

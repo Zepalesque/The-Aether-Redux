@@ -181,6 +181,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
 
     private void createMushroomBlock(RegistryObject<Block> block, String loc) {
+        ModelFile item = this.models().cubeAll(this.name(block), this.texture(this.name(block), loc));
         ModelFile out = this.models().singleTexture(this.name(block), mcLoc("block/template_single_face"), this.texture(block, loc));
         ModelFile in = this.models().singleTexture(this.name(block) + "_inside", mcLoc("block/template_single_face"), this.texture(block, loc).withSuffix("_inside"));
 //        ResourceLocation resourcelocation = ModelTemplates.SINGLE_FACE.create(block, TextureMapping.defaultTexture(block), this.modelOutput);
@@ -197,6 +198,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
     }
 
     private void createCloudcapBlock(RegistryObject<Block> block, String loc) {
+        ModelFile item = this.models().cubeAll(this.name(block), this.texture(this.name(block) + "4", loc));
         ModelFile out0 = this.models().singleTexture(this.name(block) + "0", mcLoc("block/template_single_face"), this.texture(block, loc).withSuffix("0"));
         ModelFile out1 = this.models().singleTexture(this.name(block) + "1", mcLoc("block/template_single_face"), this.texture(block, loc).withSuffix("1"));
         ModelFile out2 = this.models().singleTexture(this.name(block) + "2", mcLoc("block/template_single_face"), this.texture(block, loc).withSuffix("2"));

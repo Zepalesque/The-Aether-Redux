@@ -6,7 +6,13 @@
       "state": {
         "Name": "aether_redux:cloud_cap_block",
         "Properties": {
-          "double_drops": "true"
+          "double_drops": "true",
+          "down": "true",
+          "east": "true",
+          "north": "true",
+          "south": "true",
+          "up": "true",
+          "west": "true"
         }
       }
     },

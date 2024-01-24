@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "aether_redux:block/natural/cloud_cap_block"
+    "all": "aether_redux:block/natural/cloud_cap_block4"
   }
 }
