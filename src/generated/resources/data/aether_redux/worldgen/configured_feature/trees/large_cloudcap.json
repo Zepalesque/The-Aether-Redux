@@ -1,13 +1,20 @@
 {
-  "type": "aether_redux:large_cloudcap",
+  "type": "aether_redux:cloudcap",
   "config": {
+    "cap_height": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 9,
+        "min_inclusive": 6
+      }
+    },
     "cap_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
         "Name": "aether_redux:cloud_cap_block",
         "Properties": {
           "double_drops": "true",
-          "down": "true",
+          "down": "false",
           "east": "true",
           "north": "true",
           "south": "true",
@@ -16,7 +23,27 @@
         }
       }
     },
-    "foliage_radius": 2,
+    "height": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 17,
+        "min_inclusive": 11
+      }
+    },
+    "root_height": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 4,
+        "min_inclusive": 1
+      }
+    },
+    "root_wall_height": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 3,
+        "min_inclusive": 1
+      }
+    },
     "spore_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
@@ -33,6 +60,22 @@
         "Properties": {
           "axis": "y",
           "double_drops": "true"
+        }
+      }
+    },
+    "stem_wall_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "aether_redux:cloudcap_stem_wall",
+        "Properties": {
+          "double_drops": "true",
+          "east": "none",
+          "naturally_generated": "true",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
         }
       }
     }

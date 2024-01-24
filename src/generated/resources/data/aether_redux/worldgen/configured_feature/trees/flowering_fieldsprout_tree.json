@@ -58,7 +58,8 @@
         "Name": "aether_redux:fieldsprout_wood",
         "Properties": {
           "axis": "y",
-          "double_drops": "true"
+          "double_drops": "true",
+          "naturally_generated": "true"
         }
       }
     }

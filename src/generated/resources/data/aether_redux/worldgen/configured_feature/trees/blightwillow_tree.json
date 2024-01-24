@@ -87,7 +87,8 @@
               "Name": "aether_redux:blightwillow_wood",
               "Properties": {
                 "axis": "y",
-                "double_drops": "true"
+                "double_drops": "true",
+                "naturally_generated": "true"
               }
             },
             "weight": 7

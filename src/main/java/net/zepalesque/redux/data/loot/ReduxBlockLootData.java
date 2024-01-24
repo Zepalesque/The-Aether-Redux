@@ -193,8 +193,12 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
     }
 
 
-    public LootTable.Builder naturalDrop(Block block, ItemLike other) {
+    private LootTable.Builder naturalDropBase(Block block, ItemLike other) {
         return LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(applyExplosionDecay(other, LootItem.lootTableItem(other))).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(ReduxStates.NATURALLY_GENERATED, true))));
+    }
+
+    public void naturalDrop(Block block, ItemLike other) {
+        this.add(block, naturalDropBase(block, other));
     }
 
 
