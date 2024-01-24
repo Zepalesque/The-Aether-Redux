@@ -213,10 +213,10 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
             Vec3i v3 = rot(d);
             // exterior
             builder.part()
-                    .modelFile(out0).weight(10).rotationX(v3.getX()).rotationY(v3.getY())
-                    .modelFile(out1).weight(7).rotationX(v3.getX()).rotationY(v3.getY())
-                    .modelFile(out2).weight(5).rotationX(v3.getX()).rotationY(v3.getY())
-                    .modelFile(out3).weight(5).rotationX(v3.getX()).rotationY(v3.getY())
+                    .modelFile(out0).weight(10).rotationX(v3.getX()).rotationY(v3.getY()).nextModel()
+                    .modelFile(out1).weight(7).rotationX(v3.getX()).rotationY(v3.getY()).nextModel()
+                    .modelFile(out2).weight(5).rotationX(v3.getX()).rotationY(v3.getY()).nextModel()
+                    .modelFile(out3).weight(5).rotationX(v3.getX()).rotationY(v3.getY()).nextModel()
                     .modelFile(out4).weight(3).rotationX(v3.getX()).rotationY(v3.getY())
                     .addModel().condition(dirToProp(d), true).end();
             // interior
