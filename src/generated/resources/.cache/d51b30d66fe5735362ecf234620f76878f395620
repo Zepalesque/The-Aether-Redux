@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-23T22:41:56.980866	Item Models: aether_redux
+// 1.20.1	2024-01-24T09:19:25.1032995	Item Models: aether_redux
 262070202f715ccbb93ebca7b4dd3b04851bc0ce assets/aether_redux/models/item/aether_short_grass.json
 ef6d226766d61d6460247665062a399d3613d946 assets/aether_redux/models/item/aevelium.json
 e89330a549c5d1169758ec3314e9285fb8db827a assets/aether_redux/models/item/aevelium_growth.json
@@ -223,7 +223,6 @@ f4e55469e88be034a3e02ea3752dd4b77cbbfbb0 assets/aether_redux/models/item/strippe
 d431727282e6d3bb0325ab1b51b4f46da7c66fca assets/aether_redux/models/item/stripped_glacia_log_wall.json
 992aeafec1f8963ef1d11e6693991358baa283c4 assets/aether_redux/models/item/stripped_glacia_wood.json
 2bd3490fb4474d386bd50208e65422901c06a9a5 assets/aether_redux/models/item/stripped_glacia_wood_wall.json
-8d2fe00123e8ce67bf857912835275eec3e67f59 assets/aether_redux/models/item/tall_cloudcap.json
 e4bcb896b9819368f3ebd96a6ad2d6d110372065 assets/aether_redux/models/item/vampire_amulet.json
 f638ac2f718eaf0082e4a7e6cd54b463ce4c2b59 assets/aether_redux/models/item/vampire_amulet_active.json
 1f0d2056a180c972a1ad921f3773687252abf2fa assets/aether_redux/models/item/vanilla_gummy_swet.json
