@@ -20,6 +20,7 @@ public class ReduxStates {
     public static final IntegerProperty EXTENDED_DISTANCE = IntegerProperty.create("distance", 1, ExtendedDistanceLeavesBlock.DECAY_DISTANCE);
 
     public static final BooleanProperty ENCHANTED = BooleanProperty.create("enchanted");
+    public static final BooleanProperty NATURAL_GEN = BooleanProperty.create("natural_gen");
 
     public static final EnumProperty<GrassBlockTint> GRASS_BLOCK_TINT = EnumProperty.create("grass_block_tint", GrassBlockTint.class);
     public static final EnumProperty<GrassSize> GRASS_SIZE = EnumProperty.create("grass_size", GrassSize.class);
