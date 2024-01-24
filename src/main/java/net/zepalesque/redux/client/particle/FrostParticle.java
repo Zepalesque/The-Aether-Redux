@@ -73,7 +73,7 @@ public class FrostParticle extends TextureSheetParticle {
       }
 
       public Particle createParticle(SimpleParticleType pType, ClientLevel pLevel, double pX, double pY, double pZ, double pXSpeed, double pYSpeed, double pZSpeed) {
-         DripParticle dripparticle = new DripParticle.FallAndLandParticle(pLevel, pX, pY, pZ, Fluids.EMPTY, ReduxParticleTypes.ICE_SPLASH.get());
+         CloudcapSporeParticle dripparticle = new CloudcapSporeParticle.FallingSpore(pLevel, pX, pY, pZ, Fluids.EMPTY, ReduxParticleTypes.ICE_SPLASH.get());
          dripparticle.setColor(0.55686274509F, 0.72156862745F, 0.99607843137F);
          dripparticle.pickSprite(this.sprite);
          return dripparticle;

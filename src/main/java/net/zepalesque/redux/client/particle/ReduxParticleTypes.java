@@ -1,6 +1,9 @@
 package net.zepalesque.redux.client.particle;
 
+import net.minecraft.client.particle.ParticleProvider;
 import net.minecraft.client.particle.SplashParticle;
+import net.minecraft.client.particle.TextureSheetParticle;
+import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraftforge.api.distmarker.Dist;
@@ -22,8 +25,6 @@ import net.zepalesque.redux.Redux;
 public class ReduxParticleTypes {
     public static final DeferredRegister<ParticleType<?>> PARTICLES = DeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, Redux.MODID);
     public static final RegistryObject<SimpleParticleType> GILDED_SKYROOT_LEAVES = PARTICLES.register("gilded_skyroot_leaves", () -> new SimpleParticleType(false));
-    public static final RegistryObject<SimpleParticleType> PINK_PRISMATIC_PETALS = PARTICLES.register("pink_prismatic_petals", () -> new SimpleParticleType(false));
-    public static final RegistryObject<SimpleParticleType> TEAL_PRISMATIC_PETALS = PARTICLES.register("teal_prismatic_petals", () -> new SimpleParticleType(false));
 
     public static final RegistryObject<SimpleParticleType> FALLING_GILDED_LEAVES = PARTICLES.register("falling_gilded_leaves", () -> new SimpleParticleType(false));
     public static final RegistryObject<SimpleParticleType> FALLING_GOLDEN_LEAVES = PARTICLES.register("falling_golden_leaves", () -> new SimpleParticleType(false));
@@ -48,6 +49,10 @@ public class ReduxParticleTypes {
     public static final RegistryObject<SimpleParticleType> FALLING_PRISMATIC_LEAVES = PARTICLES.register("falling_prismatic_leaves", () -> new SimpleParticleType(false));
     public static final RegistryObject<SimpleParticleType> FALLING_GLACIA_NEEDLES = PARTICLES.register("falling_glacia_needles", () -> new SimpleParticleType(false));
     public static final RegistryObject<SimpleParticleType> FALLING_PURPLE_GLACIA_NEEDLES = PARTICLES.register("falling_purple_glacia_needles", () -> new SimpleParticleType(false));
+
+    public static final RegistryObject<SimpleParticleType> FALLING_CLOUDCAP_SPORE = PARTICLES.register("falling_cloudcap_spore", () -> new SimpleParticleType(false));
+    public static final RegistryObject<SimpleParticleType> LANDING_CLOUDCAP_SPORE = PARTICLES.register("landing_cloudcap_spore", () -> new SimpleParticleType(false));
+    public static final RegistryObject<SimpleParticleType> CLOUDCAP_AIR_SPORE = PARTICLES.register("cloudcap_air_spore", () -> new SimpleParticleType(false));
 
     public static final RegistryObject<SimpleParticleType> FROST = PARTICLES.register("frost", () -> new SimpleParticleType(false));
     public static final RegistryObject<SimpleParticleType> FALLING_ICE = PARTICLES.register("falling_ice", () -> new SimpleParticleType(false));
@@ -74,8 +79,6 @@ public class ReduxParticleTypes {
         event.registerSpriteSet(FALLING_CRUDEROOT_NEEDLES.get(), FallingLeafParticle.Provider::new);
         event.registerSpriteSet(FALLING_SUNROOT_LEAVES.get(), FallingLeafParticle.Provider::new);
         event.registerSpriteSet(FALLING_YAGROOT_LEAVES.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(PINK_PRISMATIC_PETALS.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(TEAL_PRISMATIC_PETALS.get(), FallingLeafParticle.Provider::new);
         event.registerSpriteSet(FALLING_GILDED_LEAVES.get(), FallingLeafParticle.Provider::new);
         event.registerSpriteSet(FALLING_GOLDEN_LEAVES.get(), FallingLeafParticle.Provider::new);
         event.registerSpriteSet(FALLING_CRYSTAL_LEAVES.get(), FallingLeafParticle.Provider::new);
@@ -89,6 +92,21 @@ public class ReduxParticleTypes {
         event.registerSpriteSet(FALLING_ICE.get(), FrostParticle.DripProvider::new);
         event.registerSpriteSet(ICE_SPLASH.get(), SplashParticle.Provider::new);
 
+        register(event, FALLING_CLOUDCAP_SPORE.get(), CloudcapSporeParticle::falling);
+        register(event, LANDING_CLOUDCAP_SPORE.get(), CloudcapSporeParticle::landing);
+        event.registerSpriteSet(CLOUDCAP_AIR_SPORE.get(), CloudcapAirSporeParticle.Provider::new);
+
         event.registerSpriteSet(SPARK.get(), SparkParticle.Provider::new);
+    }
+
+    public static <T extends ParticleOptions> void register(RegisterParticleProvidersEvent event, ParticleType<T> particleType, ParticleProvider.Sprite<T> sprite) {
+        event.registerSpriteSet(particleType, (p_272320_) -> (p_272323_, p_272324_, p_272325_, p_272326_, p_272327_, p_272328_, p_272329_, p_272330_) -> {
+            TextureSheetParticle texturesheetparticle = sprite.createParticle(p_272323_, p_272324_, p_272325_, p_272326_, p_272327_, p_272328_, p_272329_, p_272330_);
+            if (texturesheetparticle != null) {
+                texturesheetparticle.pickSprite(p_272320_);
+            }
+
+            return texturesheetparticle;
+        });
     }
 }
