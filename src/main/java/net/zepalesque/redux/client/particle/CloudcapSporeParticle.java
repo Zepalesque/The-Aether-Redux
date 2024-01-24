@@ -19,7 +19,6 @@ public class CloudcapSporeParticle extends TextureSheetParticle {
 
    CloudcapSporeParticle(ClientLevel level, double x, double y, double z, Fluid type) {
       super(level, x, y, z);
-      this.quadSize = 0.1F * (this.random.nextFloat() * 0.5F + 0.5F);
       this.setSize(0.01F, 0.01F);
       this.gravity = 0.06F;
       this.type = type;
@@ -76,7 +75,7 @@ public class CloudcapSporeParticle extends TextureSheetParticle {
 
 
    public static TextureSheetParticle falling(SimpleParticleType type, ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
-      CloudcapSporeParticle dripparticle = new FallingParticle(level, x, y, z, Fluids.EMPTY);
+      CloudcapSporeParticle dripparticle = new FallingSpore(level, x, y, z, Fluids.EMPTY, ReduxParticleTypes.LANDING_CLOUDCAP_SPORE.get());
       dripparticle.isGlowing = true;
       dripparticle.gravity = 0.0025F;
       return dripparticle;

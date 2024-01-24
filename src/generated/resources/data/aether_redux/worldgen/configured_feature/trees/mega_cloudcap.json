@@ -1,5 +1,5 @@
 {
-  "type": "aether_redux:large_cloudcap",
+  "type": "aether_redux:mega_cloudcap",
   "config": {
     "cap_provider": {
       "type": "minecraft:simple_state_provider",
@@ -16,7 +16,16 @@
         }
       }
     },
-    "foliage_radius": 2,
+    "hyphae_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "aether_redux:cloudcap_hyphae",
+        "Properties": {
+          "axis": "y",
+          "double_drops": "true"
+        }
+      }
+    },
     "spore_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {

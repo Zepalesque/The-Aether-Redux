@@ -24,7 +24,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.PinkPetalsBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -48,7 +47,6 @@ import net.zepalesque.redux.api.condition.Conditions;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.util.ReduxStates;
 import net.zepalesque.redux.misc.ReduxTags;
-import net.zepalesque.redux.world.feature.CloudcapFeature;
 import net.zepalesque.redux.world.feature.ReduxFeatureRegistry;
 import net.zepalesque.redux.world.feature.config.*;
 import net.zepalesque.redux.world.stateprov.SimpleConditionAlternativeStateProvider;
@@ -113,6 +111,7 @@ public class    ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_MUSHROOMS = createKey(Folders.TREE + "large_mushrooms");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_JELLYSHROOM = createKey(Folders.TREE + "large_jellyshroom");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LUMINA_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.LUMINA) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> MEGA_CLOUDCAP  = createKey(Folders.TREE + "mega_cloudcap");
     public static final ResourceKey<ConfiguredFeature<?, ?>> MOSSY_HOLYSTONE_ORE  = createKey(Folders.ORE + name(AetherBlocks.MOSSY_HOLYSTONE) + "_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> MOSSY_ROCK  = createKey(Folders.SURFACE + "mossy_rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWERING_FIELDSPROUT_TREE = createKey(Folders.TREE + "flowering_fieldsprout_tree");
@@ -225,13 +224,13 @@ public class    ReduxConfiguredFeatures {
         register(context, BLIGHTWILLOW_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 new WeightedStateProvider(
                         SimpleWeightedRandomList.<BlockState>builder()
-                                .add(drops(Redux.WoodHandlers.BLIGHTWILLOW.log), 7)
-                                .add(drops(Redux.WoodHandlers.BLIGHTWILLOW.sporingLog.orElseThrow()), 1)
+                                .add(drops(Redux.Handlers.Wood.BLIGHTWILLOW.log), 7)
+                                .add(drops(Redux.Handlers.Wood.BLIGHTWILLOW.sporingLog.orElseThrow()), 1)
                 ),
                 new BlightwillowTrunkPlacer(5, 2, 2, new WeightedStateProvider(
                         SimpleWeightedRandomList.<BlockState>builder()
-                                .add(naturalDrops(Redux.WoodHandlers.BLIGHTWILLOW.wood), 7)
-                                .add(drops(Redux.WoodHandlers.BLIGHTWILLOW.sporingWood.orElseThrow()), 1)
+                                .add(drops(Redux.Handlers.Wood.BLIGHTWILLOW.wood), 7)
+                                .add(drops(Redux.Handlers.Wood.BLIGHTWILLOW.sporingWood.orElseThrow()), 1)
                 ), UniformInt.of(4, 6), UniformInt.of(3, 4)),
                 BlockStateProvider.simple(drops(ReduxBlocks.BLIGHTWILLOW_LEAVES)),
                 new BlightwillowFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
@@ -336,7 +335,7 @@ public class    ReduxConfiguredFeatures {
 
         register(context, CRYSTAL_TREE_OVERRIDE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
-                        BlockStateProvider.simple(drops(Redux.WoodHandlers.CRYSTAL.log)),
+                        BlockStateProvider.simple(drops(Redux.Handlers.Wood.CRYSTAL.log)),
                         new CrystalTreeTrunkPlacer(7, 0, 0),
                         new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(AetherFeatureStates.CRYSTAL_LEAVES, 4).add(AetherFeatureStates.CRYSTAL_FRUIT_LEAVES, 1).build()),
                         new CrystalFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0), ConstantInt.of(6)),
@@ -344,7 +343,7 @@ public class    ReduxConfiguredFeatures {
 
         register(context, GLACIA_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
-                        BlockStateProvider.simple(drops(Redux.WoodHandlers.GLACIA.log)),
+                        BlockStateProvider.simple(drops(Redux.Handlers.Wood.GLACIA.log)),
                         new StraightTrunkPlacer(9, 10, 0),
                         prov(ReduxBlocks.GLACIA_LEAVES),
                         new GlaciaFoliagePlacer(ConstantInt.of(1), ConstantInt.of(0), ConstantInt.of(1)),
@@ -359,7 +358,7 @@ public class    ReduxConfiguredFeatures {
 
         register(context, PURPLE_GLACIA_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
-                        BlockStateProvider.simple(drops(Redux.WoodHandlers.GLACIA.log)),
+                        BlockStateProvider.simple(drops(Redux.Handlers.Wood.GLACIA.log)),
                         new StraightTrunkPlacer(5, 2, 0),
                         prov(ReduxBlocks.PURPLE_GLACIA_LEAVES),
                         new GlaciaFoliagePlacer(ConstantInt.of(1), ConstantInt.of(0), ConstantInt.of(1)),
@@ -384,30 +383,35 @@ public class    ReduxConfiguredFeatures {
 
         register(context, IRIDIA_PATCH, Feature.FLOWER,
                 randomPatch(4, 3, 3, BlockStateProvider.simple(drops(ReduxBlocks.IRIDIA))));
+        register(context, LARGE_CLOUDCAP, ReduxFeatureRegistry.LARGE_CLOUDCAP.get(),
+                new HugeAetherMushroomFeatureConfiguration(
+                        prov(ReduxBlocks.CLOUD_CAP_BLOCK),
+                        prov(ReduxBlocks.CLOUDCAP_SPORES),
+                        prov(Redux.Handlers.Wood.CLOUDCAP.log),
+                        2
+                ));
         register(context, LARGE_MUSHROOMS, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
-                                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(LARGE_JELLYSHROOM), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.JELLYSHROOM.get())), 0.3F)),
+                                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(LARGE_JELLYSHROOM), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.JELLYSHROOM.get())), 0.3F),
+                        new WeightedPlacedFeature(
+                                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(MEGA_CLOUDCAP), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.CLOUDCAP_MUSHLING.get())), 0.35F)),
                         PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(LARGE_CLOUDCAP), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.CLOUDCAP_MUSHLING.get()))));
         register(context, LARGE_JELLYSHROOM, ReduxFeatureRegistry.JELLYSHROOM.get(),
                 new JellyshroomConfig(
                         prov(ReduxBlocks.JELLYSHROOM_JELLY_BLOCK),
-                        prov(Redux.WoodHandlers.JELLYSHROOM.log),
+                        prov(Redux.Handlers.Wood.JELLYSHROOM.log),
                         UniformInt.of(7, 9)
                         ));
 
         register(context, LUMINA_PATCH, Feature.FLOWER,
                 randomPatch(12, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.LUMINA))));
-        register(context, LARGE_CLOUDCAP, ReduxFeatureRegistry.CLOUDCAP.get(),
-                new CloudcapFeature.CloudcapConfig(
-                        prov(ReduxBlocks.CLOUD_CAP_BLOCK.get().defaultBlockState().setValue(BlockStateProperties.DOWN, false)),
+        register(context, MEGA_CLOUDCAP, ReduxFeatureRegistry.MEGA_CLOUDCAP.get(),
+                new MegaCloudcapFeatureConfiguration(
+                        prov(ReduxBlocks.CLOUD_CAP_BLOCK),
                         prov(ReduxBlocks.CLOUDCAP_SPORES),
-                        prov(Redux.WoodHandlers.CLOUDCAP.log),
-                        prov(naturalDrops(Redux.WoodHandlers.CLOUDCAP.logWall)),
-                        UniformInt.of(11, 17),
-                        UniformInt.of(1, 4),
-                        UniformInt.of(1, 3),
-                        UniformInt.of(6, 9))
-                );
+                        prov(Redux.Handlers.Wood.CLOUDCAP.log),
+                        prov(Redux.Handlers.Wood.CLOUDCAP.wood)
+                ));
         register(context, MOSSY_HOLYSTONE_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
                 drops(AetherBlocks.MOSSY_HOLYSTONE), 32, 0.3F));
         register(context, MOSSY_ROCK, Feature.FOREST_ROCK,
@@ -416,8 +420,8 @@ public class    ReduxConfiguredFeatures {
         register(context, FLOWERING_FIELDSPROUT_TREE, ReduxFeatureRegistry.FIELDSPROUT_TREE.get(),
                 new FieldsproutTreeConfig(
                         prov(ReduxBlocks.FLOWERING_FIELDSPROUT_LEAVES),
-                        prov(Redux.WoodHandlers.FIELDSPROUT.log),
-                        prov(naturalDrops(Redux.WoodHandlers.FIELDSPROUT.wood)),
+                        prov(Redux.Handlers.Wood.FIELDSPROUT.log),
+                        prov(Redux.Handlers.Wood.FIELDSPROUT.wood),
                         new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
                                 .add(ConstantInt.of(0), 5)
                                 .add(ConstantInt.of(1), 4)
@@ -660,10 +664,5 @@ public class    ReduxConfiguredFeatures {
     private static BlockState drops(RegistryObject<? extends Block> block)
     {
         return drops(block.get().defaultBlockState());
-    }
-    private static BlockState naturalDrops(RegistryObject<? extends Block> block)
-    {
-        BlockState b = block.get().defaultBlockState();
-        return b.hasProperty(ReduxStates.NATURALLY_GENERATED) ? drops(b.setValue(ReduxStates.NATURALLY_GENERATED, true)) : drops(b);
     }
 }

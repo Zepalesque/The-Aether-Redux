@@ -65,6 +65,9 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
 
         this.dropSelf(ReduxBlocks.BLIGHTWILLOW_SAPLING.get());
 
+        this.add(ReduxBlocks.TALL_CLOUDCAP.get(), (block) -> {
+            return this.createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER);
+        });
         this.dropPottedContents(ReduxBlocks.POTTED_BLIGHTWILLOW_SAPLING.get());
 
         this.dropSelf(ReduxBlocks.BLIGHTWILLOW_ROOTS.get());
@@ -136,8 +139,8 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropPottedContents(ReduxBlocks.POTTED_SPIROLYCTIL.get());
         this.dropSelf(ReduxBlocks.BLIGHTSHADE.get());
         this.dropPottedContents(ReduxBlocks.POTTED_BLIGHTSHADE.get());
-        this.add(ReduxBlocks.CLOUD_CAP_BLOCK.get(), this.createMushroomBlockDrop(ReduxBlocks.CLOUD_CAP_BLOCK.get(), ReduxBlocks.CLOUDCAP_MUSHLING.get()));
 
+        this.dropSelf(ReduxBlocks.CLOUD_CAP_BLOCK.get());
         this.dropSelf(ReduxBlocks.JELLYSHROOM.get());
         this.dropSelf(ReduxBlocks.SHIMMERSTOOL.get());
         this.dropPottedContents(ReduxBlocks.POTTED_JELLYSHROOM.get());
@@ -185,20 +188,11 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
 
         this.dropSelf(ReduxBlocks.JELLYSHROOM_JELLY_BLOCK.get());
 
-        for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS)
+        for (WoodHandler woodHandler : Redux.Handlers.Wood.WOOD_HANDLERS)
         {
             woodHandler.generateLoot(this);
         }
 
-    }
-
-
-    private LootTable.Builder naturalDropBase(Block block, ItemLike other) {
-        return LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(applyExplosionDecay(other, LootItem.lootTableItem(other))).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(ReduxStates.NATURALLY_GENERATED, true))));
-    }
-
-    public void naturalDrop(Block block, ItemLike other) {
-        this.add(block, naturalDropBase(block, other));
     }
 
 
@@ -242,8 +236,6 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
     public void addPublic(Block pBlock, Function<Block, LootTable.Builder> pFactory) {
         this.add(pBlock, pFactory.apply(pBlock));
     }
-
-
     public LootTable.Builder createDoorTable(Block pDoorBlock) {
         return this.createSinglePropConditionTable(pDoorBlock, DoorBlock.HALF, DoubleBlockHalf.LOWER);
     }

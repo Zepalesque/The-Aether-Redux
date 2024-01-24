@@ -168,6 +168,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.POTTED_CLOUDCAP_MUSHLING, "Potted Cloudcap Mushling");
         addLore(ReduxBlocks.CLOUDCAP_MUSHLING, "A mushroom found commonly in the Cloudcaps and occasionally in the Highfields. It glows faintly.");
 
+        addBlock(ReduxBlocks.TALL_CLOUDCAP, "Tall Cloudcap");
+        addLore(ReduxBlocks.TALL_CLOUDCAP, "The taller variant of the Cloudcap Mushling. This can be grown into Giant Cloudcap Mushrooms");
+
         addBlock(ReduxBlocks.SPIROLYCTIL, "Spirolyctil");
         addBlock(ReduxBlocks.POTTED_SPIROLYCTIL, "Potted Spirolyctil");
         addLore(ReduxBlocks.SPIROLYCTIL, "A shiny blue flower found in the Blight. It almost seems like an island of peace in the ocean of chaos.");
@@ -528,7 +531,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addDeath(ReduxDamageTypes.EMBER, "%1$s was hit by a flying ember");
         addDeathByPlayer(ReduxDamageTypes.EMBER, "%1$s was hit by %2$s's flying ember");
 
-        for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS) {
+        for (WoodHandler woodHandler : Redux.Handlers.Wood.WOOD_HANDLERS) {
             woodHandler.generateLanguageData(this);
         }
 

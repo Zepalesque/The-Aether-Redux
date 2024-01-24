@@ -32,6 +32,23 @@
             }
           ]
         }
+      },
+      {
+        "chance": 0.35,
+        "feature": {
+          "feature": "aether_redux:trees/mega_cloudcap",
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:would_survive",
+                "state": {
+                  "Name": "aether_redux:cloudcap_mushling"
+                }
+              }
+            }
+          ]
+        }
       }
     ]
   }

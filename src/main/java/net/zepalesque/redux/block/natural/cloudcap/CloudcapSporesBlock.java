@@ -19,7 +19,7 @@ public class CloudcapSporesBlock extends AetherDoubleDropBlock {
         int x = pos.getX();
         int y = pos.getY();
         int z = pos.getZ();
-        if (level.random.nextInt(3) == 0 && level.isStateAtPosition(pos.below(), bs -> (!bs.canOcclude() || !bs.isFaceSturdy(level, pos, Direction.UP)))) {
+        if (level.random.nextInt(8) == 0 && level.isStateAtPosition(pos.below(), bs -> (!bs.canOcclude() || !bs.isFaceSturdy(level, pos, Direction.UP)))) {
 
             double d0 = (double) x + random.nextDouble();
             double d1 = (double) y + 0.7D;
@@ -28,11 +28,13 @@ public class CloudcapSporesBlock extends AetherDoubleDropBlock {
         }
         BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
 
+        for(int l = 0; l <  4; ++l) {
             blockpos$mutableblockpos.set(x + Mth.nextInt(random, -10, 10), y - random.nextInt(10), z + Mth.nextInt(random, -10, 10));
             BlockState blockstate = level.getBlockState(blockpos$mutableblockpos);
             if (!blockstate.isCollisionShapeFullBlock(level, blockpos$mutableblockpos)) {
                 level.addParticle(ReduxParticleTypes.CLOUDCAP_AIR_SPORE.get(), (double)blockpos$mutableblockpos.getX() + random.nextDouble(), (double)blockpos$mutableblockpos.getY() + random.nextDouble(), (double)blockpos$mutableblockpos.getZ() + random.nextDouble(), 0.0D, 0.0D, 0.0D);
             }
+        }
 
     }
 }

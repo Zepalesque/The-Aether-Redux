@@ -18,7 +18,7 @@ public class CloudcapAirSporeParticle extends TextureSheetParticle {
       super(level, x, y - 0.125D, z, xSpeed, ySpeed, zSpeed);
       this.setSize(0.01F, 0.01F);
       this.pickSprite(sprites);
-      this.quadSize *= this.random.nextFloat() * 0.3F + 0.3F;
+      this.quadSize *= this.random.nextFloat() * 0.6F + 0.6F;
       this.lifetime = (int)(16.0D / (Math.random() * 0.8D + 0.2D));
       this.hasPhysics = false;
       this.friction = 1.0F;

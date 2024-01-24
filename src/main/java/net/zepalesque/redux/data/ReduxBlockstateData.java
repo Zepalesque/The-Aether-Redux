@@ -7,9 +7,19 @@ import com.aetherteam.aether.data.providers.AetherBlockStateProvider;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
 import net.minecraft.data.PackOutput;
+import net.minecraft.data.models.blockstates.Condition;
+import net.minecraft.data.models.blockstates.MultiPartGenerator;
+import net.minecraft.data.models.blockstates.Variant;
+import net.minecraft.data.models.blockstates.VariantProperties;
+import net.minecraft.data.models.model.ModelLocationUtils;
+import net.minecraft.data.models.model.ModelTemplates;
+import net.minecraft.data.models.model.TextureMapping;
+import net.minecraft.data.models.model.TexturedModel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.properties.*;
+import net.minecraft.world.phys.Vec2;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.client.model.generators.*;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -77,6 +87,8 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
         this.block(ReduxBlocks.BLIGHTWILLOW_LEAVES.get(), "natural/");
         this.crossBlock(ReduxBlocks.BLIGHTWILLOW_SAPLING.get(), "natural/");
+
+        this.doubleCrossBlockTopGlow(ReduxBlocks.TALL_CLOUDCAP.get(), "natural/");
 
         this.floweringFieldsproutLeafBlock(ReduxBlocks.FLOWERING_FIELDSPROUT_LEAVES, "natural/");
         this.fieldsproutPetals(ReduxBlocks.FIELDSPROUT_PETALS.get(), "natural/fieldsprout_petals_stem");
@@ -161,7 +173,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.cropPlantNoOffsetOccluded(ReduxBlocks.GILDED_VINES.get(), "natural/");
 
 
-        for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS)        {
+        for (WoodHandler woodHandler : Redux.Handlers.Wood.WOOD_HANDLERS)        {
             woodHandler.generateBlockstateData(this);
         }
 
@@ -185,12 +197,12 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
     private void createCloudcapBlock(RegistryObject<Block> block, String loc) {
         this.models().withExistingParent(this.name(block), Redux.locate("block/cube_all_glow")).texture("all", this.texture(this.name(block) + "4", loc)).texture("glow", this.texture(this.name(block) + "4_glow", loc)).renderType("cutout");
-        ModelFile out0 = this.models().singleTexture(this.name(block) + "0", mcLoc("block/template_single_face"), this.texture(block, loc).withSuffix("0")).renderType("cutout");
+        ModelFile out0 = this.models().singleTexture(this.name(block) + "0", mcLoc("block/template_single_face"), this.texture(block, loc).withSuffix("0"));
         ModelFile out1 = this.models().withExistingParent(this.name(block) + "1", Redux.locate("block/template_single_face_gloverlay")).texture("texture", this.texture(block, loc).withSuffix("1")).texture("glow", this.texture(block, loc).withSuffix("1_glow")).renderType("cutout");
         ModelFile out2 = this.models().withExistingParent(this.name(block) + "2", Redux.locate("block/template_single_face_gloverlay")).texture("texture", this.texture(block, loc).withSuffix("2")).texture("glow", this.texture(block, loc).withSuffix("2_glow")).renderType("cutout");
         ModelFile out3 = this.models().withExistingParent(this.name(block) + "3", Redux.locate("block/template_single_face_gloverlay")).texture("texture", this.texture(block, loc).withSuffix("3")).texture("glow", this.texture(block, loc).withSuffix("3_glow")).renderType("cutout");
         ModelFile out4 = this.models().withExistingParent(this.name(block) + "4", Redux.locate("block/template_single_face_gloverlay")).texture("texture", this.texture(block, loc).withSuffix("4")).texture("glow", this.texture(block, loc).withSuffix("4_glow")).renderType("cutout");
-        ModelFile in = this.models().singleTexture(this.name(block) + "_inside", mcLoc("block/template_single_face"), this.texture(block, loc).withSuffix("_inside")).renderType("cutout");
+        ModelFile in = this.models().singleTexture(this.name(block) + "_inside", mcLoc("block/template_single_face"), this.texture(block, loc).withSuffix("_inside"));
         MultiPartBlockStateBuilder builder = this.getMultipartBuilder(block.get());
         for (Direction d : Direction.values())
         {
