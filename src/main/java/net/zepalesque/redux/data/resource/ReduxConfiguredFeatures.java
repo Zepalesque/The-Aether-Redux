@@ -24,6 +24,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.PinkPetalsBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -47,6 +48,7 @@ import net.zepalesque.redux.api.condition.Conditions;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.util.ReduxStates;
 import net.zepalesque.redux.misc.ReduxTags;
+import net.zepalesque.redux.world.feature.CloudcapFeature;
 import net.zepalesque.redux.world.feature.ReduxFeatureRegistry;
 import net.zepalesque.redux.world.feature.config.*;
 import net.zepalesque.redux.world.stateprov.SimpleConditionAlternativeStateProvider;
@@ -383,13 +385,17 @@ public class    ReduxConfiguredFeatures {
 
         register(context, IRIDIA_PATCH, Feature.FLOWER,
                 randomPatch(4, 3, 3, BlockStateProvider.simple(drops(ReduxBlocks.IRIDIA))));
-        register(context, LARGE_CLOUDCAP, ReduxFeatureRegistry.LARGE_CLOUDCAP.get(),
-                new HugeAetherMushroomFeatureConfiguration(
-                        prov(ReduxBlocks.CLOUD_CAP_BLOCK),
+        register(context, LARGE_CLOUDCAP, ReduxFeatureRegistry.CLOUDCAP.get(),
+                new CloudcapFeature.CloudcapConfig(
+                        prov(ReduxBlocks.CLOUD_CAP_BLOCK.get().defaultBlockState().setValue(BlockStateProperties.DOWN, false)),
                         prov(ReduxBlocks.CLOUDCAP_SPORES),
                         prov(Redux.Handlers.Wood.CLOUDCAP.log),
-                        2
-                ));
+                        prov(naturalDrops(Redux.Handlers.Wood.CLOUDCAP.logWall)),
+                        UniformInt.of(11, 17),
+                        UniformInt.of(1, 3),
+                        UniformInt.of(1, 2),
+                        UniformInt.of(6, 9))
+        );
         register(context, LARGE_MUSHROOMS, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
                                 PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(LARGE_JELLYSHROOM), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.JELLYSHROOM.get())), 0.3F),
@@ -663,6 +669,13 @@ public class    ReduxConfiguredFeatures {
     }
     private static BlockState drops(RegistryObject<? extends Block> block)
     {
+        return drops(block.get().defaultBlockState());
+    }
+
+    private static BlockState naturalDrops(RegistryObject<? extends Block> block)
+    {
+//        BlockState b = block.get().defaultBlockState();
+//        return b.hasProperty(ReduxStates.NATURALLY_GENERATED) ? drops(b.setValue(ReduxStates.NATURALLY_GENERATED, true)) : drops(b);
         return drops(block.get().defaultBlockState());
     }
 }

@@ -19,6 +19,7 @@ public class ReduxFeatureRegistry {
     public static RegistryObject<Feature<HugeAetherMushroomFeatureConfiguration>> LARGE_CLOUDCAP = FEATURES.register("large_cloudcap", () -> new HugeCloudcapMushroomFeature(HugeAetherMushroomFeatureConfiguration.CODEC));
     public static RegistryObject<Feature<HugeAetherMushroomFeatureConfiguration>> LARGE_SPRINGSHROOM = FEATURES.register("large_springshroom", () -> new HugeSpringshroomFeature(HugeAetherMushroomFeatureConfiguration.CODEC));
     public static RegistryObject<Feature<MegaCloudcapFeatureConfiguration>> MEGA_CLOUDCAP = FEATURES.register("mega_cloudcap", () -> new MegaCloudcapFeature(MegaCloudcapFeatureConfiguration.CODEC));
+    public static RegistryObject<Feature<CloudcapFeature.CloudcapConfig>> CLOUDCAP = FEATURES.register("cloudcap", () -> new CloudcapFeature(CloudcapFeature.CloudcapConfig.CODEC));
     public static RegistryObject<Feature<SurfaceRuleLakeConfig>> SURFACE_RULE_LAKE = FEATURES.register("surface_rule_lake", () -> new SurfaceRuleLakeFeature(SurfaceRuleLakeConfig.CODEC));
     public static RegistryObject<Feature<FieldsproutTreeConfig>> FIELDSPROUT_TREE = FEATURES.register("fieldsprout_tree", () -> new FieldsproutTreeFeature(FieldsproutTreeConfig.CODEC));
     public static RegistryObject<Feature<CloudLayerConfig>> CLOUD_LAYER = FEATURES.register("cloud_layer", () -> new CloudLayerFeature(CloudLayerConfig.CODEC));
