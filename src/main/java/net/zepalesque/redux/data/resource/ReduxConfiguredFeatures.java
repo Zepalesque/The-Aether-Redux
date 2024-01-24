@@ -404,8 +404,8 @@ public class    ReduxConfiguredFeatures {
                         prov(Redux.WoodHandlers.CLOUDCAP.log),
                         prov(naturalDrops(Redux.WoodHandlers.CLOUDCAP.logWall)),
                         UniformInt.of(11, 17),
+                        UniformInt.of(1, 4),
                         UniformInt.of(1, 3),
-                        UniformInt.of(1, 2),
                         UniformInt.of(6, 9))
                 );
         register(context, MOSSY_HOLYSTONE_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
