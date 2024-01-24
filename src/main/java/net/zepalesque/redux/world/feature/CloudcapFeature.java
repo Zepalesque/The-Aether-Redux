@@ -92,17 +92,27 @@ public class CloudcapFeature extends Feature<CloudcapFeature.CloudcapConfig> {
             }
         }
 
+        int capHeight = context.config().capHeight.sample(context.random());
         // Cap Sides
         int innerRadius = 0;
-        for (int x = -1; x <= 1; x++) {
-            for (int z = -1; z <= 1; z++) {
-                mutable.setWithOffset(capTop, x, 0, z);
-                BlockPos immutable1 = mutable.immutable();
-                BlockState state = context.config().cap.getState(context.random(), immutable1);
-                if (state.hasProperty(HugeMushroomBlock.WEST) && state.hasProperty(HugeMushroomBlock.EAST) && state.hasProperty(HugeMushroomBlock.NORTH) && state.hasProperty(HugeMushroomBlock.SOUTH) && state.hasProperty(HugeMushroomBlock.UP)) {
-                    state = state.setValue(HugeMushroomBlock.WEST, x < -innerRadius).setValue(HugeMushroomBlock.EAST, x > innerRadius).setValue(HugeMushroomBlock.NORTH, z < -innerRadius).setValue(HugeMushroomBlock.SOUTH, z > innerRadius);
+        for (int x = -2; x <= 2; x++) {
+            for (int y = 0; y > -capHeight; y--) {
+                for (int z = -2; z <= 2; z++) {
+
+                    boolean xEdges = x == -2 || x == 2;
+                    boolean zEdges = z == -2 || z == 2;
+                    boolean outer = (xEdges && !zEdges) || (!xEdges && zEdges);
+                    if (outer) {
+                        mutable.setWithOffset(capTop, x, y, z);
+                        BlockPos immutable1 = mutable.immutable();
+                        BlockState state = context.config().cap.getState(context.random(), immutable1);
+                        if (state.hasProperty(HugeMushroomBlock.WEST) && state.hasProperty(HugeMushroomBlock.EAST) && state.hasProperty(HugeMushroomBlock.NORTH) && state.hasProperty(HugeMushroomBlock.SOUTH) && state.hasProperty(HugeMushroomBlock.UP)) {
+                            state = state.setValue(HugeMushroomBlock.WEST, x < -innerRadius).setValue(HugeMushroomBlock.EAST, x > innerRadius).setValue(HugeMushroomBlock.NORTH, z < -innerRadius).setValue(HugeMushroomBlock.SOUTH, z > innerRadius);
+                        }
+                        toPlace.putIfAbsent(immutable1, state);
+                    }
+
                 }
-                toPlace.putIfAbsent(immutable1, state);
             }
         }
         for (Map.Entry<BlockPos, BlockState> entry : toPlace.entrySet()) {
