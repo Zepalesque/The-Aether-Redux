@@ -391,16 +391,14 @@ public class    ReduxConfiguredFeatures {
                         prov(ReduxBlocks.CLOUDCAP_SPORES),
                         prov(Redux.Handlers.Wood.CLOUDCAP.log),
                         prov(naturalDrops(Redux.Handlers.Wood.CLOUDCAP.logWall)),
-                        UniformInt.of(11, 17),
+                        UniformInt.of(15, 21),
                         UniformInt.of(1, 4),
                         UniformInt.of(1, 3),
                         UniformInt.of(6, 9))
         );
         register(context, LARGE_MUSHROOMS, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
-                                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(LARGE_JELLYSHROOM), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.JELLYSHROOM.get())), 0.3F),
-                        new WeightedPlacedFeature(
-                                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(MEGA_CLOUDCAP), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.CLOUDCAP_MUSHLING.get())), 0.35F)),
+                                PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(LARGE_JELLYSHROOM), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.JELLYSHROOM.get())), 0.3F)),
                         PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(LARGE_CLOUDCAP), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.CLOUDCAP_MUSHLING.get()))));
         register(context, LARGE_JELLYSHROOM, ReduxFeatureRegistry.JELLYSHROOM.get(),
                 new JellyshroomConfig(

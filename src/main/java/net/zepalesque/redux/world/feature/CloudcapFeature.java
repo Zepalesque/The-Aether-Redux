@@ -96,7 +96,7 @@ public class CloudcapFeature extends Feature<CloudcapFeature.CloudcapConfig> {
         // Cap Sides
         int innerRadius = 0;
         for (int x = -2; x <= 2; x++) {
-            for (int y = 0; y > -capHeight; y--) {
+            for (int y = -1; y >= -capHeight; y--) {
                 for (int z = -2; z <= 2; z++) {
 
                     boolean xEdges = x == -2 || x == 2;
