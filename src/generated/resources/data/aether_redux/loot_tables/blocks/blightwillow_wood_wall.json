@@ -5,13 +5,22 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "condition": "minecraft:survives_explosion"
+          "block": "aether_redux:blightwillow_wood_wall",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "natural_gen": "true"
+          }
         }
       ],
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "aether_redux:blightwillow_wood_wall"
+          "functions": [
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "aether_redux:blightwillow_log"
         }
       ],
       "rolls": 1.0

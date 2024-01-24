@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-23T22:27:17.8294032	Block States: aether_redux
+// 1.20.1	2024-01-24T16:30:40.8491975	Block States: aether_redux
 3b65fcf4de37be76dd1ac46b4118458043237e15 assets/aether_redux/blockstates/aether_short_grass.json
 0a0f21b01afc7514adf77a09aca842eb1a0055b4 assets/aether_redux/blockstates/aevelium.json
 839da9eb72bebfe44879f5abc71bbd50e6ef1b23 assets/aether_redux/blockstates/aevelium_growth.json
@@ -368,12 +368,12 @@ e8cd3cacc331c3673f13ab344347963cdb087af5 assets/aether_redux/models/block/cloudc
 dae257860cda496bb843f932aafe9223562948f9 assets/aether_redux/models/block/cloudcap_trapdoor_open.json
 dbdcf42d8468f217cbf112df7925d56ce4cd7717 assets/aether_redux/models/block/cloudcap_trapdoor_top.json
 3d1cbcf51b9b44e3e43bce4ecbf9420bd69267a6 assets/aether_redux/models/block/cloud_cap_block.json
-79f3982dcf9231de72aeb837fa3b343b0aa4dfd7 assets/aether_redux/models/block/cloud_cap_block0.json
+51276e3b22f8ce1209fd774898f7b4225626762f assets/aether_redux/models/block/cloud_cap_block0.json
 f9233f81cf0f907e269971bc3d828f4f671a0bf3 assets/aether_redux/models/block/cloud_cap_block1.json
 1cb295ab5f187bf9b85d80b6315d8803e7e5d544 assets/aether_redux/models/block/cloud_cap_block2.json
 c39230cb5aed5e9120fa5aec1df610b14a8438fc assets/aether_redux/models/block/cloud_cap_block3.json
 032ce67c76273d5d3d732a0225b2b67366153b84 assets/aether_redux/models/block/cloud_cap_block4.json
-b77d2bfb191fd170e5143f00c4b2a3d8fedc4eae assets/aether_redux/models/block/cloud_cap_block_inside.json
+0652a579d203522259b815446987d0af980a3886 assets/aether_redux/models/block/cloud_cap_block_inside.json
 92cc00daaf63ac8c347d32e8eb08831b0236dac5 assets/aether_redux/models/block/coarse_aether_dirt.json
 d94940d494340fc1fd007174b192525b9400d888 assets/aether_redux/models/block/crystal_button.json
 0bae9953c35f2c8e3ac9cc89f768d0bc1b9e1c8c assets/aether_redux/models/block/crystal_button_pressed.json
