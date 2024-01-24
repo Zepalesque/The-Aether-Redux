@@ -216,8 +216,8 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
     }
 
     public void naturalDrop(Block block, ItemLike other) {
-        this.add(block, naturalDropBase(block, other));
-//        this.dropSelf(block);
+//        this.add(block, naturalDropBase(block, other));
+        this.dropSelf(block);
     }
 
 
