@@ -231,7 +231,7 @@ public class    ReduxConfiguredFeatures {
                 ),
                 new BlightwillowTrunkPlacer(5, 2, 2, new WeightedStateProvider(
                         SimpleWeightedRandomList.<BlockState>builder()
-                                .add(drops(naturalDrops(Redux.Handlers.Wood.BLIGHTWILLOW.wood)), 7)
+                                .add(drops(Redux.Handlers.Wood.BLIGHTWILLOW.wood), 7)
                                 .add(drops(Redux.Handlers.Wood.BLIGHTWILLOW.sporingWood.orElseThrow()), 1)
                 ), UniformInt.of(4, 6), UniformInt.of(3, 4)),
                 BlockStateProvider.simple(drops(ReduxBlocks.BLIGHTWILLOW_LEAVES)),
@@ -390,7 +390,7 @@ public class    ReduxConfiguredFeatures {
                         prov(ReduxBlocks.CLOUD_CAP_BLOCK.get().defaultBlockState().setValue(BlockStateProperties.DOWN, false)),
                         prov(ReduxBlocks.CLOUDCAP_SPORES),
                         prov(Redux.Handlers.Wood.CLOUDCAP.log),
-                        prov(naturalDrops(Redux.Handlers.Wood.CLOUDCAP.logWall)),
+                        prov(Redux.Handlers.Wood.CLOUDCAP.logWall),
                         UniformInt.of(11, 17),
                         UniformInt.of(1, 4),
                         UniformInt.of(1, 3),
@@ -416,7 +416,7 @@ public class    ReduxConfiguredFeatures {
                         prov(ReduxBlocks.CLOUD_CAP_BLOCK),
                         prov(ReduxBlocks.CLOUDCAP_SPORES),
                         prov(Redux.Handlers.Wood.CLOUDCAP.log),
-                        prov(naturalDrops(Redux.Handlers.Wood.CLOUDCAP.wood))
+                        prov(Redux.Handlers.Wood.CLOUDCAP.wood)
                 ));
         register(context, MOSSY_HOLYSTONE_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
                 drops(AetherBlocks.MOSSY_HOLYSTONE), 32, 0.3F));
@@ -427,7 +427,7 @@ public class    ReduxConfiguredFeatures {
                 new FieldsproutTreeConfig(
                         prov(ReduxBlocks.FLOWERING_FIELDSPROUT_LEAVES),
                         prov(Redux.Handlers.Wood.FIELDSPROUT.log),
-                        prov(naturalDrops(Redux.Handlers.Wood.FIELDSPROUT.wood)),
+                        prov(Redux.Handlers.Wood.FIELDSPROUT.wood),
                         new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
                                 .add(ConstantInt.of(0), 5)
                                 .add(ConstantInt.of(1), 4)
@@ -672,9 +672,5 @@ public class    ReduxConfiguredFeatures {
         return drops(block.get().defaultBlockState());
     }
 
-    private static BlockState naturalDrops(RegistryObject<? extends Block> block)
-    {
-        BlockState b = block.get().defaultBlockState();
-        return b.hasProperty(ReduxStates.NATURAL_GEN) ? drops(b.setValue(ReduxStates.NATURAL_GEN, true)) : drops(b);
-    }
+
 }
