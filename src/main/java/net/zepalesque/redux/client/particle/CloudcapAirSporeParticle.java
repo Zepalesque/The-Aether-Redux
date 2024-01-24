@@ -12,6 +12,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 @OnlyIn(Dist.CLIENT)
 public class CloudcapAirSporeParticle extends TextureSheetParticle {
 
+   protected boolean isGlowing;
 
    CloudcapAirSporeParticle(ClientLevel level, SpriteSet sprites, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
       super(level, x, y - 0.125D, z, xSpeed, ySpeed, zSpeed);
@@ -28,6 +29,9 @@ public class CloudcapAirSporeParticle extends TextureSheetParticle {
       return ParticleRenderType.PARTICLE_SHEET_OPAQUE;
    }
 
+   public int getLightColor(float partialTick) {
+      return this.isGlowing ? 240 : super.getLightColor(partialTick);
+   }
 
    @OnlyIn(Dist.CLIENT)
    public static class Provider implements ParticleProvider<SimpleParticleType> {
@@ -45,7 +49,7 @@ public class CloudcapAirSporeParticle extends TextureSheetParticle {
          };
          particle.lifetime = Mth.randomBetweenInclusive(level.random, 500, 1000);
          particle.gravity = 0.01F;
-         particle.setColor(0.32F, 0.5F, 0.22F);
+         particle.isGlowing = true;
          return particle;
       }
    }
