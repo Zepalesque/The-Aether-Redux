@@ -144,9 +144,6 @@ public class ReduxBlocks {
                     Block.box(4.0D, 0.0D, 4.0D, 12.0D, 12.0D, 12.0D)));
     public static final RegistryObject<FlowerPotBlock> POTTED_CLOUDCAP_MUSHLING = BLOCKS.register("potted_cloudcap_mushling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CLOUDCAP_MUSHLING, Block.Properties.copy(Blocks.FLOWER_POT).lightLevel((state) -> 3)));
 
-    public static RegistryObject<Block> TALL_CLOUDCAP = register("tall_cloudcap",
-            () -> new TallCloudcapBlock(BlockBehaviour.Properties.of().lightLevel((state) -> state.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.UPPER ? 4 : 0).noCollission().instabreak().sound(SoundType.NETHER_SPROUTS).offsetType(BlockBehaviour.OffsetType.XZ), ReduxConfiguredFeatures.MEGA_CLOUDCAP));
-
     public static RegistryObject<Block> LUMINA = register("lumina",
             () -> new FlowerBlock(() -> MobEffects.NIGHT_VISION, 60, BlockBehaviour.Properties.copy(Blocks.POPPY).hasPostProcess(ReduxBlocks::always).lightLevel((state) -> 9).mapColor(MapColor.COLOR_ORANGE)));
     public static final RegistryObject<FlowerPotBlock> POTTED_LUMINA = BLOCKS.register("potted_lumina", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, LUMINA, Block.Properties.copy(Blocks.FLOWER_POT)));
@@ -358,7 +355,7 @@ public class ReduxBlocks {
         FireBlockAccessor fireBlockAccessor = (FireBlockAccessor)Blocks.FIRE;
         fireBlockAccessor.callSetFlammable(BLIGHTWILLOW_LEAVES.get(), 30, 60);
         fireBlockAccessor.callSetFlammable(GLACIA_LEAVES.get(), 30, 60);
-        for (WoodHandler woodHandler : Redux.Handlers.Wood.WOOD_HANDLERS) {
+        for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS) {
             woodHandler.strippedLog.ifPresent((reg) -> fireBlockAccessor.callSetFlammable(reg.get(), 5, 5));
             fireBlockAccessor.callSetFlammable(woodHandler.log.get(), 5, 5);
             fireBlockAccessor.callSetFlammable(woodHandler.logWall.get(), 5, 5);
@@ -384,7 +381,7 @@ public class ReduxBlocks {
         fireBlockAccessor.callSetFlammable(BLIGHTSHADE.get(), 60, 100);
     }
     public static void registerWoodTypes() {
-        for (WoodHandler woodHandler : Redux.Handlers.Wood.WOOD_HANDLERS)
+        for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS)
         {
             WoodType.register(woodHandler.woodType);
         }

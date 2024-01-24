@@ -39,7 +39,7 @@ public class ReduxToolHooks {
 
     static {
 
-        for (WoodHandler woodHandler : Redux.Handlers.Wood.WOOD_HANDLERS) {
+        for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS) {
             if (woodHandler.hasStrippedLogs) {
                 STRIPPABLES.put(woodHandler.log.get(), woodHandler.strippedLog.get().get());
                 STRIPPABLES.put(woodHandler.wood.get(), woodHandler.strippedWood.get().get());
@@ -98,7 +98,7 @@ public class ReduxToolHooks {
     public static void stripBlightwillow(LevelAccessor accessor, BlockState state, ItemStack stack, ToolAction action, UseOnContext context) {
         if (action == ToolActions.AXE_STRIP) {
             if (accessor instanceof Level level) {
-                if (Redux.Handlers.Wood.BLIGHTWILLOW.sporingBlocksBlockTag.isPresent() && state.is(Redux.Handlers.Wood.BLIGHTWILLOW.sporingBlocksBlockTag.get()) && stack.is(AetherTags.Items.GOLDEN_AMBER_HARVESTERS)) {
+                if (Redux.WoodHandlers.BLIGHTWILLOW.sporingBlocksBlockTag.isPresent() && state.is(Redux.WoodHandlers.BLIGHTWILLOW.sporingBlocksBlockTag.get()) && stack.is(AetherTags.Items.GOLDEN_AMBER_HARVESTERS)) {
                     if (level.getServer() != null && level instanceof ServerLevel serverLevel) {
                         Vec3 vector = context.getClickLocation();
                         LootParams parameters = (new LootParams.Builder(serverLevel)).withParameter(LootContextParams.TOOL, stack).create(AetherLootContexts.STRIPPING);

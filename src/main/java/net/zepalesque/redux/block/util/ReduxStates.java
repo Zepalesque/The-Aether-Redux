@@ -29,4 +29,6 @@ public class ReduxStates {
     public static final EnumProperty<PetalPrismaticness> PETAL_3 = EnumProperty.create("petal_3_val", PetalPrismaticness.class);
     public static final EnumProperty<PetalPrismaticness> PETAL_4 = EnumProperty.create("petal_4_val", PetalPrismaticness.class);
 
+    public static final BooleanProperty NATURALLY_GENERATED = BooleanProperty.create("naturally_generated");
+
 }

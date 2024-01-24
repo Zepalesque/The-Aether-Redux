@@ -34,7 +34,6 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlock(ReduxBlocks.DIVINITE_STAIRS);
         itemWallBlock(ReduxBlocks.DIVINITE_WALL, ReduxBlocks.DIVINITE, "natural/");
         itemBlockFlatTintOverlay(ReduxBlocks.IRIDIA, "natural/");
-        itemBlockFlatGlow(ReduxBlocks.TALL_CLOUDCAP, "natural/", "_top");
         itemBlock(ReduxBlocks.GILDED_HOLYSTONE);
         itemBlock(ReduxBlocks.GILDED_HOLYSTONE_SLAB);
         itemBlock(ReduxBlocks.GILDED_HOLYSTONE_STAIRS);
@@ -174,7 +173,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
 
         this.item(ReduxItems.ZANBERRY, "food/");
 
-        for (WoodHandler woodHandler : Redux.Handlers.Wood.WOOD_HANDLERS)        {
+        for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS)        {
             woodHandler.generateItemModels(this);
         }
 

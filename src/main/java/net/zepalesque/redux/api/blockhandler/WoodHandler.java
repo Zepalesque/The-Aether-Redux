@@ -22,12 +22,13 @@ import net.minecraftforge.client.model.generators.ModelBuilder;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.block.natural.ReduxNaturalLog;
+import net.zepalesque.redux.block.natural.ReduxNaturalWall;
 import net.zepalesque.redux.block.sign.ReduxCeilingHangingSignBlock;
 import net.zepalesque.redux.block.sign.ReduxWallHangingSignBlock;
 import net.zepalesque.redux.blockentity.ReduxHangingSignBlockEntity;
 import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.block.ReduxBlocks;
-import net.zepalesque.redux.block.natural.ReduxDoubleDropsWall;
 import net.zepalesque.redux.block.sign.ReduxSignBlock;
 import net.zepalesque.redux.block.sign.ReduxWallSignBlock;
 import net.zepalesque.redux.blockentity.ReduxBlockEntityTypes;
@@ -230,7 +231,7 @@ public class WoodHandler implements BlockHandler {
         this.chestBoatEntity = ReduxEntityTypes.ENTITY_TYPES.register(pWoodName + "_chest_boat",
                 () -> EntityType.Builder.<ReduxChestBoat>of(ReduxChestBoat::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build(pWoodName + "_chest_boat"));
         this.log = ReduxBlocks.register(pWoodName + "_" + pLogSuffix, () -> new AetherLogBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).sound(pLogSoundType).mapColor(barkColor)));
-        this.wood = ReduxBlocks.register(pWoodName + "_" + pWoodSuffix, () -> new AetherLogBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD).sound(pLogSoundType).mapColor(barkColor)));
+        this.wood = ReduxBlocks.register(pWoodName + "_" + pWoodSuffix, () -> new ReduxNaturalLog(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD).sound(pLogSoundType).mapColor(barkColor)));
         if (this.hasStrippedLogs)
         {
             RegistryObject<RotatedPillarBlock> strippedLog = ReduxBlocks.register("stripped_" + pWoodName + "_" + pLogSuffix, () -> new AetherLogBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_LOG).sound(pLogSoundType).mapColor(woodColor)));
@@ -295,8 +296,8 @@ public class WoodHandler implements BlockHandler {
         this.signItem = ReduxItems.register(pWoodName + "_sign", () -> new SignItem((new Item.Properties()).stacksTo(16), this.sign.get(), this.wallSign.get()));
         this.hangingSignItem = ReduxItems.register(pWoodName + "_hanging_sign", () -> new HangingSignItem(this.hangingSign.get(), this.wallHangingSign.get(), (new Item.Properties()).stacksTo(16)));
 
-        this.logWall = ReduxBlocks.register(woodName + "_"+pLogSuffix+"_wall", () -> new ReduxDoubleDropsWall(Block.Properties.of().mapColor(barkColor).strength(2.0F).sound(pLogSoundType)));
-        this.woodWall = ReduxBlocks.register(woodName + "_"+pWoodSuffix+"_wall", () -> new ReduxDoubleDropsWall(Block.Properties.of().mapColor(barkColor).strength(2.0F).sound(pLogSoundType)));
+        this.logWall = ReduxBlocks.register(woodName + "_"+pLogSuffix+"_wall", () -> new ReduxNaturalWall(Block.Properties.of().mapColor(barkColor).strength(2.0F).sound(pLogSoundType)));
+        this.woodWall = ReduxBlocks.register(woodName + "_"+pWoodSuffix+"_wall", () -> new ReduxNaturalWall(Block.Properties.of().mapColor(barkColor).strength(2.0F).sound(pLogSoundType)));
     }
 
     private RegistryObject<BlockEntityType<ReduxSignBlockEntity>> getSign()
@@ -460,7 +461,7 @@ public class WoodHandler implements BlockHandler {
         data.addLore(this.fenceGate, "Crafted from " + getLocalizedName() + " Planks and Skyroot Sticks. Fence gates give a homely entrance and exit to your precious enclosures.");
        data.addBlock(this.door, getLocalizedName() + " Door");
         data.addLore(this.door, "Crafted from " + getLocalizedName() +
-                (this == Redux.Handlers.Wood.CLOUDCAP ? " Planks. Some have said that these doors cause places to almost feel more spacious inside than out." : " Planks. Doors are an ornate entrance helpful for keeping an enclosed and safe space without worry of monsters wandering in!")
+                (this == Redux.WoodHandlers.CLOUDCAP ? " Planks. Some have said that these doors cause places to almost feel more spacious inside than out." : " Planks. Doors are an ornate entrance helpful for keeping an enclosed and safe space without worry of monsters wandering in!")
         );
        data.addBlock(this.trapdoor, getLocalizedName() + " Trapdoor");
         data.addLore(this.trapdoor, "Crafted from "+getLocalizedName()+" Planks. Trapdoors are useful for covering entryways one block wide. They are often used to add extra protection to staircases.");
@@ -479,11 +480,11 @@ public class WoodHandler implements BlockHandler {
         data.dropSelf(this.log.get());
         this.strippedWood.ifPresent((reg) -> data.dropSelf(reg.get()));
         this.strippedLog.ifPresent((reg) -> data.dropSelf(reg.get()));
-        data.dropSelf(this.logWall.get());
+        data.naturalDrop(this.logWall.get(), this.log.get());
         this.strippedLogWall.ifPresent((reg) -> data.dropSelf(reg.get()));
-        data.dropSelf(this.woodWall.get());
+        data.naturalDrop(this.woodWall.get(), this.log.get());
         this.strippedWoodWall.ifPresent((reg) -> data.dropSelf(reg.get()));
-        data.dropSelf(this.wood.get());
+        data.naturalDrop(this.wood.get(), this.log.get());
         data.dropSelf(this.planks.get());
         data.dropSelf(this.stairs.get());
         data.dropSelf(this.slab.get());
