@@ -22,7 +22,6 @@ import net.minecraftforge.client.model.generators.ModelBuilder;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.block.natural.ReduxNaturalWall;
 import net.zepalesque.redux.block.sign.ReduxCeilingHangingSignBlock;
 import net.zepalesque.redux.block.sign.ReduxWallHangingSignBlock;
 import net.zepalesque.redux.blockentity.ReduxHangingSignBlockEntity;
@@ -296,8 +295,8 @@ public class WoodHandler implements BlockHandler {
         this.signItem = ReduxItems.register(pWoodName + "_sign", () -> new SignItem((new Item.Properties()).stacksTo(16), this.sign.get(), this.wallSign.get()));
         this.hangingSignItem = ReduxItems.register(pWoodName + "_hanging_sign", () -> new HangingSignItem(this.hangingSign.get(), this.wallHangingSign.get(), (new Item.Properties()).stacksTo(16)));
 
-        this.logWall = ReduxBlocks.register(woodName + "_"+pLogSuffix+"_wall", () -> new ReduxNaturalWall(Block.Properties.of().mapColor(barkColor).strength(2.0F).sound(pLogSoundType)));
-        this.woodWall = ReduxBlocks.register(woodName + "_"+pWoodSuffix+"_wall", () -> new ReduxNaturalWall(Block.Properties.of().mapColor(barkColor).strength(2.0F).sound(pLogSoundType)));
+        this.logWall = ReduxBlocks.register(woodName + "_"+pLogSuffix+"_wall", () -> new ReduxDoubleDropsWall(Block.Properties.of().mapColor(barkColor).strength(2.0F).sound(pLogSoundType)));
+        this.woodWall = ReduxBlocks.register(woodName + "_"+pWoodSuffix+"_wall", () -> new ReduxDoubleDropsWall(Block.Properties.of().mapColor(barkColor).strength(2.0F).sound(pLogSoundType)));
     }
 
     private RegistryObject<BlockEntityType<ReduxSignBlockEntity>> getSign()
@@ -480,11 +479,11 @@ public class WoodHandler implements BlockHandler {
         data.dropSelf(this.log.get());
         this.strippedWood.ifPresent((reg) -> data.dropSelf(reg.get()));
         this.strippedLog.ifPresent((reg) -> data.dropSelf(reg.get()));
-        data.naturalDrop(this.logWall.get(), this.log.get());
+        data.dropSelf(this.logWall.get());
         this.strippedLogWall.ifPresent((reg) -> data.dropSelf(reg.get()));
-        data.naturalDrop(this.woodWall.get(), this.log.get());
+        data.dropSelf(this.woodWall.get());
         this.strippedWoodWall.ifPresent((reg) -> data.dropSelf(reg.get()));
-        data.naturalDrop(this.wood.get(), this.log.get());
+        data.dropSelf(this.wood.get());
         data.dropSelf(this.planks.get());
         data.dropSelf(this.stairs.get());
         data.dropSelf(this.slab.get());
