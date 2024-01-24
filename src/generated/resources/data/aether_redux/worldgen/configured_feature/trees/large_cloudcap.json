@@ -70,6 +70,7 @@
         "Properties": {
           "double_drops": "true",
           "east": "none",
+          "natural_gen": "true",
           "north": "none",
           "south": "none",
           "up": "true",
