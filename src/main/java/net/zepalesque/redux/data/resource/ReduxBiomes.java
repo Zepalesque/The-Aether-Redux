@@ -76,7 +76,7 @@ public class ReduxBiomes {
                 ReduxMusic.DEFAULT_AETHER_MUSIC,
                 WATER,
                 WATER_FOG,
-                AETHER_GRASS_COLOR
+                CLOUDCAP_GRASS_COLOR
                 ));
 
         context.register(GLACIAL_TAIGA, climateBiome(
@@ -183,6 +183,7 @@ public class ReduxBiomes {
     public static final int FROSTED_GRASS_COLOR = 0xCCF7FF;
     public static final int HIGHFIELDS_GRASS_COLOR = 0xCCFFED;
     public static final int SHRUBLANDS_GRASS_COLOR = 0xC1FFB1;
+    public static final int CLOUDCAP_GRASS_COLOR = 0xD5F2E3;
 
 
 
