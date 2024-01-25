@@ -41,7 +41,7 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
                 ReduxBiomes.GILDED_GROVES,
                 ReduxBiomes.GILDED_GRASSLANDS,
                 ReduxBiomes.HIGHFIELDS,
-                ReduxBiomes.CLOUDCAP_JUNGLE,
+                ReduxBiomes.CLOUDCAPS,
                 ReduxBiomes.SKYROOT_SHRUBLANDS
         );
 

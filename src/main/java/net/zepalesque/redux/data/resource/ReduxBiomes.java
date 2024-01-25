@@ -18,6 +18,7 @@ import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.audio.ReduxMusic;
+import net.zepalesque.redux.entity.ReduxEntityTypes;
 
 public class ReduxBiomes {
     public static final ResourceKey<Biome> THE_BLIGHT = createKey("the_blight");
@@ -26,7 +27,7 @@ public class ReduxBiomes {
     public static final ResourceKey<Biome> GILDED_GROVES = createKey("gilded_groves");
     public static final ResourceKey<Biome> GILDED_GRASSLANDS = createKey("gilded_grasslands");
     public static final ResourceKey<Biome> HIGHFIELDS = createKey("highfields");
-    public static final ResourceKey<Biome> CLOUDCAP_JUNGLE = createKey("cloudcap_jungle");
+    public static final ResourceKey<Biome> CLOUDCAPS = createKey("cloudcaps");
     public static final ResourceKey<Biome> SKYROOT_SHRUBLANDS = createKey("skyroot_shrublands");
 
     private static ResourceKey<Biome> createKey(String name) {
@@ -62,14 +63,16 @@ public class ReduxBiomes {
                 0xA591BC
                 ));
 
-        context.register(CLOUDCAP_JUNGLE, simpleBiome(
+        context.register(CLOUDCAPS, simpleBiome(
                 ores(baseFeatures(new BiomeGenerationSettings.Builder(placedFeatures, configuredCarvers), false, false, true, true, true))
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.LARGE_MUSHROOMS)
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.AEVELIUM_GRASSES_PATCH)
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.CLOUDCAP_MUSHLING_PATCH)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.SPRINGSHROOM_PATCH)
+                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.JELLYSHROOM_PATCH)
+                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.SHIMMERSTOOL_PATCH)
                         .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, ReduxPlacedFeatures.LIGHTROOTS)
-                , defaultMobSpawns(new MobSpawnSettings.Builder()),
+                        .addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, ReduxPlacedFeatures.SHIMMERSTOOL_ROCK)
+                , cloudcapMobs(new MobSpawnSettings.Builder()),
                 ReduxMusic.DEFAULT_AETHER_MUSIC,
                 WATER,
                 WATER_FOG,
@@ -248,6 +251,14 @@ public class ReduxBiomes {
                 .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(AetherEntityTypes.FLYING_COW.get(), 12, 2, 5))
                 .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(AetherEntityTypes.AERBUNNY.get(), 11, 3, 3))
                 .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(AetherEntityTypes.MOA.get(), 8, 1, 3));
+    }
+
+    public static MobSpawnSettings.Builder cloudcapMobs(MobSpawnSettings.Builder builder)
+    {
+        return defaultMobSpawnsNoPassive(builder)
+                .creatureGenerationProbability(0.25F)
+                .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ReduxEntityTypes.SHIMMERCOW.get(), 12, 2, 5));
+
     }
     public static MobSpawnSettings.Builder increasedMobSpawns(MobSpawnSettings.Builder builder)
     {

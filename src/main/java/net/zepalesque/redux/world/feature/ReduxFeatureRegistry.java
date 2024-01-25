@@ -15,6 +15,7 @@ public class ReduxFeatureRegistry {
     public static RegistryObject<Feature<PredicateStateConfig>> TEST_BELOW_BLOCK = FEATURES.register("test_below_block", () -> new TestBelowBlockFeature(PredicateStateConfig.CODEC));
     public static RegistryObject<Feature<PredicateStateConfig>> TEST_AT_BLOCK = FEATURES.register("test_at_block", () -> new TestAtBlockFeature(PredicateStateConfig.CODEC));
     public static RegistryObject<Feature<OreConfiguration>> ORE_WITH_UPDATE = FEATURES.register("ore_with_update", () -> new OreFeatureWithUpdate(OreConfiguration.CODEC));
+    public static RegistryObject<Feature<PatchRockConfig>> PATCH_ROCK = FEATURES.register("patch_rock", () -> new PatchRockFeature(PatchRockConfig.CODEC));
     public static RegistryObject<Feature<RootedShelfConfiguration>> ROOTED_SHELF = FEATURES.register("rooted_shelf", () -> new RootedShelfFeature(RootedShelfConfiguration.CODEC));
     public static RegistryObject<Feature<HugeAetherMushroomFeatureConfiguration>> LARGE_CLOUDCAP = FEATURES.register("large_cloudcap", () -> new HugeCloudcapMushroomFeature(HugeAetherMushroomFeatureConfiguration.CODEC));
     public static RegistryObject<Feature<HugeAetherMushroomFeatureConfiguration>> LARGE_SPRINGSHROOM = FEATURES.register("large_springshroom", () -> new HugeSpringshroomFeature(HugeAetherMushroomFeatureConfiguration.CODEC));

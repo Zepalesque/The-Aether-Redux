@@ -102,6 +102,8 @@ public class    ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> GRASSLAND_TREES = createKey(Folders.TREE + "grassland_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> HIGHFIELDS_ROCK  = createKey(Folders.SURFACE + "highfields_rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SHRUBLANDS_ROCK  = createKey(Folders.SURFACE + "shrublands_rock");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SHIMMERSTOOL_ROCK  = createKey(Folders.SURFACE + name(ReduxBlocks.SHIMMERSTOOL) + "_rock");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SHIMMERSTOOL_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.SHIMMERSTOOL) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> HOLYSILT_DISK  = createKey(Folders.SURFACE + "holysilt_disk");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYSPROUTS_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.SKYSPROUTS) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> HIGHFIELDS_TREES = createKey(Folders.TREE + "highfields_trees");
@@ -244,7 +246,7 @@ public class    ReduxConfiguredFeatures {
                 new TwoLayersFeatureSize(2, 0, 2)
         ).ignoreVines().dirt(BlockStateProvider.simple(Blocks.AIR)).build());
         register(context, CLOUDCAP_MUSHLING_PATCH, Feature.FLOWER,
-                blockBelowPlacementPatch(16, 5, 3, BlockStateProvider.simple(drops(ReduxBlocks.CLOUDCAP_MUSHLING)),
+                blockBelowPlacementPatch(16, 5, 3, prov(ReduxBlocks.CLOUDCAP_MUSHLING),
                         BlockPredicate.matchesBlocks(ReduxBlocks.AEVELIUM.get())));
         register(context, DAGGERBLOOM_PATCH, Feature.FLOWER,
                 randomPatch(12, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.DAGGERBLOOM))));
@@ -382,6 +384,12 @@ public class    ReduxConfiguredFeatures {
 
         register(context, SHRUBLANDS_ROCK, Feature.FOREST_ROCK,
                 new BlockStateConfiguration(AetherFeatureStates.HOLYSTONE));
+
+        register(context, SHIMMERSTOOL_ROCK, ReduxFeatureRegistry.PATCH_ROCK.get(),
+                blockBelowPlacementPatchRock(prov(AetherFeatureStates.HOLYSTONE), 8, 7, 3, prov(ReduxBlocks.SHIMMERSTOOL), BlockPredicate.matchesBlocks(ReduxBlocks.AEVELIUM.get())));
+
+        register(context, SHIMMERSTOOL_PATCH, Feature.FLOWER,
+                blockBelowPlacementPatch(8, 7, 3, prov(ReduxBlocks.SHIMMERSTOOL), BlockPredicate.matchesBlocks(ReduxBlocks.AEVELIUM.get())));
 
         register(context, IRIDIA_PATCH, Feature.FLOWER,
                 randomPatch(4, 3, 3, BlockStateProvider.simple(drops(ReduxBlocks.IRIDIA))));
@@ -529,6 +537,11 @@ public class    ReduxConfiguredFeatures {
     private static RandomPatchConfiguration blockBelowPlacementPatch(int tries, int xz, int y, BlockStateProvider state, BlockPredicate predicate)
     {
         return new RandomPatchConfiguration(tries, xz, y, PlacementUtils.onlyWhenEmpty(
+                ReduxFeatureRegistry.TEST_BELOW_BLOCK.get(), new PredicateStateConfig(state, predicate)));
+    }
+    private static PatchRockConfig blockBelowPlacementPatchRock(BlockStateProvider rock, int tries, int xz, int y, BlockStateProvider state, BlockPredicate predicate)
+    {
+        return new PatchRockConfig(rock, tries, xz, y, PlacementUtils.onlyWhenEmpty(
                 ReduxFeatureRegistry.TEST_BELOW_BLOCK.get(), new PredicateStateConfig(state, predicate)));
     }
     private static RandomPatchConfiguration blockTestPatch(int tries, int xz, int y, BlockStateProvider state, BlockPredicate predicate)

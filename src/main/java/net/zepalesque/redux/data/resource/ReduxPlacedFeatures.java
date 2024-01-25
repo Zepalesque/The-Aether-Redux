@@ -51,6 +51,8 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> BLIGHTMOSS_VEGETATION = createKey(Folders.CAVE + "blightmoss_vegetation");
     public static final ResourceKey<PlacedFeature> BLIGHTSHADE_PATCH = copyKey(ReduxConfiguredFeatures.BLIGHTSHADE_PATCH);
     public static final ResourceKey<PlacedFeature> BLIGHT_ROCK = copyKey(ReduxConfiguredFeatures.BLIGHT_ROCK);
+    public static final ResourceKey<PlacedFeature> SHIMMERSTOOL_ROCK = copyKey(ReduxConfiguredFeatures.SHIMMERSTOOL_ROCK);
+    public static final ResourceKey<PlacedFeature> SHIMMERSTOOL_PATCH = copyKey(ReduxConfiguredFeatures.SHIMMERSTOOL_PATCH);
     public static final ResourceKey<PlacedFeature> BLIGHT_TREES = copyKey(ReduxConfiguredFeatures.BLIGHT_TREES);
     public static final ResourceKey<PlacedFeature> CLOUDCAP_MUSHLING_PATCH = copyKey(ReduxConfiguredFeatures.CLOUDCAP_MUSHLING_PATCH);
     public static final ResourceKey<PlacedFeature> DAGGERBLOOM_PATCH = copyKey(ReduxConfiguredFeatures.DAGGERBLOOM_PATCH);
@@ -82,7 +84,7 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> GENESIS_WYNDSPROUTS_PATCH = copyKey(ReduxConfiguredFeatures.GENESIS_WYNDSPROUTS_PATCH);
     public static final ResourceKey<PlacedFeature> GENESIS_SKYSPROUTS_PATCH = copyKey(ReduxConfiguredFeatures.GENESIS_SKYSPROUTS_PATCH);
     public static final ResourceKey<PlacedFeature> SPIROLYCTIL_PATCH  = copyKey(ReduxConfiguredFeatures.SPIROLYCTIL_PATCH);
-    public static final ResourceKey<PlacedFeature> SPRINGSHROOM_PATCH  = copyKey(ReduxConfiguredFeatures.JELLYSHROOM_PATCH);
+    public static final ResourceKey<PlacedFeature> JELLYSHROOM_PATCH = copyKey(ReduxConfiguredFeatures.JELLYSHROOM_PATCH);
     public static final ResourceKey<PlacedFeature> SURFACE_RULE_WATER_LAKE = copyKey(ReduxConfiguredFeatures.SURFACE_RULE_WATER_LAKE);
     public static final ResourceKey<PlacedFeature> VERIDIUM_ORE = copyKey(ReduxConfiguredFeatures.VERIDIUM_ORE);
     public static final ResourceKey<PlacedFeature> DIVINITE_ORE = copyKey(ReduxConfiguredFeatures.DIVINITE_ORE);
@@ -166,8 +168,27 @@ public class ReduxPlacedFeatures {
                                 .add(UniformInt.of(1, 2), 5)
                                 .add(UniformInt.of(1, 3), 3)
                                 .build()), 4),
-                RarityFilter.onAverageOnceEvery(6),
+                RarityFilter.onAverageOnceEvery(16),
                 InSquarePlacement.spread(),
+                BiomeFilter.biome()
+        );
+        register(context, SHIMMERSTOOL_ROCK, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.SHIMMERSTOOL_ROCK),
+                NOISE_THRESHOLD,
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING,
+                        new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
+                                .add(ConstantInt.of(0), 7)
+                                .add(UniformInt.of(1, 2), 5)
+                                .add(UniformInt.of(1, 3), 3)
+                                .build()), 4),
+                RarityFilter.onAverageOnceEvery(12),
+                InSquarePlacement.spread(),
+                BiomeFilter.biome()
+        );
+
+        register(context, SHIMMERSTOOL_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.SHIMMERSTOOL_PATCH),
+                NOISE_THRESHOLD,
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(1, 3), 4),
+                RarityFilter.onAverageOnceEvery(28),
                 BiomeFilter.biome()
         );
 
@@ -298,7 +319,7 @@ public class ReduxPlacedFeatures {
                                 .add(UniformInt.of(1, 2), 5)
                                 .add(UniformInt.of(1, 3), 3)
                                 .build()), 4),
-                RarityFilter.onAverageOnceEvery(6),
+                RarityFilter.onAverageOnceEvery(16),
                 InSquarePlacement.spread(),
                 BiomeFilter.biome()
         );
@@ -328,7 +349,7 @@ public class ReduxPlacedFeatures {
                                 .add(UniformInt.of(1, 2), 2)
                                 .add(UniformInt.of(1, 3), 3)
                                 .build()), 4),
-                RarityFilter.onAverageOnceEvery(6),
+                RarityFilter.onAverageOnceEvery(16),
                 InSquarePlacement.spread(),
                 BiomeFilter.biome()
         );
@@ -341,7 +362,7 @@ public class ReduxPlacedFeatures {
                                 .add(UniformInt.of(1, 2), 3)
                                 .add(UniformInt.of(1, 5), 1)
                                 .build()), 4),
-                RarityFilter.onAverageOnceEvery(5),
+                RarityFilter.onAverageOnceEvery(12),
                 InSquarePlacement.spread(),
                 BiomeFilter.biome()
         );
@@ -407,7 +428,7 @@ public class ReduxPlacedFeatures {
                                 .add(UniformInt.of(1, 2), 5)
                                 .add(UniformInt.of(1, 3), 3)
                                 .build()), 4),
-                RarityFilter.onAverageOnceEvery(6),
+                RarityFilter.onAverageOnceEvery(16),
                 InSquarePlacement.spread(),
                 BiomeFilter.biome()
         );
@@ -457,7 +478,7 @@ public class ReduxPlacedFeatures {
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(1, 3), 4),
                 BiomeFilter.biome());
 
-        register(context, SPRINGSHROOM_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.JELLYSHROOM_PATCH),
+        register(context, JELLYSHROOM_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.JELLYSHROOM_PATCH),
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
                 RarityFilter.onAverageOnceEvery(5),
