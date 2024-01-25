@@ -62,8 +62,12 @@ public class CloudcapFeature extends Feature<CloudcapFeature.CloudcapConfig> {
             for (int i = -1; i > -5; i--) {
                 mutable.setWithOffset(origin, d.getStepX(), i, d.getStepZ());
                 BlockPos immutable2 = mutable.immutable();
-                if (context.level().isStateAtPosition(immutable2, state -> state.isAir() || state.canBeReplaced())) {
+                mutable.setWithOffset(origin, 0, i, 0);
+                BlockPos immutable3 = mutable.immutable();
+                if (context.level().isStateAtPosition(immutable2, state -> state.isAir() || state.canBeReplaced()) && context.level().isStateAtPosition(immutable3, state -> state.isAir() || state.canBeReplaced())) {
                     toPlace.putIfAbsent(immutable2, context.config().stem.getState(context.random(), immutable2));
+                } else {
+                    break;
                 }
             }
             BlockPos wallOrigin = origin.above(rootHeight);
