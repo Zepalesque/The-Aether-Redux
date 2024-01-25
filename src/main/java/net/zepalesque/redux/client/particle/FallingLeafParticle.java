@@ -60,6 +60,8 @@ public class FallingLeafParticle extends TextureSheetParticle {
             if (ReduxConfig.CLIENT.realistic_leaf_behavior.get()) {
                 if ((this.onGround || this.onGroundTime < 40) && this.lifetime < 299) {
                     this.onGroundTime--;
+                    this.xd = 0.0D;
+                    this.zd = 0.0D;
                 }
                 if (this.onGroundTime < 0) {
                     this.remove();
