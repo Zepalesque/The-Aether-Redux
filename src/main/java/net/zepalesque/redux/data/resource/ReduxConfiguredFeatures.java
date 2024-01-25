@@ -391,10 +391,10 @@ public class    ReduxConfiguredFeatures {
                         prov(ReduxBlocks.CLOUDCAP_SPORES),
                         prov(Redux.Handlers.Wood.CLOUDCAP.log),
                         prov(naturalDrops(Redux.Handlers.Wood.CLOUDCAP.logWall)),
-                        UniformInt.of(15, 21),
+                        UniformInt.of(17, 21),
                         UniformInt.of(1, 4),
                         UniformInt.of(1, 3),
-                        UniformInt.of(6, 9))
+                        UniformInt.of(7, 9))
         );
         register(context, LARGE_MUSHROOMS, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
