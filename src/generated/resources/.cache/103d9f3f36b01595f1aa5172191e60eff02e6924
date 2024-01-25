@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-25T14:13:37.1278112	Registries
+// 1.20.1	2024-01-25T14:23:57.7872587	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 eaca90760957f62676579069168e394c18383a1d data/aether/worldgen/configured_feature/golden_oak_tree.json
 ed5af58b49c3097be8598f4b57d2dd256fb1c93a data/aether/worldgen/configured_feature/grass_patch.json
@@ -23,7 +23,7 @@ a1f4ae5209d58a26206e3566cae149e159019c4e data/aether_redux/worldgen/biome/froste
 da775042d3c15e46f99720ee19f5f28c8359b148 data/aether_redux/worldgen/biome/gilded_grasslands.json
 55f6243e30ba7b8316e282102a918a206e3e187c data/aether_redux/worldgen/biome/gilded_groves.json
 d55498d48942479407f74db5f69a7531212ad6e1 data/aether_redux/worldgen/biome/glacial_taiga.json
-df5b432a1daed92487084d08ad21f4b91a51c1d0 data/aether_redux/worldgen/biome/highfields.json
+0bf1f9f628ea56bb68340a506117364b919cf694 data/aether_redux/worldgen/biome/highfields.json
 6f089357d7f3f8427e43b6a004c9a3469e871cea data/aether_redux/worldgen/biome/skyroot_shrublands.json
 9794a4db9265df604879f4cf89edd4111535deec data/aether_redux/worldgen/biome/the_blight.json
 cfe421e90aabe262a399e053328abe2cf9f7b843 data/aether_redux/worldgen/configured_carver/aether_caves.json
