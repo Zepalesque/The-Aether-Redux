@@ -13,7 +13,6 @@ public class CustomBoxPlant extends AetherBushBlock /*implements BonemealableBlo
 
     protected final VoxelShape box;
 
-
     public CustomBoxPlant(Properties pProperties, VoxelShape shape) {
         super(pProperties);
         this.box = shape;
