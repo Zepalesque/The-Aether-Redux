@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:flower",
+  "config": {
+    "feature": {
+      "feature": {
+        "type": "aether_redux:test_below_block",
+        "config": {
+          "predicate": {
+            "type": "minecraft:matching_blocks",
+            "blocks": "aether_redux:aevelium"
+          },
+          "to_place": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "aether_redux:shimmerstool"
+            }
+          }
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:air"
+          }
+        }
+      ]
+    },
+    "tries": 8,
+    "xz_spread": 7,
+    "y_spread": 3
+  }
+}

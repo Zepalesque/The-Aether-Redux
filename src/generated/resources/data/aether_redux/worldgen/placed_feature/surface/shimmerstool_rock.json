@@ -1,5 +1,5 @@
 {
-  "feature": "aether_redux:surface/mossy_rock",
+  "feature": "aether_redux:surface/shimmerstool_rock",
   "placement": [
     {
       "type": "minecraft:noise_threshold_count",
@@ -43,7 +43,7 @@
     },
     {
       "type": "minecraft:rarity_filter",
-      "chance": 16
+      "chance": 12
     },
     {
       "type": "minecraft:in_square"
