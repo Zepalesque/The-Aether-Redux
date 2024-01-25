@@ -48,7 +48,7 @@ public class ReduxRegion extends Region {
             this.addBiome(mapper, new Climate.ParameterPoint(range(0.0, 0.4), range(0.0, 0.8), fullRange, fullRange, fullRange, fullRange, 0L), AetherBiomes.SKYROOT_FOREST);
         }
         if (ReduxConfig.COMMON.enable_cloudcap_jungle.get()) {
-            this.addBiome(mapper, new Climate.ParameterPoint(range(-0.2D, 0.6D), range(0.5D, 1.0D), fullRange, fullRange, range(0.25D, 1.25D), fullRange, 0L), ReduxBiomes.CLOUDCAP_JUNGLE);
+            this.addBiome(mapper, new Climate.ParameterPoint(range(-0.2D, 0.6D), range(0.5D, 1.0D), fullRange, fullRange, fullRange, fullRange, 0L), ReduxBiomes.CLOUDCAP_JUNGLE);
         } else {
             this.addBiome(mapper, new Climate.ParameterPoint(range(0.0, 0.4), range(0.8, 1.0), fullRange, fullRange, fullRange, fullRange, 0L), AetherBiomes.SKYROOT_GROVE);
         }
