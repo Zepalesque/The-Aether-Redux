@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.HugeMushroomBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.Property;
+import net.minecraft.world.level.block.state.properties.WallSide;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
@@ -58,11 +59,20 @@ public class CloudcapFeature extends Feature<CloudcapFeature.CloudcapConfig> {
                 BlockPos immutable1 = mutable.immutable();
                 toPlace.putIfAbsent(immutable1, context.config().stem.getState(context.random(), immutable1));
             }
+            for (int i = -1; i > -5; i--) {
+                mutable.setWithOffset(origin, d.getStepX(), i, d.getStepZ());
+                BlockPos immutable2 = mutable.immutable();
+                if (context.level().isStateAtPosition(immutable2, state -> state.isAir() || state.canBeReplaced())) {
+                    toPlace.putIfAbsent(immutable2, context.config().stem.getState(context.random(), immutable2));
+                }
+            }
             BlockPos wallOrigin = origin.above(rootHeight);
             for (int i = 0; i < rootWallHeight; i++) {
                 mutable.setWithOffset(wallOrigin, d.getStepX(), i, d.getStepZ());
                 BlockPos immutable1 = mutable.immutable();
-                toPlace.putIfAbsent(immutable1, context.config().stemWall.getState(context.random(), immutable1));
+                BlockState b = context.config().stemWall.getState(context.random(), immutable1);
+                b = trySet(b, getSide(d.getOpposite()), i == rootWallHeight - 1 ? WallSide.LOW : WallSide.TALL);
+                toPlace.putIfAbsent(immutable1, b);
             }
         }
 
@@ -124,6 +134,19 @@ public class CloudcapFeature extends Feature<CloudcapFeature.CloudcapConfig> {
             this.setBlock(context.level(), entry.getKey(), entry.getValue());
         }
         return true;
+    }
+
+
+    private Property<WallSide> getSide(Direction d) {
+        return d == Direction.NORTH ? BlockStateProperties.NORTH_WALL :
+               d == Direction.EAST ? BlockStateProperties.EAST_WALL :
+               d == Direction.WEST ? BlockStateProperties.WEST_WALL :
+               d == Direction.SOUTH ? BlockStateProperties.SOUTH_WALL : null;
+    }
+
+
+    private <E extends Comparable<E>> BlockState trySet(BlockState b, Property<E> prop, E val) {
+            return b.hasProperty(prop) ? b.setValue(prop, val) : b;
     }
     
     protected boolean canPlaceBlockHere(LevelAccessor level, BlockPos pos) {
