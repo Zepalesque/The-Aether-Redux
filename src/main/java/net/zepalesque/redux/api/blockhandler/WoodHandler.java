@@ -235,12 +235,12 @@ public class WoodHandler implements BlockHandler {
         this.wood = ReduxBlocks.register(pWoodName + "_" + pWoodSuffix, () -> new ReduxNaturalLog(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD).sound(pLogSoundType).mapColor(barkColor)));
         if (this.hasStrippedLogs)
         {
-            RegistryObject<RotatedPillarBlock> strippedLog = ReduxBlocks.register("stripped_" + pWoodName + "_" + pLogSuffix, () -> new AetherLogBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_LOG).sound(pLogSoundType).mapColor(woodColor)));
+            RegistryObject<RotatedPillarBlock> strippedLog = ReduxBlocks.register("stripped_" + pWoodName + "_" + pLogSuffix, () -> new ReduxNaturalLog(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_LOG).sound(pLogSoundType).mapColor(woodColor)));
             this.strippedLog = Optional.of(strippedLog);
-            RegistryObject<RotatedPillarBlock> strippedWood = ReduxBlocks.register("stripped_" + pWoodName + "_" + pWoodSuffix, () -> new AetherLogBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_WOOD).sound(pLogSoundType).mapColor(woodColor)));
+            RegistryObject<RotatedPillarBlock> strippedWood = ReduxBlocks.register("stripped_" + pWoodName + "_" + pWoodSuffix, () -> new ReduxNaturalLog(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_WOOD).sound(pLogSoundType).mapColor(woodColor)));
             this.strippedWood = Optional.of(strippedWood);
-            RegistryObject<WallBlock> strippedLogWall = ReduxBlocks.register("stripped_" + woodName + "_"+pLogSuffix+"_wall", () -> new WallBlock(Block.Properties.of().mapColor(woodColor).strength(2.0F).sound(pLogSoundType)));
-            RegistryObject<WallBlock> strippedWoodWall = ReduxBlocks.register("stripped_" + woodName + "_"+pWoodSuffix+"_wall", () -> new WallBlock(Block.Properties.of().mapColor(woodColor).strength(2.0F).sound(pLogSoundType)));
+            RegistryObject<WallBlock> strippedLogWall = ReduxBlocks.register("stripped_" + woodName + "_"+pLogSuffix+"_wall", () -> new ReduxNaturalWall(Block.Properties.of().mapColor(woodColor).strength(2.0F).sound(pLogSoundType)));
+            RegistryObject<WallBlock> strippedWoodWall = ReduxBlocks.register("stripped_" + woodName + "_"+pWoodSuffix+"_wall", () -> new ReduxNaturalWall(Block.Properties.of().mapColor(woodColor).strength(2.0F).sound(pLogSoundType)));
 
             this.strippedLogWall = Optional.of(strippedLogWall);
             this.strippedWoodWall = Optional.of(strippedWoodWall);
@@ -479,13 +479,15 @@ public class WoodHandler implements BlockHandler {
     public void generateLoot(ReduxBlockLootData data)
     {
         data.dropSelf(this.log.get());
-        this.strippedWood.ifPresent((reg) -> data.dropSelf(reg.get()));
+        this.strippedWood.ifPresent((reg) ->
+                this.strippedLog.ifPresent(logReg -> data.naturalDrop(reg.get(), logReg.get())));
         this.strippedLog.ifPresent((reg) -> data.dropSelf(reg.get()));
         data.naturalDrop(this.logWall.get(), this.log.get());
-        this.strippedLogWall.ifPresent((reg) -> data.dropSelf(reg.get()));
+        this.strippedLogWall.ifPresent((reg) ->
+                this.strippedLog.ifPresent(logReg -> data.naturalDrop(reg.get(), logReg.get())));
         data.naturalDrop(this.woodWall.get(), this.log.get());
-        this.strippedWoodWall.ifPresent((reg) -> data.dropSelf(reg.get()));
-        data.naturalDrop(this.wood.get(), this.log.get());
+        this.strippedWoodWall.ifPresent((reg) ->
+                this.strippedLog.ifPresent(logReg -> data.naturalDrop(reg.get(), logReg.get())));        data.naturalDrop(this.wood.get(), this.log.get());
         data.dropSelf(this.planks.get());
         data.dropSelf(this.stairs.get());
         data.dropSelf(this.slab.get());
