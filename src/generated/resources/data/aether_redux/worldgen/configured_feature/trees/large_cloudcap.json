@@ -5,7 +5,7 @@
       "type": "minecraft:uniform",
       "value": {
         "max_inclusive": 9,
-        "min_inclusive": 6
+        "min_inclusive": 7
       }
     },
     "cap_provider": {
@@ -27,7 +27,7 @@
       "type": "minecraft:uniform",
       "value": {
         "max_inclusive": 21,
-        "min_inclusive": 15
+        "min_inclusive": 17
       }
     },
     "root_height": {
