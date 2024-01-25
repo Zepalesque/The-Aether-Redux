@@ -64,7 +64,7 @@ public class CloudcapFeature extends Feature<CloudcapFeature.CloudcapConfig> {
                 BlockPos immutable2 = mutable.immutable();
                 mutable.setWithOffset(origin, 0, i, 0);
                 BlockPos immutable3 = mutable.immutable();
-                if (context.level().isStateAtPosition(immutable2, state -> state.isAir() || state.canBeReplaced()) && context.level().isStateAtPosition(immutable3, state -> state.isAir() || state.canBeReplaced())) {
+                if (context.level().isStateAtPosition(immutable2, state -> state.isAir() || state.canBeReplaced()) && context.level().isStateAtPosition(immutable3, state -> state.isFaceSturdy(context.level(), immutable3, d))) {
                     toPlace.putIfAbsent(immutable2, context.config().stem.getState(context.random(), immutable2));
                 } else {
                     break;
