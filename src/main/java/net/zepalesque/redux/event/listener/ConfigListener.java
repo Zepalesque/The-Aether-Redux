@@ -16,10 +16,10 @@ public class ConfigListener {
     {
        if (event.getConfig().getSpec() == ReduxConfig.COMMON_SPEC)
        {
-           AetherEntityTypes.MIMIC.get().getDimensions().height = ReduxConfig.COMMON.better_mimics.get() ? 1.25f : 2F;
+           AetherEntityTypes.MIMIC.get().getDimensions().height = ReduxConfig.COMMON.smaller_mimic_hitbox.get() ? 1.25f : 2F;
            if (Redux.aetherGenesisCompat())
            {
-               GenesisEntityTypes.SKYROOT_MIMIC.get().getDimensions().height = ReduxConfig.COMMON.better_mimics.get() ? 1.25f : 2F;
+               GenesisEntityTypes.SKYROOT_MIMIC.get().getDimensions().height = ReduxConfig.COMMON.smaller_mimic_hitbox.get() ? 1.25f : 2F;
            }
        }
     }

@@ -189,7 +189,7 @@ public class Redux
             replaceBlockSounds();
             Regions.register(new ReduxRegion(new ResourceLocation(MODID, "aether_redux_region"), ReduxConfig.COMMON.region_size.get()));
             SurfaceRuleManager.addSurfaceRules(AetherRuleCategory.THE_AETHER, "aether_redux", ReduxSurfaceData.makeRules());
-            if (ReduxConfig.COMMON.better_mimics.get()) {
+            if (ReduxConfig.COMMON.smaller_mimic_hitbox.get()) {
                 AetherEntityTypes.MIMIC.get().getDimensions().height = 1.25F;
                 if (aetherGenesisCompat())
                 {

@@ -44,7 +44,7 @@ public class ClassicMimicLayer<T extends Mimic> extends RenderLayer<T, EntityMod
     @Override
     public void render(PoseStack poseStack, MultiBufferSource buffer, int packedLight, T mimic, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
 
-        if (!ReduxConfig.COMMON.better_mimics.get() && Minecraft.getInstance().player != null && !mimic.isInvisibleTo(Minecraft.getInstance().player)) {
+        if (!ReduxConfig.COMMON.smaller_mimic_hitbox.get() && Minecraft.getInstance().player != null && !mimic.isInvisibleTo(Minecraft.getInstance().player)) {
             this.classicMimic.prepareMobModel(mimic, limbSwing, limbSwingAmount, partialTicks);
             this.classicMimic.setupAnim(mimic, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
             VertexConsumer consumer = buffer.getBuffer(RenderType.entityCutoutNoCull(getTextureLocation(mimic)));

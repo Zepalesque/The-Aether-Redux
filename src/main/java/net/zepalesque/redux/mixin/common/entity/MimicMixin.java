@@ -19,7 +19,7 @@ public class MimicMixin {
         if ((Object) this instanceof Mimic mimic) {
             MimicAnimation.get(mimic).ifPresent(MimicAnimation::open);
         }
-        if (!ReduxConfig.COMMON.better_mimics.get())
+        if (!ReduxConfig.COMMON.smaller_mimic_hitbox.get())
         {
             RandomSource random = ((EntityAccessor) entity).aether$getRandom();
             for (int i = 0; i < 20; ++i) {
@@ -39,7 +39,7 @@ public class MimicMixin {
         if ((Object) this instanceof Mimic mimic) {
             MimicAnimation.get(mimic).ifPresent(MimicAnimation::open);
         }
-        if (!ReduxConfig.COMMON.better_mimics.get())
+        if (!ReduxConfig.COMMON.smaller_mimic_hitbox.get())
         {
             RandomSource random = ((EntityAccessor) entity).aether$getRandom();
             for (int i = 0; i < 20; ++i) {

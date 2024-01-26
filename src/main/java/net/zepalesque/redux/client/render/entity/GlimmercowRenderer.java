@@ -20,7 +20,7 @@ public class GlimmercowRenderer extends MobRenderer<Glimmercow, GlimmercowModel<
     private static final ResourceLocation CRAZY_COW_TEX = Redux.locate("textures/entity/mobs/glimmercow/crazy_cow.png");
 
     public GlimmercowRenderer(EntityRendererProvider.Context context) {
-        super(context, new GlimmercowModel<>(context.bakeLayer(ReduxModelLayers.SHIMMERCOW)), 0.7F);
+        super(context, new GlimmercowModel<>(context.bakeLayer(ReduxModelLayers.GLIMMERCOW)), 0.7F);
     }
 
     @Override

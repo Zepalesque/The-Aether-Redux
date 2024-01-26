@@ -14,7 +14,7 @@ import net.zepalesque.redux.capability.animation.mimic.MimicAnimation;
 import net.zepalesque.redux.util.math.EasingUtil;
 import net.zepalesque.redux.util.math.MathUtil;
 
-public class ReduxMimicModel extends EntityModel<Mimic> {
+public class MimicReduxModel extends EntityModel<Mimic> {
 	private final ModelPart main;
 	private final ModelPart leftLeg;
 	private final ModelPart rightLeg;
@@ -23,7 +23,7 @@ public class ReduxMimicModel extends EntityModel<Mimic> {
 	private final ModelPart upperBody;
 
 
-	public ReduxMimicModel(ModelPart root) {
+	public MimicReduxModel(ModelPart root) {
 		this.main = root.getChild("main");
 		this.leftLeg = this.main.getChild("leftLeg");
 		this.rightLeg = this.main.getChild("rightLeg");
@@ -122,7 +122,7 @@ public class ReduxMimicModel extends EntityModel<Mimic> {
 	}
 	@Override
 	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		if (ReduxConfig.COMMON.better_mimics.get()) {
+		if (ReduxConfig.COMMON.smaller_mimic_hitbox.get()) {
 			main.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 		}
 	}

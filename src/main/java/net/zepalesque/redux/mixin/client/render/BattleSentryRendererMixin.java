@@ -18,9 +18,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class BattleSentryRendererMixin extends MobRendererMixin<BattleSentry, SlimeModel<BattleSentry>> {
 
     @Override
-    public void renderMob(BattleSentry moa, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight, CallbackInfo ci) {
+    public void renderMob(BattleSentry sentry, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight, CallbackInfo ci) {
         this.model.root().skipDraw = ReduxConfig.CLIENT.sentry_improvements.get();
-        super.renderMob(moa, entityYaw, partialTicks, poseStack, buffer, packedLight, ci);
+        super.renderMob(sentry, entityYaw, partialTicks, poseStack, buffer, packedLight, ci);
     }
 
     @Inject(at = @At("HEAD"), method = "scale(Lnet/minecraft/world/entity/LivingEntity;Lcom/mojang/blaze3d/vertex/PoseStack;F)V", cancellable = true)

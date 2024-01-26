@@ -17,7 +17,7 @@ public class ClientMobListener {
     @SubscribeEvent
     public static void tickMimic(LivingEvent.LivingTickEvent event)
     {
-        if (event.getEntity() instanceof Mimic mimic && mimic.level().isClientSide() && ReduxConfig.COMMON.better_mimics.get() && ReduxConfig.CLIENT.mimic_slam_sound.get())
+        if (event.getEntity() instanceof Mimic mimic && mimic.level().isClientSide() && ReduxConfig.COMMON.smaller_mimic_hitbox.get() && ReduxConfig.CLIENT.mimic_slam_sound.get())
         {
             int age = mimic.tickCount;
             if (age % 25 == 13) {

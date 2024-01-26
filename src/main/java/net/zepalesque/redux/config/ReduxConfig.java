@@ -1,6 +1,7 @@
 package net.zepalesque.redux.config;
 
 import net.minecraftforge.common.ForgeConfigSpec;
+import net.zepalesque.redux.config.enums.MimicModelType;
 import net.zepalesque.redux.config.enums.QuicksoilSetting;
 import net.zepalesque.redux.config.enums.MoaFeetType;
 import net.zepalesque.redux.config.enums.SpawnerType;
@@ -46,7 +47,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue improved_aerwhale_sounds;
         public final ForgeConfigSpec.BooleanValue improved_tempest_sounds;
         public final ForgeConfigSpec.BooleanValue improved_mimic_awaken_sound;
-        public final ForgeConfigSpec.BooleanValue better_mimics;
+        public final ForgeConfigSpec.BooleanValue smaller_mimic_hitbox;
         public final ForgeConfigSpec.EnumValue<SpawnerType> genesis_spawner_mobs;
         public final ForgeConfigSpec.BooleanValue vanilla_consistent_mine_speeds;
 
@@ -75,7 +76,7 @@ public class ReduxConfig {
             this.cockatrice_ai_improvements = builder.comment("Makes Cockatrices shoot at you and chase you if they hit you. Requires world restart to refresh existing mob AI.").worldRestart().translation("config.aether_redux.gameplay.cockatrice_ai").define("Improved Cockatrice Behavior", true);
             this.nerf_gummy_swets = builder.comment("Nerfs Gummy Swets, but also makes them craftable. Note: Requires the Aether's Gummy Swet Healing config to be false to properly nerf the hunger effect. Requires datapack reload.").worldRestart().translation("config.aether_redux.gameplay.nerf_gummy_swets").define("Nerf Gummy Swets", true);
             this.mobs_avoid_quicksoil = builder.comment("Causes mobs to try to avoid walking on quicksoil.").translation("config.aether_redux.gameplay.mobs_avoid_quicksoil").define("Mobs Avoid Quicksoil", true);
-            this.better_mimics = builder.comment("Makes Mimics smaller and have a new model. NOTE: Requires MC restart when changed.").translation("config.aether_redux.gameplay.better_mimics").define("Better Mimics", true);
+            this.smaller_mimic_hitbox = builder.comment("Decreases the size of mimics. Intended to be used with the client-side model. Requires an MC restart").translation("config.aether_redux.gameplay.smaller_mimic_hitbox").define("Smaller Mimic Hitbox", true);
             this.vanilla_consistent_mine_speeds = builder.comment("Makes some Aether blocks take longer to break, to be more consistent with vanilla blocks").translation("config.aether_redux.gameplay.vanilla_consistent_mine_speeds").define("Vanilla-Consistent Mining Speeds", false);
             this.change_double_plant_hitbox = builder.comment("Changes the hitboxes of vanilla double plants. Disable if it causes odd behavior.").translation("config.aether_redux.gameplay.change_double_plant_hitbox").define("Change Double Plant Hitboxes", true);
             this.better_conversion_sounds = builder.comment("Makes blockstate conversion sounds (ambrosium, swet ball) better").translation("config.aether_redux.gameplay.better_conversion_sounds").define("Better Conversion Sounds", true);
@@ -129,6 +130,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.EnumValue<MoaFeetType> moa_feet_type;
         public final ForgeConfigSpec.BooleanValue cockatrice_improvements;
         public final ForgeConfigSpec.BooleanValue change_aether_configs;
+        public final ForgeConfigSpec.EnumValue<MimicModelType> mimic_improvements;
         public final ForgeConfigSpec.BooleanValue mimic_slam_sound;
         public final ForgeConfigSpec.BooleanValue sentry_improvements;
         public final ForgeConfigSpec.ConfigValue<String> version_id;
@@ -147,6 +149,7 @@ public class ReduxConfig {
             this.moa_feet_type = builder.comment("Determines whether the updated Moa model should use more peaceful-appearing toes, or more aggressive talons").translation("config.aether_redux.client.mob_models.moa_feet").defineEnum("Moa Foot Type", MoaFeetType.toes);
             this.cockatrice_improvements = builder.comment("Makes Cockatrices look far better").translation("config.aether_redux.client.mob_models.cockatrice").define("Cockatrice Model Improvements", true);
             this.sentry_improvements = builder.comment("Improves the model for Sentries, giving them a new model and a springy jump animation").translation("config.aether_redux.client.mob_models.sentry").define("Sentry Model Improvements", true);
+            this.mimic_improvements = builder.comment("Whether or not to use the upgraded Mimic model. Note that unless you use sync_with_server, there may be hitbox differences.").translation("config.aether_redux.client.mob_models.mimic_improvements").defineEnum("Mimic Improvements", MimicModelType.sync_with_server);
             builder.pop();
             builder.push("Visual");
             this.enable_adrenaline_postproccess = builder.comment("Enables a post processing effect for the Shroom Ring's adrenaline ability. Only works with Fabulous graphics.").translation("config.aether_redux.client.visual.enable_adrenaline_postproccess").define("Enable Adrenaline Post Processing Effect", true);
