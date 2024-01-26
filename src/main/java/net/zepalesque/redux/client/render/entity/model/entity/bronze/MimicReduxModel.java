@@ -60,6 +60,7 @@ public class MimicReduxModel extends EntityModel<Mimic> {
 	}
 
 
+	// TODO: rename variable to something other than egg??????
 	@Override
 	public void setupAnim(Mimic mimic, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		boolean flag = mimic.getFallFlyingTicks() > 4;
