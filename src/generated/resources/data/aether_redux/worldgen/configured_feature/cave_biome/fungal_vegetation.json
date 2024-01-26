@@ -8,19 +8,19 @@
           "data": {
             "Name": "aether_redux:cloudcap_mushling"
           },
-          "weight": 11
+          "weight": 40
         },
         {
           "data": {
             "Name": "aether_redux:jellyshroom"
           },
-          "weight": 7
+          "weight": 20
         },
         {
           "data": {
             "Name": "aether_redux:glimmerstool"
           },
-          "weight": 5
+          "weight": 15
         },
         {
           "data": {

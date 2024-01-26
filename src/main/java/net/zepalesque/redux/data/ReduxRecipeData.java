@@ -130,7 +130,8 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
         infusionStacking(consumer, ReduxItems.PURIFIED_LUXBUDS, ReduxItems.LUXBUDS);
 
 
-
+        carpet(consumer, ReduxBlocks.BLIGHTMOSS_CARPET.get(), ReduxBlocks.BLIGHTMOSS_BLOCK.get());
+        carpet(consumer, ReduxBlocks.FUNGAL_CARPET.get(), ReduxBlocks.FUNGAL_GROWTH.get());
 
         stairs(ReduxBlocks.GILDED_HOLYSTONE_STAIRS, ReduxBlocks.GILDED_HOLYSTONE).save(consumer);
         slab(consumer, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.GILDED_HOLYSTONE_SLAB.get(), ReduxBlocks.GILDED_HOLYSTONE.get());

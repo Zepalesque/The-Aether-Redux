@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-25T20:56:26.1532141	Item Models: aether_redux
+// 1.20.1	2024-01-25T21:25:21.3778572	Item Models: aether_redux
 262070202f715ccbb93ebca7b4dd3b04851bc0ce assets/aether_redux/models/item/aether_short_grass.json
 ef6d226766d61d6460247665062a399d3613d946 assets/aether_redux/models/item/aevelium.json
 2f2dfa95433a548b2d41f817bd836c91e41fc4e9 assets/aether_redux/models/item/aevelium_roots.json
@@ -115,6 +115,8 @@ a09154523552791769f22990327538661fd35c7e assets/aether_redux/models/item/fieldsp
 ed93bf536bc7b69bcd1475cbe3dc5ccf4c70383d assets/aether_redux/models/item/frosted_holystone_slab.json
 42df40f1143286723e13e0a8ea78302fcf190015 assets/aether_redux/models/item/frosted_holystone_stairs.json
 55db356d6d4ad4d3c611887ba63cec4a5185501a assets/aether_redux/models/item/frosted_holystone_wall.json
+a7506affe0c538db937cfd49bdd486fec3179ad1 assets/aether_redux/models/item/fungal_carpet.json
+9232500fb4b5a9e239e9e9635c738a4c9db55f22 assets/aether_redux/models/item/fungal_growth.json
 c21384e3c0f2e7cf2838fc78bd300726ad88099d assets/aether_redux/models/item/gilded_holystone.json
 7cc45ca1892d40585fe787a30634854a783d1ef1 assets/aether_redux/models/item/gilded_holystone_slab.json
 462c33cc11eaca761757d91060550f705d13724b assets/aether_redux/models/item/gilded_holystone_stairs.json

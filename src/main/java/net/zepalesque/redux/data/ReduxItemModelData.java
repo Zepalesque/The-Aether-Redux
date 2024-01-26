@@ -126,6 +126,8 @@ public class ReduxItemModelData extends AetherItemModelProvider {
 
         this.itemBlock(ReduxBlocks.BLIGHTMOSS_BLOCK.get());
         this.itemBlock(ReduxBlocks.BLIGHTMOSS_CARPET.get());
+        this.itemBlock(ReduxBlocks.FUNGAL_GROWTH.get());
+        this.itemBlock(ReduxBlocks.FUNGAL_CARPET.get());
         this.itemBlock(ReduxBlocks.GILDED_OAK_LEAVES.get());
         this.itemBlockFlat(ReduxBlocks.GILDED_OAK_SAPLING.get(), "natural/");
 
