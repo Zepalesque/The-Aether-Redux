@@ -134,6 +134,14 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addBlock(ReduxBlocks.BLIGHTMOSS_BLOCK, "Blightmoss Block");
         addLore(ReduxBlocks.BLIGHTMOSS_BLOCK, "Moss that has been infected by the Blight. This can be found in some caves in the Aether.");
+        addBlock(ReduxBlocks.BLIGHTMOSS_CARPET, "Blightmoss Carpet");
+        addLore(ReduxBlocks.BLIGHTMOSS_CARPET, "A thin blanket of Blightmoss. This can be found in some caves in the Aether.");
+
+
+        addBlock(ReduxBlocks.FUNGAL_GROWTH, "Fungal Growth");
+        addLore(ReduxBlocks.FUNGAL_GROWTH, "A fungal spread found in some caves in the Aether");
+        addBlock(ReduxBlocks.FUNGAL_CARPET, "Fungal Carpet");
+        addLore(ReduxBlocks.FUNGAL_CARPET, "A thin blanket of fungal growth. This can be found in some caves in the Aether.");
 
         addBlock(ReduxBlocks.GOLDEN_VINES, "Golden Vines");
         addBlock(ReduxBlocks.GOLDEN_VINES_PLANT, "Golden Vines Plant");
@@ -141,9 +149,6 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.GILDED_VINES, "Gilded Vines");
         addBlock(ReduxBlocks.GILDED_VINES_PLANT, "Gilded Vines Plant");
         addLore(ReduxBlocks.GILDED_VINES, "A type of off-white vine that commonly grows under the leaves of Gilded Skyroot trees.");
-
-        addBlock(ReduxBlocks.BLIGHTMOSS_CARPET, "Blightmoss Carpet");
-        addLore(ReduxBlocks.BLIGHTMOSS_CARPET, "A thin blanket of Blightmoss. This can be found in some caves in the Aether.");
 
         addBlock(ReduxBlocks.LUXWEED, "Luxweed");
         addBlock(ReduxBlocks.POTTED_LUXWEED, "Potted Luxweed");
