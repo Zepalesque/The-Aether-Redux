@@ -65,9 +65,6 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
 
         this.dropSelf(ReduxBlocks.BLIGHTWILLOW_SAPLING.get());
 
-        this.add(ReduxBlocks.TALL_CLOUDCAP.get(), (block) -> {
-            return this.createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER);
-        });
         this.dropPottedContents(ReduxBlocks.POTTED_BLIGHTWILLOW_SAPLING.get());
 
         this.dropSelf(ReduxBlocks.BLIGHTWILLOW_ROOTS.get());

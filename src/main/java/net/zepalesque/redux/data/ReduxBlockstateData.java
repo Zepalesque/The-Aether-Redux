@@ -78,8 +78,6 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.block(ReduxBlocks.BLIGHTWILLOW_LEAVES.get(), "natural/");
         this.crossBlock(ReduxBlocks.BLIGHTWILLOW_SAPLING.get(), "natural/");
 
-        this.doubleCrossBlockTopGlow(ReduxBlocks.TALL_CLOUDCAP.get(), "natural/");
-
         this.floweringFieldsproutLeafBlock(ReduxBlocks.FLOWERING_FIELDSPROUT_LEAVES, "natural/");
         this.fieldsproutPetals(ReduxBlocks.FIELDSPROUT_PETALS.get(), "natural/fieldsprout_petals_stem");
 

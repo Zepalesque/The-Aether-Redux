@@ -177,9 +177,6 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.POTTED_CLOUDCAP_MUSHLING, "Potted Cloudcap Mushling");
         addLore(ReduxBlocks.CLOUDCAP_MUSHLING, "A mushroom found commonly in the Cloudcaps and occasionally in the Highfields. It glows faintly.");
 
-        addBlock(ReduxBlocks.TALL_CLOUDCAP, "Tall Cloudcap");
-        addLore(ReduxBlocks.TALL_CLOUDCAP, "The taller variant of the Cloudcap Mushling. This can be grown into Giant Cloudcap Mushrooms");
-
         addBlock(ReduxBlocks.SPIROLYCTIL, "Spirolyctil");
         addBlock(ReduxBlocks.POTTED_SPIROLYCTIL, "Potted Spirolyctil");
         addLore(ReduxBlocks.SPIROLYCTIL, "A shiny blue flower found in the Blight. It almost seems like an island of peace in the ocean of chaos.");
