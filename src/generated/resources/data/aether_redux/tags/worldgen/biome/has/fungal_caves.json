@@ -1,6 +1,6 @@
 {
   "remove": [
-    "aether_redux:the_blight"
+    "aether_redux:cloudcaps"
   ],
   "values": [
     "#aether:is_aether"

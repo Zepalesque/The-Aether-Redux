@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#aether_redux:has/fungal_caves",
+  "features": "aether_redux:cave_biome/fungal_sparse_vegetation",
+  "step": "vegetal_decoration"
+}

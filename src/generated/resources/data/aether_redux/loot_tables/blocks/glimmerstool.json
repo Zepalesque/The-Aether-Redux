@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "aether_redux:shimmerstool"
+          "name": "aether_redux:glimmerstool"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "aether_redux:blocks/shimmerstool"
+  "random_sequence": "aether_redux:blocks/glimmerstool"
 }

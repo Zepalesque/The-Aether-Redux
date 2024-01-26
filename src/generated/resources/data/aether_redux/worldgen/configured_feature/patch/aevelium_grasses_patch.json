@@ -6,8 +6,8 @@
         "type": "aether_redux:test_below_block",
         "config": {
           "predicate": {
-            "type": "minecraft:matching_blocks",
-            "blocks": "aether_redux:aevelium"
+            "type": "minecraft:matching_block_tag",
+            "tag": "aether_redux:veridium_advancement_infusable"
           },
           "to_place": {
             "type": "minecraft:weighted_state_provider",
@@ -20,7 +20,7 @@
               },
               {
                 "data": {
-                  "Name": "aether_redux:aevelium_growth"
+                  "Name": "aether_redux:aevelium_roots"
                 },
                 "weight": 3
               }

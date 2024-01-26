@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_shimmerstool": {
+    "has_glimmerstool": {
       "conditions": {
         "items": [
           {
             "items": [
-              "aether_redux:shimmerstool"
+              "aether_redux:glimmerstool"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_shimmerstool",
+      "has_glimmerstool",
       "has_the_recipe"
     ]
   ],

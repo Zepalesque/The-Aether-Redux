@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "aether_redux:block/natural/aevelium_growth"
+    "layer0": "aether_redux:block/natural/aevelium_roots"
   }
 }

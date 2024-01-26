@@ -2,6 +2,8 @@
   "values": [
     "aether_redux:blightmoss_block",
     "aether_redux:blightmoss_carpet",
+    "aether_redux:fungal_growth",
+    "aether_redux:fungal_carpet",
     "aether_redux:zanberry_bush",
     "aether_redux:zanberry_shrub",
     "aether_redux:glacia_leaves",

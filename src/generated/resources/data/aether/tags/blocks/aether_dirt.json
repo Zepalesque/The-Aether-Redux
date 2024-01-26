@@ -2,6 +2,7 @@
   "values": [
     "aether_redux:aevelium",
     "aether_redux:coarse_aether_dirt",
-    "aether_redux:blightmoss_block"
+    "aether_redux:blightmoss_block",
+    "aether_redux:fungal_growth"
   ]
 }

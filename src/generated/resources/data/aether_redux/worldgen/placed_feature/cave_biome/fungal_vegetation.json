@@ -1,9 +1,9 @@
 {
-  "feature": "aether_redux:cave_biome/blightmoss_patch",
+  "feature": "aether_redux:cave_biome/fungal_patch",
   "placement": [
     {
       "type": "minecraft:count",
-      "count": 20
+      "count": 225
     },
     {
       "type": "minecraft:in_square"

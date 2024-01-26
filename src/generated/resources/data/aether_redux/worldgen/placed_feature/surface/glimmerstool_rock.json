@@ -1,5 +1,5 @@
 {
-  "feature": "aether_redux:surface/shimmerstool_rock",
+  "feature": "aether_redux:surface/glimmerstool_rock",
   "placement": [
     {
       "type": "minecraft:noise_threshold_count",

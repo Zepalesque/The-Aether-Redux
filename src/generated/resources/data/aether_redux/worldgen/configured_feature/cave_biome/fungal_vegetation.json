@@ -1,0 +1,46 @@
+{
+  "type": "minecraft:simple_block",
+  "config": {
+    "to_place": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "aether_redux:cloudcap_mushling"
+          },
+          "weight": 11
+        },
+        {
+          "data": {
+            "Name": "aether_redux:jellyshroom"
+          },
+          "weight": 7
+        },
+        {
+          "data": {
+            "Name": "aether_redux:glimmerstool"
+          },
+          "weight": 5
+        },
+        {
+          "data": {
+            "Name": "aether_redux:fungal_carpet"
+          },
+          "weight": 75
+        },
+        {
+          "data": {
+            "Name": "aether_redux:aevelium_sprouts"
+          },
+          "weight": 150
+        },
+        {
+          "data": {
+            "Name": "aether_redux:aevelium_roots"
+          },
+          "weight": 120
+        }
+      ]
+    }
+  }
+}

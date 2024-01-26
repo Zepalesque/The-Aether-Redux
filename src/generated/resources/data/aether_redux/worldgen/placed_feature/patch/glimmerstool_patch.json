@@ -1,5 +1,5 @@
 {
-  "feature": "aether_redux:patch/shimmerstool_patch",
+  "feature": "aether_redux:patch/glimmerstool_patch",
   "placement": [
     {
       "type": "minecraft:noise_threshold_count",

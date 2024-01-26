@@ -7,14 +7,14 @@
     "ground_state": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "aether_redux:blightmoss_block"
+        "Name": "aether_redux:fungal_growth"
       }
     },
     "replaceable": "#aether_redux:aether_moss_replaceables",
     "surface": "floor",
     "vegetation_chance": 0.8,
     "vegetation_feature": {
-      "feature": "aether_redux:cave_biome/blightmoss_vegetation",
+      "feature": "aether_redux:cave_biome/fungal_vegetation",
       "placement": []
     },
     "vertical_range": 2,

@@ -6,13 +6,13 @@
         "type": "aether_redux:test_below_block",
         "config": {
           "predicate": {
-            "type": "minecraft:matching_blocks",
-            "blocks": "aether_redux:aevelium"
+            "type": "minecraft:matching_block_tag",
+            "tag": "aether_redux:veridium_advancement_infusable"
           },
           "to_place": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "aether_redux:shimmerstool"
+              "Name": "aether_redux:glimmerstool"
             }
           }
         }
@@ -27,8 +27,8 @@
         }
       ]
     },
-    "patch_tries": 8,
-    "patch_xz_spread": 7,
+    "patch_tries": 32,
+    "patch_xz_spread": 11,
     "patch_y_spread": 3,
     "rock_state": {
       "type": "minecraft:simple_state_provider",
