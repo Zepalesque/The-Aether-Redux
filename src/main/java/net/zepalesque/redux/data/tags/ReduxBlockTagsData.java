@@ -68,7 +68,9 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                     woodHandler.door.get(),
                     woodHandler.trapdoor.get(),
                     woodHandler.sign.get(),
-                    woodHandler.wallSign.get()
+                    woodHandler.wallSign.get(),
+                    woodHandler.logWall.get(),
+                    woodHandler.woodWall.get()
             ).addTag(woodHandler.logsBlockTag);
             this.tag(woodHandler.logsBlockTag).add(
                     woodHandler.log.get(),
@@ -79,6 +81,10 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 this.tag(woodHandler.logsBlockTag).add(
                         woodHandler.strippedLog.get().get(),
                         woodHandler.strippedWood.get().get()
+                );
+                this.tag(BlockTags.MINEABLE_WITH_AXE).add(
+                        woodHandler.strippedLogWall.get().get(),
+                        woodHandler.strippedWoodWall.get().get()
                 );
             }
 
@@ -109,7 +115,8 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         this.tag(AetherTags.Blocks.AETHER_DIRT).add(
                 ReduxBlocks.AEVELIUM.get(),
                 ReduxBlocks.COARSE_AETHER_DIRT.get(),
-                ReduxBlocks.BLIGHTMOSS_BLOCK.get()
+                ReduxBlocks.BLIGHTMOSS_BLOCK.get(),
+                ReduxBlocks.FUNGAL_GROWTH.get()
         );
         this.tag(BlockTags.LEAVES).add(
                 ReduxBlocks.BLIGHTWILLOW_LEAVES.get(),
@@ -121,9 +128,8 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         );
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
                 ReduxBlocks.AEVELIUM.get(),
-                ReduxBlocks.COARSE_AETHER_DIRT.get(),
-                ReduxBlocks.BLIGHTMOSS_BLOCK.get()
-        );
+                ReduxBlocks.COARSE_AETHER_DIRT.get()
+                );
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
                 ReduxBlocks.DIVINITE.get(),
                 ReduxBlocks.DIVINITE_WALL.get(),
@@ -160,6 +166,8 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         this.tag(BlockTags.MINEABLE_WITH_HOE).add(
                 ReduxBlocks.BLIGHTMOSS_BLOCK.get(),
                 ReduxBlocks.BLIGHTMOSS_CARPET.get(),
+                ReduxBlocks.FUNGAL_GROWTH.get(),
+                ReduxBlocks.FUNGAL_CARPET.get(),
                 ReduxBlocks.ZANBERRY_BUSH.get(),
                 ReduxBlocks.ZANBERRY_SHRUB.get(),
                 ReduxBlocks.GLACIA_LEAVES.get(),
@@ -210,7 +218,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 Blocks.SNOW,
                 Blocks.POWDER_SNOW
                 ).addOptional(DABlocks.AETHER_MUD.getId()).addOptional(DABlocks.GOLDEN_GRASS_BLOCK.getId());
-        this.tag(ReduxTags.Blocks.BLIGHT_REPLACEABLES).addTag(AetherTags.Blocks.HOLYSTONE);
+        this.tag(ReduxTags.Blocks.AETHER_MOSS_REPLACEABLES).addTag(AetherTags.Blocks.HOLYSTONE);
         this.tag(ReduxTags.Blocks.COARSE_AETHER_DIRT).add(ReduxBlocks.COARSE_AETHER_DIRT.get());
         this.tag(BlockTags.FLOWERS).add(
                 ReduxBlocks.IRIDIA.get(),
@@ -241,6 +249,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 );
         this.tag(ReduxTags.Blocks.HIGHLANDS_GRASSES).add(AetherBlocks.AETHER_GRASS_BLOCK.get());
         this.tag(ReduxTags.Blocks.ENCHANTED_GRASSES).add(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get());
+        this.tag(ReduxTags.Blocks.AEVELIUM_GRASSES).add(ReduxBlocks.AEVELIUM.get());
         this.tag(BlockTags.SAPLINGS).add(
                 ReduxBlocks.BLIGHTWILLOW_SAPLING.get(),
                 ReduxBlocks.GLACIA_SAPLING.get(),

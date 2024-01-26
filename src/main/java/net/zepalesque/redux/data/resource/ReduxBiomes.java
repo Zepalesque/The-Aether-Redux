@@ -69,9 +69,10 @@ public class ReduxBiomes {
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.AEVELIUM_GRASSES_PATCH)
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.CLOUDCAP_MUSHLING_PATCH)
                         .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.JELLYSHROOM_PATCH)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.SHIMMERSTOOL_PATCH)
+                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.GLIMMERSTOOL_PATCH)
                         .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, ReduxPlacedFeatures.LIGHTROOTS)
-                        .addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, ReduxPlacedFeatures.SHIMMERSTOOL_ROCK)
+                        .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, ReduxPlacedFeatures.FUNGAL_VEGETATION)
+                        .addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, ReduxPlacedFeatures.GLIMMERSTOOL_ROCK)
                 , cloudcapMobs(new MobSpawnSettings.Builder()),
                 ReduxMusic.DEFAULT_AETHER_MUSIC,
                 WATER,

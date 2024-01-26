@@ -30,6 +30,7 @@ public class ReduxBiomeModifiers {
 
     public static final ResourceKey<BiomeModifier> ADD_AETHER_CAVES = createKey(FEATURE + "aether_caves");
     public static final ResourceKey<BiomeModifier> ADD_BLIGHTED_CAVES = createKey(FEATURE + "blighted_caves");
+    public static final ResourceKey<BiomeModifier> ADD_FUNGAL_CAVES = createKey(FEATURE + "fungal_caves");
     public static final ResourceKey<BiomeModifier> ADD_MOSSY_HOLYSTONE_ORE = createKey(FEATURE + "mossy_holystone_ore");
     public static final ResourceKey<BiomeModifier> ADD_MOSSY_ROCKS = createKey(FEATURE + "mossy_rocks");
     public static final ResourceKey<BiomeModifier> ADD_WYNDSPROUTS = createKey(FEATURE + "wyndsprouts");
@@ -52,6 +53,10 @@ public class ReduxBiomeModifiers {
 
         context.register(ADD_BLIGHTED_CAVES, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
                 biomes.getOrThrow(ReduxTags.Biomes.HAS_BLIGHTED_CAVES), HolderSet.direct(features.getOrThrow(ReduxPlacedFeatures.BLIGHTMOSS_SPARSE_VEGETATION)),
+                GenerationStep.Decoration.VEGETAL_DECORATION));
+
+        context.register(ADD_FUNGAL_CAVES, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(ReduxTags.Biomes.HAS_FUNGAL_CAVES), HolderSet.direct(features.getOrThrow(ReduxPlacedFeatures.FUNGAL_SPARSE_VEGETATION)),
                 GenerationStep.Decoration.VEGETAL_DECORATION));
 
         context.register(ADD_MOSSY_HOLYSTONE_ORE, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(

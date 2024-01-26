@@ -49,10 +49,12 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> ZANBERRY_BUSH_PATCH = copyKey(ReduxConfiguredFeatures.ZANBERRY_BUSH_PATCH);
     public static final ResourceKey<PlacedFeature> BLIGHTMOSS_SPARSE_VEGETATION = createKey(Folders.CAVE + "blightmoss_sparse_vegetation");
     public static final ResourceKey<PlacedFeature> BLIGHTMOSS_VEGETATION = createKey(Folders.CAVE + "blightmoss_vegetation");
+    public static final ResourceKey<PlacedFeature> FUNGAL_SPARSE_VEGETATION = createKey(Folders.CAVE + "fungal_sparse_vegetation");
+    public static final ResourceKey<PlacedFeature> FUNGAL_VEGETATION = createKey(Folders.CAVE + "fungal_vegetation");
     public static final ResourceKey<PlacedFeature> BLIGHTSHADE_PATCH = copyKey(ReduxConfiguredFeatures.BLIGHTSHADE_PATCH);
     public static final ResourceKey<PlacedFeature> BLIGHT_ROCK = copyKey(ReduxConfiguredFeatures.BLIGHT_ROCK);
-    public static final ResourceKey<PlacedFeature> SHIMMERSTOOL_ROCK = copyKey(ReduxConfiguredFeatures.SHIMMERSTOOL_ROCK);
-    public static final ResourceKey<PlacedFeature> SHIMMERSTOOL_PATCH = copyKey(ReduxConfiguredFeatures.SHIMMERSTOOL_PATCH);
+    public static final ResourceKey<PlacedFeature> GLIMMERSTOOL_ROCK = copyKey(ReduxConfiguredFeatures.GLIMMERSTOOL_ROCK);
+    public static final ResourceKey<PlacedFeature> GLIMMERSTOOL_PATCH = copyKey(ReduxConfiguredFeatures.GLIMMERSTOOL_PATCH);
     public static final ResourceKey<PlacedFeature> BLIGHT_TREES = copyKey(ReduxConfiguredFeatures.BLIGHT_TREES);
     public static final ResourceKey<PlacedFeature> CLOUDCAP_MUSHLING_PATCH = copyKey(ReduxConfiguredFeatures.CLOUDCAP_MUSHLING_PATCH);
     public static final ResourceKey<PlacedFeature> DAGGERBLOOM_PATCH = copyKey(ReduxConfiguredFeatures.DAGGERBLOOM_PATCH);
@@ -145,9 +147,9 @@ public class ReduxPlacedFeatures {
         );
 
         register(context, BLIGHTMOSS_SPARSE_VEGETATION, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.BLIGHTMOSS_PATCH),
-                CountPlacement.of(35),
+                CountPlacement.of(20),
                 InSquarePlacement.spread(),
-                HeightRangePlacement.of(UniformHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(120))),
+                HeightRangePlacement.of(TrapezoidHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(120))),
                 EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.matchesBlocks(Blocks.CAVE_AIR), BlockPredicate.solid(), 12),
                 RandomOffsetPlacement.of(ConstantInt.ZERO, ConstantInt.of(1)),
                 BiomeFilter.biome());
@@ -155,7 +157,23 @@ public class ReduxPlacedFeatures {
         register(context, BLIGHTMOSS_VEGETATION, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.BLIGHTMOSS_PATCH),
                 CountPlacement.of(250),
                 InSquarePlacement.spread(),
-                HeightRangePlacement.of(UniformHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(120))),
+                HeightRangePlacement.of(TrapezoidHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(120))),
+                EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.matchesBlocks(Blocks.CAVE_AIR), BlockPredicate.solid(), 12),
+                RandomOffsetPlacement.of(ConstantInt.ZERO, ConstantInt.of(1)),
+                BiomeFilter.biome());
+
+        register(context, FUNGAL_SPARSE_VEGETATION, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.FUNGAL_PATCH),
+                CountPlacement.of(17),
+                InSquarePlacement.spread(),
+                HeightRangePlacement.of(TrapezoidHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(120))),
+                EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.matchesBlocks(Blocks.CAVE_AIR), BlockPredicate.solid(), 12),
+                RandomOffsetPlacement.of(ConstantInt.ZERO, ConstantInt.of(1)),
+                BiomeFilter.biome());
+
+        register(context, FUNGAL_VEGETATION, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.FUNGAL_PATCH),
+                CountPlacement.of(225),
+                InSquarePlacement.spread(),
+                HeightRangePlacement.of(TrapezoidHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(120))),
                 EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.matchesBlocks(Blocks.CAVE_AIR), BlockPredicate.solid(), 12),
                 RandomOffsetPlacement.of(ConstantInt.ZERO, ConstantInt.of(1)),
                 BiomeFilter.biome());
@@ -172,7 +190,7 @@ public class ReduxPlacedFeatures {
                 InSquarePlacement.spread(),
                 BiomeFilter.biome()
         );
-        register(context, SHIMMERSTOOL_ROCK, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.SHIMMERSTOOL_ROCK),
+        register(context, GLIMMERSTOOL_ROCK, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GLIMMERSTOOL_ROCK),
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING,
                         new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
@@ -185,7 +203,7 @@ public class ReduxPlacedFeatures {
                 BiomeFilter.biome()
         );
 
-        register(context, SHIMMERSTOOL_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.SHIMMERSTOOL_PATCH),
+        register(context, GLIMMERSTOOL_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GLIMMERSTOOL_PATCH),
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(1, 3), 4),
                 RarityFilter.onAverageOnceEvery(28),

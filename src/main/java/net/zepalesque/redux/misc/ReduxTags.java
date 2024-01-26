@@ -15,10 +15,11 @@ public class ReduxTags {
     public static class Blocks {
         public static final TagKey<Block> COARSE_AETHER_DIRT = tag("coarse_aether_dirt");
         public static final TagKey<Block> AETHER_CARVER_REPLACEABLES = tag("aether_carver_replaceables");
-        public static final TagKey<Block> BLIGHT_REPLACEABLES = tag("blight_replaceables");
+        public static final TagKey<Block> AETHER_MOSS_REPLACEABLES = tag("aether_moss_replaceables");
         public static final TagKey<Block> FROSTED_PLANTS_PLACEMENT = tag("frosted_plants_placement");
         public static final TagKey<Block> HIGHLANDS_GRASSES = tag("highlands_grasses");
         public static final TagKey<Block> ENCHANTED_GRASSES = tag("enchanted_grasses");
+        public static final TagKey<Block> AEVELIUM_GRASSES = tag("veridium_advancement_infusable");
         public static final TagKey<Block> QUICKSOIL_BEHAVIOR = tag("quicksoil_behavior");
         public static final TagKey<Block> LOG_WALLS = tagGenesis("log_walls");
         public static final TagKey<Block> ENCHANTED_VINES_SKIP_PLACEMENT = tag("enchanted_vines_skip_placement");
@@ -76,6 +77,7 @@ public class ReduxTags {
 
         public static final TagKey<Biome> HAS_AETHER_CAVES = tag("has/aether_caves");
         public static final TagKey<Biome> HAS_BLIGHTED_CAVES = tag("has/blighted_caves");
+        public static final TagKey<Biome> HAS_FUNGAL_CAVES = tag("has/fungal_caves");
         public static final TagKey<Biome> HAS_MOSSY_HOLYSTONE_ORE = tag("has/mossy_holystone_ore");
         public static final TagKey<Biome> HAS_MOSSY_ROCKS = tag("has/mossy_rocks");
         public static final TagKey<Biome> HAS_BOTH_SPROUTS = tag("has/both_sprouts");

@@ -79,7 +79,7 @@ public class ReduxBlocks {
                 () -> new AetherShortGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).hasPostProcess(ReduxBlocks::always)));
 
     public static RegistryObject<Block> AEVELIUM = register("aevelium",
-            () -> new AeveliumBlock(BlockBehaviour.Properties.of().mapColor(MapColor.LAPIS).randomTicks().strength(0.2F).sound(SoundType.ROOTED_DIRT)));
+            () -> new AeveliumBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_LIGHT_BLUE).randomTicks().strength(0.2F).sound(SoundType.ROOTED_DIRT)));
 
     public static RegistryObject<Block> AEVELIUM_SPROUTS = register("aevelium_sprouts",
             () -> new AeveliumSproutsGrowthBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).sound(SoundType.NETHER_SPROUTS), true));
@@ -273,6 +273,9 @@ public class ReduxBlocks {
 
     public static RegistryObject<Block> BLIGHTMOSS_BLOCK = register("blightmoss_block", () -> new BlightmossBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_BLOCK).mapColor(MapColor.COLOR_PURPLE)));
     public static final RegistryObject<Block> BLIGHTMOSS_CARPET = register("blightmoss_carpet", () -> new CarpetBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_CARPET).mapColor(MapColor.COLOR_PURPLE)));
+
+    public static RegistryObject<Block> FUNGAL_GROWTH = register("fungal_growth", () -> new FungalGrowthBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_BLOCK).mapColor(MapColor.TERRACOTTA_LIGHT_BLUE)));
+    public static final RegistryObject<Block> FUNGAL_CARPET = register("fungal_carpet", () -> new CarpetBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_CARPET).mapColor(MapColor.TERRACOTTA_LIGHT_BLUE)));
 
     public static RegistryObject<Block> GILDED_OAK_LEAVES = register("gilded_oak_leaves", () -> new LeavesWithParticlesBlock(ReduxParticleTypes.GILDED_SKYROOT_LEAVES, BlockBehaviour.Properties.copy(AetherBlocks.GOLDEN_OAK_LEAVES.get()).isSuffocating(ReduxBlocks::never).isViewBlocking(ReduxBlocks::never).mapColor(MapColor.QUARTZ)));
 
