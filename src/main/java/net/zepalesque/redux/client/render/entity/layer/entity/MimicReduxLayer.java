@@ -3,6 +3,7 @@ package net.zepalesque.redux.client.render.entity.layer.entity;
 import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.client.renderer.entity.model.MimicModel;
 import com.aetherteam.aether.entity.monster.dungeon.Mimic;
+import com.aetherteam.aether_genesis.Genesis;
 import com.aetherteam.aether_genesis.entity.monster.SkyrootMimic;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -33,10 +34,10 @@ public class MimicReduxLayer extends RenderLayer<Mimic, MimicModel> {
     private final MobRenderer<Mimic, MimicModel> parentRenderer;
 
     private boolean isChristmas;
-    private static final ResourceLocation REDUX_TEXTURE = new ResourceLocation(Redux.MODID, "textures/entity/mobs/mimic/normal.png");
-    private static final ResourceLocation REDUX_SKYROOT = new ResourceLocation(Redux.MODID, "textures/entity/mobs/mimic/skyroot.png");
-    private static final ResourceLocation REDUX_XMAS_TEXTURE = new ResourceLocation(Redux.MODID, "textures/entity/mobs/mimic/christmas.png");
-    private static final ResourceLocation REDUX_LOOTR_TEXTURE = new ResourceLocation(Redux.MODID, "textures/entity/mobs/mimic/lootr.png");
+    private static final ResourceLocation REDUX_TEXTURE = new ResourceLocation(Aether.MODID, "textures/entity/mobs/mimic/normal_redux.png");
+    private static final ResourceLocation REDUX_SKYROOT = new ResourceLocation("aether_genesis", "textures/entity/mobs/mimic/skyroot_redux.png");
+    private static final ResourceLocation REDUX_XMAS_TEXTURE = new ResourceLocation(Aether.MODID, "textures/entity/mobs/mimic/christmas_redux.png");
+    private static final ResourceLocation REDUX_LOOTR_TEXTURE = new ResourceLocation(Aether.MODID, "textures/entity/mobs/mimic/lootr_redux.png");
 
     public MimicReduxLayer(RenderLayerParent<Mimic, MimicModel> pRenderer, MimicReduxModel mimicModel) {
         super(pRenderer);
@@ -57,6 +58,7 @@ public class MimicReduxLayer extends RenderLayer<Mimic, MimicModel> {
 
         if (ReduxConfig.CLIENT.mimic_improvements.get().shouldUseModern())
         {
+            this.model.setupAnim(mimic, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
             MimicAnimation.get(mimic).ifPresent((anim) -> {
 
                 float prevAnim = anim.getPrevOpenAnim() == 0 && anim.getOpenAnim() > 1 ? 10F : anim.getPrevOpenAnim();
