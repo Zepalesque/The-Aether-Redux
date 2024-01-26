@@ -31,7 +31,7 @@ public class ReduxRegion extends Region {
         }
         this.addBiome(mapper, new Climate.ParameterPoint(range(-0.8, 0.0), range(0.0, 1.0), fullRange, fullRange, fullRange, fullRange, 0L), AetherBiomes.SKYROOT_FOREST);
         if (ReduxConfig.COMMON.enable_the_blight.get()) {
-            this.addBiome(mapper, new Climate.ParameterPoint(range(-0.2D, 0.6D), range(-1.0D, 0.0D), fullRange, fullRange, range(0.85D, 1.25D), fullRange, 0L), ReduxBiomes.THE_BLIGHT);
+            this.addBiome(mapper, new Climate.ParameterPoint(range(-0.2D, 0.6D), range(-1.0D, 0.0D), fullRange, fullRange, fullRange, fullRange, 0L), ReduxBiomes.THE_BLIGHT);
         } else {
             this.addBiome(mapper, new Climate.ParameterPoint(range(0.0, 0.4), range(-1.0, 0.0), fullRange, fullRange, fullRange, fullRange, 0L), AetherBiomes.SKYROOT_GROVE);
         }
