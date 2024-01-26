@@ -83,9 +83,9 @@ public class ReduxBlocks {
 
     public static RegistryObject<Block> AEVELIUM_SPROUTS = register("aevelium_sprouts",
             () -> new AeveliumSproutsGrowthBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).sound(SoundType.NETHER_SPROUTS), true));
-    public static RegistryObject<Block> AEVELIUM_GROWTH = register("aevelium_growth",
+    public static RegistryObject<Block> AEVELIUM_ROOTS = register("aevelium_roots",
             () -> new AeveliumSproutsGrowthBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).sound(SoundType.ROOTS), false));
-    public static final RegistryObject<FlowerPotBlock> POTTED_AEVELIUM_GROWTH = BLOCKS.register("potted_aevelium_growth", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, AEVELIUM_GROWTH, Block.Properties.copy(Blocks.FLOWER_POT)));
+    public static final RegistryObject<FlowerPotBlock> POTTED_AEVELIUM_ROOTS = BLOCKS.register("potted_aevelium_roots", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, AEVELIUM_ROOTS, Block.Properties.copy(Blocks.FLOWER_POT)));
 
 
     public static RegistryObject<Block> CLOUD_CAP_BLOCK = register("cloud_cap_block",
@@ -102,8 +102,8 @@ public class ReduxBlocks {
             Block.box(2D, 0D, 3D, 12D, 13D, 12D)));
     public static final RegistryObject<FlowerPotBlock> POTTED_JELLYSHROOM = BLOCKS.register("potted_jellyshroom", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, JELLYSHROOM, Block.Properties.copy(Blocks.FLOWER_POT)));
 
-    public static final RegistryObject<Block> SHIMMERSTOOL = register("shimmerstool", () -> new CustomBoxPlant(Block.Properties.of().sound(SoundType.FUNGUS /* TODO: Amethyst-like sounds? */).noCollission().offsetType(BlockBehaviour.OffsetType.XZ).instabreak().mapColor(MapColor.TERRACOTTA_LIGHT_BLUE), Block.box(3.0D, 0.0D, 3.0D, 13.0D, 6.0D, 13.0D)));
-    public static final RegistryObject<FlowerPotBlock> POTTED_SHIMMERSTOOL = BLOCKS.register("potted_shimmerstool", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SHIMMERSTOOL, Block.Properties.copy(Blocks.FLOWER_POT)));
+    public static final RegistryObject<Block> GLIMMERSTOOL = register("glimmerstool", () -> new CustomBoxPlant(Block.Properties.of().sound(SoundType.FUNGUS /* TODO: Amethyst-like sounds? */).noCollission().offsetType(BlockBehaviour.OffsetType.XZ).instabreak().mapColor(MapColor.TERRACOTTA_LIGHT_BLUE), Block.box(3.0D, 0.0D, 3.0D, 13.0D, 6.0D, 13.0D)));
+    public static final RegistryObject<FlowerPotBlock> POTTED_GLIMMERSTOOL = BLOCKS.register("potted_glimmerstool", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, GLIMMERSTOOL, Block.Properties.copy(Blocks.FLOWER_POT)));
 
     public static final RegistryObject<Block> IRIDIA = register("iridia", () -> new FlowerBlock(() -> MobEffects.HEAL, 4, Block.Properties.copy(Blocks.DANDELION).mapColor(MapColor.QUARTZ)));
     public static final RegistryObject<FlowerPotBlock> POTTED_IRIDIA = BLOCKS.register("potted_iridia", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IRIDIA, Block.Properties.copy(Blocks.FLOWER_POT)));
@@ -408,7 +408,7 @@ public class ReduxBlocks {
         pot.addPlant(ReduxBlocks.WYNDSPROUTS.getId(), ReduxBlocks.POTTED_WYNDSPROUTS);
         pot.addPlant(ReduxBlocks.SPLITFERN.getId(), ReduxBlocks.POTTED_SPLITFERN);
         pot.addPlant(ReduxBlocks.CLOUDCAP_MUSHLING.getId(), ReduxBlocks.POTTED_CLOUDCAP_MUSHLING);
-        pot.addPlant(ReduxBlocks.AEVELIUM_GROWTH.getId(), ReduxBlocks.POTTED_AEVELIUM_GROWTH);
+        pot.addPlant(ReduxBlocks.AEVELIUM_ROOTS.getId(), ReduxBlocks.POTTED_AEVELIUM_ROOTS);
         pot.addPlant(ReduxBlocks.JELLYSHROOM.getId(), ReduxBlocks.POTTED_JELLYSHROOM);
         pot.addPlant(ReduxBlocks.GILDED_OAK_SAPLING.getId(), ReduxBlocks.POTTED_GILDED_OAK_SAPLING);
         pot.addPlant(ReduxBlocks.BLIGHTED_SKYROOT_SAPLING.getId(), ReduxBlocks.POTTED_BLIGHTED_SKYROOT_SAPLING);

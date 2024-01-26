@@ -199,24 +199,24 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
         );
 
 
-        this.add(ReduxSoundEvents.SHIMMERCOW_AMBIENT,
-                definition().with(sound("aether_redux:entity/shimmercow/ambient1")).with(sound("aether_redux:entity/shimmercow/ambient2"))
-                        .subtitle("subtitles.aether_redux.entity.shimmercow_ambient"));
-        this.add(ReduxSoundEvents.SHIMMERCOW_HURT,
-                definition().with(sound("aether_redux:entity/shimmercow/hurt"))
-                        .subtitle("subtitles.aether_redux.entity.shimmercow_hurt"));
-        this.add(ReduxSoundEvents.SHIMMERCOW_DEATH,
-                definition().with(sound("aether_redux:entity/shimmercow/hurt"))
-                        .subtitle("subtitles.aether_redux.entity.shimmercow_death"))
+        this.add(ReduxSoundEvents.GLIMMERCOW_AMBIENT,
+                definition().with(sound("aether_redux:entity/glimmercow/ambient1")).with(sound("aether_redux:entity/glimmercow/ambient2"))
+                        .subtitle("subtitles.aether_redux.entity.glimmercow_ambient"));
+        this.add(ReduxSoundEvents.GLIMMERCOW_HURT,
+                definition().with(sound("aether_redux:entity/glimmercow/hurt"))
+                        .subtitle("subtitles.aether_redux.entity.glimmercow_hurt"));
+        this.add(ReduxSoundEvents.GLIMMERCOW_DEATH,
+                definition().with(sound("aether_redux:entity/glimmercow/hurt"))
+                        .subtitle("subtitles.aether_redux.entity.glimmercow_death"))
         ;
         this.add(ReduxSoundEvents.CRAZY_COW_AMBIENT,
-                definition().with(sound("aether_redux:entity/shimmercow/vwakazoom"))
+                definition().with(sound("aether_redux:entity/glimmercow/vwakazoom"))
                         .subtitle("subtitles.aether_redux.entity.crazy_cow_ambient"));
         this.add(ReduxSoundEvents.CRAZY_COW_HURT,
-                definition().with(sound("aether_redux:entity/shimmercow/noo"))
+                definition().with(sound("aether_redux:entity/glimmercow/noo"))
                         .subtitle("subtitles.aether_redux.entity.crazy_cow_hurt"));
         this.add(ReduxSoundEvents.CRAZY_COW_DEATH,
-                definition().with(sound("aether_redux:entity/shimmercow/y_do_u_do_dis"))
+                definition().with(sound("aether_redux:entity/glimmercow/y_do_u_do_dis"))
                         .subtitle("subtitles.aether_redux.entity.crazy_cow_death"));
 
     }

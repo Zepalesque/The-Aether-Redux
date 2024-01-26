@@ -5,13 +5,12 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.Entity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.zepalesque.redux.entity.passive.Shimmercow;
+import net.zepalesque.redux.entity.passive.Glimmercow;
 
 @OnlyIn(Dist.CLIENT)
-public class ShimmercowModel<T extends Shimmercow> extends QuadrupedModel   <T> {
+public class ShimmercowModel<T extends Glimmercow> extends QuadrupedModel   <T> {
    public ShimmercowModel(ModelPart root) {
       super(root, false, 10.0F, 4.0F, 2.0F, 2.0F, 24);
    }

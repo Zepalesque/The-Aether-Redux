@@ -15,7 +15,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.entity.passive.Shimmercow;
+import net.zepalesque.redux.entity.passive.Glimmercow;
 import net.zepalesque.redux.entity.projectile.Ember;
 import net.zepalesque.redux.entity.projectile.SpectralDart;
 import net.zepalesque.redux.entity.projectile.VolatileFireCrystal;
@@ -37,19 +37,19 @@ public class ReduxEntityTypes {
     public static final RegistryObject<EntityType<Ember>> EMBER = ENTITY_TYPES.register("ember",
             () -> EntityType.Builder.<Ember>of(Ember::new, MobCategory.MISC).sized(0.125F, 0.125F).clientTrackingRange(4).updateInterval(20).build("ember"));
 
-    public static final RegistryObject<EntityType<Shimmercow>> SHIMMERCOW = ENTITY_TYPES.register("shimmercow",
-            () -> EntityType.Builder.<Shimmercow>of(Shimmercow::new, MobCategory.CREATURE).sized(1.125F, 1.625F).clientTrackingRange(10).build("shimmercow"));
+    public static final RegistryObject<EntityType<Glimmercow>> GLIMMERCOW = ENTITY_TYPES.register("glimmercow",
+            () -> EntityType.Builder.<Glimmercow>of(Glimmercow::new, MobCategory.CREATURE).sized(1.125F, 1.625F).clientTrackingRange(10).build("glimmercow"));
 
     @SubscribeEvent
     public static void registerSpawnPlacements(SpawnPlacementRegisterEvent event) {
         event.register(ReduxEntityTypes.VANILLA_SWET.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Swet::checkSwetSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
-        event.register(ReduxEntityTypes.SHIMMERCOW.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AetherAnimal::checkAetherAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
+        event.register(ReduxEntityTypes.GLIMMERCOW.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AetherAnimal::checkAetherAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
     }
 
     @SubscribeEvent
     public static void registerEntityAttributes(EntityAttributeCreationEvent event) {
         event.put(ReduxEntityTypes.VANILLA_SWET.get(), Swet.createMobAttributes().build());
-        event.put(ReduxEntityTypes.SHIMMERCOW.get(), Shimmercow.createMobAttributes().build());
+        event.put(ReduxEntityTypes.GLIMMERCOW.get(), Glimmercow.createMobAttributes().build());
     }
 }
 

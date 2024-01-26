@@ -54,7 +54,7 @@ public class ReduxRenderers {
         event.registerEntityRenderer(ReduxEntityTypes.VOLATILE_FIRE_CRYSTAL.get(), VolatileFireCrystalRenderer::new);
 
         event.registerEntityRenderer(ReduxEntityTypes.EMBER.get(), EmberRenderer::new);
-        event.registerEntityRenderer(ReduxEntityTypes.SHIMMERCOW.get(), ShimmercowRenderer::new);
+        event.registerEntityRenderer(ReduxEntityTypes.GLIMMERCOW.get(), ShimmercowRenderer::new);
 
 //        event.registerEntityRenderer(AetherEntityTypes.MIMIC.get(), ReduxMimicRenderer::new);
 //        event.registerEntityRenderer(AetherEntityTypes.SENTRY.get(), ReduxSentryRenderer::new);

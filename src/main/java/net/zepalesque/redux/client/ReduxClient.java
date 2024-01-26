@@ -17,7 +17,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.client.event.RegisterEntitySpectatorShadersEvent;
-import net.minecraftforge.client.event.RegisterShadersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.zepalesque.redux.Redux;
@@ -32,7 +31,6 @@ import net.zepalesque.redux.item.accessory.VampireAmuletItem;
 import net.zepalesque.redux.item.weapons.SubzeroCrossbowItem;
 
 import javax.annotation.Nullable;
-import java.io.IOException;
 import java.util.Optional;
 import java.util.function.Function;
 
@@ -45,7 +43,7 @@ public class ReduxClient {
 
     @SubscribeEvent
     public static void registerSpectatorShaders(RegisterEntitySpectatorShadersEvent event) {
-        event.register(ReduxEntityTypes.SHIMMERCOW.get(), Redux.locate("shaders/post/adrenaline_low.json"));
+        event.register(ReduxEntityTypes.GLIMMERCOW.get(), Redux.locate("shaders/post/adrenaline_low.json"));
     }
 /*
 

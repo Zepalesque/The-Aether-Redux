@@ -63,7 +63,7 @@ public class ReduxCreativeTabs {
             putAfter(AetherBlocks.AETHER_DIRT, ReduxBlocks.COARSE_AETHER_DIRT, event);
 
             putAfter(AetherBlocks.AETHER_FARMLAND, ReduxBlocks.AETHER_SHORT_GRASS, event);
-            putAfter(ReduxBlocks.AETHER_SHORT_GRASS, ReduxBlocks.AEVELIUM_GROWTH, event);
+            putAfter(ReduxBlocks.AETHER_SHORT_GRASS, ReduxBlocks.AEVELIUM_ROOTS, event);
             putAfter(ReduxBlocks.AETHER_SHORT_GRASS, ReduxBlocks.SPLITFERN, event);
             putAfter(ReduxBlocks.SPLITFERN, ReduxBlocks.AEVELIUM_SPROUTS, event);
 
@@ -115,7 +115,7 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.LUMINA, ReduxBlocks.DAGGERBLOOM, event);
             putAfter(ReduxBlocks.DAGGERBLOOM, ReduxBlocks.CLOUDCAP_MUSHLING, event);
             putAfter(ReduxBlocks.CLOUDCAP_MUSHLING, ReduxBlocks.JELLYSHROOM, event);
-            putAfter(ReduxBlocks.JELLYSHROOM, ReduxBlocks.SHIMMERSTOOL, event);
+            putAfter(ReduxBlocks.JELLYSHROOM, ReduxBlocks.GLIMMERSTOOL, event);
 
             putAfter(AetherBlocks.ZANITE_ORE, ReduxBlocks.VERIDIUM_ORE, event);
             putAfter(AetherBlocks.GRAVITITE_ORE, ReduxBlocks.RAW_VERIDIUM_BLOCK, event);
@@ -220,7 +220,7 @@ public class ReduxCreativeTabs {
         if (tab == AetherCreativeTabs.AETHER_SPAWN_EGGS.get())
         {
             putBefore(AetherItems.WHIRLWIND_SPAWN_EGG, ReduxItems.VANILLA_SWET_SPAWN_EGG, event);
-            putAfter(AetherItems.SHEEPUFF_SPAWN_EGG, ReduxItems.SHIMMERCOW_SPAWN_EGG, event);
+            putAfter(AetherItems.SHEEPUFF_SPAWN_EGG, ReduxItems.GLIMMERCOW_SPAWN_EGG, event);
         }
     }
 

@@ -102,8 +102,8 @@ public class    ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> GRASSLAND_TREES = createKey(Folders.TREE + "grassland_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> HIGHFIELDS_ROCK  = createKey(Folders.SURFACE + "highfields_rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SHRUBLANDS_ROCK  = createKey(Folders.SURFACE + "shrublands_rock");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SHIMMERSTOOL_ROCK  = createKey(Folders.SURFACE + name(ReduxBlocks.SHIMMERSTOOL) + "_rock");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SHIMMERSTOOL_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.SHIMMERSTOOL) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SHIMMERSTOOL_ROCK  = createKey(Folders.SURFACE + name(ReduxBlocks.GLIMMERSTOOL) + "_rock");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SHIMMERSTOOL_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.GLIMMERSTOOL) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> HOLYSILT_DISK  = createKey(Folders.SURFACE + "holysilt_disk");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYSPROUTS_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.SKYSPROUTS) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> HIGHFIELDS_TREES = createKey(Folders.TREE + "highfields_trees");
@@ -154,7 +154,7 @@ public class    ReduxConfiguredFeatures {
                 blockBelowPlacementPatch(32, 7, 3, (new WeightedStateProvider(
                                 SimpleWeightedRandomList.<BlockState>builder()
                                         .add(drops(ReduxBlocks.AEVELIUM_SPROUTS), 5)
-                                        .add(drops(ReduxBlocks.AEVELIUM_GROWTH), 3))),
+                                        .add(drops(ReduxBlocks.AEVELIUM_ROOTS), 3))),
                         BlockPredicate.matchesBlocks(ReduxBlocks.AEVELIUM.get())));
 
         register(context, AA_QUICKSOIL_SHELF, ReduxFeatureRegistry.ROOTED_SHELF.get(),
@@ -386,10 +386,10 @@ public class    ReduxConfiguredFeatures {
                 new BlockStateConfiguration(AetherFeatureStates.HOLYSTONE));
 
         register(context, SHIMMERSTOOL_ROCK, ReduxFeatureRegistry.PATCH_ROCK.get(),
-                blockBelowPlacementPatchRock(prov(AetherFeatureStates.HOLYSTONE), 8, 7, 3, prov(ReduxBlocks.SHIMMERSTOOL), BlockPredicate.matchesBlocks(ReduxBlocks.AEVELIUM.get())));
+                blockBelowPlacementPatchRock(prov(AetherFeatureStates.HOLYSTONE), 8, 7, 3, prov(ReduxBlocks.GLIMMERSTOOL), BlockPredicate.matchesBlocks(ReduxBlocks.AEVELIUM.get())));
 
         register(context, SHIMMERSTOOL_PATCH, Feature.FLOWER,
-                blockBelowPlacementPatch(8, 7, 3, prov(ReduxBlocks.SHIMMERSTOOL), BlockPredicate.matchesBlocks(ReduxBlocks.AEVELIUM.get())));
+                blockBelowPlacementPatch(8, 7, 3, prov(ReduxBlocks.GLIMMERSTOOL), BlockPredicate.matchesBlocks(ReduxBlocks.AEVELIUM.get())));
 
         register(context, IRIDIA_PATCH, Feature.FLOWER,
                 randomPatch(4, 3, 3, BlockStateProvider.simple(drops(ReduxBlocks.IRIDIA))));

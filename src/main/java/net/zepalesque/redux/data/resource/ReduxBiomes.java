@@ -258,7 +258,7 @@ public class ReduxBiomes {
     {
         return defaultMobSpawnsNoPassive(builder)
                 .creatureGenerationProbability(0.25F)
-                .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ReduxEntityTypes.SHIMMERCOW.get(), 12, 2, 5));
+                .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ReduxEntityTypes.GLIMMERCOW.get(), 12, 2, 5));
 
     }
     public static MobSpawnSettings.Builder increasedMobSpawns(MobSpawnSettings.Builder builder)

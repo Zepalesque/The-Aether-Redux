@@ -7,19 +7,9 @@ import com.aetherteam.aether.data.providers.AetherBlockStateProvider;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.models.blockstates.Condition;
-import net.minecraft.data.models.blockstates.MultiPartGenerator;
-import net.minecraft.data.models.blockstates.Variant;
-import net.minecraft.data.models.blockstates.VariantProperties;
-import net.minecraft.data.models.model.ModelLocationUtils;
-import net.minecraft.data.models.model.ModelTemplates;
-import net.minecraft.data.models.model.TextureMapping;
-import net.minecraft.data.models.model.TexturedModel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.properties.*;
-import net.minecraft.world.phys.Vec2;
-import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.client.model.generators.*;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -55,8 +45,8 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.wallBlock(ReduxBlocks.DIVINITE_WALL.get(), ReduxBlocks.DIVINITE.get(), "natural/");
 
         this.crossBlock(ReduxBlocks.AEVELIUM_SPROUTS.get(), "natural/");
-        this.crossBlock(ReduxBlocks.AEVELIUM_GROWTH.get(), "natural/");
-        this.pottedPlantAltTexture(ReduxBlocks.POTTED_AEVELIUM_GROWTH.get(), ReduxBlocks.AEVELIUM_GROWTH.get(), "natural/");
+        this.crossBlock(ReduxBlocks.AEVELIUM_ROOTS.get(), "natural/");
+        this.pottedPlantAltTexture(ReduxBlocks.POTTED_AEVELIUM_ROOTS.get(), ReduxBlocks.AEVELIUM_ROOTS.get(), "natural/");
 
         this.tintedCrossBlockOverlay(ReduxBlocks.IRIDIA.get(), "natural/");
         this.tintableShortGrass(ReduxBlocks.AETHER_SHORT_GRASS.get(), "natural/");
@@ -163,8 +153,8 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.lantern(ReduxBlocks.VERIDIUM_LANTERN.get(), "construction/");
         this.crossBlock(ReduxBlocks.JELLYSHROOM, "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_JELLYSHROOM.get(), ReduxBlocks.JELLYSHROOM.get(), "natural/");
-        this.glowingCrossBlock(ReduxBlocks.SHIMMERSTOOL.get(), "natural/");
-        this.pottedPlant(ReduxBlocks.POTTED_SHIMMERSTOOL.get(), ReduxBlocks.SHIMMERSTOOL.get(), "natural/");
+        this.glowingCrossBlock(ReduxBlocks.GLIMMERSTOOL.get(), "natural/");
+        this.pottedPlant(ReduxBlocks.POTTED_GLIMMERSTOOL.get(), ReduxBlocks.GLIMMERSTOOL.get(), "natural/");
         this.aercloudAll(ReduxBlocks.JELLYSHROOM_JELLY_BLOCK.get(), "natural/");
         this.chain(ReduxBlocks.VERIDIUM_CHAIN.get(), "construction/");
         this.cropPlantNoOffsetOccluded(ReduxBlocks.GOLDEN_VINES_PLANT.get(), "natural/");

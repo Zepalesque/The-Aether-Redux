@@ -71,7 +71,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlock(ReduxBlocks.FROSTED_HOLYSTONE_STAIRS);
         itemWallBlock(ReduxBlocks.FROSTED_HOLYSTONE_WALL, ReduxBlocks.FROSTED_HOLYSTONE, "natural/");
         eggItem(ReduxItems.VANILLA_SWET_SPAWN_EGG);
-        eggItem(ReduxItems.SHIMMERCOW_SPAWN_EGG);
+        eggItem(ReduxItems.GLIMMERCOW_SPAWN_EGG);
         item(ReduxItems.GRAND_VICTORY_MEDAL, "accessories/");
         item(ReduxItems.SENTRY_RING, "accessories/");
         item(ReduxItems.AIRBOUND_CAPE, "accessories/");
@@ -99,7 +99,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlock(ReduxBlocks.CLOUD_CAP_BLOCK);
         itemBlock(ReduxBlocks.CLOUDCAP_SPORES);
         itemBlockFlat(ReduxBlocks.JELLYSHROOM, "natural/");
-        itemBlockFlatGlow(ReduxBlocks.SHIMMERSTOOL, "natural/");
+        itemBlockFlatGlow(ReduxBlocks.GLIMMERSTOOL, "natural/");
         itemBlockFlatTintGlow(ReduxBlocks.LUXWEED, "natural/");
         itemBlockFlatTintOverlay(ReduxBlocks.SPIROLYCTIL, "natural/");
         itemBlockFlatTintOverlay(ReduxBlocks.BLIGHTSHADE, "natural/");
@@ -120,7 +120,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
 
         this.itemFullGlow(ReduxItems.LIGHTROOT_CLUMP, "food/");
 
-        this.itemBlockFlat(ReduxBlocks.AEVELIUM_GROWTH.get(), "natural/");
+        this.itemBlockFlat(ReduxBlocks.AEVELIUM_ROOTS.get(), "natural/");
         this.item(ReduxBlocks.AEVELIUM_SPROUTS.get().asItem(), "misc/");
 
         this.itemBlock(ReduxBlocks.JELLYSHROOM_JELLY_BLOCK.get());

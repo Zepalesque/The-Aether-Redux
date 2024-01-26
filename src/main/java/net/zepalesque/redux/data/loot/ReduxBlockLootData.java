@@ -57,8 +57,8 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         dropSelf(ReduxBlocks.DIVINITE_WALL.get());
 
         this.add(ReduxBlocks.AEVELIUM_SPROUTS.get(), this.shearsOr(Blocks.AIR));
-        this.dropPottedContents(ReduxBlocks.POTTED_AEVELIUM_GROWTH.get());
-        this.add(ReduxBlocks.AEVELIUM_GROWTH.get(), this.shearsOr(Blocks.AIR));
+        this.dropPottedContents(ReduxBlocks.POTTED_AEVELIUM_ROOTS.get());
+        this.add(ReduxBlocks.AEVELIUM_ROOTS.get(), this.shearsOr(Blocks.AIR));
 
         this.add(ReduxBlocks.BLIGHTWILLOW_LEAVES.get(),
                 (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.BLIGHTWILLOW_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
@@ -142,9 +142,9 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
 
         this.dropSelf(ReduxBlocks.CLOUD_CAP_BLOCK.get());
         this.dropSelf(ReduxBlocks.JELLYSHROOM.get());
-        this.dropSelf(ReduxBlocks.SHIMMERSTOOL.get());
+        this.dropSelf(ReduxBlocks.GLIMMERSTOOL.get());
         this.dropPottedContents(ReduxBlocks.POTTED_JELLYSHROOM.get());
-        this.dropPottedContents(ReduxBlocks.POTTED_SHIMMERSTOOL.get());
+        this.dropPottedContents(ReduxBlocks.POTTED_GLIMMERSTOOL.get());
 
         this.add(ReduxBlocks.FIELDSPROUT_PETALS.get(), this.createFieldsproutPetalsDrops(ReduxBlocks.FIELDSPROUT_PETALS.get()));
 
