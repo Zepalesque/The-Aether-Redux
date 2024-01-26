@@ -102,8 +102,8 @@ public class ReduxBlocks {
             Block.box(2D, 0D, 3D, 12D, 13D, 12D)));
     public static final RegistryObject<FlowerPotBlock> POTTED_JELLYSHROOM = BLOCKS.register("potted_jellyshroom", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, JELLYSHROOM, Block.Properties.copy(Blocks.FLOWER_POT)));
 
-    public static final RegistryObject<Block> GLIMMERSTOOL = register("glimmerstool", () -> new CustomBoxPlant(Block.Properties.of().sound(SoundType.FUNGUS /* TODO: Amethyst-like sounds? */).noCollission().offsetType(BlockBehaviour.OffsetType.XZ).instabreak().mapColor(MapColor.TERRACOTTA_LIGHT_BLUE), Block.box(3.0D, 0.0D, 3.0D, 13.0D, 6.0D, 13.0D)));
-    public static final RegistryObject<FlowerPotBlock> POTTED_GLIMMERSTOOL = BLOCKS.register("potted_glimmerstool", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, GLIMMERSTOOL, Block.Properties.copy(Blocks.FLOWER_POT)));
+    public static final RegistryObject<Block> GLIMMERSTOOL = register("glimmerstool", () -> new CustomBoxPlant(Block.Properties.of().sound(SoundType.FUNGUS /* TODO: Amethyst-like sounds? */).noCollission().offsetType(BlockBehaviour.OffsetType.XZ).instabreak().mapColor(MapColor.TERRACOTTA_LIGHT_BLUE).lightLevel((state) -> 5), Block.box(3.0D, 0.0D, 3.0D, 13.0D, 6.0D, 13.0D)));
+    public static final RegistryObject<FlowerPotBlock> POTTED_GLIMMERSTOOL = BLOCKS.register("potted_glimmerstool", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, GLIMMERSTOOL, Block.Properties.copy(Blocks.FLOWER_POT).lightLevel((state) -> 5)));
 
     public static final RegistryObject<Block> IRIDIA = register("iridia", () -> new FlowerBlock(() -> MobEffects.HEAL, 4, Block.Properties.copy(Blocks.DANDELION).mapColor(MapColor.QUARTZ)));
     public static final RegistryObject<FlowerPotBlock> POTTED_IRIDIA = BLOCKS.register("potted_iridia", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IRIDIA, Block.Properties.copy(Blocks.FLOWER_POT)));
