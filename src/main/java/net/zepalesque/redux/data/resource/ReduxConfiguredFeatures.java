@@ -247,9 +247,9 @@ public class    ReduxConfiguredFeatures {
         register(context, FUNGAL_VEGETATION, Feature.SIMPLE_BLOCK,
                 new SimpleBlockConfiguration(new WeightedStateProvider(
                         SimpleWeightedRandomList.<BlockState>builder()
-                                .add(drops(ReduxBlocks.CLOUDCAP_MUSHLING), 11)
-                                .add(drops(ReduxBlocks.JELLYSHROOM), 7)
-                                .add(drops(ReduxBlocks.GLIMMERSTOOL), 5)
+                                .add(drops(ReduxBlocks.CLOUDCAP_MUSHLING), 40)
+                                .add(drops(ReduxBlocks.JELLYSHROOM), 20)
+                                .add(drops(ReduxBlocks.GLIMMERSTOOL), 15)
                                 .add(drops(ReduxBlocks.FUNGAL_CARPET), 75)
                                 .add(drops(ReduxBlocks.AEVELIUM_SPROUTS), 150)
                                 .add(drops(ReduxBlocks.AEVELIUM_ROOTS), 120)

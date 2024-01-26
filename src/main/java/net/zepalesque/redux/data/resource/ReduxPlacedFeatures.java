@@ -147,7 +147,8 @@ public class ReduxPlacedFeatures {
         );
 
         register(context, BLIGHTMOSS_SPARSE_VEGETATION, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.BLIGHTMOSS_PATCH),
-                CountPlacement.of(25),
+                CountPlacement.of(10),
+                RarityFilter.onAverageOnceEvery(5),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(TrapezoidHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(120))),
                 EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.matchesBlocks(Blocks.CAVE_AIR), BlockPredicate.solid(), 12),
@@ -156,6 +157,7 @@ public class ReduxPlacedFeatures {
 
         register(context, BLIGHTMOSS_VEGETATION, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.BLIGHTMOSS_PATCH),
                 CountPlacement.of(250),
+                RarityFilter.onAverageOnceEvery(5),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(TrapezoidHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(120))),
                 EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.matchesBlocks(Blocks.CAVE_AIR), BlockPredicate.solid(), 12),
@@ -163,7 +165,8 @@ public class ReduxPlacedFeatures {
                 BiomeFilter.biome());
 
         register(context, FUNGAL_SPARSE_VEGETATION, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.FUNGAL_PATCH),
-                CountPlacement.of(20),
+                CountPlacement.of(10),
+                RarityFilter.onAverageOnceEvery(5),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(TrapezoidHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(120))),
                 EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.matchesBlocks(Blocks.CAVE_AIR), BlockPredicate.solid(), 14),
@@ -172,6 +175,7 @@ public class ReduxPlacedFeatures {
 
         register(context, FUNGAL_VEGETATION, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.FUNGAL_PATCH),
                 CountPlacement.of(225),
+                RarityFilter.onAverageOnceEvery(5),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(TrapezoidHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(120))),
                 EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.matchesBlocks(Blocks.CAVE_AIR), BlockPredicate.solid(), 14),
