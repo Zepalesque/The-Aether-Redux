@@ -73,6 +73,8 @@ public class ReduxCreativeTabs {
 
             putAfter(AetherBlocks.QUICKSOIL, ReduxBlocks.BLIGHTMOSS_BLOCK, event);
             putAfter(ReduxBlocks.BLIGHTMOSS_BLOCK, ReduxBlocks.BLIGHTMOSS_CARPET, event);
+            putAfter(ReduxBlocks.BLIGHTMOSS_CARPET, ReduxBlocks.FUNGAL_GROWTH, event);
+            putAfter(ReduxBlocks.FUNGAL_GROWTH, ReduxBlocks.FUNGAL_CARPET, event);
 
             doNaturalWoods(AetherBlocks.GOLDEN_OAK_LOG, event);
 

@@ -116,6 +116,8 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
         block(ReduxBlocks.BLIGHTMOSS_BLOCK.get(), "natural/");
         carpet(ReduxBlocks.BLIGHTMOSS_CARPET.get(), ReduxBlocks.BLIGHTMOSS_BLOCK.get(), "natural/");
+        block(ReduxBlocks.FUNGAL_GROWTH.get(), "natural/");
+        carpet(ReduxBlocks.FUNGAL_CARPET.get(), ReduxBlocks.FUNGAL_GROWTH.get(), "natural/");
         this.tintedGlowingCrossBlockWithOverlay(ReduxBlocks.LUMINA.get(), "natural/");
         this.glowingPottedPlant(ReduxBlocks.POTTED_LUMINA.get(), ReduxBlocks.LUMINA.get(), "natural/");
 
