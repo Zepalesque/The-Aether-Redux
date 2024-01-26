@@ -3,7 +3,7 @@
   "placement": [
     {
       "type": "minecraft:count",
-      "count": 17
+      "count": 20
     },
     {
       "type": "minecraft:in_square"
@@ -26,7 +26,7 @@
         "type": "minecraft:solid"
       },
       "direction_of_search": "down",
-      "max_steps": 12,
+      "max_steps": 14,
       "target_condition": {
         "type": "minecraft:matching_blocks",
         "blocks": "minecraft:cave_air"

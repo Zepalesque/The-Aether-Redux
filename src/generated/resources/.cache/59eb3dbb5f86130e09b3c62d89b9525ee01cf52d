@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-25T20:32:07.8058726	Loot Tables
+// 1.20.1	2024-01-25T20:56:26.2372142	Loot Tables
 9bb0a6fae9e80234bb0bad9086af314acf3e9894 data/aether_redux/loot_tables/blocks/aether_short_grass.json
 48b55d99420ce1afaca551876e87bdbccae62e08 data/aether_redux/loot_tables/blocks/aevelium.json
 b61ecadf10d3b065a1c8f05eea7b70d4ffcadfd3 data/aether_redux/loot_tables/blocks/aevelium_roots.json
@@ -217,7 +217,6 @@ d977fabe0a169b66b5591eed6104515cdfabae28 data/aether_redux/loot_tables/blocks/st
 9b255b93a1e6c251657c91b896269a78c1e944cf data/aether_redux/loot_tables/blocks/stripped_glacia_log_wall.json
 0afc9939c26c6082053e469c11851bdbc5374d8f data/aether_redux/loot_tables/blocks/stripped_glacia_wood.json
 097cd1a6bb3fed2a597d4840fa8a9e95ac6a3e54 data/aether_redux/loot_tables/blocks/stripped_glacia_wood_wall.json
-084f0e6f5bde808e5b6f63eb31ae4aa7f6fc50ad data/aether_redux/loot_tables/blocks/tall_cloudcap.json
 dcdc5c938c7ec1dd68a18d3c97701ff5d00bf833 data/aether_redux/loot_tables/blocks/veridium_block.json
 ef05b4368c46e8f3e6cb052735d9f05aef4d2822 data/aether_redux/loot_tables/blocks/veridium_chain.json
 5d2c88cec6cc5356289792cfe952ceeb2e3f9f7f data/aether_redux/loot_tables/blocks/veridium_lantern.json
