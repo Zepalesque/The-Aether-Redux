@@ -54,7 +54,7 @@ public class ReduxRenderers {
         event.registerEntityRenderer(ReduxEntityTypes.VOLATILE_FIRE_CRYSTAL.get(), VolatileFireCrystalRenderer::new);
 
         event.registerEntityRenderer(ReduxEntityTypes.EMBER.get(), EmberRenderer::new);
-        event.registerEntityRenderer(ReduxEntityTypes.GLIMMERCOW.get(), ShimmercowRenderer::new);
+        event.registerEntityRenderer(ReduxEntityTypes.GLIMMERCOW.get(), GlimmercowRenderer::new);
 
 //        event.registerEntityRenderer(AetherEntityTypes.MIMIC.get(), ReduxMimicRenderer::new);
 //        event.registerEntityRenderer(AetherEntityTypes.SENTRY.get(), ReduxSentryRenderer::new);
@@ -74,7 +74,7 @@ public class ReduxRenderers {
     public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(ReduxModelLayers.MOA_REDUX, MoaReduxModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.REDUX_COCKATRICE, CockatriceReduxModel::createBodyLayer);
-        event.registerLayerDefinition(ReduxModelLayers.SHIMMERCOW, ShimmercowModel::createBodyLayer);
+        event.registerLayerDefinition(ReduxModelLayers.SHIMMERCOW, GlimmercowModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.MIMIC, ReduxMimicModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.SENTRY, SentryReduxModel::createBodyLayer);
         if (Redux.aetherGenesisCompat()) {

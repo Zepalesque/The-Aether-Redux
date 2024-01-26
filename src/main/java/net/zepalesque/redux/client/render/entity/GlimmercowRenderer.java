@@ -12,15 +12,15 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.render.entity.layer.ReduxModelLayers;
-import net.zepalesque.redux.client.render.entity.model.entity.ShimmercowModel;
+import net.zepalesque.redux.client.render.entity.model.entity.GlimmercowModel;
 import net.zepalesque.redux.entity.passive.Glimmercow;
 
-public class ShimmercowRenderer extends MobRenderer<Glimmercow, ShimmercowModel<Glimmercow>> {
-    private static final ResourceLocation SHIMMERCOW_TEX = Redux.locate("textures/entity/mobs/shimmercow/shimmercow.png");
-    private static final ResourceLocation CRAZY_COW_TEX = Redux.locate("textures/entity/mobs/shimmercow/crazy_cow.png");
+public class GlimmercowRenderer extends MobRenderer<Glimmercow, GlimmercowModel<Glimmercow>> {
+    private static final ResourceLocation GLIMMERCOW_TEX = Redux.locate("textures/entity/mobs/glimmercow/shimmercow.png");
+    private static final ResourceLocation CRAZY_COW_TEX = Redux.locate("textures/entity/mobs/glimmercow/crazy_cow.png");
 
-    public ShimmercowRenderer(EntityRendererProvider.Context context) {
-        super(context, new ShimmercowModel<>(context.bakeLayer(ReduxModelLayers.SHIMMERCOW)), 0.7F);
+    public GlimmercowRenderer(EntityRendererProvider.Context context) {
+        super(context, new GlimmercowModel<>(context.bakeLayer(ReduxModelLayers.SHIMMERCOW)), 0.7F);
     }
 
     @Override
@@ -30,7 +30,7 @@ public class ShimmercowRenderer extends MobRenderer<Glimmercow, ShimmercowModel<
     }
 
     public ResourceLocation getTextureLocation(Glimmercow shimmerCow) {
-        return shimmerCow.isCrazy() ? CRAZY_COW_TEX : SHIMMERCOW_TEX;
+        return shimmerCow.isCrazy() ? CRAZY_COW_TEX : GLIMMERCOW_TEX;
     }
 
     @Override

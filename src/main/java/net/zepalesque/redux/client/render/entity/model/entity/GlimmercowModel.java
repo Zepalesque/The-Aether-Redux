@@ -10,8 +10,8 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.zepalesque.redux.entity.passive.Glimmercow;
 
 @OnlyIn(Dist.CLIENT)
-public class ShimmercowModel<T extends Glimmercow> extends QuadrupedModel   <T> {
-   public ShimmercowModel(ModelPart root) {
+public class GlimmercowModel<T extends Glimmercow> extends QuadrupedModel   <T> {
+   public GlimmercowModel(ModelPart root) {
       super(root, false, 10.0F, 4.0F, 2.0F, 2.0F, 24);
    }
 

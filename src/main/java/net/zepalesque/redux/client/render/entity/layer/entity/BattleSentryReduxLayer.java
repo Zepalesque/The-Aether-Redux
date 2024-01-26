@@ -1,6 +1,7 @@
 package net.zepalesque.redux.client.render.entity.layer.entity;
 
 import com.aetherteam.aether.Aether;
+import com.aetherteam.aether_genesis.Genesis;
 import com.aetherteam.aether_genesis.entity.monster.BattleSentry;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -19,8 +20,8 @@ import net.zepalesque.redux.config.ReduxConfig;
 
 public class BattleSentryReduxLayer extends RenderLayer<BattleSentry, SlimeModel<BattleSentry>> {
 
-    private static final ResourceLocation SENTRY_OFF = new ResourceLocation(Aether.MODID, "textures/entity/mobs/sentry/battle_sentry_redux_dormant.png");
-    private static final ResourceLocation SENTRY_ON = new ResourceLocation(Aether.MODID, "textures/entity/mobs/sentry/battle_sentry_redux.png");
+    private static final ResourceLocation SENTRY_OFF = new ResourceLocation(Genesis.MODID, "textures/entity/mobs/battle_sentry/battle_sentry_redux_dormant.png");
+    private static final ResourceLocation SENTRY_ON = new ResourceLocation(Genesis.MODID, "textures/entity/mobs/battle_sentry/battle_sentry_redux.png");
     private static final RenderType SENTRY_EYE = RenderType.eyes(new ResourceLocation(Aether.MODID, "textures/entity/mobs/sentry/battle_sentry_redux_eye.png"));
 
     private final BattleSentryReduxModel<BattleSentry> model;
