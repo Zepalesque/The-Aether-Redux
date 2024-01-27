@@ -408,10 +408,10 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addGuiText("purified_luxbuds_tooltip", "Gives the helpful Blightward effect when eaten");
 
 
-        addGuiText("config_file", "Config File: %s.json");
-        addGuiText("config_category", "Current Category: %s");
-        addGuiText("config_top", "Top of Hierarchy");
-        addGuiText("config_page", "Page %s");
+        addGuiText("pack_config.file", "Config File: %s.json");
+        addGuiText("pack_config.category", "Current Category: %s");
+        addGuiText("pack_config.top", "Top of Hierarchy");
+        addGuiText("pack_config.page", "Page %s");
 
         addEntityType(ReduxEntityTypes.VANILLA_SWET, "Vanilla Swet");
         addEntityType(ReduxEntityTypes.GLIMMERCOW, "Glimmercow");
