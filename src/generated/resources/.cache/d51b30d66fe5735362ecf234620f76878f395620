@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-26T22:02:56.100836	Item Models: aether_redux
+// 1.20.1	2024-01-27T14:15:59.3470682	Item Models: aether_redux
 262070202f715ccbb93ebca7b4dd3b04851bc0ce assets/aether_redux/models/item/aether_short_grass.json
 ef6d226766d61d6460247665062a399d3613d946 assets/aether_redux/models/item/aevelium.json
 2f2dfa95433a548b2d41f817bd836c91e41fc4e9 assets/aether_redux/models/item/aevelium_roots.json
@@ -37,7 +37,7 @@ dc17ffd83782af678c9f09b7048e9725024b29c2 assets/aether_redux/models/item/blightw
 3212d9f0434f1b4c30dc38c002fd9d1930227cfb assets/aether_redux/models/item/blightwillow_wood_wall.json
 4f78f9674782c319dc3044658e8e857f865277cb assets/aether_redux/models/item/blueberry_pie.json
 8ff2ab1211df53742cea4b685e48e8907458b953 assets/aether_redux/models/item/blue_swet_jelly.json
-76d9ccac0148e3f86260ce550edbf751ee55655e assets/aether_redux/models/item/bundle_of_aether_grass.json
+dd16cf2526182e4b4ec50ca96bb1fbc5488181de assets/aether_redux/models/item/bundle_of_wyndsprouts.json
 c972575f0f9f8654ae833a8b8644b04a718da6c6 assets/aether_redux/models/item/carved_stone_bricks.json
 a503a359f9fce16dd0d2c43b71c84c70ff35915d assets/aether_redux/models/item/carved_stone_brick_slab.json
 d0c9b7220f8ee064bd6b2d343099792d4fd72c0f assets/aether_redux/models/item/carved_stone_brick_stairs.json
@@ -185,8 +185,6 @@ ec3c78d30b74b360b8e97bdd426a1588776c1e0d assets/aether_redux/models/item/jellysh
 f57c0aa977ae875c8456515bae2a0f7dbfa313cc assets/aether_redux/models/item/luxweed.json
 47516c71de9a063c4c70bd0fe9c269f3f4e5c946 assets/aether_redux/models/item/mouse_ear_soup.json
 e9805186cf791543ff0e9594ea3ec3b72edf7c81 assets/aether_redux/models/item/music_disc_labyrinths_vengeance.json
-dee757b76cfc5fd9fa5ad3649b7898499a4493c0 assets/aether_redux/models/item/oats.json
-5ebd15c6e4552f6d898c46a534139c153b4e4d98 assets/aether_redux/models/item/oat_muffin.json
 250d1c7fcd3397552a7b522bdc46c3ccdefc2043 assets/aether_redux/models/item/phoenix_emblem.json
 62cabf6bc621a205cf1aead068552db23dd9d85c assets/aether_redux/models/item/purified_luxbuds.json
 e2015d8ef1a31186ff40937a0cfe131c89ec3631 assets/aether_redux/models/item/purple_glacia_leaves.json
@@ -244,6 +242,8 @@ a10d36269b90a11c03ea84847453473095fbaeb0 assets/aether_redux/models/item/veridiu
 0800d9276da8f932e06518a5176f0d34864d3c4f assets/aether_redux/models/item/veridium_shovel.json
 25fab51c204f0bf36a3595fcd57e8202736fd397 assets/aether_redux/models/item/veridium_sword.json
 599bcfee1cc00ba1bb268ce17e64bc719d3f4269 assets/aether_redux/models/item/wyndsprouts.json
+96ab325892e2cd2be4ed35332ec32483e2a2e623 assets/aether_redux/models/item/wyndsprout_bagel.json
+73b72c469fc26408666b06c5b5ef0630bcedd71f assets/aether_redux/models/item/wyndsprout_seeds.json
 9f827a41b1b512474d1d6a2ce1b25e6efbcc4d75 assets/aether_redux/models/item/zanberry.json
 50ca60d8fc1bd373c9832f7e2ab05d1d6ff81d80 assets/aether_redux/models/item/zanberry_bush.json
 f8fb405b415a2f0c74ddcab880be64f17504d03b assets/aether_redux/models/item/zanberry_shrub.json

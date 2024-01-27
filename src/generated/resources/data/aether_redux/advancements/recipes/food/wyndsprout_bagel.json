@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_oats": {
+    "has_bundle_of_wyndsprouts": {
       "conditions": {
         "items": [
           {
             "items": [
-              "aether_redux:oats"
+              "aether_redux:bundle_of_wyndsprouts"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "aether_redux:oat_muffin"
+        "recipe": "aether_redux:wyndsprout_bagel"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_oats",
+      "has_bundle_of_wyndsprouts",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "aether_redux:oat_muffin"
+      "aether_redux:wyndsprout_bagel"
     ]
   },
   "sends_telemetry_event": false

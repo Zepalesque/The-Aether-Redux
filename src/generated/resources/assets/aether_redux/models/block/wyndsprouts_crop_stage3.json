@@ -1,0 +1,7 @@
+{
+  "parent": "aether_redux:block/template_crop_plant",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "plant": "aether_redux:block/crop/wyndsprouts/wyndsprouts_crop_stage3"
+  }
+}
