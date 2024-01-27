@@ -83,8 +83,7 @@ public class ReduxPackConfig {
         List<Conditional<PackResources>> packs = List.of();
         if (config != null) {
             packs = List.of(
-                    Conditional.of(BuiltinPackUtils.createPack("resource/nature/golder_vines"), config.use_jappafied_textures),
-                    Conditional.of(BuiltinPackUtils.createPack("resource/nature/tintable_grass"), config.tintable_grass),
+                    Conditional.of(BuiltinPackUtils.createPack("resource/tintable_grass"), config.tintable_grass),
                     Conditional.of(BuiltinPackUtils.createPack("resource/mob/better_aechor_plants"), config.better_aechor_plants),
                     Conditional.of(BuiltinPackUtils.createPack("resource/mob/classic_cockatrices"), () -> config.classic_cockatrices.get() == ClassicOption.classic),
                     Conditional.of(BuiltinPackUtils.createPack("resource/item/swet_ball"), () -> config.swet_ball_type.get() == SwetBallType.consistent_name),
