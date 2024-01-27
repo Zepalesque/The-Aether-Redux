@@ -357,7 +357,11 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addBlock(ReduxBlocks.AURUM, "Aurum");
         addBlock(ReduxBlocks.POTTED_AURUM, "Potted Aurum");
-        addLore(ReduxBlocks.AURUM, "An orange flower found in the Gilded Groves. Some say it brings luck!");
+        addLore(ReduxBlocks.AURUM, "A golden flower found in the Gilded Groves. Some say it brings luck!");
+
+        addBlock(ReduxBlocks.ZYATRIX, "Zyatrix");
+        addBlock(ReduxBlocks.POTTED_ZYATRIX, "Potted Zyatrix");
+        addLore(ReduxBlocks.ZYATRIX, "A purple, tulip-like flower found in the Gilded Grasslands. It shimmers in the moonlight!");
 
         addBlock(ReduxBlocks.LUMINA, "Lumina");
         addBlock(ReduxBlocks.POTTED_LUMINA, "Potted Lumina");

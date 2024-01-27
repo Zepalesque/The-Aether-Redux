@@ -118,6 +118,10 @@ public class ReduxBlocks {
             () -> new EnchantableFlowerBlock(() -> MobEffects.LUCK, 60, BlockBehaviour.Properties.copy(Blocks.POPPY).hasPostProcess(ReduxBlocks::always).mapColor(MapColor.GOLD)));
     public static final RegistryObject<FlowerPotBlock> POTTED_AURUM = BLOCKS.register("potted_aurum", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, AURUM, Block.Properties.copy(Blocks.FLOWER_POT)));
 
+    public static RegistryObject<Block> ZYATRIX = register("zyatrix",
+            () -> new EnchantableFlowerBlock(() -> MobEffects.MOVEMENT_SPEED, 60, BlockBehaviour.Properties.copy(Blocks.PINK_TULIP).hasPostProcess(ReduxBlocks::always).mapColor(MapColor.COLOR_PURPLE)));
+    public static final RegistryObject<FlowerPotBlock> POTTED_ZYATRIX = BLOCKS.register("potted_zyatrix", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, ZYATRIX, Block.Properties.copy(Blocks.FLOWER_POT)));
+
     public static RegistryObject<Block> ENCHANTED_WHITE_FLOWER = BLOCKS.register("enchanted_white_flower",
             () -> new FlowerBlock(() -> MobEffects.SLOW_FALLING, 60, BlockBehaviour.Properties.copy(Blocks.POPPY).mapColor(MapColor.WOOL)) {
                 @Override
@@ -395,6 +399,7 @@ public class ReduxBlocks {
         pot.addPlant(ReduxBlocks.IRIDIA.getId(), ReduxBlocks.POTTED_IRIDIA);
         pot.addPlant(ReduxBlocks.GOLDEN_CLOVER.getId(), ReduxBlocks.POTTED_GOLDEN_CLOVER);
         pot.addPlant(ReduxBlocks.AURUM.getId(), ReduxBlocks.POTTED_AURUM);
+        pot.addPlant(ReduxBlocks.ZYATRIX.getId(), ReduxBlocks.POTTED_ZYATRIX);
         pot.addPlant(ReduxBlocks.LUXWEED.getId(), ReduxBlocks.POTTED_LUXWEED);
         pot.addPlant(ReduxBlocks.SPIROLYCTIL.getId(), ReduxBlocks.POTTED_SPIROLYCTIL);
         pot.addPlant(ReduxBlocks.BLIGHTSHADE.getId(), ReduxBlocks.POTTED_BLIGHTSHADE);

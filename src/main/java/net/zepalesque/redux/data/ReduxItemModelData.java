@@ -59,7 +59,8 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         item(ReduxItems.BLUEBERRY_PIE, "food/");
         item(ReduxItems.ENCHANTED_BLUEBERRY_PIE, "food/");
         enchantedClover(ReduxBlocks.GOLDEN_CLOVER.get()::asItem, "misc/");
-        aurum(ReduxBlocks.AURUM, "natural/");
+        enchanableOrTintableFlower(ReduxBlocks.AURUM, "natural/");
+        enchanableOrTintableFlower(ReduxBlocks.ZYATRIX, "natural/");
         itemBlock(ReduxBlocks.CARVED_STONE_BRICKS);
         itemBlock(ReduxBlocks.CARVED_STONE_BRICK_SLAB);
         itemBlock(ReduxBlocks.CARVED_STONE_BRICK_STAIRS);
@@ -218,7 +219,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
                 .override().predicate(Redux.locate("enchanted"), 1.0F).model(this.getExistingFile(this.modLoc("item/" + active))).end();
     }
 
-    public ItemModelBuilder aurum(Supplier<? extends Block> block, String location) {
+    public ItemModelBuilder enchanableOrTintableFlower(Supplier<? extends Block> block, String location) {
         ResourceLocation id = ForgeRegistries.ITEMS.getKey(block.get().asItem());
         String ench = "enchanted_" + id.getPath();
         ItemModelBuilder builder = withExistingParent(ench, mcLoc("item/generated"))
