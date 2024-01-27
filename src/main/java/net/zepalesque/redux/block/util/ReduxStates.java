@@ -17,6 +17,8 @@ public class ReduxStates {
 
     public static final IntegerProperty PRISMATICNESS = IntegerProperty.create("prismaticness", 0, 6);
 
+    public static final IntegerProperty AGE_6 = IntegerProperty.create("age", 0, 6);
+
     public static final IntegerProperty EXTENDED_DISTANCE = IntegerProperty.create("distance", 1, ExtendedDistanceLeavesBlock.DECAY_DISTANCE);
 
     public static final BooleanProperty ENCHANTED = BooleanProperty.create("enchanted");

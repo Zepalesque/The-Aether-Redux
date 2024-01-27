@@ -264,6 +264,9 @@ public class ReduxBlocks {
     public static RegistryObject<Block> WYNDSPROUTS = register("wyndsprouts",
             () -> new OffsetBushBlock(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.CHERRY_SAPLING).offsetType(BlockBehaviour.OffsetType.XZ)));
 
+    public static RegistryObject<Block> WYNDSPROUTS_CROP = register("wyndsprouts_crop",
+            () -> new AetherCropBlock(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.CHERRY_SAPLING)));
+
     public static final RegistryObject<FlowerPotBlock> POTTED_WYNDSPROUTS = BLOCKS.register("potted_wyndsprouts", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, WYNDSPROUTS, Block.Properties.copy(Blocks.FLOWER_POT)));
 
     public static RegistryObject<Block> SKYSPROUTS = register("skysprouts",

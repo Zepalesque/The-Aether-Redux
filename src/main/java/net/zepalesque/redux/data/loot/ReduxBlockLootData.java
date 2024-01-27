@@ -9,6 +9,7 @@ import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.*;
@@ -31,6 +32,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.block.natural.AetherCropBlock;
 import net.zepalesque.redux.block.util.PetalPrismaticness;
 import net.zepalesque.redux.block.util.ReduxStates;
 import net.zepalesque.redux.item.ReduxItems;
@@ -139,6 +141,15 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropSelf(ReduxBlocks.BLIGHTSHADE.get());
         this.dropPottedContents(ReduxBlocks.POTTED_BLIGHTSHADE.get());
 
+        this.add(ReduxBlocks.WYNDSPROUTS_CROP.get(),
+                this.createCropDrops(
+                        ReduxBlocks.WYNDSPROUTS_CROP.get(),
+                        ReduxItems.BUNDLE_OF_WYNDSPROUTS.get(),
+                        ReduxItems.WYNDSPROUT_SEEDS.get(),
+                        LootItemBlockStatePropertyCondition.
+                                hasBlockStateProperties(Blocks.WHEAT)
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(AetherCropBlock.AGE, 6))));
+
         this.dropSelf(ReduxBlocks.CLOUD_CAP_BLOCK.get());
         this.dropSelf(ReduxBlocks.JELLYSHROOM.get());
         this.dropSelf(ReduxBlocks.GLIMMERSTOOL.get());
@@ -162,7 +173,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropPottedContents(ReduxBlocks.POTTED_LUMINA.get());
         this.dropSelf(ReduxBlocks.DAGGERBLOOM.get());
         this.dropPottedContents(ReduxBlocks.POTTED_DAGGERBLOOM.get());
-        this.add(ReduxBlocks.WYNDSPROUTS.get(), shearsOr(ReduxItems.OATS.get(), 0.75F, 1F, 2F));
+        this.add(ReduxBlocks.WYNDSPROUTS.get(), shearsOr(ReduxItems.WYNDSPROUT_SEEDS.get(), 0.75F, 1F, 2F));
         this.dropPottedContents(ReduxBlocks.POTTED_WYNDSPROUTS.get());
         // TODO: Add a drop item? maybe?
         this.add(ReduxBlocks.SKYSPROUTS.get(), shearsOr(Blocks.AIR, 0.75F, 1F, 2F));

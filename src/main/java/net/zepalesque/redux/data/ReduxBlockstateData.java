@@ -17,6 +17,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.block.natural.AetherCropBlock;
 import net.zepalesque.redux.block.natural.AetherShortGrassBlock;
 import net.zepalesque.redux.block.natural.ExtendedDistanceLeavesBlock;
 import net.zepalesque.redux.block.natural.LeafPileBlock;
@@ -43,6 +44,8 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.slab(ReduxBlocks.DIVINITE_SLAB.get(), ReduxBlocks.DIVINITE.get(), "natural/");
         this.stairs(ReduxBlocks.DIVINITE_STAIRS.get(), ReduxBlocks.DIVINITE.get(), "natural/");
         this.wallBlock(ReduxBlocks.DIVINITE_WALL.get(), ReduxBlocks.DIVINITE.get(), "natural/");
+
+        this.cropGrowable(ReduxBlocks.WYNDSPROUTS_CROP.get(), "crop/wyndsprouts/", AetherCropBlock.AGE);
 
         this.crossBlock(ReduxBlocks.AEVELIUM_SPROUTS.get(), "natural/");
         this.crossBlock(ReduxBlocks.AEVELIUM_ROOTS.get(), "natural/");
@@ -745,6 +748,14 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/template_crop_plant"))
                 .texture("plant", this.texture(this.name(block), location)).renderType("cutout");
         this.crossBlock(block, cross);
+    }
+    public void cropGrowable(Block block, String location, IntegerProperty ageProperty) {
+        this.getVariantBuilder(block).forAllStates((state) -> {
+            int stage = state.getValue(ageProperty);
+            BlockModelBuilder cross = models().withExistingParent(this.name(block) + "_stage" + stage, Redux.locate(BLOCK_FOLDER + "/template_crop_plant"))
+                    .texture("plant", this.texture(this.name(block) + "_stage" + stage, location)).renderType("cutout");
+            return ConfiguredModel.builder().modelFile(cross).build();
+        });
     }
     public void cropOccluded(Block block, String location) {
         BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/template_crop_plant_occluded"))

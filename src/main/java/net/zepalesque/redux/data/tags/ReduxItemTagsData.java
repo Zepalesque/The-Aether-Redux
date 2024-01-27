@@ -38,8 +38,8 @@ public class ReduxItemTagsData extends ItemTagsProvider {
             this.tag(ItemTags.CHEST_BOATS).add(woodHandler.chestBoatItem.get());
         }
 
-        this.tag(ReduxTags.Items.REDUX_PHYG_FOOD_ITEMS).add(ReduxItems.OATS.get());
-        this.tag(ReduxTags.Items.REDUX_FLYING_COW_FOOD_ITEMS).add(ReduxItems.BUNDLE_OF_AETHER_GRASS.get());
+        this.tag(ReduxTags.Items.REDUX_PHYG_FOOD_ITEMS).add(ReduxItems.WYNDSPROUT_SEEDS.get());
+        this.tag(ReduxTags.Items.REDUX_FLYING_COW_FOOD_ITEMS).add(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get());
         this.tag(AetherTags.Items.PHYG_TEMPTATION_ITEMS).replace(true).addTag(ReduxTags.Items.REDUX_PHYG_FOOD_ITEMS);
         this.tag(AetherTags.Items.FLYING_COW_TEMPTATION_ITEMS).replace(true).addTag(ReduxTags.Items.REDUX_FLYING_COW_FOOD_ITEMS);
         this.tag(ReduxTags.Items.SWET_JELLY).add(

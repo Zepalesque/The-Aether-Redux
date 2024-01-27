@@ -63,7 +63,9 @@ public class ReduxItems {
 
 
 
-    public static final RegistryObject<Item> OATS = register("oats", () -> new Item(new Item.Properties().food(ReduxFoods.OATS)));
+    public static final RegistryObject<Item> WYNDSPROUT_SEEDS = register("wyndsprout_seeds", () -> new ItemNameBlockItem(ReduxBlocks.WYNDSPROUTS_CROP.get(), new Item.Properties().food(ReduxFoods.WYNDSPROUT_SEEDS)));
+    public static final RegistryObject<Item> BUNDLE_OF_WYNDSPROUTS = register("bundle_of_wyndsprouts", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> WYNDSPROUT_BAGEL = register("wyndsprout_bagel", () -> new Item(new Item.Properties().food(ReduxFoods.WYNDSPROUT_BAGEL)));
 
     public static final RegistryObject<Item> RAW_GRAVITITE = register("raw_gravitite", () -> new Item(new Item.Properties()));
 
@@ -104,7 +106,6 @@ public class ReduxItems {
 
     public static final RegistryObject<Item> BLIGHTED_SPORES = register("blighted_spores", () -> new BlightedSporesItem(new Item.Properties()));
 
-    public static final RegistryObject<Item> BUNDLE_OF_AETHER_GRASS = register("bundle_of_aether_grass", () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> RAW_VERIDIUM = register("raw_veridium", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> VERIDIUM_INGOT = register("veridium_ingot", () -> new Item(new Item.Properties()));
@@ -123,7 +124,6 @@ public class ReduxItems {
 
     public static final RegistryObject<Item> COCKATRICE_FEATHER = register("cockatrice_feather", () -> new AbilityTooltipMiscItem(new Item.Properties().stacksTo(1), "cockatrice_feather_immunity"));
 
-    public static final RegistryObject<Item> OAT_MUFFIN = register("oat_muffin", () -> new Item(new Item.Properties().food(ReduxFoods.OAT_MUFFIN)));
 
 
     public static final RegistryObject<Item> QUICKROOT = register("quickroot", () -> new ItemNameBlockItem(ReduxBlocks.QUICKROOTS.get(), new Item.Properties().food(ReduxFoods.QUICKROOT)));

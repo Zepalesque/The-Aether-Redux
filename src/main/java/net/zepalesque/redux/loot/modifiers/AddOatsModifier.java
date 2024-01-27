@@ -32,7 +32,7 @@ import net.zepalesque.redux.item.ReduxItems;
                 float f = context.getRandom().nextFloat();
                 if (f >= 0.65) { count = 1; }
                 if (f >= 0.9) { count = 2; }
-                lootStacks.add(new ItemStack(ReduxItems.OATS.get(), count));
+                lootStacks.add(new ItemStack(ReduxItems.WYNDSPROUT_SEEDS.get(), count));
             }
         }
         return lootStacks;

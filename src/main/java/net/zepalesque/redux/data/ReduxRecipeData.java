@@ -195,9 +195,9 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
 
 
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ReduxItems.BLUEBERRY_PIE.get()).requires(ReduxItems.OATS.get()).requires(AetherItems.BLUE_BERRY.get()).requires(ReduxTags.Items.BLUEBERRY_PIE_EGGS).requires(Items.SUGAR).unlockedBy("has_blue_berry", inventoryTrigger(ItemPredicate.Builder.item()
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ReduxItems.BLUEBERRY_PIE.get()).requires(ReduxItems.WYNDSPROUT_SEEDS.get()).requires(AetherItems.BLUE_BERRY.get()).requires(ReduxTags.Items.BLUEBERRY_PIE_EGGS).requires(Items.SUGAR).unlockedBy("has_blue_berry", inventoryTrigger(ItemPredicate.Builder.item()
                 .of(AetherItems.BLUE_BERRY.get()).build())).unlockedBy("has_oats", inventoryTrigger(ItemPredicate.Builder.item()
-                .of(ReduxItems.OATS.get()).build())).save(consumer);
+                .of(ReduxItems.WYNDSPROUT_SEEDS.get()).build())).save(consumer);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ReduxItems.SPECTRAL_DART.get(), 4)
                 .define('F', Tags.Items.FEATHERS)
@@ -338,14 +338,21 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .unlockedBy("has_mouse_ear_cap", inventoryTrigger(ItemPredicate.Builder.item()
                 .of(ReduxTags.Items.MOUSE_EAR_CAPS).build()))::save).build(consumer, Redux.locate("mouse_ear_soup"));
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ReduxItems.WYNDSPROUT_BAGEL.get(), 1)
+                .define('B', ReduxItems.BUNDLE_OF_WYNDSPROUTS.get())
+                .pattern(" B ")
+                .pattern("B B")
+                .pattern(" B ")
+                .unlockedBy(getHasName(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get()), has(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get()))
+                .save(consumer);
+
+
+
         makePickaxe(ReduxItems.VERIDIUM_PICKAXE, ReduxItems.VERIDIUM_INGOT).save(consumer);
         makeShovel(ReduxItems.VERIDIUM_SHOVEL, ReduxItems.VERIDIUM_INGOT).save(consumer);
         makeAxe(ReduxItems.VERIDIUM_AXE, ReduxItems.VERIDIUM_INGOT).save(consumer);
         makeHoe(ReduxItems.VERIDIUM_HOE, ReduxItems.VERIDIUM_INGOT).save(consumer);
         makeSword(ReduxItems.VERIDIUM_SWORD, ReduxItems.VERIDIUM_INGOT).save(consumer);
-
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ReduxItems.OAT_MUFFIN.get()).requires(ReduxItems.OATS.get(), 2).requires(AetherItems.BLUE_BERRY.get()).unlockedBy("has_oats", inventoryTrigger(ItemPredicate.Builder.item()
-                .of(ReduxItems.OATS.get()).build())).save(consumer);
 
         oreBlockStorageRecipesRecipesWithCustomUnpacking(consumer, RecipeCategory.MISC, ReduxItems.VERIDIUM_NUGGET.get(), RecipeCategory.MISC, ReduxItems.VERIDIUM_INGOT.get(), "veridium_nugget", "veridium_nugget_to_veridium_ingot");
 

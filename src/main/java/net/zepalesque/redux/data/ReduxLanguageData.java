@@ -44,11 +44,11 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addLore(ReduxItems.GOLDEN_SWET_BALL, "A glowing, gooey orb of a Golden Swet's gel. It can be used to craft Spectral Darts.");
         addItem(ReduxItems.VANILLA_SWET_BALL, "Vanilla Swet Ball");
         addLore(ReduxItems.VANILLA_SWET_BALL, "A gooey, sweet-smelling orb of a Vanilla Swet's gel. True to the name, this smells like vanilla.");
-        addItem(ReduxItems.OATS, "Oats");
-        addLore(ReduxItems.OATS, "The Aether's main source of grain. Phygs find these tasty. They can also be crafted into the delicious Blueberry Pie!");
 
-        addItem(ReduxItems.BUNDLE_OF_AETHER_GRASS, "Bundle of Aether Grass");
-        addLore(ReduxItems.BUNDLE_OF_AETHER_GRASS, "A bunch of Aether Grass. Flying Cows like to munch on these.");
+        addItem(ReduxItems.WYNDSPROUT_SEEDS, "Wyndsprout Seeds");
+        addLore(ReduxItems.WYNDSPROUT_SEEDS, "Some seeds from the wild Wyndsprout plant. Can be grown or eaten.");
+        addItem(ReduxItems.BUNDLE_OF_WYNDSPROUTS, "Bundle of Wyndsprouts");
+        addLore(ReduxItems.BUNDLE_OF_WYNDSPROUTS, "A bundle of grown Wyndsprouts. Flying Cows like to munch on these.");
 
         addItem(ReduxItems.BLUEBERRY_PIE, "Blueberry Pie");
         addLore(ReduxItems.BLUEBERRY_PIE, "A pie made of the Aether's native blueberries. These treats taste amazing, and can make a great gift for a friend.");
@@ -334,10 +334,10 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addLore(ReduxItems.RAW_GRAVITITE, "A chunk of the Aether's rarest ore. This can be enchanted into Enchanted Gravitite blocks.");
 
         addItem(ReduxItems.COCKATRICE_FEATHER, "Cockatrice Feather");
-        addLore(ReduxItems.COCKATRICE_FEATHER, "A feather from a Cockatrice. It is said that it will protect the user from Cockatrices' venom.");
+        addLore(ReduxItems.COCKATRICE_FEATHER, "A feather from a Cockatrice. This is said to give the user a protection from some of the Blight's dangers.");
 
-        addItem(ReduxItems.OAT_MUFFIN, "Oat Muffin");
-        addLore(ReduxItems.OAT_MUFFIN, "A nice little snack made of oats. It's delicious with a porkchop for breakfast");
+        addItem(ReduxItems.WYNDSPROUT_BAGEL, "Wyndsprout Bagel");
+        addLore(ReduxItems.WYNDSPROUT_BAGEL, "A nice bagel made of cultivated Wyndsprouts.");
 
         addBlock(ReduxBlocks.LIGHTROOTS, "Lightroots");
         addItem(ReduxItems.LIGHTROOT_CLUMP, "Lightroot Clump");
