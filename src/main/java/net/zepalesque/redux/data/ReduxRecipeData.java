@@ -357,6 +357,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
 
 
 
+
         makePickaxe(ReduxItems.VERIDIUM_PICKAXE, ReduxItems.VERIDIUM_INGOT).save(consumer);
         makeShovel(ReduxItems.VERIDIUM_SHOVEL, ReduxItems.VERIDIUM_INGOT).save(consumer);
         makeAxe(ReduxItems.VERIDIUM_AXE, ReduxItems.VERIDIUM_INGOT).save(consumer);
