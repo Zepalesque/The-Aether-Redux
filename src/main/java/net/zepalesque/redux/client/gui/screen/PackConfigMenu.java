@@ -134,11 +134,11 @@ public class PackConfigMenu extends Screen {
 
     private int frameWidth()
     {
-        return MathUtil.toNearestEven(this.width * (0.48F));
+        return MathUtil.toNearestEven(this.width * (0.64F));
     }
     private int frameHeight()
     {
-        int h = MathUtil.toNearestEven(this.height * (0.84F));
+        int h = MathUtil.toNearestEven(this.height * (0.90F));
         int diff = h % 24;
         return Math.max(h - diff, 96);
     }
