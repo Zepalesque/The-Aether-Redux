@@ -73,6 +73,7 @@ public class    ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> FUNGAL_PATCH = createKey(Folders.CAVE + "fungal_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FUNGAL_PATCH_BONEMEAL = createKey(Folders.CAVE + "fungal_patch_bonemeal");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AURUM_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.AURUM) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ZYATRIX_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.ZYATRIX) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ZANBERRY_BUSH_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.ZANBERRY_BUSH) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTED_SKYROOT_TREE = createKey(Folders.TREE + "blighted_skyroot_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTMOSS_PATCH = createKey(Folders.CAVE + "blightmoss_patch");
@@ -165,6 +166,9 @@ public class    ReduxConfiguredFeatures {
                         ConstantFloat.of(7.5F), UniformInt.of(78, 80), blocks.getOrThrow(AetherTags.Blocks.AETHER_ISLAND_BLOCKS)));
         register(context, AURUM_PATCH, Feature.FLOWER,
                 randomPatch(12, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.AURUM))));
+
+        register(context, ZYATRIX_PATCH, Feature.FLOWER,
+                randomPatch(14, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.ZYATRIX))));
 
 
         register(context, ZANBERRY_BUSH_PATCH, Feature.FLOWER,
