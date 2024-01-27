@@ -16,7 +16,7 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "block": "minecraft:wheat",
+                  "block": "aether_redux:wyndsprouts_crop",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "age": "6"
@@ -38,7 +38,7 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "block": "minecraft:wheat",
+          "block": "aether_redux:wyndsprouts_crop",
           "condition": "minecraft:block_state_property",
           "properties": {
             "age": "6"

@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-27T14:15:59.3580721	Loot Tables
+// 1.20.1	2024-01-27T14:23:05.522514	Loot Tables
 9bb0a6fae9e80234bb0bad9086af314acf3e9894 data/aether_redux/loot_tables/blocks/aether_short_grass.json
 48b55d99420ce1afaca551876e87bdbccae62e08 data/aether_redux/loot_tables/blocks/aevelium.json
 b61ecadf10d3b065a1c8f05eea7b70d4ffcadfd3 data/aether_redux/loot_tables/blocks/aevelium_roots.json
@@ -223,7 +223,7 @@ ef05b4368c46e8f3e6cb052735d9f05aef4d2822 data/aether_redux/loot_tables/blocks/ve
 5d2c88cec6cc5356289792cfe952ceeb2e3f9f7f data/aether_redux/loot_tables/blocks/veridium_lantern.json
 7a2cbbde1f35ac2a357ff88ea1c7ba8f71615c41 data/aether_redux/loot_tables/blocks/veridium_ore.json
 7cebe384b4d340706f92fbaacd9eb5803e8b6450 data/aether_redux/loot_tables/blocks/wyndsprouts.json
-8a8e20a41aec7175826d6ee3c1ff8ae612b21458 data/aether_redux/loot_tables/blocks/wyndsprouts_crop.json
+d43162bf0fc94b58a5bd7932b7e83ac7fc4ddd67 data/aether_redux/loot_tables/blocks/wyndsprouts_crop.json
 ff98b9fb26abee5615d05ea6a79362d916973b03 data/aether_redux/loot_tables/blocks/zanberry_bush.json
 dac18fafe5e8a726d15bedfce3afae0d0113e177 data/aether_redux/loot_tables/blocks/zanberry_shrub.json
 bde6f239a1a1807b129bf99dedd968b6b04c3175 data/aether_redux/loot_tables/blocks/zyatrix.json
