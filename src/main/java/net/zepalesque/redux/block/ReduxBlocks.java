@@ -21,6 +21,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -67,7 +68,7 @@ public class ReduxBlocks {
             () -> new SlabBlock(BlockBehaviour.Properties.copy(DIVINITE.get()).strength(0.5F, 6.0F)));
 
     public static RegistryObject<FieldsproutPetalsBlock> FIELDSPROUT_PETALS = register("fieldsprout_petals",
-            () -> new FieldsproutPetalsBlock(BlockBehaviour.Properties.of().noCollission().hasPostProcess((state, lvl, pos) -> true).sound(SoundType.PINK_PETALS)));
+            () -> new FieldsproutPetalsBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().hasPostProcess((state, lvl, pos) -> true).sound(SoundType.PINK_PETALS)));
 
     public static RegistryObject<Block> FLOWERING_FIELDSPROUT_LEAVES = register("flowering_fieldsprout_leaves", () -> new FloweringFieldsproutLeafBlock(
             FloweringFieldsproutLeafBlock::particleFromState, BlockBehaviour.Properties.copy(AetherBlocks.SKYROOT_LEAVES.get()).hasPostProcess((state, lvl, pos) -> true).isSuffocating(ReduxBlocks::never).isViewBlocking(ReduxBlocks::never).mapColor(FloweringFieldsproutLeafBlock::colorFromState).sound(SoundType.CHERRY_LEAVES)));
@@ -97,12 +98,12 @@ public class ReduxBlocks {
     public static RegistryObject<Block> CLOUDCAP_SPORES = register("cloudcap_spores",
             () -> new CloudcapSporesBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(0.3F).sound(SoundType.WART_BLOCK).lightLevel((state) -> 15).emissiveRendering(ReduxBlocks::always).noOcclusion()));
 
-    public static final RegistryObject<Block> JELLYSHROOM = register("jellyshroom", () -> new AetherMushroom(Block.Properties.of().offsetType(BlockBehaviour.OffsetType.XZ).noCollission().instabreak().sound(SoundType.FUNGUS).mapColor(MapColor.COLOR_PURPLE),
+    public static final RegistryObject<Block> JELLYSHROOM = register("jellyshroom", () -> new AetherMushroom(Block.Properties.of().pushReaction(PushReaction.DESTROY).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().instabreak().sound(SoundType.FUNGUS).mapColor(MapColor.COLOR_PURPLE),
             ReduxConfiguredFeatures.LARGE_JELLYSHROOM,
             Block.box(2D, 0D, 3D, 12D, 13D, 12D)));
     public static final RegistryObject<FlowerPotBlock> POTTED_JELLYSHROOM = BLOCKS.register("potted_jellyshroom", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, JELLYSHROOM, Block.Properties.copy(Blocks.FLOWER_POT)));
 
-    public static final RegistryObject<Block> GLIMMERSTOOL = register("glimmerstool", () -> new CustomBoxPlant(Block.Properties.of().sound(SoundType.FUNGUS /* TODO: Amethyst-like sounds? */).noCollission().offsetType(BlockBehaviour.OffsetType.XZ).instabreak().mapColor(MapColor.TERRACOTTA_LIGHT_BLUE).lightLevel((state) -> 5), Block.box(3.0D, 0.0D, 3.0D, 13.0D, 6.0D, 13.0D)));
+    public static final RegistryObject<Block> GLIMMERSTOOL = register("glimmerstool", () -> new CustomBoxPlant(Block.Properties.of().pushReaction(PushReaction.DESTROY).sound(SoundType.FUNGUS /* TODO: Amethyst-like sounds? */).noCollission().offsetType(BlockBehaviour.OffsetType.XZ).instabreak().mapColor(MapColor.TERRACOTTA_LIGHT_BLUE).lightLevel((state) -> 5), Block.box(3.0D, 0.0D, 3.0D, 13.0D, 6.0D, 13.0D)));
     public static final RegistryObject<FlowerPotBlock> POTTED_GLIMMERSTOOL = BLOCKS.register("potted_glimmerstool", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, GLIMMERSTOOL, Block.Properties.copy(Blocks.FLOWER_POT).lightLevel((state) -> 5)));
 
     public static final RegistryObject<Block> IRIDIA = register("iridia", () -> new FlowerBlock(() -> MobEffects.HEAL, 4, Block.Properties.copy(Blocks.DANDELION).mapColor(MapColor.QUARTZ)));
@@ -111,7 +112,7 @@ public class ReduxBlocks {
     public static final RegistryObject<Block> SPIROLYCTIL = register("spirolyctil", () -> new FlowerBlock(() -> MobEffects.LEVITATION, 4, Block.Properties.copy(Blocks.DANDELION).mapColor(MapColor.DIAMOND)));
     public static final RegistryObject<FlowerPotBlock> POTTED_SPIROLYCTIL = BLOCKS.register("potted_spirolyctil", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SPIROLYCTIL, Block.Properties.copy(Blocks.FLOWER_POT)));
     public static RegistryObject<Block> GOLDEN_CLOVER = register("golden_clover",
-            () -> new GoldenCloverBlock(BlockBehaviour.Properties.of().hasPostProcess(ReduxBlocks::always).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
+            () -> new GoldenCloverBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).hasPostProcess(ReduxBlocks::always).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)));
     public static final RegistryObject<FlowerPotBlock> POTTED_GOLDEN_CLOVER = BLOCKS.register("potted_golden_clover", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, GOLDEN_CLOVER, Block.Properties.copy(Blocks.FLOWER_POT)));
 
     public static RegistryObject<Block> AURUM = register("aurum",
@@ -143,7 +144,7 @@ public class ReduxBlocks {
     public static final RegistryObject<FlowerPotBlock> POTTED_BLIGHTSHADE = BLOCKS.register("potted_blightshade", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, BLIGHTSHADE, Block.Properties.copy(Blocks.FLOWER_POT)));
 
     public static RegistryObject<Block> CLOUDCAP_MUSHLING = register("cloudcap_mushling",
-            () -> new AetherMushroom(BlockBehaviour.Properties.of().lightLevel((state) -> 3).noCollission().instabreak().sound(SoundType.NETHER_SPROUTS).offsetType(BlockBehaviour.OffsetType.XZ),
+            () -> new AetherMushroom(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).lightLevel((state) -> 3).noCollission().instabreak().sound(SoundType.NETHER_SPROUTS).offsetType(BlockBehaviour.OffsetType.XZ),
                     ReduxConfiguredFeatures.LARGE_CLOUDCAP,
                     Block.box(4.0D, 0.0D, 4.0D, 12.0D, 12.0D, 12.0D)));
     public static final RegistryObject<FlowerPotBlock> POTTED_CLOUDCAP_MUSHLING = BLOCKS.register("potted_cloudcap_mushling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CLOUDCAP_MUSHLING, Block.Properties.copy(Blocks.FLOWER_POT).lightLevel((state) -> 3)));
@@ -262,15 +263,15 @@ public class ReduxBlocks {
 
 
     public static RegistryObject<Block> WYNDSPROUTS = register("wyndsprouts",
-            () -> new OffsetBushBlock(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.CHERRY_SAPLING).offsetType(BlockBehaviour.OffsetType.XZ)));
+            () -> new OffsetBushBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.CHERRY_SAPLING).offsetType(BlockBehaviour.OffsetType.XZ)));
 
     public static RegistryObject<Block> WYNDSPROUTS_CROP = register("wyndsprouts_crop",
-            () -> new AetherCropBlock(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.CHERRY_SAPLING)));
+            () -> new AetherCropBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.CHERRY_SAPLING)));
 
     public static final RegistryObject<FlowerPotBlock> POTTED_WYNDSPROUTS = BLOCKS.register("potted_wyndsprouts", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, WYNDSPROUTS, Block.Properties.copy(Blocks.FLOWER_POT)));
 
     public static RegistryObject<Block> SKYSPROUTS = register("skysprouts",
-            () -> new OffsetBushBlock(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.CHERRY_SAPLING).offsetType(BlockBehaviour.OffsetType.XZ)));
+            () -> new OffsetBushBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.CHERRY_SAPLING).offsetType(BlockBehaviour.OffsetType.XZ)));
 
     public static final RegistryObject<FlowerPotBlock> POTTED_SKYSPROUTS = BLOCKS.register("potted_skysprouts", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SKYSPROUTS, Block.Properties.copy(Blocks.FLOWER_POT)));
 
@@ -288,8 +289,8 @@ public class ReduxBlocks {
 
 
 
-    public static final RegistryObject<Block> ZANBERRY_BUSH = register("zanberry_bush", () -> new ZanberryBushBlock(Block.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).strength(0.2F).sound(SoundType.GRASS).noOcclusion().isValidSpawn(ReduxBlocks::ocelotOrParrot).isSuffocating(ReduxBlocks::never).isViewBlocking(ReduxBlocks::never)));
-    public static final RegistryObject<Block> ZANBERRY_SHRUB = register("zanberry_shrub", () -> new ZanberryShrubBlock(Block.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).strength(0.2F).sound(SoundType.GRASS).noCollission()));
+    public static final RegistryObject<Block> ZANBERRY_BUSH = register("zanberry_bush", () -> new ZanberryBushBlock(Block.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.COLOR_LIGHT_GRAY).strength(0.2F).sound(SoundType.GRASS).noOcclusion().isValidSpawn(ReduxBlocks::ocelotOrParrot).isSuffocating(ReduxBlocks::never).isViewBlocking(ReduxBlocks::never)));
+    public static final RegistryObject<Block> ZANBERRY_SHRUB = register("zanberry_shrub", () -> new ZanberryShrubBlock(Block.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.COLOR_LIGHT_GRAY).strength(0.2F).sound(SoundType.GRASS).noCollission()));
     public static final RegistryObject<FlowerPotBlock> POTTED_ZANBERRY_SHRUB = BLOCKS.register("potted_zanberry_shrub", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, ZANBERRY_SHRUB, Block.Properties.copy(Blocks.FLOWER_POT)));
     public static final RegistryObject<FlowerPotBlock> POTTED_ZANBERRY_BUSH = BLOCKS.register("potted_zanberry_bush", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, ZANBERRY_SHRUB, Block.Properties.copy(Blocks.FLOWER_POT)));
 
@@ -318,7 +319,7 @@ public class ReduxBlocks {
     public static final RegistryObject<LeafPileBlock> GILDED_LEAF_PILE = register("gilded_leaf_pile", () -> new LeafPileBlock(BlockBehaviour.Properties.copy(GILDED_OAK_LEAVES.get()).strength(0.1F).sound(SoundType.CHERRY_LEAVES)));
 
     public static RegistryObject<Block> SPLITFERN = register("splitfern",
-            () -> new SkyfernBlock(BlockBehaviour.Properties.of().hasPostProcess(ReduxBlocks::always).noCollission().instabreak().sound(SoundType.MOSS_CARPET).offsetType(BlockBehaviour.OffsetType.XZ)));
+            () -> new SkyfernBlock(BlockBehaviour.Properties.copy(Blocks.FERN).hasPostProcess(ReduxBlocks::always).sound(SoundType.MOSS_CARPET).offsetType(BlockBehaviour.OffsetType.XZ)));
     public static final RegistryObject<FlowerPotBlock> POTTED_SPLITFERN = BLOCKS.register("potted_splitfern", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SPLITFERN, Block.Properties.copy(Blocks.FLOWER_POT)));
 
     public static RegistryObject<Block> VERIDIUM_ORE = register("veridium_ore",
