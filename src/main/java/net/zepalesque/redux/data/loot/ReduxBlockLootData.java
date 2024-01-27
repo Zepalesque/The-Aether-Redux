@@ -147,7 +147,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
                         ReduxItems.BUNDLE_OF_WYNDSPROUTS.get(),
                         ReduxItems.WYNDSPROUT_SEEDS.get(),
                         LootItemBlockStatePropertyCondition.
-                                hasBlockStateProperties(Blocks.WHEAT)
+                                hasBlockStateProperties(ReduxBlocks.WYNDSPROUTS_CROP.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(AetherCropBlock.AGE, 6))));
 
         this.dropSelf(ReduxBlocks.CLOUD_CAP_BLOCK.get());
