@@ -1,5 +1,5 @@
 {
-  "parent": "aether_redux:block/layer_size7",
+  "parent": "aether_redux:block/layer/layer_size7",
   "render_type": "minecraft:cutout",
   "textures": {
     "block": "aether_redux:block/natural/gilded_oak_leaves"

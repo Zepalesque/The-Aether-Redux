@@ -1,5 +1,5 @@
 {
-  "parent": "aether_redux:block/flower_pot_cross_glow",
+  "parent": "aether_redux:block/pot/flower_pot_glow",
   "render_type": "minecraft:cutout",
   "textures": {
     "overlay": "aether_redux:block/natural/cloudcap_mushling_glow",

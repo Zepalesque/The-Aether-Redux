@@ -1,9 +1,0 @@
-{
-  "parent": "aether_redux:block/template_bush",
-  "textures": {
-    "side": "aether_redux:block/natural/aevyrn_bush_side",
-    "top": "aether_redux:block/natural/aevyrn_bush_top",
-    "plant": "aether_redux:block/natural/aevyrn_bush_plant",
-    "particle": "aether_redux:block/natural/aevyrn_bush_plant"
-  }
-}

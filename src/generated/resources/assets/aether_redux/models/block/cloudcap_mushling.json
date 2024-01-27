@@ -1,5 +1,5 @@
 {
-  "parent": "aether_redux:block/cross_glow",
+  "parent": "aether_redux:block/cross/cross_glowing_overlay",
   "render_type": "minecraft:cutout",
   "textures": {
     "cross": "aether_redux:block/natural/cloudcap_mushling",

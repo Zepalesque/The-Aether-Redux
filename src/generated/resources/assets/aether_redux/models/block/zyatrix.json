@@ -1,5 +1,5 @@
 {
-  "parent": "aether_redux:block/tinted_cross_overlay",
+  "parent": "aether_redux:block/cross/cross_tinted_overlay",
   "render_type": "minecraft:cutout",
   "textures": {
     "cross": "aether_redux:block/natural/zyatrix",

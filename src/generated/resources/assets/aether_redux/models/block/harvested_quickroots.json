@@ -1,5 +1,5 @@
 {
-  "parent": "aether_redux:block/cross_occluded",
+  "parent": "aether_redux:block/cross/cross_occluded",
   "render_type": "minecraft:cutout",
   "textures": {
     "cross": "aether_redux:block/natural/harvested_quickroots"

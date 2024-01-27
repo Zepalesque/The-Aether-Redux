@@ -46,7 +46,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
         this.crossBlock(ReduxBlocks.AEVELIUM_SPROUTS.get(), "natural/");
         this.crossBlock(ReduxBlocks.AEVELIUM_ROOTS.get(), "natural/");
-        this.pottedPlantAltTexture(ReduxBlocks.POTTED_AEVELIUM_ROOTS.get(), ReduxBlocks.AEVELIUM_ROOTS.get(), "natural/");
+        this.potAlt(ReduxBlocks.POTTED_AEVELIUM_ROOTS.get(), ReduxBlocks.AEVELIUM_ROOTS.get(), "natural/");
 
         this.crossTintedOverlay(ReduxBlocks.IRIDIA.get(), "natural/");
         this.tintableShortGrass(ReduxBlocks.AETHER_SHORT_GRASS.get(), "natural/");
@@ -619,7 +619,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
                 state -> ConfiguredModel.builder()
                         .modelFile(state.getValue(LeafPileBlock.LAYERS) == 16 ? this.models().cubeAll(this.name(block) + "_full", this.texture(baseBlock, location)).renderType("cutout") : this.models().singleTexture(
                                 this.name(block) + state.getValue(LeafPileBlock.LAYERS),
-                                modLoc(BLOCK_FOLDER + "/layer_size" + state.getValue(LeafPileBlock.LAYERS)),
+                                modLoc(BLOCK_FOLDER + "/layer/layer_size" + state.getValue(LeafPileBlock.LAYERS)),
                                 "block", this.texture(baseBlock, location)).renderType("cutout")).build());
 
     }
@@ -1090,14 +1090,11 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
     private void ambientCrossBlockExclude(Supplier<? extends Block> block, ModelFile model, Property property) {
         getVariantBuilder(block.get()).forAllStatesExcept(state -> ConfiguredModel.builder().modelFile(model).build(), property);
     }
-    // A potted plant using a texture with a 'potted_' prefix, which also has a glowing overlay
-    public void glowingPottedPlantAltTexture(Block block, Block flower, String location) {
-        ModelFile pot = this.models().withExistingParent(this.name(block), Redux.locate("block/flower_pot_cross_glow"))
-                .texture("plant", this.modLoc("block/" + location + "potted_" + this.name(flower)))
-                .texture("overlay", this.modLoc("block/" + location + "potted_" + this.name(flower) + "_glow")).renderType("cutout");
+    public void potAlt(Block block, Block flower, String location) {
+        ModelFile pot = this.models().withExistingParent(this.name(block), mcLoc("block/flower_pot_cross"))
+                .texture("plant", this.modLoc("block/" + location + "potted_" + this.name(flower))).renderType("cutout");
         this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
     }
-
     public void tintedPotDualGloverlay(Block block, Block flower, String location) {
         ModelFile pot = this.models().withExistingParent(this.name(block), Redux.locate("block/pot/flower_pot_tinted_dual_gloverlay"))
                 .texture("plant", this.modLoc("block/" + location + this.name(flower)))
@@ -1135,39 +1132,8 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
     }
 
-    // A potted plant using a texture with a 'potted_' prefix, which also has a tinted texture with a glowing overlay
-    public void glowingPottedPlantAltTextureTinted(Block block, Block flower, String location) {
-        ModelFile pot = this.models().withExistingParent(this.name(block), Redux.locate("block/flower_pot_tinted_cross_glow"))
-                .texture("plant", this.modLoc("block/" + location + "potted_" + this.name(flower)))
-                .texture("overlay", this.modLoc("block/" + location + "potted_" + this.name(flower) + "_glow")).renderType("cutout");
-        this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
-    }
-    // A potted plant using a texture with a 'potted_' prefix
-    public void pottedPlantAltTexture(Block block, Block flower, String location) {
-        ModelFile pot = this.models().withExistingParent(this.name(block), mcLoc("block/flower_pot_cross"))
-                .texture("plant", this.modLoc("block/" + location + "potted_" + this.name(flower))).renderType("cutout");
-        this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
-    }
-
     public void other(Supplier<? extends Block> block, Supplier<? extends Block> other, String location) {
         simpleBlock(block.get(), cubeAll(other, location));
-    }
-    public void purpleAercloud(Supplier<? extends Block> block, String location) {
-
-        ResourceLocation baseTexture = texture(name(block), location);
-        ResourceLocation name = texture(name(block));
-        ResourceLocation west = extend(baseTexture, "_left");
-        ResourceLocation east = extend(baseTexture, "_right");
-        ResourceLocation north = extend(baseTexture, "_front");
-        ResourceLocation south = extend(baseTexture, "_back");
-        ResourceLocation top = extend(baseTexture, "_up");
-        ResourceLocation bottom = extend(baseTexture, "_down");
-        ModelFile modelFile = models().cube(name.toString(), bottom, top, north, south, east, west).texture("particle", extend(baseTexture, "_front")).renderType(new ResourceLocation("translucent"));
-        horizontalBlock(block.get(), modelFile);
-    }
-
-    public void translucentBlock(Supplier<? extends Block> block, String location) {
-        simpleBlock(block.get(), cubeAllTranslucent(block, location));
     }
 
 
