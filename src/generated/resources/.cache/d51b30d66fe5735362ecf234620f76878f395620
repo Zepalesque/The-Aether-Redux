@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-25T21:25:21.3778572	Item Models: aether_redux
+// 1.20.1	2024-01-26T22:02:56.100836	Item Models: aether_redux
 262070202f715ccbb93ebca7b4dd3b04851bc0ce assets/aether_redux/models/item/aether_short_grass.json
 ef6d226766d61d6460247665062a399d3613d946 assets/aether_redux/models/item/aevelium.json
 2f2dfa95433a548b2d41f817bd836c91e41fc4e9 assets/aether_redux/models/item/aevelium_roots.json
@@ -91,6 +91,7 @@ e24bcc1b074b86d43ccd158fd5efde16a4bb156f assets/aether_redux/models/item/divinit
 96affe245dcaad11ed1d16c2abce148117ef5304 assets/aether_redux/models/item/enchanted_blueberry_pie.json
 30a34b7ef4d85b8223f8b28e7b60337f683061c8 assets/aether_redux/models/item/enchanted_golden_clover.json
 bbdcf1aaa0310eecd15726f69481b9f7f7ed9229 assets/aether_redux/models/item/enchanted_ring.json
+a203ac1e775c1127e647fd1676bfcc9eb1fe334b assets/aether_redux/models/item/enchanted_zyatrix.json
 9b93b578ea0002ae78693ea3ebf17d2b1cf0ca9e assets/aether_redux/models/item/fieldsprout_boat.json
 9d4321d02a1c8100a3b0db688d80a3ea3f51f68b assets/aether_redux/models/item/fieldsprout_button.json
 dc41744b9475446defdcbaf7bd84aca75cf0b8a1 assets/aether_redux/models/item/fieldsprout_chest_boat.json
@@ -246,3 +247,4 @@ a10d36269b90a11c03ea84847453473095fbaeb0 assets/aether_redux/models/item/veridiu
 9f827a41b1b512474d1d6a2ce1b25e6efbcc4d75 assets/aether_redux/models/item/zanberry.json
 50ca60d8fc1bd373c9832f7e2ab05d1d6ff81d80 assets/aether_redux/models/item/zanberry_bush.json
 f8fb405b415a2f0c74ddcab880be64f17504d03b assets/aether_redux/models/item/zanberry_shrub.json
+c2a41c0ee9f2631aba61c0a82a090ea1385f44bf assets/aether_redux/models/item/zyatrix.json

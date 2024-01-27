@@ -5,7 +5,7 @@
   "effects": {
     "fog_color": 9671612,
     "foliage_color": 11665355,
-    "grass_color": 16318399,
+    "grass_color": 16056255,
     "music": {
       "max_delay": 24000,
       "min_delay": 12000,
@@ -44,7 +44,8 @@
       "aether_redux:trees/grassland_trees",
       "aether:grass_patch",
       "aether_redux:patch/gilded_white_flower_patch",
-      "aether_redux:patch/aurum_patch"
+      "aether_redux:patch/aurum_patch",
+      "aether_redux:patch/zyatrix_patch"
     ],
     [
       "aether:cold_aercloud",
