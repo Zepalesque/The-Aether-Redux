@@ -48,9 +48,9 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.crossBlock(ReduxBlocks.AEVELIUM_ROOTS.get(), "natural/");
         this.pottedPlantAltTexture(ReduxBlocks.POTTED_AEVELIUM_ROOTS.get(), ReduxBlocks.AEVELIUM_ROOTS.get(), "natural/");
 
-        this.tintedCrossBlockOverlay(ReduxBlocks.IRIDIA.get(), "natural/");
+        this.crossTintedOverlay(ReduxBlocks.IRIDIA.get(), "natural/");
         this.tintableShortGrass(ReduxBlocks.AETHER_SHORT_GRASS.get(), "natural/");
-        this.pottedPlant(ReduxBlocks.POTTED_IRIDIA.get(), ReduxBlocks.IRIDIA.get(), "natural/");
+        this.tintedPotOverlay(ReduxBlocks.POTTED_IRIDIA.get(), ReduxBlocks.IRIDIA.get(), "natural/");
         block(ReduxBlocks.GILDED_HOLYSTONE.get(), "natural/");
         wallBlock(ReduxBlocks.GILDED_HOLYSTONE_WALL.get(), ReduxBlocks.GILDED_HOLYSTONE.get(), "natural/");
         stairs(ReduxBlocks.GILDED_HOLYSTONE_STAIRS.get(), ReduxBlocks.GILDED_HOLYSTONE.get(), "natural/");
@@ -60,11 +60,12 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         wallBlock(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_WALL.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), "natural/");
         stairs(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_STAIRS.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), "natural/");
         slab(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_SLAB.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), "natural/");
-        this.enchantedOrTintableFlower(ReduxBlocks.AURUM.get(), "natural/");
-        this.enchantedOrTintableFlower(ReduxBlocks.ZYATRIX.get(), "natural/");
+        this.crossTintedOverlayEnchantable(ReduxBlocks.AURUM.get(), "natural/");
+        this.crossTintedOverlayEnchantable(ReduxBlocks.ZYATRIX.get(), "natural/");
         this.crossBlock(ReduxBlocks.ENCHANTED_WHITE_FLOWER.get(), "natural/");
-        this.pottedPlant(ReduxBlocks.POTTED_AURUM.get(), ReduxBlocks.AURUM.get(), "natural/");
-        this.pottedPlant(ReduxBlocks.POTTED_AURUM.get(), ReduxBlocks.ZYATRIX.get(), "natural/");
+        // TODO: Enchanted pots somehow
+        this.tintedPotOverlay(ReduxBlocks.POTTED_AURUM.get(), ReduxBlocks.AURUM.get(), "natural/");
+        this.tintedPotOverlay(ReduxBlocks.POTTED_ZYATRIX.get(), ReduxBlocks.ZYATRIX.get(), "natural/");
         block(ReduxBlocks.CARVED_STONE_BRICKS.get(), "construction/");
         wallBlock(ReduxBlocks.CARVED_STONE_BRICK_WALL.get(), ReduxBlocks.CARVED_STONE_BRICKS.get(), "construction/");
         stairs(ReduxBlocks.CARVED_STONE_BRICK_STAIRS.get(), ReduxBlocks.CARVED_STONE_BRICKS.get(), "construction/");
@@ -103,14 +104,14 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.createCloudcapBlock(ReduxBlocks.CLOUD_CAP_BLOCK, "natural/");
         this.block(ReduxBlocks.CLOUDCAP_SPORES.get(), "natural/");
 
-        this.tintedGlowingCrossBlock(ReduxBlocks.LUXWEED.get(), "natural/");
-        this.glowingPottedPlantAltTexture(ReduxBlocks.POTTED_LUXWEED.get(), ReduxBlocks.LUXWEED.get(), "natural/");
-        this.tintedCrossBlockOverlay(ReduxBlocks.SPIROLYCTIL.get(), "natural/");
-        this.pottedPlant(ReduxBlocks.POTTED_SPIROLYCTIL.get(), ReduxBlocks.SPIROLYCTIL.get(), "natural/");
-        this.tintedCrossBlockOverlay(ReduxBlocks.BLIGHTSHADE.get(), "natural/");
-        this.pottedPlant(ReduxBlocks.POTTED_BLIGHTSHADE.get(), ReduxBlocks.BLIGHTSHADE.get(), "natural/");
-        this.glowingCrossBlock(ReduxBlocks.CLOUDCAP_MUSHLING.get(), "natural/");
-        this.glowingPottedPlant(ReduxBlocks.POTTED_CLOUDCAP_MUSHLING.get(), ReduxBlocks.CLOUDCAP_MUSHLING.get(), "natural/");
+        this.crossTintedGlow(ReduxBlocks.LUXWEED.get(), "natural/");
+        this.tintedPotGlowOverlayAlt(ReduxBlocks.POTTED_LUXWEED.get(), ReduxBlocks.LUXWEED.get(), "natural/");
+        this.crossTintedOverlay(ReduxBlocks.SPIROLYCTIL.get(), "natural/");
+        this.tintedPotOverlay(ReduxBlocks.POTTED_SPIROLYCTIL.get(), ReduxBlocks.SPIROLYCTIL.get(), "natural/");
+        this.crossTintedOverlay(ReduxBlocks.BLIGHTSHADE.get(), "natural/");
+        this.tintedPotOverlay(ReduxBlocks.POTTED_BLIGHTSHADE.get(), ReduxBlocks.BLIGHTSHADE.get(), "natural/");
+        this.crossGlowOverlay(ReduxBlocks.CLOUDCAP_MUSHLING.get(), "natural/");
+        this.potGlow(ReduxBlocks.POTTED_CLOUDCAP_MUSHLING.get(), ReduxBlocks.CLOUDCAP_MUSHLING.get(), "natural/");
         this.crossBlock(ReduxBlocks.ZANBERRY_SHRUB.get(), "natural/");
         this.berryBush(ReduxBlocks.ZANBERRY_BUSH.get(), ReduxBlocks.ZANBERRY_SHRUB.get());
         this.pottedStem(ReduxBlocks.POTTED_ZANBERRY_SHRUB.get(), "natural/");
@@ -120,8 +121,8 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         carpet(ReduxBlocks.BLIGHTMOSS_CARPET.get(), ReduxBlocks.BLIGHTMOSS_BLOCK.get(), "natural/");
         block(ReduxBlocks.FUNGAL_GROWTH.get(), "natural/");
         carpet(ReduxBlocks.FUNGAL_CARPET.get(), ReduxBlocks.FUNGAL_GROWTH.get(), "natural/");
-        this.tintedGlowingCrossBlockWithOverlay(ReduxBlocks.LUMINA.get(), "natural/");
-        this.glowingPottedPlant(ReduxBlocks.POTTED_LUMINA.get(), ReduxBlocks.LUMINA.get(), "natural/");
+        this.crossTintedDualGloverlay(ReduxBlocks.LUMINA.get(), "natural/");
+        this.tintedPotDualGloverlay(ReduxBlocks.POTTED_LUMINA.get(), ReduxBlocks.LUMINA.get(), "natural/");
 
         this.pottedPlant(ReduxBlocks.POTTED_BLIGHTWILLOW_SAPLING.get(), ReduxBlocks.BLIGHTWILLOW_SAPLING.get(), "natural/");
 
@@ -135,34 +136,34 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.crossBlock(ReduxBlocks.BLIGHTED_SKYROOT_SAPLING.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_BLIGHTED_SKYROOT_SAPLING.get(), ReduxBlocks.BLIGHTED_SKYROOT_SAPLING.get(), "natural/");
 
-        this.tintedCrossBlockOverlay(ReduxBlocks.DAGGERBLOOM.get(), "natural/");
-        this.pottedPlant(ReduxBlocks.POTTED_DAGGERBLOOM.get(), ReduxBlocks.DAGGERBLOOM.get(), "natural/");
+        this.crossTintedOverlay(ReduxBlocks.DAGGERBLOOM.get(), "natural/");
+        this.tintedPotOverlay(ReduxBlocks.POTTED_DAGGERBLOOM.get(), ReduxBlocks.DAGGERBLOOM.get(), "natural/");
 
-        this.tintedCrossBlockOverlay(ReduxBlocks.WYNDSPROUTS.get(), "natural/");
-        this.tintedCrossBlockOverlay(ReduxBlocks.SKYSPROUTS.get(), "natural/");
-        this.pottedPlantAltTexture(ReduxBlocks.POTTED_WYNDSPROUTS.get(), ReduxBlocks.WYNDSPROUTS.get(), "natural/");
-        this.pottedPlantAltTexture(ReduxBlocks.POTTED_SKYSPROUTS.get(), ReduxBlocks.SKYSPROUTS.get(), "natural/");
+        this.crossTintedOverlay(ReduxBlocks.WYNDSPROUTS.get(), "natural/");
+        this.crossTintedOverlay(ReduxBlocks.SKYSPROUTS.get(), "natural/");
+        this.tintedPotOverlayAlt(ReduxBlocks.POTTED_WYNDSPROUTS.get(), ReduxBlocks.WYNDSPROUTS.get(), "natural/");
+        this.tintedPotOverlayAlt(ReduxBlocks.POTTED_SKYSPROUTS.get(), ReduxBlocks.SKYSPROUTS.get(), "natural/");
 
-        this.tintedCrossBlock(ReduxBlocks.SPLITFERN.get(), "natural/");
-        this.pottedPlant(ReduxBlocks.POTTED_SPLITFERN.get(), ReduxBlocks.SPLITFERN.get(), "natural/");
+        this.crossTinted(ReduxBlocks.SPLITFERN.get(), "natural/");
+        this.tintedPot(ReduxBlocks.POTTED_SPLITFERN.get(), ReduxBlocks.SPLITFERN.get(), "natural/");
         this.blockDoubleDrops(ReduxBlocks.VERIDIUM_ORE.get(), "natural/");
         this.block(ReduxBlocks.RAW_VERIDIUM_BLOCK.get(), "natural/");
         this.block(ReduxBlocks.VERIDIUM_BLOCK.get(), "construction/");
 
 
-        this.harvestableCrossBlockOccluded(ReduxBlocks.QUICKROOTS.get(), "natural/");
+        this.crossGlowHarvestableOccluded(ReduxBlocks.QUICKROOTS.get(), "natural/");
 
         this.lantern(ReduxBlocks.VERIDIUM_LANTERN.get(), "construction/");
         this.crossBlock(ReduxBlocks.JELLYSHROOM, "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_JELLYSHROOM.get(), ReduxBlocks.JELLYSHROOM.get(), "natural/");
-        this.glowingCrossBlock(ReduxBlocks.GLIMMERSTOOL.get(), "natural/");
+        this.crossGlowOverlay(ReduxBlocks.GLIMMERSTOOL.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_GLIMMERSTOOL.get(), ReduxBlocks.GLIMMERSTOOL.get(), "natural/");
         this.aercloudAll(ReduxBlocks.JELLYSHROOM_JELLY_BLOCK.get(), "natural/");
         this.chain(ReduxBlocks.VERIDIUM_CHAIN.get(), "construction/");
-        this.cropPlantNoOffsetOccluded(ReduxBlocks.GOLDEN_VINES_PLANT.get(), "natural/");
-        this.cropPlantNoOffsetOccluded(ReduxBlocks.GOLDEN_VINES.get(), "natural/");
-        this.cropPlantNoOffsetOccluded(ReduxBlocks.GILDED_VINES_PLANT.get(), "natural/");
-        this.cropPlantNoOffsetOccluded(ReduxBlocks.GILDED_VINES.get(), "natural/");
+        this.cropOccluded(ReduxBlocks.GOLDEN_VINES_PLANT.get(), "natural/");
+        this.cropOccluded(ReduxBlocks.GOLDEN_VINES.get(), "natural/");
+        this.cropOccluded(ReduxBlocks.GILDED_VINES_PLANT.get(), "natural/");
+        this.cropOccluded(ReduxBlocks.GILDED_VINES.get(), "natural/");
 
 
         for (WoodHandler woodHandler : Redux.Handlers.Wood.WOOD_HANDLERS)        {
@@ -511,10 +512,10 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
     }
 
     public void frostedCrossBlockGlow(Block block, String location) {
-        BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/cross_glow"))
+        BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/cross/cross_glowing_overlay"))
                 .texture("cross", this.texture(this.name(block), location))
                 .texture("overlay", this.texture(this.name(block) + "_glow", location)).renderType("cutout" );
-        BlockModelBuilder crossSnowy = models().withExistingParent(this.name(block) + "_snowy", Redux.locate(BLOCK_FOLDER + "/cross_glow"))
+        BlockModelBuilder crossSnowy = models().withExistingParent(this.name(block) + "_snowy", Redux.locate(BLOCK_FOLDER + "/cross/cross_glowing_overlay"))
                 .texture("cross", this.texture(this.name(block) + "_snowy", location))
                 .texture("overlay", this.texture(this.name(block) + "_glow_snowy", location)).renderType("cutout");
         this.frostedCrossBlock(block, cross, crossSnowy);
@@ -540,19 +541,19 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
     }
 
 
-    public void harvestableCrossBlockGlow(Block block, String location) {
-        BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/cross_full_glow"))
+    public void crossGlowHarvestable(Block block, String location) {
+        BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/cross/cross_glow"))
                 .texture("cross", this.texture(this.name(block), location)).renderType("cutout");
-        BlockModelBuilder crossHarvested = models().withExistingParent("harvested_" + this.name(block), Redux.locate(BLOCK_FOLDER + "/cross_full_glow"))
+        BlockModelBuilder crossHarvested = models().withExistingParent("harvested_" + this.name(block), Redux.locate(BLOCK_FOLDER + "/cross/cross_glow"))
                 .texture("cross", this.texture("harvested_" + this.name(block), location)).renderType("cutout");
         this.harvestableCrossBlock(block, crossHarvested, cross);
     }
-    public void harvestableCrossBlockOccluded(Block block, String location) {
-        this.harvestableCrossBlock(block, occludedCross("harvested_" + this.name(block), this.texture("harvested_" + this.name(block), location)).renderType("cutout"), occludedCross(this.name(block), this.texture(this.name(block), location)).renderType("cutout"));
+    public void crossGlowHarvestableOccluded(Block block, String location) {
+        this.harvestableCrossBlock(block, crossOccluded("harvested_" + this.name(block), this.texture("harvested_" + this.name(block), location)).renderType("cutout"), crossOccluded(this.name(block), this.texture(this.name(block), location)).renderType("cutout"));
     }
 
-    public ModelBuilder<BlockModelBuilder> occludedCross(String name, ResourceLocation cross) {
-        return models().singleTexture(name, Redux.locate(BLOCK_FOLDER + "/cross_occluded"), "cross", cross);
+    public ModelBuilder<BlockModelBuilder> crossOccluded(String name, ResourceLocation cross) {
+        return models().singleTexture(name, Redux.locate(BLOCK_FOLDER + "/cross/cross_occluded"), "cross", cross);
     }
 
     public void harvestableCrossBlock(Block block, ModelFile harvested, ModelFile full) {
@@ -564,10 +565,10 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
     }
 
 
-    public void doubleCrossBlockTopGlow(Block block, String location) {
+    public void crossDoubleTopGlow(Block block, String location) {
         this.getVariantBuilder(block).forAllStates(state -> {
             ModelFile bottom = models().cross(this.name(block) + "_bottom", this.texture(this.name(block) + "_bottom", location)).renderType("cutout");
-            ModelFile top = models().withExistingParent(this.name(block) + "_top", Redux.locate(BLOCK_FOLDER + "/cross_glow"))
+            ModelFile top = models().withExistingParent(this.name(block) + "_top", Redux.locate(BLOCK_FOLDER + "/cross/cross_glowing_overlay"))
                     .texture("cross", this.texture(this.name(block) + "_top", location))
                     .texture("overlay", this.texture(this.name(block) + "_top" + "_glow", location)).renderType("cutout");
 
@@ -577,7 +578,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
 
     }
-    public void doubleCrossBlock(Block block, String location) {
+    public void crossDouble(Block block, String location) {
         this.getVariantBuilder(block).forAllStates(state -> {
             ModelFile top = models().cross(this.name(block) + "_top", this.texture(this.name(block) + "_top", location)).renderType("cutout");
             ModelFile bottom = models().cross(this.name(block) + "_bottom", this.texture(this.name(block) + "_bottom", location)).renderType("cutout");
@@ -586,10 +587,10 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
 
     }
-    public void doubleCrossBlockFullGlow(Block block, String location) {
+    public void crossGlowDouble(Block block, String location) {
         this.getVariantBuilder(block).forAllStates(state -> {
-            ModelFile top = models().singleTexture(this.name(block) + "_top", Redux.locate(BLOCK_FOLDER + "/cross_full_glow"), "cross", this.texture(this.name(block) + "_top", location)).renderType("cutout");
-            ModelFile bottom = models().singleTexture(this.name(block) + "_bottom", Redux.locate(BLOCK_FOLDER + "/cross_full_glow"), "cross", this.texture(this.name(block) + "_bottom", location)).renderType("cutout");
+            ModelFile top = models().singleTexture(this.name(block) + "_top", Redux.locate(BLOCK_FOLDER + "/cross/cross_glow"), "cross", this.texture(this.name(block) + "_top", location)).renderType("cutout");
+            ModelFile bottom = models().singleTexture(this.name(block) + "_bottom", Redux.locate(BLOCK_FOLDER + "/cross/cross_glow"), "cross", this.texture(this.name(block) + "_bottom", location)).renderType("cutout");
             return ConfiguredModel.builder().modelFile(state.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER ? bottom : top).build();
         });
 
@@ -624,8 +625,8 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
     }
 
 
-    public void glowingPottedPlant(Block block, Block flower, String location) {
-        ModelFile pot = this.models().withExistingParent(this.name(block), Redux.locate("block/flower_pot_cross_glow"))
+    public void potGlow(Block block, Block flower, String location) {
+        ModelFile pot = this.models().withExistingParent(this.name(block), Redux.locate("block/pot/flower_pot_glow"))
                 .texture("plant", this.modLoc("block/" + location + this.name(flower)))
                 .texture("overlay", this.modLoc("block/" + location + this.name(flower) + "_glow")).renderType("cutout");
         this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
@@ -698,54 +699,54 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
     }
 
 
-    public void glowingCrossBlock(Block block, String location) {
-        BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/cross_glow"))
+    public void crossGlowOverlay(Block block, String location) {
+        BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/cross/cross_glowing_overlay"))
                 .texture("cross", this.texture(this.name(block), location))
                 .texture("overlay", this.texture(this.name(block) + "_glow", location)).renderType("cutout");
         this.crossBlock(block, cross);
     }
 
-    public void tintedGlowingCrossBlock(Block block, String location) {
-        BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/cross_glow_tinted"))
+    public void crossTintedGlow(Block block, String location) {
+        BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/cross/cross_tinted_glow"))
                 .texture("cross", this.texture(this.name(block), location))
                 .texture("overlay", this.texture(this.name(block) + "_glow", location)).renderType("cutout");
         this.crossBlock(block, cross);
     }
 
-    public void tintedGlowingCrossBlockWithOverlay(Block block, String location) {
-        BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/cross_glow_tinted_dual_overlay"))
+    public void crossTintedDualGloverlay(Block block, String location) {
+        BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/cross/cross_tinted_dual_gloverlay"))
                 .texture("cross", this.texture(this.name(block), location))
                 .texture("glow", this.texture(this.name(block) + "_glow", location)).renderType("cutout")
                 .texture("overlay", this.texture(this.name(block) + "_overlay", location)).renderType("cutout");
         this.crossBlock(block, cross);
     }
-    public void tintedCrossBlockOverlay(Block block, String location) {
-        BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/tinted_cross_overlay"))
+    public void crossTintedOverlay(Block block, String location) {
+        BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/cross/cross_tinted_overlay"))
                 .texture("cross", this.texture(this.name(block), location))
                 .texture("overlay", this.texture(this.name(block) + "_overlay", location)).renderType("cutout");
         this.crossBlock(block, cross);
     }
 
 
-    public void enchantedOrTintableFlower(Block block, String location) {
-        BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/tinted_cross_overlay"))
+    public void crossTintedOverlayEnchantable(Block block, String location) {
+        BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/cross/cross_tinted_overlay"))
                 .texture("cross", this.texture(this.name(block), location))
                 .texture("overlay", this.texture(this.name(block) + "_overlay", location)).renderType("cutout");
         BlockModelBuilder ench = models().cross("enchanted_" + this.name(block), this.texture("enchanted_" + this.name(block), location)).renderType("cutout");
         this.getVariantBuilder(block).forAllStates((state) ->  ConfiguredModel.builder().modelFile(state.getValue(ReduxStates.ENCHANTED) ? ench : cross).build());
     }
-    public void tintedCrossBlock(Block block, String location) {
+    public void crossTinted(Block block, String location) {
         BlockModelBuilder cross = models().withExistingParent(this.name(block), mcLoc(BLOCK_FOLDER + "/tinted_cross"))
                 .texture("cross", this.texture(this.name(block), location)).renderType("cutout");
         this.crossBlock(block, cross);
     }
 
-    public void cropPlantNoOffset(Block block, String location) {
+    public void crop(Block block, String location) {
         BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/template_crop_plant"))
                 .texture("plant", this.texture(this.name(block), location)).renderType("cutout");
         this.crossBlock(block, cross);
     }
-    public void cropPlantNoOffsetOccluded(Block block, String location) {
+    public void cropOccluded(Block block, String location) {
         BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/template_crop_plant_occluded"))
                 .texture("plant", this.texture(this.name(block), location)).renderType("cutout");
         this.crossBlock(block, cross);
@@ -1097,6 +1098,43 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
     }
 
+    public void tintedPotDualGloverlay(Block block, Block flower, String location) {
+        ModelFile pot = this.models().withExistingParent(this.name(block), Redux.locate("block/pot/flower_pot_tinted_dual_gloverlay"))
+                .texture("plant", this.modLoc("block/" + location + this.name(flower)))
+                .texture("glow", this.modLoc("block/" + this.name(flower) + "_glow"))
+                .texture("overlay", this.modLoc("block/" + this.name(flower) + "_overlay")).renderType("cutout");
+        this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
+    }
+    public void tintedPotGlowOverlay(Block block, Block flower, String location) {
+        ModelFile pot = this.models().withExistingParent(this.name(block), Redux.locate("block/pot/flower_pot_tinted_glowing_overlay"))
+                .texture("plant", this.modLoc("block/" + location + this.name(flower)))
+                .texture("overlay", this.modLoc("block/" + this.name(flower) + "_glow")).renderType("cutout");
+        this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
+    }
+    public void tintedPotGlowOverlayAlt(Block block, Block flower, String location) {
+        ModelFile pot = this.models().withExistingParent(this.name(block), Redux.locate("block/pot/flower_pot_tinted_glowing_overlay"))
+                .texture("plant", this.modLoc("block/" + location + "potted_" + this.name(flower)))
+                .texture("overlay", this.modLoc("block/" + "potted_" + this.name(flower) + "_glow")).renderType("cutout");
+        this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
+    }
+    public void tintedPotOverlay(Block block, Block flower, String location) {
+        ModelFile pot = this.models().withExistingParent(this.name(block), Redux.locate("block/pot/flower_pot_tinted_overlay"))
+                .texture("plant", this.modLoc("block/" + location + this.name(flower)))
+                .texture("overlay", this.modLoc("block/" + this.name(flower) + "_overlay")).renderType("cutout");
+        this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
+    }
+    public void tintedPot(Block block, Block flower, String location) {
+        ModelFile pot = this.models().withExistingParent(this.name(block), Redux.locate("block/pot/flower_pot_tinted"))
+                .texture("plant", this.modLoc("block/" + location + this.name(flower))).renderType("cutout");
+        this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
+    }
+    public void tintedPotOverlayAlt(Block block, Block flower, String location) {
+        ModelFile pot = this.models().withExistingParent(this.name(block), Redux.locate("block/pot/flower_pot_tinted_overlay"))
+                .texture("plant", this.modLoc("block/" + location + "potted_" + this.name(flower)))
+                .texture("overlay", this.modLoc("block/" + "potted_" + this.name(flower) + "_overlay")).renderType("cutout");
+        this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
+    }
+
     // A potted plant using a texture with a 'potted_' prefix, which also has a tinted texture with a glowing overlay
     public void glowingPottedPlantAltTextureTinted(Block block, Block flower, String location) {
         ModelFile pot = this.models().withExistingParent(this.name(block), Redux.locate("block/flower_pot_tinted_cross_glow"))
@@ -1108,20 +1146,6 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
     public void pottedPlantAltTexture(Block block, Block flower, String location) {
         ModelFile pot = this.models().withExistingParent(this.name(block), mcLoc("block/flower_pot_cross"))
                 .texture("plant", this.modLoc("block/" + location + "potted_" + this.name(flower))).renderType("cutout");
-        this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
-    }
-    // A potted plant using a texture with a 'potted_' prefix, which also has a tinted texture with an overlay
-    public void pottedPlantAltTextureTintedOverlay(Block block, Block flower, String location) {
-        ModelFile pot = this.models().withExistingParent(this.name(block), Redux.locate("block/flower_pot_tinted_cross_overlay"))
-                .texture("plant", this.modLoc("block/" + location + "potted_" + this.name(flower))).renderType("cutout")
-                .texture("overlay", this.modLoc("block/" + location + "potted_" + this.name(flower) + "_overlay")).renderType("cutout");
-        this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
-    }
-    // A potted plant with a tinted texture with an overlay
-    public void pottedPlantTintedOverlay(Block block, Block flower, String location) {
-        ModelFile pot = this.models().withExistingParent(this.name(block), Redux.locate("block/flower_pot_tinted_cross_overlay"))
-                .texture("plant", this.modLoc("block/" + location + this.name(flower))).renderType("cutout")
-                .texture("overlay", this.modLoc("block/" + location + "potted_" + this.name(flower) + "_overlay ")).renderType("cutout");
         this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
     }
 
