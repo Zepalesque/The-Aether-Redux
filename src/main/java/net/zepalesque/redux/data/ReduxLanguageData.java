@@ -339,6 +339,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.WYNDSPROUT_BAGEL, "Wyndsprout Bagel");
         addLore(ReduxItems.WYNDSPROUT_BAGEL, "A nice bagel made of cultivated Wyndsprouts.");
 
+        addItem(ReduxItems.OATMEAL, "Oatmeal");
+        addLore(ReduxItems.OATMEAL, "A nice bowl of Oatmeal, made with Wyndsprout Seeds.");
+
         addBlock(ReduxBlocks.LIGHTROOTS, "Lightroots");
         addItem(ReduxItems.LIGHTROOT_CLUMP, "Lightroot Clump");
         addLore(ReduxItems.LIGHTROOT_CLUMP, "A clump of the glowing roots that grow in the Cloudcaps. These can be eaten, and give night vision.");

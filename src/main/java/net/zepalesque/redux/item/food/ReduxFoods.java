@@ -22,6 +22,8 @@ public class ReduxFoods {
 
     public static final FoodProperties WYNDSPROUT_BAGEL = (new FoodProperties.Builder()).nutrition(6).saturationMod(0.2F).build();
 
+    public static final FoodProperties OATMEAL = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.6F).build();
+
     public static final FoodProperties QUICKROOT = (new FoodProperties.Builder()).fast().nutrition(3).saturationMod(0.1F)
             .effect( () -> new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 610, 0), 2F).build();
 
