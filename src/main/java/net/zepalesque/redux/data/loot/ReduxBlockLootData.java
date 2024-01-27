@@ -173,7 +173,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropPottedContents(ReduxBlocks.POTTED_LUMINA.get());
         this.dropSelf(ReduxBlocks.DAGGERBLOOM.get());
         this.dropPottedContents(ReduxBlocks.POTTED_DAGGERBLOOM.get());
-        this.add(ReduxBlocks.WYNDSPROUTS.get(), createSproutsDrops(ReduxBlocks.WYNDSPROUTS.get(), ReduxItems.WYNDSPROUT_SEEDS.get()));
+        this.add(ReduxBlocks.WYNDSPROUTS.get(), createSproutsDrops(ReduxBlocks.WYNDSPROUTS.get(), ReduxItems.WYNDSPROUT_SEEDS.get(), 0.25F));
         this.dropPottedContents(ReduxBlocks.POTTED_WYNDSPROUTS.get());
         // TODO: Add a drop item? maybe?
         this.add(ReduxBlocks.SKYSPROUTS.get(), shearsOr(Blocks.AIR, 0.75F, 1F, 2F));
@@ -244,9 +244,10 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         return (block) -> createShearsDispatchTable(block, this.applyExplosionDecay(block, LootItem.lootTableItem(drop).when(LootItemRandomChanceCondition.randomChance(chance)).apply(SetItemCountFunction.setCount(UniformGenerator.between(min, max))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2))));
     }
 
-    protected LootTable.Builder createSproutsDrops(Block block, ItemLike seeds) {
-        return createShearsDispatchTable(block, this.applyExplosionDecay(block, LootItem.lootTableItem(seeds).when(LootItemRandomChanceCondition.randomChance(0.125F)).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2))));
+    protected LootTable.Builder createSproutsDrops(Block block, ItemLike seeds, float chance) {
+        return createShearsDispatchTable(block, this.applyExplosionDecay(block, LootItem.lootTableItem(seeds).when(LootItemRandomChanceCondition.randomChance(chance)).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2))));
     }
+
     public Function<Block, LootTable.Builder> shearsOr(ItemLike drop)
     {
         return shearsOr(drop, 0.25F);
