@@ -334,7 +334,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .save(consumer);
 
         ConditionalRecipe.builder().addCondition(dc(Conditions.GENESIS)).addRecipe(ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ReduxItems.MOUSE_EAR_SOUP.get())
-                .requires(Ingredient.of(ReduxTags.Items.SKYROOT_BOWLS)).requires(ReduxTags.Items.MOUSE_EAR_CAPS)
+                .requires(Ingredient.of(Items.BOWL)).requires(ReduxTags.Items.MOUSE_EAR_CAPS)
                 .unlockedBy("has_mouse_ear_cap", inventoryTrigger(ItemPredicate.Builder.item()
                 .of(ReduxTags.Items.MOUSE_EAR_CAPS).build()))::save).build(consumer, Redux.locate("mouse_ear_soup"));
 
