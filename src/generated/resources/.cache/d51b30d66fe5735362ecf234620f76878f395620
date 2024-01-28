@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-27T14:23:05.5075162	Item Models: aether_redux
+// 1.20.1	2024-01-27T14:48:30.1129879	Item Models: aether_redux
 262070202f715ccbb93ebca7b4dd3b04851bc0ce assets/aether_redux/models/item/aether_short_grass.json
 ef6d226766d61d6460247665062a399d3613d946 assets/aether_redux/models/item/aevelium.json
 2f2dfa95433a548b2d41f817bd836c91e41fc4e9 assets/aether_redux/models/item/aevelium_roots.json
@@ -185,6 +185,7 @@ ec3c78d30b74b360b8e97bdd426a1588776c1e0d assets/aether_redux/models/item/jellysh
 f57c0aa977ae875c8456515bae2a0f7dbfa313cc assets/aether_redux/models/item/luxweed.json
 47516c71de9a063c4c70bd0fe9c269f3f4e5c946 assets/aether_redux/models/item/mouse_ear_soup.json
 e9805186cf791543ff0e9594ea3ec3b72edf7c81 assets/aether_redux/models/item/music_disc_labyrinths_vengeance.json
+54842e392da1fcd4941f2f3a60d1cbdfd987f49a assets/aether_redux/models/item/oatmeal.json
 250d1c7fcd3397552a7b522bdc46c3ccdefc2043 assets/aether_redux/models/item/phoenix_emblem.json
 62cabf6bc621a205cf1aead068552db23dd9d85c assets/aether_redux/models/item/purified_luxbuds.json
 e2015d8ef1a31186ff40937a0cfe131c89ec3631 assets/aether_redux/models/item/purple_glacia_leaves.json

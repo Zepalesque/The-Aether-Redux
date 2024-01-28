@@ -141,7 +141,8 @@ public class ReduxCreativeTabs {
             putAfter(ReduxItems.BLUEBERRY_PIE, ReduxItems.ENCHANTED_BLUEBERRY_PIE, event);
             putAfter(ReduxItems.ENCHANTED_BLUEBERRY_PIE, ReduxItems.WYNDSPROUT_BAGEL, event);
             putAfter(ReduxItems.WYNDSPROUT_BAGEL, ReduxItems.WYNDSPROUT_SEEDS, event);
-            putAfter(ReduxItems.WYNDSPROUT_SEEDS, ReduxItems.LUXBUDS, event);
+            putAfter(ReduxItems.WYNDSPROUT_SEEDS, ReduxItems.OATMEAL, event);
+            putAfter(ReduxItems.OATMEAL, ReduxItems.LUXBUDS, event);
             putAfter(ReduxItems.LUXBUDS, ReduxItems.PURIFIED_LUXBUDS, event);
 
             putAfter(AetherItems.HEALING_STONE, ReduxItems.QUICKROOT, event);

@@ -16,7 +16,7 @@
         "category": "misc",
         "ingredients": [
           {
-            "tag": "aether_redux:compat/skyroot_bowls"
+            "item": "minecraft:bowl"
           },
           {
             "tag": "aether_redux:compat/mouse_ear_caps"

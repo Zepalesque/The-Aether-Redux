@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:bowl"
+    },
+    "S": {
+      "item": "aether_redux:wyndsprout_seeds"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "SSS",
+    " B "
+  ],
+  "result": {
+    "item": "aether_redux:oatmeal"
+  },
+  "show_notification": true
+}
