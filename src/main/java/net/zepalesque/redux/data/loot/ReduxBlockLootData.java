@@ -9,7 +9,6 @@ import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.*;
@@ -32,7 +31,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.ReduxBlocks;
-import net.zepalesque.redux.block.natural.AetherCropBlock;
+import net.zepalesque.redux.block.natural.SproutsCropBlock;
 import net.zepalesque.redux.block.util.PetalPrismaticness;
 import net.zepalesque.redux.block.util.ReduxStates;
 import net.zepalesque.redux.item.ReduxItems;
@@ -148,7 +147,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
                         ReduxItems.WYNDSPROUT_SEEDS.get(),
                         LootItemBlockStatePropertyCondition.
                                 hasBlockStateProperties(ReduxBlocks.WYNDSPROUTS_CROP.get())
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(AetherCropBlock.AGE, 6))));
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SproutsCropBlock.AGE, 6))));
 
         this.dropSelf(ReduxBlocks.CLOUD_CAP_BLOCK.get());
         this.dropSelf(ReduxBlocks.JELLYSHROOM.get());

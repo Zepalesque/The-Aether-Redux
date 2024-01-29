@@ -17,7 +17,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.ReduxBlocks;
-import net.zepalesque.redux.block.natural.AetherCropBlock;
+import net.zepalesque.redux.block.natural.SproutsCropBlock;
 import net.zepalesque.redux.block.natural.AetherShortGrassBlock;
 import net.zepalesque.redux.block.natural.ExtendedDistanceLeavesBlock;
 import net.zepalesque.redux.block.natural.LeafPileBlock;
@@ -45,7 +45,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.stairs(ReduxBlocks.DIVINITE_STAIRS.get(), ReduxBlocks.DIVINITE.get(), "natural/");
         this.wallBlock(ReduxBlocks.DIVINITE_WALL.get(), ReduxBlocks.DIVINITE.get(), "natural/");
 
-        this.cropGrowable(ReduxBlocks.WYNDSPROUTS_CROP.get(), "crop/wyndsprouts/", AetherCropBlock.AGE);
+        this.cropGrowable(ReduxBlocks.WYNDSPROUTS_CROP.get(), "crop/wyndsprouts/", SproutsCropBlock.AGE);
 
         this.crossBlock(ReduxBlocks.AEVELIUM_SPROUTS.get(), "natural/");
         this.crossBlock(ReduxBlocks.AEVELIUM_ROOTS.get(), "natural/");

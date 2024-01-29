@@ -1,6 +1,5 @@
 package net.zepalesque.redux.block.natural;
 
-import com.aetherteam.aether.block.natural.AetherBushBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
@@ -8,9 +7,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.monster.Ravager;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
@@ -29,12 +26,14 @@ import net.minecraftforge.common.PlantType;
 import net.zepalesque.redux.block.util.ReduxStates;
 import net.zepalesque.redux.item.ReduxItems;
 
-public class AetherCropBlock extends BushBlock implements BonemealableBlock {
-   public static final int MAX_AGE = 6;
-   public static final IntegerProperty AGE = ReduxStates.AGE_6;
+public class SproutsCropBlock extends BushBlock implements BonemealableBlock {
+   public static final int MAX_AGE = 4;
+   public static final IntegerProperty AGE = BlockStateProperties.AGE_4;
+
+   // TODO: fix this
    private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[]{Block.box(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 6.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 10.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 14.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D)};
 
-   public AetherCropBlock(BlockBehaviour.Properties properties) {
+   public SproutsCropBlock(BlockBehaviour.Properties properties) {
       super(properties);
       this.registerDefaultState(this.stateDefinition.any().setValue(this.getAgeProperty(), Integer.valueOf(0)));
    }
