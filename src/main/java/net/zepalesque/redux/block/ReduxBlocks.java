@@ -252,26 +252,25 @@ public class ReduxBlocks {
                     BlockBehaviour.Properties.copy(Blocks.FLOWER_POT))
     );
 
-    public static RegistryObject<Block> LUXWEED = register("luxweed",
-            () -> new OffsetBushBlock(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.CHERRY_SAPLING).offsetType(BlockBehaviour.OffsetType.XZ).lightLevel( (state) -> 5)));
-
-
-
-    public static final RegistryObject<FlowerPotBlock> POTTED_LUXWEED = BLOCKS.register("potted_luxweed", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, LUXWEED, Block.Properties.copy(Blocks.FLOWER_POT).lightLevel( (state) -> 5)));
 
 
     public static RegistryObject<Block> WYNDSPROUTS = register("wyndsprouts",
             () -> new OffsetBushBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.CHERRY_SAPLING).offsetType(BlockBehaviour.OffsetType.XZ)));
-
-    public static RegistryObject<Block> WYNDSPROUTS_CROP = register("wyndsprouts_crop",
-            () -> new SproutsCropBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.CHERRY_SAPLING)));
-
     public static final RegistryObject<FlowerPotBlock> POTTED_WYNDSPROUTS = BLOCKS.register("potted_wyndsprouts", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, WYNDSPROUTS, Block.Properties.copy(Blocks.FLOWER_POT)));
 
     public static RegistryObject<Block> SKYSPROUTS = register("skysprouts",
             () -> new OffsetBushBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.CHERRY_SAPLING).offsetType(BlockBehaviour.OffsetType.XZ)));
-
     public static final RegistryObject<FlowerPotBlock> POTTED_SKYSPROUTS = BLOCKS.register("potted_skysprouts", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SKYSPROUTS, Block.Properties.copy(Blocks.FLOWER_POT)));
+
+    public static RegistryObject<Block> LUXWEED = register("luxweed",
+            () -> new OffsetBushBlock(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.CHERRY_SAPLING).offsetType(BlockBehaviour.OffsetType.XZ).lightLevel( (state) -> 5)));
+    public static final RegistryObject<FlowerPotBlock> POTTED_LUXWEED = BLOCKS.register("potted_luxweed", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, LUXWEED, Block.Properties.copy(Blocks.FLOWER_POT).lightLevel( (state) -> 5)));
+
+    public static RegistryObject<Block> WYNDSPROUTS_CROP = BLOCKS.register("wyndsprouts_crop",
+            () -> new SproutsCropBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.CROP)));
+
+    public static RegistryObject<Block> SKYSPROUTS_CROP = BLOCKS.register("skysprouts_crop",
+            () -> new SproutsCropBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.CROP)));
 
 
     public static RegistryObject<Block> BLIGHTMOSS_BLOCK = register("blightmoss_block", () -> new BlightmossBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_BLOCK).mapColor(MapColor.COLOR_PURPLE)));

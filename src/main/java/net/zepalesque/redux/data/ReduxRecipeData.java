@@ -195,9 +195,9 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
 
 
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ReduxItems.BLUEBERRY_PIE.get()).requires(ReduxItems.WYNDSPROUT_SEEDS.get()).requires(AetherItems.BLUE_BERRY.get()).requires(ReduxTags.Items.BLUEBERRY_PIE_EGGS).requires(Items.SUGAR).unlockedBy("has_blue_berry", inventoryTrigger(ItemPredicate.Builder.item()
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ReduxItems.BLUEBERRY_PIE.get()).requires(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get()).requires(AetherItems.BLUE_BERRY.get()).requires(ReduxTags.Items.BLUEBERRY_PIE_EGGS).requires(Items.SUGAR).unlockedBy("has_blue_berry", inventoryTrigger(ItemPredicate.Builder.item()
                 .of(AetherItems.BLUE_BERRY.get()).build())).unlockedBy("has_oats", inventoryTrigger(ItemPredicate.Builder.item()
-                .of(ReduxItems.WYNDSPROUT_SEEDS.get()).build())).save(consumer);
+                .of(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get()).build())).save(consumer);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ReduxItems.SPECTRAL_DART.get(), 4)
                 .define('F', Tags.Items.FEATHERS)

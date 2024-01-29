@@ -67,6 +67,9 @@ public class ReduxItems {
     public static final RegistryObject<Item> WYNDSPROUT_BAGEL = register("wyndsprout_bagel", () -> new Item(new Item.Properties().food(ReduxFoods.WYNDSPROUT_BAGEL)));
     public static final RegistryObject<Item> OATMEAL = register("oatmeal", () -> new BowlFoodItem(new Item.Properties().food(ReduxFoods.OATMEAL).stacksTo(1)));
 
+    public static final RegistryObject<Item> SKYSPROUT_SEEDS = register("skysprout_seeds", () -> new ItemNameBlockItem(ReduxBlocks.SKYSPROUTS_CROP.get(), new Item.Properties().food(ReduxFoods.SKYSPROUT_SEEDS)));
+    public static final RegistryObject<Item> SKYBUD = register("skybud", () -> new Item(new Item.Properties()));
+
     public static final RegistryObject<Item> RAW_GRAVITITE = register("raw_gravitite", () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> SPECTRAL_DART = ITEMS.register("spectral_dart", () -> new DartItem(ReduxEntityTypes.SPECTRAL_DART, new Item.Properties()));

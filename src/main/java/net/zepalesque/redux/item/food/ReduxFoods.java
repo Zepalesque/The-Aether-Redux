@@ -2,6 +2,7 @@ package net.zepalesque.redux.item.food;
 
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.food.FoodProperties;
 import net.zepalesque.redux.effect.ReduxEffects;
 
@@ -13,6 +14,8 @@ public class ReduxFoods {
             .effect( () -> new MobEffectInstance(MobEffects.REGENERATION, 100, 0), 1F).build();
 
     public static final FoodProperties WYNDSPROUT_SEEDS = (new FoodProperties.Builder()).fast().nutrition(1).saturationMod(0F).build();
+
+    public static final FoodProperties SKYSPROUT_SEEDS = (new FoodProperties.Builder()).fast().nutrition(1).effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 200, 0), 0.85F).saturationMod(0F).build();
     public static final FoodProperties MOUSE_EAR_SOUP = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.6F).build();
     public static final FoodProperties GLOWBUDS = (new FoodProperties.Builder()).fast().nutrition(1).saturationMod(0.05F)
             .effect( () -> new MobEffectInstance(ReduxEffects.BLIGHTWARD.get(), 610, 0), 0.2F).alwaysEat().build();

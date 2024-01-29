@@ -147,7 +147,16 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
                         ReduxItems.WYNDSPROUT_SEEDS.get(),
                         LootItemBlockStatePropertyCondition.
                                 hasBlockStateProperties(ReduxBlocks.WYNDSPROUTS_CROP.get())
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SproutsCropBlock.AGE, 6))));
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SproutsCropBlock.AGE, SproutsCropBlock.MAX_AGE))));
+
+        this.add(ReduxBlocks.SKYSPROUTS_CROP.get(),
+                this.createCropDrops(
+                        ReduxBlocks.SKYSPROUTS_CROP.get(),
+                        ReduxItems.BUNDLE_OF_WYNDSPROUTS.get(),
+                        ReduxItems.WYNDSPROUT_SEEDS.get(),
+                        LootItemBlockStatePropertyCondition.
+                                hasBlockStateProperties(ReduxBlocks.SKYSPROUTS_CROP.get())
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SproutsCropBlock.AGE, SproutsCropBlock.MAX_AGE))));
 
         this.dropSelf(ReduxBlocks.CLOUD_CAP_BLOCK.get());
         this.dropSelf(ReduxBlocks.JELLYSHROOM.get());
@@ -174,8 +183,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropPottedContents(ReduxBlocks.POTTED_DAGGERBLOOM.get());
         this.add(ReduxBlocks.WYNDSPROUTS.get(), createSproutsDrops(ReduxBlocks.WYNDSPROUTS.get(), ReduxItems.WYNDSPROUT_SEEDS.get(), 0.25F));
         this.dropPottedContents(ReduxBlocks.POTTED_WYNDSPROUTS.get());
-        // TODO: Add a drop item? maybe?
-        this.add(ReduxBlocks.SKYSPROUTS.get(), shearsOr(Blocks.AIR, 0.75F, 1F, 2F));
+        this.add(ReduxBlocks.WYNDSPROUTS.get(), createSproutsDrops(ReduxBlocks.SKYSPROUTS.get(), ReduxItems.SKYSPROUT_SEEDS.get(), 0.25F));
         this.dropPottedContents(ReduxBlocks.POTTED_SKYSPROUTS.get());
         this.dropSelf(ReduxBlocks.SPLITFERN.get());
         this.dropPottedContents(ReduxBlocks.POTTED_SPLITFERN.get());
