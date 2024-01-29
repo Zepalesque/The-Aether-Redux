@@ -337,6 +337,9 @@ public class ReduxBlocks {
     public static RegistryObject<MultifaceBlock> LIGHTROOTS = BLOCKS.register("lightroots",
             () -> new GlowLichenBlock(BlockBehaviour.Properties.copy(Blocks.GLOW_LICHEN).mapColor(MapColor.DIAMOND).randomTicks()));
 
+    public static RegistryObject<MultifaceBlock> FLOWER_GARLAND = BLOCKS.register("flower_garland",
+            () -> new FlowerGarlandBlock(BlockBehaviour.Properties.copy(Blocks.GLOW_LICHEN).mapColor(MapColor.DIAMOND).randomTicks()));
+
     public static RegistryObject<EnchantedVinesHeadBlock> GOLDEN_VINES = register("golden_vines",
             () -> new EnchantedVinesHeadBlock(BlockBehaviour.Properties.copy(Blocks.WEEPING_VINES)
                     .mapColor(MapColor.GOLD).sound(SoundType.CAVE_VINES), (state) -> state.is(ReduxTags.Blocks.ENCHANTED_VINES_SURVIVE), ReduxBlocks.GOLDEN_VINES_PLANT));

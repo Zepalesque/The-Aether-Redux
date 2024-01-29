@@ -25,8 +25,18 @@ public class ReduxStates {
 
     public static final BooleanProperty NATURAL_GEN = BooleanProperty.create("natural_gen");
 
+    // Flower Garland
+    public static final BooleanProperty TOP_NORTH = BooleanProperty.create("top_north");
+    public static final BooleanProperty BOTTOM_NORTH = BooleanProperty.create("bottom_north");
+    public static final BooleanProperty TOP_SOUTH = BooleanProperty.create("top_south");
+    public static final BooleanProperty BOTTOM_SOUTH = BooleanProperty.create("bottom_south");
+    public static final BooleanProperty TOP_EAST = BooleanProperty.create("top_east");
+    public static final BooleanProperty BOTTOM_EAST = BooleanProperty.create("bottom_east");
+    public static final BooleanProperty TOP_WEST = BooleanProperty.create("top_west");
+    public static final BooleanProperty BOTTOM_WEST = BooleanProperty.create("bottom_west");
+
     public static final EnumProperty<GrassBlockTint> GRASS_BLOCK_TINT = EnumProperty.create("grass_block_tint", GrassBlockTint.class);
-    public static final EnumProperty<GrassSize> GRASS_SIZE = EnumProperty.create("grass_size", GrassSize.class);
+    public static final EnumProperty<GrassSize> GRASS_SIZE = EnumProperty.create("gra   ss_size", GrassSize.class);
 
     public static final EnumProperty<PetalPrismaticness> PETAL_1 = EnumProperty.create("petal_1_val", PetalPrismaticness.class, petalPrismaticness -> petalPrismaticness != PetalPrismaticness.NONE);
     public static final EnumProperty<PetalPrismaticness> PETAL_2 = EnumProperty.create("petal_2_val", PetalPrismaticness.class);
