@@ -175,6 +175,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
 
         this.itemGlow(ReduxItems.COCKATRICE_FEATHER, "accessories/");
         this.item(ReduxItems.WYNDSPROUT_BAGEL, "food/");
+        this.item(ReduxItems.BLUEBERRY_BAGEL, "food/");
 
         this.item(ReduxItems.QUICKROOT, "materials/");
 

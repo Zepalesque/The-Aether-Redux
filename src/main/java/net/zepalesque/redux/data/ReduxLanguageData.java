@@ -344,6 +344,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.WYNDSPROUT_BAGEL, "Wyndsprout Bagel");
         addLore(ReduxItems.WYNDSPROUT_BAGEL, "A nice bagel made of cultivated Wyndsprouts.");
 
+        addItem(ReduxItems.BLUEBERRY_BAGEL, "Blueberry Bagel");
+        addLore(ReduxItems.BLUEBERRY_BAGEL, "A bagel made with Blue Berries. This is much more filling than a plain Wyndsprout Bagel");
+
         addItem(ReduxItems.OATMEAL, "Oatmeal");
         addLore(ReduxItems.OATMEAL, "A nice bowl of Oatmeal, made with Wyndsprout Seeds.");
 

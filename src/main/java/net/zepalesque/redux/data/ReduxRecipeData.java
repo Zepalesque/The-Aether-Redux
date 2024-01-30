@@ -346,6 +346,15 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .unlockedBy(getHasName(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get()), has(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get()))
                 .save(consumer);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ReduxItems.WYNDSPROUT_BAGEL.get(), 1)
+                .define('W', ReduxItems.BUNDLE_OF_WYNDSPROUTS.get())
+                .define('B', AetherItems.BLUE_BERRY.get())
+                .pattern("BWB")
+                .pattern("W W")
+                .pattern("BWB")
+                .unlockedBy(getHasName(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get()), has(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get()))
+                .save(consumer);
+
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ReduxItems.OATMEAL.get(), 1)
                 .define('B', Items.BOWL)
                 .define('S', ReduxItems.WYNDSPROUT_SEEDS.get())
