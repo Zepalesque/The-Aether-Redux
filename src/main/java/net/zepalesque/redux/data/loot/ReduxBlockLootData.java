@@ -115,7 +115,6 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropSelf(ReduxBlocks.GILDED_HOLYSTONE_WALL.get());
         this.dropSelf(ReduxBlocks.COARSE_AETHER_DIRT.get());
         this.add(ReduxBlocks.LIGHTROOTS.get(), createMultifaceBlockDrops(ReduxBlocks.LIGHTROOTS.get()));
-        this.add(ReduxBlocks.FLOWER_GARLAND.get(), flowerGarland(ReduxBlocks.FLOWER_GARLAND.get()));
         this.dropSelf(ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get());
         this.add(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_SLAB.get(), this::createSlabItemTable);
         this.dropSelf(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_STAIRS.get());
@@ -155,8 +154,8 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.add(ReduxBlocks.SKYSPROUTS_CROP.get(),
                 this.createCropDrops(
                         ReduxBlocks.SKYSPROUTS_CROP.get(),
-                        ReduxItems.BUNDLE_OF_WYNDSPROUTS.get(),
-                        ReduxItems.WYNDSPROUT_SEEDS.get(),
+                        ReduxItems.SKYBUD.get(),
+                        ReduxItems.SKYSPROUT_SEEDS.get(),
                         LootItemBlockStatePropertyCondition.
                                 hasBlockStateProperties(ReduxBlocks.SKYSPROUTS_CROP.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SproutsCropBlock.AGE, SproutsCropBlock.MAX_AGE))));

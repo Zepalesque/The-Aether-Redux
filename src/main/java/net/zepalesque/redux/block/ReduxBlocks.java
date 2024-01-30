@@ -102,7 +102,7 @@ public class ReduxBlocks {
             Block.box(2D, 0D, 3D, 12D, 13D, 12D)));
     public static final RegistryObject<FlowerPotBlock> POTTED_JELLYSHROOM = BLOCKS.register("potted_jellyshroom", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, JELLYSHROOM, Block.Properties.copy(Blocks.FLOWER_POT)));
 
-    public static final RegistryObject<Block> GLIMMERSTOOL = register("glimmerstool", () -> new CustomBoxPlant(Block.Properties.of().pushReaction(PushReaction.DESTROY).sound(SoundType.FUNGUS /* TODO: Amethyst-like sounds? */).noCollission().offsetType(BlockBehaviour.OffsetType.XZ).instabreak().mapColor(MapColor.TERRACOTTA_LIGHT_BLUE).lightLevel((state) -> 5), Block.box(3.0D, 0.0D, 3.0D, 13.0D, 6.0D, 13.0D)));
+    public static final RegistryObject<Block> GLIMMERSTOOL = register("glimmerstool", () -> new CustomBoxPlant(Block.Properties.of().pushReaction(PushReaction.DESTROY).sound(SoundType.FUNGUS /* TODO: Amethyst-like sounds? */).noCollission().offsetType(BlockBehaviour.OffsetType.XZ).instabreak().mapColor(MapColor.TERRACOTTA_LIGHT_BLUE).lightLevel((state) -> 10), Block.box(3.0D, 0.0D, 3.0D, 13.0D, 6.0D, 13.0D)));
     public static final RegistryObject<FlowerPotBlock> POTTED_GLIMMERSTOOL = BLOCKS.register("potted_glimmerstool", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, GLIMMERSTOOL, Block.Properties.copy(Blocks.FLOWER_POT).lightLevel((state) -> 5)));
 
     public static final RegistryObject<Block> IRIDIA = register("iridia", () -> new FlowerBlock(() -> MobEffects.HEAL, 4, Block.Properties.copy(Blocks.DANDELION).mapColor(MapColor.QUARTZ)));
@@ -143,7 +143,7 @@ public class ReduxBlocks {
     public static final RegistryObject<FlowerPotBlock> POTTED_BLIGHTSHADE = BLOCKS.register("potted_blightshade", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, BLIGHTSHADE, Block.Properties.copy(Blocks.FLOWER_POT)));
 
     public static RegistryObject<Block> CLOUDCAP_MUSHLING = register("cloudcap_mushling",
-            () -> new AetherMushroom(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).lightLevel((state) -> 3).noCollission().instabreak().sound(SoundType.NETHER_SPROUTS).offsetType(BlockBehaviour.OffsetType.XZ),
+            () -> new AetherMushroom(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).lightLevel((state) -> 6).noCollission().instabreak().sound(SoundType.NETHER_SPROUTS).offsetType(BlockBehaviour.OffsetType.XZ),
                     ReduxConfiguredFeatures.LARGE_CLOUDCAP,
                     Block.box(4.0D, 0.0D, 4.0D, 12.0D, 12.0D, 12.0D)));
     public static final RegistryObject<FlowerPotBlock> POTTED_CLOUDCAP_MUSHLING = BLOCKS.register("potted_cloudcap_mushling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CLOUDCAP_MUSHLING, Block.Properties.copy(Blocks.FLOWER_POT).lightLevel((state) -> 3)));
@@ -333,13 +333,9 @@ public class ReduxBlocks {
     public static RegistryObject<Block> QUICKROOTS = BLOCKS.register("quickroots",
             () -> new QuickrootsBlock(BlockBehaviour.Properties.copy(Blocks.HANGING_ROOTS).mapColor(MapColor.SAND).randomTicks()));
 
-
-    // TODO: Make this not a reskin of glow lichen lol
+    // TODO: Consider using unique behavior rather than reskinned Glow Lichen
     public static RegistryObject<MultifaceBlock> LIGHTROOTS = BLOCKS.register("lightroots",
-            () -> new GlowLichenBlock(BlockBehaviour.Properties.copy(Blocks.GLOW_LICHEN).mapColor(MapColor.DIAMOND).randomTicks()));
-
-    public static RegistryObject<FlowerGarlandBlock> FLOWER_GARLAND = register("flower_garland",
-            () -> new FlowerGarlandBlock(BlockBehaviour.Properties.copy(Blocks.GLOW_LICHEN).mapColor(MapColor.DIAMOND).randomTicks()));
+            () -> new GlowLichenBlock(BlockBehaviour.Properties.copy(Blocks.GLOW_LICHEN).lightLevel(GlowLichenBlock.emission(12)).mapColor(MapColor.DIAMOND).randomTicks()));
 
     public static RegistryObject<EnchantedVinesHeadBlock> GOLDEN_VINES = register("golden_vines",
             () -> new EnchantedVinesHeadBlock(BlockBehaviour.Properties.copy(Blocks.WEEPING_VINES)
