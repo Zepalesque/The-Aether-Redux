@@ -16,7 +16,7 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "block": "aether_redux:wyndsprouts_crop",
+                  "block": "aether_redux:skysprouts_crop",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "age": "4"
@@ -38,7 +38,7 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "block": "aether_redux:wyndsprouts_crop",
+          "block": "aether_redux:skysprouts_crop",
           "condition": "minecraft:block_state_property",
           "properties": {
             "age": "4"
@@ -65,5 +65,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "aether_redux:blocks/wyndsprouts_crop"
+  "random_sequence": "aether_redux:blocks/skysprouts_crop"
 }

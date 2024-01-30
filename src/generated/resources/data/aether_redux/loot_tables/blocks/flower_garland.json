@@ -11,10 +11,10 @@
               "add": true,
               "conditions": [
                 {
-                  "block": "aether_redux:lightroots",
+                  "block": "aether_redux:flower_garland",
                   "condition": "minecraft:block_state_property",
                   "properties": {
-                    "down": "true"
+                    "top_north": "true"
                   }
                 }
               ],
@@ -25,10 +25,10 @@
               "add": true,
               "conditions": [
                 {
-                  "block": "aether_redux:lightroots",
+                  "block": "aether_redux:flower_garland",
                   "condition": "minecraft:block_state_property",
                   "properties": {
-                    "up": "true"
+                    "top_east": "true"
                   }
                 }
               ],
@@ -39,10 +39,10 @@
               "add": true,
               "conditions": [
                 {
-                  "block": "aether_redux:lightroots",
+                  "block": "aether_redux:flower_garland",
                   "condition": "minecraft:block_state_property",
                   "properties": {
-                    "north": "true"
+                    "top_south": "true"
                   }
                 }
               ],
@@ -53,10 +53,10 @@
               "add": true,
               "conditions": [
                 {
-                  "block": "aether_redux:lightroots",
+                  "block": "aether_redux:flower_garland",
                   "condition": "minecraft:block_state_property",
                   "properties": {
-                    "south": "true"
+                    "top_west": "true"
                   }
                 }
               ],
@@ -67,10 +67,10 @@
               "add": true,
               "conditions": [
                 {
-                  "block": "aether_redux:lightroots",
+                  "block": "aether_redux:flower_garland",
                   "condition": "minecraft:block_state_property",
                   "properties": {
-                    "west": "true"
+                    "bottom_north": "true"
                   }
                 }
               ],
@@ -81,10 +81,38 @@
               "add": true,
               "conditions": [
                 {
-                  "block": "aether_redux:lightroots",
+                  "block": "aether_redux:flower_garland",
                   "condition": "minecraft:block_state_property",
                   "properties": {
-                    "east": "true"
+                    "bottom_east": "true"
+                  }
+                }
+              ],
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": true,
+              "conditions": [
+                {
+                  "block": "aether_redux:flower_garland",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "bottom_south": "true"
+                  }
+                }
+              ],
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": true,
+              "conditions": [
+                {
+                  "block": "aether_redux:flower_garland",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "bottom_west": "true"
                   }
                 }
               ],
@@ -100,11 +128,11 @@
               "function": "minecraft:explosion_decay"
             }
           ],
-          "name": "aether_redux:lightroot_clump"
+          "name": "minecraft:air"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "aether_redux:blocks/lightroots"
+  "random_sequence": "aether_redux:blocks/flower_garland"
 }
