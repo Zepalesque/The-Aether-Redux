@@ -198,8 +198,8 @@ public class FlowerGarlandBlock extends Block {
                 .filter(Objects::nonNull).findFirst().orElse(null);
     }
 
-    public boolean isValidStateForPlacement(BlockGetter level, BlockState state, BlockPos pos, Direction direction) {
-        if (this.isFaceSupported(direction) && (!state.is(this) || !hasFace(state, direction))) {
+    public boolean isValidStateForPlacement(BlockGetter level, BlockState state, BlockPos pos, Direction direction, boolean top) {
+        if (this.isFaceSupported(direction) && (!state.is(this) || !hasFace(state, direction, top))) {
             BlockPos blockpos = pos.relative(direction);
             return canAttachTo(level, direction, blockpos, level.getBlockState(blockpos));
         } else {
@@ -218,7 +218,7 @@ public class FlowerGarlandBlock extends Block {
 
     @javax.annotation.Nullable
     public BlockState getStateForPlacement(BlockState currentState, BlockGetter level, BlockPos pos, Direction lookingDirection, boolean top) {
-        if (!this.isValidStateForPlacement(level, currentState, pos, lookingDirection)) {
+        if (!this.isValidStateForPlacement(level, currentState, pos, lookingDirection, top)) {
             return null;
         } else {
             BlockState blockstate;

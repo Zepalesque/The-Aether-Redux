@@ -1,5 +1,5 @@
 {
-  "parent": "aether_redux:block/single_face_lower",
+  "parent": "minecraft:block/template_single_face",
   "render_type": "minecraft:cutout",
   "textures": {
     "texture": "aether_redux:block/construction/flower_garland"

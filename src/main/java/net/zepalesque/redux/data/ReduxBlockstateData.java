@@ -379,16 +379,16 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         ModelFile lower = this.models().withExistingParent(this.name(block) + "_lower", Redux.locate("block/single_face_lower"))
                 .texture("texture", this.texture(this.name(block), loc))
                 .renderType("cutout");
-        ModelFile both = this.models().withExistingParent(this.name(block) + "_lower", mcLoc("block/template_single_face"))
+        ModelFile both = this.models().withExistingParent(this.name(block), mcLoc("block/template_single_face"))
                 .texture("texture", this.texture(this.name(block), loc))
                 .renderType("cutout");
 
         MultiPartBlockStateBuilder builder = this.getMultipartBuilder(block);
         for (Direction d : new Direction[] {Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST})
         {
-            builder.part().modelFile(lower).rotationY(d.getOpposite().get2DDataValue() * 90).addModel().condition(FlowerGarlandBlock.getBottomProperty(d), true).condition(FlowerGarlandBlock.getTopProperty(d), false).end();
-            builder.part().modelFile(upper).rotationY(d.getOpposite().get2DDataValue() * 90).addModel().condition(FlowerGarlandBlock.getBottomProperty(d), false).condition(FlowerGarlandBlock.getTopProperty(d), true).end();
-            builder.part().modelFile(both).rotationY(d.getOpposite().get2DDataValue() * 90).addModel().condition(FlowerGarlandBlock.getBottomProperty(d), true).condition(FlowerGarlandBlock.getTopProperty(d), true).end();
+            builder.part().modelFile(lower).rotationY(d.get2DDataValue() * 90).addModel().condition(FlowerGarlandBlock.getBottomProperty(d), true).condition(FlowerGarlandBlock.getTopProperty(d), false).end();
+            builder.part().modelFile(upper).rotationY(d.get2DDataValue() * 90).addModel().condition(FlowerGarlandBlock.getBottomProperty(d), false).condition(FlowerGarlandBlock.getTopProperty(d), true).end();
+            builder.part().modelFile(both).rotationY(d.get2DDataValue() * 90).addModel().condition(FlowerGarlandBlock.getBottomProperty(d), true).condition(FlowerGarlandBlock.getTopProperty(d), true).end();
 
         }
 

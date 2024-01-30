@@ -128,7 +128,7 @@
               "function": "minecraft:explosion_decay"
             }
           ],
-          "name": "minecraft:air"
+          "name": "aether_redux:flower_garland"
         }
       ],
       "rolls": 1.0
