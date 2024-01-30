@@ -373,7 +373,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
     public void flowerGarland(Block block, String loc)
     {
-        ModelFile upper = this.models().withExistingParent(this.name(block) + "_upper", Redux.locate("block/bsingle_face_upper"))
+        ModelFile upper = this.models().withExistingParent(this.name(block) + "_upper", Redux.locate("block/single_face_upper"))
                 .texture("texture", this.texture(this.name(block), loc))
                 .renderType("cutout");
         ModelFile lower = this.models().withExistingParent(this.name(block) + "_lower", Redux.locate("block/single_face_lower"))
