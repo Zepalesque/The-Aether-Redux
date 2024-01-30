@@ -23,11 +23,11 @@
                   }
                 }
               ],
-              "name": "aether_redux:bundle_of_wyndsprouts"
+              "name": "aether_redux:skybud"
             },
             {
               "type": "minecraft:item",
-              "name": "aether_redux:wyndsprout_seeds"
+              "name": "aether_redux:skysprout_seeds"
             }
           ]
         }
@@ -59,7 +59,7 @@
               }
             }
           ],
-          "name": "aether_redux:wyndsprout_seeds"
+          "name": "aether_redux:skysprout_seeds"
         }
       ],
       "rolls": 1.0

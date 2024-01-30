@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-29T19:37:24.5704047	Recipes
+// 1.20.1	2024-01-30T18:36:38.0031566	Recipes
 028a41c44667802045298aed21a46f931203df96 data/aether/advancements/recipes/building_blocks/angelic_stone.json
 a49c9d5d0232fb78da74b8a0551483991e22b8c9 data/aether/recipes/angelic_stone.json
 94dc065fa9db175a9df14a38fb02767fe57f9007 data/aether_redux/advancements/recipes/blightwillow_log_wall.json
@@ -105,6 +105,7 @@ d67944a2a1e901209c9181f5663022c45bb6262b data/aether_redux/advancements/recipes/
 66f2dafca83b7e6dae3a79a5c8033a72554472d1 data/aether_redux/advancements/recipes/decorations/jellyshroom_sign.json
 9a6eba2c202a58903c172ed9ba659f85b1b3e92c data/aether_redux/advancements/recipes/fieldsprout_log_wall.json
 a8cad3c9552ea3532cd1d08dc9cb4cedd50a7329 data/aether_redux/advancements/recipes/fieldsprout_wood_wall.json
+c56549207ed1adcfb6b1b835928337887c94063e data/aether_redux/advancements/recipes/food/blueberry_bagel.json
 711cbdbb53c2be7e49f39e21efd06cb9d12f7632 data/aether_redux/advancements/recipes/food/blueberry_pie.json
 708e6fd4284a010a1bc780e9bf164d8d4e6d6d03 data/aether_redux/advancements/recipes/food/enchanted_blueberry_pie_enchanting.json
 19d011fcf2b9cab0e17ccc74a884acf526b6adde data/aether_redux/advancements/recipes/food/oatmeal.json
@@ -213,6 +214,7 @@ e808b5fec052693ac871ab7676911eed0499e37a data/aether_redux/recipes/blightwillow_
 d3fd34ad450564f5560f22a03334e6b066004080 data/aether_redux/recipes/blightwillow_trapdoor.json
 ebd669a15f8a7a593373919b1165fe18de99dd12 data/aether_redux/recipes/blightwillow_wood.json
 e96049dffb9b3c463e7c7dd013c2f409ed834a44 data/aether_redux/recipes/blightwillow_wood_wall.json
+251a34afe74c3f089058f0bf49dde950d669d83d data/aether_redux/recipes/blueberry_bagel.json
 52b237dd5e2c7d4b737f5b38957640cfff222be8 data/aether_redux/recipes/blueberry_pie.json
 376082675d98fac0ec5da16f28bd715a12dfb263 data/aether_redux/recipes/blue_gummy_swet.json
 8bbb8ad843419d7b47ac0956fef10527e87c3879 data/aether_redux/recipes/blue_swet_ball.json

@@ -13,6 +13,7 @@
     "aether_redux:blightwillow_leaves",
     "aether_redux:flowering_fieldsprout_leaves",
     "aether_redux:golden_leaf_pile",
-    "aether_redux:gilded_leaf_pile"
+    "aether_redux:gilded_leaf_pile",
+    "aether_redux:blightwillow_leaf_pile"
   ]
 }

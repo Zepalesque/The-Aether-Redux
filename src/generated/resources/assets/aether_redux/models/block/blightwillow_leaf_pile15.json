@@ -1,0 +1,7 @@
+{
+  "parent": "aether_redux:block/layer/layer_size15",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "block": "aether_redux:block/natural/blightwillow_leaves"
+  }
+}
