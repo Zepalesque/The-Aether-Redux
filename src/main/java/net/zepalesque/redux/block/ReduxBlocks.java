@@ -26,6 +26,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
+import net.zepalesque.redux.block.construction.FlowerGarlandBlock;
 import net.zepalesque.redux.block.natural.*;
 import net.zepalesque.redux.block.natural.blight.BlightmossBlock;
 import net.zepalesque.redux.block.natural.blight.BlightshadeBlock;
@@ -337,7 +338,7 @@ public class ReduxBlocks {
     public static RegistryObject<MultifaceBlock> LIGHTROOTS = BLOCKS.register("lightroots",
             () -> new GlowLichenBlock(BlockBehaviour.Properties.copy(Blocks.GLOW_LICHEN).mapColor(MapColor.DIAMOND).randomTicks()));
 
-    public static RegistryObject<MultifaceBlock> FLOWER_GARLAND = BLOCKS.register("flower_garland",
+    public static RegistryObject<FlowerGarlandBlock> FLOWER_GARLAND = BLOCKS.register("flower_garland",
             () -> new FlowerGarlandBlock(BlockBehaviour.Properties.copy(Blocks.GLOW_LICHEN).mapColor(MapColor.DIAMOND).randomTicks()));
 
     public static RegistryObject<EnchantedVinesHeadBlock> GOLDEN_VINES = register("golden_vines",

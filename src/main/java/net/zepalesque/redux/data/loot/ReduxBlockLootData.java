@@ -7,6 +7,7 @@ import net.minecraft.advancements.critereon.BlockPredicate;
 import net.minecraft.advancements.critereon.LocationPredicate;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -31,6 +32,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.block.construction.FlowerGarlandBlock;
 import net.zepalesque.redux.block.natural.SproutsCropBlock;
 import net.zepalesque.redux.block.util.PetalPrismaticness;
 import net.zepalesque.redux.block.util.ReduxStates;
@@ -112,7 +114,8 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropSelf(ReduxBlocks.GILDED_HOLYSTONE_STAIRS.get());
         this.dropSelf(ReduxBlocks.GILDED_HOLYSTONE_WALL.get());
         this.dropSelf(ReduxBlocks.COARSE_AETHER_DIRT.get());
-        this.dropSelf(ReduxBlocks.LIGHTROOTS.get());
+        this.add(ReduxBlocks.LIGHTROOTS.get(), createMultifaceBlockDrops(ReduxBlocks.LIGHTROOTS.get()));
+        this.add(ReduxBlocks.FLOWER_GARLAND.get(), flowerGarland(ReduxBlocks.FLOWER_GARLAND.get()));
         this.dropSelf(ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get());
         this.add(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_SLAB.get(), this::createSlabItemTable);
         this.dropSelf(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_STAIRS.get());
@@ -221,6 +224,25 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
     }
 
 
+    protected LootTable.Builder createMultifaceBlockDrops(Block block) {
+        return LootTable.lootTable().withPool(LootPool.lootPool().add(this.applyExplosionDecay(block, LootItem.lootTableItem(block).apply(Direction.values(), (p_251536_) -> SetItemCountFunction.setCount(ConstantValue.exactly(1.0F), true).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MultifaceBlock.getFaceProperty(p_251536_), true)))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(-1.0F), true)))));
+    }
+
+    protected LootTable.Builder flowerGarland(Block block) {
+        return LootTable.lootTable().withPool(LootPool.lootPool()
+                .add(this.applyExplosionDecay(block, LootItem.lootTableItem(block)
+                        .apply(Direction.Plane.HORIZONTAL,
+                                (p_251536_)
+                                        -> SetItemCountFunction.setCount(ConstantValue.exactly(1.0F), true)
+                                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(FlowerGarlandBlock.getTopProperty(p_251536_), true))))
+                        .apply(Direction.Plane.HORIZONTAL,
+                                (p_251536_)
+                                        -> SetItemCountFunction.setCount(ConstantValue.exactly(1.0F), true)
+                                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(FlowerGarlandBlock.getBottomProperty(p_251536_), true))))
+                        .apply(SetItemCountFunction.setCount(ConstantValue.exactly(-1.0F), true)))));
+    }
+
+
     private LootTable.Builder naturalDropBase(Block block, ItemLike other) {
         return LootTable.lootTable()
                 .withPool(
@@ -292,6 +314,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
             return this.createPotFlowerItemTable(((FlowerPotBlock)p_250193_).getContent());
         });
     }
+
 
 
 

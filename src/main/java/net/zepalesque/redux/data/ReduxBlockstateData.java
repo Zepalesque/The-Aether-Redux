@@ -17,6 +17,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.block.construction.FlowerGarlandBlock;
 import net.zepalesque.redux.block.natural.SproutsCropBlock;
 import net.zepalesque.redux.block.natural.AetherShortGrassBlock;
 import net.zepalesque.redux.block.natural.ExtendedDistanceLeavesBlock;
@@ -101,6 +102,8 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.crossBlock(ReduxBlocks.GLACIA_SAPLING.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_GLACIA_SAPLING.get(), ReduxBlocks.GLACIA_SAPLING.get(), "natural/");
 
+        this.flowerGarland(ReduxBlocks.FLOWER_GARLAND.get(), "construction/");
+
         this.snowableLeaves(ReduxBlocks.PURPLE_GLACIA_LEAVES.get(), "natural/");
         this.crossBlock(ReduxBlocks.PURPLE_GLACIA_SAPLING.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_PURPLE_GLACIA_SAPLING.get(), ReduxBlocks.PURPLE_GLACIA_SAPLING.get(), "natural/");
@@ -153,6 +156,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.blockDoubleDrops(ReduxBlocks.VERIDIUM_ORE.get(), "natural/");
         this.block(ReduxBlocks.RAW_VERIDIUM_BLOCK.get(), "natural/");
         this.block(ReduxBlocks.VERIDIUM_BLOCK.get(), "construction/");
+
 
 
         this.crossGlowHarvestableOccluded(ReduxBlocks.QUICKROOTS.get(), "natural/");
@@ -216,6 +220,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
             builder.part().modelFile(in).rotationX(v3.getX()).rotationY(v3.getY()).addModel().condition(dirToProp(d), false).end();
         }
     }
+
 
 
     private Vec3i rot(Direction d) {
@@ -361,6 +366,30 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
             builder.part().modelFile(flowerbed2).rotationY(d.getOpposite().get2DDataValue() * 90).addModel().condition(PinkPetalsBlock.AMOUNT, 2, 3, 4).condition(PinkPetalsBlock.FACING, d).end();
             builder.part().modelFile(flowerbed3).rotationY(d.getOpposite().get2DDataValue() * 90).addModel().condition(PinkPetalsBlock.AMOUNT, 3, 4).condition(PinkPetalsBlock.FACING, d).end();
             builder.part().modelFile(flowerbed4).rotationY(d.getOpposite().get2DDataValue() * 90).addModel().condition(PinkPetalsBlock.AMOUNT, 4).condition(PinkPetalsBlock.FACING, d).end();
+        }
+
+
+    }
+
+    public void flowerGarland(Block block, String loc)
+    {
+        ModelFile upper = this.models().withExistingParent(this.name(block) + "_upper", Redux.locate("block/bsingle_face_upper"))
+                .texture("texture", this.texture(this.name(block), loc))
+                .renderType("cutout");
+        ModelFile lower = this.models().withExistingParent(this.name(block) + "_lower", Redux.locate("block/single_face_lower"))
+                .texture("texture", this.texture(this.name(block), loc))
+                .renderType("cutout");
+        ModelFile both = this.models().withExistingParent(this.name(block) + "_lower", mcLoc("block/template_single_face"))
+                .texture("texture", this.texture(this.name(block), loc))
+                .renderType("cutout");
+
+        MultiPartBlockStateBuilder builder = this.getMultipartBuilder(block);
+        for (Direction d : new Direction[] {Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST})
+        {
+            builder.part().modelFile(lower).rotationY(d.getOpposite().get2DDataValue() * 90).addModel().condition(FlowerGarlandBlock.getBottomProperty(d), true).condition(FlowerGarlandBlock.getTopProperty(d), false).end();
+            builder.part().modelFile(upper).rotationY(d.getOpposite().get2DDataValue() * 90).addModel().condition(FlowerGarlandBlock.getBottomProperty(d), false).condition(FlowerGarlandBlock.getTopProperty(d), true).end();
+            builder.part().modelFile(both).rotationY(d.getOpposite().get2DDataValue() * 90).addModel().condition(FlowerGarlandBlock.getBottomProperty(d), true).condition(FlowerGarlandBlock.getTopProperty(d), true).end();
+
         }
 
 
