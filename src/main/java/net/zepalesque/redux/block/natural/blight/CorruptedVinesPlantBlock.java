@@ -26,7 +26,7 @@ public class CorruptedVinesPlantBlock extends GrowingPlantBodyBlock {
    public CorruptedVinesPlantBlock(BlockBehaviour.Properties p_154873_) {
       super(p_154873_, Direction.UP, SHAPE, false);
    }
-   
+
    @Override
    public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
       if (!pEntity.level().isClientSide() && pEntity instanceof LivingEntity living && !living.getType().is(ReduxTags.EntityTypes.BLIGHTED_MOBS) && !EquipmentUtil.hasCurio(living, ReduxItems.COCKATRICE_FEATHER.get()) && living.getBoundingBox().intersects(getShape(pState, pLevel, pPos, CollisionContext.of(living)).bounds().move(pPos))) {

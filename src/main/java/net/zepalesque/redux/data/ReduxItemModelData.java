@@ -87,6 +87,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
 
         this.itemBlockWithParent(ReduxBlocks.GOLDEN_LEAF_PILE.get(), (block) -> modLoc(BLOCK_FOLDER + "/" + this.blockName(block) + "1"));
         this.itemBlockWithParent(ReduxBlocks.GILDED_LEAF_PILE.get(), (block) -> modLoc(BLOCK_FOLDER + "/" + this.blockName(block) + "1"));
+        this.itemBlockWithParent(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get(), (block) -> modLoc(BLOCK_FOLDER + "/" + this.blockName(block) + "1"));
 
         itemBlockFlatGlow(ReduxBlocks.CLOUDCAP_MUSHLING, "natural/");
 

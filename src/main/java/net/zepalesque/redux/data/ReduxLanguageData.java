@@ -199,9 +199,11 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.FIELDSPROUT_PETALS, "Fieldsprout Petals");
         addLore(ReduxBlocks.FIELDSPROUT_PETALS, "The vibrant petals of Flowering Fieldsprout trees, which are found commonly underneath them.");
         addBlock(ReduxBlocks.GOLDEN_LEAF_PILE, "Golden Leaf Pile");
-        addLore(ReduxBlocks.GOLDEN_LEAF_PILE, "A pile of Golden Oak Leaves. These can be found in the Gilded Thicket.");
+        addLore(ReduxBlocks.GOLDEN_LEAF_PILE, "A pile of Golden Oak Leaves. These can be found under Golden Oak trees.");
         addBlock(ReduxBlocks.GILDED_LEAF_PILE, "Gilded Leaf Pile");
-        addLore(ReduxBlocks.GILDED_LEAF_PILE, "A pile of Gilded Oak Leaves. These can be found in the Gilded Thicket.");
+        addLore(ReduxBlocks.GILDED_LEAF_PILE, "A pile of Gilded Oak Leaves. These can be found under Gilded Oak trees..");
+        addBlock(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE, "Blightwillow Leaf Pile");
+        addLore(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE, "A pile of Blightwillow Leaves. These can be found in the Blight biome.");
         addBlock(ReduxBlocks.BLIGHTWILLOW_SAPLING, "Blightwillow Sapling");
         addBlock(ReduxBlocks.POTTED_BLIGHTWILLOW_SAPLING, "Potted Blightwillow Sapling");
         addLore(ReduxBlocks.BLIGHTWILLOW_SAPLING, "The sapling of the Blightwillow tree. It can be grown by waiting or using Bone Meal.");

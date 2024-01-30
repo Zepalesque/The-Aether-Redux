@@ -93,6 +93,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
 
         dropWhenSilkTouch(ReduxBlocks.GOLDEN_LEAF_PILE.get());
         dropWhenSilkTouch(ReduxBlocks.GILDED_LEAF_PILE.get());
+        dropWhenSilkTouch(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get());
 
         this.add(ReduxBlocks.GLACIA_LEAVES.get(),
                 (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.GLACIA_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));

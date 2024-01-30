@@ -86,7 +86,8 @@ public class ReduxCreativeTabs {
 
             putBefore(AetherBlocks.HOLIDAY_LEAVES, ReduxBlocks.BLIGHTED_SKYROOT_LEAVES, event);
             putBefore(ReduxBlocks.BLIGHTED_SKYROOT_LEAVES, ReduxBlocks.BLIGHTWILLOW_LEAVES, event);
-            putBefore(ReduxBlocks.BLIGHTWILLOW_LEAVES, ReduxBlocks.GLACIA_LEAVES, event);
+            putBefore(ReduxBlocks.BLIGHTWILLOW_LEAVES, ReduxBlocks.BLIGHTWILLOW_LEAF_PILE, event);
+            putBefore(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE, ReduxBlocks.GLACIA_LEAVES, event);
 
 
             putAfter(AetherBlocks.DECORATED_HOLIDAY_LEAVES, ReduxBlocks.FLOWERING_FIELDSPROUT_LEAVES, event);
