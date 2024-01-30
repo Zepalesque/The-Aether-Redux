@@ -3,8 +3,8 @@
         "particle": "#texture"
     },
     "elements": [
-        {   "from": [ 0, 0, 0 ],
-            "to": [ 16, 16, 0 ],
+        {   "from": [ 0, 8, 0.01 ],
+            "to": [ 16, 16, 0.01 ],
             "faces": {
                 "north": { "texture": "#texture", "cullface":"north" }
             }
