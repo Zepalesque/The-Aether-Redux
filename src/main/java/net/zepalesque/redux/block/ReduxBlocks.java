@@ -26,10 +26,11 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
-import net.zepalesque.redux.block.construction.FlowerGarlandBlock;
 import net.zepalesque.redux.block.natural.*;
 import net.zepalesque.redux.block.natural.blight.BlightmossBlock;
 import net.zepalesque.redux.block.natural.blight.BlightshadeBlock;
+import net.zepalesque.redux.block.natural.blight.CorruptedVinesHeadBlock;
+import net.zepalesque.redux.block.natural.blight.CorruptedVinesPlantBlock;
 import net.zepalesque.redux.block.natural.cloudcap.*;
 import net.zepalesque.redux.block.natural.enchanted.EnchantableFlowerBlock;
 import net.zepalesque.redux.block.natural.enchanted.EnchantedVinesHeadBlock;
@@ -196,7 +197,7 @@ public class ReduxBlocks {
 
     public static RegistryObject<Block> FROSTED_HOLYSTONE = register("frosted_holystone",
             () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.copy(AetherBlocks.MOSSY_HOLYSTONE.get()).mapColor(MapColor.SAND).friction(0.75F)));
-    
+
     public static RegistryObject<StairBlock> FROSTED_HOLYSTONE_STAIRS = register("frosted_holystone_stairs",
             () -> new StairBlock(() -> (FROSTED_HOLYSTONE.get()).defaultBlockState(), BlockBehaviour.Properties.copy(FROSTED_HOLYSTONE.get())));
 
@@ -354,6 +355,15 @@ public class ReduxBlocks {
     public static RegistryObject<EnchantedVinesPlantBlock> GILDED_VINES_PLANT = BLOCKS.register("gilded_vines_plant",
             () -> new EnchantedVinesPlantBlock(BlockBehaviour.Properties.copy(Blocks.WEEPING_VINES_PLANT)
                     .mapColor(MapColor.QUARTZ).sound(SoundType.CAVE_VINES), (state) -> state.is(ReduxTags.Blocks.ENCHANTED_VINES_SURVIVE), ReduxBlocks.GILDED_VINES));
+
+
+    public static RegistryObject<CorruptedVinesHeadBlock> CORRUPTED_VINES = register("corrupted_vines",
+            () -> new CorruptedVinesHeadBlock(BlockBehaviour.Properties.copy(Blocks.TWISTING_VINES)
+                    .mapColor(MapColor.TERRACOTTA_MAGENTA).sound(SoundType.CAVE_VINES), ReduxBlocks.CORRUPTED_VINES_PLANT));
+
+    public static RegistryObject<CorruptedVinesPlantBlock> CORRUPTED_VINES_PLANT = BLOCKS.register("corrupted_vines_plant",
+            () -> new CorruptedVinesPlantBlock(BlockBehaviour.Properties.copy(Blocks.TWISTING_VINES_PLANT)
+                    .mapColor(MapColor.TERRACOTTA_MAGENTA).sound(SoundType.CAVE_VINES), ReduxBlocks.CORRUPTED_VINES));
 
     public static RegistryObject<Block> VERIDIUM_CHAIN = register("veridium_chain",
             () -> new ChainBlock(BlockBehaviour.Properties.copy(Blocks.CHAIN)));

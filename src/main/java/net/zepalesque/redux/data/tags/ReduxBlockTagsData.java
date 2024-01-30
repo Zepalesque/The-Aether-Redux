@@ -27,7 +27,11 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
 
     protected void addTags(HolderLookup.Provider provider) {
 
-        this.tag(BlockTags.CLIMBABLE).add(ReduxBlocks.GILDED_VINES_PLANT.get(), ReduxBlocks.GOLDEN_VINES_PLANT.get());
+        this.tag(BlockTags.CLIMBABLE).add(
+                ReduxBlocks.GILDED_VINES_PLANT.get(),
+                ReduxBlocks.GOLDEN_VINES_PLANT.get(),
+                ReduxBlocks.CORRUPTED_VINES_PLANT.get()
+                );
         this.tag(ReduxTags.Blocks.ENCHANTED_VINES_SKIP_PLACEMENT).add(
                 ReduxBlocks.GILDED_VINES_PLANT.get(),
                 ReduxBlocks.GOLDEN_VINES_PLANT.get(),
@@ -177,7 +181,8 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.BLIGHTWILLOW_LEAVES.get(),
                 ReduxBlocks.FLOWERING_FIELDSPROUT_LEAVES.get(),
                 ReduxBlocks.GOLDEN_LEAF_PILE.get(),
-                ReduxBlocks.GILDED_LEAF_PILE.get()
+                ReduxBlocks.GILDED_LEAF_PILE.get(),
+                ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get()
         );
         this.tag(BlockTags.STAIRS).add(
                 ReduxBlocks.DIVINITE_STAIRS.get(),

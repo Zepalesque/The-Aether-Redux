@@ -152,6 +152,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
 
         this.itemBlockFlatOtherBlockTexture(ReduxBlocks.GOLDEN_VINES, ReduxBlocks.GOLDEN_VINES_PLANT, "natural/");
         this.itemBlockFlatOtherBlockTexture(ReduxBlocks.GILDED_VINES, ReduxBlocks.GILDED_VINES_PLANT, "natural/");
+        this.itemBlockFlatOtherBlockTexture(ReduxBlocks.CORRUPTED_VINES, ReduxBlocks.CORRUPTED_VINES_PLANT, "natural/");
 
         this.handheldItem(ReduxItems.VERIDIUM_SWORD.get(), "weapons/");
         this.handheldItem(ReduxItems.VERIDIUM_PICKAXE.get(), "tools/");

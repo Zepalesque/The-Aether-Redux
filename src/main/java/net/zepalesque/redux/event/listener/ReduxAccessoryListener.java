@@ -64,11 +64,12 @@ public class ReduxAccessoryListener {
         }
     }
 
+    // TODO: Make only happen when using Feather of Endurance
     @SubscribeEvent
     public static void removeInebriation(LivingEvent.LivingTickEvent event) {
-        if (event.getEntity() instanceof Player player && EquipmentUtil.hasCurio(player, ReduxItems.COCKATRICE_FEATHER.get())) {
-            player.removeEffect(AetherEffects.INEBRIATION.get());
-        }
+//        if (event.getEntity() instanceof Player player && EquipmentUtil.hasCurio(player, ReduxItems.COCKATRICE_FEATHER.get())) {
+//            player.removeEffect(AetherEffects.INEBRIATION.get());
+//        }
     }
 
     @SubscribeEvent

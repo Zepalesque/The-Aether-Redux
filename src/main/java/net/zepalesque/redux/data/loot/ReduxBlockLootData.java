@@ -76,6 +76,8 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropOther(ReduxBlocks.GILDED_VINES_PLANT.get(), ReduxBlocks.GILDED_VINES.get());
         this.dropSelf(ReduxBlocks.GOLDEN_VINES.get());
         this.dropOther(ReduxBlocks.GOLDEN_VINES_PLANT.get(), ReduxBlocks.GOLDEN_VINES.get());
+        this.dropSelf(ReduxBlocks.CORRUPTED_VINES.get());
+        this.dropOther(ReduxBlocks.CORRUPTED_VINES_PLANT.get(), ReduxBlocks.CORRUPTED_VINES.get());
 
 
         this.dropSelf(ReduxBlocks.BLIGHTED_SKYROOT_SAPLING.get());

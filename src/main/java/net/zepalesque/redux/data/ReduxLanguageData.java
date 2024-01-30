@@ -154,10 +154,15 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addBlock(ReduxBlocks.GOLDEN_VINES, "Golden Vines");
         addBlock(ReduxBlocks.GOLDEN_VINES_PLANT, "Golden Vines Plant");
-        addLore(ReduxBlocks.GOLDEN_VINES, "A type of gold-colored vine that commonly grows under the leaves of Golden Skyroot trees.");
+        addLore(ReduxBlocks.GOLDEN_VINES, "A type of gold-colored vine that commonly grows under the leaves of Golden Oak trees.");
         addBlock(ReduxBlocks.GILDED_VINES, "Gilded Vines");
         addBlock(ReduxBlocks.GILDED_VINES_PLANT, "Gilded Vines Plant");
-        addLore(ReduxBlocks.GILDED_VINES, "A type of off-white vine that commonly grows under the leaves of Gilded Skyroot trees.");
+        addLore(ReduxBlocks.GILDED_VINES, "A type of off-white vine that commonly grows under the leaves of Gilded Oak trees.");
+
+
+        addBlock(ReduxBlocks.CORRUPTED_VINES, "Corrupted Vines");
+        addBlock(ReduxBlocks.CORRUPTED_VINES_PLANT, "Corrupted Vines Plant");
+        addLore(ReduxBlocks.CORRUPTED_VINES, "A purple, spiky vine that grows in patches in the Blight.");
 
         addBlock(ReduxBlocks.LUXWEED, "Luxweed");
         addBlock(ReduxBlocks.POTTED_LUXWEED, "Potted Luxweed");

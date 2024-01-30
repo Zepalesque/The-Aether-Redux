@@ -20,11 +20,15 @@ import net.zepalesque.redux.data.resource.ReduxDamageTypes;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.misc.ReduxTags;
 
+import java.util.function.Supplier;
+
 public class CorruptedVinesPlantBlock extends GrowingPlantBodyBlock {
    public static final VoxelShape SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 16.0D, 12.0D);
+   private final Supplier<? extends GrowingPlantHeadBlock> head;
 
-   public CorruptedVinesPlantBlock(BlockBehaviour.Properties p_154873_) {
-      super(p_154873_, Direction.UP, SHAPE, false);
+   public CorruptedVinesPlantBlock(BlockBehaviour.Properties properties, Supplier<? extends GrowingPlantHeadBlock> head) {
+      super(properties, Direction.UP, SHAPE, false);
+      this.head = head;
    }
 
    @Override
@@ -48,6 +52,6 @@ public class CorruptedVinesPlantBlock extends GrowingPlantBodyBlock {
    }
 
    protected GrowingPlantHeadBlock getHeadBlock() {
-      return (GrowingPlantHeadBlock) Blocks.TWISTING_VINES;
+      return head.get();
    }
 }
