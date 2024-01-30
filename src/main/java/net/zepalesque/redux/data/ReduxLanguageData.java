@@ -547,8 +547,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addAdvancement("enter_cloudcap_jungle", "Moolander");
         addAdvancementDesc("enter_cloudcap_jungle", "Enter the Cloudcaps, a fungal forest with various types of mushrooms");
 
-        addDeath(ReduxDamageTypes.CHROMATIC_SHRUB, "%1$s was poked to death by a chromatic shrub, how sad");
-        addDeath(ReduxDamageTypes.BLIGHTED_FUNGI, "%1$s was poked to death by a patch of blighted fungi");
+        addDeath(ReduxDamageTypes.ZANBERRY_BUSH, "%1$s was poked to death by a zanberry bush, how sad ):");
+        addDeath(ReduxDamageTypes.CORRUPTED_VINES, "%1$s was poked to death by some Corrupted Vines");
         addDeath(ReduxDamageTypes.EMBER, "%1$s was hit by a flying ember");
         addDeathByPlayer(ReduxDamageTypes.EMBER, "%1$s was hit by %2$s's flying ember");
 
