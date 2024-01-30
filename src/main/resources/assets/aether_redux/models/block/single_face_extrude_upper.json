@@ -6,7 +6,7 @@
         {   "from": [ 0, 8, 0.01 ],
             "to": [ 16, 16, 0.01 ],
             "faces": {
-                "north": { "texture": "#texture", "cullface":"north" }
+                "south": { "texture": "#texture" }
             }
         }
     ]

@@ -2,8 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "aether_redux:block/flower_garland_lower",
-        "y": 180
+        "model": "aether_redux:block/flower_garland_lower"
       },
       "when": {
         "bottom_north": "true",
@@ -12,8 +11,7 @@
     },
     {
       "apply": {
-        "model": "aether_redux:block/flower_garland_upper",
-        "y": 180
+        "model": "aether_redux:block/flower_garland_upper"
       },
       "when": {
         "bottom_north": "false",
@@ -22,8 +20,7 @@
     },
     {
       "apply": {
-        "model": "aether_redux:block/flower_garland",
-        "y": 180
+        "model": "aether_redux:block/flower_garland"
       },
       "when": {
         "bottom_north": "true",
@@ -33,7 +30,7 @@
     {
       "apply": {
         "model": "aether_redux:block/flower_garland_lower",
-        "y": 270
+        "y": 90
       },
       "when": {
         "bottom_east": "true",
@@ -43,7 +40,7 @@
     {
       "apply": {
         "model": "aether_redux:block/flower_garland_upper",
-        "y": 270
+        "y": 90
       },
       "when": {
         "bottom_east": "false",
@@ -53,7 +50,7 @@
     {
       "apply": {
         "model": "aether_redux:block/flower_garland",
-        "y": 270
+        "y": 90
       },
       "when": {
         "bottom_east": "true",
@@ -62,7 +59,8 @@
     },
     {
       "apply": {
-        "model": "aether_redux:block/flower_garland_lower"
+        "model": "aether_redux:block/flower_garland_lower",
+        "y": 180
       },
       "when": {
         "bottom_south": "true",
@@ -71,7 +69,8 @@
     },
     {
       "apply": {
-        "model": "aether_redux:block/flower_garland_upper"
+        "model": "aether_redux:block/flower_garland_upper",
+        "y": 180
       },
       "when": {
         "bottom_south": "false",
@@ -80,7 +79,8 @@
     },
     {
       "apply": {
-        "model": "aether_redux:block/flower_garland"
+        "model": "aether_redux:block/flower_garland",
+        "y": 180
       },
       "when": {
         "bottom_south": "true",
@@ -90,7 +90,7 @@
     {
       "apply": {
         "model": "aether_redux:block/flower_garland_lower",
-        "y": 90
+        "y": 270
       },
       "when": {
         "bottom_west": "true",
@@ -100,7 +100,7 @@
     {
       "apply": {
         "model": "aether_redux:block/flower_garland_upper",
-        "y": 90
+        "y": 270
       },
       "when": {
         "bottom_west": "false",
@@ -110,7 +110,7 @@
     {
       "apply": {
         "model": "aether_redux:block/flower_garland",
-        "y": 90
+        "y": 270
       },
       "when": {
         "bottom_west": "true",
