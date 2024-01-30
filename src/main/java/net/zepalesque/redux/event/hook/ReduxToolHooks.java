@@ -63,6 +63,7 @@ public class ReduxToolHooks {
      */
     public static final Map<Block, Block> TILLABLES = Maps.newHashMap((new ImmutableMap.Builder<Block, Block>())
             .put(ReduxBlocks.AEVELIUM.get(), AetherBlocks.AETHER_FARMLAND.get())
+            .put(ReduxBlocks.COARSE_AETHER_DIRT.get(), AetherBlocks.AETHER_DIRT.get())
             .build());
 
     /**
