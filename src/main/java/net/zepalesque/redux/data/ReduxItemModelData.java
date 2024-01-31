@@ -338,19 +338,19 @@ public class ReduxItemModelData extends AetherItemModelProvider {
     }
     public ItemModelBuilder itemBlockFlatTintOverlay(Supplier<? extends Block> block, String location) {
         return withExistingParent(blockName(block), mcLoc("item/generated"))
-                .texture("layer1", texture(blockName(block), location))
-                .texture("layer0", texture(blockName(block) + "_overlay", location));
+                .texture("layer0", texture(blockName(block), location))
+                .texture("layer1", texture(blockName(block) + "_overlay", location));
     }
     public ItemModelBuilder itemBlockFlatGlow(Supplier<? extends Block> block, String location, String suffix) {
         return withExistingParent(blockName(block), mcLoc("item/generated"))
-                .texture("layer1", texture(blockName(block), location) + suffix)
-                .texture("layer0", texture(blockName(block) + suffix + "_glow", location)).customLoader((itemModelBuilder,existingFileHelper) ->
+                .texture("layer0", texture(blockName(block), location) + suffix)
+                .texture("layer1", texture(blockName(block) + suffix + "_glow", location)).customLoader((itemModelBuilder,existingFileHelper) ->
                 ItemLayerModelBuilder.begin(itemModelBuilder, existingFileHelper).emissive(15, 15, 1)).end();
     }
     public ItemModelBuilder itemBlockFlatGlowOtherTexture(Supplier<? extends Block> block, Supplier<? extends Block> other, String location) {
         return withExistingParent(blockName(block), mcLoc("item/generated"))
-                .texture("layer1", texture(blockName(other), location))
-                .texture("layer0", texture(blockName(other) + "_glow", location)).customLoader((itemModelBuilder,existingFileHelper) ->
+                .texture("layer0", texture(blockName(other), location))
+                .texture("layer1", texture(blockName(other) + "_glow", location)).customLoader((itemModelBuilder,existingFileHelper) ->
                 ItemLayerModelBuilder.begin(itemModelBuilder, existingFileHelper).emissive(15, 15, 1)).end();
     }
     public ItemModelBuilder itemBlockFlatTintGlowOverlay(Supplier<? extends Block> block, String location) {
