@@ -146,13 +146,13 @@
     "ignore_vines": true,
     "minimum_size": {
       "type": "minecraft:two_layers_feature_size",
-      "limit": 6,
-      "lower_size": 1,
+      "limit": 8,
+      "lower_size": 0,
       "upper_size": 4
     },
     "trunk_placer": {
       "type": "minecraft:straight_trunk_placer",
-      "base_height": 8,
+      "base_height": 10,
       "height_rand_a": 2,
       "height_rand_b": 2
     },
