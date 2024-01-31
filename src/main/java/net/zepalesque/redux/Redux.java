@@ -84,7 +84,7 @@ import net.zepalesque.redux.world.biome.modifier.ReduxBiomeModifierSerializers;
 import net.zepalesque.redux.world.biome.surfacerule.ReduxConditionSources;
 import net.zepalesque.redux.world.carver.ReduxCarvers;
 import net.zepalesque.redux.world.density.ReduxDensityFunctionTypes;
-import net.zepalesque.redux.world.feature.ReduxFeatureRegistry;
+import net.zepalesque.redux.world.feature.ReduxFeatures;
 import net.zepalesque.redux.world.placement.ReduxPlacementModifiers;
 import net.zepalesque.redux.world.stateprov.ReduxStateProviders;
 import net.zepalesque.redux.world.structure.ReduxStructureTypes;
@@ -137,7 +137,7 @@ public class Redux
         ReduxCarvers.CARVERS.register(bus);
         ReduxParticleTypes.PARTICLES.register(bus);
         ReduxFoliagePlacers.FOLIAGE_PLACERS.register(bus);
-        ReduxFeatureRegistry.FEATURES.register(bus);
+        ReduxFeatures.FEATURES.register(bus);
         ReduxDensityFunctionTypes.DENSITY_FUNCTIONS.register(bus);
         ReduxTreeDecorators.TREE_DECORATORS.register(bus);
         ReduxTrunkPlacers.TRUNK_PLACERS.register(bus);

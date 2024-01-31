@@ -1,22 +1,7 @@
 package net.zepalesque.redux.mixin.common.world;
 
-import com.google.common.base.Suppliers;
-import com.google.common.collect.ImmutableList;
-import net.minecraft.core.Holder;
-import net.minecraft.core.HolderSet;
 import net.minecraft.world.level.biome.BiomeGenerationSettings;
-import net.minecraft.world.level.levelgen.GenerationStep;
-import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
-import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.zepalesque.redux.world.feature.ReduxFeatureRegistry;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
-import java.util.List;
-import java.util.Map;
 
 @Mixin(BiomeGenerationSettings.class)
 public class BiomeGenerationSettingsMixin {

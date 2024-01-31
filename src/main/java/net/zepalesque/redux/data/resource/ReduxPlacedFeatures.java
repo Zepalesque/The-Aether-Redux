@@ -53,6 +53,7 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> FUNGAL_SPARSE_VEGETATION = createKey(Folders.CAVE + "fungal_sparse_vegetation");
     public static final ResourceKey<PlacedFeature> FUNGAL_VEGETATION = createKey(Folders.CAVE + "fungal_vegetation");
     public static final ResourceKey<PlacedFeature> BLIGHTSHADE_PATCH = copyKey(ReduxConfiguredFeatures.BLIGHTSHADE_PATCH);
+    public static final ResourceKey<PlacedFeature> CORRUPTED_VINES_PATCH = copyKey(ReduxConfiguredFeatures.CORRUPTED_VINES_PATCH);
     public static final ResourceKey<PlacedFeature> BLIGHT_ROCK = copyKey(ReduxConfiguredFeatures.BLIGHT_ROCK);
     public static final ResourceKey<PlacedFeature> GLIMMERSTOOL_ROCK = copyKey(ReduxConfiguredFeatures.GLIMMERSTOOL_ROCK);
     public static final ResourceKey<PlacedFeature> GLIMMERSTOOL_PATCH = copyKey(ReduxConfiguredFeatures.GLIMMERSTOOL_PATCH);
@@ -226,8 +227,15 @@ public class ReduxPlacedFeatures {
 
         register(context, BLIGHTSHADE_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.BLIGHTSHADE_PATCH),
                 NOISE_THRESHOLD,
-                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(1  , 3), 4),
-                RarityFilter.onAverageOnceEvery(4),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(1, 3), 4),
+                RarityFilter.onAverageOnceEvery(16),
+                BiomeFilter.biome()
+        );
+
+        register(context, CORRUPTED_VINES_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.CORRUPTED_VINES_PATCH),
+                NOISE_THRESHOLD,
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(1, 2), 4),
+                RarityFilter.onAverageOnceEvery(10),
                 BiomeFilter.biome()
         );
 
@@ -285,8 +293,9 @@ public class ReduxPlacedFeatures {
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.OCEAN_FLOOR, UniformInt.of(0, 1), 4),
                 BiomeFilter.biome(),
                 DUNGEON_BLACKLIST,
-                PlacementUtils.filteredByBlockSurvival(/*TODO*/ReduxBlocks.GLACIA_SAPLING.get())
+                PlacementUtils.filteredByBlockSurvival(ReduxBlocks.GLACIA_SAPLING.get())
         );
+
 
         register(context, AEROGEL_ORE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.AEROGEL_ORE),
                 CountPlacement.of(32),
@@ -505,7 +514,7 @@ public class ReduxPlacedFeatures {
 
         register(context, SPIROLYCTIL_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.SPIROLYCTIL_PATCH),
                 NOISE_THRESHOLD,
-                RarityFilter.onAverageOnceEvery(5),
+                RarityFilter.onAverageOnceEvery(12),
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(1, 3), 4),
                 BiomeFilter.biome());
 
@@ -517,9 +526,9 @@ public class ReduxPlacedFeatures {
 
         register(context, BLIGHT_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.BLIGHT_TREES),
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
-                        .add(UniformInt.of(4, 6), 5)
-                        .add(ConstantInt.of(7), 3)
-                        .add(ConstantInt.of(8), 1)
+                        .add(UniformInt.of(2, 6), 5)
+                        .add(ConstantInt.of(4), 3)
+                        .add(ConstantInt.of(6), 1)
                         .build())),
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.OCEAN_FLOOR, UniformInt.of(0, 1), 4),
                 BiomeFilter.biome(),

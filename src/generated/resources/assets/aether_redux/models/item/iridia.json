@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "aether_redux:block/natural/iridia_overlay",
-    "layer1": "aether_redux:block/natural/iridia"
+    "layer0": "aether_redux:block/natural/iridia",
+    "layer1": "aether_redux:block/natural/iridia_overlay"
   }
 }
