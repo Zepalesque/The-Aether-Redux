@@ -74,7 +74,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemWallBlock(ReduxBlocks.FROSTED_HOLYSTONE_WALL, ReduxBlocks.FROSTED_HOLYSTONE, "natural/");
         eggItem(ReduxItems.VANILLA_SWET_SPAWN_EGG);
         eggItem(ReduxItems.GLIMMERCOW_SPAWN_EGG);
-        item(ReduxItems.GRAND_VICTORY_MEDAL, "accessories/");
+        rotatedItem(ReduxItems.GRAND_VICTORY_MEDAL.get(), "accessories/");
         item(ReduxItems.SENTRY_RING, "accessories/");
         item(ReduxItems.AIRBOUND_CAPE, "accessories/");
         item(ReduxItems.PHOENIX_EMBLEM, "accessories/");
