@@ -356,12 +356,12 @@ public class ReduxBlocks {
 
 
     public static RegistryObject<CorruptedVinesHeadBlock> CORRUPTED_VINES = register("corrupted_vines",
-            () -> new CorruptedVinesHeadBlock(BlockBehaviour.Properties.copy(Blocks.TWISTING_VINES)
+            () -> new CorruptedVinesHeadBlock(BlockBehaviour.Properties.copy(Blocks.TWISTING_VINES).lightLevel(value -> 5)
                     .mapColor(MapColor.TERRACOTTA_MAGENTA).sound(SoundType.CAVE_VINES), ReduxBlocks.CORRUPTED_VINES_PLANT));
 
     public static RegistryObject<CorruptedVinesPlantBlock> CORRUPTED_VINES_PLANT = BLOCKS.register("corrupted_vines_plant",
             () -> new CorruptedVinesPlantBlock(BlockBehaviour.Properties.copy(Blocks.TWISTING_VINES_PLANT)
-                    .mapColor(MapColor.TERRACOTTA_MAGENTA).sound(SoundType.CAVE_VINES), ReduxBlocks.CORRUPTED_VINES));
+                    .mapColor(MapColor.TERRACOTTA_MAGENTA).sound(SoundType.CAVE_VINES).lightLevel(value -> 8), ReduxBlocks.CORRUPTED_VINES));
 
     public static RegistryObject<Block> VERIDIUM_CHAIN = register("veridium_chain",
             () -> new ChainBlock(BlockBehaviour.Properties.copy(Blocks.CHAIN)));
