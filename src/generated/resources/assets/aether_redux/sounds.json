@@ -220,7 +220,7 @@
       "item/armor/equip_gold5",
       "item/armor/equip_gold6"
     ],
-    "subtitle": "subtitles.aether_redux.item.accessory.equip_valkyrie_ring"
+    "subtitle": "subtitles.aether_redux.item.accessory.equip_grand_medal"
   },
   "item.accessory.equip_sentry_ring": {
     "sounds": [

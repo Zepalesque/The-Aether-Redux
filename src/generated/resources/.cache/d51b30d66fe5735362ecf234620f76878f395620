@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-30T20:28:45.7450711	Item Models: aether_redux
+// 1.20.1	2024-01-31T16:32:04.1427709	Item Models: aether_redux
 262070202f715ccbb93ebca7b4dd3b04851bc0ce assets/aether_redux/models/item/aether_short_grass.json
 ef6d226766d61d6460247665062a399d3613d946 assets/aether_redux/models/item/aevelium.json
 2f2dfa95433a548b2d41f817bd836c91e41fc4e9 assets/aether_redux/models/item/aevelium_roots.json
@@ -154,7 +154,7 @@ ac613543a299c0da98bfa2919e299ad698f9bd3d assets/aether_redux/models/item/glimmer
 14c80ebf62c0434a511f00fdb22074d51f8aaf39 assets/aether_redux/models/item/golden_swet_ball.json
 3994332af9ecb56255184897abf849dae60ff939 assets/aether_redux/models/item/golden_swet_jelly.json
 830712522b96695b2c26d31f844efcaa964e0d48 assets/aether_redux/models/item/golden_vines.json
-b44ba989c4d354d86fe40c3a15fcda20449de04f assets/aether_redux/models/item/grand_victory_medal.json
+a38cefb731d298e0c795074ba3b4e1a919cc3440 assets/aether_redux/models/item/grand_victory_medal.json
 186625fae587a1449999bdcd0e11a53b78579f7a assets/aether_redux/models/item/holysilt.json
 5ac15283821f82852afb37f646709d38aa90a988 assets/aether_redux/models/item/infused_veridium_axe.json
 beba14ffeb6f81501238130d80b9ec2c0c2c0b54 assets/aether_redux/models/item/infused_veridium_hoe.json
