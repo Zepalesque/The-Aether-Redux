@@ -36,7 +36,7 @@ public class BlightwillowRootsTrunkDecorator extends TreeDecorator {
     }
 
     protected TreeDecoratorType<?> type() {
-        return ReduxTreeDecorators.GENESIS_TRUNK.get();
+        return ReduxTreeDecorators.BLIGHTWILLOW_ROOTS.get();
     }
 
     public void place(Context context) {
