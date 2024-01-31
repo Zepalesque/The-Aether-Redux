@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-30T19:34:12.4803471	Item Models: aether_redux
+// 1.20.1	2024-01-30T20:17:10.5607475	Item Models: aether_redux
 262070202f715ccbb93ebca7b4dd3b04851bc0ce assets/aether_redux/models/item/aether_short_grass.json
 ef6d226766d61d6460247665062a399d3613d946 assets/aether_redux/models/item/aevelium.json
 2f2dfa95433a548b2d41f817bd836c91e41fc4e9 assets/aether_redux/models/item/aevelium_roots.json
@@ -66,7 +66,7 @@ d405f3ad7842793059252f2a5d553621927539d6 assets/aether_redux/models/item/cloudca
 d98513ec2fbdcf02f507b69fe8a6b350afcb04d7 assets/aether_redux/models/item/cloud_cap_block.json
 f9c1ce84c6a0c2e877af5b67be07d5c0ac3fdad4 assets/aether_redux/models/item/coarse_aether_dirt.json
 1376d88333c7592f6955b76d61f33bc8c5a6c39b assets/aether_redux/models/item/cockatrice_feather.json
-f7cd63b6c400fcb75482b397856220530cdad1ad assets/aether_redux/models/item/corrupted_vines.json
+61f3ffb950ea53dcdfffac67ed86bab9956a8307 assets/aether_redux/models/item/corrupted_vines.json
 5fdf5a3add16d05500fe0387c2a8610d2ee1f2f8 assets/aether_redux/models/item/crystal_boat.json
 133f4578698e67f8587d89cabbffee55319dc165 assets/aether_redux/models/item/crystal_button.json
 623b05f96b37ac475ec5667d70ece76502b41e32 assets/aether_redux/models/item/crystal_chest_boat.json

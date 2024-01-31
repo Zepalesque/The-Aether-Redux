@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-30T19:34:12.4983487	Block States: aether_redux
+// 1.20.1	2024-01-30T20:17:10.5757396	Block States: aether_redux
 3b65fcf4de37be76dd1ac46b4118458043237e15 assets/aether_redux/blockstates/aether_short_grass.json
 0a0f21b01afc7514adf77a09aca842eb1a0055b4 assets/aether_redux/blockstates/aevelium.json
 483c8ba025f1818d95319f96976dd85c91663f05 assets/aether_redux/blockstates/aevelium_roots.json
@@ -397,8 +397,8 @@ c39230cb5aed5e9120fa5aec1df610b14a8438fc assets/aether_redux/models/block/cloud_
 032ce67c76273d5d3d732a0225b2b67366153b84 assets/aether_redux/models/block/cloud_cap_block4.json
 0652a579d203522259b815446987d0af980a3886 assets/aether_redux/models/block/cloud_cap_block_inside.json
 92cc00daaf63ac8c347d32e8eb08831b0236dac5 assets/aether_redux/models/block/coarse_aether_dirt.json
-e0a1e9ca1f8bda2671f16c27bc3932280b42a132 assets/aether_redux/models/block/corrupted_vines.json
-f60c844abf7f9a988b1e8ab0363338f400d89c2f assets/aether_redux/models/block/corrupted_vines_plant.json
+dace067019a33260b2bf4ab669acd5cbc8f50ada assets/aether_redux/models/block/corrupted_vines.json
+739be5b88d4211dfc6a4c2f9ad9432efe12682e6 assets/aether_redux/models/block/corrupted_vines_plant.json
 d94940d494340fc1fd007174b192525b9400d888 assets/aether_redux/models/block/crystal_button.json
 0bae9953c35f2c8e3ac9cc89f768d0bc1b9e1c8c assets/aether_redux/models/block/crystal_button_pressed.json
 94290889a48b6c4576012cee8fe42d6bb36af8f0 assets/aether_redux/models/block/crystal_door_bottom_left.json
