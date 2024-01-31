@@ -35,7 +35,7 @@ public class EnchantedVineDecorator extends TreeDecorator {
    private final AbstractCondition<?> condition;
 
    protected TreeDecoratorType<?> type() {
-      return ReduxTreeDecorators.ENCHANTED_VINE_DECORATOR.get();
+      return ReduxTreeDecorators.ENCHANTED_VINES.get();
    }
 
    public EnchantedVineDecorator(float pProbabilityMin, float pProbabilityMax, BlockStateProvider pBodyBlock, BlockStateProvider pHeadBlock, IntProvider pLengthMin, IntProvider pLengthMax, AbstractCondition<?> condition) {

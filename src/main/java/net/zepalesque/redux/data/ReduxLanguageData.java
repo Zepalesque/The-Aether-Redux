@@ -197,8 +197,6 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addBlock(ReduxBlocks.BLIGHTWILLOW_LEAVES, "Blightwillow Leaves");
         addLore(ReduxBlocks.BLIGHTWILLOW_LEAVES, "The leaves of the Blightwillow tree. These sometimes drop Blightwillow Saplings.");
-        addBlock(ReduxBlocks.BLIGHTWILLOW_ROOTS, "Blightwillow Roots");
-        addLore(ReduxBlocks.BLIGHTWILLOW_ROOTS, "The roots of the Blightwillow tree. These can be found connected to Blightwillow Trees.");
         addBlock(ReduxBlocks.FLOWERING_FIELDSPROUT_LEAVES, "Flowering Fieldsprout Leaves");
         addLore(ReduxBlocks.FLOWERING_FIELDSPROUT_LEAVES, "The colorful leaves of Flowering Fieldsprout trees! These will occasionally drop Flowering Fieldsprout Saplings.");
         addBlock(ReduxBlocks.FIELDSPROUT_PETALS, "Fieldsprout Petals");
@@ -559,7 +557,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addDeath(ReduxDamageTypes.EMBER, "%1$s was hit by a flying ember");
         addDeathByPlayer(ReduxDamageTypes.EMBER, "%1$s was hit by %2$s's flying ember");
 
-        for (WoodHandler woodHandler : Redux.Handlers.Wood.WOOD_HANDLERS) {
+        for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS) {
             woodHandler.generateLanguageData(this);
         }
 

@@ -23,7 +23,7 @@ public class GenesisTrunkDecorator extends TreeDecorator {
     }
 
     protected TreeDecoratorType<?> type() {
-        return ReduxTreeDecorators.GENESIS_TRUNK_DECORATOR.get();
+        return ReduxTreeDecorators.GENESIS_TRUNK.get();
     }
 
     public void place(TreeDecorator.Context context) {

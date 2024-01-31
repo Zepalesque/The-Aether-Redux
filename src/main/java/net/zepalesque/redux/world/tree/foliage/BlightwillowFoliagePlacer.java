@@ -4,13 +4,13 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.Vec3i;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
+import net.zepalesque.redux.util.level.WorldgenUtil;
 
 
 public class BlightwillowFoliagePlacer extends FoliagePlacer {
@@ -31,11 +31,8 @@ public class BlightwillowFoliagePlacer extends FoliagePlacer {
     @Override
     protected void createFoliage(LevelSimulatedReader levelSimulatedReader, FoliageSetter foliageSetter, RandomSource randomSource, TreeConfiguration treeConfiguration, int i1, FoliageAttachment foliageAttachment, int foliageMaxHeight, int i2, int i3) {
         BlockPos blockpos = foliageAttachment.pos();
-        Type type = Type.getFromIndex(foliageAttachment.radiusOffset());
         BlockPos.MutableBlockPos mbp = new BlockPos.MutableBlockPos();
-        generateLeaves(type, mbp, levelSimulatedReader, blockpos, foliageSetter, randomSource, treeConfiguration);
-
-
+        generateLeaves(mbp, levelSimulatedReader, blockpos, foliageSetter, randomSource, treeConfiguration);
     }
 
     @Override
@@ -48,61 +45,40 @@ public class BlightwillowFoliagePlacer extends FoliagePlacer {
         return false;
     }
 
-    private void generateLeaves(Type type, BlockPos.MutableBlockPos mutable, LevelSimulatedReader level, BlockPos origin, FoliageSetter setter, RandomSource rand, TreeConfiguration config)
+    private void generateLeaves(BlockPos.MutableBlockPos mutable, LevelSimulatedReader level, BlockPos origin, FoliageSetter setter, RandomSource rand, TreeConfiguration config)
     {
-        if (type == Type.SMALL)
-        {
-            mutable.set(origin);
-            tryPlaceLeaf(level, setter, rand, config, mutable.immutable());
-            BlockPos stemTip = origin.below();
-            for (Direction d : Direction.Plane.HORIZONTAL)
-            {
-                mutable.setWithOffset(stemTip, d);
-                tryPlaceLeaf(level, setter, rand, config, mutable.immutable());
-
-            }
-        } else
-        {
-            Direction.Axis axis = type == Type.X_AXIS ? Direction.Axis.X : Direction.Axis.Z;
-            mutable.set(origin);
-            tryPlaceLeaf(level, setter, rand, config, mutable.immutable());
-            for (Direction d : Direction.Plane.HORIZONTAL)
-            {
-                mutable.setWithOffset(origin, d);
-                tryPlaceLeaf(level, setter, rand, config, mutable.immutable());
-
-            }
-            for (int x = -1; x <= 1; x++)
-            {
-                for (int z = -1; z <= 1; z++)
-                {
-                    if (x != 0 || z != 0)
-                    {
-                        mutable.setWithOffset(origin, x, -1, z);
+        mutable.set(origin);
+        BlockPos center = origin.below(3);
+        // Base round shape
+        int extend = 3;
+        for (int x = -2; x <= 2; x++) {
+            for (int y = -2; y <= 3; y++) {
+                for (int z = -2; z <= 2; z++) {
+                    int add = x + y + z;
+                    if (add <= extend) {
+                        mutable.setWithOffset(center, x, y, z);
                         tryPlaceLeaf(level, setter, rand, config, mutable.immutable());
                     }
                 }
             }
-            BlockPos below = origin.below();
-            setWithOffset(mutable, below, axis == Direction.Axis.X ? Direction.EAST : Direction.NORTH, 2);
-            tryPlaceLeaf(level, setter, rand, config, mutable.immutable());
-            setWithOffset(mutable, below, axis == Direction.Axis.X ? Direction.WEST : Direction.SOUTH, 2);
-            tryPlaceLeaf(level, setter, rand, config, mutable.immutable());
-
-
         }
-    }
-
-    enum Type {
-        SMALL, X_AXIS, Z_AXIS;
-
-        public static Type getFromIndex(int i)
-        {
-            return i == 0 ? SMALL : i == 1 ? X_AXIS : Z_AXIS;
+        // Spike-like things
+        int layer1Height = 3;
+        int layer2Height = 4;
+        for (Direction d : Direction.Plane.HORIZONTAL) {
+            BlockPos start = WorldgenUtil.withOffset(center, d, extend);
+            for (int i = 0; i < layer1Height; i++) {
+                mutable.setWithOffset(start, 0, i, 0);
+                tryPlaceLeaf(level, setter, rand, config, mutable.immutable());
+            }
+            for (int i = 1; i < layer2Height + 1; i++) {
+                mutable.setWithOffset(start, d.getStepX(), i, d.getStepZ());
+                tryPlaceLeaf(level, setter, rand, config, mutable.immutable());
+            }
         }
+
     }
-    private static BlockPos.MutableBlockPos setWithOffset(BlockPos.MutableBlockPos mutable, Vec3i origin, Direction direction, int amount) {
-        return mutable.set(origin.getX() + (direction.getStepX() * amount), origin.getY() + (direction.getStepY() * amount), origin.getZ() + (direction.getStepZ() * amount));
-    }
+
+
 
 }

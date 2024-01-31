@@ -76,7 +76,6 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         stairs(ReduxBlocks.CARVED_STONE_BRICK_STAIRS.get(), ReduxBlocks.CARVED_STONE_BRICKS.get(), "construction/");
         slab(ReduxBlocks.CARVED_STONE_BRICK_SLAB.get(), ReduxBlocks.CARVED_STONE_BRICKS.get(), "construction/");
         this.pillar(ReduxBlocks.CARVED_STONE_PILLAR::get, "construction/");
-        this.roots(ReduxBlocks.BLIGHTWILLOW_ROOTS.get(), "natural/");
 
         block(ReduxBlocks.FROSTED_HOLYSTONE.get(), "natural/");
         wallBlock(ReduxBlocks.FROSTED_HOLYSTONE_WALL.get(), ReduxBlocks.FROSTED_HOLYSTONE.get(), "natural/");
@@ -177,7 +176,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.crossBlock(ReduxBlocks.CORRUPTED_VINES_PLANT.get(), "natural/");
 
 
-        for (WoodHandler woodHandler : Redux.Handlers.Wood.WOOD_HANDLERS)        {
+        for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS)        {
             woodHandler.generateBlockstateData(this);
         }
 

@@ -34,7 +34,6 @@ import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSi
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BushFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FancyFoliagePlacer;
-import net.minecraft.world.level.levelgen.feature.rootplacers.AboveRootPlacement;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.FancyTrunkPlacer;
@@ -52,17 +51,15 @@ import net.zepalesque.redux.world.feature.CloudcapFeature;
 import net.zepalesque.redux.world.feature.ReduxFeatureRegistry;
 import net.zepalesque.redux.world.feature.config.*;
 import net.zepalesque.redux.world.stateprov.SimpleConditionAlternativeStateProvider;
+import net.zepalesque.redux.world.tree.decorator.BlightwillowRootsTrunkDecorator;
 import net.zepalesque.redux.world.tree.decorator.EnchantedVineDecorator;
 import net.zepalesque.redux.world.tree.decorator.PatchTreeDecorator;
 import net.zepalesque.redux.world.tree.foliage.BlightwillowFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.GlaciaFoliagePlacer;
-import net.zepalesque.redux.world.tree.root.BlightwillowRootConfig;
-import net.zepalesque.redux.world.tree.root.BlightwillowRootPlacer;
 import net.zepalesque.redux.world.tree.trunk.BlightwillowTrunkPlacer;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 import java.util.OptionalInt;
 
 public class    ReduxConfiguredFeatures {
@@ -269,25 +266,23 @@ public class    ReduxConfiguredFeatures {
         register(context, BLIGHTSHADE_PATCH, Feature.FLOWER,
                 blockBelowPlacementPatch(24, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.BLIGHTSHADE)),
                         BlockPredicate.matchesBlocks(AetherBlocks.AETHER_GRASS_BLOCK.get())));
+
+        WeightedStateProvider p = new WeightedStateProvider(
+                SimpleWeightedRandomList.<BlockState>builder()
+                        .add(drops(Redux.WoodHandlers.BLIGHTWILLOW.log), 7)
+                        .add(drops(Redux.WoodHandlers.BLIGHTWILLOW.sporingLog.orElseThrow()), 1)
+        );
         register(context, BLIGHTWILLOW_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
-                new WeightedStateProvider(
-                        SimpleWeightedRandomList.<BlockState>builder()
-                                .add(drops(Redux.Handlers.Wood.BLIGHTWILLOW.log), 7)
-                                .add(drops(Redux.Handlers.Wood.BLIGHTWILLOW.sporingLog.orElseThrow()), 1)
-                ),
-                new BlightwillowTrunkPlacer(5, 2, 2, new WeightedStateProvider(
-                        SimpleWeightedRandomList.<BlockState>builder()
-                                .add(drops(naturalDrops(Redux.Handlers.Wood.BLIGHTWILLOW.wood)), 7)
-                                .add(drops(Redux.Handlers.Wood.BLIGHTWILLOW.sporingWood.orElseThrow()), 1)
-                ), UniformInt.of(4, 6), UniformInt.of(3, 4)),
+                p,
+                new StraightTrunkPlacer(8, 2, 2),
                 BlockStateProvider.simple(drops(ReduxBlocks.BLIGHTWILLOW_LEAVES)),
                 new BlightwillowFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
-                Optional.of(
-                        new BlightwillowRootPlacer(ConstantInt.of(1), BlockStateProvider.simple(drops(ReduxBlocks.BLIGHTWILLOW_ROOTS)),
-                                Optional.of(new AboveRootPlacement(BlockStateProvider.simple(drops(ReduxBlocks.BLIGHTMOSS_CARPET)), 0.8F)),
-                                new BlightwillowRootConfig(blocks.getOrThrow(ReduxTags.Blocks.BLIGHTWILLOW_ROOTS_CAN_GROW_THROUGH), 3))
-                ),
-                new TwoLayersFeatureSize(2, 0, 2)
+                new TwoLayersFeatureSize(6, 1, 4)
+        ).decorators(
+                List.of(
+                        new BlightwillowRootsTrunkDecorator(p, prov(naturalDrops(Redux.WoodHandlers.BLIGHTWILLOW.logWall)), UniformInt.of(1, 4)),
+                        new PatchTreeDecorator(createLeafPileLayers(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE), 7, 3, 32)
+                )
         ).ignoreVines().dirt(BlockStateProvider.simple(Blocks.AIR)).build());
         register(context, CLOUDCAP_MUSHLING_PATCH, Feature.FLOWER,
                 blockBelowPlacementPatch(16, 5, 3, prov(ReduxBlocks.CLOUDCAP_MUSHLING),
@@ -383,7 +378,7 @@ public class    ReduxConfiguredFeatures {
 
         register(context, CRYSTAL_TREE_OVERRIDE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
-                        BlockStateProvider.simple(drops(Redux.Handlers.Wood.CRYSTAL.log)),
+                        BlockStateProvider.simple(drops(Redux.WoodHandlers.CRYSTAL.log)),
                         new CrystalTreeTrunkPlacer(7, 0, 0),
                         new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(AetherFeatureStates.CRYSTAL_LEAVES, 4).add(AetherFeatureStates.CRYSTAL_FRUIT_LEAVES, 1).build()),
                         new CrystalFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0), ConstantInt.of(6)),
@@ -391,7 +386,7 @@ public class    ReduxConfiguredFeatures {
 
         register(context, GLACIA_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
-                        BlockStateProvider.simple(drops(Redux.Handlers.Wood.GLACIA.log)),
+                        BlockStateProvider.simple(drops(Redux.WoodHandlers.GLACIA.log)),
                         new StraightTrunkPlacer(9, 10, 0),
                         prov(ReduxBlocks.GLACIA_LEAVES),
                         new GlaciaFoliagePlacer(ConstantInt.of(1), ConstantInt.of(0), ConstantInt.of(1)),
@@ -406,7 +401,7 @@ public class    ReduxConfiguredFeatures {
 
         register(context, PURPLE_GLACIA_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
-                        BlockStateProvider.simple(drops(Redux.Handlers.Wood.GLACIA.log)),
+                        BlockStateProvider.simple(drops(Redux.WoodHandlers.GLACIA.log)),
                         new StraightTrunkPlacer(5, 2, 0),
                         prov(ReduxBlocks.PURPLE_GLACIA_LEAVES),
                         new GlaciaFoliagePlacer(ConstantInt.of(1), ConstantInt.of(0), ConstantInt.of(1)),
@@ -441,8 +436,8 @@ public class    ReduxConfiguredFeatures {
                 new CloudcapFeature.CloudcapConfig(
                         prov(ReduxBlocks.CLOUD_CAP_BLOCK.get().defaultBlockState().setValue(BlockStateProperties.DOWN, false)),
                         prov(ReduxBlocks.CLOUDCAP_SPORES),
-                        prov(Redux.Handlers.Wood.CLOUDCAP.log),
-                        prov(naturalDrops(Redux.Handlers.Wood.CLOUDCAP.logWall)),
+                        prov(Redux.WoodHandlers.CLOUDCAP.log),
+                        prov(naturalDrops(Redux.WoodHandlers.CLOUDCAP.logWall)),
                         UniformInt.of(17, 21),
                         UniformInt.of(1, 4),
                         UniformInt.of(1, 3),
@@ -455,7 +450,7 @@ public class    ReduxConfiguredFeatures {
         register(context, LARGE_JELLYSHROOM, ReduxFeatureRegistry.JELLYSHROOM.get(),
                 new JellyshroomConfig(
                         prov(ReduxBlocks.JELLYSHROOM_JELLY_BLOCK),
-                        prov(Redux.Handlers.Wood.JELLYSHROOM.log),
+                        prov(Redux.WoodHandlers.JELLYSHROOM.log),
                         UniformInt.of(7, 9)
                         ));
 
@@ -470,8 +465,8 @@ public class    ReduxConfiguredFeatures {
         register(context, FLOWERING_FIELDSPROUT_TREE, ReduxFeatureRegistry.FIELDSPROUT_TREE.get(),
                 new FieldsproutTreeConfig(
                         prov(ReduxBlocks.FLOWERING_FIELDSPROUT_LEAVES),
-                        prov(Redux.Handlers.Wood.FIELDSPROUT.log),
-                        prov(naturalDrops(Redux.Handlers.Wood.FIELDSPROUT.wood)),
+                        prov(Redux.WoodHandlers.FIELDSPROUT.log),
+                        prov(naturalDrops(Redux.WoodHandlers.FIELDSPROUT.wood)),
                         new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
                                 .add(ConstantInt.of(0), 5)
                                 .add(ConstantInt.of(1), 4)

@@ -70,7 +70,6 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
 
         this.dropPottedContents(ReduxBlocks.POTTED_BLIGHTWILLOW_SAPLING.get());
 
-        this.dropSelf(ReduxBlocks.BLIGHTWILLOW_ROOTS.get());
 
         this.dropSelf(ReduxBlocks.GILDED_VINES.get());
         this.dropOther(ReduxBlocks.GILDED_VINES_PLANT.get(), ReduxBlocks.GILDED_VINES.get());
@@ -212,7 +211,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
 
         this.dropSelf(ReduxBlocks.JELLYSHROOM_JELLY_BLOCK.get());
 
-        for (WoodHandler woodHandler : Redux.Handlers.Wood.WOOD_HANDLERS)
+        for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS)
         {
             woodHandler.generateLoot(this);
         }

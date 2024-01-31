@@ -140,7 +140,6 @@ public class ReduxItemModelData extends AetherItemModelProvider {
 
         this.itemBlock(ReduxBlocks.BLIGHTED_SKYROOT_LEAVES.get());
 
-        this.itemBlock(ReduxBlocks.BLIGHTWILLOW_ROOTS.get());
 
         this.itemBlockFlatTintGlowOverlay(ReduxBlocks.LUMINA, "natural/");
         this.itemBlockFlatTintOverlay(ReduxBlocks.DAGGERBLOOM, "natural/");
@@ -182,7 +181,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
 
         this.item(ReduxItems.ZANBERRY, "food/");
 
-        for (WoodHandler woodHandler : Redux.Handlers.Wood.WOOD_HANDLERS)        {
+        for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS)        {
             woodHandler.generateItemModels(this);
         }
 

@@ -2,26 +2,21 @@ package net.zepalesque.redux.world.feature;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.Mth;
-import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.HugeMushroomBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.block.state.properties.WallSide;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.HugeMushroomFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.zepalesque.redux.misc.ReduxTags;
-import net.zepalesque.redux.world.feature.config.JellyshroomConfig;
+import net.zepalesque.redux.util.level.WorldgenUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -75,7 +70,7 @@ public class CloudcapFeature extends Feature<CloudcapFeature.CloudcapConfig> {
                 mutable.setWithOffset(wallOrigin, d.getStepX(), i, d.getStepZ());
                 BlockPos immutable1 = mutable.immutable();
                 BlockState b = context.config().stemWall.getState(context.random(), immutable1);
-                b = trySet(b, getSide(d.getOpposite()), i == rootWallHeight - 1 ? WallSide.LOW : WallSide.TALL);
+                b = trySet(b, WorldgenUtil.getWallSide(d.getOpposite()), i == rootWallHeight - 1 ? WallSide.LOW : WallSide.TALL);
                 toPlace.putIfAbsent(immutable1, b);
             }
         }
@@ -138,14 +133,6 @@ public class CloudcapFeature extends Feature<CloudcapFeature.CloudcapConfig> {
             this.setBlock(context.level(), entry.getKey(), entry.getValue());
         }
         return true;
-    }
-
-
-    private Property<WallSide> getSide(Direction d) {
-        return d == Direction.NORTH ? BlockStateProperties.NORTH_WALL :
-               d == Direction.EAST ? BlockStateProperties.EAST_WALL :
-               d == Direction.WEST ? BlockStateProperties.WEST_WALL :
-               d == Direction.SOUTH ? BlockStateProperties.SOUTH_WALL : null;
     }
 
 

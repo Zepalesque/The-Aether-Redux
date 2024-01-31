@@ -35,7 +35,7 @@ public class PatchTreeDecorator extends TreeDecorator {
     }
 
     protected TreeDecoratorType<?> type() {
-        return ReduxTreeDecorators.PATCH_TREE_DECORATOR.get();
+        return ReduxTreeDecorators.PATCH.get();
     }
 
     @Override

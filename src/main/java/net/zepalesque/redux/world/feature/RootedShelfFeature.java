@@ -7,7 +7,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.zepalesque.redux.util.level.PlacementUtil;
+import net.zepalesque.redux.util.level.WorldgenUtil;
 import net.zepalesque.redux.world.feature.config.RootedShelfConfiguration;
 
 public class RootedShelfFeature extends Feature<RootedShelfConfiguration> {
@@ -28,7 +28,7 @@ public class RootedShelfFeature extends Feature<RootedShelfConfiguration> {
                     BlockPos placementPos = new BlockPos(x1, y1, z1);
                     if (level.getBlockState(placementPos).isAir() && level.getBlockState(placementPos.above()).is(config.validBlocks()) && level.getBlockState(placementPos.above(2)).isAir()) {
                         BlockPlacementUtil.placeDisk(level, config.shelfBlock(), placementPos, config.radius().sample(random), random);
-                        PlacementUtil.placeRootsDisk(level, config.rootBlock(), placementPos.below(), config.radius().sample(random), random, 0.125F, config.shelfBlock());
+                        WorldgenUtil.placeRootsDisk(level, config.rootBlock(), placementPos.below(), config.radius().sample(random), random, 0.125F, config.shelfBlock());
                         break;
                     }
                 }

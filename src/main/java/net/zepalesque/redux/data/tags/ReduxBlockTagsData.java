@@ -42,8 +42,6 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         );
 
 
-        this.tag(ReduxTags.Blocks.BLIGHTWILLOW_LOGS_CAN_GROW_THROUGH).add(AetherBlocks.AETHER_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT.get(), ReduxBlocks.BLIGHTWILLOW_ROOTS.get(), ReduxBlocks.BLIGHTWILLOW_LEAVES.get(), Redux.Handlers.Wood.BLIGHTWILLOW.log.get(), Redux.Handlers.Wood.BLIGHTWILLOW.wood.get(), ReduxBlocks.BLIGHTMOSS_CARPET.get());
-        this.tag(ReduxTags.Blocks.BLIGHTWILLOW_ROOTS_CAN_GROW_THROUGH).add(AetherBlocks.AETHER_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT.get(), ReduxBlocks.BLIGHTWILLOW_ROOTS.get(), ReduxBlocks.BLIGHTMOSS_CARPET.get());
 
         this.tag(ReduxTags.Blocks.ENCHANTED_VINES_SURVIVE).add(
                 AetherBlocks.GOLDEN_OAK_LEAVES.get(),
@@ -55,7 +53,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.CLOUD_CAP_BLOCK.get()
         );
 
-        for (WoodHandler woodHandler : Redux.Handlers.Wood.WOOD_HANDLERS)        {
+        for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS)        {
             woodHandler.sporingBlocksBlockTag.ifPresent(
                     (tag) -> {
                         this.tag(tag).add(woodHandler.sporingLog.get().get(), woodHandler.sporingWood.get().get());
@@ -217,7 +215,6 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
 
 
 
-        this.tag(BlockTags.MINEABLE_WITH_AXE).add(ReduxBlocks.BLIGHTWILLOW_ROOTS.get());
         this.tag(ReduxTags.Blocks.AETHER_CARVER_REPLACEABLES).addTag(AetherTags.Blocks.HOLYSTONE).addTag(AetherTags.Blocks.AETHER_DIRT).add(
                 AetherBlocks.QUICKSOIL.get(),
                 Blocks.SNOW,

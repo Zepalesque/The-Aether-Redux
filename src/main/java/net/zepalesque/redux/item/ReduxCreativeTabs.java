@@ -232,7 +232,7 @@ public class ReduxCreativeTabs {
     private static RegistryObject<? extends ItemLike> doBuildingWoods(RegistryObject<? extends ItemLike>  prevEntry, BuildCreativeModeTabContentsEvent event) {
 
         RegistryObject<? extends ItemLike> b = null;
-        for (WoodHandler woodHandler : Redux.Handlers.Wood.WOOD_HANDLERS)
+        for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS)
         {
             boolean addSporingLogs = woodHandler.hasSporingLogs && woodHandler.sporingLog.isPresent() && woodHandler.sporingWood.isPresent();
             putAfter(b == null ? prevEntry : b, woodHandler.log, event);
@@ -266,7 +266,7 @@ public class ReduxCreativeTabs {
     private static RegistryObject<? extends ItemLike> doNaturalWoods(RegistryObject<? extends ItemLike>  prevEntry, BuildCreativeModeTabContentsEvent event) {
 
         RegistryObject<? extends ItemLike> b = null;
-        for (WoodHandler woodHandler : Redux.Handlers.Wood.WOOD_HANDLERS)
+        for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS)
         {
             boolean addSporingLogs = woodHandler.hasSporingLogs && woodHandler.sporingLog.isPresent() && woodHandler.sporingWood.isPresent();
             putAfter(b == null ? prevEntry : b, woodHandler.log, event);
@@ -286,7 +286,7 @@ public class ReduxCreativeTabs {
     private static RegistryObject<? extends ItemLike> doSigns(RegistryObject<? extends ItemLike>  prevEntry, BuildCreativeModeTabContentsEvent event) {
 
         RegistryObject<? extends ItemLike> b = null;
-        for (WoodHandler woodHandler : Redux.Handlers.Wood.WOOD_HANDLERS)
+        for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS)
         {
             putAfter(b == null ? prevEntry : b, woodHandler.signItem, event);
             putAfter(woodHandler.signItem, woodHandler.hangingSignItem, event);
@@ -298,7 +298,7 @@ public class ReduxCreativeTabs {
     private static RegistryObject<? extends ItemLike> doBoats(RegistryObject<? extends ItemLike>  prevEntry, BuildCreativeModeTabContentsEvent event) {
 
         RegistryObject<? extends ItemLike> b = null;
-        for (WoodHandler woodHandler : Redux.Handlers.Wood.WOOD_HANDLERS)
+        for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS)
         {
             putAfter(b == null ? prevEntry : b, woodHandler.boatItem, event);
             putAfter(woodHandler.boatItem, woodHandler.chestBoatItem, event);
@@ -312,7 +312,7 @@ public class ReduxCreativeTabs {
         RegistryObject<? extends ItemLike> dr = null;
         RegistryObject<? extends ItemLike> btn = null;
         RegistryObject<? extends ItemLike> td = null;
-        for (WoodHandler woodHandler : Redux.Handlers.Wood.WOOD_HANDLERS)
+        for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS)
         {
             putAfter(plate == null ? pressurePlate : plate, woodHandler.pressurePlate, event);
             plate = woodHandler.pressurePlate;

@@ -210,8 +210,6 @@ public class ReduxBlocks {
     public static RegistryObject<Block> BLIGHTWILLOW_LEAVES = register("blightwillow_leaves", () -> new AetherDoubleDropsLeaves(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_PURPLE).strength(0.2F).randomTicks().sound(SoundType.AZALEA_LEAVES).noOcclusion().isValidSpawn(ReduxBlocks::ocelotOrParrot).isSuffocating(ReduxBlocks::never).isViewBlocking(ReduxBlocks::never)));
 
 
-    public static RegistryObject<Block> BLIGHTWILLOW_ROOTS = register("blightwillow_roots", () -> new DoubleDropsRootsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_PURPLE).strength(0.7F).randomTicks().sound(SoundType.MANGROVE_ROOTS).noOcclusion()));
-
     public static final RegistryObject<SaplingBlock> BLIGHTWILLOW_SAPLING = register("blightwillow_sapling", () ->
             new SaplingBlock(new BlightwillowTree(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING).sound(SoundType.AZALEA))
     );
@@ -375,7 +373,7 @@ public class ReduxBlocks {
         FireBlockAccessor fireBlockAccessor = (FireBlockAccessor)Blocks.FIRE;
         fireBlockAccessor.callSetFlammable(BLIGHTWILLOW_LEAVES.get(), 30, 60);
         fireBlockAccessor.callSetFlammable(GLACIA_LEAVES.get(), 30, 60);
-        for (WoodHandler woodHandler : Redux.Handlers.Wood.WOOD_HANDLERS) {
+        for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS) {
             woodHandler.strippedLog.ifPresent((reg) -> fireBlockAccessor.callSetFlammable(reg.get(), 5, 5));
             fireBlockAccessor.callSetFlammable(woodHandler.log.get(), 5, 5);
             fireBlockAccessor.callSetFlammable(woodHandler.logWall.get(), 5, 5);
@@ -401,7 +399,7 @@ public class ReduxBlocks {
         fireBlockAccessor.callSetFlammable(BLIGHTSHADE.get(), 60, 100);
     }
     public static void registerWoodTypes() {
-        for (WoodHandler woodHandler : Redux.Handlers.Wood.WOOD_HANDLERS)
+        for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS)
         {
             WoodType.register(woodHandler.woodType);
         }
