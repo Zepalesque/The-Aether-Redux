@@ -94,7 +94,7 @@ public class UpwardVineFeature extends Feature<UpwardVineFeature.UpwardVinesConf
    }
 
    private static boolean isInvalidPlacementLocation(LevelAccessor level, BlockPos pos) {
-      if (!level.isEmptyBlock(pos)) {
+      if (!level.isStateAtPosition(pos, state -> !state.canBeReplaced() && !state.isAir())) {
          return true;
       } else {
          BlockState blockstate = level.getBlockState(pos.below());
