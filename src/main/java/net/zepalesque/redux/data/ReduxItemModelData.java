@@ -151,7 +151,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
 
         this.itemBlockFlatOtherBlockTexture(ReduxBlocks.GOLDEN_VINES, ReduxBlocks.GOLDEN_VINES_PLANT, "natural/");
         this.itemBlockFlatOtherBlockTexture(ReduxBlocks.GILDED_VINES, ReduxBlocks.GILDED_VINES_PLANT, "natural/");
-        this.itemBlockFlatOtherBlockTexture(ReduxBlocks.CORRUPTED_VINES, ReduxBlocks.CORRUPTED_VINES_PLANT, "natural/");
+        this.itemBlockFlatGlowOtherTexture(ReduxBlocks.CORRUPTED_VINES, ReduxBlocks.CORRUPTED_VINES_PLANT, "natural/");
 
         this.handheldItem(ReduxItems.VERIDIUM_SWORD.get(), "weapons/");
         this.handheldItem(ReduxItems.VERIDIUM_PICKAXE.get(), "tools/");
@@ -345,6 +345,12 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         return withExistingParent(blockName(block), mcLoc("item/generated"))
                 .texture("layer1", texture(blockName(block), location) + suffix)
                 .texture("layer0", texture(blockName(block) + suffix + "_glow", location)).customLoader((itemModelBuilder,existingFileHelper) ->
+                ItemLayerModelBuilder.begin(itemModelBuilder, existingFileHelper).emissive(15, 15, 1)).end();
+    }
+    public ItemModelBuilder itemBlockFlatGlowOtherTexture(Supplier<? extends Block> block, Supplier<? extends Block> other, String location) {
+        return withExistingParent(blockName(block), mcLoc("item/generated"))
+                .texture("layer1", texture(blockName(other), location))
+                .texture("layer0", texture(blockName(other) + "_glow", location)).customLoader((itemModelBuilder,existingFileHelper) ->
                 ItemLayerModelBuilder.begin(itemModelBuilder, existingFileHelper).emissive(15, 15, 1)).end();
     }
     public ItemModelBuilder itemBlockFlatTintGlowOverlay(Supplier<? extends Block> block, String location) {

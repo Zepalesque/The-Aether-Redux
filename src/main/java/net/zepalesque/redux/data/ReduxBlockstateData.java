@@ -172,8 +172,8 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.cropOccluded(ReduxBlocks.GILDED_VINES_PLANT.get(), "natural/");
         this.cropOccluded(ReduxBlocks.GILDED_VINES.get(), "natural/");
 
-        this.crossBlock(ReduxBlocks.CORRUPTED_VINES.get(), "natural/");
-        this.crossBlock(ReduxBlocks.CORRUPTED_VINES_PLANT.get(), "natural/");
+        this.crossGlowOverlay(ReduxBlocks.CORRUPTED_VINES.get(), "natural/");
+        this.crossGlowOverlay(ReduxBlocks.CORRUPTED_VINES_PLANT.get(), "natural/");
 
 
         for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS)        {
