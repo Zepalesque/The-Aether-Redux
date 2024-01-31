@@ -83,17 +83,29 @@ public class ReduxClient {
         }, ReduxBlocks.GOLDEN_CLOVER.get());
         event.getBlockColors().register((state, level, pos, index) -> getColor(state, level, pos, index, 1),
                 ReduxBlocks.WYNDSPROUTS.get(),
+                ReduxBlocks.POTTED_WYNDSPROUTS.get(),
                 AetherBlocks.WHITE_FLOWER.get(),
+                AetherBlocks.POTTED_WHITE_FLOWER.get(),
                 AetherBlocks.PURPLE_FLOWER.get(),
+                AetherBlocks.POTTED_PURPLE_FLOWER.get(),
                 ReduxBlocks.SKYSPROUTS.get(),
+                ReduxBlocks.POTTED_SKYSPROUTS.get(),
                 ReduxBlocks.LUXWEED.get(),
+                ReduxBlocks.POTTED_LUXWEED.get(),
                 ReduxBlocks.BLIGHTSHADE.get(),
+                ReduxBlocks.POTTED_BLIGHTSHADE.get(),
                 ReduxBlocks.DAGGERBLOOM.get(),
+                ReduxBlocks.POTTED_DAGGERBLOOM.get(),
                 ReduxBlocks.AURUM.get(),
+                ReduxBlocks.POTTED_AURUM.get(),
                 ReduxBlocks.IRIDIA.get(),
+                ReduxBlocks.POTTED_IRIDIA.get(),
                 ReduxBlocks.LUMINA.get(),
+                ReduxBlocks.POTTED_LUMINA.get(),
                 ReduxBlocks.ZYATRIX.get(),
-                ReduxBlocks.SPIROLYCTIL.get()
+                ReduxBlocks.POTTED_ZYATRIX.get(),
+                ReduxBlocks.SPIROLYCTIL.get(),
+                ReduxBlocks.POTTED_SPIROLYCTIL.get()
         );
 
     }
