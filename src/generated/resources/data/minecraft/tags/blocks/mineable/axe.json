@@ -81,7 +81,6 @@
     "aether_redux:jellyshroom_wall_sign",
     "aether_redux:jellyshroom_stem_wall",
     "aether_redux:jellyshroom_hyphae_wall",
-    "#aether_redux:jellyshroom_stems",
-    "aether_redux:blightwillow_roots"
+    "#aether_redux:jellyshroom_stems"
   ]
 }

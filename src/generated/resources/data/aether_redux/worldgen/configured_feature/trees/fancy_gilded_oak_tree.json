@@ -41,7 +41,7 @@
         "probability_min": 0.5
       },
       {
-        "type": "aether_redux:patch_tree_decorator",
+        "type": "aether_redux:patch",
         "provider": {
           "type": "minecraft:weighted_state_provider",
           "entries": [

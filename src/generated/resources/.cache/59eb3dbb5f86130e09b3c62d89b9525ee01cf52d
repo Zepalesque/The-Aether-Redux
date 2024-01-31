@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-30T18:36:37.9721566	Loot Tables
+// 1.20.1	2024-01-30T19:34:12.4913474	Loot Tables
 9bb0a6fae9e80234bb0bad9086af314acf3e9894 data/aether_redux/loot_tables/blocks/aether_short_grass.json
 48b55d99420ce1afaca551876e87bdbccae62e08 data/aether_redux/loot_tables/blocks/aevelium.json
 b61ecadf10d3b065a1c8f05eea7b70d4ffcadfd3 data/aether_redux/loot_tables/blocks/aevelium_roots.json
@@ -24,7 +24,6 @@ d4d0a2ed6334429ed4ad81f8788584b8f1fcf6dd data/aether_redux/loot_tables/blocks/bl
 7856f0f84540a746c57cbc47375c4c44a3dffbe5 data/aether_redux/loot_tables/blocks/blightwillow_log_wall.json
 8a58e75efb150ca45d90da205f1ba023b7ea6d96 data/aether_redux/loot_tables/blocks/blightwillow_planks.json
 60b23724f3cba674ba0c3ed541fb6d2f8d935430 data/aether_redux/loot_tables/blocks/blightwillow_pressure_plate.json
-a5ff2a5960284f3e595f77ceacfef6909f45f883 data/aether_redux/loot_tables/blocks/blightwillow_roots.json
 21e3bb6590bc2838e613bf0186cddac4089df4ce data/aether_redux/loot_tables/blocks/blightwillow_sapling.json
 8f606de285d0850ff66bb50e4786e44d11ed5d22 data/aether_redux/loot_tables/blocks/blightwillow_sign.json
 46c4c403f5ecd4a1b85e23efda6834a37e7cb313 data/aether_redux/loot_tables/blocks/blightwillow_slab.json

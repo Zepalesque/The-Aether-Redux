@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-30T18:36:37.9761596	Block States: aether_redux
+// 1.20.1	2024-01-30T19:34:12.4983487	Block States: aether_redux
 3b65fcf4de37be76dd1ac46b4118458043237e15 assets/aether_redux/blockstates/aether_short_grass.json
 0a0f21b01afc7514adf77a09aca842eb1a0055b4 assets/aether_redux/blockstates/aevelium.json
 483c8ba025f1818d95319f96976dd85c91663f05 assets/aether_redux/blockstates/aevelium_roots.json
@@ -24,7 +24,6 @@ e37d006f3fb32ed5ec9c898e58efcf40d91404ec assets/aether_redux/blockstates/blightw
 6e66b38466b5f8af9476b4feae7a7da8ccc02eb2 assets/aether_redux/blockstates/blightwillow_log_wall.json
 1a3d8a16388dfdc2e55d4acae44e76f18aa49bf2 assets/aether_redux/blockstates/blightwillow_planks.json
 66275135e677133294021ecbb7d6b2c12e927542 assets/aether_redux/blockstates/blightwillow_pressure_plate.json
-71a6ce3d63656ab3f0dfff9adddbeeada01e7821 assets/aether_redux/blockstates/blightwillow_roots.json
 3888bf9686f9959d3944e073568375891dc90c54 assets/aether_redux/blockstates/blightwillow_sapling.json
 40b650856b69f118da784fd40a4eeef457eedec6 assets/aether_redux/blockstates/blightwillow_sign.json
 cdef784970ec9ba75ecf5548f7af5469a254c1d0 assets/aether_redux/blockstates/blightwillow_slab.json
@@ -299,7 +298,6 @@ acd4c8468b685fab78771a610940695c9a9ddb23 assets/aether_redux/models/block/blight
 00fc76b02ddd3b71c6905754b338117931286fc1 assets/aether_redux/models/block/blightwillow_planks.json
 b0882d663f5189ed6cb3edd9ddf4a2ef59bbc56c assets/aether_redux/models/block/blightwillow_pressure_plate.json
 8524d8ce9827cb1afce1f4932d464519e2cb2813 assets/aether_redux/models/block/blightwillow_pressure_plate_down.json
-79db39254ecce968bc89ad023943a337b5b71e12 assets/aether_redux/models/block/blightwillow_roots.json
 fffd5389033575e5122ae6cae49229f71bd9c2d7 assets/aether_redux/models/block/blightwillow_sapling.json
 85af89ab77ea070f2002e868e0097e523079a78b assets/aether_redux/models/block/blightwillow_sign.json
 c9c84095e605d230ca3b963caf10228a536f0cae assets/aether_redux/models/block/blightwillow_slab.json

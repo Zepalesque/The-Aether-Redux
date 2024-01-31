@@ -1,8 +1,0 @@
-{
-  "parent": "aether_redux:block/template_roots",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "side": "aether_redux:block/natural/blightwillow_roots_side",
-    "top": "aether_redux:block/natural/blightwillow_roots_top"
-  }
-}
