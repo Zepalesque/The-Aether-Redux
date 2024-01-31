@@ -8,9 +8,13 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.LevelSimulatedReader;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
+import net.minecraft.world.level.material.Fluids;
 import net.zepalesque.redux.util.level.WorldgenUtil;
 
 
@@ -50,12 +54,17 @@ public class BlightwillowFoliagePlacer extends FoliagePlacer {
     {
         mutable.set(origin);
         BlockPos center = origin.below(3);
+        // Extra logs
+        for (Direction d : Direction.Plane.HORIZONTAL) {
+            mutable.setWithOffset(center, d);
+            tryPlaceLog(level, setter, rand, config, mutable.immutable());
+        }
         // Base round shape
         int extend = 3;
         for (int x = -2; x <= 2; x++) {
             for (int y = -2; y <= 3; y++) {
                 for (int z = -2; z <= 2; z++) {
-                    int add = Mth.abs(x) + Mth.abs(y) + Mth.abs(z);
+                int add = Mth.abs(x) + Mth.abs(y) + Mth.abs(z);
                     if (add <= extend) {
                         mutable.setWithOffset(center, x, y, z);
                         tryPlaceLeaf(level, setter, rand, config, mutable.immutable());
@@ -79,7 +88,15 @@ public class BlightwillowFoliagePlacer extends FoliagePlacer {
         }
 
     }
-
+    protected static boolean tryPlaceLog(LevelSimulatedReader level, FoliagePlacer.FoliageSetter foliageSetter, RandomSource random, TreeConfiguration treeConfiguration, BlockPos pos) {
+        if (!TreeFeature.validTreePos(level, pos)) {
+            return false;
+        } else {
+            BlockState blockstate = treeConfiguration.trunkProvider.getState(random, pos);
+            foliageSetter.set(pos, blockstate);
+            return true;
+        }
+    }
 
 
 }

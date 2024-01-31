@@ -517,8 +517,9 @@ public class ReduxPlacedFeatures {
 
         register(context, BLIGHT_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.BLIGHT_TREES),
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
-                        .add(UniformInt.of(10, 12), 5)
-                        .add(ConstantInt.of(19), 1)
+                        .add(UniformInt.of(4, 6), 5)
+                        .add(ConstantInt.of(7), 3)
+                        .add(ConstantInt.of(8), 1)
                         .build())),
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.OCEAN_FLOOR, UniformInt.of(0, 1), 4),
                 BiomeFilter.biome(),

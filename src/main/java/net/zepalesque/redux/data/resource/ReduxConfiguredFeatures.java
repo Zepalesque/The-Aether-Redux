@@ -274,10 +274,10 @@ public class    ReduxConfiguredFeatures {
         );
         register(context, BLIGHTWILLOW_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 p,
-                new StraightTrunkPlacer(10, 2, 2),
+                new StraightTrunkPlacer(8, 2, 2),
                 BlockStateProvider.simple(drops(ReduxBlocks.BLIGHTWILLOW_LEAVES)),
                 new BlightwillowFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
-                new TwoLayersFeatureSize(8, 0, 4)
+                new TwoLayersFeatureSize(6, 0, 4)
         ).decorators(
                 List.of(
                         new BlightwillowRootsTrunkDecorator(p, prov(naturalDrops(Redux.WoodHandlers.BLIGHTWILLOW.logWall)), UniformInt.of(1, 4)),
