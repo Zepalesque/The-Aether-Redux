@@ -11,17 +11,17 @@
               "type": "minecraft:uniform",
               "value": {
                 "max_inclusive": 6,
-                "min_inclusive": 4
+                "min_inclusive": 2
               }
             },
             "weight": 5
           },
           {
-            "data": 7,
+            "data": 4,
             "weight": 3
           },
           {
-            "data": 8,
+            "data": 6,
             "weight": 1
           }
         ]

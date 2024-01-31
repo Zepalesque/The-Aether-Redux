@@ -1,5 +1,5 @@
 {
-  "feature": "aether_redux:patch/spirolyctil_patch",
+  "feature": "aether_redux:patch/corrupted_vines_patch",
   "placement": [
     {
       "type": "minecraft:noise_threshold_count",
@@ -8,20 +8,20 @@
       "noise_level": -0.8
     },
     {
-      "type": "minecraft:rarity_filter",
-      "chance": 12
-    },
-    {
       "type": "aether:improved_layer_placement",
       "count": {
         "type": "minecraft:uniform",
         "value": {
-          "max_inclusive": 3,
+          "max_inclusive": 2,
           "min_inclusive": 1
         }
       },
       "heightmap": "MOTION_BLOCKING",
       "verticalBounds": 4
+    },
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 10
     },
     {
       "type": "minecraft:biome"

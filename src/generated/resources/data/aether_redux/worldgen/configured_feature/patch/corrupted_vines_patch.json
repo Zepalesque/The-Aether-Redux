@@ -1,0 +1,23 @@
+{
+  "type": "aether_redux:upward_vine_patch",
+  "config": {
+    "max_height": 15,
+    "spread_height": 3,
+    "spread_width": 7,
+    "vine_head": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "aether_redux:corrupted_vines",
+        "Properties": {
+          "age": "0"
+        }
+      }
+    },
+    "vine_plant": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "aether_redux:corrupted_vines_plant"
+      }
+    }
+  }
+}
