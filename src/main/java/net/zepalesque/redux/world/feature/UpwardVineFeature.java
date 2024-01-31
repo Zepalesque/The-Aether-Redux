@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
@@ -97,7 +98,7 @@ public class UpwardVineFeature extends Feature<UpwardVineFeature.UpwardVinesConf
          return true;
       } else {
          BlockState blockstate = level.getBlockState(pos.below());
-         return !blockstate.is(Blocks.NETHERRACK) && !blockstate.is(Blocks.WARPED_NYLIUM) && !blockstate.is(Blocks.WARPED_WART_BLOCK);
+         return !blockstate.is(BlockTags.DIRT);
       }
    }
 
