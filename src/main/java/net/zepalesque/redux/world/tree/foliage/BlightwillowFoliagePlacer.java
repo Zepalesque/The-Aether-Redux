@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.LevelSimulatedReader;
@@ -54,7 +55,7 @@ public class BlightwillowFoliagePlacer extends FoliagePlacer {
         for (int x = -2; x <= 2; x++) {
             for (int y = -2; y <= 3; y++) {
                 for (int z = -2; z <= 2; z++) {
-                    int add = x + y + z;
+                    int add = Mth.abs(x) + Mth.abs(y) + Mth.abs(z);
                     if (add <= extend) {
                         mutable.setWithOffset(center, x, y, z);
                         tryPlaceLeaf(level, setter, rand, config, mutable.immutable());

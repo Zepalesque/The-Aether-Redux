@@ -42,7 +42,7 @@ public class BlightwillowRootsTrunkDecorator extends TreeDecorator {
     public void place(Context context) {
         BlockPos basePos = context.logs().get(1);
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
-        int heightBelowLeaves = context.logs().size() - 5;
+        int heightBelowLeaves = context.logs().size() - 6;
         for (Direction d: Direction.Plane.HORIZONTAL) {
             BlockPos startPos = basePos.relative(d);
             int height = this.rootHeight.sample(context.random());
@@ -54,7 +54,7 @@ public class BlightwillowRootsTrunkDecorator extends TreeDecorator {
             for (int i = height; i < heightBelowLeaves; i++) {
                 mutable.setWithOffset(startPos, 0, i, 0);
                 BlockPos immutable = mutable.immutable();
-                this.placeBlockAt(context, immutable, this.wallBlock.getState(context.random(), immutable).setValue(WorldgenUtil.getWallSide(d), WallSide.TALL));
+                this.placeBlockAt(context, immutable, this.wallBlock.getState(context.random(), immutable).setValue(WorldgenUtil.getWallSide(d.getOpposite()), WallSide.TALL));
             }
 
         }
