@@ -85,7 +85,7 @@ public class ReduxItems {
 
     public static final RegistryObject<Item> RING_OF_WISDOM = register("ring_of_wisdom", () -> new AbilityTooltipRingItem(ReduxSoundEvents.EQUIP_WISDOM_RING, new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON), "wisdom_ring_xp_increase"));
 
-    public static final RegistryObject<Item> MOUSE_EAR_SOUP = register("mouse_ear_soup", () -> new BowlFoodItem(new Item.Properties().food(ReduxFoods.MOUSE_EAR_SOUP)));
+    public static final RegistryObject<Item> MOUSE_EAR_SOUP = register("mouse_ear_soup", () -> new BowlFoodItem(new Item.Properties().food(ReduxFoods.MOUSE_EAR_SOUP).stacksTo(1)));
 
     public static final RegistryObject<Item> SUBZERO_CROSSBOW = register("subzero_crossbow", () -> new SubzeroCrossbowItem(new Item.Properties().stacksTo(1).durability(1024).rarity(AetherItems.AETHER_LOOT)));
 
