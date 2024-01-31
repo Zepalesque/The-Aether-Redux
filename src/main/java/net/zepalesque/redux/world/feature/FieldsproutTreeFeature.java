@@ -15,13 +15,13 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.util.PetalPrismaticness;
 import net.zepalesque.redux.block.util.ReduxStates;
+import net.zepalesque.redux.util.level.WorldgenUtil;
 import net.zepalesque.redux.world.feature.config.FieldsproutTreeConfig;
 import org.jetbrains.annotations.Nullable;
 
@@ -94,9 +94,9 @@ public class FieldsproutTreeFeature extends Feature<FieldsproutTreeConfig> {
         }
         BlockPos straightEnd = origin.relative(Direction.UP, baseHeight - 1);
         for (int i = 1; i < forwards; i++) {
-            setWithOffset(mutable, straightEnd, d, i);
-            stateMap.put(mutable.immutable(), trySetValue(woodProvider.getState(random, mutable), RotatedPillarBlock.AXIS, d.getAxis()));
-            stateMap.put(mutable.immutable().above(2), trySetValue(woodProvider.getState(random, mutable), RotatedPillarBlock.AXIS, d.getAxis()));
+            WorldgenUtil.setWithOffset(mutable, straightEnd, d, i);
+            stateMap.put(mutable.immutable(), WorldgenUtil.trySetValue(woodProvider.getState(random, mutable), RotatedPillarBlock.AXIS, d.getAxis()));
+            stateMap.put(mutable.immutable().above(2), WorldgenUtil.trySetValue(woodProvider.getState(random, mutable), RotatedPillarBlock.AXIS, d.getAxis()));
         }
         BlockPos edge1 = straightEnd.relative(d, forwards);
         for (int i = 0; i <= 2; i++) {
@@ -105,11 +105,11 @@ public class FieldsproutTreeFeature extends Feature<FieldsproutTreeConfig> {
         }
         BlockPos row2Start = straightEnd.above(2);
         Direction o = d.getOpposite();
-        stateMap.put(row2Start, trySetValue(logProvider.getState(random, row2Start), RotatedPillarBlock.AXIS, d.getAxis()));
+        stateMap.put(row2Start, WorldgenUtil.trySetValue(logProvider.getState(random, row2Start), RotatedPillarBlock.AXIS, d.getAxis()));
         for (int i = 1; i < backwards; i++) {
-            setWithOffset(mutable, row2Start, o, i);
-            stateMap.put(mutable.immutable(), trySetValue(woodProvider.getState(random, mutable), RotatedPillarBlock.AXIS, o.getAxis()));
-            stateMap.put(mutable.immutable().above(2), trySetValue(woodProvider.getState(random, mutable), RotatedPillarBlock.AXIS, o.getAxis()));
+            WorldgenUtil.setWithOffset(mutable, row2Start, o, i);
+            stateMap.put(mutable.immutable(), WorldgenUtil.trySetValue(woodProvider.getState(random, mutable), RotatedPillarBlock.AXIS, o.getAxis()));
+            stateMap.put(mutable.immutable().above(2), WorldgenUtil.trySetValue(woodProvider.getState(random, mutable), RotatedPillarBlock.AXIS, o.getAxis()));
         }
         BlockPos edge2 = row2Start.relative(o, backwards);
         for (int i = 0; i <= 2; i++) {
@@ -314,17 +314,6 @@ public class FieldsproutTreeFeature extends Feature<FieldsproutTreeConfig> {
         return true;
     }
 
-    private static BlockPos.MutableBlockPos setWithOffset(BlockPos.MutableBlockPos mutable, Vec3i origin, Direction direction, int amount) {
-        return mutable.set(origin.getX() + (direction.getStepX() * amount), origin.getY() + (direction.getStepY() * amount), origin.getZ() + (direction.getStepZ() * amount));
-    }
 
-
-
-    private static <V extends Comparable<V>> BlockState trySetValue(BlockState state, Property<V> prop, V val) {
-        if (state.hasProperty(prop)) {
-            return state.setValue(prop, val);
-        }
-        return state;
-    }
 
 }

@@ -8,13 +8,12 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.LevelSimulatedReader;
+import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
-import net.minecraft.world.level.material.Fluids;
 import net.zepalesque.redux.util.level.WorldgenUtil;
 
 
@@ -57,7 +56,10 @@ public class BlightwillowFoliagePlacer extends FoliagePlacer {
         // Extra logs
         for (Direction d : Direction.Plane.HORIZONTAL) {
             mutable.setWithOffset(center, d);
-            tryPlaceLog(level, setter, rand, config, mutable.immutable());
+            BlockPos imm = mutable.immutable();
+            tryPlaceLog(level, setter, rand, config, imm, d.getAxis());
+            mutable.setWithOffset(imm, d);
+            tryPlaceLog(level, setter, rand, config, mutable.immutable(), d.getAxis());
         }
         // Base round shape
         int extend = 3;
@@ -76,7 +78,7 @@ public class BlightwillowFoliagePlacer extends FoliagePlacer {
         int layer1Height = 3;
         int layer2Height = 4;
         for (Direction d : Direction.Plane.HORIZONTAL) {
-            BlockPos start = WorldgenUtil.withOffset(center, d, extend);
+            BlockPos start = center.relative(d, extend);
             for (int i = 0; i < layer1Height; i++) {
                 mutable.setWithOffset(start, 0, i, 0);
                 tryPlaceLeaf(level, setter, rand, config, mutable.immutable());
@@ -88,11 +90,11 @@ public class BlightwillowFoliagePlacer extends FoliagePlacer {
         }
 
     }
-    protected static boolean tryPlaceLog(LevelSimulatedReader level, FoliagePlacer.FoliageSetter foliageSetter, RandomSource random, TreeConfiguration treeConfiguration, BlockPos pos) {
+    protected static boolean tryPlaceLog(LevelSimulatedReader level, FoliageSetter foliageSetter, RandomSource random, TreeConfiguration treeConfiguration, BlockPos pos, Direction.Axis axis) {
         if (!TreeFeature.validTreePos(level, pos)) {
             return false;
         } else {
-            BlockState blockstate = treeConfiguration.trunkProvider.getState(random, pos);
+            BlockState blockstate = WorldgenUtil.trySetValue(treeConfiguration.trunkProvider.getState(random, pos), RotatedPillarBlock.AXIS, axis);
             foliageSetter.set(pos, blockstate);
             return true;
         }

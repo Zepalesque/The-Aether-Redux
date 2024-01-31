@@ -11,6 +11,4 @@ public class ReduxTrunkPlacers {
 
     public static final RegistryObject<TrunkPlacerType<GenesisHookedTrunkPlacer>> GENESIS_HOOKED_TRUNK_PLACER = TRUNK_PLACERS.register("genesis_hooked_trunk_placer", () -> new TrunkPlacerType<>(GenesisHookedTrunkPlacer.CODEC));
     public static final RegistryObject<TrunkPlacerType<GenesisSkinnyHookedTrunkPlacer>> GENESIS_SKINNY_HOOKED_TRUNK_PLACER = TRUNK_PLACERS.register("genesis_skinny_hooked_trunk_placer", () -> new TrunkPlacerType<>(GenesisSkinnyHookedTrunkPlacer.CODEC));
-
-    public static final RegistryObject<TrunkPlacerType<BlightwillowTrunkPlacer>> BLIGHTWILLOW_TRUNK_PLACER = TRUNK_PLACERS.register("blightwillow_trunk_placer", () -> new TrunkPlacerType<>(BlightwillowTrunkPlacer.CODEC));
 }

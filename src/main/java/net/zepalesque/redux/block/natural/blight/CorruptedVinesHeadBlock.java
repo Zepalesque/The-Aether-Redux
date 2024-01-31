@@ -10,7 +10,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import java.util.function.Supplier;
 
 public class CorruptedVinesHeadBlock extends GrowingPlantHeadBlock {
-   public static final VoxelShape SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 15.0D, 12.0D);
+   public static final VoxelShape SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 10.0D, 12.0D);
    private final Supplier<? extends GrowingPlantBodyBlock> body;
 
    public CorruptedVinesHeadBlock(BlockBehaviour.Properties properties, Supplier<? extends GrowingPlantBodyBlock> body) {

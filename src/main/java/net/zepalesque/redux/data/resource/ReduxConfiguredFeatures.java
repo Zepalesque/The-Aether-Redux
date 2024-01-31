@@ -56,7 +56,6 @@ import net.zepalesque.redux.world.tree.decorator.EnchantedVineDecorator;
 import net.zepalesque.redux.world.tree.decorator.PatchTreeDecorator;
 import net.zepalesque.redux.world.tree.foliage.BlightwillowFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.GlaciaFoliagePlacer;
-import net.zepalesque.redux.world.tree.trunk.BlightwillowTrunkPlacer;
 
 import java.util.Arrays;
 import java.util.List;

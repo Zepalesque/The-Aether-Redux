@@ -5,6 +5,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.block.state.properties.WallSide;
@@ -12,13 +13,12 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 
 public class WorldgenUtil {
 
+    // Offsets a MutableBlockPos in a direction, a certain amount of blocks
     public static BlockPos.MutableBlockPos setWithOffset(BlockPos.MutableBlockPos mutable, Vec3i origin, Direction direction, int amount) {
         return mutable.set(origin.getX() + (direction.getStepX() * amount), origin.getY() + (direction.getStepY() * amount), origin.getZ() + (direction.getStepZ() * amount));
     }
-    public static BlockPos withOffset(BlockPos pos, Direction direction, int amount) {
-        return pos.offset(direction.getStepX() * amount, direction.getStepY() * amount, direction.getStepZ() * amount);
-    }
 
+    // Gets the proper wall side property based on the Direction
     public static Property<WallSide> getWallSide(Direction d) {
         if (d.getAxis() == Direction.Axis.Y) {
             throw new IllegalArgumentException("Cannot use non-y-axis direction!");
@@ -45,21 +45,23 @@ public class WorldgenUtil {
         }
     }
 
-    @SuppressWarnings("UnusedReturnValue")
-    public static boolean placeProvidedBlock(WorldGenLevel level, BlockStateProvider provider, BlockPos pos, RandomSource random) {
+    public static void placeProvidedBlock(WorldGenLevel level, BlockStateProvider provider, BlockPos pos, RandomSource random) {
         if (level.getBlockState(pos).isAir()) {
-            return level.setBlock(pos, provider.getState(random, pos), 2);
-        } else {
-            return false;
+            level.setBlock(pos, provider.getState(random, pos), 2);
         }
     }
 
-    @SuppressWarnings("UnusedReturnValue")
-    public static boolean placeProvidedBlockUnderBlock(WorldGenLevel level, BlockStateProvider provider, BlockPos pos, RandomSource random, BlockStateProvider requiredBlock) {
+    public static void placeProvidedBlockUnderBlock(WorldGenLevel level, BlockStateProvider provider, BlockPos pos, RandomSource random, BlockStateProvider requiredBlock) {
         if (level.getBlockState(pos).isAir() && level.getBlockState(pos.above()).is(requiredBlock.getState(random, pos.above()).getBlock())) {
-            return level.setBlock(pos, provider.getState(random, pos), 2);
-        } else {
-            return false;
+            level.setBlock(pos, provider.getState(random, pos), 2);
         }
+    }
+
+    // Sets a blockstate value, if the given state has the property
+    public static <V extends Comparable<V>> BlockState trySetValue(BlockState state, Property<V> prop, V val) {
+        if (state.hasProperty(prop)) {
+            return state.setValue(prop, val);
+        }
+        return state;
     }
 }
