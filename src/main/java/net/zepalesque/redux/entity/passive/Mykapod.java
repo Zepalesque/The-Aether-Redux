@@ -10,6 +10,7 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
@@ -23,6 +24,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.zepalesque.redux.data.resource.ReduxDamageTypes;
+import net.zepalesque.redux.misc.ReduxTags;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
 import java.util.function.IntFunction;
@@ -114,5 +118,13 @@ public class Mykapod extends PathfinderMob {
         return 0.4F;
     }
 
-
+    @Override
+    public boolean hurt(@NotNull DamageSource source, float amount) {
+        if (this.isHiding() && !source.is(ReduxTags.DamageTypes.BYPASS_MYKAPOD)) {
+            return false;
+        } else {
+            this.setHiding(true);
+            return super.hurt(source, amount);
+        }
+    }
 }

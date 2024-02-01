@@ -12,6 +12,9 @@ public class ReduxModelLayers {
     public static final ModelLayerLocation SENTRY = register("redux_sentry");
     public static final ModelLayerLocation BATTLE_SENTRY = register("redux_batlle_sentry");
 
+    // for debugging
+    public static final ModelLayerLocation CUBE = register("cube");
+
     public static final ModelLayerLocation GLIMMERCOW = register("glimmercow");
 
     private static ModelLayerLocation register(String name) {

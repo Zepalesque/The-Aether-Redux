@@ -99,6 +99,7 @@ public class ReduxTags {
 
         public static final TagKey<DamageType> IS_ATTACK = tag("is_attack");
         public static final TagKey<DamageType> FIREBALL = tag("fireball");
+        public static final TagKey<DamageType> BYPASS_MYKAPOD = tag("bypass_mykapod");
 
         private static TagKey<DamageType> tag(String name) {
             return TagKey.create(Registries.DAMAGE_TYPE, Redux.locate(name));
