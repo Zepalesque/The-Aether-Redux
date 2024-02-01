@@ -82,7 +82,10 @@ public class Mykapod extends PathfinderMob {
         }
     }
 
-
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.getEntityData().define(IS_HIDING, false);
+    }
 
     public boolean isHiding() {
         return this.getEntityData().get(IS_HIDING);
