@@ -23,6 +23,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.zepalesque.redux.entity.ai.goal.MykapodWanderGoal;
 import net.zepalesque.redux.misc.ReduxTags;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 public class Mykapod extends PathfinderMob {
     public Mykapod(EntityType<? extends Mykapod> entityType, Level level) {
@@ -40,8 +41,6 @@ public class Mykapod extends PathfinderMob {
     @OnlyIn(Dist.CLIENT)
     public int hideAnim, prevHideAnim = 0;
 
-    @OnlyIn(Dist.CLIENT)
-    private boolean wasHiding;
 
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
@@ -56,24 +55,25 @@ public class Mykapod extends PathfinderMob {
 
     @Override
     public void tick() {
-        this.wasHiding = this.isHiding();
         this.prevHideAnim = this.hideAnim;
         super.tick();
 
-        if (this.getLastHurtByMob() == null && this.isHiding()) {
-            this.setHiding(false);
+        if (!this.level().isClientSide()) {
+            if (this.getLastHurtByMob() == null && this.isHiding()) {
+                this.setHiding(false);
+            }
         }
 
         // Handle animation stuff
         if (this.level().isClientSide()) {
-            if ((this.isHiding() && this.hideAnim < 30)) {
+            if ((this.isHiding() && this.hideAnim < 30) || (this.hideAnim > 30 && this.hideAnim < 60)) {
                 this.hideAnim++;
             }
-            if (((!this.isHiding() && this.wasHiding) || (this.hideAnim > 30 && this.hideAnim < 60))) {
+            if ((!this.isHiding() && this.hideAnim > 0 && this.hideAnim < 31)) {
                 this.hideAnim = 31;
                 this.prevHideAnim = 30;
             }
-            if (!this.isHiding() && this.hideAnim >= 60) {
+            if (!this.isHiding() && this.hideAnim >= 60 || this.isHiding() && this.hideAnim > 30) {
                 this.hideAnim = 0;
                 this.prevHideAnim = 0;
             }
@@ -86,20 +86,22 @@ public class Mykapod extends PathfinderMob {
         this.getEntityData().define(HAS_SHELL, false);
     }
 
-    public boolean isHiding() {
-        return this.getEntityData().get(IS_HIDING);
-    }
     public boolean hasShell() {
         return this.getEntityData().get(HAS_SHELL);
     }
-
     public void setShell(boolean shell) {
         this.getEntityData().set(HAS_SHELL, shell);
+    }
+
+    public boolean isHiding() {
+        return this.getEntityData().get(IS_HIDING);
     }
 
     public void setHiding(boolean hiding) {
         this.getEntityData().set(IS_HIDING, hiding);
     }
+
+
 
 
     protected SoundEvent getAmbientSound() {
@@ -129,25 +131,24 @@ public class Mykapod extends PathfinderMob {
 
     @Override
     public boolean hurt(@NotNull DamageSource source, float amount) {
-
         if (this.isHiding() && !source.is(ReduxTags.DamageTypes.BYPASS_MYKAPOD)) {
+            return false;
+        } else {
+            boolean b = super.hurt(source, amount);
             Entity entity1 = source.getEntity();
             if (entity1 != null) {
                 if (entity1 instanceof LivingEntity) {
-                    LivingEntity livingentity1 = (LivingEntity) entity1;
-                    if (!source.is(DamageTypeTags.NO_ANGER)) {
-                        this.setLastHurtByMob(livingentity1);
-                    }
+                    this.setHiding(true);
                 }
             }
-            return false;
-        } else {
-
-            this.setHiding(true);
-            return super.hurt(source, amount);
+            return b;
         }
     }
 
+    @Override
+    public void setLastHurtByMob(@Nullable LivingEntity livingEntity) {
+        super.setLastHurtByMob(livingEntity);
+    }
 
     @Override
     public void addAdditionalSaveData(CompoundTag compound) {

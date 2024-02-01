@@ -31,7 +31,7 @@ import java.util.Iterator;
 
 public class EmberRenderer extends EntityRenderer<Ember> {
 
-    private static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation(Redux.MODID, "textures/entity/ember.png");
+    private static final ResourceLocation TEXTURE_LOCATION = Redux.locate("textures/entity/ember.png");
     private static final RenderType RENDER_TYPE = RenderType.entityTranslucent(TEXTURE_LOCATION);
 
 
