@@ -63,4 +63,11 @@ license = "All rights reserved"
     versionRange = "[0.6.0-,)"
     ordering = "AFTER"
     side = "BOTH"
+[[dependencies.aether_redux]]
+    modId="geckolib"
+    mandatory=true
+    versionRange="[4.2.2,)"
+    ordering="NONE"
+    side="BOTH"
+
 
