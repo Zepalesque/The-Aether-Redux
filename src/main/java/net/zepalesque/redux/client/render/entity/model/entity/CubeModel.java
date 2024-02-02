@@ -15,9 +15,11 @@ import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
+import net.minecraft.world.entity.Entity;
 import net.zepalesque.redux.entity.projectile.Ember;
 
-public class CubeModel extends EntityModel<Ember> {
+
+public class CubeModel<E extends Entity> extends EntityModel<E> {
     public final ModelPart box;
 
     public CubeModel(ModelPart root) {
@@ -31,7 +33,7 @@ public class CubeModel extends EntityModel<Ember> {
         return LayerDefinition.create(meshDefinition, 128, 64);
     }
 
-    public void setupAnim(Ember ember, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+    public void setupAnim(E ember, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
     }
 
     public void renderToBuffer(PoseStack poseStack, VertexConsumer consumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {

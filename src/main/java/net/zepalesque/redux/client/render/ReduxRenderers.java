@@ -21,7 +21,7 @@ import net.zepalesque.redux.client.render.entity.layer.ReduxModelLayers;
 import net.zepalesque.redux.client.render.entity.layer.entity.*;
 import net.zepalesque.redux.client.render.entity.misc.ReduxBoatRenderer;
 import net.zepalesque.redux.client.render.entity.model.entity.*;
-import net.zepalesque.redux.client.render.entity.model.entity.bronze.MimicReduxModel;
+import net.zepalesque.redux.client.render.entity.model.entity.MimicReduxModel;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.item.ReduxItems;
 import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
@@ -52,7 +52,7 @@ public class ReduxRenderers {
         event.registerEntityRenderer(ReduxEntityTypes.SPECTRAL_DART.get(), SpectralDartRenderer::new);
         event.registerEntityRenderer(ReduxEntityTypes.VOLATILE_FIRE_CRYSTAL.get(), VolatileFireCrystalRenderer::new);
 
-        event.registerEntityRenderer(ReduxEntityTypes.EMBER.get(), CubeRenderer::new);
+        event.registerEntityRenderer(ReduxEntityTypes.EMBER.get(), EmberRenderer::new);
         event.registerEntityRenderer(ReduxEntityTypes.GLIMMERCOW.get(), GlimmercowRenderer::new);
 
         event.registerEntityRenderer(ReduxEntityTypes.MYKAPOD.get(), CubeRenderer::new);

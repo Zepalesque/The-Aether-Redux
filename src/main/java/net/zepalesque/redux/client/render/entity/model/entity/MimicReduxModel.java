@@ -1,4 +1,4 @@
-package net.zepalesque.redux.client.render.entity.model.entity.bronze;
+package net.zepalesque.redux.client.render.entity.model.entity;
 
 
 import com.aetherteam.aether.entity.monster.dungeon.Mimic;
