@@ -15,6 +15,8 @@ public class ReduxModelLayers {
     // for debugging
     public static final ModelLayerLocation CUBE = register("cube");
 
+    public static final ModelLayerLocation MYKAPOD = register("mykapod");
+
     public static final ModelLayerLocation GLIMMERCOW = register("glimmercow");
 
     private static ModelLayerLocation register(String name) {

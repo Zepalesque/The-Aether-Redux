@@ -55,7 +55,7 @@ public class ReduxRenderers {
         event.registerEntityRenderer(ReduxEntityTypes.EMBER.get(), EmberRenderer::new);
         event.registerEntityRenderer(ReduxEntityTypes.GLIMMERCOW.get(), GlimmercowRenderer::new);
 
-        event.registerEntityRenderer(ReduxEntityTypes.MYKAPOD.get(), CubeRenderer::new);
+        event.registerEntityRenderer(ReduxEntityTypes.MYKAPOD.get(), MykapodRenderer::new);
 
 //        event.registerEntityRenderer(AetherEntityTypes.MIMIC.get(), ReduxMimicRenderer::new);
 //        event.registerEntityRenderer(AetherEntityTypes.SENTRY.get(), ReduxSentryRenderer::new);
@@ -79,6 +79,7 @@ public class ReduxRenderers {
         event.registerLayerDefinition(ReduxModelLayers.MIMIC, MimicReduxModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.SENTRY, SentryReduxModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.CUBE, CubeModel::create);
+        event.registerLayerDefinition(ReduxModelLayers.MYKAPOD, MykapodModel::createBodyLayer);
         if (Redux.aetherGenesisCompat()) {
             event.registerLayerDefinition(ReduxModelLayers.BATTLE_SENTRY, BattleSentryReduxModel::createBodyLayer);
         }
