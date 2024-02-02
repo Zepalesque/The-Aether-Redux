@@ -8,6 +8,7 @@ import com.mojang.logging.LogUtils;
 import com.mojang.serialization.Codec;
 import net.minecraft.SharedConstants;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.Registry;
 import net.minecraft.data.DataGenerator;
@@ -55,6 +56,7 @@ import net.zepalesque.redux.blockentity.ReduxBlockEntityTypes;
 import net.zepalesque.redux.builtin.BuiltinPackUtils;
 import net.zepalesque.redux.client.ReduxClient;
 import net.zepalesque.redux.client.ReduxPostProcessHandler;
+import net.zepalesque.redux.client.render.geo.MykapodGeoRenderer;
 import net.zepalesque.redux.client.resource.ReduxOverridesPackResources;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
@@ -197,6 +199,7 @@ public class Redux
 
     private void clientSetup(final FMLClientSetupEvent event)
     {
+        EntityRenderers.register(ReduxEntityTypes.MYKAPOD.get(), MykapodGeoRenderer::new);
         ReduxRenderers.registerCuriosRenderers();
         event.enqueueWork(
                 () -> {

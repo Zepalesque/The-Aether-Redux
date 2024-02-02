@@ -55,7 +55,7 @@ public class ReduxRenderers {
         event.registerEntityRenderer(ReduxEntityTypes.EMBER.get(), EmberRenderer::new);
         event.registerEntityRenderer(ReduxEntityTypes.GLIMMERCOW.get(), GlimmercowRenderer::new);
 
-        event.registerEntityRenderer(ReduxEntityTypes.MYKAPOD.get(), MykapodRenderer::new);
+//        event.registerEntityRenderer(ReduxEntityTypes.MYKAPOD.get(), MykapodRenderer::new);
 
 //        event.registerEntityRenderer(AetherEntityTypes.MIMIC.get(), ReduxMimicRenderer::new);
 //        event.registerEntityRenderer(AetherEntityTypes.SENTRY.get(), ReduxSentryRenderer::new);

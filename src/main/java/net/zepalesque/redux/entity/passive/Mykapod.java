@@ -24,8 +24,18 @@ import net.zepalesque.redux.entity.ai.goal.MykapodWanderGoal;
 import net.zepalesque.redux.misc.ReduxTags;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.core.animatable.GeoAnimatable;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.*;
+import software.bernie.geckolib.core.animation.AnimationState;
+import software.bernie.geckolib.core.object.PlayState;
 
-public class Mykapod extends PathfinderMob {
+public class Mykapod extends PathfinderMob implements GeoEntity {
+
+    private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
+
     public Mykapod(EntityType<? extends Mykapod> entityType, Level level) {
         super(entityType, level);
     }
@@ -166,5 +176,25 @@ public class Mykapod extends PathfinderMob {
         if (compound.contains("HasShell")) {
             this.setShell(compound.getBoolean("HasShell"));
         }
+    }
+
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar registrar) {
+        registrar.add(new AnimationController<>(this, "controller", 0, this::predicate));
+    }
+
+    private <T extends GeoAnimatable> PlayState predicate(AnimationState<T> state) {
+
+        if (state.isMoving()) {
+            state.getController().setAnimation(RawAnimation.begin().then("animations.mykapod.move", Animation.LoopType.LOOP));
+            return PlayState.CONTINUE;
+        }
+        state.getController().setAnimation(RawAnimation.begin().then("animations.mykapod.idle", Animation.LoopType.LOOP));
+        return PlayState.CONTINUE;
+    }
+
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return cache;
     }
 }
