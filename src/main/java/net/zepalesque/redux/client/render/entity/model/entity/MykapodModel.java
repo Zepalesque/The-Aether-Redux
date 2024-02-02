@@ -113,13 +113,13 @@ public class MykapodModel extends EntityModel<Mykapod> {
 			// Head animation
 			if (frame < 18) {
 				float delta = MathUtil.clampedInverp(frame, 0, 18);
-				model.head.xRot = Mth.lerp(EasingUtil.Back.in(delta), 0F, MathUtil.degToRad(-1.25F));
+				model.head.xRot = Mth.lerp(EasingUtil.Back.in(delta), 0F, rad(-1.25F));
 			} else if (frame < 36) {
 				float delta = MathUtil.clampedInverp(frame, 18, 36);
-				model.head.xRot = Mth.lerp(EasingUtil.Sinusoidal.out(delta), MathUtil.degToRad(-1.25F), MathUtil.degToRad(-2.5F));
+				model.head.xRot = Mth.lerp(EasingUtil.Sinusoidal.out(delta), rad(-1.25F), rad(-2.5F));
 			} else {
 				float delta = MathUtil.clampedInverp(frame, 36, 60);
-				model.head.xRot = Mth.lerp(EasingUtil.Quadratic.inOut(delta), MathUtil.degToRad(-2.5F), MathUtil.degToRad(0F));
+				model.head.xRot = Mth.lerp(EasingUtil.Quadratic.inOut(delta), rad(-2.5F), rad(0F));
 			}
 
 			// Shell animation
@@ -133,31 +133,118 @@ public class MykapodModel extends EntityModel<Mykapod> {
 			model.rot_stand.xRot = 0F;
 			model.rot_stand.y = 0F;
 			model.tail.xRot = 0F;
-
+			model.tail.z = 0F;
+			model.head.z = 0F;
+			model.head.y = 0F;
+			model.shell.xRot = 0F;
+			model.shell_rot.zRot = 0F;
+			model.shell_rot.y = 0F;
+			model.body.x = 0F;
+			model.head.yRot = 0F;
+			model.antennae.xRot = 0F;
 		}),
 
 		MOVE((model, myka, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch) -> {
-			float animTime = ageInTicks % 36;
+			float animTime = ageInTicks % 30;
 			float frame = frameFromTicks(animTime, 24);
 			// half-and-half animation
 			if (frame < 18) {
 				float delta = MathUtil.clampedInverp(frame, 0, 18);
-				model.head.xRot = Mth.lerp(EasingUtil.Cubic.inOut(delta), 0F, MathUtil.degToRad(10F));
-				model.shell.xRot = Mth.lerp(EasingUtil.Sinusoidal.inOut(delta), 0F, MathUtil.degToRad(10F));
-				model.rot_stand.xRot = Mth.lerp(EasingUtil.Sinusoidal.inOut(delta), 0F, MathUtil.degToRad(-2.5F));
+				model.head.xRot = Mth.lerp(EasingUtil.Cubic.inOut(delta), 0F, rad(10F));
+				model.shell.xRot = Mth.lerp(EasingUtil.Sinusoidal.inOut(delta), 0F, rad(10F));
+				model.rot_stand.xRot = Mth.lerp(EasingUtil.Sinusoidal.inOut(delta), 0F, rad(-2.5F));
 				model.rot_stand.y = Mth.lerp(EasingUtil.Sinusoidal.inOut(delta), 0F, -0.25F);
-				model.tail.xRot = Mth.lerp(EasingUtil.Sinusoidal.inOut(delta), 0F, MathUtil.degToRad(5F));
+				model.tail.xRot = Mth.lerp(EasingUtil.Sinusoidal.inOut(delta), 0F, rad(5F));
 			} else {
 				float delta = MathUtil.clampedInverp(frame, 18, 36);
-				model.head.xRot = Mth.lerp(EasingUtil.Sinusoidal.in(delta), MathUtil.degToRad(10F), 0F);
-				model.shell.xRot = Mth.lerp(EasingUtil.Sinusoidal.inOut(delta), MathUtil.degToRad(10F), 0F);
-				model.rot_stand.xRot = Mth.lerp(EasingUtil.Sinusoidal.inOut(delta), MathUtil.degToRad(-2.5F), 0F);
+				model.head.xRot = Mth.lerp(EasingUtil.Sinusoidal.in(delta), rad(10F), 0F);
+				model.shell.xRot = Mth.lerp(EasingUtil.Sinusoidal.inOut(delta), rad(10F), 0F);
+				model.rot_stand.xRot = Mth.lerp(EasingUtil.Sinusoidal.inOut(delta), rad(-2.5F), 0F);
 				model.rot_stand.y = Mth.lerp(EasingUtil.Sinusoidal.inOut(delta), -0.25F, 0F);
-				model.tail.xRot = Mth.lerp(EasingUtil.Sinusoidal.inOut(delta), MathUtil.degToRad(5F), 0F);
+				model.tail.xRot = Mth.lerp(EasingUtil.Sinusoidal.inOut(delta), rad(5F), 0F);
 			}
-
+			model.head.z = 0F;
+			model.head.y = 0F;
+			model.tail.z = 0F;
+			model.shell.y = 0F;
+			model.shell_rot.zRot = 0F;
+			model.shell_rot.y = 0F;
+			model.body.x = 0F;
+			model.head.yRot = 0F;
+			model.antennae.xRot = -Mth.cos((ageInTicks * Mth.PI) / 5F) + 1;
 		}),
 		HIDE((model, myka, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch) -> {
+			float animTime = ageInTicks % 30;
+			float frame = frameFromTicks(animTime, 24);
+			// Head animation
+			if (frame < 3) {
+				float delta = MathUtil.clampedInverp(frame, 0, 3);
+				model.head.xRot = 0F;
+				model.head.z = 0F;
+				model.head.y = Mth.lerp(EasingUtil.Sinusoidal.out(delta), 0F, -2.5F);
+			} else if (frame < 12) {
+				float delta = MathUtil.clampedInverp(frame, 3, 12);
+				model.head.xRot = Mth.lerp(EasingUtil.Sinusoidal.out(delta), 0F, rad(25F));
+				model.head.y = Mth.lerp(EasingUtil.Sinusoidal.out(delta), -2.5F, 1F);
+				model.head.z = Mth.lerp(EasingUtil.Sinusoidal.out(delta), 0F, -0.5F);
+			} else {
+				float delta = MathUtil.clampedInverp(frame, 12, 24);
+				model.head.xRot = Mth.lerp(EasingUtil.Back.in(delta), rad(0F), rad(85F));
+				model.head.y = 1F;
+				model.head.z = Mth.lerp(EasingUtil.Exponential.in(delta), -0.5F, 4F);
+			}
+			// Tail anim
+			if (frame < 18) {
+				model.tail.z = 0F;
+			} else {
+				float delta = MathUtil.clampedInverp(frame, 18, 24);
+				model.tail.z = Mth.lerp(EasingUtil.Exponential.in(delta), 0, -2F);
+			}
+			// Shell anim
+			if (frame < 18) {
+				model.shell.y = 0F;
+			} else {
+				float delta = MathUtil.clampedInverp(frame, 18, 24);
+				model.shell.y = Mth.lerp(EasingUtil.Sinusoidal.inOut(delta), 0, -0.5F);
+			}
+			// Shell_rot anim
+			if (frame < 21) {
+				model.shell_rot.zRot = 0F;
+				model.shell_rot.y = 0F;
+			} else {
+				float delta = MathUtil.clampedInverp(frame, 21, 36);
+				model.shell_rot.zRot = Mth.lerp(EasingUtil.Sinusoidal.inOut(delta), 0F, rad(-90F));
+				model.shell_rot.y = Mth.lerp(EasingUtil.Sinusoidal.inOut(delta), 0F, -2F);
+			}
+			// Body anim
+			if (frame < 3) {
+				float delta = MathUtil.clampedInverp(frame, 0, 3);
+				model.body.xRot = Mth.lerp(EasingUtil.Sinusoidal.inOut(delta), 0F, rad(5F));
+				model.body.y = 0F;
+			} else if (frame < 6) {
+				float delta = MathUtil.clampedInverp(frame, 3, 6);
+				model.body.xRot = Mth.lerp(EasingUtil.Sinusoidal.inOut(delta), rad(5F), rad(-10F));
+				model.body.y = 0F;
+			} else if (frame < 18) {
+				float delta = MathUtil.clampedInverp(frame, 6, 18);
+				model.body.xRot = Mth.lerp(EasingUtil.Sinusoidal.out(delta), rad(-10F), rad(-15F));
+				model.body.y = Mth.lerp(EasingUtil.Cubic.out(delta), 0F, 4F);
+			} else {
+				float delta = MathUtil.clampedInverp(frame, 18, 36);
+				model.body.xRot = Mth.lerp(EasingUtil.Bounce.in(delta), rad(-15F), 0F);
+				model.body.y = Mth.lerp(EasingUtil.Bounce.in(delta), 4F, 0F);
+			}
+			// Antennae anim
+			if (frame < 21) {
+				model.antennae.xRot = 0F;
+			} else {
+				float delta = MathUtil.clampedInverp(frame, 21, 24);
+				model.antennae.xRot = Mth.lerp(EasingUtil.Sinusoidal.inOut(delta), 0F, rad(-90F));
+			}
+			model.shell.xRot = 0F;
+			model.rot_stand.xRot = 0F;
+			model.rot_stand.y = 0F;
+			model.tail.xRot = 0F;
 
 		}),
 		UNHIDE((model, myka, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch) -> {
@@ -172,6 +259,12 @@ public class MykapodModel extends EntityModel<Mykapod> {
 		public void animate(MykapodModel model, Mykapod myka, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 			this.animation.accept(model, myka, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
 		}
-
+		private static float rad(float deg) {
+			return MathUtil.degToRad(deg);
 		}
+
+	}
+
+
+
 }
