@@ -1,5 +1,6 @@
 package net.zepalesque.redux.client.particle;
 
+import net.minecraft.client.particle.BreakingItemParticle;
 import net.minecraft.client.particle.ParticleProvider;
 import net.minecraft.client.particle.SplashParticle;
 import net.minecraft.client.particle.TextureSheetParticle;
@@ -42,6 +43,8 @@ public class ReduxParticleTypes {
     public static final RegistryObject<SimpleParticleType> FIELDSPROUT_PETALS_4 = PARTICLES.register("fieldsprout_petals_4", () -> new SimpleParticleType(false));
     public static final RegistryObject<SimpleParticleType> FIELDSPROUT_PETALS_5 = PARTICLES.register("fieldsprout_petals_5", () -> new SimpleParticleType(false));
     public static final RegistryObject<SimpleParticleType> FIELDSPROUT_PETALS_6 = PARTICLES.register("fieldsprout_petals_6", () -> new SimpleParticleType(false));
+
+
 
     public static final RegistryObject<SimpleParticleType> FALLING_SKYROOT_LEAVES = PARTICLES.register("falling_skyroot_leaves", () -> new SimpleParticleType(false));
     public static final RegistryObject<SimpleParticleType> FALLING_BLIGHTWILLOW_LEAVES = PARTICLES.register("falling_blightwillow_leaves", () -> new SimpleParticleType(false));
@@ -91,6 +94,7 @@ public class ReduxParticleTypes {
         event.registerSpriteSet(FROST.get(), FrostParticle.Provider::new);
         event.registerSpriteSet(FALLING_ICE.get(), FrostParticle.DripProvider::new);
         event.registerSpriteSet(ICE_SPLASH.get(), SplashParticle.Provider::new);
+
 
         register(event, FALLING_CLOUDCAP_SPORE.get(), CloudcapSporeParticle::falling);
         register(event, LANDING_CLOUDCAP_SPORE.get(), CloudcapSporeParticle::landing);

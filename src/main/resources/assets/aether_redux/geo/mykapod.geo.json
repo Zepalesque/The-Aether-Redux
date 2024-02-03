@@ -7,12 +7,17 @@
 				"texture_width": 32,
 				"texture_height": 32,
 				"visible_bounds_width": 2,
-				"visible_bounds_height": 1.5,
-				"visible_bounds_offset": [0, 0.25, 0]
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
 			},
 			"bones": [
 				{
+					"name": "base",
+					"pivot": [0, 0, 0]
+				},
+				{
 					"name": "rot_stand",
+					"parent": "base",
 					"pivot": [0, 0, 3]
 				},
 				{
@@ -69,7 +74,7 @@
 					"parent": "head_piece",
 					"pivot": [0, 5, -5],
 					"cubes": [
-						{"origin": [-1, 5, -5], "size": [2, 2, 1], "inflate": -0.01, "uv": [0, 0]}
+						{"origin": [-1, 5, -5], "size": [2, 2, 1], "inflate": -0.01, "pivot": [0, 5, -5], "rotation": [-10, 0, 0], "uv": [0, 0]}
 					]
 				}
 			]

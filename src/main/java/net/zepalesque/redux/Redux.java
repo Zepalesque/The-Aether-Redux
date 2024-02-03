@@ -71,6 +71,7 @@ import net.zepalesque.redux.data.loot.ReduxLootData;
 import net.zepalesque.redux.data.tags.*;
 import net.zepalesque.redux.effect.ReduxEffects;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
+import net.zepalesque.redux.entity.dataserializer.ReduxDataSerializers;
 import net.zepalesque.redux.event.listener.MobSoundListener;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.loot.condition.ReduxLootConditions;
@@ -148,6 +149,7 @@ public class Redux
         ReduxStructureTypes.STRUCTURE_TYPES.register(bus);
         ReduxConditionSources.CONDITIONS.register(bus);
         ReduxStateProviders.PROVIDERS.register(bus);
+        ReduxDataSerializers.SERIALIZERS.register(bus);
         ReduxBlocks.registerWoodTypes();
         ReduxBlocks.registerPots();
         MinecraftForge.EVENT_BUS.register(this);

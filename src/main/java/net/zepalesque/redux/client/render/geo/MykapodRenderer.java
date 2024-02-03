@@ -22,7 +22,7 @@ public class MykapodRenderer extends GeoEntityRenderer<Mykapod> {
 
     @Override
     public ResourceLocation getTextureLocation(Mykapod mykapod) {
-        return mykapod.hasShell() ? MykapodModel.TEXTURE_LOCATION : MykapodModel.DESHELLED_LOCATION;
+        return mykapod.hasShell() && !mykapod.isBaby() ? MykapodModel.TEXTURE_LOCATION : MykapodModel.DESHELLED_LOCATION;
     }
 
     @Override
@@ -73,7 +73,7 @@ public class MykapodRenderer extends GeoEntityRenderer<Mykapod> {
 
         @Override
         public ResourceLocation getTextureResource(Mykapod mykapod) {
-            return mykapod.hasShell() ? TEXTURE_LOCATION : DESHELLED_LOCATION;
+            return mykapod.hasShell() && !mykapod.isBaby() ? TEXTURE_LOCATION : DESHELLED_LOCATION;
         }
 
         @Override
