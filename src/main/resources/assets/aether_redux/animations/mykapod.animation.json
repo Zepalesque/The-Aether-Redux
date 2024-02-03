@@ -1,9 +1,9 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animations.mykapod.hide": {
+		"animations.mykapod.scared": {
 			"loop": "hold_on_last_frame",
-			"animation_length": 1.2,
+			"animation_length": 1.5,
 			"bones": {
 				"head": {
 					"rotation": {
@@ -79,7 +79,7 @@
 							"vector": [0, 4, 0],
 							"easing": "easeOutCubic"
 						},
-						"1.0": {
+						"1.3": {
 							"vector": [0, 0, 0],
 							"easing": "easeInBounce",
 							"easingArgs": [0.25]
@@ -102,7 +102,7 @@
 						"0.7": {
 							"vector": [0, 0, 0]
 						},
-						"1.2": {
+						"1.3": {
 							"vector": [0, 0, -90],
 							"easing": "easeInOutBack",
 							"easingArgs": [1]
@@ -112,7 +112,7 @@
 						"0.7": {
 							"vector": [0, 0, 0]
 						},
-						"1.2": {
+						"1.3": {
 							"vector": [0, -2, 0],
 							"easing": "easeInOutBack",
 							"easingArgs": [1]
@@ -800,6 +800,180 @@
 				"neck": {
 					"rotation": {
 						"vector": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"animations.mykapod.hide": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1.2,
+			"bones": {
+				"head": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.4": {
+							"vector": [85, 0, 0],
+							"easing": "easeInOutSine"
+						}
+					},
+					"position": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.4": {
+							"vector": [0, 1, 4],
+							"easing": "easeInOutSine"
+						}
+					}
+				},
+				"shell": {
+					"position": {
+						"0.3": {
+							"vector": [0, 0, 0]
+						},
+						"0.6": {
+							"vector": [0, -0.5, 0],
+							"easing": "easeInOutSine"
+						}
+					}
+				},
+				"tail": {
+					"position": {
+						"0.1": {
+							"vector": [0, 0, 0]
+						},
+						"0.6": {
+							"vector": [0, 0, -2],
+							"easing": "easeInOutSine"
+						}
+					}
+				},
+				"shell_rot": {
+					"rotation": {
+						"0.4": {
+							"vector": [0, 0, 0]
+						},
+						"1.2": {
+							"vector": [0, 0, -90],
+							"easing": "easeInBounce",
+							"easingArgs": [0.1]
+						}
+					},
+					"position": {
+						"0.4": {
+							"vector": [0, 0, 0]
+						},
+						"1.2": {
+							"vector": [0, -2, 0],
+							"easing": "easeInBounce",
+							"easingArgs": [0.1]
+						}
+					}
+				},
+				"antennae": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.4": {
+							"vector": [-80, 0, 0],
+							"easing": "easeInSine"
+						}
+					}
+				}
+			}
+		},
+		"animations.mykapod.shed": {
+			"loop": true,
+			"animation_length": 0.7,
+			"bones": {
+				"head": {
+					"rotation": {
+						"vector": [85, 0, 0],
+						"easing": "easeInBack"
+					},
+					"position": {
+						"vector": [0, 1, 4],
+						"easing": "easeInExpo"
+					}
+				},
+				"shell": {
+					"position": {
+						"vector": [0, -0.5, 0],
+						"easing": "easeInOutSine"
+					}
+				},
+				"body": {
+					"rotation": {
+						"vector": [0, 0, 0],
+						"easing": "easeInBounce",
+						"easingArgs": [0.25]
+					},
+					"position": {
+						"vector": [0, 0, 0],
+						"easing": "easeInBounce",
+						"easingArgs": [0.25]
+					}
+				},
+				"tail": {
+					"position": {
+						"vector": [0, 0, -2],
+						"easing": "easeInExpo"
+					}
+				},
+				"shell_rot": {
+					"rotation": {
+						"vector": [0, 0, -90],
+						"easing": "easeInOutBack",
+						"easingArgs": [1]
+					},
+					"position": {
+						"vector": [0, -2, 0],
+						"easing": "easeInOutBack",
+						"easingArgs": [1]
+					}
+				},
+				"antennae": {
+					"rotation": {
+						"vector": [-80, 0, 0],
+						"easing": "easeInOutSine"
+					}
+				},
+				"base": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.1": {
+							"vector": [0, 0, 1.25],
+							"easing": "easeInOutSine"
+						},
+						"0.2": {
+							"vector": [0, 0, -1.25],
+							"easing": "easeInOutSine"
+						},
+						"0.3": {
+							"vector": [0, 0, 2.5],
+							"easing": "easeInOutSine"
+						},
+						"0.4": {
+							"vector": [0, 0, -2.5],
+							"easing": "easeInOutSine"
+						},
+						"0.5": {
+							"vector": [0, 0, 3.75],
+							"easing": "easeInOutSine"
+						},
+						"0.6": {
+							"vector": [0, 0, -3.75],
+							"easing": "easeInOutSine"
+						},
+						"0.7": {
+							"vector": [0, 0, 0],
+							"easing": "easeInOutSine"
+						}
 					}
 				}
 			}

@@ -5,6 +5,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.TagsProvider;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -23,5 +24,6 @@ public class ReduxDamageTypeTagData extends TagsProvider<DamageType> {
     protected void addTags(HolderLookup.Provider pProvider) {
         this.tag(ReduxTags.DamageTypes.IS_ATTACK).add(DamageTypes.PLAYER_ATTACK, DamageTypes.MOB_ATTACK);
         this.tag(ReduxTags.DamageTypes.FIREBALL).add(AetherDamageTypes.FIRE_CRYSTAL);
+        this.tag(ReduxTags.DamageTypes.BYPASS_MYKAPOD).addTag(DamageTypeTags.BYPASSES_ARMOR);
     }
 }

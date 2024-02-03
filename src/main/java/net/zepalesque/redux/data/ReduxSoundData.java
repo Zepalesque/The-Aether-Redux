@@ -219,6 +219,29 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
                 definition().with(sound("aether_redux:entity/glimmercow/y_do_u_do_dis"))
                         .subtitle("subtitles.aether_redux.entity.crazy_cow_death"));
 
+        this.add(ReduxSoundEvents.MYKAPOD_SHELL_CRACK,
+                definition()
+                        .with(sound("mob/turtle/egg/egg_crack1"))
+                        .with(sound("mob/turtle/egg/egg_crack2"))
+                        .with(sound("mob/turtle/egg/egg_crack3"))
+                        .with(sound("mob/turtle/egg/egg_crack4"))
+                        .with(sound("mob/turtle/egg/egg_crack5"))
+                        .subtitle("subtitles.aether_redux.entity.mykapod_shell_crack"));
+        this.add(ReduxSoundEvents.MYKAPOD_SHELL_SHED,
+                definition()
+                        .with(sound("mob/turtle/egg/jump_egg1"))
+                        .with(sound("mob/turtle/egg/jump_egg2"))
+                        .with(sound("mob/turtle/egg/jump_egg3"))
+                        .with(sound("mob/turtle/egg/jump_egg4"))
+                        .subtitle("subtitles.aether_redux.entity.mykapod_shell_shed"));
+
+        this.add(ReduxSoundEvents.MYKAPOD_SHELL_BREAK,
+                definition()
+                        .with(sound("mob/turtle/egg/egg_break1"))
+                        .with(sound("mob/turtle/egg/egg_break2"))
+                        .subtitle("subtitles.aether_redux.entity.mykapod_shell_break"));
+
+
     }
 
 }

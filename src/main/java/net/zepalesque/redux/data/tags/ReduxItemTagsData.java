@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
+import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.misc.ReduxTags;
 import org.jetbrains.annotations.Nullable;
@@ -42,6 +43,8 @@ public class ReduxItemTagsData extends ItemTagsProvider {
         this.tag(ReduxTags.Items.REDUX_FLYING_COW_FOOD_ITEMS).add(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get());
         this.tag(ReduxTags.Items.GLIMMERCOW_TEMPTATION_ITEMS).add(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get());
         this.tag(ReduxTags.Items.MYKAPOD_TEMPTATION_ITEMS).add(ReduxItems.LIGHTROOT_CLUMP.get());
+        this.tag(ReduxTags.Items.MYKAPOD_SHED_FOOD).add(ReduxBlocks.GLIMMERSTOOL.get().asItem());
+        this.tag(ReduxTags.Items.MYKAPOD_FOLLOW_ITEMS).addTag(ReduxTags.Items.MYKAPOD_TEMPTATION_ITEMS).addTag(ReduxTags.Items.MYKAPOD_SHED_FOOD);
         this.tag(AetherTags.Items.PHYG_TEMPTATION_ITEMS).replace(true).addTag(ReduxTags.Items.REDUX_PHYG_FOOD_ITEMS);
         this.tag(AetherTags.Items.FLYING_COW_TEMPTATION_ITEMS).replace(true).addTag(ReduxTags.Items.REDUX_FLYING_COW_FOOD_ITEMS);
         this.tag(ReduxTags.Items.SWET_JELLY).add(
