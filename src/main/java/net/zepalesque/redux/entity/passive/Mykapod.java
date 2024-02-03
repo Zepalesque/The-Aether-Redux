@@ -2,12 +2,14 @@
 package net.zepalesque.redux.entity.passive;
 
 import com.aetherteam.aether.AetherTags;
+import com.aetherteam.aether.entity.passive.AetherAnimal;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
@@ -17,15 +19,14 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.ToolActions;
-import net.zepalesque.redux.entity.ai.goal.MykapodLookGoal;
-import net.zepalesque.redux.entity.ai.goal.MykapodPanicGoal;
-import net.zepalesque.redux.entity.ai.goal.MykapodStareGoal;
-import net.zepalesque.redux.entity.ai.goal.MykapodWanderGoal;
+import net.zepalesque.redux.entity.ReduxEntityTypes;
+import net.zepalesque.redux.entity.ai.goal.*;
 import net.zepalesque.redux.entity.dataserializer.ReduxDataSerializers;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.misc.ReduxTags;
@@ -38,7 +39,9 @@ import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
-public class Mykapod extends PathfinderMob implements GeoEntity {
+import javax.annotation.Nullable;
+
+public class Mykapod extends AetherAnimal implements GeoEntity {
 
     private AnimatableInstanceCache cache;
     @OnlyIn(Dist.CLIENT)
@@ -76,6 +79,8 @@ public class Mykapod extends PathfinderMob implements GeoEntity {
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(1, new MykapodPanicGoal(this, 1.5D));
+        this.goalSelector.addGoal(2, new MykapodBreedGoal(this, 1.0D));
+        this.goalSelector.addGoal(3, new MykapodTemptGoal(this, 1.25D, Ingredient.of(ReduxTags.Items.MYKAPOD_TEMPTATION_ITEMS), false));
         this.goalSelector.addGoal(5, new MykapodWanderGoal(this, 1.0D));
         this.goalSelector.addGoal(6, new MykapodStareGoal(this, Player.class, 6.0F) );
         this.goalSelector.addGoal(7, new MykapodLookGoal(this));
@@ -244,6 +249,11 @@ public class Mykapod extends PathfinderMob implements GeoEntity {
     }
 
     @Override
+    public boolean canFallInLove() {
+        return super.canFallInLove() && !this.isHiding();
+    }
+
+    @Override
     public boolean hurt(@NotNull DamageSource source, float amount) {
         if (this.isHiding() && !source.is(ReduxTags.DamageTypes.BYPASS_MYKAPOD) && !source.is(DamageTypes.GENERIC_KILL)) {
             Entity attacker = source.getEntity();
@@ -335,6 +345,17 @@ public class Mykapod extends PathfinderMob implements GeoEntity {
     public EntityDimensions getDimensions(Pose pose) {
         return super.getDimensions(pose).scale(1.0F, this.isHiding() ? 0.5F : 1.0F);
     }
+
+    @Nullable
+    public AgeableMob getBreedOffspring(ServerLevel level, AgeableMob entity) {
+        return ReduxEntityTypes.MYKAPOD.get().create(level);
+    }
+
+    public boolean isFood(ItemStack stack) {
+        return stack.is(ReduxTags.Items.MYKAPOD_TEMPTATION_ITEMS) && !this.isHiding();
+    }
+
+
 
     @Override
     public void readAdditionalSaveData(CompoundTag compound) {

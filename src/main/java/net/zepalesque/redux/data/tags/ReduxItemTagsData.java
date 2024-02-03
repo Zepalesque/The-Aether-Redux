@@ -40,6 +40,8 @@ public class ReduxItemTagsData extends ItemTagsProvider {
 
         this.tag(ReduxTags.Items.REDUX_PHYG_FOOD_ITEMS).add(ReduxItems.WYNDSPROUT_SEEDS.get());
         this.tag(ReduxTags.Items.REDUX_FLYING_COW_FOOD_ITEMS).add(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get());
+        this.tag(ReduxTags.Items.GLIMMERCOW_TEMPTATION_ITEMS).add(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get());
+        this.tag(ReduxTags.Items.MYKAPOD_TEMPTATION_ITEMS).add(ReduxItems.LIGHTROOT_CLUMP.get());
         this.tag(AetherTags.Items.PHYG_TEMPTATION_ITEMS).replace(true).addTag(ReduxTags.Items.REDUX_PHYG_FOOD_ITEMS);
         this.tag(AetherTags.Items.FLYING_COW_TEMPTATION_ITEMS).replace(true).addTag(ReduxTags.Items.REDUX_FLYING_COW_FOOD_ITEMS);
         this.tag(ReduxTags.Items.SWET_JELLY).add(

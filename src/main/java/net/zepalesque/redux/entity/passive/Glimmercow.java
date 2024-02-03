@@ -45,6 +45,7 @@ public class Glimmercow extends AetherAnimal {
         this.getEntityData().define(CRAZY, false);
     }
 
+
     public boolean isCrazy() {
         return this.getEntityData().get(CRAZY);
     }

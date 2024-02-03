@@ -40,6 +40,7 @@ public class ReduxTags {
         public static final TagKey<Item> REDUX_PHYG_FOOD_ITEMS = tag("redux_phyg_food_items");
         public static final TagKey<Item> REDUX_FLYING_COW_FOOD_ITEMS = tag("redux_flying_cow_food_items");
         public static final TagKey<Item> GLIMMERCOW_TEMPTATION_ITEMS = tag("glimmercow_temptation_items");
+        public static final TagKey<Item> MYKAPOD_TEMPTATION_ITEMS = tag("mykapod_temptation_items");
         public static final TagKey<Item> SWET_JELLY = tag("swet_jelly");
         public static final TagKey<Item> BLUE_SWET_JELLY = tag("blue_swet_jelly");
         public static final TagKey<Item> GOLDEN_SWET_JELLY = tag("golden_swet_jelly");
