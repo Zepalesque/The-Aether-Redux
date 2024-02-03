@@ -94,6 +94,8 @@ public class ReduxItems {
 
     public static final RegistryObject<SpawnEggItem> GLIMMERCOW_SPAWN_EGG = ITEMS.register("glimmercow_spawn_egg", () -> new ForgeSpawnEggItem(ReduxEntityTypes.GLIMMERCOW, 0x7B7F90, 0x4A73CC, new Item.Properties()));
 
+    public static final RegistryObject<SpawnEggItem> MYKAPOD_SPAWN_EGG = ITEMS.register("mykapod_spawn_egg", () -> new ForgeSpawnEggItem(ReduxEntityTypes.MYKAPOD, 0xDAE3E7, 0x7178C2, new Item.Properties()));
+
     public static final RegistryObject<Item> LUXBUDS = register("luxbuds", () -> new TooltipItem(new Item.Properties().food(ReduxFoods.GLOWBUDS),
             (stack, level, components, tooltipFlag) -> {
                 Component gbtt = TooltipUtils.SHIFT_OR_DEFAULT.apply(Component.translatable("gui.aether_redux.luxbuds_tooltip").withStyle(ChatFormatting.GRAY));

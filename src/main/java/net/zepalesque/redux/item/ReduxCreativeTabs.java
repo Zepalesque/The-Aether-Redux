@@ -222,10 +222,10 @@ public class ReduxCreativeTabs {
             doBoats(AetherItems.SKYROOT_CHEST_BOAT, event);
         }
 
-        if (tab == AetherCreativeTabs.AETHER_SPAWN_EGGS.get())
-        {
+        if (tab == AetherCreativeTabs.AETHER_SPAWN_EGGS.get()) {
             putBefore(AetherItems.WHIRLWIND_SPAWN_EGG, ReduxItems.VANILLA_SWET_SPAWN_EGG, event);
-            putAfter(AetherItems.SHEEPUFF_SPAWN_EGG, ReduxItems.GLIMMERCOW_SPAWN_EGG, event);
+            putAfter(AetherItems.FLYING_COW_SPAWN_EGG, ReduxItems.GLIMMERCOW_SPAWN_EGG, event);
+            putAfter(AetherItems.MOA_SPAWN_EGG, ReduxItems.MYKAPOD_SPAWN_EGG, event);
         }
     }
 

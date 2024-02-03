@@ -96,6 +96,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.GLIMMERCOW_SPAWN_EGG, "Glimmercow Spawn Egg");
         addLore(ReduxItems.GLIMMERCOW_SPAWN_EGG, "A spawn egg. Spawns a Glimmercow.");
 
+        addItem(ReduxItems.MYKAPOD_SPAWN_EGG, "Mykapod Spawn Egg");
+        addLore(ReduxItems.MYKAPOD_SPAWN_EGG, "A spawn egg. Spawns a Mykapod.");
+
         addItem(ReduxItems.BLIGHTED_SPORES, "Blighted Spores");
         addLore(ReduxItems.BLIGHTED_SPORES, "Spores from the Blightwillow tree. They act like an opposite to Ambrosium, turning some things into their blighted variant");
 
@@ -431,6 +434,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addEntityType(ReduxEntityTypes.VANILLA_SWET, "Vanilla Swet");
         addEntityType(ReduxEntityTypes.GLIMMERCOW, "Glimmercow");
+        addEntityType(ReduxEntityTypes.MYKAPOD, "Mykapod");
         addEntityType(ReduxEntityTypes.EMBER, "Ember");
         addEntityType(ReduxEntityTypes.SPECTRAL_DART, "Spectral Dart");
         addEntityType(ReduxEntityTypes.VOLATILE_FIRE_CRYSTAL, "Volatile Fire Crystal");

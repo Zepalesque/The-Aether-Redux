@@ -56,7 +56,7 @@ import net.zepalesque.redux.blockentity.ReduxBlockEntityTypes;
 import net.zepalesque.redux.builtin.BuiltinPackUtils;
 import net.zepalesque.redux.client.ReduxClient;
 import net.zepalesque.redux.client.ReduxPostProcessHandler;
-import net.zepalesque.redux.client.render.geo.MykapodGeoRenderer;
+import net.zepalesque.redux.client.render.geo.MykapodRenderer;
 import net.zepalesque.redux.client.resource.ReduxOverridesPackResources;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
@@ -199,7 +199,7 @@ public class Redux
 
     private void clientSetup(final FMLClientSetupEvent event)
     {
-        EntityRenderers.register(ReduxEntityTypes.MYKAPOD.get(), MykapodGeoRenderer::new);
+        EntityRenderers.register(ReduxEntityTypes.MYKAPOD.get(), MykapodRenderer::new);
         ReduxRenderers.registerCuriosRenderers();
         event.enqueueWork(
                 () -> {
