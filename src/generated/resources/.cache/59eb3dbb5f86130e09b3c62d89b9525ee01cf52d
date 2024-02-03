@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-30T19:34:12.4913474	Loot Tables
+// 1.20.1	2024-02-02T22:11:54.3444509	Loot Tables
 9bb0a6fae9e80234bb0bad9086af314acf3e9894 data/aether_redux/loot_tables/blocks/aether_short_grass.json
 48b55d99420ce1afaca551876e87bdbccae62e08 data/aether_redux/loot_tables/blocks/aevelium.json
 b61ecadf10d3b065a1c8f05eea7b70d4ffcadfd3 data/aether_redux/loot_tables/blocks/aevelium_roots.json
@@ -231,5 +231,6 @@ ff98b9fb26abee5615d05ea6a79362d916973b03 data/aether_redux/loot_tables/blocks/za
 dac18fafe5e8a726d15bedfce3afae0d0113e177 data/aether_redux/loot_tables/blocks/zanberry_shrub.json
 bde6f239a1a1807b129bf99dedd968b6b04c3175 data/aether_redux/loot_tables/blocks/zyatrix.json
 51907e20c44c8a04df04829f04976bce93583c11 data/aether_redux/loot_tables/entities/glimmercow.json
+e5fede6edbcfede8c1e92419ec2c6552147a7121 data/aether_redux/loot_tables/entities/mykapod.json
 5f8d4bdef19ef87d6a912869cb1ea2bb3d3bd199 data/aether_redux/loot_tables/entities/vanilla_swet.json
 aee3ab539e3471c2e79566dd0797bc43a01094c2 data/aether_redux/loot_tables/stripping/strip_blightwillow.json
