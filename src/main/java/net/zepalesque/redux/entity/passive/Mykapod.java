@@ -84,6 +84,7 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
         this.goalSelector.addGoal(1, new MykapodPanicGoal(this, 1.5D));
         this.goalSelector.addGoal(2, new MykapodBreedGoal(this, 1.0D));
         this.goalSelector.addGoal(3, new MykapodTemptGoal(this, 1.25D, Ingredient.of(ReduxTags.Items.MYKAPOD_FOLLOW_ITEMS), false));
+        this.goalSelector.addGoal(4, new MykapodHideFromSprintingPlayerGoal(this));
         this.goalSelector.addGoal(5, new MykapodWanderGoal(this, 1.0D));
         this.goalSelector.addGoal(6, new MykapodStareGoal(this, Player.class, 6.0F) );
         this.goalSelector.addGoal(7, new MykapodLookGoal(this));
@@ -151,9 +152,8 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
             } else {
                 this.hideCounter = 0;
             }
-            if (this.isHiding() && this.hideCounter <= 1 && this.random.nextInt(10) == 0) {
+            if (this.isHiding() && this.hideCounter <= 0) {
                 this.setHiding(HideStatus.OUT);
-                this.hideCounter = 0;
             }
             if (!this.hasShell()) {
                 this.timeSinceShed++;
@@ -294,6 +294,7 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
                     this.setHiding(HideStatus.SCARED);
                     this.getNavigation().stop();
                     this.hideCooldown = 900;
+                    this.hideCounter = 240 + this.random.nextInt(120);
                 } else {
                     if (!this.breakShell()) {
                         this.crackShell();
