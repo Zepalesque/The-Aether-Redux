@@ -88,6 +88,9 @@ public class ReduxItemTagsData extends ItemTagsProvider {
                 ReduxItems.SENTRY_RING.get(),
                 ReduxItems.SHROOM_RING.get()
         );
+        this.tag(AetherTags.Items.ACCESSORIES_SHIELDS).add(
+                ReduxItems.SNAILSHELL_SHIELD.get()
+        );
         this.tag(AetherTags.Items.ACCESSORIES_MISCELLANEOUS).add(
                 ReduxItems.PHOENIX_EMBLEM.get(),
                 ReduxItems.COCKATRICE_FEATHER.get()

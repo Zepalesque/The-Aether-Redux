@@ -18,6 +18,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.ToolActions;
 import net.zepalesque.redux.entity.ai.goal.MykapodLookGoal;
+import net.zepalesque.redux.entity.ai.goal.MykapodPanicGoal;
 import net.zepalesque.redux.entity.ai.goal.MykapodStareGoal;
 import net.zepalesque.redux.entity.ai.goal.MykapodWanderGoal;
 import net.zepalesque.redux.misc.ReduxTags;
@@ -47,6 +48,7 @@ public class Mykapod extends PathfinderMob implements GeoEntity {
     private static final EntityDataAccessor<Boolean> HAS_SHELL = SynchedEntityData.defineId(Mykapod.class, EntityDataSerializers.BOOLEAN);
 
     public int hideTickCounter = 0;
+    public int hideCooldown = 0;
 
     @OnlyIn(Dist.CLIENT)
     public State anim;
@@ -60,6 +62,7 @@ public class Mykapod extends PathfinderMob implements GeoEntity {
 
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
+        this.goalSelector.addGoal(1, new MykapodPanicGoal(this, 3.0D));
         this.goalSelector.addGoal(5, new MykapodWanderGoal(this, 1.0D));
         this.goalSelector.addGoal(6, new MykapodStareGoal(this, Player.class, 6.0F) );
         this.goalSelector.addGoal(7, new MykapodLookGoal(this));
@@ -98,6 +101,9 @@ public class Mykapod extends PathfinderMob implements GeoEntity {
     public void aiStep() {
         super.aiStep();
         if (!this.level().isClientSide()) {
+            if (this.hideCooldown > 0) {
+                this.hideCooldown--;
+            }
             if (this.isHiding()) {
                 this.hideTickCounter++;
             } else {
@@ -196,10 +202,13 @@ public class Mykapod extends PathfinderMob implements GeoEntity {
             return false;
         } else {
             boolean b = super.hurt(source, amount);
-            Entity entity1 = source.getEntity();
-            if (entity1 != null) {
-                if (entity1 instanceof LivingEntity) {
-                    this.setHiding(true);
+            if (this.hideCooldown <= 0) {
+                Entity entity1 = source.getEntity();
+                if (entity1 != null) {
+                    if (entity1 instanceof LivingEntity) {
+                        this.setHiding(true);
+                        this.hideCooldown = 1200;
+                    }
                 }
             }
             return b;
