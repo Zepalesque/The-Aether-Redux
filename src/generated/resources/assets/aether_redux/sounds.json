@@ -135,6 +135,32 @@
     ],
     "subtitle": "subtitles.aether_redux.entity.mimic_slam"
   },
+  "entity.mykapod.shell_break": {
+    "sounds": [
+      "mob/turtle/egg/egg_break1",
+      "mob/turtle/egg/egg_break2"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.mykapod_shell_break"
+  },
+  "entity.mykapod.shell_crack": {
+    "sounds": [
+      "mob/turtle/egg/egg_crack1",
+      "mob/turtle/egg/egg_crack2",
+      "mob/turtle/egg/egg_crack3",
+      "mob/turtle/egg/egg_crack4",
+      "mob/turtle/egg/egg_crack5"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.mykapod_shell_crack"
+  },
+  "entity.mykapod.shell_shed": {
+    "sounds": [
+      "mob/turtle/egg/jump_egg1",
+      "mob/turtle/egg/jump_egg2",
+      "mob/turtle/egg/jump_egg3",
+      "mob/turtle/egg/jump_egg4"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.mykapod_shell_shed"
+  },
   "entity.sentry.ambient": {
     "sounds": [
       "aether_redux:generic/silence"
