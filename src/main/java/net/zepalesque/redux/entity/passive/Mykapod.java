@@ -231,6 +231,7 @@ public class Mykapod extends PathfinderMob implements GeoEntity {
         super.addAdditionalSaveData(compound);
         compound.putBoolean("IsHiding", this.isHiding());
         compound.putBoolean("HasShell", this.hasShell());
+        compound.putInt("HideCounter", this.hideTickCounter);
     }
 
     @Override
@@ -241,6 +242,9 @@ public class Mykapod extends PathfinderMob implements GeoEntity {
         }
         if (compound.contains("HasShell")) {
             this.setShell(compound.getBoolean("HasShell"));
+        }
+        if (compound.contains("HideCounter")) {
+            this.hideTickCounter = compound.getInt("HideCounter");
         }
     }
 
