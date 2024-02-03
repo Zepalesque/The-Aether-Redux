@@ -175,7 +175,8 @@ public class ReduxCreativeTabs {
 
             putAfter(AetherBlocks.ENCHANTED_GRAVITITE, ReduxItems.RAW_GRAVITITE, event);
 
-            putAfter(AetherItems.AECHOR_PETAL, ReduxItems.WYNDSPROUT_SEEDS, event);
+            putAfter(AetherItems.AECHOR_PETAL, ReduxItems.MYKAPOD_SHELL_CHUNK, event);
+            putAfter(ReduxItems.WYNDSPROUT_SEEDS, ReduxItems.WYNDSPROUT_SEEDS, event);
             putAfter(ReduxItems.WYNDSPROUT_SEEDS, ReduxItems.LUXBUDS, event);
             putAfter(ReduxItems.LUXBUDS, ReduxItems.BUNDLE_OF_WYNDSPROUTS, event);
             putAfter(ReduxItems.BUNDLE_OF_WYNDSPROUTS, ReduxItems.LIGHTROOT_CLUMP, event);
@@ -200,6 +201,8 @@ public class ReduxCreativeTabs {
             putAfter(AetherItems.REGENERATION_STONE, ReduxItems.VAMPIRE_AMULET, event);
 
             putAfter(AetherItems.SWET_CAPE, ReduxItems.AIRBOUND_CAPE, event);
+
+            putAfter(AetherItems.SHIELD_OF_REPULSION, ReduxItems.SNAILSHELL_SHIELD, event);
         }
         if (tab == AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES.get()) {
 

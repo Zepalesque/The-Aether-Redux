@@ -193,7 +193,7 @@ public class Mykapod extends PathfinderMob implements GeoEntity {
 
                 }
             }
-                return false;
+            return false;
         } else {
             boolean b = super.hurt(source, amount);
             Entity entity1 = source.getEntity();

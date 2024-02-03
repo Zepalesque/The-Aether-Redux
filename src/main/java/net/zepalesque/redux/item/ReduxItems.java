@@ -1,16 +1,21 @@
 package net.zepalesque.redux.item;
 
 import com.aetherteam.aether.item.AetherItems;
+import com.aetherteam.aether.item.accessories.AccessoryItem;
+import com.aetherteam.aether.item.accessories.miscellaneous.ShieldOfRepulsionItem;
 import com.aetherteam.aether.item.accessories.ring.RingItem;
 import com.aetherteam.aether.item.combat.DartItem;
 import com.aetherteam.aether.item.combat.DartShooterItem;
 import com.aetherteam.aether.item.food.GummySwetItem;
 import com.aetherteam.aether.item.materials.SwetBallItem;
 import com.google.common.base.Supplier;
+import com.google.common.collect.Multimap;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.*;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.registries.DeferredRegister;
@@ -72,6 +77,11 @@ public class ReduxItems {
     public static final RegistryObject<Item> SKYBUD = register("skybud", () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> RAW_GRAVITITE = register("raw_gravitite", () -> new Item(new Item.Properties()));
+
+
+    public static final RegistryObject<Item> MYKAPOD_SHELL_CHUNK = register("mykapod_shell_chunk", () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> SNAILSHELL_SHIELD = register("snailshell_shield", () -> new SnailshellShieldItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
 
     public static final RegistryObject<Item> SPECTRAL_DART = ITEMS.register("spectral_dart", () -> new DartItem(ReduxEntityTypes.SPECTRAL_DART, new Item.Properties()));
     public static final RegistryObject<Item> SPECTRAL_DART_SHOOTER = ITEMS.register("spectral_dart_shooter", () -> new DartShooterItem(SPECTRAL_DART, (new Item.Properties()).stacksTo(1)));

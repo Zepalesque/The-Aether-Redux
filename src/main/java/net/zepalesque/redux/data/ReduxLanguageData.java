@@ -346,6 +346,12 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.RAW_GRAVITITE, "Raw Gravitite");
         addLore(ReduxItems.RAW_GRAVITITE, "A chunk of the Aether's rarest ore. This can be enchanted into Enchanted Gravitite blocks.");
 
+        addItem(ReduxItems.MYKAPOD_SHELL_CHUNK, "Mykapod Shell Chunk");
+        addLore(ReduxItems.MYKAPOD_SHELL_CHUNK, "A fragment of the outer layer of a Mykapod. Can be used to craft the Snailshell Shield!");
+
+        addItem(ReduxItems.SNAILSHELL_SHIELD, "Snailshell Shield");
+        addLore(ReduxItems.SNAILSHELL_SHIELD, "A shield accessory. When worn, you will not take any knockback.");
+
         addItem(ReduxItems.COCKATRICE_FEATHER, "Cockatrice Feather");
         addLore(ReduxItems.COCKATRICE_FEATHER, "A feather from a Cockatrice. This is said to give the user a protection from some of the Blight's dangers.");
 
