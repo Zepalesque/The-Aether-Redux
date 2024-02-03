@@ -4,6 +4,7 @@ package net.zepalesque.redux.entity.passive;
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.entity.passive.AetherAnimal;
 import net.minecraft.core.particles.ItemParticleOption;
+import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -19,6 +20,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -362,8 +364,16 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
         super.handleEntityEvent(id);
         if (id == 17 && this.level().isClientSide()) {
             this.anim = State.SHED;
+            for(int i = 0; i < 7; ++i) {
+                double d0 = this.random.nextGaussian() * 0.02D;
+                double d1 = this.random.nextGaussian() * 0.02D;
+                double d2 = this.random.nextGaussian() * 0.02D;
+                this.level().addParticle(ParticleTypes.HAPPY_VILLAGER, this.getRandomX(1.0D), this.getRandomY() + 0.5D, this.getRandomZ(1.0D), d0, d1, d2);
+            }
         }
     }
+
+
 
     public boolean breakShell() {
         if (!this.level().isClientSide() && this.hasShell() && !this.isBaby() && this.level().random.nextBoolean()) {
