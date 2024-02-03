@@ -40,6 +40,15 @@ public class ReduxEntityLootData extends AetherEntityLoot {
                         .apply(SmeltItemFunction.smelted().when(LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, ENTITY_ON_FIRE)))
                         .apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F))))));
 
+        this.add(ReduxEntityTypes.MYKAPOD.get(), LootTable.lootTable()
+                .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1))
+                        .add(LootItem.lootTableItem(Items.SLIME_BALL)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 1.0F)))
+                                .apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)))
+                        )
+                )
+        );
+
     }
 
     @Override
