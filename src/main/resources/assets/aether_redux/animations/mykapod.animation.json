@@ -467,7 +467,7 @@
 				}
 			}
 		},
-		"animation.mykapod.runaway": {
+		"animations.mykapod.runaway": {
 			"loop": true,
 			"animation_length": 2,
 			"bones": {

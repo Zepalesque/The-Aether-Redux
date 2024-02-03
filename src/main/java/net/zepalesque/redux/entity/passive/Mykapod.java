@@ -149,7 +149,7 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
             } else {
                 this.hideCounter = 0;
             }
-            if (this.isHiding() && this.hideCounter == 1 && this.random.nextInt(10) == 0) {
+            if (this.isHiding() && this.hideCounter <= 1 && this.random.nextInt(10) == 0) {
                 this.setHiding(HideStatus.OUT);
                 this.hideCounter = 0;
             }
@@ -276,17 +276,26 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
                     return super.hurt(source, amount);
                 }
             } else if (this.isHiding()) {
-                if (canAttackShell(attacker.getMainHandItem()) && this.breakShell()) {
+                if (canAttackShell(attacker.getMainHandItem())) {
+                    if (!this.breakShell()) {
+                        this.crackShell();
+                    }
                     this.setHiding(HideStatus.INTERRUPTED);
                     return super.hurt(source, amount);
                 } else {
                     this.hideCounter = Math.max(this.hideCounter - 5, 0);
                     this.wobbleAttack(entitySource);
+                    return false;
                 }
             } else {
                 if (!canAttackShell(attacker.getMainHandItem())) {
                     this.setHiding(HideStatus.SCARED);
+                    this.getNavigation().stop();
                     this.hideCooldown = 900;
+                } else {
+                    if (!this.breakShell()) {
+                        this.crackShell();
+                    }
                 }
                 return super.hurt(source, amount);
             }
@@ -337,6 +346,7 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
             this.setShell(false);
             this.spawnAtLocation(ReduxItems.MYKAPOD_SHELL_CHUNK.get(), 1);
             this.level().playSound(null, this.position().x, this.position().y, this.position().z, ReduxSoundEvents.MYKAPOD_SHELL_SHED.get(), SoundSource.NEUTRAL, 1, 0.8F + (this.random.nextFloat() * 0.4F));
+            this.setHiding(HideStatus.OUT);
             return true;
         }
         return false;
@@ -356,7 +366,7 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
     }
 
     public boolean breakShell() {
-        if (!this.level().isClientSide() && this.hasShell() && !this.isBaby()) {
+        if (!this.level().isClientSide() && this.hasShell() && !this.isBaby() && this.level().random.nextBoolean()) {
             this.breakParticles();
             this.setShell(false);
             this.level().playSound(null, this.position().x, this.position().y, this.position().z, ReduxSoundEvents.MYKAPOD_SHELL_BREAK.get(), SoundSource.NEUTRAL, 1, 0.8F + (this.random.nextFloat() * 0.4F));
