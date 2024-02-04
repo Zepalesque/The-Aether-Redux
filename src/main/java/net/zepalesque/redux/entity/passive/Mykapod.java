@@ -100,7 +100,7 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 20.0D).add(Attributes.MOVEMENT_SPEED, 0.1F).add(Attributes.KNOCKBACK_RESISTANCE, 0.75F);
     }
-    
+
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.getEntityData().define(IS_HIDING, HideStatus.OUT);
@@ -370,6 +370,8 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
         super.handleEntityEvent(id);
         if (id == 17 && this.level().isClientSide()) {
             this.anim = State.SHED;
+
+        } else if (id == 16 && this.level().isClientSide()) {
             for(int i = 0; i < 7; ++i) {
                 double d0 = this.random.nextGaussian() * 0.02D;
                 double d1 = this.random.nextGaussian() * 0.02D;
@@ -455,7 +457,9 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
             if (!this.level().isClientSide && !this.isBaby() && this.hasShell()) {
                 this.usePlayerItem(player, hand, itemstack);
                 this.setHiding(HideStatus.HIDING);
+                this.hideCounter = 50;
                 this.sheddingTicker = 50;
+                this.level().broadcastEntityEvent(this, (byte) 16);
                 return InteractionResult.SUCCESS;
             }
         }

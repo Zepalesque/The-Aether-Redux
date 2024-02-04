@@ -61,7 +61,7 @@
 							"vector": [-10, 0, 0],
 							"easing": "easeInOutSine"
 						},
-						"0.6": {
+						"0.5": {
 							"vector": [-15, 0, 0],
 							"easing": "easeOutSine"
 						},
@@ -75,7 +75,7 @@
 						"0.2": {
 							"vector": [0, 0, 0]
 						},
-						"0.6": {
+						"0.5": {
 							"vector": [0, 4, 0],
 							"easing": "easeOutCubic"
 						},
@@ -131,10 +131,12 @@
 					}
 				}
 			},
-			"timeline": {
-				"0.9": "land;",
-				"1.1": "land;"
-			}
+			"sound_effects": {
+				"0.2": {
+					"effect": "screech"
+				}
+			},
+			"timeline": {}
 		},
 		"animations.mykapod.unhide": {
 			"loop": "hold_on_last_frame",
@@ -956,10 +958,14 @@
 				},
 				"shell_rot": {
 					"rotation": {
-						"vector": [1, 0, 0]
+						"vector": [0, 0, -90],
+						"easing": "easeInBounce",
+						"easingArgs": [0.1]
 					},
 					"position": {
-						"vector": [1, 0, 0]
+						"vector": [0, -2, 0],
+						"easing": "easeInBounce",
+						"easingArgs": [0.1]
 					}
 				},
 				"antennae": {
