@@ -42,7 +42,7 @@ public class ReduxEntityTypes {
             () -> EntityType.Builder.of(Glimmercow::new, MobCategory.CREATURE).sized(1.125F, 1.625F).clientTrackingRange(10).build("glimmercow"));
 
     public static final RegistryObject<EntityType<Mykapod>> MYKAPOD = ENTITY_TYPES.register("mykapod",
-            () -> EntityType.Builder.of(Mykapod::new, MobCategory.CREATURE).sized(0.5F, 0.5F).clientTrackingRange(10).build("mykapod"));
+            () -> EntityType.Builder.of(Mykapod::new, MobCategory.CREATURE).sized(0.35F, 0.35F).clientTrackingRange(10).build("mykapod"));
 
     @SubscribeEvent
     public static void registerSpawnPlacements(SpawnPlacementRegisterEvent event) {
