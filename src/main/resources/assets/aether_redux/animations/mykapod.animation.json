@@ -928,19 +928,19 @@
 		},
 		"animations.mykapod.shed": {
 			"loop": true,
-			"animation_length": 0.7,
+			"animation_length": 0.70833,
 			"bones": {
 				"head": {
 					"rotation": {
-						"vector": [0, 0, 0]
+						"vector": ["easeInBack", "easeInBack", "easeInBack"]
 					},
 					"position": {
-						"vector": [0, 0, 0]
+						"vector": ["easeInExpo", "easeInExpo", "easeInExpo"]
 					}
 				},
 				"shell": {
 					"position": {
-						"vector": [0, 0, 0]
+						"vector": ["easeInOutSine", "easeInOutSine", "easeInOutSine"]
 					}
 				},
 				"body": {
@@ -953,24 +953,20 @@
 				},
 				"tail": {
 					"position": {
-						"vector": [0, 0, 0]
+						"vector": ["easeInExpo", "easeInExpo", "easeInExpo"]
 					}
 				},
 				"shell_rot": {
 					"rotation": {
-						"vector": [0, 0, -90],
-						"easing": "easeInBounce",
-						"easingArgs": [0.1]
+						"vector": [1, 0, 0]
 					},
 					"position": {
-						"vector": [0, -2, 0],
-						"easing": "easeInBounce",
-						"easingArgs": [0.1]
+						"vector": [1, 0, 0]
 					}
 				},
 				"antennae": {
 					"rotation": {
-						"vector": [0, 0, 0]
+						"vector": ["easeInOutSine", "easeInOutSine", "easeInOutSine"]
 					}
 				},
 				"base": {
