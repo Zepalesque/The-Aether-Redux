@@ -133,6 +133,32 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
         twoByTwoPacker(consumer, RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SHELL_SHINGLES.get(), ReduxItems.MYKAPOD_SHELL_CHUNK.get());
         enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.ENCHANTED_SHELL_SHINGLES.get(), ReduxBlocks.SHELL_SHINGLES.get(), 0F, 150);
 
+
+        stairs(ReduxBlocks.SHELL_SHINGLE_STAIRS, ReduxBlocks.SHELL_SHINGLES).save(consumer);
+        slab(consumer, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.SHELL_SHINGLE_SLAB.get(), ReduxBlocks.SHELL_SHINGLES.get());
+        wall(consumer, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.SHELL_SHINGLE_WALL.get(), ReduxBlocks.SHELL_SHINGLES.get());
+        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SHELL_SHINGLE_WALL.get(), ReduxBlocks.SHELL_SHINGLES.get())
+                .save(consumer, Redux.locate("shell_shingle_wall_stonecutting"));
+        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SHELL_SHINGLE_SLAB.get(), ReduxBlocks.SHELL_SHINGLES.get())
+                .save(consumer, Redux.locate("shell_shingle_slab_stonecutting"));
+        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SHELL_SHINGLE_STAIRS.get(), ReduxBlocks.SHELL_SHINGLES.get())
+                .save(consumer, Redux.locate("shell_shingle_stairs_stonecutting"));
+
+        stairs(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_STAIRS, ReduxBlocks.ENCHANTED_SHELL_SHINGLES).save(consumer);
+        slab(consumer, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.ENCHANTED_SHELL_SHINGLE_SLAB.get(), ReduxBlocks.ENCHANTED_SHELL_SHINGLES.get());
+        wall(consumer, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.ENCHANTED_SHELL_SHINGLE_WALL.get(), ReduxBlocks.ENCHANTED_SHELL_SHINGLES.get());
+        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.ENCHANTED_SHELL_SHINGLE_WALL.get(), ReduxBlocks.ENCHANTED_SHELL_SHINGLES.get())
+                .save(consumer, Redux.locate("enchanted_shell_shingle_wall_stonecutting"));
+        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.ENCHANTED_SHELL_SHINGLE_SLAB.get(), ReduxBlocks.ENCHANTED_SHELL_SHINGLES.get())
+                .save(consumer, Redux.locate("enchanted_shell_shingle_slab_stonecutting"));
+        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.ENCHANTED_SHELL_SHINGLE_STAIRS.get(), ReduxBlocks.ENCHANTED_SHELL_SHINGLES.get())
+                .save(consumer, Redux.locate("enchanted_shell_shingle_stairs_stonecutting"));
+
+        enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.ENCHANTED_SHELL_SHINGLE_STAIRS.get(), ReduxBlocks.SHELL_SHINGLE_STAIRS.get(), 0F, 150);
+        enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.ENCHANTED_SHELL_SHINGLE_WALL.get(), ReduxBlocks.SHELL_SHINGLE_WALL.get(), 0F, 150);
+        enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.ENCHANTED_SHELL_SHINGLE_SLAB.get(), ReduxBlocks.SHELL_SHINGLE_SLAB.get(), 0F, 150);
+
+
         carpet(consumer, ReduxBlocks.BLIGHTMOSS_CARPET.get(), ReduxBlocks.BLIGHTMOSS_BLOCK.get());
         carpet(consumer, ReduxBlocks.FUNGAL_CARPET.get(), ReduxBlocks.FUNGAL_GROWTH.get());
 

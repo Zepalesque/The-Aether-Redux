@@ -92,8 +92,27 @@ public class ReduxBlocks {
     public static RegistryObject<Block> SHELL_SHINGLES = register("shell_shingles",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).strength(0.4F, 1200.0F).sound(SoundType.MUD_BRICKS).pushReaction(PushReaction.DESTROY)));
 
+    public static RegistryObject<StairBlock> SHELL_SHINGLE_STAIRS = register("shell_shingle_stairs",
+            () -> new StairBlock(() -> (SHELL_SHINGLES.get()).defaultBlockState(), BlockBehaviour.Properties.copy(SHELL_SHINGLES.get())));
+
+    public static RegistryObject<WallBlock> SHELL_SHINGLE_WALL = register("shell_shingle_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.copy(SHELL_SHINGLES.get())));
+
+    public static RegistryObject<SlabBlock> SHELL_SHINGLE_SLAB = register("shell_shingle_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(SHELL_SHINGLES.get())));
+
+
     public static RegistryObject<Block> ENCHANTED_SHELL_SHINGLES = register("enchanted_shell_shingles",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).requiresCorrectToolForDrops().strength(2.0F, 1200.0F).sound(SoundType.MUD_BRICKS).pushReaction(PushReaction.DESTROY)));
+
+    public static RegistryObject<StairBlock> ENCHANTED_SHELL_SHINGLE_STAIRS = register("shell_shingle_stairs",
+            () -> new StairBlock(() -> (ENCHANTED_SHELL_SHINGLES.get()).defaultBlockState(), BlockBehaviour.Properties.copy(ENCHANTED_SHELL_SHINGLES.get())));
+
+    public static RegistryObject<WallBlock> ENCHANTED_SHELL_SHINGLE_WALL = register("shell_shingle_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.copy(ENCHANTED_SHELL_SHINGLES.get())));
+
+    public static RegistryObject<SlabBlock> ENCHANTED_SHELL_SHINGLE_SLAB = register("shell_shingle_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(ENCHANTED_SHELL_SHINGLES.get())));
 
 
     public static RegistryObject<Block> CLOUD_CAP_BLOCK = register("cloud_cap_block",

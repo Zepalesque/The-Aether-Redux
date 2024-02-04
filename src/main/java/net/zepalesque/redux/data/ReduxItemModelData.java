@@ -85,7 +85,13 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlock(ReduxBlocks.COARSE_AETHER_DIRT);
 
         itemBlock(ReduxBlocks.SHELL_SHINGLES);
+        itemBlock(ReduxBlocks.SHELL_SHINGLE_SLAB);
+        itemBlock(ReduxBlocks.SHELL_SHINGLE_STAIRS);
+        itemWallBlock(ReduxBlocks.SHELL_SHINGLE_WALL, ReduxBlocks.SHELL_SHINGLES, "construction/");
         itemBlock(ReduxBlocks.ENCHANTED_SHELL_SHINGLES);
+        itemBlock(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_SLAB);
+        itemBlock(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_STAIRS);
+        itemWallBlock(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_WALL, ReduxBlocks.ENCHANTED_SHELL_SHINGLES, "construction/");
 
         itemBlock(ReduxBlocks.BLIGHTWILLOW_LEAVES);
 
