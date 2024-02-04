@@ -3,6 +3,7 @@ package net.zepalesque.redux.entity.passive;
 
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.entity.passive.AetherAnimal;
+import net.minecraft.client.AttackIndicatorStatus;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ItemParticleOption;
@@ -283,7 +284,7 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
                 }
             } else if (this.isHiding()) {
                 if (canAttackShell(attacker.getMainHandItem())) {
-                    if (!this.breakShell(attacker.getMainHandItem())) {
+                    if (!this.breakShell(attacker)) {
                         this.crackShell();
                     }
                     this.setHiding(HideStatus.INTERRUPTED);
@@ -302,7 +303,7 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
                         this.hideCounter = 240 + this.random.nextInt(120);
                     }
                 } else {
-                    if (!this.breakShell(attacker.getMainHandItem())) {
+                    if (!this.breakShell(attacker)) {
                         this.crackShell();
                     }
                 }
@@ -387,7 +388,7 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
     }
 
     public boolean breakShell(LivingEntity entity) {
-        if (!this.level().isClientSide() && this.hasShell() && !this.isBaby() && this.level().random.nextFloat() > entity.) {
+        if (!this.level().isClientSide() && this.hasShell() && !this.isBaby() && (entity instanceof Player p ? this.random.nextFloat() < p.getAttackStrengthScale(0.0F) : this.random.nextBoolean())) {
             this.breakParticles(15);
             this.setShell(false);
             this.level().playSound(null, this.position().x, this.position().y, this.position().z, ReduxSoundEvents.MYKAPOD_SHELL_BREAK.get(), SoundSource.NEUTRAL, 1, 0.8F + (this.random.nextFloat() * 0.4F));
