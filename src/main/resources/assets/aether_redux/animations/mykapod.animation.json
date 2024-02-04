@@ -130,6 +130,10 @@
 						}
 					}
 				}
+			},
+			"timeline": {
+				"0.9": "land;",
+				"1.1": "land;"
 			}
 		},
 		"animations.mykapod.unhide": {
@@ -902,6 +906,9 @@
 						}
 					}
 				}
+			},
+			"timeline": {
+				"0.7": "land;"
 			}
 		},
 		"animations.mykapod.shed": {

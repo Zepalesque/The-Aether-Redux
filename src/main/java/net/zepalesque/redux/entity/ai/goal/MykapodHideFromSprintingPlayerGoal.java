@@ -31,7 +31,7 @@ public class MykapodHideFromSprintingPlayerGoal extends Goal {
         @Override
     public boolean canUse() {
         this.player = this.mykapod.level().getNearestPlayer(this.targetingConditions, this.mykapod);
-        return this.player != null;
+        return this.player != null && this.mykapod.hideCooldown <= 0;
     }
     public boolean canContinueToUse() {
         return this.canUse();
