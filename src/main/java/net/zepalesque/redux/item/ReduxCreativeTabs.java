@@ -44,6 +44,14 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.DIVINITE, ReduxBlocks.DIVINITE_STAIRS, event);
             putAfter(ReduxBlocks.DIVINITE_STAIRS, ReduxBlocks.DIVINITE_SLAB, event);
             putAfter(ReduxBlocks.DIVINITE_SLAB, ReduxBlocks.DIVINITE_WALL, event);
+            putAfter(ReduxBlocks.DIVINITE_WALL, ReduxBlocks.SHELL_SHINGLES, event);
+            putAfter(ReduxBlocks.SHELL_SHINGLES, ReduxBlocks.SHELL_SHINGLE_STAIRS, event);
+            putAfter(ReduxBlocks.SHELL_SHINGLE_STAIRS, ReduxBlocks.SHELL_SHINGLE_SLAB, event);
+            putAfter(ReduxBlocks.SHELL_SHINGLE_SLAB, ReduxBlocks.SHELL_SHINGLE_WALL, event);
+            putAfter(ReduxBlocks.SHELL_SHINGLE_WALL, ReduxBlocks.ENCHANTED_SHELL_SHINGLES, event);
+            putAfter(ReduxBlocks.ENCHANTED_SHELL_SHINGLES, ReduxBlocks.ENCHANTED_SHELL_SHINGLE_STAIRS, event);
+            putAfter(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_STAIRS, ReduxBlocks.ENCHANTED_SHELL_SHINGLE_SLAB, event);
+            putAfter(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_SLAB, ReduxBlocks.ENCHANTED_SHELL_SHINGLE_WALL, event);
 
             putAfter(AetherBlocks.ZANITE_BLOCK, ReduxBlocks.VERIDIUM_BLOCK, event);
 
