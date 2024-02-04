@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-30T20:17:10.5757396	Block States: aether_redux
+// 1.20.1	2024-02-04T17:52:41.3085216	Block States: aether_redux
 3b65fcf4de37be76dd1ac46b4118458043237e15 assets/aether_redux/blockstates/aether_short_grass.json
 0a0f21b01afc7514adf77a09aca842eb1a0055b4 assets/aether_redux/blockstates/aevelium.json
 483c8ba025f1818d95319f96976dd85c91663f05 assets/aether_redux/blockstates/aevelium_roots.json
@@ -466,6 +466,7 @@ f9d19f570ec99579f09e4736cb24bbecc53b37f0 assets/aether_redux/models/block/divini
 536a49a7aebebb6018ffa47dd4ad16704483c1a2 assets/aether_redux/models/block/divinite_wall_side_tall.json
 f73fb7ad581ef696f8a53cf9e4490312018db4ef assets/aether_redux/models/block/enchanted_aurum.json
 7e90177f893d151767db272f1a6271eda32a6ab1 assets/aether_redux/models/block/enchanted_medium_grass.json
+ed0f194ad404de954bee8e2586d143e832a3dac1 assets/aether_redux/models/block/enchanted_shell_shingles.json
 00e16fd7a7d8043c5fafb7852d99223485c5b8a5 assets/aether_redux/models/block/enchanted_short_grass.json
 2f52bfa0131e7796e3cd5b4e798936513e706b6a assets/aether_redux/models/block/enchanted_tall_grass.json
 061cfcf73adb5a717d2703a82dded750c17f5fb9 assets/aether_redux/models/block/enchanted_white_flower.json
@@ -768,6 +769,7 @@ a7b3d68b7ca243dc9b16741d5e8e5c0c8e5528d4 assets/aether_redux/models/block/purple
 0bc3a2aebf1f69795d6398103354fc07cf87035c assets/aether_redux/models/block/purple_potted_glacia_sapling.json
 dddba505f26c0e181da1df42cabe7bcc7aa4501f assets/aether_redux/models/block/quickroots.json
 0638c603c5030a516adc0ede83a5ca5685cad939 assets/aether_redux/models/block/raw_veridium_block.json
+c97dd0e4d0e18cccd7b9468c0d9255d26b48f11e assets/aether_redux/models/block/shell_shingles.json
 5ef3e51b76f2008418abd55ffd28e9a17f66d7b7 assets/aether_redux/models/block/skysprouts.json
 6a92d8f27f3707b0728bbf16773da260e2ecf062 assets/aether_redux/models/block/skysprouts_crop_stage0.json
 9a9dbfbb447977bd88d49ee604c798a52b2203a9 assets/aether_redux/models/block/skysprouts_crop_stage1.json

@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-30T18:36:38.0031566	Recipes
+// 1.20.1	2024-02-04T17:52:41.3665199	Recipes
 028a41c44667802045298aed21a46f931203df96 data/aether/advancements/recipes/building_blocks/angelic_stone.json
 a49c9d5d0232fb78da74b8a0551483991e22b8c9 data/aether/recipes/angelic_stone.json
 94dc065fa9db175a9df14a38fb02767fe57f9007 data/aether_redux/advancements/recipes/blightwillow_log_wall.json
@@ -72,6 +72,7 @@ f0d82ddee045a397e804dec042ea74165a420c69 data/aether_redux/advancements/recipes/
 aeb1c04af2e5b12bb9f68823b2bb4ec248b4f907 data/aether_redux/advancements/recipes/building_blocks/jellyshroom_slab.json
 a515ffa862518173fa91d2917b41bb807a078629 data/aether_redux/advancements/recipes/building_blocks/jellyshroom_stairs.json
 f3bae36c7af0a333f312ace0b53bf45e590aba83 data/aether_redux/advancements/recipes/building_blocks/raw_veridium_block.json
+7100e0a6ab05d3c906f62db4478f394f3892006c data/aether_redux/advancements/recipes/building_blocks/shell_shingles.json
 7370225ad2ced4a51880f480e94939bd814b9f68 data/aether_redux/advancements/recipes/building_blocks/stripped_blightwillow_wood.json
 8ac2f14315113ffcff9a60bd4e09afbfc1ebf5c6 data/aether_redux/advancements/recipes/building_blocks/stripped_cloudcap_hyphae.json
 316b79e9f5a6753b5b684b2bf8aebe493f77773e data/aether_redux/advancements/recipes/building_blocks/stripped_crystal_wood.json
@@ -355,6 +356,7 @@ dc51845be2b0b2f72a4b6283e65074a8aef9a259 data/aether_redux/recipes/oatmeal.json
 6390228529b203ebc3053b1491fd112be2fdff54 data/aether_redux/recipes/raw_veridium_from_raw_veridium_block.json
 514573c94785e22d40abf9487c0377c7cd1d586c data/aether_redux/recipes/ring_of_wisdom.json
 609f0ec0f83bdc58b5697c5f6515a28bec8abdb0 data/aether_redux/recipes/sentry_ring.json
+172607a200c1d44e494bd5b9c89db8fdf3e8cd49 data/aether_redux/recipes/shell_shingles.json
 011d2cb43f52c497562601dc866185d2f970d6ea data/aether_redux/recipes/shroom_ring.json
 eb2e4ab63473a9a7d48e87b15b13bf8e10853e8e data/aether_redux/recipes/smelt_raw_veridium.json
 03b3ea8d8c57e333e9db2f962a6ea1bb33b699f5 data/aether_redux/recipes/smelt_veridium.json
