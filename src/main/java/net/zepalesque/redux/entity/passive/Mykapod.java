@@ -91,7 +91,7 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
         this.goalSelector.addGoal(1, new MykapodPanicGoal(this, 1.5D));
         this.goalSelector.addGoal(2, new MykapodBreedGoal(this, 1.0D));
         this.goalSelector.addGoal(3, new MykapodTemptGoal(this, 1.25D, Ingredient.of(ReduxTags.Items.MYKAPOD_FOLLOW_ITEMS), false));
-        this.goalSelector.addGoal(4, new MykapodHideFromSprintingPlayerGoal(this));
+//        this.goalSelector.addGoal(4, new MykapodHideFromSprintingPlayerGoal(this));
         this.goalSelector.addGoal(5, new MykapodWanderGoal(this, 1.0D));
         this.goalSelector.addGoal(6, new MykapodStareGoal(this, Player.class, 6.0F) );
         this.goalSelector.addGoal(7, new MykapodLookGoal(this));
@@ -100,12 +100,7 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 20.0D).add(Attributes.MOVEMENT_SPEED, 0.1F).add(Attributes.KNOCKBACK_RESISTANCE, 0.75F);
     }
-
-/*    @Override
-    public void tick() {
-        super.tick();
-    }*/
-
+    
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.getEntityData().define(IS_HIDING, HideStatus.OUT);
@@ -359,7 +354,6 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
             this.setShell(false);
             this.spawnAtLocation(ReduxItems.MYKAPOD_SHELL_CHUNK.get(), 1);
             this.level().playSound(null, this.position().x, this.position().y, this.position().z, ReduxSoundEvents.MYKAPOD_SHELL_SHED.get(), SoundSource.NEUTRAL, 1, 0.8F + (this.random.nextFloat() * 0.4F));
-            this.setHiding(HideStatus.OUT);
             return true;
         }
         return false;

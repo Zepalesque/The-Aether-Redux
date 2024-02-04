@@ -829,7 +829,7 @@
 		},
 		"animations.mykapod.hide": {
 			"loop": "hold_on_last_frame",
-			"animation_length": 1.2,
+			"animation_length": 1.5,
 			"bones": {
 				"head": {
 					"rotation": {
@@ -917,54 +917,41 @@
 			"bones": {
 				"head": {
 					"rotation": {
-						"vector": [85, 0, 0],
-						"easing": "easeInBack"
+						"vector": [0, 0, 0]
 					},
 					"position": {
-						"vector": [0, 1, 4],
-						"easing": "easeInExpo"
+						"vector": [0, 0, 0]
 					}
 				},
 				"shell": {
 					"position": {
-						"vector": [0, -0.5, 0],
-						"easing": "easeInOutSine"
+						"vector": [0, 0, 0]
 					}
 				},
 				"body": {
 					"rotation": {
-						"vector": [0, 0, 0],
-						"easing": "easeInBounce",
-						"easingArgs": [0.25]
+						"vector": [0.25, 0, 0]
 					},
 					"position": {
-						"vector": [0, 0, 0],
-						"easing": "easeInBounce",
-						"easingArgs": [0.25]
+						"vector": [0.25, 0, 0]
 					}
 				},
 				"tail": {
 					"position": {
-						"vector": [0, 0, -2],
-						"easing": "easeInExpo"
+						"vector": [0, 0, 0]
 					}
 				},
 				"shell_rot": {
 					"rotation": {
-						"vector": [0, 0, -90],
-						"easing": "easeInOutBack",
-						"easingArgs": [1]
+						"vector": [1, 0, 0]
 					},
 					"position": {
-						"vector": [0, -2, 0],
-						"easing": "easeInOutBack",
-						"easingArgs": [1]
+						"vector": [1, 0, 0]
 					}
 				},
 				"antennae": {
 					"rotation": {
-						"vector": [-80, 0, 0],
-						"easing": "easeInOutSine"
+						"vector": [0, 0, 0]
 					}
 				},
 				"base": {
