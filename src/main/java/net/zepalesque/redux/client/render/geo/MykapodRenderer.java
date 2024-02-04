@@ -55,7 +55,7 @@ public class MykapodRenderer extends GeoEntityRenderer<Mykapod> {
 
     @Override
     public float getMotionAnimThreshold(Mykapod animatable) {
-        return 0.005F;
+        return 0.001F;
     }
 
 
