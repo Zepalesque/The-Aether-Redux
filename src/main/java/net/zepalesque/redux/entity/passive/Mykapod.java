@@ -6,7 +6,6 @@ import com.aetherteam.aether.entity.passive.AetherAnimal;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ItemParticleOption;
-import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -23,7 +22,6 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
-import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -47,6 +45,7 @@ import software.bernie.geckolib.core.animatable.GeoAnimatable;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.core.animation.AnimationState;
+import software.bernie.geckolib.core.keyframe.event.data.CustomInstructionKeyframeData;
 import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
@@ -296,10 +295,12 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
                 }
             } else {
                 if (!canAttackShell(attacker.getMainHandItem())) {
-                    this.setHiding(HideStatus.SCARED);
-                    this.getNavigation().stop();
-                    this.hideCooldown = 900;
-                    this.hideCounter = 240 + this.random.nextInt(120);
+                    if (this.hideCooldown <= 0) {
+                        this.setHiding(HideStatus.SCARED);
+                        this.getNavigation().stop();
+                        this.hideCooldown = 900;
+                        this.hideCounter = 240 + this.random.nextInt(120);
+                    }
                 } else {
                     if (!this.breakShell()) {
                         this.crackShell();
@@ -466,29 +467,32 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
         return super.mobInteract(player, hand);
     }
 
-    protected void landAnim() {
-        BlockPos blockpos = this.getOnPosLegacy();
-        BlockState blockstate = this.level().getBlockState(blockpos);
-        if(!blockstate.addRunningEffects(this.level(), blockpos, this))
-            if (blockstate.getRenderShape() != RenderShape.INVISIBLE) {
-                Vec3 vec3 = this.getDeltaMovement();
-                BlockPos blockpos1 = this.blockPosition();
-                double d0 = this.getX();
-                double d1 = this.getZ();
-                if (blockpos1.getX() != blockpos.getX()) {
-                    d0 = Mth.clamp(d0, blockpos.getX(), (double)blockpos.getX() + 1.0D);
-                }
+    protected void landAnim(CustomInstructionKeyframeData keyframeData) {
+        if (keyframeData.getInstructions().equals("land")) {
+            BlockPos blockpos = this.getOnPosLegacy();
+            BlockState blockstate = this.level().getBlockState(blockpos);
+            if (!blockstate.addRunningEffects(this.level(), blockpos, this)) {
+                if (blockstate.getRenderShape() != RenderShape.INVISIBLE) {
+                    Vec3 vec3 = this.getDeltaMovement();
+                    BlockPos blockpos1 = this.blockPosition();
+                    double d0 = this.getX();
+                    double d1 = this.getZ();
+                    if (blockpos1.getX() != blockpos.getX()) {
+                        d0 = Mth.clamp(d0, blockpos.getX(), (double) blockpos.getX() + 1.0D);
+                    }
 
-                if (blockpos1.getZ() != blockpos.getZ()) {
-                    d1 = Mth.clamp(d1, blockpos.getZ(), (double)blockpos.getZ() + 1.0D);
-                }
+                    if (blockpos1.getZ() != blockpos.getZ()) {
+                        d1 = Mth.clamp(d1, blockpos.getZ(), (double) blockpos.getZ() + 1.0D);
+                    }
 
-                for (int i = 0; i < 10; i++) {
-                    this.level().addParticle(new BlockParticleOption(ParticleTypes.BLOCK, blockstate).setPos(blockpos), d0, this.getY() + 0.1D, d1, vec3.x * -4.0D, 1.5D, vec3.z * -4.0D);
+                    for (int i = 0; i < 10; i++) {
+                        this.level().addParticle(new BlockParticleOption(ParticleTypes.BLOCK, blockstate).setPos(blockpos), d0, this.getY() + 0.1D, d1, vec3.x * -4.0D, 1.5D, vec3.z * -4.0D);
+                    }
+                    SoundType soundtype = blockstate.getSoundType(this.level(), blockpos, this);
+                    this.playSound(soundtype.getStepSound(), soundtype.getVolume() * 0.15F, soundtype.getPitch());
                 }
-                SoundType soundtype = blockstate.getSoundType(this.level(), blockpos, this);
-                this.playSound(soundtype.getStepSound(), soundtype.getVolume() * 0.15F, soundtype.getPitch());
             }
+        }
     }
 
 
@@ -497,9 +501,7 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
     public void registerControllers(AnimatableManager.ControllerRegistrar registrar) {
         registrar.add(new AnimationController<>(this, "idle_anims", 3, this::predicate));
         registrar.add(new AnimationController<>(this, "other_anims", 3, this::hiding).setCustomInstructionKeyframeHandler(event -> {
-            if (event.getKeyframeData().getInstructions().equals("land")) {
-                this.landAnim();
-            }
+                this.landAnim(event.getKeyframeData());
         }));
     }
 
