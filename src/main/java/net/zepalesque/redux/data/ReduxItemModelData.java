@@ -84,6 +84,9 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         item(ReduxItems.OATMEAL, "food/");
         itemBlock(ReduxBlocks.COARSE_AETHER_DIRT);
 
+        itemBlock(ReduxBlocks.SHELL_SHINGLES);
+        itemBlock(ReduxBlocks.ENCHANTED_SHELL_SHINGLES);
+
         itemBlock(ReduxBlocks.BLIGHTWILLOW_LEAVES);
 
         this.itemBlockWithParent(ReduxBlocks.GOLDEN_LEAF_PILE.get(), (block) -> modLoc(BLOCK_FOLDER + "/" + this.blockName(block) + "1"));

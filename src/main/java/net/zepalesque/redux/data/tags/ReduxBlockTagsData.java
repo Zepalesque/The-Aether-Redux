@@ -158,7 +158,9 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.VERIDIUM_ORE.get(),
                 ReduxBlocks.RAW_VERIDIUM_BLOCK.get(),
                 ReduxBlocks.VERIDIUM_LANTERN.get(),
-                ReduxBlocks.VERIDIUM_CHAIN.get()
+                ReduxBlocks.VERIDIUM_CHAIN.get(),
+                ReduxBlocks.SHELL_SHINGLES.get(),
+                ReduxBlocks.ENCHANTED_SHELL_SHINGLES.get()
         );
         this.tag(BlockTags.NEEDS_STONE_TOOL).add(
                 ReduxBlocks.VERIDIUM_BLOCK.get(),

@@ -405,6 +405,14 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.RAW_VERIDIUM_BLOCK, "Block of Raw Veridium");
         addLore(ReduxBlocks.RAW_VERIDIUM_BLOCK, "A block of raw Veridium. This can be crafted from Raw Veridium.");
 
+
+        addBlock(ReduxBlocks.SHELL_SHINGLES, "Shell Shingles");
+        addLore(ReduxBlocks.SHELL_SHINGLES, "Some nice shingles made from the shed shell of the Mykapod. This blast-resistant block can be placed by dispensers and broken by pistons.");
+
+        addBlock(ReduxBlocks.ENCHANTED_SHELL_SHINGLES, "Enchanted Shell Shingles");
+        addLore(ReduxBlocks.ENCHANTED_SHELL_SHINGLES, "Shell Shingles that have been enchanted. These have been hardened back into the form of the Mykapod's inner shell, making them take longer to break.");
+
+
         addBiome(ReduxBiomes.CLOUDCAPS, "Cloudcaps");
         addBiome(ReduxBiomes.GLACIAL_TAIGA, "Frosted Forests");
         addBiome(ReduxBiomes.GILDED_GROVES, "Gilded Groves");

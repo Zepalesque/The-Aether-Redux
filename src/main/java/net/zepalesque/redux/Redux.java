@@ -9,8 +9,8 @@ import com.mojang.serialization.Codec;
 import net.minecraft.SharedConstants;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.core.Registry;
+import net.minecraft.core.*;
+import net.minecraft.core.dispenser.OptionalDispenseItemBehavior;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.metadata.PackMetadataGenerator;
@@ -23,6 +23,10 @@ import net.minecraft.server.packs.repository.Pack;
 import net.minecraft.server.packs.repository.PackSource;
 import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.flag.FeatureFlagSet;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.DirectionalPlaceContext;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.block.SoundType;
@@ -52,6 +56,7 @@ import net.zepalesque.redux.api.condition.ConditionSerializers;
 import net.zepalesque.redux.api.packconfig.PackConfigBootstrap;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.util.ReduxSoundTypes;
+import net.zepalesque.redux.block.util.dispenser.ShellShinglesDispenserBehavior;
 import net.zepalesque.redux.blockentity.ReduxBlockEntityTypes;
 import net.zepalesque.redux.builtin.BuiltinPackUtils;
 import net.zepalesque.redux.client.ReduxClient;
@@ -217,6 +222,8 @@ public class Redux
 
     private void registerDispenserBehaviors() {
         DispenserBlock.registerBehavior(ReduxItems.BLIGHTED_SPORES.get(), new DispenseUsableItemBehavior<>(ReduxRecipeTypes.SPORE_BLIGHTING.get()));
+        DispenserBlock.registerBehavior(ReduxBlocks.SHELL_SHINGLES.get(), new ShellShinglesDispenserBehavior());
+        DispenserBlock.registerBehavior(ReduxBlocks.ENCHANTED_SHELL_SHINGLES.get(), new ShellShinglesDispenserBehavior());
     }
 
     /**

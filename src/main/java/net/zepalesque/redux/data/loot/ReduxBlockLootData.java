@@ -59,6 +59,9 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         dropSelf(ReduxBlocks.DIVINITE_STAIRS.get());
         dropSelf(ReduxBlocks.DIVINITE_WALL.get());
 
+        dropSelf(ReduxBlocks.SHELL_SHINGLES.get());
+        dropSelf(ReduxBlocks.ENCHANTED_SHELL_SHINGLES.get());
+
         this.add(ReduxBlocks.AEVELIUM_SPROUTS.get(), this.shearsOr(Blocks.AIR));
         this.dropPottedContents(ReduxBlocks.POTTED_AEVELIUM_ROOTS.get());
         this.add(ReduxBlocks.AEVELIUM_ROOTS.get(), this.shearsOr(Blocks.AIR));

@@ -89,6 +89,13 @@ public class ReduxBlocks {
     public static final RegistryObject<FlowerPotBlock> POTTED_AEVELIUM_ROOTS = BLOCKS.register("potted_aevelium_roots", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, AEVELIUM_ROOTS, Block.Properties.copy(Blocks.FLOWER_POT)));
 
 
+    public static RegistryObject<Block> SHELL_SHINGLES = register("shell_shingles",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).strength(0.4F, 1200.0F).sound(SoundType.MUD_BRICKS).pushReaction(PushReaction.DESTROY)));
+
+    public static RegistryObject<Block> ENCHANTED_SHELL_SHINGLES = register("enchanted_shell_shingles",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).requiresCorrectToolForDrops().strength(2.0F, 1200.0F).sound(SoundType.MUD_BRICKS).pushReaction(PushReaction.DESTROY)));
+
+
     public static RegistryObject<Block> CLOUD_CAP_BLOCK = register("cloud_cap_block",
             () -> new HugeAetherMushroomBlock(BlockBehaviour.Properties.of().mapColor(MapColor.LAPIS).strength(0.5F).sound(SoundType.FUNGUS)));
 
