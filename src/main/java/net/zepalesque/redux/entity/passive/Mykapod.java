@@ -371,7 +371,6 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
         super.handleEntityEvent(id);
         if (id == 17 && this.level().isClientSide()) {
             this.anim = State.SHED;
-
         } else if (id == 16 && this.level().isClientSide()) {
             for(int i = 0; i < 7; ++i) {
                 double d0 = this.random.nextGaussian() * 0.02D;
@@ -526,19 +525,20 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
 
     private <T extends GeoAnimatable> PlayState hiding(AnimationState<T> state) {
 
-        if (this.anim == State.FEAR) {
+        State current = this.anim;
+        if (current == State.FEAR) {
             state.getController().setAnimation(RawAnimation.begin().then("animations.mykapod.scared", Animation.LoopType.PLAY_ONCE));
             this.anim = State.NONE;
-        } else if (this.anim == State.HIDE) {
+        } else if (current == State.HIDE) {
             state.getController().setAnimation(RawAnimation.begin().then("animations.mykapod.hide", Animation.LoopType.PLAY_ONCE));
             this.anim = State.NONE;
-        } else if (this.anim == State.SHED) {
+        } else if (current == State.SHED) {
             state.getController().setAnimation(RawAnimation.begin().then("animations.mykapod.shed", Animation.LoopType.PLAY_ONCE));
             this.anim = State.NONE;
-        } else if (this.anim == State.UNHIDE && state.getController().getAnimationState().equals(AnimationController.State.STOPPED)) {
+        } else if (current == State.UNHIDE && state.getController().getAnimationState().equals(AnimationController.State.STOPPED)) {
             state.getController().setAnimation(RawAnimation.begin().then("animations.mykapod.unhide", Animation.LoopType.PLAY_ONCE));
             this.anim = State.NONE;
-        } else if (this.anim == State.INTERRUPT && state.getController().getAnimationState().equals(AnimationController.State.STOPPED)) {
+        } else if (current == State.INTERRUPT && state.getController().getAnimationState().equals(AnimationController.State.STOPPED)) {
             state.getController().setAnimation(RawAnimation.begin().then("animations.mykapod.force_unhide", Animation.LoopType.PLAY_ONCE));
             this.anim = State.NONE;
         }
