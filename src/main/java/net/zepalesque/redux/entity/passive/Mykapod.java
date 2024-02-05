@@ -13,6 +13,8 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.util.StringRepresentable;
@@ -239,22 +241,16 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
         this.getEntityData().set(HURT_ANGLE, hurtAngle);
     }
 
-
-
-/*    protected SoundEvent getAmbientSound() {
-        return SoundEvents.COW_AMBIENT;
-    }
-
     protected SoundEvent getHurtSound(DamageSource damageSource) {
-        return SoundEvents.COW_HURT;
+        return this.isHiding() ? ReduxSoundEvents.MYKAPOD_HURT_HIDING.get() : ReduxSoundEvents.MYKAPOD_HURT.get();
     }
 
     protected SoundEvent getDeathSound() {
-        return SoundEvents.COW_DEATH;
+        return ReduxSoundEvents.MYKAPOD_DEATH.get();
     }
     protected void playStepSound(BlockPos pos, BlockState block) {
-        this.playSound(SoundEvents.COW_STEP, 0.15F, 1.0F);
-    }*/
+        this.playSound(ReduxSoundEvents.MYKAPOD_MOVE.get(), 0.15F, 1.0F);
+    }
 
 
 /**

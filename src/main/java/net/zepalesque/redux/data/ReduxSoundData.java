@@ -242,6 +242,44 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
                         .subtitle("subtitles.aether_redux.entity.mykapod_shell_break"));
 
 
+        this.add(ReduxSoundEvents.MYKAPOD_MOVE,
+                definition()
+                        .with(sound("block/honeyblock/slide1").volume(0.8))
+                        .with(sound("block/honeyblock/slide1").pitch(0.9).volume(0.8))
+                        .with(sound("block/honeyblock/slide2").volume(0.8))
+                        .with(sound("block/honeyblock/slide2").pitch(0.8).volume(0.8))
+                        .with(sound("block/honeyblock/slide3").volume(0.8))
+                        .with(sound("block/honeyblock/slide3").pitch(0.8).volume(0.8))
+                        .with(sound("block/honeyblock/slide4").volume(0.8))
+                        .with(sound("block/honeyblock/slide4").pitch(0.8).volume(0.8))
+                        .subtitle("subtitles.aether_redux.entity.mykapod_move"));
+
+
+        this.add(ReduxSoundEvents.MYKAPOD_HURT_HIDING,
+                definition()
+                        .with(sound("block/deepslate/step1"))
+                        .with(sound("block/deepslate/step2"))
+                        .with(sound("block/deepslate/step3"))
+                        .with(sound("block/deepslate/step4"))
+                        .with(sound("block/deepslate/step5"))
+                        .with(sound("block/deepslate/step6"))
+                        .subtitle("subtitles.aether_redux.entity.mykapod_hurt"));
+
+        this.add(ReduxSoundEvents.MYKAPOD_HURT,
+                definition()
+                        .with(sound(Redux.locate("entity/mykapod/hurt1")))
+                        .with(sound(Redux.locate("entity/mykapod/hurt2")))
+                        .with(sound(Redux.locate("entity/mykapod/hurt3")))
+                        .subtitle("subtitles.aether_redux.entity.mykapod_hurt"));
+
+        this.add(ReduxSoundEvents.MYKAPOD_DEATH,
+                definition()
+                        .with(sound(Redux.locate("entity/mykapod/hurt1")))
+                        .with(sound(Redux.locate("entity/mykapod/hurt2")))
+                        .with(sound(Redux.locate("entity/mykapod/hurt3")))
+                        .subtitle("subtitles.aether_redux.entity.mykapod_death"));
+
+
     }
 
 }
