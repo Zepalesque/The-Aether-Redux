@@ -16,7 +16,7 @@ import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.zepalesque.redux.block.util.ReduxStates;
+import net.zepalesque.redux.block.util.state.ReduxStates;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;

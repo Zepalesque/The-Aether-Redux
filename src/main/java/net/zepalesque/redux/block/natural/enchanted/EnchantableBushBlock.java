@@ -1,21 +1,17 @@
 package net.zepalesque.redux.block.natural.enchanted;
 
 import com.aetherteam.aether.block.AetherBlocks;
-import com.aetherteam.aether.block.natural.AetherBushBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.phys.Vec3;
-import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.zepalesque.redux.block.natural.CustomBoundsBushBlock;
-import net.zepalesque.redux.block.util.ReduxStates;
+import net.zepalesque.redux.block.util.state.ReduxStates;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

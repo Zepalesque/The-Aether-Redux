@@ -21,7 +21,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
-import net.zepalesque.redux.block.util.ReduxStates;
+import net.zepalesque.redux.block.util.state.ReduxStates;
 import net.zepalesque.redux.capability.living.VampireAmulet;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.data.resource.ReduxBiomes;

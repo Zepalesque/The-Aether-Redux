@@ -4,7 +4,7 @@ import com.aetherteam.aether.block.natural.AetherLogBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.zepalesque.redux.block.util.ReduxStates;
+import net.zepalesque.redux.block.util.state.ReduxStates;
 
 public class ReduxNaturalLog extends AetherLogBlock {
     public ReduxNaturalLog(Properties properties) {

@@ -1,9 +1,12 @@
-package net.zepalesque.redux.block.util;
+package net.zepalesque.redux.block.util.state;
 
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.zepalesque.redux.block.natural.ExtendedDistanceLeavesBlock;
+import net.zepalesque.redux.block.util.state.enums.GrassBlockTint;
+import net.zepalesque.redux.block.util.state.enums.GrassSize;
+import net.zepalesque.redux.block.util.state.enums.PetalPrismaticness;
 
 public class ReduxStates {
     public static final BooleanProperty SNOWY_TEXTURE = BooleanProperty.create("snowy_texture");

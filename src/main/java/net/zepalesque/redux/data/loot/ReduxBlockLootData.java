@@ -32,10 +32,9 @@ import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.ReduxBlocks;
-import net.zepalesque.redux.block.construction.FlowerGarlandBlock;
 import net.zepalesque.redux.block.natural.SproutsCropBlock;
-import net.zepalesque.redux.block.util.PetalPrismaticness;
-import net.zepalesque.redux.block.util.ReduxStates;
+import net.zepalesque.redux.block.util.state.enums.PetalPrismaticness;
+import net.zepalesque.redux.block.util.state.ReduxStates;
 import net.zepalesque.redux.item.ReduxItems;
 
 import java.util.List;
@@ -237,20 +236,6 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
 
     protected LootTable.Builder createMultifaceBlockDrops(Block block) {
         return LootTable.lootTable().withPool(LootPool.lootPool().add(this.applyExplosionDecay(block, LootItem.lootTableItem(block).apply(Direction.values(), (p_251536_) -> SetItemCountFunction.setCount(ConstantValue.exactly(1.0F), true).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MultifaceBlock.getFaceProperty(p_251536_), true)))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(-1.0F), true)))));
-    }
-
-    protected LootTable.Builder flowerGarland(Block block) {
-        return LootTable.lootTable().withPool(LootPool.lootPool()
-                .add(this.applyExplosionDecay(block, LootItem.lootTableItem(block)
-                        .apply(Direction.Plane.HORIZONTAL,
-                                (p_251536_)
-                                        -> SetItemCountFunction.setCount(ConstantValue.exactly(1.0F), true)
-                                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(FlowerGarlandBlock.getTopProperty(p_251536_), true))))
-                        .apply(Direction.Plane.HORIZONTAL,
-                                (p_251536_)
-                                        -> SetItemCountFunction.setCount(ConstantValue.exactly(1.0F), true)
-                                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(FlowerGarlandBlock.getBottomProperty(p_251536_), true))))
-                        .apply(SetItemCountFunction.setCount(ConstantValue.exactly(-1.0F), true)))));
     }
 
 

@@ -16,7 +16,7 @@ import net.minecraft.world.level.levelgen.XoroshiroRandomSource;
 import net.minecraft.world.level.levelgen.synth.PerlinNoise;
 import net.minecraft.world.level.material.MapColor;
 import net.zepalesque.redux.block.natural.ExtendedDistanceLeavesBlock;
-import net.zepalesque.redux.block.util.ReduxStates;
+import net.zepalesque.redux.block.util.state.ReduxStates;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 
 import java.util.function.BiFunction;

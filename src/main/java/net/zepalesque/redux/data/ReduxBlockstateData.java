@@ -17,13 +17,12 @@ import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.ReduxBlocks;
-import net.zepalesque.redux.block.construction.FlowerGarlandBlock;
 import net.zepalesque.redux.block.natural.SproutsCropBlock;
 import net.zepalesque.redux.block.natural.AetherShortGrassBlock;
 import net.zepalesque.redux.block.natural.ExtendedDistanceLeavesBlock;
 import net.zepalesque.redux.block.natural.LeafPileBlock;
-import net.zepalesque.redux.block.util.PetalPrismaticness;
-import net.zepalesque.redux.block.util.ReduxStates;
+import net.zepalesque.redux.block.util.state.enums.PetalPrismaticness;
+import net.zepalesque.redux.block.util.state.ReduxStates;
 
 import java.util.Map;
 import java.util.function.Supplier;
@@ -378,30 +377,6 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
             builder.part().modelFile(flowerbed2).rotationY(d.getOpposite().get2DDataValue() * 90).addModel().condition(PinkPetalsBlock.AMOUNT, 2, 3, 4).condition(PinkPetalsBlock.FACING, d).end();
             builder.part().modelFile(flowerbed3).rotationY(d.getOpposite().get2DDataValue() * 90).addModel().condition(PinkPetalsBlock.AMOUNT, 3, 4).condition(PinkPetalsBlock.FACING, d).end();
             builder.part().modelFile(flowerbed4).rotationY(d.getOpposite().get2DDataValue() * 90).addModel().condition(PinkPetalsBlock.AMOUNT, 4).condition(PinkPetalsBlock.FACING, d).end();
-        }
-
-
-    }
-
-    public void flowerGarland(Block block, String loc)
-    {
-        ModelFile upper = this.models().withExistingParent(this.name(block) + "_upper", Redux.locate("block/single_face_extrude_upper"))
-                .texture("texture", this.texture(this.name(block), loc))
-                .renderType("cutout");
-        ModelFile lower = this.models().withExistingParent(this.name(block) + "_lower", Redux.locate("block/single_face_extrude_lower"))
-                .texture("texture", this.texture(this.name(block), loc))
-                .renderType("cutout");
-        ModelFile both = this.models().withExistingParent(this.name(block), Redux.locate("block/single_face_extrude"))
-                .texture("texture", this.texture(this.name(block), loc))
-                .renderType("cutout");
-
-        MultiPartBlockStateBuilder builder = this.getMultipartBuilder(block);
-        for (Direction d : new Direction[] {Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST})
-        {
-            builder.part().modelFile(lower).rotationY(d.getOpposite().get2DDataValue() * 90).addModel().condition(FlowerGarlandBlock.getBottomProperty(d), true).condition(FlowerGarlandBlock.getTopProperty(d), false).end();
-            builder.part().modelFile(upper).rotationY(d.getOpposite().get2DDataValue() * 90).addModel().condition(FlowerGarlandBlock.getBottomProperty(d), false).condition(FlowerGarlandBlock.getTopProperty(d), true).end();
-            builder.part().modelFile(both).rotationY(d.getOpposite().get2DDataValue() * 90).addModel().condition(FlowerGarlandBlock.getBottomProperty(d), true).condition(FlowerGarlandBlock.getTopProperty(d), true).end();
-
         }
 
 

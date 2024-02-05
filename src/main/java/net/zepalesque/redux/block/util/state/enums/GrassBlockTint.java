@@ -1,4 +1,4 @@
-package net.zepalesque.redux.block.util;
+package net.zepalesque.redux.block.util.state.enums;
 
 import net.minecraft.util.StringRepresentable;
 
