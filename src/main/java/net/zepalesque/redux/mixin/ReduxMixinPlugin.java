@@ -19,6 +19,7 @@ public final class ReduxMixinPlugin implements IMixinConfigPlugin {
             .put("net.zepalesque.redux.mixin.client.render.BattleSentryRendererMixin", () -> LoadingModList.get().getModFileById("aether_genesis") != null)
             .put("net.zepalesque.redux.mixin.client.render.layer.BattleSentryLayerMixin", () -> LoadingModList.get().getModFileById("aether_genesis") != null)
             .put("net.zepalesque.redux.mixin.client.render.SkyrootMimicRendererMixin", () -> LoadingModList.get().getModFileById("aether_genesis") != null)
+            .put("net.zepalesque.redux.mixin.common.block.AetherGrassBlockMixin", () -> LoadingModList.get().getModFileById("ancient_aether") == null)
             .build();
 
     @Override
