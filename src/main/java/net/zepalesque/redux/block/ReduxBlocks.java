@@ -135,6 +135,8 @@ public class ReduxBlocks {
     public static final RegistryObject<Block> IRIDIA = register("iridia", () -> new FlowerBlock(() -> MobEffects.HEAL, 4, Block.Properties.copy(Blocks.DANDELION).mapColor(MapColor.QUARTZ)));
     public static final RegistryObject<FlowerPotBlock> POTTED_IRIDIA = BLOCKS.register("potted_iridia", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IRIDIA, Block.Properties.copy(Blocks.FLOWER_POT)));
 
+    public static RegistryObject<Block> XAELIA_FLOWERS = register("xaelia_flowers",
+            () -> new FlowerBlock(() -> MobEffects.DIG_SPEED, 60, BlockBehaviour.Properties.copy(Blocks.DANDELION).hasPostProcess(ReduxBlocks::always).mapColor(MapColor.COLOR_LIGHT_GRAY)));
     public static final RegistryObject<Block> SPIROLYCTIL = register("spirolyctil", () -> new FlowerBlock(() -> MobEffects.LEVITATION, 4, Block.Properties.copy(Blocks.DANDELION).mapColor(MapColor.DIAMOND)));
     public static final RegistryObject<FlowerPotBlock> POTTED_SPIROLYCTIL = BLOCKS.register("potted_spirolyctil", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SPIROLYCTIL, Block.Properties.copy(Blocks.FLOWER_POT)));
     public static RegistryObject<Block> GOLDEN_CLOVER = register("golden_clover",
