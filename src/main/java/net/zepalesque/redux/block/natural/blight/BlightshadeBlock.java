@@ -8,17 +8,17 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
-import net.zepalesque.redux.block.natural.BushShapedFlowerBlock;
+import net.zepalesque.redux.block.natural.CustomBoundsFlowerBlock;
+import net.zepalesque.redux.block.util.CommonPlantBounds;
 import net.zepalesque.redux.capability.player.ReduxPlayer;
-import net.zepalesque.redux.effect.ReduxEffects;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.misc.ReduxTags;
 
 import java.util.function.Supplier;
 
-public class BlightshadeBlock extends BushShapedFlowerBlock {
+public class BlightshadeBlock extends CustomBoundsFlowerBlock {
     public BlightshadeBlock(Supplier<MobEffect> effectSupplier, int pEffectDuration, Properties pProperties) {
-        super(effectSupplier, pEffectDuration, pProperties);
+        super(CommonPlantBounds.BUSH, effectSupplier, pEffectDuration, pProperties);
     }
 
     @Override

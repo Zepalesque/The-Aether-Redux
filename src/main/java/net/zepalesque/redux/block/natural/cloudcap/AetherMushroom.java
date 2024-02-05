@@ -17,23 +17,17 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.zepalesque.redux.block.natural.CustomBoundsBushBlock;
 
 import java.util.Optional;
 
-public class AetherMushroom extends AetherBushBlock implements BonemealableBlock {
+public class AetherMushroom extends CustomBoundsBushBlock implements BonemealableBlock {
 
     private final ResourceKey<ConfiguredFeature<?, ?>> feature;
 
-    protected final VoxelShape shape;
-    public AetherMushroom(BlockBehaviour.Properties pProperties, ResourceKey<ConfiguredFeature<?, ?>> pFeature, VoxelShape shape) {
-        super(pProperties);
+    public AetherMushroom(VoxelShape shape, BlockBehaviour.Properties pProperties, ResourceKey<ConfiguredFeature<?, ?>> pFeature) {
+        super(shape, pProperties);
         this.feature = pFeature;
-        this.shape = shape;
-    }
-
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        Vec3 vec3 = pState.getOffset(pLevel, pPos);
-        return shape.move(vec3.x, vec3.y, vec3.z);
     }
 
     public boolean growMushroom(ServerLevel pLevel, BlockPos pPos, BlockState pState, RandomSource pRandom) {

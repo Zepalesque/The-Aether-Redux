@@ -11,15 +11,17 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.phys.shapes.VoxelShape;
+import net.zepalesque.redux.block.natural.CustomBoundsFlowerBlock;
 import net.zepalesque.redux.block.util.ReduxStates;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Supplier;
 
-public class EnchantableFlowerBlock extends FlowerBlock {
-    public EnchantableFlowerBlock(Supplier<MobEffect> effectSupplier, int pEffectDuration, Properties pProperties) {
-        super(effectSupplier, pEffectDuration, pProperties);
+public class EnchantableFlowerBlock extends CustomBoundsFlowerBlock {
+    public EnchantableFlowerBlock(VoxelShape shape, Supplier<MobEffect> effectSupplier, int pEffectDuration, Properties pProperties) {
+        super(shape, effectSupplier, pEffectDuration, pProperties);
         this.registerDefaultState(this.defaultBlockState().setValue(ReduxStates.ENCHANTED, false));
     }
     @Override
