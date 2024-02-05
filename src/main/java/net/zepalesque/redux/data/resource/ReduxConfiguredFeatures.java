@@ -111,6 +111,7 @@ public class    ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> HIGHFIELDS_TREES = createKey(Folders.TREE + "highfields_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SHRUBLANDS_TREES = createKey(Folders.TREE + "shrublands_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> IRIDIA_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.IRIDIA) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> XAELIA_PATCH  = createKey(Folders.PATCH + "xaelia_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_CLOUDCAP  = createKey(Folders.TREE + "large_cloudcap");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LIGHTROOTS  = createKey(Folders.MISC + "lightroots");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLACIA_TREE = createKey(Folders.TREE + "glacia_tree");
@@ -448,7 +449,10 @@ public class    ReduxConfiguredFeatures {
                 blockBelowPlacementPatch(32, 7, 3, prov(ReduxBlocks.GLIMMERSTOOL), BlockPredicate.matchesTag(ReduxTags.Blocks.AEVELIUM_GRASSES)));
 
         register(context, IRIDIA_PATCH, Feature.FLOWER,
-                randomPatch(4, 3, 3, BlockStateProvider.simple(drops(ReduxBlocks.IRIDIA))));
+                randomPatch(24, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.IRIDIA))));
+        register(context, XAELIA_PATCH, Feature.FLOWER,
+                randomPatch(32, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.XAELIA_FLOWERS))));
+
         register(context, LARGE_CLOUDCAP, ReduxFeatures.CLOUDCAP.get(),
                 new CloudcapFeature.CloudcapConfig(
                         prov(ReduxBlocks.CLOUD_CAP_BLOCK.get().defaultBlockState().setValue(BlockStateProperties.DOWN, false)),

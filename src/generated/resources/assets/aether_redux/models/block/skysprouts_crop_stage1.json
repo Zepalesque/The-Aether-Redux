@@ -1,5 +1,5 @@
 {
-  "parent": "aether_redux:block/template_crop_plant",
+  "parent": "aether_redux:block/crop_lowered",
   "render_type": "minecraft:cutout",
   "textures": {
     "plant": "aether_redux:block/crop/skysprouts/skysprouts_crop_stage1"

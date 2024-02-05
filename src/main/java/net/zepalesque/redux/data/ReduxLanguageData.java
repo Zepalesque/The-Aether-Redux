@@ -265,6 +265,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.POTTED_IRIDIA, "Potted Iridia");
         addLore(ReduxBlocks.IRIDIA, "An iridescent flower found in the Highfields.");
 
+        addBlock(ReduxBlocks.XAELIA_FLOWERS, "Xaelia Flowers");
+        addLore(ReduxBlocks.XAELIA_FLOWERS, "Some chromatic flowers found in the Highfields.");
+
         addBlock(ReduxBlocks.GILDED_HOLYSTONE, "Gilded Holystone");
         addLore(ReduxBlocks.GILDED_HOLYSTONE, "The enchanted form of Mossy Holystone. This rock covered in golden moss glitters in the sunlight.");
         addBlock(ReduxBlocks.GILDED_HOLYSTONE_SLAB, "Gilded Holystone Slab");

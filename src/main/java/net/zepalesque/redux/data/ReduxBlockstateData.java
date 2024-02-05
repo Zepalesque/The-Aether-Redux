@@ -53,6 +53,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.potAlt(ReduxBlocks.POTTED_AEVELIUM_ROOTS.get(), ReduxBlocks.AEVELIUM_ROOTS.get(), "natural/");
 
         this.crossTintedOverlay(ReduxBlocks.IRIDIA.get(), "natural/");
+        this.crossTintedOverlay(ReduxBlocks.XAELIA_FLOWERS.get(), "natural/");
         this.tintableShortGrass(ReduxBlocks.AETHER_SHORT_GRASS.get(), "natural/");
         this.tintedPotOverlay(ReduxBlocks.POTTED_IRIDIA.get(), ReduxBlocks.IRIDIA.get(), "natural/");
         block(ReduxBlocks.GILDED_HOLYSTONE.get(), "natural/");

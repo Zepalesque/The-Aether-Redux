@@ -117,6 +117,24 @@
     ],
     "subtitle": "subtitles.aether_redux.entity.glimmercow_ambient"
   },
+  "entity.glimmercow.crazy_ambient": {
+    "sounds": [
+      "aether_redux:entity/glimmercow/vwakazoom"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.crazy_cow_ambient"
+  },
+  "entity.glimmercow.crazy_death": {
+    "sounds": [
+      "aether_redux:entity/glimmercow/y_do_u_do_dis"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.crazy_cow_death"
+  },
+  "entity.glimmercow.crazy_hurt": {
+    "sounds": [
+      "aether_redux:entity/glimmercow/noo"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.crazy_cow_hurt"
+  },
   "entity.glimmercow.death": {
     "sounds": [
       "aether_redux:entity/glimmercow/hurt"
@@ -134,6 +152,74 @@
       "aether_redux:entity/mimic/mimic_slam"
     ],
     "subtitle": "subtitles.aether_redux.entity.mimic_slam"
+  },
+  "entity.mykapod.death": {
+    "sounds": [
+      "aether_redux:entity/mykapod/hurt1",
+      "aether_redux:entity/mykapod/hurt2",
+      "aether_redux:entity/mykapod/hurt3"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.mykapod_death"
+  },
+  "entity.mykapod.hurt": {
+    "sounds": [
+      "aether_redux:entity/mykapod/hurt1",
+      "aether_redux:entity/mykapod/hurt2",
+      "aether_redux:entity/mykapod/hurt3"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.mykapod_hurt"
+  },
+  "entity.mykapod.hurt_hiding": {
+    "sounds": [
+      "block/deepslate/step1",
+      "block/deepslate/step2",
+      "block/deepslate/step3",
+      "block/deepslate/step4",
+      "block/deepslate/step5",
+      "block/deepslate/step6"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.mykapod_hurt"
+  },
+  "entity.mykapod.move": {
+    "sounds": [
+      {
+        "name": "block/honeyblock/slide1",
+        "volume": 0.8
+      },
+      {
+        "name": "block/honeyblock/slide1",
+        "pitch": 0.9,
+        "volume": 0.8
+      },
+      {
+        "name": "block/honeyblock/slide2",
+        "volume": 0.8
+      },
+      {
+        "name": "block/honeyblock/slide2",
+        "pitch": 0.8,
+        "volume": 0.8
+      },
+      {
+        "name": "block/honeyblock/slide3",
+        "volume": 0.8
+      },
+      {
+        "name": "block/honeyblock/slide3",
+        "pitch": 0.8,
+        "volume": 0.8
+      },
+      {
+        "name": "block/honeyblock/slide4",
+        "volume": 0.8
+      },
+      {
+        "name": "block/honeyblock/slide4",
+        "pitch": 0.8,
+        "volume": 0.8
+      }
+    ],
+    "subtitle": "subtitles.aether_redux.entity.mykapod_move"
   },
   "entity.mykapod.shell_break": {
     "sounds": [
@@ -174,24 +260,6 @@
       "mob/slime/big4"
     ],
     "subtitle": "subtitles.aether.entity.sentry.jump"
-  },
-  "entity.shimmercow.crazy_ambient": {
-    "sounds": [
-      "aether_redux:entity/glimmercow/vwakazoom"
-    ],
-    "subtitle": "subtitles.aether_redux.entity.crazy_cow_ambient"
-  },
-  "entity.shimmercow.crazy_death": {
-    "sounds": [
-      "aether_redux:entity/glimmercow/y_do_u_do_dis"
-    ],
-    "subtitle": "subtitles.aether_redux.entity.crazy_cow_death"
-  },
-  "entity.shimmercow.crazy_hurt": {
-    "sounds": [
-      "aether_redux:entity/glimmercow/noo"
-    ],
-    "subtitle": "subtitles.aether_redux.entity.crazy_cow_hurt"
   },
   "generic.boost_jump": {
     "sounds": [
