@@ -122,12 +122,12 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.pottedStem(ReduxBlocks.POTTED_ZANBERRY_SHRUB.get(), "natural/");
         this.pottedBush(ReduxBlocks.POTTED_ZANBERRY_SHRUB.get(), ReduxBlocks.ZANBERRY_SHRUB.get(), "natural/");
 
-        this.cubeAll(ReduxBlocks.SHELL_SHINGLES.get(), "construction/");
+        this.block(ReduxBlocks.SHELL_SHINGLES.get(), "construction/");
         this.slab(ReduxBlocks.SHELL_SHINGLE_SLAB.get(), ReduxBlocks.SHELL_SHINGLES.get(), "construction/");
         this.stairs(ReduxBlocks.SHELL_SHINGLE_STAIRS.get(), ReduxBlocks.SHELL_SHINGLES.get(), "construction/");
         this.wallBlock(ReduxBlocks.SHELL_SHINGLE_WALL.get(), ReduxBlocks.SHELL_SHINGLES.get(), "construction/");
 
-        this.cubeAll(ReduxBlocks.ENCHANTED_SHELL_SHINGLES.get(), "construction/");
+        this.block(ReduxBlocks.ENCHANTED_SHELL_SHINGLES.get(), "construction/");
         this.slab(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_SLAB.get(), ReduxBlocks.ENCHANTED_SHELL_SHINGLES.get(), "construction/");
         this.stairs(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_STAIRS.get(), ReduxBlocks.ENCHANTED_SHELL_SHINGLES.get(), "construction/");
         this.wallBlock(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_WALL.get(), ReduxBlocks.ENCHANTED_SHELL_SHINGLES.get(), "construction/");
