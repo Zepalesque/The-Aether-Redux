@@ -20,13 +20,15 @@ public class HolysiltBlock extends AetherDoubleDropBlock implements Fallable {
     @Override
     public void stepOn(Level pLevel, BlockPos pPos, BlockState pState, Entity pEntity) {
         super.stepOn(pLevel, pPos, pState, pEntity);
-        if (pEntity.xOld != pEntity.getX() || pEntity.zOld != pEntity.getZ()) {
-            double d0 = Math.abs(pEntity.getX() - pEntity.xOld);
-            double d1 = Math.abs(pEntity.getZ() - pEntity.zOld);
-            if (d0 >= (double) 0.003F || d1 >= (double) 0.003F) {
-                if (!pEntity.isShiftKeyDown() && isFree(pLevel.getBlockState(pPos.below())) && pPos.getY() >= pLevel.getMinBuildHeight()) {
-                    FallingBlockEntity fallingblockentity = FallingBlockEntity.fall(pLevel, pPos, pState);
-                    this.falling(fallingblockentity);
+        if (!pLevel.isClientSide()) {
+            if (pEntity.xOld != pEntity.getX() || pEntity.zOld != pEntity.getZ()) {
+                double d0 = Math.abs(pEntity.getX() - pEntity.xOld);
+                double d1 = Math.abs(pEntity.getZ() - pEntity.zOld);
+                if (d0 >= (double) 0.003F || d1 >= (double) 0.003F) {
+                    if (!pEntity.isShiftKeyDown() && isFree(pLevel.getBlockState(pPos.below())) && pPos.getY() >= pLevel.getMinBuildHeight()) {
+                        FallingBlockEntity fallingblockentity = FallingBlockEntity.fall(pLevel, pPos, pState);
+                        this.falling(fallingblockentity);
+                    }
                 }
             }
         }
