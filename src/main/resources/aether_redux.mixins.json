@@ -8,6 +8,7 @@
   "mixins": [
     "client.render.SkyrootMimicRendererMixin",
     "common.block.AetherGrassBlockMixin",
+    "common.block.BlockBehaviorMixin",
     "common.block.BlockPropertiesAccessor",
     "common.block.DoubleBlockMixin",
     "common.block.EnchantedAetherGrassBlockMixin",
@@ -16,6 +17,7 @@
     "common.block.IForgeBlockQuicksoilBehaviorMixin",
     "common.block.ParticleLeavesAccessor",
     "common.block.ParticleLeavesMixin",
+    "common.block.QuicksoilBlockMixin",
     "common.block.ReduxWallBlockAccessor",
     "common.entity.ArrowMixin",
     "common.entity.MimicMixin",
