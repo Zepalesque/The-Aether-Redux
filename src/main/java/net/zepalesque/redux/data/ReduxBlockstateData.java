@@ -769,7 +769,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
     public void cropGrowable(Block block, String location, IntegerProperty ageProperty) {
         this.getVariantBuilder(block).forAllStates((state) -> {
             int stage = state.getValue(ageProperty);
-            BlockModelBuilder cross = models().withExistingParent(this.name(block) + "_stage" + stage, Redux.locate(BLOCK_FOLDER + "/template_crop_plant"))
+            BlockModelBuilder cross = models().withExistingParent(this.name(block) + "_stage" + stage, Redux.locate(BLOCK_FOLDER + "/crop_lowered"))
                     .texture("plant", this.texture(this.name(block) + "_stage" + stage, location)).renderType("cutout");
             return ConfiguredModel.builder().modelFile(cross).build();
         });

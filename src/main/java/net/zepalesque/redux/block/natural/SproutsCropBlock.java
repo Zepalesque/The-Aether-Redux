@@ -29,8 +29,12 @@ public class SproutsCropBlock extends BushBlock implements BonemealableBlock {
    public static final int MAX_AGE = 4;
    public static final IntegerProperty AGE = BlockStateProperties.AGE_4;
 
-   // TODO: fix this
-   private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[]{Block.box(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 6.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 10.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 14.0D, 16.0D), Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D)};
+   private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[]{
+           Block.box(3.0D, -1.0D, 3.0D, 13.0D, 2.0D, 13.0D),
+           Block.box(3.0D, -1.0D, 3.0D, 13.0D, 4.0D, 13.0D),
+           Block.box(3.0D, -1.0D, 3.0D, 13.0D, 6.0D, 13.0D),
+           Block.box(3.0D, -1.0D, 3.0D, 13.0D, 9.0D, 13.0D),
+           Block.box(3.0D, -1.0D, 3.0D, 13.0D, 13.0D, 13.0D)};
 
    public SproutsCropBlock(BlockBehaviour.Properties properties) {
       super(properties);
@@ -101,7 +105,7 @@ public class SproutsCropBlock extends BushBlock implements BonemealableBlock {
    }
 
    protected int getBonemealAgeIncrease(Level level) {
-      return Mth.nextInt(level.random, 2, 5);
+      return Mth.nextInt(level.random, 1, 3);
    }
 
    protected static float getGrowthSpeed(Block block, BlockGetter level, BlockPos pos) {
