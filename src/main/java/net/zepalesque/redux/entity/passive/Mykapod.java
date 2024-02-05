@@ -242,7 +242,7 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
     }
 
     protected SoundEvent getHurtSound(DamageSource damageSource) {
-        return this.isHiding() ? ReduxSoundEvents.MYKAPOD_HURT_HIDING.get() : ReduxSoundEvents.MYKAPOD_HURT.get();
+        return ReduxSoundEvents.MYKAPOD_HURT.get();
     }
 
     protected SoundEvent getDeathSound() {
