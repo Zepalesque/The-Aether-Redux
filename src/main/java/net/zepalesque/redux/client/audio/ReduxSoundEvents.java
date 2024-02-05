@@ -20,13 +20,13 @@ public class ReduxSoundEvents {
     public static final RegistryObject<SoundEvent> MYKAPOD_SHELL_SHED = register("entity.mykapod.shell_shed");
     public static final RegistryObject<SoundEvent> MYKAPOD_SHELL_BREAK = register("entity.mykapod.shell_break");
     public static final RegistryObject<SoundEvent> MYKAPOD_MOVE = register("entity.mykapod.move");
-    public static final RegistryObject<SoundEvent> MYKAPOD_HURT_HIDING = register("entity.mykapod.hurt");
+    public static final RegistryObject<SoundEvent> MYKAPOD_HURT_HIDING = register("entity.mykapod.hurt_hiding");
     public static final RegistryObject<SoundEvent> MYKAPOD_HURT = register("entity.mykapod.hurt");
     public static final RegistryObject<SoundEvent> MYKAPOD_DEATH = register("entity.mykapod.death");
 
-    public static final RegistryObject<SoundEvent> CRAZY_COW_AMBIENT = register("entity.shimmercow.crazy_ambient");
-    public static final RegistryObject<SoundEvent> CRAZY_COW_HURT = register("entity.shimmercow.crazy_hurt");
-    public static final RegistryObject<SoundEvent> CRAZY_COW_DEATH = register("entity.shimmercow.crazy_death");
+    public static final RegistryObject<SoundEvent> CRAZY_COW_AMBIENT = register("entity.glimmercow.crazy_ambient");
+    public static final RegistryObject<SoundEvent> CRAZY_COW_HURT = register("entity.glimmercow.crazy_hurt");
+    public static final RegistryObject<SoundEvent> CRAZY_COW_DEATH = register("entity.glimmercow.crazy_death");
 
 
     public static final RegistryObject<SoundEvent> GLOWSTONE_BREAK = register("block.glowstone.break");
