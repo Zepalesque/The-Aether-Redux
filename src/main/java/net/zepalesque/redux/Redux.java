@@ -102,6 +102,7 @@ import net.zepalesque.redux.world.tree.root.ReduxRootPlacers;
 import net.zepalesque.redux.world.tree.trunk.ReduxTrunkPlacers;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
+import teamrazor.aeroblender.AeroBlenderConfig;
 import teamrazor.aeroblender.aether.AetherRuleCategory;
 import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
@@ -214,6 +215,7 @@ public class Redux
                         AetherConfig.CLIENT.green_sunset.set(true);
                         AetherConfig.CLIENT.colder_lightmap.set(true);
                         ReduxConfig.CLIENT.change_aether_configs.set(false);
+                        AeroBlenderConfig.COMMON.vanillaAetherRegionWeight.set(0);
                     }
                     ReduxClient.registerItemModelProperties();
                     ReduxPostProcessHandler.initAdrenalineShader();
