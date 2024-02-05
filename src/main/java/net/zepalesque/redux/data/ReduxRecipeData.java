@@ -104,7 +104,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
         swetBall(ReduxItems.VANILLA_SWET_BALL, ReduxItems.VANILLA_SWET_BALL).save(consumer, Redux.locate("vanilla_swet_ball"));
 
         enchantingRecipe(RecipeCategory.MISC, ReduxBlocks.GILDED_HOLYSTONE.get(), AetherBlocks.MOSSY_HOLYSTONE.get(), 0.0F, 100).save(consumer, Redux.locate("enchant_mossy_holystone"));
-        oneToOneConversionRecipe(consumer, Items.YELLOW_DYE, ReduxBlocks.SPIROLYCTIL.get(), null);
+        oneToOneConversionRecipe(consumer, Items.LIGHT_BLUE_DYE, ReduxBlocks.SPIROLYCTIL.get(), null);
         oneToOneConversionRecipe(consumer, Items.PURPLE_DYE, ReduxBlocks.BLIGHTSHADE.get(), null);
 
         oneToOneConversionRecipe(consumer, Items.YELLOW_DYE, ReduxBlocks.AURUM.get(), null);
@@ -116,8 +116,6 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
         oneToOneConversionRecipe(consumer, Items.PINK_DYE, ReduxBlocks.IRIDIA.get(), null);
 
         oneToOneConversionRecipe(consumer, Items.LIGHT_GRAY_DYE, ReduxBlocks.XAELIA_FLOWERS.get(), null);
-
-        // TODO all flower dye conversions
 
         ambrosiumEnchanting(ReduxBlocks.GILDED_HOLYSTONE.get(), AetherBlocks.MOSSY_HOLYSTONE.get()).save(consumer, name("ambrosium_enchant_mossy_holystone_to_gilded_holystone"));
         sporeBlighting(ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), AetherBlocks.MOSSY_HOLYSTONE.get()).save(consumer, name("spore_blight_mossy_holystone_to_blightmoss_holystone"));

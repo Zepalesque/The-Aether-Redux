@@ -105,7 +105,8 @@ public class ReduxClient {
                 ReduxBlocks.ZYATRIX.get(),
                 ReduxBlocks.POTTED_ZYATRIX.get(),
                 ReduxBlocks.SPIROLYCTIL.get(),
-                ReduxBlocks.POTTED_SPIROLYCTIL.get()
+                ReduxBlocks.POTTED_SPIROLYCTIL.get(),
+                ReduxBlocks.XAELIA_FLOWERS.get()
         );
 
     }
@@ -118,6 +119,7 @@ public class ReduxClient {
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.BLIGHT_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.LUXWEED.get());
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.WYNDSPROUTS.get());
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.HIGHFIELDS_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.SKYSPROUTS.get());
+        event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.HIGHFIELDS_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.XAELIA_FLOWERS.get());
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.GILDED_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.AURUM.get());
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.GILDED_GRASSLANDS_COLOR : 0xFFFFFF, ReduxBlocks.ZYATRIX.get());
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.HIGHFIELDS_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.IRIDIA.get());
@@ -131,29 +133,6 @@ public class ReduxClient {
 
     public static int getColor(BlockState state, @Nullable BlockAndTintGetter level, @Nullable BlockPos pos, int index, int indexGoal) {
         return index == indexGoal ? level != null && pos != null ? level.getBlockState(pos.below()).is(ReduxBlocks.BLIGHTMOSS_BLOCK.get()) ? ReduxBiomes.BLIGHT_GRASS_COLOR : BiomeColors.getAverageGrassColor(level, pos) : ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF;
-    }
-
-    private static class ReduxRenderTypes extends RenderType {
-        private static ShaderInstance radialBlurShader;
-
-        private static final ShaderStateShard RENDERTYPE_RADIAL_BLUR_SHADER = new ShaderStateShard(() -> radialBlurShader);
-
-        private ReduxRenderTypes(String s, VertexFormat v, VertexFormat.Mode m, int i, boolean b, boolean b2, Runnable r, Runnable r2) {
-            super(s, v, m, i, b, b2, r, r2);
-            throw new IllegalStateException("This class is not meant to be constructed!");
-        }
-
-        public static final Function<ResourceLocation, RenderType> RADIAL_BLUR = Util.memoize(texture -> {
-            RenderType.CompositeState renderState = RenderType.CompositeState.builder()
-                    .setShaderState(RENDERTYPE_RADIAL_BLUR_SHADER)
-                    .setTransparencyState(TRANSLUCENT_TRANSPARENCY)
-                    .setCullState(NO_CULL)
-                    .setDepthTestState(LEQUAL_DEPTH_TEST)
-                    .setLightmapState(NO_LIGHTMAP)
-                    .setOutputState(ITEM_ENTITY_TARGET)
-                    .createCompositeState(false);
-            return create("radial_blur", DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.QUADS, 256, true, true, renderState);
-        });
     }
 
 }

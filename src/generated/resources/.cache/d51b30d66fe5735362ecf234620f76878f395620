@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-04T18:04:53.1560401	Item Models: aether_redux
+// 1.20.1	2024-02-05T13:56:39.5471013	Item Models: aether_redux
 262070202f715ccbb93ebca7b4dd3b04851bc0ce assets/aether_redux/models/item/aether_short_grass.json
 ef6d226766d61d6460247665062a399d3613d946 assets/aether_redux/models/item/aevelium.json
 2f2dfa95433a548b2d41f817bd836c91e41fc4e9 assets/aether_redux/models/item/aevelium_roots.json
@@ -260,6 +260,7 @@ a10d36269b90a11c03ea84847453473095fbaeb0 assets/aether_redux/models/item/veridiu
 599bcfee1cc00ba1bb268ce17e64bc719d3f4269 assets/aether_redux/models/item/wyndsprouts.json
 96ab325892e2cd2be4ed35332ec32483e2a2e623 assets/aether_redux/models/item/wyndsprout_bagel.json
 d956bb58487c96a5cae4ff6ca773baeb504e3cc3 assets/aether_redux/models/item/wyndsprout_seeds.json
+6393ab683d66fddf161999f811f3bb3ea05a3795 assets/aether_redux/models/item/xaelia_flowers.json
 9f827a41b1b512474d1d6a2ce1b25e6efbcc4d75 assets/aether_redux/models/item/zanberry.json
 50ca60d8fc1bd373c9832f7e2ab05d1d6ff81d80 assets/aether_redux/models/item/zanberry_bush.json
 f8fb405b415a2f0c74ddcab880be64f17504d03b assets/aether_redux/models/item/zanberry_shrub.json

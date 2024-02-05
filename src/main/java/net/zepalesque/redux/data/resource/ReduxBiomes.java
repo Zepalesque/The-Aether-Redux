@@ -226,7 +226,7 @@ public class ReduxBiomes {
     public static final int CLOUDCAP_GRASS_COLOR = 0xDBFFE3;
 
 
-    public static final int CRYSTAL_GRASS = 0xBAF8FF;
+    public static final int CRYSTAL_GRASS = 0xBFE5FF;
 
 
 

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "aether_redux:block/natural/xaelia_flowers_overlay",
+    "layer1": "aether_redux:block/natural/xaelia_flowers"
+  }
+}

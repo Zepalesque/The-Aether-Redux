@@ -3,10 +3,10 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "aether_redux:spirolyctil"
+      "item": "aether_redux:xaelia_flowers"
     }
   ],
   "result": {
-    "item": "minecraft:yellow_dye"
+    "item": "minecraft:light_gray_dye"
   }
 }

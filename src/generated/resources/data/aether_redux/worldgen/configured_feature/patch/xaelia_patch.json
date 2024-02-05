@@ -8,7 +8,7 @@
           "to_place": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "aether_redux:iridia"
+              "Name": "aether_redux:xaelia_flowers"
             }
           }
         }
@@ -23,7 +23,7 @@
         }
       ]
     },
-    "tries": 24,
+    "tries": 32,
     "xz_spread": 7,
     "y_spread": 3
   }

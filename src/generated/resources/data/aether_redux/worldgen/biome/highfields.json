@@ -48,7 +48,8 @@
       "aether:white_flower_patch",
       "aether:purple_flower_patch",
       "aether_redux:patch/skysprouts_patch",
-      "aether_redux:patch/iridia_patch"
+      "aether_redux:patch/iridia_patch",
+      "aether_redux:patch/xaelia_patch"
     ],
     [
       "aether:cold_aercloud",

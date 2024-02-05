@@ -12,7 +12,7 @@
       "count": {
         "type": "minecraft:uniform",
         "value": {
-          "max_inclusive": 2,
+          "max_inclusive": 3,
           "min_inclusive": 0
         }
       },
@@ -21,7 +21,7 @@
     },
     {
       "type": "minecraft:rarity_filter",
-      "chance": 15
+      "chance": 7
     },
     {
       "type": "minecraft:biome"
