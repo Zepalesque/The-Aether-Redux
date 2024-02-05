@@ -30,6 +30,11 @@ public class ReduxBiomes {
     public static final ResourceKey<Biome> CLOUDCAPS = createKey("cloudcaps");
     public static final ResourceKey<Biome> SKYROOT_SHRUBLANDS = createKey("skyroot_shrublands");
 
+    // Temporary
+    public static final ResourceKey<Biome> SHIMMERING_HILLS = createKey("shimmering_hills");
+    public static final ResourceKey<Biome> QUICKSOIL_DUNES = createKey("quicksoil_dunes");
+    public static final ResourceKey<Biome> QUICKSOIL_OASIS = createKey("quicksoil_oasis");
+
     private static ResourceKey<Biome> createKey(String name) {
         return ResourceKey.create(Registries.BIOME, Redux.locate(name));
 
@@ -180,6 +185,35 @@ public class ReduxBiomes {
                 WATER_FOG,
                 SHRUBLANDS_GRASS_COLOR
         ));
+
+
+        context.register(SHIMMERING_HILLS, simpleBiome(
+                ores(baseFeatures(new BiomeGenerationSettings.Builder(placedFeatures, configuredCarvers), false, true, true, true, true))
+                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.GRASS_PATCH_PLACEMENT)
+                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.SHIMMERING_TREES)
+                , defaultMobSpawns(new MobSpawnSettings.Builder()),
+                ReduxMusic.DEFAULT_AETHER_MUSIC,
+                WATER,
+                WATER_FOG,
+                CRYSTAL_GRASS
+        ));
+
+        context.register(QUICKSOIL_DUNES, simpleBiome(
+                ores(baseFeatures(new BiomeGenerationSettings.Builder(placedFeatures, configuredCarvers), false, true, true, true, true)), defaultMobSpawns(new MobSpawnSettings.Builder()),
+                ReduxMusic.DEFAULT_AETHER_MUSIC,
+                WATER,
+                WATER_FOG,
+                AETHER_GRASS_COLOR
+        ));
+        context.register(QUICKSOIL_OASIS, simpleBiome(
+                ores(baseFeatures(new BiomeGenerationSettings.Builder(placedFeatures, configuredCarvers), false, true, true, true, true))
+                        .addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, ReduxPlacedFeatures.OASIS_LAKE),
+                defaultMobSpawns(new MobSpawnSettings.Builder()),
+                ReduxMusic.DEFAULT_AETHER_MUSIC,
+                WATER,
+                WATER_FOG,
+                AETHER_GRASS_COLOR
+        ));
     }
     public static final int AETHER_GRASS_COLOR = 0xB1FFCB;
     public static final int GILDED_GRASS_COLOR = 0xF8FFBF;
@@ -189,6 +223,9 @@ public class ReduxBiomes {
     public static final int HIGHFIELDS_GRASS_COLOR = 0xBFFFEC;
     public static final int SHRUBLANDS_GRASS_COLOR = 0xC1FFB1;
     public static final int CLOUDCAP_GRASS_COLOR = 0xDBFFE3;
+
+
+    public static final int CRYSTAL_GRASS = 0xBAF8FF;
 
 
 

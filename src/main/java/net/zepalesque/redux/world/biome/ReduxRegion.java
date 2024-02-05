@@ -25,7 +25,8 @@ public class ReduxRegion extends Region {
         this.addBiome(mapper, new Climate.ParameterPoint(range(-1.0, -0.8), fullRange, fullRange, fullRange, fullRange, fullRange, 0L), AetherBiomes.SKYROOT_MEADOW);
         if (ReduxConfig.COMMON.enable_snowy_biomes.get()) {
             this.addBiome(mapper, new Climate.ParameterPoint(range(-0.8D, -0.4D), range(-1.0D, -0.6D), fullRange, fullRange, fullRange, fullRange, 0L), ReduxBiomes.GLACIAL_TAIGA);
-            this.addBiome(mapper, new Climate.ParameterPoint(range(-0.4D, 0D), range(-0.6D, 0.0D), fullRange, fullRange, fullRange, fullRange, 0L), ReduxBiomes.FROSTED_TUNDRA);
+            this.addBiome(mapper, new Climate.ParameterPoint(range(-0.4D, -0.1D), range(-0.6D, 0.0D), fullRange, fullRange, fullRange, fullRange, 0L), ReduxBiomes.FROSTED_TUNDRA);
+            this.addBiome(mapper, new Climate.ParameterPoint(range(-0.2D, 0.3D), range(0.0D, 0.3D), fullRange, fullRange, fullRange, fullRange, 0L), ReduxBiomes.SHIMMERING_HILLS);
         } else {
             this.addBiome(mapper, new Climate.ParameterPoint(range(-0.8, 0.0), range(-1.0, 0.0), fullRange, fullRange, fullRange, fullRange, 0L), AetherBiomes.SKYROOT_MEADOW);
         }
@@ -54,7 +55,9 @@ public class ReduxRegion extends Region {
         }
         this.addBiome(mapper, new Climate.ParameterPoint(range(0.4, 0.93), range(-1.0, -0.1), fullRange, fullRange, fullRange, fullRange, 0L), AetherBiomes.SKYROOT_GROVE);
         if (ReduxConfig.COMMON.enable_highfields.get()) {
-            this.addBiome(mapper, new Climate.ParameterPoint(range(0.4D, 0.93D), range(-0.1D, 1.1D), fullRange, fullRange, fullRange, fullRange, 0L), ReduxBiomes.HIGHFIELDS);
+            this.addBiome(mapper, new Climate.ParameterPoint(range(0.1D, 0.5D), range(-0.1D, 1.1D), fullRange, fullRange, fullRange, fullRange, 0L), ReduxBiomes.HIGHFIELDS);
+            this.addBiome(mapper, new Climate.ParameterPoint(range(0.4D, 0.7D), range(-0.1D, -0.6D), fullRange, fullRange, fullRange, fullRange, 0L), ReduxBiomes.QUICKSOIL_OASIS);
+            this.addBiome(mapper, new Climate.ParameterPoint(range(0.65D, 1.0D), range(-0.6D, -1.0D), fullRange, fullRange, fullRange, fullRange, 0L), ReduxBiomes.QUICKSOIL_DUNES);
         } else {
             this.addBiome(mapper, new Climate.ParameterPoint(range(0.4, 0.93), range(-0.1, 1.1), fullRange, fullRange, fullRange, fullRange, 0L), AetherBiomes.SKYROOT_FOREST);
         }
