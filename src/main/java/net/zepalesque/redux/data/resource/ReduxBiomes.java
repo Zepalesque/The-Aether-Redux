@@ -3,6 +3,7 @@ package net.zepalesque.redux.data.resource;
 import com.aetherteam.aether.data.resources.AetherMobCategory;
 import com.aetherteam.aether.data.resources.registries.AetherPlacedFeatures;
 import com.aetherteam.aether.entity.AetherEntityTypes;
+import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
@@ -19,6 +20,9 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.audio.ReduxMusic;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
+import oshi.annotation.concurrent.Immutable;
+
+import java.util.Map;
 
 public class ReduxBiomes {
     public static final ResourceKey<Biome> THE_BLIGHT = createKey("the_blight");
@@ -37,8 +41,29 @@ public class ReduxBiomes {
 
     private static ResourceKey<Biome> createKey(String name) {
         return ResourceKey.create(Registries.BIOME, Redux.locate(name));
-
     }
+
+    public static final int AETHER_GRASS_COLOR = 0xB1FFCB;
+    public static final int GILDED_GRASS_COLOR = 0xF8FFBF;
+    public static final int GILDED_GRASSLANDS_COLOR = 0xF4FFBF;
+    public static final int BLIGHT_GRASS_COLOR = 0xD5BAFF;
+    public static final int FROSTED_GRASS_COLOR = 0xCCF7FF;
+    public static final int HIGHFIELDS_GRASS_COLOR = 0xBFFFEC;
+    public static final int SHRUBLANDS_GRASS_COLOR = 0xC1FFB1;
+    public static final int CLOUDCAP_GRASS_COLOR = 0xDBFFE3;
+
+
+    public static final ImmutableMap<ResourceKey<Biome>, Integer> DATAGEN_COLORS = new ImmutableMap.Builder<ResourceKey<Biome>, Integer>()
+            .put(THE_BLIGHT, BLIGHT_GRASS_COLOR)
+            .put(GLACIAL_TAIGA, FROSTED_GRASS_COLOR)
+            .put(FROSTED_TUNDRA, FROSTED_GRASS_COLOR)
+            .put(GILDED_GROVES, GILDED_GRASS_COLOR)
+            .put(GILDED_GRASSLANDS, GILDED_GRASSLANDS_COLOR)
+            .put(HIGHFIELDS, HIGHFIELDS_GRASS_COLOR)
+            .put(CLOUDCAPS, CLOUDCAP_GRASS_COLOR)
+            .put(SKYROOT_SHRUBLANDS, SHRUBLANDS_GRASS_COLOR)
+            .build();
+
 
     public static final int WATER = 5403045;
     public static final int WATER_FOG = 791347;
@@ -216,14 +241,6 @@ public class ReduxBiomes {
                 AETHER_GRASS_COLOR
         ));
     }
-    public static final int AETHER_GRASS_COLOR = 0xB1FFCB;
-    public static final int GILDED_GRASS_COLOR = 0xF8FFBF;
-    public static final int GILDED_GRASSLANDS_COLOR = 0xF4FFBF;
-    public static final int BLIGHT_GRASS_COLOR = 0xD5BAFF;
-    public static final int FROSTED_GRASS_COLOR = 0xCCF7FF;
-    public static final int HIGHFIELDS_GRASS_COLOR = 0xBFFFEC;
-    public static final int SHRUBLANDS_GRASS_COLOR = 0xC1FFB1;
-    public static final int CLOUDCAP_GRASS_COLOR = 0xDBFFE3;
 
 
     public static final int CRYSTAL_GRASS = 0xBFE5FF;

@@ -45,6 +45,6 @@ public record WaterColorReplacementBiomeModifier(HolderSet<Biome> biomes, WaterC
 
     @Override
     public Codec<? extends BiomeModifier> codec() {
-        return ReduxBiomeModifierSerializers.REPLACE_WATER_COLOR_CODEC.get();
+        return ReduxBiomeModifierSerializers.REPLACE_WATER_COLOR.get();
     }
 }

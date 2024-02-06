@@ -1,18 +1,11 @@
 package net.zepalesque.redux.world.biome.modifier;
 
 import com.mojang.serialization.Codec;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
-import com.mojang.serialization.codecs.SimpleMapCodec;
-import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.block.state.predicate.BlockPredicate;
 import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.common.world.ModifiableBiomeInfo;
-import net.zepalesque.redux.api.condition.ModLoadedCondition;
-
-import java.util.function.Predicate;
 
 public record WaterColorBiomeModifier(HolderSet<Biome> biomes,  int water, int fog) implements BiomeModifier {
     @Override
@@ -23,6 +16,6 @@ public record WaterColorBiomeModifier(HolderSet<Biome> biomes,  int water, int f
     }
     @Override
     public Codec<? extends BiomeModifier> codec() {
-        return ReduxBiomeModifierSerializers.WATER_COLOR_CODEC.get();
+        return ReduxBiomeModifierSerializers.WATER_COLOR.get();
     }
 }

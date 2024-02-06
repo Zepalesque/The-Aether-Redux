@@ -18,7 +18,9 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.condition.Conditions;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.misc.ReduxTags;
+import net.zepalesque.redux.world.biome.modifier.AetherGrassColorModifier;
 import net.zepalesque.redux.world.biome.modifier.CarverModifier;
+import net.zepalesque.redux.world.biome.modifier.GrassAndFoliageColorModifier;
 import net.zepalesque.redux.world.biome.modifier.WaterColorReplacementBiomeModifier;
 
 import java.util.List;
@@ -27,6 +29,7 @@ public class ReduxBiomeModifiers {
     public static String FEATURE = "feature/";
     public static String MOB = "mob/";
     public static String MODIFY = "modify/";
+    public static String GRASS_COLOR = "grass_colors/";
 
     public static final ResourceKey<BiomeModifier> ADD_AETHER_CAVES = createKey(FEATURE + "aether_caves");
     public static final ResourceKey<BiomeModifier> ADD_BLIGHTED_CAVES = createKey(FEATURE + "blighted_caves");
@@ -40,6 +43,7 @@ public class ReduxBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_DIVINITE = createKey(FEATURE + "divinite");
     public static final ResourceKey<BiomeModifier> ADD_SNOW = createKey(FEATURE + "snow");
     public static final ResourceKey<BiomeModifier> WATER_COLOR_AETHER = createKey(MODIFY + "water_color");
+    public static final ResourceKey<BiomeModifier> PLANT_COLORS_AETHER = createKey(MODIFY + "plant_colors_override");
 
     private static ResourceKey<BiomeModifier> createKey(String name) {
         return ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, Redux.locate(name));
@@ -90,7 +94,15 @@ public class ReduxBiomeModifiers {
                 biomes.getOrThrow(ReduxTags.Biomes.HAS_DIVINITE), HolderSet.direct(features.getOrThrow(ReduxPlacedFeatures.DIVINITE_ORE)),
                 GenerationStep.Decoration.UNDERGROUND_ORES));
 
-        context.register(WATER_COLOR_AETHER, new WaterColorReplacementBiomeModifier(biomes.getOrThrow(ReduxTags.Biomes.HAS_REDUX_WATER_COLOR), WaterColorReplacementBiomeModifier.WaterColorPredicate.of(4159204, 329011), 5403045, 791347, Conditions.WATER));
+        context.register(WATER_COLOR_AETHER, new WaterColorReplacementBiomeModifier(biomes.getOrThrow(ReduxTags.Biomes.HAS_REDUX_WATER_COLOR),
+                WaterColorReplacementBiomeModifier.WaterColorPredicate.of(4159204, 329011), 5403045, 791347, Conditions.WATER));
 
+        context.register(PLANT_COLORS_AETHER, new GrassAndFoliageColorModifier(biomes.getOrThrow(AetherTags.Biomes.IS_AETHER),
+                0x91BD59, 0x77AB2F));
+        
+        ReduxBiomes.DATAGEN_COLORS.forEach((key, color) -> {
+            context.register(createKey(GRASS_COLOR + key.location().getPath()),
+                    new AetherGrassColorModifier(HolderSet.direct(biomes.getOrThrow(key)), color));
+        });
     }
 }

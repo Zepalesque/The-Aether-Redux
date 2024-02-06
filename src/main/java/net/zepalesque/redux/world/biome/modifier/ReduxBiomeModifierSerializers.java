@@ -14,7 +14,7 @@ import net.zepalesque.redux.api.condition.AbstractCondition;
 public class ReduxBiomeModifierSerializers {
     public static final DeferredRegister<Codec<? extends BiomeModifier>> BIOME_MODIFIER_SERIALIZERS = DeferredRegister.create(ForgeRegistries.Keys.BIOME_MODIFIER_SERIALIZERS, Redux.MODID);
 
-    static RegistryObject<Codec<WaterColorBiomeModifier>> WATER_COLOR_CODEC = BIOME_MODIFIER_SERIALIZERS.register("water_color", () ->
+    static RegistryObject<Codec<WaterColorBiomeModifier>> WATER_COLOR = BIOME_MODIFIER_SERIALIZERS.register("water_color", () ->
             RecordCodecBuilder.create(builder -> builder.group(
                     Biome.LIST_CODEC.fieldOf("biomes").forGetter(WaterColorBiomeModifier::biomes),
                     Codec.INT.fieldOf("water_color").forGetter(WaterColorBiomeModifier::water),
@@ -22,7 +22,9 @@ public class ReduxBiomeModifierSerializers {
             ).apply(builder, WaterColorBiomeModifier::new)));
 
 
-    static RegistryObject<Codec<WaterColorReplacementBiomeModifier>> REPLACE_WATER_COLOR_CODEC = BIOME_MODIFIER_SERIALIZERS.register("water_color_replacement", () ->
+
+
+    static RegistryObject<Codec<WaterColorReplacementBiomeModifier>> REPLACE_WATER_COLOR = BIOME_MODIFIER_SERIALIZERS.register("water_color_replacement", () ->
             RecordCodecBuilder.create(builder -> builder.group(
                     Biome.LIST_CODEC.fieldOf("biomes").forGetter(WaterColorReplacementBiomeModifier::biomes),
                     WaterColorReplacementBiomeModifier.WaterColorPredicate.CODEC.fieldOf("predicate").forGetter(WaterColorReplacementBiomeModifier::predicate),
@@ -31,9 +33,27 @@ public class ReduxBiomeModifierSerializers {
                     AbstractCondition.CODEC.fieldOf("condition").forGetter(WaterColorReplacementBiomeModifier::condition)
             ).apply(builder, WaterColorReplacementBiomeModifier::new)));
 
-    static RegistryObject<Codec<CarverModifier>> CARVER_CODEC = BIOME_MODIFIER_SERIALIZERS.register("add_carver", () ->
+
+    static RegistryObject<Codec<GrassAndFoliageColorModifier>> GRASS_AND_FOLIAGE = BIOME_MODIFIER_SERIALIZERS.register("grass_and_foliage", () ->
+            RecordCodecBuilder.create(builder -> builder.group(
+                    Biome.LIST_CODEC.fieldOf("biomes").forGetter(GrassAndFoliageColorModifier::biomes),
+                    Codec.INT.fieldOf("grass_color").forGetter(GrassAndFoliageColorModifier::grass),
+                    Codec.INT.fieldOf("foliage_color").forGetter(GrassAndFoliageColorModifier::foliage)
+            ).apply(builder, GrassAndFoliageColorModifier::new)));
+
+
+
+
+    static RegistryObject<Codec<CarverModifier>> CARVER = BIOME_MODIFIER_SERIALIZERS.register("add_carver", () ->
             RecordCodecBuilder.create(builder -> builder.group(
                     Biome.LIST_CODEC.fieldOf("biomes").forGetter(CarverModifier::biomes),
                     ConfiguredWorldCarver.CODEC.fieldOf("carver").forGetter(CarverModifier::carver)
             ).apply(builder, CarverModifier::new)));
+
+    static RegistryObject<Codec<AetherGrassColorModifier>> AETHER_GRASS_COLOR = BIOME_MODIFIER_SERIALIZERS.register("aether_grass_color", () ->
+            RecordCodecBuilder.create(builder -> builder.group(
+                    Biome.LIST_CODEC.fieldOf("biomes").forGetter(AetherGrassColorModifier::biomes),
+                    Codec.INT.fieldOf("grass_color").forGetter(AetherGrassColorModifier::grass)
+            ).apply(builder, AetherGrassColorModifier::new)));
+
 }

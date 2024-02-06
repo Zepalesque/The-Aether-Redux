@@ -34,6 +34,7 @@ public class ReduxPacketHandler {
         register(InfuseItemPacket.class, InfuseItemPacket::decode);
         register(VampireAmuletSyncPacket.class, VampireAmuletSyncPacket::decode);
         register(LoreUnlockPacket.class, LoreUnlockPacket::decode);
+        register(SyncAetherGrassesPacket.class, SyncAetherGrassesPacket::decode);
     }
 
     private static int index;
