@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(AetherColorResolvers.class)
 public class AetherColorResolversMixin {
 
-    @Inject(at = @At("HEAD"), method = "registerBlockColor*", remap = false, cancellable = true)
+    @Inject(at = @At("HEAD"), method = "registerBlockColor", remap = false, cancellable = true)
     private static void stupidJavaBlackMagic(RegisterColorHandlersEvent.Block event, CallbackInfo ci) {
         ci.cancel();
     }
