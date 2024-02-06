@@ -24,6 +24,8 @@ import oshi.annotation.concurrent.Immutable;
 
 import java.util.Map;
 
+
+// TODO: Refactor biome datagen system, make it more modular and easy to use. Add *all* features, rather than building them seperately so that they can be tweaked easier
 public class ReduxBiomes {
     public static final ResourceKey<Biome> THE_BLIGHT = createKey("the_blight");
     public static final ResourceKey<Biome> GLACIAL_TAIGA = createKey("glacial_taiga");
