@@ -2,6 +2,7 @@
 package net.zepalesque.redux.network.packet;
 
 import com.aetherteam.nitrogen.network.BasePacket;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
@@ -33,8 +34,8 @@ public record SyncAetherGrassesPacket(Map<ResourceLocation, Integer> colors) imp
 
     public void execute(Player player) {
 
-        if (player != null && player.level().isClientSide()) {
-            Level level = player.level();
+        if (Minecraft.getInstance().player != null) {
+            Level level = Minecraft.getInstance().player.level();
             ReduxClient.AETHER_GRASS_COLORS.clear();
             this.colors.forEach((biomeLoc, color) -> {
                 Biome biome = level.registryAccess().registryOrThrow(ForgeRegistries.Keys.BIOMES).get(biomeLoc);
