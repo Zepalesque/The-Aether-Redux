@@ -15,5 +15,4 @@ public interface BlockHandler {
     void generateBlockstateData(ReduxBlockstateData data);
     void generateItemModels(ReduxItemModelData data);
     void generateLanguageData(ReduxLanguageData data);
-    void generateLoot(ReduxBlockLootData data);
 }
