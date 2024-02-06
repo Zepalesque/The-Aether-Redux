@@ -149,7 +149,7 @@ dependencies {
     implementation fg.deobf("curse.maven:terrablender-563928:${project.terrablender_version}")
     runtimeOnly fg.deobf("curse.maven:spark-361579:${project.spark_version}")
     runtimeOnly fg.deobf("curse.maven:suggestion-provider-fix-469647:${project.suggestion_provider_fix_version}")
-    implementation fg.deobf("curse.maven:ancient-aether-886751:5078007")
+    implementation fg.deobf("curse.maven:ancient-aether-886751:${project.ancient_aether_version}")
 }
 
 jar {
