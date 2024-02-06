@@ -10,19 +10,26 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.zepalesque.redux.Redux;
 
 import java.util.HashMap;
 import java.util.Map;
 
 
 // TODO: This feels incorrect, see if there's a better alternative??
+@Mod.EventBusSubscriber(
+        modid = Redux.MODID,
+        value = {Dist.CLIENT},
+        bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ReduxColorResolvers {
     private static Map<Block, BlockColor> reregisters = new HashMap<>();
-    
+
     @SubscribeEvent(priority = EventPriority.HIGH)
     static void preCache(RegisterColorHandlersEvent.Block event) {
         Map<Holder.Reference<Block>, BlockColor> blockColors = ((BlockColorsAccessor) event.getBlockColors()).aether$getBlockColors();
