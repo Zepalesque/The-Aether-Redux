@@ -22,7 +22,7 @@ import java.util.Map;
 // TODO: This feels incorrect, see if there's a better alternative??
 public class ReduxColorResolvers {
     private static Map<Block, BlockColor> reregisters = new HashMap<>();
-
+    
     @SubscribeEvent(priority = EventPriority.HIGH)
     static void preCache(RegisterColorHandlersEvent.Block event) {
         Map<Holder.Reference<Block>, BlockColor> blockColors = ((BlockColorsAccessor) event.getBlockColors()).aether$getBlockColors();
