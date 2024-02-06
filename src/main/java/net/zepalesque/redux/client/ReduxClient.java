@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.client.event.RegisterEntitySpectatorShadersEvent;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.zepalesque.redux.Redux;
@@ -143,4 +144,7 @@ public class ReduxClient {
         return level.getBlockTint(blockPos, colorResolver);
     }
 
+    public static void resolvers(RegisterColorHandlersEvent.ColorResolvers event) {
+        event.register(AETHER_GRASS_RESOLVER);
+    }
 }
