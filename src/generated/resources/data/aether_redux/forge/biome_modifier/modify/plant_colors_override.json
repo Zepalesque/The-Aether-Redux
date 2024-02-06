@@ -1,6 +1,10 @@
 {
-  "type": "aether_redux:grass_and_foliage",
+  "type": "aether_redux:plant_color_replacement",
   "biomes": "#aether:is_aether",
   "foliage_color": 7842607,
-  "grass_color": 9551193
+  "grass_color": 9551193,
+  "predicate": {
+    "foliage": 11665355,
+    "grass": 11665355
+  }
 }

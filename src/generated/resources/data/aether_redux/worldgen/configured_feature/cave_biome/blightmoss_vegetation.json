@@ -18,7 +18,10 @@
         },
         {
           "data": {
-            "Name": "aether_redux:blightmoss_carpet"
+            "Name": "aether_redux:blightmoss_carpet",
+            "Properties": {
+              "double_drops": "true"
+            }
           },
           "weight": 75
         },

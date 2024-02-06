@@ -23,6 +23,11 @@
           "name": "aether_redux:cloudcap_stem"
         }
       ],
+      "functions": [
+        {
+          "function": "aether:double_drops"
+        }
+      ],
       "rolls": 1.0
     }
   ],

@@ -24,7 +24,10 @@
         },
         {
           "data": {
-            "Name": "aether_redux:fungal_carpet"
+            "Name": "aether_redux:fungal_carpet",
+            "Properties": {
+              "double_drops": "true"
+            }
           },
           "weight": 75
         },

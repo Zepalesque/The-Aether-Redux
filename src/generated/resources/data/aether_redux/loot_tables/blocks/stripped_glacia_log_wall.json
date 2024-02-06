@@ -23,6 +23,11 @@
           "name": "aether_redux:stripped_glacia_log"
         }
       ],
+      "functions": [
+        {
+          "function": "aether:double_drops"
+        }
+      ],
       "rolls": 1.0
     }
   ],
