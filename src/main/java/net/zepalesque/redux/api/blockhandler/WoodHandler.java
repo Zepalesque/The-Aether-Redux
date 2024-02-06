@@ -475,35 +475,6 @@ public class WoodHandler implements BlockHandler {
         data.addLore(this.hangingSign, "Crafted from "+getLocalizedName()+" Planks. A helpful hanging sign perfect for writing messages and directions on.");
     }
 
-    public void generateLoot(ReduxBlockLootData data)
-    {
-        data.dropSelf(this.log.get());
-        this.strippedWood.ifPresent((reg) ->
-                this.strippedLog.ifPresent(logReg -> data.naturalDrop(reg.get(), logReg.get())));
-        this.strippedLog.ifPresent((reg) -> data.dropSelf(reg.get()));
-        data.naturalDrop(this.logWall.get(), this.log.get());
-        this.strippedLogWall.ifPresent((reg) ->
-                this.strippedLog.ifPresent(logReg -> data.naturalDrop(reg.get(), logReg.get())));
-        data.naturalDrop(this.woodWall.get(), this.log.get());
-        this.strippedWoodWall.ifPresent((reg) ->
-                this.strippedLog.ifPresent(logReg -> data.naturalDrop(reg.get(), logReg.get())));        data.naturalDrop(this.wood.get(), this.log.get());
-        data.dropSelf(this.planks.get());
-        data.dropSelf(this.stairs.get());
-        data.dropSelf(this.slab.get());
-        data.dropSelf(this.fence.get());
-        data.dropSelf(this.fenceGate.get());
-        data.dropSelf(this.trapdoor.get());
-        data.dropSelf(this.pressurePlate.get());
-        data.dropSelf(this.button.get());
-        data.dropOther(this.wallSign.get(), this.sign.get());
-        data.dropSelf(this.sign.get());
-        data.dropSelf(this.hangingSign.get());
-        data.dropSelf(this.wallHangingSign.get());
-        data.addPublic(this.door.get(), data.createDoorTable(this.door.get()));
-
-        this.sporingLog.ifPresent((block)-> data.addPublic(block.get(), (logBlock) -> data.droppingDoubleGoldenOak(logBlock, this.log.get(), ReduxItems.BLIGHTED_SPORES.get())));
-        this.sporingWood.ifPresent((block)-> data.addPublic(block.get(), (wood) -> data.droppingDoubleGoldenOak(wood, this.wood.get(), ReduxItems.BLIGHTED_SPORES.get())));
-    }
     private String getLocalizedName()
     {
         return StringUtils.capitalise(this.langName == null ? this.woodName : this.langName);

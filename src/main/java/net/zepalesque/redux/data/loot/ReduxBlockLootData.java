@@ -56,20 +56,20 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         dropSelfDouble(ReduxBlocks.HOLYSILT.get());
         dropSelfDouble(ReduxBlocks.DIVINITE.get());
         this.add(ReduxBlocks.DIVINITE_SLAB.get(), this::createSlabItemTable);
-        dropSelfDouble(ReduxBlocks.DIVINITE_STAIRS.get());
-        dropSelfDouble(ReduxBlocks.DIVINITE_WALL.get());
+        dropSelf(ReduxBlocks.DIVINITE_STAIRS.get());
+        dropSelf(ReduxBlocks.DIVINITE_WALL.get());
 
-        dropSelfDouble(ReduxBlocks.SHELL_SHINGLES.get());
+        dropSelf(ReduxBlocks.SHELL_SHINGLES.get());
         this.add(ReduxBlocks.SHELL_SHINGLE_SLAB.get(), this::createSlabItemTable);
-        dropSelfDouble(ReduxBlocks.SHELL_SHINGLE_STAIRS.get());
-        dropSelfDouble(ReduxBlocks.SHELL_SHINGLE_WALL.get());
+        dropSelf(ReduxBlocks.SHELL_SHINGLE_STAIRS.get());
+        dropSelf(ReduxBlocks.SHELL_SHINGLE_WALL.get());
 
-        dropSelfDouble(ReduxBlocks.ENCHANTED_SHELL_SHINGLES.get());
+        dropSelf(ReduxBlocks.ENCHANTED_SHELL_SHINGLES.get());
         this.add(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_SLAB.get(), this::createSlabItemTable);
-        dropSelfDouble(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_STAIRS.get());
-        dropSelfDouble(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_WALL.get());
+        dropSelf(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_STAIRS.get());
+        dropSelf(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_WALL.get());
 
-        dropSelfDouble(ReduxBlocks.XAELIA_FLOWERS.get());
+        dropSelf(ReduxBlocks.XAELIA_FLOWERS.get());
 
         this.add(ReduxBlocks.AEVELIUM_SPROUTS.get(), this.shearsOr(Blocks.AIR));
         this.dropPottedContents(ReduxBlocks.POTTED_AEVELIUM_ROOTS.get());
@@ -78,22 +78,22 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.add(ReduxBlocks.BLIGHTWILLOW_LEAVES.get(),
                 (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.BLIGHTWILLOW_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
 
-        this.dropSelfDouble(ReduxBlocks.BLIGHTWILLOW_SAPLING.get());
+        this.dropSelf(ReduxBlocks.BLIGHTWILLOW_SAPLING.get());
 
         this.dropPottedContents(ReduxBlocks.POTTED_BLIGHTWILLOW_SAPLING.get());
 
 
-        this.dropSelfDouble(ReduxBlocks.GILDED_VINES.get());
+        this.dropSelf(ReduxBlocks.GILDED_VINES.get());
         this.dropOther(ReduxBlocks.GILDED_VINES_PLANT.get(), ReduxBlocks.GILDED_VINES.get());
-        this.dropSelfDouble(ReduxBlocks.GOLDEN_VINES.get());
+        this.dropSelf(ReduxBlocks.GOLDEN_VINES.get());
         this.dropOther(ReduxBlocks.GOLDEN_VINES_PLANT.get(), ReduxBlocks.GOLDEN_VINES.get());
-        this.dropSelfDouble(ReduxBlocks.CORRUPTED_VINES.get());
+        this.dropSelf(ReduxBlocks.CORRUPTED_VINES.get());
         this.dropOther(ReduxBlocks.CORRUPTED_VINES_PLANT.get(), ReduxBlocks.CORRUPTED_VINES.get());
 
 
-        this.dropSelfDouble(ReduxBlocks.BLIGHTED_SKYROOT_SAPLING.get());
+        this.dropSelf(ReduxBlocks.BLIGHTED_SKYROOT_SAPLING.get());
         this.dropPottedContents(ReduxBlocks.POTTED_BLIGHTED_SKYROOT_SAPLING.get());
-        this.dropSelfDouble(ReduxBlocks.GILDED_OAK_SAPLING.get());
+        this.dropSelf(ReduxBlocks.GILDED_OAK_SAPLING.get());
         this.dropPottedContents(ReduxBlocks.POTTED_GILDED_OAK_SAPLING.get());
         this.add(ReduxBlocks.GILDED_OAK_LEAVES.get(),
                 (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.GILDED_OAK_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
@@ -110,44 +110,44 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
 
         this.add(ReduxBlocks.GLACIA_LEAVES.get(),
                 (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.GLACIA_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
-        this.dropSelfDouble(ReduxBlocks.GLACIA_SAPLING.get());
-        this.dropSelfDouble(ReduxBlocks.FLOWERING_FIELDSPROUT_SAPLING.get());
+        this.dropSelf(ReduxBlocks.GLACIA_SAPLING.get());
+        this.dropSelf(ReduxBlocks.FLOWERING_FIELDSPROUT_SAPLING.get());
         this.dropPottedContents(ReduxBlocks.POTTED_GLACIA_SAPLING.get());
         this.dropPottedContents(ReduxBlocks.POTTED_FLOWERING_FIELDSPROUT_SAPLING.get());
 
         this.add(ReduxBlocks.PURPLE_GLACIA_LEAVES.get(),
                 (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.PURPLE_GLACIA_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
-        this.dropSelfDouble(ReduxBlocks.PURPLE_GLACIA_SAPLING.get());
+        this.dropSelf(ReduxBlocks.PURPLE_GLACIA_SAPLING.get());
         this.dropPottedContents(ReduxBlocks.POTTED_PURPLE_GLACIA_SAPLING.get());
 
-        dropSelfDouble(ReduxBlocks.IRIDIA.get());
+        dropSelf(ReduxBlocks.IRIDIA.get());
         this.dropPottedContents(ReduxBlocks.POTTED_IRIDIA.get());
         this.add(ReduxBlocks.AETHER_SHORT_GRASS.get(), shears());
         this.dropSelfDouble(ReduxBlocks.GILDED_HOLYSTONE.get());
         this.add(ReduxBlocks.GILDED_HOLYSTONE_SLAB.get(), this::createSlabItemTable);
-        this.dropSelfDouble(ReduxBlocks.GILDED_HOLYSTONE_STAIRS.get());
-        this.dropSelfDouble(ReduxBlocks.GILDED_HOLYSTONE_WALL.get());
+        this.dropSelf(ReduxBlocks.GILDED_HOLYSTONE_STAIRS.get());
+        this.dropSelf(ReduxBlocks.GILDED_HOLYSTONE_WALL.get());
         this.dropSelfDouble(ReduxBlocks.COARSE_AETHER_DIRT.get());
         this.add(ReduxBlocks.LIGHTROOTS.get(), createMultifaceBlockDrops(ReduxBlocks.LIGHTROOTS.get()));
         this.dropSelfDouble(ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get());
         this.add(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_SLAB.get(), this::createSlabItemTable);
-        this.dropSelfDouble(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_STAIRS.get());
-        this.dropSelfDouble(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_WALL.get());
+        this.dropSelf(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_STAIRS.get());
+        this.dropSelf(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_WALL.get());
         this.add(ReduxBlocks.GOLDEN_CLOVER.get(), shearsOr(Blocks.AIR));
         this.dropPottedContents(ReduxBlocks.POTTED_GOLDEN_CLOVER.get());
-        dropSelfDouble(ReduxBlocks.AURUM.get());
+        dropSelf(ReduxBlocks.AURUM.get());
         this.dropPottedContents(ReduxBlocks.POTTED_AURUM.get());
-        dropSelfDouble(ReduxBlocks.ZYATRIX.get());
+        dropSelf(ReduxBlocks.ZYATRIX.get());
         this.dropPottedContents(ReduxBlocks.POTTED_ZYATRIX.get());
-        dropSelfDouble(ReduxBlocks.CARVED_STONE_BRICKS.get());
-        dropSelfDouble(ReduxBlocks.CARVED_STONE_BRICK_STAIRS.get());
+        dropSelf(ReduxBlocks.CARVED_STONE_BRICKS.get());
+        dropSelf(ReduxBlocks.CARVED_STONE_BRICK_STAIRS.get());
         this.add(ReduxBlocks.CARVED_STONE_BRICK_SLAB.get(), this::createSlabItemTable);
-        dropSelfDouble(ReduxBlocks.CARVED_STONE_BRICK_WALL.get());
-        dropSelfDouble(ReduxBlocks.CARVED_STONE_PILLAR.get());
+        dropSelf(ReduxBlocks.CARVED_STONE_BRICK_WALL.get());
+        dropSelf(ReduxBlocks.CARVED_STONE_PILLAR.get());
         this.dropSelfDouble(ReduxBlocks.FROSTED_HOLYSTONE.get());
         this.add(ReduxBlocks.FROSTED_HOLYSTONE_SLAB.get(), this::createSlabItemTable);
-        this.dropSelfDouble(ReduxBlocks.FROSTED_HOLYSTONE_STAIRS.get());
-        this.dropSelfDouble(ReduxBlocks.FROSTED_HOLYSTONE_WALL.get());
+        this.dropSelf(ReduxBlocks.FROSTED_HOLYSTONE_STAIRS.get());
+        this.dropSelf(ReduxBlocks.FROSTED_HOLYSTONE_WALL.get());
         this.dropDoubleWithSilk(ReduxBlocks.AEVELIUM.get(), AetherBlocks.AETHER_DIRT.get());
         this.add(ReduxBlocks.LUXWEED.get(), shearsOr(ReduxItems.LUXBUDS.get(), 0.75F, 1F, 2F));
         this.dropPottedContents(ReduxBlocks.POTTED_LUXWEED.get());
@@ -174,9 +174,9 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
                                 hasBlockStateProperties(ReduxBlocks.SKYSPROUTS_CROP.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SproutsCropBlock.AGE, SproutsCropBlock.MAX_AGE))));
 
-        this.dropSelfDouble(ReduxBlocks.CLOUD_CAP_BLOCK.get());
-        this.dropSelfDouble(ReduxBlocks.JELLYSHROOM.get());
-        this.dropSelfDouble(ReduxBlocks.GLIMMERSTOOL.get());
+        this.dropSelf(ReduxBlocks.CLOUD_CAP_BLOCK.get());
+        this.dropSelf(ReduxBlocks.JELLYSHROOM.get());
+        this.dropSelf(ReduxBlocks.GLIMMERSTOOL.get());
         this.dropPottedContents(ReduxBlocks.POTTED_JELLYSHROOM.get());
         this.dropPottedContents(ReduxBlocks.POTTED_GLIMMERSTOOL.get());
 
@@ -193,18 +193,18 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropSelfDouble(ReduxBlocks.BLIGHTMOSS_CARPET.get());
         this.dropSelfDouble(ReduxBlocks.FUNGAL_GROWTH.get());
         this.dropSelfDouble(ReduxBlocks.FUNGAL_CARPET.get());
-        this.dropSelfDouble(ReduxBlocks.LUMINA.get());
+        this.dropSelf(ReduxBlocks.LUMINA.get());
         this.dropPottedContents(ReduxBlocks.POTTED_LUMINA.get());
-        this.dropSelfDouble(ReduxBlocks.DAGGERBLOOM.get());
+        this.dropSelf(ReduxBlocks.DAGGERBLOOM.get());
         this.dropPottedContents(ReduxBlocks.POTTED_DAGGERBLOOM.get());
         this.add(ReduxBlocks.WYNDSPROUTS.get(), createSproutsDrops(ReduxBlocks.WYNDSPROUTS.get(), ReduxItems.WYNDSPROUT_SEEDS.get(), 0.25F));
         this.dropPottedContents(ReduxBlocks.POTTED_WYNDSPROUTS.get());
         this.add(ReduxBlocks.SKYSPROUTS.get(), createSproutsDrops(ReduxBlocks.SKYSPROUTS.get(), ReduxItems.SKYSPROUT_SEEDS.get(), 0.25F));
         this.dropPottedContents(ReduxBlocks.POTTED_SKYSPROUTS.get());
-        this.dropSelfDouble(ReduxBlocks.SPLITFERN.get());
+        this.dropSelf(ReduxBlocks.SPLITFERN.get());
         this.dropPottedContents(ReduxBlocks.POTTED_SPLITFERN.get());
-        this.dropSelfDouble(ReduxBlocks.VERIDIUM_BLOCK.get());
-        this.dropSelfDouble(ReduxBlocks.RAW_VERIDIUM_BLOCK.get());
+        this.dropSelf(ReduxBlocks.VERIDIUM_BLOCK.get());
+        this.dropSelf(ReduxBlocks.RAW_VERIDIUM_BLOCK.get());
         this.add(ReduxBlocks.VERIDIUM_ORE.get(), createOreDrop(ReduxBlocks.VERIDIUM_ORE.get(), ReduxItems.RAW_VERIDIUM.get()));
         this.add(ReduxBlocks.QUICKROOTS.get(), LootTable.lootTable().withPool(
                 LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(ReduxBlocks.QUICKROOTS.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(ReduxStates.HARVESTED, true)))
@@ -212,10 +212,10 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         ).withPool(
                 LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(ReduxBlocks.QUICKROOTS.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(ReduxStates.HARVESTED, false)))
                         .setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(ReduxItems.QUICKROOT.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 3))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2)))));
-        this.dropSelfDouble(ReduxBlocks.VERIDIUM_CHAIN.get());
-        this.dropSelfDouble(ReduxBlocks.VERIDIUM_LANTERN.get());
+        this.dropSelf(ReduxBlocks.VERIDIUM_CHAIN.get());
+        this.dropSelf(ReduxBlocks.VERIDIUM_LANTERN.get());
 
-        this.dropSelfDouble(ReduxBlocks.CLOUDCAP_MUSHLING.get());
+        this.dropSelf(ReduxBlocks.CLOUDCAP_MUSHLING.get());
         this.dropPottedContents(ReduxBlocks.POTTED_CLOUDCAP_MUSHLING.get());
 
         this.dropSelfDouble(ReduxBlocks.CLOUDCAP_SPORES.get());
@@ -225,13 +225,39 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
 
         for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS)
         {
-            woodHandler.generateLoot(this);
+            this.dropSelfDouble(woodHandler.log.get());
+            woodHandler.strippedWood.ifPresent((reg) ->
+                    woodHandler.strippedLog.ifPresent(logReg -> this.naturalDrop(reg.get(), logReg.get())));
+            woodHandler.strippedLog.ifPresent((reg) -> this.dropSelf(reg.get()));
+            this.naturalDrop(woodHandler.logWall.get(), woodHandler.log.get());
+            woodHandler.strippedLogWall.ifPresent((reg) ->
+                    woodHandler.strippedLog.ifPresent(logReg -> this.naturalDrop(reg.get(), logReg.get())));
+            this.naturalDrop(woodHandler.woodWall.get(), woodHandler.log.get());
+            woodHandler.strippedWoodWall.ifPresent((reg) ->
+                    woodHandler.strippedLog.ifPresent(logReg -> this.naturalDrop(reg.get(), logReg.get())));
+            this.naturalDrop(woodHandler.wood.get(), woodHandler.log.get());
+            this.dropSelf(woodHandler.planks.get());
+            this.dropSelf(woodHandler.stairs.get());
+            this.dropSelf(woodHandler.slab.get());
+            this.dropSelf(woodHandler.fence.get());
+            this.dropSelf(woodHandler.fenceGate.get());
+            this.dropSelf(woodHandler.trapdoor.get());
+            this.dropSelf(woodHandler.pressurePlate.get());
+            this.dropSelf(woodHandler.button.get());
+            this.dropOther(woodHandler.wallSign.get(), woodHandler.sign.get());
+            this.dropSelf(woodHandler.sign.get());
+            this.dropSelf(woodHandler.hangingSign.get());
+            this.dropSelf(woodHandler.wallHangingSign.get());
+            this.addPublic(woodHandler.door.get(), this.createDoorTable(woodHandler.door.get()));
+
+            woodHandler.sporingLog.ifPresent((block)-> this.addPublic(block.get(), (logBlock) -> this.droppingDoubleGoldenOak(logBlock, woodHandler.log.get(), ReduxItems.BLIGHTED_SPORES.get())));
+            woodHandler.sporingWood.ifPresent((block)-> this.addPublic(block.get(), (wood) -> this.droppingDoubleGoldenOak(wood, woodHandler.wood.get(), ReduxItems.BLIGHTED_SPORES.get())));
         }
 
     }
 
 
-    public Function<Block, LootTable.Builder> shearsOr(ItemLike drop, float chance)
+    protected Function<Block, LootTable.Builder> shearsOr(ItemLike drop, float chance)
     {
         return shearsOr(drop, chance, 1.0F, 1.0F);
     }
@@ -251,13 +277,12 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
                                 .when(
                                         LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(ReduxStates.NATURAL_GEN, true))
-                                )
+                                ).apply(DoubleDrops.builder())
                 );
     }
 
-    public void naturalDrop(Block block, ItemLike other) {
+    protected void naturalDrop(Block block, ItemLike other) {
         this.add(block, naturalDropBase(block, other));
-//        this.dropSelfDouble(block);
     }
 
 
@@ -269,7 +294,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
 
     public Function<Block, LootTable.Builder> shearsOr(ItemLike drop, float chance, float min, float max)
     {
-        return (block) -> createShearsDispatchTable(block, this.applyExplosionDecay(block, LootItem.lootTableItem(drop).when(LootItemRandomChanceCondition.randomChance(chance)).apply(SetItemCountFunction.setCount(UniformGenerator.between(min, max))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2)))).apply(DoubleDrops.builder());
+        return (block) -> createShearsDispatchTable(block, this.applyExplosionDecay(block, LootItem.lootTableItem(drop).when(LootItemRandomChanceCondition.randomChance(chance)).apply(SetItemCountFunction.setCount(UniformGenerator.between(min, max))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2))));
     }
 
     protected LootTable.Builder createSproutsDrops(Block block, ItemLike seeds, float chance) {
@@ -335,7 +360,11 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         return base;
     }
 
-    protected LootTable.Builder createDoublePlantWithCustomDrops(Block pBlock, Block pSheared, ItemLike drop, float chance) {
+    public void dropSelf(Block block) {
+        this.dropOther(block, block);
+    }
+
+    public LootTable.Builder createDoublePlantWithCustomDrops(Block pBlock, Block pSheared, ItemLike drop, float chance) {
         LootPoolEntryContainer.Builder<?> builder = LootItem.lootTableItem(pSheared).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))).when(HAS_SHEARS).otherwise(this.applyExplosionCondition(pBlock, LootItem.lootTableItem(drop)).when(LootItemRandomChanceCondition.randomChance(chance)));
         return LootTable.lootTable().withPool(LootPool.lootPool().add(builder).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER))).when(LocationCheck.checkLocation(LocationPredicate.Builder.location().setBlock(BlockPredicate.Builder.block().of(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER).build()).build()), new BlockPos(0, 1, 0)))).withPool(LootPool.lootPool().add(builder).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER))).when(LocationCheck.checkLocation(LocationPredicate.Builder.location().setBlock(BlockPredicate.Builder.block().of(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER).build()).build()), new BlockPos(0, -1, 0))));
     }
