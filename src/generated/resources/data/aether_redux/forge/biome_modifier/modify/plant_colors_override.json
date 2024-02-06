@@ -1,0 +1,6 @@
+{
+  "type": "aether_redux:grass_and_foliage",
+  "biomes": "#aether:is_aether",
+  "foliage_color": 7842607,
+  "grass_color": 9551193
+}

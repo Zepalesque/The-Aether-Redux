@@ -1,0 +1,5 @@
+{
+  "type": "aether_redux:aether_grass_color",
+  "biomes": "aether_redux:gilded_grasslands",
+  "grass_color": 16056255
+}
