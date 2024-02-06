@@ -18,10 +18,7 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.condition.Conditions;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.misc.ReduxTags;
-import net.zepalesque.redux.world.biome.modifier.AetherGrassColorModifier;
-import net.zepalesque.redux.world.biome.modifier.CarverModifier;
-import net.zepalesque.redux.world.biome.modifier.GrassAndFoliageColorModifier;
-import net.zepalesque.redux.world.biome.modifier.WaterColorReplacementBiomeModifier;
+import net.zepalesque.redux.world.biome.modifier.*;
 
 import java.util.List;
 
@@ -97,12 +94,12 @@ public class ReduxBiomeModifiers {
         context.register(WATER_COLOR_AETHER, new WaterColorReplacementBiomeModifier(biomes.getOrThrow(ReduxTags.Biomes.HAS_REDUX_WATER_COLOR),
                 WaterColorReplacementBiomeModifier.WaterColorPredicate.of(4159204, 329011), 5403045, 791347, Conditions.WATER));
 
-        context.register(PLANT_COLORS_AETHER, new GrassAndFoliageColorModifier(biomes.getOrThrow(AetherTags.Biomes.IS_AETHER),
+        context.register(PLANT_COLORS_AETHER, new PlantColorReplacementModifier(biomes.getOrThrow(AetherTags.Biomes.IS_AETHER),
+                PlantColorReplacementModifier.PlantsColorPredicate.of(11665355, 11665355),
                 0x91BD59, 0x77AB2F));
         
-        ReduxBiomes.DATAGEN_COLORS.forEach((key, color) -> {
-            context.register(createKey(GRASS_COLOR + key.location().getPath()),
-                    new AetherGrassColorModifier(HolderSet.direct(biomes.getOrThrow(key)), color));
-        });
+        ReduxBiomes.DATAGEN_COLORS.forEach((key, color) ->
+                context.register(createKey(GRASS_COLOR + key.location().getPath()),
+                new AetherGrassColorModifier(HolderSet.direct(biomes.getOrThrow(key)), color)));
     }
 }

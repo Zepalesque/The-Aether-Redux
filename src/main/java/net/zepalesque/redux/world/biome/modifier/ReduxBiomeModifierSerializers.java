@@ -33,6 +33,14 @@ public class ReduxBiomeModifierSerializers {
                     AbstractCondition.CODEC.fieldOf("condition").forGetter(WaterColorReplacementBiomeModifier::condition)
             ).apply(builder, WaterColorReplacementBiomeModifier::new)));
 
+    static RegistryObject<Codec<PlantColorReplacementModifier>> REPLACE_PLANTS_COLOR = BIOME_MODIFIER_SERIALIZERS.register("plant_color_replacement", () ->
+            RecordCodecBuilder.create(builder -> builder.group(
+                    Biome.LIST_CODEC.fieldOf("biomes").forGetter(PlantColorReplacementModifier::biomes),
+                    PlantColorReplacementModifier.PlantsColorPredicate.CODEC.fieldOf("predicate").forGetter(PlantColorReplacementModifier::predicate),
+                    Codec.INT.fieldOf("grass_color").forGetter(PlantColorReplacementModifier::grass),
+                    Codec.INT.fieldOf("foliage_color").forGetter(PlantColorReplacementModifier::foliage)
+            ).apply(builder, PlantColorReplacementModifier::new)));
+
 
     static RegistryObject<Codec<GrassAndFoliageColorModifier>> GRASS_AND_FOLIAGE = BIOME_MODIFIER_SERIALIZERS.register("grass_and_foliage", () ->
             RecordCodecBuilder.create(builder -> builder.group(
@@ -55,5 +63,6 @@ public class ReduxBiomeModifierSerializers {
                     Biome.LIST_CODEC.fieldOf("biomes").forGetter(AetherGrassColorModifier::biomes),
                     Codec.INT.fieldOf("grass_color").forGetter(AetherGrassColorModifier::grass)
             ).apply(builder, AetherGrassColorModifier::new)));
+
 
 }
