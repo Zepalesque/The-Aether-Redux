@@ -1,8 +1,8 @@
-// 1.20.1	2024-02-05T13:56:39.5941003	Tags for minecraft:block mod id aether_redux
+// 1.20.1	2024-02-06T22:54:10.3832274	Tags for minecraft:block mod id aether_redux
 e6adebf67a77ca9d3e2dc5d5c5d11e9ac045edf6 data/aether/tags/blocks/aether_animals_spawnable_on.json
 c908900e7ce36af9dbedd9856d4616184ee8ab55 data/aether/tags/blocks/aether_dirt.json
 be858bbcc6c70f54eda7d60496915fa5aef21064 data/aether/tags/blocks/holystone.json
-c8507150db41b1eaa9e73acd8f4dc43ba2135dbf data/aether/tags/blocks/treated_as_aether_block.json
+c87a86876e61a510b3823d456afe4f24832555f8 data/aether/tags/blocks/treated_as_aether_block.json
 85b1ad865db965e78fb0da827f9f619ffe9f5878 data/aether_redux/tags/blocks/aether_carver_replaceables.json
 fd01915c57cee8effe17fe38cbedcefa19a98fb3 data/aether_redux/tags/blocks/aether_moss_replaceables.json
 edd28d843e4d50fffcd62491dda0fa5e4ba1749b data/aether_redux/tags/blocks/blightwillow_logs.json

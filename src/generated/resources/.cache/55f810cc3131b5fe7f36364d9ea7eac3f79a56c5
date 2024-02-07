@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-05T13:56:39.5631006	Block States: aether_redux
+// 1.20.1	2024-02-06T22:54:10.3482264	Block States: aether_redux
 3b65fcf4de37be76dd1ac46b4118458043237e15 assets/aether_redux/blockstates/aether_short_grass.json
 0a0f21b01afc7514adf77a09aca842eb1a0055b4 assets/aether_redux/blockstates/aevelium.json
 483c8ba025f1818d95319f96976dd85c91663f05 assets/aether_redux/blockstates/aevelium_roots.json
@@ -193,7 +193,6 @@ ff67a61e56ab71db7908b429603323daf44fca59 assets/aether_redux/blockstates/potted_
 b802e4adfe62c5d65ab81a618035f00a737878d1 assets/aether_redux/blockstates/purple_glacia_leaves.json
 4f307e6e86aa4f58a60de087007eaed8be610a3c assets/aether_redux/blockstates/purple_glacia_sapling.json
 c72cf39c73e44bd71b9b40f3819978bcaf5bb303 assets/aether_redux/blockstates/purple_potted_glacia_sapling.json
-39a64895271bb48dffb0b161499c9be72c958552 assets/aether_redux/blockstates/quickroots.json
 e4a4d10ceb7ca8da8230ae385d0e937d72eede53 assets/aether_redux/blockstates/raw_veridium_block.json
 3e8dbde7cc3a7f7bccae0e385564309f66858619 assets/aether_redux/blockstates/shell_shingles.json
 68e887c8d462d0249406552c7f2b66ed69c0e2bd assets/aether_redux/blockstates/shell_shingle_slab.json
@@ -697,7 +696,6 @@ ba3d99e08fe95f364d046fd3713efbac729a6ed1 assets/aether_redux/models/block/golden
 db53f61c5e34608f7386e47dd5b2bcab03da00b8 assets/aether_redux/models/block/golden_vines.json
 bb29a0d27cb53bb6030587014d4c236245686bd7 assets/aether_redux/models/block/golden_vines_plant.json
 4f6a76cb628663691f7f9573ad7531519662a13e assets/aether_redux/models/block/hanging_veridium_lantern.json
-2512bbef3a5d5b1fa989bea168ab8ade4432182c assets/aether_redux/models/block/harvested_quickroots.json
 a2293c7d59f833441ab43dcc69d98912854faf94 assets/aether_redux/models/block/holysilt.json
 d9946ef830c6fd630636b2e14984315a00100167 assets/aether_redux/models/block/iridia.json
 1cabb7582047deb7b9adc234f1f313092a253cf9 assets/aether_redux/models/block/jellyshroom.json
@@ -784,7 +782,6 @@ a7b3d68b7ca243dc9b16741d5e8e5c0c8e5528d4 assets/aether_redux/models/block/purple
 03658bac09810219f6696d4d2d41b80faacdc4e4 assets/aether_redux/models/block/purple_glacia_leaves_snowy.json
 8e78a6c802e343f39b5926999250bae448353a6c assets/aether_redux/models/block/purple_glacia_sapling.json
 0bc3a2aebf1f69795d6398103354fc07cf87035c assets/aether_redux/models/block/purple_potted_glacia_sapling.json
-dddba505f26c0e181da1df42cabe7bcc7aa4501f assets/aether_redux/models/block/quickroots.json
 0638c603c5030a516adc0ede83a5ca5685cad939 assets/aether_redux/models/block/raw_veridium_block.json
 c97dd0e4d0e18cccd7b9468c0d9255d26b48f11e assets/aether_redux/models/block/shell_shingles.json
 8871025c1eae3f68934533d75951689989e76827 assets/aether_redux/models/block/shell_shingle_slab.json

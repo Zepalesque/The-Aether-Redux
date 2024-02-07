@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-05T13:56:39.5471013	Item Models: aether_redux
+// 1.20.1	2024-02-06T22:54:10.3212269	Item Models: aether_redux
 262070202f715ccbb93ebca7b4dd3b04851bc0ce assets/aether_redux/models/item/aether_short_grass.json
 ef6d226766d61d6460247665062a399d3613d946 assets/aether_redux/models/item/aevelium.json
 2f2dfa95433a548b2d41f817bd836c91e41fc4e9 assets/aether_redux/models/item/aevelium_roots.json
@@ -198,7 +198,6 @@ beec52eb9364cdb01119c1580478b19527c5cf62 assets/aether_redux/models/item/mykapod
 62cabf6bc621a205cf1aead068552db23dd9d85c assets/aether_redux/models/item/purified_luxbuds.json
 e2015d8ef1a31186ff40937a0cfe131c89ec3631 assets/aether_redux/models/item/purple_glacia_leaves.json
 8dc6fb58d1be53bc2dc005d016b961b25d246fec assets/aether_redux/models/item/purple_glacia_sapling.json
-195c4a572b3c5feb44a0e10ded7459364762e4e6 assets/aether_redux/models/item/quickroot.json
 1709c24cc08e79ca78246932b84e07b0cba0f215 assets/aether_redux/models/item/raw_gravitite.json
 d8de2565b035201fb855f38b6083299efcc91e31 assets/aether_redux/models/item/raw_veridium.json
 8a433ef11c34eda652a3186b21612f69a875b6e8 assets/aether_redux/models/item/raw_veridium_block.json
@@ -246,6 +245,7 @@ f638ac2f718eaf0082e4a7e6cd54b463ce4c2b59 assets/aether_redux/models/item/vampire
 d0b565796f88981ec08d6dae45f2f2d4d97b2211 assets/aether_redux/models/item/vanilla_swet_ball.json
 a7a769baa23ab93e17598e144d210b2723a354e8 assets/aether_redux/models/item/vanilla_swet_jelly.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/aether_redux/models/item/vanilla_swet_spawn_egg.json
+b115f71559bbc3f1f6d856492946c5a5316cf585 assets/aether_redux/models/item/veridium_arrow.json
 2c78df1e9275f237b1b0fc10b3c039bdaca1bb91 assets/aether_redux/models/item/veridium_axe.json
 3a4888b7dae2b6f8450252ffb8f6cfa8d3d70a6a assets/aether_redux/models/item/veridium_block.json
 2ff0018af4c3c3fe0c051118ce0a29c1ba11ab23 assets/aether_redux/models/item/veridium_chain.json

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "/": {
+      "tag": "aether:skyroot_stick"
+    },
+    "I": {
+      "item": "aether_redux:veridium_ingot"
+    },
+    "N": {
+      "item": "aether_redux:veridium_nugget"
+    }
+  },
+  "pattern": [
+    "I",
+    "/",
+    "N"
+  ],
+  "result": {
+    "count": 4,
+    "item": "aether_redux:veridium_arrow"
+  },
+  "show_notification": true
+}
