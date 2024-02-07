@@ -96,8 +96,7 @@ public class ReduxBiomeModifiers {
         context.register(WATER_COLOR_AETHER, new WaterColorReplacementBiomeModifier(biomes.getOrThrow(ReduxTags.Biomes.HAS_REDUX_WATER_COLOR),
                 WaterColorReplacementBiomeModifier.WaterColorPredicate.of(4159204, 329011), 5403045, 791347, Conditions.WATER));
 
-        context.register(AETHER_COLOR_OVERRIDE, new PlantColorReplacementModifier(biomes.getOrThrow(AetherTags.Biomes.IS_AETHER),
-                PlantColorReplacementModifier.PlantsColorPredicate.of(11665355, 11665355),
+        context.register(AETHER_COLOR_OVERRIDE, new AetherGrassVanillifier(biomes.getOrThrow(AetherTags.Biomes.IS_AETHER),
                 0x91BD59, 0x77AB2F));
         
         ReduxBiomes.DATAGEN_AETHER_COLORS.forEach((key, color) ->
