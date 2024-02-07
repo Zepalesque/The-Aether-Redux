@@ -9,6 +9,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.api.biomemodifier.VanillifyGrassOverride;
 import net.zepalesque.redux.api.condition.AbstractCondition;
 
 public class ReduxBiomeModifierSerializers {
@@ -63,6 +64,24 @@ public class ReduxBiomeModifierSerializers {
                     Biome.LIST_CODEC.fieldOf("biomes").forGetter(AetherGrassColorModifier::biomes),
                     Codec.INT.fieldOf("grass_color").forGetter(AetherGrassColorModifier::grass)
             ).apply(builder, AetherGrassColorModifier::new)));
+
+
+
+
+    static RegistryObject<Codec<AetherGrassVanillifier>> AETHER_GRASS_VANILLIFY = BIOME_MODIFIER_SERIALIZERS.register("vanillify_aether_grass", () ->
+            RecordCodecBuilder.create(builder -> builder.group(
+                    Biome.LIST_CODEC.fieldOf("biomes").forGetter(AetherGrassVanillifier::biomes),
+                    Codec.INT.fieldOf("default_grass_color").forGetter(AetherGrassVanillifier::defaultGrass),
+                    Codec.INT.fieldOf("default_foliage_color").forGetter(AetherGrassVanillifier::defaultFoliage)
+            ).apply(builder, AetherGrassVanillifier::new)));
+
+
+    public static RegistryObject<Codec<VanillifyGrassOverride>> VANILLIFY_OVERRIDE = BIOME_MODIFIER_SERIALIZERS.register("aether_grass_vanillification_override", () ->
+            RecordCodecBuilder.create(builder -> builder.group(
+                    Biome.LIST_CODEC.fieldOf("biomes").forGetter(VanillifyGrassOverride::biomes),
+                    Codec.INT.fieldOf("grass_color").forGetter(VanillifyGrassOverride::grass),
+                    Codec.INT.fieldOf("foliage_color").forGetter(VanillifyGrassOverride::foliage)
+            ).apply(builder, VanillifyGrassOverride::new)));
 
 
 }

@@ -1,9 +1,12 @@
 package net.zepalesque.redux.data.resource;
 
 import com.aetherteam.aether.data.resources.AetherMobCategory;
+import com.aetherteam.aether.data.resources.registries.AetherBiomes;
 import com.aetherteam.aether.data.resources.registries.AetherPlacedFeatures;
 import com.aetherteam.aether.entity.AetherEntityTypes;
+import com.aetherteam.aether_genesis.data.resources.registries.GenesisBiomes;
 import com.google.common.collect.ImmutableMap;
+import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
@@ -20,9 +23,6 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.audio.ReduxMusic;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
-import oshi.annotation.concurrent.Immutable;
-
-import java.util.Map;
 
 
 // TODO: Refactor biome datagen system, make it more modular and easy to use. Add *all* features, rather than building them seperately so that they can be tweaked easier
@@ -55,7 +55,7 @@ public class ReduxBiomes {
     public static final int CLOUDCAP_GRASS_COLOR = 0xDBFFE3;
 
 
-    public static final ImmutableMap<ResourceKey<Biome>, Integer> DATAGEN_COLORS = new ImmutableMap.Builder<ResourceKey<Biome>, Integer>()
+    public static final ImmutableMap<ResourceKey<Biome>, Integer> DATAGEN_AETHER_COLORS = new ImmutableMap.Builder<ResourceKey<Biome>, Integer>()
             .put(THE_BLIGHT, BLIGHT_GRASS_COLOR)
             .put(GLACIAL_TAIGA, FROSTED_GRASS_COLOR)
             .put(FROSTED_TUNDRA, FROSTED_GRASS_COLOR)
@@ -64,6 +64,22 @@ public class ReduxBiomes {
             .put(HIGHFIELDS, HIGHFIELDS_GRASS_COLOR)
             .put(CLOUDCAPS, CLOUDCAP_GRASS_COLOR)
             .put(SKYROOT_SHRUBLANDS, SHRUBLANDS_GRASS_COLOR)
+            .build();
+
+
+    public static final ImmutableMap<ResourceKey<Biome>, Pair<Integer, Integer>> DATAGEN_VANILLIFICATION_COLORS = new ImmutableMap.Builder<ResourceKey<Biome>, Pair<Integer, Integer>>()
+            .put(THE_BLIGHT, Pair.of(0x97B276, 0x819D5D))
+            .put(GLACIAL_TAIGA, Pair.of(0x86B783, 0x68A464))
+            .put(FROSTED_TUNDRA, Pair.of(0x86B783, 0x68A464))
+            .put(GILDED_GROVES, Pair.of(0xACBA4F, 0x97A823))
+            .put(GILDED_GRASSLANDS, Pair.of(0xACBA4F, 0x97A823))
+            .put(HIGHFIELDS, Pair.of(0x59C93C, 0x30BB0B))
+            .put(CLOUDCAPS, Pair.of(0x55C93F, 0x2BBB0F))
+            .put(SKYROOT_SHRUBLANDS, Pair.of(0x9ABE4B, 0x82AC1E))
+            .put(AetherBiomes.SKYROOT_FOREST, Pair.of(0x79C05A, 0x59AE30))
+            .put(AetherBiomes.SKYROOT_WOODLAND, Pair.of(0x79C05A, 0x59AE30))
+            .put(GenesisBiomes.VIBRANT_FOREST, Pair.of(0x79C05A, 0x59AE30))
+            .put(GenesisBiomes.VIBRANT_WOODLAND, Pair.of(0x79C05A, 0x59AE30))
             .build();
 
 
