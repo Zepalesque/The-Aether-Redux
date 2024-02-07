@@ -168,7 +168,6 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
 
 
-        this.crossGlowHarvestableOccluded(ReduxBlocks.QUICKROOTS.get(), "natural/");
 
         this.lantern(ReduxBlocks.VERIDIUM_LANTERN.get(), "construction/");
         this.crossBlock(ReduxBlocks.JELLYSHROOM, "natural/");
