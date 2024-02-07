@@ -36,7 +36,7 @@ public record PlantColorReplacementModifier(HolderSet<Biome> biomes, PlantsColor
             return new PlantsColorPredicate(grass, foliage);
         }
 
-        public boolean test(int grass, int foliage {
+        public boolean test(int grass, int foliage) {
             return grass == this.grass && foliage == this.foliage;
         }
     }
