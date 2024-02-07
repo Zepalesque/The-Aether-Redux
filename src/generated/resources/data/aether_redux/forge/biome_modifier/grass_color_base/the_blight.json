@@ -1,0 +1,6 @@
+{
+  "type": "aether_redux:aether_grass_vanillification_override",
+  "biomes": "aether_redux:the_blight",
+  "foliage_color": 8494429,
+  "grass_color": 9941622
+}

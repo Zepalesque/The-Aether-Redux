@@ -1,0 +1,6 @@
+{
+  "type": "aether_redux:aether_grass_vanillification_override",
+  "biomes": "aether_redux:highfields",
+  "foliage_color": 3193611,
+  "grass_color": 5884220
+}

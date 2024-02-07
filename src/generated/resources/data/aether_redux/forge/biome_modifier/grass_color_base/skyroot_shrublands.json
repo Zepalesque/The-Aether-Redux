@@ -1,0 +1,6 @@
+{
+  "type": "aether_redux:aether_grass_vanillification_override",
+  "biomes": "aether_redux:skyroot_shrublands",
+  "foliage_color": 8563742,
+  "grass_color": 10141259
+}

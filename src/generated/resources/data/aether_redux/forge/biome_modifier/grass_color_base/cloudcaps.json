@@ -1,0 +1,6 @@
+{
+  "type": "aether_redux:aether_grass_vanillification_override",
+  "biomes": "aether_redux:cloudcaps",
+  "foliage_color": 2865935,
+  "grass_color": 5622079
+}

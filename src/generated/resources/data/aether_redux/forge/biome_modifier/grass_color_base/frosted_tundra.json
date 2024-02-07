@@ -1,0 +1,6 @@
+{
+  "type": "aether_redux:aether_grass_vanillification_override",
+  "biomes": "aether_redux:frosted_tundra",
+  "foliage_color": 6857828,
+  "grass_color": 8828803
+}
