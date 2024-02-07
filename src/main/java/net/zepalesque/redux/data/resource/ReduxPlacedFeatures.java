@@ -100,7 +100,6 @@ public class ReduxPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> AETHER_SNOW_LAYER = copyKey(ReduxConfiguredFeatures.AETHER_SNOW_LAYER);
 
-    public static final ResourceKey<PlacedFeature> QUICKSOIL_SHELF_OVERRIDE = aetherKey("quicksoil_shelf");
 
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
 
@@ -574,12 +573,7 @@ public class ReduxPlacedFeatures {
                 BiomeFilter.biome()
         );
 
-        register(context, QUICKSOIL_SHELF_OVERRIDE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.ROOTED_QUICKSOIL_SHELF),
-                RarityFilter.onAverageOnceEvery(5),
-                HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE_WG),
-                BiomeFilter.biome(),
-                DUNGEON_BLACKLIST
-        );
+
 
 
     }

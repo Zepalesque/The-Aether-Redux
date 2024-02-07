@@ -39,7 +39,6 @@ import net.zepalesque.redux.block.natural.enchanted.EnchantableBushBlock;
 import net.zepalesque.redux.block.natural.frosted.*;
 import net.zepalesque.redux.block.natural.highfields.FieldsproutPetalsBlock;
 import net.zepalesque.redux.block.natural.highfields.FloweringFieldsproutLeafBlock;
-import net.zepalesque.redux.block.natural.QuickrootsBlock;
 import net.zepalesque.redux.block.natural.shrublands.ZanberryBushBlock;
 import net.zepalesque.redux.block.natural.shrublands.ZanberryShrubBlock;
 import net.zepalesque.redux.block.util.CommonPlantBounds;
@@ -357,8 +356,6 @@ public class ReduxBlocks {
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.LAPIS).strength(3.0F, 6.0F).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
 
 
-    public static RegistryObject<Block> QUICKROOTS = BLOCKS.register("quickroots",
-            () -> new QuickrootsBlock(BlockBehaviour.Properties.copy(Blocks.HANGING_ROOTS).mapColor(MapColor.SAND).randomTicks()));
 
     // TODO: Consider using unique behavior rather than reskinned Glow Lichen
     public static RegistryObject<MultifaceBlock> LIGHTROOTS = BLOCKS.register("lightroots",

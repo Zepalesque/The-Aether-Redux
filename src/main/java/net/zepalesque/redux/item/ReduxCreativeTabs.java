@@ -156,7 +156,6 @@ public class ReduxCreativeTabs {
             putAfter(ReduxItems.OATMEAL, ReduxItems.LUXBUDS, event);
             putAfter(ReduxItems.LUXBUDS, ReduxItems.PURIFIED_LUXBUDS, event);
 
-            putAfter(AetherItems.HEALING_STONE, ReduxItems.QUICKROOT, event);
 
             putAfter(AetherItems.GOLDEN_GUMMY_SWET, ReduxItems.VANILLA_GUMMY_SWET, event);
 

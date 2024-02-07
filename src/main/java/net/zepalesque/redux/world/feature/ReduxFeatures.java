@@ -14,7 +14,6 @@ public class ReduxFeatures {
     public static RegistryObject<Feature<PredicateStateConfig>> TEST_BELOW_BLOCK = FEATURES.register("test_below_block", () -> new TestBelowBlockFeature(PredicateStateConfig.CODEC));
     public static RegistryObject<Feature<PredicateStateConfig>> TEST_AT_BLOCK = FEATURES.register("test_at_block", () -> new TestAtBlockFeature(PredicateStateConfig.CODEC));
     public static RegistryObject<Feature<PatchRockConfig>> PATCH_ROCK = FEATURES.register("patch_rock", () -> new PatchRockFeature(PatchRockConfig.CODEC));
-    public static RegistryObject<Feature<RootedShelfConfiguration>> ROOTED_SHELF = FEATURES.register("rooted_shelf", () -> new RootedShelfFeature(RootedShelfConfiguration.CODEC));
     public static RegistryObject<Feature<CloudcapFeature.CloudcapConfig>> CLOUDCAP = FEATURES.register("cloudcap", () -> new CloudcapFeature(CloudcapFeature.CloudcapConfig.CODEC));
     public static RegistryObject<Feature<SurfaceRuleLakeConfig>> SURFACE_RULE_LAKE = FEATURES.register("surface_rule_lake", () -> new SurfaceRuleLakeFeature(SurfaceRuleLakeConfig.CODEC));
     public static RegistryObject<Feature<FieldsproutTreeConfig>> FIELDSPROUT_TREE = FEATURES.register("fieldsprout_tree", () -> new FieldsproutTreeFeature(FieldsproutTreeConfig.CODEC));
