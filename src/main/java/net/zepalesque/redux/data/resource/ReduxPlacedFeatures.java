@@ -289,8 +289,8 @@ public class ReduxPlacedFeatures {
 
         register(context, FROSTED_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.FROSTED_TREES),
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
-                        .add(ConstantInt.of(15), 9)
-                        .add(ConstantInt.of(12), 1)
+                        .add(ConstantInt.of(8), 9)
+                        .add(ConstantInt.of(6), 1)
                         .build())),
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.OCEAN_FLOOR, UniformInt.of(0, 1), 4),
                 BiomeFilter.biome(),
