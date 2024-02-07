@@ -28,6 +28,7 @@ import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.condition.AbstractCondition;
+import net.zepalesque.redux.api.condition.Conditions;
 import net.zepalesque.redux.api.condition.ReduxConfigCondition;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.config.ReduxConfig;
@@ -73,6 +74,8 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> GOLDEN_HEIGHTS_GILDED_HOLYSTONE_ORE = createKey(ORE + "golden_heights_" + name(ReduxBlocks.GILDED_HOLYSTONE) + "_ore");
     public static final ResourceKey<PlacedFeature> GROVE_TREES = copyKey(ReduxConfiguredFeatures.GROVE_TREES);
     public static final ResourceKey<PlacedFeature> GRASSLAND_TREES = copyKey(ReduxConfiguredFeatures.GRASSLAND_TREES);
+    public static final ResourceKey<PlacedFeature> GROVE_TREES_ALT = copyKey(ReduxConfiguredFeatures.GROVE_TREES_ALT);
+    public static final ResourceKey<PlacedFeature> GRASSLAND_TREES_ALT = copyKey(ReduxConfiguredFeatures.GRASSLAND_TREES_ALT);
     public static final ResourceKey<PlacedFeature> HIGHFIELDS_ROCK  = copyKey(ReduxConfiguredFeatures.HIGHFIELDS_ROCK);
     public static final ResourceKey<PlacedFeature> SHRUBLANDS_ROCK  = copyKey(ReduxConfiguredFeatures.SHRUBLANDS_ROCK);
     public static final ResourceKey<PlacedFeature> SKYSPROUTS_PATCH = copyKey(ReduxConfiguredFeatures.SKYSPROUTS_PATCH);
@@ -303,7 +306,7 @@ public class ReduxPlacedFeatures {
                 CountPlacement.of(32),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(UniformHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(128))),
-                condition(ReduxConfigCondition.of(ReduxConfig.COMMON.mossy_holystone_ores)),
+                ConditionFilter.whenTrue(Conditions.MOSSY_ORE),
                 BiomeFilter.biome()
         );
 
@@ -318,20 +321,10 @@ public class ReduxPlacedFeatures {
                 CountPlacement.of(24),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(UniformHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(128))),
-                condition(ReduxConfigCondition.of(ReduxConfig.COMMON.mossy_holystone_ores)),
+                ConditionFilter.whenTrue(ReduxConfigCondition.of(ReduxConfig.COMMON.mossy_holystone_ores)),
                 BiomeFilter.biome()
         );
 
-        register(context, GROVE_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GROVE_TREES),
-                CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
-                        .add(ConstantInt.of(12), 9)
-                        .add(ConstantInt.of(7), 1)
-                        .build())),
-                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
-                BiomeFilter.biome(),
-                DUNGEON_BLACKLIST,
-                PlacementUtils.filteredByBlockSurvival(ReduxBlocks.GILDED_OAK_SAPLING.get())
-        );
         register(context, SHIMMERING_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.CRYSTAL_LEAF_TREE),
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
                         .add(ConstantInt.of(12), 9)
@@ -342,10 +335,46 @@ public class ReduxPlacedFeatures {
                 DUNGEON_BLACKLIST,
                 PlacementUtils.filteredByBlockSurvival(ReduxBlocks.GILDED_OAK_SAPLING.get())
         );
-        register(context, GRASSLAND_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GRASSLAND_TREES),
+        register(context, GROVE_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GROVE_TREES),
+                ConditionFilter.whenFalse(Conditions.ALT_GILDED),
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
-                        .add(ConstantInt.of(1), 9)
-                        .add(ConstantInt.of(2), 1)
+                        .add(ConstantInt.of(12), 9)
+                        .add(ConstantInt.of(7), 1)
+                        .build())),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
+                BiomeFilter.biome(),
+                DUNGEON_BLACKLIST,
+                PlacementUtils.filteredByBlockSurvival(ReduxBlocks.GILDED_OAK_SAPLING.get())
+        );
+        register(context, GRASSLAND_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GRASSLAND_TREES),
+                ConditionFilter.whenFalse(Conditions.ALT_GILDED),
+                CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
+                        .add(ConstantInt.of(3), 9)
+                        .add(ConstantInt.of(4), 1)
+                        .add(ConstantInt.of(0), 4)
+                        .build())),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
+                BiomeFilter.biome(),
+                DUNGEON_BLACKLIST,
+                PlacementUtils.filteredByBlockSurvival(ReduxBlocks.GILDED_OAK_SAPLING.get())
+        );
+
+        register(context, GROVE_TREES_ALT, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GROVE_TREES_ALT),
+                ConditionFilter.whenTrue(Conditions.ALT_GILDED),
+                CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
+                        .add(ConstantInt.of(12), 9)
+                        .add(ConstantInt.of(7), 1)
+                        .build())),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
+                BiomeFilter.biome(),
+                DUNGEON_BLACKLIST,
+                PlacementUtils.filteredByBlockSurvival(ReduxBlocks.GILDED_OAK_SAPLING.get())
+        );
+        register(context, GRASSLAND_TREES_ALT, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GRASSLAND_TREES_ALT),
+                ConditionFilter.whenTrue(Conditions.ALT_GILDED),
+                CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
+                        .add(ConstantInt.of(3), 9)
+                        .add(ConstantInt.of(4), 1)
                         .add(ConstantInt.of(0), 4)
                         .build())),
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
@@ -358,7 +387,7 @@ public class ReduxPlacedFeatures {
                 CountPlacement.of(24),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(UniformHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(128))),
-                condition(ReduxConfigCondition.of(ReduxConfig.COMMON.mossy_holystone_ores)),
+                ConditionFilter.whenTrue(ReduxConfigCondition.of(ReduxConfig.COMMON.mossy_holystone_ores)),
                 BiomeFilter.biome()
         );
 
@@ -474,7 +503,7 @@ public class ReduxPlacedFeatures {
                 CountPlacement.of(24),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(UniformHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(128))),
-                condition(ReduxConfigCondition.of(ReduxConfig.COMMON.mossy_holystone_ores)),
+                ConditionFilter.whenTrue(ReduxConfigCondition.of(ReduxConfig.COMMON.mossy_holystone_ores)),
                 BiomeFilter.biome()
         );
 
@@ -580,10 +609,7 @@ public class ReduxPlacedFeatures {
 
 
 
-    private static ConditionFilter condition(AbstractCondition<?> condition)
-    {
-        return new ConditionFilter(condition);
-    }
+
 
     private static void register(BootstapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> configuration, List<PlacementModifier> modifiers) {
         context.register(key, new PlacedFeature(configuration, List.copyOf(modifiers)));

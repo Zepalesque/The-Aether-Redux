@@ -13,4 +13,5 @@ public class Conditions {
     public static final AbstractCondition<?> ENCHGRASS = ReduxConfigCondition.of(ReduxConfig.COMMON.enchanted_gilded_grass);
     public static final AbstractCondition<?> WATER = ReduxConfigCondition.of(ReduxConfig.COMMON.better_water_color);
     public static final AbstractCondition<?> VINES = ReduxConfigCondition.of(ReduxConfig.COMMON.enchanted_vines);
+    public static final AbstractCondition<?> ALT_GILDED = ReduxConfigCondition.of(ReduxConfig.COMMON.alternate_gilded_trees);
 }
