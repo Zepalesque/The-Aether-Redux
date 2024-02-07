@@ -22,12 +22,17 @@ import net.minecraft.server.packs.repository.Pack;
 import net.minecraft.server.packs.repository.PackSource;
 import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.flag.FeatureFlagSet;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.PotionBrewing;
+import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
@@ -78,6 +83,7 @@ import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.loot.condition.ReduxLootConditions;
 import net.zepalesque.redux.loot.modifiers.ReduxLootModifiers;
 import net.zepalesque.redux.misc.ReduxPackSources;
+import net.zepalesque.redux.misc.ReduxPotions;
 import net.zepalesque.redux.network.ReduxPacketHandler;
 import net.zepalesque.redux.recipe.ReduxRecipeTypes;
 import net.zepalesque.redux.recipe.condition.DataRecipeCondition;
@@ -153,6 +159,7 @@ public class Redux
         ReduxConditionSources.CONDITIONS.register(bus);
         ReduxStateProviders.PROVIDERS.register(bus);
         ReduxDataSerializers.SERIALIZERS.register(bus);
+        ReduxPotions.POTIONS.register(bus);
         ReduxBlocks.registerWoodTypes();
         ReduxBlocks.registerPots();
         MinecraftForge.EVENT_BUS.register(this);
@@ -180,8 +187,7 @@ public class Redux
         Blocks.GLOWSTONE.soundType = ReduxSoundTypes.GLOWSTONE;
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event)
-    {
+    private void commonSetup(final FMLCommonSetupEvent event) {
         ReduxAdvancementTriggers.init();
 
         ReduxPlacementModifiers.init();
@@ -199,6 +205,10 @@ public class Redux
                     GenesisEntityTypes.SKYROOT_MIMIC.get().getDimensions().height = 1.25F;
                 }
             }
+            PotionBrewing.addMix(Potions.POISON, ReduxItems.BLIGHTED_SPORES.get(), ReduxPotions.INTOXICATION.get());
+            PotionBrewing.addMix(Potions.STRONG_POISON, ReduxItems.BLIGHTED_SPORES.get(), ReduxPotions.INTOXICATION.get());
+            PotionBrewing.addMix(Potions.LONG_POISON, ReduxItems.BLIGHTED_SPORES.get(), ReduxPotions.LONG_INTOXICATION.get());
+            PotionBrewing.addMix(ReduxPotions.INTOXICATION.get(), Items.REDSTONE, ReduxPotions.LONG_INTOXICATION.get());
         });
     }
 
