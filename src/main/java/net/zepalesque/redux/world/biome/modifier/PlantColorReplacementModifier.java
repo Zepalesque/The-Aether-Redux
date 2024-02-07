@@ -12,7 +12,7 @@ import net.zepalesque.redux.api.condition.AbstractCondition;
 public record PlantColorReplacementModifier(HolderSet<Biome> biomes, PlantsColorPredicate predicate, int grass, int foliage) implements BiomeModifier {
     @Override
     public void modify(Holder<Biome> biome, Phase phase, ModifiableBiomeInfo.BiomeInfo.Builder builder) {
-        if (phase == Phase.AFTER_EVERYTHING && biomes.contains(biome) && builder.getSpecialEffects().getGrassColorOverride().isPresent() && builder.getSpecialEffects().getFoliageColorOverride().isPresent() && predicate.test(builder.getSpecialEffects().getGrassColorOverride().get(), builder.getSpecialEffects().getWaterFogColor()))
+        if (phase == Phase.AFTER_EVERYTHING && biomes.contains(biome) && builder.getSpecialEffects().getGrassColorOverride().isPresent() && builder.getSpecialEffects().getFoliageColorOverride().isPresent() && predicate.test(builder.getSpecialEffects().getGrassColorOverride().get(), builder.getSpecialEffects().getFoliageColorOverride().get()))
         { builder.getSpecialEffects().grassColorOverride(grass).foliageColorOverride(foliage); }
 
     }
@@ -36,8 +36,8 @@ public record PlantColorReplacementModifier(HolderSet<Biome> biomes, PlantsColor
             return new PlantsColorPredicate(grass, foliage);
         }
 
-        public boolean test(int grass, int fog) {
-            return grass == this.grass && fog == this.foliage;
+        public boolean test(int grass, int foliage {
+            return grass == this.grass && foliage == this.foliage;
         }
     }
 
