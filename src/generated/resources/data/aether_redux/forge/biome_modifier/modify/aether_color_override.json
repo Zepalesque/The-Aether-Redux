@@ -1,10 +1,6 @@
 {
-  "type": "aether_redux:plant_color_replacement",
+  "type": "aether_redux:vanillify_aether_grass",
   "biomes": "#aether:is_aether",
-  "foliage_color": 7842607,
-  "grass_color": 9551193,
-  "predicate": {
-    "foliage": 11665355,
-    "grass": 11665355
-  }
+  "default_foliage_color": 7842607,
+  "default_grass_color": 9551193
 }
