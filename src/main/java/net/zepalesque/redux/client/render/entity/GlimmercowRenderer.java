@@ -16,7 +16,7 @@ import net.zepalesque.redux.client.render.entity.model.entity.GlimmercowModel;
 import net.zepalesque.redux.entity.passive.Glimmercow;
 
 public class GlimmercowRenderer extends MobRenderer<Glimmercow, GlimmercowModel<Glimmercow>> {
-    private static final ResourceLocation GLIMMERCOW_TEX = Redux.locate("textures/entity/mobs/glimmercow/shimmercow.png");
+    private static final ResourceLocation GLIMMERCOW_TEX = Redux.locate("textures/entity/mobs/glimmercow/glimmercow.png");
     private static final ResourceLocation CRAZY_COW_TEX = Redux.locate("textures/entity/mobs/glimmercow/crazy_cow.png");
 
     public GlimmercowRenderer(EntityRendererProvider.Context context) {
