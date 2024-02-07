@@ -6,7 +6,6 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "aether_redux.refmap.json",
   "mixins": [
-    "client.block.AetherColorResolversMixin",
     "client.render.SkyrootMimicRendererMixin",
     "common.block.AetherGrassBlockMixin",
     "common.block.BlockBehaviorMixin",
