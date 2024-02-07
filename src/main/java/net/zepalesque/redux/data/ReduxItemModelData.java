@@ -194,6 +194,8 @@ public class ReduxItemModelData extends AetherItemModelProvider {
 
         this.item(ReduxItems.ZANBERRY, "food/");
 
+        this.item(ReduxItems.VERIDIUM_ARROW, "weapons/");
+
         for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS)        {
             woodHandler.generateItemModels(this);
         }

@@ -107,6 +107,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.SPECTRAL_DART_SHOOTER, "Spectral Dart Shooter");
         addLore(ReduxItems.SPECTRAL_DART_SHOOTER, "A Dart Shooter which shoots Spectral Darts, it's darts cause enemies to temporarily glow when hit!");
 
+        addItem(ReduxItems.VERIDIUM_ARROW, "Veridium Arrow");
+        addLore(ReduxItems.VERIDIUM_ARROW, "An arrow made with Veridium. This is faster and more powerful than normal arrows!");
+
         addItem(ReduxItems.MUSIC_DISC_LABYRINTHS_VENGEANCE, "Slider Music Disc");
         addDiscDesc(ReduxItems.MUSIC_DISC_LABYRINTHS_VENGEANCE, "Emile van Krieken - Labyrinth's Vengeance");
         addLore(ReduxItems.MUSIC_DISC_LABYRINTHS_VENGEANCE, "A music disc that plays Labyrinth's Vengeance by Emile van Krieken.");
@@ -463,6 +466,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addEntityType(ReduxEntityTypes.EMBER, "Ember");
         addEntityType(ReduxEntityTypes.SPECTRAL_DART, "Spectral Dart");
         addEntityType(ReduxEntityTypes.VOLATILE_FIRE_CRYSTAL, "Volatile Fire Crystal");
+        addEntityType(ReduxEntityTypes.VERIDIUM_ARROW, "Veridium Arrow");
 
         addPackConfigEnum("classic", "Classic");
         addPackConfigEnum("modern", "Modern");

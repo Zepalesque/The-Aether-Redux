@@ -19,6 +19,7 @@ import net.zepalesque.redux.entity.passive.Glimmercow;
 import net.zepalesque.redux.entity.passive.Mykapod;
 import net.zepalesque.redux.entity.projectile.Ember;
 import net.zepalesque.redux.entity.projectile.SpectralDart;
+import net.zepalesque.redux.entity.projectile.VeridiumArrow;
 import net.zepalesque.redux.entity.projectile.VolatileFireCrystal;
 
 @Mod.EventBusSubscriber(modid = Redux.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -34,6 +35,9 @@ public class ReduxEntityTypes {
 
     public static final RegistryObject<EntityType<SpectralDart>> SPECTRAL_DART = ENTITY_TYPES.register("spectral_dart",
             () -> EntityType.Builder.<SpectralDart>of(SpectralDart::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20).build("spectral_dart"));
+
+    public static final RegistryObject<EntityType<VeridiumArrow>> VERIDIUM_ARROW = ENTITY_TYPES.register("veridium_arrow",
+            () -> EntityType.Builder.<VeridiumArrow>of(VeridiumArrow::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20).build("veridium_arrow"));
 
     public static final RegistryObject<EntityType<Ember>> EMBER = ENTITY_TYPES.register("ember",
             () -> EntityType.Builder.<Ember>of(Ember::new, MobCategory.MISC).sized(0.125F, 0.125F).clientTrackingRange(4).updateInterval(20).build("ember"));

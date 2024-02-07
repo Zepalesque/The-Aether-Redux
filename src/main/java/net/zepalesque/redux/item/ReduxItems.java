@@ -25,6 +25,7 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
+import net.zepalesque.redux.entity.projectile.VeridiumArrow;
 import net.zepalesque.redux.item.accessory.*;
 import net.zepalesque.redux.item.food.ReduxFoods;
 import net.zepalesque.redux.item.misc.BlightedSporesItem;
@@ -35,6 +36,7 @@ import net.zepalesque.redux.item.tools.VeridiumPickaxeItem;
 import net.zepalesque.redux.item.tools.VeridiumShovelItem;
 import net.zepalesque.redux.item.util.ReduxItemTiers;
 import net.zepalesque.redux.item.weapons.SubzeroCrossbowItem;
+import net.zepalesque.redux.item.weapons.VeridiumArrowItem;
 import net.zepalesque.redux.item.weapons.VeridiumSwordItem;
 import org.jetbrains.annotations.Nullable;
 
@@ -85,6 +87,8 @@ public class ReduxItems {
 
     public static final RegistryObject<Item> SPECTRAL_DART = ITEMS.register("spectral_dart", () -> new DartItem(ReduxEntityTypes.SPECTRAL_DART, new Item.Properties()));
     public static final RegistryObject<Item> SPECTRAL_DART_SHOOTER = ITEMS.register("spectral_dart_shooter", () -> new DartShooterItem(SPECTRAL_DART, (new Item.Properties()).stacksTo(1)));
+
+    public static final RegistryObject<Item> VERIDIUM_ARROW = ITEMS.register("veridium_arrow", () -> new VeridiumArrowItem(new Item.Properties()));
 
     public static final RegistryObject<Item> ENCHANTED_RING = register("enchanted_ring", () -> new RingItem(ReduxSoundEvents.EQUIP_ENCHANTED_RING, new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> GRAND_VICTORY_MEDAL = register("grand_victory_medal", () -> new AbilityTooltipPendantItem(Redux.locate("grand_medal"), ReduxSoundEvents.EQUIP_GRAND_MEDAL, new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT), "grand_medal_regen", "grand_medal_queen_refight"));
