@@ -106,7 +106,7 @@ public class ReduxBiomes {
                 ReduxMusic.DEFAULT_AETHER_MUSIC,
                 4607385,
                 723770,
-                BLIGHT_GRASS_COLOR,
+                AETHER_GRASS_COLOR,
                 0xC6C1FF,
                 0xA591BC
                 ));
@@ -125,7 +125,7 @@ public class ReduxBiomes {
                 ReduxMusic.DEFAULT_AETHER_MUSIC,
                 WATER,
                 WATER_FOG,
-                CLOUDCAP_GRASS_COLOR
+                AETHER_GRASS_COLOR
                 ));
 
         context.register(GLACIAL_TAIGA, climateBiome(
@@ -141,7 +141,7 @@ public class ReduxBiomes {
                 ReduxMusic.DEFAULT_AETHER_MUSIC,
                 WATER,
                 WATER_FOG,
-                FROSTED_GRASS_COLOR,
+                AETHER_GRASS_COLOR,
                 true,
                 -1.6F,
                 0.4F
@@ -177,7 +177,7 @@ public class ReduxBiomes {
                 ReduxMusic.DEFAULT_AETHER_MUSIC,
                 WATER,
                 WATER_FOG,
-                GILDED_GRASS_COLOR
+                AETHER_GRASS_COLOR
                 ));
         context.register(GILDED_GRASSLANDS, simpleBiome(
                 ores(baseFeatures(new BiomeGenerationSettings.Builder(placedFeatures, configuredCarvers), false, false, true, true, true))
@@ -191,7 +191,7 @@ public class ReduxBiomes {
                 ReduxMusic.DEFAULT_AETHER_MUSIC,
                 WATER,
                 WATER_FOG,
-                GILDED_GRASSLANDS_COLOR
+                AETHER_GRASS_COLOR
                 ));
 
         context.register(HIGHFIELDS, simpleBiome(
@@ -209,7 +209,7 @@ public class ReduxBiomes {
                 ReduxMusic.DEFAULT_AETHER_MUSIC,
                 WATER,
                 WATER_FOG,
-                HIGHFIELDS_GRASS_COLOR
+                AETHER_GRASS_COLOR
         ));
 
         context.register(SKYROOT_SHRUBLANDS, simpleBiome(
@@ -227,7 +227,7 @@ public class ReduxBiomes {
                 ReduxMusic.DEFAULT_AETHER_MUSIC,
                 WATER,
                 WATER_FOG,
-                SHRUBLANDS_GRASS_COLOR
+                AETHER_GRASS_COLOR
         ));
 
 
