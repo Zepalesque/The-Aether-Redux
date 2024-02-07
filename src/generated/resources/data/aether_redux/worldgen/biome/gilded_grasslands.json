@@ -42,6 +42,7 @@
     ],
     [
       "aether_redux:trees/grassland_trees",
+      "aether_redux:trees/grassland_trees_alt",
       "aether:grass_patch",
       "aether_redux:patch/gilded_white_flower_patch",
       "aether_redux:patch/aurum_patch",

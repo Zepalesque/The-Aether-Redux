@@ -42,6 +42,7 @@
     ],
     [
       "aether_redux:trees/grove_trees",
+      "aether_redux:trees/grove_trees_alt",
       "aether:grass_patch",
       "aether_redux:patch/gilded_white_flower_patch",
       "aether_redux:patch/golden_clover_patch",

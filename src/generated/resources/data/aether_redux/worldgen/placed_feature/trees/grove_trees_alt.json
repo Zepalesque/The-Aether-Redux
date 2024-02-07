@@ -1,17 +1,24 @@
 {
-  "feature": "aether_redux:trees/frosted_trees",
+  "feature": "aether_redux:trees/grove_trees_alt",
   "placement": [
+    {
+      "type": "aether_redux:data_condition",
+      "data_condition": {
+        "condition": "aether_redux:redux_config",
+        "config_path": "[Worldgen, Alternate Gilded Trees]"
+      }
+    },
     {
       "type": "minecraft:count",
       "count": {
         "type": "minecraft:weighted_list",
         "distribution": [
           {
-            "data": 8,
+            "data": 12,
             "weight": 9
           },
           {
-            "data": 6,
+            "data": 7,
             "weight": 1
           }
         ]
@@ -26,7 +33,7 @@
           "min_inclusive": 0
         }
       },
-      "heightmap": "OCEAN_FLOOR",
+      "heightmap": "MOTION_BLOCKING",
       "verticalBounds": 4
     },
     {
@@ -40,7 +47,7 @@
       "predicate": {
         "type": "minecraft:would_survive",
         "state": {
-          "Name": "aether_redux:glacia_sapling",
+          "Name": "aether_redux:gilded_oak_sapling",
           "Properties": {
             "stage": "0"
           }
