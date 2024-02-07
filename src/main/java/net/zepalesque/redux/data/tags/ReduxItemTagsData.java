@@ -38,6 +38,7 @@ public class ReduxItemTagsData extends ItemTagsProvider {
             this.tag(ItemTags.BOATS).add(woodHandler.boatItem.get());
             this.tag(ItemTags.CHEST_BOATS).add(woodHandler.chestBoatItem.get());
         }
+        this.tag(ItemTags.ARROWS).add(ReduxItems.VERIDIUM_ARROW.get());
 
         this.tag(ReduxTags.Items.REDUX_PHYG_FOOD_ITEMS).add(ReduxItems.WYNDSPROUT_SEEDS.get());
         this.tag(ReduxTags.Items.REDUX_FLYING_COW_FOOD_ITEMS).add(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get());
