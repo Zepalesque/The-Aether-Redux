@@ -36,12 +36,12 @@ public class VeridiumArrow extends AbstractArrow {
 
     @Override
     public void shoot(double x, double y, double z, float velocity, float inaccuracy) {
-        super.shoot(x, y, z, velocity * 2.0F, inaccuracy);
+        super.shoot(x, y, z, velocity, 0.0F);
     }
 
     @Override
     public void shootFromRotation(Entity shooter, float x, float y, float z, float velocity, float inaccuracy) {
-        super.shootFromRotation(shooter, x, y, z, velocity * 2.0F, inaccuracy);
+        super.shootFromRotation(shooter, x, y, z, velocity, 0.0F);
     }
 
     @Override
