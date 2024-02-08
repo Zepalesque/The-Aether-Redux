@@ -128,8 +128,6 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
         infusionCharge(consumer, ReduxItems.VERIDIUM_HOE, ReduxItems.INFUSED_VERIDIUM_HOE);
         infusionCharge(consumer, ReduxItems.VERIDIUM_SHOVEL, ReduxItems.INFUSED_VERIDIUM_SHOVEL);
 
-        infusionStacking(consumer, ReduxItems.PURIFIED_LUXBUDS, ReduxItems.LUXBUDS);
-
         twoByTwoPacker(consumer, RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SHELL_SHINGLES.get(), ReduxItems.MYKAPOD_SHELL_CHUNK.get());
         enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.ENCHANTED_SHELL_SHINGLES.get(), ReduxBlocks.SHELL_SHINGLES.get(), 0F, 150);
 

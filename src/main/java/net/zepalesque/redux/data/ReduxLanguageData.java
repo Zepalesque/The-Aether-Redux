@@ -60,12 +60,6 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.ENCHANTED_BLUEBERRY_PIE, "Enchanted Blueberry Pie");
         addLore(ReduxItems.ENCHANTED_BLUEBERRY_PIE, "An enchanted variant of the Blueberry Pie. This fancy treat gives you a short regeneration effect!");
 
-        addItem(ReduxItems.LUXBUDS, "Luxbuds");
-        addLore(ReduxItems.LUXBUDS, "The blighted, mutated variant of Oats, found by breaking Luxweed, which can be infused into a more powerful purified form. Despite being blighted, eating these occasionally wards off various effects from the blight's harmful plants.");
-
-        addItem(ReduxItems.PURIFIED_LUXBUDS, "Purified Luxbuds");
-        addLore(ReduxItems.PURIFIED_LUXBUDS, "The purified form of Luxbuds. Unlike their raw counterpart, these will ALWAYS give you a resistance to the blight, and for a longer duration.");
-
         addItem(ReduxItems.ENCHANTED_RING, "Enchanted Ring");
         addLore(ReduxItems.ENCHANTED_RING, "A ring with a large amount of magical potential. You can use it to craft many other types of rings with a variety of abilities!");
 

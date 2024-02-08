@@ -153,8 +153,6 @@ public class ReduxCreativeTabs {
             putAfter(ReduxItems.WYNDSPROUT_BAGEL, ReduxItems.BLUEBERRY_BAGEL, event);
             putAfter(ReduxItems.BLUEBERRY_BAGEL, ReduxItems.WYNDSPROUT_SEEDS, event);
             putAfter(ReduxItems.WYNDSPROUT_SEEDS, ReduxItems.OATMEAL, event);
-            putAfter(ReduxItems.OATMEAL, ReduxItems.LUXBUDS, event);
-            putAfter(ReduxItems.LUXBUDS, ReduxItems.PURIFIED_LUXBUDS, event);
 
 
             putAfter(AetherItems.GOLDEN_GUMMY_SWET, ReduxItems.VANILLA_GUMMY_SWET, event);
@@ -185,8 +183,7 @@ public class ReduxCreativeTabs {
 
             putAfter(AetherItems.AECHOR_PETAL, ReduxItems.MYKAPOD_SHELL_CHUNK, event);
             putAfter(ReduxItems.WYNDSPROUT_SEEDS, ReduxItems.WYNDSPROUT_SEEDS, event);
-            putAfter(ReduxItems.WYNDSPROUT_SEEDS, ReduxItems.LUXBUDS, event);
-            putAfter(ReduxItems.LUXBUDS, ReduxItems.BUNDLE_OF_WYNDSPROUTS, event);
+            putAfter(ReduxItems.WYNDSPROUT_SEEDS, ReduxItems.BUNDLE_OF_WYNDSPROUTS, event);
             putAfter(ReduxItems.BUNDLE_OF_WYNDSPROUTS, ReduxItems.LIGHTROOT_CLUMP, event);
 
             putAfter(AetherItems.SWET_BALL, Redux.aetherGenesisCompat() ? ReduxItems.VANILLA_SWET_BALL : ReduxItems.GOLDEN_SWET_BALL, event);
