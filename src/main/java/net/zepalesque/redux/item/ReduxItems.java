@@ -1,6 +1,7 @@
 package net.zepalesque.redux.item;
 
 import com.aetherteam.aether.item.AetherItems;
+import com.aetherteam.aether.item.EquipmentUtil;
 import com.aetherteam.aether.item.accessories.AccessoryItem;
 import com.aetherteam.aether.item.accessories.miscellaneous.ShieldOfRepulsionItem;
 import com.aetherteam.aether.item.accessories.ring.RingItem;
@@ -38,6 +39,7 @@ import net.zepalesque.redux.item.util.ReduxItemTiers;
 import net.zepalesque.redux.item.weapons.SubzeroCrossbowItem;
 import net.zepalesque.redux.item.weapons.VeridiumArrowItem;
 import net.zepalesque.redux.item.weapons.VeridiumSwordItem;
+import net.zepalesque.redux.misc.ReduxTags;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.UnaryOperator;
@@ -109,7 +111,7 @@ public class ReduxItems {
     public static final RegistryObject<SpawnEggItem> GLIMMERCOW_SPAWN_EGG = ITEMS.register("glimmercow_spawn_egg", () -> new ForgeSpawnEggItem(ReduxEntityTypes.GLIMMERCOW, 0x7B7F90, 0x4A73CC, new Item.Properties()));
 
     public static final RegistryObject<SpawnEggItem> MYKAPOD_SPAWN_EGG = ITEMS.register("mykapod_spawn_egg", () -> new ForgeSpawnEggItem(ReduxEntityTypes.MYKAPOD, 0xDAE3E7, 0x7178C2, new Item.Properties()));
-    
+
 
     public static final RegistryObject<Item> BLIGHTED_SPORES = register("blighted_spores", () -> new BlightedSporesItem(new Item.Properties()));
 
@@ -129,9 +131,13 @@ public class ReduxItems {
     public static final RegistryObject<AxeItem> INFUSED_VERIDIUM_AXE = register("infused_veridium_axe", () -> new VeridiumAxeItem(ReduxItemTiers.INFUSED_VERIDIUM, 1, -2.9F, new Item.Properties()));
     public static final RegistryObject<HoeItem> INFUSED_VERIDIUM_HOE = register("infused_veridium_hoe", () -> new VeridiumHoeItem(ReduxItemTiers.INFUSED_VERIDIUM, 0, -1.4F, new Item.Properties()));
 
-    public static final RegistryObject<Item> COCKATRICE_FEATHER = register("cockatrice_feather", () -> new AbilityTooltipMiscItem(new Item.Properties().stacksTo(1), "cockatrice_feather_protection"));
+    public static final RegistryObject<Item> COCKATRICE_FEATHER = register("cockatrice_feather", () -> new ConditionAccessory(new Item.Properties().stacksTo(1),
+            (slotContext, stack) -> EquipmentUtil.findFirstCurio(slotContext.entity(), is -> is.is(ReduxTags.Items.BLIGHTWARDING_ACCESSORIES)).isEmpty(),
+            "cockatrice_feather_protection"));
 
-    public static final RegistryObject<Item> FEATHER_OF_WARDING = register("feather_of_warding", () -> new AbilityTooltipMiscItem(new Item.Properties().stacksTo(1), "feather_of_warding_immunity"));
+    public static final RegistryObject<Item> FEATHER_OF_WARDING = register("feather_of_warding", () -> new ConditionAccessory(new Item.Properties().stacksTo(1),
+            (slotContext, stack) -> EquipmentUtil.findFirstCurio(slotContext.entity(), is -> is.is(ReduxTags.Items.BLIGHTWARDING_ACCESSORIES)).isEmpty(),
+            "feather_of_warding_immunity"));
 
     public static final RegistryObject<Item> ZANBERRY = register("zanberry", () -> new Item(new Item.Properties().food(ReduxFoods.CHROMABERRY)));
     public static final RegistryObject<Item> LIGHTROOT_CLUMP = register("lightroot_clump", () -> new ItemNameBlockItem(ReduxBlocks.LIGHTROOTS.get(),  new Item.Properties().food(ReduxFoods.LIGHTROOT_CLUMP)));
