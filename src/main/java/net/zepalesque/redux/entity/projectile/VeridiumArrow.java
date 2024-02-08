@@ -31,7 +31,7 @@ public class VeridiumArrow extends AbstractArrow {
 
 
     private void initialize() {
-        this.setBaseDamage(5.0D);
+        this.setBaseDamage(3.0D);
     }
 
     @Override
