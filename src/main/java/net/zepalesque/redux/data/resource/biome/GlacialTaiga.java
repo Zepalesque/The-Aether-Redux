@@ -17,9 +17,7 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.zepalesque.redux.client.audio.ReduxMusic;
 import net.zepalesque.redux.data.resource.ReduxPlacedFeatures;
 
-// Todo: Colder water color?
 public class GlacialTaiga {
-
 
     public static Biome generate(BootstapContext<Biome> context) {
         HolderGetter<PlacedFeature> placed = context.lookup(Registries.PLACED_FEATURE);
@@ -32,7 +30,7 @@ public class GlacialTaiga {
         new BiomeSpecialEffects.Builder()
                 .fogColor(0x93_93_bc)
                 .skyColor(0xc0_c0_ff)
-                .waterColor(0x5F9ABF)
+                .waterColor(0x6BAED6)
                 .waterFogColor(0x122D3D)
                 .grassColorOverride(0xb1_ff_cb)
                 .foliageColorOverride(0xb1_ff_cb)

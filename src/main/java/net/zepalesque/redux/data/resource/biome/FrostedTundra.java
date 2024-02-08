@@ -32,7 +32,7 @@ public class FrostedTundra {
         new BiomeSpecialEffects.Builder()
                 .fogColor(0x93_93_bc)
                 .skyColor(0xc0_c0_ff)
-                .waterColor(0x5F9ABF)
+                .waterColor(0x6BAED6)
                 .waterFogColor(0x122D3D)
                 .grassColorOverride(0xb1_ff_cb)
                 .foliageColorOverride(0xb1_ff_cb)
