@@ -170,20 +170,20 @@ public class ReduxPlacedFeatures {
         register(context, SHRUBLANDS_WHITE_PATCH, configuredFeatures.getOrThrow(AetherConfiguredFeatures.WHITE_FLOWER_PATCH_CONFIGURATION),
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 2), 4),
-                RarityFilter.onAverageOnceEvery(7),
+                RarityFilter.onAverageOnceEvery(15),
                 BiomeFilter.biome());
 
         register(context, SHRUBLANDS_PURPLE_PATCH, configuredFeatures.getOrThrow(AetherConfiguredFeatures.PURPLE_FLOWER_PATCH_CONFIGURATION),
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 2), 4),
-                RarityFilter.onAverageOnceEvery(16),
+                RarityFilter.onAverageOnceEvery(25),
                 BiomeFilter.biome());
 
 
         register(context, ZANBERRY_BUSH_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.AURUM_PATCH),
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, BiasedToBottomInt.of(0, 2), 4),
-                RarityFilter.onAverageOnceEvery(16),
+                RarityFilter.onAverageOnceEvery(9),
                 BiomeFilter.biome());
 
         register(context, GILDED_WHITE_FLOWER_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GILDED_WHITE_FLOWER_PATCH),
@@ -517,8 +517,8 @@ public class ReduxPlacedFeatures {
 
         register(context, SHRUBLANDS_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.SHRUBLANDS_TREES),
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
-                        .add(ConstantInt.of(2), 9)
-                        .add(ConstantInt.of(3), 3)
+                        .add(ConstantInt.of(5), 9)
+                        .add(ConstantInt.of(9), 3)
                         .build())),
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.OCEAN_FLOOR, ConstantInt.of(2), 4),
                 BiomeFilter.biome(),
