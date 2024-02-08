@@ -13,12 +13,12 @@
       "sound": "aether:music.aether"
     },
     "sky_color": 12632319,
-    "water_color": 5403045,
-    "water_fog_color": 791347
+    "water_color": 6265535,
+    "water_fog_color": 1191229
   },
   "features": [
     [
-      "aether:quicksoil_shelf"
+      "aether_redux:surface/aerogel_disk"
     ],
     [
       "aether_redux:surface/surface_rule_water_lake"
@@ -29,7 +29,7 @@
     [],
     [
       "aether:aether_dirt_ore",
-      "aether:icestone_ore",
+      "aether_redux:ore/large_icestone_chunk",
       "aether:ambrosium_ore",
       "aether:zanite_ore",
       "aether:gravitite_ore_buried",
@@ -42,6 +42,7 @@
     ],
     [
       "aether_redux:trees/glacial_trees",
+      "aether:holiday_tree",
       "aether:grass_patch",
       "aether_redux:patch/lumina_patch",
       "aether_redux:patch/frosted_purple_flower_patch",
@@ -55,10 +56,6 @@
   ],
   "has_precipitation": true,
   "spawn_costs": {
-    "aether:aechor_plant": {
-      "charge": 0.4,
-      "energy_budget": 0.11
-    },
     "aether:aerwhale": {
       "charge": 0.5,
       "energy_budget": 0.11
@@ -115,12 +112,6 @@
     ],
     "aether_surface_monster": [
       {
-        "type": "aether:aechor_plant",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 7
-      },
-      {
         "type": "aether:blue_swet",
         "maxCount": 1,
         "minCount": 1,
@@ -152,31 +143,31 @@
         "type": "aether:phyg",
         "maxCount": 4,
         "minCount": 3,
-        "weight": 10
+        "weight": 15
       },
       {
         "type": "aether:sheepuff",
         "maxCount": 4,
         "minCount": 3,
-        "weight": 12
+        "weight": 13
       },
       {
         "type": "aether:flying_cow",
         "maxCount": 5,
         "minCount": 2,
-        "weight": 12
+        "weight": 8
       },
       {
         "type": "aether:aerbunny",
         "maxCount": 3,
         "minCount": 3,
-        "weight": 11
+        "weight": 13
       },
       {
         "type": "aether:moa",
         "maxCount": 3,
         "minCount": 1,
-        "weight": 8
+        "weight": 6
       }
     ],
     "misc": [],

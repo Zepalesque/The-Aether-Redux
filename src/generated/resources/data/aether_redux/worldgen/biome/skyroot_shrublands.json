@@ -13,8 +13,8 @@
       "sound": "aether:music.aether"
     },
     "sky_color": 12632319,
-    "water_color": 5403045,
-    "water_fog_color": 791347
+    "water_color": 4159204,
+    "water_fog_color": 329011
   },
   "features": [
     [
@@ -25,7 +25,9 @@
     ],
     [],
     [],
-    [],
+    [
+      "aether_redux:surface/shrublands_rock"
+    ],
     [],
     [
       "aether:aether_dirt_ore",
@@ -35,14 +37,13 @@
       "aether:gravitite_ore_buried",
       "aether:gravitite_ore"
     ],
+    [],
     [
-      "aether_redux:trees/shrublands_trees"
+      "aether:water_spring"
     ],
     [
-      "aether:water_spring",
-      "aether_redux:surface/shrublands_rock"
-    ],
-    [
+      "aether_redux:trees/shrublands_trees",
+      "aether:holiday_tree",
       "aether:grass_patch",
       "aether:tall_grass_patch",
       "aether_redux:patch/shrublands_purple_patch",
@@ -53,7 +54,8 @@
     ],
     [
       "aether:cold_aercloud",
-      "aether:blue_aercloud"
+      "aether_redux:misc/decreased_blue_aerclouds",
+      "aether:golden_aercloud"
     ]
   ],
   "has_precipitation": false,
@@ -155,31 +157,31 @@
         "type": "aether:phyg",
         "maxCount": 4,
         "minCount": 3,
-        "weight": 10
+        "weight": 13
       },
       {
         "type": "aether:sheepuff",
         "maxCount": 4,
         "minCount": 3,
-        "weight": 12
+        "weight": 11
       },
       {
         "type": "aether:flying_cow",
         "maxCount": 5,
         "minCount": 2,
-        "weight": 12
+        "weight": 7
       },
       {
         "type": "aether:aerbunny",
         "maxCount": 3,
         "minCount": 3,
-        "weight": 11
+        "weight": 12
       },
       {
         "type": "aether:moa",
         "maxCount": 3,
         "minCount": 1,
-        "weight": 8
+        "weight": 10
       }
     ],
     "misc": [],

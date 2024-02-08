@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-07T21:37:59.1403296	Block States: aether_redux
+// 1.20.1	2024-02-08T13:48:24.3796909	Block States: aether_redux
 3b65fcf4de37be76dd1ac46b4118458043237e15 assets/aether_redux/blockstates/aether_short_grass.json
 0a0f21b01afc7514adf77a09aca842eb1a0055b4 assets/aether_redux/blockstates/aevelium.json
 483c8ba025f1818d95319f96976dd85c91663f05 assets/aether_redux/blockstates/aevelium_roots.json
@@ -201,7 +201,7 @@ de3e293f4f0560ea3863be61b9b3e9d49d4f2bf4 assets/aether_redux/blockstates/shell_s
 edc33c6bb8b0a40e8d40e7f932fac05f26985a15 assets/aether_redux/blockstates/skysprouts.json
 6811737a485cc578fe520d6de5e4e5d70cddd9f7 assets/aether_redux/blockstates/skysprouts_crop.json
 7ef06cc54dfb49c09748ba1a7695ed76401e16dd assets/aether_redux/blockstates/spirolyctil.json
-681f61ffe52451350bb38a0a7464dc6a5b840f2b assets/aether_redux/blockstates/splitfern.json
+ce75f37e3fee0b098c5d8cb0852557a65d081062 assets/aether_redux/blockstates/splitfern.json
 9dab0517991e2966f02ce3fe53abca373e69563f assets/aether_redux/blockstates/sporing_blightwillow_log.json
 1505642119c363f9ade430667db4f35af3d78b09 assets/aether_redux/blockstates/sporing_blightwillow_wood.json
 f85d26c50aab42d28b9dd6671e03f1a247e817ed assets/aether_redux/blockstates/stripped_blightwillow_log.json
@@ -484,6 +484,7 @@ d3c61403fad3bd05fbbb1fce4e933341d60ba15f assets/aether_redux/models/block/enchan
 478238103acd0d0dd7d65460c68d354c8c6aaa8b assets/aether_redux/models/block/enchanted_shell_shingle_wall_side.json
 998dd364eeb2ecdff4ec248ef7e549a0d221d886 assets/aether_redux/models/block/enchanted_shell_shingle_wall_side_tall.json
 00e16fd7a7d8043c5fafb7852d99223485c5b8a5 assets/aether_redux/models/block/enchanted_short_grass.json
+b29436909f7f8c82898af65758515024c1d3f775 assets/aether_redux/models/block/enchanted_splitfern.json
 2f52bfa0131e7796e3cd5b4e798936513e706b6a assets/aether_redux/models/block/enchanted_tall_grass.json
 061cfcf73adb5a717d2703a82dded750c17f5fb9 assets/aether_redux/models/block/enchanted_white_flower.json
 dc43f7083c6f61999aae4eaebcae450b34b1347d assets/aether_redux/models/block/enchanted_zyatrix.json

@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "enchanted=false": {
       "model": "aether_redux:block/splitfern"
+    },
+    "enchanted=true": {
+      "model": "aether_redux:block/enchanted_splitfern"
     }
   }
 }

@@ -13,12 +13,12 @@
       "sound": "aether:music.aether"
     },
     "sky_color": 12632319,
-    "water_color": 5403045,
-    "water_fog_color": 791347
+    "water_color": 4159204,
+    "water_fog_color": 329011
   },
   "features": [
     [
-      "aether:quicksoil_shelf"
+      "aether_redux:surface/aerogel_disk"
     ],
     [
       "aether_redux:surface/surface_rule_water_lake"
@@ -46,6 +46,7 @@
     ],
     [
       "aether_redux:trees/large_mushrooms",
+      "aether:holiday_tree",
       "aether_redux:patch/aevelium_grasses_patch",
       "aether_redux:patch/cloudcap_mushling_patch",
       "aether_redux:patch/jellyshroom_patch",
@@ -157,6 +158,12 @@
         "maxCount": 5,
         "minCount": 2,
         "weight": 12
+      },
+      {
+        "type": "aether_redux:mykapod",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 5
       }
     ],
     "misc": [],

@@ -13,8 +13,8 @@
       "sound": "aether:music.aether"
     },
     "sky_color": 12632319,
-    "water_color": 5403045,
-    "water_fog_color": 791347
+    "water_color": 4159204,
+    "water_fog_color": 329011
   },
   "features": [
     [
@@ -25,7 +25,9 @@
     ],
     [],
     [],
-    [],
+    [
+      "aether_redux:surface/highfields_rock"
+    ],
     [],
     [
       "aether:aether_dirt_ore",
@@ -35,14 +37,13 @@
       "aether:gravitite_ore_buried",
       "aether:gravitite_ore"
     ],
+    [],
     [
-      "aether_redux:trees/highfields_trees"
+      "aether:water_spring"
     ],
     [
-      "aether:water_spring",
-      "aether_redux:surface/highfields_rock"
-    ],
-    [
+      "aether_redux:trees/highfields_trees",
+      "aether:holiday_tree",
       "aether:grass_patch",
       "aether:tall_grass_patch",
       "aether:white_flower_patch",
@@ -52,8 +53,10 @@
       "aether_redux:patch/xaelia_patch"
     ],
     [
+      "aether:crystal_island",
       "aether:cold_aercloud",
-      "aether:blue_aercloud"
+      "aether_redux:misc/increased_blue_aerclouds",
+      "aether:golden_aercloud"
     ]
   ],
   "has_precipitation": false,
@@ -73,10 +76,6 @@
     "aether:cockatrice": {
       "charge": 0.5,
       "energy_budget": 0.15
-    },
-    "aether:evil_whirlwind": {
-      "charge": 0.4,
-      "energy_budget": 0.1
     },
     "aether:golden_swet": {
       "charge": 0.5,
@@ -140,12 +139,6 @@
         "maxCount": 1,
         "minCount": 1,
         "weight": 3
-      },
-      {
-        "type": "aether:evil_whirlwind",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 1
       }
     ],
     "ambient": [],
@@ -153,33 +146,33 @@
     "creature": [
       {
         "type": "aether:phyg",
-        "maxCount": 7,
-        "minCount": 5,
-        "weight": 10
+        "maxCount": 4,
+        "minCount": 3,
+        "weight": 8
       },
       {
         "type": "aether:sheepuff",
-        "maxCount": 6,
-        "minCount": 5,
-        "weight": 12
+        "maxCount": 4,
+        "minCount": 3,
+        "weight": 14
       },
       {
         "type": "aether:flying_cow",
-        "maxCount": 6,
-        "minCount": 4,
-        "weight": 12
+        "maxCount": 5,
+        "minCount": 2,
+        "weight": 8
       },
       {
         "type": "aether:aerbunny",
-        "maxCount": 9,
+        "maxCount": 3,
         "minCount": 3,
         "weight": 18
       },
       {
         "type": "aether:moa",
-        "maxCount": 4,
+        "maxCount": 3,
         "minCount": 1,
-        "weight": 8
+        "weight": 10
       }
     ],
     "misc": [],

@@ -1,5 +1,6 @@
 {
   "carvers": {},
+  "creature_spawn_probability": 0.25,
   "downfall": 0.0,
   "effects": {
     "fog_color": 10850748,
@@ -17,38 +18,40 @@
   },
   "features": [
     [
-      "aether:quicksoil_shelf"
+      "aether_redux:surface/holysilt_disk"
     ],
     [
       "aether_redux:surface/surface_rule_water_lake"
     ],
     [],
     [],
-    [],
+    [
+      "aether_redux:surface/blight_rock"
+    ],
     [],
     [
       "aether:aether_dirt_ore",
       "aether:icestone_ore",
-      "aether:ambrosium_ore",
-      "aether:zanite_ore",
+      "aether_redux:ore/decreased_ambrosium_ore",
+      "aether_redux:ore/increased_zanite_ore",
       "aether:gravitite_ore_buried",
-      "aether:gravitite_ore"
+      "aether:gravitite_ore",
+      "aether_redux:ore/blightmoss_holystone_ore"
     ],
     [
       "aether_redux:cave_biome/blightmoss_vegetation"
     ],
     [
-      "aether:water_spring",
-      "aether_redux:surface/blight_rock"
+      "aether:water_spring"
     ],
     [
       "aether_redux:trees/blight_trees",
+      "aether:holiday_tree",
       "aether:grass_patch",
       "aether_redux:patch/luxweed_patch",
       "aether_redux:patch/spirolyctil_patch",
       "aether_redux:patch/blightshade_patch",
-      "aether_redux:cave_biome/blightmoss_vegetation",
-      "aether_redux:surface/holysilt_disk"
+      "aether_redux:cave_biome/blightmoss_vegetation"
     ],
     [
       "aether:cold_aercloud",
@@ -61,17 +64,13 @@
       "charge": 0.4,
       "energy_budget": 0.11
     },
-    "aether:aerwhale": {
-      "charge": 0.5,
-      "energy_budget": 0.11
-    },
     "aether:blue_swet": {
       "charge": 0.5,
       "energy_budget": 0.1
     },
     "aether:cockatrice": {
-      "charge": 0.5,
-      "energy_budget": 0.15
+      "charge": 0.3,
+      "energy_budget": 0.1
     },
     "aether:evil_whirlwind": {
       "charge": 0.4,
@@ -81,24 +80,13 @@
       "charge": 0.5,
       "energy_budget": 0.1
     },
-    "aether:whirlwind": {
-      "charge": 0.4,
-      "energy_budget": 0.1
-    },
     "aether:zephyr": {
       "charge": 0.6,
       "energy_budget": 0.16
     }
   },
   "spawners": {
-    "aether_aerwhale": [
-      {
-        "type": "aether:aerwhale",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 10
-      }
-    ],
+    "aether_aerwhale": [],
     "aether_darkness_monster": [
       {
         "type": "aether:cockatrice",
@@ -135,12 +123,6 @@
         "weight": 6
       },
       {
-        "type": "aether:whirlwind",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 3
-      },
-      {
         "type": "aether:evil_whirlwind",
         "maxCount": 1,
         "minCount": 1,
@@ -151,10 +133,10 @@
     "axolotls": [],
     "creature": [
       {
-        "type": "aether:cockatrice",
-        "maxCount": 5,
-        "minCount": 2,
-        "weight": 8
+        "type": "aether:aerbunny",
+        "maxCount": 3,
+        "minCount": 3,
+        "weight": 11
       }
     ],
     "misc": [],
