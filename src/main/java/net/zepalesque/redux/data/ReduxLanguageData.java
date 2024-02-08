@@ -430,6 +430,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBiome(ReduxBiomes.HIGHFIELDS, "Highfields");
         addBiome(ReduxBiomes.THE_BLIGHT, "The Blight");
 
+        this.add("item.minecraft.potion.effect.intoxication", "Potion of Intoxication");
+
         addGuiText("bittersweet_charm_poison_chance", "10% chance to poison targets of melee attacks");
         addGuiText("wisdom_ring_xp_increase", "+20-30% XP from mobs");
         addGuiText("grand_medal_regen", "Regeneration which increases as health drops");
