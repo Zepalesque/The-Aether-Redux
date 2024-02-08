@@ -228,6 +228,7 @@ public class ReduxCreativeTabs {
             putAfter(ReduxItems.SPECTRAL_DART_SHOOTER, ReduxItems.SPECTRAL_DART, event);
 
             putAfter(AetherItems.PHOENIX_BOW, ReduxItems.SUBZERO_CROSSBOW, event);
+            putAfter(ReduxItems.SUBZERO_CROSSBOW, ReduxItems.VERIDIUM_ARROW, event);
             putAfter(AetherItems.MUSIC_DISC_ASCENDING_DAWN, ReduxItems.MUSIC_DISC_LABYRINTHS_VENGEANCE, event);
             doBoats(AetherItems.SKYROOT_CHEST_BOAT, event);
         }
