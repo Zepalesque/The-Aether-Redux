@@ -49,6 +49,7 @@ public class ReduxTags {
         public static final TagKey<Item> GOLDEN_SWET_BALL = tag("golden_swet_ball");
         public static final TagKey<Item> BLUEBERRY_PIE_EGGS = tag("eggs_for_blueberry_pie");
         public static final TagKey<Item> VERIDIUM_ADVANCEMENT_INFUSABLE = tag("veridium_advancement_infusable");
+        public static final TagKey<Item> BLIGHTWARDING_ACCESSORIES = tag("blightwarding_accessories");
 
         public static final TagKey<Item> SKYROOT_BOWLS = tag("compat/skyroot_bowls");
         public static final TagKey<Item> MOUSE_EAR_CAPS = tag("compat/mouse_ear_caps");

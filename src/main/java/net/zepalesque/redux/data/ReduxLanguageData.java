@@ -355,7 +355,10 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addLore(ReduxItems.SNAILSHELL_SHIELD, "A shield accessory. When worn, you will not take any knockback.");
 
         addItem(ReduxItems.COCKATRICE_FEATHER, "Cockatrice Feather");
-        addLore(ReduxItems.COCKATRICE_FEATHER, "A feather from a Cockatrice. This is said to give the user a protection from some of the Blight's dangers.");
+        addLore(ReduxItems.COCKATRICE_FEATHER, "A feather from a Cockatrice. This is said to give the user a protection from some of the Blight's dangers. It can also be crafted into its upgraded variant, the Feather of Warding!");
+
+        addItem(ReduxItems.FEATHER_OF_WARDING, "Feather of Warding");
+        addLore(ReduxItems.FEATHER_OF_WARDING, "The upgraded variant of the Cockatrice Feather. While having all the benefits of its less powerful version, this also gives the wearer immunity to Inebriation!");
 
         addItem(ReduxItems.WYNDSPROUT_BAGEL, "Wyndsprout Bagel");
         addLore(ReduxItems.WYNDSPROUT_BAGEL, "A nice bagel made of cultivated Wyndsprouts.");
@@ -441,7 +444,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addGuiText("phoenix_emblem_fireball", "Grants ability to shoot fireballs");
         addGuiText("sentry_ring_embers", "Targets of melee attacks release burning embers");
         addGuiText("shroom_ring_adrenaline", "Taking damage at low health gives an Adrenaline effect for temporary stat boosts, at a price of a debuff soon after");
-        addGuiText("cockatrice_feather_immunity", "Grants immunity to Inebriation");
+        addGuiText("cockatrice_feather_protection", "Grants protection from Blight foliage");
+        addGuiText("feather_of_warding_immunity", "Grants immunity to Inebriation and protection from Blight foliage");
 
         addGuiText("player.dialog.has_grand_medal", "I'm ready, I have a Grand Victory Medal!");
 

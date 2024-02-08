@@ -10,11 +10,11 @@ import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.event.hook.ReduxToolHooks;
+import net.zepalesque.redux.event.hook.ToolModifHooks;
 
 
 @Mod.EventBusSubscriber(modid = Redux.MODID)
-public class ReduxToolListener {
+public class ToolModifListener {
 
     @SubscribeEvent
     public static void setupToolModifications(BlockEvent.BlockToolModificationEvent event) {
@@ -22,7 +22,7 @@ public class ReduxToolListener {
         BlockPos pos = event.getPos();
         BlockState oldState = event.getState();
         ToolAction toolAction = event.getToolAction();
-        BlockState newState =  ReduxToolHooks.setupToolActions(levelAccessor, pos, oldState, toolAction);
+        BlockState newState =  ToolModifHooks.setupToolActions(levelAccessor, pos, oldState, toolAction);
         if (newState != oldState && !event.isSimulated() && !event.isCanceled()) {
             event.setFinalState(newState);
         }
@@ -36,7 +36,7 @@ public class ReduxToolListener {
         ToolAction toolAction = event.getToolAction();
         UseOnContext context = event.getContext();
         if (!event.isSimulated() && !event.isCanceled()) {
-            ReduxToolHooks.stripBlightwillow(levelAccessor, oldState, itemStack, toolAction, context);
+            ToolModifHooks.stripBlightwillow(levelAccessor, oldState, itemStack, toolAction, context);
         }
     }
 

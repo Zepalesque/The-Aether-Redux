@@ -1,6 +1,5 @@
 package net.zepalesque.redux.block.natural.blight;
 
-import com.aetherteam.aether.item.EquipmentUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.Entity;
@@ -11,6 +10,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.zepalesque.redux.block.natural.CustomBoundsFlowerBlock;
 import net.zepalesque.redux.block.util.CommonPlantBounds;
 import net.zepalesque.redux.capability.player.ReduxPlayer;
+import net.zepalesque.redux.event.hook.EquipmentHooks;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.misc.ReduxTags;
 
@@ -24,7 +24,7 @@ public class BlightshadeBlock extends CustomBoundsFlowerBlock {
     @Override
     public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
         super.entityInside(pState, pLevel, pPos, pEntity);
-        if (!pEntity.level().isClientSide() && pEntity instanceof Player player && player.getBoundingBox().intersects(getShape(pState, pLevel, pPos, CollisionContext.of(player)).bounds().move(pPos)) && !EquipmentUtil.hasCurio(player, ReduxItems.COCKATRICE_FEATHER.get()) && !player.getType().is(ReduxTags.EntityTypes.BLIGHTED_MOBS))
+        if (!pEntity.level().isClientSide() && pEntity instanceof Player player && player.getBoundingBox().intersects(getShape(pState, pLevel, pPos, CollisionContext.of(player)).bounds().move(pPos)) && !EquipmentHooks.isImmuneToBlightPlants(player) && !player.getType().is(ReduxTags.EntityTypes.BLIGHTED_MOBS))
         {
             if ((pEntity.xOld != pEntity.getX() || pEntity.zOld != pEntity.getZ())) {
                 double d0 = Math.abs(pEntity.getX() - pEntity.xOld);

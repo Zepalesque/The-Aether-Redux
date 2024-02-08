@@ -29,7 +29,7 @@ import net.zepalesque.redux.loot.ReduxLoot;
 import java.util.List;
 import java.util.Map;
 
-public class ReduxToolHooks {
+public class ToolModifHooks {
 
 
         public static final Map<Block, Block> STRIPPABLES = Maps.newHashMap(new ImmutableMap.Builder<Block, Block>()

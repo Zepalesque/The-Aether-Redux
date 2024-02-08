@@ -373,6 +373,17 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .unlockedBy(getHasName(AetherItems.AMBROSIUM_SHARD.get()), has(AetherItems.AMBROSIUM_SHARD.get()))
                 .save(consumer);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ReduxItems.FEATHER_OF_WARDING.get(), 1)
+                .define('V', ReduxBlocks.VERIDIUM_BLOCK.get())
+                .define('A', AetherItems.AMBROSIUM_SHARD.get())
+                .define('F', ReduxItems.COCKATRICE_FEATHER.get())
+                .define('S', ReduxItems.BLIGHTED_SPORES.get())
+                .pattern("VAV")
+                .pattern("VFV")
+                .pattern(" S ")
+                .unlockedBy(getHasName(ReduxItems.COCKATRICE_FEATHER.get()), has(ReduxItems.COCKATRICE_FEATHER.get()))
+                .save(consumer);
+
         ConditionalRecipe.builder().addCondition(dc(Conditions.GENESIS)).addRecipe(ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ReduxItems.MOUSE_EAR_SOUP.get())
                 .requires(Ingredient.of(Items.BOWL)).requires(ReduxTags.Items.MOUSE_EAR_CAPS)
                 .unlockedBy("has_mouse_ear_cap", inventoryTrigger(ItemPredicate.Builder.item()

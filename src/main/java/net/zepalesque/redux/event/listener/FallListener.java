@@ -14,7 +14,7 @@ import java.util.List;
 
 
 @Mod.EventBusSubscriber(modid = Redux.MODID)
-public class ReduxFallListener {
+public class FallListener {
 
     @SubscribeEvent
     public static void fall(LivingFallEvent event)

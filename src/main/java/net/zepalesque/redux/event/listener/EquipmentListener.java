@@ -29,7 +29,7 @@ import top.theillusivec4.curios.api.SlotResult;
 import java.util.List;
 
 @Mod.EventBusSubscriber(modid = Redux.MODID)
-public class ReduxAccessoryListener {
+public class EquipmentListener {
 
     @SubscribeEvent
     public static void increaseXP(LivingExperienceDropEvent event)
@@ -64,12 +64,11 @@ public class ReduxAccessoryListener {
         }
     }
 
-    // TODO: Make only happen when using Feather of Endurance
     @SubscribeEvent
     public static void removeInebriation(LivingEvent.LivingTickEvent event) {
-//        if (event.getEntity() instanceof Player player && EquipmentUtil.hasCurio(player, ReduxItems.COCKATRICE_FEATHER.get())) {
-//            player.removeEffect(AetherEffects.INEBRIATION.get());
-//        }
+        if (EquipmentUtil.hasCurio(event.getEntity(), ReduxItems.FEATHER_OF_WARDING.get()) && event.getEntity().hasEffect(AetherEffects.INEBRIATION.get())) {
+            event.getEntity().removeEffect(AetherEffects.INEBRIATION.get());
+        }
     }
 
     @SubscribeEvent

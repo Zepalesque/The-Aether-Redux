@@ -142,7 +142,9 @@ public class ReduxItems {
     public static final RegistryObject<AxeItem> INFUSED_VERIDIUM_AXE = register("infused_veridium_axe", () -> new VeridiumAxeItem(ReduxItemTiers.INFUSED_VERIDIUM, 1, -2.9F, new Item.Properties()));
     public static final RegistryObject<HoeItem> INFUSED_VERIDIUM_HOE = register("infused_veridium_hoe", () -> new VeridiumHoeItem(ReduxItemTiers.INFUSED_VERIDIUM, 0, -1.4F, new Item.Properties()));
 
-    public static final RegistryObject<Item> COCKATRICE_FEATHER = register("cockatrice_feather", () -> new AbilityTooltipMiscItem(new Item.Properties().stacksTo(1), "cockatrice_feather_immunity"));
+    public static final RegistryObject<Item> COCKATRICE_FEATHER = register("cockatrice_feather", () -> new AbilityTooltipMiscItem(new Item.Properties().stacksTo(1), "cockatrice_feather_protection"));
+
+    public static final RegistryObject<Item> FEATHER_OF_WARDING = register("feather_of_warding", () -> new AbilityTooltipMiscItem(new Item.Properties().stacksTo(1), "feather_of_warding_immunity"));
 
     public static final RegistryObject<Item> ZANBERRY = register("zanberry", () -> new Item(new Item.Properties().food(ReduxFoods.CHROMABERRY)));
     public static final RegistryObject<Item> LIGHTROOT_CLUMP = register("lightroot_clump", () -> new ItemNameBlockItem(ReduxBlocks.LIGHTROOTS.get(),  new Item.Properties().food(ReduxFoods.LIGHTROOT_CLUMP)));

@@ -112,6 +112,10 @@ public class ReduxItemTagsData extends ItemTagsProvider {
                 ReduxItems.VERIDIUM_HOE.get(),
                 ReduxItems.VERIDIUM_SWORD.get()
         );
+        this.tag(ReduxTags.Items.BLIGHTWARDING_ACCESSORIES).add(
+                ReduxItems.COCKATRICE_FEATHER.get(),
+                ReduxItems.FEATHER_OF_WARDING.get()
+        );
     }
 
 }
