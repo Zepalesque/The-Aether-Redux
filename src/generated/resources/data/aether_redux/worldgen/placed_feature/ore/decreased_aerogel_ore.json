@@ -2,8 +2,8 @@
   "feature": "aether_redux:ore/aerogel_ore",
   "placement": [
     {
-      "type": "minecraft:count",
-      "count": 4
+      "type": "minecraft:rarity_filter",
+      "chance": 2
     },
     {
       "type": "minecraft:in_square"
