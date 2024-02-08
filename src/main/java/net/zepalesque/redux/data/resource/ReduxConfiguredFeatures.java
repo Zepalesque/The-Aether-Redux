@@ -299,7 +299,7 @@ public class    ReduxConfiguredFeatures {
                 randomPatch(24, 9, 3, BlockStateProvider.simple(drops(ReduxBlocks.SPLITFERN))));
 
         register(context, AEROGEL_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
-                drops(AetherBlocks.AEROGEL), 64, 0.3F));
+                drops(AetherBlocks.AEROGEL), 64, 0F));
         register(context, FROSTED_PURPLE_FLOWER_PATCH, Feature.FLOWER,
                 randomPatch(16, 7, 3, BlockStateProvider.simple(drops(AetherBlocks.PURPLE_FLOWER))));
         register(context, GILDED_HOLYSTONE_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
