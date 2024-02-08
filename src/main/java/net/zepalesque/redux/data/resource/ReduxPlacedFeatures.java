@@ -100,6 +100,7 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> VERIDIUM_ORE = copyKey(ReduxConfiguredFeatures.VERIDIUM_ORE);
     public static final ResourceKey<PlacedFeature> DIVINITE_ORE = copyKey(ReduxConfiguredFeatures.DIVINITE_ORE);
     public static final ResourceKey<PlacedFeature> HOLYSILT_DISK = copyKey(ReduxConfiguredFeatures.HOLYSILT_DISK);
+    public static final ResourceKey<PlacedFeature> AEROGEL_DISK = copyKey(ReduxConfiguredFeatures.AEROGEL_DISK);
     public static final ResourceKey<PlacedFeature> CLOUD_LAYER = copyKey(ReduxConfiguredFeatures.CLOUD_LAYER);
 
     public static final ResourceKey<PlacedFeature> AETHER_SNOW_LAYER = copyKey(ReduxConfiguredFeatures.AETHER_SNOW_LAYER);
@@ -528,6 +529,12 @@ public class ReduxPlacedFeatures {
                 BiomeFilter.biome()
         );
         register(context, HOLYSILT_DISK, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.HOLYSILT_DISK),
+                RarityFilter.onAverageOnceEvery(5),
+                HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE_WG),
+                BiomeFilter.biome(),
+                DUNGEON_BLACKLIST
+        );
+        register(context, AEROGEL_DISK, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.AEROGEL_DISK),
                 RarityFilter.onAverageOnceEvery(5),
                 HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE_WG),
                 BiomeFilter.biome(),

@@ -95,7 +95,7 @@ public class ReduxBiomes {
         HolderGetter<ConfiguredWorldCarver<?>> configuredCarvers = context.lookup(Registries.CONFIGURED_CARVER);
 
         context.register(THE_BLIGHT, Blight.generate(context));
-        context.register(CLOUDCAPS, new Cloudcaps().generate(context));
+        context.register(CLOUDCAPS, Cloudcaps.generate(context));
         context.register(GLACIAL_TAIGA, new GlacialTaiga().generate(context));
         // TODO: finish
 
