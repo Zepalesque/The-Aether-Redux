@@ -48,13 +48,17 @@ public class ReduxBiomes {
     }
 
     public static final int AETHER_GRASS_COLOR = 0xB1FFCB;
-    public static final int GILDED_GRASS_COLOR = 0xF8FFBF;
-    public static final int GILDED_GRASSLANDS_COLOR = 0xF4FFBF;
+    public static final int GILDED_GRASS_COLOR = 0xFFEEB5;
+    public static final int GILDED_GRASSLANDS_COLOR = 0xFFF2B5;
     public static final int BLIGHT_GRASS_COLOR = 0xD5BAFF;
     public static final int FROSTED_GRASS_COLOR = 0xCCF7FF;
     public static final int HIGHFIELDS_GRASS_COLOR = 0xBFFFEC;
-    public static final int SHRUBLANDS_GRASS_COLOR = 0xC1FFB1;
-    public static final int CLOUDCAP_GRASS_COLOR = 0xDBFFE3;
+    public static final int SHRUBLANDS_GRASS_COLOR = 0xD7FFCC;
+    public static final int CLOUDCAP_GRASS_COLOR = 0xD6FFF7;
+
+    public static final int SHIMMERING_GRASS_COLOR = 0xBAF0FF;
+    public static final int DUNES_GRASS_COLOR = 0xEEFFE0;
+    public static final int OASIS_GRASS_COLOR = 0xD6FFD6;
 
 
     public static final ImmutableMap<ResourceKey<Biome>, Integer> DATAGEN_AETHER_COLORS = new ImmutableMap.Builder<ResourceKey<Biome>, Integer>()
