@@ -1,9 +1,0 @@
-{
-  "type": "aether_redux:infusion",
-  "ingredient": {
-    "item": "aether_redux:luxbuds"
-  },
-  "result": {
-    "item": "aether_redux:purified_luxbuds"
-  }
-}

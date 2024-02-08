@@ -1,12 +1,12 @@
 {
   "parent": "aether:enter_aether",
   "criteria": {
-    "obtain_purified_luxbuds": {
+    "obtain_feather_of_warding": {
       "conditions": {
         "items": [
           {
             "items": [
-              "aether_redux:purified_luxbuds"
+              "aether_redux:feather_of_warding"
             ]
           }
         ]
@@ -17,21 +17,21 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "advancement.aether_redux.obtain_purified_luxbuds.desc"
+      "translate": "advancement.aether_redux.feather_of_warding.desc"
     },
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "aether_redux:purified_luxbuds"
+      "item": "aether_redux:feather_of_warding"
     },
     "show_toast": true,
     "title": {
-      "translate": "advancement.aether_redux.obtain_purified_luxbuds"
+      "translate": "advancement.aether_redux.feather_of_warding"
     }
   },
   "requirements": [
     [
-      "obtain_purified_luxbuds"
+      "obtain_feather_of_warding"
     ]
   ],
   "sends_telemetry_event": true

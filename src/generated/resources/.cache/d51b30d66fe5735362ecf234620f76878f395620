@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-07T21:37:59.1283288	Item Models: aether_redux
+// 1.20.1	2024-02-07T21:54:47.768298	Item Models: aether_redux
 262070202f715ccbb93ebca7b4dd3b04851bc0ce assets/aether_redux/models/item/aether_short_grass.json
 ef6d226766d61d6460247665062a399d3613d946 assets/aether_redux/models/item/aevelium.json
 2f2dfa95433a548b2d41f817bd836c91e41fc4e9 assets/aether_redux/models/item/aevelium_roots.json
@@ -97,6 +97,7 @@ f541de5eee22d6308bca77e41b0e1240d8da56ae assets/aether_redux/models/item/enchant
 4603f64cf028434050ab257657b5df4a387851e4 assets/aether_redux/models/item/enchanted_shell_shingle_stairs.json
 dcb1aec8c2f8652ff3a7c98da7791935befb6549 assets/aether_redux/models/item/enchanted_shell_shingle_wall.json
 a203ac1e775c1127e647fd1676bfcc9eb1fe334b assets/aether_redux/models/item/enchanted_zyatrix.json
+1bd6536178bb6eefb77f574a41fc1404a53b8f4f assets/aether_redux/models/item/feather_of_warding.json
 9b93b578ea0002ae78693ea3ebf17d2b1cf0ca9e assets/aether_redux/models/item/fieldsprout_boat.json
 9d4321d02a1c8100a3b0db688d80a3ea3f51f68b assets/aether_redux/models/item/fieldsprout_button.json
 dc41744b9475446defdcbaf7bd84aca75cf0b8a1 assets/aether_redux/models/item/fieldsprout_chest_boat.json
@@ -186,7 +187,6 @@ ec3c78d30b74b360b8e97bdd426a1588776c1e0d assets/aether_redux/models/item/jellysh
 44541bf4b505ef96ee4fe39cb72f2e2b33fe1220 assets/aether_redux/models/item/jellyshroom_trapdoor.json
 7e5c9c8ea05cc15e0c568d691bccc3a500cb1903 assets/aether_redux/models/item/lightroot_clump.json
 419e1a027022a941d08e3625e84160befb2571da assets/aether_redux/models/item/lumina.json
-2a699772a6636fcf3c80aac2def07425bdd913dd assets/aether_redux/models/item/luxbuds.json
 f57c0aa977ae875c8456515bae2a0f7dbfa313cc assets/aether_redux/models/item/luxweed.json
 47516c71de9a063c4c70bd0fe9c269f3f4e5c946 assets/aether_redux/models/item/mouse_ear_soup.json
 e9805186cf791543ff0e9594ea3ec3b72edf7c81 assets/aether_redux/models/item/music_disc_labyrinths_vengeance.json
@@ -194,7 +194,6 @@ beec52eb9364cdb01119c1580478b19527c5cf62 assets/aether_redux/models/item/mykapod
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/aether_redux/models/item/mykapod_spawn_egg.json
 54842e392da1fcd4941f2f3a60d1cbdfd987f49a assets/aether_redux/models/item/oatmeal.json
 250d1c7fcd3397552a7b522bdc46c3ccdefc2043 assets/aether_redux/models/item/phoenix_emblem.json
-62cabf6bc621a205cf1aead068552db23dd9d85c assets/aether_redux/models/item/purified_luxbuds.json
 e2015d8ef1a31186ff40937a0cfe131c89ec3631 assets/aether_redux/models/item/purple_glacia_leaves.json
 8dc6fb58d1be53bc2dc005d016b961b25d246fec assets/aether_redux/models/item/purple_glacia_sapling.json
 1709c24cc08e79ca78246932b84e07b0cba0f215 assets/aether_redux/models/item/raw_gravitite.json

@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-06T22:54:10.3372261	Loot Tables
+// 1.20.1	2024-02-07T21:54:47.7772974	Loot Tables
 9bb0a6fae9e80234bb0bad9086af314acf3e9894 data/aether_redux/loot_tables/blocks/aether_short_grass.json
 48b55d99420ce1afaca551876e87bdbccae62e08 data/aether_redux/loot_tables/blocks/aevelium.json
 b61ecadf10d3b065a1c8f05eea7b70d4ffcadfd3 data/aether_redux/loot_tables/blocks/aevelium_roots.json
@@ -170,7 +170,7 @@ dd2397aa3c310140a7a2ac84ac458d43f821b84d data/aether_redux/loot_tables/blocks/je
 05fa5113127f8bccbeacf69c7871313120c80084 data/aether_redux/loot_tables/blocks/jellyshroom_wall_sign.json
 bf8ce21483ea935d8d8ad5ebd462706d7e47dd40 data/aether_redux/loot_tables/blocks/lightroots.json
 a588c1ccff39b719dba3d266940ab1eb21caa21b data/aether_redux/loot_tables/blocks/lumina.json
-014784bd1b313e4f3bc7e37240880cdb78e93b38 data/aether_redux/loot_tables/blocks/luxweed.json
+88453ff55b2f6c5fb331a4b9e24e4c30c6fb97ae data/aether_redux/loot_tables/blocks/luxweed.json
 2ef0d57635910a9d9a6e48efca89979225efef1c data/aether_redux/loot_tables/blocks/potted_aevelium_roots.json
 4f0249868d48ec7cc93a576cffa361313726b466 data/aether_redux/loot_tables/blocks/potted_aurum.json
 3560c5dadbee9111979e4fd56782acd33bd3246a data/aether_redux/loot_tables/blocks/potted_blighted_skyroot_sapling.json
