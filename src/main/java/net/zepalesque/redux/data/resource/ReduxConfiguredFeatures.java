@@ -553,7 +553,7 @@ public class    ReduxConfiguredFeatures {
 
         register(context, GROVE_TREES_ALT, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
-                        PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(GOLDEN_OAK_TREE_OVERRIDE), PlacementUtils.filteredByBlockSurvival(AetherBlocks.GOLDEN_OAK_SAPLING.get())), 0.90F)),
+                        PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(GOLDEN_OAK_TREE_OVERRIDE), PlacementUtils.filteredByBlockSurvival(AetherBlocks.GOLDEN_OAK_SAPLING.get())), 0.75F)),
                         PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(SMALL_GILDED_OAK_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.GILDED_OAK_SAPLING.get()))));
 
         register(context, GRASSLAND_TREES, Feature.RANDOM_SELECTOR,
