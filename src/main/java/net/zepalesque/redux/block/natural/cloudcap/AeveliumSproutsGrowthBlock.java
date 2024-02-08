@@ -29,7 +29,7 @@ public class AeveliumSproutsGrowthBlock extends AetherBushBlock {
 
     @Override
     public boolean canBeReplaced(BlockState pState, BlockPlaceContext pUseContext) {
-        return super.canBeReplaced(pState, pUseContext) && (pUseContext.getItemInHand().getItem() instanceof BlockItem blockItem && !(blockItem.getBlock() instanceof AeveliumSproutsGrowthBlock));
+        return super.canBeReplaced(pState, pUseContext) && (pUseContext.getItemInHand().getItem() instanceof BlockItem blockItem && !(blockItem.getBlock() instanceof AeveliumSproutsGrowthBlock || blockItem.getBlock() instanceof AetherShortGrassBlock));
     }
 
 }
