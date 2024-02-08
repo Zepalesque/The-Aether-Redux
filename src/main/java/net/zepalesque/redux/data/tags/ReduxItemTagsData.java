@@ -99,7 +99,8 @@ public class ReduxItemTagsData extends ItemTagsProvider {
         );
         this.tag(AetherTags.Items.ACCESSORIES_MISCELLANEOUS).add(
                 ReduxItems.PHOENIX_EMBLEM.get(),
-                ReduxItems.COCKATRICE_FEATHER.get()
+                ReduxItems.COCKATRICE_FEATHER.get(),
+                ReduxItems.FEATHER_OF_WARDING.get()
         );
         this.tag(ReduxTags.Items.BLUEBERRY_PIE_EGGS).addTag(AetherTags.Items.MOA_EGGS).add(Items.EGG).addOptional(DAItems.QUAIL_EGG.getId());
         this.tag(ReduxTags.Items.SKYROOT_BOWLS).addOptional(new ResourceLocation("aether_genesis", "skyroot_bowl"));

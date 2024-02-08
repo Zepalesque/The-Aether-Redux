@@ -573,8 +573,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addAdvancement("obtain_subzero_crossbow", "Below Zero");
         addAdvancementDesc("obtain_subzero_crossbow", "Obtain the Subzero Crossbow, a chilling ranged weapon found in the Gold Dungeon");
 
-        addAdvancement("obtain_purified_luxbuds", "Blight's Bane");
-        addAdvancementDesc("obtain_purified_luxbuds", "Obtain Purified Luxbuds, which give extended resistance to many of the Blight's dangers when eaten");
+        addAdvancement("feather_of_warding", "Blight's Bane");
+        addAdvancementDesc("feather_of_warding", "Obtain the Feather of Warding, a useful accessory that gives the wearer protection from many Blight-related dangers");
 
         addAdvancement("double_jump", "Take THAT, Physics!");
         addAdvancementDesc("double_jump", "Obtain an Airbound cape from a Bronze Dungeon and use it to double-jump");

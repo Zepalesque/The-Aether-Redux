@@ -100,13 +100,13 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
 
             Advancement blightsBane = Advancement.Builder.advancement()
                     .parent(new ResourceLocation(Aether.MODID, "enter_aether"))
-                    .display(ReduxItems.PURIFIED_LUXBUDS.get(),
-                            Component.translatable("advancement.aether_redux.obtain_purified_luxbuds"),
-                            Component.translatable("advancement.aether_redux.obtain_purified_luxbuds.desc"),
+                    .display(ReduxItems.FEATHER_OF_WARDING.get(),
+                            Component.translatable("advancement.aether_redux.feather_of_warding"),
+                            Component.translatable("advancement.aether_redux.feather_of_warding.desc"),
                             null,
                             FrameType.TASK, true, true, false)
-                    .addCriterion("obtain_purified_luxbuds", InventoryChangeTrigger.TriggerInstance.hasItems(ReduxItems.PURIFIED_LUXBUDS.get()))
-                    .save(consumer, Redux.locate("obtain_purified_luxbuds"), existingFileHelper);
+                    .addCriterion("obtain_feather_of_warding", InventoryChangeTrigger.TriggerInstance.hasItems(ReduxItems.FEATHER_OF_WARDING.get()))
+                    .save(consumer, Redux.locate("obtain_feather_of_warding"), existingFileHelper);
         }
     }
 

@@ -188,6 +188,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         this.itemBlock(ReduxBlocks.RAW_VERIDIUM_BLOCK.get());
 
         this.itemGlow(ReduxItems.COCKATRICE_FEATHER, "accessories/");
+        this.itemGlow(ReduxItems.FEATHER_OF_WARDING, "accessories/");
         this.item(ReduxItems.WYNDSPROUT_BAGEL, "food/");
         this.item(ReduxItems.BLUEBERRY_BAGEL, "food/");
 
