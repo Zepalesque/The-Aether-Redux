@@ -23,9 +23,9 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.audio.ReduxMusic;
 import net.zepalesque.redux.data.resource.ReduxPlacedFeatures;
-import net.zepalesque.redux.data.resource.biome.Blight;
 import net.zepalesque.redux.data.resource.biome.Cloudcaps;
 import net.zepalesque.redux.data.resource.biome.GlacialTaiga;
+import net.zepalesque.redux.data.resource.biome.Blight;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 
 
@@ -94,7 +94,7 @@ public class ReduxBiomes {
         HolderGetter<PlacedFeature> placedFeatures = context.lookup(Registries.PLACED_FEATURE);
         HolderGetter<ConfiguredWorldCarver<?>> configuredCarvers = context.lookup(Registries.CONFIGURED_CARVER);
 
-        context.register(THE_BLIGHT, new Blight().generate(context));
+        context.register(THE_BLIGHT, Blight.generate(context));
         context.register(CLOUDCAPS, new Cloudcaps().generate(context));
         context.register(GLACIAL_TAIGA, new GlacialTaiga().generate(context));
         // TODO: finish
