@@ -335,13 +335,13 @@ public class ReduxPlacedFeatures {
 
 
         register(context, AEROGEL_ORE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.AEROGEL_ORE),
-                CountPlacement.of(8),
+                CountPlacement.of(2),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(UniformHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(128))),
                 BiomeFilter.biome()
         );
         register(context, DECREASED_AEROGEL_ORE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.AEROGEL_ORE),
-                CountPlacement.of(4),
+                RarityFilter.onAverageOnceEvery(2),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(UniformHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(128))),
                 BiomeFilter.biome()
