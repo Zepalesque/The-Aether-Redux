@@ -61,7 +61,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         item(ReduxItems.SKYBUD, "materials/");
         item(ReduxItems.BLUEBERRY_PIE, "food/");
         item(ReduxItems.ENCHANTED_BLUEBERRY_PIE, "food/");
-        enchantedClover(ReduxBlocks.GOLDEN_CLOVER.get()::asItem, "misc/");
+        itemBlockFlatCustomTexture(ReduxBlocks.GOLDEN_CLOVER, "natural/golden_clover_top");
         enchanableOrTintableFlower(ReduxBlocks.AURUM, "natural/");
         enchanableOrTintableFlower(ReduxBlocks.ZYATRIX, "natural/");
         itemBlock(ReduxBlocks.CARVED_STONE_BRICKS);
