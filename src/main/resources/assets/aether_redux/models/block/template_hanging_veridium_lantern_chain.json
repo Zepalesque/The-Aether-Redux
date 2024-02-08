@@ -1,0 +1,29 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [32, 32],
+	"textures": {
+		"particle": "#lantern"
+	},
+	"elements": [
+		{
+			"from": [8, 14, 6.5],
+			"to": [8, 16, 9.5],
+			"shade": false,
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"east": {"uv": [5.5, 3, 7, 4], "texture": "#lantern"},
+				"west": {"uv": [7, 3, 5.5, 4], "texture": "#lantern"}
+			}
+		},
+		{
+			"from": [8, 13, 6.5],
+			"to": [8, 15, 9.5],
+			"shade": false,
+			"rotation": {"angle": -45, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"east": {"uv": [5.5, 5, 7, 6], "texture": "#lantern"},
+				"west": {"uv": [7, 5, 5.5, 6], "texture": "#lantern"}
+			}
+		}
+	]
+}

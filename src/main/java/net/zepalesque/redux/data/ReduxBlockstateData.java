@@ -17,6 +17,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.block.construction.VeridiumLanternBlock;
 import net.zepalesque.redux.block.natural.SproutsCropBlock;
 import net.zepalesque.redux.block.natural.AetherShortGrassBlock;
 import net.zepalesque.redux.block.natural.ExtendedDistanceLeavesBlock;
@@ -169,7 +170,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
 
 
-        this.lantern(ReduxBlocks.VERIDIUM_LANTERN.get(), "construction/");
+        this.veridiumLantern(ReduxBlocks.VERIDIUM_LANTERN.get(), "construction/");
         this.crossBlock(ReduxBlocks.JELLYSHROOM, "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_JELLYSHROOM.get(), ReduxBlocks.JELLYSHROOM.get(), "natural/");
         this.crossGlowOverlay(ReduxBlocks.GLIMMERSTOOL.get(), "natural/");
@@ -619,6 +620,22 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
     public ResourceLocation texture(String name, String location, String suffix) {
         return modLoc("block/" + location + name + suffix);
+    }
+
+
+
+    public void veridiumLantern(Block block, String location) {
+        BlockModelBuilder lantern = models().withExistingParent(this.name(block), Redux.locate("template_veridium_lantern"))
+                .texture("lantern", this.texture(this.name(block), location)).renderType("cutout");
+        BlockModelBuilder hangingLantern = models().withExistingParent("hanging_" + this.name(block), mcLoc("template_hanging_veridium_lantern"))
+                .texture("lantern", this.texture(this.name(block), location)).renderType("cutout");
+        BlockModelBuilder hangingChain = models().withExistingParent("hanging_" + this.name(block), mcLoc("template_hanging_veridium_lantern_chain"))
+                .texture("lantern", this.texture(this.name(block), location)).renderType("cutout");
+        this.getMultipartBuilder(block).part().modelFile(lantern).rotationY(90).addModel().condition(VeridiumLanternBlock.AXIS, Direction.Axis.X).condition(LanternBlock.HANGING, false).end();
+        this.getMultipartBuilder(block).part().modelFile(lantern).rotationY(0).addModel().condition(VeridiumLanternBlock.AXIS, Direction.Axis.Z).condition(LanternBlock.HANGING, false).end();
+        this.getMultipartBuilder(block).part().modelFile(hangingLantern).rotationY(90).addModel().condition(VeridiumLanternBlock.AXIS, Direction.Axis.X).condition(LanternBlock.HANGING, true).end();
+        this.getMultipartBuilder(block).part().modelFile(hangingLantern).rotationY(0).addModel().condition(VeridiumLanternBlock.AXIS, Direction.Axis.Z).condition(LanternBlock.HANGING, true).end();
+        this.getMultipartBuilder(block).part().modelFile(hangingChain).addModel().condition(LanternBlock.HANGING, true).end();
     }
 
     protected String name(Supplier<? extends Block> block) {

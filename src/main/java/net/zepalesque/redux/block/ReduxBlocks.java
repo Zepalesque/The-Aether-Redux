@@ -390,7 +390,7 @@ public class ReduxBlocks {
             () -> new ChainBlock(BlockBehaviour.Properties.copy(Blocks.CHAIN)));
 
     public static RegistryObject<Block> VERIDIUM_LANTERN = register("veridium_lantern",
-            () -> new LanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).lightLevel((p_187433_) -> 13).noOcclusion()));
+            () -> new VeridiumLanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).lightLevel((p_187433_) -> 13).noOcclusion()));
 
     public static void registerFlammability() {
         FireBlockAccessor fireBlockAccessor = (FireBlockAccessor)Blocks.FIRE;
