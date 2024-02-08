@@ -627,9 +627,9 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
     public void veridiumLantern(Block block, String location) {
         BlockModelBuilder lantern = models().withExistingParent(this.name(block), Redux.locate("template_veridium_lantern"))
                 .texture("lantern", this.texture(this.name(block), location)).renderType("cutout");
-        BlockModelBuilder hangingLantern = models().withExistingParent("hanging_" + this.name(block), mcLoc("template_hanging_veridium_lantern"))
+        BlockModelBuilder hangingLantern = models().withExistingParent("hanging_" + this.name(block), Redux.locate("template_hanging_veridium_lantern"))
                 .texture("lantern", this.texture(this.name(block), location)).renderType("cutout");
-        BlockModelBuilder hangingChain = models().withExistingParent("hanging_" + this.name(block), mcLoc("template_hanging_veridium_lantern_chain"))
+        BlockModelBuilder hangingChain = models().withExistingParent("hanging_" + this.name(block), Redux.locate("template_hanging_veridium_lantern_chain"))
                 .texture("lantern", this.texture(this.name(block), location)).renderType("cutout");
         this.getMultipartBuilder(block).part().modelFile(lantern).rotationY(90).addModel().condition(VeridiumLanternBlock.AXIS, Direction.Axis.X).condition(LanternBlock.HANGING, false).end();
         this.getMultipartBuilder(block).part().modelFile(lantern).rotationY(0).addModel().condition(VeridiumLanternBlock.AXIS, Direction.Axis.Z).condition(LanternBlock.HANGING, false).end();
