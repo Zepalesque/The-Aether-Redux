@@ -67,6 +67,7 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> AEROGEL_ORE = copyKey(ReduxConfiguredFeatures.AEROGEL_ORE);
     public static final ResourceKey<PlacedFeature> DECREASED_AEROGEL_ORE = createKey(Folders.ORE + "decreased_aerogel_ore");
     public static final ResourceKey<PlacedFeature> DECREASED_BLUE_AERCLOUDS = createKey(Folders.MISC + "decreased_blue_aerclouds");
+    public static final ResourceKey<PlacedFeature> INCREASED_BLUE_AERCLOUDS = createKey(Folders.MISC + "increased_blue_aerclouds");
     public static final ResourceKey<PlacedFeature> DECREASED_ZANITE_ORE = createKey(Folders.ORE + "decreased_zanite_ore");
     public static final ResourceKey<PlacedFeature> DECREASED_AMBROSIUM_ORE = createKey(Folders.ORE + "decreased_ambrosium_ore");
     public static final ResourceKey<PlacedFeature> INCREASED_ZANITE_ORE = createKey(Folders.ORE + "increased_zanite_ore");
@@ -140,6 +141,10 @@ public class ReduxPlacedFeatures {
         register(context, DECREASED_BLUE_AERCLOUDS,
                 configuredFeatures.getOrThrow(AetherConfiguredFeatures.BLUE_AERCLOUD_CONFIGURATION),
                 AetherPlacedFeatureBuilders.aercloudPlacement(32, 64, 48));
+
+        register(context, INCREASED_BLUE_AERCLOUDS,
+                configuredFeatures.getOrThrow(AetherConfiguredFeatures.BLUE_AERCLOUD_CONFIGURATION),
+                AetherPlacedFeatureBuilders.aercloudPlacement(32, 64, 14));
 
 
         register(context, DECREASED_AMBROSIUM_ORE, configuredFeatures.getOrThrow(AetherConfiguredFeatures.ORE_AMBROSIUM_CONFIGURATION),
