@@ -67,6 +67,7 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> GLACIAL_TREES = copyKey(ReduxConfiguredFeatures.GLACIAL_TREES);
     public static final ResourceKey<PlacedFeature> FROSTED_TREES = copyKey(ReduxConfiguredFeatures.FROSTED_TREES);
     public static final ResourceKey<PlacedFeature> GILDED_HOLYSTONE_ORE = copyKey(ReduxConfiguredFeatures.GILDED_HOLYSTONE_ORE);
+    public static final ResourceKey<PlacedFeature> BLIGHTMOSS_HOLYSTONE_ORE = copyKey(ReduxConfiguredFeatures.BLIGHTMOSS_HOLYSTONE_ORE);
     public static final ResourceKey<PlacedFeature> GILDED_ROCK  = copyKey(ReduxConfiguredFeatures.GILDED_ROCK);
     public static final ResourceKey<PlacedFeature> GILDED_WHITE_FLOWER_PATCH = copyKey(ReduxConfiguredFeatures.GILDED_WHITE_FLOWER_PATCH);
     public static final ResourceKey<PlacedFeature> GLOWSPROUTS_PATCH = copyKey(ReduxConfiguredFeatures.GLOWSPROUTS_PATCH);
@@ -303,17 +304,16 @@ public class ReduxPlacedFeatures {
 
 
         register(context, AEROGEL_ORE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.AEROGEL_ORE),
-                CountPlacement.of(32),
+                CountPlacement.of(12),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(UniformHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(128))),
-                ConditionFilter.whenTrue(Conditions.MOSSY_ORE),
                 BiomeFilter.biome()
         );
 
         register(context, FROSTED_PURPLE_FLOWER_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.FROSTED_PURPLE_FLOWER_PATCH),
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 2), 4),
-                RarityFilter.onAverageOnceEvery(13  ),
+                RarityFilter.onAverageOnceEvery(13),
                 BiomeFilter.biome()
         );
 
@@ -321,7 +321,14 @@ public class ReduxPlacedFeatures {
                 CountPlacement.of(24),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(UniformHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(128))),
-                ConditionFilter.whenTrue(ReduxConfigCondition.of(ReduxConfig.COMMON.mossy_holystone_ores)),
+                ConditionFilter.whenTrue(Conditions.MOSSY_ORE),
+                BiomeFilter.biome()
+        );
+        register(context, BLIGHTMOSS_HOLYSTONE_ORE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.BLIGHTMOSS_HOLYSTONE_ORE),
+                CountPlacement.of(24),
+                InSquarePlacement.spread(),
+                HeightRangePlacement.of(UniformHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(128))),
+                ConditionFilter.whenTrue(Conditions.MOSSY_ORE),
                 BiomeFilter.biome()
         );
 
@@ -358,7 +365,7 @@ public class ReduxPlacedFeatures {
                 DUNGEON_BLACKLIST,
                 PlacementUtils.filteredByBlockSurvival(ReduxBlocks.GILDED_OAK_SAPLING.get())
         );
-        
+
         register(context, GRASSLAND_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GRASSLAND_TREES),
                 ConditionFilter.whenFalse(Conditions.ALT_GILDED),
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
@@ -388,7 +395,7 @@ public class ReduxPlacedFeatures {
                 CountPlacement.of(24),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(UniformHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(128))),
-                ConditionFilter.whenTrue(ReduxConfigCondition.of(ReduxConfig.COMMON.mossy_holystone_ores)),
+                ConditionFilter.whenTrue(Conditions.MOSSY_ORE),
                 BiomeFilter.biome()
         );
 
@@ -504,7 +511,7 @@ public class ReduxPlacedFeatures {
                 CountPlacement.of(24),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(UniformHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(128))),
-                ConditionFilter.whenTrue(ReduxConfigCondition.of(ReduxConfig.COMMON.mossy_holystone_ores)),
+                ConditionFilter.whenTrue(Conditions.MOSSY_ORE),
                 BiomeFilter.biome()
         );
 
