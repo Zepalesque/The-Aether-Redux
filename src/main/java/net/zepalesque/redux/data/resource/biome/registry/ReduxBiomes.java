@@ -23,10 +23,7 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.audio.ReduxMusic;
 import net.zepalesque.redux.data.resource.ReduxPlacedFeatures;
-import net.zepalesque.redux.data.resource.biome.Cloudcaps;
-import net.zepalesque.redux.data.resource.biome.Blight;
-import net.zepalesque.redux.data.resource.biome.FrostedTundra;
-import net.zepalesque.redux.data.resource.biome.GlacialTaiga;
+import net.zepalesque.redux.data.resource.biome.*;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 
 
@@ -99,73 +96,9 @@ public class ReduxBiomes {
         context.register(CLOUDCAPS, Cloudcaps.generate(context));
         context.register(GLACIAL_TAIGA, GlacialTaiga.generate(context));
         context.register(FROSTED_TUNDRA, FrostedTundra.generate(context));
+        context.register(GILDED_GROVES, GildedGroves.generate(context));
+        context.register(GILDED_GRASSLANDS, GildedGrasslands.generate(context));
 
-
-
-
-        context.register(GILDED_GROVES, simpleBiome(
-                new BiomeGenerationSettings.Builder(placedFeatures, configuredCarvers)
-                        .addFeature(GenerationStep.Decoration.RAW_GENERATION, AetherPlacedFeatures.QUICKSOIL_SHELF_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.LAKES, ReduxPlacedFeatures.SURFACE_RULE_WATER_LAKE)
-                        .addFeature(GenerationStep.Decoration.FLUID_SPRINGS, AetherPlacedFeatures.WATER_SPRING_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.HOLIDAY_TREE_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.CRYSTAL_ISLAND_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.COLD_AERCLOUD_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.BLUE_AERCLOUD_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.GOLDEN_AERCLOUD_PLACEMENT)
-
-                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_AETHER_DIRT_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_ICESTONE_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_AMBROSIUM_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_ZANITE_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_GRAVITITE_BURIED_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_GRAVITITE_PLACEMENT)
-
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.GROVE_TREES)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.GROVE_TREES_ALT)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.GRASS_PATCH_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.GILDED_WHITE_FLOWER_PATCH)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.GOLDEN_CLOVER_PATCH)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.AURUM_PATCH)
-                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ReduxPlacedFeatures.GILDED_HOLYSTONE_ORE)
-                , defaultMobSpawns(new MobSpawnSettings.Builder()),
-                ReduxMusic.DEFAULT_AETHER_MUSIC,
-                WATER,
-                WATER_FOG,
-                AETHER_GRASS_COLOR
-                ));
-        context.register(GILDED_GRASSLANDS, simpleBiome(
-                new BiomeGenerationSettings.Builder(placedFeatures, configuredCarvers)
-                        .addFeature(GenerationStep.Decoration.RAW_GENERATION, AetherPlacedFeatures.QUICKSOIL_SHELF_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.LAKES, ReduxPlacedFeatures.SURFACE_RULE_WATER_LAKE)
-                        .addFeature(GenerationStep.Decoration.FLUID_SPRINGS, AetherPlacedFeatures.WATER_SPRING_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.HOLIDAY_TREE_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.CRYSTAL_ISLAND_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.COLD_AERCLOUD_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.BLUE_AERCLOUD_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.GOLDEN_AERCLOUD_PLACEMENT)
-
-                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_AETHER_DIRT_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_ICESTONE_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_AMBROSIUM_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_ZANITE_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_GRAVITITE_BURIED_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_GRAVITITE_PLACEMENT)
-
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.GRASSLAND_TREES)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.GRASSLAND_TREES_ALT)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.GRASS_PATCH_PLACEMENT)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.GILDED_WHITE_FLOWER_PATCH)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.AURUM_PATCH)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.ZYATRIX_PATCH)
-                        .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.SPLITFERN_PATCH)
-                        .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ReduxPlacedFeatures.GILDED_HOLYSTONE_ORE)
-                , defaultMobSpawns(new MobSpawnSettings.Builder()),
-                ReduxMusic.DEFAULT_AETHER_MUSIC,
-                WATER,
-                WATER_FOG,
-                AETHER_GRASS_COLOR
-                ));
 
         context.register(HIGHFIELDS, simpleBiome(
                 new BiomeGenerationSettings.Builder(placedFeatures, configuredCarvers)

@@ -3,10 +3,12 @@ package net.zepalesque.redux.data.resource;
 import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.AetherConfig;
 import com.aetherteam.aether.block.AetherBlocks;
+import com.aetherteam.aether.data.resources.builders.AetherPlacedFeatureBuilders;
 import com.aetherteam.aether.data.resources.registries.AetherConfiguredFeatures;
 import com.aetherteam.aether.world.placementmodifier.ConfigFilter;
 import com.aetherteam.aether.world.placementmodifier.DungeonBlacklistFilter;
 import com.aetherteam.aether.world.placementmodifier.ImprovedLayerPlacementModifier;
+import com.aetherteam.nitrogen.data.resources.builders.NitrogenPlacedFeatureBuilders;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
@@ -63,6 +65,12 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> DAGGERBLOOM_PATCH = copyKey(ReduxConfiguredFeatures.DAGGERBLOOM_PATCH);
     public static final ResourceKey<PlacedFeature> SPLITFERN_PATCH = copyKey(ReduxConfiguredFeatures.SPLITFERN_PATCH);
     public static final ResourceKey<PlacedFeature> AEROGEL_ORE = copyKey(ReduxConfiguredFeatures.AEROGEL_ORE);
+    public static final ResourceKey<PlacedFeature> DECREASED_AEROGEL_ORE = createKey(Folders.ORE + "decreased_aerogel_ore");
+    public static final ResourceKey<PlacedFeature> DECREASED_BLUE_AERCLOUDS = createKey(Folders.MISC + "decreased_blue_aerclouds");
+    public static final ResourceKey<PlacedFeature> DECREASED_ZANITE_ORE = createKey(Folders.ORE + "decreased_zanite_ore");
+    public static final ResourceKey<PlacedFeature> DECREASED_AMBROSIUM_ORE = createKey(Folders.ORE + "decreased_ambrosium_ore");
+    public static final ResourceKey<PlacedFeature> INCREASED_ZANITE_ORE = createKey(Folders.ORE + "increased_zanite_ore");
+    public static final ResourceKey<PlacedFeature> INCREASED_AMBROSIUM_ORE = createKey(Folders.ORE + "increased_ambrosium_ore");
     public static final ResourceKey<PlacedFeature> LARGE_ICESTONE_CHUNK = copyKey(ReduxConfiguredFeatures.LARGE_ICESTONE_CHUNK);
     public static final ResourceKey<PlacedFeature> FROSTED_PURPLE_FLOWER_PATCH = copyKey(ReduxConfiguredFeatures.FROSTED_PURPLE_FLOWER_PATCH);
     public static final ResourceKey<PlacedFeature> GLACIAL_TREES = copyKey(ReduxConfiguredFeatures.GLACIAL_TREES);
@@ -129,6 +137,22 @@ public class ReduxPlacedFeatures {
                 RarityFilter.onAverageOnceEvery(12),
                 BiomeFilter.biome());
 
+        register(context, DECREASED_BLUE_AERCLOUDS,
+                configuredFeatures.getOrThrow(AetherConfiguredFeatures.BLUE_AERCLOUD_CONFIGURATION),
+                AetherPlacedFeatureBuilders.aercloudPlacement(32, 64, 48));
+
+
+        register(context, DECREASED_AMBROSIUM_ORE, configuredFeatures.getOrThrow(AetherConfiguredFeatures.ORE_AMBROSIUM_CONFIGURATION),
+                NitrogenPlacedFeatureBuilders.commonOrePlacement(10, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(128))));
+
+        register(context, DECREASED_ZANITE_ORE, configuredFeatures.getOrThrow(AetherConfiguredFeatures.ORE_ZANITE_CONFIGURATION),
+                NitrogenPlacedFeatureBuilders.commonOrePlacement(7, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(75))));
+
+        register(context, INCREASED_AMBROSIUM_ORE, configuredFeatures.getOrThrow(AetherConfiguredFeatures.ORE_AMBROSIUM_CONFIGURATION),
+                NitrogenPlacedFeatureBuilders.commonOrePlacement(30, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(128))));
+
+        register(context, INCREASED_ZANITE_ORE, configuredFeatures.getOrThrow(AetherConfiguredFeatures.ORE_ZANITE_CONFIGURATION),
+                NitrogenPlacedFeatureBuilders.commonOrePlacement(21, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(75))));
 
 
         register(context, ZYATRIX_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.ZYATRIX_PATCH),
@@ -307,6 +331,12 @@ public class ReduxPlacedFeatures {
 
         register(context, AEROGEL_ORE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.AEROGEL_ORE),
                 CountPlacement.of(8),
+                InSquarePlacement.spread(),
+                HeightRangePlacement.of(UniformHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(128))),
+                BiomeFilter.biome()
+        );
+        register(context, DECREASED_AEROGEL_ORE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.AEROGEL_ORE),
+                CountPlacement.of(4),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(UniformHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(128))),
                 BiomeFilter.biome()

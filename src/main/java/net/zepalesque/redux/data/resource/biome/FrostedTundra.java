@@ -77,7 +77,7 @@ public class FrostedTundra {
                 .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_ZANITE_PLACEMENT)
                 .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_GRAVITITE_BURIED_PLACEMENT)
                 .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_GRAVITITE_PLACEMENT)
-                .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ReduxPlacedFeatures.AEROGEL_ORE)
+                .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ReduxPlacedFeatures.DECREASED_AEROGEL_ORE)
 
                 .addFeature(GenerationStep.Decoration.FLUID_SPRINGS, AetherPlacedFeatures.WATER_SPRING_PLACEMENT)
 

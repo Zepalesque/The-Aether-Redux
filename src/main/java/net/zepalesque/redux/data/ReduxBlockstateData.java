@@ -161,7 +161,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.tintedPotOverlayAlt(ReduxBlocks.POTTED_WYNDSPROUTS.get(), ReduxBlocks.WYNDSPROUTS.get(), "natural/");
         this.tintedPotOverlayAlt(ReduxBlocks.POTTED_SKYSPROUTS.get(), ReduxBlocks.SKYSPROUTS.get(), "natural/");
 
-        this.crossTinted(ReduxBlocks.SPLITFERN.get(), "natural/");
+        this.crossTintedEnchantable(ReduxBlocks.SPLITFERN.get(), "natural/");
         this.tintedPot(ReduxBlocks.POTTED_SPLITFERN.get(), ReduxBlocks.SPLITFERN.get(), "natural/");
         this.blockDoubleDrops(ReduxBlocks.VERIDIUM_ORE.get(), "natural/");
         this.block(ReduxBlocks.RAW_VERIDIUM_BLOCK.get(), "natural/");
@@ -769,6 +769,12 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/cross/cross_tinted_overlay"))
                 .texture("cross", this.texture(this.name(block), location))
                 .texture("overlay", this.texture(this.name(block) + "_overlay", location)).renderType("cutout");
+        BlockModelBuilder ench = models().cross("enchanted_" + this.name(block), this.texture("enchanted_" + this.name(block), location)).renderType("cutout");
+        this.getVariantBuilder(block).forAllStates((state) ->  ConfiguredModel.builder().modelFile(state.getValue(ReduxStates.ENCHANTED) ? ench : cross).build());
+    }
+    public void crossTintedEnchantable(Block block, String location) {
+        BlockModelBuilder cross = models().withExistingParent(this.name(block), mcLoc(BLOCK_FOLDER + "/tinted_cross"))
+                .texture("cross", this.texture(this.name(block), location)).renderType("cutout");
         BlockModelBuilder ench = models().cross("enchanted_" + this.name(block), this.texture("enchanted_" + this.name(block), location)).renderType("cutout");
         this.getVariantBuilder(block).forAllStates((state) ->  ConfiguredModel.builder().modelFile(state.getValue(ReduxStates.ENCHANTED) ? ench : cross).build());
     }

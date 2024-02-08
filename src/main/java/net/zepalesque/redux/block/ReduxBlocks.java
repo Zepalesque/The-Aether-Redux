@@ -344,7 +344,7 @@ public class ReduxBlocks {
     public static final RegistryObject<LeafPileBlock> BLIGHTWILLOW_LEAF_PILE = register("blightwillow_leaf_pile", () -> new LeafPileBlock(BlockBehaviour.Properties.copy(BLIGHTWILLOW_LEAVES.get()).strength(0.1F).sound(SoundType.CHERRY_LEAVES)));
 
     public static RegistryObject<Block> SPLITFERN = register("splitfern",
-            () -> new CustomBoundsBushBlock(CommonPlantBounds.FERN, BlockBehaviour.Properties.copy(Blocks.FERN).hasPostProcess(ReduxBlocks::always).sound(SoundType.MOSS_CARPET).offsetType(BlockBehaviour.OffsetType.XZ)));
+            () -> new EnchantableBushBlock(CommonPlantBounds.FERN, BlockBehaviour.Properties.copy(Blocks.FERN).hasPostProcess(ReduxBlocks::always).sound(SoundType.MOSS_CARPET).offsetType(BlockBehaviour.OffsetType.XZ)));
     public static final RegistryObject<FlowerPotBlock> POTTED_SPLITFERN = BLOCKS.register("potted_splitfern", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SPLITFERN, Block.Properties.copy(Blocks.FLOWER_POT)));
 
     public static RegistryObject<Block> VERIDIUM_ORE = register("veridium_ore",
