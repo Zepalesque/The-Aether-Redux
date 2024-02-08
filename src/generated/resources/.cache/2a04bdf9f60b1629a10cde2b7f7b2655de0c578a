@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-07T09:24:53.1701528	Tags for minecraft:item mod id aether_redux
+// 1.20.1	2024-02-07T21:37:59.1563299	Tags for minecraft:item mod id aether_redux
 300781e4ca600daa56e90c34c0dbde6d8e83a30f data/aether/tags/items/accessories_capes.json
 94840e9b40698d0060327b6cae55109b6f9ee45c data/aether/tags/items/accessories_miscellaneous.json
 dee038e142bc18a39fdeae6abccd9121ad40e466 data/aether/tags/items/accessories_pendants.json
@@ -12,6 +12,7 @@ a40f3f5f697011f9966eb49c6599322302a28195 data/aether/tags/items/flying_cow_tempt
 945c56b8e0d8affefca486d4bab686d6f79d0d06 data/aether/tags/items/skyroot_tool_crafting.json
 d7419f8329f04e3bc18cdcf761b7c6288bfbf50b data/aether/tags/items/slider_damaging_items.json
 3758660b59c341f28e9f356022746007acc660d4 data/aether/tags/items/treated_as_aether_item.json
+af2baa99c63c3c2a4212923a6ca6a80a07db7703 data/aether_redux/tags/items/blightwarding_accessories.json
 edd28d843e4d50fffcd62491dda0fa5e4ba1749b data/aether_redux/tags/items/blightwillow_logs.json
 04569464666d91f70a8e047585cefb2b3b81e7e8 data/aether_redux/tags/items/blue_swet_jelly.json
 f935ac962426e9e6830b7063f7ff690dd48898cf data/aether_redux/tags/items/cloudcap_stems.json

@@ -5,14 +5,17 @@
     "A": {
       "item": "aether:ambrosium_torch"
     },
+    "I": {
+      "item": "aether_redux:veridium_ingot"
+    },
     "N": {
       "item": "aether_redux:veridium_nugget"
     }
   },
   "pattern": [
-    "NNN",
+    "NIN",
     "NAN",
-    "NNN"
+    "NIN"
   ],
   "result": {
     "item": "aether_redux:veridium_lantern"

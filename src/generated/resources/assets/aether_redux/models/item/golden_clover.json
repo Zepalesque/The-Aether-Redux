@@ -1,16 +1,6 @@
 {
   "parent": "minecraft:item/generated",
-  "overrides": [
-    {
-      "model": "aether_redux:item/enchanted_golden_clover",
-      "predicate": {
-        "aether_redux:enchanted": 1.0
-      }
-    }
-  ],
   "textures": {
-    "layer0": "aether_redux:item/misc/golden_clover_overlay",
-    "layer1": "aether_redux:item/misc/golden_clover_partial_tint",
-    "layer2": "aether_redux:item/misc/golden_clover"
+    "layer0": "aether_redux:block/natural/golden_clover_top"
   }
 }

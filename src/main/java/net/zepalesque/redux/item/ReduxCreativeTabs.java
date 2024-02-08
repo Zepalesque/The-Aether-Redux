@@ -197,6 +197,7 @@ public class ReduxCreativeTabs {
 
             putAfter(AetherItems.VALKYRIE_CAPE, ReduxItems.GRAND_VICTORY_MEDAL, event);
             putAfter(ReduxItems.GRAND_VICTORY_MEDAL, ReduxItems.COCKATRICE_FEATHER, event);
+            putAfter(ReduxItems.COCKATRICE_FEATHER, ReduxItems.FEATHER_OF_WARDING, event);
 
             putAfter(AetherItems.ICE_PENDANT, ReduxItems.ENCHANTED_RING, event);
             putAfter(ReduxItems.ENCHANTED_RING, ReduxItems.RING_OF_WISDOM, event);

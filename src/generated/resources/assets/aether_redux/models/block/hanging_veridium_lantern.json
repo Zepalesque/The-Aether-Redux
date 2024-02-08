@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/template_hanging_lantern",
+  "parent": "aether_redux:block/template_hanging_veridium_lantern_chain",
   "render_type": "minecraft:cutout",
   "textures": {
     "lantern": "aether_redux:block/construction/veridium_lantern"

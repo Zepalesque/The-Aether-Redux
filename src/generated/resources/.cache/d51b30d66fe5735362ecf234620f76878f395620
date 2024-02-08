@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-06T22:54:10.3212269	Item Models: aether_redux
+// 1.20.1	2024-02-07T21:37:59.1283288	Item Models: aether_redux
 262070202f715ccbb93ebca7b4dd3b04851bc0ce assets/aether_redux/models/item/aether_short_grass.json
 ef6d226766d61d6460247665062a399d3613d946 assets/aether_redux/models/item/aevelium.json
 2f2dfa95433a548b2d41f817bd836c91e41fc4e9 assets/aether_redux/models/item/aevelium_roots.json
@@ -91,7 +91,6 @@ e24bcc1b074b86d43ccd158fd5efde16a4bb156f assets/aether_redux/models/item/divinit
 6d540c067552a05397934bb294384a03aaaf2f0b assets/aether_redux/models/item/divinite_wall.json
 795ee016e7dad0d6ac42593c58ba258161615647 assets/aether_redux/models/item/enchanted_aurum.json
 96affe245dcaad11ed1d16c2abce148117ef5304 assets/aether_redux/models/item/enchanted_blueberry_pie.json
-30a34b7ef4d85b8223f8b28e7b60337f683061c8 assets/aether_redux/models/item/enchanted_golden_clover.json
 bbdcf1aaa0310eecd15726f69481b9f7f7ed9229 assets/aether_redux/models/item/enchanted_ring.json
 fac01588aa754fa1315d9e1fb562ae3651a7928f assets/aether_redux/models/item/enchanted_shell_shingles.json
 f541de5eee22d6308bca77e41b0e1240d8da56ae assets/aether_redux/models/item/enchanted_shell_shingle_slab.json
@@ -153,7 +152,7 @@ c1c5b464a21c1dd45422938089c119f49812877c assets/aether_redux/models/item/glacia_
 f2ce34057db0e9dc709688e4f1edd9bcd660a53a assets/aether_redux/models/item/glacia_wood_wall.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/aether_redux/models/item/glimmercow_spawn_egg.json
 ac613543a299c0da98bfa2919e299ad698f9bd3d assets/aether_redux/models/item/glimmerstool.json
-2596a45d881e2524fab3153db7595d746f3aba16 assets/aether_redux/models/item/golden_clover.json
+62849b609d3f83e44e3a20fd36bbb920a625cb33 assets/aether_redux/models/item/golden_clover.json
 04c35b2430f0dc45973e20a5c0ca970c9bcfc33e assets/aether_redux/models/item/golden_leaf_pile.json
 14c80ebf62c0434a511f00fdb22074d51f8aaf39 assets/aether_redux/models/item/golden_swet_ball.json
 3994332af9ecb56255184897abf849dae60ff939 assets/aether_redux/models/item/golden_swet_jelly.json

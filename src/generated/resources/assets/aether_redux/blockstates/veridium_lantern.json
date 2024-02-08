@@ -1,16 +1,50 @@
 {
-  "variants": {
-    "hanging=false,waterlogged=false": {
-      "model": "aether_redux:block/veridium_lantern"
+  "multipart": [
+    {
+      "apply": {
+        "model": "aether_redux:block/veridium_lantern",
+        "y": 90
+      },
+      "when": {
+        "axis": "x",
+        "hanging": "false"
+      }
     },
-    "hanging=false,waterlogged=true": {
-      "model": "aether_redux:block/veridium_lantern"
+    {
+      "apply": {
+        "model": "aether_redux:block/veridium_lantern"
+      },
+      "when": {
+        "axis": "z",
+        "hanging": "false"
+      }
     },
-    "hanging=true,waterlogged=false": {
-      "model": "aether_redux:block/hanging_veridium_lantern"
+    {
+      "apply": {
+        "model": "aether_redux:block/hanging_veridium_lantern",
+        "y": 90
+      },
+      "when": {
+        "axis": "x",
+        "hanging": "true"
+      }
     },
-    "hanging=true,waterlogged=true": {
-      "model": "aether_redux:block/hanging_veridium_lantern"
+    {
+      "apply": {
+        "model": "aether_redux:block/hanging_veridium_lantern"
+      },
+      "when": {
+        "axis": "z",
+        "hanging": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/hanging_veridium_lantern"
+      },
+      "when": {
+        "hanging": "true"
+      }
     }
-  }
+  ]
 }
