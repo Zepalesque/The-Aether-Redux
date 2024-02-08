@@ -24,8 +24,8 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.audio.ReduxMusic;
 import net.zepalesque.redux.data.resource.ReduxPlacedFeatures;
 import net.zepalesque.redux.data.resource.biome.Cloudcaps;
-import net.zepalesque.redux.data.resource.biome.GlacialTaiga;
 import net.zepalesque.redux.data.resource.biome.Blight;
+import net.zepalesque.redux.data.resource.biome.GlacialTaiga;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 
 
@@ -96,7 +96,7 @@ public class ReduxBiomes {
 
         context.register(THE_BLIGHT, Blight.generate(context));
         context.register(CLOUDCAPS, Cloudcaps.generate(context));
-        context.register(GLACIAL_TAIGA, new GlacialTaiga().generate(context));
+        context.register(GLACIAL_TAIGA, GlacialTaiga.generate(context));
         // TODO: finish
 
 

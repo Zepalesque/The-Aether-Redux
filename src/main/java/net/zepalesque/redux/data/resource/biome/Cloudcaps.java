@@ -65,6 +65,7 @@ public class Cloudcaps {
                         .build())
                 .generationSettings(
         new BiomeGenerationSettings.Builder(placed, carvers)
+
                 .addFeature(GenerationStep.Decoration.RAW_GENERATION, ReduxPlacedFeatures.AEROGEL_DISK)
 
                 .addFeature(GenerationStep.Decoration.LAKES, ReduxPlacedFeatures.SURFACE_RULE_WATER_LAKE)

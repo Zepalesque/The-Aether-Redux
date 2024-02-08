@@ -59,6 +59,7 @@ public class Blight {
                         .build())
                 .generationSettings(
         new BiomeGenerationSettings.Builder(placed, carvers)
+
                 .addFeature(GenerationStep.Decoration.RAW_GENERATION, ReduxPlacedFeatures.HOLYSILT_DISK)
 
                 .addFeature(GenerationStep.Decoration.LAKES, ReduxPlacedFeatures.SURFACE_RULE_WATER_LAKE)
