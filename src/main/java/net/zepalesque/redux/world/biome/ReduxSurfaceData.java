@@ -10,7 +10,7 @@ import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.condition.Conditions;
 import net.zepalesque.redux.block.ReduxBlocks;
-import net.zepalesque.redux.data.resource.ReduxBiomes;
+import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
 import net.zepalesque.redux.world.biome.surfacerule.ConditionCondition;
 import teamrazor.deepaether.init.DABlocks;
 

@@ -15,7 +15,7 @@ import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.util.state.ReduxStates;
-import net.zepalesque.redux.data.resource.ReduxBiomes;
+import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
 
 import javax.annotation.Nullable;
 import java.util.HashMap;

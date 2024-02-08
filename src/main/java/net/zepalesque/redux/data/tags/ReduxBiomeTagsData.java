@@ -9,7 +9,7 @@ import net.minecraft.data.tags.BiomeTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.data.ReduxRegistrySets;
-import net.zepalesque.redux.data.resource.ReduxBiomes;
+import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
 import net.zepalesque.redux.misc.ReduxTags;
 import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.world.biomes.DABiomes;

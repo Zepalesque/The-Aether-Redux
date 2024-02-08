@@ -17,6 +17,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.biomemodifier.VanillifyGrassOverride;
 import net.zepalesque.redux.api.condition.Conditions;
+import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.world.biome.modifier.*;

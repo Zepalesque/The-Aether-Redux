@@ -9,7 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Climate;
 import net.minecraftforge.fml.ModList;
-import net.zepalesque.redux.data.resource.ReduxBiomes;
+import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
 import teamrazor.aeroblender.aether.AetherRegionType;
 import terrablender.api.Region;
 

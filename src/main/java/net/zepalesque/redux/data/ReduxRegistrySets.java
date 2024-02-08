@@ -12,6 +12,7 @@ import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.data.resource.*;
+import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
 
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
