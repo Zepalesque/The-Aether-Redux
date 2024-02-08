@@ -362,11 +362,12 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ReduxBlocks.VERIDIUM_LANTERN.get(), 1)
+                .define('I', ReduxItems.VERIDIUM_INGOT.get())
                 .define('N', ReduxItems.VERIDIUM_NUGGET.get())
                 .define('A', AetherBlocks.AMBROSIUM_TORCH.get())
-                .pattern("NNN")
+                .pattern("NIN")
                 .pattern("NAN")
-                .pattern("NNN")
+                .pattern("NIN")
                 .unlockedBy(getHasName(ReduxItems.VERIDIUM_NUGGET.get()), has(ReduxItems.VERIDIUM_NUGGET.get()))
                 .unlockedBy(getHasName(AetherBlocks.AMBROSIUM_TORCH.get()), has(AetherBlocks.AMBROSIUM_TORCH.get()))
                 .unlockedBy(getHasName(AetherItems.AMBROSIUM_SHARD.get()), has(AetherItems.AMBROSIUM_SHARD.get()))
