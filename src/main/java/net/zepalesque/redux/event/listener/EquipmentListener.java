@@ -24,6 +24,7 @@ import net.zepalesque.redux.effect.ReduxEffects;
 import net.zepalesque.redux.entity.projectile.Ember;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.util.math.MathUtil;
+import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotResult;
 
 import java.util.List;
@@ -66,9 +67,12 @@ public class EquipmentListener {
 
     @SubscribeEvent
     public static void removeInebriation(LivingEvent.LivingTickEvent event) {
-        if (EquipmentUtil.hasCurio(event.getEntity(), ReduxItems.FEATHER_OF_WARDING.get()) && event.getEntity().hasEffect(AetherEffects.INEBRIATION.get())) {
-            event.getEntity().removeEffect(AetherEffects.INEBRIATION.get());
-        }
+        EquipmentUtil.findFirstCurio(event.getEntity(), ReduxItems.FEATHER_OF_WARDING.get()).ifPresent(slotResult -> {
+            if (event.getEntity().hasEffect(AetherEffects.INEBRIATION.get())) {
+                event.getEntity().removeEffect(AetherEffects.INEBRIATION.get());
+                slotResult.stack().hurtAndBreak(1, slotResult.slotContext().entity(), livingEntity -> CuriosApi.broadcastCurioBreakEvent(slotResult.slotContext()));
+            }
+        });
     }
 
     @SubscribeEvent
