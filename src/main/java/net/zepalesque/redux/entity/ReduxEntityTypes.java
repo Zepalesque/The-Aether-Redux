@@ -15,6 +15,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.entity.monster.Blightbunny;
 import net.zepalesque.redux.entity.passive.Glimmercow;
 import net.zepalesque.redux.entity.passive.Mykapod;
 import net.zepalesque.redux.entity.projectile.Ember;
@@ -48,6 +49,9 @@ public class ReduxEntityTypes {
     public static final RegistryObject<EntityType<Mykapod>> MYKAPOD = ENTITY_TYPES.register("mykapod",
             () -> EntityType.Builder.of(Mykapod::new, MobCategory.CREATURE).sized(0.35F, 0.35F).clientTrackingRange(10).build("mykapod"));
 
+    public static final RegistryObject<EntityType<Blightbunny>> BLIGHTBUNNY = ENTITY_TYPES.register("blightbunny",
+            () -> EntityType.Builder.of(Blightbunny::new, AetherMobCategory.AETHER_DARKNESS_MONSTER).sized(0.6F, 0.5F).clientTrackingRange(10).build("blightbunny"));
+
     @SubscribeEvent
     public static void registerSpawnPlacements(SpawnPlacementRegisterEvent event) {
         event.register(ReduxEntityTypes.VANILLA_SWET.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Swet::checkSwetSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
@@ -59,6 +63,7 @@ public class ReduxEntityTypes {
         event.put(ReduxEntityTypes.VANILLA_SWET.get(), Swet.createMobAttributes().build());
         event.put(ReduxEntityTypes.GLIMMERCOW.get(), Glimmercow.createMobAttributes().build());
         event.put(ReduxEntityTypes.MYKAPOD.get(), Mykapod.createAttributes().build());
+        event.put(ReduxEntityTypes.BLIGHTBUNNY.get(), Blightbunny.createAttributes().build());
     }
 }
 

@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
 
 public class Mykapod extends AetherAnimal implements GeoEntity {
 
-    private AnimatableInstanceCache cache;
+    private final AnimatableInstanceCache cache;
     @OnlyIn(Dist.CLIENT)
     private int clientAnimTickCount = 0;
     private int sheddingTicker = 0;
@@ -518,8 +518,6 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
         }
         state.getController().setAnimation(RawAnimation.begin().then("animations.mykapod.idle", Animation.LoopType.LOOP));
         return PlayState.CONTINUE;
-
-
 
     }
 

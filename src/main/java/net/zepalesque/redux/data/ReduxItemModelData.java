@@ -76,6 +76,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         eggItem(ReduxItems.VANILLA_SWET_SPAWN_EGG);
         eggItem(ReduxItems.GLIMMERCOW_SPAWN_EGG);
         eggItem(ReduxItems.MYKAPOD_SPAWN_EGG);
+        eggItem(ReduxItems.BLIGHTBUNNY_SPAWN_EGG);
         rotatedItem(ReduxItems.GRAND_VICTORY_MEDAL.get(), "accessories/");
         item(ReduxItems.SENTRY_RING, "accessories/");
         item(ReduxItems.AIRBOUND_CAPE, "accessories/");

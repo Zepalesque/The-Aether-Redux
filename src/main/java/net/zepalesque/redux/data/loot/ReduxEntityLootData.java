@@ -49,6 +49,9 @@ public class ReduxEntityLootData extends AetherEntityLoot {
                 )
         );
 
+        // TODO
+        this.add(ReduxEntityTypes.BLIGHTBUNNY.get(), LootTable.lootTable());
+
     }
 
     @Override
