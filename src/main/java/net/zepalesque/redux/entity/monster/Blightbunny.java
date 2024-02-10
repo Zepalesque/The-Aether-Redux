@@ -36,7 +36,14 @@ public class Blightbunny extends Monster implements GeoEntity {
 
     @OnlyIn(Dist.CLIENT)
     public State anim;
+    
+    private final AnimatableInstanceCache cache;
 
+    public Blightbunny(EntityType<? extends Monster> entityType, Level level) {
+        super(entityType, level);
+        this.cache = GeckoLibUtil.createInstanceCache(this);
+        this.moveControl = new BlightbunnyMoveControl(this);
+    }
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(2, new ContinuousMeleeAttackGoal(this, 1.0, false));
@@ -56,11 +63,26 @@ public class Blightbunny extends Monster implements GeoEntity {
         ATTACKING, HURT, JUMPING, NONE
     }
 
-    public Blightbunny(EntityType<? extends Monster> entityType, Level level) {
-        super(entityType, level);
-        this.cache = GeckoLibUtil.createInstanceCache(this);
-        this.moveControl = new BlightbunnyMoveControl(this);
+    // Based on Aerbunny movement control, but has no mid-air jumps
+    public static class BlightbunnyMoveControl extends MoveControl {
+        private final Blightbunny aerbunny;
+
+        public BlightbunnyMoveControl(Blightbunny aerbunny) {
+            super(aerbunny);
+            this.aerbunny = aerbunny;
+        }
+
+        public void tick() {
+            super.tick();
+            if (this.aerbunny.zza != 0.0F) {
+                if (this.aerbunny.onGround()) {
+                    this.aerbunny.getJumpControl().jump();
+                    this.aerbunny.anim = State.JUMPING;
+                }
+            }
+        }
     }
+
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar registrar) {
@@ -100,25 +122,6 @@ public class Blightbunny extends Monster implements GeoEntity {
         return this.cache;
     }
 
-    private final AnimatableInstanceCache cache;
 
-    // Based on Aerbunny movement control, but has no mid-air jumps
-    public static class BlightbunnyMoveControl extends MoveControl {
-        private final Blightbunny aerbunny;
 
-        public BlightbunnyMoveControl(Blightbunny aerbunny) {
-            super(aerbunny);
-            this.aerbunny = aerbunny;
-        }
-
-        public void tick() {
-            super.tick();
-            if (this.aerbunny.zza != 0.0F) {
-                if (this.aerbunny.onGround()) {
-                    this.aerbunny.getJumpControl().jump();
-                    this.aerbunny.anim = State.JUMPING;
-                }
-            }
-        }
-    }
 }
