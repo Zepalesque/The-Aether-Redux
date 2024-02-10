@@ -1,10 +1,11 @@
-// 1.20.1	2024-02-07T21:54:47.768298	Item Models: aether_redux
+// 1.20.1	2024-02-10T15:34:07.6543882	Item Models: aether_redux
 262070202f715ccbb93ebca7b4dd3b04851bc0ce assets/aether_redux/models/item/aether_short_grass.json
 ef6d226766d61d6460247665062a399d3613d946 assets/aether_redux/models/item/aevelium.json
 2f2dfa95433a548b2d41f817bd836c91e41fc4e9 assets/aether_redux/models/item/aevelium_roots.json
 b33b28bb801d1267d9f65e4fa6cbb6743ca4f691 assets/aether_redux/models/item/aevelium_sprouts.json
 2445055af5b1b7f3c6045199ffce74108003cef6 assets/aether_redux/models/item/airbound_cape.json
 2fa1343a8119a1f49af334c002773099174965bd assets/aether_redux/models/item/aurum.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/aether_redux/models/item/blightbunny_spawn_egg.json
 41d6989c51ca5da73479ac751b963fcdf87ffa6e assets/aether_redux/models/item/blighted_skyroot_leaves.json
 35a48d8eed3d98c024b886fed8c1b4d21d4f5381 assets/aether_redux/models/item/blighted_skyroot_sapling.json
 be3b9c77cd45147caf3bf5ad56fc9eaff3feef39 assets/aether_redux/models/item/blighted_spores.json
