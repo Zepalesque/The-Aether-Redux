@@ -18,11 +18,15 @@ import net.zepalesque.redux.client.render.util.MoaUtils;
 import net.zepalesque.redux.util.math.MathUtil;
 
 import javax.annotation.Nonnull;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
 
     protected final MoaRenderer parent;
     private final MoaReduxModel updated;
+
+    private static Map<ResourceLocation, ResourceLocation> TRANSLATION_MAP = new HashMap<>();
 
     public MoaReduxLayer(MoaRenderer entityRenderer, MoaReduxModel pUpdated) {
         super(entityRenderer);
@@ -124,8 +128,13 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
     @Nonnull
     @Override
     public ResourceLocation getTextureLocation(Moa moa) {
-        ResourceLocation tex = this.parent.getTextureLocation(moa);
-        ResourceLocation addTex = new ResourceLocation(tex.getNamespace(), tex.getPath().replace(".png", "_redux.png"));
-        return addTex;
+        ResourceLocation key = this.parent.getTextureLocation(moa);
+        if (TRANSLATION_MAP.containsKey(key)) {
+            return TRANSLATION_MAP.get(key);
+        } else {
+            ResourceLocation translated = new ResourceLocation(key.getNamespace(), key.getPath().replace(".png", "_redux.png"));
+            TRANSLATION_MAP.put(key, translated);
+            return translated;
+        }
     }
 }
