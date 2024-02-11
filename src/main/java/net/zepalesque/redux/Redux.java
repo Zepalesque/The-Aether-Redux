@@ -60,6 +60,7 @@ import net.zepalesque.redux.builtin.BuiltinPackUtils;
 import net.zepalesque.redux.client.ReduxClient;
 import net.zepalesque.redux.client.ReduxColors;
 import net.zepalesque.redux.client.ReduxPostProcessHandler;
+import net.zepalesque.redux.client.render.entity.BlightbunnyRenderer;
 import net.zepalesque.redux.client.render.geo.MykapodRenderer;
 import net.zepalesque.redux.client.resource.ReduxOverridesPackResources;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
