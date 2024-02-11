@@ -12,8 +12,11 @@ import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.loading.FMLLoader;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.client.render.entity.*;
@@ -56,7 +59,7 @@ public class ReduxRenderers {
         event.registerEntityRenderer(ReduxEntityTypes.EMBER.get(), EmberRenderer::new);
         event.registerEntityRenderer(ReduxEntityTypes.GLIMMERCOW.get(), GlimmercowRenderer::new);
 
-//        event.registerEntityRenderer(ReduxEntityTypes.MYKAPOD.get(), MykapodRenderer::new);
+        event.registerEntityRenderer(ReduxEntityTypes.BLIGHTBUNNY.get(), BlightbunnyRenderer::new);
 
 //        event.registerEntityRenderer(AetherEntityTypes.MIMIC.get(), ReduxMimicRenderer::new);
 //        event.registerEntityRenderer(AetherEntityTypes.SENTRY.get(), ReduxSentryRenderer::new);
@@ -79,9 +82,14 @@ public class ReduxRenderers {
         event.registerLayerDefinition(ReduxModelLayers.GLIMMERCOW, GlimmercowModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.MIMIC, MimicReduxModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.SENTRY, SentryReduxModel::createBodyLayer);
-        event.registerLayerDefinition(ReduxModelLayers.CUBE, CubeModel::create);
+        event.registerLayerDefinition(ReduxModelLayers.BLIGHTBUNNY, BlightbunnyModel::createBodyLayer);
+
         if (Redux.aetherGenesisCompat()) {
             event.registerLayerDefinition(ReduxModelLayers.BATTLE_SENTRY, BattleSentryReduxModel::createBodyLayer);
+        }
+
+        if (!FMLLoader.isProduction()) {
+            event.registerLayerDefinition(ReduxModelLayers.CUBE, CubeModel::create);
         }
     }
 

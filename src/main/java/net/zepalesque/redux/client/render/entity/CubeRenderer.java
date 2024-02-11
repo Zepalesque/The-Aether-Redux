@@ -12,6 +12,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraftforge.fml.loading.FMLLoader;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.render.entity.layer.ReduxModelLayers;
 import net.zepalesque.redux.client.render.entity.model.entity.CubeModel;
@@ -22,8 +23,18 @@ import net.zepalesque.redux.entity.projectile.Ember;
 public class CubeRenderer<E extends LivingEntity> extends LivingEntityRenderer<E, EntityModel<E>> {
     private static final ResourceLocation TEXTURE_LOCATION = Redux.locate("textures/entity/test.png");
 
-    public CubeRenderer(EntityRendererProvider.Context context) {
+    private CubeRenderer(EntityRendererProvider.Context context) {
         super(context, new CubeModel<>(context.bakeLayer(ReduxModelLayers.CUBE)), 0);
+
+    }
+
+    public CubeRenderer<?> create(EntityRendererProvider.Context context) {
+        if (FMLLoader.isProduction()) {
+            Redux.LOGGER.warn("Error occured in renderer registry");
+            throw new RuntimeException("Should not be creating CubeRenderer in non-dev environment!");
+        } else {
+            return new CubeRenderer<>(context);
+        }
     }
 
     @Override

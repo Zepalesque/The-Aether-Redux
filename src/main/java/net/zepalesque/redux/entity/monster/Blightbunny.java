@@ -5,9 +5,16 @@ import com.aetherteam.aether.entity.ai.goal.ContinuousMeleeAttackGoal;
 import com.aetherteam.aether.entity.ai.goal.FallingRandomStrollGoal;
 import com.aetherteam.aether.entity.monster.dungeon.Mimic;
 import com.aetherteam.aether.entity.passive.Aerbunny;
+import com.aetherteam.aether.entity.passive.AetherAnimal;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.MoveControl;
@@ -24,6 +31,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.common.ForgeMod;
 import net.zepalesque.redux.entity.passive.Mykapod;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.GeoAnimatable;
@@ -36,7 +44,17 @@ public class Blightbunny extends Monster implements GeoEntity {
 
     @OnlyIn(Dist.CLIENT)
     public State anim;
-    
+
+
+    private static final EntityDataAccessor<Integer> DATA_PUFFINESS_ID = SynchedEntityData.defineId(Blightbunny.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Boolean> DATA_FAST_FALLING_ID = SynchedEntityData.defineId(Blightbunny.class, EntityDataSerializers.BOOLEAN);
+    private static final int MAXIMUM_PUFFS = 11;
+    private int puffSubtract;
+
+    public int getPuffSubtract() {
+        return this.puffSubtract;
+    }
+
     private final AnimatableInstanceCache cache;
 
     public Blightbunny(EntityType<? extends Monster> entityType, Level level) {
@@ -63,7 +81,55 @@ public class Blightbunny extends Monster implements GeoEntity {
         ATTACKING, HURT, JUMPING, NONE
     }
 
-    // Based on Aerbunny movement control, but has no mid-air jumps
+    @Override
+    public void tick() {
+        super.tick();
+        if (!this.isFastFalling()) {
+            this.handleFallSpeed();
+        } else if (this.onGround()) {
+            this.setFastFalling(false);
+        }
+
+
+        this.setPuffiness(this.getPuffiness() - this.puffSubtract);
+        if (this.getPuffiness() > 0) {
+            this.puffSubtract = 1;
+        } else {
+            this.puffSubtract = 0;
+            this.setPuffiness(0);
+        }
+
+    }
+
+    protected void midairJump() {
+        Vec3 motion = this.getDeltaMovement();
+        if (motion.y() < 0.0) {
+            this.puff();
+            this.level().broadcastEntityEvent(this, (byte)70);
+        }
+
+        this.setDeltaMovement(new Vec3(motion.x(), 0.25, motion.z()));
+    }
+
+
+    public void puff() {
+        if (this.level() instanceof ServerLevel) {
+            this.setPuffiness(11);
+        }
+
+    }
+
+    private void handleFallSpeed() {
+        AttributeInstance gravity = this.getAttribute(ForgeMod.ENTITY_GRAVITY.get());
+        if (gravity != null) {
+            double fallSpeed = Math.max(gravity.getValue() * -1.25, -0.1);
+            if (this.getDeltaMovement().y() < fallSpeed) {
+                this.setDeltaMovement(this.getDeltaMovement().x(), fallSpeed, this.getDeltaMovement().z());
+            }
+        }
+
+    }
+
     public static class BlightbunnyMoveControl extends MoveControl {
         private final Blightbunny aerbunny;
 
@@ -77,12 +143,51 @@ public class Blightbunny extends Monster implements GeoEntity {
             if (this.aerbunny.zza != 0.0F) {
                 if (this.aerbunny.onGround()) {
                     this.aerbunny.getJumpControl().jump();
-                    this.aerbunny.anim = State.JUMPING;
+                } else {
+                    int x = Mth.floor(this.aerbunny.getX());
+                    int y = Mth.floor(this.aerbunny.getBoundingBox().minY);
+                    int z = Mth.floor(this.aerbunny.getZ());
+                    if (this.checkForSurfaces(this.aerbunny.level(), x, y, z) && !this.aerbunny.horizontalCollision) {
+                        this.aerbunny.midairJump();
+                    }
                 }
+            }
+
+        }
+
+        private boolean checkForSurfaces(Level level, int x, int y, int z) {
+            BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(x, y, z);
+            if (level.getBlockState(pos.setY(y - 1)).isAir()) {
+                return false;
+            } else {
+                return level.getBlockState(pos.setY(y + 2)).isAir() && level.getBlockState(pos.setY(y + 1)).isAir();
             }
         }
     }
 
+    public int getPuffiness() {
+        return this.entityData.get(DATA_PUFFINESS_ID);
+    }
+
+    public void setPuffiness(int puffiness) {
+        this.entityData.set(DATA_PUFFINESS_ID, puffiness);
+    }
+
+
+    public void defineSynchedData() {
+        super.defineSynchedData();
+        this.getEntityData().define(DATA_PUFFINESS_ID, 0);
+        this.getEntityData().define(DATA_FAST_FALLING_ID, false);
+    }
+
+
+    public boolean isFastFalling() {
+        return this.entityData.get(DATA_FAST_FALLING_ID);
+    }
+
+    public void setFastFalling(boolean fastFalling) {
+        this.entityData.set(DATA_FAST_FALLING_ID, fastFalling);
+    }
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar registrar) {
@@ -97,7 +202,7 @@ public class Blightbunny extends Monster implements GeoEntity {
             state.getController().setAnimation(RawAnimation.begin().then("animations.blightbunny.walk", Animation.LoopType.LOOP));
             return PlayState.CONTINUE;
         }
-        state.getController().setAnimation(RawAnimation.begin().then("animations.mykapod.idle", Animation.LoopType.LOOP));
+        state.getController().setAnimation(RawAnimation.begin().then("animations.blightbunny.idle", Animation.LoopType.LOOP));
         return PlayState.CONTINUE;
     }
     private <T extends GeoAnimatable> PlayState complexAnims(AnimationState<T> state) {
