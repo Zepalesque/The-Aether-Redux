@@ -4,9 +4,11 @@ import net.minecraft.client.particle.BreakingItemParticle;
 import net.minecraft.client.particle.ParticleProvider;
 import net.minecraft.client.particle.SplashParticle;
 import net.minecraft.client.particle.TextureSheetParticle;
+import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
@@ -17,6 +19,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
+import org.joml.Vector3f;
 
 @EventBusSubscriber(
     modid = Redux.MODID,
@@ -63,6 +66,8 @@ public class ReduxParticleTypes {
     public static final RegistryObject<SimpleParticleType> ICE_SPLASH = PARTICLES.register("ice_splash", () -> new SimpleParticleType(false));
 
     public static final RegistryObject<SimpleParticleType> SPARK = PARTICLES.register("spark", () -> new SimpleParticleType(false));
+    private static final Vector3f SHINY_CLOUD_COLOR = Vec3.fromRGB24(16777215).toVector3f();
+    public static final DustParticleOptions SHINY_CLOUD = new DustParticleOptions(SHINY_CLOUD_COLOR, 1.0F);
 
 
     @SubscribeEvent

@@ -1,7 +1,6 @@
 package net.zepalesque.redux.util.player;
 
 import com.aetherteam.aether.item.EquipmentUtil;
-import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
@@ -10,15 +9,12 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
+import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.entity.projectile.VolatileFireCrystal;
 import net.zepalesque.redux.item.ReduxItems;
-import org.joml.Vector3f;
 
 public class AbilityUtil {
 
-
-    public static final Vector3f SHINY_CLOUD_COLOR = Vec3.fromRGB24(16777215).toVector3f();
-    public static final DustParticleOptions SHINY_CLOUD = new DustParticleOptions(SHINY_CLOUD_COLOR, 1.0F);
 
     public static void doDoubleJumpMovement(LivingEntity entity)
     {
@@ -43,7 +39,7 @@ public class AbilityUtil {
             double y2 = y + (random.nextDouble() * 0.4D);
             double z2 = z + (random.nextDouble() * radius) - (radius * 0.5D);
 
-            level.addParticle(SHINY_CLOUD, x2, y2, z2, 0.0D, random.nextDouble() * 0.03D, 0.0D);
+            level.addParticle(ReduxParticleTypes.SHINY_CLOUD, x2, y2, z2, 0.0D, random.nextDouble() * 0.03D, 0.0D);
         }
     }
 

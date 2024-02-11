@@ -1,17 +1,22 @@
 package net.zepalesque.redux.entity.monster;
 
 import com.aetherteam.aether.AetherTags;
+import com.aetherteam.aether.entity.EntityUtil;
 import com.aetherteam.aether.entity.ai.goal.ContinuousMeleeAttackGoal;
 import com.aetherteam.aether.entity.ai.goal.FallingRandomStrollGoal;
 import com.aetherteam.aether.entity.monster.dungeon.Mimic;
 import com.aetherteam.aether.entity.passive.Aerbunny;
 import com.aetherteam.aether.entity.passive.AetherAnimal;
+import com.aetherteam.aether.mixin.mixins.common.accessor.EntityAccessor;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
@@ -32,6 +37,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.ForgeMod;
+import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.entity.passive.Mykapod;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.GeoAnimatable;
@@ -128,6 +134,34 @@ public class Blightbunny extends Monster implements GeoEntity {
             }
         }
 
+    }
+
+    public void handleEntityEvent(byte id) {
+        if (id == 70) {
+            this.spawnExplosionParticle();
+        } else {
+            super.handleEntityEvent(id);
+        }
+
+    }
+
+    private void spawnExplosionParticle() {
+        for(int i = 0; i < 5; ++i) {
+            spawnMovementExplosionParticles(this);
+        }
+
+    }
+
+    public static void spawnMovementExplosionParticles(Entity entity) {
+        RandomSource random = ((EntityAccessor)entity).aether$getRandom();
+        double d0 = random.nextGaussian() * 0.02;
+        double d1 = random.nextGaussian() * 0.02;
+        double d2 = random.nextGaussian() * 0.02;
+        double d3 = 10.0;
+        double x = entity.getX() + (double)random.nextFloat() * (double)entity.getBbWidth() * 2.0 - (double)entity.getBbWidth() - d0 * d3;
+        double y = entity.getY() + (double)random.nextFloat() * (double)entity.getBbHeight() - d1 * d3;
+        double z = entity.getZ() + (double)random.nextFloat() * (double)entity.getBbWidth() * 2.0 - (double)entity.getBbWidth() - d2 * d3;
+        entity.level().addParticle(ReduxParticleTypes.SHINY_CLOUD, x, y, z, d0, d1, d2);
     }
 
     public static class BlightbunnyMoveControl extends MoveControl {
