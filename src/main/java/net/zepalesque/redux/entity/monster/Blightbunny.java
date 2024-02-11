@@ -23,10 +23,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.MoveControl;
-import net.minecraft.world.entity.ai.goal.BreedGoal;
-import net.minecraft.world.entity.ai.goal.FloatGoal;
-import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
-import net.minecraft.world.entity.ai.goal.TemptGoal;
+import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
@@ -70,11 +67,11 @@ public class Blightbunny extends Monster implements GeoEntity {
     }
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
-        this.goalSelector.addGoal(2, new ContinuousMeleeAttackGoal(this, 1.0, false));
+        this.goalSelector.addGoal(2, new LeapAtTargetGoal(this, 0.3F));
         this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 6.0F));
         this.goalSelector.addGoal(5, new FallingRandomStrollGoal(this, 1.0, 80));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this, Blightbunny.class));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, Player.class, true));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
 
     public static AttributeSupplier.Builder createAttributes() {
@@ -90,6 +87,7 @@ public class Blightbunny extends Monster implements GeoEntity {
     @Override
     public void tick() {
         super.tick();
+        this.resetFallDistance();
         if (!this.isFastFalling()) {
             this.handleFallSpeed();
         } else if (this.onGround()) {
@@ -108,13 +106,15 @@ public class Blightbunny extends Monster implements GeoEntity {
     }
 
     protected void midairJump() {
-        Vec3 motion = this.getDeltaMovement();
-        if (motion.y() < 0.0) {
-            this.puff();
-            this.level().broadcastEntityEvent(this, (byte)70);
-        }
+        if (this.getTarget() == null) {
+            Vec3 motion = this.getDeltaMovement();
+            if (motion.y() < 0.0) {
+                this.puff();
+                this.level().broadcastEntityEvent(this, (byte) 70);
+            }
 
-        this.setDeltaMovement(new Vec3(motion.x(), 0.25, motion.z()));
+            this.setDeltaMovement(new Vec3(motion.x(), 0.25, motion.z()));
+        }
     }
 
 
@@ -181,7 +181,7 @@ public class Blightbunny extends Monster implements GeoEntity {
                     int x = Mth.floor(this.aerbunny.getX());
                     int y = Mth.floor(this.aerbunny.getBoundingBox().minY);
                     int z = Mth.floor(this.aerbunny.getZ());
-                    if (this.checkForSurfaces(this.aerbunny.level(), x, y, z) && !this.aerbunny.horizontalCollision) {
+                    if (this.aerbunny.getTarget() == null && this.checkForSurfaces(this.aerbunny.level(), x, y, z) && !this.aerbunny.horizontalCollision) {
                         this.aerbunny.midairJump();
                     }
                 }

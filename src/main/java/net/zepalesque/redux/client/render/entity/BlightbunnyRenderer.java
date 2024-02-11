@@ -5,9 +5,6 @@
 
 package net.zepalesque.redux.client.render.entity;
 
-import com.aetherteam.aether.client.renderer.AetherModelLayers;
-import com.aetherteam.aether.client.renderer.entity.model.AerbunnyModel;
-import com.aetherteam.aether.entity.passive.Aerbunny;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -20,14 +17,14 @@ import net.zepalesque.redux.client.render.entity.model.entity.BlightbunnyModel;
 import net.zepalesque.redux.entity.monster.Blightbunny;
 
 public class BlightbunnyRenderer extends MobRenderer<Blightbunny, BlightbunnyModel> {
-    private static final ResourceLocation AERBUNNY_TEXTURE = Redux.locate("textures/entity/mobs/blightbunny.png");
+    private static final ResourceLocation BLIGHTBUNNY_TEXTURE = Redux.locate("textures/entity/mobs/blightbunny.png");
 
     public BlightbunnyRenderer(EntityRendererProvider.Context context) {
         super(context, new BlightbunnyModel(context.bakeLayer(ReduxModelLayers.BLIGHTBUNNY)), 0.3F);
     }
 
     protected void scale(Blightbunny aerbunny, PoseStack poseStack, float partialTicks) {
-//        poseStack.translate(0.0, 0.2, 0.0);
+        poseStack.translate(0.0, 1.2, 0.0);
     }
 
     protected void setupRotations(Blightbunny aerbunny, PoseStack poseStack, float ageInTicks, float rotationYaw, float partialTicks) {
@@ -45,6 +42,6 @@ public class BlightbunnyRenderer extends MobRenderer<Blightbunny, BlightbunnyMod
     }
 
     public ResourceLocation getTextureLocation(Blightbunny aerbunny) {
-        return AERBUNNY_TEXTURE;
+        return BLIGHTBUNNY_TEXTURE;
     }
 }
