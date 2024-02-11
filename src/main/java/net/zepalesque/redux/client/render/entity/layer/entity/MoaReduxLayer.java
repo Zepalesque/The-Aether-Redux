@@ -125,7 +125,7 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
     @Override
     public ResourceLocation getTextureLocation(Moa moa) {
         ResourceLocation tex = this.parent.getTextureLocation(moa);
-        ResourceLocation addTex = new ResourceLocation(tex.getNamespace(), tex.getPath().replace(".png", "_additions.png"));
+        ResourceLocation addTex = new ResourceLocation(tex.getNamespace(), tex.getPath().replace(".png", "_redux.png"));
         return addTex;
     }
 }

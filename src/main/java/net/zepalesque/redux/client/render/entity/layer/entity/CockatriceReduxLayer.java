@@ -24,9 +24,9 @@ import javax.annotation.Nonnull;
 public class CockatriceReduxLayer extends RenderLayer<Cockatrice, CockatriceModel> {
     private final CockatriceReduxModel model;
 
-    private static final ResourceLocation COCKATRICE_TEXTURE = new ResourceLocation(Aether.MODID, "textures/entity/mobs/cockatrice/updated_cockatrice.png");
-    private static final RenderType COCKATRICE_MARKINGS = RenderType.entityTranslucentEmissive(new ResourceLocation(Aether.MODID, "textures/entity/mobs/cockatrice/updated_cockatrice_emissive.png"));
-    private static final RenderType COCKATRICE_EYES = RenderType.eyes(new ResourceLocation(Aether.MODID, "textures/entity/mobs/cockatrice/updated_cockatrice_eyes.png"));
+    private static final ResourceLocation COCKATRICE_TEXTURE = new ResourceLocation(Aether.MODID, "textures/entity/mobs/cockatrice/cockatrice_redux.png");
+    private static final RenderType COCKATRICE_MARKINGS = RenderType.entityTranslucentEmissive(new ResourceLocation(Aether.MODID, "textures/entity/mobs/cockatrice/cockatrice_emissive_redux.png"));
+    private static final RenderType COCKATRICE_EYES = RenderType.eyes(new ResourceLocation(Aether.MODID, "textures/entity/mobs/cockatrice/cockatrice_eyes_redux.png"));
 
 
     public CockatriceReduxLayer(RenderLayerParent<Cockatrice, CockatriceModel> entityRenderer, CockatriceReduxModel legsModel) {
