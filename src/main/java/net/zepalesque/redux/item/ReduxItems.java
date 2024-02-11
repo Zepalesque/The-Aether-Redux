@@ -36,6 +36,7 @@ import net.zepalesque.redux.item.tools.VeridiumHoeItem;
 import net.zepalesque.redux.item.tools.VeridiumPickaxeItem;
 import net.zepalesque.redux.item.tools.VeridiumShovelItem;
 import net.zepalesque.redux.item.util.ReduxItemTiers;
+import net.zepalesque.redux.item.weapons.BlightSpearItem;
 import net.zepalesque.redux.item.weapons.SubzeroCrossbowItem;
 import net.zepalesque.redux.item.weapons.VeridiumArrowItem;
 import net.zepalesque.redux.item.weapons.VeridiumSwordItem;
@@ -144,6 +145,8 @@ public class ReduxItems {
     public static final RegistryObject<Item> VAMPIRE_AMULET = register("vampire_amulet", () -> new VampireAmuletItem(ReduxSoundEvents.EQUIP_VAMPIRE_AMULET, new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT), "vampire_amulet_night_ability", "vampire_amulet_day_debuff"));
 
     public static final RegistryObject<Item> SENTRY_CHIP = register("sentry_chip", () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> SPEAR_OF_THE_BLIGHT = register("spear_of_the_blight", () -> new BlightSpearItem(new Item.Properties(), 6.0D, 2.5D));
 
     public static <T extends Item> RegistryObject<T> register(final String name, final Supplier<T> item)
     {

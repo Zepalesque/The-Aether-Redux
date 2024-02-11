@@ -109,6 +109,12 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
         this.add(ReduxSoundEvents.INFUSE_ITEM,
                 definition().with(sound("aether_redux:item/infuse_item"))
                         .subtitle("subtitles.aether_redux.item.infuse_item"));
+        this.add(ReduxSoundEvents.SPEAR_THROW,
+                definition().with(sound("aether_redux:item/spear_throw"))
+                        .subtitle("subtitles.aether_redux.item.spear_throw"));
+        this.add(ReduxSoundEvents.SPEAR_LAND,
+                definition().with(sound("aether_redux:item/spear_land"))
+                        .subtitle("subtitles.aether_redux.item.spear_land"));
         this.add(ReduxSoundEvents.QUICKROOTS_PICK, definition().with(
                 sound("minecraft:item/sweet_berries/pick_from_bush1"),
                 sound("minecraft:item/sweet_berries/pick_from_bush2")

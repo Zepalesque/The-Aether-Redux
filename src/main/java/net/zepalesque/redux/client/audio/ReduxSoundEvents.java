@@ -55,7 +55,11 @@ public class ReduxSoundEvents {
     public static final RegistryObject<SoundEvent> CONVERT_AMBROSIUM = register("item.convert.ambrosium");
     public static final RegistryObject<SoundEvent> CONVERT_SWET_BALL = register("item.convert.swet_ball");
     public static final RegistryObject<SoundEvent> CONVERT_BLIGHTED_SPORES = register("item.convert.blighted_spores");
+
     public static final RegistryObject<SoundEvent> INFUSE_ITEM = register("item.sfx.infuse");
+
+    public static final RegistryObject<SoundEvent> SPEAR_THROW = register("item.spear.throw");
+    public static final RegistryObject<SoundEvent> SPEAR_LAND = register("item.spear.land");
 
     public static final RegistryObject<SoundEvent> BOOST_JUMP = register("generic.boost_jump");
     public static final RegistryObject<SoundEvent> FIREBALL_SHOOT = register("generic.fireball_shoot");

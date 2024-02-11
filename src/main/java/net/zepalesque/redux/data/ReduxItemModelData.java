@@ -1,15 +1,18 @@
 package net.zepalesque.redux.data;
 
 import com.aetherteam.aether.data.providers.AetherItemModelProvider;
+import net.minecraft.client.renderer.block.model.ItemTransform;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.EggItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.loaders.ItemLayerModelBuilder;
+import net.minecraftforge.client.model.generators.loaders.SeparateTransformsModelBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.zepalesque.redux.Redux;
@@ -96,6 +99,8 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemWallBlock(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_WALL, ReduxBlocks.ENCHANTED_SHELL_SHINGLES, "construction/");
 
         itemBlock(ReduxBlocks.BLIGHTWILLOW_LEAVES);
+
+        spear(ReduxItems.SPEAR_OF_THE_BLIGHT, "weapons/");
 
         this.itemBlockWithParent(ReduxBlocks.GOLDEN_LEAF_PILE.get(), (block) -> modLoc(BLOCK_FOLDER + "/" + this.blockName(block) + "1"));
         this.itemBlockWithParent(ReduxBlocks.GILDED_LEAF_PILE.get(), (block) -> modLoc(BLOCK_FOLDER + "/" + this.blockName(block) + "1"));
@@ -289,10 +294,20 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         return itemBlockFlatFullGlow(block, location, "");
     }
 
-    public ItemModelBuilder handheldItem(Supplier<? extends Item> item, String location) {
+
+
+    public ItemModelBuilder spear(Supplier<? extends Item> item, String location) {
         ResourceLocation id = ForgeRegistries.ITEMS.getKey(item.get());
+        ItemModelBuilder base = withExistingParent(itemName(item.get()) + "_hand", Redux.locate("item/spear_hand")).texture("item", texture(itemName(item.get()), location, "_hand"));
+        ItemModelBuilder small = item(item, location);
         return withExistingParent(id.getPath(), mcLoc("item/handheld"))
-                .texture("layer0", modLoc("item/" + location + id.getPath()));
+                .texture("layer0", modLoc("item/" + location + id.getPath())).customLoader((itemModelBuilder,existingFileHelper) ->
+                        SeparateTransformsModelBuilder.begin(itemModelBuilder, existingFileHelper)
+                                .base(base)
+                                .perspective(ItemDisplayContext.GUI, small)
+                                .perspective(ItemDisplayContext.GROUND, small)
+                                .perspective(ItemDisplayContext.FIXED, small)
+                ).end();
     }
 
 
