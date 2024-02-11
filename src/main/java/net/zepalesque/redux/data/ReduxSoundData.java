@@ -278,13 +278,7 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
                         .with(sound(Redux.locate("entity/mykapod/hurt2")))
                         .with(sound(Redux.locate("entity/mykapod/hurt3")))
                         .subtitle("subtitles.aether_redux.entity.mykapod_death"));
-
-
-        this.add(ReduxSoundEvents.BLIGHTBUNNY_AMBIENT,
-                definition()
-                        .with(sound(Redux.locate("entity/blightbunny/ambient")))
-                        .subtitle("subtitles.aether_redux.entity.blightbunny_ambient"));
-
+        
         this.add(ReduxSoundEvents.BLIGHTBUNNY_HURT,
                 definition()
                         .with(sound(Redux.locate("entity/blightbunny/hurt")))

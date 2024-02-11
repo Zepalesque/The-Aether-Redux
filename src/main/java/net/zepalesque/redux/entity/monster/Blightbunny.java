@@ -90,17 +90,6 @@ public class Blightbunny extends Monster implements GeoEntity {
         return Monster.createMobAttributes().add(Attributes.MAX_HEALTH, 10.0).add(Attributes.ATTACK_DAMAGE, 3.0).add(Attributes.MOVEMENT_SPEED, 0.5).add(Attributes.FOLLOW_RANGE, 16.0);
     }
 
-    @Nullable
-    @Override
-    protected SoundEvent getAmbientSound() {
-        return ReduxSoundEvents.BLIGHTBUNNY_AMBIENT.get();
-    }
-
-    @Override
-    public int getAmbientSoundInterval() {
-        return 160;
-    }
-
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSource) {
         return ReduxSoundEvents.BLIGHTBUNNY_HURT.get();
