@@ -66,6 +66,9 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
 
         this.tag(ReduxTags.Biomes.DENSE_LEAF_FALL).add(AetherBiomes.SKYROOT_FOREST, AetherBiomes.SKYROOT_WOODLAND);
 
-        this.tag(ReduxTags.Biomes.HAS_SENTRY_LAB).add(ReduxBiomes.GLACIAL_TAIGA);
+        this.tag(ReduxTags.Biomes.HAS_SENTRY_LAB).addTag(ReduxTags.Biomes.IS_FROSTED);
+
+        this.tag(ReduxTags.Biomes.IS_GILDED).add(ReduxBiomes.GILDED_GROVES, ReduxBiomes.GILDED_GRASSLANDS);
+        this.tag(ReduxTags.Biomes.IS_FROSTED).add(ReduxBiomes.GLACIAL_TAIGA, ReduxBiomes.FROSTED_TUNDRA);
     }
 }

@@ -72,19 +72,22 @@ public class ReduxTags {
     public static class Biomes {
 
         public static final TagKey<Biome> HAS_SENTRY_LAB = tagAncient("has_structure/sentry_lab");
-        public static final TagKey<Biome> IS_GILDED = tag("is/gilded");
+        public static final TagKey<Biome> IS_GILDED = tag("is_gilded");
+        public static final TagKey<Biome> IS_FROSTED = tag("is_frosted");
+        // TODO: Implement in 2.1
+        public static final TagKey<Biome> IS_QUICKSOIL_DESERT = tag("is_quicksoil_desert");
 
-        public static final TagKey<Biome> HAS_AETHER_CAVES = tag("has/aether_caves");
-        public static final TagKey<Biome> HAS_BLIGHTED_CAVES = tag("has/blighted_caves");
-        public static final TagKey<Biome> HAS_FUNGAL_CAVES = tag("has/fungal_caves");
-        public static final TagKey<Biome> HAS_MOSSY_HOLYSTONE_ORE = tag("has/mossy_holystone_ore");
-        public static final TagKey<Biome> HAS_MOSSY_ROCKS = tag("has/mossy_rocks");
-        public static final TagKey<Biome> HAS_BOTH_SPROUTS = tag("has/both_sprouts");
-        public static final TagKey<Biome> HAS_WYNDSPROUTS = tag("has/wyndsprouts");
-        public static final TagKey<Biome> HAS_VANILLA_SWET = tag("has/vanilla_swet");
-        public static final TagKey<Biome> HAS_VERIDIUM_ORE = tag("has/veridium_ore");
-        public static final TagKey<Biome> HAS_DIVINITE = tag("has/divinite");
-        public static final TagKey<Biome> HAS_REDUX_WATER_COLOR = tag("has/redux_water_color");
+        public static final TagKey<Biome> HAS_AETHER_CAVES = tag("has_aether_caves");
+        public static final TagKey<Biome> HAS_BLIGHTED_CAVES = tag("has_blighted_caves");
+        public static final TagKey<Biome> HAS_FUNGAL_CAVES = tag("has_fungal_caves");
+        public static final TagKey<Biome> HAS_MOSSY_HOLYSTONE_ORE = tag("has_mossy_holystone_ore");
+        public static final TagKey<Biome> HAS_MOSSY_ROCKS = tag("has_mossy_rocks");
+        public static final TagKey<Biome> HAS_BOTH_SPROUTS = tag("has_both_sprouts");
+        public static final TagKey<Biome> HAS_WYNDSPROUTS = tag("has_wyndsprouts");
+        public static final TagKey<Biome> HAS_VANILLA_SWET = tag("has_vanilla_swet");
+        public static final TagKey<Biome> HAS_VERIDIUM_ORE = tag("has_veridium_ore");
+        public static final TagKey<Biome> HAS_DIVINITE = tag("has_divinite");
+        public static final TagKey<Biome> HAS_REDUX_WATER_COLOR = tag("has_redux_water_color");
 
         public static final TagKey<Biome> DENSE_LEAF_FALL = tag("dense_leaf_fall");
 
