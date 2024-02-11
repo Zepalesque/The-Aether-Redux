@@ -61,6 +61,7 @@
     "client.render.RenderAccessor",
     "client.render.SentryRendererMixin",
     "client.render.layer.BattleSentryLayerMixin",
+    "client.render.layer.MoaFeathersLayerMixin",
     "client.render.layer.MoaSaddleEmissiveLayerMixin",
     "client.render.layer.MoaSaddleLayerMixin",
     "client.render.layer.SentryGlowLayerMixin",
