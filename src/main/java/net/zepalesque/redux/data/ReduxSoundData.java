@@ -96,7 +96,7 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
         this.add(ReduxSoundEvents.BLIGHTSHADE_SPRAY,
                 definition().with(sound("aether_redux:block/blightshade_spray"))
                         .subtitle("subtitles.aether_redux.block.blightshade_spray"));
-        this.add(ReduxSoundEvents.MUSIC_DISC_LABYRINTHS_VENGEANCE, definition().with(sound("aether_redux:music/evk/labyrinths_vengeance_mono").stream()));
+        this.add(ReduxSoundEvents.MUSIC_DISC_LABYRINTHS_VENGEANCE, definition().with(sound("aether_redux:music/labyrinth_disc_mono").stream()));
         this.add(ReduxSoundEvents.CONVERT_AMBROSIUM,
                 definition().with(sound("aether_redux:item/convert_ambrosium"))
                         .subtitle("subtitles.aether_redux.item.convert_ambrosium"));
@@ -294,6 +294,9 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
                 definition()
                         .with(sound(Redux.locate("entity/blightbunny/death")))
                         .subtitle("subtitles.aether_redux.entity.blightbunny_death"));
+
+        this.add(ReduxSoundEvents.ADVANCEMENT_GOLD,
+                definition().with(sound(Redux.locate("achievement/achievement_gold")).stream()));
 
 
     }

@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-10T15:34:07.6613886	Loot Tables
+// 1.20.1	2024-02-11T08:14:40.5307016	Loot Tables
 9bb0a6fae9e80234bb0bad9086af314acf3e9894 data/aether_redux/loot_tables/blocks/aether_short_grass.json
 48b55d99420ce1afaca551876e87bdbccae62e08 data/aether_redux/loot_tables/blocks/aevelium.json
 b61ecadf10d3b065a1c8f05eea7b70d4ffcadfd3 data/aether_redux/loot_tables/blocks/aevelium_roots.json
@@ -239,6 +239,8 @@ ff98b9fb26abee5615d05ea6a79362d916973b03 data/aether_redux/loot_tables/blocks/za
 86867eae7ff2912e7ceb4ec2bd295676f6a8d948 data/aether_redux/loot_tables/blocks/zanberry_shrub.json
 bde6f239a1a1807b129bf99dedd968b6b04c3175 data/aether_redux/loot_tables/blocks/zyatrix.json
 fdfd513ea4441ac298180d734d488d95fdaf37f4 data/aether_redux/loot_tables/entities/blightbunny.json
+b206108235b3499dfdc2ebe43b683efd7c86c392 data/aether_redux/loot_tables/entities/blightbunny_spawner.json
+51ea5d53b8e740ad6b8b20969dd7d4cf4a4d06f4 data/aether_redux/loot_tables/entities/cockatrice_spawner.json
 51907e20c44c8a04df04829f04976bce93583c11 data/aether_redux/loot_tables/entities/glimmercow.json
 e5fede6edbcfede8c1e92419ec2c6552147a7121 data/aether_redux/loot_tables/entities/mykapod.json
 5f8d4bdef19ef87d6a912869cb1ea2bb3d3bd199 data/aether_redux/loot_tables/entities/vanilla_swet.json
