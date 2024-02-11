@@ -7,26 +7,26 @@ package net.zepalesque.redux.client.render.entity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
-import net.minecraft.advancements.Advancement;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
-import net.minecraftforge.registries.ForgeRegistries;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.render.entity.layer.ReduxModelLayers;
-import net.zepalesque.redux.client.render.entity.layer.entity.TranslucentGlowLayer;
+import net.zepalesque.redux.client.render.entity.layer.entity.GlowLayer;
+import net.zepalesque.redux.client.render.entity.layer.entity.TranslucentEmissiveLayer;
 import net.zepalesque.redux.client.render.entity.model.entity.BlightbunnyModel;
 import net.zepalesque.redux.entity.monster.Blightbunny;
 
 public class BlightbunnyRenderer extends MobRenderer<Blightbunny, BlightbunnyModel> {
     private static final ResourceLocation BLIGHTBUNNY_TEXTURE = Redux.locate("textures/entity/mobs/blightbunny/blightbunny.png");
     private static final ResourceLocation BLIGHTBUNNY_GLOW_TEXTURE = Redux.locate("textures/entity/mobs/blightbunny/blightbunny_glow.png");
+    private static final ResourceLocation BLIGHTBUNNY_EYES_TEXTURE = Redux.locate("textures/entity/mobs/blightbunny/blightbunny_eyes.png");
 
     public BlightbunnyRenderer(EntityRendererProvider.Context context) {
         super(context, new BlightbunnyModel(context.bakeLayer(ReduxModelLayers.BLIGHTBUNNY)), 0.3F);
-        this.addLayer(new TranslucentGlowLayer<>(this, BLIGHTBUNNY_GLOW_TEXTURE));
+        this.addLayer(new TranslucentEmissiveLayer<>(this, BLIGHTBUNNY_GLOW_TEXTURE));
+        this.addLayer(new GlowLayer<>(this, BLIGHTBUNNY_EYES_TEXTURE));
 
     }
 
