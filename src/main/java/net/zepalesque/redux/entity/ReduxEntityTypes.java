@@ -1,8 +1,11 @@
 package net.zepalesque.redux.entity;
 
 import com.aetherteam.aether.data.resources.AetherMobCategory;
+import com.aetherteam.aether.entity.AetherEntityTypes;
+import com.aetherteam.aether.entity.monster.Cockatrice;
 import com.aetherteam.aether.entity.monster.Swet;
 import com.aetherteam.aether.entity.passive.AetherAnimal;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.SpawnPlacements;
@@ -22,6 +25,7 @@ import net.zepalesque.redux.entity.projectile.Ember;
 import net.zepalesque.redux.entity.projectile.SpectralDart;
 import net.zepalesque.redux.entity.projectile.VeridiumArrow;
 import net.zepalesque.redux.entity.projectile.VolatileFireCrystal;
+import net.zepalesque.redux.entity.util.EntitySpawner;
 
 @Mod.EventBusSubscriber(modid = Redux.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ReduxEntityTypes {
@@ -52,10 +56,21 @@ public class ReduxEntityTypes {
     public static final RegistryObject<EntityType<Blightbunny>> BLIGHTBUNNY = ENTITY_TYPES.register("blightbunny",
             () -> EntityType.Builder.of(Blightbunny::new, AetherMobCategory.AETHER_DARKNESS_MONSTER).sized(0.6F, 0.5F).clientTrackingRange(10).build("blightbunny"));
 
+
+    public static final RegistryObject<EntityType<EntitySpawner>> COCKATRICE_SPAWNER = ENTITY_TYPES.register("cockatrice_spawner",
+            () -> EntityType.Builder.of(EntitySpawner.fabricate(AetherEntityTypes.COCKATRICE), MobCategory.MISC).sized(0.95F, 2.15F).clientTrackingRange(4).updateInterval(5).fireImmune().build("cockatrice_spawner")
+    );
+
+    public static final RegistryObject<EntityType<EntitySpawner>> BLIGHTBUNNY_SPAWNER = ENTITY_TYPES.register("blightbunny_spawner",
+            () -> EntityType.Builder.of(EntitySpawner.fabricate(ReduxEntityTypes.BLIGHTBUNNY), MobCategory.MISC).sized(0.6F, 0.5F).clientTrackingRange(4).updateInterval(5).fireImmune().build("blightbunny_spawner")
+    );
     @SubscribeEvent
     public static void registerSpawnPlacements(SpawnPlacementRegisterEvent event) {
         event.register(ReduxEntityTypes.VANILLA_SWET.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Swet::checkSwetSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
         event.register(ReduxEntityTypes.GLIMMERCOW.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AetherAnimal::checkAetherAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
+        event.register(ReduxEntityTypes.BLIGHTBUNNY.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Blightbunny::checkBunnySpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
+        event.register(ReduxEntityTypes.BLIGHTBUNNY_SPAWNER.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, EntitySpawner::checkEntitySpawnerSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
+        event.register(ReduxEntityTypes.COCKATRICE_SPAWNER.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, EntitySpawner::checkEntitySpawnerSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
     }
 
     @SubscribeEvent

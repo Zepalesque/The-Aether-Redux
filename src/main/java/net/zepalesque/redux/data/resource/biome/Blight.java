@@ -16,6 +16,7 @@ import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.zepalesque.redux.client.audio.ReduxMusic;
 import net.zepalesque.redux.data.resource.ReduxPlacedFeatures;
+import net.zepalesque.redux.entity.ReduxEntityTypes;
 
 public class Blight {
 
@@ -40,6 +41,7 @@ public class Blight {
                 .mobSpawnSettings(
                 new MobSpawnSettings.Builder()
                         .addMobCharge(AetherEntityTypes.COCKATRICE.get(), 0.3, 0.1)
+                        .addMobCharge(ReduxEntityTypes.BLIGHTBUNNY.get(), 0.5, 0.1)
                         .addMobCharge(AetherEntityTypes.ZEPHYR.get(), 0.6, 0.16)
                         .addMobCharge(AetherEntityTypes.AECHOR_PLANT.get(), 0.4,0.11)
                         .addMobCharge(AetherEntityTypes.BLUE_SWET.get(), 0.5, 0.1)
@@ -47,6 +49,7 @@ public class Blight {
                         .addMobCharge(AetherEntityTypes.EVIL_WHIRLWIND.get(), 0.4, 0.1)
 
                         .addSpawn(AetherMobCategory.AETHER_DARKNESS_MONSTER, new MobSpawnSettings.SpawnerData(AetherEntityTypes.COCKATRICE.get(), 8, 1, 1))
+                        .addSpawn(AetherMobCategory.AETHER_DARKNESS_MONSTER, new MobSpawnSettings.SpawnerData(ReduxEntityTypes.BLIGHTBUNNY.get(), 16, 1, 3))
                         .addSpawn(AetherMobCategory.AETHER_SKY_MONSTER, new MobSpawnSettings.SpawnerData(AetherEntityTypes.ZEPHYR.get(), 20, 1, 1))
                         .addSpawn(AetherMobCategory.AETHER_SURFACE_MONSTER, new MobSpawnSettings.SpawnerData(AetherEntityTypes.AECHOR_PLANT.get(), 7, 1, 1))
                         .addSpawn(AetherMobCategory.AETHER_SURFACE_MONSTER, new MobSpawnSettings.SpawnerData(AetherEntityTypes.BLUE_SWET.get(), 6, 1, 1))
@@ -55,7 +58,7 @@ public class Blight {
 
                         .creatureGenerationProbability(0.25F)
                         // TODO: Blightbunny
-                        .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(AetherEntityTypes.AERBUNNY.get(), 11, 3, 3))
+                        .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ReduxEntityTypes.BLIGHTBUNNY_SPAWNER.get(), 11, 3, 3))
                         .build())
                 .generationSettings(
         new BiomeGenerationSettings.Builder(placed, carvers)
