@@ -15,9 +15,11 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
@@ -41,9 +43,11 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.ForgeMod;
+import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.data.resource.biome.Blight;
 import net.zepalesque.redux.entity.passive.Mykapod;
+import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.GeoAnimatable;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
@@ -86,7 +90,26 @@ public class Blightbunny extends Monster implements GeoEntity {
         return Monster.createMobAttributes().add(Attributes.MAX_HEALTH, 10.0).add(Attributes.ATTACK_DAMAGE, 3.0).add(Attributes.MOVEMENT_SPEED, 0.5).add(Attributes.FOLLOW_RANGE, 16.0);
     }
 
+    @Nullable
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return ReduxSoundEvents.BLIGHTBUNNY_AMBIENT.get();
+    }
 
+    @Override
+    public int getAmbientSoundInterval() {
+        return 160;
+    }
+
+    @Override
+    protected SoundEvent getHurtSound(DamageSource damageSource) {
+        return ReduxSoundEvents.BLIGHTBUNNY_HURT.get();
+    }
+
+    @Override
+    protected SoundEvent getDeathSound() {
+        return ReduxSoundEvents.BLIGHTBUNNY_DEATH.get();
+    }
 
     public static boolean checkBunnySpawnRules(EntityType<? extends Blightbunny> bnuuy, ServerLevelAccessor level, MobSpawnType reason, BlockPos pos, RandomSource random) {
         return Mob.checkMobSpawnRules(bnuuy, level, reason, pos, random) && isDarkEnoughToSpawn(level, pos, random) && !level.getBlockState(pos.below()).is(AetherTags.Blocks.COCKATRICE_SPAWNABLE_BLACKLIST) && level.getDifficulty() != Difficulty.PEACEFUL && (reason != MobSpawnType.NATURAL || random.nextInt(3) == 0);
