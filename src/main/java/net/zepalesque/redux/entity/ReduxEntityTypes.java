@@ -58,11 +58,11 @@ public class ReduxEntityTypes {
 
 
     public static final RegistryObject<EntityType<EntitySpawner>> COCKATRICE_SPAWNER = ENTITY_TYPES.register("cockatrice_spawner",
-            () -> EntityType.Builder.of(EntitySpawner.fabricate(AetherEntityTypes.COCKATRICE), MobCategory.MISC).sized(0.95F, 2.15F).clientTrackingRange(4).updateInterval(5).fireImmune().build("cockatrice_spawner")
+            () -> EntityType.Builder.of(EntitySpawner.fabricate(AetherEntityTypes.COCKATRICE), MobCategory.CREATURE).sized(0.95F, 2.15F).clientTrackingRange(4).updateInterval(5).fireImmune().build("cockatrice_spawner")
     );
 
     public static final RegistryObject<EntityType<EntitySpawner>> BLIGHTBUNNY_SPAWNER = ENTITY_TYPES.register("blightbunny_spawner",
-            () -> EntityType.Builder.of(EntitySpawner.fabricate(ReduxEntityTypes.BLIGHTBUNNY), MobCategory.MISC).sized(0.6F, 0.5F).clientTrackingRange(4).updateInterval(5).fireImmune().build("blightbunny_spawner")
+            () -> EntityType.Builder.of(EntitySpawner.fabricate(ReduxEntityTypes.BLIGHTBUNNY), MobCategory.CREATURE).sized(0.6F, 0.5F).clientTrackingRange(4).updateInterval(5).fireImmune().build("blightbunny_spawner")
     );
     @SubscribeEvent
     public static void registerSpawnPlacements(SpawnPlacementRegisterEvent event) {

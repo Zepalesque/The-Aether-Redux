@@ -52,6 +52,8 @@ public class ReduxEntityLootData extends AetherEntityLoot {
         // TODO
         this.add(ReduxEntityTypes.BLIGHTBUNNY.get(), LootTable.lootTable());
 
+        this.add(ReduxEntityTypes.BLIGHTBUNNY_SPAWNER.get(), LootTable.lootTable());
+        this.add(ReduxEntityTypes.COCKATRICE_SPAWNER.get(), LootTable.lootTable());
     }
 
     @Override
