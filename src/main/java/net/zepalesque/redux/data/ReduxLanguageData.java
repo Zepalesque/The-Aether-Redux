@@ -522,6 +522,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addSubtitle("entity", "mykapod_move", "Mykapod squelches");
         addSubtitle("entity", "mykapod_hurt", "Mykapod hurts");
         addSubtitle("entity", "mykapod_death", "Mykapod dies");
+        addSubtitle("entity", "blightbunny_ambient", "Blightbunny squeaks");
+        addSubtitle("entity", "blightbunny_hurt", "Blightbunny hurts");
+        addSubtitle("entity", "blightbunny_death", "Blightbunny dies");
         addSubtitle("item.accessory", "equip_bittersweet_charm", "Bittersweet Charm jingles");
         addSubtitle("item.accessory", "equip_enchanted_ring", "Enchanted Ring thunks");
         addSubtitle("item.accessory", "equip_shroom_ring", "Shroom Ring thunks");

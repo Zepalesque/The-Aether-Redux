@@ -24,6 +24,10 @@ public class ReduxSoundEvents {
     public static final RegistryObject<SoundEvent> MYKAPOD_HURT = register("entity.mykapod.hurt");
     public static final RegistryObject<SoundEvent> MYKAPOD_DEATH = register("entity.mykapod.death");
 
+    public static final RegistryObject<SoundEvent> BLIGHTBUNNY_AMBIENT = register("entity.blightbunny.ambient");
+    public static final RegistryObject<SoundEvent> BLIGHTBUNNY_HURT = register("entity.blightbunny.hurt");
+    public static final RegistryObject<SoundEvent> BLIGHTBUNNY_DEATH = register("entity.blightbunny.death");
+
     public static final RegistryObject<SoundEvent> CRAZY_COW_AMBIENT = register("entity.glimmercow.crazy_ambient");
     public static final RegistryObject<SoundEvent> CRAZY_COW_HURT = register("entity.glimmercow.crazy_hurt");
     public static final RegistryObject<SoundEvent> CRAZY_COW_DEATH = register("entity.glimmercow.crazy_death");

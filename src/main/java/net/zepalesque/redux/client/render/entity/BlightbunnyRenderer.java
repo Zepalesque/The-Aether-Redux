@@ -13,14 +13,17 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.render.entity.layer.ReduxModelLayers;
+import net.zepalesque.redux.client.render.entity.layer.entity.TranslucentGlowLayer;
 import net.zepalesque.redux.client.render.entity.model.entity.BlightbunnyModel;
 import net.zepalesque.redux.entity.monster.Blightbunny;
 
 public class BlightbunnyRenderer extends MobRenderer<Blightbunny, BlightbunnyModel> {
-    private static final ResourceLocation BLIGHTBUNNY_TEXTURE = Redux.locate("textures/entity/mobs/blightbunny.png");
+    private static final ResourceLocation BLIGHTBUNNY_TEXTURE = Redux.locate("textures/entity/mobs/blightbunny/blightbunny.png");
+    private static final ResourceLocation BLIGHTBUNNY_GLOW_TEXTURE = Redux.locate("textures/entity/mobs/blightbunny/blightbunny_glow.png");
 
     public BlightbunnyRenderer(EntityRendererProvider.Context context) {
         super(context, new BlightbunnyModel(context.bakeLayer(ReduxModelLayers.BLIGHTBUNNY)), 0.3F);
+        this.addLayer(new TranslucentGlowLayer<>(this, BLIGHTBUNNY_GLOW_TEXTURE));
     }
 
     protected void scale(Blightbunny aerbunny, PoseStack poseStack, float partialTicks) {
