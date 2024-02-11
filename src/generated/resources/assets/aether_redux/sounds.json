@@ -92,12 +92,6 @@
     ],
     "subtitle": "subtitles.aether_redux.block.quickroots_pick"
   },
-  "entity.blightbunny.ambient": {
-    "sounds": [
-      "aether_redux:entity/blightbunny/ambient"
-    ],
-    "subtitle": "subtitles.aether_redux.entity.blightbunny_ambient"
-  },
   "entity.blightbunny.death": {
     "sounds": [
       "aether_redux:entity/blightbunny/death"
