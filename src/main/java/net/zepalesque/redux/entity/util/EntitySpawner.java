@@ -51,7 +51,7 @@ public class EntitySpawner extends Mob {
 
 
     public static boolean checkEntitySpawnerSpawnRules(EntityType<? extends EntitySpawner> spawner, LevelAccessor level, MobSpawnType reason, BlockPos pos, RandomSource random) {
-        return level.getBlockState(pos.below()).is(AetherTags.Blocks.SWET_SPAWNABLE_ON) && level.getRawBrightness(pos, 0) > 8 && level.getDifficulty() != Difficulty.PEACEFUL;
+        return level.getRawBrightness(pos, 0) > 8 && level.getDifficulty() != Difficulty.PEACEFUL;
     }
 
 

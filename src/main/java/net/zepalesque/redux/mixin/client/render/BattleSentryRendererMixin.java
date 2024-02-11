@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(BattleSentryRenderer.class)
-public class BattleSentryRendererMixin extends MobRendererMixin<BattleSentry, SlimeModel<BattleSentry>> {
+public class    BattleSentryRendererMixin extends MobRendererMixin<BattleSentry, SlimeModel<BattleSentry>> {
 
     @Override
     public void renderMob(BattleSentry sentry, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight, CallbackInfo ci) {
