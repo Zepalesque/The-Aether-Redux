@@ -186,7 +186,7 @@ public class Blightbunny extends Monster implements GeoEntity {
     }
 
     private void spawnExplosionParticle() {
-        for(int i = 0; i < 5; ++i) {
+        for(int i = 0; i < 10; ++i) {
             spawnMovementExplosionParticles(this);
         }
 
