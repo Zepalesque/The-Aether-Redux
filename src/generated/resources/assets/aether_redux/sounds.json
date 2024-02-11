@@ -399,6 +399,18 @@
     ],
     "subtitle": "subtitles.aether_redux.item.infuse_item"
   },
+  "item.spear.land": {
+    "sounds": [
+      "aether_redux:item/spear_land"
+    ],
+    "subtitle": "subtitles.aether_redux.item.spear_land"
+  },
+  "item.spear.throw": {
+    "sounds": [
+      "aether_redux:item/spear_throw"
+    ],
+    "subtitle": "subtitles.aether_redux.item.spear_throw"
+  },
   "ui.toast.aether_redux_gold": {
     "sounds": [
       {

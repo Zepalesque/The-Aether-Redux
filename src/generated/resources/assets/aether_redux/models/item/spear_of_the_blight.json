@@ -1,0 +1,21 @@
+{
+  "parent": "minecraft:item/handheld",
+  "base": {
+    "parent": "aether_redux:item/spear_of_the_blight_hand"
+  },
+  "loader": "forge:separate_transforms",
+  "perspectives": {
+    "fixed": {
+      "parent": "aether_redux:item/spear_of_the_blight_gui"
+    },
+    "ground": {
+      "parent": "aether_redux:item/spear_of_the_blight_gui"
+    },
+    "gui": {
+      "parent": "aether_redux:item/spear_of_the_blight_gui"
+    }
+  },
+  "textures": {
+    "layer0": "aether_redux:item/weapons/spear_of_the_blight"
+  }
+}

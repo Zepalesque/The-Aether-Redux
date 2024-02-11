@@ -1,0 +1,6 @@
+{
+  "parent": "aether_redux:item/spear_hand",
+  "textures": {
+    "item": "aether_redux:block/weapons/spear_of_the_blight_hand"
+  }
+}

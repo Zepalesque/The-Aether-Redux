@@ -730,5 +730,7 @@
   "subtitles.aether_redux.item.convert_blighted_spores": "Blighted Spores bewitch",
   "subtitles.aether_redux.item.convert_swet_ball": "Swet Ball squelches",
   "subtitles.aether_redux.item.infuse_item": "Item infuses",
+  "subtitles.aether_redux.item.spear_land": "Spear clings",
+  "subtitles.aether_redux.item.spear_throw": "Spear wooshes",
   "tooltip.aether_redux.ambrosium_charge": "Infusion Level: %s"
 }
