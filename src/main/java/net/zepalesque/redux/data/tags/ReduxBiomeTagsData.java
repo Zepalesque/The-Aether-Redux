@@ -24,16 +24,6 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
 
-        this.tag(ReduxTags.Biomes.IS_HIGHLANDS).add(
-                AetherBiomes.SKYROOT_FOREST,
-                AetherBiomes.SKYROOT_GROVE,
-                AetherBiomes.SKYROOT_MEADOW,
-                AetherBiomes.SKYROOT_WOODLAND)
-                .addOptional(DABiomes.AERGLOW_FOREST.location())
-                .addOptional(DABiomes.BLUE_AERGLOW_FOREST.location())
-                .addOptional(DABiomes.MYSTIC_AERGLOW_FOREST.location())
-                .addOptional(DABiomes.AERLAVENDER_FIELDS.location());
-        this.tag(ReduxTags.Biomes.IS_FORGOTTEN).add(AetherBiomes.SKYROOT_FOREST, AetherBiomes.SKYROOT_GROVE, AetherBiomes.SKYROOT_MEADOW, AetherBiomes.SKYROOT_WOODLAND);
         this.tag(AetherTags.Biomes.IS_AETHER).add(
                 ReduxBiomes.THE_BLIGHT,
                 ReduxBiomes.GLACIAL_TAIGA,
@@ -48,7 +38,7 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
         this.tag(ReduxTags.Biomes.HAS_AETHER_CAVES).addTag(AetherTags.Biomes.IS_AETHER);
         this.tag(ReduxTags.Biomes.HAS_BLIGHTED_CAVES).addTag(AetherTags.Biomes.IS_AETHER).remove(ReduxBiomes.THE_BLIGHT);
         this.tag(ReduxTags.Biomes.HAS_FUNGAL_CAVES).addTag(AetherTags.Biomes.IS_AETHER).remove(ReduxBiomes.CLOUDCAPS);
-        this.tag(ReduxTags.Biomes.HAS_MOSSY_HOLYSTONE_ORE).addTag(ReduxTags.Biomes.IS_FORGOTTEN);
+        this.tag(ReduxTags.Biomes.HAS_MOSSY_HOLYSTONE_ORE).add(AetherBiomes.SKYROOT_FOREST, AetherBiomes.SKYROOT_GROVE, AetherBiomes.SKYROOT_MEADOW, AetherBiomes.SKYROOT_WOODLAND);
         this.tag(ReduxTags.Biomes.HAS_MOSSY_ROCKS).add(AetherBiomes.SKYROOT_FOREST, AetherBiomes.SKYROOT_WOODLAND);
         this.tag(ReduxTags.Biomes.HAS_WYNDSPROUTS).add(
                 AetherBiomes.SKYROOT_GROVE,
@@ -57,7 +47,19 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
         this.tag(ReduxTags.Biomes.HAS_BOTH_SPROUTS)
                 .addOptional(GenesisBiomes.VIBRANT_GROVE.location())
                 .addOptional(GenesisBiomes.VIBRANT_MEADOW.location());
-        this.tag(ReduxTags.Biomes.HAS_VANILLA_SWET).addTag(ReduxTags.Biomes.IS_HIGHLANDS);
+        this.tag(ReduxTags.Biomes.HAS_VANILLA_SWET).add(
+                        AetherBiomes.SKYROOT_FOREST,
+                        AetherBiomes.SKYROOT_GROVE,
+                        AetherBiomes.SKYROOT_MEADOW,
+                        AetherBiomes.SKYROOT_WOODLAND)
+                .addOptional(DABiomes.AERGLOW_FOREST.location())
+                .addOptional(DABiomes.BLUE_AERGLOW_FOREST.location())
+                .addOptional(DABiomes.MYSTIC_AERGLOW_FOREST.location())
+                .addOptional(DABiomes.AERLAVENDER_FIELDS.location())
+                .addOptional(GenesisBiomes.VIBRANT_MEADOW.location())
+                .addOptional(GenesisBiomes.VIBRANT_GROVE.location())
+                .addOptional(GenesisBiomes.VIBRANT_WOODLAND.location())
+                .addOptional(GenesisBiomes.VIBRANT_FOREST.location());
         this.tag(ReduxTags.Biomes.HAS_VERIDIUM_ORE).addTag(AetherTags.Biomes.IS_AETHER);
         this.tag(ReduxTags.Biomes.HAS_DIVINITE).addTag(AetherTags.Biomes.IS_AETHER);
         this.tag(ReduxTags.Biomes.HAS_REDUX_WATER_COLOR).addTag(AetherTags.Biomes.IS_AETHER);
