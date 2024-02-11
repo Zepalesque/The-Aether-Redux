@@ -301,14 +301,14 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         ItemModelBuilder base = withExistingParent(itemName(item.get()) + "_hand", Redux.locate("item/spear_hand")).texture("item", texture(itemName(item.get()), location, "_hand"));
         ItemModelBuilder small = withExistingParent(id.getPath() + "_gui", mcLoc("item/generated"))
                 .texture("layer0", modLoc("item/" + location + id.getPath()));
-        ItemModelBuilder idk = getBuilder("item_spear_small").parent(small);
+        ItemModelBuilder small1 = nested().parent(small);
         return withExistingParent(id.getPath(), mcLoc("item/handheld"))
                 .texture("layer0", modLoc("item/" + location + id.getPath())).customLoader((itemModelBuilder,existingFileHelper) ->
                         SeparateTransformsModelBuilder.begin(itemModelBuilder, existingFileHelper)
-                                .base(getBuilder("item_spear_hand").parent(base))
-                                .perspective(ItemDisplayContext.GUI, idk)
-                                .perspective(ItemDisplayContext.GROUND, idk)
-                                .perspective(ItemDisplayContext.FIXED, idk)
+                                .base(nested().parent(base))
+                                .perspective(ItemDisplayContext.GUI, small1)
+                                .perspective(ItemDisplayContext.GROUND, small1)
+                                .perspective(ItemDisplayContext.FIXED, small1)
                 ).end();
     }
 
