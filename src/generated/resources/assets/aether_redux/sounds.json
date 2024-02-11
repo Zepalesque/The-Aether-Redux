@@ -394,7 +394,7 @@
   "item.music_disc.labyrinths_vengeance": {
     "sounds": [
       {
-        "name": "aether_redux:music/evk/labyrinths_vengeance_mono",
+        "name": "aether_redux:music/labyrinth_disc_mono",
         "stream": true
       }
     ]
@@ -404,5 +404,13 @@
       "aether_redux:item/infuse_item"
     ],
     "subtitle": "subtitles.aether_redux.item.infuse_item"
+  },
+  "ui.toast.aether_redux_gold": {
+    "sounds": [
+      {
+        "name": "aether_redux:achievement/achievement_gold",
+        "stream": true
+      }
+    ]
   }
 }

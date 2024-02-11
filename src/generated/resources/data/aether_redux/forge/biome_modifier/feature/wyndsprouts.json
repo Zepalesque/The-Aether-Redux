@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
-  "biomes": "#aether_redux:has/wyndsprouts",
+  "biomes": "#aether_redux:has_wyndsprouts",
   "features": "aether_redux:patch/wyndsprouts_patch",
   "step": "vegetal_decoration"
 }
