@@ -8,6 +8,9 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
@@ -21,6 +24,10 @@ public class EntitySpawner extends Mob {
     protected EntitySpawner(EntityType<? extends Mob> entityType, Level level, EntityType<? extends Mob> spawnedMob) {
         super(entityType, level);
         typeToSpawn = spawnedMob;
+    }
+
+    public static AttributeSupplier.Builder createAttributes() {
+        return Monster.createMobAttributes().add(Attributes.MAX_HEALTH, 20.0);
     }
 
     public static EntityType.EntityFactory<EntitySpawner> fabricate(Supplier<? extends EntityType<? extends Mob>> spawnedMob) {

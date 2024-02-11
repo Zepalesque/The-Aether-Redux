@@ -79,6 +79,8 @@ public class ReduxEntityTypes {
         event.put(ReduxEntityTypes.GLIMMERCOW.get(), Glimmercow.createMobAttributes().build());
         event.put(ReduxEntityTypes.MYKAPOD.get(), Mykapod.createAttributes().build());
         event.put(ReduxEntityTypes.BLIGHTBUNNY.get(), Blightbunny.createAttributes().build());
+        event.put(ReduxEntityTypes.BLIGHTBUNNY_SPAWNER.get(), EntitySpawner.createAttributes().build());
+        event.put(ReduxEntityTypes.COCKATRICE_SPAWNER.get(), EntitySpawner.createAttributes().build());
     }
 }
 
