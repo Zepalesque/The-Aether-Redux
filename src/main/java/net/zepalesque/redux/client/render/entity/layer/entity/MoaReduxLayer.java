@@ -26,7 +26,7 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
     protected final MoaRenderer parent;
     private final MoaReduxModel updated;
 
-    private static Map<ResourceLocation, ResourceLocation> TRANSLATION_MAP = new HashMap<>();
+    private static final Map<ResourceLocation, ResourceLocation> TRANSLATION_MAP = new HashMap<>();
 
     public MoaReduxLayer(MoaRenderer entityRenderer, MoaReduxModel pUpdated) {
         super(entityRenderer);
