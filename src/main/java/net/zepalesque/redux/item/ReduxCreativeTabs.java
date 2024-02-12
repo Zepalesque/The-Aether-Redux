@@ -180,6 +180,8 @@ public class ReduxCreativeTabs {
 
             putAfter(AetherItems.SKYROOT_STICK, ReduxItems.BLIGHTED_SPORES, event);
 
+            putAfter(AetherItems.GOLDEN_AMBER, ReduxItems.BLIGHTBUNNY_FANG, event);
+
             putAfter(AetherBlocks.ENCHANTED_GRAVITITE, ReduxItems.RAW_GRAVITITE, event);
 
             putAfter(AetherItems.AECHOR_PETAL, ReduxItems.MYKAPOD_SHELL_CHUNK, event);
@@ -223,6 +225,8 @@ public class ReduxCreativeTabs {
             putBefore(ReduxItems.VERIDIUM_AXE, ReduxItems.VERIDIUM_PICKAXE, event);
             putBefore(ReduxItems.VERIDIUM_PICKAXE, ReduxItems.VERIDIUM_SHOVEL, event);
             putBefore(ReduxItems.VERIDIUM_SHOVEL, ReduxItems.VERIDIUM_SWORD, event);
+
+            putBefore(AetherItems.GOLDEN_DART_SHOOTER, ReduxItems.SPEAR_OF_THE_BLIGHT, event);
 
             putAfter(AetherItems.ENCHANTED_DART, ReduxItems.SPECTRAL_DART_SHOOTER, event);
             putAfter(ReduxItems.SPECTRAL_DART_SHOOTER, ReduxItems.SPECTRAL_DART, event);
