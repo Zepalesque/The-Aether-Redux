@@ -1,11 +1,12 @@
-// 1.20.1	2024-02-11T22:24:26.661755	Registries
+// 1.20.1	2024-02-12T13:32:55.7005534	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 44b19724a3aca851b449582759fec56d16ea1ad6 data/aether/worldgen/configured_feature/golden_oak_tree.json
 ed5af58b49c3097be8598f4b57d2dd256fb1c93a data/aether/worldgen/configured_feature/grass_patch.json
 cbc01407f81c547e1384753574d83f4983bc738b data/aether/worldgen/configured_feature/tall_grass_patch.json
 2d0acc2d8474be626d46235a745b503f4f7edc0e data/aether_redux/damage_type/corrupted_vines.json
 74036a96eb20b53432cb5a953fa663e5c4f3af12 data/aether_redux/damage_type/ember.json
-13c5b547626a5035f1f16ef84b948c988e8c6b30 data/aether_redux/damage_type/zanberry_bush.json
+5eed76d28ae19a2e14d2121ebf206cbbc5a0e1f3 data/aether_redux/damage_type/spear.json
+4fae0334fe8d144d4378a559895087340bbaa3d6 data/aether_redux/damage_type/zanberry_bush.json
 6d70cc77309d866827acd35a8bd9df1998ef8714 data/aether_redux/forge/biome_modifier/aether_grass_colors/cloudcaps.json
 8ec34cc5e20dff14d5f88bcecb6d63f98270520f data/aether_redux/forge/biome_modifier/aether_grass_colors/frosted_tundra.json
 6967bd57e2a1899b2bc9c72fdbb2ee94e3b4c01a data/aether_redux/forge/biome_modifier/aether_grass_colors/gilded_grasslands.json
