@@ -62,9 +62,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.OptionalInt;
 
-public class    ReduxConfiguredFeatures {
 
-
+// TODO (maybe not the perfect spot for this but whatever) IntProvider-based straight Trunk placer thing (should really be a vanilla feature)
+public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> AEVELIUM_GRASSES_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.AEVELIUM) + "_grasses_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FUNGAL_PATCH = createKey(Folders.CAVE + "fungal_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FUNGAL_PATCH_BONEMEAL = createKey(Folders.CAVE + "fungal_patch_bonemeal");
@@ -209,9 +209,6 @@ public class    ReduxConfiguredFeatures {
                         UniformInt.of(1, 2),
                         0.75F));
 
-
-
-
         register(context, FUNGAL_PATCH, Feature.VEGETATION_PATCH,
                 new VegetationPatchConfiguration(ReduxTags.Blocks.AETHER_MOSS_REPLACEABLES,
                         prov(ReduxBlocks.FUNGAL_GROWTH),
@@ -280,7 +277,7 @@ public class    ReduxConfiguredFeatures {
         );
         register(context, BLIGHTWILLOW_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 p,
-                new StraightTrunkPlacer(8, 2, 2),
+                new StraightTrunkPlacer(8, 4, 3),
                 BlockStateProvider.simple(drops(ReduxBlocks.BLIGHTWILLOW_LEAVES)),
                 new BlightwillowFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
                 new TwoLayersFeatureSize(6, 0, 4)
