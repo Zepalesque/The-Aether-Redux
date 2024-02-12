@@ -42,13 +42,10 @@ public class ReduxClient {
             return VampireAmuletItem.validForActivation(stack) && isActive.isPresent() && isActive.get() ? 1.0F : 0.0F;
         });
 
+        ItemProperties.register(ReduxItems.SPEAR_OF_THE_BLIGHT.get(), Redux.locate("throwing"), (stack, level, entity, seed) -> entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F);
         ItemProperties.register(ReduxBlocks.AURUM.get().asItem(), Redux.locate("enchanted"), (stack, world, living, seed) -> ReduxConfig.COMMON.enchanted_gilded_grass.get() ? 1.0F : 0.0F);
         ItemProperties.register(ReduxBlocks.GOLDEN_CLOVER.get().asItem(), Redux.locate("enchanted"), (stack, world, living, seed) -> ReduxConfig.COMMON.enchanted_gilded_grass.get() ? 1.0F : 0.0F);
-        ItemProperties.register(ReduxItems.SPEAR_OF_THE_BLIGHT.get(), Redux.locate("throwing"),
-                ReduxClient::spearDebug);
+
     }
 
-    private static float spearDebug(ItemStack stack, ClientLevel level, LivingEntity entity, int seed) {
-        return entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F;
-    }
 }

@@ -298,16 +298,16 @@ public class ReduxItemModelData extends AetherItemModelProvider {
 
     public ItemModelBuilder spear(Supplier<? extends Item> item, String location) {
         ResourceLocation id = ForgeRegistries.ITEMS.getKey(item.get());
-        ItemModelBuilder small = withExistingParent(id.getPath() + "_gui", mcLoc("item/generated"))
+        ItemModelBuilder small = nested().parent(getExistingFile(mcLoc("item/generated")))
                 .texture("layer0", modLoc("item/" + location + id.getPath()));
-        ItemModelBuilder small1 = nested().parent(small);
         return withExistingParent(id.getPath(), mcLoc("item/handheld"))
-                .texture("layer0", modLoc("item/" + location + id.getPath())).customLoader((itemModelBuilder,existingFileHelper) ->
+                .override().model(getExistingFile(modLoc("item/spear_throwing")))
+                .predicate(Redux.locate("throwing"), 1.0F).end().customLoader((itemModelBuilder,existingFileHelper) ->
                         SeparateTransformsModelBuilder.begin(itemModelBuilder, existingFileHelper)
                                 .base(nested().parent(getExistingFile(modLoc("item/spear_in_hand"))))
-                                .perspective(ItemDisplayContext.GUI, small1)
-                                .perspective(ItemDisplayContext.GROUND, small1)
-                                .perspective(ItemDisplayContext.FIXED, small1)
+                                .perspective(ItemDisplayContext.GUI, small)
+                                .perspective(ItemDisplayContext.GROUND, small)
+                                .perspective(ItemDisplayContext.FIXED, small)
                 ).end();
     }
 
