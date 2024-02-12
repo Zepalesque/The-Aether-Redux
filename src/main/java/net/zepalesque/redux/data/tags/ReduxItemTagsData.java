@@ -1,6 +1,7 @@
 package net.zepalesque.redux.data.tags;
 
 import com.aetherteam.aether.AetherTags;
+import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether_genesis.item.GenesisItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -116,6 +117,13 @@ public class ReduxItemTagsData extends ItemTagsProvider {
         this.tag(ReduxTags.Items.BLIGHTWARDING_ACCESSORIES).add(
                 ReduxItems.COCKATRICE_FEATHER.get(),
                 ReduxItems.FEATHER_OF_WARDING.get()
+        );
+        this.tag(ReduxTags.Items.IS_SKYROOT_TOOL).add(
+                AetherItems.SKYROOT_SWORD.get(),
+                AetherItems.SKYROOT_PICKAXE.get(),
+                AetherItems.SKYROOT_AXE.get(),
+                AetherItems.SKYROOT_SHOVEL.get(),
+                AetherItems.SKYROOT_HOE.get()
         );
     }
 

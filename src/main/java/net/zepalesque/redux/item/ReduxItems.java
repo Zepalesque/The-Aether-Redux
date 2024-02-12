@@ -146,7 +146,7 @@ public class ReduxItems {
 
     public static final RegistryObject<Item> SENTRY_CHIP = register("sentry_chip", () -> new Item(new Item.Properties()));
 
-    public static final RegistryObject<Item> SPEAR_OF_THE_BLIGHT = register("spear_of_the_blight", () -> new BlightSpearItem(new Item.Properties(), 6.0D, 2.5D));
+    public static final RegistryObject<Item> SPEAR_OF_THE_BLIGHT = register("spear_of_the_blight", () -> new BlightSpearItem(new Item.Properties().stacksTo(1).durability(256), 5.5D, -1.1D));
 
     public static <T extends Item> RegistryObject<T> register(final String name, final Supplier<T> item)
     {

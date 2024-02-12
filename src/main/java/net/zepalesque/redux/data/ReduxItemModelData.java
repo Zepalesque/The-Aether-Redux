@@ -298,7 +298,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
 
     public ItemModelBuilder spear(Supplier<? extends Item> item, String location) {
         ResourceLocation id = ForgeRegistries.ITEMS.getKey(item.get());
-        ItemModelBuilder base = withExistingParent(itemName(item.get()) + "_hand", Redux.locate("item/spear_hand")).texture("item", texture(itemName(item.get()), location, "_hand"));
+        ItemModelBuilder base = withExistingParent(itemName(item.get()) + "_hand", Redux.locate("item/spear_hand")).texture("item", modLoc("item/" + location + itemName(item.get()) + "_hand"));
         ItemModelBuilder small = withExistingParent(id.getPath() + "_gui", mcLoc("item/generated"))
                 .texture("layer0", modLoc("item/" + location + id.getPath()));
         ItemModelBuilder small1 = nested().parent(small);

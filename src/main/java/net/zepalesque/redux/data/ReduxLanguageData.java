@@ -574,6 +574,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addAdvancement("fall_from_aether", "Falling with Style!");
         addAdvancementDesc("fall_from_aether", "Fall out of the Aether");
+        addAdvancement("obtain_skyroot_tool", "Twice the drops, double the loot!");
+        addAdvancementDesc("obtain_skyroot_tool", "Obtain a Skyroot tool, which doubles the drops of mobs or blocks.");
         addAdvancement("infuse_veridium", "Next Level");
         addAdvancementDesc("infuse_veridium", "Infuse a Veridium weapon or tool by right-clicking it with an Ambrosium Shard");
         addAdvancement("enter_blight", "Shattered Glass");

@@ -41,8 +41,8 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
         @Override
         public void generate(HolderLookup.Provider provider, Consumer<Advancement> consumer, ExistingFileHelper existingFileHelper) {
 
-            Advancement fallingWithStyle = Advancement.Builder.advancement()
-                    .parent(new ResourceLocation(Aether.MODID, "enter_aether"))
+            Advancement.Builder.advancement()
+                    .parent(new ResourceLocation(Aether.MODID, "blue_aercloud"))
                     .display(AetherItems.GOLDEN_PARACHUTE.get(),
                             Component.translatable("advancement.aether_redux.fall_from_aether"),
                             Component.translatable("advancement.aether_redux.fall_from_aether.desc"),
@@ -52,7 +52,18 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
                     .save(consumer, Redux.locate("fall_from_aether"), existingFileHelper);
 
 
-            Advancement takeThatPhysics = Advancement.Builder.advancement()
+            Advancement.Builder.advancement()
+                    .parent(new ResourceLocation(Aether.MODID, "enter_aether"))
+                    .display(AetherItems.SKYROOT_PICKAXE.get(),
+                            Component.translatable("advancement.aether_redux.obtain_skyroot_tool"),
+                            Component.translatable("advancement.aether_redux.obtain_skyroot_tool.desc"),
+                            null,
+                            FrameType.TASK, true, true, false)
+                    .addCriterion("obtain_skyroot_tool", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ReduxTags.Items.IS_SKYROOT_TOOL).build()))
+                    .save(consumer, Redux.locate("obtain_skyroot_tool"), existingFileHelper);
+
+
+            Advancement.Builder.advancement()
                     .parent(new ResourceLocation(Aether.MODID, "bronze_dungeon"))
                     .display(ReduxItems.AIRBOUND_CAPE.get(),
                             Component.translatable("advancement.aether_redux.double_jump"),
@@ -62,7 +73,7 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
                     .addCriterion("double_jump", DoubleJumpTrigger.TriggerInstance.jump())
                     .save(consumer, Redux.locate("double_jump"), existingFileHelper);
 
-            Advancement pyromaniac = Advancement.Builder.advancement()
+            Advancement.Builder.advancement()
                     .parent(new ResourceLocation(Aether.MODID, "gold_dungeon"))
                     .display(ReduxItems.PHOENIX_EMBLEM.get(),
                             Component.translatable("advancement.aether_redux.kill_sheepuff_with_fireball"),
@@ -77,7 +88,7 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
 
 
 
-            Advancement nextLevel = Advancement.Builder.advancement()
+            Advancement.Builder.advancement()
                     .parent(new ResourceLocation(Aether.MODID, "enter_aether"))
                     .display(ReduxItems.INFUSED_VERIDIUM_PICKAXE.get(),
                             Component.translatable("advancement.aether_redux.infuse_veridium"),
@@ -88,17 +99,7 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
                     .save(consumer, Redux.locate("infuse_veridium"), existingFileHelper);
 
 
-            Advancement darkMagic = Advancement.Builder.advancement()
-                    .parent(new ResourceLocation(Aether.MODID, "enter_aether"))
-                    .display(ReduxItems.BLIGHTED_SPORES.get(),
-                            Component.translatable("advancement.aether_redux.convert_with_blighted_spores"),
-                            Component.translatable("advancement.aether_redux.convert_with_blighted_spores.desc"),
-                            null,
-                            FrameType.TASK, true, true, false)
-                    .addCriterion("convert_with_blighted_spores", BlockStateRecipeTrigger.TriggerInstance.forRecipe(ReduxRecipeTypes.SPORE_BLIGHTING.get()))
-                    .save(consumer, Redux.locate("convert_with_blighted_spores"), existingFileHelper);
-
-            Advancement blightsBane = Advancement.Builder.advancement()
+            Advancement.Builder.advancement()
                     .parent(new ResourceLocation(Aether.MODID, "enter_aether"))
                     .display(ReduxItems.FEATHER_OF_WARDING.get(),
                             Component.translatable("advancement.aether_redux.feather_of_warding"),
