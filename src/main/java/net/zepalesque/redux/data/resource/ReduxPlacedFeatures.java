@@ -533,7 +533,7 @@ public class ReduxPlacedFeatures {
                 RarityFilter.onAverageOnceEvery(15),
                 BiomeFilter.biome());
 
-        register(context, XAELIA_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.IRIDIA_PATCH),
+        register(context, XAELIA_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.XAELIA_PATCH),
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 3), 4),
                 RarityFilter.onAverageOnceEvery(7),
