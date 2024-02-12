@@ -156,7 +156,7 @@ public class ThrownSpear extends AbstractArrow {
     @Override
     protected void doPostHurtEffects(LivingEntity target) {
         super.doPostHurtEffects(target);
-        if (!target.level().isClientSide() && target.level().getRandom().nextInt(3) == 0) {
+        if (!target.level().isClientSide() && target.level().getRandom().nextInt(3) <= 1) {
             target.addEffect(new MobEffectInstance(BlightSpearItem.getEffect(), 300));
         }
     }

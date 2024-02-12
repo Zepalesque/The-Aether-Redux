@@ -255,6 +255,16 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .unlockedBy(getHasName(ReduxItems.VERIDIUM_INGOT.get()), has(ReduxItems.VERIDIUM_INGOT.get()))
                 .save(consumer);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ReduxItems.SPEAR_OF_THE_BLIGHT.get(), 1)
+                .define('F', ReduxItems.BLIGHTBUNNY_FANG.get())
+                .define('/', AetherTags.Items.SKYROOT_STICKS)
+                .define('G', AetherItems.ZANITE_GEMSTONE.get())
+                .pattern("F")
+                .pattern("/")
+                .pattern("G")
+                .unlockedBy(getHasName(ReduxItems.BLIGHTBUNNY_FANG.get()), has(ReduxItems.BLIGHTBUNNY_FANG.get()))
+                .save(consumer);
+
         enchantingRecipe(RecipeCategory.FOOD, ReduxItems.ENCHANTED_BLUEBERRY_PIE.get(), ReduxItems.BLUEBERRY_PIE.get(), 0.35F, 250).save(consumer, name("enchanted_blueberry_pie_enchanting"));
 
         stairs(ReduxBlocks.CARVED_STONE_BRICK_STAIRS, ReduxBlocks.CARVED_STONE_BRICKS).save(consumer);

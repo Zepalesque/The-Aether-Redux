@@ -117,6 +117,9 @@ public class ReduxItems {
 
     public static final RegistryObject<Item> BLIGHTED_SPORES = register("blighted_spores", () -> new BlightedSporesItem(new Item.Properties()));
 
+    // TODO in future update: Blighted Dagger (placeholder name) to make moas lay cockatrice eggs, so you can get a pet cockatrice to help you fight! :D
+    public static final RegistryObject<Item> BLIGHTBUNNY_FANG = register("blightbunny_fang", () -> new Item(new Item.Properties()));
+
 
     public static final RegistryObject<Item> RAW_VERIDIUM = register("raw_veridium", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> VERIDIUM_INGOT = register("veridium_ingot", () -> new Item(new Item.Properties()));

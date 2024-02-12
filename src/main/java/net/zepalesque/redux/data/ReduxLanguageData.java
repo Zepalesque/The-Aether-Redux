@@ -31,6 +31,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.SUBZERO_CROSSBOW, "Subzero Crossbow");
         addLore(ReduxItems.SUBZERO_CROSSBOW, "An icy crossbow found in Gold Dungeons. This slows enemies when they are hit.");
 
+        addItem(ReduxItems.SPEAR_OF_THE_BLIGHT, "Spear of the Blight");
+        addLore(ReduxItems.SPEAR_OF_THE_BLIGHT, "A spear crafted with a Blightbunny Fang, Skyroot Stick, and Zanite Gemstone. This nifty weapon can be used to inflict Inebriation on enemies! It will also return when thrown into the void if enchanted with Loyalty.");
+
         addItem(ReduxItems.ZANBERRY, "Chromaberry");
         addLore(ReduxItems.ZANBERRY, "A type of berry found on bushes in the Highfields. This can be eaten, and nourishes slightly more hunger than Blueberries.");
 
@@ -351,6 +354,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addItem(ReduxItems.SNAILSHELL_SHIELD, "Snailshell Shield");
         addLore(ReduxItems.SNAILSHELL_SHIELD, "A shield accessory. When worn, you will not take any knockback.");
+
+        addItem(ReduxItems.BLIGHTBUNNY_FANG, "Blightbunny Fang");
+        addLore(ReduxItems.BLIGHTBUNNY_FANG, "A fang from a vicious Blightbunny. These can be crafted into a neat spear, which will inflict Inebriation on hurt enemies!");
 
         addItem(ReduxItems.COCKATRICE_FEATHER, "Cockatrice Feather");
         addLore(ReduxItems.COCKATRICE_FEATHER, "A feather from a Cockatrice. This is said to give the user a protection from some of the Blight's dangers. It can also be crafted into its upgraded variant, the Feather of Warding!");

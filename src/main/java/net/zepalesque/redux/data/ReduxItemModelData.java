@@ -88,6 +88,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         item(ReduxItems.MOUSE_EAR_SOUP, "food/");
         item(ReduxItems.OATMEAL, "food/");
         itemBlock(ReduxBlocks.COARSE_AETHER_DIRT);
+        item(ReduxItems.BLIGHTBUNNY_FANG, "materials/");
 
         itemBlock(ReduxBlocks.SHELL_SHINGLES);
         itemBlock(ReduxBlocks.SHELL_SHINGLE_SLAB);

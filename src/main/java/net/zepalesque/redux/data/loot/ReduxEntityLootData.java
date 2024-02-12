@@ -11,6 +11,7 @@ import net.minecraft.world.level.storage.loot.functions.LootingEnchantFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.functions.SmeltItemFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
@@ -49,8 +50,14 @@ public class ReduxEntityLootData extends AetherEntityLoot {
                 )
         );
 
-        // TODO
-        this.add(ReduxEntityTypes.BLIGHTBUNNY.get(), LootTable.lootTable());
+        this.add(ReduxEntityTypes.BLIGHTBUNNY.get(), LootTable.lootTable()
+                .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1))
+                        .add(LootItem.lootTableItem(ReduxItems.BLIGHTBUNNY_FANG.get())
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 1.0F)))
+                                .apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)))
+                                .when(LootItemRandomChanceCondition.randomChance(0.25F))
+                        )
+                ));
 
         this.add(ReduxEntityTypes.BLIGHTBUNNY_SPAWNER.get(), LootTable.lootTable());
         this.add(ReduxEntityTypes.COCKATRICE_SPAWNER.get(), LootTable.lootTable());
