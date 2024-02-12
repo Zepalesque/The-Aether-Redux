@@ -1,5 +1,6 @@
 package net.zepalesque.redux.item.weapons;
 
+import com.aetherteam.aether.effect.AetherEffects;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.core.BlockPos;
@@ -7,6 +8,8 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -21,6 +24,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.client.render.ReduxRenderers;
+import net.zepalesque.redux.entity.projectile.ThrownSpear;
 
 import java.util.function.Consumer;
 
@@ -60,14 +64,14 @@ public class BlightSpearItem extends Item implements Vanishable {
             int i = this.getUseDuration(stack) - timeLeft;
             if (i >= 10) {
 
-                ThrownTrident throwntrident = new ThrownTrident(level, player, stack);
-                throwntrident.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.5F, 1.0F);
+                ThrownSpear spear = new ThrownSpear(level, player, stack);
+                spear.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.5F, 1.0F);
                 if (player.getAbilities().instabuild) {
-                    throwntrident.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
+                    spear.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
                 }
 
-                level.addFreshEntity(throwntrident);
-                level.playSound(null, throwntrident, ReduxSoundEvents.SPEAR_THROW.get(), SoundSource.PLAYERS, 1.0F, 1.0F);
+                level.addFreshEntity(spear);
+                level.playSound(null, spear, ReduxSoundEvents.SPEAR_THROW.get(), SoundSource.PLAYERS, 1.0F, 1.0F);
                 if (!player.getAbilities().instabuild) {
                     player.getInventory().removeItem(stack);
                 }
@@ -91,6 +95,9 @@ public class BlightSpearItem extends Item implements Vanishable {
     @Override
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         stack.hurtAndBreak(1, attacker, (contextEntity) -> contextEntity.broadcastBreakEvent(EquipmentSlot.MAINHAND));
+        if (!target.level().isClientSide() && target.level().getRandom().nextInt(3) == 0) {
+            target.addEffect(new MobEffectInstance(getEffect(), 300));
+        }
         return true;
     }
 
@@ -101,6 +108,10 @@ public class BlightSpearItem extends Item implements Vanishable {
         }
 
         return true;
+    }
+
+    public static MobEffect getEffect() {
+        return AetherEffects.INEBRIATION.get();
     }
 
     @Override

@@ -1,22 +1,19 @@
 package net.zepalesque.redux.entity.projectile;
 
-import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.entity.projectile.ThrownTrident;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
@@ -26,6 +23,7 @@ import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.data.resource.ReduxDamageTypes;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.item.ReduxItems;
+import net.zepalesque.redux.item.weapons.BlightSpearItem;
 
 import javax.annotation.Nullable;
 
@@ -125,7 +123,7 @@ public class ThrownSpear extends AbstractArrow {
      */
     protected void onHitEntity(EntityHitResult result) {
         Entity entity = result.getEntity();
-        float f = 8.0F;
+        float f = 6.0F;
         if (entity instanceof LivingEntity livingentity) {
             f += EnchantmentHelper.getDamageBonus(this.spearItem, livingentity.getMobType());
         }
@@ -153,6 +151,14 @@ public class ThrownSpear extends AbstractArrow {
         float f1 = 1.0F;
 
         this.playSound(soundevent, f1, 1.0F);
+    }
+
+    @Override
+    protected void doPostHurtEffects(LivingEntity target) {
+        super.doPostHurtEffects(target);
+        if (!target.level().isClientSide() && target.level().getRandom().nextInt(3) == 0) {
+            target.addEffect(new MobEffectInstance(BlightSpearItem.getEffect(), 300));
+        }
     }
 
     protected boolean tryPickup(Player player) {
