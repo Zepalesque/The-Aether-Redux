@@ -92,10 +92,11 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.GILDED_OAK_LEAVES, ReduxBlocks.GILDED_LEAF_PILE, event);
             putAfter(ReduxBlocks.GILDED_LEAF_PILE, ReduxBlocks.GILDED_VINES, event);
 
-            putBefore(AetherBlocks.HOLIDAY_LEAVES, ReduxBlocks.BLIGHTED_SKYROOT_LEAVES, event);
+            putBefore(AetherBlocks.HOLIDAY_LEAVES, ReduxBlocks.PURPLE_GLACIA_LEAVES, event);
+            putBefore(ReduxBlocks.PURPLE_GLACIA_LEAVES, ReduxBlocks.GLACIA_LEAVES, event);
+            putBefore(ReduxBlocks.GLACIA_LEAVES, ReduxBlocks.BLIGHTED_SKYROOT_LEAVES, event);
             putBefore(ReduxBlocks.BLIGHTED_SKYROOT_LEAVES, ReduxBlocks.BLIGHTWILLOW_LEAF_PILE, event);
             putBefore(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE, ReduxBlocks.BLIGHTWILLOW_LEAVES, event);
-            putBefore(ReduxBlocks.BLIGHTWILLOW_LEAVES, ReduxBlocks.GLACIA_LEAVES, event);
 
 
             putAfter(AetherBlocks.DECORATED_HOLIDAY_LEAVES, ReduxBlocks.FLOWERING_FIELDSPROUT_LEAVES, event);
@@ -106,7 +107,8 @@ public class ReduxCreativeTabs {
             putAfter(AetherBlocks.GOLDEN_OAK_SAPLING, ReduxBlocks.BLIGHTWILLOW_SAPLING, event);
             putAfter(ReduxBlocks.BLIGHTWILLOW_SAPLING, ReduxBlocks.BLIGHTED_SKYROOT_SAPLING, event);
             putAfter(ReduxBlocks.BLIGHTED_SKYROOT_SAPLING, ReduxBlocks.GLACIA_SAPLING, event);
-            putAfter(ReduxBlocks.GLACIA_SAPLING, ReduxBlocks.GILDED_OAK_SAPLING, event);
+            putAfter(ReduxBlocks.GLACIA_SAPLING, ReduxBlocks.PURPLE_GLACIA_SAPLING, event);
+            putAfter(ReduxBlocks.PURPLE_GLACIA_SAPLING, ReduxBlocks.GILDED_OAK_SAPLING, event);
             putAfter(ReduxBlocks.GILDED_OAK_SAPLING, ReduxBlocks.FLOWERING_FIELDSPROUT_SAPLING, event);
 
             putAfter(AetherBlocks.BERRY_BUSH, ReduxBlocks.ZANBERRY_SHRUB, event);
