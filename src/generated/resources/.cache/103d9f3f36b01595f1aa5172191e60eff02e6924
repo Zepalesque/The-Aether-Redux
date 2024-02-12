@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-11T09:53:49.5975496	Registries
+// 1.20.1	2024-02-11T22:24:26.661755	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 44b19724a3aca851b449582759fec56d16ea1ad6 data/aether/worldgen/configured_feature/golden_oak_tree.json
 ed5af58b49c3097be8598f4b57d2dd256fb1c93a data/aether/worldgen/configured_feature/grass_patch.json
@@ -166,7 +166,7 @@ b31dc81feb27a7e00a2b87fd8eeb944aefbd63ae data/aether_redux/worldgen/placed_featu
 db70241bbfd401eb47e32ed9787bd2c3bf06e8e9 data/aether_redux/worldgen/placed_feature/patch/spirolyctil_patch.json
 24fb8ef859ad6d08a4ff375a9d59c53e655fe5c5 data/aether_redux/worldgen/placed_feature/patch/splitfern_patch.json
 898457409a2fe8c30d413afecdaa1eb5bc1792f9 data/aether_redux/worldgen/placed_feature/patch/wyndsprouts_patch.json
-43928e30ea1f7ff2295562682c1fd3f23f645629 data/aether_redux/worldgen/placed_feature/patch/xaelia_patch.json
+8ec7f4f335c46a599fbda61bba9970f24dcf897e data/aether_redux/worldgen/placed_feature/patch/xaelia_patch.json
 2324e6294d1cafcd3a79d3b50d7a87974b6236ee data/aether_redux/worldgen/placed_feature/patch/zanberry_bush_patch.json
 135fc2c94daf21156f60697c41f9d15f7e9e2c6f data/aether_redux/worldgen/placed_feature/patch/zyatrix_patch.json
 d1a434e373e8efdce11e908e18a379a88f44e4c2 data/aether_redux/worldgen/placed_feature/surface/aerogel_disk.json

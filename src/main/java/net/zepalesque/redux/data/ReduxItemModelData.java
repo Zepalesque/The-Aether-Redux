@@ -304,7 +304,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         return withExistingParent(id.getPath(), mcLoc("item/handheld"))
                 .texture("layer0", modLoc("item/" + location + id.getPath())).customLoader((itemModelBuilder,existingFileHelper) ->
                         SeparateTransformsModelBuilder.begin(itemModelBuilder, existingFileHelper)
-                                .base(nested().parent(getExistingFile(mcLoc("item/trident"))))
+                                .base(nested().parent(getExistingFile(mcLoc("item/trident_in_hand"))))
                                 .perspective(ItemDisplayContext.GUI, small1)
                                 .perspective(ItemDisplayContext.GROUND, small1)
                                 .perspective(ItemDisplayContext.FIXED, small1)

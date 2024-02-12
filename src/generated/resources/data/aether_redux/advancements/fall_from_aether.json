@@ -1,5 +1,5 @@
 {
-  "parent": "aether:enter_aether",
+  "parent": "aether:blue_aercloud",
   "criteria": {
     "fall_from_aether": {
       "conditions": {},

@@ -1,0 +1,37 @@
+{
+  "parent": "aether:enter_aether",
+  "criteria": {
+    "obtain_skyroot_tool": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "aether_redux:is_skyroot_tool"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.aether_redux.obtain_skyroot_tool.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "aether:skyroot_pickaxe",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.aether_redux.obtain_skyroot_tool"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_skyroot_tool"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
