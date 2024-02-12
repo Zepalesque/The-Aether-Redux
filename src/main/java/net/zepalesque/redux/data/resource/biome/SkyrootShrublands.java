@@ -94,7 +94,7 @@ public class SkyrootShrublands {
                 .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.SPLITFERN_PATCH)
 
                 .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.COLD_AERCLOUD_PLACEMENT)
-                .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, ReduxPlacedFeatures.DECREASED_BLUE_AERCLOUDS)
+                .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, ReduxPlacedFeatures.SPARSE_BLUE_AERCLOUD)
                 .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.GOLDEN_AERCLOUD_PLACEMENT)
 
                 .build())

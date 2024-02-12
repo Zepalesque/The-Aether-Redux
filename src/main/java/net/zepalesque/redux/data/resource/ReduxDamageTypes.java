@@ -18,12 +18,14 @@ public class ReduxDamageTypes {
     public static final ResourceKey<DamageType> CORRUPTED_VINES = createKey("corrupted_vines");
     public static final ResourceKey<DamageType> EMBER = createKey("ember");
     public static final ResourceKey<DamageType> SPEAR = createKey("spear");
+    public static final ResourceKey<DamageType> BLIGHT = createKey("blight");
 
     public static void bootstrap(BootstapContext<DamageType> context) {
         context.register(ZANBERRY_BUSH, new DamageType("aether_redux.zanberry_bush", 0.1F, DamageEffects.POKING));
         context.register(CORRUPTED_VINES, new DamageType("aether_redux.corrupted_vines", 0.1F, DamageEffects.POKING));
         context.register(EMBER, new DamageType("aether_redux.ember", 0.1F, DamageEffects.BURNING));
         context.register(SPEAR, new DamageType("aether_redux.spear", 0.1F));
+        context.register(BLIGHT, new DamageType("aether_redux.blight", 0.1F));
     }
 
     private static ResourceKey<DamageType> createKey(String name) {

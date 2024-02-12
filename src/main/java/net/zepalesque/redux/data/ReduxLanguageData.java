@@ -261,6 +261,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.HOLYSILT, "Holysilt");
         addLore(ReduxBlocks.HOLYSILT, "Fine particles of broken up holystone and other minerals. Can be found underground, and around the blight. Careful, it's not very stable and may fall beneath your feet!");
 
+        addBlock(ReduxBlocks.BLIGHTED_AERCLOUD, "Blighted Aercloud");
+        addLore(ReduxBlocks.BLIGHTED_AERCLOUD, "A light teal cloud found in the Blight. Standing in this will harm you, but will heal Blighted mobs such as Blightbunnies and Cockatrices!");
+
         addBlock(ReduxBlocks.IRIDIA, "Iridia");
         addBlock(ReduxBlocks.POTTED_IRIDIA, "Potted Iridia");
         addLore(ReduxBlocks.IRIDIA, "An iridescent flower found in the Highfields.");
@@ -615,8 +618,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addDeath(ReduxDamageTypes.ZANBERRY_BUSH, "%1$s was poked to death by a zanberry bush, how sad ):");
         addDeath(ReduxDamageTypes.CORRUPTED_VINES, "%1$s was poked to death by some Corrupted Vines");
-        addDeath(ReduxDamageTypes.EMBER, "%1$s was hit by a flying ember");
-        addDeathByPlayer(ReduxDamageTypes.EMBER, "%1$s was hit by %2$s's flying ember");
+        addDeath(ReduxDamageTypes.EMBER, "%1$s was sparked by a flying ember");
+        addDeathByPlayer(ReduxDamageTypes.EMBER, "%1$s was sparked by %2$s's flying ember");
+        addDeath(ReduxDamageTypes.BLIGHT, "%1$s was taken by the Blight");
 
         for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS) {
             woodHandler.generateLanguageData(this);

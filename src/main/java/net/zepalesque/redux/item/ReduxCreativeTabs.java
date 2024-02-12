@@ -98,6 +98,8 @@ public class ReduxCreativeTabs {
             putBefore(ReduxBlocks.BLIGHTED_SKYROOT_LEAVES, ReduxBlocks.BLIGHTWILLOW_LEAF_PILE, event);
             putBefore(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE, ReduxBlocks.BLIGHTWILLOW_LEAVES, event);
 
+            putAfter(AetherBlocks.GOLDEN_AERCLOUD, ReduxBlocks.BLIGHTED_AERCLOUD, event);
+
 
             putAfter(AetherBlocks.DECORATED_HOLIDAY_LEAVES, ReduxBlocks.FLOWERING_FIELDSPROUT_LEAVES, event);
             putAfter(ReduxBlocks.FLOWERING_FIELDSPROUT_LEAVES, ReduxBlocks.CLOUD_CAP_BLOCK, event);

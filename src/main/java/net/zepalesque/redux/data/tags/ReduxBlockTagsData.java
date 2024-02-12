@@ -27,6 +27,15 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
 
     protected void addTags(HolderLookup.Provider provider) {
 
+        this.tag(AetherTags.Blocks.AERCLOUDS).add(ReduxBlocks.BLIGHTED_AERCLOUD.get());
+        this.tag(AetherTags.Blocks.SENTRY_BLOCKS).add(
+                ReduxBlocks.CARVED_STONE_BRICKS.get(),
+                ReduxBlocks.CARVED_STONE_BRICK_STAIRS.get(),
+                ReduxBlocks.CARVED_STONE_BRICK_SLAB.get(),
+                ReduxBlocks.CARVED_STONE_BRICK_WALL.get(),
+                ReduxBlocks.CARVED_STONE_PILLAR.get()
+        );
+
         this.tag(BlockTags.CLIMBABLE).add(
                 ReduxBlocks.GILDED_VINES_PLANT.get(),
                 ReduxBlocks.GOLDEN_VINES_PLANT.get(),

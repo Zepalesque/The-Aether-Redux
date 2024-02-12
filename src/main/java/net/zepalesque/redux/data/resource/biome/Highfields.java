@@ -93,7 +93,7 @@ public class Highfields {
 
                 .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.CRYSTAL_ISLAND_PLACEMENT)
                 .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.COLD_AERCLOUD_PLACEMENT)
-                .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, ReduxPlacedFeatures.INCREASED_BLUE_AERCLOUDS)
+                .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, ReduxPlacedFeatures.DENSE_BLUE_AERCLOUD)
                 .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.GOLDEN_AERCLOUD_PLACEMENT)
 
                 .build())

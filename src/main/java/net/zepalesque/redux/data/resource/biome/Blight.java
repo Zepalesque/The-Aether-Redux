@@ -71,8 +71,8 @@ public class Blight {
 
                 .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_AETHER_DIRT_PLACEMENT)
                 .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_ICESTONE_PLACEMENT)
-                .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ReduxPlacedFeatures.DECREASED_AMBROSIUM_ORE)
-                .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ReduxPlacedFeatures.INCREASED_ZANITE_ORE)
+                .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ReduxPlacedFeatures.SPARSE_AMBROSIUM_ORE)
+                .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ReduxPlacedFeatures.DENSE_ZANITE_ORE)
                 .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_GRAVITITE_BURIED_PLACEMENT)
                 .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_GRAVITITE_PLACEMENT)
                 .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ReduxPlacedFeatures.BLIGHTMOSS_HOLYSTONE_ORE)
@@ -89,9 +89,9 @@ public class Blight {
                 .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.BLIGHTSHADE_PATCH)
                 .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.BLIGHTMOSS_VEGETATION)
 
-                // TODO: bring back Blighted Aerclouds?
                 .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.COLD_AERCLOUD_PLACEMENT)
                 .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.BLUE_AERCLOUD_PLACEMENT)
+                .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, ReduxPlacedFeatures.BLIGHTED_AERCLOUD)
 
                 .build())
                 .build();

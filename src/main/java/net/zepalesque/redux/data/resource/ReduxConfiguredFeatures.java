@@ -5,6 +5,7 @@ import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.AetherBlockStateProperties;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.resources.AetherFeatureStates;
+import com.aetherteam.aether.data.resources.builders.AetherConfiguredFeatureBuilders;
 import com.aetherteam.aether.data.resources.registries.AetherConfiguredFeatures;
 import com.aetherteam.aether.world.configuration.ShelfConfiguration;
 import com.aetherteam.aether.world.feature.AetherFeatures;
@@ -78,6 +79,7 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> FUNGAL_VEGETATION = createKey(Folders.CAVE + "fungal_vegetation");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTSHADE_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.BLIGHTSHADE) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTWILLOW_TREE = createKey(Folders.TREE + "blightwillow_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTED_AERCLOUD = createKey(Folders.MISC + "blighted_aercloud");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHT_ROCK = createKey(Folders.SURFACE + "blight_rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHT_TREES = createKey(Folders.TREE + "blight_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYROOT_BUSH = createKey(Folders.PATCH + "skyroot_bush");
@@ -221,6 +223,10 @@ public class ReduxConfiguredFeatures {
                         0.8F,
                         UniformInt.of(4, 7),
                         0.3F));
+
+        register(context, BLIGHTED_AERCLOUD, AetherFeatures.AERCLOUD.get(),
+                AetherConfiguredFeatureBuilders.aercloud(8, drops(ReduxBlocks.BLIGHTED_AERCLOUD)));
+
         register(context, FUNGAL_PATCH_BONEMEAL, Feature.VEGETATION_PATCH,
                 new VegetationPatchConfiguration(ReduxTags.Blocks.AETHER_CARVER_REPLACEABLES,
                         prov(ReduxBlocks.FUNGAL_GROWTH),

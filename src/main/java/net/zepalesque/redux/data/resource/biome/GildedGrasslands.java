@@ -72,8 +72,8 @@ public class GildedGrasslands {
 
                 .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_AETHER_DIRT_PLACEMENT)
                 .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_ICESTONE_PLACEMENT)
-                .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ReduxPlacedFeatures.INCREASED_AMBROSIUM_ORE)
-                .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ReduxPlacedFeatures.DECREASED_ZANITE_ORE)
+                .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ReduxPlacedFeatures.DENSE_AMBROSIUM_ORE)
+                .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ReduxPlacedFeatures.SPARSE_ZANITE_ORE)
                 .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_GRAVITITE_BURIED_PLACEMENT)
                 .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_GRAVITITE_PLACEMENT)
                 .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ReduxPlacedFeatures.GILDED_HOLYSTONE_ORE)
@@ -90,7 +90,7 @@ public class GildedGrasslands {
                 .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.SPLITFERN_PATCH)
 
                 .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.COLD_AERCLOUD_PLACEMENT)
-                .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, ReduxPlacedFeatures.DECREASED_BLUE_AERCLOUDS)
+                .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, ReduxPlacedFeatures.SPARSE_BLUE_AERCLOUD)
                 .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.GOLDEN_AERCLOUD_PLACEMENT)
 
                 .build())

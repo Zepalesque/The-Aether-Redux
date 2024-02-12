@@ -3,6 +3,7 @@ package net.zepalesque.redux.block;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.natural.AetherDoubleDropBlock;
 import com.aetherteam.aether.block.natural.AetherDoubleDropsLeaves;
+import com.aetherteam.aether.block.natural.BlueAercloudBlock;
 import com.aetherteam.aether.block.natural.LeavesWithParticlesBlock;
 import com.aetherteam.aether.mixin.mixins.common.accessor.FireBlockAccessor;
 import com.google.common.base.Supplier;
@@ -17,6 +18,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
@@ -28,10 +30,7 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.construction.VeridiumLanternBlock;
 import net.zepalesque.redux.block.natural.*;
-import net.zepalesque.redux.block.natural.blight.BlightmossBlock;
-import net.zepalesque.redux.block.natural.blight.BlightshadeBlock;
-import net.zepalesque.redux.block.natural.blight.CorruptedVinesHeadBlock;
-import net.zepalesque.redux.block.natural.blight.CorruptedVinesPlantBlock;
+import net.zepalesque.redux.block.natural.blight.*;
 import net.zepalesque.redux.block.natural.cloudcap.*;
 import net.zepalesque.redux.block.natural.enchanted.EnchantableFlowerBlock;
 import net.zepalesque.redux.block.natural.enchanted.EnchantedVinesHeadBlock;
@@ -73,6 +72,8 @@ public class ReduxBlocks {
 
     public static RegistryObject<Block> FLOWERING_FIELDSPROUT_LEAVES = register("flowering_fieldsprout_leaves", () -> new FloweringFieldsproutLeafBlock(
             FloweringFieldsproutLeafBlock::particleFromState, BlockBehaviour.Properties.copy(AetherBlocks.SKYROOT_LEAVES.get()).hasPostProcess((state, lvl, pos) -> true).isSuffocating(ReduxBlocks::never).isViewBlocking(ReduxBlocks::never).mapColor(FloweringFieldsproutLeafBlock::colorFromState).sound(SoundType.CHERRY_LEAVES)));
+
+    public static RegistryObject<Block> BLIGHTED_AERCLOUD = register("blighted_aercloud", () -> new BlightedAercloudBlock(BlockBehaviour.Properties.copy(AetherBlocks.COLD_AERCLOUD.get()).mapColor(MapColor.COLOR_LIGHT_GREEN)));
 
     public static RegistryObject<Block> HOLYSILT = register("holysilt",
             () -> new HolysiltBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).strength(0.5F).sound(SoundType.SAND)));

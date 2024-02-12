@@ -54,6 +54,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
 
     public void generate() {
         dropSelfDouble(ReduxBlocks.HOLYSILT.get());
+        dropSelfDouble(ReduxBlocks.BLIGHTED_AERCLOUD.get());
         dropSelfDouble(ReduxBlocks.DIVINITE.get());
         this.add(ReduxBlocks.DIVINITE_SLAB.get(), this::createSlabItemTable);
         dropSelf(ReduxBlocks.DIVINITE_STAIRS.get());
