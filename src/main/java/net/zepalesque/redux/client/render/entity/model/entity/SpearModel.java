@@ -19,7 +19,7 @@ public class SpearModel extends Model {
 	public static final ResourceLocation TEXTURE = Redux.locate("textures/models/weapon/spear.png");
 
 	public SpearModel(ModelPart root) {
-		super(RenderType::entityCutout);
+		super(RenderType::entityCutoutNoCull);
 		this.root = root;
 	}
 
