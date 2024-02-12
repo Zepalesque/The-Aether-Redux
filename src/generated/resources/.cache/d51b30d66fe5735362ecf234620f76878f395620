@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-11T22:24:26.6357566	Item Models: aether_redux
+// 1.20.1	2024-02-12T13:06:48.7113858	Item Models: aether_redux
 262070202f715ccbb93ebca7b4dd3b04851bc0ce assets/aether_redux/models/item/aether_short_grass.json
 ef6d226766d61d6460247665062a399d3613d946 assets/aether_redux/models/item/aevelium.json
 2f2dfa95433a548b2d41f817bd836c91e41fc4e9 assets/aether_redux/models/item/aevelium_roots.json
@@ -212,7 +212,7 @@ aec70cdc85dfdc10f3782dd2c1d08fcff8d1d360 assets/aether_redux/models/item/shell_s
 6eb82aa73b8f464c031aede636157d1f9fb79678 assets/aether_redux/models/item/skysprouts.json
 89e4963a882fcf844fc40d922d740c00443cdc6a assets/aether_redux/models/item/skysprout_seeds.json
 6ac0dc6780c42e567774c05e1f597af1a9f8b48a assets/aether_redux/models/item/snailshell_shield.json
-1e740f9cd04ad088b325b9ad300a9177c0c8ed47 assets/aether_redux/models/item/spear_of_the_blight.json
+835b2f98db33d403c699bf93345020485940ad8a assets/aether_redux/models/item/spear_of_the_blight.json
 1069f70a85b8fcce2d165add82a6580ad7250cb7 assets/aether_redux/models/item/spear_of_the_blight_gui.json
 1a714fcc969395ab809f838beead90437b3f7458 assets/aether_redux/models/item/spectral_dart.json
 ad57a76a128ff919184952827f3bb1d420514d70 assets/aether_redux/models/item/spectral_dart_shooter.json

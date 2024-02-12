@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:item/handheld",
   "base": {
-    "parent": "minecraft:item/trident_in_hand"
+    "parent": "aether_redux:item/spear_in_hand"
   },
   "loader": "forge:separate_transforms",
   "perspectives": {
