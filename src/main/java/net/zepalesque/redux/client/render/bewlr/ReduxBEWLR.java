@@ -32,7 +32,7 @@ public class ReduxBEWLR extends BlockEntityWithoutLevelRenderer {
         if (stack.is(ReduxItems.SPEAR_OF_THE_BLIGHT.get())) {
             poseStack.pushPose();
             poseStack.scale(1.0F, -1.0F, -1.0F);
-            VertexConsumer consumer = ItemRenderer.getFoilBufferDirect(buffer, this.model.renderType(TridentModel.TEXTURE), false, stack.hasFoil());
+            VertexConsumer consumer = ItemRenderer.getFoilBufferDirect(buffer, this.model.renderType(SpearModel.TEXTURE), false, stack.hasFoil());
             this.model.renderToBuffer(poseStack, consumer, packedLight, packedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
             poseStack.popPose();
         }

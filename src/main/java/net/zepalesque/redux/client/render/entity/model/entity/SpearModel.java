@@ -12,9 +12,11 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
+import net.zepalesque.redux.Redux;
 
 public class SpearModel extends Model {
 	private final ModelPart root;
+	public static final ResourceLocation TEXTURE = Redux.locate("textures/models/weapon/spear.png");
 
 	public SpearModel(ModelPart root) {
 		super(RenderType::entityCutout);
