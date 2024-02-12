@@ -21,6 +21,7 @@ import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.util.compat.DeepAetherParticleUtil;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.function.Supplier;
@@ -32,19 +33,19 @@ public class AetherLeavesClientMixin extends LeafBlockClientMixin {
     protected void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random, CallbackInfo ci) {
         super.animateTick(state, level, pos, random, ci);
 
-        if (level.isClientSide()) {
-            @Nullable Supplier<? extends ParticleOptions> supplier = getParticle((AetherDoubleDropsLeaves) (Object) this);
-            int chance = level.getBiome(pos).is(ReduxTags.Biomes.DENSE_LEAF_FALL) ? 20 : 30;
-            if (supplier != null && random.nextInt(chance) == 0) {
-                BlockPos blockpos = pos.below();
-                BlockState blockstate = level.getBlockState(blockpos);
-                if ((!blockstate.canOcclude() || !blockstate.isFaceSturdy(level, blockpos, Direction.UP)) && !(blockstate.getBlock() instanceof LeavesBlock) && !(blockstate.getBlock() instanceof ExtendedDistanceLeavesBlock)) {
-                    ParticleUtils.spawnParticleBelow(level, pos, random, supplier.get());
-                }
+        // we are already on the client side
+        @Nullable Supplier<? extends ParticleOptions> supplier = getParticle((AetherDoubleDropsLeaves) (Object) this);
+        int chance = level.getBiome(pos).is(ReduxTags.Biomes.DENSE_LEAF_FALL) ? 20 : 30;
+        if (supplier != null && random.nextInt(chance) == 0) {
+            BlockPos blockpos = pos.below();
+            BlockState blockstate = level.getBlockState(blockpos);
+            if ((!blockstate.canOcclude() || !blockstate.isFaceSturdy(level, blockpos, Direction.UP)) && !(blockstate.getBlock() instanceof LeavesBlock) && !(blockstate.getBlock() instanceof ExtendedDistanceLeavesBlock)) {
+                ParticleUtils.spawnParticleBelow(level, pos, random, supplier.get());
             }
         }
     }
 
+    @Unique
     private static @Nullable Supplier<? extends ParticleOptions> getParticle(Block self)
     {
         if (ReduxConfig.CLIENT.better_leaf_particles.get()) {

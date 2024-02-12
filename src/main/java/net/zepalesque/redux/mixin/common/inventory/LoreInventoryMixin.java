@@ -1,6 +1,9 @@
 package net.zepalesque.redux.mixin.common.inventory;
 
+import com.aetherteam.aether.advancement.LoreTrigger;
 import com.aetherteam.aether.inventory.container.LoreInventory;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -20,15 +23,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LoreInventory.class)
 public class LoreInventoryMixin {
+    // WrapOperation is useful in this case since it gives us the casted ServerPlayer and stack. make sure to always call original!
+    @WrapOperation(at = @At(value = "INVOKE", target = "Lcom/aetherteam/aether/advancement/LoreTrigger;trigger(Lnet/minecraft/server/level/ServerPlayer;Lnet/minecraft/world/item/ItemStack;)V"), method = "setItem", remap = false)
+    public void triggerLore(LoreTrigger instance, ServerPlayer player, ItemStack stack, Operation<Void> original) {
+        // first, call the original method (this is the trigger lore)
+        original.call(instance, player, stack);
 
-    @Shadow @Final private Player player;
-
-    @Inject(at = @At(value = "INVOKE", target = "Lcom/aetherteam/aether/advancement/LoreTrigger;trigger(Lnet/minecraft/server/level/ServerPlayer;Lnet/minecraft/world/item/ItemStack;)V"), method = "setItem", remap = false)
-    public void triggerLore(int index, ItemStack stack, CallbackInfo ci) {
-        Player plr = this.player;
-        if (plr instanceof ServerPlayer serverPlayer) {
-            ReduxPlayer.get(plr).ifPresent(reduxPlayer -> reduxPlayer.getLoreModule().unlock(stack.getItem()));
-            ReduxPacketHandler.sendToPlayer(new LoreUnlockPacket(serverPlayer.getUUID(), stack.getItem()), serverPlayer);
-        }
+        // then, do all of redux's stuff
+        ReduxPlayer.get(player).ifPresent(reduxPlayer -> reduxPlayer.getLoreModule().unlock(stack.getItem()));
+        ReduxPacketHandler.sendToPlayer(new LoreUnlockPacket(player.getUUID(), stack.getItem()), player);
     }
 }

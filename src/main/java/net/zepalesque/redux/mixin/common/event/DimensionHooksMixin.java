@@ -10,10 +10,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(DimensionHooks.class)
+@Mixin(value = DimensionHooks.class, remap = false)
 public class DimensionHooksMixin {
 
-    @Inject(at = @At(value = "HEAD", shift = At.Shift.AFTER), method = "entityFell", remap = false)
+    @Inject(at = @At(value = "HEAD", shift = At.Shift.AFTER), method = "entityFell")
     private static void fall(Entity entity, CallbackInfoReturnable<Entity> cir) {
         if (entity instanceof Player player && !player.level().isClientSide() && player instanceof ServerPlayer sp)
         {
