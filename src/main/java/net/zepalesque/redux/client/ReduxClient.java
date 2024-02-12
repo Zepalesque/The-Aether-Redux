@@ -1,15 +1,21 @@
 package net.zepalesque.redux.client;
 
+import cpw.mods.util.Lazy;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterEntitySpectatorShadersEvent;
+import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.capability.living.VampireAmulet;
+import net.zepalesque.redux.client.render.ReduxRenderers;
+import net.zepalesque.redux.client.render.bewlr.ReduxBEWLR;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.item.ReduxItems;

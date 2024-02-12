@@ -1,23 +1,16 @@
 package net.zepalesque.redux.client.render.entity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.Mth;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.fml.loading.FMLLoader;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.client.render.entity.layer.ReduxModelLayers;
+import net.zepalesque.redux.client.render.ReduxModelLayers;
 import net.zepalesque.redux.client.render.entity.model.entity.CubeModel;
-import net.zepalesque.redux.entity.passive.Mykapod;
-import net.zepalesque.redux.entity.projectile.Ember;
 
 
 public class CubeRenderer<E extends LivingEntity> extends LivingEntityRenderer<E, EntityModel<E>> {

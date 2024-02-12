@@ -1,4 +1,4 @@
-package net.zepalesque.redux.client.render.entity.layer;
+package net.zepalesque.redux.client.render;
 
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.resources.ResourceLocation;
@@ -16,6 +16,7 @@ public class ReduxModelLayers {
     public static final ModelLayerLocation CUBE = register("cube");
 
     public static final ModelLayerLocation BLIGHTBUNNY = register("blightbunny");
+    public static final ModelLayerLocation SPEAR = register("spear_of_the_blight");
 
     public static final ModelLayerLocation GLIMMERCOW = register("glimmercow");
 

@@ -6,21 +6,22 @@ import com.aetherteam.aether.client.renderer.entity.MoaRenderer;
 import com.aetherteam.aether.client.renderer.entity.SentryRenderer;
 import com.aetherteam.aether_genesis.client.renderer.entity.BattleSentryRenderer;
 import com.aetherteam.aether_genesis.client.renderer.entity.SkyrootMimicRenderer;
+import cpw.mods.util.Lazy;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
-import net.minecraftforge.common.ForgeMod;
+import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLLoader;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
+import net.zepalesque.redux.client.render.bewlr.ReduxBEWLR;
 import net.zepalesque.redux.client.render.entity.*;
-import net.zepalesque.redux.client.render.entity.layer.ReduxModelLayers;
 import net.zepalesque.redux.client.render.entity.layer.entity.*;
 import net.zepalesque.redux.client.render.entity.misc.ReduxBoatRenderer;
 import net.zepalesque.redux.client.render.entity.model.entity.*;
@@ -37,6 +38,14 @@ import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 public class ReduxRenderers {
 
 
+    public static final Lazy<BlockEntityWithoutLevelRenderer> bewlr = Lazy.of(ReduxBEWLR::new);
+
+    public static final IClientItemExtensions itemProp = new IClientItemExtensions() {
+        @Override
+        public BlockEntityWithoutLevelRenderer getCustomRenderer() {
+            return ReduxRenderers.bewlr.get();
+        }
+    };
 
     @SubscribeEvent
     public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
@@ -83,6 +92,7 @@ public class ReduxRenderers {
         event.registerLayerDefinition(ReduxModelLayers.MIMIC, MimicReduxModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.SENTRY, SentryReduxModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.BLIGHTBUNNY, BlightbunnyModel::createBodyLayer);
+        event.registerLayerDefinition(ReduxModelLayers.SPEAR, SpearModel::createLayer);
 
         if (Redux.aetherGenesisCompat()) {
             event.registerLayerDefinition(ReduxModelLayers.BATTLE_SENTRY, BattleSentryReduxModel::createBodyLayer);

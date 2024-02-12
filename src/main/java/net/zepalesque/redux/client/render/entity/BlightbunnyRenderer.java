@@ -12,7 +12,7 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.client.render.entity.layer.ReduxModelLayers;
+import net.zepalesque.redux.client.render.ReduxModelLayers;
 import net.zepalesque.redux.client.render.entity.layer.entity.GlowLayer;
 import net.zepalesque.redux.client.render.entity.layer.entity.TranslucentEmissiveLayer;
 import net.zepalesque.redux.client.render.entity.model.entity.BlightbunnyModel;
