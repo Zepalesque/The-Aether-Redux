@@ -64,8 +64,9 @@ public class ReduxRenderers {
         event.registerEntityRenderer(ReduxEntityTypes.SPECTRAL_DART.get(), SpectralDartRenderer::new);
         event.registerEntityRenderer(ReduxEntityTypes.VERIDIUM_ARROW.get(), VeridiumArrowRenderer::new);
         event.registerEntityRenderer(ReduxEntityTypes.VOLATILE_FIRE_CRYSTAL.get(), VolatileFireCrystalRenderer::new);
-
         event.registerEntityRenderer(ReduxEntityTypes.EMBER.get(), EmberRenderer::new);
+        event.registerEntityRenderer(ReduxEntityTypes.THROWN_SPEAR.get(), ThrownSpearRenderer::new);
+
         event.registerEntityRenderer(ReduxEntityTypes.GLIMMERCOW.get(), GlimmercowRenderer::new);
 
         event.registerEntityRenderer(ReduxEntityTypes.BLIGHTBUNNY.get(), BlightbunnyRenderer::new);
