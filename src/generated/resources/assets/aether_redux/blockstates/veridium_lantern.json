@@ -40,7 +40,7 @@
     },
     {
       "apply": {
-        "model": "aether_redux:block/hanging_veridium_lantern"
+        "model": "aether_redux:block/hanging_veridium_lantern_chain"
       },
       "when": {
         "hanging": "true"

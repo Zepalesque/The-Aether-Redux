@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-12T19:00:49.1257171	Block States: aether_redux
+// 1.20.1	2024-02-13T09:20:27.8584219	Block States: aether_redux
 3b65fcf4de37be76dd1ac46b4118458043237e15 assets/aether_redux/blockstates/aether_short_grass.json
 0a0f21b01afc7514adf77a09aca842eb1a0055b4 assets/aether_redux/blockstates/aevelium.json
 483c8ba025f1818d95319f96976dd85c91663f05 assets/aether_redux/blockstates/aevelium_roots.json
@@ -227,7 +227,7 @@ c7d50d7b460cea20b03782c99ec4d612e097b708 assets/aether_redux/blockstates/strippe
 389f3d306ea06d5ac20821ae7520268aaef3e672 assets/aether_redux/blockstates/stripped_glacia_wood_wall.json
 4fe88a9b9179dc60e483fbc68bcbddfa4fb0f28f assets/aether_redux/blockstates/veridium_block.json
 bd061ffcadb5bffb98c50b4d7337ff9e89abffcc assets/aether_redux/blockstates/veridium_chain.json
-63fa86cd35c7a2973413804851f6e7fb4cc24875 assets/aether_redux/blockstates/veridium_lantern.json
+3ff93dcbfc9c2ed2a527f5d5a07c74d371212cf8 assets/aether_redux/blockstates/veridium_lantern.json
 ebe2c9d2c0979ea33db372ee6a4379fbc593e034 assets/aether_redux/blockstates/veridium_ore.json
 510a26a2dbbab2c0d591e838768747da72e54e40 assets/aether_redux/blockstates/wyndsprouts.json
 0cb81a0396b0e21e2a5a4bc2fa859f4c2899921b assets/aether_redux/blockstates/wyndsprouts_crop.json
@@ -698,7 +698,8 @@ ba3d99e08fe95f364d046fd3713efbac729a6ed1 assets/aether_redux/models/block/golden
 1ddd69b6b15b3445d9aa9c536b3e46994c50fba9 assets/aether_redux/models/block/golden_leaf_pile_full.json
 db53f61c5e34608f7386e47dd5b2bcab03da00b8 assets/aether_redux/models/block/golden_vines.json
 bb29a0d27cb53bb6030587014d4c236245686bd7 assets/aether_redux/models/block/golden_vines_plant.json
-6b5c75a538b68da3ee9893c8f82e29c9015f16bb assets/aether_redux/models/block/hanging_veridium_lantern.json
+9f8ae16f85bbc40fc2e73e145bdf42aac76714c8 assets/aether_redux/models/block/hanging_veridium_lantern.json
+6b5c75a538b68da3ee9893c8f82e29c9015f16bb assets/aether_redux/models/block/hanging_veridium_lantern_chain.json
 a2293c7d59f833441ab43dcc69d98912854faf94 assets/aether_redux/models/block/holysilt.json
 d9946ef830c6fd630636b2e14984315a00100167 assets/aether_redux/models/block/iridia.json
 1cabb7582047deb7b9adc234f1f313092a253cf9 assets/aether_redux/models/block/jellyshroom.json
