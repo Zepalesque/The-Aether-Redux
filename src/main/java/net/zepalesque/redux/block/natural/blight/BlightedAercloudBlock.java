@@ -24,7 +24,7 @@ public class BlightedAercloudBlock extends AercloudBlock {
     public void entityInside(BlockState state, Level world, BlockPos pos, Entity entity) {
         super.entityInside(state, world, pos, entity);
         MobEffect effect = AetherEffects.INEBRIATION.get();
-        if (entity instanceof LivingEntity livingEntity && EquipmentUtil.hasCurio(livingEntity, ReduxItems.FEATHER_OF_WARDING.get())) {
+        if (entity instanceof LivingEntity livingEntity && !EquipmentUtil.hasCurio(livingEntity, ReduxItems.FEATHER_OF_WARDING.get())) {
             if (livingEntity.tickCount % (livingEntity.hasEffect(effect) ? 10 : 20) == 0) {
                 if (livingEntity.getType().is(ReduxTags.EntityTypes.BLIGHTED_MOBS)) {
                     livingEntity.heal(1.0F);
