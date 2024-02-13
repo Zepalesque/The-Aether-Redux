@@ -123,6 +123,7 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> LIGHTROOTS  = createKey(Folders.MISC + "lightroots");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLACIA_TREE = createKey(Folders.TREE + "glacia_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CRYSTAL_LEAF_TREE = createKey(Folders.TREE + "crystal_leaf_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CRYSTAL_RARE_FRUIT_TREE = createKey(Folders.TREE + "crystal_leaf_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_MUSHROOMS = createKey(Folders.TREE + "large_mushrooms");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_JELLYSHROOM = createKey(Folders.TREE + "large_jellyshroom");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LUMINA_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.LUMINA) + "_patch");
@@ -433,12 +434,20 @@ public class ReduxConfiguredFeatures {
                         new CrystalFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0), ConstantInt.of(6)),
                         new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT)).build());
 
+        register(context, CRYSTAL_RARE_FRUIT_TREE, Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        BlockStateProvider.simple(drops(Redux.WoodHandlers.CRYSTAL.log)),
+                        new CrystalTreeTrunkPlacer(7, 0, 0),
+                        new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                                .add(AetherFeatureStates.CRYSTAL_LEAVES, 9)
+                                .add(AetherFeatureStates.CRYSTAL_FRUIT_LEAVES, 1)),
+                        new CrystalFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0), ConstantInt.of(6)),
+                        new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT)).build());
+
         register(context, LIGHTROOTS, Feature.MULTIFACE_GROWTH,
                 new MultifaceGrowthConfiguration(ReduxBlocks.LIGHTROOTS.get(),
-                        20, false, false, true, 0.5F,
-                        HolderSet.direct(
-                                AetherBlocks.AETHER_DIRT.getHolder().orElseThrow()
-                        )));
+                        30, true, false, true, 0.5F,
+                        blocks.get(AetherTags.Blocks.AETHER_DIRT).orElseThrow());
 
         register(context, PURPLE_GLACIA_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
@@ -593,7 +602,7 @@ public class ReduxConfiguredFeatures {
 
         register(context, HIGHFIELDS_TREES, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(
-                        new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(AetherConfiguredFeatures.SKYROOT_TREE_CONFIGURATION),
+                        new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(ReduxConfiguredFeatures.CRYSTAL_RARE_FRUIT_TREE),
                                 PlacementUtils.filteredByBlockSurvival(AetherBlocks.SKYROOT_SAPLING.get())), 0.35F)
                 ),
                         PlacementUtils.inlinePlaced(
