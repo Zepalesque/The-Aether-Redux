@@ -30,8 +30,8 @@ public class BlightedAercloudBlock extends AercloudBlock {
                     livingEntity.heal(1.0F);
                 } else {
                     livingEntity.hurt(ReduxDamageTypes.source(world, ReduxDamageTypes.BLIGHT), 1.5F);
+                    livingEntity.addEffect(new MobEffectInstance(effect, 1510, 0));
                 }
-                livingEntity.addEffect(new MobEffectInstance(effect, 1510, 0));
             }
         }
     }
