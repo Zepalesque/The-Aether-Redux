@@ -1,3 +1,7 @@
 {
-  "parent": "aether_redux:block/jellyshroom_jelly_block"
+  "parent": "minecraft:block/cube_all",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "all": "aether_redux:block/natural/jellyshroom_jelly_block"
+  }
 }
