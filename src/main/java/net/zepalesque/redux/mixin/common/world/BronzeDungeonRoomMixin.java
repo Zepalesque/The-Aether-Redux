@@ -2,6 +2,7 @@ package net.zepalesque.redux.mixin.common.world;
 
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.world.structurepiece.bronzedungeon.BronzeDungeonRoom;
+import com.aetherteam.aether_genesis.entity.GenesisEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
@@ -30,10 +31,10 @@ public class BronzeDungeonRoomMixin {
                     if (Redux.aetherGenesisCompat() && ReduxConfig.COMMON.genesis_spawner_mobs.get() == SpawnerType.all)
                     {
                         float chance = random.nextFloat();
-                        spawner.setEntityId(chance <= 0.45F ? AetherEntityTypes.SENTRY.get() : chance <= 0.75F ? ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation("aether_genesis", "battle_sentry")) : ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation("aether_genesis", "tracking_golem")), random);
+                        spawner.setEntityId(chance <= 0.45F ? AetherEntityTypes.SENTRY.get() : chance <= 0.75F ? GenesisEntityTypes.BATTLE_SENTRY.get() : GenesisEntityTypes.TRACKING_GOLEM.get(), random);
                     } else if (Redux.aetherGenesisCompat() && ReduxConfig.COMMON.genesis_spawner_mobs.get() == SpawnerType.no_golems) {
                         float chance = random.nextFloat();
-                        spawner.setEntityId(chance <= 0.6F ? AetherEntityTypes.SENTRY.get() : ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation("aether_genesis", "battle_sentry")), random);
+                        spawner.setEntityId(chance <= 0.6F ? AetherEntityTypes.SENTRY.get() : GenesisEntityTypes.BATTLE_SENTRY.get(), random);
 
                     }else {
                         spawner.setEntityId(AetherEntityTypes.SENTRY.get(), random);
