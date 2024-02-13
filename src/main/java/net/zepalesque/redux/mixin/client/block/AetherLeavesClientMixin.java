@@ -14,7 +14,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.natural.ExtendedDistanceLeavesBlock;
-import net.zepalesque.redux.block.natural.highfields.FloweringFieldsproutLeafBlock;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.misc.ReduxTags;
@@ -62,7 +61,6 @@ public class AetherLeavesClientMixin extends LeafBlockClientMixin {
         } else {
             return null;
         }
-
     }
     
 }

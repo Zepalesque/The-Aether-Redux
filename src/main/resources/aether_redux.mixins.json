@@ -62,7 +62,6 @@
     "client.render.layer.MoaSaddleLayerMixin",
     "client.render.layer.SentryGlowLayerMixin",
     "client.render.model.CockatriceModelMixin",
-    "client.render.model.EntityModelMixin",
     "client.render.model.MoaModelMixin",
     "client.render.shader.GameRendererMixin",
     "client.render.shader.PostPassMixin"

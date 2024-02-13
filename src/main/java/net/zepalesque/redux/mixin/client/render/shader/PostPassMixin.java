@@ -21,7 +21,7 @@ public class PostPassMixin {
 
     @Shadow @Final private EffectInstance effect;
 
-    @Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/EffectInstance;apply()V", shift = At.Shift.BEFORE), method = "process")
+    @Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/EffectInstance;apply()V"), method = "process")
     private void processInvoke(float partialTicks, CallbackInfo ci) {
         Minecraft mc = Minecraft.getInstance();
         if (mc != null && mc.options.graphicsMode().get() == GraphicsStatus.FABULOUS && ReduxConfig.CLIENT.enable_adrenaline_postproccess.get()) {

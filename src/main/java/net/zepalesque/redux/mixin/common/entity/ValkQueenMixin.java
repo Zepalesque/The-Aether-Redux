@@ -11,7 +11,6 @@ import net.minecraft.world.item.ItemStack;
 import net.zepalesque.redux.item.ReduxItems;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Redirect;
 
 
 // TODO: Find a better way PLEASE this is bad implementation
