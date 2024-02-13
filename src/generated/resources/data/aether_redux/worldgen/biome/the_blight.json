@@ -32,8 +32,8 @@
     [
       "aether:aether_dirt_ore",
       "aether:icestone_ore",
-      "aether_redux:ore/decreased_ambrosium_ore",
-      "aether_redux:ore/increased_zanite_ore",
+      "aether_redux:ore/sparse_ambrosium_ore",
+      "aether_redux:ore/dense_zanite_ore",
       "aether:gravitite_ore_buried",
       "aether:gravitite_ore",
       "aether_redux:ore/blightmoss_holystone_ore"
@@ -55,7 +55,8 @@
     ],
     [
       "aether:cold_aercloud",
-      "aether:blue_aercloud"
+      "aether:blue_aercloud",
+      "aether_redux:misc/blighted_aercloud"
     ]
   ],
   "has_precipitation": false,

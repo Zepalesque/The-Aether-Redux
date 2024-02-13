@@ -30,8 +30,8 @@
     [
       "aether:aether_dirt_ore",
       "aether:icestone_ore",
-      "aether_redux:ore/increased_ambrosium_ore",
-      "aether_redux:ore/decreased_zanite_ore",
+      "aether_redux:ore/dense_ambrosium_ore",
+      "aether_redux:ore/sparse_zanite_ore",
       "aether:gravitite_ore_buried",
       "aether:gravitite_ore",
       "aether_redux:ore/gilded_holystone_ore"
@@ -52,7 +52,7 @@
     ],
     [
       "aether:cold_aercloud",
-      "aether_redux:misc/decreased_blue_aerclouds",
+      "aether_redux:misc/sparse_blue_aercloud",
       "aether:golden_aercloud"
     ]
   ],

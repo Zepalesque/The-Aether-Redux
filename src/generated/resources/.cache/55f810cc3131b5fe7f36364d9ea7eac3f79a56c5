@@ -1,9 +1,10 @@
-// 1.20.1	2024-02-08T13:48:24.3796909	Block States: aether_redux
+// 1.20.1	2024-02-12T19:00:49.1257171	Block States: aether_redux
 3b65fcf4de37be76dd1ac46b4118458043237e15 assets/aether_redux/blockstates/aether_short_grass.json
 0a0f21b01afc7514adf77a09aca842eb1a0055b4 assets/aether_redux/blockstates/aevelium.json
 483c8ba025f1818d95319f96976dd85c91663f05 assets/aether_redux/blockstates/aevelium_roots.json
 085316f47c581b2cc0c7eb98d21d30f132b26ddb assets/aether_redux/blockstates/aevelium_sprouts.json
 6d5a134587a37ec8ac1798d9ca3e527d0a1d99b9 assets/aether_redux/blockstates/aurum.json
+28b557391e24f7e86a3677068b535d34d2f7e787 assets/aether_redux/blockstates/blighted_aercloud.json
 389b83e3cb9855478c6014699a1f5feced048ea9 assets/aether_redux/blockstates/blighted_skyroot_leaves.json
 243b6c77f5f417c774792bab9ea73c45efaa0a63 assets/aether_redux/blockstates/blighted_skyroot_sapling.json
 9d57ef555bc991c38af82f5d60710b913acbe7dd assets/aether_redux/blockstates/blightmoss_block.json
@@ -242,6 +243,7 @@ f9bfee4d07042ab75175bee10707fa6aa67f1b57 assets/aether_redux/models/block/aeveli
 2c4392a8bdaf75bac8b9b2b98c6341bcabc6e52d assets/aether_redux/models/block/aevelium_snow.json
 6bd4120ea9574c7f2a87f01dd6945d956a3e1f57 assets/aether_redux/models/block/aevelium_sprouts.json
 52c487cbf08a6237d1d0c9a4b90a5d6f9c5362ca assets/aether_redux/models/block/aurum.json
+329e340b2d1e44a3306673392bcbab571bff28c4 assets/aether_redux/models/block/blighted_aercloud.json
 acec9b728d7ca55dff5eeef997227c43b0451396 assets/aether_redux/models/block/blighted_skyroot_leaves.json
 b898f58d6073883760a9891b1a3a54e5f5959812 assets/aether_redux/models/block/blighted_skyroot_sapling.json
 7a42bd20c9134e2251132a2ee9ef66875583078d assets/aether_redux/models/block/blightmoss_block.json

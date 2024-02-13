@@ -1,9 +1,10 @@
-// 1.20.1	2024-02-11T08:14:40.5307016	Loot Tables
+// 1.20.1	2024-02-12T19:00:49.1197174	Loot Tables
 9bb0a6fae9e80234bb0bad9086af314acf3e9894 data/aether_redux/loot_tables/blocks/aether_short_grass.json
 48b55d99420ce1afaca551876e87bdbccae62e08 data/aether_redux/loot_tables/blocks/aevelium.json
 b61ecadf10d3b065a1c8f05eea7b70d4ffcadfd3 data/aether_redux/loot_tables/blocks/aevelium_roots.json
 2425890534ab096b13370fed54e36a07e1fc0b45 data/aether_redux/loot_tables/blocks/aevelium_sprouts.json
 c6156555dc4897939b617dabc4521b7fa52feba0 data/aether_redux/loot_tables/blocks/aurum.json
+4cad00c5a24feee4e79d161f10561280bd26f5bb data/aether_redux/loot_tables/blocks/blighted_aercloud.json
 761fdc7bcbd04035f563fc96f119efb692a36278 data/aether_redux/loot_tables/blocks/blighted_skyroot_leaves.json
 320a7cf0dea8eab70e6a9539b396a7c9261f1eb6 data/aether_redux/loot_tables/blocks/blighted_skyroot_sapling.json
 09a8039dcbd304a3d2540ea4c4ebe0f8a7e3c1be data/aether_redux/loot_tables/blocks/blightmoss_block.json
@@ -238,7 +239,7 @@ ef05b4368c46e8f3e6cb052735d9f05aef4d2822 data/aether_redux/loot_tables/blocks/ve
 ff98b9fb26abee5615d05ea6a79362d916973b03 data/aether_redux/loot_tables/blocks/zanberry_bush.json
 86867eae7ff2912e7ceb4ec2bd295676f6a8d948 data/aether_redux/loot_tables/blocks/zanberry_shrub.json
 bde6f239a1a1807b129bf99dedd968b6b04c3175 data/aether_redux/loot_tables/blocks/zyatrix.json
-fdfd513ea4441ac298180d734d488d95fdaf37f4 data/aether_redux/loot_tables/entities/blightbunny.json
+d0753e06e1f2a8f2568f0513b09e7ac86f711942 data/aether_redux/loot_tables/entities/blightbunny.json
 b206108235b3499dfdc2ebe43b683efd7c86c392 data/aether_redux/loot_tables/entities/blightbunny_spawner.json
 51ea5d53b8e740ad6b8b20969dd7d4cf4a4d06f4 data/aether_redux/loot_tables/entities/cockatrice_spawner.json
 51907e20c44c8a04df04829f04976bce93583c11 data/aether_redux/loot_tables/entities/glimmercow.json

@@ -1,6 +1,7 @@
 {
   "values": [
     "aether:cockatrice",
+    "aether_redux:blightbunny",
     {
       "id": "aether_genesis:tempest",
       "required": false

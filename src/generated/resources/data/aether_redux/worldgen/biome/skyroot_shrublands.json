@@ -54,7 +54,7 @@
     ],
     [
       "aether:cold_aercloud",
-      "aether_redux:misc/decreased_blue_aerclouds",
+      "aether_redux:misc/sparse_blue_aercloud",
       "aether:golden_aercloud"
     ]
   ],
