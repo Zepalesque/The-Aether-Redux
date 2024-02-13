@@ -55,7 +55,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
         this.crossTintedOverlay(ReduxBlocks.IRIDIA.get(), "natural/");
         this.crossTintedOverlay(ReduxBlocks.XAELIA_FLOWERS.get(), "natural/");
-        this.tintableShortGrass(ReduxBlocks.AETHER_SHORT_GRASS.get(), "natural/");
+        this.tintableShortGrass(ReduxBlocks.SHORT_AETHER_GRASS.get(), "natural/");
         this.tintedPotOverlay(ReduxBlocks.POTTED_IRIDIA.get(), ReduxBlocks.IRIDIA.get(), "natural/");
         block(ReduxBlocks.GILDED_HOLYSTONE.get(), "natural/");
         wallBlock(ReduxBlocks.GILDED_HOLYSTONE_WALL.get(), ReduxBlocks.GILDED_HOLYSTONE.get(), "natural/");
@@ -513,9 +513,9 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.getVariantBuilder(block).forAllStates((state) -> {
             boolean enchanted = state.getValue(ReduxStates.ENCHANTED);
             if (enchanted) {
-                return ConfiguredModel.builder().modelFile(models().cross("enchanted_" + state.getValue(ReduxStates.GRASS_SIZE).getSerializedName()  + "_grass", modLoc("block/natural/enchanted_" + state.getValue(ReduxStates.GRASS_SIZE).getSerializedName()  + "_grass")).renderType("cutout")).build();
+                return ConfiguredModel.builder().modelFile(models().cross(state.getValue(ReduxStates.GRASS_SIZE).getSerializedName()  + "_enchanted_grass", modLoc("block/natural/enchanted_" + state.getValue(ReduxStates.GRASS_SIZE).getSerializedName()  + "_grass")).renderType("cutout")).build();
             }
-            return ConfiguredModel.builder().modelFile(models().singleTexture("aether_" + state.getValue(ReduxStates.GRASS_SIZE).getSerializedName() + "_grass", mcLoc(BLOCK_FOLDER + "/tinted_cross"), "cross", modLoc("block/natural/aether_" + state.getValue(ReduxStates.GRASS_SIZE).getSerializedName() + "_grass")).renderType("cutout")).build();       }       );
+            return ConfiguredModel.builder().modelFile(models().singleTexture(state.getValue(ReduxStates.GRASS_SIZE).getSerializedName() + "_aether_grass", mcLoc(BLOCK_FOLDER + "/tinted_cross"), "cross", modLoc("block/natural/aether_" + state.getValue(ReduxStates.GRASS_SIZE).getSerializedName() + "_grass")).renderType("cutout")).build();       }       );
     }
 
     public void tintedGrass(Supplier<? extends Block> block) {

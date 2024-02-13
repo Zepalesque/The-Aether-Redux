@@ -252,7 +252,7 @@ public class ReduxConfiguredFeatures {
                                 .add(drops(ReduxBlocks.BLIGHTSHADE), 11)
                                 .add(drops(ReduxBlocks.SPIROLYCTIL), 7)
                                 .add(drops(ReduxBlocks.BLIGHTMOSS_CARPET), 75)
-                                .add(drops(ReduxBlocks.AETHER_SHORT_GRASS), 150)
+                                .add(drops(ReduxBlocks.SHORT_AETHER_GRASS), 150)
                                 .add(drops(ReduxBlocks.LUXWEED), 120)
                 )));
         register(context, FUNGAL_VEGETATION, Feature.SIMPLE_BLOCK,
@@ -447,7 +447,7 @@ public class ReduxConfiguredFeatures {
         register(context, LIGHTROOTS, Feature.MULTIFACE_GROWTH,
                 new MultifaceGrowthConfiguration(ReduxBlocks.LIGHTROOTS.get(),
                         30, true, false, true, 0.5F,
-                        blocks.get(AetherTags.Blocks.AETHER_DIRT).orElseThrow());
+                        blocks.get(AetherTags.Blocks.AETHER_DIRT).orElseThrow()));
 
         register(context, PURPLE_GLACIA_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
@@ -625,7 +625,7 @@ public class ReduxConfiguredFeatures {
                 drops(ReduxBlocks.DIVINITE), 64, 0.0F));
 
         register(context, GRASS_PATCH_OVERRIDE, Feature.RANDOM_PATCH,
-                randomPatch(32, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.AETHER_SHORT_GRASS))));
+                randomPatch(32, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.SHORT_AETHER_GRASS))));
         register(context, TALL_GRASS_PATCH_OVERRIDE, Feature.NO_OP, FeatureConfiguration.NONE);
 
     }

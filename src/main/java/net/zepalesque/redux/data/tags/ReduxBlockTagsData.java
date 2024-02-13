@@ -280,7 +280,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         );
 
         this.tag(BlockTags.REPLACEABLE).add(
-                ReduxBlocks.AETHER_SHORT_GRASS.get()
+                ReduxBlocks.SHORT_AETHER_GRASS.get()
         );
 
 

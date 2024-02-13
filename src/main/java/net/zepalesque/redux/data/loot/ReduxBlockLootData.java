@@ -123,7 +123,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
 
         dropSelf(ReduxBlocks.IRIDIA.get());
         this.dropPottedContents(ReduxBlocks.POTTED_IRIDIA.get());
-        this.add(ReduxBlocks.AETHER_SHORT_GRASS.get(), shears());
+        this.add(ReduxBlocks.SHORT_AETHER_GRASS.get(), shears());
         this.dropSelfDouble(ReduxBlocks.GILDED_HOLYSTONE.get());
         this.add(ReduxBlocks.GILDED_HOLYSTONE_SLAB.get(), this::createSlabItemTable);
         this.dropSelf(ReduxBlocks.GILDED_HOLYSTONE_STAIRS.get());

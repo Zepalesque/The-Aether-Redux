@@ -119,8 +119,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addLore(ReduxItems.MOUSE_EAR_SOUP, "Mouse Ear Soup is a surprisingly good dish, but it will certainly not get you praise from most. However, while most people will raise their eyebrows wondering why in Veradex you have leather ears in a bowl of water, a select few will recognize your true culinary genious, gaining you their utmost and complete respect.");
 
 
-        addBlock(ReduxBlocks.AETHER_SHORT_GRASS, "Aether Grass");
-        addLore(ReduxBlocks.AETHER_SHORT_GRASS, "Blades of the Aether's grass. It feels slightly cool to the touch.");
+        addBlock(ReduxBlocks.SHORT_AETHER_GRASS, "Aether Grass");
+        addLore(ReduxBlocks.SHORT_AETHER_GRASS, "Blades of the Aether's grass. It feels slightly cool to the touch.");
 
         addBlock(ReduxBlocks.AEVELIUM, "Aevelium");
         addLore(ReduxBlocks.AEVELIUM, "A fungal grass-like growth that spreads across Aether Dirt. Found in the Cloudcaps.");

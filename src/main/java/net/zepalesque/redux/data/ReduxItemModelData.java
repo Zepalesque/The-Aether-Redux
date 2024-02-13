@@ -1,11 +1,9 @@
 package net.zepalesque.redux.data;
 
 import com.aetherteam.aether.data.providers.AetherItemModelProvider;
-import net.minecraft.client.renderer.block.model.ItemTransform;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.EggItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.level.ItemLike;
@@ -30,7 +28,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
     @Override
     protected void registerModels() {
 
-        itemBlockFlatCustomTexture(ReduxBlocks.AETHER_SHORT_GRASS, "natural/aether_medium_grass");
+        itemBlockFlatCustomTexture(ReduxBlocks.SHORT_AETHER_GRASS, "natural/aether_medium_grass");
         itemBlock(ReduxBlocks.HOLYSILT);
         itemBlock(ReduxBlocks.DIVINITE);
         itemBlock(ReduxBlocks.DIVINITE_SLAB);
