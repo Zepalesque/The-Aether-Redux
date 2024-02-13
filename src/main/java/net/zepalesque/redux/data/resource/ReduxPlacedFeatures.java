@@ -147,7 +147,7 @@ public class ReduxPlacedFeatures {
 
         register(context, BLIGHTED_AERCLOUD,
                 configuredFeatures.getOrThrow(ReduxConfiguredFeatures.BLIGHTED_AERCLOUD),
-                AetherPlacedFeatureBuilders.aercloudPlacement(8, 24, 24));
+                AetherPlacedFeatureBuilders.aercloudPlacement(32, 64, 24));
 
 
         register(context, SPARSE_AMBROSIUM_ORE, configuredFeatures.getOrThrow(AetherConfiguredFeatures.ORE_AMBROSIUM_CONFIGURATION),

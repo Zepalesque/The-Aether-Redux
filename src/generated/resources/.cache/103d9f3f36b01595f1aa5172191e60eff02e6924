@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-12T19:00:49.1557173	Registries
+// 1.20.1	2024-02-12T22:17:24.0767714	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 44b19724a3aca851b449582759fec56d16ea1ad6 data/aether/worldgen/configured_feature/golden_oak_tree.json
 ed5af58b49c3097be8598f4b57d2dd256fb1c93a data/aether/worldgen/configured_feature/grass_patch.json
@@ -130,7 +130,7 @@ d7287e18eb8e02821afa7312ad97c077d8c0ef10 data/aether_redux/worldgen/placed_featu
 2177105aa2600f9a146f67bc1ab5f59569155e01 data/aether_redux/worldgen/placed_feature/cave_biome/blightmoss_vegetation.json
 6901315a07394fe4b3dfa76947150e0b5d653fea data/aether_redux/worldgen/placed_feature/cave_biome/fungal_sparse_vegetation.json
 47d4326dd87c9b3e87c7ee92bcd1904048f193aa data/aether_redux/worldgen/placed_feature/cave_biome/fungal_vegetation.json
-443e5c19ce4fd344506d11317742242a58e8d287 data/aether_redux/worldgen/placed_feature/misc/blighted_aercloud.json
+e514d53bf8c0a5d6c6393f83d332d0cfd25f92cc data/aether_redux/worldgen/placed_feature/misc/blighted_aercloud.json
 e855eb9d9b78d82f80206e14dd9f1cc849497ce5 data/aether_redux/worldgen/placed_feature/misc/cloud_layer.json
 2cdb57bbf592d7f051c022af159a15cb3e4533fa data/aether_redux/worldgen/placed_feature/misc/dense_blue_aercloud.json
 09880845aa2e971e821fe19ce73d061e6439b18d data/aether_redux/worldgen/placed_feature/misc/lightroots.json
