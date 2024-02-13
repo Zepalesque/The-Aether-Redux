@@ -18,18 +18,18 @@ import java.util.Optional;
 @Mixin(AetherGrassBlock.class)
 public abstract class AetherGrassBlockMixin extends GrassBlockMixin {
 
-//    @Override
-//    protected boolean placeGrass(PlacedFeature instance, WorldGenLevel pLevel, ChunkGenerator pGenerator, RandomSource pRandom, BlockPos pPos, Operation<Boolean> original) {
-//
-//        Optional<Holder.Reference<PlacedFeature>> optional = pLevel.registryAccess().registryOrThrow(Registries.PLACED_FEATURE).getHolder(VegetationPlacements.GRASS_BONEMEAL);
-//        if (instance.equals(optional.get().value())) {
-//            if (pLevel.ensureCanWrite(pPos)) {
-//                pLevel.setBlock(pPos, ReduxBlocks.AETHER_SHORT_GRASS.get().defaultBlockState(), 3);
-//                return true;
-//            } else {
-//                return false;
-//            }
-//        }
-//        return super.placeGrass(instance, pLevel, pGenerator, pRandom, pPos, original);
-//    }
+    @Override
+    protected boolean placeGrass(PlacedFeature instance, WorldGenLevel pLevel, ChunkGenerator pGenerator, RandomSource pRandom, BlockPos pPos, Operation<Boolean> original) {
+
+        Optional<Holder.Reference<PlacedFeature>> optional = pLevel.registryAccess().registryOrThrow(Registries.PLACED_FEATURE).getHolder(VegetationPlacements.GRASS_BONEMEAL);
+        if (instance.equals(optional.get().value())) {
+            if (pLevel.ensureCanWrite(pPos)) {
+                pLevel.setBlock(pPos, ReduxBlocks.AETHER_SHORT_GRASS.get().defaultBlockState(), 3);
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return super.placeGrass(instance, pLevel, pGenerator, pRandom, pPos, original);
+    }
 }
