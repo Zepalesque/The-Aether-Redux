@@ -7,6 +7,7 @@ import net.minecraft.world.item.ItemStack;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.item.weapons.SubzeroCrossbowItem;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -28,6 +29,7 @@ public class HandItemMixin {
     }
 
 
+    @Unique
     private static ItemInHandRenderer.HandRenderSelection crossbowThingIdkAnymore(LocalPlayer pPlayer) {
         ItemStack itemstack = pPlayer.getUseItem();
         InteractionHand interactionhand = pPlayer.getUsedItemHand();
@@ -38,6 +40,7 @@ public class HandItemMixin {
         }
     }
 
+    @Unique
     private static boolean subzeroCharged(ItemStack pStack) {
         return pStack.is(ReduxItems.SUBZERO_CROSSBOW.get()) && SubzeroCrossbowItem.isCharged(pStack);
     }

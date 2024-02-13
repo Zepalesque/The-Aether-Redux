@@ -12,6 +12,8 @@ import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 
+/** @deprecated TODO Replace this mixin with a JS coremod, switch to injection when Mixin 0.8.6 releases with support for default method injection. */
+@Deprecated
 @Mixin(FrictionCapped.class)
 public interface FrictionCappedMixin {
 

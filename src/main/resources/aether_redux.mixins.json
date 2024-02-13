@@ -8,13 +8,11 @@
   "mixins": [
     "common.block.AetherGrassBlockMixin",
     "common.block.BlockBehaviorMixin",
-    "common.block.BlockPropertiesAccessor",
     "common.block.DoubleBlockMixin",
     "common.block.EnchantedAetherGrassBlockMixin",
     "common.block.FrictionCappedMixin",
     "common.block.GrassBlockMixin",
     "common.block.IForgeBlockQuicksoilBehaviorMixin",
-    "common.block.ParticleLeavesAccessor",
     "common.block.ParticleLeavesMixin",
     "common.block.QuicksoilBlockMixin",
     "common.block.ReduxWallBlockAccessor",
@@ -32,11 +30,9 @@
     "common.item.ItemMixin",
     "common.item.PickaxeItemMixin",
     "common.world.BiomeGenerationSettingsMixin",
-    "common.world.BronzeDungeonBuilderMixin",
     "common.world.BronzeDungeonRoomMixin",
     "common.world.ChunkAccessAccessor",
-    "common.world.GoldDungeonStructureMixin",
-    "common.world.NoiseRouterAccessor"
+    "common.world.GoldDungeonStructureMixin"
   ],
   "injectors": {
     "defaultRequire": 1
@@ -66,7 +62,6 @@
     "client.render.layer.MoaSaddleLayerMixin",
     "client.render.layer.SentryGlowLayerMixin",
     "client.render.model.CockatriceModelMixin",
-    "client.render.model.EntityModelMixin",
     "client.render.model.MoaModelMixin",
     "client.render.shader.GameRendererMixin",
     "client.render.shader.PostPassMixin"

@@ -20,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(CockatriceModel.class)
 public class CockatriceModelMixin extends BipedBirdModel<Cockatrice> {
 
-    @Unique public boolean useNewModel;
+    @Unique private boolean useNewModel;
 
     private CockatriceModelMixin(ModelPart root) {
         super(root);

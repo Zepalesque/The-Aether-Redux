@@ -106,6 +106,7 @@ repositories {
          dir 'libs'
      }
 
+    maven { url = "https://jitpack.io" }
     maven { url = "https://maven.blamejared.com" }
     maven { url = "https://maven.theillusivec4.top/" }
     maven { url = "https://www.cursemaven.com" }
@@ -131,6 +132,11 @@ dependencies {
 
     minecraft "net.neoforged:forge:${project.mc_version}-${project.neoforge_version}"
     annotationProcessor "org.spongepowered:mixin:${project.mixin_version}:processor"
+
+    compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:${project.mixinextras_version}"))
+    implementation(jarJar("io.github.llamalad7:mixinextras-forge:${project.mixinextras_version}")) {
+        jarJar.ranged(it, "[0.3.5,)")
+    }
 
     implementation fg.deobf("com.aetherteam.aether:aether:${project.aether_version}")
     implementation fg.deobf("com.aetherteam.nitrogen:nitrogen_internals:${project.nitrogen_version}")
