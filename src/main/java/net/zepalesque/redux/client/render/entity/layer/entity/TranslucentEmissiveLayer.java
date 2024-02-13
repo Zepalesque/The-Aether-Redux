@@ -13,7 +13,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 
-public class TranslucentEmissiveLayer<T extends Entity, M extends EntityModel<T>> extends EyesLayer<T, M> {
+public class TranslucentEmissiveLayer<T extends LivingEntity, M extends EntityModel<T>> extends EyesLayer<T, M> {
 
     private final ResourceLocation texture;
     public TranslucentEmissiveLayer(RenderLayerParent<T, M> renderer, ResourceLocation texture) {
@@ -24,10 +24,7 @@ public class TranslucentEmissiveLayer<T extends Entity, M extends EntityModel<T>
     @Override
     public void render(PoseStack poseStack, MultiBufferSource buffer, int packedLight, T entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         VertexConsumer vertexconsumer = buffer.getBuffer(this.renderType());
-        int overlay = OverlayTexture.NO_OVERLAY;
-        if (entity instanceof LivingEntity le) {
-            overlay = LivingEntityRenderer.getOverlayCoords(le, this.getWhiteOverlayProgress(entity, partialTicks));
-        }
+        int overlay = LivingEntityRenderer.getOverlayCoords(entity, this.getWhiteOverlayProgress(entity, partialTicks));
         this.getParentModel().renderToBuffer(poseStack, vertexconsumer, 15728640, overlay, 1.0F, 1.0F, 1.0F, 1.0F);
     }
 
