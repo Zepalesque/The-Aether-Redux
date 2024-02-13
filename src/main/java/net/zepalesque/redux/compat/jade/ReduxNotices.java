@@ -5,6 +5,7 @@ import com.google.common.collect.ImmutableMap;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
+import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.config.ReduxConfig;
 import snownee.jade.api.*;
 import snownee.jade.api.config.IPluginConfig;
@@ -32,10 +33,14 @@ public enum ReduxNotices implements IEntityComponentProvider, IBlockComponentPro
         }
     }
 
+    private static final ResourceLocation id = Redux.locate("modification_notices");
+
     @Override
     public ResourceLocation getUid() {
-        return null;
+        return id;
     }
+
+
 
     @Override
     public void appendTooltip(ITooltip iTooltip, BlockAccessor blockAccessor, IPluginConfig iPluginConfig) {
