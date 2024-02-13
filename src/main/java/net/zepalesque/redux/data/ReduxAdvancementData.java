@@ -53,17 +53,6 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
 
 
             Advancement.Builder.advancement()
-                    .parent(new ResourceLocation(Aether.MODID, "enter_aether"))
-                    .display(AetherItems.SKYROOT_PICKAXE.get(),
-                            Component.translatable("advancement.aether_redux.obtain_skyroot_tool"),
-                            Component.translatable("advancement.aether_redux.obtain_skyroot_tool.desc"),
-                            null,
-                            FrameType.TASK, true, true, false)
-                    .addCriterion("obtain_skyroot_tool", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ReduxTags.Items.IS_SKYROOT_TOOL).build()))
-                    .save(consumer, Redux.locate("obtain_skyroot_tool"), existingFileHelper);
-
-
-            Advancement.Builder.advancement()
                     .parent(new ResourceLocation(Aether.MODID, "bronze_dungeon"))
                     .display(ReduxItems.AIRBOUND_CAPE.get(),
                             Component.translatable("advancement.aether_redux.double_jump"),

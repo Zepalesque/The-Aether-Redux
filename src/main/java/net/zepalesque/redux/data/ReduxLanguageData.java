@@ -581,39 +581,37 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addGuiText("jei.infusion_charge", "Increases Infusion Level by %s");
         addGuiText("jei.infusion", "Infusion");
 
-        addAdvancement("fall_from_aether", "Falling with Style! [Aether: Redux]");
+        addAdvancement("fall_from_aether", "Falling with Style! [Redux]");
         addAdvancementDesc("fall_from_aether", "Fall out of the Aether");
-        addAdvancement("obtain_skyroot_tool", "Twice the drops, double the loot! [Aether: Redux]");
-        addAdvancementDesc("obtain_skyroot_tool", "Obtain a Skyroot tool, which doubles the drops of mobs or blocks.");
-        addAdvancement("infuse_veridium", "Next Level [Aether: Redux]");
+        addAdvancement("infuse_veridium", "Next Level [Redux]");
         addAdvancementDesc("infuse_veridium", "Infuse a Veridium weapon or tool by right-clicking it with an Ambrosium Shard");
-        addAdvancement("enter_blight", "Shattered Glass [Aether: Redux]");
+        addAdvancement("enter_blight", "Shattered Glass [Redux]");
         addAdvancementDesc("enter_blight", "Enter the Blight biome, a dangerous zone filled with hazardous plants and creatures");
-        addAdvancement("convert_with_blighted_spores", "Dark Magic [Aether: Redux]");
+        addAdvancement("convert_with_blighted_spores", "Dark Magic [Redux]");
         addAdvancementDesc("convert_with_blighted_spores", "Blight a block by right-clicking it while holding some Blighted Spores");
-        addAdvancement("obtain_subzero_crossbow", "Below Zero [Aether: Redux]");
+        addAdvancement("obtain_subzero_crossbow", "Below Zero [Redux]");
         addAdvancementDesc("obtain_subzero_crossbow", "Obtain the Subzero Crossbow, a chilling ranged weapon found in the Gold Dungeon");
 
-        addAdvancement("feather_of_warding", "Blight's Bane [Aether: Redux]");
+        addAdvancement("feather_of_warding", "Blight's Bane [Redux]");
         addAdvancementDesc("feather_of_warding", "Obtain the Feather of Warding, a useful accessory that gives the wearer protection from many Blight-related dangers");
 
-        addAdvancement("double_jump", "Take THAT, Physics! [Aether: Redux]");
+        addAdvancement("double_jump", "Take THAT, Physics! [Redux]");
         addAdvancementDesc("double_jump", "Obtain an Airbound cape from a Bronze Dungeon and use it to double-jump");
 //        addAdvancement("mine_extended", "Telekinesis");
 //        addAdvancementDesc("mine_extended", "Obtain the Valkyrie Ring from the Silver Dungeon and use it to mine a block farther away than you could before");
-        addAdvancement("kill_sheepuff_with_fireball", "Pyromaniac [Aether: Redux]");
+        addAdvancement("kill_sheepuff_with_fireball", "Pyromaniac [Redux]");
         addAdvancementDesc("kill_sheepuff_with_fireball", "Obtain the Phoenix Emblem from the Gold Dungeon and kill a Sheepuff with a fireball");
 
-        addAdvancement("enter_highfields", "Prismacolor Photosynthesis [Aether: Redux]");
+        addAdvancement("enter_highfields", "Prismacolor Photosynthesis [Redux]");
         addAdvancementDesc("enter_highfields", "Enter the Highfields, a biome filled with colorful flora and abundant fauna");
 
-        addAdvancement("enter_gilded_groves", "All That Glitters [Aether: Redux]");
+        addAdvancement("enter_gilded_groves", "All That Glitters [Redux]");
         addAdvancementDesc("enter_gilded_groves", "Enter the Gilded Groves, a golden forest filled with Golden Amber");
 
-        addAdvancement("enter_frosted_forests", "Walking in a Winter Wonderland [Aether: Redux]" );
+        addAdvancement("enter_frosted_forests", "Walking in a Winter Wonderland [Redux]" );
         addAdvancementDesc("enter_frosted_forests", "Enter the Frosted Forests, an ice-cold forest covered in snow");
 
-        addAdvancement("enter_cloudcap_jungle", "Moolander [Aether: Redux]");
+        addAdvancement("enter_cloudcap_jungle", "Moolander [Redux]");
         addAdvancementDesc("enter_cloudcap_jungle", "Enter the Cloudcaps, a fungal forest with various types of mushrooms");
 
         addDeath(ReduxDamageTypes.ZANBERRY_BUSH, "%1$s was poked to death by a zanberry bush, how sad ):");
