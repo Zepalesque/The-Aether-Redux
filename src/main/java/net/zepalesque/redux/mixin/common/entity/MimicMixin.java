@@ -17,11 +17,17 @@ public class MimicMixin {
 
     @WrapWithCondition(method = "spawnAnim", at = @At(value = "INVOKE", target = "Lcom/aetherteam/aether/entity/EntityUtil;spawnSummoningExplosionParticles(Lnet/minecraft/world/entity/Entity;)V"))
     private boolean open(Entity entity) {
-        return !ReduxConfig.COMMON.smaller_mimic_hitbox.get();
+        return this.openMimic();
     }
 
     @WrapWithCondition(method = "handleEntityEvent", at = @At(value = "INVOKE", target = "Lcom/aetherteam/aether/entity/EntityUtil;spawnSummoningExplosionParticles(Lnet/minecraft/world/entity/Entity;)V"))
     private boolean openEvent(Entity entity) {
+        return this.openMimic();
+    }
+
+    @Unique
+    private boolean openMimic() {
+        MimicAnimation.get((Mimic) (Object) this).ifPresent(MimicAnimation::open);
         return !ReduxConfig.COMMON.smaller_mimic_hitbox.get();
     }
 }
