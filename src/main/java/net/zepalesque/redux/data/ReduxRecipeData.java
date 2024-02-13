@@ -397,6 +397,30 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .unlockedBy("has_mouse_ear_cap", inventoryTrigger(ItemPredicate.Builder.item()
                 .of(ReduxTags.Items.MOUSE_EAR_CAPS).build()))::save).build(consumer, Redux.locate("mouse_ear_soup"));
 
+
+        ConditionalRecipe.builder().addCondition(
+                dc(Conditions.DEEP)
+        ).addRecipe(
+                ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.AETHER_COARSE_DIRT.get(), 4)
+                        .define('D', AetherBlocks.AETHER_DIRT.get())
+                        .define('H', ReduxBlocks.HOLYSILT.get())
+                        .pattern("DH")
+                        .pattern("HD")
+                        .unlockedBy(getHasName(ReduxBlocks.HOLYSILT.get()), has(ReduxBlocks.HOLYSILT.get()))
+                        ::save).build(consumer, Redux.locate("deep_aether_coarse_dirt"));
+
+        ConditionalRecipe.builder().addCondition(
+                not(dc(Conditions.DEEP))
+        ).addRecipe(
+                ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ReduxBlocks.COARSE_AETHER_DIRT.get(), 4)
+                        .define('D', AetherBlocks.AETHER_DIRT.get())
+                        .define('H', ReduxBlocks.HOLYSILT.get())
+                        .pattern("DH")
+                        .pattern("HD")
+                        .unlockedBy(getHasName(ReduxBlocks.HOLYSILT.get()), has(ReduxBlocks.HOLYSILT.get()))
+                        ::save).build(consumer, Redux.locate("redux_coarse_dirt"));
+
+
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ReduxItems.WYNDSPROUT_BAGEL.get(), 1)
                 .define('B', ReduxItems.BUNDLE_OF_WYNDSPROUTS.get())
                 .pattern(" B ")

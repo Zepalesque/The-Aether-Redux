@@ -68,8 +68,10 @@ public class ReduxCreativeTabs {
             putAfter(AetherBlocks.HOLYSTONE, ReduxBlocks.DIVINITE, event);
             putAfter(ReduxBlocks.DIVINITE, ReduxBlocks.HOLYSILT, event);
 
-            putAfter(AetherBlocks.AETHER_DIRT, ReduxBlocks.COARSE_AETHER_DIRT, event);
-
+            if (!Redux.deepAetherCompat()) {
+                putAfter(AetherBlocks.AETHER_DIRT, ReduxBlocks.COARSE_AETHER_DIRT, event);
+            }
+            
             putAfter(AetherBlocks.AETHER_FARMLAND, ReduxBlocks.SHORT_AETHER_GRASS, event);
             putAfter(ReduxBlocks.SHORT_AETHER_GRASS, ReduxBlocks.AEVELIUM_ROOTS, event);
             putAfter(ReduxBlocks.SHORT_AETHER_GRASS, ReduxBlocks.SPLITFERN, event);
