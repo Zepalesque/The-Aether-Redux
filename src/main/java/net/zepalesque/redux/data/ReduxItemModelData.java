@@ -88,7 +88,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         item(ReduxItems.MOUSE_EAR_SOUP, "food/");
         item(ReduxItems.OATMEAL, "food/");
         itemBlock(ReduxBlocks.COARSE_AETHER_DIRT);
-        itemBlock(ReduxBlocks.BLIGHTED_AERCLOUD);
+        aercloudItem(ReduxBlocks.BLIGHTED_AERCLOUD.get());
         item(ReduxItems.BLIGHTBUNNY_FANG, "materials/");
 
         itemBlock(ReduxBlocks.SHELL_SHINGLES);
@@ -144,7 +144,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         this.itemBlockFlat(ReduxBlocks.AEVELIUM_ROOTS.get(), "natural/");
         this.item(ReduxBlocks.AEVELIUM_SPROUTS.get().asItem(), "misc/");
 
-        this.itemBlock(ReduxBlocks.JELLYSHROOM_JELLY_BLOCK.get());
+        this.aercloudItem(ReduxBlocks.JELLYSHROOM_JELLY_BLOCK.get());
 
         this.itemBlock(ReduxBlocks.BLIGHTMOSS_BLOCK.get());
         this.itemBlock(ReduxBlocks.BLIGHTMOSS_CARPET.get());
