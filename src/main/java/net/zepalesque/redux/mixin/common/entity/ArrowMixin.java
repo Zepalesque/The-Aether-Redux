@@ -17,7 +17,7 @@ public class ArrowMixin
     @Shadow
     protected boolean inGround;
 
-    @Inject(method = "tick", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/world/entity/projectile/Projectile;tick()V"))
+    @Inject(method = "tick", at = @At("TAIL"))
     private void tick(CallbackInfo ci) {
         AbstractArrow arrow = (AbstractArrow) (Object) this;
         SubzeroArrow.get(arrow).ifPresent(subzeroArrow -> {
