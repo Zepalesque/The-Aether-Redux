@@ -271,7 +271,7 @@ public class ReduxBlocks {
 
 
     public static final RegistryObject<SaplingBlock> PURPLE_GLACIA_SAPLING = register("purple_glacia_sapling", () ->
-            new SaplingBlock(new GlaciaTree(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING))
+            new SaplingBlock(new PurpleGlaciaTree(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING))
     );
     public static final RegistryObject<FlowerPotBlock> POTTED_PURPLE_GLACIA_SAPLING = BLOCKS.register("purple_potted_glacia_sapling",
             () -> new FlowerPotBlock(() ->
