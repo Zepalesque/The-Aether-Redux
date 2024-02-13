@@ -34,7 +34,7 @@ public class MoaAnimationCapability implements MoaAnimation {
     @Override
     public void handleLegAnim() {
         if (this.getMoa().level().isClientSide()) {
-            this.prevLegAnim = Byte.valueOf(this.legAnim);
+            this.prevLegAnim = this.legAnim;
             if (!this.moa.isEntityOnGround() && this.legAnim < 5) {
                 this.legAnim++;
             }
