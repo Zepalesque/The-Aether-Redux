@@ -1,10 +1,10 @@
-// 1.20.1	2024-02-12T19:00:49.1537181	Tags for minecraft:block mod id aether_redux
+// 1.20.1	2024-02-13T18:25:47.2727134	Tags for minecraft:block mod id aether_redux
 8f59d0f2e59cb5eca343062c21759ff8593f2e46 data/aether/tags/blocks/aerclouds.json
 e6adebf67a77ca9d3e2dc5d5c5d11e9ac045edf6 data/aether/tags/blocks/aether_animals_spawnable_on.json
 c908900e7ce36af9dbedd9856d4616184ee8ab55 data/aether/tags/blocks/aether_dirt.json
 be858bbcc6c70f54eda7d60496915fa5aef21064 data/aether/tags/blocks/holystone.json
 3430a77944d334be13ce18f710fdbf73bdf8e971 data/aether/tags/blocks/sentry_blocks.json
-31cd6feb4cdf01d148409e448f14fb7916b430dc data/aether/tags/blocks/treated_as_aether_block.json
+f664d52dd923f909b63b81e900d0bee241899ff7 data/aether/tags/blocks/treated_as_aether_block.json
 85b1ad865db965e78fb0da827f9f619ffe9f5878 data/aether_redux/tags/blocks/aether_carver_replaceables.json
 fd01915c57cee8effe17fe38cbedcefa19a98fb3 data/aether_redux/tags/blocks/aether_moss_replaceables.json
 edd28d843e4d50fffcd62491dda0fa5e4ba1749b data/aether_redux/tags/blocks/blightwillow_logs.json
@@ -35,7 +35,7 @@ d9480a1acd4c6fd1bb7ea1600100de101e83cbc3 data/minecraft/tags/blocks/mineable/axe
 157018c11dd661fb28ac51f3536b64843c26cc51 data/minecraft/tags/blocks/mushroom_grow_block.json
 b79514a8b5c826d6a8f58e263a531ca73b575041 data/minecraft/tags/blocks/needs_stone_tool.json
 945c56b8e0d8affefca486d4bab686d6f79d0d06 data/minecraft/tags/blocks/planks.json
-21dcfc7ea866b1daa9bf6481745656f739282ecc data/minecraft/tags/blocks/replaceable.json
+a733f76717ee8a393077c5343948f1a0f97a5f86 data/minecraft/tags/blocks/replaceable.json
 6eac6dbfe5d5e313a811b717227cfb474fba506a data/minecraft/tags/blocks/saplings.json
 437b773a916ddc0e46d095bca4afc7ff1be914ee data/minecraft/tags/blocks/slabs.json
 673f5ae06d6450cd2de78d16fbda2d7fe1357d56 data/minecraft/tags/blocks/stairs.json

@@ -1,0 +1,37 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "aether_redux:data_recipe_condition",
+          "data_recipe_condition": {
+            "condition": "aether_redux:mod_loaded",
+            "mod_id": "deep_aether"
+          }
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "key": {
+          "D": {
+            "item": "aether:aether_dirt"
+          },
+          "H": {
+            "item": "aether_redux:holysilt"
+          }
+        },
+        "pattern": [
+          "DH",
+          "HD"
+        ],
+        "result": {
+          "count": 4,
+          "item": "deep_aether:aether_coarse_dirt"
+        },
+        "show_notification": true
+      }
+    }
+  ]
+}

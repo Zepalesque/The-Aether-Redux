@@ -22,7 +22,7 @@
       {
         "chance": 0.35,
         "feature": {
-          "feature": "aether:skyroot_tree",
+          "feature": "aether_redux:trees/crystal_leaf_tree",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",

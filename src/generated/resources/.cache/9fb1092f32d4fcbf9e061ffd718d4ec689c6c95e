@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-12T19:00:49.1597189	Recipes
+// 1.20.1	2024-02-13T18:25:47.2827153	Recipes
 028a41c44667802045298aed21a46f931203df96 data/aether/advancements/recipes/building_blocks/angelic_stone.json
 a49c9d5d0232fb78da74b8a0551483991e22b8c9 data/aether/recipes/angelic_stone.json
 94dc065fa9db175a9df14a38fb02767fe57f9007 data/aether_redux/advancements/recipes/blightwillow_log_wall.json
@@ -277,6 +277,7 @@ aae7852bb2e18b42523da23f33ee19e94995526b data/aether_redux/recipes/crystal_sign.
 f141db9c0f5928a879bc857678bd73aa503c2235 data/aether_redux/recipes/crystal_trapdoor.json
 61d7c1add74de70a7aef521441a6e40d1af264f9 data/aether_redux/recipes/crystal_wood.json
 b009e31f7c9e97d9b88256143f89d3f35a26591e data/aether_redux/recipes/crystal_wood_wall.json
+05cc2e9bc9a7c23409228f59f338d800c1916793 data/aether_redux/recipes/deep_aether_coarse_dirt.json
 3cf90d842cef8aa574f5abf6814ead25c4bcdc07 data/aether_redux/recipes/divinite_slab.json
 55a6eda996397889fe8195ab907ba2541dd66fc1 data/aether_redux/recipes/divinite_slab_stonecutting.json
 326a91082ca3c183fd76477bc15d3b0f54707992 data/aether_redux/recipes/divinite_stairs.json
@@ -375,6 +376,7 @@ ab97a5cf5321d1008eabe1a0f40e61361ecd0f15 data/aether_redux/recipes/jellyshroom_s
 dc51845be2b0b2f72a4b6283e65074a8aef9a259 data/aether_redux/recipes/oatmeal.json
 6a22b6c6293d12f5a9a62207ef19dd3d6d6a61b3 data/aether_redux/recipes/raw_veridium_block.json
 6390228529b203ebc3053b1491fd112be2fdff54 data/aether_redux/recipes/raw_veridium_from_raw_veridium_block.json
+c165eb41475030e3ba4dfe0dba02e441dafda163 data/aether_redux/recipes/redux_coarse_dirt.json
 514573c94785e22d40abf9487c0377c7cd1d586c data/aether_redux/recipes/ring_of_wisdom.json
 609f0ec0f83bdc58b5697c5f6515a28bec8abdb0 data/aether_redux/recipes/sentry_ring.json
 172607a200c1d44e494bd5b9c89db8fdf3e8cd49 data/aether_redux/recipes/shell_shingles.json

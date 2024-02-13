@@ -27,7 +27,7 @@
         },
         {
           "data": {
-            "Name": "aether_redux:aether_short_grass",
+            "Name": "aether_redux:short_aether_grass",
             "Properties": {
               "enchanted": "false",
               "grass_size": "medium"

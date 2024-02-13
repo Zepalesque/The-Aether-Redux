@@ -2,11 +2,11 @@
   "type": "minecraft:multiface_growth",
   "config": {
     "block": "aether_redux:lightroots",
-    "can_be_placed_on": "aether:aether_dirt",
+    "can_be_placed_on": "#aether:aether_dirt",
     "can_place_on_ceiling": false,
-    "can_place_on_floor": false,
+    "can_place_on_floor": true,
     "can_place_on_wall": true,
     "chance_of_spreading": 0.5,
-    "search_range": 20
+    "search_range": 30
   }
 }
