@@ -77,9 +77,9 @@ public class SheepuffReduxModel extends QuadrupedModel<Sheepuff> {
         this.headXRot = sheepuff.getHeadEatAngleScale(partialTicks);
         this.head.xRot = this.headXRot;
         float hangSwing = Mth.cos(limbSwing * 0.6662F * 0.5F + (float) Math.PI) * 0.0625F * limbSwingAmount;
-        float hangWave = MathUtil.breathe(sheepuff, partialTicks, 2F, 1F, (float) (Math.PI * 0.75));
-        float wave1 = MathUtil.breathe(sheepuff, partialTicks, 1.5F, 2F, 0F);
-        float wave2 = MathUtil.breathe(sheepuff, partialTicks, 1.5F, 2F, (float) (Math.PI * 0.25));
+        float hangWave = MathUtil.breathe(sheepuff, partialTicks, 0.5F + (3.5F * limbSwingAmount), 1F, (float) (Math.PI * 0.75));
+        float wave1 = MathUtil.breathe(sheepuff, partialTicks, 0.4F + (2.6F * limbSwingAmount), 2F, 0F);
+        float wave2 = MathUtil.breathe(sheepuff, partialTicks, 0.4F + (2.6F * limbSwingAmount), 2F, (float) (Math.PI * 0.25));
         this.wisp_left.yRot = wave1 - (this.head.yRot  * 0.5f);
         this.wisp_right.yRot = -wave2 - (this.head.yRot  * 0.5f);
 //        this.wisp_left2.yRot = wave2 - (this.head.yRot  * 0.5f);
