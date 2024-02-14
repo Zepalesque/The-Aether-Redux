@@ -87,6 +87,7 @@ import net.zepalesque.redux.network.ReduxPacketHandler;
 import net.zepalesque.redux.recipe.ReduxRecipeTypes;
 import net.zepalesque.redux.recipe.condition.DataRecipeCondition;
 import net.zepalesque.redux.recipe.serializer.ReduxRecipeSerializers;
+import net.zepalesque.redux.util.function.QuadConsumer;
 import net.zepalesque.redux.world.biome.ReduxRegion;
 import net.zepalesque.redux.world.biome.ReduxSurfaceData;
 import net.zepalesque.redux.world.biome.modifier.ReduxBiomeModifierSerializers;
@@ -295,7 +296,10 @@ public class Redux
             if (ancientAetherCompat()) {
                 this.setupMandatoryDataPack(event, "data/ancient_aether_data", "Redux - Ancient Aether Tweaks", "Small tweaks to the Ancient Aether Addon");
             }
-            this.setupBuiltinDatapack(event, "data/cloudbed", "Redux - Cloudbed", "Highlands-like Cloudbed");
+
+            QuadConsumer<AddPackFindersEvent, String, String, String> func = ReduxConfig.COMMON.apply_cloud_layer_pack.get() ? this::setupBuiltinDatapack : this::setupOptionalDatapack;
+            func.accept(event, "data/cloudbed", "Redux - Cloudbed", "Highlands-like Cloudbed");
+
 
             if (ReduxConfig.COMMON.bronze_boss_room.get() != BossRoomType.classic) { this.setupBuiltinDatapack(event, "data/dungeon/boss_room/" + ReduxConfig.COMMON.bronze_boss_room.get().getSerializedName(), "Redux - Bronze Boss Room", "Boss Room Override"); }
             if (ReduxConfig.COMMON.bronze_chest_room.get() != ChestRoomType.classic) { this.setupBuiltinDatapack(event, "data/dungeon/chest_room/" + ReduxConfig.COMMON.bronze_chest_room.get().getSerializedName(), "Redux - Bronze Chest Room", "Chest Room Override"); }

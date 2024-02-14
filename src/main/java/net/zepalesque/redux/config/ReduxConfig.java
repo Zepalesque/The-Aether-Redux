@@ -72,6 +72,8 @@ public class ReduxConfig {
         public final ForgeConfigSpec.EnumValue<ChestRoomType> bronze_chest_room;
         public final ForgeConfigSpec.EnumValue<LobbyType> bronze_lobby;
 
+        public final ForgeConfigSpec.BooleanValue apply_cloud_layer_pack;
+
         public Common(ForgeConfigSpec.Builder builder) {
             builder.push("Gameplay Changes");
             this.cockatrice_ai_improvements = builder.comment("Makes Cockatrices shoot at you and chase you if they hit you. Requires world restart to refresh existing mob AI.").worldRestart().translation("config.aether_redux.gameplay.cockatrice_ai").define("Improved Cockatrice Behavior", true);
@@ -82,6 +84,9 @@ public class ReduxConfig {
             this.change_double_plant_hitbox = builder.comment("Changes the hitboxes of vanilla double plants. Disable if it causes odd behavior.").translation("config.aether_redux.gameplay.change_double_plant_hitbox").define("Change Double Plant Hitboxes", true);
             this.better_conversion_sounds = builder.comment("Makes blockstate conversion sounds (ambrosium, swet ball) better").translation("config.aether_redux.gameplay.better_conversion_sounds").define("Better Conversion Sounds", true);
             this.raw_gravitite = builder.comment("Makes Gravitite Ore drop Raw Gravitite when mined.").translation("config.aether_redux.gameplay.raw_gravitite").define("Raw Gravitite", true);
+            builder.pop();
+            builder.push("Datapack Application");
+            this.apply_cloud_layer_pack = builder.comment("Whether or not to automatically add the Cloud Layer datapack.").translation("config.aether_redux.datapack.apply_cloud_layer_pack").define("Cloud Layer Datapack", true);
             builder.pop();
             builder.push("Visual Changes");
             this.better_water_color = builder.comment("Improves the water color of Aether biomes, making the color match the rest of the dimension better").translation("config.aether_redux.visual.better_water_color").define("Better Water Color", true);
