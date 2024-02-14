@@ -19,9 +19,6 @@ public class FlyingCowReduxModel<T extends Entity> extends QuadrupedModel<T> {
 
     }
 
-
-
-
     public static LayerDefinition createBodyLayer() {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();
