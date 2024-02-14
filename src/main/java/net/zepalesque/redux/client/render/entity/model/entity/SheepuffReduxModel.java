@@ -6,6 +6,8 @@ import net.minecraft.client.model.QuadrupedModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.util.Mth;
+import net.zepalesque.redux.util.math.MathUtil;
 
 public class SheepuffReduxModel extends QuadrupedModel<Sheepuff> {
 
@@ -58,17 +60,30 @@ public class SheepuffReduxModel extends QuadrupedModel<Sheepuff> {
 
         wisp_right.addOrReplaceChild("string_right", CubeListBuilder.create().texOffs(44, -6).mirror().addBox(0.0F, -1.5F, 0.0F, 0.0F, 4.0F, 10.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, -0.5F, 0.0F, 0.0F, -0.2618F, 0.0F));
 
-        return LayerDefinition.create(meshdefinition, 64, 32);
-    }
+        partdefinition.addOrReplaceChild("body", CubeListBuilder.create(), PartPose.offset(-3.0F, 12.0F, 7.0F));
 
-    public void prepareMobModel(Sheepuff sheepuff, float limbSwing, float limbSwingAmount, float partialTicks) {
-        super.prepareMobModel(sheepuff, limbSwing, limbSwingAmount, partialTicks);
-        this.head.y = 6.0F + sheepuff.getHeadEatPositionScale(partialTicks) * 9.0F;
-        this.headXRot = sheepuff.getHeadEatAngleScale(partialTicks);
+        return LayerDefinition.create(meshdefinition, 64, 32);
     }
 
     public void setupAnim(Sheepuff sheepuff, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
         super.setupAnim(sheepuff, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
         this.head.xRot = this.headXRot;
+
+        float partialTicks = ageInTicks % 1;
+
+        this.head.y = 6.0F + sheepuff.getHeadEatPositionScale(partialTicks) * 9.0F;
+        this.headXRot = sheepuff.getHeadEatAngleScale(partialTicks);
+        float hangSwing = Mth.cos(limbSwing * 0.6662F * 0.5F + (float) Math.PI) * 0.0625F * limbSwingAmount;
+        float hangWave = MathUtil.breathe(sheepuff, partialTicks, 2F, 1F, (float) (Math.PI * 0.75));
+        float wave1 = MathUtil.breathe(sheepuff, partialTicks, 1.5F, 2F, 0F);
+        float wave2 = MathUtil.breathe(sheepuff, partialTicks, 1.5F, 2F, (float) (Math.PI * 0.25));
+        this.wisp_left.yRot = wave1 - (this.head.yRot  * 0.5f);
+        this.wisp_right.yRot = -wave2 - (this.head.yRot  * 0.5f);
+//        this.wisp_left2.yRot = wave2 - (this.head.yRot  * 0.5f);
+//        this.wisp_right2.yRot = -wave2 - (this.head.yRot  * 0.5f);
+        this.wisp_left.xRot = Math.max( -(this.head.xRot * 0.5F), 0F);
+        this.wisp_right.xRot = Math.min( -(this.head.xRot * 0.5F), 0F);
+        this.earring_left.xRot = hangWave + hangSwing * 2 - (this.head.xRot);
+        this.earring_right.xRot = -this.earring_left.xRot - (this.head.xRot * 2);
     }
 }

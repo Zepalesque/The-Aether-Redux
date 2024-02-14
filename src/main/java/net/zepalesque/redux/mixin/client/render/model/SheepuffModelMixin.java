@@ -1,4 +1,4 @@
-package net.zepalesque.redux.mixin.client.render;
+package net.zepalesque.redux.mixin.client.render.model;
 
 import com.aetherteam.aether.client.renderer.entity.model.SheepuffModel;
 import com.aetherteam.aether.entity.passive.Sheepuff;
@@ -21,9 +21,9 @@ public class SheepuffModelMixin extends QuadrupedModel<Sheepuff> {
 
     @Inject(method = "prepareMobModel(Lcom/aetherteam/aether/entity/passive/Sheepuff;FFF)V", at = @At(value = "TAIL"), remap = false)
     public void prepareMobModel(Sheepuff moa, float limbSwing, float limbSwingAmount, float partialTicks, CallbackInfo ci) {
-        this.leftFrontLeg.skipDraw = ReduxConfig.CLIENT.moa_model_upgrade.get();
-        this.leftHindLeg.skipDraw = ReduxConfig.CLIENT.moa_model_upgrade.get();
-        this.rightFrontLeg.skipDraw = ReduxConfig.CLIENT.moa_model_upgrade.get();
-        this.rightHindLeg.skipDraw = ReduxConfig.CLIENT.moa_model_upgrade.get();
+        this.leftFrontLeg.skipDraw = ReduxConfig.CLIENT.sheepuff_model_upgrade.get();
+        this.leftHindLeg.skipDraw = ReduxConfig.CLIENT.sheepuff_model_upgrade.get();
+        this.rightFrontLeg.skipDraw = ReduxConfig.CLIENT.sheepuff_model_upgrade.get();
+        this.rightHindLeg.skipDraw = ReduxConfig.CLIENT.sheepuff_model_upgrade.get();
     }
 }
