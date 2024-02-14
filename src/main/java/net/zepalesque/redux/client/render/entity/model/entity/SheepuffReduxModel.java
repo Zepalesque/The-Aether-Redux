@@ -82,8 +82,6 @@ public class SheepuffReduxModel extends QuadrupedModel<Sheepuff> {
         float wave2 = MathUtil.breathe(sheepuff, partialTicks, 0.4F + (2.6F * limbSwingAmount), 2F, (float) (Math.PI * 0.25));
         this.wisp_left.yRot = wave1 - (this.head.yRot  * 0.5f);
         this.wisp_right.yRot = -wave2 - (this.head.yRot  * 0.5f);
-//        this.wisp_left2.yRot = wave2 - (this.head.yRot  * 0.5f);
-//        this.wisp_right2.yRot = -wave2 - (this.head.yRot  * 0.5f);
         this.wisp_left.xRot = Math.max( -(this.head.xRot * 0.5F), 0F);
         this.wisp_right.xRot = Math.min( -(this.head.xRot * 0.5F), 0F);
         this.earring_left.xRot = hangWave + hangSwing * 2 - (this.head.xRot);
