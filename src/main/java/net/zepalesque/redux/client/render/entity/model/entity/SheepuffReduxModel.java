@@ -67,12 +67,12 @@ public class SheepuffReduxModel extends QuadrupedModel<Sheepuff> {
 
     public void setupAnim(Sheepuff sheepuff, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
         super.setupAnim(sheepuff, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
-        this.head.xRot = this.headXRot;
 
         float partialTicks = ageInTicks % 1;
 
         this.head.y = 6.0F + sheepuff.getHeadEatPositionScale(partialTicks) * 9.0F;
         this.headXRot = sheepuff.getHeadEatAngleScale(partialTicks);
+        this.head.xRot = this.headXRot;
         float hangSwing = Mth.cos(limbSwing * 0.6662F * 0.5F + (float) Math.PI) * 0.0625F * limbSwingAmount;
         float hangWave = MathUtil.breathe(sheepuff, partialTicks, 2F, 1F, (float) (Math.PI * 0.75));
         float wave1 = MathUtil.breathe(sheepuff, partialTicks, 1.5F, 2F, 0F);
