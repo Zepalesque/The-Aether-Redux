@@ -52,13 +52,16 @@ public class SheepuffReduxModel extends QuadrupedModel<Sheepuff> {
         head.addOrReplaceChild("earring_left", CubeListBuilder.create().texOffs(34, 3).addBox(-0.5F, 3.0F, -1.0F, 1.0F, 3.0F, 2.0F, new CubeDeformation(0.0F))
                 .texOffs(30, 1).addBox(0.0F, -2.0F, -1.0F, 0.0F, 5.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(4.0F, 0.0F, -3.5F));
 
+
         PartDefinition wisp_left = head.addOrReplaceChild("wisp_left", CubeListBuilder.create(), PartPose.offset(5.0F, -3.0F, -2.0F));
 
-        wisp_left.addOrReplaceChild("string_left", CubeListBuilder.create().texOffs(44, -10).addBox(0.0F, -1.5F, 0.0F, 0.0F, 4.0F, 10.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -0.5F, 0.0F, 0.0F, 0.2618F, 0.0F));
+        PartDefinition bend_left = wisp_left.addOrReplaceChild("bend_left", CubeListBuilder.create().texOffs(54, -5).addBox(0.0F, -2.0F, 0.0F, 0.0F, 4.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.0F, 0.4363F, 0.0F));
+        bend_left.addOrReplaceChild("string_left", CubeListBuilder.create().texOffs(44, -5).addBox(0.0F, -1.5F, 0.0F, 0.0F, 4.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -0.5F, 5.0F, 0.0F, -0.3491F, 0.0F));
 
         PartDefinition wisp_right = head.addOrReplaceChild("wisp_right", CubeListBuilder.create(), PartPose.offset(-5.0F, -3.0F, -2.0F));
 
-        wisp_right.addOrReplaceChild("string_right", CubeListBuilder.create().texOffs(44, -6).mirror().addBox(0.0F, -1.5F, 0.0F, 0.0F, 4.0F, 10.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, -0.5F, 0.0F, 0.0F, -0.2618F, 0.0F));
+        PartDefinition bend_right = wisp_right.addOrReplaceChild("bend_right", CubeListBuilder.create().texOffs(54, -5).mirror().addBox(0.0F, -2.0F, 0.0F, 0.0F, 4.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.0F, -0.4363F, 0.0F));
+        bend_right.addOrReplaceChild("string_right", CubeListBuilder.create().texOffs(44, -5).mirror().addBox(0.0F, -1.5F, 0.0F, 0.0F, 4.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, -0.5F, 5.0F, 0.0F, 0.3491F, 0.0F));
 
         partdefinition.addOrReplaceChild("body", CubeListBuilder.create(), PartPose.offset(-3.0F, 12.0F, 7.0F));
 
