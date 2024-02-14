@@ -2,6 +2,7 @@ package net.zepalesque.redux.compat.jade;
 
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.google.common.collect.ImmutableMap;
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
@@ -25,7 +26,7 @@ public enum ReduxNotices implements IEntityComponentProvider, IBlockComponentPro
             .put(AetherEntityTypes.SHEEPUFF.get(), ReduxConfig.CLIENT.sheepuff_model_upgrade)
             .build();
 
-    private static final Component ENTITY_TOOLTIP = Component.translatable("gui.aether_redux.jade.entity_model");
+    private static final Component ENTITY_TOOLTIP = Component.translatable("gui.aether_redux.jade.entity_model").withStyle(ChatFormatting.BLUE, ChatFormatting.ITALIC);
 
     @Override
     public void appendTooltip(ITooltip iTooltip, EntityAccessor entityAccessor, IPluginConfig iPluginConfig) {
@@ -46,6 +47,6 @@ public enum ReduxNotices implements IEntityComponentProvider, IBlockComponentPro
 
     @Override
     public void appendTooltip(ITooltip iTooltip, BlockAccessor blockAccessor, IPluginConfig iPluginConfig) {
-
+        // TODO: figure out if this is necessary
     }
 }
