@@ -56,6 +56,7 @@
     "client.render.MobRendererMixin",
     "client.render.RenderAccessor",
     "client.render.SentryRendererMixin",
+    "client.render.SheepuffModelMixin",
     "client.render.layer.BattleSentryLayerMixin",
     "client.render.layer.MoaFeathersLayerMixin",
     "client.render.layer.MoaSaddleEmissiveLayerMixin",

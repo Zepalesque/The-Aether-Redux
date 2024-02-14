@@ -18,9 +18,11 @@ public enum ReduxNotices implements IEntityComponentProvider, IBlockComponentPro
     INSTANCE;
 
     private static final Map<EntityType<?>, Supplier<Boolean>> ENTITIES = new ImmutableMap.Builder<EntityType<?>, Supplier<Boolean>>()
-            .put(AetherEntityTypes.MOA.get(), ReduxConfig.CLIENT.moa_improvements)
-            .put(AetherEntityTypes.COCKATRICE.get(), ReduxConfig.CLIENT.cockatrice_improvements)
-            .put(AetherEntityTypes.SENTRY.get(), ReduxConfig.CLIENT.sentry_improvements)
+            .put(AetherEntityTypes.MOA.get(), ReduxConfig.CLIENT.moa_model_upgrade)
+            .put(AetherEntityTypes.COCKATRICE.get(), ReduxConfig.CLIENT.cockatrice_model_upgrade)
+            .put(AetherEntityTypes.SENTRY.get(), ReduxConfig.CLIENT.sentry_model_upgrade)
+            .put(AetherEntityTypes.MIMIC.get(),() -> ReduxConfig.CLIENT.mimic_model_upgrade.get().shouldUseModern())
+            .put(AetherEntityTypes.SHEEPUFF.get(), ReduxConfig.CLIENT.sheepuff_model_upgrade)
             .build();
 
     private static final Component ENTITY_TOOLTIP = Component.translatable("gui.aether_redux.jade.entity_model");

@@ -16,7 +16,7 @@ public class MoaUtils {
 
     public static boolean useNewModel(Moa moa) {
         ResourceLocation loc = getMoaSkinLocation(moa);
-        return loc == null && ReduxConfig.CLIENT.moa_improvements.get();
+        return loc == null && ReduxConfig.CLIENT.moa_model_upgrade.get();
     }
 
     public static ResourceLocation getMoaSkinLocation(Moa moa) {

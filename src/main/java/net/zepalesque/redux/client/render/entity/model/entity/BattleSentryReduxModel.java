@@ -96,7 +96,7 @@ public class BattleSentryReduxModel<T extends BattleSentry> extends EntityModel<
 	@Override
 	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
 
-		if (ReduxConfig.CLIENT.sentry_improvements.get()) {
+		if (ReduxConfig.CLIENT.sentry_model_upgrade.get()) {
 			body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 		}
 	}

@@ -4,7 +4,6 @@ import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.client.renderer.entity.model.MimicModel;
 import com.aetherteam.aether.entity.monster.dungeon.Mimic;
 import com.aetherteam.aether_genesis.entity.GenesisEntityTypes;
-import com.aetherteam.aether_genesis.entity.monster.SkyrootMimic;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Minecraft;
@@ -54,7 +53,7 @@ public class MimicReduxLayer extends RenderLayer<Mimic, MimicModel> {
     @Override
     public void render(PoseStack poseStack, MultiBufferSource buffer, int packedLight, Mimic mimic, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
 
-        if (ReduxConfig.CLIENT.mimic_improvements.get().shouldUseModern())
+        if (ReduxConfig.CLIENT.mimic_model_upgrade.get().shouldUseModern())
         {
             this.model.setupAnim(mimic, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
             MimicAnimation.get(mimic).ifPresent((anim) -> {

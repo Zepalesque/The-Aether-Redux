@@ -20,6 +20,8 @@ public class ReduxModelLayers {
 
     public static final ModelLayerLocation GLIMMERCOW = register("glimmercow");
 
+    public static final ModelLayerLocation SHEEPUFF = register("redux_sheepuff");
+
     private static ModelLayerLocation register(String name) {
         return register(name, "main");
     }

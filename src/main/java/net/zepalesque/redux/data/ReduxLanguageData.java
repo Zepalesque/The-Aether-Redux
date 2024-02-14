@@ -472,6 +472,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
 
         addGuiText("jade.entity_model", "Model changed by the Aether: Redux");
+        add("config.jade.plugin_aether_redux.modification_notices", "Redux - Modify Indicator (Jade)");
 
 
         addGuiText("pack_config.file", "Config File: %s.json");

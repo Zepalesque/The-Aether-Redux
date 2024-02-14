@@ -1,9 +1,6 @@
 package net.zepalesque.redux.client.render;
 
-import com.aetherteam.aether.client.renderer.entity.CockatriceRenderer;
-import com.aetherteam.aether.client.renderer.entity.MimicRenderer;
-import com.aetherteam.aether.client.renderer.entity.MoaRenderer;
-import com.aetherteam.aether.client.renderer.entity.SentryRenderer;
+import com.aetherteam.aether.client.renderer.entity.*;
 import com.aetherteam.aether_genesis.client.renderer.entity.BattleSentryRenderer;
 import com.aetherteam.aether_genesis.client.renderer.entity.SkyrootMimicRenderer;
 import net.minecraft.client.Minecraft;
@@ -94,6 +91,7 @@ public class ReduxRenderers {
         event.registerLayerDefinition(ReduxModelLayers.SENTRY, SentryReduxModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.BLIGHTBUNNY, BlightbunnyModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.SPEAR, SpearModel::createLayer);
+        event.registerLayerDefinition(ReduxModelLayers.SHEEPUFF, SheepuffReduxModel::createBodyLayer);
 
         if (Redux.aetherGenesisCompat()) {
             event.registerLayerDefinition(ReduxModelLayers.BATTLE_SENTRY, BattleSentryReduxModel::createBodyLayer);
@@ -119,6 +117,9 @@ public class ReduxRenderers {
             }
             if (renderer instanceof SentryRenderer sentry) {
                 sentry.addLayer(new SentryReduxLayer(sentry, new SentryReduxModel<>(mc.getEntityModels().bakeLayer(ReduxModelLayers.SENTRY))));
+            }
+            if (renderer instanceof SheepuffRenderer sheepuff) {
+                sheepuff.addLayer(new SheepuffReduxLayer(sheepuff, new SheepuffReduxModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.SHEEPUFF))));
             }
             if (Redux.aetherGenesisCompat() && renderer instanceof BattleSentryRenderer sentry) {
                 sentry.addLayer(new BattleSentryReduxLayer(sentry, new BattleSentryReduxModel<>(mc.getEntityModels().bakeLayer(ReduxModelLayers.BATTLE_SENTRY))));

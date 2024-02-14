@@ -13,7 +13,6 @@ import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
-import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.render.entity.model.entity.SentryReduxModel;
 import net.zepalesque.redux.config.ReduxConfig;
 
@@ -32,7 +31,7 @@ public class SentryReduxLayer extends RenderLayer<Sentry, SlimeModel<Sentry>> {
 
     @Override
     public void render(PoseStack poseStack, MultiBufferSource buffer, int packedLight, Sentry sentry, float limbSwing, float limbSwingAmount, float partialTick, float ageInTicks, float netHeadYaw, float headPitch) {
-        if (ReduxConfig.CLIENT.sentry_improvements.get()) {
+        if (ReduxConfig.CLIENT.sentry_model_upgrade.get()) {
             this.model.setupAnim(sentry, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
             if (Minecraft.getInstance().player != null) {
                 if (!sentry.isInvisibleTo(Minecraft.getInstance().player)) {
