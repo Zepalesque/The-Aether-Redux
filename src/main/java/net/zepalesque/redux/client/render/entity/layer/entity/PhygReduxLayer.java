@@ -46,7 +46,14 @@ public class PhygReduxLayer extends RenderLayer<Phyg, PigModel<Phyg>> {
             if (Minecraft.getInstance().player != null) {
                 if (!phyg.isInvisibleTo(Minecraft.getInstance().player)) {
                     VertexConsumer consumer = buffer.getBuffer(RenderType.entityCutoutNoCull(getTextureLocation(phyg)));
+                    poseStack.pushPose();
+                    if (phyg.isBaby()) {
+                        float f1 = 2.0F;
+                        poseStack.scale(f1, f1, f1);
+                        poseStack.translate(0.0, -1.0, 0.0);
+                    }
                     this.model.renderToBuffer(poseStack, consumer, packedLight, LivingEntityRenderer.getOverlayCoords(phyg, 0.0F), 1.0F, 1.0F, 1.0F, 0.25F);
+                    poseStack.popPose();
                 }
             }
         }

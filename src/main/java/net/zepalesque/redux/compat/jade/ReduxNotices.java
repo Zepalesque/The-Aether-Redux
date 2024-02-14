@@ -24,6 +24,7 @@ public enum ReduxNotices implements IEntityComponentProvider, IBlockComponentPro
             .put(AetherEntityTypes.SENTRY.get(), ReduxConfig.CLIENT.sentry_model_upgrade)
             .put(AetherEntityTypes.MIMIC.get(),() -> ReduxConfig.CLIENT.mimic_model_upgrade.get().shouldUseModern())
             .put(AetherEntityTypes.SHEEPUFF.get(), ReduxConfig.CLIENT.sheepuff_model_upgrade)
+            .put(AetherEntityTypes.PHYG.get(), ReduxConfig.CLIENT.phyg_model_upgrade)
             .build();
 
     private static final Component ENTITY_TOOLTIP = Component.translatable("gui.aether_redux.jade.entity_model").withStyle(ChatFormatting.BLUE, ChatFormatting.ITALIC);
