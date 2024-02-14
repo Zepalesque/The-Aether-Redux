@@ -24,6 +24,8 @@ public class ReduxModelLayers {
 
     public static final ModelLayerLocation PHYG = register("redux_phyg");
 
+    public static final ModelLayerLocation FLYING_COW = register("redux_flying_cow");
+
     private static ModelLayerLocation register(String name) {
         return register(name, "main");
     }

@@ -11,16 +11,10 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(SheepuffModel.class)
-public class SheepuffModelMixin extends QuadrupedModel<Sheepuff> {
+public class SheepuffModelMixin extends QuadrupedModelMixin<Sheepuff> {
 
-
-    // dummy constructor
-    protected SheepuffModelMixin(ModelPart root, boolean scaleHead, float babyYHeadOffset, float babyZHeadOffset, float babyHeadScale, float babyBodyScale, int bodyYOffset) {
-        super(root, scaleHead, babyYHeadOffset, babyZHeadOffset, babyHeadScale, babyBodyScale, bodyYOffset);
-    }
-
-    @Inject(method = "prepareMobModel(Lcom/aetherteam/aether/entity/passive/Sheepuff;FFF)V", at = @At(value = "TAIL"), remap = false)
-    public void prepareMobModel(Sheepuff moa, float limbSwing, float limbSwingAmount, float partialTicks, CallbackInfo ci) {
+    @Override
+    public void setupAnim(Sheepuff entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, CallbackInfo ci) {
         this.leftFrontLeg.skipDraw = ReduxConfig.CLIENT.sheepuff_model_upgrade.get();
         this.leftHindLeg.skipDraw = ReduxConfig.CLIENT.sheepuff_model_upgrade.get();
         this.rightFrontLeg.skipDraw = ReduxConfig.CLIENT.sheepuff_model_upgrade.get();

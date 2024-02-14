@@ -1,45 +1,43 @@
 package net.zepalesque.redux.client.render.entity.layer.entity;
 
 import com.aetherteam.aether.Aether;
-import com.aetherteam.aether.client.renderer.entity.model.SheepuffModel;
 import com.aetherteam.aether.entity.passive.FlyingCow;
 import com.aetherteam.aether.entity.passive.Phyg;
-import com.aetherteam.aether.entity.passive.Sheepuff;
 import com.legacy.lost_aether.capability.entity.IWingedAnimal;
 import com.legacy.lost_aether.capability.entity.WingedAnimalCap;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.CowModel;
 import net.minecraft.client.model.PigModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
-import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.client.render.entity.model.entity.FlyingCowReduxModel;
 import net.zepalesque.redux.client.render.entity.model.entity.PhygReduxModel;
-import net.zepalesque.redux.client.render.entity.model.entity.SheepuffReduxModel;
 import net.zepalesque.redux.config.ReduxConfig;
 import org.jetbrains.annotations.NotNull;
 
-public class PhygReduxLayer extends RenderLayer<Phyg, PigModel<Phyg>> {
+public class FlyingCowReduxLayer extends RenderLayer<FlyingCow, CowModel<FlyingCow>> {
 
-    private static final ResourceLocation TEXTURE = new ResourceLocation(Aether.MODID, "textures/entity/mobs/phyg/phyg_redux.png");
-    private static final ResourceLocation SILVER = new ResourceLocation(Aether.MODID, "textures/entity/mobs/phyg/phyg_redux_silver.png");
-    private static final ResourceLocation BRONZE = new ResourceLocation(Aether.MODID, "textures/entity/mobs/phyg/phyg_redux_bronze.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(Aether.MODID, "textures/entity/mobs/flying_cow/flying_cow_redux.png");
+    private static final ResourceLocation SILVER = new ResourceLocation(Aether.MODID, "textures/entity/mobs/flying_cow/flying_cow_redux_silver.png");
+    private static final ResourceLocation BRONZE = new ResourceLocation(Aether.MODID, "textures/entity/mobs/flying_cow/flying_cow_redux_bronze.png");
 
-    private final PhygReduxModel<Phyg> model;
+    private final FlyingCowReduxModel<FlyingCow> model;
 
-    public PhygReduxLayer(RenderLayerParent<Phyg, PigModel<Phyg>> renderer, PhygReduxModel<Phyg> model) {
+    public FlyingCowReduxLayer(RenderLayerParent<FlyingCow, CowModel<FlyingCow>> renderer, FlyingCowReduxModel<FlyingCow> model) {
         super(renderer);
         this.model = model;
     }
 
     @Override
-    public void render(PoseStack poseStack, MultiBufferSource buffer, int packedLight, Phyg phyg, float limbSwing, float limbSwingAmount, float partialTick, float ageInTicks, float netHeadYaw, float headPitch) {
-        if (ReduxConfig.CLIENT.phyg_model_upgrade.get()) {
+    public void render(PoseStack poseStack, MultiBufferSource buffer, int packedLight, FlyingCow phyg, float limbSwing, float limbSwingAmount, float partialTick, float ageInTicks, float netHeadYaw, float headPitch) {
+        if (ReduxConfig.CLIENT.flying_cow_model_upgrade.get()) {
             this.getParentModel().copyPropertiesTo(this.model);
             this.model.prepareMobModel(phyg, limbSwing, limbSwingAmount, partialTick);
             this.model.setupAnim(phyg, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
@@ -60,7 +58,7 @@ public class PhygReduxLayer extends RenderLayer<Phyg, PigModel<Phyg>> {
     }
 
     @Override
-    protected @NotNull ResourceLocation getTextureLocation(@NotNull Phyg phyg) {
+    protected @NotNull ResourceLocation getTextureLocation(@NotNull FlyingCow phyg) {
         if (Redux.lostAetherCompat()) {
             IWingedAnimal cap = WingedAnimalCap.get(phyg);
             if (cap != null && cap.shouldDisplayWings()) {

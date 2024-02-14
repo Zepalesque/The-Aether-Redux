@@ -93,6 +93,7 @@ public class ReduxRenderers {
         event.registerLayerDefinition(ReduxModelLayers.SPEAR, SpearModel::createLayer);
         event.registerLayerDefinition(ReduxModelLayers.SHEEPUFF, SheepuffReduxModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.PHYG, PhygReduxModel::createBodyLayer);
+        event.registerLayerDefinition(ReduxModelLayers.FLYING_COW, FlyingCowReduxModel::createBodyLayer);
 
         if (Redux.aetherGenesisCompat()) {
             event.registerLayerDefinition(ReduxModelLayers.BATTLE_SENTRY, BattleSentryReduxModel::createBodyLayer);
@@ -124,6 +125,9 @@ public class ReduxRenderers {
             }
             if (renderer instanceof PhygRenderer phyg) {
                 phyg.addLayer(new PhygReduxLayer(phyg, new PhygReduxModel<>(mc.getEntityModels().bakeLayer(ReduxModelLayers.PHYG))));
+            }
+            if (renderer instanceof FlyingCowRenderer cow) {
+                cow.addLayer(new FlyingCowReduxLayer(cow, new FlyingCowReduxModel<>(mc.getEntityModels().bakeLayer(ReduxModelLayers.FLYING_COW))));
             }
             if (Redux.aetherGenesisCompat() && renderer instanceof BattleSentryRenderer sentry) {
                 sentry.addLayer(new BattleSentryReduxLayer(sentry, new BattleSentryReduxModel<>(mc.getEntityModels().bakeLayer(ReduxModelLayers.BATTLE_SENTRY))));

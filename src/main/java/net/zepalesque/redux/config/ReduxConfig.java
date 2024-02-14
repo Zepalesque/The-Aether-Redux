@@ -137,6 +137,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue sentry_model_upgrade;
         public final ForgeConfigSpec.BooleanValue sheepuff_model_upgrade;
         public final ForgeConfigSpec.BooleanValue phyg_model_upgrade;
+        public final ForgeConfigSpec.BooleanValue flying_cow_model_upgrade;
         public final ForgeConfigSpec.ConfigValue<String> version_id;
         public final ForgeConfigSpec.BooleanValue better_leaf_particles;
         public final ForgeConfigSpec.BooleanValue auto_apply_overrides;
@@ -156,6 +157,7 @@ public class ReduxConfig {
             this.mimic_model_upgrade = builder.comment("Whether or not to use the upgraded Mimic model. Note that unless you use sync_with_server, there may be hitbox differences.").translation("config.aether_redux.client.mob_models.mimic").defineEnum("Mimic Model Upgrade", MimicModelType.sync_with_server);
             this.sheepuff_model_upgrade = builder.comment("Gives the Sheepuff's model some touchups and improvements").translation("config.aether_redux.client.mob_models.sheepuff").define("Sheepuff Model Upgrade", false);
             this.phyg_model_upgrade = builder.comment("Gives the Phyg's model some touchups and improvements").translation("config.aether_redux.client.mob_models.phyg").define("Phyg Model Upgrade", false);
+            this.flying_cow_model_upgrade = builder.comment("Gives the Flying Cow's model some touchups and improvements").translation("config.aether_redux.client.mob_models.flying_cow").define("Flying Cow Model Upgrade", false);
             builder.pop();
             builder.push("Visual");
             this.enable_adrenaline_postproccess = builder.comment("Enables a post processing effect for the Shroom Ring's adrenaline ability. Only works with Fabulous graphics.").translation("config.aether_redux.client.visual.enable_adrenaline_postproccess").define("Enable Adrenaline Post Processing Effect", true);

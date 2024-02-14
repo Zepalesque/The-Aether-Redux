@@ -56,14 +56,16 @@
     "client.render.MobRendererMixin",
     "client.render.RenderAccessor",
     "client.render.SentryRendererMixin",
-    "client.render.model.SheepuffModelMixin",
     "client.render.layer.BattleSentryLayerMixin",
     "client.render.layer.MoaFeathersLayerMixin",
     "client.render.layer.MoaSaddleEmissiveLayerMixin",
     "client.render.layer.MoaSaddleLayerMixin",
     "client.render.layer.SentryGlowLayerMixin",
     "client.render.model.CockatriceModelMixin",
+    "client.render.model.FlyingCowModelMixin",
     "client.render.model.MoaModelMixin",
+    "client.render.model.QuadrupedModelMixin",
+    "client.render.model.SheepuffModelMixin",
     "client.render.shader.GameRendererMixin",
     "client.render.shader.PostPassMixin"
   ]
