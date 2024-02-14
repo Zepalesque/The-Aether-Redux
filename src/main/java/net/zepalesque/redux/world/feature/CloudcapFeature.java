@@ -118,7 +118,7 @@ public class CloudcapFeature extends Feature<CloudcapFeature.CloudcapConfig> {
                         if (state.hasProperty(HugeMushroomBlock.WEST) && state.hasProperty(HugeMushroomBlock.EAST) && state.hasProperty(HugeMushroomBlock.NORTH) && state.hasProperty(HugeMushroomBlock.SOUTH) && state.hasProperty(HugeMushroomBlock.UP)) {
                             state = state.setValue(HugeMushroomBlock.WEST, x < -innerRadius).setValue(HugeMushroomBlock.EAST, x > innerRadius).setValue(HugeMushroomBlock.NORTH, z < -innerRadius).setValue(HugeMushroomBlock.SOUTH, z > innerRadius);
                         }
-                        if (y >= -1 && state.hasProperty(HugeMushroomBlock.UP)) {
+                        if (y < -1 && state.hasProperty(HugeMushroomBlock.UP)) {
                             state = state.setValue(HugeMushroomBlock.UP, false);
                         }
                         toPlace.putIfAbsent(immutable1, state);
