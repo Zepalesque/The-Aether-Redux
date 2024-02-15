@@ -10,8 +10,12 @@ import net.minecraftforge.common.world.ModifiableBiomeInfo;
 public record GrassAndFoliageColorModifier(HolderSet<Biome> biomes,  int grass, int foliage) implements BiomeModifier {
     @Override
     public void modify(Holder<Biome> biome, Phase phase, ModifiableBiomeInfo.BiomeInfo.Builder builder) {
-        if (phase == Phase.AFTER_EVERYTHING && biomes.contains(biome))
-        { builder.getSpecialEffects().grassColorOverride(grass).foliageColorOverride(foliage); }
+        if (phase == Phase.AFTER_EVERYTHING && biomes.contains(biome)) {
+            builder.getSpecialEffects().grassColorOverride(grass);
+            builder.getSpecialEffects().foliageColorOverride(foliage);
+            biome.get().getSpecialEffects().grassColorOverride = grass;
+            biome.get().getSpecialEffects().foliageColorOverride = foliage;
+        }
 
     }
     @Override

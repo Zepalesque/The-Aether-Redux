@@ -1,5 +1,6 @@
 package net.zepalesque.redux.data.tags;
 
+import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.data.resources.registries.AetherBiomes;
 import com.aetherteam.aether_genesis.data.resources.registries.GenesisBiomes;
@@ -78,7 +79,11 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
         this.tag(ReduxTags.Biomes.NO_GRASS_OVERRIDE).addTag(AetherTags.Biomes.IS_AETHER).remove(ReduxTags.Biomes.HAS_GRASS_OVERRIDE);
 
         for (ResourceKey<Biome> e : ReduxBiomes.VANILLA_GRASS_COLORS.keySet()) {
-            this.tag(ReduxTags.Biomes.HAS_GRASS_OVERRIDE).add(e);
+            if (e.location().getNamespace().equals(Redux.MODID) || e.location().getNamespace().equals(Aether.MODID)) {
+                this.tag(ReduxTags.Biomes.HAS_GRASS_OVERRIDE).add(e);
+            } else {
+                this.tag(ReduxTags.Biomes.HAS_GRASS_OVERRIDE).addOptional(e.location());
+            }
         }
 
     }
