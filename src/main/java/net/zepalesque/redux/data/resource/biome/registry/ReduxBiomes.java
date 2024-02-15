@@ -22,8 +22,6 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.data.resource.biome.*;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 
-
-// TODO: Refactor biome datagen system, make it more modular and easy to use. Add *all* features, rather than building them seperately so that they can be tweaked easier
 public class ReduxBiomes {
     public static final ResourceKey<Biome> THE_BLIGHT = createKey("the_blight");
     public static final ResourceKey<Biome> GLACIAL_TAIGA = createKey("glacial_taiga");
@@ -34,7 +32,7 @@ public class ReduxBiomes {
     public static final ResourceKey<Biome> CLOUDCAPS = createKey("cloudcaps");
     public static final ResourceKey<Biome> SKYROOT_SHRUBLANDS = createKey("skyroot_shrublands");
 
-    // Temporary
+    // TODO: Add to 2.1
     public static final ResourceKey<Biome> SHIMMERING_HILLS = createKey("shimmering_hills");
     public static final ResourceKey<Biome> QUICKSOIL_DUNES = createKey("quicksoil_dunes");
     public static final ResourceKey<Biome> QUICKSOIL_OASIS = createKey("quicksoil_oasis");
