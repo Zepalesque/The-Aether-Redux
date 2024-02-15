@@ -5,17 +5,24 @@ import com.google.gson.JsonPrimitive;
 
 import java.util.Optional;
 import java.util.function.Function;
+import com.mojang.serialization.Codec;
 
+/** Essentially a simpler form of a {@link Codec} */
 public interface Mapper<T> {
 
+    /** Deserialize a value from a {@link JsonElement} */
     Optional<T> decode(JsonElement data);
 
+    /** Serialize a value to a {@link JsonElement} */
     JsonElement encode(T value);
 
+    /** Deserialize a value from a {@link String} */
     Optional<T> read(String data);
 
+    /** Serialize a value to a {@link String} */
     String write(T value);
 
+    /** Returns a mapper which converts a value with a given function. See {@link com.mojang.serialization.Codec#xmap(Function, Function)} */
     default <Q> Mapper<Q> xmap(Function<T, Q> to, Function<Q, T> from) {
         Function<Optional<T>, Optional<Q>> optionalFunc = ogVal -> ogVal.isEmpty() ? Optional.empty() : Optional.of(to.apply(ogVal.get()));
         Mapper<T> og = this;
@@ -43,6 +50,7 @@ public interface Mapper<T> {
         };
     }
 
+    /** Returns a mapper designed to function with a given Enum. } */
     static <A extends Enum<A>> Mapper<A> fromEnum(Class<A> clazz) {
         return new Mapper<>() {
             @Override

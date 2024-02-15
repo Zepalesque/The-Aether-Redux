@@ -46,7 +46,7 @@ public class PackConfigMenu extends Screen {
     public PackConfigMenu(Component title, Category base, @Nullable PackConfigMenu parent) {
         super(title);
         this.category = base;
-        this.top = base.getHighest();
+        this.top = base.getRoot();
         this.parentScreen = parent;
     }
 
@@ -188,7 +188,7 @@ public class PackConfigMenu extends Screen {
             for (int i = 0; i < list.size(); i++) {
                 IConfigSaving id = list.get(i);
                 if (id instanceof PackConfig<?> config) {
-                    AbstractWidget widget = config.converter().createWidget(config, pg, this, Math.max(baseXConfig, baseXCat), baseY + i * 24, Math.min(64, this.frameWidth() - 32), 20, this.font);
+                    AbstractWidget widget = config.mapper().createWidget(config, pg, this, Math.max(baseXConfig, baseXCat), baseY + i * 24, Math.min(64, this.frameWidth() - 32), 20, this.font);
                     this.addRenderableWidget(widget);
                     if (widget instanceof ISaveable sav) { this.saveables.add(sav); }
                     int width = this.frameWidth() - 98;

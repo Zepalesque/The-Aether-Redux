@@ -9,11 +9,16 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Map;
 import java.util.Objects;
 
+/** A category that can contain {@link IConfigSaving}s such as other categories or {@link PackConfig}s */
 public class Category implements IConfigSaving {
 
+    /** This category's ID */
     private final String id;
+
+    /** The parent category. Can be null, but should only be null if this is the root directory. */
     private final @Nullable Category parent;
 
+    /** The members of this category, such as other categories or configuration. */
     public Map<String, IConfigSaving> members = Maps.newHashMap();
 
 
@@ -23,10 +28,12 @@ public class Category implements IConfigSaving {
         this.parent = parent;
     }
 
+    /** Adds a new member to this category */
     public void addMember(IConfigSaving member) {
         this.members.put(member.id(), member);
     }
 
+    @Override
     public @Nullable Category parent() {
         return parent;
     }
@@ -44,16 +51,20 @@ public class Category implements IConfigSaving {
         }
         return json;
     }
+
+    /** Saves this category to the disk */
     public void save()
     {
-        PackConfigBootstrap.write(this.getHighest().id(), this.getHighest().write());
+        PackConfigBootstrap.write(this.getRoot().id(), this.getRoot().write());
     }
 
-    public Category getHighest()
+    /** Returns the root category for this object */
+    public Category getRoot()
     {
         return Objects.requireNonNullElse(this.parent, this);
     }
 
+    /** Creates a new sub-category, or returns one if one with the given ID exists. */
     public Category getOrCreate(String id)
     {
         if (this.members.containsKey(id))
@@ -71,10 +82,11 @@ public class Category implements IConfigSaving {
         }
     }
 
+    /** Returns a new {@link PackConfig.Builder} for this category. Should only be used in a root category. */
     public PackConfig.Builder builder()
     {
         if (this.parent() != null) {
-            Redux.LOGGER.warn("Attempting to create builder for non-base config collection!");
+            Redux.LOGGER.warn("Attempting to create builder for non-root config collection!");
         }
         return new PackConfig.Builder(this);
     }

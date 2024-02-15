@@ -16,10 +16,11 @@ import net.zepalesque.redux.util.function.OctoFunction;
 import java.util.Optional;
 import java.util.function.Function;
 
-
+/** A variation of the {@link Mapper} designed to return an {@link AbstractWidget} for config usage. */
 @OnlyIn(Dist.CLIENT)
 public interface WidgetMapper<T> extends Mapper<T> {
 
+    /** See {@link Mapper#fromEnum(Class)} */
     static <A extends Enum<A>> WidgetMapper<A> fromEnum(Class<A> clazz) {
         return new WidgetMapper<>() {
             @Override
@@ -66,10 +67,12 @@ public interface WidgetMapper<T> extends Mapper<T> {
 
 
 
+    /** Creates an {@link AbstractWidget} for usage in {@link PackConfig}s */
     default AbstractWidget createWidget(PackConfig<?> config, int pg, PackConfigMenu screen, int x, int y, int width, int height, Font font) {
         return new SaveableEditBox(font, x, y, width, height, config, pg, screen);
     }
 
+    /** See {@link Mapper#xmap(Function, Function)} */
     default <Q> WidgetMapper<Q> xmap(Function<T, Q> to, Function<Q, T> from, OctoFunction<PackConfig<?>, Integer, PackConfigMenu, Integer, Integer, Integer, Integer, Font, AbstractWidget> widgetConstructor) {
         Function<Optional<T>, Optional<Q>> optionalFunc = ogVal -> ogVal.isEmpty() ? Optional.empty() : Optional.of(to.apply(ogVal.get()));
         final WidgetMapper<T> og = this;
@@ -101,6 +104,7 @@ public interface WidgetMapper<T> extends Mapper<T> {
         };
     }
 
+    /** Returns a {@link WidgetMapper} based on a given {@link Mapper} */
     static <T> WidgetMapper<T> fromMapper(final Mapper<T> mapper)
     {
         return new WidgetMapper<>() {
@@ -126,6 +130,7 @@ public interface WidgetMapper<T> extends Mapper<T> {
         };
     }
 
+    /** Returns a {@link WidgetMapper} based on a given {@link Mapper}, giving an {@link OctoFunction} to construct the {@link AbstractWidget}. */
     static <T> WidgetMapper<T> fromMapper(final Mapper<T> mapper, OctoFunction<PackConfig<?>, Integer, PackConfigMenu, Integer, Integer, Integer, Integer, Font, AbstractWidget> widgetConstructor)
     {
         return new WidgetMapper<>() {
