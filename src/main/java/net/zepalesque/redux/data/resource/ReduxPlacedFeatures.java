@@ -56,6 +56,7 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> CORRUPTED_VINES_PATCH = copyKey(ReduxConfiguredFeatures.CORRUPTED_VINES_PATCH);
     public static final ResourceKey<PlacedFeature> BLIGHT_ROCK = copyKey(ReduxConfiguredFeatures.BLIGHT_ROCK);
     public static final ResourceKey<PlacedFeature> GLIMMERSTOOL_ROCK = copyKey(ReduxConfiguredFeatures.GLIMMERSTOOL_ROCK);
+    public static final ResourceKey<PlacedFeature> DENSE_GRASS = createKey(Folders.PATCH + "dense_grass");
     public static final ResourceKey<PlacedFeature> GLIMMERSTOOL_PATCH = copyKey(ReduxConfiguredFeatures.GLIMMERSTOOL_PATCH);
     public static final ResourceKey<PlacedFeature> BLIGHT_TREES = copyKey(ReduxConfiguredFeatures.BLIGHT_TREES);
     public static final ResourceKey<PlacedFeature> CLOUDCAP_MUSHLING_PATCH = copyKey(ReduxConfiguredFeatures.CLOUDCAP_MUSHLING_PATCH);
@@ -263,6 +264,11 @@ public class ReduxPlacedFeatures {
                 RarityFilter.onAverageOnceEvery(28),
                 BiomeFilter.biome()
         );
+
+        register(context, DENSE_GRASS, configuredFeatures.getOrThrow(AetherConfiguredFeatures.GRASS_PATCH_CONFIGURATION),
+                NoiseThresholdCountPlacement.of(-0.8, 5, 10), ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 7),
+                BiomeFilter.biome(), new ConfigFilter(AetherConfig.SERVER.generate_tall_grass));
+
 
 
         register(context, BLIGHTSHADE_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.BLIGHTSHADE_PATCH),

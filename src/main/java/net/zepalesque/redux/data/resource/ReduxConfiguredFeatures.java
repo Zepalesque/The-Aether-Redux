@@ -13,6 +13,8 @@ import com.aetherteam.aether.world.foliageplacer.CrystalFoliagePlacer;
 import com.aetherteam.aether.world.foliageplacer.GoldenOakFoliagePlacer;
 import com.aetherteam.aether.world.trunkplacer.CrystalTreeTrunkPlacer;
 import com.aetherteam.aether.world.trunkplacer.GoldenOakTrunkPlacer;
+import com.aetherteam.aether_genesis.data.resources.registries.GenesisConfiguredFeatures;
+import com.aetherteam.aether_genesis.world.foliageplacer.AetherPineFoliagePlacer;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
@@ -57,6 +59,7 @@ import net.zepalesque.redux.world.tree.decorator.BlightwillowRootsTrunkDecorator
 import net.zepalesque.redux.world.tree.decorator.EnchantedVineDecorator;
 import net.zepalesque.redux.world.tree.decorator.PatchTreeDecorator;
 import net.zepalesque.redux.world.tree.foliage.BlightwillowFoliagePlacer;
+import net.zepalesque.redux.world.tree.foliage.GenesisPineFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.GlaciaFoliagePlacer;
 
 import java.util.Arrays;
@@ -76,6 +79,7 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTMOSS_PATCH = createKey(Folders.CAVE + "blightmoss_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTMOSS_PATCH_BONEMEAL = createKey(Folders.CAVE + "blightmoss_patch_bonemeal");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTMOSS_VEGETATION = createKey(Folders.CAVE + "blightmoss_vegetation");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SKYROOT_PINE = createKey(Folders.TREE + "skyroot_pine");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FUNGAL_VEGETATION = createKey(Folders.CAVE + "fungal_vegetation");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTSHADE_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.BLIGHTSHADE) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTWILLOW_TREE = createKey(Folders.TREE + "blightwillow_tree");
@@ -392,7 +396,17 @@ public class ReduxConfiguredFeatures {
                                         BlockStateProvider.simple(drops(ReduxBlocks.GOLDEN_VINES)),
                                         UniformInt.of(1, 2),
                                         UniformInt.of(2, 3), Conditions.VINES),
-                                new PatchTreeDecorator(createLeafPileLayers(ReduxBlocks.GOLDEN_LEAF_PILE), 7, 3, 32))).build());
+                                new PatchTreeDecorator(createLeafPileLayers(ReduxBlocks.GOLDEN_LEAF_PILE), 7, 3, 32))).ignoreVines().build());
+
+
+        register(context, SKYROOT_PINE, Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LOG),
+                        new StraightTrunkPlacer(5, 5, 0),
+                        BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LEAVES),
+                        new GenesisPineFoliagePlacer(ConstantInt.of(2), ConstantInt.of(1), ConstantInt.of(2)),
+                        new TwoLayersFeatureSize(2, 0, 2))
+                        .ignoreVines().build());
 
         register(context, ReduxConfiguredFeatures.FANCY_GOLDEN_OAK_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
@@ -611,7 +625,7 @@ public class ReduxConfiguredFeatures {
 
         register(context, SHRUBLANDS_TREES, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(
-                        new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(AetherConfiguredFeatures.SKYROOT_TREE_CONFIGURATION),
+                        new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(ReduxConfiguredFeatures.SKYROOT_PINE),
                                 PlacementUtils.filteredByBlockSurvival(AetherBlocks.SKYROOT_SAPLING.get())), 0.05F)
                 ),
                         PlacementUtils.inlinePlaced(
