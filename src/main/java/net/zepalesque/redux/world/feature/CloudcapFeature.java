@@ -7,6 +7,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HugeMushroomBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
@@ -32,6 +33,7 @@ public class CloudcapFeature extends Feature<CloudcapFeature.CloudcapConfig> {
     public boolean place(FeaturePlaceContext<CloudcapFeature.CloudcapConfig> context) {
         int totalheight = context.config().height.sample(context.random());
         Map<BlockPos, BlockState> toPlace = new HashMap<>();
+        Map<Direction, Map<BlockPos, BlockState>> roots = new HashMap<>();
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
         BlockPos origin = context.origin();
         if (context.level().isStateAtPosition(origin.below(), state -> !isDirt(state))) {
@@ -47,12 +49,13 @@ public class CloudcapFeature extends Feature<CloudcapFeature.CloudcapConfig> {
 
         // Roots
         for (Direction d : Direction.Plane.HORIZONTAL) {
+            HashMap<BlockPos, BlockState> stem = new HashMap<>();
             int rootHeight = context.config().rootHeight.sample(context.random());
             int rootWallHeight = context.config().rootWallHeight.sample(context.random());
             for (int i = 0; i < rootHeight; i++) {
                 mutable.setWithOffset(origin, d.getStepX(), i, d.getStepZ());
                 BlockPos immutable1 = mutable.immutable();
-                toPlace.putIfAbsent(immutable1, context.config().stem.getState(context.random(), immutable1));
+                stem.putIfAbsent(immutable1, context.config().stem.getState(context.random(), immutable1));
             }
             for (int i = -1; i > -5; i--) {
                 mutable.setWithOffset(origin, d.getStepX(), i, d.getStepZ());
@@ -60,7 +63,7 @@ public class CloudcapFeature extends Feature<CloudcapFeature.CloudcapConfig> {
                 mutable.setWithOffset(origin, 0, i, 0);
                 BlockPos immutable3 = mutable.immutable();
                 if (context.level().isStateAtPosition(immutable2, state -> state.isAir() || state.canBeReplaced()) && context.level().isStateAtPosition(immutable3, state -> state.isFaceSturdy(context.level(), immutable3, d))) {
-                    toPlace.putIfAbsent(immutable2, context.config().stem.getState(context.random(), immutable2));
+                    stem.putIfAbsent(immutable2, context.config().stem.getState(context.random(), immutable2));
                 } else {
                     break;
                 }
@@ -71,8 +74,9 @@ public class CloudcapFeature extends Feature<CloudcapFeature.CloudcapConfig> {
                 BlockPos immutable1 = mutable.immutable();
                 BlockState b = context.config().stemWall.getState(context.random(), immutable1);
                 b = trySet(b, WorldgenUtil.getWallSide(d.getOpposite()), i == rootWallHeight - 1 ? WallSide.LOW : WallSide.TALL);
-                toPlace.putIfAbsent(immutable1, b);
+                stem.putIfAbsent(immutable1, b);
             }
+            roots.put(d, stem);
         }
 
         BlockPos stemTop = origin.above(totalheight - 1);
@@ -135,7 +139,28 @@ public class CloudcapFeature extends Feature<CloudcapFeature.CloudcapConfig> {
         for (Map.Entry<BlockPos, BlockState> entry : toPlace.entrySet()) {
             this.setBlock(context.level(), entry.getKey(), entry.getValue());
         }
-        return true;
+
+        for (Direction d : Direction.Plane.HORIZONTAL) {
+            if (roots.containsKey(d)) {
+                Map<BlockPos, BlockState> map = roots.get(d);
+                boolean flag = false;
+                for (Map.Entry<BlockPos, BlockState> entry : map.entrySet()) {
+                    if (!canPlaceBlockHere(context.level(), entry.getKey())) {
+                        flag = true;
+                        break;
+                    }
+                }
+                if (!flag) {
+                    for (Map.Entry<BlockPos, BlockState> entry : map.entrySet()) {
+                        this.setBlock(context.level(), entry.getKey(), entry.getValue());
+
+                    }
+                }
+            }
+        }
+
+
+            return true;
     }
 
 
