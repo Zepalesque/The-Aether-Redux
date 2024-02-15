@@ -90,7 +90,7 @@ import net.zepalesque.redux.recipe.serializer.ReduxRecipeSerializers;
 import net.zepalesque.redux.util.function.QuadConsumer;
 import net.zepalesque.redux.world.biome.ReduxRegion;
 import net.zepalesque.redux.world.biome.ReduxSurfaceData;
-import net.zepalesque.redux.world.biome.modifier.ReduxBiomeModifierSerializers;
+import net.zepalesque.redux.world.biome.modifier.ReduxBiomeModifierCodecs;
 import net.zepalesque.redux.world.biome.surfacerule.ReduxConditionSources;
 import net.zepalesque.redux.world.carver.ReduxCarvers;
 import net.zepalesque.redux.world.density.ReduxDensityFunctionTypes;
@@ -141,7 +141,7 @@ public class Redux
         ReduxBlockEntityTypes.BLOCK_ENTITY_TYPES.register(bus);
         ReduxEntityTypes.ENTITY_TYPES.register(bus);
         ConditionSerializers.CONDITION_SERIALIZERS.register(bus);
-        ReduxBiomeModifierSerializers.BIOME_MODIFIER_SERIALIZERS.register(bus);
+        ReduxBiomeModifierCodecs.CODECS.register(bus);
         ReduxLootModifiers.GLOBAL_LOOT_MODIFIERS.register(bus);
         ReduxEffects.EFFECTS.register(bus);
         ReduxRecipeTypes.RECIPE_TYPES.register(bus);

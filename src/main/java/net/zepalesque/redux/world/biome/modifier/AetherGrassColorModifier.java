@@ -9,7 +9,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.common.world.ModifiableBiomeInfo;
-import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.network.ReduxPacketHandler;
 import net.zepalesque.redux.network.packet.SyncAetherGrassesPacket;
 
@@ -35,6 +34,6 @@ public record AetherGrassColorModifier(HolderSet<Biome> biomes, int grass) imple
 
     @Override
     public Codec<? extends BiomeModifier> codec() {
-        return ReduxBiomeModifierSerializers.AETHER_GRASS_COLOR.get();
+        return ReduxBiomeModifierCodecs.AETHER_GRASS_COLOR.get();
     }
 }

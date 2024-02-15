@@ -6,6 +6,9 @@ import com.aetherteam.aether_genesis.data.resources.registries.GenesisBiomes;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.BiomeTagsProvider;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.EggItem;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.data.ReduxRegistrySets;
@@ -34,6 +37,7 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
                 ReduxBiomes.CLOUDCAPS,
                 ReduxBiomes.SKYROOT_SHRUBLANDS
         );
+
 
         this.tag(ReduxTags.Biomes.HAS_AETHER_CAVES).addTag(AetherTags.Biomes.IS_AETHER);
         this.tag(ReduxTags.Biomes.HAS_BLIGHTED_CAVES).addTag(AetherTags.Biomes.IS_AETHER).remove(ReduxBiomes.THE_BLIGHT);
@@ -70,5 +74,12 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
 
         this.tag(ReduxTags.Biomes.IS_GILDED).add(ReduxBiomes.GILDED_GROVES, ReduxBiomes.GILDED_GRASSLANDS);
         this.tag(ReduxTags.Biomes.IS_FROSTED).add(ReduxBiomes.GLACIAL_TAIGA, ReduxBiomes.FROSTED_TUNDRA);
+
+        this.tag(ReduxTags.Biomes.NO_GRASS_OVERRIDE).addTag(AetherTags.Biomes.IS_AETHER).remove(ReduxTags.Biomes.HAS_GRASS_OVERRIDE);
+
+        for (ResourceKey<Biome> e : ReduxBiomes.VANILLA_GRASS_COLORS.keySet()) {
+            this.tag(ReduxTags.Biomes.HAS_GRASS_OVERRIDE).add(e);
+        }
+
     }
 }

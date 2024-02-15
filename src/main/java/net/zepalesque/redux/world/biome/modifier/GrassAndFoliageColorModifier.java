@@ -16,6 +16,6 @@ public record GrassAndFoliageColorModifier(HolderSet<Biome> biomes,  int grass, 
     }
     @Override
     public Codec<? extends BiomeModifier> codec() {
-        return ReduxBiomeModifierSerializers.GRASS_AND_FOLIAGE.get();
+        return ReduxBiomeModifierCodecs.GRASS_AND_FOLIAGE.get();
     }
 }

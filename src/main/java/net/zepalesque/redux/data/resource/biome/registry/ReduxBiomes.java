@@ -2,12 +2,10 @@ package net.zepalesque.redux.data.resource.biome.registry;
 
 import com.aetherteam.aether.data.resources.AetherMobCategory;
 import com.aetherteam.aether.data.resources.registries.AetherBiomes;
-import com.aetherteam.aether.data.resources.registries.AetherPlacedFeatures;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether_genesis.data.resources.registries.GenesisBiomes;
 import com.google.common.collect.ImmutableMap;
 import com.mojang.datafixers.util.Pair;
-import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
@@ -17,12 +15,7 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeGenerationSettings;
 import net.minecraft.world.level.biome.BiomeSpecialEffects;
 import net.minecraft.world.level.biome.MobSpawnSettings;
-import net.minecraft.world.level.levelgen.GenerationStep;
-import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.client.audio.ReduxMusic;
-import net.zepalesque.redux.data.resource.ReduxPlacedFeatures;
 import net.zepalesque.redux.data.resource.biome.*;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 
@@ -61,7 +54,7 @@ public class ReduxBiomes {
     public static final int OASIS_GRASS_COLOR = 0xD6FFD6;
 
 
-    public static final ImmutableMap<ResourceKey<Biome>, Integer> DATAGEN_AETHER_COLORS = new ImmutableMap.Builder<ResourceKey<Biome>, Integer>()
+    public static final ImmutableMap<ResourceKey<Biome>, Integer> AETHER_GRASS_COLORS = new ImmutableMap.Builder<ResourceKey<Biome>, Integer>()
             .put(THE_BLIGHT, BLIGHT_GRASS_COLOR)
             .put(GLACIAL_TAIGA, FROSTED_GRASS_COLOR)
             .put(FROSTED_TUNDRA, FROSTED_GRASS_COLOR)
@@ -73,7 +66,7 @@ public class ReduxBiomes {
             .build();
 
 
-    public static final ImmutableMap<ResourceKey<Biome>, Pair<Integer, Integer>> DATAGEN_VANILLIFICATION_COLORS = new ImmutableMap.Builder<ResourceKey<Biome>, Pair<Integer, Integer>>()
+    public static final ImmutableMap<ResourceKey<Biome>, Pair<Integer, Integer>> VANILLA_GRASS_COLORS = new ImmutableMap.Builder<ResourceKey<Biome>, Pair<Integer, Integer>>()
             .put(THE_BLIGHT, Pair.of(0x97B276, 0x819D5D))
             .put(GLACIAL_TAIGA, Pair.of(0x86B783, 0x68A464))
             .put(FROSTED_TUNDRA, Pair.of(0x86B783, 0x68A464))

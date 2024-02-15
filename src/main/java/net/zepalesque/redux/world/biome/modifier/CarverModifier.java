@@ -18,6 +18,6 @@ public record CarverModifier(HolderSet<Biome> biomes, Holder<ConfiguredWorldCarv
 
     @Override
     public Codec<? extends BiomeModifier> codec() {
-        return ReduxBiomeModifierSerializers.CARVER.get();
+        return ReduxBiomeModifierCodecs.CARVER.get();
     }
 }

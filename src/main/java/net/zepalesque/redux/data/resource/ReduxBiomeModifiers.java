@@ -15,7 +15,6 @@ import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.common.world.ForgeBiomeModifiers;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.api.biomemodifier.VanillifyGrassOverride;
 import net.zepalesque.redux.api.condition.Conditions;
 import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
@@ -97,14 +96,14 @@ public class ReduxBiomeModifiers {
         context.register(WATER_COLOR_AETHER, new WaterColorReplacementBiomeModifier(biomes.getOrThrow(ReduxTags.Biomes.HAS_REDUX_WATER_COLOR),
                 WaterColorReplacementBiomeModifier.WaterColorPredicate.of(4159204, 329011), 5403045, 791347, Conditions.WATER));
 
-        context.register(AETHER_COLOR_OVERRIDE, new AetherGrassVanillifier(biomes.getOrThrow(AetherTags.Biomes.IS_AETHER),
+        context.register(AETHER_COLOR_OVERRIDE, new GrassAndFoliageColorModifier(biomes.getOrThrow(ReduxTags.Biomes.NO_GRASS_OVERRIDE),
                 0x91BD59, 0x77AB2F));
         
-        ReduxBiomes.DATAGEN_AETHER_COLORS.forEach((key, color) ->
+        ReduxBiomes.AETHER_GRASS_COLORS.forEach((key, color) ->
                 context.register(createKey(AETHER_GRASS_COLOR + key.location().getPath()),
                 new AetherGrassColorModifier(HolderSet.direct(biomes.getOrThrow(key)), color)));
-        ReduxBiomes.DATAGEN_VANILLIFICATION_COLORS.forEach((key, colors) ->
+        ReduxBiomes.VANILLA_GRASS_COLORS.forEach((key, colors) ->
                 context.register(createKey(GRASS_COLOR_BASE + key.location().getPath()),
-                new VanillifyGrassOverride(HolderSet.direct(biomes.getOrThrow(key)), colors.getFirst(), colors.getSecond())));
+                new GrassAndFoliageColorModifier(HolderSet.direct(biomes.getOrThrow(key)), colors.getFirst(), colors.getSecond())));
     }
 }
