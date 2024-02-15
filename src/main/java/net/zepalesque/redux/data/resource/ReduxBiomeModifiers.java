@@ -6,11 +6,14 @@ import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraftforge.common.Tags;
+import net.minecraftforge.common.data.ForgeBiomeTagsProvider;
 import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.common.world.ForgeBiomeModifiers;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -98,12 +101,17 @@ public class ReduxBiomeModifiers {
 
         context.register(AETHER_COLOR_OVERRIDE, new GrassAndFoliageColorModifier(biomes.getOrThrow(ReduxTags.Biomes.NO_GRASS_OVERRIDE),
                 0x91BD59, 0x77AB2F));
-        
+
+
+
         ReduxBiomes.AETHER_GRASS_COLORS.forEach((key, color) ->
                 context.register(createKey(AETHER_GRASS_COLOR + key.location().getPath()),
                 new AetherGrassColorModifier(HolderSet.direct(biomes.getOrThrow(key)), color)));
         ReduxBiomes.VANILLA_GRASS_COLORS.forEach((key, colors) ->
                 context.register(createKey(GRASS_COLOR_BASE + key.location().getPath()),
                 new GrassAndFoliageColorModifier(HolderSet.direct(biomes.getOrThrow(key)), colors.getFirst(), colors.getSecond())));
+        ReduxBiomes.OVERWORLD_BIOME_AETHER_GRASS_COLORS.forEach((key, colors) ->
+                context.register(createKey(GRASS_COLOR_BASE + key.location().getPath()),
+                new AetherGrassColorModifier(biomes.getOrThrow(key), colors)));
     }
 }

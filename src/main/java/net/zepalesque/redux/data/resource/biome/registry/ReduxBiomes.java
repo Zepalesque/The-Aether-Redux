@@ -10,11 +10,14 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.Music;
+import net.minecraft.tags.BiomeTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeGenerationSettings;
 import net.minecraft.world.level.biome.BiomeSpecialEffects;
 import net.minecraft.world.level.biome.MobSpawnSettings;
+import net.minecraftforge.common.Tags;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.data.resource.biome.*;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
@@ -79,6 +82,18 @@ public class ReduxBiomes {
             .put(AetherBiomes.SKYROOT_WOODLAND, Pair.of(0x79C05A, 0x59AE30))
             .put(GenesisBiomes.VIBRANT_FOREST, Pair.of(0x79C05A, 0x59AE30))
             .put(GenesisBiomes.VIBRANT_WOODLAND, Pair.of(0x79C05A, 0x59AE30))
+            .build();
+
+    public static final ImmutableMap<TagKey<Biome>, Integer> OVERWORLD_BIOME_AETHER_GRASS_COLORS = new ImmutableMap.Builder<TagKey<Biome>, Integer>()
+            .put(Tags.Biomes.IS_COLD, FROSTED_GRASS_COLOR)
+            .put(Tags.Biomes.IS_DESERT, OASIS_GRASS_COLOR)
+            .put(Tags.Biomes.IS_LUSH, HIGHFIELDS_GRASS_COLOR)
+            .put(Tags.Biomes.IS_MUSHROOM, CLOUDCAP_GRASS_COLOR)
+            .put(Tags.Biomes.IS_MAGICAL, SHIMMERING_GRASS_COLOR)
+            .put(Tags.Biomes.IS_PLATEAU, GILDED_GRASS_COLOR)
+            .put(Tags.Biomes.IS_SPARSE, GILDED_GRASSLANDS_COLOR)
+            .put(BiomeTags.IS_NETHER, DUNES_GRASS_COLOR)
+            .put(BiomeTags.IS_END, BLIGHT_GRASS_COLOR)
             .build();
 
 
