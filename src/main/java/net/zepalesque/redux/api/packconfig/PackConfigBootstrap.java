@@ -20,12 +20,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
+/** Main startup system for Pack Config related code */
 public class PackConfigBootstrap {
 
+    /** Saved configuration files, with keys for their file names. */
     private static final Map<String, Category> configFiles = Maps.newHashMap();
 
+    /** A {@link Gson} used to serialize and deserialize the configs */
     private static final Gson gson = new GsonBuilder().disableHtmlEscaping().setPrettyPrinting().create();
 
+    /** Starts up the pack config system. */
     public static void bootstrap()
     {
         if (FMLLoader.getDist() == Dist.CLIENT) {
@@ -38,6 +42,7 @@ public class PackConfigBootstrap {
         }
     }
 
+    /** Registers a new config file */
     @Nullable
     public static <T> T register(String id, Function<Category, T> constructor)
     {
@@ -52,6 +57,7 @@ public class PackConfigBootstrap {
     }
 
 
+    /** Reads a file from the disk */
     public static JsonElement read(String filename)
     {
         Path path = Minecraft.getInstance().gameDirectory.toPath().resolve(Paths.get("config"));
@@ -84,6 +90,7 @@ public class PackConfigBootstrap {
     }
 
 
+    /** Writes a file to the disk */
     public static void write(String id, JsonElement json)
     {
         Path path = Minecraft.getInstance().gameDirectory.toPath().resolve(Paths.get("config"));
