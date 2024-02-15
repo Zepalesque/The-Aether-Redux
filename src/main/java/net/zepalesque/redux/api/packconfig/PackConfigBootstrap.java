@@ -29,17 +29,23 @@ public class PackConfigBootstrap {
     /** A {@link Gson} used to serialize and deserialize the configs */
     private static final Gson gson = new GsonBuilder().disableHtmlEscaping().setPrettyPrinting().create();
 
-    /** Starts up the pack config system. */
+    private static boolean hasStarted = false;
+
+    /** Starts up the pack config system. Should not be called outside of the initial bootstrap! */
     public static void bootstrap()
     {
-        if (FMLLoader.getDist() == Dist.CLIENT) {
-            for (Map.Entry<String, Category> entry : configFiles.entrySet()) {
-                JsonElement read = read(entry.getKey());
-                entry.getValue().read(read);
-                JsonElement written = entry.getValue().write();
-                write(entry.getKey(), written);
+        if (!hasStarted) {
+            if (FMLLoader.getDist() == Dist.CLIENT) {
+                for (Map.Entry<String, Category> entry : configFiles.entrySet()) {
+                    JsonElement read = read(entry.getKey());
+                    entry.getValue().read(read);
+                    JsonElement written = entry.getValue().write();
+                    write(entry.getKey(), written);
+                }
             }
+            hasStarted = true;
         }
+        Redux.LOGGER.warn("Already started PackConfig bootstrap, but method was called again! Ignoring...");
     }
 
     /** Registers a new config file */
