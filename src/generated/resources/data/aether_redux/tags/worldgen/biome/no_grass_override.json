@@ -1,0 +1,8 @@
+{
+  "remove": [
+    "#aether_redux:has_grass_override"
+  ],
+  "values": [
+    "#aether:is_aether"
+  ]
+}

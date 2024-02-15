@@ -1,5 +1,5 @@
 {
-  "type": "aether_redux:aether_grass_vanillification_override",
+  "type": "aether_redux:grass_and_foliage",
   "biomes": "aether_genesis:vibrant_forest",
   "foliage_color": 5877296,
   "grass_color": 7979098

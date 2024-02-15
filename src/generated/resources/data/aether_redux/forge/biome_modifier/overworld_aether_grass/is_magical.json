@@ -1,0 +1,5 @@
+{
+  "type": "aether_redux:aether_grass_color",
+  "biomes": "#forge:is_magical",
+  "grass_color": 12251391
+}

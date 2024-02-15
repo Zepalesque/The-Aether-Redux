@@ -1,0 +1,16 @@
+{
+  "values": [
+    "aether_redux:the_blight",
+    "aether_redux:glacial_taiga",
+    "aether_redux:frosted_tundra",
+    "aether_redux:gilded_groves",
+    "aether_redux:gilded_grasslands",
+    "aether_redux:highfields",
+    "aether_redux:cloudcaps",
+    "aether_redux:skyroot_shrublands",
+    "aether:skyroot_forest",
+    "aether:skyroot_woodland",
+    "aether_genesis:vibrant_forest",
+    "aether_genesis:vibrant_woodland"
+  ]
+}
