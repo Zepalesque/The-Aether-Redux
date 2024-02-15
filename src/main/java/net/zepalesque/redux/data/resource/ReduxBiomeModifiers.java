@@ -32,6 +32,7 @@ public class ReduxBiomeModifiers {
     public static String MODIFY = "modify/";
     public static String AETHER_GRASS_COLOR = "aether_grass_colors/";
     public static String GRASS_COLOR_BASE = "grass_color_base/";
+    public static String OVERWORLD_AETHER_GRASS = "overworld_aether_grass/";
 
     public static final ResourceKey<BiomeModifier> ADD_AETHER_CAVES = createKey(FEATURE + "aether_caves");
     public static final ResourceKey<BiomeModifier> ADD_BLIGHTED_CAVES = createKey(FEATURE + "blighted_caves");
@@ -111,7 +112,7 @@ public class ReduxBiomeModifiers {
                 context.register(createKey(GRASS_COLOR_BASE + key.location().getPath()),
                 new GrassAndFoliageColorModifier(HolderSet.direct(biomes.getOrThrow(key)), colors.getFirst(), colors.getSecond())));
         ReduxBiomes.OVERWORLD_BIOME_AETHER_GRASS_COLORS.forEach((key, colors) ->
-                context.register(createKey(GRASS_COLOR_BASE + key.location().getPath()),
+                context.register(createKey(OVERWORLD_AETHER_GRASS + key.location().getPath()),
                 new AetherGrassColorModifier(biomes.getOrThrow(key), colors)));
     }
 }
