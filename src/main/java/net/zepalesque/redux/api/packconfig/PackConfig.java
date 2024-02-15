@@ -3,6 +3,7 @@ package net.zepalesque.redux.api.packconfig;
 import com.google.gson.JsonElement;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.serialization.client.WidgetMapper;
+import net.zepalesque.redux.api.serialization.client.WidgetMappers;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
@@ -142,8 +143,7 @@ public class PackConfig<T> implements IConfigSaving, Supplier<T> {
         }
 
         public Builder push(String id) {
-            Category pushTo = this.current.getOrCreate(id);
-            this.current = pushTo;
+            this.current = this.current.getOrCreate(id);
             return this;
         }
 
@@ -168,11 +168,8 @@ public class PackConfig<T> implements IConfigSaving, Supplier<T> {
             return this.cfg(id, defVal, codec, null);
         }
 
-
-
-
-
+        public  PackConfig<Boolean> cfg(String id, boolean defVal) {
+            return this.cfg(id, defVal, WidgetMappers.BOOL);
+        }
     }
-
-
 }
