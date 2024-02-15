@@ -11,6 +11,7 @@
     "common.block.DoubleBlockMixin",
     "common.block.EnchantedAetherGrassBlockMixin",
     "common.block.FrictionCappedMixin",
+    "common.block.GrassBlockMixin",
     "common.block.IForgeBlockQuicksoilBehaviorMixin",
     "common.block.ParticleLeavesMixin",
     "common.block.QuicksoilBlockMixin",

@@ -8,6 +8,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.GrassBlock;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.zepalesque.redux.block.ReduxBlocks;
@@ -16,7 +17,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import java.util.Optional;
 
 @Mixin(EnchantedAetherGrassBlock.class)
-public class EnchantedAetherGrassBlockMixin extends GrassBlockMixin{
+public class EnchantedAetherGrassBlockMixin extends GrassBlockMixin {
 
     @Override
     protected boolean placeGrass(PlacedFeature instance, WorldGenLevel pLevel, ChunkGenerator pGenerator, RandomSource pRandom, BlockPos pPos, Operation<Boolean> original) {
