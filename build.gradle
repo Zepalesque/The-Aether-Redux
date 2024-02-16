@@ -157,6 +157,7 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:suggestion-provider-fix-469647:${project.suggestion_provider_fix_version}")
     runtimeOnly fg.deobf("curse.maven:embeddium-908741:${project.embeddium_version}")
     implementation fg.deobf("curse.maven:jade-324717:${project.jade_version}")
+    implementation fg.deobf("curse.maven:galosphere-631098:${project.galosphere_version}")
     //    implementation fg.deobf("curse.maven:ancient-aether-886751:${project.ancient_aether_version}")
 }
 
