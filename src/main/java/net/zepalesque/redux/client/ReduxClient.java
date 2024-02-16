@@ -28,7 +28,7 @@ import java.util.Optional;
 public class ReduxClient {
 
     public static void registerItemModelProperties() {
-        ItemProperties.register(ReduxItems.SUBZERO_CROSSBOW.get(), new ResourceLocation("pull"), (stack, level, entity, seed) -> {
+        ItemProperties.register(ReduxItems.SUBZERO_CROSSBOW.get(), Redux.locate("pull"), (stack, level, entity, seed) -> {
             if (entity == null) {
                 return 0.0F;
             } else {
