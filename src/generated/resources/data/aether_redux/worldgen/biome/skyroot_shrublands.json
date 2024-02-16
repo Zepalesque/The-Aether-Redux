@@ -44,7 +44,7 @@
     [
       "aether_redux:trees/shrublands_trees",
       "aether:holiday_tree",
-      "aether:grass_patch",
+      "aether_redux:patch/dense_grass",
       "aether:tall_grass_patch",
       "aether_redux:patch/shrublands_purple_patch",
       "aether_redux:patch/shrublands_white_patch",

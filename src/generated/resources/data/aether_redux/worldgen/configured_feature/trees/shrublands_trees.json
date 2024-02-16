@@ -22,7 +22,7 @@
       {
         "chance": 0.05,
         "feature": {
-          "feature": "aether:skyroot_tree",
+          "feature": "aether_redux:trees/skyroot_pine",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",

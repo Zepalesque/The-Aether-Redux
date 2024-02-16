@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "G": {
+      "item": "aether:enchanted_gravitite"
+    },
+    "S": {
+      "item": "aether_redux:mykapod_shell_chunk"
+    }
+  },
+  "pattern": [
+    "GSG",
+    "SSS",
+    "GSG"
+  ],
+  "result": {
+    "item": "aether_redux:snailshell_shield"
+  },
+  "show_notification": true
+}

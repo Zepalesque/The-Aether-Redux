@@ -33,8 +33,9 @@ public class ReduxSurfaceData {
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.CLOUDCAPS), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.ICE, 0.0, 0.2), SurfaceRules.state(getCoarseDirtBlock().get().defaultBlockState())))),
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.CLOUDCAPS), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state((ReduxBlocks.AEVELIUM.get()).defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true)))),
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.QUICKSOIL_DUNES), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state((AetherBlocks.QUICKSOIL.get()).defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true)))),
-                SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.QUICKSOIL_OASIS), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state((AetherBlocks.QUICKSOIL.get()).defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true))))
-        );
+                SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.QUICKSOIL_OASIS), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state((AetherBlocks.QUICKSOIL.get()).defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true)))),
+                SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.SKYROOT_SHRUBLANDS), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.ICE, 0.0, 0.2), SurfaceRules.state(getCoarseDirtBlock()))))
+                );
     }
     
     private static Supplier<Block> getCoarseDirtBlock() {
