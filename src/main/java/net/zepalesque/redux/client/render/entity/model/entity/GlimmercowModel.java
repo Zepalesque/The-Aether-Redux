@@ -14,7 +14,7 @@ public class GlimmercowModel<T extends Glimmercow> extends QuadrupedModel<T> {
 
    protected final ModelPart mushrooms;
    public GlimmercowModel(ModelPart root) {
-      super(root, false, 15.0F, 4.0F, 2.0F, 2.0F, 24);
+      super(root, false, 7.0F, 4.0F, 2.0F, 2.0F, 24);
       this.mushrooms = this.body.getChild("mushrooms");
    }
 
