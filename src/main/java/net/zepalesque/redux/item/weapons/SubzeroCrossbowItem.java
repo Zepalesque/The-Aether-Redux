@@ -27,6 +27,13 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.common.util.Lazy;
+import net.orcinus.galosphere.criterion.GCriterion;
+import net.orcinus.galosphere.entities.GlowFlare;
+import net.orcinus.galosphere.entities.SpectreFlare;
+import net.orcinus.galosphere.init.GCriteriaTriggers;
+import net.orcinus.galosphere.init.GItems;
+import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.capability.arrow.SubzeroArrow;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import org.joml.Quaternionf;
@@ -34,12 +41,15 @@ import org.joml.Vector3f;
 
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class SubzeroCrossbowItem extends CrossbowItem {
    /** Set to {@code true} when the crossbow is 20% charged. */
    private boolean startSoundPlayed = false;
    /** Set to {@code true} when the crossbow is 50% charged. */
    private boolean midLoadSoundPlayed = false;
+
+   private static final @Nullable Lazy<Predicate<ItemStack>> PREDICATE = Lazy.of(() -> Redux.galosphereCompat() ? stack -> stack.is(GItems.GLOW_FLARE.get()) || stack.is(GItems.SPECTRE_FLARE.get()) : null);
 
    public SubzeroCrossbowItem(Item.Properties properties) {
       super(properties);
@@ -82,6 +92,12 @@ public class SubzeroCrossbowItem extends CrossbowItem {
       int i = this.getUseDuration(stack) - timeLeft;
       float f = getPowerForTime(i, stack);
       if (f >= 1.0F && !isCharged(stack) && tryLoadProjectiles(livingentity, stack)) {
+         if (Redux.galosphereCompat() && PREDICATE != null) {
+            ItemStack projectileStack = ProjectileWeaponItem.getHeldProjectile(livingentity, PREDICATE.get());
+            if (!projectileStack.isEmpty() && (livingentity instanceof Player player && !player.getAbilities().instabuild)) {
+               projectileStack.shrink(1);
+            }
+         }
          setCharged(stack, true);
          SoundSource soundsource = livingentity instanceof Player ? SoundSource.PLAYERS : SoundSource.HOSTILE;
          level.playSound(null, livingentity.getX(), livingentity.getY(), livingentity.getZ(), ReduxSoundEvents.SUBZERO_CROSSBOW_LOADING_END.get(), soundsource, 1.0F, 1.0F / (level.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
@@ -188,6 +204,36 @@ public class SubzeroCrossbowItem extends CrossbowItem {
    }
 
    private static void shootProjectile(Level level, LivingEntity shooter, InteractionHand hand, ItemStack crossbowStack, ItemStack ammoStack, float soundPitch, boolean isCreativeMode, float velocity, float inaccuracy, float projectileAngle) {
+
+      if (Redux.galosphereCompat() && PREDICATE != null) {
+         if (!level.isClientSide && PREDICATE.get().test(ammoStack)) {
+            boolean isSpectreFlare = ammoStack.is(GItems.SPECTRE_FLARE.get());
+            Projectile projectile = isSpectreFlare ? new SpectreFlare(level, ammoStack, shooter, shooter.getX(), shooter.getEyeY() - (double) 0.15F, shooter.getZ(), true) : new GlowFlare(level, ammoStack, shooter, shooter.getX(), shooter.getEyeY() - (double) 0.15F, shooter.getZ(), true);
+
+            if (shooter instanceof ServerPlayer serverPlayer) {
+               GCriterion criteria = isSpectreFlare ? GCriteriaTriggers.USE_SPECTRE_FLARE : GCriteriaTriggers.LIGHT_SPREAD;
+               criteria.trigger(serverPlayer);
+            }
+
+            if (shooter instanceof CrossbowAttackMob crossbowattackmob) {
+               crossbowattackmob.shootCrossbowProjectile(crossbowattackmob.getTarget(), crossbowStack, projectile, projectileAngle);
+            } else {
+               Vec3 vec3 = shooter.getUpVector(1.0F);
+               Quaternionf quaternionf = new Quaternionf().setAngleAxis(projectileAngle * ((float) Math.PI / 180), vec3.x, vec3.y, vec3.z);
+               Vec3 vec32 = shooter.getViewVector(1.0F);
+               Vector3f vector3f = vec32.toVector3f().rotate(quaternionf);
+               projectile.shoot(vector3f.x(), vector3f.y(), vector3f.z(), velocity, inaccuracy);
+            }
+
+            crossbowStack.hurtAndBreak(3, shooter, (e) -> e.broadcastBreakEvent(hand));
+            level.addFreshEntity(projectile);
+            level.playSound(null, shooter.getX(), shooter.getY(), shooter.getZ(), ReduxSoundEvents.SUBZERO_CROSSBOW_SHOOT.get(), SoundSource.PLAYERS, 1.0F, soundPitch);
+            return;
+         }
+      }
+
+
+
       if (!level.isClientSide) {
          boolean flag = ammoStack.is(Items.FIREWORK_ROCKET);
          Projectile projectile;

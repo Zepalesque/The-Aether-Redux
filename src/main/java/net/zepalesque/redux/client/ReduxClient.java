@@ -39,8 +39,8 @@ public class ReduxClient {
         ItemProperties.register(ReduxItems.SUBZERO_CROSSBOW.get(), Redux.locate("charged"), (stack, level, entity, seed) -> SubzeroCrossbowItem.isCharged(stack) ? 1.0F : 0.0F);
         ItemProperties.register(ReduxItems.SUBZERO_CROSSBOW.get(), Redux.locate("firework"), (stack, level, entity, seed) -> SubzeroCrossbowItem.isCharged(stack) && SubzeroCrossbowItem.containsChargedProjectile(stack, Items.FIREWORK_ROCKET) ? 1.0F : 0.0F);
         if (Redux.galosphereCompat()) {
-            ItemProperties.register(ReduxItems.SUBZERO_CROSSBOW.get(), Galosphere.id("glow_flare"), (stack, world, entity, i) -> entity != null && SubzeroCrossbowItem.isCharged(stack) && SubzeroCrossbowItem.containsChargedProjectile(stack, GItems.GLOW_FLARE.get()) ? 1 : 0);
-            ItemProperties.register(ReduxItems.SUBZERO_CROSSBOW.get(), Galosphere.id("spectre_flare"), (stack, world, entity, i) -> entity != null && SubzeroCrossbowItem.isCharged(stack) && SubzeroCrossbowItem.containsChargedProjectile(stack, GItems.SPECTRE_FLARE.get()) ? 1 : 0);
+            ItemProperties.register(ReduxItems.SUBZERO_CROSSBOW.get(), Galosphere.id("glow_flare"), (stack, world, entity, i) -> entity != null && SubzeroCrossbowItem.isCharged(stack) && SubzeroCrossbowItem.containsChargedProjectile(stack, GItems.GLOW_FLARE.get()) ? 1.0F : 0.0F);
+            ItemProperties.register(ReduxItems.SUBZERO_CROSSBOW.get(), Galosphere.id("spectre_flare"), (stack, world, entity, i) -> entity != null && SubzeroCrossbowItem.isCharged(stack) && SubzeroCrossbowItem.containsChargedProjectile(stack, GItems.SPECTRE_FLARE.get()) ? 1.0F : 0.0F);
         }
         ItemProperties.register(ReduxItems.VAMPIRE_AMULET.get(), Redux.locate("active"), (stack, level, entity, seed) -> {
             if (entity == null) return 0.0F;

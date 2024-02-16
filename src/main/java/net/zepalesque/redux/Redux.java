@@ -425,9 +425,11 @@ public class Redux
             });
         }
     }
+
     public static ResourceLocation locate(String name) {
         return new ResourceLocation(MODID, name);
     }
+
     public static boolean deepAetherCompat() { return ModList.get().isLoaded("deep_aether"); }
     public static boolean lostAetherCompat() { return ModList.get().isLoaded("lost_aether_content"); }
     public static boolean aetherGenesisCompat() { return ModList.get().isLoaded("aether_genesis"); }

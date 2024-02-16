@@ -61,17 +61,17 @@
         },
     {
       "predicate": {
-        "charged": 1,
+        "aether_redux:charged": 1,
         "galosphere:glow_flare": 1
       },
-      "model": "galosphere:item/crossbow_glow_flare"
+      "model": "aether_redux:item/subzero_crossbow_glow_flare"
     },
     {
       "predicate": {
-        "charged": 1,
+        "aether_redux:charged": 1,
         "galosphere:spectre_flare": 1
       },
-      "model": "galosphere:item/crossbow_spectre_flare"
+      "model": "aether_redux:item/subzero_crossbow_spectre_flare"
     }
     ]
 }
