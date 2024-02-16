@@ -741,5 +741,9 @@
   "subtitles.aether_redux.item.infuse_item": "Item infuses",
   "subtitles.aether_redux.item.spear_land": "Spear clings",
   "subtitles.aether_redux.item.spear_throw": "Spear wooshes",
+  "subtitles.aether_redux.item.subzero_crossbow_charge": "Subzero Crossbow charges",
+  "subtitles.aether_redux.item.subzero_crossbow_hit": "Subzero Arrow hits",
+  "subtitles.aether_redux.item.subzero_crossbow_load": "Subzero Crossbow loads",
+  "subtitles.aether_redux.item.subzero_crossbow_shoot": "Subzero Crossbow shoots",
   "tooltip.aether_redux.ambrosium_charge": "Infusion Level: %s"
 }

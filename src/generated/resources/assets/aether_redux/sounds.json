@@ -411,6 +411,65 @@
     ],
     "subtitle": "subtitles.aether_redux.item.spear_throw"
   },
+  "item.subzero_crossbow.hit": {
+    "sounds": [
+      "aether_redux:item/subzero_crossbow/arrow/hit1",
+      "aether_redux:item/subzero_crossbow/arrow/hit2",
+      "aether_redux:item/subzero_crossbow/arrow/hit3"
+    ],
+    "subtitle": "subtitles.aether_redux.item.subzero_crossbow_hit"
+  },
+  "item.subzero_crossbow.loading_end": {
+    "sounds": [
+      "aether_redux:item/subzero_crossbow/loading_end"
+    ],
+    "subtitle": "subtitles.aether_redux.item.subzero_crossbow_load"
+  },
+  "item.subzero_crossbow.loading_middle": {
+    "sounds": [
+      "item/crossbow/loading_middle1",
+      "item/crossbow/loading_middle2",
+      "item/crossbow/loading_middle3"
+    ]
+  },
+  "item.subzero_crossbow.loading_start": {
+    "sounds": [
+      "aether_redux:item/subzero_crossbow/loading_start"
+    ],
+    "subtitle": "subtitles.aether_redux.item.subzero_crossbow_charge"
+  },
+  "item.subzero_crossbow.quick_charge_1": {
+    "sounds": [
+      "aether_redux:item/subzero_crossbow/quick_charge/quick1_1",
+      "aether_redux:item/subzero_crossbow/quick_charge/quick1_2",
+      "aether_redux:item/subzero_crossbow/quick_charge/quick1_3"
+    ],
+    "subtitle": "subtitles.aether_redux.item.subzero_crossbow_charge"
+  },
+  "item.subzero_crossbow.quick_charge_2": {
+    "sounds": [
+      "aether_redux:item/subzero_crossbow/quick_charge/quick2_1",
+      "aether_redux:item/subzero_crossbow/quick_charge/quick2_2",
+      "aether_redux:item/subzero_crossbow/quick_charge/quick2_3"
+    ],
+    "subtitle": "subtitles.aether_redux.item.subzero_crossbow_charge"
+  },
+  "item.subzero_crossbow.quick_charge_3": {
+    "sounds": [
+      "aether_redux:item/subzero_crossbow/quick_charge/quick3_1",
+      "aether_redux:item/subzero_crossbow/quick_charge/quick3_2",
+      "aether_redux:item/subzero_crossbow/quick_charge/quick3_3"
+    ],
+    "subtitle": "subtitles.aether_redux.item.subzero_crossbow_charge"
+  },
+  "item.subzero_crossbow.shoot": {
+    "sounds": [
+      "aether_redux:item/subzero_crossbow/shoot1",
+      "aether_redux:item/subzero_crossbow/shoot2",
+      "aether_redux:item/subzero_crossbow/shoot3"
+    ],
+    "subtitle": "subtitles.aether_redux.item.subzero_crossbow_shoot"
+  },
   "ui.toast.aether_redux_gold": {
     "sounds": [
       {
