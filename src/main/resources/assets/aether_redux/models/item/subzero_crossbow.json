@@ -58,6 +58,20 @@
                 "aether_redux:firework": 1
             },
             "model": "aether_redux:item/subzero_crossbow_firework"
-        }
+        },
+    {
+      "predicate": {
+        "charged": 1,
+        "galosphere:glow_flare": 1
+      },
+      "model": "galosphere:item/crossbow_glow_flare"
+    },
+    {
+      "predicate": {
+        "charged": 1,
+        "galosphere:spectre_flare": 1
+      },
+      "model": "galosphere:item/crossbow_spectre_flare"
+    }
     ]
 }

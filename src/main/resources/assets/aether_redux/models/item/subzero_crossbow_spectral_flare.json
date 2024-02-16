@@ -1,0 +1,6 @@
+{
+    "parent": "aether_redux:item/subzero_crossbow",
+    "textures": {
+        "layer0": "aether_redux:item/weapons/subzero_crossbow_spectral_flare"
+    }
+}
