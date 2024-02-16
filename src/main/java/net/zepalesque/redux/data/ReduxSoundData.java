@@ -298,7 +298,56 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
         this.add(ReduxSoundEvents.ADVANCEMENT_GOLD,
                 definition().with(sound(Redux.locate("achievement/achievement_gold")).stream()));
 
+        this.add(ReduxSoundEvents.SUBZERO_CROSSBOW_SHOOT,
+                definition()
+                        .with(sound(Redux.locate("item/subzero_crossbow/shoot1")))
+                        .with(sound(Redux.locate("item/subzero_crossbow/shoot2")))
+                        .with(sound(Redux.locate("item/subzero_crossbow/shoot3")))
+                        .subtitle("subtitles.aether_redux.item.subzero_crossbow_shoot"));
 
+        this.add(ReduxSoundEvents.SUBZERO_CROSSBOW_LOADING_START,
+                definition()
+                        .with(sound(Redux.locate("item/subzero_crossbow/loading_start")))
+                        .subtitle("subtitles.aether_redux.item.subzero_crossbow_charge"));
+
+        this.add(ReduxSoundEvents.SUBZERO_CROSSBOW_LOADING_MIDDLE,
+                definition()
+                        .with(sound("item/crossbow/loading_middle1"))
+                        .with(sound("item/crossbow/loading_middle2"))
+                        .with(sound("item/crossbow/loading_middle3"))
+        );
+        this.add(ReduxSoundEvents.SUBZERO_CROSSBOW_LOADING_END,
+                definition()
+                        .with(sound(Redux.locate("item/subzero_crossbow/loading_end")))
+                        .subtitle("subtitles.aether_redux.item.subzero_crossbow_load"));
+
+        this.add(ReduxSoundEvents.SUBZERO_CROSSBOW_QUICK_CHARGE_1,
+                definition()
+                        .with(sound(Redux.locate("item/subzero_crossbow/quick_charge/quick1_1")))
+                        .with(sound(Redux.locate("item/subzero_crossbow/quick_charge/quick1_2")))
+                        .with(sound(Redux.locate("item/subzero_crossbow/quick_charge/quick1_3")))
+                        .subtitle("subtitles.aether_redux.item.subzero_crossbow_charge"));
+
+        this.add(ReduxSoundEvents.SUBZERO_CROSSBOW_QUICK_CHARGE_2,
+                definition()
+                        .with(sound(Redux.locate("item/subzero_crossbow/quick_charge/quick2_1")))
+                        .with(sound(Redux.locate("item/subzero_crossbow/quick_charge/quick2_2")))
+                        .with(sound(Redux.locate("item/subzero_crossbow/quick_charge/quick2_3")))
+                        .subtitle("subtitles.aether_redux.item.subzero_crossbow_charge"));
+
+        this.add(ReduxSoundEvents.SUBZERO_CROSSBOW_QUICK_CHARGE_3,
+                definition()
+                        .with(sound(Redux.locate("item/subzero_crossbow/quick_charge/quick3_1")))
+                        .with(sound(Redux.locate("item/subzero_crossbow/quick_charge/quick3_2")))
+                        .with(sound(Redux.locate("item/subzero_crossbow/quick_charge/quick3_3")))
+                        .subtitle("subtitles.aether_redux.item.subzero_crossbow_charge"));
+
+        this.add(ReduxSoundEvents.SUBZERO_CROSSBOW_HIT,
+                definition()
+                        .with(sound(Redux.locate("item/subzero_crossbow/arrow/hit1")))
+                        .with(sound(Redux.locate("item/subzero_crossbow/arrow/hit2")))
+                        .with(sound(Redux.locate("item/subzero_crossbow/arrow/hit3")))
+                        .subtitle("subtitles.aether_redux.item.subzero_crossbow_hit"));
     }
 
 }

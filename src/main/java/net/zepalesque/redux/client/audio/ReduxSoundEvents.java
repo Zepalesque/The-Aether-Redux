@@ -52,6 +52,15 @@ public class ReduxSoundEvents {
     public static final RegistryObject<SoundEvent> EQUIP_SENTRY_RING = register("item.accessory.equip_sentry_ring");
     public static final RegistryObject<SoundEvent> EQUIP_VAMPIRE_AMULET = register("item.accessory.equip_vampire_amulet");
 
+    public static final RegistryObject<SoundEvent> SUBZERO_CROSSBOW_LOADING_END = register("item.subzero_crossbow.loading_end");
+    public static final RegistryObject<SoundEvent> SUBZERO_CROSSBOW_LOADING_MIDDLE = register("item.subzero_crossbow.loading_middle");
+    public static final RegistryObject<SoundEvent> SUBZERO_CROSSBOW_LOADING_START = register("item.subzero_crossbow.loading_start");
+    public static final RegistryObject<SoundEvent> SUBZERO_CROSSBOW_QUICK_CHARGE_1 = register("item.subzero_crossbow.quick_charge_1");
+    public static final RegistryObject<SoundEvent> SUBZERO_CROSSBOW_QUICK_CHARGE_2 = register("item.subzero_crossbow.quick_charge_2");
+    public static final RegistryObject<SoundEvent> SUBZERO_CROSSBOW_QUICK_CHARGE_3 = register("item.subzero_crossbow.quick_charge_3");
+    public static final RegistryObject<SoundEvent> SUBZERO_CROSSBOW_SHOOT = register("item.subzero_crossbow.shoot");
+    public static final RegistryObject<SoundEvent> SUBZERO_CROSSBOW_HIT = register("item.subzero_crossbow.hit");
+
     public static final RegistryObject<SoundEvent> CONVERT_AMBROSIUM = register("item.convert.ambrosium");
     public static final RegistryObject<SoundEvent> CONVERT_SWET_BALL = register("item.convert.swet_ball");
     public static final RegistryObject<SoundEvent> CONVERT_BLIGHTED_SPORES = register("item.convert.blighted_spores");

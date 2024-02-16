@@ -29,6 +29,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
 import net.zepalesque.redux.capability.arrow.SubzeroArrow;
+import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
 
@@ -84,7 +85,7 @@ public class SubzeroCrossbowItem extends CrossbowItem {
       if (f >= 1.0F && !isCharged(pStack) && tryLoadProjectiles(pEntityLiving, pStack)) {
          setCharged(pStack, true);
          SoundSource soundsource = pEntityLiving instanceof Player ? SoundSource.PLAYERS : SoundSource.HOSTILE;
-         pLevel.playSound(null, pEntityLiving.getX(), pEntityLiving.getY(), pEntityLiving.getZ(), SoundEvents.CROSSBOW_LOADING_END, soundsource, 1.0F, 1.0F / (pLevel.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
+         pLevel.playSound(null, pEntityLiving.getX(), pEntityLiving.getY(), pEntityLiving.getZ(), ReduxSoundEvents.SUBZERO_CROSSBOW_LOADING_END.get(), soundsource, 1.0F, 1.0F / (pLevel.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
       }
 
    }
@@ -215,7 +216,7 @@ public class SubzeroCrossbowItem extends CrossbowItem {
             p_40858_.broadcastBreakEvent(pHand);
          });
          pLevel.addFreshEntity(projectile);
-         pLevel.playSound(null, pShooter.getX(), pShooter.getY(), pShooter.getZ(), SoundEvents.CROSSBOW_SHOOT, SoundSource.PLAYERS, 1.0F, pSoundPitch);
+         pLevel.playSound(null, pShooter.getX(), pShooter.getY(), pShooter.getZ(), ReduxSoundEvents.SUBZERO_CROSSBOW_SHOOT.get(), SoundSource.PLAYERS, 1.0F, pSoundPitch);
       }
    }
 
@@ -227,7 +228,7 @@ public class SubzeroCrossbowItem extends CrossbowItem {
       }
 
 
-      abstractarrow.setSoundEvent(SoundEvents.CROSSBOW_HIT);
+      abstractarrow.setSoundEvent(ReduxSoundEvents.SUBZERO_CROSSBOW_HIT.get());
       abstractarrow.setShotFromCrossbow(true);
       int i = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.PIERCING, pCrossbowStack);
       if (i > 0) {
@@ -296,7 +297,7 @@ public class SubzeroCrossbowItem extends CrossbowItem {
       if (!pLevel.isClientSide) {
          int i = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.QUICK_CHARGE, pStack);
          SoundEvent soundevent = this.getStartSound(i);
-         SoundEvent soundevent1 = i == 0 ? SoundEvents.CROSSBOW_LOADING_MIDDLE : null;
+         SoundEvent soundevent1 = i == 0 ? ReduxSoundEvents.SUBZERO_CROSSBOW_LOADING_MIDDLE.get() : null;
          float f = (float)(pStack.getUseDuration() - pCount) / (float)getChargeDuration(pStack);
          if (f < 0.2F) {
             this.startSoundPlayed = false;
@@ -347,13 +348,13 @@ public class SubzeroCrossbowItem extends CrossbowItem {
    private SoundEvent getStartSound(int pEnchantmentLevel) {
       switch (pEnchantmentLevel) {
          case 1:
-            return SoundEvents.CROSSBOW_QUICK_CHARGE_1;
+            return ReduxSoundEvents.SUBZERO_CROSSBOW_QUICK_CHARGE_1.get();
          case 2:
-            return SoundEvents.CROSSBOW_QUICK_CHARGE_2;
+            return ReduxSoundEvents.SUBZERO_CROSSBOW_QUICK_CHARGE_2.get();
          case 3:
-            return SoundEvents.CROSSBOW_QUICK_CHARGE_3;
+            return ReduxSoundEvents.SUBZERO_CROSSBOW_QUICK_CHARGE_3.get();
          default:
-            return SoundEvents.CROSSBOW_LOADING_START;
+            return ReduxSoundEvents.SUBZERO_CROSSBOW_LOADING_START.get();
       }
    }
 

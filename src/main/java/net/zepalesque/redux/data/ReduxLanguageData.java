@@ -564,6 +564,11 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addSubtitle("block", "lightroots_pick", "Lightroot Clump pops");
         addSubtitle("block", "fungus_bounce", "Springshroom bounces");
 
+        addSubtitle("item", "subzero_crossbow_load", "Subzero Crossbow loads");
+        addSubtitle("item", "subzero_crossbow_charge", "Subzero Crossbow charges");
+        addSubtitle("item", "subzero_crossbow_shoot", "Subzero Crossbow shoots");
+        addSubtitle("item", "subzero_crossbow_hit", "Subzero Arrow hits");
+
         addKeyInfo("category", "The Aether: Redux");
         addKeyInfo("shoot_fireball.desc", "Shoot Fireball");
 
