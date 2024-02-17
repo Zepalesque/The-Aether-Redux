@@ -16,7 +16,7 @@ public class IceShardParticle extends TextureSheetParticle {
       this.yd *= 0.8F;
       this.zd *= 0.8F;
       this.yd = this.random.nextFloat() * 0.4F + 0.05F;
-      this.quadSize *= this.random.nextFloat() * 3 + 0.15F;
+      this.quadSize *= this.random.nextFloat() * 1.5 + 0.15F;
       this.lifetime = (int) (16.0D / (Math.random() * 0.8D + 0.2D));
    }
 

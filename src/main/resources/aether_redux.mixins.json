@@ -29,6 +29,7 @@
     "common.item.GummySwetItemMixin",
     "common.item.ItemMixin",
     "common.item.PickaxeItemMixin",
+    "common.item.SubzeroCrossbowItemMixin",
     "common.world.BiomeGenerationSettingsMixin",
     "common.world.BronzeDungeonRoomMixin",
     "common.world.ChunkAccessAccessor",

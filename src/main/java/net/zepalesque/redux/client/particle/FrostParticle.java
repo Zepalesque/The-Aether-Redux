@@ -31,8 +31,8 @@ public class FrostParticle extends TextureSheetParticle {
 
    public void tick() {
       super.tick();
+      this.rCol *= 0.9F;
       this.gCol *= 0.96F;
-      this.bCol *= 0.9F;
    }
 
    public ParticleRenderType getRenderType() {

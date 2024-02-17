@@ -1,5 +1,6 @@
 package net.zepalesque.redux.client.particle;
 
+import net.minecraft.client.particle.GlowParticle;
 import net.minecraft.client.particle.ParticleProvider;
 import net.minecraft.client.particle.TextureSheetParticle;
 import net.minecraft.core.particles.DustParticleOptions;
@@ -59,8 +60,9 @@ public class ReduxParticleTypes {
     public static final RegistryObject<SimpleParticleType> CLOUDCAP_AIR_SPORE = PARTICLES.register("cloudcap_air_spore", () -> new SimpleParticleType(false));
 
     public static final RegistryObject<SimpleParticleType> ICE_SHARD = PARTICLES.register("ice_shard", () -> new SimpleParticleType(false));
+    public static final RegistryObject<SimpleParticleType> FROST = PARTICLES.register("frost", () -> new SimpleParticleType(false));
 
-public static final RegistryObject<SimpleParticleType> FROST = PARTICLES.register("frost", () -> new SimpleParticleType(false));
+    public static final RegistryObject<SimpleParticleType> GLIMMERSTAR = PARTICLES.register("glimmerstar", () -> new SimpleParticleType(false));
 
 
     public static final RegistryObject<SimpleParticleType> SPARK = PARTICLES.register("spark", () -> new SimpleParticleType(false));
@@ -101,6 +103,8 @@ public static final RegistryObject<SimpleParticleType> FROST = PARTICLES.registe
         event.registerSpriteSet(CLOUDCAP_AIR_SPORE.get(), CloudcapAirSporeParticle.Provider::new);
 
         event.registerSpriteSet(SPARK.get(), SparkParticle.Provider::new);
+
+//        event.registerSpriteSet(SPARK.get(), GlowParticle.Provider::new);
     }
 
     public static <T extends ParticleOptions> void register(RegisterParticleProvidersEvent event, ParticleType<T> particleType, ParticleProvider.Sprite<T> sprite) {
