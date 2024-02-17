@@ -74,7 +74,6 @@ public class ReduxConfig {
 
         public final ForgeConfigSpec.BooleanValue apply_cloud_layer_pack;
 
-        public final ForgeConfigSpec.BooleanValue cloud_layer_thickness_modifier;
         public final ForgeConfigSpec.DoubleValue cloud_layer_threshold_min;
         public final ForgeConfigSpec.DoubleValue cloud_layer_threshold_max;
 
@@ -111,7 +110,6 @@ public class ReduxConfig {
             this.mossy_holystone_ores = builder.comment("Enables Mossy Holystone as an ore. Configurable so that if you disable it, it's easier to tell if you've come across a dungeon.").worldRestart().translation("config.aether_redux.worldgen.mossy_holystone_ores").define("Mossy Holystone Ores", true);
             this.enchanted_vines = builder.comment("Enables Enchanted/Gilded vines on trees").worldRestart().translation("config.aether_redux.worldgen.enchanted_vines").define("Enable Enchanted and Gilded Vines", true);
             this.alternate_gilded_trees = builder.comment("Uses an alternate Gilded Oak shape, more like vanilla Oak trees and Skyroots").worldRestart().translation("config.aether_redux.worldgen.alternate_gilded_trees").define("Alternate Gilded Trees", false);
-            this.cloud_layer_thickness_modifier = builder.comment("How much thicker/thinner to make the Aether's cloud layer. Negative values will make the clouds cover less area, where").worldRestart().translation("config.aether_redux.worldgen.alternate_gilded_trees").define("Alternate Gilded Trees", false);
 
             builder.push("Cloud Layer");
             this.cloud_layer_threshold_min = builder.comment("Minimum value for the cloud layer's noise threshold").defineInRange("Cloud Layer Threshold Min", 0D, -4D, 4D);
