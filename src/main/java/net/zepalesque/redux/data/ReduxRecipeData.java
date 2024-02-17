@@ -74,6 +74,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
 
         oreBlockStorageRecipesRecipesWithCustomUnpacking(consumer, RecipeCategory.MISC, ReduxItems.RAW_VERIDIUM.get(), RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.RAW_VERIDIUM_BLOCK.get(), "raw_veridium_from_raw_veridium_block", "raw_veridium");
 
+        oreBlockStorageRecipesRecipesWithCustomUnpacking(consumer, RecipeCategory.MISC, ReduxItems.GRAVITITE_INGOT.get(), RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.GRAVITITE_BLOCK.get(), "gravitite_ingot_from_gravitite_block", "gravitite_ingot");
 
 
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.DIVINITE_WALL.get(), ReduxBlocks.DIVINITE.get())
