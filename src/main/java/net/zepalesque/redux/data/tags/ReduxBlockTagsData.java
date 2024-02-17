@@ -231,7 +231,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 Blocks.POWDER_SNOW
                 ).addOptional(DABlocks.AETHER_MUD.getId()).addOptional(DABlocks.GOLDEN_GRASS_BLOCK.getId());
         this.tag(ReduxTags.Blocks.AETHER_MOSS_REPLACEABLES).addTag(AetherTags.Blocks.HOLYSTONE);
-        this.tag(ReduxTags.Blocks.COARSE_AETHER_DIRT).add(ReduxBlocks.COARSE_AETHER_DIRT.get());
+        this.tag(ReduxTags.Blocks.COARSE_AETHER_DIRT).add(ReduxBlocks.COARSE_AETHER_DIRT.get()).addOptional(DABlocks.AETHER_COARSE_DIRT.getId());
         this.tag(BlockTags.FLOWERS).add(
                 ReduxBlocks.IRIDIA.get(),
                 ReduxBlocks.AURUM.get(),
