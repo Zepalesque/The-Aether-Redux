@@ -72,7 +72,6 @@ public class ReduxTags {
 
     public static class Biomes {
 
-        public static final TagKey<Biome> HAS_SENTRY_LAB = tagAncient("has_structure/sentry_lab");
         public static final TagKey<Biome> IS_GILDED = tag("is_gilded");
         public static final TagKey<Biome> IS_FROSTED = tag("is_frosted");
         // TODO: Implement in 2.1
