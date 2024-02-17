@@ -38,7 +38,7 @@ public class WeaponHooks {
                 if (subzeroArrow.isSubzeroArrow()) {
                     for (int i = 0; i < 10; i++) {
                         if (!subzeroArrow.hitGround()) {
-                            abstractArrow.level().addParticle(ReduxParticleTypes.FROST.get(), abstractArrow.getX(), abstractArrow.getY(), abstractArrow.getZ(), 0.0D, 0.0D, 0.0D);
+                            abstractArrow.level().addParticle(ReduxParticleTypes.ICE_SHARD.get(), abstractArrow.getX(), abstractArrow.getY(), abstractArrow.getZ(), 0.0D, 0.0D, 0.0D);
                         }
                     }
                 }

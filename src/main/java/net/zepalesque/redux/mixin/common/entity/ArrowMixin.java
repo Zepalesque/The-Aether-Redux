@@ -10,6 +10,7 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.common.util.LazyOptional;
 import net.zepalesque.redux.capability.animation.mimic.MimicAnimation;
 import net.zepalesque.redux.capability.arrow.SubzeroArrow;
+import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.network.ReduxPacketHandler;
 import net.zepalesque.redux.network.packet.SubzeroArrowPacket;
@@ -51,11 +52,10 @@ public class ArrowMixin
     private boolean particleCheck(Level instance, ParticleOptions particleData, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
         AbstractArrow arrow = (AbstractArrow) (Object) this;
         LazyOptional<SubzeroArrow> subz = SubzeroArrow.get(arrow);
-
         if (subz.isPresent()
                 && subz.orElseThrow(() -> new IllegalStateException("Subzero arrow capability was not present right after checking to ensure it's present??? This should not be possible!"))
                 .isSubzeroArrow()) {
-            instance.addParticle(ParticleTypes.SNOWFLAKE /* TODO (maybe?) */, x, y, z, xSpeed, ySpeed,  zSpeed);
+            instance.addParticle(ReduxParticleTypes.FROST.get(), x, y, z, xSpeed, ySpeed,  zSpeed);
             return false;
         }
         return true;
