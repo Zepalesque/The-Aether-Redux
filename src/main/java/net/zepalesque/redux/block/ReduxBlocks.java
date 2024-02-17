@@ -14,6 +14,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -345,12 +346,12 @@ public class ReduxBlocks {
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.LAPIS).strength(3.0F, 6.0F).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
 
 
-    public static RegistryObject<Block> RAW_GRAVITITE_BLOCK = register("raw_gravitite_block",
-            () -> new FloatingBlock(false, BlockBehaviour.Properties.copy(AetherBlocks.ENCHANTED_GRAVITITE.get())));
+    public static RegistryObject<Block> RAW_GRAVITITE_BLOCK = registerModifyItemProperties("raw_gravitite_block",
+            () -> new FloatingBlock(false, BlockBehaviour.Properties.copy(AetherBlocks.ENCHANTED_GRAVITITE.get())), properties -> properties.rarity(Rarity.RARE));
 
     /** TODO: implement, see {@link ReduxItems#GRAVITITE_INGOT} */
-    public static RegistryObject<Block> GRAVITITE_BLOCK = register("gravitite_block",
-            () -> new FloatingBlock(true, BlockBehaviour.Properties.copy(AetherBlocks.ENCHANTED_GRAVITITE.get())));
+    public static RegistryObject<Block> GRAVITITE_BLOCK = registerModifyItemProperties("gravitite_block",
+            () -> new FloatingBlock(true, BlockBehaviour.Properties.copy(AetherBlocks.ENCHANTED_GRAVITITE.get())), properties -> properties.rarity(Rarity.RARE));
 
 
     // TODO: Consider using unique behavior rather than reskinned Glow Lichen
