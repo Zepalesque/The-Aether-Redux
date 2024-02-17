@@ -41,12 +41,8 @@ public class ArrowMixin
         });
     }
 
-
-    @WrapWithCondition(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;addParticle(Lnet/minecraft/core/particles/ParticleOptions;DDDDDD)V"),
-    slice = @Slice(
-            from = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/projectile/AbstractArrow;isCritArrow()Z"),
-            to = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/projectile/AbstractArrow;isInWater()Z"))
-    )
+    // TODO: there may be a better way to do this, I can't remember how though but I feel like I vaguely remember a mixin type to replace a parameter or something
+    @WrapWithCondition(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;addParticle(Lnet/minecraft/core/particles/ParticleOptions;DDDDDD)V", ordinal = 0))
     private boolean replaceParticle(Level instance, ParticleOptions particleData, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
         return this.particleCheck(instance, particleData, x, y, z, xSpeed, ySpeed, zSpeed);
     }
@@ -56,7 +52,7 @@ public class ArrowMixin
         AbstractArrow arrow = (AbstractArrow) (Object) this;
         LazyOptional<SubzeroArrow> subz = SubzeroArrow.get(arrow);
 
-        if (particleData.getType() == ParticleTypes.CRIT && subz.isPresent()
+        if (subz.isPresent()
                 && subz.orElseThrow(() -> new IllegalStateException("Subzero arrow capability was not present right after checking to ensure it's present??? This should not be possible!"))
                 .isSubzeroArrow()) {
             instance.addParticle(ParticleTypes.SNOWFLAKE /* TODO (maybe?) */, x, y, z, xSpeed, ySpeed,  zSpeed);
