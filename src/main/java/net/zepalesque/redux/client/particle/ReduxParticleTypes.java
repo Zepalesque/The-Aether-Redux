@@ -94,9 +94,9 @@ public class ReduxParticleTypes {
         event.registerSpriteSet(FALLING_PRISMATIC_LEAVES.get(), FallingLeafParticle.Provider::new);
         event.registerSpriteSet(FALLING_GLACIA_NEEDLES.get(), FallingLeafParticle.Provider::new);
         event.registerSpriteSet(FALLING_PURPLE_GLACIA_NEEDLES.get(), FallingLeafParticle.Provider::new);
+
         event.registerSpriteSet(ICE_SHARD.get(), IceShardParticle.Provider::new);
         event.registerSpriteSet(FROST.get(), FrostParticle.Provider::new);
-
 
         register(event, FALLING_CLOUDCAP_SPORE.get(), CloudcapSporeParticle::falling);
         register(event, LANDING_CLOUDCAP_SPORE.get(), CloudcapSporeParticle::landing);
@@ -104,7 +104,7 @@ public class ReduxParticleTypes {
 
         event.registerSpriteSet(SPARK.get(), SparkParticle.Provider::new);
 
-//        event.registerSpriteSet(SPARK.get(), GlowParticle.Provider::new);
+        event.registerSpriteSet(GLIMMERSTAR.get(), GlimmerstarParticle.Provider::new);
     }
 
     public static <T extends ParticleOptions> void register(RegisterParticleProvidersEvent event, ParticleType<T> particleType, ParticleProvider.Sprite<T> sprite) {

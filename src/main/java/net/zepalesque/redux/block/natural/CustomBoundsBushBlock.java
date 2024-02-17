@@ -11,7 +11,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class CustomBoundsBushBlock extends AetherBushBlock {
 
-    private final VoxelShape shape;
+    protected final VoxelShape shape;
 
     public CustomBoundsBushBlock(VoxelShape shape, Properties pProperties) {
         super(pProperties);
