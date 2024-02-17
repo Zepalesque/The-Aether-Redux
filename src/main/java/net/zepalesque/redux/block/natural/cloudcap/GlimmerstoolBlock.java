@@ -41,7 +41,6 @@ public class GlimmerstoolBlock extends AetherBushBlock {
     @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
         super.animateTick(state, level, pos, random);
-        // Spawns particles within the bounding box
         Vec3 vec3 = state.getOffset(level, pos);
         double x = pos.getX() + MIN_X - 0.1875 + (random.nextDouble()) + vec3.x;
         double y = pos.getY() + MIN_Y + 0.125 + (random.nextDouble() * (MAX_Y - MIN_Y)) + vec3.y;
