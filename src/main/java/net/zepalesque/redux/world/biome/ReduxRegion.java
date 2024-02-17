@@ -9,6 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Climate;
 import net.minecraftforge.fml.ModList;
+import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
 import teamrazor.aeroblender.aether.AetherRegionType;
@@ -27,10 +28,12 @@ public class ReduxRegion extends Region {
         Climate.Parameter fullRange = Climate.Parameter.span(-1.5F, 1.5F);
 
 
-        ResourceKey<Biome> glacial = ReduxConfig.COMMON.enable_snowy_biomes.get() ? ReduxBiomes.GLACIAL_TAIGA : AetherBiomes.SKYROOT_FOREST;
 
 
-        if (!ModList.get().isLoaded("ancient_aether")) {
+        if (!Redux.ancientAetherCompat()) {
+            ResourceKey<Biome> glacial = ReduxConfig.COMMON.enable_snowy_biomes.get() ? ReduxBiomes.GLACIAL_TAIGA : AetherBiomes.SKYROOT_FOREST;
+            ResourceKey<Biome> frosted = ReduxConfig.COMMON.enable_snowy_biomes.get() ? ReduxBiomes.FROSTED_TUNDRA : AetherBiomes.SKYROOT_FOREST;
+            ResourceKey<Biome> cloudcaps = ReduxConfig.COMMON.enable_cloudcap_jungle.get() ? ReduxBiomes.CLOUDCAPS : AetherBiomes.SKYROOT_GROVE;
             Climate.Parameter temp1 = Climate.Parameter.span(-1.5F, -0.5F);
             Climate.Parameter temp2 = Climate.Parameter.span(-0.5F, -0.2F);
             Climate.Parameter temp3 = Climate.Parameter.span(-0.2F, 0.2F);
@@ -38,11 +41,11 @@ public class ReduxRegion extends Region {
             Climate.Parameter temp5 = Climate.Parameter.span(0.5F, 1.5F);
 
             addBiome(mapper, new Climate.ParameterPoint(temp1, Climate.Parameter.span(-1.0F, -0.2F), fullRange, fullRange, fullRange, fullRange, 0),
-                    ReduxBiomes.GLACIAL_TAIGA);
+                    glacial);
             addBiome(mapper, new Climate.ParameterPoint(temp1, Climate.Parameter.span(-0.2F, 0.5F), fullRange, fullRange, fullRange, fullRange, 0),
-                    ReduxBiomes.FROSTED_TUNDRA);
+                    frosted);
             addBiome(mapper, new Climate.ParameterPoint(temp1, Climate.Parameter.span(0.5F, 1.0F), fullRange, fullRange, fullRange, fullRange, 0),
-                    ReduxBiomes.CLOUDCAPS);
+                    cloudcaps);
 
             addBiome(mapper, new Climate.ParameterPoint(temp2, Climate.Parameter.span(-1.0F, -0.3F), fullRange, fullRange, fullRange, fullRange, 0),
                     ReduxBiomes.THE_BLIGHT);

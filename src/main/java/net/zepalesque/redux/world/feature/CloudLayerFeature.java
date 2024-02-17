@@ -35,12 +35,12 @@ public class CloudLayerFeature extends Feature<CloudLayerConfig> {
                 double scale = context.config().scaleXZ() * 0.00375;
                 int xCoord = chunkX + x;
                 int zCoord = chunkZ + z;
-                double main = base_noise.getValue(xCoord * scale, zCoord * scale, false);
+                double base = base_noise.getValue(xCoord * scale, zCoord * scale, false);
+                double main = Mth.inverseLerp(base, min, max);
                 double yOffset = y_offset.getValue(xCoord * scale * 0.75D, zCoord * scale * 0.75D, false);
                 float offs = (float) Mth.lerp(Mth.inverseLerp(yOffset, -0.5, 0.5), 0D, 10D);
                 if (main >= 0) {
-                    double d1 = MathUtil.clampedInverp(main, min, max);
-                    float delta = MathUtil.costrp((float) d1, 0, 1);
+                    float delta = MathUtil.costrp((float) Mth.clamp(main, min, max), 0, 1);
                     float blocksUp = Mth.lerp(delta, 0F, 5F) + offs;
                     float blocksDown = Mth.lerp(delta, 0F, 4F) - offs;
 
