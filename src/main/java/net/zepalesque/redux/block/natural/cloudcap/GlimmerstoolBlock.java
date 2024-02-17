@@ -43,9 +43,9 @@ public class GlimmerstoolBlock extends AetherBushBlock {
         super.animateTick(state, level, pos, random);
         // Spawns particles within the bounding box
         Vec3 vec3 = state.getOffset(level, pos);
-        double x = pos.getX() + MIN_X - 0.1875 + (random.nextDouble() * (MAX_X - MIN_X + 0.375)) + vec3.x;
+        double x = pos.getX() + MIN_X - 0.1875 + (random.nextDouble()) + vec3.x;
         double y = pos.getY() + MIN_Y + 0.125 + (random.nextDouble() * (MAX_Y - MIN_Y)) + vec3.y;
-        double z = pos.getZ() + MIN_Z - 0.1875 + (random.nextDouble() * (MAX_Z - MIN_Z + 0.375)) + vec3.z;
+        double z = pos.getZ() + MIN_Z - 0.1875 + (random.nextDouble()) + vec3.z;
         level.addParticle(ReduxParticleTypes.GLIMMERSTAR.get(), x, y, z, 0D, 0D, 0D);
     }
 }
