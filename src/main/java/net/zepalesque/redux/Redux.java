@@ -232,7 +232,13 @@ public class Redux
     private void registerDispenserBehaviors() {
         DispenserBlock.registerBehavior(ReduxItems.BLIGHTED_SPORES.get(), new DispenseUsableItemBehavior<>(ReduxRecipeTypes.SPORE_BLIGHTING.get()));
         DispenserBlock.registerBehavior(ReduxBlocks.SHELL_SHINGLES.get(), new ShellShinglesDispenserBehavior());
+        DispenserBlock.registerBehavior(ReduxBlocks.SHELL_SHINGLE_STAIRS.get(), new ShellShinglesDispenserBehavior());
+        DispenserBlock.registerBehavior(ReduxBlocks.SHELL_SHINGLE_SLAB.get(), new ShellShinglesDispenserBehavior());
+        DispenserBlock.registerBehavior(ReduxBlocks.SHELL_SHINGLE_WALL.get(), new ShellShinglesDispenserBehavior());
         DispenserBlock.registerBehavior(ReduxBlocks.ENCHANTED_SHELL_SHINGLES.get(), new ShellShinglesDispenserBehavior());
+        DispenserBlock.registerBehavior(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_STAIRS.get(), new ShellShinglesDispenserBehavior());
+        DispenserBlock.registerBehavior(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_SLAB.get(), new ShellShinglesDispenserBehavior());
+        DispenserBlock.registerBehavior(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_WALL.get(), new ShellShinglesDispenserBehavior());
     }
 
     /**
