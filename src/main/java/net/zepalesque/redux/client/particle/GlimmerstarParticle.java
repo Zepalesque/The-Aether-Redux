@@ -51,6 +51,7 @@ public class GlimmerstarParticle extends TextureSheetParticle {
 
       public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
          GlimmerstarParticle glimmerstar = new GlimmerstarParticle(level, x, y, z, 0.5D - GlimmerstarParticle.RANDOM.nextDouble(), ySpeed, 0.5D - GlimmerstarParticle.RANDOM.nextDouble(), this.sprite);
+         glimmerstar.pickSprite(this.sprite);
          glimmerstar.yd *= 0.05F;
          if (xSpeed == 0.0D && zSpeed == 0.0D) {
             glimmerstar.xd *= 0.05F;
