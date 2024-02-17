@@ -9,6 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Climate;
 import net.minecraftforge.fml.ModList;
+import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
 import teamrazor.aeroblender.aether.AetherRegionType;
 import terrablender.api.Region;
@@ -24,6 +25,10 @@ public class ReduxRegion extends Region {
     @Override
     public void addBiomes(Registry<Biome> registry, Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper) {
         Climate.Parameter fullRange = Climate.Parameter.span(-1.5F, 1.5F);
+
+
+        ResourceKey<Biome> glacial = ReduxConfig.COMMON.enable_snowy_biomes.get() ? ReduxBiomes.GLACIAL_TAIGA : AetherBiomes.SKYROOT_FOREST;
+
 
         if (!ModList.get().isLoaded("ancient_aether")) {
             Climate.Parameter temp1 = Climate.Parameter.span(-1.5F, -0.5F);

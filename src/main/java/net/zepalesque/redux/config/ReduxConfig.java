@@ -88,6 +88,7 @@ public class ReduxConfig {
             this.change_double_plant_hitbox = builder.comment("Changes the hitboxes of vanilla double plants. Disable if it causes odd behavior.").translation("config.aether_redux.gameplay.change_double_plant_hitbox").define("Change Double Plant Hitboxes", true);
             this.better_conversion_sounds = builder.comment("Makes blockstate conversion sounds (ambrosium, swet ball) better").translation("config.aether_redux.gameplay.better_conversion_sounds").define("Better Conversion Sounds", true);
             this.raw_gravitite = builder.comment("Makes Gravitite Ore drop Raw Gravitite when mined.").translation("config.aether_redux.gameplay.raw_gravitite").define("Raw Gravitite", true);
+            this.quicksoil_movement_system = builder.comment("Changes quicksoil between various behaviors. Genesis is the most chaotic, highlands is the most fine-tuned, classic is the original").translation("config.aether_redux.gameplay.quicksoil_movement_system").defineEnum("Quicksoil Movement System", QuicksoilSetting.highlands);
             builder.pop();
             builder.push("Datapack Application");
             this.apply_cloud_layer_pack = builder.comment("Whether or not to automatically add the Cloud Layer datapack.").translation("config.aether_redux.datapack.apply_cloud_layer_pack").define("Cloud Layer Datapack", true);
@@ -105,6 +106,7 @@ public class ReduxConfig {
             this.improved_tempest_sounds = builder.comment("Gives Tempests from the Aether: Genesis (if installed) their sounds from older builds of the Aether II: Highlands").translation("config.aether_redux.mob_sounds.improved_tempest_sounds").define("Improved Tempest Sounds", true);
             this.improved_mimic_awaken_sound = builder.comment("Improves the awakening sound for mimics. Goes great paired with the better mimics option!").translation("config.aether_redux.mob_sounds.improved_mimic_awaken_sound").define("Improved Mimic Awaken Sound", true);
             builder.pop();
+
             builder.push("Worldgen");
             this.mossy_holystone_ores = builder.comment("Enables Mossy Holystone as an ore. Configurable so that if you disable it, it's easier to tell if you've come across a dungeon.").worldRestart().translation("config.aether_redux.worldgen.mossy_holystone_ores").define("Mossy Holystone Ores", true);
             this.enchanted_vines = builder.comment("Enables Enchanted/Gilded vines on trees").worldRestart().translation("config.aether_redux.worldgen.enchanted_vines").define("Enable Enchanted and Gilded Vines", true);
@@ -122,8 +124,8 @@ public class ReduxConfig {
             this.bronze_chest_room = builder.comment("Which type of Bronze Dungeon Chest Room to use").translation("config.aether_redux.worldgen.dungeon.bronze_chest_room").defineEnum("Bronze Chest Room Type", ChestRoomType.pillars);
             this.bronze_lobby = builder.comment("Which type of Bronze Dungeon Lobby Room to use").translation("config.aether_redux.worldgen.dungeon.bronze_lobby").defineEnum("Bronze Lobby Type", LobbyType.doors);
             builder.pop();
-            builder.push("Biomes");
 
+            builder.push("Biomes");
             this.auto_reset_biome_values = builder.comment("When enabled, any biome value config changes will be reset. It is recommended that you disable this if you want to keep any custom biome parameters you may have set.").translation("config.aether_redux.biomes.auto_reset_biome_values").define("Auto-Reset Biome Values", true);
             this.region_size = builder.comment("The value of Redux's biome region size. Larger values correspond to larger biome clumps").translation("config.aether_redux.biomes.region_size").define("Region Size", 20);
 
@@ -136,9 +138,9 @@ public class ReduxConfig {
             this.enchanted_gilded_grass = builder.comment("Uses Enchanted Aether Grass for the ground in the Gilded Groves. May require a Minecraft restart.").worldRestart().translation("config.aether_redux.worldgen.enchanted_gilded_grass").define("Enchanted Gilded Grass", false);
 
             builder.pop(2);
-            builder.push("Fun");
-            this.quicksoil_movement_system = builder.comment("Changes quicksoil between various behaviors. Genesis is the most chaotic, highlands is the most fine-tuned, classic is the original").translation("config.aether_redux.fun.quicksoil_movement_system").defineEnum("Quicksoil Movement System", QuicksoilSetting.highlands);
-            builder.pop();
+//            builder.push("Fun");
+            // TODO: add some fun configs
+//            builder.pop();
         }
     }
 
