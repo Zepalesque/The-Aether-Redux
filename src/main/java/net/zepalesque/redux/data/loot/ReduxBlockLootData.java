@@ -145,10 +145,6 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.add(ReduxBlocks.CARVED_STONE_BRICK_SLAB.get(), this::createSlabItemTable);
         dropSelf(ReduxBlocks.CARVED_STONE_BRICK_WALL.get());
         dropSelf(ReduxBlocks.CARVED_STONE_PILLAR.get());
-        this.dropSelfDouble(ReduxBlocks.FROSTED_HOLYSTONE.get());
-        this.add(ReduxBlocks.FROSTED_HOLYSTONE_SLAB.get(), this::createSlabItemTable);
-        this.dropSelf(ReduxBlocks.FROSTED_HOLYSTONE_STAIRS.get());
-        this.dropSelf(ReduxBlocks.FROSTED_HOLYSTONE_WALL.get());
         this.dropDoubleWithSilk(ReduxBlocks.AEVELIUM.get(), AetherBlocks.AETHER_DIRT.get());
         this.add(ReduxBlocks.LUXWEED.get(), shears());
         this.dropPottedContents(ReduxBlocks.POTTED_LUXWEED.get());

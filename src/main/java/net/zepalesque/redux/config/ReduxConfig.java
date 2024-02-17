@@ -49,7 +49,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue improved_mimic_awaken_sound;
         public final ForgeConfigSpec.BooleanValue smaller_mimic_hitbox;
         public final ForgeConfigSpec.EnumValue<SpawnerType> genesis_spawner_mobs;
-        public final ForgeConfigSpec.BooleanValue vanilla_consistent_mine_speeds;
+        public final ForgeConfigSpec.BooleanValue consistent_mine_speeds;
 
         public final ForgeConfigSpec.BooleanValue auto_reset_biome_values;
         public final ForgeConfigSpec.ConfigValue<Integer> region_size;
@@ -80,7 +80,7 @@ public class ReduxConfig {
             this.nerf_gummy_swets = builder.comment("Nerfs Gummy Swets, but also makes them craftable. Note: Requires the Aether's Gummy Swet Healing config to be false to properly nerf the hunger effect. Requires datapack reload.").worldRestart().translation("config.aether_redux.gameplay.nerf_gummy_swets").define("Nerf Gummy Swets", true);
             this.mobs_avoid_quicksoil = builder.comment("Causes mobs to try to avoid walking on quicksoil.").translation("config.aether_redux.gameplay.mobs_avoid_quicksoil").define("Mobs Avoid Quicksoil", true);
             this.smaller_mimic_hitbox = builder.comment("Decreases the size of mimics. Intended to be used with the client-side model. Requires an MC restart").translation("config.aether_redux.gameplay.smaller_mimic_hitbox").define("Smaller Mimic Hitbox", true);
-            this.vanilla_consistent_mine_speeds = builder.comment("Makes some Aether blocks take longer to break, to be more consistent with vanilla blocks").translation("config.aether_redux.gameplay.vanilla_consistent_mine_speeds").define("Vanilla-Consistent Mining Speeds", false);
+            this.consistent_mine_speeds = builder.comment("Makes some Aether blocks take a bit longer to break, as they are extremely quick currently").translation("config.aether_redux.gameplay.consistent_mine_speeds").define("Consistent Mining Speeds", false);
             this.change_double_plant_hitbox = builder.comment("Changes the hitboxes of vanilla double plants. Disable if it causes odd behavior.").translation("config.aether_redux.gameplay.change_double_plant_hitbox").define("Change Double Plant Hitboxes", true);
             this.better_conversion_sounds = builder.comment("Makes blockstate conversion sounds (ambrosium, swet ball) better").translation("config.aether_redux.gameplay.better_conversion_sounds").define("Better Conversion Sounds", true);
             this.raw_gravitite = builder.comment("Makes Gravitite Ore drop Raw Gravitite when mined.").translation("config.aether_redux.gameplay.raw_gravitite").define("Raw Gravitite", true);

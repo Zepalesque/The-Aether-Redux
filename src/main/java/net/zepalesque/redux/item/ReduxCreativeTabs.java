@@ -35,10 +35,7 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.BLIGHTMOSS_HOLYSTONE, ReduxBlocks.BLIGHTMOSS_HOLYSTONE_STAIRS, event);
             putAfter(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_STAIRS, ReduxBlocks.BLIGHTMOSS_HOLYSTONE_SLAB, event);
             putAfter(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_SLAB, ReduxBlocks.BLIGHTMOSS_HOLYSTONE_WALL, event);
-            putAfter(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_WALL, ReduxBlocks.FROSTED_HOLYSTONE, event);
-            putAfter(ReduxBlocks.FROSTED_HOLYSTONE, ReduxBlocks.FROSTED_HOLYSTONE_STAIRS, event);
-            putAfter(ReduxBlocks.FROSTED_HOLYSTONE_STAIRS, ReduxBlocks.FROSTED_HOLYSTONE_SLAB, event);
-            putAfter(ReduxBlocks.FROSTED_HOLYSTONE_SLAB, ReduxBlocks.FROSTED_HOLYSTONE_WALL, event);
+
 
             putAfter(AetherBlocks.ICESTONE_WALL, ReduxBlocks.DIVINITE, event);
             putAfter(ReduxBlocks.DIVINITE, ReduxBlocks.DIVINITE_STAIRS, event);
@@ -79,7 +76,6 @@ public class ReduxCreativeTabs {
 
             putAfter(AetherBlocks.MOSSY_HOLYSTONE, ReduxBlocks.GILDED_HOLYSTONE, event);
             putAfter(ReduxBlocks.GILDED_HOLYSTONE, ReduxBlocks.BLIGHTMOSS_HOLYSTONE, event);
-            putAfter(ReduxBlocks.BLIGHTMOSS_HOLYSTONE, ReduxBlocks.FROSTED_HOLYSTONE, event);
 
             putAfter(AetherBlocks.QUICKSOIL, ReduxBlocks.BLIGHTMOSS_BLOCK, event);
             putAfter(ReduxBlocks.BLIGHTMOSS_BLOCK, ReduxBlocks.BLIGHTMOSS_CARPET, event);

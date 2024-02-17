@@ -82,6 +82,9 @@ public class ReduxItems {
 
     public static final RegistryObject<Item> RAW_GRAVITITE = register("raw_gravitite", () -> new Item(new Item.Properties()));
 
+    // TODO: make this override gravitite recipes at some point
+    public static final RegistryObject<Item> GRAVITITE_INGOT = register("gravitite_ingot", () -> new Item(new Item.Properties()));
+
 
     public static final RegistryObject<Item> MYKAPOD_SHELL_CHUNK = register("mykapod_shell_chunk", () -> new Item(new Item.Properties()));
 

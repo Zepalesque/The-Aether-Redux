@@ -310,16 +310,6 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .unlockedBy(getHasName(AetherBlocks.CARVED_STONE.get()), has(AetherBlocks.CARVED_STONE.get()))
                 .save(consumer);
 
-        stairs(ReduxBlocks.FROSTED_HOLYSTONE_STAIRS, ReduxBlocks.FROSTED_HOLYSTONE).save(consumer);
-        slab(consumer, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.FROSTED_HOLYSTONE_SLAB.get(), ReduxBlocks.FROSTED_HOLYSTONE.get());
-        wall(consumer, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.FROSTED_HOLYSTONE_WALL.get(), ReduxBlocks.FROSTED_HOLYSTONE.get());
-        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.FROSTED_HOLYSTONE_WALL.get(), ReduxBlocks.FROSTED_HOLYSTONE.get())
-                .save(consumer, Redux.locate("frosted_holystone_wall_stonecutting"));
-        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.FROSTED_HOLYSTONE_SLAB.get(), ReduxBlocks.FROSTED_HOLYSTONE.get())
-                .save(consumer, Redux.locate("frosted_holystone_slab_stonecutting"));
-        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.FROSTED_HOLYSTONE_STAIRS.get(), ReduxBlocks.FROSTED_HOLYSTONE.get())
-                .save(consumer, Redux.locate("frosted_holystone_stairs_stonecutting"));
-
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ReduxItems.MUSIC_DISC_LABYRINTHS_VENGEANCE.get(), 1)
                 .define('P', AetherBlocks.CARVED_STONE.get())
                 .define('G', AetherTags.Items.ACCEPTED_MUSIC_DISCS)

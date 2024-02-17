@@ -1,6 +1,7 @@
 package net.zepalesque.redux.block;
 
 import com.aetherteam.aether.block.AetherBlocks;
+import com.aetherteam.aether.block.miscellaneous.FloatingBlock;
 import com.aetherteam.aether.block.natural.AetherDoubleDropBlock;
 import com.aetherteam.aether.block.natural.AetherDoubleDropsLeaves;
 import com.aetherteam.aether.block.natural.LeavesWithParticlesBlock;
@@ -219,19 +220,7 @@ public class ReduxBlocks {
 
     public static final RegistryObject<RotatedPillarBlock> CARVED_STONE_PILLAR = register("carved_stone_pillar",
             () -> new RotatedPillarBlock(Block.Properties.of().strength(0.5F, 6.0F).requiresCorrectToolForDrops()));
-
-    public static RegistryObject<Block> FROSTED_HOLYSTONE = register("frosted_holystone",
-            () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.copy(AetherBlocks.MOSSY_HOLYSTONE.get()).mapColor(MapColor.SAND).friction(0.75F)));
-
-    public static RegistryObject<StairBlock> FROSTED_HOLYSTONE_STAIRS = register("frosted_holystone_stairs",
-            () -> new StairBlock(() -> (FROSTED_HOLYSTONE.get()).defaultBlockState(), BlockBehaviour.Properties.copy(FROSTED_HOLYSTONE.get())));
-
-    public static RegistryObject<WallBlock> FROSTED_HOLYSTONE_WALL = register("frosted_holystone_wall",
-            () -> new WallBlock(BlockBehaviour.Properties.copy(FROSTED_HOLYSTONE.get())));
-
-    public static RegistryObject<SlabBlock> FROSTED_HOLYSTONE_SLAB = register("frosted_holystone_slab",
-            () -> new SlabBlock(BlockBehaviour.Properties.copy(FROSTED_HOLYSTONE.get()).strength(2.0F, 6.0F)));
-
+    
     public static RegistryObject<Block> BLIGHTWILLOW_LEAVES = register("blightwillow_leaves", () -> new AetherDoubleDropsLeaves(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_PURPLE).strength(0.2F).randomTicks().sound(SoundType.AZALEA_LEAVES).noOcclusion().isValidSpawn(ReduxBlocks::ocelotOrParrot).isSuffocating(ReduxBlocks::never).isViewBlocking(ReduxBlocks::never)));
 
 
@@ -355,6 +344,9 @@ public class ReduxBlocks {
     public static RegistryObject<Block> RAW_VERIDIUM_BLOCK = register("raw_veridium_block",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.LAPIS).strength(3.0F, 6.0F).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
 
+    /** TODO: implement, see {@link ReduxItems#GRAVITITE_INGOT} */
+    public static RegistryObject<Block> GRAVITITE_BLOCK = register("gravitite_block",
+            () -> new FloatingBlock(true, BlockBehaviour.Properties.copy(AetherBlocks.ENCHANTED_GRAVITITE.get())));
 
 
     // TODO: Consider using unique behavior rather than reskinned Glow Lichen

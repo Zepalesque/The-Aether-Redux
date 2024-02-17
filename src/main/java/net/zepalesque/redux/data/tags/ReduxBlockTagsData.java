@@ -159,10 +159,6 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.CARVED_STONE_BRICK_WALL.get(),
                 ReduxBlocks.CARVED_STONE_BRICK_STAIRS.get(),
                 ReduxBlocks.CARVED_STONE_PILLAR.get(),
-                ReduxBlocks.FROSTED_HOLYSTONE.get(),
-                ReduxBlocks.FROSTED_HOLYSTONE_WALL.get(),
-                ReduxBlocks.FROSTED_HOLYSTONE_SLAB.get(),
-                ReduxBlocks.FROSTED_HOLYSTONE_STAIRS.get(),
                 ReduxBlocks.VERIDIUM_BLOCK.get(),
                 ReduxBlocks.VERIDIUM_ORE.get(),
                 ReduxBlocks.RAW_VERIDIUM_BLOCK.get(),
@@ -197,11 +193,9 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.DIVINITE_STAIRS.get(),
                 ReduxBlocks.GILDED_HOLYSTONE_STAIRS.get(),
                 ReduxBlocks.BLIGHTMOSS_HOLYSTONE_STAIRS.get(),
-                ReduxBlocks.CARVED_STONE_BRICK_STAIRS.get(),
-                ReduxBlocks.FROSTED_HOLYSTONE_STAIRS.get()
-
+                ReduxBlocks.CARVED_STONE_BRICK_STAIRS.get()
         );
-        this.tag(AetherTags.Blocks.HOLYSTONE).add(ReduxBlocks.GILDED_HOLYSTONE.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), ReduxBlocks.FROSTED_HOLYSTONE.get());
+        this.tag(AetherTags.Blocks.HOLYSTONE).add(ReduxBlocks.GILDED_HOLYSTONE.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get());
 
         this.tag(AetherTags.Blocks.AETHER_ANIMALS_SPAWNABLE_ON).add(ReduxBlocks.AEVELIUM.get(), ReduxBlocks.COARSE_AETHER_DIRT.get(), Blocks.SNOW_BLOCK, AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get());
 
@@ -217,8 +211,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.DIVINITE_SLAB.get(),
                 ReduxBlocks.GILDED_HOLYSTONE_SLAB.get(),
                 ReduxBlocks.BLIGHTMOSS_HOLYSTONE_SLAB.get(),
-                ReduxBlocks.CARVED_STONE_BRICK_SLAB.get(),
-                ReduxBlocks.FROSTED_HOLYSTONE_SLAB.get()
+                ReduxBlocks.CARVED_STONE_BRICK_SLAB.get()
         );
 
         this.tag(ReduxTags.Blocks.FROSTED_PLANTS_PLACEMENT).add(Blocks.SNOW_BLOCK);
@@ -239,7 +232,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.SPIROLYCTIL.get(),
                 ReduxBlocks.BLIGHTSHADE.get()
                 );
-        this.tag(AetherTags.Blocks.HOLYSTONE).add(ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), ReduxBlocks.FROSTED_HOLYSTONE.get(), ReduxBlocks.GILDED_HOLYSTONE.get());
+        this.tag(AetherTags.Blocks.HOLYSTONE).add(ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), ReduxBlocks.GILDED_HOLYSTONE.get());
         this.tag(BlockTags.MUSHROOM_GROW_BLOCK).add(ReduxBlocks.AEVELIUM.get());
         this.tag(BlockTags.FLOWER_POTS).add(
                 ReduxBlocks.POTTED_IRIDIA.get(),
@@ -274,9 +267,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         );
         this.tag(BlockTags.WALLS).add(
                 ReduxBlocks.DIVINITE_WALL.get(),
-                ReduxBlocks.CARVED_STONE_BRICK_WALL.get(),
-                ReduxBlocks.FROSTED_HOLYSTONE_WALL.get()
-
+                ReduxBlocks.CARVED_STONE_BRICK_WALL.get()
         );
 
         this.tag(BlockTags.REPLACEABLE).add(

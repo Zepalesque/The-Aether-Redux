@@ -289,15 +289,6 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_WALL, "Blightmoss Holystone Wall");
         addLore(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_WALL, "Crafted from Blightmoss Holystone. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
 
-        addBlock(ReduxBlocks.FROSTED_HOLYSTONE, "Frosted Holystone");
-        addLore(ReduxBlocks.FROSTED_HOLYSTONE, "An icy variant for holystone. It's cold to the touch");
-        addBlock(ReduxBlocks.FROSTED_HOLYSTONE_SLAB, "Frosted Holystone Slab");
-        addLore(ReduxBlocks.FROSTED_HOLYSTONE_SLAB, "Crafted from Frosted Holystone. Slabs are half blocks, versatile for decoration and smooth slopes. Try adding some to a building's roofing!");
-        addBlock(ReduxBlocks.FROSTED_HOLYSTONE_STAIRS, "Frosted Holystone Stairs");
-        addLore(ReduxBlocks.FROSTED_HOLYSTONE_STAIRS, "Crafted from Frosted Holystone. Stairs are useful for adding verticality to builds and are often used for decoration too!");
-        addBlock(ReduxBlocks.FROSTED_HOLYSTONE_WALL, "Frosted Holystone Wall");
-        addLore(ReduxBlocks.FROSTED_HOLYSTONE_WALL, "Crafted from Frosted Holystone. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
-
         addBlock(ReduxBlocks.CARVED_STONE_BRICKS, "Carved Stone Bricks");
         addLore(ReduxBlocks.CARVED_STONE_BRICKS, "Bricks made of carved stone. These can be found in the Bronze dungeon.");
         addBlock(ReduxBlocks.CARVED_STONE_PILLAR, "Carved Stone Pillar");
@@ -351,6 +342,12 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addItem(ReduxItems.RAW_GRAVITITE, "Raw Gravitite");
         addLore(ReduxItems.RAW_GRAVITITE, "A chunk of the Aether's rarest ore. This can be enchanted into Enchanted Gravitite blocks.");
+
+        addItem(ReduxItems.GRAVITITE_INGOT, "Gravitite Ingot");
+        addLore(ReduxItems.GRAVITITE_INGOT, "After putting Gravitite Ore into an Altar and enchanting it, you get a Gravitite Ingot. This can be made into gravitite tools and armor.");
+
+        addBlock(ReduxBlocks.GRAVITITE_BLOCK, "Gravitite Ingot");
+        addLore(ReduxBlocks.GRAVITITE_INGOT, "After putting Gravitite Ore into an Altar and enchanting it, you get a Gravitite Ingot. This can be made into gravitite tools and armor.");
 
         addItem(ReduxItems.MYKAPOD_SHELL_CHUNK, "Mykapod Shell Chunk");
         addLore(ReduxItems.MYKAPOD_SHELL_CHUNK, "A fragment of the outer layer of a Mykapod. Can be used to craft the Snailshell Shield!");

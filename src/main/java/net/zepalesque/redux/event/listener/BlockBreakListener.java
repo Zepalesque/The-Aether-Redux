@@ -1,7 +1,5 @@
 package net.zepalesque.redux.event.listener;
 
-import com.aetherteam.aether.item.EquipmentUtil;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.ClipContext;
@@ -13,9 +11,7 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.zepalesque.redux.advancement.trigger.ExtendedReachBreakBlockTrigger;
 import net.zepalesque.redux.event.hook.BlockBreakHooks;
-import net.zepalesque.redux.item.ReduxItems;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class BlockBreakListener {
@@ -26,7 +22,7 @@ public class BlockBreakListener {
     @SubscribeEvent
     public static void modifyMiningSpeed(PlayerEvent.BreakSpeed event)
     {
-        float modifiedSpeed = BlockBreakHooks.getBreakSpeed(event.getState().getBlock(), event.getNewSpeed());
+        float modifiedSpeed = BlockBreakHooks.modify(event.getState().getBlock(), event.getNewSpeed());
         if (modifiedSpeed != event.getNewSpeed())
         {
             event.setNewSpeed(modifiedSpeed);

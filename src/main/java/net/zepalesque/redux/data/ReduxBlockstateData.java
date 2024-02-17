@@ -46,6 +46,8 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.stairs(ReduxBlocks.DIVINITE_STAIRS.get(), ReduxBlocks.DIVINITE.get(), "natural/");
         this.wallBlock(ReduxBlocks.DIVINITE_WALL.get(), ReduxBlocks.DIVINITE.get(), "natural/");
 
+        this.other(ReduxBlocks.GRAVITITE_BLOCK, AetherBlocks.ENCHANTED_GRAVITITE, "construction/");
+
         this.cropGrowable(ReduxBlocks.WYNDSPROUTS_CROP.get(), "crop/wyndsprouts/", SproutsCropBlock.AGE);
         this.cropGrowable(ReduxBlocks.SKYSPROUTS_CROP.get(), "crop/skysprouts/", SproutsCropBlock.AGE);
 
@@ -77,11 +79,6 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         stairs(ReduxBlocks.CARVED_STONE_BRICK_STAIRS.get(), ReduxBlocks.CARVED_STONE_BRICKS.get(), "construction/");
         slab(ReduxBlocks.CARVED_STONE_BRICK_SLAB.get(), ReduxBlocks.CARVED_STONE_BRICKS.get(), "construction/");
         this.pillar(ReduxBlocks.CARVED_STONE_PILLAR::get, "construction/");
-
-        block(ReduxBlocks.FROSTED_HOLYSTONE.get(), "natural/");
-        wallBlock(ReduxBlocks.FROSTED_HOLYSTONE_WALL.get(), ReduxBlocks.FROSTED_HOLYSTONE.get(), "natural/");
-        stairs(ReduxBlocks.FROSTED_HOLYSTONE_STAIRS.get(), ReduxBlocks.FROSTED_HOLYSTONE.get(), "natural/");
-        slab(ReduxBlocks.FROSTED_HOLYSTONE_SLAB.get(), ReduxBlocks.FROSTED_HOLYSTONE.get(), "natural/");
 
         this.block(ReduxBlocks.BLIGHTWILLOW_LEAVES.get(), "natural/");
         this.crossBlock(ReduxBlocks.BLIGHTWILLOW_SAPLING.get(), "natural/");
@@ -1184,8 +1181,8 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
     }
 
-    public void other(Supplier<? extends Block> block, Supplier<? extends Block> other, String location) {
-        simpleBlock(block.get(), cubeAll(other, location));
+    public void other(Supplier<? extends Block> block, RegistryObject<? extends Block> other, String location) {
+        simpleBlock(block.get(), models().cubeAll(name(block), texture(other, location)));
     }
 
 
