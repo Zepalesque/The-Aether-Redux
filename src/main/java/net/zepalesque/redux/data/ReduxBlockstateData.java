@@ -47,6 +47,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.wallBlock(ReduxBlocks.DIVINITE_WALL.get(), ReduxBlocks.DIVINITE.get(), "natural/");
 
         this.other(ReduxBlocks.GRAVITITE_BLOCK, AetherBlocks.ENCHANTED_GRAVITITE, "construction/");
+        this.block(ReduxBlocks.RAW_GRAVITITE_BLOCK, "natural/");
 
         this.cropGrowable(ReduxBlocks.WYNDSPROUTS_CROP.get(), "crop/wyndsprouts/", SproutsCropBlock.AGE);
         this.cropGrowable(ReduxBlocks.SKYSPROUTS_CROP.get(), "crop/skysprouts/", SproutsCropBlock.AGE);

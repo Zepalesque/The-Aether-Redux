@@ -182,6 +182,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         this.item(ReduxItems.RAW_GRAVITITE, "materials/");
         this.item(ReduxItems.GRAVITITE_INGOT, "materials/");
         this.itemBlock(ReduxBlocks.GRAVITITE_BLOCK);
+        this.itemBlock(ReduxBlocks.RAW_GRAVITITE_BLOCK);
 
         this.item(ReduxItems.MYKAPOD_SHELL_CHUNK, "materials/");
         this.item(ReduxItems.SNAILSHELL_SHIELD, "accessories/");

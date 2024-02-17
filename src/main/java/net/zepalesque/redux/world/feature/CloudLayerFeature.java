@@ -8,6 +8,7 @@ import net.minecraft.world.level.levelgen.XoroshiroRandomSource;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.synth.PerlinSimplexNoise;
+import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.util.math.MathUtil;
 import net.zepalesque.redux.world.feature.config.CloudLayerConfig;
 
@@ -26,6 +27,8 @@ public class CloudLayerFeature extends Feature<CloudLayerConfig> {
     public boolean place(FeaturePlaceContext<CloudLayerConfig> context) {
         int chunkX = context.origin().getX() - (context.origin().getX() % 16);
         int chunkZ = context.origin().getZ() - (context.origin().getZ() % 16);
+        double min = ReduxConfig.COMMON.cloud_layer_threshold_min.get() / 2;
+        double max = ReduxConfig.COMMON.cloud_layer_threshold_max.get() / 2;
         for (int x = 0; x < 16; x++) {
             for (int z = 0; z < 16; z++) {
 
@@ -36,7 +39,7 @@ public class CloudLayerFeature extends Feature<CloudLayerConfig> {
                 double yOffset = y_offset.getValue(xCoord * scale * 0.75D, zCoord * scale * 0.75D, false);
                 float offs = (float) Mth.lerp(Mth.inverseLerp(yOffset, -0.5, 0.5), 0D, 10D);
                 if (main >= 0) {
-                    double d1 = Mth.clamp(main, 0, 0.5) * 2;
+                    double d1 = MathUtil.clampedInverp(main, min, max);
                     float delta = MathUtil.costrp((float) d1, 0, 1);
                     float blocksUp = Mth.lerp(delta, 0F, 5F) + offs;
                     float blocksDown = Mth.lerp(delta, 0F, 4F) - offs;

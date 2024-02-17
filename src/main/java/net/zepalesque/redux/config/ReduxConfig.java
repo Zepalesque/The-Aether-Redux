@@ -74,6 +74,10 @@ public class ReduxConfig {
 
         public final ForgeConfigSpec.BooleanValue apply_cloud_layer_pack;
 
+        public final ForgeConfigSpec.BooleanValue cloud_layer_thickness_modifier;
+        public final ForgeConfigSpec.DoubleValue cloud_layer_threshold_min;
+        public final ForgeConfigSpec.DoubleValue cloud_layer_threshold_max;
+
         public Common(ForgeConfigSpec.Builder builder) {
             builder.push("Gameplay Changes");
             this.cockatrice_ai_improvements = builder.comment("Makes Cockatrices shoot at you and chase you if they hit you. Requires world restart to refresh existing mob AI.").worldRestart().translation("config.aether_redux.gameplay.cockatrice_ai").define("Improved Cockatrice Behavior", true);
@@ -105,6 +109,13 @@ public class ReduxConfig {
             this.mossy_holystone_ores = builder.comment("Enables Mossy Holystone as an ore. Configurable so that if you disable it, it's easier to tell if you've come across a dungeon.").worldRestart().translation("config.aether_redux.worldgen.mossy_holystone_ores").define("Mossy Holystone Ores", true);
             this.enchanted_vines = builder.comment("Enables Enchanted/Gilded vines on trees").worldRestart().translation("config.aether_redux.worldgen.enchanted_vines").define("Enable Enchanted and Gilded Vines", true);
             this.alternate_gilded_trees = builder.comment("Uses an alternate Gilded Oak shape, more like vanilla Oak trees and Skyroots").worldRestart().translation("config.aether_redux.worldgen.alternate_gilded_trees").define("Alternate Gilded Trees", false);
+            this.cloud_layer_thickness_modifier = builder.comment("How much thicker/thinner to make the Aether's cloud layer. Negative values will make the clouds cover less area, where").worldRestart().translation("config.aether_redux.worldgen.alternate_gilded_trees").define("Alternate Gilded Trees", false);
+
+            builder.push("Cloud Layer");
+            this.cloud_layer_threshold_min = builder.comment("Minimum value for the cloud layer's noise threshold").defineInRange("Cloud Layer Threshold Min", 0D, -4D, 4D);
+            this.cloud_layer_threshold_max = builder.comment("Maximum value for the cloud layer's noise threshold").defineInRange("Cloud Layer Threshold Max", 1D, -4D, 4D);
+            builder.pop();
+
             builder.push("Bronze Dungeon");
             this.genesis_spawner_mobs = builder.comment("Adds dungeon mobs from the Aether: Genesis to the spawners added to the Bronze Dungeon if it is installed").translation("config.aether_redux.worldgen.dungeon.genesis_spawner_mobs").defineEnum("Genesis Mobs in Spawners", SpawnerType.all);
             this.bronze_boss_room = builder.comment("Which type of Bronze Dungeon Boss Room to use").translation("config.aether_redux.worldgen.dungeon.bronze_boss_room").defineEnum("Bronze Boss Room Type", BossRoomType.vault);

@@ -341,13 +341,16 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addLore(ReduxItems.RAW_VERIDIUM, "A chunk of Raw Veridium. This can be smelted into an ingot.");
 
         addItem(ReduxItems.RAW_GRAVITITE, "Raw Gravitite");
-        addLore(ReduxItems.RAW_GRAVITITE, "A chunk of the Aether's rarest ore. This can be enchanted into Enchanted Gravitite blocks.");
+        addLore(ReduxItems.RAW_GRAVITITE, "A chunk of the Aether's rarest ore. This can be enchanted at an Altar, and turned into armor and tools with gravity-based abilities!");
 
         addItem(ReduxItems.GRAVITITE_INGOT, "Gravitite Ingot");
         addLore(ReduxItems.GRAVITITE_INGOT, "After putting Gravitite Ore into an Altar and enchanting it, you get a Gravitite Ingot. This can be made into gravitite tools and armor.");
 
         addBlock(ReduxBlocks.GRAVITITE_BLOCK, "Gravitite Block");
         addLore(ReduxBlocks.GRAVITITE_BLOCK, "A block of solid Gravitite. When powered with redstone, this will float!");
+
+        addBlock(ReduxBlocks.RAW_GRAVITITE_BLOCK, "Raw Gravitite Block");
+        addLore(ReduxBlocks.RAW_GRAVITITE_BLOCK, "A block of Raw Gravitite. This can be crafted with Raw Gravitite, and acts as a way to store more in a smaller space.");
 
         addItem(ReduxItems.MYKAPOD_SHELL_CHUNK, "Mykapod Shell Chunk");
         addLore(ReduxItems.MYKAPOD_SHELL_CHUNK, "A fragment of the outer layer of a Mykapod. Can be used to craft the Snailshell Shield!");
