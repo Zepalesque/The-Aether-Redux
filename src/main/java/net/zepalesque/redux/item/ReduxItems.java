@@ -102,7 +102,7 @@ public class ReduxItems {
     public static final RegistryObject<SpawnEggItem> VANILLA_SWET_SPAWN_EGG = ITEMS.register("vanilla_swet_spawn_egg", () -> new ForgeSpawnEggItem(ReduxEntityTypes.VANILLA_SWET, 0xF7F3E3, 0xD3CABB, new Item.Properties()));
     public static final RegistryObject<Item> MUSIC_DISC_LABYRINTHS_VENGEANCE = ITEMS.register("music_disc_labyrinths_vengeance", () -> (new RecordItem(1, ReduxSoundEvents.MUSIC_DISC_LABYRINTHS_VENGEANCE, (new Item.Properties()).stacksTo(1).rarity(Rarity.RARE), 4300)));
 
-    public static final RegistryObject<SpawnEggItem> GLIMMERCOW_SPAWN_EGG = ITEMS.register("glimmercow_spawn_egg", () -> new ForgeSpawnEggItem(ReduxEntityTypes.SHIMMERCOW, 0x7B7F90, 0x4A73CC, new Item.Properties()));
+    public static final RegistryObject<SpawnEggItem> SHIMMERCOW_SPAWN_EGG = ITEMS.register("shimmercow_spawn_egg", () -> new ForgeSpawnEggItem(ReduxEntityTypes.SHIMMERCOW, 0x7B7F90, 0x4A73CC, new Item.Properties()));
 
     public static final RegistryObject<SpawnEggItem> MYKAPOD_SPAWN_EGG = ITEMS.register("mykapod_spawn_egg", () -> new ForgeSpawnEggItem(ReduxEntityTypes.MYKAPOD, 0xDAE3E7, 0x7178C2, new Item.Properties()));
 

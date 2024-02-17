@@ -90,8 +90,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.VANILLA_SWET_SPAWN_EGG, "Vanilla Swet Spawn Egg");
         addLore(ReduxItems.VANILLA_SWET_SPAWN_EGG, "A spawn egg. Spawns a Vanilla Swet.");
 
-        addItem(ReduxItems.GLIMMERCOW_SPAWN_EGG, "Glimmercow Spawn Egg");
-        addLore(ReduxItems.GLIMMERCOW_SPAWN_EGG, "A spawn egg. Spawns a Glimmercow.");
+        addItem(ReduxItems.SHIMMERCOW_SPAWN_EGG, "Shimmercow Spawn Egg");
+        addLore(ReduxItems.SHIMMERCOW_SPAWN_EGG, "A spawn egg. Spawns a Shimmercow.");
 
 
         addItem(ReduxItems.MYKAPOD_SPAWN_EGG, "Mykapod Spawn Egg");
@@ -129,9 +129,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.POTTED_JELLYSHROOM, "Potted Jellyshroom");
         addLore(ReduxBlocks.JELLYSHROOM, "A jelly-based mushroom, which is found in the Cloudcaps.");
 
-        addBlock(ReduxBlocks.SHIMMERSTOOL, "Glimmerstool");
-        addBlock(ReduxBlocks.POTTED_SHIMMERSTOOL, "Potted Glimmerstool");
-        addLore(ReduxBlocks.SHIMMERSTOOL, "A short mushroom found in the Cloudcaps. These are most commonly found nearby rocks. They can also sometimes be found on the backs of the native Glimmercow!");
+        addBlock(ReduxBlocks.SHIMMERSTOOL, "Shimmerstool");
+        addBlock(ReduxBlocks.POTTED_SHIMMERSTOOL, "Potted Shimmerstool");
+        addLore(ReduxBlocks.SHIMMERSTOOL, "A short mushroom found in the Cloudcaps. These are most commonly found nearby rocks. They can also sometimes be found on the backs of the native Shimmercow!");
 
         addBlock(ReduxBlocks.CLOUD_CAP_BLOCK, "Cloud Cap Block");
         addLore(ReduxBlocks.CLOUD_CAP_BLOCK, "The cap of the large Cloudcap Mushrooms, found in the Cloudcaps.");
@@ -346,8 +346,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.GRAVITITE_INGOT, "Gravitite Ingot");
         addLore(ReduxItems.GRAVITITE_INGOT, "After putting Gravitite Ore into an Altar and enchanting it, you get a Gravitite Ingot. This can be made into gravitite tools and armor.");
 
-        addBlock(ReduxBlocks.GRAVITITE_BLOCK, "Gravitite Ingot");
-        addLore(ReduxBlocks.GRAVITITE_INGOT, "After putting Gravitite Ore into an Altar and enchanting it, you get a Gravitite Ingot. This can be made into gravitite tools and armor.");
+        addBlock(ReduxBlocks.GRAVITITE_BLOCK, "Gravitite Block");
+        addLore(ReduxBlocks.GRAVITITE_BLOCK, "A block of solid Gravitite. When powered with redstone, this will float!");
 
         addItem(ReduxItems.MYKAPOD_SHELL_CHUNK, "Mykapod Shell Chunk");
         addLore(ReduxItems.MYKAPOD_SHELL_CHUNK, "A fragment of the outer layer of a Mykapod. Can be used to craft the Snailshell Shield!");
@@ -478,7 +478,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addGuiText("pack_config.page", "Page %s");
 
         addEntityType(ReduxEntityTypes.VANILLA_SWET, "Vanilla Swet");
-        addEntityType(ReduxEntityTypes.SHIMMERCOW, "Glimmercow");
+        addEntityType(ReduxEntityTypes.SHIMMERCOW, "Shimmercow");
         addEntityType(ReduxEntityTypes.MYKAPOD, "Mykapod");
         addEntityType(ReduxEntityTypes.BLIGHTBUNNY, "Blightbunny");
         addEntityType(ReduxEntityTypes.EMBER, "Ember");
@@ -523,12 +523,12 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
 
         addSubtitle("entity", "mimic_slam", "Mimic slams");
-        addSubtitle("entity", "glimmercow_ambient", "Glimmercow moos");
-        addSubtitle("entity", "glimmercow_hurt", "Glimmercow hurts");
-        addSubtitle("entity", "glimmercow_death", "Glimmercow dies");
-        addSubtitle("entity", "crazy_cow_ambient", "Glimmercow §kvwakazoom moo dae§rs");
-        addSubtitle("entity", "crazy_cow_hurt", "Glimmercow §kscream§rs");
-        addSubtitle("entity", "crazy_cow_death", "Glimmercow §kasks u why u did dis§r");
+        addSubtitle("entity", "shimmercow_ambient", "Shimmercow moos");
+        addSubtitle("entity", "shimmercow_hurt", "Shimmercow hurts");
+        addSubtitle("entity", "shimmercow_death", "Shimmercow dies");
+        addSubtitle("entity", "crazy_cow_ambient", "Shimmercow §kvwakazoom moo dae§rs");
+        addSubtitle("entity", "crazy_cow_hurt", "Shimmercow §kscream§rs");
+        addSubtitle("entity", "crazy_cow_death", "Shimmercow §kasks u why u did dis§r");
         addSubtitle("entity", "sentry_pounce", "Sentry pounces");
         addSubtitle("entity", "sentry_land", "Sentry lands");
         addSubtitle("entity", "sentry_ambient", "Sentry grumbles");

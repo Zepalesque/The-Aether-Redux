@@ -71,7 +71,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemWallBlock(ReduxBlocks.CARVED_STONE_BRICK_WALL, ReduxBlocks.CARVED_STONE_BRICKS, "construction/");
         itemBlock(ReduxBlocks.CARVED_STONE_PILLAR);
         eggItem(ReduxItems.VANILLA_SWET_SPAWN_EGG);
-        eggItem(ReduxItems.GLIMMERCOW_SPAWN_EGG);
+        eggItem(ReduxItems.SHIMMERCOW_SPAWN_EGG);
         eggItem(ReduxItems.MYKAPOD_SPAWN_EGG);
         eggItem(ReduxItems.BLIGHTBUNNY_SPAWN_EGG);
         rotatedItem(ReduxItems.GRAND_VICTORY_MEDAL.get(), "accessories/");
@@ -84,6 +84,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlock(ReduxBlocks.COARSE_AETHER_DIRT);
         aercloudItem(ReduxBlocks.BLIGHTED_AERCLOUD.get());
         item(ReduxItems.BLIGHTBUNNY_FANG, "materials/");
+
 
         itemBlock(ReduxBlocks.SHELL_SHINGLES);
         itemBlock(ReduxBlocks.SHELL_SHINGLE_SLAB);
@@ -179,6 +180,8 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         this.item(ReduxItems.RAW_VERIDIUM, "materials/");
 
         this.item(ReduxItems.RAW_GRAVITITE, "materials/");
+        this.item(ReduxItems.GRAVITITE_INGOT, "materials/");
+        this.itemBlock(ReduxBlocks.GRAVITITE_BLOCK);
 
         this.item(ReduxItems.MYKAPOD_SHELL_CHUNK, "materials/");
         this.item(ReduxItems.SNAILSHELL_SHIELD, "accessories/");

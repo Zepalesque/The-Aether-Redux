@@ -94,17 +94,17 @@ public class Shimmercow extends AetherAnimal {
 
     @Nullable
     protected SoundEvent getAmbientSound() {
-        return this.isCrazy() ? ReduxSoundEvents.CRAZY_COW_AMBIENT.get() : ReduxSoundEvents.GLIMMERCOW_AMBIENT.get();
+        return this.isCrazy() ? ReduxSoundEvents.CRAZY_COW_AMBIENT.get() : ReduxSoundEvents.SHIMMERCOW_AMBIENT.get();
     }
 
     @Nullable
     protected SoundEvent getHurtSound(DamageSource damageSource) {
-        return this.isCrazy() ? ReduxSoundEvents.CRAZY_COW_HURT.get() : ReduxSoundEvents.GLIMMERCOW_HURT.get();
+        return this.isCrazy() ? ReduxSoundEvents.CRAZY_COW_HURT.get() : ReduxSoundEvents.SHIMMERCOW_HURT.get();
     }
 
     @Nullable
     protected SoundEvent getDeathSound() {
-        return this.isCrazy() ? ReduxSoundEvents.CRAZY_COW_DEATH.get() : ReduxSoundEvents.GLIMMERCOW_DEATH.get();
+        return this.isCrazy() ? ReduxSoundEvents.CRAZY_COW_DEATH.get() : ReduxSoundEvents.SHIMMERCOW_DEATH.get();
     }
 
 
