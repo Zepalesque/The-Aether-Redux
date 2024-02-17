@@ -15,9 +15,10 @@ public class SheepuffModelMixin extends QuadrupedModelMixin<Sheepuff> {
 
     @Override
     public void setupAnim(Sheepuff entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, CallbackInfo ci) {
-        this.leftFrontLeg.skipDraw = ReduxConfig.CLIENT.sheepuff_model_upgrade.get();
-        this.leftHindLeg.skipDraw = ReduxConfig.CLIENT.sheepuff_model_upgrade.get();
-        this.rightFrontLeg.skipDraw = ReduxConfig.CLIENT.sheepuff_model_upgrade.get();
-        this.rightHindLeg.skipDraw = ReduxConfig.CLIENT.sheepuff_model_upgrade.get();
+        boolean skip = ReduxConfig.CLIENT.sheepuff_model_upgrade.get() || ReduxConfig.CLIENT.override_model_upgrades.get();
+        this.leftFrontLeg.skipDraw = skip;
+        this.leftHindLeg.skipDraw = skip;
+        this.rightFrontLeg.skipDraw = skip;
+        this.rightHindLeg.skipDraw = skip;
     }
 }

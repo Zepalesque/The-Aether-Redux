@@ -37,7 +37,7 @@ public class FlyingCowReduxLayer extends RenderLayer<FlyingCow, CowModel<FlyingC
 
     @Override
     public void render(PoseStack poseStack, MultiBufferSource buffer, int packedLight, FlyingCow phyg, float limbSwing, float limbSwingAmount, float partialTick, float ageInTicks, float netHeadYaw, float headPitch) {
-        if (ReduxConfig.CLIENT.flying_cow_model_upgrade.get()) {
+        if (ReduxConfig.CLIENT.flying_cow_model_upgrade.get() || ReduxConfig.CLIENT.override_model_upgrades.get()) {
             this.getParentModel().copyPropertiesTo(this.model);
             this.model.prepareMobModel(phyg, limbSwing, limbSwingAmount, partialTick);
             this.model.setupAnim(phyg, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);

@@ -66,6 +66,6 @@ public class SentryReduxModel<T extends Sentry> extends EntityModel<T> {
 
 	@Override
 	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		if (ReduxConfig.CLIENT.sentry_model_upgrade.get()) { main.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha); }
+		if (ReduxConfig.CLIENT.sentry_model_upgrade.get() || ReduxConfig.CLIENT.override_model_upgrades.get()) { main.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha); }
 	}
 }

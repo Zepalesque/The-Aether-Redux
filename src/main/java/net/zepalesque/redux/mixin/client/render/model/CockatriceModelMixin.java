@@ -24,7 +24,7 @@ public class CockatriceModelMixin extends BipedBirdModel<Cockatrice> {
 
     @Inject(method = "setupAnim(Lcom/aetherteam/aether/entity/monster/Cockatrice;FFFFF)V", at = @At(value = "TAIL"), remap = false)
     public void setupAnim(Cockatrice moa, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, CallbackInfo ci) {
-        this.useNewModel = ReduxConfig.CLIENT.cockatrice_model_upgrade.get();
+        this.useNewModel = ReduxConfig.CLIENT.cockatrice_model_upgrade.get() || ReduxConfig.CLIENT.override_model_upgrades.get();
         if (this.useNewModel) {
             this.jaw.xRot = 0.10F;
         }

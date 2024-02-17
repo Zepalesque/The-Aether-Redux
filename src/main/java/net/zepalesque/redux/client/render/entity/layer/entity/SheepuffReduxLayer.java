@@ -32,7 +32,7 @@ public class SheepuffReduxLayer extends RenderLayer<Sheepuff, SheepuffModel> {
 
     @Override
     public void render(PoseStack poseStack, MultiBufferSource buffer, int packedLight, Sheepuff sheepuff, float limbSwing, float limbSwingAmount, float partialTick, float ageInTicks, float netHeadYaw, float headPitch) {
-        if (ReduxConfig.CLIENT.sheepuff_model_upgrade.get()) {
+        if (ReduxConfig.CLIENT.sheepuff_model_upgrade.get() || ReduxConfig.CLIENT.override_model_upgrades.get()) {
             this.getParentModel().copyPropertiesTo(this.model);
             this.model.prepareMobModel(sheepuff, limbSwing, limbSwingAmount, partialTick);
             this.model.setupAnim(sheepuff, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);

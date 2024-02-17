@@ -32,7 +32,7 @@ public class BattleSentryReduxLayer extends RenderLayer<BattleSentry, SlimeModel
 
     @Override
     public void render(PoseStack poseStack, MultiBufferSource buffer, int packedLight, BattleSentry sentry, float limbSwing, float limbSwingAmount, float partialTick, float ageInTicks, float netHeadYaw, float headPitch) {
-        if (ReduxConfig.CLIENT.sentry_model_upgrade.get()) {
+        if (ReduxConfig.CLIENT.sentry_model_upgrade.get() || ReduxConfig.CLIENT.override_model_upgrades.get()) {
             this.model.setupAnim(sentry, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
             if (Minecraft.getInstance().player != null) {
                 if (!sentry.isInvisibleTo(Minecraft.getInstance().player)) {
