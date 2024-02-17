@@ -14,13 +14,13 @@
             "entries": [
               {
                 "data": {
-                  "Name": "aether_redux:aevelium_sprouts"
+                  "Name": "aether_redux:avelium_sprouts"
                 },
                 "weight": 5
               },
               {
                 "data": {
-                  "Name": "aether_redux:aevelium_roots"
+                  "Name": "aether_redux:avelium_roots"
                 },
                 "weight": 3
               }

@@ -26,11 +26,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "aether_redux:aevelium_roots"
+          "name": "aether_redux:avelium_roots"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "aether_redux:blocks/potted_aevelium_roots"
+  "random_sequence": "aether_redux:blocks/potted_avelium_roots"
 }

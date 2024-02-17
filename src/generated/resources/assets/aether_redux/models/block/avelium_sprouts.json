@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cross",
   "render_type": "minecraft:cutout",
   "textures": {
-    "cross": "aether_redux:block/natural/aevelium_sprouts"
+    "cross": "aether_redux:block/natural/avelium_sprouts"
   }
 }

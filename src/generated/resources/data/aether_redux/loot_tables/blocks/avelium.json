@@ -29,7 +29,7 @@
                   }
                 }
               ],
-              "name": "aether_redux:aevelium"
+              "name": "aether_redux:avelium"
             },
             {
               "type": "minecraft:item",
@@ -46,5 +46,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "aether_redux:blocks/aevelium"
+  "random_sequence": "aether_redux:blocks/avelium"
 }

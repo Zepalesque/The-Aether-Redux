@@ -2,6 +2,6 @@
   "parent": "minecraft:block/flower_pot_cross",
   "render_type": "minecraft:cutout",
   "textures": {
-    "plant": "aether_redux:block/natural/potted_aevelium_roots"
+    "plant": "aether_redux:block/natural/potted_avelium_roots"
   }
 }

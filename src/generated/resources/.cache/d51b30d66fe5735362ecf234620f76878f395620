@@ -1,9 +1,9 @@
-// 1.20.1	2024-02-17T12:15:26.8501516	Item Models: aether_redux
-ef6d226766d61d6460247665062a399d3613d946 assets/aether_redux/models/item/aevelium.json
-2f2dfa95433a548b2d41f817bd836c91e41fc4e9 assets/aether_redux/models/item/aevelium_roots.json
-b33b28bb801d1267d9f65e4fa6cbb6743ca4f691 assets/aether_redux/models/item/aevelium_sprouts.json
+// 1.20.1	2024-02-17T14:00:26.3050725	Item Models: aether_redux
 2445055af5b1b7f3c6045199ffce74108003cef6 assets/aether_redux/models/item/airbound_cape.json
 2fa1343a8119a1f49af334c002773099174965bd assets/aether_redux/models/item/aurum.json
+edfe83948874d1436a61893ed9471b47e93dbe88 assets/aether_redux/models/item/avelium.json
+069219dd6179163a1afbd2ba1c972e9e9219ffc8 assets/aether_redux/models/item/avelium_roots.json
+9f08f4381f9427f312069620dee0dcc78163c4a2 assets/aether_redux/models/item/avelium_sprouts.json
 6ff1263c6864641c58d714308aa65e3650261ab8 assets/aether_redux/models/item/blightbunny_fang.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/aether_redux/models/item/blightbunny_spawn_egg.json
 e74c776b877c838decccf63d8245e585ca3fd225 assets/aether_redux/models/item/blighted_aercloud.json
