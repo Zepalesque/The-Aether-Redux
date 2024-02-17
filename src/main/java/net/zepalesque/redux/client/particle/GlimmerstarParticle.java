@@ -41,11 +41,6 @@ public class GlimmerstarParticle extends TextureSheetParticle {
       return j | k << 16;
    }
 
-   public void tick() {
-      super.tick();
-      this.setSpriteFromAge(this.sprites);
-   }
-
    @OnlyIn(Dist.CLIENT)
    public static class Provider implements ParticleProvider<SimpleParticleType> {
       private final SpriteSet sprite;
