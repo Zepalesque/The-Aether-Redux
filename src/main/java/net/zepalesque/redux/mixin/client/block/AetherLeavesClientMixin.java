@@ -17,6 +17,7 @@ import net.zepalesque.redux.block.natural.ExtendedDistanceLeavesBlock;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.misc.ReduxTags;
+import net.zepalesque.redux.util.compat.AetherGenesisParticleUtil;
 import net.zepalesque.redux.util.compat.DeepAetherParticleUtil;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
@@ -50,7 +51,16 @@ public class AetherLeavesClientMixin extends LeafBlockClientMixin {
         if (ReduxConfig.CLIENT.better_leaf_particles.get()) {
             @Nullable Supplier<? extends ParticleOptions> particle = null;
             if (Redux.deepAetherCompat()) {
-                particle = DeepAetherParticleUtil.getParticle(self);
+                @Nullable Supplier<? extends ParticleOptions> deep = DeepAetherParticleUtil.getParticle(self);
+                if (deep != null) {
+                    particle = deep;
+                }
+            }
+            if (Redux.aetherGenesisCompat()) {
+                @Nullable Supplier<? extends ParticleOptions> genesis = AetherGenesisParticleUtil.getParticle(self);
+                if (genesis != null) {
+                    particle = genesis;
+                }
             }
             if (self == AetherBlocks.SKYROOT_LEAVES.get()) { particle = ReduxParticleTypes.FALLING_SKYROOT_LEAVES; }
             if (self == ReduxBlocks.BLIGHTWILLOW_LEAVES.get()) { particle = ReduxParticleTypes.FALLING_BLIGHTWILLOW_LEAVES; }

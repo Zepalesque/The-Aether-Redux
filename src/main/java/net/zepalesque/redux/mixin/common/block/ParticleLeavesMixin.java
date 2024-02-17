@@ -2,6 +2,7 @@ package net.zepalesque.redux.mixin.common.block;
 
 import com.aetherteam.aether.block.natural.LeavesWithParticlesBlock;
 import com.aetherteam.aether.client.particle.AetherParticleTypes;
+import com.aetherteam.aether_genesis.client.particle.GenesisParticleTypes;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
 import com.llamalad7.mixinextras.sugar.Share;
@@ -14,9 +15,11 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.natural.ExtendedDistanceLeavesBlock;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
+import net.zepalesque.redux.util.compat.AetherGenesisParticleUtil;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -70,7 +73,12 @@ public class ParticleLeavesMixin {
     public boolean onAnimateTick(boolean isClientSide, BlockState state, Level level, BlockPos pos, RandomSource random, @Share("replace") LocalBooleanRef shouldReplaceParticle) {
         if (isClientSide) {
             // this is a shared variable that can be used across injectors of the same method
-            shouldReplaceParticle.set(ReduxConfig.CLIENT.better_leaf_particles.get() && (this.particle == AetherParticleTypes.GOLDEN_OAK_LEAVES.get() || this.particle == AetherParticleTypes.CRYSTAL_LEAVES.get() || this.particle == ReduxParticleTypes.GILDED_SKYROOT_LEAVES.get()));
+            shouldReplaceParticle.set(
+                    ReduxConfig.CLIENT.better_leaf_particles.get() &&
+                            (this.particle == AetherParticleTypes.GOLDEN_OAK_LEAVES
+                                    || this.particle == AetherParticleTypes.CRYSTAL_LEAVES
+                                    || this.particle == ReduxParticleTypes.GILDED_SKYROOT_LEAVES
+                                    || (Redux.aetherGenesisCompat() && AetherGenesisParticleUtil.isPurpleCrystal(this.particle))));
         }
 
         return isClientSide;
@@ -81,7 +89,9 @@ public class ParticleLeavesMixin {
     {
         return !ReduxConfig.CLIENT.better_leaf_particles.get() ? null : particle == AetherParticleTypes.GOLDEN_OAK_LEAVES.get() ? ReduxParticleTypes.FALLING_GOLDEN_LEAVES.get()
                 : particle == AetherParticleTypes.CRYSTAL_LEAVES.get() ? ReduxParticleTypes.FALLING_CRYSTAL_LEAVES.get()
-                : particle == ReduxParticleTypes.GILDED_SKYROOT_LEAVES.get() ? ReduxParticleTypes.FALLING_GILDED_LEAVES.get() : null;
+                : particle == ReduxParticleTypes.GILDED_SKYROOT_LEAVES.get() ? ReduxParticleTypes.FALLING_GILDED_LEAVES.get() :
+                Redux.aetherGenesisCompat() && AetherGenesisParticleUtil.isPurpleCrystal(particle) ? ReduxParticleTypes.FALLING_PURPLE_CRYSTAL_LEAVES.get()
+                        : null;
     }
 
 
