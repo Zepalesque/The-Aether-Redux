@@ -18,7 +18,7 @@ import net.minecraft.world.level.levelgen.XoroshiroRandomSource;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.zepalesque.redux.block.natural.cloudcap.AeveliumSproutsGrowthBlock;
+import net.zepalesque.redux.block.natural.cloudcap.AveliumPlantBlock;
 import net.zepalesque.redux.block.util.state.enums.GrassSize;
 import net.zepalesque.redux.block.util.state.ReduxStates;
 import net.zepalesque.redux.misc.ReduxTags;
@@ -42,7 +42,7 @@ public class AetherShortGrassBlock extends AetherBushBlock {
 
     @Override
     public boolean canBeReplaced(BlockState pState, BlockPlaceContext pUseContext) {
-        return super.canBeReplaced(pState, pUseContext) && (pUseContext.getItemInHand().getItem() instanceof BlockItem blockItem && !(blockItem.getBlock() instanceof AeveliumSproutsGrowthBlock || blockItem.getBlock() instanceof AetherShortGrassBlock));
+        return super.canBeReplaced(pState, pUseContext) && (pUseContext.getItemInHand().getItem() instanceof BlockItem blockItem && !(blockItem.getBlock() instanceof AveliumPlantBlock || blockItem.getBlock() instanceof AetherShortGrassBlock));
     }
 
     @Override

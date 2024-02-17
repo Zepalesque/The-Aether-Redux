@@ -66,7 +66,7 @@ import java.util.OptionalInt;
 
 // TODO (maybe not the perfect spot for this but whatever) IntProvider-based straight Trunk placer thing (should really be a vanilla feature)
 public class ReduxConfiguredFeatures {
-    public static final ResourceKey<ConfiguredFeature<?, ?>> AEVELIUM_GRASSES_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.AEVELIUM) + "_grasses_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> AEVELIUM_GRASSES_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.AVELIUM) + "_grasses_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FUNGAL_PATCH = createKey(Folders.CAVE + "fungal_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FUNGAL_PATCH_BONEMEAL = createKey(Folders.CAVE + "fungal_patch_bonemeal");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AURUM_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.AURUM) + "_patch");
@@ -164,8 +164,8 @@ public class ReduxConfiguredFeatures {
         register(context, AEVELIUM_GRASSES_PATCH, Feature.RANDOM_PATCH,
                 blockBelowPlacementPatch(32, 7, 3, (new WeightedStateProvider(
                                 SimpleWeightedRandomList.<BlockState>builder()
-                                        .add(drops(ReduxBlocks.AEVELIUM_SPROUTS), 5)
-                                        .add(drops(ReduxBlocks.AEVELIUM_ROOTS), 3))),
+                                        .add(drops(ReduxBlocks.AVELIUM_SPROUTS), 5)
+                                        .add(drops(ReduxBlocks.AVELIUM_ROOTS), 3))),
                         BlockPredicate.matchesTag(ReduxTags.Blocks.AEVELIUM_GRASSES)));
 
         register(context, AURUM_PATCH, Feature.FLOWER,
@@ -263,8 +263,8 @@ public class ReduxConfiguredFeatures {
                                 .add(drops(ReduxBlocks.JELLYSHROOM), 20)
                                 .add(drops(ReduxBlocks.SHIMMERSTOOL), 15)
                                 .add(drops(ReduxBlocks.FUNGAL_CARPET), 75)
-                                .add(drops(ReduxBlocks.AEVELIUM_SPROUTS), 150)
-                                .add(drops(ReduxBlocks.AEVELIUM_ROOTS), 120)
+                                .add(drops(ReduxBlocks.AVELIUM_SPROUTS), 150)
+                                .add(drops(ReduxBlocks.AVELIUM_ROOTS), 120)
                 )));
 
         register(context, BLIGHTED_SKYROOT_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(

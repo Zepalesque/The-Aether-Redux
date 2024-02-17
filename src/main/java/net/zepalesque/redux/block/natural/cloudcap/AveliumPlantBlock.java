@@ -12,12 +12,12 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.zepalesque.redux.block.natural.AetherShortGrassBlock;
 
-public class AeveliumSproutsGrowthBlock extends AetherBushBlock {
+public class AveliumPlantBlock extends AetherBushBlock {
 
     protected static final VoxelShape SHAPE_SPROUTS = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 4.0D, 14.0D);
     protected static final VoxelShape SHAPE_GROWTH = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 10.0D, 14.0D);
     private final boolean isSprouts;
-    public AeveliumSproutsGrowthBlock(Properties properties, boolean sprouts) {
+    public AveliumPlantBlock(Properties properties, boolean sprouts) {
         super(properties);
         this.isSprouts = sprouts;
     }
@@ -29,7 +29,7 @@ public class AeveliumSproutsGrowthBlock extends AetherBushBlock {
 
     @Override
     public boolean canBeReplaced(BlockState pState, BlockPlaceContext pUseContext) {
-        return super.canBeReplaced(pState, pUseContext) && (pUseContext.getItemInHand().getItem() instanceof BlockItem blockItem && !(blockItem.getBlock() instanceof AeveliumSproutsGrowthBlock || blockItem.getBlock() instanceof AetherShortGrassBlock));
+        return super.canBeReplaced(pState, pUseContext) && (pUseContext.getItemInHand().getItem() instanceof BlockItem blockItem && !(blockItem.getBlock() instanceof AveliumPlantBlock || blockItem.getBlock() instanceof AetherShortGrassBlock));
     }
 
 }

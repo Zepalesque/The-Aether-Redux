@@ -113,7 +113,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlock(ReduxBlocks.PURPLE_GLACIA_LEAVES);
         this.itemBlockFlat(ReduxBlocks.PURPLE_GLACIA_SAPLING.get(), "natural/");
 
-        itemBlock(ReduxBlocks.AEVELIUM);
+        itemBlock(ReduxBlocks.AVELIUM);
         itemBlock(ReduxBlocks.CLOUD_CAP_BLOCK);
         itemBlock(ReduxBlocks.CLOUDCAP_SPORES);
         itemBlockFlat(ReduxBlocks.JELLYSHROOM, "natural/");
@@ -136,8 +136,8 @@ public class ReduxItemModelData extends AetherItemModelProvider {
 
         this.itemFullGlow(ReduxItems.LIGHTROOT_CLUMP, "food/");
 
-        this.itemBlockFlat(ReduxBlocks.AEVELIUM_ROOTS.get(), "natural/");
-        this.item(ReduxBlocks.AEVELIUM_SPROUTS.get().asItem(), "misc/");
+        this.itemBlockFlat(ReduxBlocks.AVELIUM_ROOTS.get(), "natural/");
+        this.item(ReduxBlocks.AVELIUM_SPROUTS.get().asItem(), "misc/");
 
         this.aercloudItem(ReduxBlocks.JELLYSHROOM_JELLY_BLOCK.get());
 

@@ -122,8 +122,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.SHORT_AETHER_GRASS, "Aether Grass");
         addLore(ReduxBlocks.SHORT_AETHER_GRASS, "Blades of the Aether's grass. It feels slightly cool to the touch.");
 
-        addBlock(ReduxBlocks.AEVELIUM, "Aevelium");
-        addLore(ReduxBlocks.AEVELIUM, "A fungal grass-like growth that spreads across Aether Dirt. Found in the Cloudcaps.");
+        addBlock(ReduxBlocks.AVELIUM, "Avelium");
+        addLore(ReduxBlocks.AVELIUM, "A fungal grass-like growth that spreads across Aether Dirt. Can be found in the Cloudcaps.");
 
         addBlock(ReduxBlocks.JELLYSHROOM, "Jellyshroom");
         addBlock(ReduxBlocks.POTTED_JELLYSHROOM, "Potted Jellyshroom");
@@ -218,12 +218,12 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.POTTED_FLOWERING_FIELDSPROUT_SAPLING, "Potted Flowering Fieldsprout Sapling");
         addLore(ReduxBlocks.FLOWERING_FIELDSPROUT_SAPLING, "The sapling of the Flowering Fieldsprout tree. It can be grown by waiting or using Bone Meal.");
 
-        addBlock(ReduxBlocks.AEVELIUM_ROOTS, "Aevelium Roots");
-        addBlock(ReduxBlocks.POTTED_AEVELIUM_ROOTS, "Potted Aevelium Roots");
-        addLore(ReduxBlocks.AEVELIUM_ROOTS, "Sprouting roots that grow on Aevelium in the Cloudcaps.");
+        addBlock(ReduxBlocks.AVELIUM_ROOTS, "Avelium Roots");
+        addBlock(ReduxBlocks.POTTED_AVELIUM_ROOTS, "Potted Avelium Roots");
+        addLore(ReduxBlocks.AVELIUM_ROOTS, "Sprouting roots that grow on Avelium in the Cloudcaps.");
 
-        addBlock(ReduxBlocks.AEVELIUM_SPROUTS, "Aevelium Sprouts");
-        addLore(ReduxBlocks.AEVELIUM_SPROUTS, "A smaller variant of Aevelium Roots. Can be found in the Cloudcaps.");
+        addBlock(ReduxBlocks.AVELIUM_SPROUTS, "Avelium Sprouts");
+        addLore(ReduxBlocks.AVELIUM_SPROUTS, "A smaller variant of Avelium Roots. Can be found in the Cloudcaps.");
 
         addBlock(ReduxBlocks.GILDED_OAK_LEAVES, "Gilded Oak Leaves");
         addLore(ReduxBlocks.GILDED_OAK_LEAVES, "The leaves of the Gilded Oak tree. These sometimes drop Gilded Oak Saplings.");

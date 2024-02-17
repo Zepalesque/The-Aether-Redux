@@ -72,9 +72,9 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
 
         dropSelf(ReduxBlocks.XAELIA_FLOWERS.get());
 
-        this.add(ReduxBlocks.AEVELIUM_SPROUTS.get(), this.shearsOr(Blocks.AIR));
-        this.dropPottedContents(ReduxBlocks.POTTED_AEVELIUM_ROOTS.get());
-        this.add(ReduxBlocks.AEVELIUM_ROOTS.get(), this.shearsOr(Blocks.AIR));
+        this.add(ReduxBlocks.AVELIUM_SPROUTS.get(), this.shearsOr(Blocks.AIR));
+        this.dropPottedContents(ReduxBlocks.POTTED_AVELIUM_ROOTS.get());
+        this.add(ReduxBlocks.AVELIUM_ROOTS.get(), this.shearsOr(Blocks.AIR));
 
         this.add(ReduxBlocks.BLIGHTWILLOW_LEAVES.get(),
                 (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.BLIGHTWILLOW_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
@@ -145,7 +145,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.add(ReduxBlocks.CARVED_STONE_BRICK_SLAB.get(), this::createSlabItemTable);
         dropSelf(ReduxBlocks.CARVED_STONE_BRICK_WALL.get());
         dropSelf(ReduxBlocks.CARVED_STONE_PILLAR.get());
-        this.dropDoubleWithSilk(ReduxBlocks.AEVELIUM.get(), AetherBlocks.AETHER_DIRT.get());
+        this.dropDoubleWithSilk(ReduxBlocks.AVELIUM.get(), AetherBlocks.AETHER_DIRT.get());
         this.add(ReduxBlocks.LUXWEED.get(), shears());
         this.dropPottedContents(ReduxBlocks.POTTED_LUXWEED.get());
         this.dropSelfDouble(ReduxBlocks.SPIROLYCTIL.get());

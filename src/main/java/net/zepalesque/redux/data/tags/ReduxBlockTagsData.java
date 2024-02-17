@@ -124,7 +124,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
 
 
         this.tag(AetherTags.Blocks.AETHER_DIRT).add(
-                ReduxBlocks.AEVELIUM.get(),
+                ReduxBlocks.AVELIUM.get(),
                 ReduxBlocks.COARSE_AETHER_DIRT.get(),
                 ReduxBlocks.BLIGHTMOSS_BLOCK.get(),
                 ReduxBlocks.FUNGAL_GROWTH.get()
@@ -138,7 +138,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.BLIGHTED_SKYROOT_LEAVES.get()
         );
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
-                ReduxBlocks.AEVELIUM.get(),
+                ReduxBlocks.AVELIUM.get(),
                 ReduxBlocks.COARSE_AETHER_DIRT.get()
                 );
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
@@ -203,7 +203,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         );
         this.tag(AetherTags.Blocks.HOLYSTONE).add(ReduxBlocks.GILDED_HOLYSTONE.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get());
 
-        this.tag(AetherTags.Blocks.AETHER_ANIMALS_SPAWNABLE_ON).add(ReduxBlocks.AEVELIUM.get(), ReduxBlocks.COARSE_AETHER_DIRT.get(), Blocks.SNOW_BLOCK, AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get());
+        this.tag(AetherTags.Blocks.AETHER_ANIMALS_SPAWNABLE_ON).add(ReduxBlocks.AVELIUM.get(), ReduxBlocks.COARSE_AETHER_DIRT.get(), Blocks.SNOW_BLOCK, AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get());
 
         // Adds every single Redux block as a block that should be treaded as an Aether Block and get the tool debuff
         IntrinsicTagAppender<Block> tag = this.tag(AetherTags.Blocks.TREATED_AS_AETHER_BLOCK);
@@ -239,7 +239,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.BLIGHTSHADE.get()
                 );
         this.tag(AetherTags.Blocks.HOLYSTONE).add(ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), ReduxBlocks.GILDED_HOLYSTONE.get());
-        this.tag(BlockTags.MUSHROOM_GROW_BLOCK).add(ReduxBlocks.AEVELIUM.get());
+        this.tag(BlockTags.MUSHROOM_GROW_BLOCK).add(ReduxBlocks.AVELIUM.get());
         this.tag(BlockTags.FLOWER_POTS).add(
                 ReduxBlocks.POTTED_IRIDIA.get(),
                 ReduxBlocks.POTTED_AURUM.get(),
@@ -261,7 +261,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 );
         this.tag(ReduxTags.Blocks.HIGHLANDS_GRASSES).add(AetherBlocks.AETHER_GRASS_BLOCK.get());
         this.tag(ReduxTags.Blocks.ENCHANTED_GRASSES).add(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get());
-        this.tag(ReduxTags.Blocks.AEVELIUM_GRASSES).add(ReduxBlocks.AEVELIUM.get());
+        this.tag(ReduxTags.Blocks.AEVELIUM_GRASSES).add(ReduxBlocks.AVELIUM.get());
         this.tag(BlockTags.SAPLINGS).add(
                 ReduxBlocks.BLIGHTWILLOW_SAPLING.get(),
                 ReduxBlocks.GLACIA_SAPLING.get(),

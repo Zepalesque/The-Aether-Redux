@@ -80,14 +80,14 @@ public class ReduxBlocks {
     public static RegistryObject<AetherShortGrassBlock> SHORT_AETHER_GRASS = register("short_aether_grass",
                 () -> new AetherShortGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).hasPostProcess(ReduxBlocks::always)));
 
-    public static RegistryObject<Block> AEVELIUM = register("aevelium",
-            () -> new AeveliumBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_LIGHT_BLUE).randomTicks().strength(0.2F).sound(SoundType.ROOTED_DIRT)));
+    public static RegistryObject<Block> AVELIUM = register("avelium",
+            () -> new AveliumBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_LIGHT_BLUE).randomTicks().strength(0.2F).sound(SoundType.ROOTED_DIRT)));
 
-    public static RegistryObject<Block> AEVELIUM_SPROUTS = register("aevelium_sprouts",
-            () -> new AeveliumSproutsGrowthBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).sound(SoundType.NETHER_SPROUTS), true));
-    public static RegistryObject<Block> AEVELIUM_ROOTS = register("aevelium_roots",
-            () -> new AeveliumSproutsGrowthBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).sound(SoundType.ROOTS), false));
-    public static final RegistryObject<FlowerPotBlock> POTTED_AEVELIUM_ROOTS = BLOCKS.register("potted_aevelium_roots", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, AEVELIUM_ROOTS, Block.Properties.copy(Blocks.FLOWER_POT)));
+    public static RegistryObject<Block> AVELIUM_SPROUTS = register("avelium_sprouts",
+            () -> new AveliumPlantBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).sound(SoundType.NETHER_SPROUTS), true));
+    public static RegistryObject<Block> AVELIUM_ROOTS = register("avelium_roots",
+            () -> new AveliumPlantBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).sound(SoundType.ROOTS), false));
+    public static final RegistryObject<FlowerPotBlock> POTTED_AVELIUM_ROOTS = BLOCKS.register("potted_avelium_roots", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, AVELIUM_ROOTS, Block.Properties.copy(Blocks.FLOWER_POT)));
 
 
     public static RegistryObject<Block> SHELL_SHINGLES = register("shell_shingles",
@@ -443,7 +443,7 @@ public class ReduxBlocks {
         pot.addPlant(ReduxBlocks.WYNDSPROUTS.getId(), ReduxBlocks.POTTED_WYNDSPROUTS);
         pot.addPlant(ReduxBlocks.SPLITFERN.getId(), ReduxBlocks.POTTED_SPLITFERN);
         pot.addPlant(ReduxBlocks.CLOUDCAP_MUSHLING.getId(), ReduxBlocks.POTTED_CLOUDCAP_MUSHLING);
-        pot.addPlant(ReduxBlocks.AEVELIUM_ROOTS.getId(), ReduxBlocks.POTTED_AEVELIUM_ROOTS);
+        pot.addPlant(ReduxBlocks.AVELIUM_ROOTS.getId(), ReduxBlocks.POTTED_AVELIUM_ROOTS);
         pot.addPlant(ReduxBlocks.JELLYSHROOM.getId(), ReduxBlocks.POTTED_JELLYSHROOM);
         pot.addPlant(ReduxBlocks.GILDED_OAK_SAPLING.getId(), ReduxBlocks.POTTED_GILDED_OAK_SAPLING);
         pot.addPlant(ReduxBlocks.BLIGHTED_SKYROOT_SAPLING.getId(), ReduxBlocks.POTTED_BLIGHTED_SKYROOT_SAPLING);

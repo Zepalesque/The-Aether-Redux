@@ -16,11 +16,11 @@ import net.zepalesque.redux.block.ReduxBlocks;
 
 import java.util.List;
 
-public class AeveliumBlock extends AetherGrassBlock {
+public class AveliumBlock extends AetherGrassBlock {
 
 
 
-    public AeveliumBlock(Properties properties) {
+    public AveliumBlock(Properties properties) {
         super(properties);
     }
 
@@ -57,7 +57,7 @@ public class AeveliumBlock extends AetherGrassBlock {
                 } else {
                     if (level.ensureCanWrite(blockPos))
                     {
-                        level.setBlock(blockPos, random.nextFloat() < 0.6F ? ReduxBlocks.AEVELIUM_SPROUTS.get().defaultBlockState() : ReduxBlocks.AEVELIUM_ROOTS.get().defaultBlockState(), 3);
+                        level.setBlock(blockPos, random.nextFloat() < 0.6F ? ReduxBlocks.AVELIUM_SPROUTS.get().defaultBlockState() : ReduxBlocks.AVELIUM_ROOTS.get().defaultBlockState(), 3);
                     }
                 }
             }

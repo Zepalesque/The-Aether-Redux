@@ -52,9 +52,9 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.cropGrowable(ReduxBlocks.WYNDSPROUTS_CROP.get(), "crop/wyndsprouts/", SproutsCropBlock.AGE);
         this.cropGrowable(ReduxBlocks.SKYSPROUTS_CROP.get(), "crop/skysprouts/", SproutsCropBlock.AGE);
 
-        this.crossBlock(ReduxBlocks.AEVELIUM_SPROUTS.get(), "natural/");
-        this.crossBlock(ReduxBlocks.AEVELIUM_ROOTS.get(), "natural/");
-        this.potAlt(ReduxBlocks.POTTED_AEVELIUM_ROOTS.get(), ReduxBlocks.AEVELIUM_ROOTS.get(), "natural/");
+        this.crossBlock(ReduxBlocks.AVELIUM_SPROUTS.get(), "natural/");
+        this.crossBlock(ReduxBlocks.AVELIUM_ROOTS.get(), "natural/");
+        this.potAlt(ReduxBlocks.POTTED_AVELIUM_ROOTS.get(), ReduxBlocks.AVELIUM_ROOTS.get(), "natural/");
 
         this.crossTintedOverlay(ReduxBlocks.IRIDIA.get(), "natural/");
         this.crossTintedOverlay(ReduxBlocks.XAELIA_FLOWERS.get(), "natural/");
@@ -95,7 +95,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.leafPile(ReduxBlocks.GILDED_LEAF_PILE, ReduxBlocks.GILDED_OAK_LEAVES, "natural/");
         this.leafPile(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE, ReduxBlocks.BLIGHTWILLOW_LEAVES, "natural/");
 
-        this.grass(ReduxBlocks.AEVELIUM, AetherBlocks.AETHER_DIRT);
+        this.grass(ReduxBlocks.AVELIUM, AetherBlocks.AETHER_DIRT);
 
         this.snowableLeaves(ReduxBlocks.GLACIA_LEAVES.get(), "natural/");
         this.crossBlock(ReduxBlocks.GLACIA_SAPLING.get(), "natural/");
