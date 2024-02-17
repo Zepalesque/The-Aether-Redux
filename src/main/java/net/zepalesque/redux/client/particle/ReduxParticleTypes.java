@@ -60,7 +60,7 @@ public class ReduxParticleTypes {
 
     public static final RegistryObject<SimpleParticleType> ICE_SHARD = PARTICLES.register("ice_shard", () -> new SimpleParticleType(false));
 
-public static final RegistryObject<SimpleParticleType> FROST = PARTICLES.register("frost    `   ", () -> new SimpleParticleType(false));
+public static final RegistryObject<SimpleParticleType> FROST = PARTICLES.register("frost", () -> new SimpleParticleType(false));
 
 
     public static final RegistryObject<SimpleParticleType> SPARK = PARTICLES.register("spark", () -> new SimpleParticleType(false));
