@@ -1,0 +1,175 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:tag",
+          "expand": true,
+          "name": "lost_aether_content:phoenix_tools"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "aether:life_shard",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "lost_aether_content:shield_of_emile",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "lost_aether_content:power_gloves",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "lost_aether_content:phoenix_cape",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "lost_aether_content:invincibility_gem",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "lost_aether_content:sentry_shield",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "lost_aether_content:agility_boots",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "lost_aether_content:flaming_gemstone",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "lost_aether_content:swetty_mask",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "aether:cloud_staff",
+          "weight": 2
+        }
+      ],
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 4.0,
+        "min": 3.0
+      }
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "lost_aether_content:music_disc_sovereign_of_the_skies"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "lost_aether_content:music_disc_legacy"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "aether_redux:gravitite_ingot",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 2.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "lost_aether_content:enchanted_pink_aercloud",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 2.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "aether:blue_aercloud",
+          "weight": 7
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 16.0,
+                "min": 10.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "aether:enchanted_dart",
+          "weight": 9
+        }
+      ],
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 5.0,
+        "min": 4.0
+      }
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "lost_aether_content:noble_armor_trim_smithing_template"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "lost_aether_content:chests/platinum_treasure_loot"
+}

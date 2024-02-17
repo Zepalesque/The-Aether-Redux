@@ -601,6 +601,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addAdvancement("obtain_subzero_crossbow", "Below Zero [Redux]");
         addAdvancementDesc("obtain_subzero_crossbow", "Obtain the Subzero Crossbow, a chilling ranged weapon found in the Gold Dungeon");
 
+        addAdvancementDesc("enchanted_gravitite", "Use an Altar to obtain a Gravitite Ingot");
+
         addAdvancement("feather_of_warding", "Blight's Bane [Redux]");
         addAdvancementDesc("feather_of_warding", "Obtain the Feather of Warding, a useful accessory that gives the wearer protection from many Blight-related dangers");
 

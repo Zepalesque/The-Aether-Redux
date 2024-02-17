@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "minecraft:jukebox",
+  "key": {
+    "G": {
+      "item": "aether_redux:gravitite_ingot"
+    },
+    "P": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "pattern": [
+    "PPP",
+    "PGP",
+    "PPP"
+  ],
+  "result": {
+    "item": "minecraft:jukebox"
+  },
+  "show_notification": true
+}

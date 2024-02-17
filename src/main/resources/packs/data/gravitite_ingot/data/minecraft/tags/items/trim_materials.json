@@ -1,0 +1,8 @@
+{
+  "remove": [
+    "aether:enchanted_gravitite"
+  ],
+  "values": [
+    "aether_redux:gravitite_ingot"
+  ]
+}
