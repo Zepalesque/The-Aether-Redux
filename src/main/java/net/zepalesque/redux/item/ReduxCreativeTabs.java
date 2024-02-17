@@ -133,7 +133,8 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.JELLYSHROOM, ReduxBlocks.SHIMMERSTOOL, event);
 
             putAfter(AetherBlocks.ZANITE_ORE, ReduxBlocks.VERIDIUM_ORE, event);
-            putAfter(AetherBlocks.GRAVITITE_ORE, ReduxBlocks.RAW_VERIDIUM_BLOCK, event);
+            putAfter(ReduxBlocks.VERIDIUM_ORE, ReduxBlocks.RAW_VERIDIUM_BLOCK, event);
+            putAfter(AetherBlocks.GRAVITITE_ORE, ReduxBlocks.RAW_GRAVITITE_BLOCK, event);
         }
         if (tab == AetherCreativeTabs.AETHER_REDSTONE_BLOCKS.get()) {
 
