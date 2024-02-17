@@ -27,8 +27,8 @@ public class CloudLayerFeature extends Feature<CloudLayerConfig> {
     public boolean place(FeaturePlaceContext<CloudLayerConfig> context) {
         int chunkX = context.origin().getX() - (context.origin().getX() % 16);
         int chunkZ = context.origin().getZ() - (context.origin().getZ() % 16);
-        double min = ReduxConfig.COMMON.cloud_layer_threshold_min.get() / 2;
-        double max = ReduxConfig.COMMON.cloud_layer_threshold_max.get() / 2;
+        float min = ReduxConfig.COMMON.cloud_layer_threshold_min.get().floatValue() / 2F;
+        float max = ReduxConfig.COMMON.cloud_layer_threshold_max.get().floatValue() / 2F;
         for (int x = 0; x < 16; x++) {
             for (int z = 0; z < 16; z++) {
 
@@ -40,7 +40,7 @@ public class CloudLayerFeature extends Feature<CloudLayerConfig> {
                 double yOffset = y_offset.getValue(xCoord * scale * 0.75D, zCoord * scale * 0.75D, false);
                 float offs = (float) Mth.lerp(Mth.inverseLerp(yOffset, -0.5, 0.5), 0D, 10D);
                 if (main >= 0) {
-                    float delta = MathUtil.costrp((float) Mth.clamp(main, min, max), 0, 1);
+                    float delta = MathUtil.costrp((float) Mth.clamp(main, 0, 1), 0, 1);
                     float blocksUp = Mth.lerp(delta, 0F, 5F) + offs;
                     float blocksDown = Mth.lerp(delta, 0F, 4F) - offs;
 
