@@ -129,9 +129,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.POTTED_JELLYSHROOM, "Potted Jellyshroom");
         addLore(ReduxBlocks.JELLYSHROOM, "A jelly-based mushroom, which is found in the Cloudcaps.");
 
-        addBlock(ReduxBlocks.GLIMMERSTOOL, "Glimmerstool");
-        addBlock(ReduxBlocks.POTTED_GLIMMERSTOOL, "Potted Glimmerstool");
-        addLore(ReduxBlocks.GLIMMERSTOOL, "A short mushroom found in the Cloudcaps. These are most commonly found nearby rocks. They can also sometimes be found on the backs of the native Glimmercow!");
+        addBlock(ReduxBlocks.SHIMMERSTOOL, "Glimmerstool");
+        addBlock(ReduxBlocks.POTTED_SHIMMERSTOOL, "Potted Glimmerstool");
+        addLore(ReduxBlocks.SHIMMERSTOOL, "A short mushroom found in the Cloudcaps. These are most commonly found nearby rocks. They can also sometimes be found on the backs of the native Glimmercow!");
 
         addBlock(ReduxBlocks.CLOUD_CAP_BLOCK, "Cloud Cap Block");
         addLore(ReduxBlocks.CLOUD_CAP_BLOCK, "The cap of the large Cloudcap Mushrooms, found in the Cloudcaps.");
@@ -478,7 +478,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addGuiText("pack_config.page", "Page %s");
 
         addEntityType(ReduxEntityTypes.VANILLA_SWET, "Vanilla Swet");
-        addEntityType(ReduxEntityTypes.GLIMMERCOW, "Glimmercow");
+        addEntityType(ReduxEntityTypes.SHIMMERCOW, "Glimmercow");
         addEntityType(ReduxEntityTypes.MYKAPOD, "Mykapod");
         addEntityType(ReduxEntityTypes.BLIGHTBUNNY, "Blightbunny");
         addEntityType(ReduxEntityTypes.EMBER, "Ember");

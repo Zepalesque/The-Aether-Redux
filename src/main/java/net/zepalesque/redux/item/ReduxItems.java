@@ -1,22 +1,16 @@
 package net.zepalesque.redux.item;
 
 import com.aetherteam.aether.item.AetherItems;
-import com.aetherteam.aether.item.EquipmentUtil;
-import com.aetherteam.aether.item.accessories.AccessoryItem;
-import com.aetherteam.aether.item.accessories.miscellaneous.ShieldOfRepulsionItem;
 import com.aetherteam.aether.item.accessories.ring.RingItem;
 import com.aetherteam.aether.item.combat.DartItem;
 import com.aetherteam.aether.item.combat.DartShooterItem;
 import com.aetherteam.aether.item.food.GummySwetItem;
 import com.aetherteam.aether.item.materials.SwetBallItem;
 import com.google.common.base.Supplier;
-import com.google.common.collect.Multimap;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.ai.attributes.Attribute;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.*;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.registries.DeferredRegister;
@@ -26,11 +20,9 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
-import net.zepalesque.redux.entity.projectile.VeridiumArrow;
 import net.zepalesque.redux.item.accessory.*;
 import net.zepalesque.redux.item.food.ReduxFoods;
 import net.zepalesque.redux.item.misc.BlightedSporesItem;
-import net.zepalesque.redux.item.misc.TooltipItem;
 import net.zepalesque.redux.item.tools.VeridiumAxeItem;
 import net.zepalesque.redux.item.tools.VeridiumHoeItem;
 import net.zepalesque.redux.item.tools.VeridiumPickaxeItem;
@@ -40,7 +32,6 @@ import net.zepalesque.redux.item.weapons.BlightSpearItem;
 import net.zepalesque.redux.item.weapons.SubzeroCrossbowItem;
 import net.zepalesque.redux.item.weapons.VeridiumArrowItem;
 import net.zepalesque.redux.item.weapons.VeridiumSwordItem;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.function.UnaryOperator;
 
@@ -111,7 +102,7 @@ public class ReduxItems {
     public static final RegistryObject<SpawnEggItem> VANILLA_SWET_SPAWN_EGG = ITEMS.register("vanilla_swet_spawn_egg", () -> new ForgeSpawnEggItem(ReduxEntityTypes.VANILLA_SWET, 0xF7F3E3, 0xD3CABB, new Item.Properties()));
     public static final RegistryObject<Item> MUSIC_DISC_LABYRINTHS_VENGEANCE = ITEMS.register("music_disc_labyrinths_vengeance", () -> (new RecordItem(1, ReduxSoundEvents.MUSIC_DISC_LABYRINTHS_VENGEANCE, (new Item.Properties()).stacksTo(1).rarity(Rarity.RARE), 4300)));
 
-    public static final RegistryObject<SpawnEggItem> GLIMMERCOW_SPAWN_EGG = ITEMS.register("glimmercow_spawn_egg", () -> new ForgeSpawnEggItem(ReduxEntityTypes.GLIMMERCOW, 0x7B7F90, 0x4A73CC, new Item.Properties()));
+    public static final RegistryObject<SpawnEggItem> GLIMMERCOW_SPAWN_EGG = ITEMS.register("glimmercow_spawn_egg", () -> new ForgeSpawnEggItem(ReduxEntityTypes.SHIMMERCOW, 0x7B7F90, 0x4A73CC, new Item.Properties()));
 
     public static final RegistryObject<SpawnEggItem> MYKAPOD_SPAWN_EGG = ITEMS.register("mykapod_spawn_egg", () -> new ForgeSpawnEggItem(ReduxEntityTypes.MYKAPOD, 0xDAE3E7, 0x7178C2, new Item.Properties()));
 

@@ -64,7 +64,7 @@ public class ReduxRenderers {
         event.registerEntityRenderer(ReduxEntityTypes.EMBER.get(), EmberRenderer::new);
         event.registerEntityRenderer(ReduxEntityTypes.THROWN_SPEAR.get(), ThrownSpearRenderer::new);
 
-        event.registerEntityRenderer(ReduxEntityTypes.GLIMMERCOW.get(), GlimmercowRenderer::new);
+        event.registerEntityRenderer(ReduxEntityTypes.SHIMMERCOW.get(), ShimmercowRenderer::new);
 
         event.registerEntityRenderer(ReduxEntityTypes.BLIGHTBUNNY.get(), BlightbunnyRenderer::new);
 
@@ -86,7 +86,7 @@ public class ReduxRenderers {
     public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(ReduxModelLayers.MOA, MoaReduxModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.COCKATRICE, CockatriceReduxModel::createBodyLayer);
-        event.registerLayerDefinition(ReduxModelLayers.GLIMMERCOW, GlimmercowModel::createBodyLayer);
+        event.registerLayerDefinition(ReduxModelLayers.GLIMMERCOW, ShimmercowModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.MIMIC, MimicReduxModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.SENTRY, SentryReduxModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.BLIGHTBUNNY, BlightbunnyModel::createBodyLayer);

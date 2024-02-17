@@ -170,8 +170,8 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.veridiumLantern(ReduxBlocks.VERIDIUM_LANTERN.get(), "construction/");
         this.crossBlock(ReduxBlocks.JELLYSHROOM, "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_JELLYSHROOM.get(), ReduxBlocks.JELLYSHROOM.get(), "natural/");
-        this.crossGlowOverlay(ReduxBlocks.GLIMMERSTOOL.get(), "natural/");
-        this.pottedPlant(ReduxBlocks.POTTED_GLIMMERSTOOL.get(), ReduxBlocks.GLIMMERSTOOL.get(), "natural/");
+        this.crossGlowOverlay(ReduxBlocks.SHIMMERSTOOL.get(), "natural/");
+        this.pottedPlant(ReduxBlocks.POTTED_SHIMMERSTOOL.get(), ReduxBlocks.SHIMMERSTOOL.get(), "natural/");
         this.aercloudAll(ReduxBlocks.JELLYSHROOM_JELLY_BLOCK.get(), "natural/");
         this.aercloudAll(ReduxBlocks.BLIGHTED_AERCLOUD.get(), "natural/");
         this.chain(ReduxBlocks.VERIDIUM_CHAIN.get(), "construction/");

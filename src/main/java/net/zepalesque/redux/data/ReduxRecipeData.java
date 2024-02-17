@@ -359,13 +359,13 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ReduxItems.SHROOM_RING.get(), 1)
                 .define('L', ReduxItems.LIGHTROOT_CLUMP.get())
-                .define('S', ReduxBlocks.GLIMMERSTOOL.get())
+                .define('S', ReduxBlocks.SHIMMERSTOOL.get())
                 .define('C', ReduxBlocks.CLOUDCAP_MUSHLING.get())
                 .define('R', ReduxItems.ENCHANTED_RING.get())
                 .pattern("LSL")
                 .pattern("CRC")
                 .pattern("LCL")
-                .unlockedBy(getHasName(ReduxBlocks.GLIMMERSTOOL.get()), has(ReduxBlocks.GLIMMERSTOOL.get()))
+                .unlockedBy(getHasName(ReduxBlocks.SHIMMERSTOOL.get()), has(ReduxBlocks.SHIMMERSTOOL.get()))
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ReduxBlocks.VERIDIUM_LANTERN.get(), 1)

@@ -32,11 +32,11 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 
-public class Glimmercow extends AetherAnimal {
+public class Shimmercow extends AetherAnimal {
 
-    private static final EntityDataAccessor<Boolean> CRAZY = SynchedEntityData.defineId(Glimmercow.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Boolean> CRAZY = SynchedEntityData.defineId(Shimmercow.class, EntityDataSerializers.BOOLEAN);
 
-    public Glimmercow(EntityType<? extends Glimmercow> type, Level level) {
+    public Shimmercow(EntityType<? extends Shimmercow> type, Level level) {
         super(type, level);
     }
 
@@ -119,7 +119,7 @@ public class Glimmercow extends AetherAnimal {
 
     @Nullable
     public AgeableMob getBreedOffspring(ServerLevel level, AgeableMob entity) {
-        return ReduxEntityTypes.GLIMMERCOW.get().create(level);
+        return ReduxEntityTypes.SHIMMERCOW.get().create(level);
     }
 
     protected float getStandingEyeHeight(Pose pose, EntityDimensions size) {

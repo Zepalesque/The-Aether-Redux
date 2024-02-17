@@ -7,13 +7,13 @@ import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.util.Mth;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.zepalesque.redux.entity.passive.Glimmercow;
+import net.zepalesque.redux.entity.passive.Shimmercow;
 
 @OnlyIn(Dist.CLIENT)
-public class GlimmercowModel<T extends Glimmercow> extends QuadrupedModel<T> {
+public class ShimmercowModel<T extends Shimmercow> extends QuadrupedModel<T> {
 
    protected final ModelPart mushrooms;
-   public GlimmercowModel(ModelPart root) {
+   public ShimmercowModel(ModelPart root) {
       super(root, false, 7.0F, 4.0F, 2.0F, 2.0F, 24);
       this.mushrooms = this.body.getChild("mushrooms");
    }

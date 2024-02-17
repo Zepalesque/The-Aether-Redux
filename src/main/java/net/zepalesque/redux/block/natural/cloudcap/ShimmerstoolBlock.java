@@ -2,24 +2,18 @@ package net.zepalesque.redux.block.natural.cloudcap;
 
 import com.aetherteam.aether.block.natural.AetherBushBlock;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.FurnaceBlock;
-import net.minecraft.world.level.block.SpawnerBlock;
-import net.minecraft.world.level.block.WeatheringCopperFullBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.zepalesque.redux.block.natural.CustomBoundsBushBlock;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 
 // TODO: improve method of randomizing particle location
-public class GlimmerstoolBlock extends AetherBushBlock {
+public class ShimmerstoolBlock extends AetherBushBlock {
     private static final double MIN_X = 0.1875;
     private static final double MIN_Y = 0.0D;
     private static final double MIN_Z = 0.1875;
@@ -28,7 +22,7 @@ public class GlimmerstoolBlock extends AetherBushBlock {
     private static final double MAX_Z = 0.8125;
 
     private static final VoxelShape box = Block.box(MIN_X * 16.0D, MIN_Y * 16.0D, MIN_Z * 16.0D, MAX_X * 16.0D, MAX_Y * 16.0D, MAX_Z * 16.0D);
-    public GlimmerstoolBlock(Properties pProperties) {
+    public ShimmerstoolBlock(Properties pProperties) {
         super(pProperties);
     }
 
@@ -45,6 +39,6 @@ public class GlimmerstoolBlock extends AetherBushBlock {
         double x = pos.getX() + MIN_X - 0.1875 + (random.nextDouble()) + vec3.x;
         double y = pos.getY() + MIN_Y + 0.125 + (random.nextDouble() * (MAX_Y - MIN_Y)) + vec3.y;
         double z = pos.getZ() + MIN_Z - 0.1875 + (random.nextDouble()) + vec3.z;
-        level.addParticle(ReduxParticleTypes.GLIMMERSTAR.get(), x, y, z, 0D, 0D, 0D);
+        level.addParticle(ReduxParticleTypes.SHIMMERSTAR.get(), x, y, z, 0D, 0D, 0D);
     }
 }

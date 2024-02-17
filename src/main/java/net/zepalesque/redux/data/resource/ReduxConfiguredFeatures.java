@@ -6,15 +6,12 @@ import com.aetherteam.aether.block.AetherBlockStateProperties;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.resources.AetherFeatureStates;
 import com.aetherteam.aether.data.resources.builders.AetherConfiguredFeatureBuilders;
-import com.aetherteam.aether.data.resources.registries.AetherConfiguredFeatures;
 import com.aetherteam.aether.world.configuration.ShelfConfiguration;
 import com.aetherteam.aether.world.feature.AetherFeatures;
 import com.aetherteam.aether.world.foliageplacer.CrystalFoliagePlacer;
 import com.aetherteam.aether.world.foliageplacer.GoldenOakFoliagePlacer;
 import com.aetherteam.aether.world.trunkplacer.CrystalTreeTrunkPlacer;
 import com.aetherteam.aether.world.trunkplacer.GoldenOakTrunkPlacer;
-import com.aetherteam.aether_genesis.data.resources.registries.GenesisConfiguredFeatures;
-import com.aetherteam.aether_genesis.world.foliageplacer.AetherPineFoliagePlacer;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
@@ -114,8 +111,8 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> GRASSLAND_TREES_ALT = createKey(Folders.TREE + "grassland_trees_alt");
     public static final ResourceKey<ConfiguredFeature<?, ?>> HIGHFIELDS_ROCK  = createKey(Folders.SURFACE + "highfields_rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SHRUBLANDS_ROCK  = createKey(Folders.SURFACE + "shrublands_rock");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> GLIMMERSTOOL_ROCK = createKey(Folders.SURFACE + name(ReduxBlocks.GLIMMERSTOOL) + "_rock");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> GLIMMERSTOOL_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.GLIMMERSTOOL) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GLIMMERSTOOL_ROCK = createKey(Folders.SURFACE + name(ReduxBlocks.SHIMMERSTOOL) + "_rock");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GLIMMERSTOOL_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.SHIMMERSTOOL) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> HOLYSILT_DISK  = createKey(Folders.SURFACE + "holysilt_disk");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AEROGEL_DISK  = createKey(Folders.SURFACE + "aerogel_disk");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYSPROUTS_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.SKYSPROUTS) + "_patch");
@@ -264,7 +261,7 @@ public class ReduxConfiguredFeatures {
                         SimpleWeightedRandomList.<BlockState>builder()
                                 .add(drops(ReduxBlocks.CLOUDCAP_MUSHLING), 40)
                                 .add(drops(ReduxBlocks.JELLYSHROOM), 20)
-                                .add(drops(ReduxBlocks.GLIMMERSTOOL), 15)
+                                .add(drops(ReduxBlocks.SHIMMERSTOOL), 15)
                                 .add(drops(ReduxBlocks.FUNGAL_CARPET), 75)
                                 .add(drops(ReduxBlocks.AEVELIUM_SPROUTS), 150)
                                 .add(drops(ReduxBlocks.AEVELIUM_ROOTS), 120)
@@ -496,10 +493,10 @@ public class ReduxConfiguredFeatures {
                 new BlockStateConfiguration(AetherFeatureStates.HOLYSTONE));
 
         register(context, GLIMMERSTOOL_ROCK, ReduxFeatures.PATCH_ROCK.get(),
-                blockBelowPlacementPatchRock(prov(AetherFeatureStates.HOLYSTONE), 32, 11, 3, prov(ReduxBlocks.GLIMMERSTOOL), BlockPredicate.matchesTag(ReduxTags.Blocks.AEVELIUM_GRASSES)));
+                blockBelowPlacementPatchRock(prov(AetherFeatureStates.HOLYSTONE), 32, 11, 3, prov(ReduxBlocks.SHIMMERSTOOL), BlockPredicate.matchesTag(ReduxTags.Blocks.AEVELIUM_GRASSES)));
 
         register(context, GLIMMERSTOOL_PATCH, Feature.FLOWER,
-                blockBelowPlacementPatch(32, 7, 3, prov(ReduxBlocks.GLIMMERSTOOL), BlockPredicate.matchesTag(ReduxTags.Blocks.AEVELIUM_GRASSES)));
+                blockBelowPlacementPatch(32, 7, 3, prov(ReduxBlocks.SHIMMERSTOOL), BlockPredicate.matchesTag(ReduxTags.Blocks.AEVELIUM_GRASSES)));
 
         register(context, IRIDIA_PATCH, Feature.FLOWER,
                 randomPatch(24, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.IRIDIA))));

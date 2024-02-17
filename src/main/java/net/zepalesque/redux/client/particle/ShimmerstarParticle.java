@@ -9,11 +9,11 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
-public class GlimmerstarParticle extends TextureSheetParticle {
+public class ShimmerstarParticle extends TextureSheetParticle {
    static final RandomSource RANDOM = RandomSource.create();
    private final SpriteSet sprites;
 
-   GlimmerstarParticle(ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, SpriteSet sprites) {
+   ShimmerstarParticle(ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, SpriteSet sprites) {
       super(level, x, y, z, xSpeed, ySpeed, zSpeed);
       this.friction = 0.96F;
       this.speedUpWhenYMotionIsBlocked = true;
@@ -50,15 +50,15 @@ public class GlimmerstarParticle extends TextureSheetParticle {
       }
 
       public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
-         GlimmerstarParticle glimmerstar = new GlimmerstarParticle(level, x, y, z, 0.5D - GlimmerstarParticle.RANDOM.nextDouble(), ySpeed, 0.5D - GlimmerstarParticle.RANDOM.nextDouble(), this.sprite);
-         glimmerstar.pickSprite(this.sprite);
-         glimmerstar.yd *= 0.05F;
+         ShimmerstarParticle shimmerstar = new ShimmerstarParticle(level, x, y, z, 0.5D - ShimmerstarParticle.RANDOM.nextDouble(), ySpeed, 0.5D - ShimmerstarParticle.RANDOM.nextDouble(), this.sprite);
+         shimmerstar.pickSprite(this.sprite);
+         shimmerstar.yd *= 0.05F;
          if (xSpeed == 0.0D && zSpeed == 0.0D) {
-            glimmerstar.xd *= 0.05F;
-            glimmerstar.zd *= 0.05F;
+            shimmerstar.xd *= 0.05F;
+            shimmerstar.zd *= 0.05F;
          }
-         glimmerstar.setLifetime((int)(8.0D / (level.random.nextDouble() * 0.8D + 0.2D)));
-         return glimmerstar;
+         shimmerstar.setLifetime((int)(8.0D / (level.random.nextDouble() * 0.8D + 0.2D)));
+         return shimmerstar;
       }
    }
 
