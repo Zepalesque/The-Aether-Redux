@@ -4,6 +4,8 @@ import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.block.AetherBlockStateProperties;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.providers.AetherBlockStateProvider;
+import net.builderdog.ancient_aether.block.blockstate.AncientAetherBlockStateProperties;
+import net.builderdog.ancient_aether.data.resources.registries.AncientAetherBiomes;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
 import net.minecraft.data.PackOutput;
@@ -876,12 +878,21 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
     }
 
     public void grass(Supplier<? extends Block> block, RegistryObject<? extends Block> dirtBlock) {
-        ModelFile grass = cubeBottomTop(name(block), extend(texture(name(block), "natural/"), "_side"), texture(dirtBlock, "natural/"), extend(texture(name(block), "natural/"), "_top"));
-        ModelFile grassSnowed = cubeBottomTop(name(block) + "_snow", extend(texture(name(block), "natural/"), "_snow"), texture(dirtBlock, "natural/"), extend(texture(name(block), "natural/"), "_top"));
-        getVariantBuilder(block.get()).forAllStatesExcept(state -> {
-            boolean snowy = state.getValue(SnowyDirtBlock.SNOWY);
-            return ConfiguredModel.allYRotations(snowy ? grassSnowed : grass, 0, false);
-        }, AetherBlockStateProperties.DOUBLE_DROPS);
+        if (Redux.ancientAetherCompat()) {
+            ModelFile grass = cubeBottomTop(name(block), extend(texture(name(block), "natural/"), "_side"), texture(dirtBlock, "natural/"), extend(texture(name(block), "natural/"), "_top"));
+            ModelFile grassSnowed = cubeBottomTop(name(block) + "_snow", extend(texture(name(block), "natural/"), "_snow"), texture(dirtBlock, "natural/"), extend(texture(name(block), "natural/"), "_top"));
+            getVariantBuilder(block.get()).forAllStatesExcept(state -> {
+                boolean snowy = state.getValue(SnowyDirtBlock.SNOWY);
+                return ConfiguredModel.allYRotations(snowy ? grassSnowed : grass, 0, false);
+            }, AetherBlockStateProperties.DOUBLE_DROPS, AncientAetherBlockStateProperties.TYPE);
+        } else {
+            ModelFile grass = cubeBottomTop(name(block), extend(texture(name(block), "natural/"), "_side"), texture(dirtBlock, "natural/"), extend(texture(name(block), "natural/"), "_top"));
+            ModelFile grassSnowed = cubeBottomTop(name(block) + "_snow", extend(texture(name(block), "natural/"), "_snow"), texture(dirtBlock, "natural/"), extend(texture(name(block), "natural/"), "_top"));
+            getVariantBuilder(block.get()).forAllStatesExcept(state -> {
+                boolean snowy = state.getValue(SnowyDirtBlock.SNOWY);
+                return ConfiguredModel.allYRotations(snowy ? grassSnowed : grass, 0, false);
+            }, AetherBlockStateProperties.DOUBLE_DROPS);
+        }
     }
 
     public void enchantedGrass(Supplier<? extends Block> block, Supplier<? extends Block> grassBlock, Supplier<? extends Block> dirtBlock) {

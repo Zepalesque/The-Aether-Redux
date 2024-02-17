@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-17T14:00:26.359071	Tags for minecraft:block mod id aether_redux
+// 1.20.1	2024-02-17T14:18:29.6388936	Tags for minecraft:block mod id aether_redux
 8f59d0f2e59cb5eca343062c21759ff8593f2e46 data/aether/tags/blocks/aerclouds.json
 593f50c73d9619ba0b2f5bbedad8cf5bef48adbc data/aether/tags/blocks/aether_animals_spawnable_on.json
 1abbb8fbbd6aaa2a65960af8b043d21b8cd619e9 data/aether/tags/blocks/aether_dirt.json
@@ -9,7 +9,7 @@ e9d49b0293a6d3e97c761542f8cab2478e62cb27 data/aether/tags/blocks/treated_as_aeth
 fd01915c57cee8effe17fe38cbedcefa19a98fb3 data/aether_redux/tags/blocks/aether_moss_replaceables.json
 edd28d843e4d50fffcd62491dda0fa5e4ba1749b data/aether_redux/tags/blocks/blightwillow_logs.json
 f935ac962426e9e6830b7063f7ff690dd48898cf data/aether_redux/tags/blocks/cloudcap_stems.json
-3d201dc420fd8363161adf615bfc60e31883a2a8 data/aether_redux/tags/blocks/coarse_aether_dirt.json
+41949587538e0e044c5a460a1a03b7f81e6fac6b data/aether_redux/tags/blocks/coarse_aether_dirt.json
 ff76e071710735bec611ec58205f07d13cb675bd data/aether_redux/tags/blocks/crystal_logs.json
 f88e31ba010e8b41d4256635de26d1cf8a0aa221 data/aether_redux/tags/blocks/enchanted_grasses.json
 cfa8f11bb1b7280f4421cd627b807061781b78b8 data/aether_redux/tags/blocks/enchanted_vines_skip_placement.json
