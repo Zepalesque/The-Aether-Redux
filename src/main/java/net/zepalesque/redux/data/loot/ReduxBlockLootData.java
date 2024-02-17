@@ -152,6 +152,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropPottedContents(ReduxBlocks.POTTED_SPIROLYCTIL.get());
         this.dropSelfDouble(ReduxBlocks.BLIGHTSHADE.get());
         this.dropSelf(ReduxBlocks.GRAVITITE_BLOCK.get());
+        this.dropSelf(ReduxBlocks.RAW_GRAVITITE_BLOCK.get());
         this.dropPottedContents(ReduxBlocks.POTTED_BLIGHTSHADE.get());
 
         this.add(ReduxBlocks.WYNDSPROUTS_CROP.get(),

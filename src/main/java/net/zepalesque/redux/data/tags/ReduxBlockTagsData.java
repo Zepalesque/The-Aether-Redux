@@ -166,7 +166,8 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.VERIDIUM_CHAIN.get(),
                 ReduxBlocks.SHELL_SHINGLES.get(),
                 ReduxBlocks.ENCHANTED_SHELL_SHINGLES.get(),
-                ReduxBlocks.GRAVITITE_BLOCK.get()
+                ReduxBlocks.GRAVITITE_BLOCK.get(),
+                ReduxBlocks.RAW_GRAVITITE_BLOCK.get()
         );
         this.tag(BlockTags.NEEDS_STONE_TOOL).add(
                 ReduxBlocks.VERIDIUM_BLOCK.get(),
@@ -174,7 +175,8 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.RAW_VERIDIUM_BLOCK.get()
         );
         this.tag(BlockTags.NEEDS_IRON_TOOL).add(
-                ReduxBlocks.GRAVITITE_BLOCK.get()
+                ReduxBlocks.GRAVITITE_BLOCK.get(),
+                ReduxBlocks.RAW_GRAVITITE_BLOCK.get()
         );
         this.tag(BlockTags.MINEABLE_WITH_HOE).add(
                 ReduxBlocks.BLIGHTMOSS_BLOCK.get(),
