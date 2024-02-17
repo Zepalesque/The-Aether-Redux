@@ -2,13 +2,12 @@ package net.zepalesque.redux.world.biome;
 
 import com.aetherteam.aether.data.resources.registries.AetherBiomes;
 import com.mojang.datafixers.util.Pair;
+import net.builderdog.ancient_aether.data.resources.registries.AncientAetherBiomes;
 import net.minecraft.core.Registry;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Climate;
-import net.minecraftforge.fml.ModList;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
@@ -33,7 +32,12 @@ public class ReduxRegion extends Region {
         if (!Redux.ancientAetherCompat()) {
             ResourceKey<Biome> glacial = ReduxConfig.COMMON.enable_snowy_biomes.get() ? ReduxBiomes.GLACIAL_TAIGA : AetherBiomes.SKYROOT_FOREST;
             ResourceKey<Biome> frosted = ReduxConfig.COMMON.enable_snowy_biomes.get() ? ReduxBiomes.FROSTED_TUNDRA : AetherBiomes.SKYROOT_FOREST;
-            ResourceKey<Biome> cloudcaps = ReduxConfig.COMMON.enable_cloudcap_jungle.get() ? ReduxBiomes.CLOUDCAPS : AetherBiomes.SKYROOT_GROVE;
+            ResourceKey<Biome> cloudcaps = ReduxConfig.COMMON.enable_cloudcaps.get() ? ReduxBiomes.CLOUDCAPS : AetherBiomes.SKYROOT_GROVE;
+            ResourceKey<Biome> blight = ReduxConfig.COMMON.enable_the_blight.get() ? ReduxBiomes.THE_BLIGHT : AetherBiomes.SKYROOT_WOODLAND;
+            ResourceKey<Biome> highfields = ReduxConfig.COMMON.enable_highfields.get() ? ReduxBiomes.HIGHFIELDS : AetherBiomes.SKYROOT_MEADOW;
+            ResourceKey<Biome> shrublands = ReduxConfig.COMMON.enable_skyroot_shrublands.get() ? ReduxBiomes.SKYROOT_SHRUBLANDS : AetherBiomes.SKYROOT_MEADOW;
+            ResourceKey<Biome> grove = ReduxConfig.COMMON.enable_gilded_biomes.get() ? ReduxBiomes.GILDED_GROVES : AetherBiomes.SKYROOT_GROVE;
+            ResourceKey<Biome> grasslands = ReduxConfig.COMMON.enable_gilded_biomes.get() ? ReduxBiomes.GILDED_GRASSLANDS : AetherBiomes.SKYROOT_MEADOW;
             Climate.Parameter temp1 = Climate.Parameter.span(-1.5F, -0.5F);
             Climate.Parameter temp2 = Climate.Parameter.span(-0.5F, -0.2F);
             Climate.Parameter temp3 = Climate.Parameter.span(-0.2F, 0.2F);
@@ -48,7 +52,7 @@ public class ReduxRegion extends Region {
                     cloudcaps);
 
             addBiome(mapper, new Climate.ParameterPoint(temp2, Climate.Parameter.span(-1.0F, -0.3F), fullRange, fullRange, fullRange, fullRange, 0),
-                    ReduxBiomes.THE_BLIGHT);
+                    blight);
             addBiome(mapper, new Climate.ParameterPoint(temp2, Climate.Parameter.span(-0.3F, -0.15F), fullRange, fullRange, fullRange, fullRange, 0),
                     AetherBiomes.SKYROOT_FOREST);
             addBiome(mapper, new Climate.ParameterPoint(temp2, Climate.Parameter.span(-0.15F, 0.0F), fullRange, fullRange, fullRange, fullRange, 0),
@@ -56,10 +60,10 @@ public class ReduxRegion extends Region {
             addBiome(mapper, new Climate.ParameterPoint(temp2, Climate.Parameter.span(0.0F, 0.2F), fullRange, fullRange, fullRange, fullRange, 0),
                     AetherBiomes.SKYROOT_WOODLAND);
             addBiome(mapper, new Climate.ParameterPoint(temp2, Climate.Parameter.span(0.2F, 1.0F), fullRange, fullRange, fullRange, fullRange, 0),
-                    ReduxBiomes.HIGHFIELDS); //ReduxBiomes.SHIMMERING_HILLS);
+                    highfields); //ReduxBiomes.SHIMMERING_HILLS);
 
             addBiome(mapper, new Climate.ParameterPoint(temp3, Climate.Parameter.span(-1.0F, -0.3F), fullRange, fullRange, fullRange, fullRange, 0),
-                    ReduxBiomes.HIGHFIELDS);
+                    highfields);
             addBiome(mapper, new Climate.ParameterPoint(temp3, Climate.Parameter.span(-0.3F, -0.1F), fullRange, fullRange, fullRange, fullRange, 0),
                     AetherBiomes.SKYROOT_FOREST);
             addBiome(mapper, new Climate.ParameterPoint(temp3, Climate.Parameter.span(-0.1F, 0.2F), fullRange, fullRange, fullRange, fullRange, 0),
@@ -67,27 +71,27 @@ public class ReduxRegion extends Region {
             addBiome(mapper, new Climate.ParameterPoint(temp3, Climate.Parameter.span(0.2F, 0.5F), fullRange, fullRange, fullRange, fullRange, 0),
                     ReduxBiomes.HIGHFIELDS);
             addBiome(mapper, new Climate.ParameterPoint(temp3, Climate.Parameter.span(0.5F, 1.0F), fullRange, fullRange, fullRange, fullRange, 0),
-                    ReduxBiomes.SKYROOT_SHRUBLANDS);
+                    shrublands);
 
             addBiome(mapper, new Climate.ParameterPoint(temp4, Climate.Parameter.span(-1.0F, -0.6F), fullRange, fullRange, fullRange, fullRange, 0),
                     AetherBiomes.SKYROOT_MEADOW);
             addBiome(mapper, new Climate.ParameterPoint(temp4, Climate.Parameter.span(-0.6F, -0.3F), fullRange, fullRange, fullRange, fullRange, 0),
-                    ReduxBiomes.SKYROOT_SHRUBLANDS);
+                    shrublands);
             addBiome(mapper, new Climate.ParameterPoint(temp4, Climate.Parameter.span(-0.3F, -0.05F), fullRange, fullRange, fullRange, fullRange, 0),
                     AetherBiomes.SKYROOT_GROVE);
             addBiome(mapper, new Climate.ParameterPoint(temp4, Climate.Parameter.span(-0.05F, 0.2F), fullRange, fullRange, fullRange, fullRange, 0),
-                    ReduxBiomes.SKYROOT_SHRUBLANDS);
+                    shrublands);
             addBiome(mapper, new Climate.ParameterPoint(temp4, Climate.Parameter.span(0.2F, 0.5F), fullRange, fullRange, fullRange, fullRange, 0),
                     AetherBiomes.SKYROOT_GROVE); //ReduxBiomes.QUICKSOIL_DUNES);
             addBiome(mapper, new Climate.ParameterPoint(temp4, Climate.Parameter.span(0.5F, 1.0F), fullRange, fullRange, fullRange, fullRange, 0),
-                    ReduxBiomes.SKYROOT_SHRUBLANDS); //ReduxBiomes.QUICKSOIL_OASIS);
+                    shrublands); //ReduxBiomes.QUICKSOIL_OASIS);
 
             addBiome(mapper, new Climate.ParameterPoint(temp5, Climate.Parameter.span(-1.0F, -0.4F), fullRange, fullRange, fullRange, fullRange, 0),
                     ReduxBiomes.GILDED_GRASSLANDS);
             addBiome(mapper, new Climate.ParameterPoint(temp5, Climate.Parameter.span(-0.4F, 0.3F), fullRange, fullRange, fullRange, fullRange, 0),
-                    ReduxBiomes.GILDED_GROVES);
+                    grove);
             addBiome(mapper, new Climate.ParameterPoint(temp5, Climate.Parameter.span(0.3F, 1.0F), fullRange, fullRange, fullRange, fullRange, 0),
-                    ReduxBiomes.GILDED_GRASSLANDS);
+                    grasslands);
 
         } else {
             //-----------------------[Ancient Aether Compatibility]-----------------------\\
@@ -107,23 +111,23 @@ public class ReduxRegion extends Region {
 
             //Wyndcaps
             addBiome(mapper, new Climate.ParameterPoint(tempWyndcaps, Climate.Parameter.span(-1.0F, -0.2F), fullRange, erosionDefault, Climate.Parameter.span(-0.15F, 1.5F), fullRange, 0),
-                    ReduxBiomes.GLACIAL_TAIGA);
+                    ReduxConfig.COMMON.enable_snowy_biomes.get() ? ReduxBiomes.GLACIAL_TAIGA : AncientAetherBiomes.WYNDCAP_TAIGA);
             addBiome(mapper, new Climate.ParameterPoint(tempWyndcaps, Climate.Parameter.span(-0.2F, 0.5F), fullRange, erosionDefault, Climate.Parameter.span(-0.15F, 1.5F), fullRange, 0),
-                    ReduxBiomes.FROSTED_TUNDRA);
+                    ReduxConfig.COMMON.enable_snowy_biomes.get() ? ReduxBiomes.FROSTED_TUNDRA : AncientAetherBiomes.FESTIVE_WYNDCAP_TAIGA);
             addBiome(mapper, new Climate.ParameterPoint(tempWyndcaps, Climate.Parameter.span(0.5F, 1.0F), fullRange, erosionDefault, Climate.Parameter.span(-0.15F, 1.5F), fullRange, 0),
-                    ReduxBiomes.CLOUDCAPS);
+                    ReduxConfig.COMMON.enable_cloudcaps.get() ? ReduxBiomes.CLOUDCAPS : AncientAetherBiomes.WYNDCAP_HIGHLAND);
             addBiome(mapper, new Climate.ParameterPoint(tempWyndcaps, fullRange, fullRange, erosionDefault, Climate.Parameter.span(-1.5F, -0.15F), fullRange, 0),
-                    ResourceKey.create(Registries.BIOME, new ResourceLocation("ancient_aether", "wyndcap_peaks")));
+                    AncientAetherBiomes.WYNDCAP_PEAKS);
 
             //Skyroot Forests
 
             //-----[Placeholders]-----\\
             addBiome(mapper, new Climate.ParameterPoint(tempSkyroot, Climate.Parameter.span(-1.5F, -0.1F), fullRange, erosionDefault, fullRange, forestDistCrystal1, 0),
-                    ResourceKey.create(Registries.BIOME, new ResourceLocation("ancient_aether", "crystal_skyroot_grove")));
+                    AncientAetherBiomes.CRYSTAL_SKYROOT_GROVE);
             addBiome(mapper, new Climate.ParameterPoint(tempSkyroot, Climate.Parameter.span(-0.1F, 0.35F), fullRange, erosionDefault, fullRange, forestDistCrystal1, 0),
-                    ResourceKey.create(Registries.BIOME, new ResourceLocation("ancient_aether", "crystal_skyroot_forest")));
+                    AncientAetherBiomes.CRYSTAL_SKYROOT_FOREST);
             addBiome(mapper, new Climate.ParameterPoint(tempSkyroot, Climate.Parameter.span(-0.35F, 0.45F), fullRange, erosionDefault, fullRange, forestDistCrystal2, 0),
-                    ResourceKey.create(Registries.BIOME, new ResourceLocation("ancient_aether", "crystal_skyroot_forest")));
+                    AncientAetherBiomes.CRYSTAL_SKYROOT_FOREST);
             //-----------------------\\
 
             /*Uncomment this once the Shimmering Hills are implemented and remove Placeholders above*/
@@ -138,9 +142,9 @@ public class ReduxRegion extends Region {
                     AetherBiomes.SKYROOT_WOODLAND);
 
             addBiome(mapper, new Climate.ParameterPoint(tempSkyroot, Climate.Parameter.span(-1.5F, -0.5F), fullRange, erosionDefault, fullRange, forestDistSkyroot1, 0),
-                    ReduxBiomes.THE_BLIGHT);
+                    ReduxConfig.COMMON.enable_the_blight.get() ? ReduxBiomes.THE_BLIGHT : AetherBiomes.SKYROOT_FOREST);
             addBiome(mapper, new Climate.ParameterPoint(tempSkyroot, Climate.Parameter.span(-0.5F, -0.1F), fullRange, erosionDefault, fullRange, forestDistSkyroot1, 0),
-                    ReduxBiomes.SKYROOT_SHRUBLANDS);
+                    ReduxConfig.COMMON.enable_skyroot_shrublands.get() ? ReduxBiomes.SKYROOT_SHRUBLANDS : AetherBiomes.SKYROOT_MEADOW);
             addBiome(mapper, new Climate.ParameterPoint(tempSkyroot, Climate.Parameter.span(-0.1F, 0.3F), fullRange, erosionDefault, fullRange, forestDistSkyroot1, 0),
                     AetherBiomes.SKYROOT_WOODLAND);
             addBiome(mapper, new Climate.ParameterPoint(tempSkyroot, Climate.Parameter.span(0.3F, 1.5F), fullRange, erosionDefault, fullRange, forestDistSkyroot1, 0),
@@ -153,28 +157,28 @@ public class ReduxRegion extends Region {
             addBiome(mapper, new Climate.ParameterPoint(tempSkyroot, Climate.Parameter.span(-0.15F, 0.1F), fullRange, erosionDefault, fullRange, forestDistSkyroot2, 0),
                     AetherBiomes.SKYROOT_FOREST);
             addBiome(mapper, new Climate.ParameterPoint(tempSkyroot, Climate.Parameter.span(0.1F, 1.5F), fullRange, erosionDefault, fullRange, forestDistSkyroot2, 0),
-                    ReduxBiomes.SKYROOT_SHRUBLANDS);
+                    ReduxConfig.COMMON.enable_skyroot_shrublands.get() ? ReduxBiomes.SKYROOT_SHRUBLANDS : AetherBiomes.SKYROOT_GROVE);
 
             addBiome(mapper, new Climate.ParameterPoint(tempSkyroot, Climate.Parameter.span(-1.5F, -0.4F), fullRange, erosionDefault, fullRange, forestDistGolden, 0),
-                    ReduxBiomes.GILDED_GRASSLANDS);
+                    ReduxConfig.COMMON.enable_gilded_biomes.get() ? ReduxBiomes.GILDED_GRASSLANDS : AncientAetherBiomes.GOLDEN_SKYROOT_FOREST);
             addBiome(mapper, new Climate.ParameterPoint(tempSkyroot, Climate.Parameter.span(-0.4F, 0.3F), fullRange, erosionDefault, fullRange, forestDistGolden, 0),
-                    ReduxBiomes.GILDED_GROVES);
+                    ReduxConfig.COMMON.enable_gilded_biomes.get() ? ReduxBiomes.GILDED_GROVES : AetherBiomes.SKYROOT_MEADOW);
             addBiome(mapper, new Climate.ParameterPoint(tempSkyroot, Climate.Parameter.span(0.3F, 1.5F), fullRange, erosionDefault, fullRange, forestDistGolden, 0),
-                    ReduxBiomes.GILDED_GRASSLANDS);
+                    ReduxConfig.COMMON.enable_gilded_biomes.get() ? ReduxBiomes.GILDED_GRASSLANDS : AncientAetherBiomes.GOLDEN_SKYROOT_FOREST);
 
             //Sakura Jungle
             addBiome(mapper, new Climate.ParameterPoint(tempSakura, Climate.Parameter.span(-1.5F, 0.25F), fullRange, erosionDefault, fullRange, fullRange, 0),
-                    ResourceKey.create(Registries.BIOME, new ResourceLocation("ancient_aether", "sakura_jungle")));
+                    AncientAetherBiomes.SAKURA_JUNGLE);
             addBiome(mapper, new Climate.ParameterPoint(tempSakura, Climate.Parameter.span(0.25F, 1.5F), fullRange, erosionDefault, fullRange, fullRange, 0),
-                    ReduxBiomes.HIGHFIELDS);
+                    ReduxConfig.COMMON.enable_highfields.get() ? ReduxBiomes.HIGHFIELDS : AncientAetherBiomes.SKYROOT_JUNGLE);
 
             //Elevated Islands
             addBiome(mapper, new Climate.ParameterPoint(fullRange, Climate.Parameter.span(-1.5F, -0.25F), fullRange, erosionElevated, fullRange, fullRange, 0),
-                    ResourceKey.create(Registries.BIOME, new ResourceLocation("ancient_aether", "elevated_clearing")));
+                    AncientAetherBiomes.ELEVATED_CLEARING);
             addBiome(mapper, new Climate.ParameterPoint(fullRange, Climate.Parameter.span(-0.25F, 0.25F), fullRange, erosionElevated, fullRange, fullRange, 0),
-                    ResourceKey.create(Registries.BIOME, new ResourceLocation("ancient_aether", "elevated_forest")));
+                    AncientAetherBiomes.ELEVATED_FOREST);
             addBiome(mapper, new Climate.ParameterPoint(fullRange, Climate.Parameter.span(0.25F, 1.5F), fullRange, erosionElevated, fullRange, fullRange, 0),
-                    ResourceKey.create(Registries.BIOME, new ResourceLocation("ancient_aether", "elevated_clearing")));
+                    AncientAetherBiomes.ELEVATED_CLEARING);
         }
     }
 }

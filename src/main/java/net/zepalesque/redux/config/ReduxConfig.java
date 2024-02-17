@@ -54,10 +54,10 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue auto_reset_biome_values;
         public final ForgeConfigSpec.ConfigValue<Integer> region_size;
         public final ForgeConfigSpec.BooleanValue enable_the_blight;
-        public final ForgeConfigSpec.BooleanValue enable_gilded_groves;
+        public final ForgeConfigSpec.BooleanValue enable_gilded_biomes;
         public final ForgeConfigSpec.BooleanValue enable_snowy_biomes;
         public final ForgeConfigSpec.BooleanValue enable_highfields;
-        public final ForgeConfigSpec.BooleanValue enable_cloudcap_jungle;
+        public final ForgeConfigSpec.BooleanValue enable_cloudcaps;
         public final ForgeConfigSpec.BooleanValue enable_skyroot_shrublands;
 
         public final ForgeConfigSpec.BooleanValue change_double_plant_hitbox;
@@ -128,10 +128,10 @@ public class ReduxConfig {
             this.region_size = builder.comment("The value of Redux's biome region size. Larger values correspond to larger biome clumps").define("Region Size", 20);
 
             this.enable_the_blight = builder.comment("Enables the Blight biome.").worldRestart().define("Enable the Blight", true);
-            this.enable_gilded_groves = builder.comment("Enables the Gilded Groves biome.").worldRestart().define("Enable Gilded Groves", true);
+            this.enable_gilded_biomes = builder.comment("Enables the Gilded Groves and Gilded Grasslands biomes.").worldRestart().define("Enable Gilded Biomes", true);
             this.enable_snowy_biomes = builder.comment("Enables the Frosted Forests biome.").worldRestart().define("Enable Frosted Forests", true);
             this.enable_highfields = builder.comment("Enables the Highfields biome.").worldRestart().define("Enable Highfields", true);
-            this.enable_cloudcap_jungle = builder.comment("Enables the Cloudcap Jungle biome.").worldRestart().define("Enable Cloudcap Jungle", true);
+            this.enable_cloudcaps = builder.comment("Enables the Cloudcaps biome.").worldRestart().define("Enable the Cloudcaps", true);
             this.enable_skyroot_shrublands = builder.comment("Enables the Skyroot Shrublands biome.").worldRestart().define("Enable Skyroot Shrublands", true);
             this.enchanted_gilded_grass = builder.comment("Uses Enchanted Aether Grass for the ground in the Gilded Groves. May require a Minecraft restart.").worldRestart().define("Enchanted Gilded Grass", false);
 
@@ -144,6 +144,7 @@ public class ReduxConfig {
 
     public static class Client {
 
+        public final ForgeConfigSpec.BooleanValue override_model_upgrades;
         public final ForgeConfigSpec.BooleanValue moa_model_upgrade;
         public final ForgeConfigSpec.EnumValue<MoaFeetType> moa_feet_type;
         public final ForgeConfigSpec.BooleanValue cockatrice_model_upgrade;
@@ -164,6 +165,7 @@ public class ReduxConfig {
             builder.push("Core");
             builder.pop();
             builder.push(List.of("Rendering", "Mob Model Improvements"));
+            this.override_model_upgrades = builder.comment("Overrides all other mob model configs and enables every one of them").define("Mob Model Config Override", false);
             this.moa_model_upgrade = builder.comment("Makes Moas resemble their Mutation models").define("Moa Model Upgrade", false);
             // TODO: Reimplement
             this.moa_feet_type = builder.comment("Determines whether the updated Moa model should use more peaceful-appearing toes, or more aggressive talons").defineEnum("Moa Foot Type", MoaFeetType.toes);
