@@ -1,0 +1,43 @@
+{
+  "type": "aether_redux:patch_rock",
+  "config": {
+    "patch_feature": {
+      "feature": {
+        "type": "aether_redux:test_below_block",
+        "config": {
+          "predicate": {
+            "type": "minecraft:matching_block_tag",
+            "tag": "aether_redux:veridium_advancement_infusable"
+          },
+          "to_place": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "aether_redux:shimmerstool"
+            }
+          }
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:air"
+          }
+        }
+      ]
+    },
+    "patch_tries": 32,
+    "patch_xz_spread": 11,
+    "patch_y_spread": 3,
+    "rock_state": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "aether:holystone",
+        "Properties": {
+          "double_drops": "true"
+        }
+      }
+    }
+  }
+}

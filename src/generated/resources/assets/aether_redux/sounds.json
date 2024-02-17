@@ -122,43 +122,6 @@
     ],
     "subtitle": "subtitles.aether_redux.entity.ember_bounce"
   },
-  "entity.glimmercow.ambient": {
-    "sounds": [
-      "aether_redux:entity/glimmercow/ambient1",
-      "aether_redux:entity/glimmercow/ambient2"
-    ],
-    "subtitle": "subtitles.aether_redux.entity.glimmercow_ambient"
-  },
-  "entity.glimmercow.crazy_ambient": {
-    "sounds": [
-      "aether_redux:entity/glimmercow/vwakazoom"
-    ],
-    "subtitle": "subtitles.aether_redux.entity.crazy_cow_ambient"
-  },
-  "entity.glimmercow.crazy_death": {
-    "sounds": [
-      "aether_redux:entity/glimmercow/y_do_u_do_dis"
-    ],
-    "subtitle": "subtitles.aether_redux.entity.crazy_cow_death"
-  },
-  "entity.glimmercow.crazy_hurt": {
-    "sounds": [
-      "aether_redux:entity/glimmercow/noo"
-    ],
-    "subtitle": "subtitles.aether_redux.entity.crazy_cow_hurt"
-  },
-  "entity.glimmercow.death": {
-    "sounds": [
-      "aether_redux:entity/glimmercow/hurt"
-    ],
-    "subtitle": "subtitles.aether_redux.entity.glimmercow_death"
-  },
-  "entity.glimmercow.hurt": {
-    "sounds": [
-      "aether_redux:entity/glimmercow/hurt"
-    ],
-    "subtitle": "subtitles.aether_redux.entity.glimmercow_hurt"
-  },
   "entity.mimic.slam": {
     "sounds": [
       "aether_redux:entity/mimic/mimic_slam"
@@ -272,6 +235,43 @@
       "mob/slime/big4"
     ],
     "subtitle": "subtitles.aether.entity.sentry.jump"
+  },
+  "entity.shimmercow.ambient": {
+    "sounds": [
+      "aether_redux:entity/shimmercow/ambient1",
+      "aether_redux:entity/shimmercow/ambient2"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.shimmercow_ambient"
+  },
+  "entity.shimmercow.crazy_ambient": {
+    "sounds": [
+      "aether_redux:entity/shimmercow/vwakazoom"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.crazy_cow_ambient"
+  },
+  "entity.shimmercow.crazy_death": {
+    "sounds": [
+      "aether_redux:entity/shimmercow/y_do_u_do_dis"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.crazy_cow_death"
+  },
+  "entity.shimmercow.crazy_hurt": {
+    "sounds": [
+      "aether_redux:entity/shimmercow/noo"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.crazy_cow_hurt"
+  },
+  "entity.shimmercow.death": {
+    "sounds": [
+      "aether_redux:entity/shimmercow/hurt"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.shimmercow_death"
+  },
+  "entity.shimmercow.hurt": {
+    "sounds": [
+      "aether_redux:entity/shimmercow/hurt"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.shimmercow_hurt"
   },
   "generic.boost_jump": {
     "sounds": [

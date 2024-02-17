@@ -17,16 +17,14 @@
     "aether_redux:carved_stone_brick_wall",
     "aether_redux:carved_stone_brick_stairs",
     "aether_redux:carved_stone_pillar",
-    "aether_redux:frosted_holystone",
-    "aether_redux:frosted_holystone_wall",
-    "aether_redux:frosted_holystone_slab",
-    "aether_redux:frosted_holystone_stairs",
     "aether_redux:veridium_block",
     "aether_redux:veridium_ore",
     "aether_redux:raw_veridium_block",
     "aether_redux:veridium_lantern",
     "aether_redux:veridium_chain",
     "aether_redux:shell_shingles",
-    "aether_redux:enchanted_shell_shingles"
+    "aether_redux:enchanted_shell_shingles",
+    "aether_redux:gravitite_block",
+    "aether_redux:raw_gravitite_block"
   ]
 }

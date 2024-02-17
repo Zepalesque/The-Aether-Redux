@@ -26,7 +26,7 @@
     [],
     [],
     [
-      "aether_redux:surface/glimmerstool_rock"
+      "aether_redux:surface/shimmerstool_rock"
     ],
     [],
     [
@@ -50,7 +50,7 @@
       "aether_redux:patch/aevelium_grasses_patch",
       "aether_redux:patch/cloudcap_mushling_patch",
       "aether_redux:patch/jellyshroom_patch",
-      "aether_redux:patch/glimmerstool_patch"
+      "aether_redux:patch/shimmerstool_patch"
     ],
     [
       "aether:cold_aercloud",
@@ -154,7 +154,7 @@
     "axolotls": [],
     "creature": [
       {
-        "type": "aether_redux:glimmercow",
+        "type": "aether_redux:shimmercow",
         "maxCount": 5,
         "minCount": 2,
         "weight": 12

@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_shimmerstool": {
+    "has_raw_gravitite_block": {
       "conditions": {
         "items": [
           {
             "items": [
-              "aether_redux:shimmerstool"
+              "aether_redux:raw_gravitite_block"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "aether_redux:shroom_ring"
+        "recipe": "aether_redux:raw_gravitite_from_raw_gravitite_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_shimmerstool",
+      "has_raw_gravitite_block",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "aether_redux:shroom_ring"
+      "aether_redux:raw_gravitite_from_raw_gravitite_block"
     ]
   },
   "sends_telemetry_event": false
