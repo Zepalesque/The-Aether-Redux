@@ -311,6 +311,7 @@ public class Redux
             if (ReduxConfig.COMMON.bronze_chest_room.get() != ChestRoomType.classic) { this.setupBuiltinDatapack(event, "data/dungeon/chest_room/" + ReduxConfig.COMMON.bronze_chest_room.get().getSerializedName(), "Bronze Chest Room", "Chest Room Override"); }
             if (ReduxConfig.COMMON.bronze_lobby.get() != LobbyType.classic) { this.setupBuiltinDatapack(event, "data/dungeon/lobby/" + ReduxConfig.COMMON.bronze_lobby.get().getSerializedName(), "Bronze Lobby", "Lobby Override"); }
 
+            if (ReduxConfig.COMMON.gravitite_ingot.get()) { this.setupMandatoryDataPack(event, "data/gravitite_ingot", "Redux - Gravitite Ingot", "Can be disabled in the common config"); }
 
         }
 

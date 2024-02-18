@@ -8,19 +8,21 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.item.util.VeridiumItem;
 
 @Mod.EventBusSubscriber(modid = Redux.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 
 public class ReduxCreativeTabs {
 
-    @SubscribeEvent
+    @SubscribeEvent(priority = EventPriority.LOW)
     public static void buildCreativeModeTabs(BuildCreativeModeTabContentsEvent event) {
         CreativeModeTab tab = event.getTab();
 
@@ -54,6 +56,11 @@ public class ReduxCreativeTabs {
 
             event.getEntries().put(new ItemStack(ReduxBlocks.VERIDIUM_LANTERN.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.getEntries().put(new ItemStack(ReduxBlocks.VERIDIUM_CHAIN.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+
+            if (ReduxConfig.COMMON.gravitite_ingot.get()) {
+                putBefore(AetherBlocks.ENCHANTED_GRAVITITE, ReduxBlocks.GRAVITITE_BLOCK, event);
+                event.getEntries().remove(new ItemStack(AetherBlocks.ENCHANTED_GRAVITITE.get()));
+            }
 
         }
 
@@ -194,6 +201,11 @@ public class ReduxCreativeTabs {
 
             putAfter(AetherItems.SWET_BALL, Redux.aetherGenesisCompat() ? ReduxItems.VANILLA_SWET_BALL : ReduxItems.GOLDEN_SWET_BALL, event);
             if (!Redux.aetherGenesisCompat()) { putAfter(ReduxItems.GOLDEN_SWET_BALL, ReduxItems.VANILLA_SWET_BALL, event); }
+
+            if (ReduxConfig.COMMON.gravitite_ingot.get()) {
+                putBefore(AetherBlocks.ENCHANTED_GRAVITITE, ReduxItems.GRAVITITE_INGOT, event);
+                event.getEntries().remove(new ItemStack(AetherBlocks.ENCHANTED_GRAVITITE.get()));
+            }
 
         }
         if (tab == AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES.get()) {
