@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "deep_aether:block/golden_aspess_overlay",
+    "layer1": "deep_aether:block/golden_aspess"
+  }
+}

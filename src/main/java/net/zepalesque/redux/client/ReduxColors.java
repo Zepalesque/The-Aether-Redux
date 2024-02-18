@@ -18,6 +18,7 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.util.state.ReduxStates;
 import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
+import teamrazor.deepaether.init.DABlocks;
 
 import javax.annotation.Nullable;
 import java.util.HashMap;
@@ -84,6 +85,30 @@ public class ReduxColors {
             );
         }
 
+        // Deep Aether compat
+        if (Redux.deepAetherCompat()) {
+            event.getBlockColors().register((state, level, pos, index) -> getColor(state, level, pos, index, 1),
+                    DABlocks.RADIANT_ORCHID.get(),
+                    DABlocks.POTTED_RADIANT_ORCHID.get(),
+                    DABlocks.AERLAVENDER.get(),
+                    DABlocks.POTTED_AERLAVENDER.get(),
+                    DABlocks.TALL_AERLAVENDER.get(),
+                    DABlocks.POTTED_TALL_AERLAVENDER.get(),
+                    DABlocks.FEATHER_GRASS.get(),
+                    DABlocks.SKY_TULIPS.get(),
+                    DABlocks.POTTED_SKY_TULIPS.get(),
+                    DABlocks.IASPOVE.get(),
+                    DABlocks.POTTED_IASPOVE.get(),
+                    DABlocks.GOLDEN_ASPESS.get(),
+                    DABlocks.POTTED_GOLDEN_ASPESS.get(),
+                    DABlocks.ECHAISY.get(),
+                    DABlocks.POTTED_ECHAISY.get()
+            );
+            event.getBlockColors().register((state, level, pos, index) -> pos != null ? getColor(state, level, state.getValue(DoublePlantBlock.HALF) == DoubleBlockHalf.UPPER ? pos.below() : pos, index, 1)  : ReduxBiomes.AETHER_GRASS_COLOR,
+                    DABlocks.FEATHER_GRASS.get()
+            );
+        }
+
     }
 
     public static void itemColors(RegisterColorHandlersEvent.Item event) {
@@ -113,6 +138,18 @@ public class ReduxColors {
             event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AncientAetherBlocks.SAKURA_BLOSSOMS.get());
             event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AncientAetherBlocks.TRAPPED_SAKURA_BLOSSOMS.get());
             event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AncientAetherBlocks.HIGHLAND_VIOLA.get());
+        }
+        // Deep AetherAa Compat
+        if (Redux.deepAetherCompat()) {
+            event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AERGLOW_GRASS_COLOR : 0xFFFFFF, DABlocks.RADIANT_ORCHID.get());
+            event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AERLAVENDER_GRASS_COLOR : 0xFFFFFF, DABlocks.AERLAVENDER.get());
+            event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AERLAVENDER_GRASS_COLOR : 0xFFFFFF, DABlocks.TALL_AERLAVENDER.get());
+            event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.BLUE_AERGLOW_GRASS_COLOR : 0xFFFFFF, DABlocks.FEATHER_GRASS.get());
+            event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.BLUE_AERGLOW_GRASS_COLOR : 0xFFFFFF, DABlocks.TALL_FEATHER_GRASS.get());
+            event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, DABlocks.SKY_TULIPS.get());
+            event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, DABlocks.IASPOVE.get());
+            event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, DABlocks.GOLDEN_ASPESS.get());
+            event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, DABlocks.ECHAISY.get());
         }
     }
 
