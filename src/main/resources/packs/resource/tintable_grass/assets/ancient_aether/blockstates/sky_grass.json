@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "length=1": {
+      "model": "ancient_aether:block/sky_grass_very_short"
+    },
+    "length=2": {
+      "model": "ancient_aether:block/sky_grass_short"
+    },
+    "length=3": {
+      "model": "ancient_aether:block/sky_grass_medium"
+    },
+    "length=4": {
+      "model": "ancient_aether:block/sky_grass_tall"
+    },
+    "type=normal,length=5": {
+      "model": "ancient_aether:block/sky_grass_very_tall"
+    }
+  }
+}
