@@ -24,7 +24,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(LoreInventory.class)
 public class LoreInventoryMixin {
     // WrapOperation is useful in this case since it gives us the casted ServerPlayer and stack. make sure to always call original!
-    @WrapOperation(at = @At(value = "INVOKE", target = "Lcom/aetherteam/aether/advancement/LoreTrigger;trigger(Lnet/minecraft/server/level/ServerPlayer;Lnet/minecraft/world/item/ItemStack;)V"), method = "setItem", remap = false)
+    @WrapOperation(at = @At(value = "INVOKE", target = "Lcom/aetherteam/aether/advancement/LoreTrigger;trigger(Lnet/minecraft/server/level/ServerPlayer;Lnet/minecraft/world/item/ItemStack;)V"), method = "setItem")
     public void triggerLore(LoreTrigger instance, ServerPlayer player, ItemStack stack, Operation<Void> original) {
         // first, call the original method (this is the trigger lore)
         original.call(instance, player, stack);
