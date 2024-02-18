@@ -23,6 +23,6 @@ public class QuadrupedModelMixin<T extends Entity> {
     @Shadow @Final protected ModelPart head;
     @Shadow @Final protected ModelPart body;
 
-    @Inject(method = "setupAnim", at = @At(value = "TAIL"), remap = false)
+    @Inject(method = "setupAnim", at = @At(value = "TAIL"))
     public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, CallbackInfo ci) { }
 }
