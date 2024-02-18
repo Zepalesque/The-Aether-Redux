@@ -167,7 +167,7 @@ public class ReduxConfig {
             builder.push("Core");
             builder.pop();
             builder.push(List.of("Rendering", "Mob Model Improvements"));
-            this.override_model_upgrades = builder.comment("Overrides all other mob model configs and enables every one of them").define("Mob Model Config Override", false);
+            this.override_model_upgrades = builder.comment("Overrides all other mob model configs and enables every one of them").define("Mob Model Config Override", true);
             this.moa_model_upgrade = builder.comment("Makes Moas resemble their Mutation models").define("Moa Model Upgrade", false);
             // TODO: Reimplement
             this.moa_feet_type = builder.comment("Determines whether the updated Moa model should use more peaceful-appearing toes, or more aggressive talons").defineEnum("Moa Foot Type", MoaFeetType.toes);
