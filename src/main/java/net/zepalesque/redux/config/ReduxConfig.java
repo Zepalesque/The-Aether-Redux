@@ -155,6 +155,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue sheepuff_model_upgrade;
         public final ForgeConfigSpec.BooleanValue phyg_model_upgrade;
         public final ForgeConfigSpec.BooleanValue flying_cow_model_upgrade;
+        public final ForgeConfigSpec.ConfigValue<String> version_id;
         public final ForgeConfigSpec.BooleanValue better_leaf_particles;
         public final ForgeConfigSpec.BooleanValue enable_adrenaline_postproccess;
         public final ForgeConfigSpec.BooleanValue realistic_leaf_behavior;
@@ -187,6 +188,7 @@ public class ReduxConfig {
             builder.pop();
             builder.push("Internal");
             this.change_aether_configs = builder.comment("Internal value to decide if it is the first startup and the base Aether configs should be modified. DO NOT EDIT THIS VALUE, unless you want things to break!").define("First startup, change Aether configs (DO NOT CHANGE)", true);
+            this.version_id = builder.comment("Leftover value. May get used in a future update, or get removed.").define("Version ID", "undefined");
             builder.pop();
         }
     }
