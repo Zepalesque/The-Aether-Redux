@@ -1,6 +1,7 @@
 package net.zepalesque.redux.client;
 
 import com.aetherteam.aether.block.AetherBlocks;
+import net.builderdog.ancient_aether.block.AncientAetherBlocks;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.FastColor;
@@ -13,6 +14,7 @@ import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
+import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.util.state.ReduxStates;
 import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
@@ -66,6 +68,11 @@ public class ReduxColors {
                 ReduxBlocks.XAELIA_FLOWERS.get()
         );
 
+        // Ancient Aether Compat
+        if (Redux.ancientAetherCompat()) {
+            event.getBlockColors().register((state, level, pos, index) -> index == 1 ? level != null && pos != null  ? getAverageColor(level, pos, AETHER_GRASS_RESOLVER) : ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AncientAetherBlocks.SKY_GRASS.get());
+        }
+
     }
 
     public static void itemColors(RegisterColorHandlersEvent.Item event) {
@@ -85,6 +92,11 @@ public class ReduxColors {
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.FROSTED_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.LUMINA.get());
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.BLIGHT_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.SPIROLYCTIL.get());
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.BLIGHT_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.BLIGHTSHADE.get());
+
+        // Ancient Aether Compat
+        if (Redux.ancientAetherCompat()) {
+            event.getItemColors().register((stack, tintIndex) -> tintIndex == 0 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AncientAetherBlocks.SKY_GRASS.get());
+        }
     }
 
     public static int getColor(BlockState state, @Nullable BlockAndTintGetter level, @Nullable BlockPos pos, int index, int indexGoal) {
