@@ -228,8 +228,16 @@ public class Redux
                     }
                     ReduxClient.registerItemModelProperties();
                     ReduxPostProcessHandler.initAdrenalineShader();
+                    this.versionRefresh();
                 });
     }
+
+    public void versionRefresh() {
+        if (!ReduxConfig.CLIENT.version_id.get().equals(VERSION_ID)) {
+            ReduxConfig.CLIENT.version_id.set(VERSION_ID);
+        }
+    }
+
 
     private void registerDispenserBehaviors() {
         DispenserBlock.registerBehavior(ReduxItems.BLIGHTED_SPORES.get(), new DispenseUsableItemBehavior<>(ReduxRecipeTypes.SPORE_BLIGHTING.get()));
