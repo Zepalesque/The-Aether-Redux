@@ -38,10 +38,6 @@ public class ReduxBiomes {
     public static final ResourceKey<Biome> QUICKSOIL_DUNES = createKey("quicksoil_dunes");
     public static final ResourceKey<Biome> QUICKSOIL_OASIS = createKey("quicksoil_oasis");
 
-    // Compat, TODO: remove?
-    public static final ResourceKey<Biome> VIBRANT_FOREST = genesisKey("vibrant_forest");
-    public static final ResourceKey<Biome> VIBRANT_WOODLAND = genesisKey("vibrant_woodland");
-
     private static ResourceKey<Biome> createKey(String name) {
         return ResourceKey.create(Registries.BIOME, Redux.locate(name));
     }
@@ -96,8 +92,6 @@ public class ReduxBiomes {
             .put(SKYROOT_SHRUBLANDS, Pair.of(0x9ABE4B, 0x82AC1E))
             .put(AetherBiomes.SKYROOT_FOREST, Pair.of(0x79C05A, 0x59AE30))
             .put(AetherBiomes.SKYROOT_WOODLAND, Pair.of(0x79C05A, 0x59AE30))
-            .put(VIBRANT_FOREST, Pair.of(0x79C05A, 0x59AE30))
-            .put(VIBRANT_WOODLAND, Pair.of(0x79C05A, 0x59AE30))
             .build();
 
 
