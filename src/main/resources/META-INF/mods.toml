@@ -4,7 +4,7 @@ license = "All rights reserved"
 
 [[mods]]
     modId = "aether_redux"
-    version = "1.20.1"
+    version = "2.0"
     displayName = "The Aether: Redux"
     displayURL = "https://github.com/Zepalesque/Aether-Redux-Issue-Tracker"
     logoFile = "redux.png"
