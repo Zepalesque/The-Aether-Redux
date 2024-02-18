@@ -645,12 +645,7 @@ public class ReduxConfiguredFeatures {
 
         register(context, ANCIENT_ENCHANTED_GRASS, Feature.RANDOM_PATCH,
                 blockBelowPlacementPatch(32, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.SHORT_AETHER_GRASS)), BlockPredicate.not(BlockPredicate.matchesTag(ReduxTags.Blocks.COARSE_AETHER_DIRT))));
-
-        // TODO: Move generated file to main resources
-        register(context, ANCIENT_ENCHANTED_GRASS, Feature.FLOWER,
-                randomPatch(32, 7, 3,
-                        new SimpleConditionAlternativeStateProvider(drops(AncientAetherBlocks.SKY_GRASS).setValue(AncientAetherBlockStateProperties.TYPE, AetherGrassType.ENCHANTED), Conditions.ENCHGRASS, drops(AncientAetherBlocks.SKY_GRASS))));
-
+        
 
     }
 
