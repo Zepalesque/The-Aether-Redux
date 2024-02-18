@@ -161,7 +161,7 @@ dependencies {
     implementation fg.deobf("curse.maven:ancient-aether-886751:${project.ancient_aether_version}")
 }
 
-jar {
+tasks.named('jar', Jar).configure {
     manifest {
         attributes([
                 "Specification-Title"     : "aether_redux",
@@ -173,9 +173,17 @@ jar {
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
+
+    finalizedBy 'reobfJar'
+
+    archiveClassifier = 'no-embeds'
 }
 
-jar.finalizedBy('reobfJar')
+tasks.named('jarJar', JarJar).configure {
+    archiveClassifier = ''
+}
+
+tasks.jarJar.finalizedBy('reobfJarJar')
 
 publishing {
     publications {
