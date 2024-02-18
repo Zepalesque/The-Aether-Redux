@@ -40,6 +40,10 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
         );
 
 
+
+        this.tag(ReduxTags.Biomes.AA_SKY_GRASS).remove(ReduxBiomes.GILDED_GROVES, ReduxBiomes.GILDED_GRASSLANDS);
+
+
         this.tag(ReduxTags.Biomes.HAS_AETHER_CAVES).addTag(AetherTags.Biomes.IS_AETHER);
         this.tag(ReduxTags.Biomes.HAS_BLIGHTED_CAVES).addTag(AetherTags.Biomes.IS_AETHER).remove(ReduxBiomes.THE_BLIGHT);
         this.tag(ReduxTags.Biomes.HAS_FUNGAL_CAVES).addTag(AetherTags.Biomes.IS_AETHER).remove(ReduxBiomes.CLOUDCAPS);

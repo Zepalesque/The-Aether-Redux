@@ -30,6 +30,7 @@ import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.condition.Conditions;
+import net.zepalesque.redux.api.condition.ModLoadedCondition;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.world.placement.ConditionFilter;
 
@@ -114,6 +115,8 @@ public class ReduxPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> AETHER_SNOW_LAYER = copyKey(ReduxConfiguredFeatures.AETHER_SNOW_LAYER);
 
+    public static final ResourceKey<PlacedFeature> ANCIENT_ENCHANTED_GRASS = copyKey(ReduxConfiguredFeatures.ANCIENT_ENCHANTED_GRASS);
+
 
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
 
@@ -123,6 +126,13 @@ public class ReduxPlacedFeatures {
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
                 new ConfigFilter(AetherConfig.SERVER.generate_tall_grass),
+                BiomeFilter.biome()
+        );
+        register(context, ANCIENT_ENCHANTED_GRASS, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.ANCIENT_ENCHANTED_GRASS),
+                NOISE_THRESHOLD,
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
+                new ConfigFilter(AetherConfig.SERVER.generate_tall_grass),
+                ConditionFilter.whenTrue(Conditions.ANCIENT),
                 BiomeFilter.biome()
         );
         register(context, CLOUD_LAYER, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.CLOUD_LAYER)

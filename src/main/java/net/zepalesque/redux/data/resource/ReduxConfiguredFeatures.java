@@ -12,6 +12,9 @@ import com.aetherteam.aether.world.foliageplacer.CrystalFoliagePlacer;
 import com.aetherteam.aether.world.foliageplacer.GoldenOakFoliagePlacer;
 import com.aetherteam.aether.world.trunkplacer.CrystalTreeTrunkPlacer;
 import com.aetherteam.aether.world.trunkplacer.GoldenOakTrunkPlacer;
+import net.builderdog.ancient_aether.block.AncientAetherBlocks;
+import net.builderdog.ancient_aether.block.blockstate.AetherGrassType;
+import net.builderdog.ancient_aether.block.blockstate.AncientAetherBlockStateProperties;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
@@ -144,6 +147,7 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_OAK_TREE_OVERRIDE = aetherKey("golden_oak_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GRASS_PATCH_OVERRIDE = aetherKey("grass_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TALL_GRASS_PATCH_OVERRIDE = aetherKey("tall_grass_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ANCIENT_ENCHANTED_GRASS = createKey(Folders.COMPAT + "ancient_enchanted_grass");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> AETHER_SNOW_LAYER = createKey(Folders.SURFACE + "snow_layer");
 
@@ -638,6 +642,15 @@ public class ReduxConfiguredFeatures {
         register(context, GRASS_PATCH_OVERRIDE, Feature.RANDOM_PATCH,
                 blockBelowPlacementPatch(32, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.SHORT_AETHER_GRASS)), BlockPredicate.not(BlockPredicate.matchesTag(ReduxTags.Blocks.COARSE_AETHER_DIRT))));
         register(context, TALL_GRASS_PATCH_OVERRIDE, Feature.NO_OP, FeatureConfiguration.NONE);
+
+        register(context, ANCIENT_ENCHANTED_GRASS, Feature.RANDOM_PATCH,
+                blockBelowPlacementPatch(32, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.SHORT_AETHER_GRASS)), BlockPredicate.not(BlockPredicate.matchesTag(ReduxTags.Blocks.COARSE_AETHER_DIRT))));
+
+        // TODO: Move generated file to main resources
+        register(context, ANCIENT_ENCHANTED_GRASS, Feature.FLOWER,
+                randomPatch(32, 7, 3,
+                        new SimpleConditionAlternativeStateProvider(drops(AncientAetherBlocks.SKY_GRASS).setValue(AncientAetherBlockStateProperties.TYPE, AetherGrassType.ENCHANTED), Conditions.ENCHGRASS, drops(AncientAetherBlocks.SKY_GRASS))));
+
 
     }
 
