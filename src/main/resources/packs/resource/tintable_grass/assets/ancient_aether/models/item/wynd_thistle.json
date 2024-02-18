@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "ancient_aether:block/wynd_thistle_overlay",
+    "layer1": "ancient_aether:block/wynd_thistle"
+  }
+}

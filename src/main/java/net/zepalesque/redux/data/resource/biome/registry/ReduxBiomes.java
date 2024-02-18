@@ -55,6 +55,15 @@ public class ReduxBiomes {
     public static final int DUNES_GRASS_COLOR = 0xEEFFE0;
     public static final int OASIS_GRASS_COLOR = 0xD6FFD6;
 
+    // Compat colors for grass tints
+    public static final int FROZEN_GRASS_COLOR = 0xCBECFE;
+    public static final int PALE_GRASS_COLOR = 0xC1E6CA;
+
+    public static final int AERGLOW_GRASS_COLOR = 0xCFFFF1;
+    public static final int AERLAVENDER_GRASS_COLOR = 0xBDEDCC;
+    public static final int BLUE_AERGLOW_GRASS_COLOR = 0xCEFFFD;
+    public static final int MYSTIC_AERGLOW_GRASS_COLOR = 0xD1FFE7;
+
 
     public static final ImmutableMap<ResourceKey<Biome>, Integer> AETHER_GRASS_COLORS = new ImmutableMap.Builder<ResourceKey<Biome>, Integer>()
             .put(THE_BLIGHT, BLIGHT_GRASS_COLOR)

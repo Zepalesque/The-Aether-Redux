@@ -70,7 +70,18 @@ public class ReduxColors {
 
         // Ancient Aether Compat
         if (Redux.ancientAetherCompat()) {
-            event.getBlockColors().register((state, level, pos, index) -> level != null && pos != null  ? getAverageColor(level, pos, AETHER_GRASS_RESOLVER) : ReduxBiomes.AETHER_GRASS_COLOR , AncientAetherBlocks.SKY_GRASS.get());
+            event.getBlockColors().register((state, level, pos, index) -> level != null && pos != null  ? getAverageColor(level, pos, AETHER_GRASS_RESOLVER) : ReduxBiomes.AETHER_GRASS_COLOR, AncientAetherBlocks.SKY_GRASS.get());
+            event.getBlockColors().register((state, level, pos, index) -> getColor(state, level, pos, index, 1),
+                    AncientAetherBlocks.HIGHLAND_VIOLA.get(),
+                    AncientAetherBlocks.POTTED_HIGHLAND_VIOLA.get(),
+                    AncientAetherBlocks.WYND_THISTLE.get(),
+                    AncientAetherBlocks.POTTED_WYND_THISTLE.get(),
+                    AncientAetherBlocks.SAKURA_BLOSSOMS.get(),
+                    AncientAetherBlocks.POTTED_SAKURA_BLOSSOMS.get(),
+                    AncientAetherBlocks.SKY_BLUES.get(),
+                    AncientAetherBlocks.POTTED_SKY_BLUES.get(),
+                    AncientAetherBlocks.TRAPPED_SAKURA_BLOSSOMS.get()
+            );
         }
 
     }
@@ -96,6 +107,12 @@ public class ReduxColors {
         // Ancient Aether Compat
         if (Redux.ancientAetherCompat()) {
             event.getItemColors().register((stack, tintIndex) -> tintIndex == 0 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AncientAetherBlocks.SKY_GRASS.get());
+
+            event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.FROZEN_GRASS_COLOR : 0xFFFFFF, AncientAetherBlocks.WYND_THISTLE.get());
+            event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AncientAetherBlocks.SKY_BLUES.get());
+            event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AncientAetherBlocks.SAKURA_BLOSSOMS.get());
+            event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AncientAetherBlocks.TRAPPED_SAKURA_BLOSSOMS.get());
+            event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AncientAetherBlocks.HIGHLAND_VIOLA.get());
         }
     }
 
