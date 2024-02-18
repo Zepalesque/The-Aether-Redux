@@ -105,7 +105,7 @@ public class ReduxColors {
                     DABlocks.POTTED_ECHAISY.get()
             );
             event.getBlockColors().register((state, level, pos, index) -> pos != null ? getColor(state, level, state.getValue(DoublePlantBlock.HALF) == DoubleBlockHalf.UPPER ? pos.below() : pos, index, 1)  : ReduxBiomes.AETHER_GRASS_COLOR,
-                    DABlocks.FEATHER_GRASS.get()
+                    DABlocks.TALL_FEATHER_GRASS.get()
             );
         }
 

@@ -645,7 +645,7 @@ public class ReduxConfiguredFeatures {
 
         register(context, ANCIENT_ENCHANTED_GRASS, Feature.RANDOM_PATCH,
                 blockBelowPlacementPatch(32, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.SHORT_AETHER_GRASS)), BlockPredicate.not(BlockPredicate.matchesTag(ReduxTags.Blocks.COARSE_AETHER_DIRT))));
-        
+
 
     }
 
