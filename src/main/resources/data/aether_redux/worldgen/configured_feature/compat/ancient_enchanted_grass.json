@@ -1,0 +1,45 @@
+{
+  "type": "minecraft:flower",
+  "config": {
+    "feature": {
+      "feature": {
+        "type": "minecraft:simple_block",
+        "config": {
+          "to_place": {
+            "type": "aether_redux:simple_alternative",
+            "alternative_state": {
+              "Name": "ancient_aether:sky_grass",
+              "Properties": {
+                "type": "normal",
+                "length": "1"
+              }
+            },
+            "base_state": {
+              "Name": "ancient_aether:sky_grass",
+              "Properties": {
+                "type": "enchanted",
+                "length": "1"
+              }
+            },
+            "condition": {
+              "condition": "aether_redux:redux_config",
+              "config_path": "[Worldgen, Biomes, Enchanted Gilded Grass]"
+            }
+          }
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:air"
+          }
+        }
+      ]
+    },
+    "tries": 32,
+    "xz_spread": 7,
+    "y_spread": 3
+  }
+}
