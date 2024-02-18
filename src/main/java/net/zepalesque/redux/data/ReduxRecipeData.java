@@ -219,7 +219,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
         ConditionalRecipe.builder().addCondition(
                         not(dc(Conditions.GENESIS))
                 )
-                .addRecipe(swetJelly(ReduxItems.GOLDEN_SWET_JELLY, AetherItems.SWET_BALL)::save)
+                .addRecipe(swetJelly(ReduxItems.BLUE_SWET_JELLY, AetherItems.SWET_BALL)::save)
                 .generateAdvancement().build(consumer, Redux.locate("blue_swet_jelly"));
 
 
