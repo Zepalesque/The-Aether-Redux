@@ -6,7 +6,6 @@ import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether_genesis.data.resources.registries.GenesisBiomes;
 import com.google.common.collect.ImmutableMap;
 import com.mojang.datafixers.util.Pair;
-import net.builderdog.ancient_aether.AncientAetherTags;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
@@ -38,6 +37,10 @@ public class ReduxBiomes {
     public static final ResourceKey<Biome> SHIMMERING_HILLS = createKey("shimmering_hills");
     public static final ResourceKey<Biome> QUICKSOIL_DUNES = createKey("quicksoil_dunes");
     public static final ResourceKey<Biome> QUICKSOIL_OASIS = createKey("quicksoil_oasis");
+
+    // Compat, TODO: remove?
+    public static final ResourceKey<Biome> VIBRANT_FOREST = genesisKey("vibrant_forest");
+    public static final ResourceKey<Biome> VIBRANT_WOODLAND = genesisKey("vibrant_woodland");
 
     private static ResourceKey<Biome> createKey(String name) {
         return ResourceKey.create(Registries.BIOME, Redux.locate(name));
@@ -93,12 +96,9 @@ public class ReduxBiomes {
             .put(SKYROOT_SHRUBLANDS, Pair.of(0x9ABE4B, 0x82AC1E))
             .put(AetherBiomes.SKYROOT_FOREST, Pair.of(0x79C05A, 0x59AE30))
             .put(AetherBiomes.SKYROOT_WOODLAND, Pair.of(0x79C05A, 0x59AE30))
-            .put(GenesisBiomes.VIBRANT_FOREST, Pair.of(0x79C05A, 0x59AE30))
-            .put(GenesisBiomes.VIBRANT_WOODLAND, Pair.of(0x79C05A, 0x59AE30))
+            .put(VIBRANT_FOREST, Pair.of(0x79C05A, 0x59AE30))
+            .put(VIBRANT_WOODLAND, Pair.of(0x79C05A, 0x59AE30))
             .build();
-
-    public static final ResourceKey<Biome> VIBRANT_FOREST = genesisKey("vibrant_forest");
-    public static final ResourceKey<Biome> VIBRANT_WOODLAND = genesisKey("vibrant_woodland");
 
 
     public static final ImmutableMap<TagKey<Biome>, Integer> OVERWORLD_BIOME_AETHER_GRASS_COLORS = new ImmutableMap.Builder<TagKey<Biome>, Integer>()
