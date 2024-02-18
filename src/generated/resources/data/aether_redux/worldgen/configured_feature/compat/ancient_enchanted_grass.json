@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:random_patch",
+  "config": {
+    "feature": {
+      "feature": {
+        "type": "aether_redux:test_below_block",
+        "config": {
+          "predicate": {
+            "type": "minecraft:not",
+            "predicate": {
+              "type": "minecraft:matching_block_tag",
+              "tag": "aether_redux:coarse_aether_dirt"
+            }
+          },
+          "to_place": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "aether_redux:short_aether_grass",
+              "Properties": {
+                "enchanted": "false",
+                "grass_size": "medium"
+              }
+            }
+          }
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:air"
+          }
+        }
+      ]
+    },
+    "tries": 32,
+    "xz_spread": 7,
+    "y_spread": 3
+  }
+}

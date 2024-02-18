@@ -9,14 +9,6 @@
     "aether_redux:cloudcaps",
     "aether_redux:skyroot_shrublands",
     "aether:skyroot_forest",
-    "aether:skyroot_woodland",
-    {
-      "id": "aether_genesis:vibrant_forest",
-      "required": false
-    },
-    {
-      "id": "aether_genesis:vibrant_woodland",
-      "required": false
-    }
+    "aether:skyroot_woodland"
   ]
 }

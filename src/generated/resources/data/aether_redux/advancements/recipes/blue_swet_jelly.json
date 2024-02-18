@@ -18,7 +18,7 @@
           },
           "has_the_recipe": {
             "conditions": {
-              "recipe": "aether_redux:golden_swet_jelly"
+              "recipe": "aether_redux:blue_swet_jelly"
             },
             "trigger": "minecraft:recipe_unlocked"
           }
@@ -31,7 +31,7 @@
         ],
         "rewards": {
           "recipes": [
-            "aether_redux:golden_swet_jelly"
+            "aether_redux:blue_swet_jelly"
           ]
         },
         "sends_telemetry_event": false
