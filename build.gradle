@@ -1,3 +1,5 @@
+import net.minecraftforge.gradle.userdev.tasks.JarJar
+
 plugins {
     id 'eclipse'
     id 'maven-publish'
@@ -213,4 +215,8 @@ compileJava {
 mixin {
     config "aether_redux.mixins.json"
     add sourceSets.main, "aether_redux.refmap.json"
+}
+
+build {
+    dependsOn 'jarJar'
 }
