@@ -299,8 +299,9 @@ public class Redux
 
             overridesPack(event);
         } else if (event.getPackType() == PackType.SERVER_DATA) {
-            if (aetherGenesisCompat()) { this.setupMandatoryDataPack(event, "data/genesis_data", "Redux - Genesis Tweaks", "Small tweaks to the Aether: Genesis"); }
-            if (deepAetherCompat()) { this.setupMandatoryDataPack(event, "data/deep_aether_data", "Redux - Deep Aether Tweaks", "Small tweaks to the Deep Aether Addon"); }
+            if (aetherGenesisCompat()) { this.setupMandatoryDataPack(event, "data/genesis_data", "Redux - Genesis Compat", "Compatibility with the Aether: Genesis"); }
+            if (deepAetherCompat()) { this.setupMandatoryDataPack(event, "data/deep_aether_data", "Redux - Deep Aether Compat", "Compatibility with the Deep Aether Addon"); }
+            if (ancientAetherCompat()) { this.setupMandatoryDataPack(event, "data/ancient_aether_data", "Redux - Ancient Aether Compat", "Compatibility with Ancient Aether"); }
 
             QuadConsumer<AddPackFindersEvent, String, String, String> func = ReduxConfig.COMMON.apply_cloud_layer_pack.get() ? this::setupBuiltinDatapack : this::setupOptionalDatapack;
             func.accept(event, "data/cloudbed", "Redux - Cloudbed", "Highlands-like Cloudbed");

@@ -6,6 +6,7 @@ import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether_genesis.data.resources.registries.GenesisBiomes;
 import com.google.common.collect.ImmutableMap;
 import com.mojang.datafixers.util.Pair;
+import net.builderdog.ancient_aether.AncientAetherTags;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;

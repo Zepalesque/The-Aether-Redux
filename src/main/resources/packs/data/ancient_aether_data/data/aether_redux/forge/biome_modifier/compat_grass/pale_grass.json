@@ -1,0 +1,5 @@
+{
+  "type": "aether_redux:aether_grass_color",
+  "biomes": "#ancient_aether:has_pale_aether_grass",
+  "grass_color": 12707530
+}
