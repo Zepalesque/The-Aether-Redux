@@ -35,7 +35,7 @@ public enum ReduxNotices implements IEntityComponentProvider, IBlockComponentPro
     @Override
     public void appendTooltip(ITooltip iTooltip, EntityAccessor entityAccessor, IPluginConfig iPluginConfig) {
         EntityType<?> type = entityAccessor.getEntity().getType();
-        if ((ReduxConfig.CLIENT.override_model_upgrades.get() && !isMimic(type)) || (ENTITIES.containsKey(type) && ENTITIES.get(type).get())) {
+        if ((ENTITIES.containsKey(type) && ((ReduxConfig.CLIENT.override_model_upgrades.get() && !isMimic(type)) || ENTITIES.get(type).get())) {
             iTooltip.add(ENTITY_TOOLTIP);
         }
     }
