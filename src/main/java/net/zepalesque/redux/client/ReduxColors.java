@@ -70,7 +70,7 @@ public class ReduxColors {
 
         // Ancient Aether Compat
         if (Redux.ancientAetherCompat()) {
-            event.getBlockColors().register((state, level, pos, index) -> index == 1 ? level != null && pos != null  ? getAverageColor(level, pos, AETHER_GRASS_RESOLVER) : ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AncientAetherBlocks.SKY_GRASS.get());
+            event.getBlockColors().register((state, level, pos, index) -> level != null && pos != null  ? getAverageColor(level, pos, AETHER_GRASS_RESOLVER) : ReduxBiomes.AETHER_GRASS_COLOR , AncientAetherBlocks.SKY_GRASS.get());
         }
 
     }
