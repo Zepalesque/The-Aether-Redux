@@ -144,7 +144,10 @@ public class ReduxCreativeTabs {
             putAfter(AetherBlocks.GRAVITITE_ORE, ReduxBlocks.RAW_GRAVITITE_BLOCK, event);
         }
         if (tab == AetherCreativeTabs.AETHER_REDSTONE_BLOCKS.get()) {
-
+            if (ReduxConfig.COMMON.gravitite_ingot.get()) {
+                putBefore(AetherBlocks.ENCHANTED_GRAVITITE, ReduxBlocks.GRAVITITE_BLOCK, event);
+                event.getEntries().remove(new ItemStack(AetherBlocks.ENCHANTED_GRAVITITE.get()));
+            }
         }
         if (tab == AetherCreativeTabs.AETHER_FUNCTIONAL_BLOCKS.get()) {
             putAfter(AetherBlocks.AMBROSIUM_TORCH, ReduxBlocks.VERIDIUM_LANTERN, event);
