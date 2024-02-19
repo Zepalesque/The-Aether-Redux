@@ -132,7 +132,7 @@ public class Redux
         bus.addListener(EventPriority.LOWEST, ReduxColors::blockColors);
         bus.addListener(ReduxColors::itemColors);
         bus.addListener(ReduxColors::resolvers);
-        bus.addListener(this::applyResourcePack);
+//        bus.addListener(this::applyResourcePack);
         bus.addListener(EventPriority.HIGH, this::packSetup);
         bus.addListener(this::dataSetup);
         bus.addListener(this::registerRecipeSerializers);
@@ -251,9 +251,9 @@ public class Redux
         DispenserBlock.registerBehavior(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_WALL.get(), new ShellShinglesDispenserBehavior());
     }
 
-    /**
+/*    *//**
      * semi-arbitrarily chosen event soon before the resource packs are first reloaded in order to apply the overrides pack before it is done
-     */
+     *//*
     public void applyResourcePack(RegisterKeyMappingsEvent event)
     {
         if (packConfig != null && packConfig.auto_apply.get()) {
@@ -263,7 +263,7 @@ public class Redux
                 }
             }
         }
-    }
+    }*/
 
     public void registerRecipeSerializers(RegisterEvent event)
     {
@@ -326,7 +326,7 @@ public class Redux
     }
 
 
-    public static void overridesPack(AddPackFindersEvent event) {
+    public void overridesPack(AddPackFindersEvent event) {
         if (event.getPackType() == PackType.CLIENT_RESOURCES) {
 
             if (packConfig != null) {
@@ -334,7 +334,7 @@ public class Redux
                 String title = "pack.aether_redux.overrides.title";
                 Component desc = Component.translatable("pack.aether_redux.overrides.description");
                 ReduxOverridesPackResources combined = ReduxPackConfig.generate(id, title, desc);
-                BuiltinPackUtils.autoApply(event, combined, id, title, desc);
+                BuiltinPackUtils.mandatory(event, combined, id, title, desc);
             }
 
         }

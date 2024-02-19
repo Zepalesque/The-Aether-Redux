@@ -6,6 +6,7 @@ import net.minecraft.server.packs.AbstractPackResources;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.metadata.pack.PackMetadataSection;
 import net.minecraft.server.packs.repository.Pack;
+import net.minecraft.server.packs.repository.PackSource;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraftforge.event.AddPackFindersEvent;
 import net.minecraftforge.fml.ModList;
@@ -42,6 +43,23 @@ public class BuiltinPackUtils {
                         Pack.Position.TOP,
                         false,
                         ReduxPackSources.AUTO_APPLY_RESOURCE));
+            });
+        }
+    }
+
+    public static void mandatory(AddPackFindersEvent event, AbstractPackResources pack, String packId, String title, Component description) {
+        if (event.getPackType() == PackType.CLIENT_RESOURCES) {
+            PackMetadataSection metadata = new PackMetadataSection(description
+                    , SharedConstants.getCurrentVersion().getPackVersion(PackType.CLIENT_RESOURCES));
+            event.addRepositorySource((packConsumer) -> {
+                packConsumer.accept(Pack.create("builtin/" + packId, Component.translatable(title),
+                        true,
+                        (string) -> pack,
+                        new Pack.Info(metadata.getDescription(), metadata.getPackFormat(PackType.SERVER_DATA), metadata.getPackFormat(PackType.CLIENT_RESOURCES), FeatureFlagSet.of(), pack.isHidden()),
+                        PackType.CLIENT_RESOURCES,
+                        Pack.Position.TOP,
+                        false,
+                        PackSource.BUILT_IN));
             });
         }
     }
