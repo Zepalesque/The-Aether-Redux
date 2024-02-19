@@ -15,6 +15,8 @@ import net.minecraft.util.Mth;
 import net.zepalesque.redux.capability.animation.moa.MoaAnimation;
 import net.zepalesque.redux.client.render.entity.model.entity.MoaReduxModel;
 import net.zepalesque.redux.client.render.util.MoaUtils;
+import net.zepalesque.redux.config.ReduxConfig;
+import net.zepalesque.redux.config.enums.MoaFeetType;
 import net.zepalesque.redux.util.math.MathUtil;
 
 import javax.annotation.Nonnull;
@@ -24,13 +26,14 @@ import java.util.Map;
 public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
 
     protected final MoaRenderer parent;
-    private final MoaReduxModel updated;
+    private final MoaReduxModel updated, talons;
 
     private static final Map<ResourceLocation, ResourceLocation> TRANSLATION_MAP = new HashMap<>();
 
-    public MoaReduxLayer(MoaRenderer entityRenderer, MoaReduxModel pUpdated) {
+    public MoaReduxLayer(MoaRenderer entityRenderer, MoaReduxModel updated, MoaReduxModel talons) {
         super(entityRenderer);
-        this.updated = pUpdated;
+        this.updated = updated;
+        this.talons = talons;
         this.parent = entityRenderer;
     }
 
@@ -39,7 +42,7 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
         if (MoaUtils.useNewModel(moa)) {
             poseStack.scale(0.5F, 0.5F, 0.5F);
             poseStack.translate(0F, 1.5F, /*-0.125F*/ 0F);
-            MoaReduxModel model = this.updated;
+            MoaReduxModel model = ReduxConfig.CLIENT.moa_feet_type.get() == MoaFeetType.toes ? this.updated : this.talons;
             model.neck.yRot = this.getParentModel().head.yRot * 0.333F;
             model.neck.xRot = this.getParentModel().head.xRot * 0.125F;
             model.head_part.yRot = this.getParentModel().head.yRot * 0.667F;
