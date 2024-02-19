@@ -438,10 +438,13 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
 
         addBiome(ReduxBiomes.CLOUDCAPS, "Cloudcaps");
-        addBiome(ReduxBiomes.GLACIAL_TAIGA, "Frosted Forests");
+        addBiome(ReduxBiomes.GLACIAL_TAIGA, "Glacial Taiga");
+        addBiome(ReduxBiomes.FROSTED_TUNDRA, "Frosted Tundra");
         addBiome(ReduxBiomes.GILDED_GROVES, "Gilded Groves");
+        addBiome(ReduxBiomes.GILDED_GRASSLANDS, "Gilded Grasslands");
         addBiome(ReduxBiomes.HIGHFIELDS, "Highfields");
         addBiome(ReduxBiomes.THE_BLIGHT, "The Blight");
+        addBiome(ReduxBiomes.SKYROOT_SHRUBLANDS, "Skyroot Shrublands");
 
         this.add("item.minecraft.potion.effect.intoxication", "Potion of Intoxication");
         this.add("item.minecraft.splash_potion.effect.intoxication", "Splash Potion of Intoxication");
