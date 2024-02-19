@@ -109,6 +109,7 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> OASIS_LAKE = createKey(Folders.SURFACE + "oasis_lake");
     public static final ResourceKey<PlacedFeature> VERIDIUM_ORE = copyKey(ReduxConfiguredFeatures.VERIDIUM_ORE);
     public static final ResourceKey<PlacedFeature> DIVINITE_ORE = copyKey(ReduxConfiguredFeatures.DIVINITE_ORE);
+    public static final ResourceKey<PlacedFeature> DIVINITE_ORE_INCREASED = createKey(Folders.ORE + "divinite_ore_increased");
     public static final ResourceKey<PlacedFeature> HOLYSILT_DISK = copyKey(ReduxConfiguredFeatures.HOLYSILT_DISK);
     public static final ResourceKey<PlacedFeature> AEROGEL_DISK = copyKey(ReduxConfiguredFeatures.AEROGEL_DISK);
     public static final ResourceKey<PlacedFeature> CLOUD_LAYER = copyKey(ReduxConfiguredFeatures.CLOUD_LAYER);
@@ -674,6 +675,12 @@ public class ReduxPlacedFeatures {
         );
 
         register(context, DIVINITE_ORE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.DIVINITE_ORE),
+                InSquarePlacement.spread(),
+                RarityFilter.onAverageOnceEvery(3),
+                HeightRangePlacement.of(TrapezoidHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.aboveBottom(128))),
+                BiomeFilter.biome()
+        );
+        register(context, DIVINITE_ORE_INCREASED, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.DIVINITE_ORE),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(TrapezoidHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.aboveBottom(128))),
                 BiomeFilter.biome()
