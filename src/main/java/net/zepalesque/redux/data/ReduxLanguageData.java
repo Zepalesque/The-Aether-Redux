@@ -494,8 +494,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addPackConfigEnum("classic", "Classic");
         addPackConfigEnum("modern", "Modern");
         addPackConfigCategory("mob", "Mobs", "Changes to the textures of the Aether's mobs");
-        addPackConfig("better_aechor_plants", "Better Aechor Plants", "Makes Aechor Plants more consistent with their petal items");
-        addPackConfig("classic_cockatrices", "Cockatrice Appearance", "Switch between classic and modern textures for the upgraded Cockatrice models");
+        addPackConfig("purple_aechor_plants", "Purple Aechor Plants", "Makes Aechor Plants more consistent with their petal items");
+        addPackConfig("blighted_cockatrices", "Blighted Cockatrices", "Use a purple, more blight-like texture for the Cockatrices");
         addPackConfig("tintable_grass", "Tinted Grass", "Use modified models to allow tintable Aether Grass blocks and plants. Only disable if you know what you're doing!");
         addPackConfigCategory("dungeon", "Dungeons", "Changes to the textures of the Aether's dungeons");
         addPackConfigCategory("item", "Items", "Changes to Items from the Aether");
@@ -511,18 +511,18 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addPackConfig("auto_apply", "Automatic Application", "Enables the resource pack automatically when removed");
         addPackConfig("smelter_menu_type", "Smelter Menu Type", "Switch between three different types of Aether Smelter Menus: The originals, classic-styled improvemenets, and modernized menus");
         addPackConfigCategory("audio", "Audio", "Changes to different sounds heard in the Aether");
-        addPackConfig("better_aechor_sounds", "Better Aechor Plant Sounds", "Improves the sounds of the Aechor Plants, giving them more natural and plant-like sounds.");
-        addPackConfig("better_aerwhale_sounds", "Better Aerwhale Sounds", "Improves the sounds of Aerwhales, giving them their sounds heard in early builds of the Aether II: Highlands.");
-        addPackConfig("better_cockatrice_sounds", "Better Cockatrice Sounds", "Improves the sounds of Cockatrices, giving them their sounds heard in early builds of the Aether II: Highlands.");
-        addPackConfig("better_mimic_awaken_sound", "Better Mimic Awaken Sound", "Improves the sound of a Mimic appearing, making you slightly hear a sound similar to when you awaken the Slider.");
-        addPackConfig("better_moa_sounds", "Better Moa Sounds", "Improves the sounds of Moas, giving them their sounds heard in early builds of the Aether II: Highlands.");
-        addPackConfig("better_sentry_sounds", "Better Sentry Sounds", "Improves the sounds of Sentries, giving them some of their sounds heard in early builds of the Aether II: Highlands.");
-        addPackConfig("better_slider_sounds", "Better Slider Sounds", "Improves the sounds of the Slider, with more labyrinth-themed ambient droning and a more Sentry-like hurt sound.");
-        addPackConfig("better_tempest_sounds", "Better Tempest Sounds (Requires: The Aether: Genesis)", "Improves the sounds of the Aether: Genesis's Tempests, giving them their sounds heard in early builds of the Aether II: Highlands.");
+        addPackConfig("better_aechor_sounds", "Upgraded Aechor Plant Sounds", "Improves the sounds of the Aechor Plants, giving them more natural and plant-like sounds.");
+        addPackConfig("better_aerwhale_sounds", "Upgraded Aerwhale Sounds", "Improves the sounds of Aerwhales, giving them their sounds heard in early builds of the Aether II: Highlands.");
+        addPackConfig("better_cockatrice_sounds", "Upgraded Cockatrice Sounds", "Improves the sounds of Cockatrices, giving them their sounds heard in early builds of the Aether II: Highlands.");
+        addPackConfig("better_mimic_awaken_sound", "Upgraded Mimic Awaken Sound", "Improves the sound of a Mimic appearing, making you slightly hear a sound similar to when you awaken the Slider.");
+        addPackConfig("better_moa_sounds", "Upgraded Moa Sounds", "Improves the sounds of Moas, giving them their sounds heard in early builds of the Aether II: Highlands.");
+        addPackConfig("better_sentry_sounds", "Upgraded Sentry Sounds", "Improves the sounds of Sentries, giving them some of their sounds heard in early builds of the Aether II: Highlands.");
+        addPackConfig("better_slider_sounds", "Upgraded Slider Sounds", "Improves the sounds of the Slider, with more labyrinth-themed ambient droning and a more Sentry-like hurt sound.");
+        addPackConfig("better_tempest_sounds", "Upgraded Tempest Sounds (Requires: The Aether: Genesis)", "Improves the sounds of the Aether: Genesis's Tempests, giving them their sounds heard in early builds of the Aether II: Highlands.");
 
 
         addPackTitle("overrides", "Redux - Aether Overrides");
-        addPackDescription("overrides", "Configurable resource overrides for the Aether: Redux");
+        addPackDescription("overrides", "Configurable overrides for the Aether: Redux");
 
 
         addSubtitle("entity", "mimic_slam", "Mimic slams");

@@ -1,7 +1,6 @@
 package net.zepalesque.redux.compat.jade;
 
 import com.aetherteam.aether.entity.AetherEntityTypes;
-import com.aetherteam.aether_genesis.Genesis;
 import com.aetherteam.aether_genesis.entity.GenesisEntityTypes;
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.ChatFormatting;
@@ -35,7 +34,7 @@ public enum ReduxNotices implements IEntityComponentProvider, IBlockComponentPro
     @Override
     public void appendTooltip(ITooltip iTooltip, EntityAccessor entityAccessor, IPluginConfig iPluginConfig) {
         EntityType<?> type = entityAccessor.getEntity().getType();
-        if (ENTITIES.containsKey(type) && ((ReduxConfig.CLIENT.override_model_upgrades.get() && !isMimic(type)) || ENTITIES.get(type).get())) {
+        if (ENTITIES.containsKey(type) && ((ReduxConfig.CLIENT.enable_all_model_upgrades.get() && !isMimic(type)) || ENTITIES.get(type).get())) {
             iTooltip.add(ENTITY_TOOLTIP);
         }
     }

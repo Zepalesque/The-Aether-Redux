@@ -146,7 +146,7 @@ public class ReduxConfig {
 
     public static class Client {
 
-        public final ForgeConfigSpec.BooleanValue override_model_upgrades;
+        public final ForgeConfigSpec.BooleanValue enable_all_model_upgrades;
         public final ForgeConfigSpec.BooleanValue moa_model_upgrade;
         public final ForgeConfigSpec.EnumValue<MoaFeetType> moa_feet_type;
         public final ForgeConfigSpec.BooleanValue cockatrice_model_upgrade;
@@ -164,12 +164,10 @@ public class ReduxConfig {
 
         public Client(ForgeConfigSpec.Builder builder) {
 
-            builder.push("Core");
-            builder.pop();
+//
             builder.push(List.of("Rendering", "Mob Model Improvements"));
-            this.override_model_upgrades = builder.comment("Overrides all other mob model configs and enables every one of them").define("Mob Model Config Override", true);
+            this.enable_all_model_upgrades = builder.comment("Overrides all other mob model configs and enables every one of them").define("Enable All Model Upgrades", true);
             this.moa_model_upgrade = builder.comment("Makes Moas resemble their Mutation models").define("Moa Model Upgrade", false);
-            // TODO: Reimplement
             this.moa_feet_type = builder.comment("Determines whether the updated Moa model should use more peaceful-appearing toes, or more aggressive talons").defineEnum("Moa Foot Type", MoaFeetType.toes);
             this.cockatrice_model_upgrade = builder.comment("Makes Cockatrices look far better").define("Cockatrice Model Upgrade", false);
             this.sentry_model_upgrade = builder.comment("Improves the model for Sentries, giving them a new model and a springy jump animation").define("Sentry Model Upgrade", false);

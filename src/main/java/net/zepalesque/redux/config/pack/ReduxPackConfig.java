@@ -20,7 +20,7 @@ public class ReduxPackConfig {
 
     public final Category base;
 
-    public final PackConfig<Boolean> better_aechor_plants;
+    public final PackConfig<Boolean> purple_aechor_plants;
     public final PackConfig<Boolean> blighted_cockatrices;
     public final PackConfig<SwetBallType> swet_ball_type;
     public final PackConfig<VeridiumType> veridium_type;
@@ -45,7 +45,7 @@ public class ReduxPackConfig {
         PackConfig.Builder builder = base.builder();
         builder.push("mob");
         // Self-explanatory
-        this.better_aechor_plants = builder.comment().cfg("better_aechor_plants", true);
+        this.purple_aechor_plants = builder.comment().cfg("purple_aechor_plants", true);
         // Purple redux cockatrices
         this.blighted_cockatrices = builder.comment().cfg("blighted_cockatrices", true);
         builder.pop();
@@ -83,7 +83,7 @@ public class ReduxPackConfig {
         if (config != null) {
             packs = List.of(
                     Conditional.of(BuiltinPackUtils.createPack("resource/tintable_grass"), config.tintable_grass),
-                    Conditional.of(BuiltinPackUtils.createPack("resource/mob/better_aechor_plants"), config.better_aechor_plants),
+                    Conditional.of(BuiltinPackUtils.createPack("resource/mob/better_aechor_plants"), config.purple_aechor_plants),
                     Conditional.of(BuiltinPackUtils.createPack("resource/mob/blighted_cockatrices"), config.blighted_cockatrices::get),
                     Conditional.of(BuiltinPackUtils.createPack("resource/item/swet_ball"), () -> config.swet_ball_type.get() == SwetBallType.consistent_name),
                     Conditional.of(BuiltinPackUtils.createPack("resource/item/swet_gel"), () -> config.swet_ball_type.get() == SwetBallType.gel),
