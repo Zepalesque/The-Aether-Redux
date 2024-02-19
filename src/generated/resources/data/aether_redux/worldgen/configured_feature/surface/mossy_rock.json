@@ -2,10 +2,7 @@
   "type": "minecraft:forest_rock",
   "config": {
     "state": {
-      "Name": "aether:mossy_holystone",
-      "Properties": {
-        "double_drops": "true"
-      }
+      "Name": "aether:icestone"
     }
   }
 }

@@ -34,7 +34,8 @@
       "aether_redux:ore/sparse_zanite_ore",
       "aether:gravitite_ore_buried",
       "aether:gravitite_ore",
-      "aether_redux:ore/gilded_holystone_ore"
+      "aether_redux:ore/gilded_holystone_ore",
+      "aether_redux:ore/divinite_ore_increased"
     ],
     [],
     [

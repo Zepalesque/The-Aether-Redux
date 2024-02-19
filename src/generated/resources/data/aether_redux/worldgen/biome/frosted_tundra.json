@@ -25,7 +25,9 @@
     ],
     [],
     [],
-    [],
+    [
+      "aether_redux:surface/mossy_rock"
+    ],
     [],
     [
       "aether:aether_dirt_ore",

@@ -1,0 +1,34 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "aether_redux:data_recipe_condition",
+          "data_recipe_condition": {
+            "condition": "aether_redux:mod_loaded",
+            "mod_id": "aether_genesis"
+          }
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "category": "building",
+        "key": {
+          "#": {
+            "item": "aether_redux:fieldsproot_wood"
+          }
+        },
+        "pattern": [
+          "###",
+          "###"
+        ],
+        "result": {
+          "count": 6,
+          "item": "aether_redux:fieldsproot_wood_wall"
+        },
+        "show_notification": true
+      }
+    }
+  ]
+}
