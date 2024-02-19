@@ -44,8 +44,10 @@ public class PackConfigBootstrap {
                 }
             }
             hasStarted = true;
+        } else {
+            Redux.LOGGER.warn("Already started PackConfig bootstrap, but method was called again! Ignoring...");
         }
-        Redux.LOGGER.warn("Already started PackConfig bootstrap, but method was called again! Ignoring...");
+
     }
 
     /** Registers a new config file */
