@@ -102,8 +102,8 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.add(ReduxBlocks.BLIGHTED_SKYROOT_LEAVES.get(),
                 (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.BLIGHTED_SKYROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
 
-        this.add(ReduxBlocks.FLOWERING_FIELDSPROUT_LEAVES.get(),
-                (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.FLOWERING_FIELDSPROUT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
+        this.add(ReduxBlocks.FIELDSPROOT_LEAVES.get(),
+                (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.FIELDSPROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
 
         dropWhenSilkTouch(ReduxBlocks.GOLDEN_LEAF_PILE.get());
         dropWhenSilkTouch(ReduxBlocks.GILDED_LEAF_PILE.get());
@@ -112,9 +112,9 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.add(ReduxBlocks.GLACIA_LEAVES.get(),
                 (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.GLACIA_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
         this.dropSelf(ReduxBlocks.GLACIA_SAPLING.get());
-        this.dropSelf(ReduxBlocks.FLOWERING_FIELDSPROUT_SAPLING.get());
+        this.dropSelf(ReduxBlocks.FIELDSPROOT_SAPLING.get());
         this.dropPottedContents(ReduxBlocks.POTTED_GLACIA_SAPLING.get());
-        this.dropPottedContents(ReduxBlocks.POTTED_FLOWERING_FIELDSPROUT_SAPLING.get());
+        this.dropPottedContents(ReduxBlocks.POTTED_FIELDSPROOT_SAPLING.get());
 
         this.add(ReduxBlocks.PURPLE_GLACIA_LEAVES.get(),
                 (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.PURPLE_GLACIA_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
@@ -179,7 +179,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropPottedContents(ReduxBlocks.POTTED_JELLYSHROOM.get());
         this.dropPottedContents(ReduxBlocks.POTTED_SHIMMERSTOOL.get());
 
-        this.add(ReduxBlocks.FIELDSPROUT_PETALS.get(), this.createFieldsproutPetalsDrops(ReduxBlocks.FIELDSPROUT_PETALS.get()));
+        this.add(ReduxBlocks.FIELDSPROOT_PETALS.get(), this.createFieldsproutPetalsDrops(ReduxBlocks.FIELDSPROOT_PETALS.get()));
 
         this.add(ReduxBlocks.ZANBERRY_BUSH.get(), (bush) -> this.droppingBerryBush(bush, ReduxBlocks.ZANBERRY_SHRUB.get(), ReduxItems.ZANBERRY.get()));
         this.dropSelfDouble(ReduxBlocks.ZANBERRY_SHRUB.get());

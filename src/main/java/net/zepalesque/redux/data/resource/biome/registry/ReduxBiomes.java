@@ -3,7 +3,6 @@ package net.zepalesque.redux.data.resource.biome.registry;
 import com.aetherteam.aether.data.resources.AetherMobCategory;
 import com.aetherteam.aether.data.resources.registries.AetherBiomes;
 import com.aetherteam.aether.entity.AetherEntityTypes;
-import com.aetherteam.aether_genesis.data.resources.registries.GenesisBiomes;
 import com.google.common.collect.ImmutableMap;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.registries.Registries;
@@ -29,7 +28,7 @@ public class ReduxBiomes {
     public static final ResourceKey<Biome> FROSTED_TUNDRA = createKey("frosted_tundra");
     public static final ResourceKey<Biome> GILDED_GROVES = createKey("gilded_groves");
     public static final ResourceKey<Biome> GILDED_GRASSLANDS = createKey("gilded_grasslands");
-    public static final ResourceKey<Biome> HIGHFIELDS = createKey("highfields");
+    public static final ResourceKey<Biome> SKYFIELDS = createKey("skyfields");
     public static final ResourceKey<Biome> CLOUDCAPS = createKey("cloudcaps");
     public static final ResourceKey<Biome> SKYROOT_SHRUBLANDS = createKey("skyroot_shrublands");
 
@@ -51,7 +50,7 @@ public class ReduxBiomes {
     public static final int GILDED_GRASSLANDS_COLOR = 0xFFF5A3;
     public static final int BLIGHT_GRASS_COLOR = 0xD5BAFF;
     public static final int FROSTED_GRASS_COLOR = 0xCCF7FF;
-    public static final int HIGHFIELDS_GRASS_COLOR = 0xBFFFEC;
+    public static final int SKYFIELDS_GRASS_COLOR = 0xBFFFEC;
     public static final int SHRUBLANDS_GRASS_COLOR = 0xD7FFCC;
     public static final int CLOUDCAP_GRASS_COLOR = 0xD6FFF7;
 
@@ -75,7 +74,7 @@ public class ReduxBiomes {
             .put(FROSTED_TUNDRA, FROSTED_GRASS_COLOR)
             .put(GILDED_GROVES, GILDED_GRASS_COLOR)
             .put(GILDED_GRASSLANDS, GILDED_GRASSLANDS_COLOR)
-            .put(HIGHFIELDS, HIGHFIELDS_GRASS_COLOR)
+            .put(SKYFIELDS, SKYFIELDS_GRASS_COLOR)
             .put(CLOUDCAPS, CLOUDCAP_GRASS_COLOR)
             .put(SKYROOT_SHRUBLANDS, SHRUBLANDS_GRASS_COLOR)
             .build();
@@ -87,7 +86,7 @@ public class ReduxBiomes {
             .put(FROSTED_TUNDRA, Pair.of(0x86B783, 0x68A464))
             .put(GILDED_GROVES, Pair.of(0xACBA4F, 0x97A823))
             .put(GILDED_GRASSLANDS, Pair.of(0xACBA4F, 0x97A823))
-            .put(HIGHFIELDS, Pair.of(0x59C93C, 0x30BB0B))
+            .put(SKYFIELDS, Pair.of(0x59C93C, 0x30BB0B))
             .put(CLOUDCAPS, Pair.of(0x55C93F, 0x2BBB0F))
             .put(SKYROOT_SHRUBLANDS, Pair.of(0x9ABE4B, 0x82AC1E))
             .put(AetherBiomes.SKYROOT_FOREST, Pair.of(0x79C05A, 0x59AE30))
@@ -98,7 +97,7 @@ public class ReduxBiomes {
     public static final ImmutableMap<TagKey<Biome>, Integer> OVERWORLD_BIOME_AETHER_GRASS_COLORS = new ImmutableMap.Builder<TagKey<Biome>, Integer>()
             .put(Tags.Biomes.IS_COLD, FROSTED_GRASS_COLOR)
             .put(Tags.Biomes.IS_DESERT, OASIS_GRASS_COLOR)
-            .put(Tags.Biomes.IS_LUSH, HIGHFIELDS_GRASS_COLOR)
+            .put(Tags.Biomes.IS_LUSH, SKYFIELDS_GRASS_COLOR)
             .put(Tags.Biomes.IS_MUSHROOM, CLOUDCAP_GRASS_COLOR)
             .put(Tags.Biomes.IS_MAGICAL, SHIMMERING_GRASS_COLOR)
             .put(Tags.Biomes.IS_PLATEAU, GILDED_GRASS_COLOR)
@@ -118,7 +117,7 @@ public class ReduxBiomes {
         context.register(FROSTED_TUNDRA, FrostedTundra.generate(context));
         context.register(GILDED_GROVES, GildedGroves.generate(context));
         context.register(GILDED_GRASSLANDS, GildedGrasslands.generate(context));
-        context.register(HIGHFIELDS, Highfields.generate(context));
+        context.register(SKYFIELDS, Skyfields.generate(context));
         context.register(SKYROOT_SHRUBLANDS, SkyrootShrublands.generate(context));
     }
 

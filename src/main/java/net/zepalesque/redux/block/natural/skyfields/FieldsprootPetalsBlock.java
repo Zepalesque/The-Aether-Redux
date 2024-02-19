@@ -1,4 +1,4 @@
-package net.zepalesque.redux.block.natural.highfields;
+package net.zepalesque.redux.block.natural.skyfields;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -26,12 +26,12 @@ import net.zepalesque.redux.block.util.state.ReduxStates;
 
 import java.util.List;
 
-public class FieldsproutPetalsBlock extends BushBlock implements BonemealableBlock {
+public class FieldsprootPetalsBlock extends BushBlock implements BonemealableBlock {
    public static final int MIN_FLOWERS = 1;
    public static final int MAX_FLOWERS = 4;
 
 
-   public FieldsproutPetalsBlock(Properties properties) {
+   public FieldsprootPetalsBlock(Properties properties) {
       super(properties);
       this.registerDefaultState(this.stateDefinition.any()
               .setValue(ReduxStates.PETAL_1, PetalPrismaticness.ZERO)

@@ -30,7 +30,6 @@ import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.condition.Conditions;
-import net.zepalesque.redux.api.condition.ModLoadedCondition;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.world.placement.ConditionFilter;
 
@@ -87,10 +86,10 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> GRASSLAND_TREES = copyKey(ReduxConfiguredFeatures.GRASSLAND_TREES);
     public static final ResourceKey<PlacedFeature> GROVE_TREES_ALT = copyKey(ReduxConfiguredFeatures.GROVE_TREES_ALT);
     public static final ResourceKey<PlacedFeature> GRASSLAND_TREES_ALT = copyKey(ReduxConfiguredFeatures.GRASSLAND_TREES_ALT);
-    public static final ResourceKey<PlacedFeature> HIGHFIELDS_ROCK  = copyKey(ReduxConfiguredFeatures.HIGHFIELDS_ROCK);
+    public static final ResourceKey<PlacedFeature> SKYFIELDS_ROCK = copyKey(ReduxConfiguredFeatures.SKYFIELDS_ROCK);
     public static final ResourceKey<PlacedFeature> SHRUBLANDS_ROCK  = copyKey(ReduxConfiguredFeatures.SHRUBLANDS_ROCK);
     public static final ResourceKey<PlacedFeature> SKYSPROUTS_PATCH = copyKey(ReduxConfiguredFeatures.SKYSPROUTS_PATCH);
-    public static final ResourceKey<PlacedFeature> HIGHFIELDS_TREES = copyKey(ReduxConfiguredFeatures.HIGHFIELDS_TREES);
+    public static final ResourceKey<PlacedFeature> SKYFIELDS_TREES = copyKey(ReduxConfiguredFeatures.SKYFIELDS_TREES);
     public static final ResourceKey<PlacedFeature> SHRUBLANDS_TREES = copyKey(ReduxConfiguredFeatures.SHRUBLANDS_TREES);
     public static final ResourceKey<PlacedFeature> SHIMMERING_TREES = createKey(Folders.TREE + "shimmering_trees");
     public static final ResourceKey<PlacedFeature> IRIDIA_PATCH  = copyKey(ReduxConfiguredFeatures.IRIDIA_PATCH);
@@ -495,7 +494,7 @@ public class ReduxPlacedFeatures {
         );
 
 
-        register(context, HIGHFIELDS_ROCK, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.HIGHFIELDS_ROCK),
+        register(context, SKYFIELDS_ROCK, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.SKYFIELDS_ROCK),
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING,
                         new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
@@ -523,7 +522,7 @@ public class ReduxPlacedFeatures {
 
 
 
-        register(context, HIGHFIELDS_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.HIGHFIELDS_TREES),
+        register(context, SKYFIELDS_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.SKYFIELDS_TREES),
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
                         .add(ConstantInt.of(1), 9)
                         .add(ConstantInt.of(2), 3)
@@ -532,7 +531,7 @@ public class ReduxPlacedFeatures {
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.OCEAN_FLOOR, ConstantInt.of(2), 4),
                 BiomeFilter.biome(),
                 RarityFilter.onAverageOnceEvery(2),
-                PlacementUtils.filteredByBlockSurvival(ReduxBlocks.FLOWERING_FIELDSPROUT_SAPLING.get()),
+                PlacementUtils.filteredByBlockSurvival(ReduxBlocks.FIELDSPROOT_SAPLING.get()),
                 DUNGEON_BLACKLIST
         );
 

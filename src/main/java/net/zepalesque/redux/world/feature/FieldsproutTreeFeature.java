@@ -21,23 +21,23 @@ import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.util.state.enums.PetalPrismaticness;
 import net.zepalesque.redux.block.util.state.ReduxStates;
 import net.zepalesque.redux.util.level.WorldgenUtil;
-import net.zepalesque.redux.world.feature.config.FieldsproutTreeConfig;
+import net.zepalesque.redux.world.feature.config.FieldsprootTreeConfig;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Collection;
 import java.util.Map;
 
-public class FieldsproutTreeFeature extends Feature<FieldsproutTreeConfig> {
+public class FieldsproutTreeFeature extends Feature<FieldsprootTreeConfig> {
 
 
-    public FieldsproutTreeFeature(Codec<FieldsproutTreeConfig> codec) {
+    public FieldsproutTreeFeature(Codec<FieldsprootTreeConfig> codec) {
         super(codec);
     }
     public static boolean isDirt(BlockState state) {
         return state.is(BlockTags.DIRT);
     }
     @Override
-    public boolean place(FeaturePlaceContext<FieldsproutTreeConfig> context) {
+    public boolean place(FeaturePlaceContext<FieldsprootTreeConfig> context) {
         WorldGenLevel level = context.level();
         if (level.isStateAtPosition(context.origin().below(), state -> !isDirt(state))) {
             return false;
@@ -72,7 +72,7 @@ public class FieldsproutTreeFeature extends Feature<FieldsproutTreeConfig> {
     }
 
     @Nullable
-    public BlockPos placeTrunk(FeaturePlaceContext<FieldsproutTreeConfig> context, Map<BlockPos, BlockState> stateMap, Direction d, boolean longerSecondBend) {
+    public BlockPos placeTrunk(FeaturePlaceContext<FieldsprootTreeConfig> context, Map<BlockPos, BlockState> stateMap, Direction d, boolean longerSecondBend) {
         
         RandomSource random = context.random();
         BlockPos origin = context.origin();
@@ -141,8 +141,8 @@ public class FieldsproutTreeFeature extends Feature<FieldsproutTreeConfig> {
         return false;
     }
 
-    public void place(FeaturePlaceContext<FieldsproutTreeConfig> context, Map<BlockPos, BlockState> stateMap) {
-        FieldsproutTreeConfig config = context.config();
+    public void place(FeaturePlaceContext<FieldsprootTreeConfig> context, Map<BlockPos, BlockState> stateMap) {
+        FieldsprootTreeConfig config = context.config();
         int xzSpread = config.patchXZSpread;
         int ySpread = config.patchYSpread;
         int tries = config.patchTries;
@@ -166,7 +166,7 @@ public class FieldsproutTreeFeature extends Feature<FieldsproutTreeConfig> {
             int r = (int) (Mth.getSeed(immutable) % 4);
             Direction d = r == 0 ? Direction.NORTH : r == 1 ? Direction.EAST : r == 2 ? Direction.SOUTH : Direction.EAST;
 
-            BlockState state = ReduxBlocks.FIELDSPROUT_PETALS.get().defaultBlockState()
+            BlockState state = ReduxBlocks.FIELDSPROOT_PETALS.get().defaultBlockState()
                     .setValue(ReduxStates.PETAL_1, PetalPrismaticness.getFromIndex(p1))
                     .setValue(ReduxStates.PETAL_2, PetalPrismaticness.getFromIndex(p2))
                     .setValue(ReduxStates.PETAL_3, PetalPrismaticness.getFromIndex(p3))
@@ -180,7 +180,7 @@ public class FieldsproutTreeFeature extends Feature<FieldsproutTreeConfig> {
     }
 
 
-    protected boolean createFoliage(FeaturePlaceContext<FieldsproutTreeConfig> context, Map<BlockPos, BlockState> stateMap, BlockPos origin, Direction d, boolean longerSecondBend) {
+    protected boolean createFoliage(FeaturePlaceContext<FieldsprootTreeConfig> context, Map<BlockPos, BlockState> stateMap, BlockPos origin, Direction d, boolean longerSecondBend) {
         Collection<BlockPos> toPlace = Lists.newArrayList();
         RandomSource random = context.random();
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();

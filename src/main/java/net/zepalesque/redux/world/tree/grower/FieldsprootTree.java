@@ -8,12 +8,12 @@ import net.zepalesque.redux.data.resource.ReduxConfiguredFeatures;
 
 import javax.annotation.Nullable;
 
-public class FloweringFieldsproutTree extends AbstractTreeGrower {
-    public FloweringFieldsproutTree() {
+public class FieldsprootTree extends AbstractTreeGrower {
+    public FieldsprootTree() {
     }
 
     @Nullable
     protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean largeHive) {
-        return ReduxConfiguredFeatures.FLOWERING_FIELDSPROUT_TREE;
+        return ReduxConfiguredFeatures.FIELDSPROOT_TREE;
     }
 }

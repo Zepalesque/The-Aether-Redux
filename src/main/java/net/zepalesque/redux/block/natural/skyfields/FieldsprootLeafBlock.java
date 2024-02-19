@@ -1,4 +1,4 @@
-package net.zepalesque.redux.block.natural.highfields;
+package net.zepalesque.redux.block.natural.skyfields;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -23,7 +23,7 @@ import java.util.function.BiFunction;
 import java.util.function.Supplier;
 import java.util.stream.IntStream;
 
-public class FloweringFieldsproutLeafBlock extends ExtendedDistanceLeavesBlock {
+public class FieldsprootLeafBlock extends ExtendedDistanceLeavesBlock {
     private final BiFunction<RandomSource, BlockState, ? extends ParticleOptions> particle;
 
     PerlinNoise PERLIN = PerlinNoise.create(new XoroshiroRandomSource(2743), IntStream.of(0));
@@ -31,7 +31,7 @@ public class FloweringFieldsproutLeafBlock extends ExtendedDistanceLeavesBlock {
     public static final BiFunction<RandomSource, Supplier<? extends ParticleOptions>, ? extends ParticleOptions> LEAF_PARTICLE_BASE_FUNCTION =
             (randomSource, supplier) -> randomSource.nextFloat() < 0.2F ? ReduxParticleTypes.FALLING_PRISMATIC_LEAVES.get() : supplier.get();
 
-    public FloweringFieldsproutLeafBlock(BiFunction<RandomSource, BlockState, ? extends ParticleOptions> particle, Properties properties) {
+    public FieldsprootLeafBlock(BiFunction<RandomSource, BlockState, ? extends ParticleOptions> particle, Properties properties) {
         super(properties);
         this.registerDefaultState(this.defaultBlockState().setValue(ReduxStates.PRISMATICNESS, 0));
         this.particle = particle;

@@ -34,8 +34,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.SPEAR_OF_THE_BLIGHT, "Spear of the Blight");
         addLore(ReduxItems.SPEAR_OF_THE_BLIGHT, "A spear crafted with a Blightbunny Fang, Skyroot Stick, and Zanite Gemstone. This nifty weapon can be used to inflict Inebriation on enemies! It will also return when thrown into the void if enchanted with Loyalty.");
 
-        addItem(ReduxItems.ZANBERRY, "Chromaberry");
-        addLore(ReduxItems.ZANBERRY, "A type of berry found on bushes in the Highfields. This can be eaten, and nourishes slightly more hunger than Blueberries.");
+        addItem(ReduxItems.ZANBERRY, "Zanberry");
+        addLore(ReduxItems.ZANBERRY, "A type of berry found on bushes in the Skyroot Shrublands. This can be eaten, and nourishes slightly more hunger than Blueberries.");
 
         addItem(ReduxItems.BLUE_SWET_JELLY, "Blue Swet Jelly");
         addLore(ReduxItems.BLUE_SWET_JELLY, "A delicious treat made with the remains of a Blue Swet.");
@@ -177,7 +177,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addBlock(ReduxBlocks.SKYSPROUTS, "Skysprouts");
         addBlock(ReduxBlocks.POTTED_SKYSPROUTS, "Potted Skysprouts");
-        addLore(ReduxBlocks.SKYSPROUTS, "A relative of the common Wyndsprouts, this flowering grass is found in the Highfields.");
+        addLore(ReduxBlocks.SKYSPROUTS, "A relative of the common Wyndsprouts, this flowering grass is found in the Skyfields.");
 
         addBlock(ReduxBlocks.ZANBERRY_BUSH, "Zanberry Bush");
         addLore(ReduxBlocks.ZANBERRY_BUSH, "A nice bush of Zanberries!");
@@ -188,7 +188,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addBlock(ReduxBlocks.CLOUDCAP_MUSHLING, "Cloudcap Mushling");
         addBlock(ReduxBlocks.POTTED_CLOUDCAP_MUSHLING, "Potted Cloudcap Mushling");
-        addLore(ReduxBlocks.CLOUDCAP_MUSHLING, "A mushroom found commonly in the Cloudcaps and occasionally in the Highfields. It glows faintly.");
+        addLore(ReduxBlocks.CLOUDCAP_MUSHLING, "A mushroom found commonly in the Cloudcaps. It glows faintly.");
 
         addBlock(ReduxBlocks.SPIROLYCTIL, "Spirolyctil");
         addBlock(ReduxBlocks.POTTED_SPIROLYCTIL, "Potted Spirolyctil");
@@ -200,10 +200,10 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addBlock(ReduxBlocks.BLIGHTWILLOW_LEAVES, "Blightwillow Leaves");
         addLore(ReduxBlocks.BLIGHTWILLOW_LEAVES, "The leaves of the Blightwillow tree. These sometimes drop Blightwillow Saplings.");
-        addBlock(ReduxBlocks.FLOWERING_FIELDSPROUT_LEAVES, "Flowering Fieldsprout Leaves");
-        addLore(ReduxBlocks.FLOWERING_FIELDSPROUT_LEAVES, "The colorful leaves of Flowering Fieldsprout trees! These will occasionally drop Flowering Fieldsprout Saplings.");
-        addBlock(ReduxBlocks.FIELDSPROUT_PETALS, "Fieldsprout Petals");
-        addLore(ReduxBlocks.FIELDSPROUT_PETALS, "The vibrant petals of Flowering Fieldsprout trees, which are found commonly underneath them.");
+        addBlock(ReduxBlocks.FIELDSPROOT_LEAVES, "Flowering Fieldsprout Leaves");
+        addLore(ReduxBlocks.FIELDSPROOT_LEAVES, "The colorful leaves of Flowering Fieldsprout trees! These will occasionally drop Flowering Fieldsprout Saplings.");
+        addBlock(ReduxBlocks.FIELDSPROOT_PETALS, "Fieldsprout Petals");
+        addLore(ReduxBlocks.FIELDSPROOT_PETALS, "The vibrant petals of Flowering Fieldsprout trees, which are found commonly underneath them.");
         addBlock(ReduxBlocks.GOLDEN_LEAF_PILE, "Golden Leaf Pile");
         addLore(ReduxBlocks.GOLDEN_LEAF_PILE, "A pile of Golden Oak Leaves. These can be found under Golden Oak trees.");
         addBlock(ReduxBlocks.GILDED_LEAF_PILE, "Gilded Leaf Pile");
@@ -214,9 +214,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.POTTED_BLIGHTWILLOW_SAPLING, "Potted Blightwillow Sapling");
         addLore(ReduxBlocks.BLIGHTWILLOW_SAPLING, "The sapling of the Blightwillow tree. It can be grown by waiting or using Bone Meal.");
 
-        addBlock(ReduxBlocks.FLOWERING_FIELDSPROUT_SAPLING, "Flowering Fieldsprout Sapling");
-        addBlock(ReduxBlocks.POTTED_FLOWERING_FIELDSPROUT_SAPLING, "Potted Flowering Fieldsprout Sapling");
-        addLore(ReduxBlocks.FLOWERING_FIELDSPROUT_SAPLING, "The sapling of the Flowering Fieldsprout tree. It can be grown by waiting or using Bone Meal.");
+        addBlock(ReduxBlocks.FIELDSPROOT_SAPLING, "Flowering Fieldsprout Sapling");
+        addBlock(ReduxBlocks.POTTED_FIELDSPROOT_SAPLING, "Potted Flowering Fieldsprout Sapling");
+        addLore(ReduxBlocks.FIELDSPROOT_SAPLING, "The sapling of the Flowering Fieldsprout tree. It can be grown by waiting or using Bone Meal.");
 
         addBlock(ReduxBlocks.AVELIUM_ROOTS, "Avelium Roots");
         addBlock(ReduxBlocks.POTTED_AVELIUM_ROOTS, "Potted Avelium Roots");
@@ -266,10 +266,10 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addBlock(ReduxBlocks.IRIDIA, "Iridia");
         addBlock(ReduxBlocks.POTTED_IRIDIA, "Potted Iridia");
-        addLore(ReduxBlocks.IRIDIA, "An iridescent flower found in the Highfields.");
+        addLore(ReduxBlocks.IRIDIA, "An iridescent flower found in the Skyfields.");
 
         addBlock(ReduxBlocks.XAELIA_FLOWERS, "Xaelia Flowers");
-        addLore(ReduxBlocks.XAELIA_FLOWERS, "Some chromatic flowers found in the Highfields.");
+        addLore(ReduxBlocks.XAELIA_FLOWERS, "Some chromatic flowers found in the Skyfields.");
 
         addBlock(ReduxBlocks.GILDED_HOLYSTONE, "Gilded Holystone");
         addLore(ReduxBlocks.GILDED_HOLYSTONE, "The enchanted form of Mossy Holystone. This rock covered in golden moss glitters in the sunlight.");
@@ -442,7 +442,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBiome(ReduxBiomes.FROSTED_TUNDRA, "Frosted Tundra");
         addBiome(ReduxBiomes.GILDED_GROVES, "Gilded Groves");
         addBiome(ReduxBiomes.GILDED_GRASSLANDS, "Gilded Grasslands");
-        addBiome(ReduxBiomes.HIGHFIELDS, "Highfields");
+        addBiome(ReduxBiomes.SKYFIELDS, "Skyfields");
         addBiome(ReduxBiomes.THE_BLIGHT, "The Blight");
         addBiome(ReduxBiomes.SKYROOT_SHRUBLANDS, "Skyroot Shrublands");
 
@@ -616,8 +616,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addAdvancement("kill_sheepuff_with_fireball", "Pyromaniac [Redux]");
         addAdvancementDesc("kill_sheepuff_with_fireball", "Obtain the Phoenix Emblem from the Gold Dungeon and kill a Sheepuff with a fireball");
 
-        addAdvancement("enter_highfields", "Prismacolor Photosynthesis [Redux]");
-        addAdvancementDesc("enter_highfields", "Enter the Highfields, a biome filled with colorful flora and abundant fauna");
+        addAdvancement("enter_skyfields", "Prismacolor Photosynthesis [Redux]");
+        addAdvancementDesc("enter_skyfields", "Enter the Skyfields, a biome filled with colorful flora and abundant fauna");
 
         addAdvancement("enter_gilded_groves", "All That Glitters [Redux]");
         addAdvancementDesc("enter_gilded_groves", "Enter the Gilded Groves, a golden forest filled with Golden Amber");

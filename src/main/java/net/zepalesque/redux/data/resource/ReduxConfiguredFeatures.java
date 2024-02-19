@@ -12,9 +12,6 @@ import com.aetherteam.aether.world.foliageplacer.CrystalFoliagePlacer;
 import com.aetherteam.aether.world.foliageplacer.GoldenOakFoliagePlacer;
 import com.aetherteam.aether.world.trunkplacer.CrystalTreeTrunkPlacer;
 import com.aetherteam.aether.world.trunkplacer.GoldenOakTrunkPlacer;
-import net.builderdog.ancient_aether.block.AncientAetherBlocks;
-import net.builderdog.ancient_aether.block.blockstate.AetherGrassType;
-import net.builderdog.ancient_aether.block.blockstate.AncientAetherBlockStateProperties;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
@@ -112,14 +109,14 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> GROVE_TREES_ALT = createKey(Folders.TREE + "grove_trees_alt");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GRASSLAND_TREES = createKey(Folders.TREE + "grassland_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GRASSLAND_TREES_ALT = createKey(Folders.TREE + "grassland_trees_alt");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> HIGHFIELDS_ROCK  = createKey(Folders.SURFACE + "highfields_rock");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SKYFIELDS_ROCK = createKey(Folders.SURFACE + "skyfields_rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SHRUBLANDS_ROCK  = createKey(Folders.SURFACE + "shrublands_rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLIMMERSTOOL_ROCK = createKey(Folders.SURFACE + name(ReduxBlocks.SHIMMERSTOOL) + "_rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLIMMERSTOOL_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.SHIMMERSTOOL) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> HOLYSILT_DISK  = createKey(Folders.SURFACE + "holysilt_disk");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AEROGEL_DISK  = createKey(Folders.SURFACE + "aerogel_disk");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYSPROUTS_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.SKYSPROUTS) + "_patch");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> HIGHFIELDS_TREES = createKey(Folders.TREE + "highfields_trees");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SKYFIELDS_TREES = createKey(Folders.TREE + "skyfields_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SHRUBLANDS_TREES = createKey(Folders.TREE + "shrublands_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> IRIDIA_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.IRIDIA) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> XAELIA_PATCH  = createKey(Folders.PATCH + "xaelia_patch");
@@ -134,7 +131,7 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> MOSSY_HOLYSTONE_ORE  = createKey(Folders.ORE + name(AetherBlocks.MOSSY_HOLYSTONE) + "_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> MOSSY_ROCK  = createKey(Folders.SURFACE + "mossy_rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ICESTONE_ROCK  = createKey(Folders.SURFACE + "mossy_rock");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWERING_FIELDSPROUT_TREE = createKey(Folders.TREE + "flowering_fieldsprout_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FIELDSPROOT_TREE = createKey(Folders.TREE + "fieldsproot_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> WYNDSPROUTS_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.WYNDSPROUTS) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GENESIS_WYNDSPROUTS_PATCH = createKey(Folders.PATCH + "genesis_" +  name(ReduxBlocks.WYNDSPROUTS) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GENESIS_SKYSPROUTS_PATCH = createKey(Folders.PATCH + "genesis_" + name(ReduxBlocks.SKYSPROUTS) + "_patch");
@@ -491,7 +488,7 @@ public class ReduxConfiguredFeatures {
         register(context, GOLDEN_LEAF_PATCH, Feature.RANDOM_PATCH,
                 blockTestPatch(8, 3, 3, createLeafPileLayers(ReduxBlocks.GOLDEN_LEAF_PILE),
                         BlockPredicate.wouldSurvive(ReduxBlocks.AURUM.get().defaultBlockState(), BlockPos.ZERO)));
-        register(context, HIGHFIELDS_ROCK, Feature.FOREST_ROCK,
+        register(context, SKYFIELDS_ROCK, Feature.FOREST_ROCK,
                 new BlockStateConfiguration(AetherFeatureStates.HOLYSTONE));
 
         register(context, SHRUBLANDS_ROCK, Feature.FOREST_ROCK,
@@ -541,11 +538,11 @@ public class ReduxConfiguredFeatures {
         register(context, ICESTONE_ROCK, Feature.FOREST_ROCK,
                 new BlockStateConfiguration(AetherFeatureStates.ICESTONE));
 
-        register(context, FLOWERING_FIELDSPROUT_TREE, ReduxFeatures.FIELDSPROUT_TREE.get(),
-                new FieldsproutTreeConfig(
-                        prov(ReduxBlocks.FLOWERING_FIELDSPROUT_LEAVES),
-                        prov(Redux.WoodHandlers.FIELDSPROUT.log),
-                        prov(naturalDrops(Redux.WoodHandlers.FIELDSPROUT.wood)),
+        register(context, FIELDSPROOT_TREE, ReduxFeatures.FIELDSPROOT_TREE.get(),
+                new FieldsprootTreeConfig(
+                        prov(ReduxBlocks.FIELDSPROOT_LEAVES),
+                        prov(Redux.WoodHandlers.FIELDSPROOT.log),
+                        prov(naturalDrops(Redux.WoodHandlers.FIELDSPROOT.wood)),
                         new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
                                 .add(ConstantInt.of(0), 5)
                                 .add(ConstantInt.of(1), 4)
@@ -619,13 +616,13 @@ public class ReduxConfiguredFeatures {
                         PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(PURPLE_GLACIA_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.PURPLE_GLACIA_SAPLING.get()))));
 
 
-        register(context, HIGHFIELDS_TREES, Feature.RANDOM_SELECTOR,
+        register(context, SKYFIELDS_TREES, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(
                         new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(ReduxConfiguredFeatures.CRYSTAL_RARE_FRUIT_TREE),
                                 PlacementUtils.filteredByBlockSurvival(AetherBlocks.SKYROOT_SAPLING.get())), 0.35F)
                 ),
                         PlacementUtils.inlinePlaced(
-                                configuredFeatures.getOrThrow(FLOWERING_FIELDSPROUT_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.FLOWERING_FIELDSPROUT_SAPLING.get()))
+                                configuredFeatures.getOrThrow(FIELDSPROOT_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.FIELDSPROOT_SAPLING.get()))
                 ));
 
         register(context, SHRUBLANDS_TREES, Feature.RANDOM_SELECTOR,

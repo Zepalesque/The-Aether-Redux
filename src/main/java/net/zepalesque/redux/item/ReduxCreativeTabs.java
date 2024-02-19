@@ -106,8 +106,8 @@ public class ReduxCreativeTabs {
             putAfter(AetherBlocks.GOLDEN_AERCLOUD, ReduxBlocks.BLIGHTED_AERCLOUD, event);
 
 
-            putAfter(AetherBlocks.DECORATED_HOLIDAY_LEAVES, ReduxBlocks.FLOWERING_FIELDSPROUT_LEAVES, event);
-            putAfter(ReduxBlocks.FLOWERING_FIELDSPROUT_LEAVES, ReduxBlocks.CLOUD_CAP_BLOCK, event);
+            putAfter(AetherBlocks.DECORATED_HOLIDAY_LEAVES, ReduxBlocks.FIELDSPROOT_LEAVES, event);
+            putAfter(ReduxBlocks.FIELDSPROOT_LEAVES, ReduxBlocks.CLOUD_CAP_BLOCK, event);
             putAfter(ReduxBlocks.CLOUD_CAP_BLOCK, ReduxBlocks.CLOUDCAP_SPORES, event);
             putAfter(ReduxBlocks.CLOUDCAP_SPORES, ReduxBlocks.JELLYSHROOM_JELLY_BLOCK, event);
 
@@ -116,7 +116,7 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.BLIGHTED_SKYROOT_SAPLING, ReduxBlocks.GLACIA_SAPLING, event);
             putAfter(ReduxBlocks.GLACIA_SAPLING, ReduxBlocks.PURPLE_GLACIA_SAPLING, event);
             putAfter(ReduxBlocks.PURPLE_GLACIA_SAPLING, ReduxBlocks.GILDED_OAK_SAPLING, event);
-            putAfter(ReduxBlocks.GILDED_OAK_SAPLING, ReduxBlocks.FLOWERING_FIELDSPROUT_SAPLING, event);
+            putAfter(ReduxBlocks.GILDED_OAK_SAPLING, ReduxBlocks.FIELDSPROOT_SAPLING, event);
 
             putAfter(AetherBlocks.BERRY_BUSH, ReduxBlocks.ZANBERRY_SHRUB, event);
             putAfter(ReduxBlocks.ZANBERRY_SHRUB, ReduxBlocks.ZANBERRY_BUSH, event);
@@ -124,8 +124,8 @@ public class ReduxCreativeTabs {
 
             putAfter(AetherBlocks.WHITE_FLOWER, ReduxBlocks.WYNDSPROUTS, event);
             putAfter(ReduxBlocks.WYNDSPROUTS, ReduxBlocks.SKYSPROUTS, event);
-            putAfter(ReduxBlocks.SKYSPROUTS, ReduxBlocks.FIELDSPROUT_PETALS, event);
-            putAfter(ReduxBlocks.FIELDSPROUT_PETALS, ReduxBlocks.IRIDIA, event);
+            putAfter(ReduxBlocks.SKYSPROUTS, ReduxBlocks.FIELDSPROOT_PETALS, event);
+            putAfter(ReduxBlocks.FIELDSPROOT_PETALS, ReduxBlocks.IRIDIA, event);
             putAfter(ReduxBlocks.IRIDIA, ReduxBlocks.XAELIA_FLOWERS, event);
             putAfter(ReduxBlocks.XAELIA_FLOWERS, ReduxBlocks.AURUM, event);
             putAfter(ReduxBlocks.AURUM, ReduxBlocks.GOLDEN_CLOVER, event);

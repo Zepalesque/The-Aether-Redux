@@ -134,7 +134,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.GLACIA_LEAVES.get(),
                 ReduxBlocks.PURPLE_GLACIA_LEAVES.get(),
                 ReduxBlocks.GILDED_OAK_LEAVES.get(),
-                ReduxBlocks.FLOWERING_FIELDSPROUT_LEAVES.get(),
+                ReduxBlocks.FIELDSPROOT_LEAVES.get(),
                 ReduxBlocks.BLIGHTED_SKYROOT_LEAVES.get()
         );
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
@@ -190,7 +190,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.GILDED_OAK_LEAVES.get(),
                 ReduxBlocks.BLIGHTED_SKYROOT_LEAVES.get(),
                 ReduxBlocks.BLIGHTWILLOW_LEAVES.get(),
-                ReduxBlocks.FLOWERING_FIELDSPROUT_LEAVES.get(),
+                ReduxBlocks.FIELDSPROOT_LEAVES.get(),
                 ReduxBlocks.GOLDEN_LEAF_PILE.get(),
                 ReduxBlocks.GILDED_LEAF_PILE.get(),
                 ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get()
@@ -249,7 +249,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.POTTED_LUXWEED.get(),
                 ReduxBlocks.POTTED_ZANBERRY_SHRUB.get(),
                 ReduxBlocks.POTTED_BLIGHTWILLOW_SAPLING.get(),
-                ReduxBlocks.POTTED_FLOWERING_FIELDSPROUT_SAPLING.get(),
+                ReduxBlocks.POTTED_FIELDSPROOT_SAPLING.get(),
                 ReduxBlocks.POTTED_GLACIA_SAPLING.get(),
                 ReduxBlocks.POTTED_PURPLE_GLACIA_SAPLING.get(),
                 ReduxBlocks.POTTED_GILDED_OAK_SAPLING.get(),
@@ -269,7 +269,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.ZANBERRY_SHRUB.get(),
                 ReduxBlocks.GILDED_OAK_SAPLING.get(),
                 ReduxBlocks.BLIGHTED_SKYROOT_SAPLING.get(),
-                ReduxBlocks.FLOWERING_FIELDSPROUT_SAPLING.get()
+                ReduxBlocks.FIELDSPROOT_SAPLING.get()
         );
         this.tag(BlockTags.WALLS).add(
                 ReduxBlocks.DIVINITE_WALL.get(),

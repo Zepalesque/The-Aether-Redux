@@ -8,7 +8,6 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.BiomeTagsProvider;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.EggItem;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.zepalesque.redux.Redux;
@@ -34,7 +33,7 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
                 ReduxBiomes.FROSTED_TUNDRA,
                 ReduxBiomes.GILDED_GROVES,
                 ReduxBiomes.GILDED_GRASSLANDS,
-                ReduxBiomes.HIGHFIELDS,
+                ReduxBiomes.SKYFIELDS,
                 ReduxBiomes.CLOUDCAPS,
                 ReduxBiomes.SKYROOT_SHRUBLANDS
         );

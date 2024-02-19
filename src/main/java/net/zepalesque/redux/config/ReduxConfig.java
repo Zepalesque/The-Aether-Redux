@@ -56,7 +56,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue enable_the_blight;
         public final ForgeConfigSpec.BooleanValue enable_gilded_biomes;
         public final ForgeConfigSpec.BooleanValue enable_snowy_biomes;
-        public final ForgeConfigSpec.BooleanValue enable_highfields;
+        public final ForgeConfigSpec.BooleanValue enable_skyfields;
         public final ForgeConfigSpec.BooleanValue enable_cloudcaps;
         public final ForgeConfigSpec.BooleanValue enable_skyroot_shrublands;
 
@@ -131,8 +131,8 @@ public class ReduxConfig {
 
             this.enable_the_blight = builder.comment("Enables the Blight biome.").worldRestart().define("Enable the Blight", true);
             this.enable_gilded_biomes = builder.comment("Enables the Gilded Groves and Gilded Grasslands biomes.").worldRestart().define("Enable Gilded Biomes", true);
-            this.enable_snowy_biomes = builder.comment("Enables the Frosted Forests biome.").worldRestart().define("Enable Frosted Forests", true);
-            this.enable_highfields = builder.comment("Enables the Highfields biome.").worldRestart().define("Enable Highfields", true);
+            this.enable_snowy_biomes = builder.comment("Enables the Frosted Tundra and Glacial Tagia biomes.").worldRestart().define("Enable Snowy Biomes", true);
+            this.enable_skyfields = builder.comment("Enables the Skyfields biome.").worldRestart().define("Enable Skyfields", true);
             this.enable_cloudcaps = builder.comment("Enables the Cloudcaps biome.").worldRestart().define("Enable the Cloudcaps", true);
             this.enable_skyroot_shrublands = builder.comment("Enables the Skyroot Shrublands biome.").worldRestart().define("Enable Skyroot Shrublands", true);
             this.enchanted_gilded_grass = builder.comment("Uses Enchanted Aether Grass for the ground in the Gilded Groves. May require a Minecraft restart.").worldRestart().define("Enchanted Gilded Grass", false);

@@ -5,7 +5,6 @@ import com.aetherteam.aether.block.AetherBlockStateProperties;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.providers.AetherBlockStateProvider;
 import net.builderdog.ancient_aether.block.blockstate.AncientAetherBlockStateProperties;
-import net.builderdog.ancient_aether.data.resources.registries.AncientAetherBiomes;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
 import net.minecraft.data.PackOutput;
@@ -86,12 +85,12 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.block(ReduxBlocks.BLIGHTWILLOW_LEAVES.get(), "natural/");
         this.crossBlock(ReduxBlocks.BLIGHTWILLOW_SAPLING.get(), "natural/");
 
-        this.floweringFieldsproutLeafBlock(ReduxBlocks.FLOWERING_FIELDSPROUT_LEAVES, "natural/");
-        this.fieldsproutPetals(ReduxBlocks.FIELDSPROUT_PETALS.get(), "natural/fieldsprout_petals_stem");
+        this.floweringFieldsproutLeafBlock(ReduxBlocks.FIELDSPROOT_LEAVES, "natural/");
+        this.fieldsproutPetals(ReduxBlocks.FIELDSPROOT_PETALS.get(), "natural/fieldsprout_petals_stem");
 
 
-        this.crossBlock(ReduxBlocks.FLOWERING_FIELDSPROUT_SAPLING.get(), "natural/");
-        this.pottedPlant(ReduxBlocks.POTTED_FLOWERING_FIELDSPROUT_SAPLING.get(), ReduxBlocks.FLOWERING_FIELDSPROUT_SAPLING.get(), "natural/");
+        this.crossBlock(ReduxBlocks.FIELDSPROOT_SAPLING.get(), "natural/");
+        this.pottedPlant(ReduxBlocks.POTTED_FIELDSPROOT_SAPLING.get(), ReduxBlocks.FIELDSPROOT_SAPLING.get(), "natural/");
 
         this.leafPile(ReduxBlocks.GOLDEN_LEAF_PILE, AetherBlocks.GOLDEN_OAK_LEAVES, "natural/");
         this.leafPile(ReduxBlocks.GILDED_LEAF_PILE, ReduxBlocks.GILDED_OAK_LEAVES, "natural/");

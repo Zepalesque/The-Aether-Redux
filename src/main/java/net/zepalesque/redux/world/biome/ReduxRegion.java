@@ -34,7 +34,7 @@ public class ReduxRegion extends Region {
             ResourceKey<Biome> frosted = ReduxConfig.COMMON.enable_snowy_biomes.get() ? ReduxBiomes.FROSTED_TUNDRA : AetherBiomes.SKYROOT_FOREST;
             ResourceKey<Biome> cloudcaps = ReduxConfig.COMMON.enable_cloudcaps.get() ? ReduxBiomes.CLOUDCAPS : AetherBiomes.SKYROOT_GROVE;
             ResourceKey<Biome> blight = ReduxConfig.COMMON.enable_the_blight.get() ? ReduxBiomes.THE_BLIGHT : AetherBiomes.SKYROOT_WOODLAND;
-            ResourceKey<Biome> highfields = ReduxConfig.COMMON.enable_highfields.get() ? ReduxBiomes.HIGHFIELDS : AetherBiomes.SKYROOT_MEADOW;
+            ResourceKey<Biome> highfields = ReduxConfig.COMMON.enable_skyfields.get() ? ReduxBiomes.SKYFIELDS : AetherBiomes.SKYROOT_MEADOW;
             ResourceKey<Biome> shrublands = ReduxConfig.COMMON.enable_skyroot_shrublands.get() ? ReduxBiomes.SKYROOT_SHRUBLANDS : AetherBiomes.SKYROOT_MEADOW;
             ResourceKey<Biome> grove = ReduxConfig.COMMON.enable_gilded_biomes.get() ? ReduxBiomes.GILDED_GROVES : AetherBiomes.SKYROOT_GROVE;
             ResourceKey<Biome> grasslands = ReduxConfig.COMMON.enable_gilded_biomes.get() ? ReduxBiomes.GILDED_GRASSLANDS : AetherBiomes.SKYROOT_MEADOW;
@@ -69,7 +69,7 @@ public class ReduxRegion extends Region {
             addBiome(mapper, new Climate.ParameterPoint(temp3, Climate.Parameter.span(-0.1F, 0.2F), fullRange, fullRange, fullRange, fullRange, 0),
                     AetherBiomes.SKYROOT_MEADOW);
             addBiome(mapper, new Climate.ParameterPoint(temp3, Climate.Parameter.span(0.2F, 0.5F), fullRange, fullRange, fullRange, fullRange, 0),
-                    ReduxBiomes.HIGHFIELDS);
+                    ReduxBiomes.SKYFIELDS);
             addBiome(mapper, new Climate.ParameterPoint(temp3, Climate.Parameter.span(0.5F, 1.0F), fullRange, fullRange, fullRange, fullRange, 0),
                     shrublands);
 
@@ -170,7 +170,7 @@ public class ReduxRegion extends Region {
             addBiome(mapper, new Climate.ParameterPoint(tempSakura, Climate.Parameter.span(-1.5F, 0.25F), fullRange, erosionDefault, fullRange, fullRange, 0),
                     AncientAetherBiomes.SAKURA_JUNGLE);
             addBiome(mapper, new Climate.ParameterPoint(tempSakura, Climate.Parameter.span(0.25F, 1.5F), fullRange, erosionDefault, fullRange, fullRange, 0),
-                    ReduxConfig.COMMON.enable_highfields.get() ? ReduxBiomes.HIGHFIELDS : AncientAetherBiomes.SKYROOT_JUNGLE);
+                    ReduxConfig.COMMON.enable_skyfields.get() ? ReduxBiomes.SKYFIELDS : AncientAetherBiomes.SKYROOT_JUNGLE);
 
             //Elevated Islands
             addBiome(mapper, new Climate.ParameterPoint(fullRange, Climate.Parameter.span(-1.5F, -0.25F), fullRange, erosionElevated, fullRange, fullRange, 0),

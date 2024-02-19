@@ -106,7 +106,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlockFlatGlow(ReduxBlocks.CLOUDCAP_MUSHLING, "natural/");
 
         this.itemBlockFlat(ReduxBlocks.BLIGHTWILLOW_SAPLING, "natural/");
-        this.itemBlockFlat(ReduxBlocks.FLOWERING_FIELDSPROUT_SAPLING.get(), "natural/");
+        this.itemBlockFlat(ReduxBlocks.FIELDSPROOT_SAPLING.get(), "natural/");
 
         itemBlock(ReduxBlocks.GLACIA_LEAVES);
         this.itemBlockFlat(ReduxBlocks.GLACIA_SAPLING.get(), "natural/");
@@ -123,8 +123,8 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlockFlatTintOverlay(ReduxBlocks.BLIGHTSHADE, "natural/");
 
 
-        blockCustomTexture(ReduxBlocks.FLOWERING_FIELDSPROUT_LEAVES, "natural/", "flowering_fieldsprout_leaves");
-        itemCustomTexture(ReduxBlocks.FIELDSPROUT_PETALS, "misc/", "fieldsprout_petals");
+        blockCustomTexture(ReduxBlocks.FIELDSPROOT_LEAVES, "natural/", "flowering_fieldsprout_leaves");
+        itemCustomTexture(ReduxBlocks.FIELDSPROOT_PETALS, "misc/", "fieldsprout_petals");
         item(ReduxItems.VERIDIUM_NUGGET.get(), "materials/");
 
         itemBlockFlatItemTexture(ReduxBlocks.VERIDIUM_LANTERN, "misc/");

@@ -37,8 +37,8 @@ import net.zepalesque.redux.block.natural.enchanted.EnchantedVinesHeadBlock;
 import net.zepalesque.redux.block.natural.enchanted.EnchantedVinesPlantBlock;
 import net.zepalesque.redux.block.natural.enchanted.EnchantableBushBlock;
 import net.zepalesque.redux.block.natural.frosted.*;
-import net.zepalesque.redux.block.natural.highfields.FieldsproutPetalsBlock;
-import net.zepalesque.redux.block.natural.highfields.FloweringFieldsproutLeafBlock;
+import net.zepalesque.redux.block.natural.skyfields.FieldsprootPetalsBlock;
+import net.zepalesque.redux.block.natural.skyfields.FieldsprootLeafBlock;
 import net.zepalesque.redux.block.natural.shrublands.ZanberryBushBlock;
 import net.zepalesque.redux.block.natural.shrublands.ZanberryShrubBlock;
 import net.zepalesque.redux.block.util.CommonPlantBounds;
@@ -67,11 +67,11 @@ public class ReduxBlocks {
     public static RegistryObject<SlabBlock> DIVINITE_SLAB = register("divinite_slab",
             () -> new SlabBlock(BlockBehaviour.Properties.copy(DIVINITE.get()).strength(0.5F, 6.0F)));
 
-    public static RegistryObject<FieldsproutPetalsBlock> FIELDSPROUT_PETALS = register("fieldsprout_petals",
-            () -> new FieldsproutPetalsBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().hasPostProcess((state, lvl, pos) -> true).sound(SoundType.PINK_PETALS)));
+    public static RegistryObject<FieldsprootPetalsBlock> FIELDSPROOT_PETALS = register("fieldsproot_petals",
+            () -> new FieldsprootPetalsBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().hasPostProcess((state, lvl, pos) -> true).sound(SoundType.PINK_PETALS)));
 
-    public static RegistryObject<Block> FLOWERING_FIELDSPROUT_LEAVES = register("flowering_fieldsprout_leaves", () -> new FloweringFieldsproutLeafBlock(
-            FloweringFieldsproutLeafBlock::particleFromState, BlockBehaviour.Properties.copy(AetherBlocks.SKYROOT_LEAVES.get()).hasPostProcess((state, lvl, pos) -> true).isSuffocating(ReduxBlocks::never).isViewBlocking(ReduxBlocks::never).mapColor(FloweringFieldsproutLeafBlock::colorFromState).sound(SoundType.CHERRY_LEAVES)));
+    public static RegistryObject<Block> FIELDSPROOT_LEAVES = register("fieldsproot_leaves", () -> new FieldsprootLeafBlock(
+            FieldsprootLeafBlock::particleFromState, BlockBehaviour.Properties.copy(AetherBlocks.SKYROOT_LEAVES.get()).hasPostProcess((state, lvl, pos) -> true).isSuffocating(ReduxBlocks::never).isViewBlocking(ReduxBlocks::never).mapColor(FieldsprootLeafBlock::colorFromState).sound(SoundType.CHERRY_LEAVES)));
 
     public static RegistryObject<Block> BLIGHTED_AERCLOUD = register("blighted_aercloud", () -> new BlightedAercloudBlock(BlockBehaviour.Properties.copy(AetherBlocks.COLD_AERCLOUD.get()).mapColor(MapColor.COLOR_LIGHT_GREEN)));
 
@@ -234,12 +234,12 @@ public class ReduxBlocks {
                     BlockBehaviour.Properties.copy(Blocks.FLOWER_POT))
     );
 
-    public static final RegistryObject<SaplingBlock> FLOWERING_FIELDSPROUT_SAPLING = register("flowering_fieldsprout_sapling", () ->
-            new SaplingBlock(new FloweringFieldsproutTree(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING).sound(SoundType.CHERRY_SAPLING))
+    public static final RegistryObject<SaplingBlock> FIELDSPROOT_SAPLING = register("fieldsproot_sapling", () ->
+            new SaplingBlock(new FieldsprootTree(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING).sound(SoundType.CHERRY_SAPLING))
     );
-    public static final RegistryObject<FlowerPotBlock> POTTED_FLOWERING_FIELDSPROUT_SAPLING = BLOCKS.register("potted_flowering_fieldsprout_sapling",
+    public static final RegistryObject<FlowerPotBlock> POTTED_FIELDSPROOT_SAPLING = BLOCKS.register("potted_fieldsproot_sapling",
             () -> new FlowerPotBlock(() ->
-                    (FlowerPotBlock)Blocks.FLOWER_POT, FLOWERING_FIELDSPROUT_SAPLING,
+                    (FlowerPotBlock)Blocks.FLOWER_POT, FIELDSPROOT_SAPLING,
                     BlockBehaviour.Properties.copy(Blocks.FLOWER_POT))
     );
 
