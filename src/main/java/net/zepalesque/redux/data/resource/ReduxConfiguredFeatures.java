@@ -133,6 +133,7 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> LUMINA_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.LUMINA) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> MOSSY_HOLYSTONE_ORE  = createKey(Folders.ORE + name(AetherBlocks.MOSSY_HOLYSTONE) + "_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> MOSSY_ROCK  = createKey(Folders.SURFACE + "mossy_rock");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ICESTONE_ROCK  = createKey(Folders.SURFACE + "mossy_rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FLOWERING_FIELDSPROUT_TREE = createKey(Folders.TREE + "flowering_fieldsprout_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> WYNDSPROUTS_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.WYNDSPROUTS) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GENESIS_WYNDSPROUTS_PATCH = createKey(Folders.PATCH + "genesis_" +  name(ReduxBlocks.WYNDSPROUTS) + "_patch");
@@ -536,6 +537,9 @@ public class ReduxConfiguredFeatures {
                 drops(AetherBlocks.MOSSY_HOLYSTONE), 32, 0.3F));
         register(context, MOSSY_ROCK, Feature.FOREST_ROCK,
                 new BlockStateConfiguration(drops(AetherBlocks.MOSSY_HOLYSTONE)));
+
+        register(context, ICESTONE_ROCK, Feature.FOREST_ROCK,
+                new BlockStateConfiguration(AetherFeatureStates.ICESTONE));
 
         register(context, FLOWERING_FIELDSPROUT_TREE, ReduxFeatures.FIELDSPROUT_TREE.get(),
                 new FieldsproutTreeConfig(
