@@ -4,7 +4,7 @@
     "sounds": [
       "aether_redux:entity/sentry/death"
     ],
-    "subtitle": "subtitles.aether.entity.sentry_death"
+    "subtitle": "subtitles.aether.entity.sentry.death"
   },
   "entity.sentry.hurt": {
     "replace": true,
@@ -12,7 +12,7 @@
       "aether_redux:entity/sentry/hurt1",
       "aether_redux:entity/sentry/hurt2"
     ],
-    "subtitle": "subtitles.aether.entity.sentry_hurt"
+    "subtitle": "subtitles.aether.entity.sentry.hurt"
   },
   "entity.sentry.jump": {
     "replace": true,
