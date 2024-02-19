@@ -174,7 +174,7 @@ public class MoaReduxModel extends EntityModel<Moa> {
 
         PartDefinition wing_feathers_r4 = feathers_3_wing2.addOrReplaceChild("wing_feathers_r4", CubeListBuilder.create().texOffs(60, 14).mirror().addBox(1.0F, -2.0F, 0.0F, 0.0F, 4.0F, 10.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, -0.6981F, 0.0F, 0.0F));
 
-        PartDefinition leg1 = base.addOrReplaceChild("leg1", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
+        PartDefinition leg1 = base.addOrReplaceChild("leg1", CubeListBuilder.create(), PartPose.offset(0.5F, 0.0F, 0.0F));
 
         PartDefinition base_leg1 = leg1.addOrReplaceChild("base_leg1", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
 
@@ -193,18 +193,21 @@ public class MoaReduxModel extends EntityModel<Moa> {
         PartDefinition boots_leg1_r1 = lower_leg1.addOrReplaceChild("boots_leg1_r1", CubeListBuilder.create().texOffs(60, 10).addBox(-2.0F, 4.5F, -2.0F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.0F))
                 .texOffs(16, 12).addBox(-1.5F, 0.0F, -1.5F, 3.0F, 10.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, -0.6109F, 0.0F, 0.0F));
 
-        PartDefinition toes_leg1 = lower_leg1.addOrReplaceChild("toes_leg1", CubeListBuilder.create(), PartPose.offset(0.0F, 11.25F, 2.0F));
+        PartDefinition toes_leg1 = lower_leg1.addOrReplaceChild("toes_leg1", CubeListBuilder.create(), PartPose.offset(0.525F, 9.25F, -4.0F));
 
-        PartDefinition toes_stepanim_leg1 = toes_leg1.addOrReplaceChild("toes_stepanim_leg1", CubeListBuilder.create().texOffs(0, 2).addBox(0.0F, -6.25F, -12.0F, 0.0F, 2.0F, 2.0F, new CubeDeformation(0.0F))
-                .texOffs(18, 0).addBox(-0.5F, -6.25F, -10.0F, 1.0F, 2.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+        PartDefinition toes_stepanim_leg1 = toes_leg1.addOrReplaceChild("toes_stepanim_leg1", CubeListBuilder.create(), PartPose.offset(0.0F, -3.0F, 0.0F));
 
-        PartDefinition toe1_leg1_r1 = toes_stepanim_leg1.addOrReplaceChild("toe1_leg1_r1", CubeListBuilder.create().texOffs(16, 21).addBox(0.5F, -1.5F, -3.5F, 0.0F, 1.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-1.5F, -3.75F, -7.0F, 0.0F, 0.3491F, 0.1745F));
+        PartDefinition toe3_leg1_r1 = toes_stepanim_leg1.addOrReplaceChild("toe3_leg1_r1", CubeListBuilder.create().texOffs(2, 40).addBox(-0.5F, -1.5F, -3.5F, 1.0F, 2.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(1.0F, 1.25F, -1.0F, -0.2618F, -0.3491F, -0.1745F));
 
-        PartDefinition toe3_leg1_r1 = toes_stepanim_leg1.addOrReplaceChild("toe3_leg1_r1", CubeListBuilder.create().texOffs(16, 21).addBox(-0.5F, -1.5F, -3.5F, 0.0F, 1.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(1.5F, -3.75F, -7.0F, 0.0F, -0.3491F, -0.1745F));
+        PartDefinition toe2_leg1_r1 = toes_stepanim_leg1.addOrReplaceChild("toe2_leg1_r1", CubeListBuilder.create().texOffs(2, 32).addBox(-0.5F, -3.0F, -1.0F, 1.0F, 3.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-0.5F, 0.75F, -5.0F, -0.3927F, 0.0F, 0.0F));
 
-        PartDefinition back_toes_leg1 = toes_stepanim_leg1.addOrReplaceChild("back_toes_leg1", CubeListBuilder.create().texOffs(0, 0).addBox(0.0F, -0.25F, 0.0F, 0.0F, 1.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -5.0F, -6.0F));
+        PartDefinition toe1_leg1_r1 = toes_stepanim_leg1.addOrReplaceChild("toe1_leg1_r1", CubeListBuilder.create().texOffs(2, 53).mirror().addBox(-0.5F, -1.5F, -3.5F, 1.0F, 2.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-2.0F, 1.25F, -1.0F, -0.2618F, 0.3491F, 0.1745F));
 
-        PartDefinition leg2 = base.addOrReplaceChild("leg2", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
+        PartDefinition back_toes_leg1 = toes_stepanim_leg1.addOrReplaceChild("back_toes_leg1", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+        PartDefinition back_toe_leg1_r1 = back_toes_leg1.addOrReplaceChild("back_toe_leg1_r1", CubeListBuilder.create().texOffs(13, 32).addBox(-1.0F, -0.5F, -4.0F, 1.0F, 1.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-0.5F, 0.75F, 4.0F, -0.4363F, 0.0F, 0.0F));
+
+        PartDefinition leg2 = base.addOrReplaceChild("leg2", CubeListBuilder.create(), PartPose.offset(-0.5F, 0.0F, 0.0F));
 
         PartDefinition base_leg2 = leg2.addOrReplaceChild("base_leg2", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
 
@@ -223,16 +226,19 @@ public class MoaReduxModel extends EntityModel<Moa> {
         PartDefinition boots_leg1_r2 = lower_leg2.addOrReplaceChild("boots_leg1_r2", CubeListBuilder.create().texOffs(60, 0).mirror().addBox(-2.0F, 4.5F, -2.0F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false)
                 .texOffs(48, 12).mirror().addBox(-1.5F, 0.0F, -1.5F, 3.0F, 10.0F, 3.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-8.0F, 0.0F, 0.0F, -0.6109F, 0.0F, 0.0F));
 
-        PartDefinition toes_leg2 = lower_leg2.addOrReplaceChild("toes_leg2", CubeListBuilder.create(), PartPose.offset(0.0F, 11.25F, 2.0F));
+        PartDefinition toes_leg2 = lower_leg2.addOrReplaceChild("toes_leg2", CubeListBuilder.create(), PartPose.offset(-8.025F, 9.25F, -4.0F));
 
-        PartDefinition toes_stepanim_leg2 = toes_leg2.addOrReplaceChild("toes_stepanim_leg2", CubeListBuilder.create().texOffs(32, 2).mirror().addBox(-8.0F, -6.25F, -12.0F, 0.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false)
-                .texOffs(50, 0).mirror().addBox(-8.5F, -6.25F, -10.0F, 1.0F, 2.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, 0.0F, 0.0F));
+        PartDefinition toes_stepanim_leg2 = toes_leg2.addOrReplaceChild("toes_stepanim_leg2", CubeListBuilder.create(), PartPose.offset(0.0F, -3.0F, 0.0F));
 
-        PartDefinition toe1_leg1_r2 = toes_stepanim_leg2.addOrReplaceChild("toe1_leg1_r2", CubeListBuilder.create().texOffs(48, 21).mirror().addBox(-0.5F, -1.5F, -3.5F, 0.0F, 1.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-6.5F, -3.75F, -7.0F, 0.0F, -0.3491F, -0.1745F));
+        PartDefinition toe3_leg1_r2 = toes_stepanim_leg2.addOrReplaceChild("toe3_leg1_r2", CubeListBuilder.create().texOffs(34, 53).mirror().addBox(-0.5F, -1.5F, -3.5F, 1.0F, 2.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.5F, 1.25F, -1.0F, -0.2618F, 0.3491F, 0.1745F));
 
-        PartDefinition toe3_leg1_r2 = toes_stepanim_leg2.addOrReplaceChild("toe3_leg1_r2", CubeListBuilder.create().texOffs(48, 21).mirror().addBox(0.5F, -1.5F, -3.5F, 0.0F, 1.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-9.5F, -3.75F, -7.0F, 0.0F, 0.3491F, 0.1745F));
+        PartDefinition toe2_leg1_r2 = toes_stepanim_leg2.addOrReplaceChild("toe2_leg1_r2", CubeListBuilder.create().texOffs(34, 32).mirror().addBox(-0.5F, -3.0F, -1.0F, 1.0F, 3.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 0.75F, -5.0F, -0.3927F, 0.0F, 0.0F));
 
-        PartDefinition back_toes_leg2 = toes_stepanim_leg2.addOrReplaceChild("back_toes_leg2", CubeListBuilder.create().texOffs(32, 0).mirror().addBox(-8.0F, -0.25F, 0.0F, 0.0F, 1.0F, 3.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, -5.0F, -6.0F));
+        PartDefinition toe1_leg1_r2 = toes_stepanim_leg2.addOrReplaceChild("toe1_leg1_r2", CubeListBuilder.create().texOffs(34, 40).addBox(-0.5F, -1.5F, -3.5F, 1.0F, 2.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(1.5F, 1.25F, -1.0F, -0.2618F, -0.3491F, -0.1745F));
+
+        PartDefinition back_toes_leg2 = toes_stepanim_leg2.addOrReplaceChild("back_toes_leg2", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+        PartDefinition back_toe_leg1_r2 = back_toes_leg2.addOrReplaceChild("back_toe_leg1_r2", CubeListBuilder.create().texOffs(45, 32).mirror().addBox(0.0F, -0.5F, -4.0F, 1.0F, 1.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 0.75F, 4.0F, -0.4363F, 0.0F, 0.0F));
 
         return LayerDefinition.create(meshdefinition, 128, 64);
     }
