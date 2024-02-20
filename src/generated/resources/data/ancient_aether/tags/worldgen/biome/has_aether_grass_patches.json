@@ -1,7 +1,11 @@
 {
   "remove": [
-    "aether_redux:gilded_groves",
-    "aether_redux:gilded_grasslands"
+    "#aether_redux:is_gilded"
   ],
-  "values": []
+  "values": [
+    "#aether_redux:is_frosted",
+    "aether_redux:skyroot_shrublands",
+    "aether_redux:skyfields",
+    "aether_redux:the_blight"
+  ]
 }
