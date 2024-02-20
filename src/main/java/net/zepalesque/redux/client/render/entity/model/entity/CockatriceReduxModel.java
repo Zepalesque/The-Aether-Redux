@@ -165,11 +165,11 @@ public class CockatriceReduxModel extends EntityModel<Cockatrice> {
 
         PartDefinition head_feather_left = head_feathers.addOrReplaceChild("head_feather_left", CubeListBuilder.create(), PartPose.offset(4.0F, -2.0F, 4.0F));
 
-        PartDefinition feathers_r1 = head_feather_left.addOrReplaceChild("feathers_r1", CubeListBuilder.create().texOffs(80, -7).addBox(0.0F, -4.0F, 0.0F, 0.0F, 7.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 8.0F, 0.0F, 0.0F, 0.2618F, 0.0F));
+        PartDefinition feathers_r1 = head_feather_left.addOrReplaceChild("feathers_r1", CubeListBuilder.create().texOffs(80, -8).addBox(0.0F, -5.0F, 0.0F, 0.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 8.0F, 0.0F, 0.0F, 0.2618F, 0.0F));
 
         PartDefinition head_feather_right = head_feathers.addOrReplaceChild("head_feather_right", CubeListBuilder.create(), PartPose.offset(-4.0F, -2.0F, 4.0F));
 
-        PartDefinition feathers_r2 = head_feather_right.addOrReplaceChild("feathers_r2", CubeListBuilder.create().texOffs(80, 1).mirror().addBox(0.0F, -4.0F, 0.0F, 0.0F, 7.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 8.0F, 0.0F, 0.0F, -0.2618F, 0.0F));
+        PartDefinition feathers_r2 = head_feather_right.addOrReplaceChild("feathers_r2", CubeListBuilder.create().texOffs(80, 0).mirror().addBox(0.0F, -5.0F, 0.0F, 0.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 8.0F, 0.0F, 0.0F, -0.2618F, 0.0F));
 
         PartDefinition crown_feather = head_feathers.addOrReplaceChild("crown_feather", CubeListBuilder.create(), PartPose.offset(0.0F, 2.0F, 0.0F));
 
