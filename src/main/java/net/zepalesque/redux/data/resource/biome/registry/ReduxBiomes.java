@@ -24,7 +24,7 @@ import net.zepalesque.redux.entity.ReduxEntityTypes;
 public class ReduxBiomes {
     public static final ResourceKey<Biome> THE_BLIGHT = createKey("the_blight");
     public static final ResourceKey<Biome> FROSTED_FORESTS = createKey("frosted_forests");
-    public static final ResourceKey<Biome> GLACIAL_TUNDRA = createKey("frosted_tundra");
+    public static final ResourceKey<Biome> GLACIAL_TUNDRA = createKey("glacial_tundra");
     public static final ResourceKey<Biome> GILDED_GROVES = createKey("gilded_groves");
     public static final ResourceKey<Biome> GILDED_GRASSLANDS = createKey("gilded_grasslands");
     public static final ResourceKey<Biome> SKYFIELDS = createKey("skyfields");
