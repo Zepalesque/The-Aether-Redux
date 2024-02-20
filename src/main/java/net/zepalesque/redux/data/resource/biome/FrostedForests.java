@@ -17,7 +17,7 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.zepalesque.redux.client.audio.ReduxMusic;
 import net.zepalesque.redux.data.resource.ReduxPlacedFeatures;
 
-public class GlacialTaiga {
+public class FrostedForests {
 
     public static Biome generate(BootstapContext<Biome> context) {
         HolderGetter<PlacedFeature> placed = context.lookup(Registries.PLACED_FEATURE);
@@ -81,7 +81,7 @@ public class GlacialTaiga {
 
                 .addFeature(GenerationStep.Decoration.FLUID_SPRINGS, AetherPlacedFeatures.WATER_SPRING_PLACEMENT)
 
-                .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.GLACIAL_TREES)
+                .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.FROSTED_TREES)
                 .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.HOLIDAY_TREE_PLACEMENT)
                 .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.GRASS_PATCH_PLACEMENT)
                 .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.LUMINA_PATCH)

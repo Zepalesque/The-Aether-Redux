@@ -29,7 +29,7 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
 
         this.tag(AetherTags.Biomes.IS_AETHER).add(
                 ReduxBiomes.THE_BLIGHT,
-                ReduxBiomes.GLACIAL_TAIGA,
+                ReduxBiomes.FROSTED_FORESTS,
                 ReduxBiomes.FROSTED_TUNDRA,
                 ReduxBiomes.GILDED_GROVES,
                 ReduxBiomes.GILDED_GRASSLANDS,
@@ -78,7 +78,7 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
 
 
         this.tag(ReduxTags.Biomes.IS_GILDED).add(ReduxBiomes.GILDED_GROVES, ReduxBiomes.GILDED_GRASSLANDS);
-        this.tag(ReduxTags.Biomes.IS_FROSTED).add(ReduxBiomes.GLACIAL_TAIGA, ReduxBiomes.FROSTED_TUNDRA);
+        this.tag(ReduxTags.Biomes.IS_FROSTED).add(ReduxBiomes.FROSTED_FORESTS, ReduxBiomes.FROSTED_TUNDRA);
 
         this.tag(ReduxTags.Biomes.NO_GRASS_OVERRIDE).addTag(AetherTags.Biomes.IS_AETHER).remove(ReduxTags.Biomes.HAS_GRASS_OVERRIDE);
 

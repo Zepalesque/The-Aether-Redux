@@ -24,7 +24,7 @@ import net.zepalesque.redux.entity.ReduxEntityTypes;
 
 public class ReduxBiomes {
     public static final ResourceKey<Biome> THE_BLIGHT = createKey("the_blight");
-    public static final ResourceKey<Biome> GLACIAL_TAIGA = createKey("glacial_taiga");
+    public static final ResourceKey<Biome> FROSTED_FORESTS = createKey("frosted_forests");
     public static final ResourceKey<Biome> FROSTED_TUNDRA = createKey("frosted_tundra");
     public static final ResourceKey<Biome> GILDED_GROVES = createKey("gilded_groves");
     public static final ResourceKey<Biome> GILDED_GRASSLANDS = createKey("gilded_grasslands");
@@ -41,9 +41,6 @@ public class ReduxBiomes {
         return ResourceKey.create(Registries.BIOME, Redux.locate(name));
     }
 
-    private static ResourceKey<Biome> genesisKey(String name) {
-        return ResourceKey.create(Registries.BIOME, new ResourceLocation("aether_genesis", name));
-    }
 
     public static final int AETHER_GRASS_COLOR = 0xB1FFCB;
     public static final int GILDED_GRASS_COLOR = 0xFFED96;
@@ -70,7 +67,7 @@ public class ReduxBiomes {
 
     public static final ImmutableMap<ResourceKey<Biome>, Integer> AETHER_GRASS_COLORS = new ImmutableMap.Builder<ResourceKey<Biome>, Integer>()
             .put(THE_BLIGHT, BLIGHT_GRASS_COLOR)
-            .put(GLACIAL_TAIGA, FROSTED_GRASS_COLOR)
+            .put(FROSTED_FORESTS, FROSTED_GRASS_COLOR)
             .put(FROSTED_TUNDRA, FROSTED_GRASS_COLOR)
             .put(GILDED_GROVES, GILDED_GRASS_COLOR)
             .put(GILDED_GRASSLANDS, GILDED_GRASSLANDS_COLOR)
@@ -82,7 +79,7 @@ public class ReduxBiomes {
 
     public static final ImmutableMap<ResourceKey<Biome>, Pair<Integer, Integer>> VANILLA_GRASS_COLORS = new ImmutableMap.Builder<ResourceKey<Biome>, Pair<Integer, Integer>>()
             .put(THE_BLIGHT, Pair.of(0x97B276, 0x819D5D))
-            .put(GLACIAL_TAIGA, Pair.of(0x86B783, 0x68A464))
+            .put(FROSTED_FORESTS, Pair.of(0x86B783, 0x68A464))
             .put(FROSTED_TUNDRA, Pair.of(0x86B783, 0x68A464))
             .put(GILDED_GROVES, Pair.of(0xACBA4F, 0x97A823))
             .put(GILDED_GRASSLANDS, Pair.of(0xACBA4F, 0x97A823))
@@ -113,7 +110,7 @@ public class ReduxBiomes {
     public static void bootstrap(BootstapContext<Biome> context) {
         context.register(THE_BLIGHT, Blight.generate(context));
         context.register(CLOUDCAPS, Cloudcaps.generate(context));
-        context.register(GLACIAL_TAIGA, GlacialTaiga.generate(context));
+        context.register(FROSTED_FORESTS, FrostedForests.generate(context));
         context.register(FROSTED_TUNDRA, FrostedTundra.generate(context));
         context.register(GILDED_GROVES, GildedGroves.generate(context));
         context.register(GILDED_GRASSLANDS, GildedGrasslands.generate(context));

@@ -438,7 +438,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
 
         addBiome(ReduxBiomes.CLOUDCAPS, "Cloudcaps");
-        addBiome(ReduxBiomes.GLACIAL_TAIGA, "Glacial Taiga");
+        addBiome(ReduxBiomes.FROSTED_FORESTS, "Frosted Forests");
         addBiome(ReduxBiomes.FROSTED_TUNDRA, "Frosted Tundra");
         addBiome(ReduxBiomes.GILDED_GROVES, "Gilded Groves");
         addBiome(ReduxBiomes.GILDED_GRASSLANDS, "Gilded Grasslands");
