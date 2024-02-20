@@ -21,7 +21,7 @@ public class ReduxPackConfig {
     public final Category base;
 
     public final PackConfig<Boolean> purple_aechor_plants;
-    public final PackConfig<Boolean> blighted_cockatrices;
+    public final PackConfig<CockatriceType> cockatrice_texture;
     public final PackConfig<SwetBallType> swet_ball_type;
     public final PackConfig<VeridiumType> veridium_type;
     public final PackConfig<Boolean> use_jappafied_textures;
@@ -46,8 +46,8 @@ public class ReduxPackConfig {
         builder.push("mob");
         // Self-explanatory
         this.purple_aechor_plants = builder.comment().cfg("purple_aechor_plants", true);
-        // Purple redux cockatrices
-        this.blighted_cockatrices = builder.comment().cfg("blighted_cockatrices", true);
+        // A few cockatrice variations
+        this.cockatrice_texture = builder.comment().cfg("cockatrice_texture", CockatriceType.blighted, CockatriceType.MAPPER);
         builder.pop();
         // Various sound improvements
         builder.push("audio");
@@ -84,7 +84,8 @@ public class ReduxPackConfig {
             packs = List.of(
                     Conditional.of(BuiltinPackUtils.createPack("resource/tintable_grass"), config.tintable_grass),
                     Conditional.of(BuiltinPackUtils.createPack("resource/mob/better_aechor_plants"), config.purple_aechor_plants),
-                    Conditional.of(BuiltinPackUtils.createPack("resource/mob/blighted_cockatrices"), config.blighted_cockatrices::get),
+                    Conditional.of(BuiltinPackUtils.createPack("resource/mob/blighted_cockatrices"), () -> config.cockatrice_texture.get() == CockatriceType.blighted),
+                    Conditional.of(BuiltinPackUtils.createPack("resource/mob/old_redux_cockatrice"), () -> config.cockatrice_texture.get() == CockatriceType.redux_retro),
                     Conditional.of(BuiltinPackUtils.createPack("resource/item/swet_ball"), () -> config.swet_ball_type.get() == SwetBallType.consistent_name),
                     Conditional.of(BuiltinPackUtils.createPack("resource/item/swet_gel"), () -> config.swet_ball_type.get() == SwetBallType.gel),
                     Conditional.of(BuiltinPackUtils.createPack("resource/gui/menu_panorama"), config.menu_panorama),

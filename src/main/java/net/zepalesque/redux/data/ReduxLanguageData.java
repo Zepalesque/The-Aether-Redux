@@ -498,7 +498,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addPackConfigEnum("modern", "Modern");
         addPackConfigCategory("mob", "Mobs", "Changes to the textures of the Aether's mobs");
         addPackConfig("purple_aechor_plants", "Purple Aechor Plants", "Makes Aechor Plants more consistent with their petal items");
-        addPackConfig("blighted_cockatrices", "Blighted Cockatrices", "Use a purple, more blight-like texture for the Cockatrices");
+        addPackConfig("cockatrice_texture", "Cockatrice Texture", "Switch between cockatrice textures. Options are Blighted (the newer version of Redux's texture), Classic (original) and Redux Retro (Redux's old texture from indev versions)");
+        addPackConfigEnum("blighted", "Blighted");
+        addPackConfigEnum("redux_retro", "Redux Retro");
         addPackConfig("tintable_grass", "Tinted Grass", "Use modified models to allow tintable Aether Grass blocks and plants. Only disable if you know what you're doing!");
         addPackConfigCategory("dungeon", "Dungeons", "Changes to the textures of the Aether's dungeons");
         addPackConfigCategory("item", "Items", "Changes to Items from the Aether");
