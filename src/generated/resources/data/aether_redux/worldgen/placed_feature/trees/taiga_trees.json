@@ -1,5 +1,5 @@
 {
-  "feature": "aether_redux:trees/glacial_trees",
+  "feature": "aether_redux:trees/taiga_trees",
   "placement": [
     {
       "type": "minecraft:count",
@@ -7,11 +7,11 @@
         "type": "minecraft:weighted_list",
         "distribution": [
           {
-            "data": 24,
+            "data": 8,
             "weight": 9
           },
           {
-            "data": 16,
+            "data": 6,
             "weight": 1
           }
         ]
