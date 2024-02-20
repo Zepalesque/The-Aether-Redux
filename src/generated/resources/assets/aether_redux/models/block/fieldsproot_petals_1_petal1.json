@@ -3,6 +3,6 @@
   "render_type": "minecraft:cutout",
   "textures": {
     "flowerbed": "aether_redux:block/natural/fieldsproot_petals_1",
-    "stem": "aether_redux:block/natural/fieldsprout_petals_stem"
+    "stem": "aether_redux:block/natural/fieldsproot_petals_stem"
   }
 }
