@@ -123,8 +123,8 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlockFlatTintOverlay(ReduxBlocks.BLIGHTSHADE, "natural/");
 
 
-        blockCustomTexture(ReduxBlocks.FIELDSPROOT_LEAVES, "natural/", "flowering_fieldsprout_leaves");
-        itemCustomTexture(ReduxBlocks.FIELDSPROOT_PETALS, "misc/", "fieldsprout_petals");
+        blockCustomTexture(ReduxBlocks.FIELDSPROOT_LEAVES, "natural/", "fieldsproot_leaves");
+        itemCustomTexture(ReduxBlocks.FIELDSPROOT_PETALS, "misc/", "fieldsproot_petals");
         item(ReduxItems.VERIDIUM_NUGGET.get(), "materials/");
 
         itemBlockFlatItemTexture(ReduxBlocks.VERIDIUM_LANTERN, "misc/");
