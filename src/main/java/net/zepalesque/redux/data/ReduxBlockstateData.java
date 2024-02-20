@@ -85,8 +85,8 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.block(ReduxBlocks.BLIGHTWILLOW_LEAVES.get(), "natural/");
         this.crossBlock(ReduxBlocks.BLIGHTWILLOW_SAPLING.get(), "natural/");
 
-        this.floweringFieldsproutLeafBlock(ReduxBlocks.FIELDSPROOT_LEAVES, "natural/");
-        this.fieldsproutPetals(ReduxBlocks.FIELDSPROOT_PETALS.get(), "natural/fieldsprout_petals_stem");
+        this.floweringFieldsprootLeafBlock(ReduxBlocks.FIELDSPROOT_LEAVES, "natural/");
+        this.fieldsprootPetals(ReduxBlocks.FIELDSPROOT_PETALS.get(), "natural/fieldsproot_petals_stem");
 
 
         this.crossBlock(ReduxBlocks.FIELDSPROOT_SAPLING.get(), "natural/");
@@ -383,7 +383,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
     }
 
-    public void floweringFieldsproutLeafBlock(Supplier<? extends Block> block, String location) {
+    public void floweringFieldsprootLeafBlock(Supplier<? extends Block> block, String location) {
         getVariantBuilder(block.get())
                 .forAllStatesExcept(state -> {
                             int i = state.getValue(ReduxStates.PRISMATICNESS);
@@ -392,7 +392,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
                         , AetherBlockStateProperties.DOUBLE_DROPS, ExtendedDistanceLeavesBlock.EXTENDED_DISTANCE);
     }
 
-    public void fieldsproutPetals(Block block, String stemTexture)
+    public void fieldsprootPetals(Block block, String stemTexture)
     {
         MultiPartBlockStateBuilder builder = this.getMultipartBuilder(block);
         for (int color = 0; color <= 6; color++) {
