@@ -680,7 +680,7 @@ public class ReduxPlacedFeatures {
         );
 
         register(context, VERIDIUM_ORE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.VERIDIUM_ORE),
-                CountPlacement.of(33),
+                CountPlacement.of(11),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(UniformHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(128))),
                 BiomeFilter.biome()
