@@ -178,6 +178,7 @@ public class ReduxOverridesPackResources extends AbstractPackResources
 
     private List<PackResources> getCandidatePacks(PackType type, ResourceLocation location)
     {
+        // TODO: fix namespace stuff
         if (type == PackType.CLIENT_RESOURCES) {
             Map<String, List<Conditional<PackResources>>> map = namespacesAssets;
             List<Conditional<PackResources>> packsWithNamespace = map.get(location.getNamespace());
