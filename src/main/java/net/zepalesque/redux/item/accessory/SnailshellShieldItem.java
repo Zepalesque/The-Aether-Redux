@@ -28,7 +28,7 @@ public class SnailshellShieldItem extends AccessoryItem {
     @Override
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(SlotContext slotContext, UUID uuid, ItemStack stack) {
         Multimap<Attribute, AttributeModifier> attributes = HashMultimap.create();
-        attributes.put(Attributes.KNOCKBACK_RESISTANCE, new AttributeModifier(uuid, "snailshell_knockback_res", 1.0, AttributeModifier.Operation.ADDITION));
+        attributes.put(Attributes.KNOCKBACK_RESISTANCE, new AttributeModifier(uuid, "snailshell_knockback_res", 0.7, AttributeModifier.Operation.ADDITION));
         return attributes;
     }
 }
