@@ -31,7 +31,7 @@ public class ReduxRegion extends Region {
 
         if (!Redux.ancientAetherCompat()) {
             ResourceKey<Biome> glacial = ReduxConfig.COMMON.enable_snowy_biomes.get() ? ReduxBiomes.FROSTED_FORESTS : AetherBiomes.SKYROOT_FOREST;
-            ResourceKey<Biome> frosted = ReduxConfig.COMMON.enable_snowy_biomes.get() ? ReduxBiomes.FROSTED_TUNDRA : AetherBiomes.SKYROOT_FOREST;
+            ResourceKey<Biome> frosted = ReduxConfig.COMMON.enable_snowy_biomes.get() ? ReduxBiomes.GLACIAL_TUNDRA : AetherBiomes.SKYROOT_FOREST;
             ResourceKey<Biome> cloudcaps = ReduxConfig.COMMON.enable_cloudcaps.get() ? ReduxBiomes.CLOUDCAPS : AetherBiomes.SKYROOT_GROVE;
             ResourceKey<Biome> blight = ReduxConfig.COMMON.enable_the_blight.get() ? ReduxBiomes.THE_BLIGHT : AetherBiomes.SKYROOT_WOODLAND;
             ResourceKey<Biome> highfields = ReduxConfig.COMMON.enable_skyfields.get() ? ReduxBiomes.SKYFIELDS : AetherBiomes.SKYROOT_MEADOW;
@@ -113,7 +113,7 @@ public class ReduxRegion extends Region {
             addBiome(mapper, new Climate.ParameterPoint(tempWyndcaps, Climate.Parameter.span(-1.0F, -0.2F), fullRange, erosionDefault, Climate.Parameter.span(-0.15F, 1.5F), fullRange, 0),
                     ReduxConfig.COMMON.enable_snowy_biomes.get() ? ReduxBiomes.FROSTED_FORESTS : AncientAetherBiomes.WYNDCAP_TAIGA);
             addBiome(mapper, new Climate.ParameterPoint(tempWyndcaps, Climate.Parameter.span(-0.2F, 0.5F), fullRange, erosionDefault, Climate.Parameter.span(-0.15F, 1.5F), fullRange, 0),
-                    ReduxConfig.COMMON.enable_snowy_biomes.get() ? ReduxBiomes.FROSTED_TUNDRA : AncientAetherBiomes.FESTIVE_WYNDCAP_TAIGA);
+                    ReduxConfig.COMMON.enable_snowy_biomes.get() ? ReduxBiomes.GLACIAL_TUNDRA : AncientAetherBiomes.FESTIVE_WYNDCAP_TAIGA);
             addBiome(mapper, new Climate.ParameterPoint(tempWyndcaps, Climate.Parameter.span(0.5F, 1.0F), fullRange, erosionDefault, Climate.Parameter.span(-0.15F, 1.5F), fullRange, 0),
                     ReduxConfig.COMMON.enable_cloudcaps.get() ? ReduxBiomes.CLOUDCAPS : AncientAetherBiomes.WYNDCAP_HIGHLAND);
             addBiome(mapper, new Climate.ParameterPoint(tempWyndcaps, fullRange, fullRange, erosionDefault, Climate.Parameter.span(-1.5F, -0.15F), fullRange, 0),

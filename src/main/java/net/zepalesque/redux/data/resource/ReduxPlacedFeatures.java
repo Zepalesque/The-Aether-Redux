@@ -74,7 +74,7 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> LARGE_ICESTONE_CHUNK = copyKey(ReduxConfiguredFeatures.LARGE_ICESTONE_CHUNK);
     public static final ResourceKey<PlacedFeature> FROSTED_PURPLE_FLOWER_PATCH = copyKey(ReduxConfiguredFeatures.FROSTED_PURPLE_FLOWER_PATCH);
     public static final ResourceKey<PlacedFeature> FROSTED_TREES = copyKey(ReduxConfiguredFeatures.FROSTED_TREES);
-    public static final ResourceKey<PlacedFeature> TAIGA_TREES = copyKey(ReduxConfiguredFeatures.TAIGA_TREES);
+    public static final ResourceKey<PlacedFeature> GLACIAL_TREES = copyKey(ReduxConfiguredFeatures.GLACIAL_TREES);
     public static final ResourceKey<PlacedFeature> GILDED_HOLYSTONE_ORE = copyKey(ReduxConfiguredFeatures.GILDED_HOLYSTONE_ORE);
     public static final ResourceKey<PlacedFeature> BLIGHTMOSS_HOLYSTONE_ORE = copyKey(ReduxConfiguredFeatures.BLIGHTMOSS_HOLYSTONE_ORE);
     public static final ResourceKey<PlacedFeature> GILDED_ROCK  = copyKey(ReduxConfiguredFeatures.GILDED_ROCK);
@@ -342,7 +342,7 @@ public class ReduxPlacedFeatures {
                 PlacementUtils.filteredByBlockSurvival(ReduxBlocks.GLACIA_SAPLING.get())
         );
 
-        register(context, TAIGA_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.TAIGA_TREES),
+        register(context, GLACIAL_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GLACIAL_TREES),
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
                         .add(ConstantInt.of(8), 9)
                         .add(ConstantInt.of(6), 1)

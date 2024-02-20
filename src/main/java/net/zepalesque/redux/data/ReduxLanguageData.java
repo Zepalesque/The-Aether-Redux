@@ -402,11 +402,11 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addBlock(ReduxBlocks.LUMINA, "Lumina");
         addBlock(ReduxBlocks.POTTED_LUMINA, "Potted Lumina");
-        addLore(ReduxBlocks.LUMINA, "A flower found in the Frosted Forest. It gives off a glow, lighting the area around it");
+        addLore(ReduxBlocks.LUMINA, "A flower found in the Frosted Forests. It gives off a glow, lighting the area around it");
 
         addBlock(ReduxBlocks.DAGGERBLOOM, "Daggerbloom");
         addBlock(ReduxBlocks.POTTED_DAGGERBLOOM, "Potted Daggerbloom");
-        addLore(ReduxBlocks.DAGGERBLOOM, "A flower found in the Frosted Forest. Its petals are as cold as ice");
+        addLore(ReduxBlocks.DAGGERBLOOM, "A flower found in the Frosted Forests. Its petals are as cold as ice");
 
         addBlock(ReduxBlocks.VERIDIUM_ORE, "Veridium Ore");
         addLore(ReduxBlocks.VERIDIUM_ORE, "The ore of Veridium. This can be found around the Aether");
@@ -439,7 +439,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addBiome(ReduxBiomes.CLOUDCAPS, "Cloudcaps");
         addBiome(ReduxBiomes.FROSTED_FORESTS, "Frosted Forests");
-        addBiome(ReduxBiomes.FROSTED_TUNDRA, "Frosted Tundra");
+        addBiome(ReduxBiomes.GLACIAL_TUNDRA, "Glacial Tundra");
         addBiome(ReduxBiomes.GILDED_GROVES, "Gilded Groves");
         addBiome(ReduxBiomes.GILDED_GRASSLANDS, "Gilded Grasslands");
         addBiome(ReduxBiomes.SKYFIELDS, "Skyfields");
