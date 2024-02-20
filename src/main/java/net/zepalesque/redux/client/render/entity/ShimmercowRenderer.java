@@ -12,6 +12,9 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.render.ReduxModelLayers;
+import net.zepalesque.redux.client.render.entity.layer.entity.GlowLayer;
+import net.zepalesque.redux.client.render.entity.layer.entity.ShimmercowEmissiveLayer;
+import net.zepalesque.redux.client.render.entity.layer.entity.TranslucentEmissiveLayer;
 import net.zepalesque.redux.client.render.entity.model.entity.ShimmercowModel;
 import net.zepalesque.redux.entity.passive.Shimmercow;
 
@@ -21,12 +24,13 @@ public class ShimmercowRenderer extends MobRenderer<Shimmercow, ShimmercowModel<
 
     public ShimmercowRenderer(EntityRendererProvider.Context context) {
         super(context, new ShimmercowModel<>(context.bakeLayer(ReduxModelLayers.GLIMMERCOW)), 0.7F);
+        this.addLayer(new ShimmercowEmissiveLayer<>(this));
     }
 
     @Override
-    public void render(Shimmercow p_entity, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight) {
+    public void render(Shimmercow cow, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight) {
         poseStack.scale(1.25F, 1.25F, 1.25F);
-        super.render(p_entity, entityYaw, partialTicks, poseStack, buffer, packedLight);
+        super.render(cow, entityYaw, partialTicks, poseStack, buffer, packedLight);
     }
 
     public ResourceLocation getTextureLocation(Shimmercow shimmerCow) {
