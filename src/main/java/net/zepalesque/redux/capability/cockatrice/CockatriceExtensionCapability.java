@@ -163,7 +163,7 @@ public class CockatriceExtensionCapability implements CockatriceExtension {
     public void refreshNearby() {
         if (this.cockatrice.getTarget() != null) {
             Level level = this.cockatrice.level();
-            AABB bounds = this.cockatrice.getBoundingBox().inflate(15.0D);
+            AABB bounds = this.cockatrice.getBoundingBox().inflate(10.0D);
 
             this.nearby = level.getEntities(this.cockatrice, bounds, entity -> entity.getType() == AetherEntityTypes.COCKATRICE.get());
         } else {
