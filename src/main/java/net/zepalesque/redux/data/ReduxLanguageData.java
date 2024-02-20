@@ -200,10 +200,10 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addBlock(ReduxBlocks.BLIGHTWILLOW_LEAVES, "Blightwillow Leaves");
         addLore(ReduxBlocks.BLIGHTWILLOW_LEAVES, "The leaves of the Blightwillow tree. These sometimes drop Blightwillow Saplings.");
-        addBlock(ReduxBlocks.FIELDSPROOT_LEAVES, "Flowering Fieldsprout Leaves");
-        addLore(ReduxBlocks.FIELDSPROOT_LEAVES, "The colorful leaves of Flowering Fieldsprout trees! These will occasionally drop Flowering Fieldsprout Saplings.");
-        addBlock(ReduxBlocks.FIELDSPROOT_PETALS, "Fieldsprout Petals");
-        addLore(ReduxBlocks.FIELDSPROOT_PETALS, "The vibrant petals of Flowering Fieldsprout trees, which are found commonly underneath them.");
+        addBlock(ReduxBlocks.FIELDSPROOT_LEAVES, "Fieldsproot Leaves");
+        addLore(ReduxBlocks.FIELDSPROOT_LEAVES, "The colorful leaves of the flowering Fieldsproot trees! These will occasionally drop Fieldsproot Saplings.");
+        addBlock(ReduxBlocks.FIELDSPROOT_PETALS, "Fieldsproot Petals");
+        addLore(ReduxBlocks.FIELDSPROOT_PETALS, "The vibrant petals of Fieldsproot trees, which are found commonly underneath them.");
         addBlock(ReduxBlocks.GOLDEN_LEAF_PILE, "Golden Leaf Pile");
         addLore(ReduxBlocks.GOLDEN_LEAF_PILE, "A pile of Golden Oak Leaves. These can be found under Golden Oak trees.");
         addBlock(ReduxBlocks.GILDED_LEAF_PILE, "Gilded Leaf Pile");
@@ -214,9 +214,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.POTTED_BLIGHTWILLOW_SAPLING, "Potted Blightwillow Sapling");
         addLore(ReduxBlocks.BLIGHTWILLOW_SAPLING, "The sapling of the Blightwillow tree. It can be grown by waiting or using Bone Meal.");
 
-        addBlock(ReduxBlocks.FIELDSPROOT_SAPLING, "Flowering Fieldsprout Sapling");
-        addBlock(ReduxBlocks.POTTED_FIELDSPROOT_SAPLING, "Potted Flowering Fieldsprout Sapling");
-        addLore(ReduxBlocks.FIELDSPROOT_SAPLING, "The sapling of the Flowering Fieldsprout tree. It can be grown by waiting or using Bone Meal.");
+        addBlock(ReduxBlocks.FIELDSPROOT_SAPLING, "Fieldsproot Sapling");
+        addBlock(ReduxBlocks.POTTED_FIELDSPROOT_SAPLING, "Potted Fieldsproot Sapling");
+        addLore(ReduxBlocks.FIELDSPROOT_SAPLING, "The sapling of the colorful Fieldsproot tree. It can be grown by waiting or using Bone Meal.");
 
         addBlock(ReduxBlocks.AVELIUM_ROOTS, "Avelium Roots");
         addBlock(ReduxBlocks.POTTED_AVELIUM_ROOTS, "Potted Avelium Roots");
