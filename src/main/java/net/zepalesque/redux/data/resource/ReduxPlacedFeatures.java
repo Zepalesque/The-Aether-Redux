@@ -130,7 +130,7 @@ public class ReduxPlacedFeatures {
                 BiomeFilter.biome()
         );
         register(context, ANCIENT_ENCHANTED_GRASS, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.ANCIENT_ENCHANTED_GRASS),
-                NOISE_THRESHOLD,
+                NoiseThresholdCountPlacement.of(-0.8, 10, 20),
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
                 new ConfigFilter(AetherConfig.SERVER.generate_tall_grass),
                 ConditionFilter.whenTrue(Conditions.ANCIENT),

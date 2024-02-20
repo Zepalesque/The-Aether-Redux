@@ -9,19 +9,19 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
 import net.zepalesque.redux.api.condition.AbstractCondition;
 
-public class SimpleConditionAlternativeStateProvider extends BlockStateProvider {
-    private final BlockState base;
+public class AdvancedConditionAlternativeStateProvider extends BlockStateProvider {
+    private final BlockStateProvider base;
     private final AbstractCondition<?> condition;
-    private final BlockState alternative;
+    private final BlockStateProvider alternative;
 
-    public static final Codec<SimpleConditionAlternativeStateProvider> CODEC = RecordCodecBuilder.create((condition) ->
+    public static final Codec<AdvancedConditionAlternativeStateProvider> CODEC = RecordCodecBuilder.create((condition) ->
             condition.group(
-                    BlockState.CODEC.fieldOf("base_state").forGetter((alt) -> alt.base),
+                    BlockStateProvider.CODEC.fieldOf("base_provider").forGetter((alt) -> alt.base),
                     AbstractCondition.CODEC.fieldOf("condition").forGetter((alt) -> alt.condition),
-                    BlockState.CODEC.fieldOf("alternative_state").forGetter((alt) -> alt.alternative))
-                    .apply(condition, SimpleConditionAlternativeStateProvider::new));
+                    BlockStateProvider.CODEC.fieldOf("alternative_provider").forGetter((alt) -> alt.alternative))
+                    .apply(condition, AdvancedConditionAlternativeStateProvider::new));
 
-    public SimpleConditionAlternativeStateProvider(BlockState base, AbstractCondition<?> condition, BlockState alternative) {
+    public AdvancedConditionAlternativeStateProvider(BlockStateProvider base, AbstractCondition<?> condition, BlockStateProvider alternative) {
         this.base = base;
         this.condition = condition;
         this.alternative = alternative;
@@ -29,10 +29,10 @@ public class SimpleConditionAlternativeStateProvider extends BlockStateProvider 
 
     @Override
     public BlockState getState(RandomSource random, BlockPos pos) {
-        return this.condition.isConditionMet() ? this.base : this.alternative;
+        return (this.condition.isConditionMet() ? this.base : this.alternative).getState(random, pos);
     }
     protected BlockStateProviderType<?> type() {
-        return ReduxStateProviders.SIMPLE_ALTERNATIVE.get();
+        return ReduxStateProviders.ADVANCED_ALTERNATIVE.get();
     }
 
 }

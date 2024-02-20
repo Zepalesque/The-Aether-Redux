@@ -6,20 +6,76 @@
         "type": "minecraft:simple_block",
         "config": {
           "to_place": {
-            "type": "aether_redux:simple_alternative",
-            "alternative_state": {
-              "Name": "ancient_aether:sky_grass",
-              "Properties": {
-                "type": "normal",
-                "length": "1"
-              }
+            "type": "aether_redux:advanced_alternative",
+            "alternative_provider": {
+              "type": "minecraft:weighted_state_provider",
+              "entries": [
+                {
+                  "data": {
+                    "Name": "ancient_aether:sky_grass",
+                    "Properties": {
+                      "type": "normal",
+                      "length": "1"
+                    }
+                  },
+                  "weight": 1
+                },
+                {
+                  "data": {
+                    "Name": "ancient_aether:sky_grass",
+                    "Properties": {
+                      "type": "normal",
+                      "length": "2"
+                    }
+                  },
+                  "weight": 2
+                },
+                {
+                  "data": {
+                    "Name": "ancient_aether:sky_grass",
+                    "Properties": {
+                      "type": "normal",
+                      "length": "3"
+                    }
+                  },
+                  "weight": 3
+                }
+              ]
             },
-            "base_state": {
-              "Name": "ancient_aether:sky_grass",
-              "Properties": {
-                "type": "enchanted",
-                "length": "1"
-              }
+            "base_provider": {
+              "type": "minecraft:weighted_state_provider",
+              "entries": [
+                {
+                  "data": {
+                    "Name": "ancient_aether:sky_grass",
+                    "Properties": {
+                      "type": "enchanted",
+                      "length": "1"
+                    }
+                  },
+                  "weight": 1
+                },
+                {
+                  "data": {
+                    "Name": "ancient_aether:sky_grass",
+                    "Properties": {
+                      "type": "enchanted",
+                      "length": "2"
+                    }
+                  },
+                  "weight": 2
+                },
+                {
+                  "data": {
+                    "Name": "ancient_aether:sky_grass",
+                    "Properties": {
+                      "type": "enchanted",
+                      "length": "3"
+                    }
+                  },
+                  "weight": 3
+                }
+              ]
             },
             "condition": {
               "condition": "aether_redux:redux_config",
