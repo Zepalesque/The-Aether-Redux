@@ -121,9 +121,9 @@ public class MoaReduxModel extends EntityModel<Moa> {
 
         PartDefinition head_feather_top = feathers.addOrReplaceChild("head_feather_top", CubeListBuilder.create().texOffs(108, 3).addBox(-4.0F, 0.0F, 0.0F, 8.0F, 0.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -6.0F, 4.0F));
 
-        PartDefinition head_feather_left = feathers.addOrReplaceChild("head_feather_left", CubeListBuilder.create().texOffs(80, -8).addBox(0.0F, -4.0F, 0.0F, 0.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(4.0F, -2.0F, 4.0F));
+        PartDefinition head_feather_left = feathers.addOrReplaceChild("head_feather_left", CubeListBuilder.create().texOffs(80, -8).addBox(0.0F, -5.0F, 0.0F, 0.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(4.0F, -2.0F, 4.0F));
 
-        PartDefinition head_feather_right = feathers.addOrReplaceChild("head_feather_right", CubeListBuilder.create().texOffs(80, 0).mirror().addBox(0.0F, -4.0F, 0.0F, 0.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-4.0F, -2.0F, 4.0F));
+        PartDefinition head_feather_right = feathers.addOrReplaceChild("head_feather_right", CubeListBuilder.create().texOffs(80, 0).mirror().addBox(0.0F, -5.0F, 0.0F, 0.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-4.0F, -2.0F, 4.0F));
 
         PartDefinition jaw = head_part.addOrReplaceChild("jaw", CubeListBuilder.create().texOffs(92, 30).addBox(-3.0F, 0.0F, -10.0F, 6.0F, 2.0F, 12.0F, new CubeDeformation(-0.1F))
                 .texOffs(92, 44).addBox(-3.0F, 0.0F, -10.0F, 6.0F, 2.0F, 12.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -2.0F, 0.0F));
@@ -265,9 +265,9 @@ public class MoaReduxModel extends EntityModel<Moa> {
 
         PartDefinition head_feather_top = feathers.addOrReplaceChild("head_feather_top", CubeListBuilder.create().texOffs(108, 3).addBox(-4.0F, 0.0F, 0.0F, 8.0F, 0.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -6.0F, 4.0F));
 
-        PartDefinition head_feather_left = feathers.addOrReplaceChild("head_feather_left", CubeListBuilder.create().texOffs(80, -8).addBox(0.0F, -4.0F, 0.0F, 0.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(4.0F, -2.0F, 4.0F));
+        PartDefinition head_feather_left = feathers.addOrReplaceChild("head_feather_left", CubeListBuilder.create().texOffs(80, -8).addBox(0.0F, -5.0F, 0.0F, 0.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(4.0F, -2.0F, 4.0F));
 
-        PartDefinition head_feather_right = feathers.addOrReplaceChild("head_feather_right", CubeListBuilder.create().texOffs(80, 0).mirror().addBox(0.0F, -4.0F, 0.0F, 0.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-4.0F, -2.0F, 4.0F));
+        PartDefinition head_feather_right = feathers.addOrReplaceChild("head_feather_right", CubeListBuilder.create().texOffs(80, 0).mirror().addBox(0.0F, -5.0F, 0.0F, 0.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-4.0F, -2.0F, 4.0F));
 
         PartDefinition jaw = head_part.addOrReplaceChild("jaw", CubeListBuilder.create().texOffs(92, 30).addBox(-3.0F, 0.0F, -10.0F, 6.0F, 2.0F, 12.0F, new CubeDeformation(-0.1F))
                 .texOffs(92, 44).addBox(-3.0F, 0.0F, -10.0F, 6.0F, 2.0F, 12.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -2.0F, 0.0F));
