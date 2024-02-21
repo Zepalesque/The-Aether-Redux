@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(AetherColorResolvers.class)
 public class AetherColorResolversMixin {
 
-    @Inject(at = @At("HEAD"), method = "registerBlockColor", cancellable = true)
+    @Inject(at = @At("HEAD"), method = "registerBlockColor", cancellable = true, remap = false)
     private static void stupidJavaBlackMagic(RegisterColorHandlersEvent.Block event, CallbackInfo ci) {
         // Cancel the aether's override of the grass color stuff
         ci.cancel();
