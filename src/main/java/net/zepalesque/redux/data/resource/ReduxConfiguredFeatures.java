@@ -306,13 +306,13 @@ public class ReduxConfiguredFeatures {
                 randomPatch(24, 9, 3, BlockStateProvider.simple(drops(ReduxBlocks.SPLITFERN))));
 
         register(context, AEROGEL_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
-                drops(AetherBlocks.AEROGEL), 64, 0F));
+                drops(AetherBlocks.AEROGEL), 24, 0F));
         register(context, FROSTED_PURPLE_FLOWER_PATCH, Feature.FLOWER,
                 randomPatch(16, 7, 3, BlockStateProvider.simple(drops(AetherBlocks.PURPLE_FLOWER))));
         register(context, GILDED_HOLYSTONE_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
-                drops(ReduxBlocks.GILDED_HOLYSTONE), 32, 0.3F));
+                drops(ReduxBlocks.GILDED_HOLYSTONE), 24, 0.3F));
         register(context, BLIGHTMOSS_HOLYSTONE_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
-                drops(ReduxBlocks.BLIGHTMOSS_HOLYSTONE), 32, 0.3F));
+                drops(ReduxBlocks.BLIGHTMOSS_HOLYSTONE), 24, 0.3F));
         register(context, LARGE_ICESTONE_CHUNK, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
                 drops(AetherBlocks.ICESTONE), 48, 0.0F));
         register(context, GILDED_LEAF_PATCH, Feature.RANDOM_PATCH,
@@ -531,7 +531,7 @@ public class ReduxConfiguredFeatures {
                 randomPatch(12, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.LUMINA))));
 
         register(context, MOSSY_HOLYSTONE_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
-                drops(AetherBlocks.MOSSY_HOLYSTONE), 32, 0.3F));
+                drops(AetherBlocks.MOSSY_HOLYSTONE), 24, 0.3F));
         register(context, MOSSY_ROCK, Feature.FOREST_ROCK,
                 new BlockStateConfiguration(drops(AetherBlocks.MOSSY_HOLYSTONE)));
 
@@ -638,7 +638,7 @@ public class ReduxConfiguredFeatures {
                 drops(ReduxBlocks.VERIDIUM_ORE), 9, 0.1F));
 
         register(context, DIVINITE_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
-                drops(ReduxBlocks.DIVINITE), 64, 0.0F));
+                drops(ReduxBlocks.DIVINITE), 48, 0.0F));
 
         register(context, GRASS_PATCH_OVERRIDE, Feature.RANDOM_PATCH,
                 blockBelowPlacementPatch(32, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.SHORT_AETHER_GRASS)), BlockPredicate.not(BlockPredicate.matchesTag(ReduxTags.Blocks.COARSE_AETHER_DIRT))));
