@@ -3,6 +3,7 @@ package net.zepalesque.redux.capability.cockatrice;
 import com.aetherteam.aether.effect.AetherEffects;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.entity.monster.Cockatrice;
+import com.aetherteam.aether.item.EquipmentUtil;
 import com.aetherteam.nitrogen.network.BasePacket;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.Entity;
@@ -10,6 +11,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.network.simple.SimpleChannel;
 import net.zepalesque.redux.config.ReduxConfig;
+import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.network.ReduxPacketHandler;
 import net.zepalesque.redux.network.packet.ReduxCockatriceSyncPacket;
 import org.apache.commons.lang3.tuple.Triple;
@@ -139,7 +141,7 @@ public class CockatriceExtensionCapability implements CockatriceExtension {
                     this.refreshNearby();
                 }
 
-                boolean hasInebriation = this.getCockatrice().getTarget() != null && this.getCockatrice().getTarget().hasEffect(AetherEffects.INEBRIATION.get()) || this.cockatrice.getTarget().canBeAffected()
+                boolean hasInebriation = this.getCockatrice().getTarget() != null && (this.getCockatrice().getTarget().hasEffect(AetherEffects.INEBRIATION.get()) || EquipmentUtil.hasCurio(this.cockatrice.getTarget(), ReduxItems.FEATHER_OF_WARDING.get()));
                 boolean inGroup = this.nearbyCount() >= 3;
                 boolean shooting = (!hasInebriation && this.getCockatrice().getTarget() != null && !inGroup) || !ReduxConfig.COMMON.cockatrice_ai_improvements.get();
                 if (!shooting && this.cockatrice.getTarget() != null) {
