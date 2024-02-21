@@ -8,9 +8,9 @@
           "to_place": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "aether_redux:aurum",
+              "Name": "aether_redux:zanberry_bush",
               "Properties": {
-                "enchanted": "false"
+                "double_drops": "true"
               }
             }
           }
@@ -26,7 +26,7 @@
         }
       ]
     },
-    "tries": 24,
+    "tries": 32,
     "xz_spread": 7,
     "y_spread": 3
   }
