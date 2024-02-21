@@ -39,6 +39,7 @@
     "defaultRequire": 1
   },
   "client": [
+    "client.block.AetherColorResolversMixin",
     "client.block.AetherLeavesClientMixin",
     "client.block.LeafBlockClientMixin",
     "client.gui.PackEntryMixin",
