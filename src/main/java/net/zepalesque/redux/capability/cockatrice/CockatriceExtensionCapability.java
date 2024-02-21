@@ -139,7 +139,7 @@ public class CockatriceExtensionCapability implements CockatriceExtension {
                     this.refreshNearby();
                 }
 
-                boolean hasInebriation = this.getCockatrice().getTarget() != null && this.getCockatrice().getTarget().hasEffect(AetherEffects.INEBRIATION.get());
+                boolean hasInebriation = this.getCockatrice().getTarget() != null && this.getCockatrice().getTarget().hasEffect(AetherEffects.INEBRIATION.get()) || this.cockatrice.getTarget().canBeAffected()
                 boolean inGroup = this.nearbyCount() >= 3;
                 boolean shooting = (!hasInebriation && this.getCockatrice().getTarget() != null && !inGroup) || !ReduxConfig.COMMON.cockatrice_ai_improvements.get();
                 if (!shooting && this.cockatrice.getTarget() != null) {

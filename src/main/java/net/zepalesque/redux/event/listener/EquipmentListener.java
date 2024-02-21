@@ -14,6 +14,8 @@ import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingExperienceDropEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.living.MobEffectEvent;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
@@ -66,11 +68,10 @@ public class EquipmentListener {
     }
 
     @SubscribeEvent
-    public static void removeInebriation(LivingEvent.LivingTickEvent event) {
+    public static void removeInebriation(MobEffectEvent.Applicable event) {
         EquipmentUtil.findFirstCurio(event.getEntity(), ReduxItems.FEATHER_OF_WARDING.get()).ifPresent(slotResult -> {
-            if (event.getEntity().hasEffect(AetherEffects.INEBRIATION.get())) {
-                event.getEntity().removeEffect(AetherEffects.INEBRIATION.get());
-                slotResult.stack().hurtAndBreak(1, slotResult.slotContext().entity(), livingEntity -> CuriosApi.broadcastCurioBreakEvent(slotResult.slotContext()));
+            if (event.getEffectInstance().getEffect() == AetherEffects.INEBRIATION.get()) {
+                event.setResult(Event.Result.DENY);
             }
         });
     }
@@ -118,6 +119,8 @@ public class EquipmentListener {
 
             }
         }
+        EquipmentUtil.findFirstCurio(event.getEntity(), ReduxItems.FEATHER_OF_WARDING.get()).ifPresent(slotResult ->
+                slotResult.stack().hurtAndBreak(1, slotResult.slotContext().entity(), livingEntity -> CuriosApi.broadcastCurioBreakEvent(slotResult.slotContext())));
     }
 
     @SubscribeEvent
@@ -133,5 +136,8 @@ public class EquipmentListener {
                 entity.heal(1);
             }
         }
+
+
+
     }
 }
