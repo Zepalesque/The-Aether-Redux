@@ -178,7 +178,7 @@ public class ReduxConfiguredFeatures {
 
 
         register(context, ZANBERRY_BUSH_PATCH, Feature.FLOWER,
-                randomPatch(24, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.AURUM))));
+                randomPatch(32, 7, 3, BlockStateProvider.simple(drops(ReduxBlocks.ZANBERRY_BUSH))));
 
 
         register(context, AETHER_SNOW_LAYER, ReduxFeatures.TREE_AWARE_SNOW.get(), FeatureConfiguration.NONE);

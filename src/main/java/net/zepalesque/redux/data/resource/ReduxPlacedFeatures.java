@@ -195,7 +195,7 @@ public class ReduxPlacedFeatures {
                 BiomeFilter.biome());
 
 
-        register(context, ZANBERRY_BUSH_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.AURUM_PATCH),
+        register(context, ZANBERRY_BUSH_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.ZANBERRY_BUSH_PATCH),
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, BiasedToBottomInt.of(0, 2), 4),
                 RarityFilter.onAverageOnceEvery(9),
