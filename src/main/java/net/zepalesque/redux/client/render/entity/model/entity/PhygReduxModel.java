@@ -34,9 +34,9 @@ public class PhygReduxModel<T extends Entity> extends QuadrupedModel<T> {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();
 
-        PartDefinition body = partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(28, 8).addBox(-5.0F, -10.0F, -7.0F, 10.0F, 16.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 11.0F, 2.0F, 1.5708F, 0.0F, 0.0F));
+        PartDefinition body = partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(28, 8).addBox(-5.0F, -10.0F, -7.0F, 10.0F, 16.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 11.0F, 2.0F, ((float)Math.PI / 2F), 0.0F, 0.0F));
 
-        body.addOrReplaceChild("spines", CubeListBuilder.create().texOffs(56, -4).addBox(0.0F, -23.0F, -7.0F, 0.0F, 16.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 13.0F, -2.0F, -3.1416F, 0.0F, 3.1416F));
+        body.addOrReplaceChild("spines", CubeListBuilder.create().texOffs(56, -4).addBox(0.0F, -23.0F, -7.0F, 0.0F, 16.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 13.0F, -2.0F, -((float)Math.PI), 0.0F, (float)Math.PI));
         partdefinition.addOrReplaceChild("right_hind_leg", CubeListBuilder.create(), PartPose.offset(-3.0F, 18.0F, 7.0F));
         partdefinition.addOrReplaceChild("right_front_leg", CubeListBuilder.create(), PartPose.offset(-3.0F, 18.0F, -5.0F));
         partdefinition.addOrReplaceChild("left_hind_leg", CubeListBuilder.create(), PartPose.offset(3.0F, 18.0F, 7.0F));
