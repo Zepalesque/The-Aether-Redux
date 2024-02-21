@@ -61,16 +61,13 @@ public class ReduxOverridesPackResources extends AbstractPackResources
         return path;
     }
 
-    private Map<String, List<Conditional<PackResources>>> buildNamespaceMap(PackType type, List<Conditional<PackResources>> packList)
-    {
+    private Map<String, List<Conditional<PackResources>>> buildNamespaceMap(PackType type, List<Conditional<PackResources>> packList) {
         Map<String, List<Conditional<PackResources>>> map = new HashMap<>();
-        for (Conditional<PackResources> optional : packList)
-        {
+        for (Conditional<PackResources> optional : packList) {
             if (optional.isPopulated()) {
                 PackResources pack = optional.getAnyway();
                 for (String namespace : pack.getNamespaces(type)) {
-                    if (optional.get() != null)
-                        map.computeIfAbsent(namespace, k -> new ArrayList<>()).add(optional);
+                    map.computeIfAbsent(namespace, k -> new ArrayList<>()).add(optional);
                 }
             }
         }
@@ -89,25 +86,20 @@ public class ReduxOverridesPackResources extends AbstractPackResources
     }
 
     @Override
-    public void listResources(PackType type, String resourceNamespace, String paths, ResourceOutput resourceOutput)
-    {
-        for (PackResources delegate : this.getAvaliablePacks())
-        {
+    public void listResources(PackType type, String resourceNamespace, String paths, ResourceOutput resourceOutput) {
+        for (PackResources delegate : this.getAvaliablePacks()) {
             delegate.listResources(type, resourceNamespace, paths, resourceOutput);
         }
     }
 
     @Override
-    public @NotNull Set<String> getNamespaces(PackType type)
-    {
+    public @NotNull Set<String> getNamespaces(PackType type) {
         return type == PackType.CLIENT_RESOURCES ? namespacesAssets.keySet() : Set.of();
     }
 
     @Override
-    public void close()
-    {
-        for (PackResources pack : getAllPacks())
-        {
+    public void close() {
+        for (PackResources pack : getAllPacks()) {
             pack.close();
         }
     }
@@ -120,8 +112,7 @@ public class ReduxOverridesPackResources extends AbstractPackResources
 
     @Nullable
     @Override
-    public IoSupplier<InputStream> getResource(PackType type, ResourceLocation location)
-    {
+    public IoSupplier<InputStream> getResource(PackType type, ResourceLocation location) {
         if (location.getPath().matches("lang/.+\\.json")) {
             Collection<Set<Map.Entry<String, JsonElement>>> matches = Lists.newArrayList();
             JsonObject combined = new JsonObject();
@@ -161,24 +152,19 @@ public class ReduxOverridesPackResources extends AbstractPackResources
     }
 
     @Nullable
-    public Collection<PackResources> getChildren()
-    {
+    public Collection<PackResources> getChildren() {
         return getAvaliablePacks();
     }
 
-    public Collection<PackResources> getAvaliablePacks()
-    {
+    public Collection<PackResources> getAvaliablePacks() {
         return delegates.stream().filter(Conditional::isAvailable).map(Conditional::get).toList();
     }
 
-    public Collection<PackResources> getAllPacks()
-    {
+    public Collection<PackResources> getAllPacks() {
         return delegates.stream().filter(Conditional::isPopulated).map(Conditional::getAnyway).toList();
     }
 
-    private List<PackResources> getCandidatePacks(PackType type, ResourceLocation location)
-    {
-        // TODO: fix namespace stuff
+    private List<PackResources> getCandidatePacks(PackType type, ResourceLocation location) {
         if (type == PackType.CLIENT_RESOURCES) {
             Map<String, List<Conditional<PackResources>>> map = namespacesAssets;
             List<Conditional<PackResources>> packsWithNamespace = map.get(location.getNamespace());
