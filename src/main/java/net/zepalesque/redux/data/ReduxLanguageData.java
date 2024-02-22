@@ -474,7 +474,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addGuiText("purified_luxbuds_tooltip", "Gives the helpful Blightward effect when eaten");
 
 
-        addGuiText("jade.entity_model", "Model changed by the Aether: Redux");
+        addGuiText("jade.entity_model", " (Model changed by the Aether: Redux)");
         add("config.jade.plugin_aether_redux.modification_notices", "Redux - Modify Indicator (Jade)");
 
 
