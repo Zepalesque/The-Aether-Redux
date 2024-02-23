@@ -3,6 +3,7 @@ package net.zepalesque.redux.util.compat;
 import com.aetherteam.aether_genesis.block.GenesisBlocks;
 import com.aetherteam.aether_genesis.client.particle.GenesisParticleTypes;
 import com.google.common.collect.ImmutableMap;
+import cpw.mods.util.Lazy;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.world.level.block.Block;
 import net.zepalesque.redux.Redux;
@@ -15,12 +16,12 @@ import java.util.function.Supplier;
 
 public class AetherGenesisParticleUtil {
 
-    private static final Map<Block, Supplier<? extends ParticleOptions>> PARTICLE_MAP = new ImmutableMap.Builder<Block, Supplier<? extends ParticleOptions>>()
+    private static final Lazy<Map<Block, Supplier<? extends ParticleOptions>>> PARTICLE_MAP = Lazy.of(() -> new ImmutableMap.Builder<Block, Supplier<? extends ParticleOptions>>()
             .put(GenesisBlocks.BLUE_SKYROOT_LEAVES.get(), ReduxParticleTypes.FALLING_BLUE_SKYROOT_LEAVES)
-            .put(GenesisBlocks.DARK_BLUE_SKYROOT_LEAVES.get(), ReduxParticleTypes.FALLING_DARK_BLUE_SKYROOT_LEAVES).build();
+            .put(GenesisBlocks.DARK_BLUE_SKYROOT_LEAVES.get(), ReduxParticleTypes.FALLING_DARK_BLUE_SKYROOT_LEAVES).build());
 
     public static @Nullable Supplier<? extends ParticleOptions> getParticle(Block self) {
-        return PARTICLE_MAP.get(self);
+        return PARTICLE_MAP.get().get(self);
     }
 
     public static boolean isPurpleCrystal(Supplier<? extends ParticleOptions> particle) {

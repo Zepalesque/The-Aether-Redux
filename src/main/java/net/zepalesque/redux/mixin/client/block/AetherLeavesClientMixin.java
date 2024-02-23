@@ -3,6 +3,7 @@ package net.zepalesque.redux.mixin.client.block;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.natural.AetherDoubleDropsLeaves;
 import com.google.common.collect.ImmutableMap;
+import cpw.mods.util.Lazy;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleOptions;
@@ -51,7 +52,7 @@ public class AetherLeavesClientMixin extends LeafBlockClientMixin {
     @Unique
     private static @Nullable Supplier<? extends ParticleOptions> redux$getParticle(Block self) {
         if (ReduxConfig.CLIENT.better_leaf_particles.get()) {
-            @Nullable Supplier<? extends ParticleOptions> particle = PARTICLE_MAP.get(self);
+            @Nullable Supplier<? extends ParticleOptions> particle = PARTICLE_MAP.get().get(self);
             if (particle == null) {
                 if (Redux.deepAetherCompat()) {
                     @Nullable Supplier<? extends ParticleOptions> deep = DeepAetherParticleUtil.getParticle(self);
@@ -79,13 +80,13 @@ public class AetherLeavesClientMixin extends LeafBlockClientMixin {
     }
 
     @Unique
-    private static final Map<Block, Supplier<? extends ParticleOptions>> PARTICLE_MAP = new ImmutableMap.Builder<Block, Supplier<? extends ParticleOptions>>()
+    private static final Lazy<Map<Block, Supplier<? extends ParticleOptions>>> PARTICLE_MAP = Lazy.of(() -> new ImmutableMap.Builder<Block, Supplier<? extends ParticleOptions>>()
             .put(AetherBlocks.SKYROOT_LEAVES.get(), ReduxParticleTypes.FALLING_SKYROOT_LEAVES)
             .put(ReduxBlocks.BLIGHTWILLOW_LEAVES.get(), ReduxParticleTypes.FALLING_BLIGHTWILLOW_LEAVES)
             .put(ReduxBlocks.GLACIA_LEAVES.get(), ReduxParticleTypes.FALLING_GLACIA_NEEDLES)
             .put(ReduxBlocks.PURPLE_GLACIA_LEAVES.get(), ReduxParticleTypes.FALLING_PURPLE_GLACIA_NEEDLES)
             .put(ReduxBlocks.BLIGHTED_SKYROOT_LEAVES.get(), ReduxParticleTypes.FALLING_BLIGHTED_SKYROOT_LEAVES)
-            .build();
+            .build());
 
 
 }
