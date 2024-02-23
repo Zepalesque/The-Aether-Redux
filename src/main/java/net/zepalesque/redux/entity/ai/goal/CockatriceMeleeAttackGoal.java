@@ -4,9 +4,10 @@ import com.aetherteam.aether.entity.monster.Cockatrice;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraftforge.common.util.LazyOptional;
 import net.zepalesque.redux.capability.cockatrice.CockatriceExtension;
+import net.zepalesque.redux.entity.ai.SourceCodeDoesNotMatchBytecode;
 
 
-public class CockatriceMeleeAttackGoal extends MeleeAttackGoal {
+public class CockatriceMeleeAttackGoal extends SourceCodeDoesNotMatchBytecode {
 
     public CockatriceMeleeAttackGoal(Cockatrice pMob, double pSpeedModifier, boolean pFollowingTargetEvenIfNotSeen) {
         super(pMob, pSpeedModifier, pFollowingTargetEvenIfNotSeen);
