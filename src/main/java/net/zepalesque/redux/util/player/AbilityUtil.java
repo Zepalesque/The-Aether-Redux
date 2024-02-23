@@ -6,6 +6,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
@@ -14,10 +15,8 @@ import net.zepalesque.redux.entity.projectile.VolatileFireCrystal;
 import net.zepalesque.redux.item.ReduxItems;
 
 public class AbilityUtil {
-
-
-    public static void doDoubleJumpMovement(LivingEntity entity)
-    {
+    
+    public static void doDoubleJumpMovement(LivingEntity entity) {
         double upJump = 0.35D + ((EquipmentUtil.hasCurio(entity, ReduxItems.AIRBOUND_CAPE.get()) && EquipmentUtil.getCurios(entity, ReduxItems.AIRBOUND_CAPE.get()).size() == 2) ? 0.15D : 0.1D);
 
         double xDelta = entity.getDeltaMovement().x() * 1.4D;
@@ -29,8 +28,7 @@ public class AbilityUtil {
                 0.9F + entity.level().random.nextFloat() * 0.2F);
     }
 
-    public static void spawnDoubleJumpParticles(Level level, double x, double y, double z, double radius, int quantity)
-    {
+    public static void spawnDoubleJumpParticles(Level level, double x, double y, double z, double radius, int quantity) {
         RandomSource random = level.random;
 
         for (int i = 0; i < quantity; i++)
@@ -87,9 +85,7 @@ public class AbilityUtil {
         }
     }
 
-
-    public  static Vec3 getSidedPoition(LivingEntity owner, HumanoidArm side)
-    {
+    public  static Vec3 getSidedPoition(LivingEntity owner, HumanoidArm side) {
         double yaw = owner.getYRot();
         if (side == HumanoidArm.RIGHT) {
             yaw -= 90.0;
@@ -103,6 +99,4 @@ public class AbilityUtil {
         double targetZ = owner.getZ() + Math.cos(yaw) * 1.05;
         return new Vec3(targetX, targetY, targetZ);
     }
-
-
 }
