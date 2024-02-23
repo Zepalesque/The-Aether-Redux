@@ -1,7 +1,7 @@
 package net.zepalesque.redux.util.compat;
 
 import com.google.common.collect.ImmutableMap;
-import cpw.mods.util.Lazy;
+import net.minecraftforge.common.util.Lazy;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.world.level.block.Block;
 import net.zepalesque.redux.Redux;

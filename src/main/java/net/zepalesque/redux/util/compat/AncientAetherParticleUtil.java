@@ -3,7 +3,7 @@ package net.zepalesque.redux.util.compat;
 import com.aetherteam.aether_genesis.block.GenesisBlocks;
 import com.aetherteam.aether_genesis.client.particle.GenesisParticleTypes;
 import com.google.common.collect.ImmutableMap;
-import cpw.mods.util.Lazy;
+import net.minecraftforge.common.util.Lazy;
 import net.builderdog.ancient_aether.block.AncientAetherBlocks;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.world.level.block.Block;
