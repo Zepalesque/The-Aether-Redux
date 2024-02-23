@@ -2,6 +2,7 @@ package net.zepalesque.redux.mixin.client.block;
 
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.natural.AetherDoubleDropsLeaves;
+import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleOptions;
@@ -23,7 +24,9 @@ import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import teamrazor.deepaether.init.DABlocks;
 
+import java.util.Map;
 import java.util.function.Supplier;
 
 @Mixin(AetherDoubleDropsLeaves.class)
@@ -49,28 +52,34 @@ public class AetherLeavesClientMixin extends LeafBlockClientMixin {
     private static @Nullable Supplier<? extends ParticleOptions> getParticle(Block self)
     {
         if (ReduxConfig.CLIENT.better_leaf_particles.get()) {
-            @Nullable Supplier<? extends ParticleOptions> particle = null;
-            if (Redux.deepAetherCompat()) {
-                @Nullable Supplier<? extends ParticleOptions> deep = DeepAetherParticleUtil.getParticle(self);
-                if (deep != null) {
-                    particle = deep;
+            @Nullable Supplier<? extends ParticleOptions> particle = PARTICLE_MAP.get(self);
+            if (particle == null) {
+                if (Redux.deepAetherCompat()) {
+                    @Nullable Supplier<? extends ParticleOptions> deep = Redux.deepAetherCompat() ? DeepAetherParticleUtil.getParticle(self) : null;
+                    if (deep != null) {
+                        particle = deep;
+                    }
+                }
+                if (Redux.aetherGenesisCompat()) {
+                    @Nullable Supplier<? extends ParticleOptions> genesis = Redux.aetherGenesisCompat() ? AetherGenesisParticleUtil.getParticle(self) : null;
+                    if (genesis != null) {
+                        particle = genesis;
+                    }
                 }
             }
-            if (Redux.aetherGenesisCompat()) {
-                @Nullable Supplier<? extends ParticleOptions> genesis = AetherGenesisParticleUtil.getParticle(self);
-                if (genesis != null) {
-                    particle = genesis;
-                }
-            }
-            if (self == AetherBlocks.SKYROOT_LEAVES.get()) { particle = ReduxParticleTypes.FALLING_SKYROOT_LEAVES; }
-            if (self == ReduxBlocks.BLIGHTWILLOW_LEAVES.get()) { particle = ReduxParticleTypes.FALLING_BLIGHTWILLOW_LEAVES; }
-            if (self == ReduxBlocks.GLACIA_LEAVES.get()) { particle = ReduxParticleTypes.FALLING_GLACIA_NEEDLES; }
-            if (self == ReduxBlocks.PURPLE_GLACIA_LEAVES.get()) { particle = ReduxParticleTypes.FALLING_PURPLE_GLACIA_NEEDLES; }
-            if (self == ReduxBlocks.BLIGHTED_SKYROOT_LEAVES.get()) { particle = ReduxParticleTypes.FALLING_BLIGHTED_SKYROOT_LEAVES; }
             return particle;
         } else {
             return null;
         }
     }
-    
+
+    private static final Map<Block, Supplier<? extends ParticleOptions>> PARTICLE_MAP = new ImmutableMap.Builder<Block, Supplier<? extends ParticleOptions>>()
+            .put(AetherBlocks.SKYROOT_LEAVES.get(), ReduxParticleTypes.FALLING_SKYROOT_LEAVES)
+            .put(ReduxBlocks.BLIGHTWILLOW_LEAVES.get(), ReduxParticleTypes.FALLING_BLIGHTWILLOW_LEAVES)
+            .put(ReduxBlocks.GLACIA_LEAVES.get(), ReduxParticleTypes.FALLING_GLACIA_NEEDLES)
+            .put(ReduxBlocks.PURPLE_GLACIA_LEAVES.get(), ReduxParticleTypes.FALLING_PURPLE_GLACIA_NEEDLES)
+            .put(ReduxBlocks.BLIGHTED_SKYROOT_LEAVES.get(), ReduxParticleTypes.FALLING_BLIGHTED_SKYROOT_LEAVES)
+            .build();
+
+
 }

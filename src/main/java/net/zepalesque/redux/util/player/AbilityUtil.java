@@ -15,7 +15,7 @@ import net.zepalesque.redux.entity.projectile.VolatileFireCrystal;
 import net.zepalesque.redux.item.ReduxItems;
 
 public class AbilityUtil {
-    
+
     public static void doDoubleJumpMovement(LivingEntity entity) {
         double upJump = 0.35D + ((EquipmentUtil.hasCurio(entity, ReduxItems.AIRBOUND_CAPE.get()) && EquipmentUtil.getCurios(entity, ReduxItems.AIRBOUND_CAPE.get()).size() == 2) ? 0.15D : 0.1D);
 
