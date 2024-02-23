@@ -19,12 +19,12 @@ import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.util.compat.AetherGenesisParticleUtil;
+import net.zepalesque.redux.util.compat.AncientAetherParticleUtil;
 import net.zepalesque.redux.util.compat.DeepAetherParticleUtil;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import teamrazor.deepaether.init.DABlocks;
 
 import java.util.Map;
 import java.util.function.Supplier;
@@ -37,7 +37,7 @@ public class AetherLeavesClientMixin extends LeafBlockClientMixin {
         super.animateTick(state, level, pos, random, ci);
 
         // we are already on the client side
-        @Nullable Supplier<? extends ParticleOptions> supplier = getParticle((AetherDoubleDropsLeaves) (Object) this);
+        @Nullable Supplier<? extends ParticleOptions> supplier = redux$getParticle((AetherDoubleDropsLeaves) (Object) this);
         int chance = level.getBiome(pos).is(ReduxTags.Biomes.DENSE_LEAF_FALL) ? 20 : 30;
         if (supplier != null && random.nextInt(chance) == 0) {
             BlockPos blockpos = pos.below();
@@ -49,21 +49,26 @@ public class AetherLeavesClientMixin extends LeafBlockClientMixin {
     }
 
     @Unique
-    private static @Nullable Supplier<? extends ParticleOptions> getParticle(Block self)
-    {
+    private static @Nullable Supplier<? extends ParticleOptions> redux$getParticle(Block self) {
         if (ReduxConfig.CLIENT.better_leaf_particles.get()) {
             @Nullable Supplier<? extends ParticleOptions> particle = PARTICLE_MAP.get(self);
             if (particle == null) {
                 if (Redux.deepAetherCompat()) {
-                    @Nullable Supplier<? extends ParticleOptions> deep = Redux.deepAetherCompat() ? DeepAetherParticleUtil.getParticle(self) : null;
+                    @Nullable Supplier<? extends ParticleOptions> deep = DeepAetherParticleUtil.getParticle(self);
                     if (deep != null) {
                         particle = deep;
                     }
                 }
                 if (Redux.aetherGenesisCompat()) {
-                    @Nullable Supplier<? extends ParticleOptions> genesis = Redux.aetherGenesisCompat() ? AetherGenesisParticleUtil.getParticle(self) : null;
+                    @Nullable Supplier<? extends ParticleOptions> genesis = AetherGenesisParticleUtil.getParticle(self);
                     if (genesis != null) {
                         particle = genesis;
+                    }
+                }
+                if (Redux.ancientAetherCompat()) {
+                    @Nullable Supplier<? extends ParticleOptions> ancient = AncientAetherParticleUtil.getParticle(self);
+                    if (ancient != null) {
+                        particle = ancient;
                     }
                 }
             }
@@ -73,6 +78,7 @@ public class AetherLeavesClientMixin extends LeafBlockClientMixin {
         }
     }
 
+    @Unique
     private static final Map<Block, Supplier<? extends ParticleOptions>> PARTICLE_MAP = new ImmutableMap.Builder<Block, Supplier<? extends ParticleOptions>>()
             .put(AetherBlocks.SKYROOT_LEAVES.get(), ReduxParticleTypes.FALLING_SKYROOT_LEAVES)
             .put(ReduxBlocks.BLIGHTWILLOW_LEAVES.get(), ReduxParticleTypes.FALLING_BLIGHTWILLOW_LEAVES)
