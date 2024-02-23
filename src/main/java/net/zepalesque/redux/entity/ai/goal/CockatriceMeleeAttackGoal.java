@@ -20,7 +20,7 @@ public class CockatriceMeleeAttackGoal extends MeleeAttackGoal {
     protected boolean isShooting()
     {
         LazyOptional<CockatriceExtension> capability = CockatriceExtension.get((Cockatrice) this.mob);
-        return !capability.isPresent() || capability.orElseThrow(() -> new IllegalStateException("Cockatrice capability was missing!")).isShooting();
+        return capability.isPresent() && capability.orElseThrow(() -> new IllegalStateException("Cockatrice capability was missing!")).isShooting();
     }
 
 
