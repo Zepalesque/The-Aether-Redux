@@ -120,7 +120,7 @@ public class Redux
     @Nullable
     public static ReduxPackConfig packConfig;
 
-    public static final String VERSION_ID = "2.0-pre5";
+    public static final String VERSION_ID = "2.0-pre6";
 
     public Redux()
     {
