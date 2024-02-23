@@ -1,6 +1,6 @@
 {
   "carvers": {},
-  "creature_spawn_probability": 0.25,
+  "creature_spawn_probability": 0.5,
   "downfall": 0.0,
   "effects": {
     "fog_color": 9671612,
@@ -157,13 +157,13 @@
         "type": "aether_redux:shimmercow",
         "maxCount": 5,
         "minCount": 2,
-        "weight": 12
+        "weight": 7
       },
       {
         "type": "aether_redux:mykapod",
         "maxCount": 3,
         "minCount": 1,
-        "weight": 5
+        "weight": 9
       }
     ],
     "misc": [],

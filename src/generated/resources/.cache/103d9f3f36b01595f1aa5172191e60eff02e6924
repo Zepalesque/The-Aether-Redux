@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-21T18:23:04.3641969	Registries
+// 1.20.1	2024-02-22T22:27:37.4179672	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 44b19724a3aca851b449582759fec56d16ea1ad6 data/aether/worldgen/configured_feature/golden_oak_tree.json
 875593e37a52dd63b2d87226b0f0e5e76ef48247 data/aether/worldgen/configured_feature/grass_patch.json
@@ -48,7 +48,7 @@ bf31aac0ec63c74970e7f5450582a0f4c3b7330e data/aether_redux/forge/biome_modifier/
 1af5700be09c53b928d2220da0f9a37e94c2365b data/aether_redux/forge/biome_modifier/overworld_aether_grass/is_nether.json
 9d27b93d16cce648424d70b655dc4f28cebd934c data/aether_redux/forge/biome_modifier/overworld_aether_grass/is_plateau.json
 59ea6b4fb902ea19f7253a08a1cf8aec0efa8c2c data/aether_redux/forge/biome_modifier/overworld_aether_grass/is_sparse.json
-770d4b33597acf0b4e31527d370e5b10f22122b5 data/aether_redux/worldgen/biome/cloudcaps.json
+e9e224f460ff6315221bb728c55c168001b8549c data/aether_redux/worldgen/biome/cloudcaps.json
 66baa0b3bc1aff8c3710d50458ffa189bb7439b8 data/aether_redux/worldgen/biome/frosted_forests.json
 64268fd8480e360f833ec20ad7589fd3dc38d3d0 data/aether_redux/worldgen/biome/gilded_grasslands.json
 17fb2579bf18dc918d0119b6f88431c4455547c2 data/aether_redux/worldgen/biome/gilded_groves.json
