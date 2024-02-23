@@ -57,7 +57,6 @@ public class Blight {
                         .addSpawn(AetherMobCategory.AETHER_SURFACE_MONSTER, new MobSpawnSettings.SpawnerData(AetherEntityTypes.EVIL_WHIRLWIND.get(), 1, 1, 1))
 
                         .creatureGenerationProbability(0.25F)
-                        // TODO: Blightbunny
                         .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ReduxEntityTypes.BLIGHTBUNNY_SPAWNER.get(), 11, 3, 3))
                         .build())
                 .generationSettings(

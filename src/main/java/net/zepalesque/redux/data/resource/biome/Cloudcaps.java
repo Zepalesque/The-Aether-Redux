@@ -59,9 +59,9 @@ public class Cloudcaps {
                         .addSpawn(AetherMobCategory.AETHER_SURFACE_MONSTER, new MobSpawnSettings.SpawnerData(AetherEntityTypes.EVIL_WHIRLWIND.get(), 1, 1, 1))
                         .addSpawn(AetherMobCategory.AETHER_AERWHALE, new MobSpawnSettings.SpawnerData(AetherEntityTypes.AERWHALE.get(), 10, 1, 1))
 
-                        .creatureGenerationProbability(0.25F)
-                        .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ReduxEntityTypes.SHIMMERCOW.get(), 12, 2, 5))
-                        .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ReduxEntityTypes.MYKAPOD.get(), 5, 1, 3))
+                        .creatureGenerationProbability(0.5F)
+                        .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ReduxEntityTypes.SHIMMERCOW.get(), 7, 2, 5))
+                        .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ReduxEntityTypes.MYKAPOD.get(), 9, 1, 3))
                         .build())
                 .generationSettings(
         new BiomeGenerationSettings.Builder(placed, carvers)
