@@ -139,6 +139,7 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPIROLYCTIL_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.SPIROLYCTIL) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> JELLYSHROOM_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.JELLYSHROOM) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SURFACE_RULE_WATER_LAKE = createKey(Folders.SURFACE + "surface_rule_water_lake");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHT_LAKE = createKey(Folders.SURFACE + "blight_lake");
     public static final ResourceKey<ConfiguredFeature<?, ?>> VERIDIUM_ORE = createKey(Folders.ORE + name(ReduxBlocks.VERIDIUM_ORE));
     public static final ResourceKey<ConfiguredFeature<?, ?>> DIVINITE_ORE = createKey(Folders.ORE + name(ReduxBlocks.DIVINITE) + "_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CRYSTAL_TREE_OVERRIDE = aetherKey("crystal_tree");
@@ -561,6 +562,9 @@ public class ReduxConfiguredFeatures {
 
 
         register(context, SURFACE_RULE_WATER_LAKE, ReduxFeatures.SURFACE_RULE_LAKE.get(),
+                new SurfaceRuleLakeConfig(BlockStateProvider.simple(Blocks.WATER)));
+
+        register(context, BLIGHT_LAKE, ReduxFeatures.SURFACE_RULE_LAKE.get(),
                 new SurfaceRuleLakeConfig(BlockStateProvider.simple(Blocks.WATER)));
 
         register(context, WYNDSPROUTS_PATCH, Feature.FLOWER,

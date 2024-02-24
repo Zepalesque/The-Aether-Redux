@@ -64,7 +64,7 @@ public class Blight {
 
                 .addFeature(GenerationStep.Decoration.RAW_GENERATION, ReduxPlacedFeatures.HOLYSILT_DISK)
 
-                .addFeature(GenerationStep.Decoration.LAKES, ReduxPlacedFeatures.SURFACE_RULE_WATER_LAKE)
+                .addFeature(GenerationStep.Decoration.LAKES, ReduxPlacedFeatures.BLIGHT_LAKE)
 
                 .addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, ReduxPlacedFeatures.BLIGHT_ROCK)
 
