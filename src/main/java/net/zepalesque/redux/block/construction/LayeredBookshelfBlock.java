@@ -31,10 +31,11 @@ public class LayeredBookshelfBlock extends BookshelfBlock {
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        return getState(super.getStateForPlacement(context), context.getLevel(), context.getClickedPos());
+        return getState(context.getLevel(), context.getClickedPos());
     }
 
-    private BlockState getState(BlockState b, LevelAccessor level, BlockPos pos) {
+    private BlockState getState(LevelAccessor level, BlockPos pos) {
+        BlockState b = this.defaultBlockState();
         if (level.getBlockState(pos.above()).is(this)) {
             b = b.setValue(UP, false);
         }
@@ -46,6 +47,6 @@ public class LayeredBookshelfBlock extends BookshelfBlock {
 
     @Override
     public BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
-        return getState(super.updateShape(state, direction, neighborState, level, pos, neighborPos), level, pos);
+        return getState(level, pos);
     }
 }
