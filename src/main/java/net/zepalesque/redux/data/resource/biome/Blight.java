@@ -58,7 +58,7 @@ public class Blight {
                         .addSpawn(AetherMobCategory.AETHER_SURFACE_MONSTER, new MobSpawnSettings.SpawnerData(AetherEntityTypes.EVIL_WHIRLWIND.get(), 1, 1, 1))
 
                         .creatureGenerationProbability(0.25F)
-                        .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ReduxEntityTypes.BLIGHTBUNNY_SPAWNER.get(), 11, 2, 3))
+                        .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ReduxEntityTypes.BLIGHTBUNNY_SPAWNER.get(), 21, 2, 3))
                         .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ReduxEntityTypes.COCKATRICE_SPAWNER.get(), 14, 1, 4))
                         .build())
                 .generationSettings(
