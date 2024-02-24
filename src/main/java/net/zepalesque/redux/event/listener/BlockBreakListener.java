@@ -16,38 +16,12 @@ import net.zepalesque.redux.event.hook.BlockBreakHooks;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class BlockBreakListener {
 
-
-
-
     @SubscribeEvent
-    public static void modifyMiningSpeed(PlayerEvent.BreakSpeed event)
-    {
+    public static void modifyMiningSpeed(PlayerEvent.BreakSpeed event) {
         float modifiedSpeed = BlockBreakHooks.modify(event.getState().getBlock(), event.getNewSpeed());
         if (modifiedSpeed != event.getNewSpeed())
         {
             event.setNewSpeed(modifiedSpeed);
         }
-    }
-
-    @SubscribeEvent
-    public static void breakBlock(BlockEvent.BreakEvent event)
-    {
-        Player player = event.getPlayer();
-
-        double reach = event.getPlayer().getAttributeValue(ForgeMod.BLOCK_REACH.get());
-        double baseReach = event.getPlayer().getAttributeBaseValue(ForgeMod.BLOCK_REACH.get());
-        LevelAccessor level = event.getLevel();
-        float pitch = player.getXRot();
-        float yaw = player.getYRot();
-        Vec3 eyePos = player.getEyePosition();
-        float f2 = Mth.cos(-yaw * ((float)Math.PI / 180F) - (float)Math.PI);
-        float f3 = Mth.sin(-yaw * ((float)Math.PI / 180F) - (float)Math.PI);
-        float f4 = -Mth.cos(-pitch * ((float)Math.PI / 180F));
-        float f5 = Mth.sin(-pitch * ((float)Math.PI / 180F));
-        float f6 = f3 * f4;
-        float f7 = f2 * f4;
-        Vec3 vec31 = eyePos.add((double)f6 * reach, (double)f5 * reach, (double)f7 * reach);
-        BlockHitResult bhr = level.clip(new ClipContext(eyePos, vec31, ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, player));
-
     }
 }
