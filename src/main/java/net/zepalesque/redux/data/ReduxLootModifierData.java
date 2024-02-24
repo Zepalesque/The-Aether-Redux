@@ -63,7 +63,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                 new LootItemFunction[] {
                         SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)).build(),
                         ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE).build()
-                s},
+                },
                 new LootItemCondition[] {
                         DataLootCondition.conditionOf(Conditions.RAW_GRAVITITE).build(),
                         HAS_SILK_TOUCH.invert().build(),
