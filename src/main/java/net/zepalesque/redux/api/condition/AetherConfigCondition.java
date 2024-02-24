@@ -11,26 +11,22 @@ import net.minecraftforge.common.ForgeConfigSpec;
 public class AetherConfigCondition implements AbstractCondition<AetherConfigCondition> {
 
     public static final Codec<AetherConfigCondition> CODEC = RecordCodecBuilder.create((condition) ->
-            condition.group(Codec.STRING.fieldOf("config_path").forGetter((config) -> config.configPath))
-                    .apply(condition, AetherConfigCondition::new));
+            condition.group(Codec.STRING.fieldOf("config_path").forGetter((config) -> ConfigSerializationUtil.serialize(config.config)))
+                    .apply(condition, AetherConfigCondition::fromText));
 
-    protected final String configPath;
+    protected final ForgeConfigSpec.ConfigValue<Boolean> config;
 
-
-
-    public static AetherConfigCondition fromConfig(ForgeConfigSpec.ConfigValue<Boolean> config)
-    {
-        return new AetherConfigCondition(ConfigSerializationUtil.serialize(config));
+    public static AetherConfigCondition fromText(String config) {
+        return new AetherConfigCondition(ConfigSerializationUtil.deserialize(config));
     }
-
-
-    public AetherConfigCondition(String configPath) {
-        this.configPath = configPath;
+    
+    public AetherConfigCondition(ForgeConfigSpec.ConfigValue<Boolean> config) {
+        this.config = config;
     }
 
     @Override
     public boolean isConditionMet() {
-        return ConfigSerializationUtil.deserialize(this.configPath).get();
+        return this.config.get();
     }
 
     @Override
@@ -41,7 +37,7 @@ public class AetherConfigCondition implements AbstractCondition<AetherConfigCond
     @Override
     public String text() {
         return "AetherConfigCondition{" +
-                "configPath='" + configPath + '\'' +
+                "config='" + config.toString() + '\'' +
                 '}';
     }
 }

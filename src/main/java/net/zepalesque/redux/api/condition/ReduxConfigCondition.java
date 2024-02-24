@@ -1,33 +1,32 @@
 package net.zepalesque.redux.api.condition;
 
+import com.aetherteam.aether.data.ConfigSerializationUtil;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.zepalesque.redux.config.util.ReduxConfigSerialization;
 
+/**
+ *  Must use a {@link ForgeConfigSpec.ConfigValue}<{@link Boolean}> that is either a part of {@link com.aetherteam.aether.AetherConfig.Common} or {@link com.aetherteam.aether.AetherConfig.Common}
+ */
 public class ReduxConfigCondition implements AbstractCondition<ReduxConfigCondition> {
 
     public static final Codec<ReduxConfigCondition> CODEC = RecordCodecBuilder.create((condition) ->
-            condition.group(Codec.STRING.fieldOf("config_path").forGetter((config) -> config.configPath))
-                    .apply(condition, ReduxConfigCondition::new));
+            condition.group(Codec.STRING.fieldOf("config_path").forGetter((config) -> ReduxConfigSerialization.serialize(config.config)))
+                    .apply(condition, ReduxConfigCondition::fromText));
 
-    protected final String configPath;
+    protected final ForgeConfigSpec.ConfigValue<Boolean> config;
 
-
-
-    public static ReduxConfigCondition of(ForgeConfigSpec.ConfigValue<Boolean> config)
-    {
-        return new ReduxConfigCondition(ReduxConfigSerialization.serialize(config));
+    public static ReduxConfigCondition fromText(String config) {
+        return new ReduxConfigCondition(ReduxConfigSerialization.deserialize(config));
     }
-
-
-    public ReduxConfigCondition(String configPath) {
-        this.configPath = configPath;
+    public ReduxConfigCondition(ForgeConfigSpec.ConfigValue<Boolean> config) {
+        this.config = config;
     }
 
     @Override
     public boolean isConditionMet() {
-        return ReduxConfigSerialization.deserialize(this.configPath).get();
+        return this.config.get();
     }
 
     @Override
@@ -38,7 +37,7 @@ public class ReduxConfigCondition implements AbstractCondition<ReduxConfigCondit
     @Override
     public String text() {
         return "ReduxConfigCondition{" +
-                "configPath='" + configPath + '\'' +
+                "config='" + config.toString() + '\'' +
                 '}';
     }
 }
