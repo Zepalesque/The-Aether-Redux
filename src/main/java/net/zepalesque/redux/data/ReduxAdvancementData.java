@@ -63,6 +63,15 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
                     .save(consumer, Redux.locate("double_jump"), existingFileHelper);
 
             Advancement.Builder.advancement()
+                    .parent(new ResourceLocation(Aether.MODID, "silver_dungeon"))
+                    .display(ReduxItems.GRAND_VICTORY_MEDAL.get(),
+                            Component.translatable("advancement.aether_redux.grand_medal"),
+                            Component.translatable("advancement.aether_redux.grand_medal.desc"),
+                            null,
+                            FrameType.TASK, true, true, false)
+                    .addCriterion("obtain_grand_medal", InventoryChangeTrigger.TriggerInstance.hasItems(ReduxItems.GRAND_VICTORY_MEDAL.get()))
+                    .save(consumer, Redux.locate("obtain_grand_medal"), existingFileHelper);
+            Advancement.Builder.advancement()
                     .parent(new ResourceLocation(Aether.MODID, "gold_dungeon"))
                     .display(ReduxItems.PHOENIX_EMBLEM.get(),
                             Component.translatable("advancement.aether_redux.kill_sheepuff_with_fireball"),
