@@ -18,8 +18,6 @@ public class AncientAetherParticleUtil {
     private static final Lazy<Map<Block, Supplier<? extends ParticleOptions>>> PARTICLE_MAP = Lazy.of(() -> new ImmutableMap.Builder<Block, Supplier<? extends ParticleOptions>>()
             .put(AncientAetherBlocks.CRYSTAL_SKYROOT_LEAVES.get(), ReduxParticleTypes.FALLING_CRYSTAL_SKYROOT_LEAVES)
             .put(AncientAetherBlocks.ENCHANTED_SKYROOT_LEAVES.get(), ReduxParticleTypes.FALLING_ENCHANTED_SKYROOT_LEAVES)
-            .put(AncientAetherBlocks.HIGHSPROOT_LEAVES.get(), ReduxParticleTypes.FALLING_HIGHSPROOT_NEEDLES)
-            .put(AncientAetherBlocks.SKYROOT_PINE_LEAVES.get(), ReduxParticleTypes.FALLING_SKYROOT_PINE_NEEDLES)
             .put(AncientAetherBlocks.SAKURA_LEAVES.get(), ReduxParticleTypes.SAKURA_PETALS)
             .build());
 

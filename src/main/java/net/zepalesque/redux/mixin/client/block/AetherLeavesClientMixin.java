@@ -83,8 +83,6 @@ public class AetherLeavesClientMixin extends LeafBlockClientMixin {
     private static final Lazy<Map<Block, Supplier<? extends ParticleOptions>>> PARTICLE_MAP = Lazy.of(() -> new ImmutableMap.Builder<Block, Supplier<? extends ParticleOptions>>()
             .put(AetherBlocks.SKYROOT_LEAVES.get(), ReduxParticleTypes.FALLING_SKYROOT_LEAVES)
             .put(ReduxBlocks.BLIGHTWILLOW_LEAVES.get(), ReduxParticleTypes.FALLING_BLIGHTWILLOW_LEAVES)
-            .put(ReduxBlocks.GLACIA_LEAVES.get(), ReduxParticleTypes.FALLING_GLACIA_NEEDLES)
-            .put(ReduxBlocks.PURPLE_GLACIA_LEAVES.get(), ReduxParticleTypes.FALLING_PURPLE_GLACIA_NEEDLES)
             .put(ReduxBlocks.BLIGHTED_SKYROOT_LEAVES.get(), ReduxParticleTypes.FALLING_BLIGHTED_SKYROOT_LEAVES)
             .build());
 

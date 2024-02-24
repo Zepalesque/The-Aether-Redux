@@ -16,7 +16,6 @@ public class DeepAetherParticleUtil {
 
     private static final Lazy<Map<Block, Supplier<? extends ParticleOptions>>> PARTICLE_MAP = Lazy.of(() -> new ImmutableMap.Builder<Block, Supplier<? extends ParticleOptions>>()
             .put(DABlocks.CONBERRY_LEAVES.get(), ReduxParticleTypes.FALLING_CONBERRY_LEAVES)
-            .put(DABlocks.CRUDEROOT_LEAVES.get(), ReduxParticleTypes.FALLING_CRUDEROOT_NEEDLES)
             .put(DABlocks.YAGROOT_LEAVES.get(), ReduxParticleTypes.FALLING_YAGROOT_LEAVES)
             .put(DABlocks.SUNROOT_LEAVES.get(), ReduxParticleTypes.FALLING_SUNROOT_LEAVES).build());
 
