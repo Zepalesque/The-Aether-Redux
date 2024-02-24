@@ -636,6 +636,15 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addDeathByPlayer(ReduxDamageTypes.EMBER, "%1$s was sparked by %2$s's flying ember");
         addDeath(ReduxDamageTypes.BLIGHT, "%1$s was taken by the Blight");
 
+        addGuiText("pro_tip", "§dPro Tip:");
+
+        addProTip("tip_color", "§dTips from the Aether: Redux are in light purple!");
+        addProTip("veridium_infusion", "§dVeridium tools can be temporarily infused into better versions by right-clicking them with an Ambrosium Shard!");
+        addProTip("model_changes", "§dThe Aether: Redux has some model changes to some of the Aether’s mobs, which can be toggled in the client-side config!");
+        addProTip("feather_of_warding", "§dSometimes, Cockatrices will drop a feather, which can be upgraded into the useful Feather of Warding, giving you immunity from the inebriation effect.");
+        addProTip("oatmeal", "§dWyndsprout seeds can be crafed into Oatmeal, a nice snack that can fill up a few hunger points for relatively cheap.");
+        addProTip("blight_spear", "§dBlightbunny teeth can be used to create the Spear of the Blight, a throwable weapon that inflicts Inebriation on enemies.");
+
         for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS) {
             woodHandler.generateLanguageData(this);
         }
