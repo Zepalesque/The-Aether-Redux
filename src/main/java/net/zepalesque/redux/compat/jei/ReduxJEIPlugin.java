@@ -39,4 +39,5 @@ public class ReduxJEIPlugin implements IModPlugin {
 
         registration.addRecipeCatalyst(new ItemStack(AetherItems.AMBROSIUM_SHARD.get()), InfusionRecipeCategory.RECIPE_TYPE);
     }
+
 }

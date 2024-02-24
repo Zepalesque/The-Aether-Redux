@@ -6,6 +6,7 @@ import com.aetherteam.aether.entity.AetherEntityTypes;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.util.random.Weight;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeGenerationSettings;
@@ -57,7 +58,8 @@ public class Blight {
                         .addSpawn(AetherMobCategory.AETHER_SURFACE_MONSTER, new MobSpawnSettings.SpawnerData(AetherEntityTypes.EVIL_WHIRLWIND.get(), 1, 1, 1))
 
                         .creatureGenerationProbability(0.25F)
-                        .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ReduxEntityTypes.BLIGHTBUNNY_SPAWNER.get(), 11, 3, 3))
+                        .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ReduxEntityTypes.BLIGHTBUNNY_SPAWNER.get(), 11, 2, 3))
+                        .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ReduxEntityTypes.COCKATRICE_SPAWNER.get(), 14, 1, 4))
                         .build())
                 .generationSettings(
         new BiomeGenerationSettings.Builder(placed, carvers)

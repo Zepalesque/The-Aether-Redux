@@ -66,6 +66,7 @@ public class ReduxEntityTypes {
     public static void registerSpawnPlacements(SpawnPlacementRegisterEvent event) {
         event.register(ReduxEntityTypes.VANILLA_SWET.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Swet::checkSwetSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
         event.register(ReduxEntityTypes.SHIMMERCOW.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AetherAnimal::checkAetherAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
+        event.register(ReduxEntityTypes.MYKAPOD.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AetherAnimal::checkAetherAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
         event.register(ReduxEntityTypes.BLIGHTBUNNY.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Blightbunny::checkBunnySpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
         event.register(ReduxEntityTypes.BLIGHTBUNNY_SPAWNER.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, EntitySpawner::checkEntitySpawnerSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
         event.register(ReduxEntityTypes.COCKATRICE_SPAWNER.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, EntitySpawner::checkEntitySpawnerSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
