@@ -44,14 +44,14 @@ public class ReduxRegion extends Region {
             Climate.Parameter temp4 = Climate.Parameter.span(0.2F, 0.5F);
             Climate.Parameter temp5 = Climate.Parameter.span(0.5F, 1.5F);
 
-            addBiome(mapper, new Climate.ParameterPoint(temp1, Climate.Parameter.span(-1.0F, -0.2F), fullRange, fullRange, fullRange, fullRange, 0),
+            addBiome(mapper, new Climate.ParameterPoint(temp1, Climate.Parameter.span(-1.5F, -0.2F), fullRange, fullRange, fullRange, fullRange, 0),
                     glacial);
             addBiome(mapper, new Climate.ParameterPoint(temp1, Climate.Parameter.span(-0.2F, 0.5F), fullRange, fullRange, fullRange, fullRange, 0),
                     frosted);
-            addBiome(mapper, new Climate.ParameterPoint(temp1, Climate.Parameter.span(0.5F, 1.0F), fullRange, fullRange, fullRange, fullRange, 0),
+            addBiome(mapper, new Climate.ParameterPoint(temp1, Climate.Parameter.span(0.5F, 1.5F), fullRange, fullRange, fullRange, fullRange, 0),
                     cloudcaps);
 
-            addBiome(mapper, new Climate.ParameterPoint(temp2, Climate.Parameter.span(-1.0F, -0.3F), fullRange, fullRange, fullRange, fullRange, 0),
+            addBiome(mapper, new Climate.ParameterPoint(temp2, Climate.Parameter.span(-1.5F, -0.3F), fullRange, fullRange, fullRange, fullRange, 0),
                     blight);
             addBiome(mapper, new Climate.ParameterPoint(temp2, Climate.Parameter.span(-0.3F, -0.15F), fullRange, fullRange, fullRange, fullRange, 0),
                     AetherBiomes.SKYROOT_FOREST);
