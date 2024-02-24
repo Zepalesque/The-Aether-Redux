@@ -1,4 +1,4 @@
-package net.zepalesque.redux.mixin.client.block;
+package net.zepalesque.redux.mixin.client.color;
 
 
 import com.aetherteam.aether.client.AetherColorResolvers;
