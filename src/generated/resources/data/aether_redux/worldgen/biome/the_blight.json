@@ -146,8 +146,14 @@
       {
         "type": "aether_redux:blightbunny_spawner",
         "maxCount": 3,
-        "minCount": 3,
+        "minCount": 2,
         "weight": 11
+      },
+      {
+        "type": "aether_redux:cockatrice_spawner",
+        "maxCount": 4,
+        "minCount": 1,
+        "weight": 14
       }
     ],
     "misc": [],

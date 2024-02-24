@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-23T21:45:43.8043781	Recipes
+// 1.20.1	2024-02-24T16:03:05.0054065	Recipes
 028a41c44667802045298aed21a46f931203df96 data/aether/advancements/recipes/building_blocks/angelic_stone.json
 a49c9d5d0232fb78da74b8a0551483991e22b8c9 data/aether/recipes/angelic_stone.json
 94dc065fa9db175a9df14a38fb02767fe57f9007 data/aether_redux/advancements/recipes/blightwillow_log_wall.json
@@ -368,7 +368,7 @@ ab97a5cf5321d1008eabe1a0f40e61361ecd0f15 data/aether_redux/recipes/jellyshroom_s
 016fa439c4f5417b0d19368f6fbdf291ea1c7582 data/aether_redux/recipes/jellyshroom_trapdoor.json
 86f2f8f5dc86a3a2661db69762ea6ca538fa3beb data/aether_redux/recipes/mouse_ear_soup.json
 4e9e691d6131ffdeaabbe54dfd8631850d2f3c25 data/aether_redux/recipes/music_disc_labyrinths_vengeance.json
-dc51845be2b0b2f72a4b6283e65074a8aef9a259 data/aether_redux/recipes/oatmeal.json
+5b7eca7fd83444a1bb95ddc5ff9c2eeb487a46e3 data/aether_redux/recipes/oatmeal.json
 774daa579dc720cfb39b784722f0451766c7cd5f data/aether_redux/recipes/raw_gravitite_block.json
 cbe8b58ba1f958c1eeb6978d011188d78b465148 data/aether_redux/recipes/raw_gravitite_from_raw_gravitite_block.json
 6a22b6c6293d12f5a9a62207ef19dd3d6d6a61b3 data/aether_redux/recipes/raw_veridium_block.json
