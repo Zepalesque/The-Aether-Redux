@@ -15,33 +15,16 @@
       "trunk_height": 2
     },
     "foliage_provider": {
-      "type": "minecraft:weighted_state_provider",
-      "entries": [
-        {
-          "data": {
-            "Name": "aether_genesis:purple_crystal_leaves",
-            "Properties": {
-              "distance": "7",
-              "double_drops": "true",
-              "persistent": "false",
-              "waterlogged": "false"
-            }
-          },
-          "weight": 4
-        },
-        {
-          "data": {
-            "Name": "aether_genesis:purple_crystal_fruit_leaves",
-            "Properties": {
-              "distance": "7",
-              "double_drops": "true",
-              "persistent": "false",
-              "waterlogged": "false"
-            }
-          },
-          "weight": 1
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "aether_genesis:purple_crystal_leaves",
+        "Properties": {
+          "distance": "7",
+          "double_drops": "true",
+          "persistent": "false",
+          "waterlogged": "false"
         }
-      ]
+      }
     },
     "force_dirt": false,
     "ignore_vines": true,
