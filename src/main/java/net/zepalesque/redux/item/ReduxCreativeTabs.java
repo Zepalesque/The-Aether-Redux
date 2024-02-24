@@ -152,6 +152,7 @@ public class ReduxCreativeTabs {
         if (tab == AetherCreativeTabs.AETHER_FUNCTIONAL_BLOCKS.get()) {
             putAfter(AetherBlocks.AMBROSIUM_TORCH, ReduxBlocks.VERIDIUM_LANTERN, event);
             doSigns(AetherBlocks.SKYROOT_HANGING_SIGN, event);
+            doBookshelves(AetherBlocks.SKYROOT_BOOKSHELF, event);
         }
         if (tab == AetherCreativeTabs.AETHER_DUNGEON_BLOCKS.get()) {
             putAfter(AetherBlocks.CARVED_STONE, ReduxBlocks.CARVED_STONE_BRICKS, event);
@@ -337,6 +338,16 @@ public class ReduxCreativeTabs {
             putAfter(b == null ? prevEntry : b, woodHandler.boatItem, event);
             putAfter(woodHandler.boatItem, woodHandler.chestBoatItem, event);
             b = woodHandler.chestBoatItem;
+        }
+        return b;
+    }
+    private static RegistryObject<? extends ItemLike> doBookshelves(RegistryObject<? extends ItemLike>  prevEntry, BuildCreativeModeTabContentsEvent event) {
+
+        RegistryObject<? extends ItemLike> b = null;
+        for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS)
+        {
+            putAfter(b == null ? prevEntry : b, woodHandler.bookshelf, event);
+            b = woodHandler.bookshelf;
         }
         return b;
     }
