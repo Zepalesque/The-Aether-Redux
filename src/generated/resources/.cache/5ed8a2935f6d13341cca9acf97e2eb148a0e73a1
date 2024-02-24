@@ -1,7 +1,7 @@
-// 1.20.1	2024-01-15T17:11:14.0937292	Global Loot Modifiers : aether_redux
+// 1.20.1	2024-02-24T09:51:19.0078227	Global Loot Modifiers : aether_redux
 6f6b55056cb75cbe939e7f6d30f3015c8f30048c data/aether_redux/loot_modifiers/airbound_cape.json
 7f2b6771fa33a6e566a2c33a8c551bfc546c45ca data/aether_redux/loot_modifiers/blue_swet_ball_increase.json
-f6e76d937bd0f94d7d2a57f4d6042fcc7b26108a data/aether_redux/loot_modifiers/cockatrice_feather.json
+18fa54daedec89a7823269ed45c0ceb94dc9f64a data/aether_redux/loot_modifiers/cockatrice_feather.json
 c58c5ee5d9d957902735f0b591c897fceeb8806b data/aether_redux/loot_modifiers/genesis_dark_swet_ball_increase.json
 7b66d6653c134c61aee171bd75da6698f37e12e5 data/aether_redux/loot_modifiers/genesis_golden_swet_ball_increase.json
 c5d3666b53b6bb4d372100e2cb6a0c971a1ed808 data/aether_redux/loot_modifiers/golden_swet_ball_add.json

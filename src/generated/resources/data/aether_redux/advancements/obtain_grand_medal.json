@@ -1,0 +1,38 @@
+{
+  "parent": "aether:silver_dungeon",
+  "criteria": {
+    "obtain_grand_medal": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "aether_redux:grand_victory_medal"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.aether_redux.grand_medal.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "aether_redux:grand_victory_medal"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.aether_redux.grand_medal"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_grand_medal"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
