@@ -9,6 +9,22 @@
       }
     },
     {
+      "condition": "minecraft:inverted",
+      "term": {
+        "condition": "minecraft:match_tool",
+        "predicate": {
+          "enchantments": [
+            {
+              "enchantment": "minecraft:silk_touch",
+              "levels": {
+                "min": 1
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
       "block": "aether:gravitite_ore",
       "condition": "minecraft:block_state_property"
     }
@@ -20,12 +36,9 @@
       "function": "minecraft:set_count"
     },
     {
-      "count": {
-        "type": "minecraft:uniform",
-        "max": 1.0,
-        "min": 0.0
-      },
-      "function": "minecraft:looting_enchant"
+      "enchantment": "minecraft:fortune",
+      "formula": "minecraft:ore_drops",
+      "function": "minecraft:apply_bonus"
     }
   ],
   "item": {

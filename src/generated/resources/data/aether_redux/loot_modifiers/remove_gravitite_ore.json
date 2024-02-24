@@ -9,6 +9,22 @@
       }
     },
     {
+      "condition": "minecraft:inverted",
+      "term": {
+        "condition": "minecraft:match_tool",
+        "predicate": {
+          "enchantments": [
+            {
+              "enchantment": "minecraft:silk_touch",
+              "levels": {
+                "min": 1
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
       "block": "aether:gravitite_ore",
       "condition": "minecraft:block_state_property"
     }
