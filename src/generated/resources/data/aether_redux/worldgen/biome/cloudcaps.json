@@ -157,13 +157,13 @@
         "type": "aether_redux:shimmercow",
         "maxCount": 5,
         "minCount": 2,
-        "weight": 7
+        "weight": 24
       },
       {
         "type": "aether_redux:mykapod",
         "maxCount": 3,
         "minCount": 1,
-        "weight": 9
+        "weight": 16
       }
     ],
     "misc": [],
