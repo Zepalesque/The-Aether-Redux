@@ -53,7 +53,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                         LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)).build() },
                 new LootItemCondition[] {
                         LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(AetherEntityTypes.COCKATRICE.get())).build(),
-                        LootItemRandomChanceCondition.randomChance(0.02F).build()
+                        LootItemRandomChanceCondition.randomChance(0.05F).build()
                 }));
 
         this.add("raw_gravitite", new GenesisAddDropsModifier(new ItemStack(ReduxItems.RAW_GRAVITITE.get()),
