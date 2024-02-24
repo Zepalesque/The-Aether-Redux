@@ -486,8 +486,8 @@ public class WoodHandler implements BlockHandler {
         data.addLore(this.sign, "Crafted from "+getLocalizedName()+" Planks. A helpful sign perfect for writing messages and directions on.");
        data.addBlock(this.hangingSign, getLocalizedName() + " Hanging Sign");
         data.addLore(this.hangingSign, "Crafted from "+getLocalizedName()+" Planks. A helpful hanging sign perfect for writing messages and directions on.");
-        data.addBlock(this.planks, getLocalizedName() + " Bookshelf");
-        data.addLore(this.planks, "A nice bookshelf made of " + getLocalizedName() + " wood. These are nice for decoration, and also will enhance the abilities of Enchanting Tables!");
+        data.addBlock(this.bookshelf, getLocalizedName() + " Bookshelf");
+        data.addLore(this.bookshelf, "A nice bookshelf made of " + getLocalizedName() + " wood. These are nice for decoration, and also will enhance the abilities of Enchanting Tables!");
 
 
     }
