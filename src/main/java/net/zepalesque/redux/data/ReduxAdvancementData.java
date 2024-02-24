@@ -50,8 +50,7 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
                             FrameType.TASK, true, true, false)
                     .addCriterion("fall_from_aether", FallFromAetherTrigger.TriggerInstance.fall())
                     .save(consumer, Redux.locate("fall_from_aether"), existingFileHelper);
-
-
+            
             Advancement.Builder.advancement()
                     .parent(new ResourceLocation(Aether.MODID, "bronze_dungeon"))
                     .display(ReduxItems.AIRBOUND_CAPE.get(),
@@ -84,8 +83,6 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
                                     DamageSourcePredicate.Builder.damageType().tag(TagPredicate.is(ReduxTags.DamageTypes.FIREBALL)).direct(EntityPredicate.Builder.entity().of(ReduxEntityTypes.VOLATILE_FIRE_CRYSTAL.get()))))
                     .save(consumer, Redux.locate("kill_sheepuff_with_fireball"), existingFileHelper);
 
-
-
             Advancement veridium = Advancement.Builder.advancement()
                     .parent(new ResourceLocation(Aether.MODID, "craft_altar"))
                     .display(ReduxItems.INFUSED_VERIDIUM_PICKAXE.get(),
@@ -95,7 +92,6 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
                             FrameType.TASK, true, true, false)
                     .addCriterion("infuse_veridium", InfuseItemTrigger.Instance.forIngredient(ItemPredicate.Builder.item().of(ReduxTags.Items.VERIDIUM_ADVANCEMENT_INFUSABLE).build()))
                     .save(consumer, Redux.locate("infuse_veridium"), existingFileHelper);
-
 
             Advancement.Builder.advancement()
                     .parent(veridium)

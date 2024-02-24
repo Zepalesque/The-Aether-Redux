@@ -1,5 +1,5 @@
 {
-  "parent": "aether:enter_aether",
+  "parent": "aether:craft_altar",
   "criteria": {
     "infuse_veridium": {
       "conditions": {

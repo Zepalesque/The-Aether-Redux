@@ -630,6 +630,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addAdvancement("enter_cloudcap_jungle", "Moolander");
         addAdvancementDesc("enter_cloudcap_jungle", "Enter the Cloudcaps, a fungal forest with various types of mushrooms [The Aether: Redux]");
 
+        addAdvancement("mouse_ear_soup", "Who Let Them Cook?");
+        addAdvancementDesc("mouse_ear_soup", "Craft and cosume the legendary Mouse Ear Soup, one of the Aether's finest, yet least well-known dishes. [The Aether: Redux]");
+
         addDeath(ReduxDamageTypes.ZANBERRY_BUSH, "%1$s was poked to death by a zanberry bush, how sad ):");
         addDeath(ReduxDamageTypes.CORRUPTED_VINES, "%1$s was poked to death by some Corrupted Vines");
         addDeath(ReduxDamageTypes.EMBER, "%1$s was sparked by a flying ember");

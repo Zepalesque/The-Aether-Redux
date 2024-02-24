@@ -1,0 +1,36 @@
+{
+  "parent": "aether:bronze_dungeon",
+  "criteria": {
+    "eat_mouse_ear_soup": {
+      "conditions": {
+        "item": {
+          "items": [
+            "aether_redux:mouse_ear_soup"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.aether_redux.mouse_ear_soup.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "aether_redux:mouse_ear_soup"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.aether_redux.mouse_ear_soup"
+    }
+  },
+  "requirements": [
+    [
+      "eat_mouse_ear_soup"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

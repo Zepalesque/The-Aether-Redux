@@ -1,7 +1,8 @@
-// 1.20.1	2024-02-24T09:51:19.0408059	Advancements
+// 1.20.1	2024-02-24T18:36:27.3161452	Advancements
 7dda66fd675f66013520788ab2cd9a73480b894c data/aether_redux/advancements/double_jump.json
+bccd315f7f239c35e9c3e55b60ee6925556fd8c7 data/aether_redux/advancements/eat_mouse_ear_soup.json
 03d15eec48b6e6b201b4062c4dc8214e022e5e03 data/aether_redux/advancements/fall_from_aether.json
-c0f0025c7f707b0eab44f3642a77eab462c39262 data/aether_redux/advancements/infuse_veridium.json
+62e10c455cf4b68d3b173ebfaf18643df7cced47 data/aether_redux/advancements/infuse_veridium.json
 5c3c17dcc0f36209687fb02308b92cc31c5cf8d7 data/aether_redux/advancements/kill_sheepuff_with_fireball.json
-0238d3fc09b30aa64a9026ad788aca893ec2a900 data/aether_redux/advancements/obtain_feather_of_warding.json
+9b93de9f168b0ef0d0ad49032c475fc0cd224ac0 data/aether_redux/advancements/obtain_feather_of_warding.json
 e6d4d438d86b04a2c0fdb531ddb0bfa3d8e6c540 data/aether_redux/advancements/obtain_grand_medal.json

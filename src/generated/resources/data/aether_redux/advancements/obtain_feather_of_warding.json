@@ -1,5 +1,5 @@
 {
-  "parent": "aether:enter_aether",
+  "parent": "aether_redux:infuse_veridium",
   "criteria": {
     "obtain_feather_of_warding": {
       "conditions": {
