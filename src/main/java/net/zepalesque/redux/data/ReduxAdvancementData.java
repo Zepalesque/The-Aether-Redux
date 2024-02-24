@@ -86,8 +86,8 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
 
 
 
-            Advancement.Builder.advancement()
-                    .parent(new ResourceLocation(Aether.MODID, "enter_aether"))
+            Advancement veridium = Advancement.Builder.advancement()
+                    .parent(new ResourceLocation(Aether.MODID, "craft_altar"))
                     .display(ReduxItems.INFUSED_VERIDIUM_PICKAXE.get(),
                             Component.translatable("advancement.aether_redux.infuse_veridium"),
                             Component.translatable("advancement.aether_redux.infuse_veridium.desc"),
@@ -98,7 +98,7 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
 
 
             Advancement.Builder.advancement()
-                    .parent(new ResourceLocation(Aether.MODID, "enter_aether"))
+                    .parent(veridium)
                     .display(ReduxItems.FEATHER_OF_WARDING.get(),
                             Component.translatable("advancement.aether_redux.feather_of_warding"),
                             Component.translatable("advancement.aether_redux.feather_of_warding.desc"),
