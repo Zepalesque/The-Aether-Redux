@@ -7,22 +7,24 @@ import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether.loot.AetherLoot;
 import com.aetherteam.aether_genesis.entity.GenesisEntityTypes;
 import com.aetherteam.aether_genesis.item.GenesisItems;
+import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.EntityPredicate;
+import net.minecraft.advancements.critereon.ItemPredicate;
+import net.minecraft.advancements.critereon.MinMaxBounds;
 import net.minecraft.data.PackOutput;
 import net.minecraft.util.random.WeightedEntry;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.LootItemFunction;
 import net.minecraft.world.level.storage.loot.functions.LootingEnchantFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
-import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
+import net.minecraft.world.level.storage.loot.predicates.*;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.common.data.GlobalLootModifierProvider;
@@ -43,6 +45,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
     public ReduxLootModifierData(PackOutput output) {
         super(output, Redux.MODID);
     }
+    protected static final LootItemCondition.Builder HAS_SILK_TOUCH = MatchTool.toolMatches(ItemPredicate.Builder.item().hasEnchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, MinMaxBounds.Ints.atLeast(1))));
 
     @Override
     protected void start() {
@@ -59,15 +62,18 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
         this.add("raw_gravitite", new GenesisAddDropsModifier(new ItemStack(ReduxItems.RAW_GRAVITITE.get()),
                 new LootItemFunction[] {
                         SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)).build(),
-                        LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)).build() },
+                        ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE).build()
+                s},
                 new LootItemCondition[] {
                         DataLootCondition.conditionOf(Conditions.RAW_GRAVITITE).build(),
+                        HAS_SILK_TOUCH.invert().build(),
                         LootItemBlockStatePropertyCondition.hasBlockStateProperties(AetherBlocks.GRAVITITE_ORE.get()).build()}));
 
 
         this.add("remove_gravitite_ore", new RemoveDropsModifier(AetherBlocks.GRAVITITE_ORE.get().asItem(),
                 new LootItemCondition[] {
                         DataLootCondition.conditionOf(Conditions.RAW_GRAVITITE).build(),
+                        HAS_SILK_TOUCH.invert().build(),
                         LootItemBlockStatePropertyCondition.hasBlockStateProperties(AetherBlocks.GRAVITITE_ORE.get()).build()}));
 
 
