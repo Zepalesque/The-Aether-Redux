@@ -1,5 +1,6 @@
 package net.zepalesque.redux.api.blockhandler;
 
+import com.aetherteam.aether.block.construction.BookshelfBlock;
 import com.aetherteam.aether.block.natural.AetherLogBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
@@ -22,6 +23,7 @@ import net.minecraftforge.client.model.generators.ModelBuilder;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.block.construction.LayeredBookshelfBlock;
 import net.zepalesque.redux.block.natural.ReduxNaturalLog;
 import net.zepalesque.redux.block.natural.ReduxNaturalWall;
 import net.zepalesque.redux.block.sign.ReduxCeilingHangingSignBlock;
@@ -67,6 +69,7 @@ public class WoodHandler implements BlockHandler {
     public final RegistryObject<TrapDoorBlock> trapdoor;
     public final RegistryObject<PressurePlateBlock> pressurePlate;
     public final RegistryObject<ButtonBlock> button;
+    public final RegistryObject<BookshelfBlock> bookshelf;
     public final RegistryObject<StandingSignBlock> sign;
     public final RegistryObject<WallSignBlock> wallSign;
     public final RegistryObject<WallHangingSignBlock> wallHangingSign;
@@ -103,6 +106,8 @@ public class WoodHandler implements BlockHandler {
     public final boolean hasSporingLogs;
 
     public final boolean hasStrippedLogs;
+
+    public final boolean layeredBookshelf;
 
     public final Optional<RegistryObject<RotatedPillarBlock>> sporingLog;
     public final Optional<RegistryObject<RotatedPillarBlock>> sporingWood;
@@ -171,32 +176,32 @@ public class WoodHandler implements BlockHandler {
 
     /** Constructor for most wood types
      */
-    public static WoodHandler tree(String pWoodname, boolean pLogWalls, MapColor pBarkColor, MapColor pWoodColor)
+    public static WoodHandler tree(String pWoodname, boolean pLogWalls, MapColor pBarkColor, MapColor pWoodColor, boolean layeredBookshelf)
     {
-        return handler(pWoodname, null, true, woodSoundBlockSet(), "trees", "log", "wood", SoundType.WOOD, SoundType.WOOD, pLogWalls, pBarkColor, pWoodColor, false);
+        return handler(pWoodname, null, true, woodSoundBlockSet(), "trees", "log", "wood", SoundType.WOOD, SoundType.WOOD, pLogWalls, pBarkColor, pWoodColor, false, layeredBookshelf);
     }
     /** Constructor for fungus wood types
      */
-    public static WoodHandler fungus(String pWoodname, boolean pLogWalls, MapColor pBarkColor, MapColor pWoodColor)
+    public static WoodHandler fungus(String pWoodname, boolean pLogWalls, MapColor pBarkColor, MapColor pWoodColor, boolean layeredBookshelf)
     {
-        return handler(pWoodname, null, true, netherSoundBlockSet(), "mushrooms", "stem", "hyphae", SoundType.NETHER_WOOD, SoundType.STEM, pLogWalls, pBarkColor, pWoodColor, false);
+        return handler(pWoodname, null, true, netherSoundBlockSet(), "mushrooms", "stem", "hyphae", SoundType.NETHER_WOOD, SoundType.STEM, pLogWalls, pBarkColor, pWoodColor, false, layeredBookshelf);
     }
     /** Constructor for fungus wood types
      */
-    public static WoodHandler noStrippingFungus(String pWoodname, boolean pLogWalls, MapColor pBarkColor, MapColor pWoodColor)
+    public static WoodHandler noStrippingFungus(String pWoodname, boolean pLogWalls, MapColor pBarkColor, MapColor pWoodColor, boolean layeredBookshelf)
     {
-        return handler(pWoodname, null, false, netherSoundBlockSet(), "mushrooms", "stem", "hyphae", SoundType.NETHER_WOOD, SoundType.STEM, pLogWalls, pBarkColor, pWoodColor, false);
+        return handler(pWoodname, null, false, netherSoundBlockSet(), "mushrooms", "stem", "hyphae", SoundType.NETHER_WOOD, SoundType.STEM, pLogWalls, pBarkColor, pWoodColor, false, layeredBookshelf);
     }
     /** More general constructor
      */
-    public static WoodHandler handler(String pWoodName, @Nullable String pLangName, boolean pStrippedLog, BiFunction<String, SoundType, BlockSetType> blockSetTypeFunction, String pTreeName, String pLogSuffix, String pWoodSuffix, SoundType pPlankSoundType, SoundType pLogSoundType, boolean pLogWalls, MapColor barkColor, MapColor woodColor, boolean hasSporingLogs)
+    public static WoodHandler handler(String pWoodName, @Nullable String pLangName, boolean pStrippedLog, BiFunction<String, SoundType, BlockSetType> blockSetTypeFunction, String pTreeName, String pLogSuffix, String pWoodSuffix, SoundType pPlankSoundType, SoundType pLogSoundType, boolean pLogWalls, MapColor barkColor, MapColor woodColor, boolean hasSporingLogs, boolean layeredBookshelf)
     {
 
-        WoodHandler instance = new WoodHandler(pWoodName, pLangName, pStrippedLog, blockSetTypeFunction, pTreeName, pLogSuffix, pWoodSuffix, pPlankSoundType, pLogSoundType, pLogWalls, barkColor, woodColor, hasSporingLogs);
+        WoodHandler instance = new WoodHandler(pWoodName, pLangName, pStrippedLog, blockSetTypeFunction, pTreeName, pLogSuffix, pWoodSuffix, pPlankSoundType, pLogSoundType, pLogWalls, barkColor, woodColor, hasSporingLogs, layeredBookshelf);
         return instance;
     }
 
-    protected WoodHandler(String pWoodName, @Nullable String pLangName, boolean pStrippedLogs, BiFunction<String, SoundType, BlockSetType> blockSetTypeFunction, String pTreeName,  String pLogSuffix, String pWoodSuffix, SoundType pPlankSoundType, SoundType pLogSoundType, boolean pLogWalls, MapColor barkColor, MapColor woodColor, boolean pSporingLogs) {
+    protected WoodHandler(String pWoodName, @Nullable String pLangName, boolean pStrippedLogs, BiFunction<String, SoundType, BlockSetType> blockSetTypeFunction, String pTreeName,  String pLogSuffix, String pWoodSuffix, SoundType pPlankSoundType, SoundType pLogSoundType, boolean pLogWalls, MapColor barkColor, MapColor woodColor, boolean pSporingLogs, boolean layeredBookshelf) {
         this.hasSporingLogs = pSporingLogs;
         this.hasStrippedLogs = pStrippedLogs;
         this.treeName = pTreeName;
@@ -221,6 +226,9 @@ public class WoodHandler implements BlockHandler {
         this.logsBlockTag = ReduxTags.Blocks.tag(pWoodName+"_"+pLogSuffix+"s");
         this.woodName = pWoodName;
         this.langName = pLangName;
+
+        this.bookshelf = ReduxBlocks.register(pWoodName + "_bookshelf", layeredBookshelf ? () -> new LayeredBookshelfBlock(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF).mapColor(woodColor).sound(pPlankSoundType)) : () -> new BookshelfBlock(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF).mapColor(woodColor).sound(pPlankSoundType)));
+        this.layeredBookshelf = layeredBookshelf;
 
         this.blockSet = blockSetTypeFunction.apply(Redux.MODID + ":" + pWoodName, pPlankSoundType);
         this.woodType = new WoodType(Redux.MODID + ":" + pWoodName, this.blockSet);
@@ -345,7 +353,11 @@ public class WoodHandler implements BlockHandler {
         data.signBlock(this.sign.get(), this.wallSign.get(), data.texture(data.name(this.planks.get()), "construction/"));
         data.hangingSignBlock(this.hangingSign.get(), this.wallHangingSign.get(), data.texture(data.name(this.planks.get()), "construction/"));
 
-
+        if (this.layeredBookshelf) {
+            data.layeredBookshelf(this.bookshelf.get(), this.planks.get());
+        } else {
+            data.bookshelf(this.bookshelf.get(), this.planks.get());
+        }
 
         ModelFile postBig = data.makeWallPostModel(4, 16, "wooden_post_big");
         ModelFile postShort = data.makeWallPostModel(3, 14, "wooden_post_short");
@@ -379,6 +391,7 @@ public class WoodHandler implements BlockHandler {
         data.itemBlock(this.wood);
         data.itemBlock(this.stairs);
         data.itemBlock(this.slab);
+        data.itemBlock(this.bookshelf);
         data.itemBlock(this.trapdoor, "_bottom");
         data.itemFence(this.fence.get(), this.planks.get(), "construction/");
         data.itemBlock(this.fenceGate);
@@ -473,6 +486,10 @@ public class WoodHandler implements BlockHandler {
         data.addLore(this.sign, "Crafted from "+getLocalizedName()+" Planks. A helpful sign perfect for writing messages and directions on.");
        data.addBlock(this.hangingSign, getLocalizedName() + " Hanging Sign");
         data.addLore(this.hangingSign, "Crafted from "+getLocalizedName()+" Planks. A helpful hanging sign perfect for writing messages and directions on.");
+        data.addBlock(this.planks, getLocalizedName() + " Bookshelf");
+        data.addLore(this.planks, "A nice bookshelf made of " + getLocalizedName() + " wood. These are nice for decoration, and also will enhance the abilities of Enchanting Tables!");
+
+
     }
 
     private String getLocalizedName()

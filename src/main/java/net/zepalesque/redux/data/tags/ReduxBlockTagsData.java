@@ -7,6 +7,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
@@ -72,6 +73,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
             );
             this.tag(BlockTags.MINEABLE_WITH_AXE).add(
                     woodHandler.planks.get(),
+                    woodHandler.bookshelf.get(),
                     woodHandler.stairs.get(),
                     woodHandler.slab.get(),
                     woodHandler.fence.get(),
@@ -83,6 +85,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                     woodHandler.logWall.get(),
                     woodHandler.woodWall.get()
             ).addTag(woodHandler.logsBlockTag);
+            this.tag(Tags.Blocks.BOOKSHELVES).add(woodHandler.bookshelf.get());
             this.tag(woodHandler.logsBlockTag).add(
                     woodHandler.log.get(),
                     woodHandler.wood.get()

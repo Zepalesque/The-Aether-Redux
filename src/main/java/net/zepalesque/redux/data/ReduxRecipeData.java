@@ -474,7 +474,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
             chestBoat(consumer, woodHandler.chestBoatItem.get(), woodHandler.boatItem.get());
             slab(consumer, RecipeCategory.BUILDING_BLOCKS, woodHandler.slab.get(), woodHandler.planks.get());
             stairs(woodHandler.stairs, woodHandler.planks).save(consumer);
-            bookshelf(consumer, woodHandler.planks.get(), AetherBlocks.SKYROOT_BOOKSHELF.get());
+            bookshelf(consumer, woodHandler.planks.get(), woodHandler.bookshelf.get());
             if (woodHandler.hasStrippedLogs)
             {
                 woodFromLogs(consumer, woodHandler.strippedWood.get().get(), woodHandler.strippedLog.get().get());
