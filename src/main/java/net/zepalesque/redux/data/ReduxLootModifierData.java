@@ -31,7 +31,7 @@ import net.minecraftforge.common.data.GlobalLootModifierProvider;
 import net.minecraftforge.common.loot.LootTableIdCondition;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.condition.Conditions;
-import net.zepalesque.redux.api.condition.NotCondition;
+import net.zepalesque.redux.api.condition.Not;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.loot.condition.DataLootCondition;
 import net.zepalesque.redux.loot.modifiers.GenesisAddDungeonLootModifier;
@@ -94,7 +94,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                 new LootItemCondition[] {LootItemEntityPropertyCondition
                         .hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(AetherTags.Entities.SWETS))
                         .build(),
-                        DataLootCondition.conditionOf(new NotCondition(Conditions.GENESIS)).build()
+                        DataLootCondition.conditionOf(new Not(Conditions.GENESIS)).build()
 
                 }));
 
@@ -156,7 +156,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                 new LootItemCondition[] {LootItemEntityPropertyCondition
                         .hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(AetherEntityTypes.GOLDEN_SWET.get()))
                         .build(),
-                        DataLootCondition.conditionOf(new NotCondition<>(Conditions.GENESIS)).build()
+                        DataLootCondition.conditionOf(new Not<>(Conditions.GENESIS)).build()
                 }));
         this.add("genesis_golden_swet_ball_increase", new GenesisAddDropsModifier(new ItemStack(GenesisItems.GOLDEN_SWET_BALL.get()),
                 new LootItemFunction[] {

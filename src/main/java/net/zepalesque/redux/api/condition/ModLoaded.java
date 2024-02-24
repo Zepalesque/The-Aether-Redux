@@ -4,15 +4,15 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraftforge.fml.ModList;
 
-public class ModLoadedCondition implements AbstractCondition<ModLoadedCondition> {
+public class ModLoaded implements AbstractCondition<ModLoaded> {
 
-    public static final Codec<ModLoadedCondition> CODEC = RecordCodecBuilder.create((condition) ->
+    public static final Codec<ModLoaded> CODEC = RecordCodecBuilder.create((condition) ->
             condition.group(Codec.STRING.fieldOf("mod_id").forGetter((config) -> config.modid))
-                    .apply(condition, ModLoadedCondition::new));
+                    .apply(condition, ModLoaded::new));
 
     protected final String modid;
 
-    public ModLoadedCondition(String modid) {
+    public ModLoaded(String modid) {
         this.modid = modid;
     }
 
@@ -22,13 +22,13 @@ public class ModLoadedCondition implements AbstractCondition<ModLoadedCondition>
     }
 
     @Override
-    public Codec<ModLoadedCondition> codec() {
+    public Codec<ModLoaded> codec() {
         return ConditionSerializers.MOD_LOADED.get();
     }
 
     @Override
     public String text() {
-        return "ModLoadedCondition{" +
+        return "ModLoaded{" +
                 "modid='" + modid + '\'' +
                 '}';
     }

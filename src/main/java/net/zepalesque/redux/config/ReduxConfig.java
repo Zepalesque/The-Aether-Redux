@@ -78,6 +78,8 @@ public class ReduxConfig {
         public final ForgeConfigSpec.DoubleValue cloud_layer_threshold_min;
         public final ForgeConfigSpec.DoubleValue cloud_layer_threshold_max;
 
+        public final ForgeConfigSpec.BooleanValue override_aa_cloud_compat;
+
         public Common(ForgeConfigSpec.Builder builder) {
             builder.push("Gameplay Changes");
             this.cockatrice_ai_improvements = builder.comment("Makes Cockatrices shoot at you and chase you if they hit you. Requires world restart to refresh existing mob AI.").worldRestart().define("Improved Cockatrice Behavior", true);
@@ -116,6 +118,7 @@ public class ReduxConfig {
             builder.push("Cloud Layer");
             this.cloud_layer_threshold_min = builder.comment("Minimum value for the cloud layer's noise threshold").defineInRange("Cloud Layer Threshold Min", 0D, -4D, 4D);
             this.cloud_layer_threshold_max = builder.comment("Maximum value for the cloud layer's noise threshold").defineInRange("Cloud Layer Threshold Max", 1D, -4D, 4D);
+            this.override_aa_cloud_compat = builder.comment("Keeps the cloud layer enabled, even with Ancient Aether's cloud layer, as older versions of AA disable the cloud layer with Redux installed.").define("Override Ancient Aether Cloud Layer Compat", false);
             builder.pop();
 
             builder.push("Bronze Dungeon");

@@ -8,7 +8,7 @@ import net.minecraft.world.level.levelgen.placement.PlacementContext;
 import net.minecraft.world.level.levelgen.placement.PlacementFilter;
 import net.minecraft.world.level.levelgen.placement.PlacementModifierType;
 import net.zepalesque.redux.api.condition.AbstractCondition;
-import net.zepalesque.redux.api.condition.NotCondition;
+import net.zepalesque.redux.api.condition.Not;
 
 import javax.annotation.Nonnull;
 
@@ -26,7 +26,7 @@ public class ConditionFilter extends PlacementFilter {
         return new ConditionFilter(condition);
     }
     public static ConditionFilter whenFalse(AbstractCondition<?> condition) {
-        return new ConditionFilter(new NotCondition<>(condition));
+        return new ConditionFilter(new Not<>(condition));
     }
 
     protected boolean shouldPlace(@Nonnull PlacementContext context, @Nonnull RandomSource random, @Nonnull BlockPos pos) {

@@ -3,18 +3,18 @@ package net.zepalesque.redux.api.condition;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
-public class NotCondition<E extends AbstractCondition<?>> implements AbstractCondition<NotCondition<?>> {
+public class Not<E extends AbstractCondition<?>> implements AbstractCondition<Not<?>> {
 
-    public static final Codec<NotCondition<?>> CODEC = RecordCodecBuilder.create((condition) ->
+    public static final Codec<Not<?>> CODEC = RecordCodecBuilder.create((condition) ->
             condition.group(AbstractCondition.CODEC.fieldOf("inverted").forGetter((cond) -> cond.condition))
-                    .apply(condition, NotCondition::new));
+                    .apply(condition, Not::new));
 
     protected final E condition;
 
 
 
 
-    public NotCondition(E condition) {
+    public Not(E condition) {
         this.condition = condition;
     }
 
@@ -24,13 +24,13 @@ public class NotCondition<E extends AbstractCondition<?>> implements AbstractCon
     }
 
     @Override
-    public Codec<NotCondition<?>> codec() {
-        return ConditionSerializers.NOT_CONDITION.get();
+    public Codec<Not<?>> codec() {
+        return ConditionSerializers.NOT.get();
     }
 
     @Override
     public String text() {
-        return "NotCondition{" +
+        return "Not{" +
                 "condition='" + this.condition.text() + '\'' +
                 '}';
     }
