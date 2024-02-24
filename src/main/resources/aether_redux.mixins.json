@@ -6,7 +6,6 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "aether_redux.refmap.json",
   "mixins": [
-    "client.block.AetherColorResolversMixin",
     "client.gui.TriviaGeneratorMixin",
     "common.block.AetherGrassBlockMixin",
     "common.block.BlockBehaviorMixin",
@@ -44,7 +43,7 @@
   "client": [
     "client.block.AetherLeavesClientMixin",
     "client.block.LeafBlockClientMixin",
-    "client.color.AetherColorResolversMixin",
+    "client.block.AetherColorResolversMixin",
     "client.gui.PackEntryMixin",
     "client.gui.PackSelectionModelAccessor",
     "client.gui.PackSelectionScreenMixin",
