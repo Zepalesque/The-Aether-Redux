@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "aether_redux:block/construction/jellyshroom_planks",
+    "side": "aether_redux:block/construction/jellyshroom_bookshelf"
+  }
+}

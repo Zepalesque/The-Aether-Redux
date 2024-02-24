@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "down=false,up=false": {
+      "model": "aether_redux:block/glacia_bookshelf_center"
+    },
+    "down=false,up=true": {
+      "model": "aether_redux:block/glacia_bookshelf_top"
+    },
+    "down=true,up=false": {
+      "model": "aether_redux:block/glacia_bookshelf_bottom"
+    },
+    "down=true,up=true": {
+      "model": "aether_redux:block/glacia_bookshelf"
+    }
+  }
+}

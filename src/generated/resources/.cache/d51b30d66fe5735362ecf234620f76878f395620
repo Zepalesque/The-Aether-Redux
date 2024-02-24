@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-19T20:23:30.5633134	Item Models: aether_redux
+// 1.20.1	2024-02-23T21:45:43.7604042	Item Models: aether_redux
 2445055af5b1b7f3c6045199ffce74108003cef6 assets/aether_redux/models/item/airbound_cape.json
 2fa1343a8119a1f49af334c002773099174965bd assets/aether_redux/models/item/aurum.json
 edfe83948874d1436a61893ed9471b47e93dbe88 assets/aether_redux/models/item/avelium.json
@@ -18,6 +18,7 @@ e073f529066aa534f560372ff463759fa6a01401 assets/aether_redux/models/item/blightm
 01182452db12ba6aaf27b32a62ee4b122ee5541c assets/aether_redux/models/item/blightmoss_holystone_wall.json
 898f0449a6ab5c3819b92431f9a21ba6b8b3a63c assets/aether_redux/models/item/blightshade.json
 b6adca5c2ea110994ea1812254e89f051651ed99 assets/aether_redux/models/item/blightwillow_boat.json
+9b35f51a328d22ae021ae3be21d9f25a10e389c8 assets/aether_redux/models/item/blightwillow_bookshelf.json
 36b35ca804cd86db98042e93fb7bf47dd4a70a11 assets/aether_redux/models/item/blightwillow_button.json
 2b204ffa139aedb704f5deaa01fd4afc219cb54c assets/aether_redux/models/item/blightwillow_chest_boat.json
 0227f7b79d86571452fe9e93a52be82e553f380c assets/aether_redux/models/item/blightwillow_door.json
@@ -47,6 +48,7 @@ d0c9b7220f8ee064bd6b2d343099792d4fd72c0f assets/aether_redux/models/item/carved_
 62c0cee458b928ab54f160fb2290d566e4848949 assets/aether_redux/models/item/carved_stone_brick_wall.json
 6f2d8b47f3fbf96c466c1904b0894fcb77b6491b assets/aether_redux/models/item/carved_stone_pillar.json
 23672e9631f487255e8e01b1ca696f62f9cd9d61 assets/aether_redux/models/item/cloudcap_boat.json
+d3e8f2c5e6cc5305e805977cef0cb7beb2fd9da8 assets/aether_redux/models/item/cloudcap_bookshelf.json
 1660a61023308e084004647f9bba17abad72904e assets/aether_redux/models/item/cloudcap_button.json
 ec130d79d4a6efbd6598a7b0fe2c7e09ead66403 assets/aether_redux/models/item/cloudcap_chest_boat.json
 0e852f60a5f6435ff5b5c72dd00e05adb513fcd2 assets/aether_redux/models/item/cloudcap_door.json
@@ -70,6 +72,7 @@ f9c1ce84c6a0c2e877af5b67be07d5c0ac3fdad4 assets/aether_redux/models/item/coarse_
 1376d88333c7592f6955b76d61f33bc8c5a6c39b assets/aether_redux/models/item/cockatrice_feather.json
 6bc43851e0da2ac4c1e43e1a388e1c5335b370f4 assets/aether_redux/models/item/corrupted_vines.json
 5fdf5a3add16d05500fe0387c2a8610d2ee1f2f8 assets/aether_redux/models/item/crystal_boat.json
+07ce966d98e80d692506b8b644839f577b457301 assets/aether_redux/models/item/crystal_bookshelf.json
 133f4578698e67f8587d89cabbffee55319dc165 assets/aether_redux/models/item/crystal_button.json
 623b05f96b37ac475ec5667d70ece76502b41e32 assets/aether_redux/models/item/crystal_chest_boat.json
 f6a0b14764dc001ae8685074008f96b30e93a97e assets/aether_redux/models/item/crystal_door.json
@@ -101,6 +104,7 @@ dcb1aec8c2f8652ff3a7c98da7791935befb6549 assets/aether_redux/models/item/enchant
 a203ac1e775c1127e647fd1676bfcc9eb1fe334b assets/aether_redux/models/item/enchanted_zyatrix.json
 1bd6536178bb6eefb77f574a41fc1404a53b8f4f assets/aether_redux/models/item/feather_of_warding.json
 1978c30b318e171b6368453c40af2d7f637597a6 assets/aether_redux/models/item/fieldsproot_boat.json
+1412430fb5b4da8907aaff1ea91873bc29169599 assets/aether_redux/models/item/fieldsproot_bookshelf.json
 6142e25d3c6932ca27ff1f0fe14f13055995c4d8 assets/aether_redux/models/item/fieldsproot_button.json
 378bc2116c6a35015b1ccecafffb49b235e16492 assets/aether_redux/models/item/fieldsproot_chest_boat.json
 4c6849cf4aefe002bc9e5c70fd75ccce89b92c61 assets/aether_redux/models/item/fieldsproot_door.json
@@ -131,6 +135,7 @@ b94d7ae7552984746c011a3c414646a7b5538436 assets/aether_redux/models/item/gilded_
 67be04b7c49874d597274db20fcf2acb2e39cf93 assets/aether_redux/models/item/gilded_oak_sapling.json
 f67326adbc36f5e8491c4d98103207dc38082189 assets/aether_redux/models/item/gilded_vines.json
 e3dd62a806d595ee9f7a49774d1f29aedfebf533 assets/aether_redux/models/item/glacia_boat.json
+5cefae209314949a595ae16806f6d000a19f164d assets/aether_redux/models/item/glacia_bookshelf.json
 f0b5bec8dfee1cc470c573cca340e2d53c125950 assets/aether_redux/models/item/glacia_button.json
 da356cc9fbaac25663048d1de6acb23102ab939e assets/aether_redux/models/item/glacia_chest_boat.json
 a64a692a4f364923fef528d3201600c276d901cf assets/aether_redux/models/item/glacia_door.json
@@ -166,6 +171,7 @@ bf979c410ebfbb3a159019265912c389275b6ba8 assets/aether_redux/models/item/infused
 5ac9099170a70b2826495b9d9afa1acdb8cf921f assets/aether_redux/models/item/iridia.json
 481706b2a228e5e43e2ca6e8b18f19add3aeceef assets/aether_redux/models/item/jellyshroom.json
 d66ecc6687612eab8fa6926a75ed6639735f9ea1 assets/aether_redux/models/item/jellyshroom_boat.json
+53069537b2ade4ca373e941cfb3c8a98af06b17f assets/aether_redux/models/item/jellyshroom_bookshelf.json
 b700473880ce04d897d1500fdc6e0e4231ac1ebb assets/aether_redux/models/item/jellyshroom_button.json
 b4ccb5db259ed0b06d68e836211e1ee651b4591a assets/aether_redux/models/item/jellyshroom_chest_boat.json
 0ec6444e6e5e2bb85562350eafb38a4d92fd65d0 assets/aether_redux/models/item/jellyshroom_door.json
