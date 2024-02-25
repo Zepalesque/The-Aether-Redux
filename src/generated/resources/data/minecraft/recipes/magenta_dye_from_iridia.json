@@ -3,10 +3,10 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "aether_redux:lumina"
+      "item": "aether_redux:iridia"
     }
   ],
   "result": {
-    "item": "minecraft:gray_dye"
+    "item": "minecraft:magenta_dye"
   }
 }

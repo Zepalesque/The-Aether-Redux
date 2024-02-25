@@ -48,9 +48,10 @@
       "aether:tall_grass_patch",
       "aether_redux:patch/shrublands_purple_patch",
       "aether_redux:patch/shrublands_white_patch",
-      "aether_redux:patch/aurum_patch",
+      "aether_redux:patch/zyatrix_patch",
       "aether_redux:patch/zanberry_bush_patch",
-      "aether_redux:patch/splitfern_patch"
+      "aether_redux:patch/splitfern_patch",
+      "aether_redux:patch/daggerbloom_patch"
     ],
     [
       "aether:cold_aercloud",

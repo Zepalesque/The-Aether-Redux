@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:gray_dye_from_lumina"
+        "recipe": "minecraft:black_dye_from_lumina"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:gray_dye_from_lumina"
+      "minecraft:black_dye_from_lumina"
     ]
   },
   "sends_telemetry_event": false
