@@ -63,6 +63,7 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> BLIGHT_TREES = copyKey(ReduxConfiguredFeatures.BLIGHT_TREES);
     public static final ResourceKey<PlacedFeature> CLOUDCAP_MUSHLING_PATCH = copyKey(ReduxConfiguredFeatures.CLOUDCAP_MUSHLING_PATCH);
     public static final ResourceKey<PlacedFeature> DAGGERBLOOM_PATCH = copyKey(ReduxConfiguredFeatures.DAGGERBLOOM_PATCH);
+    public static final ResourceKey<PlacedFeature> THERATIP_PATCH = copyKey(ReduxConfiguredFeatures.THERATIP_PATCH);
     public static final ResourceKey<PlacedFeature> SPLITFERN_PATCH = copyKey(ReduxConfiguredFeatures.SPLITFERN_PATCH);
     public static final ResourceKey<PlacedFeature> AEROGEL_ORE = copyKey(ReduxConfiguredFeatures.AEROGEL_ORE);
     public static final ResourceKey<PlacedFeature> SPARSE_AEROGEL_ORE = createKey(Folders.ORE + "sparse_aerogel_ore");
@@ -326,6 +327,12 @@ public class ReduxPlacedFeatures {
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 2), 4),
                 RarityFilter.onAverageOnceEvery(10),
+                BiomeFilter.biome()
+        );
+        register(context, THERATIP_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.THERATIP_PATCH),
+                NOISE_THRESHOLD,
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 2), 4),
+                RarityFilter.onAverageOnceEvery(5),
                 BiomeFilter.biome()
         );
 

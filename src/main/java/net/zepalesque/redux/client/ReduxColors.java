@@ -53,6 +53,8 @@ public class ReduxColors {
                 ReduxBlocks.POTTED_BLIGHTSHADE.get(),
                 ReduxBlocks.DAGGERBLOOM.get(),
                 ReduxBlocks.POTTED_DAGGERBLOOM.get(),
+                ReduxBlocks.THERATIP.get(),
+                ReduxBlocks.POTTED_THERATIP.get(),
                 ReduxBlocks.AURUM.get(),
                 ReduxBlocks.POTTED_AURUM.get(),
                 ReduxBlocks.IRIDIA.get(),
@@ -122,6 +124,7 @@ public class ReduxColors {
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.GILDED_GRASSLANDS_COLOR : 0xFFFFFF, ReduxBlocks.ZYATRIX.get());
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.SKYFIELDS_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.IRIDIA.get());
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.SKYFIELDS_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.DAGGERBLOOM.get());
+        event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.SHRUBLANDS_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.THERATIP.get());
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.FROSTED_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.LUMINA.get());
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.BLIGHT_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.SPIROLYCTIL.get());
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.BLIGHT_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.BLIGHTSHADE.get());

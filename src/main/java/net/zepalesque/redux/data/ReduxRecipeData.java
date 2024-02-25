@@ -114,9 +114,11 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
         oneToOneConversionRecipe(consumer, Items.PURPLE_DYE, ReduxBlocks.ZYATRIX.get(), null);
 
         oneToOneConversionRecipe(consumer, Items.WHITE_DYE, ReduxBlocks.DAGGERBLOOM.get(), null);
-        oneToOneConversionRecipe(consumer, Items.GRAY_DYE, ReduxBlocks.LUMINA.get(), null);
+        oneToOneConversionRecipe(consumer, Items.BLACK_DYE, ReduxBlocks.LUMINA.get(), null);
 
-        oneToOneConversionRecipe(consumer, Items.PINK_DYE, ReduxBlocks.IRIDIA.get(), null);
+        oneToOneConversionRecipe(consumer, Items.PINK_DYE, ReduxBlocks.THERATIP.get(), null);
+
+        oneToOneConversionRecipe(consumer, Items.MAGENTA_DYE, ReduxBlocks.IRIDIA.get(), null);
 
         oneToOneConversionRecipe(consumer, Items.LIGHT_GRAY_DYE, ReduxBlocks.XAELIA_FLOWERS.get(), null);
 

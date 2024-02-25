@@ -168,6 +168,10 @@ public class ReduxBlocks {
             () -> new CustomBoundsFlowerBlock(CommonPlantBounds.FERN, () -> MobEffects.MOVEMENT_SLOWDOWN, 60, BlockBehaviour.Properties.copy(Blocks.POPPY).hasPostProcess(ReduxBlocks::always).mapColor(MapColor.ICE)));
     public static final RegistryObject<FlowerPotBlock> POTTED_DAGGERBLOOM = BLOCKS.register("potted_daggerbloom", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, DAGGERBLOOM, Block.Properties.copy(Blocks.FLOWER_POT)));
 
+    public static RegistryObject<Block> THERATIP = register("theratip",
+            () -> new CustomBoundsFlowerBlock(CommonPlantBounds.FERN, () -> MobEffects.DAMAGE_BOOST, 60, BlockBehaviour.Properties.copy(Blocks.POPPY).hasPostProcess(ReduxBlocks::always).mapColor(MapColor.ICE)));
+    public static final RegistryObject<FlowerPotBlock> POTTED_THERATIP = BLOCKS.register("potted_theratip", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, THERATIP, Block.Properties.copy(Blocks.FLOWER_POT)));
+
     public static RegistryObject<Block> BLIGHTSHADE = register("blightshade",
             () -> new BlightshadeBlock(() -> MobEffects.DARKNESS, 60, BlockBehaviour.Properties.copy(Blocks.WITHER_ROSE).mapColor(MapColor.COLOR_BLACK)));
     public static final RegistryObject<FlowerPotBlock> POTTED_BLIGHTSHADE = BLOCKS.register("potted_blightshade", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, BLIGHTSHADE, Block.Properties.copy(Blocks.FLOWER_POT)));
@@ -449,6 +453,7 @@ public class ReduxBlocks {
         pot.addPlant(ReduxBlocks.GILDED_OAK_SAPLING.getId(), ReduxBlocks.POTTED_GILDED_OAK_SAPLING);
         pot.addPlant(ReduxBlocks.BLIGHTED_SKYROOT_SAPLING.getId(), ReduxBlocks.POTTED_BLIGHTED_SKYROOT_SAPLING);
         pot.addPlant(ReduxBlocks.SKYSPROUTS.getId(), ReduxBlocks.POTTED_SKYSPROUTS);
+        pot.addPlant(ReduxBlocks.THERATIP.getId(), ReduxBlocks.POTTED_THERATIP);
     }
 
 

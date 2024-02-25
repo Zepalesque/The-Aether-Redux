@@ -197,6 +197,8 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropPottedContents(ReduxBlocks.POTTED_LUMINA.get());
         this.dropSelf(ReduxBlocks.DAGGERBLOOM.get());
         this.dropPottedContents(ReduxBlocks.POTTED_DAGGERBLOOM.get());
+        this.dropSelf(ReduxBlocks.THERATIP.get());
+        this.dropPottedContents(ReduxBlocks.POTTED_THERATIP.get());
         this.add(ReduxBlocks.WYNDSPROUTS.get(), createSproutsDrops(ReduxBlocks.WYNDSPROUTS.get(), ReduxItems.WYNDSPROUT_SEEDS.get(), 0.25F));
         this.dropPottedContents(ReduxBlocks.POTTED_WYNDSPROUTS.get());
         this.add(ReduxBlocks.SKYSPROUTS.get(), createSproutsDrops(ReduxBlocks.SKYSPROUTS.get(), ReduxItems.SKYSPROUT_SEEDS.get(), 0.25F));

@@ -408,6 +408,10 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.POTTED_DAGGERBLOOM, "Potted Daggerbloom");
         addLore(ReduxBlocks.DAGGERBLOOM, "A flower found in the Frosted Forests. Its petals are as cold as ice");
 
+        addBlock(ReduxBlocks.THERATIP, "Theratip");
+        addBlock(ReduxBlocks.POTTED_THERATIP, "Potted Theratip");
+        addLore(ReduxBlocks.THERATIP, "A flower found growing on coarse dirt in the Skyroot Shrublands. This plant's pretty pink flowers grow in clusters on the top of the stem.");
+
         addBlock(ReduxBlocks.VERIDIUM_ORE, "Veridium Ore");
         addLore(ReduxBlocks.VERIDIUM_ORE, "The ore of Veridium. This can be found around the Aether");
 
