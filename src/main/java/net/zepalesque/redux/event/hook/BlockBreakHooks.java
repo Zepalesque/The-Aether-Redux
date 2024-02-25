@@ -14,10 +14,10 @@ public class BlockBreakHooks {
 
 
     private static final Map<Block, Float> BREAK_SPEED_REMAP = Maps.newHashMap((new ImmutableMap.Builder<Block, Float>()
-            .put(AetherBlocks.HOLYSTONE.get(), getSpeed(Blocks.STONE)))
-            .put(AetherBlocks.HOLYSTONE_WALL.get(), getSpeed(Blocks.STONE))
-            .put(AetherBlocks.HOLYSTONE_STAIRS.get(), getSpeed(Blocks.STONE))
-            .put(AetherBlocks.HOLYSTONE_SLAB.get(), getSpeed(Blocks.STONE_SLAB))
+            .put(AetherBlocks.HOLYSTONE.get(), 1.0F))
+            .put(AetherBlocks.HOLYSTONE_WALL.get(), 1.0F)
+            .put(AetherBlocks.HOLYSTONE_STAIRS.get(), 1.0F)
+            .put(AetherBlocks.HOLYSTONE_SLAB.get(), 1.5F)
             .put(AetherBlocks.MOSSY_HOLYSTONE.get(), 1.0F)
             .put(AetherBlocks.MOSSY_HOLYSTONE_WALL.get(), 1.0F)
             .put(AetherBlocks.MOSSY_HOLYSTONE_STAIRS.get(), 1.0F)
