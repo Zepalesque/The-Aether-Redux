@@ -41,6 +41,7 @@ public class ReduxItemTagsData extends ItemTagsProvider {
         }
         this.tag(ItemTags.ARROWS).add(ReduxItems.VERIDIUM_ARROW.get());
 
+        this.tag(ReduxTags.Items.MOUSE_EAR_CAPS).add(GenesisItems.MOUSE_EAR_CAP.get());
         this.tag(ReduxTags.Items.REDUX_PHYG_FOOD_ITEMS).add(ReduxItems.WYNDSPROUT_SEEDS.get());
         this.tag(ReduxTags.Items.REDUX_FLYING_COW_FOOD_ITEMS).add(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get());
         this.tag(ReduxTags.Items.GLIMMERCOW_TEMPTATION_ITEMS).add(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get());
@@ -105,7 +106,6 @@ public class ReduxItemTagsData extends ItemTagsProvider {
         );
         this.tag(ReduxTags.Items.BLUEBERRY_PIE_EGGS).addTag(AetherTags.Items.MOA_EGGS).add(Items.EGG).addOptional(DAItems.QUAIL_EGG.getId());
         this.tag(ReduxTags.Items.SKYROOT_BOWLS).addOptional(new ResourceLocation("aether_genesis", "skyroot_bowl"));
-        this.tag(ReduxTags.Items.MOUSE_EAR_CAPS).addOptional(new ResourceLocation("aether_genesis", "mouse_ear_caps"));
         this.tag(ItemTags.MUSIC_DISCS).add(ReduxItems.MUSIC_DISC_LABYRINTHS_VENGEANCE.get());
         this.tag(ReduxTags.Items.VERIDIUM_ADVANCEMENT_INFUSABLE).add(
                 ReduxItems.VERIDIUM_PICKAXE.get(),
