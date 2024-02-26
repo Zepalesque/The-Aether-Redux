@@ -42,7 +42,7 @@
       "aether_redux:cave_biome/blightmoss_vegetation"
     ],
     [
-      "aether:water_spring"
+      "aether_redux:surface/blight_spring"
     ],
     [
       "aether_redux:trees/blight_trees",

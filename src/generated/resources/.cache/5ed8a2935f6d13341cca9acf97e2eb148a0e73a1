@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-25T20:33:13.1664142	Global Loot Modifiers : aether_redux
+// 1.20.1	2024-02-25T22:34:25.7914638	Global Loot Modifiers : aether_redux
 b39adc10b60afb149cafd1bebb26e2feb5841cc2 data/aether_redux/loot_modifiers/airbound_cape.json
 f79e62e71e6cae7f6c1335d1cf80df3ef77cf5e9 data/aether_redux/loot_modifiers/blue_swet_ball_increase.json
 bbd41443718e7e431b92a4f6a31944e957452423 data/aether_redux/loot_modifiers/cockatrice_feather.json
@@ -7,6 +7,7 @@ e3d3c8c3996f6a4754ade3ae587f2f5e529418de data/aether_redux/loot_modifiers/genesi
 75b48810ff0c1cd8bece07bc12ca5f03dff4c4ec data/aether_redux/loot_modifiers/golden_swet_ball_add.json
 78bdece1c0c86d2735d9a17738ddd92e1b4d81b6 data/aether_redux/loot_modifiers/phoenix_emblem.json
 2a3f222ef0ae761592940b20001d03fb510e8a74 data/aether_redux/loot_modifiers/raw_gravitite.json
+3b388d4abe7202cb1be3cc3f54e703703d00c701 data/aether_redux/loot_modifiers/raw_veridium.json
 53dbc82b99dec4803e97a9acd3b91c2d1d776633 data/aether_redux/loot_modifiers/remove_blue_swet_cloud.json
 7626fe93b19f9f06a572f1bbe5a70d4d2eb53eba data/aether_redux/loot_modifiers/remove_golden_swet_glowstone.json
 6a20af9ac39c79110b863997b5577b1fef3d4b0d data/aether_redux/loot_modifiers/sentry_chip.json
@@ -15,4 +16,4 @@ e06d9459f5f96f2d198a9773adec3630f9d3a199 data/aether_redux/loot_modifiers/swet_s
 42b45cb7d3f862305da2b1ed859fca1578f4bb20 data/aether_redux/loot_modifiers/valkyrie_ring.json
 4b5acd80dfafd07618bdc89f9488fa8d591dc69d data/aether_redux/loot_modifiers/vampire_amulet.json
 06bfc22731cecfc61e075d9ea55f51f3aff685a0 data/aether_redux/loot_modifiers/vanilla_gummy_swet.json
-84439f14ad0c062140a765f83c648dc43f96f0d7 data/forge/loot_modifiers/global_loot_modifiers.json
+2f8413ef9da724501bdecc1c55cb04baec221538 data/forge/loot_modifiers/global_loot_modifiers.json
