@@ -15,6 +15,12 @@
   "display": {
     "announce_to_chat": true,
     "description": {
+      "extra": [
+        {
+          "color": "#9384F4",
+          "translate": "gui.aether_redux.advancement_suffix"
+        }
+      ],
       "translate": "advancement.aether_redux.mouse_ear_soup.desc"
     },
     "frame": "task",
