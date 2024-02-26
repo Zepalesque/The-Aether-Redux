@@ -9,6 +9,12 @@
   "display": {
     "announce_to_chat": true,
     "description": {
+      "extra": [
+        {
+          "color": "#8C8CFF",
+          "translate": "gui.aether_redux.advancement_suffix"
+        }
+      ],
       "translate": "advancement.aether_redux.double_jump.desc"
     },
     "frame": "task",
