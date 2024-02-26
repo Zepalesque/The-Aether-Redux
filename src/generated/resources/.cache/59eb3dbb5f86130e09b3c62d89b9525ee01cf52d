@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-24T21:22:03.1636075	Loot Tables
+// 1.20.1	2024-02-25T20:27:11.9095501	Loot Tables
 c6156555dc4897939b617dabc4521b7fa52feba0 data/aether_redux/loot_tables/blocks/aurum.json
 b5773c78c7b3f27032f1cca6fb72f440e24c7529 data/aether_redux/loot_tables/blocks/avelium.json
 4c8b773f2431b28dd2a48b90d08323d8ff67a3d7 data/aether_redux/loot_tables/blocks/avelium_roots.json
@@ -201,6 +201,7 @@ e60e90e3b70f3f3b8904cf994e7c0c46dcb72003 data/aether_redux/loot_tables/blocks/pu
 a8655c14dcb62175a9ab8cf34bfb7372d0c8f805 data/aether_redux/loot_tables/blocks/purple_glacia_sapling.json
 214b296579c2e9375836091351f46f81b52b014a data/aether_redux/loot_tables/blocks/purple_potted_glacia_sapling.json
 4c41d63b70c606f4d6d24eb333c4ff55812f2838 data/aether_redux/loot_tables/blocks/raw_gravitite_block.json
+6f55f9eaef5917b8d6a45c1d3f833085eec67af8 data/aether_redux/loot_tables/blocks/raw_valkyrum_block.json
 31634f3ccbb1109ba54691cd7c7c94d822fddafa data/aether_redux/loot_tables/blocks/raw_veridium_block.json
 9f54a7b9cfb32b6b20fe02aa7a310e6df5c3785a data/aether_redux/loot_tables/blocks/shell_shingles.json
 bfdff5740f573c219698b2d3350c8a1c08a7a658 data/aether_redux/loot_tables/blocks/shell_shingle_slab.json

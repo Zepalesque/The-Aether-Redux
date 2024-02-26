@@ -105,6 +105,7 @@
     "aether_redux:veridium_ore",
     "aether_redux:veridium_block",
     "aether_redux:raw_veridium_block",
+    "aether_redux:raw_valkyrum_block",
     "aether_redux:raw_gravitite_block",
     "aether_redux:gravitite_block",
     "aether_redux:lightroots",

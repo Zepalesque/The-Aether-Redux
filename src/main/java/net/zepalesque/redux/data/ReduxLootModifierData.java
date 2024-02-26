@@ -76,16 +76,6 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                         HAS_SILK_TOUCH.invert().build(),
                         LootItemBlockStatePropertyCondition.hasBlockStateProperties(AetherBlocks.GRAVITITE_ORE.get()).build()}));
 
-        this.add("raw_valkyrum", new RawOreModifier(AncientAetherBlocks.VALKYRUM_BLOCK.get().asItem(), new ItemStack(ReduxItems.RAW_VALKYRUM.get()),
-                new LootItemFunction[] {
-                        SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)).build(),
-                        ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE).build()
-                },
-                new LootItemCondition[] {
-                        DataLootCondition.conditionOf(Conditions.RAW_VALKYRUM).build(),
-                        HAS_SILK_TOUCH.invert().build(),
-                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(AncientAetherBlocks.VALKYRUM_BLOCK.get()).build()}));
-
         this.add("sentry_chip", new GenesisAddDropsModifier(new ItemStack(ReduxItems.SENTRY_CHIP.get()),
                 new LootItemFunction[] {
                         SetItemCountFunction.setCount(UniformGenerator.between(0, 1.0F)).build(),

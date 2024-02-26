@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-24T21:22:03.1396226	Item Models: aether_redux
+// 1.20.1	2024-02-25T20:27:11.9045513	Item Models: aether_redux
 2445055af5b1b7f3c6045199ffce74108003cef6 assets/aether_redux/models/item/airbound_cape.json
 2fa1343a8119a1f49af334c002773099174965bd assets/aether_redux/models/item/aurum.json
 edfe83948874d1436a61893ed9471b47e93dbe88 assets/aether_redux/models/item/avelium.json
@@ -193,7 +193,6 @@ ec3c78d30b74b360b8e97bdd426a1588776c1e0d assets/aether_redux/models/item/jellysh
 419e1a027022a941d08e3625e84160befb2571da assets/aether_redux/models/item/lumina.json
 f57c0aa977ae875c8456515bae2a0f7dbfa313cc assets/aether_redux/models/item/luxweed.json
 47516c71de9a063c4c70bd0fe9c269f3f4e5c946 assets/aether_redux/models/item/mouse_ear_soup.json
-e9805186cf791543ff0e9594ea3ec3b72edf7c81 assets/aether_redux/models/item/music_disc_labyrinths_vengeance.json
 beec52eb9364cdb01119c1580478b19527c5cf62 assets/aether_redux/models/item/mykapod_shell_chunk.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/aether_redux/models/item/mykapod_spawn_egg.json
 54842e392da1fcd4941f2f3a60d1cbdfd987f49a assets/aether_redux/models/item/oatmeal.json
@@ -202,6 +201,8 @@ e2015d8ef1a31186ff40937a0cfe131c89ec3631 assets/aether_redux/models/item/purple_
 8dc6fb58d1be53bc2dc005d016b961b25d246fec assets/aether_redux/models/item/purple_glacia_sapling.json
 1709c24cc08e79ca78246932b84e07b0cba0f215 assets/aether_redux/models/item/raw_gravitite.json
 89ffb8380d6d8ecada16659d1c7eeaeba6599385 assets/aether_redux/models/item/raw_gravitite_block.json
+a5a9128b80aab7974b8ae8690f6fe7d5c22d0192 assets/aether_redux/models/item/raw_valkyrum.json
+b1ef3818d31455f48163b723c113b769110219e3 assets/aether_redux/models/item/raw_valkyrum_block.json
 d8de2565b035201fb855f38b6083299efcc91e31 assets/aether_redux/models/item/raw_veridium.json
 8a433ef11c34eda652a3186b21612f69a875b6e8 assets/aether_redux/models/item/raw_veridium_block.json
 2b0580de8e9f79ef8502204a23d3575928546d05 assets/aether_redux/models/item/ring_of_wisdom.json
@@ -218,6 +219,7 @@ aec70cdc85dfdc10f3782dd2c1d08fcff8d1d360 assets/aether_redux/models/item/shell_s
 4210677a9d19d63a308eb9b0b9bf15627fa7ef1e assets/aether_redux/models/item/skybud.json
 6eb82aa73b8f464c031aede636157d1f9fb79678 assets/aether_redux/models/item/skysprouts.json
 89e4963a882fcf844fc40d922d740c00443cdc6a assets/aether_redux/models/item/skysprout_seeds.json
+3277043e77cf82c46293a905c797bb8cec8aaf03 assets/aether_redux/models/item/slider_music_disc.json
 6ac0dc6780c42e567774c05e1f597af1a9f8b48a assets/aether_redux/models/item/snailshell_shield.json
 ef405b37de6a713eaa2b3a73e51abd287ab716d5 assets/aether_redux/models/item/spear_of_the_blight.json
 1a714fcc969395ab809f838beead90437b3f7458 assets/aether_redux/models/item/spectral_dart.json

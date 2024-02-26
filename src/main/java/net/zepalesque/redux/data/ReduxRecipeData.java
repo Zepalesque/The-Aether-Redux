@@ -65,8 +65,6 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
         wall(consumer, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.DIVINITE_WALL.get(), ReduxBlocks.DIVINITE.get());
         enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, Blocks.GLOWSTONE, ReduxBlocks.DIVINITE.get(), 0.0F, 200).save(consumer, Redux.locate(ReduxBlocks.DIVINITE.getId().getPath() + "_to_glowstone"));
         enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, AetherBlocks.ENCHANTED_GRAVITITE.get(), ReduxItems.RAW_GRAVITITE.get(), 1.0F, 750).save(consumer, this.name("enchanted_gravitite_enchanting_from_raw_ore"));
-        // TODO: Move over to compat datapack
-        enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, AncientAetherItems.VALKYRUM.get(), ReduxItems.RAW_VALKYRUM.get(), 1.5F, 1000).save(consumer, this.name("valkyrum_enchanting_from_raw_ore"));
 
         smeltingOreRecipe(ReduxItems.VERIDIUM_INGOT.get(), ReduxBlocks.VERIDIUM_ORE.get(), 0.8F).save(consumer, name("smelt_veridium"));
         blastingOreRecipe(ReduxItems.VERIDIUM_INGOT.get(), ReduxBlocks.VERIDIUM_ORE.get(), 0.8F).save(consumer, name("blast_veridium"));

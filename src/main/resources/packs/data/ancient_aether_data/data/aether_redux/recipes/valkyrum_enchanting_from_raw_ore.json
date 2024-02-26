@@ -1,0 +1,10 @@
+{
+  "type": "aether:enchanting",
+  "category": "enchanting_blocks",
+  "cookingtime": 1000,
+  "experience": 1.5,
+  "ingredient": {
+    "item": "aether_redux:raw_valkyrum"
+  },
+  "result": "ancient_aether:valkyrum"
+}

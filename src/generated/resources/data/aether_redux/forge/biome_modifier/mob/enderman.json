@@ -1,0 +1,14 @@
+{
+  "type": "aether_redux:conditional_spawns",
+  "biomes": "#aether_redux:has_enderman",
+  "condition": {
+    "condition": "aether_redux:redux_config",
+    "config_path": "[Gameplay Changes, Enderman Spawns]"
+  },
+  "spawners": {
+    "type": "minecraft:enderman",
+    "maxCount": 4,
+    "minCount": 1,
+    "weight": 1
+  }
+}

@@ -1,10 +1,11 @@
-// 1.20.1	2024-02-24T21:22:03.2165784	Tags for minecraft:block mod id aether_redux
+// 1.20.1	2024-02-25T20:27:11.9285523	Tags for minecraft:block mod id aether_redux
 8f59d0f2e59cb5eca343062c21759ff8593f2e46 data/aether/tags/blocks/aerclouds.json
 593f50c73d9619ba0b2f5bbedad8cf5bef48adbc data/aether/tags/blocks/aether_animals_spawnable_on.json
 1abbb8fbbd6aaa2a65960af8b043d21b8cd619e9 data/aether/tags/blocks/aether_dirt.json
+a681ef256a73f902c2b7f4517610ae47cccada75 data/aether/tags/blocks/gravitite_ability_blacklist.json
 1acaf7e42c54a1bfdf9c92e14aa3c26bc0b3b058 data/aether/tags/blocks/holystone.json
 3430a77944d334be13ce18f710fdbf73bdf8e971 data/aether/tags/blocks/sentry_blocks.json
-3aad99c85e2567949d064310e80783166fd9a4e6 data/aether/tags/blocks/treated_as_aether_block.json
+e310611ee0852b01e8e50cb3a43bdaeb4a404e70 data/aether/tags/blocks/treated_as_aether_block.json
 85b1ad865db965e78fb0da827f9f619ffe9f5878 data/aether_redux/tags/blocks/aether_carver_replaceables.json
 fd01915c57cee8effe17fe38cbedcefa19a98fb3 data/aether_redux/tags/blocks/aether_moss_replaceables.json
 edd28d843e4d50fffcd62491dda0fa5e4ba1749b data/aether_redux/tags/blocks/blightwillow_logs.json
@@ -32,11 +33,11 @@ ab5e4a66dad29d80ebba1e08775e7c6a034b7bf4 data/minecraft/tags/blocks/leaves.json
 66193b690ef95c1d15ec7f991eb6a093c6457762 data/minecraft/tags/blocks/logs.json
 e3f8186bc7947b492cb9e96cb4f0d04ee04dfadf data/minecraft/tags/blocks/mineable/axe.json
 9404c9d2e71f8a9442305927187a64e88ceb7be8 data/minecraft/tags/blocks/mineable/hoe.json
-2d35f7b386d1ba76464689fb35e1ec59d6350b91 data/minecraft/tags/blocks/mineable/pickaxe.json
+5e046f6b7b067dffd7b24289afec3d0a36f698c5 data/minecraft/tags/blocks/mineable/pickaxe.json
 8f324fc927e00fa03a044e076f6795d40bf18d93 data/minecraft/tags/blocks/mineable/shovel.json
 6af03c05dc47726e2795f7d011a935a02927b949 data/minecraft/tags/blocks/mushroom_grow_block.json
 3548fd3faa2233aa148f10a28b8537e0e1b1109d data/minecraft/tags/blocks/needs_iron_tool.json
-b79514a8b5c826d6a8f58e263a531ca73b575041 data/minecraft/tags/blocks/needs_stone_tool.json
+97e36dab7331bd49a2e19c62e6e8a5b68ac8d84b data/minecraft/tags/blocks/needs_stone_tool.json
 7f630f2e13752bc772ec32b658defdb8c91aa84f data/minecraft/tags/blocks/planks.json
 a733f76717ee8a393077c5343948f1a0f97a5f86 data/minecraft/tags/blocks/replaceable.json
 3c6e910f7d8c4f3363b7ed7ba62d8d4cf042887c data/minecraft/tags/blocks/saplings.json

@@ -1,5 +1,5 @@
 {
-  "type": "aether_redux:genesis_add_drops",
+  "type": "aether_redux:add_drops",
   "conditions": [
     {
       "condition": "minecraft:entity_properties",

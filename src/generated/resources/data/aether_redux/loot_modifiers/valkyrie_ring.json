@@ -1,5 +1,5 @@
 {
-  "type": "aether_redux:genesis_add_dungeon_loot",
+  "type": "aether_redux:add_dungeon_loot",
   "conditions": [
     {
       "condition": "forge:loot_table_id",

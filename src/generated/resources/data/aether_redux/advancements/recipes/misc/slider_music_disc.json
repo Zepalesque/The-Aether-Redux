@@ -17,7 +17,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "aether_redux:music_disc_labyrinths_vengeance"
+        "recipe": "aether_redux:slider_music_disc"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -30,7 +30,7 @@
   ],
   "rewards": {
     "recipes": [
-      "aether_redux:music_disc_labyrinths_vengeance"
+      "aether_redux:slider_music_disc"
     ]
   },
   "sends_telemetry_event": false

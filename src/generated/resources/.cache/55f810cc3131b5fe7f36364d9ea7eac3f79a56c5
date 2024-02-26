@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-25T12:06:24.5592453	Block States: aether_redux
+// 1.20.1	2024-02-25T20:27:11.9135504	Block States: aether_redux
 6d5a134587a37ec8ac1798d9ca3e527d0a1d99b9 assets/aether_redux/blockstates/aurum.json
 bd71aec5ab85b7a1e4570cf04b5dce1bf6226d6b assets/aether_redux/blockstates/avelium.json
 eb68785d90af1f5948885a64db9d1f4c33739323 assets/aether_redux/blockstates/avelium_roots.json
@@ -197,6 +197,7 @@ b802e4adfe62c5d65ab81a618035f00a737878d1 assets/aether_redux/blockstates/purple_
 4f307e6e86aa4f58a60de087007eaed8be610a3c assets/aether_redux/blockstates/purple_glacia_sapling.json
 c72cf39c73e44bd71b9b40f3819978bcaf5bb303 assets/aether_redux/blockstates/purple_potted_glacia_sapling.json
 93cc5df57f6d5b01d6de5e41ed599578b4fab5bf assets/aether_redux/blockstates/raw_gravitite_block.json
+abd1af75806d479e2fe0e2c5d50a91881d47f575 assets/aether_redux/blockstates/raw_valkyrum_block.json
 e4a4d10ceb7ca8da8230ae385d0e937d72eede53 assets/aether_redux/blockstates/raw_veridium_block.json
 3e8dbde7cc3a7f7bccae0e385564309f66858619 assets/aether_redux/blockstates/shell_shingles.json
 68e887c8d462d0249406552c7f2b66ed69c0e2bd assets/aether_redux/blockstates/shell_shingle_slab.json
@@ -793,6 +794,7 @@ a7b3d68b7ca243dc9b16741d5e8e5c0c8e5528d4 assets/aether_redux/models/block/purple
 8e78a6c802e343f39b5926999250bae448353a6c assets/aether_redux/models/block/purple_glacia_sapling.json
 0bc3a2aebf1f69795d6398103354fc07cf87035c assets/aether_redux/models/block/purple_potted_glacia_sapling.json
 30d167db2977fadab65c746cfeb05f7359110acb assets/aether_redux/models/block/raw_gravitite_block.json
+446acfd27163fd934471401752ae35c5b2faa8ab assets/aether_redux/models/block/raw_valkyrum_block.json
 0638c603c5030a516adc0ede83a5ca5685cad939 assets/aether_redux/models/block/raw_veridium_block.json
 c97dd0e4d0e18cccd7b9468c0d9255d26b48f11e assets/aether_redux/models/block/shell_shingles.json
 8871025c1eae3f68934533d75951689989e76827 assets/aether_redux/models/block/shell_shingle_slab.json
