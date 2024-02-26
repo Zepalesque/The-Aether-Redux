@@ -68,6 +68,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue better_water_color;
         public final ForgeConfigSpec.BooleanValue enchanted_vines;
         public final ForgeConfigSpec.BooleanValue alternate_gilded_trees;
+        public final ForgeConfigSpec.BooleanValue enderman_spawns;
 
         public final ForgeConfigSpec.EnumValue<BossRoomType> bronze_boss_room;
         public final ForgeConfigSpec.EnumValue<ChestRoomType> bronze_chest_room;
@@ -92,6 +93,7 @@ public class ReduxConfig {
             this.raw_ores = builder.comment("Use Raw ores for different Aether metals.").define("Raw Ores", true);
             this.gravitite_ingot = builder.comment("Replaces Enchanted Gravitite with Gravitite Ingots. The blocks of this have the original floating behavior.").worldRestart().define("Gravitite Ingots", true);
             this.quicksoil_movement_system = builder.comment("Changes quicksoil between various behaviors. Genesis is the most chaotic, highlands is the most fine-tuned, classic is the original").defineEnum("Quicksoil Movement System", QuicksoilSetting.highlands);
+            this.enderman_spawns = builder.comment("Allows Endermen to spawn in the Aether").define("Enderman Spawns", false);
             builder.pop();
             builder.push("Datapack Application");
             this.apply_cloud_layer_pack = builder.comment("Whether or not to automatically add the Cloud Layer datapack.").define("Cloud Layer Datapack", true);
