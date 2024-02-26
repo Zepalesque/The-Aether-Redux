@@ -3,6 +3,7 @@ package net.zepalesque.redux.mixin.client.gui;
 import com.aetherteam.aether.client.TriviaGenerator;
 import javax.annotation.Nullable;
 import net.minecraft.network.chat.Component;
+import net.zepalesque.redux.Redux;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -23,8 +24,8 @@ public abstract class TriviaGeneratorMixin {
         remap = false
     )
     private void getTriviaLine(CallbackInfoReturnable<Component> cir) {
-        if (this.getTriviaComponent() != null && this.getTriviaComponent().getString().contains("§d")) {
-            cir.setReturnValue(Component.translatable("gui.aether_redux.pro_tip").append(Component.literal(" ").append(this.getTriviaComponent())));
+        if (this.getTriviaComponent() != null && this.getTriviaComponent().getString().contains("§0")) {
+            cir.setReturnValue(Component.translatable("gui.aether.pro_tip").append(Component.literal(" ").append(this.getTriviaComponent())).withStyle(style -> style.withColor(Redux.REDUX_PURPLE)));
         }
 
     }

@@ -45,7 +45,8 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
                     .parent(new ResourceLocation(Aether.MODID, "blue_aercloud"))
                     .display(AetherItems.GOLDEN_PARACHUTE.get(),
                             Component.translatable("advancement.aether_redux.fall_from_aether"),
-                            Component.translatable("advancement.aether_redux.fall_from_aether.desc"),
+                            Component.translatable("advancement.aether_redux.fall_from_aether.desc")
+                                    .append(Component.translatable("gui.aether_redux.advancement_suffix").withStyle(style -> style.withColor(Redux.REDUX_PURPLE))),
                             null,
                             FrameType.TASK, true, true, false)
                     .addCriterion("fall_from_aether", FallFromAetherTrigger.TriggerInstance.fall())
@@ -55,8 +56,9 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
                     .parent(new ResourceLocation(Aether.MODID, "bronze_dungeon"))
                     .display(ReduxItems.AIRBOUND_CAPE.get(),
                             Component.translatable("advancement.aether_redux.double_jump"),
-                            Component.translatable("advancement.aether_redux.double_jump.desc"),
-                            null,
+                            Component.translatable("advancement.aether_redux.double_jump.desc")
+                    .append(Component.translatable("gui.aether_redux.advancement_suffix").withStyle(style -> style.withColor(Redux.REDUX_PURPLE))),
+                    null,
                             FrameType.TASK, true, true, false)
                     .addCriterion("double_jump", DoubleJumpTrigger.TriggerInstance.jump())
                     .save(consumer, Redux.locate("double_jump"), existingFileHelper);
@@ -65,7 +67,9 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
                     .parent(new ResourceLocation(Aether.MODID, "silver_dungeon"))
                     .display(ReduxItems.GRAND_VICTORY_MEDAL.get(),
                             Component.translatable("advancement.aether_redux.grand_medal"),
-                            Component.translatable("advancement.aether_redux.grand_medal.desc"),
+                            Component.translatable("advancement.aether_redux.grand_medal.desc")
+                                    .append(Component.translatable("gui.aether_redux.advancement_suffix").withStyle(style -> style.withColor(Redux.REDUX_PURPLE))),
+
                             null,
                             FrameType.TASK, true, true, false)
                     .addCriterion("obtain_grand_medal", InventoryChangeTrigger.TriggerInstance.hasItems(ReduxItems.GRAND_VICTORY_MEDAL.get()))
@@ -74,7 +78,9 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
                     .parent(new ResourceLocation(Aether.MODID, "gold_dungeon"))
                     .display(ReduxItems.PHOENIX_EMBLEM.get(),
                             Component.translatable("advancement.aether_redux.kill_sheepuff_with_fireball"),
-                            Component.translatable("advancement.aether_redux.kill_sheepuff_with_fireball.desc"),
+                            Component.translatable("advancement.aether_redux.kill_sheepuff_with_fireball.desc")
+                                    .append(Component.translatable("gui.aether_redux.advancement_suffix").withStyle(style -> style.withColor(Redux.REDUX_PURPLE))),
+
                             null,
                             FrameType.TASK, true, true, false)
                     .addCriterion("kill_sheepuff_with_fireball",
@@ -87,7 +93,9 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
                     .parent(new ResourceLocation(Aether.MODID, "craft_altar"))
                     .display(ReduxItems.INFUSED_VERIDIUM_PICKAXE.get(),
                             Component.translatable("advancement.aether_redux.infuse_veridium"),
-                            Component.translatable("advancement.aether_redux.infuse_veridium.desc"),
+                            Component.translatable("advancement.aether_redux.infuse_veridium.desc")
+                                    .append(Component.translatable("gui.aether_redux.advancement_suffix").withStyle(style -> style.withColor(Redux.REDUX_PURPLE))),
+
                             null,
                             FrameType.TASK, true, true, false)
                     .addCriterion("infuse_veridium", InfuseItemTrigger.Instance.forIngredient(ItemPredicate.Builder.item().of(ReduxTags.Items.VERIDIUM_ADVANCEMENT_INFUSABLE).build()))
@@ -97,7 +105,9 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
                     .parent(veridium)
                     .display(ReduxItems.FEATHER_OF_WARDING.get(),
                             Component.translatable("advancement.aether_redux.feather_of_warding"),
-                            Component.translatable("advancement.aether_redux.feather_of_warding.desc"),
+                            Component.translatable("advancement.aether_redux.feather_of_warding.desc")
+                                    .append(Component.translatable("gui.aether_redux.advancement_suffix").withStyle(style -> style.withColor(Redux.REDUX_PURPLE))),
+
                             null,
                             FrameType.TASK, true, true, false)
                     .addCriterion("obtain_feather_of_warding", InventoryChangeTrigger.TriggerInstance.hasItems(ReduxItems.FEATHER_OF_WARDING.get()))

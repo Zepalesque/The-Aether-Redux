@@ -605,45 +605,47 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addGuiText("jei.infusion_charge", "Increases Infusion Level by %s");
         addGuiText("jei.infusion", "Infusion");
 
-        String advSuffix = "\n- The Aether: Redux -";
+
+        addGuiText("advancement_suffix", "\n- The Aether: Redux -");
+        
 
         addAdvancement("fall_from_aether", "Falling with Style!");
-        addAdvancementDesc("fall_from_aether", "Fall out of the Aether" + advSuffix);
+        addAdvancementDesc("fall_from_aether", "Fall out of the Aether");
         addAdvancement("infuse_veridium", "Next Level");
-        addAdvancementDesc("infuse_veridium", "Infuse a Veridium weapon or tool by right-clicking it with an Ambrosium Shard" + advSuffix);
+        addAdvancementDesc("infuse_veridium", "Infuse a Veridium weapon or tool by right-clicking it with an Ambrosium Shard");
         addAdvancement("enter_blight", "Shattered Glass");
-        addAdvancementDesc("enter_blight", "Enter the Blight biome, a dangerous zone filled with hazardous plants and creatures" + advSuffix);
+        addAdvancementDesc("enter_blight", "Enter the Blight biome, a dangerous zone filled with hazardous plants and creatures");
         addAdvancement("convert_with_blighted_spores", "Dark Magic");
-        addAdvancementDesc("convert_with_blighted_spores", "Blight a block by right-clicking it while holding some Blighted Spores" + advSuffix);
+        addAdvancementDesc("convert_with_blighted_spores", "Blight a block by right-clicking it while holding some Blighted Spores");
         addAdvancement("obtain_subzero_crossbow", "Below Zero");
-        addAdvancementDesc("obtain_subzero_crossbow", "Obtain the Subzero Crossbow, a chilling ranged weapon found in the Gold Dungeon" + advSuffix);
+        addAdvancementDesc("obtain_subzero_crossbow", "Obtain the Subzero Crossbow, a chilling ranged weapon found in the Gold Dungeon");
 
         addAdvancementDesc("gravitite_ingot", "Use an Altar to obtain a Gravitite Ingot");
 
         addAdvancement("feather_of_warding", "Blight's Bane");
-        addAdvancementDesc("feather_of_warding", "Obtain the Feather of Warding, a useful accessory that gives the wearer protection from many Blight-related dangers" + advSuffix);
+        addAdvancementDesc("feather_of_warding", "Obtain the Feather of Warding, a useful accessory that gives the wearer protection from many Blight-related dangers");
 
         addAdvancement("double_jump", "Take THAT, Physics!");
-        addAdvancementDesc("double_jump", "Obtain an Airbound cape from a Bronze Dungeon and use it to double-jump" + advSuffix);
+        addAdvancementDesc("double_jump", "Obtain an Airbound cape from a Bronze Dungeon and use it to double-jump");
         addAdvancement("grand_medal", "Valkyrie Champion");
-        addAdvancementDesc("grand_medal", "Obtain the Grand Victory Medal, a symbol of great honor in Valkyrie culture, which will give you health regen, scaling up as you lose health!" + advSuffix);
+        addAdvancementDesc("grand_medal", "Obtain the Grand Victory Medal, a symbol of great honor in Valkyrie culture, which will give you health regen, scaling up as you lose health!");
         addAdvancement("kill_sheepuff_with_fireball", "Pyromaniac");
-        addAdvancementDesc("kill_sheepuff_with_fireball", "Obtain the Phoenix Emblem from the Gold Dungeon and kill a Sheepuff with a fireball. How cruel ):" + advSuffix);
+        addAdvancementDesc("kill_sheepuff_with_fireball", "Obtain the Phoenix Emblem from the Gold Dungeon and kill a Sheepuff with a fireball. How cruel ):");
 
         addAdvancement("enter_skyfields", "Prismacolor Photosynthesis");
-        addAdvancementDesc("enter_skyfields", "Enter the Skyfields, a biome filled with colorful flora and abundant fauna" + advSuffix);
+        addAdvancementDesc("enter_skyfields", "Enter the Skyfields, a biome filled with colorful flora and abundant fauna");
 
         addAdvancement("enter_gilded_groves", "All That Glitters");
-        addAdvancementDesc("enter_gilded_groves", "Enter the Gilded Groves, a golden forest filled with Golden Amber" + advSuffix);
+        addAdvancementDesc("enter_gilded_groves", "Enter the Gilded Groves, a golden forest filled with Golden Amber");
 
         addAdvancement("enter_frosted_forests", "Walking in a Winter Wonderland" );
-        addAdvancementDesc("enter_frosted_forests", "Enter the Frosted Forests, an ice-cold forest covered in snow" + advSuffix);
+        addAdvancementDesc("enter_frosted_forests", "Enter the Frosted Forests, an ice-cold forest covered in snow");
 
         addAdvancement("enter_cloudcap_jungle", "Moolander");
-        addAdvancementDesc("enter_cloudcap_jungle", "Enter the Cloudcaps, a fungal forest with various types of mushrooms" + advSuffix);
+        addAdvancementDesc("enter_cloudcap_jungle", "Enter the Cloudcaps, a fungal forest with various types of mushrooms");
 
         addAdvancement("mouse_ear_soup", "Who Let Them Cook?");
-        addAdvancementDesc("mouse_ear_soup", "Craft and cosume the legendary Mouse Ear Soup, one of the Aether's finest, yet least well-known dishes." + advSuffix);
+        addAdvancementDesc("mouse_ear_soup", "Craft and cosume the legendary Mouse Ear Soup, one of the Aether's finest, yet least well-known dishes.");
 
         addDeath(ReduxDamageTypes.ZANBERRY_BUSH, "%1$s was poked to death by a zanberry bush, how sad ):");
         addDeath(ReduxDamageTypes.CORRUPTED_VINES, "%1$s was poked to death by some Corrupted Vines");
@@ -651,14 +653,12 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addDeathByPlayer(ReduxDamageTypes.EMBER, "%1$s was sparked by %2$s's flying ember");
         addDeath(ReduxDamageTypes.BLIGHT, "%1$s was taken by the Blight");
 
-        addGuiText("pro_tip", "§dPro Tip:");
-
-        addProTip("tip_color", "§dTips from the Aether: Redux are in light purple!");
-        addProTip("veridium_infusion", "§dVeridium tools can be temporarily infused into better versions by right-clicking them with an Ambrosium Shard!");
-        addProTip("model_changes", "§dThe Aether: Redux has some model changes to some of the Aether’s mobs, which can be toggled in the client-side config!");
-        addProTip("feather_of_warding", "§dSometimes, Cockatrices will drop a feather, which can be upgraded into the useful Feather of Warding, giving you immunity from the inebriation effect.");
-        addProTip("oatmeal", "§dWyndsprout seeds can be crafed into Oatmeal, a nice snack that can fill up a few hunger points for relatively cheap.");
-        addProTip("blight_spear", "§dBlightbunny teeth can be used to create the Spear of the Blight, a throwable weapon that inflicts Inebriation on enemies.");
+        addProTip("tip_color", "§0Tips from the Aether: Redux are in this lavender color!");
+        addProTip("veridium_infusion", "§0Veridium tools can be temporarily infused into better versions by right-clicking them with an Ambrosium Shard!");
+        addProTip("model_changes", "§0The Aether: Redux has some model changes to some of the Aether’s mobs, which can be toggled in the client-side config!");
+        addProTip("feather_of_warding", "§0Sometimes, Cockatrices will drop a feather, which can be upgraded into the useful Feather of Warding, giving you immunity from the inebriation effect.");
+        addProTip("oatmeal", "§0Wyndsprout seeds can be crafed into Oatmeal, a nice snack that can fill up a few hunger points for relatively cheap.");
+        addProTip("blight_spear", "§0Blightbunny teeth can be used to create the Spear of the Blight, a throwable weapon that inflicts Inebriation on enemies.");
 
         for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS) {
             woodHandler.generateLanguageData(this);

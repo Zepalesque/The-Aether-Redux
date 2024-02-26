@@ -118,6 +118,7 @@ public class Redux
     public static final String MODID = "aether_redux";
     public static final String DISPLAY = "The Aether: Redux";
     public static final Logger LOGGER = LogUtils.getLogger();
+    public static final int REDUX_PURPLE = 0x8C8CFF;
     @Nullable
     public static ReduxPackConfig packConfig;
 
