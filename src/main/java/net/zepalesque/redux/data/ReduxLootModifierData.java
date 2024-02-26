@@ -37,6 +37,7 @@ import net.minecraftforge.common.loot.LootTableIdCondition;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.condition.Conditions;
 import net.zepalesque.redux.api.condition.Not;
+import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.loot.condition.DataLootCondition;
 import net.zepalesque.redux.loot.modifiers.GenesisAddDungeonLootModifier;
@@ -75,6 +76,17 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                         DataLootCondition.conditionOf(Conditions.RAW_ORES).build(),
                         HAS_SILK_TOUCH.invert().build(),
                         LootItemBlockStatePropertyCondition.hasBlockStateProperties(AetherBlocks.GRAVITITE_ORE.get()).build()}));
+
+        // TODO: Integrate directly into loot table
+        this.add("raw_veridium", new RawOreModifier(ReduxBlocks.VERIDIUM_ORE.get().asItem(), new ItemStack(ReduxItems.RAW_VERIDIUM.get()),
+                new LootItemFunction[] {
+                        SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)).build(),
+                        ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE).build()
+                },
+                new LootItemCondition[] {
+                        DataLootCondition.conditionOf(Conditions.RAW_ORES).build(),
+                        HAS_SILK_TOUCH.invert().build(),
+                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(ReduxBlocks.VERIDIUM_ORE.get()).build()}));
 
         this.add("sentry_chip", new GenesisAddDropsModifier(new ItemStack(ReduxItems.SENTRY_CHIP.get()),
                 new LootItemFunction[] {

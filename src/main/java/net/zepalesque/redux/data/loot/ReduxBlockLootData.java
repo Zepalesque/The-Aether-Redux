@@ -208,7 +208,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropSelf(ReduxBlocks.VERIDIUM_BLOCK.get());
         this.dropSelf(ReduxBlocks.RAW_VERIDIUM_BLOCK.get());
         this.dropSelf(ReduxBlocks.RAW_VALKYRUM_BLOCK.get());
-        this.add(ReduxBlocks.VERIDIUM_ORE.get(), createOreDrop(ReduxBlocks.VERIDIUM_ORE.get(), ReduxItems.RAW_VERIDIUM.get()));
+        this.dropSelf(ReduxBlocks.VERIDIUM_ORE.get());
         this.dropSelf(ReduxBlocks.VERIDIUM_CHAIN.get());
         this.dropSelf(ReduxBlocks.VERIDIUM_LANTERN.get());
 
