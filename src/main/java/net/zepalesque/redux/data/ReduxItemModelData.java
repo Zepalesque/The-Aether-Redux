@@ -54,8 +54,9 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         item(ReduxItems.ENCHANTED_RING, "accessories/");
         item(ReduxItems.SHROOM_RING, "accessories/");
         item(ReduxItems.RING_OF_WISDOM, "accessories/");
-        item(ReduxItems.SPECTRAL_DART, "weapons/");
-        item(ReduxItems.SPECTRAL_DART_SHOOTER, "weapons/");
+        item(ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER, "weapons/");
+        item(ReduxItems.VERIDIUM_DART_SHOOTER, "weapons/");
+        item(ReduxItems.VERIDIUM_DART, "weapons/");
         item(ReduxItems.SENTRY_CHIP, "materials/");
         item(ReduxItems.WYNDSPROUT_SEEDS, "food/");
         item(ReduxItems.SKYSPROUT_SEEDS, "materials/");
@@ -203,7 +204,6 @@ public class ReduxItemModelData extends AetherItemModelProvider {
 
         this.item(ReduxItems.ZANBERRY, "food/");
 
-        this.item(ReduxItems.VERIDIUM_ARROW, "weapons/");
 
         for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS)        {
             woodHandler.generateItemModels(this);

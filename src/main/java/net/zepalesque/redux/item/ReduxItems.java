@@ -28,10 +28,7 @@ import net.zepalesque.redux.item.tools.VeridiumHoeItem;
 import net.zepalesque.redux.item.tools.VeridiumPickaxeItem;
 import net.zepalesque.redux.item.tools.VeridiumShovelItem;
 import net.zepalesque.redux.item.util.ReduxItemTiers;
-import net.zepalesque.redux.item.weapons.BlightSpearItem;
-import net.zepalesque.redux.item.weapons.SubzeroCrossbowItem;
-import net.zepalesque.redux.item.weapons.VeridiumArrowItem;
-import net.zepalesque.redux.item.weapons.VeridiumSwordItem;
+import net.zepalesque.redux.item.weapons.*;
 
 import java.util.function.UnaryOperator;
 
@@ -82,10 +79,10 @@ public class ReduxItems {
 
     public static final RegistryObject<Item> SNAILSHELL_SHIELD = register("snailshell_shield", () -> new SnailshellShieldItem(new Item.Properties().stacksTo(1)));
 
-    public static final RegistryObject<Item> SPECTRAL_DART = ITEMS.register("spectral_dart", () -> new DartItem(ReduxEntityTypes.SPECTRAL_DART, new Item.Properties()));
-    public static final RegistryObject<Item> SPECTRAL_DART_SHOOTER = ITEMS.register("spectral_dart_shooter", () -> new DartShooterItem(SPECTRAL_DART, (new Item.Properties()).stacksTo(1)));
+    public static final RegistryObject<Item> VERIDIUM_DART = ITEMS.register("veridium_dart", () -> new DartItem(ReduxEntityTypes.INFUSED_VERIDIUM_DART, new Item.Properties()));
+    public static final RegistryObject<Item> VERIDIUM_DART_SHOOTER = ITEMS.register("veridium_dart_shooter", () -> new VeridiumDartShooter(VERIDIUM_DART, ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER, 7, (new Item.Properties()).stacksTo(1)));
+    public static final RegistryObject<Item> INFUSED_VERIDIUM_DART_SHOOTER = ITEMS.register("infused_veridium_dart_shooter", () -> new VeridiumDartShooter(VERIDIUM_DART, ReduxItems.VERIDIUM_DART_SHOOTER, 5, (new Item.Properties()).stacksTo(1)));
 
-    public static final RegistryObject<Item> VERIDIUM_ARROW = ITEMS.register("veridium_arrow", () -> new VeridiumArrowItem(new Item.Properties()));
 
     public static final RegistryObject<Item> ENCHANTED_RING = register("enchanted_ring", () -> new RingItem(ReduxSoundEvents.EQUIP_ENCHANTED_RING, new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> GRAND_VICTORY_MEDAL = register("grand_victory_medal", () -> new AbilityTooltipPendantItem(Redux.locate("grand_medal"), ReduxSoundEvents.EQUIP_GRAND_MEDAL, new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT), "grand_medal_regen", "grand_medal_queen_refight"));

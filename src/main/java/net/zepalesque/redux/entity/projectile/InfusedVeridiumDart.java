@@ -10,14 +10,14 @@ import net.minecraft.world.level.Level;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.item.ReduxItems;
 
-public class SpectralDart extends AbstractDart {
-    public SpectralDart(EntityType<? extends SpectralDart> type, Level level) {
-        super(type, level, ReduxItems.SPECTRAL_DART);
+public class InfusedVeridiumDart extends AbstractDart {
+    public InfusedVeridiumDart(EntityType<? extends InfusedVeridiumDart> type, Level level) {
+        super(type, level, ReduxItems.VERIDIUM_DART);
         this.setBaseDamage(3.0);
     }
 
-    public SpectralDart(Level level) {
-        super(ReduxEntityTypes.SPECTRAL_DART.get(), level, ReduxItems.SPECTRAL_DART);
+    public InfusedVeridiumDart(Level level) {
+        super(ReduxEntityTypes.INFUSED_VERIDIUM_DART.get(), level, ReduxItems.VERIDIUM_DART);
         this.setBaseDamage(3.0);
     }
 

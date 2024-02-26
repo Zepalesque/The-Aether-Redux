@@ -39,9 +39,18 @@ public class ReduxItemTagsData extends ItemTagsProvider {
             this.tag(ItemTags.BOATS).add(woodHandler.boatItem.get());
             this.tag(ItemTags.CHEST_BOATS).add(woodHandler.chestBoatItem.get());
         }
-        this.tag(ItemTags.ARROWS).add(ReduxItems.VERIDIUM_ARROW.get());
 
-        this.tag(ReduxTags.Items.MOUSE_EAR_CAPS).add(GenesisItems.MOUSE_EAR_CAP.get());
+        this.tag(ReduxTags.Items.MOUSE_EAR_CAPS).addOptional(GenesisItems.MOUSE_EAR_CAP.getId());
+
+        this.tag(ReduxTags.Items.INFUSED_VERIDIUM_ITEMS).add(
+                ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER.get(),
+                ReduxItems.INFUSED_VERIDIUM_SWORD.get(),
+                ReduxItems.INFUSED_VERIDIUM_PICKAXE.get(),
+                ReduxItems.INFUSED_VERIDIUM_AXE.get(),
+                ReduxItems.INFUSED_VERIDIUM_SHOVEL.get(),
+                ReduxItems.INFUSED_VERIDIUM_HOE.get()
+        );
+
         this.tag(ReduxTags.Items.REDUX_PHYG_FOOD_ITEMS).add(ReduxItems.WYNDSPROUT_SEEDS.get());
         this.tag(ReduxTags.Items.REDUX_FLYING_COW_FOOD_ITEMS).add(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get());
         this.tag(ReduxTags.Items.GLIMMERCOW_TEMPTATION_ITEMS).add(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get());

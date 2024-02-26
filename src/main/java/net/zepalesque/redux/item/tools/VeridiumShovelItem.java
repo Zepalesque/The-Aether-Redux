@@ -27,9 +27,9 @@ public class VeridiumShovelItem extends ShovelItem implements VeridiumItem {
     @Override
     public InteractionResult useOn(UseOnContext pContext) {
         InteractionResult result = super.useOn(pContext);
-        if (result == InteractionResult.sidedSuccess(pContext.getLevel().isClientSide) && this.isCharged(pContext.getItemInHand()) && !pContext.getPlayer().level().isClientSide && !pContext.getPlayer().getAbilities().instabuild){
+        if (result == InteractionResult.sidedSuccess(pContext.getLevel().isClientSide) && this.isInfused(pContext.getItemInHand()) && !pContext.getPlayer().level().isClientSide && !pContext.getPlayer().getAbilities().instabuild){
           ItemStack pStack = pContext.getItemInHand();
-            ItemStack stackReplacement = VeridiumItem.decreaseCharge(pStack);
+            ItemStack stackReplacement = VeridiumItem.depleteInfusion(pStack);
             if (!stackReplacement.getItem().equals(pStack.getItem())) {
                 pContext.getPlayer().setItemInHand(pContext.getHand(), stackReplacement);
             }
@@ -42,8 +42,8 @@ public class VeridiumShovelItem extends ShovelItem implements VeridiumItem {
 
     @Override
     public boolean mineBlock(ItemStack pStack, Level pLevel, BlockState pState, BlockPos pPos, LivingEntity pEntityLiving) {
-        if (pState.getDestroySpeed(pLevel, pPos) != 0F && this.isCharged(pStack) && !pEntityLiving.level().isClientSide && (!(pEntityLiving instanceof Player player) || !player.getAbilities().instabuild)) {
-            ItemStack stackReplacement = VeridiumItem.decreaseCharge(pStack);
+        if (pState.getDestroySpeed(pLevel, pPos) != 0F && this.isInfused(pStack) && !pEntityLiving.level().isClientSide && (!(pEntityLiving instanceof Player player) || !player.getAbilities().instabuild)) {
+            ItemStack stackReplacement = VeridiumItem.depleteInfusion(pStack);
             if (!stackReplacement.getItem().equals(pStack.getItem())) {
                 pEntityLiving.setItemSlot(EquipmentSlot.MAINHAND, stackReplacement);
             }
@@ -55,12 +55,12 @@ public class VeridiumShovelItem extends ShovelItem implements VeridiumItem {
 
     }
     public Item getReplacementItem(ItemStack stack){
-        return this.isCharged(stack) ? ReduxItems.VERIDIUM_SHOVEL.get() : ReduxItems.INFUSED_VERIDIUM_SHOVEL.get();
+        return this.isInfused(stack) ? ReduxItems.VERIDIUM_SHOVEL.get() : ReduxItems.INFUSED_VERIDIUM_SHOVEL.get();
     }
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
-        MutableComponent component = Component.translatable("tooltip.aether_redux.ambrosium_charge", VeridiumItem.getCharge(pStack)).withStyle(ChatFormatting.GRAY);
+        MutableComponent component = Component.translatable("tooltip.aether_redux.ambrosium_charge", VeridiumItem.getInfusion(pStack)).withStyle(ChatFormatting.GRAY);
 
         pTooltipComponents.add(component);
         Component c = ReduxItems.TooltipUtils.SHIFT_OR_DEFAULT.apply(Component.translatable("gui.aether_redux.infusion_tooltip"));
@@ -70,7 +70,7 @@ public class VeridiumShovelItem extends ShovelItem implements VeridiumItem {
 
     @Override
     public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, T entity, Consumer<T> onBroken) {
-        return this.isCharged(stack) ? amount * VeridiumItem.CHARGED_DAMAGE_MULTIPLIER : amount;
+        return this.isInfused(stack) ? amount * VeridiumItem.CHARGED_DAMAGE_MULTIPLIER : amount;
     }
 
 }

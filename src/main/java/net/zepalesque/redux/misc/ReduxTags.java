@@ -52,6 +52,8 @@ public class ReduxTags {
         public static final TagKey<Item> BLIGHTWARDING_ACCESSORIES = tag("blightwarding_accessories");
         public static final TagKey<Item> IS_SKYROOT_TOOL = tag("is_skyroot_tool");
 
+        public static final TagKey<Item> INFUSED_VERIDIUM_ITEMS = tag("infused_veridium_items");
+
         public static final TagKey<Item> MOUSE_EAR_CAPS = tag("compat/mouse_ear_caps");
 
         public static TagKey<Item> tag(String name) {

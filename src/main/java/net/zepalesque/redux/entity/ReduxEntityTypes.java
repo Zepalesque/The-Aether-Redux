@@ -33,11 +33,11 @@ public class ReduxEntityTypes {
     public static final RegistryObject<EntityType<Swet>> VANILLA_SWET = ENTITY_TYPES.register("vanilla_swet",
             () -> EntityType.Builder.of(Swet::new, AetherMobCategory.AETHER_SURFACE_MONSTER).sized(0.9F, 0.95F).clientTrackingRange(10).build("vanilla_swet"));
 
-    public static final RegistryObject<EntityType<SpectralDart>> SPECTRAL_DART = ENTITY_TYPES.register("spectral_dart",
-            () -> EntityType.Builder.<SpectralDart>of(SpectralDart::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20).build("spectral_dart"));
+    public static final RegistryObject<EntityType<InfusedVeridiumDart>> INFUSED_VERIDIUM_DART = ENTITY_TYPES.register("infused_veridium_dart",
+            () -> EntityType.Builder.<InfusedVeridiumDart>of(InfusedVeridiumDart::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20).build("infused_veridium_dart"));
 
-    public static final RegistryObject<EntityType<VeridiumArrow>> VERIDIUM_ARROW = ENTITY_TYPES.register("veridium_arrow",
-            () -> EntityType.Builder.<VeridiumArrow>of(VeridiumArrow::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20).build("veridium_arrow"));
+    public static final RegistryObject<EntityType<VeridiumDart>> VERIDIUM_DART = ENTITY_TYPES.register("veridium_dart",
+            () -> EntityType.Builder.<VeridiumDart>of(VeridiumDart::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20).build("veridium_dart"));
 
     public static final RegistryObject<EntityType<ThrownSpear>> THROWN_SPEAR = ENTITY_TYPES.register("thrown_spear",
             () -> EntityType.Builder.<ThrownSpear>of(ThrownSpear::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20).build("thrown_spear"));

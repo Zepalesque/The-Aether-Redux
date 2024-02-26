@@ -103,13 +103,12 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.BLIGHTED_SPORES, "Blighted Spores");
         addLore(ReduxItems.BLIGHTED_SPORES, "Spores from the Blightwillow tree. They act like an opposite to Ambrosium, turning some things into their blighted variant");
 
-        addItem(ReduxItems.SPECTRAL_DART, "Spectral Dart");
-        addLore(ReduxItems.SPECTRAL_DART, "The ammo for Spectral Dart Shooters. Crafted with Skyroot Sticks and Golden Swet Balls, these special darts cause enemies to temporarily glow when hit!");
-        addItem(ReduxItems.SPECTRAL_DART_SHOOTER, "Spectral Dart Shooter");
-        addLore(ReduxItems.SPECTRAL_DART_SHOOTER, "A Dart Shooter which shoots Spectral Darts, it's darts cause enemies to temporarily glow when hit!");
-
-        addItem(ReduxItems.VERIDIUM_ARROW, "Veridium Arrow");
-        addLore(ReduxItems.VERIDIUM_ARROW, "An arrow made with Veridium. This is faster and more powerful than normal arrows!");
+        addItem(ReduxItems.VERIDIUM_DART, "Veridium Dart");
+        addLore(ReduxItems.VERIDIUM_DART, "The ammo for the Veridium Dart Shooter. When shot with an Infused Veridium Dart Shooter, hit enemies will glow!");
+        addItem(ReduxItems.VERIDIUM_DART_SHOOTER, "Veridium Dart Shooter");
+        addLore(ReduxItems.VERIDIUM_DART_SHOOTER, "A Dart Shooter which shoots Veridium Darts. This can be infused, by right-clicking it with an ambrosium shard!");
+        addItem(ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER, "Infused Veridium Dart Shooter");
+        addLore(ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER, "A Dart Shooter which shoots Veridium Darts. This can be infused, by right-clicking it with an ambrosium shard!");
 
         addItem(ReduxItems.SLIDER_MUSIC_DISC, "Slider Music Disc");
         addDiscDesc(ReduxItems.SLIDER_MUSIC_DISC, "Emile van Krieken - Labyrinth's Vengeance");
@@ -498,9 +497,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addEntityType(ReduxEntityTypes.MYKAPOD, "Mykapod");
         addEntityType(ReduxEntityTypes.BLIGHTBUNNY, "Blightbunny");
         addEntityType(ReduxEntityTypes.EMBER, "Ember");
-        addEntityType(ReduxEntityTypes.SPECTRAL_DART, "Spectral Dart");
+        addEntityType(ReduxEntityTypes.INFUSED_VERIDIUM_DART, "Spectral Dart");
         addEntityType(ReduxEntityTypes.VOLATILE_FIRE_CRYSTAL, "Volatile Fire Crystal");
-        addEntityType(ReduxEntityTypes.VERIDIUM_ARROW, "Veridium Arrow");
+        addEntityType(ReduxEntityTypes.VERIDIUM_DART, "Veridium Arrow");
         addEntityType(ReduxEntityTypes.BLIGHTBUNNY_SPAWNER, "Blightbunny Spawner");
         addEntityType(ReduxEntityTypes.COCKATRICE_SPAWNER, "Cockatrice Spawner");
 

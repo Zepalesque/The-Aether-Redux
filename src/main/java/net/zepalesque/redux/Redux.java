@@ -112,20 +112,20 @@ import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 @Mod(Redux.MODID)
-public class Redux
-{
-
+public class Redux {
     public static final String MODID = "aether_redux";
     public static final String DISPLAY = "The Aether: Redux";
+    public static final String VERSION_ID = "2.0-pre8";
+
     public static final Logger LOGGER = LogUtils.getLogger();
+
     public static final int REDUX_PURPLE = 0x9384F4;
+
     @Nullable
     public static ReduxPackConfig packConfig;
 
-    public static final String VERSION_ID = "2.0-pre8";
 
-    public Redux()
-    {
+    public Redux() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         bus.addListener(this::commonSetup);
         bus.addListener(this::clientSetup);
@@ -141,7 +141,7 @@ public class Redux
         ReduxSoundEvents.SOUNDS.register(bus);
         ReduxBlockEntityTypes.BLOCK_ENTITY_TYPES.register(bus);
         ReduxEntityTypes.ENTITY_TYPES.register(bus);
-        ConditionSerializers.CONDITION_SERIALIZERS.register(bus);
+        ConditionSerializers.CODECS.register(bus);
         ReduxBiomeModifierCodecs.CODECS.register(bus);
         ReduxLootModifiers.LOOT_MODIFIERS.register(bus);
         ReduxEffects.EFFECTS.register(bus);

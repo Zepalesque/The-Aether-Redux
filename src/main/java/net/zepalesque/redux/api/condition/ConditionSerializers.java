@@ -21,17 +21,17 @@ public class ConditionSerializers {
         return CONDITION_SERIALIZER_REGISTRY.get().getKey(condition);
     }
 
-    public static final DeferredRegister<Codec<? extends AbstractCondition<?>>> CONDITION_SERIALIZERS = DeferredRegister.create(Redux.Keys.CONDITION_SERIALIZER, Redux.MODID);
-    public static final Supplier<IForgeRegistry<Codec<? extends AbstractCondition<?>>>> CONDITION_SERIALIZER_REGISTRY = CONDITION_SERIALIZERS.makeRegistry(RegistryBuilder::new);
+public static final DeferredRegister<Codec<? extends AbstractCondition<?>>> CODECS = DeferredRegister.create(Redux.Keys.CONDITION_SERIALIZER, Redux.MODID);
+    public static final Supplier<IForgeRegistry<Codec<? extends AbstractCondition<?>>>> CONDITION_SERIALIZER_REGISTRY = CODECS.makeRegistry(RegistryBuilder::new);
 
-    public static final RegistryObject<Codec<ModLoaded>> MOD_LOADED = CONDITION_SERIALIZERS.register("mod_loaded", () -> ModLoaded.CODEC);
-    public static final RegistryObject<Codec<ReduxConfigCondition>> REDUX_CONFIG = CONDITION_SERIALIZERS.register("redux_config", () -> ReduxConfigCondition.CODEC);
-    public static final RegistryObject<Codec<AetherConfigCondition>> AETHER_CONFIG = CONDITION_SERIALIZERS.register("aether_config", () -> AetherConfigCondition.CODEC);
+    public static final RegistryObject<Codec<ModLoaded>> MOD_LOADED = CODECS.register("mod_loaded", () -> ModLoaded.CODEC);
+    public static final RegistryObject<Codec<ReduxConfigCondition>> REDUX_CONFIG = CODECS.register("redux_config", () -> ReduxConfigCondition.CODEC);
+    public static final RegistryObject<Codec<AetherConfigCondition>> AETHER_CONFIG = CODECS.register("aether_config", () -> AetherConfigCondition.CODEC);
 
     // Logic
-    public static final RegistryObject<Codec<Not<?>>> NOT = CONDITION_SERIALIZERS.register("not", () -> Not.CODEC);
-    public static final RegistryObject<Codec<Or<?, ?>>> OR = CONDITION_SERIALIZERS.register("or", () -> Or.CODEC);
-    public static final RegistryObject<Codec<And<?, ?>>> AND = CONDITION_SERIALIZERS.register("and", () -> And.CODEC);
+    public static final RegistryObject<Codec<Not<?>>> NOT = CODECS.register("not", () -> Not.CODEC);
+    public static final RegistryObject<Codec<Or<?, ?>>> OR = CODECS.register("or", () -> Or.CODEC);
+    public static final RegistryObject<Codec<And<?, ?>>> AND = CODECS.register("and", () -> And.CODEC);
 
 
 }

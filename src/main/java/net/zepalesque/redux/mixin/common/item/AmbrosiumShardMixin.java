@@ -7,6 +7,7 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.item.util.VeridiumItem;
 import net.zepalesque.redux.network.ReduxPacketHandler;
 import net.zepalesque.redux.network.packet.InfuseItemPacket;
@@ -41,7 +42,7 @@ public abstract class AmbrosiumShardMixin extends ItemMixin {
                         }
                         stack.shrink(1);
                         slot.setChanged();
-                        VeridiumItem.infuseSound(player);
+                        player.playSound(ReduxSoundEvents.INFUSE_ITEM.get(), 0.8F, 0.8F + player.level().getRandom().nextFloat() * 0.4F);
                         cir.setReturnValue(true);
                     }
                 }

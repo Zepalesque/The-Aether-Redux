@@ -260,12 +260,14 @@ public class ReduxCreativeTabs {
 
             putBefore(AetherItems.GOLDEN_DART_SHOOTER, ReduxItems.SPEAR_OF_THE_BLIGHT, event);
 
-            putAfter(AetherItems.ENCHANTED_DART, ReduxItems.SPECTRAL_DART_SHOOTER, event);
-            putAfter(ReduxItems.SPECTRAL_DART_SHOOTER, ReduxItems.SPECTRAL_DART, event);
+            putAfter(AetherItems.ENCHANTED_DART, ReduxItems.VERIDIUM_DART_SHOOTER, event);
+            putAfter(ReduxItems.VERIDIUM_DART_SHOOTER, ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER, event);
+            putAfter(ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER, ReduxItems.VERIDIUM_DART, event);
 
             putAfter(AetherItems.PHOENIX_BOW, ReduxItems.SUBZERO_CROSSBOW, event);
-            putAfter(ReduxItems.SUBZERO_CROSSBOW, ReduxItems.VERIDIUM_ARROW, event);
+
             putAfter(AetherItems.MUSIC_DISC_ASCENDING_DAWN, ReduxItems.SLIDER_MUSIC_DISC, event);
+
             doBoats(AetherItems.SKYROOT_CHEST_BOAT, event);
         }
 
@@ -390,14 +392,14 @@ public class ReduxCreativeTabs {
     private static void putBefore(RegistryObject<? extends ItemLike> itemAfter, RegistryObject<? extends ItemLike> insertedItem, BuildCreativeModeTabContentsEvent event)
     {
         ItemStack stackAfter = new ItemStack(itemAfter.get());
-        if (itemAfter.get() instanceof VeridiumItem veridium && veridium.isCharged(stackAfter))
+        if (itemAfter.get() instanceof VeridiumItem veridium && veridium.isInfused(stackAfter))
         {
             CompoundTag compound = VeridiumItem.createCompoundFor(stackAfter);
             compound.putByte("ambrosium_charge", VeridiumItem.MAXIUMUM_VERIDIUM_INFUSION);
             stackAfter.setTag(compound);
         }
         ItemStack stackInserted = new ItemStack(insertedItem.get());
-        if (insertedItem.get() instanceof VeridiumItem veridium && veridium.isCharged(stackInserted))
+        if (insertedItem.get() instanceof VeridiumItem veridium && veridium.isInfused(stackInserted))
         {
             CompoundTag compound1 = VeridiumItem.createCompoundFor(stackInserted);
             compound1.putByte("ambrosium_charge", VeridiumItem.MAXIUMUM_VERIDIUM_INFUSION);

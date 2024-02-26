@@ -134,6 +134,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
         infusionCharge(consumer, ReduxItems.VERIDIUM_SWORD, ReduxItems.INFUSED_VERIDIUM_SWORD);
         infusionCharge(consumer, ReduxItems.VERIDIUM_HOE, ReduxItems.INFUSED_VERIDIUM_HOE);
         infusionCharge(consumer, ReduxItems.VERIDIUM_SHOVEL, ReduxItems.INFUSED_VERIDIUM_SHOVEL);
+        infusionCharge(consumer, ReduxItems.VERIDIUM_DART_SHOOTER, ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER);
 
         twoByTwoPacker(consumer, RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SHELL_SHINGLES.get(), ReduxItems.MYKAPOD_SHELL_CHUNK.get());
         enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.ENCHANTED_SHELL_SHINGLES.get(), ReduxBlocks.SHELL_SHINGLES.get(), 0F, 150);
@@ -232,33 +233,23 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .of(AetherItems.BLUE_BERRY.get()).build())).unlockedBy("has_oats", inventoryTrigger(ItemPredicate.Builder.item()
                 .of(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get()).build())).save(consumer);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ReduxItems.SPECTRAL_DART.get(), 4)
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ReduxItems.VERIDIUM_DART.get(), 4)
                 .define('F', Tags.Items.FEATHERS)
                 .define('/', AetherTags.Items.SKYROOT_STICKS)
-                .define('G', ReduxTags.Items.GOLDEN_SWET_BALL)
+                .define('V', ReduxItems.VERIDIUM_INGOT.get())
                 .pattern("F")
                 .pattern("/")
-                .pattern("G")
+                .pattern("V")
                 .unlockedBy("has_feather", has(Tags.Items.FEATHERS))
-                .unlockedBy(getHasName(ReduxItems.GOLDEN_SWET_BALL.get()), has(ReduxTags.Items.GOLDEN_SWET_BALL))
+                .unlockedBy(getHasName(ReduxItems.VERIDIUM_INGOT.get()), has(ReduxItems.VERIDIUM_INGOT.get()))
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ReduxItems.SPECTRAL_DART_SHOOTER.get(), 1)
-                .define('P', AetherBlocks.SKYROOT_PLANKS.get())
-                .define('G', ReduxTags.Items.GOLDEN_SWET_BALL)
-                .pattern("P")
-                .pattern("P")
-                .pattern("G")
-                .unlockedBy(getHasName(ReduxItems.GOLDEN_SWET_BALL.get()), has(ReduxTags.Items.GOLDEN_SWET_BALL))
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ReduxItems.VERIDIUM_ARROW.get(), 4)
-                .define('I', ReduxItems.VERIDIUM_INGOT.get())
-                .define('/', AetherTags.Items.SKYROOT_STICKS)
-                .define('N', ReduxItems.VERIDIUM_NUGGET.get())
-                .pattern("I")
-                .pattern("/")
-                .pattern("N")
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ReduxItems.VERIDIUM_DART_SHOOTER.get(), 1)
+                .define('H', AetherBlocks.HOLYSTONE.get())
+                .define('V', ReduxItems.VERIDIUM_INGOT.get())
+                .pattern("H")
+                .pattern("H")
+                .pattern("V")
                 .unlockedBy(getHasName(ReduxItems.VERIDIUM_INGOT.get()), has(ReduxItems.VERIDIUM_INGOT.get()))
                 .save(consumer);
 
