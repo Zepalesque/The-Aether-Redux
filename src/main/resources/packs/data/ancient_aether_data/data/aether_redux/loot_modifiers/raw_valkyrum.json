@@ -36,7 +36,7 @@
       }
     },
     {
-      "block": "ancient_aether:valkyrum_block",
+      "block": "ancient_aether:valkyrum_ore",
       "condition": "minecraft:block_state_property"
     }
   ],
@@ -52,5 +52,5 @@
       "function": "minecraft:apply_bonus"
     }
   ],
-  "item": "ancient_aether:valkyrum_block"
+  "item": "ancient_aether:valkyrum_ore"
 }
