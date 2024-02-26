@@ -3,6 +3,8 @@ package net.zepalesque.redux.item;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.item.AetherCreativeTabs;
 import com.aetherteam.aether.item.AetherItems;
+import net.builderdog.ancient_aether.block.AncientAetherBlocks;
+import net.builderdog.ancient_aether.item.AncientAetherItems;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
@@ -142,7 +144,12 @@ public class ReduxCreativeTabs {
 
             putAfter(AetherBlocks.ZANITE_ORE, ReduxBlocks.VERIDIUM_ORE, event);
             putAfter(ReduxBlocks.VERIDIUM_ORE, ReduxBlocks.RAW_VERIDIUM_BLOCK, event);
-            putAfter(AetherBlocks.GRAVITITE_ORE, ReduxBlocks.RAW_GRAVITITE_BLOCK, event);
+            if (ReduxConfig.COMMON.raw_ores.get()) {
+                putAfter(AetherBlocks.GRAVITITE_ORE, ReduxBlocks.RAW_GRAVITITE_BLOCK, event);
+            }
+            if (Redux.ancientAetherCompat()) {
+                putAfter(AncientAetherBlocks.VALKYRUM_ORE, ReduxBlocks.RAW_VALKYRUM_BLOCK, event);
+            }
         }
         if (tab == AetherCreativeTabs.AETHER_REDSTONE_BLOCKS.get()) {
             if (ReduxConfig.COMMON.gravitite_ingot.get()) {
@@ -197,7 +204,12 @@ public class ReduxCreativeTabs {
 
             putAfter(AetherItems.GOLDEN_AMBER, ReduxItems.BLIGHTBUNNY_FANG, event);
 
-            putAfter(AetherBlocks.ENCHANTED_GRAVITITE, ReduxItems.RAW_GRAVITITE, event);
+            if (ReduxConfig.COMMON.raw_ores.get()) {
+                putAfter(AetherBlocks.ENCHANTED_GRAVITITE, ReduxItems.RAW_GRAVITITE, event);
+            }
+            if (Redux.ancientAetherCompat()) {
+                putAfter(AncientAetherItems.VALKYRUM, ReduxItems.RAW_VALKYRUM, event);
+            }
 
             putAfter(AetherItems.AECHOR_PETAL, ReduxItems.MYKAPOD_SHELL_CHUNK, event);
             putAfter(ReduxItems.WYNDSPROUT_SEEDS, ReduxItems.WYNDSPROUT_SEEDS, event);

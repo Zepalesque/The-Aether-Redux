@@ -341,7 +341,10 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addLore(ReduxItems.RAW_VERIDIUM, "A chunk of Raw Veridium. This can be smelted into an ingot.");
 
         addItem(ReduxItems.RAW_GRAVITITE, "Raw Gravitite");
-        addLore(ReduxItems.RAW_GRAVITITE, "A chunk of the Aether's rarest ore. This can be enchanted at an Altar, and turned into armor and tools with gravity-based abilities!");
+        addLore(ReduxItems.RAW_GRAVITITE, "A chunk of the Aether's pink Gravitite. This can be enchanted at an Altar, and turned into armor and tools with gravity-based abilities!");
+
+        addItem(ReduxItems.RAW_VALKYRUM, "Raw Valkyrum");
+        addLore(ReduxItems.RAW_VALKYRUM, "A chunk of a very rare ore, mined with the Pickaxe of Arkenzus. This can be used to make Valkyrum Ingots, which can be turned into Valkyrum armor, weapons, and tools!");
 
         addItem(ReduxItems.GRAVITITE_INGOT, "Gravitite Ingot");
         addLore(ReduxItems.GRAVITITE_INGOT, "After putting Gravitite Ore into an Altar and enchanting it, you get a Gravitite Ingot. This can be made into gravitite tools and armor.");
@@ -420,6 +423,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addBlock(ReduxBlocks.RAW_VERIDIUM_BLOCK, "Block of Raw Veridium");
         addLore(ReduxBlocks.RAW_VERIDIUM_BLOCK, "A block of raw Veridium. This can be crafted from Raw Veridium.");
+
+        addBlock(ReduxBlocks.RAW_VALKYRUM_BLOCK, "Block of Raw Valkyrum");
+        addLore(ReduxBlocks.RAW_VALKYRUM_BLOCK, "A block of raw Valkyrum. This can be crafted from Raw Valkyrum.");
 
 
         addBlock(ReduxBlocks.SHELL_SHINGLES, "Shell Shingles");

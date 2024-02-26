@@ -15,7 +15,7 @@ import net.minecraftforge.common.loot.IGlobalLootModifier;
 import net.minecraftforge.common.loot.LootModifier;
 import net.minecraftforge.registries.ForgeRegistries;
 
-public class RemoveDropsModifier extends LootModifier {
+public class    RemoveDropsModifier extends LootModifier {
 
     public static final Codec<RemoveDropsModifier> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
             ForgeRegistries.ITEMS.getCodec().fieldOf("item").forGetter(modifier -> modifier.item),

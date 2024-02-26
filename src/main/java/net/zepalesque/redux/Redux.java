@@ -142,7 +142,7 @@ public class Redux
         ReduxEntityTypes.ENTITY_TYPES.register(bus);
         ConditionSerializers.CONDITION_SERIALIZERS.register(bus);
         ReduxBiomeModifierCodecs.CODECS.register(bus);
-        ReduxLootModifiers.GLOBAL_LOOT_MODIFIERS.register(bus);
+        ReduxLootModifiers.LOOT_MODIFIERS.register(bus);
         ReduxEffects.EFFECTS.register(bus);
         ReduxRecipeTypes.RECIPE_TYPES.register(bus);
         ReduxRecipeSerializers.RECIPE_SERIALIZERS.register(bus);

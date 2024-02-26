@@ -62,7 +62,7 @@ public class ReduxConfig {
 
         public final ForgeConfigSpec.BooleanValue change_double_plant_hitbox;
         public final ForgeConfigSpec.BooleanValue better_conversion_sounds;
-        public final ForgeConfigSpec.BooleanValue raw_gravitite;
+        public final ForgeConfigSpec.BooleanValue raw_ores;
         public final ForgeConfigSpec.BooleanValue gravitite_ingot;
         public final ForgeConfigSpec.BooleanValue enchanted_gilded_grass;
         public final ForgeConfigSpec.BooleanValue better_water_color;
@@ -89,7 +89,7 @@ public class ReduxConfig {
             this.consistent_mine_speeds = builder.comment("Makes some Aether blocks take a bit longer to break, as they are extremely quick currently").define("Consistent Mining Speeds", false);
             this.change_double_plant_hitbox = builder.comment("Changes the hitboxes of vanilla double plants. Disable if it causes odd behavior.").define("Change Double Plant Hitboxes", true);
             this.better_conversion_sounds = builder.comment("Makes blockstate conversion sounds (ambrosium, swet ball) better").define("Better Conversion Sounds", true);
-            this.raw_gravitite = builder.comment("Makes Gravitite Ore drop Raw Gravitite when mined.").define("Raw Gravitite", true);
+            this.raw_ores = builder.comment("Use Raw ores for different Aether metals.").define("Raw Ores", true);
             this.gravitite_ingot = builder.comment("Replaces Enchanted Gravitite with Gravitite Ingots. The blocks of this have the original floating behavior.").worldRestart().define("Gravitite Ingots", true);
             this.quicksoil_movement_system = builder.comment("Changes quicksoil between various behaviors. Genesis is the most chaotic, highlands is the most fine-tuned, classic is the original").defineEnum("Quicksoil Movement System", QuicksoilSetting.highlands);
             builder.pop();

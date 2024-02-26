@@ -7,6 +7,10 @@ import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether.loot.AetherLoot;
 import com.aetherteam.aether_genesis.entity.GenesisEntityTypes;
 import com.aetherteam.aether_genesis.item.GenesisItems;
+import com.mojang.serialization.Codec;
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
+import net.builderdog.ancient_aether.AncientAether;
+import net.builderdog.ancient_aether.block.AncientAetherBlocks;
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
@@ -28,6 +32,7 @@ import net.minecraft.world.level.storage.loot.predicates.*;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.common.data.GlobalLootModifierProvider;
+import net.minecraftforge.common.loot.IGlobalLootModifier;
 import net.minecraftforge.common.loot.LootTableIdCondition;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.condition.Conditions;
@@ -36,8 +41,10 @@ import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.loot.condition.DataLootCondition;
 import net.zepalesque.redux.loot.modifiers.GenesisAddDungeonLootModifier;
 import net.zepalesque.redux.loot.modifiers.GenesisAddDropsModifier;
+import net.zepalesque.redux.loot.modifiers.RawOreModifier;
 import net.zepalesque.redux.loot.modifiers.RemoveDropsModifier;
 import net.zepalesque.redux.misc.ReduxTags;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -59,23 +66,25 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                         LootItemRandomChanceCondition.randomChance(0.05F).build()
                 }));
 
-        this.add("raw_gravitite", new GenesisAddDropsModifier(new ItemStack(ReduxItems.RAW_GRAVITITE.get()),
+        this.add("raw_gravitite", new RawOreModifier(AetherBlocks.GRAVITITE_ORE.get().asItem(), new ItemStack(ReduxItems.RAW_GRAVITITE.get()),
                 new LootItemFunction[] {
                         SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)).build(),
                         ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE).build()
                 },
                 new LootItemCondition[] {
-                        DataLootCondition.conditionOf(Conditions.RAW_GRAVITITE).build(),
+                        DataLootCondition.conditionOf(Conditions.RAW_ORES).build(),
                         HAS_SILK_TOUCH.invert().build(),
                         LootItemBlockStatePropertyCondition.hasBlockStateProperties(AetherBlocks.GRAVITITE_ORE.get()).build()}));
 
-
-        this.add("remove_gravitite_ore", new RemoveDropsModifier(AetherBlocks.GRAVITITE_ORE.get().asItem(),
+        this.add("raw_valkyrum", new RawOreModifier(AncientAetherBlocks.VALKYRUM_BLOCK.get().asItem(), new ItemStack(ReduxItems.RAW_VALKYRUM.get()),
+                new LootItemFunction[] {
+                        SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)).build(),
+                        ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE).build()
+                },
                 new LootItemCondition[] {
-                        DataLootCondition.conditionOf(Conditions.RAW_GRAVITITE).build(),
+                        DataLootCondition.conditionOf(Conditions.RAW_VALKYRUM).build(),
                         HAS_SILK_TOUCH.invert().build(),
-                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(AetherBlocks.GRAVITITE_ORE.get()).build()}));
-
+                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(AncientAetherBlocks.VALKYRUM_BLOCK.get()).build()}));
 
         this.add("sentry_chip", new GenesisAddDropsModifier(new ItemStack(ReduxItems.SENTRY_CHIP.get()),
                 new LootItemFunction[] {

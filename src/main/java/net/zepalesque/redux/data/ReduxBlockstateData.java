@@ -168,6 +168,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.tintedPot(ReduxBlocks.POTTED_SPLITFERN.get(), ReduxBlocks.SPLITFERN.get(), "natural/");
         this.blockDoubleDrops(ReduxBlocks.VERIDIUM_ORE.get(), "natural/");
         this.block(ReduxBlocks.RAW_VERIDIUM_BLOCK.get(), "natural/");
+        this.block(ReduxBlocks.RAW_VALKYRUM_BLOCK.get(), "natural/");
         this.block(ReduxBlocks.VERIDIUM_BLOCK.get(), "construction/");
 
 

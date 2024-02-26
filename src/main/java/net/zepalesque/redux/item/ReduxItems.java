@@ -73,7 +73,8 @@ public class ReduxItems {
 
     public static final RegistryObject<Item> RAW_GRAVITITE = register("raw_gravitite", () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
 
-    // TODO: make this override gravitite recipes at some point
+    public static final RegistryObject<Item> RAW_VALKYRUM = register("raw_valkyrum", () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
+
     public static final RegistryObject<Item> GRAVITITE_INGOT = register("gravitite_ingot", () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
 
 

@@ -9,7 +9,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.entity.passive.Mykapod;
-import net.zepalesque.redux.loot.modifiers.AddOatsModifier;
 
 public class ReduxDataSerializers {
 

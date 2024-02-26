@@ -28,9 +28,10 @@ public class ConditionSerializers {
     public static final RegistryObject<Codec<ReduxConfigCondition>> REDUX_CONFIG = CONDITION_SERIALIZERS.register("redux_config", () -> ReduxConfigCondition.CODEC);
     public static final RegistryObject<Codec<AetherConfigCondition>> AETHER_CONFIG = CONDITION_SERIALIZERS.register("aether_config", () -> AetherConfigCondition.CODEC);
 
+    // Logic
     public static final RegistryObject<Codec<Not<?>>> NOT = CONDITION_SERIALIZERS.register("not", () -> Not.CODEC);
-
     public static final RegistryObject<Codec<Or<?, ?>>> OR = CONDITION_SERIALIZERS.register("or", () -> Or.CODEC);
+    public static final RegistryObject<Codec<And<?, ?>>> AND = CONDITION_SERIALIZERS.register("and", () -> And.CODEC);
 
 
 }

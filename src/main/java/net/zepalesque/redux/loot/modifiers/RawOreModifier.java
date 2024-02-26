@@ -8,15 +8,19 @@ import com.mojang.serialization.Dynamic;
 import com.mojang.serialization.JsonOps;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.functions.LootItemFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraftforge.common.loot.IGlobalLootModifier;
 import net.minecraftforge.common.loot.LootModifier;
 import net.minecraftforge.common.loot.LootModifierManager;
+import net.minecraftforge.registries.ForgeRegistries;
 
-public class GenesisAddDropsModifier extends LootModifier {
+public class RawOreModifier extends LootModifier {
+
     private static final Codec<LootItemFunction[]> LOOT_FUNCTIONS_CODEC = Codec.PASSTHROUGH.flatXmap(
             d -> {
                 try {
@@ -36,25 +40,29 @@ public class GenesisAddDropsModifier extends LootModifier {
                 }
             }
     );
-    public static final Codec<GenesisAddDropsModifier> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
-            ItemStack.CODEC.fieldOf("item").forGetter(modifier -> modifier.itemStack),
-            GenesisAddDropsModifier.LOOT_FUNCTIONS_CODEC.fieldOf("functions").forGetter(modifier -> modifier.functions),
+    public static final Codec<RawOreModifier> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
+            ForgeRegistries.ITEMS.getCodec().fieldOf("item").forGetter(modifier -> modifier.toRemove),
+            ItemStack.CODEC.fieldOf("added_item").forGetter(modifier -> modifier.rawOre),
+            LOOT_FUNCTIONS_CODEC.fieldOf("functions").forGetter(modifier -> modifier.functions),
             LootModifier.LOOT_CONDITIONS_CODEC.fieldOf("conditions").forGetter(modifier -> modifier.conditions)
-    ).apply(instance, GenesisAddDropsModifier::new));
+    ).apply(instance, RawOreModifier::new));
+    private final Item toRemove;
     private final LootItemFunction[] functions;
-    private final ItemStack itemStack;
+    private final ItemStack rawOre;
 
-    public GenesisAddDropsModifier(ItemStack itemStack, LootItemFunction[] functions, LootItemCondition[] conditions) {
+    public RawOreModifier(Item toRemove, ItemStack rawOre, LootItemFunction[] functions, LootItemCondition[] conditions) {
         super(conditions);
+        this.toRemove = toRemove;
+        this.rawOre = rawOre;
         this.functions = functions;
-        this.itemStack = itemStack.copy();
     }
 
-    @Override
+
     public ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> lootStacks, LootContext context) {
-        ItemStack i = this.itemStack;
+        lootStacks.removeIf((itemStack) -> itemStack.is(this.toRemove));
+        ItemStack i = this.rawOre;
         for (LootItemFunction function : this.functions) {
-            i = function.apply(this.itemStack, context);
+            i = function.apply(this.rawOre, context);
         }
         lootStacks.add(i);
         return lootStacks;
@@ -62,6 +70,6 @@ public class GenesisAddDropsModifier extends LootModifier {
 
     @Override
     public Codec<? extends IGlobalLootModifier> codec() {
-        return GenesisAddDropsModifier.CODEC;
+        return CODEC;
     }
 }

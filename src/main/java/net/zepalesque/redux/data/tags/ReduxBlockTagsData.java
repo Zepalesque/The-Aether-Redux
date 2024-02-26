@@ -163,8 +163,10 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.CARVED_STONE_BRICK_STAIRS.get(),
                 ReduxBlocks.CARVED_STONE_PILLAR.get(),
                 ReduxBlocks.VERIDIUM_BLOCK.get(),
+                ReduxBlocks.RAW_VALKYRUM_BLOCK.get(),
                 ReduxBlocks.VERIDIUM_ORE.get(),
                 ReduxBlocks.RAW_VERIDIUM_BLOCK.get(),
+                ReduxBlocks.RAW_VALKYRUM_BLOCK.get(),
                 ReduxBlocks.VERIDIUM_LANTERN.get(),
                 ReduxBlocks.VERIDIUM_CHAIN.get(),
                 ReduxBlocks.SHELL_SHINGLES.get(),
@@ -173,9 +175,10 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.RAW_GRAVITITE_BLOCK.get()
         );
         this.tag(BlockTags.NEEDS_STONE_TOOL).add(
-                ReduxBlocks.VERIDIUM_BLOCK.get(),
-                ReduxBlocks.VERIDIUM_ORE.get(),
-                ReduxBlocks.RAW_VERIDIUM_BLOCK.get()
+                ReduxBlocks.VERIDIUM_ORE.get()
+        );
+        this.tag(AetherTags.Blocks.GRAVITITE_ABILITY_BLACKLIST).add(
+                ReduxBlocks.RAW_VALKYRUM_BLOCK.get()
         );
         this.tag(BlockTags.NEEDS_IRON_TOOL).add(
                 ReduxBlocks.GRAVITITE_BLOCK.get(),

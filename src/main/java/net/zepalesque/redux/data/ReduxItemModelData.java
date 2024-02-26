@@ -181,6 +181,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         this.item(ReduxItems.RAW_VERIDIUM, "materials/");
 
         this.item(ReduxItems.RAW_GRAVITITE, "materials/");
+        this.item(ReduxItems.RAW_VALKYRUM, "materials/");
         this.item(ReduxItems.GRAVITITE_INGOT, "materials/");
         this.itemBlock(ReduxBlocks.GRAVITITE_BLOCK);
         this.itemBlock(ReduxBlocks.RAW_GRAVITITE_BLOCK);
@@ -191,6 +192,8 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         this.itemBlock(ReduxBlocks.VERIDIUM_BLOCK.get());
         this.itemBlock(ReduxBlocks.VERIDIUM_ORE.get());
         this.itemBlock(ReduxBlocks.RAW_VERIDIUM_BLOCK.get());
+
+        this.itemBlock(ReduxBlocks.RAW_VALKYRUM_BLOCK.get());
 
         this.itemGlow(ReduxItems.COCKATRICE_FEATHER, "accessories/");
         this.itemGlow(ReduxItems.FEATHER_OF_WARDING, "accessories/");

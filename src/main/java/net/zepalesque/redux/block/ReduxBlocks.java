@@ -349,6 +349,9 @@ public class ReduxBlocks {
     public static RegistryObject<Block> RAW_VERIDIUM_BLOCK = register("raw_veridium_block",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.LAPIS).strength(3.0F, 6.0F).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
 
+    public static RegistryObject<Block> RAW_VALKYRUM_BLOCK = register("raw_valkyrum_block",
+            () -> new Block(BlockBehaviour.Properties.copy(AetherBlocks.ZANITE_BLOCK.get()).strength(6.0F, 8.0F).mapColor(MapColor.TERRACOTTA_WHITE)));
+
 
     public static RegistryObject<Block> RAW_GRAVITITE_BLOCK = registerModifyItemProperties("raw_gravitite_block",
             () -> new FloatingBlock(false, BlockBehaviour.Properties.copy(AetherBlocks.ENCHANTED_GRAVITITE.get())), properties -> properties.rarity(Rarity.RARE));
