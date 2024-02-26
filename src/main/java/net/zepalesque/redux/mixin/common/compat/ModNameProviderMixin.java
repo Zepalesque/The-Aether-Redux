@@ -7,6 +7,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.entity.EntityType;
+import net.minecraftforge.fml.ModList;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.config.ReduxConfig;
 import org.spongepowered.asm.mixin.Mixin;
@@ -18,6 +19,7 @@ import snownee.jade.addon.core.ModNameProvider;
 import snownee.jade.api.EntityAccessor;
 import snownee.jade.api.ITooltip;
 import snownee.jade.api.config.IPluginConfig;
+import snownee.jade.util.ModIdentification;
 
 import java.util.Map;
 import java.util.function.Supplier;
@@ -26,7 +28,7 @@ import java.util.function.Supplier;
 
 public class ModNameProviderMixin {
     @Unique
-    private static final Component ENTITY_TOOLTIP = Component.translatable("gui.aether_redux.jade.entity_model").withStyle(ChatFormatting.BLUE, ChatFormatting.ITALIC);
+    private static final Component ENTITY_TOOLTIP = Component.literal(" + " + Redux.DISPLAY).withStyle(ChatFormatting.BLUE, ChatFormatting.ITALIC);
 
     @Unique
     private static final Map<EntityType<?>, Supplier<Boolean>> ENTITIES = new ImmutableMap.Builder<EntityType<?>, Supplier<Boolean>>()
