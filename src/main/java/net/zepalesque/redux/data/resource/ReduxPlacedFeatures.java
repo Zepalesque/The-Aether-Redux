@@ -140,9 +140,7 @@ public class ReduxPlacedFeatures {
                 ConditionFilter.whenTrue(Conditions.ANCIENT),
                 BiomeFilter.biome()
         );
-        register(context, CLOUD_LAYER, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.CLOUD_LAYER),
-                ConditionFilter.whenTrue(Conditions.CLOUD_LAYER)
-        );
+        register(context, CLOUD_LAYER, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.CLOUD_LAYER));
         register(context, AETHER_SNOW_LAYER, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.AETHER_SNOW_LAYER)
         );
 
