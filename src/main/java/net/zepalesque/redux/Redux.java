@@ -121,7 +121,7 @@ public class Redux
     @Nullable
     public static ReduxPackConfig packConfig;
 
-    public static final String VERSION_ID = "2.0-pre7";
+    public static final String VERSION_ID = "2.0-pre8";
 
     public Redux()
     {
@@ -131,7 +131,6 @@ public class Redux
         bus.addListener(EventPriority.LOWEST, ReduxColors::blockColors);
         bus.addListener(ReduxColors::itemColors);
         bus.addListener(ReduxColors::resolvers);
-//        bus.addListener(this::applyResourcePack);
         bus.addListener(EventPriority.HIGH, this::packSetup);
         bus.addListener(this::dataSetup);
         bus.addListener(this::registerRecipeSerializers);
