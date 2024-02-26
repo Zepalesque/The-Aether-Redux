@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "aether_redux:veridium_arrow"
+        "recipe": "aether_redux:veridium_dart_shooter"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "aether_redux:veridium_arrow"
+      "aether_redux:veridium_dart_shooter"
     ]
   },
   "sends_telemetry_event": false

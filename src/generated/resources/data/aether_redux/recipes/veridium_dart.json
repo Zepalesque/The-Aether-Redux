@@ -8,18 +8,18 @@
     "F": {
       "tag": "forge:feathers"
     },
-    "G": {
-      "tag": "aether_redux:golden_swet_ball"
+    "V": {
+      "item": "aether_redux:veridium_ingot"
     }
   },
   "pattern": [
     "F",
     "/",
-    "G"
+    "V"
   ],
   "result": {
     "count": 4,
-    "item": "aether_redux:spectral_dart"
+    "item": "aether_redux:veridium_dart"
   },
   "show_notification": true
 }

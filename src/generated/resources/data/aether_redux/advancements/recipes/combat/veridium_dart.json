@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_golden_swet_ball": {
+    "has_feather": {
       "conditions": {
         "items": [
           {
-            "tag": "aether_redux:golden_swet_ball"
+            "tag": "forge:feathers"
           }
         ]
       },
@@ -13,20 +13,33 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "aether_redux:spectral_dart_shooter"
+        "recipe": "aether_redux:veridium_dart"
       },
       "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_veridium_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "aether_redux:veridium_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
-      "has_golden_swet_ball",
+      "has_feather",
+      "has_veridium_ingot",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "aether_redux:spectral_dart_shooter"
+      "aether_redux:veridium_dart"
     ]
   },
   "sends_telemetry_event": false

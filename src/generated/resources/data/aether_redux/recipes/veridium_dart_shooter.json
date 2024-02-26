@@ -2,24 +2,20 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "/": {
-      "tag": "aether:skyroot_stick"
+    "H": {
+      "item": "aether:holystone"
     },
-    "I": {
+    "V": {
       "item": "aether_redux:veridium_ingot"
-    },
-    "N": {
-      "item": "aether_redux:veridium_nugget"
     }
   },
   "pattern": [
-    "I",
-    "/",
-    "N"
+    "H",
+    "H",
+    "V"
   ],
   "result": {
-    "count": 4,
-    "item": "aether_redux:veridium_arrow"
+    "item": "aether_redux:veridium_dart_shooter"
   },
   "show_notification": true
 }

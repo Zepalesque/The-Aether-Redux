@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-25T20:27:11.9275536	Tags for minecraft:item mod id aether_redux
+// 1.20.1	2024-02-26T13:48:16.3486214	Tags for minecraft:item mod id aether_redux
 300781e4ca600daa56e90c34c0dbde6d8e83a30f data/aether/tags/items/accessories_capes.json
 f6176d6768447d9233e7fa1cc157610f6e5a53e6 data/aether/tags/items/accessories_miscellaneous.json
 dee038e142bc18a39fdeae6abccd9121ad40e466 data/aether/tags/items/accessories_pendants.json
@@ -16,7 +16,7 @@ af2baa99c63c3c2a4212923a6ca6a80a07db7703 data/aether_redux/tags/items/blightward
 edd28d843e4d50fffcd62491dda0fa5e4ba1749b data/aether_redux/tags/items/blightwillow_logs.json
 04569464666d91f70a8e047585cefb2b3b81e7e8 data/aether_redux/tags/items/blue_swet_jelly.json
 f935ac962426e9e6830b7063f7ff690dd48898cf data/aether_redux/tags/items/cloudcap_stems.json
-42d9429c4a2caa607369eda48e154467b6961a23 data/aether_redux/tags/items/compat/mouse_ear_caps.json
+7eec813e074c09ad3eda595e57850a3265b16401 data/aether_redux/tags/items/compat/mouse_ear_caps.json
 ff76e071710735bec611ec58205f07d13cb675bd data/aether_redux/tags/items/crystal_logs.json
 357fd698a343df68b2bbcf3ac725fd76ce714206 data/aether_redux/tags/items/eggs_for_blueberry_pie.json
 4b84d89dc4750b471d3f43f98a379edd142fab59 data/aether_redux/tags/items/fieldsproot_logs.json
@@ -24,6 +24,7 @@ ff76e071710735bec611ec58205f07d13cb675bd data/aether_redux/tags/items/crystal_lo
 53e43e3372ea60f3cb8246fdc78fc085b1807037 data/aether_redux/tags/items/glimmercow_temptation_items.json
 17600d146a829b25bb9feb9e792f27a4075dd967 data/aether_redux/tags/items/golden_swet_ball.json
 d32d35f24367f8cf0d9ce8950b593a3fc9082779 data/aether_redux/tags/items/golden_swet_jelly.json
+3e864c10b57d57ab0ec642802d425b500db8eb0b data/aether_redux/tags/items/infused_veridium_items.json
 1b5a3f6daad0d9bef606a3bf268f291ba459d13d data/aether_redux/tags/items/is_skyroot_tool.json
 06247534cf8f39fc0ad017530554c6010915a1d8 data/aether_redux/tags/items/jellyshroom_stems.json
 5d7c0651b8823fdaaecec3e6584d1314dac7591f data/aether_redux/tags/items/mykapod_follow_items.json
@@ -33,7 +34,6 @@ d8256e3d6152938e62db9820fd7137c30cb4a500 data/aether_redux/tags/items/mykapod_te
 efdfcc4df59fbef959b240842b387c0466879866 data/aether_redux/tags/items/redux_phyg_food_items.json
 e562bf49b5db2bd55155c842940656f9060d37f6 data/aether_redux/tags/items/swet_jelly.json
 4d8f9f1d15bcad0b6bc2b49fb104f1768134ed52 data/aether_redux/tags/items/veridium_advancement_infusable.json
-c31f55faebedcd46412a1cb0b4c6223a8d8519be data/minecraft/tags/items/arrows.json
 cfe48fd28023b2449cb40cc8fb5671de94ee19c2 data/minecraft/tags/items/axes.json
 4fd7f498c3e0a55ef1796868a23769872d1a0c8b data/minecraft/tags/items/boats.json
 d99d8216633db0b82db518278b9a06e272b381e2 data/minecraft/tags/items/chest_boats.json

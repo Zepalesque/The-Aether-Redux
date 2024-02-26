@@ -1,5 +1,8 @@
 {
   "values": [
-    "aether_genesis:mouse_ear_cap"
+    {
+      "id": "aether_genesis:mouse_ear_cap",
+      "required": false
+    }
   ]
 }
