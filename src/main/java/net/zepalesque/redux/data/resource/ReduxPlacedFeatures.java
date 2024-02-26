@@ -110,6 +110,7 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> JELLYSHROOM_PATCH = copyKey(ReduxConfiguredFeatures.JELLYSHROOM_PATCH);
     public static final ResourceKey<PlacedFeature> SURFACE_RULE_WATER_LAKE = copyKey(ReduxConfiguredFeatures.SURFACE_RULE_WATER_LAKE);
     public static final ResourceKey<PlacedFeature> BLIGHT_LAKE = copyKey(ReduxConfiguredFeatures.BLIGHT_LAKE);
+    public static final ResourceKey<PlacedFeature> BLIGHT_SPRING = copyKey(ReduxConfiguredFeatures.BLIGHT_SPRING);
     public static final ResourceKey<PlacedFeature> OASIS_LAKE = createKey(Folders.SURFACE + "oasis_lake");
     public static final ResourceKey<PlacedFeature> VERIDIUM_ORE = copyKey(ReduxConfiguredFeatures.VERIDIUM_ORE);
     public static final ResourceKey<PlacedFeature> DIVINITE_ORE = copyKey(ReduxConfiguredFeatures.DIVINITE_ORE);
@@ -636,6 +637,13 @@ public class ReduxPlacedFeatures {
                 HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE_WG),
                 BiomeFilter.biome()
         );
+
+        register(context, BLIGHT_SPRING, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.BLIGHT_SPRING),
+                CountPlacement.of(30),
+                InSquarePlacement.spread(),
+                HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(8), VerticalAnchor.aboveBottom(128)),
+                BiomeFilter.biome(),
+                new DungeonBlacklistFilter());
 
         register(context, OASIS_LAKE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.SURFACE_RULE_WATER_LAKE),
                 RarityFilter.onAverageOnceEvery(6),

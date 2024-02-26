@@ -41,6 +41,7 @@ import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlac
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.condition.Conditions;
@@ -141,6 +142,7 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> JELLYSHROOM_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.JELLYSHROOM) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SURFACE_RULE_WATER_LAKE = createKey(Folders.SURFACE + "surface_rule_water_lake");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHT_LAKE = createKey(Folders.SURFACE + "blight_lake");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHT_SPRING = createKey(Folders.SURFACE + "blight_spring");
     public static final ResourceKey<ConfiguredFeature<?, ?>> VERIDIUM_ORE = createKey(Folders.ORE + name(ReduxBlocks.VERIDIUM_ORE));
     public static final ResourceKey<ConfiguredFeature<?, ?>> DIVINITE_ORE = createKey(Folders.ORE + name(ReduxBlocks.DIVINITE) + "_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CRYSTAL_TREE_OVERRIDE = aetherKey("crystal_tree");
@@ -570,6 +572,8 @@ public class ReduxConfiguredFeatures {
 
         register(context, BLIGHT_LAKE, ReduxFeatures.SURFACE_RULE_LAKE.get(),
                 new SurfaceRuleLakeConfig(BlockStateProvider.simple(Blocks.WATER)));
+        register(context, BLIGHT_SPRING, Feature.SPRING,
+                AetherConfiguredFeatureBuilders.spring(Fluids.WATER.defaultFluidState(), true, 4, 1, HolderSet.direct(Block::builtInRegistryHolder, AetherBlocks.HOLYSTONE.get(), AetherBlocks.AETHER_DIRT.get())));
 
         register(context, WYNDSPROUTS_PATCH, Feature.FLOWER,
                 randomPatch(24, 5, 3, BlockStateProvider.simple(drops(ReduxBlocks.WYNDSPROUTS))));

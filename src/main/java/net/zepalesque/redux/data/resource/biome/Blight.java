@@ -80,7 +80,7 @@ public class Blight {
 
                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, ReduxPlacedFeatures.BLIGHTMOSS_VEGETATION)
 
-                .addFeature(GenerationStep.Decoration.FLUID_SPRINGS, AetherPlacedFeatures.WATER_SPRING_PLACEMENT)
+                .addFeature(GenerationStep.Decoration.FLUID_SPRINGS, ReduxPlacedFeatures.BLIGHT_SPRING)
 
                 .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.BLIGHT_TREES)
                 .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.HOLIDAY_TREE_PLACEMENT)
