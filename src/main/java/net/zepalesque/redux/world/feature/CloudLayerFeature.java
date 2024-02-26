@@ -25,16 +25,13 @@ public class CloudLayerFeature extends Feature<CloudLayerConfig> {
     public CloudLayerFeature(Codec<CloudLayerConfig> codec) {
         super(codec);
     }
-
-    private static final ModuleDescriptor.Version current_aa_version = ModuleDescriptor.Version.parse(ModList.get().getModFileById("ancient_aether").versionString());
-    private static final ModuleDescriptor.Version target_aa_version = ModuleDescriptor.Version.parse("0.8.9");
-
-    private static final boolean before089 = current_aa_version.compareTo(target_aa_version) < 0;
+    
+    // TODO: Remove version check once AA 0.8.9 releases
+    private static final boolean before089 = !Redux.ancientAetherCompat() || ModuleDescriptor.Version.parse(ModList.get().getModFileById("ancient_aether").versionString()).compareTo(ModuleDescriptor.Version.parse("0.8.9")) < 0;
 
     @Override
     public boolean place(FeaturePlaceContext<CloudLayerConfig> context) {
-        // TODO: Remove version check once AA 0.8.9 releases
-        if (!Redux.ancientAetherCompat() || (ReduxConfig.COMMON.override_aa_cloud_compat.get() || before089)) {
+        if (before089) {
             int chunkX = context.origin().getX() - (context.origin().getX() % 16);
             int chunkZ = context.origin().getZ() - (context.origin().getZ() % 16);
             float min = ReduxConfig.COMMON.cloud_layer_threshold_min.get().floatValue() / 2F;
