@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-25T22:34:25.7944633	Registries
+// 1.20.1	2024-02-25T22:40:04.0929113	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 44b19724a3aca851b449582759fec56d16ea1ad6 data/aether/worldgen/configured_feature/golden_oak_tree.json
 875593e37a52dd63b2d87226b0f0e5e76ef48247 data/aether/worldgen/configured_feature/grass_patch.json
@@ -36,7 +36,7 @@ c1f01cfcc9c57019fdd5d90a2e60c56af421ac9d data/aether_redux/forge/biome_modifier/
 1027d159a7fb9bf1d53f1156fe1ddf0aab68e664 data/aether_redux/forge/biome_modifier/grass_color_base/skyroot_shrublands.json
 a523f11b09129716caf509c3b27a5b639c3be56f data/aether_redux/forge/biome_modifier/grass_color_base/skyroot_woodland.json
 8fe00d36b738ebc72ee4ff69b21cbd7912ad872f data/aether_redux/forge/biome_modifier/grass_color_base/the_blight.json
-607cefd2ffc642ad82bb042d2353158f8002028c data/aether_redux/forge/biome_modifier/mob/enderman.json
+48905f27d6a6cf1325c1b48b99e685c097b465c3 data/aether_redux/forge/biome_modifier/mob/enderman.json
 330581598380bd8ba85b0067aff55e1681f8b117 data/aether_redux/forge/biome_modifier/mob/vanilla_swet.json
 08b440d5814e318669e249b07636fbedc840de85 data/aether_redux/forge/biome_modifier/modify/aether_color_override.json
 02078c9b358d460e15d663fcae143bfe1888bc15 data/aether_redux/forge/biome_modifier/modify/water_color.json
