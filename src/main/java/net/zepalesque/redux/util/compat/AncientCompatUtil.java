@@ -1,7 +1,5 @@
 package net.zepalesque.redux.util.compat;
 
-import com.aetherteam.aether_genesis.block.GenesisBlocks;
-import com.aetherteam.aether_genesis.client.particle.GenesisParticleTypes;
 import com.google.common.collect.ImmutableMap;
 import net.minecraftforge.common.util.Lazy;
 import net.builderdog.ancient_aether.block.AncientAetherBlocks;
@@ -13,7 +11,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Map;
 import java.util.function.Supplier;
 
-public class AncientAetherParticleUtil {
+public class AncientCompatUtil {
 
     private static final Lazy<Map<Block, Supplier<? extends ParticleOptions>>> PARTICLE_MAP = Lazy.of(() -> new ImmutableMap.Builder<Block, Supplier<? extends ParticleOptions>>()
             .put(AncientAetherBlocks.CRYSTAL_SKYROOT_LEAVES.get(), ReduxParticleTypes.FALLING_CRYSTAL_SKYROOT_LEAVES)

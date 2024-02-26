@@ -19,9 +19,9 @@ import net.zepalesque.redux.block.natural.ExtendedDistanceLeavesBlock;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.misc.ReduxTags;
-import net.zepalesque.redux.util.compat.AetherGenesisParticleUtil;
-import net.zepalesque.redux.util.compat.AncientAetherParticleUtil;
-import net.zepalesque.redux.util.compat.DeepAetherParticleUtil;
+import net.zepalesque.redux.util.compat.GenesisCompatUtil;
+import net.zepalesque.redux.util.compat.AncientCompatUtil;
+import net.zepalesque.redux.util.compat.DeepCompatUtil;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -55,19 +55,19 @@ public class AetherLeavesClientMixin extends LeafBlockClientMixin {
             @Nullable Supplier<? extends ParticleOptions> particle = PARTICLE_MAP.get().get(self);
             if (particle == null) {
                 if (Redux.deepAetherCompat()) {
-                    @Nullable Supplier<? extends ParticleOptions> deep = DeepAetherParticleUtil.getParticle(self);
+                    @Nullable Supplier<? extends ParticleOptions> deep = DeepCompatUtil.getParticle(self);
                     if (deep != null) {
                         particle = deep;
                     }
                 }
                 if (Redux.aetherGenesisCompat()) {
-                    @Nullable Supplier<? extends ParticleOptions> genesis = AetherGenesisParticleUtil.getParticle(self);
+                    @Nullable Supplier<? extends ParticleOptions> genesis = GenesisCompatUtil.getParticle(self);
                     if (genesis != null) {
                         particle = genesis;
                     }
                 }
                 if (Redux.ancientAetherCompat()) {
-                    @Nullable Supplier<? extends ParticleOptions> ancient = AncientAetherParticleUtil.getParticle(self);
+                    @Nullable Supplier<? extends ParticleOptions> ancient = AncientCompatUtil.getParticle(self);
                     if (ancient != null) {
                         particle = ancient;
                     }

@@ -1,15 +1,13 @@
 package net.zepalesque.redux.mixin.common.compat;
 
 import com.aetherteam.aether.entity.AetherEntityTypes;
-import com.aetherteam.aether_genesis.entity.GenesisEntityTypes;
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.entity.EntityType;
-import net.minecraftforge.fml.ModList;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.config.ReduxConfig;
+import net.zepalesque.redux.util.compat.GenesisCompatUtil;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -19,7 +17,6 @@ import snownee.jade.addon.core.ModNameProvider;
 import snownee.jade.api.EntityAccessor;
 import snownee.jade.api.ITooltip;
 import snownee.jade.api.config.IPluginConfig;
-import snownee.jade.util.ModIdentification;
 
 import java.util.Map;
 import java.util.function.Supplier;
@@ -51,6 +48,6 @@ public class ModNameProviderMixin {
 
     @Unique
     private boolean isMimic(EntityType<?> type) {
-        return type == AetherEntityTypes.MIMIC.get() || (Redux.aetherGenesisCompat() && type == GenesisEntityTypes.SKYROOT_MIMIC.get());
+        return type == AetherEntityTypes.MIMIC.get() || GenesisCompatUtil.isSkyrootMimic(type);
     }
 }
