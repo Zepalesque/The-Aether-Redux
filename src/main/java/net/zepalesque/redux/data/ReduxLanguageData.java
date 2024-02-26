@@ -111,9 +111,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.VERIDIUM_ARROW, "Veridium Arrow");
         addLore(ReduxItems.VERIDIUM_ARROW, "An arrow made with Veridium. This is faster and more powerful than normal arrows!");
 
-        addItem(ReduxItems.MUSIC_DISC_LABYRINTHS_VENGEANCE, "Slider Music Disc");
-        addDiscDesc(ReduxItems.MUSIC_DISC_LABYRINTHS_VENGEANCE, "Emile van Krieken - Labyrinth's Vengeance");
-        addLore(ReduxItems.MUSIC_DISC_LABYRINTHS_VENGEANCE, "A music disc that plays Labyrinth's Vengeance by Emile van Krieken.");
+        addItem(ReduxItems.SLIDER_MUSIC_DISC, "Slider Music Disc");
+        addDiscDesc(ReduxItems.SLIDER_MUSIC_DISC, "Emile van Krieken - Labyrinth's Vengeance");
+        addLore(ReduxItems.SLIDER_MUSIC_DISC, "A music disc that plays Labyrinth's Vengeance by Emile van Krieken.");
 
         addItem(ReduxItems.MOUSE_EAR_SOUP, "Mouse Ear Soup");
         addLore(ReduxItems.MOUSE_EAR_SOUP, "Mouse Ear Soup is a surprisingly good dish, but it will certainly not get you praise from most. However, while most people will raise their eyebrows wondering why in Veradex you have leather ears in a bowl of water, a select few will recognize your true culinary genious, gaining you their utmost and complete respect.");

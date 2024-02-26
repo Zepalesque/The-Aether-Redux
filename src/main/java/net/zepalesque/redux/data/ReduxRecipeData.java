@@ -315,7 +315,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .unlockedBy(getHasName(AetherBlocks.CARVED_STONE.get()), has(AetherBlocks.CARVED_STONE.get()))
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ReduxItems.MUSIC_DISC_LABYRINTHS_VENGEANCE.get(), 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ReduxItems.SLIDER_MUSIC_DISC.get(), 1)
                 .define('P', AetherBlocks.CARVED_STONE.get())
                 .define('G', AetherTags.Items.ACCEPTED_MUSIC_DISCS)
                 .pattern("PPP")
