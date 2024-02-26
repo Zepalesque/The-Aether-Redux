@@ -32,7 +32,7 @@ public class CloudLayerFeature extends Feature<CloudLayerConfig> {
     @Override
     public boolean place(FeaturePlaceContext<CloudLayerConfig> context) {
         // TODO: Remove version check once AA 0.8.9 releases
-        if (!Redux.ancientAetherCompat() || (ReduxConfig.COMMON.override_aa_cloud_compat.get() || target_aa_version.compareTo(current_aa_version) < 0)) {
+        if (!Redux.ancientAetherCompat() || (ReduxConfig.COMMON.override_aa_cloud_compat.get() || target_aa_version.compareTo(current_aa_version) > 0)) {
             int chunkX = context.origin().getX() - (context.origin().getX() % 16);
             int chunkZ = context.origin().getZ() - (context.origin().getZ() % 16);
             float min = ReduxConfig.COMMON.cloud_layer_threshold_min.get().floatValue() / 2F;
