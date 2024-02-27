@@ -36,6 +36,7 @@ import net.minecraftforge.event.AddPackFindersEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.ModLoader;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -305,6 +306,11 @@ public class Redux {
             PackConfigBootstrap.bootstrap();
 
             overridesPack(event);
+
+            if (ModList.get().isLoaded("tipsmod")) {
+                setupOptionalPack(event, "tips", "Redux - Tips Mod Compat", "Tips for the Aether: Redux");
+            }
+            
         } else if (event.getPackType() == PackType.SERVER_DATA) {
             if (aetherGenesisCompat()) { this.setupMandatoryDataPack(event, "data/genesis_data", "Genesis Compat", "Compatibility with the Aether: Genesis"); }
             if (deepAetherCompat()) { this.setupMandatoryDataPack(event, "data/deep_aether_data", "Deep Aether Compat", "Compatibility with the Deep Aether Addon"); }
