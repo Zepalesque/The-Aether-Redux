@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Sentry.class)
-public abstract class SentryMixin extends SlimeMixin {
+public abstract class SentryMixin extends MobMixin {
 
     @Inject(method = "getSquishSound", at = @At("RETURN"), cancellable = true)
     protected void getSquishSound(CallbackInfoReturnable<SoundEvent> cir) {

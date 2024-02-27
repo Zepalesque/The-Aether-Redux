@@ -8,6 +8,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Slime.class)
 public abstract class SlimeMixin extends MobMixin {
-    @Inject(method = "getSoundPitch", at = @At("RETURN"), cancellable = true)
+    @Inject(method = "getSoundPitch", at = @At("RETURN"))
     protected void getSoundPitch(CallbackInfoReturnable<Float> cir) {    }
 }
