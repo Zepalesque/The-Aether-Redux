@@ -353,8 +353,8 @@ public class ReduxBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(AetherBlocks.ZANITE_BLOCK.get()).strength(6.0F, 8.0F).mapColor(MapColor.TERRACOTTA_WHITE)));
 
 
-    public static RegistryObject<Block> RAW_GRAVITITE_BLOCK = registerModifyItemProperties("raw_gravitite_block",
-            () -> new FloatingBlock(false, BlockBehaviour.Properties.copy(AetherBlocks.ENCHANTED_GRAVITITE.get())), properties -> properties.rarity(Rarity.RARE));
+    public static RegistryObject<Block> RAW_GRAVITITE_BLOCK = register("raw_gravitite_block",
+            () -> new FloatingBlock(false, BlockBehaviour.Properties.copy(AetherBlocks.ENCHANTED_GRAVITITE.get())));
 
     /** TODO: implement, see {@link ReduxItems#GRAVITITE_INGOT} */
     public static RegistryObject<Block> GRAVITITE_BLOCK = registerModifyItemProperties("gravitite_block",
