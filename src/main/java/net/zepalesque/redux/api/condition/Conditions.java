@@ -8,6 +8,7 @@ public class Conditions {
     public static final AbstractCondition<?> LOST = new ModLoaded("lost_aether_content");
     public static final AbstractCondition<?> ANCIENT = new ModLoaded("ancient_aether");
     public static final AbstractCondition<?> GUMMY_NERF = new ReduxConfigCondition(ReduxConfig.COMMON.nerf_gummy_swets);
+    public static final AbstractCondition<?> VANILLA_SWETS = new ReduxConfigCondition(ReduxConfig.COMMON.vanilla_swets);
     public static final AbstractCondition<?> MOSSY_ORE = new ReduxConfigCondition(ReduxConfig.COMMON.mossy_holystone_ores);
     public static final AbstractCondition<?> RAW_ORES = new ReduxConfigCondition(ReduxConfig.COMMON.raw_ores);
     public static final AbstractCondition<?> ENCHGRASS = new ReduxConfigCondition(ReduxConfig.COMMON.enchanted_gilded_grass);

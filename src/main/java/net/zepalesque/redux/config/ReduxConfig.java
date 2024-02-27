@@ -71,6 +71,8 @@ public class ReduxConfig {
         public final ForgeConfigSpec.DoubleValue cloud_layer_threshold_min;
         public final ForgeConfigSpec.DoubleValue cloud_layer_threshold_max;
 
+        public final ForgeConfigSpec.BooleanValue vanilla_swets;
+
 
         public Common(ForgeConfigSpec.Builder builder) {
             builder.push("Gameplay Changes");
@@ -85,6 +87,7 @@ public class ReduxConfig {
             this.gravitite_ingot = builder.comment("Replaces Enchanted Gravitite with Gravitite Ingots. The blocks of this have the original floating behavior.").worldRestart().define("Gravitite Ingots", true);
             this.quicksoil_movement_system = builder.comment("Changes quicksoil between various behaviors. Genesis is the most chaotic, highlands is the most fine-tuned, classic is the original").defineEnum("Quicksoil Movement System", QuicksoilSetting.highlands);
             this.enderman_spawns = builder.comment("Allows Endermen to spawn in the Aether").worldRestart().define("Enderman Spawns", false);
+            this.vanilla_swets = builder.comment("Allows Vanilla Swets to spawn in the Aether").worldRestart().define("Vanilla Swet Spawns", true);
             builder.pop();
             builder.push("Datapack Application");
             this.apply_cloud_layer_pack = builder.comment("Whether or not to automatically add the Cloud Layer datapack.").define("Cloud Layer Datapack", true);

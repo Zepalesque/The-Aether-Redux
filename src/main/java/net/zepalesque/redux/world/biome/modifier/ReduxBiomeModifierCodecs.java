@@ -8,7 +8,6 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraftforge.common.world.BiomeModifier;
-import net.minecraftforge.common.world.ForgeBiomeModifiers;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -52,17 +51,19 @@ public class ReduxBiomeModifierCodecs {
                     Codec.INT.fieldOf("grass_color").forGetter(AetherGrassColorModifier::grass)
             ).apply(builder, AetherGrassColorModifier::new)));
 
-    public static final RegistryObject<Codec<ConditionalSpawnsModifier>> CONDITIONAL_SPAWNS = CODECS.register("conditional_spawns", () ->
+    public static final RegistryObject<Codec<ReduxSpawnsModifier>> MOB_SPAWN_CONFIG = CODECS.register("mob_spawn_config", () ->
             RecordCodecBuilder.create(builder -> builder.group(
-                    Biome.LIST_CODEC.fieldOf("biomes").forGetter(ConditionalSpawnsModifier::biomes),
+                    Biome.LIST_CODEC.fieldOf("biomes").forGetter(ReduxSpawnsModifier::biomes),
                     // Allow either a list or single spawner, attempting to decode the list format first.
                     // Uses the better EitherCodec that logs both errors if both formats fail to parse.
                     new ExtraCodecs.EitherCodec<>(MobSpawnSettings.SpawnerData.CODEC.listOf(), MobSpawnSettings.SpawnerData.CODEC).xmap(
                             either -> either.map(Function.identity(), List::of), // convert list/singleton to list when decoding
                             list -> list.size() == 1 ? Either.right(list.get(0)) : Either.left(list) // convert list to singleton/list when encoding
-                    ).fieldOf("spawners").forGetter(ConditionalSpawnsModifier::spawners),
-                    AbstractCondition.CODEC.fieldOf("condition").forGetter(ConditionalSpawnsModifier::condition)
-            ).apply(builder, ConditionalSpawnsModifier::new))
+                    ).fieldOf("spawners").forGetter(ReduxSpawnsModifier::spawners),
+                    AbstractCondition.CODEC.fieldOf("condition").forGetter(ReduxSpawnsModifier::condition),
+                    Codec.DOUBLE.fieldOf("charge").forGetter(ReduxSpawnsModifier::charge),
+                    Codec.DOUBLE.fieldOf("energy_budget").forGetter(ReduxSpawnsModifier::energyBudget)
+            ).apply(builder, ReduxSpawnsModifier::new))
     );
 
 }
