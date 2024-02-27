@@ -6,7 +6,6 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "aether_redux.refmap.json",
   "mixins": [
-    "client.gui.TriviaGeneratorMixin",
     "common.block.AetherGrassBlockMixin",
     "common.block.BlockBehaviorMixin",
     "common.block.DoubleBlockMixin",
@@ -52,6 +51,7 @@
     "client.render.AerbunnyRendererMixin",
     "client.render.ArrowRendererMixin",
     "client.render.BattleSentryRendererMixin",
+    "client.render.BiomeMixin",
     "client.render.HandItemMixin",
     "client.render.LivingEntityRendererMixin",
     "client.render.MimicRendererMixin",
@@ -71,6 +71,7 @@
     "client.render.model.SheepuffModelMixin",
     "client.render.shader.GameRendererMixin",
     "client.render.shader.PostPassMixin",
-    "client.render.BiomeMixin"
+    "client.audio.SentryClientMixin",
+    "client.gui.TriviaGeneratorMixin"
   ]
 }

@@ -26,12 +26,5 @@ public abstract class SentryMixin extends SlimeMixin {
         }
     }
 
-    @Override
-    protected void getSoundPitch(CallbackInfoReturnable<Float> cir) {
-        Sentry mob = (Sentry) (Object) this;
-        if (ReduxConfig.COMMON.improved_sentry_sounds.get())
-        {
-            cir.setReturnValue(((mob.getRandom().nextFloat() - mob.getRandom().nextFloat()) * 0.2F + 1.0F));
-        }
-    }
+
 }

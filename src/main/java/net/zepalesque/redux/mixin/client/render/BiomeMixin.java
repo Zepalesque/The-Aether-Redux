@@ -23,5 +23,4 @@ public abstract class BiomeMixin {
             cir.setReturnValue(this.getModifiedSpecialEffects().getGrassColorModifier().modifyColor(posX, posZ, i));
         }
     }
-
 }
