@@ -109,7 +109,7 @@ public class ReduxItemTagsData extends ItemTagsProvider {
                 ReduxItems.SNAILSHELL_SHIELD.get()
         );
         this.tag(AetherTags.Items.ACCESSORIES_MISCELLANEOUS).add(
-                ReduxItems.PHOENIX_EMBLEM.get(),
+                ReduxItems.SOLAR_EMBLEM.get(),
                 ReduxItems.COCKATRICE_FEATHER.get(),
                 ReduxItems.FEATHER_OF_WARDING.get()
         );

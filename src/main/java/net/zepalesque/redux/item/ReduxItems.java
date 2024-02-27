@@ -3,7 +3,6 @@ package net.zepalesque.redux.item;
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether.item.accessories.ring.RingItem;
 import com.aetherteam.aether.item.combat.DartItem;
-import com.aetherteam.aether.item.combat.DartShooterItem;
 import com.aetherteam.aether.item.food.GummySwetItem;
 import com.aetherteam.aether.item.materials.SwetBallItem;
 import com.google.common.base.Supplier;
@@ -89,7 +88,7 @@ public class ReduxItems {
     public static final RegistryObject<Item> SENTRY_RING = register("sentry_ring", () -> new AbilityTooltipRingItem(ReduxSoundEvents.EQUIP_SENTRY_RING, new Item.Properties().stacksTo(1), "sentry_ring_embers"));
     public static final RegistryObject<Item> SHROOM_RING = register("shroom_ring", () -> new AbilityTooltipRingItem(ReduxSoundEvents.EQUIP_SHROOM_RING, new Item.Properties().stacksTo(1), "shroom_ring_adrenaline"));
     public static final RegistryObject<Item> AIRBOUND_CAPE = register("airbound_cape", () -> new AirboundCapeItem("airbound_cape", new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT), "airbound_cape_jump_boost"));
-    public static final RegistryObject<Item> PHOENIX_EMBLEM = register("phoenix_emblem", () -> new AbilityTooltipMiscItem(new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT), "phoenix_emblem_fireball"));
+    public static final RegistryObject<Item> SOLAR_EMBLEM = register("solar_emblem", () -> new AbilityTooltipMiscItem(new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT), "solar_emblem_fireball"));
 
     public static final RegistryObject<Item> RING_OF_WISDOM = register("ring_of_wisdom", () -> new AbilityTooltipRingItem(ReduxSoundEvents.EQUIP_WISDOM_RING, new Item.Properties().stacksTo(1), "wisdom_ring_xp_increase"));
 

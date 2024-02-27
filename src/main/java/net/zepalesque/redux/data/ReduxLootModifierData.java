@@ -5,12 +5,6 @@ import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether.loot.AetherLoot;
-import com.aetherteam.aether_genesis.entity.GenesisEntityTypes;
-import com.aetherteam.aether_genesis.item.GenesisItems;
-import com.mojang.serialization.Codec;
-import it.unimi.dsi.fastutil.objects.ObjectArrayList;
-import net.builderdog.ancient_aether.AncientAether;
-import net.builderdog.ancient_aether.block.AncientAetherBlocks;
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
@@ -32,7 +26,6 @@ import net.minecraft.world.level.storage.loot.predicates.*;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.common.data.GlobalLootModifierProvider;
-import net.minecraftforge.common.loot.IGlobalLootModifier;
 import net.minecraftforge.common.loot.LootTableIdCondition;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.condition.Conditions;
@@ -45,7 +38,6 @@ import net.zepalesque.redux.loot.modifiers.GenesisAddDropsModifier;
 import net.zepalesque.redux.loot.modifiers.RawOreModifier;
 import net.zepalesque.redux.loot.modifiers.RemoveDropsModifier;
 import net.zepalesque.redux.misc.ReduxTags;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -134,8 +126,8 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                 new LootItemCondition[] { LootTableIdCondition.builder(AetherLoot.SILVER_DUNGEON_REWARD).build() }, List.of(WeightedEntry.wrap(new ItemStack(ReduxItems.GRAND_VICTORY_MEDAL.get()), 1)),
                 UniformInt.of(0, 1)));
 
-        this.add("phoenix_emblem", new GenesisAddDungeonLootModifier(
-                new LootItemCondition[] { LootTableIdCondition.builder(AetherLoot.GOLD_DUNGEON_REWARD).build() }, List.of(WeightedEntry.wrap(new ItemStack(ReduxItems.PHOENIX_EMBLEM.get()), 1)),
+        this.add("solar_emblem", new GenesisAddDungeonLootModifier(
+                new LootItemCondition[] { LootTableIdCondition.builder(AetherLoot.GOLD_DUNGEON_REWARD).build() }, List.of(WeightedEntry.wrap(new ItemStack(ReduxItems.SOLAR_EMBLEM.get()), 1)),
                 UniformInt.of(0, 1)));
 
         this.add("subzero_crossbow", new GenesisAddDungeonLootModifier(

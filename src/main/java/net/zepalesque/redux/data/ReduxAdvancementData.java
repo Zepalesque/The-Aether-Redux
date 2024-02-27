@@ -18,7 +18,6 @@ import net.zepalesque.redux.advancement.trigger.*;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.misc.ReduxTags;
-import net.zepalesque.redux.recipe.ReduxRecipeTypes;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -76,7 +75,7 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
                     .save(consumer, Redux.locate("obtain_grand_medal"), existingFileHelper);
             Advancement.Builder.advancement()
                     .parent(new ResourceLocation(Aether.MODID, "gold_dungeon"))
-                    .display(ReduxItems.PHOENIX_EMBLEM.get(),
+                    .display(ReduxItems.SOLAR_EMBLEM.get(),
                             Component.translatable("advancement.aether_redux.kill_sheepuff_with_fireball"),
                             Component.translatable("advancement.aether_redux.kill_sheepuff_with_fireball.desc")
                                     .append(Component.translatable("gui.aether_redux.advancement_suffix").withStyle(style -> style.withColor(Redux.REDUX_PURPLE))),

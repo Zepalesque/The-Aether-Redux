@@ -2,17 +2,9 @@ package net.zepalesque.redux.capability.player;
 
 import com.aetherteam.aether.item.EquipmentUtil;
 import com.aetherteam.nitrogen.network.BasePacket;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.phys.AABB;
 import net.minecraftforge.network.simple.SimpleChannel;
-import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.network.ReduxPacketHandler;
 import net.zepalesque.redux.network.packet.ReduxPlayerSyncPacket;
@@ -169,7 +161,7 @@ public class ReduxPlayerCapability implements ReduxPlayer {
 
     @Override
     public boolean canShootFireball() {
-        return !this.player.level().isClientSide() && (this.fireballCooldown <= 0) && EquipmentUtil.hasCurio(this.player, ReduxItems.PHOENIX_EMBLEM.get());
+        return !this.player.level().isClientSide() && (this.fireballCooldown <= 0) && EquipmentUtil.hasCurio(this.player, ReduxItems.SOLAR_EMBLEM.get());
     }
 
     public boolean doubleFireball()

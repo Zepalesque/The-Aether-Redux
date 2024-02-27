@@ -237,7 +237,7 @@ public class ReduxCreativeTabs {
 
             putAfter(AetherItems.SENTRY_BOOTS, ReduxItems.SENTRY_RING, event);
 
-            putAfter(AetherItems.IRON_BUBBLE, ReduxItems.PHOENIX_EMBLEM, event);
+            putAfter(AetherItems.IRON_BUBBLE, ReduxItems.SOLAR_EMBLEM, event);
 
             putAfter(AetherItems.REGENERATION_STONE, ReduxItems.VAMPIRE_AMULET, event);
 

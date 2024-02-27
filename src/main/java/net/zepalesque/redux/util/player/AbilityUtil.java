@@ -6,7 +6,6 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
@@ -42,7 +41,7 @@ public class AbilityUtil {
     }
 
     public static void shootFireballs(LivingEntity entity) {
-        if (EquipmentUtil.hasCurio(entity, ReduxItems.PHOENIX_EMBLEM.get()) && EquipmentUtil.getCurios(entity, ReduxItems.PHOENIX_EMBLEM.get()).size() == 1)
+        if (EquipmentUtil.hasCurio(entity, ReduxItems.SOLAR_EMBLEM.get()) && EquipmentUtil.getCurios(entity, ReduxItems.SOLAR_EMBLEM.get()).size() == 1)
         {
             float offset = 0;
             float rotation = Mth.wrapDegrees(entity.getYRot() + offset);

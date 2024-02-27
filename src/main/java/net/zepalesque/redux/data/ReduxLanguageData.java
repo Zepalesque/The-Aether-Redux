@@ -84,8 +84,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.GRAND_VICTORY_MEDAL, "Grand Victory Medal");
         addLore(ReduxItems.GRAND_VICTORY_MEDAL, "A pendant dropped by the Valkyrie Queen. In Valkyrie culture, having one of these shows you are a noble warrior.");
 
-        addItem(ReduxItems.PHOENIX_EMBLEM, "Phoenix Emblem");
-        addLore(ReduxItems.PHOENIX_EMBLEM, "An ancient emblem once used by followers of the Sun Spirit. It allows the wearer to shoot fireballs!");
+        addItem(ReduxItems.SOLAR_EMBLEM, "Solar Emblem");
+        addLore(ReduxItems.SOLAR_EMBLEM, "An ancient emblem once used by followers of the Sun Spirit. It allows the wearer to shoot fireballs!");
 
         addItem(ReduxItems.VANILLA_SWET_SPAWN_EGG, "Vanilla Swet Spawn Egg");
         addLore(ReduxItems.VANILLA_SWET_SPAWN_EGG, "A spawn egg. Spawns a Vanilla Swet.");
@@ -465,7 +465,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addGuiText("grand_medal_regen", "Regeneration which increases as health drops");
         addGuiText("grand_medal_queen_refight", "Allows replaying the Valkyrie Queen fight without collecting more medals");
         addGuiText("airbound_cape_jump_boost", "Grants ability to double jump");
-        addGuiText("phoenix_emblem_fireball", "Grants ability to shoot fireballs");
+        addGuiText("solar_emblem_fireball", "Grants ability to shoot fireballs");
         addGuiText("sentry_ring_embers", "Targets of melee attacks release burning embers");
         addGuiText("shroom_ring_adrenaline", "Taking damage at low health gives an Adrenaline effect for temporary stat boosts, at a price of a debuff soon after");
         addGuiText("cockatrice_feather_protection", "Grants protection from Blight foliage");
@@ -630,7 +630,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addAdvancement("grand_medal", "Valkyrie Champion");
         addAdvancementDesc("grand_medal", "Obtain the Grand Victory Medal, a symbol of great honor in Valkyrie culture, which will give you health regen, scaling up as you lose health!");
         addAdvancement("kill_sheepuff_with_fireball", "Pyromaniac");
-        addAdvancementDesc("kill_sheepuff_with_fireball", "Obtain the Phoenix Emblem from the Gold Dungeon and kill a Sheepuff with a fireball. How cruel ):");
+        addAdvancementDesc("kill_sheepuff_with_fireball", "Obtain the Solar Emblem from the Gold Dungeon and kill a Sheepuff with a fireball. How cruel ):");
 
         addAdvancement("enter_skyfields", "Prismacolor Photosynthesis");
         addAdvancementDesc("enter_skyfields", "Enter the Skyfields, a biome filled with colorful flora and abundant fauna");

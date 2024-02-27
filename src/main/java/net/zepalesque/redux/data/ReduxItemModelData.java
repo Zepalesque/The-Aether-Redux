@@ -78,7 +78,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         rotatedItem(ReduxItems.GRAND_VICTORY_MEDAL.get(), "accessories/");
         item(ReduxItems.SENTRY_RING, "accessories/");
         item(ReduxItems.AIRBOUND_CAPE, "accessories/");
-        item(ReduxItems.PHOENIX_EMBLEM, "accessories/");
+        item(ReduxItems.SOLAR_EMBLEM, "accessories/");
         item(ReduxItems.SLIDER_MUSIC_DISC, "misc/");
         item(ReduxItems.MOUSE_EAR_SOUP, "food/");
         item(ReduxItems.OATMEAL, "food/");
