@@ -22,13 +22,14 @@ public class InfusedVeridiumDartRenderer extends ArrowRenderer<InfusedVeridiumDa
     public static final ResourceLocation TEX = Redux.locate("textures/entity/projectile/dart/infused_veridium_dart.png");
     public static final ResourceLocation GLOW_TEX = Redux.locate("textures/entity/projectile/dart/infused_veridium_dart_glow.png");
 
+    private static final int fullbright = LightTexture.pack(15, 15);
 
     @Override
     public void render(InfusedVeridiumDart entity, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight) {
         super.render(entity, entityYaw, partialTicks, poseStack, buffer, packedLight);
 
         // Does the same stuff a second time, except with the glow texture and using fullbright lighting
-        int fullbright = LightTexture.pack(0, 15);
+
         poseStack.pushPose();
         poseStack.mulPose(Axis.YP.rotationDegrees(Mth.lerp(partialTicks, entity.yRotO, entity.getYRot()) - 90.0F));
         poseStack.mulPose(Axis.ZP.rotationDegrees(Mth.lerp(partialTicks, entity.xRotO, entity.getXRot())));
