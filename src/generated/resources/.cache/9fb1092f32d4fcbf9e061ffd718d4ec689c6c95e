@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-26T13:48:16.3536246	Recipes
+// 1.20.1	2024-02-26T21:39:04.093994	Recipes
 028a41c44667802045298aed21a46f931203df96 data/aether/advancements/recipes/building_blocks/angelic_stone.json
 a49c9d5d0232fb78da74b8a0551483991e22b8c9 data/aether/recipes/angelic_stone.json
 94dc065fa9db175a9df14a38fb02767fe57f9007 data/aether_redux/advancements/recipes/blightwillow_log_wall.json
@@ -142,7 +142,7 @@ a15524180394d594c14c708de200d28cd648db20 data/aether_redux/advancements/recipes/
 b655dc899cf26756a03ca93d25a3a7c3e9ab7936 data/aether_redux/advancements/recipes/misc/slider_music_disc.json
 bc9d614abd686c26878bab354ade94fee849540c data/aether_redux/advancements/recipes/misc/smelt_raw_veridium.json
 6c5ed29c089331f8a0df7d2117fd30d3a174c37c data/aether_redux/advancements/recipes/misc/smelt_veridium.json
-9190c94711e85e4ba51ade4fd0d7a11a539ed026 data/aether_redux/advancements/recipes/misc/vanilla_swet_ball.json
+2643afa2a61335e9e266937b04e222a551b3c0f9 data/aether_redux/advancements/recipes/misc/vanilla_swet_ball.json
 c98a8129cb80f525bfc6c3284201e2437a906153 data/aether_redux/advancements/recipes/misc/veridium_chain.json
 04b197c6ea11f53de1dda8b8596963e9cb0994fe data/aether_redux/advancements/recipes/misc/veridium_ingot.json
 b42f194ee098cde6dd5015b03d7b52878f00fabb data/aether_redux/advancements/recipes/misc/veridium_ingot_from_veridium_block.json
@@ -412,7 +412,7 @@ ee59a543345ed0799a0adbd49604b184a4f25212 data/aether_redux/recipes/stripped_glac
 838c3729031b4911b052eb78c104079285911c06 data/aether_redux/recipes/stripped_glacia_wood.json
 bb60bdad516118b9d4a899e3553c97e95226d98b data/aether_redux/recipes/stripped_glacia_wood_wall.json
 f6538419c50bf2b5a6d28dac9818c2d60afc6c7e data/aether_redux/recipes/vanilla_gummy_swet.json
-5dc616a811c40e9a6d21f3f4698ef6b7772c037d data/aether_redux/recipes/vanilla_swet_ball.json
+9f97f0f1ddbe03b7e978ef646ba39d425d10ed25 data/aether_redux/recipes/vanilla_swet_ball.json
 8893d60921aa55112aa41ccb508fac1bc152dcce data/aether_redux/recipes/vanilla_swet_jelly.json
 f5d56767c4edb0d430d5f6f1223530aa17f10bd0 data/aether_redux/recipes/veridium_axe.json
 b7d0656c64560d652dfba733c590f84bf14f88f4 data/aether_redux/recipes/veridium_block.json

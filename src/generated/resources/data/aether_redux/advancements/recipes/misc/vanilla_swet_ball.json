@@ -7,12 +7,12 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_vanilla_swet_ball": {
+    "has_vanilla_swet_jelly": {
       "conditions": {
         "items": [
           {
             "items": [
-              "aether_redux:vanilla_swet_ball"
+              "aether_redux:vanilla_swet_jelly"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_vanilla_swet_ball",
+      "has_vanilla_swet_jelly",
       "has_the_recipe"
     ]
   ],
