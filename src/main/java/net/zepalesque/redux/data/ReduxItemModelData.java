@@ -54,8 +54,8 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         item(ReduxItems.ENCHANTED_RING, "accessories/");
         item(ReduxItems.SHROOM_RING, "accessories/");
         item(ReduxItems.RING_OF_WISDOM, "accessories/");
-        item(ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER, "weapons/");
-        item(ReduxItems.VERIDIUM_DART_SHOOTER, "weapons/");
+        handheldGlow(ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER, "weapons/");
+        handheldItem(ReduxItems.VERIDIUM_DART_SHOOTER.get(), "weapons/");
         item(ReduxItems.VERIDIUM_DART, "weapons/");
         item(ReduxItems.SENTRY_CHIP, "materials/");
         item(ReduxItems.WYNDSPROUT_SEEDS, "food/");
