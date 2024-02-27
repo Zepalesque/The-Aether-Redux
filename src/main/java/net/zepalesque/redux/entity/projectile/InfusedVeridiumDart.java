@@ -13,12 +13,12 @@ import net.zepalesque.redux.item.ReduxItems;
 public class InfusedVeridiumDart extends AbstractDart {
     public InfusedVeridiumDart(EntityType<? extends InfusedVeridiumDart> type, Level level) {
         super(type, level, ReduxItems.VERIDIUM_DART);
-        this.setBaseDamage(3.0);
+        this.setBaseDamage(2.0);
     }
 
     public InfusedVeridiumDart(Level level) {
         super(ReduxEntityTypes.INFUSED_VERIDIUM_DART.get(), level, ReduxItems.VERIDIUM_DART);
-        this.setBaseDamage(3.0);
+        this.setBaseDamage(2.0);
     }
 
     /**

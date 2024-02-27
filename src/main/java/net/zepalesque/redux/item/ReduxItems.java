@@ -79,9 +79,9 @@ public class ReduxItems {
 
     public static final RegistryObject<Item> SNAILSHELL_SHIELD = register("snailshell_shield", () -> new SnailshellShieldItem(new Item.Properties().stacksTo(1)));
 
-    public static final RegistryObject<Item> VERIDIUM_DART = ITEMS.register("veridium_dart", () -> new DartItem(ReduxEntityTypes.INFUSED_VERIDIUM_DART, new Item.Properties()));
-    public static final RegistryObject<Item> VERIDIUM_DART_SHOOTER = ITEMS.register("veridium_dart_shooter", () -> new VeridiumDartShooter(VERIDIUM_DART, ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER, 7, (new Item.Properties()).stacksTo(1)));
-    public static final RegistryObject<Item> INFUSED_VERIDIUM_DART_SHOOTER = ITEMS.register("infused_veridium_dart_shooter", () -> new VeridiumDartShooter(VERIDIUM_DART, ReduxItems.VERIDIUM_DART_SHOOTER, 5, (new Item.Properties()).stacksTo(1)));
+    public static final RegistryObject<Item> VERIDIUM_DART = ITEMS.register("veridium_dart", () -> new DartItem(ReduxEntityTypes.VERIDIUM_DART, new Item.Properties()));
+    public static final RegistryObject<Item> VERIDIUM_DART_SHOOTER = ITEMS.register("veridium_dart_shooter", () -> new VeridiumDartShooter(VERIDIUM_DART, ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER, 9, (new Item.Properties()).stacksTo(1)));
+    public static final RegistryObject<Item> INFUSED_VERIDIUM_DART_SHOOTER = ITEMS.register("infused_veridium_dart_shooter", () -> new VeridiumDartShooter(VERIDIUM_DART, ReduxItems.VERIDIUM_DART_SHOOTER, 7, (new Item.Properties()).stacksTo(1)));
 
 
     public static final RegistryObject<Item> ENCHANTED_RING = register("enchanted_ring", () -> new RingItem(ReduxSoundEvents.EQUIP_ENCHANTED_RING, new Item.Properties().stacksTo(1)));
