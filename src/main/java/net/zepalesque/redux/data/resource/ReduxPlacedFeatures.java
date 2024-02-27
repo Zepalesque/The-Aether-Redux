@@ -492,7 +492,7 @@ public class ReduxPlacedFeatures {
         register(context, GLOWSPROUTS_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GLOWSPROUTS_PATCH),
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(1, 2), 4),
-                RarityFilter.onAverageOnceEvery(2),
+                RarityFilter.onAverageOnceEvery(4),
                 BiomeFilter.biome()
         );
 
@@ -654,27 +654,27 @@ public class ReduxPlacedFeatures {
         register(context, WYNDSPROUTS_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.WYNDSPROUTS_PATCH),
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
-                RarityFilter.onAverageOnceEvery(2),
+                RarityFilter.onAverageOnceEvery(4),
                 BiomeFilter.biome()
         );
         register(context, GENESIS_WYNDSPROUTS_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GENESIS_WYNDSPROUTS_PATCH),
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
-                RarityFilter.onAverageOnceEvery(4),
+                RarityFilter.onAverageOnceEvery(8),
                 BiomeFilter.biome()
         );
 
         register(context, GENESIS_SKYSPROUTS_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GENESIS_SKYSPROUTS_PATCH),
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
-                RarityFilter.onAverageOnceEvery(4),
+                RarityFilter.onAverageOnceEvery(12),
                 BiomeFilter.biome()
         );
 
         register(context, SKYSPROUTS_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.SKYSPROUTS_PATCH),
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, BiasedToBottomInt.of(0, 1), 4),
-                RarityFilter.onAverageOnceEvery(3),
+                RarityFilter.onAverageOnceEvery(6),
                 BiomeFilter.biome()
         );
 
