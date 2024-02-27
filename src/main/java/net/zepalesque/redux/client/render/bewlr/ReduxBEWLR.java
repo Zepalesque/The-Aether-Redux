@@ -3,7 +3,6 @@ package net.zepalesque.redux.client.render.bewlr;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.TridentModel;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -12,7 +11,7 @@ import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.zepalesque.redux.client.render.ReduxModelLayers;
-import net.zepalesque.redux.client.render.entity.model.entity.SpearModel;
+import net.zepalesque.redux.client.render.entity.model.SpearModel;
 import net.zepalesque.redux.item.ReduxItems;
 
 public class ReduxBEWLR extends BlockEntityWithoutLevelRenderer {

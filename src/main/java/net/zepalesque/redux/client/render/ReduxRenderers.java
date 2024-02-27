@@ -1,5 +1,6 @@
 package net.zepalesque.redux.client.render;
 
+import com.aetherteam.aether.client.renderer.accessory.PendantRenderer;
 import com.aetherteam.aether.client.renderer.entity.*;
 import com.aetherteam.aether_genesis.client.renderer.entity.BattleSentryRenderer;
 import com.aetherteam.aether_genesis.client.renderer.entity.SkyrootMimicRenderer;
@@ -21,6 +22,8 @@ import net.zepalesque.redux.client.render.bewlr.ReduxBEWLR;
 import net.zepalesque.redux.client.render.entity.*;
 import net.zepalesque.redux.client.render.entity.layer.entity.*;
 import net.zepalesque.redux.client.render.entity.misc.ReduxBoatRenderer;
+import net.zepalesque.redux.client.render.entity.model.PinModel;
+import net.zepalesque.redux.client.render.entity.model.SpearModel;
 import net.zepalesque.redux.client.render.entity.model.entity.*;
 import net.zepalesque.redux.client.render.entity.model.entity.MimicReduxModel;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
@@ -80,6 +83,8 @@ public class ReduxRenderers {
 
     public static void registerCuriosRenderers() {
         CuriosRendererRegistry.register(ReduxItems.VAMPIRE_AMULET.get(), VampireAmuletRenderer::new);
+        CuriosRendererRegistry.register(ReduxItems.GRAND_VICTORY_MEDAL.get(), PendantRenderer::new);
+        CuriosRendererRegistry.register(ReduxItems.SOLAR_EMBLEM.get(), SolarEmblemRenderer::new);
     }
 
     @SubscribeEvent
@@ -95,6 +100,7 @@ public class ReduxRenderers {
         event.registerLayerDefinition(ReduxModelLayers.SHEEPUFF, SheepuffReduxModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.PHYG, PhygReduxModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.FLYING_COW, FlyingCowReduxModel::createBodyLayer);
+        event.registerLayerDefinition(ReduxModelLayers.PIN, PinModel::createLayer);
 
         if (Redux.aetherGenesisCompat()) {
             event.registerLayerDefinition(ReduxModelLayers.BATTLE_SENTRY, BattleSentryReduxModel::createBodyLayer);

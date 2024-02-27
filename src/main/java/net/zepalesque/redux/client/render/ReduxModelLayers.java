@@ -16,8 +16,10 @@ public class ReduxModelLayers {
     // for debugging
     public static final ModelLayerLocation CUBE = register("cube");
 
+    public static final ModelLayerLocation PIN = register("pin");
+
     public static final ModelLayerLocation BLIGHTBUNNY = register("blightbunny");
-    public static final ModelLayerLocation SPEAR = register("spear_of_the_blight");
+    public static final ModelLayerLocation SPEAR = register("blight_spear");
 
     public static final ModelLayerLocation GLIMMERCOW = register("glimmercow");
 
