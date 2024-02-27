@@ -35,4 +35,8 @@ public class GenesisCompatUtil {
     public static boolean isSkyrootMimic(EntityType<?> type) {
         return Redux.aetherGenesisCompat() && type == GenesisEntityTypes.SKYROOT_MIMIC.get();
     }
+
+    public static boolean isBattleSentry(EntityType<?> type) {
+        return Redux.aetherGenesisCompat() && type == GenesisEntityTypes.BATTLE_SENTRY.get();
+    }
 }

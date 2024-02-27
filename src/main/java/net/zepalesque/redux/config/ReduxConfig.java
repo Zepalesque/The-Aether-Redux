@@ -153,7 +153,7 @@ public class ReduxConfig {
 //
             builder.push(List.of("Rendering", "Mob Model Improvements"));
             this.enable_all_model_upgrades = builder.comment("Overrides all other mob model configs and enables every one of them").define("Enable All Model Upgrades", true);
-            this.moa_model_upgrade = builder.comment("Makes Moas resemble their Mutation models").define("Moa Model Upgrade", false);
+            this.moa_model_upgrade = builder.comment("Makes Moas resemble their Mutation models").define("Moa Model Upgrade", true);
             this.moa_feet_type = builder.comment("Determines whether the updated Moa model should use more peaceful-appearing toes, or more aggressive talons").defineEnum("Moa Foot Type", MoaFeetType.toes);
             this.cockatrice_model_upgrade = builder.comment("Makes Cockatrices look far better").define("Cockatrice Model Upgrade", false);
             this.sentry_model_upgrade = builder.comment("Improves the model for Sentries, giving them a new model and a springy jump animation").define("Sentry Model Upgrade", false);
