@@ -22,7 +22,7 @@ public class PinModel extends HumanoidModel<LivingEntity> {
     }
 
     public static LayerDefinition createLayer() {
-        CubeDeformation cube = new CubeDeformation(0.2F);
+        CubeDeformation cube = new CubeDeformation(0.3F);
         MeshDefinition meshDefinition = HumanoidModel.createMesh(cube, 0.0F);
         PartDefinition partDefinition = meshDefinition.getRoot();
         partDefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 0).addBox(-4.0F, 0.5F, -2.0F, 8.0F, 12.5F, 4.0F, cube), PartPose.ZERO);
