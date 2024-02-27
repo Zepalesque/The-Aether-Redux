@@ -606,7 +606,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
 
         addGuiText("advancement_suffix", "\n- The Aether: Redux -");
-        
+        addGuiText("advancement_suffix_modified", "\n- Modified by the Aether: Redux -");
+
 
         addAdvancement("fall_from_aether", "Falling with Style!");
         addAdvancementDesc("fall_from_aether", "Fall out of the Aether");

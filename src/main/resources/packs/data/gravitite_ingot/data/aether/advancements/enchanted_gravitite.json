@@ -17,7 +17,13 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "advancement.aether_redux.gravitite_ingot.desc"
+      "translate": "advancement.aether_redux.gravitite_ingot.desc",
+      "extra": [
+        {
+          "color": "#9384F4",
+          "translate": "gui.aether_redux.advancement_suffix_modified"
+        }
+      ]
     },
     "frame": "task",
     "hidden": false,
