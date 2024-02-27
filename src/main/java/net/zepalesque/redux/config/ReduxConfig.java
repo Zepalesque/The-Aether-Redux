@@ -36,17 +36,9 @@ public class ReduxConfig {
 
         public final ForgeConfigSpec.BooleanValue cockatrice_ai_improvements;
         public final ForgeConfigSpec.BooleanValue nerf_gummy_swets;
-        public final ForgeConfigSpec.BooleanValue improved_moa_sounds;
-        public final ForgeConfigSpec.BooleanValue improved_cockatrice_sounds;
-        public final ForgeConfigSpec.BooleanValue improved_aechor_plant_sounds;
         public final ForgeConfigSpec.EnumValue<QuicksoilSetting> quicksoil_movement_system;
         public final ForgeConfigSpec.BooleanValue mobs_avoid_quicksoil;
-        public final ForgeConfigSpec.BooleanValue improved_sentry_sounds;
-        public final ForgeConfigSpec.BooleanValue improved_slider_hurt_sounds;
         public final ForgeConfigSpec.BooleanValue mossy_holystone_ores;
-        public final ForgeConfigSpec.BooleanValue improved_aerwhale_sounds;
-        public final ForgeConfigSpec.BooleanValue improved_tempest_sounds;
-        public final ForgeConfigSpec.BooleanValue improved_mimic_awaken_sound;
         public final ForgeConfigSpec.BooleanValue smaller_mimic_hitbox;
         public final ForgeConfigSpec.EnumValue<SpawnerType> genesis_spawner_mobs;
         public final ForgeConfigSpec.BooleanValue consistent_mine_speeds;
@@ -99,16 +91,6 @@ public class ReduxConfig {
             builder.pop();
             builder.push("Visual Changes");
             this.better_water_color = builder.comment("Improves the water color of Aether biomes, making the color match the rest of the dimension better").define("Better Water Color", true);
-            builder.pop();
-            builder.push("Mob Sound Changes");
-            this.improved_moa_sounds = builder.comment("Gives Moas their sounds from older builds of the Aether II: Highlands").define("Improved Moa Sounds", true);
-            this.improved_cockatrice_sounds = builder.comment("Gives Cockatrices their sounds from older builds of the Aether II: Highlands").define("Improved Cockatrice Sounds", true);
-            this.improved_sentry_sounds = builder.comment("Gives Sentries their sounds from older builds of the Aether II: Highlands").define("Improved Sentry Sounds", true);
-            this.improved_slider_hurt_sounds = builder.comment("Improves the sounds of the slider").define("Improved Slider Sounds", true);
-            this.improved_aechor_plant_sounds = builder.comment("Improves the sounds of Aechor Plants").define("Improved Aechor Plant Sounds", true);
-            this.improved_aerwhale_sounds = builder.comment("Gives Aerwhales their sounds from older builds of the Aether II: Highlands").define("Improved Aerwhale Sounds", true);
-            this.improved_tempest_sounds = builder.comment("Gives Tempests from the Aether: Genesis (if installed) their sounds from older builds of the Aether II: Highlands").define("Improved Tempest Sounds", true);
-            this.improved_mimic_awaken_sound = builder.comment("Improves the awakening sound for mimics. Goes great paired with the better mimics option!").define("Improved Mimic Awaken Sound", true);
             builder.pop();
 
             builder.push("Worldgen");
@@ -164,6 +146,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue better_leaf_particles;
         public final ForgeConfigSpec.BooleanValue enable_adrenaline_postproccess;
         public final ForgeConfigSpec.BooleanValue realistic_leaf_behavior;
+        public final ForgeConfigSpec.BooleanValue fix_biome_modifier_bug;
 
         public Client(ForgeConfigSpec.Builder builder) {
 
@@ -178,6 +161,9 @@ public class ReduxConfig {
             this.sheepuff_model_upgrade = builder.comment("Gives the Sheepuff's model some touchups and improvements").define("Sheepuff Model Upgrade", false);
             this.phyg_model_upgrade = builder.comment("Gives the Phyg's model some touchups and improvements").define("Phyg Model Upgrade", false);
             this.flying_cow_model_upgrade = builder.comment("Gives the Flying Cow's model some touchups and improvements").define("Flying Cow Model Upgrade", false);
+            builder.pop();
+            builder.push("Fixes");
+            this.fix_biome_modifier_bug = builder.comment("Fixes a forge/neoforge bug causing biome modifiers to not be able to change grass colors, so Redux can have vanilla grass use vanilla colors in the Aether").define("Fix Biome Modifier Grass Bug", true);
             builder.pop();
             builder.push("Visual");
             this.enable_adrenaline_postproccess = builder.comment("Enables a post processing effect for the Shroom Ring's adrenaline ability. Only works with Fabulous graphics, and will cause issues when underwater (even when the ability is not active)").define("Enable Adrenaline Post Processing Effect", true);

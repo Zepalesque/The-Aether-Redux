@@ -32,7 +32,6 @@
     "common.item.ItemMixin",
     "common.item.PickaxeItemMixin",
     "common.item.SubzeroCrossbowItemMixin",
-    "common.world.BiomeGenerationSettingsMixin",
     "common.world.BronzeDungeonRoomMixin",
     "common.world.ChunkAccessAccessor",
     "common.world.GoldDungeonStructureMixin"
@@ -41,9 +40,9 @@
     "defaultRequire": 1
   },
   "client": [
+    "client.block.AetherColorResolversMixin",
     "client.block.AetherLeavesClientMixin",
     "client.block.LeafBlockClientMixin",
-    "client.block.AetherColorResolversMixin",
     "client.gui.PackEntryMixin",
     "client.gui.PackSelectionModelAccessor",
     "client.gui.PackSelectionScreenMixin",
@@ -71,6 +70,7 @@
     "client.render.model.QuadrupedModelMixin",
     "client.render.model.SheepuffModelMixin",
     "client.render.shader.GameRendererMixin",
-    "client.render.shader.PostPassMixin"
+    "client.render.shader.PostPassMixin",
+    "client.render.BiomeMixin"
   ]
 }
