@@ -20,7 +20,7 @@ public class BattleSentryReduxLayer extends RenderLayer<BattleSentry, SlimeModel
 
     private static final ResourceLocation SENTRY_OFF = new ResourceLocation(Genesis.MODID, "textures/entity/mobs/battle_sentry/battle_sentry_dormant_redux.png");
     private static final ResourceLocation SENTRY_ON = new ResourceLocation(Genesis.MODID, "textures/entity/mobs/battle_sentry/battle_sentry_redux.png");
-    private static final RenderType SENTRY_EYE = RenderType.eyes(new ResourceLocation(Genesis.MODID, "textures/entity/mobs/sentry/battle_sentry_eye_redux.png"));
+    private static final RenderType SENTRY_EYE = RenderType.eyes(new ResourceLocation(Genesis.MODID, "textures/entity/mobs/battle_sentry/battle_sentry_eye_redux.png"));
 
     private final BattleSentryReduxModel<BattleSentry> model;
 
