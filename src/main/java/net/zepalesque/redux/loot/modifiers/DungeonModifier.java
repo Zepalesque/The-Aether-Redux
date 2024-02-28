@@ -29,18 +29,21 @@ public class DungeonModifier extends LootModifier {
 
     public static final Supplier<Codec<DungeonModifier>> CODEC = Suppliers.memoize(() -> RecordCodecBuilder.create(inst -> codecStart(inst)
             .and(WeightedEntry.Wrapper.codec(ItemStack.CODEC).listOf().fieldOf("items").forGetter(m -> m.items))
-            .and(Codec.INT.fieldOf("totalWeight").forGetter(m -> m.totalWeight))
-            .and(Codec.FLOAT.fieldOf("chanceToSpawn").forGetter(m -> m.chance))
+            .and(Codec.FLOAT.fieldOf("spawn_chance").forGetter(m -> m.chance))
             .apply(inst, DungeonModifier::new)));
 
     public final List<WeightedEntry.Wrapper<ItemStack>> items;
     public final int totalWeight;
     public final float chance;
 
-    public DungeonModifier(final LootItemCondition[] conditionsIn, List<WeightedEntry.Wrapper<ItemStack>> items, int totalWeight, float chance) {
+    public DungeonModifier(final LootItemCondition[] conditionsIn, List<WeightedEntry.Wrapper<ItemStack>> items, float chance) {
         super(conditionsIn);
         this.items = items.stream().map(wrapper -> WeightedEntry.wrap(wrapper.getData().copy(), wrapper.getWeight().asInt())).toList();
-        this.totalWeight = totalWeight;
+        int w = 0;
+        for (WeightedEntry.Wrapper<ItemStack> item : this.items) {
+            w += item.getWeight().asInt();
+        }
+        this.totalWeight = w;
         this.chance = chance;
     }
 
