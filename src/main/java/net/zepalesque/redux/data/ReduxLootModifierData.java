@@ -33,8 +33,8 @@ import net.zepalesque.redux.api.condition.Not;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.loot.condition.DataLootCondition;
-import net.zepalesque.redux.loot.modifiers.GenesisAddDungeonLootModifier;
-import net.zepalesque.redux.loot.modifiers.GenesisAddDropsModifier;
+import net.zepalesque.redux.loot.modifiers.DungeonModifier;
+import net.zepalesque.redux.loot.modifiers.AddDropsModifier;
 import net.zepalesque.redux.loot.modifiers.RawOreModifier;
 import net.zepalesque.redux.loot.modifiers.RemoveDropsModifier;
 import net.zepalesque.redux.misc.ReduxTags;
@@ -50,7 +50,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
     @Override
     protected void start() {
 
-        this.add("cockatrice_feather", new GenesisAddDropsModifier(new ItemStack(ReduxItems.COCKATRICE_FEATHER.get()),
+        this.add("cockatrice_feather", new AddDropsModifier(new ItemStack(ReduxItems.COCKATRICE_FEATHER.get()),
                 new LootItemFunction[] {
                         SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)).build(),
                         LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)).build() },
@@ -80,7 +80,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                         HAS_SILK_TOUCH.invert().build(),
                         LootItemBlockStatePropertyCondition.hasBlockStateProperties(ReduxBlocks.VERIDIUM_ORE.get()).build()}));
 
-        this.add("sentry_chip", new GenesisAddDropsModifier(new ItemStack(ReduxItems.SENTRY_CHIP.get()),
+        this.add("sentry_chip", new AddDropsModifier(new ItemStack(ReduxItems.SENTRY_CHIP.get()),
                 new LootItemFunction[] {
                         SetItemCountFunction.setCount(UniformGenerator.between(0, 1.0F)).build(),
                         LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)).build() },
@@ -90,7 +90,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                 }));
 
 
-        this.add("swet_sugar_no_genesis", new GenesisAddDropsModifier(new ItemStack(Items.SUGAR),
+        this.add("swet_sugar_no_genesis", new AddDropsModifier(new ItemStack(Items.SUGAR),
                 new LootItemFunction[] {
                         SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F)).build(),
                         LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)).build() },
@@ -114,27 +114,27 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
 
         this.doSwetBallIncreases();
 
-        this.add("vampire_amulet", new GenesisAddDungeonLootModifier(
-                new LootItemCondition[] { LootTableIdCondition.builder(AetherLoot.BRONZE_DUNGEON_REWARD).build(), LootItemRandomChanceCondition.randomChance(0.35F).build() }, List.of(WeightedEntry.wrap(new ItemStack(ReduxItems.VAMPIRE_AMULET.get()), 1)),
-                ConstantInt.of(1)));
+        this.add("vampire_amulet", new DungeonModifier(
+                new LootItemCondition[] { LootTableIdCondition.builder(AetherLoot.BRONZE_DUNGEON_REWARD).build() }, List.of(WeightedEntry.wrap(new ItemStack(ReduxItems.VAMPIRE_AMULET.get()), 1)),
+                1, 0.35F));
 
-        this.add("airbound_cape", new GenesisAddDungeonLootModifier(
+        this.add("airbound_cape", new DungeonModifier(
                 new LootItemCondition[] { LootTableIdCondition.builder(AetherLoot.BRONZE_DUNGEON_REWARD).build() }, List.of(WeightedEntry.wrap(new ItemStack(ReduxItems.AIRBOUND_CAPE.get()), 1)),
                 UniformInt.of(0, 1)));
 
-        this.add("valkyrie_ring", new GenesisAddDungeonLootModifier(
+        this.add("valkyrie_ring", new DungeonModifier(
                 new LootItemCondition[] { LootTableIdCondition.builder(AetherLoot.SILVER_DUNGEON_REWARD).build() }, List.of(WeightedEntry.wrap(new ItemStack(ReduxItems.GRAND_VICTORY_MEDAL.get()), 1)),
                 UniformInt.of(0, 1)));
 
-        this.add("solar_emblem", new GenesisAddDungeonLootModifier(
+        this.add("solar_emblem", new DungeonModifier(
                 new LootItemCondition[] { LootTableIdCondition.builder(AetherLoot.GOLD_DUNGEON_REWARD).build() }, List.of(WeightedEntry.wrap(new ItemStack(ReduxItems.SOLAR_EMBLEM.get()), 1)),
                 UniformInt.of(0, 1)));
 
-        this.add("subzero_crossbow", new GenesisAddDungeonLootModifier(
+        this.add("subzero_crossbow", new DungeonModifier(
                 new LootItemCondition[] { LootTableIdCondition.builder(AetherLoot.GOLD_DUNGEON_REWARD).build(), LootItemRandomChanceCondition.randomChance(0.65F).build() }, List.of(WeightedEntry.wrap(new ItemStack(ReduxItems.SUBZERO_CROSSBOW.get()), 1)),
                 ConstantInt.of(1)));
 
-        this.add("vanilla_gummy_swet", new GenesisAddDungeonLootModifier(
+        this.add("vanilla_gummy_swet", new DungeonModifier(
                 new LootItemCondition[] { LootTableIdCondition.builder(AetherLoot.BRONZE_DUNGEON_REWARD).build() }, List.of(WeightedEntry.wrap(new ItemStack(ReduxItems.VANILLA_GUMMY_SWET.get()), 1)),
                 UniformInt.of(1, 3)));
 
@@ -143,7 +143,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
     private void doSwetBallIncreases() {
 
 
-        this.add("blue_swet_ball_increase", new GenesisAddDropsModifier(new ItemStack(AetherItems.SWET_BALL.get()),
+        this.add("blue_swet_ball_increase", new AddDropsModifier(new ItemStack(AetherItems.SWET_BALL.get()),
                 new LootItemFunction[] {
                         SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F)).build(),
                         LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)).build() },
@@ -152,7 +152,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                         .build()
 
                 }));
-        this.add("golden_swet_ball_add", new GenesisAddDropsModifier(new ItemStack(ReduxItems.GOLDEN_SWET_BALL.get()),
+        this.add("golden_swet_ball_add", new AddDropsModifier(new ItemStack(ReduxItems.GOLDEN_SWET_BALL.get()),
                 new LootItemFunction[] {
                         SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F)).build(),
                         LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)).build() },

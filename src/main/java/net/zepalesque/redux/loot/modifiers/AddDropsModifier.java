@@ -16,7 +16,7 @@ import net.minecraftforge.common.loot.IGlobalLootModifier;
 import net.minecraftforge.common.loot.LootModifier;
 import net.minecraftforge.common.loot.LootModifierManager;
 
-public class GenesisAddDropsModifier extends LootModifier {
+public class AddDropsModifier extends LootModifier {
     private static final Codec<LootItemFunction[]> LOOT_FUNCTIONS_CODEC = Codec.PASSTHROUGH.flatXmap(
             d -> {
                 try {
@@ -36,15 +36,15 @@ public class GenesisAddDropsModifier extends LootModifier {
                 }
             }
     );
-    public static final Codec<GenesisAddDropsModifier> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
+    public static final Codec<AddDropsModifier> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
             ItemStack.CODEC.fieldOf("item").forGetter(modifier -> modifier.itemStack),
-            GenesisAddDropsModifier.LOOT_FUNCTIONS_CODEC.fieldOf("functions").forGetter(modifier -> modifier.functions),
+            AddDropsModifier.LOOT_FUNCTIONS_CODEC.fieldOf("functions").forGetter(modifier -> modifier.functions),
             LootModifier.LOOT_CONDITIONS_CODEC.fieldOf("conditions").forGetter(modifier -> modifier.conditions)
-    ).apply(instance, GenesisAddDropsModifier::new));
+    ).apply(instance, AddDropsModifier::new));
     private final LootItemFunction[] functions;
     private final ItemStack itemStack;
 
-    public GenesisAddDropsModifier(ItemStack itemStack, LootItemFunction[] functions, LootItemCondition[] conditions) {
+    public AddDropsModifier(ItemStack itemStack, LootItemFunction[] functions, LootItemCondition[] conditions) {
         super(conditions);
         this.functions = functions;
         this.itemStack = itemStack.copy();
@@ -62,6 +62,6 @@ public class GenesisAddDropsModifier extends LootModifier {
 
     @Override
     public Codec<? extends IGlobalLootModifier> codec() {
-        return GenesisAddDropsModifier.CODEC;
+        return AddDropsModifier.CODEC;
     }
 }
