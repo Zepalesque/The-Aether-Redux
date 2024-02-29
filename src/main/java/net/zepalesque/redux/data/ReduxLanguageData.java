@@ -653,12 +653,12 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addDeathByPlayer(ReduxDamageTypes.EMBER, "%1$s was sparked by %2$s's flying ember");
         addDeath(ReduxDamageTypes.BLIGHT, "%1$s was taken by the Blight");
 
-        addProTip("tip_color", "§0Tips from the Aether: Redux are in this lavender color!");
-        addProTip("veridium_infusion", "§0Veridium tools can be temporarily infused into better versions by right-clicking them with an Ambrosium Shard!");
-        addProTip("model_changes", "§0The Aether: Redux has some model changes to some of the Aether’s mobs, which can be toggled in the client-side config!");
-        addProTip("feather_of_warding", "§0Sometimes, Cockatrices will drop a feather, which can be upgraded into the useful Feather of Warding, giving you immunity from the inebriation effect.");
-        addProTip("oatmeal", "§0Wyndsprout seeds can be crafed into Oatmeal, a nice snack that can fill up a few hunger points for relatively cheap.");
-        addProTip("blight_spear", "§0Blightbunny teeth can be used to create the Spear of the Blight, a throwable weapon that inflicts Inebriation on enemies.");
+        addProTip("tip_color", "Tips from the Aether: Redux are in this lavender color!");
+        addProTip("veridium_infusion", "Veridium tools can be temporarily infused into better versions by right-clicking them with an Ambrosium Shard!");
+        addProTip("model_changes", "The Aether: Redux has some model changes to some of the Aether’s mobs, which can be toggled in the client-side config!");
+        addProTip("feather_of_warding", "Sometimes, Cockatrices will drop a feather, which can be upgraded into the useful Feather of Warding, giving you immunity from the inebriation effect.");
+        addProTip("oatmeal", "Wyndsprout seeds can be crafed into Oatmeal, a nice snack that can fill up a few hunger points for relatively cheap.");
+        addProTip("blight_spear", "Blightbunny teeth can be used to create the Spear of the Blight, a throwable weapon that inflicts Inebriation on enemies.");
 
         for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS) {
             woodHandler.generateLanguageData(this);

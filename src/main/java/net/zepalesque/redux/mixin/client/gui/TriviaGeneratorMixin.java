@@ -4,6 +4,7 @@ import com.aetherteam.aether.client.TriviaGenerator;
 import javax.annotation.Nullable;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.network.chat.contents.TranslatableContents;
 import net.zepalesque.redux.Redux;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -45,8 +46,8 @@ public abstract class TriviaGeneratorMixin {
     private void list(CallbackInfo ci) {
         IntStream.range(0, this.trivia.size()).forEachOrdered(i -> {
             Component component = this.trivia.get(i);
-            if (component.getString().contains("§0")) {
-                this.trivia.set(i, Component.literal(component.getString().replace("§0", "")).withStyle(style -> style.withColor(Redux.REDUX_PURPLE)));
+            if (component.getContents() instanceof TranslatableContents contents && contents.getKey().contains("aether.pro_tips.line.aether_redux")) {
+                this.trivia.set(i, component.copy().withStyle(style -> style.withColor(Redux.REDUX_PURPLE)));
             }
         });
 
