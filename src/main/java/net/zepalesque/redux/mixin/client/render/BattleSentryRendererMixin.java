@@ -17,13 +17,13 @@ public class    BattleSentryRendererMixin extends MobRendererMixin<BattleSentry,
 
     @Override
     public void renderMob(BattleSentry sentry, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight, CallbackInfo ci) {
-        this.model.root().skipDraw = ReduxConfig.CLIENT.sentry_model_upgrade.get() || ReduxConfig.CLIENT.enable_all_model_upgrades.get();
+        this.model.root().skipDraw = ReduxConfig.CLIENT.sentry_model_upgrade.get();
         super.renderMob(sentry, entityYaw, partialTicks, poseStack, buffer, packedLight, ci);
     }
 
     @Inject(at = @At("HEAD"), method = "scale(Lnet/minecraft/world/entity/LivingEntity;Lcom/mojang/blaze3d/vertex/PoseStack;F)V", cancellable = true)
     public void scaleMob(LivingEntity par1, PoseStack par2, float par3, CallbackInfo ci) {
-        if (ReduxConfig.CLIENT.sentry_model_upgrade.get() || ReduxConfig.CLIENT.enable_all_model_upgrades.get()) {
+        if (ReduxConfig.CLIENT.sentry_model_upgrade.get()) {
             ci.cancel();
         }
     }

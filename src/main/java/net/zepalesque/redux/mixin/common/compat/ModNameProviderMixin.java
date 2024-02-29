@@ -41,8 +41,7 @@ public class ModNameProviderMixin {
     @Inject(method = "appendTooltip(Lsnownee/jade/api/ITooltip;Lsnownee/jade/api/EntityAccessor;Lsnownee/jade/api/config/IPluginConfig;)V", at = @At(value = "TAIL"), remap = false)
     protected void tooltip(ITooltip tooltip, EntityAccessor accessor, IPluginConfig config, CallbackInfo ci) {
         EntityType<?> type = accessor.getEntity().getType();
-        // TODO: Remove 'all mob models' config?
-        if ((ENTITIES.containsKey(type) || (GenesisCompatUtil.isBattleSentry(type) && (ReduxConfig.CLIENT.sentry_model_upgrade.get() || ReduxConfig.CLIENT.enable_all_model_upgrades.get()))) && ((ReduxConfig.CLIENT.enable_all_model_upgrades.get() && !isMimic(type)) || ENTITIES.get(type).get())) {
+        if ((ENTITIES.containsKey(type) && ENTITIES.get(type).get()) || (GenesisCompatUtil.isBattleSentry(type) && (ReduxConfig.CLIENT.sentry_model_upgrade.get()))) {
             tooltip.append(ENTITY_TOOLTIP);
         }
     }

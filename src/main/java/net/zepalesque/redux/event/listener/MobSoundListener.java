@@ -26,6 +26,7 @@ public class MobSoundListener {
         SoundEvent sound = event.getSound().get();
         RegistryObject<SoundEvent> newSound = null;
 
+        // TODO: Move to built-in pack!!!
         if (ReduxConfig.COMMON.better_conversion_sounds.get()) {
             if (sound == AetherSoundEvents.ITEM_AMBROSIUM_SHARD.get()) {
                 newSound = ReduxSoundEvents.CONVERT_AMBROSIUM;

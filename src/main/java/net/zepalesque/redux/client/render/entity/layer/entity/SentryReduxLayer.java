@@ -31,7 +31,7 @@ public class SentryReduxLayer extends RenderLayer<Sentry, SlimeModel<Sentry>> {
 
     @Override
     public void render(PoseStack poseStack, MultiBufferSource buffer, int packedLight, Sentry sentry, float limbSwing, float limbSwingAmount, float partialTick, float ageInTicks, float netHeadYaw, float headPitch) {
-        if (ReduxConfig.CLIENT.sentry_model_upgrade.get() || ReduxConfig.CLIENT.enable_all_model_upgrades.get()) {
+        if (ReduxConfig.CLIENT.sentry_model_upgrade.get()) {
             this.model.setupAnim(sentry, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
             if (Minecraft.getInstance().player != null) {
                 if (!sentry.isInvisibleTo(Minecraft.getInstance().player)) {
