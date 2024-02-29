@@ -1,7 +1,13 @@
 package net.zepalesque.redux.data;
 
 import com.aetherteam.aether.data.providers.AetherLanguageProvider;
+import com.google.common.collect.ImmutableList;
+import com.google.gson.JsonObject;
+import net.minecraft.ChatFormatting;
+import net.minecraft.data.CachedOutput;
+import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.level.biome.Biome;
@@ -14,11 +20,19 @@ import net.zepalesque.redux.effect.ReduxEffects;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.item.ReduxItems;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.concurrent.CompletableFuture;
+
 public class ReduxLanguageData extends AetherLanguageProvider {
+    protected final Map<String, String> TIPS = new HashMap<>();
+    protected final PackOutput out;
 
 
     public ReduxLanguageData(PackOutput output) {
         super(output, Redux.MODID);
+        this.out = output;
     }
 
     @Override
@@ -653,8 +667,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addDeathByPlayer(ReduxDamageTypes.EMBER, "%1$s was sparked by %2$s's flying ember");
         addDeath(ReduxDamageTypes.BLIGHT, "%1$s was taken by the Blight");
 
-        addProTip("tip_color", "Tips from the Aether: Redux are in this lavender color!");
-        addProTip("tip_color_tipsmod", "Tips from the Aether: Redux have a lavender-colored title!");
+        addProTipNoCompat("tip_color", "Tips from the Aether: Redux are in this lavender color!");
+        addGuiTextTip("tip_color", "Tips from the Aether: Redux have a lavender-colored title!");
+
         addProTip("veridium_infusion", "Veridium tools can be temporarily infused into better versions by right-clicking them with an Ambrosium Shard!");
         addProTip("model_changes", "The Aether: Redux has some model changes to some of the Aether’s mobs, which can be toggled in the client-side config!");
         addProTip("feather_of_warding", "Sometimes, Cockatrices will drop a feather, which can be upgraded into the useful Feather of Warding, giving you immunity from the inebriation effect.");
@@ -710,5 +725,37 @@ public class ReduxLanguageData extends AetherLanguageProvider {
     public void addBiome(ResourceKey<Biome> biome, String name) {
         super.addBiome(biome, name);
         this.add("biomes." + this.id + "." + biome.location().getPath(), name);
+    }
+
+    public void addProTip(String key, String name) {
+        String fullKey = "aether.pro_tips.line." + this.id + "." + key;
+        this.add(fullKey, name);
+        this.TIPS.put(fullKey, key);
+    }
+    public void addProTipNoCompat(String key, String name) {
+        String fullKey = "aether.pro_tips.line." + this.id + "." + key;
+        this.add(fullKey, name);
+    }
+    public void addGuiTextTip(String key, String name) {
+        this.addGuiText(key, name);
+        this.TIPS.put("gui." + this.id + "." + key, key);
+    }
+    @Override
+    public CompletableFuture<?> run(CachedOutput cache) {
+        return generateTips(super.run(cache), cache);
+    }
+
+    private CompletableFuture<?> generateTips(CompletableFuture<?> languageGen, CachedOutput cache) {
+        ImmutableList.Builder<CompletableFuture<?>> futuresBuilder = new ImmutableList.Builder<>();
+        futuresBuilder.add(languageGen);
+
+        for (Map.Entry<String, String> entry : this.TIPS.entrySet()) {
+            JsonObject object = new JsonObject();
+            object.add("title", Component.Serializer.toJsonTree(Component.translatable("tipsmod.title.default").withStyle(ChatFormatting.BOLD, ChatFormatting.UNDERLINE).withStyle(style -> style.withColor(Redux.REDUX_PURPLE))));
+            object.add("tip", Component.Serializer.toJsonTree(Component.translatable((entry).getKey())));
+            futuresBuilder.add(DataProvider.saveStable(cache, GSON.toJsonTree(object), this.out.getOutputFolder().resolve("packs/resource/redux_tips/assets/aether_redux/tips/" + entry.getValue() + ".json")));
+        }
+
+        return CompletableFuture.allOf(futuresBuilder.build().toArray(CompletableFuture[]::new));
     }
 }
