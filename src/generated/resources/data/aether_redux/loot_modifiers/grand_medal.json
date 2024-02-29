@@ -6,7 +6,7 @@
       "loot_table_id": "aether:chests/dungeon/silver/silver_dungeon_reward"
     }
   ],
-  "entries": [
+  "items": [
     {
       "data": {
         "Count": 1,
@@ -15,11 +15,6 @@
       "weight": 1
     }
   ],
-  "rolls": {
-    "type": "minecraft:uniform",
-    "value": {
-      "max_inclusive": 1,
-      "min_inclusive": 0
-    }
-  }
+  "replace_if_full": true,
+  "spawn_chance": 0.5
 }

@@ -4,13 +4,9 @@
     {
       "condition": "forge:loot_table_id",
       "loot_table_id": "aether:chests/dungeon/bronze/bronze_dungeon_reward"
-    },
-    {
-      "chance": 0.35,
-      "condition": "minecraft:random_chance"
     }
   ],
-  "entries": [
+  "items": [
     {
       "data": {
         "Count": 1,
@@ -19,5 +15,6 @@
       "weight": 1
     }
   ],
-  "rolls": 1
+  "replace_if_full": true,
+  "spawn_chance": 0.35
 }

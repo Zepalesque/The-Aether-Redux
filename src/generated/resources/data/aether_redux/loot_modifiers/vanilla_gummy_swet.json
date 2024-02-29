@@ -6,7 +6,21 @@
       "loot_table_id": "aether:chests/dungeon/bronze/bronze_dungeon_reward"
     }
   ],
-  "entries": [
+  "items": [
+    {
+      "data": {
+        "Count": 3,
+        "id": "aether_redux:vanilla_gummy_swet"
+      },
+      "weight": 1
+    },
+    {
+      "data": {
+        "Count": 2,
+        "id": "aether_redux:vanilla_gummy_swet"
+      },
+      "weight": 1
+    },
     {
       "data": {
         "Count": 1,
@@ -15,11 +29,6 @@
       "weight": 1
     }
   ],
-  "rolls": {
-    "type": "minecraft:uniform",
-    "value": {
-      "max_inclusive": 3,
-      "min_inclusive": 1
-    }
-  }
+  "replace_if_full": false,
+  "spawn_chance": 0.85
 }

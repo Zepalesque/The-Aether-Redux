@@ -1,10 +1,12 @@
 {
-  "type": "aether_redux:conditional_spawns",
+  "type": "aether_redux:mob_spawn_config",
   "biomes": "#aether_redux:has_enderman",
+  "charge": 1.0,
   "condition": {
     "condition": "aether_redux:redux_config",
     "config_path": "[Gameplay Changes, Enderman Spawns]"
   },
+  "energy_budget": 0.12,
   "spawners": {
     "type": "minecraft:enderman",
     "maxCount": 4,
