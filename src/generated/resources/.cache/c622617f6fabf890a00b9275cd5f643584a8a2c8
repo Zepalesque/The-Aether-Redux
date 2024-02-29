@@ -1,8 +1,16 @@
-// 1.20.1	2024-02-29T17:26:48.5583661	Languages: en_us
-5cb1b82ac7a082cffd521fdc0975bb704ed32f9b assets/aether_redux/lang/en_us.json
+// 1.20.1	2024-02-29T17:42:09.2946999	Languages: en_us
+998376f30c211dd6eeb071fdf7d275156669a220 assets/aether_redux/lang/en_us.json
 e2002584ba8acb85e0e121ea97936fc7696294ba packs/resource/redux_tips/assets/aether_redux/tips/blight_spear.json
+186f7337b4576806cf1e285130dd90a2586a2261 packs/resource/redux_tips/assets/aether_redux/tips/divinite.json
+3d7eee4511fe136eddd1267a85f0dcfc774cdc74 packs/resource/redux_tips/assets/aether_redux/tips/enchanted_ring.json
 cd874f0bea81c0465a0324dc7e4f5c74f3d55aa6 packs/resource/redux_tips/assets/aether_redux/tips/feather_of_warding.json
 06af35e31f232536ac4f9e04a11f8453740d2355 packs/resource/redux_tips/assets/aether_redux/tips/model_changes.json
 b4dd14baeed9d87023cf38650327dea713168e89 packs/resource/redux_tips/assets/aether_redux/tips/oatmeal.json
+23e840bd24d1cb41dda278992b5813814fbe18ee packs/resource/redux_tips/assets/aether_redux/tips/quicksoil.json
+f85c26af22691e15c60964e6d204b820f148c9fa packs/resource/redux_tips/assets/aether_redux/tips/redux_configs.json
+34c3bd38e3c8b5cd01753bec11374c73da472671 packs/resource/redux_tips/assets/aether_redux/tips/snailshell_shield.json
+2fdfa11b6f016268cbda2b24240578eea4198822 packs/resource/redux_tips/assets/aether_redux/tips/the_blight.json
 19e06be87465bbdbf63fbb8be0d21ad1f21d0487 packs/resource/redux_tips/assets/aether_redux/tips/tip_color.json
 b9e1fd9a9ef8cf2ee9d7589aa5dab6546074d90b packs/resource/redux_tips/assets/aether_redux/tips/veridium_infusion.json
+d3f4af83149f3eedc92dfd2976c8eed202bd6360 packs/resource/redux_tips/assets/aether_redux/tips/veridium_ore.json
+9dfd2a663b32dbd38de5bea1c9f1be7e0b8e26db packs/resource/redux_tips/assets/aether_redux/tips/wyndsprouts.json

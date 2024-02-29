@@ -1,21 +1,21 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "key": {
-    "B": {
-      "item": "aether:blue_berry"
-    },
-    "W": {
+  "ingredients": [
+    {
       "item": "aether_redux:bundle_of_wyndsprouts"
+    },
+    {
+      "item": "aether_redux:bundle_of_wyndsprouts"
+    },
+    {
+      "item": "aether_redux:bundle_of_wyndsprouts"
+    },
+    {
+      "item": "aether:blue_berry"
     }
-  },
-  "pattern": [
-    "BWB",
-    "W W",
-    "BWB"
   ],
   "result": {
     "item": "aether_redux:blueberry_bagel"
-  },
-  "show_notification": true
+  }
 }

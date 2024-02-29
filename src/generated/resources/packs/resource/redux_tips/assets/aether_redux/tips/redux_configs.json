@@ -1,0 +1,11 @@
+{
+  "tip": {
+    "translate": "aether.pro_tips.line.aether_redux.redux_configs"
+  },
+  "title": {
+    "bold": true,
+    "color": "#9384F4",
+    "translate": "tipsmod.title.default",
+    "underlined": true
+  }
+}

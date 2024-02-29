@@ -1,18 +1,21 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "key": {
-    "B": {
+  "ingredients": [
+    {
+      "item": "aether_redux:bundle_of_wyndsprouts"
+    },
+    {
+      "item": "aether_redux:bundle_of_wyndsprouts"
+    },
+    {
+      "item": "aether_redux:bundle_of_wyndsprouts"
+    },
+    {
       "item": "aether_redux:bundle_of_wyndsprouts"
     }
-  },
-  "pattern": [
-    " B ",
-    "B B",
-    " B "
   ],
   "result": {
     "item": "aether_redux:wyndsprout_bagel"
-  },
-  "show_notification": true
+  }
 }
