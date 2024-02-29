@@ -161,7 +161,9 @@ dependencies {
     implementation fg.deobf("curse.maven:jade-324717:${project.jade_version}")
     compileOnly fg.deobf("curse.maven:galosphere-631098:${project.galosphere_version}")
     implementation fg.deobf("curse.maven:ancient-aether-886751:${project.ancient_aether_version}")
-    implementation fg.deobf("net.darkhax.tips:Tips-Forge-${project.mc_version}:${project.tips_version}")
+
+    implementation fg.deobf("net.darkhax.bookshelf:Bookshelf-Forge-1.20.1:20.0.5")
+    implementation fg.deobf("net.darkhax.tips:Tips-Forge-1.20.1:12.0.5")
 }
 
 tasks.named('jar', Jar).configure {
