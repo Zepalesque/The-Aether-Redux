@@ -21,6 +21,7 @@ public class VampireAmuletCapability implements VampireAmulet {
     private boolean hasCurio = false;
     private boolean active = false;
     private int timer = 24000;
+    private int timeWithout = 0;
 
 
     private final Map<String, Triple<Type, Consumer<Object>, Supplier<Object>>> synchableFunctions = Map.ofEntries(
@@ -69,9 +70,12 @@ public class VampireAmuletCapability implements VampireAmulet {
     @Override
     public void tick() {
         if (!this.mob.level().isClientSide()) {
-            boolean hadCurio = hasCurio;
             this.hasCurio = EquipmentUtil.hasCurio(this.getMob(), ReduxItems.VAMPIRE_AMULET.get());
-            if (hasCurio != hadCurio) {
+            if (!hasCurio && timeWithout < 20) {
+                timeWithout++;
+            } else {
+                timeWithout = 0;
+            } if (timeWithout >= 20) {
                 this.resetTimer();
             }
 
