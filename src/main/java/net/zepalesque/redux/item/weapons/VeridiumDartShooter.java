@@ -61,7 +61,10 @@ public class VeridiumDartShooter extends DartShooterItem implements VeridiumItem
     @Override
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity user) {
         ItemStack transform = super.finishUsingItem(stack, level, user);
-        if (this.isInfused(transform) && !level.isClientSide && ((user instanceof Player player && player.getAbilities().instabuild) || !(user instanceof Player))){
+        if (user instanceof Player player && player.getAbilities().instabuild) {
+            return transform;
+        }
+        if (this.isInfused(transform) && !level.isClientSide){
             return VeridiumItem.depleteInfusion(transform);
         }
         return transform;
