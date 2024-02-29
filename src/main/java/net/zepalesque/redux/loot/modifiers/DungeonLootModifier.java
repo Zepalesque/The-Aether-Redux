@@ -23,13 +23,13 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class GenesisAddDungeonLootModifier extends LootModifier {
-    public static final Codec<GenesisAddDungeonLootModifier> CODEC = RecordCodecBuilder.create((instance) -> codecStart(instance).and(Wrapper.codec(ItemStack.CODEC).listOf().fieldOf("entries").forGetter((modifier) -> modifier.entries)).and(IntProvider.CODEC.fieldOf("rolls").forGetter((modifier) -> modifier.rolls))
-            .apply(instance, GenesisAddDungeonLootModifier::new));
+public class DungeonLootModifier extends LootModifier {
+    public static final Codec<DungeonLootModifier> CODEC = RecordCodecBuilder.create((instance) -> codecStart(instance).and(Wrapper.codec(ItemStack.CODEC).listOf().fieldOf("entries").forGetter((modifier) -> modifier.entries)).and(IntProvider.CODEC.fieldOf("rolls").forGetter((modifier) -> modifier.rolls))
+            .apply(instance, DungeonLootModifier::new));
     public final List<Wrapper<ItemStack>> entries;
     public final IntProvider rolls;
 
-    public GenesisAddDungeonLootModifier(LootItemCondition[] conditionsIn, List<Wrapper<ItemStack>> entries, IntProvider rolls) {
+    public DungeonLootModifier(LootItemCondition[] conditionsIn, List<Wrapper<ItemStack>> entries, IntProvider rolls) {
         super(conditionsIn);
         this.entries = entries.stream().map(wrapper -> WeightedEntry.wrap(wrapper.getData().copy(), wrapper.getWeight().asInt())).toList();
         this.rolls = rolls;
@@ -48,7 +48,7 @@ public class GenesisAddDungeonLootModifier extends LootModifier {
                     boolean isFull = generatedLoot.size() == containerBlockEntity.getContainerSize();
                     if (!isFull) {
                         int weight = this.entries.stream().map((entry) -> entry.getWeight().asInt()).reduce(0, Integer::sum);
-                        WeightedRandom.getRandomItem(randomSource, this.entries, weight).ifPresent((e) -> generatedLoot.add(e.getData()));
+                        WeightedRandom.getRandomItem(randomSource, this.entries, weight).ifPresent(e -> generatedLoot.add(e.getData()));
                     }
                 }
             }

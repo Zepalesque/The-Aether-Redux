@@ -1,29 +1,25 @@
 package net.zepalesque.redux.loot.modifiers;
 
-import com.aetherteam.aether.AetherTags.Biomes;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
-import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.loot.IGlobalLootModifier;
 import net.minecraftforge.common.loot.LootModifier;
 import net.minecraftforge.registries.ForgeRegistries;
 
-public class    RemoveDropsModifier extends LootModifier {
+public class RemoveDrops extends LootModifier {
 
-    public static final Codec<RemoveDropsModifier> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
+    public static final Codec<RemoveDrops> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
             ForgeRegistries.ITEMS.getCodec().fieldOf("item").forGetter(modifier -> modifier.item),
             LootModifier.LOOT_CONDITIONS_CODEC.fieldOf("conditions").forGetter(modifier -> modifier.conditions)
-    ).apply(instance, RemoveDropsModifier::new));
+    ).apply(instance, RemoveDrops::new));
 
     private final Item item;
-    public RemoveDropsModifier(Item item, LootItemCondition[] conditions) {
+    public RemoveDrops(Item item, LootItemCondition[] conditions) {
         super(conditions);
         this.item = item;
     }
