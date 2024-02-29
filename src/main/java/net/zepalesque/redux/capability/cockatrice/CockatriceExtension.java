@@ -28,6 +28,7 @@ public interface CockatriceExtension extends INBTSynchable<CompoundTag> {
 
     void handleLegAnim();
     void handleTargetAnim();
+    void handleBurning();
 
     void refreshNearby();
     @Nullable Collection<Entity> getNearby();

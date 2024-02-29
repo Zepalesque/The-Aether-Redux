@@ -5,6 +5,7 @@ import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.entity.monster.Cockatrice;
 import com.aetherteam.aether.item.EquipmentUtil;
 import com.aetherteam.nitrogen.network.BasePacket;
+import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
@@ -115,6 +116,14 @@ public class CockatriceExtensionCapability implements CockatriceExtension {
         this.handleTargetAnim();
     }
 
+    public void handleBurning() {
+        if (!this.cockatrice.level().isClientSide() && this.cockatrice.isAlive()) {
+            if (this.isSunSensitive() && this.isSunBurnTick()) {
+                this.cockatrice.setSecondsOnFire(8);
+            }
+        }
+    }
+
     @Override
     public void handleTargetAnim() {
         if (ReduxConfig.COMMON.cockatrice_ai_improvements.get()) {
@@ -200,4 +209,21 @@ public class CockatriceExtensionCapability implements CockatriceExtension {
             }
         }
     }
+
+    protected boolean isSunBurnTick() {
+        if (this.cockatrice.level().isDay() && !this.cockatrice.level().isClientSide) {
+            float f = this.cockatrice.getLightLevelDependentMagicValue();
+            BlockPos blockpos = BlockPos.containing(this.cockatrice.getX(), this.cockatrice.getEyeY(), this.cockatrice.getZ());
+            boolean flag = this.cockatrice.isInWaterRainOrBubble() || this.cockatrice.isInPowderSnow || this.cockatrice.wasInPowderSnow;
+            if (f > 0.5F && this.cockatrice.level().random.nextFloat() * 30.0F < (f - 0.4F) * 2.0F && !flag && this.cockatrice.level().canSeeSky(blockpos)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+    protected boolean isSunSensitive() {
+        return ReduxConfig.COMMON.cockatrice_burn_in_daylight.get();
+    }
+
 }
