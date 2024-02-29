@@ -1,10 +1,15 @@
 package net.zepalesque.redux.item.util;
 
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.misc.ReduxTags;
+
+import javax.annotation.Nullable;
 
 public interface VeridiumItem {
 
@@ -16,7 +21,7 @@ public interface VeridiumItem {
         return stack.hasTag() ? stack.getOrCreateTag().copy() : new CompoundTag();
     }
 
-    static ItemStack depleteInfusion(ItemStack stack) {
+    static ItemStack depleteInfusion(ItemStack stack, @Nullable LivingEntity user) {
         Item item = stack.getItem();
         if (item instanceof VeridiumItem virydium) {
             Item itemForStack = stack.getItem();
@@ -28,6 +33,9 @@ public interface VeridiumItem {
             } else {
                 newCharge = (byte) 0;
                 itemForStack = virydium.getReplacementItem(stack);
+                if (user != null) {
+                    user.playSound(ReduxSoundEvents.INFUSION_EXPIRE.get(), 0.8F, 0.8F + user.level().getRandom().nextFloat() * 0.4F);
+                }
             }
             compound.putByte(nbt_tag, newCharge);
             ItemStack newStack = new ItemStack(itemForStack, 1);

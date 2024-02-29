@@ -30,7 +30,7 @@ public class VeridiumHoeItem extends HoeItem implements VeridiumItem {
         InteractionResult result = super.useOn(pContext);
         if (result == InteractionResult.sidedSuccess(pContext.getLevel().isClientSide) && this.isInfused(pContext.getItemInHand()) && !pContext.getPlayer().level().isClientSide && !pContext.getPlayer().getAbilities().instabuild){
           ItemStack pStack = pContext.getItemInHand();
-            ItemStack stackReplacement = VeridiumItem.depleteInfusion(pStack);
+            ItemStack stackReplacement = VeridiumItem.depleteInfusion(pStack, pContext.getPlayer());
             if (!stackReplacement.getItem().equals(pStack.getItem())) {
                 pContext.getPlayer().setItemInHand(pContext.getHand(), stackReplacement);
             }
@@ -44,7 +44,7 @@ public class VeridiumHoeItem extends HoeItem implements VeridiumItem {
     @Override
     public boolean mineBlock(ItemStack pStack, Level pLevel, BlockState pState, BlockPos pPos, LivingEntity pEntityLiving) {
         if (pState.getDestroySpeed(pLevel, pPos) != 0F && this.isInfused(pStack) && !pEntityLiving.level().isClientSide && (!(pEntityLiving instanceof Player player) || !player.getAbilities().instabuild)) {
-            ItemStack stackReplacement = VeridiumItem.depleteInfusion(pStack);
+            ItemStack stackReplacement = VeridiumItem.depleteInfusion(pStack, pEntityLiving);
             if (!stackReplacement.getItem().equals(pStack.getItem())) {
                 pEntityLiving.setItemSlot(EquipmentSlot.MAINHAND, stackReplacement);
             }

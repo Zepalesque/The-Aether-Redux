@@ -65,7 +65,7 @@ public class VeridiumDartShooter extends DartShooterItem implements VeridiumItem
             return transform;
         }
         if (this.isInfused(transform)){
-            return VeridiumItem.depleteInfusion(transform);
+            return VeridiumItem.depleteInfusion(transform, user);
         }
         return transform;
     }

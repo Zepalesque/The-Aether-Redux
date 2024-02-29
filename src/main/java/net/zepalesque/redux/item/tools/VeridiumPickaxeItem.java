@@ -29,7 +29,7 @@ public class VeridiumPickaxeItem extends PickaxeItem implements VeridiumItem {
     @Override
     public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
         if (pTarget instanceof Slider && this.isInfused(pStack) && !pAttacker.level().isClientSide && (!(pAttacker instanceof Player) || !((Player) pAttacker).getAbilities().instabuild)) {
-            ItemStack stackReplacement = VeridiumItem.depleteInfusion(pStack);
+            ItemStack stackReplacement = VeridiumItem.depleteInfusion(pStack, pAttacker);
             if (!stackReplacement.getItem().equals(pStack.getItem())) {
                 pAttacker.setItemSlot(EquipmentSlot.MAINHAND, stackReplacement);
             }
@@ -45,7 +45,7 @@ public class VeridiumPickaxeItem extends PickaxeItem implements VeridiumItem {
         InteractionResult result = super.useOn(pContext);
         if (result == InteractionResult.sidedSuccess(pContext.getLevel().isClientSide) && this.isInfused(pContext.getItemInHand()) && !pContext.getPlayer().level().isClientSide && !pContext.getPlayer().getAbilities().instabuild){
             ItemStack pStack = pContext.getItemInHand();
-            ItemStack stackReplacement = VeridiumItem.depleteInfusion(pStack);
+            ItemStack stackReplacement = VeridiumItem.depleteInfusion(pStack, pContext.getPlayer());
             if (!stackReplacement.getItem().equals(pStack.getItem())) {
                 pContext.getPlayer().setItemInHand(pContext.getHand(), stackReplacement);
             }
@@ -60,7 +60,7 @@ public class VeridiumPickaxeItem extends PickaxeItem implements VeridiumItem {
     @Override
     public boolean mineBlock(ItemStack pStack, Level pLevel, BlockState pState, BlockPos pPos, LivingEntity pEntityLiving) {
         if (pState.getDestroySpeed(pLevel, pPos) != 0F && this.isInfused(pStack) && !pEntityLiving.level().isClientSide && (!(pEntityLiving instanceof Player) || !((Player) pEntityLiving).getAbilities().instabuild)) {
-            ItemStack stackReplacement = VeridiumItem.depleteInfusion(pStack);
+            ItemStack stackReplacement = VeridiumItem.depleteInfusion(pStack, pEntityLiving);
             if (!stackReplacement.getItem().equals(pStack.getItem())) {
                 pEntityLiving.setItemSlot(EquipmentSlot.MAINHAND, stackReplacement);
             }

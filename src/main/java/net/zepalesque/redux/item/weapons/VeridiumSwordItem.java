@@ -27,7 +27,7 @@ public class VeridiumSwordItem extends SwordItem implements VeridiumItem {
     @Override
     public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
         if (this.isInfused(pStack) && !pAttacker.level().isClientSide && (!(pAttacker instanceof Player) || !((Player) pAttacker).getAbilities().instabuild)) {
-            ItemStack stackReplacement = VeridiumItem.depleteInfusion(pStack);
+            ItemStack stackReplacement = VeridiumItem.depleteInfusion(pStack, pAttacker);
             if (!stackReplacement.getItem().equals(pStack.getItem())) {
                 pAttacker.setItemSlot(EquipmentSlot.MAINHAND, stackReplacement);
             }
@@ -41,7 +41,7 @@ public class VeridiumSwordItem extends SwordItem implements VeridiumItem {
     @Override
     public boolean mineBlock(ItemStack pStack, Level pLevel, BlockState pState, BlockPos pPos, LivingEntity pEntityLiving) {
         if (pState.getDestroySpeed(pLevel, pPos) != 0F && this.isInfused(pStack) && !pEntityLiving.level().isClientSide && (!(pEntityLiving instanceof Player player) || !player.getAbilities().instabuild)) {
-            ItemStack stackReplacement = VeridiumItem.depleteInfusion(pStack);
+            ItemStack stackReplacement = VeridiumItem.depleteInfusion(pStack, pEntityLiving);
             if (!stackReplacement.getItem().equals(pStack.getItem())) {
                 pEntityLiving.setItemSlot(EquipmentSlot.MAINHAND, stackReplacement);
             }
