@@ -48,7 +48,7 @@ public class DungeonLootModifier extends LootModifier {
                     boolean isFull = generatedLoot.size() == containerBlockEntity.getContainerSize();
                     if (!isFull) {
                         int weight = this.entries.stream().map((entry) -> entry.getWeight().asInt()).reduce(0, Integer::sum);
-                        WeightedRandom.getRandomItem(randomSource, this.entries, weight).ifPresent(e -> generatedLoot.add(e.getData()));
+                        WeightedRandom.getRandomItem(randomSource, this.entries, weight).ifPresent(e -> generatedLoot.add(e.getData().copy()));
                     }
                 }
             }
