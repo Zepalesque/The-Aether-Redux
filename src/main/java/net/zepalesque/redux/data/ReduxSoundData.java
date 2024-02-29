@@ -110,7 +110,7 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
                 definition().with(sound("aether_redux:item/infuse_item"))
                         .subtitle("subtitles.aether_redux.item.infuse_item"));
         this.add(ReduxSoundEvents.INFUSION_EXPIRE,
-                definition().with(sound("aether_redux:item/infuse_expire"))
+                definition().with(sound("aether_redux:item/infusion_expire"))
                         .subtitle("subtitles.aether_redux.item.infusion_expire"));
         this.add(ReduxSoundEvents.SPEAR_THROW,
                 definition().with(sound("aether_redux:item/spear_throw"))
