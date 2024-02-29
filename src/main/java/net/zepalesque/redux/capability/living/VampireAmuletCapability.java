@@ -14,6 +14,7 @@ import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
+// TODO: Consider moving all of this logic to the item itself
 public class VampireAmuletCapability implements VampireAmulet {
 
 
