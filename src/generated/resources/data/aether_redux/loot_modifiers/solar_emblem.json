@@ -4,9 +4,13 @@
     {
       "condition": "forge:loot_table_id",
       "loot_table_id": "aether:chests/dungeon/gold/gold_dungeon_reward"
+    },
+    {
+      "chance": 0.35,
+      "condition": "minecraft:random_chance"
     }
   ],
-  "items": [
+  "entries": [
     {
       "data": {
         "Count": 1,
@@ -15,6 +19,5 @@
       "weight": 1
     }
   ],
-  "replace_if_full": true,
-  "spawn_chance": 0.35
+  "rolls": 1
 }
