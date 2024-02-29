@@ -47,6 +47,7 @@ public class BlockBreakHooks {
             .put(AetherBlocks.AETHER_FARMLAND.get(), getSpeed(Blocks.FARMLAND))
             .put(AetherBlocks.AETHER_DIRT_PATH.get(), getSpeed(Blocks.DIRT_PATH))
             .put(AetherBlocks.AETHER_GRASS_BLOCK.get(), getSpeed(Blocks.GRASS_BLOCK))
+            .put(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get(), getSpeed(Blocks.GRASS_BLOCK))
             .put(ReduxBlocks.AVELIUM.get(), getSpeed(Blocks.MYCELIUM))
             .put(ReduxBlocks.COARSE_AETHER_DIRT.get(), getSpeed(Blocks.COARSE_DIRT))
             .put(ReduxBlocks.GILDED_HOLYSTONE.get(), 1.0F)
