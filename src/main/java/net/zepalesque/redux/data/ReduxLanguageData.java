@@ -654,6 +654,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addDeath(ReduxDamageTypes.BLIGHT, "%1$s was taken by the Blight");
 
         addProTip("tip_color", "Tips from the Aether: Redux are in this lavender color!");
+        addProTip("tip_color_tipsmod", "Tips from the Aether: Redux have a lavender-colored title!");
         addProTip("veridium_infusion", "Veridium tools can be temporarily infused into better versions by right-clicking them with an Ambrosium Shard!");
         addProTip("model_changes", "The Aether: Redux has some model changes to some of the Aether’s mobs, which can be toggled in the client-side config!");
         addProTip("feather_of_warding", "Sometimes, Cockatrices will drop a feather, which can be upgraded into the useful Feather of Warding, giving you immunity from the inebriation effect.");
