@@ -137,17 +137,14 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                 ConstantInt.of(1)
         ));
 
-        // TODO: Move to valk queen drop?
-        this.add("grand_medal", new DungeonLootModifier(
-                new LootItemCondition[] {
-                        LootTableIdCondition.builder(AetherLoot.SILVER_DUNGEON_REWARD).build(),
-                        LootItemRandomChanceCondition.randomChance(0.5F).build()
+        this.add("grand_medal", new AddDrops(new ItemStack(ReduxItems.GRAND_VICTORY_MEDAL.get()),
+                new LootItemFunction[]{
+                        SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)).build(),
                 },
-                List.of(
-                        WeightedEntry.wrap(new ItemStack(ReduxItems.GRAND_VICTORY_MEDAL.get()), 1)
-                ),
-                ConstantInt.of(1)
-        ));
+                new LootItemCondition[] {
+                        LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(AetherEntityTypes.VALKYRIE_QUEEN.get())).build(),
+                        LootItemRandomChanceCondition.randomChance(0.65F).build()
+                }));
 
         this.add("solar_emblem", new DungeonLootModifier(
                 new LootItemCondition[] {
