@@ -64,7 +64,7 @@ public class VeridiumDartShooter extends DartShooterItem implements VeridiumItem
         if (user instanceof Player player && player.getAbilities().instabuild) {
             return transform;
         }
-        if (this.isInfused(transform) && !level.isClientSide){
+        if (this.isInfused(transform)){
             return VeridiumItem.depleteInfusion(transform);
         }
         return transform;
