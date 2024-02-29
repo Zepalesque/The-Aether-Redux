@@ -68,20 +68,23 @@ public class BlightSpearItem extends Item implements Vanishable {
         if (entityLiving instanceof Player player) {
             int i = this.getUseDuration(stack) - timeLeft;
             if (i >= 10) {
+                if (!level.isClientSide) {
+                    stack.hurtAndBreak(1, player, (contextEntity) -> {
+                        contextEntity.broadcastBreakEvent(entityLiving.getUsedItemHand());
+                    });
+                    ThrownSpear spear = new ThrownSpear(level, player, stack);
+                    spear.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.5F, 1.0F);
+                    if (player.getAbilities().instabuild) {
+                        spear.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
+                    }
 
-                ThrownSpear spear = new ThrownSpear(level, player, stack);
-                spear.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.5F, 1.0F);
-                if (player.getAbilities().instabuild) {
-                    spear.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
+                    level.addFreshEntity(spear);
+                    level.playSound(null, spear, ReduxSoundEvents.SPEAR_THROW.get(), SoundSource.PLAYERS, 1.0F, 1.0F);
+                    if (!player.getAbilities().instabuild) {
+                        player.getInventory().removeItem(stack);
+                    }
+                    player.awardStat(Stats.ITEM_USED.get(this));
                 }
-
-                level.addFreshEntity(spear);
-                level.playSound(null, spear, ReduxSoundEvents.SPEAR_THROW.get(), SoundSource.PLAYERS, 1.0F, 1.0F);
-                if (!player.getAbilities().instabuild) {
-                    player.getInventory().removeItem(stack);
-                }
-                player.awardStat(Stats.ITEM_USED.get(this));
-
             }
         }
     }
