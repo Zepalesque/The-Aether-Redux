@@ -19,6 +19,7 @@ import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.item.util.VeridiumItem;
+import net.zepalesque.redux.misc.ReduxTags;
 
 @Mod.EventBusSubscriber(modid = Redux.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 
@@ -247,12 +248,12 @@ public class ReduxCreativeTabs {
         }
         if (tab == AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES.get()) {
 
-            putBefore(AetherItems.GRAVITITE_SWORD, ReduxItems.INFUSED_VERIDIUM_HOE, event);
-            putBefore(ReduxItems.INFUSED_VERIDIUM_HOE, ReduxItems.INFUSED_VERIDIUM_AXE, event);
-            putBefore(ReduxItems.INFUSED_VERIDIUM_AXE, ReduxItems.INFUSED_VERIDIUM_PICKAXE, event);
-            putBefore(ReduxItems.INFUSED_VERIDIUM_PICKAXE, ReduxItems.INFUSED_VERIDIUM_SHOVEL, event);
-            putBefore(ReduxItems.INFUSED_VERIDIUM_SHOVEL, ReduxItems.INFUSED_VERIDIUM_SWORD, event);
-            putBefore(ReduxItems.INFUSED_VERIDIUM_SWORD, ReduxItems.VERIDIUM_HOE, event);
+            putBeforeVeridium(AetherItems.GRAVITITE_SWORD, ReduxItems.INFUSED_VERIDIUM_HOE, event);
+            putBeforeVeridium(ReduxItems.INFUSED_VERIDIUM_HOE, ReduxItems.INFUSED_VERIDIUM_AXE, event);
+            putBeforeVeridium(ReduxItems.INFUSED_VERIDIUM_AXE, ReduxItems.INFUSED_VERIDIUM_PICKAXE, event);
+            putBeforeVeridium(ReduxItems.INFUSED_VERIDIUM_PICKAXE, ReduxItems.INFUSED_VERIDIUM_SHOVEL, event);
+            putBeforeVeridium(ReduxItems.INFUSED_VERIDIUM_SHOVEL, ReduxItems.INFUSED_VERIDIUM_SWORD, event);
+            putBeforeVeridium(ReduxItems.INFUSED_VERIDIUM_SWORD, ReduxItems.VERIDIUM_HOE, event);
             putBefore(ReduxItems.VERIDIUM_HOE, ReduxItems.VERIDIUM_AXE, event);
             putBefore(ReduxItems.VERIDIUM_AXE, ReduxItems.VERIDIUM_PICKAXE, event);
             putBefore(ReduxItems.VERIDIUM_PICKAXE, ReduxItems.VERIDIUM_SHOVEL, event);
@@ -261,8 +262,8 @@ public class ReduxCreativeTabs {
             putBefore(AetherItems.GOLDEN_DART_SHOOTER, ReduxItems.SPEAR_OF_THE_BLIGHT, event);
 
             putAfter(AetherItems.ENCHANTED_DART, ReduxItems.VERIDIUM_DART_SHOOTER, event);
-            putAfter(ReduxItems.VERIDIUM_DART_SHOOTER, ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER, event);
-            putAfter(ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER, ReduxItems.VERIDIUM_DART, event);
+            putAfterVeridium(ReduxItems.VERIDIUM_DART_SHOOTER, ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER, event);
+            putAfterVeridium(ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER, ReduxItems.VERIDIUM_DART, event);
 
             putAfter(AetherItems.PHOENIX_BOW, ReduxItems.SUBZERO_CROSSBOW, event);
 
@@ -385,24 +386,43 @@ public class ReduxCreativeTabs {
         }
     }
 
-    private static void putAfter(RegistryObject<? extends ItemLike> itemBefore, RegistryObject<? extends ItemLike> insertedItem, BuildCreativeModeTabContentsEvent event)
-    {
+    private static void putAfter(RegistryObject<? extends ItemLike> itemBefore, RegistryObject<? extends ItemLike> insertedItem, BuildCreativeModeTabContentsEvent event) {
         event.getEntries().putAfter(new ItemStack(itemBefore.get()), new ItemStack(insertedItem.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
     }
-    private static void putBefore(RegistryObject<? extends ItemLike> itemAfter, RegistryObject<? extends ItemLike> insertedItem, BuildCreativeModeTabContentsEvent event)
-    {
+    private static void putBefore(RegistryObject<? extends ItemLike> itemAfter, RegistryObject<? extends ItemLike> insertedItem, BuildCreativeModeTabContentsEvent event) {
+        event.getEntries().putBefore(new ItemStack(itemAfter.get()), new ItemStack(insertedItem.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+    }
+
+    private static void putAfterVeridium(RegistryObject<? extends ItemLike> itemBefore, RegistryObject<? extends ItemLike> insertedItem, BuildCreativeModeTabContentsEvent event) {
+        ItemStack stackBefore = new ItemStack(itemBefore.get());
+        if (stackBefore.is(ReduxTags.Items.INFUSED_VERIDIUM_ITEMS))
+        {
+            CompoundTag compound = VeridiumItem.createCompoundFor(stackBefore);
+            compound.putByte(VeridiumItem.nbt_tag, VeridiumItem.MAXIUMUM_VERIDIUM_INFUSION);
+            stackBefore.setTag(compound);
+        }
+        ItemStack stackInserted = new ItemStack(insertedItem.get());
+        if (stackInserted.is(ReduxTags.Items.INFUSED_VERIDIUM_ITEMS))
+        {
+            CompoundTag compound1 = VeridiumItem.createCompoundFor(stackInserted);
+            compound1.putByte(VeridiumItem.nbt_tag, VeridiumItem.MAXIUMUM_VERIDIUM_INFUSION);
+            stackInserted.setTag(compound1);
+        }
+        event.getEntries().putAfter(stackBefore, stackInserted, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+    }
+    private static void putBeforeVeridium(RegistryObject<? extends ItemLike> itemAfter, RegistryObject<? extends ItemLike> insertedItem, BuildCreativeModeTabContentsEvent event) {
         ItemStack stackAfter = new ItemStack(itemAfter.get());
-        if (itemAfter.get() instanceof VeridiumItem veridium && veridium.isInfused(stackAfter))
+        if (stackAfter.is(ReduxTags.Items.INFUSED_VERIDIUM_ITEMS))
         {
             CompoundTag compound = VeridiumItem.createCompoundFor(stackAfter);
-            compound.putByte("ambrosium_charge", VeridiumItem.MAXIUMUM_VERIDIUM_INFUSION);
+            compound.putByte(VeridiumItem.nbt_tag, VeridiumItem.MAXIUMUM_VERIDIUM_INFUSION);
             stackAfter.setTag(compound);
         }
         ItemStack stackInserted = new ItemStack(insertedItem.get());
-        if (insertedItem.get() instanceof VeridiumItem veridium && veridium.isInfused(stackInserted))
+        if (stackInserted.is(ReduxTags.Items.INFUSED_VERIDIUM_ITEMS))
         {
             CompoundTag compound1 = VeridiumItem.createCompoundFor(stackInserted);
-            compound1.putByte("ambrosium_charge", VeridiumItem.MAXIUMUM_VERIDIUM_INFUSION);
+            compound1.putByte(VeridiumItem.nbt_tag, VeridiumItem.MAXIUMUM_VERIDIUM_INFUSION);
             stackInserted.setTag(compound1);
         }
         event.getEntries().putBefore(stackAfter, stackInserted, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
