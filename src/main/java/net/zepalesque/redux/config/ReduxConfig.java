@@ -78,7 +78,7 @@ public class ReduxConfig {
         public Common(ForgeConfigSpec.Builder builder) {
             builder.push("Gameplay Changes");
             this.cockatrice_ai_improvements = builder.comment("Makes Cockatrices shoot at you and chase you if they hit you. Requires world restart to refresh existing mob AI.").worldRestart().define("Improved Cockatrice Behavior", true);
-            this.cockatrice_burn_in_daylight = builder.comment("Makes Cockatrices burn in daylight.").define("Cockatrices burn in daylight", true);
+            this.cockatrice_burn_in_daylight = builder.comment("Makes Cockatrices burn in daylight. Requires world restart to refresh existing mob AI.").worldRestart().define("Cockatrices burn in daylight", true);
             this.nerf_gummy_swets = builder.comment("Nerfs Gummy Swets, but also makes them craftable. Note: Requires the Aether's Gummy Swet Healing config to be false to properly nerf the hunger effect. Requires datapack reload.").worldRestart().define("Nerf Gummy Swets", true);
             this.mobs_avoid_quicksoil = builder.comment("Causes mobs to try to avoid walking on quicksoil.").define("Mobs Avoid Quicksoil", true);
             this.smaller_mimic_hitbox = builder.comment("Decreases the size of mimics. Intended to be used with the client-side model. Requires an MC restart").define("Smaller Mimic Hitbox", true);
