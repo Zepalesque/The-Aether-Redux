@@ -59,19 +59,12 @@ public class VeridiumDartShooter extends DartShooterItem implements VeridiumItem
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        InteractionResultHolder<ItemStack> result = super.use(level, player, hand);
-        ItemStack stack = player.getItemInHand(hand);
-        if (result.getResult().consumesAction() && this.isInfused(stack) && !level.isClientSide && !player.getAbilities().instabuild){
-            ItemStack stackReplacement = VeridiumItem.depleteInfusion(stack);
-            if (!stackReplacement.getItem().equals(stack.getItem())) {
-                player.setItemInHand(hand, stackReplacement);
-            }
-            else {
-                stack.setTag(stackReplacement.getTag());
-            }
+    public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity user) {
+        ItemStack transform = super.finishUsingItem(stack, level, user);
+        if (this.isInfused(transform) && !level.isClientSide && ((user instanceof Player player && player.getAbilities().instabuild) || !(user instanceof Player))){
+            return VeridiumItem.depleteInfusion(transform);
         }
-        return result;
+        return transform;
     }
 
 
