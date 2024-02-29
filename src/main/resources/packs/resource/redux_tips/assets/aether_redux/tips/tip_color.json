@@ -5,7 +5,7 @@
   "title": {
     "bold": true,
     "color": "#9384F4",
-    "translate": "gui.aether.pro_tip",
+    "translate": "tipsmod.title.default",
     "underlined": true
   }
 }
