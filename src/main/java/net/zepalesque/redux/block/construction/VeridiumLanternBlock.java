@@ -23,8 +23,8 @@ public class VeridiumLanternBlock extends LanternBlock {
 
     public static final Property<Direction.Axis> AXIS = BlockStateProperties.HORIZONTAL_AXIS;
 
-    protected static final VoxelShape BOX = Shapes.or(Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D), Block.box(6.0D, 10.0D, 6.0D, 10.0D, 12.0D, 10.0D));
-    protected static final VoxelShape HANGING_BOX = Shapes.or(Block.box(5.0D, 1.0D, 5.0D, 11.0D, 11.0D, 11.0D), Block.box(6.0D, 11.0D, 6.0D, 10.0D, 13.0D, 10.0D));
+    protected static final VoxelShape BOX = Shapes.or(Block.box(5.0D, 0.0D, 5.0D, 11.0D, 9.0D, 11.0D), Block.box(6.0D, 9.0D, 6.0D, 10.0D, 11.0D, 10.0D));
+    protected static final VoxelShape HANGING_BOX = Shapes.or(Block.box(5.0D, 2.0D, 5.0D, 11.0D, 11.0D, 11.0D), Block.box(6.0D, 11.0D, 6.0D, 10.0D, 13.0D, 10.0D));
 
     public VeridiumLanternBlock(Properties properties) {
         super(properties);
