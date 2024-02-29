@@ -36,8 +36,6 @@ import java.util.function.Consumer;
 public class BlightSpearItem extends Item implements Vanishable {
     private final Multimap<Attribute, AttributeModifier> defaultModifiers;
 
-
-
     public BlightSpearItem(Item.Properties properties, double damage, double speed) {
         super(properties);
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
