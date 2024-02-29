@@ -672,9 +672,17 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addProTip("veridium_infusion", "Veridium tools can be temporarily infused into better versions by right-clicking them with an Ambrosium Shard!");
         addProTip("model_changes", "The Aether: Redux has some model changes to some of the Aether’s mobs, which can be toggled in the client-side config!");
-        addProTip("feather_of_warding", "Sometimes, Cockatrices will drop a feather, which can be upgraded into the useful Feather of Warding, giving you immunity from the inebriation effect.");
+        addProTip("feather_of_warding", "Sometimes, Cockatrices will drop one of their feathers, which can be upgraded into the useful Feather of Warding, giving you immunity from the inebriation effect.");
         addProTip("oatmeal", "Wyndsprout seeds can be crafed into Oatmeal, a nice snack that can fill up a few hunger points for relatively cheap.");
         addProTip("blight_spear", "Blightbunny teeth can be used to create the Spear of the Blight, a throwable weapon that inflicts Inebriation on enemies.");
+        addProTip("wyndsprouts", "You can plant Wyndsprout seeds, and when they finish growing, you can use their drops to create tasty Bagels!");
+        addProTip("quicksoil", "Be careful on quicksoil, it may seem fun, but its slipperiness can cause you to fall off the island if you're not careful!");
+        addProTip("enchanted_ring", "With some planks and an Ambrosium Shard, you can craft the Enchanted Ring, which can be turned into various different useful rings!");
+        addProTip("veridium_ore", "On occasion, you'll find a blue ore in the Aether known as Veridium. This can be used to make some decoration blocks, as well as useful Veridium tools!");
+        addProTip("the_blight", "Be careful of the purple Blight biome found in the Aether, it is filled with many dangerous plants. Cockatrices will occasionally drop their feather, which is an accessory that will help you to traverse the biome easier.");
+        addProTip("snailshell_shield", "Feeding a Mykapod a Shimmerstool will make it shed the outer layer of its shell. These shell fragments can be used to craft a useful accessory that will decrease knockback.");
+        addProTip("divinite", "Divinite can be enchanted into Glowstone, giving a relatively easy way to leave the Aether safely if you get stuck.");
+        addProTip("redux_configs", "The Aether: Redux has a large amount of configs, including many that affect the base mod, so make sure to check out its config file!");
 
         for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS) {
             woodHandler.generateLanguageData(this);
