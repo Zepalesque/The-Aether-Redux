@@ -418,20 +418,14 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                         ::save).build(consumer, Redux.locate("redux_coarse_dirt"));
 
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ReduxItems.WYNDSPROUT_BAGEL.get(), 1)
-                .define('B', ReduxItems.BUNDLE_OF_WYNDSPROUTS.get())
-                .pattern(" B ")
-                .pattern("B B")
-                .pattern(" B ")
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ReduxItems.WYNDSPROUT_BAGEL.get(), 1)
+                .requires(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get(), 4)
                 .unlockedBy(getHasName(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get()), has(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get()))
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ReduxItems.BLUEBERRY_BAGEL.get(), 1)
-                .define('W', ReduxItems.BUNDLE_OF_WYNDSPROUTS.get())
-                .define('B', AetherItems.BLUE_BERRY.get())
-                .pattern("BWB")
-                .pattern("W W")
-                .pattern("BWB")
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ReduxItems.BLUEBERRY_BAGEL.get(), 1)
+                .requires(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get(), 3)
+                .requires(AetherItems.BLUE_BERRY.get(), 1)
                 .unlockedBy(getHasName(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get()), has(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get()))
                 .save(consumer);
 
