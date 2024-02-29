@@ -115,28 +115,71 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
         this.doSwetBallIncreases();
 
         this.add("vampire_amulet", new DungeonLootModifier(
-                new LootItemCondition[] { LootTableIdCondition.builder(AetherLoot.BRONZE_DUNGEON_REWARD).build(), LootItemRandomChanceCondition.randomChance(0.35F).build() }, List.of(WeightedEntry.wrap(new ItemStack(ReduxItems.VAMPIRE_AMULET.get()), 1)),
-                ConstantInt.of(1)));
+                new LootItemCondition[] {
+                        LootTableIdCondition.builder(AetherLoot.BRONZE_DUNGEON_REWARD).build(),
+                        LootItemRandomChanceCondition.randomChance(0.35F).build()
+                },
+                List.of(
+                        WeightedEntry.wrap(new ItemStack(ReduxItems.VAMPIRE_AMULET.get()), 1)
+                ),
+                ConstantInt.of(1)
+        ));
 
         this.add("airbound_cape", new DungeonLootModifier(
-                new LootItemCondition[] { LootTableIdCondition.builder(AetherLoot.BRONZE_DUNGEON_REWARD).build() }, List.of(WeightedEntry.wrap(new ItemStack(ReduxItems.AIRBOUND_CAPE.get()), 1)),
-                UniformInt.of(0, 1)));
+                new LootItemCondition[]
+                        {
+                                LootTableIdCondition.builder(AetherLoot.BRONZE_DUNGEON_REWARD).build(),
+                                LootItemRandomChanceCondition.randomChance(0.75F).build()
+                        },
+                List.of(
+                        WeightedEntry.wrap(new ItemStack(ReduxItems.AIRBOUND_CAPE.get()), 1)
+                ),
+                ConstantInt.of(1)
+        ));
 
-        this.add("valkyrie_ring", new DungeonLootModifier(
-                new LootItemCondition[] { LootTableIdCondition.builder(AetherLoot.SILVER_DUNGEON_REWARD).build() }, List.of(WeightedEntry.wrap(new ItemStack(ReduxItems.GRAND_VICTORY_MEDAL.get()), 1)),
-                UniformInt.of(0, 1)));
+        // TODO: Move to valk queen drop?
+        this.add("grand_medal", new DungeonLootModifier(
+                new LootItemCondition[] {
+                        LootTableIdCondition.builder(AetherLoot.SILVER_DUNGEON_REWARD).build(),
+                        LootItemRandomChanceCondition.randomChance(0.5F).build()
+                },
+                List.of(
+                        WeightedEntry.wrap(new ItemStack(ReduxItems.GRAND_VICTORY_MEDAL.get()), 1)
+                ),
+                ConstantInt.of(1)
+        ));
 
         this.add("solar_emblem", new DungeonLootModifier(
-                new LootItemCondition[] { LootTableIdCondition.builder(AetherLoot.GOLD_DUNGEON_REWARD).build() }, List.of(WeightedEntry.wrap(new ItemStack(ReduxItems.SOLAR_EMBLEM.get()), 1)),
-                UniformInt.of(0, 1)));
+                new LootItemCondition[] {
+                        LootTableIdCondition.builder(AetherLoot.GOLD_DUNGEON_REWARD).build(),
+                        LootItemRandomChanceCondition.randomChance(0.35F).build()
+                },
+                List.of(
+                        WeightedEntry.wrap(new ItemStack(ReduxItems.SOLAR_EMBLEM.get()), 1)
+                ),
+                ConstantInt.of(1)
+        ));
 
         this.add("subzero_crossbow", new DungeonLootModifier(
-                new LootItemCondition[] { LootTableIdCondition.builder(AetherLoot.GOLD_DUNGEON_REWARD).build(), LootItemRandomChanceCondition.randomChance(0.65F).build() }, List.of(WeightedEntry.wrap(new ItemStack(ReduxItems.SUBZERO_CROSSBOW.get()), 1)),
-                ConstantInt.of(1)));
+                new LootItemCondition[] {
+                        LootTableIdCondition.builder(AetherLoot.GOLD_DUNGEON_REWARD).build(),
+                        LootItemRandomChanceCondition.randomChance(0.85F).build()
+                },
+                List.of(
+                        WeightedEntry.wrap(new ItemStack(ReduxItems.SUBZERO_CROSSBOW.get()), 1)
+                ),
+                ConstantInt.of(1)
+        ));
 
         this.add("vanilla_gummy_swet", new DungeonLootModifier(
-                new LootItemCondition[] { LootTableIdCondition.builder(AetherLoot.BRONZE_DUNGEON_REWARD).build() }, List.of(WeightedEntry.wrap(new ItemStack(ReduxItems.VANILLA_GUMMY_SWET.get()), 1)),
-                UniformInt.of(1, 3)));
+                new LootItemCondition[] {
+                        LootTableIdCondition.builder(AetherLoot.BRONZE_DUNGEON_REWARD).build()
+                },
+                List.of(
+                        WeightedEntry.wrap(new ItemStack(ReduxItems.VANILLA_GUMMY_SWET.get()), 1)
+                ),
+                UniformInt.of(1, 3)
+        ));
 
     }
 
