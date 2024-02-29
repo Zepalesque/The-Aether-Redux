@@ -4,7 +4,7 @@
   "charge": 1.0,
   "condition": {
     "condition": "aether_redux:redux_config",
-    "config_path": "[Gameplay Changes, Enderman Spawns]"
+    "config_path": "[Gameplay Changes, Mob Spawns, Enderman Spawns]"
   },
   "energy_budget": 0.12,
   "spawners": {

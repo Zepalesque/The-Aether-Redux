@@ -7,7 +7,7 @@
         "condition": "aether_redux:not",
         "inverted": {
           "condition": "aether_redux:redux_config",
-          "config_path": "[Worldgen, Alternate Gilded Trees]"
+          "config_path": "[Worldgen, Biomes, Alternate Gilded Trees]"
         }
       }
     },

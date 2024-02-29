@@ -4,7 +4,7 @@
   "charge": 0.5,
   "condition": {
     "condition": "aether_redux:redux_config",
-    "config_path": "[Gameplay Changes, Vanilla Swet Spawns]"
+    "config_path": "[Gameplay Changes, Mob Spawns, Vanilla Swet Spawns]"
   },
   "energy_budget": 0.1,
   "spawners": {

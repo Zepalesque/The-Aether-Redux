@@ -3,7 +3,7 @@
   "biomes": "#aether_redux:has_redux_water_color",
   "condition": {
     "condition": "aether_redux:redux_config",
-    "config_path": "[Visual Changes, Better Water Color]"
+    "config_path": "[Worldgen, Biomes, Better Water Color]"
   },
   "predicate": {
     "fog": 329011,

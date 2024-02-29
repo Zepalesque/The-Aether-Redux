@@ -9,7 +9,7 @@
       "condition": "aether_redux:data_loot_condition",
       "data_loot_condition": {
         "condition": "aether_redux:redux_config",
-        "config_path": "[Gameplay Changes, Raw Ores]"
+        "config_path": "[Gameplay Changes, Additions, Raw Ores]"
       }
     },
     {

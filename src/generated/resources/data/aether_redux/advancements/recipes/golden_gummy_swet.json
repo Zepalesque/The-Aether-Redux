@@ -39,7 +39,7 @@
           "type": "aether_redux:data_recipe_condition",
           "data_recipe_condition": {
             "condition": "aether_redux:redux_config",
-            "config_path": "[Gameplay Changes, Nerf Gummy Swets]"
+            "config_path": "[Gameplay Changes, Existing Content Alterations, Nerf Gummy Swets]"
           }
         }
       ]

@@ -24,7 +24,7 @@
       "type": "aether_redux:data_condition",
       "data_condition": {
         "condition": "aether_redux:redux_config",
-        "config_path": "[Worldgen, Mossy Holystone Ores]"
+        "config_path": "[Worldgen, Additional Features, Mossy Holystone Ores]"
       }
     },
     {

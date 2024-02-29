@@ -6,7 +6,7 @@
         "type": "aether_redux:enchanted_vine",
         "condition": {
           "condition": "aether_redux:redux_config",
-          "config_path": "[Worldgen, Enable Enchanted and Gilded Vines]"
+          "config_path": "[Worldgen, Additional Features, Enable Enchanted and Gilded Vines]"
         },
         "length_max": {
           "type": "minecraft:uniform",
