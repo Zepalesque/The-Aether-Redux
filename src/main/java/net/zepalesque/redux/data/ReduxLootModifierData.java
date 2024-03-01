@@ -10,6 +10,7 @@ import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
 import net.minecraft.data.PackOutput;
+import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.util.random.WeightedEntry;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -88,6 +89,16 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                         LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(ReduxTags.EntityTypes.SENTRIES)).build(),
                         LootItemRandomChanceCondition.randomChance(0.25F).build()
                 }));
+
+        this.add("slider_disc", new AddDrops(new ItemStack(ReduxItems.SLIDER_MUSIC_DISC.get()),
+                new LootItemFunction[] {
+                        SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)).build()
+                },
+                new LootItemCondition[] {
+                        LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(ReduxTags.EntityTypes.SENTRIES)).build(),
+                        LootItemRandomChanceCondition.randomChance(0.35F).build(),
+                        LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.KILLER, EntityPredicate.Builder.entity().of(ReduxTags.EntityTypes.SENTRIES)).build()
+        }));
 
 
         this.add("swet_sugar_no_genesis", new AddDrops(new ItemStack(Items.SUGAR),

@@ -125,7 +125,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addItem(ReduxItems.SLIDER_MUSIC_DISC, "Slider Music Disc");
         addDiscDesc(ReduxItems.SLIDER_MUSIC_DISC, "Emile van Krieken - Labyrinth's Vengeance");
-        addLore(ReduxItems.SLIDER_MUSIC_DISC, "A music disc that plays Labyrinth's Vengeance by Emile van Krieken.");
+        addLore(ReduxItems.SLIDER_MUSIC_DISC, "A music disc that plays Labyrinth's Vengeance by Emile van Krieken. These are dropped on occasion when a Sentry kills another Sentry.");
 
         addItem(ReduxItems.MOUSE_EAR_SOUP, "Mouse Ear Soup");
         addLore(ReduxItems.MOUSE_EAR_SOUP, "Mouse Ear Soup is a surprisingly good dish, but it will certainly not get you praise from most. However, while most people will raise their eyebrows wondering why in Veradex you have leather ears in a bowl of water, a select few will recognize your true culinary genious, gaining you their utmost and complete respect.");

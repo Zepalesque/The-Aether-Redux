@@ -308,15 +308,6 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .unlockedBy(getHasName(AetherBlocks.CARVED_STONE.get()), has(AetherBlocks.CARVED_STONE.get()))
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ReduxItems.SLIDER_MUSIC_DISC.get(), 1)
-                .define('P', AetherBlocks.CARVED_STONE.get())
-                .define('G', AetherTags.Items.ACCEPTED_MUSIC_DISCS)
-                .pattern("PPP")
-                .pattern("PGP")
-                .pattern("PPP")
-                .unlockedBy("defeated_slider", killed(AetherEntityTypes.SLIDER.get()))
-                .save(consumer);
-
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ReduxBlocks.VERIDIUM_CHAIN.get(), 3)
                 .define('I', ReduxItems.VERIDIUM_INGOT.get())
                 .define('N', ReduxItems.VERIDIUM_NUGGET.get())
