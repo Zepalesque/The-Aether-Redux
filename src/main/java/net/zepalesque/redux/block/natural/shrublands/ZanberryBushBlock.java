@@ -62,7 +62,7 @@ public class ZanberryBushBlock extends AetherBushBlock {
         if (AetherConfig.SERVER.berry_bush_consistency.get()) {
             Block.dropResources(state, level, pos, null, player, ItemStack.EMPTY);
             level.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.getRandom().nextFloat() * 0.4F);
-            level.setBlock(pos, ReduxBlocks.ZANBERRY_SHRUB.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, state.getValue(AetherBlockStateProperties.DOUBLE_DROPS)), 3);
+            level.setBlock(pos, ReduxBlocks.ZANBERRY_BUSH_STEM.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, state.getValue(AetherBlockStateProperties.DOUBLE_DROPS)), 3);
             level.gameEvent(GameEvent.BLOCK_CHANGE, pos, Context.of(player, state));
             return InteractionResult.sidedSuccess(level.isClientSide());
         } else {
@@ -73,7 +73,7 @@ public class ZanberryBushBlock extends AetherBushBlock {
     public void playerDestroy(Level level, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack tool) {
         super.playerDestroy(level, player, pos, state, blockEntity, tool);
         if (tool.getEnchantmentLevel(Enchantments.SILK_TOUCH) <= 0) {
-            level.setBlock(pos, ReduxBlocks.ZANBERRY_SHRUB.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, state.getValue(AetherBlockStateProperties.DOUBLE_DROPS)), 3);
+            level.setBlock(pos, ReduxBlocks.ZANBERRY_BUSH_STEM.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, state.getValue(AetherBlockStateProperties.DOUBLE_DROPS)), 3);
             if (AetherConfig.SERVER.berry_bush_consistency.get()) {
                 level.destroyBlock(pos, true, player);
             }
@@ -83,7 +83,7 @@ public class ZanberryBushBlock extends AetherBushBlock {
 
     public void onBlockExploded(BlockState state, Level level, BlockPos pos, Explosion explosion) {
         super.onBlockExploded(state, level, pos, explosion);
-        level.setBlock(pos, ReduxBlocks.ZANBERRY_SHRUB.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, state.getValue(AetherBlockStateProperties.DOUBLE_DROPS)), 3);
+        level.setBlock(pos, ReduxBlocks.ZANBERRY_BUSH_STEM.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, state.getValue(AetherBlockStateProperties.DOUBLE_DROPS)), 3);
         if (AetherConfig.SERVER.berry_bush_consistency.get()) {
             level.destroyBlock(pos, true);
         }

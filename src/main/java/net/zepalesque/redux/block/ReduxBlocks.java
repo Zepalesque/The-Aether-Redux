@@ -306,9 +306,9 @@ public class ReduxBlocks {
 
 
     public static final RegistryObject<Block> ZANBERRY_BUSH = register("zanberry_bush", () -> new ZanberryBushBlock(Block.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.COLOR_LIGHT_GRAY).strength(0.2F).sound(SoundType.GRASS).noOcclusion().isValidSpawn(ReduxBlocks::ocelotOrParrot).isSuffocating(ReduxBlocks::never).isViewBlocking(ReduxBlocks::never)));
-    public static final RegistryObject<Block> ZANBERRY_SHRUB = register("zanberry_shrub", () -> new ZanberryShrubBlock(Block.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.COLOR_LIGHT_GRAY).strength(0.2F).sound(SoundType.GRASS).noCollission()));
-    public static final RegistryObject<FlowerPotBlock> POTTED_ZANBERRY_SHRUB = BLOCKS.register("potted_zanberry_shrub", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, ZANBERRY_SHRUB, Block.Properties.copy(Blocks.FLOWER_POT)));
-    public static final RegistryObject<FlowerPotBlock> POTTED_ZANBERRY_BUSH = BLOCKS.register("potted_zanberry_bush", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, ZANBERRY_SHRUB, Block.Properties.copy(Blocks.FLOWER_POT)));
+    public static final RegistryObject<Block> ZANBERRY_BUSH_STEM = register("zanberry_bush_stem", () -> new ZanberryShrubBlock(Block.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.COLOR_LIGHT_GRAY).strength(0.2F).sound(SoundType.GRASS).noCollission()));
+    public static final RegistryObject<FlowerPotBlock> POTTED_ZANBERRY_BUSH_STEM = BLOCKS.register("potted_zanberry_bush_stem", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, ZANBERRY_BUSH_STEM, Block.Properties.copy(Blocks.FLOWER_POT)));
+    public static final RegistryObject<FlowerPotBlock> POTTED_ZANBERRY_BUSH = BLOCKS.register("potted_zanberry_bush", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, ZANBERRY_BUSH_STEM, Block.Properties.copy(Blocks.FLOWER_POT)));
 
 
     public static final RegistryObject<SaplingBlock> GILDED_OAK_SAPLING = register("gilded_oak_sapling", () ->
@@ -441,7 +441,7 @@ public class ReduxBlocks {
         pot.addPlant(ReduxBlocks.LUXWEED.getId(), ReduxBlocks.POTTED_LUXWEED);
         pot.addPlant(ReduxBlocks.SPIROLYCTIL.getId(), ReduxBlocks.POTTED_SPIROLYCTIL);
         pot.addPlant(ReduxBlocks.BLIGHTSHADE.getId(), ReduxBlocks.POTTED_BLIGHTSHADE);
-        pot.addPlant(ReduxBlocks.ZANBERRY_SHRUB.getId(), ReduxBlocks.POTTED_ZANBERRY_SHRUB);
+        pot.addPlant(ReduxBlocks.ZANBERRY_BUSH_STEM.getId(), ReduxBlocks.POTTED_ZANBERRY_BUSH_STEM);
         pot.addPlant(ReduxBlocks.ZANBERRY_BUSH.getId(), ReduxBlocks.POTTED_ZANBERRY_BUSH);
         pot.addPlant(ReduxBlocks.BLIGHTWILLOW_SAPLING.getId(), ReduxBlocks.POTTED_BLIGHTWILLOW_SAPLING);
         pot.addPlant(ReduxBlocks.GLACIA_SAPLING.getId(), ReduxBlocks.POTTED_GLACIA_SAPLING);

@@ -132,7 +132,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlockFlatItemTexture(ReduxBlocks.VERIDIUM_CHAIN, "misc/");
 
         this.itemBlock(ReduxBlocks.ZANBERRY_BUSH.get());
-        this.itemBlockFlat(ReduxBlocks.ZANBERRY_SHRUB.get(), "natural/");
+        this.itemBlockFlat(ReduxBlocks.ZANBERRY_BUSH_STEM.get(), "natural/");
         this.itemFullGlow(ReduxItems.BLIGHTED_SPORES, "materials/");
 
         this.itemFullGlow(ReduxItems.LIGHTROOT_CLUMP, "food/");

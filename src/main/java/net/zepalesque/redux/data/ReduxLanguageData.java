@@ -21,7 +21,6 @@ import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.item.ReduxItems;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
@@ -195,9 +194,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.ZANBERRY_BUSH, "Zanberry Bush");
         addLore(ReduxBlocks.ZANBERRY_BUSH, "A nice bush of Zanberries!");
 
-        addBlock(ReduxBlocks.ZANBERRY_SHRUB, "Zanberry Shrub");
-        addBlock(ReduxBlocks.POTTED_ZANBERRY_SHRUB, "Potted Zanberry Shrub");
-        addLore(ReduxBlocks.ZANBERRY_SHRUB, "The stem of the Zanberry Bush. This will grow into a full bush, and will have Zanberries, which can be picked!");
+        addBlock(ReduxBlocks.ZANBERRY_BUSH_STEM, "Zanberry Shrub");
+        addBlock(ReduxBlocks.POTTED_ZANBERRY_BUSH_STEM, "Potted Zanberry Shrub");
+        addLore(ReduxBlocks.ZANBERRY_BUSH_STEM, "The stem of the Zanberry Bush. This will grow into a full bush, and will have Zanberries, which can be picked!");
 
         addBlock(ReduxBlocks.CLOUDCAP_MUSHLING, "Cloudcap Mushling");
         addBlock(ReduxBlocks.POTTED_CLOUDCAP_MUSHLING, "Potted Cloudcap Mushling");
