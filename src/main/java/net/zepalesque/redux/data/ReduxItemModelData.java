@@ -54,8 +54,8 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         item(ReduxItems.ENCHANTED_RING, "accessories/");
         item(ReduxItems.SHROOM_RING, "accessories/");
         item(ReduxItems.RING_OF_WISDOM, "accessories/");
-        handheldGlow(ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER, "weapons/");
-        handheldItem(ReduxItems.VERIDIUM_DART_SHOOTER.get(), "weapons/");
+        dartShooterGlow(ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER, "weapons/");
+        dartShooterItem(ReduxItems.VERIDIUM_DART_SHOOTER.get(), "weapons/");
         item(ReduxItems.VERIDIUM_DART, "weapons/");
         item(ReduxItems.SENTRY_CHIP, "materials/");
         item(ReduxItems.WYNDSPROUT_SEEDS, "food/");
@@ -270,6 +270,18 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         return withExistingParent(id.getPath(), mcLoc("item/handheld"))
                 .texture("layer0", modLoc("item/" + location + id.getPath())).texture("layer1", modLoc("item/" + location + id.getPath() + "_glow")).customLoader((itemModelBuilder,existingFileHelper) ->
                         ItemLayerModelBuilder.begin(itemModelBuilder, existingFileHelper).emissive(15, 15, 1)).end();
+    }
+
+    public void dartShooterGlow(Supplier<? extends Item> item, String location) {
+        ResourceLocation id = ForgeRegistries.ITEMS.getKey(item.get());
+        this.withExistingParent(id.getPath(), this.mcLoc("item/handheld"))
+                .texture("layer0", this.modLoc("item/" + location + id.getPath()))
+                .texture("layer1", modLoc("item/" + location + id.getPath() + "_glow")).customLoader((itemModelBuilder,existingFileHelper) ->
+                        ItemLayerModelBuilder.begin(itemModelBuilder, existingFileHelper).emissive(15, 15, 1)).end()
+                .transforms()
+                .transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND).rotation(0.0F, -90.0F, 45.0F).translation(0.0F, 1.5F, -1.0F).scale(0.85F, 0.85F, 0.85F).end()
+                .transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND).rotation(0.0F, 90.0F, -45.0F).translation(0.0F, 1.5F, -1.0F).scale(0.85F, 0.85F, 0.85F).end()
+                .end();
     }
 
 
