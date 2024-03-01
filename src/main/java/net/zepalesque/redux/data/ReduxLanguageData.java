@@ -761,7 +761,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         for (Map.Entry<String, String> entry : this.TIPS.entrySet()) {
             JsonObject object = new JsonObject();
             object.add("title", Component.Serializer.toJsonTree(Component.translatable("tipsmod.title.default").withStyle(ChatFormatting.BOLD, ChatFormatting.UNDERLINE).withStyle(style -> style.withColor(Redux.REDUX_PURPLE))));
-            object.add("tip", Component.Serializer.toJsonTree(Component.translatable((entry).getKey())));
+            object.add("tip", Component.Serializer.toJsonTree(Component.translatable((entry).getKey()).withStyle(ChatFormatting.WHITE)));
             futuresBuilder.add(DataProvider.saveStable(cache, GSON.toJsonTree(object), this.out.getOutputFolder().resolve("packs/resource/redux_tips/assets/aether_redux/tips/" + entry.getValue() + ".json")));
         }
 
