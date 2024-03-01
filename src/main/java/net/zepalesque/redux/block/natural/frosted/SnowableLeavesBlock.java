@@ -27,7 +27,7 @@ public class SnowableLeavesBlock extends AetherDoubleDropsLeaves {
 
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         BlockState blockstate = context.getLevel().getBlockState(context.getClickedPos().above());
-        return this.defaultBlockState().setValue(SNOWY, isSnowySetting(blockstate));
+        return super.getStateForPlacement(context).setValue(SNOWY, isSnowySetting(blockstate));
     }
 
     private static boolean isSnowySetting(BlockState state) {
