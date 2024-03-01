@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-26T20:21:59.6027126	Item Models: aether_redux
+// 1.20.1	2024-02-29T22:16:12.0824298	Item Models: aether_redux
 2445055af5b1b7f3c6045199ffce74108003cef6 assets/aether_redux/models/item/airbound_cape.json
 2fa1343a8119a1f49af334c002773099174965bd assets/aether_redux/models/item/aurum.json
 edfe83948874d1436a61893ed9471b47e93dbe88 assets/aether_redux/models/item/avelium.json
@@ -273,5 +273,5 @@ d956bb58487c96a5cae4ff6ca773baeb504e3cc3 assets/aether_redux/models/item/wyndspr
 6393ab683d66fddf161999f811f3bb3ea05a3795 assets/aether_redux/models/item/xaelia_flowers.json
 9f827a41b1b512474d1d6a2ce1b25e6efbcc4d75 assets/aether_redux/models/item/zanberry.json
 50ca60d8fc1bd373c9832f7e2ab05d1d6ff81d80 assets/aether_redux/models/item/zanberry_bush.json
-f8fb405b415a2f0c74ddcab880be64f17504d03b assets/aether_redux/models/item/zanberry_shrub.json
+1eb2a6a97d6f78da340f96805fb66bf9ac0aac36 assets/aether_redux/models/item/zanberry_bush_stem.json
 c2a41c0ee9f2631aba61c0a82a090ea1385f44bf assets/aether_redux/models/item/zyatrix.json

@@ -26,11 +26,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "aether_redux:zanberry_shrub"
+          "name": "aether_redux:zanberry_bush_stem"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "aether_redux:blocks/potted_zanberry_shrub"
+  "random_sequence": "aether_redux:blocks/potted_zanberry_bush_stem"
 }

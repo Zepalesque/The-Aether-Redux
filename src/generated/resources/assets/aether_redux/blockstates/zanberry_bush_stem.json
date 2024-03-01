@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "double_drops=false": {
+      "model": "aether_redux:block/zanberry_bush_stem"
+    },
+    "double_drops=true": {
+      "model": "aether_redux:block/zanberry_bush_stem"
+    }
+  }
+}

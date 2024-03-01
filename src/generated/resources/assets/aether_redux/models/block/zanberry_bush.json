@@ -98,6 +98,6 @@
   "textures": {
     "bush": "aether_redux:block/natural/zanberry_bush",
     "particle": "aether_redux:block/natural/zanberry_bush",
-    "stem": "aether_redux:block/natural/zanberry_shrub"
+    "stem": "aether_redux:block/natural/zanberry_bush_stem"
   }
 }

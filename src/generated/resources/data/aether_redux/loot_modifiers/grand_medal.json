@@ -7,10 +7,6 @@
       "predicate": {
         "type": "aether:valkyrie_queen"
       }
-    },
-    {
-      "chance": 0.65,
-      "condition": "minecraft:random_chance"
     }
   ],
   "functions": [
