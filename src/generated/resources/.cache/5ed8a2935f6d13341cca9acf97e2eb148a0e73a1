@@ -1,9 +1,9 @@
-// 1.20.1	2024-02-29T17:13:12.3269175	Global Loot Modifiers : aether_redux
+// 1.20.1	2024-02-29T18:56:34.882595	Global Loot Modifiers : aether_redux
 66dec30df76a4bdd5c33e9bab3fafa5bf4f559f6 data/aether_redux/loot_modifiers/airbound_cape.json
 f79e62e71e6cae7f6c1335d1cf80df3ef77cf5e9 data/aether_redux/loot_modifiers/blue_swet_ball_increase.json
 bbd41443718e7e431b92a4f6a31944e957452423 data/aether_redux/loot_modifiers/cockatrice_feather.json
 75b48810ff0c1cd8bece07bc12ca5f03dff4c4ec data/aether_redux/loot_modifiers/golden_swet_ball_add.json
-c28d0a5236f18898efc81554ac0489007232af6a data/aether_redux/loot_modifiers/grand_medal.json
+c7935c0b13736b3c42b7d2895413b046f79cd9ad data/aether_redux/loot_modifiers/grand_medal.json
 cb9edd00abeb10e638e9531c55a7057e16bbe807 data/aether_redux/loot_modifiers/raw_gravitite.json
 1cd7ed8456603cabf1084e11ae39d8e205c700fb data/aether_redux/loot_modifiers/raw_veridium.json
 53dbc82b99dec4803e97a9acd3b91c2d1d776633 data/aether_redux/loot_modifiers/remove_blue_swet_cloud.json

@@ -399,6 +399,12 @@
     ],
     "subtitle": "subtitles.aether_redux.item.infuse_item"
   },
+  "item.sfx.infusion_expire": {
+    "sounds": [
+      "aether_redux:item/infusion_expire"
+    ],
+    "subtitle": "subtitles.aether_redux.item.infusion_expire"
+  },
   "item.spear.land": {
     "sounds": [
       "aether_redux:item/spear_land"

@@ -1,23 +1,27 @@
 {
-  "type": "aether_redux:add_dungeon_loot",
+  "type": "aether_redux:add_drops",
   "conditions": [
     {
-      "condition": "forge:loot_table_id",
-      "loot_table_id": "aether:chests/dungeon/silver/silver_dungeon_reward"
+      "condition": "minecraft:entity_properties",
+      "entity": "this",
+      "predicate": {
+        "type": "aether:valkyrie_queen"
+      }
     },
     {
-      "chance": 0.5,
+      "chance": 0.65,
       "condition": "minecraft:random_chance"
     }
   ],
-  "entries": [
+  "functions": [
     {
-      "data": {
-        "Count": 1,
-        "id": "aether_redux:grand_victory_medal"
-      },
-      "weight": 1
+      "add": false,
+      "count": 1.0,
+      "function": "minecraft:set_count"
     }
   ],
-  "rolls": 1
+  "item": {
+    "Count": 1,
+    "id": "aether_redux:grand_victory_medal"
+  }
 }
