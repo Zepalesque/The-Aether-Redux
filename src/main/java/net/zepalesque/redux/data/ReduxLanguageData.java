@@ -194,8 +194,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.ZANBERRY_BUSH, "Zanberry Bush");
         addLore(ReduxBlocks.ZANBERRY_BUSH, "A nice bush of Zanberries!");
 
-        addBlock(ReduxBlocks.ZANBERRY_BUSH_STEM, "Zanberry Shrub");
-        addBlock(ReduxBlocks.POTTED_ZANBERRY_BUSH_STEM, "Potted Zanberry Shrub");
+        addBlock(ReduxBlocks.ZANBERRY_BUSH_STEM, "Zanberry Bush Stem");
+        addBlock(ReduxBlocks.POTTED_ZANBERRY_BUSH_STEM, "Potted Zanberry Bush Stem");
         addLore(ReduxBlocks.ZANBERRY_BUSH_STEM, "The stem of the Zanberry Bush. This will grow into a full bush, and will have Zanberries, which can be picked!");
 
         addBlock(ReduxBlocks.CLOUDCAP_MUSHLING, "Cloudcap Mushling");
