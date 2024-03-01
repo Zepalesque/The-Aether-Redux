@@ -122,7 +122,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.crossBlock(ReduxBlocks.ZANBERRY_SHRUB.get(), "natural/");
         this.berryBush(ReduxBlocks.ZANBERRY_BUSH.get(), ReduxBlocks.ZANBERRY_SHRUB.get());
         this.pottedStem(ReduxBlocks.POTTED_ZANBERRY_SHRUB.get(), "natural/");
-        this.pottedBush(ReduxBlocks.POTTED_ZANBERRY_SHRUB.get(), ReduxBlocks.ZANBERRY_SHRUB.get(), "natural/");
+        this.pottedBush(ReduxBlocks.POTTED_ZANBERRY_BUSH.get(), ReduxBlocks.ZANBERRY_SHRUB.get(), "natural/");
 
         this.block(ReduxBlocks.SHELL_SHINGLES.get(), "construction/");
         this.slab(ReduxBlocks.SHELL_SHINGLE_SLAB.get(), ReduxBlocks.SHELL_SHINGLES.get(), "construction/");
