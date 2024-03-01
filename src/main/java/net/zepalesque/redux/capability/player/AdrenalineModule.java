@@ -17,6 +17,7 @@ public class AdrenalineModule implements PlayerTickModule {
     private int currPulseTicks = 0;
     // 0 to 1, determines how strong the effect should be. Also increases the pulse frequency.
     private double adrenalineStrength = 0D;
+    private int cooldown = 0;
 
     public AdrenalineModule(Player plr) {
         this.player = plr;
@@ -24,6 +25,9 @@ public class AdrenalineModule implements PlayerTickModule {
 
     public void tick() {
         if (this.player.level().isClientSide()) {
+            if (this.cooldown > 0) {
+                this.cooldown--;
+            }
             if (this.player.hasEffect(ReduxEffects.ADRENALINE_RUSH.get())) {
                 MobEffectInstance i = this.player.getEffect(ReduxEffects.ADRENALINE_RUSH.get());
                 double amount = Math.min(i.getDuration() / 600D, 1D);
@@ -73,6 +77,14 @@ public class AdrenalineModule implements PlayerTickModule {
 
     protected void doPulse(double strength) {
         this.player.level().playSound(this.player, this.player.getX(), this.player.getY(), this.player.getZ(), getHeartbeat(strength), SoundSource.PLAYERS, 0.8F, 1F);
+    }
+
+    public boolean cooledDown() {
+        return this.cooldown <= 0;
+    }
+
+    public void beginCooldown() {
+        this.cooldown = 1200;
     }
 
 

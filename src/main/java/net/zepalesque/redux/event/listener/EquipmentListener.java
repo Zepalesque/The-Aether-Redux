@@ -19,6 +19,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.capability.ReduxCapabilities;
 import net.zepalesque.redux.capability.player.ReduxPlayer;
 import net.zepalesque.redux.data.resource.ReduxDamageTypes;
 import net.zepalesque.redux.effect.ReduxEffects;
@@ -83,7 +84,7 @@ public class EquipmentListener {
         LivingEntity target = event.getEntity();
 
         if (!target.level().isClientSide() && EquipmentUtil.hasCurio(target, ReduxItems.SHROOM_RING.get()) && (target.getHealth() / target.getMaxHealth()) <= 0.66666667F) {
-                if (target.hasEffect(ReduxEffects.ADRENALINE_RUSH.get())) {
+                if (target.hasEffect(ReduxEffects.ADRENALINE_RUSH.get()) && !target.hasEffect(ReduxEffects.ADRENAL_FATIGUE.get())) {
                     float delta = Mth.clampedLerp(1F - ((target.getHealth() / target.getMaxHealth()) * 1.5F), 0.25F, 0.5F);
                     if (target.level().getRandom().nextFloat() <= delta) {
                         MobEffectInstance i = target.getEffect(ReduxEffects.ADRENALINE_RUSH.get());
@@ -98,8 +99,10 @@ public class EquipmentListener {
                     }
                 } else {
                     float delta = Mth.clampedLerp(1F - ((target.getHealth() / target.getMaxHealth()) * 1.5F), 0.5F, 0.75F);
-                    if (target.level().getRandom().nextFloat() <= delta) {
-                        target.addEffect(new MobEffectInstance(ReduxEffects.ADRENALINE_RUSH.get(), 600, 0, false, false, true));
+                    if (target.level().getRandom().nextFloat() <= delta && !target.hasEffect(ReduxEffects.ADRENAL_FATIGUE.get())) {
+                        if ((target instanceof Player p && ReduxPlayer.get(p).isPresent() && ReduxPlayer.get(p).orElseThrow(ReduxCapabilities::error).getAdrenalineModule().cooledDown()) || !(target instanceof Player)) {
+                            target.addEffect(new MobEffectInstance(ReduxEffects.ADRENALINE_RUSH.get(), 600, 0, false, false, true));
+                        }
                     }
                 }
         }

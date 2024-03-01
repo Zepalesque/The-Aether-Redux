@@ -67,6 +67,10 @@ public class ReduxCapabilities {
         event.register(VampireAmulet.class);
     }
 
+    public static IllegalStateException error() {
+        return new IllegalStateException("Capability was not present despite check to ensure it was! This should not be possible!");
+    }
+
     @Mod.EventBusSubscriber(modid = Redux.MODID)
     public static class Registration {
         @SubscribeEvent
