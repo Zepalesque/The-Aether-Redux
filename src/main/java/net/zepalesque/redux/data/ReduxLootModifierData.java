@@ -143,7 +143,6 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                 },
                 new LootItemCondition[] {
                         LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(AetherEntityTypes.VALKYRIE_QUEEN.get())).build(),
-                        LootItemRandomChanceCondition.randomChance(0.65F).build()
                 }));
 
         this.add("solar_emblem", new DungeonLootModifier(
