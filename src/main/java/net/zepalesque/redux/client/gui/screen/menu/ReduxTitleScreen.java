@@ -29,6 +29,7 @@ import net.minecraft.sounds.Music;
 import net.minecraft.util.Mth;
 import net.minecraftforge.client.ForgeHooksClient;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.client.ReduxMenus;
 import net.zepalesque.redux.client.gui.component.menu.ReduxMenuButton;
 
 import java.util.function.Predicate;
@@ -37,8 +38,6 @@ import java.util.function.Predicate;
 public class ReduxTitleScreen extends TitleScreen implements TitleScreenBehavior {
 	private static final ResourceLocation PANORAMA_OVERLAY = new ResourceLocation("textures/gui/title/background/panorama_overlay.png");
 	private static final ResourceLocation AETHER_LOGO = Redux.locate("textures/gui/title/redux.png");
-	// TODO
-	public static final Music MENU = new Music(AetherSoundEvents.MUSIC_MENU.getHolder().orElseThrow(), 20, 600, true);
 	private final PanoramaRenderer panorama = new PanoramaRenderer(new CubeMap(Redux.locate("textures/gui/title/panorama/panorama")));
 	private int rows;
 
@@ -106,12 +105,12 @@ public class ReduxTitleScreen extends TitleScreen implements TitleScreenBehavior
 				SplashRendererAccessor splashRendererAccessor = (SplashRendererAccessor) titleScreenAccessor.aether$getSplash();
 				if (splashRendererAccessor.cumulus$getSplash() != null && !splashRendererAccessor.cumulus$getSplash().isEmpty()) {
 					PoseStack poseStack = guiGraphics.pose();
-					float splashX = (float) ReduxTitleScreen.this.width / 2 + (175 / scale);
-					float splashY = (int) (20 + (128 / scale));
+					float splashX = (float) ReduxTitleScreen.this.width / 2 + (128 / scale);
+					float splashY = (int) (20 + (112 / scale));
 					poseStack.pushPose();
 					poseStack.translate(splashX, splashY, 0.0F);
 					poseStack.mulPose(Axis.ZP.rotationDegrees(-20.0F));
-					float textSize = 1.8F - Mth.abs(Mth.sin((float) (Util.getMillis() % 1000L) / 1000.0F * Mth.TWO_PI) * 0.1F);
+					float textSize = 1.4F - Mth.abs(Mth.sin((float) (Util.getMillis() % 1000L) / 1000.0F * Mth.TWO_PI) * 0.1F);
 					textSize = textSize * (200.0F / scale) / (ReduxTitleScreen.this.font.width(splashRendererAccessor.cumulus$getSplash()) + (64 / scale));
 					poseStack.scale(textSize, textSize, textSize);
 					guiGraphics.drawCenteredString(ReduxTitleScreen.this.font, splashRendererAccessor.cumulus$getSplash(), 0, (int) (-16 / scale), 16776960 | roundedFadeAmount);

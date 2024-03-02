@@ -9,6 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.client.audio.ReduxMusic;
 import net.zepalesque.redux.client.gui.screen.menu.ReduxTitleScreen;
 
 import java.util.function.BooleanSupplier;
@@ -34,6 +35,6 @@ public class ReduxMenus {
             .tabButton(THE_AETHER_TAB_BUTTON);
 
 
-    public static final RegistryObject<Menu> THE_AETHER_REDUX = MENUS.register("the_aether_redux", () -> new Menu(THE_AETHER_ICON, REDUX_NAME, new ReduxTitleScreen(), REDUX_ENABLED, new Menu.Properties().music(ReduxTitleScreen.MENU).background(REDUX_BACKGROUND)));
+    public static final RegistryObject<Menu> THE_AETHER_REDUX = MENUS.register("the_aether_redux", () -> new Menu(THE_AETHER_ICON, REDUX_NAME, new ReduxTitleScreen(), REDUX_ENABLED, new Menu.Properties().music(ReduxMusic.REDUX_MENU).background(REDUX_BACKGROUND)));
 
 }
