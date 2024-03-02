@@ -1,13 +1,13 @@
-package net.zepalesque.redux.api.flag;
+package net.zepalesque.redux.api.condition;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
-public class Or<E extends DataFlag<?>, T extends DataFlag<?>> implements DataFlag<Or<?, ?>> {
+public class Or<E extends AbstractCondition<?>, T extends AbstractCondition<?>> implements AbstractCondition<Or<?, ?>> {
 
     public static final Codec<Or<?, ?>> CODEC = RecordCodecBuilder.create((condition) ->
-            condition.group(DataFlag.CODEC.fieldOf("arg1").forGetter((cond) -> cond.arg1),
-                            DataFlag.CODEC.fieldOf("arg2").forGetter((cond) -> cond.arg2))
+            condition.group(AbstractCondition.CODEC.fieldOf("arg1").forGetter((cond) -> cond.arg1),
+                            AbstractCondition.CODEC.fieldOf("arg2").forGetter((cond) -> cond.arg2))
                     .apply(condition, Or::new));
 
     protected final E arg1;
@@ -22,13 +22,13 @@ public class Or<E extends DataFlag<?>, T extends DataFlag<?>> implements DataFla
     }
 
     @Override
-    public boolean test() {
-        return this.arg1.test() || this.arg2.test();
+    public boolean isConditionMet() {
+        return this.arg1.isConditionMet() || this.arg2.isConditionMet();
     }
 
     @Override
     public Codec<Or<?, ?>> codec() {
-        return FlagSerializers.OR.get();
+        return ConditionSerializers.OR.get();
     }
 
     @Override

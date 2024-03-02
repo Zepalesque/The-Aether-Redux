@@ -10,6 +10,7 @@ import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
 import net.minecraft.data.PackOutput;
+import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.util.random.WeightedEntry;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -28,11 +29,11 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.common.data.GlobalLootModifierProvider;
 import net.minecraftforge.common.loot.LootTableIdCondition;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.api.flag.Flags;
-import net.zepalesque.redux.api.flag.Not;
+import net.zepalesque.redux.api.condition.Conditions;
+import net.zepalesque.redux.api.condition.Not;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.item.ReduxItems;
-import net.zepalesque.redux.loot.condition.LootFlag;
+import net.zepalesque.redux.loot.condition.DataLootCondition;
 import net.zepalesque.redux.loot.modifiers.DungeonLootModifier;
 import net.zepalesque.redux.loot.modifiers.AddDrops;
 import net.zepalesque.redux.loot.modifiers.RawOreModifier;
@@ -65,7 +66,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                         ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE).build()
                 },
                 new LootItemCondition[] {
-                        LootFlag.of(Flags.RAW_ORES).build(),
+                        DataLootCondition.conditionOf(Conditions.RAW_ORES).build(),
                         HAS_SILK_TOUCH.invert().build(),
                         LootItemBlockStatePropertyCondition.hasBlockStateProperties(AetherBlocks.GRAVITITE_ORE.get()).build()}));
 
@@ -76,7 +77,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                         ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE).build()
                 },
                 new LootItemCondition[] {
-                        LootFlag.of(Flags.RAW_ORES).build(),
+                        DataLootCondition.conditionOf(Conditions.RAW_ORES).build(),
                         HAS_SILK_TOUCH.invert().build(),
                         LootItemBlockStatePropertyCondition.hasBlockStateProperties(ReduxBlocks.VERIDIUM_ORE.get()).build()}));
 
@@ -106,7 +107,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                 new LootItemCondition[] {LootItemEntityPropertyCondition
                         .hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(AetherTags.Entities.SWETS))
                         .build(),
-                        LootFlag.of(new Not(Flags.GENESIS)).build()
+                        DataLootCondition.conditionOf(new Not(Conditions.GENESIS)).build()
 
                 }));
 
@@ -208,7 +209,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                 new LootItemCondition[] {LootItemEntityPropertyCondition
                         .hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(AetherEntityTypes.GOLDEN_SWET.get()))
                         .build(),
-                        LootFlag.of(new Not<>(Flags.GENESIS)).build()
+                        DataLootCondition.conditionOf(new Not<>(Conditions.GENESIS)).build()
                 }));
 //        this.add("genesis_golden_swet_ball_increase", new GenesisAddDropsModifier(new ItemStack(GenesisItems.GOLDEN_SWET_BALL.get()),
 //                new LootItemFunction[] {

@@ -12,7 +12,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.api.flag.DataFlag;
+import net.zepalesque.redux.api.condition.AbstractCondition;
 
 import java.util.List;
 import java.util.function.Function;
@@ -26,7 +26,7 @@ public class ReduxBiomeModifierCodecs {
                     WaterColorReplacementBiomeModifier.WaterColorPredicate.CODEC.fieldOf("predicate").forGetter(WaterColorReplacementBiomeModifier::predicate),
                     Codec.INT.fieldOf("water_color").forGetter(WaterColorReplacementBiomeModifier::water),
                     Codec.INT.fieldOf("water_fog_color").forGetter(WaterColorReplacementBiomeModifier::fog),
-                    DataFlag.CODEC.fieldOf("flag").forGetter(WaterColorReplacementBiomeModifier::condition)
+                    AbstractCondition.CODEC.fieldOf("condition").forGetter(WaterColorReplacementBiomeModifier::condition)
             ).apply(builder, WaterColorReplacementBiomeModifier::new)));
 
     static RegistryObject<Codec<GrassAndFoliageColorModifier>> GRASS_AND_FOLIAGE = CODECS.register("grass_and_foliage", () ->
@@ -60,7 +60,7 @@ public class ReduxBiomeModifierCodecs {
                             either -> either.map(Function.identity(), List::of), // convert list/singleton to list when decoding
                             list -> list.size() == 1 ? Either.right(list.get(0)) : Either.left(list) // convert list to singleton/list when encoding
                     ).fieldOf("spawners").forGetter(ReduxSpawnsModifier::spawners),
-                    DataFlag.CODEC.fieldOf("flag").forGetter(ReduxSpawnsModifier::condition),
+                    AbstractCondition.CODEC.fieldOf("condition").forGetter(ReduxSpawnsModifier::condition),
                     Codec.DOUBLE.fieldOf("charge").forGetter(ReduxSpawnsModifier::charge),
                     Codec.DOUBLE.fieldOf("energy_budget").forGetter(ReduxSpawnsModifier::energyBudget)
             ).apply(builder, ReduxSpawnsModifier::new))

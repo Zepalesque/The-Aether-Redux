@@ -10,8 +10,8 @@ import net.zepalesque.redux.Redux;
 
 public class ReduxPlacementModifiers {
 
-    public static final PlacementModifierType<FlagFilter> DATA_CONDITION =
-            register(new ResourceLocation(Redux.MODID, "data_flag"), FlagFilter.CODEC);
+    public static final PlacementModifierType<ConditionFilter> DATA_CONDITION =
+            register(new ResourceLocation(Redux.MODID, "data_condition"), ConditionFilter.CODEC);
 
     public static void init() {
     }

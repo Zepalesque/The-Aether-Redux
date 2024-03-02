@@ -24,12 +24,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 public class DungeonLootModifier extends LootModifier {
-    public static final Codec<DungeonLootModifier> CODEC =
-            RecordCodecBuilder.create(
-                    (instance) -> codecStart(instance)
-                            .and(Wrapper.codec(ItemStack.CODEC)
-                                    .listOf().fieldOf("entries").forGetter((modifier) -> modifier.entries))
-                            .and(IntProvider.CODEC.fieldOf("rolls").forGetter((modifier) -> modifier.rolls))
+    public static final Codec<DungeonLootModifier> CODEC = RecordCodecBuilder.create((instance) -> codecStart(instance).and(Wrapper.codec(ItemStack.CODEC).listOf().fieldOf("entries").forGetter((modifier) -> modifier.entries)).and(IntProvider.CODEC.fieldOf("rolls").forGetter((modifier) -> modifier.rolls))
             .apply(instance, DungeonLootModifier::new));
     public final List<Wrapper<ItemStack>> entries;
     public final IntProvider rolls;

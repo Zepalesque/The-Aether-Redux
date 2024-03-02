@@ -29,9 +29,11 @@ import net.minecraft.world.level.levelgen.heightproviders.UniformHeight;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.api.flag.Flags;
+import net.zepalesque.redux.api.condition.Conditions;
+import net.zepalesque.redux.api.condition.Not;
+import net.zepalesque.redux.api.condition.Or;
 import net.zepalesque.redux.block.ReduxBlocks;
-import net.zepalesque.redux.world.placement.FlagFilter;
+import net.zepalesque.redux.world.placement.ConditionFilter;
 
 import java.util.List;
 
@@ -136,7 +138,7 @@ public class ReduxPlacedFeatures {
                 NoiseThresholdCountPlacement.of(-0.8, 10, 20),
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
                 new ConfigFilter(AetherConfig.SERVER.generate_tall_grass),
-                FlagFilter.whenTrue(Flags.ANCIENT),
+                ConditionFilter.whenTrue(Conditions.ANCIENT),
                 BiomeFilter.biome()
         );
         register(context, CLOUD_LAYER, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.CLOUD_LAYER));
@@ -393,14 +395,14 @@ public class ReduxPlacedFeatures {
                 CountPlacement.of(24),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(UniformHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(128))),
-                FlagFilter.whenTrue(Flags.MOSSY_ORE),
+                ConditionFilter.whenTrue(Conditions.MOSSY_ORE),
                 BiomeFilter.biome()
         );
         register(context, BLIGHTMOSS_HOLYSTONE_ORE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.BLIGHTMOSS_HOLYSTONE_ORE),
                 CountPlacement.of(24),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(UniformHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(128))),
-                FlagFilter.whenTrue(Flags.MOSSY_ORE),
+                ConditionFilter.whenTrue(Conditions.MOSSY_ORE),
                 BiomeFilter.biome()
         );
 
@@ -415,7 +417,7 @@ public class ReduxPlacedFeatures {
                 PlacementUtils.filteredByBlockSurvival(ReduxBlocks.GILDED_OAK_SAPLING.get())
         );
         register(context, GROVE_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GROVE_TREES),
-                FlagFilter.whenFalse(Flags.ALT_GILDED),
+                ConditionFilter.whenFalse(Conditions.ALT_GILDED),
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
                         .add(ConstantInt.of(12), 9)
                         .add(ConstantInt.of(7), 1)
@@ -427,7 +429,7 @@ public class ReduxPlacedFeatures {
         );
 
         register(context, GROVE_TREES_ALT, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GROVE_TREES_ALT),
-                FlagFilter.whenTrue(Flags.ALT_GILDED),
+                ConditionFilter.whenTrue(Conditions.ALT_GILDED),
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
                         .add(ConstantInt.of(12), 9)
                         .add(ConstantInt.of(7), 1)
@@ -439,7 +441,7 @@ public class ReduxPlacedFeatures {
         );
 
         register(context, GRASSLAND_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GRASSLAND_TREES),
-                FlagFilter.whenFalse(Flags.ALT_GILDED),
+                ConditionFilter.whenFalse(Conditions.ALT_GILDED),
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
                         .add(ConstantInt.of(5), 9)
                         .add(ConstantInt.of(6), 1)
@@ -451,7 +453,7 @@ public class ReduxPlacedFeatures {
                 PlacementUtils.filteredByBlockSurvival(ReduxBlocks.GILDED_OAK_SAPLING.get())
         );
         register(context, GRASSLAND_TREES_ALT, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GRASSLAND_TREES_ALT),
-                FlagFilter.whenTrue(Flags.ALT_GILDED),
+                ConditionFilter.whenTrue(Conditions.ALT_GILDED),
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
                         .add(ConstantInt.of(5), 9)
                         .add(ConstantInt.of(6), 1)
@@ -467,7 +469,7 @@ public class ReduxPlacedFeatures {
                 CountPlacement.of(24),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(UniformHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(128))),
-                FlagFilter.whenTrue(Flags.MOSSY_ORE),
+                ConditionFilter.whenTrue(Conditions.MOSSY_ORE),
                 BiomeFilter.biome()
         );
 
@@ -583,7 +585,7 @@ public class ReduxPlacedFeatures {
                 CountPlacement.of(24),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(UniformHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(128))),
-                FlagFilter.whenTrue(Flags.MOSSY_ORE),
+                ConditionFilter.whenTrue(Conditions.MOSSY_ORE),
                 BiomeFilter.biome()
         );
 

@@ -1,5 +1,6 @@
-package net.zepalesque.redux.api.flag;
+package net.zepalesque.redux.api.condition;
 
+import com.aetherteam.aether.data.ConfigSerializationUtil;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraftforge.common.ForgeConfigSpec;
@@ -8,29 +9,29 @@ import net.zepalesque.redux.config.util.ReduxConfigSerialization;
 /**
  *  Must use a {@link ForgeConfigSpec.ConfigValue}<{@link Boolean}> that is either a part of {@link com.aetherteam.aether.AetherConfig.Common} or {@link com.aetherteam.aether.AetherConfig.Common}
  */
-public class ReduxConfigFlag implements DataFlag<ReduxConfigFlag> {
+public class ReduxConfigCondition implements AbstractCondition<ReduxConfigCondition> {
 
-    public static final Codec<ReduxConfigFlag> CODEC = RecordCodecBuilder.create((condition) ->
+    public static final Codec<ReduxConfigCondition> CODEC = RecordCodecBuilder.create((condition) ->
             condition.group(Codec.STRING.fieldOf("config_path").forGetter((config) -> ReduxConfigSerialization.serialize(config.config)))
-                    .apply(condition, ReduxConfigFlag::fromText));
+                    .apply(condition, ReduxConfigCondition::fromText));
 
     protected final ForgeConfigSpec.ConfigValue<Boolean> config;
 
-    public static ReduxConfigFlag fromText(String config) {
-        return new ReduxConfigFlag(ReduxConfigSerialization.deserialize(config));
+    public static ReduxConfigCondition fromText(String config) {
+        return new ReduxConfigCondition(ReduxConfigSerialization.deserialize(config));
     }
-    public ReduxConfigFlag(ForgeConfigSpec.ConfigValue<Boolean> config) {
+    public ReduxConfigCondition(ForgeConfigSpec.ConfigValue<Boolean> config) {
         this.config = config;
     }
 
     @Override
-    public boolean test() {
+    public boolean isConditionMet() {
         return this.config.get();
     }
 
     @Override
-    public Codec<ReduxConfigFlag> codec() {
-        return FlagSerializers.REDUX_CONFIG.get();
+    public Codec<ReduxConfigCondition> codec() {
+        return ConditionSerializers.REDUX_CONFIG.get();
     }
 
     @Override
