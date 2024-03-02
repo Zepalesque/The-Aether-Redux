@@ -238,6 +238,14 @@ public class ReduxBlocks {
                     BlockBehaviour.Properties.copy(Blocks.FLOWER_POT))
     );
 
+
+    public static final RegistryObject<SaplingBlock> CRYSTAL_SAPLING = register("crystal_sapling", () ->
+            new SaplingBlock(new CrystalTree(false), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING))
+    );
+    public static final RegistryObject<SaplingBlock> CRYSTAL_FRUIT_SAPLING = register("crystal_fruit_sapling", () ->
+            new SaplingBlock(new CrystalTree(true), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING))
+    );
+
     public static final RegistryObject<SaplingBlock> FIELDSPROOT_SAPLING = register("fieldsproot_sapling", () ->
             new SaplingBlock(new FieldsprootTree(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING).sound(SoundType.CHERRY_SAPLING))
     );
