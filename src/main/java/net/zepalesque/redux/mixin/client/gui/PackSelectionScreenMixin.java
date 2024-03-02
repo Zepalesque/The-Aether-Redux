@@ -5,7 +5,7 @@ import net.minecraft.client.gui.screens.packs.PackSelectionModel;
 import net.minecraft.client.gui.screens.packs.PackSelectionScreen;
 import net.minecraft.server.packs.repository.Pack;
 import net.zepalesque.redux.api.MixinMenuStorage;
-import net.zepalesque.redux.client.gui.screen.PackConfigMenu;
+import net.zepalesque.redux.client.gui.screen.config.PackConfigMenu;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -16,7 +16,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.HashSet;
-import java.util.List;
 
 @Mixin(PackSelectionScreen.class)
 public class PackSelectionScreenMixin implements MixinMenuStorage {

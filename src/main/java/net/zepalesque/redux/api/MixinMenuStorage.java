@@ -1,6 +1,6 @@
 package net.zepalesque.redux.api;
 
-import net.zepalesque.redux.client.gui.screen.PackConfigMenu;
+import net.zepalesque.redux.client.gui.screen.config.PackConfigMenu;
 
 public interface MixinMenuStorage {
 

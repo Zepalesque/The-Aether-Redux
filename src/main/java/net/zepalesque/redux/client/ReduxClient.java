@@ -1,5 +1,6 @@
 package net.zepalesque.redux.client;
 
+import com.aetherteam.aether_genesis.client.GenesisAtlases;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;

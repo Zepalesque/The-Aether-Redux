@@ -547,6 +547,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addPackConfig("better_slider_sounds", "Upgraded Slider Sounds", "Improves the sounds of the Slider, with more labyrinth-themed ambient droning and a more Sentry-like hurt sound.");
         addPackConfig("better_tempest_sounds", "Upgraded Tempest Sounds (Requires: The Aether: Genesis)", "Improves the sounds of the Aether: Genesis's Tempests, giving them their sounds heard in early builds of the Aether II: Highlands.");
 
+        addMenuTitle("the_aether_redux", "The Aether: Redux");
 
         addPackTitle("overrides", "Redux - Aether Overrides");
         addPackDescription("overrides", "Configurable overrides for the Aether: Redux");

@@ -1,9 +1,10 @@
-package net.zepalesque.redux.client.gui.component;
+package net.zepalesque.redux.client.gui.component.config;
 
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
-import net.zepalesque.redux.client.gui.screen.PackConfigMenu;
+import net.zepalesque.redux.client.gui.component.RenderableString;
+import net.zepalesque.redux.client.gui.screen.config.PackConfigMenu;
 
 public class PageDependentString extends RenderableString implements IDisplayPage {
 

@@ -2,9 +2,8 @@ package net.zepalesque.redux.api.serialization.client;
 
 import com.google.gson.JsonElement;
 import net.zepalesque.redux.api.packconfig.PackConfig;
-import net.zepalesque.redux.api.serialization.Mapper;
 import net.zepalesque.redux.api.serialization.Mappers;
-import net.zepalesque.redux.client.gui.component.SaveableBooleanButton;
+import net.zepalesque.redux.client.gui.component.config.SaveableBooleanButton;
 
 import java.util.Optional;
 import java.util.function.Function;

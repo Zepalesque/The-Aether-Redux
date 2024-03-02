@@ -4,6 +4,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.network.chat.Component;
+import net.zepalesque.redux.client.gui.component.config.IDisplayPage;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Supplier;

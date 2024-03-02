@@ -8,9 +8,9 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.zepalesque.redux.api.packconfig.PackConfig;
 import net.zepalesque.redux.api.serialization.Mapper;
-import net.zepalesque.redux.client.gui.component.SaveableEditBox;
-import net.zepalesque.redux.client.gui.component.SaveableEnumButton;
-import net.zepalesque.redux.client.gui.screen.PackConfigMenu;
+import net.zepalesque.redux.client.gui.component.config.SaveableEditBox;
+import net.zepalesque.redux.client.gui.component.config.SaveableEnumButton;
+import net.zepalesque.redux.client.gui.screen.config.PackConfigMenu;
 import net.zepalesque.redux.util.function.OctoFunction;
 
 import java.util.Optional;

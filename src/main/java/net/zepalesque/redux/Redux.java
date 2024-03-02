@@ -1,6 +1,7 @@
 package net.zepalesque.redux;
 
 import com.aetherteam.aether.AetherConfig;
+import com.aetherteam.aether.api.AetherMenus;
 import com.aetherteam.aether.block.dispenser.DispenseUsableItemBehavior;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether_genesis.entity.GenesisEntityTypes;
@@ -35,6 +36,7 @@ import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.AddPackFindersEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoader;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -58,6 +60,7 @@ import net.zepalesque.redux.blockentity.ReduxBlockEntityTypes;
 import net.zepalesque.redux.builtin.BuiltinPackUtils;
 import net.zepalesque.redux.client.ReduxClient;
 import net.zepalesque.redux.client.ReduxColors;
+import net.zepalesque.redux.client.ReduxMenus;
 import net.zepalesque.redux.client.ReduxPostProcessHandler;
 import net.zepalesque.redux.client.render.entity.BlightbunnyRenderer;
 import net.zepalesque.redux.client.render.geo.MykapodRenderer;
@@ -164,6 +167,10 @@ public class Redux {
         ReduxPotions.POTIONS.register(bus);
         ReduxBlocks.registerWoodTypes();
         ReduxBlocks.registerPots();
+        DistExecutor.unsafeRunForDist(() -> () -> {
+            ReduxMenus.MENUS.register(bus);
+            return true;
+        }, () -> () -> false);
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(MobSoundListener.class);
 
