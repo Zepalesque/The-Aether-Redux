@@ -230,6 +230,14 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.POTTED_FIELDSPROOT_SAPLING, "Potted Fieldsproot Sapling");
         addLore(ReduxBlocks.FIELDSPROOT_SAPLING, "The sapling of the colorful Fieldsproot tree. It can be grown by waiting or using Bone Meal.");
 
+        addBlock(ReduxBlocks.CRYSTAL_SAPLING, "Crystal Sapling");
+        addBlock(ReduxBlocks.POTTED_CRYSTAL_SAPLING, "Potted Crystal Sapling");
+        addLore(ReduxBlocks.CRYSTAL_SAPLING, "A sapling of a Crystal tree. This can be grown, or enchanted at an altar into the fruit variant.");
+
+        addBlock(ReduxBlocks.CRYSTAL_FRUIT_SAPLING, "Crystal Fruit Sapling");
+        addBlock(ReduxBlocks.POTTED_CRYSTAL_FRUIT_SAPLING, "Potted Crystal Fruit Sapling");
+        addLore(ReduxBlocks.CRYSTAL_FRUIT_SAPLING, "A sapling of a Crystal tree, with fruits on it. This can be grown with bonemeal.");
+
         addBlock(ReduxBlocks.AVELIUM_ROOTS, "Avelium Roots");
         addBlock(ReduxBlocks.POTTED_AVELIUM_ROOTS, "Potted Avelium Roots");
         addLore(ReduxBlocks.AVELIUM_ROOTS, "Sprouting roots that grow on Avelium in the Cloudcaps.");

@@ -242,8 +242,18 @@ public class ReduxBlocks {
     public static final RegistryObject<SaplingBlock> CRYSTAL_SAPLING = register("crystal_sapling", () ->
             new SaplingBlock(new CrystalTree(false), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING))
     );
+    public static final RegistryObject<FlowerPotBlock> POTTED_CRYSTAL_SAPLING = BLOCKS.register("potted_crystal_sapling",
+            () -> new FlowerPotBlock(() ->
+                    (FlowerPotBlock)Blocks.FLOWER_POT, CRYSTAL_SAPLING,
+                    BlockBehaviour.Properties.copy(Blocks.FLOWER_POT))
+    );
     public static final RegistryObject<SaplingBlock> CRYSTAL_FRUIT_SAPLING = register("crystal_fruit_sapling", () ->
             new SaplingBlock(new CrystalTree(true), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING))
+    );
+    public static final RegistryObject<FlowerPotBlock> POTTED_CRYSTAL_FRUIT_SAPLING = BLOCKS.register("potted_crystal_fruit_sapling",
+            () -> new FlowerPotBlock(() ->
+                    (FlowerPotBlock)Blocks.FLOWER_POT, CRYSTAL_FRUIT_SAPLING,
+                    BlockBehaviour.Properties.copy(Blocks.FLOWER_POT))
     );
 
     public static final RegistryObject<SaplingBlock> FIELDSPROOT_SAPLING = register("fieldsproot_sapling", () ->
@@ -465,6 +475,9 @@ public class ReduxBlocks {
         pot.addPlant(ReduxBlocks.BLIGHTED_SKYROOT_SAPLING.getId(), ReduxBlocks.POTTED_BLIGHTED_SKYROOT_SAPLING);
         pot.addPlant(ReduxBlocks.SKYSPROUTS.getId(), ReduxBlocks.POTTED_SKYSPROUTS);
         pot.addPlant(ReduxBlocks.THERATIP.getId(), ReduxBlocks.POTTED_THERATIP);
+        pot.addPlant(ReduxBlocks.CRYSTAL_SAPLING.getId(), ReduxBlocks.POTTED_CRYSTAL_SAPLING);
+        pot.addPlant(ReduxBlocks.CRYSTAL_FRUIT_SAPLING.getId(), ReduxBlocks.POTTED_CRYSTAL_FRUIT_SAPLING);
+        pot.addPlant(ReduxBlocks.SHIMMERSTOOL.getId(), ReduxBlocks.POTTED_SHIMMERSTOOL);
     }
 
 
