@@ -107,7 +107,7 @@ public class ReduxTitleScreen extends TitleScreen implements TitleScreenBehavior
 				if (splashRendererAccessor.cumulus$getSplash() != null && !splashRendererAccessor.cumulus$getSplash().isEmpty()) {
 					PoseStack poseStack = guiGraphics.pose();
 					float splashX = (float) ReduxTitleScreen.this.width / 2 + (175 / scale);
-					float splashY = (int) (20 + (76 / scale));
+					float splashY = (int) (20 + (128 / scale));
 					poseStack.pushPose();
 					poseStack.translate(splashX, splashY, 0.0F);
 					poseStack.mulPose(Axis.ZP.rotationDegrees(-20.0F));
@@ -153,8 +153,8 @@ public class ReduxTitleScreen extends TitleScreen implements TitleScreenBehavior
 	 * @param scale The {@link Float} for the scaling of the logo relative to the true screen scale.
 	 */
 	private void setupLogo(GuiGraphics guiGraphics, float transparency, float scale) {
-		int width = (int) (384 / scale);
-		int height = (int) (192 / scale);
+		int width = (int) (256 / scale);
+		int height = (int) (128 / scale);
 		int logoX = (int) ((this.width / 2 - 175 / scale));
 		int logoY = (int) (/*25*/ 0 + (10 / scale));
 		guiGraphics.setColor(1.0F, 1.0F, 1.0F, transparency);

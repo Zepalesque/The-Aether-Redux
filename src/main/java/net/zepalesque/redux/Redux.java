@@ -229,9 +229,13 @@ public class Redux {
                 () -> {
                     if (ReduxConfig.CLIENT.change_aether_configs.get()) {
                         AetherConfig.CLIENT.green_sunset.set(true);
+                        AetherConfig.CLIENT.green_sunset.save();
                         AetherConfig.CLIENT.colder_lightmap.set(true);
+                        AetherConfig.CLIENT.colder_lightmap.save();
                         ReduxConfig.CLIENT.change_aether_configs.set(false);
+                        ReduxConfig.CLIENT.change_aether_configs.save();
                         AeroBlenderConfig.COMMON.vanillaAetherRegionWeight.set(0);
+                        AeroBlenderConfig.COMMON.vanillaAetherRegionWeight.save();
                     }
                     ReduxClient.registerItemModelProperties();
                     ReduxPostProcessHandler.initAdrenalineShader();
