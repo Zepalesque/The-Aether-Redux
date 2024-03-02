@@ -155,7 +155,7 @@ public class ReduxTitleScreen extends TitleScreen implements TitleScreenBehavior
 	private void setupLogo(GuiGraphics guiGraphics, float transparency, float scale) {
 		int width = (int) (256 / scale);
 		int height = (int) (128 / scale);
-		int logoX = (int) ((this.width / 2 - 175 / scale));
+		int logoX = (int) ((this.width / 2 - 128 / scale));
 		int logoY = (int) (/*25*/ 0 + (10 / scale));
 		guiGraphics.setColor(1.0F, 1.0F, 1.0F, transparency);
 		guiGraphics.blit(AETHER_LOGO, logoX, logoY, 0, 0, width, height, width, height);
