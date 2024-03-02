@@ -476,6 +476,14 @@
     ],
     "subtitle": "subtitles.aether_redux.item.subzero_crossbow_shoot"
   },
+  "music.redux_menu": {
+    "sounds": [
+      {
+        "name": "aether_redux:music/redux_menu",
+        "stream": true
+      }
+    ]
+  },
   "ui.toast.aether_redux_gold": {
     "sounds": [
       {
