@@ -10,7 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.MixinMenuStorage;
-import net.zepalesque.redux.client.gui.screen.PackConfigMenu;
+import net.zepalesque.redux.client.gui.screen.config.PackConfigMenu;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;

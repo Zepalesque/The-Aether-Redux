@@ -1,4 +1,4 @@
-package net.zepalesque.redux.client.gui.screen;
+package net.zepalesque.redux.client.gui.screen.config;
 
 import com.google.common.collect.Lists;
 import net.minecraft.client.Minecraft;
@@ -14,6 +14,8 @@ import net.zepalesque.redux.api.packconfig.Category;
 import net.zepalesque.redux.api.packconfig.IConfigSaving;
 import net.zepalesque.redux.api.packconfig.PackConfig;
 import net.zepalesque.redux.client.gui.component.*;
+import net.zepalesque.redux.client.gui.component.config.ISaveable;
+import net.zepalesque.redux.client.gui.component.config.PageDependentString;
 import net.zepalesque.redux.util.math.MathUtil;
 import org.jetbrains.annotations.Nullable;
 import org.lwjgl.glfw.GLFW;

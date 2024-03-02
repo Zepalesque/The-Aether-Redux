@@ -1,4 +1,4 @@
-package net.zepalesque.redux.client.gui.component;
+package net.zepalesque.redux.client.gui.component.config;
 
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
@@ -6,7 +6,7 @@ import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.network.chat.Component;
 import net.zepalesque.redux.api.packconfig.PackConfig;
-import net.zepalesque.redux.client.gui.screen.PackConfigMenu;
+import net.zepalesque.redux.client.gui.screen.config.PackConfigMenu;
 
 public class SaveableEditBox extends EditBox implements ISaveable, IDisplayPage
 {

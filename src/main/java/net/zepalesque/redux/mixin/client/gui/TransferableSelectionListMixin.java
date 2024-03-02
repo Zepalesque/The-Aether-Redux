@@ -3,7 +3,7 @@ package net.zepalesque.redux.mixin.client.gui;
 import net.minecraft.client.gui.screens.packs.PackSelectionScreen;
 import net.minecraft.client.gui.screens.packs.TransferableSelectionList;
 import net.zepalesque.redux.api.MixinMenuStorage;
-import net.zepalesque.redux.client.gui.screen.PackConfigMenu;
+import net.zepalesque.redux.client.gui.screen.config.PackConfigMenu;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
