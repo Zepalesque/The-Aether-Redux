@@ -1,5 +1,6 @@
 {
   "tip": {
+    "color": "white",
     "translate": "gui.aether_redux.tip_color"
   },
   "title": {

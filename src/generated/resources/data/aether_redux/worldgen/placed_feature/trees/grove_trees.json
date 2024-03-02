@@ -2,12 +2,12 @@
   "feature": "aether_redux:trees/grove_trees",
   "placement": [
     {
-      "type": "aether_redux:data_condition",
-      "data_condition": {
-        "condition": "aether_redux:not",
+      "type": "aether_redux:data_flag",
+      "flag": {
+        "data_flag": "aether_redux:not",
         "inverted": {
-          "condition": "aether_redux:redux_config",
-          "config_path": "[Worldgen, Biomes, Alternate Gilded Trees]"
+          "config_path": "[Worldgen, Biomes, Alternate Gilded Trees]",
+          "data_flag": "aether_redux:redux_config"
         }
       }
     },

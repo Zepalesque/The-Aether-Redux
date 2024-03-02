@@ -21,10 +21,10 @@
       }
     },
     {
-      "type": "aether_redux:data_condition",
-      "data_condition": {
-        "condition": "aether_redux:redux_config",
-        "config_path": "[Worldgen, Additional Features, Mossy Holystone Ores]"
+      "type": "aether_redux:data_flag",
+      "flag": {
+        "config_path": "[Worldgen, Additional Features, Mossy Holystone Ores]",
+        "data_flag": "aether_redux:redux_config"
       }
     },
     {

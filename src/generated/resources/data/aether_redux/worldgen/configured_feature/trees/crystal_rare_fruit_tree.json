@@ -18,16 +18,33 @@
       "trunk_height": 6
     },
     "foliage_provider": {
-      "type": "minecraft:simple_state_provider",
-      "state": {
-        "Name": "aether:crystal_leaves",
-        "Properties": {
-          "distance": "7",
-          "double_drops": "true",
-          "persistent": "false",
-          "waterlogged": "false"
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "aether:crystal_leaves",
+            "Properties": {
+              "distance": "7",
+              "double_drops": "true",
+              "persistent": "false",
+              "waterlogged": "false"
+            }
+          },
+          "weight": 9
+        },
+        {
+          "data": {
+            "Name": "aether:crystal_fruit_leaves",
+            "Properties": {
+              "distance": "7",
+              "double_drops": "true",
+              "persistent": "false",
+              "waterlogged": "false"
+            }
+          },
+          "weight": 1
         }
-      }
+      ]
     },
     "force_dirt": false,
     "ignore_vines": true,

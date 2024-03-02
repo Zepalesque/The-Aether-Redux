@@ -20,7 +20,27 @@
     },
     "features": [
       {
-        "chance": 0.35,
+        "chance": 0.05,
+        "feature": {
+          "feature": "aether_redux:trees/crystal_rare_fruit_tree",
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:would_survive",
+                "state": {
+                  "Name": "aether:skyroot_sapling",
+                  "Properties": {
+                    "stage": "0"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "chance": 0.3,
         "feature": {
           "feature": "aether_redux:trees/crystal_leaf_tree",
           "placement": [

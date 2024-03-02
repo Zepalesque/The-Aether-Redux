@@ -81,6 +81,8 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
                 (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.BLIGHTWILLOW_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
 
         this.dropSelf(ReduxBlocks.BLIGHTWILLOW_SAPLING.get());
+        this.dropSelf(ReduxBlocks.CRYSTAL_SAPLING.get());
+        this.dropSelf(ReduxBlocks.CRYSTAL_FRUIT_SAPLING.get());
 
         this.dropPottedContents(ReduxBlocks.POTTED_BLIGHTWILLOW_SAPLING.get());
 

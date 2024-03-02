@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-29T22:16:12.0954316	Loot Tables
+// 1.20.1	2024-03-02T09:29:13.4447328	Loot Tables
 c6156555dc4897939b617dabc4521b7fa52feba0 data/aether_redux/loot_tables/blocks/aurum.json
 b5773c78c7b3f27032f1cca6fb72f440e24c7529 data/aether_redux/loot_tables/blocks/avelium.json
 4c8b773f2431b28dd2a48b90d08323d8ff67a3d7 data/aether_redux/loot_tables/blocks/avelium_roots.json
@@ -68,11 +68,13 @@ da9680fe6445055c1187c6ff24d9cd82d9bcd824 data/aether_redux/loot_tables/blocks/cr
 9f765836d6f43d586c2682572fd9dd76dd1ec3a7 data/aether_redux/loot_tables/blocks/crystal_door.json
 e1242882a19b9fd87054a56aa3b7f015c0983b6b data/aether_redux/loot_tables/blocks/crystal_fence.json
 ff9633f8b99f52220deaa2aeab42b7495c34b1c1 data/aether_redux/loot_tables/blocks/crystal_fence_gate.json
+8a5d857b295036193b35dd630dbc2e0045822c9b data/aether_redux/loot_tables/blocks/crystal_fruit_sapling.json
 669dc5291deb05e426411781e57fc751e750242c data/aether_redux/loot_tables/blocks/crystal_hanging_sign.json
 d0ecc5dadc886b64c972c23609cffb668a9c62f3 data/aether_redux/loot_tables/blocks/crystal_log.json
 4280dd797ee041213a00928160c1b6b8f239020c data/aether_redux/loot_tables/blocks/crystal_log_wall.json
 15b27606bdec4036b2e7d9668a4655683f20a19c data/aether_redux/loot_tables/blocks/crystal_planks.json
 43061293b8d3e9cf6595784c5c3bc5357b13ed62 data/aether_redux/loot_tables/blocks/crystal_pressure_plate.json
+f67ebddbf56901caba355b6ecff9fe267f3a38f1 data/aether_redux/loot_tables/blocks/crystal_sapling.json
 82c6ae402e97452914be1f3392b5376f43500d3b data/aether_redux/loot_tables/blocks/crystal_sign.json
 b07d532ed4b23b14e8bb26b462745483c21bef76 data/aether_redux/loot_tables/blocks/crystal_slab.json
 a71702adb660baa233fd4a15cf386405b6246c4c data/aether_redux/loot_tables/blocks/crystal_stairs.json

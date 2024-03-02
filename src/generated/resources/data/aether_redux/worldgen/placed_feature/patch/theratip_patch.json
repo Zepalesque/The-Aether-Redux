@@ -1,5 +1,5 @@
 {
-  "feature": "aether_redux:patch/daggerbloom_patch",
+  "feature": "aether_redux:patch/theratip_patch",
   "placement": [
     {
       "type": "minecraft:noise_threshold_count",
@@ -21,7 +21,7 @@
     },
     {
       "type": "minecraft:rarity_filter",
-      "chance": 10
+      "chance": 5
     },
     {
       "type": "minecraft:biome"
