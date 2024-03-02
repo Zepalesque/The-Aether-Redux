@@ -10,7 +10,7 @@ import net.zepalesque.redux.Redux;
 public class ReduxConditionSources {
     public static final DeferredRegister<Codec<? extends SurfaceRules.ConditionSource>> CONDITIONS = DeferredRegister.create(Registries.MATERIAL_CONDITION, Redux.MODID);
 
-    public static RegistryObject<Codec<? extends SurfaceRules.ConditionSource>> CONDITION_CONDITION = CONDITIONS.register("condition_condition", ConditionCondition.CODEC::codec);
+    public static RegistryObject<Codec<? extends SurfaceRules.ConditionSource>> CONDITION_CONDITION = CONDITIONS.register("condition_condition", FlagRule.CODEC::codec);
 
 
 }

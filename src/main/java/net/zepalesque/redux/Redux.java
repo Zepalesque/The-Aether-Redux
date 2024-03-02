@@ -36,7 +36,6 @@ import net.minecraftforge.event.AddPackFindersEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
-import net.minecraftforge.fml.ModLoader;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -48,8 +47,8 @@ import net.minecraftforge.registries.RegisterEvent;
 import net.minecraftforge.resource.PathPackResources;
 import net.zepalesque.redux.advancement.trigger.ReduxAdvancementTriggers;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
-import net.zepalesque.redux.api.condition.AbstractCondition;
-import net.zepalesque.redux.api.condition.ConditionSerializers;
+import net.zepalesque.redux.api.flag.DataFlag;
+import net.zepalesque.redux.api.flag.FlagSerializers;
 import net.zepalesque.redux.api.packconfig.PackConfigBootstrap;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.util.ReduxSoundTypes;
@@ -84,7 +83,7 @@ import net.zepalesque.redux.misc.ReduxPackSources;
 import net.zepalesque.redux.misc.ReduxPotions;
 import net.zepalesque.redux.network.ReduxPacketHandler;
 import net.zepalesque.redux.recipe.ReduxRecipeTypes;
-import net.zepalesque.redux.recipe.condition.DataRecipeCondition;
+import net.zepalesque.redux.recipe.condition.RecipeFlag;
 import net.zepalesque.redux.recipe.serializer.ReduxRecipeSerializers;
 import net.zepalesque.redux.util.function.QuadConsumer;
 import net.zepalesque.redux.world.biome.ReduxRegion;
@@ -142,7 +141,7 @@ public class Redux {
         ReduxSoundEvents.SOUNDS.register(bus);
         ReduxBlockEntityTypes.BLOCK_ENTITY_TYPES.register(bus);
         ReduxEntityTypes.ENTITY_TYPES.register(bus);
-        ConditionSerializers.CODECS.register(bus);
+        FlagSerializers.CODECS.register(bus);
         ReduxBiomeModifierCodecs.CODECS.register(bus);
         ReduxLootModifiers.LOOT_MODIFIERS.register(bus);
         ReduxEffects.EFFECTS.register(bus);
@@ -172,7 +171,7 @@ public class Redux {
     }
 
     public static class Keys {
-        public static final ResourceKey<Registry<Codec<? extends AbstractCondition<?>>>> CONDITION_SERIALIZER = ResourceKey.createRegistryKey(new ResourceLocation(Redux.MODID, "condition_serializer"));
+        public static final ResourceKey<Registry<Codec<? extends DataFlag<?>>>> CONDITION_SERIALIZER = ResourceKey.createRegistryKey(new ResourceLocation(Redux.MODID, "data_flag_serializer"));
     }
     
     public static class WoodHandlers {
@@ -265,11 +264,9 @@ public class Redux {
         }
     }*/
 
-    public void registerRecipeSerializers(RegisterEvent event)
-    {
-        if (event.getRegistryKey().equals(ForgeRegistries.Keys.RECIPE_SERIALIZERS))
-        {
-            CraftingHelper.register(DataRecipeCondition.Serializer.INSTANCE);
+    public void registerRecipeSerializers(RegisterEvent event) {
+        if (event.getRegistryKey().equals(ForgeRegistries.Keys.RECIPE_SERIALIZERS)) {
+            CraftingHelper.register(RecipeFlag.Serializer.INSTANCE);
         }
     }
 

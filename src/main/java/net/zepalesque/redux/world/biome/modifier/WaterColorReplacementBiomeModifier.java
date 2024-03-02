@@ -7,12 +7,12 @@ import net.minecraft.core.HolderSet;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.common.world.ModifiableBiomeInfo;
-import net.zepalesque.redux.api.condition.AbstractCondition;
+import net.zepalesque.redux.api.flag.DataFlag;
 
-public record WaterColorReplacementBiomeModifier(HolderSet<Biome> biomes, WaterColorPredicate predicate, int water, int fog, AbstractCondition<?> condition) implements BiomeModifier {
+public record WaterColorReplacementBiomeModifier(HolderSet<Biome> biomes, WaterColorPredicate predicate, int water, int fog, DataFlag<?> condition) implements BiomeModifier {
     @Override
     public void modify(Holder<Biome> biome, Phase phase, ModifiableBiomeInfo.BiomeInfo.Builder builder) {
-        if (phase == Phase.AFTER_EVERYTHING && biomes.contains(biome) && condition.isConditionMet() && predicate.test(builder.getSpecialEffects().waterColor(), builder.getSpecialEffects().getWaterFogColor()))
+        if (phase == Phase.AFTER_EVERYTHING && biomes.contains(biome) && condition.test() && predicate.test(builder.getSpecialEffects().waterColor(), builder.getSpecialEffects().getWaterFogColor()))
         { builder.getSpecialEffects().waterColor(water).waterFogColor(fog); }
 
     }

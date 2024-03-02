@@ -3,12 +3,10 @@ package net.zepalesque.redux.data;
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.providers.AetherRecipeProvider;
-import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether_genesis.item.GenesisItems;
 import com.aetherteam.nitrogen.recipe.BlockStateIngredient;
 import com.aetherteam.nitrogen.recipe.builder.BlockStateRecipeBuilder;
-import net.builderdog.ancient_aether.item.AncientAetherItems;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.RequirementsStrategy;
@@ -39,13 +37,13 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
-import net.zepalesque.redux.api.condition.AbstractCondition;
-import net.zepalesque.redux.api.condition.Conditions;
+import net.zepalesque.redux.api.flag.DataFlag;
+import net.zepalesque.redux.api.flag.Flags;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.recipe.builder.StackingRecipeBuilder;
-import net.zepalesque.redux.recipe.condition.DataRecipeCondition;
+import net.zepalesque.redux.recipe.condition.RecipeFlag;
 import net.zepalesque.redux.recipe.serializer.ReduxRecipeSerializers;
 import teamrazor.deepaether.init.DABlocks;
 
@@ -189,25 +187,25 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
 
         // Gummy Swet recipes
         ConditionalRecipe.builder().addCondition(
-                        dc(Conditions.GUMMY_NERF)
+                        flag(Flags.GUMMY_NERF)
                 )
                 .addRecipe(gummySwet(GenesisItems.DARK_GUMMY_SWET, GenesisItems.DARK_SWET_BALL)::save)
                 .generateAdvancement().build(consumer, Redux.locate("genesis_dark_gummy_swet"));
 
         ConditionalRecipe.builder().addCondition(
-                        dc(Conditions.GUMMY_NERF)
+                        flag(Flags.GUMMY_NERF)
                 )
                 .addRecipe(gummySwet(AetherItems.BLUE_GUMMY_SWET, AetherItems.SWET_BALL)::save)
                 .generateAdvancement().build(consumer, Redux.locate("blue_gummy_swet"));
 
         ConditionalRecipe.builder().addCondition(
-                        dc(Conditions.GUMMY_NERF)
+                        flag(Flags.GUMMY_NERF)
                 )
                 .addRecipe(gummySwet(AetherItems.GOLDEN_GUMMY_SWET, ReduxTags.Items.GOLDEN_SWET_BALL)::save)
                 .generateAdvancement().build(consumer, Redux.locate("golden_gummy_swet"));
 
         ConditionalRecipe.builder().addCondition(
-                        dc(Conditions.GUMMY_NERF)
+                        flag(Flags.GUMMY_NERF)
                 )
                 .addRecipe(gummySwet(ReduxItems.VANILLA_GUMMY_SWET, ReduxItems.VANILLA_SWET_BALL)::save)
                 .generateAdvancement().build(consumer, Redux.locate("vanilla_gummy_swet"));
@@ -217,12 +215,12 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
 
         swetJelly(ReduxItems.VANILLA_SWET_JELLY, ReduxItems.VANILLA_SWET_BALL).save(consumer, Redux.locate("vanilla_swet_jelly"));
         ConditionalRecipe.builder().addCondition(
-                        not(dc(Conditions.GENESIS))
+                        not(flag(Flags.GENESIS))
                 )
                 .addRecipe(swetJelly(ReduxItems.GOLDEN_SWET_JELLY, ReduxTags.Items.GOLDEN_SWET_BALL)::save)
                 .generateAdvancement().build(consumer, Redux.locate("golden_swet_jelly"));
         ConditionalRecipe.builder().addCondition(
-                        not(dc(Conditions.GENESIS))
+                        not(flag(Flags.GENESIS))
                 )
                 .addRecipe(swetJelly(ReduxItems.BLUE_SWET_JELLY, AetherItems.SWET_BALL)::save)
                 .generateAdvancement().build(consumer, Redux.locate("blue_swet_jelly"));
@@ -380,14 +378,14 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .unlockedBy(getHasName(ReduxItems.COCKATRICE_FEATHER.get()), has(ReduxItems.COCKATRICE_FEATHER.get()))
                 .save(consumer);
 
-        ConditionalRecipe.builder().addCondition(dc(Conditions.GENESIS)).addRecipe(ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ReduxItems.MOUSE_EAR_SOUP.get())
+        ConditionalRecipe.builder().addCondition(flag(Flags.GENESIS)).addRecipe(ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ReduxItems.MOUSE_EAR_SOUP.get())
                 .requires(Ingredient.of(Items.BOWL)).requires(ReduxTags.Items.MOUSE_EAR_CAPS)
                 .unlockedBy("has_mouse_ear_cap", inventoryTrigger(ItemPredicate.Builder.item()
                 .of(ReduxTags.Items.MOUSE_EAR_CAPS).build()))::save).build(consumer, Redux.locate("mouse_ear_soup"));
 
 
         ConditionalRecipe.builder().addCondition(
-                dc(Conditions.DEEP)
+                flag(Flags.DEEP)
         ).addRecipe(
                 ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.AETHER_COARSE_DIRT.get(), 4)
                         .define('D', AetherBlocks.AETHER_DIRT.get())
@@ -398,7 +396,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                         ::save).build(consumer, Redux.locate("deep_aether_coarse_dirt"));
 
         ConditionalRecipe.builder().addCondition(
-                not(dc(Conditions.DEEP))
+                not(flag(Flags.DEEP))
         ).addRecipe(
                 ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ReduxBlocks.COARSE_AETHER_DIRT.get(), 4)
                         .define('D', AetherBlocks.AETHER_DIRT.get())
@@ -462,11 +460,11 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                     wall(consumer, RecipeCategory.BUILDING_BLOCKS, woodHandler.strippedWoodWall.get().get(), woodHandler.strippedWood.get().get());
                 }
             } else {
-                ConditionalRecipe.builder().addCondition(dc(Conditions.GENESIS)).addRecipe(wallNoBuild(RecipeCategory.BUILDING_BLOCKS, woodHandler.logWall.get(), woodHandler.log.get())::save).generateAdvancement().build(consumer, getDefaultRecipeId(woodHandler.logWall.get()));
-                ConditionalRecipe.builder().addCondition(dc(Conditions.GENESIS)).addRecipe(wallNoBuild(RecipeCategory.BUILDING_BLOCKS, woodHandler.woodWall.get(), woodHandler.wood.get())::save).generateAdvancement().build(consumer, getDefaultRecipeId(woodHandler.woodWall.get()));
+                ConditionalRecipe.builder().addCondition(flag(Flags.GENESIS)).addRecipe(wallNoBuild(RecipeCategory.BUILDING_BLOCKS, woodHandler.logWall.get(), woodHandler.log.get())::save).generateAdvancement().build(consumer, getDefaultRecipeId(woodHandler.logWall.get()));
+                ConditionalRecipe.builder().addCondition(flag(Flags.GENESIS)).addRecipe(wallNoBuild(RecipeCategory.BUILDING_BLOCKS, woodHandler.woodWall.get(), woodHandler.wood.get())::save).generateAdvancement().build(consumer, getDefaultRecipeId(woodHandler.woodWall.get()));
                 if (woodHandler.hasStrippedLogs) {
-                    ConditionalRecipe.builder().addCondition(dc(Conditions.GENESIS)).addRecipe(wallNoBuild(RecipeCategory.BUILDING_BLOCKS, woodHandler.strippedLogWall.get().get(), woodHandler.strippedLog.get().get())::save).generateAdvancement().build(consumer, getDefaultRecipeId(woodHandler.strippedLogWall.get().get()));
-                    ConditionalRecipe.builder().addCondition(dc(Conditions.GENESIS)).addRecipe(wallNoBuild(RecipeCategory.BUILDING_BLOCKS, woodHandler.strippedWoodWall.get().get(), woodHandler.strippedWood.get().get())::save).generateAdvancement().build(consumer, getDefaultRecipeId(woodHandler.strippedWoodWall.get().get()));
+                    ConditionalRecipe.builder().addCondition(flag(Flags.GENESIS)).addRecipe(wallNoBuild(RecipeCategory.BUILDING_BLOCKS, woodHandler.strippedLogWall.get().get(), woodHandler.strippedLog.get().get())::save).generateAdvancement().build(consumer, getDefaultRecipeId(woodHandler.strippedLogWall.get().get()));
+                    ConditionalRecipe.builder().addCondition(flag(Flags.GENESIS)).addRecipe(wallNoBuild(RecipeCategory.BUILDING_BLOCKS, woodHandler.strippedWoodWall.get().get(), woodHandler.strippedWood.get().get())::save).generateAdvancement().build(consumer, getDefaultRecipeId(woodHandler.strippedWoodWall.get().get()));
                 }
             }
         }
@@ -503,14 +501,14 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
       return StackingRecipeBuilder.recipe(Ingredient.of(ingredient), result, infusionAmount, ReduxRecipeSerializers.INFUSION.get());
   }
 
-  public ICondition dc(AbstractCondition<?> condition) {
+  public ICondition flag(DataFlag<?> condition) {
 
-      return new DataRecipeCondition(condition);
+      return new RecipeFlag(condition);
   }
 
-    public ConditionalAdvancement.Builder dataConditionAdvancement(AbstractCondition<?> condition, ResourceLocation id, ItemLike... ingredients) {
+    public ConditionalAdvancement.Builder dataConditionAdvancement(DataFlag<?> condition, ResourceLocation id, ItemLike... ingredients) {
         ConditionalAdvancement.Builder builder = ConditionalAdvancement.builder()
-                .addCondition(dc(condition));
+                .addCondition(flag(condition));
         Advancement.Builder advBuilder = Advancement.Builder.advancement();
         for (ItemLike item : ingredients) {
         advBuilder.addCriterion("has_" + ForgeRegistries.ITEMS.getKey(item.asItem()).getPath(), has(item.asItem()));

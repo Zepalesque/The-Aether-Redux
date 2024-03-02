@@ -1,10 +1,10 @@
-package net.zepalesque.redux.api.condition;
+package net.zepalesque.redux.api.flag;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraftforge.fml.ModList;
 
-public class ModLoaded implements AbstractCondition<ModLoaded> {
+public class ModLoaded implements DataFlag<ModLoaded> {
 
     public static final Codec<ModLoaded> CODEC = RecordCodecBuilder.create((condition) ->
             condition.group(Codec.STRING.fieldOf("mod_id").forGetter((config) -> config.modid))
@@ -17,13 +17,13 @@ public class ModLoaded implements AbstractCondition<ModLoaded> {
     }
 
     @Override
-    public boolean isConditionMet() {
+    public boolean test() {
         return ModList.get().isLoaded(this.modid);
     }
 
     @Override
     public Codec<ModLoaded> codec() {
-        return ConditionSerializers.MOD_LOADED.get();
+        return FlagSerializers.MOD_LOADED.get();
     }
 
     @Override

@@ -16,7 +16,7 @@ import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.common.world.ForgeBiomeModifiers;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.api.condition.Conditions;
+import net.zepalesque.redux.api.flag.Flags;
 import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.misc.ReduxTags;
@@ -86,10 +86,10 @@ public class ReduxBiomeModifiers {
                 GenerationStep.Decoration.VEGETAL_DECORATION));
 
         context.register(ADD_VANILLA_SWET, new ReduxSpawnsModifier(
-                biomes.getOrThrow(ReduxTags.Biomes.HAS_VANILLA_SWET), List.of(new MobSpawnSettings.SpawnerData(ReduxEntityTypes.VANILLA_SWET.get(), 5, 1, 2)), Conditions.VANILLA_SWETS, 0.5, 0.1));
+                biomes.getOrThrow(ReduxTags.Biomes.HAS_VANILLA_SWET), List.of(new MobSpawnSettings.SpawnerData(ReduxEntityTypes.VANILLA_SWET.get(), 5, 1, 2)), Flags.VANILLA_SWETS, 0.5, 0.1));
 
         context.register(ADD_ENDERMAN, new ReduxSpawnsModifier(
-                biomes.getOrThrow(ReduxTags.Biomes.HAS_ENDERMAN), List.of(new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 1, 1, 4)), Conditions.ENDERMEN, 1.0, 0.12));
+                biomes.getOrThrow(ReduxTags.Biomes.HAS_ENDERMAN), List.of(new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 1, 1, 4)), Flags.ENDERMEN, 1.0, 0.12));
 
         context.register(ADD_VERIDIUM, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
                 biomes.getOrThrow(ReduxTags.Biomes.HAS_VERIDIUM_ORE), HolderSet.direct(features.getOrThrow(ReduxPlacedFeatures.VERIDIUM_ORE)),
@@ -100,7 +100,7 @@ public class ReduxBiomeModifiers {
                 GenerationStep.Decoration.UNDERGROUND_ORES));
 
         context.register(WATER_COLOR_AETHER, new WaterColorReplacementBiomeModifier(biomes.getOrThrow(ReduxTags.Biomes.HAS_REDUX_WATER_COLOR),
-                WaterColorReplacementBiomeModifier.WaterColorPredicate.of(4159204, 329011), 5403045, 791347, Conditions.WATER));
+                WaterColorReplacementBiomeModifier.WaterColorPredicate.of(4159204, 329011), 5403045, 791347, Flags.WATER));
 
         context.register(AETHER_COLOR_OVERRIDE, new GrassAndFoliageColorModifier(biomes.getOrThrow(ReduxTags.Biomes.NO_GRASS_OVERRIDE),
                 0x91BD59, 0x77AB2F));

@@ -1,12 +1,12 @@
-package net.zepalesque.redux.api.condition;
+package net.zepalesque.redux.api.flag;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
-public class Not<E extends AbstractCondition<?>> implements AbstractCondition<Not<?>> {
+public class Not<E extends DataFlag<?>> implements DataFlag<Not<?>> {
 
     public static final Codec<Not<?>> CODEC = RecordCodecBuilder.create((condition) ->
-            condition.group(AbstractCondition.CODEC.fieldOf("inverted").forGetter((cond) -> cond.condition))
+            condition.group(DataFlag.CODEC.fieldOf("inverted").forGetter((cond) -> cond.condition))
                     .apply(condition, Not::new));
 
     protected final E condition;
@@ -19,13 +19,13 @@ public class Not<E extends AbstractCondition<?>> implements AbstractCondition<No
     }
 
     @Override
-    public boolean isConditionMet() {
-        return !this.condition.isConditionMet();
+    public boolean test() {
+        return !this.condition.test();
     }
 
     @Override
     public Codec<Not<?>> codec() {
-        return ConditionSerializers.NOT.get();
+        return FlagSerializers.NOT.get();
     }
 
     @Override
