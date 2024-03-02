@@ -38,10 +38,10 @@
       },
       "conditions": [
         {
-          "type": "aether_redux:recipe_flag",
-          "flag": {
-            "config_path": "[Gameplay Changes, Existing Content Alterations, Nerf Gummy Swets]",
-            "data_flag": "aether_redux:redux_config"
+          "type": "aether_redux:data_recipe_condition",
+          "data_recipe_condition": {
+            "condition": "aether_redux:redux_config",
+            "config_path": "[Gameplay Changes, Existing Content Alterations, Nerf Gummy Swets]"
           }
         }
       ]

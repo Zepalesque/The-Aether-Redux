@@ -9,11 +9,11 @@
       }
     },
     {
-      "condition": "aether_redux:data_flag",
-      "flag": {
-        "data_flag": "aether_redux:not",
+      "condition": "aether_redux:data_loot_condition",
+      "data_loot_condition": {
+        "condition": "aether_redux:not",
         "inverted": {
-          "data_flag": "aether_redux:mod_loaded",
+          "condition": "aether_redux:mod_loaded",
           "mod_id": "aether_genesis"
         }
       }

@@ -20,9 +20,9 @@
             "base_state": {
               "Name": "aether_redux:enchanted_white_flower"
             },
-            "flag": {
-              "config_path": "[Worldgen, Biomes, Enchanted Gilded Grass]",
-              "data_flag": "aether_redux:redux_config"
+            "condition": {
+              "condition": "aether_redux:redux_config",
+              "config_path": "[Worldgen, Biomes, Enchanted Gilded Grass]"
             }
           }
         }

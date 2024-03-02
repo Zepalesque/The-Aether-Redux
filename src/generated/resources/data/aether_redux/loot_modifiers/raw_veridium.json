@@ -6,10 +6,10 @@
   },
   "conditions": [
     {
-      "condition": "aether_redux:data_flag",
-      "flag": {
-        "config_path": "[Gameplay Changes, Additions, Raw Ores]",
-        "data_flag": "aether_redux:redux_config"
+      "condition": "aether_redux:data_loot_condition",
+      "data_loot_condition": {
+        "condition": "aether_redux:redux_config",
+        "config_path": "[Gameplay Changes, Additions, Raw Ores]"
       }
     },
     {

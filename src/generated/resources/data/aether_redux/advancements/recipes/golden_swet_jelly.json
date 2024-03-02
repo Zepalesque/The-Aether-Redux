@@ -38,9 +38,9 @@
         {
           "type": "forge:not",
           "value": {
-            "type": "aether_redux:recipe_flag",
-            "flag": {
-              "data_flag": "aether_redux:mod_loaded",
+            "type": "aether_redux:data_recipe_condition",
+            "data_recipe_condition": {
+              "condition": "aether_redux:mod_loaded",
               "mod_id": "aether_genesis"
             }
           }

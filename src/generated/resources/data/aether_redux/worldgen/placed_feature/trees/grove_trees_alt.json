@@ -2,10 +2,10 @@
   "feature": "aether_redux:trees/grove_trees_alt",
   "placement": [
     {
-      "type": "aether_redux:data_flag",
-      "flag": {
-        "config_path": "[Worldgen, Biomes, Alternate Gilded Trees]",
-        "data_flag": "aether_redux:redux_config"
+      "type": "aether_redux:data_condition",
+      "data_condition": {
+        "condition": "aether_redux:redux_config",
+        "config_path": "[Worldgen, Biomes, Alternate Gilded Trees]"
       }
     },
     {

@@ -4,9 +4,9 @@
     "decorators": [
       {
         "type": "aether_redux:enchanted_vine",
-        "flag": {
-          "config_path": "[Worldgen, Additional Features, Enable Enchanted and Gilded Vines]",
-          "data_flag": "aether_redux:redux_config"
+        "condition": {
+          "condition": "aether_redux:redux_config",
+          "config_path": "[Worldgen, Additional Features, Enable Enchanted and Gilded Vines]"
         },
         "length_max": {
           "type": "minecraft:uniform",
