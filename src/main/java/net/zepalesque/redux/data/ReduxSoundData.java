@@ -351,6 +351,10 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
                         .with(sound(Redux.locate("item/subzero_crossbow/arrow/hit2")))
                         .with(sound(Redux.locate("item/subzero_crossbow/arrow/hit3")))
                         .subtitle("subtitles.aether_redux.item.subzero_crossbow_hit"));
+
+        this.add(ReduxSoundEvents.REDUX_MENU,
+                definition()
+                        .with(sound(Redux.locate("music/redux_menu")).stream()));
     }
 
 }
