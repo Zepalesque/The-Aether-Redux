@@ -96,7 +96,6 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                 },
                 new LootItemCondition[] {
                         LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(ReduxTags.EntityTypes.SENTRIES)).build(),
-                        LootItemRandomChanceCondition.randomChance(0.35F).build(),
                         LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.KILLER, EntityPredicate.Builder.entity().of(ReduxTags.EntityTypes.SENTRIES)).build()
         }));
 
