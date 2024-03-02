@@ -26,8 +26,7 @@ public class ReduxPackConfig {
     public final PackConfig<VeridiumType> veridium_type;
     public final PackConfig<Boolean> use_jappafied_textures;
     public final PackConfig<Boolean> menu_panorama;
-
-    public final PackConfig<Boolean> auto_apply;
+    public final PackConfig<Boolean> redux_buttons;
 
     public final PackConfig<Boolean> better_aechor_sounds;
     public final PackConfig<Boolean> better_aerwhale_sounds;
@@ -68,11 +67,11 @@ public class ReduxPackConfig {
         builder.push("gui");
         // Use Redux menu panorama
         this.menu_panorama = builder.comment().cfg("menu_panorama", true);
+        // Use Redux Buttons
+        this.redux_buttons = builder.comment().cfg("redux_buttons", false);
         builder.pop();
         // Jappafied Aethers compat
         this.use_jappafied_textures = builder.comment().cfg("use_jappafied_textures", false);
-        // Auto-apply the resource pack
-        this.auto_apply = builder.comment().cfg("auto_apply", true);
         // Allows for tinting grass along with some flower stems
         this.tintable_grass = builder.comment().cfg("tintable_grass", true);
     }
@@ -89,6 +88,7 @@ public class ReduxPackConfig {
                     Conditional.of(BuiltinPackUtils.createPack("resource/item/swet_ball"), () -> config.swet_ball_type.get() == SwetBallType.consistent_name),
                     Conditional.of(BuiltinPackUtils.createPack("resource/item/swet_gel"), () -> config.swet_ball_type.get() == SwetBallType.gel),
                     Conditional.of(BuiltinPackUtils.createPack("resource/gui/menu_panorama"), config.menu_panorama),
+                    Conditional.of(BuiltinPackUtils.createPack("resource/gui/redux_buttons"), config.redux_buttons),
                     Conditional.of(BuiltinPackUtils.createPack("resource/jappafied_textures"), config.use_jappafied_textures),
                     Conditional.of(BuiltinPackUtils.createPack("resource/item/genesis_jelly"), Redux::aetherGenesisCompat),
                     Conditional.of(BuiltinPackUtils.createPack("resource/item/shadow_veridium"), () -> config.veridium_type.get() == VeridiumType.shadow),

@@ -534,6 +534,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addPackConfigEnum("shadow", "Shadow");
         addPackConfigCategory("gui", "GUI", "Changes to Aether GUI elements");
         addPackConfig("menu_panorama", "Menu Panorama", "Use Redux's custom main menu panorama");
+        addPackConfig("redux_buttons", "Redux Buttons", "Use Redux's custom button prototype textures, which will be used in its custom menu once it is implemented");
         addPackConfig("use_jappafied_textures", "Use Jappafied Textures", "Uses textures designed to fit with the Jappafied Aethers resource pack slightly better");
         addPackConfig("auto_apply", "Automatic Application", "Enables the resource pack automatically when removed");
         addPackConfig("smelter_menu_type", "Smelter Menu Type", "Switch between three different types of Aether Smelter Menus: The originals, classic-styled improvemenets, and modernized menus");
