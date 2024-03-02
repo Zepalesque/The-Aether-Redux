@@ -11,7 +11,7 @@ import net.zepalesque.redux.recipe.InfusionRecipe;
 
 public class InfusionRecipeCategory extends AbstractStackingRecipeCategory<InfusionRecipe> {
     public static final ResourceLocation UID = new ResourceLocation(Redux.MODID, "infusion");
-    public static final ResourceLocation TEXTURE = new ResourceLocation(Redux.MODID, "textures/gui/menu/infusion_jei_render.png");
+    public static final ResourceLocation TEXTURE = new ResourceLocation(Redux.MODID, "textures/gui/infusion_jei_render.png");
     public static final RecipeType<InfusionRecipe> RECIPE_TYPE = RecipeType.create(Redux.MODID, "infusion", InfusionRecipe.class);
 
     public InfusionRecipeCategory(IGuiHelper guiHelper) {

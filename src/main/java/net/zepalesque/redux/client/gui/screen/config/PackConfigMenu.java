@@ -28,11 +28,11 @@ public class PackConfigMenu extends Screen {
     private final Map<Integer, List<IConfigSaving>> pages = new HashMap<>();
     private final Map<Category, PackConfigMenu> cachedMenus = new HashMap<>();
     public static final ResourceLocation LIGHT_DIRT_BACKGROUND = new ResourceLocation("textures/gui/light_dirt_background.png");
-    public static final ResourceLocation PARENT_BUTTON_LOC = Redux.locate("textures/gui/menu/config/parent.png");
-    public static final ResourceLocation BACK_BUTTON_LOC = Redux.locate("textures/gui/menu/config/back.png");
-    public static final ResourceLocation NEXT_BUTTON_LOC = Redux.locate("textures/gui/menu/config/next.png");
-    public static final ResourceLocation MENU_LOC = Redux.locate("textures/gui/menu/config/config_menu.png");
-    public static final ResourceLocation LIST_LOC = Redux.locate("textures/gui/menu/config/config_bars.png");
+    public static final ResourceLocation PARENT_BUTTON_LOC = Redux.locate("textures/gui/config_menu/parent.png");
+    public static final ResourceLocation BACK_BUTTON_LOC = Redux.locate("textures/gui/config_menu/back.png");
+    public static final ResourceLocation NEXT_BUTTON_LOC = Redux.locate("textures/gui/config_menu/next.png");
+    public static final ResourceLocation MENU_LOC = Redux.locate("textures/gui/config_menu/config_menu.png");
+    public static final ResourceLocation LIST_LOC = Redux.locate("textures/gui/config_menu/config_bars.png");
     private final @Nullable PackConfigMenu parentScreen;
     private final Category category;
     private final Category top;
