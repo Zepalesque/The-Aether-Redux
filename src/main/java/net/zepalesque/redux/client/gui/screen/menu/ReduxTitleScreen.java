@@ -1,10 +1,11 @@
 package net.zepalesque.redux.client.gui.screen.menu;
 
 import com.aetherteam.aether.AetherConfig;
-import com.aetherteam.aether.client.AetherSoundEvents;
 import com.aetherteam.aether.client.gui.component.menu.DynamicMenuButton;
 import com.aetherteam.aether.client.gui.screen.menu.TitleScreenBehavior;
 import com.aetherteam.aether.mixin.mixins.client.accessor.TitleScreenAccessor;
+import com.aetherteam.cumulus.Cumulus;
+import com.aetherteam.cumulus.client.CumulusClient;
 import com.aetherteam.cumulus.mixin.mixins.client.accessor.SplashRendererAccessor;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
@@ -21,15 +22,12 @@ import net.minecraft.client.gui.screens.ConnectScreen;
 import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.client.multiplayer.ServerData;
 import net.minecraft.client.multiplayer.resolver.ServerAddress;
-import net.minecraft.client.renderer.CubeMap;
-import net.minecraft.client.renderer.PanoramaRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.Music;
 import net.minecraft.util.Mth;
 import net.minecraftforge.client.ForgeHooksClient;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.client.ReduxMenus;
+import net.zepalesque.redux.client.gui.component.menu.CyclingPanoramaRenderer;
 import net.zepalesque.redux.client.gui.component.menu.ReduxMenuButton;
 
 import java.util.function.Predicate;
@@ -38,17 +36,23 @@ import java.util.function.Predicate;
 public class ReduxTitleScreen extends TitleScreen implements TitleScreenBehavior {
 	private static final ResourceLocation PANORAMA_OVERLAY = new ResourceLocation("textures/gui/title/background/panorama_overlay.png");
 	private static final ResourceLocation AETHER_LOGO = Redux.locate("textures/gui/title/redux.png");
-	private final PanoramaRenderer panorama = new PanoramaRenderer(new CubeMap(Redux.locate("textures/gui/title/panorama/panorama")));
+	private final CyclingPanoramaRenderer panorama = new CyclingPanoramaRenderer("skyfields", "cloudcaps", "dungeon", "gilded", "blight");
 	private int rows;
 
 	public ReduxTitleScreen() {
 		((TitleScreenAccessor) this).aether$setFading(true);
 	}
 
+
+
+
 	@Override
 	protected void init() {
 		super.init();
 		this.setupButtons();
+		if (CumulusClient.MENU_HELPER.shouldFade()) {
+			this.panorama.randomizeIndex();
+		}
 	}
 
 	public void setupButtons() {
@@ -209,4 +213,8 @@ public class ReduxTitleScreen extends TitleScreen implements TitleScreenBehavior
 		return super.addRenderableWidget(renderable);
 	}
 
+	@Override
+	public void onClose() {
+		super.onClose();
+	}
 }
