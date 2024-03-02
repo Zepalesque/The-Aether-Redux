@@ -130,7 +130,7 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> LIGHTROOTS  = createKey(Folders.MISC + "lightroots");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLACIA_TREE = createKey(Folders.TREE + "glacia_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CRYSTAL_LEAF_TREE = createKey(Folders.TREE + "crystal_leaf_tree");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> CRYSTAL_RARE_FRUIT_TREE = createKey(Folders.TREE + "crystal_leaf_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CRYSTAL_RARE_FRUIT_TREE = createKey(Folders.TREE + "crystal_rare_fruit_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_MUSHROOMS = createKey(Folders.TREE + "large_mushrooms");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_JELLYSHROOM = createKey(Folders.TREE + "large_jellyshroom");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LUMINA_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.LUMINA) + "_patch");

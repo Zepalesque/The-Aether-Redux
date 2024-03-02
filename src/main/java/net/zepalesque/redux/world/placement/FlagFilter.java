@@ -13,13 +13,13 @@ import net.zepalesque.redux.api.flag.Not;
 import javax.annotation.Nonnull;
 
 public class FlagFilter extends PlacementFilter {
-    public static final Codec<FlagFilter> CODEC = RecordCodecBuilder.create((filter) ->
-            filter.group(DataFlag.CODEC.fieldOf("flag").forGetter(dcf -> dcf.condition)).apply(filter, FlagFilter::new));
+    public static final Codec<FlagFilter> CODEC = RecordCodecBuilder.create(builder ->
+            builder.group(DataFlag.CODEC.fieldOf("flag").forGetter(filter -> filter.flag)).apply(builder, FlagFilter::new));
 
-    public final DataFlag<?> condition;
+    public final DataFlag<?> flag;
 
     private FlagFilter(DataFlag<?> pCondition) {
-        this.condition = pCondition;
+        this.flag = pCondition;
     }
 
     public static FlagFilter whenTrue(DataFlag<?> condition) {
@@ -30,7 +30,7 @@ public class FlagFilter extends PlacementFilter {
     }
 
     protected boolean shouldPlace(@Nonnull PlacementContext context, @Nonnull RandomSource random, @Nonnull BlockPos pos) {
-        return this.condition.test();
+        return this.flag.test();
     }
 
     @Nonnull
