@@ -90,6 +90,17 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                         LootItemRandomChanceCondition.randomChance(0.25F).build()
                 }));
 
+        this.add("crystal_sapling", new AddDrops(new ItemStack(ReduxBlocks.CRYSTAL_FRUIT_SAPLING.get()),
+                new LootItemFunction[] {
+                        SetItemCountFunction.setCount(UniformGenerator.between(0, 1.0F)).build(),
+                        LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)).build() },
+                new LootItemCondition[] {
+                        BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, new float[]{0.05F, 0.0625F, 0.083333336F, 0.1F}).build(),
+                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(AetherBlocks.CRYSTAL_LEAVES.get()).build(),
+                        DataLootCondition.conditionOf(new  Not<>(Conditions.LOST)).build(),
+                        MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS)).or(MatchTool.toolMatches(ItemPredicate.Builder.item().hasEnchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, MinMaxBounds.Ints.atLeast(1))))).invert().build()
+                }));
+
         this.add("slider_disc", new AddDrops(new ItemStack(ReduxItems.SLIDER_MUSIC_DISC.get()),
                 new LootItemFunction[] {
                         SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)).build()
