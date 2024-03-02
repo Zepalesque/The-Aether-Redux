@@ -14,6 +14,7 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Predicate;
 
@@ -57,10 +58,12 @@ public class SparkParticle extends TextureSheetParticle {
       return new Vec3(x, y, z);
    }
 
+
    public void tick() {
       Vec3 velocity = new Vec3(this.xd, this.yd, this.zd);
+      Vec3 pos = new Vec3(this.x, this.y, this.z);
       velocity = velocity.multiply(Math.abs(velocity.x)>0.1 ? 1 : 0, Math.abs(velocity.y)>0.1 ? 1 : 0, Math.abs(velocity.z)>0.1 ? 1 : 0);
-      HitResult hitresult = getHitResult(this.getPos(), velocity.length() == 0 ? velocity.add(0, -0.04, 0) : velocity, this.level);
+      HitResult hitresult = getHitResult(pos, velocity.length() == 0 ? velocity.add(0, -0.04, 0) : velocity, this.level);
       if (velocity.length() > 0D && hitresult.getType() == HitResult.Type.BLOCK) {
          Vec3 bounce = this.bounceAxis(velocity, ((BlockHitResult)hitresult).getDirection());
          Vec3 scaled = bounce.scale(0.5D);
