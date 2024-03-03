@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-02T19:27:18.0105475	Loot Tables
+// 1.20.1	2024-03-03T14:26:19.3591445	Loot Tables
 c6156555dc4897939b617dabc4521b7fa52feba0 data/aether_redux/loot_tables/blocks/aurum.json
 b5773c78c7b3f27032f1cca6fb72f440e24c7529 data/aether_redux/loot_tables/blocks/avelium.json
 4c8b773f2431b28dd2a48b90d08323d8ff67a3d7 data/aether_redux/loot_tables/blocks/avelium_roots.json
@@ -201,8 +201,10 @@ a8bc8724f9f839107bd4f743549a92ecd6053197 data/aether_redux/loot_tables/blocks/po
 fc35dd438fd4f4e60da70a3b03def12b769bdcc1 data/aether_redux/loot_tables/blocks/potted_zanberry_bush.json
 252d2bc8d8d8582f6fed4bd460c7a31bc4146d1d data/aether_redux/loot_tables/blocks/potted_zanberry_bush_stem.json
 825ec29a0a8868e6957a3f85c0c037696aceb50a data/aether_redux/loot_tables/blocks/potted_zyatrix.json
+cb253c47432e7e9a431873a67d86ea8127586687 data/aether_redux/loot_tables/blocks/purple_crystal_fruit_sapling.json
 e60e90e3b70f3f3b8904cf994e7c0c46dcb72003 data/aether_redux/loot_tables/blocks/purple_glacia_leaves.json
 a8655c14dcb62175a9ab8cf34bfb7372d0c8f805 data/aether_redux/loot_tables/blocks/purple_glacia_sapling.json
+2c79bce7f467a95606ffae4861e214c2219c5b87 data/aether_redux/loot_tables/blocks/purple_potted_crystal_fruit_sapling.json
 214b296579c2e9375836091351f46f81b52b014a data/aether_redux/loot_tables/blocks/purple_potted_glacia_sapling.json
 4c41d63b70c606f4d6d24eb333c4ff55812f2838 data/aether_redux/loot_tables/blocks/raw_gravitite_block.json
 6f55f9eaef5917b8d6a45c1d3f833085eec67af8 data/aether_redux/loot_tables/blocks/raw_valkyrum_block.json

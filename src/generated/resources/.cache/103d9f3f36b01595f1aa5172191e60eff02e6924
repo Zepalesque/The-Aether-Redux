@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-02T09:49:17.0393718	Registries
+// 1.20.1	2024-03-03T14:26:19.3921432	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 94d997b0a87f23900f66f9a9e2485391b6ff8e38 data/aether/worldgen/configured_feature/golden_oak_tree.json
 875593e37a52dd63b2d87226b0f0e5e76ef48247 data/aether/worldgen/configured_feature/grass_patch.json
@@ -65,6 +65,7 @@ b41eb95f277c334c0252bfed1af1ae845a12f627 data/aether_redux/worldgen/configured_f
 8f6eca30bf995e49a0ea2f9cb0fa2057f699dcaa data/aether_redux/worldgen/configured_feature/cave_biome/fungal_patch.json
 9b6a81fbb225d64728c5913e4a1d8339cc2f5406 data/aether_redux/worldgen/configured_feature/cave_biome/fungal_patch_bonemeal.json
 ab0ad2caf0a44559ac662ad4d1fc5b62032dbd39 data/aether_redux/worldgen/configured_feature/cave_biome/fungal_vegetation.json
+ca56aa6ef569f75e6f6efa7d64a0203cb902aac4 data/aether_redux/worldgen/configured_feature/compat/purple_crystal_rare_fruit_tree.json
 baca216a197b2de4dce5b7474a4742abe90c54f2 data/aether_redux/worldgen/configured_feature/misc/blighted_aercloud.json
 ea977515963a0959f52e239b70be4048aaa7a674 data/aether_redux/worldgen/configured_feature/misc/cloud_layer.json
 b40ab1a754117d4b18e35644f7845f61760fc8ae data/aether_redux/worldgen/configured_feature/misc/lightroots.json

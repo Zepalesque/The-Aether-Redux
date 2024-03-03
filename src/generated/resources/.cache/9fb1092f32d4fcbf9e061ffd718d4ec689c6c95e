@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-02T20:23:29.8188603	Recipes
+// 1.20.1	2024-03-03T14:26:19.3961413	Recipes
 028a41c44667802045298aed21a46f931203df96 data/aether/advancements/recipes/building_blocks/angelic_stone.json
 a49c9d5d0232fb78da74b8a0551483991e22b8c9 data/aether/recipes/angelic_stone.json
 94dc065fa9db175a9df14a38fb02767fe57f9007 data/aether_redux/advancements/recipes/blightwillow_log_wall.json
@@ -117,6 +117,7 @@ d67944a2a1e901209c9181f5663022c45bb6262b data/aether_redux/advancements/recipes/
 2f12e9fbf37689e35fc1c48c139a9f61bdc370bf data/aether_redux/advancements/recipes/decorations/glacia_sign.json
 3593c20bc380e7490da04bc4f0bef209e3852e39 data/aether_redux/advancements/recipes/decorations/jellyshroom_fence.json
 66f2dafca83b7e6dae3a79a5c8033a72554472d1 data/aether_redux/advancements/recipes/decorations/jellyshroom_sign.json
+eb75b87e16a9aba67bfc7e1536447c28c47533e3 data/aether_redux/advancements/recipes/enchant_purple_crystal_sapling.json
 4980a9276c1c43da880a219c8f7cf36fc4d8a9cf data/aether_redux/advancements/recipes/fieldsproot_log_wall.json
 ad4d010d6664fe03651d6c4026545dbbf022bf88 data/aether_redux/advancements/recipes/fieldsproot_wood_wall.json
 c56549207ed1adcfb6b1b835928337887c94063e data/aether_redux/advancements/recipes/food/blueberry_bagel.json
@@ -300,6 +301,7 @@ a9f8df79b10347d7c91dfb253fd8bee2dacd9d59 data/aether_redux/recipes/enchanted_she
 8a3fda6fabe4c6435d58053988b7011483940b58 data/aether_redux/recipes/enchanted_shell_shingle_wall_stonecutting.json
 c1745621cba9023c86a68cedee001d8dd2bc78b1 data/aether_redux/recipes/enchant_crystal_sapling.json
 d2693d4f7bfa0bb7bca16878ebb52087da4e23d1 data/aether_redux/recipes/enchant_mossy_holystone.json
+19a2723af6761ccd6f7e4681bad29c01249aa543 data/aether_redux/recipes/enchant_purple_crystal_sapling.json
 3379ab6f239d326692e52e1e149c8f9c311895fa data/aether_redux/recipes/feather_of_warding.json
 5a8486bf6ce3f1e7beee5ca17cf724686ffbbc4a data/aether_redux/recipes/fieldsproot_boat.json
 e1c6207efa004220ddb148ce137e50ee0eb3f443 data/aether_redux/recipes/fieldsproot_button.json
