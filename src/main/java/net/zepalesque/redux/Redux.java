@@ -333,6 +333,7 @@ public class Redux {
 
         } else if (event.getPackType() == PackType.SERVER_DATA) {
             if (aetherGenesisCompat()) { this.setupMandatoryDataPack(event, "data/genesis_data", "Genesis Compat", "Compatibility with the Aether: Genesis"); }
+            if (lostAetherCompat()) { this.setupMandatoryDataPack(event, "data/lost_content_data", "Lost Content Compat", "Compatibility with the Aether: Lost Content"); }
             if (deepAetherCompat()) { this.setupMandatoryDataPack(event, "data/deep_aether_data", "Deep Aether Compat", "Compatibility with the Deep Aether Addon"); }
             if (ancientAetherCompat()) { this.setupMandatoryDataPack(event, "data/ancient_aether_data", "Ancient Aether Compat", "Compatibility with Ancient Aether"); }
 
