@@ -1,12 +1,10 @@
 package net.zepalesque.redux;
 
 import com.aetherteam.aether.AetherConfig;
-import com.aetherteam.aether.api.AetherMenus;
 import com.aetherteam.aether.block.dispenser.DispenseUsableItemBehavior;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether_genesis.entity.GenesisEntityTypes;
 import com.aetherteam.cumulus.CumulusConfig;
-import com.aetherteam.cumulus.client.CumulusClient;
 import com.mojang.logging.LogUtils;
 import com.mojang.serialization.Codec;
 import net.minecraft.SharedConstants;
@@ -41,7 +39,6 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModList;
-import net.minecraftforge.fml.ModLoader;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -232,13 +229,19 @@ public class Redux {
         ReduxRenderers.registerCuriosRenderers();
         event.enqueueWork(
                 () -> {
-                    if (ReduxConfig.CLIENT.change_aether_configs.get()) {
+                    if (ReduxConfig.CLIENT.is_first_startup.get()) {
                         AetherConfig.CLIENT.green_sunset.set(true);
                         AetherConfig.CLIENT.green_sunset.save();
                         AetherConfig.CLIENT.colder_lightmap.set(true);
                         AetherConfig.CLIENT.colder_lightmap.save();
-                        ReduxConfig.CLIENT.change_aether_configs.set(false);
-                        ReduxConfig.CLIENT.change_aether_configs.save();
+                        AetherConfig.CLIENT.enable_aether_menu_button.set(false);
+                        AetherConfig.CLIENT.enable_aether_menu_button.save();
+                        AetherConfig.CLIENT.should_disable_cumulus_button.set(false);
+                        AetherConfig.CLIENT.should_disable_cumulus_button.save();
+                        CumulusConfig.CLIENT.active_menu.set(ReduxMenus.SKYFIELDS_MENU.get());
+                        CumulusConfig.CLIENT.active_menu.save();
+                        ReduxConfig.CLIENT.is_first_startup.set(false);
+                        ReduxConfig.CLIENT.is_first_startup.save();
                         AeroBlenderConfig.COMMON.vanillaAetherRegionWeight.set(0);
                         AeroBlenderConfig.COMMON.vanillaAetherRegionWeight.save();
                     }

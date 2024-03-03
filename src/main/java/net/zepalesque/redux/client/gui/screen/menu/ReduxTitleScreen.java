@@ -79,14 +79,17 @@ public class ReduxTitleScreen extends TitleScreen implements TitleScreenBehavior
 					abstractWidget.visible = false; // The visibility handling is necessary here to avoid a bug where the buttons will render in the center of the screen before they have a specified offset.
 				}
 				if (abstractWidget instanceof ReduxMenuButton button) { // Sets button values that determine their positioning on the screen.
-					buttonRows++;
+						++buttonRows;
+
 					if (buttonText.equals(Component.translatable("gui.aether.menu.server"))) {
+						button.serverButton = true;
 						button.buttonCountOffset = 2;
 					} else {
 						button.buttonCountOffset = buttonRows;
 					}
-					if (AetherConfig.CLIENT.enable_server_button.get() && buttonText.equals(Component.translatable("menu.singleplayer"))) {
-						buttonRows++;
+
+					if ((Boolean)AetherConfig.CLIENT.enable_server_button.get() && buttonText.equals(Component.translatable("menu.singleplayer"))) {
+						++buttonRows;
 					}
 				}
 			}

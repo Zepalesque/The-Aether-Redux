@@ -146,7 +146,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue moa_model_upgrade;
         public final ForgeConfigSpec.EnumValue<MoaFeetType> moa_feet_type;
         public final ForgeConfigSpec.BooleanValue cockatrice_model_upgrade;
-        public final ForgeConfigSpec.BooleanValue change_aether_configs;
+        public final ForgeConfigSpec.BooleanValue is_first_startup;
         public final ForgeConfigSpec.EnumValue<MimicModelType> mimic_model_upgrade;
         public final ForgeConfigSpec.BooleanValue mimic_slam_sound;
         public final ForgeConfigSpec.BooleanValue sentry_model_upgrade;
@@ -188,7 +188,7 @@ public class ReduxConfig {
             this.mimic_slam_sound = builder.comment("Enables a slamming sound for mimics when using the new model. Disable if it gets too annoying XD").define("Mimic Slam Sound Effect", true);
             builder.pop();
             builder.push("Internal");
-            this.change_aether_configs = builder.comment("Internal value to decide if it is the first startup and the base Aether configs should be modified. DO NOT EDIT THIS VALUE, unless you want things to break!").define("First startup, change Aether configs (DO NOT CHANGE)", true);
+            this.is_first_startup = builder.comment("Internal value to decide if it is the first startup. DO NOT EDIT THIS VALUE, unless you want things to break!").define("Is first startup?  ", true);
             this.version_id = builder.comment("Value used to track the version of the Aether: Redux most recently used.").define("Version ID", "undefined");
             builder.pop();
         }

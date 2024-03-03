@@ -62,6 +62,7 @@ public class ReduxMenus {
                         index == 2 ? ReduxMenus.GILDED_MENU.getId().toString() :
                         index == 3 ? ReduxMenus.BLIGHT_MENU.getId().toString() : ReduxMenus.SKYFIELDS_MENU.getId().toString()
                 );
+                CumulusConfig.CLIENT.active_menu.save();
             }
         }
     }
