@@ -1,0 +1,10 @@
+{
+  "type": "aether:enchanting",
+  "category": "enchanting_blocks",
+  "cookingtime": 150,
+  "experience": 0.0,
+  "ingredient": {
+    "item": "aether_redux:crystal_sapling"
+  },
+  "result": "aether_redux:crystal_fruit_sapling"
+}

@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-02T09:29:13.4337343	Item Models: aether_redux
+// 1.20.1	2024-03-02T19:27:18.0005521	Item Models: aether_redux
 2445055af5b1b7f3c6045199ffce74108003cef6 assets/aether_redux/models/item/airbound_cape.json
 2fa1343a8119a1f49af334c002773099174965bd assets/aether_redux/models/item/aurum.json
 edfe83948874d1436a61893ed9471b47e93dbe88 assets/aether_redux/models/item/avelium.json
@@ -78,11 +78,13 @@ f9c1ce84c6a0c2e877af5b67be07d5c0ac3fdad4 assets/aether_redux/models/item/coarse_
 f6a0b14764dc001ae8685074008f96b30e93a97e assets/aether_redux/models/item/crystal_door.json
 c442b6cf7dfdfd2408dfde49f456b88542dfd94f assets/aether_redux/models/item/crystal_fence.json
 5ec69fb5f9869d052d6a6771099a611ac7f78956 assets/aether_redux/models/item/crystal_fence_gate.json
+46386a6231b7f981113e0e1324e23e7227932e4b assets/aether_redux/models/item/crystal_fruit_sapling.json
 86ff75ecbe9788ced52554eff49a4d4a7c3f0d45 assets/aether_redux/models/item/crystal_hanging_sign.json
 1a03018c51219d6d01d3525a1bc1007806706a22 assets/aether_redux/models/item/crystal_log.json
 70ea21867a5d6d3d5c3b9311e550db270be57559 assets/aether_redux/models/item/crystal_log_wall.json
 12cce429a7bd830993540f8cf46b1f1e318a4315 assets/aether_redux/models/item/crystal_planks.json
 db556f2d678950860c92809870bb363cf2ba2283 assets/aether_redux/models/item/crystal_pressure_plate.json
+86515fc93df4d1fcb54368b6cd8819a5c8d1e4b7 assets/aether_redux/models/item/crystal_sapling.json
 c9e9ac8937cc42fcfa2be59cdfd76d8bf722b150 assets/aether_redux/models/item/crystal_sign.json
 dbbdca14ceaedb205161f43206c1b0e438e0a50d assets/aether_redux/models/item/crystal_slab.json
 32e6a4fd31c4171883c4ffeee52006a368d07b0a assets/aether_redux/models/item/crystal_stairs.json

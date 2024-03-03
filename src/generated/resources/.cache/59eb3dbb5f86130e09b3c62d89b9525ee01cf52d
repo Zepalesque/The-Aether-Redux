@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-02T09:29:13.4447328	Loot Tables
+// 1.20.1	2024-03-02T19:27:18.0105475	Loot Tables
 c6156555dc4897939b617dabc4521b7fa52feba0 data/aether_redux/loot_tables/blocks/aurum.json
 b5773c78c7b3f27032f1cca6fb72f440e24c7529 data/aether_redux/loot_tables/blocks/avelium.json
 4c8b773f2431b28dd2a48b90d08323d8ff67a3d7 data/aether_redux/loot_tables/blocks/avelium_roots.json
@@ -181,6 +181,8 @@ a588c1ccff39b719dba3d266940ab1eb21caa21b data/aether_redux/loot_tables/blocks/lu
 27172fcd6ad6971f9de8fa95f455ba37e09b33b8 data/aether_redux/loot_tables/blocks/potted_blightshade.json
 24cab3912b612c2dfd7bfd3878294f926bf23527 data/aether_redux/loot_tables/blocks/potted_blightwillow_sapling.json
 ab63ab6244531f9dcd74ae508915dcbda28468ec data/aether_redux/loot_tables/blocks/potted_cloudcap_mushling.json
+4670b506819fcce15423ec822aa1072002edf2f2 data/aether_redux/loot_tables/blocks/potted_crystal_fruit_sapling.json
+40aecaac532fae6116ce1fcb7673a6b23271c5df data/aether_redux/loot_tables/blocks/potted_crystal_sapling.json
 45beb62624ecd39404306568711ec9f02ce93bb7 data/aether_redux/loot_tables/blocks/potted_daggerbloom.json
 8ce911fda5167100e136ae11d3093a4962ab00e5 data/aether_redux/loot_tables/blocks/potted_fieldsproot_sapling.json
 688c444edbc49ee60498542fbc378e6f595d822a data/aether_redux/loot_tables/blocks/potted_gilded_oak_sapling.json

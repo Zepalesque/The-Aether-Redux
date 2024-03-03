@@ -1,7 +1,12 @@
 {
   "variants": {
-    "": {
-      "model": "aether_redux:block/potted_glacia_sapling"
-    }
+    "": [
+      {
+        "model": "aether_redux:block/potted_glacia_sapling"
+      },
+      {
+        "model": "aether_redux:block/potted_glacia_sapling"
+      }
+    ]
   }
 }

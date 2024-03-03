@@ -1,0 +1,81 @@
+{
+  "type": "aether_redux:add_drops",
+  "conditions": [
+    {
+      "chances": [
+        0.05,
+        0.0625,
+        0.083333336,
+        0.1
+      ],
+      "condition": "minecraft:table_bonus",
+      "enchantment": "minecraft:fortune"
+    },
+    {
+      "block": "aether:crystal_leaves",
+      "condition": "minecraft:block_state_property"
+    },
+    {
+      "condition": "aether_redux:data_loot_condition",
+      "data_loot_condition": {
+        "condition": "aether_redux:not",
+        "inverted": {
+          "condition": "aether_redux:mod_loaded",
+          "mod_id": "lost_aether_content"
+        }
+      }
+    },
+    {
+      "condition": "minecraft:inverted",
+      "term": {
+        "condition": "minecraft:any_of",
+        "terms": [
+          {
+            "condition": "minecraft:match_tool",
+            "predicate": {
+              "items": [
+                "minecraft:shears"
+              ]
+            }
+          },
+          {
+            "condition": "minecraft:match_tool",
+            "predicate": {
+              "enchantments": [
+                {
+                  "enchantment": "minecraft:silk_touch",
+                  "levels": {
+                    "min": 1
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "functions": [
+    {
+      "add": false,
+      "count": {
+        "type": "minecraft:uniform",
+        "max": 1.0,
+        "min": 0.0
+      },
+      "function": "minecraft:set_count"
+    },
+    {
+      "count": {
+        "type": "minecraft:uniform",
+        "max": 1.0,
+        "min": 0.0
+      },
+      "function": "minecraft:looting_enchant"
+    }
+  ],
+  "item": {
+    "Count": 1,
+    "id": "aether_redux:crystal_fruit_sapling"
+  }
+}
