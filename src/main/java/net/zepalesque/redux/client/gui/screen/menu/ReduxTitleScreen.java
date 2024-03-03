@@ -38,8 +38,8 @@ public class ReduxTitleScreen extends TitleScreen implements TitleScreenBehavior
 //	private final CyclingPanoramaRenderer panorama = new CyclingPanoramaRenderer(ReduxClient.PANORAMAS);
 	private final PanoramaRenderer cube;
 	private int rows;
-	private static final int MENU_SIZE_BASE = 144;
-	private static final int MENU_SIZE_DOUBLE = MENU_SIZE_BASE * 2;
+	private static final int baseLogoHeight = 144;
+	private static final int baseLogoWidth = baseLogoHeight * 2;
 
 	public ReduxTitleScreen(String panorama) {
 		((TitleScreenAccessor) this).aether$setFading(true);
@@ -109,15 +109,15 @@ public class ReduxTitleScreen extends TitleScreen implements TitleScreenBehavior
 				SplashRendererAccessor splashRendererAccessor = (SplashRendererAccessor) titleScreenAccessor.aether$getSplash();
 				if (splashRendererAccessor.cumulus$getSplash() != null && !splashRendererAccessor.cumulus$getSplash().isEmpty()) {
 					PoseStack poseStack = guiGraphics.pose();
-					float splashX = (float) ReduxTitleScreen.this.width / 2 + ((MENU_SIZE_BASE - 16) / scale);
-					float splashY = (int) (20 + ((MENU_SIZE_BASE - 32) / scale));
+					float splashX = (float) ReduxTitleScreen.this.width / 2 + (baseLogoHeight / scale);
+					float splashY = (int) (20 + ((baseLogoHeight - 24) / scale));
 					poseStack.pushPose();
 					poseStack.translate(splashX, splashY, 0.0F);
 					poseStack.mulPose(Axis.ZP.rotationDegrees(-20.0F));
 					float textSize = 1.4F - Mth.abs(Mth.sin((float) (Util.getMillis() % 1000L) / 1000.0F * Mth.TWO_PI) * 0.1F);
 					textSize = textSize * (200.0F / scale) / (ReduxTitleScreen.this.font.width(splashRendererAccessor.cumulus$getSplash()) + (64 / scale));
 					poseStack.scale(textSize, textSize, textSize);
-					guiGraphics.drawCenteredString(ReduxTitleScreen.this.font, splashRendererAccessor.cumulus$getSplash(), 0, (int) (-16 / scale), 0x7FB4FF | roundedFadeAmount);
+					guiGraphics.drawCenteredString(ReduxTitleScreen.this.font, splashRendererAccessor.cumulus$getSplash(), 0, (int) (-16 / scale), 0x7CA2FF | roundedFadeAmount);
 					poseStack.popPose();
 				}
 			}
@@ -156,9 +156,9 @@ public class ReduxTitleScreen extends TitleScreen implements TitleScreenBehavior
 	 * @param scale The {@link Float} for the scaling of the logo relative to the true screen scale.
 	 */
 	private void setupLogo(GuiGraphics guiGraphics, float transparency, float scale) {
-		int width = (int) (MENU_SIZE_DOUBLE / scale);
-		int height = Mth.floor(width * 0.5);
-		int logoX = (int) ((this.width / 2 - MENU_SIZE_BASE / scale));
+		int width = (int) (baseLogoWidth / scale);
+		int height = (int) (baseLogoHeight / scale);
+		int logoX = (int) ((this.width / 2 - (baseLogoWidth / 2) / scale));
 		int logoY = (int) (/*25*/ 0 + (10 / scale));
 		guiGraphics.setColor(1.0F, 1.0F, 1.0F, transparency);
 		guiGraphics.blit(AETHER_LOGO, logoX, logoY, 0, 0, width, height, width, height);
