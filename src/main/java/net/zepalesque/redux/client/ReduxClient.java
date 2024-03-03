@@ -14,7 +14,6 @@ import net.orcinus.galosphere.init.GItems;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.capability.living.VampireAmulet;
-import net.zepalesque.redux.client.gui.PanoramaHolder;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.item.accessory.VampireAmuletItem;
@@ -29,7 +28,6 @@ import java.util.Optional;
 )
 public class ReduxClient {
 
-    public static final PanoramaHolder PANORAMAS = new PanoramaHolder("skyfields", "cloudcaps", "dungeon", "gilded", "blight");
 
     public static void registerItemModelProperties() {
         ItemProperties.register(ReduxItems.SUBZERO_CROSSBOW.get(), Redux.locate("pull"), (stack, level, entity, seed) -> {

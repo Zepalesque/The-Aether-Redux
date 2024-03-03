@@ -22,13 +22,14 @@ import net.minecraft.client.gui.screens.ConnectScreen;
 import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.client.multiplayer.ServerData;
 import net.minecraft.client.multiplayer.resolver.ServerAddress;
+import net.minecraft.client.renderer.CubeMap;
+import net.minecraft.client.renderer.PanoramaRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraftforge.client.ForgeHooksClient;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.ReduxClient;
-import net.zepalesque.redux.client.gui.component.menu.CyclingPanoramaRenderer;
 import net.zepalesque.redux.client.gui.component.menu.ReduxMenuButton;
 
 import java.util.function.Predicate;
@@ -37,11 +38,13 @@ import java.util.function.Predicate;
 public class ReduxTitleScreen extends TitleScreen implements TitleScreenBehavior {
 	private static final ResourceLocation PANORAMA_OVERLAY = new ResourceLocation("textures/gui/title/background/panorama_overlay.png");
 	private static final ResourceLocation AETHER_LOGO = Redux.locate("textures/gui/title/redux.png");
-	private final CyclingPanoramaRenderer panorama = new CyclingPanoramaRenderer(ReduxClient.PANORAMAS);
+//	private final CyclingPanoramaRenderer panorama = new CyclingPanoramaRenderer(ReduxClient.PANORAMAS);
+	private final PanoramaRenderer cube;
 	private int rows;
 
-	public ReduxTitleScreen() {
+	public ReduxTitleScreen(String panorama) {
 		((TitleScreenAccessor) this).aether$setFading(true);
+		this.cube = new PanoramaRenderer(new CubeMap(Redux.locate("textures/gui/title/panorama/" + panorama + "/panorama")));
 	}
 
 
@@ -100,7 +103,7 @@ public class ReduxTitleScreen extends TitleScreen implements TitleScreenBehavior
 		if (this.minecraft != null && titleScreenAccessor.aether$getSplash() == null) {
 			titleScreenAccessor.aether$setSplash(this.minecraft.getSplashManager().getSplash());
 		}
-		float fadeAmount = TitleScreenBehavior.super.handleFading(guiGraphics, this, titleScreenAccessor, this.panorama, PANORAMA_OVERLAY, partialTicks);
+		float fadeAmount = TitleScreenBehavior.super.handleFading(guiGraphics, this, titleScreenAccessor, this.cube, PANORAMA_OVERLAY, partialTicks);
 		float scale = getScale(this, this.getMinecraft());
 		this.setupLogo(guiGraphics, fadeAmount, scale);
 		int roundedFadeAmount = Mth.ceil(fadeAmount * 255.0F) << 24;

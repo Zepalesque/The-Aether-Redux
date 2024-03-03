@@ -14,6 +14,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.MixinMenuStorage;
 import net.zepalesque.redux.client.ReduxClient;
+import net.zepalesque.redux.client.ReduxMenus;
 import net.zepalesque.redux.client.gui.screen.config.PackConfigMenu;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Final;
@@ -36,7 +37,7 @@ public abstract class MenuHelperMixin {
     @Inject(method = "applyMenu", at = @At(value = "INVOKE", target = "Lcom/aetherteam/cumulus/api/MenuHelper;shouldFade()Z"), remap = false)
     public void render(Menu menu, CallbackInfoReturnable<TitleScreen> cir) {
         if (this.shouldFade()) {
-            ReduxClient.PANORAMAS.randomizeIndex();
+            ReduxMenus.cycle();
         }
 
     }

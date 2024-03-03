@@ -5,6 +5,10 @@ import net.zepalesque.redux.client.ReduxMenus;
 
 public class MenuHooks {
     public static void prepareCustomMenus(MenuHelper menuHelper) {
-        menuHelper.prepareMenu(ReduxMenus.THE_AETHER_REDUX.get());
+        menuHelper.prepareMenu(ReduxMenus.BLIGHT_MENU.get());
+        menuHelper.prepareMenu(ReduxMenus.GILDED_MENU.get());
+        menuHelper.prepareMenu(ReduxMenus.DUNGEON_MENU.get());
+        menuHelper.prepareMenu(ReduxMenus.CLOUDCAPS_MENU.get());
+        menuHelper.prepareMenu(ReduxMenus.SKYFIELDS_MENU.get());
     }
 }

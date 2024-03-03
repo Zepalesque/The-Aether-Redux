@@ -157,6 +157,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue better_leaf_particles;
         public final ForgeConfigSpec.BooleanValue enable_adrenaline_postproccess;
         public final ForgeConfigSpec.BooleanValue fix_biome_modifier_bug;
+        public final ForgeConfigSpec.BooleanValue cycle_menu;
 
         public Client(ForgeConfigSpec.Builder builder) {
             builder.push(List.of("Rendering", "Mob Model Upgrades"));
@@ -173,6 +174,9 @@ public class ReduxConfig {
             builder.pop();
             builder.push("Shader FX");
             this.enable_adrenaline_postproccess = builder.comment("Enables a post processing effect for the Shroom Ring's adrenaline ability. Only works with Fabulous graphics, and will cause issues when underwater (even when the ability is not active)").define("Enable Adrenaline Post Processing Effect", true);
+            builder.pop();
+            builder.push("GUI");
+            this.cycle_menu = builder.comment("Cycles between Redux's menus.").define("Cycle Menu", true);
             builder.pop();
             builder.push("Particles");
             this.better_leaf_particles = builder.comment("Improves the leaf particles for Golden Oaks, Gilded Oaks, and Crystal Trees, based on Minecraft 1.20's new cherry tree particles.").define("Better Leaf Particles", true);

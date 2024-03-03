@@ -5,6 +5,8 @@ import com.aetherteam.aether.api.AetherMenus;
 import com.aetherteam.aether.block.dispenser.DispenseUsableItemBehavior;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether_genesis.entity.GenesisEntityTypes;
+import com.aetherteam.cumulus.CumulusConfig;
+import com.aetherteam.cumulus.client.CumulusClient;
 import com.mojang.logging.LogUtils;
 import com.mojang.serialization.Codec;
 import net.minecraft.SharedConstants;
@@ -20,6 +22,7 @@ import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.metadata.pack.PackMetadataSection;
 import net.minecraft.server.packs.repository.Pack;
 import net.minecraft.server.packs.repository.PackSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.item.Items;
@@ -124,6 +127,8 @@ public class Redux {
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public static final int REDUX_PURPLE = 0x9384F4;
+
+    public static final RandomSource RAND = RandomSource.create();
 
     @Nullable
     public static ReduxPackConfig packConfig;
@@ -237,6 +242,7 @@ public class Redux {
                         AeroBlenderConfig.COMMON.vanillaAetherRegionWeight.set(0);
                         AeroBlenderConfig.COMMON.vanillaAetherRegionWeight.save();
                     }
+                    ReduxMenus.cycle();
                     ReduxClient.registerItemModelProperties();
                     ReduxPostProcessHandler.initAdrenalineShader();
                     this.versionRefresh();
