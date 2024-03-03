@@ -80,7 +80,6 @@ public class ReduxPackConfig {
                     Conditional.of(BuiltinPackUtils.createPack("resource/mob/blighted_cockatrices"), () -> config.cockatrice_texture.get() == CockatriceType.blighted),
                     Conditional.of(BuiltinPackUtils.createPack("resource/mob/retro_cockatrice"), () -> config.cockatrice_texture.get() == CockatriceType.redux_retro),
                     Conditional.of(BuiltinPackUtils.createPack("resource/item/swet_ball"), () -> config.swet_ball_type.get() == SwetBallType.consistent_name),
-                    Conditional.of(BuiltinPackUtils.createPack("resource/nature/lost_content_sapling"), Redux::lostAetherCompat),
                     Conditional.of(BuiltinPackUtils.createPack("resource/nature/genesis_sapling"), Redux::aetherGenesisCompat),
                     Conditional.of(BuiltinPackUtils.createPack("resource/item/swet_gel"), () -> config.swet_ball_type.get() == SwetBallType.gel),
                     Conditional.of(BuiltinPackUtils.createPack("resource/jappafied_textures"), config.use_jappafied_textures),
