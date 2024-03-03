@@ -59,10 +59,11 @@
       "skinnyTrunkProvider": {
         "type": "minecraft:simple_state_provider",
         "state": {
-          "Name": "aether_genesis:skyroot_log_wall",
+          "Name": "aether_redux:crystal_log_wall",
           "Properties": {
             "double_drops": "true",
             "east": "none",
+            "natural_gen": "true",
             "north": "none",
             "south": "none",
             "up": "true",
@@ -75,7 +76,7 @@
     "trunk_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "aether:skyroot_log",
+        "Name": "aether_redux:crystal_log",
         "Properties": {
           "axis": "y",
           "double_drops": "true"
