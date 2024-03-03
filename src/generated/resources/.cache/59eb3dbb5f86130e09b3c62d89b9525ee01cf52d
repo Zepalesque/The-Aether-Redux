@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-03T14:26:19.3591445	Loot Tables
+// 1.20.1	2024-03-03T14:32:43.3282675	Loot Tables
 c6156555dc4897939b617dabc4521b7fa52feba0 data/aether_redux/loot_tables/blocks/aurum.json
 b5773c78c7b3f27032f1cca6fb72f440e24c7529 data/aether_redux/loot_tables/blocks/avelium.json
 4c8b773f2431b28dd2a48b90d08323d8ff67a3d7 data/aether_redux/loot_tables/blocks/avelium_roots.json
@@ -121,7 +121,7 @@ eea21b34d4dbbcb2ad814075bba411717f8b7670 data/aether_redux/loot_tables/blocks/gi
 ccff96aec2798c0c2dbed8fe51785ea03fa58bbf data/aether_redux/loot_tables/blocks/gilded_holystone_stairs.json
 44318b6c445024a97e10f578ebbede32c96eb996 data/aether_redux/loot_tables/blocks/gilded_holystone_wall.json
 963b96613bb13c6093c63542d41e3d62529f0366 data/aether_redux/loot_tables/blocks/gilded_leaf_pile.json
-4fba051872f91827c87f0d3f629ae865e4432751 data/aether_redux/loot_tables/blocks/gilded_oak_leaves.json
+35c143d6127cb5889ddbe34129571a5c9cdbf615 data/aether_redux/loot_tables/blocks/gilded_oak_leaves.json
 34efa5ea4b1fa407c6a8ebbaa65f8a73eb5d6fa0 data/aether_redux/loot_tables/blocks/gilded_oak_sapling.json
 c084d4a04cdcd8756b3b99da9254c329e3ef80ae data/aether_redux/loot_tables/blocks/gilded_vines.json
 d7648ae1dab514741bea745e573a6ee35b96195d data/aether_redux/loot_tables/blocks/gilded_vines_plant.json
