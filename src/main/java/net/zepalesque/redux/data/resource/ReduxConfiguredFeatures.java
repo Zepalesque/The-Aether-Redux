@@ -15,6 +15,9 @@ import com.aetherteam.aether.world.foliageplacer.HolidayFoliagePlacer;
 import com.aetherteam.aether.world.treedecorator.HolidayTreeDecorator;
 import com.aetherteam.aether.world.trunkplacer.CrystalTreeTrunkPlacer;
 import com.aetherteam.aether.world.trunkplacer.GoldenOakTrunkPlacer;
+import com.aetherteam.aether_genesis.data.resources.GenesisFeatureStates;
+import com.aetherteam.aether_genesis.world.foliageplacer.HookedFoliagePlacer;
+import com.aetherteam.aether_genesis.world.trunkplacer.SkinnyHookedTrunkPlacer;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.Registries;
@@ -131,6 +134,7 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLACIA_TREE = createKey(Folders.TREE + "glacia_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CRYSTAL_LEAF_TREE = createKey(Folders.TREE + "crystal_leaf_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CRYSTAL_RARE_FRUIT_TREE = createKey(Folders.TREE + "crystal_rare_fruit_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PURPLE_CRYSTAL_RARE_FRUIT_TREE = createKey(Folders.COMPAT + "purple_crystal_rare_fruit_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_MUSHROOMS = createKey(Folders.TREE + "large_mushrooms");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_JELLYSHROOM = createKey(Folders.TREE + "large_jellyshroom");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LUMINA_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.LUMINA) + "_patch");
@@ -481,6 +485,15 @@ public class ReduxConfiguredFeatures {
                                 .add(AetherFeatureStates.CRYSTAL_FRUIT_LEAVES, 1)),
                         new CrystalFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0), ConstantInt.of(6)),
                         new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT)).build());
+
+        register(context, PURPLE_CRYSTAL_RARE_FRUIT_TREE, Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LOG),
+                        new SkinnyHookedTrunkPlacer(8, 5, 0, BlockStateProvider.simple(GenesisFeatureStates.SKYROOT_LOG_WALL)),
+                        new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(GenesisFeatureStates.PURPLE_CRYSTAL_LEAVES, 9).add(GenesisFeatureStates.PURPLE_CRYSTAL_FRUIT_LEAVES, 1).build()),
+                        new HookedFoliagePlacer(ConstantInt.of(2), ConstantInt.of(1), ConstantInt.of(2)),
+                        new TwoLayersFeatureSize(2, 1, 4)
+                ).ignoreVines().build());
 
         register(context, LIGHTROOTS, Feature.MULTIFACE_GROWTH,
                 new MultifaceGrowthConfiguration(ReduxBlocks.LIGHTROOTS.get(),

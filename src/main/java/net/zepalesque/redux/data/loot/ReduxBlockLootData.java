@@ -83,6 +83,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropSelf(ReduxBlocks.BLIGHTWILLOW_SAPLING.get());
         this.dropSelf(ReduxBlocks.CRYSTAL_SAPLING.get());
         this.dropSelf(ReduxBlocks.CRYSTAL_FRUIT_SAPLING.get());
+        this.dropSelf(ReduxBlocks.PURPLE_CRYSTAL_FRUIT_SAPLING.get());
 
         this.dropPottedContents(ReduxBlocks.POTTED_BLIGHTWILLOW_SAPLING.get());
         this.dropPottedContents(ReduxBlocks.POTTED_CRYSTAL_SAPLING.get());

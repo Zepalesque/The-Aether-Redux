@@ -5,6 +5,7 @@ import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.providers.AetherRecipeProvider;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.item.AetherItems;
+import com.aetherteam.aether_genesis.block.GenesisBlocks;
 import com.aetherteam.aether_genesis.item.GenesisItems;
 import com.aetherteam.nitrogen.recipe.BlockStateIngredient;
 import com.aetherteam.nitrogen.recipe.builder.BlockStateRecipeBuilder;
@@ -67,6 +68,10 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
         enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, Blocks.GLOWSTONE, ReduxBlocks.DIVINITE.get(), 0.0F, 200).save(consumer, Redux.locate(ReduxBlocks.DIVINITE.getId().getPath() + "_to_glowstone"));
         enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, AetherBlocks.ENCHANTED_GRAVITITE.get(), ReduxItems.RAW_GRAVITITE.get(), 1.0F, 750).save(consumer, this.name("enchanted_gravitite_enchanting_from_raw_ore"));
         enchantingRecipe(RecipeCategory.DECORATIONS, ReduxBlocks.CRYSTAL_FRUIT_SAPLING.get(), ReduxTags.Items.BLUE_CRYSTAL_SAPLINGS, 0.0F, 150, "crystal_sapling").save(consumer, this.name("enchant_crystal_sapling"));
+
+        ConditionalRecipe.builder().addCondition(
+                dc(Conditions.GENESIS)
+        ).addRecipe(enchantingRecipe(RecipeCategory.DECORATIONS, ReduxBlocks.PURPLE_CRYSTAL_FRUIT_SAPLING.get(), GenesisBlocks.PURPLE_CRYSTAL_TREE_SAPLING.get().asItem(), 0.0F, 150)::save).generateAdvancement().build(consumer, this.name("enchant_purple_crystal_sapling"));
 
         smeltingOreRecipe(ReduxItems.VERIDIUM_INGOT.get(), ReduxBlocks.VERIDIUM_ORE.get(), 0.8F).save(consumer, name("smelt_veridium"));
         blastingOreRecipe(ReduxItems.VERIDIUM_INGOT.get(), ReduxBlocks.VERIDIUM_ORE.get(), 0.8F).save(consumer, name("blast_veridium"));

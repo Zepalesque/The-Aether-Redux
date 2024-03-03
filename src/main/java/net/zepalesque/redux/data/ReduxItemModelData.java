@@ -110,6 +110,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         this.itemBlockFlat(ReduxBlocks.FIELDSPROOT_SAPLING.get(), "natural/");
         this.itemBlockFlat(ReduxBlocks.CRYSTAL_SAPLING.get(), "natural/");
         this.itemBlockFlat(ReduxBlocks.CRYSTAL_FRUIT_SAPLING.get(), "natural/");
+        this.itemBlockFlat(ReduxBlocks.PURPLE_CRYSTAL_FRUIT_SAPLING.get(), "natural/");
 
         itemBlock(ReduxBlocks.GLACIA_LEAVES);
         this.itemBlockFlat(ReduxBlocks.GLACIA_SAPLING.get(), "natural/");

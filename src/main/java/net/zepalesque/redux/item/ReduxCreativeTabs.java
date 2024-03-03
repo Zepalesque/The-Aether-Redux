@@ -3,6 +3,7 @@ package net.zepalesque.redux.item;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.item.AetherCreativeTabs;
 import com.aetherteam.aether.item.AetherItems;
+import com.aetherteam.aether_genesis.block.GenesisBlocks;
 import com.legacy.lost_aether.registry.LCBlocks;
 import net.builderdog.ancient_aether.block.AncientAetherBlocks;
 import net.builderdog.ancient_aether.item.AncientAetherItems;
@@ -159,6 +160,9 @@ public class ReduxCreativeTabs {
             }
             if (Redux.ancientAetherCompat()) {
                 putAfter(AncientAetherBlocks.VALKYRUM_ORE, ReduxBlocks.RAW_VALKYRUM_BLOCK, event);
+            }
+            if (Redux.aetherGenesisCompat()) {
+                putAfter(GenesisBlocks.PURPLE_CRYSTAL_TREE_SAPLING, ReduxBlocks.PURPLE_CRYSTAL_FRUIT_SAPLING, event);
             }
         }
         if (tab == AetherCreativeTabs.AETHER_REDSTONE_BLOCKS.get()) {

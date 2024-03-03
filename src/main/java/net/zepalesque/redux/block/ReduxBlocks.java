@@ -256,6 +256,15 @@ public class ReduxBlocks {
                     BlockBehaviour.Properties.copy(Blocks.FLOWER_POT))
     );
 
+    public static final RegistryObject<SaplingBlock> PURPLE_CRYSTAL_FRUIT_SAPLING = register("purple_crystal_fruit_sapling", () ->
+            new SaplingBlock(new PurpleCrystalFruitTree(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING))
+    );
+    public static final RegistryObject<FlowerPotBlock> POTTED_PURPLE_CRYSTAL_FRUIT_SAPLING = BLOCKS.register("purple_potted_crystal_fruit_sapling",
+            () -> new FlowerPotBlock(() ->
+                    (FlowerPotBlock)Blocks.FLOWER_POT, PURPLE_CRYSTAL_FRUIT_SAPLING,
+                    BlockBehaviour.Properties.copy(Blocks.FLOWER_POT))
+    );
+
     public static final RegistryObject<SaplingBlock> FIELDSPROOT_SAPLING = register("fieldsproot_sapling", () ->
             new SaplingBlock(new FieldsprootTree(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING).sound(SoundType.CHERRY_SAPLING))
     );
@@ -477,6 +486,7 @@ public class ReduxBlocks {
         pot.addPlant(ReduxBlocks.THERATIP.getId(), ReduxBlocks.POTTED_THERATIP);
         pot.addPlant(ReduxBlocks.CRYSTAL_SAPLING.getId(), ReduxBlocks.POTTED_CRYSTAL_SAPLING);
         pot.addPlant(ReduxBlocks.CRYSTAL_FRUIT_SAPLING.getId(), ReduxBlocks.POTTED_CRYSTAL_FRUIT_SAPLING);
+        pot.addPlant(ReduxBlocks.PURPLE_CRYSTAL_FRUIT_SAPLING.getId(), ReduxBlocks.POTTED_PURPLE_CRYSTAL_FRUIT_SAPLING);
         pot.addPlant(ReduxBlocks.SHIMMERSTOOL.getId(), ReduxBlocks.POTTED_SHIMMERSTOOL);
     }
 
