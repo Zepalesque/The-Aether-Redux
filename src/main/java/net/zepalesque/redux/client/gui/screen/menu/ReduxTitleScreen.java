@@ -39,6 +39,7 @@ public class ReduxTitleScreen extends TitleScreen implements TitleScreenBehavior
 	private final PanoramaRenderer cube;
 	private int rows;
 	private static final int baseLogoHeight = 144;
+	private static final int SPLASH_COLOR = 0xF6DAFB;
 	private static final int baseLogoWidth = baseLogoHeight * 2;
 
 	public ReduxTitleScreen(String panorama) {
@@ -117,7 +118,7 @@ public class ReduxTitleScreen extends TitleScreen implements TitleScreenBehavior
 					float textSize = 1.4F - Mth.abs(Mth.sin((float) (Util.getMillis() % 1000L) / 1000.0F * Mth.TWO_PI) * 0.1F);
 					textSize = textSize * (200.0F / scale) / (ReduxTitleScreen.this.font.width(splashRendererAccessor.cumulus$getSplash()) + (64 / scale));
 					poseStack.scale(textSize, textSize, textSize);
-					guiGraphics.drawCenteredString(ReduxTitleScreen.this.font, splashRendererAccessor.cumulus$getSplash(), 0, (int) (-16 / scale), 0x7CA2FF | roundedFadeAmount);
+					guiGraphics.drawCenteredString(ReduxTitleScreen.this.font, splashRendererAccessor.cumulus$getSplash(), 0, (int) (-16 / scale), SPLASH_COLOR | roundedFadeAmount);
 					poseStack.popPose();
 				}
 			}
