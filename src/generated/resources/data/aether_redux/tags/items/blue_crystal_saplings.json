@@ -1,0 +1,9 @@
+{
+  "values": [
+    "aether_redux:crystal_sapling",
+    {
+      "id": "lost_aether_content:crystal_sapling",
+      "required": false
+    }
+  ]
+}

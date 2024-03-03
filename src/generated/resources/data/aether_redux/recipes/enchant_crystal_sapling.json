@@ -4,7 +4,7 @@
   "cookingtime": 150,
   "experience": 0.0,
   "ingredient": {
-    "item": "aether_redux:crystal_sapling"
+    "tag": "aether_redux:blue_crystal_saplings"
   },
   "result": "aether_redux:crystal_fruit_sapling"
 }

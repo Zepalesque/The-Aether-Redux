@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "aether_redux:crystal_sapling"
-            ]
+            "tag": "aether_redux:blue_crystal_saplings"
           }
         ]
       },
