@@ -39,7 +39,7 @@ public class ReduxTitleScreen extends TitleScreen implements TitleScreenBehavior
 	private final PanoramaRenderer cube;
 	private int rows;
 	private static final int baseLogoHeight = 144;
-	private static final int SPLASH_COLOR = 0xF6DAFB;
+	private static final int SPLASH_COLOR = 0xAAAAFF;
 	private static final int baseLogoWidth = baseLogoHeight * 2;
 
 	public ReduxTitleScreen(String panorama) {
