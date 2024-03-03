@@ -114,6 +114,7 @@ public class CockatriceExtensionCapability implements CockatriceExtension {
     public void tick() {
         this.handleLegAnim();
         this.handleTargetAnim();
+        this.handleBurning();
     }
 
     public void handleBurning() {
