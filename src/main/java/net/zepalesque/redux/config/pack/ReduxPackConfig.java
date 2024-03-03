@@ -25,8 +25,6 @@ public class ReduxPackConfig {
     public final PackConfig<SwetBallType> swet_ball_type;
     public final PackConfig<VeridiumType> veridium_type;
     public final PackConfig<Boolean> use_jappafied_textures;
-    public final PackConfig<Boolean> menu_panorama;
-    public final PackConfig<Boolean> redux_buttons;
 
     public final PackConfig<Boolean> better_aechor_sounds;
     public final PackConfig<Boolean> better_aerwhale_sounds;
@@ -64,12 +62,8 @@ public class ReduxPackConfig {
         this.swet_ball_type = builder.comment().cfg("swet_ball_type", SwetBallType.gel, SwetBallType.MAPPER);
         this.veridium_type = builder.comment().cfg("veridium_type", VeridiumType.modern, VeridiumType.MAPPER);
         builder.pop();
-        builder.push("gui");
-        // Use Redux menu panorama
-        this.menu_panorama = builder.comment().cfg("menu_panorama", true);
-        // Use Redux Buttons
-        this.redux_buttons = builder.comment().cfg("redux_buttons", false);
-        builder.pop();
+//        builder.push("gui");
+//        builder.pop();
         // Jappafied Aethers compat
         this.use_jappafied_textures = builder.comment().cfg("use_jappafied_textures", false);
         // Allows for tinting grass along with some flower stems
@@ -87,8 +81,6 @@ public class ReduxPackConfig {
                     Conditional.of(BuiltinPackUtils.createPack("resource/mob/retro_cockatrice"), () -> config.cockatrice_texture.get() == CockatriceType.redux_retro),
                     Conditional.of(BuiltinPackUtils.createPack("resource/item/swet_ball"), () -> config.swet_ball_type.get() == SwetBallType.consistent_name),
                     Conditional.of(BuiltinPackUtils.createPack("resource/item/swet_gel"), () -> config.swet_ball_type.get() == SwetBallType.gel),
-                    Conditional.of(BuiltinPackUtils.createPack("resource/gui/menu_panorama"), config.menu_panorama),
-                    Conditional.of(BuiltinPackUtils.createPack("resource/gui/redux_buttons"), config.redux_buttons),
                     Conditional.of(BuiltinPackUtils.createPack("resource/jappafied_textures"), config.use_jappafied_textures),
                     Conditional.of(BuiltinPackUtils.createPack("resource/item/genesis_jelly"), Redux::aetherGenesisCompat),
                     Conditional.of(BuiltinPackUtils.createPack("resource/item/shadow_veridium"), () -> config.veridium_type.get() == VeridiumType.shadow),
