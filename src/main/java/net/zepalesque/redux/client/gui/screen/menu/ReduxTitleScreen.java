@@ -54,9 +54,6 @@ public class ReduxTitleScreen extends TitleScreen implements TitleScreenBehavior
 	protected void init() {
 		super.init();
 		this.setupButtons();
-		if (CumulusClient.MENU_HELPER.shouldFade()) {
-			ReduxClient.PANORAMAS.randomizeIndex();
-		}
 	}
 
 	public void setupButtons() {
