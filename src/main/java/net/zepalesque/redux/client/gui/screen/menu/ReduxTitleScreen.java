@@ -35,10 +35,10 @@ import java.util.function.Predicate;
 public class ReduxTitleScreen extends TitleScreen implements TitleScreenBehavior {
 	private static final ResourceLocation PANORAMA_OVERLAY = new ResourceLocation("textures/gui/title/background/panorama_overlay.png");
 	private static final ResourceLocation AETHER_LOGO = Redux.locate("textures/gui/title/redux.png");
-//	private final CyclingPanoramaRenderer panorama = new CyclingPanoramaRenderer(ReduxClient.PANORAMAS);
 	private final PanoramaRenderer cube;
 	private int rows;
 	private static final int baseLogoHeight = 144;
+	// TODO: Custom splash text?
 	private static final int SPLASH_COLOR = 0xAAAAFF;
 	private static final int baseLogoWidth = baseLogoHeight * 2;
 
