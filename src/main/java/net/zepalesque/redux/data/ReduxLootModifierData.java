@@ -10,7 +10,6 @@ import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
 import net.minecraft.data.PackOutput;
-import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.util.random.WeightedEntry;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -117,7 +116,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                 new LootItemCondition[] {LootItemEntityPropertyCondition
                         .hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(AetherTags.Entities.SWETS))
                         .build(),
-                        DataLootCondition.conditionOf(new Not(Conditions.GENESIS)).build()
+                        DataLootCondition.conditionOf(new Not<>(Conditions.GENESIS)).build()
 
                 }));
 
@@ -221,23 +220,5 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                         .build(),
                         DataLootCondition.conditionOf(new Not<>(Conditions.GENESIS)).build()
                 }));
-//        this.add("genesis_golden_swet_ball_increase", new GenesisAddDropsModifier(new ItemStack(GenesisItems.GOLDEN_SWET_BALL.get()),
-//                new LootItemFunction[] {
-//                        SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F)).build(),
-//                        LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)).build() },
-//                new LootItemCondition[] {LootItemEntityPropertyCondition
-//                        .hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(AetherEntityTypes.GOLDEN_SWET.get()))
-//                        .build(),
-//                        DataLootCondition.conditionOf(Conditions.GENESIS).build()
-//                }));
-//        this.add("genesis_dark_swet_ball_increase", new GenesisAddDropsModifier(new ItemStack(GenesisItems.DARK_SWET_BALL.get()),
-//                new LootItemFunction[] {
-//                        SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F)).build(),
-//                        LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)).build() },
-//                new LootItemCondition[] {LootItemEntityPropertyCondition
-//                        .hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(GenesisEntityTypes.DARK_SWET.get()))
-//                        .build(),
-//                        DataLootCondition.conditionOf(Conditions.GENESIS).build()
-//                }));
     }
 }
