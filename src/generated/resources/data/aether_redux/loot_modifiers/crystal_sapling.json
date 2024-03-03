@@ -16,16 +16,6 @@
       "condition": "minecraft:block_state_property"
     },
     {
-      "condition": "aether_redux:data_loot_condition",
-      "data_loot_condition": {
-        "condition": "aether_redux:not",
-        "inverted": {
-          "condition": "aether_redux:mod_loaded",
-          "mod_id": "lost_aether_content"
-        }
-      }
-    },
-    {
       "condition": "minecraft:inverted",
       "term": {
         "condition": "minecraft:any_of",
