@@ -238,7 +238,7 @@ public class Redux {
                         AetherConfig.CLIENT.enable_aether_menu_button.save();
                         AetherConfig.CLIENT.should_disable_cumulus_button.set(false);
                         AetherConfig.CLIENT.should_disable_cumulus_button.save();
-                        CumulusConfig.CLIENT.active_menu.set(ReduxMenus.SKYFIELDS_MENU.get());
+                        CumulusConfig.CLIENT.active_menu.set(ReduxMenus.SKYFIELDS_MENU.getId().toString());
                         CumulusConfig.CLIENT.active_menu.save();
                         ReduxConfig.CLIENT.is_first_startup.set(false);
                         ReduxConfig.CLIENT.is_first_startup.save();
