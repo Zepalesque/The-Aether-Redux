@@ -230,8 +230,8 @@ public class Redux {
         event.enqueueWork(
                 () -> {
                     if (ReduxConfig.CLIENT.is_first_startup.get()) {
-                        AetherConfig.CLIENT.green_sunset.set(true);
-                        AetherConfig.CLIENT.green_sunset.save();
+//                        AetherConfig.CLIENT.green_sunset.set(true);
+//                        AetherConfig.CLIENT.green_sunset.save();
                         AetherConfig.CLIENT.colder_lightmap.set(true);
                         AetherConfig.CLIENT.colder_lightmap.save();
                         AetherConfig.CLIENT.enable_aether_menu_button.set(false);
