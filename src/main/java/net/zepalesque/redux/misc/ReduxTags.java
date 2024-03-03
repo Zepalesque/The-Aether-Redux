@@ -51,6 +51,7 @@ public class ReduxTags {
         public static final TagKey<Item> VERIDIUM_ADVANCEMENT_INFUSABLE = tag("veridium_advancement_infusable");
         public static final TagKey<Item> BLIGHTWARDING_ACCESSORIES = tag("blightwarding_accessories");
         public static final TagKey<Item> IS_SKYROOT_TOOL = tag("is_skyroot_tool");
+        public static final TagKey<Item> BLUE_CRYSTAL_SAPLINGS = tag("blue_crystal_saplings");
 
         public static final TagKey<Item> INFUSED_VERIDIUM_ITEMS = tag("infused_veridium_items");
 

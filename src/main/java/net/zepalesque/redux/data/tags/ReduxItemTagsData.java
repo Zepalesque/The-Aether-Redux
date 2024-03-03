@@ -133,6 +133,7 @@ public class ReduxItemTagsData extends ItemTagsProvider {
                 AetherItems.SKYROOT_SHOVEL.get(),
                 AetherItems.SKYROOT_HOE.get()
         );
+        this.tag(ReduxTags.Items.BLUE_CRYSTAL_SAPLINGS).add(ReduxBlocks.CRYSTAL_SAPLING.get().asItem()).addOptional(new ResourceLocation("lost_aether_content", "crystal_sapling"));
     }
 
 }

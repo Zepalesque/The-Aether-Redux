@@ -18,6 +18,6 @@ public class CrystalTree extends AbstractTreeGrower {
 
     @Nullable
     protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean largeHive) {
-        return this.fruit ? AetherConfiguredFeatures.CRYSTAL_TREE_CONFIGURATION : ReduxConfiguredFeatures.CRYSTAL_LEAF_TREE;
+        return this.fruit ? ReduxConfiguredFeatures.CRYSTAL_RARE_FRUIT_TREE : ReduxConfiguredFeatures.CRYSTAL_LEAF_TREE;
     }
 }
