@@ -114,10 +114,10 @@ public class ReduxTitleScreen extends TitleScreen implements TitleScreenBehavior
 					poseStack.pushPose();
 					poseStack.translate(splashX, splashY, 0.0F);
 					poseStack.mulPose(Axis.ZP.rotationDegrees(-20.0F));
-					float textSize = 1.8F - Mth.abs(Mth.sin((float) (Util.getMillis() % 1000L) / 1000.0F * Mth.TWO_PI) * 0.1F);
+					float textSize = 1.4F - Mth.abs(Mth.sin((float) (Util.getMillis() % 1000L) / 1000.0F * Mth.TWO_PI) * 0.1F);
 					textSize = textSize * (200.0F / scale) / (ReduxTitleScreen.this.font.width(splashRendererAccessor.cumulus$getSplash()) + (64 / scale));
 					poseStack.scale(textSize, textSize, textSize);
-					guiGraphics.drawCenteredString(ReduxTitleScreen.this.font, splashRendererAccessor.cumulus$getSplash(), 0, (int) (-16 / scale), 0x7CA2FF | roundedFadeAmount);
+					guiGraphics.drawCenteredString(ReduxTitleScreen.this.font, splashRendererAccessor.cumulus$getSplash(), 0, (int) (-16 / scale), 0x7FB4FF | roundedFadeAmount);
 					poseStack.popPose();
 				}
 			}
