@@ -104,7 +104,10 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.pottedPlant(ReduxBlocks.POTTED_GLACIA_SAPLING.get(), ReduxBlocks.GLACIA_SAPLING.get(), "natural/");
 
         this.crossBlock(ReduxBlocks.CRYSTAL_SAPLING.get(), "natural/");
-        this.pottedPlant(ReduxBlocks.POTTED_GLACIA_SAPLING.get(), ReduxBlocks.GLACIA_SAPLING.get(), "natural/");
+        this.pottedPlant(ReduxBlocks.POTTED_CRYSTAL_SAPLING.get(), ReduxBlocks.CRYSTAL_SAPLING.get(), "natural/");
+
+        this.crossBlock(ReduxBlocks.CRYSTAL_FRUIT_SAPLING.get(), "natural/");
+        this.pottedPlant(ReduxBlocks.POTTED_CRYSTAL_FRUIT_SAPLING.get(), ReduxBlocks.CRYSTAL_FRUIT_SAPLING.get(), "natural/");
 
 
         this.snowableLeaves(ReduxBlocks.PURPLE_GLACIA_LEAVES.get(), "natural/");
