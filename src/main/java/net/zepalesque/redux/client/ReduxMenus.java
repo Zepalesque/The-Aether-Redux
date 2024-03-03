@@ -16,6 +16,7 @@ import net.zepalesque.redux.client.gui.screen.menu.ReduxTitleScreen;
 import net.zepalesque.redux.config.ReduxConfig;
 
 import java.util.function.BooleanSupplier;
+import java.util.function.Supplier;
 
 public class ReduxMenus {
     public static final DeferredRegister<Menu> MENUS = DeferredRegister.create(Cumulus.MENU_REGISTRY_KEY, Redux.MODID);
@@ -41,14 +42,14 @@ public class ReduxMenus {
             .tabButton(THE_AETHER_TAB_BUTTON);
 
 
-    public static final RegistryObject<Menu> BLIGHT_MENU = register("redux_blight", ICON, BLIGHT_NAME, () -> new ReduxTitleScreen("blight"), new Menu.Properties().music(ReduxMusic.REDUX_MENU).background(REDUX_BACKGROUND));
-    public static final RegistryObject<Menu> GILDED_MENU = register("redux_gilded", ICON, GILDED_NAME, () -> new ReduxTitleScreen("gilded"), new Menu.Properties().music(ReduxMusic.REDUX_MENU).background(REDUX_BACKGROUND));
-    public static final RegistryObject<Menu> DUNGEON_MENU = register("redux_dungeon", ICON, DUNGEON_NAME, () -> new ReduxTitleScreen("dungeon"), new Menu.Properties().music(ReduxMusic.REDUX_MENU).background(REDUX_BACKGROUND));
-    public static final RegistryObject<Menu> CLOUDCAPS_MENU = register("redux_cloudcaps", ICON, CLOUDCAPS_NAME, () -> new ReduxTitleScreen("cloudcaps"), new Menu.Properties().music(ReduxMusic.REDUX_MENU).background(REDUX_BACKGROUND));
-    public static final RegistryObject<Menu> SKYFIELDS_MENU = register("redux_skyfields", ICON, SKYFIELDS_NAME, () -> new ReduxTitleScreen("skyfields"), new Menu.Properties().music(ReduxMusic.REDUX_MENU).background(REDUX_BACKGROUND));
+    public static final RegistryObject<Menu> BLIGHT_MENU = register("redux_blight", ICON, BLIGHT_NAME, () -> new ReduxTitleScreen("blight"), () -> new Menu.Properties().music(ReduxMusic.REDUX_MENU).background(REDUX_BACKGROUND));
+    public static final RegistryObject<Menu> GILDED_MENU = register("redux_gilded", ICON, GILDED_NAME, () -> new ReduxTitleScreen("gilded"), () -> new Menu.Properties().music(ReduxMusic.REDUX_MENU).background(REDUX_BACKGROUND));
+    public static final RegistryObject<Menu> DUNGEON_MENU = register("redux_dungeon", ICON, DUNGEON_NAME, () -> new ReduxTitleScreen("dungeon"), () -> new Menu.Properties().music(ReduxMusic.REDUX_MENU).background(REDUX_BACKGROUND));
+    public static final RegistryObject<Menu> CLOUDCAPS_MENU = register("redux_cloudcaps", ICON, CLOUDCAPS_NAME, () -> new ReduxTitleScreen("cloudcaps"), () -> new Menu.Properties().music(ReduxMusic.REDUX_MENU).background(REDUX_BACKGROUND));
+    public static final RegistryObject<Menu> SKYFIELDS_MENU = register("redux_skyfields", ICON, SKYFIELDS_NAME, () -> new ReduxTitleScreen("skyfields"), () -> new Menu.Properties().music(ReduxMusic.REDUX_MENU).background(REDUX_BACKGROUND));
 
-    public static RegistryObject<Menu> register(String id, ResourceLocation icon, Component name, Lazy<TitleScreen> screen, Menu.Properties properties) {
-        return MENUS.register(id, () -> new Menu(icon, name, screen.get(), () -> CumulusConfig.CLIENT.active_menu.get().equals("aether_redux:" + id), properties));
+    public static RegistryObject<Menu> register(String id, ResourceLocation icon, Component name, Supplier<TitleScreen> screen, Supplier<Menu.Properties> properties) {
+        return MENUS.register(id, () -> new Menu(icon, name, screen.get(), () -> CumulusConfig.CLIENT.active_menu.get().equals("aether_redux:" + id), properties.get()));
     }
 
     public static void cycle() {

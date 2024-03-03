@@ -39,7 +39,6 @@
     "defaultRequire": 1
   },
   "client": [
-    "client.gui.MenuHelperMixin",
     "client.audio.SentryClientMixin",
     "client.block.AetherColorResolversMixin",
     "client.block.AetherLeavesClientMixin",
