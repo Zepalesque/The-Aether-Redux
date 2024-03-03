@@ -541,8 +541,6 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addPackConfig("veridium_type", "Veridium Type", "Switch between three different sprites for the Veridium toolset - The glowing blue Modern variant, the darker and more sleek Shadow variant, and the Classic one based on the old textures for the tools");
         addPackConfigEnum("shadow", "Shadow");
         addPackConfigCategory("gui", "GUI", "Changes to Aether GUI elements");
-        addPackConfig("menu_panorama", "Menu Panorama", "Use Redux's custom main menu panorama");
-        addPackConfig("redux_buttons", "Redux Buttons", "Use Redux's custom button prototype textures, which will be used in its custom menu once it is implemented");
         addPackConfig("use_jappafied_textures", "Use Jappafied Textures", "Uses textures designed to fit with the Jappafied Aethers resource pack slightly better");
         addPackConfig("auto_apply", "Automatic Application", "Enables the resource pack automatically when removed");
         addPackConfig("smelter_menu_type", "Smelter Menu Type", "Switch between three different types of Aether Smelter Menus: The originals, classic-styled improvemenets, and modernized menus");
@@ -556,7 +554,11 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addPackConfig("better_slider_sounds", "Upgraded Slider Sounds", "Improves the sounds of the Slider, with more labyrinth-themed ambient droning and a more Sentry-like hurt sound.");
         addPackConfig("better_tempest_sounds", "Upgraded Tempest Sounds (Requires: The Aether: Genesis)", "Improves the sounds of the Aether: Genesis's Tempests, giving them their sounds heard in early builds of the Aether II: Highlands.");
 
-        addMenuTitle("the_aether_redux", "The Aether: Redux");
+        addMenuTitle("blight", "Redux - Blight");
+        addMenuTitle("gilded", "Redux - Gilded");
+        addMenuTitle("dungeon", "Redux - Dungeon");
+        addMenuTitle("cloudcaps", "Redux - Cloudcaps");
+        addMenuTitle("skyfields", "Redux - Skyfields");
 
         addPackTitle("overrides", "Redux - Aether Overrides");
         addPackDescription("overrides", "Configurable overrides for the Aether: Redux");
