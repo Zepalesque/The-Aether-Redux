@@ -334,7 +334,7 @@ public class Redux {
         } else if (event.getPackType() == PackType.SERVER_DATA) {
             if (aetherGenesisCompat()) { this.setupMandatoryDataPack(event, "data/genesis_data", "Genesis Compat", "Compatibility with the Aether: Genesis"); }
             if (lostAetherCompat()) { this.setupMandatoryDataPack(event, "data/lost_content_data", "Lost Content Compat", "Compatibility with the Aether: Lost Content"); }
-            if (deepAetherCompat()) { this.setupMandatoryDataPack(event, "data/deep_aether_data", "Deep Aether Compat", "Compatibility with the Deep Aether Addon"); }
+            if (deepAetherCompat()) { this.setupMandatoryDataPack(event, "data/deep_aether_data", "Deep Aether Compat", "Compatibility with Deep Aether"); }
             if (ancientAetherCompat()) { this.setupMandatoryDataPack(event, "data/ancient_aether_data", "Ancient Aether Compat", "Compatibility with Ancient Aether"); }
 
             QuadConsumer<AddPackFindersEvent, String, String, String> func = ReduxConfig.COMMON.apply_cloud_layer_pack.get() ? this::setupBuiltinDatapack : this::setupOptionalDatapack;
