@@ -5,6 +5,7 @@ import com.aetherteam.aether.item.AetherCreativeTabs;
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether_genesis.block.GenesisBlocks;
 import com.legacy.lost_aether.registry.LCBlocks;
+import com.legacy.lost_aether.registry.LCItems;
 import net.builderdog.ancient_aether.block.AncientAetherBlocks;
 import net.builderdog.ancient_aether.item.AncientAetherItems;
 import net.minecraft.nbt.CompoundTag;
@@ -126,11 +127,12 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.GILDED_OAK_SAPLING, ReduxBlocks.FIELDSPROOT_SAPLING, event);
 
             if (Redux.lostAetherCompat()) {
-                event.getEntries().putAfter(new ItemStack(LCBlocks.crystal_sapling), new ItemStack(ReduxBlocks.CRYSTAL_FRUIT_SAPLING.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            } else {
-                putAfter(ReduxBlocks.GILDED_OAK_SAPLING, ReduxBlocks.CRYSTAL_SAPLING, event);
-                putAfter(ReduxBlocks.CRYSTAL_SAPLING, ReduxBlocks.CRYSTAL_FRUIT_SAPLING, event);
+                event.getEntries().remove(new ItemStack(LCBlocks.crystal_sapling));
             }
+
+            putAfter(ReduxBlocks.GILDED_OAK_SAPLING, ReduxBlocks.CRYSTAL_SAPLING, event);
+            putAfter(ReduxBlocks.CRYSTAL_SAPLING, ReduxBlocks.CRYSTAL_FRUIT_SAPLING, event);
+
             putAfter(AetherBlocks.BERRY_BUSH, ReduxBlocks.ZANBERRY_BUSH_STEM, event);
             putAfter(ReduxBlocks.ZANBERRY_BUSH_STEM, ReduxBlocks.ZANBERRY_BUSH, event);
 
