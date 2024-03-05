@@ -10,6 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
@@ -67,6 +68,7 @@ public class ReduxItemTagsData extends ItemTagsProvider {
                 GenesisItems.GOLDEN_SWET_JELLY.get(),
                 GenesisItems.DARK_SWET_JELLY.get()
         );
+        this.tag(ReduxTags.Items.CHAINS).add(ReduxBlocks.VERIDIUM_CHAIN.get().asItem(), Blocks.CHAIN.asItem());
 
         this.tag(ItemTags.PICKAXES).add(ReduxItems.VERIDIUM_PICKAXE.get(), ReduxItems.INFUSED_VERIDIUM_PICKAXE.get());
         this.tag(ItemTags.SHOVELS).add(ReduxItems.VERIDIUM_SHOVEL.get(), ReduxItems.INFUSED_VERIDIUM_SHOVEL.get());

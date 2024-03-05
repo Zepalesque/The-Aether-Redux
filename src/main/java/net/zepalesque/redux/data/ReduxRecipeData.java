@@ -451,12 +451,13 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
             pressurePlate(consumer, woodHandler.pressurePlate.get(), woodHandler.planks.get());
             buttonBuilder(woodHandler.button.get(), Ingredient.of(woodHandler.planks.get())).unlockedBy(getHasName(woodHandler.planks.get()), has(woodHandler.planks.get())).group("wooden_button").save(consumer);
             skyrootSignBuilder(woodHandler.signItem.get(), Ingredient.of(woodHandler.planks.get())).unlockedBy(getHasName(woodHandler.planks.get()), has(woodHandler.planks.get())).group("wooden_sign").save(consumer);
+            hangingAetherSign(consumer, woodHandler.hangingSignItem.get(), woodHandler.hasStrippedLogs && woodHandler.strippedLog.isPresent() ? woodHandler.strippedLog.get().get() : woodHandler.log.get());
             woodenBoat(consumer, woodHandler.boatItem.get(), woodHandler.planks.get());
             chestBoat(consumer, woodHandler.chestBoatItem.get(), woodHandler.boatItem.get());
             slab(consumer, RecipeCategory.BUILDING_BLOCKS, woodHandler.slab.get(), woodHandler.planks.get());
             stairs(woodHandler.stairs, woodHandler.planks).save(consumer);
             bookshelf(consumer, woodHandler.planks.get(), woodHandler.bookshelf.get());
-            if (woodHandler.hasStrippedLogs)
+            if (woodHandler.hasStrippedLogs && woodHandler.strippedLog.isPresent() && woodHandler.strippedWood.isPresent())
             {
                 woodFromLogs(consumer, woodHandler.strippedWood.get().get(), woodHandler.strippedLog.get().get());
             }
@@ -464,14 +465,14 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
             {
                 wall(consumer, RecipeCategory.BUILDING_BLOCKS, woodHandler.logWall.get(), woodHandler.log.get());
                 wall(consumer, RecipeCategory.BUILDING_BLOCKS, woodHandler.woodWall.get(), woodHandler.wood.get());
-                if (woodHandler.hasStrippedLogs) {
+                if (woodHandler.hasStrippedLogs && woodHandler.strippedLogWall.isPresent() && woodHandler.strippedWoodWall.isPresent() && woodHandler.strippedLog.isPresent() && woodHandler.strippedWood.isPresent()) {
                     wall(consumer, RecipeCategory.BUILDING_BLOCKS, woodHandler.strippedLogWall.get().get(), woodHandler.strippedLog.get().get());
                     wall(consumer, RecipeCategory.BUILDING_BLOCKS, woodHandler.strippedWoodWall.get().get(), woodHandler.strippedWood.get().get());
                 }
             } else {
                 ConditionalRecipe.builder().addCondition(dc(Conditions.GENESIS)).addRecipe(wallNoBuild(RecipeCategory.BUILDING_BLOCKS, woodHandler.logWall.get(), woodHandler.log.get())::save).generateAdvancement().build(consumer, getDefaultRecipeId(woodHandler.logWall.get()));
                 ConditionalRecipe.builder().addCondition(dc(Conditions.GENESIS)).addRecipe(wallNoBuild(RecipeCategory.BUILDING_BLOCKS, woodHandler.woodWall.get(), woodHandler.wood.get())::save).generateAdvancement().build(consumer, getDefaultRecipeId(woodHandler.woodWall.get()));
-                if (woodHandler.hasStrippedLogs) {
+                if (woodHandler.hasStrippedLogs && woodHandler.strippedLogWall.isPresent() && woodHandler.strippedWoodWall.isPresent() && woodHandler.strippedLog.isPresent() && woodHandler.strippedWood.isPresent()) {
                     ConditionalRecipe.builder().addCondition(dc(Conditions.GENESIS)).addRecipe(wallNoBuild(RecipeCategory.BUILDING_BLOCKS, woodHandler.strippedLogWall.get().get(), woodHandler.strippedLog.get().get())::save).generateAdvancement().build(consumer, getDefaultRecipeId(woodHandler.strippedLogWall.get().get()));
                     ConditionalRecipe.builder().addCondition(dc(Conditions.GENESIS)).addRecipe(wallNoBuild(RecipeCategory.BUILDING_BLOCKS, woodHandler.strippedWoodWall.get().get(), woodHandler.strippedWood.get().get())::save).generateAdvancement().build(consumer, getDefaultRecipeId(woodHandler.strippedWoodWall.get().get()));
                 }
@@ -627,6 +628,10 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
 
     protected static RecipeBuilder skyrootSignBuilder(ItemLike pSign, Ingredient pMaterial) {
         return ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, pSign, 3).group("sign").define('P', pMaterial).define('/', Tags.Items.RODS_WOODEN).pattern("PPP").pattern("PPP").pattern(" / ");
+    }
+
+    protected static void hangingAetherSign(Consumer<FinishedRecipe> finishedRecipeConsumer, ItemLike sign, ItemLike material) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, sign, 6).group("hanging_sign").define('#', material).define('X', ReduxTags.Items.CHAINS).pattern("X X").pattern("###").pattern("###").unlockedBy("has_stripped_log", has(material)).save(finishedRecipeConsumer);
     }
 
 

@@ -44,6 +44,7 @@ public class ReduxTags {
         public static final TagKey<Item> MYKAPOD_SHED_FOOD = tag("mykapod_shed_food");
         public static final TagKey<Item> MYKAPOD_FOLLOW_ITEMS = tag("mykapod_follow_items");
         public static final TagKey<Item> SWET_JELLY = tag("swet_jelly");
+        public static final TagKey<Item> CHAINS = tag("chains");
         public static final TagKey<Item> BLUE_SWET_JELLY = tag("blue_swet_jelly");
         public static final TagKey<Item> GOLDEN_SWET_JELLY = tag("golden_swet_jelly");
         public static final TagKey<Item> GOLDEN_SWET_BALL = tag("golden_swet_ball");
