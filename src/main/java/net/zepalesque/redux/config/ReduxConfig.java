@@ -173,7 +173,7 @@ public class ReduxConfig {
             this.flying_cow_model_upgrade = builder.comment("Gives the Flying Cow's model some touchups and improvements").define("Flying Cow Model Upgrade", true);
             builder.pop();
             builder.push("Shader FX");
-            this.enable_adrenaline_postproccess = builder.comment("Enables a post processing effect for the Shroom Ring's adrenaline ability. Only works with Fabulous graphics, and will cause issues when underwater (even when the ability is not active)").define("Enable Adrenaline Post Processing Effect", true);
+            this.enable_adrenaline_postproccess = builder.comment("Enables a post processing effect for the Shroom Ring's adrenaline ability. Only works with Fabulous graphics, and will cause issues when underwater (even when the ability is not active)").define("Enable Adrenaline Post Processing Effect", false);
             builder.pop();
             builder.push("GUI");
             this.cycle_menu = builder.comment("Cycles between Redux's menus.").define("Cycle Menu", true);
