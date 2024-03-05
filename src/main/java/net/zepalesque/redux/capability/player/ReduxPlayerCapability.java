@@ -4,12 +4,14 @@ import com.aetherteam.aether.item.EquipmentUtil;
 import com.aetherteam.nitrogen.network.BasePacket;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.network.simple.SimpleChannel;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.network.ReduxPacketHandler;
 import net.zepalesque.redux.network.packet.ReduxPlayerSyncPacket;
 import net.zepalesque.redux.util.player.AbilityUtil;
 import org.apache.commons.lang3.tuple.Triple;
+import teamrazor.deepaether.init.DAItems;
 
 import java.util.Map;
 import java.util.function.Consumer;
@@ -34,7 +36,6 @@ public class ReduxPlayerCapability implements ReduxPlayer {
 
     int maxAirJumps = 0;
 
-    int fireballCooldown;
 
     int ticksInAir = 0;
 
@@ -131,10 +132,10 @@ public class ReduxPlayerCapability implements ReduxPlayer {
         if (this.airJumpCooldown > 0) {
             this.airJumpCooldown--;
         }
-        if (this.fireballCooldown > 0)
+/*        if (this.fireballCooldown > 0)
         {
             this.fireballCooldown--;
-        }
+        }*/
 
     }
 
@@ -150,18 +151,19 @@ public class ReduxPlayerCapability implements ReduxPlayer {
     }
     @Override
     public boolean fireballSetup() {
-        if (this.fireballCooldown > 0)
-        {
+        if (player.getCooldowns().isOnCooldown(ReduxItems.SOLAR_EMBLEM.get())) {
             return false;
         } else {
-        this.fireballCooldown = this.player.isCreative() ? 4 : 40;
+            if (EquipmentUtil.hasCurio(this.getPlayer(), ReduxItems.SOLAR_EMBLEM.get())) {
+                player.getCooldowns().addCooldown(ReduxItems.SOLAR_EMBLEM.get(), this.player.isCreative() ? 4 : 40);
+            }
         return true;
         }
     }
 
     @Override
     public boolean canShootFireball() {
-        return !this.player.level().isClientSide() && (this.fireballCooldown <= 0) && EquipmentUtil.hasCurio(this.player, ReduxItems.SOLAR_EMBLEM.get());
+        return !this.player.level().isClientSide() && !this.player.getCooldowns().isOnCooldown(ReduxItems.SOLAR_EMBLEM.get()) && EquipmentUtil.hasCurio(this.player, ReduxItems.SOLAR_EMBLEM.get());
     }
 
     public boolean doubleFireball()
@@ -189,10 +191,6 @@ public class ReduxPlayerCapability implements ReduxPlayer {
         deserializeNBT(tag);
     }
 
-    @Override
-    public int fireballCooldown() {
-        return this.fireballCooldown;
-    }
 
     @Override
     public CompoundTag serializeNBT() {

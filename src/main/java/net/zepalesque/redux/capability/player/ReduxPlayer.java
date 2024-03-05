@@ -37,8 +37,6 @@ public interface ReduxPlayer extends INBTSynchable<CompoundTag> {
 
     void deserializeSynchableNBT(CompoundTag tag);
 
-    int fireballCooldown();
-
 
     boolean fireballSetup();
 
