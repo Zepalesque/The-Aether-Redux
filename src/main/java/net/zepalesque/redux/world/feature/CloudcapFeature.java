@@ -41,7 +41,7 @@ public class CloudcapFeature extends Feature<CloudcapFeature.CloudcapConfig> {
         }
 
         // Stem
-        for (int i = 0; i < totalheight - 1; i++) {
+        for (int i = 0; i < totalheight; i++) {
             mutable.setWithOffset(origin, 0, i, 0);
             BlockPos immutable1 = mutable.immutable();
             toPlace.putIfAbsent(immutable1, context.config().stem.getState(context.random(), immutable1));
