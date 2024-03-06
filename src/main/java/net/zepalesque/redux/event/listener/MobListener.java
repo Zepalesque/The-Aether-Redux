@@ -35,7 +35,7 @@ public class MobListener {
 
     @SubscribeEvent
     public static void modifyAI(EntityJoinLevelEvent event) {
-        if (event.getEntity() instanceof Cockatrice cockatrice && ReduxConfig.COMMON.cockatrice_ai_improvements.get()) {
+        if (event.getEntity() instanceof Cockatrice cockatrice && ReduxConfig.COMMON.improved_cockatrice_behavior.get()) {
             MobHooks.modifyCockatriceAI(cockatrice);
         }
     }

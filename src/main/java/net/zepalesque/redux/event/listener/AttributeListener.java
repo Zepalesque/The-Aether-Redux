@@ -9,8 +9,7 @@ import net.zepalesque.redux.event.hook.AttributeHooks;
 public class AttributeListener {
 
     @SubscribeEvent
-    public static void attributeModifications(EntityAttributeModificationEvent event)
-    {
+    public static void attributeModifications(EntityAttributeModificationEvent event) {
         AttributeHooks.addAttributes(event);
     }
 }

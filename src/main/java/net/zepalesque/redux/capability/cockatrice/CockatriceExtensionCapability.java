@@ -127,7 +127,7 @@ public class CockatriceExtensionCapability implements CockatriceExtension {
 
     @Override
     public void handleTargetAnim() {
-        if (ReduxConfig.COMMON.cockatrice_ai_improvements.get()) {
+        if (ReduxConfig.COMMON.improved_cockatrice_behavior.get()) {
             if (this.getCockatrice().level().isClientSide()) {
                 this.prevTargetAnim = this.targetAnim;
                 if (this.isShooting && this.targetAnim < 10) {
@@ -153,7 +153,7 @@ public class CockatriceExtensionCapability implements CockatriceExtension {
 
                 boolean hasInebriation = this.getCockatrice().getTarget() != null && (this.getCockatrice().getTarget().hasEffect(AetherEffects.INEBRIATION.get()) || EquipmentUtil.hasCurio(this.cockatrice.getTarget(), ReduxItems.FEATHER_OF_WARDING.get()));
                 boolean inGroup = this.nearbyCount() >= 3;
-                boolean shooting = (!hasInebriation && this.getCockatrice().getTarget() != null && !inGroup) || !ReduxConfig.COMMON.cockatrice_ai_improvements.get();
+                boolean shooting = (!hasInebriation && this.getCockatrice().getTarget() != null && !inGroup) || !ReduxConfig.COMMON.improved_cockatrice_behavior.get();
                 if (!shooting && this.cockatrice.getTarget() != null) {
                     this.wasMelee = true;
                 } else if (this.cockatrice.getTarget() == null) {
