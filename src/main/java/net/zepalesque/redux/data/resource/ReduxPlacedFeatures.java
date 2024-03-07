@@ -443,8 +443,8 @@ public class ReduxPlacedFeatures {
         register(context, GRASSLAND_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GRASSLAND_TREES),
                 ConditionFilter.whenFalse(Conditions.ALT_GILDED),
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
-                        .add(ConstantInt.of(5), 9)
-                        .add(ConstantInt.of(6), 1)
+                        .add(ConstantInt.of(2), 9)
+                        .add(ConstantInt.of(3), 1)
                         .add(ConstantInt.of(0), 4)
                         .build())),
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
@@ -455,8 +455,8 @@ public class ReduxPlacedFeatures {
         register(context, GRASSLAND_TREES_ALT, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GRASSLAND_TREES_ALT),
                 ConditionFilter.whenTrue(Conditions.ALT_GILDED),
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
-                        .add(ConstantInt.of(5), 9)
-                        .add(ConstantInt.of(6), 1)
+                        .add(ConstantInt.of(2), 9)
+                        .add(ConstantInt.of(3), 1)
                         .add(ConstantInt.of(0), 4)
                         .build())),
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
