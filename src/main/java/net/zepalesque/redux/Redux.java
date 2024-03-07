@@ -119,7 +119,7 @@ import java.util.concurrent.CompletableFuture;
 public class Redux {
     public static final String MODID = "aether_redux";
     public static final String DISPLAY = "The Aether: Redux";
-    public static final String VERSION_ID = "2.0";
+    public static final String VERSION_ID = "2.0.1";
 
     public static final Logger LOGGER = LogUtils.getLogger();
 
