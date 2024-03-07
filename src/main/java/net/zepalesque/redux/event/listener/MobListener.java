@@ -2,6 +2,7 @@
 package net.zepalesque.redux.event.listener;
 
 import com.aetherteam.aether.entity.monster.Cockatrice;
+import com.aetherteam.aether.entity.monster.Swet;
 import com.aetherteam.aether.item.EquipmentUtil;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -37,6 +38,9 @@ public class MobListener {
     public static void modifyAI(EntityJoinLevelEvent event) {
         if (event.getEntity() instanceof Cockatrice cockatrice && ReduxConfig.COMMON.improved_cockatrice_behavior.get()) {
             MobHooks.modifyCockatriceAI(cockatrice);
+        }
+        if (event.getEntity() instanceof Swet swet && ReduxConfig.COMMON.improved_swet_behavior.get()) {
+            MobHooks.modifySwetAI(swet);
         }
     }
 

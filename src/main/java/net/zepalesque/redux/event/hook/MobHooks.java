@@ -56,11 +56,10 @@ public class MobHooks {
             cockatrice.goalSelector.addGoal(2, new CockatriceRangedStrafeGoal(cockatrice, 1.0, 60, 10.0F));
         }
     }
-/*
-    // TODO
+
     public static void modifySwetAI(Swet swet) {
         final WrappedGoal[] toRemove = new WrappedGoal[2];
-        swet.targetSelector.getAvailableGoals().forEach((goal) -> {
+        swet.goalSelector.getAvailableGoals().forEach((goal) -> {
             if ((goal.getGoal().getClass().equals(Swet.ConsumeGoal.class) && goal.getPriority() == 0)) {
                 toRemove[0] = goal;
             }
@@ -71,8 +70,11 @@ public class MobHooks {
         if (toRemove[0] != null) {
             swet.targetSelector.getAvailableGoals().removeIf((wrappedGoal -> wrappedGoal == toRemove[0]));
         }
+        if (toRemove[1] != null) {
+            swet.targetSelector.getAvailableGoals().removeIf((wrappedGoal -> wrappedGoal == toRemove[1]));
+        }
 
-    }*/
+    }
 
     public static void modifyEntityQuicksoil(final LivingEntity entity)
     {
