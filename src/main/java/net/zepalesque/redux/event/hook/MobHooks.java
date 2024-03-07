@@ -67,13 +67,9 @@ public class MobHooks {
                 toRemove[1] = goal;
             }
         });
-        if (toRemove[0] != null) {
-            swet.targetSelector.getAvailableGoals().removeIf((wrappedGoal -> wrappedGoal == toRemove[0]));
+        if (toRemove[0] != null && toRemove[1] != null) {
+            swet.goalSelector.getAvailableGoals().removeIf((wrappedGoal -> wrappedGoal == toRemove[0] || wrappedGoal == toRemove[1]));
         }
-        if (toRemove[1] != null) {
-            swet.targetSelector.getAvailableGoals().removeIf((wrappedGoal -> wrappedGoal == toRemove[1]));
-        }
-
     }
 
     public static void modifyEntityQuicksoil(final LivingEntity entity)
