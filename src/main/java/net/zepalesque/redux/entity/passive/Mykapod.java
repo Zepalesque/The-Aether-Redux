@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
 public class Mykapod extends AetherAnimal implements GeoEntity {
 
     private final AnimatableInstanceCache cache;
-    @OnlyIn(Dist.CLIENT)
+/*    @OnlyIn(Dist.CLIENT)*/
     private int clientAnimTickCount = 0;
     private int sheddingTicker = 0;
 
