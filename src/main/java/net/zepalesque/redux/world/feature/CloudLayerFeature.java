@@ -26,8 +26,8 @@ public class CloudLayerFeature extends Feature<CloudLayerConfig> {
         super(codec);
     }
     
-    // TODO: Remove version check once AA 0.8.9 releases
-    private static final boolean before089 = !Redux.ancientAetherCompat() || ModuleDescriptor.Version.parse(ModList.get().getModFileById("ancient_aether").versionString()).compareTo(ModuleDescriptor.Version.parse("0.8.9")) < 0;
+    // TODO: Remove version check once AA 0.9.0 releases
+    private static final boolean before089 = !Redux.ancientAetherCompat() || ModuleDescriptor.Version.parse(ModList.get().getModFileById("ancient_aether").versionString()).compareTo(ModuleDescriptor.Version.parse("0.9.0")) < 0;
 
     @Override
     public boolean place(FeaturePlaceContext<CloudLayerConfig> context) {
