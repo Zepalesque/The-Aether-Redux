@@ -232,7 +232,7 @@ public class Redux {
         ReduxRenderers.registerCuriosRenderers();
         event.enqueueWork(
                 () -> {
-                    if (ReduxConfig.CLIENT.is_first_startup.get()) {
+                    if (ReduxConfig.CLIENT.first_startup.get()) {
 //                        AetherConfig.CLIENT.green_sunset.set(true);
 //                        AetherConfig.CLIENT.green_sunset.save();
                         AetherConfig.CLIENT.colder_lightmap.set(true);
@@ -243,8 +243,10 @@ public class Redux {
                         AetherConfig.CLIENT.should_disable_cumulus_button.save();
                         CumulusConfig.CLIENT.active_menu.set(ReduxMenus.SKYFIELDS_MENU.getId().toString());
                         CumulusConfig.CLIENT.active_menu.save();
-                        ReduxConfig.CLIENT.is_first_startup.set(false);
-                        ReduxConfig.CLIENT.is_first_startup.save();
+                        CumulusConfig.CLIENT.enable_menu_list_button.set(true);
+                        CumulusConfig.CLIENT.active_menu.save();
+                        ReduxConfig.CLIENT.first_startup.set(false);
+                        ReduxConfig.CLIENT.first_startup.save();
                         AeroBlenderConfig.COMMON.vanillaAetherRegionWeight.set(0);
                         AeroBlenderConfig.COMMON.vanillaAetherRegionWeight.save();
                     }
