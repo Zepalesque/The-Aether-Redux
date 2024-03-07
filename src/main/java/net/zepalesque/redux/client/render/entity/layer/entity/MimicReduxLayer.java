@@ -70,7 +70,7 @@ public class MimicReduxLayer extends RenderLayer<Mimic, MimicModel> {
             if (Minecraft.getInstance().player != null && !mimic.isInvisibleTo(Minecraft.getInstance().player)) {
                 ResourceLocation tex = getTextureLocation(mimic);
                 VertexConsumer consumer = buffer.getBuffer(RenderType.entityCutoutNoCull(tex));
-                model.renderToBuffer(poseStack, consumer, packedLight, LivingEntityRenderer.getOverlayCoords(mimic, 0.0F), 1.0F, 1.0F, 1.0F, 0.25F);
+                model.renderToBuffer(poseStack, consumer, packedLight, LivingEntityRenderer.getOverlayCoords(mimic, 0.0F), 1.0F, 1.0F, 1.0F, 1.0F);
             }
         } else {
             this.setShadowRadius(1.0F);

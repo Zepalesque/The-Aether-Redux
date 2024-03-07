@@ -35,7 +35,7 @@ public class SheepuffReduxLayer extends RenderLayer<Sheepuff, SheepuffModel> {
             if (Minecraft.getInstance().player != null) {
                 if (!sheepuff.isInvisibleTo(Minecraft.getInstance().player)) {
                     VertexConsumer consumer = buffer.getBuffer(RenderType.entityCutoutNoCull(getTextureLocation(sheepuff)));
-                    this.model.renderToBuffer(poseStack, consumer, packedLight, LivingEntityRenderer.getOverlayCoords(sheepuff, 0.0F), 1.0F, 1.0F, 1.0F, 0.25F);
+                    this.model.renderToBuffer(poseStack, consumer, packedLight, LivingEntityRenderer.getOverlayCoords(sheepuff, 0.0F), 1.0F, 1.0F, 1.0F, 1.0F);
                 }
             }
         }

@@ -47,7 +47,7 @@ public class PhygReduxLayer extends RenderLayer<Phyg, PigModel<Phyg>> {
                         poseStack.scale(f1, f1, f1);
                         poseStack.translate(0.0, -0.75, 0.0);
                     }
-                    this.model.renderToBuffer(poseStack, consumer, packedLight, LivingEntityRenderer.getOverlayCoords(phyg, 0.0F), 1.0F, 1.0F, 1.0F, 0.25F);
+                    this.model.renderToBuffer(poseStack, consumer, packedLight, LivingEntityRenderer.getOverlayCoords(phyg, 0.0F), 1.0F, 1.0F, 1.0F, 1.0F);
                     poseStack.popPose();
                 }
             }

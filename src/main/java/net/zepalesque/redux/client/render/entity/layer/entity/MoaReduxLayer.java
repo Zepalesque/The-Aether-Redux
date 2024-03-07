@@ -123,7 +123,7 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
             if (Minecraft.getInstance().player != null && !moa.isInvisibleTo(Minecraft.getInstance().player)) {
                 ResourceLocation feathersLoc = getTextureLocation(moa);
                 VertexConsumer consumer = buffer.getBuffer(RenderType.entityCutoutNoCull(feathersLoc));
-                model.renderToBuffer(poseStack, consumer, packedLight, LivingEntityRenderer.getOverlayCoords(moa, 0.0F), 1.0F, 1.0F, 1.0F, 0.25F);
+                model.renderToBuffer(poseStack, consumer, packedLight, LivingEntityRenderer.getOverlayCoords(moa, 0.0F), 1.0F, 1.0F, 1.0F, 1.0F);
             }
         }
     }

@@ -149,7 +149,7 @@ public class CockatriceReduxLayer extends RenderLayer<Cockatrice, CockatriceMode
             if (!cockatrice.isInvisibleTo(Minecraft.getInstance().player)) {
                 ResourceLocation feathersLoc = getTextureLocation(cockatrice);
                 VertexConsumer consumer = buffer.getBuffer(RenderType.entityCutoutNoCull(feathersLoc));
-                this.model.renderToBuffer(poseStack, consumer, packedLight, LivingEntityRenderer.getOverlayCoords(cockatrice, 0.0F), 1.0F, 1.0F, 1.0F, 0.25F);
+                this.model.renderToBuffer(poseStack, consumer, packedLight, LivingEntityRenderer.getOverlayCoords(cockatrice, 0.0F), 1.0F, 1.0F, 1.0F, 1.0F);
                 VertexConsumer emissiveConsumer = buffer.getBuffer(COCKATRICE_MARKINGS);
                 this.model.renderToBuffer(poseStack, emissiveConsumer, packedLight, LivingEntityRenderer.getOverlayCoords(cockatrice, 0.0F), 1.0F, 1.0F, 1.0F, 1.0F);
 

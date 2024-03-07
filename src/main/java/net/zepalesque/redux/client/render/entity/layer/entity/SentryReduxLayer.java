@@ -37,7 +37,7 @@ public class SentryReduxLayer extends RenderLayer<Sentry, SlimeModel<Sentry>> {
                 if (!sentry.isInvisibleTo(Minecraft.getInstance().player)) {
                     ResourceLocation modelLoc = shouldBeOn(sentry) ? SENTRY_ON : SENTRY_OFF;
                     VertexConsumer consumer = buffer.getBuffer(RenderType.entityCutoutNoCull(modelLoc));
-                    this.model.renderToBuffer(poseStack, consumer, packedLight, LivingEntityRenderer.getOverlayCoords(sentry, 0.0F), 1.0F, 1.0F, 1.0F, 0.25F);
+                    this.model.renderToBuffer(poseStack, consumer, packedLight, LivingEntityRenderer.getOverlayCoords(sentry, 0.0F), 1.0F, 1.0F, 1.0F, 1.0F);
 
                 }
                 VertexConsumer eyesConsumer = buffer.getBuffer(SENTRY_EYE);
