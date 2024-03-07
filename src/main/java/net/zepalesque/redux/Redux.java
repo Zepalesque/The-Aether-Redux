@@ -135,10 +135,13 @@ public class Redux {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         bus.addListener(this::commonSetup);
         bus.addListener(this::clientSetup);
-        bus.addListener(EventPriority.LOWEST, ReduxColors::blockColors);
-        bus.addListener(ReduxColors::itemColors);
-        bus.addListener(ReduxColors::resolvers);
-        bus.addListener(EventPriority.HIGH, this::packSetup);
+        DistExecutor.unsafeRunForDist(() -> () -> {
+            bus.addListener(EventPriority.LOWEST, ReduxColors::blockColors);
+            bus.addListener(ReduxColors::itemColors);
+            bus.addListener(ReduxColors::resolvers);
+            bus.addListener(EventPriority.HIGH, this::packSetup);
+            return true;
+        }, () -> () -> false);
         bus.addListener(this::dataSetup);
         bus.addListener(this::registerRecipeSerializers);
         packConfig = PackConfigBootstrap.register("aether_redux_pack_config", ReduxPackConfig::new);

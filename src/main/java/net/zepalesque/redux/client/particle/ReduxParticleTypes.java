@@ -124,6 +124,7 @@ public class ReduxParticleTypes {
         event.registerSpriteSet(SHIMMERSTAR.get(), ShimmerstarParticle.Provider::new);
     }
 
+    @OnlyIn(Dist.CLIENT)
     public static <T extends ParticleOptions> void register(RegisterParticleProvidersEvent event, ParticleType<T> particleType, ParticleProvider.Sprite<T> sprite) {
         event.registerSpriteSet(particleType, (p_272320_) -> (p_272323_, p_272324_, p_272325_, p_272326_, p_272327_, p_272328_, p_272329_, p_272330_) -> {
             TextureSheetParticle texturesheetparticle = sprite.createParticle(p_272323_, p_272324_, p_272325_, p_272326_, p_272327_, p_272328_, p_272329_, p_272330_);
