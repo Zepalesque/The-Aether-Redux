@@ -14,6 +14,8 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorTy
 import net.zepalesque.redux.api.condition.AbstractCondition;
 import net.zepalesque.redux.misc.ReduxTags;
 
+import java.util.Optional;
+
 public class EnchantedVineDecorator extends TreeDecorator {
 
 
@@ -24,7 +26,7 @@ public class EnchantedVineDecorator extends TreeDecorator {
                            BlockStateProvider.CODEC.fieldOf("plant_head_provider").forGetter((config) -> config.headBlock),
                            IntProvider.codec(1,128).fieldOf("length_min").forGetter((config) -> config.lengthMin),
                            IntProvider.codec(1,128).fieldOf("length_max").forGetter((config) -> config.lengthMax),
-                           AbstractCondition.CODEC.fieldOf("condition").forGetter((config) -> config.condition))
+                           AbstractCondition.CODEC.optionalFieldOf("condition").forGetter((config) -> config.condition))
                    .apply(vines, EnchantedVineDecorator::new));
    private final float probabilityMin;
    private final float probabilityMax;
@@ -32,13 +34,13 @@ public class EnchantedVineDecorator extends TreeDecorator {
    private final BlockStateProvider headBlock;
    private final IntProvider lengthMin;
    private final IntProvider lengthMax;
-   private final AbstractCondition<?> condition;
+   private final Optional<AbstractCondition<?>> condition;
 
    protected TreeDecoratorType<?> type() {
       return ReduxTreeDecorators.ENCHANTED_VINES.get();
    }
 
-   public EnchantedVineDecorator(float pProbabilityMin, float pProbabilityMax, BlockStateProvider pBodyBlock, BlockStateProvider pHeadBlock, IntProvider pLengthMin, IntProvider pLengthMax, AbstractCondition<?> condition) {
+   public EnchantedVineDecorator(float pProbabilityMin, float pProbabilityMax, BlockStateProvider pBodyBlock, BlockStateProvider pHeadBlock, IntProvider pLengthMin, IntProvider pLengthMax, Optional<AbstractCondition<?>> condition) {
       this.probabilityMin = pProbabilityMin;
       this.probabilityMax = pProbabilityMax;
       this.bodyBlock = pBodyBlock;
@@ -49,7 +51,7 @@ public class EnchantedVineDecorator extends TreeDecorator {
    }
 
    public void place(TreeDecorator.Context pContext) {
-      if (this.condition.isConditionMet()) {
+      if (this.condition.isEmpty() || this.condition.get().isConditionMet()) {
          RandomSource randomsource = pContext.random();
          float maxDistance = 0;
          BlockPos trunk = pContext.logs().get(0);

@@ -26,7 +26,7 @@ public class AetherConfigCondition implements AbstractCondition<AetherConfigCond
 
     @Override
     public boolean isConditionMet() {
-        return this.config.get();
+        return this.config != null && this.config.get();
     }
 
     @Override
