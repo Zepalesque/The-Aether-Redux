@@ -283,7 +283,15 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
                                 .when(
                                         LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(ReduxStates.NATURAL_GEN, true))
-                                ).ot.apply(DoubleDrops.builder())
+                                ).apply(DoubleDrops.builder())
+                ).withPool(
+                        LootPool.lootPool()
+                                .setRolls(ConstantValue.exactly(1.0F))
+                                .add(applyExplosionDecay(other, LootItem.lootTableItem(block)))
+                                .when(
+                                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+                                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(ReduxStates.NATURAL_GEN, false))
+                                ).apply(DoubleDrops.builder())
                 );
     }
 
