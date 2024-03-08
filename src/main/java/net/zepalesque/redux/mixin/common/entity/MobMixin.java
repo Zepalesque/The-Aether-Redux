@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Mob.class)
-public abstract class MobMixin {
+public abstract class MobMixin extends LivingEntityMixin {
     @Inject(method = "getAmbientSound", at = @At("RETURN"), cancellable = true)
     protected void getAmbientSound(CallbackInfoReturnable<SoundEvent> cir) {    }
 }

@@ -18,7 +18,7 @@
     "common.block.ReduxWallBlockAccessor",
     "common.compat.ModNameProviderMixin",
     "common.entity.ArrowMixin",
-    "common.entity.EntityMixin",
+    "common.entity.LivingEntityMixin",
     "common.entity.MimicMixin",
     "common.entity.MobMixin",
     "common.entity.SentryMixin",

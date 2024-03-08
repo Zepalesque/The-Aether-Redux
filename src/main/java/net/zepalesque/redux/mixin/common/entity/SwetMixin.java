@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Swet.class)
-public class SwetMixin extends EntityMixin {
+public class SwetMixin extends SlimeMixin {
 
     @Override
     protected void redux$push(Entity entity, CallbackInfo ci) {
