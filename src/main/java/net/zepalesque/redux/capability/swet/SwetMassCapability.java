@@ -39,7 +39,7 @@ public class SwetMassCapability implements SwetMass {
 
     @Override
     public Swet getSwet() {
-        return null;
+        return this.swet;
     }
 
     @Override
