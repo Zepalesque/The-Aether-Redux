@@ -66,6 +66,7 @@ import net.zepalesque.redux.world.tree.foliage.GlaciaFoliagePlacer;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.OptionalInt;
 
 
@@ -354,7 +355,7 @@ public class ReduxConfiguredFeatures {
                                         prov(ReduxBlocks.GILDED_VINES_PLANT),
                                         prov(ReduxBlocks.GILDED_VINES),
                                         UniformInt.of(1, 2),
-                                        UniformInt.of(2, 3), Conditions.VINES),
+                                        UniformInt.of(2, 3), Optional.of(Conditions.VINES)),
                                 new PatchTreeDecorator(createLeafPileLayers(ReduxBlocks.GILDED_LEAF_PILE), 7, 3, 32))).build());
 
         register(context, SMALL_GILDED_OAK_TREE, Feature.TREE,
@@ -374,7 +375,7 @@ public class ReduxConfiguredFeatures {
                                         prov(ReduxBlocks.GILDED_VINES_PLANT),
                                         prov(ReduxBlocks.GILDED_VINES),
                                         UniformInt.of(1, 2),
-                                        UniformInt.of(2, 3), Conditions.VINES),
+                                        UniformInt.of(2, 3), Optional.of(Conditions.VINES)),
                                 new PatchTreeDecorator(createLeafPileLayers(ReduxBlocks.GILDED_LEAF_PILE), 7, 3, 32))).build());
 
         register(context, ReduxConfiguredFeatures.FANCY_GILDED_OAK_TREE, Feature.TREE,
@@ -394,7 +395,7 @@ public class ReduxConfiguredFeatures {
                                         prov(ReduxBlocks.GILDED_VINES_PLANT),
                                         prov(ReduxBlocks.GILDED_VINES),
                                         UniformInt.of(1, 2),
-                                        UniformInt.of(3, 5), Conditions.VINES
+                                        UniformInt.of(3, 5), Optional.of(Conditions.VINES)
                                 ), new PatchTreeDecorator(createLeafPileLayers(ReduxBlocks.GILDED_LEAF_PILE), 7, 3, 32))).build());
 
         register(context, GOLDEN_OAK_TREE_OVERRIDE, Feature.TREE,
@@ -410,7 +411,7 @@ public class ReduxConfiguredFeatures {
                                         prov(ReduxBlocks.GOLDEN_VINES_PLANT),
                                         prov(ReduxBlocks.GOLDEN_VINES),
                                         UniformInt.of(1, 2),
-                                        UniformInt.of(2, 3), Conditions.VINES),
+                                        UniformInt.of(2, 3), Optional.of(Conditions.VINES)),
                                 new PatchTreeDecorator(createLeafPileLayers(ReduxBlocks.GOLDEN_LEAF_PILE), 7, 3, 32))).ignoreVines().build());
 
 
@@ -436,7 +437,7 @@ public class ReduxConfiguredFeatures {
                                         prov(ReduxBlocks.GOLDEN_VINES_PLANT),
                                         prov(ReduxBlocks.GOLDEN_VINES),
                                         UniformInt.of(1, 2),
-                                        UniformInt.of(3, 5), Conditions.VINES
+                                        UniformInt.of(3, 5), Optional.of(Conditions.VINES)
                                 ), new PatchTreeDecorator(createLeafPileLayers(ReduxBlocks.GOLDEN_LEAF_PILE), 7, 3, 32))).build());
 
         register(context, CRYSTAL_TREE_OVERRIDE, Feature.TREE,

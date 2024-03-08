@@ -5,6 +5,7 @@ import com.google.common.collect.ImmutableMap;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraftforge.common.ForgeConfigSpec;
+import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.config.util.ReduxConfigSerialization;
 
 import java.util.Map;
@@ -32,6 +33,10 @@ public class ReduxConfigCondition implements AbstractCondition<ReduxConfigCondit
 
     @Override
     public boolean isConditionMet() {
+        if (this.config == null) {
+            Redux.LOGGER.warn("Config Condition value was null! Printing stack trace...");
+            Thread.dumpStack();
+        }
         return this.config != null && this.config.get();
     }
 
