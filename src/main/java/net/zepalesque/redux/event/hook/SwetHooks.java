@@ -24,14 +24,6 @@ public class SwetHooks {
 
 
     public static void swetTick(Swet swet) {
-/*        SwetMass
-        if (!this.isDead()) {
-            massStuck = 0;
-            world.getOtherEntities(this, this.getBoundingBox().stretch(0.9, 0.9, 0.9)).forEach((entity) -> {
-                Box box = entity.getBoundingBox();
-                massStuck += box.getXLength() * box.getYLength() * box.getZLength();
-            });
-            world.getOtherEntities(this, this.getBoundingBox()).forEach(this::onEntityCollision);
-        }*/
+        SwetMass.get(swet).ifPresent(SwetMass::tick);
     }
 }
