@@ -115,10 +115,12 @@ public class SwetMassCapability implements SwetMass {
             AttributeInstance knockbackResistance = livingEntity.getAttribute(Attributes.KNOCKBACK_RESISTANCE);
             if (absorbable && knockbackResistance != null) {
                 knockbackResistance.addTransientModifier(knockbackResistanceModifier);
-                this.getSwet().doHurtTarget(livingEntity);
+                // TODO
+//                this.getSwet().doHurtTarget(livingEntity);
                 knockbackResistance.removeModifier(knockbackResistanceModifier);
             } else {
-                this.getSwet().doHurtTarget(livingEntity);
+                // TODO
+//                this.getSwet().doHurtTarget(livingEntity);
             }
         }
     }
