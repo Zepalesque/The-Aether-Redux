@@ -61,6 +61,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue enchanted_gilded_grass;
         public final ForgeConfigSpec.BooleanValue better_water_color;
         public final ForgeConfigSpec.BooleanValue enchanted_vines;
+        public final ForgeConfigSpec.BooleanValue wall_roots;
         public final ForgeConfigSpec.BooleanValue alternate_gilded_trees;
         public final ForgeConfigSpec.BooleanValue enderman_spawns;
 
@@ -112,6 +113,8 @@ public class ReduxConfig {
             builder.push("Additional Features");
             this.mossy_holystone_ores = builder.comment("Enables Mossy Holystone as an ore. Configurable so that if you disable it, it's easier to tell if you've come across a dungeon.").worldRestart().define("Mossy Holystone Ores", true);
             this.enchanted_vines = builder.comment("Enables Enchanted/Gilded vines on trees").worldRestart().define("Enable Enchanted and Gilded Vines", true);
+            this.wall_roots = builder.comment("Enables roots made of logs and log walls on the sides of Large Cloudcap mushrooms and Blightwillow trees.").worldRestart().define("Wall Roots on Blightwillows and Large Cloudcaps", true);
+            this.alternate_gilded_trees = builder.comment("Uses an alternate Gilded Oak shape, more like vanilla Oak trees and Skyroots, for the Gilded biomes.").worldRestart().define("Alternate Gilded Trees", false);
             builder.pop();
 
             builder.push("Cloud Layer");
@@ -130,7 +133,6 @@ public class ReduxConfig {
             this.auto_reset_biome_values = builder.comment("When enabled, any biome value config changes will be reset. It is recommended that you disable this if you want to keep any custom biome parameters you may have set.").define("Auto-Reset Biome Values", true);
             this.region_size = builder.comment("The value of Redux's biome region size. Larger values correspond to larger biome clumps").define("Region Size", 20);
             this.better_water_color = builder.comment("Improves the water color of Aether biomes, making the color match the rest of the dimension better").define("Better Water Color", true);
-            this.alternate_gilded_trees = builder.comment("Uses an alternate Gilded Oak shape, more like vanilla Oak trees and Skyroots, for the Gilded Groves.").worldRestart().define("Alternate Gilded Trees", false);
 
             this.enable_the_blight = builder.comment("Enables the Blight biome.").worldRestart().define("Enable the Blight", true);
             this.enable_gilded_biomes = builder.comment("Enables the Gilded Groves and Gilded Grasslands biomes.").worldRestart().define("Enable Gilded Biomes", true);

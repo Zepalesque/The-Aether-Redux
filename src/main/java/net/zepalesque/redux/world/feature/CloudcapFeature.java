@@ -16,6 +16,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.util.level.WorldgenUtil;
 
@@ -140,20 +141,24 @@ public class CloudcapFeature extends Feature<CloudcapFeature.CloudcapConfig> {
             this.setBlock(context.level(), entry.getKey(), entry.getValue());
         }
 
-        for (Direction d : Direction.Plane.HORIZONTAL) {
-            if (roots.containsKey(d)) {
-                Map<BlockPos, BlockState> map = roots.get(d);
-                boolean flag = false;
-                for (Map.Entry<BlockPos, BlockState> entry : map.entrySet()) {
-                    if (!canPlaceBlockHere(context.level(), entry.getKey())) {
-                        flag = true;
-                        break;
-                    }
-                }
-                if (!flag) {
-                    for (Map.Entry<BlockPos, BlockState> entry : map.entrySet()) {
-                        this.setBlock(context.level(), entry.getKey(), entry.getValue());
 
+        // Roots
+        if (ReduxConfig.COMMON.wall_roots.get()) {
+            for (Direction d : Direction.Plane.HORIZONTAL) {
+                if (roots.containsKey(d)) {
+                    Map<BlockPos, BlockState> map = roots.get(d);
+                    boolean flag = false;
+                    for (Map.Entry<BlockPos, BlockState> entry : map.entrySet()) {
+                        if (!canPlaceBlockHere(context.level(), entry.getKey())) {
+                            flag = true;
+                            break;
+                        }
+                    }
+                    if (!flag) {
+                        for (Map.Entry<BlockPos, BlockState> entry : map.entrySet()) {
+                            this.setBlock(context.level(), entry.getKey(), entry.getValue());
+
+                        }
                     }
                 }
             }

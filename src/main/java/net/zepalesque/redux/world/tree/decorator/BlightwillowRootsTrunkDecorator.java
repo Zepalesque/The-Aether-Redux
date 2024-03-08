@@ -14,6 +14,7 @@ import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
+import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.util.level.WorldgenUtil;
 import net.zepalesque.redux.world.feature.CloudcapFeature;
 
@@ -40,23 +41,24 @@ public class BlightwillowRootsTrunkDecorator extends TreeDecorator {
     }
 
     public void place(Context context) {
-        BlockPos basePos = context.logs().get(1);
-        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
-        int heightBelowLeaves = context.logs().size() - 6;
-        for (Direction d: Direction.Plane.HORIZONTAL) {
-            BlockPos startPos = basePos.relative(d);
-            int height = this.rootHeight.sample(context.random());
-            for (int i = 0; i < height; i++) {
-                mutable.setWithOffset(startPos, 0, i, 0);
-                BlockPos immutable = mutable.immutable();
-                this.placeBlockAt(context, immutable, this.rootBlock.getState(context.random(), immutable));
+        if (ReduxConfig.COMMON.wall_roots.get()) {
+            BlockPos basePos = context.logs().get(1);
+            BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
+            int heightBelowLeaves = context.logs().size() - 6;
+            for (Direction d : Direction.Plane.HORIZONTAL) {
+                BlockPos startPos = basePos.relative(d);
+                int height = this.rootHeight.sample(context.random());
+                for (int i = 0; i < height; i++) {
+                    mutable.setWithOffset(startPos, 0, i, 0);
+                    BlockPos immutable = mutable.immutable();
+                    this.placeBlockAt(context, immutable, this.rootBlock.getState(context.random(), immutable));
+                }
+                for (int i = height; i < heightBelowLeaves; i++) {
+                    mutable.setWithOffset(startPos, 0, i, 0);
+                    BlockPos immutable = mutable.immutable();
+                    this.placeBlockAt(context, immutable, this.wallBlock.getState(context.random(), immutable).setValue(WorldgenUtil.getWallSide(d.getOpposite()), WallSide.TALL));
+                }
             }
-            for (int i = height; i < heightBelowLeaves; i++) {
-                mutable.setWithOffset(startPos, 0, i, 0);
-                BlockPos immutable = mutable.immutable();
-                this.placeBlockAt(context, immutable, this.wallBlock.getState(context.random(), immutable).setValue(WorldgenUtil.getWallSide(d.getOpposite()), WallSide.TALL));
-            }
-
         }
     }
 
