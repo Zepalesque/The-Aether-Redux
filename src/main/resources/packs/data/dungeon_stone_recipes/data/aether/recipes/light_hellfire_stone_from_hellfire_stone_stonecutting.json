@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "B": {
+      "item": "minecraft:blaze_powder"
+    },
+    "H": {
+      "item": "aether:hellfire_stone"
+    }
+  },
+  "pattern": [
+    " H ",
+    "HBH",
+    " H "
+  ],
+  "result": {
+    "count": 4,
+    "item": "aether:light_hellfire_stone"
+  },
+  "show_notification": true
+}
