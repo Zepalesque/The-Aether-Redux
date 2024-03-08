@@ -58,6 +58,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue better_conversion_sounds;
         public final ForgeConfigSpec.BooleanValue raw_ores;
         public final ForgeConfigSpec.BooleanValue gravitite_ingot;
+        public final ForgeConfigSpec.BooleanValue dungeon_stone_recipes;
         public final ForgeConfigSpec.BooleanValue enchanted_gilded_grass;
         public final ForgeConfigSpec.BooleanValue better_water_color;
         public final ForgeConfigSpec.BooleanValue enchanted_vines;
@@ -95,10 +96,11 @@ public class ReduxConfig {
             this.nerf_gummy_swets = builder.comment("Nerfs Gummy Swets, but also makes them craftable. Note: Requires the Aether's Gummy Swet Healing config to be false to properly nerf the hunger effect. Requires datapack reload.").worldRestart().define("Nerf Gummy Swets", true);
             this.consistent_mine_speeds = builder.comment("Makes some Aether blocks take a bit longer to break, as they are extremely quick currently").define("Consistent Mining Speeds", false);
             this.quicksoil_movement_system = builder.comment("Changes quicksoil between various behaviors. Genesis is the most chaotic, highlands is the most fine-tuned, classic is the original").defineEnum("Quicksoil Movement System", QuicksoilSetting.highlands);
+            this.gravitite_ingot = builder.comment("Replaces Enchanted Gravitite with Gravitite Ingots. The blocks of this have the original floating behavior.").worldRestart().define("Gravitite Ingots", true);
+            this.dungeon_stone_recipes = builder.comment("Makes Light Dungeon stones use better recipes").worldRestart().define("Better Light Dungeon Stone Recipes", true);
             builder.pop();
             builder.push("Additions");
             this.raw_ores = builder.comment("Use Raw ores for different Aether metals.").define("Raw Ores", true);
-            this.gravitite_ingot = builder.comment("Replaces Enchanted Gravitite with Gravitite Ingots. The blocks of this have the original floating behavior.").worldRestart().define("Gravitite Ingots", true);
             builder.pop();
             builder.push("Misc");
             this.change_double_plant_hitbox = builder.comment("Changes the hitboxes of vanilla double plants. Disable if it causes odd behavior.").define("Change Double Plant Hitboxes", true);

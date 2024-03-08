@@ -139,9 +139,9 @@ public class Redux {
             bus.addListener(EventPriority.LOWEST, ReduxColors::blockColors);
             bus.addListener(ReduxColors::itemColors);
             bus.addListener(ReduxColors::resolvers);
-            bus.addListener(EventPriority.HIGH, this::packSetup);
             return true;
         }, () -> () -> false);
+        bus.addListener(EventPriority.HIGH, this::packSetup);
         bus.addListener(this::dataSetup);
         bus.addListener(this::registerRecipeSerializers);
         packConfig = PackConfigBootstrap.register("aether_redux_pack_config", ReduxPackConfig::new);
@@ -351,6 +351,8 @@ public class Redux {
             if (ReduxConfig.COMMON.bronze_lobby.get() != LobbyType.classic) { this.setupBuiltinDatapack(event, "data/dungeon/lobby/" + ReduxConfig.COMMON.bronze_lobby.get().getSerializedName(), "Bronze Lobby", "Lobby Override"); }
 
             if (ReduxConfig.COMMON.gravitite_ingot.get()) { this.setupMandatoryDataPack(event, "data/gravitite_ingot", "Redux - Gravitite Ingot", "Can be disabled in the common config"); }
+
+            if (ReduxConfig.COMMON.dungeon_stone_recipes.get()) { this.setupMandatoryDataPack(event, "data/dungeon_stone_recipes", "Redux - Light Dungeon Stone Recipes", "Can be disabled in the common config"); }
 
         }
 
