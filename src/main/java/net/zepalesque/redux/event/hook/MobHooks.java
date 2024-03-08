@@ -2,7 +2,6 @@
 package net.zepalesque.redux.event.hook;
 
 import com.aetherteam.aether.entity.monster.Cockatrice;
-import com.aetherteam.aether.entity.monster.Swet;
 import com.aetherteam.aether.entity.monster.dungeon.Mimic;
 import com.aetherteam.aether.entity.monster.dungeon.Sentry;
 import com.aetherteam.aether.entity.passive.Moa;
@@ -54,21 +53,6 @@ public class MobHooks {
         if (toRemove[0] != null) {
             cockatrice.goalSelector.getAvailableGoals().removeIf((wrappedGoal -> wrappedGoal == removeRanged[0]));
             cockatrice.goalSelector.addGoal(2, new CockatriceRangedStrafeGoal(cockatrice, 1.0, 60, 10.0F));
-        }
-    }
-
-    public static void modifySwetAI(Swet swet) {
-        final WrappedGoal[] toRemove = new WrappedGoal[2];
-        swet.goalSelector.getAvailableGoals().forEach((goal) -> {
-            if ((goal.getGoal().getClass().equals(Swet.ConsumeGoal.class) && goal.getPriority() == 0)) {
-                toRemove[0] = goal;
-            }
-            if ((goal.getGoal().getClass().equals(Swet.HuntGoal.class) && goal.getPriority() == 1)) {
-                toRemove[1] = goal;
-            }
-        });
-        if (toRemove[0] != null && toRemove[1] != null) {
-            swet.goalSelector.getAvailableGoals().removeIf((wrappedGoal -> wrappedGoal == toRemove[0] || wrappedGoal == toRemove[1]));
         }
     }
 

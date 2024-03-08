@@ -24,6 +24,7 @@ import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.config.enums.QuicksoilSetting;
 import net.zepalesque.redux.effect.ReduxEffects;
 import net.zepalesque.redux.event.hook.MobHooks;
+import net.zepalesque.redux.event.hook.SwetHooks;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.misc.ReduxTags;
 import org.jetbrains.annotations.Nullable;
@@ -40,7 +41,7 @@ public class MobListener {
             MobHooks.modifyCockatriceAI(cockatrice);
         }
         if (event.getEntity() instanceof Swet swet && ReduxConfig.COMMON.improved_swet_behavior.get()) {
-            MobHooks.modifySwetAI(swet);
+//            SwetHooks.modifySwetAI(swet);
         }
     }
 
