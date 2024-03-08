@@ -189,8 +189,8 @@ public class Redux {
     
     public static class WoodHandlers {
         public static final WoodHandler FIELDSPROOT = WoodHandler.handler("fieldsproot", null, true, WoodHandler.cherrySoundBlockSet(), "trees", "log", "wood", SoundType.CHERRY_WOOD, SoundType.CHERRY_WOOD, false, MapColor.NETHER, MapColor.COLOR_ORANGE, false, true);
-        public static final WoodHandler BLIGHTWILLOW = WoodHandler.handler("blightwillow", null, true, WoodHandler.bambooSoundBlockSet(), "trees", "log", "wood", SoundType.BAMBOO_WOOD, SoundType.BAMBOO_WOOD, false, MapColor.TERRACOTTA_CYAN, MapColor.COLOR_GREEN, true, false);
-        public static final WoodHandler CLOUDCAP = WoodHandler.fungus("cloudcap", false, MapColor.WOOL, MapColor.TERRACOTTA_PURPLE, false);
+        public static final WoodHandler BLIGHTWILLOW = WoodHandler.handler("blightwillow", null, true, WoodHandler.bambooSoundBlockSet(), "trees", "log", "wood", SoundType.BAMBOO_WOOD, SoundType.BAMBOO_WOOD, true, MapColor.TERRACOTTA_CYAN, MapColor.COLOR_GREEN, true, false);
+        public static final WoodHandler CLOUDCAP = WoodHandler.fungus("cloudcap", true, MapColor.WOOL, MapColor.TERRACOTTA_PURPLE, false);
         public static final WoodHandler JELLYSHROOM = WoodHandler.noStrippingFungus("jellyshroom", false, MapColor.COLOR_GRAY, MapColor.COLOR_GRAY, false);
         public static final WoodHandler CRYSTAL = WoodHandler.tree("crystal", false, MapColor.TERRACOTTA_CYAN, MapColor.COLOR_LIGHT_BLUE, false);
         public static final WoodHandler GLACIA = WoodHandler.tree("glacia", false, MapColor.TERRACOTTA_BLACK, MapColor.TERRACOTTA_LIGHT_GRAY, true);
