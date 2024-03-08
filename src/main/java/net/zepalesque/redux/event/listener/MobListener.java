@@ -41,7 +41,7 @@ public class MobListener {
             MobHooks.modifyCockatriceAI(cockatrice);
         }
         if (event.getEntity() instanceof Swet swet && ReduxConfig.COMMON.improved_swet_behavior.get()) {
-//            SwetHooks.modifySwetAI(swet);
+            SwetHooks.modifySwetAI(swet);
         }
     }
 
