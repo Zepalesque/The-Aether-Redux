@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_divinite": {
+    "has_blightwillow_log": {
       "conditions": {
         "items": [
           {
             "items": [
-              "aether_redux:divinite"
+              "aether_redux:blightwillow_log"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "aether:angelic_stone"
+        "recipe": "aether_redux:blightwillow_log_wall"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_divinite",
+      "has_blightwillow_log",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "aether:angelic_stone"
+      "aether_redux:blightwillow_log_wall"
     ]
   },
   "sends_telemetry_event": false

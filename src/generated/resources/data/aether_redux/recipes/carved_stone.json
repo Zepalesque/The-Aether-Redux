@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "D": {
+      "item": "aether_redux:divinite"
+    },
+    "H": {
+      "tag": "aether:holystone"
+    }
+  },
+  "pattern": [
+    "DH",
+    "HD"
+  ],
+  "result": {
+    "count": 4,
+    "item": "aether:carved_stone"
+  },
+  "show_notification": true
+}
