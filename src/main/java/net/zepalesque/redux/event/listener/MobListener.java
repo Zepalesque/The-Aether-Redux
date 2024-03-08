@@ -66,6 +66,9 @@ public class MobListener {
     public static void livingUpdate(LivingEvent.LivingTickEvent event) {
         LivingEntity entity = event.getEntity();
         MobHooks.updateCapabilities(entity);
+        if (entity instanceof Swet swet) {
+            SwetHooks.swetTick(swet);
+        }
         double d0 = Math.abs(entity.getX() - entity.xOld);
         double d1 = Math.abs(entity.getZ() - entity.zOld);
         if ((d0 >= (double)0.003F || d1 >= (double)0.003F) && entity instanceof Player player && !player.level().isClientSide()) {
