@@ -66,13 +66,13 @@ public class SwetMassCapability implements SwetMass {
 
     protected void onEntityCollision(Entity entity) {
         // special absorption rules
-/*        if (entity instanceof Swet swet) {
-            if (this.getSwet().getSize() >= swet.getSize() && !swet.isDeadOrDying()) {
-                this.getSwet().setSize(Mth.ceil(Mth.sqrt(this.getSwet().getSize() * this.getSwet().getSize() + swet.getSize() * swet.getSize())), true);
-                swet.discard();
-            }
+        if (entity instanceof Swet swet) {
+//            if (this.getSwet().getSize() >= swet.getSize() && !swet.isDeadOrDying()) {
+//                this.getSwet().setSize(Mth.ceil(Mth.sqrt(this.getSwet().getSize() * this.getSwet().getSize() + swet.getSize() * swet.getSize())), true);
+//                swet.discard();
+//            }
             return;
-        }*/
+        }
         // Make items ride the swet. They often shake free with the jiggle physics
         if (entity instanceof ItemEntity item) {
 /*            if (AetherItemTags.GROWS_SWETS.contains(item.getStack().getItem())) {
