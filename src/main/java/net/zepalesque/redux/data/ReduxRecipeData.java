@@ -110,7 +110,23 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .pattern("##")
                 .pattern("##")
                 .unlockedBy(getHasName(ReduxBlocks.DIVINITE.get()), has(ReduxBlocks.DIVINITE.get()))
-                .save(consumer);
+                .save(consumer, Redux.locate("angelic_stone"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, AetherBlocks.CARVED_STONE.get(), 4)
+                .define('D', ReduxBlocks.DIVINITE.get())
+                .define('H', AetherTags.Items.HOLYSTONE)
+                .pattern("DH")
+                .pattern("HD")
+                .unlockedBy(getHasName(ReduxBlocks.DIVINITE.get()), has(ReduxBlocks.DIVINITE.get()))
+                .save(consumer, Redux.locate("carved_stone"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, AetherBlocks.HELLFIRE_STONE.get(), 4)
+                .define('D', ReduxBlocks.DIVINITE.get())
+                .define('N', Blocks.NETHERRACK)
+                .pattern("DN")
+                .pattern("ND")
+                .unlockedBy(getHasName(ReduxBlocks.DIVINITE.get()), has(ReduxBlocks.DIVINITE.get()))
+                .save(consumer, Redux.locate("hellfire_stone"));
 
         swetBall(AetherItems.SWET_BALL, ReduxTags.Items.BLUE_SWET_JELLY).save(consumer, Redux.locate("blue_swet_ball"));
         swetBall(ReduxItems.VANILLA_SWET_BALL, ReduxItems.VANILLA_SWET_JELLY).save(consumer, Redux.locate("vanilla_swet_ball"));
