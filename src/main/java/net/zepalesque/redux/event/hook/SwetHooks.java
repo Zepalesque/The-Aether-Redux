@@ -43,7 +43,7 @@ public class SwetHooks {
     }
 
     public static double getAbsorbVectorScale(Swet swet) {
-        return getTrueScale(swet) * 0.125;
+        return getTrueScale(swet)/* * 0.25*/;
     }
 
     public static boolean canAbsorbEntities(Swet swet) {
