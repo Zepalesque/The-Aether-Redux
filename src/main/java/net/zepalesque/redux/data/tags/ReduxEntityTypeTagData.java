@@ -26,6 +26,12 @@ public class ReduxEntityTypeTagData extends EntityTypeTagsProvider {
         this.tag(ReduxTags.EntityTypes.SENTRIES).add(AetherEntityTypes.SENTRY.get())
                 .addOptional(GenesisEntityTypes.BATTLE_SENTRY.getId())
                 .addOptional(GenesisEntityTypes.TRACKING_GOLEM.getId());
-        this.tag(ReduxTags.EntityTypes.SWET_PASSTHROUGH).add(EntityType.SLIME, AetherEntityTypes.ZEPHYR.get(), AetherEntityTypes.MOA.get(), AetherEntityTypes.COCKATRICE.get()).addOptional(new ResourceLocation("aether_genesis", "tempest"));
+        this.tag(ReduxTags.EntityTypes.SWET_PASSTHROUGH).add(
+                EntityType.SLIME,
+                AetherEntityTypes.ZEPHYR.get(),
+                AetherEntityTypes.MOA.get(),
+                AetherEntityTypes.COCKATRICE.get(),
+                AetherEntityTypes.AECHOR_PLANT.get()
+        ).addOptional(new ResourceLocation("aether_genesis", "tempest"));
     }
 }
