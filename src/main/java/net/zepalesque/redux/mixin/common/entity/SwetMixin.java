@@ -92,7 +92,7 @@ public abstract class SwetMixin extends SlimeMixin {
             cir.setReturnValue(redux$dimensions.scale(0.255F * (float) SwetHooks.getTrueScale((Swet) (Object) this)));
         }
     }
-    @Inject(method = "canSpawnSplashParticles", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "canSpawnSplashParticles", at = @At("HEAD"), cancellable = true, remap = false)
     public void redux$canSpawnSplashParticles(CallbackInfoReturnable<Boolean> cir) {
         if (ReduxConfig.COMMON.improved_swet_behavior.get()) {
             cir.setReturnValue(false);
