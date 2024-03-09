@@ -9,7 +9,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SpawnEggItem;
 import net.zepalesque.redux.capability.swet.SwetMass;
-import net.zepalesque.redux.entity.ai.FollowUnabsorbedTargetGoal;
+import net.zepalesque.redux.entity.ai.goal.HuntNoConsumeGoal;
+import net.zepalesque.redux.entity.ai.target.FollowUnabsorbedTargetGoal;
 
 public class SwetHooks {
 
@@ -31,8 +32,9 @@ public class SwetHooks {
         swet.targetSelector.addGoal(1, new FollowUnabsorbedTargetGoal<>(
                 swet, Player.class, 10, true, false, (player) ->
                 Math.abs(player.getY() - swet.getY()) <= 4.0D &&
-                        !(FollowUnabsorbedTargetGoal.canAbsorb(swet, player))
+                        !(FollowUnabsorbedTargetGoal.withinAbsorbingRange(swet, player))
         ));
+        swet.goalSelector.addGoal(1, new HuntNoConsumeGoal(swet));
     }
 
 

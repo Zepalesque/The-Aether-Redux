@@ -1,4 +1,4 @@
-package net.zepalesque.redux.entity.ai;
+package net.zepalesque.redux.entity.ai.target;
 
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -14,14 +14,14 @@ public class FollowUnabsorbedTargetGoal<T extends LivingEntity> extends NearestA
         super(mob, targetClass, reciprocalChance, checkVisibility, checkCanNavigate, targetPredicate);
     }
 
-    public static boolean canAbsorb(Entity swet, Entity target) {
+    public static boolean withinAbsorbingRange(Entity swet, Entity target) {
         return !target.isShiftKeyDown() && !(target instanceof Player player && player.getAbilities().flying) &&
                 swet.getBoundingBox().inflate(0, 0.5, 0).move(0, 0.25, 0).intersects(target.getBoundingBox());
     }
 
     @Override
     public boolean canContinueToUse() {
-        return super.canContinueToUse() && !(canAbsorb(this.mob, this.mob.getTarget()));
+        return super.canContinueToUse() && this.mob.getTarget() != null && !withinAbsorbingRange(this.mob, this.mob.getTarget());
     }
 
 
