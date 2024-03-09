@@ -113,8 +113,9 @@ public class SwetMassCapability implements SwetMass {
         }
 
         if (entity instanceof LivingEntity livingEntity && SwetHooks.canAbsorbEntities(this.getSwet())) {
-            livingEntity.hurt(ReduxDamageTypes.entitySource(this.getSwet().level(), ReduxDamageTypes.SWET, this.getSwet()), SwetHooks.getDamage(this.getSwet()));
-            this.getSwet().playSound(ReduxSoundEvents.SWET_ATTACK.get(), 1.0F, (this.getSwet().getRandom().nextFloat() - this.getSwet().getRandom().nextFloat()) * 0.2F + 1.0F);
+            if (livingEntity.hurt(ReduxDamageTypes.entitySource(this.getSwet().level(), ReduxDamageTypes.SWET, this.getSwet()), SwetHooks.getDamage(this.getSwet()))) {
+                this.getSwet().playSound(ReduxSoundEvents.SWET_ATTACK.get(), 1.0F, (this.getSwet().getRandom().nextFloat() - this.getSwet().getRandom().nextFloat()) * 0.2F + 1.0F);
+            }
 
         }
     }
