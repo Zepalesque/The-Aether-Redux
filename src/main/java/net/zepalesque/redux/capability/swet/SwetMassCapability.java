@@ -83,7 +83,7 @@ public class SwetMassCapability implements SwetMass {
             return;
         }
         boolean absorbable = isAbsorbable(entity, this.getSwet().level());
-        if (absorbable) {
+        if (SwetHooks.canAbsorbEntities(this.getSwet()) && absorbable) {
             // The higher this number, the stiffer the wobble is
             if (massStuck < 1) {
                 massStuck = 1;
@@ -95,10 +95,10 @@ public class SwetMassCapability implements SwetMass {
                             .scale(Mth.clamp(0.25 + massStuck / 100, 0, 1)) // coefficient (k)
                             .add(
                                     this.getSwet().getDeltaMovement().subtract(entity.getDeltaMovement()) // delta velocity (-x')
-                                            .scale(0.2 / massStuck / SwetHooks.getTrueScale(this.getSwet())) // coefficient (μ)
+                                            .scale(0.45 / massStuck / SwetHooks.getAbsorbVectorScale(this.getSwet())) // coefficient (μ)
                             );
 
-            double maxSpeed = SwetHooks.getTrueScale(this.getSwet()) * 0.1 + 0.25;
+            double maxSpeed = SwetHooks.getAbsorbVectorScale(this.getSwet()) * 0.1 + 0.25;
             if (suckVelocity.length() != 0) {
                 // clamp the suck velocity
                 suckVelocity = suckVelocity.scale(Math.min(1, maxSpeed / suckVelocity.length()));

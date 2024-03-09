@@ -39,6 +39,14 @@ public class SwetHooks {
     public static double getTrueScale(Swet swet) {
         int scaleIndex = swet.getSize();
         float waterScale = 1F - swet.getWaterDamageScale();
-        return (1D + (0.75D * (scaleIndex - 1))) * waterScale;
+        return scaleIndex <= 0 ? waterScale : (1D + (0.75D * (scaleIndex - 1))) * waterScale;
+    }
+
+    public static double getAbsorbVectorScale(Swet swet) {
+        return getTrueScale(swet) * 0.125;
+    }
+
+    public static boolean canAbsorbEntities(Swet swet) {
+        return getTrueScale(swet) > 1.1D;
     }
 }
