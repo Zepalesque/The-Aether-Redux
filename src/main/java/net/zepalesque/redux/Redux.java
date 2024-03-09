@@ -256,10 +256,12 @@ public class Redux {
                         AetherConfig.CLIENT.enable_aether_menu_button.save();
                         AetherConfig.CLIENT.should_disable_cumulus_button.set(false);
                         AetherConfig.CLIENT.should_disable_cumulus_button.save();
-                        CumulusConfig.CLIENT.active_menu.set(ReduxMenus.SKYFIELDS_MENU.getId().toString());
-                        CumulusConfig.CLIENT.active_menu.save();
-                        CumulusConfig.CLIENT.enable_menu_list_button.set(true);
-                        CumulusConfig.CLIENT.active_menu.save();
+                        if (CumulusConfig.CLIENT.enable_menu_api.get()) {
+                            CumulusConfig.CLIENT.active_menu.set(ReduxMenus.SKYFIELDS_MENU.getId().toString());
+                            CumulusConfig.CLIENT.active_menu.save();
+                            CumulusConfig.CLIENT.enable_menu_list_button.set(true);
+                            CumulusConfig.CLIENT.active_menu.save();
+                        }
                         ReduxConfig.CLIENT.first_startup.set(false);
                         ReduxConfig.CLIENT.first_startup.save();
                         AeroBlenderConfig.COMMON.vanillaAetherRegionWeight.set(0);
