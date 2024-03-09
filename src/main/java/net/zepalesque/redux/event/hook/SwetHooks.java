@@ -59,6 +59,6 @@ public class SwetHooks {
     }
 
     public static float getDamage(Swet swet) {
-        return (float) (getTrueScale(swet)) - 1F;
+        return swet.getSize() * (1F - swet.getWaterDamageScale());
     }
 }
