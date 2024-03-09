@@ -56,9 +56,11 @@ public class FallingLeafParticle extends TextureSheetParticle {
             this.xd += d0 * (double) 0.0025F;
             this.zd += d1 * (double) 0.0025F;
             this.yd -= this.gravity;
-            this.rotSpeed += this.spinAcceleration / 20.0F;
             this.oRoll = this.roll;
-            this.roll += this.rotSpeed / 20.0F;
+            if (!(this.onGround || this.onGroundTime < 40)) {
+                this.rotSpeed += this.spinAcceleration / 20.0F;
+                this.roll += this.rotSpeed / 20.0F;
+            }
             this.move(this.xd, this.yd, this.zd);
             if ((this.onGround || this.onGroundTime < 40) && this.lifetime < 299) {
                 this.onGroundTime--;
