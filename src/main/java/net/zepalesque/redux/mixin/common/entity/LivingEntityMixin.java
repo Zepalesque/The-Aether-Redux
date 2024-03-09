@@ -1,5 +1,6 @@
 package net.zepalesque.redux.mixin.common.entity;
 
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -21,6 +22,10 @@ public abstract class LivingEntityMixin extends EntityMixin {
     @Shadow public abstract void setHealth(float health);
 
     @Shadow public abstract float getMaxHealth();
+
+    @Shadow public abstract boolean isBaby();
+
+    @Shadow public abstract RandomSource getRandom();
 
     @Inject(method = "isPushable", at = @At("HEAD"), cancellable = true)
     protected void redux$isPushable(CallbackInfoReturnable<Boolean> cir) {}
