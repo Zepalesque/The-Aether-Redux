@@ -70,7 +70,7 @@ public abstract class SwetMixin extends SlimeMixin {
     public void redux$tick(CallbackInfo ci) {
         if (ReduxConfig.COMMON.pl_swet_behavior.get()) {
             if (this.onGround() && !this.wasOnGround) {
-                int i = this.getSize();
+                double i = SwetHooks.getTrueScale((Swet) (Object) this);
                 @Nullable ParticleOptions particle = SwetHooks.getSquelchParticles((Swet) (Object) this);
 
                 if (particle != null) {
