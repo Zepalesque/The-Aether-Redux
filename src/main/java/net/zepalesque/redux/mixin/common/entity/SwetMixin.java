@@ -69,6 +69,7 @@ public abstract class SwetMixin extends SlimeMixin {
                 if (!player.isCreative()) {
                     i.shrink(1);
                 }
+                this.
                 this.setSize(this.getSize() + 1, false);
                 cir.setReturnValue(InteractionResult.SUCCESS);
             }

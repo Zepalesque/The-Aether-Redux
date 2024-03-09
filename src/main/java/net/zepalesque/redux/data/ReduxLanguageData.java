@@ -684,8 +684,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addDeathByPlayer(ReduxDamageTypes.EMBER, "%1$s was sparked by %2$s's flying ember");
         addDeath(ReduxDamageTypes.BLIGHT, "%1$s was taken by the Blight");
         addDeathByPlayer(ReduxDamageTypes.BLIGHT, "%1$s was blighted away by %2$s");
-        addDeath(ReduxDamageTypes.SWET, "%1$s was absorbed");
-        addDeathByPlayer(ReduxDamageTypes.SWET, "%1$s was absorbed by %2$s");
+        addDeath(ReduxDamageTypes.SWET, "%1$s was absorbed by %2$s");
+//        addDeathByPlayer(ReduxDamageTypes.SWET, "%1$s was absorbed by %2$s");
         
         addProTipNoCompat("tip_color", "Tips from the Aether: Redux are in this lavender color!");
         addGuiTextTip("tip_color", "Tips from the Aether: Redux have a lavender-colored title!");
