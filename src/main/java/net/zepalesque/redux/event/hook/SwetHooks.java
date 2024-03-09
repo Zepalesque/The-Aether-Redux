@@ -4,9 +4,11 @@ import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.entity.monster.Swet;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.goal.WrappedGoal;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SpawnEggItem;
 import net.zepalesque.redux.capability.swet.SwetMass;
+import net.zepalesque.redux.entity.ai.FollowUnabsorbedTargetGoal;
 
 public class SwetHooks {
 
@@ -24,6 +26,12 @@ public class SwetHooks {
         if (toRemove[0] != null && toRemove[1] != null) {
             swet.goalSelector.getAvailableGoals().removeIf((wrappedGoal -> wrappedGoal == toRemove[0] || wrappedGoal == toRemove[1]));
         }
+        swet.targetSelector.removeAllGoals(goal -> true);
+        swet.targetSelector.addGoal(1, new FollowUnabsorbedTargetGoal<>(
+                swet, Player.class, 10, true, false, (player) ->
+                Math.abs(player.getY() - swet.getY()) <= 4.0D &&
+                        !(FollowUnabsorbedTargetGoal.canAbsorb(swet, player))
+        ));
     }
 
 
