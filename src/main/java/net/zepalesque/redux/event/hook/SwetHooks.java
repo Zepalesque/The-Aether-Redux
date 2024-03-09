@@ -2,7 +2,6 @@ package net.zepalesque.redux.event.hook;
 
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.entity.monster.Swet;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.goal.WrappedGoal;
 import net.minecraft.world.item.ItemStack;
@@ -37,7 +36,9 @@ public class SwetHooks {
         SwetMass.get(swet).ifPresent(SwetMass::tick);
     }
 
-    public static double getSwetScale(int size) {
-        return 1D + (0.75D * (size - 1));
+    public static double getTrueScale(Swet swet) {
+        int scaleIndex = swet.getSize();
+        float waterScale = 1F - swet.getWaterDamageScale();
+        return (1D + (0.75D * (scaleIndex - 1))) * waterScale;
     }
 }

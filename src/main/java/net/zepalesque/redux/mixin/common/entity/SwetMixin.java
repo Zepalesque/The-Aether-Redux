@@ -36,11 +36,11 @@ public abstract class SwetMixin extends SlimeMixin {
     private static final EntityDimensions redux$dimensions = EntityDimensions.scalable(2.04F, 2.04F);
 
     @Override
-    protected void redux$push(Entity entity, CallbackInfo ci) {
+    protected void redux$doPush(Entity entity, CallbackInfo ci) {
         if (ReduxConfig.COMMON.improved_swet_behavior.get()) {
             ci.cancel();
         } else {
-            super.redux$push(entity, ci);
+            super.redux$doPush(entity, ci);
         }
     }
 
@@ -58,14 +58,14 @@ public abstract class SwetMixin extends SlimeMixin {
     @Inject(method = "getMountJumpStrength", at = @At(value = "HEAD"), cancellable = true, remap = false)
     public void getMountJumpStrength(CallbackInfoReturnable<Double> cir) {
         if (ReduxConfig.COMMON.improved_swet_behavior.get()) {
-            cir.setReturnValue(SwetHooks.getSwetScale(this.getSize()) * 0.25F);
+            cir.setReturnValue(SwetHooks.getTrueScale((Swet) (Object) this) * 0.25F);
         }
     }
 
     @Inject(method = "getDimensions", at = @At("HEAD"), cancellable = true)
     public void redux$getDimensions(Pose pose, CallbackInfoReturnable<EntityDimensions> cir) {
         if (ReduxConfig.COMMON.improved_swet_behavior.get()) {
-            cir.setReturnValue(redux$dimensions.scale(0.255F * (float) SwetHooks.getSwetScale(this.getSize()) * (1F - this.getWaterDamageScale())));
+            cir.setReturnValue(redux$dimensions.scale(0.255F * (float) SwetHooks.getTrueScale((Swet) (Object) this)));
         }
     }
 

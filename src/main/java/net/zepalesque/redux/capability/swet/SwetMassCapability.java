@@ -1,6 +1,5 @@
 package net.zepalesque.redux.capability.swet;
 
-import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.entity.block.FloatingBlockEntity;
 import com.aetherteam.aether.entity.monster.Swet;
 import com.aetherteam.aether.item.EquipmentUtil;
@@ -10,15 +9,11 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.TamableAnimal;
-import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.animal.Wolf;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.item.PrimedTnt;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.MinecartTNT;
-import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
@@ -100,10 +95,10 @@ public class SwetMassCapability implements SwetMass {
                             .scale(Mth.clamp(0.25 + massStuck / 100, 0, 1)) // coefficient (k)
                             .add(
                                     this.getSwet().getDeltaMovement().subtract(entity.getDeltaMovement()) // delta velocity (-x')
-                                            .scale(0.2 / massStuck / SwetHooks.getSwetScale(this.getSwet().getSize())) // coefficient (μ)
+                                            .scale(0.2 / massStuck / SwetHooks.getTrueScale(this.getSwet())) // coefficient (μ)
                             );
 
-            double maxSpeed = SwetHooks.getSwetScale(this.getSwet().getSize()) * 0.1 + 0.25;
+            double maxSpeed = SwetHooks.getTrueScale(this.getSwet()) * 0.1 + 0.25;
             if (suckVelocity.length() != 0) {
                 // clamp the suck velocity
                 suckVelocity = suckVelocity.scale(Math.min(1, maxSpeed / suckVelocity.length()));

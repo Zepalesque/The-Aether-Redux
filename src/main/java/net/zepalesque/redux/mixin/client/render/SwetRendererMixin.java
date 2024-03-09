@@ -24,21 +24,19 @@ public class SwetRendererMixin extends MobRendererMixin<Swet, SlimeModel<Swet>> 
             float f = 0.999F;
             poseStack.scale(f, f, f);
             poseStack.translate(0.0F, 0.001F, 0.0F);
-            float size = (float) SwetHooks.getSwetScale(swet.getSize());
+            float size = (float) SwetHooks.getTrueScale(swet);
             float squishLerp = Mth.lerp(partialTickTime, swet.oSquish, swet.squish) / (size * 0.5F + 1.0F);
             float f3 = 1.0F / (squishLerp + 1.0F);
             poseStack.scale(f3 * size, 1.0F / f3 * size, f3 * size);
-            float f4 = 1F - swet.getWaterDamageScale();
-            poseStack.scale(f4, f4, f4);
             ci.cancel();
         }
     }
 
     @Override
-    public void renderMob(Swet entity, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight, CallbackInfo ci) {
+    public void renderMob(Swet swet, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight, CallbackInfo ci) {
         if (ReduxConfig.COMMON.improved_swet_behavior.get()) {
-            this.shadowRadius = 0.25F * (float) SwetHooks.getSwetScale(entity.getSize());
+            this.shadowRadius = 0.25F * (float) SwetHooks.getTrueScale(swet);
         }
-        super.renderMob(entity, entityYaw, partialTicks, poseStack, buffer, packedLight, ci);
+        super.renderMob(swet, entityYaw, partialTicks, poseStack, buffer, packedLight, ci);
     }
 }
