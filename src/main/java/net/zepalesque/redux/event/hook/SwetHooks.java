@@ -70,6 +70,10 @@ public class SwetHooks {
         return getTrueScale(swet) > 1.1D;
     }
 
+    public static boolean canBeControlled(Swet swet) {
+        return getTrueScale(swet) > 1.1D;
+    }
+
     public static float getDamage(Swet swet) {
         return (swet.getSize() + Mth.sqrt(swet.getSize())) * 0.25F * (1F - swet.getWaterDamageScale());
     }

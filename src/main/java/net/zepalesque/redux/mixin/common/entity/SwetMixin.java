@@ -7,9 +7,12 @@ import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.Mth;
 import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.event.hook.SwetHooks;
@@ -23,7 +26,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import javax.annotation.Nullable;
 
-// TODO: Maybe redo this stuff from scratch, feels a bit messy
 @Mixin(Swet.class)
 public abstract class SwetMixin extends SlimeMixin {
 
@@ -56,6 +58,12 @@ public abstract class SwetMixin extends SlimeMixin {
     public void redux$offset(CallbackInfoReturnable<Double> cir) {
         if (ReduxConfig.COMMON.pl_swet_behavior.get()) {
             cir.setReturnValue((double) this.getDimensions(Pose.STANDING).height * 0.75D);
+        }
+    }
+    @Inject(method = "mobInteract", at = @At(value = "HEAD"), cancellable = true)
+    public void redux$interact(Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResult> cir) {
+        if (ReduxConfig.COMMON.pl_swet_behavior.get() && !SwetHooks.canBeControlled((Swet) (Object) this)) {
+            cir.setReturnValue(InteractionResult.PASS);
         }
     }
     @Inject(method = "tick", at = @At(value = "HEAD"))

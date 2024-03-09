@@ -87,7 +87,7 @@ public class SwetMassCapability implements SwetMass {
             return;
         }
         boolean absorbable = isAbsorbable(entity, this.getSwet().level());
-        if (SwetHooks.canAbsorbEntities(this.getSwet()) && absorbable) {
+        if (SwetHooks.anAbsorbEntities(this.getSwet()) && absorbable) {
             // The higher this number, the stiffer the wobble is
             if (massStuck < 1) {
                 massStuck = 1;
