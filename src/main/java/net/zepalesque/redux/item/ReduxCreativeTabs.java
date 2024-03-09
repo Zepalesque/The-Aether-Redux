@@ -28,7 +28,7 @@ import net.zepalesque.redux.misc.ReduxTags;
 
 public class ReduxCreativeTabs {
 
-    @SubscribeEvent(priority = EventPriority.LOW)
+    @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void buildCreativeModeTabs(BuildCreativeModeTabContentsEvent event) {
         CreativeModeTab tab = event.getTab();
 
