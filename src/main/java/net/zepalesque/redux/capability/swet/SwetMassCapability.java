@@ -79,7 +79,7 @@ public class SwetMassCapability implements SwetMass {
         // Make items ride the swet. They often shake free with the jiggle physics
         if (entity instanceof ItemEntity item) {
             if (item.getItem().is(AetherTags.Items.SWET_BALLS) || item.getItem().getItem() instanceof SpawnEggItem spawnEggItem && spawnEggItem.getDefaultType() == this.getSwet().getType()) {
-                this.getSwet().setSize(this.getSwet()getSize() + 1, false);
+                this.getSwet().setSize(this.getSwet().getSize() + 1, false);
                 item.remove(Entity.RemovalReason.KILLED);
                 return;
             }

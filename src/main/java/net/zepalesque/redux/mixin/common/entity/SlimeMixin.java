@@ -33,7 +33,7 @@ public abstract class SlimeMixin extends MobMixin {
     @Inject(method = "push(Lnet/minecraft/world/entity/Entity;)V", at = @At("HEAD"), cancellable = true)
     protected void redux$push(Entity entity, CallbackInfo ci) {}
 
-    @Inject(method = "finalizeSpawn", at = @At("HEAD"))
+    @Inject(method = "finalizeSpawn", at = @At("TAIL"))
     protected void redux$finalize(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData spawnData, CompoundTag dataTag, CallbackInfoReturnable<SpawnGroupData> cir) {}
 
 }
