@@ -273,6 +273,13 @@
     ],
     "subtitle": "subtitles.aether_redux.entity.shimmercow_hurt"
   },
+  "entity.swet.attack": {
+    "sounds": [
+      "mob/slime/attack1",
+      "mob/slime/attack2"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.swet_attack"
+  },
   "generic.boost_jump": {
     "sounds": [
       "aether_redux:generic/boost_jump"
