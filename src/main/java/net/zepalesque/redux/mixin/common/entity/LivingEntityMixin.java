@@ -25,7 +25,6 @@ public abstract class LivingEntityMixin extends EntityMixin {
 
     @Shadow public abstract boolean isBaby();
 
-    @Shadow public abstract RandomSource getRandom();
 
     @Inject(method = "doPush", at = @At("HEAD"), cancellable = true)
     protected void redux$doPush(Entity entity, CallbackInfo ci) {}

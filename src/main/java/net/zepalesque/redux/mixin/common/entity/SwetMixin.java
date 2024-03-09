@@ -3,6 +3,7 @@ package net.zepalesque.redux.mixin.common.entity;
 import com.aetherteam.aether.entity.monster.Swet;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.Mth;
 import net.minecraft.world.DifficultyInstance;
@@ -20,6 +21,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import javax.annotation.Nullable;
+
 // TODO: Maybe redo this stuff from scratch, feels a bit messy
 @Mixin(Swet.class)
 public abstract class SwetMixin extends SlimeMixin {
@@ -32,6 +35,7 @@ public abstract class SwetMixin extends SlimeMixin {
 
     @Shadow public abstract void setSize(int size, boolean resetHealth);
 
+    @Shadow private boolean wasOnGround;
     @Unique
     private static final EntityDimensions redux$dimensions = EntityDimensions.scalable(2.04F, 2.04F);
 
@@ -54,6 +58,26 @@ public abstract class SwetMixin extends SlimeMixin {
             cir.setReturnValue((double) this.getDimensions(Pose.STANDING).height * 0.75D);
         }
     }
+    @Inject(method = "tick", at = @At(value = "HEAD"))
+    public void redux$tick(CallbackInfo ci) {
+        if (ReduxConfig.COMMON.improved_swet_behavior.get()) {
+            if (this.onGround() && !this.wasOnGround) {
+                int i = this.getSize();
+                @Nullable ParticleOptions particle = SwetHooks.getSquelchParticles((Swet) (Object) this);
+
+                if (particle != null) {
+                    for (int j = 0; j < i * 8; ++j) {
+                        float f = ((Swet) (Object) this).getRandom().nextFloat() * ((float) Math.PI * 2F);
+                        float f1 = ((Swet) (Object) this).getRandom().nextFloat() * 0.5F + 0.5F;
+                        float f2 = Mth.sin(f) * (float) i * 0.5F * f1;
+                        float f3 = Mth.cos(f) * (float) i * 0.5F * f1;
+                        ((Swet) (Object) this).level().addParticle(particle, ((Swet) (Object) this).getX() + (double) f2, ((Swet) (Object) this).getY(), ((Swet) (Object) this).getZ() + (double) f3, 0.0D, 0.0D, 0.0D);
+
+                    }
+                }
+            }
+        }
+    }
 
     @Inject(method = "getMountJumpStrength", at = @At(value = "HEAD"), cancellable = true, remap = false)
     public void getMountJumpStrength(CallbackInfoReturnable<Double> cir) {
@@ -66,6 +90,12 @@ public abstract class SwetMixin extends SlimeMixin {
     public void redux$getDimensions(Pose pose, CallbackInfoReturnable<EntityDimensions> cir) {
         if (ReduxConfig.COMMON.improved_swet_behavior.get()) {
             cir.setReturnValue(redux$dimensions.scale(0.255F * (float) SwetHooks.getTrueScale((Swet) (Object) this)));
+        }
+    }
+    @Inject(method = "canSpawnSplashParticles", at = @At("HEAD"), cancellable = true)
+    public void redux$canSpawnSplashParticles(CallbackInfoReturnable<Boolean> cir) {
+        if (ReduxConfig.COMMON.improved_swet_behavior.get()) {
+            cir.setReturnValue(false);
         }
     }
 

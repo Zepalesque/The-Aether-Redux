@@ -2,15 +2,23 @@ package net.zepalesque.redux.event.hook;
 
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.entity.monster.Swet;
+import net.minecraft.core.particles.ItemParticleOption;
+import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.goal.WrappedGoal;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SpawnEggItem;
 import net.zepalesque.redux.capability.swet.SwetMass;
 import net.zepalesque.redux.entity.ai.goal.HuntNoConsumeGoal;
 import net.zepalesque.redux.entity.ai.target.FollowUnabsorbedTargetGoal;
+
+import javax.annotation.Nullable;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SwetHooks {
 
@@ -63,5 +71,16 @@ public class SwetHooks {
 
     public static float getDamage(Swet swet) {
         return (swet.getSize() + Mth.sqrt(swet.getSize())) * 0.25F * (1F - swet.getWaterDamageScale());
+    }
+    
+    protected static Map<EntityType<?>, Item> PARTICLE_ITEM_MAP = new HashMap<>();
+    
+    /** Should be called in {@link net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent#enqueueWork(Runnable)} */
+    public static void registerParticle(EntityType<?> type, Item particle) {
+        PARTICLE_ITEM_MAP.put(type, particle);
+    }
+    
+    public static @Nullable ParticleOptions getSquelchParticles(Swet swet) {
+        return PARTICLE_ITEM_MAP.containsKey(swet.getType()) ? new ItemParticleOption(ParticleTypes.ITEM, new ItemStack(PARTICLE_ITEM_MAP.get(swet.getType()))) : null;
     }
 }

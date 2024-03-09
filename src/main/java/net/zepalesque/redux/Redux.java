@@ -3,10 +3,14 @@ package net.zepalesque.redux;
 import com.aetherteam.aether.AetherConfig;
 import com.aetherteam.aether.block.dispenser.DispenseUsableItemBehavior;
 import com.aetherteam.aether.entity.AetherEntityTypes;
+import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether_genesis.entity.GenesisEntityTypes;
+import com.aetherteam.aether_genesis.item.GenesisItems;
 import com.aetherteam.cumulus.CumulusConfig;
 import com.mojang.logging.LogUtils;
 import com.mojang.serialization.Codec;
+import net.builderdog.ancient_aether.data.resources.registries.AncientAetherBiomeModifiers;
+import net.builderdog.ancient_aether.entity.AncientAetherEntityTypes;
 import net.minecraft.SharedConstants;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.core.*;
@@ -79,6 +83,7 @@ import net.zepalesque.redux.data.tags.*;
 import net.zepalesque.redux.effect.ReduxEffects;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.entity.dataserializer.ReduxDataSerializers;
+import net.zepalesque.redux.event.hook.SwetHooks;
 import net.zepalesque.redux.event.listener.MobSoundListener;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.loot.condition.ReduxLootConditions;
@@ -223,6 +228,16 @@ public class Redux {
             PotionBrewing.addMix(Potions.STRONG_POISON, ReduxItems.BLIGHTED_SPORES.get(), ReduxPotions.INTOXICATION.get());
             PotionBrewing.addMix(Potions.LONG_POISON, ReduxItems.BLIGHTED_SPORES.get(), ReduxPotions.LONG_INTOXICATION.get());
             PotionBrewing.addMix(ReduxPotions.INTOXICATION.get(), Items.REDSTONE, ReduxPotions.LONG_INTOXICATION.get());
+            SwetHooks.registerParticle(AetherEntityTypes.BLUE_SWET.get(), AetherItems.SWET_BALL.get());
+            SwetHooks.registerParticle(AetherEntityTypes.GOLDEN_SWET.get(), ReduxItems.GOLDEN_SWET_BALL.get());
+            SwetHooks.registerParticle(ReduxEntityTypes.VANILLA_SWET.get(), ReduxItems.VANILLA_SWET_BALL.get());
+            if (Redux.aetherGenesisCompat()) {
+                SwetHooks.registerParticle(GenesisEntityTypes.DARK_SWET.get(), GenesisItems.DARK_SWET_BALL.get());
+            }
+            // TODO: Proper particles for this one
+            if (Redux.ancientAetherCompat()) {
+                SwetHooks.registerParticle(AncientAetherEntityTypes.FESTIVE_SWET.get(), AetherItems.SWET_BALL.get());
+            }
         });
     }
 

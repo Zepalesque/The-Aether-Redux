@@ -119,14 +119,18 @@ public class SwetMassCapability implements SwetMass {
             AttributeInstance knockbackResistance = livingEntity.getAttribute(Attributes.KNOCKBACK_RESISTANCE);
             if (absorbable && knockbackResistance != null) {
                 knockbackResistance.addTransientModifier(knockbackResistanceModifier);
-                if (livingEntity.hurt(ReduxDamageTypes.entitySource(this.getSwet().level(), ReduxDamageTypes.SWET, this.getSwet()), SwetHooks.getDamage(this.getSwet()))) {
-                    this.getSwet().playSound(ReduxSoundEvents.SWET_ATTACK.get(), 1.0F, (this.getSwet().getRandom().nextFloat() - this.getSwet().getRandom().nextFloat()) * 0.2F + 1.0F);
-                }
+                this.damage(livingEntity);
                 knockbackResistance.removeModifier(knockbackResistanceModifier);
             } else {
-                this.getSwet().playSound(ReduxSoundEvents.SWET_ATTACK.get(), 1.0F, (this.getSwet().getRandom().nextFloat() - this.getSwet().getRandom().nextFloat()) * 0.2F + 1.0F);
+                this.damage(livingEntity);
             }
 
+        }
+    }
+
+    protected void damage(LivingEntity livingEntity) {
+        if (livingEntity.hurt(ReduxDamageTypes.entitySource(this.getSwet().level(), ReduxDamageTypes.SWET, this.getSwet()), SwetHooks.getDamage(this.getSwet()))) {
+            this.getSwet().playSound(ReduxSoundEvents.SWET_ATTACK.get(), 1.0F, (this.getSwet().getRandom().nextFloat() - this.getSwet().getRandom().nextFloat()) * 0.2F + 1.0F);
         }
     }
 
