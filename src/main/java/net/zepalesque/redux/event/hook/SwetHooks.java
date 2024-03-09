@@ -13,6 +13,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SpawnEggItem;
 import net.zepalesque.redux.capability.swet.SwetMass;
+import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.entity.ai.goal.HuntNoConsumeGoal;
 import net.zepalesque.redux.entity.ai.target.FollowUnabsorbedTargetGoal;
 
@@ -81,6 +82,6 @@ public class SwetHooks {
     }
     
     public static @Nullable ParticleOptions getSquelchParticles(Swet swet) {
-        return PARTICLE_ITEM_MAP.containsKey(swet.getType()) ? new ItemParticleOption(ParticleTypes.ITEM, new ItemStack(PARTICLE_ITEM_MAP.get(swet.getType()))) : null;
+        return PARTICLE_ITEM_MAP.containsKey(swet.getType()) ? new ItemParticleOption(ReduxParticleTypes.RANDOM_MOVEMENT_ITEM.get(), new ItemStack(PARTICLE_ITEM_MAP.get(swet.getType()))) : null;
     }
 }
