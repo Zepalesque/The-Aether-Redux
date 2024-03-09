@@ -4,7 +4,6 @@ import com.aetherteam.aether.entity.block.FloatingBlockEntity;
 import com.aetherteam.aether.entity.monster.Swet;
 import com.aetherteam.aether.item.EquipmentUtil;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.Entity;
@@ -59,7 +58,7 @@ public class SwetMassCapability implements SwetMass {
     }
 
     public void tick() {
-        if (ReduxConfig.COMMON.improved_swet_behavior.get() && !this.getSwet().isDeadOrDying()) {
+        if (ReduxConfig.COMMON.pl_swet_behavior.get() && !this.getSwet().isDeadOrDying()) {
             massStuck = 0;
             this.getSwet().level().getEntities(this.getSwet(), this.getSwet().getBoundingBox().inflate(0.9, 0.9, 0.9)).forEach((entity) -> {
                 AABB box = entity.getBoundingBox();

@@ -20,7 +20,7 @@ public class SwetRendererMixin extends MobRendererMixin<Swet, SlimeModel<Swet>> 
 
     @Inject(at = @At("HEAD"), method = "scale(Lnet/minecraft/world/entity/LivingEntity;Lcom/mojang/blaze3d/vertex/PoseStack;F)V", cancellable = true)
     protected void redux$scale(LivingEntity livingEntity, PoseStack poseStack, float partialTickTime, CallbackInfo ci) {
-        if (ReduxConfig.COMMON.improved_swet_behavior.get()) {
+        if (ReduxConfig.COMMON.pl_swet_behavior.get()) {
             Swet swet = (Swet) livingEntity;
             float f = 0.999F;
             poseStack.scale(f, f, f);
@@ -35,7 +35,7 @@ public class SwetRendererMixin extends MobRendererMixin<Swet, SlimeModel<Swet>> 
 
     @Override
     public void renderMob(Swet swet, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight, CallbackInfo ci) {
-        if (ReduxConfig.COMMON.improved_swet_behavior.get()) {
+        if (ReduxConfig.COMMON.pl_swet_behavior.get()) {
             this.shadowRadius = 0.25F * (float) SwetHooks.getTrueScale(swet);
         }
         super.renderMob(swet, entityYaw, partialTicks, poseStack, buffer, packedLight, ci);

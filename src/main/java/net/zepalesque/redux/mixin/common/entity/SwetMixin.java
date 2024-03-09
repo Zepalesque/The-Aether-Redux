@@ -41,7 +41,7 @@ public abstract class SwetMixin extends SlimeMixin {
 
     @Override
     protected void redux$doPush(Entity entity, CallbackInfo ci) {
-        if (ReduxConfig.COMMON.improved_swet_behavior.get()) {
+        if (ReduxConfig.COMMON.pl_swet_behavior.get()) {
             ci.cancel();
         } else {
             super.redux$doPush(entity, ci);
@@ -54,13 +54,13 @@ public abstract class SwetMixin extends SlimeMixin {
     }
     @Inject(method = "getPassengersRidingOffset", at = @At(value = "HEAD"), cancellable = true)
     public void redux$offset(CallbackInfoReturnable<Double> cir) {
-        if (ReduxConfig.COMMON.improved_swet_behavior.get()) {
+        if (ReduxConfig.COMMON.pl_swet_behavior.get()) {
             cir.setReturnValue((double) this.getDimensions(Pose.STANDING).height * 0.75D);
         }
     }
     @Inject(method = "tick", at = @At(value = "HEAD"))
     public void redux$tick(CallbackInfo ci) {
-        if (ReduxConfig.COMMON.improved_swet_behavior.get()) {
+        if (ReduxConfig.COMMON.pl_swet_behavior.get()) {
             if (this.onGround() && !this.wasOnGround) {
                 int i = this.getSize();
                 @Nullable ParticleOptions particle = SwetHooks.getSquelchParticles((Swet) (Object) this);
@@ -81,20 +81,20 @@ public abstract class SwetMixin extends SlimeMixin {
 
     @Inject(method = "getMountJumpStrength", at = @At(value = "HEAD"), cancellable = true, remap = false)
     public void getMountJumpStrength(CallbackInfoReturnable<Double> cir) {
-        if (ReduxConfig.COMMON.improved_swet_behavior.get()) {
+        if (ReduxConfig.COMMON.pl_swet_behavior.get()) {
             cir.setReturnValue(SwetHooks.getTrueScale((Swet) (Object) this) * 0.25F);
         }
     }
 
     @Inject(method = "getDimensions", at = @At("HEAD"), cancellable = true)
     public void redux$getDimensions(Pose pose, CallbackInfoReturnable<EntityDimensions> cir) {
-        if (ReduxConfig.COMMON.improved_swet_behavior.get()) {
+        if (ReduxConfig.COMMON.pl_swet_behavior.get()) {
             cir.setReturnValue(redux$dimensions.scale(0.255F * (float) SwetHooks.getTrueScale((Swet) (Object) this)));
         }
     }
     @Inject(method = "canSpawnSplashParticles", at = @At("HEAD"), cancellable = true, remap = false)
     public void redux$canSpawnSplashParticles(CallbackInfoReturnable<Boolean> cir) {
-        if (ReduxConfig.COMMON.improved_swet_behavior.get()) {
+        if (ReduxConfig.COMMON.pl_swet_behavior.get()) {
             cir.setReturnValue(false);
         }
     }
@@ -104,7 +104,7 @@ public abstract class SwetMixin extends SlimeMixin {
 
     @Inject(method = "setSize", at = @At("HEAD"))
     protected void redux$setSize(int size, boolean resetHealth, CallbackInfo ci) {
-        if (ReduxConfig.COMMON.improved_swet_behavior.get()) {
+        if (ReduxConfig.COMMON.pl_swet_behavior.get()) {
             int i = Mth.clamp(size, 1, 127);
             this.entityData.set(ID_SIZE, i);
             this.reapplyPosition();
@@ -122,7 +122,7 @@ public abstract class SwetMixin extends SlimeMixin {
 
     @Inject(method = "getSize", at = @At("RETURN"), cancellable = true)
     protected void redux$getSize(CallbackInfoReturnable<Integer> cir) {
-        if (ReduxConfig.COMMON.improved_swet_behavior.get()) {
+        if (ReduxConfig.COMMON.pl_swet_behavior.get()) {
             cir.setReturnValue(this.entityData.get(ID_SIZE));
         }
     }
@@ -135,7 +135,7 @@ public abstract class SwetMixin extends SlimeMixin {
 
     @Override
     protected void redux$isPushable(CallbackInfoReturnable<Boolean> cir) {
-        if (ReduxConfig.COMMON.improved_swet_behavior.get()) {
+        if (ReduxConfig.COMMON.pl_swet_behavior.get()) {
             cir.setReturnValue(false);
         } else {
             super.redux$isPushable(cir);
