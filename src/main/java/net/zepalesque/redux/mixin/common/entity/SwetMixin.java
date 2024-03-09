@@ -131,7 +131,7 @@ public abstract class SwetMixin extends SlimeMixin {
             this.reapplyPosition();
             this.refreshDimensions();
             this.getAttribute(Attributes.MAX_HEALTH).setBaseValue((double) (i * i));
-            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue((double) (0.2F + 0.1F * (float) i));
+            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue((double) (0.3F + 0.05F * (float) i));
         this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue((double)i * 0.5D);
             if (resetHealth) {
                 this.setHealth(this.getMaxHealth());
