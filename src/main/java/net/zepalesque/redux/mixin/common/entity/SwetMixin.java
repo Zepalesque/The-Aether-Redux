@@ -63,7 +63,7 @@ public abstract class SwetMixin extends SlimeMixin {
     }
     @Inject(method = "mobInteract", at = @At(value = "HEAD"), cancellable = true)
     public void redux$interact(Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResult> cir) {
-        if (ReduxConfig.COMMON.pl_swet_behavior.get() && !SwetHooks.canBeControlled((Swet) (Object) this)) {
+        if (ReduxConfig.COMMON.pl_swet_behavior.get()) {
             ItemStack i = player.getItemInHand(hand);
             if (SwetHooks.shouldGrow(i, this.getType())) {
                 if (!player.isCreative()) {
