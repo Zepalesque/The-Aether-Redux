@@ -57,4 +57,8 @@ public class SwetHooks {
     public static boolean canAbsorbEntities(Swet swet) {
         return getTrueScale(swet) > 1.1D;
     }
+
+    public static float getDamage(Swet swet) {
+        return (float) (getTrueScale(swet)) - 1F;
+    }
 }

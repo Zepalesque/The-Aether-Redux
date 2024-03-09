@@ -19,6 +19,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.zepalesque.redux.config.ReduxConfig;
+import net.zepalesque.redux.data.resource.ReduxDamageTypes;
 import net.zepalesque.redux.event.hook.SwetHooks;
 import net.zepalesque.redux.misc.ReduxTags;
 
@@ -109,16 +110,9 @@ public class SwetMassCapability implements SwetMass {
             entity.fallDistance = 0;
         }
 
-        if (entity instanceof LivingEntity livingEntity) {
-            // Hack to prevent knockback; TODO: find a better way to prevent knockback
-//            AttributeInstance knockbackResistance = livingEntity.getAttribute(Attributes.KNOCKBACK_RESISTANCE);
-//            if (absorbable && knockbackResistance != null) {
-//                knockbackResistance.addTransientModifier(knockbackResistanceModifier);
-//                this.getSwet().doHurtTarget(livingEntity);
-//                knockbackResistance.removeModifier(knockbackResistanceModifier);
-//            } else {
-                this.getSwet().doHurtTarget(livingEntity);
-//            }
+        if (entity instanceof LivingEntity livingEntity && SwetHooks.canAbsorbEntities(this.getSwet())) {
+            livingEntity.hurt(ReduxDamageTypes.entitySource(this.getSwet().level(), ReduxDamageTypes.SWET, this.getSwet()), SwetHooks.getDamage(this.getSwet()));
+//            this.getSwet().doHurtTarget(livingEntity);
         }
     }
 
