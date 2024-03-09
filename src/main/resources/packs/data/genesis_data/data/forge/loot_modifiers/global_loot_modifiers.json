@@ -1,7 +1,8 @@
 {
   "entries": [
     "aether_redux:genesis_golden_swet_ball_increase",
-    "aether_redux:genesis_dark_swet_ball_increase"
+    "aether_redux:genesis_dark_swet_ball_increase",
+    "aether_redux:genesis_remove_purple_swet_cloud"
   ],
   "replace": false
 }
