@@ -13,6 +13,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.event.hook.SwetHooks;
@@ -63,7 +64,18 @@ public abstract class SwetMixin extends SlimeMixin {
     @Inject(method = "mobInteract", at = @At(value = "HEAD"), cancellable = true)
     public void redux$interact(Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResult> cir) {
         if (ReduxConfig.COMMON.pl_swet_behavior.get() && !SwetHooks.canBeControlled((Swet) (Object) this)) {
-            cir.setReturnValue(InteractionResult.PASS);
+            ItemStack i = player.getItemInHand(hand);
+            if (SwetHooks.shouldGrow(i, this.getType())) {
+                if (!player.isCreative()) {
+                    i.shrink(1);
+                }
+                this.setSize(this.getSize() + 1, false);
+                cir.setReturnValue(InteractionResult.SUCCESS);
+            }
+
+            if (!SwetHooks.canBeControlled((Swet) (Object) this)) {
+                cir.setReturnValue(InteractionResult.PASS);
+            }
         }
     }
     @Inject(method = "tick", at = @At(value = "HEAD"))
@@ -100,6 +112,7 @@ public abstract class SwetMixin extends SlimeMixin {
             cir.setReturnValue(redux$dimensions.scale(0.255F * (float) SwetHooks.getTrueScale((Swet) (Object) this)));
         }
     }
+
     @Inject(method = "canSpawnSplashParticles", at = @At("HEAD"), cancellable = true, remap = false)
     public void redux$canSpawnSplashParticles(CallbackInfoReturnable<Boolean> cir) {
         if (ReduxConfig.COMMON.pl_swet_behavior.get()) {
