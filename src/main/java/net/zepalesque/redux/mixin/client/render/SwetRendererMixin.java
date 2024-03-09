@@ -8,6 +8,7 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;
 import net.zepalesque.redux.config.ReduxConfig;
+import net.zepalesque.redux.event.hook.SwetHooks;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -21,13 +22,13 @@ public class SwetRendererMixin extends MobRendererMixin<Swet, SlimeModel<Swet>> 
         if (ReduxConfig.COMMON.improved_swet_behavior.get()) {
             Swet swet = (Swet) livingEntity;
             float f = 0.999F;
-            poseStack.scale(0.999F, 0.999F, 0.999F);
+            poseStack.scale(f, f, f);
             poseStack.translate(0.0F, 0.001F, 0.0F);
             float size = (float) swet.getSize() / 2F;
             float squishLerp = Mth.lerp(partialTickTime, swet.oSquish, swet.squish) / (size * 0.5F + 1.0F);
             float f3 = 1.0F / (squishLerp + 1.0F);
             poseStack.scale(f3 * size, 1.0F / f3 * size, f3 * size);
-            float f4 = (float) (1 - (swet.getWaterDamageScale() / 0.9));
+            float f4 = 1F - swet.getWaterDamageScale();
             poseStack.scale(f4, f4, f4);
             ci.cancel();
         }
@@ -36,7 +37,7 @@ public class SwetRendererMixin extends MobRendererMixin<Swet, SlimeModel<Swet>> 
     @Override
     public void renderMob(Swet entity, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight, CallbackInfo ci) {
         if (ReduxConfig.COMMON.improved_swet_behavior.get()) {
-            this.shadowRadius = 0.25F * (float) entity.getSize();
+            this.shadowRadius = 0.25F * (float) SwetHooks.getSwetScale(entity.getSize());
         }
         super.renderMob(entity, entityYaw, partialTicks, poseStack, buffer, packedLight, ci);
     }

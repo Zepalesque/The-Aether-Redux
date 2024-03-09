@@ -11,6 +11,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.zepalesque.redux.config.ReduxConfig;
+import net.zepalesque.redux.event.hook.SwetHooks;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -44,7 +45,7 @@ public abstract class SwetMixin extends SlimeMixin {
 
     @WrapOperation(method = "createMobAttributes", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Mob;createMobAttributes()Lnet/minecraft/world/entity/ai/attributes/AttributeSupplier$Builder;"))
     private static AttributeSupplier.Builder attributes(Operation<AttributeSupplier.Builder> original) {
-        return original.call().add(Attributes.ATTACK_DAMAGE, 0.5D);
+        return original.call().add(Attributes.ATTACK_DAMAGE, 0.5D).add(Attributes.ATTACK_KNOCKBACK, 0.0D);
     }
     @Inject(method = "getPassengersRidingOffset", at = @At(value = "HEAD"), cancellable = true)
     public void redux$offset(CallbackInfoReturnable<Double> cir) {
@@ -56,7 +57,7 @@ public abstract class SwetMixin extends SlimeMixin {
     @Inject(method = "getDimensions", at = @At("HEAD"), cancellable = true)
     public void redux$getDimensions(Pose pose, CallbackInfoReturnable<EntityDimensions> cir) {
         if (ReduxConfig.COMMON.improved_swet_behavior.get()) {
-            cir.setReturnValue(redux$dimensions.scale(0.255F * 0.5F * (float) this.getSize() * (1 - (this.getWaterDamageScale() * (10F / 9)))));
+            cir.setReturnValue(redux$dimensions.scale(0.255F * (float) SwetHooks.getSwetScale(this.getSize()) * (1F - this.getWaterDamageScale())));
         }
     }
 

@@ -23,6 +23,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.zepalesque.redux.config.ReduxConfig;
+import net.zepalesque.redux.event.hook.SwetHooks;
 import net.zepalesque.redux.misc.ReduxTags;
 
 // TODO
@@ -69,8 +70,8 @@ public class SwetMassCapability implements SwetMass {
 
     protected void onEntityCollision(Entity entity) {
         // special absorption rules
-        if (entity instanceof Swet swet) {
-            if (this.getSwet().getSize() >= swet.getSize() && !swet.isDeadOrDying()) {
+        if (entity instanceof Swet) {
+            if (entity.getType() == this.getSwet().getType() && this.getSwet().getSize() >= swet.getSize() && !swet.isDeadOrDying()) {
                 this.getSwet().setSize(Mth.ceil(Mth.sqrt(this.getSwet().getSize() * this.getSwet().getSize() + swet.getSize() * swet.getSize())), true);
                 swet.discard();
             }
@@ -78,7 +79,7 @@ public class SwetMassCapability implements SwetMass {
         }
         // Make items ride the swet. They often shake free with the jiggle physics
         if (entity instanceof ItemEntity item) {
-            if (item.getItem().is(AetherTags.Items.SWET_BALLS) || item.getItem().getItem() instanceof SpawnEggItem spawnEggItem && spawnEggItem.getType(item.getItem().getTag()) == this.getSwet().getType()) {
+            if (SwetHooks.shouldGrow(item.getItem(), this.getSwet().getType())) {
                 this.getSwet().setSize(this.getSwet().getSize() + 1, false);
                 item.remove(Entity.RemovalReason.KILLED);
                 return;
@@ -99,10 +100,10 @@ public class SwetMassCapability implements SwetMass {
                             .scale(Mth.clamp(0.25 + massStuck / 100, 0, 1)) // coefficient (k)
                             .add(
                                     this.getSwet().getDeltaMovement().subtract(entity.getDeltaMovement()) // delta velocity (-x')
-                                            .scale(0.45 / massStuck / this.getSwet().getSize()) // coefficient (μ)
+                                            .scale(0.45 / massStuck / SwetHooks.getSwetScale(this.getSwet().getSize())) // coefficient (μ)
                             );
 
-            double maxSpeed = this.getSwet().getSize() * 0.1 + 0.25;
+            double maxSpeed = SwetHooks.getSwetScale(this.getSwet().getSize()) * 0.1 + 0.25;
             if (suckVelocity.length() != 0) {
                 // clamp the suck velocity
                 suckVelocity = suckVelocity.scale(Math.min(1, maxSpeed / suckVelocity.length()));
@@ -115,14 +116,14 @@ public class SwetMassCapability implements SwetMass {
 
         if (entity instanceof LivingEntity livingEntity) {
             // Hack to prevent knockback; TODO: find a better way to prevent knockback
-            AttributeInstance knockbackResistance = livingEntity.getAttribute(Attributes.KNOCKBACK_RESISTANCE);
-            if (absorbable && knockbackResistance != null) {
-                knockbackResistance.addTransientModifier(knockbackResistanceModifier);
+//            AttributeInstance knockbackResistance = livingEntity.getAttribute(Attributes.KNOCKBACK_RESISTANCE);
+//            if (absorbable && knockbackResistance != null) {
+//                knockbackResistance.addTransientModifier(knockbackResistanceModifier);
+//                this.getSwet().doHurtTarget(livingEntity);
+//                knockbackResistance.removeModifier(knockbackResistanceModifier);
+//            } else {
                 this.getSwet().doHurtTarget(livingEntity);
-                knockbackResistance.removeModifier(knockbackResistanceModifier);
-            } else {
-                this.getSwet().doHurtTarget(livingEntity);
-            }
+//            }
         }
     }
 
