@@ -71,7 +71,7 @@ public abstract class SwetMixin extends SlimeMixin {
                         float f1 = ((Swet) (Object) this).getRandom().nextFloat() * 0.5F + 0.5F;
                         float f2 = Mth.sin(f) * (float) i * 0.5F * f1;
                         float f3 = Mth.cos(f) * (float) i * 0.5F * f1;
-                        ((Swet) (Object) this).level().addParticle(particle, ((Swet) (Object) this).getX() + (double) f2, ((Swet) (Object) this).getY(), ((Swet) (Object) this).getZ() + (double) f3, (Math.random() * 2.0D - 1.0D) * (double)0.4F, (Math.random() * 2.0D - 1.0D) * (double)0.4F, (Math.random() * 2.0D - 1.0D) * (double)0.4F);
+                        ((Swet) (Object) this).level().addParticle(particle, ((Swet) (Object) this).getX() + (double) f2, ((Swet) (Object) this).getY(), ((Swet) (Object) this).getZ() + (double) f3, 0.0D, 0.0D, 0.0D);
 
                     }
                 }
