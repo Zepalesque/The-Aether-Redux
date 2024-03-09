@@ -1,5 +1,12 @@
 {
   "values": [
-    "minecraft:slime"
+    "minecraft:slime",
+    "aether:zephyr",
+    "aether:moa",
+    "aether:cockatrice",
+    {
+      "id": "aether_genesis:tempest",
+      "required": false
+    }
   ]
 }
