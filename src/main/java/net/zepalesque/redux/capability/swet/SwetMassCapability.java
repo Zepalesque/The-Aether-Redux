@@ -10,7 +10,9 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.TamableAnimal;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.item.PrimedTnt;
 import net.minecraft.world.entity.player.Player;
@@ -113,7 +115,15 @@ public class SwetMassCapability implements SwetMass {
         }
 
         if (entity instanceof LivingEntity livingEntity && SwetHooks.canAbsorbEntities(this.getSwet())) {
-            if (livingEntity.hurt(ReduxDamageTypes.entitySource(this.getSwet().level(), ReduxDamageTypes.SWET, this.getSwet()), SwetHooks.getDamage(this.getSwet()))) {
+            // Hack to prevent knockback; TODO: find a better way to prevent knockback
+            AttributeInstance knockbackResistance = livingEntity.getAttribute(Attributes.KNOCKBACK_RESISTANCE);
+            if (absorbable && knockbackResistance != null) {
+                knockbackResistance.addTransientModifier(knockbackResistanceModifier);
+                if (livingEntity.hurt(ReduxDamageTypes.entitySource(this.getSwet().level(), ReduxDamageTypes.SWET, this.getSwet()), SwetHooks.getDamage(this.getSwet()))) {
+                    this.getSwet().playSound(ReduxSoundEvents.SWET_ATTACK.get(), 1.0F, (this.getSwet().getRandom().nextFloat() - this.getSwet().getRandom().nextFloat()) * 0.2F + 1.0F);
+                }
+                knockbackResistance.removeModifier(knockbackResistanceModifier);
+            } else {
                 this.getSwet().playSound(ReduxSoundEvents.SWET_ATTACK.get(), 1.0F, (this.getSwet().getRandom().nextFloat() - this.getSwet().getRandom().nextFloat()) * 0.2F + 1.0F);
             }
 
