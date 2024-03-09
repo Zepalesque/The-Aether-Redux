@@ -56,7 +56,7 @@ public abstract class SwetMixin extends SlimeMixin {
     @Inject(method = "getDimensions", at = @At("HEAD"), cancellable = true)
     public void redux$getDimensions(Pose pose, CallbackInfoReturnable<EntityDimensions> cir) {
         if (ReduxConfig.COMMON.improved_swet_behavior.get()) {
-            cir.setReturnValue(redux$dimensions.scale(0.255F * (float) this.getSize() * (1 - (this.getWaterDamageScale() * (10F / 9)))));
+            cir.setReturnValue(redux$dimensions.scale(0.255F * 0.5F * (float) this.getSize() * (1 - (this.getWaterDamageScale() * (10F / 9)))));
         }
     }
 
