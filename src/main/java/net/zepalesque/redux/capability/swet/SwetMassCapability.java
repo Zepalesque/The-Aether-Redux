@@ -70,11 +70,7 @@ public class SwetMassCapability implements SwetMass {
 
     protected void onEntityCollision(Entity entity) {
         // special absorption rules
-        if (entity instanceof Swet) {
-            if (entity.getType() == this.getSwet().getType() && this.getSwet().getSize() >= swet.getSize() && !swet.isDeadOrDying()) {
-                this.getSwet().setSize(Mth.ceil(Mth.sqrt(this.getSwet().getSize() * this.getSwet().getSize() + swet.getSize() * swet.getSize())), true);
-                swet.discard();
-            }
+        if (entity instanceof Swet || entity.getType().is(ReduxTags.EntityTypes.SWET_PASSTHROUGH)) {
             return;
         }
         // Make items ride the swet. They often shake free with the jiggle physics
