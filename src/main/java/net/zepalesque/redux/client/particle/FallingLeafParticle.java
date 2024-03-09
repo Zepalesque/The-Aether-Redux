@@ -53,11 +53,11 @@ public class FallingLeafParticle extends TextureSheetParticle {
             float f1 = Math.min(f / 300.0F, 1.0F);
             double d0 = Math.cos(Math.toRadians(this.particleRandom * 60.0F)) * 2.0D * Math.pow(f1, 1.25D);
             double d1 = Math.sin(Math.toRadians(this.particleRandom * 60.0F)) * 2.0D * Math.pow(f1, 1.25D);
-            this.xd += d0 * (double) 0.0025F;
-            this.zd += d1 * (double) 0.0025F;
-            this.yd -= this.gravity;
             this.oRoll = this.roll;
             if (!(this.onGround || this.onGroundTime < 40)) {
+                this.xd += d0 * (double) 0.0025F;
+                this.zd += d1 * (double) 0.0025F;
+                this.yd -= this.gravity;
                 this.rotSpeed += this.spinAcceleration / 20.0F;
                 this.roll += this.rotSpeed / 20.0F;
             }
