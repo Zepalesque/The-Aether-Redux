@@ -59,8 +59,8 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
         );
         this.add(ReduxSoundEvents.SWET_ATTACK,
                 definition().with(
-                        sound("minecraft:item/mob/slime/attack1"),
-                        sound("minecraft:item/mob/slime/attack2")
+                        sound("minecraft:mob/slime/attack1"),
+                        sound("minecraft:mob/slime/attack2")
                 ).subtitle("subtitles.aether_redux.entity.swet_attack")
         );
         this.add(ReduxSoundEvents.EQUIP_WISDOM_RING,
