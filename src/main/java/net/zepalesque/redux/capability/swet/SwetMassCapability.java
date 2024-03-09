@@ -3,6 +3,7 @@ package net.zepalesque.redux.capability.swet;
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.entity.block.FloatingBlockEntity;
 import com.aetherteam.aether.entity.monster.Swet;
+import com.aetherteam.aether.item.EquipmentUtil;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.Mth;
 import net.minecraft.world.Difficulty;
@@ -83,6 +84,9 @@ public class SwetMassCapability implements SwetMass {
             item.startRiding(this.getSwet(), true);
             return;
         }
+        if (entity instanceof LivingEntity livingEntity && EquipmentUtil.hasSwetCape(livingEntity)) {
+            return;
+        }
         boolean absorbable = isAbsorbable(entity, this.getSwet().level());
         if (absorbable) {
             // The higher this number, the stiffer the wobble is
@@ -96,7 +100,7 @@ public class SwetMassCapability implements SwetMass {
                             .scale(Mth.clamp(0.25 + massStuck / 100, 0, 1)) // coefficient (k)
                             .add(
                                     this.getSwet().getDeltaMovement().subtract(entity.getDeltaMovement()) // delta velocity (-x')
-                                            .scale(0.45 / massStuck / SwetHooks.getSwetScale(this.getSwet().getSize())) // coefficient (μ)
+                                            .scale(0.2 / massStuck / SwetHooks.getSwetScale(this.getSwet().getSize())) // coefficient (μ)
                             );
 
             double maxSpeed = SwetHooks.getSwetScale(this.getSwet().getSize()) * 0.1 + 0.25;

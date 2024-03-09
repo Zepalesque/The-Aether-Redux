@@ -20,6 +20,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+// TODO: Maybe redo this stuff from scratch, feels a bit messy
 @Mixin(Swet.class)
 public abstract class SwetMixin extends SlimeMixin {
 
@@ -51,6 +52,13 @@ public abstract class SwetMixin extends SlimeMixin {
     public void redux$offset(CallbackInfoReturnable<Double> cir) {
         if (ReduxConfig.COMMON.improved_swet_behavior.get()) {
             cir.setReturnValue((double) this.getDimensions(Pose.STANDING).height * 0.75D);
+        }
+    }
+
+    @Inject(method = "getMountJumpStrength", at = @At(value = "HEAD"), cancellable = true, remap = false)
+    public void getMountJumpStrength(CallbackInfoReturnable<Double> cir) {
+        if (ReduxConfig.COMMON.improved_swet_behavior.get()) {
+            cir.setReturnValue(SwetHooks.getSwetScale(this.getSize()) * 0.25F);
         }
     }
 
@@ -91,9 +99,8 @@ public abstract class SwetMixin extends SlimeMixin {
 
     @Override
     protected void redux$finalize(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData spawnData, CompoundTag dataTag, CallbackInfoReturnable<SpawnGroupData> cir) {
-        super.redux$finalize(level, difficulty, reason, spawnData, dataTag, cir);
-        this.setSize(this.getRandom().nextInt(2), true);
-
+//        RandomSource randomsource = level.getRandom();
+//        this.setSize(randomsource.nextInt(2), true);
     }
 
     @Override

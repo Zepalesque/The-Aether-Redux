@@ -24,7 +24,7 @@ public class SwetRendererMixin extends MobRendererMixin<Swet, SlimeModel<Swet>> 
             float f = 0.999F;
             poseStack.scale(f, f, f);
             poseStack.translate(0.0F, 0.001F, 0.0F);
-            float size = (float) swet.getSize() / 2F;
+            float size = (float) SwetHooks.getSwetScale(swet.getSize());
             float squishLerp = Mth.lerp(partialTickTime, swet.oSquish, swet.squish) / (size * 0.5F + 1.0F);
             float f3 = 1.0F / (squishLerp + 1.0F);
             poseStack.scale(f3 * size, 1.0F / f3 * size, f3 * size);

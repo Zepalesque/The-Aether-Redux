@@ -26,6 +26,8 @@ public abstract class SlimeMixin extends MobMixin {
 
     @Shadow public abstract EntityType<? extends Slime> getType();
 
+    @Shadow public abstract int getSize();
+
     @Inject(method = "getSoundPitch", at = @At("RETURN"), cancellable = true)
     protected void getSoundPitch(CallbackInfoReturnable<Float> cir) {
     }

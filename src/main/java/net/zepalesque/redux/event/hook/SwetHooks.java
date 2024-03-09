@@ -38,6 +38,6 @@ public class SwetHooks {
     }
 
     public static double getSwetScale(int size) {
-        return 1D + (0.25D * (size - 1));
+        return 1D + (0.75D * (size - 1));
     }
 }
