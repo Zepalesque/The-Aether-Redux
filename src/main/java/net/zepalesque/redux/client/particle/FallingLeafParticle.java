@@ -9,6 +9,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.zepalesque.redux.config.ReduxConfig;
+import net.zepalesque.redux.util.math.MathUtil;
 
 import java.util.List;
 
@@ -23,6 +24,7 @@ public class FallingLeafParticle extends TextureSheetParticle {
     protected FallingLeafParticle(ClientLevel level, double x, double y, double z) {
         super(level, x, y, z);
         this.rotSpeed = (float)Math.toRadians(this.random.nextBoolean() ? -30.0D : 30.0D);
+        this.roll = MathUtil.degToRad(this.random.nextFloat() * 360F);
         this.particleRandom = this.random.nextFloat();
         this.spinAcceleration = (float)Math.toRadians(this.random.nextBoolean() ? -5.0D : 5.0D);
         this.lifetime = 300;
