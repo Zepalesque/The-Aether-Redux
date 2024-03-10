@@ -70,6 +70,10 @@ public class SwetHooks {
         return getTrueScale(swet) > 1.1D;
     }
 
+    public static boolean canGrow(Swet swet) {
+        return swet.getSize() < 20;
+    }
+
     public static boolean canBeControlled(Swet swet) {
         return getTrueScale(swet) > 1.1D;
     }
