@@ -712,20 +712,20 @@ public class ReduxPlacedFeatures {
 
         register(context, SENTRITE_ORE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.DIVINITE_ORE),
                 InSquarePlacement.spread(),
-                RarityFilter.onAverageOnceEvery(2),
-                HeightRangePlacement.of(TrapezoidHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.aboveBottom(64))),
+//                RarityFilter.onAverageOnceEvery(1),
+                HeightRangePlacement.of(TrapezoidHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.aboveBottom(128))),
                 BiomeFilter.biome()
         );
         register(context, DIVINITE_ORE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.DIVINITE_ORE),
                 InSquarePlacement.spread(),
                 RarityFilter.onAverageOnceEvery(6),
-                HeightRangePlacement.of(TrapezoidHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.aboveBottom(128))),
+                HeightRangePlacement.of(TrapezoidHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.aboveBottom(192))),
                 BiomeFilter.biome()
         );
         register(context, DIVINITE_ORE_INCREASED, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.DIVINITE_ORE),
                 InSquarePlacement.spread(),
                 RarityFilter.onAverageOnceEvery(2),
-                HeightRangePlacement.of(TrapezoidHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.aboveBottom(128))),
+                HeightRangePlacement.of(TrapezoidHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.aboveBottom(192))),
                 BiomeFilter.biome()
         );
 
