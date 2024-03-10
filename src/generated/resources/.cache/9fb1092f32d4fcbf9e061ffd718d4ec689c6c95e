@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-10T15:08:36.6570524	Recipes
+// 1.20.1	2024-03-10T15:35:49.9515757	Recipes
 142511de235436db9774c32cc1e4cadb796b351e data/aether_redux/advancements/recipes/blue_gummy_swet.json
 51d45028b22196de7aab6ae246ea0eab7f7308fb data/aether_redux/advancements/recipes/blue_swet_jelly.json
 cdecd2fb47465ca3e02446651bb68347dcb877ed data/aether_redux/advancements/recipes/building_blocks/angelic_stone.json
@@ -69,6 +69,7 @@ c9e545fc7a4f3c59da51d0d11ebd507d49a721bb data/aether_redux/advancements/recipes/
 51e2507d40fadc8d74701f3629d044acc302ea2e data/aether_redux/advancements/recipes/building_blocks/glacia_slab.json
 3b2a36476d32fce89ef0f9a237abbc051f2b7c4a data/aether_redux/advancements/recipes/building_blocks/glacia_stairs.json
 02aeb163d1592ab2a9361432c69dd0e7f372268b data/aether_redux/advancements/recipes/building_blocks/glacia_wood.json
+d0341fc2b257b561996abf92e3af090cea23de7b data/aether_redux/advancements/recipes/building_blocks/glowy_holefire_stone_stonecutting.json
 ef4185cf6d4aa7c288a49e450a8ed113c43c3b90 data/aether_redux/advancements/recipes/building_blocks/gravitite_block.json
 4fb3cdbd109d804c8d37670219591d7dfbd0a194 data/aether_redux/advancements/recipes/building_blocks/hellfire_stone.json
 507eacd850ff94d8d95cca456c83aa8771ffec05 data/aether_redux/advancements/recipes/building_blocks/holefire_pillar.json
@@ -383,6 +384,7 @@ cf2e1e73b5cb926663351cb58276033a0466acc6 data/aether_redux/recipes/glacia_pressu
 8a03fd96ec11bfbee8b4191efc894315ce74a31c data/aether_redux/recipes/glacia_trapdoor.json
 b8057313ca457a061732a82ab590b9f052800eb1 data/aether_redux/recipes/glacia_wood.json
 c8c18048662653547f9245b4041efa507b36a7b7 data/aether_redux/recipes/glacia_wood_wall.json
+d62e4d040908b2d2b02af00ad8c48a9c5b90e896 data/aether_redux/recipes/glowy_holefire_stone_stonecutting.json
 ec59b698aae6900645568d7134ed89240c28e84b data/aether_redux/recipes/golden_gummy_swet.json
 f70a3cea8207ba652d4331690ed9b350fce18767 data/aether_redux/recipes/golden_swet_jelly.json
 9c06f625bc5788da3d7cdde7420062901fbd4a32 data/aether_redux/recipes/gravitite_block.json

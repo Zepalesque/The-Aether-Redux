@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-10T15:08:36.6320535	Loot Tables
+// 1.20.1	2024-03-10T15:35:49.9025726	Loot Tables
 c6156555dc4897939b617dabc4521b7fa52feba0 data/aether_redux/loot_tables/blocks/aurum.json
 b5773c78c7b3f27032f1cca6fb72f440e24c7529 data/aether_redux/loot_tables/blocks/avelium.json
 4c8b773f2431b28dd2a48b90d08323d8ff67a3d7 data/aether_redux/loot_tables/blocks/avelium_roots.json
@@ -145,6 +145,7 @@ e262f231bd5d418482b23d043f42b8359baa11e7 data/aether_redux/loot_tables/blocks/gl
 8adcf5995090567b281f98419850ccb7b39f844a data/aether_redux/loot_tables/blocks/glacia_wall_sign.json
 093faa9174a5d2c0d072b16d8b43636ff6dbf2a7 data/aether_redux/loot_tables/blocks/glacia_wood.json
 f008f8812aba83d0f2af8f1a3b55e9fab1424a6f data/aether_redux/loot_tables/blocks/glacia_wood_wall.json
+0869e56cb94d3428169d775b9d4abaf42782fbdc data/aether_redux/loot_tables/blocks/glowy_holefire_stone.json
 a101eb48c7ffa322a7817abee7934b72b10a2b9c data/aether_redux/loot_tables/blocks/golden_clover.json
 6290c4d391c174f42a8f3cdd8df83b2061f31065 data/aether_redux/loot_tables/blocks/golden_leaf_pile.json
 ac2abed3902c6173f2d959271dc99f09d17c45ae data/aether_redux/loot_tables/blocks/golden_vines.json

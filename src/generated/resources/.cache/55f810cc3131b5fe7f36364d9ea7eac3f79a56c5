@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-10T15:08:36.6360499	Block States: aether_redux
+// 1.20.1	2024-03-10T15:35:49.9095749	Block States: aether_redux
 6d5a134587a37ec8ac1798d9ca3e527d0a1d99b9 assets/aether_redux/blockstates/aurum.json
 bd71aec5ab85b7a1e4570cf04b5dce1bf6226d6b assets/aether_redux/blockstates/avelium.json
 eb68785d90af1f5948885a64db9d1f4c33739323 assets/aether_redux/blockstates/avelium_roots.json
@@ -145,6 +145,7 @@ cb261ad21ec19ff44969aade955772dfd712952e assets/aether_redux/blockstates/glacia_
 226bb224d62ae300f4c1e244fbac049471ec81f5 assets/aether_redux/blockstates/glacia_wall_sign.json
 4347045061f212479a519c3f2062ba526b4a7941 assets/aether_redux/blockstates/glacia_wood.json
 acaaca5385ba09e9c0054eff878f5afb658074b6 assets/aether_redux/blockstates/glacia_wood_wall.json
+f501b542bb55bb101da3604c0e536a8f80ce7036 assets/aether_redux/blockstates/glowy_holefire_stone.json
 42ace845d5f7e0c74de0b347f08aacd756ef3f0c assets/aether_redux/blockstates/golden_leaf_pile.json
 a74fe165f4a1f8443e0a1617cf0fe943eee15dda assets/aether_redux/blockstates/golden_vines.json
 d80b7e6ca0b3e637c0688a9fe669c2c29c5b57a7 assets/aether_redux/blockstates/golden_vines_plant.json
@@ -705,6 +706,7 @@ bedf7bd309ccc5be5008686e211b7b5e83b40ba7 assets/aether_redux/models/block/glacia
 2f14b2db3d42ea2470db15c8c9d10c01e8be2dd5 assets/aether_redux/models/block/glacia_wood_wall_side_tall_alt.json
 37c8638f23b4f8d6323066ee6f27a47d524776d2 assets/aether_redux/models/block/glacia_wood_wall_side_tall_alt_short.json
 f42e045059ebb5226941c78d564fb63fc1924544 assets/aether_redux/models/block/glacia_wood_wall_side_tall_short.json
+f89a53f4abbfced5ac85e868109bfc90346be354 assets/aether_redux/models/block/glowy_holefire_stone.json
 b0f5b4f035f86c38497eabf235c777032bbf04b6 assets/aether_redux/models/block/golden_leaf_pile1.json
 061790889848c7aa5b8a1f0dea7d18146be1b18e assets/aether_redux/models/block/golden_leaf_pile10.json
 292107e1c80339d7e8ad713b8d1958c2c6bcde46 assets/aether_redux/models/block/golden_leaf_pile11.json

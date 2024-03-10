@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-10T15:08:36.6230527	Item Models: aether_redux
+// 1.20.1	2024-03-10T15:35:49.8885745	Item Models: aether_redux
 2445055af5b1b7f3c6045199ffce74108003cef6 assets/aether_redux/models/item/airbound_cape.json
 2fa1343a8119a1f49af334c002773099174965bd assets/aether_redux/models/item/aurum.json
 edfe83948874d1436a61893ed9471b47e93dbe88 assets/aether_redux/models/item/avelium.json
@@ -126,6 +126,7 @@ bebd6cce4daca9681dde097c0bb0deb3dd1a5584 assets/aether_redux/models/item/fieldsp
 d5d5d446c1173457302b545644077b84cdf37955 assets/aether_redux/models/item/fieldsproot_trapdoor.json
 f934b4e25537e364550cfdcf0ed8f80db1a171c4 assets/aether_redux/models/item/fieldsproot_wood.json
 6c9bc0f28c32ba52ca348bf3ead9379879c8aa10 assets/aether_redux/models/item/fieldsproot_wood_wall.json
+8d693404bcb605805674e2582147be36e3416b05 assets/aether_redux/models/item/fireinthehole.json
 a7506affe0c538db937cfd49bdd486fec3179ad1 assets/aether_redux/models/item/fungal_carpet.json
 9232500fb4b5a9e239e9e9635c738a4c9db55f22 assets/aether_redux/models/item/fungal_growth.json
 c21384e3c0f2e7cf2838fc78bd300726ad88099d assets/aether_redux/models/item/gilded_holystone.json
@@ -156,6 +157,7 @@ a2aadd0e8d8130295f9aa795a19e3e05b4306941 assets/aether_redux/models/item/glacia_
 c1c5b464a21c1dd45422938089c119f49812877c assets/aether_redux/models/item/glacia_trapdoor.json
 83dfe415532351e58ae874386942c6b0d47e4814 assets/aether_redux/models/item/glacia_wood.json
 f2ce34057db0e9dc709688e4f1edd9bcd660a53a assets/aether_redux/models/item/glacia_wood_wall.json
+7981040f4c9b3cb0e11e0b48fc3d98111d444b0b assets/aether_redux/models/item/glowy_holefire_stone.json
 62849b609d3f83e44e3a20fd36bbb920a625cb33 assets/aether_redux/models/item/golden_clover.json
 04c35b2430f0dc45973e20a5c0ca970c9bcfc33e assets/aether_redux/models/item/golden_leaf_pile.json
 14c80ebf62c0434a511f00fdb22074d51f8aaf39 assets/aether_redux/models/item/golden_swet_ball.json

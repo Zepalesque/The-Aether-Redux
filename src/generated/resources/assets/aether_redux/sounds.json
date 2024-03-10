@@ -392,6 +392,24 @@
     ],
     "subtitle": "subtitles.aether_redux.item.convert_swet_ball"
   },
+  "item.fireinthehole.eat": {
+    "sounds": [
+      "aether_redux:item/fireinthehole_eat"
+    ],
+    "subtitle": "subtitles.aether_redux.item.lobotomy_eat"
+  },
+  "item.fireinthehole.effect": {
+    "sounds": [
+      "aether_redux:item/fireinthehole_effect"
+    ],
+    "subtitle": "subtitles.aether_redux.item.lobotomy_effect"
+  },
+  "item.fireinthehole.effect_high": {
+    "sounds": [
+      "aether_redux:item/fireinthehole_effect_high"
+    ],
+    "subtitle": "subtitles.aether_redux.item.lobotomy_effect_high"
+  },
   "item.music_disc.labyrinths_vengeance": {
     "sounds": [
       {
