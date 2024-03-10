@@ -54,10 +54,10 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.stairs(ReduxBlocks.SENTRITE_STAIRS.get(), ReduxBlocks.SENTRITE.get(), "natural/");
         this.wallBlock(ReduxBlocks.SENTRITE_WALL.get(), ReduxBlocks.SENTRITE.get(), "natural/");
 
-        this.blockDoubleDrops(ReduxBlocks.SENTRITE_BRICKS.get(), "natural/");
-        this.slab(ReduxBlocks.SENTRITE_BRICK_SLAB.get(), ReduxBlocks.SENTRITE_BRICKS.get(), "natural/");
-        this.stairs(ReduxBlocks.SENTRITE_BRICK_STAIRS.get(), ReduxBlocks.SENTRITE_BRICKS.get(), "natural/");
-        this.wallBlock(ReduxBlocks.SENTRITE_BRICK_WALL.get(), ReduxBlocks.SENTRITE_BRICKS.get(), "natural/");
+        this.blockDoubleDrops(ReduxBlocks.SENTRITE_BRICKS.get(), "construction/");
+        this.slab(ReduxBlocks.SENTRITE_BRICK_SLAB.get(), ReduxBlocks.SENTRITE_BRICKS.get(), "construction/");
+        this.stairs(ReduxBlocks.SENTRITE_BRICK_STAIRS.get(), ReduxBlocks.SENTRITE_BRICKS.get(), "construction/");
+        this.wallBlock(ReduxBlocks.SENTRITE_BRICK_WALL.get(), ReduxBlocks.SENTRITE_BRICKS.get(), "construction/");
 
         this.other(ReduxBlocks.GRAVITITE_BLOCK, AetherBlocks.ENCHANTED_GRAVITITE, "construction/");
         this.block(ReduxBlocks.RAW_GRAVITITE_BLOCK, "natural/");
