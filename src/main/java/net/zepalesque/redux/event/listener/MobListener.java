@@ -5,6 +5,7 @@ import com.aetherteam.aether.entity.monster.Cockatrice;
 import com.aetherteam.aether.entity.monster.Swet;
 import com.aetherteam.aether.item.EquipmentUtil;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -20,6 +21,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.capability.living.VampireAmulet;
 import net.zepalesque.redux.capability.player.ReduxPlayer;
+import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.config.enums.QuicksoilSetting;
 import net.zepalesque.redux.effect.ReduxEffects;
@@ -106,6 +108,26 @@ public class MobListener {
             event.getEntity().addEffect(new MobEffectInstance(ReduxEffects.ADRENAL_FATIGUE.get(), 600, 1, false, false, true));
             if (event.getEntity() instanceof Player player) {
                 ReduxPlayer.get(player).ifPresent(redux -> redux.getAdrenalineModule().beginCooldown());
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void fireintheholeEat(MobEffectEvent.Added event) {
+        if (event.getEffectInstance().getEffect() == ReduxEffects.THE_LOBOTOMY.get()) {
+            event.getEntity().level().playSound(null, event.getEntity().blockPosition(), ReduxSoundEvents.FIREINTHEHOLE_EAT.get(), SoundSource.NEUTRAL, 10, 1);
+        }
+    }
+    @SubscribeEvent
+    public static void tick(LivingEvent.LivingTickEvent event) {
+        if (event.getEntity().hasEffect(ReduxEffects.THE_LOBOTOMY.get())) {
+            int frequency = 25;
+            int ticks = event.getEntity().tickCount % frequency;
+            if (ticks == 0) {
+                event.getEntity().level().playSound(null, event.getEntity().blockPosition(), ReduxSoundEvents.FIREINTHEHOLE_EFFECT.get(), SoundSource.NEUTRAL, 10, 1);
+            }
+            if (ticks == 18) {
+                event.getEntity().level().playSound(null, event.getEntity().blockPosition(), ReduxSoundEvents.FIREINTHEHOLE_EFFECT_HIGH.get(), SoundSource.NEUTRAL, 10, 1);
             }
         }
     }

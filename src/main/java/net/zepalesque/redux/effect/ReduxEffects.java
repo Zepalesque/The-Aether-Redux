@@ -25,4 +25,7 @@ public class ReduxEffects {
                     .addAttributeModifier(Attributes.ATTACK_DAMAGE, "f2c1afa3-1c28-4f78-bfa1-2668cb598a71", -0.35, AttributeModifier.Operation.MULTIPLY_BASE)
                     .addAttributeModifier(Attributes.ARMOR, "ee88a5ad-aa22-4c98-9a67-fcb15900d40f", -2.0, AttributeModifier.Operation.ADDITION)
     );
+    public static final RegistryObject<MobEffect> THE_LOBOTOMY = EFFECTS.register("the_lobotomy", () ->
+            new IncurableEffect(MobEffectCategory.NEUTRAL, 0x01FA0E)
+    );
 }

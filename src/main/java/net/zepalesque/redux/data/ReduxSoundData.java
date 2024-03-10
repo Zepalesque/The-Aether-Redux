@@ -213,6 +213,16 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
                 )
         );
 
+        this.add(ReduxSoundEvents.FIREINTHEHOLE_EAT,
+                definition().with(sound("aether_redux:item/fireinthehole_eat"))
+                        .subtitle("subtitles.aether_redux.item.lobotomy_eat"));
+        this.add(ReduxSoundEvents.FIREINTHEHOLE_EFFECT,
+                definition().with(sound("aether_redux:item/fireinthehole_effect"))
+                        .subtitle("subtitles.aether_redux.item.lobotomy_effect"));
+
+        this.add(ReduxSoundEvents.FIREINTHEHOLE_EFFECT_HIGH,
+                definition().with(sound("aether_redux:item/fireinthehole_effect_high"))
+                        .subtitle("subtitles.aether_redux.item.lobotomy_effect_high"));
 
         this.add(ReduxSoundEvents.SHIMMERCOW_AMBIENT,
                 definition().with(sound("aether_redux:entity/shimmercow/ambient1")).with(sound("aether_redux:entity/shimmercow/ambient2"))

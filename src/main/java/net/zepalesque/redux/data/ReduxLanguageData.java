@@ -430,6 +430,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.WYNDSPROUT_BAGEL, "Wyndsprout Bagel");
         addLore(ReduxItems.WYNDSPROUT_BAGEL, "A nice bagel made of cultivated Wyndsprouts.");
 
+        addItem(ReduxItems.FIREINTHEHOLE, "FIREINTHEHOLE");
+        addLore(ReduxItems.FIREINTHEHOLE, "LDM ball cube ball big cube ball next Rest In Peace niflheim vismuth slow wave fast robot keep going! slow ship go! slow ball Auto? fast dual ship slow fast ufo slow How? fast ship slow cube fast ball lol slow robot in out slow ufo take a break ????? !!!!! ?? ?! ??! !! ?! !! ?!!? ??! !! ?!!? ??! ?! ?? !! ?? !! ?? ?! ??! ?!!? ?? ??! ?! !! ?!!? slow ufo go! go! Yeah! fast cube dual wave watch out! faster! OMG! mini next next great! verified by NIFLHEIM koreaqwer");
+
         addItem(ReduxItems.BLUEBERRY_BAGEL, "Blueberry Bagel");
         addLore(ReduxItems.BLUEBERRY_BAGEL, "A bagel made with Blue Berries. This is much more filling than a plain Wyndsprout Bagel");
 
@@ -628,6 +631,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addSubtitle("item.accessory", "equip_wisdom_ring", "Ring of Wisdom clanks");
         addSubtitle("item.accessory", "equip_sentry_ring", "Sentry Ring clanks");
         addSubtitle("item.accessory", "equip_vampire_amulet", "Vampire Amulet clinks");
+        addSubtitle("item", "fireinthehole_eat", "'FI-FI-FIRE IN DA HOLE!!!'");
+        addSubtitle("item", "fireinthehole_effect", "'FIRE IN THE HOLE!'");
+        addSubtitle("item", "fireinthehole_effect_high", "'FEER IN DA HEEL!'");
         addSubtitle("generic", "boost_jump", "Something double-jumps");
         addSubtitle("generic", "fireball_shoot", "Fireball shoots");
         addSubtitle("block", "blightshade_spray", "Blightshade sprays");
@@ -653,6 +659,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addEffect(ReduxEffects.BLIGHTWARD, "Blightward");
         addEffect(ReduxEffects.ADRENALINE_RUSH, "Adrenaline Rush");
         addEffect(ReduxEffects.ADRENAL_FATIGUE, "Adrenal Fatigue");
+        addEffect(ReduxEffects.THE_LOBOTOMY, "The Lobotomy");
 
         addTooltip("ambrosium_charge", "Infusion Level: %s");
 

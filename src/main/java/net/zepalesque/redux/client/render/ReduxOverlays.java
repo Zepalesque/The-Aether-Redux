@@ -20,7 +20,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.capability.player.AdrenalineModule;
 import net.zepalesque.redux.capability.player.ReduxPlayer;
-
+import net.zepalesque.redux.effect.ReduxEffects;
 
 
 @Mod.EventBusSubscriber(
@@ -31,6 +31,7 @@ import net.zepalesque.redux.capability.player.ReduxPlayer;
 public class ReduxOverlays {
 
     private static final ResourceLocation ADRENALINE_OVERLAY = Redux.locate("textures/blur/adrenaline_vignette.png");
+    private static final ResourceLocation LOBOTOMY = Redux.locate("textures/blur/there_is_no_fire_in_this_hole.png");
 
     @SubscribeEvent
     public static void registerOverlays(RegisterGuiOverlaysEvent event) {
@@ -46,6 +47,16 @@ public class ReduxOverlays {
             }
 
         });
+
+        event.registerAboveAll("there_is_no_fire_in_this_hole", (gui, pStack, partialTicks, screenWidth, screenHeight) -> {
+            Minecraft minecraft = Minecraft.getInstance();
+            Window window = minecraft.getWindow();
+            LocalPlayer player = minecraft.player;
+            if (player != null) {
+                renderLobotomy(pStack, minecraft, window, partialTicks);
+            }
+
+        });
     }
 
 
@@ -54,6 +65,14 @@ public class ReduxOverlays {
         float alpha = module.getTransparency(partialTicks);
         renderVignette(guiGraphics, window, effectScale, alpha, ADRENALINE_OVERLAY);
 
+    }
+
+    private static void renderLobotomy(GuiGraphics guiGraphics, Minecraft minecraft, Window window, float partialTicks) {
+        double effectScale = minecraft.options.screenEffectScale().get();
+        if (minecraft.player.hasEffect(ReduxEffects.THE_LOBOTOMY.get())) {
+            float alpha = minecraft.player.getEffect(ReduxEffects.THE_LOBOTOMY.get()).getDuration() / 600F;
+            renderVignette(guiGraphics, window, effectScale, alpha, ADRENALINE_OVERLAY);
+        }
     }
 
 
