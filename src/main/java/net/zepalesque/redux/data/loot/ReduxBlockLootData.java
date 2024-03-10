@@ -70,6 +70,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         dropSelf(ReduxBlocks.SENTRITE_BRICK_WALL.get());
 
         dropSelf(ReduxBlocks.HOLEFIRE_STONE.get());
+        dropSelf(ReduxBlocks.GLOWY_HOLEFIRE_STONE.get());
         this.add(ReduxBlocks.HOLEFIRE_SLAB.get(), this::createSlabItemTable);
         dropSelf(ReduxBlocks.HOLEFIRE_STAIRS.get());
         dropSelf(ReduxBlocks.HOLEFIRE_WALL.get());

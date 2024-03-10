@@ -37,4 +37,7 @@ public class ReduxFoods {
     public static final FoodProperties LIGHTROOT_CLUMP = (new FoodProperties.Builder()).fast().nutrition(2).saturationMod(0.2F)
             .effect( () -> new MobEffectInstance(MobEffects.NIGHT_VISION, 450, 0), 2F).alwaysEat().build();
 
+    public static final FoodProperties FIREINTHEHOLE = (new FoodProperties.Builder()).nutrition(2).alwaysEat().saturationMod(0.2F)
+            .effect( () -> new MobEffectInstance(MobEffects.NIGHT_VISION, 450, 0), 2F).alwaysEat().build();
+
 }

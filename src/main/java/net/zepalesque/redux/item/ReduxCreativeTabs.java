@@ -196,7 +196,8 @@ public class ReduxCreativeTabs {
 
 
             putAfter(AetherBlocks.TREASURE_DOORWAY_LIGHT_HELLFIRE_STONE, ReduxBlocks.HOLEFIRE_STONE, event);
-            putAfter(ReduxBlocks.HOLEFIRE_STONE, ReduxBlocks.HOLEFIRE_STAIRS, event);
+            putAfter(ReduxBlocks.HOLEFIRE_STONE, ReduxBlocks.GLOWY_HOLEFIRE_STONE, event);
+            putAfter(ReduxBlocks.GLOWY_HOLEFIRE_STONE, ReduxBlocks.HOLEFIRE_STAIRS, event);
             putAfter(ReduxBlocks.HOLEFIRE_STAIRS, ReduxBlocks.HOLEFIRE_WALL, event);
             putAfter(ReduxBlocks.HOLEFIRE_WALL, ReduxBlocks.HOLEFIRE_SLAB, event);
             putAfter(ReduxBlocks.HOLEFIRE_SLAB, ReduxBlocks.HOLEFIRE_PILLAR, event);
