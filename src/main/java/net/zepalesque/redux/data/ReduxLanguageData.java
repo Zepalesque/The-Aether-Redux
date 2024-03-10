@@ -303,6 +303,18 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.SENTRITE_BRICK_WALL, "Sentrite Brick Wall");
         addLore(ReduxBlocks.SENTRITE_BRICK_WALL, "Crafted from Sentrite Bricks. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
 
+        addBlock(ReduxBlocks.HOLEFIRE_STONE, "Holefire Stone");
+        addLore(ReduxBlocks.HOLEFIRE_STONE, "The main block making up the Lobotium Dungeon. It is warm to the touch.");
+        addBlock(ReduxBlocks.HOLEFIRE_SLAB, "Holefire Slab");
+        addLore(ReduxBlocks.HOLEFIRE_SLAB, "Crafted from Holefire Stone. Slabs are half blocks, versatile for decoration and smooth slopes. Try adding some to a building's roofing!");
+        addBlock(ReduxBlocks.HOLEFIRE_STAIRS, "Holefire Stairs");
+        addLore(ReduxBlocks.HOLEFIRE_STAIRS, "Crafted from Holefire Stone. Stairs are useful for adding verticality to builds and are often used for decoration too!");
+        addBlock(ReduxBlocks.HOLEFIRE_WALL, "Holefire Wall");
+        addLore(ReduxBlocks.HOLEFIRE_WALL, "Crafted from Holefire Stone. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
+        addBlock(ReduxBlocks.HOLEFIRE_PILLAR, "Holefire Pillar");
+        addLore(ReduxBlocks.HOLEFIRE_PILLAR, "A pillar used in the construction of the Lobotium Dungeon.");
+        addBlock(ReduxBlocks.HOLEFIRE_PILLAR_TOP, "Holefire Pillar Top");
+        addLore(ReduxBlocks.HOLEFIRE_PILLAR_TOP, "The top part of the pillars in the Lobotium Dungeon.");
 
         addBlock(ReduxBlocks.BLIGHTED_AERCLOUD, "Blighted Aercloud");
         addLore(ReduxBlocks.BLIGHTED_AERCLOUD, "A light teal cloud found in the Blight. Standing in this will harm you, but will heal Blighted mobs such as Blightbunnies and Cockatrices!");

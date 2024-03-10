@@ -1,6 +1,7 @@
 package net.zepalesque.redux.block;
 
 import com.aetherteam.aether.block.AetherBlocks;
+import com.aetherteam.aether.block.miscellaneous.FacingPillarBlock;
 import com.aetherteam.aether.block.miscellaneous.FloatingBlock;
 import com.aetherteam.aether.block.natural.AetherDoubleDropBlock;
 import com.aetherteam.aether.block.natural.AetherDoubleDropsLeaves;
@@ -47,6 +48,7 @@ import net.zepalesque.redux.data.resource.ReduxConfiguredFeatures;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.world.tree.grower.*;
+import teamrazor.deepaether.block.DADoubleDropRotatedPillarBlock;
 
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
@@ -90,6 +92,25 @@ public class ReduxBlocks {
 
     public static RegistryObject<SlabBlock> SENTRITE_BRICK_SLAB = register("sentrite_brick_slab",
             () -> new SlabBlock(BlockBehaviour.Properties.copy(SENTRITE_BRICKS.get()).strength(1.25F, 6.0F)));
+
+    public static RegistryObject<Block> HOLEFIRE_STONE = register("holefire_stone",
+            () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.copy(AetherBlocks.HELLFIRE_STONE.get())));
+
+    public static RegistryObject<StairBlock> HOLEFIRE_STAIRS = register("holefire_stairs",
+            () -> new StairBlock(() -> (HOLEFIRE_STONE.get()).defaultBlockState(), BlockBehaviour.Properties.copy(HOLEFIRE_STONE.get())));
+
+    public static RegistryObject<WallBlock> HOLEFIRE_WALL = register("holefire_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.copy(HOLEFIRE_STONE.get())));
+
+    public static RegistryObject<SlabBlock> HOLEFIRE_SLAB = register("holefire_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(AetherBlocks.HELLFIRE_SLAB.get())));
+
+    public static final RegistryObject<RotatedPillarBlock> HOLEFIRE_PILLAR = register("holefire_pillar",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(AetherBlocks.PILLAR.get())));
+
+    public static final RegistryObject<FacingPillarBlock> HOLEFIRE_PILLAR_TOP = register("holefire_pillar_top",
+            () -> new FacingPillarBlock(BlockBehaviour.Properties.copy(AetherBlocks.PILLAR_TOP.get())));
+
 
     public static RegistryObject<FieldsprootPetalsBlock> FIELDSPROOT_PETALS = register("fieldsproot_petals",
             () -> new FieldsprootPetalsBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().hasPostProcess((state, lvl, pos) -> true).sound(SoundType.PINK_PETALS)));

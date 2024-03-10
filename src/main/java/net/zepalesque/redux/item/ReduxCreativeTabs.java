@@ -193,6 +193,15 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.CARVED_STONE_BRICK_STAIRS, ReduxBlocks.CARVED_STONE_BRICK_SLAB, event);
             putAfter(ReduxBlocks.CARVED_STONE_BRICK_SLAB, ReduxBlocks.CARVED_STONE_BRICK_WALL, event);
             putAfter(ReduxBlocks.CARVED_STONE_BRICK_WALL, ReduxBlocks.CARVED_STONE_PILLAR, event);
+
+
+            putAfter(AetherBlocks.TREASURE_DOORWAY_LIGHT_HELLFIRE_STONE, ReduxBlocks.HOLEFIRE_STONE, event);
+            putAfter(ReduxBlocks.HOLEFIRE_STONE, ReduxBlocks.HOLEFIRE_STAIRS, event);
+            putAfter(ReduxBlocks.HOLEFIRE_STAIRS, ReduxBlocks.HOLEFIRE_WALL, event);
+            putAfter(ReduxBlocks.HOLEFIRE_WALL, ReduxBlocks.HOLEFIRE_SLAB, event);
+            putAfter(ReduxBlocks.HOLEFIRE_SLAB, ReduxBlocks.HOLEFIRE_PILLAR, event);
+            putAfter(ReduxBlocks.HOLEFIRE_PILLAR, ReduxBlocks.HOLEFIRE_PILLAR_TOP, event);
+
         }
         if (tab == AetherCreativeTabs.AETHER_FOOD_AND_DRINKS.get()) {
             putAfter(AetherItems.ENCHANTED_BERRY, ReduxItems.BLUEBERRY_PIE, event);

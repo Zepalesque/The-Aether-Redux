@@ -121,6 +121,46 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .unlockedBy(getHasName(ReduxBlocks.DIVINITE.get()), has(ReduxBlocks.DIVINITE.get()))
                 .save(consumer, Redux.locate("angelic_stone"));
 
+        stairs(ReduxBlocks.HOLEFIRE_STAIRS, ReduxBlocks.HOLEFIRE_STONE).save(consumer);
+        slab(consumer, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.HOLEFIRE_SLAB.get(), ReduxBlocks.HOLEFIRE_STONE.get());
+        wall(consumer, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.HOLEFIRE_WALL.get(), ReduxBlocks.HOLEFIRE_STONE.get());
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.HOLEFIRE_PILLAR.get(), 4)
+                .define('#', ReduxBlocks.HOLEFIRE_STONE.get())
+                .pattern("##")
+                .pattern("##")
+                .pattern("##")
+                .unlockedBy(getHasName(ReduxBlocks.HOLEFIRE_STONE.get()), has(ReduxBlocks.HOLEFIRE_STONE.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.HOLEFIRE_PILLAR_TOP.get(), 4)
+                .define('#', ReduxBlocks.HOLEFIRE_PILLAR.get())
+                .pattern("##")
+                .pattern("##")
+                .unlockedBy(getHasName(ReduxBlocks.HOLEFIRE_STONE.get()), has(ReduxBlocks.HOLEFIRE_STONE.get()))
+                .save(consumer);
+
+        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.HOLEFIRE_WALL.get(), ReduxBlocks.HOLEFIRE_STONE.get())
+                .save(consumer, Redux.locate(ReduxBlocks.HOLEFIRE_STONE.getId().getPath() + "_wall_stonecutting"));
+        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.HOLEFIRE_SLAB.get(), ReduxBlocks.HOLEFIRE_STONE.get())
+                .save(consumer, Redux.locate(ReduxBlocks.HOLEFIRE_STONE.getId().getPath() + "_slab_stonecutting"));
+        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.HOLEFIRE_STAIRS.get(), ReduxBlocks.HOLEFIRE_STONE.get())
+                .save(consumer, Redux.locate(ReduxBlocks.HOLEFIRE_STONE.getId().getPath() + "_stairs_stonecutting"));
+
+        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.HOLEFIRE_PILLAR.get(), ReduxBlocks.HOLEFIRE_STONE.get())
+                .save(consumer, Redux.locate(ReduxBlocks.HOLEFIRE_PILLAR.getId().getPath() + "_stonecutting"));
+        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.HOLEFIRE_PILLAR_TOP.get(), ReduxBlocks.HOLEFIRE_STONE.get())
+                .save(consumer, Redux.locate(ReduxBlocks.HOLEFIRE_PILLAR_TOP.getId().getPath() + "_stonecutting"));
+        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.HOLEFIRE_PILLAR_TOP.get(), ReduxBlocks.HOLEFIRE_PILLAR.get())
+                .save(consumer, Redux.locate(ReduxBlocks.HOLEFIRE_PILLAR_TOP.getId().getPath() + "_stonecutting_from_pillar"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.HOLEFIRE_STONE.get(), 4)
+                .define('D', Blocks.MAGMA_BLOCK)
+                .pattern("DD")
+                .pattern("DD")
+                .unlockedBy(getHasName(Blocks.MAGMA_BLOCK), has(Blocks.MAGMA_BLOCK))
+                .save(consumer);
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRITE_BRICKS.get(), 4)
                 .define('S', ReduxBlocks.SENTRITE.get())
                 .pattern("SS")
