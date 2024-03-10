@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "G": {
+      "item": "aether_redux:fireinthehole"
+    },
+    "A": {
+      "item": "aether_redux:holefire_stone"
+    }
+  },
+  "pattern": [
+    " A ",
+    "AGA",
+    " A "
+  ],
+  "result": {
+    "count": 4,
+    "item": "aether_redux:glowy_holefire_stone"
+  },
+  "show_notification": true
+}
