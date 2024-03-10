@@ -4,6 +4,7 @@
     "aether:zephyr",
     "aether:moa",
     "aether:cockatrice",
+    "aether:aechor_plant",
     {
       "id": "aether_genesis:tempest",
       "required": false

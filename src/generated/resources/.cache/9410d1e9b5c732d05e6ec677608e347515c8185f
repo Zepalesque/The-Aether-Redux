@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-09T16:28:17.1838966	Tags for minecraft:entity_type mod id aether_redux
+// 1.20.1	2024-03-09T21:01:57.8845193	Tags for minecraft:entity_type mod id aether_redux
 330b603692ab803168ae83d20f37b477622f5818 data/aether_redux/tags/entity_types/blighted_mobs.json
 53f57a75d068f566231b79e611bb9969c03709a3 data/aether_redux/tags/entity_types/sentries.json
-e9b1be03cf6c1a56d1bf3cdc02c8cd19b32847c1 data/aether_redux/tags/entity_types/swet_passthrough.json
+90cc894f087e217334beed329e7f2206b85a1c01 data/aether_redux/tags/entity_types/swet_passthrough.json

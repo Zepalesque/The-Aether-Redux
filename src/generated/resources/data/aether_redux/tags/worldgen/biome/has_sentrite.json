@@ -1,0 +1,8 @@
+{
+  "remove": [
+    "#aether_redux:is_gilded"
+  ],
+  "values": [
+    "#aether:is_aether"
+  ]
+}
