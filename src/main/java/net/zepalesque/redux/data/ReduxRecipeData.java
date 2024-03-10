@@ -116,10 +116,17 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
 
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, AetherBlocks.ANGELIC_STONE.get(), 4)
                 .define('D', ReduxBlocks.DIVINITE.get())
-                .pattern("D")
-                .pattern("D")
+                .pattern("DD")
+                .pattern("DD")
                 .unlockedBy(getHasName(ReduxBlocks.DIVINITE.get()), has(ReduxBlocks.DIVINITE.get()))
                 .save(consumer, Redux.locate("angelic_stone"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRITE_BRICKS.get(), 4)
+                .define('S', ReduxBlocks.SENTRITE.get())
+                .pattern("SS")
+                .pattern("SS")
+                .unlockedBy(getHasName(ReduxBlocks.SENTRITE.get()), has(ReduxBlocks.SENTRITE.get()))
+                .save(consumer);
 
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRITE_WALL.get(), ReduxBlocks.SENTRITE.get())
                 .save(consumer, Redux.locate(ReduxBlocks.SENTRITE.getId().getPath() + "_wall_stonecutting"));
@@ -153,7 +160,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .define('H', AetherTags.Items.HOLYSTONE)
                 .pattern("SH")
                 .pattern("HS")
-                .unlockedBy(getHasName(ReduxBlocks.DIVINITE.get()), has(ReduxBlocks.DIVINITE.get()))
+                .unlockedBy(getHasName(ReduxBlocks.SENTRITE.get()), has(ReduxBlocks.SENTRITE.get()))
                 .save(consumer, Redux.locate("carved_stone"));
 
         swetBall(AetherItems.SWET_BALL, ReduxTags.Items.BLUE_SWET_JELLY).save(consumer, Redux.locate("blue_swet_ball"));
