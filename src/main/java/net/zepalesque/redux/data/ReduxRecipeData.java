@@ -395,7 +395,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ReduxItems.SENTRY_RING.get(), 1)
-                .define('H', AetherBlocks.CARVED_STONE.get())
+                .define('H', ReduxBlocks.SENTRITE.get())
                 .define('E', ReduxItems.SENTRY_CHIP.get())
                 .define('R', ReduxItems.ENCHANTED_RING.get())
                 .pattern("HEH")
