@@ -106,17 +106,17 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .save(consumer, Redux.locate(ReduxBlocks.DIVINITE.getId().getPath() + "_to_angelic_stairs_stonecutting"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, AetherBlocks.ANGELIC_STONE.get(), 4)
-                .define('#', ReduxBlocks.DIVINITE.get())
-                .pattern("##")
-                .pattern("##")
+                .define('D', ReduxBlocks.DIVINITE.get())
+                .pattern("D")
+                .pattern("D")
                 .unlockedBy(getHasName(ReduxBlocks.DIVINITE.get()), has(ReduxBlocks.DIVINITE.get()))
                 .save(consumer, Redux.locate("angelic_stone"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, AetherBlocks.CARVED_STONE.get(), 4)
-                .define('D', ReduxBlocks.DIVINITE.get())
+                .define('S', ReduxBlocks.SENTRITE.get())
                 .define('H', AetherTags.Items.HOLYSTONE)
-                .pattern("DH")
-                .pattern("HD")
+                .pattern("SH")
+                .pattern("HS")
                 .unlockedBy(getHasName(ReduxBlocks.DIVINITE.get()), has(ReduxBlocks.DIVINITE.get()))
                 .save(consumer, Redux.locate("carved_stone"));
 

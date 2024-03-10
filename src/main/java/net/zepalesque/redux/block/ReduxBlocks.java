@@ -56,7 +56,7 @@ public class ReduxBlocks {
     public static final DeferredRegister<Item> ITEMS = ReduxItems.ITEMS;
 
     public static RegistryObject<Block> DIVINITE = register("divinite",
-            () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).requiresCorrectToolForDrops().strength(0.5F, 6.0F).sound(SoundType.NETHER_ORE)));
+            () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).requiresCorrectToolForDrops().strength(0.5F, 6.0F).sound(SoundType.TUFF)));
 
     public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_stairs",
             () -> new StairBlock(() -> (DIVINITE.get()).defaultBlockState(), BlockBehaviour.Properties.copy(DIVINITE.get())));
@@ -65,7 +65,31 @@ public class ReduxBlocks {
             () -> new WallBlock(BlockBehaviour.Properties.copy(DIVINITE.get())));
 
     public static RegistryObject<SlabBlock> DIVINITE_SLAB = register("divinite_slab",
-            () -> new SlabBlock(BlockBehaviour.Properties.copy(DIVINITE.get()).strength(0.5F, 6.0F)));
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(DIVINITE.get()).strength(0.75F, 6.0F)));
+
+    public static RegistryObject<Block> SENTRITE = register("sentrite",
+            () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).requiresCorrectToolForDrops().strength(1.0F, 6.0F).sound(SoundType.NETHER_ORE)));
+
+    public static RegistryObject<StairBlock> SENTRITE_STAIRS = register("sentrite_stairs",
+            () -> new StairBlock(() -> (SENTRITE.get()).defaultBlockState(), BlockBehaviour.Properties.copy(SENTRITE.get())));
+
+    public static RegistryObject<WallBlock> SENTRITE_WALL = register("sentrite_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.copy(SENTRITE.get())));
+
+    public static RegistryObject<SlabBlock> SENTRITE_SLAB = register("sentrite_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(SENTRITE.get()).strength(1.25F, 6.0F)));
+
+    public static RegistryObject<Block> SENTRITE_BRICKS = register("sentrite_bricks",
+            () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).requiresCorrectToolForDrops().strength(1.0F, 6.0F).sound(SoundType.NETHER_BRICKS    )));
+
+    public static RegistryObject<StairBlock> SENTRITE_BRICK_STAIRS = register("sentrite_brick_stairs",
+            () -> new StairBlock(() -> (SENTRITE_BRICKS.get()).defaultBlockState(), BlockBehaviour.Properties.copy(SENTRITE_BRICKS.get())));
+
+    public static RegistryObject<WallBlock> SENTRITE_BRICK_WALL = register("sentrite_brick_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.copy(SENTRITE_BRICKS.get())));
+
+    public static RegistryObject<SlabBlock> SENTRITE_BRICK_SLAB = register("sentrite_brick_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(SENTRITE_BRICKS.get()).strength(1.25F, 6.0F)));
 
     public static RegistryObject<FieldsprootPetalsBlock> FIELDSPROOT_PETALS = register("fieldsproot_petals",
             () -> new FieldsprootPetalsBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().hasPostProcess((state, lvl, pos) -> true).sound(SoundType.PINK_PETALS)));

@@ -285,6 +285,25 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.HOLYSILT, "Holysilt");
         addLore(ReduxBlocks.HOLYSILT, "Fine particles of broken up holystone and other minerals. Can be found underground, and around the blight. Careful, it's not very stable and may fall beneath your feet!");
 
+        addBlock(ReduxBlocks.SENTRITE, "Sentrite");
+        addLore(ReduxBlocks.SENTRITE, "A dark rock found in the Aether. A mixture of this and holystone is what makes up the walls of the Bronze Dungeon.");
+        addBlock(ReduxBlocks.SENTRITE_SLAB, "Sentrite Slab");
+        addLore(ReduxBlocks.SENTRITE_SLAB, "Crafted from Sentrite. Slabs are half blocks, versatile for decoration and smooth slopes. Try adding some to a building's roofing!");
+        addBlock(ReduxBlocks.SENTRITE_STAIRS, "Sentrite Stairs");
+        addLore(ReduxBlocks.SENTRITE_STAIRS, "Crafted from Sentrite. Stairs are useful for adding verticality to builds and are often used for decoration too!");
+        addBlock(ReduxBlocks.SENTRITE_WALL, "Sentrite Wall");
+        addLore(ReduxBlocks.SENTRITE_WALL, "Crafted from Sentrite. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
+
+        addBlock(ReduxBlocks.SENTRITE_BRICKS, "Sentrite Bricks");
+        addLore(ReduxBlocks.SENTRITE_BRICKS, "Bricks made of Sentrite. These can be used as a nice building block!");
+        addBlock(ReduxBlocks.SENTRITE_BRICK_SLAB, "Sentrite Brick Slab");
+        addLore(ReduxBlocks.SENTRITE_BRICK_SLAB, "Crafted from Sentrite Bricks. Slabs are half blocks, versatile for decoration and smooth slopes. Try adding some to a building's roofing!");
+        addBlock(ReduxBlocks.SENTRITE_BRICK_STAIRS, "Sentrite Brick Stairs");
+        addLore(ReduxBlocks.SENTRITE_BRICK_STAIRS, "Crafted from Sentrite Bricks. Stairs are useful for adding verticality to builds and are often used for decoration too!");
+        addBlock(ReduxBlocks.SENTRITE_BRICK_WALL, "Sentrite Brick Wall");
+        addLore(ReduxBlocks.SENTRITE_BRICK_WALL, "Crafted from Sentrite Bricks. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
+
+
         addBlock(ReduxBlocks.BLIGHTED_AERCLOUD, "Blighted Aercloud");
         addLore(ReduxBlocks.BLIGHTED_AERCLOUD, "A light teal cloud found in the Blight. Standing in this will harm you, but will heal Blighted mobs such as Blightbunnies and Cockatrices!");
 
