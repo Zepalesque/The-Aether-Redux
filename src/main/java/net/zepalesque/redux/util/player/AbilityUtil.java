@@ -41,7 +41,7 @@ public class AbilityUtil {
     }
 
     public static void shootFireballs(LivingEntity entity) {
-        if (EquipmentUtil.hasCurio(entity, ReduxItems.SOLAR_EMBLEM.get()) && EquipmentUtil.getCurios(entity, ReduxItems.SOLAR_EMBLEM.get()).size() == 1)
+        if (EquipmentUtil.hasCurio(entity, ReduxItems.SOLAR_EMBLEM.get()) && (EquipmentUtil.getCurios(entity, ReduxItems.SOLAR_EMBLEM.get()).size() == 1 || !entity.getOffhandItem().isEmpty()))
         {
             float offset = 0;
             float rotation = Mth.wrapDegrees(entity.getYRot() + offset);
