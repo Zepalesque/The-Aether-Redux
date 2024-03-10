@@ -36,7 +36,7 @@ public class ReduxConfig {
 
         public final ForgeConfigSpec.BooleanValue improved_cockatrice_behavior;
         public final ForgeConfigSpec.BooleanValue cockatrice_burn_in_daylight;
-        public final ForgeConfigSpec.BooleanValue improved_swet_behavior;
+        public final ForgeConfigSpec.BooleanValue pl_swet_behavior;
         public final ForgeConfigSpec.BooleanValue nerf_gummy_swets;
         public final ForgeConfigSpec.EnumValue<QuicksoilSetting> quicksoil_movement_system;
         public final ForgeConfigSpec.BooleanValue mobs_avoid_quicksoil;
@@ -84,7 +84,7 @@ public class ReduxConfig {
             builder.push("Existing Mob Changes");
             this.improved_cockatrice_behavior = builder.comment("Makes Cockatrices shoot at you and chase you if they hit you. Also disables Cockatrice spawns in the Blight. Requires world restart to refresh existing mob AI.").worldRestart().define("Improved Cockatrice Behavior", true);
             this.cockatrice_burn_in_daylight = builder.comment("Makes Cockatrices burn in daylight. Requires world restart to refresh existing mob AI.").worldRestart().define("Cockatrices burn in daylight", false);
-            this.improved_swet_behavior = builder.comment(/*"Gives Swets less irritating behavior, based on their behavior in older builds of the Paradise Lost mod. Requires world restart to refresh existing mob AI."*/ "Work-in-progress feature, will be implemented fully in a future patch. Does not currently fully work.").worldRestart().define("Improved Swet Behavior", false);
+            this.pl_swet_behavior = builder.comment("Gives Swets less irritating behavior, based on their behavior in older builds of the Paradise Lost mod. Requires world restart to refresh existing mob AI.").worldRestart().define("PL-Like Swet Behavior", true);
             this.smaller_mimic_hitbox = builder.comment("Decreases the size of mimics. Intended to be used with the client-side model. Requires an MC restart").define("Smaller Mimic Hitbox", true);
             this.mobs_avoid_quicksoil = builder.comment("Causes mobs to try to avoid walking on quicksoil.").define("Mobs Avoid Quicksoil", true);
             builder.pop();

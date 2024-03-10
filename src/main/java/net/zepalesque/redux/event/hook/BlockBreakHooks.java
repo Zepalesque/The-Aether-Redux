@@ -5,6 +5,7 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.common.util.Lazy;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.block.ReduxBlocks;
 
@@ -13,7 +14,7 @@ import java.util.Map;
 public class BlockBreakHooks {
 
 
-    private static final Map<Block, Float> BREAK_SPEED_REMAP = Maps.newHashMap((new ImmutableMap.Builder<Block, Float>()
+    private static final Lazy<Map<Block, Float>> BREAK_SPEED_REMAP = Lazy.of(() -> Maps.newHashMap((new ImmutableMap.Builder<Block, Float>()
             .put(AetherBlocks.HOLYSTONE.get(), 1.0F))
             .put(AetherBlocks.HOLYSTONE_WALL.get(), 1.0F)
             .put(AetherBlocks.HOLYSTONE_STAIRS.get(), 1.0F)
@@ -58,17 +59,25 @@ public class BlockBreakHooks {
             .put(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_WALL.get(), 1.0F)
             .put(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_STAIRS.get(), 1.0F)
             .put(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_SLAB.get(), 1.5F)
-            .put(ReduxBlocks.DIVINITE.get(), getSpeed(Blocks.ANDESITE))
-            .put(ReduxBlocks.DIVINITE_WALL.get(), getSpeed(Blocks.ANDESITE))
-            .put(ReduxBlocks.DIVINITE_STAIRS.get(), getSpeed(Blocks.ANDESITE))
-            .put(ReduxBlocks.DIVINITE_SLAB.get(), getSpeed(Blocks.ANDESITE_SLAB))
-            .build());
+            .put(ReduxBlocks.DIVINITE.get(), 1.25F)
+            .put(ReduxBlocks.DIVINITE_WALL.get(), 1.25F)
+            .put(ReduxBlocks.DIVINITE_STAIRS.get(), 1.25F)
+            .put(ReduxBlocks.DIVINITE_SLAB.get(), 1.5F)
+            .put(ReduxBlocks.SENTRITE.get(), 1.75F)
+            .put(ReduxBlocks.SENTRITE_WALL.get(), 1.75F)
+            .put(ReduxBlocks.SENTRITE_STAIRS.get(), 1.75F)
+            .put(ReduxBlocks.SENTRITE_SLAB.get(), 2F)
+            .put(ReduxBlocks.SENTRITE_BRICKS.get(), 1.75F)
+            .put(ReduxBlocks.SENTRITE_BRICK_WALL.get(), 1.75F)
+            .put(ReduxBlocks.SENTRITE_BRICK_STAIRS.get(), 1.75F)
+            .put(ReduxBlocks.SENTRITE_BRICK_SLAB.get(), 2F)
+            .build()));
 
     public static float modify(Block block, float speed)
     {
-        if (ReduxConfig.COMMON.consistent_mine_speeds.get() && BREAK_SPEED_REMAP.containsKey(block))
+        if (ReduxConfig.COMMON.consistent_mine_speeds.get() && BREAK_SPEED_REMAP.get().containsKey(block))
         {
-            return speed / (BREAK_SPEED_REMAP.get(block) / block.properties.destroyTime);
+            return speed / (BREAK_SPEED_REMAP.get().get(block) / block.properties.destroyTime);
         }
         return speed;
     }

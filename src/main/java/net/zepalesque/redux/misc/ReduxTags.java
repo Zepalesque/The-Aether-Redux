@@ -67,6 +67,7 @@ public class ReduxTags {
         public static final TagKey<EntityType<?>> BLIGHTED_MOBS = tag("blighted_mobs");
         public static final TagKey<EntityType<?>> CAN_WALK_THROUGH_AUBURN_BUSH = tag("can_walk_through_auburn_bush");
         public static final TagKey<EntityType<?>> SENTRIES = tag("sentries");
+        public static final TagKey<EntityType<?>> SWET_PASSTHROUGH = tag("swet_passthrough");
 
         private static TagKey<EntityType<?>> tag(String name) {
             return TagKey.create(Registries.ENTITY_TYPE, Redux.locate(name));
@@ -93,6 +94,7 @@ public class ReduxTags {
         public static final TagKey<Biome> HAS_ENDERMAN = tag("has_enderman");
         public static final TagKey<Biome> HAS_VERIDIUM_ORE = tag("has_veridium_ore");
         public static final TagKey<Biome> HAS_DIVINITE = tag("has_divinite");
+        public static final TagKey<Biome> HAS_SENTRITE = tag("has_sentrite");
         public static final TagKey<Biome> HAS_REDUX_WATER_COLOR = tag("has_redux_water_color");
         public static final TagKey<Biome> NO_GRASS_OVERRIDE = tag("no_grass_override");
         public static final TagKey<Biome> HAS_GRASS_OVERRIDE = tag("has_grass_override");

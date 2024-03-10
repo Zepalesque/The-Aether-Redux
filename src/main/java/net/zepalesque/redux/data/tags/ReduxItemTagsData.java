@@ -68,6 +68,7 @@ public class ReduxItemTagsData extends ItemTagsProvider {
                 GenesisItems.GOLDEN_SWET_JELLY.get(),
                 GenesisItems.DARK_SWET_JELLY.get()
         );
+        this.tag(AetherTags.Items.SWET_BALLS).add(ReduxItems.GOLDEN_SWET_BALL.get(), ReduxItems.VANILLA_SWET_BALL.get());
         this.tag(ReduxTags.Items.CHAINS).add(ReduxBlocks.VERIDIUM_CHAIN.get().asItem(), Blocks.CHAIN.asItem());
 
         this.tag(ItemTags.PICKAXES).add(ReduxItems.VERIDIUM_PICKAXE.get(), ReduxItems.INFUSED_VERIDIUM_PICKAXE.get());

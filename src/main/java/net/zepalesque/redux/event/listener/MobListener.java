@@ -40,7 +40,7 @@ public class MobListener {
         if (event.getEntity() instanceof Cockatrice cockatrice && ReduxConfig.COMMON.improved_cockatrice_behavior.get()) {
             MobHooks.modifyCockatriceAI(cockatrice);
         }
-        if (event.getEntity() instanceof Swet swet && ReduxConfig.COMMON.improved_swet_behavior.get()) {
+        if (event.getEntity() instanceof Swet swet && ReduxConfig.COMMON.pl_swet_behavior.get()) {
             SwetHooks.modifySwetAI(swet);
         }
     }

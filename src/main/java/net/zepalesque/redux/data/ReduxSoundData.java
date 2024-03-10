@@ -57,6 +57,12 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
                         sound("minecraft:item/armor/equip_gold6")
                 ).subtitle("subtitles.aether_redux.item.accessory.equip_grand_medal")
         );
+        this.add(ReduxSoundEvents.SWET_ATTACK,
+                definition().with(
+                        sound("minecraft:mob/slime/attack1"),
+                        sound("minecraft:mob/slime/attack2")
+                ).subtitle("subtitles.aether_redux.entity.swet_attack")
+        );
         this.add(ReduxSoundEvents.EQUIP_WISDOM_RING,
                 definition().with(
                         sound("minecraft:item/armor/equip_iron1"),

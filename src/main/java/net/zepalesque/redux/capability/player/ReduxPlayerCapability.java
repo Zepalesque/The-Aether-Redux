@@ -163,7 +163,9 @@ public class ReduxPlayerCapability implements ReduxPlayer {
 
     @Override
     public boolean canShootFireball() {
-        return !this.player.level().isClientSide() && !this.player.getCooldowns().isOnCooldown(ReduxItems.SOLAR_EMBLEM.get()) && EquipmentUtil.hasCurio(this.player, ReduxItems.SOLAR_EMBLEM.get());
+        return !this.player.level().isClientSide() && this.player.getMainHandItem().isEmpty() &&
+                !this.player.getCooldowns().isOnCooldown(ReduxItems.SOLAR_EMBLEM.get())
+                && EquipmentUtil.hasCurio(this.player, ReduxItems.SOLAR_EMBLEM.get());
     }
 
     public boolean doubleFireball()

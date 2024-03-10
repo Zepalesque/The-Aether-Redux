@@ -2,13 +2,13 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
+    "D": {
       "item": "aether_redux:divinite"
     }
   },
   "pattern": [
-    "##",
-    "##"
+    "DD",
+    "DD"
   ],
   "result": {
     "count": 4,

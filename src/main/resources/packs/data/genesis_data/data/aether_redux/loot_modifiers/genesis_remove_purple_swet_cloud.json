@@ -1,0 +1,20 @@
+{
+  "type": "aether_redux:remove_drops",
+  "conditions": [
+    {
+      "condition": "minecraft:entity_properties",
+      "entity": "this",
+      "predicate": {
+        "type": "aether_genesis:dark_swet"
+      }
+    },
+    {
+      "condition": "aether_redux:data_loot_condition",
+      "data_loot_condition": {
+        "condition": "aether_redux:mod_loaded",
+        "mod_id": "aether_genesis"
+      }
+    }
+  ],
+  "item": "aether_genesis:purple_aercloud"
+}

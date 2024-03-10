@@ -151,6 +151,7 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHT_SPRING = createKey(Folders.SURFACE + "blight_spring");
     public static final ResourceKey<ConfiguredFeature<?, ?>> VERIDIUM_ORE = createKey(Folders.ORE + name(ReduxBlocks.VERIDIUM_ORE));
     public static final ResourceKey<ConfiguredFeature<?, ?>> DIVINITE_ORE = createKey(Folders.ORE + name(ReduxBlocks.DIVINITE) + "_ore");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SENTRITE_ORE = createKey(Folders.ORE + name(ReduxBlocks.SENTRITE) + "_ore");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> CRYSTAL_TREE_OVERRIDE = aetherKey("crystal_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> HOLIDAY_TREE_OVERRIDE = aetherKey("holiday_tree");
@@ -673,6 +674,9 @@ public class ReduxConfiguredFeatures {
 
         register(context, DIVINITE_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
                 drops(ReduxBlocks.DIVINITE), 48, 0.0F));
+
+        register(context, SENTRITE_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
+                drops(ReduxBlocks.SENTRITE), 48, 0.0F));
 
         register(context, GRASS_PATCH_OVERRIDE, Feature.RANDOM_PATCH,
                 patchNoCoarse(32, 7, 3, prov(ReduxBlocks.SHORT_AETHER_GRASS)));

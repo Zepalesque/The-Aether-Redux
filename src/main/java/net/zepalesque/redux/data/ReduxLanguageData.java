@@ -285,6 +285,25 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.HOLYSILT, "Holysilt");
         addLore(ReduxBlocks.HOLYSILT, "Fine particles of broken up holystone and other minerals. Can be found underground, and around the blight. Careful, it's not very stable and may fall beneath your feet!");
 
+        addBlock(ReduxBlocks.SENTRITE, "Sentrite");
+        addLore(ReduxBlocks.SENTRITE, "A dark rock found in the Aether. A mixture of this and holystone is what makes up the walls of the Bronze Dungeon.");
+        addBlock(ReduxBlocks.SENTRITE_SLAB, "Sentrite Slab");
+        addLore(ReduxBlocks.SENTRITE_SLAB, "Crafted from Sentrite. Slabs are half blocks, versatile for decoration and smooth slopes. Try adding some to a building's roofing!");
+        addBlock(ReduxBlocks.SENTRITE_STAIRS, "Sentrite Stairs");
+        addLore(ReduxBlocks.SENTRITE_STAIRS, "Crafted from Sentrite. Stairs are useful for adding verticality to builds and are often used for decoration too!");
+        addBlock(ReduxBlocks.SENTRITE_WALL, "Sentrite Wall");
+        addLore(ReduxBlocks.SENTRITE_WALL, "Crafted from Sentrite. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
+
+        addBlock(ReduxBlocks.SENTRITE_BRICKS, "Sentrite Bricks");
+        addLore(ReduxBlocks.SENTRITE_BRICKS, "Bricks made of Sentrite. These can be used as a nice building block!");
+        addBlock(ReduxBlocks.SENTRITE_BRICK_SLAB, "Sentrite Brick Slab");
+        addLore(ReduxBlocks.SENTRITE_BRICK_SLAB, "Crafted from Sentrite Bricks. Slabs are half blocks, versatile for decoration and smooth slopes. Try adding some to a building's roofing!");
+        addBlock(ReduxBlocks.SENTRITE_BRICK_STAIRS, "Sentrite Brick Stairs");
+        addLore(ReduxBlocks.SENTRITE_BRICK_STAIRS, "Crafted from Sentrite Bricks. Stairs are useful for adding verticality to builds and are often used for decoration too!");
+        addBlock(ReduxBlocks.SENTRITE_BRICK_WALL, "Sentrite Brick Wall");
+        addLore(ReduxBlocks.SENTRITE_BRICK_WALL, "Crafted from Sentrite Bricks. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
+
+
         addBlock(ReduxBlocks.BLIGHTED_AERCLOUD, "Blighted Aercloud");
         addLore(ReduxBlocks.BLIGHTED_AERCLOUD, "A light teal cloud found in the Blight. Standing in this will harm you, but will heal Blighted mobs such as Blightbunnies and Cockatrices!");
 
@@ -569,6 +588,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
 
         addSubtitle("entity", "mimic_slam", "Mimic slams");
+        addSubtitle("entity", "swet_attack", "Swet attacks");
         addSubtitle("entity", "shimmercow_ambient", "Shimmercow moos");
         addSubtitle("entity", "shimmercow_hurt", "Shimmercow hurts");
         addSubtitle("entity", "shimmercow_death", "Shimmercow dies");
@@ -683,7 +703,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addDeathByPlayer(ReduxDamageTypes.EMBER, "%1$s was sparked by %2$s's flying ember");
         addDeath(ReduxDamageTypes.BLIGHT, "%1$s was taken by the Blight");
         addDeathByPlayer(ReduxDamageTypes.BLIGHT, "%1$s was blighted away by %2$s");
-
+        addDeath(ReduxDamageTypes.SWET, "%1$s was absorbed by %2$s");
+//        addDeathByPlayer(ReduxDamageTypes.SWET, "%1$s was absorbed by %2$s");
+        
         addProTipNoCompat("tip_color", "Tips from the Aether: Redux are in this lavender color!");
         addGuiTextTip("tip_color", "Tips from the Aether: Redux have a lavender-colored title!");
 
@@ -700,6 +722,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addProTip("snailshell_shield", "Feeding a Mykapod a Shimmerstool will make it shed the outer layer of its shell. These shell fragments can be used to craft a useful accessory that will decrease knockback.");
         addProTip("divinite", "Divinite can be enchanted into Glowstone, giving a relatively easy way to leave the Aether safely if you get stuck.");
         addProTip("redux_configs", "The Aether: Redux has a large amount of configs, including many that affect the base mod, so make sure to check out its config file!");
+        addProTip("swet_escape", "You can escape a Swet's gelatinous grasp by sneaking. It will still attack you though, so be quick!");
 
         for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS) {
             woodHandler.generateLanguageData(this);

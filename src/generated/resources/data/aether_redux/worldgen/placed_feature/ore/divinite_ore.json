@@ -6,14 +6,14 @@
     },
     {
       "type": "minecraft:rarity_filter",
-      "chance": 3
+      "chance": 6
     },
     {
       "type": "minecraft:height_range",
       "height": {
         "type": "minecraft:trapezoid",
         "max_inclusive": {
-          "above_bottom": 128
+          "above_bottom": 192
         },
         "min_inclusive": {
           "above_bottom": 0

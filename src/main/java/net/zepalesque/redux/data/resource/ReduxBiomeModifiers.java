@@ -43,6 +43,7 @@ public class ReduxBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_ENDERMAN = createKey(MOB + "enderman");
     public static final ResourceKey<BiomeModifier> ADD_VERIDIUM = createKey(FEATURE + "veridium_ore");
     public static final ResourceKey<BiomeModifier> ADD_DIVINITE = createKey(FEATURE + "divinite");
+    public static final ResourceKey<BiomeModifier> ADD_SENTRITE = createKey(FEATURE + "sentrite");
     public static final ResourceKey<BiomeModifier> ADD_SNOW = createKey(FEATURE + "snow");
     public static final ResourceKey<BiomeModifier> WATER_COLOR_AETHER = createKey(MODIFY + "water_color");
     public static final ResourceKey<BiomeModifier> AETHER_COLOR_OVERRIDE = createKey(MODIFY + "aether_color_override");
@@ -97,6 +98,10 @@ public class ReduxBiomeModifiers {
 
         context.register(ADD_DIVINITE, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
                 biomes.getOrThrow(ReduxTags.Biomes.HAS_DIVINITE), HolderSet.direct(features.getOrThrow(ReduxPlacedFeatures.DIVINITE_ORE)),
+                GenerationStep.Decoration.UNDERGROUND_ORES));
+
+        context.register(ADD_SENTRITE, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(ReduxTags.Biomes.HAS_SENTRITE), HolderSet.direct(features.getOrThrow(ReduxPlacedFeatures.SENTRITE_ORE)),
                 GenerationStep.Decoration.UNDERGROUND_ORES));
 
         context.register(WATER_COLOR_AETHER, new WaterColorReplacementBiomeModifier(biomes.getOrThrow(ReduxTags.Biomes.HAS_REDUX_WATER_COLOR),

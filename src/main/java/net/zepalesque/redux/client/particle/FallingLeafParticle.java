@@ -9,6 +9,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.zepalesque.redux.config.ReduxConfig;
+import net.zepalesque.redux.util.math.MathUtil;
 
 import java.util.List;
 
@@ -23,6 +24,8 @@ public class FallingLeafParticle extends TextureSheetParticle {
     protected FallingLeafParticle(ClientLevel level, double x, double y, double z) {
         super(level, x, y, z);
         this.rotSpeed = (float)Math.toRadians(this.random.nextBoolean() ? -30.0D : 30.0D);
+        this.roll = MathUtil.degToRad(this.random.nextFloat() * 360F);
+        this.oRoll = this.roll;
         this.particleRandom = this.random.nextFloat();
         this.spinAcceleration = (float)Math.toRadians(this.random.nextBoolean() ? -5.0D : 5.0D);
         this.lifetime = 300;
@@ -50,12 +53,14 @@ public class FallingLeafParticle extends TextureSheetParticle {
             float f1 = Math.min(f / 300.0F, 1.0F);
             double d0 = Math.cos(Math.toRadians(this.particleRandom * 60.0F)) * 2.0D * Math.pow(f1, 1.25D);
             double d1 = Math.sin(Math.toRadians(this.particleRandom * 60.0F)) * 2.0D * Math.pow(f1, 1.25D);
-            this.xd += d0 * (double) 0.0025F;
-            this.zd += d1 * (double) 0.0025F;
-            this.yd -= this.gravity;
-            this.rotSpeed += this.spinAcceleration / 20.0F;
             this.oRoll = this.roll;
-            this.roll += this.rotSpeed / 20.0F;
+            if (!(this.onGround || this.onGroundTime < 40)) {
+                this.xd += d0 * (double) 0.0025F;
+                this.zd += d1 * (double) 0.0025F;
+                this.yd -= this.gravity;
+                this.rotSpeed += this.spinAcceleration / 20.0F;
+                this.roll += this.rotSpeed / 20.0F;
+            }
             this.move(this.xd, this.yd, this.zd);
             if ((this.onGround || this.onGroundTime < 40) && this.lifetime < 299) {
                 this.onGroundTime--;

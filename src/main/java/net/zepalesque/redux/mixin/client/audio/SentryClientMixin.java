@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Sentry.class)
-public class SentryClientMixin extends SlimeMixin {
+public abstract class SentryClientMixin extends SlimeMixin {
     @Override
     protected void getSoundPitch(CallbackInfoReturnable<Float> cir) {
         Sentry mob = (Sentry) (Object) this;

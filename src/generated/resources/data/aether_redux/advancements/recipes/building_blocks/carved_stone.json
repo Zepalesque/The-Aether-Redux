@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_divinite": {
+    "has_sentrite": {
       "conditions": {
         "items": [
           {
             "items": [
-              "aether_redux:divinite"
+              "aether_redux:sentrite"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_divinite",
+      "has_sentrite",
       "has_the_recipe"
     ]
   ],

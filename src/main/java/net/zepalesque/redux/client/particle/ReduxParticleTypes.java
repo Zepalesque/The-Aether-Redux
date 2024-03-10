@@ -1,11 +1,12 @@
 package net.zepalesque.redux.client.particle;
 
+import com.mojang.serialization.Codec;
+import net.minecraft.client.particle.ParticleEngine;
 import net.minecraft.client.particle.ParticleProvider;
 import net.minecraft.client.particle.TextureSheetParticle;
-import net.minecraft.core.particles.DustParticleOptions;
-import net.minecraft.core.particles.ParticleOptions;
-import net.minecraft.core.particles.ParticleType;
-import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.core.Registry;
+import net.minecraft.core.particles.*;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -18,6 +19,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import org.joml.Vector3f;
+
+import java.util.function.Function;
 
 @EventBusSubscriber(
     modid = Redux.MODID,
@@ -72,6 +75,7 @@ public class ReduxParticleTypes {
     public static final RegistryObject<SimpleParticleType> FROST = PARTICLES.register("frost", () -> new SimpleParticleType(false));
 
     public static final RegistryObject<SimpleParticleType> SHIMMERSTAR = PARTICLES.register("shimmerstar", () -> new SimpleParticleType(false));
+    public static final RegistryObject<ParticleType<ItemParticleOption>> RANDOM_MOVEMENT_ITEM = register("random_movement_item", false, ItemParticleOption.DESERIALIZER, ItemParticleOption::codec);
 
 
     public static final RegistryObject<SimpleParticleType> SPARK = PARTICLES.register("spark", () -> new SimpleParticleType(false));
@@ -82,57 +86,70 @@ public class ReduxParticleTypes {
     @SubscribeEvent
     @OnlyIn(Dist.CLIENT)
     public static void registerParticleFactories(RegisterParticleProvidersEvent event) {
-        event.registerSpriteSet(GILDED_SKYROOT_LEAVES.get(), GildedSkyrootLeavesParticle.Provider::new);
-        event.registerSpriteSet(FIELDSPROUT_PETALS_0.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(FIELDSPROUT_PETALS_1.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(FIELDSPROUT_PETALS_2.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(FIELDSPROUT_PETALS_3.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(FIELDSPROUT_PETALS_4.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(FIELDSPROUT_PETALS_5.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(FIELDSPROUT_PETALS_6.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(FALLING_CONBERRY_LEAVES.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(FALLING_CRUDEROOT_NEEDLES.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(FALLING_SUNROOT_LEAVES.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(FALLING_YAGROOT_LEAVES.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(FALLING_GILDED_LEAVES.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(FALLING_GOLDEN_LEAVES.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(FALLING_CRYSTAL_LEAVES.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(SAKURA_PETALS.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(FALLING_CRYSTAL_SKYROOT_LEAVES.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(FALLING_SKYROOT_PINE_NEEDLES.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(FALLING_ENCHANTED_SKYROOT_LEAVES.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(FALLING_HIGHSPROOT_NEEDLES.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(FALLING_PURPLE_CRYSTAL_LEAVES.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(FALLING_BLUE_SKYROOT_LEAVES.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(FALLING_DARK_BLUE_SKYROOT_LEAVES.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(FALLING_SKYROOT_LEAVES.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(FALLING_BLIGHTED_SKYROOT_LEAVES.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(FALLING_BLIGHTWILLOW_LEAVES.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(FALLING_PRISMATIC_LEAVES.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(FALLING_GLACIA_NEEDLES.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(FALLING_PURPLE_GLACIA_NEEDLES.get(), FallingLeafParticle.Provider::new);
+        registerSpriteSet(event, GILDED_SKYROOT_LEAVES.get(), GildedSkyrootLeavesParticle.Provider::new);
+        registerSpriteSet(event, FIELDSPROUT_PETALS_0.get(), FallingLeafParticle.Provider::new);
+        registerSpriteSet(event, FIELDSPROUT_PETALS_1.get(), FallingLeafParticle.Provider::new);
+        registerSpriteSet(event, FIELDSPROUT_PETALS_2.get(), FallingLeafParticle.Provider::new);
+        registerSpriteSet(event, FIELDSPROUT_PETALS_3.get(), FallingLeafParticle.Provider::new);
+        registerSpriteSet(event, FIELDSPROUT_PETALS_4.get(), FallingLeafParticle.Provider::new);
+        registerSpriteSet(event, FIELDSPROUT_PETALS_5.get(), FallingLeafParticle.Provider::new);
+        registerSpriteSet(event, FIELDSPROUT_PETALS_6.get(), FallingLeafParticle.Provider::new);
+        registerSpriteSet(event, FALLING_CONBERRY_LEAVES.get(), FallingLeafParticle.Provider::new);
+        registerSpriteSet(event, FALLING_CRUDEROOT_NEEDLES.get(), FallingLeafParticle.Provider::new);
+        registerSpriteSet(event, FALLING_SUNROOT_LEAVES.get(), FallingLeafParticle.Provider::new);
+        registerSpriteSet(event, FALLING_YAGROOT_LEAVES.get(), FallingLeafParticle.Provider::new);
+        registerSpriteSet(event, FALLING_GILDED_LEAVES.get(), FallingLeafParticle.Provider::new);
+        registerSpriteSet(event, FALLING_GOLDEN_LEAVES.get(), FallingLeafParticle.Provider::new);
+        registerSpriteSet(event, FALLING_CRYSTAL_LEAVES.get(), FallingLeafParticle.Provider::new);
+        registerSpriteSet(event, SAKURA_PETALS.get(), FallingLeafParticle.Provider::new);
+        registerSpriteSet(event, FALLING_CRYSTAL_SKYROOT_LEAVES.get(), FallingLeafParticle.Provider::new);
+        registerSpriteSet(event, FALLING_SKYROOT_PINE_NEEDLES.get(), FallingLeafParticle.Provider::new);
+        registerSpriteSet(event, FALLING_ENCHANTED_SKYROOT_LEAVES.get(), FallingLeafParticle.Provider::new);
+        registerSpriteSet(event, FALLING_HIGHSPROOT_NEEDLES.get(), FallingLeafParticle.Provider::new);
+        registerSpriteSet(event, FALLING_PURPLE_CRYSTAL_LEAVES.get(), FallingLeafParticle.Provider::new);
+        registerSpriteSet(event, FALLING_BLUE_SKYROOT_LEAVES.get(), FallingLeafParticle.Provider::new);
+        registerSpriteSet(event, FALLING_DARK_BLUE_SKYROOT_LEAVES.get(), FallingLeafParticle.Provider::new);
+        registerSpriteSet(event, FALLING_SKYROOT_LEAVES.get(), FallingLeafParticle.Provider::new);
+        registerSpriteSet(event, FALLING_BLIGHTED_SKYROOT_LEAVES.get(), FallingLeafParticle.Provider::new);
+        registerSpriteSet(event, FALLING_BLIGHTWILLOW_LEAVES.get(), FallingLeafParticle.Provider::new);
+        registerSpriteSet(event, FALLING_PRISMATIC_LEAVES.get(), FallingLeafParticle.Provider::new);
+        registerSpriteSet(event, FALLING_GLACIA_NEEDLES.get(), FallingLeafParticle.Provider::new);
+        registerSpriteSet(event, FALLING_PURPLE_GLACIA_NEEDLES.get(), FallingLeafParticle.Provider::new);
 
-        event.registerSpriteSet(ICE_SHARD.get(), IceShardParticle.Provider::new);
-        event.registerSpriteSet(FROST.get(), FrostParticle.Provider::new);
+        registerSpriteSet(event, ICE_SHARD.get(), IceShardParticle.Provider::new);
+        registerSpriteSet(event, FROST.get(), FrostParticle.Provider::new);
 
-        register(event, FALLING_CLOUDCAP_SPORE.get(), CloudcapSporeParticle::falling);
-        register(event, LANDING_CLOUDCAP_SPORE.get(), CloudcapSporeParticle::landing);
-        event.registerSpriteSet(CLOUDCAP_AIR_SPORE.get(), CloudcapAirSporeParticle.Provider::new);
+        registerSpriteSet(event, FALLING_CLOUDCAP_SPORE.get(), CloudcapSporeParticle::falling);
+        registerSpriteSet(event, LANDING_CLOUDCAP_SPORE.get(), CloudcapSporeParticle::landing);
+        registerSpriteSet(event, CLOUDCAP_AIR_SPORE.get(), CloudcapAirSporeParticle.Provider::new);
 
-        event.registerSpriteSet(SPARK.get(), SparkParticle.Provider::new);
+        registerSpriteSet(event, SPARK.get(), SparkParticle.Provider::new);
 
-        event.registerSpriteSet(SHIMMERSTAR.get(), ShimmerstarParticle.Provider::new);
+        registerSpriteSet(event, SHIMMERSTAR.get(), ShimmerstarParticle.Provider::new);
+        registerSpriteSet(event, RANDOM_MOVEMENT_ITEM.get(), sprites -> new RandomMovementItemParticle.Provider());
     }
 
     @OnlyIn(Dist.CLIENT)
-    public static <T extends ParticleOptions> void register(RegisterParticleProvidersEvent event, ParticleType<T> particleType, ParticleProvider.Sprite<T> sprite) {
-        event.registerSpriteSet(particleType, (p_272320_) -> (p_272323_, p_272324_, p_272325_, p_272326_, p_272327_, p_272328_, p_272329_, p_272330_) -> {
+    public static <T extends ParticleOptions> void registerSpriteSet(RegisterParticleProvidersEvent event, ParticleType<T> particleType, ParticleProvider.Sprite<T> sprite) {
+        registerSpriteSet(event, particleType, (p_272320_) -> (p_272323_, p_272324_, p_272325_, p_272326_, p_272327_, p_272328_, p_272329_, p_272330_) -> {
             TextureSheetParticle texturesheetparticle = sprite.createParticle(p_272323_, p_272324_, p_272325_, p_272326_, p_272327_, p_272328_, p_272329_, p_272330_);
             if (texturesheetparticle != null) {
                 texturesheetparticle.pickSprite(p_272320_);
             }
 
             return texturesheetparticle;
+        });
+    }
+
+    public static <T extends ParticleOptions> void registerSpriteSet(RegisterParticleProvidersEvent event, ParticleType<T> type, ParticleEngine.SpriteParticleRegistration<T> registration) {
+        event.registerSpriteSet(type, registration);
+    }
+
+    private static <T extends ParticleOptions> RegistryObject<ParticleType<T>> register(String key, boolean overrideLimiter, ParticleOptions.Deserializer<T> deserializer, final Function<ParticleType<T>, Codec<T>> p_codecFactory) {
+        return PARTICLES.register(key, () -> new ParticleType<T>(overrideLimiter, deserializer) {
+            public Codec<T> codec() {
+                return p_codecFactory.apply(this);
+            }
         });
     }
 }

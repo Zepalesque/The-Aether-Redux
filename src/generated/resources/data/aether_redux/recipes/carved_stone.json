@@ -2,16 +2,16 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "D": {
-      "item": "aether_redux:divinite"
-    },
     "H": {
       "tag": "aether:holystone"
+    },
+    "S": {
+      "item": "aether_redux:sentrite"
     }
   },
   "pattern": [
-    "DH",
-    "HD"
+    "SH",
+    "HS"
   ],
   "result": {
     "count": 4,

@@ -6,6 +6,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.EntityTypeTagsProvider;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
@@ -25,5 +26,12 @@ public class ReduxEntityTypeTagData extends EntityTypeTagsProvider {
         this.tag(ReduxTags.EntityTypes.SENTRIES).add(AetherEntityTypes.SENTRY.get())
                 .addOptional(GenesisEntityTypes.BATTLE_SENTRY.getId())
                 .addOptional(GenesisEntityTypes.TRACKING_GOLEM.getId());
+        this.tag(ReduxTags.EntityTypes.SWET_PASSTHROUGH).add(
+                EntityType.SLIME,
+                AetherEntityTypes.ZEPHYR.get(),
+                AetherEntityTypes.MOA.get(),
+                AetherEntityTypes.COCKATRICE.get(),
+                AetherEntityTypes.AECHOR_PLANT.get()
+        ).addOptional(new ResourceLocation("aether_genesis", "tempest"));
     }
 }
