@@ -155,6 +155,14 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.HOLEFIRE_STAIRS.get(),
                 ReduxBlocks.HOLEFIRE_PILLAR.get(),
                 ReduxBlocks.HOLEFIRE_PILLAR_TOP.get(),
+                ReduxBlocks.SENTRITE.get(),
+                ReduxBlocks.SENTRITE_WALL.get(),
+                ReduxBlocks.SENTRITE_SLAB.get(),
+                ReduxBlocks.SENTRITE_STAIRS.get(),
+                ReduxBlocks.SENTRITE_BRICKS.get(),
+                ReduxBlocks.SENTRITE_BRICK_WALL.get(),
+                ReduxBlocks.SENTRITE_BRICK_SLAB.get(),
+                ReduxBlocks.SENTRITE_BRICK_STAIRS.get(),
                 ReduxBlocks.GILDED_HOLYSTONE.get(),
                 ReduxBlocks.GILDED_HOLYSTONE_WALL.get(),
                 ReduxBlocks.GILDED_HOLYSTONE_SLAB.get(),
@@ -229,8 +237,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.DIVINITE_SLAB.get(),
                 ReduxBlocks.GILDED_HOLYSTONE_SLAB.get(),
                 ReduxBlocks.BLIGHTMOSS_HOLYSTONE_SLAB.get(),
-                ReduxBlocks.CARVED_STONE_BRICK_SLAB.get()
-        );
+                ReduxBlocks.CARVED_STONE_BRICK_SLAB.get()        );
 
         this.tag(ReduxTags.Blocks.FROSTED_PLANTS_PLACEMENT).add(Blocks.SNOW_BLOCK);
 
