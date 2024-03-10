@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "aether_redux:block/dungeon/holefire_stone",
+    "side": "aether_redux:block/dungeon/holefire_stone",
+    "top": "aether_redux:block/dungeon/holefire_stone"
+  }
+}

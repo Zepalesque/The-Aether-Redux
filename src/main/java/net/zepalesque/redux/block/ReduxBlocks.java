@@ -96,6 +96,9 @@ public class ReduxBlocks {
     public static RegistryObject<Block> HOLEFIRE_STONE = register("holefire_stone",
             () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.copy(AetherBlocks.HELLFIRE_STONE.get())));
 
+    public static RegistryObject<Block> GLOWY_HOLEFIRE_STONE = register("glowy_holefire_stone",
+            () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.copy(AetherBlocks.LIGHT_HELLFIRE_STONE.get())));
+
     public static RegistryObject<StairBlock> HOLEFIRE_STAIRS = register("holefire_stairs",
             () -> new StairBlock(() -> (HOLEFIRE_STONE.get()).defaultBlockState(), BlockBehaviour.Properties.copy(HOLEFIRE_STONE.get())));
 

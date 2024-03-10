@@ -147,6 +147,9 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.HOLEFIRE_STAIRS.get(), ReduxBlocks.HOLEFIRE_STONE.get())
                 .save(consumer, Redux.locate(ReduxBlocks.HOLEFIRE_STONE.getId().getPath() + "_stairs_stonecutting"));
 
+        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.GLOWY_HOLEFIRE_STONE.get(), ReduxBlocks.HOLEFIRE_STONE.get())
+                .save(consumer, Redux.locate(ReduxBlocks.GLOWY_HOLEFIRE_STONE.getId().getPath() + "_stonecutting"));
+
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.HOLEFIRE_PILLAR.get(), ReduxBlocks.HOLEFIRE_STONE.get())
                 .save(consumer, Redux.locate(ReduxBlocks.HOLEFIRE_PILLAR.getId().getPath() + "_stonecutting"));
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.HOLEFIRE_PILLAR_TOP.get(), ReduxBlocks.HOLEFIRE_STONE.get())
@@ -442,6 +445,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .pattern("HRH")
                 .pattern("HHH")
                 .unlockedBy(getHasName(ReduxItems.SENTRY_CHIP.get()), has(ReduxItems.SENTRY_CHIP.get()))
+                .save(consumer);
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ReduxItems.SHROOM_RING.get(), 1)

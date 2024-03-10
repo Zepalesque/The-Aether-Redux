@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "aether_redux:block/holefire_slab"
+    },
+    "type=double": {
+      "model": "aether_redux:block/holefire_stone"
+    },
+    "type=top": {
+      "model": "aether_redux:block/holefire_slab_top"
+    }
+  }
+}

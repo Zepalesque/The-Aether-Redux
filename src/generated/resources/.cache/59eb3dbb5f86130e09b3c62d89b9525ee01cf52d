@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-09T21:01:57.8955199	Loot Tables
+// 1.20.1	2024-03-10T15:08:36.6320535	Loot Tables
 c6156555dc4897939b617dabc4521b7fa52feba0 data/aether_redux/loot_tables/blocks/aurum.json
 b5773c78c7b3f27032f1cca6fb72f440e24c7529 data/aether_redux/loot_tables/blocks/avelium.json
 4c8b773f2431b28dd2a48b90d08323d8ff67a3d7 data/aether_redux/loot_tables/blocks/avelium_roots.json
@@ -150,6 +150,12 @@ a101eb48c7ffa322a7817abee7934b72b10a2b9c data/aether_redux/loot_tables/blocks/go
 ac2abed3902c6173f2d959271dc99f09d17c45ae data/aether_redux/loot_tables/blocks/golden_vines.json
 f15144dfea5b253651aa6b01316a89dd3692df72 data/aether_redux/loot_tables/blocks/golden_vines_plant.json
 6be9a49f78c3d71a2908e297d48fc3a9fe980606 data/aether_redux/loot_tables/blocks/gravitite_block.json
+3c2b9c5420b73f1567254987627aa15a51f133b6 data/aether_redux/loot_tables/blocks/holefire_pillar.json
+8d78203ac11f2ba2ab554704feefa70ac6126dfe data/aether_redux/loot_tables/blocks/holefire_pillar_top.json
+f0a34e8c6ee2001c0f99e299d96e061700ab50ae data/aether_redux/loot_tables/blocks/holefire_slab.json
+7241b93b6d222608947335a8b45e8485ae4a229c data/aether_redux/loot_tables/blocks/holefire_stairs.json
+8377617ef454b82b338a5ad171c7eadfdb7a821f data/aether_redux/loot_tables/blocks/holefire_stone.json
+dfcaffcbbfc6c2f8ba209567f162b4e5626630f2 data/aether_redux/loot_tables/blocks/holefire_wall.json
 f19ac148b4cfafe1b17cb63724960dbe1a10bbeb data/aether_redux/loot_tables/blocks/holysilt.json
 4787a11d3b711287c9b7a6ee4efabeabe011dd1a data/aether_redux/loot_tables/blocks/iridia.json
 33702219743779761ebc598a0c35d9a4a6d27ab2 data/aether_redux/loot_tables/blocks/jellyshroom.json

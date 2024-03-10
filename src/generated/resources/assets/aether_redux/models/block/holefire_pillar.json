@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "aether_redux:block/dungeon/holefire_pillar_top",
+    "side": "aether_redux:block/dungeon/holefire_pillar_side"
+  }
+}

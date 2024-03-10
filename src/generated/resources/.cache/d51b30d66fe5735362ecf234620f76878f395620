@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-09T21:01:57.8865198	Item Models: aether_redux
+// 1.20.1	2024-03-10T15:08:36.6230527	Item Models: aether_redux
 2445055af5b1b7f3c6045199ffce74108003cef6 assets/aether_redux/models/item/airbound_cape.json
 2fa1343a8119a1f49af334c002773099174965bd assets/aether_redux/models/item/aurum.json
 edfe83948874d1436a61893ed9471b47e93dbe88 assets/aether_redux/models/item/avelium.json
@@ -164,6 +164,12 @@ f2ce34057db0e9dc709688e4f1edd9bcd660a53a assets/aether_redux/models/item/glacia_
 a38cefb731d298e0c795074ba3b4e1a919cc3440 assets/aether_redux/models/item/grand_victory_medal.json
 82e64be5c34f99846b7da189fa44c756f05792de assets/aether_redux/models/item/gravitite_block.json
 9b431089b638dcb1130b7aabc0d58f388827eb67 assets/aether_redux/models/item/gravitite_ingot.json
+3fbe52b7808ac72b3ff7f5ad214e017016d7b622 assets/aether_redux/models/item/holefire_pillar.json
+82f4e1aab9c11ba5c3d8868a6a5742ebfb06c902 assets/aether_redux/models/item/holefire_pillar_top.json
+1c05bcce6966da5b10b2789525952ebefa16ddfd assets/aether_redux/models/item/holefire_slab.json
+0132ea72e384065aea7666a7d69b5f7f3e52259f assets/aether_redux/models/item/holefire_stairs.json
+ce79d526d924f85888589234f4753d1002e1b610 assets/aether_redux/models/item/holefire_stone.json
+7c7b7e8d09bcad53a0e46094f340eb95517c8708 assets/aether_redux/models/item/holefire_wall.json
 186625fae587a1449999bdcd0e11a53b78579f7a assets/aether_redux/models/item/holysilt.json
 5ac15283821f82852afb37f646709d38aa90a988 assets/aether_redux/models/item/infused_veridium_axe.json
 c8a3ddc1f05e17dfbd6ec5d31308f099f761aa9c assets/aether_redux/models/item/infused_veridium_dart_shooter.json
