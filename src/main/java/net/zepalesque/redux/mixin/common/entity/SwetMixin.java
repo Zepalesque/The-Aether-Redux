@@ -106,6 +106,13 @@ public abstract class SwetMixin extends SlimeMixin {
         }
     }
 
+    @Override
+    public void redux$getRiddenSpeed(Player player, CallbackInfoReturnable<Float> cir) {
+        if (ReduxConfig.COMMON.pl_swet_behavior.get()) {
+            cir.setReturnValue((float) (this.getSpeed() + SwetHooks.getTrueScale((Swet) (Object)(this)) / 100F));
+        }
+    }
+
     @Inject(method = "getDimensions", at = @At("HEAD"), cancellable = true)
     public void redux$getDimensions(Pose pose, CallbackInfoReturnable<EntityDimensions> cir) {
         if (ReduxConfig.COMMON.pl_swet_behavior.get()) {
