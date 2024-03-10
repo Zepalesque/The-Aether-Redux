@@ -2,17 +2,16 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "D": {
-      "item": "aether_redux:divinite"
+    "#": {
+      "item": "aether_redux:sentrite_bricks"
     }
   },
   "pattern": [
-    "D",
-    "D"
+    "###"
   ],
   "result": {
-    "count": 4,
-    "item": "aether:angelic_stone"
+    "count": 6,
+    "item": "aether_redux:sentrite_brick_slab"
   },
   "show_notification": true
 }

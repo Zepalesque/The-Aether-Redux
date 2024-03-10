@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#aether_redux:has_sentrite",
+  "features": "aether_redux:ore/sentrite_ore",
+  "step": "underground_ores"
+}

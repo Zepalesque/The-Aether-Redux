@@ -49,7 +49,15 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.DIVINITE, ReduxBlocks.DIVINITE_STAIRS, event);
             putAfter(ReduxBlocks.DIVINITE_STAIRS, ReduxBlocks.DIVINITE_SLAB, event);
             putAfter(ReduxBlocks.DIVINITE_SLAB, ReduxBlocks.DIVINITE_WALL, event);
-            putAfter(ReduxBlocks.DIVINITE_WALL, ReduxBlocks.SHELL_SHINGLES, event);
+            putAfter(ReduxBlocks.DIVINITE_WALL, ReduxBlocks.SENTRITE, event);
+            putAfter(ReduxBlocks.SENTRITE, ReduxBlocks.SENTRITE_STAIRS, event);
+            putAfter(ReduxBlocks.SENTRITE_STAIRS, ReduxBlocks.SENTRITE_SLAB, event);
+            putAfter(ReduxBlocks.SENTRITE_SLAB, ReduxBlocks.SENTRITE_WALL, event);
+            putAfter(ReduxBlocks.SENTRITE_WALL, ReduxBlocks.SENTRITE_BRICKS, event);
+            putAfter(ReduxBlocks.SENTRITE_BRICKS, ReduxBlocks.SENTRITE_BRICK_STAIRS, event);
+            putAfter(ReduxBlocks.SENTRITE_BRICK_STAIRS, ReduxBlocks.SENTRITE_BRICK_SLAB, event);
+            putAfter(ReduxBlocks.SENTRITE_BRICK_SLAB, ReduxBlocks.SENTRITE_BRICK_WALL, event);
+            putAfter(ReduxBlocks.SENTRITE_BRICK_WALL, ReduxBlocks.SHELL_SHINGLES, event);
             putAfter(ReduxBlocks.SHELL_SHINGLES, ReduxBlocks.SHELL_SHINGLE_STAIRS, event);
             putAfter(ReduxBlocks.SHELL_SHINGLE_STAIRS, ReduxBlocks.SHELL_SHINGLE_SLAB, event);
             putAfter(ReduxBlocks.SHELL_SHINGLE_SLAB, ReduxBlocks.SHELL_SHINGLE_WALL, event);
@@ -78,7 +86,8 @@ public class ReduxCreativeTabs {
 
 
             putAfter(AetherBlocks.HOLYSTONE, ReduxBlocks.DIVINITE, event);
-            putAfter(ReduxBlocks.DIVINITE, ReduxBlocks.HOLYSILT, event);
+            putAfter(ReduxBlocks.DIVINITE, ReduxBlocks.SENTRITE, event);
+            putAfter(ReduxBlocks.SENTRITE, ReduxBlocks.HOLYSILT, event);
 
             if (!Redux.deepAetherCompat()) {
                 putAfter(AetherBlocks.AETHER_DIRT, ReduxBlocks.COARSE_AETHER_DIRT, event);
