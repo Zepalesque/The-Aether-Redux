@@ -38,6 +38,6 @@ public class ReduxFoods {
             .effect( () -> new MobEffectInstance(MobEffects.NIGHT_VISION, 450, 0), 2F).alwaysEat().build();
 
     public static final FoodProperties FIREINTHEHOLE = (new FoodProperties.Builder()).nutrition(2).alwaysEat().saturationMod(0.2F)
-            .effect( () -> new MobEffectInstance(MobEffects.NIGHT_VISION, 450, 0), 2F).alwaysEat().build();
+            .effect( () -> new MobEffectInstance(ReduxEffects.THE_LOBOTOMY.get(), 200, 0), 2F).alwaysEat().build();
 
 }

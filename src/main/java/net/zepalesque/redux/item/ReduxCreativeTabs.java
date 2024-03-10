@@ -251,6 +251,8 @@ public class ReduxCreativeTabs {
             putAfter(ReduxItems.WYNDSPROUT_SEEDS, ReduxItems.BUNDLE_OF_WYNDSPROUTS, event);
             putAfter(ReduxItems.BUNDLE_OF_WYNDSPROUTS, ReduxItems.LIGHTROOT_CLUMP, event);
 
+            putAfter(ReduxItems.LIGHTROOT_CLUMP, ReduxItems.FIREINTHEHOLE, event);
+
             putAfter(AetherItems.SWET_BALL, Redux.aetherGenesisCompat() ? ReduxItems.VANILLA_SWET_BALL : ReduxItems.GOLDEN_SWET_BALL, event);
             if (!Redux.aetherGenesisCompat()) { putAfter(ReduxItems.GOLDEN_SWET_BALL, ReduxItems.VANILLA_SWET_BALL, event); }
 

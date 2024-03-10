@@ -70,8 +70,8 @@ public class ReduxOverlays {
     private static void renderLobotomy(GuiGraphics guiGraphics, Minecraft minecraft, Window window, float partialTicks) {
         double effectScale = minecraft.options.screenEffectScale().get();
         if (minecraft.player.hasEffect(ReduxEffects.THE_LOBOTOMY.get())) {
-            float alpha = minecraft.player.getEffect(ReduxEffects.THE_LOBOTOMY.get()).getDuration() / 600F;
-            renderVignette(guiGraphics, window, effectScale, alpha, ADRENALINE_OVERLAY);
+            float alpha = minecraft.player.getEffect(ReduxEffects.THE_LOBOTOMY.get()).getDuration() / 200F;
+            renderVignette(guiGraphics, window, effectScale, alpha, LOBOTOMY);
         }
     }
 

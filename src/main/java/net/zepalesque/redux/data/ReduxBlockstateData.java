@@ -3,6 +3,7 @@ package net.zepalesque.redux.data;
 import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.block.AetherBlockStateProperties;
 import com.aetherteam.aether.block.AetherBlocks;
+import com.aetherteam.aether.block.miscellaneous.FacingPillarBlock;
 import com.aetherteam.aether.data.providers.AetherBlockStateProvider;
 import net.builderdog.ancient_aether.block.blockstate.AncientAetherBlockStateProperties;
 import net.minecraft.core.Direction;
@@ -65,7 +66,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.stairs(ReduxBlocks.HOLEFIRE_STAIRS.get(), ReduxBlocks.HOLEFIRE_STONE.get(), "dungeon/");
         this.wallBlock(ReduxBlocks.HOLEFIRE_WALL.get(), ReduxBlocks.HOLEFIRE_STONE.get(), "dungeon/");
         this.pillar(ReduxBlocks.HOLEFIRE_PILLAR, "dungeon/");
-        this.pillarTop(ReduxBlocks.HOLEFIRE_PILLAR_TOP.get());
+        this.holefirepillarTop(ReduxBlocks.HOLEFIRE_PILLAR_TOP.get());
 
         this.other(ReduxBlocks.GRAVITITE_BLOCK, AetherBlocks.ENCHANTED_GRAVITITE, "construction/");
         this.block(ReduxBlocks.RAW_GRAVITITE_BLOCK, "natural/");
@@ -1112,6 +1113,14 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
     public void pillar(Supplier<? extends RotatedPillarBlock> block, String loc) {
         axisBlock(block.get(), extend(texture(name(block), loc), "_side"), extend(texture(name(block), loc), "_top"));
+    }
+
+    public void holefirepillarTop(FacingPillarBlock block) {
+        ResourceLocation side = this.texture("holefire_pillar_carved", "dungeon/");
+        ResourceLocation end = this.texture(this.name(block), "dungeon/");
+        ModelFile vertical = this.models().cubeColumn(this.name(block), side, end);
+        ModelFile horizontal = this.models().cubeColumnHorizontal(this.name(block) + "_horizontal", side, end);
+        ((VariantBlockStateBuilder)((VariantBlockStateBuilder)((VariantBlockStateBuilder)((VariantBlockStateBuilder)((VariantBlockStateBuilder)this.getVariantBuilder(block).partialState().with(FacingPillarBlock.FACING, Direction.DOWN).modelForState().modelFile(vertical).rotationX(180).addModel()).partialState().with(FacingPillarBlock.FACING, Direction.EAST).modelForState().modelFile(horizontal).rotationX(90).rotationY(90).addModel()).partialState().with(FacingPillarBlock.FACING, Direction.NORTH).modelForState().modelFile(horizontal).rotationX(90).addModel()).partialState().with(FacingPillarBlock.FACING, Direction.SOUTH).modelForState().modelFile(horizontal).rotationX(90).rotationY(180).addModel()).partialState().with(FacingPillarBlock.FACING, Direction.UP).modelForState().modelFile(vertical).addModel()).partialState().with(FacingPillarBlock.FACING, Direction.WEST).modelForState().modelFile(horizontal).rotationX(90).rotationY(270).addModel();
     }
 
     public void bookshelf(Supplier<? extends Block> block, Supplier<? extends Block> endBlock) {

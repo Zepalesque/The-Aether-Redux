@@ -121,13 +121,13 @@ public class MobListener {
     @SubscribeEvent
     public static void tick(LivingEvent.LivingTickEvent event) {
         if (event.getEntity().hasEffect(ReduxEffects.THE_LOBOTOMY.get())) {
-            int frequency = 25;
+            int frequency = 50;
             int ticks = event.getEntity().tickCount % frequency;
             if (ticks == 0) {
-                event.getEntity().level().playSound(null, event.getEntity().blockPosition(), ReduxSoundEvents.FIREINTHEHOLE_EFFECT.get(), SoundSource.NEUTRAL, 10, 1);
+                event.getEntity().level().playSound(null, event.getEntity().blockPosition(), ReduxSoundEvents.FIREINTHEHOLE_EFFECT.get(), SoundSource.NEUTRAL, 1, 1);
             }
-            if (ticks == 18) {
-                event.getEntity().level().playSound(null, event.getEntity().blockPosition(), ReduxSoundEvents.FIREINTHEHOLE_EFFECT_HIGH.get(), SoundSource.NEUTRAL, 10, 1);
+            if (ticks == 40) {
+                event.getEntity().level().playSound(null, event.getEntity().blockPosition(), ReduxSoundEvents.FIREINTHEHOLE_EFFECT_HIGH.get(), SoundSource.NEUTRAL, 1, 1);
             }
         }
     }

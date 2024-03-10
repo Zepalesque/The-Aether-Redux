@@ -46,7 +46,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlock(ReduxBlocks.GLOWY_HOLEFIRE_STONE);
         itemBlock(ReduxBlocks.HOLEFIRE_SLAB);
         itemBlock(ReduxBlocks.HOLEFIRE_STAIRS);
-        itemWallBlock(ReduxBlocks.HOLEFIRE_WALL, ReduxBlocks.HOLEFIRE_STONE, "natural/");
+        itemWallBlock(ReduxBlocks.HOLEFIRE_WALL, ReduxBlocks.HOLEFIRE_STONE, "dungeon/");
         itemBlock(ReduxBlocks.HOLEFIRE_PILLAR);
         itemBlock(ReduxBlocks.HOLEFIRE_PILLAR_TOP);
         itemBlockFlatTintOverlay(ReduxBlocks.IRIDIA, "natural/");
