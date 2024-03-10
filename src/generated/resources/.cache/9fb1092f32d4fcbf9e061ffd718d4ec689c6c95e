@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-09T21:13:23.2372345	Recipes
+// 1.20.1	2024-03-10T14:16:04.8988585	Recipes
 142511de235436db9774c32cc1e4cadb796b351e data/aether_redux/advancements/recipes/blue_gummy_swet.json
 51d45028b22196de7aab6ae246ea0eab7f7308fb data/aether_redux/advancements/recipes/blue_swet_jelly.json
 cdecd2fb47465ca3e02446651bb68347dcb877ed data/aether_redux/advancements/recipes/building_blocks/angelic_stone.json
@@ -430,7 +430,7 @@ b198bc22df19737de0e26f4706b3b74f35b343b6 data/aether_redux/recipes/sentrite_stai
 1b4cabf14b3c2044addd99675a59b85307fab1f9 data/aether_redux/recipes/sentrite_stairs_stonecutting.json
 d1922d9a5cd765f6789cd00effd7e2c33fc12858 data/aether_redux/recipes/sentrite_wall.json
 bb701a82c28c49aea5e9e3943d61285fdb2b6570 data/aether_redux/recipes/sentrite_wall_stonecutting.json
-609f0ec0f83bdc58b5697c5f6515a28bec8abdb0 data/aether_redux/recipes/sentry_ring.json
+7cae1b96e336d523db56510ace23114f7f969516 data/aether_redux/recipes/sentry_ring.json
 172607a200c1d44e494bd5b9c89db8fdf3e8cd49 data/aether_redux/recipes/shell_shingles.json
 f376e8bd393a5a8c149ebe7853f904405308526d data/aether_redux/recipes/shell_shingle_slab.json
 12c70ab6bfaf03b44305d2adee4bf49aa4d9e44f data/aether_redux/recipes/shell_shingle_slab_stonecutting.json
