@@ -28,6 +28,8 @@ public abstract class SlimeMixin extends MobMixin {
 
     @Shadow public abstract int getSize();
 
+    @Shadow public float oSquish;
+
     @Inject(method = "getSoundPitch", at = @At("RETURN"), cancellable = true)
     protected void getSoundPitch(CallbackInfoReturnable<Float> cir) {
     }
