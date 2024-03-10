@@ -113,7 +113,7 @@ public class SwetMassCapability implements SwetMass {
             entity.fallDistance = 0;
         }
 
-        if (entity instanceof LivingEntity livingEntity && SwetHooks.canAbsorbEntities(this.getSwet())) {
+        if (entity instanceof Player livingEntity && SwetHooks.canAbsorbEntities(this.getSwet())) {
             // Hack to prevent knockback; TODO: find a better way to prevent knockback
             AttributeInstance knockbackResistance = livingEntity.getAttribute(Attributes.KNOCKBACK_RESISTANCE);
             if (absorbable && knockbackResistance != null) {
