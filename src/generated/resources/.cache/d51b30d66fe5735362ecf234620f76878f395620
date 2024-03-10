@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-10T15:35:49.8885745	Item Models: aether_redux
+// 1.20.1	2024-03-10T16:01:33.1701247	Item Models: aether_redux
 2445055af5b1b7f3c6045199ffce74108003cef6 assets/aether_redux/models/item/airbound_cape.json
 2fa1343a8119a1f49af334c002773099174965bd assets/aether_redux/models/item/aurum.json
 edfe83948874d1436a61893ed9471b47e93dbe88 assets/aether_redux/models/item/avelium.json
@@ -171,7 +171,7 @@ a38cefb731d298e0c795074ba3b4e1a919cc3440 assets/aether_redux/models/item/grand_v
 1c05bcce6966da5b10b2789525952ebefa16ddfd assets/aether_redux/models/item/holefire_slab.json
 0132ea72e384065aea7666a7d69b5f7f3e52259f assets/aether_redux/models/item/holefire_stairs.json
 ce79d526d924f85888589234f4753d1002e1b610 assets/aether_redux/models/item/holefire_stone.json
-7c7b7e8d09bcad53a0e46094f340eb95517c8708 assets/aether_redux/models/item/holefire_wall.json
+387969650c857df94838f718852c3bbfef9e3025 assets/aether_redux/models/item/holefire_wall.json
 186625fae587a1449999bdcd0e11a53b78579f7a assets/aether_redux/models/item/holysilt.json
 5ac15283821f82852afb37f646709d38aa90a988 assets/aether_redux/models/item/infused_veridium_axe.json
 c8a3ddc1f05e17dfbd6ec5d31308f099f761aa9c assets/aether_redux/models/item/infused_veridium_dart_shooter.json
