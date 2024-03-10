@@ -120,7 +120,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .pattern("D")
                 .unlockedBy(getHasName(ReduxBlocks.DIVINITE.get()), has(ReduxBlocks.DIVINITE.get()))
                 .save(consumer, Redux.locate("angelic_stone"));
-        
+
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRITE_WALL.get(), ReduxBlocks.SENTRITE.get())
                 .save(consumer, Redux.locate(ReduxBlocks.SENTRITE.getId().getPath() + "_wall_stonecutting"));
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRITE_SLAB.get(), ReduxBlocks.SENTRITE.get())
