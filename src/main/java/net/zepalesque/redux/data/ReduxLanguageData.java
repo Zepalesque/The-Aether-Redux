@@ -631,9 +631,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addSubtitle("item.accessory", "equip_wisdom_ring", "Ring of Wisdom clanks");
         addSubtitle("item.accessory", "equip_sentry_ring", "Sentry Ring clanks");
         addSubtitle("item.accessory", "equip_vampire_amulet", "Vampire Amulet clinks");
-        addSubtitle("item", "fireinthehole_eat", "'FI-FI-FIRE IN DA HOLE!!!'");
-        addSubtitle("item", "fireinthehole_effect", "'FIRE IN THE HOLE!'");
-        addSubtitle("item", "fireinthehole_effect_high", "'FEER IN DA HEEL!'");
+        addSubtitle("item", "lobotomy_eat", "'FI-FI-FIRE IN DA HOLE!!!'");
+        addSubtitle("item", "lobotomy_effect", "'FIRE IN THE HOLE!'");
+        addSubtitle("item", "lobotomy_effect_high", "'FEER IN DA HEEL!'");
         addSubtitle("generic", "boost_jump", "Something double-jumps");
         addSubtitle("generic", "fireball_shoot", "Fireball shoots");
         addSubtitle("block", "blightshade_spray", "Blightshade sprays");
