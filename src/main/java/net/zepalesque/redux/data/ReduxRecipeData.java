@@ -446,7 +446,6 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .pattern("HHH")
                 .unlockedBy(getHasName(ReduxItems.SENTRY_CHIP.get()), has(ReduxItems.SENTRY_CHIP.get()))
                 .save(consumer);
-                .save(consumer);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ReduxItems.SHROOM_RING.get(), 1)
                 .define('L', ReduxItems.LIGHTROOT_CLUMP.get())
