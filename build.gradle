@@ -138,7 +138,7 @@ dependencies {
 
     compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:${project.mixinextras_version}"))
     implementation(jarJar("io.github.llamalad7:mixinextras-forge:${project.mixinextras_version}")) {
-        jarJar.ranged(it, "[0.3.5,)")
+        jarJar.ranged(it, "[0.2.0,)")
     }
 
     implementation fg.deobf("com.aetherteam.aether:aether:${project.aether_version}")
