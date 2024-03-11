@@ -47,11 +47,6 @@ public class SwetHooks {
     }
 
 
-    public static boolean shouldGrow(ItemStack stack, EntityType<?> swet) {
-        return stack.is(AetherTags.Items.SWET_BALLS) || stack.getItem() instanceof SpawnEggItem spawnEggItem && spawnEggItem.getType(stack.getTag()) == swet;
-    }
-
-
     public static void swetTick(Swet swet) {
         SwetMass.get(swet).ifPresent(SwetMass::tick);
     }
@@ -70,8 +65,8 @@ public class SwetHooks {
         return getTrueScale(swet) > 1.1D;
     }
 
-    public static boolean canGrow(Swet swet) {
-        return swet.getSize() < 20;
+    public static boolean canGrow(Swet swet, ItemStack stack) {
+        return stack.is(AetherTags.Items.SWET_BALLS) ? swet.getSize() < 8 : stack.getItem() instanceof SpawnEggItem spawnEggItem && spawnEggItem.getType(stack.getTag()) == swet.getType() && swet.getSize() < 16;
     }
 
     public static boolean canBeControlled(Swet swet) {

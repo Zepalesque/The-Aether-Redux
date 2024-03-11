@@ -75,7 +75,7 @@ public class SwetMassCapability implements SwetMass {
         }
         // Make items ride the swet. They often shake free with the jiggle physics
         if (entity instanceof ItemEntity item) {
-            if (SwetHooks.canGrow(this.getSwet()) && SwetHooks.shouldGrow(item.getItem(), this.getSwet().getType())) {
+            if (SwetHooks.canGrow(this.getSwet(), item.getItem())) {
                 this.getSwet().setSize(this.getSwet().getSize() + 1, false);
                 item.remove(Entity.RemovalReason.KILLED);
                 return;
@@ -113,6 +113,7 @@ public class SwetMassCapability implements SwetMass {
             entity.fallDistance = 0;
         }
 
+        // TODO: Tag for swet-harmable entities
         if (entity instanceof Player livingEntity && SwetHooks.canAbsorbEntities(this.getSwet())) {
             // Hack to prevent knockback; TODO: find a better way to prevent knockback
             AttributeInstance knockbackResistance = livingEntity.getAttribute(Attributes.KNOCKBACK_RESISTANCE);
