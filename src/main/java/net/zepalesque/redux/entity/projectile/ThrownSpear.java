@@ -67,7 +67,7 @@ public class ThrownSpear extends AbstractArrow {
         int i = this.entityData.get(ID_LOYALTY);
         if (i > 0 && (this.dealtDamage || this.isNoPhysics()) && entity != null) {
             if (!this.isAcceptibleReturnOwner()) {
-                if (!this.level().isClientSide && this.pickup == AbstractArrow.Pickup.ALLOWED) {
+                if (!this.level.isClientSide && this.pickup == AbstractArrow.Pickup.ALLOWED) {
                     this.spawnAtLocation(this.getPickupItem(), 0.1F);
                 }
 
@@ -76,7 +76,7 @@ public class ThrownSpear extends AbstractArrow {
                 this.setNoPhysics(true);
                 Vec3 vec3 = entity.getEyePosition().subtract(this.position());
                 this.setPosRaw(this.getX(), this.getY() + vec3.y * 0.015D * (double)i, this.getZ());
-                if (this.level().isClientSide) {
+                if (this.level.isClientSide) {
                     this.yOld = this.getY();
                 }
 
@@ -129,7 +129,7 @@ public class ThrownSpear extends AbstractArrow {
         }
 
         Entity entity1 = this.getOwner();
-        DamageSource damagesource = ReduxDamageTypes.indirectSource(this.level(), ReduxDamageTypes.SPEAR, this, entity1 == null ? this : entity1);
+        DamageSource damagesource = ReduxDamageTypes.indirectSource(this.level, ReduxDamageTypes.SPEAR, this, entity1 == null ? this : entity1);
         this.dealtDamage = true;
         SoundEvent soundevent = ReduxSoundEvents.SPEAR_LAND.get();
         if (entity.hurt(damagesource, f)) {
@@ -156,7 +156,7 @@ public class ThrownSpear extends AbstractArrow {
     @Override
     protected void doPostHurtEffects(LivingEntity target) {
         super.doPostHurtEffects(target);
-        if (!target.level().isClientSide() && target.level().getRandom().nextInt(3) <= 1) {
+        if (!target.level.isClientSide() && target.level.getRandom().nextInt(3) <= 1) {
             target.addEffect(new MobEffectInstance(BlightSpearItem.getEffect(), 300));
         }
     }

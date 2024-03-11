@@ -39,8 +39,9 @@ public class ReduxBoat extends Boat implements ReduxBoatBehavior {
         this.fall(this, y, onGround);
     }
 
+
     @Nonnull
-    public Packet<ClientGamePacketListener> getAddEntityPacket() {
+    public Packet<?> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }
 

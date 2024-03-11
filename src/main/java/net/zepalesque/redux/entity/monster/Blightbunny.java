@@ -1,16 +1,10 @@
 package net.zepalesque.redux.entity.monster;
 
 import com.aetherteam.aether.AetherTags;
-import com.aetherteam.aether.entity.EntityUtil;
 import com.aetherteam.aether.entity.ai.goal.ContinuousMeleeAttackGoal;
 import com.aetherteam.aether.entity.ai.goal.FallingRandomStrollGoal;
-import com.aetherteam.aether.entity.monster.Cockatrice;
-import com.aetherteam.aether.entity.monster.dungeon.Mimic;
-import com.aetherteam.aether.entity.passive.Aerbunny;
-import com.aetherteam.aether.entity.passive.AetherAnimal;
 import com.aetherteam.aether.mixin.mixins.common.accessor.EntityAccessor;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -24,17 +18,16 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobSpawnType;
-import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.MoveControl;
-import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.FloatGoal;
+import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
@@ -45,17 +38,8 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.ForgeMod;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
-import net.zepalesque.redux.data.resource.biome.Blight;
-import net.zepalesque.redux.entity.passive.Mykapod;
-import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.core.animatable.GeoAnimatable;
-import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.core.animation.*;
-import software.bernie.geckolib.core.object.PlayState;
-import software.bernie.geckolib.util.GeckoLibUtil;
 
-public class Blightbunny extends Monster implements GeoEntity {
+public class Blightbunny extends Monster {
 
     @OnlyIn(Dist.CLIENT)
     public State anim;
@@ -70,11 +54,9 @@ public class Blightbunny extends Monster implements GeoEntity {
         return this.puffSubtract;
     }
 
-    private final AnimatableInstanceCache cache;
 
     public Blightbunny(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
-        this.cache = GeckoLibUtil.createInstanceCache(this);
         this.moveControl = new BlightbunnyMoveControl(this);
     }
     protected void registerGoals() {
@@ -130,7 +112,7 @@ public class Blightbunny extends Monster implements GeoEntity {
         this.resetFallDistance();
         if (!this.isFastFalling()) {
             this.handleFallSpeed();
-        } else if (this.onGround()) {
+        } else if (this.isOnGround()) {
             this.setFastFalling(false);
         }
 
@@ -150,7 +132,7 @@ public class Blightbunny extends Monster implements GeoEntity {
             Vec3 motion = this.getDeltaMovement();
             if (motion.y() < 0.0) {
                 this.puff();
-                this.level().broadcastEntityEvent(this, (byte) 70);
+                this.level.broadcastEntityEvent(this, (byte) 70);
             }
 
             this.setDeltaMovement(new Vec3(motion.x(), 0.25, motion.z()));
@@ -159,7 +141,7 @@ public class Blightbunny extends Monster implements GeoEntity {
 
 
     public void puff() {
-        if (this.level() instanceof ServerLevel) {
+        if (this.level instanceof ServerLevel) {
             this.setPuffiness(11);
         }
 
@@ -201,7 +183,7 @@ public class Blightbunny extends Monster implements GeoEntity {
         double x = entity.getX() + (double)random.nextFloat() * (double)entity.getBbWidth() * 2.0 - (double)entity.getBbWidth() - d0 * d3;
         double y = entity.getY() + (double)random.nextFloat() * (double)entity.getBbHeight() - d1 * d3;
         double z = entity.getZ() + (double)random.nextFloat() * (double)entity.getBbWidth() * 2.0 - (double)entity.getBbWidth() - d2 * d3;
-        entity.level().addParticle(ReduxParticleTypes.SHINY_CLOUD, x, y, z, d0, d1, d2);
+        entity.level.addParticle(ReduxParticleTypes.SHINY_CLOUD, x, y, z, d0, d1, d2);
     }
 
     public static class BlightbunnyMoveControl extends MoveControl {
@@ -215,13 +197,13 @@ public class Blightbunny extends Monster implements GeoEntity {
         public void tick() {
             super.tick();
             if (this.aerbunny.zza != 0.0F) {
-                if (this.aerbunny.onGround()) {
+                if (this.aerbunny.isOnGround()) {
                     this.aerbunny.getJumpControl().jump();
                 } else {
                     int x = Mth.floor(this.aerbunny.getX());
                     int y = Mth.floor(this.aerbunny.getBoundingBox().minY);
                     int z = Mth.floor(this.aerbunny.getZ());
-                    if (this.aerbunny.getTarget() == null && this.checkForSurfaces(this.aerbunny.level(), x, y, z) && !this.aerbunny.horizontalCollision) {
+                    if (this.aerbunny.getTarget() == null && this.checkForSurfaces(this.aerbunny.level, x, y, z) && !this.aerbunny.horizontalCollision) {
                         this.aerbunny.midairJump();
                     }
                 }
@@ -262,45 +244,5 @@ public class Blightbunny extends Monster implements GeoEntity {
     public void setFastFalling(boolean fastFalling) {
         this.entityData.set(DATA_FAST_FALLING_ID, fastFalling);
     }
-
-    @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar registrar) {
-        registrar.add(new AnimationController<>(this, "idle_anims", 3, this::predicate));
-        registrar.add(new AnimationController<>(this, "complex_anims", 3, this::complexAnims));
-    }
-
-    private <T extends GeoAnimatable> PlayState predicate(AnimationState<T> state) {
-
-
-        if (state.isMoving()) {
-            state.getController().setAnimation(RawAnimation.begin().then("animations.blightbunny.walk", Animation.LoopType.LOOP));
-            return PlayState.CONTINUE;
-        }
-        state.getController().setAnimation(RawAnimation.begin().then("animations.blightbunny.idle", Animation.LoopType.LOOP));
-        return PlayState.CONTINUE;
-    }
-    private <T extends GeoAnimatable> PlayState complexAnims(AnimationState<T> state) {
-
-        State current = this.anim;
-
-        if (current == State.ATTACKING) {
-            state.getController().setAnimation(RawAnimation.begin().then("animations.blightbunny.attack", Animation.LoopType.PLAY_ONCE));
-            this.anim = State.NONE;
-        } else if (current == State.HURT) {
-            state.getController().setAnimation(RawAnimation.begin().then("animations.blightbunny.hurt", Animation.LoopType.PLAY_ONCE));
-            this.anim = State.NONE;
-        } else if (current == State.JUMPING) {
-            state.getController().setAnimation(RawAnimation.begin().then("animations.blightbunny.jump", Animation.LoopType.PLAY_ONCE));
-            this.anim = State.NONE;
-        }
-
-        return PlayState.CONTINUE;
-    }
-    @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return this.cache;
-    }
-
-
 
 }

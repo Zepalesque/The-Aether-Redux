@@ -40,7 +40,7 @@ public class ReduxChestBoat extends ChestBoat implements ReduxBoatBehavior {
     }
 
     @Nonnull
-    public Packet<ClientGamePacketListener> getAddEntityPacket() {
+    public Packet<?> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }
 

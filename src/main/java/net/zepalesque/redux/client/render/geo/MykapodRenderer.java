@@ -2,6 +2,7 @@ package net.zepalesque.redux.client.render.geo;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
+import com.mojang.math.Vector3f;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -14,6 +15,8 @@ import org.joml.Vector3f;
 import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
+import software.bernie.geckolib3.geo.render.built.GeoModel;
+import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
 
 public class MykapodRenderer extends GeoEntityRenderer<Mykapod> {
     public MykapodRenderer(EntityRendererProvider.Context renderManager) {
@@ -29,7 +32,7 @@ public class MykapodRenderer extends GeoEntityRenderer<Mykapod> {
     public void render(Mykapod entity, float entityYaw, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight) {
         if (!Minecraft.getInstance().isPaused()) {
             if (entity.getHurtAngle() != 0.0F) {
-                poseStack.mulPose(Axis.of(new Vector3f(entity.getHurtAngleX(), 0.0F, -entity.getHurtAngleZ())).rotationDegrees(entity.getHurtAngle() * -15.0F));
+                poseStack.mulPose((new Vector3f(entity.getHurtAngleX(), 0.0F, -entity.getHurtAngleZ())).rotationDegrees(entity.getHurtAngle() * -15.0F));
             }
 
             if ((double)entity.getHurtAngle() > 0.0) {
@@ -38,7 +41,7 @@ public class MykapodRenderer extends GeoEntityRenderer<Mykapod> {
 
             if (LivingEntityRenderer.isEntityUpsideDown(entity)) {
                 poseStack.translate(0.0, entity.getBbHeight() + 0.1F, 0.0);
-                poseStack.mulPose(Axis.ZP.rotationDegrees(180.0F));
+                poseStack.mulPose(Vector3f.ZP.rotationDegrees(180.0F));
             }
         }
 
@@ -59,7 +62,7 @@ public class MykapodRenderer extends GeoEntityRenderer<Mykapod> {
     }
 
 
-    public static class MykapodModel extends GeoModel<Mykapod> {
+    public static class MykapodModel extends GeoModel {
 
         private static final ResourceLocation TEXTURE_LOCATION = Redux.locate("textures/entity/mobs/mykapod/mykapod.png");
         private static final ResourceLocation DESHELLED_LOCATION = Redux.locate("textures/entity/mobs/mykapod/mykapod_shed.png");

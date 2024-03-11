@@ -3,7 +3,6 @@ package net.zepalesque.redux.entity.passive;
 
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.entity.passive.AetherAnimal;
-import net.minecraft.client.AttackIndicatorStatus;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ItemParticleOption;
@@ -14,7 +13,6 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.util.StringRepresentable;
@@ -43,27 +41,28 @@ import net.zepalesque.redux.entity.dataserializer.ReduxDataSerializers;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.misc.ReduxTags;
 import org.jetbrains.annotations.NotNull;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.core.animatable.GeoAnimatable;
-import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.core.animation.*;
-import software.bernie.geckolib.core.animation.AnimationState;
-import software.bernie.geckolib.core.keyframe.event.data.CustomInstructionKeyframeData;
-import software.bernie.geckolib.core.object.PlayState;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import software.bernie.geckolib3.core.AnimationState;
+import software.bernie.geckolib3.core.IAnimatable;
+import software.bernie.geckolib3.core.PlayState;
+import software.bernie.geckolib3.core.builder.AnimationBuilder;
+import software.bernie.geckolib3.core.controller.AnimationController;
+import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
+import software.bernie.geckolib3.core.manager.AnimationData;
+import software.bernie.geckolib3.core.manager.AnimationFactory;
+import software.bernie.geckolib3.util.GeckoLibUtil;
 
 import javax.annotation.Nullable;
 
-public class Mykapod extends AetherAnimal implements GeoEntity {
+public class Mykapod extends AetherAnimal implements IAnimatable {
 
-    private final AnimatableInstanceCache cache;
+    private final AnimationFactory cache;
 /*    @OnlyIn(Dist.CLIENT)*/
     private int clientAnimTickCount = 0;
     private int sheddingTicker = 0;
 
     public Mykapod(EntityType<? extends Mykapod> entityType, Level level) {
         super(entityType, level);
-        this.cache = GeckoLibUtil.createInstanceCache(this);
+        this.cache = GeckoLibUtil.createFactory(this);
 
         this.refreshDimensions();
     }
@@ -129,7 +128,7 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
     @Override
     public void tick() {
         super.tick();
-        if (this.level().isClientSide()) {
+        if (this.level.isClientSide()) {
             this.clientAnimTickCount++;
         }
     }
@@ -137,7 +136,7 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
     @Override
     public void aiStep() {
         super.aiStep();
-        if (!this.level().isClientSide()) {
+        if (!this.level.isClientSide()) {
             if (this.hideCooldown > 0) {
                 this.hideCooldown--;
             }
@@ -202,7 +201,7 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
         super.onSyncedDataUpdated(key);
         if (key == IS_HIDING) {
             this.refreshDimensions();
-            if (this.level().isClientSide() && this.clientAnimTickCount > 1) {
+            if (this.level.isClientSide() && this.clientAnimTickCount > 1) {
                 if (this.hideStatus() == HideStatus.OUT) {
                     this.anim = State.UNHIDE;
                 } else if (this.hideStatus() == HideStatus.INTERRUPTED) {
@@ -272,7 +271,7 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
         if (entitySource instanceof LivingEntity attacker) {
 
 
-            if (source.is(ReduxTags.DamageTypes.BYPASS_MYKAPOD)) {
+            if (source.isBypassArmor()) {
                 if (this.isHiding()) {
                     this.setHiding(HideStatus.INTERRUPTED);
                     this.hideCounter = Math.max(this.hideCounter - 5, 0);
@@ -329,7 +328,7 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
         this.setHurtAngle(0.7F - this.getHealth() / 875.0F);
     }
     private void breakParticles(int count) {
-        if (!this.level().isClientSide() && this.level() instanceof ServerLevel sl) {
+        if (!this.level.isClientSide() && this.level instanceof ServerLevel sl) {
             for (int j = 0; j < count; j++) {
                 double a = this.getBoundingBox().minX + (this.random.nextFloat() * (this.getBoundingBox().maxX - this.getBoundingBox().minX));
                 double b = this.getBoundingBox().minY + (this.random.nextFloat() * (this.getBoundingBox().maxY - this.getBoundingBox().minY));
@@ -347,55 +346,58 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
 
 
     public boolean shedShell() {
-        if (!this.level().isClientSide() && this.hasShell() && !this.isBaby()) {
+        if (!this.level.isClientSide() && this.hasShell() && !this.isBaby()) {
             this.breakParticles(10);
             this.setShell(false);
             this.spawnAtLocation(ReduxItems.MYKAPOD_SHELL_CHUNK.get(), 1);
-            this.level().playSound(null, this.position().x, this.position().y, this.position().z, ReduxSoundEvents.MYKAPOD_SHELL_SHED.get(), SoundSource.NEUTRAL, 1, 0.8F + (this.random.nextFloat() * 0.4F));
+            this.level.playSound(null, this.position().x, this.position().y, this.position().z, ReduxSoundEvents.MYKAPOD_SHELL_SHED.get(), SoundSource.NEUTRAL, 1, 0.8F + (this.random.nextFloat() * 0.4F));
             return true;
         }
         return false;
     }
     public void shedAnim() {
-        if (!this.level().isClientSide()) {
+        if (!this.level.isClientSide()) {
             this.getNavigation().stop();
-            this.level().broadcastEntityEvent(this, (byte) 17);
+            this.level.broadcastEntityEvent(this, (byte) 17);
         }
     }
 
     @Override
     public void handleEntityEvent(byte id) {
         super.handleEntityEvent(id);
-        if (id == 17 && this.level().isClientSide()) {
+        if (id == 17 && this.level.isClientSide()) {
             this.anim = State.SHED;
-        } else if (id == 16 && this.level().isClientSide()) {
+        } else if (id == 16 && this.level.isClientSide()) {
             for(int i = 0; i < 7; ++i) {
                 double d0 = this.random.nextGaussian() * 0.02D;
                 double d1 = this.random.nextGaussian() * 0.02D;
                 double d2 = this.random.nextGaussian() * 0.02D;
-                this.level().addParticle(ParticleTypes.HAPPY_VILLAGER, this.getRandomX(1.0D), this.getRandomY() + 0.5D, this.getRandomZ(1.0D), d0, d1, d2);
+                this.level.addParticle(ParticleTypes.HAPPY_VILLAGER, this.getRandomX(1.0D), this.getRandomY() + 0.5D, this.getRandomZ(1.0D), d0, d1, d2);
             }
         }
     }
+
+/*
 
     @Override
     public boolean shouldPlayAnimsWhileGamePaused() {
         return true;
     }
+*/
 
     public boolean breakShell(LivingEntity entity) {
-        if (!this.level().isClientSide() && this.hasShell() && !this.isBaby() && (entity instanceof Player p ? this.random.nextFloat() < p.getAttackStrengthScale(0.0F) : this.random.nextBoolean())) {
+        if (!this.level.isClientSide() && this.hasShell() && !this.isBaby() && (entity instanceof Player p ? this.random.nextFloat() < p.getAttackStrengthScale(0.0F) : this.random.nextBoolean())) {
             this.breakParticles(15);
             this.setShell(false);
-            this.level().playSound(null, this.position().x, this.position().y, this.position().z, ReduxSoundEvents.MYKAPOD_SHELL_BREAK.get(), SoundSource.NEUTRAL, 1, 0.8F + (this.random.nextFloat() * 0.4F));
+            this.level.playSound(null, this.position().x, this.position().y, this.position().z, ReduxSoundEvents.MYKAPOD_SHELL_BREAK.get(), SoundSource.NEUTRAL, 1, 0.8F + (this.random.nextFloat() * 0.4F));
             return true;
         }
         return false;
     }
     public void crackShell() {
-        if (!this.level().isClientSide() && this.hasShell() && !this.isBaby()) {
+        if (!this.level.isClientSide() && this.hasShell() && !this.isBaby()) {
             this.breakParticles(5);
-            this.level().playSound(null, this.position().x, this.position().y, this.position().z, ReduxSoundEvents.MYKAPOD_SHELL_CRACK.get(), SoundSource.NEUTRAL, 1, 0.8F + (this.random.nextFloat() * 0.4F));
+            this.level.playSound(null, this.position().x, this.position().y, this.position().z, ReduxSoundEvents.MYKAPOD_SHELL_CRACK.get(), SoundSource.NEUTRAL, 1, 0.8F + (this.random.nextFloat() * 0.4F));
         }
     }
 
@@ -454,23 +456,23 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
         if (this.canUseToShed(itemstack)) {
-            if (!this.level().isClientSide && !this.isBaby() && this.hasShell()) {
+            if (!this.level.isClientSide && !this.isBaby() && this.hasShell()) {
                 this.usePlayerItem(player, hand, itemstack);
                 this.setHiding(HideStatus.HIDING);
                 this.hideCounter = 50;
                 this.sheddingTicker = 50;
-                this.level().broadcastEntityEvent(this, (byte) 16);
+                this.level.broadcastEntityEvent(this, (byte) 16);
                 return InteractionResult.SUCCESS;
             }
         }
         return super.mobInteract(player, hand);
     }
 
-    protected void landAnim(CustomInstructionKeyframeData keyframeData) {
-        if (keyframeData.getInstructions().equals("land")) {
+    protected void landAnim(String instructions) {
+        if (instructions.equals("land")) {
             BlockPos blockpos = this.getOnPosLegacy();
-            BlockState blockstate = this.level().getBlockState(blockpos);
-            if (!blockstate.addRunningEffects(this.level(), blockpos, this)) {
+            BlockState blockstate = this.level.getBlockState(blockpos);
+            if (!blockstate.addRunningEffects(this.level, blockpos, this)) {
                 if (blockstate.getRenderShape() != RenderShape.INVISIBLE) {
                     Vec3 vec3 = this.getDeltaMovement();
                     BlockPos blockpos1 = this.blockPosition();
@@ -485,59 +487,72 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
                     }
 
                     for (int i = 0; i < 10; i++) {
-                        this.level().addParticle(new BlockParticleOption(ParticleTypes.BLOCK, blockstate).setPos(blockpos), d0, this.getY() + 0.1D, d1, vec3.x * -4.0D, 1.5D, vec3.z * -4.0D);
+                        this.level.addParticle(new BlockParticleOption(ParticleTypes.BLOCK, blockstate).setPos(blockpos), d0, this.getY() + 0.1D, d1, vec3.x * -4.0D, 1.5D, vec3.z * -4.0D);
                     }
-                    SoundType soundtype = blockstate.getSoundType(this.level(), blockpos, this);
+                    SoundType soundtype = blockstate.getSoundType(this.level, blockpos, this);
                     this.playSound(soundtype.getStepSound(), soundtype.getVolume() * 0.15F, soundtype.getPitch());
                 }
             }
         }
     }
 
+    protected static final AnimationBuilder HIDDEN = new AnimationBuilder().loop("animations.mykapod.hidden");
+    protected static final AnimationBuilder RUNAWAY = new AnimationBuilder().loop("animations.mykapod.runaway");
+    protected static final AnimationBuilder MOVE = new AnimationBuilder().loop("animations.mykapod.move");
+    protected static final AnimationBuilder IDLE = new AnimationBuilder().loop("animations.mykapod.idle");
+
+    protected static final AnimationBuilder SCARED = new AnimationBuilder().playOnce("animations.mykapod.scared");
+    protected static final AnimationBuilder HIDE = new AnimationBuilder().playOnce("animations.mykapod.hide");
+    protected static final AnimationBuilder SHED = new AnimationBuilder().playOnce("animations.mykapod.shed");
+    protected static final AnimationBuilder UNHIDE = new AnimationBuilder().playOnce("animations.mykapod.unhide");
+    protected static final AnimationBuilder FORCE_UNHIDE = new AnimationBuilder().playOnce("animations.mykapod.force_unhide");
 
 
     @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar registrar) {
-        registrar.add(new AnimationController<>(this, "idle_anims", 3, this::predicate));
-        registrar.add(new AnimationController<>(this, "other_anims", 3, this::hiding).setCustomInstructionKeyframeHandler(event -> {
-                this.landAnim(event.getKeyframeData());
-        }));
+    public void registerControllers(final AnimationData registrar) {
+        registrar.addAnimationController(new AnimationController<>(this, "idle_anims", 3, this::predicate));
+
+        AnimationController<Mykapod> anim = new AnimationController<>(this, "other_anims", 3, this::hiding);
+        anim.registerCustomInstructionListener(event -> {
+            this.landAnim(event.instructions);
+        });
+        registrar.addAnimationController(anim);
     }
 
-    private <T extends GeoAnimatable> PlayState predicate(AnimationState<T> state) {
+    private <T extends IAnimatable> PlayState predicate(AnimationEvent<T> state) {
 
         if (this.isHiding()) {
-            state.getController().setAnimation(RawAnimation.begin().then("animations.mykapod.hidden", Animation.LoopType.LOOP));
+            state.getController().setAnimation(HIDDEN);
             return PlayState.CONTINUE;
         }
         if (state.isMoving()) {
             Vec3 velocity = this.getDeltaMovement();
             float avgVelocity = (float)(Math.abs(velocity.x) + Math.abs(velocity.z)) / 2f;
-            state.getController().setAnimation(RawAnimation.begin().then(avgVelocity > 0.01F ? "animations.mykapod.runaway" : "animations.mykapod.move", Animation.LoopType.LOOP));
+            state.getController().setAnimation(avgVelocity > 0.01F ? RUNAWAY : MOVE);
             return PlayState.CONTINUE;
         }
-        state.getController().setAnimation(RawAnimation.begin().then("animations.mykapod.idle", Animation.LoopType.LOOP));
+        state.getController().setAnimation(IDLE);
         return PlayState.CONTINUE;
 
     }
 
-    private <T extends GeoAnimatable> PlayState hiding(AnimationState<T> state) {
+    private <T extends IAnimatable> PlayState hiding(AnimationEvent<T> state) {
 
         State current = this.anim;
         if (current == State.FEAR) {
-            state.getController().setAnimation(RawAnimation.begin().then("animations.mykapod.scared", Animation.LoopType.PLAY_ONCE));
+            state.getController().setAnimation(SCARED);
             this.anim = State.NONE;
         } else if (current == State.HIDE) {
-            state.getController().setAnimation(RawAnimation.begin().then("animations.mykapod.hide", Animation.LoopType.PLAY_ONCE));
+            state.getController().setAnimation(HIDE);
             this.anim = State.NONE;
         } else if (current == State.SHED) {
-            state.getController().setAnimation(RawAnimation.begin().then("animations.mykapod.shed", Animation.LoopType.PLAY_ONCE));
+            state.getController().setAnimation(SHED);
             this.anim = State.NONE;
-        } else if (current == State.UNHIDE && state.getController().getAnimationState().equals(AnimationController.State.STOPPED)) {
-            state.getController().setAnimation(RawAnimation.begin().then("animations.mykapod.unhide", Animation.LoopType.PLAY_ONCE));
+        } else if (current == State.UNHIDE && state.getController().getAnimationState().equals(AnimationState.Stopped)) {
+            state.getController().setAnimation(UNHIDE);
             this.anim = State.NONE;
-        } else if (current == State.INTERRUPT && state.getController().getAnimationState().equals(AnimationController.State.STOPPED)) {
-            state.getController().setAnimation(RawAnimation.begin().then("animations.mykapod.force_unhide", Animation.LoopType.PLAY_ONCE));
+        } else if (current == State.INTERRUPT && state.getController().getAnimationState().equals(AnimationState.Stopped)) {
+            state.getController().setAnimation(FORCE_UNHIDE);
             this.anim = State.NONE;
         }
 
@@ -545,7 +560,7 @@ public class Mykapod extends AetherAnimal implements GeoEntity {
     }
 
     @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
+    public AnimationFactory getFactory() {
         return cache;
     }
 }

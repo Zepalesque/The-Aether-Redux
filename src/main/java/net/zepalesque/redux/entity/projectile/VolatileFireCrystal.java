@@ -1,7 +1,7 @@
 package net.zepalesque.redux.entity.projectile;
 
 import com.aetherteam.aether.client.AetherSoundEvents;
-import com.aetherteam.aether.data.resources.registries.AetherDamageTypes;
+import com.aetherteam.aether.data.resources.AetherDamageTypes;
 import com.aetherteam.aether.entity.projectile.crystal.AbstractCrystal;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
@@ -47,9 +47,9 @@ public class VolatileFireCrystal extends AbstractCrystal {
     protected void onHitEntity(EntityHitResult result) {
         Entity entity = result.getEntity();
         if (entity instanceof LivingEntity livingEntity) {
-            if (livingEntity.hurt(AetherDamageTypes.indirectEntityDamageSource(this.level(), AetherDamageTypes.FIRE_CRYSTAL, this, this.getOwner()), 8.0F)) {
+            if (livingEntity.hurt(AetherDamageTypes.fireCrystal(this, this.getOwner()), 8.0F)) {
                 livingEntity.setSecondsOnFire(6);
-                this.level().playSound(null, this.getX(), this.getY(), this.getZ(), this.getImpactExplosionSoundEvent(), SoundSource.HOSTILE, 2.0F, this.random.nextFloat() - this.random.nextFloat() * 0.2F + 1.2F);
+                this.level.playSound(null, this.getX(), this.getY(), this.getZ(), this.getImpactExplosionSoundEvent(), SoundSource.HOSTILE, 2.0F, this.random.nextFloat() - this.random.nextFloat() * 0.2F + 1.2F);
                 this.discard();
             }
         }
@@ -57,7 +57,7 @@ public class VolatileFireCrystal extends AbstractCrystal {
     }
 
     protected void onHitBlock(BlockHitResult result) {
-        this.level().playSound(null, this.getX(), this.getY(), this.getZ(), this.getImpactExplosionSoundEvent(), SoundSource.HOSTILE, 2.0F, this.random.nextFloat() - this.random.nextFloat() * 0.2F + 1.2F);
+        this.level.playSound(null, this.getX(), this.getY(), this.getZ(), this.getImpactExplosionSoundEvent(), SoundSource.HOSTILE, 2.0F, this.random.nextFloat() - this.random.nextFloat() * 0.2F + 1.2F);
         this.discard();
     }
 
@@ -72,7 +72,7 @@ public class VolatileFireCrystal extends AbstractCrystal {
             this.markHurt();
             Entity entity = source.getEntity();
             if (entity != null) {
-                if (!this.level().isClientSide) {
+                if (!this.level.isClientSide) {
                     Vec3 vec3 = entity.getLookAngle();
                     this.setDeltaMovement(vec3);
                     this.xPower = vec3.x * 0.25;
