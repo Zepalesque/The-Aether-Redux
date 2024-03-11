@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ItemInHandRenderer.class)
 public class HandItemMixin {
-
+/*
 
     @Inject(at = @At("HEAD"), method = "evaluateWhichHandsToRender", cancellable = true)
     private static void evaluateWhichHandsToRender(LocalPlayer pPlayer, CallbackInfoReturnable<ItemInHandRenderer.HandRenderSelection> cir) {
@@ -43,5 +43,5 @@ public class HandItemMixin {
     @Unique
     private static boolean subzeroCharged(ItemStack pStack) {
         return pStack.is(ReduxItems.SUBZERO_CROSSBOW.get()) && SubzeroCrossbowItem.isCharged(pStack);
-    }
+    }*/
 }
