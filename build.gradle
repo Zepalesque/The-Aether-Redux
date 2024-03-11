@@ -136,16 +136,16 @@ dependencies {
     minecraft "net.minecraftforge:forge:${project.mc_version}-${project.forge_version}"
     annotationProcessor "org.spongepowered:mixin:${project.mixin_version}:processor"
 
-    compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:${project.mixinextras_version}"))
-    implementation(jarJar("io.github.llamalad7:mixinextras-forge:${project.mixinextras_version}")) {
+    compileOnly(annotationProcessor("com.github.llamalad7:mixinextras-common:${project.mixinextras_version}"))
+    implementation(jarJar("com.github.llamalad7:mixinextras-forge:${project.mixinextras_version}")) {
         jarJar.ranged(it, "[0.2.0,)")
     }
 
     implementation fg.deobf("com.aetherteam.aether:aether:${project.aether_version}")
     implementation fg.deobf("com.aetherteam.nitrogen:nitrogen_internals:${project.nitrogen_version}")
     implementation fg.deobf("com.aetherteam.cumulus:cumulus_menus:${project.cumulus_version}")
-    compileOnly "mezz.jei:jei-1.20.1-common:${project.jei_version}"
-    compileOnly "mezz.jei:jei-1.20.1-forge:${project.jei_version}"
+    compileOnly "mezz.jei:jei-1.19.2-common:${project.jei_version}"
+    compileOnly "mezz.jei:jei-1.19.2-forge:${project.jei_version}"
     implementation fg.deobf("curse.maven:jei-238222:${project.jei_curse_version}")
     implementation fg.deobf("top.theillusivec4.curios:curios-forge:${project.curios_version}")
     implementation fg.deobf("curse.maven:deep-aether-852465:${project.deep_aether_version}")
