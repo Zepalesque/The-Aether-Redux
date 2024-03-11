@@ -58,7 +58,6 @@
     "client.render.BattleSentryRendererMixin",
     "client.render.BiomeMixin",
     "client.render.EntityRendererMixin",
-    "client.render.HandItemMixin",
     "client.render.LivingEntityRendererMixin",
     "client.render.MimicRendererMixin",
     "client.render.MoaRendererMixin",
