@@ -19,8 +19,7 @@ public class ReduxConfigSerialization {
 
     public static ForgeConfigSpec.ConfigValue<Boolean> deserialize(String string) {
         List<String> path = Arrays.asList(string.replace("[", "").replace("]", "").split(", "));
-        ForgeConfigSpec.ConfigValue<Boolean> config = ReduxConfig.COMMON_SPEC.getValues().get(path);
 
-        return config;
+        return ReduxConfig.COMMON_SPEC.getValues().get(path);
     }
 }
