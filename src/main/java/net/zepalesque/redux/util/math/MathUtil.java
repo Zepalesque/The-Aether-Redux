@@ -24,7 +24,11 @@ public class MathUtil {
         return Mth.clamp(Mth.inverseLerp(delta, min, max), min, max);
     }
     public static int clampedLerpInt(float delta, int min, int max) {
-        return Mth.clamp(Mth.lerpInt(delta, min, max), min, max);
+        return Mth.clamp(lerpInt(delta, min, max), min, max);
+    }
+
+    public static int lerpInt(float delta, int start, int end) {
+        return start + Mth.floor(delta * (float)(end - start));
     }
 
     public static int toNearestEven(float f)

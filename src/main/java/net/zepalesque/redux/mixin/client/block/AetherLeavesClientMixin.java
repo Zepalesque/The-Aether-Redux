@@ -19,8 +19,6 @@ import net.zepalesque.redux.block.natural.ExtendedDistanceLeavesBlock;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.misc.ReduxTags;
-import net.zepalesque.redux.util.compat.GenesisCompatUtil;
-import net.zepalesque.redux.util.compat.AncientCompatUtil;
 import net.zepalesque.redux.util.compat.DeepCompatUtil;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;

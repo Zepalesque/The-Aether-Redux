@@ -18,7 +18,6 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.natural.ExtendedDistanceLeavesBlock;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
-import net.zepalesque.redux.util.compat.GenesisCompatUtil;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

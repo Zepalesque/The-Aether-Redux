@@ -23,9 +23,9 @@ public class AbilityUtil {
         double yDelta = upJump;
         double zDelta = entity.getDeltaMovement().z() * 1.4D;
         entity.setDeltaMovement(xDelta, yDelta, zDelta);
-        spawnDoubleJumpParticles(entity.level(), entity.position().x, entity.position().y, entity.position().z, 1.5D, 12);
-        entity.level().playSound(null, entity.position().x, entity.position().y, entity.position().z, ReduxSoundEvents.BOOST_JUMP.get(), SoundSource.PLAYERS, 0.4f,
-                0.9F + entity.level().random.nextFloat() * 0.2F);
+        spawnDoubleJumpParticles(entity.level, entity.position().x, entity.position().y, entity.position().z, 1.5D, 12);
+        entity.level.playSound(null, entity.position().x, entity.position().y, entity.position().z, ReduxSoundEvents.BOOST_JUMP.get(), SoundSource.PLAYERS, 0.4f,
+                0.9F + entity.level.random.nextFloat() * 0.2F);
     }
 
     public static void spawnDoubleJumpParticles(Level level, double x, double y, double z, double radius, int quantity) {
@@ -46,40 +46,40 @@ public class AbilityUtil {
         {
             float offset = 0;
             float rotation = Mth.wrapDegrees(entity.getYRot() + offset);
-            VolatileFireCrystal crystal = new VolatileFireCrystal(entity.level(), entity);
+            VolatileFireCrystal crystal = new VolatileFireCrystal(entity.level, entity);
             crystal.setPos(entity.getX(), entity.getY() + 1, entity.getZ());
             crystal.shootFromRotation(entity, entity.getXRot(), rotation, 0.0F, 1.0F, 1.0F);
             crystal.setOwner(entity);
-            if (!entity.level().isClientSide) {
-                entity.level().addFreshEntity(crystal);
-                entity.level().playSound(null, entity.position().x, entity.position().y, entity.position().z, ReduxSoundEvents.FIREBALL_SHOOT.get(), SoundSource.PLAYERS, 0.4f,
-                        0.9F + entity.level().random.nextFloat() * 0.2F);
+            if (!entity.level.isClientSide) {
+                entity.level.addFreshEntity(crystal);
+                entity.level.playSound(null, entity.position().x, entity.position().y, entity.position().z, ReduxSoundEvents.FIREBALL_SHOOT.get(), SoundSource.PLAYERS, 0.4f,
+                        0.9F + entity.level.random.nextFloat() * 0.2F);
 
             }
             entity.swing(InteractionHand.MAIN_HAND);
         } else {
             float offset = 2.0F;
             float rotation = Mth.wrapDegrees(entity.getYRot() + offset);
-            VolatileFireCrystal crystal = new VolatileFireCrystal(entity.level(), entity);
+            VolatileFireCrystal crystal = new VolatileFireCrystal(entity.level, entity);
             crystal.setPos(getSidedPoition(entity, HumanoidArm.RIGHT));
             crystal.shootFromRotation(entity, entity.getXRot(), rotation, 0.0F, 1.0F, 1.0F);
             crystal.setOwner(entity);
-            if (!entity.level().isClientSide) {
-                entity.level().addFreshEntity(crystal);
-                entity.level().playSound(null, entity.position().x, entity.position().y, entity.position().z, ReduxSoundEvents.FIREBALL_SHOOT.get(), SoundSource.PLAYERS, 0.4f,
-                        0.9F + entity.level().random.nextFloat() * 0.2F);
+            if (!entity.level.isClientSide) {
+                entity.level.addFreshEntity(crystal);
+                entity.level.playSound(null, entity.position().x, entity.position().y, entity.position().z, ReduxSoundEvents.FIREBALL_SHOOT.get(), SoundSource.PLAYERS, 0.4f,
+                        0.9F + entity.level.random.nextFloat() * 0.2F);
             }
 
                 float offset1 = -2.0F;
             float rotation1 = Mth.wrapDegrees(entity.getYRot() + offset1);
-            VolatileFireCrystal crystal1 = new VolatileFireCrystal(entity.level(), entity);
+            VolatileFireCrystal crystal1 = new VolatileFireCrystal(entity.level, entity);
             crystal1.setPos(getSidedPoition(entity, HumanoidArm.LEFT));
             crystal1.shootFromRotation(entity, entity.getXRot(), rotation1, 0.0F, 1.0F, 1.0F);
             crystal1.setOwner(entity);
-            if (!entity.level().isClientSide) {
-                entity.level().addFreshEntity(crystal1);
-                entity.level().playSound(null, entity.position().x, entity.position().y, entity.position().z, ReduxSoundEvents.FIREBALL_SHOOT.get(), SoundSource.PLAYERS, 0.4f,
-                        0.9F + entity.level().random.nextFloat() * 0.2F);
+            if (!entity.level.isClientSide) {
+                entity.level.addFreshEntity(crystal1);
+                entity.level.playSound(null, entity.position().x, entity.position().y, entity.position().z, ReduxSoundEvents.FIREBALL_SHOOT.get(), SoundSource.PLAYERS, 0.4f,
+                        0.9F + entity.level.random.nextFloat() * 0.2F);
 
 
             }

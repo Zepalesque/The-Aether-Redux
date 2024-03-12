@@ -7,7 +7,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.EntityType;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.config.ReduxConfig;
-import net.zepalesque.redux.util.compat.GenesisCompatUtil;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
