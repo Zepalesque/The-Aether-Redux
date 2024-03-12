@@ -20,6 +20,7 @@ import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.util.compat.DeepCompatUtil;
+import net.zepalesque.redux.util.level.ParticlePlacementUtil;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -42,7 +43,7 @@ public class AetherLeavesClientMixin extends LeafBlockClientMixin {
             BlockPos blockpos = pos.below();
             BlockState blockstate = level.getBlockState(blockpos);
             if ((!blockstate.canOcclude() || !blockstate.isFaceSturdy(level, blockpos, Direction.UP)) && !(blockstate.getBlock() instanceof LeavesBlock) && !(blockstate.getBlock() instanceof ExtendedDistanceLeavesBlock)) {
-                ParticleUtils.spawnParticleBelow(level, pos, random, supplier.get());
+                ParticlePlacementUtil.spawnParticleBelow(level, pos, random, supplier.get());
             }
         }
     }
@@ -56,18 +57,6 @@ public class AetherLeavesClientMixin extends LeafBlockClientMixin {
                     @Nullable Supplier<? extends ParticleOptions> deep = DeepCompatUtil.getParticle(self);
                     if (deep != null) {
                         particle = deep;
-                    }
-                }
-                if (Redux.aetherGenesisCompat()) {
-                    @Nullable Supplier<? extends ParticleOptions> genesis = GenesisCompatUtil.getParticle(self);
-                    if (genesis != null) {
-                        particle = genesis;
-                    }
-                }
-                if (Redux.ancientAetherCompat()) {
-                    @Nullable Supplier<? extends ParticleOptions> ancient = AncientCompatUtil.getParticle(self);
-                    if (ancient != null) {
-                        particle = ancient;
                     }
                 }
             }

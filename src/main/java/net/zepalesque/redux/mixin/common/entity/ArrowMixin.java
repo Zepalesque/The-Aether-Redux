@@ -1,17 +1,12 @@
 package net.zepalesque.redux.mixin.common.entity;
 
-import com.aetherteam.aether.entity.monster.dungeon.Mimic;
-import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
+import com.llamalad7.mixinextras.injector.WrapWithCondition;
 import net.minecraft.core.particles.ParticleOptions;
-import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.util.LazyOptional;
-import net.zepalesque.redux.capability.animation.mimic.MimicAnimation;
 import net.zepalesque.redux.capability.arrow.SubzeroArrow;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
-import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.network.ReduxPacketHandler;
 import net.zepalesque.redux.network.packet.SubzeroArrowPacket;
 import org.spongepowered.asm.mixin.Mixin;
@@ -19,8 +14,6 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.Redirect;
-import org.spongepowered.asm.mixin.injection.Slice;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(AbstractArrow.class)
@@ -35,7 +28,7 @@ public class ArrowMixin
         SubzeroArrow.get(arrow).ifPresent(subzeroArrow -> {
             if (subzeroArrow.isSubzeroArrow()) {
                 subzeroArrow.tick();
-                if (!arrow.level().isClientSide) {
+                if (!arrow.level.isClientSide) {
                     ReduxPacketHandler.sendToAll(new SubzeroArrowPacket(arrow.getId(), true));
                 }
             }

@@ -25,7 +25,7 @@ public abstract class AmbrosiumShardMixin extends ItemMixin {
 
         ItemStack other = slot.getItem();
 
-        Level level = player.level();
+        Level level = player.level;
 
         for (InfusionRecipe recipe : level.getRecipeManager().getAllRecipesFor(ReduxRecipeTypes.INFUSION.get())) {
             if (recipe != null) {
@@ -42,7 +42,7 @@ public abstract class AmbrosiumShardMixin extends ItemMixin {
                         }
                         stack.shrink(1);
                         slot.setChanged();
-                        player.playSound(ReduxSoundEvents.INFUSE_ITEM.get(), 0.8F, 0.8F + player.level().getRandom().nextFloat() * 0.4F);
+                        player.playSound(ReduxSoundEvents.INFUSE_ITEM.get(), 0.8F, 0.8F + player.level.getRandom().nextFloat() * 0.4F);
                         cir.setReturnValue(true);
                     }
                 }

@@ -27,17 +27,8 @@ public class BronzeDungeonRoomMixin {
             if (random.nextInt(3) == 0) {
                 level.setBlock(pos, Blocks.SPAWNER.defaultBlockState(), 2);
                 if (level.getBlockEntity(pos) instanceof SpawnerBlockEntity spawner) {
-                    if (Redux.aetherGenesisCompat() && ReduxConfig.COMMON.genesis_spawner_mobs.get() == SpawnerType.all)
-                    {
-                        float chance = random.nextFloat();
-                        spawner.setEntityId(chance <= 0.45F ? AetherEntityTypes.SENTRY.get() : chance <= 0.75F ? ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation("aether_genesis", "battle_sentry")) : ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation("aether_genesis", "tracking_golem")), random);
-                    } else if (Redux.aetherGenesisCompat() && ReduxConfig.COMMON.genesis_spawner_mobs.get() == SpawnerType.no_golems) {
-                        float chance = random.nextFloat();
-                        spawner.setEntityId(chance <= 0.6F ? AetherEntityTypes.SENTRY.get() : ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation("aether_genesis", "battle_sentry")), random);
 
-                    }else {
-                        spawner.setEntityId(AetherEntityTypes.SENTRY.get(), random);
-                    }
+                    spawner.getSpawner().setEntityId(AetherEntityTypes.SENTRY.get());
                 }
             }
         }

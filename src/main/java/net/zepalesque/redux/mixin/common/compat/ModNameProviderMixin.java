@@ -40,13 +40,8 @@ public class ModNameProviderMixin {
     @Inject(method = "appendTooltip(Lsnownee/jade/api/ITooltip;Lsnownee/jade/api/EntityAccessor;Lsnownee/jade/api/config/IPluginConfig;)V", at = @At(value = "TAIL"), remap = false)
     protected void tooltip(ITooltip tooltip, EntityAccessor accessor, IPluginConfig config, CallbackInfo ci) {
         EntityType<?> type = accessor.getEntity().getType();
-        if ((ENTITIES.containsKey(type) && ENTITIES.get(type).get()) || (GenesisCompatUtil.isBattleSentry(type) && (ReduxConfig.CLIENT.sentry_model_upgrade.get()))) {
+        if ((ENTITIES.containsKey(type) && ENTITIES.get(type).get())) {
             tooltip.append(ENTITY_TOOLTIP);
         }
-    }
-
-    @Unique
-    private boolean isMimic(EntityType<?> type) {
-        return type == AetherEntityTypes.MIMIC.get() || GenesisCompatUtil.isSkyrootMimic(type);
     }
 }

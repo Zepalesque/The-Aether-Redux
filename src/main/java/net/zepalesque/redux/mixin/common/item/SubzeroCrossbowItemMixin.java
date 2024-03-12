@@ -1,5 +1,7 @@
 package net.zepalesque.redux.mixin.common.item;
 
+import com.mojang.math.Quaternion;
+import com.mojang.math.Vector3f;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -19,8 +21,6 @@ import net.orcinus.galosphere.entities.SpectreFlare;
 import net.orcinus.galosphere.init.GCriteriaTriggers;
 import net.orcinus.galosphere.init.GItems;
 import net.zepalesque.redux.item.weapons.SubzeroCrossbowItem;
-import org.joml.Quaternionf;
-import org.joml.Vector3f;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -57,10 +57,11 @@ public class SubzeroCrossbowItemMixin {
             if (entity instanceof CrossbowAttackMob crossbowattackmob && crossbowattackmob.getTarget() != null) {
                 crossbowattackmob.shootCrossbowProjectile(crossbowattackmob.getTarget(), stack, projectile, p_40904_);
             } else {
-                Vec3 vec3 = entity.getUpVector(1.0F);
-                Quaternionf quaternionf = new Quaternionf().setAngleAxis(p_40904_ * ((float)Math.PI / 180), vec3.x, vec3.y, vec3.z);
-                Vec3 vec32 = entity.getViewVector(1.0F);
-                Vector3f vector3f = vec32.toVector3f().rotate(quaternionf);
+                Vec3 vec31 = entity.getUpVector(1.0F);
+                Quaternion quaternion = new Quaternion(new Vector3f(vec31), p_40904_, true);
+                Vec3 vec3 = entity.getViewVector(1.0F);
+                Vector3f vector3f = new Vector3f(vec3);
+                vector3f.transform(quaternion);
                 projectile.shoot(vector3f.x(), vector3f.y(), vector3f.z(), p_40902_, p_40903_);
             }
 

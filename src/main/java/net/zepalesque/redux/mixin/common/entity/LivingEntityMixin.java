@@ -32,10 +32,6 @@ public abstract class LivingEntityMixin extends EntityMixin {
     @Inject(method = "doPush", at = @At("HEAD"), cancellable = true)
     protected void redux$doPush(Entity entity, CallbackInfo ci) {}
 
-
-    @Inject(method = "getRiddenSpeed", at = @At("HEAD"), cancellable = true)
-    protected void redux$getRiddenSpeed(Player player, CallbackInfoReturnable<Float> cir) {}
-
     @Inject(method = "isPushable", at = @At("HEAD"), cancellable = true)
     protected void redux$isPushable(CallbackInfoReturnable<Boolean> cir) {}
 }

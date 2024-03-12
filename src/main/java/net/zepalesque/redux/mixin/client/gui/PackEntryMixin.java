@@ -1,7 +1,9 @@
 package net.zepalesque.redux.mixin.client.gui;
 
+import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiComponent;
 import net.minecraft.client.gui.screens.packs.PackSelectionModel;
 import net.minecraft.client.gui.screens.packs.TransferableSelectionList;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
@@ -40,16 +42,19 @@ public class PackEntryMixin implements MixinMenuStorage {
     @Shadow @Final protected Minecraft minecraft;
 
     @Inject(method = "render", at = @At(value = "TAIL"))
-    public void render(GuiGraphics guiGraphics, int index, int top, int left, int width, int height, int mouseX, int mouseY, boolean hovering, float partialTick, CallbackInfo ci) {
-        if (this.pack.getId().equals(ID)) {
+    public void render(PoseStack guiGraphics, int index, int top, int left, int width, int height, int mouseX, int mouseY, boolean hovering, float partialTick, CallbackInfo ci) {
+        if (this.pack instanceof PackSelectionModel.EntryBase base && base.pack.getId().equals(ID)) {
             int minX = left + width - 21;
             int minY = top;
+            RenderSystem.setShaderTexture(0, SETTINGS_BUTTON);
+            guiGraphics.pushPose();
             if (mouseX > minX && mouseX < minX + 10 && mouseY > minY && mouseY < minY + 10) {
-                guiGraphics.blit(SETTINGS_BUTTON, minX, minY, 0F, 10F, 10, 10, 32, 32);
+                GuiComponent.blit(guiGraphics, minX, minY, 0F, 10F, 10, 10, 32, 32);
             } else {
-                guiGraphics.blit(SETTINGS_BUTTON, minX, minY, 0F, 0F, 10, 10, 32, 32);
-
+                GuiComponent.blit(guiGraphics, minX, minY, 0F, 0F, 10, 10, 32, 32);
             }
+            guiGraphics.popPose();
+
         }
     }
 

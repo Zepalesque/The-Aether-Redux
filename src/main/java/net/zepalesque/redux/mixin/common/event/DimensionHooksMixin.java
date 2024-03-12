@@ -15,7 +15,7 @@ public class DimensionHooksMixin {
 
     @Inject(at = @At(value = "HEAD", shift = At.Shift.AFTER), method = "entityFell")
     private static void fall(Entity entity, CallbackInfoReturnable<Entity> cir) {
-        if (entity instanceof Player player && !player.level().isClientSide() && player instanceof ServerPlayer sp)
+        if (entity instanceof Player player && !player.level.isClientSide() && player instanceof ServerPlayer sp)
         {
             FallFromAetherTrigger.INSTANCE.trigger(sp);
         }

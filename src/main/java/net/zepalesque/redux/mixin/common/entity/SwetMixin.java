@@ -81,7 +81,7 @@ public abstract class SwetMixin extends SlimeMixin {
     @Inject(method = "tick", at = @At(value = "HEAD"))
     public void redux$tick(CallbackInfo ci) {
         if (ReduxConfig.COMMON.pl_swet_behavior.get()) {
-            if (this.onGround() && !this.wasOnGround) {
+            if (this.isOnGround() && !this.wasOnGround) {
                 double i = SwetHooks.getTrueScale((Swet) (Object) this);
                 @Nullable ParticleOptions particle = SwetHooks.getSquelchParticles((Swet) (Object) this);
 
@@ -91,7 +91,7 @@ public abstract class SwetMixin extends SlimeMixin {
                         float f1 = ((Swet) (Object) this).getRandom().nextFloat() * 0.5F + 0.5F;
                         float f2 = Mth.sin(f) * (float) i * 0.5F * f1;
                         float f3 = Mth.cos(f) * (float) i * 0.5F * f1;
-                        ((Swet) (Object) this).level().addParticle(particle, ((Swet) (Object) this).getX() + (double) f2, ((Swet) (Object) this).getY(), ((Swet) (Object) this).getZ() + (double) f3, 0.0D, 0.0D, 0.0D);
+                        ((Swet) (Object) this).level.addParticle(particle, ((Swet) (Object) this).getX() + (double) f2, ((Swet) (Object) this).getY(), ((Swet) (Object) this).getZ() + (double) f3, 0.0D, 0.0D, 0.0D);
 
                     }
                 }
@@ -103,13 +103,6 @@ public abstract class SwetMixin extends SlimeMixin {
     public void getMountJumpStrength(CallbackInfoReturnable<Double> cir) {
         if (ReduxConfig.COMMON.pl_swet_behavior.get()) {
             cir.setReturnValue(SwetHooks.getTrueScale((Swet) (Object) this) * 0.25F);
-        }
-    }
-
-    @Override
-    public void redux$getRiddenSpeed(Player player, CallbackInfoReturnable<Float> cir) {
-        if (ReduxConfig.COMMON.pl_swet_behavior.get()) {
-            cir.setReturnValue((float) (this.getSpeed() + SwetHooks.getTrueScale((Swet) (Object)(this))/* / 10F*/));
         }
     }
 

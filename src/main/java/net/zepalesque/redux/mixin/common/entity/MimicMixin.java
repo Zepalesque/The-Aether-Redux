@@ -1,10 +1,7 @@
 package net.zepalesque.redux.mixin.common.entity;
 
 import com.aetherteam.aether.entity.monster.dungeon.Mimic;
-import com.aetherteam.aether.mixin.mixins.common.accessor.EntityAccessor;
-import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
-import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.util.RandomSource;
+import com.llamalad7.mixinextras.injector.WrapWithCondition;
 import net.minecraft.world.entity.Entity;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.capability.animation.mimic.MimicAnimation;
