@@ -1,7 +1,6 @@
 package net.zepalesque.redux.recipe;
 
 import net.minecraft.core.NonNullList;
-import net.minecraft.core.RegistryAccess;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -20,6 +19,7 @@ public interface StackingRecipe extends Recipe<Container> {
 
     ItemStack getResultStack(ItemStack originalState);
 
+    //CommandFunction.CacheableFunction getFunction();
 
     @Override
     default boolean matches(Container container, Level level) {
@@ -27,7 +27,7 @@ public interface StackingRecipe extends Recipe<Container> {
     }
 
     @Override
-    default ItemStack assemble(Container container, RegistryAccess registryAccess) {
+    default ItemStack assemble(Container container) {
         return ItemStack.EMPTY;
     }
 
@@ -37,7 +37,7 @@ public interface StackingRecipe extends Recipe<Container> {
     }
 
     @Override
-    default ItemStack getResultItem(RegistryAccess registryAccess) {
+    default ItemStack getResultItem() {
         return ItemStack.EMPTY;
     }
 
@@ -51,4 +51,3 @@ public interface StackingRecipe extends Recipe<Container> {
         return true;
     }
 }
-

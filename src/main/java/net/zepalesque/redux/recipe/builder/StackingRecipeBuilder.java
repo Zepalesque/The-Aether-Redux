@@ -2,13 +2,13 @@ package net.zepalesque.redux.recipe.builder;
 
 import com.google.gson.JsonObject;
 import net.minecraft.advancements.CriterionTriggerInstance;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.zepalesque.redux.recipe.AbstractStackingRecipe;
 
 import javax.annotation.Nullable;
@@ -92,7 +92,7 @@ public class StackingRecipeBuilder implements RecipeBuilder {
             json.add("ingredient", this.ingredient.toJson());
 
             JsonObject result = new JsonObject();
-            result.addProperty("item", BuiltInRegistries.ITEM.getKey(this.result).toString());
+            result.addProperty("item", ForgeRegistries.ITEMS.getKey(this.result).toString());
 
             json.add("result", result);
             if (this.infusionAmount != 0) {
