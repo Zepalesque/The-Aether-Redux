@@ -1,10 +1,5 @@
 package net.zepalesque.redux.api.blockhandler;
 
-import net.zepalesque.redux.data.ReduxBlockstateData;
-import net.zepalesque.redux.data.ReduxItemModelData;
-import net.zepalesque.redux.data.ReduxLanguageData;
-import net.zepalesque.redux.data.loot.ReduxBlockLootData;
-
 public interface BlockHandler {
 
     static boolean isVowel(char c)

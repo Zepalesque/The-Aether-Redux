@@ -60,11 +60,11 @@ public class SwetMassCapability implements SwetMass {
     public void tick() {
         if (ReduxConfig.COMMON.pl_swet_behavior.get() && !this.getSwet().isDeadOrDying()) {
             massStuck = 0;
-            this.getSwet().level().getEntities(this.getSwet(), this.getSwet().getBoundingBox().inflate(0.9, 0.9, 0.9)).forEach((entity) -> {
+            this.getSwet().level.getEntities(this.getSwet(), this.getSwet().getBoundingBox().inflate(0.9, 0.9, 0.9)).forEach((entity) -> {
                 AABB box = entity.getBoundingBox();
                 massStuck += box.getXsize() * box.getYsize() * box.getZsize();
             });
-            this.getSwet().level().getEntities(this.getSwet(), this.getSwet().getBoundingBox()).forEach(this::onEntityCollision);
+            this.getSwet().level.getEntities(this.getSwet(), this.getSwet().getBoundingBox()).forEach(this::onEntityCollision);
         }
     }
 
@@ -86,7 +86,7 @@ public class SwetMassCapability implements SwetMass {
         if (entity instanceof LivingEntity livingEntity && EquipmentUtil.hasSwetCape(livingEntity)) {
             return;
         }
-        boolean absorbable = isAbsorbable(entity, this.getSwet().level());
+        boolean absorbable = isAbsorbable(entity, this.getSwet().level);
         if (SwetHooks.canAbsorbEntities(this.getSwet()) && absorbable) {
             // The higher this number, the stiffer the wobble is
             if (massStuck < 1) {
@@ -129,7 +129,7 @@ public class SwetMassCapability implements SwetMass {
     }
 
     protected void damage(LivingEntity livingEntity) {
-        if (livingEntity.hurt(ReduxDamageTypes.entitySource(this.getSwet().level(), ReduxDamageTypes.SWET, this.getSwet()), SwetHooks.getDamage(this.getSwet()))) {
+        if (livingEntity.hurt(ReduxDamageTypes.swetAbsorption(this.getSwet()), SwetHooks.getDamage(this.getSwet()))) {
             this.getSwet().playSound(ReduxSoundEvents.SWET_ATTACK.get(), 1.0F, (this.getSwet().getRandom().nextFloat() - this.getSwet().getRandom().nextFloat()) * 0.2F + 1.0F);
         }
     }

@@ -8,13 +8,17 @@ import java.util.function.UnaryOperator;
 
 public class ReduxPackSources {
 
-    public static final PackSource OPTIONAL_DATAPACK = PackSource.create(decorateWithSource("pack.source.optional_datapack"), false);
+    public static final PackSource OPTIONAL_DATAPACK = decorating("pack.source.optional_datapack");
 
-    public static final PackSource AUTO_APPLY_RESOURCE = PackSource.create(decorateWithSource("pack.source.auto_apply_resource"), true);
+    public static final PackSource AUTO_APPLY_RESOURCE = decorating("pack.source.auto_apply_resource");
 
     public static UnaryOperator<Component> decorateWithSource(String pTranslationKey) {
         Component component = Component.translatable(pTranslationKey);
         return (p_10539_) -> Component.translatable("pack.nameAndSource", p_10539_, component).withStyle(ChatFormatting.GRAY);
     }
 
+    static PackSource decorating(String source) {
+        Component component = Component.translatable(source);
+        return (p_10539_) -> Component.translatable("pack.nameAndSource", p_10539_, component).withStyle(ChatFormatting.GRAY);
+    }
 }

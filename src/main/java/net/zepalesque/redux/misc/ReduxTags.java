@@ -1,13 +1,11 @@
 package net.zepalesque.redux.misc;
 
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.zepalesque.redux.Redux;
 
 public class ReduxTags {
@@ -21,17 +19,12 @@ public class ReduxTags {
         public static final TagKey<Block> ENCHANTED_GRASSES = tag("enchanted_grasses");
         public static final TagKey<Block> AEVELIUM_GRASSES = tag("veridium_advancement_infusable");
         public static final TagKey<Block> QUICKSOIL_BEHAVIOR = tag("quicksoil_behavior");
-        public static final TagKey<Block> LOG_WALLS = tagGenesis("log_walls");
         public static final TagKey<Block> ENCHANTED_VINES_SKIP_PLACEMENT = tag("enchanted_vines_skip_placement");
         public static final TagKey<Block> ENCHANTED_VINES_SURVIVE = tag("enchanted_vines_survive");
         public static final TagKey<Block> MUSHROOM_CAPS = tag("enchanted_vines_survive");
 
         public static TagKey<Block> tag(String name) {
-            return TagKey.create(Registries.BLOCK, Redux.locate(name));
-        }
-
-        public static TagKey<Block> tagGenesis(String name) {
-            return TagKey.create(Registries.BLOCK,new ResourceLocation("aether_genesis",name));
+            return TagKey.create(ForgeRegistries.BLOCKS.getRegistryKey(), Redux.locate(name));
         }
     }
 
@@ -59,7 +52,7 @@ public class ReduxTags {
         public static final TagKey<Item> MOUSE_EAR_CAPS = tag("compat/mouse_ear_caps");
 
         public static TagKey<Item> tag(String name) {
-            return TagKey.create(Registries.ITEM, Redux.locate(name));
+            return TagKey.create(ForgeRegistries.ITEMS.getRegistryKey(), Redux.locate(name));
         }
     }
 
@@ -70,7 +63,7 @@ public class ReduxTags {
         public static final TagKey<EntityType<?>> SWET_PASSTHROUGH = tag("swet_passthrough");
 
         private static TagKey<EntityType<?>> tag(String name) {
-            return TagKey.create(Registries.ENTITY_TYPE, Redux.locate(name));
+            return TagKey.create(ForgeRegistries.ENTITY_TYPES.getRegistryKey(), Redux.locate(name));
         }
     }
 
@@ -80,8 +73,6 @@ public class ReduxTags {
         public static final TagKey<Biome> IS_FROSTED = tag("is_frosted");
         // TODO: Implement in 2.1
         public static final TagKey<Biome> IS_QUICKSOIL_DESERT = tag("is_quicksoil_desert");
-
-        public static final TagKey<Biome> AA_SKY_GRASS = tagAncient("has_aether_grass_patches");
 
         public static final TagKey<Biome> HAS_AETHER_CAVES = tag("has_aether_caves");
         public static final TagKey<Biome> HAS_BLIGHTED_CAVES = tag("has_blighted_caves");
@@ -103,21 +94,9 @@ public class ReduxTags {
 
 
         private static TagKey<Biome> tag(String name) {
-            return TagKey.create(Registries.BIOME, Redux.locate(name));
+            return TagKey.create(ForgeRegistries.BIOMES.getRegistryKey(), Redux.locate(name));
         }
 
-        private static TagKey<Biome> tagAncient(String name) {
-            return TagKey.create(Registries.BIOME, new ResourceLocation("ancient_aether", name));
-        }
-    }
-    public static class DamageTypes {
 
-        public static final TagKey<DamageType> IS_ATTACK = tag("is_attack");
-        public static final TagKey<DamageType> FIREBALL = tag("fireball");
-        public static final TagKey<DamageType> BYPASS_MYKAPOD = tag("bypass_mykapod");
-
-        private static TagKey<DamageType> tag(String name) {
-            return TagKey.create(Registries.DAMAGE_TYPE, Redux.locate(name));
-        }
     }
 }

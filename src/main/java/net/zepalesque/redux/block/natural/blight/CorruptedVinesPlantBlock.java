@@ -35,22 +35,22 @@ public class CorruptedVinesPlantBlock extends GrowingPlantBodyBlock {
 
    @Override
    public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
-      if (!pEntity.level().isClientSide() && pEntity instanceof LivingEntity living && !living.getType().is(ReduxTags.EntityTypes.BLIGHTED_MOBS) && living.getBoundingBox().intersects(getShape(pState, pLevel, pPos, CollisionContext.of(living)).bounds().move(pPos))) {
+      if (!pEntity.level.isClientSide() && pEntity instanceof LivingEntity living && !living.getType().is(ReduxTags.EntityTypes.BLIGHTED_MOBS) && living.getBoundingBox().intersects(getShape(pState, pLevel, pPos, CollisionContext.of(living)).bounds().move(pPos))) {
          if (!EquipmentHooks.isImmuneToBlightPlants(living)) {
             pEntity.makeStuckInBlock(pState, new Vec3(1D, 1D, 1D));
             if (!pLevel.isClientSide && (pEntity.xOld != pEntity.getX() || pEntity.zOld != pEntity.getZ())) {
                double d0 = Math.abs(pEntity.getX() - pEntity.xOld);
                double d1 = Math.abs(pEntity.getZ() - pEntity.zOld);
                if (d0 >= (double) 0.003F || d1 >= (double) 0.003F) {
-                  pEntity.hurt(ReduxDamageTypes.source(pLevel, ReduxDamageTypes.CORRUPTED_VINES), 3.0F);
+                  pEntity.hurt(ReduxDamageTypes.CORRUPTED_VINES, 3.0F);
                }
             }
          }
          if (pLevel.random.nextInt(100) == 0) {
-            EquipmentUtil.findFirstCurio(living, stack -> stack.is(ReduxTags.Items.BLIGHTWARDING_ACCESSORIES))
+            CuriosApi.getCuriosHelper().findFirstCurio(living, stack -> stack.is(ReduxTags.Items.BLIGHTWARDING_ACCESSORIES))
                     .ifPresent(slotResult ->
                             slotResult.stack().hurtAndBreak(1, slotResult.slotContext().entity(),
-                                    livingEntity -> CuriosApi.broadcastCurioBreakEvent(slotResult.slotContext())));
+                                    livingEntity -> CuriosApi.getCuriosHelper().onBrokenCurio(slotResult.slotContext())));
          }
 
       }
