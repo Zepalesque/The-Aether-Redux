@@ -1,7 +1,6 @@
 package net.zepalesque.redux.client.render.geo;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Axis;
 import com.mojang.math.Vector3f;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -11,11 +10,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.entity.passive.Mykapod;
-import org.joml.Vector3f;
-import software.bernie.geckolib.core.animation.AnimationState;
-import software.bernie.geckolib.model.GeoModel;
-import software.bernie.geckolib.renderer.GeoEntityRenderer;
+import software.bernie.geckolib3.core.AnimationState;
+import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.geo.render.built.GeoModel;
+import software.bernie.geckolib3.model.AnimatedGeoModel;
 import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
 
 public class MykapodRenderer extends GeoEntityRenderer<Mykapod> {
@@ -57,12 +55,11 @@ public class MykapodRenderer extends GeoEntityRenderer<Mykapod> {
     }
 
     @Override
-    public float getMotionAnimThreshold(Mykapod animatable) {
+    protected float getSwingMotionAnimThreshold() {
         return 0.001F;
     }
 
-
-    public static class MykapodModel extends GeoModel {
+    public static class MykapodModel extends AnimatedGeoModel<Mykapod> {
 
         private static final ResourceLocation TEXTURE_LOCATION = Redux.locate("textures/entity/mobs/mykapod/mykapod.png");
         private static final ResourceLocation DESHELLED_LOCATION = Redux.locate("textures/entity/mobs/mykapod/mykapod_shed.png");
@@ -85,9 +82,10 @@ public class MykapodRenderer extends GeoEntityRenderer<Mykapod> {
         }
 
         @Override
-        public void setCustomAnimations(Mykapod animatable, long instanceId, AnimationState<Mykapod> animationState) {
+        public void setCustomAnimations(Mykapod animatable, int instanceId, AnimationEvent animationState) {
             // TODO: Head rotation
             super.setCustomAnimations(animatable, instanceId, animationState);
         }
+
     }
 }

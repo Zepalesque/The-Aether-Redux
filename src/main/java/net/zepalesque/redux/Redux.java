@@ -9,11 +9,11 @@ import com.aetherteam.aether_genesis.item.GenesisItems;
 import com.aetherteam.cumulus.CumulusConfig;
 import com.mojang.logging.LogUtils;
 import com.mojang.serialization.Codec;
-import net.builderdog.ancient_aether.data.resources.registries.AncientAetherBiomeModifiers;
 import net.builderdog.ancient_aether.entity.AncientAetherEntityTypes;
 import net.minecraft.SharedConstants;
 import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.core.*;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.Registry;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.metadata.PackMetadataGenerator;
@@ -34,6 +34,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -66,18 +67,17 @@ import net.zepalesque.redux.client.ReduxClient;
 import net.zepalesque.redux.client.ReduxColors;
 import net.zepalesque.redux.client.ReduxMenus;
 import net.zepalesque.redux.client.ReduxPostProcessHandler;
-import net.zepalesque.redux.client.render.entity.BlightbunnyRenderer;
-import net.zepalesque.redux.client.render.geo.MykapodRenderer;
-import net.zepalesque.redux.client.resource.ReduxOverridesPackResources;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.client.render.ReduxRenderers;
+import net.zepalesque.redux.client.render.entity.BlightbunnyRenderer;
+import net.zepalesque.redux.client.render.geo.MykapodRenderer;
+import net.zepalesque.redux.client.resource.ReduxOverridesPackResources;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.config.enums.dungeon.BossRoomType;
 import net.zepalesque.redux.config.enums.dungeon.ChestRoomType;
 import net.zepalesque.redux.config.enums.dungeon.LobbyType;
 import net.zepalesque.redux.config.pack.ReduxPackConfig;
-import net.zepalesque.redux.data.*;
 import net.zepalesque.redux.data.loot.ReduxLootData;
 import net.zepalesque.redux.data.tags.*;
 import net.zepalesque.redux.effect.ReduxEffects;
@@ -195,10 +195,10 @@ public class Redux {
     public static class WoodHandlers {
         public static final WoodHandler FIELDSPROOT = WoodHandler.handler("fieldsproot", null, true, WoodHandler.cherrySoundBlockSet(), "trees", "log", "wood", SoundType.CHERRY_WOOD, SoundType.CHERRY_WOOD, false, MapColor.NETHER, MapColor.COLOR_ORANGE, false, true);
         public static final WoodHandler BLIGHTWILLOW = WoodHandler.handler("blightwillow", null, true, WoodHandler.bambooSoundBlockSet(), "trees", "log", "wood", SoundType.BAMBOO_WOOD, SoundType.BAMBOO_WOOD, true, MapColor.TERRACOTTA_CYAN, MapColor.COLOR_GREEN, true, false);
-        public static final WoodHandler CLOUDCAP = WoodHandler.fungus("cloudcap", true, MapColor.WOOL, MapColor.TERRACOTTA_PURPLE, false);
-        public static final WoodHandler JELLYSHROOM = WoodHandler.noStrippingFungus("jellyshroom", false, MapColor.COLOR_GRAY, MapColor.COLOR_GRAY, false);
-        public static final WoodHandler CRYSTAL = WoodHandler.tree("crystal", false, MapColor.TERRACOTTA_CYAN, MapColor.COLOR_LIGHT_BLUE, false);
-        public static final WoodHandler GLACIA = WoodHandler.tree("glacia", false, MapColor.TERRACOTTA_BLACK, MapColor.TERRACOTTA_LIGHT_GRAY, true);
+        public static final WoodHandler CLOUDCAP = WoodHandler.fungus("cloudcap", true, MaterialColor.WOOL, MaterialColor.TERRACOTTA_PURPLE, false);
+        public static final WoodHandler JELLYSHROOM = WoodHandler.noStrippingFungus("jellyshroom", false, MaterialColor.COLOR_GRAY, MaterialColor.COLOR_GRAY, false);
+        public static final WoodHandler CRYSTAL = WoodHandler.tree("crystal", false, MaterialColor.TERRACOTTA_CYAN, MaterialColor.COLOR_LIGHT_BLUE, false);
+        public static final WoodHandler GLACIA = WoodHandler.tree("glacia", false, MaterialColor.TERRACOTTA_BLACK, MaterialColor.TERRACOTTA_LIGHT_GRAY, true);
         public static final WoodHandler[] WOOD_HANDLERS = new WoodHandler[] { CRYSTAL, BLIGHTWILLOW, GLACIA, FIELDSPROOT, CLOUDCAP, JELLYSHROOM};
     }
 
@@ -219,10 +219,6 @@ public class Redux {
             SurfaceRuleManager.addSurfaceRules(AetherRuleCategory.THE_AETHER, "aether_redux", ReduxSurfaceData.makeRules());
             if (ReduxConfig.COMMON.smaller_mimic_hitbox.get()) {
                 AetherEntityTypes.MIMIC.get().getDimensions().height = 1.25F;
-                if (aetherGenesisCompat())
-                {
-                    GenesisEntityTypes.SKYROOT_MIMIC.get().getDimensions().height = 1.25F;
-                }
             }
             PotionBrewing.addMix(Potions.POISON, ReduxItems.BLIGHTED_SPORES.get(), ReduxPotions.INTOXICATION.get());
             PotionBrewing.addMix(Potions.STRONG_POISON, ReduxItems.BLIGHTED_SPORES.get(), ReduxPotions.INTOXICATION.get());
@@ -231,13 +227,6 @@ public class Redux {
             SwetHooks.registerParticle(AetherEntityTypes.BLUE_SWET.get(), AetherItems.SWET_BALL.get());
             SwetHooks.registerParticle(AetherEntityTypes.GOLDEN_SWET.get(), ReduxItems.GOLDEN_SWET_BALL.get());
             SwetHooks.registerParticle(ReduxEntityTypes.VANILLA_SWET.get(), ReduxItems.VANILLA_SWET_BALL.get());
-            if (Redux.aetherGenesisCompat()) {
-                SwetHooks.registerParticle(GenesisEntityTypes.DARK_SWET.get(), GenesisItems.DARK_SWET_BALL.get());
-            }
-            // TODO: Proper particles for this one
-            if (Redux.ancientAetherCompat()) {
-                SwetHooks.registerParticle(AncientAetherEntityTypes.FESTIVE_SWET.get(), AetherItems.SWET_BALL.get());
-            }
         });
     }
 

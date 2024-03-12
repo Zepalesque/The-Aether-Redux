@@ -6,8 +6,4 @@ public interface BlockHandler {
     {
         return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
     }
-
-    void generateBlockstateData(ReduxBlockstateData data);
-    void generateItemModels(ReduxItemModelData data);
-    void generateLanguageData(ReduxLanguageData data);
 }
