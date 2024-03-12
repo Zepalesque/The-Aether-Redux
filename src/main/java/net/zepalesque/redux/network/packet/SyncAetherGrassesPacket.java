@@ -27,7 +27,7 @@ public record SyncAetherGrassesPacket(Map<ResourceLocation, Integer> colors) imp
     public void execute(Player player) {
 
         if (Minecraft.getInstance().player != null) {
-            Level level = Minecraft.getInstance().player.level();
+            Level level = Minecraft.getInstance().player.level;
             ReduxColors.AETHER_GRASS_COLORS.clear();
             this.colors.forEach((biomeLoc, color) -> {
                 Biome biome = level.registryAccess().registryOrThrow(ForgeRegistries.Keys.BIOMES).get(biomeLoc);

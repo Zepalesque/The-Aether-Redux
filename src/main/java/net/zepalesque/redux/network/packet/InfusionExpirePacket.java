@@ -17,7 +17,7 @@ public class InfusionExpirePacket implements BasePacket {
     public void execute(Player playerEntity) {
         if (Minecraft.getInstance().player != null && Minecraft.getInstance().level != null) {
             Player player = Minecraft.getInstance().player;
-            player.level().playSound(player, player.getX(), player.getY(), player.getZ(), ReduxSoundEvents.INFUSION_EXPIRE.get(), SoundSource.PLAYERS, 0.8F, 0.8F + player.level().getRandom().nextFloat() * 0.4F);
+            player.level.playSound(player, player.getX(), player.getY(), player.getZ(), ReduxSoundEvents.INFUSION_EXPIRE.get(), SoundSource.PLAYERS, 0.8F, 0.8F + player.level.getRandom().nextFloat() * 0.4F);
         }
     }
 }

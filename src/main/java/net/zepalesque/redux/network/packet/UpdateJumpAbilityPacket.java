@@ -26,8 +26,8 @@ public record UpdateJumpAbilityPacket(UUID playerID) implements BasePacket {
 
     public void execute(Player playerEntity) {
 
-        if (playerEntity != null && playerEntity.level() != null) {
-            Player player = playerEntity.level().getPlayerByUUID(this.playerID());
+        if (playerEntity != null && playerEntity.level != null) {
+            Player player = playerEntity.level.getPlayerByUUID(this.playerID());
             if (player != null) {
                 ReduxPlayer.get(player).ifPresent((reduxPlayer) -> {
                     List<SlotResult> ringList = EquipmentUtil.getCurios(player, ReduxItems.AIRBOUND_CAPE.get());

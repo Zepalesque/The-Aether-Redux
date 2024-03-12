@@ -22,8 +22,8 @@ public record ShootFireballPacket(UUID playerID) implements BasePacket {
 
     public void execute(Player playerEntity) {
 
-        if (playerEntity != null && playerEntity.level() != null) {
-            Player player = playerEntity.level().getPlayerByUUID(this.playerID());
+        if (playerEntity != null && playerEntity.level != null) {
+            Player player = playerEntity.level.getPlayerByUUID(this.playerID());
             if (player != null) {
                 ReduxPlayer.get(player).ifPresent((reduxPlayer) -> {
                     if (reduxPlayer.canShootFireball()) {

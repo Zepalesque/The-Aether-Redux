@@ -22,7 +22,7 @@ public record SubzeroArrowPacket(int entityID, boolean isSubzero) implements Bas
 
     @Override
     public void execute(Player playerEntity) {
-        if (Minecraft.getInstance().player != null && Minecraft.getInstance().level != null && Minecraft.getInstance().player.level().getEntity(this.entityID) instanceof AbstractArrow arrow) {
+        if (Minecraft.getInstance().player != null && Minecraft.getInstance().level != null && Minecraft.getInstance().player.level.getEntity(this.entityID) instanceof AbstractArrow arrow) {
             SubzeroArrow.get(arrow).ifPresent(subzeroArrow -> subzeroArrow.setSubzeroArrow(this.isSubzero));
         }
     }

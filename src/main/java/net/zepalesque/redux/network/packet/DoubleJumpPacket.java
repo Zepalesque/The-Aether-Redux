@@ -24,7 +24,7 @@ public record DoubleJumpPacket(UUID playerID) implements BasePacket {
     public void execute(Player playerEntity) {
 
         if (playerEntity != null && playerEntity.getServer() != null) {
-            Player player = playerEntity.level().getPlayerByUUID(this.playerID());
+            Player player = playerEntity.level.getPlayerByUUID(this.playerID());
             if (player != null) {
                 ReduxPlayer.get(player).ifPresent(ReduxPlayer::doubleJump);
                 if (player instanceof ServerPlayer sp)
