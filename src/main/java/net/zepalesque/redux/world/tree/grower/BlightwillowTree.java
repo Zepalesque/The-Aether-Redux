@@ -8,12 +8,12 @@ import net.zepalesque.redux.data.resource.ReduxConfiguredFeatures;
 
 import javax.annotation.Nullable;
 
-public class BlightwillowTree extends AbstractTreeGrower {
+public class BlightwillowTree extends ReduxTree {
     public BlightwillowTree() {
     }
 
     @Nullable
-    protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean largeHive) {
+    protected ResourceKey<ConfiguredFeature<?, ?>> getKey(RandomSource random, boolean largeHive) {
         return ReduxConfiguredFeatures.BLIGHTWILLOW_TREE;
     }
 }

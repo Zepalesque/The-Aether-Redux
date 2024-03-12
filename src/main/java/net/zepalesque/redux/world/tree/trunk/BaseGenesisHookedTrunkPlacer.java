@@ -5,14 +5,13 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelSimulatedReader;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
+import net.minecraft.world.level.material.Material;
 
 import java.util.List;
 import java.util.function.BiConsumer;
@@ -109,11 +108,14 @@ public abstract class BaseGenesisHookedTrunkPlacer extends TrunkPlacer {
     }
 
     protected boolean validBranchPos(LevelSimulatedReader level, BlockPos pos) {
-        return TreeFeature.isAirOrLeaves(level, pos) || isReplaceable(level, pos) || level.isStateAtPosition(pos, state -> state.is(Blocks.WATER)) || this.isTrunk(level, pos);
+        return TreeFeature.isAirOrLeaves(level, pos) || isReplaceablePlant(level, pos) || TreeFeature.isBlockWater(level, pos) || this.isTrunk(level, pos);
     }
 
-    private static boolean isReplaceable(LevelSimulatedReader level, BlockPos pos) {
-        return level.isStateAtPosition(pos, BlockBehaviour.BlockStateBase::canBeReplaced);
+    private static boolean isReplaceablePlant(LevelSimulatedReader level, BlockPos pos) {
+        return level.isStateAtPosition(pos, (state) -> {
+            Material material = state.getMaterial();
+            return material == Material.REPLACEABLE_PLANT || material == Material.REPLACEABLE_WATER_PLANT || material == Material.REPLACEABLE_FIREPROOF_PLANT;
+        });
     }
 
     public abstract boolean isTrunk(LevelSimulatedReader level, BlockPos pos);

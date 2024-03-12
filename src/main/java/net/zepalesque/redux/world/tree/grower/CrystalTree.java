@@ -9,7 +9,7 @@ import net.zepalesque.redux.data.resource.ReduxConfiguredFeatures;
 
 import javax.annotation.Nullable;
 
-public class CrystalTree extends AbstractTreeGrower {
+public class CrystalTree extends ReduxTree {
 
     public final boolean fruit;
     public CrystalTree(boolean hasFruit) {
@@ -17,7 +17,7 @@ public class CrystalTree extends AbstractTreeGrower {
     }
 
     @Nullable
-    protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean largeHive) {
+    protected ResourceKey<ConfiguredFeature<?, ?>> getKey(RandomSource random, boolean largeHive) {
         return this.fruit ? ReduxConfiguredFeatures.CRYSTAL_RARE_FRUIT_TREE : ReduxConfiguredFeatures.CRYSTAL_LEAF_TREE;
     }
 }

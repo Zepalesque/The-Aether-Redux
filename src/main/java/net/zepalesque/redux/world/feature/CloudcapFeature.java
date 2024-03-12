@@ -63,7 +63,7 @@ public class CloudcapFeature extends Feature<CloudcapFeature.CloudcapConfig> {
                 BlockPos immutable2 = mutable.immutable();
                 mutable.setWithOffset(origin, 0, i, 0);
                 BlockPos immutable3 = mutable.immutable();
-                if (context.level().isStateAtPosition(immutable2, state -> state.isAir() || state.canBeReplaced()) && context.level().isStateAtPosition(immutable3, state -> state.isFaceSturdy(context.level(), immutable3, d))) {
+                if (context.level().isStateAtPosition(immutable2, state -> state.isAir() || state.getMaterial().isReplaceable()) && context.level().isStateAtPosition(immutable3, state -> state.isFaceSturdy(context.level(), immutable3, d))) {
                     stem.putIfAbsent(immutable2, context.config().stem.getState(context.random(), immutable2));
                 } else {
                     break;
@@ -176,7 +176,7 @@ public class CloudcapFeature extends Feature<CloudcapFeature.CloudcapConfig> {
     protected boolean canPlaceBlockHere(LevelAccessor level, BlockPos pos) {
         int i = pos.getY();
         if (i >= level.getMinBuildHeight() + 1 && i + 1 < level.getMaxBuildHeight()) {
-            return level.isStateAtPosition(pos, state -> state.isAir() || state.is(BlockTags.LOGS) || state.canBeReplaced() || state.is(ReduxTags.Blocks.MUSHROOM_CAPS));
+            return level.isStateAtPosition(pos, state -> state.isAir() || state.is(BlockTags.LOGS) || state.getMaterial().isReplaceable() || state.is(ReduxTags.Blocks.MUSHROOM_CAPS));
         }
         return false;
     }

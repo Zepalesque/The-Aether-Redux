@@ -136,7 +136,7 @@ public class FieldsproutTreeFeature extends Feature<FieldsprootTreeConfig> {
     protected boolean canPlaceBlockHere(LevelAccessor level, BlockPos pos) {
         int i = pos.getY();
         if (i >= level.getMinBuildHeight() + 1 && i + 1 < level.getMaxBuildHeight()) {
-            return level.isStateAtPosition(pos, state -> state.isAir() || state.is(BlockTags.LOGS) || state.canBeReplaced() || state.is(BlockTags.LEAVES));
+            return level.isStateAtPosition(pos, state -> state.isAir() || state.is(BlockTags.LOGS) || state.getMaterial().isReplaceable() || state.is(BlockTags.LEAVES));
         }
         return false;
     }

@@ -6,9 +6,12 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.LevelSimulatedReader;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
+
+import java.util.function.BiConsumer;
 
 
 public class GlaciaFoliagePlacer extends FoliagePlacer {
@@ -19,9 +22,9 @@ public class GlaciaFoliagePlacer extends FoliagePlacer {
     });
     private final IntProvider trunkHeight;
 
-    public GlaciaFoliagePlacer(IntProvider radius, IntProvider offset, IntProvider height) {
-        super(radius, offset);
-        this.trunkHeight = height;
+    public GlaciaFoliagePlacer(IntProvider intProvider, IntProvider intProvider1, IntProvider intProvider2) {
+        super(intProvider, intProvider1);
+        this.trunkHeight = intProvider2;
     }
 
     protected FoliagePlacerType<?> type() {
@@ -31,7 +34,7 @@ public class GlaciaFoliagePlacer extends FoliagePlacer {
 
 
     @Override
-    protected void createFoliage(LevelSimulatedReader levelSimulatedReader, FoliageSetter foliageSetter, RandomSource randomSource, TreeConfiguration treeConfiguration, int i1, FoliagePlacer.FoliageAttachment foliageAttachment, int foliageMaxHeight, int i2, int i3) {
+    protected void createFoliage(LevelSimulatedReader levelSimulatedReader, BiConsumer<BlockPos, BlockState> foliageSetter, RandomSource randomSource, TreeConfiguration treeConfiguration, int i1, FoliagePlacer.FoliageAttachment foliageAttachment, int foliageMaxHeight, int i2, int i3) {
         BlockPos blockpos = foliageAttachment.pos();
         int i = randomSource.nextInt(2);
         int j = 1;
@@ -64,7 +67,7 @@ public class GlaciaFoliagePlacer extends FoliagePlacer {
         }
 
     }
-    public void placeSquare(LevelSimulatedReader levelSimulatedReader, FoliageSetter foliageSetter, RandomSource randomSource, TreeConfiguration treeConfiguration, BlockPos blockpos) {
+    public void placeSquare(LevelSimulatedReader levelSimulatedReader, BiConsumer<BlockPos, BlockState> foliageSetter, RandomSource randomSource, TreeConfiguration treeConfiguration, BlockPos blockpos) {
         for (int i = 0; i < 3; ++i) {
             for (int ii = 0; ii < 3; ++ii) {
                 tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(i-1).east(ii-1).above(2));
@@ -85,7 +88,7 @@ public class GlaciaFoliagePlacer extends FoliagePlacer {
 
         }
     }
-    public void placeSmallCircle(LevelSimulatedReader levelSimulatedReader, FoliageSetter foliageSetter, RandomSource randomSource, TreeConfiguration treeConfiguration, BlockPos blockpos, FoliagePlacer.FoliageAttachment foliageAttachment) {
+    public void placeSmallCircle(LevelSimulatedReader levelSimulatedReader, BiConsumer<BlockPos, BlockState> foliageSetter, RandomSource randomSource, TreeConfiguration treeConfiguration, BlockPos blockpos, FoliagePlacer.FoliageAttachment foliageAttachment) {
         this.placeLeavesRow(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos, 1, 2, foliageAttachment.doubleTrunk());
 
         if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(-1).east(-1).above(2));
@@ -97,7 +100,7 @@ public class GlaciaFoliagePlacer extends FoliagePlacer {
         if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(-1).east(1).above(2));
         if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(1).east(-1).above(2));
     }
-    public void placeBigCircle(LevelSimulatedReader levelSimulatedReader, FoliageSetter foliageSetter, RandomSource randomSource, TreeConfiguration treeConfiguration, BlockPos blockpos, FoliagePlacer.FoliageAttachment foliageAttachment) {
+    public void placeBigCircle(LevelSimulatedReader levelSimulatedReader, BiConsumer<BlockPos, BlockState> foliageSetter, RandomSource randomSource, TreeConfiguration treeConfiguration, BlockPos blockpos, FoliagePlacer.FoliageAttachment foliageAttachment) {
         this.placeLeavesRow(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos, 2, 2, foliageAttachment.doubleTrunk());
 
         if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(0).east(3).above(2));
@@ -110,7 +113,7 @@ public class GlaciaFoliagePlacer extends FoliagePlacer {
         if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(-2).east(2).above(2));
 
     }
-    public void placeBiggerCircle(LevelSimulatedReader levelSimulatedReader, FoliageSetter foliageSetter, RandomSource randomSource, TreeConfiguration treeConfiguration, BlockPos blockpos, FoliagePlacer.FoliageAttachment foliageAttachment) {
+    public void placeBiggerCircle(LevelSimulatedReader levelSimulatedReader, BiConsumer<BlockPos, BlockState> foliageSetter, RandomSource randomSource, TreeConfiguration treeConfiguration, BlockPos blockpos, FoliagePlacer.FoliageAttachment foliageAttachment) {
         this.placeLeavesRow(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos, 2, 2, foliageAttachment.doubleTrunk());
 
         if(randomSource.nextBoolean())tryPlaceLeaf(levelSimulatedReader, foliageSetter, randomSource, treeConfiguration, blockpos.north(0).east(3).above(2));
@@ -140,7 +143,7 @@ public class GlaciaFoliagePlacer extends FoliagePlacer {
         return a == d && c == d && d > 0;
     }
     @Override
-    protected void placeLeavesRow(LevelSimulatedReader simulatedReader, FoliageSetter foliageSetter, RandomSource randomSource, TreeConfiguration configuration, BlockPos blockPos, int i1, int i2, boolean b) {
+    protected void placeLeavesRow(LevelSimulatedReader simulatedReader, BiConsumer<BlockPos, BlockState> foliageSetter, RandomSource randomSource, TreeConfiguration configuration, BlockPos blockPos, int i1, int i2, boolean b) {
         int i = b ? 1 : 0;
         BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
 

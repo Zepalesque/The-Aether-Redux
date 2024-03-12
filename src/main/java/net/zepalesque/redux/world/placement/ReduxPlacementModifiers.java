@@ -2,7 +2,6 @@ package net.zepalesque.redux.world.placement;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.minecraft.world.level.levelgen.placement.PlacementModifierType;
@@ -17,6 +16,8 @@ public class ReduxPlacementModifiers {
     }
 
     private static <T extends PlacementModifier> PlacementModifierType<T> register(ResourceLocation name, Codec<T> codec) {
-        return Registry.register(BuiltInRegistries.PLACEMENT_MODIFIER_TYPE, name, () -> codec);
+        return Registry.register(Registry.PLACEMENT_MODIFIERS, name, () -> {
+            return codec;
+        });
     }
 }

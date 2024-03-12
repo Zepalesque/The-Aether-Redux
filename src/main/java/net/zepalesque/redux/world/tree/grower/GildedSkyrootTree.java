@@ -9,12 +9,12 @@ import net.zepalesque.redux.data.resource.ReduxConfiguredFeatures;
 
 import javax.annotation.Nullable;
 
-public class GildedSkyrootTree extends AbstractTreeGrower {
+public class GildedSkyrootTree extends ReduxTree {
     public GildedSkyrootTree() {
     }
 
     @Nullable
-    protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean largeHive) {
+    protected ResourceKey<ConfiguredFeature<?, ?>> getKey(RandomSource random, boolean largeHive) {
         return ReduxConfig.COMMON.alternate_gilded_trees.get() ? ReduxConfiguredFeatures.SMALL_GILDED_OAK_TREE : random.nextBoolean() ? ReduxConfiguredFeatures.FANCY_GILDED_OAK_TREE : ReduxConfiguredFeatures.GILDED_OAK_TREE;
     }
 }

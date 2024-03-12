@@ -8,12 +8,12 @@ import net.zepalesque.redux.data.resource.ReduxConfiguredFeatures;
 
 import javax.annotation.Nullable;
 
-public class ChromaticBush extends AbstractTreeGrower {
+public class ChromaticBush extends ReduxTree {
     public ChromaticBush() {
     }
 
     @Nullable
-    protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean largeHive) {
+    protected ResourceKey<ConfiguredFeature<?, ?>> getKey(RandomSource random, boolean largeHive) {
         return ReduxConfiguredFeatures.SKYROOT_BUSH;
     }
 }

@@ -16,6 +16,8 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 import net.zepalesque.redux.util.level.WorldgenUtil;
 
+import java.util.function.BiConsumer;
+
 
 public class BlightwillowFoliagePlacer extends FoliagePlacer {
     public static final Codec<BlightwillowFoliagePlacer> CODEC = RecordCodecBuilder.create((p2) -> {
@@ -33,7 +35,7 @@ public class BlightwillowFoliagePlacer extends FoliagePlacer {
 
 
     @Override
-    protected void createFoliage(LevelSimulatedReader levelSimulatedReader, FoliageSetter foliageSetter, RandomSource randomSource, TreeConfiguration treeConfiguration, int i1, FoliageAttachment foliageAttachment, int foliageMaxHeight, int i2, int i3) {
+    protected void createFoliage(LevelSimulatedReader levelSimulatedReader, BiConsumer<BlockPos, BlockState> foliageSetter, RandomSource randomSource, TreeConfiguration treeConfiguration, int i1, FoliageAttachment foliageAttachment, int foliageMaxHeight, int i2, int i3) {
         BlockPos blockpos = foliageAttachment.pos();
         BlockPos.MutableBlockPos mbp = new BlockPos.MutableBlockPos();
         generateLeaves(mbp, levelSimulatedReader, blockpos, foliageSetter, randomSource, treeConfiguration);
@@ -49,7 +51,7 @@ public class BlightwillowFoliagePlacer extends FoliagePlacer {
         return false;
     }
 
-    private void generateLeaves(BlockPos.MutableBlockPos mutable, LevelSimulatedReader level, BlockPos origin, FoliageSetter setter, RandomSource rand, TreeConfiguration config)
+    private void generateLeaves(BlockPos.MutableBlockPos mutable, LevelSimulatedReader level, BlockPos origin, BiConsumer<BlockPos, BlockState> setter, RandomSource rand, TreeConfiguration config)
     {
         mutable.set(origin);
         BlockPos center = origin.below(3);
@@ -90,12 +92,12 @@ public class BlightwillowFoliagePlacer extends FoliagePlacer {
         }
 
     }
-    protected static boolean tryPlaceLog(LevelSimulatedReader level, FoliageSetter foliageSetter, RandomSource random, TreeConfiguration treeConfiguration, BlockPos pos, Direction.Axis axis) {
+    protected static boolean tryPlaceLog(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> foliageSetter, RandomSource random, TreeConfiguration treeConfiguration, BlockPos pos, Direction.Axis axis) {
         if (!TreeFeature.validTreePos(level, pos)) {
             return false;
         } else {
             BlockState blockstate = WorldgenUtil.trySetValue(treeConfiguration.trunkProvider.getState(random, pos), RotatedPillarBlock.AXIS, axis);
-            foliageSetter.set(pos, blockstate);
+            foliageSetter.accept(pos, blockstate);
             return true;
         }
     }

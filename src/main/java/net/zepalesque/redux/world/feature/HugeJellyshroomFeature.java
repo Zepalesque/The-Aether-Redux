@@ -90,7 +90,7 @@ public class HugeJellyshroomFeature extends Feature<JellyshroomConfig> {
    protected boolean canPlaceBlockHere(LevelAccessor level, BlockPos pos) {
       int i = pos.getY();
       if (i >= level.getMinBuildHeight() + 1 && i + 1 < level.getMaxBuildHeight()) {
-         return level.isStateAtPosition(pos, state -> state.isAir() || state.is(BlockTags.LOGS) || state.canBeReplaced() || state.is(ReduxTags.Blocks.MUSHROOM_CAPS));
+         return level.isStateAtPosition(pos, state -> state.isAir() || state.is(BlockTags.LOGS) || state.getMaterial().isReplaceable() || state.is(ReduxTags.Blocks.MUSHROOM_CAPS));
       }
       return false;
    }

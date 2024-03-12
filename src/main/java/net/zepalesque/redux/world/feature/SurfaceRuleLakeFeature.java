@@ -8,6 +8,7 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
@@ -18,6 +19,7 @@ import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.carver.CarvingContext;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.material.Material;
 import net.zepalesque.redux.mixin.common.world.ChunkAccessAccessor;
 import net.zepalesque.redux.world.feature.config.SurfaceRuleLakeConfig;
 
@@ -34,7 +36,7 @@ public class SurfaceRuleLakeFeature extends Feature<SurfaceRuleLakeConfig> {
         BlockPos blockpos = context.origin();
         WorldGenLevel worldgenlevel = context.level();
         RandomSource random = context.random();
-        SurfaceRuleLakeConfig config = context.config();
+        SurfaceRuleLakeConfig config = (SurfaceRuleLakeConfig)context.config();
         if (blockpos.getY() <= worldgenlevel.getMinBuildHeight() + 4) {
             return false;
         } else {
@@ -75,12 +77,12 @@ public class SurfaceRuleLakeFeature extends Feature<SurfaceRuleLakeConfig> {
                     for(j3 = 0; j3 < 8; ++j3) {
                         boolean flag = !aboolean[(k1 * 16 + i2) * 8 + j3] && (k1 < 15 && aboolean[((k1 + 1) * 16 + i2) * 8 + j3] || k1 > 0 && aboolean[((k1 - 1) * 16 + i2) * 8 + j3] || i2 < 15 && aboolean[(k1 * 16 + i2 + 1) * 8 + j3] || i2 > 0 && aboolean[(k1 * 16 + (i2 - 1)) * 8 + j3] || j3 < 7 && aboolean[(k1 * 16 + i2) * 8 + j3 + 1] || j3 > 0 && aboolean[(k1 * 16 + i2) * 8 + (j3 - 1)]);
                         if (flag) {
-                            BlockState testState = worldgenlevel.getBlockState(blockpos.offset(k1, j3, i2));
-                            if (j3 >= 4 && testState.liquid()) {
+                            Material material = worldgenlevel.getBlockState(blockpos.offset(k1, j3, i2)).getMaterial();
+                            if (j3 >= 4 && material.isLiquid()) {
                                 return false;
                             }
 
-                            if (j3 < 4 && !testState.isSolid() && worldgenlevel.getBlockState(blockpos.offset(k1, j3, i2)) != blockstate1) {
+                            if (j3 < 4 && !material.isSolid() && worldgenlevel.getBlockState(blockpos.offset(k1, j3, i2)) != blockstate1) {
                                 return false;
                             }
                         }
@@ -107,23 +109,23 @@ public class SurfaceRuleLakeFeature extends Feature<SurfaceRuleLakeConfig> {
                 }
             }
 
-                for(i2 = 0; i2 < 16; ++i2) {
-                    for(j3 = 0; j3 < 16; ++j3) {
-                        for(int j4 = 4; j4 < 8; ++j4) {
-                            if (aboolean[(i2 * 16 + j3) * 8 + j4]) {
-                                BlockPos blockpos3 = blockpos.offset(i2, j4 - 1, j3);
-                                if (isDirt(worldgenlevel.getBlockState(blockpos3)) && worldgenlevel.getBrightness(LightLayer.SKY, blockpos.offset(i2, j4, j3)) > 0) {
-                                    if (context.level().getChunkSource() instanceof ServerChunkCache serverChunkCache) {
-                                        if (serverChunkCache.getGenerator() instanceof NoiseBasedChunkGenerator noiseBasedChunkGenerator) {
-                                            NoiseGeneratorSettings settingsHolder = noiseBasedChunkGenerator.generatorSettings().get();
-                                            SurfaceRules.RuleSource surfaceRule = settingsHolder.surfaceRule();
-                                            ChunkAccess chunkAccess = context.level().getChunk(blockpos3);
-                                            NoiseChunk noisechunk = ((ChunkAccessAccessor) chunkAccess).getNoiseChunk();
-                                            if (noisechunk != null) {
-                                                CarvingContext carvingcontext = new CarvingContext(noiseBasedChunkGenerator, context.level().registryAccess(), chunkAccess.getHeightAccessorForGeneration(), noisechunk, serverChunkCache.randomState(), surfaceRule);
-                                                Optional<BlockState> state = carvingcontext.topMaterial(context.level().getBiomeManager()::getBiome, chunkAccess, blockpos3, false);
-                                                state.ifPresent(blockState -> worldgenlevel.setBlock(blockpos3, blockState, 2));
-                                            }
+//            BlockState blockstate2 = config.top().getState(random, blockpos);
+            for(i2 = 0; i2 < 16; ++i2) {
+                for(j3 = 0; j3 < 16; ++j3) {
+                    for(int j4 = 4; j4 < 8; ++j4) {
+                        if (aboolean[(i2 * 16 + j3) * 8 + j4]) {
+                            BlockPos blockpos3 = blockpos.offset(i2, j4 - 1, j3);
+                            if (isDirt(worldgenlevel.getBlockState(blockpos3)) && worldgenlevel.getBrightness(LightLayer.SKY, blockpos.offset(i2, j4, j3)) > 0) {
+                                if (context.level().getChunkSource() instanceof ServerChunkCache serverChunkCache) {
+                                    if (serverChunkCache.getGenerator() instanceof NoiseBasedChunkGenerator noiseBasedChunkGenerator) {
+                                        NoiseGeneratorSettings settingsHolder = noiseBasedChunkGenerator.generatorSettings().get();
+                                        SurfaceRules.RuleSource surfaceRule = settingsHolder.surfaceRule();
+                                        ChunkAccess chunkAccess = context.level().getChunk(blockpos3);
+                                        NoiseChunk noisechunk = ((ChunkAccessAccessor) chunkAccess).getNoiseChunk();
+                                        if (noisechunk != null) {
+                                            CarvingContext carvingcontext = new CarvingContext(noiseBasedChunkGenerator, context.level().registryAccess(), chunkAccess.getHeightAccessorForGeneration(), noisechunk, serverChunkCache.randomState(), surfaceRule);
+                                            Optional<BlockState> state = carvingcontext.topMaterial(context.level().getBiomeManager()::getBiome, chunkAccess, blockpos3, false);
+                                            state.ifPresent(blockState -> worldgenlevel.setBlock(blockpos3, blockState, 2));
                                         }
                                     }
                                 }
@@ -131,12 +133,13 @@ public class SurfaceRuleLakeFeature extends Feature<SurfaceRuleLakeConfig> {
                         }
                     }
                 }
+            }
 
             if (blockstate1.getFluidState().is(FluidTags.WATER)) {
                 for(i2 = 0; i2 < 16; ++i2) {
                     for(j3 = 0; j3 < 16; ++j3) {
                         blockpos2 = blockpos.offset(i2, 4, j3);
-                        if (worldgenlevel.getBiome(blockpos2).value().shouldFreeze(worldgenlevel, blockpos2, false) && this.canReplaceBlock(worldgenlevel.getBlockState(blockpos2))) {
+                        if (((Biome)worldgenlevel.getBiome(blockpos2).value()).shouldFreeze(worldgenlevel, blockpos2, false) && this.canReplaceBlock(worldgenlevel.getBlockState(blockpos2))) {
                             worldgenlevel.setBlock(blockpos2, Blocks.ICE.defaultBlockState(), 2);
                         }
                     }
