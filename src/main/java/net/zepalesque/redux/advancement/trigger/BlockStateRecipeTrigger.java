@@ -25,7 +25,7 @@ public class BlockStateRecipeTrigger extends SimpleCriterionTrigger<BlockStateRe
     }
 
     @Override
-    public TriggerInstance createInstance(JsonObject json, ContextAwarePredicate entity, DeserializationContext context) {
+    public TriggerInstance createInstance(JsonObject json, EntityPredicate.Composite entity, DeserializationContext context) {
         StatePredicate ingredient = json.has("original_block") ? StatePredicate.fromJson(json.get("original_block")) : StatePredicate.ANY;
         StatePredicate result = json.has("result_block") ? StatePredicate.fromJson(json.get("result_block")) : StatePredicate.ANY;
         RecipeTypePredicate recipe =json.has("recipe_type") ? RecipeTypePredicate.fromJson(json.get("recipe_type")) : RecipeTypePredicate.ANY;
@@ -42,7 +42,7 @@ public class BlockStateRecipeTrigger extends SimpleCriterionTrigger<BlockStateRe
         private final StatePredicate result;
         private final RecipeTypePredicate recipe;
 
-        public TriggerInstance(ContextAwarePredicate entity, StatePredicate original, StatePredicate result, RecipeTypePredicate recipe) {
+        public TriggerInstance(EntityPredicate.Composite entity, StatePredicate original, StatePredicate result, RecipeTypePredicate recipe) {
             super(BlockStateRecipeTrigger.ID, entity);
             this.original = original;
             this.result = result;
@@ -59,7 +59,7 @@ public class BlockStateRecipeTrigger extends SimpleCriterionTrigger<BlockStateRe
         }
 
         public static TriggerInstance forOriginal(StatePredicate original) {
-            return new TriggerInstance(ContextAwarePredicate.ANY, original, StatePredicate.ANY, RecipeTypePredicate.ANY);
+            return new TriggerInstance(EntityPredicate.Composite.ANY, original, StatePredicate.ANY, RecipeTypePredicate.ANY);
         }
 
 
@@ -68,7 +68,7 @@ public class BlockStateRecipeTrigger extends SimpleCriterionTrigger<BlockStateRe
         }
 
         public static TriggerInstance forResult(StatePredicate result) {
-            return new TriggerInstance(ContextAwarePredicate.ANY, StatePredicate.ANY, result, RecipeTypePredicate.ANY);
+            return new TriggerInstance(EntityPredicate.Composite.ANY, StatePredicate.ANY, result, RecipeTypePredicate.ANY);
         }
 
 
@@ -77,7 +77,7 @@ public class BlockStateRecipeTrigger extends SimpleCriterionTrigger<BlockStateRe
         }
 
         public static TriggerInstance forRecipeFrom(StatePredicate original, RecipeTypePredicate recipe) {
-            return new TriggerInstance(ContextAwarePredicate.ANY, original, StatePredicate.ANY, recipe);
+            return new TriggerInstance(EntityPredicate.Composite.ANY, original, StatePredicate.ANY, recipe);
         }
 
         public static TriggerInstance forRecipeTo(Block result, RecipeType<? extends AbstractBlockStateRecipe> recipe) {
@@ -85,7 +85,7 @@ public class BlockStateRecipeTrigger extends SimpleCriterionTrigger<BlockStateRe
         }
 
         public static TriggerInstance forRecipeTo(StatePredicate result, RecipeTypePredicate recipe) {
-            return new TriggerInstance(ContextAwarePredicate.ANY, StatePredicate.ANY, result, recipe);
+            return new TriggerInstance(EntityPredicate.Composite.ANY, StatePredicate.ANY, result, recipe);
         }
 
         public static TriggerInstance forRecipe(RecipeType<? extends AbstractBlockStateRecipe> recipe) {
@@ -93,7 +93,7 @@ public class BlockStateRecipeTrigger extends SimpleCriterionTrigger<BlockStateRe
         }
 
         public static TriggerInstance forRecipe(RecipeTypePredicate recipe) {
-            return new TriggerInstance(ContextAwarePredicate.ANY, StatePredicate.ANY, StatePredicate.ANY, recipe);
+            return new TriggerInstance(EntityPredicate.Composite.ANY, StatePredicate.ANY, StatePredicate.ANY, recipe);
         }
 
         public static TriggerInstance forConversion(Block ingredient, Block result) {
@@ -101,7 +101,7 @@ public class BlockStateRecipeTrigger extends SimpleCriterionTrigger<BlockStateRe
         }
 
         public static TriggerInstance forConversion(StatePredicate original, StatePredicate result) {
-            return new TriggerInstance(ContextAwarePredicate.ANY, original, result, RecipeTypePredicate.ANY);
+            return new TriggerInstance(EntityPredicate.Composite.ANY, original, result, RecipeTypePredicate.ANY);
         }
 
         public static TriggerInstance forExact(Block ingredient, Block result, RecipeType<? extends AbstractBlockStateRecipe> recipe) {
@@ -109,7 +109,7 @@ public class BlockStateRecipeTrigger extends SimpleCriterionTrigger<BlockStateRe
         }
 
         public static TriggerInstance forExact(StatePredicate original, StatePredicate result, RecipeTypePredicate recipe) {
-            return new TriggerInstance(ContextAwarePredicate.ANY, original, result, recipe);
+            return new TriggerInstance(EntityPredicate.Composite.ANY, original, result, recipe);
         }
 
         public static TriggerInstance any() {

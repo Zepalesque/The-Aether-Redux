@@ -15,7 +15,7 @@ public class FallFromAetherTrigger extends SimpleCriterionTrigger<FallFromAether
       return ID;
    }
 
-   public FallFromAetherTrigger.TriggerInstance createInstance(JsonObject pJson, ContextAwarePredicate pEntityPredicate, DeserializationContext pConditionsParser) {
+   public FallFromAetherTrigger.TriggerInstance createInstance(JsonObject pJson, EntityPredicate.Composite pEntityPredicate, DeserializationContext pConditionsParser) {
        return new FallFromAetherTrigger.TriggerInstance(pEntityPredicate);
    }
 
@@ -27,13 +27,13 @@ public class FallFromAetherTrigger extends SimpleCriterionTrigger<FallFromAether
    public static class TriggerInstance extends AbstractCriterionTriggerInstance {
 
 
-      public TriggerInstance(ContextAwarePredicate pPlayer) {
+      public TriggerInstance(EntityPredicate.Composite pPlayer) {
          super(FallFromAetherTrigger.ID, pPlayer);
 
       }
 
       public static FallFromAetherTrigger.TriggerInstance fall() {
-         return new FallFromAetherTrigger.TriggerInstance(ContextAwarePredicate.ANY);
+         return new FallFromAetherTrigger.TriggerInstance(EntityPredicate.Composite.ANY);
       }
 
       @NotNull

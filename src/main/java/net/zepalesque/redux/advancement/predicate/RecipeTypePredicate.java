@@ -5,7 +5,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.item.crafting.RecipeType;
@@ -40,7 +40,7 @@ public class RecipeTypePredicate {
          JsonArray jsonarray = new JsonArray();
 
          for (RecipeType recipe : this.recipes) {
-            jsonarray.add(BuiltInRegistries.RECIPE_TYPE.getKey(recipe).toString());
+            jsonarray.add(Registry.RECIPE_TYPE.getKey(recipe).toString());
          }
          jsonobject.add("recipes", jsonarray);
       }
@@ -62,7 +62,7 @@ public class RecipeTypePredicate {
 
             for(JsonElement jsonelement : array) {
                ResourceLocation resourcelocation = new ResourceLocation(GsonHelper.convertToString(jsonelement, "recipe type"));
-               builder.add(BuiltInRegistries.RECIPE_TYPE.getOptional(resourcelocation).orElseThrow(() -> new JsonSyntaxException("Unknown recipe type '" + resourcelocation + "'")));
+               builder.add(Registry.RECIPE_TYPE.getOptional(resourcelocation).orElseThrow(() -> new JsonSyntaxException("Unknown recipe type '" + resourcelocation + "'")));
             }
 
             set = builder.build();

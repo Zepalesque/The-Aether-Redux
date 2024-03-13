@@ -32,7 +32,6 @@ import net.zepalesque.redux.item.weapons.*;
 
 import java.util.function.UnaryOperator;
 
-// TODO: Raw ores should be removed from tabs during enqueWork for the common setup when the config is off, and similarly stuff should be done for the gravitite ingot config
 public class ReduxItems {
 
     public static class TooltipUtils {
