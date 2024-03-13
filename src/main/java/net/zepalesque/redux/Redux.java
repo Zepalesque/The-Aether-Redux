@@ -1,6 +1,7 @@
 package net.zepalesque.redux;
 
 import com.aetherteam.aether.AetherConfig;
+import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.dispenser.DispenseUsableItemBehavior;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.item.AetherItems;
@@ -192,6 +193,17 @@ public class Redux {
         ReduxPlacementModifiers.init();
         ReduxPacketHandler.register();
         event.enqueueWork(() -> {
+            if (ReduxConfig.COMMON.gravitite_ingot.get()) {
+                AetherBlocks.ENCHANTED_GRAVITITE.get().asItem().category = null;
+            } else {
+                ReduxItems.GRAVITITE_INGOT.get().category = null;
+            }
+            if (!ReduxConfig.COMMON.raw_ores.get()) {
+                ReduxItems.RAW_GRAVITITE.get().category = null;
+                ReduxItems.RAW_VERIDIUM.get().category = null;
+                ReduxBlocks.RAW_GRAVITITE_BLOCK.get().asItem().category = null;
+                ReduxBlocks.RAW_VERIDIUM_BLOCK.get().asItem().category = null;
+            }
             ReduxBlocks.registerFlammability();
             registerDispenserBehaviors();
             replaceBlockSounds();

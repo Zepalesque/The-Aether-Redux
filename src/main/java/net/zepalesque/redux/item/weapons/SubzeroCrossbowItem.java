@@ -2,8 +2,11 @@ package net.zepalesque.redux.item.weapons;
 
 import com.aetherteam.aether.item.AetherItems;
 import com.google.common.collect.Lists;
+import com.mojang.math.Quaternion;
+import com.mojang.math.Vector3f;
 import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.CommonComponents;
@@ -27,21 +30,13 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.common.util.Lazy;
-import net.orcinus.galosphere.criterion.GCriterion;
-import net.orcinus.galosphere.entities.GlowFlare;
-import net.orcinus.galosphere.entities.SpectreFlare;
-import net.orcinus.galosphere.init.GCriteriaTriggers;
-import net.orcinus.galosphere.init.GItems;
-import net.zepalesque.redux.Redux;
+
 import net.zepalesque.redux.capability.arrow.SubzeroArrow;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
-import org.joml.Quaternionf;
-import org.joml.Vector3f;
+
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.function.Predicate;
 
 public class SubzeroCrossbowItem extends CrossbowItem {
    /** Set to {@code true} when the crossbow is 20% charged. */
@@ -213,9 +208,10 @@ public class SubzeroCrossbowItem extends CrossbowItem {
             crossbowattackmob.shootCrossbowProjectile(crossbowattackmob.getTarget(), crossbowStack, projectile, projectileAngle);
          } else {
             Vec3 vec31 = shooter.getUpVector(1.0F);
-            Quaternionf quaternionf = (new Quaternionf()).setAngleAxis(projectileAngle * ((float)Math.PI / 180F), vec31.x, vec31.y, vec31.z);
+            Quaternion quaternion = new Quaternion(new Vector3f(vec31), projectileAngle, true);
             Vec3 vec3 = shooter.getViewVector(1.0F);
-            Vector3f vector3f = vec3.toVector3f().rotate(quaternionf);
+            Vector3f vector3f = new Vector3f(vec3);
+            vector3f.transform(quaternion);
             projectile.shoot(vector3f.x(), vector3f.y(), vector3f.z(), velocity, inaccuracy);
          }
 
@@ -251,7 +247,7 @@ public class SubzeroCrossbowItem extends CrossbowItem {
    }
 
    public static void performShooting(Level pLevel, LivingEntity pShooter, InteractionHand pUsedHand, ItemStack pCrossbowStack, float pVelocity, float pInaccuracy) {
-      if (pShooter instanceof Player player && net.minecraftforge.event.ForgeEventFactory.onArrowLoose(pCrossbowStack, pShooter.level(), player, 1, true) < 0) return;
+      if (pShooter instanceof Player player && net.minecraftforge.event.ForgeEventFactory.onArrowLoose(pCrossbowStack, pShooter.level, player, 1, true) < 0) return;
       List<ItemStack> list = getChargedProjectiles(pCrossbowStack);
       float[] afloat = getShotPitches(pShooter.getRandom());
 
@@ -381,7 +377,7 @@ public class SubzeroCrossbowItem extends CrossbowItem {
       List<ItemStack> list = getChargedProjectiles(stack);
       if (isCharged(stack) && !list.isEmpty()) {
          ItemStack itemstack = list.get(0);
-         tooltip.add(Component.translatable("item.minecraft.crossbow.projectile").append(CommonComponents.SPACE).append(itemstack.getDisplayName()));
+         tooltip.add(Component.translatable("item.minecraft.crossbow.projectile").append(" ").append(itemstack.getDisplayName()));
          if (flag.isAdvanced() && itemstack.is(Items.FIREWORK_ROCKET)) {
             List<Component> list1 = Lists.newArrayList();
             Items.FIREWORK_ROCKET.appendHoverText(itemstack, level, list1, flag);
@@ -395,7 +391,7 @@ public class SubzeroCrossbowItem extends CrossbowItem {
          }
 
       }
-      if (flag.isCreative()) {
+      if (level != null && level.isClientSide() && Minecraft.getInstance().player != null && Minecraft.getInstance().player.isCreative()) {
          tooltip.add(AetherItems.GOLD_DUNGEON_TOOLTIP);
       }
    }

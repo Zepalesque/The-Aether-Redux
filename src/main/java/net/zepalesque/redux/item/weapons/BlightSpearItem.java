@@ -101,7 +101,7 @@ public class BlightSpearItem extends Item implements Vanishable {
     @Override
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         stack.hurtAndBreak(1, attacker, (contextEntity) -> contextEntity.broadcastBreakEvent(EquipmentSlot.MAINHAND));
-        if (!target.level().isClientSide() && target.level().getRandom().nextInt(3) == 0) {
+        if (!target.level.isClientSide() && target.level.getRandom().nextInt(3) == 0) {
             target.addEffect(new MobEffectInstance(getEffect(), 300));
         }
         return true;

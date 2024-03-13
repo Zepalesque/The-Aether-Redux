@@ -60,9 +60,8 @@ public class PackEntryMixin implements MixinMenuStorage {
 
     @Inject(method = "mouseClicked", at = @At(value = "HEAD"), cancellable = true)
     public void mouseClick(double mouseX, double mouseY, int button, CallbackInfoReturnable<Boolean> cir) {
-
-        if (button == 0 && this.pack.getId().equals(ID))
-        {
+        if (button == 0 && this.pack instanceof PackSelectionModel.EntryBase base && base.pack.getId().equals(ID)) {
+            
             int left = this.parent.getRowLeft();
             int top = this.parent.getRowTop(this.parent.children().indexOf((TransferableSelectionList.PackEntry) (Object) this));
             int width = this.parent.getRowWidth();

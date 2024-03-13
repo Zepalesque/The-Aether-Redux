@@ -46,7 +46,7 @@ public class VeridiumDartShooter extends DartShooterItem implements VeridiumItem
     @Override
     public AbstractDart customDart(AbstractDart dart) {
         if (this.isInfused(this)) {
-            AbstractDart newDart = ReduxEntityTypes.INFUSED_VERIDIUM_DART.get().create(dart.level());
+            AbstractDart newDart = ReduxEntityTypes.INFUSED_VERIDIUM_DART.get().create(dart.level);
             if (newDart != null && dart.getOwner() != null) {
                 Entity owner = dart.getOwner();
                 newDart.setPos(owner.getX(), owner.getEyeY() - 0.1, owner.getZ());
