@@ -7,6 +7,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.effect.ReduxEffects;
+import net.zepalesque.redux.util.math.MathUtil;
 
 public class AdrenalineModule implements PlayerTickModule {
 
@@ -24,7 +25,7 @@ public class AdrenalineModule implements PlayerTickModule {
     }
 
     public void tick() {
-        if (this.player.level().isClientSide()) {
+        if (this.player.level.isClientSide()) {
             if (this.cooldown > 0) {
                 this.cooldown--;
             }
@@ -36,7 +37,7 @@ public class AdrenalineModule implements PlayerTickModule {
                 this.adrenalineStrength = 0D;
             }
             if (this.adrenalineStrength > 0) {
-                this.maxPulseTicks = Mth.lerpInt((float) this.adrenalineStrength, 20, 10);
+                this.maxPulseTicks = MathUtil.lerpInt((float) this.adrenalineStrength, 20, 10);
             } else {
                 this.setMaxPulseTicks(0);
             }
@@ -76,7 +77,7 @@ public class AdrenalineModule implements PlayerTickModule {
     }
 
     protected void doPulse(double strength) {
-        this.player.level().playSound(this.player, this.player.getX(), this.player.getY(), this.player.getZ(), getHeartbeat(strength), SoundSource.PLAYERS, 0.8F, 1F);
+        this.player.level.playSound(this.player, this.player.getX(), this.player.getY(), this.player.getZ(), getHeartbeat(strength), SoundSource.PLAYERS, 0.8F, 1F);
     }
 
     public boolean cooledDown() {

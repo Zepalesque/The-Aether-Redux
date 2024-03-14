@@ -118,7 +118,7 @@ public class CockatriceExtensionCapability implements CockatriceExtension {
     }
 
     public void handleBurning() {
-        if (!this.cockatrice.level().isClientSide() && this.cockatrice.isAlive()) {
+        if (!this.cockatrice.level.isClientSide() && this.cockatrice.isAlive()) {
             if (this.isSunSensitive() && this.isSunBurnTick()) {
                 this.cockatrice.setSecondsOnFire(8);
             }
@@ -128,7 +128,7 @@ public class CockatriceExtensionCapability implements CockatriceExtension {
     @Override
     public void handleTargetAnim() {
         if (ReduxConfig.COMMON.improved_cockatrice_behavior.get()) {
-            if (this.getCockatrice().level().isClientSide()) {
+            if (this.getCockatrice().level.isClientSide()) {
                 this.prevTargetAnim = this.targetAnim;
                 if (this.isShooting && this.targetAnim < 10) {
                     this.targetAnim++;
@@ -174,7 +174,7 @@ public class CockatriceExtensionCapability implements CockatriceExtension {
     @Override
     public void refreshNearby() {
         if (this.cockatrice.getTarget() != null) {
-            Level level = this.cockatrice.level();
+            Level level = this.cockatrice.level;
             AABB bounds = this.cockatrice.getBoundingBox().inflate(10.0D);
 
             this.nearby = level.getEntities(this.cockatrice, bounds, entity -> entity.getType() == AetherEntityTypes.COCKATRICE.get());
@@ -200,7 +200,7 @@ public class CockatriceExtensionCapability implements CockatriceExtension {
 
     @Override
     public void handleLegAnim() {
-        if (this.getCockatrice().level().isClientSide()) {
+        if (this.getCockatrice().level.isClientSide()) {
             this.prevLegAnim = this.legAnim;
             if (!this.cockatrice.isEntityOnGround() && this.legAnim < 5) {
                 this.legAnim++;
@@ -212,11 +212,11 @@ public class CockatriceExtensionCapability implements CockatriceExtension {
     }
 
     protected boolean isSunBurnTick() {
-        if (this.cockatrice.level().isDay() && !this.cockatrice.level().isClientSide) {
+        if (this.cockatrice.level.isDay() && !this.cockatrice.level.isClientSide) {
             float f = this.cockatrice.getLightLevelDependentMagicValue();
-            BlockPos blockpos = BlockPos.containing(this.cockatrice.getX(), this.cockatrice.getEyeY(), this.cockatrice.getZ());
+            BlockPos blockpos = new BlockPos(this.cockatrice.getX(), this.cockatrice.getEyeY(), this.cockatrice.getZ());
             boolean flag = this.cockatrice.isInWaterRainOrBubble() || this.cockatrice.isInPowderSnow || this.cockatrice.wasInPowderSnow;
-            if (f > 0.5F && this.cockatrice.level().random.nextFloat() * 30.0F < (f - 0.4F) * 2.0F && !flag && this.cockatrice.level().canSeeSky(blockpos)) {
+            if (f > 0.5F && this.cockatrice.level.random.nextFloat() * 30.0F < (f - 0.4F) * 2.0F && !flag && this.cockatrice.level.canSeeSky(blockpos)) {
                 return true;
             }
         }

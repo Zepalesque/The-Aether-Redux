@@ -44,13 +44,13 @@ public class BlightshadeModule implements INBTSerializable {
     }
 
     public boolean blightshade(BlockPos pos, AABB bounds) {
-        if (!this.player.level().isClientSide()) {
+        if (!this.player.level.isClientSide()) {
             if (this.blightshadeCooldown > 0) {
                 return false;
             } else {
                 this.blightshadeCooldown = 100;
-                ((ServerLevel)this.player.level()).sendParticles(ParticleTypes.WARPED_SPORE, bounds.getCenter().x(), bounds.getCenter().y() + 0.25, bounds.getCenter().z(), 100, 0.1, 0.1, 0.1, 1.0);
-                this.player.level().playSound(null, pos, ReduxSoundEvents.BLIGHTSHADE_SPRAY.get(), SoundSource.BLOCKS, 0.8F, 0.9F + this.player.level().random.nextFloat() * 0.2F);
+                ((ServerLevel)this.player.level).sendParticles(ParticleTypes.WARPED_SPORE, bounds.getCenter().x(), bounds.getCenter().y() + 0.25, bounds.getCenter().z(), 100, 0.1, 0.1, 0.1, 1.0);
+                this.player.level.playSound(null, pos, ReduxSoundEvents.BLIGHTSHADE_SPRAY.get(), SoundSource.BLOCKS, 0.8F, 0.9F + this.player.level.random.nextFloat() * 0.2F);
                 this.blightshadeEffectCooldown = 10;
                 return true;
             }

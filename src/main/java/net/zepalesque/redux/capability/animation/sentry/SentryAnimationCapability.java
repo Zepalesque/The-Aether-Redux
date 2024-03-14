@@ -32,10 +32,10 @@ public class SentryAnimationCapability implements SentryAnimation {
     }
 
     public void handleJumpAnim() {
-        if (this.getSentry().level().isClientSide()) {
+        if (this.getSentry().level.isClientSide()) {
             this.prevJumpAnim = Byte.valueOf(this.jumpAnim);
 
-            if (!this.sentry.onGround() && this.sentry.wasOnGround)
+            if (!this.sentry.isOnGround() && this.sentry.wasOnGround)
             {
                 this.jump();
             }

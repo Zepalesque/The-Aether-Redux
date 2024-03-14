@@ -120,7 +120,7 @@ public class ReduxPlayerCapability implements ReduxPlayer {
 
 
         this.prevTickAirJumps = airJumps;
-        if (this.getPlayer().onGround()) {
+        if (this.getPlayer().isOnGround()) {
             this.ticksInAir = 0;
             this.airJumps = 0;
             this.airJumpCooldown = 0;
@@ -163,7 +163,7 @@ public class ReduxPlayerCapability implements ReduxPlayer {
 
     @Override
     public boolean canShootFireball() {
-        return !this.player.level().isClientSide() && this.player.getMainHandItem().isEmpty() &&
+        return !this.player.level.isClientSide() && this.player.getMainHandItem().isEmpty() &&
                 !this.player.getCooldowns().isOnCooldown(ReduxItems.SOLAR_EMBLEM.get())
                 && EquipmentUtil.hasCurio(this.player, ReduxItems.SOLAR_EMBLEM.get());
     }

@@ -1,6 +1,6 @@
 package net.zepalesque.redux.capability.player;
 
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.Registry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.resources.ResourceLocation;
@@ -55,7 +55,7 @@ public class LoreBookModule implements INBTSerializable {
         CompoundTag tag = new CompoundTag();
         CompoundTag mobs = new CompoundTag();
         for (Map.Entry<EntityType<?>, Integer> entry : entities.entrySet()) {
-            mobs.putInt(BuiltInRegistries.ENTITY_TYPE.getKey(entry.getKey()).toString(), entry.getValue());
+            mobs.putInt(Registry.ENTITY_TYPE.getKey(entry.getKey()).toString(), entry.getValue());
         }
         tag.put("entity", mobs);
 
@@ -65,7 +65,7 @@ public class LoreBookModule implements INBTSerializable {
         }
         tag.put("biome", b);
 
-        List<String> s = unlockedItems.stream().map(BuiltInRegistries.ITEM::getKey).map(ResourceLocation::toString).toList();
+        List<String> s = unlockedItems.stream().map(Registry.ITEM::getKey).map(ResourceLocation::toString).toList();
         String combined = String.join(",", s);
         tag.putString("item", combined);
         return tag;
@@ -81,8 +81,8 @@ public class LoreBookModule implements INBTSerializable {
             if (mobs instanceof CompoundTag mobsTag) {
                 for (String id : mobsTag.getAllKeys()) {
                     ResourceLocation loc = new ResourceLocation(id);
-                    if (BuiltInRegistries.ENTITY_TYPE.containsKey(loc)) {
-                        entities.put(BuiltInRegistries.ENTITY_TYPE.get(loc), mobsTag.getInt(id));
+                    if (Registry.ENTITY_TYPE.containsKey(loc)) {
+                        entities.put(Registry.ENTITY_TYPE.get(loc), mobsTag.getInt(id));
                     } else {
                         Redux.LOGGER.warn("Could not find entity_type with id {} for Book of Lore! Skipping...", id);
                     }
@@ -102,8 +102,8 @@ public class LoreBookModule implements INBTSerializable {
                 String[] array = items.split(",");
                 for (String id : array) {
                     ResourceLocation loc = new ResourceLocation(id);
-                    if (BuiltInRegistries.ITEM.containsKey(loc)) {
-                        unlockedItems.add(BuiltInRegistries.ITEM.get(loc));
+                    if (Registry.ITEM.containsKey(loc)) {
+                        unlockedItems.add(Registry.ITEM.get(loc));
                     } else {
                         Redux.LOGGER.warn("Could not find item with id {} for Book of Lore! Skipping...", id);
                     }
