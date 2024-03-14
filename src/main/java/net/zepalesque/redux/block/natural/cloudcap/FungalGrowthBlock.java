@@ -2,7 +2,7 @@ package net.zepalesque.redux.block.natural.cloudcap;
 
 import com.aetherteam.aether.block.AetherBlockStateProperties;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.registries.Registries;
+import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Block;
@@ -24,7 +24,7 @@ public class FungalGrowthBlock extends MossBlock {
     }
 
     public void performBonemeal(ServerLevel level, RandomSource rand, BlockPos pos, BlockState state) {
-        level.registryAccess().registry(Registries.CONFIGURED_FEATURE).flatMap((configuredFeatures) -> {
+        level.registryAccess().registry(BuiltinRegistries.CONFIGURED_FEATURE.key()).flatMap((configuredFeatures) -> {
             return configuredFeatures.getHolder(ReduxConfiguredFeatures.FUNGAL_PATCH_BONEMEAL);
         }).ifPresent((feature) -> {
             feature.value().place(level, level.getChunkSource().getGenerator(), rand, pos.above());

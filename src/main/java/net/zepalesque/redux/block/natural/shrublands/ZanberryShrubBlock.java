@@ -44,7 +44,7 @@ public class ZanberryShrubBlock extends AetherBushBlock implements BonemealableB
                 double d0 = Math.abs(entity.getX() - entity.xOld);
                 double d1 = Math.abs(entity.getZ() - entity.zOld);
                 if (d0 >= (double)0.003F || d1 >= (double)0.003F) {
-                    entity.hurt(ReduxDamageTypes.source(level, ReduxDamageTypes.ZANBERRY_BUSH), 1.0F);
+                    entity.hurt(ReduxDamageTypes.ZANBERRY_BUSH, 1.0F);
                 }
             }
         }
@@ -71,7 +71,7 @@ public class ZanberryShrubBlock extends AetherBushBlock implements BonemealableB
         return (double)random.nextFloat() <= 0.45;
     }
 
-    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isValidBonemealTarget(BlockGetter level, BlockPos pos, BlockState state, boolean isClient) {
         return true;
     }
 

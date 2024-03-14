@@ -9,6 +9,7 @@ import net.minecraft.util.ParticleUtils;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.zepalesque.redux.util.level.ParticlePlacementUtil;
 
 import java.util.function.Supplier;
 
@@ -31,7 +32,7 @@ public class FallingLeafParticleLeavesBlock extends AetherDoubleDropsLeaves {
             BlockPos blockpos = p_273218_.below();
             BlockState blockstate = p_272837_.getBlockState(blockpos);
             if (!blockstate.canOcclude() || !blockstate.isFaceSturdy(p_272837_, blockpos, Direction.UP)) {
-                ParticleUtils.spawnParticleBelow(p_272837_, p_273218_, p_273360_, this.particle.get());
+                ParticlePlacementUtil.spawnParticleBelow(p_272837_, p_273218_, p_273360_, this.particle.get());
             }
         }
     }

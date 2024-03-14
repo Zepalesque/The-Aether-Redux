@@ -28,7 +28,7 @@ public class BlightshadeBlock extends CustomBoundsFlowerBlock {
     @Override
     public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
         super.entityInside(pState, pLevel, pPos, pEntity);
-        if (!pEntity.level().isClientSide() && pEntity instanceof Player player && player.getBoundingBox().intersects(getShape(pState, pLevel, pPos, CollisionContext.of(player)).bounds().move(pPos)) && !player.getType().is(ReduxTags.EntityTypes.BLIGHTED_MOBS))
+        if (!pEntity.level.isClientSide() && pEntity instanceof Player player && player.getBoundingBox().intersects(getShape(pState, pLevel, pPos, CollisionContext.of(player)).bounds().move(pPos)) && !player.getType().is(ReduxTags.EntityTypes.BLIGHTED_MOBS))
         {
             if (!EquipmentHooks.isImmuneToBlightPlants(player)) {
                 if ((pEntity.xOld != pEntity.getX() || pEntity.zOld != pEntity.getZ())) {
@@ -40,10 +40,10 @@ public class BlightshadeBlock extends CustomBoundsFlowerBlock {
                 }
             }
             if (pLevel.random.nextInt(100) == 0) {
-                EquipmentUtil.findFirstCurio(player, stack -> stack.is(ReduxTags.Items.BLIGHTWARDING_ACCESSORIES))
+                CuriosApi.getCuriosHelper().findFirstCurio(player, stack -> stack.is(ReduxTags.Items.BLIGHTWARDING_ACCESSORIES))
                         .ifPresent(slotResult ->
                                 slotResult.stack().hurtAndBreak(1, slotResult.slotContext().entity(),
-                                        livingEntity -> CuriosApi.broadcastCurioBreakEvent(slotResult.slotContext())));
+                                        livingEntity -> CuriosApi.getCuriosHelper().onBrokenCurio(slotResult.slotContext())));
             }
 
         }

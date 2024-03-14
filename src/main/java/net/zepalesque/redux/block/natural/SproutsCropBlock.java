@@ -172,7 +172,7 @@ public class SproutsCropBlock extends BushBlock implements BonemealableBlock {
    /**
     * @return whether bonemeal can be used on this block
     */
-   public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean isClient) {
+   public boolean isValidBonemealTarget(BlockGetter level, BlockPos pos, BlockState state, boolean isClient) {
       return !this.isMaxAge(state);
    }
 

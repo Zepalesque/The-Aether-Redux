@@ -19,6 +19,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.levelgen.XoroshiroRandomSource;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.zepalesque.redux.block.util.state.enums.PetalPrismaticness;
@@ -40,6 +41,11 @@ public class FieldsprootPetalsBlock extends BushBlock implements BonemealableBlo
               .setValue(ReduxStates.PETAL_4, PetalPrismaticness.NONE)
               .setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH)
       );
+   }
+
+   @Override
+   public PushReaction getPistonPushReaction(BlockState state) {
+      return PushReaction.DESTROY;
    }
 
    public boolean canBeReplaced(BlockState state, BlockPlaceContext context) {
@@ -109,7 +115,7 @@ public class FieldsprootPetalsBlock extends BushBlock implements BonemealableBlo
    /**
     * @return whether bonemeal can be used on this block
     */
-   public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean client) {
+   public boolean isValidBonemealTarget(BlockGetter level, BlockPos pos, BlockState state, boolean client) {
       return true;
    }
 

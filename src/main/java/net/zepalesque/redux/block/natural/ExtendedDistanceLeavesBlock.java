@@ -26,6 +26,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.zepalesque.redux.block.util.state.ReduxStates;
+import net.zepalesque.redux.util.level.ParticlePlacementUtil;
 
 import java.util.OptionalInt;
 
@@ -138,7 +139,7 @@ public class ExtendedDistanceLeavesBlock extends Block implements SimpleWaterlog
             BlockPos blockpos = pos.below();
             BlockState blockstate = level.getBlockState(blockpos);
             if (!blockstate.canOcclude() || !blockstate.isFaceSturdy(level, blockpos, Direction.UP)) {
-               ParticleUtils.spawnParticleBelow(level, pos, random, ParticleTypes.DRIPPING_WATER);
+               ParticlePlacementUtil.spawnParticleBelow(level, pos, random, ParticleTypes.DRIPPING_WATER);
             }
          }
       }

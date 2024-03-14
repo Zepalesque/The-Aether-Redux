@@ -3,7 +3,7 @@ package net.zepalesque.redux.block.natural.cloudcap;
 import com.aetherteam.aether.block.natural.AetherBushBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
-import net.minecraft.core.registries.Registries;
+import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -31,7 +31,7 @@ public class AetherMushroom extends CustomBoundsBushBlock implements Bonemealabl
     }
 
     public boolean growMushroom(ServerLevel pLevel, BlockPos pPos, BlockState pState, RandomSource pRandom) {
-        Optional<? extends Holder<ConfiguredFeature<?, ?>>> optional = pLevel.registryAccess().registryOrThrow(Registries.CONFIGURED_FEATURE).getHolder(this.feature);
+        Optional<? extends Holder<ConfiguredFeature<?, ?>>> optional = pLevel.registryAccess().registryOrThrow(BuiltinRegistries.CONFIGURED_FEATURE.key()).getHolder(this.feature);
         if (optional.isEmpty()) {
             return false;
         } else {
@@ -50,7 +50,7 @@ public class AetherMushroom extends CustomBoundsBushBlock implements Bonemealabl
     /**
      * @return whether bonemeal can be used on this block
      */
-    public boolean isValidBonemealTarget(LevelReader pLevel, BlockPos pPos, BlockState pState, boolean pIsClient) {
+    public boolean isValidBonemealTarget(BlockGetter pLevel, BlockPos pPos, BlockState pState, boolean pIsClient) {
         return true;
     }
 
