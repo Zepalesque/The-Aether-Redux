@@ -306,7 +306,7 @@ public class Redux {
             overridesPack(event);
 
             if (ModList.get().isLoaded("tipsmod")) {
-                setupMandatoryPack(event, "resource/redux_tips", "Tips Mod Compat", "Tips for the Aether: Redux");
+                BuiltinPackUtils.mandatory(event, "resource/redux_tips", "Tips Mod Compat", Component.literal("Tips for the Aether: Redux"));
             }
 
         } else if (event.getPackType() == PackType.SERVER_DATA) {
