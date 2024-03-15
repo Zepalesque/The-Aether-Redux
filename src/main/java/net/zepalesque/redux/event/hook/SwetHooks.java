@@ -37,7 +37,7 @@ public class SwetHooks {
         if (toRemove[0] != null && toRemove[1] != null) {
             swet.goalSelector.getAvailableGoals().removeIf((wrappedGoal -> wrappedGoal == toRemove[0] || wrappedGoal == toRemove[1]));
         }
-        swet.targetSelector.removeAllGoals(goal -> true);
+        swet.targetSelector.removeAllGoals();
         swet.targetSelector.addGoal(1, new FollowUnabsorbedTargetGoal<>(
                 swet, Player.class, 10, true, false, (player) ->
                 Math.abs(player.getY() - swet.getY()) <= 4.0D &&

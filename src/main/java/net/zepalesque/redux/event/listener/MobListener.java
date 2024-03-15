@@ -71,8 +71,8 @@ public class MobListener {
         }
         double d0 = Math.abs(entity.getX() - entity.xOld);
         double d1 = Math.abs(entity.getZ() - entity.zOld);
-        if ((d0 >= (double)0.003F || d1 >= (double)0.003F) && entity instanceof Player player && !player.level().isClientSide()) {
-            Optional<ResourceKey<Biome>> b = player.level().getBiome(player.blockPosition()).unwrapKey();
+        if ((d0 >= (double)0.003F || d1 >= (double)0.003F) && entity instanceof Player player && !player.level.isClientSide()) {
+            Optional<ResourceKey<Biome>> b = player.level.getBiome(player.blockPosition()).unwrapKey();
             b.ifPresent(biomeResourceKey -> ReduxPlayer.get(player).ifPresent(reduxPlayer -> reduxPlayer.getLoreModule().incrementBiome(biomeResourceKey.location())));
         }
 
@@ -83,7 +83,7 @@ public class MobListener {
         if (event.getSource().getEntity() instanceof LivingEntity entity && EquipmentUtil.hasCurio(entity, ReduxItems.VAMPIRE_AMULET.get())) {
             VampireAmulet.get(entity).ifPresent(vampireAmulet ->
             {
-                if (vampireAmulet.canUseAbility() && !vampireAmulet.getMob().level().isDay()) {
+                if (vampireAmulet.canUseAbility() && !vampireAmulet.getMob().level.isDay()) {
 
                     float life = getLifeSteal(event.getAmount());
                     vampireAmulet.getMob().heal(life);
@@ -93,7 +93,7 @@ public class MobListener {
 
         if (EquipmentUtil.hasCurio(event.getEntity(), ReduxItems.VAMPIRE_AMULET.get()))
         {
-            if (event.getEntity().level().isDay()) {
+            if (event.getEntity().level.isDay()) {
                 float hurt = event.getAmount() * 1.25F;
                 event.setAmount(hurt);
             }
@@ -120,12 +120,12 @@ public class MobListener {
     public static void movementHandling(LivingEvent.LivingTickEvent event) {
         if (ReduxConfig.COMMON.quicksoil_movement_system.get() == QuicksoilSetting.highlands) {
             final LivingEntity entity = event.getEntity();
-            if (!entity.onGround()) { return; }
+            if (!entity.isOnGround()) { return; }
             if (entity.isInWater()) { return; }
             if (Math.abs(entity.getDeltaMovement().x + entity.getDeltaMovement().y + entity.getDeltaMovement().z) < 0.001D) { return; }
             if (entity instanceof Player player && player.isSpectator())  { return; }
 
-            if (entity.level().getBlockState(entity.getBlockPosBelowThatAffectsMyMovement()).is(ReduxTags.Blocks.QUICKSOIL_BEHAVIOR)) {
+            if (entity.level.getBlockState(entity.getBlockPosBelowThatAffectsMyMovement()).is(ReduxTags.Blocks.QUICKSOIL_BEHAVIOR)) {
                 MobHooks.modifyEntityQuicksoil(entity);
             }
         }

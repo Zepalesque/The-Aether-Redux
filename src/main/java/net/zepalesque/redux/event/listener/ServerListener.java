@@ -12,7 +12,7 @@ public class ServerListener {
 
     @SubscribeEvent
     public static void sendColors(PlayerEvent.PlayerLoggedInEvent event) {
-        if (!event.getEntity().level().isClientSide() && event.getEntity() instanceof ServerPlayer player) {
+        if (!event.getEntity().level.isClientSide() && event.getEntity() instanceof ServerPlayer player) {
             AetherGrassColorModifier.sendToClient(player);
         }
     }

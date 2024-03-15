@@ -17,8 +17,7 @@ import java.util.List;
 public class FallListener {
 
     @SubscribeEvent
-    public static void fall(LivingFallEvent event)
-    {
+    public static void fall(LivingFallEvent event) {
         if (event.getEntity() != null && event.getEntity() instanceof Player player) {
             ReduxPlayer.get(player).ifPresent((reduxPlayer) -> {
                 List<SlotResult> ringList = EquipmentUtil.getCurios(player, ReduxItems.AIRBOUND_CAPE.get());

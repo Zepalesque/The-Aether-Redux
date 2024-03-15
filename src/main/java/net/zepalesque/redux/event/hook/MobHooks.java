@@ -5,7 +5,6 @@ import com.aetherteam.aether.entity.monster.Cockatrice;
 import com.aetherteam.aether.entity.monster.dungeon.Mimic;
 import com.aetherteam.aether.entity.monster.dungeon.Sentry;
 import com.aetherteam.aether.entity.passive.Moa;
-import com.aetherteam.aether_genesis.entity.monster.BattleSentry;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.FleeSunGoal;
@@ -18,7 +17,6 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.capability.animation.mimic.MimicAnimation;
 import net.zepalesque.redux.capability.animation.moa.MoaAnimation;
 import net.zepalesque.redux.capability.animation.sentry.SentryAnimation;
-import net.zepalesque.redux.capability.animation.sentry.battle.BattleSentryAnimation;
 import net.zepalesque.redux.capability.cockatrice.CockatriceExtension;
 import net.zepalesque.redux.capability.living.VampireAmulet;
 import net.zepalesque.redux.capability.player.ReduxPlayer;
@@ -70,29 +68,20 @@ public class MobHooks {
 
     public static void updateCapabilities(LivingEntity living)
     {
-        if (living instanceof Cockatrice cockatrice)
-        {
+        if (living instanceof Cockatrice cockatrice) {
             CockatriceExtension.get(cockatrice).ifPresent(CockatriceExtension::tick);
         }
-        if (living instanceof Moa moa && moa.level().isClientSide())
-        {
+        if (living instanceof Moa moa && moa.level.isClientSide()) {
             MoaAnimation.get(moa).ifPresent(MoaAnimation::tick);
         }
-        if (living instanceof Player player)
-        {
+        if (living instanceof Player player) {
             ReduxPlayer.get(player).ifPresent(ReduxPlayer::tick);
         }
-        if (living instanceof Sentry sentry && sentry.level().isClientSide())
-        {
+        if (living instanceof Sentry sentry && sentry.level.isClientSide()) {
             SentryAnimation.get(sentry).ifPresent(SentryAnimation::tick);
         }
-        if (living instanceof Mimic mimic && mimic.level().isClientSide())
-        {
+        if (living instanceof Mimic mimic && mimic.level.isClientSide()) {
             MimicAnimation.get(mimic).ifPresent(MimicAnimation::tick);
-        }
-        if (Redux.aetherGenesisCompat() && living instanceof BattleSentry battleSentry && battleSentry.level().isClientSide())
-        {
-            BattleSentryAnimation.get(battleSentry).ifPresent(BattleSentryAnimation::tick);
         }
         VampireAmulet.get(living).ifPresent(VampireAmulet::tick);
     }

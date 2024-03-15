@@ -11,6 +11,7 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.event.hook.ClientQuicksoilHooks;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.config.enums.QuicksoilSetting;
+import net.zepalesque.redux.event.hook.MobHooks;
 import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.util.level.LevelUtil;
 
@@ -26,10 +27,7 @@ public class ClientQuicksoilListener {
             if (Math.abs(entity.getDeltaMovement().x + entity.getDeltaMovement().y + entity.getDeltaMovement().z) < 0.001D) { return; }
             if (entity instanceof Player player && player.isSpectator()) { return; }
 
-            AABB bb = entity.getBoundingBox();
-            AABB bbBelow = new AABB(bb.minX + 0.1D, bb.minY - 0.3D, bb.minZ +0.1D, bb.maxX - 0.1D, bb.minY, bb.maxZ - 0.1D);
-
-            if (LevelUtil.isTagInAABB1(bbBelow, entity.level, ReduxTags.Blocks.QUICKSOIL_BEHAVIOR)) {
+            if (entity.level.getBlockState(entity.getBlockPosBelowThatAffectsMyMovement()).is(ReduxTags.Blocks.QUICKSOIL_BEHAVIOR)) {
                 ClientQuicksoilHooks.cancelSneak(entity);
             }
         }
