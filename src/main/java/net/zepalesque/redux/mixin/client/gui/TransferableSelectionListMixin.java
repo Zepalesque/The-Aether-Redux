@@ -1,5 +1,6 @@
 package net.zepalesque.redux.mixin.client.gui;
 
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.packs.PackSelectionScreen;
 import net.minecraft.client.gui.screens.packs.TransferableSelectionList;
 import net.zepalesque.redux.api.MixinMenuStorage;
@@ -13,8 +14,6 @@ import org.spongepowered.asm.mixin.Unique;
 @Mixin(TransferableSelectionList.class)
 public class TransferableSelectionListMixin implements MixinMenuStorage {
 
-    @Shadow @Final
-    PackSelectionScreen screen;
     @Unique
     @Nullable
     public PackConfigMenu menu;
@@ -28,6 +27,7 @@ public class TransferableSelectionListMixin implements MixinMenuStorage {
     @Override
     public void setMenu(PackConfigMenu menu) {
         this.menu = menu;
-        ((MixinMenuStorage) this.screen).setMenu(this.menu);
+        // TODO 1.19.2: ensure nothing bad happens because of this being commented out
+//        ((MixinMenuStorage) this.get).setMenu(this.menu);
     }
 }
