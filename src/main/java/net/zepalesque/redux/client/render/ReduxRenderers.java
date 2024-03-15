@@ -2,11 +2,8 @@ package net.zepalesque.redux.client.render;
 
 import com.aetherteam.aether.client.renderer.accessory.PendantRenderer;
 import com.aetherteam.aether.client.renderer.entity.*;
-import com.aetherteam.aether_genesis.client.renderer.entity.BattleSentryRenderer;
-import com.aetherteam.aether_genesis.client.renderer.entity.SkyrootMimicRenderer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
-import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraftforge.api.distmarker.Dist;
@@ -25,7 +22,6 @@ import net.zepalesque.redux.client.render.entity.misc.ReduxBoatRenderer;
 import net.zepalesque.redux.client.render.entity.model.PinModel;
 import net.zepalesque.redux.client.render.entity.model.SpearModel;
 import net.zepalesque.redux.client.render.entity.model.entity.*;
-import net.zepalesque.redux.client.render.entity.model.entity.MimicReduxModel;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.item.ReduxItems;
 import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
@@ -51,7 +47,6 @@ public class ReduxRenderers {
     public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
         for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS) {
             event.registerBlockEntityRenderer(woodHandler.signEntity.get(), SignRenderer::new);
-            event.registerBlockEntityRenderer(woodHandler.hangingSignEntity.get(), HangingSignRenderer::new);
             event.registerEntityRenderer(woodHandler.boatEntity.get(), (context) -> new ReduxBoatRenderer(context, false, woodHandler.woodName));
             event.registerEntityRenderer(woodHandler.chestBoatEntity.get(), (context) -> new ReduxBoatRenderer(context, true, woodHandler.woodName));
         }
@@ -102,10 +97,6 @@ public class ReduxRenderers {
         event.registerLayerDefinition(ReduxModelLayers.FLYING_COW, FlyingCowReduxModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.PIN, PinModel::createLayer);
 
-        if (Redux.aetherGenesisCompat()) {
-            event.registerLayerDefinition(ReduxModelLayers.BATTLE_SENTRY, BattleSentryReduxModel::createBodyLayer);
-        }
-
         if (!FMLLoader.isProduction()) {
             event.registerLayerDefinition(ReduxModelLayers.CUBE, CubeModel::create);
         }
@@ -136,12 +127,9 @@ public class ReduxRenderers {
             if (renderer instanceof FlyingCowRenderer cow) {
                 cow.addLayer(new FlyingCowReduxLayer(cow, new FlyingCowReduxModel<>(mc.getEntityModels().bakeLayer(ReduxModelLayers.FLYING_COW))));
             }
-            if (Redux.aetherGenesisCompat() && renderer instanceof BattleSentryRenderer sentry) {
-                sentry.addLayer(new BattleSentryReduxLayer(sentry, new BattleSentryReduxModel<>(mc.getEntityModels().bakeLayer(ReduxModelLayers.BATTLE_SENTRY))));
-            }
-            if (Redux.aetherGenesisCompat() && renderer instanceof SkyrootMimicRenderer mimic) {
+/*            if (Redux.aetherGenesisCompat() && renderer instanceof SkyrootMimicRenderer mimic) {
                 mimic.addLayer(new MimicReduxLayer(mimic, new MimicReduxModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.MIMIC))));
-            }
+            }*/
         }
     }
 

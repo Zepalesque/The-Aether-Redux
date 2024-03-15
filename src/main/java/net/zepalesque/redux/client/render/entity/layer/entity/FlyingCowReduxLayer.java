@@ -2,8 +2,6 @@ package net.zepalesque.redux.client.render.entity.layer.entity;
 
 import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.entity.passive.FlyingCow;
-import com.legacy.lost_aether.capability.entity.IWingedAnimal;
-import com.legacy.lost_aether.capability.entity.WingedAnimalCap;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Minecraft;
@@ -56,13 +54,14 @@ public class FlyingCowReduxLayer extends RenderLayer<FlyingCow, CowModel<FlyingC
 
     @Override
     protected @NotNull ResourceLocation getTextureLocation(@NotNull FlyingCow phyg) {
-        if (Redux.lostAetherCompat()) {
+        // TODO 1.19.2: Reimplement when Lost Content ports to 1.19.2
+        /*if (Redux.lostAetherCompat()) {
             IWingedAnimal cap = WingedAnimalCap.get(phyg);
             if (cap != null && cap.shouldDisplayWings()) {
                 int type = cap.getWingType();
                 return type == WingedAnimalCap.WingType.SILVER.ordinal() ? SILVER : BRONZE;
             }
-        }
+        }*/
         return TEXTURE;
     }
 }

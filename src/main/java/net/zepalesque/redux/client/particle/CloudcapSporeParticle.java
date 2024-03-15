@@ -50,7 +50,7 @@ public class CloudcapSporeParticle extends TextureSheetParticle {
             this.yd *= (double)0.98F;
             this.zd *= (double)0.98F;
             if (this.type != Fluids.EMPTY) {
-               BlockPos blockpos = BlockPos.containing(this.x, this.y, this.z);
+               BlockPos blockpos = new BlockPos(this.x, this.y, this.z);
                FluidState fluidstate = this.level.getFluidState(blockpos);
                if (fluidstate.getType() == this.type && this.y < (double)((float)blockpos.getY() + fluidstate.getHeight(this.level, blockpos))) {
                   this.remove();

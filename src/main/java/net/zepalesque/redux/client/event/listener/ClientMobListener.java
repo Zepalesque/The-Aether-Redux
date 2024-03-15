@@ -17,11 +17,11 @@ public class ClientMobListener {
     @SubscribeEvent
     public static void tickMimic(LivingEvent.LivingTickEvent event)
     {
-        if (event.getEntity() instanceof Mimic mimic && mimic.level().isClientSide() && ReduxConfig.COMMON.smaller_mimic_hitbox.get() && ReduxConfig.CLIENT.mimic_slam_sound.get())
+        if (event.getEntity() instanceof Mimic mimic && mimic.level.isClientSide() && ReduxConfig.COMMON.smaller_mimic_hitbox.get() && ReduxConfig.CLIENT.mimic_slam_sound.get())
         {
             int age = mimic.tickCount;
             if (age % 25 == 13) {
-                mimic.level().playSound(Minecraft.getInstance().player, mimic.getX(), mimic.getY(), mimic.getZ(), ReduxSoundEvents.MIMIC_SLAM.get(), SoundSource.HOSTILE, 0.5F, mimic.level().random.nextFloat() * 0.1F + 0.9F);
+                mimic.level.playSound(Minecraft.getInstance().player, mimic.getX(), mimic.getY(), mimic.getZ(), ReduxSoundEvents.MIMIC_SLAM.get(), SoundSource.HOSTILE, 0.5F, mimic.level.random.nextFloat() * 0.1F + 0.9F);
             }
         }
     }

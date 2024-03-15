@@ -1,12 +1,11 @@
 package net.zepalesque.redux.client.gui.component.menu;
 
-import com.aetherteam.aether.mixin.mixins.client.accessor.ButtonAccessor;
+import com.aetherteam.aether.client.gui.component.Builder;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
-import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.components.AbstractButton;
+import net.minecraft.client.gui.GuiComponent;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
@@ -32,46 +31,51 @@ public class ReduxMenuButton extends Button {
 	public boolean serverButton;
 
 	public ReduxMenuButton(ReduxTitleScreen screen, Builder builder) {
-		super(builder);
+		super(builder.x, builder.y, builder.width, builder.height, builder.message, builder.onPress, builder.tooltip);
 		this.screen = screen;
-		this.originalX = this.getX();
-		this.originalY = this.getY();
+		this.originalX = this.x;
+		this.originalY = this.y;
 		this.originalWidth = this.getWidth();
 		this.originalHeight = this.getHeight();
 		this.hoverOffset = 0;
 	}
 
 	public ReduxMenuButton(ReduxTitleScreen screen, Button oldButton) {
-		this(screen, new Builder(oldButton.getMessage(), (button) -> oldButton.onPress()).bounds( oldButton.getX(), oldButton.getY(), oldButton.getWidth(), oldButton.getHeight()).createNarration((button) -> ((ButtonAccessor) oldButton).callCreateNarrationMessage()));
+		this(screen, (new Builder(oldButton.getMessage(), (button) -> {
+			oldButton.onPress();
+		})).bounds(oldButton.x, oldButton.y, oldButton.getWidth(), oldButton.getHeight()));
 		oldButton.visible = false;
 		oldButton.active = false;
 	}
 
+
 	@Override
-	public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
-		PoseStack poseStack = guiGraphics.pose();
+	public void renderButton(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
 		Minecraft minecraft = Minecraft.getInstance();
 		Font font = minecraft.font;
 		int i = this.getTextureY();
+		float scale = ReduxTitleScreen.getScale(this.screen, minecraft);
+		this.x = 16;
+		this.y = (int)(100.0F / scale + (float)this.buttonCountOffset * (50.0F / scale));
+		this.setWidth((int)(400.0F / scale));
 
-		float scale = ReduxTitleScreen.getScale(this.screen, minecraft); // The scaling for elements relative to the true screen scale.
-		this.setX(INITIAL_X_OFFSET);
-		this.setY((int) ((INITIAL_Y_OFFSET / scale) + this.buttonCountOffset * (BUTTON_SEPARATION / scale)));
-		this.setWidth((int) (BUTTON_WIDTH / scale));
-		this.setHeight((int) (BUTTON_HEIGHT / scale));
-
+		this.setHeight((int)(40.0F / scale));
+		RenderSystem.setShaderTexture(0, AETHER_WIDGETS);
+		RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, this.alpha);
 		RenderSystem.enableBlend();
-		guiGraphics.setColor(1.0F, 1.0F, 1.0F, this.alpha);
-		guiGraphics.blit(AETHER_WIDGETS, this.getX() + this.hoverOffset, this.getY(), 0, Mth.ceil(i / scale), this.getWidth(), this.getHeight(), (int) (TEXTURE_SIZE / scale), (int) (TEXTURE_SIZE / scale));
+		RenderSystem.defaultBlendFunc();
+		RenderSystem.enableDepthTest();
+		GuiComponent.blit(poseStack, this.x + this.hoverOffset, this.y, 0.0F, (float)Mth.ceil((float)i / scale), this.getWidth(), this.getHeight(), (int)(512.0F / scale), (int)(512.0F / scale));
+		RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+		RenderSystem.disableDepthTest();
 		RenderSystem.disableBlend();
-
 		poseStack.pushPose();
-		float textScale = getTextScale(this.screen, minecraft);  // The scaling for text relative to the true screen scale.
-		float textX = this.getX() + (35 * textScale) + this.hoverOffset;
-		float textY = this.getY() + (this.height - (8 * textScale)) / 2.0F;
-		poseStack.translate(textX, textY, 0.0F);
+		float textScale = getTextScale(this.screen, minecraft);
+		float textX = (float)this.x + 35.0F * textScale + (float)this.hoverOffset;
+		float textY = (float)this.y + ((float)this.height - 8.0F * textScale) / 2.0F;
+		poseStack.translate((double)textX, (double)textY, 0.0);
 		poseStack.scale(textScale, textScale, textScale);
-		guiGraphics.drawString(font, this.getMessage(), 0, 0, this.getTextColor(mouseX, mouseY) | Mth.ceil(this.alpha * 255.0F) << 24);
+		GuiComponent.drawString(poseStack, font, this.getMessage(), 0, 0, this.getTextColor(mouseX, mouseY) | Mth.ceil(this.alpha * 255.0F) << 24);
 		poseStack.popPose();
 	}
 

@@ -1,8 +1,9 @@
 package net.zepalesque.redux.client.gui.screen.config;
 
 import com.google.common.collect.Lists;
+import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
@@ -13,7 +14,11 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.packconfig.Category;
 import net.zepalesque.redux.api.packconfig.IConfigSaving;
 import net.zepalesque.redux.api.packconfig.PackConfig;
-import net.zepalesque.redux.client.gui.component.*;
+import net.zepalesque.redux.client.gui.backported.GuiGraphicsHelper;
+import net.zepalesque.redux.client.gui.component.DynamicButton;
+import net.zepalesque.redux.client.gui.component.DynamicImageButton;
+import net.zepalesque.redux.client.gui.component.DynamicRenderableString;
+import net.zepalesque.redux.client.gui.component.RenderableString;
 import net.zepalesque.redux.client.gui.component.config.ISaveable;
 import net.zepalesque.redux.client.gui.component.config.PageDependentString;
 import net.zepalesque.redux.util.math.MathUtil;
@@ -81,8 +86,8 @@ public class PackConfigMenu extends Screen {
     }
 
 
-    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-        this.renderDirtBackground(guiGraphics);
+    public void render(PoseStack guiGraphics, int mouseX, int mouseY, float partialTicks) {
+        this.renderDirtBackground(0);
         this.renderMenu(guiGraphics);
         this.renderList(guiGraphics);
         super.render(guiGraphics, mouseX, mouseY, partialTicks);
@@ -107,14 +112,18 @@ public class PackConfigMenu extends Screen {
         return currentPageNumber;
     }
 
-    private void renderMenu(GuiGraphics guiGraphics) {
-        guiGraphics.blitNineSliced(MENU_LOC, this.centerXStart(this.frameWidth()), this.centerYStart(this.frameHeight()), this.frameWidth(), this.frameHeight(), 30, 41, 30, 31, 192, 192, 0, 0);
+    private void renderMenu(PoseStack guiGraphics) {
+        GuiGraphicsHelper.blitNineSliced(MENU_LOC, guiGraphics,  this.centerXStart(this.frameWidth()), this.centerYStart(this.frameHeight()), this.frameWidth(), this.frameHeight(), 30, 41, 30, 31, 192, 192, 0, 0);
     }
-    private void renderList(GuiGraphics guiGraphics) {
+    private void renderList(PoseStack guiGraphics) {
         int width = this.frameWidth() - 28;
         int height = this.frameHeight() - 72;
-        guiGraphics.blit(LIST_LOC, this.centerXStart(this.frameWidth()) + 14, this.centerYStart(this.frameHeight()) + 41, width, height, 0.0F, 0.0F, width / 3, height / 3, 16, 16);
+        RenderSystem.setShaderTexture(0, LIST_LOC);
+        guiGraphics.pushPose();
+        blit(guiGraphics, this.centerXStart(this.frameWidth()) + 14, this.centerYStart(this.frameHeight()) + 41, width, height, 0.0F, 0.0F, width / 3, height / 3, 16, 16);
+        guiGraphics.popPose();
     }
+
 
 
     private int centerXStart(int width)
@@ -198,7 +207,7 @@ public class PackConfigMenu extends Screen {
                     this.addRenderableOnly(string);
                 } else if (id instanceof Category cat)
                 {
-                    DynamicButton button = new DynamicButton(Button.builder(Component.translatable("gui.aether_redux.pack_config.category." + cat.id()), b -> this.goInto(cat, this.minecraft)).bounds(baseXCat, baseY + i * 24,  this.frameWidth() - 32, 20), pg, Component.translatable("gui.aether_redux.pack_config.category_desc." + cat.id())) ;
+                    DynamicButton button = new DynamicButton(baseXCat, baseY + i * 24,this.frameWidth() - 32, 20, this, Component.translatable("gui.aether_redux.pack_category." + cat.id()), b -> this.goInto(cat, this.minecraft), pg, Component.translatable("gui.aether_redux.pack_config.category_desc." + cat.id())) ;
                     Supplier<Boolean> rightPage = () -> button.getPage() == this.getCurrentPage();
                     button.setActiveSupplier(rightPage);
                     button.setVisibleSupplier(rightPage);

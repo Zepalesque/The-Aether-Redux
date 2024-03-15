@@ -36,10 +36,11 @@ public class ReduxMenus {
 
     private static final Menu.Background REDUX_BACKGROUND = new Menu.Background()
             .regularBackground(THE_AETHER_REGULAR_BACKGROUND)
-            .darkBackground(THE_AETHER_DARK_BACKGROUND)
-            .headerSeparator(THE_AETHER_HEADER_SEPARATOR)
-            .footerSeparator(THE_AETHER_FOOTER_SEPARATOR)
-            .tabButton(THE_AETHER_TAB_BUTTON);
+//            .darkBackground(THE_AETHER_DARK_BACKGROUND)
+//            .headerSeparator(THE_AETHER_HEADER_SEPARATOR)
+//            .footerSeparator(THE_AETHER_FOOTER_SEPARATOR)
+//            .tabButton(THE_AETHER_TAB_BUTTON)
+            ;
 
 
     public static final RegistryObject<Menu> BLIGHT_MENU = register("redux_blight", ICON, BLIGHT_NAME, () -> new ReduxTitleScreen("blight"), () -> new Menu.Properties().music(ReduxMusic.REDUX_MENU).background(REDUX_BACKGROUND));

@@ -3,7 +3,6 @@ package net.zepalesque.redux.client.render.entity.layer.entity;
 import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.client.renderer.entity.model.MimicModel;
 import com.aetherteam.aether.entity.monster.dungeon.Mimic;
-import com.aetherteam.aether_genesis.entity.GenesisEntityTypes;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Minecraft;
@@ -87,6 +86,7 @@ public class MimicReduxLayer extends RenderLayer<Mimic, MimicModel> {
     @Nonnull
     @Override
     public ResourceLocation getTextureLocation(@Nonnull Mimic mimic) {
-        return ModList.get().isLoaded("lootr") ? REDUX_LOOTR_TEXTURE : this.isChristmas ? REDUX_XMAS_TEXTURE : Redux.aetherGenesisCompat() && mimic.getType() == GenesisEntityTypes.SKYROOT_MIMIC.get() ? REDUX_SKYROOT : REDUX_TEXTURE;
+        // TODO 1.19.2: fix when Skyroot Mimics are implemented
+        return ModList.get().isLoaded("lootr") ? REDUX_LOOTR_TEXTURE : this.isChristmas ? REDUX_XMAS_TEXTURE :/* Redux.aetherGenesisCompat() && mimic.getType() == GenesisEntityTypes.SKYROOT_MIMIC.get() ? REDUX_SKYROOT :*/ REDUX_TEXTURE;
     }
 }

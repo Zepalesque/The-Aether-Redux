@@ -1,35 +1,30 @@
 package net.zepalesque.redux.client.gui.screen.menu;
 
-import com.aetherteam.aether.AetherConfig;
+import com.aetherteam.aether.client.gui.component.menu.AetherMenuButton;
 import com.aetherteam.aether.client.gui.component.menu.DynamicMenuButton;
 import com.aetherteam.aether.client.gui.screen.menu.TitleScreenBehavior;
 import com.aetherteam.aether.mixin.mixins.client.accessor.TitleScreenAccessor;
-import com.aetherteam.cumulus.mixin.mixins.client.accessor.SplashRendererAccessor;
+import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Axis;
+import com.mojang.math.Vector3f;
 import net.minecraft.Util;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiComponent;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.gui.components.Renderable;
-import net.minecraft.client.gui.components.Tooltip;
+import net.minecraft.client.gui.components.Widget;
 import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.narration.NarratableEntry;
-import net.minecraft.client.gui.screens.ConnectScreen;
 import net.minecraft.client.gui.screens.TitleScreen;
-import net.minecraft.client.multiplayer.ServerData;
-import net.minecraft.client.multiplayer.resolver.ServerAddress;
 import net.minecraft.client.renderer.CubeMap;
 import net.minecraft.client.renderer.PanoramaRenderer;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraftforge.client.ForgeHooksClient;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.gui.component.menu.ReduxMenuButton;
 
-import java.util.function.Predicate;
+import java.util.Iterator;
 
 /** NOTE: Duplicates {@link com.aetherteam.aether.client.gui.screen.menu.AetherTitleScreen}, with a few edits such as always being left-aligned (except the logo) and different button textures and stuff */
 public class ReduxTitleScreen extends TitleScreen implements TitleScreenBehavior {
@@ -59,114 +54,92 @@ public class ReduxTitleScreen extends TitleScreen implements TitleScreenBehavior
 	public void setupButtons() {
 		int buttonRows = 0;
 		int lastY = 0;
-		if (AetherConfig.CLIENT.enable_server_button.get()) {
-			Component component = ((TitleScreenAccessor) this).callGetMultiplayerDisabledReason();
-			boolean flag = component == null;
-			Tooltip tooltip = component != null ? Tooltip.create(component) : null;
-			Button serverButton = this.addRenderableWidget(Button.builder(Component.translatable("gui.aether.menu.server"), (button) -> {
-				ServerData serverData = new ServerData("OATS", "oats.aether-mod.net", false);
-				ConnectScreen.startConnecting(this, this.minecraft, ServerAddress.parseString(serverData.ip), serverData, false);
-			}).bounds(this.width / 2 - 100, (this.height / 4 + 48) + 24 * 3, 200, 20).tooltip(tooltip).build());
-			serverButton.active = flag;
-			Predicate<AbstractWidget> predicate = (abstractWidget) -> (abstractWidget.getMessage().equals(Component.translatable("menu.multiplayer")) || abstractWidget.getMessage().equals(Component.translatable("menu.online")));
-			this.children().removeIf(button -> button instanceof AbstractWidget abstractWidget && predicate.test(abstractWidget));
-			this.renderables.removeIf(button -> button instanceof AbstractWidget abstractWidget && predicate.test(abstractWidget));
-		}
-		for (Renderable renderable : this.renderables) {
+		Iterator var3 = this.renderables.iterator();
+
+		while(var3.hasNext()) {
+			Widget renderable = (Widget)var3.next();
 			if (renderable instanceof AbstractWidget abstractWidget) {
-				Component buttonText = abstractWidget.getMessage();
-				if (TitleScreenBehavior.isImageButton(buttonText)) {
-					abstractWidget.visible = false; // The visibility handling is necessary here to avoid a bug where the buttons will render in the center of the screen before they have a specified offset.
+				if (TitleScreenBehavior.isImageButton(abstractWidget.getMessage())) {
+					abstractWidget.visible = false;
 				}
-				if (abstractWidget instanceof ReduxMenuButton button) { // Sets button values that determine their positioning on the screen.
-						++buttonRows;
 
-					if (buttonText.equals(Component.translatable("gui.aether.menu.server"))) {
-						button.serverButton = true;
-						button.buttonCountOffset = 2;
-					} else {
-						button.buttonCountOffset = buttonRows;
-					}
+				if (abstractWidget instanceof ReduxMenuButton aetherMenuButton) {
+					++buttonRows;
 
-					if ((Boolean)AetherConfig.CLIENT.enable_server_button.get() && buttonText.equals(Component.translatable("menu.singleplayer"))) {
-						++buttonRows;
-					}
+					aetherMenuButton.buttonCountOffset = buttonRows;
 				}
 			}
 		}
+
 		this.rows = buttonRows;
 	}
 
 	@Override
-	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+	public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTicks) {
 		TitleScreenAccessor titleScreenAccessor = (TitleScreenAccessor) this;
-		if (this.minecraft != null && titleScreenAccessor.aether$getSplash() == null) {
-			titleScreenAccessor.aether$setSplash(this.minecraft.getSplashManager().getSplash());
-		}
-		float fadeAmount = TitleScreenBehavior.super.handleFading(guiGraphics, this, titleScreenAccessor, this.cube, PANORAMA_OVERLAY, partialTicks);
+		float fadeAmount = TitleScreenBehavior.super.handleFading(poseStack, this, titleScreenAccessor, this.cube, PANORAMA_OVERLAY, partialTicks);
 		float scale = getScale(this, this.getMinecraft());
-		this.setupLogo(guiGraphics, fadeAmount, scale);
+		this.setupLogo(poseStack, fadeAmount, scale);
 		int roundedFadeAmount = Mth.ceil(fadeAmount * 255.0F) << 24;
 		if ((roundedFadeAmount & -67108864) != 0) {
-			ForgeHooksClient.renderMainMenu(this, guiGraphics, this.font, this.width, this.height, roundedFadeAmount);
+			ForgeHooksClient.renderMainMenu(this, poseStack, this.font, this.width, this.height, roundedFadeAmount);
 			if (titleScreenAccessor.aether$getSplash() != null) {
-				SplashRendererAccessor splashRendererAccessor = (SplashRendererAccessor) titleScreenAccessor.aether$getSplash();
-				if (splashRendererAccessor.cumulus$getSplash() != null && !splashRendererAccessor.cumulus$getSplash().isEmpty()) {
-					PoseStack poseStack = guiGraphics.pose();
-					float splashX = (float) ReduxTitleScreen.this.width / 2 + (baseLogoHeight / scale);
-					float splashY = (int) (20 + ((baseLogoHeight - 24) / scale));
-					poseStack.pushPose();
-					poseStack.translate(splashX, splashY, 0.0F);
-					poseStack.mulPose(Axis.ZP.rotationDegrees(-20.0F));
-					float textSize = 1.4F - Mth.abs(Mth.sin((float) (Util.getMillis() % 1000L) / 1000.0F * Mth.TWO_PI) * 0.1F);
-					textSize = textSize * (200.0F / scale) / (ReduxTitleScreen.this.font.width(splashRendererAccessor.cumulus$getSplash()) + (64 / scale));
-					poseStack.scale(textSize, textSize, textSize);
-					guiGraphics.drawCenteredString(ReduxTitleScreen.this.font, splashRendererAccessor.cumulus$getSplash(), 0, (int) (-16 / scale), SPLASH_COLOR | roundedFadeAmount);
-					poseStack.popPose();
-				}
+				float splashX = (float) ReduxTitleScreen.this.width / 2 + (baseLogoHeight / scale);
+				float splashY = (int) (20 + ((baseLogoHeight - 24) / scale));
+				poseStack.pushPose();
+				poseStack.translate(splashX, splashY, 0.0F);
+				poseStack.mulPose(Vector3f.ZP.rotationDegrees(-20.0F));
+				float textSize = 1.4F - Mth.abs(Mth.sin((float) (Util.getMillis() % 1000L) / 1000.0F * Mth.TWO_PI) * 0.1F);
+				String splash = titleScreenAccessor.aether$getSplash();
+				textSize = textSize * (200.0F / scale) / (ReduxTitleScreen.this.font.width(splash) + (64 / scale));
+				poseStack.scale(textSize, textSize, textSize);
+				GuiComponent.drawCenteredString(poseStack, ReduxTitleScreen.this.font, splash, 0, (int) (-16 / scale), SPLASH_COLOR | roundedFadeAmount);
+				poseStack.popPose();
 			}
 
-			TitleScreenBehavior.super.renderRightBranding(guiGraphics, this, this.font, roundedFadeAmount);
+			TitleScreenBehavior.super.renderRightBranding(poseStack, this, this.font, roundedFadeAmount);
 
 		}
 
 		int xOffset = TitleScreenBehavior.super.handleButtonVisibility(this, fadeAmount);
-		for (Renderable renderable : this.renderables) {
-			renderable.render(guiGraphics, mouseX, mouseY, partialTicks);
-			if (renderable instanceof ReduxMenuButton aetherButton) { // Smoothly shifts the Aether-styled buttons to the right slightly when hovered over.
-				if (aetherButton.isMouseOver(mouseX, mouseY)) {
+
+		for (Widget renderable : this.renderables) {
+			renderable.render(poseStack, mouseX, mouseY, partialTicks);
+			if (renderable instanceof AetherMenuButton aetherButton) {
+				if (aetherButton.isMouseOver((double) mouseX, (double) mouseY)) {
 					if (aetherButton.hoverOffset < 15) {
 						aetherButton.hoverOffset += 4;
 					}
-				} else {
-					if (aetherButton.hoverOffset > 0) {
-						aetherButton.hoverOffset -= 4;
-					}
+				} else if (aetherButton.hoverOffset > 0) {
+					aetherButton.hoverOffset -= 4;
 				}
 			}
-			if (renderable instanceof DynamicMenuButton dynamicMenuButton) {  // Increases the x-offset to the left for image buttons if there are menu buttons on the screen.
+
+			if (renderable instanceof DynamicMenuButton dynamicMenuButton) {
 				if (dynamicMenuButton.enabled) {
 					xOffset -= 24;
 				}
 			}
 		}
+
 		TitleScreenBehavior.super.handleImageButtons(this, xOffset);
 	}
 
 	/**
 	 * Renders the Aether logo on the title screen.
-	 * @param guiGraphics The rendering {@link GuiGraphics}.
+	 * @param poseStack The rendering {@link PoseStack}.
 	 * @param transparency The transparency {@link Float} for the logo.
 	 * @param scale The {@link Float} for the scaling of the logo relative to the true screen scale.
 	 */
-	private void setupLogo(GuiGraphics guiGraphics, float transparency, float scale) {
-		int width = (int) (baseLogoWidth / scale);
-		int height = (int) (baseLogoHeight / scale);
-		int logoX = (int) ((this.width / 2 - (baseLogoWidth / 2) / scale));
-		int logoY = (int) (/*25*/ 0 + (10 / scale));
-		guiGraphics.setColor(1.0F, 1.0F, 1.0F, transparency);
-		guiGraphics.blit(AETHER_LOGO, logoX, logoY, 0, 0, width, height, width, height);
-		guiGraphics.setColor(1.0F, 1.0F, 1.0F, 1.0F);
+	private void setupLogo(PoseStack poseStack, float transparency, float scale) {
+		RenderSystem.setShaderTexture(0, AETHER_LOGO);
+		RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, transparency);
+		int width = (int)(350.0F / scale);
+		int height = (int)(76.0F / scale);
+		int logoX = (int)(10.0F + 18.0F / scale);
+		int logoY = (int)(15.0F + 10.0F / scale);
+		GuiComponent.blit(poseStack, logoX, logoY, 0.0F, 0.0F, width, height, width, height);
+		RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
 	}
 
 	/**
@@ -207,13 +180,14 @@ public class ReduxTitleScreen extends TitleScreen implements TitleScreenBehavior
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	protected <T extends GuiEventListener & Renderable & NarratableEntry> T addRenderableWidget(T renderable) {
+	protected <T extends GuiEventListener & Widget & NarratableEntry> T addRenderableWidget(T renderable) {
 		if (renderable instanceof Button button) {
 			if (TitleScreenBehavior.isMainButton(button.getMessage())) {
 				ReduxMenuButton aetherButton = new ReduxMenuButton(this, button);
 				return (T) super.addRenderableWidget(aetherButton);
 			}
 		}
+
 		return super.addRenderableWidget(renderable);
 	}
 

@@ -1,9 +1,10 @@
 package net.zepalesque.redux.client.gui.component.config;
 
+import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.Font;
-import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.zepalesque.redux.client.gui.component.RenderableString;
+import net.zepalesque.redux.client.gui.component.config.IDisplayPage;
 import net.zepalesque.redux.client.gui.screen.config.PackConfigMenu;
 
 public class PageDependentString extends RenderableString implements IDisplayPage {
@@ -17,9 +18,11 @@ public class PageDependentString extends RenderableString implements IDisplayPag
         this.page = page;
 
     }
+//    public RenderableString()
+
 
     @Override
-    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+    public void render(PoseStack guiGraphics, int mouseX, int mouseY, float partialTick) {
         if (this.menu.getCurrentPage() == this.page) {
             super.render(guiGraphics, mouseX, mouseY, partialTick);
         }

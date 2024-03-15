@@ -1,31 +1,36 @@
 package net.zepalesque.redux.client.gui.component;
 
-import net.minecraft.client.gui.GuiGraphics;
+import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.network.chat.Component;
+import net.zepalesque.redux.client.gui.backported.SlicedButton;
 import net.zepalesque.redux.client.gui.component.config.IDisplayPage;
+import net.zepalesque.redux.client.gui.screen.config.PackConfigMenu;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.function.Supplier;
 
-public class DynamicButton extends Button implements IDisplayPage {
+public class DynamicButton extends SlicedButton implements IDisplayPage {
 
 
     @Nullable Supplier<Boolean> activeSupplier = null;
     @Nullable Supplier<Boolean> visibleSupplier = null;
     public final int page;
+    protected Component tooltip;
+    protected final PackConfigMenu menu;
 
-    protected DynamicButton(int x, int y, int width, int height, Component message, OnPress onPress, CreateNarration createNarration, int page) {
-        super(x, y, width, height, message, onPress, createNarration);
+    public DynamicButton(int x, int y, int width, int height, PackConfigMenu menu, Component message, OnPress onPress, int page) {
+        super(x, y, width, height, message, onPress);
         this.page = page;
+        this.menu = menu;
     }
 
-    public DynamicButton(Builder builder, int page, @Nullable Component hoverText) {
-        super(builder);
-        this.page = page;
+    public DynamicButton(int x, int y, int width, int height, PackConfigMenu menu, Component message, OnPress onPress, int page, @Nullable Component hoverText) {
+        this(x, y, width, height, menu, message, onPress, page);
         if (hoverText != null) {
-            this.setTooltip(Tooltip.create(hoverText));
+            this.tooltip = hoverText;
         }
     }
 
@@ -39,7 +44,7 @@ public class DynamicButton extends Button implements IDisplayPage {
     }
 
     @Override
-    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+    public void render(PoseStack guiGraphics, int mouseX, int mouseY, float partialTick) {
         if (this.activeSupplier != null) {
             this.active = this.activeSupplier.get();
         }
@@ -47,6 +52,9 @@ public class DynamicButton extends Button implements IDisplayPage {
             this.visible = this.visibleSupplier.get();
         }
         super.render(guiGraphics, mouseX, mouseY, partialTick);
+        if (this.isHoveredOrFocused() && this.tooltip != null) {
+            this.menu.renderTooltip(guiGraphics, List.of(this.tooltip), Optional.empty(), mouseX, mouseY);
+        }
     }
 
     @Override

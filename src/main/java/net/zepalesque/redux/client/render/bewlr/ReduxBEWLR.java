@@ -6,9 +6,9 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
 import net.minecraft.client.renderer.entity.ItemRenderer;
-import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.zepalesque.redux.client.render.ReduxModelLayers;
 import net.zepalesque.redux.client.render.entity.model.SpearModel;
@@ -25,9 +25,11 @@ public class ReduxBEWLR extends BlockEntityWithoutLevelRenderer {
         this(Minecraft.getInstance().getBlockEntityRenderDispatcher(), Minecraft.getInstance().getEntityModels());
     }
 
+
+
     @Override
-    public void renderByItem(ItemStack stack, ItemDisplayContext displayContext, PoseStack poseStack, MultiBufferSource buffer, int packedLight, int packedOverlay) {
-        super.renderByItem(stack, displayContext, poseStack, buffer, packedLight, packedOverlay);
+    public void renderByItem(ItemStack stack, ItemTransforms.TransformType transformType, PoseStack poseStack, MultiBufferSource buffer, int packedLight, int packedOverlay) {
+        super.renderByItem(stack, transformType, poseStack, buffer, packedLight, packedOverlay);
         if (stack.is(ReduxItems.SPEAR_OF_THE_BLIGHT.get())) {
             poseStack.pushPose();
             poseStack.scale(1.0F, -1.0F, -1.0F);

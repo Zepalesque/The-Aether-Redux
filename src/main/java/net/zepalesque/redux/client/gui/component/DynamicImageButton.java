@@ -1,6 +1,6 @@
 package net.zepalesque.redux.client.gui.component;
 
-import net.minecraft.client.gui.GuiGraphics;
+import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -41,7 +41,7 @@ public class DynamicImageButton extends ImageButton {
 
 
     @Override
-    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+    public void render(PoseStack guiGraphics, int mouseX, int mouseY, float partialTick) {
         if (this.activeSupplier != null) {
             this.active = this.activeSupplier.get();
         }

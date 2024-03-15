@@ -13,6 +13,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 
 // TODO: What was this for again?
+// Answer: the old sheepuff wool layer model
 public abstract class ReduxRenderLayer<T extends Entity, M extends EntityModel<T>> extends RenderLayer<T, M> {
 
     public ReduxRenderLayer(RenderLayerParent<T, M> pRenderer) {

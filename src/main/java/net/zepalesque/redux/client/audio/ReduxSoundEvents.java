@@ -90,6 +90,6 @@ public class ReduxSoundEvents {
     public static final RegistryObject<SoundEvent> REDUX_MENU = register("music.redux_menu");
 
     private static RegistryObject<SoundEvent> register(String name) {
-        return SOUNDS.register(name, () -> SoundEvent.createVariableRangeEvent(Redux.locate(name)));
+        return SOUNDS.register(name, () -> new SoundEvent(Redux.locate(name)));
     }
 }

@@ -2,7 +2,9 @@ package net.zepalesque.redux.client.render.entity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.mojang.math.Axis;
+import com.mojang.math.Matrix3f;
+import com.mojang.math.Matrix4f;
+import com.mojang.math.Vector3f;
 import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -13,8 +15,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.entity.projectile.InfusedVeridiumDart;
-import org.joml.Matrix3f;
-import org.joml.Matrix4f;
 
 import javax.annotation.Nonnull;
 
@@ -31,15 +31,15 @@ public class InfusedVeridiumDartRenderer extends ArrowRenderer<InfusedVeridiumDa
         // Does the same stuff a second time, except with the glow texture and using fullbright lighting
 
         poseStack.pushPose();
-        poseStack.mulPose(Axis.YP.rotationDegrees(Mth.lerp(partialTicks, entity.yRotO, entity.getYRot()) - 90.0F));
-        poseStack.mulPose(Axis.ZP.rotationDegrees(Mth.lerp(partialTicks, entity.xRotO, entity.getXRot())));
+        poseStack.mulPose(Vector3f.YP.rotationDegrees(Mth.lerp(partialTicks, entity.yRotO, entity.getYRot()) - 90.0F));
+        poseStack.mulPose(Vector3f.ZP.rotationDegrees(Mth.lerp(partialTicks, entity.xRotO, entity.getXRot())));
         float f9 = (float)entity.shakeTime - partialTicks;
         if (f9 > 0.0F) {
             float f10 = -Mth.sin(f9 * 3.0F) * f9;
-            poseStack.mulPose(Axis.ZP.rotationDegrees(f10));
+            poseStack.mulPose(Vector3f.ZP.rotationDegrees(f10));
         }
 
-        poseStack.mulPose(Axis.XP.rotationDegrees(45.0F));
+        poseStack.mulPose(Vector3f.XP.rotationDegrees(45.0F));
         poseStack.scale(0.05625F, 0.05625F, 0.05625F);
         poseStack.translate(-4.0F, 0.0F, 0.0F);
         VertexConsumer vertexconsumer = buffer.getBuffer(RenderType.entityCutout(GLOW_TEX));
@@ -56,7 +56,7 @@ public class InfusedVeridiumDartRenderer extends ArrowRenderer<InfusedVeridiumDa
         this.vertex(matrix4f, matrix3f, vertexconsumer, -7, -2, -2, 0.0F, 0.3125F, 1, 0, 0, fullbright);
 
         for(int j = 0; j < 4; ++j) {
-            poseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
+            poseStack.mulPose(Vector3f.XP.rotationDegrees(90.0F));
             this.vertex(matrix4f, matrix3f, vertexconsumer, -8, -2, 0, 0.0F, 0.0F, 0, 1, 0, fullbright);
             this.vertex(matrix4f, matrix3f, vertexconsumer, 8, -2, 0, 0.5F, 0.0F, 0, 1, 0, fullbright);
             this.vertex(matrix4f, matrix3f, vertexconsumer, 8, 2, 0, 0.5F, 0.15625F, 0, 1, 0, fullbright);
