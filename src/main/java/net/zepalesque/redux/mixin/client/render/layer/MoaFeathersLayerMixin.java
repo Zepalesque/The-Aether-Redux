@@ -2,6 +2,7 @@ package net.zepalesque.redux.mixin.client.render.layer;
 
 import com.aetherteam.aether.entity.passive.Moa;
 
+// TODO 1.19.2: Reimplement when the Content is Lost
 //@Mixin(MoaHeadFeatherLayer.class)
 public class MoaFeathersLayerMixin<T extends Moa> {
 
