@@ -129,7 +129,7 @@ public class ThrownSpear extends AbstractArrow {
         }
 
         Entity entity1 = this.getOwner();
-        DamageSource damagesource = ReduxDamageTypes.indirectSource(this.level, ReduxDamageTypes.SPEAR, this, entity1 == null ? this : entity1);
+        DamageSource damagesource = ReduxDamageTypes.spear(this, entity1 == null ? this : entity1);
         this.dealtDamage = true;
         SoundEvent soundevent = ReduxSoundEvents.SPEAR_LAND.get();
         if (entity.hurt(damagesource, f)) {

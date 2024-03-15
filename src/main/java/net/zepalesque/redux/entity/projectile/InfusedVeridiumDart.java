@@ -26,8 +26,8 @@ public class InfusedVeridiumDart extends AbstractDart {
      */
     public void tick() {
         super.tick();
-        if (this.level().isClientSide && !this.inGround) {
-            this.level().addParticle(ParticleTypes.INSTANT_EFFECT, this.getX(), this.getY(), this.getZ(), 0.0D, 0.0D, 0.0D);
+        if (this.level.isClientSide && !this.inGround) {
+            this.level.addParticle(ParticleTypes.INSTANT_EFFECT, this.getX(), this.getY(), this.getZ(), 0.0D, 0.0D, 0.0D);
         }
 
     }

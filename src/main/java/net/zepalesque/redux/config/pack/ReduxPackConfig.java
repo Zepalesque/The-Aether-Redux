@@ -96,7 +96,7 @@ public class ReduxPackConfig {
                     Conditional.of(BuiltinPackUtils.createPack("resource/sounds/tempest"), config.better_tempest_sounds)
             );
         }
-        return new ReduxOverridesPackResources(id, true, new PackMetadataSection(
+        return new ReduxOverridesPackResources(id, new PackMetadataSection(
                 desc, SharedConstants.getCurrentVersion().getPackVersion(PackType.RESOURCE)), packs);
 
     }
