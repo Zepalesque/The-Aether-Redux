@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[47,)"
+loaderVersion = "[43,)"
 license = "All rights reserved"
 
 [[mods]]
@@ -16,19 +16,19 @@ The Aether: Redux is an expansive addon mod for the well-known Aether mod, addin
 [[dependencies.aether_redux]]
     modId = "forge"
     mandatory = true
-    versionRange = "[47,)"
+    versionRange = "[43,)"
     ordering = "NONE"
     side = "BOTH"
 [[dependencies.aether_redux]]
     modId = "minecraft"
     mandatory = true
-    versionRange = "[1.20.1,1.21)"
+    versionRange = "[1.19.2,1.20)"
     ordering = "NONE"
     side = "BOTH"
 [[dependencies.aether_redux]]
     modId = "aether"
     mandatory = true
-    versionRange = "[1.20.1-,)"
+    versionRange = "[1.19.2-,)"
     ordering = "AFTER"
     side = "BOTH"
 [[dependencies.aether_redux]]
@@ -40,31 +40,19 @@ The Aether: Redux is an expansive addon mod for the well-known Aether mod, addin
 [[dependencies.aether_redux]]
     modId = "deep_aether"
     mandatory = false
-    versionRange = "[1.20.1-,)"
+    versionRange = "[1.19.2-,)"
     ordering = "AFTER"
     side = "BOTH"
-[[dependencies.aether_redux]]
-    modId = "lost_aether_content"
-    mandatory = false
-    versionRange = "[1.0.0,)"
-    ordering = "AFTER"
-    side = "BOTH"
-[[dependencies.aether_redux]]
-    modId = "aether_genesis"
-    mandatory = false
-    versionRange = "[1.20.1-,)"
-    ordering = "AFTER"
-    side = "BOTH"
-[[dependencies.aether_redux]]
-    modId = "ancient_aether"
-    mandatory = false
-    versionRange = "[0.6.0-,)"
-    ordering = "AFTER"
-    side = "BOTH"
+#[[dependencies.aether_redux]]
+#    modId = "lost_aether_content"
+#    mandatory = false
+#    versionRange = "[1.0.0,)"
+#    ordering = "AFTER"
+#    side = "BOTH"
 [[dependencies.aether_redux]]
     modId="geckolib"
     mandatory=true
-    versionRange="[4.2.2,)"
+    versionRange="[3.1,)"
     ordering="NONE"
     side="BOTH"
 
