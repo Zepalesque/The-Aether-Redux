@@ -131,11 +131,6 @@
 					}
 				}
 			},
-			"sound_effects": {
-				"0.2": {
-					"effect": "screech"
-				}
-			},
 			"timeline": {}
 		},
 		"animations.mykapod.unhide": {
