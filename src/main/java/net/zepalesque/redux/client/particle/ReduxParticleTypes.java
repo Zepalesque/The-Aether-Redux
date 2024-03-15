@@ -130,14 +130,7 @@ public class ReduxParticleTypes {
 
     @OnlyIn(Dist.CLIENT)
     public static <T extends ParticleOptions> void registerSpriteSet(RegisterParticleProvidersEvent event, ParticleType<T> particleType, ParticleProvider<T> sprite) {
-        registerSpriteSet(event, particleType, (set) -> (p_272323_, p_272324_, p_272325_, p_272326_, p_272327_, p_272328_, p_272329_, p_272330_) -> {
-            Particle particle = sprite.createParticle(p_272323_, p_272324_, p_272325_, p_272326_, p_272327_, p_272328_, p_272329_, p_272330_);
-            if (particle instanceof TextureSheetParticle tsp) {
-                tsp.pickSprite(set);
-            }
-
-            return particle;
-        });
+        event.register(particleType, sprite);
     }
 
     public static <T extends ParticleOptions> void registerSpriteSet(RegisterParticleProvidersEvent event, ParticleType<T> type, ParticleEngine.SpriteParticleRegistration<T> registration) {
