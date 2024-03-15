@@ -207,7 +207,7 @@ public class PackConfigMenu extends Screen {
                     this.addRenderableOnly(string);
                 } else if (id instanceof Category cat)
                 {
-                    DynamicButton button = new DynamicButton(baseXCat, baseY + i * 24,this.frameWidth() - 32, 20, this, Component.translatable("gui.aether_redux.pack_category." + cat.id()), b -> this.goInto(cat, this.minecraft), pg, Component.translatable("gui.aether_redux.pack_config.category_desc." + cat.id())) ;
+                    DynamicButton button = new DynamicButton(baseXCat, baseY + i * 24,this.frameWidth() - 32, 20, this, Component.translatable("gui.aether_redux.pack_config.category." + cat.id()), b -> this.goInto(cat, this.minecraft), pg, Component.translatable("gui.aether_redux.pack_config.category_desc." + cat.id())) ;
                     Supplier<Boolean> rightPage = () -> button.getPage() == this.getCurrentPage();
                     button.setActiveSupplier(rightPage);
                     button.setVisibleSupplier(rightPage);

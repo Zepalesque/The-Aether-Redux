@@ -59,7 +59,7 @@ public class SaveableEnumButton<T extends Enum<T>> extends Button implements ISa
 
     @Override
     public Component getMessage() {
-        return Component.translatable("gui.aether_redux.enums." + this.value.name());
+        return Component.translatable("gui.aether_redux.pack_config.enums." + this.value.name());
     }
 
     public void setValue(T value) {
