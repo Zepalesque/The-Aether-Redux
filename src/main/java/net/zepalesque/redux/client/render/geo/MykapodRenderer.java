@@ -1,15 +1,18 @@
 package net.zepalesque.redux.client.render.geo;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Vector3f;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.entity.passive.Mykapod;
+import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.AnimationState;
 import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.geo.render.built.GeoModel;
@@ -52,6 +55,11 @@ public class MykapodRenderer extends GeoEntityRenderer<Mykapod> {
 
 
 
+    }
+
+    @Override
+    public RenderType getRenderType(Mykapod animatable, float partialTick, PoseStack poseStack, @Nullable MultiBufferSource bufferSource, @Nullable VertexConsumer buffer, int packedLight, ResourceLocation texture) {
+        return RenderType.entityCutoutNoCull(texture);
     }
 
     @Override
