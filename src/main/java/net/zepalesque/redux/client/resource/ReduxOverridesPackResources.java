@@ -169,7 +169,7 @@ public class ReduxOverridesPackResources extends AbstractPackResources
     @Override
     public InputStream getResource(PackType type, ResourceLocation location) throws IOException
     {
-        if (location.getPath().matches("lang/.+\\.json")) {
+        if (location.getPath().matches("lang/.+\\.json") || location.getPath().matches(".*sounds\\.json")) {
             Collection<Set<Map.Entry<String, JsonElement>>> matches = Lists.newArrayList();
             JsonObject combined = new JsonObject();
             for (PackResources pack : getCandidatePacks(type, location)) {
