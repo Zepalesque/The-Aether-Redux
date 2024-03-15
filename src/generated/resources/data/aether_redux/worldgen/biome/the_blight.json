@@ -59,7 +59,7 @@
       "aether_redux:misc/blighted_aercloud"
     ]
   ],
-  "has_precipitation": false,
+  "precipitation": "none",
   "spawn_costs": {
     "aether:aechor_plant": {
       "charge": 0.4,
