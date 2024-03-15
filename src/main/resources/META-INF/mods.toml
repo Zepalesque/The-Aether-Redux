@@ -50,7 +50,7 @@ The Aether: Redux is an expansive addon mod for the well-known Aether mod, addin
 #    ordering = "AFTER"
 #    side = "BOTH"
 [[dependencies.aether_redux]]
-    modId="geckolib"
+    modId="geckolib3"
     mandatory=true
     versionRange="[3.1.40,)"
     ordering="NONE"
