@@ -126,7 +126,7 @@ public class ReduxTitleScreen extends TitleScreen implements TitleScreenBehavior
 	}
 
 	/**
-	 * Renders the Aether logo on the title screen.
+	 * Renders the Aether: Redux logo on the title screen.
 	 * @param poseStack The rendering {@link PoseStack}.
 	 * @param transparency The transparency {@link Float} for the logo.
 	 * @param scale The {@link Float} for the scaling of the logo relative to the true screen scale.
@@ -134,10 +134,10 @@ public class ReduxTitleScreen extends TitleScreen implements TitleScreenBehavior
 	private void setupLogo(PoseStack poseStack, float transparency, float scale) {
 		RenderSystem.setShaderTexture(0, AETHER_LOGO);
 		RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, transparency);
-		int width = (int)(350.0F / scale);
-		int height = (int)(76.0F / scale);
-		int logoX = (int)(10.0F + 18.0F / scale);
-		int logoY = (int)(15.0F + 10.0F / scale);
+		int width = (int) (baseLogoWidth / scale);
+		int height = (int) (baseLogoHeight / scale);
+		int logoX = (int) ((this.width / 2 - (baseLogoWidth / 2) / scale));
+		int logoY = (int) (/*25*/ 0 + (10 / scale));
 		GuiComponent.blit(poseStack, logoX, logoY, 0.0F, 0.0F, width, height, width, height);
 		RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
 	}
