@@ -100,7 +100,7 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> AETHER_SNOW_LAYER = copyKey(ReduxConfiguredFeatures.AETHER_SNOW_LAYER);
 
     public static final ResourceKey<PlacedFeature> ANCIENT_ENCHANTED_GRASS = copyKey(ReduxConfiguredFeatures.ANCIENT_ENCHANTED_GRASS);
-
+    
     private static ResourceKey<PlacedFeature> createKey(String name) {
         return ResourceKey.create(BuiltinRegistries.PLACED_FEATURE.key(), new ResourceLocation(Redux.MODID, name));
     }
