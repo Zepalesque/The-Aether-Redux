@@ -547,7 +547,7 @@ public class ReduxPlacedFeatures {
                 PlacementUtils.filteredByBlockSurvival(ReduxBlocks.FIELDSPROOT_SAPLING.get()),
                 DUNGEON_BLACKLIST
         );
-        register(context, SKYFIELDS_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.CLASSIC_SKYFIELDS_TREES),
+        register(context, CLASSIC_SKYFIELDS_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.CLASSIC_SKYFIELDS_TREES),
                 ConditionFilter.whenTrue(Conditions.CLASSIC_SKYFIELDS),
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
                         .add(ConstantInt.of(3), 9)
