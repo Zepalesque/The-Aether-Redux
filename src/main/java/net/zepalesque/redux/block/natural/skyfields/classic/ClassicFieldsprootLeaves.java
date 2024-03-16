@@ -13,17 +13,14 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraftforge.common.util.Lazy;
 import net.minecraftforge.registries.RegistryObject;
-import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.natural.skyfields.FieldsprootLeafBlock;
 import net.zepalesque.redux.block.util.state.ReduxStates;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.util.level.ParticlePlacementUtil;
+import net.zepalesque.redux.util.math.MathUtil;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Supplier;
 
 public class ClassicFieldsprootLeaves extends AetherDoubleDropsLeaves {
 
@@ -85,7 +82,7 @@ public class ClassicFieldsprootLeaves extends AetherDoubleDropsLeaves {
         double z = pos.getZ() * scale;
         double noiseVal = FieldsprootLeafBlock.PERLIN.getValue(x, y, z);
         double clamped = Mth.clamp(noiseVal, -0.5D, 0.5D);
-        int prism = Mth.lerpInt((float) clamped + 0.5F, 0, 2);
+        int prism = MathUtil.lerpInt((float) clamped + 0.5F, 0, 2);
         return state.setValue(ReduxStates.PRISMATICNESS_DECREASED, prism);
     }
 
