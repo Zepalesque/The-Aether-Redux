@@ -32,9 +32,9 @@ public class ClassicFieldsprootLeaves extends AetherDoubleDropsLeaves {
             ReduxParticleTypes.FIELDSPROUT_PETALS_1,
             ReduxParticleTypes.FIELDSPROUT_PETALS_2);
     public static final List<RegistryObject<SimpleParticleType>> PRISMATIC = List.of(
-            ReduxParticleTypes.FIELDSPROUT_PETALS_4,
+            ReduxParticleTypes.FIELDSPROUT_PETALS_6,
             ReduxParticleTypes.FIELDSPROUT_PETALS_5,
-            ReduxParticleTypes.FIELDSPROUT_PETALS_6);
+            ReduxParticleTypes.FIELDSPROUT_PETALS_4);
     private final List<RegistryObject<SimpleParticleType>> particles;
 
     public ClassicFieldsprootLeaves(List<RegistryObject<SimpleParticleType>> particles, Properties properties) {
@@ -86,7 +86,7 @@ public class ClassicFieldsprootLeaves extends AetherDoubleDropsLeaves {
         double noiseVal = FieldsprootLeafBlock.PERLIN.getValue(x, y, z);
         double clamped = Mth.clamp(noiseVal, -0.5D, 0.5D);
         int prism = Mth.lerpInt((float) clamped + 0.5F, 0, 2);
-        return state.setValue(ReduxStates.PRISMATICNESS_DECREASED, this == ReduxBlocks.PRISMATIC_FIELDSPROOT_LEAVES.get() ? 2 - prism : prism);
+        return state.setValue(ReduxStates.PRISMATICNESS_DECREASED, prism);
     }
 
 
