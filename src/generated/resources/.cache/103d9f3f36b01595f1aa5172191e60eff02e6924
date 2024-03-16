@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-15T22:26:27.4266701	Registries
+// 1.20.1	2024-03-16T11:33:34.2547076	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 94d997b0a87f23900f66f9a9e2485391b6ff8e38 data/aether/worldgen/configured_feature/golden_oak_tree.json
 875593e37a52dd63b2d87226b0f0e5e76ef48247 data/aether/worldgen/configured_feature/grass_patch.json
@@ -216,6 +216,7 @@ cf604b8fdad17e09a2f0440f684b33699350e80b data/aether_redux/worldgen/placed_featu
 9046232a15ef6439cb19339e2a5d3989b86ac3e4 data/aether_redux/worldgen/placed_feature/surface/snow_layer.json
 9cf115ac37324080a4fbeb36fd0990dd7798a7e9 data/aether_redux/worldgen/placed_feature/surface/surface_rule_water_lake.json
 93c9215308f96f64e6a926b865d73888492e8d5f data/aether_redux/worldgen/placed_feature/trees/blight_trees.json
+b18a625afafbf83ea5311484e646cbba271a45e7 data/aether_redux/worldgen/placed_feature/trees/classic_skyfields_trees.json
 04b9cadb6953fa0122eba2dac2bdbed6b584c9e8 data/aether_redux/worldgen/placed_feature/trees/frosted_trees.json
 ae22ac733d2fbc54c0b79a9a37e78935134cb571 data/aether_redux/worldgen/placed_feature/trees/glacial_trees.json
 cc18da3d51c463617d20aaa07446da73895e23a4 data/aether_redux/worldgen/placed_feature/trees/grassland_trees.json
@@ -225,4 +226,4 @@ ed85919b336d7a2557864585916f99437a37a07a data/aether_redux/worldgen/placed_featu
 4c62b98baebe8a8e171debc2a0c23273b833eca7 data/aether_redux/worldgen/placed_feature/trees/large_mushrooms.json
 57760ca45984f95f86d3753e8e79e68d62712045 data/aether_redux/worldgen/placed_feature/trees/shimmering_trees.json
 89a97bff346cd83028379be53edabedfbfd4d6d4 data/aether_redux/worldgen/placed_feature/trees/shrublands_trees.json
-b18a625afafbf83ea5311484e646cbba271a45e7 data/aether_redux/worldgen/placed_feature/trees/skyfields_trees.json
+b216041888dd03dbf491218314209e87bdc100e5 data/aether_redux/worldgen/placed_feature/trees/skyfields_trees.json
