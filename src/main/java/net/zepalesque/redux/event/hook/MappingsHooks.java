@@ -144,7 +144,6 @@ public class MappingsHooks {
 
         builder.put(Redux.locate("gilded_skyroot_leaves"), ReduxBlocks.GILDED_OAK_LEAVES);
         builder.put(Redux.locate("gilded_skyroot_sapling"), ReduxBlocks.GILDED_OAK_SAPLING);
-        builder.put(Redux.locate("gilded_skyroot_sapling"), ReduxBlocks.GILDED_OAK_SAPLING);
 
         // Items
         builder.put(Redux.locate("skyroot_sap"), AetherItems.AMBROSIUM_SHARD);
