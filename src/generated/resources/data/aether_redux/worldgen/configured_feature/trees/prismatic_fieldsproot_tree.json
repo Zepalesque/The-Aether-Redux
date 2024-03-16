@@ -3,23 +3,54 @@
   "config": {
     "decorators": [
       {
-        "type": "aether_redux:genesis_trunk",
+        "type": "aether_redux:patch",
         "provider": {
-          "type": "minecraft:simple_state_provider",
-          "state": {
-            "Name": "aether_redux:fieldsproot_log_wall",
-            "Properties": {
-              "double_drops": "true",
-              "east": "none",
-              "natural_gen": "false",
-              "north": "none",
-              "south": "none",
-              "up": "true",
-              "waterlogged": "false",
-              "west": "none"
+          "type": "minecraft:weighted_state_provider",
+          "entries": [
+            {
+              "data": {
+                "Name": "aether_redux:fieldsproot_petals",
+                "Properties": {
+                  "facing": "north",
+                  "petal1": "0",
+                  "petal2": "0",
+                  "petal3": "none",
+                  "petal4": "none"
+                }
+              },
+              "weight": 4
+            },
+            {
+              "data": {
+                "Name": "aether_redux:fieldsproot_petals",
+                "Properties": {
+                  "facing": "north",
+                  "petal1": "0",
+                  "petal2": "0",
+                  "petal3": "0",
+                  "petal4": "none"
+                }
+              },
+              "weight": 3
+            },
+            {
+              "data": {
+                "Name": "aether_redux:fieldsproot_petals",
+                "Properties": {
+                  "facing": "north",
+                  "petal1": "0",
+                  "petal2": "0",
+                  "petal3": "0",
+                  "petal4": "0"
+                }
+              },
+              "weight": 2
             }
-          }
-        }
+          ]
+        },
+        "tries": 32,
+        "xz_spread": 7,
+        "y_spread": 3
       }
     ],
     "dirt_provider": {

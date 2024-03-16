@@ -20,7 +20,7 @@
     },
     "features": [
       {
-        "chance": 0.25,
+        "chance": 0.2,
         "feature": {
           "feature": "aether_redux:trees/spectral_fieldsproot_tree",
           "placement": [
@@ -40,7 +40,7 @@
         }
       },
       {
-        "chance": 0.15,
+        "chance": 0.1,
         "feature": {
           "feature": "aether_redux:trees/fancy_spectral_fieldsproot_tree",
           "placement": [
@@ -60,7 +60,7 @@
         }
       },
       {
-        "chance": 0.1,
+        "chance": 0.2,
         "feature": {
           "feature": "aether_redux:trees/azure_fieldsproot_tree",
           "placement": [
