@@ -1,40 +1,40 @@
 {
   "variants": {
     "color=0,persistent=false,waterlogged=false": {
-      "model": "aether_redux:block/fieldsproot_leaves_0"
+      "model": "aether_redux:block/fieldsproot_leaves_4"
     },
     "color=0,persistent=false,waterlogged=true": {
-      "model": "aether_redux:block/fieldsproot_leaves_0"
+      "model": "aether_redux:block/fieldsproot_leaves_4"
     },
     "color=0,persistent=true,waterlogged=false": {
-      "model": "aether_redux:block/fieldsproot_leaves_0"
+      "model": "aether_redux:block/fieldsproot_leaves_4"
     },
     "color=0,persistent=true,waterlogged=true": {
-      "model": "aether_redux:block/fieldsproot_leaves_0"
+      "model": "aether_redux:block/fieldsproot_leaves_4"
     },
     "color=1,persistent=false,waterlogged=false": {
-      "model": "aether_redux:block/fieldsproot_leaves_1"
+      "model": "aether_redux:block/fieldsproot_leaves_5"
     },
     "color=1,persistent=false,waterlogged=true": {
-      "model": "aether_redux:block/fieldsproot_leaves_1"
+      "model": "aether_redux:block/fieldsproot_leaves_5"
     },
     "color=1,persistent=true,waterlogged=false": {
-      "model": "aether_redux:block/fieldsproot_leaves_1"
+      "model": "aether_redux:block/fieldsproot_leaves_5"
     },
     "color=1,persistent=true,waterlogged=true": {
-      "model": "aether_redux:block/fieldsproot_leaves_1"
+      "model": "aether_redux:block/fieldsproot_leaves_5"
     },
     "color=2,persistent=false,waterlogged=false": {
-      "model": "aether_redux:block/fieldsproot_leaves_2"
+      "model": "aether_redux:block/fieldsproot_leaves_6"
     },
     "color=2,persistent=false,waterlogged=true": {
-      "model": "aether_redux:block/fieldsproot_leaves_2"
+      "model": "aether_redux:block/fieldsproot_leaves_6"
     },
     "color=2,persistent=true,waterlogged=false": {
-      "model": "aether_redux:block/fieldsproot_leaves_2"
+      "model": "aether_redux:block/fieldsproot_leaves_6"
     },
     "color=2,persistent=true,waterlogged=true": {
-      "model": "aether_redux:block/fieldsproot_leaves_2"
+      "model": "aether_redux:block/fieldsproot_leaves_6"
     }
   }
 }
