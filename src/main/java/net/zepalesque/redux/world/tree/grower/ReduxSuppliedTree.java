@@ -8,7 +8,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Function;
 
-public class ReduxSuppliedTree extends AbstractTreeGrower {
+public class ReduxSuppliedTree extends ReduxTree {
     private final Function<RandomSource, ResourceKey<ConfiguredFeature<?, ?>>> key;
 
     public ReduxSuppliedTree(Function<RandomSource, ResourceKey<ConfiguredFeature<?, ?>>> function) {
@@ -19,7 +19,7 @@ public class ReduxSuppliedTree extends AbstractTreeGrower {
     }
     @Nullable
     @Override
-    protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean hasFlowers) {
+    protected ResourceKey<ConfiguredFeature<?, ?>> getKey(RandomSource random, boolean hasFlowers) {
         return this.key.apply(random);
     }
 }
