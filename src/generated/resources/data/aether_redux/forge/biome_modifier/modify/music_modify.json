@@ -6,7 +6,7 @@
     "min": 600
   },
   "replace": false,
-  "sound": "aether_redux:music.redux_menu",
+  "sound": "aether_redux:music.redux_day",
   "sound_predicate": {
     "sound": "aether:music.aether"
   }
