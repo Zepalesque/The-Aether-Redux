@@ -77,6 +77,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.DoubleValue cloud_layer_threshold_max;
 
         public final ForgeConfigSpec.BooleanValue vanilla_swets;
+        public final ForgeConfigSpec.BooleanValue first_startup_aeroblender_setup;
 
         // TODO: organize
 
@@ -146,6 +147,9 @@ public class ReduxConfig {
             this.enable_skyroot_shrublands = builder.comment("Enables the Skyroot Shrublands biome.").worldRestart().define("Enable Skyroot Shrublands", true);
             this.enchanted_gilded_grass = builder.comment("Uses Enchanted Aether Grass for the ground in the Gilded Groves. May require a Minecraft restart.").worldRestart().define("Enchanted Gilded Grass", true);
             builder.pop(2);
+            builder.push("Internal");
+            this.first_startup_aeroblender_setup = builder.comment("Internal value, used to decide if the Aeroblender configs should be changed").define("First Startup - Aeroblender Setup", true);
+            builder.pop();
         }
     }
 
@@ -154,7 +158,6 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue moa_model_upgrade;
         public final ForgeConfigSpec.EnumValue<MoaFeetType> moa_feet_type;
         public final ForgeConfigSpec.BooleanValue cockatrice_model_upgrade;
-        public final ForgeConfigSpec.BooleanValue first_startup;
         public final ForgeConfigSpec.EnumValue<MimicModelType> mimic_model_upgrade;
         public final ForgeConfigSpec.BooleanValue mimic_slam_sound;
         public final ForgeConfigSpec.BooleanValue sentry_model_upgrade;
@@ -166,6 +169,8 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue enable_adrenaline_postproccess;
         public final ForgeConfigSpec.BooleanValue fix_biome_modifier_bug;
         public final ForgeConfigSpec.BooleanValue cycle_menu;
+        public final ForgeConfigSpec.BooleanValue first_startup_menu_setup;
+        public final ForgeConfigSpec.BooleanValue first_startup_lightmap_changes;
 
         public Client(ForgeConfigSpec.Builder builder) {
             builder.push(List.of("Rendering", "Mob Model Upgrades"));
@@ -196,7 +201,8 @@ public class ReduxConfig {
             this.mimic_slam_sound = builder.comment("Enables a slamming sound for mimics when using the new model. Disable if it gets too annoying XD").define("Mimic Slam Sound Effect", true);
             builder.pop();
             builder.push("Internal");
-            this.first_startup = builder.comment("Internal value to decide if it is the first startup. DO NOT EDIT THIS VALUE, unless you want things to break!").define("First Startup?", true);
+            this.first_startup_menu_setup = builder.comment("Internal value to do menu changes. Set this to false in modpacks if you want to use your own menu.").define("First Startup - Menu Setup", true);
+            this.first_startup_lightmap_changes = builder.comment("Internal value to change an Aether config, giving a nicer lightmap in the dimension.").define("First Startup - Lightmap Change", true);
             this.version_id = builder.comment("Value used to track the version of the Aether: Redux most recently used.").define("Version ID", "undefined");
             builder.pop();
         }
