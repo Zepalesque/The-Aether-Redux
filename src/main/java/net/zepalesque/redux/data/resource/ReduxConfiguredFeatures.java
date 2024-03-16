@@ -10,6 +10,28 @@ import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 
+import net.zepalesque.redux.block.util.state.ReduxStates;
+import net.zepalesque.redux.misc.ReduxTags;
+import net.zepalesque.redux.world.feature.CloudcapFeature;
+import net.zepalesque.redux.world.feature.ReduxFeatures;
+import net.zepalesque.redux.world.feature.UpwardVineFeature;
+import net.zepalesque.redux.world.feature.config.*;
+import net.zepalesque.redux.world.stateprov.SimpleConditionAlternativeStateProvider;
+import net.zepalesque.redux.world.tree.decorator.BlightwillowRootsTrunkDecorator;
+import net.zepalesque.redux.world.tree.decorator.EnchantedVineDecorator;
+import net.zepalesque.redux.world.tree.decorator.GenesisTrunkDecorator;
+import net.zepalesque.redux.world.tree.decorator.PatchTreeDecorator;
+import net.zepalesque.redux.world.tree.foliage.BlightwillowFoliagePlacer;
+import net.zepalesque.redux.world.tree.foliage.GenesisHookedFoliagePlacer;
+import net.zepalesque.redux.world.tree.foliage.GenesisPineFoliagePlacer;
+import net.zepalesque.redux.world.tree.foliage.GlaciaFoliagePlacer;
+import net.zepalesque.redux.world.tree.trunk.GenesisHookedTrunkPlacer;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+import java.util.OptionalInt;
+
 
 // TODO (maybe not the perfect spot for this but whatever) IntProvider-based straight Trunk placer thing (should really be a vanilla feature)
 public class ReduxConfiguredFeatures {
@@ -65,6 +87,7 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> AEROGEL_DISK  = createKey(Folders.SURFACE + "aerogel_disk");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYSPROUTS_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.SKYSPROUTS) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYFIELDS_TREES = createKey(Folders.TREE + "skyfields_trees");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CLASSIC_SKYFIELDS_TREES = createKey(Folders.TREE + "classic_skyfields_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SHRUBLANDS_TREES = createKey(Folders.TREE + "shrublands_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> IRIDIA_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.IRIDIA) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> XAELIA_PATCH  = createKey(Folders.PATCH + "xaelia_patch");
@@ -81,6 +104,10 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> MOSSY_ROCK  = createKey(Folders.SURFACE + "mossy_rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ICESTONE_ROCK  = createKey(Folders.SURFACE + "icestone_rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FIELDSPROOT_TREE = createKey(Folders.TREE + "fieldsproot_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PRISMATIC_FIELDSPROOT_TREE = createKey(Folders.TREE + "prismatic_fieldsproot_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SPECTRAL_FIELDSPROOT_TREE = createKey(Folders.TREE + "spectral_fieldsproot_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_SPECTRAL_FIELDSPROOT_TREE = createKey(Folders.TREE + "fancy_spectral_fieldsproot_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> AZURE_FIELDSPROOT_TREE = createKey(Folders.TREE + "azure_fieldsproot_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> WYNDSPROUTS_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.WYNDSPROUTS) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GENESIS_WYNDSPROUTS_PATCH = createKey(Folders.PATCH + "genesis_" +  name(ReduxBlocks.WYNDSPROUTS) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GENESIS_SKYSPROUTS_PATCH = createKey(Folders.PATCH + "genesis_" + name(ReduxBlocks.SKYSPROUTS) + "_patch");

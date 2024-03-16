@@ -69,6 +69,7 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> SHRUBLANDS_ROCK  = copyKey(ReduxConfiguredFeatures.SHRUBLANDS_ROCK);
     public static final ResourceKey<PlacedFeature> SKYSPROUTS_PATCH = copyKey(ReduxConfiguredFeatures.SKYSPROUTS_PATCH);
     public static final ResourceKey<PlacedFeature> SKYFIELDS_TREES = copyKey(ReduxConfiguredFeatures.SKYFIELDS_TREES);
+    public static final ResourceKey<PlacedFeature> CLASSIC_SKYFIELDS_TREES = copyKey(ReduxConfiguredFeatures.CLASSIC_SKYFIELDS_TREES);
     public static final ResourceKey<PlacedFeature> SHRUBLANDS_TREES = copyKey(ReduxConfiguredFeatures.SHRUBLANDS_TREES);
     public static final ResourceKey<PlacedFeature> SHIMMERING_TREES = createKey(Folders.TREE + "shimmering_trees");
     public static final ResourceKey<PlacedFeature> IRIDIA_PATCH  = copyKey(ReduxConfiguredFeatures.IRIDIA_PATCH);
@@ -99,9 +100,6 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> AETHER_SNOW_LAYER = copyKey(ReduxConfiguredFeatures.AETHER_SNOW_LAYER);
 
     public static final ResourceKey<PlacedFeature> ANCIENT_ENCHANTED_GRASS = copyKey(ReduxConfiguredFeatures.ANCIENT_ENCHANTED_GRASS);
-
-
-
 
     private static ResourceKey<PlacedFeature> createKey(String name) {
         return ResourceKey.create(BuiltinRegistries.PLACED_FEATURE.key(), new ResourceLocation(Redux.MODID, name));

@@ -9,7 +9,7 @@ import java.util.List;
 
 public enum PetalPrismaticness implements StringRepresentable {
 
-    NONE("no_petal"), ZERO("spectral"), ONE("sp2_sa1"), TWO("sp1_sa2"), THREE("sapphire"), FOUR("sa2_pr1"), FIVE("sa1_pr2"), SIX("prismatic");
+    NONE("none"), ZERO("0"), ONE("1"), TWO("2"), THREE("3"), FOUR("4"), FIVE("5"), SIX("6");
 
     private final String id;
     PetalPrismaticness(String id) {
