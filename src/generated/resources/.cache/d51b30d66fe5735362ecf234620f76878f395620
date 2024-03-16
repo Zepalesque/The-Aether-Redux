@@ -1,9 +1,11 @@
-// 1.20.1	2024-03-09T21:01:57.8865198	Item Models: aether_redux
+// 1.20.1	2024-03-15T22:26:27.3756696	Item Models: aether_redux
 2445055af5b1b7f3c6045199ffce74108003cef6 assets/aether_redux/models/item/airbound_cape.json
 2fa1343a8119a1f49af334c002773099174965bd assets/aether_redux/models/item/aurum.json
 edfe83948874d1436a61893ed9471b47e93dbe88 assets/aether_redux/models/item/avelium.json
 069219dd6179163a1afbd2ba1c972e9e9219ffc8 assets/aether_redux/models/item/avelium_roots.json
 9f08f4381f9427f312069620dee0dcc78163c4a2 assets/aether_redux/models/item/avelium_sprouts.json
+88707585e601416e30abcea276a6f9a548883a9c assets/aether_redux/models/item/azure_fieldsproot_leaves.json
+028cdb74a2b6caab2e3af26fe0592514f716b0ee assets/aether_redux/models/item/azure_spectral_sapling.json
 6ff1263c6864641c58d714308aa65e3650261ab8 assets/aether_redux/models/item/blightbunny_fang.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/aether_redux/models/item/blightbunny_spawn_egg.json
 e74c776b877c838decccf63d8245e585ca3fd225 assets/aether_redux/models/item/blighted_aercloud.json
@@ -199,6 +201,9 @@ f57c0aa977ae875c8456515bae2a0f7dbfa313cc assets/aether_redux/models/item/luxweed
 beec52eb9364cdb01119c1580478b19527c5cf62 assets/aether_redux/models/item/mykapod_shell_chunk.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/aether_redux/models/item/mykapod_spawn_egg.json
 54842e392da1fcd4941f2f3a60d1cbdfd987f49a assets/aether_redux/models/item/oatmeal.json
+5e32aee6ec5cb4087f9bc50bd5b2b047551df7a7 assets/aether_redux/models/item/prismatic_fieldsproot_leaves.json
+a31a49335c7820befe686a84fc88b6996e400021 assets/aether_redux/models/item/prismatic_fieldsproot_sapling.json
+4cb54d7d5dbee4a00d601a83edb5084cba30d3e1 assets/aether_redux/models/item/prismatic_spectral_sapling.json
 8972a620651b7079ea83a1ae8a4a9da7ec99c366 assets/aether_redux/models/item/purple_crystal_fruit_sapling.json
 e2015d8ef1a31186ff40937a0cfe131c89ec3631 assets/aether_redux/models/item/purple_glacia_leaves.json
 8dc6fb58d1be53bc2dc005d016b961b25d246fec assets/aether_redux/models/item/purple_glacia_sapling.json
@@ -234,6 +239,7 @@ aec70cdc85dfdc10f3782dd2c1d08fcff8d1d360 assets/aether_redux/models/item/shell_s
 6ac0dc6780c42e567774c05e1f597af1a9f8b48a assets/aether_redux/models/item/snailshell_shield.json
 4e0cb673da868d9160e95ff7c74450271fe60775 assets/aether_redux/models/item/solar_emblem.json
 ef405b37de6a713eaa2b3a73e51abd287ab716d5 assets/aether_redux/models/item/spear_of_the_blight.json
+7ba8ac3bb0436bc58b01c4138f4b0d70297b480b assets/aether_redux/models/item/spectral_fieldsproot_leaves.json
 ca66221312d21063f168e38f805dbbc79c16414b assets/aether_redux/models/item/spirolyctil.json
 f77e24c2923c9754de00f40add7e8a671ad1a307 assets/aether_redux/models/item/splitfern.json
 0dc1c284d9c72e48c2b830de2c0adbfc5ed7bedb assets/aether_redux/models/item/sporing_blightwillow_log.json
