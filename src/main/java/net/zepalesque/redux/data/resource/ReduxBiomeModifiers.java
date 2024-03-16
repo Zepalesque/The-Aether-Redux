@@ -20,6 +20,7 @@ import net.zepalesque.redux.api.condition.Conditions;
 import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.misc.ReduxTags;
+import net.zepalesque.redux.util.function.CodecPredicates;
 import net.zepalesque.redux.world.biome.modifier.*;
 
 import java.util.List;
@@ -105,7 +106,7 @@ public class ReduxBiomeModifiers {
                 GenerationStep.Decoration.UNDERGROUND_ORES));
 
         context.register(WATER_COLOR_AETHER, new WaterColorReplacementBiomeModifier(biomes.getOrThrow(ReduxTags.Biomes.HAS_REDUX_WATER_COLOR),
-                WaterColorReplacementBiomeModifier.WaterColorPredicate.of(4159204, 329011), 0x5492A8, 0x0D2835, Conditions.WATER));
+                CodecPredicates.DualInt.of(4159204, 329011), 0x5492A8, 0x0D2835, Conditions.WATER));
 
         context.register(AETHER_COLOR_OVERRIDE, new GrassAndFoliageColorModifier(biomes.getOrThrow(ReduxTags.Biomes.NO_GRASS_OVERRIDE),
                 0x91BD59, 0x77AB2F));
