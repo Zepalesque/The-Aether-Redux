@@ -100,9 +100,21 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.floweringFieldsprootLeafBlock(ReduxBlocks.FIELDSPROOT_LEAVES, "natural/");
         this.fieldsprootPetals(ReduxBlocks.FIELDSPROOT_PETALS.get(), "natural/fieldsproot_petals_stem");
 
+        this.classicFieldsprootLeafBlock(ReduxBlocks.PRISMATIC_FIELDSPROOT_LEAVES, "natural/", 0);
+        this.classicFieldsprootLeafBlock(ReduxBlocks.SPECTRAL_FIELDSPROOT_LEAVES, "natural/", 4);
+        this.block(ReduxBlocks.AZURE_FIELDSPROOT_LEAVES, "natural/");
 
         this.crossBlock(ReduxBlocks.FIELDSPROOT_SAPLING.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_FIELDSPROOT_SAPLING.get(), ReduxBlocks.FIELDSPROOT_SAPLING.get(), "natural/");
+
+        this.crossBlock(ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING.get(), "natural/");
+        this.pottedPlant(ReduxBlocks.POTTED_PRISMATIC_FIELDSPROOT_SAPLING.get(), ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING.get(), "natural/");
+
+        this.crossBlock(ReduxBlocks.AZURE_FIELDSPROOT_SAPLING.get(), "natural/");
+        this.pottedPlant(ReduxBlocks.POTTED_AZURE_FIELDSPROOT_SAPLING.get(), ReduxBlocks.AZURE_FIELDSPROOT_SAPLING.get(), "natural/");
+
+        this.crossBlock(ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING.get(), "natural/");
+        this.pottedPlant(ReduxBlocks.POTTED_SPECTRAL_FIELDSPROOT_SAPLING.get(), ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING.get(), "natural/");
 
         this.leafPile(ReduxBlocks.GOLDEN_LEAF_PILE, AetherBlocks.GOLDEN_OAK_LEAVES, "natural/");
         this.leafPile(ReduxBlocks.GILDED_LEAF_PILE, ReduxBlocks.GILDED_OAK_LEAVES, "natural/");
@@ -432,6 +444,17 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
                         }
                         , AetherBlockStateProperties.DOUBLE_DROPS, ExtendedDistanceLeavesBlock.EXTENDED_DISTANCE);
     }
+
+
+    public void classicFieldsprootLeafBlock(Supplier<? extends Block> block, String location, int start) {
+        getVariantBuilder(block.get())
+                .forAllStatesExcept(state -> {
+                            int i = start + state.getValue(ReduxStates.PRISMATICNESS_DECREASED);
+                            return ConfiguredModel.builder().modelFile(models().cubeAll(name(block) + "_" + i, texture(name(block) + "_" + i, location)).renderType(new ResourceLocation("cutout_mipped"))).build();
+                        }
+                        , AetherBlockStateProperties.DOUBLE_DROPS, LeavesBlock.DISTANCE);
+    }
+
 
     public void fieldsprootPetals(Block block, String stemTexture)
     {

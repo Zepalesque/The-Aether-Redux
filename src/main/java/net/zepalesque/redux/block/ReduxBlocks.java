@@ -41,8 +41,11 @@ import net.zepalesque.redux.block.natural.skyfields.FieldsprootPetalsBlock;
 import net.zepalesque.redux.block.natural.skyfields.FieldsprootLeafBlock;
 import net.zepalesque.redux.block.natural.shrublands.ZanberryBushBlock;
 import net.zepalesque.redux.block.natural.shrublands.ZanberryShrubBlock;
+import net.zepalesque.redux.block.natural.skyfields.classic.AzureFieldsprootLeaves;
+import net.zepalesque.redux.block.natural.skyfields.classic.ClassicFieldsprootLeaves;
 import net.zepalesque.redux.block.util.CommonPlantBounds;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
+import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.data.resource.ReduxConfiguredFeatures;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.misc.ReduxTags;
@@ -96,6 +99,15 @@ public class ReduxBlocks {
 
     public static RegistryObject<Block> FIELDSPROOT_LEAVES = register("fieldsproot_leaves", () -> new FieldsprootLeafBlock(
             FieldsprootLeafBlock::particleFromState, BlockBehaviour.Properties.copy(AetherBlocks.SKYROOT_LEAVES.get()).hasPostProcess((state, lvl, pos) -> true).isSuffocating(ReduxBlocks::never).isViewBlocking(ReduxBlocks::never).mapColor(FieldsprootLeafBlock::colorFromState).sound(SoundType.CHERRY_LEAVES)));
+
+    public static RegistryObject<Block> PRISMATIC_FIELDSPROOT_LEAVES = register("prismatic_fieldsproot_leaves", () -> new ClassicFieldsprootLeaves(
+            ClassicFieldsprootLeaves.PRISMATIC, BlockBehaviour.Properties.copy(AetherBlocks.SKYROOT_LEAVES.get()).hasPostProcess((state, lvl, pos) -> true).isSuffocating(ReduxBlocks::never).isViewBlocking(ReduxBlocks::never).mapColor(MapColor.COLOR_PINK).sound(SoundType.CHERRY_LEAVES)));
+
+    public static RegistryObject<Block> SPECTRAL_FIELDSPROOT_LEAVES = register("spectral_fieldsproot_leaves", () -> new ClassicFieldsprootLeaves(
+            ClassicFieldsprootLeaves.SPECTRAL, BlockBehaviour.Properties.copy(AetherBlocks.SKYROOT_LEAVES.get()).hasPostProcess((state, lvl, pos) -> true).isSuffocating(ReduxBlocks::never).isViewBlocking(ReduxBlocks::never).mapColor(MapColor.COLOR_LIGHT_BLUE).sound(SoundType.CHERRY_LEAVES)));
+
+    public static RegistryObject<Block> AZURE_FIELDSPROOT_LEAVES = register("azure_fieldsproot_leaves", () -> new AzureFieldsprootLeaves(
+            BlockBehaviour.Properties.copy(AetherBlocks.SKYROOT_LEAVES.get()).hasPostProcess((state, lvl, pos) -> true).isSuffocating(ReduxBlocks::never).isViewBlocking(ReduxBlocks::never).mapColor(MapColor.COLOR_LIGHT_BLUE).sound(SoundType.CHERRY_LEAVES)));
 
     public static RegistryObject<Block> BLIGHTED_AERCLOUD = register("blighted_aercloud", () -> new BlightedAercloudBlock(BlockBehaviour.Properties.copy(AetherBlocks.COLD_AERCLOUD.get()).mapColor(MapColor.COLOR_LIGHT_GREEN)));
 
@@ -254,7 +266,7 @@ public class ReduxBlocks {
 
 
     public static final RegistryObject<SaplingBlock> BLIGHTWILLOW_SAPLING = register("blightwillow_sapling", () ->
-            new SaplingBlock(new BlightwillowTree(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING).sound(SoundType.AZALEA))
+            new SaplingBlock(new ReduxSuppliedTree(ReduxConfiguredFeatures.BLIGHTWILLOW_TREE), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING).sound(SoundType.AZALEA))
     );
     public static final RegistryObject<FlowerPotBlock> POTTED_BLIGHTWILLOW_SAPLING = BLOCKS.register("potted_blightwillow_sapling",
             () -> new FlowerPotBlock(() ->
@@ -290,11 +302,38 @@ public class ReduxBlocks {
     );
 
     public static final RegistryObject<SaplingBlock> FIELDSPROOT_SAPLING = register("fieldsproot_sapling", () ->
-            new SaplingBlock(new FieldsprootTree(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING).sound(SoundType.CHERRY_SAPLING))
+            new SaplingBlock(new ReduxSuppliedTree(ReduxConfiguredFeatures.FIELDSPROOT_TREE), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING).sound(SoundType.CHERRY_SAPLING))
     );
     public static final RegistryObject<FlowerPotBlock> POTTED_FIELDSPROOT_SAPLING = BLOCKS.register("potted_fieldsproot_sapling",
             () -> new FlowerPotBlock(() ->
                     (FlowerPotBlock)Blocks.FLOWER_POT, FIELDSPROOT_SAPLING,
+                    BlockBehaviour.Properties.copy(Blocks.FLOWER_POT))
+    );
+
+
+    public static final RegistryObject<SaplingBlock> PRISMATIC_FIELDSPROOT_SAPLING = register("prismatic_fieldsproot_sapling", () ->
+            new SaplingBlock(new ReduxSuppliedTree(ReduxConfiguredFeatures.PRISMATIC_FIELDSPROOT_TREE), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING).sound(SoundType.CHERRY_SAPLING))
+    );
+    public static final RegistryObject<FlowerPotBlock> POTTED_PRISMATIC_FIELDSPROOT_SAPLING = BLOCKS.register("potted_prismatic_fieldsproot_sapling",
+            () -> new FlowerPotBlock(() ->
+                    (FlowerPotBlock)Blocks.FLOWER_POT, PRISMATIC_FIELDSPROOT_SAPLING,
+                    BlockBehaviour.Properties.copy(Blocks.FLOWER_POT))
+    );
+
+    public static final RegistryObject<SaplingBlock> SPECTRAL_FIELDSPROOT_SAPLING = register("prismatic_spectral_sapling", () ->
+            new SaplingBlock(new ReduxSuppliedTree(ReduxConfiguredFeatures.SPECTRAL_FIELDSPROOT_TREE), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING).sound(SoundType.CHERRY_SAPLING))
+    );
+    public static final RegistryObject<FlowerPotBlock> POTTED_SPECTRAL_FIELDSPROOT_SAPLING = BLOCKS.register("potted_spectral_fieldsproot_sapling",
+            () -> new FlowerPotBlock(() ->
+                    (FlowerPotBlock)Blocks.FLOWER_POT, SPECTRAL_FIELDSPROOT_SAPLING,
+                    BlockBehaviour.Properties.copy(Blocks.FLOWER_POT))
+    );
+    public static final RegistryObject<SaplingBlock> AZURE_FIELDSPROOT_SAPLING = register("azure_spectral_sapling", () ->
+            new SaplingBlock(new ReduxSuppliedTree(ReduxConfiguredFeatures.AZURE_FIELDSPROOT_TREE), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING).sound(SoundType.CHERRY_SAPLING))
+    );
+    public static final RegistryObject<FlowerPotBlock> POTTED_AZURE_FIELDSPROOT_SAPLING = BLOCKS.register("potted_azure_fieldsproot_sapling",
+            () -> new FlowerPotBlock(() ->
+                    (FlowerPotBlock)Blocks.FLOWER_POT, AZURE_FIELDSPROOT_SAPLING,
                     BlockBehaviour.Properties.copy(Blocks.FLOWER_POT))
     );
 
@@ -304,7 +343,7 @@ public class ReduxBlocks {
     public static RegistryObject<Block> PURPLE_GLACIA_LEAVES = register("purple_glacia_leaves", () -> new SnowableLeavesBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isValidSpawn(ReduxBlocks::ocelotOrParrot).isSuffocating(ReduxBlocks::never).isViewBlocking(ReduxBlocks::never)));
 
     public static final RegistryObject<SaplingBlock> GLACIA_SAPLING = register("glacia_sapling", () ->
-            new SaplingBlock(new GlaciaTree(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING))
+            new SaplingBlock(new ReduxSuppliedTree(ReduxConfiguredFeatures.GLACIA_TREE), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING))
     );
     public static final RegistryObject<FlowerPotBlock> POTTED_GLACIA_SAPLING = BLOCKS.register("potted_glacia_sapling",
             () -> new FlowerPotBlock(() ->
@@ -314,7 +353,7 @@ public class ReduxBlocks {
 
 
     public static final RegistryObject<SaplingBlock> PURPLE_GLACIA_SAPLING = register("purple_glacia_sapling", () ->
-            new SaplingBlock(new PurpleGlaciaTree(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING))
+            new SaplingBlock(new ReduxSuppliedTree(ReduxConfiguredFeatures.PURPLE_GLACIA_TREE), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING))
     );
     public static final RegistryObject<FlowerPotBlock> POTTED_PURPLE_GLACIA_SAPLING = BLOCKS.register("purple_potted_glacia_sapling",
             () -> new FlowerPotBlock(() ->
@@ -363,7 +402,7 @@ public class ReduxBlocks {
 
 
     public static final RegistryObject<SaplingBlock> GILDED_OAK_SAPLING = register("gilded_oak_sapling", () ->
-            new SaplingBlock(new GildedSkyrootTree(), BlockBehaviour.Properties.copy(AetherBlocks.GOLDEN_OAK_SAPLING.get()))
+            new SaplingBlock(new ReduxSuppliedTree(random -> ReduxConfig.COMMON.alternate_gilded_trees.get() ? ReduxConfiguredFeatures.SMALL_GILDED_OAK_TREE : random.nextBoolean() ? ReduxConfiguredFeatures.FANCY_GILDED_OAK_TREE : ReduxConfiguredFeatures.GILDED_OAK_TREE), BlockBehaviour.Properties.copy(AetherBlocks.GOLDEN_OAK_SAPLING.get()))
     );
 
     public static final RegistryObject<FlowerPotBlock> POTTED_GILDED_OAK_SAPLING = BLOCKS.register("potted_gilded_oak_sapling",
@@ -373,7 +412,7 @@ public class ReduxBlocks {
     );
 
     public static final RegistryObject<SaplingBlock> BLIGHTED_SKYROOT_SAPLING = register("blighted_skyroot_sapling", () ->
-            new SaplingBlock(new BlightedSkyrootTree(), BlockBehaviour.Properties.copy(AetherBlocks.SKYROOT_SAPLING.get()))
+            new SaplingBlock(new ReduxSuppliedTree(ReduxConfiguredFeatures.BLIGHTED_SKYROOT_TREE), BlockBehaviour.Properties.copy(AetherBlocks.SKYROOT_SAPLING.get()))
     );
 
     public static final RegistryObject<FlowerPotBlock> POTTED_BLIGHTED_SKYROOT_SAPLING = BLOCKS.register("potted_blighted_skyroot_sapling",
@@ -512,6 +551,10 @@ public class ReduxBlocks {
         pot.addPlant(ReduxBlocks.CRYSTAL_FRUIT_SAPLING.getId(), ReduxBlocks.POTTED_CRYSTAL_FRUIT_SAPLING);
         pot.addPlant(ReduxBlocks.PURPLE_CRYSTAL_FRUIT_SAPLING.getId(), ReduxBlocks.POTTED_PURPLE_CRYSTAL_FRUIT_SAPLING);
         pot.addPlant(ReduxBlocks.SHIMMERSTOOL.getId(), ReduxBlocks.POTTED_SHIMMERSTOOL);
+        pot.addPlant(ReduxBlocks.FIELDSPROOT_SAPLING.getId(), ReduxBlocks.POTTED_FIELDSPROOT_SAPLING);
+        pot.addPlant(ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING.getId(), ReduxBlocks.POTTED_PRISMATIC_FIELDSPROOT_SAPLING);
+        pot.addPlant(ReduxBlocks.AZURE_FIELDSPROOT_SAPLING.getId(), ReduxBlocks.POTTED_AZURE_FIELDSPROOT_SAPLING);
+        pot.addPlant(ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING.getId(), ReduxBlocks.POTTED_SPECTRAL_FIELDSPROOT_SAPLING);
     }
 
 

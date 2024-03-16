@@ -93,6 +93,7 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> SHRUBLANDS_ROCK  = copyKey(ReduxConfiguredFeatures.SHRUBLANDS_ROCK);
     public static final ResourceKey<PlacedFeature> SKYSPROUTS_PATCH = copyKey(ReduxConfiguredFeatures.SKYSPROUTS_PATCH);
     public static final ResourceKey<PlacedFeature> SKYFIELDS_TREES = copyKey(ReduxConfiguredFeatures.SKYFIELDS_TREES);
+    public static final ResourceKey<PlacedFeature> CLASSIC_SKYFIELDS_TREES = copyKey(ReduxConfiguredFeatures.CLASSIC_SKYFIELDS_TREES);
     public static final ResourceKey<PlacedFeature> SHRUBLANDS_TREES = copyKey(ReduxConfiguredFeatures.SHRUBLANDS_TREES);
     public static final ResourceKey<PlacedFeature> SHIMMERING_TREES = createKey(Folders.TREE + "shimmering_trees");
     public static final ResourceKey<PlacedFeature> IRIDIA_PATCH  = copyKey(ReduxConfiguredFeatures.IRIDIA_PATCH);
@@ -534,6 +535,7 @@ public class ReduxPlacedFeatures {
 
 
         register(context, SKYFIELDS_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.SKYFIELDS_TREES),
+                ConditionFilter.whenFalse(Conditions.CLASSIC_SKYFIELDS),
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
                         .add(ConstantInt.of(1), 9)
                         .add(ConstantInt.of(2), 3)
@@ -542,6 +544,18 @@ public class ReduxPlacedFeatures {
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.OCEAN_FLOOR, ConstantInt.of(2), 4),
                 BiomeFilter.biome(),
                 RarityFilter.onAverageOnceEvery(2),
+                PlacementUtils.filteredByBlockSurvival(ReduxBlocks.FIELDSPROOT_SAPLING.get()),
+                DUNGEON_BLACKLIST
+        );
+        register(context, SKYFIELDS_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.CLASSIC_SKYFIELDS_TREES),
+                ConditionFilter.whenTrue(Conditions.CLASSIC_SKYFIELDS),
+                CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
+                        .add(ConstantInt.of(3), 9)
+                        .add(ConstantInt.of(2), 3)
+                        .add(ConstantInt.of(0), 5)
+                        .build())),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.OCEAN_FLOOR, ConstantInt.of(2), 4),
+                BiomeFilter.biome(),
                 PlacementUtils.filteredByBlockSurvival(ReduxBlocks.FIELDSPROOT_SAPLING.get()),
                 DUNGEON_BLACKLIST
         );

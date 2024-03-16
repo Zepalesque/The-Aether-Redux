@@ -120,6 +120,15 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.add(ReduxBlocks.FIELDSPROOT_LEAVES.get(),
                 (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.FIELDSPROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
 
+        this.add(ReduxBlocks.PRISMATIC_FIELDSPROOT_LEAVES.get(),
+                (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
+
+        this.add(ReduxBlocks.AZURE_FIELDSPROOT_LEAVES.get(),
+                (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.AZURE_FIELDSPROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
+
+        this.add(ReduxBlocks.SPECTRAL_FIELDSPROOT_LEAVES.get(),
+                (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
+
         dropWhenSilkTouch(ReduxBlocks.GOLDEN_LEAF_PILE.get());
         dropWhenSilkTouch(ReduxBlocks.GILDED_LEAF_PILE.get());
         dropWhenSilkTouch(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get());
@@ -127,9 +136,19 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.add(ReduxBlocks.GLACIA_LEAVES.get(),
                 (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.GLACIA_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
         this.dropSelf(ReduxBlocks.GLACIA_SAPLING.get());
-        this.dropSelf(ReduxBlocks.FIELDSPROOT_SAPLING.get());
         this.dropPottedContents(ReduxBlocks.POTTED_GLACIA_SAPLING.get());
+
+        this.dropSelf(ReduxBlocks.FIELDSPROOT_SAPLING.get());
         this.dropPottedContents(ReduxBlocks.POTTED_FIELDSPROOT_SAPLING.get());
+
+
+        this.dropSelf(ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING.get());
+        this.dropSelf(ReduxBlocks.AZURE_FIELDSPROOT_SAPLING.get());
+        this.dropSelf(ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING.get());
+
+        this.dropPottedContents(ReduxBlocks.POTTED_PRISMATIC_FIELDSPROOT_SAPLING.get());
+        this.dropPottedContents(ReduxBlocks.POTTED_AZURE_FIELDSPROOT_SAPLING.get());
+        this.dropPottedContents(ReduxBlocks.POTTED_SPECTRAL_FIELDSPROOT_SAPLING.get());
 
         this.add(ReduxBlocks.PURPLE_GLACIA_LEAVES.get(),
                 (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.PURPLE_GLACIA_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));

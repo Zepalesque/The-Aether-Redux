@@ -122,9 +122,15 @@ public class ReduxCreativeTabs {
 
             putAfter(AetherBlocks.GOLDEN_AERCLOUD, ReduxBlocks.BLIGHTED_AERCLOUD, event);
 
-
-            putAfter(AetherBlocks.DECORATED_HOLIDAY_LEAVES, ReduxBlocks.FIELDSPROOT_LEAVES, event);
-            putAfter(ReduxBlocks.FIELDSPROOT_LEAVES, ReduxBlocks.CLOUD_CAP_BLOCK, event);
+            if (!ReduxConfig.COMMON.classic_skyfields.get()) {
+                putAfter(AetherBlocks.DECORATED_HOLIDAY_LEAVES, ReduxBlocks.FIELDSPROOT_LEAVES, event);
+                putAfter(ReduxBlocks.FIELDSPROOT_LEAVES, ReduxBlocks.CLOUD_CAP_BLOCK, event);
+            } else {
+                putAfter(AetherBlocks.DECORATED_HOLIDAY_LEAVES, ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING, event);
+                putAfter(ReduxBlocks.PRISMATIC_FIELDSPROOT_LEAVES, ReduxBlocks.AZURE_FIELDSPROOT_LEAVES, event);
+                putAfter(ReduxBlocks.AZURE_FIELDSPROOT_LEAVES, ReduxBlocks.SPECTRAL_FIELDSPROOT_LEAVES, event);
+                putAfter(ReduxBlocks.SPECTRAL_FIELDSPROOT_LEAVES, ReduxBlocks.CLOUD_CAP_BLOCK, event);
+            }
             putAfter(ReduxBlocks.CLOUD_CAP_BLOCK, ReduxBlocks.CLOUDCAP_SPORES, event);
             putAfter(ReduxBlocks.CLOUDCAP_SPORES, ReduxBlocks.JELLYSHROOM_JELLY_BLOCK, event);
 
@@ -133,7 +139,13 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.BLIGHTED_SKYROOT_SAPLING, ReduxBlocks.GLACIA_SAPLING, event);
             putAfter(ReduxBlocks.GLACIA_SAPLING, ReduxBlocks.PURPLE_GLACIA_SAPLING, event);
             putAfter(ReduxBlocks.PURPLE_GLACIA_SAPLING, ReduxBlocks.GILDED_OAK_SAPLING, event);
-            putAfter(ReduxBlocks.GILDED_OAK_SAPLING, ReduxBlocks.FIELDSPROOT_SAPLING, event);
+            if (!ReduxConfig.COMMON.classic_skyfields.get()) {
+                putAfter(ReduxBlocks.GILDED_OAK_SAPLING, ReduxBlocks.FIELDSPROOT_SAPLING, event);
+            } else {
+                putAfter(ReduxBlocks.GILDED_OAK_SAPLING, ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING, event);
+                putAfter(ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING, ReduxBlocks.AZURE_FIELDSPROOT_SAPLING, event);
+                putAfter(ReduxBlocks.AZURE_FIELDSPROOT_SAPLING, ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING, event);
+            }
 
             if (Redux.lostAetherCompat()) {
                 event.getEntries().remove(new ItemStack(LCBlocks.crystal_sapling));

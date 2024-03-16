@@ -212,10 +212,21 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addBlock(ReduxBlocks.BLIGHTWILLOW_LEAVES, "Blightwillow Leaves");
         addLore(ReduxBlocks.BLIGHTWILLOW_LEAVES, "The leaves of the Blightwillow tree. These sometimes drop Blightwillow Saplings.");
+
         addBlock(ReduxBlocks.FIELDSPROOT_LEAVES, "Fieldsproot Leaves");
         addLore(ReduxBlocks.FIELDSPROOT_LEAVES, "The colorful leaves of the flowering Fieldsproot trees! These will occasionally drop Fieldsproot Saplings.");
         addBlock(ReduxBlocks.FIELDSPROOT_PETALS, "Fieldsproot Petals");
         addLore(ReduxBlocks.FIELDSPROOT_PETALS, "The vibrant petals of Fieldsproot trees, which are found commonly underneath them.");
+
+        addBlock(ReduxBlocks.PRISMATIC_FIELDSPROOT_LEAVES, "Prismatic Fieldsproot Leaves");
+        addLore(ReduxBlocks.PRISMATIC_FIELDSPROOT_LEAVES, "The colorful leaves of the Prismatic Fieldsproot trees! These will occasionally drop Prismatic Fieldsproot Saplings.");
+
+        addBlock(ReduxBlocks.AZURE_FIELDSPROOT_LEAVES, "Azure Fieldsproot Leaves");
+        addLore(ReduxBlocks.AZURE_FIELDSPROOT_LEAVES, "The colorful leaves of the Azure Fieldsproot trees! These will occasionally drop Azure Fieldsproot Saplings.");
+
+        addBlock(ReduxBlocks.SPECTRAL_FIELDSPROOT_LEAVES, "Spectral Fieldsproot Leaves");
+        addLore(ReduxBlocks.SPECTRAL_FIELDSPROOT_LEAVES, "The colorful leaves of the Spectral Fieldsproot trees! These will occasionally drop Spectral Fieldsproot Saplings.");
+
         addBlock(ReduxBlocks.GOLDEN_LEAF_PILE, "Golden Leaf Pile");
         addLore(ReduxBlocks.GOLDEN_LEAF_PILE, "A pile of Golden Oak Leaves. These can be found under Golden Oak trees.");
         addBlock(ReduxBlocks.GILDED_LEAF_PILE, "Gilded Leaf Pile");
@@ -229,6 +240,18 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.FIELDSPROOT_SAPLING, "Fieldsproot Sapling");
         addBlock(ReduxBlocks.POTTED_FIELDSPROOT_SAPLING, "Potted Fieldsproot Sapling");
         addLore(ReduxBlocks.FIELDSPROOT_SAPLING, "The sapling of the colorful Fieldsproot tree. It can be grown by waiting or using Bone Meal.");
+
+        addBlock(ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING, "Prismatic Fieldsproot Sapling");
+        addBlock(ReduxBlocks.POTTED_PRISMATIC_FIELDSPROOT_SAPLING, "Potted Prismatic Fieldsproot Sapling");
+        addLore(ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING, "The sapling of the Prismatic Fieldsproot tree. It can be grown by waiting or using Bone Meal.");
+
+        addBlock(ReduxBlocks.AZURE_FIELDSPROOT_SAPLING, "Azure Fieldsproot Sapling");
+        addBlock(ReduxBlocks.POTTED_AZURE_FIELDSPROOT_SAPLING, "Potted Azure Fieldsproot Sapling");
+        addLore(ReduxBlocks.AZURE_FIELDSPROOT_SAPLING, "The sapling of the Azure Fieldsproot tree. It can be grown by waiting or using Bone Meal.");
+
+        addBlock(ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING, "Spectral Fieldsproot Sapling");
+        addBlock(ReduxBlocks.POTTED_SPECTRAL_FIELDSPROOT_SAPLING, "Potted Spectral Fieldsproot Sapling");
+        addLore(ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING, "The sapling of the Spectral Fieldsproot tree. It can be grown by waiting or using Bone Meal.");
 
         addBlock(ReduxBlocks.CRYSTAL_SAPLING, "Crystal Sapling");
         addBlock(ReduxBlocks.POTTED_CRYSTAL_SAPLING, "Potted Crystal Sapling");
