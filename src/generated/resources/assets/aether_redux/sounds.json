@@ -498,5 +498,75 @@
         "stream": true
       }
     ]
+  },
+
+  "block.aercloud.blue_aercloud_bounce": {
+    "sounds": [
+      "aether_redux:block/aercloud/blue_aercloud_bounce"
+    ],
+    "subtitle": "subtitles.aether_redux.block.aercloud.blue_aercloud_bounce"
+  },
+  "block.portal.hum": {
+    "sounds": [
+      "aether_redux:block/portal/hum"
+    ],
+    "subtitle": "subtitles.aether_redux.block.portal.hum"
+  },
+  "block.portal.travel": {
+    "sounds": [
+      "aether_redux:block/portal/travel"
+    ]
+  },
+  "block.portal.trigger": {
+    "sounds": [
+      "aether_redux:block/portal/trigger"
+    ],
+    "subtitle": "subtitles.aether_redux.block.portal.trigger"
+  },
+  "music.aether_night": {
+    "sounds": [
+      {
+        "name": "aether_redux:music/aether_night1",
+        "stream": true
+      },
+      {
+        "name": "aether_redux:music/aether_night2",
+        "stream": true
+      }
+    ]
+  },
+  "music.redux_day": {
+    "sounds": [
+      {
+        "name": "aether_redux:music/aether1_lowpitch",
+        "weight": 1,
+        "stream": true
+      },
+      {
+        "name": "aether:music/aether2",
+        "weight": 2,
+        "stream": true
+      },
+      {
+        "name": "aether:music/aether3",
+        "weight": 2,
+        "stream": true
+      },
+      {
+        "name": "aether:music/aether4",
+        "weight": 2,
+        "stream": true
+      },
+      {
+        "name": "aether:music/aether5",
+        "weight": 2,
+        "stream": true
+      },
+      {
+        "name": "aether_redux:music/aether6",
+        "weight": 2,
+        "stream": true
+      }
+    ]
   }
 }

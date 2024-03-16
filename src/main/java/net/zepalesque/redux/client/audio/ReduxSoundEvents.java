@@ -89,6 +89,9 @@ public class ReduxSoundEvents {
 
     public static final RegistryObject<SoundEvent> REDUX_MENU = register("music.redux_menu");
 
+    public static final RegistryObject<SoundEvent> NIGHT_MUSIC = register("music.aether_night");
+    public static final RegistryObject<SoundEvent> GENESIS_MUSIC = register("music.redux_day");
+
     private static RegistryObject<SoundEvent> register(String name) {
         return SOUNDS.register(name, () -> new SoundEvent(Redux.locate(name)));
     }
