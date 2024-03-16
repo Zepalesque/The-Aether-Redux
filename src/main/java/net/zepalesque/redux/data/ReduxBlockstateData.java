@@ -102,7 +102,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
         this.classicFieldsprootLeafBlock(ReduxBlocks.PRISMATIC_FIELDSPROOT_LEAVES, ReduxBlocks.FIELDSPROOT_LEAVES, "natural/", 0);
         this.classicFieldsprootLeafBlock(ReduxBlocks.SPECTRAL_FIELDSPROOT_LEAVES, ReduxBlocks.FIELDSPROOT_LEAVES, "natural/", 4);
-        this.other(ReduxBlocks.AZURE_FIELDSPROOT_LEAVES, "fieldsproot_leaves_3", "natural/");
+        this.existingModel(ReduxBlocks.AZURE_FIELDSPROOT_LEAVES, "fieldsproot_leaves_3");
 
         this.crossBlock(ReduxBlocks.FIELDSPROOT_SAPLING.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_FIELDSPROOT_SAPLING.get(), ReduxBlocks.FIELDSPROOT_SAPLING.get(), "natural/");
@@ -1261,6 +1261,9 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
     }
     public void other(Supplier<? extends Block> block, String other, String location) {
         simpleBlock(block.get(), models().cubeAll(name(block), texture(other, location)));
+    }
+    public void existingModel(Supplier<? extends Block> block, String other) {
+        simpleBlock(block.get(), models().getExistingFile(texture(other)));
     }
 
 
