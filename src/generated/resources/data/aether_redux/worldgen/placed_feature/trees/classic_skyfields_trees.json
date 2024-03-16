@@ -1,14 +1,11 @@
 {
-  "feature": "aether_redux:trees/skyfields_trees",
+  "feature": "aether_redux:trees/classic_skyfields_trees",
   "placement": [
     {
       "type": "aether_redux:data_condition",
       "data_condition": {
-        "condition": "aether_redux:not",
-        "inverted": {
-          "condition": "aether_redux:redux_config",
-          "config_path": "[Worldgen, Additional Features, Classic Skyfields]"
-        }
+        "condition": "aether_redux:redux_config",
+        "config_path": "[Worldgen, Additional Features, Classic Skyfields]"
       }
     },
     {
@@ -17,7 +14,7 @@
         "type": "minecraft:weighted_list",
         "distribution": [
           {
-            "data": 1,
+            "data": 3,
             "weight": 9
           },
           {
@@ -39,10 +36,6 @@
     },
     {
       "type": "minecraft:biome"
-    },
-    {
-      "type": "minecraft:rarity_filter",
-      "chance": 2
     },
     {
       "type": "minecraft:block_predicate_filter",
