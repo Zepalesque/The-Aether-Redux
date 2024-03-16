@@ -78,13 +78,14 @@ public class ClassicFieldsprootLeaves extends AetherDoubleDropsLeaves {
     }
 
     private BlockState getState(BlockState state, LevelAccessor level, BlockPos pos) {
-        double scale = 0.1D;
+        double scale = 0.5D;
         double x = pos.getX() * scale;
         double y = pos.getY() * scale;
         double z = pos.getZ() * scale;
         double noiseVal = FieldsprootLeafBlock.PERLIN.getValue(x, y, z);
         double clamped = Mth.clamp(noiseVal, -0.5D, 0.5D);
-        int prism = Mth.lerpInt((float) clamped + 0.5F, 0, 2);
+        int prism = Mth.lerpInt((float) clamped + 0.5F, -1, 2);
+        int truePrism = Mth.clamp(prism, 0, 2);
         return state.setValue(ReduxStates.PRISMATICNESS_DECREASED, prism);
     }
 
