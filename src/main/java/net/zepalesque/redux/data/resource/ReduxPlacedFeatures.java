@@ -550,9 +550,10 @@ public class ReduxPlacedFeatures {
         register(context, CLASSIC_SKYFIELDS_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.CLASSIC_SKYFIELDS_TREES),
                 ConditionFilter.whenTrue(Conditions.CLASSIC_SKYFIELDS),
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
-                        .add(ConstantInt.of(3), 9)
-                        .add(ConstantInt.of(2), 3)
+                        .add(ConstantInt.of(9), 9)
+                        .add(ConstantInt.of(5), 3)
                         .add(ConstantInt.of(0), 5)
+                        .add(ConstantInt.of(16), 1)
                         .build())),
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.OCEAN_FLOOR, ConstantInt.of(2), 4),
                 BiomeFilter.biome(),
