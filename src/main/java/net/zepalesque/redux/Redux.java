@@ -204,6 +204,17 @@ public class Redux {
                 ReduxBlocks.RAW_GRAVITITE_BLOCK.get().asItem().category = null;
                 ReduxBlocks.RAW_VERIDIUM_BLOCK.get().asItem().category = null;
             }
+            if (ReduxConfig.COMMON.classic_skyfields.get()) {
+                ReduxBlocks.FIELDSPROOT_LEAVES.get().asItem().category = null;
+                ReduxBlocks.FIELDSPROOT_SAPLING.get().asItem().category = null;
+            } else {
+                ReduxBlocks.PRISMATIC_FIELDSPROOT_LEAVES.get().asItem().category = null;
+                ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING.get().asItem().category = null;
+                ReduxBlocks.AZURE_FIELDSPROOT_LEAVES.get().asItem().category = null;
+                ReduxBlocks.AZURE_FIELDSPROOT_SAPLING.get().asItem().category = null;
+                ReduxBlocks.SPECTRAL_FIELDSPROOT_LEAVES.get().asItem().category = null;
+                ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING.get().asItem().category = null;
+            }
             ReduxBlocks.registerFlammability();
             registerDispenserBehaviors();
             replaceBlockSounds();
