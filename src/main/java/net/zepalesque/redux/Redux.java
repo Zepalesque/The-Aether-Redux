@@ -97,6 +97,7 @@ import net.zepalesque.redux.world.tree.foliage.ReduxFoliagePlacers;
 import net.zepalesque.redux.world.tree.trunk.ReduxTrunkPlacers;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
+import teamrazor.aeroblender.AeroBlenderConfig;
 import teamrazor.aeroblender.aether.AetherRuleCategory;
 import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
@@ -193,6 +194,10 @@ public class Redux {
         ReduxPlacementModifiers.init();
         ReduxPacketHandler.register();
         event.enqueueWork(() -> {
+            if (ReduxConfig.COMMON.first_startup_aeroblender_setup.get()) {
+                AeroBlenderConfig.COMMON.vanillaAetherRegionWeight.set(0);
+                AeroBlenderConfig.COMMON.vanillaAetherRegionWeight.save();
+            }
             if (ReduxConfig.COMMON.gravitite_ingot.get()) {
                 AetherBlocks.ENCHANTED_GRAVITITE.get().asItem().category = null;
             } else {
@@ -239,26 +244,29 @@ public class Redux {
         ReduxRenderers.registerCuriosRenderers();
         event.enqueueWork(
                 () -> {
-                    if (ReduxConfig.CLIENT.first_startup.get()) {
+                    if (ReduxConfig.CLIENT.first_startup_lightmap_changes.get()) {
 //                        AetherConfig.CLIENT.green_sunset.set(true);
 //                        AetherConfig.CLIENT.green_sunset.save();
                         AetherConfig.CLIENT.colder_lightmap.set(true);
                         AetherConfig.CLIENT.colder_lightmap.save();
-                        AetherConfig.CLIENT.enable_aether_menu_button.set(false);
-                        AetherConfig.CLIENT.enable_aether_menu_button.save();
-                        AetherConfig.CLIENT.should_disable_cumulus_button.set(false);
-                        AetherConfig.CLIENT.should_disable_cumulus_button.save();
+                        ReduxConfig.CLIENT.first_startup_lightmap_changes.set(false);
+                        ReduxConfig.CLIENT.first_startup_lightmap_changes.save();
+                    }
+                    if (ReduxConfig.CLIENT.first_startup_menu_setup.get()) {
                         if (CumulusConfig.CLIENT.enable_menu_api.get()) {
                             CumulusConfig.CLIENT.active_menu.set(ReduxMenus.SKYFIELDS_MENU.getId().toString());
                             CumulusConfig.CLIENT.active_menu.save();
                             CumulusConfig.CLIENT.enable_menu_list_button.set(true);
                             CumulusConfig.CLIENT.active_menu.save();
+                            AetherConfig.CLIENT.enable_aether_menu_button.set(false);
+                            AetherConfig.CLIENT.enable_aether_menu_button.save();
+                            AetherConfig.CLIENT.should_disable_cumulus_button.set(false);
+                            AetherConfig.CLIENT.should_disable_cumulus_button.save();
+                            ReduxConfig.CLIENT.first_startup_menu_setup.set(false);
+                            ReduxConfig.CLIENT.first_startup_menu_setup.save();
                         }
-                        ReduxConfig.CLIENT.first_startup.set(false);
-                        ReduxConfig.CLIENT.first_startup.save();
-//                        AeroBlenderConfig.COMMON.vanillaAetherRegionWeight.set(0);
-//                        AeroBlenderConfig.COMMON.vanillaAetherRegionWeight.save();
                     }
+
                     ReduxMenus.cycle();
                     ReduxClient.registerItemModelProperties();
                     ReduxPostProcessHandler.initAdrenalineShader();
