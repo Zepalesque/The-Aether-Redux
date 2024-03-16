@@ -1,7 +1,6 @@
 package net.zepalesque.redux.data.resource;
 
 import com.aetherteam.aether.AetherTags;
-import com.aetherteam.aether.client.AetherSoundEvents;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
@@ -18,7 +17,6 @@ import net.minecraftforge.common.world.ForgeBiomeModifiers;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.condition.Conditions;
-import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.misc.ReduxTags;
@@ -116,7 +114,7 @@ public class ReduxBiomeModifiers {
                 0x91BD59, 0x77AB2F));
 
         context.register(MUSIC_MODIFY, new MusicModifier(biomes.getOrThrow(ReduxTags.Biomes.MUSIC_MODIFY),
-                Optional.of(ReduxSoundEvents.REDUX_MENU.getHolder().get()), Optional.of(CodecPredicates.DualInt.of(600, 2400)), Optional.of(false), Optional.of(CodecPredicates.Sound.of(AetherSoundEvents.MUSIC_AETHER.getHolder().get())), Optional.empty(), Optional.empty()));
+                Optional.empty(), Optional.of(CodecPredicates.DualInt.of(600, 2400)), Optional.of(false), Optional.empty(), Optional.empty(), Optional.empty()));
 
 
 
