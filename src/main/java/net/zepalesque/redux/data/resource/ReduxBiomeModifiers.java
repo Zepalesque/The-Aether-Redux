@@ -24,6 +24,7 @@ import net.zepalesque.redux.util.function.CodecPredicates;
 import net.zepalesque.redux.world.biome.modifier.*;
 
 import java.util.List;
+import java.util.Optional;
 
 public class ReduxBiomeModifiers {
     public static String FEATURE = "feature/";
@@ -48,6 +49,7 @@ public class ReduxBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_SNOW = createKey(FEATURE + "snow");
     public static final ResourceKey<BiomeModifier> WATER_COLOR_AETHER = createKey(MODIFY + "water_color");
     public static final ResourceKey<BiomeModifier> AETHER_COLOR_OVERRIDE = createKey(MODIFY + "aether_color_override");
+    public static final ResourceKey<BiomeModifier> SHORTEN_MUSIC_DELAY = createKey(MODIFY + "shorten_music_delay");
 
     private static ResourceKey<BiomeModifier> createKey(String name) {
         return ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, Redux.locate(name));
@@ -110,6 +112,9 @@ public class ReduxBiomeModifiers {
 
         context.register(AETHER_COLOR_OVERRIDE, new GrassAndFoliageColorModifier(biomes.getOrThrow(ReduxTags.Biomes.NO_GRASS_OVERRIDE),
                 0x91BD59, 0x77AB2F));
+
+        context.register(SHORTEN_MUSIC_DELAY, new MusicModifier(biomes.getOrThrow(ReduxTags.Biomes.SHORT_MUSIC_DELAY),
+                Optional.empty(), Optional.of(CodecPredicates.DualInt.of(600, 2400)), Optional.of(false), Optional.empty(), Optional.empty(), Optional.empty()));
 
 
 

@@ -17,8 +17,8 @@ public class CodecPredicates {
             this.arg2 = arg2;
         }
 
-        public static DualInt of(int water, int fog) {
-            return new DualInt(water, fog);
+        public static DualInt of(int arg1, int arg2) {
+            return new DualInt(arg1, arg2);
         }
 
         public static Codec<DualInt> createCodec(String arg1, String arg2) {
