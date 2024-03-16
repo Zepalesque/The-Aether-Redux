@@ -15,7 +15,7 @@ import java.util.Optional;
 
 public record MusicModifier(
         HolderSet<Biome> biomes,
-        Optional<Holder<SoundEvent>> event,
+        Optional<SoundEvent> event,
         Optional<CodecPredicates.DualInt> delay,
         Optional<Boolean> replaceCurrentMusic,
         Optional<CodecPredicates.Sound> soundPredicate,
@@ -35,7 +35,7 @@ public record MusicModifier(
         if (this.soundPredicate.isEmpty() && this.delay.isEmpty() && this.replaceCurrentMusic.isEmpty()) {
             return music;
         }
-        Holder<SoundEvent> event = music.getEvent();
+        SoundEvent event = music.getEvent();
         if (this.event.isPresent() && (this.soundPredicate.isEmpty() || this.soundPredicate.get().test(music.getEvent()))) {
             event = this.event.get();
         }

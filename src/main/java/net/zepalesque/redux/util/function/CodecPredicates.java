@@ -59,12 +59,12 @@ public class CodecPredicates {
     }
     public static class Sound {
 
-        public final Holder<SoundEvent> arg;
-        Sound(Holder<SoundEvent> arg) {
+        public final SoundEvent arg;
+        Sound(SoundEvent arg) {
             this.arg = arg;
         }
 
-        public static Sound of(Holder<SoundEvent> arg) {
+        public static Sound of(SoundEvent arg) {
             return new Sound(arg);
         }
 
@@ -72,7 +72,7 @@ public class CodecPredicates {
                                 SoundEvent.CODEC.fieldOf("sound").forGetter((config) -> config.arg))
                         .apply(condition, Sound::new));
 
-        public boolean test(Holder<SoundEvent> holder) {
+        public boolean test(SoundEvent holder) {
             return this.arg == holder;
         }
     }
