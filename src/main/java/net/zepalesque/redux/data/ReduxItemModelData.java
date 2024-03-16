@@ -37,7 +37,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlock(ReduxBlocks.SENTRITE);
         itemBlock(ReduxBlocks.SENTRITE_SLAB);
         itemBlock(ReduxBlocks.SENTRITE_STAIRS);
-        itemWallBlock(ReduxBlocks.SENTRITE_WALL, ReduxBlocks.SENTRITE, "natural/");
+        itemWallBlock(ReduxBlocks.SENTRITE_WALL, ReduxBlocks.SENTRITE, "construction/");
         itemBlock(ReduxBlocks.SENTRITE_BRICKS);
         itemBlock(ReduxBlocks.SENTRITE_BRICK_SLAB);
         itemBlock(ReduxBlocks.SENTRITE_BRICK_STAIRS);
