@@ -48,7 +48,6 @@ public class ClassicFieldsprootLeaves extends AetherDoubleDropsLeaves {
             return ReduxParticleTypes.FALLING_PRISMATIC_LEAVES.get();
         } else {
             int i = state.getValue(ReduxStates.PRISMATICNESS_DECREASED);
-            // oh my god XD
             return i < this.particles.size() ? this.particles.get(i).get() :
             ReduxParticleTypes.FALLING_PRISMATIC_LEAVES.get();
         }

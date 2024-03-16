@@ -328,7 +328,7 @@ public class ReduxBlocks {
                     (FlowerPotBlock)Blocks.FLOWER_POT, SPECTRAL_FIELDSPROOT_SAPLING,
                     BlockBehaviour.Properties.copy(Blocks.FLOWER_POT))
     );
-    public static final RegistryObject<SaplingBlock> AZURE_FIELDSPROOT_SAPLING = register("azure_spectral_sapling", () ->
+    public static final RegistryObject<SaplingBlock> AZURE_FIELDSPROOT_SAPLING = register("azure_fieldsproot_sapling", () ->
             new SaplingBlock(new ReduxSuppliedTree(ReduxConfiguredFeatures.AZURE_FIELDSPROOT_TREE), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING).sound(SoundType.CHERRY_SAPLING))
     );
     public static final RegistryObject<FlowerPotBlock> POTTED_AZURE_FIELDSPROOT_SAPLING = BLOCKS.register("potted_azure_fieldsproot_sapling",
