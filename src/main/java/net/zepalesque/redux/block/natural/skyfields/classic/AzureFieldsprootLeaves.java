@@ -5,7 +5,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.util.Mth;
-import net.minecraft.util.ParticleUtils;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
@@ -17,6 +16,7 @@ import net.minecraftforge.common.util.Lazy;
 import net.zepalesque.redux.block.natural.skyfields.FieldsprootLeafBlock;
 import net.zepalesque.redux.block.util.state.ReduxStates;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
+import net.zepalesque.redux.util.level.ParticlePlacementUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +43,7 @@ public class AzureFieldsprootLeaves extends AetherDoubleDropsLeaves {
             BlockPos blockpos = position.below();
             BlockState blockstate = world.getBlockState(blockpos);
             if (!blockstate.canOcclude() || !blockstate.isFaceSturdy(world, blockpos, Direction.UP)) {
-                ParticleUtils.spawnParticleBelow(world, position, rand, getParticle(rand, blockstate));
+                ParticlePlacementUtil.spawnParticleBelow(world, position, rand, getParticle(rand, blockstate));
             }
         }
     }
