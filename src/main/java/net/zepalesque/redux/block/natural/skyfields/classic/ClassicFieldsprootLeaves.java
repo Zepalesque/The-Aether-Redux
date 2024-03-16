@@ -86,7 +86,7 @@ public class ClassicFieldsprootLeaves extends AetherDoubleDropsLeaves {
         double clamped = Mth.clamp(noiseVal, -0.5D, 0.5D);
         int prism = Mth.lerpInt((float) clamped + 0.5F, -1, 2);
         int truePrism = Mth.clamp(prism, 0, 2);
-        return state.setValue(ReduxStates.PRISMATICNESS_DECREASED, prism);
+        return state.setValue(ReduxStates.PRISMATICNESS_DECREASED, truePrism);
     }
 
 
