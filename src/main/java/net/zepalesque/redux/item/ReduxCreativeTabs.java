@@ -126,7 +126,7 @@ public class ReduxCreativeTabs {
                 putAfter(AetherBlocks.DECORATED_HOLIDAY_LEAVES, ReduxBlocks.FIELDSPROOT_LEAVES, event);
                 putAfter(ReduxBlocks.FIELDSPROOT_LEAVES, ReduxBlocks.CLOUD_CAP_BLOCK, event);
             } else {
-                putAfter(AetherBlocks.DECORATED_HOLIDAY_LEAVES, ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING, event);
+                putAfter(AetherBlocks.DECORATED_HOLIDAY_LEAVES, ReduxBlocks.PRISMATIC_FIELDSPROOT_LEAVES, event);
                 putAfter(ReduxBlocks.PRISMATIC_FIELDSPROOT_LEAVES, ReduxBlocks.AZURE_FIELDSPROOT_LEAVES, event);
                 putAfter(ReduxBlocks.AZURE_FIELDSPROOT_LEAVES, ReduxBlocks.SPECTRAL_FIELDSPROOT_LEAVES, event);
                 putAfter(ReduxBlocks.SPECTRAL_FIELDSPROOT_LEAVES, ReduxBlocks.CLOUD_CAP_BLOCK, event);

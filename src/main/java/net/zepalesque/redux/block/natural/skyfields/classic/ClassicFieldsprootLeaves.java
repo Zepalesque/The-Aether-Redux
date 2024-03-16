@@ -16,6 +16,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraftforge.common.util.Lazy;
 import net.minecraftforge.registries.RegistryObject;
+import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.natural.skyfields.FieldsprootLeafBlock;
 import net.zepalesque.redux.block.util.state.ReduxStates;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
@@ -31,9 +32,9 @@ public class ClassicFieldsprootLeaves extends AetherDoubleDropsLeaves {
             ReduxParticleTypes.FIELDSPROUT_PETALS_1,
             ReduxParticleTypes.FIELDSPROUT_PETALS_2);
     public static final List<RegistryObject<SimpleParticleType>> PRISMATIC = List.of(
-            ReduxParticleTypes.FIELDSPROUT_PETALS_4,
+            ReduxParticleTypes.FIELDSPROUT_PETALS_6,
             ReduxParticleTypes.FIELDSPROUT_PETALS_5,
-            ReduxParticleTypes.FIELDSPROUT_PETALS_6);
+            ReduxParticleTypes.FIELDSPROUT_PETALS_4);
     private final List<RegistryObject<SimpleParticleType>> particles;
 
     public ClassicFieldsprootLeaves(List<RegistryObject<SimpleParticleType>> particles, Properties properties) {
@@ -78,7 +79,7 @@ public class ClassicFieldsprootLeaves extends AetherDoubleDropsLeaves {
     }
 
     private BlockState getState(BlockState state, LevelAccessor level, BlockPos pos) {
-        double scale = 0.1D;
+        double scale = 0.25D;
         double x = pos.getX() * scale;
         double y = pos.getY() * scale;
         double z = pos.getZ() * scale;
