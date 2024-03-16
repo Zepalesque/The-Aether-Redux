@@ -632,7 +632,7 @@ public class ReduxConfiguredFeatures {
                         new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(FANCY_SPECTRAL_FIELDSPROOT_TREE),
                                 PlacementUtils.filteredByBlockSurvival(ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING.get())), 0.15F),
                         new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(AZURE_FIELDSPROOT_TREE),
-                                PlacementUtils.filteredByBlockSurvival(ReduxBlocks.AZURE_FIELDSPROOT_SAPLING.get())), 0.2F)
+                                PlacementUtils.filteredByBlockSurvival(ReduxBlocks.AZURE_FIELDSPROOT_SAPLING.get())), 0.1F)
                 ),
                         PlacementUtils.inlinePlaced(
                                 configuredFeatures.getOrThrow(PRISMATIC_FIELDSPROOT_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING.get()))));
