@@ -256,9 +256,6 @@ public class MappingsHooks {
         builder.put(Redux.locate("frosted_fern"), ReduxBlocks.SPLITFERN);
         builder.put(Redux.locate("potted_frosted_fern"), ReduxBlocks.POTTED_SPLITFERN);
 
-        builder.put(Redux.locate("gilded_white_flower"), ReduxBlocks.ENCHANTED_WHITE_FLOWER);
-        builder.put(Redux.locate("potted_gilded_white_flower"), AetherBlocks.POTTED_WHITE_FLOWER);
-
         builder.put(Redux.locate("glowsprouts"), ReduxBlocks.LUXWEED);
         builder.put(Redux.locate("potted_glowsprouts"), ReduxBlocks.POTTED_LUXWEED);
 
@@ -303,7 +300,6 @@ public class MappingsHooks {
         builder.put(Redux.locate("arctic_pines"), ReduxBiomes.FROSTED_FORESTS);
         builder.put(Redux.locate("frosted_forest"), ReduxBiomes.FROSTED_FORESTS);
 
-        builder.put(Redux.locate("gilded_thicket"), ReduxBiomes.GILDED_GRASSLANDS);
         builder.put(Redux.locate("gilded_thicket"), ReduxBiomes.GILDED_GRASSLANDS);
 
         builder.put(Redux.locate("highfields"), ReduxBiomes.SKYFIELDS);
