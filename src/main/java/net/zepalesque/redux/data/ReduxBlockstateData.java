@@ -450,7 +450,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         getVariantBuilder(block.get())
                 .forAllStatesExcept(state -> {
                             int i = start + state.getValue(ReduxStates.PRISMATICNESS_DECREASED);
-                            BlockModelBuilder nested = models().nested().parent(models().getExistingFile(texture(name(texture) + "_" + i, location)));
+                            BlockModelBuilder nested = models().nested().parent(models().getExistingFile(texture(name(texture) + "_" + i)));
                             return ConfiguredModel.builder().modelFile(nested).build();
                         }
                         , AetherBlockStateProperties.DOUBLE_DROPS, LeavesBlock.DISTANCE);
