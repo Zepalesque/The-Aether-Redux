@@ -29,7 +29,7 @@ public class AzureFieldsprootLeaves extends AetherDoubleDropsLeaves {
     }
 
     public ParticleOptions getParticle(RandomSource rand, BlockState state) {
-        return !state.hasProperty(ReduxStates.PRISMATICNESS_DECREASED) || rand.nextFloat() < 0.2F ?
+        return rand.nextFloat() < 0.2F ?
                 ReduxParticleTypes.FALLING_PRISMATIC_LEAVES.get() :
                 ReduxParticleTypes.FIELDSPROUT_PETALS_3.get();
     }
