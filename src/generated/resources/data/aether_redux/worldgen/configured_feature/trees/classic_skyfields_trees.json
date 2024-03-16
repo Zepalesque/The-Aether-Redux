@@ -60,7 +60,7 @@
         }
       },
       {
-        "chance": 0.2,
+        "chance": 0.1,
         "feature": {
           "feature": "aether_redux:trees/azure_fieldsproot_tree",
           "placement": [
