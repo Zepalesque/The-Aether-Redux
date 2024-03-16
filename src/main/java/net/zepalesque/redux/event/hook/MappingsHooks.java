@@ -58,16 +58,11 @@ public class MappingsHooks {
         builder.put(Redux.locate("frosted_aether_grass"), ReduxBlocks.SHORT_AETHER_GRASS);
         builder.put(Redux.locate("enchanted_aether_grass"), ReduxBlocks.SHORT_AETHER_GRASS);
 
-
         builder.put(Redux.locate("aevelium_growth"), ReduxBlocks.AVELIUM_ROOTS);
-        builder.put(Redux.locate("potted_aevelium_growth"), ReduxBlocks.POTTED_AVELIUM_ROOTS);
-        builder.put(Redux.locate("aevelium_sprouts"), ReduxBlocks.AVELIUM_SPROUTS);
-
         builder.put(Redux.locate("aevelium_sprouts"), ReduxBlocks.AVELIUM_SPROUTS);
 
         builder.put(Redux.locate("flowering_fieldsprout_leaves"), ReduxBlocks.FIELDSPROOT_LEAVES);
         builder.put(Redux.locate("flowering_fieldsprout_sapling"), ReduxBlocks.FIELDSPROOT_SAPLING);
-
 
         builder.put(Redux.locate("pink_prismatic_leaves"), ReduxBlocks.PRISMATIC_FIELDSPROOT_LEAVES);
         builder.put(Redux.locate("pink_prismatic_sapling"), ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING);
@@ -195,8 +190,7 @@ public class MappingsHooks {
         builder.put(Redux.locate("aevelium_growth"), ReduxBlocks.AVELIUM_ROOTS);
         builder.put(Redux.locate("potted_aevelium_growth"), ReduxBlocks.POTTED_AVELIUM_ROOTS);
         builder.put(Redux.locate("aevelium_sprouts"), ReduxBlocks.AVELIUM_SPROUTS);
-
-        builder.put(Redux.locate("aevelium_sprouts"), ReduxBlocks.AVELIUM_SPROUTS);
+        builder.put(Redux.locate("potted_aevelium_sprouts"), ReduxBlocks.AVELIUM_SPROUTS);
 
         builder.put(Redux.locate("flowering_fieldsprout_leaves"), ReduxBlocks.FIELDSPROOT_LEAVES);
         builder.put(Redux.locate("flowering_fieldsprout_sapling"), ReduxBlocks.FIELDSPROOT_SAPLING);
@@ -265,9 +259,6 @@ public class MappingsHooks {
 
         builder.put(Redux.locate("gilded_white_flower"), ReduxBlocks.ENCHANTED_WHITE_FLOWER);
         builder.put(Redux.locate("potted_gilded_white_flower"), AetherBlocks.POTTED_WHITE_FLOWER);
-
-        builder.put(Redux.locate("glowsprouts"), ReduxBlocks.LUXWEED);
-        builder.put(Redux.locate("potted_glowsprouts"), ReduxBlocks.POTTED_LUXWEED);
 
         builder.put(Redux.locate("glowsprouts"), ReduxBlocks.LUXWEED);
         builder.put(Redux.locate("potted_glowsprouts"), ReduxBlocks.POTTED_LUXWEED);
