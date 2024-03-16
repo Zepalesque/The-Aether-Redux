@@ -51,6 +51,7 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.condition.Conditions;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.util.state.ReduxStates;
+import net.zepalesque.redux.block.util.state.enums.PetalPrismaticness;
 import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.world.feature.CloudcapFeature;
 import net.zepalesque.redux.world.feature.ReduxFeatures;
@@ -595,7 +596,9 @@ public class ReduxConfiguredFeatures {
                         new GenesisHookedFoliagePlacer(ConstantInt.of(2), ConstantInt.of(1), ConstantInt.of(2)),
                         new TwoLayersFeatureSize(2, 1, 4)
                 ).decorators(List.of(new GenesisTrunkDecorator(prov(Redux.WoodHandlers.FIELDSPROOT.logWall))
-                )).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT)).build());
+                )).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT))
+                        .decorators(List.of(new PatchTreeDecorator(createPetals(ReduxBlocks.FIELDSPROOT_PETALS), 7, 3, 32)
+                        )).build());
 
         register(context, AZURE_FIELDSPROOT_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
@@ -605,7 +608,9 @@ public class ReduxConfiguredFeatures {
                         new GenesisPineFoliagePlacer(ConstantInt.of(2), ConstantInt.of(1), ConstantInt.of(2)),
                         new TwoLayersFeatureSize(2, 1, 4)
                 ).decorators(List.of(new GenesisTrunkDecorator(prov(Redux.WoodHandlers.FIELDSPROOT.logWall))
-                )).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT)).build());
+                )).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT))
+                        .decorators(List.of(new PatchTreeDecorator(createPetals(ReduxBlocks.FIELDSPROOT_PETALS), 7, 3, 32)
+                        )).build());
 
         register(context, SPECTRAL_FIELDSPROOT_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
@@ -614,7 +619,9 @@ public class ReduxConfiguredFeatures {
                         BlockStateProvider.simple(drops(ReduxBlocks.SPECTRAL_FIELDSPROOT_LEAVES)),
                         new GoldenOakFoliagePlacer(ConstantInt.of(3), ConstantInt.of(1), ConstantInt.of(7)),
                         new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(10))
-                ).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT)).build());
+                ).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT))
+                        .decorators(List.of(new PatchTreeDecorator(createPetals(ReduxBlocks.FIELDSPROOT_PETALS), 7, 3, 32)
+                        )).build());
 
         register(context, FANCY_SPECTRAL_FIELDSPROOT_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
@@ -623,16 +630,18 @@ public class ReduxConfiguredFeatures {
                         BlockStateProvider.simple(drops(ReduxBlocks.SPECTRAL_FIELDSPROOT_LEAVES)),
                         new FancyFoliagePlacer(ConstantInt.of(2), ConstantInt.of(4), 4),
                         new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(10))
-                ).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT)).build());
+                ).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT))
+                        .decorators(List.of(new PatchTreeDecorator(createPetals(ReduxBlocks.FIELDSPROOT_PETALS), 7, 3, 32)
+                        )).build());
 
         register(context, CLASSIC_SKYFIELDS_TREES, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(
                         new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(SPECTRAL_FIELDSPROOT_TREE),
-                                PlacementUtils.filteredByBlockSurvival(ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING.get())), 0.25F),
+                                PlacementUtils.filteredByBlockSurvival(ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING.get())), 0.2F),
                         new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(FANCY_SPECTRAL_FIELDSPROOT_TREE),
-                                PlacementUtils.filteredByBlockSurvival(ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING.get())), 0.15F),
+                                PlacementUtils.filteredByBlockSurvival(ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING.get())), 0.1F),
                         new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(AZURE_FIELDSPROOT_TREE),
-                                PlacementUtils.filteredByBlockSurvival(ReduxBlocks.AZURE_FIELDSPROOT_SAPLING.get())), 0.1F)
+                                PlacementUtils.filteredByBlockSurvival(ReduxBlocks.AZURE_FIELDSPROOT_SAPLING.get())), 0.2F)
                 ),
                         PlacementUtils.inlinePlaced(
                                 configuredFeatures.getOrThrow(PRISMATIC_FIELDSPROOT_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING.get()))));
@@ -875,6 +884,20 @@ public class ReduxConfiguredFeatures {
     private static BlockStateProvider createLeafPileLayers(RegistryObject<? extends Block> block)
     {
         return createLeafPileLayers(drops(block));
+    }
+
+    private static BlockStateProvider createPetals(RegistryObject<? extends Block> block)
+    {
+        BlockState state = drops(block);
+        if (state.hasProperty(ReduxStates.PETAL_1) && state.hasProperty(ReduxStates.PETAL_2) && state.hasProperty(ReduxStates.PETAL_3) && state.hasProperty(ReduxStates.PETAL_4)) {
+            return new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                    .add(state.setValue(ReduxStates.PETAL_2, PetalPrismaticness.ZERO), 4)
+                    .add(state.setValue(ReduxStates.PETAL_2, PetalPrismaticness.ZERO).setValue(ReduxStates.PETAL_3, PetalPrismaticness.ZERO), 3)
+                    .add(state.setValue(ReduxStates.PETAL_2, PetalPrismaticness.ZERO).setValue(ReduxStates.PETAL_3, PetalPrismaticness.ZERO).setValue(ReduxStates.PETAL_4, PetalPrismaticness.ZERO), 2)
+
+            ); } else {
+            return BlockStateProvider.simple(state);
+        }
     }
 
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
