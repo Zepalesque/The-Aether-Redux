@@ -1,0 +1,13 @@
+{
+  "type": "aether_redux:music",
+  "biomes": "#aether_redux:music_modify",
+  "delay": {
+    "max": 2400,
+    "min": 600
+  },
+  "replace": false,
+  "sound": "aether_redux:music.redux_menu",
+  "sound_predicate": {
+    "sound": "aether:music.aether"
+  }
+}
