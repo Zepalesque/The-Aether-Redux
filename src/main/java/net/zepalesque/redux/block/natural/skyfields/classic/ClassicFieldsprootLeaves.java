@@ -16,6 +16,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraftforge.common.util.Lazy;
 import net.minecraftforge.registries.RegistryObject;
+import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.natural.skyfields.FieldsprootLeafBlock;
 import net.zepalesque.redux.block.util.state.ReduxStates;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
@@ -78,15 +79,14 @@ public class ClassicFieldsprootLeaves extends AetherDoubleDropsLeaves {
     }
 
     private BlockState getState(BlockState state, LevelAccessor level, BlockPos pos) {
-        double scale = 0.5D;
+        double scale = 0.25D;
         double x = pos.getX() * scale;
         double y = pos.getY() * scale;
         double z = pos.getZ() * scale;
         double noiseVal = FieldsprootLeafBlock.PERLIN.getValue(x, y, z);
         double clamped = Mth.clamp(noiseVal, -0.5D, 0.5D);
-        int prism = Mth.lerpInt((float) clamped + 0.5F, -1, 2);
-        int truePrism = Mth.clamp(prism, 0, 2);
-        return state.setValue(ReduxStates.PRISMATICNESS_DECREASED, truePrism);
+        int prism = Mth.lerpInt((float) clamped + 0.5F, 0, 2);
+        return state.setValue(ReduxStates.PRISMATICNESS_DECREASED, this == ReduxBlocks.PRISMATIC_FIELDSPROOT_LEAVES.get() ? 2 - prism : prism);
     }
 
 
