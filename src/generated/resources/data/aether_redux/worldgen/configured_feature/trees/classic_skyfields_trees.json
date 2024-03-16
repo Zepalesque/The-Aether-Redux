@@ -69,7 +69,7 @@
               "predicate": {
                 "type": "minecraft:would_survive",
                 "state": {
-                  "Name": "aether_redux:azure_spectral_sapling",
+                  "Name": "aether_redux:azure_fieldsproot_sapling",
                   "Properties": {
                     "stage": "0"
                   }
