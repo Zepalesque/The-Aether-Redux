@@ -73,7 +73,7 @@ public class CodecPredicates {
                         .apply(condition, Sound::new));
 
         public boolean test(SoundEvent holder) {
-            return this.arg == holder;
+            return this.arg.getLocation().equals(holder.getLocation());
         }
     }
 }
