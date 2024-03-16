@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cross",
   "render_type": "minecraft:cutout",
   "textures": {
-    "cross": "aether_redux:block/natural/azure_spectral_sapling"
+    "cross": "aether_redux:block/natural/azure_fieldsproot_sapling"
   }
 }
