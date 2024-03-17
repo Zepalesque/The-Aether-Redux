@@ -171,6 +171,9 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue cycle_menu;
         public final ForgeConfigSpec.BooleanValue first_startup_menu_setup;
         public final ForgeConfigSpec.BooleanValue first_startup_lightmap_changes;
+        public final ForgeConfigSpec.BooleanValue night_track_music_manager;
+        public final ForgeConfigSpec.BooleanValue blue_aercloud_bounce_sfx;
+        public final ForgeConfigSpec.BooleanValue aether_ii_portal_sounds;
 
         public Client(ForgeConfigSpec.Builder builder) {
             builder.push(List.of("Rendering", "Mob Model Upgrades"));
@@ -199,6 +202,15 @@ public class ReduxConfig {
             builder.pop();
             builder.push("Audio");
             this.mimic_slam_sound = builder.comment("Enables a slamming sound for mimics when using the new model. Disable if it gets too annoying XD").define("Mimic Slam Sound Effect", true);
+            this.night_track_music_manager = builder
+                    .comment("Adds some nice night tracks to the Aether's music selection. Also disables the default music manager for the Aether, to prevent overlap")
+                    .define("Nighttime music tracks", true);
+            this.blue_aercloud_bounce_sfx = builder
+                    .comment("Makes Blue Aerclouds have their wobbly sounds that play when bouncing on them")
+                    .define("Blue Aercloud bouncing sounds", true);
+            this.aether_ii_portal_sounds = builder
+                    .comment("Gives Aether Portals their sounds from the Aether II")
+                    .define("Aether II Portal Sounds", true);
             builder.pop();
             builder.push("Internal");
             this.first_startup_menu_setup = builder.comment("Internal value to do menu changes. Set this to false in modpacks if you want to use your own menu.").define("First Startup - Menu Setup", true);

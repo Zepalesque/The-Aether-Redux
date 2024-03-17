@@ -92,6 +92,11 @@ public class ReduxSoundEvents {
     public static final RegistryObject<SoundEvent> NIGHT_MUSIC = register("music.aether_night");
     public static final RegistryObject<SoundEvent> GENESIS_MUSIC = register("music.redux_day");
 
+    public static final RegistryObject<SoundEvent> BLUE_AERCLOUD_BOUNCE = register("block.aercloud.blue_aercloud_bounce");
+    public static final RegistryObject<SoundEvent> PORTAL_HUM = register("block.portal.hum");
+    public static final RegistryObject<SoundEvent> PORTAL_TRAVEL = register("block.portal.travel");
+    public static final RegistryObject<SoundEvent> PORTAL_TRIGGER = register("block.portal.trigger");
+
     private static RegistryObject<SoundEvent> register(String name) {
         return SOUNDS.register(name, () -> new SoundEvent(Redux.locate(name)));
     }

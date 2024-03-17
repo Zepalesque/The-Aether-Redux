@@ -244,6 +244,10 @@ public class Redux {
         ReduxRenderers.registerCuriosRenderers();
         event.enqueueWork(
                 () -> {
+                    if (ReduxConfig.CLIENT.night_track_music_manager.get()) {
+                        AetherConfig.CLIENT.disable_music_manager.set(true);
+                        AetherConfig.CLIENT.disable_music_manager.save();
+                    }
                     if (ReduxConfig.CLIENT.first_startup_lightmap_changes.get()) {
 //                        AetherConfig.CLIENT.green_sunset.set(true);
 //                        AetherConfig.CLIENT.green_sunset.save();

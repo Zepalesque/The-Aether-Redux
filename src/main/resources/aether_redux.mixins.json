@@ -8,6 +8,7 @@
   "mixins": [
     "common.block.AetherGrassBlockMixin",
     "common.block.BlockBehaviorMixin",
+    "common.block.BlueAercloudBlockMixin",
     "common.block.DoubleBlockMixin",
     "common.block.EnchantedAetherGrassBlockMixin",
     "common.block.FrictionCappedMixin",
@@ -44,6 +45,7 @@
   },
   "client": [
     "client.audio.SentryClientMixin",
+    "client.audio.SoundEngineAccessor",
     "client.block.AetherColorResolversMixin",
     "client.block.AetherLeavesClientMixin",
     "client.block.LeafBlockClientMixin",
