@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-17T14:47:20.2296884	Tags for minecraft:block mod id aether_redux
+// 1.20.1	2024-03-17T15:33:22.0670488	Tags for minecraft:block mod id aether_redux
 8f59d0f2e59cb5eca343062c21759ff8593f2e46 data/aether/tags/blocks/aerclouds.json
 593f50c73d9619ba0b2f5bbedad8cf5bef48adbc data/aether/tags/blocks/aether_animals_spawnable_on.json
 1abbb8fbbd6aaa2a65960af8b043d21b8cd619e9 data/aether/tags/blocks/aether_dirt.json
@@ -32,7 +32,7 @@ e1a33f373902fbbe9fe42914dca8c5fa20b0fd1b data/minecraft/tags/blocks/flower_pots.
 ab5e4a66dad29d80ebba1e08775e7c6a034b7bf4 data/minecraft/tags/blocks/leaves.json
 66193b690ef95c1d15ec7f991eb6a093c6457762 data/minecraft/tags/blocks/logs.json
 e3f8186bc7947b492cb9e96cb4f0d04ee04dfadf data/minecraft/tags/blocks/mineable/axe.json
-28c7c849e1d5aa2bf31a01147936d23dcc0caedc data/minecraft/tags/blocks/mineable/hoe.json
+66e0532353864a48a5b67349e5977de2fe7fec5f data/minecraft/tags/blocks/mineable/hoe.json
 1f89e4b9f1fe877d71da9d3e495b7f746dbdc00f data/minecraft/tags/blocks/mineable/pickaxe.json
 8f324fc927e00fa03a044e076f6795d40bf18d93 data/minecraft/tags/blocks/mineable/shovel.json
 6af03c05dc47726e2795f7d011a935a02927b949 data/minecraft/tags/blocks/mushroom_grow_block.json
