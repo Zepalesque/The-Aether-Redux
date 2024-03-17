@@ -27,8 +27,8 @@ public record MusicModifier(
 
     @Override
     public void modify(Holder<Biome> biome, Phase phase, ModifiableBiomeInfo.BiomeInfo.Builder builder) {
-        if (this.biomes.contains(biome)) {
-            biome.get().getBackgroundMusic().map(this::processMusic);
+        if (this.biomes.contains(biome) && biome.get().getBackgroundMusic().isPresent()) {
+            builder.getSpecialEffects().backgroundMusic(this.processMusic(biome.get().getBackgroundMusic().get()));
         }
     }
 
