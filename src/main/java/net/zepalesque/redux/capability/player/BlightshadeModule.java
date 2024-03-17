@@ -11,6 +11,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.util.INBTSerializable;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
@@ -61,14 +62,9 @@ public class BlightshadeModule implements INBTSerializable {
 
     public void doParticles(AABB bounds) {
         RandomSource rand = this.player.getRandom();
-        AABB shrunk = bounds.inflate(-0.1);
+        Vec3 center = bounds.getCenter();
         int count = rand.nextInt(50) + 75;
-        for (int i = 0; i < count; i++) {
-            double x = shrunk.minX + (rand.nextDouble() * shrunk.getXsize());
-            double y = shrunk.minY + (shrunk.getYsize() * 0.25) + (rand.nextDouble() * shrunk.getYsize() * 0.75);
-            double z = shrunk.minZ + (rand.nextDouble() * shrunk.getZsize());
-            this.player.level().addParticle(ReduxParticleTypes.BLIGHTSHADE.get(), x, y, z, 0.05, 0.05, 0.05);
-        }
+        ((ServerLevel)this.player.level()).sendParticles(ReduxParticleTypes.BLIGHTSHADE.get(), center.x, center.y, center.z, count, bounds.getXsize(), bounds.getYsize(), bounds.getZsize(), 0);
     }
 
 
