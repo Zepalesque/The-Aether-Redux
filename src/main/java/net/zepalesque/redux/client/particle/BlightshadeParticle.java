@@ -27,9 +27,9 @@ public class BlightshadeParticle extends TextureSheetParticle {
       this.hasPhysics = false;
       this.friction = 1.0F;
       this.gravity = -0.2F;
-      this.xd = xSpeed + (Math.random() * 2.0D - 1.0D) * (double)0.2F;
-      this.yd = ySpeed + (Math.random() * 2.0D - 1.0D) * (double)0.2F;
-      this.zd = zSpeed + (Math.random() * 2.0D - 1.0D) * (double)0.2F;
+      this.xd = xSpeed + (Math.random() * 2.0D - 1.0D) * (double)0.1F;
+      this.yd = ySpeed + (Math.random() * 2.0D - 1.0D) * (double)0.1F;
+      this.zd = zSpeed + (Math.random() * 2.0D - 1.0D) * (double)0.1F;
    }
 
    @Override
