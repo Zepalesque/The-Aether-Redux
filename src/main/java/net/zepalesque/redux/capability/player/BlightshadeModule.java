@@ -6,12 +6,14 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.util.INBTSerializable;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
+import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 
 public class BlightshadeModule implements INBTSerializable {
 
@@ -49,12 +51,24 @@ public class BlightshadeModule implements INBTSerializable {
                 return false;
             } else {
                 this.blightshadeCooldown = 100;
-                ((ServerLevel)this.player.level()).sendParticles(ParticleTypes.WARPED_SPORE, bounds.getCenter().x(), bounds.getCenter().y() + 0.25, bounds.getCenter().z(), 100, 0.1, 0.1, 0.1, 1.0);
+                this.doParticles(bounds);
                 this.player.level().playSound(null, pos, ReduxSoundEvents.BLIGHTSHADE_SPRAY.get(), SoundSource.BLOCKS, 0.8F, 0.9F + this.player.level().random.nextFloat() * 0.2F);
                 this.blightshadeEffectCooldown = 10;
                 return true;
             }
         } else { return false; }
+    }
+
+    public void doParticles(AABB bounds) {
+        RandomSource rand = this.player.getRandom();
+        AABB shrunk = bounds.inflate(-0.1);
+        int count = rand.nextInt(50) + 75;
+        for (int i = 0; i < count; i++) {
+            double x = shrunk.minX + (rand.nextDouble() * shrunk.getXsize());
+            double y = shrunk.minY + (shrunk.getYsize() * 0.25) + (rand.nextDouble() * shrunk.getYsize() * 0.75);
+            double z = shrunk.minZ + (rand.nextDouble() * shrunk.getZsize());
+            this.player.level().addParticle(ReduxParticleTypes.BLIGHTSHADE.get(), x, y, z, 0.05, 0.05, 0.05);
+        }
     }
 
 

@@ -77,6 +77,7 @@ public class ReduxParticleTypes {
     public static final RegistryObject<SimpleParticleType> SHIMMERSTAR = PARTICLES.register("shimmerstar", () -> new SimpleParticleType(false));
     public static final RegistryObject<ParticleType<ItemParticleOption>> RANDOM_MOVEMENT_ITEM = register("random_movement_item", false, ItemParticleOption.DESERIALIZER, ItemParticleOption::codec);
 
+    public static final RegistryObject<SimpleParticleType> BLIGHTSHADE = PARTICLES.register("blightshade", () -> new SimpleParticleType(false));
 
     public static final RegistryObject<SimpleParticleType> SPARK = PARTICLES.register("spark", () -> new SimpleParticleType(false));
     private static final Vector3f SHINY_CLOUD_COLOR = Vec3.fromRGB24(16777215).toVector3f();
@@ -87,6 +88,7 @@ public class ReduxParticleTypes {
     @OnlyIn(Dist.CLIENT)
     public static void registerParticleFactories(RegisterParticleProvidersEvent event) {
         registerSpriteSet(event, GILDED_SKYROOT_LEAVES.get(), GildedSkyrootLeavesParticle.Provider::new);
+
         registerSpriteSet(event, FIELDSPROUT_PETALS_0.get(), FallingLeafParticle.Provider::new);
         registerSpriteSet(event, FIELDSPROUT_PETALS_1.get(), FallingLeafParticle.Provider::new);
         registerSpriteSet(event, FIELDSPROUT_PETALS_2.get(), FallingLeafParticle.Provider::new);
@@ -127,6 +129,8 @@ public class ReduxParticleTypes {
 
         registerSpriteSet(event, SHIMMERSTAR.get(), ShimmerstarParticle.Provider::new);
         registerSpriteSet(event, RANDOM_MOVEMENT_ITEM.get(), sprites -> new RandomMovementItemParticle.Provider());
+
+        registerSpriteSet(event, BLIGHTSHADE.get(), BlightshadeParticle.Provider::new);
     }
 
     @OnlyIn(Dist.CLIENT)

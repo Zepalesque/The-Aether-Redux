@@ -19,7 +19,7 @@ public class CloudcapSporeParticle extends TextureSheetParticle {
 
    CloudcapSporeParticle(ClientLevel level, double x, double y, double z, Fluid type) {
       super(level, x, y, z);
-      this.setSize(0.01F, 0.01F);
+      this.setSize(0.005F, 0.005F);
       this.gravity = 0.06F;
       this.type = type;
    }
