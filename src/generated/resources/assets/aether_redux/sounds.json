@@ -510,7 +510,7 @@
     "sounds": [
       "aether_redux:block/portal/hum"
     ],
-    "subtitle": "subtitles.aether_redux.block.portal.hum"
+    "subtitle": "subtitles.aether.block.aether_portal.ambient"
   },
   "block.portal.travel": {
     "sounds": [
@@ -521,7 +521,7 @@
     "sounds": [
       "aether_redux:block/portal/trigger"
     ],
-    "subtitle": "subtitles.aether_redux.block.portal.trigger"
+    "subtitle": "subtitles.aether.block.aether_portal.trigger"
   },
   "music.aether_night": {
     "sounds": [

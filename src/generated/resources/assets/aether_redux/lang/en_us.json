@@ -840,5 +840,6 @@
   "subtitles.aether_redux.item.subzero_crossbow_hit": "Subzero Arrow hits",
   "subtitles.aether_redux.item.subzero_crossbow_load": "Subzero Crossbow loads",
   "subtitles.aether_redux.item.subzero_crossbow_shoot": "Subzero Crossbow shoots",
+  "subtitles.aether_redux.block.aercloud.blue_aercloud_bounce": "Blue Aercloud bounces",
   "tooltip.aether_redux.ambrosium_charge": "Infusion Level: %s"
 }
