@@ -58,7 +58,7 @@ public class ReduxAudioHooks {
     }
     public static boolean shouldCancelPortalSound(SoundEngine soundEngine, SoundInstance sound) {
         if (sound != null && ReduxConfig.CLIENT.aether_ii_portal_sounds.get()) {
-            if (sound.getSource() == SoundSource.BLOCKS) {
+            if (sound.getSource() == SoundSource.AMBIENT) {
                 if (sound.getLocation().equals(AetherSoundEvents.BLOCK_AETHER_PORTAL_AMBIENT.get().getLocation())) {
                     List<ResourceLocation> activeSounds = ((SoundEngineAccessor) soundEngine).genesis$getInstanceToChannel().keySet().stream().map(SoundInstance::getLocation).toList();
                     return activeSounds.contains(sound.getLocation());
