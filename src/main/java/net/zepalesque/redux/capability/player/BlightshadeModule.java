@@ -64,7 +64,7 @@ public class BlightshadeModule implements INBTSerializable {
         RandomSource rand = this.player.getRandom();
         Vec3 center = bounds.getCenter();
         int count = rand.nextInt(50) + 75;
-        ((ServerLevel)this.player.level).sendParticles(ReduxParticleTypes.BLIGHTSHADE.get(), center.x, center.y, center.z, count, bounds.getXsize(), bounds.getYsize(), bounds.getZsize(), 0);
+        ((ServerLevel)this.player.level).sendParticles(ReduxParticleTypes.BLIGHTSHADE.get(), center.x, center.y, center.z, count, bounds.getXsize() * 0.125, bounds.getYsize() * 0.125, bounds.getZsize() * 0.125, 0);
     }
 
 
