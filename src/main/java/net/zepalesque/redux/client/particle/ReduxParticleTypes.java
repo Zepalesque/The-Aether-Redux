@@ -121,8 +121,8 @@ public class ReduxParticleTypes {
         registerSpriteSet(event, ICE_SHARD.get(), IceShardParticle.Provider::new);
         registerSpriteSet(event, FROST.get(), FrostParticle.Provider::new);
 
-        registerSpriteSet(event, FALLING_CLOUDCAP_SPORE.get(), CloudcapSporeParticle::falling);
-        registerSpriteSet(event, LANDING_CLOUDCAP_SPORE.get(), CloudcapSporeParticle::landing);
+        registerSpriteSet(event, FALLING_CLOUDCAP_SPORE.get(), CloudcapSporeParticle.Falling::new);
+        registerSpriteSet(event, LANDING_CLOUDCAP_SPORE.get(), CloudcapSporeParticle.Landing::new);
         registerSpriteSet(event, CLOUDCAP_AIR_SPORE.get(), CloudcapAirSporeParticle.Provider::new);
 
         registerSpriteSet(event, SPARK.get(), SparkParticle.Provider::new);
