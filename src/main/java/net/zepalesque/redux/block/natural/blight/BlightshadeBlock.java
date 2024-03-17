@@ -35,7 +35,7 @@ public class BlightshadeBlock extends CustomBoundsFlowerBlock {
                     double d0 = Math.abs(pEntity.getX() - pEntity.xOld);
                     double d1 = Math.abs(pEntity.getZ() - pEntity.zOld);
                     if (d0 >= 0.003D || d1 >= 0.003D) {
-                        ReduxPlayer.get(player).ifPresent((reduxPlayer) -> reduxPlayer.getBlightshadeModule().blightshade(pPos, getShape(pState, pLevel, pPos, CollisionContext.of(pEntity)).bounds().move(pPos)));
+                        ReduxPlayer.get(player).ifPresent((reduxPlayer) -> reduxPlayer.getBlightshadeModule().blightshade(pPos, getShape(pState, pLevel, pPos, CollisionContext.of(pEntity)).bounds().move(pPos), player));
                     }
                 }
             }
