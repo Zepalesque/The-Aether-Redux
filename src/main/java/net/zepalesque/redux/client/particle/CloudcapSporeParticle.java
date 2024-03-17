@@ -1,8 +1,7 @@
 package net.zepalesque.redux.client.particle;
 
 import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.client.particle.ParticleRenderType;
-import net.minecraft.client.particle.TextureSheetParticle;
+import net.minecraft.client.particle.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.SimpleParticleType;
@@ -71,22 +70,39 @@ public class CloudcapSporeParticle extends TextureSheetParticle {
    protected void postMoveUpdate() {
    }
 
+   @OnlyIn(Dist.CLIENT)
+   public static class Falling implements ParticleProvider<SimpleParticleType> {
+      private final SpriteSet spriteSet;
 
+      public Falling(SpriteSet spriteSetIn) {
+         this.spriteSet = spriteSetIn;
+      }
 
+      public Particle createParticle(SimpleParticleType typeIn, ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
+         CloudcapSporeParticle dripparticle = new FallingSpore(level, x, y, z, Fluids.EMPTY, ReduxParticleTypes.LANDING_CLOUDCAP_SPORE.get());
+         dripparticle.isGlowing = true;
+         dripparticle.gravity = 0.0025F;
+         dripparticle.pickSprite(this.spriteSet);
+         return dripparticle;
+      }
+   }
+   @OnlyIn(Dist.CLIENT)
+   public static class Landing implements ParticleProvider<SimpleParticleType> {
+      private final SpriteSet spriteSet;
 
-   public static TextureSheetParticle falling(SimpleParticleType type, ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
-      CloudcapSporeParticle dripparticle = new FallingSpore(level, x, y, z, Fluids.EMPTY, ReduxParticleTypes.LANDING_CLOUDCAP_SPORE.get());
-      dripparticle.isGlowing = true;
-      dripparticle.gravity = 0.0025F;
-      return dripparticle;
+      public Landing(SpriteSet spriteSetIn) {
+         this.spriteSet = spriteSetIn;
+      }
+
+      public Particle createParticle(SimpleParticleType typeIn, ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
+         CloudcapSporeParticle dripparticle = new LandingSpore(level, x, y, z, Fluids.EMPTY);
+         dripparticle.isGlowing = true;
+         dripparticle.lifetime = (int)(28.0D / (Math.random() * 0.8D + 0.2D));
+         dripparticle.pickSprite(this.spriteSet);
+         return dripparticle;
+      }
    }
 
-   public static TextureSheetParticle landing(SimpleParticleType type, ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
-      CloudcapSporeParticle dripparticle = new LandingSpore(level, x, y, z, Fluids.EMPTY);
-      dripparticle.isGlowing = true;
-      dripparticle.lifetime = (int)(28.0D / (Math.random() * 0.8D + 0.2D));
-      return dripparticle;
-   }
 
 
    @OnlyIn(Dist.CLIENT)
