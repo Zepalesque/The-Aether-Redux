@@ -22,6 +22,7 @@
     "common.entity.LivingEntityMixin",
     "common.entity.MimicMixin",
     "common.entity.MobMixin",
+    "common.entity.PlayerMixin",
     "common.entity.SentryMixin",
     "common.entity.SlimeMixin",
     "common.entity.SwetMixin",
