@@ -84,7 +84,6 @@ public class AbilityUtil {
 
             }
             entity.swing(InteractionHand.MAIN_HAND, true);
-            entity.swing(InteractionHand.OFF_HAND, true);
         }
     }
 
