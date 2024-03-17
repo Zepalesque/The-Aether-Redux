@@ -14,6 +14,9 @@
     "aether_redux:fieldsproot_leaves",
     "aether_redux:golden_leaf_pile",
     "aether_redux:gilded_leaf_pile",
-    "aether_redux:blightwillow_leaf_pile"
+    "aether_redux:blightwillow_leaf_pile",
+    "aether_redux:cloud_cap_block",
+    "aether_redux:cloudcap_spores",
+    "aether_redux:jellyshroom_jelly_block"
   ]
 }
