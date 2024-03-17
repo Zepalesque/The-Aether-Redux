@@ -109,6 +109,8 @@ public class MappingsHooks {
         builder.put(Redux.locate("frosted_purple_flower"), AetherBlocks.PURPLE_FLOWER);
         builder.put(Redux.locate("gilded_white_flower"), ReduxBlocks.ENCHANTED_WHITE_FLOWER);
 
+        builder.put(Redux.locate("xaelia_flowers"), ReduxBlocks.XAELIA_PATCH);
+
         builder.put(Redux.locate("vitrium"), ReduxBlocks.SENTRITE);
         builder.put(Redux.locate("vitrium_stairs"), ReduxBlocks.SENTRITE_STAIRS);
         builder.put(Redux.locate("vitrium_slab"), ReduxBlocks.SENTRITE_SLAB);
@@ -258,6 +260,8 @@ public class MappingsHooks {
 
         builder.put(Redux.locate("glowsprouts"), ReduxBlocks.LUXWEED);
         builder.put(Redux.locate("potted_glowsprouts"), ReduxBlocks.POTTED_LUXWEED);
+        
+        builder.put(Redux.locate("xaelia_flowers"), ReduxBlocks.XAELIA_PATCH);
 
         builder.put(Redux.locate("vitrium"), ReduxBlocks.SENTRITE);
         builder.put(Redux.locate("vitrium_stairs"), ReduxBlocks.SENTRITE_STAIRS);

@@ -43,7 +43,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlock(ReduxBlocks.SENTRITE_BRICK_STAIRS);
         itemWallBlock(ReduxBlocks.SENTRITE_BRICK_WALL, ReduxBlocks.SENTRITE_BRICKS, "natural/");
         itemBlockFlatTintOverlay(ReduxBlocks.IRIDIA, "natural/");
-        itemBlockFlatTintOverlay(ReduxBlocks.XAELIA_FLOWERS, "natural/");
+        itemBlockFlatTintOverlay(ReduxBlocks.XAELIA_PATCH, "natural/");
         itemBlock(ReduxBlocks.GILDED_HOLYSTONE);
         itemBlock(ReduxBlocks.GILDED_HOLYSTONE_SLAB);
         itemBlock(ReduxBlocks.GILDED_HOLYSTONE_STAIRS);

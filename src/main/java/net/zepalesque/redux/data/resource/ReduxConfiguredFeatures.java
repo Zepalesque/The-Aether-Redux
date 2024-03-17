@@ -540,7 +540,7 @@ public class ReduxConfiguredFeatures {
         register(context, IRIDIA_PATCH, Feature.FLOWER,
                 randomPatch(24, 7, 3, prov(ReduxBlocks.IRIDIA)));
         register(context, XAELIA_PATCH, Feature.FLOWER,
-                randomPatch(32, 7, 3, prov(ReduxBlocks.XAELIA_FLOWERS)));
+                randomPatch(32, 7, 3, prov(ReduxBlocks.XAELIA_PATCH)));
 
         register(context, LARGE_CLOUDCAP, ReduxFeatures.CLOUDCAP.get(),
                 new CloudcapFeature.CloudcapConfig(

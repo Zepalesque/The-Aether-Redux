@@ -5,7 +5,6 @@ import com.aetherteam.aether.item.AetherCreativeTabs;
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether_genesis.block.GenesisBlocks;
 import com.legacy.lost_aether.registry.LCBlocks;
-import com.legacy.lost_aether.registry.LCItems;
 import net.builderdog.ancient_aether.block.AncientAetherBlocks;
 import net.builderdog.ancient_aether.item.AncientAetherItems;
 import net.minecraft.nbt.CompoundTag;
@@ -162,8 +161,8 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.WYNDSPROUTS, ReduxBlocks.SKYSPROUTS, event);
             putAfter(ReduxBlocks.SKYSPROUTS, ReduxBlocks.FIELDSPROOT_PETALS, event);
             putAfter(ReduxBlocks.FIELDSPROOT_PETALS, ReduxBlocks.IRIDIA, event);
-            putAfter(ReduxBlocks.IRIDIA, ReduxBlocks.XAELIA_FLOWERS, event);
-            putAfter(ReduxBlocks.XAELIA_FLOWERS, ReduxBlocks.AURUM, event);
+            putAfter(ReduxBlocks.IRIDIA, ReduxBlocks.XAELIA_PATCH, event);
+            putAfter(ReduxBlocks.XAELIA_PATCH, ReduxBlocks.AURUM, event);
             putAfter(ReduxBlocks.AURUM, ReduxBlocks.GOLDEN_CLOVER, event);
             putAfter(ReduxBlocks.GOLDEN_CLOVER, ReduxBlocks.ZYATRIX, event);
             putAfter(ReduxBlocks.ZYATRIX, ReduxBlocks.LUXWEED, event);

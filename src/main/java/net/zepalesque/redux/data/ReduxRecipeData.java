@@ -3,13 +3,11 @@ package net.zepalesque.redux.data;
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.providers.AetherRecipeProvider;
-import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether_genesis.block.GenesisBlocks;
 import com.aetherteam.aether_genesis.item.GenesisItems;
 import com.aetherteam.nitrogen.recipe.BlockStateIngredient;
 import com.aetherteam.nitrogen.recipe.builder.BlockStateRecipeBuilder;
-import net.builderdog.ancient_aether.item.AncientAetherItems;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.RequirementsStrategy;
@@ -180,7 +178,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
 
         oneToOneConversionRecipe(consumer, Items.MAGENTA_DYE, ReduxBlocks.IRIDIA.get(), null);
 
-        oneToOneConversionRecipe(consumer, Items.LIGHT_GRAY_DYE, ReduxBlocks.XAELIA_FLOWERS.get(), null);
+        oneToOneConversionRecipe(consumer, Items.LIGHT_GRAY_DYE, ReduxBlocks.XAELIA_PATCH.get(), null);
 
         ambrosiumEnchanting(ReduxBlocks.GILDED_HOLYSTONE.get(), AetherBlocks.MOSSY_HOLYSTONE.get()).save(consumer, name("ambrosium_enchant_mossy_holystone_to_gilded_holystone"));
         sporeBlighting(ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), AetherBlocks.MOSSY_HOLYSTONE.get()).save(consumer, name("spore_blight_mossy_holystone_to_blightmoss_holystone"));
