@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-16T12:31:46.9304259	Loot Tables
+// 1.20.1	2024-03-17T14:47:20.2016899	Loot Tables
 c6156555dc4897939b617dabc4521b7fa52feba0 data/aether_redux/loot_tables/blocks/aurum.json
 b5773c78c7b3f27032f1cca6fb72f440e24c7529 data/aether_redux/loot_tables/blocks/avelium.json
 4c8b773f2431b28dd2a48b90d08323d8ff67a3d7 data/aether_redux/loot_tables/blocks/avelium_roots.json
@@ -265,7 +265,7 @@ ef05b4368c46e8f3e6cb052735d9f05aef4d2822 data/aether_redux/loot_tables/blocks/ve
 d6c46a7adee1dc0b26674114dcf63801666d7903 data/aether_redux/loot_tables/blocks/veridium_ore.json
 955428527142a6969e85a55c6553b422bbf23d68 data/aether_redux/loot_tables/blocks/wyndsprouts.json
 373865e0177656bad1c8ec2978e7e5e7db29fc75 data/aether_redux/loot_tables/blocks/wyndsprouts_crop.json
-40425fa396b085a7e57ce3089081f93e27a04c06 data/aether_redux/loot_tables/blocks/xaelia_flowers.json
+14aed5bd32dcfed70601ba75ea07fa4245a8b128 data/aether_redux/loot_tables/blocks/xaelia_patch.json
 9fb0b4ff7f895cea862dbb252ca30b05aa319804 data/aether_redux/loot_tables/blocks/zanberry_bush.json
 fad248d9dd4c2d6d518cabf7124ba736449bf0c6 data/aether_redux/loot_tables/blocks/zanberry_bush_stem.json
 bde6f239a1a1807b129bf99dedd968b6b04c3175 data/aether_redux/loot_tables/blocks/zyatrix.json
