@@ -45,11 +45,11 @@ public class ReduxAudioListener {
                 return;
             }
             if (ReduxAudioHooks.shouldReplacePortalTrigger(sound)) {
-                event.setSound(new SimpleSoundInstance(ReduxSoundEvents.PORTAL_TRIGGER.get(), SoundSource.BLOCKS, random.nextFloat() * 0.4F + 0.8F, 0.25F, RandomSource.create(random.nextLong()), sound.getX(), sound.getY(), sound.getZ()));
+                event.setSound(new SimpleSoundInstance(ReduxSoundEvents.PORTAL_TRIGGER.get(), SoundSource.BLOCKS, 0.25F, random.nextFloat() * 0.4F + 0.8F, RandomSource.create(random.nextLong()), sound.getX(), sound.getY(), sound.getZ()));
                 return;
             }
             if (ReduxAudioHooks.shouldReplacePortalTravel(sound)) {
-                event.setSound(new SimpleSoundInstance(ReduxSoundEvents.PORTAL_TRAVEL.get(), SoundSource.BLOCKS, random.nextFloat() * 0.4F + 0.8F, 0.25F, RandomSource.create(random.nextLong()), sound.getX(), sound.getY(), sound.getZ()));
+                event.setSound(new SimpleSoundInstance(ReduxSoundEvents.PORTAL_TRAVEL.get(), SoundSource.BLOCKS, 0.25F, random.nextFloat() * 0.4F + 0.8F, RandomSource.create(random.nextLong()), sound.getX(), sound.getY(), sound.getZ()));
                 return;
             }
         }
