@@ -61,7 +61,7 @@ public class ReduxAudioHooks {
             if (sound.getSource() == SoundSource.BLOCKS) {
                 if (sound.getLocation().equals(AetherSoundEvents.BLOCK_AETHER_PORTAL_AMBIENT.get().getLocation())) {
                     List<ResourceLocation> activeSounds = ((SoundEngineAccessor) soundEngine).genesis$getInstanceToChannel().keySet().stream().map(SoundInstance::getLocation).toList();
-                    return activeSounds.contains(sound.getLocation()) || activeSounds.contains(ReduxSoundEvents.PORTAL_HUM.get().getLocation());
+                    return activeSounds.contains(ReduxSoundEvents.PORTAL_HUM.get().getLocation()) || activeSounds.contains(ReduxSoundEvents.PORTAL_TRAVEL.get().getLocation()) || activeSounds.contains(ReduxSoundEvents.PORTAL_TRIGGER.get().getLocation());
                 }
             }
         }
