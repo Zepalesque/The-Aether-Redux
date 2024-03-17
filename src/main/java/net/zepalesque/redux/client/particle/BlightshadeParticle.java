@@ -13,7 +13,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 @OnlyIn(Dist.CLIENT)
 public class BlightshadeParticle extends TextureSheetParticle {
 
-   private final int initialLife;
    private final int fadeStartThreshold;
 
    BlightshadeParticle(ClientLevel level, SpriteSet sprites, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
@@ -21,22 +20,22 @@ public class BlightshadeParticle extends TextureSheetParticle {
       this.setSize(0.01F, 0.01F);
       this.pickSprite(sprites);
       this.quadSize *= this.random.nextFloat() * 0.6F + 0.6F;
-      this.initialLife = (int)(16.0D / (Math.random() * 0.8D + 0.2D));
-      this.lifetime = this.initialLife;
-      this.fadeStartThreshold = this.initialLife / 2;
+      this.lifetime = (int)(16.0D / (Math.random() * 0.8D + 0.2D));
+      this.fadeStartThreshold = this.lifetime / 2;
       this.hasPhysics = false;
       this.friction = 1.0F;
       this.gravity = -0.2F;
-      this.xd = xSpeed + (Math.random() * 2.0D - 1.0D) * (double)0.1F;
-      this.yd = ySpeed + (Math.random() * 2.0D - 1.0D) * (double)0.1F;
-      this.zd = zSpeed + (Math.random() * 2.0D - 1.0D) * (double)0.1F;
+      this.xd = xSpeed + (Math.random() * 2.0D - 1.0D) * (double)0.05F;
+      this.yd = ySpeed + (Math.random() * 2.0D - 1.0D) * (double)0.05F;
+      this.zd = zSpeed + (Math.random() * 2.0D - 1.0D) * (double)0.05F;
    }
 
    @Override
    public void tick() {
       super.tick();
-      if (this.lifetime <= this.fadeStartThreshold) {
-         this.alpha = (float) this.lifetime / this.fadeStartThreshold;
+      int countdown = (this.lifetime - this.age);
+      if (countdown <= this.fadeStartThreshold) {
+         this.alpha = (float) countdown / this.fadeStartThreshold;
       }
    }
 
@@ -53,7 +52,7 @@ public class BlightshadeParticle extends TextureSheetParticle {
       }
 
       public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
-         double d0 = (double)level.random.nextFloat() * -1.9D * (double)level.random.nextFloat() * 0.1D;
+         double d0 = (double)level.random.nextFloat() * -1.9D * (double)level.random.nextFloat() * 0.05D;
          BlightshadeParticle suspendedparticle = new BlightshadeParticle(level, this.sprite, x, y, z, 0.0D, d0, 0.0D);
          suspendedparticle.setSize(0.001F, 0.001F);
          return suspendedparticle;
