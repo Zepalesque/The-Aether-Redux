@@ -43,14 +43,14 @@ public class ReduxAudioHooks {
         }
     }
     public static boolean shouldReplacePortalTrigger(SoundInstance sound) {
-        if (sound.getSource() == SoundSource.BLOCKS && ReduxConfig.CLIENT.aether_ii_portal_sounds.get()) {
+        if (sound.getSource() == SoundSource.AMBIENT && ReduxConfig.CLIENT.aether_ii_portal_sounds.get()) {
             return sound.getLocation().equals(AetherSoundEvents.BLOCK_AETHER_PORTAL_TRIGGER.get().getLocation());
         } else {
             return false;
         }
     }
     public static boolean shouldReplacePortalTravel(SoundInstance sound) {
-        if (sound.getSource() == SoundSource.BLOCKS && ReduxConfig.CLIENT.aether_ii_portal_sounds.get()) {
+        if (sound.getSource() == SoundSource.AMBIENT && ReduxConfig.CLIENT.aether_ii_portal_sounds.get()) {
             return sound.getLocation().equals(AetherSoundEvents.BLOCK_AETHER_PORTAL_TRAVEL.get().getLocation());
         } else {
             return false;
