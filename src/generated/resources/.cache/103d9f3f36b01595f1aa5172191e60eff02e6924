@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-16T18:51:22.0647476	Registries
+// 1.20.1	2024-03-17T14:47:20.2316886	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 94d997b0a87f23900f66f9a9e2485391b6ff8e38 data/aether/worldgen/configured_feature/golden_oak_tree.json
 875593e37a52dd63b2d87226b0f0e5e76ef48247 data/aether/worldgen/configured_feature/grass_patch.json
@@ -42,7 +42,7 @@ a523f11b09129716caf509c3b27a5b639c3be56f data/aether_redux/forge/biome_modifier/
 c5b06367d1383d85beefa01a311b63d4751d0cdd data/aether_redux/forge/biome_modifier/mob/enderman.json
 ce936b2a8cd49c65434c9bb428ff96e7c0e7cba8 data/aether_redux/forge/biome_modifier/mob/vanilla_swet.json
 08b440d5814e318669e249b07636fbedc840de85 data/aether_redux/forge/biome_modifier/modify/aether_color_override.json
-02ee4b173042f849b7010add3f49814c457116cc data/aether_redux/forge/biome_modifier/modify/music_modify.json
+f6bb25663664746ace882973dfa98af59346ca6d data/aether_redux/forge/biome_modifier/modify/music_modify.json
 7d84bd09764a2e2562ca4b35794d713142e7fe42 data/aether_redux/forge/biome_modifier/modify/water_color.json
 d83e6559299c8c073ab71b54dbb79802e6b5e860 data/aether_redux/forge/biome_modifier/overworld_aether_grass/is_cold.json
 f549db7b5c0b21b8c8e74592f3bb4904893fbed0 data/aether_redux/forge/biome_modifier/overworld_aether_grass/is_desert.json
@@ -103,7 +103,7 @@ fcc79efad9f80b799b760d651a43f34320e91cae data/aether_redux/worldgen/configured_f
 c39695747c59ac51eb91457a1bc2bd9250c53f1a data/aether_redux/worldgen/configured_feature/patch/splitfern_patch.json
 c613b4fc3dc02bc5283f06e4b0acbb3a0f393b52 data/aether_redux/worldgen/configured_feature/patch/theratip_patch.json
 0307fdb57b908f8edaabdbc339d795c6733745a3 data/aether_redux/worldgen/configured_feature/patch/wyndsprouts_patch.json
-640748c23a90b3e1205d4975cceda1a713af19fd data/aether_redux/worldgen/configured_feature/patch/xaelia_patch.json
+6fa9b51d082244dadbf5ceacd7e10337c8dc9980 data/aether_redux/worldgen/configured_feature/patch/xaelia_patch.json
 bcb6762654663372f0db62bc6aa1e655dd0473a0 data/aether_redux/worldgen/configured_feature/patch/zanberry_bush_patch.json
 76b954a1ac780c012ab4b9cf16239a0e7e5f9699 data/aether_redux/worldgen/configured_feature/patch/zyatrix_patch.json
 e60e7bc8ceadf4559e0a70802239d3c47550f3d3 data/aether_redux/worldgen/configured_feature/surface/aerogel_disk.json

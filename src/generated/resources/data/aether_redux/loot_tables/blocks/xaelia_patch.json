@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "aether_redux:xaelia_flowers"
+          "name": "aether_redux:xaelia_patch"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "aether_redux:blocks/xaelia_flowers"
+  "random_sequence": "aether_redux:blocks/xaelia_patch"
 }
