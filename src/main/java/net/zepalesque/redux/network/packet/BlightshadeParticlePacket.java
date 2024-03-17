@@ -45,7 +45,7 @@ public record BlightshadeParticlePacket(AABB bounds) implements BasePacket {
         if (Minecraft.getInstance().level != null) {
             RandomSource rand = Minecraft.getInstance().level.getRandom();
             AABB shrunk = this.bounds.inflate(-0.1);
-            int count = rand.nextInt(50) + 75;
+            int count = rand.nextInt(25) + 50;
             for (int i = 0; i < count; i++) {
                 double x = shrunk.minX + (rand.nextDouble() * shrunk.getXsize());
                 double y = shrunk.minY + (shrunk.getYsize() * 0.25) + (rand.nextDouble() * shrunk.getYsize() * 0.75);
