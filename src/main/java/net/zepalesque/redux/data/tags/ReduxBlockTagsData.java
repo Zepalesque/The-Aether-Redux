@@ -207,7 +207,10 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.FIELDSPROOT_LEAVES.get(),
                 ReduxBlocks.GOLDEN_LEAF_PILE.get(),
                 ReduxBlocks.GILDED_LEAF_PILE.get(),
-                ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get()
+                ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get(),
+                ReduxBlocks.CLOUD_CAP_BLOCK.get(),
+                ReduxBlocks.CLOUDCAP_SPORES.get(),
+                ReduxBlocks.JELLYSHROOM_JELLY_BLOCK.get()
         );
         this.tag(BlockTags.STAIRS).add(
                 ReduxBlocks.DIVINITE_STAIRS.get(),
