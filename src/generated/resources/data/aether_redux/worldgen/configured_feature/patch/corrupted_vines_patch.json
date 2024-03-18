@@ -1,23 +1,46 @@
 {
-  "type": "aether_redux:upward_vine_patch",
+  "type": "minecraft:random_patch",
   "config": {
-    "max_height": 15,
-    "spread_height": 3,
-    "spread_width": 7,
-    "vine_head": {
-      "type": "minecraft:simple_state_provider",
-      "state": {
-        "Name": "aether_redux:corrupted_vines",
-        "Properties": {
-          "age": "0"
+    "feature": {
+      "feature": {
+        "type": "aether_redux:upward_vine",
+        "config": {
+          "length": {
+            "type": "minecraft:uniform",
+            "value": {
+              "max_inclusive": 9,
+              "min_inclusive": 5
+            }
+          },
+          "vine_head": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "aether_redux:corrupted_vines",
+              "Properties": {
+                "age": "0"
+              }
+            }
+          },
+          "vine_plant": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "aether_redux:corrupted_vines_plant"
+            }
+          }
         }
-      }
+      },
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:air"
+          }
+        }
+      ]
     },
-    "vine_plant": {
-      "type": "minecraft:simple_state_provider",
-      "state": {
-        "Name": "aether_redux:corrupted_vines_plant"
-      }
-    }
+    "tries": 24,
+    "xz_spread": 7,
+    "y_spread": 3
   }
 }
