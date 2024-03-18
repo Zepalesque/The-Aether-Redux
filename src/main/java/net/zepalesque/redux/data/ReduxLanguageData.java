@@ -481,9 +481,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.POTTED_THERATIP, "Potted Theratip");
         addLore(ReduxBlocks.THERATIP, "A flower found growing on coarse dirt in the Skyroot Shrublands. This plant's pretty pink flowers grow in clusters on the top of the stem.");
 
-        addBlock(ReduxBlocks.FLAREBLOOM, "Flarebloom");
-        addBlock(ReduxBlocks.POTTED_FLAREBLOOM, "Potted Flarebloom");
-        addLore(ReduxBlocks.FLAREBLOOM, "A rare, exotic flower found on Gold Dungeons. it is said that these radiate pure solar energy.");
+        addBlock(ReduxBlocks.FLAREBLOSSOM, "Flareblossom");
+        addBlock(ReduxBlocks.POTTED_FLAREBLOSSOM, "Potted Flarebloom");
+        addLore(ReduxBlocks.FLAREBLOSSOM, "A rare, exotic flower found on Gold Dungeons. it is said that these radiate pure solar energy.");
 
         addBlock(ReduxBlocks.INFERNIA, "Infernia");
         addBlock(ReduxBlocks.POTTED_INFERNIA, "Potted Infernia");

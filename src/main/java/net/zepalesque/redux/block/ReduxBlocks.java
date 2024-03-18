@@ -486,9 +486,9 @@ public class ReduxBlocks {
     public static RegistryObject<Block> VERIDIUM_LANTERN = register("veridium_lantern",
             () -> new VeridiumLanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).lightLevel((p_187433_) -> 13).noOcclusion()));
 
-    public static RegistryObject<Block> FLAREBLOOM = register("flarebloom",
+    public static RegistryObject<Block> FLAREBLOSSOM = register("flareblossom",
             () -> new CustomBoundsFlowerBlock(CommonPlantBounds.SHORT_FERN, () -> MobEffects.BLINDNESS, 60, BlockBehaviour.Properties.copy(Blocks.POPPY).hasPostProcess(ReduxBlocks::always).lightLevel((state) -> 11).mapColor(MapColor.GOLD)));
-    public static final RegistryObject<FlowerPotBlock> POTTED_FLAREBLOOM = BLOCKS.register("potted_flarebloom", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, FLAREBLOOM, Block.Properties.copy(Blocks.FLOWER_POT)));
+    public static final RegistryObject<FlowerPotBlock> POTTED_FLAREBLOSSOM = BLOCKS.register("potted_flareblossom", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, FLAREBLOSSOM, Block.Properties.copy(Blocks.FLOWER_POT)));
 
     public static RegistryObject<Block> INFERNIA = register("infernia",
             () -> new CustomBoundsFlowerBlock(CommonPlantBounds.FLOWER, () -> MobEffects.FIRE_RESISTANCE, 60, BlockBehaviour.Properties.copy(Blocks.POPPY).hasPostProcess(ReduxBlocks::always).mapColor(MapColor.COLOR_ORANGE)));
@@ -564,7 +564,7 @@ public class ReduxBlocks {
         pot.addPlant(ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING.getId(), ReduxBlocks.POTTED_PRISMATIC_FIELDSPROOT_SAPLING);
         pot.addPlant(ReduxBlocks.AZURE_FIELDSPROOT_SAPLING.getId(), ReduxBlocks.POTTED_AZURE_FIELDSPROOT_SAPLING);
         pot.addPlant(ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING.getId(), ReduxBlocks.POTTED_SPECTRAL_FIELDSPROOT_SAPLING);
-        pot.addPlant(ReduxBlocks.FLAREBLOOM.getId(), ReduxBlocks.POTTED_FLAREBLOOM);
+        pot.addPlant(ReduxBlocks.FLAREBLOSSOM.getId(), ReduxBlocks.POTTED_FLAREBLOSSOM);
         pot.addPlant(ReduxBlocks.INFERNIA.getId(), ReduxBlocks.POTTED_INFERNIA);
     }
 

@@ -1,6 +1,5 @@
 package net.zepalesque.redux.mixin.common.world;
 
-import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.world.structure.GoldDungeonStructure;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
@@ -16,6 +15,6 @@ public class GoldDungeonStructureMixin {
 
     @WrapOperation(method = "placeGoldenOaks", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/Block;defaultBlockState()Lnet/minecraft/world/level/block/state/BlockState;"))
     private static BlockState placeGoldenOaks(Block instance, Operation<BlockState> original) {
-        return instance == Blocks.DANDELION ? ReduxBlocks.INFERNIA.get().defaultBlockState() : ReduxBlocks.FLAREBLOOM.get().defaultBlockState();
+        return instance == Blocks.DANDELION ? ReduxBlocks.INFERNIA.get().defaultBlockState() : ReduxBlocks.FLAREBLOSSOM.get().defaultBlockState();
     }
 }

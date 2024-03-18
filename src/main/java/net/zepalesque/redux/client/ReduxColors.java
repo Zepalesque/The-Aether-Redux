@@ -52,8 +52,8 @@ public class ReduxColors {
                 ReduxBlocks.POTTED_DAGGERBLOOM.get(),
                 ReduxBlocks.THERATIP.get(),
                 ReduxBlocks.POTTED_THERATIP.get(),
-                ReduxBlocks.FLAREBLOOM.get(),
-                ReduxBlocks.POTTED_FLAREBLOOM.get(),
+                ReduxBlocks.FLAREBLOSSOM.get(),
+                ReduxBlocks.POTTED_FLAREBLOSSOM.get(),
                 ReduxBlocks.INFERNIA.get(),
                 ReduxBlocks.POTTED_INFERNIA.get(),
                 ReduxBlocks.AURUM.get(),
@@ -117,7 +117,7 @@ public class ReduxColors {
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AetherBlocks.PURPLE_FLOWER.get());
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 0 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.SHORT_AETHER_GRASS.get());
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 0 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.SPLITFERN.get());
-        event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.FLAREBLOOM.get());
+        event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.FLAREBLOSSOM.get());
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.INFERNIA.get());
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.BLIGHT_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.LUXWEED.get());
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.WYNDSPROUTS.get());
