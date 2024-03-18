@@ -487,7 +487,7 @@ public class ReduxBlocks {
             () -> new VeridiumLanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).lightLevel((p_187433_) -> 13).noOcclusion()));
 
     public static RegistryObject<Block> FLAREBLOOM = register("flarebloom",
-            () -> new CustomBoundsFlowerBlock(CommonPlantBounds.FERN, () -> MobEffects.BLINDNESS, 60, BlockBehaviour.Properties.copy(Blocks.POPPY).hasPostProcess(ReduxBlocks::always).lightLevel((state) -> 11).mapColor(MapColor.GOLD)));
+            () -> new CustomBoundsFlowerBlock(CommonPlantBounds.SHORT_FERN, () -> MobEffects.BLINDNESS, 60, BlockBehaviour.Properties.copy(Blocks.POPPY).hasPostProcess(ReduxBlocks::always).lightLevel((state) -> 11).mapColor(MapColor.GOLD)));
     public static final RegistryObject<FlowerPotBlock> POTTED_FLAREBLOOM = BLOCKS.register("potted_flarebloom", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, FLAREBLOOM, Block.Properties.copy(Blocks.FLOWER_POT)));
 
     public static RegistryObject<Block> INFERNIA = register("infernia",
