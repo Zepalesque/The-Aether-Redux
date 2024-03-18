@@ -140,7 +140,6 @@ public class ReduxConfiguredFeatures {
     }
 
     private static ResourceKey<ConfiguredFeature<?, ?>> aetherKey(String name) {
-
         return ResourceKey.create(BuiltinRegistries.CONFIGURED_FEATURE.key(), new ResourceLocation(Aether.MODID, name));
     }
 
