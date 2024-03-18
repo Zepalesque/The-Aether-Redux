@@ -7,15 +7,13 @@ import com.aetherteam.aether.block.natural.AetherDoubleDropsLeaves;
 import com.aetherteam.aether.block.natural.LeavesWithParticlesBlock;
 import com.aetherteam.aether.item.AetherCreativeTabs;
 import com.aetherteam.aether.mixin.mixins.common.accessor.FireBlockAccessor;
+import com.aetherteam.nitrogen.item.block.EntityBlockItem;
 import com.google.common.base.Supplier;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -31,6 +29,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.construction.VeridiumLanternBlock;
+import net.zepalesque.redux.block.container.*;
 import net.zepalesque.redux.block.natural.*;
 import net.zepalesque.redux.block.natural.blight.*;
 import net.zepalesque.redux.block.natural.cloudcap.*;
@@ -46,13 +45,19 @@ import net.zepalesque.redux.block.natural.shrublands.ZanberryShrubBlock;
 import net.zepalesque.redux.block.natural.skyfields.classic.AzureFieldsprootLeaves;
 import net.zepalesque.redux.block.natural.skyfields.classic.ClassicFieldsprootLeaves;
 import net.zepalesque.redux.block.util.CommonPlantBounds;
+import net.zepalesque.redux.blockentity.ReduxBlockEntityTypes;
+import net.zepalesque.redux.blockentity.SkyrootChestBlockEntity;
+import net.zepalesque.redux.blockentity.SkyrootChestMimicBlockEntity;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.data.resource.ReduxConfiguredFeatures;
 import net.zepalesque.redux.item.ReduxItems;
+import net.zepalesque.redux.item.block.WoodenBlockItem;
 import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.world.tree.grower.*;
 
+import java.util.Objects;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
 
@@ -484,6 +489,17 @@ public class ReduxBlocks {
     public static RegistryObject<Block> VERIDIUM_LANTERN = register("veridium_lantern",
             () -> new VeridiumLanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).lightLevel((p_187433_) -> 13).noOcclusion()));
 
+
+    // 1.19.2 stuff
+    public static final RegistryObject<Block> SKYROOT_CRAFTING_TABLE = register("skyroot_crafting_table", () -> new SkyrootCraftingTableBlock(Block.Properties.of(Material.WOOD).strength(2.5F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> HOLYSTONE_FURNACE = register("holystone_furnace", () -> new HolystoneFurnaceBlock(Block.Properties.of(Material.STONE).strength(3.5F).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> SKYROOT_CHEST = registerTile("skyroot_chest", () -> new SkyrootChestBlock(Block.Properties.of(Material.WOOD).strength(2.5F).sound(SoundType.WOOD), ReduxBlockEntityTypes.SKYROOT_CHEST::get));
+    public static final RegistryObject<Block> TRAPPED_SKYROOT_CHEST = registerTile("trapped_skyroot_chest", () -> new TrappedSkyrootChestBlock(Block.Properties.of(Material.WOOD).strength(2.5F).sound(SoundType.WOOD), ReduxBlockEntityTypes.TRAPPED_SKYROOT_CHEST::get));
+    public static final RegistryObject<LadderBlock> SKYROOT_LADDER = register("skyroot_ladder", () -> new LadderBlock(BlockBehaviour.Properties.of(Material.DECORATION).strength(0.4F).sound(SoundType.LADDER).noOcclusion()));
+
+    public static final RegistryObject<Block> SKYROOT_CHEST_MIMIC = registerTile("skyroot_chest_mimic", () -> new SkyrootChestMimicBlock(Block.Properties.copy(SKYROOT_CHEST.get()).noLootTable()));
+
+
     public static void registerFlammability() {
         FireBlockAccessor fireBlockAccessor = (FireBlockAccessor)Blocks.FIRE;
         fireBlockAccessor.callSetFlammable(BLIGHTWILLOW_LEAVES.get(), 30, 60);
@@ -560,6 +576,32 @@ public class ReduxBlocks {
         RegistryObject<T> obj = ReduxBlocks.BLOCKS.register(name, block);
         ITEMS.register(name, item.apply(obj));
         return obj;
+    }
+
+    private static <B extends Block> RegistryObject<B> registerTile(String name, Supplier<? extends B> block) {
+        return registerBaseTile(name, block, ReduxBlocks::registerBlockItem);
+    }
+
+    private static <T extends Block> RegistryObject<T> registerBaseTile(final String name, final Supplier<? extends T> block, BiFunction<RegistryObject<T>, CreativeModeTab, Supplier<? extends Item>> item)
+    {
+        RegistryObject<T> obj = BLOCKS.register(name, block);
+        ITEMS.register(name, item.apply(obj, AetherCreativeTabs.AETHER_BLOCKS));
+        return obj;
+    }
+
+    private static <B extends Block> Supplier<BlockItem> registerBlockItem(final RegistryObject<B> blockRegistryObject, CreativeModeTab tab) {
+        return () -> {
+            B block = Objects.requireNonNull(blockRegistryObject.get());
+            if (block == SKYROOT_CRAFTING_TABLE.get() || block == SKYROOT_LADDER.get()) {
+                return new WoodenBlockItem(block, new Item.Properties().tab(tab));
+            } else if (block == SKYROOT_CHEST.get()) {
+                return new EntityBlockItem(block, SkyrootChestBlockEntity::new, new Item.Properties().tab(tab));
+            }else if (block == SKYROOT_CHEST_MIMIC.get()) {
+                return new EntityBlockItem(block, SkyrootChestMimicBlockEntity::new, new Item.Properties().tab(tab));
+            } else {
+                return new BlockItem(block, new Item.Properties().tab(tab));
+            }
+        };
     }
 
     /** NOTE: will always set the tab to {@link AetherCreativeTabs#AETHER_BLOCKS } */
