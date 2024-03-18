@@ -297,8 +297,8 @@ public class ReduxPlacedFeatures {
 
         register(context, CORRUPTED_VINES_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.CORRUPTED_VINES_PATCH),
                 NOISE_THRESHOLD,
-                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(1, 3), 4),
-                RarityFilter.onAverageOnceEvery(5),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, ConstantInt.of(1), 4),
+                RarityFilter.onAverageOnceEvery(21),
                 BiomeFilter.biome()
         );
 

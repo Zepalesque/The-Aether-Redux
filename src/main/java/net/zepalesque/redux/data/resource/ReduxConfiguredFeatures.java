@@ -513,11 +513,11 @@ public class ReduxConfiguredFeatures {
                         BlockPredicate.matchesBlocks(AetherBlocks.AETHER_GRASS_BLOCK.get())));
 
         register(context, CORRUPTED_VINES_PATCH, Feature.RANDOM_PATCH,
-                new RandomPatchConfiguration(24, 7, 3, PlacementUtils.onlyWhenEmpty(
+                new RandomPatchConfiguration(12, 7, 3, PlacementUtils.onlyWhenEmpty(
                         ReduxFeatures.UPWARD_VINE.get(), new UpwardVineFeature.UpwardVinesConfig(
                                 prov(ReduxBlocks.CORRUPTED_VINES_PLANT),
                                 prov(ReduxBlocks.CORRUPTED_VINES),
-                                UniformInt.of(5, 9)
+                                BiasedToBottomInt.of(2, 12)
                         )))
         );
 
