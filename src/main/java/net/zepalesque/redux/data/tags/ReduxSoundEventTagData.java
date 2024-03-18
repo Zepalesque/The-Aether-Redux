@@ -14,6 +14,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.misc.ReduxTags;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -24,7 +25,7 @@ public class ReduxSoundEventTagData extends TagsProvider<SoundEvent> {
 
 
     @Override
-    protected void addTags(HolderLookup.Provider pProvider) {
-        this.tag(ReduxTags.Sounds.AETHER_MUSIC).add(AetherSoundEvents.MUSIC_AETHER.getKey(), ReduxSoundEvents.REDUX_MENU.getKey());
+    protected void addTags(HolderLookup.@NotNull Provider pProvider) {
+        this.tag(ReduxTags.Sounds.AETHER_MUSIC).add(AetherSoundEvents.MUSIC_AETHER.getKey());
     }
 }
