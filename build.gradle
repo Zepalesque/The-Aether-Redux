@@ -160,6 +160,7 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:embeddium-908741:${project.embeddium_version}")
     implementation fg.deobf("curse.maven:jade-324717:${project.jade_version}")
     compileOnly fg.deobf("curse.maven:galosphere-631098:${project.galosphere_version}")
+    compileOnly fg.deobf("curse.maven:lootr-361276:${project.lootr_version}")
 
 //    implementation fg.deobf("net.darkhax.bookshelf:Bookshelf-Forge-1.20.1:20.0.5")
 //    implementation fg.deobf("net.darkhax.tips:Tips-Forge-1.20.1:12.0.5")
