@@ -39,7 +39,17 @@ public class ReduxAudioHooks {
             if (optional.isPresent()) {
                 Holder<SoundEvent> holder = optional.get();
                 if (holder.is(ReduxTags.Sounds.AETHER_MUSIC)) {
-                    boolean shouldCancel = ((SoundEngineAccessor) soundEngine).genesis$getInstanceToChannel().keySet().stream().map(SoundInstance::getLocation).map(ForgeRegistries.SOUND_EVENTS::getHolder).anyMatch(holder1 -> holder1.isPresent() && holder1.get().is(ReduxTags.Sounds.AETHER_MUSIC));
+                    boolean shouldCancel = ((SoundEngineAccessor) soundEngine).genesis$getInstanceToChannel().keySet().stream()
+                            .anyMatch(instance -> {
+                                Optional<Holder<SoundEvent>> instanceHolder = ForgeRegistries.SOUND_EVENTS.getHolder(instance.getLocation());
+                                if (instanceHolder.isPresent()) {
+                                    Holder<SoundEvent> h1 = instanceHolder.get();
+                                    if (h1.is(ReduxTags.Sounds.AETHER_MUSIC)) {
+                                        return instance != ReduxMusicManager.getCurrentMusic();
+                                    }
+                                }
+                                return false;
+                            });
                     if (shouldCancel) {
                         Redux.LOGGER.warn("Caught additional music track attempting to play! Cancelling to avoid overlap...");
                     }
