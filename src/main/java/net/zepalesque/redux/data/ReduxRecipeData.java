@@ -259,7 +259,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
         ConditionalRecipe.builder().addCondition(
                         dc(Conditions.GUMMY_NERF)
                 )
-                .addRecipe(gummySwet(AetherItems.GOLDEN_GUMMY_SWET, ReduxTags.Items.GOLDEN_SWET_BALL)::save)
+                .addRecipe(gummySwet(AetherItems.GOLDEN_GUMMY_SWET, ReduxTags.Items.GOLDEN_SWET_BALL, "has_golden_swet_ball")::save)
                 .generateAdvancement().build(consumer, Redux.locate("golden_gummy_swet"));
 
         ConditionalRecipe.builder().addCondition(
@@ -597,14 +597,11 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
     }
 
 
-    protected static ShapedRecipeBuilder gummySwet(Supplier<? extends ItemLike> gummy, Supplier<? extends ItemLike> ball) {
-        return ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, gummy.get())
+    protected static ShapelessRecipeBuilder gummySwet(Supplier<? extends ItemLike> gummy, Supplier<? extends ItemLike> ball) {
+        return ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, gummy.get())
                 .group("gummy_swet")
-                .define('J', ball.get())
-                .define('S', Items.SUGAR)
-                .pattern(" J ")
-                .pattern("JSJ")
-                .pattern(" J ")
+                .requires(ball.get(), 3)
+                .requires(Items.SUGAR)
                 .unlockedBy(getHasName(ball.get()), has(ball.get()));
     }
 
@@ -631,22 +628,12 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .unlockedBy("has_" + registry.location().getPath(), has(ball));
     }
 
-    protected static ShapedRecipeBuilder gummySwet(Supplier<? extends ItemLike> gummy, TagKey<Item> ball) {
-        ResourceKey registry = null;
-        Object o = ObfuscationReflectionHelper.getPrivateValue(TagKey.class, ball, "registry");
-        if (o instanceof ResourceKey registryObj)
-        {
-            registry = registryObj;
-        }
-        else throw new IllegalArgumentException("Reflection value did not return expected type!");
-        return ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, gummy.get())
+    protected static ShapelessRecipeBuilder gummySwet(Supplier<? extends ItemLike> gummy, TagKey<Item> ball, String hasName) {
+        return ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, gummy.get())
                 .group("gummy_swet")
-                .define('J', ball)
-                .define('S', Items.SUGAR)
-                .pattern(" J ")
-                .pattern("JSJ")
-                .pattern(" J ")
-                .unlockedBy("has_" + registry.location().getPath(), has(ball));
+                .requires(Ingredient.of(ball), 3)
+                .requires(Items.SUGAR)
+                .unlockedBy(hasName, has(ball));
     }
 
     protected static RecipeBuilder wallNoBuild(RecipeCategory pCategory, ItemLike pWall, ItemLike pMaterial) {
