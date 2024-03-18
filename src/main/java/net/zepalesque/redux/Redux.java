@@ -227,6 +227,7 @@ public class Redux {
             SurfaceRuleManager.addSurfaceRules(AetherRuleCategory.THE_AETHER, "aether_redux", ReduxSurfaceData.makeRules());
             if (ReduxConfig.COMMON.smaller_mimic_hitbox.get()) {
                 AetherEntityTypes.MIMIC.get().getDimensions().height = 1.25F;
+                ReduxEntityTypes.SKYROOT_MIMIC.get().getDimensions().height = 1.25F;
             }
             PotionBrewing.addMix(Potions.POISON, ReduxItems.BLIGHTED_SPORES.get(), ReduxPotions.INTOXICATION.get());
             PotionBrewing.addMix(Potions.STRONG_POISON, ReduxItems.BLIGHTED_SPORES.get(), ReduxPotions.INTOXICATION.get());
