@@ -52,6 +52,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegisterEvent;
 import net.minecraftforge.resource.PathPackResources;
+import net.zepalesque.redux.advancement.ReduxAdvancementSounds;
 import net.zepalesque.redux.advancement.trigger.ReduxAdvancementTriggers;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.api.condition.AbstractCondition;
@@ -175,6 +176,7 @@ public class Redux {
         ReduxStateProviders.PROVIDERS.register(bus);
         ReduxDataSerializers.SERIALIZERS.register(bus);
         ReduxPotions.POTIONS.register(bus);
+        ReduxAdvancementSounds.SOUNDS.register(bus);
         ReduxBlocks.registerWoodTypes();
         ReduxBlocks.registerPots();
         DistExecutor.unsafeRunForDist(() -> () -> {
