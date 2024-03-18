@@ -5,6 +5,7 @@ import com.aetherteam.aether.AetherConfig;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.resources.builders.AetherPlacedFeatureBuilders;
 import com.aetherteam.aether.data.resources.registries.AetherConfiguredFeatures;
+import com.aetherteam.aether.data.resources.registries.AetherPlacedFeatures;
 import com.aetherteam.aether.world.placementmodifier.ConfigFilter;
 import com.aetherteam.aether.world.placementmodifier.DungeonBlacklistFilter;
 import com.aetherteam.aether.world.placementmodifier.ImprovedLayerPlacementModifier;
@@ -124,6 +125,8 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> AETHER_SNOW_LAYER = copyKey(ReduxConfiguredFeatures.AETHER_SNOW_LAYER);
 
     public static final ResourceKey<PlacedFeature> ANCIENT_ENCHANTED_GRASS = copyKey(ReduxConfiguredFeatures.ANCIENT_ENCHANTED_GRASS);
+
+    public static final ResourceKey<PlacedFeature> BONEMEAL_OVERRIDE = AetherPlacedFeatures.AETHER_GRASS_BONEMEAL;
 
 
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
@@ -717,6 +720,8 @@ public class ReduxPlacedFeatures {
                 PlacementUtils.filteredByBlockSurvival(ReduxBlocks.BLIGHTWILLOW_SAPLING.get()),
                 DUNGEON_BLACKLIST
         );
+
+        register(context, BONEMEAL_OVERRIDE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GRASS_PATCH_BONEMEAL), PlacementUtils.isEmpty());
 
         register(context, VERIDIUM_ORE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.VERIDIUM_ORE),
                 CountPlacement.of(11),
