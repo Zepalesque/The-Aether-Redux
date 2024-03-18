@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class PlayerMixin {
 
     // Only necessary because 1.19.2 :|
-    @Inject(method = "getHurtSound", at = @At("RETURN"), cancellable = true)
+    @Inject(method = "getHurtSound", at = @At("HEAD"), cancellable = true)
     protected void getHurtSound(DamageSource damageSource, CallbackInfoReturnable<SoundEvent> cir) {
         if (damageSource == ReduxDamageTypes.ZANBERRY_BUSH || damageSource == ReduxDamageTypes.CORRUPTED_VINES) {
             cir.setReturnValue(SoundEvents.PLAYER_HURT_SWEET_BERRY_BUSH);
