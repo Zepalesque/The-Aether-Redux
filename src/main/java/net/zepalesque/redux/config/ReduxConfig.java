@@ -79,6 +79,9 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue vanilla_swets;
         public final ForgeConfigSpec.BooleanValue first_startup_aeroblender_setup;
 
+        public final ForgeConfigSpec.BooleanValue gold_aercloud_ability;
+        public final ForgeConfigSpec.BooleanValue gold_parachute_ability;
+
         // TODO: organize
 
         public Common(ForgeConfigSpec.Builder builder) {
@@ -100,6 +103,12 @@ public class ReduxConfig {
             this.quicksoil_movement_system = builder.comment("Changes quicksoil between various behaviors. Genesis is the most chaotic, highlands is the most fine-tuned, classic is the original").defineEnum("Quicksoil Movement System", QuicksoilSetting.highlands);
             this.gravitite_ingot = builder.comment("Replaces Enchanted Gravitite with Gravitite Ingots. The blocks of this have the original floating behavior.").worldRestart().define("Gravitite Ingots", true);
             this.dungeon_stone_recipes = builder.comment("Makes Light Dungeon stones use better recipes").worldRestart().define("Better Light Dungeon Stone Recipes", true);
+            this.gold_aercloud_ability = builder
+                    .comment("Changes Gold Aercloud behavior to launch entities downwards")
+                    .define("Gold Aerclouds launch entities downwards", true);
+            this.gold_parachute_ability = builder
+                    .comment("Changes Gold Parachute behavior cause rapid descension, and to have only one durability")
+                    .define("Gold Parachutes push the user downwards", false);
             builder.pop();
             builder.push("Additions");
             this.raw_ores = builder.comment("Use Raw ores for different Aether metals.").define("Raw Ores", true);
