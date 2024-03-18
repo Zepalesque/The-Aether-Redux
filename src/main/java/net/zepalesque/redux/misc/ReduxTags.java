@@ -2,6 +2,7 @@ package net.zepalesque.redux.misc;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.EntityType;
@@ -120,6 +121,14 @@ public class ReduxTags {
 
         private static TagKey<DamageType> tag(String name) {
             return TagKey.create(Registries.DAMAGE_TYPE, Redux.locate(name));
+        }
+    }
+    public static class Sounds {
+
+        public static final TagKey<SoundEvent> AETHER_MUSIC = tag("aether_music");
+
+        private static TagKey<SoundEvent> tag(String name) {
+            return TagKey.create(Registries.SOUND_EVENT, Redux.locate(name));
         }
     }
 }
