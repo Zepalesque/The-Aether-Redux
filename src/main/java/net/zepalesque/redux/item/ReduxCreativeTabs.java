@@ -175,6 +175,7 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.CLOUDCAP_MUSHLING, ReduxBlocks.JELLYSHROOM, event);
             putAfter(ReduxBlocks.JELLYSHROOM, ReduxBlocks.SHIMMERSTOOL, event);
             putAfter(ReduxBlocks.SHIMMERSTOOL, ReduxBlocks.FLAREBLOOM, event);
+            putAfter(ReduxBlocks.FLAREBLOOM, ReduxBlocks.INFERNIA, event);
 
             putAfter(AetherBlocks.ZANITE_ORE, ReduxBlocks.VERIDIUM_ORE, event);
             putAfter(ReduxBlocks.VERIDIUM_ORE, ReduxBlocks.RAW_VERIDIUM_BLOCK, event);
