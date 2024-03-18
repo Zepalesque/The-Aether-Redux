@@ -26,7 +26,7 @@ public class MimicMixin {
     }
 
     @WrapWithCondition(method = "hurt", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/level/ServerLevel;sendParticles(Lnet/minecraft/core/particles/ParticleOptions;DDDIDDDD)I"))
-    private boolean hurt(ServerLevel level) {
+    private boolean hurt(ServerLevel level, ParticleOptions particle) {
         return ((Mimic) (Object) this).getType() != ReduxEntityTypes.SKYROOT_MIMIC.get();
     }
 
