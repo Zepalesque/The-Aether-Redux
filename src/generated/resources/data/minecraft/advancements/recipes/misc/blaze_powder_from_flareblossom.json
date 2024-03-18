@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_flarebloom": {
+    "has_flareblossom": {
       "conditions": {
         "items": [
           {
             "items": [
-              "aether_redux:flarebloom"
+              "aether_redux:flareblossom"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blaze_powder_from_flarebloom"
+        "recipe": "minecraft:blaze_powder_from_flareblossom"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_flarebloom",
+      "has_flareblossom",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:blaze_powder_from_flarebloom"
+      "minecraft:blaze_powder_from_flareblossom"
     ]
   },
   "sends_telemetry_event": false

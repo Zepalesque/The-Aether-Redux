@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-18T17:45:53.458873	Item Models: aether_redux
+// 1.20.1	2024-03-18T19:17:32.4054275	Item Models: aether_redux
 2445055af5b1b7f3c6045199ffce74108003cef6 assets/aether_redux/models/item/airbound_cape.json
 2fa1343a8119a1f49af334c002773099174965bd assets/aether_redux/models/item/aurum.json
 edfe83948874d1436a61893ed9471b47e93dbe88 assets/aether_redux/models/item/avelium.json
@@ -128,7 +128,7 @@ bebd6cce4daca9681dde097c0bb0deb3dd1a5584 assets/aether_redux/models/item/fieldsp
 d5d5d446c1173457302b545644077b84cdf37955 assets/aether_redux/models/item/fieldsproot_trapdoor.json
 f934b4e25537e364550cfdcf0ed8f80db1a171c4 assets/aether_redux/models/item/fieldsproot_wood.json
 6c9bc0f28c32ba52ca348bf3ead9379879c8aa10 assets/aether_redux/models/item/fieldsproot_wood_wall.json
-020a4202e9a3e45b06c4918c1772cff4d6c15f16 assets/aether_redux/models/item/flarebloom.json
+6e4e3758c097c655bf3e4cf958d8cbb274237bb8 assets/aether_redux/models/item/flareblossom.json
 a7506affe0c538db937cfd49bdd486fec3179ad1 assets/aether_redux/models/item/fungal_carpet.json
 9232500fb4b5a9e239e9e9635c738a4c9db55f22 assets/aether_redux/models/item/fungal_growth.json
 c21384e3c0f2e7cf2838fc78bd300726ad88099d assets/aether_redux/models/item/gilded_holystone.json

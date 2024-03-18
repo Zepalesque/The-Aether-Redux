@@ -493,7 +493,7 @@ public class ReduxBlocks {
     public static RegistryObject<Block> VERIDIUM_LANTERN = register("veridium_lantern",
             () -> new VeridiumLanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).lightLevel((p_187433_) -> 13).noOcclusion()));
 
-    // 1.19.2 stuff
+
     public static final RegistryObject<Block> SKYROOT_CRAFTING_TABLE = register("skyroot_crafting_table", () -> new SkyrootCraftingTableBlock(Block.Properties.of(Material.WOOD).strength(2.5F).sound(SoundType.WOOD)));
     public static final RegistryObject<Block> HOLYSTONE_FURNACE = register("holystone_furnace", () -> new HolystoneFurnaceBlock(Block.Properties.of(Material.STONE).strength(3.5F).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> SKYROOT_CHEST = registerTile("skyroot_chest", () -> new SkyrootChestBlock(Block.Properties.of(Material.WOOD).strength(2.5F).sound(SoundType.WOOD), ReduxBlockEntityTypes.SKYROOT_CHEST::get));
@@ -502,9 +502,10 @@ public class ReduxBlocks {
 
     public static final RegistryObject<Block> SKYROOT_CHEST_MIMIC = registerTile("skyroot_chest_mimic", () -> new SkyrootChestMimicBlock(Block.Properties.copy(SKYROOT_CHEST.get()).noLootTable()));
 
-    public static RegistryObject<Block> FLAREBLOOM = register("flarebloom",
+    public static RegistryObject<Block> FLAREBLOSSOM = register("flareblossom",
             () -> new CustomBoundsFlowerBlock(CommonPlantBounds.FERN, () -> MobEffects.BLINDNESS, 60, BlockBehaviour.Properties.copy(Blocks.POPPY).hasPostProcess(ReduxBlocks::always).lightLevel((state) -> 11).color(MaterialColor.GOLD)));
-    public static final RegistryObject<FlowerPotBlock> POTTED_FLAREBLOOM = BLOCKS.register("potted_flarebloom", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, FLAREBLOOM, Block.Properties.copy(Blocks.FLOWER_POT)));
+    public static final RegistryObject<FlowerPotBlock> POTTED_FLAREBLOSSOM = BLOCKS.register("potted_flareblossom", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, FLAREBLOSSOM, Block.Properties.copy(Blocks.FLOWER_POT)));
+
 
     public static RegistryObject<Block> INFERNIA = register("infernia",
             () -> new CustomBoundsFlowerBlock(CommonPlantBounds.FLOWER, () -> MobEffects.FIRE_RESISTANCE, 60, BlockBehaviour.Properties.copy(Blocks.POPPY).hasPostProcess(ReduxBlocks::always).color(MaterialColor.COLOR_ORANGE)));
@@ -580,7 +581,7 @@ public class ReduxBlocks {
         pot.addPlant(ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING.getId(), ReduxBlocks.POTTED_PRISMATIC_FIELDSPROOT_SAPLING);
         pot.addPlant(ReduxBlocks.AZURE_FIELDSPROOT_SAPLING.getId(), ReduxBlocks.POTTED_AZURE_FIELDSPROOT_SAPLING);
         pot.addPlant(ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING.getId(), ReduxBlocks.POTTED_SPECTRAL_FIELDSPROOT_SAPLING);
-        pot.addPlant(ReduxBlocks.FLAREBLOOM.getId(), ReduxBlocks.POTTED_FLAREBLOOM);
+        pot.addPlant(ReduxBlocks.FLAREBLOSSOM.getId(), ReduxBlocks.POTTED_FLAREBLOSSOM);
         pot.addPlant(ReduxBlocks.INFERNIA.getId(), ReduxBlocks.POTTED_INFERNIA);
     }
 
