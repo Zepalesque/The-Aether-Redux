@@ -41,7 +41,7 @@ public class ReduxAudioHooks {
                 if (holder.is(ReduxTags.Sounds.AETHER_MUSIC)) {
                     boolean shouldCancel = ((SoundEngineAccessor) soundEngine).genesis$getInstanceToChannel().keySet().stream().map(SoundInstance::getLocation).map(ForgeRegistries.SOUND_EVENTS::getHolder).anyMatch(holder1 -> holder1.isPresent() && holder1.get().is(ReduxTags.Sounds.AETHER_MUSIC));
                     if (shouldCancel) {
-                        Redux.LOGGER.warn("Caught additional music track attempting to play! Avoiding overlap...");
+                        Redux.LOGGER.warn("Caught additional music track attempting to play! Cancelling to avoid overlap...");
                     }
                     return shouldCancel;
                 }
