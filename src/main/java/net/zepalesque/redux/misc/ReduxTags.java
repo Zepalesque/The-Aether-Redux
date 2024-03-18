@@ -1,5 +1,6 @@
 package net.zepalesque.redux.misc;
 
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
@@ -100,5 +101,13 @@ public class ReduxTags {
         }
 
 
+    }
+    public static class Sounds {
+
+        public static final TagKey<SoundEvent> AETHER_MUSIC = tag("aether_music");
+
+        private static TagKey<SoundEvent> tag(String name) {
+            return TagKey.create(ForgeRegistries.SOUND_EVENTS.getRegistryKey(), Redux.locate(name));
+        }
     }
 }
