@@ -509,7 +509,7 @@ public class ReduxBlocks {
     public static RegistryObject<Block> INFERNIA = register("infernia",
             () -> new CustomBoundsFlowerBlock(CommonPlantBounds.FLOWER, () -> MobEffects.FIRE_RESISTANCE, 60, BlockBehaviour.Properties.copy(Blocks.POPPY).hasPostProcess(ReduxBlocks::always).color(MaterialColor.COLOR_ORANGE)));
     public static final RegistryObject<FlowerPotBlock> POTTED_INFERNIA = BLOCKS.register("potted_infernia", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, INFERNIA, Block.Properties.copy(Blocks.FLOWER_POT)));
-    
+
 
 
     public static void registerFlammability() {

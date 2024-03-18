@@ -2,6 +2,7 @@ package net.zepalesque.redux.data.resource;
 
 import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.block.AetherBlocks;
+import com.aetherteam.aether.data.resources.registries.AetherConfiguredFeatures;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
