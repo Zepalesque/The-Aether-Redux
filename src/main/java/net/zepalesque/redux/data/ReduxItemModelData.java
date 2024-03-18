@@ -173,7 +173,10 @@ public class ReduxItemModelData extends AetherItemModelProvider {
 
         this.itemBlockFlatTintGlowOverlay(ReduxBlocks.LUMINA, "natural/");
         this.itemBlockFlatTintOverlay(ReduxBlocks.DAGGERBLOOM, "natural/");
+
         this.itemBlockFlatTintOverlay(ReduxBlocks.THERATIP, "natural/");
+
+        this.itemBlockFlatTintGlowOverlay(ReduxBlocks.FLAREBLOOM, "natural/");
 
         itemBlockFlatTintOverlay(ReduxBlocks.WYNDSPROUTS, "natural/");
         itemBlockFlatTintOverlay(ReduxBlocks.SKYSPROUTS, "natural/");

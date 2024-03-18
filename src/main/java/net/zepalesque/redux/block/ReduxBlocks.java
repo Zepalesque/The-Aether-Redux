@@ -486,6 +486,11 @@ public class ReduxBlocks {
     public static RegistryObject<Block> VERIDIUM_LANTERN = register("veridium_lantern",
             () -> new VeridiumLanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).lightLevel((p_187433_) -> 13).noOcclusion()));
 
+    public static RegistryObject<Block> FLAREBLOOM = register("flarebloom",
+            () -> new CustomBoundsFlowerBlock(CommonPlantBounds.FERN, () -> MobEffects.FIRE_RESISTANCE, 60, BlockBehaviour.Properties.copy(Blocks.POPPY).hasPostProcess(ReduxBlocks::always).lightLevel((state) -> 9).mapColor(MapColor.COLOR_ORANGE)));
+    public static final RegistryObject<FlowerPotBlock> POTTED_FLAREBLOOM = BLOCKS.register("potted_flarebloom", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, FLAREBLOOM, Block.Properties.copy(Blocks.FLOWER_POT)));
+
+
     public static void registerFlammability() {
         FireBlockAccessor fireBlockAccessor = (FireBlockAccessor)Blocks.FIRE;
         fireBlockAccessor.callSetFlammable(BLIGHTWILLOW_LEAVES.get(), 30, 60);
@@ -555,6 +560,7 @@ public class ReduxBlocks {
         pot.addPlant(ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING.getId(), ReduxBlocks.POTTED_PRISMATIC_FIELDSPROOT_SAPLING);
         pot.addPlant(ReduxBlocks.AZURE_FIELDSPROOT_SAPLING.getId(), ReduxBlocks.POTTED_AZURE_FIELDSPROOT_SAPLING);
         pot.addPlant(ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING.getId(), ReduxBlocks.POTTED_SPECTRAL_FIELDSPROOT_SAPLING);
+        pot.addPlant(ReduxBlocks.FLAREBLOOM.getId(), ReduxBlocks.POTTED_FLAREBLOOM);
     }
 
 
