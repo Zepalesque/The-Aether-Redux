@@ -51,6 +51,7 @@ import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.util.ReduxSoundTypes;
 import net.zepalesque.redux.block.util.dispenser.ShellShinglesDispenserBehavior;
 import net.zepalesque.redux.blockentity.ReduxBlockEntityTypes;
+import net.zepalesque.redux.blockentity.ReduxMenuTypes;
 import net.zepalesque.redux.builtin.BuiltinPackUtils;
 import net.zepalesque.redux.client.ReduxClient;
 import net.zepalesque.redux.client.ReduxColors;
@@ -157,6 +158,7 @@ public class Redux {
         ReduxStateProviders.PROVIDERS.register(bus);
         ReduxDataSerializers.SERIALIZERS.register(bus);
         ReduxPotions.POTIONS.register(bus);
+        ReduxMenuTypes.MENU_TYPES.register(bus);
         ReduxBlocks.registerWoodTypes();
         ReduxBlocks.registerPots();
         DistExecutor.unsafeRunForDist(() -> () -> {
@@ -274,6 +276,7 @@ public class Redux {
 
                     ReduxMenus.cycle();
                     ReduxClient.registerItemModelProperties();
+                    ReduxClient.registerGuiFactories();
                     ReduxPostProcessHandler.initAdrenalineShader();
                     this.versionRefresh();
                 });

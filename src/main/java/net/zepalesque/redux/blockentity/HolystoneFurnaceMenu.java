@@ -1,5 +1,6 @@
 package net.zepalesque.redux.blockentity;
 
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractFurnaceMenu;
