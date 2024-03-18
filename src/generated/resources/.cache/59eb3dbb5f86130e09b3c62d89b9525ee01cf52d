@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-18T17:45:53.4748727	Loot Tables
+// 1.20.1	2024-03-18T19:17:32.4324296	Loot Tables
 c6156555dc4897939b617dabc4521b7fa52feba0 data/aether_redux/loot_tables/blocks/aurum.json
 b5773c78c7b3f27032f1cca6fb72f440e24c7529 data/aether_redux/loot_tables/blocks/avelium.json
 4c8b773f2431b28dd2a48b90d08323d8ff67a3d7 data/aether_redux/loot_tables/blocks/avelium_roots.json
@@ -116,7 +116,7 @@ cc0a9ba097fddd547e99ac39524fd1a7fed3996e data/aether_redux/loot_tables/blocks/fi
 a7f28e556404b4863e6027f8ce8a1246b8f9f5e4 data/aether_redux/loot_tables/blocks/fieldsproot_wall_sign.json
 da4cc289c45912e7971bb2aa5ec902e2555d2847 data/aether_redux/loot_tables/blocks/fieldsproot_wood.json
 442e2a645379e7308edf466d32deac91169b0395 data/aether_redux/loot_tables/blocks/fieldsproot_wood_wall.json
-a90e50d635e71d5c30089ccf24a6f13ff82893c8 data/aether_redux/loot_tables/blocks/flarebloom.json
+b249692f0e954e2a587a63e84240fa2525526b09 data/aether_redux/loot_tables/blocks/flareblossom.json
 d21b097c1723aa54832661182bb96ecdaee422cb data/aether_redux/loot_tables/blocks/fungal_carpet.json
 6a0199d7a46fe45521c86cb4c4b2e204adb202e7 data/aether_redux/loot_tables/blocks/fungal_growth.json
 854a5c28cf0eab6f266711302b98caf344a58fda data/aether_redux/loot_tables/blocks/gilded_holystone.json
@@ -190,7 +190,7 @@ ab63ab6244531f9dcd74ae508915dcbda28468ec data/aether_redux/loot_tables/blocks/po
 40aecaac532fae6116ce1fcb7673a6b23271c5df data/aether_redux/loot_tables/blocks/potted_crystal_sapling.json
 45beb62624ecd39404306568711ec9f02ce93bb7 data/aether_redux/loot_tables/blocks/potted_daggerbloom.json
 8ce911fda5167100e136ae11d3093a4962ab00e5 data/aether_redux/loot_tables/blocks/potted_fieldsproot_sapling.json
-eb96f3a5abcf1ea33b249a823e70751225c8abef data/aether_redux/loot_tables/blocks/potted_flarebloom.json
+bdd98b7dda5247fe99176b826932bafbf9281fd7 data/aether_redux/loot_tables/blocks/potted_flareblossom.json
 688c444edbc49ee60498542fbc378e6f595d822a data/aether_redux/loot_tables/blocks/potted_gilded_oak_sapling.json
 6eccb1b4a0d5c2f8fa6ec2301196a519062e67f9 data/aether_redux/loot_tables/blocks/potted_glacia_sapling.json
 4effe74c2eadaf2d4fb3b7248626f29158d57494 data/aether_redux/loot_tables/blocks/potted_golden_clover.json

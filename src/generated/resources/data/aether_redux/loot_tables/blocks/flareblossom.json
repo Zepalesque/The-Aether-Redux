@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "aether_redux:flarebloom"
+          "name": "aether_redux:flareblossom"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "aether_redux:blocks/flarebloom"
+  "random_sequence": "aether_redux:blocks/flareblossom"
 }
