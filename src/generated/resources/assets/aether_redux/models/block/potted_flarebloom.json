@@ -1,0 +1,9 @@
+{
+  "parent": "aether_redux:block/pot/flower_pot_tinted_dual_gloverlay",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "glow": "aether_redux:block/natural/flarebloom_glow",
+    "overlay": "aether_redux:block/natural/flarebloom_overlay",
+    "plant": "aether_redux:block/natural/flarebloom"
+  }
+}

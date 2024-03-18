@@ -122,12 +122,14 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> DIVINITE_ORE = createKey(Folders.ORE + name(ReduxBlocks.DIVINITE) + "_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SENTRITE_ORE = createKey(Folders.ORE + name(ReduxBlocks.SENTRITE) + "_ore");
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> CRYSTAL_TREE_OVERRIDE = aetherKey("crystal_tree");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> HOLIDAY_TREE_OVERRIDE = aetherKey("holiday_tree");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_OAK_TREE_OVERRIDE = aetherKey("golden_oak_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CRYSTAL_TREE_OVERRIDE = AetherConfiguredFeatures.CRYSTAL_TREE_CONFIGURATION;
+    public static final ResourceKey<ConfiguredFeature<?, ?>> HOLIDAY_TREE_OVERRIDE = AetherConfiguredFeatures.HOLIDAY_TREE_CONFIGURATION;
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_OAK_TREE_OVERRIDE = AetherConfiguredFeatures.GOLDEN_OAK_TREE_CONFIGURATION;
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> GRASS_PATCH_OVERRIDE = aetherKey("grass_patch");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> TALL_GRASS_PATCH_OVERRIDE = aetherKey("tall_grass_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GRASS_PATCH_OVERRIDE = AetherConfiguredFeatures.GRASS_PATCH_CONFIGURATION;
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TALL_GRASS_PATCH_OVERRIDE = AetherConfiguredFeatures.TALL_GRASS_PATCH_CONFIGURATION;
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GRASS_PATCH_BONEMEAL = createKey(Folders.MISC + "aether_grass_bonemeal");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ANCIENT_ENCHANTED_GRASS = createKey(Folders.COMPAT + "ancient_enchanted_grass");
 

@@ -7,7 +7,6 @@
   "refmap": "aether_redux.refmap.json",
   "mixins": [
     "common.block.AercloudBlockMixin",
-    "common.block.AetherGrassBlockMixin",
     "common.block.BlockBehaviorMixin",
     "common.block.BlueAercloudBlockMixin",
     "common.block.DoubleBlockMixin",
