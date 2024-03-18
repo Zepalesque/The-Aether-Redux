@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "aether_redux:block/skyroot_chest_mimic"
+    },
+    "facing=north": {
+      "model": "aether_redux:block/skyroot_chest_mimic"
+    },
+    "facing=south": {
+      "model": "aether_redux:block/skyroot_chest_mimic"
+    },
+    "facing=west": {
+      "model": "aether_redux:block/skyroot_chest_mimic"
+    }
+  }
+}
