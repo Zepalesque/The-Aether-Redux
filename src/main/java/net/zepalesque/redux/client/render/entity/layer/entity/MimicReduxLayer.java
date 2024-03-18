@@ -19,6 +19,7 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.capability.animation.mimic.MimicAnimation;
 import net.zepalesque.redux.client.render.entity.model.entity.MimicReduxModel;
 import net.zepalesque.redux.config.ReduxConfig;
+import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.mixin.client.render.RenderAccessor;
 import net.zepalesque.redux.util.math.EasingUtil;
 
@@ -31,7 +32,7 @@ public class MimicReduxLayer extends RenderLayer<Mimic, MimicModel> {
 
     private boolean isChristmas;
     private static final ResourceLocation REDUX_TEXTURE = new ResourceLocation(Aether.MODID, "textures/entity/mobs/mimic/normal_redux.png");
-    private static final ResourceLocation REDUX_SKYROOT = new ResourceLocation("aether_genesis", "textures/entity/mobs/mimic/skyroot_redux.png");
+    private static final ResourceLocation REDUX_SKYROOT = Redux.locate("textures/entity/mobs/skyroot_mimic/skyroot_redux.png");
     private static final ResourceLocation REDUX_XMAS_TEXTURE = new ResourceLocation(Aether.MODID, "textures/entity/mobs/mimic/christmas_redux.png");
     private static final ResourceLocation REDUX_LOOTR_TEXTURE = new ResourceLocation(Aether.MODID, "textures/entity/mobs/mimic/lootr_redux.png");
 
@@ -86,7 +87,6 @@ public class MimicReduxLayer extends RenderLayer<Mimic, MimicModel> {
     @Nonnull
     @Override
     public ResourceLocation getTextureLocation(@Nonnull Mimic mimic) {
-        // TODO 1.19.2: fix when Skyroot Mimics are implemented
-        return ModList.get().isLoaded("lootr") ? REDUX_LOOTR_TEXTURE : this.isChristmas ? REDUX_XMAS_TEXTURE :/* Redux.aetherGenesisCompat() && mimic.getType() == GenesisEntityTypes.SKYROOT_MIMIC.get() ? REDUX_SKYROOT :*/ REDUX_TEXTURE;
+        return ModList.get().isLoaded("lootr") ? REDUX_LOOTR_TEXTURE : this.isChristmas ? REDUX_XMAS_TEXTURE : mimic.getType() == ReduxEntityTypes.SKYROOT_MIMIC.get() ? REDUX_SKYROOT : REDUX_TEXTURE;
     }
 }

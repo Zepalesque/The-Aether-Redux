@@ -29,6 +29,9 @@ public class ReduxModelLayers {
 
     public static final ModelLayerLocation FLYING_COW = register("redux_flying_cow");
 
+    public static final ModelLayerLocation SKYROOT_MIMIC = register("skyroot_mimic");
+    public static final ModelLayerLocation SKYROOT_CHEST_MIMIC = register("skyroot_chest_mimic");
+
     private static ModelLayerLocation register(String name) {
         return register(name, "main");
     }

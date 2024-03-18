@@ -5,13 +5,14 @@ import com.aetherteam.aether.client.renderer.entity.model.MimicModel;
 import com.aetherteam.aether.entity.monster.dungeon.Mimic;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.zepalesque.redux.client.render.entity.SkyrootMimicRenderer;
 import net.zepalesque.redux.config.ReduxConfig;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin({
         MimicRenderer.class,
-//        SkyrootMimicRenderer.class
+        SkyrootMimicRenderer.class
 })
 public class MimicRendererMixin extends MobRendererMixin<Mimic, MimicModel> {
     @Override

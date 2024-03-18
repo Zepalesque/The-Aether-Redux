@@ -2,8 +2,10 @@ package net.zepalesque.redux.client.render;
 
 import com.aetherteam.aether.client.renderer.accessory.PendantRenderer;
 import com.aetherteam.aether.client.renderer.entity.*;
+import com.aetherteam.aether.client.renderer.entity.model.MimicModel;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
+import net.minecraft.client.renderer.blockentity.ChestRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraftforge.api.distmarker.Dist;
@@ -15,7 +17,10 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.loading.FMLLoader;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
+import net.zepalesque.redux.blockentity.ReduxBlockEntityTypes;
 import net.zepalesque.redux.client.render.bewlr.ReduxBEWLR;
+import net.zepalesque.redux.client.render.blockentity.SkyrootChestMimicRenderer;
+import net.zepalesque.redux.client.render.blockentity.SkyrootChestRenderer;
 import net.zepalesque.redux.client.render.entity.*;
 import net.zepalesque.redux.client.render.entity.layer.entity.*;
 import net.zepalesque.redux.client.render.entity.misc.ReduxBoatRenderer;
@@ -51,10 +56,6 @@ public class ReduxRenderers {
             event.registerEntityRenderer(woodHandler.chestBoatEntity.get(), (context) -> new ReduxBoatRenderer(context, true, woodHandler.woodName));
         }
 
-
-
-//        event.registerEntityRenderer(AetherEntityTypes.MOA.get(), ReduxMoaRenderer::new);
-//        event.registerEntityRenderer(AetherEntityTypes.COCKATRICE.get(), ReduxCockatriceRenderer::new);
         event.registerEntityRenderer(ReduxEntityTypes.VANILLA_SWET.get(), VanillaSwetRenderer::new);
         event.registerEntityRenderer(ReduxEntityTypes.INFUSED_VERIDIUM_DART.get(), InfusedVeridiumDartRenderer::new);
         event.registerEntityRenderer(ReduxEntityTypes.VERIDIUM_DART.get(), VeridiumArrowRenderer::new);
@@ -66,14 +67,10 @@ public class ReduxRenderers {
 
         event.registerEntityRenderer(ReduxEntityTypes.BLIGHTBUNNY.get(), BlightbunnyRenderer::new);
 
-//        event.registerEntityRenderer(AetherEntityTypes.MIMIC.get(), ReduxMimicRenderer::new);
-//        event.registerEntityRenderer(AetherEntityTypes.SENTRY.get(), ReduxSentryRenderer::new);
+        event.registerBlockEntityRenderer(ReduxBlockEntityTypes.SKYROOT_CHEST.get(), SkyrootChestRenderer::new);
+        event.registerBlockEntityRenderer(ReduxBlockEntityTypes.SKYROOT_CHEST_MIMIC.get(), SkyrootChestMimicRenderer::new);
 
-        if (Redux.aetherGenesisCompat())
-        {
-//            event.registerEntityRenderer(GenesisEntityTypes.SKYROOT_MIMIC.get(), ReduxSkyrootMimicRenderer::new);
-//            event.registerEntityRenderer(GenesisEntityTypes.BATTLE_SENTRY.get(), ReduxBattleSentryRenderer::new);
-        }
+        event.registerEntityRenderer(ReduxEntityTypes.SKYROOT_MIMIC.get(), SkyrootMimicRenderer::new);
     }
 
     public static void registerCuriosRenderers() {
@@ -97,6 +94,9 @@ public class ReduxRenderers {
         event.registerLayerDefinition(ReduxModelLayers.FLYING_COW, FlyingCowReduxModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.PIN, PinModel::createLayer);
 
+        event.registerLayerDefinition(ReduxModelLayers.SKYROOT_CHEST_MIMIC, ChestRenderer::createSingleBodyLayer);
+        event.registerLayerDefinition(ReduxModelLayers.SKYROOT_MIMIC, MimicModel::createBodyLayer);
+
         if (!FMLLoader.isProduction()) {
             event.registerLayerDefinition(ReduxModelLayers.CUBE, CubeModel::create);
         }
@@ -110,6 +110,9 @@ public class ReduxRenderers {
                 moa.addLayer(new MoaReduxLayer(moa, new MoaReduxModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.MOA)), new MoaReduxModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.MOA_TALONS))));
             }
             if (renderer instanceof MimicRenderer mimic) {
+                mimic.addLayer(new MimicReduxLayer(mimic, new MimicReduxModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.MIMIC))));
+            }
+            if (renderer instanceof SkyrootMimicRenderer mimic) {
                 mimic.addLayer(new MimicReduxLayer(mimic, new MimicReduxModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.MIMIC))));
             }
             if (renderer instanceof CockatriceRenderer cockatrice) {
