@@ -1,19 +1,15 @@
 package net.zepalesque.redux.compat.jade;
 
 import com.aetherteam.aether.Aether;
-import com.aetherteam.aether.block.AetherBlocks;
-import com.aetherteam.aether.block.dungeon.DoorwayBlock;
-import com.aetherteam.aether.block.dungeon.TrappedBlock;
-import com.aetherteam.aether.block.dungeon.TreasureDoorwayBlock;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.zepalesque.redux.block.ReduxBlocks;
+import noobanidus.mods.lootr.init.ModBlocks;
 import org.jetbrains.annotations.Nullable;
 import snownee.jade.addon.vanilla.VanillaPlugin;
 import snownee.jade.api.*;
@@ -33,25 +29,7 @@ public class AetherJadePlugin implements IWailaPlugin {
 				return accessor;
 			}
 			IWailaClientRegistration client = VanillaPlugin.CLIENT_REGISTRATION;
-			if (target.getBlock() instanceof TrappedBlock trapped) { // Trapped dungeon blocks show up as their normal dungeon blocks
-				return client.blockAccessor().from(target).blockState(trapped.getFacadeBlock()).build();
-			} else if (target.getBlock() instanceof DoorwayBlock door) { // Both doorways show up as locked dungeon blocks, since you won't see them if a dungeon is completed anyway
-				ResourceLocation doorLocation = ForgeRegistries.BLOCKS.getKey(door);
-				if (doorLocation != null) {
-					Block doorBlock = this.getLockedDungeonBlock(doorLocation.getPath());
-					if (doorBlock != null) {
-						return client.blockAccessor().from(target).blockState(doorBlock.defaultBlockState()).build();
-					}
-				}
-			} else if (target.getBlock() instanceof TreasureDoorwayBlock door) {
-				ResourceLocation doorLocation = ForgeRegistries.BLOCKS.getKey(door);
-				if (doorLocation != null) {
-					Block doorBlock = this.getLockedDungeonBlock(doorLocation.getPath());
-					if (doorBlock != null) {
-						return client.blockAccessor().from(target).blockState(doorBlock.defaultBlockState()).build();
-					}
-				}
-			} else if (target.getBlock() == ReduxBlocks.SKYROOT_CHEST_MIMIC.get()) { // Mimics show up as normal chests. There's not a single way to tell the difference between these and normal chests from the tooltip.
+			if (target.getBlock() == ReduxBlocks.SKYROOT_CHEST_MIMIC.get()) { // Mimics show up as normal chests. There's not a single way to tell the difference between these and normal chests from the tooltip.
 				if (ModList.get().isLoaded("lootr")) { // Disguise as Lootr Loot Chest
 					return client.blockAccessor().from(target).serverData(this.createFakeChestData(target)).blockState(ModBlocks.CHEST.get().defaultBlockState()).build();
 				} else {
