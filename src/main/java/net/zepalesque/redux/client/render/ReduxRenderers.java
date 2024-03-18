@@ -68,6 +68,7 @@ public class ReduxRenderers {
         event.registerEntityRenderer(ReduxEntityTypes.BLIGHTBUNNY.get(), BlightbunnyRenderer::new);
 
         event.registerBlockEntityRenderer(ReduxBlockEntityTypes.SKYROOT_CHEST.get(), SkyrootChestRenderer::new);
+        event.registerBlockEntityRenderer(ReduxBlockEntityTypes.TRAPPED_SKYROOT_CHEST.get(), SkyrootChestRenderer::new);
         event.registerBlockEntityRenderer(ReduxBlockEntityTypes.SKYROOT_CHEST_MIMIC.get(), SkyrootChestMimicRenderer::new);
 
         event.registerEntityRenderer(ReduxEntityTypes.SKYROOT_MIMIC.get(), SkyrootMimicRenderer::new);
