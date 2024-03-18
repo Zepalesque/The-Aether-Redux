@@ -15,8 +15,7 @@ import org.spongepowered.asm.mixin.injection.At;
 public class GoldDungeonStructureMixin {
 
     @WrapOperation(method = "placeGoldenOaks", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/Block;defaultBlockState()Lnet/minecraft/world/level/block/state/BlockState;"))
-    private static BlockState placeGoldenOaks(Block instance, Operation<BlockState> original)
-    {
+    private static BlockState placeGoldenOaks(Block instance, Operation<BlockState> original) {
         return instance == Blocks.DANDELION ? ReduxBlocks.INFERNIA.get().defaultBlockState() : ReduxBlocks.FLAREBLOOM.get().defaultBlockState();
     }
 }
