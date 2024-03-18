@@ -32,7 +32,7 @@ public class UpwardVineFeature extends Feature<UpwardVineFeature.UpwardVinesConf
     */
    public boolean place(FeaturePlaceContext<UpwardVinesConfig> context) {
       WorldGenLevel worldgenlevel = context.level();
-      BlockPos blockpos = context.origin();
+      BlockPos blockpos = context.origin().below();
       if (isInvalidPlacementLocation(worldgenlevel, blockpos)) {
          return false;
       } else {
