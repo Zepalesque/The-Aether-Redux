@@ -297,7 +297,9 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         );
 
         this.tag(BlockTags.REPLACEABLE).add(
-                ReduxBlocks.SHORT_AETHER_GRASS.get()
+                ReduxBlocks.SHORT_AETHER_GRASS.get(),
+                ReduxBlocks.AVELIUM_ROOTS.get(),
+                ReduxBlocks.AVELIUM_SPROUTS.get()
         );
 
         this.tag(BlockTags.BEACON_BASE_BLOCKS).add(ReduxBlocks.VERIDIUM_BLOCK.get(), ReduxBlocks.GRAVITITE_BLOCK.get());
