@@ -841,5 +841,21 @@
   "subtitles.aether_redux.item.subzero_crossbow_load": "Subzero Crossbow loads",
   "subtitles.aether_redux.item.subzero_crossbow_shoot": "Subzero Crossbow shoots",
   "subtitles.aether_redux.block.aercloud.blue_aercloud_bounce": "Blue Aercloud bounces",
-  "tooltip.aether_redux.ambrosium_charge": "Infusion Level: %s"
+  "tooltip.aether_redux.ambrosium_charge": "Infusion Level: %s",
+
+  "block.aether_redux.holystone_furnace": "Holystone Furnace",
+  "lore.block.aether_redux.holystone_furnace": "A furnace made of Holystone. Can be used to cook various foods and ores.",
+  "menu.aether_redux.holystone_furnace": "Holystone Furnace",
+  "block.aether_redux.skyroot_chest": "Skyroot Chest",
+  "block.aether_redux.trapped_skyroot_chest": "Trapped Skyroot Chest",
+  "block.aether_redux.skyroot_chest_mimic": "Skyroot Chest Mimic",
+  "block.aether_redux.skyroot_crafting_table": "Skyroot Crafting Table",
+  "block.aether_redux.skyroot_ladder": "Skyroot Ladder",
+  "entity.aether_redux.skyroot_mimic": "Skyroot Mimic",
+  "item.aether_redux.skyroot_chest_mimic_spawn_egg": "Skyroot Chest Mimic Spawn Egg",
+  "lore.block.aether_redux.skyroot_chest": "A chest made of Skyroot wood. Can be used to store your items!",
+  "lore.block.aether_redux.trapped_skyroot_chest": "A trapped chest made of Skyroot wood. Can be used for various mischevious tricks or pranks!",
+  "lore.block.aether_redux.skyroot_chest_mimic": "What might look like a harmless Skyroot Chest, but is actually a mimic in disguise!",
+  "lore.block.aether_redux.skyroot_crafting_table": "A crafting table made of Skyroot wood. Crafting tables are used to craft items in a larger 3x3 grid than your inventory's 2x2 one.",
+  "lore.block.aether_redux.skyroot_ladder": "A ladder made of Skyroot wood. These can be placed on the sides of blocks to allow you to climb up to reach high spaces."
 }

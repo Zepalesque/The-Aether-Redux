@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "aether:block/construction/skyroot_planks",
+    "east": "aether_redux:block/utility/skyroot_crafting_table_front",
+    "north": "aether_redux:block/utility/skyroot_crafting_table_front",
+    "particle": "aether_redux:block/utility/skyroot_crafting_table_front",
+    "south": "aether_redux:block/utility/skyroot_crafting_table_side",
+    "up": "aether_redux:block/utility/skyroot_crafting_table_top",
+    "west": "aether_redux:block/utility/skyroot_crafting_table_side"
+  }
+}

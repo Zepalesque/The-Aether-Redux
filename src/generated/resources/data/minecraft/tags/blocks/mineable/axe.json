@@ -87,6 +87,11 @@
     "aether_redux:jellyshroom_wall_sign",
     "aether_redux:jellyshroom_stem_wall",
     "aether_redux:jellyshroom_hyphae_wall",
-    "#aether_redux:jellyshroom_stems"
+    "#aether_redux:jellyshroom_stems",
+    "aether_redux:skyroot_chest",
+    "aether_redux:trapped_skyroot_chest",
+    "aether_redux:skyroot_crafting_table",
+    "aether_redux:skyroot_ladder",
+    "aether_redux:skyroot_chest_mimic"
   ]
 }

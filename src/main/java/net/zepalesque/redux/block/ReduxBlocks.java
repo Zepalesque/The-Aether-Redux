@@ -48,6 +48,7 @@ import net.zepalesque.redux.block.util.CommonPlantBounds;
 import net.zepalesque.redux.blockentity.ReduxBlockEntityTypes;
 import net.zepalesque.redux.blockentity.SkyrootChestBlockEntity;
 import net.zepalesque.redux.blockentity.SkyrootChestMimicBlockEntity;
+import net.zepalesque.redux.blockentity.TrappedSkyrootChestBlockEntity;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.data.resource.ReduxConfiguredFeatures;
@@ -596,7 +597,9 @@ public class ReduxBlocks {
                 return new WoodenBlockItem(block, new Item.Properties().tab(tab));
             } else if (block == SKYROOT_CHEST.get()) {
                 return new EntityBlockItem(block, SkyrootChestBlockEntity::new, new Item.Properties().tab(tab));
-            }else if (block == SKYROOT_CHEST_MIMIC.get()) {
+            } else if (block == TRAPPED_SKYROOT_CHEST.get()) {
+                return new EntityBlockItem(block, TrappedSkyrootChestBlockEntity::new, new Item.Properties().tab(tab));
+            } else if (block == SKYROOT_CHEST_MIMIC.get()) {
                 return new EntityBlockItem(block, SkyrootChestMimicBlockEntity::new, new Item.Properties().tab(tab));
             } else {
                 return new BlockItem(block, new Item.Properties().tab(tab));

@@ -35,6 +35,7 @@
     "aether_redux:shell_shingles",
     "aether_redux:enchanted_shell_shingles",
     "aether_redux:gravitite_block",
-    "aether_redux:raw_gravitite_block"
+    "aether_redux:raw_gravitite_block",
+    "aether_redux:holystone_furnace"
   ]
 }

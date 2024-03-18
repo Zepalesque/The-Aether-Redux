@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "aether_redux:skyroot_ladder_crafting"
+    },
+    "X": {
+      "tag": "aether:planks_crafting"
+    }
+  },
+  "pattern": [
+    "# #",
+    "#X#",
+    "# #"
+  ],
+  "result": {
+    "count": 3,
+    "item": "aether_redux:skyroot_ladder"
+  },
+  "show_notification": true
+}
