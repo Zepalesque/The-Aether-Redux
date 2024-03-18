@@ -41,7 +41,7 @@ public class UpwardVineFeature extends Feature<UpwardVineFeature.UpwardVinesConf
          BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
          for (int i = 0; i < height; i++) {
-            mutable.setWithOffset(blockpos, 0, i + 1, 0);
+            mutable.setWithOffset(blockpos, 0, i, 0);
             boolean isLast = !validBlockPos(worldgenlevel, mutable.above()) || i == height - 1;
             if (isLast) {
                worldgenlevel.setBlock(mutable, config.head.getState(rand, mutable), 3);
