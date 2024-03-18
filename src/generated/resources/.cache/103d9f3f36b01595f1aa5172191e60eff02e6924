@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-17T14:47:20.2316886	Registries
+// 1.20.1	2024-03-18T10:34:26.8368005	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 94d997b0a87f23900f66f9a9e2485391b6ff8e38 data/aether/worldgen/configured_feature/golden_oak_tree.json
 875593e37a52dd63b2d87226b0f0e5e76ef48247 data/aether/worldgen/configured_feature/grass_patch.json
@@ -83,7 +83,7 @@ c7530d1c02ca52a57c6fccb4eee01e43dc33f6ef data/aether_redux/worldgen/configured_f
 137ac805e75ef187d5ef672642c7dff0a9149b69 data/aether_redux/worldgen/configured_feature/patch/avelium_grasses_patch.json
 4d0e08ee12be0c3d2227caf328e2c044778b1251 data/aether_redux/worldgen/configured_feature/patch/blightshade_patch.json
 7f31e28606ed5538df3200ab3a074a95b737678d data/aether_redux/worldgen/configured_feature/patch/cloudcap_mushling_patch.json
-a491090b9edf9f3258b28941e3596632fc572556 data/aether_redux/worldgen/configured_feature/patch/corrupted_vines_patch.json
+658f9aaa76881bc53b16c33eceba73a17d962c01 data/aether_redux/worldgen/configured_feature/patch/corrupted_vines_patch.json
 e64b897a04c6daec60a4fd20764eb0d8121cfdda data/aether_redux/worldgen/configured_feature/patch/daggerbloom_patch.json
 900516925363e396bb2b04dc24d40b7c81e69039 data/aether_redux/worldgen/configured_feature/patch/frosted_purple_flower_patch.json
 124071c99790c718aff682432a6e970294722214 data/aether_redux/worldgen/configured_feature/patch/genesis_skysprouts_patch.json
