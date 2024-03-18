@@ -512,12 +512,14 @@ public class ReduxConfiguredFeatures {
                 blockBelowPlacementPatch(24, 7, 3, prov(ReduxBlocks.LUXWEED),
                         BlockPredicate.matchesBlocks(AetherBlocks.AETHER_GRASS_BLOCK.get())));
 
-        register(context, CORRUPTED_VINES_PATCH, ReduxFeatures.UPWARD_VINE_PATCH.get(),
-                new UpwardVineFeature.UpwardVinesConfig(
-                        prov(ReduxBlocks.CORRUPTED_VINES_PLANT),
-                        prov(ReduxBlocks.CORRUPTED_VINES),
-                        7, 3, 15
-                ));
+        register(context, CORRUPTED_VINES_PATCH, Feature.RANDOM_PATCH,
+                new RandomPatchConfiguration(24, 7, 3, PlacementUtils.onlyWhenEmpty(
+                        ReduxFeatures.UPWARD_VINE.get(), new UpwardVineFeature.UpwardVinesConfig(
+                                prov(ReduxBlocks.CORRUPTED_VINES_PLANT),
+                                prov(ReduxBlocks.CORRUPTED_VINES),
+                                UniformInt.of(5, 9)
+                        )))
+        );
 
         register(context, GOLDEN_CLOVER_PATCH, Feature.FLOWER,
                 patchNoCoarse(12, 7, 3, prov(ReduxBlocks.GOLDEN_CLOVER)));
@@ -754,23 +756,19 @@ public class ReduxConfiguredFeatures {
 
     }
 
-    private static RandomPatchConfiguration randomPatch(int tries, int xz, int y, BlockStateProvider state)
-    {
+    private static RandomPatchConfiguration randomPatch(int tries, int xz, int y, BlockStateProvider state) {
         return new RandomPatchConfiguration(tries, xz, y, PlacementUtils.onlyWhenEmpty(
                 Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(state)));
     }
-    private static RandomPatchConfiguration patchNoCoarse(int tries, int xz, int y, BlockStateProvider state)
-    {
+    private static RandomPatchConfiguration patchNoCoarse(int tries, int xz, int y, BlockStateProvider state) {
         return new RandomPatchConfiguration(tries, xz, y, PlacementUtils.onlyWhenEmpty(
                 ReduxFeatures.TEST_BELOW_BLOCK.get(), new PredicateStateConfig(state, BlockPredicate.not(BlockPredicate.matchesTag(ReduxTags.Blocks.COARSE_AETHER_DIRT)))));
     }
-    private static RandomPatchConfiguration blockBelowPlacementPatch(int tries, int xz, int y, BlockStateProvider state, BlockPredicate predicate)
-    {
+    private static RandomPatchConfiguration blockBelowPlacementPatch(int tries, int xz, int y, BlockStateProvider state, BlockPredicate predicate) {
         return new RandomPatchConfiguration(tries, xz, y, PlacementUtils.onlyWhenEmpty(
                 ReduxFeatures.TEST_BELOW_BLOCK.get(), new PredicateStateConfig(state, predicate)));
     }
-    private static PatchRockConfig blockBelowPlacementPatchRock(BlockStateProvider rock, int tries, int xz, int y, BlockStateProvider state, BlockPredicate predicate)
-    {
+    private static PatchRockConfig blockBelowPlacementPatchRock(BlockStateProvider rock, int tries, int xz, int y, BlockStateProvider state, BlockPredicate predicate) {
         return new PatchRockConfig(rock, tries, xz, y, PlacementUtils.onlyWhenEmpty(
                 ReduxFeatures.TEST_BELOW_BLOCK.get(), new PredicateStateConfig(state, predicate)));
     }
