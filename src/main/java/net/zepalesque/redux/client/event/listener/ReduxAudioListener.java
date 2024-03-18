@@ -24,7 +24,7 @@ public class ReduxAudioListener {
     public static void onPlaySound(PlaySoundEvent event) {
         SoundEngine soundEngine = event.getEngine();
         SoundInstance sound = event.getOriginalSound();
-        if (ReduxAudioHooks.shouldCancelMusic(sound)) {
+        if (ReduxAudioHooks.shouldCancelMusic(soundEngine, sound)) {
             event.setSound(null);
             return;
         }
