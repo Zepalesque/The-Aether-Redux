@@ -1,5 +1,6 @@
 package net.zepalesque.redux.data.tags;
 
+import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether_genesis.entity.GenesisEntityTypes;
 import net.minecraft.core.HolderLookup;
@@ -33,5 +34,6 @@ public class ReduxEntityTypeTagData extends EntityTypeTagsProvider {
                 AetherEntityTypes.COCKATRICE.get(),
                 AetherEntityTypes.AECHOR_PLANT.get()
         ).addOptional(new ResourceLocation("aether_genesis", "tempest"));
+        this.tag(AetherTags.Entities.SWETS).add(ReduxEntityTypes.VANILLA_SWET.get());
     }
 }
