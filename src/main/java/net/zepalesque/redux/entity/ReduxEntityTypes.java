@@ -36,6 +36,9 @@ public class ReduxEntityTypes {
     public static final RegistryObject<EntityType<Swet>> VANILLA_SWET = ENTITY_TYPES.register("vanilla_swet",
             () -> EntityType.Builder.of(Swet::new, AetherMobCategory.AETHER_SURFACE_MONSTER).sized(0.9F, 0.95F).clientTrackingRange(10).build("vanilla_swet"));
 
+    public static final RegistryObject<EntityType<Swet>> DARK_SWET = ENTITY_TYPES.register("dark_swet",
+            () -> EntityType.Builder.of(Swet::new, AetherMobCategory.AETHER_SURFACE_MONSTER).sized(0.9F, 0.95F).clientTrackingRange(10).build("dark_swet"));
+
     public static final RegistryObject<EntityType<InfusedVeridiumDart>> INFUSED_VERIDIUM_DART = ENTITY_TYPES.register("infused_veridium_dart",
             () -> EntityType.Builder.<InfusedVeridiumDart>of(InfusedVeridiumDart::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20).build("infused_veridium_dart"));
 
@@ -73,6 +76,7 @@ public class ReduxEntityTypes {
     @SubscribeEvent
     public static void registerSpawnPlacements(SpawnPlacementRegisterEvent event) {
         event.register(ReduxEntityTypes.VANILLA_SWET.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Swet::checkSwetSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
+        event.register(ReduxEntityTypes.DARK_SWET.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Swet::checkSwetSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
         event.register(ReduxEntityTypes.SHIMMERCOW.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AetherAnimal::checkAetherAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
         event.register(ReduxEntityTypes.MYKAPOD.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AetherAnimal::checkAetherAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
         event.register(ReduxEntityTypes.BLIGHTBUNNY.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Blightbunny::checkBunnySpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
@@ -83,6 +87,7 @@ public class ReduxEntityTypes {
     @SubscribeEvent
     public static void registerEntityAttributes(EntityAttributeCreationEvent event) {
         event.put(ReduxEntityTypes.VANILLA_SWET.get(), Swet.createMobAttributes().build());
+        event.put(ReduxEntityTypes.DARK_SWET.get(), Swet.createMobAttributes().build());
         event.put(ReduxEntityTypes.SHIMMERCOW.get(), Shimmercow.createMobAttributes().build());
         event.put(ReduxEntityTypes.MYKAPOD.get(), Mykapod.createAttributes().build());
         event.put(ReduxEntityTypes.BLIGHTBUNNY.get(), Blightbunny.createAttributes().build());
