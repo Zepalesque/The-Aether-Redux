@@ -83,6 +83,11 @@ public class ReduxSoundEvents {
     public static final RegistryObject<SoundEvent> QUICKROOTS_PICK = register("block.quickroots_pick");
     public static final RegistryObject<SoundEvent> LIGHTROOTS_PICK = register("block.lightroots_pick");
 
+    public static final RegistryObject<SoundEvent> GOLD_AERCLOUD_WHOOSH = register("block.aercloud.gold_aercloud_whoosh");
+    public static final RegistryObject<SoundEvent> PURPLE_AERCLOUD_ZOOM = register("block.aercloud.purple_aercloud_zoom");
+    public static final RegistryObject<SoundEvent> GREEN_AERCLOUD_WUBBLE = register("block.aercloud.green_aercloud_wubble");
+
+
     public static final RegistryObject<SoundEvent> MUSIC_DISC_LABYRINTHS_VENGEANCE = register("item.music_disc.labyrinths_vengeance");
 
     public static final RegistryObject<SoundEvent> ADVANCEMENT_GOLD = register("ui.toast.aether_redux_gold");

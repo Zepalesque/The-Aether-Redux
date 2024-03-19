@@ -658,6 +658,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addSubtitle("block", "quickroots_pick", "Quickroot pops");
         addSubtitle("block", "lightroots_pick", "Lightroot Clump pops");
         addSubtitle("block", "fungus_bounce", "Jellyshroom bounces");
+        addSubtitle("block", "aercloud.gold_aercloud_whoosh", "Golden Aercloud whooshes");
+        addSubtitle("block", "aercloud.purple_aercloud_zoom", "Purple Aercloud zooms");
+        addSubtitle("block", "aercloud.green_aercloud_wubble", "Green Aercloud wubbles");
 
         addSubtitle("item", "subzero_crossbow_load", "Subzero Crossbow loads");
         addSubtitle("item", "subzero_crossbow_charge", "Subzero Crossbow charges");

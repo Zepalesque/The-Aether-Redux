@@ -1,6 +1,8 @@
 package net.zepalesque.redux.data;
 
+import com.aetherteam.aether.Aether;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.SoundDefinitionsProvider;
 import net.zepalesque.redux.Redux;
@@ -357,6 +359,21 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
                         .with(sound(Redux.locate("item/subzero_crossbow/arrow/hit2")))
                         .with(sound(Redux.locate("item/subzero_crossbow/arrow/hit3")))
                         .subtitle("subtitles.aether_redux.item.subzero_crossbow_hit"));
+
+        this.add(ReduxSoundEvents.GOLD_AERCLOUD_WHOOSH,
+                definition()
+                        .with(sound(new ResourceLocation(Aether.MODID, "entity/zephyr/shoot")))
+                        .subtitle("subtitles.aether_redux.block.aercloud.gold_aercloud_whoosh"));
+
+        this.add(ReduxSoundEvents.PURPLE_AERCLOUD_ZOOM,
+                definition()
+                        .with(sound(Redux.locate("block/aercloud/purple_aercloud_zoom")))
+                        .subtitle("subtitles.aether_redux.block.aercloud.purple_aercloud_zoom"));
+
+        this.add(ReduxSoundEvents.GREEN_AERCLOUD_WUBBLE,
+                definition()
+                        .with(sound(Redux.locate("block/aercloud/green_aercloud_wubble")))
+                        .subtitle("subtitles.aether_redux.block.aercloud.green_aercloud_wubble"));
 
         this.add(ReduxSoundEvents.REDUX_MENU,
                 definition()

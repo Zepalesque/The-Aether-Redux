@@ -1,5 +1,8 @@
 package net.zepalesque.redux.util.compat;
 
+import com.aetherteam.aether.block.AetherBlocks;
+import com.aetherteam.aether.block.natural.AercloudBlock;
+import com.aetherteam.aether_genesis.GenesisConfig;
 import com.aetherteam.aether_genesis.block.GenesisBlocks;
 import com.aetherteam.aether_genesis.client.particle.GenesisParticleTypes;
 import com.aetherteam.aether_genesis.entity.GenesisEntityTypes;
@@ -10,6 +13,7 @@ import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.world.level.block.Block;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
+import net.zepalesque.redux.config.ReduxConfig;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
@@ -38,5 +42,12 @@ public class GenesisCompatUtil {
 
     public static boolean isBattleSentry(EntityType<?> type) {
         return Redux.aetherGenesisCompat() && type == GenesisEntityTypes.BATTLE_SENTRY.get();
+    }
+
+    public static boolean goldCloudSFX(AercloudBlock block) {
+        if (!Redux.aetherGenesisCompat()) {
+            return false;
+        }
+        return block == AetherBlocks.GOLDEN_AERCLOUD.get() && GenesisConfig.COMMON.gold_aercloud_ability.get();
     }
 }
