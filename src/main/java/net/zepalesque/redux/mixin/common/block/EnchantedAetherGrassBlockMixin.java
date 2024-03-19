@@ -10,6 +10,7 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.block.util.state.ReduxStates;
 import org.spongepowered.asm.mixin.Mixin;
 
 import java.util.Optional;
@@ -23,7 +24,7 @@ public class EnchantedAetherGrassBlockMixin extends GrassBlockMixin {
         Holder<PlacedFeature> optional = VegetationPlacements.GRASS_BONEMEAL;
         if (instance.equals(optional.get())) {
             if (pLevel.ensureCanWrite(pPos)) {
-                pLevel.setBlock(pPos, ReduxBlocks.SHORT_AETHER_GRASS.get().defaultBlockState(), 3);
+                pLevel.setBlock(pPos, ReduxBlocks.SHORT_AETHER_GRASS.get().defaultBlockState().setValue(ReduxStates.ENCHANTED, true), 3);
                 return true;
             } else {
                 return false;
