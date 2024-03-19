@@ -217,7 +217,7 @@ public class ReduxConfig {
                     .comment("Adds some nice night tracks to the Aether's music selection. Also disables the default music manager for the Aether, to prevent overlap")
                     .define("Nighttime music tracks", true);
             this.aercloud_sfx = builder
-                    .comment("Gives Blue and Gold (when the config is enableD) Aerclouds some nice sounds for their abilities")
+                    .comment("Gives Blue and Gold (when the config is enabled) Aerclouds some nice sounds for their abilities")
                     .define("Aercloud Ability Sounds", true);
             this.aether_ii_portal_sounds = builder
                     .comment("Gives Aether Portals their sounds from the Aether II")
