@@ -3,8 +3,6 @@
     "aether_redux:blue_swet_jelly",
     "aether_redux:golden_swet_jelly",
     "aether_redux:vanilla_swet_jelly",
-    "aether_genesis:blue_swet_jelly",
-    "aether_genesis:golden_swet_jelly",
-    "aether_genesis:dark_swet_jelly"
+    "aether_redux:dark_swet_jelly"
   ]
 }

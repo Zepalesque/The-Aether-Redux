@@ -54,6 +54,10 @@ public class ReduxItems {
     public static final RegistryObject<Item> GOLDEN_SWET_JELLY = register("golden_swet_jelly", () -> new Item(new Item.Properties().food(ReduxFoods.SWET_JELLY).tab(AetherCreativeTabs.AETHER_FOOD_AND_DRINKS)));
     public static final RegistryObject<Item> VANILLA_SWET_JELLY = register("vanilla_swet_jelly", () -> new Item(new Item.Properties().food(ReduxFoods.SWET_JELLY).tab(AetherCreativeTabs.AETHER_FOOD_AND_DRINKS)));
 
+    public static final RegistryObject<Item> DARK_SWET_BALL = register("dark_swet_ball", () -> new SwetBallItem(new Item.Properties().tab(AetherCreativeTabs.AETHER_INGREDIENTS)));
+    public static final RegistryObject<Item> DARK_GUMMY_SWET = register("dark_gummy_swet", GummySwetItem::new);
+    public static final RegistryObject<Item> DARK_SWET_JELLY = register("dark_swet_jelly", () -> new Item(new Item.Properties().food(ReduxFoods.SWET_JELLY).tab(AetherCreativeTabs.AETHER_FOOD_AND_DRINKS)));
+
     public static final RegistryObject<Item> BLUEBERRY_PIE = register("blueberry_pie", () -> new Item(new Item.Properties().food(ReduxFoods.BLUEBERRY_PIE).tab(AetherCreativeTabs.AETHER_FOOD_AND_DRINKS)));
     public static final RegistryObject<Item> ENCHANTED_BLUEBERRY_PIE = register("enchanted_blueberry_pie", () -> new Item(new Item.Properties().food(ReduxFoods.ENCHANTED_BLUEBERRY_PIE).tab(AetherCreativeTabs.AETHER_FOOD_AND_DRINKS)));
 
@@ -94,6 +98,7 @@ public class ReduxItems {
     public static final RegistryObject<Item> SUBZERO_CROSSBOW = register("subzero_crossbow", () -> new SubzeroCrossbowItem(new Item.Properties().stacksTo(1).durability(1024).rarity(AetherItems.AETHER_LOOT).tab(AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES)));
 
     public static final RegistryObject<SpawnEggItem> VANILLA_SWET_SPAWN_EGG = ITEMS.register("vanilla_swet_spawn_egg", () -> new ForgeSpawnEggItem(ReduxEntityTypes.VANILLA_SWET, 0xF7F3E3, 0xD3CABB, new Item.Properties().tab(AetherCreativeTabs.AETHER_SPAWN_EGGS)));
+    public static final RegistryObject<SpawnEggItem> DARK_SWET_SPAWN_EGG = ITEMS.register("dark_swet_spawn_egg", () -> new ForgeSpawnEggItem(ReduxEntityTypes.DARK_SWET, 0x7857AE, 0x664D93, new Item.Properties().tab(AetherCreativeTabs.AETHER_SPAWN_EGGS)));
     public static final RegistryObject<Item> SLIDER_MUSIC_DISC = ITEMS.register("slider_music_disc", () -> (new RecordItem(1, ReduxSoundEvents.MUSIC_DISC_LABYRINTHS_VENGEANCE, (new Item.Properties()).stacksTo(1).rarity(Rarity.RARE).tab(AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES), 4300)));
 
     public static final RegistryObject<SpawnEggItem> SHIMMERCOW_SPAWN_EGG = ITEMS.register("shimmercow_spawn_egg", () -> new ForgeSpawnEggItem(ReduxEntityTypes.SHIMMERCOW, 0x7B7F90, 0x7876CC, new Item.Properties().tab(AetherCreativeTabs.AETHER_SPAWN_EGGS)));
