@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blaze_powder_from_flareblossom"
+        "recipe": "minecraft:white_dye_from_flareblossom"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:blaze_powder_from_flareblossom"
+      "minecraft:white_dye_from_flareblossom"
     ]
   },
   "sends_telemetry_event": false
