@@ -4,6 +4,7 @@ import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.api.AetherAdvancementSoundOverrides;
 import com.aetherteam.aether.api.registers.AdvancementSoundOverride;
 import net.minecraft.advancements.Advancement;
+import net.minecraft.core.Holder;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.RegistryObject;
@@ -16,6 +17,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.lang.module.ModuleDescriptor;
+import java.util.Map;
+import java.util.Optional;
 
 @Mixin(AetherAdvancementSoundOverrides.class)
 public class AdvancementSoundsMixin {
@@ -26,17 +29,17 @@ public class AdvancementSoundsMixin {
         @Inject(method = "retrieveOverride", at = @At(value = "HEAD"), cancellable = true, remap = false)
         private static void redux$retrieve(Advancement advancement, CallbackInfoReturnable<SoundEvent> cir) {
                 if (notAfter1_3_0) {
-                        @Nullable RegistryObject<AdvancementSoundOverride> reg = null;
-                        for (RegistryObject<AdvancementSoundOverride> ov : AetherAdvancementSoundOverrides.ADVANCEMENT_SOUND_OVERRIDES.getEntries()) {
-                                if (ov.get().matches(advancement)) {
-                                        reg = ov;
-                                        if (ov.getHolder().isEmpty() || !ov.getHolder().get().is(ReduxTags.Adverrides.LOW_PRIORITY)) {
+                        @Nullable Holder<AdvancementSoundOverride> holder = null;
+                        for (Optional<Holder<AdvancementSoundOverride>> override : AetherAdvancementSoundOverrides.ADVANCEMENT_SOUND_OVERRIDE_REGISTRY.get().getEntries().stream().map(Map.Entry::getValue).map(AetherAdvancementSoundOverrides.ADVANCEMENT_SOUND_OVERRIDE_REGISTRY.get()::getHolder).toList()) {
+                                if (override.isPresent() && override.get().get().matches(advancement)) {
+                                        holder = override.get();
+                                        if (!override.get().is(ReduxTags.Adverrides.LOW_PRIORITY)) {
                                                 break;
                                         }
                                 }
                         }
-                        if (reg != null) {
-                                cir.setReturnValue(reg.get().sound().get());
+                        if (holder != null) {
+                                cir.setReturnValue(holder.get().sound().get());
                         }
                 }
         }
