@@ -2,5 +2,7 @@
   "item.aether_redux.vanilla_swet_ball": "Vanilla Swet Gel",
   "lore.item.aether_redux.vanilla_swet_ball": "A gooey, sweet-smelling blob of a Vanilla Swet's gel. True to the name, this smells like vanilla.",
   "item.aether_redux.golden_swet_ball": "Golden Swet Gel",
-  "lore.item.aether_redux.golden_swet_ball": "A glowing, gooey blob of a Golden Swet's gel. It can be used to craft Spectral Darts."
+  "lore.item.aether_redux.golden_swet_ball": "A glowing, gooey blob of a Golden Swet's gel.",
+  "item.aether_redux.dark_swet_ball": "Dark Swet Gel",
+  "lore.item.aether_redux.dark_swet_ball": "A gooey, fruity-smelling blob of a Dark Swet's gel. Specifically, it smells like grapes."
 }
