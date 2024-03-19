@@ -183,7 +183,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue first_startup_menu_setup;
         public final ForgeConfigSpec.BooleanValue first_startup_lightmap_changes;
         public final ForgeConfigSpec.BooleanValue night_track_music_manager;
-        public final ForgeConfigSpec.BooleanValue blue_aercloud_bounce_sfx;
+        public final ForgeConfigSpec.BooleanValue aercloud_sfx;
         public final ForgeConfigSpec.BooleanValue aether_ii_portal_sounds;
 
         public Client(ForgeConfigSpec.Builder builder) {
@@ -216,9 +216,9 @@ public class ReduxConfig {
             this.night_track_music_manager = builder
                     .comment("Adds some nice night tracks to the Aether's music selection. Also disables the default music manager for the Aether, to prevent overlap")
                     .define("Nighttime music tracks", true);
-            this.blue_aercloud_bounce_sfx = builder
-                    .comment("Makes Blue Aerclouds have their wobbly sounds that play when bouncing on them")
-                    .define("Blue Aercloud bouncing sounds", true);
+            this.aercloud_sfx = builder
+                    .comment("Gives Blue and Gold (when the config is enableD) Aerclouds some nice sounds for their abilities")
+                    .define("Aercloud Ability Sounds", true);
             this.aether_ii_portal_sounds = builder
                     .comment("Gives Aether Portals their sounds from the Aether II")
                     .define("Aether II Portal Sounds", true);

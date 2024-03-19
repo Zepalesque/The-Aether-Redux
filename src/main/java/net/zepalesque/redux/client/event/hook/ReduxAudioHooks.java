@@ -60,9 +60,9 @@ public class ReduxAudioHooks {
         return false;
     }
 
-    public static boolean shouldCancelAercloudBounceSound(SoundInstance sound) {
-        if (sound.getSource() == SoundSource.BLOCKS && !ReduxConfig.CLIENT.blue_aercloud_bounce_sfx.get()) {
-            return (sound.getLocation().equals(ReduxSoundEvents.BLUE_AERCLOUD_BOUNCE.get().getLocation()));
+    public static boolean shouldCancelAercloudSound(SoundInstance sound) {
+        if (sound.getSource() == SoundSource.BLOCKS && !ReduxConfig.CLIENT.aercloud_sfx.get()) {
+            return (sound.getLocation().equals(ReduxSoundEvents.BLUE_AERCLOUD_BOUNCE.get().getLocation()) || sound.getLocation().equals(ReduxSoundEvents.GOLD_AERCLOUD_WHOOSH.get().getLocation()));
         } else {
             return false;
         }

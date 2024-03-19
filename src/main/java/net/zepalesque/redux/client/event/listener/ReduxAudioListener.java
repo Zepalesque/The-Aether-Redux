@@ -29,7 +29,7 @@ public class ReduxAudioListener {
             return;
         }
 
-        if (ReduxAudioHooks.shouldCancelAercloudBounceSound(sound)) {
+        if (ReduxAudioHooks.shouldCancelAercloudSound(sound)) {
             event.setSound(null);
             return;
         }
