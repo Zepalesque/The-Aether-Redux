@@ -171,6 +171,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue cycle_menu;
         public final ForgeConfigSpec.BooleanValue first_startup_menu_setup;
         public final ForgeConfigSpec.BooleanValue first_startup_lightmap_changes;
+        public final ForgeConfigSpec.BooleanValue aercloud_sfx;
 
         public Client(ForgeConfigSpec.Builder builder) {
             builder.push(List.of("Rendering", "Mob Model Upgrades"));
@@ -199,6 +200,9 @@ public class ReduxConfig {
             builder.pop();
             builder.push("Audio");
             this.mimic_slam_sound = builder.comment("Enables a slamming sound for mimics when using the new model. Disable if it gets too annoying XD").define("Mimic Slam Sound Effect", true);
+            this.aercloud_sfx = builder
+                    .comment("Gives sounds to the other clouds for the Aether: Genesis when it is installed")
+                    .define("Aercloud Ability Sounds", true);
             builder.pop();
             builder.push("Internal");
             this.first_startup_menu_setup = builder.comment("Internal value to do menu changes. Set this to false in modpacks if you want to use your own menu.").define("First Startup - Menu Setup", true);
