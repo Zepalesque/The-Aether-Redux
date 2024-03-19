@@ -57,7 +57,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.VANILLA_SWET_JELLY, "Vanilla Swet Jelly");
         addLore(ReduxItems.VANILLA_SWET_JELLY, "A delicious treat made with the remains of a Vanilla Swet.");
         addItem(ReduxItems.GOLDEN_SWET_BALL, "Golden Swet Ball");
-        addLore(ReduxItems.GOLDEN_SWET_BALL, "A glowing, gooey orb of a Golden Swet's gel. It can be used to craft Spectral Darts.");
+        addLore(ReduxItems.GOLDEN_SWET_BALL, "A glowing, gooey orb of a Golden Swet's gel.");
         addItem(ReduxItems.VANILLA_SWET_BALL, "Vanilla Swet Ball");
         addLore(ReduxItems.VANILLA_SWET_BALL, "A gooey, sweet-smelling orb of a Vanilla Swet's gel. True to the name, this smells like vanilla.");
 
@@ -572,9 +572,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addEntityType(ReduxEntityTypes.MYKAPOD, "Mykapod");
         addEntityType(ReduxEntityTypes.BLIGHTBUNNY, "Blightbunny");
         addEntityType(ReduxEntityTypes.EMBER, "Ember");
-        addEntityType(ReduxEntityTypes.INFUSED_VERIDIUM_DART, "Spectral Dart");
+        addEntityType(ReduxEntityTypes.INFUSED_VERIDIUM_DART, "Infused Veridium Dart");
         addEntityType(ReduxEntityTypes.VOLATILE_FIRE_CRYSTAL, "Volatile Fire Crystal");
-        addEntityType(ReduxEntityTypes.VERIDIUM_DART, "Veridium Arrow");
+        addEntityType(ReduxEntityTypes.VERIDIUM_DART, "Veridium Dart");
         addEntityType(ReduxEntityTypes.BLIGHTBUNNY_SPAWNER, "Blightbunny Spawner");
         addEntityType(ReduxEntityTypes.COCKATRICE_SPAWNER, "Cockatrice Spawner");
 
