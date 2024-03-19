@@ -36,6 +36,7 @@
     "common.item.ItemMixin",
     "common.item.PickaxeItemMixin",
     "common.item.SubzeroCrossbowItemMixin",
+    "common.registry.AdvancementSoundsMixin",
     "common.world.BronzeDungeonRoomMixin",
     "common.world.ChunkAccessAccessor",
     "common.world.GoldDungeonStructureMixin"

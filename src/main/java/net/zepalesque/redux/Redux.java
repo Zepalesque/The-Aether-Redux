@@ -325,7 +325,6 @@ public class Redux {
         }
     }
 
-
     public  void packSetup(AddPackFindersEvent event) {
 
 

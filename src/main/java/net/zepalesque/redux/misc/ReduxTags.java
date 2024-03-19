@@ -1,5 +1,8 @@
 package net.zepalesque.redux.misc;
 
+
+import com.aetherteam.aether.api.AetherAdvancementSoundOverrides;
+import com.aetherteam.aether.api.registers.AdvancementSoundOverride;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
@@ -108,6 +111,15 @@ public class ReduxTags {
 
         private static TagKey<SoundEvent> tag(String name) {
             return TagKey.create(ForgeRegistries.SOUND_EVENTS.getRegistryKey(), Redux.locate(name));
+        }
+    }
+    // Portmanteau of Advancement and Override, for context
+    public static class Adverrides {
+
+        public static final TagKey<AdvancementSoundOverride> LOW_PRIORITY = tag("low_priority");
+
+        private static TagKey<AdvancementSoundOverride> tag(String name) {
+            return TagKey.create(AetherAdvancementSoundOverrides.ADVANCEMENT_SOUND_OVERRIDE_REGISTRY_KEY, Redux.locate(name));
         }
     }
 }
