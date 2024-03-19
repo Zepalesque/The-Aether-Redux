@@ -24,7 +24,7 @@ public class AdvancementSoundsMixin {
         private static final boolean notAfter1_3_0 = ModuleDescriptor.Version.parse(ModList.get().getModFileById(Aether.MODID).versionString()).compareTo(ModuleDescriptor.Version.parse("1.20.1-1.3.0-neoforge")) <= 0;
 
         @Inject(method = "retrieveOverride", at = @At(value = "HEAD"), cancellable = true, remap = false)
-        protected static void redux$retrieve(Advancement advancement, CallbackInfoReturnable<SoundEvent> cir) {
+        private static void redux$retrieve(Advancement advancement, CallbackInfoReturnable<SoundEvent> cir) {
                 if (notAfter1_3_0) {
                         @Nullable RegistryObject<AdvancementSoundOverride> reg = null;
                         for (RegistryObject<AdvancementSoundOverride> ov : AetherAdvancementSoundOverrides.ADVANCEMENT_SOUND_OVERRIDES.getEntries()) {
