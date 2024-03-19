@@ -77,6 +77,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.DoubleValue cloud_layer_threshold_max;
 
         public final ForgeConfigSpec.BooleanValue vanilla_swets;
+        public final ForgeConfigSpec.BooleanValue dark_swets;
         public final ForgeConfigSpec.BooleanValue first_startup_aeroblender_setup;
 
         public final ForgeConfigSpec.BooleanValue gold_aercloud_ability;
@@ -96,6 +97,7 @@ public class ReduxConfig {
             builder.push("Mob Spawns");
             this.enderman_spawns = builder.comment("Allows Endermen to spawn in the Aether").worldRestart().define("Enderman Spawns", false);
             this.vanilla_swets = builder.comment("Allows Vanilla Swets to spawn in the Aether").worldRestart().define("Vanilla Swet Spawns", true);
+            this.dark_swets = builder.comment("Allows Dark Swets to spawn in the Aether").worldRestart().define("Dark Swet Spawns", true);
             builder.pop();
             builder.push("Existing Content Alterations");
             this.nerf_gummy_swets = builder.comment("Nerfs Gummy Swets, but also makes them craftable. Note: Requires the Aether's Gummy Swet Healing config to be false to properly nerf the hunger effect. Requires datapack reload.").worldRestart().define("Nerf Gummy Swets", true);
