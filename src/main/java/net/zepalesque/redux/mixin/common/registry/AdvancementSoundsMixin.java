@@ -24,7 +24,7 @@ import java.util.Optional;
 public class AdvancementSoundsMixin {
 
         @Unique
-        private static final boolean notAfter1_3_0 = ModuleDescriptor.Version.parse(ModList.get().getModFileById(Aether.MODID).versionString()).compareTo(ModuleDescriptor.Version.parse("1.20.1-1.3.0-neoforge")) <= 0;
+        private static final boolean notAfter1_3_0 = ModuleDescriptor.Version.parse(ModList.get().getModFileById(Aether.MODID).versionString()).compareTo(ModuleDescriptor.Version.parse("1.19.2-1.3.0-forge")) <= 0;
 
         @Inject(method = "retrieveOverride", at = @At(value = "HEAD"), cancellable = true, remap = false)
         private static void redux$retrieve(Advancement advancement, CallbackInfoReturnable<SoundEvent> cir) {
