@@ -33,7 +33,7 @@ public class AdvancementSoundsMixin {
                         for (Optional<Holder<AdvancementSoundOverride>> override : AetherAdvancementSoundOverrides.ADVANCEMENT_SOUND_OVERRIDE_REGISTRY.get().getEntries().stream().map(Map.Entry::getValue).map(AetherAdvancementSoundOverrides.ADVANCEMENT_SOUND_OVERRIDE_REGISTRY.get()::getHolder).toList()) {
                                 if (override.isPresent() && override.get().get().matches(advancement)) {
                                         holder = override.get();
-                                        if (override.get().is(ReduxTags.Adverrides.LOW_PRIORITY)) {
+                                        if (!override.get().is(ReduxTags.Adverrides.LOW_PRIORITY)) {
                                                 break;
                                         }
                                 }
@@ -43,4 +43,4 @@ public class AdvancementSoundsMixin {
                         }
                 }
         }
-}   
+}
