@@ -31,12 +31,6 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
 
     public static class ReduxAdvancements implements AdvancementGenerator, IConditionBuilder  {
 
-
-
-
-
-
-
         @Override
         public void generate(HolderLookup.Provider provider, Consumer<Advancement> consumer, ExistingFileHelper existingFileHelper) {
 
