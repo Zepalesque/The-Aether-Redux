@@ -3,13 +3,16 @@ package net.zepalesque.redux.mixin.common.block;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.natural.AercloudBlock;
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.config.ReduxConfig;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -26,6 +29,8 @@ public class AercloudBlockMixin {
         if (block == AetherBlocks.GOLDEN_AERCLOUD.get() && ReduxConfig.COMMON.gold_aercloud_ability.get()) {
             if (!entity.isShiftKeyDown()) {
                 entity.setDeltaMovement(entity.getDeltaMovement().x(), -2.0, entity.getDeltaMovement().z());
+                level.playSound((entity instanceof Player player ? player : null), pos, ReduxSoundEvents.GOLD_AERCLOUD_WHOOSH.get(), SoundSource.BLOCKS, 0.8f,
+                        0.9f + (level.random.nextFloat() * 0.2f));
             }
             ci.cancel();
         }
