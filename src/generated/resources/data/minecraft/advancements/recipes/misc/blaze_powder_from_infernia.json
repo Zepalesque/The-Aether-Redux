@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:orange_dye_from_infernia"
+        "recipe": "minecraft:blaze_powder_from_infernia"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:orange_dye_from_infernia"
+      "minecraft:blaze_powder_from_infernia"
     ]
   },
   "sends_telemetry_event": false
