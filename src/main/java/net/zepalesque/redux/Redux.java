@@ -4,6 +4,7 @@ import com.aetherteam.aether.AetherConfig;
 import com.aetherteam.aether.block.dispenser.DispenseUsableItemBehavior;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.item.AetherItems;
+import com.aetherteam.aether_genesis.Genesis;
 import com.aetherteam.aether_genesis.entity.GenesisEntityTypes;
 import com.aetherteam.aether_genesis.item.GenesisItems;
 import com.aetherteam.cumulus.CumulusConfig;
@@ -235,10 +236,12 @@ public class Redux {
             PotionBrewing.addMix(Potions.LONG_POISON, ReduxItems.BLIGHTED_SPORES.get(), ReduxPotions.LONG_INTOXICATION.get());
             PotionBrewing.addMix(ReduxPotions.INTOXICATION.get(), Items.REDSTONE, ReduxPotions.LONG_INTOXICATION.get());
             SwetHooks.registerParticle(AetherEntityTypes.BLUE_SWET.get(), AetherItems.SWET_BALL.get());
-            SwetHooks.registerParticle(AetherEntityTypes.GOLDEN_SWET.get(), ReduxItems.GOLDEN_SWET_BALL.get());
             SwetHooks.registerParticle(ReduxEntityTypes.VANILLA_SWET.get(), ReduxItems.VANILLA_SWET_BALL.get());
             if (Redux.aetherGenesisCompat()) {
                 SwetHooks.registerParticle(GenesisEntityTypes.DARK_SWET.get(), GenesisItems.DARK_SWET_BALL.get());
+                SwetHooks.registerParticle(AetherEntityTypes.GOLDEN_SWET.get(), GenesisItems.GOLDEN_SWET_BALL.get());
+            } else {
+                SwetHooks.registerParticle(AetherEntityTypes.GOLDEN_SWET.get(), ReduxItems.GOLDEN_SWET_BALL.get());
             }
             // TODO: Proper particles for this one
             if (Redux.ancientAetherCompat()) {
