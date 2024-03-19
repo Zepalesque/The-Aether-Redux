@@ -483,11 +483,11 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addBlock(ReduxBlocks.FLAREBLOSSOM, "Flareblossom");
         addBlock(ReduxBlocks.POTTED_FLAREBLOSSOM, "Potted Flarebloom");
-        addLore(ReduxBlocks.FLAREBLOSSOM, "A rare, exotic flower found on Gold Dungeons. it is said that these radiate pure solar energy.");
+        addLore(ReduxBlocks.FLAREBLOSSOM, "A rare, exotic flower found on Gold Dungeons. Its properties have not yet been discovered...");
 
         addBlock(ReduxBlocks.INFERNIA, "Infernia");
         addBlock(ReduxBlocks.POTTED_INFERNIA, "Potted Infernia");
-        addLore(ReduxBlocks.INFERNIA, "A flower found on Gold Dungeons. Its usages have not been discovered yet...");
+        addLore(ReduxBlocks.INFERNIA, "A flower found on Gold Dungeons. Its petals are hot, like a flame");
 
         addBlock(ReduxBlocks.VERIDIUM_ORE, "Veridium Ore");
         addLore(ReduxBlocks.VERIDIUM_ORE, "The ore of Veridium. This can be found around the Aether");
