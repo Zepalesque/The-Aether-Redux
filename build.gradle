@@ -136,9 +136,9 @@ dependencies {
     minecraft "net.minecraftforge:forge:${project.mc_version}-${project.forge_version}"
     annotationProcessor "org.spongepowered:mixin:${project.mixin_version}:processor"
 
-    compileOnly(annotationProcessor("com.github.llamalad7.mixinextras:mixinextras-common:${project.mixinextras_version}"))
-    implementation(jarJar("com.github.llamalad7.mixinextras:mixinextras-forge:${project.mixinextras_version}")) {
-        jarJar.ranged(it, "[0.2.0,)")
+    compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:0.3.5"))
+    implementation(jarJar("io.github.llamalad7:mixinextras-forge:0.3.5")) {
+        jarJar.ranged(it, "[0.3.5,)")
     }
 
     implementation fg.deobf("com.aetherteam.aether:aether:${project.aether_version}")
