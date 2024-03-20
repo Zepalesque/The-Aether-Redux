@@ -36,10 +36,8 @@ public class Flareblossom extends CustomBoundsFlowerBlock {
         double y = (double)pos.getY() + MathUtil.nextDouble(aabb.minY, aabb.maxY, random);
         double z = (double)pos.getZ() + MathUtil.nextDouble(aabb.minZ, aabb.maxZ, random);
 
-        for(int i = 0; i < 3; ++i) {
-            if (random.nextBoolean()) {
-                level.addParticle(ReduxParticleTypes.BLOSSOM_FLARE.get(), x, y, z, 0.0D, 0.0D, 0.0D);
-            }
+        if (random.nextBoolean()) {
+            level.addParticle(ReduxParticleTypes.BLOSSOM_FLARE.get(), x, y, z, 0.0D, 0.0D, 0.0D);
         }
     }
 }
