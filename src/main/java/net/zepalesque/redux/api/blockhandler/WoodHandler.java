@@ -2,6 +2,7 @@ package net.zepalesque.redux.api.blockhandler;
 
 import com.aetherteam.aether.block.construction.BookshelfBlock;
 import com.aetherteam.aether.block.natural.AetherLogBlock;
+import com.aetherteam.aether.item.AetherCreativeTabs;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
@@ -202,14 +203,14 @@ public class WoodHandler implements BlockHandler {
         });
 
 
-        this.boatItem = ReduxItems.ITEMS.register(pWoodName + "_boat", () -> new ReduxBoatItem(false, (new Item.Properties()).stacksTo(1),
+        this.boatItem = ReduxItems.ITEMS.register(pWoodName + "_boat", () -> new ReduxBoatItem(false, (new Item.Properties()).stacksTo(1).tab(AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES),
                 ((level, hitresult) -> new ReduxBoat(this, level, hitresult.getLocation().x, hitresult.getLocation().y, hitresult.getLocation().z) {
                 })));
-        this.chestBoatItem = ReduxItems.ITEMS.register(pWoodName + "_chest_boat", () -> new ReduxBoatItem(false, (new Item.Properties()).stacksTo(1),
+        this.chestBoatItem = ReduxItems.ITEMS.register(pWoodName + "_chest_boat", () -> new ReduxBoatItem(false, (new Item.Properties()).stacksTo(1).tab(AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES),
                 ((level, hitresult)  -> new ReduxChestBoat(this, level, hitresult.getLocation().x, hitresult.getLocation().y, hitresult.getLocation().z) {
                 })));
 
-        this.signItem = ReduxItems.register(pWoodName + "_sign", () -> new SignItem((new Item.Properties()).stacksTo(16), this.sign.get(), this.wallSign.get()));
+        this.signItem = ReduxItems.register(pWoodName + "_sign", () -> new SignItem((new Item.Properties()).stacksTo(16).tab(AetherCreativeTabs.AETHER_BLOCKS), this.sign.get(), this.wallSign.get()));
 
         this.logWall = ReduxBlocks.register(woodName + "_"+pLogSuffix+"_wall", () -> new ReduxNaturalWall(Block.Properties.of(Material.WOOD).color(barkColor).strength(2.0F).sound(pLogSoundType)));
         this.woodWall = ReduxBlocks.register(woodName + "_"+pWoodSuffix+"_wall", () -> new ReduxNaturalWall(Block.Properties.of(Material.WOOD).color(barkColor).strength(2.0F).sound(pLogSoundType)));
