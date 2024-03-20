@@ -5,6 +5,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SpawnerBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
@@ -14,13 +15,15 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.zepalesque.redux.block.natural.CustomBoundsBushBlock;
 import net.zepalesque.redux.block.natural.CustomBoundsFlowerBlock;
 import net.zepalesque.redux.block.util.CommonPlantBounds;
+import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.util.math.MathUtil;
 
 import java.util.function.Supplier;
 
 public class Flareblossom extends CustomBoundsFlowerBlock {
+    public static final VoxelShape SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 13.0D, 12.0D);
     public Flareblossom(Supplier<MobEffect> effectSupplier, int pEffectDuration, Properties pProperties) {
-        super(CommonPlantBounds.SHORT_FERN, effectSupplier, pEffectDuration, pProperties);
+        super(SHAPE, effectSupplier, pEffectDuration, pProperties);
     }
 
 
@@ -35,7 +38,7 @@ public class Flareblossom extends CustomBoundsFlowerBlock {
 
         for(int i = 0; i < 3; ++i) {
             if (random.nextBoolean()) {
-                level.addParticle(ParticleTypes.FLAME, x, y, z, 0.0D, 0.0D, 0.0D);
+                level.addParticle(ReduxParticleTypes.BLOSSOM_FLARE.get(), x, y, z, 0.0D, 0.0D, 0.0D);
             }
         }
     }
