@@ -33,10 +33,10 @@ public class Flareblossom extends CustomBoundsFlowerBlock {
         VoxelShape voxelshape = this.getShape(state, level, pos, CollisionContext.empty());
         AABB aabb = voxelshape.bounds();
         double x = (double)pos.getX() + MathUtil.nextDouble(aabb.minX, aabb.maxX, random);
-        double y = (double)pos.getY() + MathUtil.nextDouble(aabb.minY, aabb.maxY, random);
+        double y = (double)pos.getY() + MathUtil.nextDouble(aabb.minY + 0.25, aabb.maxY, random);
         double z = (double)pos.getZ() + MathUtil.nextDouble(aabb.minZ, aabb.maxZ, random);
 
-        if (random.nextBoolean()) {
+        if (random.nextFloat() > 0.25F) {
             level.addParticle(ReduxParticleTypes.BLOSSOM_FLARE.get(), x, y, z, 0.0D, 0.0D, 0.0D);
         }
     }
