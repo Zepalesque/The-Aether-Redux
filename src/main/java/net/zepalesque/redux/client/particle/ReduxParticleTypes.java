@@ -3,6 +3,7 @@ package net.zepalesque.redux.client.particle;
 import com.mojang.math.Vector3f;
 import com.mojang.serialization.Codec;
 import net.minecraft.client.particle.Particle;
+import net.minecraft.client.particle.FlameParticle;
 import net.minecraft.client.particle.ParticleEngine;
 import net.minecraft.client.particle.ParticleProvider;
 import net.minecraft.client.particle.TextureSheetParticle;
@@ -78,6 +79,8 @@ public class ReduxParticleTypes {
 
     public static final RegistryObject<SimpleParticleType> BLIGHTSHADE = PARTICLES.register("blightshade", () -> new SimpleParticleType(false));
 
+    public static final RegistryObject<SimpleParticleType> BLOSSOM_FLARE = PARTICLES.register("blossom_flare", () -> new SimpleParticleType(false));
+
     public static final RegistryObject<SimpleParticleType> SPARK = PARTICLES.register("spark", () -> new SimpleParticleType(false));
     public static final Vector3f SHINY_CLOUD_COLOR = new Vector3f(Vec3.fromRGB24(16777215));
     public static final DustParticleOptions SHINY_CLOUD = new DustParticleOptions(SHINY_CLOUD_COLOR, 1.0F);
@@ -116,6 +119,9 @@ public class ReduxParticleTypes {
         registerSpriteSet(event, FALLING_PRISMATIC_LEAVES.get(), FallingLeafParticle.Provider::new);
         registerSpriteSet(event, FALLING_GLACIA_NEEDLES.get(), FallingLeafParticle.Provider::new);
         registerSpriteSet(event, FALLING_PURPLE_GLACIA_NEEDLES.get(), FallingLeafParticle.Provider::new);
+
+        // TODO: Investigate making this more unique?
+        registerSpriteSet(event, BLOSSOM_FLARE.get(), FlameParticle.Provider::new);
 
         registerSpriteSet(event, ICE_SHARD.get(), IceShardParticle.Provider::new);
         registerSpriteSet(event, FROST.get(), FrostParticle.Provider::new);
