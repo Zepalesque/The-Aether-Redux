@@ -2,6 +2,8 @@ package net.zepalesque.redux.client;
 
 import com.aetherteam.aether.block.AetherBlocks;
 import net.builderdog.ancient_aether.block.AncientAetherBlocks;
+import net.builderdog.ancient_aether.block.blockstate.AetherGrassType;
+import net.builderdog.ancient_aether.block.blockstate.AncientAetherBlockStateProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.FastColor;
 import net.minecraft.world.level.BlockAndTintGetter;
@@ -71,7 +73,7 @@ public class ReduxColors {
 
         // Ancient Aether Compat
         if (Redux.ancientAetherCompat()) {
-            event.getBlockColors().register((state, level, pos, index) -> level != null && pos != null  ? getAverageColor(level, pos, AETHER_GRASS_RESOLVER) : ReduxBiomes.AETHER_GRASS_COLOR, AncientAetherBlocks.SKY_GRASS.get());
+            event.getBlockColors().register((state, level, pos, index) -> level != null && pos != null ? state.hasProperty(AncientAetherBlockStateProperties.TYPE) && state.getValue(AncientAetherBlockStateProperties.TYPE) == AetherGrassType.ENCHANTED ? 0xFFFFFF : getAverageColor(level, pos, AETHER_GRASS_RESOLVER) : ReduxBiomes.AETHER_GRASS_COLOR, AncientAetherBlocks.SKY_GRASS.get());
             event.getBlockColors().register((state, level, pos, index) -> getColor(state, level, pos, index, 1),
                     AncientAetherBlocks.HIGHLAND_VIOLA.get(),
                     AncientAetherBlocks.POTTED_HIGHLAND_VIOLA.get(),
