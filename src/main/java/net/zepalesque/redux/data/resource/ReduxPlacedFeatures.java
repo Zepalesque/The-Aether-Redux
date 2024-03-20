@@ -730,7 +730,7 @@ public class ReduxPlacedFeatures {
                 BiomeFilter.biome()
         );
 
-        register(context, SENTRITE_ORE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.DIVINITE_ORE),
+        register(context, SENTRITE_ORE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.SENTRITE_ORE),
                 InSquarePlacement.spread(),
 //                RarityFilter.onAverageOnceEvery(1),
                 HeightRangePlacement.of(TrapezoidHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.aboveBottom(128))),
