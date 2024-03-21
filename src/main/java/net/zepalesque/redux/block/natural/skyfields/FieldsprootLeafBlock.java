@@ -4,7 +4,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.util.Mth;
-import net.minecraft.util.ParticleUtils;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
@@ -22,7 +21,6 @@ import net.zepalesque.redux.util.level.ParticlePlacementUtil;
 import net.zepalesque.redux.util.math.MathUtil;
 
 import java.util.function.BiFunction;
-import java.util.function.Supplier;
 import java.util.stream.IntStream;
 
 public class FieldsprootLeafBlock extends ExtendedDistanceLeavesBlock {

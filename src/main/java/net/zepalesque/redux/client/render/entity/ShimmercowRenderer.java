@@ -12,9 +12,7 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.render.ReduxModelLayers;
-import net.zepalesque.redux.client.render.entity.layer.entity.GlowLayer;
 import net.zepalesque.redux.client.render.entity.layer.entity.ShimmercowEmissiveLayer;
-import net.zepalesque.redux.client.render.entity.layer.entity.TranslucentEmissiveLayer;
 import net.zepalesque.redux.client.render.entity.model.entity.ShimmercowModel;
 import net.zepalesque.redux.entity.passive.Shimmercow;
 

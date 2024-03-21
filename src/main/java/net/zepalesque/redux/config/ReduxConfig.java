@@ -2,8 +2,8 @@ package net.zepalesque.redux.config;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.zepalesque.redux.config.enums.MimicModelType;
-import net.zepalesque.redux.config.enums.QuicksoilSetting;
 import net.zepalesque.redux.config.enums.MoaFeetType;
+import net.zepalesque.redux.config.enums.QuicksoilSetting;
 import net.zepalesque.redux.config.enums.SpawnerType;
 import net.zepalesque.redux.config.enums.dungeon.BossRoomType;
 import net.zepalesque.redux.config.enums.dungeon.ChestRoomType;

@@ -20,8 +20,8 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.entity.monster.Blightbunny;
 import net.zepalesque.redux.entity.monster.SkyrootMimic;
-import net.zepalesque.redux.entity.passive.Shimmercow;
 import net.zepalesque.redux.entity.passive.Mykapod;
+import net.zepalesque.redux.entity.passive.Shimmercow;
 import net.zepalesque.redux.entity.projectile.*;
 import net.zepalesque.redux.entity.util.EntitySpawner;
 

@@ -1,15 +1,11 @@
 package net.zepalesque.redux.item.util;
 
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.protocol.game.ClientboundSoundPacket;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.network.ReduxPacketHandler;
 import net.zepalesque.redux.network.packet.InfusionExpirePacket;

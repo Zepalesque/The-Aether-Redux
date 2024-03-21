@@ -6,19 +6,10 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.RandomSource;
-import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.phys.AABB;
-import net.zepalesque.redux.advancement.trigger.DoubleJumpTrigger;
-import net.zepalesque.redux.capability.player.ReduxPlayer;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
-import net.zepalesque.redux.world.feature.config.FieldsprootTreeConfig;
-
-import java.util.UUID;
 
 public record BlightshadeParticlePacket(AABB bounds) implements BasePacket {
 

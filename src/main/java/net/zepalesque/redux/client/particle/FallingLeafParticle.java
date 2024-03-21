@@ -8,7 +8,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.util.math.MathUtil;
 
 import java.util.List;

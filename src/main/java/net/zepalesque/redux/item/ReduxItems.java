@@ -28,7 +28,10 @@ import net.zepalesque.redux.item.tools.VeridiumHoeItem;
 import net.zepalesque.redux.item.tools.VeridiumPickaxeItem;
 import net.zepalesque.redux.item.tools.VeridiumShovelItem;
 import net.zepalesque.redux.item.util.ReduxItemTiers;
-import net.zepalesque.redux.item.weapons.*;
+import net.zepalesque.redux.item.weapons.BlightSpearItem;
+import net.zepalesque.redux.item.weapons.SubzeroCrossbowItem;
+import net.zepalesque.redux.item.weapons.VeridiumDartShooter;
+import net.zepalesque.redux.item.weapons.VeridiumSwordItem;
 
 import java.util.function.UnaryOperator;
 

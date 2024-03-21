@@ -1,15 +1,12 @@
 package net.zepalesque.redux.misc;
 
 import com.aetherteam.aether.effect.AetherEffects;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.alchemy.Potion;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.effect.BlightwardEffect;
 
 public class ReduxPotions {
 

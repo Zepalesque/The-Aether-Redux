@@ -2,7 +2,6 @@ package net.zepalesque.redux.client.render.entity.layer.entity;
 
 import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.entity.passive.Phyg;
-
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Minecraft;

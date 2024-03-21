@@ -11,29 +11,6 @@ import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 
-import net.zepalesque.redux.block.util.state.ReduxStates;
-import net.zepalesque.redux.block.util.state.enums.PetalPrismaticness;
-import net.zepalesque.redux.misc.ReduxTags;
-import net.zepalesque.redux.world.feature.CloudcapFeature;
-import net.zepalesque.redux.world.feature.ReduxFeatures;
-import net.zepalesque.redux.world.feature.UpwardVineFeature;
-import net.zepalesque.redux.world.feature.config.*;
-import net.zepalesque.redux.world.stateprov.SimpleConditionAlternativeStateProvider;
-import net.zepalesque.redux.world.tree.decorator.BlightwillowRootsTrunkDecorator;
-import net.zepalesque.redux.world.tree.decorator.EnchantedVineDecorator;
-import net.zepalesque.redux.world.tree.decorator.GenesisTrunkDecorator;
-import net.zepalesque.redux.world.tree.decorator.PatchTreeDecorator;
-import net.zepalesque.redux.world.tree.foliage.BlightwillowFoliagePlacer;
-import net.zepalesque.redux.world.tree.foliage.GenesisHookedFoliagePlacer;
-import net.zepalesque.redux.world.tree.foliage.GenesisPineFoliagePlacer;
-import net.zepalesque.redux.world.tree.foliage.GlaciaFoliagePlacer;
-import net.zepalesque.redux.world.tree.trunk.GenesisHookedTrunkPlacer;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
-import java.util.OptionalInt;
-
 
 // TODO (maybe not the perfect spot for this but whatever) IntProvider-based straight Trunk placer thing (should really be a vanilla feature)
 public class ReduxConfiguredFeatures {

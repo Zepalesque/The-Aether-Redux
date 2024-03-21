@@ -5,8 +5,6 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
 import net.zepalesque.redux.api.packconfig.PackConfig;
-import net.zepalesque.redux.client.gui.component.config.IDisplayPage;
-import net.zepalesque.redux.client.gui.component.config.ISaveable;
 import net.zepalesque.redux.client.gui.screen.config.PackConfigMenu;
 
 import java.util.List;

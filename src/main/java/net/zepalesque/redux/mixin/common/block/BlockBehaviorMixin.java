@@ -1,7 +1,6 @@
 package net.zepalesque.redux.mixin.common.block;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;

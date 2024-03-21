@@ -1,7 +1,6 @@
 package net.zepalesque.redux.client.gui.component;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.client.gui.components.Button;
 import net.minecraft.network.chat.Component;
 import net.zepalesque.redux.client.gui.backported.SlicedButton;
 import net.zepalesque.redux.client.gui.component.config.IDisplayPage;

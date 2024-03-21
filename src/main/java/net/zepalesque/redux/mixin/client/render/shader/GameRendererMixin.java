@@ -2,15 +2,11 @@ package net.zepalesque.redux.mixin.client.render.shader;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.renderer.GameRenderer;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.projectile.Arrow;
-import net.zepalesque.redux.capability.arrow.SubzeroArrow;
 import net.zepalesque.redux.client.ReduxPostProcessHandler;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 // TODO: Investigate whether or not this is a good way to do this, because I'm not convinced it is...
 @Mixin(GameRenderer.class)

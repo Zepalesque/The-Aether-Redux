@@ -9,8 +9,8 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.util.Mth;
-import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.capability.animation.mimic.MimicAnimation;
+import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.util.math.EasingUtil;
 import net.zepalesque.redux.util.math.MathUtil;
 

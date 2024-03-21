@@ -10,7 +10,6 @@ import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.common.world.ModifiableBiomeInfo;
 import net.zepalesque.redux.util.function.CodecPredicates;
 
-import javax.swing.text.html.Option;
 import java.util.Optional;
 
 public record MusicModifier(

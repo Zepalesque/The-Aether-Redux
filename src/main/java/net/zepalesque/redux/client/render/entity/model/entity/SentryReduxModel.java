@@ -9,8 +9,8 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.util.Mth;
-import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.capability.animation.sentry.SentryAnimation;
+import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.util.math.EasingUtil;
 
 public class SentryReduxModel<T extends Sentry> extends EntityModel<T> {

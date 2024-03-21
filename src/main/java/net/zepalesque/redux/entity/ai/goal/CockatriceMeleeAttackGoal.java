@@ -1,7 +1,5 @@
 package net.zepalesque.redux.entity.ai.goal;
 
-import java.util.EnumSet;
-
 import com.aetherteam.aether.entity.monster.Cockatrice;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EntitySelector;
@@ -11,6 +9,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.pathfinder.Path;
 import net.minecraftforge.common.util.LazyOptional;
 import net.zepalesque.redux.capability.cockatrice.CockatriceExtension;
+
+import java.util.EnumSet;
 
 public class CockatriceMeleeAttackGoal extends Goal {
     protected final Cockatrice mob;

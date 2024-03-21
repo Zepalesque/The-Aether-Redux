@@ -1,7 +1,6 @@
 package net.zepalesque.redux.entity.ai.goal;
 
 import net.minecraft.world.entity.ai.goal.PanicGoal;
-import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.zepalesque.redux.entity.passive.Mykapod;
 
 public class MykapodPanicGoal extends PanicGoal {

@@ -2,11 +2,9 @@ package net.zepalesque.redux.client.particle;
 
 import com.mojang.math.Vector3f;
 import com.mojang.serialization.Codec;
-import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.FlameParticle;
 import net.minecraft.client.particle.ParticleEngine;
 import net.minecraft.client.particle.ParticleProvider;
-import net.minecraft.client.particle.TextureSheetParticle;
 import net.minecraft.core.particles.*;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;

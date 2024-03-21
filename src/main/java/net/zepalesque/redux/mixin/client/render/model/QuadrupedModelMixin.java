@@ -1,9 +1,5 @@
 package net.zepalesque.redux.mixin.client.render.model;
 
-import com.aetherteam.aether.client.renderer.entity.model.SheepuffModel;
-import com.aetherteam.aether.entity.passive.Sheepuff;
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.QuadrupedModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.world.entity.Entity;

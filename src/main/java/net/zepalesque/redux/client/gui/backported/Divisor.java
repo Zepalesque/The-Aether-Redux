@@ -2,6 +2,7 @@ package net.zepalesque.redux.client.gui.backported;
 
 import com.google.common.annotations.VisibleForTesting;
 import it.unimi.dsi.fastutil.ints.IntIterator;
+
 import java.util.NoSuchElementException;
 
 public class Divisor implements IntIterator {

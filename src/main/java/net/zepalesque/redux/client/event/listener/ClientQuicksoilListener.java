@@ -2,7 +2,6 @@ package net.zepalesque.redux.client.event.listener;
 
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.phys.AABB;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -11,9 +10,7 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.event.hook.ClientQuicksoilHooks;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.config.enums.QuicksoilSetting;
-import net.zepalesque.redux.event.hook.MobHooks;
 import net.zepalesque.redux.misc.ReduxTags;
-import net.zepalesque.redux.util.level.LevelUtil;
 
 @Mod.EventBusSubscriber(modid = Redux.MODID, value = Dist.CLIENT)
 public class ClientQuicksoilListener {

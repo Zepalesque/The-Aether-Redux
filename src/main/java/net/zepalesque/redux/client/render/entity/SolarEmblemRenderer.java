@@ -1,7 +1,6 @@
 package net.zepalesque.redux.client.render.entity;
 
 import com.aetherteam.aether.item.EquipmentUtil;
-import com.aetherteam.aether.item.accessories.pendant.PendantItem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Minecraft;

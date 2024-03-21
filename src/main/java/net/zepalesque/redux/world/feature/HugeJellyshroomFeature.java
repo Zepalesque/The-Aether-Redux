@@ -6,16 +6,13 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.zepalesque.redux.misc.ReduxTags;
-import net.zepalesque.redux.world.feature.config.HugeAetherMushroomFeatureConfiguration;
 import net.zepalesque.redux.world.feature.config.JellyshroomConfig;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 

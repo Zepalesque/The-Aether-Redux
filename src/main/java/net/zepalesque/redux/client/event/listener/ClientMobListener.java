@@ -8,8 +8,8 @@ import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
+import net.zepalesque.redux.config.ReduxConfig;
 
 @Mod.EventBusSubscriber(modid = Redux.MODID, value = Dist.CLIENT)
 public class ClientMobListener {

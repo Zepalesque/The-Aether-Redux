@@ -21,7 +21,6 @@ import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.capability.ReduxCapabilities;
 import net.zepalesque.redux.capability.player.ReduxPlayer;
-import net.zepalesque.redux.data.resource.ReduxDamageTypes;
 import net.zepalesque.redux.effect.ReduxEffects;
 import net.zepalesque.redux.entity.projectile.Ember;
 import net.zepalesque.redux.item.ReduxItems;
