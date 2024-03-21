@@ -2,6 +2,7 @@ package net.zepalesque.redux.data.resource;
 
 import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.block.AetherBlocks;
+import com.aetherteam.aether.data.resources.registries.AetherPlacedFeatures;
 import com.aetherteam.aether.world.placementmodifier.DungeonBlacklistFilter;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceKey;
