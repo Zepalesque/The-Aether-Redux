@@ -72,8 +72,6 @@
     "client.render.model.FlyingCowModelMixin",
     "client.render.model.MoaModelMixin",
     "client.render.model.QuadrupedModelMixin",
-    "client.render.model.SheepuffModelMixin",
-    "client.render.shader.GameRendererMixin",
-    "client.render.shader.PostPassMixin"
+    "client.render.model.SheepuffModelMixin"
   ]
 }

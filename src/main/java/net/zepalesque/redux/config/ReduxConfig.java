@@ -173,7 +173,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue flying_cow_model_upgrade;
         public final ForgeConfigSpec.ConfigValue<String> version_id;
         public final ForgeConfigSpec.BooleanValue better_leaf_particles;
-        public final ForgeConfigSpec.BooleanValue enable_adrenaline_postproccess;
+//        public final ForgeConfigSpec.BooleanValue enable_adrenaline_postproccess;
         public final ForgeConfigSpec.BooleanValue fix_biome_modifier_bug;
         public final ForgeConfigSpec.BooleanValue cycle_menu;
         public final ForgeConfigSpec.BooleanValue first_startup_menu_setup;
@@ -195,9 +195,9 @@ public class ReduxConfig {
             this.phyg_model_upgrade = builder.comment("Gives the Phyg's model some touchups and improvements").define("Phyg Model Upgrade", true);
             this.flying_cow_model_upgrade = builder.comment("Gives the Flying Cow's model some touchups and improvements").define("Flying Cow Model Upgrade", true);
             builder.pop();
-            builder.push("Shader FX");
-            this.enable_adrenaline_postproccess = builder.comment("Enables a post processing effect for the Shroom Ring's adrenaline ability. Only works with Fabulous graphics, and will cause issues when underwater (even when the ability is not active)").define("Enable Adrenaline Post Processing Effect", false);
-            builder.pop();
+//            builder.push("Shader FX");
+//            this.enable_adrenaline_postproccess = builder.comment("Enables a post processing effect for the Shroom Ring's adrenaline ability. Only works with Fabulous graphics, and will cause issues when underwater (even when the ability is not active)").define("Enable Adrenaline Post Processing Effect", false);
+//            builder.pop();
             builder.push("GUI");
             this.cycle_menu = builder.comment("Cycles between Redux's menus.").define("Cycle Menu", true);
             builder.pop();

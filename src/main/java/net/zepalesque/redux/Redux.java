@@ -57,7 +57,6 @@ import net.zepalesque.redux.builtin.BuiltinPackUtils;
 import net.zepalesque.redux.client.ReduxClient;
 import net.zepalesque.redux.client.ReduxColors;
 import net.zepalesque.redux.client.ReduxMenus;
-import net.zepalesque.redux.client.ReduxPostProcessHandler;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.client.render.ReduxRenderers;
@@ -278,7 +277,6 @@ public class Redux {
                     ReduxMenus.cycle();
                     ReduxClient.registerItemModelProperties();
                     ReduxClient.registerGuiFactories();
-                    ReduxPostProcessHandler.initAdrenalineShader();
                     this.versionRefresh();
                 });
     }
