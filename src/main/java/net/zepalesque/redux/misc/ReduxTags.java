@@ -87,6 +87,7 @@ public class ReduxTags {
         public static final TagKey<Biome> AA_SKY_GRASS = tagAncient("has_aether_grass_patches");
 
         public static final TagKey<Biome> HAS_AETHER_CAVES = tag("has_aether_caves");
+        public static final TagKey<Biome> HAS_CLOUD_LAYER = tag("has_cloud_layer");
         public static final TagKey<Biome> HAS_BLIGHTED_CAVES = tag("has_blighted_caves");
         public static final TagKey<Biome> HAS_FUNGAL_CAVES = tag("has_fungal_caves");
         public static final TagKey<Biome> HAS_MOSSY_HOLYSTONE_ORE = tag("has_mossy_holystone_ore");
