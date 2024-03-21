@@ -67,7 +67,6 @@ public class ReduxColors {
                 ReduxBlocks.POTTED_SPIROLYCTIL.get(),
                 ReduxBlocks.XAELIA_PATCH.get()
         );
-
         // Deep Aether compat
         if (Redux.deepAetherCompat()) {
             event.getBlockColors().register((state, level, pos, index) -> getColor(state, level, pos, index, 1),

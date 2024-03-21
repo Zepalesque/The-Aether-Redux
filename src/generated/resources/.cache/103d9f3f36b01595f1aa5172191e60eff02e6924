@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-18T17:11:38.7130263	Registries
+// 1.20.1	2024-03-20T14:06:56.8461914	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 94d997b0a87f23900f66f9a9e2485391b6ff8e38 data/aether/worldgen/configured_feature/golden_oak_tree.json
 875593e37a52dd63b2d87226b0f0e5e76ef48247 data/aether/worldgen/configured_feature/grass_patch.json
@@ -172,7 +172,7 @@ e6d6692925d0cdb8671365b4b1c08d82c5190eb2 data/aether_redux/worldgen/placed_featu
 e6d6692925d0cdb8671365b4b1c08d82c5190eb2 data/aether_redux/worldgen/placed_feature/ore/golden_heights_gilded_holystone_ore.json
 d3191b74fb5d9a0a068c57e16c76cf7a239d5e1d data/aether_redux/worldgen/placed_feature/ore/large_icestone_chunk.json
 13a9dc9be66e01f4468a64a2fc65ae9a491a6432 data/aether_redux/worldgen/placed_feature/ore/mossy_holystone_ore.json
-b524af900ab3eaea7ef7736526ab19886d25a90c data/aether_redux/worldgen/placed_feature/ore/sentrite_ore.json
+654dbfb3c4ad1f2b090838316aef57144b520799 data/aether_redux/worldgen/placed_feature/ore/sentrite_ore.json
 672156d75609ada8d15603596a26ff8e0c76a2e0 data/aether_redux/worldgen/placed_feature/ore/sparse_aerogel_ore.json
 1741f6c947a7d82f7a6ee104b166cfa1b83bbfab data/aether_redux/worldgen/placed_feature/ore/sparse_ambrosium_ore.json
 bee4b24951937eac7e9295fc49afb764a930fb83 data/aether_redux/worldgen/placed_feature/ore/sparse_zanite_ore.json

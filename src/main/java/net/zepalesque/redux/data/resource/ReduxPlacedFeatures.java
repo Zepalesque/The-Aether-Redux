@@ -101,6 +101,8 @@ public class ReduxPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> ANCIENT_ENCHANTED_GRASS = copyKey(ReduxConfiguredFeatures.ANCIENT_ENCHANTED_GRASS);
 
+    public static final ResourceKey<PlacedFeature> BONEMEAL_OVERRIDE = AetherPlacedFeatures.AETHER_GRASS_BONEMEAL;
+
     private static ResourceKey<PlacedFeature> createKey(String name) {
         return ResourceKey.create(BuiltinRegistries.PLACED_FEATURE.key(), new ResourceLocation(Redux.MODID, name));
     }
