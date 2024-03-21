@@ -1,6 +1,7 @@
 package net.zepalesque.redux.data.tags;
 
 import com.aetherteam.aether.client.AetherSoundEvents;
+import com.aetherteam.aether_genesis.client.GenesisSoundEvents;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
@@ -21,6 +22,6 @@ public class ReduxSoundEventTagData extends TagsProvider<SoundEvent> {
 
     @Override
     protected void addTags(HolderLookup.@NotNull Provider pProvider) {
-        this.tag(ReduxTags.Sounds.AETHER_MUSIC).add(AetherSoundEvents.MUSIC_AETHER.getKey());
+        this.tag(ReduxTags.Sounds.AETHER_MUSIC).add(AetherSoundEvents.MUSIC_AETHER.getKey()).addOptional(GenesisSoundEvents.MUSIC_AETHER_NIGHT.getId());
     }
 }

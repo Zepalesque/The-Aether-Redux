@@ -43,6 +43,7 @@
   },
   "client": [
     "client.audio.SentryClientMixin",
+    "client.audio.SoundEngineAccessor",
     "client.block.AetherColorResolversMixin",
     "client.block.AetherLeavesClientMixin",
     "client.block.LeafBlockClientMixin",
