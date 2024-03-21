@@ -1,5 +1,9 @@
 {
   "values": [
-    "aether:music.aether"
+    "aether:music.aether",
+    {
+      "id": "aether_genesis:music.aether_night",
+      "required": false
+    }
   ]
 }
