@@ -1,10 +1,10 @@
 package net.zepalesque.redux.util.compat;
 
 import com.google.common.collect.ImmutableMap;
-import net.minecraftforge.common.util.Lazy;
 import net.builderdog.ancient_aether.block.AncientAetherBlocks;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.common.util.Lazy;
 import net.minecraftforge.fml.ModList;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;

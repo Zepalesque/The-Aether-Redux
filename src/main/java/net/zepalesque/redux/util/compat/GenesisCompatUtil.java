@@ -7,13 +7,12 @@ import com.aetherteam.aether_genesis.block.GenesisBlocks;
 import com.aetherteam.aether_genesis.client.particle.GenesisParticleTypes;
 import com.aetherteam.aether_genesis.entity.GenesisEntityTypes;
 import com.google.common.collect.ImmutableMap;
-import net.minecraft.world.entity.EntityType;
-import net.minecraftforge.common.util.Lazy;
 import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.common.util.Lazy;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
-import net.zepalesque.redux.config.ReduxConfig;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;

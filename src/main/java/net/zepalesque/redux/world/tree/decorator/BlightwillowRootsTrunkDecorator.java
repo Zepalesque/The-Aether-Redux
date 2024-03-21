@@ -4,10 +4,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.util.Mth;
 import net.minecraft.util.valueproviders.IntProvider;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.WallSide;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
@@ -16,7 +13,6 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.util.level.WorldgenUtil;
-import net.zepalesque.redux.world.feature.CloudcapFeature;
 
 public class BlightwillowRootsTrunkDecorator extends TreeDecorator {
 

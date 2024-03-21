@@ -1,10 +1,8 @@
 package net.zepalesque.redux.capability.player;
 
 import com.aetherteam.nitrogen.capability.INBTSynchable;
-import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.util.LazyOptional;
 import net.zepalesque.redux.capability.ReduxCapabilities;
 

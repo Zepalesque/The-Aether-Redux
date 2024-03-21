@@ -27,7 +27,6 @@ import net.zepalesque.redux.util.math.MathUtil;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.UUID;
 
 public class Ember extends Projectile {

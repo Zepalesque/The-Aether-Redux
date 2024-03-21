@@ -16,7 +16,6 @@ import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.zepalesque.redux.client.audio.ReduxMusic;
 import net.zepalesque.redux.data.resource.ReduxPlacedFeatures;
-import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
 
 public class BaseBiome {
 

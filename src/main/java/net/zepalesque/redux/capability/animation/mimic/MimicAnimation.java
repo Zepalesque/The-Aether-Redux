@@ -2,8 +2,8 @@ package net.zepalesque.redux.capability.animation.mimic;
 
 import com.aetherteam.aether.entity.monster.dungeon.Mimic;
 import net.minecraftforge.common.util.LazyOptional;
-import net.zepalesque.redux.capability.ReduxCapabilities;
 import net.zepalesque.redux.capability.ICompoundTagNonSynching;
+import net.zepalesque.redux.capability.ReduxCapabilities;
 
 public interface MimicAnimation extends ICompoundTagNonSynching {
     Mimic getMimic();

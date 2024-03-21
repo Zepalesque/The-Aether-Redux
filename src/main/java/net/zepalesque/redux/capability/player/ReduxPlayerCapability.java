@@ -4,14 +4,12 @@ import com.aetherteam.aether.item.EquipmentUtil;
 import com.aetherteam.nitrogen.network.BasePacket;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraftforge.network.simple.SimpleChannel;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.network.ReduxPacketHandler;
 import net.zepalesque.redux.network.packet.ReduxPlayerSyncPacket;
 import net.zepalesque.redux.util.player.AbilityUtil;
 import org.apache.commons.lang3.tuple.Triple;
-import teamrazor.deepaether.init.DAItems;
 
 import java.util.Map;
 import java.util.function.Consumer;

@@ -1,9 +1,6 @@
 package net.zepalesque.redux.entity.dataserializer;
 
-import com.ibm.icu.util.GenderInfo;
-import com.mojang.serialization.Codec;
 import net.minecraft.network.syncher.EntityDataSerializer;
-import net.minecraftforge.common.loot.IGlobalLootModifier;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;

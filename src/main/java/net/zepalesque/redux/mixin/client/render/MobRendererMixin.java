@@ -1,6 +1,5 @@
 package net.zepalesque.redux.mixin.client.render;
 
-import com.aetherteam.aether.client.renderer.entity.MoaRenderer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.MultiBufferSource;

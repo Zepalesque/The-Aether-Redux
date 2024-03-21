@@ -20,7 +20,6 @@ import net.zepalesque.redux.block.util.state.ReduxStates;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 
 import java.util.function.BiFunction;
-import java.util.function.Supplier;
 import java.util.stream.IntStream;
 
 public class FieldsprootLeafBlock extends ExtendedDistanceLeavesBlock {

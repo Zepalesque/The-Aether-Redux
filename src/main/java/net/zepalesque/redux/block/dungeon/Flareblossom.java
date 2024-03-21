@@ -1,20 +1,15 @@
 package net.zepalesque.redux.block.dungeon;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SpawnerBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
-import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.zepalesque.redux.block.natural.CustomBoundsBushBlock;
 import net.zepalesque.redux.block.natural.CustomBoundsFlowerBlock;
-import net.zepalesque.redux.block.util.CommonPlantBounds;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.util.math.MathUtil;
 

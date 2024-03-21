@@ -12,12 +12,9 @@ import net.zepalesque.redux.block.natural.CustomBoundsFlowerBlock;
 import net.zepalesque.redux.block.util.CommonPlantBounds;
 import net.zepalesque.redux.capability.player.ReduxPlayer;
 import net.zepalesque.redux.event.hook.EquipmentHooks;
-import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.misc.ReduxTags;
 import top.theillusivec4.curios.api.CuriosApi;
-import top.theillusivec4.curios.api.SlotResult;
 
-import java.util.Optional;
 import java.util.function.Supplier;
 
 public class BlightshadeBlock extends CustomBoundsFlowerBlock {

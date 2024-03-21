@@ -7,7 +7,6 @@ import com.aetherteam.cumulus.api.Menu;
 import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.common.util.Lazy;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
@@ -15,7 +14,6 @@ import net.zepalesque.redux.client.audio.ReduxMusic;
 import net.zepalesque.redux.client.gui.screen.menu.ReduxTitleScreen;
 import net.zepalesque.redux.config.ReduxConfig;
 
-import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
 
 public class ReduxMenus {

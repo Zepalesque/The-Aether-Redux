@@ -1,7 +1,6 @@
 package net.zepalesque.redux.mixin.client.render.layer;
 
 import com.aetherteam.aether.client.renderer.entity.layers.MoaSaddleEmissiveLayer;
-import com.aetherteam.aether.client.renderer.entity.layers.MoaSaddleLayer;
 import com.aetherteam.aether.client.renderer.entity.model.MoaModel;
 import com.aetherteam.aether.entity.passive.Moa;
 import com.mojang.blaze3d.vertex.PoseStack;

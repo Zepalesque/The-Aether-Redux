@@ -1,8 +1,6 @@
 package net.zepalesque.redux.entity.ai.goal;
 
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.BreedGoal;
-import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.animal.Animal;
 import net.zepalesque.redux.entity.passive.Mykapod;
 

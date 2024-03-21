@@ -5,7 +5,6 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.Holder;
 import net.minecraft.sounds.SoundEvent;
-import net.zepalesque.redux.world.biome.modifier.WaterColorReplacementBiomeModifier;
 
 public class CodecPredicates {
 

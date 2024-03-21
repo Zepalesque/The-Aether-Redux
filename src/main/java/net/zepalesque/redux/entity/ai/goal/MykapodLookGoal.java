@@ -1,9 +1,9 @@
 package net.zepalesque.redux.entity.ai.goal;
 
-import java.util.EnumSet;
-
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.zepalesque.redux.entity.passive.Mykapod;
+
+import java.util.EnumSet;
 
 public class MykapodLookGoal extends Goal {
    protected final Mykapod mykapod;

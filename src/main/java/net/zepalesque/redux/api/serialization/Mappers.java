@@ -2,8 +2,6 @@ package net.zepalesque.redux.api.serialization;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
-import net.minecraft.client.gui.components.AbstractWidget;
-import net.zepalesque.redux.api.packconfig.PackConfig;
 
 import java.util.Optional;
 import java.util.function.Function;

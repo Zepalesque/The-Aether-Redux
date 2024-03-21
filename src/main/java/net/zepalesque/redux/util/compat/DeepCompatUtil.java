@@ -1,9 +1,9 @@
 package net.zepalesque.redux.util.compat;
 
 import com.google.common.collect.ImmutableMap;
-import net.minecraftforge.common.util.Lazy;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.common.util.Lazy;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.init.DABlocks;

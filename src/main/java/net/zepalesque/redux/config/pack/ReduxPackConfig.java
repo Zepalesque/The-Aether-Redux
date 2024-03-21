@@ -11,7 +11,9 @@ import net.zepalesque.redux.api.packconfig.Category;
 import net.zepalesque.redux.api.packconfig.PackConfig;
 import net.zepalesque.redux.builtin.BuiltinPackUtils;
 import net.zepalesque.redux.client.resource.ReduxOverridesPackResources;
-import net.zepalesque.redux.config.enums.pack.*;
+import net.zepalesque.redux.config.enums.pack.CockatriceType;
+import net.zepalesque.redux.config.enums.pack.SwetBallType;
+import net.zepalesque.redux.config.enums.pack.VeridiumType;
 
 import java.util.List;
 

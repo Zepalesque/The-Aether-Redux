@@ -1,7 +1,6 @@
 package net.zepalesque.redux.mixin.common.block;
 
 import com.aetherteam.aether_genesis.block.natural.GreenAercloudBlock;
-import com.aetherteam.aether_genesis.block.natural.PurpleAercloudBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;

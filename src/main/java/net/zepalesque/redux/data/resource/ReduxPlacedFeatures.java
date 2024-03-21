@@ -31,8 +31,6 @@ import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.condition.Conditions;
-import net.zepalesque.redux.api.condition.Not;
-import net.zepalesque.redux.api.condition.Or;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.world.placement.ConditionFilter;
 

@@ -1,6 +1,5 @@
 package net.zepalesque.redux.world.feature;
 
-import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
@@ -8,12 +7,8 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.zepalesque.redux.world.feature.config.PatchRockConfig;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class PatchRockFeature extends Feature<PatchRockConfig> {
    public PatchRockFeature(Codec<PatchRockConfig> p_65248_) {

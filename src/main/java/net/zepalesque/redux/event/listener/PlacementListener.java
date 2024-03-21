@@ -8,8 +8,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 
-import java.util.EnumSet;
-
 // TODO: ensure this works properly
 @Mod.EventBusSubscriber(modid = Redux.MODID)
 public class PlacementListener {
