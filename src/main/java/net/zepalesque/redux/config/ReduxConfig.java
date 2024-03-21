@@ -71,7 +71,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.EnumValue<ChestRoomType> bronze_chest_room;
         public final ForgeConfigSpec.EnumValue<LobbyType> bronze_lobby;
 
-        public final ForgeConfigSpec.BooleanValue apply_cloud_layer_pack;
+        public final ForgeConfigSpec.BooleanValue cloud_layer_gen;
 
         public final ForgeConfigSpec.DoubleValue cloud_layer_threshold_min;
         public final ForgeConfigSpec.DoubleValue cloud_layer_threshold_max;
@@ -119,11 +119,6 @@ public class ReduxConfig {
             this.change_double_plant_hitbox = builder.comment("Changes the hitboxes of vanilla double plants. Disable if it causes odd behavior.").define("Change Double Plant Hitboxes", true);
             this.better_conversion_sounds = builder.comment("Makes blockstate conversion sounds (ambrosium, swet ball) better").define("Better Conversion Sounds", true);
             builder.pop(2);
-
-            builder.push("Datapack Application");
-            this.apply_cloud_layer_pack = builder.comment("Whether or not to automatically add the Cloud Layer datapack.").define("Cloud Layer Datapack", true);
-            builder.pop();
-
             builder.push("Worldgen");
             builder.push("Additional Features");
             this.mossy_holystone_ores = builder.comment("Enables Mossy Holystone as an ore. Configurable so that if you disable it, it's easier to tell if you've come across a dungeon.").worldRestart().define("Mossy Holystone Ores", true);
@@ -131,12 +126,13 @@ public class ReduxConfig {
             this.wall_roots = builder.comment("Enables roots made of logs and log walls on the sides of Large Cloudcap mushrooms and Blightwillow trees.").worldRestart().define("Wall Roots on Blightwillows and Large Cloudcaps", true);
             this.alternate_gilded_trees = builder.comment("Uses an alternate Gilded Oak shape, more like vanilla Oak trees and Skyroots, for the Gilded biomes.").worldRestart().define("Alternate Gilded Trees", false);
             this.classic_skyfields = builder.comment("Makes the Skyfields into an upgraded version of their older variant from before Redux's version 1.3.").worldRestart().define("Classic Skyfields", false);
-            builder.pop();
-
             builder.push("Cloud Layer");
+            this.cloud_layer_gen = builder.comment("Replaces the Aether's large cloud features with a new and improved noise-based cloud layer.").define("Cloud Layer Generation", true);
             this.cloud_layer_threshold_min = builder.comment("Minimum value for the cloud layer's noise threshold").defineInRange("Cloud Layer Threshold Min", 0D, -4D, 4D);
             this.cloud_layer_threshold_max = builder.comment("Maximum value for the cloud layer's noise threshold").defineInRange("Cloud Layer Threshold Max", 1D, -4D, 4D);
-            builder.pop();
+            builder.pop(2);
+
+
 
             builder.push("Bronze Dungeon");
             this.genesis_spawner_mobs = builder.comment("Adds dungeon mobs from the Aether: Genesis to the spawners added to the Bronze Dungeon if it is installed").defineEnum("Genesis Mobs in Spawners", SpawnerType.all);

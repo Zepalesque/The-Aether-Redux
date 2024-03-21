@@ -3,18 +3,15 @@ package net.zepalesque.redux.world.feature;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.levelgen.XoroshiroRandomSource;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.synth.PerlinSimplexNoise;
-import net.minecraftforge.fml.ModList;
-import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.config.ReduxConfig;
+import net.zepalesque.redux.util.compat.AncientCompatUtil;
 import net.zepalesque.redux.util.math.MathUtil;
 import net.zepalesque.redux.world.feature.config.CloudLayerConfig;
 
-import java.lang.module.ModuleDescriptor;
 import java.util.List;
 
 public class CloudLayerFeature extends Feature<CloudLayerConfig> {
@@ -25,13 +22,10 @@ public class CloudLayerFeature extends Feature<CloudLayerConfig> {
     public CloudLayerFeature(Codec<CloudLayerConfig> codec) {
         super(codec);
     }
-    
-    // TODO: Remove version check once AA 0.9.0 releases
-    private static final boolean before089 = !Redux.ancientAetherCompat() || ModuleDescriptor.Version.parse(ModList.get().getModFileById("ancient_aether").versionString()).compareTo(ModuleDescriptor.Version.parse("0.9.0")) < 0;
 
     @Override
     public boolean place(FeaturePlaceContext<CloudLayerConfig> context) {
-        if (before089) {
+        if (AncientCompatUtil.before090) {
             int chunkX = context.origin().getX() - (context.origin().getX() % 16);
             int chunkZ = context.origin().getZ() - (context.origin().getZ() % 16);
             float min = ReduxConfig.COMMON.cloud_layer_threshold_min.get().floatValue() / 2F;
