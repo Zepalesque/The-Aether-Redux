@@ -94,7 +94,7 @@ import net.zepalesque.redux.network.ReduxPacketHandler;
 import net.zepalesque.redux.recipe.ReduxRecipeTypes;
 import net.zepalesque.redux.recipe.condition.DataRecipeCondition;
 import net.zepalesque.redux.recipe.serializer.ReduxRecipeSerializers;
-import net.zepalesque.redux.util.function.QuadConsumer;
+import net.zepalesque.redux.util.compat.AncientCompatUtil;
 import net.zepalesque.redux.world.biome.ReduxRegion;
 import net.zepalesque.redux.world.biome.ReduxSurfaceData;
 import net.zepalesque.redux.world.biome.modifier.ReduxBiomeModifierCodecs;
@@ -371,8 +371,10 @@ public class Redux {
             if (deepAetherCompat()) { this.setupMandatoryDataPack(event, "data/deep_aether_data", "Deep Aether Compat", "Compatibility with Deep Aether"); }
             if (ancientAetherCompat()) { this.setupMandatoryDataPack(event, "data/ancient_aether_data", "Ancient Aether Compat", "Compatibility with Ancient Aether"); }
 
+            if (ancientAetherCompat() && AncientCompatUtil.before090) { this.setupMandatoryDataPack(event, "data/ancient_aether_gold_tree", "Ancient Aether Golden Oak", "Compatibility with Ancient Aether, fixes crash"); }
+
             if (ReduxConfig.COMMON.cloud_layer_gen.get()) { this.setupBuiltinDatapack(event, "data/cloudbed", "Redux - Cloudbed", "Highlands-like Cloudbed"); }
-            
+
             if (ReduxConfig.COMMON.bronze_boss_room.get() != BossRoomType.classic) { this.setupBuiltinDatapack(event, "data/dungeon/boss_room/" + ReduxConfig.COMMON.bronze_boss_room.get().getSerializedName(), "Bronze Boss Room", "Boss Room Override"); }
             if (ReduxConfig.COMMON.bronze_chest_room.get() != ChestRoomType.classic) { this.setupBuiltinDatapack(event, "data/dungeon/chest_room/" + ReduxConfig.COMMON.bronze_chest_room.get().getSerializedName(), "Bronze Chest Room", "Chest Room Override"); }
             if (ReduxConfig.COMMON.bronze_lobby.get() != LobbyType.classic) { this.setupBuiltinDatapack(event, "data/dungeon/lobby/" + ReduxConfig.COMMON.bronze_lobby.get().getSerializedName(), "Bronze Lobby", "Lobby Override"); }
