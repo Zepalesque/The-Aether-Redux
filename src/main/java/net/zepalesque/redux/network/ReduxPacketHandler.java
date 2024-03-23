@@ -37,6 +37,7 @@ public class ReduxPacketHandler {
         register(SyncAetherGrassesPacket.class, SyncAetherGrassesPacket::decode);
         register(InfusionExpirePacket.class, buf -> new InfusionExpirePacket());
         register(BlightshadeParticlePacket.class, BlightshadeParticlePacket::decode);
+        register(WackyBatSyncPacket.class, WackyBatSyncPacket::decode);
     }
 
     private static int index;
