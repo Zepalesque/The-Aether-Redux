@@ -156,10 +156,10 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.COARSE_AETHER_DIRT, "Coarse Aether Dirt");
         addLore(ReduxBlocks.COARSE_AETHER_DIRT, "A variant of Aether Dirt that does not regrow any grass.");
 
-        addBlock(ReduxBlocks.BLIGHTMOSS_BLOCK, "Unblightmoss Block");
-        addLore(ReduxBlocks.BLIGHTMOSS_BLOCK, "Moss that has been infected by the Blight. This can be found in some caves in the Aether.");
-        addBlock(ReduxBlocks.BLIGHTMOSS_CARPET, "Blightmoss Carpet");
-        addLore(ReduxBlocks.BLIGHTMOSS_CARPET, "A thin blanket of Blightmoss. This can be found in some caves in the Aether.");
+        addBlock(ReduxBlocks.BLIGHTMOSS_BLOCK, "Nicemoss Block");
+        addLore(ReduxBlocks.BLIGHTMOSS_BLOCK, "Moss that has been befriended by the Unblight. This can be found in some caves in the Aether.");
+        addBlock(ReduxBlocks.BLIGHTMOSS_CARPET, "Nicemoss Carpet");
+        addLore(ReduxBlocks.BLIGHTMOSS_CARPET, "A thin blanket of Nicemoss. This can be found in some caves in the Aether.");
 
 
         addBlock(ReduxBlocks.FUNGAL_GROWTH, "Fungal Growth");
@@ -175,13 +175,13 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addLore(ReduxBlocks.GILDED_VINES, "A type of off-white vine that commonly grows under the leaves of Gilded Oak trees.");
 
 
-        addBlock(ReduxBlocks.CORRUPTED_VINES, "Corrupted Vines");
-        addBlock(ReduxBlocks.CORRUPTED_VINES_PLANT, "Corrupted Vines Plant");
-        addLore(ReduxBlocks.CORRUPTED_VINES, "A purple, spiky vine that grows in patches in the Blight.");
+        addBlock(ReduxBlocks.CORRUPTED_VINES, "Crimson(Pink) Vines");
+        addBlock(ReduxBlocks.CORRUPTED_VINES_PLANT, "Crimson(Pink) Vines Plant");
+        addLore(ReduxBlocks.CORRUPTED_VINES, "A friendly, spined vine that grows in patches in the Unblight.");
 
-        addBlock(ReduxBlocks.LUXWEED, "Luxweed");
-        addBlock(ReduxBlocks.POTTED_LUXWEED, "Potted Luxweed");
-        addLore(ReduxBlocks.LUXWEED, "A plant in the blight biome, which is a distant relative to Wyndsprouts. It gives off a subtle glow, lighting the area around it.");
+        addBlock(ReduxBlocks.LUXWEED, "Glowsprouts");
+        addBlock(ReduxBlocks.POTTED_LUXWEED, "Potted Glowsprouts");
+        addLore(ReduxBlocks.LUXWEED, "A plant found in the Unblight biome, which is a distant relative to Wyndsprouts. It gives off a subtle glow, lighting the area around it.");
 
         addBlock(ReduxBlocks.WYNDSPROUTS, "Wyndsprouts");
         addBlock(ReduxBlocks.POTTED_WYNDSPROUTS, "Potted Wyndsprouts");
@@ -204,11 +204,11 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addBlock(ReduxBlocks.SPIROLYCTIL, "Spirolyctil");
         addBlock(ReduxBlocks.POTTED_SPIROLYCTIL, "Potted Spirolyctil");
-        addLore(ReduxBlocks.SPIROLYCTIL, "A shiny blue flower found in the Blight. It almost seems like an island of peace in the ocean of chaos.");
+        addLore(ReduxBlocks.SPIROLYCTIL, "A shiny blue flower found in the Unblight. It almost seems like an island of peace in the ocean of chaos.");
 
         addBlock(ReduxBlocks.BLIGHTSHADE, "Niceshade");
         addBlock(ReduxBlocks.POTTED_BLIGHTSHADE, "Potted Niceshade");
-        addLore(ReduxBlocks.BLIGHTSHADE, "Dark purple nice friendly the flowers found in the Blight. They release a gas that will make their target temporarily see darkness around them.");
+        addLore(ReduxBlocks.BLIGHTSHADE, "Dark purple nice friendly the flowers found in the Unblight. They release a gas that will make their target temporarily see darkness around them.");
 
         addBlock(ReduxBlocks.BLIGHTWILLOW_LEAVES, "Hallowed Leaves");
         addLore(ReduxBlocks.BLIGHTWILLOW_LEAVES, "The leaves of the Hallowed tree. These sometimes drop Hallowed Saplings.");
@@ -232,7 +232,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.GILDED_LEAF_PILE, "Gilded Leaf Pile");
         addLore(ReduxBlocks.GILDED_LEAF_PILE, "A pile of Gilded Oak Leaves. These can be found under Gilded Oak trees..");
         addBlock(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE, "Hallowed Leaf Pile");
-        addLore(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE, "A pile of Hallowed LeaveFs. These can be found in the Blight biome.");
+        addLore(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE, "A pile of Hallowed Leaves. These can be found in the Unblight biome.");
         addBlock(ReduxBlocks.BLIGHTWILLOW_SAPLING, "Hallowed Sapling");
         addBlock(ReduxBlocks.POTTED_BLIGHTWILLOW_SAPLING, "Potted Hallowed Sapling");
         addLore(ReduxBlocks.BLIGHTWILLOW_SAPLING, "The sapling of the Hallowed tree. It can be grown by waiting or using Bone Meal.");
