@@ -7,6 +7,8 @@ import com.aetherteam.aether.item.EquipmentUtil;
 import com.aetherteam.nitrogen.network.BasePacket;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
@@ -43,6 +45,8 @@ public class CockatriceExtensionCapability implements CockatriceExtension {
     private byte legAnim;
     // Client-Only
     private byte prevLegAnim;
+    // Client-Only
+    private byte glitchedTimer = 127;
 
     public CockatriceExtensionCapability(Cockatrice pCockatrice) {
         this.cockatrice = pCockatrice;
@@ -129,12 +133,20 @@ public class CockatriceExtensionCapability implements CockatriceExtension {
     public void handleTargetAnim() {
         if (ReduxConfig.COMMON.improved_cockatrice_behavior.get()) {
             if (this.getCockatrice().level().isClientSide()) {
-                this.prevTargetAnim = this.targetAnim;
-                if (this.isShooting && this.targetAnim < 10) {
+                if (this.isShooting && this.targetAnim < 5) {
+                    this.prevTargetAnim = this.targetAnim;
                     this.targetAnim++;
                 }
                 if (!this.isShooting && this.targetAnim > 0) {
-                    this.targetAnim--;
+                    this.prevTargetAnim = this.targetAnim;
+                    this.targetAnim++;
+                }
+                if (this.targetAnim == -128 && this.prevTargetAnim == 127 && this.glitchedTimer > 0) {
+                    this.glitchedTimer--;
+                } else if (this.glitchedTimer <= 0) {
+                    this.targetAnim = 1;
+                    this.prevTargetAnim = 0;
+                    this.glitchedTimer = (byte) 127;
                 }
             } else {
 
@@ -151,7 +163,7 @@ public class CockatriceExtensionCapability implements CockatriceExtension {
                     this.refreshNearby();
                 }
 
-                boolean hasInebriation = this.getCockatrice().getTarget() != null && (this.getCockatrice().getTarget().hasEffect(AetherEffects.INEBRIATION.get()) || EquipmentUtil.hasCurio(this.cockatrice.getTarget(), ReduxItems.FEATHER_OF_WARDING.get()));
+                boolean hasInebriation = this.getCockatrice().getTarget() != null && (this.getCockatrice().getTarget().hasEffect(MobEffects.REGENERATION) || EquipmentUtil.hasCurio(this.cockatrice.getTarget(), ReduxItems.FEATHER_OF_WARDING.get()));
                 boolean inGroup = this.nearbyCount() >= 3;
                 boolean shooting = (!hasInebriation && this.getCockatrice().getTarget() != null && !inGroup) || !ReduxConfig.COMMON.improved_cockatrice_behavior.get();
                 if (!shooting && this.cockatrice.getTarget() != null) {

@@ -44,6 +44,7 @@ public class CockatriceReduxLayer extends RenderLayer<Cockatrice, CockatriceMode
             float progress = cockatrice.isEntityOnGround() ? 0 : 1;
             float progressAttack = 0F;
             float progressAttackAlways = 0F;
+            float memeAnim = 0F;
 
             if (CockatriceExtension.get(cockatrice).isPresent())
             {
@@ -52,6 +53,8 @@ public class CockatriceReduxLayer extends RenderLayer<Cockatrice, CockatriceMode
                     progress = Mth.lerp(partialTicks, cockatriceAnim.getPrevLegAnim(), cockatriceAnim.getLegAnim()) * 0.2F;
                     progressAttack = (1F - progress) * Mth.lerp(partialTicks, cockatriceAnim.getPrevTargetAnim(), cockatriceAnim.getTargetAnim()) * 0.1F;
                     progressAttackAlways = Mth.lerp(partialTicks, cockatriceAnim.getPrevTargetAnim(), cockatriceAnim.getTargetAnim()) * 0.1F;
+                    memeAnim = (-0.25F * Mth.lerp(partialTicks, cockatriceAnim.getPrevTargetAnim(),
+                            cockatriceAnim.getTargetAnim()));
                 }
             }
             float left = Mth.cos((float)((double)(limbSwing * 0.6662F) + Math.PI)) * 1.4F * limbSwingAmount;
@@ -85,8 +88,9 @@ public class CockatriceReduxLayer extends RenderLayer<Cockatrice, CockatriceMode
             float shortenedAlways = (Math.min(0.75F, progressAttackAlways)) * (4F / 3F);
             float delayed = (Math.max(0F, progressAttack - 0.5F)) * 2F;
 
-            this.model.neck_hurtanim.xRot = (!doHurtAnim ? 0.0F : 0.6667F * rot) + MathUtil.costrp(shortened,0F, MathUtil.degToRad(40F));
-            this.model.body.xRot =  (!doHurtAnim ? breathe : (0.3333F * rot) + breathe) +MathUtil.costrp(shortened,0F, MathUtil.degToRad(-60F));
+            this.model.neck_hurtanim.xRot = (!doHurtAnim ? 0.0F : 0.6667F * rot) /*+ MathUtil.costrp(shortened,0F, MathUtil.degToRad(40F))*/ - memeAnim;
+            this.model.body.xRot =  (!doHurtAnim ? breathe : (0.3333F * rot) + breathe) + /*MathUtil.costrp(shortened,0F, MathUtil.degToRad(-60F))*/ memeAnim;
+//            this.model.body.xRot = progressAttack + breathe;
             this.model.lower_tail.xRot = MathUtil.costrp(shortened,0F, MathUtil.degToRad(40F));
             this.model.lower_tail.setPos(0F, MathUtil.costrp(delayed,0F,-10F) + 6f,5F);
             this.model.head_hurtanim.xRot = (!doHurtAnim ? 0.0F : -rot) + MathUtil.costrp(shortened,0F, MathUtil.degToRad(20F));
