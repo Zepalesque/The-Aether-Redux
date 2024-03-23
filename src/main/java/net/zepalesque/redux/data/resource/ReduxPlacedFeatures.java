@@ -5,6 +5,7 @@ import com.aetherteam.aether.AetherConfig;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.resources.builders.AetherPlacedFeatureBuilders;
 import com.aetherteam.aether.data.resources.registries.AetherConfiguredFeatures;
+import com.aetherteam.aether.data.resources.registries.AetherPlacedFeatures;
 import com.aetherteam.aether.world.placementmodifier.ConfigFilter;
 import com.aetherteam.aether.world.placementmodifier.DungeonBlacklistFilter;
 import com.aetherteam.aether.world.placementmodifier.ImprovedLayerPlacementModifier;
@@ -30,8 +31,6 @@ import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.condition.Conditions;
-import net.zepalesque.redux.api.condition.Not;
-import net.zepalesque.redux.api.condition.Or;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.world.placement.ConditionFilter;
 
@@ -93,6 +92,7 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> SHRUBLANDS_ROCK  = copyKey(ReduxConfiguredFeatures.SHRUBLANDS_ROCK);
     public static final ResourceKey<PlacedFeature> SKYSPROUTS_PATCH = copyKey(ReduxConfiguredFeatures.SKYSPROUTS_PATCH);
     public static final ResourceKey<PlacedFeature> SKYFIELDS_TREES = copyKey(ReduxConfiguredFeatures.SKYFIELDS_TREES);
+    public static final ResourceKey<PlacedFeature> CLASSIC_SKYFIELDS_TREES = copyKey(ReduxConfiguredFeatures.CLASSIC_SKYFIELDS_TREES);
     public static final ResourceKey<PlacedFeature> SHRUBLANDS_TREES = copyKey(ReduxConfiguredFeatures.SHRUBLANDS_TREES);
     public static final ResourceKey<PlacedFeature> SHIMMERING_TREES = createKey(Folders.TREE + "shimmering_trees");
     public static final ResourceKey<PlacedFeature> IRIDIA_PATCH  = copyKey(ReduxConfiguredFeatures.IRIDIA_PATCH);
@@ -123,6 +123,8 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> AETHER_SNOW_LAYER = copyKey(ReduxConfiguredFeatures.AETHER_SNOW_LAYER);
 
     public static final ResourceKey<PlacedFeature> ANCIENT_ENCHANTED_GRASS = copyKey(ReduxConfiguredFeatures.ANCIENT_ENCHANTED_GRASS);
+
+    public static final ResourceKey<PlacedFeature> BONEMEAL_OVERRIDE = AetherPlacedFeatures.AETHER_GRASS_BONEMEAL;
 
 
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
@@ -296,8 +298,8 @@ public class ReduxPlacedFeatures {
 
         register(context, CORRUPTED_VINES_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.CORRUPTED_VINES_PATCH),
                 NOISE_THRESHOLD,
-                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(1, 3), 4),
-                RarityFilter.onAverageOnceEvery(5),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, ConstantInt.of(1), 4),
+                RarityFilter.onAverageOnceEvery(21),
                 BiomeFilter.biome()
         );
 
@@ -534,6 +536,7 @@ public class ReduxPlacedFeatures {
 
 
         register(context, SKYFIELDS_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.SKYFIELDS_TREES),
+                ConditionFilter.whenFalse(Conditions.CLASSIC_SKYFIELDS),
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
                         .add(ConstantInt.of(1), 9)
                         .add(ConstantInt.of(2), 3)
@@ -542,6 +545,19 @@ public class ReduxPlacedFeatures {
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.OCEAN_FLOOR, ConstantInt.of(2), 4),
                 BiomeFilter.biome(),
                 RarityFilter.onAverageOnceEvery(2),
+                PlacementUtils.filteredByBlockSurvival(ReduxBlocks.FIELDSPROOT_SAPLING.get()),
+                DUNGEON_BLACKLIST
+        );
+        register(context, CLASSIC_SKYFIELDS_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.CLASSIC_SKYFIELDS_TREES),
+                ConditionFilter.whenTrue(Conditions.CLASSIC_SKYFIELDS),
+                CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
+                        .add(ConstantInt.of(9), 9)
+                        .add(ConstantInt.of(5), 3)
+                        .add(ConstantInt.of(0), 5)
+                        .add(ConstantInt.of(16), 1)
+                        .build())),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.OCEAN_FLOOR, ConstantInt.of(2), 4),
+                BiomeFilter.biome(),
                 PlacementUtils.filteredByBlockSurvival(ReduxBlocks.FIELDSPROOT_SAPLING.get()),
                 DUNGEON_BLACKLIST
         );
@@ -703,6 +719,8 @@ public class ReduxPlacedFeatures {
                 DUNGEON_BLACKLIST
         );
 
+        register(context, BONEMEAL_OVERRIDE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GRASS_PATCH_BONEMEAL), PlacementUtils.isEmpty());
+
         register(context, VERIDIUM_ORE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.VERIDIUM_ORE),
                 CountPlacement.of(11),
                 InSquarePlacement.spread(),
@@ -710,7 +728,7 @@ public class ReduxPlacedFeatures {
                 BiomeFilter.biome()
         );
 
-        register(context, SENTRITE_ORE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.DIVINITE_ORE),
+        register(context, SENTRITE_ORE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.SENTRITE_ORE),
                 InSquarePlacement.spread(),
 //                RarityFilter.onAverageOnceEvery(1),
                 HeightRangePlacement.of(TrapezoidHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.aboveBottom(128))),

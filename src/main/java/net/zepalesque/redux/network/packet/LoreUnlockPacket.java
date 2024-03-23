@@ -5,11 +5,9 @@ import com.aetherteam.nitrogen.network.BasePacket;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.zepalesque.redux.capability.player.ReduxPlayer;
-import net.zepalesque.redux.util.player.AbilityUtil;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.UUID;

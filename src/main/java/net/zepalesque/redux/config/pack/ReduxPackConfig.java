@@ -11,7 +11,9 @@ import net.zepalesque.redux.api.packconfig.Category;
 import net.zepalesque.redux.api.packconfig.PackConfig;
 import net.zepalesque.redux.builtin.BuiltinPackUtils;
 import net.zepalesque.redux.client.resource.ReduxOverridesPackResources;
-import net.zepalesque.redux.config.enums.pack.*;
+import net.zepalesque.redux.config.enums.pack.CockatriceType;
+import net.zepalesque.redux.config.enums.pack.SwetBallType;
+import net.zepalesque.redux.config.enums.pack.VeridiumType;
 
 import java.util.List;
 
@@ -84,6 +86,7 @@ public class ReduxPackConfig {
                     Conditional.of(BuiltinPackUtils.createPack("resource/item/swet_gel"), () -> config.swet_ball_type.get() == SwetBallType.gel),
                     Conditional.of(BuiltinPackUtils.createPack("resource/jappafied_textures"), config.use_jappafied_textures),
                     Conditional.of(BuiltinPackUtils.createPack("resource/item/genesis_jelly"), Redux::aetherGenesisCompat),
+                    Conditional.of(BuiltinPackUtils.createPack("resource/item/skyjade_wisdom_ring"), Redux::deepAetherCompat),
                     Conditional.of(BuiltinPackUtils.createPack("resource/item/shadow_veridium"), () -> config.veridium_type.get() == VeridiumType.shadow),
                     Conditional.of(BuiltinPackUtils.createPack("resource/item/classic_veridium"), () -> config.veridium_type.get() == VeridiumType.classic),
                     Conditional.of(BuiltinPackUtils.createPack("resource/sounds/aechor"), config.better_aechor_sounds),

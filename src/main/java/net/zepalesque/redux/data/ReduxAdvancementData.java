@@ -14,7 +14,9 @@ import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.ForgeAdvancementProvider;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.advancement.trigger.*;
+import net.zepalesque.redux.advancement.trigger.DoubleJumpTrigger;
+import net.zepalesque.redux.advancement.trigger.FallFromAetherTrigger;
+import net.zepalesque.redux.advancement.trigger.InfuseItemTrigger;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.misc.ReduxTags;
@@ -30,12 +32,6 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
 
 
     public static class ReduxAdvancements implements AdvancementGenerator, IConditionBuilder  {
-
-
-
-
-
-
 
         @Override
         public void generate(HolderLookup.Provider provider, Consumer<Advancement> consumer, ExistingFileHelper existingFileHelper) {

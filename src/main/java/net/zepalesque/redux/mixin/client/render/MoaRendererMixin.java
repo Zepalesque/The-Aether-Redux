@@ -6,7 +6,6 @@ import com.aetherteam.aether.entity.passive.Moa;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.Mob;
 import net.zepalesque.redux.client.render.util.MoaUtils;
 import net.zepalesque.redux.util.math.MathUtil;
 import org.spongepowered.asm.mixin.Mixin;

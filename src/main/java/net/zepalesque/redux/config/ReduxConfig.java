@@ -2,8 +2,8 @@ package net.zepalesque.redux.config;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.zepalesque.redux.config.enums.MimicModelType;
-import net.zepalesque.redux.config.enums.QuicksoilSetting;
 import net.zepalesque.redux.config.enums.MoaFeetType;
+import net.zepalesque.redux.config.enums.QuicksoilSetting;
 import net.zepalesque.redux.config.enums.SpawnerType;
 import net.zepalesque.redux.config.enums.dungeon.BossRoomType;
 import net.zepalesque.redux.config.enums.dungeon.ChestRoomType;
@@ -64,18 +64,20 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue enchanted_vines;
         public final ForgeConfigSpec.BooleanValue wall_roots;
         public final ForgeConfigSpec.BooleanValue alternate_gilded_trees;
+        public final ForgeConfigSpec.BooleanValue classic_skyfields;
         public final ForgeConfigSpec.BooleanValue enderman_spawns;
 
         public final ForgeConfigSpec.EnumValue<BossRoomType> bronze_boss_room;
         public final ForgeConfigSpec.EnumValue<ChestRoomType> bronze_chest_room;
         public final ForgeConfigSpec.EnumValue<LobbyType> bronze_lobby;
 
-        public final ForgeConfigSpec.BooleanValue apply_cloud_layer_pack;
+        public final ForgeConfigSpec.BooleanValue cloud_layer_gen;
 
         public final ForgeConfigSpec.DoubleValue cloud_layer_threshold_min;
         public final ForgeConfigSpec.DoubleValue cloud_layer_threshold_max;
 
         public final ForgeConfigSpec.BooleanValue vanilla_swets;
+        public final ForgeConfigSpec.BooleanValue first_startup_aeroblender_setup;
 
         // TODO: organize
 
@@ -106,23 +108,20 @@ public class ReduxConfig {
             this.change_double_plant_hitbox = builder.comment("Changes the hitboxes of vanilla double plants. Disable if it causes odd behavior.").define("Change Double Plant Hitboxes", true);
             this.better_conversion_sounds = builder.comment("Makes blockstate conversion sounds (ambrosium, swet ball) better").define("Better Conversion Sounds", true);
             builder.pop(2);
-
-            builder.push("Datapack Application");
-            this.apply_cloud_layer_pack = builder.comment("Whether or not to automatically add the Cloud Layer datapack.").define("Cloud Layer Datapack", true);
-            builder.pop();
-
             builder.push("Worldgen");
             builder.push("Additional Features");
             this.mossy_holystone_ores = builder.comment("Enables Mossy Holystone as an ore. Configurable so that if you disable it, it's easier to tell if you've come across a dungeon.").worldRestart().define("Mossy Holystone Ores", true);
             this.enchanted_vines = builder.comment("Enables Enchanted/Gilded vines on trees").worldRestart().define("Enable Enchanted and Gilded Vines", true);
             this.wall_roots = builder.comment("Enables roots made of logs and log walls on the sides of Large Cloudcap mushrooms and Blightwillow trees.").worldRestart().define("Wall Roots on Blightwillows and Large Cloudcaps", true);
             this.alternate_gilded_trees = builder.comment("Uses an alternate Gilded Oak shape, more like vanilla Oak trees and Skyroots, for the Gilded biomes.").worldRestart().define("Alternate Gilded Trees", false);
-            builder.pop();
-
+            this.classic_skyfields = builder.comment("Makes the Skyfields into an upgraded version of their older variant from before Redux's version 1.3.").worldRestart().define("Classic Skyfields", false);
             builder.push("Cloud Layer");
+            this.cloud_layer_gen = builder.comment("Replaces the Aether's large cloud features with a new and improved noise-based cloud layer.").define("Cloud Layer Generation", true);
             this.cloud_layer_threshold_min = builder.comment("Minimum value for the cloud layer's noise threshold").defineInRange("Cloud Layer Threshold Min", 0D, -4D, 4D);
             this.cloud_layer_threshold_max = builder.comment("Maximum value for the cloud layer's noise threshold").defineInRange("Cloud Layer Threshold Max", 1D, -4D, 4D);
-            builder.pop();
+            builder.pop(2);
+
+
 
             builder.push("Bronze Dungeon");
             this.genesis_spawner_mobs = builder.comment("Adds dungeon mobs from the Aether: Genesis to the spawners added to the Bronze Dungeon if it is installed").defineEnum("Genesis Mobs in Spawners", SpawnerType.all);
@@ -144,6 +143,9 @@ public class ReduxConfig {
             this.enable_skyroot_shrublands = builder.comment("Enables the Skyroot Shrublands biome.").worldRestart().define("Enable Skyroot Shrublands", true);
             this.enchanted_gilded_grass = builder.comment("Uses Enchanted Aether Grass for the ground in the Gilded Groves. May require a Minecraft restart.").worldRestart().define("Enchanted Gilded Grass", true);
             builder.pop(2);
+            builder.push("Internal");
+            this.first_startup_aeroblender_setup = builder.comment("Internal value, used to decide if the Aeroblender configs should be changed").define("First Startup - Aeroblender Setup", true);
+            builder.pop();
         }
     }
 
@@ -152,7 +154,6 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue moa_model_upgrade;
         public final ForgeConfigSpec.EnumValue<MoaFeetType> moa_feet_type;
         public final ForgeConfigSpec.BooleanValue cockatrice_model_upgrade;
-        public final ForgeConfigSpec.BooleanValue first_startup;
         public final ForgeConfigSpec.EnumValue<MimicModelType> mimic_model_upgrade;
         public final ForgeConfigSpec.BooleanValue mimic_slam_sound;
         public final ForgeConfigSpec.BooleanValue sentry_model_upgrade;
@@ -161,9 +162,12 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue flying_cow_model_upgrade;
         public final ForgeConfigSpec.ConfigValue<String> version_id;
         public final ForgeConfigSpec.BooleanValue better_leaf_particles;
-        public final ForgeConfigSpec.BooleanValue enable_adrenaline_postproccess;
+//        public final ForgeConfigSpec.BooleanValue enable_adrenaline_postproccess;
         public final ForgeConfigSpec.BooleanValue fix_biome_modifier_bug;
         public final ForgeConfigSpec.BooleanValue cycle_menu;
+        public final ForgeConfigSpec.BooleanValue first_startup_menu_setup;
+        public final ForgeConfigSpec.BooleanValue first_startup_lightmap_changes;
+        public final ForgeConfigSpec.BooleanValue aercloud_sfx;
 
         public Client(ForgeConfigSpec.Builder builder) {
             builder.push(List.of("Rendering", "Mob Model Upgrades"));
@@ -178,9 +182,9 @@ public class ReduxConfig {
             this.phyg_model_upgrade = builder.comment("Gives the Phyg's model some touchups and improvements").define("Phyg Model Upgrade", true);
             this.flying_cow_model_upgrade = builder.comment("Gives the Flying Cow's model some touchups and improvements").define("Flying Cow Model Upgrade", true);
             builder.pop();
-            builder.push("Shader FX");
-            this.enable_adrenaline_postproccess = builder.comment("Enables a post processing effect for the Shroom Ring's adrenaline ability. Only works with Fabulous graphics, and will cause issues when underwater (even when the ability is not active)").define("Enable Adrenaline Post Processing Effect", false);
-            builder.pop();
+//            builder.push("Shader FX");
+//            this.enable_adrenaline_postproccess = builder.comment("Enables a post processing effect for the Shroom Ring's adrenaline ability. Only works with Fabulous graphics, and will cause issues when underwater (even when the ability is not active)").define("Enable Adrenaline Post Processing Effect", false);
+//            builder.pop();
             builder.push("GUI");
             this.cycle_menu = builder.comment("Cycles between Redux's menus.").define("Cycle Menu", true);
             builder.pop();
@@ -192,9 +196,13 @@ public class ReduxConfig {
             builder.pop();
             builder.push("Audio");
             this.mimic_slam_sound = builder.comment("Enables a slamming sound for mimics when using the new model. Disable if it gets too annoying XD").define("Mimic Slam Sound Effect", true);
+            this.aercloud_sfx = builder
+                    .comment("Gives sounds to the other clouds for the Aether: Genesis when it is installed")
+                    .define("Aercloud Ability Sounds", true);
             builder.pop();
             builder.push("Internal");
-            this.first_startup = builder.comment("Internal value to decide if it is the first startup. DO NOT EDIT THIS VALUE, unless you want things to break!").define("First Startup?", true);
+            this.first_startup_menu_setup = builder.comment("Internal value to do menu changes. Set this to false in modpacks if you want to use your own menu.").define("First Startup - Menu Setup", true);
+            this.first_startup_lightmap_changes = builder.comment("Internal value to change an Aether config, giving a nicer lightmap in the dimension.").define("First Startup - Lightmap Change", true);
             this.version_id = builder.comment("Value used to track the version of the Aether: Redux most recently used.").define("Version ID", "undefined");
             builder.pop();
         }

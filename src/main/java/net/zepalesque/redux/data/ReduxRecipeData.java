@@ -3,13 +3,11 @@ package net.zepalesque.redux.data;
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.providers.AetherRecipeProvider;
-import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether_genesis.block.GenesisBlocks;
 import com.aetherteam.aether_genesis.item.GenesisItems;
 import com.aetherteam.nitrogen.recipe.BlockStateIngredient;
 import com.aetherteam.nitrogen.recipe.builder.BlockStateRecipeBuilder;
-import net.builderdog.ancient_aether.item.AncientAetherItems;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.RequirementsStrategy;
@@ -206,8 +204,8 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .unlockedBy(getHasName(ReduxBlocks.SENTRITE.get()), has(ReduxBlocks.SENTRITE.get()))
                 .save(consumer, Redux.locate("carved_stone"));
 
-        swetBall(AetherItems.SWET_BALL, ReduxTags.Items.BLUE_SWET_JELLY).save(consumer, Redux.locate("blue_swet_ball"));
-        swetBall(ReduxItems.VANILLA_SWET_BALL, ReduxItems.VANILLA_SWET_JELLY).save(consumer, Redux.locate("vanilla_swet_ball"));
+//        swetBall(AetherItems.SWET_BALL, ReduxTags.Items.BLUE_SWET_JELLY).save(consumer, Redux.locate("blue_swet_ball"));
+//        swetBall(ReduxItems.VANILLA_SWET_BALL, ReduxItems.VANILLA_SWET_JELLY).save(consumer, Redux.locate("vanilla_swet_ball"));
 
         enchantingRecipe(RecipeCategory.MISC, ReduxBlocks.GILDED_HOLYSTONE.get(), AetherBlocks.MOSSY_HOLYSTONE.get(), 0.0F, 100).save(consumer, Redux.locate("enchant_mossy_holystone"));
         oneToOneConversionRecipe(consumer, Items.LIGHT_BLUE_DYE, ReduxBlocks.SPIROLYCTIL.get(), null);
@@ -221,9 +219,13 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
 
         oneToOneConversionRecipe(consumer, Items.PINK_DYE, ReduxBlocks.THERATIP.get(), null);
 
+        oneToOneConversionRecipe(consumer, Items.BLAZE_POWDER, ReduxBlocks.INFERNIA.get(), null);
+
+        oneToOneConversionRecipe(consumer, Items.WHITE_DYE, ReduxBlocks.FLAREBLOSSOM.get(), null);
+
         oneToOneConversionRecipe(consumer, Items.MAGENTA_DYE, ReduxBlocks.IRIDIA.get(), null);
 
-        oneToOneConversionRecipe(consumer, Items.LIGHT_GRAY_DYE, ReduxBlocks.XAELIA_FLOWERS.get(), null);
+        oneToOneConversionRecipe(consumer, Items.LIGHT_GRAY_DYE, ReduxBlocks.XAELIA_PATCH.get(), null);
 
         ambrosiumEnchanting(ReduxBlocks.GILDED_HOLYSTONE.get(), AetherBlocks.MOSSY_HOLYSTONE.get()).save(consumer, name("ambrosium_enchant_mossy_holystone_to_gilded_holystone"));
         sporeBlighting(ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), AetherBlocks.MOSSY_HOLYSTONE.get()).save(consumer, name("spore_blight_mossy_holystone_to_blightmoss_holystone"));
@@ -304,7 +306,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
         ConditionalRecipe.builder().addCondition(
                         dc(Conditions.GUMMY_NERF)
                 )
-                .addRecipe(gummySwet(AetherItems.GOLDEN_GUMMY_SWET, ReduxTags.Items.GOLDEN_SWET_BALL)::save)
+                .addRecipe(gummySwet(AetherItems.GOLDEN_GUMMY_SWET, ReduxTags.Items.GOLDEN_SWET_BALL, "has_golden_swet_ball")::save)
                 .generateAdvancement().build(consumer, Redux.locate("golden_gummy_swet"));
 
         ConditionalRecipe.builder().addCondition(
@@ -642,14 +644,11 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
     }
 
 
-    protected static ShapedRecipeBuilder gummySwet(Supplier<? extends ItemLike> gummy, Supplier<? extends ItemLike> ball) {
-        return ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, gummy.get())
+    protected static ShapelessRecipeBuilder gummySwet(Supplier<? extends ItemLike> gummy, Supplier<? extends ItemLike> ball) {
+        return ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, gummy.get())
                 .group("gummy_swet")
-                .define('J', ball.get())
-                .define('S', Items.SUGAR)
-                .pattern(" J ")
-                .pattern("JSJ")
-                .pattern(" J ")
+                .requires(ball.get(), 3)
+                .requires(Items.SUGAR)
                 .unlockedBy(getHasName(ball.get()), has(ball.get()));
     }
 
@@ -676,22 +675,12 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .unlockedBy("has_" + registry.location().getPath(), has(ball));
     }
 
-    protected static ShapedRecipeBuilder gummySwet(Supplier<? extends ItemLike> gummy, TagKey<Item> ball) {
-        ResourceKey registry = null;
-        Object o = ObfuscationReflectionHelper.getPrivateValue(TagKey.class, ball, "registry");
-        if (o instanceof ResourceKey registryObj)
-        {
-            registry = registryObj;
-        }
-        else throw new IllegalArgumentException("Reflection value did not return expected type!");
-        return ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, gummy.get())
+    protected static ShapelessRecipeBuilder gummySwet(Supplier<? extends ItemLike> gummy, TagKey<Item> ball, String hasName) {
+        return ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, gummy.get())
                 .group("gummy_swet")
-                .define('J', ball)
-                .define('S', Items.SUGAR)
-                .pattern(" J ")
-                .pattern("JSJ")
-                .pattern(" J ")
-                .unlockedBy("has_" + registry.location().getPath(), has(ball));
+                .requires(Ingredient.of(ball), 3)
+                .requires(Items.SUGAR)
+                .unlockedBy(hasName, has(ball));
     }
 
     protected static RecipeBuilder wallNoBuild(RecipeCategory pCategory, ItemLike pWall, ItemLike pMaterial) {

@@ -14,7 +14,6 @@ import net.minecraft.world.item.ItemStack;
 import net.zepalesque.redux.recipe.AbstractStackingRecipe;
 
 import java.util.Arrays;
-import java.util.List;
 import java.util.Objects;
 
 public abstract class AbstractStackingRecipeCategory<T extends AbstractStackingRecipe> extends AbstractRecipeCategory<T> {

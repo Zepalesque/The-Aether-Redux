@@ -1,7 +1,10 @@
 package net.zepalesque.redux.misc;
 
+import com.aetherteam.aether.api.AetherAdvancementSoundOverrides;
+import com.aetherteam.aether.api.registers.AdvancementSoundOverride;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.EntityType;
@@ -84,6 +87,7 @@ public class ReduxTags {
         public static final TagKey<Biome> AA_SKY_GRASS = tagAncient("has_aether_grass_patches");
 
         public static final TagKey<Biome> HAS_AETHER_CAVES = tag("has_aether_caves");
+        public static final TagKey<Biome> HAS_CLOUD_LAYER = tag("has_cloud_layer");
         public static final TagKey<Biome> HAS_BLIGHTED_CAVES = tag("has_blighted_caves");
         public static final TagKey<Biome> HAS_FUNGAL_CAVES = tag("has_fungal_caves");
         public static final TagKey<Biome> HAS_MOSSY_HOLYSTONE_ORE = tag("has_mossy_holystone_ore");
@@ -98,6 +102,8 @@ public class ReduxTags {
         public static final TagKey<Biome> HAS_REDUX_WATER_COLOR = tag("has_redux_water_color");
         public static final TagKey<Biome> NO_GRASS_OVERRIDE = tag("no_grass_override");
         public static final TagKey<Biome> HAS_GRASS_OVERRIDE = tag("has_grass_override");
+
+        public static final TagKey<Biome> MUSIC_MODIFY = tag("music_modify");
 
         public static final TagKey<Biome> DENSE_LEAF_FALL = tag("dense_leaf_fall");
 
@@ -118,6 +124,23 @@ public class ReduxTags {
 
         private static TagKey<DamageType> tag(String name) {
             return TagKey.create(Registries.DAMAGE_TYPE, Redux.locate(name));
+        }
+    }
+    public static class Sounds {
+
+        public static final TagKey<SoundEvent> AETHER_MUSIC = tag("aether_music");
+
+        private static TagKey<SoundEvent> tag(String name) {
+            return TagKey.create(Registries.SOUND_EVENT, Redux.locate(name));
+        }
+    }
+    // Portmanteau of Advancement and Override, for context
+    public static class Adverrides {
+
+        public static final TagKey<AdvancementSoundOverride> LOW_PRIORITY = tag("low_priority");
+
+        private static TagKey<AdvancementSoundOverride> tag(String name) {
+            return TagKey.create(AetherAdvancementSoundOverrides.ADVANCEMENT_SOUND_OVERRIDE_REGISTRY_KEY, Redux.locate(name));
         }
     }
 }

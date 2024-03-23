@@ -56,7 +56,7 @@ public class AbilityUtil {
                         0.9F + entity.level().random.nextFloat() * 0.2F);
 
             }
-            entity.swing(InteractionHand.MAIN_HAND);
+            entity.swing(InteractionHand.MAIN_HAND, true);
         } else {
             float offset = 2.0F;
             float rotation = Mth.wrapDegrees(entity.getYRot() + offset);
@@ -83,8 +83,8 @@ public class AbilityUtil {
 
 
             }
-            entity.swing(InteractionHand.MAIN_HAND);
-            entity.swing(InteractionHand.OFF_HAND);
+            entity.swing(InteractionHand.MAIN_HAND, true);
+            entity.swing(InteractionHand.OFF_HAND, true);
         }
     }
 

@@ -1,9 +1,6 @@
 package net.zepalesque.redux.entity.ai.goal;
 
-import net.minecraft.world.entity.PathfinderMob;
-import net.minecraft.world.entity.ai.goal.BreedGoal;
 import net.minecraft.world.entity.ai.goal.TemptGoal;
-import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.zepalesque.redux.entity.passive.Mykapod;
 

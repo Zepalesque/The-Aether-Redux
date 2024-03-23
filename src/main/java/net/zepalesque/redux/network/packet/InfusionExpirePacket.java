@@ -5,8 +5,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.zepalesque.redux.capability.arrow.SubzeroArrow;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 
 public class InfusionExpirePacket implements BasePacket {

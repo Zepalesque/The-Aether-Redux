@@ -51,6 +51,7 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.condition.Conditions;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.util.state.ReduxStates;
+import net.zepalesque.redux.block.util.state.enums.PetalPrismaticness;
 import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.world.feature.CloudcapFeature;
 import net.zepalesque.redux.world.feature.ReduxFeatures;
@@ -59,10 +60,13 @@ import net.zepalesque.redux.world.feature.config.*;
 import net.zepalesque.redux.world.stateprov.SimpleConditionAlternativeStateProvider;
 import net.zepalesque.redux.world.tree.decorator.BlightwillowRootsTrunkDecorator;
 import net.zepalesque.redux.world.tree.decorator.EnchantedVineDecorator;
+import net.zepalesque.redux.world.tree.decorator.GenesisTrunkDecorator;
 import net.zepalesque.redux.world.tree.decorator.PatchTreeDecorator;
 import net.zepalesque.redux.world.tree.foliage.BlightwillowFoliagePlacer;
+import net.zepalesque.redux.world.tree.foliage.GenesisHookedFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.GenesisPineFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.GlaciaFoliagePlacer;
+import net.zepalesque.redux.world.tree.trunk.GenesisHookedTrunkPlacer;
 
 import java.util.Arrays;
 import java.util.List;
@@ -124,6 +128,7 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> AEROGEL_DISK  = createKey(Folders.SURFACE + "aerogel_disk");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYSPROUTS_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.SKYSPROUTS) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYFIELDS_TREES = createKey(Folders.TREE + "skyfields_trees");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CLASSIC_SKYFIELDS_TREES = createKey(Folders.TREE + "classic_skyfields_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SHRUBLANDS_TREES = createKey(Folders.TREE + "shrublands_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> IRIDIA_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.IRIDIA) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> XAELIA_PATCH  = createKey(Folders.PATCH + "xaelia_patch");
@@ -140,6 +145,10 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> MOSSY_ROCK  = createKey(Folders.SURFACE + "mossy_rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ICESTONE_ROCK  = createKey(Folders.SURFACE + "icestone_rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FIELDSPROOT_TREE = createKey(Folders.TREE + "fieldsproot_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PRISMATIC_FIELDSPROOT_TREE = createKey(Folders.TREE + "prismatic_fieldsproot_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SPECTRAL_FIELDSPROOT_TREE = createKey(Folders.TREE + "spectral_fieldsproot_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_SPECTRAL_FIELDSPROOT_TREE = createKey(Folders.TREE + "fancy_spectral_fieldsproot_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> AZURE_FIELDSPROOT_TREE = createKey(Folders.TREE + "azure_fieldsproot_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> WYNDSPROUTS_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.WYNDSPROUTS) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GENESIS_WYNDSPROUTS_PATCH = createKey(Folders.PATCH + "genesis_" +  name(ReduxBlocks.WYNDSPROUTS) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GENESIS_SKYSPROUTS_PATCH = createKey(Folders.PATCH + "genesis_" + name(ReduxBlocks.SKYSPROUTS) + "_patch");
@@ -153,12 +162,14 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> DIVINITE_ORE = createKey(Folders.ORE + name(ReduxBlocks.DIVINITE) + "_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SENTRITE_ORE = createKey(Folders.ORE + name(ReduxBlocks.SENTRITE) + "_ore");
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> CRYSTAL_TREE_OVERRIDE = aetherKey("crystal_tree");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> HOLIDAY_TREE_OVERRIDE = aetherKey("holiday_tree");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_OAK_TREE_OVERRIDE = aetherKey("golden_oak_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CRYSTAL_TREE_OVERRIDE = AetherConfiguredFeatures.CRYSTAL_TREE_CONFIGURATION;
+    public static final ResourceKey<ConfiguredFeature<?, ?>> HOLIDAY_TREE_OVERRIDE = AetherConfiguredFeatures.HOLIDAY_TREE_CONFIGURATION;
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_OAK_TREE_OVERRIDE = AetherConfiguredFeatures.GOLDEN_OAK_TREE_CONFIGURATION;
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> GRASS_PATCH_OVERRIDE = aetherKey("grass_patch");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> TALL_GRASS_PATCH_OVERRIDE = aetherKey("tall_grass_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GRASS_PATCH_OVERRIDE = AetherConfiguredFeatures.GRASS_PATCH_CONFIGURATION;
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TALL_GRASS_PATCH_OVERRIDE = AetherConfiguredFeatures.TALL_GRASS_PATCH_CONFIGURATION;
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GRASS_PATCH_BONEMEAL = createKey(Folders.MISC + "aether_grass_bonemeal");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ANCIENT_ENCHANTED_GRASS = createKey(Folders.COMPAT + "ancient_enchanted_grass");
 
@@ -503,12 +514,14 @@ public class ReduxConfiguredFeatures {
                 blockBelowPlacementPatch(24, 7, 3, prov(ReduxBlocks.LUXWEED),
                         BlockPredicate.matchesBlocks(AetherBlocks.AETHER_GRASS_BLOCK.get())));
 
-        register(context, CORRUPTED_VINES_PATCH, ReduxFeatures.UPWARD_VINE_PATCH.get(),
-                new UpwardVineFeature.UpwardVinesConfig(
-                        prov(ReduxBlocks.CORRUPTED_VINES_PLANT),
-                        prov(ReduxBlocks.CORRUPTED_VINES),
-                        7, 3, 15
-                ));
+        register(context, CORRUPTED_VINES_PATCH, Feature.RANDOM_PATCH,
+                new RandomPatchConfiguration(12, 7, 3, PlacementUtils.onlyWhenEmpty(
+                        ReduxFeatures.UPWARD_VINE.get(), new UpwardVineFeature.UpwardVinesConfig(
+                                prov(ReduxBlocks.CORRUPTED_VINES_PLANT),
+                                prov(ReduxBlocks.CORRUPTED_VINES),
+                                BiasedToBottomInt.of(2, 12)
+                        )))
+        );
 
         register(context, GOLDEN_CLOVER_PATCH, Feature.FLOWER,
                 patchNoCoarse(12, 7, 3, prov(ReduxBlocks.GOLDEN_CLOVER)));
@@ -531,7 +544,7 @@ public class ReduxConfiguredFeatures {
         register(context, IRIDIA_PATCH, Feature.FLOWER,
                 randomPatch(24, 7, 3, prov(ReduxBlocks.IRIDIA)));
         register(context, XAELIA_PATCH, Feature.FLOWER,
-                randomPatch(32, 7, 3, prov(ReduxBlocks.XAELIA_FLOWERS)));
+                randomPatch(32, 7, 3, prov(ReduxBlocks.XAELIA_PATCH)));
 
         register(context, LARGE_CLOUDCAP, ReduxFeatures.CLOUDCAP.get(),
                 new CloudcapFeature.CloudcapConfig(
@@ -578,6 +591,65 @@ public class ReduxConfiguredFeatures {
                                 .add(ConstantInt.of(3), 2)
                                 .add(ConstantInt.of(4), 1)
                                 .build()), 7, 3, 32));
+
+        register(context, PRISMATIC_FIELDSPROOT_TREE, Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        prov(Redux.WoodHandlers.FIELDSPROOT.log),
+                        new GenesisHookedTrunkPlacer(8, 14, 14),
+                        prov(ReduxBlocks.PRISMATIC_FIELDSPROOT_LEAVES),
+                        new GenesisHookedFoliagePlacer(ConstantInt.of(2), ConstantInt.of(1), ConstantInt.of(2)),
+                        new TwoLayersFeatureSize(2, 1, 4)
+                ).decorators(List.of(new GenesisTrunkDecorator(prov(Redux.WoodHandlers.FIELDSPROOT.logWall))
+                )).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT))
+                        .decorators(List.of(new PatchTreeDecorator(createPetals(ReduxBlocks.FIELDSPROOT_PETALS), 7, 3, 32)
+                        )).build());
+
+        register(context, AZURE_FIELDSPROOT_TREE, Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        prov(Redux.WoodHandlers.FIELDSPROOT.log),
+                        new StraightTrunkPlacer(5, 5, 0),
+                        prov(ReduxBlocks.AZURE_FIELDSPROOT_LEAVES),
+                        new GenesisPineFoliagePlacer(ConstantInt.of(2), ConstantInt.of(1), ConstantInt.of(2)),
+                        new TwoLayersFeatureSize(2, 1, 4)
+                ).decorators(List.of(new GenesisTrunkDecorator(prov(Redux.WoodHandlers.FIELDSPROOT.logWall))
+                )).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT))
+                        .decorators(List.of(new PatchTreeDecorator(createPetals(ReduxBlocks.FIELDSPROOT_PETALS), 7, 3, 32)
+                        )).build());
+
+        register(context, SPECTRAL_FIELDSPROOT_TREE, Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        BlockStateProvider.simple(drops(Redux.WoodHandlers.FIELDSPROOT.log)),
+                        new GoldenOakTrunkPlacer(10, 0, 0),
+                        BlockStateProvider.simple(drops(ReduxBlocks.SPECTRAL_FIELDSPROOT_LEAVES)),
+                        new GoldenOakFoliagePlacer(ConstantInt.of(3), ConstantInt.of(1), ConstantInt.of(7)),
+                        new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(10))
+                ).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT))
+                        .decorators(List.of(new PatchTreeDecorator(createPetals(ReduxBlocks.FIELDSPROOT_PETALS), 7, 3, 32)
+                        )).build());
+
+        register(context, FANCY_SPECTRAL_FIELDSPROOT_TREE, Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        BlockStateProvider.simple(drops(Redux.WoodHandlers.FIELDSPROOT.log)),
+                        new FancyTrunkPlacer(10, 0, 0),
+                        BlockStateProvider.simple(drops(ReduxBlocks.SPECTRAL_FIELDSPROOT_LEAVES)),
+                        new FancyFoliagePlacer(ConstantInt.of(2), ConstantInt.of(4), 4),
+                        new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(10))
+                ).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT))
+                        .decorators(List.of(new PatchTreeDecorator(createPetals(ReduxBlocks.FIELDSPROOT_PETALS), 7, 3, 32)
+                        )).build());
+
+        register(context, CLASSIC_SKYFIELDS_TREES, Feature.RANDOM_SELECTOR,
+                new RandomFeatureConfiguration(List.of(
+                        new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(SPECTRAL_FIELDSPROOT_TREE),
+                                PlacementUtils.filteredByBlockSurvival(ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING.get())), 0.2F),
+                        new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(FANCY_SPECTRAL_FIELDSPROOT_TREE),
+                                PlacementUtils.filteredByBlockSurvival(ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING.get())), 0.1F),
+                        new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(AZURE_FIELDSPROOT_TREE),
+                                PlacementUtils.filteredByBlockSurvival(ReduxBlocks.AZURE_FIELDSPROOT_SAPLING.get())), 0.2F)
+                ),
+                        PlacementUtils.inlinePlaced(
+                                configuredFeatures.getOrThrow(PRISMATIC_FIELDSPROOT_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING.get()))));
+
 
         register(context, SKYROOT_BUSH, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 prov(AetherFeatureStates.SKYROOT_LOG),
@@ -678,31 +750,29 @@ public class ReduxConfiguredFeatures {
         register(context, SENTRITE_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
                 drops(ReduxBlocks.SENTRITE), 48, 0.0F));
 
+        register(context, TALL_GRASS_PATCH_OVERRIDE, Feature.NO_OP, FeatureConfiguration.NONE);
         register(context, GRASS_PATCH_OVERRIDE, Feature.RANDOM_PATCH,
                 patchNoCoarse(32, 7, 3, prov(ReduxBlocks.SHORT_AETHER_GRASS)));
-        register(context, TALL_GRASS_PATCH_OVERRIDE, Feature.NO_OP, FeatureConfiguration.NONE);
 
+        register(context, GRASS_PATCH_BONEMEAL, Feature.SIMPLE_BLOCK,
+                new SimpleBlockConfiguration(prov(ReduxBlocks.SHORT_AETHER_GRASS)));
 
 
     }
 
-    private static RandomPatchConfiguration randomPatch(int tries, int xz, int y, BlockStateProvider state)
-    {
+    private static RandomPatchConfiguration randomPatch(int tries, int xz, int y, BlockStateProvider state) {
         return new RandomPatchConfiguration(tries, xz, y, PlacementUtils.onlyWhenEmpty(
                 Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(state)));
     }
-    private static RandomPatchConfiguration patchNoCoarse(int tries, int xz, int y, BlockStateProvider state)
-    {
+    private static RandomPatchConfiguration patchNoCoarse(int tries, int xz, int y, BlockStateProvider state) {
         return new RandomPatchConfiguration(tries, xz, y, PlacementUtils.onlyWhenEmpty(
                 ReduxFeatures.TEST_BELOW_BLOCK.get(), new PredicateStateConfig(state, BlockPredicate.not(BlockPredicate.matchesTag(ReduxTags.Blocks.COARSE_AETHER_DIRT)))));
     }
-    private static RandomPatchConfiguration blockBelowPlacementPatch(int tries, int xz, int y, BlockStateProvider state, BlockPredicate predicate)
-    {
+    private static RandomPatchConfiguration blockBelowPlacementPatch(int tries, int xz, int y, BlockStateProvider state, BlockPredicate predicate) {
         return new RandomPatchConfiguration(tries, xz, y, PlacementUtils.onlyWhenEmpty(
                 ReduxFeatures.TEST_BELOW_BLOCK.get(), new PredicateStateConfig(state, predicate)));
     }
-    private static PatchRockConfig blockBelowPlacementPatchRock(BlockStateProvider rock, int tries, int xz, int y, BlockStateProvider state, BlockPredicate predicate)
-    {
+    private static PatchRockConfig blockBelowPlacementPatchRock(BlockStateProvider rock, int tries, int xz, int y, BlockStateProvider state, BlockPredicate predicate) {
         return new PatchRockConfig(rock, tries, xz, y, PlacementUtils.onlyWhenEmpty(
                 ReduxFeatures.TEST_BELOW_BLOCK.get(), new PredicateStateConfig(state, predicate)));
     }
@@ -816,6 +886,20 @@ public class ReduxConfiguredFeatures {
     private static BlockStateProvider createLeafPileLayers(RegistryObject<? extends Block> block)
     {
         return createLeafPileLayers(drops(block));
+    }
+
+    private static BlockStateProvider createPetals(RegistryObject<? extends Block> block)
+    {
+        BlockState state = drops(block);
+        if (state.hasProperty(ReduxStates.PETAL_1) && state.hasProperty(ReduxStates.PETAL_2) && state.hasProperty(ReduxStates.PETAL_3) && state.hasProperty(ReduxStates.PETAL_4)) {
+            return new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                    .add(state.setValue(ReduxStates.PETAL_2, PetalPrismaticness.ZERO), 4)
+                    .add(state.setValue(ReduxStates.PETAL_2, PetalPrismaticness.ZERO).setValue(ReduxStates.PETAL_3, PetalPrismaticness.ZERO), 3)
+                    .add(state.setValue(ReduxStates.PETAL_2, PetalPrismaticness.ZERO).setValue(ReduxStates.PETAL_3, PetalPrismaticness.ZERO).setValue(ReduxStates.PETAL_4, PetalPrismaticness.ZERO), 2)
+
+            ); } else {
+            return BlockStateProvider.simple(state);
+        }
     }
 
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {

@@ -1,7 +1,6 @@
 package net.zepalesque.redux.event.listener;
 
 import com.aetherteam.aether.client.AetherSoundEvents;
-import com.aetherteam.aether_genesis.client.GenesisSoundEvents;
 import net.minecraft.core.Holder;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraftforge.event.PlayLevelSoundEvent;

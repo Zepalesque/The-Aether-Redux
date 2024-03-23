@@ -46,6 +46,7 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
 
 
         this.tag(ReduxTags.Biomes.HAS_AETHER_CAVES).addTag(AetherTags.Biomes.IS_AETHER);
+        this.tag(ReduxTags.Biomes.HAS_CLOUD_LAYER).addTag(AetherTags.Biomes.IS_AETHER);
         this.tag(ReduxTags.Biomes.HAS_ENDERMAN).addTag(AetherTags.Biomes.IS_AETHER);
         this.tag(ReduxTags.Biomes.HAS_BLIGHTED_CAVES).addTag(AetherTags.Biomes.IS_AETHER).remove(ReduxBiomes.THE_BLIGHT);
         this.tag(ReduxTags.Biomes.HAS_FUNGAL_CAVES).addTag(AetherTags.Biomes.IS_AETHER).remove(ReduxBiomes.CLOUDCAPS);
@@ -75,6 +76,7 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
         this.tag(ReduxTags.Biomes.HAS_DIVINITE).addTag(AetherTags.Biomes.IS_AETHER).remove(ReduxTags.Biomes.IS_GILDED);
         this.tag(ReduxTags.Biomes.HAS_SENTRITE).addTag(AetherTags.Biomes.IS_AETHER).remove(ReduxTags.Biomes.IS_GILDED);
         this.tag(ReduxTags.Biomes.HAS_REDUX_WATER_COLOR).addTag(AetherTags.Biomes.IS_AETHER);
+        this.tag(ReduxTags.Biomes.MUSIC_MODIFY).addTag(AetherTags.Biomes.IS_AETHER);
 
         this.tag(ReduxTags.Biomes.DENSE_LEAF_FALL).add(AetherBiomes.SKYROOT_FOREST, AetherBiomes.SKYROOT_WOODLAND);
 

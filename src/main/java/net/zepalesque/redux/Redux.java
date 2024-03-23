@@ -9,11 +9,11 @@ import com.aetherteam.aether_genesis.item.GenesisItems;
 import com.aetherteam.cumulus.CumulusConfig;
 import com.mojang.logging.LogUtils;
 import com.mojang.serialization.Codec;
-import net.builderdog.ancient_aether.data.resources.registries.AncientAetherBiomeModifiers;
 import net.builderdog.ancient_aether.entity.AncientAetherEntityTypes;
 import net.minecraft.SharedConstants;
 import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.core.*;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.Registry;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.metadata.PackMetadataGenerator;
@@ -52,6 +52,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegisterEvent;
 import net.minecraftforge.resource.PathPackResources;
+import net.zepalesque.redux.advancement.ReduxAdvancementSounds;
 import net.zepalesque.redux.advancement.trigger.ReduxAdvancementTriggers;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.api.condition.AbstractCondition;
@@ -65,13 +66,12 @@ import net.zepalesque.redux.builtin.BuiltinPackUtils;
 import net.zepalesque.redux.client.ReduxClient;
 import net.zepalesque.redux.client.ReduxColors;
 import net.zepalesque.redux.client.ReduxMenus;
-import net.zepalesque.redux.client.ReduxPostProcessHandler;
-import net.zepalesque.redux.client.render.entity.BlightbunnyRenderer;
-import net.zepalesque.redux.client.render.geo.MykapodRenderer;
-import net.zepalesque.redux.client.resource.ReduxOverridesPackResources;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.client.render.ReduxRenderers;
+import net.zepalesque.redux.client.render.entity.BlightbunnyRenderer;
+import net.zepalesque.redux.client.render.geo.MykapodRenderer;
+import net.zepalesque.redux.client.resource.ReduxOverridesPackResources;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.config.enums.dungeon.BossRoomType;
 import net.zepalesque.redux.config.enums.dungeon.ChestRoomType;
@@ -94,7 +94,7 @@ import net.zepalesque.redux.network.ReduxPacketHandler;
 import net.zepalesque.redux.recipe.ReduxRecipeTypes;
 import net.zepalesque.redux.recipe.condition.DataRecipeCondition;
 import net.zepalesque.redux.recipe.serializer.ReduxRecipeSerializers;
-import net.zepalesque.redux.util.function.QuadConsumer;
+import net.zepalesque.redux.util.compat.AncientCompatUtil;
 import net.zepalesque.redux.world.biome.ReduxRegion;
 import net.zepalesque.redux.world.biome.ReduxSurfaceData;
 import net.zepalesque.redux.world.biome.modifier.ReduxBiomeModifierCodecs;
@@ -175,6 +175,7 @@ public class Redux {
         ReduxStateProviders.PROVIDERS.register(bus);
         ReduxDataSerializers.SERIALIZERS.register(bus);
         ReduxPotions.POTIONS.register(bus);
+        ReduxAdvancementSounds.SOUNDS.register(bus);
         ReduxBlocks.registerWoodTypes();
         ReduxBlocks.registerPots();
         DistExecutor.unsafeRunForDist(() -> () -> {
@@ -212,6 +213,10 @@ public class Redux {
         ReduxPlacementModifiers.init();
         ReduxPacketHandler.register();
         event.enqueueWork(() -> {
+            if (ReduxConfig.COMMON.first_startup_aeroblender_setup.get()) {
+                AeroBlenderConfig.COMMON.vanillaAetherRegionWeight.set(0);
+                AeroBlenderConfig.COMMON.vanillaAetherRegionWeight.save();
+            }
             ReduxBlocks.registerFlammability();
             registerDispenserBehaviors();
             replaceBlockSounds();
@@ -229,10 +234,12 @@ public class Redux {
             PotionBrewing.addMix(Potions.LONG_POISON, ReduxItems.BLIGHTED_SPORES.get(), ReduxPotions.LONG_INTOXICATION.get());
             PotionBrewing.addMix(ReduxPotions.INTOXICATION.get(), Items.REDSTONE, ReduxPotions.LONG_INTOXICATION.get());
             SwetHooks.registerParticle(AetherEntityTypes.BLUE_SWET.get(), AetherItems.SWET_BALL.get());
-            SwetHooks.registerParticle(AetherEntityTypes.GOLDEN_SWET.get(), ReduxItems.GOLDEN_SWET_BALL.get());
             SwetHooks.registerParticle(ReduxEntityTypes.VANILLA_SWET.get(), ReduxItems.VANILLA_SWET_BALL.get());
             if (Redux.aetherGenesisCompat()) {
                 SwetHooks.registerParticle(GenesisEntityTypes.DARK_SWET.get(), GenesisItems.DARK_SWET_BALL.get());
+                SwetHooks.registerParticle(AetherEntityTypes.GOLDEN_SWET.get(), GenesisItems.GOLDEN_SWET_BALL.get());
+            } else {
+                SwetHooks.registerParticle(AetherEntityTypes.GOLDEN_SWET.get(), ReduxItems.GOLDEN_SWET_BALL.get());
             }
             // TODO: Proper particles for this one
             if (Redux.ancientAetherCompat()) {
@@ -247,29 +254,31 @@ public class Redux {
         ReduxRenderers.registerCuriosRenderers();
         event.enqueueWork(
                 () -> {
-                    if (ReduxConfig.CLIENT.first_startup.get()) {
+                    if (ReduxConfig.CLIENT.first_startup_lightmap_changes.get()) {
 //                        AetherConfig.CLIENT.green_sunset.set(true);
 //                        AetherConfig.CLIENT.green_sunset.save();
                         AetherConfig.CLIENT.colder_lightmap.set(true);
                         AetherConfig.CLIENT.colder_lightmap.save();
-                        AetherConfig.CLIENT.enable_aether_menu_button.set(false);
-                        AetherConfig.CLIENT.enable_aether_menu_button.save();
-                        AetherConfig.CLIENT.should_disable_cumulus_button.set(false);
-                        AetherConfig.CLIENT.should_disable_cumulus_button.save();
+                        ReduxConfig.CLIENT.first_startup_lightmap_changes.set(false);
+                        ReduxConfig.CLIENT.first_startup_lightmap_changes.save();
+                    }
+                    if (ReduxConfig.CLIENT.first_startup_menu_setup.get()) {
                         if (CumulusConfig.CLIENT.enable_menu_api.get()) {
                             CumulusConfig.CLIENT.active_menu.set(ReduxMenus.SKYFIELDS_MENU.getId().toString());
                             CumulusConfig.CLIENT.active_menu.save();
                             CumulusConfig.CLIENT.enable_menu_list_button.set(true);
                             CumulusConfig.CLIENT.active_menu.save();
+                            AetherConfig.CLIENT.enable_aether_menu_button.set(false);
+                            AetherConfig.CLIENT.enable_aether_menu_button.save();
+                            AetherConfig.CLIENT.should_disable_cumulus_button.set(false);
+                            AetherConfig.CLIENT.should_disable_cumulus_button.save();
+                            ReduxConfig.CLIENT.first_startup_menu_setup.set(false);
+                            ReduxConfig.CLIENT.first_startup_menu_setup.save();
                         }
-                        ReduxConfig.CLIENT.first_startup.set(false);
-                        ReduxConfig.CLIENT.first_startup.save();
-                        AeroBlenderConfig.COMMON.vanillaAetherRegionWeight.set(0);
-                        AeroBlenderConfig.COMMON.vanillaAetherRegionWeight.save();
                     }
+
                     ReduxMenus.cycle();
                     ReduxClient.registerItemModelProperties();
-                    ReduxPostProcessHandler.initAdrenalineShader();
                     this.versionRefresh();
                 });
     }
@@ -328,6 +337,8 @@ public class Redux {
         generator.addProvider(event.includeServer(), new ReduxRecipeData(packOutput));
         generator.addProvider(event.includeServer(), ReduxLootData.loot(packOutput));
         generator.addProvider(event.includeServer(), new ReduxDamageTypeTagData(packOutput, lookupProvider, fileHelper));
+        generator.addProvider(event.includeServer(), new ReduxSoundEventTagData(packOutput, lookupProvider, fileHelper));
+        generator.addProvider(event.includeServer(), new ReduxAdvancementOverrideTagData(packOutput, lookupProvider, fileHelper));
         ReduxBlockTagsData block = new ReduxBlockTagsData(packOutput, lookupProvider, fileHelper);
         generator.addProvider(event.includeServer(), block);
         generator.addProvider(event.includeServer(), new ReduxItemTagsData(packOutput, lookupProvider, block.contentsGetter(), fileHelper));
@@ -359,9 +370,9 @@ public class Redux {
             if (deepAetherCompat()) { this.setupMandatoryDataPack(event, "data/deep_aether_data", "Deep Aether Compat", "Compatibility with Deep Aether"); }
             if (ancientAetherCompat()) { this.setupMandatoryDataPack(event, "data/ancient_aether_data", "Ancient Aether Compat", "Compatibility with Ancient Aether"); }
 
-            QuadConsumer<AddPackFindersEvent, String, String, String> func = ReduxConfig.COMMON.apply_cloud_layer_pack.get() ? this::setupBuiltinDatapack : this::setupOptionalDatapack;
-            func.accept(event, "data/cloudbed", "Redux - Cloudbed", "Highlands-like Cloudbed");
+            if (ancientAetherCompat() && AncientCompatUtil.before090) { this.setupMandatoryDataPack(event, "data/ancient_aether_gold_tree", "Ancient Aether Golden Oak", "Compatibility with Ancient Aether, fixes crash"); }
 
+            if (ReduxConfig.COMMON.cloud_layer_gen.get()) { this.setupBuiltinDatapack(event, "data/cloudbed", "Redux - Cloudbed", "Highlands-like Cloudbed"); }
 
             if (ReduxConfig.COMMON.bronze_boss_room.get() != BossRoomType.classic) { this.setupBuiltinDatapack(event, "data/dungeon/boss_room/" + ReduxConfig.COMMON.bronze_boss_room.get().getSerializedName(), "Bronze Boss Room", "Boss Room Override"); }
             if (ReduxConfig.COMMON.bronze_chest_room.get() != ChestRoomType.classic) { this.setupBuiltinDatapack(event, "data/dungeon/chest_room/" + ReduxConfig.COMMON.bronze_chest_room.get().getSerializedName(), "Bronze Chest Room", "Chest Room Override"); }

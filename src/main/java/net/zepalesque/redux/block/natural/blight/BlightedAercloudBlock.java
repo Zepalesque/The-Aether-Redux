@@ -11,7 +11,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.zepalesque.redux.data.resource.ReduxDamageTypes;
-import net.zepalesque.redux.event.hook.EquipmentHooks;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.misc.ReduxTags;
 

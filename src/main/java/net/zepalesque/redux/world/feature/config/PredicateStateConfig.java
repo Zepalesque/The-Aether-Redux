@@ -5,7 +5,6 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
-import net.zepalesque.redux.world.feature.TestBelowBlockFeature;
 
 public record PredicateStateConfig(BlockStateProvider toPlace,
                                    BlockPredicate predicate) implements FeatureConfiguration {

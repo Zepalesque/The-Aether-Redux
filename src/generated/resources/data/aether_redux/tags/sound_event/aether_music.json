@@ -1,0 +1,9 @@
+{
+  "values": [
+    "aether:music.aether",
+    {
+      "id": "aether_genesis:music.aether_night",
+      "required": false
+    }
+  ]
+}

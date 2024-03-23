@@ -12,26 +12,26 @@
         }
       ],
       "recipe": {
-        "type": "minecraft:crafting_shaped",
+        "type": "minecraft:crafting_shapeless",
         "category": "misc",
         "group": "gummy_swet",
-        "key": {
-          "J": {
+        "ingredients": [
+          {
             "tag": "aether_redux:golden_swet_ball"
           },
-          "S": {
+          {
+            "tag": "aether_redux:golden_swet_ball"
+          },
+          {
+            "tag": "aether_redux:golden_swet_ball"
+          },
+          {
             "item": "minecraft:sugar"
           }
-        },
-        "pattern": [
-          " J ",
-          "JSJ",
-          " J "
         ],
         "result": {
           "item": "aether:golden_gummy_swet"
-        },
-        "show_notification": true
+        }
       }
     }
   ]

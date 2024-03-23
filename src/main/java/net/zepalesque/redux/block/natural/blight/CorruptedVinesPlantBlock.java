@@ -8,7 +8,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.GrowingPlantBodyBlock;
 import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -18,7 +17,6 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.zepalesque.redux.data.resource.ReduxDamageTypes;
 import net.zepalesque.redux.event.hook.EquipmentHooks;
-import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.misc.ReduxTags;
 import top.theillusivec4.curios.api.CuriosApi;
 
@@ -58,7 +56,7 @@ public class CorruptedVinesPlantBlock extends GrowingPlantBodyBlock {
 
    @Override
    public boolean isLadder(BlockState state, LevelReader level, BlockPos pos, LivingEntity entity) {
-      return super.isLadder(state, level, pos, entity) && EquipmentUtil.hasCurio(entity, ReduxItems.COCKATRICE_FEATHER.get());
+      return super.isLadder(state, level, pos, entity) && EquipmentHooks.isImmuneToBlightPlants(entity);
    }
 
    protected GrowingPlantHeadBlock getHeadBlock() {

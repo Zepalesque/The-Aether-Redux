@@ -1,6 +1,5 @@
 package net.zepalesque.redux.world.tree.grower;
 
-import com.aetherteam.aether.data.resources.registries.AetherConfiguredFeatures;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;

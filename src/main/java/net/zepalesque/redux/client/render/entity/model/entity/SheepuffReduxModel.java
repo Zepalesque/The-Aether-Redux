@@ -1,7 +1,6 @@
 package net.zepalesque.redux.client.render.entity.model.entity;
 
 import com.aetherteam.aether.entity.passive.Sheepuff;
-import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.QuadrupedModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;

@@ -5,7 +5,6 @@ import com.aetherteam.aether.item.AetherCreativeTabs;
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether_genesis.block.GenesisBlocks;
 import com.legacy.lost_aether.registry.LCBlocks;
-import com.legacy.lost_aether.registry.LCItems;
 import net.builderdog.ancient_aether.block.AncientAetherBlocks;
 import net.builderdog.ancient_aether.item.AncientAetherItems;
 import net.minecraft.nbt.CompoundTag;
@@ -122,9 +121,15 @@ public class ReduxCreativeTabs {
 
             putAfter(AetherBlocks.GOLDEN_AERCLOUD, ReduxBlocks.BLIGHTED_AERCLOUD, event);
 
-
-            putAfter(AetherBlocks.DECORATED_HOLIDAY_LEAVES, ReduxBlocks.FIELDSPROOT_LEAVES, event);
-            putAfter(ReduxBlocks.FIELDSPROOT_LEAVES, ReduxBlocks.CLOUD_CAP_BLOCK, event);
+            if (!ReduxConfig.COMMON.classic_skyfields.get()) {
+                putAfter(AetherBlocks.DECORATED_HOLIDAY_LEAVES, ReduxBlocks.FIELDSPROOT_LEAVES, event);
+                putAfter(ReduxBlocks.FIELDSPROOT_LEAVES, ReduxBlocks.CLOUD_CAP_BLOCK, event);
+            } else {
+                putAfter(AetherBlocks.DECORATED_HOLIDAY_LEAVES, ReduxBlocks.PRISMATIC_FIELDSPROOT_LEAVES, event);
+                putAfter(ReduxBlocks.PRISMATIC_FIELDSPROOT_LEAVES, ReduxBlocks.AZURE_FIELDSPROOT_LEAVES, event);
+                putAfter(ReduxBlocks.AZURE_FIELDSPROOT_LEAVES, ReduxBlocks.SPECTRAL_FIELDSPROOT_LEAVES, event);
+                putAfter(ReduxBlocks.SPECTRAL_FIELDSPROOT_LEAVES, ReduxBlocks.CLOUD_CAP_BLOCK, event);
+            }
             putAfter(ReduxBlocks.CLOUD_CAP_BLOCK, ReduxBlocks.CLOUDCAP_SPORES, event);
             putAfter(ReduxBlocks.CLOUDCAP_SPORES, ReduxBlocks.JELLYSHROOM_JELLY_BLOCK, event);
 
@@ -133,7 +138,13 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.BLIGHTED_SKYROOT_SAPLING, ReduxBlocks.GLACIA_SAPLING, event);
             putAfter(ReduxBlocks.GLACIA_SAPLING, ReduxBlocks.PURPLE_GLACIA_SAPLING, event);
             putAfter(ReduxBlocks.PURPLE_GLACIA_SAPLING, ReduxBlocks.GILDED_OAK_SAPLING, event);
-            putAfter(ReduxBlocks.GILDED_OAK_SAPLING, ReduxBlocks.FIELDSPROOT_SAPLING, event);
+            if (!ReduxConfig.COMMON.classic_skyfields.get()) {
+                putAfter(ReduxBlocks.GILDED_OAK_SAPLING, ReduxBlocks.FIELDSPROOT_SAPLING, event);
+            } else {
+                putAfter(ReduxBlocks.GILDED_OAK_SAPLING, ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING, event);
+                putAfter(ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING, ReduxBlocks.AZURE_FIELDSPROOT_SAPLING, event);
+                putAfter(ReduxBlocks.AZURE_FIELDSPROOT_SAPLING, ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING, event);
+            }
 
             if (Redux.lostAetherCompat()) {
                 event.getEntries().remove(new ItemStack(LCBlocks.crystal_sapling));
@@ -150,8 +161,8 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.WYNDSPROUTS, ReduxBlocks.SKYSPROUTS, event);
             putAfter(ReduxBlocks.SKYSPROUTS, ReduxBlocks.FIELDSPROOT_PETALS, event);
             putAfter(ReduxBlocks.FIELDSPROOT_PETALS, ReduxBlocks.IRIDIA, event);
-            putAfter(ReduxBlocks.IRIDIA, ReduxBlocks.XAELIA_FLOWERS, event);
-            putAfter(ReduxBlocks.XAELIA_FLOWERS, ReduxBlocks.AURUM, event);
+            putAfter(ReduxBlocks.IRIDIA, ReduxBlocks.XAELIA_PATCH, event);
+            putAfter(ReduxBlocks.XAELIA_PATCH, ReduxBlocks.AURUM, event);
             putAfter(ReduxBlocks.AURUM, ReduxBlocks.GOLDEN_CLOVER, event);
             putAfter(ReduxBlocks.GOLDEN_CLOVER, ReduxBlocks.ZYATRIX, event);
             putAfter(ReduxBlocks.ZYATRIX, ReduxBlocks.LUXWEED, event);
@@ -163,6 +174,8 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.THERATIP, ReduxBlocks.CLOUDCAP_MUSHLING, event);
             putAfter(ReduxBlocks.CLOUDCAP_MUSHLING, ReduxBlocks.JELLYSHROOM, event);
             putAfter(ReduxBlocks.JELLYSHROOM, ReduxBlocks.SHIMMERSTOOL, event);
+            putAfter(ReduxBlocks.SHIMMERSTOOL, ReduxBlocks.FLAREBLOSSOM, event);
+            putAfter(ReduxBlocks.FLAREBLOSSOM, ReduxBlocks.INFERNIA, event);
 
             putAfter(AetherBlocks.ZANITE_ORE, ReduxBlocks.VERIDIUM_ORE, event);
             putAfter(ReduxBlocks.VERIDIUM_ORE, ReduxBlocks.RAW_VERIDIUM_BLOCK, event);

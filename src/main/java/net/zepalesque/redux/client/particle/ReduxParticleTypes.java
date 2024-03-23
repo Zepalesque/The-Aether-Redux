@@ -1,12 +1,11 @@
 package net.zepalesque.redux.client.particle;
 
 import com.mojang.serialization.Codec;
+import net.minecraft.client.particle.FlameParticle;
 import net.minecraft.client.particle.ParticleEngine;
 import net.minecraft.client.particle.ParticleProvider;
 import net.minecraft.client.particle.TextureSheetParticle;
-import net.minecraft.core.Registry;
 import net.minecraft.core.particles.*;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -77,6 +76,9 @@ public class ReduxParticleTypes {
     public static final RegistryObject<SimpleParticleType> SHIMMERSTAR = PARTICLES.register("shimmerstar", () -> new SimpleParticleType(false));
     public static final RegistryObject<ParticleType<ItemParticleOption>> RANDOM_MOVEMENT_ITEM = register("random_movement_item", false, ItemParticleOption.DESERIALIZER, ItemParticleOption::codec);
 
+    public static final RegistryObject<SimpleParticleType> BLIGHTSHADE = PARTICLES.register("blightshade", () -> new SimpleParticleType(false));
+
+    public static final RegistryObject<SimpleParticleType> BLOSSOM_FLARE = PARTICLES.register("blossom_flare", () -> new SimpleParticleType(false));
 
     public static final RegistryObject<SimpleParticleType> SPARK = PARTICLES.register("spark", () -> new SimpleParticleType(false));
     private static final Vector3f SHINY_CLOUD_COLOR = Vec3.fromRGB24(16777215).toVector3f();
@@ -87,6 +89,7 @@ public class ReduxParticleTypes {
     @OnlyIn(Dist.CLIENT)
     public static void registerParticleFactories(RegisterParticleProvidersEvent event) {
         registerSpriteSet(event, GILDED_SKYROOT_LEAVES.get(), GildedSkyrootLeavesParticle.Provider::new);
+
         registerSpriteSet(event, FIELDSPROUT_PETALS_0.get(), FallingLeafParticle.Provider::new);
         registerSpriteSet(event, FIELDSPROUT_PETALS_1.get(), FallingLeafParticle.Provider::new);
         registerSpriteSet(event, FIELDSPROUT_PETALS_2.get(), FallingLeafParticle.Provider::new);
@@ -116,17 +119,22 @@ public class ReduxParticleTypes {
         registerSpriteSet(event, FALLING_GLACIA_NEEDLES.get(), FallingLeafParticle.Provider::new);
         registerSpriteSet(event, FALLING_PURPLE_GLACIA_NEEDLES.get(), FallingLeafParticle.Provider::new);
 
+        // TODO: Investigate making this more unique?
+        registerSpriteSet(event, BLOSSOM_FLARE.get(), FlameParticle.Provider::new);
+
         registerSpriteSet(event, ICE_SHARD.get(), IceShardParticle.Provider::new);
         registerSpriteSet(event, FROST.get(), FrostParticle.Provider::new);
 
-        registerSpriteSet(event, FALLING_CLOUDCAP_SPORE.get(), CloudcapSporeParticle::falling);
-        registerSpriteSet(event, LANDING_CLOUDCAP_SPORE.get(), CloudcapSporeParticle::landing);
+        registerSpriteSet(event, FALLING_CLOUDCAP_SPORE.get(), CloudcapSporeParticle.Falling::new);
+        registerSpriteSet(event, LANDING_CLOUDCAP_SPORE.get(), CloudcapSporeParticle.Landing::new);
         registerSpriteSet(event, CLOUDCAP_AIR_SPORE.get(), CloudcapAirSporeParticle.Provider::new);
 
         registerSpriteSet(event, SPARK.get(), SparkParticle.Provider::new);
 
         registerSpriteSet(event, SHIMMERSTAR.get(), ShimmerstarParticle.Provider::new);
         registerSpriteSet(event, RANDOM_MOVEMENT_ITEM.get(), sprites -> new RandomMovementItemParticle.Provider());
+
+        registerSpriteSet(event, BLIGHTSHADE.get(), BlightshadeParticle.Provider::new);
     }
 
     @OnlyIn(Dist.CLIENT)

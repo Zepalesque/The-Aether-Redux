@@ -12,9 +12,9 @@ import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.misc.ReduxTags;
 import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.init.DABlocks;
 
@@ -213,7 +213,10 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.FIELDSPROOT_LEAVES.get(),
                 ReduxBlocks.GOLDEN_LEAF_PILE.get(),
                 ReduxBlocks.GILDED_LEAF_PILE.get(),
-                ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get()
+                ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get(),
+                ReduxBlocks.CLOUD_CAP_BLOCK.get(),
+                ReduxBlocks.CLOUDCAP_SPORES.get(),
+                ReduxBlocks.JELLYSHROOM_JELLY_BLOCK.get()
         );
         this.tag(BlockTags.STAIRS).add(
                 ReduxBlocks.DIVINITE_STAIRS.get(),
@@ -288,7 +291,10 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.ZANBERRY_BUSH_STEM.get(),
                 ReduxBlocks.GILDED_OAK_SAPLING.get(),
                 ReduxBlocks.BLIGHTED_SKYROOT_SAPLING.get(),
-                ReduxBlocks.FIELDSPROOT_SAPLING.get()
+                ReduxBlocks.FIELDSPROOT_SAPLING.get(),
+                ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING.get(),
+                ReduxBlocks.AZURE_FIELDSPROOT_SAPLING.get(),
+                ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING.get()
         );
         this.tag(BlockTags.WALLS).add(
                 ReduxBlocks.DIVINITE_WALL.get(),
@@ -296,7 +302,9 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         );
 
         this.tag(BlockTags.REPLACEABLE).add(
-                ReduxBlocks.SHORT_AETHER_GRASS.get()
+                ReduxBlocks.SHORT_AETHER_GRASS.get(),
+                ReduxBlocks.AVELIUM_ROOTS.get(),
+                ReduxBlocks.AVELIUM_SPROUTS.get()
         );
 
         this.tag(BlockTags.BEACON_BASE_BLOCKS).add(ReduxBlocks.VERIDIUM_BLOCK.get(), ReduxBlocks.GRAVITITE_BLOCK.get());

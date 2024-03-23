@@ -4,7 +4,6 @@ import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.entity.monster.Swet;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleOptions;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.goal.WrappedGoal;
@@ -47,11 +46,6 @@ public class SwetHooks {
     }
 
 
-    public static boolean shouldGrow(ItemStack stack, EntityType<?> swet) {
-        return stack.is(AetherTags.Items.SWET_BALLS) || stack.getItem() instanceof SpawnEggItem spawnEggItem && spawnEggItem.getType(stack.getTag()) == swet;
-    }
-
-
     public static void swetTick(Swet swet) {
         SwetMass.get(swet).ifPresent(SwetMass::tick);
     }
@@ -70,8 +64,8 @@ public class SwetHooks {
         return getTrueScale(swet) > 1.1D;
     }
 
-    public static boolean canGrow(Swet swet) {
-        return swet.getSize() < 20;
+    public static boolean canGrow(Swet swet, ItemStack stack) {
+        return stack.is(AetherTags.Items.SWET_BALLS) ? swet.getSize() < 8 : stack.getItem() instanceof SpawnEggItem spawnEggItem && spawnEggItem.getType(stack.getTag()) == swet.getType() && swet.getSize() < 16;
     }
 
     public static boolean canBeControlled(Swet swet) {

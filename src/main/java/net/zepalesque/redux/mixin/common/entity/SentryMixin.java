@@ -2,7 +2,6 @@ package net.zepalesque.redux.mixin.common.entity;
 
 import com.aetherteam.aether.entity.monster.dungeon.Sentry;
 import net.minecraft.sounds.SoundEvent;
-import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

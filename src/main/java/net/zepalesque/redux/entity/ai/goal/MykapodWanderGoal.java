@@ -1,6 +1,5 @@
 package net.zepalesque.redux.entity.ai.goal;
 
-import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.zepalesque.redux.entity.passive.Mykapod;
 

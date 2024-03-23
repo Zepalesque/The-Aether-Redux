@@ -4,7 +4,7 @@
       "advancement": {
         "parent": "minecraft:recipes/root",
         "criteria": {
-          "has_item": {
+          "has_golden_swet_ball": {
             "conditions": {
               "items": [
                 {
@@ -23,7 +23,7 @@
         },
         "requirements": [
           [
-            "has_item",
+            "has_golden_swet_ball",
             "has_the_recipe"
           ]
         ],

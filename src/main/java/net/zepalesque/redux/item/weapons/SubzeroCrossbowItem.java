@@ -27,13 +27,6 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.common.util.Lazy;
-import net.orcinus.galosphere.criterion.GCriterion;
-import net.orcinus.galosphere.entities.GlowFlare;
-import net.orcinus.galosphere.entities.SpectreFlare;
-import net.orcinus.galosphere.init.GCriteriaTriggers;
-import net.orcinus.galosphere.init.GItems;
-import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.capability.arrow.SubzeroArrow;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import org.joml.Quaternionf;
@@ -41,7 +34,6 @@ import org.joml.Vector3f;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.function.Predicate;
 
 public class SubzeroCrossbowItem extends CrossbowItem {
    /** Set to {@code true} when the crossbow is 20% charged. */

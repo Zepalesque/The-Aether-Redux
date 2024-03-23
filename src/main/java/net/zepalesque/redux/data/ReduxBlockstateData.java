@@ -21,12 +21,12 @@ import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.construction.LayeredBookshelfBlock;
 import net.zepalesque.redux.block.construction.VeridiumLanternBlock;
-import net.zepalesque.redux.block.natural.SproutsCropBlock;
 import net.zepalesque.redux.block.natural.AetherShortGrassBlock;
 import net.zepalesque.redux.block.natural.ExtendedDistanceLeavesBlock;
 import net.zepalesque.redux.block.natural.LeafPileBlock;
-import net.zepalesque.redux.block.util.state.enums.PetalPrismaticness;
+import net.zepalesque.redux.block.natural.SproutsCropBlock;
 import net.zepalesque.redux.block.util.state.ReduxStates;
+import net.zepalesque.redux.block.util.state.enums.PetalPrismaticness;
 
 import java.util.Map;
 import java.util.function.Supplier;
@@ -79,7 +79,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.potAlt(ReduxBlocks.POTTED_AVELIUM_ROOTS.get(), ReduxBlocks.AVELIUM_ROOTS.get(), "natural/");
 
         this.crossTintedOverlay(ReduxBlocks.IRIDIA.get(), "natural/");
-        this.crossTintedOverlay(ReduxBlocks.XAELIA_FLOWERS.get(), "natural/");
+        this.crossTintedOverlay(ReduxBlocks.XAELIA_PATCH.get(), "natural/");
         this.tintableShortGrass(ReduxBlocks.SHORT_AETHER_GRASS.get(), "natural/");
         this.tintedPotOverlay(ReduxBlocks.POTTED_IRIDIA.get(), ReduxBlocks.IRIDIA.get(), "natural/");
         block(ReduxBlocks.GILDED_HOLYSTONE.get(), "natural/");
@@ -109,9 +109,21 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.floweringFieldsprootLeafBlock(ReduxBlocks.FIELDSPROOT_LEAVES, "natural/");
         this.fieldsprootPetals(ReduxBlocks.FIELDSPROOT_PETALS.get(), "natural/fieldsproot_petals_stem");
 
+        this.classicFieldsprootLeafBlock(ReduxBlocks.PRISMATIC_FIELDSPROOT_LEAVES, ReduxBlocks.FIELDSPROOT_LEAVES, "natural/", true);
+        this.classicFieldsprootLeafBlock(ReduxBlocks.SPECTRAL_FIELDSPROOT_LEAVES, ReduxBlocks.FIELDSPROOT_LEAVES, "natural/", false);
+        this.existingModel(ReduxBlocks.AZURE_FIELDSPROOT_LEAVES, "fieldsproot_leaves_3");
 
         this.crossBlock(ReduxBlocks.FIELDSPROOT_SAPLING.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_FIELDSPROOT_SAPLING.get(), ReduxBlocks.FIELDSPROOT_SAPLING.get(), "natural/");
+
+        this.crossBlock(ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING.get(), "natural/");
+        this.pottedPlant(ReduxBlocks.POTTED_PRISMATIC_FIELDSPROOT_SAPLING.get(), ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING.get(), "natural/");
+
+        this.crossBlock(ReduxBlocks.AZURE_FIELDSPROOT_SAPLING.get(), "natural/");
+        this.pottedPlant(ReduxBlocks.POTTED_AZURE_FIELDSPROOT_SAPLING.get(), ReduxBlocks.AZURE_FIELDSPROOT_SAPLING.get(), "natural/");
+
+        this.crossBlock(ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING.get(), "natural/");
+        this.pottedPlant(ReduxBlocks.POTTED_SPECTRAL_FIELDSPROOT_SAPLING.get(), ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING.get(), "natural/");
 
         this.leafPile(ReduxBlocks.GOLDEN_LEAF_PILE, AetherBlocks.GOLDEN_OAK_LEAVES, "natural/");
         this.leafPile(ReduxBlocks.GILDED_LEAF_PILE, ReduxBlocks.GILDED_OAK_LEAVES, "natural/");
@@ -169,6 +181,12 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         carpet(ReduxBlocks.FUNGAL_CARPET.get(), ReduxBlocks.FUNGAL_GROWTH.get(), "natural/");
         this.crossTintedDualGloverlay(ReduxBlocks.LUMINA.get(), "natural/");
         this.tintedPotDualGloverlay(ReduxBlocks.POTTED_LUMINA.get(), ReduxBlocks.LUMINA.get(), "natural/");
+
+        this.crossTintedDualGloverlay(ReduxBlocks.FLAREBLOSSOM.get(), "natural/");
+        this.tintedPotDualGloverlay(ReduxBlocks.POTTED_FLAREBLOSSOM.get(), ReduxBlocks.FLAREBLOSSOM.get(), "natural/");
+
+        this.crossTintedOverlay(ReduxBlocks.INFERNIA.get(), "natural/");
+        this.tintedPotOverlay(ReduxBlocks.POTTED_INFERNIA.get(), ReduxBlocks.INFERNIA.get(), "natural/");
 
         this.pottedPlant(ReduxBlocks.POTTED_BLIGHTWILLOW_SAPLING.get(), ReduxBlocks.BLIGHTWILLOW_SAPLING.get(), "natural/");
 
@@ -441,6 +459,17 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
                         }
                         , AetherBlockStateProperties.DOUBLE_DROPS, ExtendedDistanceLeavesBlock.EXTENDED_DISTANCE);
     }
+
+
+    public void classicFieldsprootLeafBlock(Supplier<? extends Block> block, Supplier<? extends Block> texture, String location, boolean end) {
+        getVariantBuilder(block.get())
+                .forAllStatesExcept(state -> {
+                            int i = end ? 6 - state.getValue(ReduxStates.PRISMATICNESS_DECREASED) : state.getValue(ReduxStates.PRISMATICNESS_DECREASED);
+                            return ConfiguredModel.builder().modelFile(models().getExistingFile(texture(name(texture) + "_" + i))).build();
+                        }
+                        , AetherBlockStateProperties.DOUBLE_DROPS, LeavesBlock.DISTANCE);
+    }
+
 
     public void fieldsprootPetals(Block block, String stemTexture)
     {
@@ -1252,6 +1281,12 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
     public void other(Supplier<? extends Block> block, RegistryObject<? extends Block> other, String location) {
         simpleBlock(block.get(), models().cubeAll(name(block), texture(other, location)));
+    }
+    public void other(Supplier<? extends Block> block, String other, String location) {
+        simpleBlock(block.get(), models().cubeAll(name(block), texture(other, location)));
+    }
+    public void existingModel(Supplier<? extends Block> block, String other) {
+        simpleBlock(block.get(), models().getExistingFile(texture(other)));
     }
 
 

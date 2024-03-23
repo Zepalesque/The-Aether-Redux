@@ -41,7 +41,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlock(ReduxBlocks.SENTRITE_BRICKS);
         itemBlock(ReduxBlocks.SENTRITE_BRICK_SLAB);
         itemBlock(ReduxBlocks.SENTRITE_BRICK_STAIRS);
-        itemWallBlock(ReduxBlocks.SENTRITE_BRICK_WALL, ReduxBlocks.SENTRITE_BRICKS, "natural/");
+        itemWallBlock(ReduxBlocks.SENTRITE_BRICK_WALL, ReduxBlocks.SENTRITE_BRICKS, "construction/");
         itemBlock(ReduxBlocks.HOLEFIRE_STONE);
         itemBlock(ReduxBlocks.GLOWY_HOLEFIRE_STONE);
         itemBlock(ReduxBlocks.HOLEFIRE_SLAB);
@@ -50,7 +50,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlock(ReduxBlocks.HOLEFIRE_PILLAR);
         itemBlock(ReduxBlocks.HOLEFIRE_PILLAR_TOP);
         itemBlockFlatTintOverlay(ReduxBlocks.IRIDIA, "natural/");
-        itemBlockFlatTintOverlay(ReduxBlocks.XAELIA_FLOWERS, "natural/");
+        itemBlockFlatTintOverlay(ReduxBlocks.XAELIA_PATCH, "natural/");
         itemBlock(ReduxBlocks.GILDED_HOLYSTONE);
         itemBlock(ReduxBlocks.GILDED_HOLYSTONE_SLAB);
         itemBlock(ReduxBlocks.GILDED_HOLYSTONE_STAIRS);
@@ -123,6 +123,9 @@ public class ReduxItemModelData extends AetherItemModelProvider {
 
         this.itemBlockFlat(ReduxBlocks.BLIGHTWILLOW_SAPLING, "natural/");
         this.itemBlockFlat(ReduxBlocks.FIELDSPROOT_SAPLING.get(), "natural/");
+        this.itemBlockFlat(ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING.get(), "natural/");
+        this.itemBlockFlat(ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING.get(), "natural/");
+        this.itemBlockFlat(ReduxBlocks.AZURE_FIELDSPROOT_SAPLING.get(), "natural/");
         this.itemBlockFlat(ReduxBlocks.CRYSTAL_SAPLING.get(), "natural/");
         this.itemBlockFlat(ReduxBlocks.CRYSTAL_FRUIT_SAPLING.get(), "natural/");
         this.itemBlockFlat(ReduxBlocks.PURPLE_CRYSTAL_FRUIT_SAPLING.get(), "natural/");
@@ -145,6 +148,9 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         blockCustomTexture(ReduxBlocks.FIELDSPROOT_LEAVES, "natural/", "fieldsproot_leaves");
         itemCustomTexture(ReduxBlocks.FIELDSPROOT_PETALS, "misc/", "fieldsproot_petals");
         item(ReduxItems.VERIDIUM_NUGGET.get(), "materials/");
+        blockCustomTexture(ReduxBlocks.PRISMATIC_FIELDSPROOT_LEAVES, "natural/", "prismatic_fieldsproot_leaves");
+        blockCustomTexture(ReduxBlocks.AZURE_FIELDSPROOT_LEAVES, "natural/", "fieldsproot_leaves_3");
+        blockCustomTexture(ReduxBlocks.SPECTRAL_FIELDSPROOT_LEAVES, "natural/", "spectral_fieldsproot_leaves");
 
         itemBlockFlatItemTexture(ReduxBlocks.VERIDIUM_LANTERN, "misc/");
         itemBlockFlatItemTexture(ReduxBlocks.VERIDIUM_CHAIN, "misc/");
@@ -174,7 +180,11 @@ public class ReduxItemModelData extends AetherItemModelProvider {
 
         this.itemBlockFlatTintGlowOverlay(ReduxBlocks.LUMINA, "natural/");
         this.itemBlockFlatTintOverlay(ReduxBlocks.DAGGERBLOOM, "natural/");
+
         this.itemBlockFlatTintOverlay(ReduxBlocks.THERATIP, "natural/");
+
+        this.itemBlockFlatTintGlowOverlay(ReduxBlocks.FLAREBLOSSOM, "natural/");
+        this.itemBlockFlatTintOverlay(ReduxBlocks.INFERNIA, "natural/");
 
         itemBlockFlatTintOverlay(ReduxBlocks.WYNDSPROUTS, "natural/");
         itemBlockFlatTintOverlay(ReduxBlocks.SKYSPROUTS, "natural/");

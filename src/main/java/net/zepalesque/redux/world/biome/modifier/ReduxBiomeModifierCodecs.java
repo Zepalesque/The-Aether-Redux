@@ -3,6 +3,7 @@ package net.zepalesque.redux.world.biome.modifier;
 import com.mojang.datafixers.util.Either;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.MobSpawnSettings;
@@ -13,6 +14,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.condition.AbstractCondition;
+import net.zepalesque.redux.util.function.CodecPredicates;
 
 import java.util.List;
 import java.util.function.Function;
@@ -23,7 +25,7 @@ public class ReduxBiomeModifierCodecs {
     static RegistryObject<Codec<WaterColorReplacementBiomeModifier>> REPLACE_WATER_COLOR = CODECS.register("water_color_replacement", () ->
             RecordCodecBuilder.create(builder -> builder.group(
                     Biome.LIST_CODEC.fieldOf("biomes").forGetter(WaterColorReplacementBiomeModifier::biomes),
-                    WaterColorReplacementBiomeModifier.WaterColorPredicate.CODEC.fieldOf("predicate").forGetter(WaterColorReplacementBiomeModifier::predicate),
+                    WaterColorReplacementBiomeModifier.WATER_PREDICATE.fieldOf("predicate").forGetter(WaterColorReplacementBiomeModifier::predicate),
                     Codec.INT.fieldOf("water_color").forGetter(WaterColorReplacementBiomeModifier::water),
                     Codec.INT.fieldOf("water_fog_color").forGetter(WaterColorReplacementBiomeModifier::fog),
                     AbstractCondition.CODEC.fieldOf("condition").forGetter(WaterColorReplacementBiomeModifier::condition)
@@ -35,6 +37,17 @@ public class ReduxBiomeModifierCodecs {
                     Codec.INT.fieldOf("grass_color").forGetter(GrassAndFoliageColorModifier::grass),
                     Codec.INT.fieldOf("foliage_color").forGetter(GrassAndFoliageColorModifier::foliage)
             ).apply(builder, GrassAndFoliageColorModifier::new)));
+
+    static RegistryObject<Codec<MusicModifier>> MUSIC = CODECS.register("music", () ->
+            RecordCodecBuilder.create(builder -> builder.group(
+                    Biome.LIST_CODEC.fieldOf("biomes").forGetter(MusicModifier::biomes),
+                    SoundEvent.CODEC.optionalFieldOf("sound").forGetter(MusicModifier::event),
+                    MusicModifier.DELAY.optionalFieldOf("delay").forGetter(MusicModifier::delay),
+                    Codec.BOOL.optionalFieldOf("replace").forGetter(MusicModifier::replaceCurrentMusic),
+                    CodecPredicates.Sound.CODEC.optionalFieldOf("sound_predicate").forGetter(MusicModifier::soundPredicate),
+                    MusicModifier.DELAY.optionalFieldOf("delay_predicate").forGetter(MusicModifier::delayPredicate),
+                    CodecPredicates.Bool.CODEC.optionalFieldOf("replace_predicate").forGetter(MusicModifier::replacePredicate)
+            ).apply(builder, MusicModifier::new)));
 
 
 

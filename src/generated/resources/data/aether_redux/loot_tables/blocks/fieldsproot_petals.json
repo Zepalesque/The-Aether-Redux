@@ -13,7 +13,7 @@
                 "block": "aether_redux:fieldsproot_petals",
                 "condition": "minecraft:block_state_property",
                 "properties": {
-                  "petal_1_val": "no_petal"
+                  "petal1": "none"
                 }
               }
             }
@@ -40,7 +40,7 @@
                 "block": "aether_redux:fieldsproot_petals",
                 "condition": "minecraft:block_state_property",
                 "properties": {
-                  "petal_2_val": "no_petal"
+                  "petal2": "none"
                 }
               }
             }
@@ -67,7 +67,7 @@
                 "block": "aether_redux:fieldsproot_petals",
                 "condition": "minecraft:block_state_property",
                 "properties": {
-                  "petal_3_val": "no_petal"
+                  "petal3": "none"
                 }
               }
             }
@@ -94,7 +94,7 @@
                 "block": "aether_redux:fieldsproot_petals",
                 "condition": "minecraft:block_state_property",
                 "properties": {
-                  "petal_4_val": "no_petal"
+                  "petal4": "none"
                 }
               }
             }

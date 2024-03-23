@@ -25,7 +25,6 @@ import net.zepalesque.redux.client.render.entity.misc.ReduxBoatRenderer;
 import net.zepalesque.redux.client.render.entity.model.PinModel;
 import net.zepalesque.redux.client.render.entity.model.SpearModel;
 import net.zepalesque.redux.client.render.entity.model.entity.*;
-import net.zepalesque.redux.client.render.entity.model.entity.MimicReduxModel;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.item.ReduxItems;
 import top.theillusivec4.curios.api.client.CuriosRendererRegistry;

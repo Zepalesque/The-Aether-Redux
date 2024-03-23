@@ -1,4 +1,22 @@
 {
+  "block.aercloud.gold_aercloud_whoosh": {
+    "sounds": [
+      "aether:entity/zephyr/shoot"
+    ],
+    "subtitle": "subtitles.aether_redux.block.aercloud.gold_aercloud_whoosh"
+  },
+  "block.aercloud.green_aercloud_wubble": {
+    "sounds": [
+      "aether_redux:block/aercloud/green_aercloud_wubble"
+    ],
+    "subtitle": "subtitles.aether_redux.block.aercloud.green_aercloud_wubble"
+  },
+  "block.aercloud.purple_aercloud_zoom": {
+    "sounds": [
+      "aether_redux:block/aercloud/purple_aercloud_zoom"
+    ],
+    "subtitle": "subtitles.aether_redux.block.aercloud.purple_aercloud_zoom"
+  },
   "block.blightshade_spray": {
     "sounds": [
       "aether_redux:block/blightshade_spray"

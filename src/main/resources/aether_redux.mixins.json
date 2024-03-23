@@ -6,14 +6,14 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "aether_redux.refmap.json",
   "mixins": [
-    "common.block.AetherGrassBlockMixin",
+    "common.block.AercloudBlockMixin",
     "common.block.BlockBehaviorMixin",
     "common.block.DoubleBlockMixin",
-    "common.block.EnchantedAetherGrassBlockMixin",
     "common.block.FrictionCappedMixin",
-    "common.block.GrassBlockMixin",
+    "common.block.GreenAercloudBlockMixin",
     "common.block.IForgeBlockQuicksoilBehaviorMixin",
     "common.block.ParticleLeavesMixin",
+    "common.block.PurpleAercloudBlockMixin",
     "common.block.QuicksoilBlockMixin",
     "common.block.ReduxWallBlockAccessor",
     "common.compat.ModNameProviderMixin",
@@ -43,6 +43,7 @@
   },
   "client": [
     "client.audio.SentryClientMixin",
+    "client.audio.SoundEngineAccessor",
     "client.block.AetherColorResolversMixin",
     "client.block.AetherLeavesClientMixin",
     "client.block.LeafBlockClientMixin",
@@ -58,7 +59,6 @@
     "client.render.BattleSentryRendererMixin",
     "client.render.BiomeMixin",
     "client.render.EntityRendererMixin",
-    "client.render.HandItemMixin",
     "client.render.LivingEntityRendererMixin",
     "client.render.MimicRendererMixin",
     "client.render.MoaRendererMixin",
@@ -75,8 +75,6 @@
     "client.render.model.FlyingCowModelMixin",
     "client.render.model.MoaModelMixin",
     "client.render.model.QuadrupedModelMixin",
-    "client.render.model.SheepuffModelMixin",
-    "client.render.shader.GameRendererMixin",
-    "client.render.shader.PostPassMixin"
+    "client.render.model.SheepuffModelMixin"
   ]
 }

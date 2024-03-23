@@ -1,7 +1,6 @@
 package net.zepalesque.redux.entity.ai.goal;
 
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.zepalesque.redux.entity.passive.Mykapod;
 

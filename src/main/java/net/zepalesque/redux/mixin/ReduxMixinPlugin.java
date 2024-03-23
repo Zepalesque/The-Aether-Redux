@@ -2,12 +2,10 @@ package net.zepalesque.redux.mixin;
 
 import com.google.common.collect.ImmutableMap;
 import net.minecraftforge.fml.loading.LoadingModList;
-import net.zepalesque.redux.Redux;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;

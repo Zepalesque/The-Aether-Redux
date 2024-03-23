@@ -2,14 +2,13 @@ package net.zepalesque.redux.client;
 
 import com.aetherteam.aether.block.AetherBlocks;
 import net.builderdog.ancient_aether.block.AncientAetherBlocks;
-import net.minecraft.client.renderer.BiomeColors;
+import net.builderdog.ancient_aether.block.blockstate.AetherGrassType;
+import net.builderdog.ancient_aether.block.blockstate.AncientAetherBlockStateProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.FastColor;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.ColorResolver;
-import net.minecraft.world.level.GrassColor;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
@@ -55,6 +54,10 @@ public class ReduxColors {
                 ReduxBlocks.POTTED_DAGGERBLOOM.get(),
                 ReduxBlocks.THERATIP.get(),
                 ReduxBlocks.POTTED_THERATIP.get(),
+                ReduxBlocks.FLAREBLOSSOM.get(),
+                ReduxBlocks.POTTED_FLAREBLOSSOM.get(),
+                ReduxBlocks.INFERNIA.get(),
+                ReduxBlocks.POTTED_INFERNIA.get(),
                 ReduxBlocks.AURUM.get(),
                 ReduxBlocks.POTTED_AURUM.get(),
                 ReduxBlocks.IRIDIA.get(),
@@ -65,12 +68,12 @@ public class ReduxColors {
                 ReduxBlocks.POTTED_ZYATRIX.get(),
                 ReduxBlocks.SPIROLYCTIL.get(),
                 ReduxBlocks.POTTED_SPIROLYCTIL.get(),
-                ReduxBlocks.XAELIA_FLOWERS.get()
+                ReduxBlocks.XAELIA_PATCH.get()
         );
 
         // Ancient Aether Compat
         if (Redux.ancientAetherCompat()) {
-            event.getBlockColors().register((state, level, pos, index) -> level != null && pos != null  ? getAverageColor(level, pos, AETHER_GRASS_RESOLVER) : ReduxBiomes.AETHER_GRASS_COLOR, AncientAetherBlocks.SKY_GRASS.get());
+            event.getBlockColors().register((state, level, pos, index) -> level != null && pos != null ? state.hasProperty(AncientAetherBlockStateProperties.TYPE) && state.getValue(AncientAetherBlockStateProperties.TYPE) == AetherGrassType.ENCHANTED ? 0xFFFFFF : getAverageColor(level, pos, AETHER_GRASS_RESOLVER) : ReduxBiomes.AETHER_GRASS_COLOR, AncientAetherBlocks.SKY_GRASS.get());
             event.getBlockColors().register((state, level, pos, index) -> getColor(state, level, pos, index, 1),
                     AncientAetherBlocks.HIGHLAND_VIOLA.get(),
                     AncientAetherBlocks.POTTED_HIGHLAND_VIOLA.get(),
@@ -116,10 +119,12 @@ public class ReduxColors {
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AetherBlocks.PURPLE_FLOWER.get());
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 0 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.SHORT_AETHER_GRASS.get());
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 0 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.SPLITFERN.get());
+        event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.FLAREBLOSSOM.get());
+        event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.INFERNIA.get());
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.BLIGHT_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.LUXWEED.get());
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.WYNDSPROUTS.get());
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.SKYFIELDS_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.SKYSPROUTS.get());
-        event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.SKYFIELDS_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.XAELIA_FLOWERS.get());
+        event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.SKYFIELDS_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.XAELIA_PATCH.get());
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.GILDED_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.AURUM.get());
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.GILDED_GRASSLANDS_COLOR : 0xFFFFFF, ReduxBlocks.ZYATRIX.get());
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.SKYFIELDS_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.IRIDIA.get());

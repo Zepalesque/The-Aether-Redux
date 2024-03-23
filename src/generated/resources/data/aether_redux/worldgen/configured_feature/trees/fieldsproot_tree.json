@@ -6,10 +6,10 @@
       "state": {
         "Name": "aether_redux:fieldsproot_leaves",
         "Properties": {
+          "color": "3",
           "distance": "14",
           "double_drops": "true",
           "persistent": "false",
-          "prismaticness": "0",
           "waterlogged": "false"
         }
       }

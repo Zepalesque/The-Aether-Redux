@@ -9,19 +9,13 @@
     },
     {
       "type": "aether:improved_layer_placement",
-      "count": {
-        "type": "minecraft:uniform",
-        "value": {
-          "max_inclusive": 3,
-          "min_inclusive": 1
-        }
-      },
+      "count": 1,
       "heightmap": "MOTION_BLOCKING",
       "verticalBounds": 4
     },
     {
       "type": "minecraft:rarity_filter",
-      "chance": 5
+      "chance": 21
     },
     {
       "type": "minecraft:biome"

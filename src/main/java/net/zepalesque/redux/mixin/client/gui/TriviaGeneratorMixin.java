@@ -1,9 +1,7 @@
 package net.zepalesque.redux.mixin.client.gui;
 
 import com.aetherteam.aether.client.TriviaGenerator;
-import javax.annotation.Nullable;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.contents.TranslatableContents;
 import net.zepalesque.redux.Redux;
 import org.spongepowered.asm.mixin.Final;
@@ -14,6 +12,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import javax.annotation.Nullable;
 import java.util.List;
 import java.util.stream.IntStream;
 

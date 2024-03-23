@@ -35,8 +35,8 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.natural.SproutsCropBlock;
-import net.zepalesque.redux.block.util.state.enums.PetalPrismaticness;
 import net.zepalesque.redux.block.util.state.ReduxStates;
+import net.zepalesque.redux.block.util.state.enums.PetalPrismaticness;
 import net.zepalesque.redux.item.ReduxItems;
 
 import java.util.List;
@@ -87,7 +87,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         dropSelf(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_STAIRS.get());
         dropSelf(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_WALL.get());
 
-        dropSelf(ReduxBlocks.XAELIA_FLOWERS.get());
+        dropSelf(ReduxBlocks.XAELIA_PATCH.get());
 
         this.add(ReduxBlocks.AVELIUM_SPROUTS.get(), this.shearsOr(Blocks.AIR));
         this.dropPottedContents(ReduxBlocks.POTTED_AVELIUM_ROOTS.get());
@@ -128,6 +128,15 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.add(ReduxBlocks.FIELDSPROOT_LEAVES.get(),
                 (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.FIELDSPROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
 
+        this.add(ReduxBlocks.PRISMATIC_FIELDSPROOT_LEAVES.get(),
+                (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
+
+        this.add(ReduxBlocks.AZURE_FIELDSPROOT_LEAVES.get(),
+                (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.AZURE_FIELDSPROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
+
+        this.add(ReduxBlocks.SPECTRAL_FIELDSPROOT_LEAVES.get(),
+                (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
+
         dropWhenSilkTouch(ReduxBlocks.GOLDEN_LEAF_PILE.get());
         dropWhenSilkTouch(ReduxBlocks.GILDED_LEAF_PILE.get());
         dropWhenSilkTouch(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get());
@@ -135,9 +144,19 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.add(ReduxBlocks.GLACIA_LEAVES.get(),
                 (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.GLACIA_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
         this.dropSelf(ReduxBlocks.GLACIA_SAPLING.get());
-        this.dropSelf(ReduxBlocks.FIELDSPROOT_SAPLING.get());
         this.dropPottedContents(ReduxBlocks.POTTED_GLACIA_SAPLING.get());
+
+        this.dropSelf(ReduxBlocks.FIELDSPROOT_SAPLING.get());
         this.dropPottedContents(ReduxBlocks.POTTED_FIELDSPROOT_SAPLING.get());
+
+
+        this.dropSelf(ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING.get());
+        this.dropSelf(ReduxBlocks.AZURE_FIELDSPROOT_SAPLING.get());
+        this.dropSelf(ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING.get());
+
+        this.dropPottedContents(ReduxBlocks.POTTED_PRISMATIC_FIELDSPROOT_SAPLING.get());
+        this.dropPottedContents(ReduxBlocks.POTTED_AZURE_FIELDSPROOT_SAPLING.get());
+        this.dropPottedContents(ReduxBlocks.POTTED_SPECTRAL_FIELDSPROOT_SAPLING.get());
 
         this.add(ReduxBlocks.PURPLE_GLACIA_LEAVES.get(),
                 (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.PURPLE_GLACIA_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
@@ -221,6 +240,10 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropPottedContents(ReduxBlocks.POTTED_DAGGERBLOOM.get());
         this.dropSelf(ReduxBlocks.THERATIP.get());
         this.dropPottedContents(ReduxBlocks.POTTED_THERATIP.get());
+        this.dropSelf(ReduxBlocks.FLAREBLOSSOM.get());
+        this.dropPottedContents(ReduxBlocks.POTTED_FLAREBLOSSOM.get());
+        this.dropSelf(ReduxBlocks.INFERNIA.get());
+        this.dropPottedContents(ReduxBlocks.POTTED_INFERNIA.get());
         this.add(ReduxBlocks.WYNDSPROUTS.get(), createSproutsDrops(ReduxBlocks.WYNDSPROUTS.get(), ReduxItems.WYNDSPROUT_SEEDS.get(), 0.25F));
         this.dropPottedContents(ReduxBlocks.POTTED_WYNDSPROUTS.get());
         this.add(ReduxBlocks.SKYSPROUTS.get(), createSproutsDrops(ReduxBlocks.SKYSPROUTS.get(), ReduxItems.SKYSPROUT_SEEDS.get(), 0.25F));

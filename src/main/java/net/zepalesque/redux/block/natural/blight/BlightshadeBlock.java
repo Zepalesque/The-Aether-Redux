@@ -12,12 +12,9 @@ import net.zepalesque.redux.block.natural.CustomBoundsFlowerBlock;
 import net.zepalesque.redux.block.util.CommonPlantBounds;
 import net.zepalesque.redux.capability.player.ReduxPlayer;
 import net.zepalesque.redux.event.hook.EquipmentHooks;
-import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.misc.ReduxTags;
 import top.theillusivec4.curios.api.CuriosApi;
-import top.theillusivec4.curios.api.SlotResult;
 
-import java.util.Optional;
 import java.util.function.Supplier;
 
 public class BlightshadeBlock extends CustomBoundsFlowerBlock {
@@ -35,7 +32,7 @@ public class BlightshadeBlock extends CustomBoundsFlowerBlock {
                     double d0 = Math.abs(pEntity.getX() - pEntity.xOld);
                     double d1 = Math.abs(pEntity.getZ() - pEntity.zOld);
                     if (d0 >= 0.003D || d1 >= 0.003D) {
-                        ReduxPlayer.get(player).ifPresent((reduxPlayer) -> reduxPlayer.getBlightshadeModule().blightshade(pPos, getShape(pState, pLevel, pPos, CollisionContext.of(pEntity)).bounds().move(pPos)));
+                        ReduxPlayer.get(player).ifPresent((reduxPlayer) -> reduxPlayer.getBlightshadeModule().blightshade(pPos, getShape(pState, pLevel, pPos, CollisionContext.of(pEntity)).bounds().move(pPos), player));
                     }
                 }
             }

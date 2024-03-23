@@ -1,87 +1,87 @@
 {
   "variants": {
-    "persistent=false,prismaticness=0,waterlogged=false": {
+    "color=0,persistent=false,waterlogged=false": {
       "model": "aether_redux:block/fieldsproot_leaves_0"
     },
-    "persistent=false,prismaticness=0,waterlogged=true": {
+    "color=0,persistent=false,waterlogged=true": {
       "model": "aether_redux:block/fieldsproot_leaves_0"
     },
-    "persistent=false,prismaticness=1,waterlogged=false": {
+    "color=0,persistent=true,waterlogged=false": {
+      "model": "aether_redux:block/fieldsproot_leaves_0"
+    },
+    "color=0,persistent=true,waterlogged=true": {
+      "model": "aether_redux:block/fieldsproot_leaves_0"
+    },
+    "color=1,persistent=false,waterlogged=false": {
       "model": "aether_redux:block/fieldsproot_leaves_1"
     },
-    "persistent=false,prismaticness=1,waterlogged=true": {
+    "color=1,persistent=false,waterlogged=true": {
       "model": "aether_redux:block/fieldsproot_leaves_1"
     },
-    "persistent=false,prismaticness=2,waterlogged=false": {
+    "color=1,persistent=true,waterlogged=false": {
+      "model": "aether_redux:block/fieldsproot_leaves_1"
+    },
+    "color=1,persistent=true,waterlogged=true": {
+      "model": "aether_redux:block/fieldsproot_leaves_1"
+    },
+    "color=2,persistent=false,waterlogged=false": {
       "model": "aether_redux:block/fieldsproot_leaves_2"
     },
-    "persistent=false,prismaticness=2,waterlogged=true": {
+    "color=2,persistent=false,waterlogged=true": {
       "model": "aether_redux:block/fieldsproot_leaves_2"
     },
-    "persistent=false,prismaticness=3,waterlogged=false": {
+    "color=2,persistent=true,waterlogged=false": {
+      "model": "aether_redux:block/fieldsproot_leaves_2"
+    },
+    "color=2,persistent=true,waterlogged=true": {
+      "model": "aether_redux:block/fieldsproot_leaves_2"
+    },
+    "color=3,persistent=false,waterlogged=false": {
       "model": "aether_redux:block/fieldsproot_leaves_3"
     },
-    "persistent=false,prismaticness=3,waterlogged=true": {
+    "color=3,persistent=false,waterlogged=true": {
       "model": "aether_redux:block/fieldsproot_leaves_3"
     },
-    "persistent=false,prismaticness=4,waterlogged=false": {
+    "color=3,persistent=true,waterlogged=false": {
+      "model": "aether_redux:block/fieldsproot_leaves_3"
+    },
+    "color=3,persistent=true,waterlogged=true": {
+      "model": "aether_redux:block/fieldsproot_leaves_3"
+    },
+    "color=4,persistent=false,waterlogged=false": {
       "model": "aether_redux:block/fieldsproot_leaves_4"
     },
-    "persistent=false,prismaticness=4,waterlogged=true": {
+    "color=4,persistent=false,waterlogged=true": {
       "model": "aether_redux:block/fieldsproot_leaves_4"
     },
-    "persistent=false,prismaticness=5,waterlogged=false": {
+    "color=4,persistent=true,waterlogged=false": {
+      "model": "aether_redux:block/fieldsproot_leaves_4"
+    },
+    "color=4,persistent=true,waterlogged=true": {
+      "model": "aether_redux:block/fieldsproot_leaves_4"
+    },
+    "color=5,persistent=false,waterlogged=false": {
       "model": "aether_redux:block/fieldsproot_leaves_5"
     },
-    "persistent=false,prismaticness=5,waterlogged=true": {
+    "color=5,persistent=false,waterlogged=true": {
       "model": "aether_redux:block/fieldsproot_leaves_5"
     },
-    "persistent=false,prismaticness=6,waterlogged=false": {
+    "color=5,persistent=true,waterlogged=false": {
+      "model": "aether_redux:block/fieldsproot_leaves_5"
+    },
+    "color=5,persistent=true,waterlogged=true": {
+      "model": "aether_redux:block/fieldsproot_leaves_5"
+    },
+    "color=6,persistent=false,waterlogged=false": {
       "model": "aether_redux:block/fieldsproot_leaves_6"
     },
-    "persistent=false,prismaticness=6,waterlogged=true": {
+    "color=6,persistent=false,waterlogged=true": {
       "model": "aether_redux:block/fieldsproot_leaves_6"
     },
-    "persistent=true,prismaticness=0,waterlogged=false": {
-      "model": "aether_redux:block/fieldsproot_leaves_0"
-    },
-    "persistent=true,prismaticness=0,waterlogged=true": {
-      "model": "aether_redux:block/fieldsproot_leaves_0"
-    },
-    "persistent=true,prismaticness=1,waterlogged=false": {
-      "model": "aether_redux:block/fieldsproot_leaves_1"
-    },
-    "persistent=true,prismaticness=1,waterlogged=true": {
-      "model": "aether_redux:block/fieldsproot_leaves_1"
-    },
-    "persistent=true,prismaticness=2,waterlogged=false": {
-      "model": "aether_redux:block/fieldsproot_leaves_2"
-    },
-    "persistent=true,prismaticness=2,waterlogged=true": {
-      "model": "aether_redux:block/fieldsproot_leaves_2"
-    },
-    "persistent=true,prismaticness=3,waterlogged=false": {
-      "model": "aether_redux:block/fieldsproot_leaves_3"
-    },
-    "persistent=true,prismaticness=3,waterlogged=true": {
-      "model": "aether_redux:block/fieldsproot_leaves_3"
-    },
-    "persistent=true,prismaticness=4,waterlogged=false": {
-      "model": "aether_redux:block/fieldsproot_leaves_4"
-    },
-    "persistent=true,prismaticness=4,waterlogged=true": {
-      "model": "aether_redux:block/fieldsproot_leaves_4"
-    },
-    "persistent=true,prismaticness=5,waterlogged=false": {
-      "model": "aether_redux:block/fieldsproot_leaves_5"
-    },
-    "persistent=true,prismaticness=5,waterlogged=true": {
-      "model": "aether_redux:block/fieldsproot_leaves_5"
-    },
-    "persistent=true,prismaticness=6,waterlogged=false": {
+    "color=6,persistent=true,waterlogged=false": {
       "model": "aether_redux:block/fieldsproot_leaves_6"
     },
-    "persistent=true,prismaticness=6,waterlogged=true": {
+    "color=6,persistent=true,waterlogged=true": {
       "model": "aether_redux:block/fieldsproot_leaves_6"
     }
   }

@@ -13,9 +13,9 @@ import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
-import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.capability.cockatrice.CockatriceExtension;
 import net.zepalesque.redux.client.render.entity.model.entity.CockatriceReduxModel;
+import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.util.math.MathUtil;
 import org.jetbrains.annotations.NotNull;
 

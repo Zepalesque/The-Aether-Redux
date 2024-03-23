@@ -20,9 +20,11 @@ import net.zepalesque.redux.api.condition.Conditions;
 import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.misc.ReduxTags;
+import net.zepalesque.redux.util.function.CodecPredicates;
 import net.zepalesque.redux.world.biome.modifier.*;
 
 import java.util.List;
+import java.util.Optional;
 
 public class ReduxBiomeModifiers {
     public static String FEATURE = "feature/";
@@ -47,6 +49,7 @@ public class ReduxBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_SNOW = createKey(FEATURE + "snow");
     public static final ResourceKey<BiomeModifier> WATER_COLOR_AETHER = createKey(MODIFY + "water_color");
     public static final ResourceKey<BiomeModifier> AETHER_COLOR_OVERRIDE = createKey(MODIFY + "aether_color_override");
+    public static final ResourceKey<BiomeModifier> MUSIC_MODIFY = createKey(MODIFY + "music_modify");
 
     private static ResourceKey<BiomeModifier> createKey(String name) {
         return ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, Redux.locate(name));
@@ -105,10 +108,13 @@ public class ReduxBiomeModifiers {
                 GenerationStep.Decoration.UNDERGROUND_ORES));
 
         context.register(WATER_COLOR_AETHER, new WaterColorReplacementBiomeModifier(biomes.getOrThrow(ReduxTags.Biomes.HAS_REDUX_WATER_COLOR),
-                WaterColorReplacementBiomeModifier.WaterColorPredicate.of(4159204, 329011), 0x5492A8, 0x0D2835, Conditions.WATER));
+                CodecPredicates.DualInt.of(4159204, 329011), 0x5492A8, 0x0D2835, Conditions.WATER));
 
         context.register(AETHER_COLOR_OVERRIDE, new GrassAndFoliageColorModifier(biomes.getOrThrow(ReduxTags.Biomes.NO_GRASS_OVERRIDE),
                 0x91BD59, 0x77AB2F));
+
+        context.register(MUSIC_MODIFY, new MusicModifier(biomes.getOrThrow(ReduxTags.Biomes.MUSIC_MODIFY),
+                Optional.empty(), Optional.of(CodecPredicates.DualInt.of(600, 2400)), Optional.of(false), Optional.empty(), Optional.empty(), Optional.empty()));
 
 
 

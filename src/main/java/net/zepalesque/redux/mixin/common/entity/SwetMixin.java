@@ -65,7 +65,7 @@ public abstract class SwetMixin extends SlimeMixin {
     public void redux$interact(Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResult> cir) {
         if (ReduxConfig.COMMON.pl_swet_behavior.get()) {
             ItemStack i = player.getItemInHand(hand);
-            if (SwetHooks.canGrow((Swet) (Object) this) && SwetHooks.shouldGrow(i, this.getType())) {
+            if (SwetHooks.canGrow((Swet) (Object) this, i)) {
                 if (!player.isCreative()) {
                     i.shrink(1);
                 }
@@ -109,7 +109,7 @@ public abstract class SwetMixin extends SlimeMixin {
     @Override
     public void redux$getRiddenSpeed(Player player, CallbackInfoReturnable<Float> cir) {
         if (ReduxConfig.COMMON.pl_swet_behavior.get()) {
-            cir.setReturnValue((float) (this.getSpeed() + SwetHooks.getTrueScale((Swet) (Object)(this)) / 100F));
+            cir.setReturnValue((float) (this.getSpeed() + SwetHooks.getTrueScale((Swet) (Object)(this))/* / 10F*/));
         }
     }
 

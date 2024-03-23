@@ -14,8 +14,8 @@ import net.minecraft.world.level.biome.Biome;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.ReduxBlocks;
-import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
 import net.zepalesque.redux.data.resource.ReduxDamageTypes;
+import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
 import net.zepalesque.redux.effect.ReduxEffects;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.item.ReduxItems;
@@ -57,7 +57,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.VANILLA_SWET_JELLY, "Vanilla Swet Jelly");
         addLore(ReduxItems.VANILLA_SWET_JELLY, "A delicious treat made with the remains of a Vanilla Swet.");
         addItem(ReduxItems.GOLDEN_SWET_BALL, "Golden Swet Ball");
-        addLore(ReduxItems.GOLDEN_SWET_BALL, "A glowing, gooey orb of a Golden Swet's gel. It can be used to craft Spectral Darts.");
+        addLore(ReduxItems.GOLDEN_SWET_BALL, "A glowing, gooey orb of a Golden Swet's gel.");
         addItem(ReduxItems.VANILLA_SWET_BALL, "Vanilla Swet Ball");
         addLore(ReduxItems.VANILLA_SWET_BALL, "A gooey, sweet-smelling orb of a Vanilla Swet's gel. True to the name, this smells like vanilla.");
 
@@ -212,10 +212,21 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addBlock(ReduxBlocks.BLIGHTWILLOW_LEAVES, "Blightwillow Leaves");
         addLore(ReduxBlocks.BLIGHTWILLOW_LEAVES, "The leaves of the Blightwillow tree. These sometimes drop Blightwillow Saplings.");
+
         addBlock(ReduxBlocks.FIELDSPROOT_LEAVES, "Fieldsproot Leaves");
         addLore(ReduxBlocks.FIELDSPROOT_LEAVES, "The colorful leaves of the flowering Fieldsproot trees! These will occasionally drop Fieldsproot Saplings.");
         addBlock(ReduxBlocks.FIELDSPROOT_PETALS, "Fieldsproot Petals");
         addLore(ReduxBlocks.FIELDSPROOT_PETALS, "The vibrant petals of Fieldsproot trees, which are found commonly underneath them.");
+
+        addBlock(ReduxBlocks.PRISMATIC_FIELDSPROOT_LEAVES, "Prismatic Fieldsproot Leaves");
+        addLore(ReduxBlocks.PRISMATIC_FIELDSPROOT_LEAVES, "The colorful leaves of the Prismatic Fieldsproot trees! These will occasionally drop Prismatic Fieldsproot Saplings.");
+
+        addBlock(ReduxBlocks.AZURE_FIELDSPROOT_LEAVES, "Azure Fieldsproot Leaves");
+        addLore(ReduxBlocks.AZURE_FIELDSPROOT_LEAVES, "The colorful leaves of the Azure Fieldsproot trees! These will occasionally drop Azure Fieldsproot Saplings.");
+
+        addBlock(ReduxBlocks.SPECTRAL_FIELDSPROOT_LEAVES, "Spectral Fieldsproot Leaves");
+        addLore(ReduxBlocks.SPECTRAL_FIELDSPROOT_LEAVES, "The colorful leaves of the Spectral Fieldsproot trees! These will occasionally drop Spectral Fieldsproot Saplings.");
+
         addBlock(ReduxBlocks.GOLDEN_LEAF_PILE, "Golden Leaf Pile");
         addLore(ReduxBlocks.GOLDEN_LEAF_PILE, "A pile of Golden Oak Leaves. These can be found under Golden Oak trees.");
         addBlock(ReduxBlocks.GILDED_LEAF_PILE, "Gilded Leaf Pile");
@@ -229,6 +240,18 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.FIELDSPROOT_SAPLING, "Fieldsproot Sapling");
         addBlock(ReduxBlocks.POTTED_FIELDSPROOT_SAPLING, "Potted Fieldsproot Sapling");
         addLore(ReduxBlocks.FIELDSPROOT_SAPLING, "The sapling of the colorful Fieldsproot tree. It can be grown by waiting or using Bone Meal.");
+
+        addBlock(ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING, "Prismatic Fieldsproot Sapling");
+        addBlock(ReduxBlocks.POTTED_PRISMATIC_FIELDSPROOT_SAPLING, "Potted Prismatic Fieldsproot Sapling");
+        addLore(ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING, "The sapling of the Prismatic Fieldsproot tree. It can be grown by waiting or using Bone Meal.");
+
+        addBlock(ReduxBlocks.AZURE_FIELDSPROOT_SAPLING, "Azure Fieldsproot Sapling");
+        addBlock(ReduxBlocks.POTTED_AZURE_FIELDSPROOT_SAPLING, "Potted Azure Fieldsproot Sapling");
+        addLore(ReduxBlocks.AZURE_FIELDSPROOT_SAPLING, "The sapling of the Azure Fieldsproot tree. It can be grown by waiting or using Bone Meal.");
+
+        addBlock(ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING, "Spectral Fieldsproot Sapling");
+        addBlock(ReduxBlocks.POTTED_SPECTRAL_FIELDSPROOT_SAPLING, "Potted Spectral Fieldsproot Sapling");
+        addLore(ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING, "The sapling of the Spectral Fieldsproot tree. It can be grown by waiting or using Bone Meal.");
 
         addBlock(ReduxBlocks.CRYSTAL_SAPLING, "Crystal Sapling");
         addBlock(ReduxBlocks.POTTED_CRYSTAL_SAPLING, "Potted Crystal Sapling");
@@ -325,8 +348,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.POTTED_IRIDIA, "Potted Iridia");
         addLore(ReduxBlocks.IRIDIA, "An iridescent flower found in the Skyfields.");
 
-        addBlock(ReduxBlocks.XAELIA_FLOWERS, "Xaelia Flowers");
-        addLore(ReduxBlocks.XAELIA_FLOWERS, "Some chromatic flowers found in the Skyfields.");
+        addBlock(ReduxBlocks.XAELIA_PATCH, "Xaelia Patch");
+        addLore(ReduxBlocks.XAELIA_PATCH, "A small patch of some chromatic flowers found in the Skyfields.");
 
         addBlock(ReduxBlocks.GILDED_HOLYSTONE, "Gilded Holystone");
         addLore(ReduxBlocks.GILDED_HOLYSTONE, "The enchanted form of Mossy Holystone. This rock covered in golden moss glitters in the sunlight.");
@@ -475,6 +498,14 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.POTTED_THERATIP, "Potted Theratip");
         addLore(ReduxBlocks.THERATIP, "A flower found growing on coarse dirt in the Skyroot Shrublands. This plant's pretty pink flowers grow in clusters on the top of the stem.");
 
+        addBlock(ReduxBlocks.FLAREBLOSSOM, "Flareblossom");
+        addBlock(ReduxBlocks.POTTED_FLAREBLOSSOM, "Potted Flarebloom");
+        addLore(ReduxBlocks.FLAREBLOSSOM, "A rare, exotic flower found on Gold Dungeons. Its properties have not yet been discovered...");
+
+        addBlock(ReduxBlocks.INFERNIA, "Infernia");
+        addBlock(ReduxBlocks.POTTED_INFERNIA, "Potted Infernia");
+        addLore(ReduxBlocks.INFERNIA, "A flower found on Gold Dungeons. Its petals are hot, like a flame");
+
         addBlock(ReduxBlocks.VERIDIUM_ORE, "Veridium Ore");
         addLore(ReduxBlocks.VERIDIUM_ORE, "The ore of Veridium. This can be found around the Aether");
 
@@ -558,9 +589,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addEntityType(ReduxEntityTypes.MYKAPOD, "Mykapod");
         addEntityType(ReduxEntityTypes.BLIGHTBUNNY, "Blightbunny");
         addEntityType(ReduxEntityTypes.EMBER, "Ember");
-        addEntityType(ReduxEntityTypes.INFUSED_VERIDIUM_DART, "Spectral Dart");
+        addEntityType(ReduxEntityTypes.INFUSED_VERIDIUM_DART, "Infused Veridium Dart");
         addEntityType(ReduxEntityTypes.VOLATILE_FIRE_CRYSTAL, "Volatile Fire Crystal");
-        addEntityType(ReduxEntityTypes.VERIDIUM_DART, "Veridium Arrow");
+        addEntityType(ReduxEntityTypes.VERIDIUM_DART, "Veridium Dart");
         addEntityType(ReduxEntityTypes.BLIGHTBUNNY_SPAWNER, "Blightbunny Spawner");
         addEntityType(ReduxEntityTypes.COCKATRICE_SPAWNER, "Cockatrice Spawner");
 
@@ -647,6 +678,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addSubtitle("block", "quickroots_pick", "Quickroot pops");
         addSubtitle("block", "lightroots_pick", "Lightroot Clump pops");
         addSubtitle("block", "fungus_bounce", "Jellyshroom bounces");
+        addSubtitle("block", "aercloud.gold_aercloud_whoosh", "Golden Aercloud whooshes");
+        addSubtitle("block", "aercloud.purple_aercloud_zoom", "Purple Aercloud zooms");
+        addSubtitle("block", "aercloud.green_aercloud_wubble", "Green Aercloud wubbles");
 
         addSubtitle("item", "subzero_crossbow_load", "Subzero Crossbow loads");
         addSubtitle("item", "subzero_crossbow_charge", "Subzero Crossbow charges");

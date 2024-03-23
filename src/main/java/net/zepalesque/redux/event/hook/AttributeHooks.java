@@ -1,9 +1,6 @@
 package net.zepalesque.redux.event.hook;
 
 import com.aetherteam.aether.entity.AetherEntityTypes;
-import com.aetherteam.aether.entity.monster.Swet;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
 

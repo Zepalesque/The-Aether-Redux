@@ -2,10 +2,10 @@ package net.zepalesque.redux.api.serialization;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
+import com.mojang.serialization.Codec;
 
 import java.util.Optional;
 import java.util.function.Function;
-import com.mojang.serialization.Codec;
 
 /** Essentially a simpler form of a {@link Codec} */
 public interface Mapper<T> {

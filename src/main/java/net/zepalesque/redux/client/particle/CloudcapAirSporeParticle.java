@@ -1,6 +1,5 @@
 package net.zepalesque.redux.client.particle;
 
-import java.util.Optional;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.ParticleGroup;
@@ -9,6 +8,8 @@ import net.minecraft.util.Mth;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
+import java.util.Optional;
+
 @OnlyIn(Dist.CLIENT)
 public class CloudcapAirSporeParticle extends TextureSheetParticle {
 
@@ -16,7 +17,7 @@ public class CloudcapAirSporeParticle extends TextureSheetParticle {
 
    CloudcapAirSporeParticle(ClientLevel level, SpriteSet sprites, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
       super(level, x, y - 0.125D, z, xSpeed, ySpeed, zSpeed);
-      this.setSize(0.01F, 0.01F);
+      this.setSize(0.005F, 0.005F);
       this.pickSprite(sprites);
       this.quadSize *= this.random.nextFloat() * 0.6F + 0.6F;
       this.lifetime = (int)(16.0D / (Math.random() * 0.8D + 0.2D));
