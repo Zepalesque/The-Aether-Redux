@@ -4,7 +4,9 @@ import com.aetherteam.aether.entity.monster.Cockatrice;
 import com.aetherteam.aether.entity.monster.Swet;
 import com.aetherteam.aether.entity.monster.dungeon.Mimic;
 import com.aetherteam.aether.entity.monster.dungeon.Sentry;
+import com.aetherteam.aether.entity.passive.FlyingCow;
 import com.aetherteam.aether.entity.passive.Moa;
+import com.aetherteam.aether.entity.passive.Phyg;
 import com.aetherteam.aether_genesis.entity.monster.BattleSentry;
 import com.aetherteam.nitrogen.capability.CapabilityProvider;
 import net.minecraft.world.entity.Entity;
@@ -27,6 +29,8 @@ import net.zepalesque.redux.capability.animation.sentry.SentryAnimation;
 import net.zepalesque.redux.capability.animation.sentry.SentryAnimationCapability;
 import net.zepalesque.redux.capability.animation.sentry.battle.BattleSentryAnimation;
 import net.zepalesque.redux.capability.animation.sentry.battle.BattleSentryAnimationCapability;
+import net.zepalesque.redux.capability.aprilfools.WackyBat;
+import net.zepalesque.redux.capability.aprilfools.WackyBatCapability;
 import net.zepalesque.redux.capability.arrow.SubzeroArrow;
 import net.zepalesque.redux.capability.arrow.SubzeroArrowCapability;
 import net.zepalesque.redux.capability.cockatrice.CockatriceExtension;
@@ -59,6 +63,8 @@ public class ReduxCapabilities {
     });
     public static final Capability<SwetMass> SWET_MASS = CapabilityManager.get(new CapabilityToken<>() {
     });
+    public static final Capability<WackyBat> WACKY_BAT = CapabilityManager.get(new CapabilityToken<>() {
+    });
 
     @SubscribeEvent
     public static void register(RegisterCapabilitiesEvent event) {
@@ -71,6 +77,7 @@ public class ReduxCapabilities {
         event.register(SubzeroArrow.class);
         event.register(VampireAmulet.class);
         event.register(SwetMass.class);
+        event.register(WackyBat.class);
     }
 
     public static IllegalStateException error() {
@@ -108,6 +115,9 @@ public class ReduxCapabilities {
             }
             if (event.getObject() instanceof Swet entity) {
                 event.addCapability(Redux.locate("swet_mass"), new CapabilityProvider(ReduxCapabilities.SWET_MASS, new SwetMassCapability(entity)));
+            }
+            if ((event.getObject() instanceof Phyg || event.getObject() instanceof FlyingCow)) {
+                event.addCapability(Redux.locate("wacky_bat"), new CapabilityProvider(ReduxCapabilities.WACKY_BAT, new WackyBatCapability((LivingEntity) event.getObject())));
             }
         }
     }

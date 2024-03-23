@@ -4,7 +4,9 @@ package net.zepalesque.redux.event.hook;
 import com.aetherteam.aether.entity.monster.Cockatrice;
 import com.aetherteam.aether.entity.monster.dungeon.Mimic;
 import com.aetherteam.aether.entity.monster.dungeon.Sentry;
+import com.aetherteam.aether.entity.passive.FlyingCow;
 import com.aetherteam.aether.entity.passive.Moa;
+import com.aetherteam.aether.entity.passive.Phyg;
 import com.aetherteam.aether_genesis.entity.monster.BattleSentry;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;
@@ -19,6 +21,7 @@ import net.zepalesque.redux.capability.animation.mimic.MimicAnimation;
 import net.zepalesque.redux.capability.animation.moa.MoaAnimation;
 import net.zepalesque.redux.capability.animation.sentry.SentryAnimation;
 import net.zepalesque.redux.capability.animation.sentry.battle.BattleSentryAnimation;
+import net.zepalesque.redux.capability.aprilfools.WackyBat;
 import net.zepalesque.redux.capability.cockatrice.CockatriceExtension;
 import net.zepalesque.redux.capability.living.VampireAmulet;
 import net.zepalesque.redux.capability.player.ReduxPlayer;
@@ -29,7 +32,9 @@ import net.zepalesque.redux.entity.ai.target.HurtByOtherTypeTargetGoal;
 
 public class MobHooks {
 
-
+    public static void wackyBatAI(LivingEntity entity) {
+        entity.setDeltaMovement(entity.getDeltaMovement().multiply(1.0D, 0.6D, 1.0D));
+    }
 
     public static void modifyCockatriceAI(Cockatrice cockatrice) {
         if (ReduxConfig.COMMON.cockatrice_burn_in_daylight.get()) {
@@ -70,6 +75,10 @@ public class MobHooks {
 
     public static void updateCapabilities(LivingEntity living)
     {
+        if (living instanceof FlyingCow || living instanceof Phyg)
+        {
+            WackyBat.get(living).ifPresent(WackyBat::tick);
+        }
         if (living instanceof Cockatrice cockatrice)
         {
             CockatriceExtension.get(cockatrice).ifPresent(CockatriceExtension::tick);

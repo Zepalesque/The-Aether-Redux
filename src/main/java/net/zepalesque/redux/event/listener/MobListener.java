@@ -3,6 +3,8 @@ package net.zepalesque.redux.event.listener;
 
 import com.aetherteam.aether.entity.monster.Cockatrice;
 import com.aetherteam.aether.entity.monster.Swet;
+import com.aetherteam.aether.entity.passive.FlyingCow;
+import com.aetherteam.aether.entity.passive.Phyg;
 import com.aetherteam.aether.item.EquipmentUtil;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundSource;
@@ -77,7 +79,9 @@ public class MobListener {
             Optional<ResourceKey<Biome>> b = player.level().getBiome(player.blockPosition()).unwrapKey();
             b.ifPresent(biomeResourceKey -> ReduxPlayer.get(player).ifPresent(reduxPlayer -> reduxPlayer.getLoreModule().incrementBiome(biomeResourceKey.location())));
         }
-
+        if (event.getEntity() instanceof FlyingCow || event.getEntity() instanceof Phyg) {
+            MobHooks.wackyBatAI(event.getEntity());
+        }
     }
 
     @SubscribeEvent
