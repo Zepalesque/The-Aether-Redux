@@ -55,7 +55,7 @@ public class Shimmercow extends AetherAnimal {
     }
 
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason, @org.jetbrains.annotations.Nullable SpawnGroupData spawnData, @org.jetbrains.annotations.Nullable CompoundTag tag) {
-        this.setCrazy(this.getRandom().nextFloat() < 0.05);
+        this.setCrazy(this.getRandom().nextFloat() > 0.05);
         return spawnData;
     }
 
