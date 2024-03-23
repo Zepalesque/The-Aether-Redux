@@ -44,7 +44,7 @@ public class ReduxBiomes {
     public static final int AETHER_GRASS_COLOR = 0xB1FFCB;
     public static final int GILDED_GRASS_COLOR = 0xFFED96;
     public static final int GILDED_GRASSLANDS_COLOR = 0xFFF5A3;
-    public static final int BLIGHT_GRASS_COLOR = 0xD5BAFF;
+    public static final int BLIGHT_GRASS_COLOR = 0xFFBFE8;
     public static final int FROSTED_GRASS_COLOR = 0xCCF7FF;
     public static final int SKYFIELDS_GRASS_COLOR = 0xBFFFEC;
     public static final int SHRUBLANDS_GRASS_COLOR = 0xD7FFCC;
