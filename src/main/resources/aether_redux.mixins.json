@@ -18,6 +18,7 @@
     "common.block.ReduxWallBlockAccessor",
     "common.compat.ModNameProviderMixin",
     "common.entity.ArrowMixin",
+    "common.entity.CancelSlowFallMixin",
     "common.entity.CockatriceHealingPotionMixin",
     "common.entity.EntityMixin",
     "common.entity.LivingEntityMixin",
