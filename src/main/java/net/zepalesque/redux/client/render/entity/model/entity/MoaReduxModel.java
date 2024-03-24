@@ -79,7 +79,6 @@ public class MoaReduxModel extends EntityModel<Moa> {
             this.leftLeg.xRot = Mth.lerp(this.swimAmount, this.leftLeg.xRot, 0.3F * Mth.cos(limbSwing * 0.33333334F + 3.1415927F));
             this.rightLeg.xRot = Mth.lerp(this.swimAmount, this.rightLeg.xRot, 0.3F * Mth.cos(limbSwing * 0.33333334F));
         }
-        this.neck.xRot = this.head.xRot / 2;
     }
 
     protected float rotlerpRad(float angle, float maxAngle, float mul) {
