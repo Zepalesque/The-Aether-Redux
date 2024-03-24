@@ -152,7 +152,6 @@ public class ReduxConfig {
     public static class Client {
 
         public final ForgeConfigSpec.BooleanValue moa_model_upgrade;
-        public final ForgeConfigSpec.EnumValue<MoaFeetType> moa_feet_type;
         public final ForgeConfigSpec.BooleanValue cockatrice_model_upgrade;
         public final ForgeConfigSpec.EnumValue<MimicModelType> mimic_model_upgrade;
         public final ForgeConfigSpec.BooleanValue mimic_slam_sound;
@@ -171,10 +170,7 @@ public class ReduxConfig {
 
         public Client(ForgeConfigSpec.Builder builder) {
             builder.push(List.of("Rendering", "Mob Model Upgrades"));
-            builder.push("Moa");
             this.moa_model_upgrade = builder.comment("Makes Moas resemble their Mutation models").define("Moa Model Upgrade", true);
-            this.moa_feet_type = builder.comment("Determines whether the updated Moa model should use more peaceful-appearing toes, or more aggressive talons").defineEnum("Moa Foot Type", MoaFeetType.toes);
-            builder.pop();
             this.cockatrice_model_upgrade = builder.comment("Makes Cockatrices look far better").define("Cockatrice Model Upgrade", true);
             this.sentry_model_upgrade = builder.comment("Improves the model for Sentries, giving them a new model and a springy jump animation").define("Sentry Model Upgrade", true);
             this.mimic_model_upgrade = builder.comment("Whether or not to use the upgraded Mimic model. Note that unless you use sync_with_server, there may be hitbox differences.").defineEnum("Mimic Model Upgrade", MimicModelType.sync_with_server);
