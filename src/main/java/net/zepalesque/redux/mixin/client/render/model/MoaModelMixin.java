@@ -42,11 +42,9 @@ public class MoaModelMixin extends BipedBirdModel<Moa> {
 
     @Inject(method = "renderToBuffer", at = @At(value = "HEAD"), cancellable = true)
     public void renderToBuffer(PoseStack poseStack, VertexConsumer consumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha, CallbackInfo ci) {
-        this.leftWing.skipDraw = this.useNewModel;
-        this.rightWing.skipDraw = this.useNewModel;
-        this.body.skipDraw = this.useNewModel;
 
         if (!this.useNewModel) {
+            this.body.render(poseStack, consumer, packedLight, packedOverlay);
             this.head.render(poseStack, consumer, packedLight, packedOverlay);
             this.rightTailFeather.render(poseStack, consumer, packedLight, packedOverlay);
             this.middleTailFeather.render(poseStack, consumer, packedLight, packedOverlay);
