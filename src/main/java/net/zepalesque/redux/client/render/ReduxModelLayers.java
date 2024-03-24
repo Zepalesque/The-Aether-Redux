@@ -7,7 +7,6 @@ import net.zepalesque.redux.Redux;
 
 public class ReduxModelLayers {
     public static final ModelLayerLocation MOA = register("redux_moa");
-    public static final ModelLayerLocation MOA_TALONS = register("redux_moa", "talons_model");
     public static final ModelLayerLocation COCKATRICE = register("redux_cockatrice");
     public static final ModelLayerLocation MIMIC = register("redux_mimic");
     public static final ModelLayerLocation SENTRY = register("redux_sentry");

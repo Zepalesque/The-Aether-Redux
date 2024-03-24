@@ -26,14 +26,13 @@ import java.util.Map;
 public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
 
     protected final MoaRenderer parent;
-    private final MoaReduxModel updated, talons;
+    private final MoaReduxModel updated;
 
     private static final Map<ResourceLocation, ResourceLocation> TRANSLATION_MAP = new HashMap<>();
 
-    public MoaReduxLayer(MoaRenderer entityRenderer, MoaReduxModel updated, MoaReduxModel talons) {
+    public MoaReduxLayer(MoaRenderer entityRenderer, MoaReduxModel updated) {
         super(entityRenderer);
         this.updated = updated;
-        this.talons = talons;
         this.parent = entityRenderer;
     }
 
@@ -42,12 +41,10 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
         if (MoaUtils.useNewModel(moa)) {
             poseStack.scale(0.5F, 0.5F, 0.5F);
             poseStack.translate(0F, 1.5F, /*-0.125F*/ 0F);
-            MoaReduxModel model = this.updated;
-            model.setupAnim(moa, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
+            this.updated.setupAnim(moa, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
             if (Minecraft.getInstance().player != null && !moa.isInvisibleTo(Minecraft.getInstance().player)) {
-                ResourceLocation feathersLoc = getTextureLocation(moa);
-                VertexConsumer consumer = buffer.getBuffer(RenderType.entityCutoutNoCull(feathersLoc));
-                model.renderToBuffer(poseStack, consumer, packedLight, LivingEntityRenderer.getOverlayCoords(moa, 0.0F), 1.0F, 1.0F, 1.0F, 1.0F);
+                VertexConsumer consumer = buffer.getBuffer(RenderType.entityCutoutNoCull(this.parent.getTextureLocation(moa)));
+                this.updated.renderToBuffer(poseStack, consumer, packedLight, LivingEntityRenderer.getOverlayCoords(moa, 0.0F), 1.0F, 1.0F, 1.0F, 1.0F);
             }
         }
     }
