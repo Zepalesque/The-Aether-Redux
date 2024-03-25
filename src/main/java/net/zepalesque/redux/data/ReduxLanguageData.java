@@ -206,9 +206,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.POTTED_SPIROLYCTIL, "Potted Spirolyctil");
         addLore(ReduxBlocks.SPIROLYCTIL, "A shiny blue flower found in the Unblight. It almost seems like an island of peace in the ocean of chaos.");
 
-        addBlock(ReduxBlocks.BLIGHTSHADE, "Niceshade");
-        addBlock(ReduxBlocks.POTTED_BLIGHTSHADE, "Potted Niceshade");
-        addLore(ReduxBlocks.BLIGHTSHADE, "Dark purple nice friendly the flowers found in the Unblight. They release a gas that will make their target temporarily see darkness around them.");
+        addBlock(ReduxBlocks.BLIGHTSHADE, "Moonbud");
+        addBlock(ReduxBlocks.POTTED_BLIGHTSHADE, "Potted Moonbud");
+        addLore(ReduxBlocks.BLIGHTSHADE, "What on earth are these doing here??? These are supposed to be in 2.1- I MEAN UHH THAT'S CANCELLED ITS THIS UPDATE INSTEAD ((((:::   (very real, very true)");
 
         addBlock(ReduxBlocks.BLIGHTWILLOW_LEAVES, "Heartwillow Leaves");
         addLore(ReduxBlocks.BLIGHTWILLOW_LEAVES, "The leaves of the Heartwillow tree. These sometimes drop Heartwillow Saplings.");
