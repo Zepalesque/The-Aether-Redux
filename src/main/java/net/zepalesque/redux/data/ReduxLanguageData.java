@@ -175,9 +175,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addLore(ReduxBlocks.GILDED_VINES, "A type of off-white vine that commonly grows under the leaves of Gilded Oak trees.");
 
 
-        addBlock(ReduxBlocks.CORRUPTED_VINES, "Crimson(Pink) Vines");
-        addBlock(ReduxBlocks.CORRUPTED_VINES_PLANT, "Crimson(Pink) Vines Plant");
-        addLore(ReduxBlocks.CORRUPTED_VINES, "A friendly, spined vine that grows in patches in the Unblight.");
+        addBlock(ReduxBlocks.CORRUPTED_VINES, "Not Aerostalks");
+        addBlock(ReduxBlocks.CORRUPTED_VINES_PLANT, "Not Aerostalks Plant");
+        addLore(ReduxBlocks.CORRUPTED_VINES, "it will never be graviton referensse ...      :cereal_spit:");
 
         addBlock(ReduxBlocks.LUXWEED, "Glowsprouts");
         addBlock(ReduxBlocks.POTTED_LUXWEED, "Potted Glowsprouts");
