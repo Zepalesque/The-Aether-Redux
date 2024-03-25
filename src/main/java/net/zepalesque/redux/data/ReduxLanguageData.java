@@ -210,8 +210,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.POTTED_BLIGHTSHADE, "Potted Niceshade");
         addLore(ReduxBlocks.BLIGHTSHADE, "Dark purple nice friendly the flowers found in the Unblight. They release a gas that will make their target temporarily see darkness around them.");
 
-        addBlock(ReduxBlocks.BLIGHTWILLOW_LEAVES, "Hallowed Leaves");
-        addLore(ReduxBlocks.BLIGHTWILLOW_LEAVES, "The leaves of the Hallowed tree. These sometimes drop Hallowed Saplings.");
+        addBlock(ReduxBlocks.BLIGHTWILLOW_LEAVES, "Heartwillow Leaves");
+        addLore(ReduxBlocks.BLIGHTWILLOW_LEAVES, "The leaves of the Heartwillow tree. These sometimes drop Heartwillow Saplings.");
 
         addBlock(ReduxBlocks.FIELDSPROOT_LEAVES, "Prismachromautomatic Leaves");
         addLore(ReduxBlocks.FIELDSPROOT_LEAVES, "The colorful leaves of the flowering Prismachromautomatic trees! These will occasionally drop Prismachromautomatic Saplings.");
@@ -231,11 +231,11 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addLore(ReduxBlocks.GOLDEN_LEAF_PILE, "A pile of Golden Oak Leaves. These can be found under Golden Oak trees.");
         addBlock(ReduxBlocks.GILDED_LEAF_PILE, "Gilded Leaf Pile");
         addLore(ReduxBlocks.GILDED_LEAF_PILE, "A pile of Gilded Oak Leaves. These can be found under Gilded Oak trees..");
-        addBlock(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE, "Hallowed Leaf Pile");
-        addLore(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE, "A pile of Hallowed Leaves. These can be found in the Unblight biome.");
-        addBlock(ReduxBlocks.BLIGHTWILLOW_SAPLING, "Hallowed Sapling");
-        addBlock(ReduxBlocks.POTTED_BLIGHTWILLOW_SAPLING, "Potted Hallowed Sapling");
-        addLore(ReduxBlocks.BLIGHTWILLOW_SAPLING, "The sapling of the Hallowed tree. It can be grown by waiting or using Bone Meal.");
+        addBlock(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE, "Heartwillow Leaf Pile");
+        addLore(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE, "A pile of Heartwillow Leaves. These can be found in the Unblight biome.");
+        addBlock(ReduxBlocks.BLIGHTWILLOW_SAPLING, "Heartwillow Sapling");
+        addBlock(ReduxBlocks.POTTED_BLIGHTWILLOW_SAPLING, "Potted Heartwillow Sapling");
+        addLore(ReduxBlocks.BLIGHTWILLOW_SAPLING, "The sapling of the Heartwillow tree. It can be grown by waiting or using Bone Meal.");
 
         addBlock(ReduxBlocks.FIELDSPROOT_SAPLING, "Prismachromautomatic Sapling");
         addBlock(ReduxBlocks.POTTED_FIELDSPROOT_SAPLING, "Potted Prismachromautomatic Sapling");
