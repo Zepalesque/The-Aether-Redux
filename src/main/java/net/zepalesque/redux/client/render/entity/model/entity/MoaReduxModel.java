@@ -61,24 +61,13 @@ public class MoaReduxModel extends EntityModel<Moa> {
         } else {
             this.head.xRot = headPitch * 0.017453292F;
         }
-        if (!((NotGrounded)bipedBird).isEntityOnGround()) {
-            this.rightWing.setPos(-3.001F, 0.0F, 4.0F);
-            this.leftWing.setPos(3.001F, 0.0F, 4.0F);
-            this.leftWing.xRot = this.rightWing.xRot;
+        if (!entity.isEntityOnGround()) {
             this.rightLeg.xRot = 0.6F;
             this.leftLeg.xRot = this.rightLeg.xRot;
-            this.rightWing.yRot = ageInTicks;
         } else {
-            this.rightWing.setPos(-3.001F, -3.0F, 3.0F);
-            this.leftWing.setPos(3.001F, -3.0F, 3.0F);
-            this.rightWing.xRot = 0.0F;
-            this.leftWing.xRot = 0.0F;
             this.rightLeg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
             this.leftLeg.xRot = Mth.cos(limbSwing * 0.6662F + 3.1415927F) * 1.4F * limbSwingAmount;
-            this.rightWing.yRot = 0.0F;
         }
-        this.rightLeg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount / f;
-        this.leftLeg.xRot = Mth.cos(limbSwing * 0.6662F + 3.1415927F) * 1.4F * limbSwingAmount / f;
         this.rightLeg.yRot = 0.005F;
         this.leftLeg.yRot = -0.005F;
         this.rightLeg.zRot = 0.005F;
