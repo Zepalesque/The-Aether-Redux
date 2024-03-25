@@ -1,6 +1,7 @@
 package net.zepalesque.redux.client.render.entity.model.entity;
 
 import com.aetherteam.aether.entity.NotGrounded;
+import com.aetherteam.aether.entity.WingedBird;
 import com.aetherteam.aether.entity.passive.Moa;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -86,6 +87,14 @@ public class MoaReduxModel extends EntityModel<Moa> {
             this.rightLeg.xRot = Mth.lerp(this.swimAmount, this.rightLeg.xRot, 0.3F * Mth.cos(limbSwing * 0.33333334F));
         }
     }
+
+
+    public float setupWingsAnimation(Moa bipedBird, float partialTicks) {
+        float rotVal = Mth.lerp(partialTicks, ((WingedBird)bipedBird).getPrevWingRotation(), ((WingedBird)bipedBird).getWingRotation());
+        float destVal = Mth.lerp(partialTicks, ((WingedBird)bipedBird).getPrevWingDestPos(), ((WingedBird)bipedBird).getWingDestPos());
+        return (Mth.sin(rotVal * 0.225F) + 1.0F) * destVal;
+    }
+
 
     protected float rotlerpRad(float angle, float maxAngle, float mul) {
         float f = (mul - maxAngle) % 6.2831855F;
