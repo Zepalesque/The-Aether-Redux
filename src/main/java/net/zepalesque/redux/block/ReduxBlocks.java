@@ -51,6 +51,7 @@ import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.data.resource.ReduxConfiguredFeatures;
 import net.zepalesque.redux.item.ReduxItems;
+import net.zepalesque.redux.item.food.ReduxFoods;
 import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.world.tree.grower.*;
 import teamrazor.deepaether.block.DADoubleDropRotatedPillarBlock;
@@ -158,12 +159,18 @@ public class ReduxBlocks {
     public static RegistryObject<Block> DEEP_GRASS_BLOCK = register("deep_grass_block",
             () -> new AetherGrassBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).randomTicks().strength(0.2F).sound(SoundType.GRASS)));
 
-    // TODO
-    public static RegistryObject<Block> SUGARGRASS_BLOCK = register("sugargrass_block",
-            () -> new AetherGrassBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOL).randomTicks().strength(0.2F).sound(SoundType.WOOL)));
+    public static RegistryObject<Block> SUGARGRASS_BLOCK = registerModifyItemProperties("sugargrass_block",
+            () -> new SugargrassBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOL).randomTicks().strength(0.2F).sound(SoundType.WOOL)), properties -> properties.food(ReduxFoods.CANDYFIELDS_BLOCK));
 
-    public static RegistryObject<Block> COCOA_SOIL = register("cocoa_soil",
-            () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GRAY).strength(0.2F).sound(SoundType.SOUL_SOIL)));
+    public static RegistryObject<Block> SUGARSPROUTS = registerModifyItemProperties("sugarsprouts",
+            () -> new CustomBoundsBushBlock(CommonPlantBounds.BUSH, BlockBehaviour.Properties.copy(Blocks.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).sound(SoundType.NETHER_SPROUTS)), properties -> properties.food(ReduxFoods.CANDYFIELDS_BLOCK));
+
+    public static RegistryObject<Block> COCOA_SOIL = registerModifyItemProperties("cocoa_soil",
+            () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GRAY).strength(0.2F).sound(SoundType.SOUL_SOIL)), properties -> properties.food(ReduxFoods.CANDYFIELDS_BLOCK));
+
+    public static RegistryObject<Block> VANILLA = registerModifyItemProperties("vanilla",
+            () -> new CustomBoundsFlowerBlock(CommonPlantBounds.FLOWER, () -> MobEffects.MOVEMENT_SPEED, 60, BlockBehaviour.Properties.copy(Blocks.OXEYE_DAISY).mapColor(MapColor.TERRACOTTA_WHITE)), properties -> properties.food(ReduxFoods.CANDYFIELDS_BLOCK));
+    public static final RegistryObject<FlowerPotBlock> POTTED_VANILLA = BLOCKS.register("potted_vanilla", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, VANILLA, Block.Properties.copy(Blocks.FLOWER_POT)));
 
     public static RegistryObject<Block> SHORT_DEEP_GRASS = register("short_deep_grass",
             () -> new CustomBoundsBushBlock(CommonPlantBounds.BUSH, BlockBehaviour.Properties.copy(Blocks.GRASS).hasPostProcess(ReduxBlocks::always)));

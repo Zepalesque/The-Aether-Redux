@@ -52,6 +52,8 @@ public class BlockBreakHooks {
             .put(ReduxBlocks.AVELIUM.get(), getSpeed(Blocks.MYCELIUM))
             .put(ReduxBlocks.DEEP_GRASS_BLOCK.get(), getSpeed(Blocks.GRASS_BLOCK))
             .put(ReduxBlocks.COARSE_AETHER_DIRT.get(), getSpeed(Blocks.COARSE_DIRT))
+            .put(ReduxBlocks.SUGARGRASS_BLOCK.get(), getSpeed(Blocks.GRASS_BLOCK))
+            .put(ReduxBlocks.COCOA_SOIL.get(), getSpeed(Blocks.DIRT))
             .put(ReduxBlocks.GILDED_HOLYSTONE.get(), 1.0F)
             .put(ReduxBlocks.GILDED_HOLYSTONE_WALL.get(), 1.0F)
             .put(ReduxBlocks.GILDED_HOLYSTONE_STAIRS.get(), 1.0F)

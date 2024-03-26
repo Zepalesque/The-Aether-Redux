@@ -29,6 +29,7 @@ public class ReduxTags {
         public static final TagKey<Block> ENCHANTED_VINES_SURVIVE = tag("enchanted_vines_survive");
         public static final TagKey<Block> MUSHROOM_CAPS = tag("mushroom_caps");
         public static final TagKey<Block> DO_NOT_REPLACE_AETHER_GRASS = tag("do_not_replace_aether_grass");
+        public static final TagKey<Block> SUGAR_DIRT = tag("sugar_dirt");
 
         public static TagKey<Block> tag(String name) {
             return TagKey.create(Registries.BLOCK, Redux.locate(name));

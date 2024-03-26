@@ -77,6 +77,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.crossBlock(ReduxBlocks.AVELIUM_SPROUTS.get(), "natural/");
         this.crossBlock(ReduxBlocks.AVELIUM_ROOTS.get(), "natural/");
         this.potAlt(ReduxBlocks.POTTED_AVELIUM_ROOTS.get(), ReduxBlocks.AVELIUM_ROOTS.get(), "natural/");
+        this.crossBlock(ReduxBlocks.SUGARSPROUTS.get(), "natural/");
 
         this.crossBlock(ReduxBlocks.SHORT_DEEP_GRASS.get(), "natural/");
 
@@ -96,7 +97,8 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.crossTintedOverlayEnchantable(ReduxBlocks.AURUM.get(), "natural/");
         this.crossTintedOverlayEnchantable(ReduxBlocks.ZYATRIX.get(), "natural/");
         this.crossBlock(ReduxBlocks.ENCHANTED_WHITE_FLOWER.get(), "natural/");
-        // TODO: Enchanted pots somehow
+        this.crossBlock(ReduxBlocks.VANILLA.get(), "natural/");
+        this.pottedPlant(ReduxBlocks.POTTED_VANILLA.get(), ReduxBlocks.VANILLA.get(), "natural/");
         this.tintedPotOverlay(ReduxBlocks.POTTED_AURUM.get(), ReduxBlocks.AURUM.get(), "natural/");
         this.tintedPotOverlay(ReduxBlocks.POTTED_ZYATRIX.get(), ReduxBlocks.ZYATRIX.get(), "natural/");
         block(ReduxBlocks.CARVED_STONE_BRICKS.get(), "construction/");
@@ -133,6 +135,9 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
         this.grass(ReduxBlocks.AVELIUM, AetherBlocks.AETHER_DIRT);
         this.grass(ReduxBlocks.DEEP_GRASS_BLOCK, AetherBlocks.AETHER_DIRT);
+
+        this.grass(ReduxBlocks.SUGARGRASS_BLOCK, ReduxBlocks.COCOA_SOIL);
+        block(ReduxBlocks.COCOA_SOIL.get(), "natural/");
 
         this.snowableLeaves(ReduxBlocks.GLACIA_LEAVES.get(), "natural/");
         this.crossBlock(ReduxBlocks.GLACIA_SAPLING.get(), "natural/");

@@ -66,6 +66,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.SHORT_AETHER_GRASS.get(),
                 ReduxBlocks.AVELIUM_ROOTS.get(),
                 ReduxBlocks.AVELIUM_SPROUTS.get(),
+                ReduxBlocks.SUGARSPROUTS.get(),
                 ReduxBlocks.SHORT_DEEP_GRASS.get()
         );
 
@@ -135,9 +136,16 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         this.tag(AetherTags.Blocks.AETHER_DIRT).add(
                 ReduxBlocks.AVELIUM.get(),
                 ReduxBlocks.DEEP_GRASS_BLOCK.get(),
+                ReduxBlocks.SUGARGRASS_BLOCK.get(),
+                ReduxBlocks.COCOA_SOIL.get(),
                 ReduxBlocks.COARSE_AETHER_DIRT.get(),
                 ReduxBlocks.BLIGHTMOSS_BLOCK.get(),
                 ReduxBlocks.FUNGAL_GROWTH.get()
+        );
+
+        this.tag(ReduxTags.Blocks.SUGAR_DIRT).add(
+                ReduxBlocks.SUGARGRASS_BLOCK.get(),
+                ReduxBlocks.COCOA_SOIL.get()
         );
         this.tag(BlockTags.LEAVES).add(
                 ReduxBlocks.BLIGHTWILLOW_LEAVES.get(),
@@ -234,7 +242,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         );
         this.tag(AetherTags.Blocks.HOLYSTONE).add(ReduxBlocks.GILDED_HOLYSTONE.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get());
 
-        this.tag(AetherTags.Blocks.AETHER_ANIMALS_SPAWNABLE_ON).add(ReduxBlocks.AVELIUM.get(), ReduxBlocks.DEEP_GRASS_BLOCK.get(), ReduxBlocks.COARSE_AETHER_DIRT.get(), Blocks.SNOW_BLOCK, AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get());
+        this.tag(AetherTags.Blocks.AETHER_ANIMALS_SPAWNABLE_ON).add(ReduxBlocks.AVELIUM.get(), ReduxBlocks.DEEP_GRASS_BLOCK.get(), ReduxBlocks.SUGARGRASS_BLOCK.get(), ReduxBlocks.COARSE_AETHER_DIRT.get(), Blocks.SNOW_BLOCK, AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get());
 
         // Adds every single Redux block as a block that should be treaded as an Aether Block and get the tool debuff
         IntrinsicTagAppender<Block> tag = this.tag(AetherTags.Blocks.TREATED_AS_AETHER_BLOCK);

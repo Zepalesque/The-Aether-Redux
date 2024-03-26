@@ -82,6 +82,7 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> AURUM_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.AURUM) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> DEEP_GRASS_PATCH = createKey(Folders.PATCH + "deep_grass_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ZYATRIX_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.ZYATRIX) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> VANILLA_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.VANILLA) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ZANBERRY_BUSH_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.ZANBERRY_BUSH) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTED_SKYROOT_TREE = createKey(Folders.TREE + "blighted_skyroot_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTMOSS_PATCH = createKey(Folders.CAVE + "blightmoss_patch");
@@ -171,6 +172,7 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> TALL_GRASS_PATCH_OVERRIDE = AetherConfiguredFeatures.TALL_GRASS_PATCH_CONFIGURATION;
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GRASS_PATCH_BONEMEAL = createKey(Folders.MISC + "aether_grass_bonemeal");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SUGARGRASS_BONEMEAL = createKey(Folders.MISC + "sugargrass_bonemeal");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ANCIENT_ENCHANTED_GRASS = createKey(Folders.COMPAT + "ancient_enchanted_grass");
 
@@ -206,6 +208,9 @@ public class ReduxConfiguredFeatures {
 
         register(context, ZYATRIX_PATCH, Feature.FLOWER,
                 patchNoCoarse(14, 7, 3, prov(ReduxBlocks.ZYATRIX)));
+
+        register(context, VANILLA_PATCH, Feature.FLOWER,
+                patchNoCoarse(14, 7, 3, prov(ReduxBlocks.VANILLA)));
 
 
         register(context, ZANBERRY_BUSH_PATCH, Feature.FLOWER,
@@ -761,6 +766,9 @@ public class ReduxConfiguredFeatures {
 
         register(context, GRASS_PATCH_BONEMEAL, Feature.SIMPLE_BLOCK,
                 new SimpleBlockConfiguration(prov(ReduxBlocks.SHORT_AETHER_GRASS)));
+
+        register(context, SUGARGRASS_BONEMEAL, Feature.SIMPLE_BLOCK,
+                new SimpleBlockConfiguration(prov(ReduxBlocks.SUGARSPROUTS)));
 
 
     }

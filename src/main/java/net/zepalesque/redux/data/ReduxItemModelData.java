@@ -81,6 +81,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlockFlatCustomTexture(ReduxBlocks.GOLDEN_CLOVER, "natural/golden_clover_top");
         enchanableOrTintableFlower(ReduxBlocks.AURUM, "natural/");
         enchanableOrTintableFlower(ReduxBlocks.ZYATRIX, "natural/");
+        itemBlockFlat(ReduxBlocks.VANILLA.get(), "natural/");
         itemBlock(ReduxBlocks.CARVED_STONE_BRICKS);
         itemBlock(ReduxBlocks.CARVED_STONE_BRICK_SLAB);
         itemBlock(ReduxBlocks.CARVED_STONE_BRICK_STAIRS);
@@ -165,6 +166,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         this.itemBlockFlat(ReduxBlocks.AVELIUM_ROOTS.get(), "natural/");
         this.item(ReduxBlocks.AVELIUM_SPROUTS.get().asItem(), "misc/");
         this.itemBlockFlat(ReduxBlocks.SHORT_DEEP_GRASS.get(), "natural/");
+        this.item(ReduxBlocks.SUGARSPROUTS.get().asItem(), "misc/");
 
         this.aercloudItem(ReduxBlocks.JELLYSHROOM_JELLY_BLOCK.get());
 

@@ -83,6 +83,8 @@ public class ReduxCreativeTabs {
 
             putAfter(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK, ReduxBlocks.AVELIUM, event);
             putAfter(ReduxBlocks.AVELIUM, ReduxBlocks.DEEP_GRASS_BLOCK, event);
+            putAfter(ReduxBlocks.DEEP_GRASS_BLOCK, ReduxBlocks.SUGARGRASS_BLOCK, event);
+            putAfter(ReduxBlocks.SUGARGRASS_BLOCK, ReduxBlocks.COCOA_SOIL, event);
 
 
             putAfter(AetherBlocks.HOLYSTONE, ReduxBlocks.DIVINITE, event);
@@ -98,6 +100,7 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.AVELIUM_ROOTS, ReduxBlocks.SHORT_DEEP_GRASS, event);
             putAfter(ReduxBlocks.SHORT_DEEP_GRASS, ReduxBlocks.SPLITFERN, event);
             putAfter(ReduxBlocks.SPLITFERN, ReduxBlocks.AVELIUM_SPROUTS, event);
+            putAfter(ReduxBlocks.AVELIUM_SPROUTS, ReduxBlocks.SUGARSPROUTS, event);
 
             putAfter(AetherBlocks.MOSSY_HOLYSTONE, ReduxBlocks.GILDED_HOLYSTONE, event);
             putAfter(ReduxBlocks.GILDED_HOLYSTONE, ReduxBlocks.BLIGHTMOSS_HOLYSTONE, event);
@@ -178,6 +181,7 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.JELLYSHROOM, ReduxBlocks.SHIMMERSTOOL, event);
             putAfter(ReduxBlocks.SHIMMERSTOOL, ReduxBlocks.FLAREBLOSSOM, event);
             putAfter(ReduxBlocks.FLAREBLOSSOM, ReduxBlocks.INFERNIA, event);
+            putAfter(ReduxBlocks.INFERNIA, ReduxBlocks.VANILLA, event);
 
             putAfter(AetherBlocks.ZANITE_ORE, ReduxBlocks.VERIDIUM_ORE, event);
             putAfter(ReduxBlocks.VERIDIUM_ORE, ReduxBlocks.RAW_VERIDIUM_BLOCK, event);

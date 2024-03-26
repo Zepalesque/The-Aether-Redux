@@ -143,6 +143,19 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.SHORT_DEEP_GRASS, "Deep Grass");
         addLore(ReduxBlocks.SHORT_DEEP_GRASS, "Blades of the Deeper Aether biome's shiny grass.");
 
+        addBlock(ReduxBlocks.SUGARGRASS_BLOCK, "Sugargrass Block");
+        addLore(ReduxBlocks.SUGARGRASS_BLOCK, "sugar on some Cocoa Soil, how on earth this can exist naturally is unknown.");
+
+        addBlock(ReduxBlocks.SUGARSPROUTS, "Sugarsprouts");
+        addLore(ReduxBlocks.SUGARSPROUTS, "Formations that grow out of the sugar crystals of Sugargrass. Despite being pure crystal, it is still referred to with a plant-like name.");
+
+        addBlock(ReduxBlocks.COCOA_SOIL, "Cocoa Soil");
+        addLore(ReduxBlocks.COCOA_SOIL, "Essentially the Candyfields' version of dirt. It seems to be dark chocolate.");
+
+        addBlock(ReduxBlocks.VANILLA, "Vanilla");
+        addBlock(ReduxBlocks.POTTED_VANILLA, "Potted Vanilla");
+        addLore(ReduxBlocks.VANILLA, "Finally, after all these years, they added vanilla to the Aether!!!");
+
         addBlock(ReduxBlocks.JELLYSHROOM, "Springjelly Shroom");
         addBlock(ReduxBlocks.POTTED_JELLYSHROOM, "Potted Springjelly Shroom");
         addLore(ReduxBlocks.JELLYSHROOM, "A jelly-based mushroom, which is found in the NotMoolands.");
@@ -277,6 +290,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addBlock(ReduxBlocks.AVELIUM_SPROUTS, "Moovelium Sprouts");
         addLore(ReduxBlocks.AVELIUM_SPROUTS, "A smaller variant of Moovelium Roots. Can be found in the NotMoolands.");
+
 
         addBlock(ReduxBlocks.GILDED_OAK_LEAVES, "Gilded Oak Leaves");
         addLore(ReduxBlocks.GILDED_OAK_LEAVES, "The leaves of the Gilded Oak tree. These sometimes drop Gilded Oak Saplings.");

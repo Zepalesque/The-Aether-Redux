@@ -39,4 +39,6 @@ public class ReduxFoods {
     public static final FoodProperties FIREINTHEHOLE = (new FoodProperties.Builder()).nutrition(2).alwaysEat().saturationMod(0.2F)
             .effect( () -> new MobEffectInstance(ReduxEffects.THE_LOBOTOMY.get(), 200, 0), 2F).alwaysEat().build();
 
+    public static final FoodProperties CANDYFIELDS_BLOCK = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.0F).build();
+
 }

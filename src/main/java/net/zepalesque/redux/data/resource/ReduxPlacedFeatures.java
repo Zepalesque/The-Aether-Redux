@@ -44,8 +44,10 @@ public class ReduxPlacedFeatures {
     public static final NoiseThresholdCountPlacement NOISE_THRESHOLD = NoiseThresholdCountPlacement.of(-0.8D, 5, 10);
 
     public static final ResourceKey<PlacedFeature> AEVELIUM_GRASSES_PATCH = copyKey(ReduxConfiguredFeatures.AEVELIUM_GRASSES_PATCH);
+    public static final ResourceKey<PlacedFeature> DEEP_GRASS_PATCH = copyKey(ReduxConfiguredFeatures.DEEP_GRASS_PATCH);
     public static final ResourceKey<PlacedFeature> AURUM_PATCH = copyKey(ReduxConfiguredFeatures.AURUM_PATCH);
     public static final ResourceKey<PlacedFeature> ZYATRIX_PATCH = copyKey(ReduxConfiguredFeatures.ZYATRIX_PATCH);
+    public static final ResourceKey<PlacedFeature> VANILLA_PATCH = copyKey(ReduxConfiguredFeatures.VANILLA_PATCH);
     public static final ResourceKey<PlacedFeature> SHRUBLANDS_PURPLE_PATCH = createKey(Folders.PATCH + "shrublands_purple_patch");
     public static final ResourceKey<PlacedFeature> SHRUBLANDS_WHITE_PATCH = createKey(Folders.PATCH + "shrublands_white_patch");
     public static final ResourceKey<PlacedFeature> ZANBERRY_BUSH_PATCH = copyKey(ReduxConfiguredFeatures.ZANBERRY_BUSH_PATCH);
@@ -126,12 +128,20 @@ public class ReduxPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> BONEMEAL_OVERRIDE = AetherPlacedFeatures.AETHER_GRASS_BONEMEAL;
 
+    public static final ResourceKey<PlacedFeature> SUGARGRASS_BONEMEAL = createKey(Folders.MISC + "sugargrass_bonemeal");
+
 
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
 
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
         register(context, AEVELIUM_GRASSES_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.AEVELIUM_GRASSES_PATCH),
+                NOISE_THRESHOLD,
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
+                new ConfigFilter(AetherConfig.SERVER.generate_tall_grass),
+                BiomeFilter.biome()
+        );
+        register(context, DEEP_GRASS_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.DEEP_GRASS_PATCH),
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
                 new ConfigFilter(AetherConfig.SERVER.generate_tall_grass),
@@ -183,6 +193,13 @@ public class ReduxPlacedFeatures {
 
 
         register(context, ZYATRIX_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.ZYATRIX_PATCH),
+                NOISE_THRESHOLD,
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, BiasedToBottomInt.of(0, 3), 4),
+                RarityFilter.onAverageOnceEvery(13),
+                BiomeFilter.biome());
+
+
+        register(context, VANILLA_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.VANILLA_PATCH),
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, BiasedToBottomInt.of(0, 3), 4),
                 RarityFilter.onAverageOnceEvery(13),
@@ -720,6 +737,7 @@ public class ReduxPlacedFeatures {
         );
 
         register(context, BONEMEAL_OVERRIDE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GRASS_PATCH_BONEMEAL), PlacementUtils.isEmpty());
+        register(context, SUGARGRASS_BONEMEAL, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.SUGARGRASS_BONEMEAL), PlacementUtils.isEmpty());
 
         register(context, VERIDIUM_ORE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.VERIDIUM_ORE),
                 CountPlacement.of(11),
