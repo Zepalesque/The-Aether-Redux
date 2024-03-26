@@ -62,6 +62,11 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.JELLYSHROOM_JELLY_BLOCK.get(),
                 ReduxBlocks.CLOUD_CAP_BLOCK.get()
         );
+        this.tag(ReduxTags.Blocks.DO_NOT_REPLACE_AETHER_GRASS).add(
+                ReduxBlocks.SHORT_AETHER_GRASS.get(),
+                ReduxBlocks.AVELIUM_ROOTS.get(),
+                ReduxBlocks.AVELIUM_SPROUTS.get()
+        );
 
         for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS)        {
             woodHandler.sporingBlocksBlockTag.ifPresent(
