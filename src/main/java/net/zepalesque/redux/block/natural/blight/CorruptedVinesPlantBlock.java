@@ -60,11 +60,6 @@ public class CorruptedVinesPlantBlock extends GrowingPlantBodyBlock {
       }
    }
 
-   @Override
-   public boolean isLadder(BlockState state, LevelReader level, BlockPos pos, LivingEntity entity) {
-      return super.isLadder(state, level, pos, entity) && EquipmentHooks.isImmuneToBlightPlants(entity);
-   }
-
    protected GrowingPlantHeadBlock getHeadBlock() {
       return head.get();
    }
