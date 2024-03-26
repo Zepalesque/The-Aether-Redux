@@ -170,6 +170,9 @@ public class ReduxItemModelData extends AetherItemModelProvider {
 
         this.aercloudItem(ReduxBlocks.JELLYSHROOM_JELLY_BLOCK.get());
 
+        this.itemBlock(ReduxBlocks.SUGARGRASS_BLOCK.get());
+        this.itemBlock(ReduxBlocks.COCOA_SOIL.get());
+
         this.itemBlock(ReduxBlocks.BLIGHTMOSS_BLOCK.get());
         this.itemBlock(ReduxBlocks.BLIGHTMOSS_CARPET.get());
         this.itemBlock(ReduxBlocks.FUNGAL_GROWTH.get());

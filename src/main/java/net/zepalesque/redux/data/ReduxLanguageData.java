@@ -103,12 +103,12 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.VANILLA_SWET_SPAWN_EGG, "Vanilla Swet Spawn Egg");
         addLore(ReduxItems.VANILLA_SWET_SPAWN_EGG, "A spawn egg. Spawns a Vanilla Swet.");
 
-        addItem(ReduxItems.SHIMMERCOW_SPAWN_EGG, "Goldcow Spawn Egg");
-        addLore(ReduxItems.SHIMMERCOW_SPAWN_EGG, "A spawn egg. Spawns a Goldcow.");
+        addItem(ReduxItems.SHIMMERCOW_SPAWN_EGG, "Crazy Cow Spawn Egg");
+        addLore(ReduxItems.SHIMMERCOW_SPAWN_EGG, "A spawn egg. Spawns a Crazy Cow.");
 
 
-        addItem(ReduxItems.MYKAPOD_SPAWN_EGG, "Snailshroom Spawn Egg");
-        addLore(ReduxItems.MYKAPOD_SPAWN_EGG, "A spawn egg. Spawns a Snailshroom.");
+        addItem(ReduxItems.MYKAPOD_SPAWN_EGG, "Milkapod Spawn Egg");
+        addLore(ReduxItems.MYKAPOD_SPAWN_EGG, "A spawn egg. Spawns a Milkapod.");
 
         addItem(ReduxItems.BLIGHTBUNNY_SPAWN_EGG, "Goodbunny Spawn Egg");
         addLore(ReduxItems.BLIGHTBUNNY_SPAWN_EGG, "A spawn egg. Spawns a Goodbunny.");
@@ -160,17 +160,17 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.POTTED_JELLYSHROOM, "Potted Springjelly Shroom");
         addLore(ReduxBlocks.JELLYSHROOM, "A jelly-based mushroom, which is found in the NotMoolands.");
 
-        addBlock(ReduxBlocks.SHIMMERSTOOL, "Goldstool");
-        addBlock(ReduxBlocks.POTTED_SHIMMERSTOOL, "Potted Goldstool");
-        addLore(ReduxBlocks.SHIMMERSTOOL, "A short mushroom found in the NotMoolands. These are most commonly found nearby rocks. They can also sometimes be found on the backs of the native Goldcow!");
+        addBlock(ReduxBlocks.SHIMMERSTOOL, "Wackyshroom");
+        addBlock(ReduxBlocks.POTTED_SHIMMERSTOOL, "Potted Wackyshroom");
+        addLore(ReduxBlocks.SHIMMERSTOOL, "A short mushroom found in the Cowcaps. These are most commonly found nearby rocks. They can also sometimes be found on the backs of the native Crazy Cow!");
 
-        addBlock(ReduxBlocks.CLOUD_CAP_BLOCK, "Moo Cap Block");
-        addLore(ReduxBlocks.CLOUD_CAP_BLOCK, "The cap of the large Moocap Mushrooms, found in the NotMoolands.");
-        addBlock(ReduxBlocks.CLOUDCAP_SPORES, "Moocap Spores");
-        addLore(ReduxBlocks.CLOUDCAP_SPORES, "A block of spores from the large Moocap Mushrooms, found in the NotMoolands.");
+        addBlock(ReduxBlocks.CLOUD_CAP_BLOCK, "Cow Cap Block");
+        addLore(ReduxBlocks.CLOUD_CAP_BLOCK, "The cap of the large Cowcap Mushrooms, found in the Cowcaps.");
+        addBlock(ReduxBlocks.CLOUDCAP_SPORES, "Cowcap Spores");
+        addLore(ReduxBlocks.CLOUDCAP_SPORES, "A block of spores from the large Cowcap Mushrooms, found in the Cowcaps.");
 
         addBlock(ReduxBlocks.JELLYSHROOM_JELLY_BLOCK, "Springjelly Shroom Spring Jelly Block");
-        addLore(ReduxBlocks.JELLYSHROOM_JELLY_BLOCK, "Jelly from a large Springjelly Shroom, which can be found in the NotMoolands.");
+        addLore(ReduxBlocks.JELLYSHROOM_JELLY_BLOCK, "Jelly from a large Springjelly Shroom, which can be found in the Cowcaps.");
 
         addBlock(ReduxBlocks.COARSE_AETHER_DIRT, "Coarse Aether Dirt");
         addLore(ReduxBlocks.COARSE_AETHER_DIRT, "A variant of Aether Dirt that does not regrow any grass.");
@@ -217,13 +217,13 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.POTTED_ZANBERRY_BUSH_STEM, "Potted Zanberry Bush Stem");
         addLore(ReduxBlocks.ZANBERRY_BUSH_STEM, "The stem of the Zanberry Bush. This will grow into a full bush, and will have Zanberries, which can be picked!");
 
-        addBlock(ReduxBlocks.CLOUDCAP_MUSHLING, "Moocap Mushling");
-        addBlock(ReduxBlocks.POTTED_CLOUDCAP_MUSHLING, "Potted Moocap Mushling");
-        addLore(ReduxBlocks.CLOUDCAP_MUSHLING, "A mushroom found commonly in the NotMoolands. It glows faintly.");
+        addBlock(ReduxBlocks.CLOUDCAP_MUSHLING, "Cowcap Mushling");
+        addBlock(ReduxBlocks.POTTED_CLOUDCAP_MUSHLING, "Potted Cowcap Mushling");
+        addLore(ReduxBlocks.CLOUDCAP_MUSHLING, "A mushroom found commonly in the Cowcaps. It glows faintly.");
 
-        addBlock(ReduxBlocks.SPIROLYCTIL, "Spironolyctil");
-        addBlock(ReduxBlocks.POTTED_SPIROLYCTIL, "Potted Spironolyctil");
-        addLore(ReduxBlocks.SPIROLYCTIL, "A shiny golden flower found in the Unblight. It smells kinda like pickles.");
+        addBlock(ReduxBlocks.SPIROLYCTIL, "Spirolyctil");
+        addBlock(ReduxBlocks.POTTED_SPIROLYCTIL, "Potted Spirolyctil");
+        addLore(ReduxBlocks.SPIROLYCTIL, "A pretty purple flower found in the Unblight. It smells kinda like pickles.");
 
         addBlock(ReduxBlocks.BLIGHTSHADE, "Moonbud");
         addBlock(ReduxBlocks.POTTED_BLIGHTSHADE, "Potted Moonbud");
@@ -284,12 +284,12 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.POTTED_PURPLE_CRYSTAL_FRUIT_SAPLING, "Potted Purple Crystal Fruit Sapling");
         addLore(ReduxBlocks.PURPLE_CRYSTAL_FRUIT_SAPLING, "A sapling of a Purple Crystal tree, with fruits on it. This can be grown with bonemeal.");
 
-        addBlock(ReduxBlocks.AVELIUM_ROOTS, "Moovelium Roots");
-        addBlock(ReduxBlocks.POTTED_AVELIUM_ROOTS, "Potted Moovelium Roots");
-        addLore(ReduxBlocks.AVELIUM_ROOTS, "Sprouting roots that grow on Moovelium in the NotMoolands.");
+        addBlock(ReduxBlocks.AVELIUM_ROOTS, "Moo Roots");
+        addBlock(ReduxBlocks.POTTED_AVELIUM_ROOTS, "Potted Moo Roots");
+        addLore(ReduxBlocks.AVELIUM_ROOTS, "Sprouting roots that grow on Moovelium in the Cowcaps.");
 
-        addBlock(ReduxBlocks.AVELIUM_SPROUTS, "Moovelium Sprouts");
-        addLore(ReduxBlocks.AVELIUM_SPROUTS, "A smaller variant of Moovelium Roots. Can be found in the NotMoolands.");
+        addBlock(ReduxBlocks.AVELIUM_SPROUTS, "Moo Sprouts");
+        addLore(ReduxBlocks.AVELIUM_SPROUTS, "A smaller variant of Moovelium Roots. Can be found in the Cowcaps.");
 
 
         addBlock(ReduxBlocks.GILDED_OAK_LEAVES, "Gilded Oak Leaves");
@@ -455,8 +455,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.RAW_GRAVITITE_BLOCK, "Raw Gravitite Block");
         addLore(ReduxBlocks.RAW_GRAVITITE_BLOCK, "A block of Raw Gravitite. This can be crafted with Raw Gravitite, and acts as a way to store more in a smaller space.");
 
-        addItem(ReduxItems.MYKAPOD_SHELL_CHUNK, "Mykapod Shell Chunk");
-        addLore(ReduxItems.MYKAPOD_SHELL_CHUNK, "A fragment of the outer layer of a Mykapod. Can be used to craft the Snailshell Shield!");
+        addItem(ReduxItems.MYKAPOD_SHELL_CHUNK, "Milkapod Shell Chunk");
+        addLore(ReduxItems.MYKAPOD_SHELL_CHUNK, "A fragment of the outer layer of a Milkapod. Can be used to craft the Snailshell Shield!");
 
         addItem(ReduxItems.SNAILSHELL_SHIELD, "Snailshell Shield");
         addLore(ReduxItems.SNAILSHELL_SHIELD, "A shield accessory. When worn, you will not take any knockback.");
@@ -484,7 +484,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addBlock(ReduxBlocks.LIGHTROOTS, "Lightroots");
         addItem(ReduxItems.LIGHTROOT_CLUMP, "Lightroot Clump");
-        addLore(ReduxItems.LIGHTROOT_CLUMP, "A clump of the glowing roots that grow in the NotMoolands. These can be eaten, and give night vision.");
+        addLore(ReduxItems.LIGHTROOT_CLUMP, "A clump of the glowing roots that grow in the Cowcaps. These can be eaten, and give night vision.");
 
         addItem(ReduxItems.SENTRY_CHIP, "Sentry Chip");
         addLore(ReduxItems.SENTRY_CHIP, "A circuitboard piece from a Sentry. Nobody knows who created these, just that the Valkyries have utilized them for all of recorded history.");
@@ -540,7 +540,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
 
         addBlock(ReduxBlocks.SHELL_SHINGLES, "Shell Shingles");
-        addLore(ReduxBlocks.SHELL_SHINGLES, "Some nice shingles made from the shed shell of the Mykapod. This blast-resistant block can be placed by dispensers and broken by pistons.");
+        addLore(ReduxBlocks.SHELL_SHINGLES, "Some nice shingles made from the shed shell of the Milkapod. This blast-resistant block can be placed by dispensers and broken by pistons.");
         addBlock(ReduxBlocks.SHELL_SHINGLE_SLAB, "Shell Shingle Slab");
         addLore(ReduxBlocks.SHELL_SHINGLE_SLAB, "Crafted from Shell Shingles. Slabs are half blocks, versatile for decoration and smooth slopes. Try adding some to a building's roofing!");
         addBlock(ReduxBlocks.SHELL_SHINGLE_STAIRS, "Shell Shingle Stairs");
@@ -549,7 +549,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addLore(ReduxBlocks.SHELL_SHINGLE_WALL, "Crafted from Shell Shingles. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
 
         addBlock(ReduxBlocks.ENCHANTED_SHELL_SHINGLES, "Enchanted Shell Shingles");
-        addLore(ReduxBlocks.ENCHANTED_SHELL_SHINGLES, "Shell Shingles that have been enchanted. These have been hardened back into the form of the Mykapod's inner shell, making them take longer to break.");
+        addLore(ReduxBlocks.ENCHANTED_SHELL_SHINGLES, "Shell Shingles that have been enchanted. These have been hardened back into the form of the Milkapod's inner shell, making them take longer to break.");
         addBlock(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_SLAB, "Enchanted Shell Shingle Slab");
         addLore(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_SLAB, "Crafted from Enchanted Shell Shingles. Slabs are half blocks, versatile for decoration and smooth slopes. Try adding some to a building's roofing!");
         addBlock(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_STAIRS, "Enchanted Shell Shingle Stairs");
@@ -558,7 +558,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addLore(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_WALL, "Crafted from Enchanted Shell Shingles. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
 
 
-        addBiome(ReduxBiomes.CLOUDCAPS, "NotMoolands");
+        addBiome(ReduxBiomes.CLOUDCAPS, "Cowcaps");
         addBiome(ReduxBiomes.FROSTED_FORESTS, "Frosted Forests");
         addBiome(ReduxBiomes.GLACIAL_TUNDRA, "Glacial Tundra");
         addBiome(ReduxBiomes.GILDED_GROVES, "Gilded Groves");
@@ -607,8 +607,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addGuiText("pack_config.page", "Page %s");
 
         addEntityType(ReduxEntityTypes.VANILLA_SWET, "Vanilla Swet");
-        addEntityType(ReduxEntityTypes.SHIMMERCOW, "Goldcow");
-        addEntityType(ReduxEntityTypes.MYKAPOD, "Mykapod");
+        addEntityType(ReduxEntityTypes.SHIMMERCOW, "Crazy Cow");
+        addEntityType(ReduxEntityTypes.MYKAPOD, "Milkapod");
         addEntityType(ReduxEntityTypes.BLIGHTBUNNY, "Goodbunny");
         addEntityType(ReduxEntityTypes.EMBER, "Ember");
         addEntityType(ReduxEntityTypes.INFUSED_VERIDIUM_DART, "Infused Veridium Dart");
@@ -650,7 +650,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addMenuTitle("blight", "Redux - Unblight");
         addMenuTitle("gilded", "Redux - Gilded");
         addMenuTitle("dungeon", "Redux - Dungeon");
-        addMenuTitle("cloudcaps", "Redux - NotMoolands");
+        addMenuTitle("cloudcaps", "Redux - Cowcaps");
         addMenuTitle("skyfields", "Redux - Skyfields");
 
         addPackTitle("overrides", "Redux - Aether Overrides");
@@ -659,22 +659,22 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addSubtitle("entity", "mimic_slam", "Mimic slams");
         addSubtitle("entity", "swet_attack", "Swet attacks");
-        addSubtitle("entity", "shimmercow_ambient", "Goldcow moos");
-        addSubtitle("entity", "shimmercow_hurt", "Goldcow hurts");
-        addSubtitle("entity", "shimmercow_death", "Goldcow dies");
-        addSubtitle("entity", "crazy_cow_ambient", "Goldcow §kvwakazoom moo dae§rs");
-        addSubtitle("entity", "crazy_cow_hurt", "Goldcow §kscream§rs");
-        addSubtitle("entity", "crazy_cow_death", "Goldcow §kasks u why u did dis§r");
+        addSubtitle("entity", "shimmercow_ambient", "Crazy Cow moos");
+        addSubtitle("entity", "shimmercow_hurt", "Crazy Cow hurts");
+        addSubtitle("entity", "shimmercow_death", "Crazy Cow dies");
+        addSubtitle("entity", "crazy_cow_ambient", "Crazy Cow §kvwakazoom moo dae§rs");
+        addSubtitle("entity", "crazy_cow_hurt", "Crazy Cow §kscream§rs");
+        addSubtitle("entity", "crazy_cow_death", "Crazy Cow §kasks u why u did dis§r");
         addSubtitle("entity", "sentry_pounce", "Sentry pounces");
         addSubtitle("entity", "sentry_land", "Sentry lands");
         addSubtitle("entity", "sentry_ambient", "Sentry grumbles");
         addSubtitle("entity", "ember_bounce", "Ember impacts");
-        addSubtitle("entity", "mykapod_shell_crack", "Snailshroom shell cracks");
-        addSubtitle("entity", "mykapod_shell_shed", "Snailshroom sheds");
-        addSubtitle("entity", "mykapod_shell_break", "Snailshroom shell breaks");
-        addSubtitle("entity", "mykapod_move", "Snailshroom squelches");
-        addSubtitle("entity", "mykapod_hurt", "Snailshroom hurts");
-        addSubtitle("entity", "mykapod_death", "Snailshroom dies");
+        addSubtitle("entity", "mykapod_shell_crack", "Milkapod shell cracks");
+        addSubtitle("entity", "mykapod_shell_shed", "Milkapod sheds");
+        addSubtitle("entity", "mykapod_shell_break", "Milkapod shell breaks");
+        addSubtitle("entity", "mykapod_move", "Milkapod squelches");
+        addSubtitle("entity", "mykapod_hurt", "Milkapod hurts");
+        addSubtitle("entity", "mykapod_death", "Milkapod dies");
         addSubtitle("entity", "blightbunny_hurt", "Goodbunny hurts");
         addSubtitle("entity", "blightbunny_death", "Goodbunny dies");
         addSubtitle("item.accessory", "equip_bittersweet_charm", "Bittersweet Charm jingles");
@@ -769,7 +769,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addAdvancementDesc("enter_frosted_forests", "Enter the Frosted Forests, an ice-cold forest covered in snow");
 
         addAdvancement("enter_cloudcap_jungle", "Moolander");
-        addAdvancementDesc("enter_cloudcap_jungle", "Enter the NotMoolands, a fungal forest with various types of mushrooms");
+        addAdvancementDesc("enter_cloudcap_jungle", "Enter the Cowcaps, a fungal forest with various types of mushrooms");
 
         addAdvancement("mouse_ear_soup", "Who Let Them Cook?");
         addAdvancementDesc("mouse_ear_soup", "Craft and cosume the legendary Mouse Ear Soup, one of the Aether's finest, yet least well-known dishes.");
@@ -796,7 +796,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addProTip("enchanted_ring", "With some planks and an Ambrosium Shard, you can craft the Enchanted Ring, which can be turned into various different useful rings!");
         addProTip("veridium_ore", "On occasion, you'll find a blue ore in the Aether known as Veridium. This can be used to make some decoration blocks, as well as useful Veridium tools!");
         addProTip("the_blight", "Be careless of the purple Unblight biome found in the Aether, it is filled with no dangers at all nope");
-        addProTip("snailshell_shield", "Feeding a Snailshroom a Shimmerstool will make it shed the outer layer of its shell. These shell fragments can be used to craft a useful accessory that will decrease knockback.");
+        addProTip("snailshell_shield", "Feeding a Milkapod a Wackyshroom will make it shed the outer layer of its shell. These shell fragments can be used to craft a useful accessory that will decrease knockback.");
         addProTip("divinite", "Divinite can be enchanted into Glowstone, giving a relatively easy way to leave the Aether safely if you get stuck.");
         addProTip("redux_configs", "The Aether: Redux has a large amount of configs, including many that affect the base mod, so make sure to check out its config file!");
         addProTip("swet_escape", "You can escape a Swet's gelatinous grasp by sneaking. It will still attack you though, so be quick!");
