@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-23T16:40:28.4806236	Loot Tables
+// 1.20.1	2024-03-25T20:44:46.3362823	Loot Tables
 c6156555dc4897939b617dabc4521b7fa52feba0 data/aether_redux/loot_tables/blocks/aurum.json
 b5773c78c7b3f27032f1cca6fb72f440e24c7529 data/aether_redux/loot_tables/blocks/avelium.json
 4c8b773f2431b28dd2a48b90d08323d8ff67a3d7 data/aether_redux/loot_tables/blocks/avelium_roots.json
@@ -86,6 +86,7 @@ d03558f46f27687d9174c53bc443a011826d7ce1 data/aether_redux/loot_tables/blocks/cr
 e9aa0bbb31a11fef55fd7e8e2a2aae723958e1f1 data/aether_redux/loot_tables/blocks/crystal_wood.json
 b54e9b499ea8aaeb1033d2a9165e4655843c96a9 data/aether_redux/loot_tables/blocks/crystal_wood_wall.json
 749789bf097d1299cf0088dfaa03d0b48858eca2 data/aether_redux/loot_tables/blocks/daggerbloom.json
+1b2522bd265bd63f70f5f83e51971069b97d8f92 data/aether_redux/loot_tables/blocks/deep_grass_block.json
 c1ac8e3bb91221dcf14feef492e358a211e2be48 data/aether_redux/loot_tables/blocks/divinite.json
 b90e773a77a95ad6721ea40eecd206d2b4510c79 data/aether_redux/loot_tables/blocks/divinite_slab.json
 51aed8c24eb2622ff769ae429c855c5c636ed003 data/aether_redux/loot_tables/blocks/divinite_stairs.json
@@ -241,6 +242,7 @@ bfdff5740f573c219698b2d3350c8a1c08a7a658 data/aether_redux/loot_tables/blocks/sh
 20493b54458664c72906d5db877fe147abcf8027 data/aether_redux/loot_tables/blocks/shell_shingle_wall.json
 2a2b42c412d789cd356252b6e5a86fd0de8831a8 data/aether_redux/loot_tables/blocks/shimmerstool.json
 137384099b49bd94738c664b3ed14fc593ec739d data/aether_redux/loot_tables/blocks/short_aether_grass.json
+46d96e13c16fa07cc67d4acb9eccb412ecd86a25 data/aether_redux/loot_tables/blocks/short_deep_grass.json
 338c8783fbd3b8dc3f9174031cf32874eba36835 data/aether_redux/loot_tables/blocks/skysprouts.json
 112d78bdaec725675ba2ab76addbc3515ef68207 data/aether_redux/loot_tables/blocks/skysprouts_crop.json
 8d2a202eb40b74fb7ae7c92a95b7582b1ca22e47 data/aether_redux/loot_tables/blocks/spectral_fieldsproot_leaves.json
