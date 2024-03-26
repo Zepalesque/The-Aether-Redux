@@ -150,7 +150,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addLore(ReduxBlocks.SUGARSPROUTS, "Formations that grow out of the sugar crystals of Sugargrass. Despite being pure crystal, it is still referred to with a plant-like name.");
 
         addBlock(ReduxBlocks.COCOA_SOIL, "Cocoa Soil");
-        addLore(ReduxBlocks.COCOA_SOIL, "Essentially the Candyfields' version of dirt. It seems to be dark chocolate.");
+        addLore(ReduxBlocks.COCOA_SOIL, "Essentially the Sugarfields' version of dirt. It seems to be dark chocolate.");
 
         addBlock(ReduxBlocks.VANILLA, "Vanilla");
         addBlock(ReduxBlocks.POTTED_VANILLA, "Potted Vanilla");
