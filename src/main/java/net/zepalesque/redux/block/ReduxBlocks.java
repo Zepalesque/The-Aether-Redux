@@ -5,6 +5,7 @@ import com.aetherteam.aether.block.miscellaneous.FacingPillarBlock;
 import com.aetherteam.aether.block.miscellaneous.FloatingBlock;
 import com.aetherteam.aether.block.natural.AetherDoubleDropBlock;
 import com.aetherteam.aether.block.natural.AetherDoubleDropsLeaves;
+import com.aetherteam.aether.block.natural.AetherGrassBlock;
 import com.aetherteam.aether.block.natural.LeavesWithParticlesBlock;
 import com.aetherteam.aether.mixin.mixins.common.accessor.FireBlockAccessor;
 import com.google.common.base.Supplier;
@@ -154,6 +155,9 @@ public class ReduxBlocks {
             () -> new AveliumPlantBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).sound(SoundType.ROOTS), false));
     public static final RegistryObject<FlowerPotBlock> POTTED_AVELIUM_ROOTS = BLOCKS.register("potted_avelium_roots", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, AVELIUM_ROOTS, Block.Properties.copy(Blocks.FLOWER_POT)));
 
+    public static RegistryObject<Block> DEEP_GRASS_BLOCK = register("deep_grass_block",
+            () -> new AetherGrassBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).randomTicks().strength(0.2F).sound(SoundType.GRASS)));
+
 
     public static RegistryObject<Block> SHELL_SHINGLES = register("shell_shingles",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).strength(0.4F, 1200.0F).sound(SoundType.MUD_BRICKS).pushReaction(PushReaction.DESTROY)));
@@ -237,8 +241,8 @@ public class ReduxBlocks {
     public static final RegistryObject<FlowerPotBlock> POTTED_THERATIP = BLOCKS.register("potted_theratip", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, THERATIP, Block.Properties.copy(Blocks.FLOWER_POT)));
 
     public static RegistryObject<Block> BLIGHTSHADE = register("blightshade",
-            () -> new BlightshadeBlock(() -> MobEffects.DARKNESS, 60, BlockBehaviour.Properties.copy(Blocks.WITHER_ROSE).mapColor(MapColor.COLOR_BLACK)));
-    public static final RegistryObject<FlowerPotBlock> POTTED_BLIGHTSHADE = BLOCKS.register("potted_blightshade", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, BLIGHTSHADE, Block.Properties.copy(Blocks.FLOWER_POT)));
+            () -> new CustomBoundsFlowerBlock(CommonPlantBounds.BUSH, () -> MobEffects.NIGHT_VISION, 60, BlockBehaviour.Properties.copy(Blocks.WITHER_ROSE).mapColor(MapColor.WOOL).lightLevel( (state) -> 7)));
+    public static final RegistryObject<FlowerPotBlock> POTTED_BLIGHTSHADE = BLOCKS.register("potted_blightshade", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, BLIGHTSHADE, Block.Properties.copy(Blocks.FLOWER_POT).lightLevel( (state) -> 7)));
 
     public static RegistryObject<Block> CLOUDCAP_MUSHLING = register("cloudcap_mushling",
             () -> new AetherMushroom(Block.box(4.0D, 0.0D, 4.0D, 12.0D, 12.0D, 12.0D), BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).lightLevel((state) -> 6).noCollission().instabreak().sound(SoundType.NETHER_SPROUTS).offsetType(BlockBehaviour.OffsetType.XZ), ReduxConfiguredFeatures.LARGE_CLOUDCAP));

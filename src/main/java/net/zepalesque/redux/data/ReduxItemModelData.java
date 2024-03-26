@@ -136,6 +136,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         this.itemBlockFlat(ReduxBlocks.PURPLE_GLACIA_SAPLING.get(), "natural/");
 
         itemBlock(ReduxBlocks.AVELIUM);
+        itemBlock(ReduxBlocks.DEEP_GRASS_BLOCK);
         itemBlock(ReduxBlocks.CLOUD_CAP_BLOCK);
         itemBlock(ReduxBlocks.CLOUDCAP_SPORES);
         itemBlockFlat(ReduxBlocks.JELLYSHROOM, "natural/");

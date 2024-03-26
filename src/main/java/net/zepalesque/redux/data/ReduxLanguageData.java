@@ -179,9 +179,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.CORRUPTED_VINES_PLANT, "Not Aerostalks Plant");
         addLore(ReduxBlocks.CORRUPTED_VINES, "it will never be graviton referensse ...      :cereal_spit:");
 
-        addBlock(ReduxBlocks.LUXWEED, "Glowsprouts");
-        addBlock(ReduxBlocks.POTTED_LUXWEED, "Potted Glowsprouts");
-        addLore(ReduxBlocks.LUXWEED, "A plant found in the Unblight biome, which is a distant relative to Wyndsprouts. It gives off a subtle glow, lighting the area around it.");
+        addBlock(ReduxBlocks.LUXWEED, "Lightsprouts");
+        addBlock(ReduxBlocks.POTTED_LUXWEED, "Potted Lightsprouts");
+        addLore(ReduxBlocks.LUXWEED, "A pretty glowing plant found in the Unblight biome. These are a relative of Wyndsprouts.");
 
         addBlock(ReduxBlocks.WYNDSPROUTS, "Wyndsprouts");
         addBlock(ReduxBlocks.POTTED_WYNDSPROUTS, "Potted Wyndsprouts");
