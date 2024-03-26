@@ -493,7 +493,7 @@ public class WoodHandler implements BlockHandler {
 
     private String getLocalizedName()
     {
-        return StringUtils.capitalise(this.langName == null ? this.woodName : this.langName.replace("_", " "));
+        return StringUtils.capitaliseAllWords(this.langName == null ? this.woodName : this.langName.replace("_", " "));
     }
 }
 
