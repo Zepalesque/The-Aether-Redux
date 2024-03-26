@@ -113,8 +113,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.BLIGHTBUNNY_SPAWN_EGG, "Goodbunny Spawn Egg");
         addLore(ReduxItems.BLIGHTBUNNY_SPAWN_EGG, "A spawn egg. Spawns a Goodbunny.");
 
-        addItem(ReduxItems.BLIGHTED_SPORES, "GOOD Spores");
-        addLore(ReduxItems.BLIGHTED_SPORES, "Spores from the Hallowed tree. They act like an opposite to Ambrosium, turning some things into their blighted variant");
+        addItem(ReduxItems.BLIGHTED_SPORES, "Mini Hearts");
+        addLore(ReduxItems.BLIGHTED_SPORES, "Some heart-shaped objects from the Hallowed tree. They can make some things into their nice versions, such as Mossy Holystone to Nicemoss Holystone");
 
         addItem(ReduxItems.VERIDIUM_DART, "Veridium Dart");
         addLore(ReduxItems.VERIDIUM_DART, "The ammo for the Veridium Dart Shooter. When shot with an Infused Veridium Dart Shooter, hit enemies will glow!");
@@ -678,7 +678,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addSubtitle("block", "blightshade_spray", "Niceshade sprays");
         addSubtitle("item", "convert_ambrosium", "Ambrosium enchants");
         addSubtitle("item", "convert_swet_ball", "Swet Ball squelches");
-        addSubtitle("item", "convert_blighted_spores", "GOOD Spores bewitch");
+        addSubtitle("item", "convert_blighted_spores", "Mini Hearts transform");
         addSubtitle("item", "infuse_item", "Item infuses");
         addSubtitle("item", "infusion_expire", "Infusion expires");
         addSubtitle("item", "spear_throw", "Spear wooshes");
@@ -729,7 +729,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addAdvancement("enter_blight", "Shattered Glass");
         addAdvancementDesc("enter_blight", "Enter the Unblight biome, a dangerous zone filled with hazardous plants and creatures");
         addAdvancement("convert_with_blighted_spores", "Dark Magic");
-        addAdvancementDesc("convert_with_blighted_spores", "good friend nice-ify a block by right-clicking it while holding some GOOD Spores");
+        addAdvancementDesc("convert_with_blighted_spores", "good friend nice-ify a block by right-clicking it while holding some Mini Hearts");
         addAdvancement("obtain_subzero_crossbow", "Below Zero");
         addAdvancementDesc("obtain_subzero_crossbow", "Obtain the Subzero Crossbow, a chilling ranged weapon found in the Gold Dungeon");
 
