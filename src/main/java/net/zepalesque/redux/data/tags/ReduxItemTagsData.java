@@ -137,6 +137,12 @@ public class ReduxItemTagsData extends ItemTagsProvider {
                 AetherItems.SKYROOT_HOE.get()
         );
         this.tag(ReduxTags.Items.BLUE_CRYSTAL_SAPLINGS).add(ReduxBlocks.CRYSTAL_SAPLING.get().asItem()).addOptional(new ResourceLocation("lost_aether_content", "crystal_sapling"));
+        this.tag(ReduxTags.Items.EDIBLE_SUGARFIELDS_BLOCKS).add(
+                ReduxBlocks.COCOA_SOIL.get().asItem(),
+                ReduxBlocks.SUGARGRASS_BLOCK.get().asItem(),
+                ReduxBlocks.SUGARSPROUTS.get().asItem(),
+                ReduxBlocks.VANILLA.get().asItem()
+        );
     }
 
 }
