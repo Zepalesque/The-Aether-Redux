@@ -112,13 +112,13 @@
   },
   "entity.blightbunny.death": {
     "sounds": [
-      "aether_redux:entity/blightbunny/death"
+      "aether:entity/aerbunny/death"
     ],
     "subtitle": "subtitles.aether_redux.entity.blightbunny_death"
   },
   "entity.blightbunny.hurt": {
     "sounds": [
-      "aether_redux:entity/blightbunny/hurt"
+      "aether:entity/aerbunny/hurt"
     ],
     "subtitle": "subtitles.aether_redux.entity.blightbunny_hurt"
   },

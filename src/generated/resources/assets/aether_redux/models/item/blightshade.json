@@ -1,7 +1,17 @@
 {
   "parent": "minecraft:item/generated",
+  "forge_data": {
+    "layers": {
+      "0": {
+        "block_light": 15,
+        "sky_light": 15
+      }
+    }
+  },
+  "loader": "forge:item_layers",
+  "render_types": {},
   "textures": {
-    "layer0": "aether_redux:block/natural/blightshade_overlay",
+    "layer0": "aether_redux:block/natural/blightshade_glow",
     "layer1": "aether_redux:block/natural/blightshade"
   }
 }

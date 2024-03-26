@@ -1,11 +1,11 @@
-// 1.20.1	2024-03-25T20:44:46.3702614	Tags for minecraft:block mod id aether_redux
+// 1.20.1	2024-03-26T09:45:46.5876709	Tags for minecraft:block mod id aether_redux
 8f59d0f2e59cb5eca343062c21759ff8593f2e46 data/aether/tags/blocks/aerclouds.json
-979d8e3e650c11c3f124a1bb904c74ceaac07117 data/aether/tags/blocks/aether_animals_spawnable_on.json
-1a74b8e19c7c3b4c58bbcbd7fbabac9a2f9c8384 data/aether/tags/blocks/aether_dirt.json
+4a2b29220b487440187fe3bb318763b54cddfb4a data/aether/tags/blocks/aether_animals_spawnable_on.json
+4368ac3700748ccc27f355a5ff7a4a0bd1caf5ba data/aether/tags/blocks/aether_dirt.json
 a681ef256a73f902c2b7f4517610ae47cccada75 data/aether/tags/blocks/gravitite_ability_blacklist.json
 1acaf7e42c54a1bfdf9c92e14aa3c26bc0b3b058 data/aether/tags/blocks/holystone.json
 3430a77944d334be13ce18f710fdbf73bdf8e971 data/aether/tags/blocks/sentry_blocks.json
-6921c6ae861d44760a6ab7a3ef2d6c8b9ee63475 data/aether/tags/blocks/treated_as_aether_block.json
+fdacbc9bc2b9b6c4926babebdb3759329e426d26 data/aether/tags/blocks/treated_as_aether_block.json
 85b1ad865db965e78fb0da827f9f619ffe9f5878 data/aether_redux/tags/blocks/aether_carver_replaceables.json
 fd01915c57cee8effe17fe38cbedcefa19a98fb3 data/aether_redux/tags/blocks/aether_moss_replaceables.json
 6af03c05dc47726e2795f7d011a935a02927b949 data/aether_redux/tags/blocks/aevelium_grasses.json
@@ -13,7 +13,7 @@ edd28d843e4d50fffcd62491dda0fa5e4ba1749b data/aether_redux/tags/blocks/blightwil
 f935ac962426e9e6830b7063f7ff690dd48898cf data/aether_redux/tags/blocks/cloudcap_stems.json
 41949587538e0e044c5a460a1a03b7f81e6fac6b data/aether_redux/tags/blocks/coarse_aether_dirt.json
 ff76e071710735bec611ec58205f07d13cb675bd data/aether_redux/tags/blocks/crystal_logs.json
-8d65fc6ac97f18817b5895c0be59965c52c72c28 data/aether_redux/tags/blocks/do_not_replace_aether_grass.json
+b40583ba2b39b7ac1bce8ee9ad4ca210e1d164e6 data/aether_redux/tags/blocks/do_not_replace_aether_grass.json
 f88e31ba010e8b41d4256635de26d1cf8a0aa221 data/aether_redux/tags/blocks/enchanted_grasses.json
 cfa8f11bb1b7280f4421cd627b807061781b78b8 data/aether_redux/tags/blocks/enchanted_vines_skip_placement.json
 4040f25e47af494a954cf298b91aa37aec210545 data/aether_redux/tags/blocks/enchanted_vines_survive.json
@@ -25,6 +25,7 @@ fc9b66cee900f1b4f341fcec6da19eb45d575f43 data/aether_redux/tags/blocks/highlands
 a92cb6ac0a495275e62e3f2c34b618add2d2853c data/aether_redux/tags/blocks/mushroom_caps.json
 ce3087631d37c89562a170802a2473a14f8d9153 data/aether_redux/tags/blocks/quicksoil_behavior.json
 22ee7218d1c999a0eb0ddf1bba7425c125a68c2a data/aether_redux/tags/blocks/sporing_blightwillow_logs.json
+93a52f53bab0af9c0aa0dc6a9c061c89f5ff7c5d data/aether_redux/tags/blocks/sugar_dirt.json
 2164cf1ded198b2b92a86f2edac3c973f4adf495 data/forge/tags/blocks/bookshelves.json
 0e8fb38437f81b67991a52679cfc519a1b68a2bf data/minecraft/tags/blocks/beacon_base_blocks.json
 52ea20c1c74e51ec1a1c3150d7a4daa7eba5f82c data/minecraft/tags/blocks/climbable.json

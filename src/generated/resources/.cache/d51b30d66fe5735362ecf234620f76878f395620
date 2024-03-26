@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-25T20:44:46.3222902	Item Models: aether_redux
+// 1.20.1	2024-03-26T09:45:46.5327057	Item Models: aether_redux
 2445055af5b1b7f3c6045199ffce74108003cef6 assets/aether_redux/models/item/airbound_cape.json
 2fa1343a8119a1f49af334c002773099174965bd assets/aether_redux/models/item/aurum.json
 edfe83948874d1436a61893ed9471b47e93dbe88 assets/aether_redux/models/item/avelium.json
@@ -18,7 +18,7 @@ a083a7311bfd77483a76afa2e0b34a2dca856c28 assets/aether_redux/models/item/blightm
 693490b382231c95e748c88f8daa13be00cd8ceb assets/aether_redux/models/item/blightmoss_holystone_slab.json
 e073f529066aa534f560372ff463759fa6a01401 assets/aether_redux/models/item/blightmoss_holystone_stairs.json
 01182452db12ba6aaf27b32a62ee4b122ee5541c assets/aether_redux/models/item/blightmoss_holystone_wall.json
-898f0449a6ab5c3819b92431f9a21ba6b8b3a63c assets/aether_redux/models/item/blightshade.json
+4f65eb45fcb57d7a3b4580954b8cd3191c76c95e assets/aether_redux/models/item/blightshade.json
 b6adca5c2ea110994ea1812254e89f051651ed99 assets/aether_redux/models/item/blightwillow_boat.json
 9b35f51a328d22ae021ae3be21d9f25a10e389c8 assets/aether_redux/models/item/blightwillow_bookshelf.json
 36b35ca804cd86db98042e93fb7bf47dd4a70a11 assets/aether_redux/models/item/blightwillow_button.json
@@ -276,9 +276,11 @@ e93cc3a74a31a21b70469d32237e7a35c1cf06c6 assets/aether_redux/models/item/strippe
 d431727282e6d3bb0325ab1b51b4f46da7c66fca assets/aether_redux/models/item/stripped_glacia_log_wall.json
 992aeafec1f8963ef1d11e6693991358baa283c4 assets/aether_redux/models/item/stripped_glacia_wood.json
 2bd3490fb4474d386bd50208e65422901c06a9a5 assets/aether_redux/models/item/stripped_glacia_wood_wall.json
+2784ea919d1726ee9adf29bcd84c0e546bb2ea96 assets/aether_redux/models/item/sugarsprouts.json
 5d4edee3b4f4767f82b36604817aec0df6bde727 assets/aether_redux/models/item/theratip.json
 e4bcb896b9819368f3ebd96a6ad2d6d110372065 assets/aether_redux/models/item/vampire_amulet.json
 f638ac2f718eaf0082e4a7e6cd54b463ce4c2b59 assets/aether_redux/models/item/vampire_amulet_active.json
+a8b4ea0770b630d2534eeb6d39dfc952cd78c0ec assets/aether_redux/models/item/vanilla.json
 1f0d2056a180c972a1ad921f3773687252abf2fa assets/aether_redux/models/item/vanilla_gummy_swet.json
 d0b565796f88981ec08d6dae45f2f2d4d97b2211 assets/aether_redux/models/item/vanilla_swet_ball.json
 a7a769baa23ab93e17598e144d210b2723a354e8 assets/aether_redux/models/item/vanilla_swet_jelly.json

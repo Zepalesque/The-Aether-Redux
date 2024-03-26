@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:sugar_from_vanilla"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_vanilla": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "aether_redux:vanilla"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_vanilla",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:sugar_from_vanilla"
+    ]
+  },
+  "sends_telemetry_event": false
+}

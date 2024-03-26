@@ -2,6 +2,7 @@
   "values": [
     "aether_redux:avelium",
     "aether_redux:deep_grass_block",
+    "aether_redux:sugargrass_block",
     "aether_redux:coarse_aether_dirt",
     "minecraft:snow_block",
     "aether:enchanted_aether_grass_block"
