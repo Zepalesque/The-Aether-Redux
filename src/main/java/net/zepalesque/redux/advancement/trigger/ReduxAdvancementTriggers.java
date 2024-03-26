@@ -10,5 +10,6 @@ public class ReduxAdvancementTriggers {
         CriteriaTriggers.register(BlockStateRecipeTrigger.INSTANCE);
         CriteriaTriggers.register(DoubleJumpTrigger.INSTANCE);
         CriteriaTriggers.register(ExtendedReachBreakBlockTrigger.INSTANCE);
+        CriteriaTriggers.register(AprilReduxSpecificTrigger.INSTANCE);
     }
 }
