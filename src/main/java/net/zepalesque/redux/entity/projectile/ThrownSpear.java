@@ -123,7 +123,7 @@ public class ThrownSpear extends AbstractArrow {
      */
     protected void onHitEntity(EntityHitResult result) {
         Entity entity = result.getEntity();
-        float f = 6.0F;
+        float f = 3.0F;
         if (entity instanceof LivingEntity livingentity) {
             f += EnchantmentHelper.getDamageBonus(this.spearItem, livingentity.getMobType());
         }

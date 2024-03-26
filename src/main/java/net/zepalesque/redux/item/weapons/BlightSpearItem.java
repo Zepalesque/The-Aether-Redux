@@ -10,6 +10,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -117,7 +118,7 @@ public class BlightSpearItem extends Item implements Vanishable {
     }
 
     public static MobEffect getEffect() {
-        return AetherEffects.INEBRIATION.get();
+        return MobEffects.REGENERATION;
     }
 
     @Override

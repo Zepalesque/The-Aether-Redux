@@ -44,8 +44,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.SUBZERO_CROSSBOW, "Subzero Crossbow");
         addLore(ReduxItems.SUBZERO_CROSSBOW, "An icy crossbow found in Gold Dungeons. This slows enemies when they are hit.");
 
-        addItem(ReduxItems.SPEAR_OF_THE_BLIGHT, "Spear of the Good Nice Friendly Biome");
-        addLore(ReduxItems.SPEAR_OF_THE_BLIGHT, "A spear crafted with a Goodbunny Fang, Skyroot Stick, and Zanite Gemstone. This nifty weapon can be used to inflict Regeneration on enemies! It's not very useful against most mobs, but for undead ones it's nice!");
+        addItem(ReduxItems.SPEAR_OF_THE_BLIGHT, "Spear of Regeneration");
+        addLore(ReduxItems.SPEAR_OF_THE_BLIGHT, "A spear crafted with a Goodbunny Tooth, Skyroot Stick, and Zanite Gemstone. This nifty tool can be used to inflict Regeneration on enemies! It's not very useful against most mobs, but for undead ones it's nice, and it can be used to heal allies as well.");
 
         addItem(ReduxItems.ZANBERRY, "Zanberry");
         addLore(ReduxItems.ZANBERRY, "A type of berry found on bushes in the Skyroot Shrublands. This can be eaten, and nourishes slightly more hunger than Blueberries.");
@@ -447,8 +447,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.SNAILSHELL_SHIELD, "Snailshell Shield");
         addLore(ReduxItems.SNAILSHELL_SHIELD, "A shield accessory. When worn, you will not take any knockback.");
 
-        addItem(ReduxItems.BLIGHTBUNNY_FANG, "Goodbunny Fang");
-        addLore(ReduxItems.BLIGHTBUNNY_FANG, "A fang from a vicious Goodbunny. These can be crafted into a neat spear, which will inflict Inebriation on hurt enemies!");
+        addItem(ReduxItems.BLIGHTBUNNY_FANG, "Goodbunny Tooth");
+        addLore(ReduxItems.BLIGHTBUNNY_FANG, "The tooth of a Goodbunny. These can be used to make the Spear of Regeneration, which gives hit mobs regeneration!");
 
         addItem(ReduxItems.COCKATRICE_FEATHER, "Cockatrice Feather");
         addLore(ReduxItems.COCKATRICE_FEATHER, "A feather from a Cockatrice. This is said to do absolutely nothing. It can also be crafted into its upgraded variant, the Feather of Warding, which does even less nothing!");
@@ -776,7 +776,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addProTip("model_changes", "The Aether: Redux has some model changes to some of the Aether’s mobs, which can be toggled in the client-side config!");
         addProTip("feather_of_warding", "Sometimes, Cockatrices will drop one of their feathers, which, plot twist, do nothing.");
         addProTip("oatmeal", "Wyndsprout seeds can be crafed into Oatmeal, a nice snack that can fill up a few hunger points for relatively cheap.");
-        addProTip("blight_spear", "Goodbunny teeth can be used to create the Spear of the Good Nice Friendly Biome, a throwable weapon that inflicts Regeneration on enemies, and is useful against undead mobs");
+        addProTip("blight_spear", "Goodbunny teeth can be used to create the Spear of Regeneration, a throwable weapon that inflicts Regeneration on enemies, and is useful against undead mobs");
         addProTip("wyndsprouts", "You can plant Wyndsprout seeds, and when they finish growing, you can use their drops to create tasty Bagels!");
         addProTip("quicksoil", "Be careful on quicksoil, it may seem fun, but its slipperiness can cause you to fall off the island if you're not careful!");
         addProTip("enchanted_ring", "With some planks and an Ambrosium Shard, you can craft the Enchanted Ring, which can be turned into various different useful rings!");
