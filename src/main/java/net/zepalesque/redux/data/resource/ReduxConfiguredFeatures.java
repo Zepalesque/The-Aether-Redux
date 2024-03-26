@@ -80,6 +80,7 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> FUNGAL_PATCH = createKey(Folders.CAVE + "fungal_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FUNGAL_PATCH_BONEMEAL = createKey(Folders.CAVE + "fungal_patch_bonemeal");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AURUM_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.AURUM) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DEEP_GRASS_PATCH = createKey(Folders.PATCH + "deep_grass_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ZYATRIX_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.ZYATRIX) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ZANBERRY_BUSH_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.ZANBERRY_BUSH) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTED_SKYROOT_TREE = createKey(Folders.TREE + "blighted_skyroot_tree");
@@ -195,6 +196,10 @@ public class ReduxConfiguredFeatures {
                                         .add(drops(ReduxBlocks.AVELIUM_SPROUTS), 5)
                                         .add(drops(ReduxBlocks.AVELIUM_ROOTS), 3))),
                         BlockPredicate.matchesTag(ReduxTags.Blocks.AEVELIUM_GRASSES)));
+
+        register(context, DEEP_GRASS_PATCH, Feature.RANDOM_PATCH,
+                randomPatch(32, 7, 3, prov(ReduxBlocks.SHORT_DEEP_GRASS)));
+
 
         register(context, AURUM_PATCH, Feature.FLOWER,
                 randomPatch(12, 7, 3, prov(ReduxBlocks.AURUM)));

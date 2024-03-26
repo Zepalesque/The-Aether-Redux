@@ -137,6 +137,12 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.AVELIUM, "Moovelium");
         addLore(ReduxBlocks.AVELIUM, "A fungal grass-like growth that spreads across Aether Dirt. Can be found in the NotMoolands.");
 
+        addBlock(ReduxBlocks.DEEP_GRASS_BLOCK, "Deep Grass Block");
+        addLore(ReduxBlocks.DEEP_GRASS_BLOCK, "A shiny, familiar block of grass found in the Deeper Aether.");
+
+        addBlock(ReduxBlocks.DEEP_GRASS_BLOCK, "Deep Grass");
+        addLore(ReduxBlocks.DEEP_GRASS_BLOCK, "Blades of the Deeper Aether biome's shiny grass.");
+
         addBlock(ReduxBlocks.JELLYSHROOM, "Springjelly Shroom");
         addBlock(ReduxBlocks.POTTED_JELLYSHROOM, "Potted Springjelly Shroom");
         addLore(ReduxBlocks.JELLYSHROOM, "A jelly-based mushroom, which is found in the NotMoolands.");

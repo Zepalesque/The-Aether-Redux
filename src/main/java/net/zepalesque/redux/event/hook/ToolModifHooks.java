@@ -56,6 +56,7 @@ public class ToolModifHooks {
      */
     public static final Map<Block, Block> FLATTENABLES = Maps.newHashMap((new ImmutableMap.Builder<Block, Block>())
             .put(ReduxBlocks.AVELIUM.get(), AetherBlocks.AETHER_DIRT_PATH.get())
+            .put(ReduxBlocks.DEEP_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT_PATH.get())
             .build());
 
     /**
@@ -63,6 +64,7 @@ public class ToolModifHooks {
      */
     public static final Map<Block, Block> TILLABLES = Maps.newHashMap((new ImmutableMap.Builder<Block, Block>())
             .put(ReduxBlocks.AVELIUM.get(), AetherBlocks.AETHER_FARMLAND.get())
+            .put(ReduxBlocks.DEEP_GRASS_BLOCK.get(), AetherBlocks.AETHER_FARMLAND.get())
             .put(ReduxBlocks.COARSE_AETHER_DIRT.get(), AetherBlocks.AETHER_DIRT.get())
             .build());
 

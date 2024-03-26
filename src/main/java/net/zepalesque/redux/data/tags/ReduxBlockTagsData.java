@@ -65,7 +65,8 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         this.tag(ReduxTags.Blocks.DO_NOT_REPLACE_AETHER_GRASS).add(
                 ReduxBlocks.SHORT_AETHER_GRASS.get(),
                 ReduxBlocks.AVELIUM_ROOTS.get(),
-                ReduxBlocks.AVELIUM_SPROUTS.get()
+                ReduxBlocks.AVELIUM_SPROUTS.get(),
+                ReduxBlocks.SHORT_DEEP_GRASS.get()
         );
 
         for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS)        {
@@ -133,6 +134,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
 
         this.tag(AetherTags.Blocks.AETHER_DIRT).add(
                 ReduxBlocks.AVELIUM.get(),
+                ReduxBlocks.DEEP_GRASS_BLOCK.get(),
                 ReduxBlocks.COARSE_AETHER_DIRT.get(),
                 ReduxBlocks.BLIGHTMOSS_BLOCK.get(),
                 ReduxBlocks.FUNGAL_GROWTH.get()
@@ -147,6 +149,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         );
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
                 ReduxBlocks.AVELIUM.get(),
+                ReduxBlocks.DEEP_GRASS_BLOCK.get(),
                 ReduxBlocks.COARSE_AETHER_DIRT.get()
                 );
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
@@ -231,7 +234,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         );
         this.tag(AetherTags.Blocks.HOLYSTONE).add(ReduxBlocks.GILDED_HOLYSTONE.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get());
 
-        this.tag(AetherTags.Blocks.AETHER_ANIMALS_SPAWNABLE_ON).add(ReduxBlocks.AVELIUM.get(), ReduxBlocks.COARSE_AETHER_DIRT.get(), Blocks.SNOW_BLOCK, AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get());
+        this.tag(AetherTags.Blocks.AETHER_ANIMALS_SPAWNABLE_ON).add(ReduxBlocks.AVELIUM.get(), ReduxBlocks.DEEP_GRASS_BLOCK.get(), ReduxBlocks.COARSE_AETHER_DIRT.get(), Blocks.SNOW_BLOCK, AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get());
 
         // Adds every single Redux block as a block that should be treaded as an Aether Block and get the tool debuff
         IntrinsicTagAppender<Block> tag = this.tag(AetherTags.Blocks.TREATED_AS_AETHER_BLOCK);
@@ -309,7 +312,8 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         this.tag(BlockTags.REPLACEABLE).add(
                 ReduxBlocks.SHORT_AETHER_GRASS.get(),
                 ReduxBlocks.AVELIUM_ROOTS.get(),
-                ReduxBlocks.AVELIUM_SPROUTS.get()
+                ReduxBlocks.AVELIUM_SPROUTS.get(),
+                ReduxBlocks.SHORT_DEEP_GRASS.get()
         );
 
         this.tag(BlockTags.BEACON_BASE_BLOCKS).add(ReduxBlocks.VERIDIUM_BLOCK.get(), ReduxBlocks.GRAVITITE_BLOCK.get());
