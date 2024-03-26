@@ -181,15 +181,15 @@ public class WoodHandler implements BlockHandler {
     }
     /** Constructor for fungus wood types
      */
-    public static WoodHandler fungus(String pWoodname, boolean pLogWalls, MapColor pBarkColor, MapColor pWoodColor, boolean layeredBookshelf)
+    public static WoodHandler fungus(String pWoodname, String pLangname, boolean pLogWalls, MapColor pBarkColor, MapColor pWoodColor, boolean layeredBookshelf)
     {
-        return handler(pWoodname, null, true, netherSoundBlockSet(), "mushrooms", "stem", "hyphae", SoundType.NETHER_WOOD, SoundType.STEM, pLogWalls, pBarkColor, pWoodColor, false, layeredBookshelf);
+        return handler(pWoodname, pLangname, true, netherSoundBlockSet(), "mushrooms", "stem", "hyphae", SoundType.NETHER_WOOD, SoundType.STEM, pLogWalls, pBarkColor, pWoodColor, false, layeredBookshelf);
     }
     /** Constructor for fungus wood types
      */
-    public static WoodHandler noStrippingFungus(String pWoodname, boolean pLogWalls, MapColor pBarkColor, MapColor pWoodColor, boolean layeredBookshelf)
+    public static WoodHandler noStrippingFungus(String pWoodname, String pLangname, boolean pLogWalls, MapColor pBarkColor, MapColor pWoodColor, boolean layeredBookshelf)
     {
-        return handler(pWoodname, null, false, netherSoundBlockSet(), "mushrooms", "stem", "hyphae", SoundType.NETHER_WOOD, SoundType.STEM, pLogWalls, pBarkColor, pWoodColor, false, layeredBookshelf);
+        return handler(pWoodname, pLangname, false, netherSoundBlockSet(), "mushrooms", "stem", "hyphae", SoundType.NETHER_WOOD, SoundType.STEM, pLogWalls, pBarkColor, pWoodColor, false, layeredBookshelf);
     }
     /** More general constructor
      */
@@ -493,7 +493,7 @@ public class WoodHandler implements BlockHandler {
 
     private String getLocalizedName()
     {
-        return StringUtils.capitalise(this.langName == null ? this.woodName : this.langName);
+        return StringUtils.capitalise(this.langName == null ? this.woodName : this.langName.replace("_", " "));
     }
 }
 
