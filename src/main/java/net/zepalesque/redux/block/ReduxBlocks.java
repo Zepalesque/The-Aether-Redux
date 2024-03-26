@@ -158,6 +158,13 @@ public class ReduxBlocks {
     public static RegistryObject<Block> DEEP_GRASS_BLOCK = register("deep_grass_block",
             () -> new AetherGrassBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).randomTicks().strength(0.2F).sound(SoundType.GRASS)));
 
+    // TODO
+    public static RegistryObject<Block> SUGARGRASS_BLOCK = register("sugargrass_block",
+            () -> new AetherGrassBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOL).randomTicks().strength(0.2F).sound(SoundType.WOOL)));
+
+    public static RegistryObject<Block> COCOA_SOIL = register("cocoa_soil",
+            () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GRAY).strength(0.2F).sound(SoundType.SOUL_SOIL)));
+
     public static RegistryObject<Block> SHORT_DEEP_GRASS = register("short_deep_grass",
             () -> new CustomBoundsBushBlock(CommonPlantBounds.BUSH, BlockBehaviour.Properties.copy(Blocks.GRASS).hasPostProcess(ReduxBlocks::always)));
 
