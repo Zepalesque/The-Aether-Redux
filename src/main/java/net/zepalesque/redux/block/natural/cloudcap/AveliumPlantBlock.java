@@ -11,6 +11,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.zepalesque.redux.block.natural.AetherShortGrassBlock;
+import net.zepalesque.redux.misc.ReduxTags;
 
 public class AveliumPlantBlock extends AetherBushBlock {
 
@@ -29,7 +30,7 @@ public class AveliumPlantBlock extends AetherBushBlock {
 
     @Override
     public boolean canBeReplaced(BlockState pState, BlockPlaceContext pUseContext) {
-        return super.canBeReplaced(pState, pUseContext) && (pUseContext.getItemInHand().getItem() instanceof BlockItem blockItem && !(blockItem.getBlock() instanceof AveliumPlantBlock || blockItem.getBlock() instanceof AetherShortGrassBlock));
+        return super.canBeReplaced(pState, pUseContext) && (pUseContext.getItemInHand().getItem() instanceof BlockItem blockItem && !blockItem.getBlock().builtInRegistryHolder().is(ReduxTags.Blocks.DO_NOT_REPLACE_AETHER_GRASS));
     }
 
 }
