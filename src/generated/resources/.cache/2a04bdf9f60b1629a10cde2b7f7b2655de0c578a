@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-09T16:28:17.1938939	Tags for minecraft:item mod id aether_redux
+// 1.20.1	2024-03-26T13:57:31.2876932	Tags for minecraft:item mod id aether_redux
 300781e4ca600daa56e90c34c0dbde6d8e83a30f data/aether/tags/items/accessories_capes.json
 1bc4d30bebbc48e19dd73fcd9b61bcee5c13a066 data/aether/tags/items/accessories_miscellaneous.json
 dee038e142bc18a39fdeae6abccd9121ad40e466 data/aether/tags/items/accessories_pendants.json
@@ -21,6 +21,7 @@ d8adac50608026a1f99f437c15ba2e4732f7aa07 data/aether_redux/tags/items/chains.jso
 f935ac962426e9e6830b7063f7ff690dd48898cf data/aether_redux/tags/items/cloudcap_stems.json
 7eec813e074c09ad3eda595e57850a3265b16401 data/aether_redux/tags/items/compat/mouse_ear_caps.json
 ff76e071710735bec611ec58205f07d13cb675bd data/aether_redux/tags/items/crystal_logs.json
+7cc587d74ee0473e5ce9c1e37c72cb11ba4d0bb7 data/aether_redux/tags/items/edible_sugarfields_blocks.json
 357fd698a343df68b2bbcf3ac725fd76ce714206 data/aether_redux/tags/items/eggs_for_blueberry_pie.json
 4b84d89dc4750b471d3f43f98a379edd142fab59 data/aether_redux/tags/items/fieldsproot_logs.json
 82cdd6960b818e0e4b249c6f1b960a9ef8e0cc1c data/aether_redux/tags/items/glacia_logs.json

@@ -1,13 +1,13 @@
 {
-  "parent": "aether_redux:install",
   "criteria": {
-    "double_jump": {
+    "install": {
       "conditions": {},
-      "trigger": "aether_redux:double_jump"
+      "trigger": "aether_redux:april_redux_trigger"
     }
   },
   "display": {
     "announce_to_chat": true,
+    "background": "aether_redux:textures/block/natural/sentrite.png",
     "description": {
       "extra": [
         {
@@ -15,21 +15,21 @@
           "translate": "gui.aether_redux.advancement_suffix"
         }
       ],
-      "translate": "advancement.aether_redux.double_jump.desc"
+      "translate": "advancement.aether_redux.install.desc"
     },
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "aether_redux:airbound_cape"
+      "item": "aether_redux:install_icon"
     },
     "show_toast": true,
     "title": {
-      "translate": "advancement.aether_redux.double_jump"
+      "translate": "advancement.aether_redux.install"
     }
   },
   "requirements": [
     [
-      "double_jump"
+      "install"
     ]
   ],
   "sends_telemetry_event": true

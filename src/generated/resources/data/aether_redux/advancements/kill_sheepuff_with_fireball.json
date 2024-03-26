@@ -1,5 +1,5 @@
 {
-  "parent": "aether:gold_dungeon",
+  "parent": "aether_redux:obtain_grand_medal",
   "criteria": {
     "kill_sheepuff_with_fireball": {
       "conditions": {

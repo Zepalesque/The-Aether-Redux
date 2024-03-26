@@ -1,5 +1,5 @@
 {
-  "parent": "aether:blue_aercloud",
+  "parent": "aether_redux:install",
   "criteria": {
     "fall_from_aether": {
       "conditions": {},

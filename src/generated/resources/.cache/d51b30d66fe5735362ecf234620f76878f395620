@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-26T09:45:46.5327057	Item Models: aether_redux
+// 1.20.1	2024-03-26T13:57:31.2687048	Item Models: aether_redux
 2445055af5b1b7f3c6045199ffce74108003cef6 assets/aether_redux/models/item/airbound_cape.json
 2fa1343a8119a1f49af334c002773099174965bd assets/aether_redux/models/item/aurum.json
 edfe83948874d1436a61893ed9471b47e93dbe88 assets/aether_redux/models/item/avelium.json
@@ -72,6 +72,7 @@ d405f3ad7842793059252f2a5d553621927539d6 assets/aether_redux/models/item/cloudca
 d98513ec2fbdcf02f507b69fe8a6b350afcb04d7 assets/aether_redux/models/item/cloud_cap_block.json
 f9c1ce84c6a0c2e877af5b67be07d5c0ac3fdad4 assets/aether_redux/models/item/coarse_aether_dirt.json
 1376d88333c7592f6955b76d61f33bc8c5a6c39b assets/aether_redux/models/item/cockatrice_feather.json
+09629880fd81b31e3687e6746076317db89fb303 assets/aether_redux/models/item/cocoa_soil.json
 6bc43851e0da2ac4c1e43e1a388e1c5335b370f4 assets/aether_redux/models/item/corrupted_vines.json
 5fdf5a3add16d05500fe0387c2a8610d2ee1f2f8 assets/aether_redux/models/item/crystal_boat.json
 07ce966d98e80d692506b8b644839f577b457301 assets/aether_redux/models/item/crystal_bookshelf.json
@@ -177,6 +178,7 @@ a38cefb731d298e0c795074ba3b4e1a919cc3440 assets/aether_redux/models/item/grand_v
 ce79d526d924f85888589234f4753d1002e1b610 assets/aether_redux/models/item/holefire_stone.json
 387969650c857df94838f718852c3bbfef9e3025 assets/aether_redux/models/item/holefire_wall.json
 186625fae587a1449999bdcd0e11a53b78579f7a assets/aether_redux/models/item/holysilt.json
+d0da2d4469a72470eb43d8405497697861addbe2 assets/aether_redux/models/item/hug_icon.json
 cd8805f4aa562723cfe8b4340fd27f600f00349e assets/aether_redux/models/item/infernia.json
 5ac15283821f82852afb37f646709d38aa90a988 assets/aether_redux/models/item/infused_veridium_axe.json
 c8a3ddc1f05e17dfbd6ec5d31308f099f761aa9c assets/aether_redux/models/item/infused_veridium_dart_shooter.json
@@ -184,6 +186,7 @@ beba14ffeb6f81501238130d80b9ec2c0c2c0b54 assets/aether_redux/models/item/infused
 51e15d16de911db9e46cb87c2783445c9b3674b7 assets/aether_redux/models/item/infused_veridium_pickaxe.json
 b4a44f772d90f5d514c42d0a71967d476c2a596f assets/aether_redux/models/item/infused_veridium_shovel.json
 bf979c410ebfbb3a159019265912c389275b6ba8 assets/aether_redux/models/item/infused_veridium_sword.json
+daf25254481c01e2f0314079f6b3e731c1d768d2 assets/aether_redux/models/item/install_icon.json
 5ac9099170a70b2826495b9d9afa1acdb8cf921f assets/aether_redux/models/item/iridia.json
 481706b2a228e5e43e2ca6e8b18f19add3aeceef assets/aether_redux/models/item/jellyshroom.json
 d66ecc6687612eab8fa6926a75ed6639735f9ea1 assets/aether_redux/models/item/jellyshroom_boat.json
@@ -276,6 +279,7 @@ e93cc3a74a31a21b70469d32237e7a35c1cf06c6 assets/aether_redux/models/item/strippe
 d431727282e6d3bb0325ab1b51b4f46da7c66fca assets/aether_redux/models/item/stripped_glacia_log_wall.json
 992aeafec1f8963ef1d11e6693991358baa283c4 assets/aether_redux/models/item/stripped_glacia_wood.json
 2bd3490fb4474d386bd50208e65422901c06a9a5 assets/aether_redux/models/item/stripped_glacia_wood_wall.json
+697d8f0de366a3b38857a96b65747f4241c3efa0 assets/aether_redux/models/item/sugargrass_block.json
 2784ea919d1726ee9adf29bcd84c0e546bb2ea96 assets/aether_redux/models/item/sugarsprouts.json
 5d4edee3b4f4767f82b36604817aec0df6bde727 assets/aether_redux/models/item/theratip.json
 e4bcb896b9819368f3ebd96a6ad2d6d110372065 assets/aether_redux/models/item/vampire_amulet.json

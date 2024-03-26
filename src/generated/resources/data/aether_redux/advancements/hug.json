@@ -1,13 +1,9 @@
 {
   "parent": "aether_redux:install",
   "criteria": {
-    "infuse_veridium": {
-      "conditions": {
-        "infused_item": {
-          "tag": "aether_redux:veridium_advancement_infusable"
-        }
-      },
-      "trigger": "aether_redux:infuse_with_ambrosium"
+    "hug": {
+      "conditions": {},
+      "trigger": "aether_redux:april_redux_trigger"
     }
   },
   "display": {
@@ -19,22 +15,21 @@
           "translate": "gui.aether_redux.advancement_suffix"
         }
       ],
-      "translate": "advancement.aether_redux.infuse_veridium.desc"
+      "translate": "advancement.aether_redux.hug.desc"
     },
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "aether_redux:infused_veridium_pickaxe",
-      "nbt": "{Damage:0}"
+      "item": "aether_redux:hug_icon"
     },
     "show_toast": true,
     "title": {
-      "translate": "advancement.aether_redux.infuse_veridium"
+      "translate": "advancement.aether_redux.hug"
     }
   },
   "requirements": [
     [
-      "infuse_veridium"
+      "hug"
     ]
   ],
   "sends_telemetry_event": true

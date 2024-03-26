@@ -1,13 +1,13 @@
 {
   "parent": "aether_redux:install",
   "criteria": {
-    "infuse_veridium": {
+    "eat_sugarfields": {
       "conditions": {
-        "infused_item": {
-          "tag": "aether_redux:veridium_advancement_infusable"
+        "item": {
+          "tag": "aether_redux:edible_sugarfields_blocks"
         }
       },
-      "trigger": "aether_redux:infuse_with_ambrosium"
+      "trigger": "minecraft:consume_item"
     }
   },
   "display": {
@@ -19,22 +19,21 @@
           "translate": "gui.aether_redux.advancement_suffix"
         }
       ],
-      "translate": "advancement.aether_redux.infuse_veridium.desc"
+      "translate": "advancement.aether_redux.eat_sugarfields.desc"
     },
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "aether_redux:infused_veridium_pickaxe",
-      "nbt": "{Damage:0}"
+      "item": "aether_redux:cocoa_soil"
     },
     "show_toast": true,
     "title": {
-      "translate": "advancement.aether_redux.infuse_veridium"
+      "translate": "advancement.aether_redux.eat_sugarfields"
     }
   },
   "requirements": [
     [
-      "infuse_veridium"
+      "eat_sugarfields"
     ]
   ],
   "sends_telemetry_event": true
