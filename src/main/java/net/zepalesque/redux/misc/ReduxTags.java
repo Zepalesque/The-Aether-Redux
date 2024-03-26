@@ -59,6 +59,8 @@ public class ReduxTags {
         public static final TagKey<Item> IS_SKYROOT_TOOL = tag("is_skyroot_tool");
         public static final TagKey<Item> BLUE_CRYSTAL_SAPLINGS = tag("blue_crystal_saplings");
 
+        public static final TagKey<Item> EDIBLE_SUGARFIELDS_BLOCKS = tag("edible_sugarfields_blocks");
+
         public static final TagKey<Item> INFUSED_VERIDIUM_ITEMS = tag("infused_veridium_items");
 
         public static final TagKey<Item> MOUSE_EAR_CAPS = tag("compat/mouse_ear_caps");

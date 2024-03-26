@@ -736,6 +736,14 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addGuiText("advancement_suffix_modified", "\n- Modified by the Aether: Redux -");
 
 
+        addAdvancement("install", "YOU HAVE BEEN THE INSTALL !!");
+        addAdvancementDesc("install", "Thank you for downloading the Aether: Redux's Update Negative Omega Point Zero Zero One version!!!");
+        addAdvancement("hug", "OMG how wholesome!!!");
+        addAdvancementDesc("hug", "Get hugged by a Cockatrice");
+        addAdvancement("eat_sugarfields", "Everything here is eatable");
+        addAdvancementDesc("eat_sugarfields", "Eat a block from the Sugarfields");
+        addAdvancement("phudge_bite", "Even I'M eatable");
+        addAdvancementDesc("phudge_bite", "Get bitten by a Phudge");
         addAdvancement("fall_from_aether", "Falling with Style!");
         addAdvancementDesc("fall_from_aether", "Fall out of the Aether");
         addAdvancement("infuse_veridium", "Next Level");
