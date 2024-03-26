@@ -183,7 +183,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addBlock(ReduxBlocks.CORRUPTED_VINES, "Aer o'Stalks");
         addBlock(ReduxBlocks.CORRUPTED_VINES_PLANT, "Aer o'Stalks Plant");
-        addLore(ReduxBlocks.CORRUPTED_VINES, "it will never be graviton reference ...      :cereal_spittake:");
+        addLore(ReduxBlocks.CORRUPTED_VINES, "it will never be graviton reference ...              :cereal_spittake:");
 
         addBlock(ReduxBlocks.LUXWEED, "Lightsprouts");
         addBlock(ReduxBlocks.POTTED_LUXWEED, "Potted Lightsprouts");

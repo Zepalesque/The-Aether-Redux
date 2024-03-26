@@ -143,7 +143,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlockFlatGlow(ReduxBlocks.SHIMMERSTOOL, "natural/");
         itemBlockFlatTintGlow(ReduxBlocks.LUXWEED, "natural/");
         itemBlockFlatTintOverlay(ReduxBlocks.SPIROLYCTIL, "natural/");
-        itemBlockFlatTintOverlay(ReduxBlocks.BLIGHTSHADE, "natural/");
+        itemBlockFlatTintGlow(ReduxBlocks.BLIGHTSHADE, "natural/");
 
 
         blockCustomTexture(ReduxBlocks.FIELDSPROOT_LEAVES, "natural/", "fieldsproot_leaves");
