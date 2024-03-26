@@ -140,8 +140,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.DEEP_GRASS_BLOCK, "Deep Grass Block");
         addLore(ReduxBlocks.DEEP_GRASS_BLOCK, "A shiny, familiar block of grass found in the Deeper Aether.");
 
-        addBlock(ReduxBlocks.DEEP_GRASS_BLOCK, "Deep Grass");
-        addLore(ReduxBlocks.DEEP_GRASS_BLOCK, "Blades of the Deeper Aether biome's shiny grass.");
+        addBlock(ReduxBlocks.SHORT_DEEP_GRASS, "Deep Grass");
+        addLore(ReduxBlocks.SHORT_DEEP_GRASS, "Blades of the Deeper Aether biome's shiny grass.");
 
         addBlock(ReduxBlocks.JELLYSHROOM, "Springjelly Shroom");
         addBlock(ReduxBlocks.POTTED_JELLYSHROOM, "Potted Springjelly Shroom");
@@ -579,6 +579,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addGuiText("luxbuds_tooltip", "Occasionally gives the helpful Niceward effect when eaten");
         addGuiText("purified_luxbuds_tooltip", "Gives the helpful Niceward effect when eaten");
+
+        addGuiText("funny_speed_boost", "You feel the Wind™ carry you beneath your feet.");
 
 
         addGuiText("jade.entity_model", " (Model changed by the Aether: Redux)");

@@ -1,10 +1,15 @@
 package net.zepalesque.redux.block.natural.blight;
 
 import com.aetherteam.aether.item.EquipmentUtil;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
@@ -34,13 +39,14 @@ public class CorruptedVinesPlantBlock extends GrowingPlantBodyBlock {
    @Override
    public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
       if (!pEntity.level().isClientSide() && pEntity instanceof LivingEntity living && !living.getType().is(ReduxTags.EntityTypes.BLIGHTED_MOBS) && living.getBoundingBox().intersects(getShape(pState, pLevel, pPos, CollisionContext.of(living)).bounds().move(pPos))) {
-         if (!EquipmentHooks.isImmuneToBlightPlants(living)) {
-            pEntity.makeStuckInBlock(pState, new Vec3(1D, 1D, 1D));
-            if (!pLevel.isClientSide && (pEntity.xOld != pEntity.getX() || pEntity.zOld != pEntity.getZ())) {
-               double d0 = Math.abs(pEntity.getX() - pEntity.xOld);
-               double d1 = Math.abs(pEntity.getZ() - pEntity.zOld);
-               if (d0 >= (double) 0.003F || d1 >= (double) 0.003F) {
-                  pEntity.hurt(ReduxDamageTypes.source(pLevel, ReduxDamageTypes.CORRUPTED_VINES), 3.0F);
+         pEntity.makeStuckInBlock(pState, new Vec3(1D, 1D, 1D));
+         if (!pLevel.isClientSide && (pEntity.xOld != pEntity.getX() || pEntity.zOld != pEntity.getZ())) {
+            double d0 = Math.abs(pEntity.getX() - pEntity.xOld);
+            double d1 = Math.abs(pEntity.getZ() - pEntity.zOld);
+            if (d0 >= (double) 0.003F || d1 >= (double) 0.003F) {
+               living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 600));
+               if (living instanceof Player p) {
+                  p.displayClientMessage(Component.translatable("gui.aether_redux.funny_speed_boost").withStyle(style -> style.applyFormats(ChatFormatting.AQUA, ChatFormatting.ITALIC)), true);
                }
             }
          }
