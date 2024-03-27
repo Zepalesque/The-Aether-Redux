@@ -156,6 +156,18 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.POTTED_VANILLA, "Potted Vanilla");
         addLore(ReduxBlocks.VANILLA, "Finally, after all these years, they added vanilla to the Aether!!!");
 
+        addBlock(ReduxBlocks.FLAWLESS_BLOOM, "Flawless Bloom");
+        addBlock(ReduxBlocks.POTTED_FLAWLESS_BLOOM, "Potted Flawless Bloom");
+        addLore(ReduxBlocks.FLAWLESS_BLOOM, "A flower found in the Deeper Aether biome. It seems almost like it was bestowed upon the world by an undamaged creature of great power.");
+
+        addBlock(ReduxBlocks.ROOTROSE, "Rootrose");
+        addBlock(ReduxBlocks.POTTED_ROOTROSE, "Potted Rootrose");
+        addLore(ReduxBlocks.ROOTROSE, "A flower found in the Deeper Aether biome. It almost seems like it could be a tree, if it really wanted to.");
+
+        addBlock(ReduxBlocks.EDELWEISS, "Edelweiss");
+        addBlock(ReduxBlocks.POTTED_EDELWEISS, "Potted Edelweiss");
+        addLore(ReduxBlocks.EDELWEISS, "A nice flower found in the Crystallium Woods biome.");
+
         addBlock(ReduxBlocks.JELLYSHROOM, "Springjelly Shroom");
         addBlock(ReduxBlocks.POTTED_JELLYSHROOM, "Potted Springjelly Shroom");
         addLore(ReduxBlocks.JELLYSHROOM, "A jelly-based mushroom, which is found in the NotMoolands.");

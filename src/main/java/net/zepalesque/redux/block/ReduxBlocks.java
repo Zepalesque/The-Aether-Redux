@@ -159,6 +159,20 @@ public class ReduxBlocks {
     public static RegistryObject<Block> DEEP_GRASS_BLOCK = register("deep_grass_block",
             () -> new AetherGrassBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).randomTicks().strength(0.2F).sound(SoundType.GRASS)));
 
+
+    public static RegistryObject<Block> FLAWLESS_BLOOM = register("flawless_bloom",
+            () -> new CustomBoundsFlowerBlock(CommonPlantBounds.FLOWER, () -> MobEffects.ABSORPTION, 60, BlockBehaviour.Properties.copy(Blocks.LILY_OF_THE_VALLEY).mapColor(MapColor.COLOR_LIGHT_BLUE)));
+    public static final RegistryObject<FlowerPotBlock> POTTED_FLAWLESS_BLOOM = BLOCKS.register("potted_flawless_bloom", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, FLAWLESS_BLOOM, Block.Properties.copy(Blocks.FLOWER_POT)));
+
+    public static RegistryObject<Block> ROOTROSE = register("rootrose",
+            () -> new CustomBoundsFlowerBlock(CommonPlantBounds.FLOWER, () -> MobEffects.NIGHT_VISION, 60, BlockBehaviour.Properties.copy(Blocks.POPPY).mapColor(MapColor.COLOR_RED)));
+    public static final RegistryObject<FlowerPotBlock> POTTED_ROOTROSE = BLOCKS.register("potted_rootrose", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, ROOTROSE, Block.Properties.copy(Blocks.FLOWER_POT)));
+
+    public static RegistryObject<Block> EDELWEISS = register("edelweiss",
+            () -> new CustomBoundsFlowerBlock(CommonPlantBounds.FLOWER, () -> MobEffects.SATURATION, 60, BlockBehaviour.Properties.copy(Blocks.OXEYE_DAISY).mapColor(MapColor.TERRACOTTA_WHITE)));
+    public static final RegistryObject<FlowerPotBlock> POTTED_EDELWEISS = BLOCKS.register("potted_edelweiss", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, EDELWEISS, Block.Properties.copy(Blocks.FLOWER_POT)));
+
+
     public static RegistryObject<Block> SUGARGRASS_BLOCK = registerModifyItemProperties("sugargrass_block",
             () -> new SugargrassBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOL).randomTicks().strength(0.2F).sound(SoundType.WOOL)), properties -> properties.food(ReduxFoods.CANDYFIELDS_BLOCK));
 
@@ -169,7 +183,7 @@ public class ReduxBlocks {
             () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GRAY).strength(0.2F).sound(SoundType.SOUL_SOIL)), properties -> properties.food(ReduxFoods.CANDYFIELDS_BLOCK));
 
     public static RegistryObject<Block> VANILLA = registerModifyItemProperties("vanilla",
-            () -> new CustomBoundsFlowerBlock(CommonPlantBounds.FLOWER, () -> MobEffects.MOVEMENT_SPEED, 60, BlockBehaviour.Properties.copy(Blocks.OXEYE_DAISY).mapColor(MapColor.TERRACOTTA_WHITE)), properties -> properties.food(ReduxFoods.CANDYFIELDS_BLOCK));
+            () -> new CustomBoundsFlowerBlock(CommonPlantBounds.FLOWER, () -> MobEffects.MOVEMENT_SPEED, 60, BlockBehaviour.Properties.copy(Blocks.OXEYE_DAISY).mapColor(MapColor.WOOL)), properties -> properties.food(ReduxFoods.CANDYFIELDS_BLOCK));
     public static final RegistryObject<FlowerPotBlock> POTTED_VANILLA = BLOCKS.register("potted_vanilla", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, VANILLA, Block.Properties.copy(Blocks.FLOWER_POT)));
 
     public static RegistryObject<Block> SHORT_DEEP_GRASS = register("short_deep_grass",
@@ -615,6 +629,10 @@ public class ReduxBlocks {
         pot.addPlant(ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING.getId(), ReduxBlocks.POTTED_SPECTRAL_FIELDSPROOT_SAPLING);
         pot.addPlant(ReduxBlocks.FLAREBLOSSOM.getId(), ReduxBlocks.POTTED_FLAREBLOSSOM);
         pot.addPlant(ReduxBlocks.INFERNIA.getId(), ReduxBlocks.POTTED_INFERNIA);
+        pot.addPlant(ReduxBlocks.VANILLA.getId(), ReduxBlocks.POTTED_VANILLA);
+        pot.addPlant(ReduxBlocks.EDELWEISS.getId(), ReduxBlocks.POTTED_EDELWEISS);
+        pot.addPlant(ReduxBlocks.ROOTROSE.getId(), ReduxBlocks.POTTED_ROOTROSE);
+        pot.addPlant(ReduxBlocks.FLAWLESS_BLOOM.getId(), ReduxBlocks.POTTED_FLAWLESS_BLOOM);
     }
 
 

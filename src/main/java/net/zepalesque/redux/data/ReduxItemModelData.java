@@ -82,6 +82,9 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         enchanableOrTintableFlower(ReduxBlocks.AURUM, "natural/");
         enchanableOrTintableFlower(ReduxBlocks.ZYATRIX, "natural/");
         itemBlockFlat(ReduxBlocks.VANILLA.get(), "natural/");
+        itemBlockFlat(ReduxBlocks.FLAWLESS_BLOOM.get(), "natural/");
+        itemBlockFlat(ReduxBlocks.ROOTROSE.get(), "natural/");
+        itemBlockFlat(ReduxBlocks.EDELWEISS.get(), "natural/");
         itemBlock(ReduxBlocks.CARVED_STONE_BRICKS);
         itemBlock(ReduxBlocks.CARVED_STONE_BRICK_SLAB);
         itemBlock(ReduxBlocks.CARVED_STONE_BRICK_STAIRS);

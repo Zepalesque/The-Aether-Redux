@@ -170,7 +170,8 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.XAELIA_PATCH, ReduxBlocks.AURUM, event);
             putAfter(ReduxBlocks.AURUM, ReduxBlocks.GOLDEN_CLOVER, event);
             putAfter(ReduxBlocks.GOLDEN_CLOVER, ReduxBlocks.ZYATRIX, event);
-            putAfter(ReduxBlocks.ZYATRIX, ReduxBlocks.LUXWEED, event);
+            putAfter(ReduxBlocks.ZYATRIX, ReduxBlocks.EDELWEISS, event);
+            putAfter(ReduxBlocks.EDELWEISS, ReduxBlocks.LUXWEED, event);
             putAfter(ReduxBlocks.LUXWEED, ReduxBlocks.SPIROLYCTIL, event);
             putAfter(ReduxBlocks.SPIROLYCTIL, ReduxBlocks.BLIGHTSHADE, event);
             putAfter(ReduxBlocks.BLIGHTSHADE, ReduxBlocks.LUMINA, event);
@@ -182,6 +183,7 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.SHIMMERSTOOL, ReduxBlocks.FLAREBLOSSOM, event);
             putAfter(ReduxBlocks.FLAREBLOSSOM, ReduxBlocks.INFERNIA, event);
             putAfter(ReduxBlocks.INFERNIA, ReduxBlocks.VANILLA, event);
+            putAfter(ReduxBlocks.VANILLA, ReduxBlocks.FLAWLESS_BLOOM, event);
 
             putAfter(AetherBlocks.ZANITE_ORE, ReduxBlocks.VERIDIUM_ORE, event);
             putAfter(ReduxBlocks.VERIDIUM_ORE, ReduxBlocks.RAW_VERIDIUM_BLOCK, event);

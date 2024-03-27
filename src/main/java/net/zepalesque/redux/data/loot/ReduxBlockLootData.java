@@ -187,6 +187,12 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropPottedContents(ReduxBlocks.POTTED_ZYATRIX.get());
         dropSelf(ReduxBlocks.VANILLA.get());
         this.dropPottedContents(ReduxBlocks.POTTED_VANILLA.get());
+        dropSelf(ReduxBlocks.FLAWLESS_BLOOM.get());
+        this.dropPottedContents(ReduxBlocks.POTTED_FLAWLESS_BLOOM.get());
+        dropSelf(ReduxBlocks.ROOTROSE.get());
+        this.dropPottedContents(ReduxBlocks.POTTED_ROOTROSE.get());
+        dropSelf(ReduxBlocks.EDELWEISS.get());
+        this.dropPottedContents(ReduxBlocks.POTTED_EDELWEISS.get());
         dropSelf(ReduxBlocks.CARVED_STONE_BRICKS.get());
         dropSelf(ReduxBlocks.CARVED_STONE_BRICK_STAIRS.get());
         this.add(ReduxBlocks.CARVED_STONE_BRICK_SLAB.get(), this::createSlabItemTable);

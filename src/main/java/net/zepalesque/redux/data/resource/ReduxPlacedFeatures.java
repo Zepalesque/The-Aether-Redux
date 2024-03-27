@@ -46,6 +46,7 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> AEVELIUM_GRASSES_PATCH = copyKey(ReduxConfiguredFeatures.AEVELIUM_GRASSES_PATCH);
     public static final ResourceKey<PlacedFeature> DEEP_GRASS_PATCH = copyKey(ReduxConfiguredFeatures.DEEP_GRASS_PATCH);
     public static final ResourceKey<PlacedFeature> AURUM_PATCH = copyKey(ReduxConfiguredFeatures.AURUM_PATCH);
+    public static final ResourceKey<PlacedFeature> EDELWEISS_PATCH = copyKey(ReduxConfiguredFeatures.EDELWEISS_PATCH);
     public static final ResourceKey<PlacedFeature> ZYATRIX_PATCH = copyKey(ReduxConfiguredFeatures.ZYATRIX_PATCH);
     public static final ResourceKey<PlacedFeature> VANILLA_PATCH = copyKey(ReduxConfiguredFeatures.VANILLA_PATCH);
     public static final ResourceKey<PlacedFeature> SHRUBLANDS_PURPLE_PATCH = createKey(Folders.PATCH + "shrublands_purple_patch");
@@ -64,6 +65,7 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> BLIGHT_TREES = copyKey(ReduxConfiguredFeatures.BLIGHT_TREES);
     public static final ResourceKey<PlacedFeature> CLOUDCAP_MUSHLING_PATCH = copyKey(ReduxConfiguredFeatures.CLOUDCAP_MUSHLING_PATCH);
     public static final ResourceKey<PlacedFeature> DAGGERBLOOM_PATCH = copyKey(ReduxConfiguredFeatures.DAGGERBLOOM_PATCH);
+    public static final ResourceKey<PlacedFeature> ROOTROSE_PATCH = copyKey(ReduxConfiguredFeatures.ROOTROSE_PATCH);
     public static final ResourceKey<PlacedFeature> THERATIP_PATCH = copyKey(ReduxConfiguredFeatures.THERATIP_PATCH);
     public static final ResourceKey<PlacedFeature> SPLITFERN_PATCH = copyKey(ReduxConfiguredFeatures.SPLITFERN_PATCH);
     public static final ResourceKey<PlacedFeature> AEROGEL_ORE = copyKey(ReduxConfiguredFeatures.AEROGEL_ORE);
@@ -101,6 +103,7 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> XAELIA_PATCH  = copyKey(ReduxConfiguredFeatures.XAELIA_PATCH);
     public static final ResourceKey<PlacedFeature> LARGE_MUSHROOMS = copyKey(ReduxConfiguredFeatures.LARGE_MUSHROOMS);
     public static final ResourceKey<PlacedFeature> LUMINA_PATCH = copyKey(ReduxConfiguredFeatures.LUMINA_PATCH);
+    public static final ResourceKey<PlacedFeature> FLAWLESS_BLOOM_PATCH = copyKey(ReduxConfiguredFeatures.FLAWLESS_BLOOM_PATCH);
     public static final ResourceKey<PlacedFeature> LIGHTROOTS = copyKey(ReduxConfiguredFeatures.LIGHTROOTS);
     public static final ResourceKey<PlacedFeature> MOSSY_HOLYSTONE_ORE  = createKey(ORE + name(AetherBlocks.MOSSY_HOLYSTONE) + "_ore");
     public static final ResourceKey<PlacedFeature> MOSSY_ROCK  = copyKey(ReduxConfiguredFeatures.MOSSY_ROCK);
@@ -163,6 +166,12 @@ public class ReduxPlacedFeatures {
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, BiasedToBottomInt.of(0, 2), 4),
                 RarityFilter.onAverageOnceEvery(12),
+                BiomeFilter.biome());
+
+        register(context, EDELWEISS_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.EDELWEISS_PATCH),
+                NOISE_THRESHOLD,
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, BiasedToBottomInt.of(0, 2), 4),
+                RarityFilter.onAverageOnceEvery(10),
                 BiomeFilter.biome());
 
         register(context, SPARSE_BLUE_AERCLOUD,
@@ -343,6 +352,13 @@ public class ReduxPlacedFeatures {
 
 
         register(context, DAGGERBLOOM_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.DAGGERBLOOM_PATCH),
+                NOISE_THRESHOLD,
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 2), 4),
+                RarityFilter.onAverageOnceEvery(10),
+                BiomeFilter.biome()
+        );
+
+        register(context, ROOTROSE_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.ROOTROSE_PATCH),
                 NOISE_THRESHOLD,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 2), 4),
                 RarityFilter.onAverageOnceEvery(10),

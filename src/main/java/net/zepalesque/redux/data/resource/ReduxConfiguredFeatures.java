@@ -82,6 +82,7 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> AURUM_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.AURUM) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> DEEP_GRASS_PATCH = createKey(Folders.PATCH + "deep_grass_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ZYATRIX_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.ZYATRIX) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> EDELWEISS_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.EDELWEISS) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> VANILLA_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.VANILLA) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ZANBERRY_BUSH_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.ZANBERRY_BUSH) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTED_SKYROOT_TREE = createKey(Folders.TREE + "blighted_skyroot_tree");
@@ -100,6 +101,7 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_GILDED_OAK_TREE = createKey(Folders.TREE + "fancy_gilded_oak_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_GOLDEN_OAK_TREE = createKey(Folders.TREE + "fancy_golden_oak_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> DAGGERBLOOM_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.DAGGERBLOOM) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ROOTROSE_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.ROOTROSE) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> THERATIP_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.THERATIP) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPLITFERN_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.SPLITFERN) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AEROGEL_ORE = createKey(Folders.ORE + name(AetherBlocks.AEROGEL) + "_ore");
@@ -143,6 +145,7 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_MUSHROOMS = createKey(Folders.TREE + "large_mushrooms");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_JELLYSHROOM = createKey(Folders.TREE + "large_jellyshroom");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LUMINA_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.LUMINA) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FLAWLESS_BLOOM_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.FLAWLESS_BLOOM) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> MOSSY_HOLYSTONE_ORE  = createKey(Folders.ORE + name(AetherBlocks.MOSSY_HOLYSTONE) + "_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> MOSSY_ROCK  = createKey(Folders.SURFACE + "mossy_rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ICESTONE_ROCK  = createKey(Folders.SURFACE + "icestone_rock");
@@ -208,6 +211,9 @@ public class ReduxConfiguredFeatures {
 
         register(context, ZYATRIX_PATCH, Feature.FLOWER,
                 patchNoCoarse(14, 7, 3, prov(ReduxBlocks.ZYATRIX)));
+
+        register(context, EDELWEISS_PATCH, Feature.FLOWER,
+                patchNoCoarse(32, 7, 3, prov(ReduxBlocks.ZYATRIX)));
 
         register(context, VANILLA_PATCH, Feature.FLOWER,
                 patchNoCoarse(14, 7, 3, prov(ReduxBlocks.VANILLA)));
@@ -335,6 +341,8 @@ public class ReduxConfiguredFeatures {
         ).ignoreVines().dirt(BlockStateProvider.simple(Blocks.AIR)).build());
         register(context, DAGGERBLOOM_PATCH, Feature.FLOWER,
                 randomPatch(12, 7, 3, prov(ReduxBlocks.DAGGERBLOOM)));
+        register(context, ROOTROSE_PATCH, Feature.FLOWER,
+                randomPatch(12, 7, 3, prov(ReduxBlocks.ROOTROSE)));
         register(context, SPLITFERN_PATCH, Feature.FLOWER,
                 randomPatch(24, 9, 3, prov(ReduxBlocks.SPLITFERN)));
         register(context, CLOUDCAP_MUSHLING_PATCH, Feature.FLOWER,
@@ -580,6 +588,9 @@ public class ReduxConfiguredFeatures {
 
         register(context, LUMINA_PATCH, Feature.FLOWER,
                 randomPatch(12, 7, 3, prov(ReduxBlocks.LUMINA)));
+
+        register(context, FLAWLESS_BLOOM_PATCH, Feature.FLOWER,
+                randomPatch(12, 7, 3, prov(ReduxBlocks.FLAWLESS_BLOOM)));
 
         register(context, MOSSY_HOLYSTONE_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
                 drops(AetherBlocks.MOSSY_HOLYSTONE), 24, 0.3F));
