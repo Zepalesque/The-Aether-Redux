@@ -122,7 +122,7 @@ public class ReduxBlocks {
 
     public static final RegistryObject<FacingPillarBlock> HOLEFIRE_PILLAR_TOP = register("holefire_pillar_top",
             () -> new FacingPillarBlock(BlockBehaviour.Properties.copy(AetherBlocks.PILLAR_TOP.get())));
-    
+
     public static RegistryObject<FieldsprootPetalsBlock> FIELDSPROOT_PETALS = register("fieldsproot_petals",
             () -> new FieldsprootPetalsBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().hasPostProcess((state, lvl, pos) -> true).sound(SoundType.PINK_PETALS)));
 
