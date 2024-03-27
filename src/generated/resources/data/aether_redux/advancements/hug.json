@@ -2,7 +2,9 @@
   "parent": "aether_redux:install",
   "criteria": {
     "hug": {
-      "conditions": {},
+      "conditions": {
+        "type": "hug"
+      },
       "trigger": "aether_redux:april_redux_trigger"
     }
   },

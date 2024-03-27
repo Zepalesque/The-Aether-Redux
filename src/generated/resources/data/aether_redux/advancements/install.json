@@ -1,7 +1,9 @@
 {
   "criteria": {
     "install": {
-      "conditions": {},
+      "conditions": {
+        "type": "install"
+      },
       "trigger": "aether_redux:april_redux_trigger"
     }
   },
