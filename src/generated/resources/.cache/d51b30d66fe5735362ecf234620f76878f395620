@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-26T13:57:31.2687048	Item Models: aether_redux
+// 1.20.1	2024-03-26T20:25:04.9662793	Item Models: aether_redux
 2445055af5b1b7f3c6045199ffce74108003cef6 assets/aether_redux/models/item/airbound_cape.json
 2fa1343a8119a1f49af334c002773099174965bd assets/aether_redux/models/item/aurum.json
 edfe83948874d1436a61893ed9471b47e93dbe88 assets/aether_redux/models/item/avelium.json
@@ -100,6 +100,7 @@ a5e3d18c9751a9ec185ddc0223f95b47e1307c2a assets/aether_redux/models/item/divinit
 b91cd5f8a586f37ffe16803b8f5b563e751668e9 assets/aether_redux/models/item/divinite_slab.json
 e24bcc1b074b86d43ccd158fd5efde16a4bb156f assets/aether_redux/models/item/divinite_stairs.json
 6d540c067552a05397934bb294384a03aaaf2f0b assets/aether_redux/models/item/divinite_wall.json
+23915f6121c4ae5c036ad1a4c970e03ddbbc2d54 assets/aether_redux/models/item/edelweiss.json
 795ee016e7dad0d6ac42593c58ba258161615647 assets/aether_redux/models/item/enchanted_aurum.json
 96affe245dcaad11ed1d16c2abce148117ef5304 assets/aether_redux/models/item/enchanted_blueberry_pie.json
 bbdcf1aaa0310eecd15726f69481b9f7f7ed9229 assets/aether_redux/models/item/enchanted_ring.json
@@ -132,6 +133,7 @@ f934b4e25537e364550cfdcf0ed8f80db1a171c4 assets/aether_redux/models/item/fieldsp
 6c9bc0f28c32ba52ca348bf3ead9379879c8aa10 assets/aether_redux/models/item/fieldsproot_wood_wall.json
 8d693404bcb605805674e2582147be36e3416b05 assets/aether_redux/models/item/fireinthehole.json
 6e4e3758c097c655bf3e4cf958d8cbb274237bb8 assets/aether_redux/models/item/flareblossom.json
+3938aa5b805e4db3c7492169ecbe002c04c33360 assets/aether_redux/models/item/flawless_bloom.json
 a7506affe0c538db937cfd49bdd486fec3179ad1 assets/aether_redux/models/item/fungal_carpet.json
 9232500fb4b5a9e239e9e9635c738a4c9db55f22 assets/aether_redux/models/item/fungal_growth.json
 c21384e3c0f2e7cf2838fc78bd300726ad88099d assets/aether_redux/models/item/gilded_holystone.json
@@ -227,6 +229,7 @@ b1ef3818d31455f48163b723c113b769110219e3 assets/aether_redux/models/item/raw_val
 d8de2565b035201fb855f38b6083299efcc91e31 assets/aether_redux/models/item/raw_veridium.json
 8a433ef11c34eda652a3186b21612f69a875b6e8 assets/aether_redux/models/item/raw_veridium_block.json
 2b0580de8e9f79ef8502204a23d3575928546d05 assets/aether_redux/models/item/ring_of_wisdom.json
+8a08d3602ea31930b7e8a8e4f5096b3a2a5f0676 assets/aether_redux/models/item/rootrose.json
 85fdfd7f1fdd7ddb47b784671c569c7c72659f65 assets/aether_redux/models/item/sentrite.json
 78eb2611f9163ac081067a4558ff42ad67da6250 assets/aether_redux/models/item/sentrite_bricks.json
 047fe8ef6fa08212f587a5ca906bd4b5de9af340 assets/aether_redux/models/item/sentrite_brick_slab.json

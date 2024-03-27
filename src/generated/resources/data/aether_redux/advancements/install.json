@@ -6,7 +6,7 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
+    "announce_to_chat": false,
     "background": "aether_redux:textures/block/natural/sentrite.png",
     "description": {
       "extra": [
