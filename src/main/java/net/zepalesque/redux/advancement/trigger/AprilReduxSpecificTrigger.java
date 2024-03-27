@@ -48,7 +48,7 @@ public class AprilReduxSpecificTrigger extends SimpleCriterionTrigger<AprilRedux
       public JsonObject serializeToJson(SerializationContext context) {
          JsonObject jsonObject = super.serializeToJson(context);
          jsonObject.add("type", new JsonPrimitive(this.type));
-         return super.serializeToJson(context);
+         return jsonObject;
       }
    }
 }
