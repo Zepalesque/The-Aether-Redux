@@ -59,6 +59,7 @@
     "client.render.ArrowRendererMixin",
     "client.render.BattleSentryRendererMixin",
     "client.render.BiomeMixin",
+    "client.render.ChickenRendererMixin",
     "client.render.EntityRendererMixin",
     "client.render.LivingEntityRendererMixin",
     "client.render.MimicRendererMixin",

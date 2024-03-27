@@ -1,6 +1,5 @@
 package net.zepalesque.redux.data;
 
-import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.item.AetherItems;
 import net.minecraft.advancements.Advancement;
@@ -14,7 +13,7 @@ import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.ForgeAdvancementProvider;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.advancement.trigger.AprilReduxSpecificTrigger;
+import net.zepalesque.redux.advancement.trigger.AprilReduxSpecialTrigger;
 import net.zepalesque.redux.advancement.trigger.DoubleJumpTrigger;
 import net.zepalesque.redux.advancement.trigger.FallFromAetherTrigger;
 import net.zepalesque.redux.advancement.trigger.InfuseItemTrigger;
@@ -45,7 +44,7 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
                                     .append(Component.translatable("gui.aether_redux.advancement_suffix").withStyle(style -> style.withColor(Redux.REDUX_PURPLE))),
                             new ResourceLocation(Redux.MODID, "textures/block/natural/sentrite.png"),
                             FrameType.TASK, true, false, false)
-                    .addCriterion("install", AprilReduxSpecificTrigger.TriggerInstance.type("install"))
+                    .addCriterion("install", AprilReduxSpecialTrigger.TriggerInstance.type("install"))
                     .save(consumer, Redux.locate("install"), existingFileHelper);
 
             Advancement.Builder.advancement()
@@ -67,7 +66,7 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
                                     .append(Component.translatable("gui.aether_redux.advancement_suffix").withStyle(style -> style.withColor(Redux.REDUX_PURPLE))),
                             null,
                             FrameType.TASK, true, true, false)
-                    .addCriterion("hug", AprilReduxSpecificTrigger.TriggerInstance.type("hug"))
+                    .addCriterion("hug", AprilReduxSpecialTrigger.TriggerInstance.type("hug"))
                     .save(consumer, Redux.locate("hug"), existingFileHelper);
 
            Advancement.Builder.advancement()

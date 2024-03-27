@@ -30,9 +30,9 @@ public class BlightbunnyRenderer extends MobRenderer<Blightbunny, BlightbunnyMod
 
     }
 
-/*    protected void scale(Blightbunny aerbunny, PoseStack poseStack, float partialTicks) {
-        poseStack.translate(0.0, 1.2, 0.0);
-    }*/
+    protected void scale(Blightbunny aerbunny, PoseStack poseStack, float partialTicks) {
+        poseStack.translate(0.0, 0.1875, 0.0);
+    }
 
     protected void setupRotations(Blightbunny aerbunny, PoseStack poseStack, float ageInTicks, float rotationYaw, float partialTicks) {
         super.setupRotations(aerbunny, poseStack, ageInTicks, rotationYaw, partialTicks);

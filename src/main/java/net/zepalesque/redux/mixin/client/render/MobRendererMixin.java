@@ -1,5 +1,6 @@
 package net.zepalesque.redux.mixin.client.render;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -16,4 +17,5 @@ public abstract class MobRendererMixin<T extends Mob, M extends EntityModel<T>> 
     @Inject(at = @At("HEAD"), method = "render(Lnet/minecraft/world/entity/Mob;FFLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V")
     public void renderMob(T entity, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight, CallbackInfo ci) {
     }
+
 }
