@@ -134,7 +134,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         }
 
 
-        this.tag(Redux.WoodHandlers.MINTY.logsBlockTag).addTag(ReduxTags.Blocks.PEPPERMINT_LOGS);
+        this.tag(Redux.WoodHandlers.MINTY.logsBlockTag).add(ReduxBlocks.PEPPERMINT_LOG.get(), ReduxBlocks.PEPPERMINT_BLOCK.get());
 
         this.tag(AetherTags.Blocks.AETHER_DIRT).add(
                 ReduxBlocks.AVELIUM.get(),
