@@ -106,6 +106,9 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         item(ReduxItems.BLIGHTBUNNY_FANG, "materials/");
 
 
+        itemBlock(ReduxBlocks.PEPPERMINT_LOG);
+        itemBlock(ReduxBlocks.PEPPERMINT_BLOCK);
+
         itemBlock(ReduxBlocks.SHELL_SHINGLES);
         itemBlock(ReduxBlocks.SHELL_SHINGLE_SLAB);
         itemBlock(ReduxBlocks.SHELL_SHINGLE_STAIRS);
@@ -133,6 +136,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         this.itemBlockFlat(ReduxBlocks.CRYSTAL_SAPLING.get(), "natural/");
         this.itemBlockFlat(ReduxBlocks.CRYSTAL_FRUIT_SAPLING.get(), "natural/");
         this.itemBlockFlat(ReduxBlocks.PURPLE_CRYSTAL_FRUIT_SAPLING.get(), "natural/");
+        this.itemBlockFlat(ReduxBlocks.PEPPERMINT_BARKLING.get(), "natural/");
 
         itemBlock(ReduxBlocks.GLACIA_LEAVES);
         this.itemBlockFlat(ReduxBlocks.GLACIA_SAPLING.get(), "natural/");

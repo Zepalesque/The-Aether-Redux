@@ -2,6 +2,7 @@ package net.zepalesque.redux.api.blockhandler;
 
 import com.aetherteam.aether.block.construction.BookshelfBlock;
 import com.aetherteam.aether.block.natural.AetherLogBlock;
+import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -41,6 +42,7 @@ import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.entity.misc.ReduxBoat;
 import net.zepalesque.redux.entity.misc.ReduxChestBoat;
 import net.zepalesque.redux.item.ReduxItems;
+import net.zepalesque.redux.item.food.ReduxFoods;
 import net.zepalesque.redux.item.misc.ReduxBoatItem;
 import net.zepalesque.redux.misc.ReduxTags;
 import org.codehaus.plexus.util.StringUtils;
@@ -48,6 +50,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 import java.util.function.BiFunction;
+import java.util.function.Supplier;
+import java.util.function.UnaryOperator;
 
 public class WoodHandler implements BlockHandler {
     public final TagKey<Item> logsTag;
@@ -113,6 +117,8 @@ public class WoodHandler implements BlockHandler {
 
     public final String treeName;
 
+    @Nullable public Supplier<? extends Block> lognatural;
+
 
     public static BiFunction<String, SoundType, BlockSetType> createBlockSet(SoundEvent doorClose, SoundEvent doorOpen, SoundEvent trapdoorClose, SoundEvent trapdoorOpen, SoundEvent pressurePlateClickOff, SoundEvent pressurePlateClickOn, SoundEvent buttonClickOff, SoundEvent buttonClickOn)
     {
@@ -171,44 +177,65 @@ public class WoodHandler implements BlockHandler {
                 SoundEvents.WOODEN_BUTTON_CLICK_ON
         );
     }
+    public static BiFunction<String, SoundType, BlockSetType> stoneSoundBlockSet()
+    {
+        return createBlockSet(
+                SoundEvents.IRON_DOOR_CLOSE,
+                SoundEvents.IRON_DOOR_OPEN,
+                SoundEvents.IRON_TRAPDOOR_CLOSE,
+                SoundEvents.IRON_TRAPDOOR_OPEN,
+                SoundEvents.STONE_PRESSURE_PLATE_CLICK_OFF,
+                SoundEvents.STONE_PRESSURE_PLATE_CLICK_ON,
+                SoundEvents.STONE_BUTTON_CLICK_OFF,
+                SoundEvents.STONE_BUTTON_CLICK_ON
+        );
+    }
 
 
     /** Constructor for most wood types
      */
     public static WoodHandler tree(String pWoodname, boolean pLogWalls, MapColor pBarkColor, MapColor pWoodColor, boolean layeredBookshelf)
     {
-        return handler(pWoodname, null, true, woodSoundBlockSet(), "trees", "log", "wood", SoundType.WOOD, SoundType.WOOD, pLogWalls, pBarkColor, pWoodColor, false, layeredBookshelf);
+        return handler(pWoodname, null, true, woodSoundBlockSet(), "trees", "log", "wood", SoundType.WOOD, SoundType.WOOD, pLogWalls, pBarkColor, pWoodColor, false, layeredBookshelf, null);
+    }
+    public static WoodHandler mint(String pWoodname, boolean pLogWalls, MapColor pBarkColor, MapColor pWoodColor, SoundType type, boolean layeredBookshelf)
+    {
+        WoodHandler handler = handler(pWoodname, null, false, stoneSoundBlockSet(), "trees", "log", "block", type, type, pLogWalls, pBarkColor, pWoodColor, false, layeredBookshelf, properties -> properties.food(ReduxFoods.CANDYFIELDS_BLOCK));
+        handler.lognatural = ReduxBlocks.PEPPERMINT_LOG;
+        return handler;
     }
     /** Constructor for fungus wood types
      */
     public static WoodHandler fungus(String pWoodname, String pLangname, boolean pLogWalls, MapColor pBarkColor, MapColor pWoodColor, boolean layeredBookshelf)
     {
-        return handler(pWoodname, pLangname, true, netherSoundBlockSet(), "mushrooms", "stem", "hyphae", SoundType.NETHER_WOOD, SoundType.STEM, pLogWalls, pBarkColor, pWoodColor, false, layeredBookshelf);
+        return handler(pWoodname, pLangname, true, netherSoundBlockSet(), "mushrooms", "stem", "hyphae", SoundType.NETHER_WOOD, SoundType.STEM, pLogWalls, pBarkColor, pWoodColor, false, layeredBookshelf, null);
     }
     /** Constructor for fungus wood types
      */
     public static WoodHandler noStrippingFungus(String pWoodname, String pLangname, boolean pLogWalls, MapColor pBarkColor, MapColor pWoodColor, boolean layeredBookshelf)
     {
-        return handler(pWoodname, pLangname, false, netherSoundBlockSet(), "mushrooms", "stem", "hyphae", SoundType.NETHER_WOOD, SoundType.STEM, pLogWalls, pBarkColor, pWoodColor, false, layeredBookshelf);
+        return handler(pWoodname, pLangname, false, netherSoundBlockSet(), "mushrooms", "stem", "hyphae", SoundType.NETHER_WOOD, SoundType.STEM, pLogWalls, pBarkColor, pWoodColor, false, layeredBookshelf, null);
     }
     /** More general constructor
      */
-    public static WoodHandler handler(String pWoodName, @Nullable String pLangName, boolean pStrippedLog, BiFunction<String, SoundType, BlockSetType> blockSetTypeFunction, String pTreeName, String pLogSuffix, String pWoodSuffix, SoundType pPlankSoundType, SoundType pLogSoundType, boolean pLogWalls, MapColor barkColor, MapColor woodColor, boolean hasSporingLogs, boolean layeredBookshelf)
+    public static WoodHandler handler(String pWoodName, @Nullable String pLangName, boolean pStrippedLog, BiFunction<String, SoundType, BlockSetType> blockSetTypeFunction, String pTreeName, String pLogSuffix, String pWoodSuffix, SoundType pPlankSoundType, SoundType pLogSoundType, boolean pLogWalls, MapColor barkColor, MapColor woodColor, boolean hasSporingLogs, boolean layeredBookshelf, UnaryOperator<Item.Properties> properties)
     {
 
-        WoodHandler instance = new WoodHandler(pWoodName, pLangName, pStrippedLog, blockSetTypeFunction, pTreeName, pLogSuffix, pWoodSuffix, pPlankSoundType, pLogSoundType, pLogWalls, barkColor, woodColor, hasSporingLogs, layeredBookshelf);
+        WoodHandler instance = new WoodHandler(pWoodName, pLangName, pStrippedLog, blockSetTypeFunction, pTreeName, pLogSuffix, pWoodSuffix, pPlankSoundType, pLogSoundType, pLogWalls, barkColor, woodColor, hasSporingLogs, layeredBookshelf, properties);
         return instance;
     }
 
-    protected WoodHandler(String pWoodName, @Nullable String pLangName, boolean pStrippedLogs, BiFunction<String, SoundType, BlockSetType> blockSetTypeFunction, String pTreeName,  String pLogSuffix, String pWoodSuffix, SoundType pPlankSoundType, SoundType pLogSoundType, boolean pLogWalls, MapColor barkColor, MapColor woodColor, boolean pSporingLogs, boolean layeredBookshelf) {
+    protected WoodHandler(String pWoodName, @Nullable String pLangName, boolean pStrippedLogs, BiFunction<String, SoundType, BlockSetType> blockSetTypeFunction, String pTreeName, String pLogSuffix, String pWoodSuffix, SoundType pPlankSoundType, SoundType pLogSoundType, boolean pLogWalls, MapColor barkColor, MapColor woodColor, boolean pSporingLogs, boolean layeredBookshelf, @Nullable UnaryOperator<Item.Properties> properties) {
+
+        UnaryOperator<Item.Properties> prop = properties == null ? UnaryOperator.identity() : properties;
         this.hasSporingLogs = pSporingLogs;
         this.hasStrippedLogs = pStrippedLogs;
         this.treeName = pTreeName;
         if (pSporingLogs)
         {
-            RegistryObject<RotatedPillarBlock> sporingLogRegistry = ReduxBlocks.register("sporing_" + pWoodName + "_" + pLogSuffix, () -> new AetherLogBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).sound(pLogSoundType).mapColor(barkColor)));
+            RegistryObject<RotatedPillarBlock> sporingLogRegistry = ReduxBlocks.registerModifyItemProperties("sporing_" + pWoodName + "_" + pLogSuffix, () -> new AetherLogBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).sound(pLogSoundType).mapColor(barkColor)), prop);
             this.sporingLog = Optional.of(sporingLogRegistry);
-            RegistryObject<RotatedPillarBlock> sporingWoodRegistry = ReduxBlocks.register("sporing_" + pWoodName + "_" + pWoodSuffix, () -> new AetherLogBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).sound(pLogSoundType).mapColor(barkColor)));
+            RegistryObject<RotatedPillarBlock> sporingWoodRegistry = ReduxBlocks.registerModifyItemProperties("sporing_" + pWoodName + "_" + pWoodSuffix, () -> new AetherLogBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).sound(pLogSoundType).mapColor(barkColor)), prop);
             this.sporingWood = Optional.of(sporingWoodRegistry);
             this.sporingBlocksBlockTag = Optional.of(ReduxTags.Blocks.tag("sporing_" + pWoodName + "_" + pLogSuffix + "s"));
         } else {
@@ -226,7 +253,7 @@ public class WoodHandler implements BlockHandler {
         this.woodName = pWoodName;
         this.langName = pLangName;
 
-        this.bookshelf = ReduxBlocks.register(pWoodName + "_bookshelf", layeredBookshelf ? () -> new LayeredBookshelfBlock(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF).mapColor(woodColor).sound(pPlankSoundType)) : () -> new BookshelfBlock(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF).mapColor(woodColor).sound(pPlankSoundType)));
+        this.bookshelf = ReduxBlocks.registerModifyItemProperties(pWoodName + "_bookshelf", layeredBookshelf ? () -> new LayeredBookshelfBlock(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF).mapColor(woodColor).sound(pPlankSoundType)) : () -> new BookshelfBlock(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF).mapColor(woodColor).sound(pPlankSoundType)), prop);
         this.layeredBookshelf = layeredBookshelf;
 
         this.blockSet = blockSetTypeFunction.apply(Redux.MODID + ":" + pWoodName, pPlankSoundType);
@@ -237,16 +264,16 @@ public class WoodHandler implements BlockHandler {
                 () -> EntityType.Builder.<ReduxBoat>of(ReduxBoat::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build(pWoodName + "_boat"));
         this.chestBoatEntity = ReduxEntityTypes.ENTITY_TYPES.register(pWoodName + "_chest_boat",
                 () -> EntityType.Builder.<ReduxChestBoat>of(ReduxChestBoat::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build(pWoodName + "_chest_boat"));
-        this.log = ReduxBlocks.register(pWoodName + "_" + pLogSuffix, () -> new AetherLogBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).sound(pLogSoundType).mapColor(barkColor)));
-        this.wood = ReduxBlocks.register(pWoodName + "_" + pWoodSuffix, () -> new ReduxNaturalLog(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD).sound(pLogSoundType).mapColor(barkColor)));
+        this.log = ReduxBlocks.registerModifyItemProperties(pWoodName + "_" + pLogSuffix, () -> new AetherLogBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).sound(pLogSoundType).mapColor(barkColor)), prop);
+        this.wood = ReduxBlocks.registerModifyItemProperties(pWoodName + "_" + pWoodSuffix, () -> new ReduxNaturalLog(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD).sound(pLogSoundType).mapColor(barkColor)), prop);
         if (this.hasStrippedLogs)
         {
-            RegistryObject<RotatedPillarBlock> strippedLog = ReduxBlocks.register("stripped_" + pWoodName + "_" + pLogSuffix, () -> new ReduxNaturalLog(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_LOG).sound(pLogSoundType).mapColor(woodColor)));
+            RegistryObject<RotatedPillarBlock> strippedLog = ReduxBlocks.registerModifyItemProperties("stripped_" + pWoodName + "_" + pLogSuffix, () -> new ReduxNaturalLog(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_LOG).sound(pLogSoundType).mapColor(woodColor)), prop);
             this.strippedLog = Optional.of(strippedLog);
-            RegistryObject<RotatedPillarBlock> strippedWood = ReduxBlocks.register("stripped_" + pWoodName + "_" + pWoodSuffix, () -> new ReduxNaturalLog(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_WOOD).sound(pLogSoundType).mapColor(woodColor)));
+            RegistryObject<RotatedPillarBlock> strippedWood = ReduxBlocks.registerModifyItemProperties("stripped_" + pWoodName + "_" + pWoodSuffix, () -> new ReduxNaturalLog(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_WOOD).sound(pLogSoundType).mapColor(woodColor)), prop);
             this.strippedWood = Optional.of(strippedWood);
-            RegistryObject<WallBlock> strippedLogWall = ReduxBlocks.register("stripped_" + woodName + "_"+pLogSuffix+"_wall", () -> new ReduxNaturalWall(Block.Properties.of().mapColor(woodColor).strength(2.0F).sound(pLogSoundType)));
-            RegistryObject<WallBlock> strippedWoodWall = ReduxBlocks.register("stripped_" + woodName + "_"+pWoodSuffix+"_wall", () -> new ReduxNaturalWall(Block.Properties.of().mapColor(woodColor).strength(2.0F).sound(pLogSoundType)));
+            RegistryObject<WallBlock> strippedLogWall = ReduxBlocks.registerModifyItemProperties("stripped_" + woodName + "_"+pLogSuffix+"_wall", () -> new ReduxNaturalWall(Block.Properties.of().mapColor(woodColor).strength(2.0F).sound(pLogSoundType)), prop);
+            RegistryObject<WallBlock> strippedWoodWall = ReduxBlocks.registerModifyItemProperties("stripped_" + woodName + "_"+pWoodSuffix+"_wall", () -> new ReduxNaturalWall(Block.Properties.of().mapColor(woodColor).strength(2.0F).sound(pLogSoundType)), prop);
 
             this.strippedLogWall = Optional.of(strippedLogWall);
             this.strippedWoodWall = Optional.of(strippedWoodWall);
@@ -257,15 +284,15 @@ public class WoodHandler implements BlockHandler {
             this.strippedLogWall = Optional.empty();
             this.strippedWoodWall = Optional.empty();
         }
-        this.planks = ReduxBlocks.register(pWoodName + "_planks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).sound(pPlankSoundType).mapColor(woodColor)));
-        this.stairs = ReduxBlocks.register(pWoodName + "_stairs", () -> new StairBlock(() -> this.planks.get().defaultBlockState(), BlockBehaviour.Properties.copy(this.planks.get())));
-        this.slab = ReduxBlocks.register(pWoodName + "_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(this.planks.get()).strength(2.0F, 3.0F)));
-        this.fence = ReduxBlocks.register(pWoodName + "_fence", () -> new FenceBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE).sound(pPlankSoundType).mapColor(woodColor)));
-        this.fenceGate = ReduxBlocks.register(pWoodName + "_fence_gate", () -> new FenceGateBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE_GATE).sound(pPlankSoundType).mapColor(woodColor), this.woodType));
-        this.door = ReduxBlocks.register(pWoodName + "_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.OAK_DOOR).sound(pPlankSoundType).mapColor(woodColor), this.blockSet));
-        this.trapdoor = ReduxBlocks.register(pWoodName + "_trapdoor", () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.OAK_TRAPDOOR).sound(pPlankSoundType).mapColor(woodColor), this.blockSet));
-        this.pressurePlate = ReduxBlocks.register(pWoodName + "_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.copy(Blocks.OAK_PRESSURE_PLATE).sound(pPlankSoundType).mapColor(woodColor), this.blockSet));
-        this.button = ReduxBlocks.register(pWoodName + "_button", () -> new ButtonBlock(BlockBehaviour.Properties.copy(Blocks.OAK_BUTTON).sound(pPlankSoundType).mapColor(woodColor), this.blockSet, 30, true));
+        this.planks = ReduxBlocks.registerModifyItemProperties(pWoodName + "_planks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).sound(pPlankSoundType).mapColor(woodColor)), prop);
+        this.stairs = ReduxBlocks.registerModifyItemProperties(pWoodName + "_stairs", () -> new StairBlock(() -> this.planks.get().defaultBlockState(), BlockBehaviour.Properties.copy(this.planks.get())), prop);
+        this.slab = ReduxBlocks.registerModifyItemProperties(pWoodName + "_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(this.planks.get()).strength(2.0F, 3.0F)), prop);
+        this.fence = ReduxBlocks.registerModifyItemProperties(pWoodName + "_fence", () -> new FenceBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE).sound(pPlankSoundType).mapColor(woodColor)), prop);
+        this.fenceGate = ReduxBlocks.registerModifyItemProperties(pWoodName + "_fence_gate", () -> new FenceGateBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE_GATE).sound(pPlankSoundType).mapColor(woodColor), this.woodType), prop);
+        this.door = ReduxBlocks.registerModifyItemProperties(pWoodName + "_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.OAK_DOOR).sound(pPlankSoundType).mapColor(woodColor), this.blockSet), prop);
+        this.trapdoor = ReduxBlocks.registerModifyItemProperties(pWoodName + "_trapdoor", () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.OAK_TRAPDOOR).sound(pPlankSoundType).mapColor(woodColor), this.blockSet), prop);
+        this.pressurePlate = ReduxBlocks.registerModifyItemProperties(pWoodName + "_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.copy(Blocks.OAK_PRESSURE_PLATE).sound(pPlankSoundType).mapColor(woodColor), this.blockSet), prop);
+        this.button = ReduxBlocks.registerModifyItemProperties(pWoodName + "_button", () -> new ButtonBlock(BlockBehaviour.Properties.copy(Blocks.OAK_BUTTON).sound(pPlankSoundType).mapColor(woodColor), this.blockSet, 30, true), prop);
         this.sign = ReduxBlocks.BLOCKS.register(pWoodName + "_sign", () -> new ReduxSignBlock(Block.Properties.of().mapColor(woodColor).noCollission().strength(1.0F).sound(pPlankSoundType), woodType) {
             @Override
             public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
@@ -293,18 +320,18 @@ public class WoodHandler implements BlockHandler {
         });
 
 
-        this.boatItem = ReduxItems.ITEMS.register(pWoodName + "_boat", () -> new ReduxBoatItem(false, (new Item.Properties()).stacksTo(1),
+        this.boatItem = ReduxItems.ITEMS.register(pWoodName + "_boat", () -> new ReduxBoatItem(false, prop.apply(new Item.Properties()).stacksTo(1),
                 ((level, hitresult) -> new ReduxBoat(this, level, hitresult.getLocation().x, hitresult.getLocation().y, hitresult.getLocation().z) {
                 })));
-        this.chestBoatItem = ReduxItems.ITEMS.register(pWoodName + "_chest_boat", () -> new ReduxBoatItem(false, (new Item.Properties()).stacksTo(1),
+        this.chestBoatItem = ReduxItems.ITEMS.register(pWoodName + "_chest_boat", () -> new ReduxBoatItem(false, prop.apply(new Item.Properties()).stacksTo(1),
                 ((level, hitresult)  -> new ReduxChestBoat(this, level, hitresult.getLocation().x, hitresult.getLocation().y, hitresult.getLocation().z) {
                 })));
 
-        this.signItem = ReduxItems.register(pWoodName + "_sign", () -> new SignItem((new Item.Properties()).stacksTo(16), this.sign.get(), this.wallSign.get()));
-        this.hangingSignItem = ReduxItems.register(pWoodName + "_hanging_sign", () -> new HangingSignItem(this.hangingSign.get(), this.wallHangingSign.get(), (new Item.Properties()).stacksTo(16)));
+        this.signItem = ReduxItems.register(pWoodName + "_sign", () -> new SignItem(prop.apply(new Item.Properties()).stacksTo(16), this.sign.get(), this.wallSign.get()));
+        this.hangingSignItem = ReduxItems.register(pWoodName + "_hanging_sign", () -> new HangingSignItem(this.hangingSign.get(), this.wallHangingSign.get(), prop.apply(new Item.Properties()).stacksTo(16)));
 
-        this.logWall = ReduxBlocks.register(woodName + "_"+pLogSuffix+"_wall", () -> new ReduxNaturalWall(Block.Properties.of().mapColor(barkColor).strength(2.0F).sound(pLogSoundType)));
-        this.woodWall = ReduxBlocks.register(woodName + "_"+pWoodSuffix+"_wall", () -> new ReduxNaturalWall(Block.Properties.of().mapColor(barkColor).strength(2.0F).sound(pLogSoundType)));
+        this.logWall = ReduxBlocks.registerModifyItemProperties(woodName + "_"+pLogSuffix+"_wall", () -> new ReduxNaturalWall(Block.Properties.of().mapColor(barkColor).strength(2.0F).sound(pLogSoundType)), prop);
+        this.woodWall = ReduxBlocks.registerModifyItemProperties(woodName + "_"+pWoodSuffix+"_wall", () -> new ReduxNaturalWall(Block.Properties.of().mapColor(barkColor).strength(2.0F).sound(pLogSoundType)), prop);
     }
 
     private RegistryObject<BlockEntityType<ReduxSignBlockEntity>> getSign()

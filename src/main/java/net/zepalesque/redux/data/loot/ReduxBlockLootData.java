@@ -193,6 +193,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropPottedContents(ReduxBlocks.POTTED_ROOTROSE.get());
         dropSelf(ReduxBlocks.EDELWEISS.get());
         this.dropPottedContents(ReduxBlocks.POTTED_EDELWEISS.get());
+        dropSelf(ReduxBlocks.PEPPERMINT_BARKLING.get());
         dropSelf(ReduxBlocks.CARVED_STONE_BRICKS.get());
         dropSelf(ReduxBlocks.CARVED_STONE_BRICK_STAIRS.get());
         this.add(ReduxBlocks.CARVED_STONE_BRICK_SLAB.get(), this::createSlabItemTable);
@@ -208,6 +209,8 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropSelfDouble(ReduxBlocks.BLIGHTSHADE.get());
         this.dropSelf(ReduxBlocks.GRAVITITE_BLOCK.get());
         this.dropSelf(ReduxBlocks.RAW_GRAVITITE_BLOCK.get());
+        this.naturalDrop(ReduxBlocks.PEPPERMINT_BLOCK.get(), ReduxBlocks.PEPPERMINT_LOG.get());
+        this.dropSelf(ReduxBlocks.PEPPERMINT_LOG.get());
         this.dropPottedContents(ReduxBlocks.POTTED_BLIGHTSHADE.get());
 
         this.add(ReduxBlocks.WYNDSPROUTS_CROP.get(),
@@ -280,7 +283,11 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
 
         for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS)
         {
-            this.dropSelfDouble(woodHandler.log.get());
+            if (woodHandler.lognatural == null) {
+                this.dropSelfDouble(woodHandler.log.get());
+            } else {
+                this.naturalDrop(woodHandler.log.get(), woodHandler.lognatural.get());
+            }
             woodHandler.strippedWood.ifPresent((reg) ->
                     woodHandler.strippedLog.ifPresent(logReg -> this.naturalDrop(reg.get(), logReg.get())));
             woodHandler.strippedLog.ifPresent((reg) -> this.dropSelf(reg.get()));
@@ -290,7 +297,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
             this.naturalDrop(woodHandler.woodWall.get(), woodHandler.log.get());
             woodHandler.strippedWoodWall.ifPresent((reg) ->
                     woodHandler.strippedLog.ifPresent(logReg -> this.naturalDrop(reg.get(), logReg.get())));
-            this.naturalDrop(woodHandler.wood.get(), woodHandler.log.get());
+            this.naturalDrop(woodHandler.wood.get(), woodHandler.lognatural == null ? woodHandler.log.get() : woodHandler.lognatural.get());
             this.dropSelf(woodHandler.planks.get());
             this.dropSelf(woodHandler.stairs.get());
             this.dropSelf(woodHandler.slab.get());

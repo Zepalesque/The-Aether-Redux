@@ -37,6 +37,7 @@ public class ToolModifListener {
         UseOnContext context = event.getContext();
         if (!event.isSimulated() && !event.isCanceled()) {
             ToolModifHooks.stripBlightwillow(levelAccessor, oldState, itemStack, toolAction, context);
+            ToolModifHooks.stripPeppermint(levelAccessor, oldState, itemStack, toolAction, context);
         }
     }
 

@@ -12,6 +12,7 @@ public class ReduxLoot {
     public static final Set<ResourceLocation> IMMUTABLE_LOOT_TABLES = Collections.unmodifiableSet(LOOT_TABLES);
 
     public static final ResourceLocation STRIP_BLIGHTWILLOW = register("stripping/strip_blightwillow");
+    public static final ResourceLocation STRIP_PEPPERMINT = register("stripping/strip_peppermint");
 
     private static ResourceLocation register(String id) {
         return register(new ResourceLocation(Redux.MODID, id));

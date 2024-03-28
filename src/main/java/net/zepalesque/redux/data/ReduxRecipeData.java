@@ -543,6 +543,8 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
 
         oreBlockStorageRecipesRecipesWithCustomUnpacking(consumer, RecipeCategory.MISC, ReduxItems.VERIDIUM_NUGGET.get(), RecipeCategory.MISC, ReduxItems.VERIDIUM_INGOT.get(), "veridium_nugget", "veridium_nugget_to_veridium_ingot");
 
+        woodFromLogs(consumer, ReduxBlocks.PEPPERMINT_BLOCK.get(), ReduxBlocks.PEPPERMINT_LOG.get());
+
         for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS) {
             woodFromLogs(consumer, woodHandler.wood.get(), woodHandler.log.get());
             planksFromLog(consumer, woodHandler.planks.get(), woodHandler.logsTag, 4);

@@ -34,6 +34,9 @@ public class ReduxCreativeTabs {
         if (tab == AetherCreativeTabs.AETHER_BUILDING_BLOCKS.get()) {
             RegistryObject<? extends ItemLike> f1 = doBuildingWoods(AetherBlocks.GOLDEN_OAK_WOOD, event);
 
+            putBefore(Redux.WoodHandlers.MINTY.log, ReduxBlocks.PEPPERMINT_BLOCK, event);
+            putBefore(ReduxBlocks.PEPPERMINT_BLOCK, ReduxBlocks.PEPPERMINT_LOG, event);
+
             putAfter(AetherBlocks.MOSSY_HOLYSTONE_WALL, ReduxBlocks.GILDED_HOLYSTONE, event);
             putAfter(ReduxBlocks.GILDED_HOLYSTONE, ReduxBlocks.GILDED_HOLYSTONE_STAIRS, event);
             putAfter(ReduxBlocks.GILDED_HOLYSTONE_STAIRS, ReduxBlocks.GILDED_HOLYSTONE_SLAB, event);
@@ -111,6 +114,8 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.FUNGAL_GROWTH, ReduxBlocks.FUNGAL_CARPET, event);
 
             doNaturalWoods(AetherBlocks.GOLDEN_OAK_LOG, event);
+            putBefore(Redux.WoodHandlers.MINTY.log, ReduxBlocks.PEPPERMINT_BLOCK, event);
+            putBefore(ReduxBlocks.PEPPERMINT_BLOCK, ReduxBlocks.PEPPERMINT_LOG, event);
 
             putAfter(AetherBlocks.GOLDEN_OAK_LEAVES, ReduxBlocks.GOLDEN_LEAF_PILE, event);
             putAfter(ReduxBlocks.GOLDEN_LEAF_PILE, ReduxBlocks.GOLDEN_VINES, event);

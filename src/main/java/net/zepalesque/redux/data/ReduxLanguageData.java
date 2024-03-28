@@ -187,6 +187,12 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.COARSE_AETHER_DIRT, "Coarse Aether Dirt");
         addLore(ReduxBlocks.COARSE_AETHER_DIRT, "A variant of Aether Dirt that does not regrow any grass.");
 
+        addBlock(ReduxBlocks.PEPPERMINT_LOG, "Peppermint Log");
+        addLore(ReduxBlocks.PEPPERMINT_LOG, "The logs of the large Candy Canes in the Sugarfields. This can be stripped into Minty Logs, or turned into Minty Planks!");
+
+        addBlock(ReduxBlocks.PEPPERMINT_BLOCK, "Peppermint Block");
+        addLore(ReduxBlocks.PEPPERMINT_BLOCK, "The all-sided variant of Peppermint Logs.");
+
         addBlock(ReduxBlocks.BLIGHTMOSS_BLOCK, "Nicemoss Block");
         addLore(ReduxBlocks.BLIGHTMOSS_BLOCK, "Moss that has been befriended by the Unblight. This can be found in some caves in the Aether.");
         addBlock(ReduxBlocks.BLIGHTMOSS_CARPET, "Nicemoss Carpet");
@@ -264,9 +270,14 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addLore(ReduxBlocks.GILDED_LEAF_PILE, "A pile of Gilded Oak Leaves. These can be found under Gilded Oak trees..");
         addBlock(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE, "Heartwillow Leaf Pile");
         addLore(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE, "A pile of Heartwillow Leaves. These can be found in the Unblight biome.");
+
         addBlock(ReduxBlocks.BLIGHTWILLOW_SAPLING, "Heartwillow Sapling");
         addBlock(ReduxBlocks.POTTED_BLIGHTWILLOW_SAPLING, "Potted Heartwillow Sapling");
         addLore(ReduxBlocks.BLIGHTWILLOW_SAPLING, "The sapling of the Heartwillow tree. It can be grown by waiting or using Bone Meal.");
+
+        addBlock(ReduxBlocks.PEPPERMINT_BARKLING, "Peppermint Barkling");
+        addBlock(ReduxBlocks.POTTED_PEPPERMINT_BARKLING, "Potted Peppermint Barkling");
+        addLore(ReduxBlocks.PEPPERMINT_BARKLING, "A small peppermint growth obtained by stripping a Peppermint Log. Can be grown with Bone Meal into a full-sized Candy Cane!");
 
         addBlock(ReduxBlocks.FIELDSPROOT_SAPLING, "Prismachromautomatic Sapling");
         addBlock(ReduxBlocks.POTTED_FIELDSPROOT_SAPLING, "Potted Prismachromautomatic Sapling");

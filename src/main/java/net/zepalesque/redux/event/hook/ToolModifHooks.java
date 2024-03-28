@@ -25,6 +25,7 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.loot.ReduxLoot;
+import net.zepalesque.redux.misc.ReduxTags;
 
 import java.util.List;
 import java.util.Map;
@@ -33,7 +34,8 @@ public class ToolModifHooks {
 
 
         public static final Map<Block, Block> STRIPPABLES = Maps.newHashMap(new ImmutableMap.Builder<Block, Block>()
-
+                .put(ReduxBlocks.PEPPERMINT_LOG.get(), Redux.WoodHandlers.MINTY.log.get())
+                .put(ReduxBlocks.PEPPERMINT_BLOCK.get(), Redux.WoodHandlers.MINTY.wood.get())
             .build());
 
 
@@ -107,6 +109,26 @@ public class ToolModifHooks {
                         Vec3 vector = context.getClickLocation();
                         LootParams parameters = (new LootParams.Builder(serverLevel)).withParameter(LootContextParams.TOOL, stack).create(AetherLootContexts.STRIPPING);
                         LootTable lootTable = level.getServer().getLootData().getLootTable(ReduxLoot.STRIP_BLIGHTWILLOW);
+                        List<ItemStack> list = lootTable.getRandomItems(parameters);
+                        for (ItemStack itemStack : list) {
+                            ItemEntity itemEntity = new ItemEntity(level, vector.x(), vector.y(), vector.z(), itemStack);
+                            itemEntity.setDefaultPickUpDelay();
+                            level.addFreshEntity(itemEntity);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public static void stripPeppermint(LevelAccessor accessor, BlockState state, ItemStack stack, ToolAction action, UseOnContext context) {
+        if (action == ToolActions.AXE_STRIP) {
+            if (accessor instanceof Level level) {
+                if (state.is(ReduxTags.Blocks.PEPPERMINT_LOGS)) {
+                    if (level.getServer() != null && level instanceof ServerLevel serverLevel) {
+                        Vec3 vector = context.getClickLocation();
+                        LootParams parameters = (new LootParams.Builder(serverLevel)).withParameter(LootContextParams.TOOL, stack).create(AetherLootContexts.STRIPPING);
+                        LootTable lootTable = level.getServer().getLootData().getLootTable(ReduxLoot.STRIP_PEPPERMINT);
                         List<ItemStack> list = lootTable.getRandomItems(parameters);
                         for (ItemStack itemStack : list) {
                             ItemEntity itemEntity = new ItemEntity(level, vector.x(), vector.y(), vector.z(), itemStack);

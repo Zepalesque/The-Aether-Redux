@@ -3,10 +3,7 @@ package net.zepalesque.redux.block;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.miscellaneous.FacingPillarBlock;
 import com.aetherteam.aether.block.miscellaneous.FloatingBlock;
-import com.aetherteam.aether.block.natural.AetherDoubleDropBlock;
-import com.aetherteam.aether.block.natural.AetherDoubleDropsLeaves;
-import com.aetherteam.aether.block.natural.AetherGrassBlock;
-import com.aetherteam.aether.block.natural.LeavesWithParticlesBlock;
+import com.aetherteam.aether.block.natural.*;
 import com.aetherteam.aether.mixin.mixins.common.accessor.FireBlockAccessor;
 import com.google.common.base.Supplier;
 import net.minecraft.core.BlockPos;
@@ -123,6 +120,7 @@ public class ReduxBlocks {
     public static final RegistryObject<FacingPillarBlock> HOLEFIRE_PILLAR_TOP = register("holefire_pillar_top",
             () -> new FacingPillarBlock(BlockBehaviour.Properties.copy(AetherBlocks.PILLAR_TOP.get())));
 
+
     public static RegistryObject<FieldsprootPetalsBlock> FIELDSPROOT_PETALS = register("fieldsproot_petals",
             () -> new FieldsprootPetalsBlock(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().hasPostProcess((state, lvl, pos) -> true).sound(SoundType.PINK_PETALS)));
 
@@ -171,7 +169,20 @@ public class ReduxBlocks {
             () -> new CustomBoundsFlowerBlock(CommonPlantBounds.FLOWER, () -> MobEffects.SATURATION, 60, BlockBehaviour.Properties.copy(Blocks.OXEYE_DAISY).mapColor(MapColor.TERRACOTTA_WHITE)));
     public static final RegistryObject<FlowerPotBlock> POTTED_EDELWEISS = BLOCKS.register("potted_edelweiss", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, EDELWEISS, Block.Properties.copy(Blocks.FLOWER_POT)));
 
+    public static final RegistryObject<AetherLogBlock> PEPPERMINT_LOG = registerModifyItemProperties("peppermint_log",
+            () -> new AetherLogBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).sound(SoundType.CALCITE).mapColor(MapColor.COLOR_RED)), properties -> properties.food(ReduxFoods.CANDYFIELDS_BLOCK));
 
+    public static final RegistryObject<AetherLogBlock> PEPPERMINT_BLOCK = registerModifyItemProperties("peppermint_block",
+            () -> new ReduxNaturalLog(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD).sound(SoundType.CALCITE).mapColor(MapColor.COLOR_RED)), properties -> properties.food(ReduxFoods.CANDYFIELDS_BLOCK));
+
+    public static final RegistryObject<SaplingBlock> PEPPERMINT_BARKLING = register("peppermint_barkling", () ->
+            new SaplingBlock(new ReduxSuppliedTree(ReduxConfiguredFeatures.CANDY_CANE), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING).sound(SoundType.CALCITE))
+    );
+    public static final RegistryObject<FlowerPotBlock> POTTED_PEPPERMINT_BARKLING = BLOCKS.register("potted_peppermint_barkling",
+            () -> new FlowerPotBlock(() ->
+                    (FlowerPotBlock)Blocks.FLOWER_POT, PEPPERMINT_BARKLING,
+                    BlockBehaviour.Properties.copy(Blocks.FLOWER_POT))
+    );
     public static RegistryObject<Block> SUGARGRASS_BLOCK = registerModifyItemProperties("sugargrass_block",
             () -> new SugargrassBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOL).randomTicks().strength(0.2F).sound(SoundType.WOOL)), properties -> properties.food(ReduxFoods.CANDYFIELDS_BLOCK));
 
