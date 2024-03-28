@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-26T20:25:05.0172485	Registries
+// 1.20.1	2024-03-27T21:52:14.8428383	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 94d997b0a87f23900f66f9a9e2485391b6ff8e38 data/aether/worldgen/configured_feature/golden_oak_tree.json
 875593e37a52dd63b2d87226b0f0e5e76ef48247 data/aether/worldgen/configured_feature/grass_patch.json
@@ -131,6 +131,7 @@ e982bd770f007449e3460a1fb4d648d64974552a data/aether_redux/worldgen/configured_f
 fc0e5c7100de7edcd74c85f73a606f9e95bd9d8e data/aether_redux/worldgen/configured_feature/trees/blighted_skyroot_tree.json
 50e17b835a5292bc8b64b994694bae15997bb921 data/aether_redux/worldgen/configured_feature/trees/blightwillow_tree.json
 c2059cb68fafa9274de1f02a07c8971938f670de data/aether_redux/worldgen/configured_feature/trees/blight_trees.json
+e672860025e2a474799634234e65f4d979d5a8b0 data/aether_redux/worldgen/configured_feature/trees/candy_cane.json
 f63ce33d6924bba3d734cd3626b0addb934b8f48 data/aether_redux/worldgen/configured_feature/trees/classic_skyfields_trees.json
 e872998661037277d384088a119eb3d2ab23ba31 data/aether_redux/worldgen/configured_feature/trees/crystal_leaf_tree.json
 6c2012f324eb953db3481242481a44814d12b0ac data/aether_redux/worldgen/configured_feature/trees/crystal_rare_fruit_tree.json
