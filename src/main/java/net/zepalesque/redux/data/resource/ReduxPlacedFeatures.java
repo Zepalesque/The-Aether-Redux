@@ -631,6 +631,12 @@ public class ReduxPlacedFeatures {
                 RarityFilter.onAverageOnceEvery(7),
                 BiomeFilter.biome());
 
+        register(context, FLAWLESS_BLOOM_PATCH, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.FLAWLESS_BLOOM_PATCH),
+                NOISE_THRESHOLD,
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(1, 2), 4),
+                RarityFilter.onAverageOnceEvery(7),
+                BiomeFilter.biome());
+
         register(context, LIGHTROOTS, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.LIGHTROOTS),
                 CountPlacement.of(UniformInt.of(104, 157)),
                 HeightRangePlacement.of(UniformHeight.of(VerticalAnchor.BOTTOM, new VerticalAnchor.Absolute(256))),
