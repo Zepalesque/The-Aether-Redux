@@ -95,6 +95,9 @@ public class ReduxSoundEvents {
     public static final RegistryObject<SoundEvent> PURPLE_AERCLOUD_ZOOM = register("block.aercloud.purple_aercloud_zoom");
     public static final RegistryObject<SoundEvent> GREEN_AERCLOUD_WUBBLE = register("block.aercloud.green_aercloud_wubble");
 
+    public static final RegistryObject<SoundEvent> RAINBOW_CLOUD_START = register("block.aercloud.rainbow_cloud_start");
+    public static final RegistryObject<SoundEvent> RAINBOW_CLOUD_END = register("block.aercloud.rainbow_cloud_end");
+
 
     public static final RegistryObject<SoundEvent> MUSIC_DISC_LABYRINTHS_VENGEANCE = register("item.music_disc.labyrinths_vengeance");
 

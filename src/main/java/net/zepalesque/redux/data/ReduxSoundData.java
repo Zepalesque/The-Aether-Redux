@@ -393,6 +393,16 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
                         .with(sound(new ResourceLocation(Aether.MODID, "entity/zephyr/shoot")))
                         .subtitle("subtitles.aether_redux.block.aercloud.gold_aercloud_whoosh"));
 
+        this.add(ReduxSoundEvents.RAINBOW_CLOUD_START,
+                definition()
+                        .with(sound(Redux.locate("block/aercloud/rainbow_cloud_start")))
+                        .subtitle("subtitles.aether_redux.block.aercloud.rainbow_cloud_start"));
+
+        this.add(ReduxSoundEvents.RAINBOW_CLOUD_END,
+                definition()
+                        .with(sound(Redux.locate("block/aercloud/rainbow_cloud_end")))
+                        .subtitle("subtitles.aether_redux.block.aercloud.rainbow_cloud_end"));
+
         this.add(ReduxSoundEvents.PURPLE_AERCLOUD_ZOOM,
                 definition()
                         .with(sound(Redux.locate("block/aercloud/purple_aercloud_zoom")))

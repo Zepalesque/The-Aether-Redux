@@ -29,6 +29,7 @@ public class ReduxPlayerCapability implements ReduxPlayer {
     private final LoreBookModule lore;
     private final BlightshadeModule blightshade;
     private final AdrenalineModule adrenaline;
+    private final RainbowCloudModule rainbow;
 
 
 
@@ -48,6 +49,7 @@ public class ReduxPlayerCapability implements ReduxPlayer {
         this.lore = new LoreBookModule();
         this.blightshade = new BlightshadeModule(pPlayer);
         this.adrenaline = new AdrenalineModule(pPlayer);
+        this.rainbow = new RainbowCloudModule(pPlayer);
     }
 
     @Override
@@ -110,11 +112,17 @@ public class ReduxPlayerCapability implements ReduxPlayer {
         return this.adrenaline;
     }
 
+    @Override
+    public RainbowCloudModule getRainbowModule() {
+        return this.rainbow;
+    }
+
 
     @Override
     public void tick() {
         this.blightshade.tick();
         this.adrenaline.tick();
+        this.rainbow.tick();
 
 
         this.prevTickAirJumps = airJumps;
