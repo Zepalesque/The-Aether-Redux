@@ -15,6 +15,7 @@ import net.zepalesque.redux.data.ReduxRegistrySets;
 import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
 import net.zepalesque.redux.misc.ReduxTags;
 import org.jetbrains.annotations.Nullable;
+import teamrazor.deepaether.datagen.tags.DATags;
 import teamrazor.deepaether.world.biomes.DABiomes;
 
 import java.util.concurrent.CompletableFuture;
@@ -85,6 +86,8 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
         this.tag(ReduxTags.Biomes.IS_FROSTED).add(ReduxBiomes.FROSTED_FORESTS, ReduxBiomes.GLACIAL_TUNDRA);
 
         this.tag(ReduxTags.Biomes.NO_GRASS_OVERRIDE).addTag(AetherTags.Biomes.IS_AETHER).remove(ReduxTags.Biomes.HAS_GRASS_OVERRIDE);
+
+        this.tag(DATags.Biomes.CAN_QUAIL_SPAWN).remove(ReduxBiomes.DEEPER_AETHER);
 
         for (ResourceKey<Biome> e : ReduxBiomes.VANILLA_GRASS_COLORS.keySet()) {
             if (e.location().getNamespace().equals(Redux.MODID) || e.location().getNamespace().equals(Aether.MODID)) {
