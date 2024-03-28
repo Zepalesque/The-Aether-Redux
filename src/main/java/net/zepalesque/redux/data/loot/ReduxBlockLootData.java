@@ -283,11 +283,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
 
         for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS)
         {
-            if (woodHandler.lognatural == null) {
-                this.dropSelfDouble(woodHandler.log.get());
-            } else {
-                this.naturalDrop(woodHandler.log.get(), woodHandler.lognatural.get());
-            }
+            this.dropSelfDouble(woodHandler.log.get());
             woodHandler.strippedWood.ifPresent((reg) ->
                     woodHandler.strippedLog.ifPresent(logReg -> this.naturalDrop(reg.get(), logReg.get())));
             woodHandler.strippedLog.ifPresent((reg) -> this.dropSelf(reg.get()));
@@ -297,7 +293,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
             this.naturalDrop(woodHandler.woodWall.get(), woodHandler.log.get());
             woodHandler.strippedWoodWall.ifPresent((reg) ->
                     woodHandler.strippedLog.ifPresent(logReg -> this.naturalDrop(reg.get(), logReg.get())));
-            this.naturalDrop(woodHandler.wood.get(), woodHandler.lognatural == null ? woodHandler.log.get() : woodHandler.lognatural.get());
+            this.naturalDrop(woodHandler.wood.get(), woodHandler.log.get());
             this.dropSelf(woodHandler.planks.get());
             this.dropSelf(woodHandler.stairs.get());
             this.dropSelf(woodHandler.slab.get());

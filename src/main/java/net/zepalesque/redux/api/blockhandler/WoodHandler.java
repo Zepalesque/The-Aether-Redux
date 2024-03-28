@@ -117,7 +117,6 @@ public class WoodHandler implements BlockHandler {
 
     public final String treeName;
 
-    @Nullable public Supplier<? extends Block> lognatural;
 
 
     public static BiFunction<String, SoundType, BlockSetType> createBlockSet(SoundEvent doorClose, SoundEvent doorOpen, SoundEvent trapdoorClose, SoundEvent trapdoorOpen, SoundEvent pressurePlateClickOff, SoundEvent pressurePlateClickOn, SoundEvent buttonClickOff, SoundEvent buttonClickOn)
@@ -200,9 +199,7 @@ public class WoodHandler implements BlockHandler {
     }
     public static WoodHandler mint(String pWoodname, boolean pLogWalls, MapColor pBarkColor, MapColor pWoodColor, SoundType type, boolean layeredBookshelf)
     {
-        WoodHandler handler = handler(pWoodname, null, false, stoneSoundBlockSet(), "trees", "log", "block", type, type, pLogWalls, pBarkColor, pWoodColor, false, layeredBookshelf, properties -> properties.food(ReduxFoods.CANDYFIELDS_BLOCK));
-        handler.lognatural = ReduxBlocks.PEPPERMINT_LOG;
-        return handler;
+        return handler(pWoodname, null, false, stoneSoundBlockSet(), "trees", "log", "block", type, type, pLogWalls, pBarkColor, pWoodColor, false, layeredBookshelf, properties -> properties.food(ReduxFoods.CANDYFIELDS_BLOCK));
     }
     /** Constructor for fungus wood types
      */
