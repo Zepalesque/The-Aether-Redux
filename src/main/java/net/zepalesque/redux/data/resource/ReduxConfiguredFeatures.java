@@ -53,6 +53,7 @@ import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.util.state.ReduxStates;
 import net.zepalesque.redux.block.util.state.enums.PetalPrismaticness;
 import net.zepalesque.redux.misc.ReduxTags;
+import net.zepalesque.redux.world.feature.CandyCaneFeature;
 import net.zepalesque.redux.world.feature.CloudcapFeature;
 import net.zepalesque.redux.world.feature.ReduxFeatures;
 import net.zepalesque.redux.world.feature.UpwardVineFeature;
@@ -613,6 +614,13 @@ public class ReduxConfiguredFeatures {
                                 .add(ConstantInt.of(3), 2)
                                 .add(ConstantInt.of(4), 1)
                                 .build()), 7, 3, 32));
+
+        register(context, CANDY_CANE, ReduxFeatures.CANDY_CANE.get(),
+                new CandyCaneFeature.CandyCaneConfiguration(
+                        prov(ReduxBlocks.PEPPERMINT_LOG),
+                        prov(ReduxBlocks.PEPPERMINT_BLOCK),
+                        UniformInt.of(6, 10)
+                ));
 
         register(context, PRISMATIC_FIELDSPROOT_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
