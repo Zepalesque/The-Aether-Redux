@@ -162,6 +162,7 @@ public class ReduxCreativeTabs {
 
             putAfter(ReduxBlocks.GILDED_OAK_SAPLING, ReduxBlocks.CRYSTAL_SAPLING, event);
             putAfter(ReduxBlocks.CRYSTAL_SAPLING, ReduxBlocks.CRYSTAL_FRUIT_SAPLING, event);
+            putAfter(ReduxBlocks.CRYSTAL_FRUIT_SAPLING, ReduxBlocks.PEPPERMINT_BARKLING, event);
 
             putAfter(AetherBlocks.BERRY_BUSH, ReduxBlocks.ZANBERRY_BUSH_STEM, event);
             putAfter(ReduxBlocks.ZANBERRY_BUSH_STEM, ReduxBlocks.ZANBERRY_BUSH, event);
@@ -189,6 +190,7 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.FLAREBLOSSOM, ReduxBlocks.INFERNIA, event);
             putAfter(ReduxBlocks.INFERNIA, ReduxBlocks.VANILLA, event);
             putAfter(ReduxBlocks.VANILLA, ReduxBlocks.FLAWLESS_BLOOM, event);
+            putAfter(ReduxBlocks.FLAWLESS_BLOOM, ReduxBlocks.ROOTROSE, event);
 
             putAfter(AetherBlocks.ZANITE_ORE, ReduxBlocks.VERIDIUM_ORE, event);
             putAfter(ReduxBlocks.VERIDIUM_ORE, ReduxBlocks.RAW_VERIDIUM_BLOCK, event);
