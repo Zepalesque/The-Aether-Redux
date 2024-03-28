@@ -17,7 +17,7 @@ public class RainbowAercloudBlock extends AercloudBlock {
     @Override
     public void entityInside(BlockState state, Level world, BlockPos pos, Entity entity) {
         super.entityInside(state, world, pos, entity);
-        if (entity instanceof Player p && !p.level().isClientSide()) {
+        if (entity instanceof Player p) {
             ReduxPlayer.get(p).ifPresent(redux -> {
                 if (redux.getRainbowModule().canStart()) {
                     redux.getRainbowModule().begin(state.getShape(world, pos, CollisionContext.of(entity)).bounds().move(pos));
