@@ -12,6 +12,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.util.ITeleporter;
@@ -34,17 +35,16 @@ public class Rebux extends Entity {
         this.lifespan = LIFETIME;
         this.bobOffs = this.random.nextFloat() * 3.1415927F * 2.0F;
         this.setYRot(this.random.nextFloat() * 360.0F);
+        this.setCount(1);
     }
 
     public Rebux(Level level, double posX, double posY, double posZ, int count) {
-        this(ReduxEntityTypes.REBUX.get(), level);
-        this.setPos(posX, posY, posZ);
+        this(level, posX, posY, posZ);
         this.setCount(count);
     }
     public Rebux(Level level, double posX, double posY, double posZ) {
         this(ReduxEntityTypes.REBUX.get(), level);
         this.setPos(posX, posY, posZ);
-        this.setCount(1);
     }
 
 
@@ -226,13 +226,19 @@ public class Rebux extends Entity {
         return false;
     }
 
-    @Override
-    protected void readAdditionalSaveData(CompoundTag compoundTag) {
-
+    public void addAdditionalSaveData(CompoundTag compound) {
+        compound.putShort("Age", (short)this.age);
+        compound.putInt("Lifespan", this.lifespan);
+        compound.putInt("Count", this.getCount());
     }
 
-    @Override
-    protected void addAdditionalSaveData(CompoundTag compoundTag) {
-
+    public void readAdditionalSaveData(CompoundTag compound) {
+        this.age = compound.getShort("Age");
+        if (compound.contains("Lifespan")) {
+            this.lifespan = compound.getInt("Lifespan");
+        }
+        if (compound.contains("Count")) {
+            this.setCount(compound.getInt("Count"));
+        }
     }
 }

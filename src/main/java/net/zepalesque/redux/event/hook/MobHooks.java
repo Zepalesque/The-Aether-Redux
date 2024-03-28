@@ -105,5 +105,10 @@ public class MobHooks {
         }
         VampireAmulet.get(living).ifPresent(VampireAmulet::tick);
     }
+
+
+
+
+//    public void createRebux()
 }
 
