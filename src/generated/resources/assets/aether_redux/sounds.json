@@ -17,6 +17,18 @@
     ],
     "subtitle": "subtitles.aether_redux.block.aercloud.purple_aercloud_zoom"
   },
+  "block.aercloud.rainbow_cloud_end": {
+    "sounds": [
+      "aether_redux:block/aercloud/rainbow_cloud_end"
+    ],
+    "subtitle": "subtitles.aether_redux.block.aercloud.rainbow_cloud_end"
+  },
+  "block.aercloud.rainbow_cloud_start": {
+    "sounds": [
+      "aether_redux:block/aercloud/rainbow_cloud_start"
+    ],
+    "subtitle": "subtitles.aether_redux.block.aercloud.rainbow_cloud_start"
+  },
   "block.blightshade_spray": {
     "sounds": [
       "aether_redux:block/blightshade_spray"
