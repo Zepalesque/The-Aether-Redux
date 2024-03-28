@@ -2,17 +2,22 @@ package net.zepalesque.redux.capability.player;
 
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
+import net.zepalesque.redux.util.level.LevelUtil;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.function.Predicate;
 
 public class RainbowCloudModule implements PlayerTickModule {
 
     private int boostTimer;
     private final Player player;
     private boolean inProgress;
-    private @Nullable AABB bounds;
+    private static final Predicate<BlockState> stateTest = state -> state.is(ReduxBlocks.RAINBOW_AERCLOUD.get());
 
     public RainbowCloudModule(Player plr) {
         this.player = plr;
@@ -29,7 +34,7 @@ public class RainbowCloudModule implements PlayerTickModule {
             this.player.addDeltaMovement(new Vec3(0, 5, 0));
 
         }
-            if (this.bounds == null || !this.player.getBoundingBox().intersects(this.bounds)) {
+            if (!LevelUtil.isBlockInAABB(this.player.getBoundingBox(), this.player.level(), stateTest, false)) {
             this.cancel(true);
         }
         if (this.boostTimer > 0) {
@@ -45,14 +50,12 @@ public class RainbowCloudModule implements PlayerTickModule {
             this.player.level().playSound(null, this.player.blockPosition(), ReduxSoundEvents.RAINBOW_CLOUD_START.get(), SoundSource.BLOCKS, 0.8F, 1.0F);
         }
         this.inProgress = true;
-        this.bounds = bounds;
     }
     public void cancel(boolean alterTimer) {
         if (alterTimer) {
             this.boostTimer = 0;
         }
         this.inProgress = false;
-        this.bounds = null;
     }
 
     public boolean canStart() {
