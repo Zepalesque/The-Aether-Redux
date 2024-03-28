@@ -20,38 +20,36 @@ public class RainbowCloudModule implements PlayerTickModule {
 
     @Override
     public void tick() {
-        if (!this.player.level().isClientSide()) {
-            if (this.boostTimer == 31) {
+        if (this.boostTimer == 31) {
+            if (!this.player.level().isClientSide()) {
                 this.player.level().playSound(null, this.player.blockPosition(), ReduxSoundEvents.RAINBOW_CLOUD_END.get(), SoundSource.BLOCKS, 0.8F, 1.0F);
-                this.player.addDeltaMovement(new Vec3(0, 10, 0));
             }
-            if (this.bounds == null || !this.player.getBoundingBox().intersects(this.bounds)) {
-                this.cancel(true);
-            }
-            if (this.boostTimer > 0) {
-                this.boostTimer--;
-            } else {
-                this.cancel(false);
-            }
+            this.player.addDeltaMovement(new Vec3(0, 10, 0));
+        }
+        if (this.bounds == null || !this.player.getBoundingBox().intersects(this.bounds)) {
+            this.cancel(true);
+        }
+        if (this.boostTimer > 0) {
+            this.boostTimer--;
+        } else {
+            this.cancel(false);
         }
     }
 
     public void begin(AABB bounds) {
+        this.boostTimer = 61;
         if (!this.player.level().isClientSide()) {
-            this.boostTimer = 61;
             this.player.level().playSound(null, this.player.blockPosition(), ReduxSoundEvents.RAINBOW_CLOUD_START.get(), SoundSource.BLOCKS, 0.8F, 1.0F);
-            this.inProgress = true;
-            this.bounds = bounds;
         }
+        this.inProgress = true;
+        this.bounds = bounds;
     }
     public void cancel(boolean alterTimer) {
-        if (!this.player.level().isClientSide()) {
-            if (alterTimer) {
-                this.boostTimer = 0;
-            }
-            this.inProgress = false;
-            this.bounds = null;
+        if (alterTimer) {
+            this.boostTimer = 0;
         }
+        this.inProgress = false;
+        this.bounds = null;
     }
 
     public boolean canStart() {
