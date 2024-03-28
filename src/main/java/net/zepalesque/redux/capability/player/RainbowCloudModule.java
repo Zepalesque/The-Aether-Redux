@@ -26,12 +26,12 @@ public class RainbowCloudModule implements PlayerTickModule {
                 this.player.addDeltaMovement(new Vec3(0, 10, 0));
             }
             if (this.bounds == null || !this.player.getBoundingBox().intersects(this.bounds)) {
-                this.cancel();
+                this.cancel(true);
             }
             if (this.boostTimer > 0) {
                 this.boostTimer--;
             } else {
-                this.inProgress = false;
+                this.cancel(false);
             }
         }
     }
@@ -44,9 +44,11 @@ public class RainbowCloudModule implements PlayerTickModule {
             this.bounds = bounds;
         }
     }
-    public void cancel() {
+    public void cancel(boolean alterTimer) {
         if (!this.player.level().isClientSide()) {
-            this.boostTimer = 0;
+            if (alterTimer) {
+                this.boostTimer = 0;
+            }
             this.inProgress = false;
             this.bounds = null;
         }
