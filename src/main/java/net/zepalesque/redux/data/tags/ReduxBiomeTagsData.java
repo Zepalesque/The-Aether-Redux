@@ -36,7 +36,8 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
                 ReduxBiomes.GILDED_GRASSLANDS,
                 ReduxBiomes.SKYFIELDS,
                 ReduxBiomes.CLOUDCAPS,
-                ReduxBiomes.SKYROOT_SHRUBLANDS
+                ReduxBiomes.SKYROOT_SHRUBLANDS,
+                ReduxBiomes.DEEPER_AETHER
         );
 
 
