@@ -1,0 +1,61 @@
+{
+  "feature": "aether_redux:trees/deep_trees",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": {
+        "type": "minecraft:weighted_list",
+        "distribution": [
+          {
+            "data": {
+              "type": "minecraft:uniform",
+              "value": {
+                "max_inclusive": 6,
+                "min_inclusive": 2
+              }
+            },
+            "weight": 5
+          },
+          {
+            "data": 4,
+            "weight": 3
+          },
+          {
+            "data": 6,
+            "weight": 1
+          }
+        ]
+      }
+    },
+    {
+      "type": "aether:improved_layer_placement",
+      "count": {
+        "type": "minecraft:uniform",
+        "value": {
+          "max_inclusive": 1,
+          "min_inclusive": 0
+        }
+      },
+      "heightmap": "OCEAN_FLOOR",
+      "verticalBounds": 4
+    },
+    {
+      "type": "minecraft:biome"
+    },
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:would_survive",
+        "state": {
+          "Name": "aether_redux:blightwillow_sapling",
+          "Properties": {
+            "stage": "0"
+          }
+        }
+      }
+    },
+    {
+      "type": "aether:dungeon_blacklist_filter"
+    }
+  ]
+}

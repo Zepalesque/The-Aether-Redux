@@ -240,6 +240,27 @@
     ],
     "subtitle": "subtitles.aether_redux.entity.mykapod_shell_shed"
   },
+  "entity.quail.ambient": {
+    "sounds": [
+      "aether_redux:entity/quail/say1",
+      "aether_redux:entity/quail/say2",
+      "aether_redux:entity/quail/say3"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.quail_ambient"
+  },
+  "entity.quail.death": {
+    "sounds": [
+      "aether_redux:entity/quail/death"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.quail_death"
+  },
+  "entity.quail.hurt": {
+    "sounds": [
+      "aether_redux:entity/quail/hurt1",
+      "aether_redux:entity/quail/hurt2"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.quail_hurt"
+  },
   "entity.sentry.ambient": {
     "sounds": [
       "aether_redux:generic/silence"
