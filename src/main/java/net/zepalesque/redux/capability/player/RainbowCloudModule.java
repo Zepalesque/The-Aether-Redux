@@ -20,7 +20,7 @@ public class RainbowCloudModule implements PlayerTickModule {
 
     @Override
     public void tick() {
-        if (this.boostTimer == 31) {
+        if (this.boostTimer == 23) {
             if (!this.player.level().isClientSide()) {
                 this.player.level().playSound(null, this.player.blockPosition(), ReduxSoundEvents.RAINBOW_CLOUD_END.get(), SoundSource.BLOCKS, 0.8F, 1.0F);
             }
@@ -37,7 +37,7 @@ public class RainbowCloudModule implements PlayerTickModule {
     }
 
     public void begin(AABB bounds) {
-        this.boostTimer = 61;
+        this.boostTimer = 45;
         if (!this.player.level().isClientSide()) {
             this.player.level().playSound(null, this.player.blockPosition(), ReduxSoundEvents.RAINBOW_CLOUD_START.get(), SoundSource.BLOCKS, 0.8F, 1.0F);
         }
