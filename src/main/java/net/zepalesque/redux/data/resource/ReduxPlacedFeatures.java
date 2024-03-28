@@ -63,6 +63,7 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> DENSE_GRASS = createKey(Folders.PATCH + "dense_grass");
     public static final ResourceKey<PlacedFeature> GLIMMERSTOOL_PATCH = copyKey(ReduxConfiguredFeatures.GLIMMERSTOOL_PATCH);
     public static final ResourceKey<PlacedFeature> BLIGHT_TREES = copyKey(ReduxConfiguredFeatures.BLIGHT_TREES);
+    public static final ResourceKey<PlacedFeature> DEEP_TREES = copyKey(ReduxConfiguredFeatures.DEEP_TREES);
     public static final ResourceKey<PlacedFeature> CLOUDCAP_MUSHLING_PATCH = copyKey(ReduxConfiguredFeatures.CLOUDCAP_MUSHLING_PATCH);
     public static final ResourceKey<PlacedFeature> DAGGERBLOOM_PATCH = copyKey(ReduxConfiguredFeatures.DAGGERBLOOM_PATCH);
     public static final ResourceKey<PlacedFeature> ROOTROSE_PATCH = copyKey(ReduxConfiguredFeatures.ROOTROSE_PATCH);
@@ -73,6 +74,7 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> SPARSE_BLUE_AERCLOUD = createKey(Folders.MISC + "sparse_blue_aercloud");
     public static final ResourceKey<PlacedFeature> DENSE_BLUE_AERCLOUD = createKey(Folders.MISC + "dense_blue_aercloud");
     public static final ResourceKey<PlacedFeature> BLIGHTED_AERCLOUD = createKey(Folders.MISC + "blighted_aercloud");
+    public static final ResourceKey<PlacedFeature> RAINBOW_AERCLOUD = createKey(Folders.MISC + "rainbow_aercloud");
     public static final ResourceKey<PlacedFeature> SPARSE_ZANITE_ORE = createKey(Folders.ORE + "sparse_zanite_ore");
     public static final ResourceKey<PlacedFeature> SPARSE_AMBROSIUM_ORE = createKey(Folders.ORE + "sparse_ambrosium_ore");
     public static final ResourceKey<PlacedFeature> DENSE_ZANITE_ORE = createKey(Folders.ORE + "dense_zanite_ore");
@@ -186,6 +188,10 @@ public class ReduxPlacedFeatures {
         register(context, BLIGHTED_AERCLOUD,
                 configuredFeatures.getOrThrow(ReduxConfiguredFeatures.BLIGHTED_AERCLOUD),
                 AetherPlacedFeatureBuilders.aercloudPlacement(32, 64, 24));
+
+        register(context, RAINBOW_AERCLOUD,
+                configuredFeatures.getOrThrow(ReduxConfiguredFeatures.RAINBOW_AERCLOUD),
+                AetherPlacedFeatureBuilders.aercloudPlacement(32, 64, 64));
 
 
         register(context, SPARSE_AMBROSIUM_ORE, configuredFeatures.getOrThrow(AetherConfiguredFeatures.ORE_AMBROSIUM_CONFIGURATION),
@@ -741,6 +747,18 @@ public class ReduxPlacedFeatures {
                 BiomeFilter.biome());
 
         register(context, BLIGHT_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.BLIGHT_TREES),
+                CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
+                        .add(UniformInt.of(2, 6), 5)
+                        .add(ConstantInt.of(4), 3)
+                        .add(ConstantInt.of(6), 1)
+                        .build())),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.OCEAN_FLOOR, UniformInt.of(0, 1), 4),
+                BiomeFilter.biome(),
+                PlacementUtils.filteredByBlockSurvival(ReduxBlocks.BLIGHTWILLOW_SAPLING.get()),
+                DUNGEON_BLACKLIST
+        );
+
+        register(context, DEEP_TREES, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.DEEP_TREES),
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
                         .add(UniformInt.of(2, 6), 5)
                         .add(ConstantInt.of(4), 3)

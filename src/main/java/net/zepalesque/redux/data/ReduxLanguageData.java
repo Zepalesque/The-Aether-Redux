@@ -387,6 +387,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.BLIGHTED_AERCLOUD, "Nice Aercloud");
         addLore(ReduxBlocks.BLIGHTED_AERCLOUD, "A light teal cloud found in the Unblight. Standing in this will NOT harm you, and will heal nice mobs such as Goodbunnies and Cockatrices!");
 
+        addBlock(ReduxBlocks.RAINBOW_AERCLOUD, "Rainbow Aercloud");
+        addLore(ReduxBlocks.RAINBOW_AERCLOUD, "An insane, chromatic cloud type found in the Deeper Aether. Gives you a lot of speed.");
+
         addBlock(ReduxBlocks.IRIDIA, "Iridia");
         addBlock(ReduxBlocks.POTTED_IRIDIA, "Potted Iridia");
         addLore(ReduxBlocks.IRIDIA, "An iridescent flower found in the Skyfields.");
@@ -688,6 +691,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addSubtitle("entity", "crazy_cow_ambient", "Crazy Cow §kvwakazoom moo dae§rs");
         addSubtitle("entity", "crazy_cow_hurt", "Crazy Cow §kscream§rs");
         addSubtitle("entity", "crazy_cow_death", "Crazy Cow §kasks u why u did dis§r");
+        addSubtitle("entity", "quail_ambient", "Definitely Quail™ screeches");
+        addSubtitle("entity", "quail_hurt", "Definitely Quail™ hurts");
+        addSubtitle("entity", "quail_death", "Definitely Quail™ dies");
         addSubtitle("entity", "sentry_pounce", "Sentry pounces");
         addSubtitle("entity", "sentry_land", "Sentry lands");
         addSubtitle("entity", "sentry_ambient", "Sentry grumbles");

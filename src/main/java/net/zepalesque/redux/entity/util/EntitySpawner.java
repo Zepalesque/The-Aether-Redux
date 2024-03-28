@@ -2,6 +2,7 @@ package net.zepalesque.redux.entity.util;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
@@ -21,10 +22,16 @@ import java.util.function.Supplier;
 
 public class EntitySpawner extends Mob {
     private final EntityType<? extends Mob> typeToSpawn;
+    private final boolean quail;
 
-    protected EntitySpawner(EntityType<? extends Mob> entityType, Level level, EntityType<? extends Mob> spawnedMob) {
+    protected EntitySpawner(EntityType<? extends Mob> entityType, Level level, EntityType<? extends Mob> spawnedMob, boolean isQuail) {
         super(entityType, level);
         typeToSpawn = spawnedMob;
+        this.quail = isQuail;
+    }
+
+    protected EntitySpawner(EntityType<? extends Mob> entityType, Level level, EntityType<? extends Mob> spawnedMob) {
+        this(entityType, level, spawnedMob, false);
     }
 
     public static AttributeSupplier.Builder createAttributes() {
@@ -33,6 +40,9 @@ public class EntitySpawner extends Mob {
 
     public static EntityType.EntityFactory<EntitySpawner> fabricate(Supplier<? extends EntityType<? extends Mob>> spawnedMob) {
         return (entityType, level) -> new EntitySpawner(entityType, level, spawnedMob.get());
+    }
+    public static EntityType.EntityFactory<EntitySpawner> quail(Supplier<? extends EntityType<? extends Mob>> spawnedMob) {
+        return (entityType, level) -> new EntitySpawner(entityType, level, spawnedMob.get(), true);
     }
 
     protected Mob spawnEntity() {
@@ -43,6 +53,9 @@ public class EntitySpawner extends Mob {
                 e.yBodyRot = this.yBodyRot;
                 // TODO: Test this, see if it is a good idea
                 e.setPersistenceRequired();
+                if (this.quail) {
+                    e.setCustomName(Component.literal("Quail"));
+                }
                 this.level().addFreshEntity(e);
                 return e;
             }

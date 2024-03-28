@@ -130,6 +130,7 @@ public class ReduxCreativeTabs {
             putBefore(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE, ReduxBlocks.BLIGHTWILLOW_LEAVES, event);
 
             putAfter(AetherBlocks.GOLDEN_AERCLOUD, ReduxBlocks.BLIGHTED_AERCLOUD, event);
+            putAfter(ReduxBlocks.BLIGHTED_AERCLOUD, ReduxBlocks.RAINBOW_AERCLOUD, event);
 
             if (!ReduxConfig.COMMON.classic_skyfields.get()) {
                 putAfter(AetherBlocks.DECORATED_HOLIDAY_LEAVES, ReduxBlocks.FIELDSPROOT_LEAVES, event);

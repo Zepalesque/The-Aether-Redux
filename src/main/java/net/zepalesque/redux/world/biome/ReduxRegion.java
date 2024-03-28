@@ -38,6 +38,7 @@ public class ReduxRegion extends Region {
             ResourceKey<Biome> shrublands = ReduxConfig.COMMON.enable_skyroot_shrublands.get() ? ReduxBiomes.SKYROOT_SHRUBLANDS : AetherBiomes.SKYROOT_MEADOW;
             ResourceKey<Biome> grove = ReduxConfig.COMMON.enable_gilded_biomes.get() ? ReduxBiomes.GILDED_GROVES : AetherBiomes.SKYROOT_GROVE;
             ResourceKey<Biome> grasslands = ReduxConfig.COMMON.enable_gilded_biomes.get() ? ReduxBiomes.GILDED_GRASSLANDS : AetherBiomes.SKYROOT_MEADOW;
+            ResourceKey<Biome> deep = ReduxBiomes.DEEPER_AETHER;
             Climate.Parameter temp1 = Climate.Parameter.span(-1.5F, -0.5F);
             Climate.Parameter temp2 = Climate.Parameter.span(-0.5F, -0.2F);
             Climate.Parameter temp3 = Climate.Parameter.span(-0.2F, 0.2F);
@@ -60,7 +61,7 @@ public class ReduxRegion extends Region {
             addBiome(mapper, new Climate.ParameterPoint(temp2, Climate.Parameter.span(0.0F, 0.2F), fullRange, fullRange, fullRange, fullRange, 0),
                     AetherBiomes.SKYROOT_WOODLAND);
             addBiome(mapper, new Climate.ParameterPoint(temp2, Climate.Parameter.span(0.2F, 1.0F), fullRange, fullRange, fullRange, fullRange, 0),
-                    highfields); //ReduxBiomes.SHIMMERING_HILLS);
+                    deep); //ReduxBiomes.SHIMMERING_HILLS);
 
             addBiome(mapper, new Climate.ParameterPoint(temp3, Climate.Parameter.span(-1.0F, -0.3F), fullRange, fullRange, fullRange, fullRange, 0),
                     highfields);
@@ -121,18 +122,18 @@ public class ReduxRegion extends Region {
 
             //Skyroot Forests
 
-            //-----[Placeholders]-----\\
+/*            //-----[Placeholders]-----\\
             addBiome(mapper, new Climate.ParameterPoint(tempSkyroot, Climate.Parameter.span(-1.5F, -0.1F), fullRange, erosionDefault, fullRange, forestDistCrystal1, 0),
                     AncientAetherBiomes.CRYSTAL_SKYROOT_GROVE);
             addBiome(mapper, new Climate.ParameterPoint(tempSkyroot, Climate.Parameter.span(-0.1F, 0.35F), fullRange, erosionDefault, fullRange, forestDistCrystal1, 0),
                     AncientAetherBiomes.CRYSTAL_SKYROOT_FOREST);
             addBiome(mapper, new Climate.ParameterPoint(tempSkyroot, Climate.Parameter.span(-0.35F, 0.45F), fullRange, erosionDefault, fullRange, forestDistCrystal2, 0),
                     AncientAetherBiomes.CRYSTAL_SKYROOT_FOREST);
-            //-----------------------\\
+            //-----------------------\\*/
 
             /*Uncomment this once the Shimmering Hills are implemented and remove Placeholders above*/
-            //addBiome(mapper, new Climate.ParameterPoint(tempSkyroot, fullRange, fullRange, erosionDefault, fullRange, forestDistCrystal2, 0),
-            //        //ReduxBiomes.SHIMMERING_HILLS);
+            addBiome(mapper, new Climate.ParameterPoint(tempSkyroot, fullRange, fullRange, erosionDefault, fullRange, forestDistCrystal2, 0),
+                    ReduxBiomes.DEEPER_AETHER);
 
             addBiome(mapper, new Climate.ParameterPoint(tempSkyroot, Climate.Parameter.span(0.35F, 1.5F), fullRange, erosionDefault, fullRange, forestDistCrystal1, 0),
                     AetherBiomes.SKYROOT_MEADOW);

@@ -246,6 +246,24 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
                 definition().with(sound("aether_redux:entity/shimmercow/y_do_u_do_dis"))
                         .subtitle("subtitles.aether_redux.entity.crazy_cow_death"));
 
+        this.add(ReduxSoundEvents.QUAIL_AMBIENT,
+                definition()
+                        .with(sound("aether_redux:entity/quail/say1"))
+                        .with(sound("aether_redux:entity/quail/say2"))
+                        .with(sound("aether_redux:entity/quail/say3"))
+                        .subtitle("subtitles.aether_redux.entity.quail_ambient"));
+
+        this.add(ReduxSoundEvents.QUAIL_HURT,
+                definition()
+                        .with(sound("aether_redux:entity/quail/hurt1"))
+                        .with(sound("aether_redux:entity/quail/hurt2"))
+                        .subtitle("subtitles.aether_redux.entity.quail_hurt"));
+
+        this.add(ReduxSoundEvents.QUAIL_DEATH,
+                definition()
+                        .with(sound("aether_redux:entity/quail/death"))
+                        .subtitle("subtitles.aether_redux.entity.quail_death"));
+
         this.add(ReduxSoundEvents.MYKAPOD_SHELL_CRACK,
                 definition()
                         .with(sound("mob/turtle/egg/egg_crack1"))

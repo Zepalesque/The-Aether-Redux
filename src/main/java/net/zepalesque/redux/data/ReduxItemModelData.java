@@ -103,6 +103,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         item(ReduxItems.OATMEAL, "food/");
         itemBlock(ReduxBlocks.COARSE_AETHER_DIRT);
         aercloudItem(ReduxBlocks.BLIGHTED_AERCLOUD.get());
+        aercloudItem(ReduxBlocks.RAINBOW_AERCLOUD.get());
         item(ReduxItems.BLIGHTBUNNY_FANG, "materials/");
 
 

@@ -30,7 +30,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
         this.tag(ReduxTags.Blocks.PEPPERMINT_LOGS).add(ReduxBlocks.PEPPERMINT_LOG.get(), ReduxBlocks.PEPPERMINT_BLOCK.get());
 
-        this.tag(AetherTags.Blocks.AERCLOUDS).add(ReduxBlocks.BLIGHTED_AERCLOUD.get());
+        this.tag(AetherTags.Blocks.AERCLOUDS).add(ReduxBlocks.BLIGHTED_AERCLOUD.get(), ReduxBlocks.RAINBOW_AERCLOUD.get());
         this.tag(AetherTags.Blocks.SENTRY_BLOCKS).add(
                 ReduxBlocks.CARVED_STONE_BRICKS.get(),
                 ReduxBlocks.CARVED_STONE_BRICK_STAIRS.get(),

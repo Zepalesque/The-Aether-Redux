@@ -63,6 +63,9 @@ public class ReduxEntityTypes {
     public static final RegistryObject<EntityType<EntitySpawner>> BLIGHTBUNNY_SPAWNER = ENTITY_TYPES.register("blightbunny_spawner",
             () -> EntityType.Builder.of(EntitySpawner.fabricate(ReduxEntityTypes.BLIGHTBUNNY), MobCategory.CREATURE).sized(0.6F, 0.5F).clientTrackingRange(4).updateInterval(5).fireImmune().build("blightbunny_spawner")
     );
+    public static final RegistryObject<EntityType<EntitySpawner>> QUAIL_TM = ENTITY_TYPES.register("quail_tm",
+            () -> EntityType.Builder.of(EntitySpawner.quail(() -> EntityType.CHICKEN), MobCategory.CREATURE).sized(0.4F, 0.7F).clientTrackingRange(4).updateInterval(5).fireImmune().build("blightbunny_spawner")
+    );
     @SubscribeEvent
     public static void registerSpawnPlacements(SpawnPlacementRegisterEvent event) {
         event.register(ReduxEntityTypes.VANILLA_SWET.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Swet::checkSwetSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
@@ -71,6 +74,7 @@ public class ReduxEntityTypes {
         event.register(ReduxEntityTypes.BLIGHTBUNNY.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Blightbunny::checkBunnySpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
         event.register(ReduxEntityTypes.BLIGHTBUNNY_SPAWNER.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, EntitySpawner::checkEntitySpawnerSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
         event.register(ReduxEntityTypes.COCKATRICE_SPAWNER.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (e, l, s, p, r) -> !ReduxConfig.COMMON.cockatrice_burn_in_daylight.get() && EntitySpawner.checkEntitySpawnerSpawnRules(e, l, s, p, r), SpawnPlacementRegisterEvent.Operation.OR);
+        event.register(ReduxEntityTypes.QUAIL_TM.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, EntitySpawner::checkEntitySpawnerSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
     }
 
     @SubscribeEvent
@@ -81,6 +85,7 @@ public class ReduxEntityTypes {
         event.put(ReduxEntityTypes.BLIGHTBUNNY.get(), Blightbunny.createAttributes().build());
         event.put(ReduxEntityTypes.BLIGHTBUNNY_SPAWNER.get(), EntitySpawner.createAttributes().build());
         event.put(ReduxEntityTypes.COCKATRICE_SPAWNER.get(), EntitySpawner.createAttributes().build());
+        event.put(ReduxEntityTypes.QUAIL_TM.get(), EntitySpawner.createAttributes().build());
     }
 }
 

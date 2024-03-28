@@ -32,6 +32,7 @@ import net.zepalesque.redux.block.dungeon.Flareblossom;
 import net.zepalesque.redux.block.natural.*;
 import net.zepalesque.redux.block.natural.blight.*;
 import net.zepalesque.redux.block.natural.cloudcap.*;
+import net.zepalesque.redux.block.natural.deep.RainbowAercloudBlock;
 import net.zepalesque.redux.block.natural.enchanted.EnchantableBushBlock;
 import net.zepalesque.redux.block.natural.enchanted.EnchantableFlowerBlock;
 import net.zepalesque.redux.block.natural.enchanted.EnchantedVinesHeadBlock;
@@ -137,6 +138,8 @@ public class ReduxBlocks {
             BlockBehaviour.Properties.copy(AetherBlocks.SKYROOT_LEAVES.get()).hasPostProcess((state, lvl, pos) -> true).isSuffocating(ReduxBlocks::never).isViewBlocking(ReduxBlocks::never).mapColor(MapColor.COLOR_LIGHT_BLUE).sound(SoundType.CHERRY_LEAVES)));
 
     public static RegistryObject<Block> BLIGHTED_AERCLOUD = register("blighted_aercloud", () -> new BlightedAercloudBlock(BlockBehaviour.Properties.copy(AetherBlocks.COLD_AERCLOUD.get()).mapColor(MapColor.COLOR_LIGHT_GREEN)));
+
+    public static RegistryObject<Block> RAINBOW_AERCLOUD = register("rainbow_aercloud", () -> new RainbowAercloudBlock(BlockBehaviour.Properties.copy(AetherBlocks.COLD_AERCLOUD.get()).mapColor(MapColor.COLOR_RED)));
 
     public static RegistryObject<Block> HOLYSILT = register("holysilt",
             () -> new HolysiltBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).strength(0.5F).sound(SoundType.SAND)));

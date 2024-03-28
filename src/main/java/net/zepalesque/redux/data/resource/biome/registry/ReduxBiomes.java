@@ -31,6 +31,9 @@ public class ReduxBiomes {
     public static final ResourceKey<Biome> CLOUDCAPS = createKey("cloudcaps");
     public static final ResourceKey<Biome> SKYROOT_SHRUBLANDS = createKey("skyroot_shrublands");
 
+    // April fools stuff
+    public static final ResourceKey<Biome> DEEPER_AETHER = createKey("skyroot_shrublands");
+
     // TODO: Add to 2.1
     public static final ResourceKey<Biome> SHIMMERING_HILLS = createKey("shimmering_hills");
     public static final ResourceKey<Biome> QUICKSOIL_DUNES = createKey("quicksoil_dunes");
@@ -45,6 +48,7 @@ public class ReduxBiomes {
     public static final int GILDED_GRASS_COLOR = 0xFFED96;
     public static final int GILDED_GRASSLANDS_COLOR = 0xFFF5A3;
     public static final int BLIGHT_GRASS_COLOR = 0xFFAAE2;
+    public static final int DEEP_COLOR = 0xD5BAFF;
     public static final int FROSTED_GRASS_COLOR = 0xCCF7FF;
     public static final int SKYFIELDS_GRASS_COLOR = 0xBFFFEC;
     public static final int SHRUBLANDS_GRASS_COLOR = 0xD7FFCC;
@@ -73,6 +77,7 @@ public class ReduxBiomes {
             .put(SKYFIELDS, SKYFIELDS_GRASS_COLOR)
             .put(CLOUDCAPS, CLOUDCAP_GRASS_COLOR)
             .put(SKYROOT_SHRUBLANDS, SHRUBLANDS_GRASS_COLOR)
+            .put(DEEPER_AETHER, DEEP_COLOR)
             .build();
 
 
@@ -115,6 +120,7 @@ public class ReduxBiomes {
         context.register(GILDED_GRASSLANDS, GildedGrasslands.generate(context));
         context.register(SKYFIELDS, Skyfields.generate(context));
         context.register(SKYROOT_SHRUBLANDS, SkyrootShrublands.generate(context));
+        context.register(DEEPER_AETHER, DeeperAether.generate(context));
     }
 
 

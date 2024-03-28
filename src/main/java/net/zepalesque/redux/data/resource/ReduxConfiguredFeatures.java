@@ -96,6 +96,7 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTSHADE_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.BLIGHTSHADE) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTWILLOW_TREE = createKey(Folders.TREE + "blightwillow_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTED_AERCLOUD = createKey(Folders.MISC + "blighted_aercloud");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> RAINBOW_AERCLOUD = createKey(Folders.MISC + "rainbow_aercloud");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHT_ROCK = createKey(Folders.SURFACE + "blight_rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHT_TREES = createKey(Folders.TREE + "blight_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYROOT_BUSH = createKey(Folders.PATCH + "skyroot_bush");
@@ -110,6 +111,7 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTED_PURPLE_FLOWER_PATCH = createKey(Folders.PATCH + "frosted_purple_flower_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTED_TREES = createKey(Folders.TREE + "frosted_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLACIAL_TREES = createKey(Folders.TREE + "glacial_trees");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DEEP_TREES = createKey(Folders.TREE + "deep_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CORRUPTED_VINES_PATCH = createKey(Folders.PATCH + "corrupted_vines_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GILDED_HOLYSTONE_ORE = createKey(Folders.ORE + name(ReduxBlocks.GILDED_HOLYSTONE) + "_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTMOSS_HOLYSTONE_ORE = createKey(Folders.ORE + name(ReduxBlocks.BLIGHTMOSS_HOLYSTONE) + "_ore");
@@ -141,6 +143,8 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_CLOUDCAP  = createKey(Folders.TREE + "large_cloudcap");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LIGHTROOTS  = createKey(Folders.MISC + "lightroots");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLACIA_TREE = createKey(Folders.TREE + "glacia_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_DEEP_TREE = createKey(Folders.TREE + "large_deep_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_DEEP_TREE = createKey(Folders.TREE + "small_deep_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CRYSTAL_LEAF_TREE = createKey(Folders.TREE + "crystal_leaf_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CRYSTAL_RARE_FRUIT_TREE = createKey(Folders.TREE + "crystal_rare_fruit_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PURPLE_CRYSTAL_RARE_FRUIT_TREE = createKey(Folders.COMPAT + "purple_crystal_rare_fruit_tree");
@@ -274,6 +278,9 @@ public class ReduxConfiguredFeatures {
 
         register(context, BLIGHTED_AERCLOUD, AetherFeatures.AERCLOUD.get(),
                 AetherConfiguredFeatureBuilders.aercloud(8, drops(ReduxBlocks.BLIGHTED_AERCLOUD)));
+
+        register(context, RAINBOW_AERCLOUD, AetherFeatures.AERCLOUD.get(),
+                AetherConfiguredFeatureBuilders.aercloud(8, drops(ReduxBlocks.RAINBOW_AERCLOUD)));
 
         register(context, FUNGAL_PATCH_BONEMEAL, Feature.VEGETATION_PATCH,
                 new VegetationPatchConfiguration(ReduxTags.Blocks.AETHER_CARVER_REPLACEABLES,
@@ -495,6 +502,22 @@ public class ReduxConfiguredFeatures {
                         prov(Redux.WoodHandlers.GLACIA.log),
                         new StraightTrunkPlacer(9, 10, 0),
                         prov(ReduxBlocks.GLACIA_LEAVES),
+                        new GlaciaFoliagePlacer(ConstantInt.of(1), ConstantInt.of(0), ConstantInt.of(1)),
+                        new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT)).build());
+
+        register(context, LARGE_DEEP_TREE, Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        prov(Redux.WoodHandlers.FIELDSPROOT.log),
+                        new StraightTrunkPlacer(9, 10, 0),
+                        prov(ReduxBlocks.FIELDSPROOT_LEAVES),
+                        new GlaciaFoliagePlacer(ConstantInt.of(1), ConstantInt.of(0), ConstantInt.of(1)),
+                        new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT)).build());
+
+        register(context, SMALL_DEEP_TREE, Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        prov(Redux.WoodHandlers.FIELDSPROOT.log),
+                        new StraightTrunkPlacer(5, 2, 0),
+                        prov(ReduxBlocks.FIELDSPROOT_LEAVES),
                         new GlaciaFoliagePlacer(ConstantInt.of(1), ConstantInt.of(0), ConstantInt.of(1)),
                         new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT)).build());
 
@@ -749,6 +772,11 @@ public class ReduxConfiguredFeatures {
                 new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
                         PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(GLACIA_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.GLACIA_SAPLING.get())), 0.05F)),
                         PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(PURPLE_GLACIA_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.PURPLE_GLACIA_SAPLING.get()))));
+
+        register(context, DEEP_TREES, Feature.RANDOM_SELECTOR,
+                new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
+                        PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(SMALL_DEEP_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.FIELDSPROOT_SAPLING.get())), 0.05F)),
+                        PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(LARGE_DEEP_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.FIELDSPROOT_SAPLING.get()))));
 
 
         register(context, SKYFIELDS_TREES, Feature.RANDOM_SELECTOR,
