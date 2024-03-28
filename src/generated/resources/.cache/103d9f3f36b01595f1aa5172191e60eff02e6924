@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-27T23:15:42.5916646	Registries
+// 1.20.1	2024-03-27T23:20:02.3874494	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 94d997b0a87f23900f66f9a9e2485391b6ff8e38 data/aether/worldgen/configured_feature/golden_oak_tree.json
 875593e37a52dd63b2d87226b0f0e5e76ef48247 data/aether/worldgen/configured_feature/grass_patch.json
@@ -201,6 +201,7 @@ b1dfe34e18abcd195981b883c6d3118d88778fe9 data/aether_redux/worldgen/placed_featu
 0510ebe45b4d79f14a7e99258a4cd6f8f6ea3fae data/aether_redux/worldgen/placed_feature/patch/deep_grass_patch.json
 9ada28f868fb24a0fb2ebbe66e425314dec2fa25 data/aether_redux/worldgen/placed_feature/patch/dense_grass.json
 a160703c787c3c38e0335131f5b09d3fd4083c2e data/aether_redux/worldgen/placed_feature/patch/edelweiss_patch.json
+bf18e65ad7f82792917956a87a48fe830b8ed69b data/aether_redux/worldgen/placed_feature/patch/flawless_bloom_patch.json
 cf30e4f600a81646495a537654c2e038b50fb6be data/aether_redux/worldgen/placed_feature/patch/frosted_purple_flower_patch.json
 cb0c68ad22197a43522001643831fc4b5e9d0a66 data/aether_redux/worldgen/placed_feature/patch/genesis_skysprouts_patch.json
 0df06545d48a0f9989ed58f02b0ea7d2ade2d072 data/aether_redux/worldgen/placed_feature/patch/genesis_wyndsprouts_patch.json
