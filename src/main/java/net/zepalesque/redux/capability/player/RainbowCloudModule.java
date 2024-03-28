@@ -24,9 +24,12 @@ public class RainbowCloudModule implements PlayerTickModule {
             if (!this.player.level().isClientSide()) {
                 this.player.level().playSound(null, this.player.blockPosition(), ReduxSoundEvents.RAINBOW_CLOUD_END.get(), SoundSource.BLOCKS, 0.8F, 1.0F);
             }
-            this.player.addDeltaMovement(new Vec3(0, 10, 0));
         }
-        if (this.bounds == null || !this.player.getBoundingBox().intersects(this.bounds)) {
+        if (this.boostTimer == 15) {
+            this.player.addDeltaMovement(new Vec3(0, 5, 0));
+
+        }
+            if (this.bounds == null || !this.player.getBoundingBox().intersects(this.bounds)) {
             this.cancel(true);
         }
         if (this.boostTimer > 0) {
