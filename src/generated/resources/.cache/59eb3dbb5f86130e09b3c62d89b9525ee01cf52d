@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-27T21:52:14.8068884	Loot Tables
+// 1.20.1	2024-03-27T23:15:42.5666796	Loot Tables
 c6156555dc4897939b617dabc4521b7fa52feba0 data/aether_redux/loot_tables/blocks/aurum.json
 b5773c78c7b3f27032f1cca6fb72f440e24c7529 data/aether_redux/loot_tables/blocks/avelium.json
 4c8b773f2431b28dd2a48b90d08323d8ff67a3d7 data/aether_redux/loot_tables/blocks/avelium_roots.json
@@ -254,6 +254,7 @@ e60e90e3b70f3f3b8904cf994e7c0c46dcb72003 data/aether_redux/loot_tables/blocks/pu
 a8655c14dcb62175a9ab8cf34bfb7372d0c8f805 data/aether_redux/loot_tables/blocks/purple_glacia_sapling.json
 2c79bce7f467a95606ffae4861e214c2219c5b87 data/aether_redux/loot_tables/blocks/purple_potted_crystal_fruit_sapling.json
 214b296579c2e9375836091351f46f81b52b014a data/aether_redux/loot_tables/blocks/purple_potted_glacia_sapling.json
+8af3688452bfb9fc46e9a1ccebd00114f0e5667b data/aether_redux/loot_tables/blocks/rainbow_aercloud.json
 4c41d63b70c606f4d6d24eb333c4ff55812f2838 data/aether_redux/loot_tables/blocks/raw_gravitite_block.json
 6f55f9eaef5917b8d6a45c1d3f833085eec67af8 data/aether_redux/loot_tables/blocks/raw_valkyrum_block.json
 31634f3ccbb1109ba54691cd7c7c94d822fddafa data/aether_redux/loot_tables/blocks/raw_veridium_block.json
@@ -319,6 +320,7 @@ d0753e06e1f2a8f2568f0513b09e7ac86f711942 data/aether_redux/loot_tables/entities/
 b206108235b3499dfdc2ebe43b683efd7c86c392 data/aether_redux/loot_tables/entities/blightbunny_spawner.json
 51ea5d53b8e740ad6b8b20969dd7d4cf4a4d06f4 data/aether_redux/loot_tables/entities/cockatrice_spawner.json
 e5fede6edbcfede8c1e92419ec2c6552147a7121 data/aether_redux/loot_tables/entities/mykapod.json
+80fa1705d61e583220d673abd0066ab01cdefe63 data/aether_redux/loot_tables/entities/quail_tm.json
 6a64016797a5ac8d9fe91904db7fa259d27e7f81 data/aether_redux/loot_tables/entities/shimmercow.json
 5f8d4bdef19ef87d6a912869cb1ea2bb3d3bd199 data/aether_redux/loot_tables/entities/vanilla_swet.json
 aee3ab539e3471c2e79566dd0797bc43a01094c2 data/aether_redux/loot_tables/stripping/strip_blightwillow.json
