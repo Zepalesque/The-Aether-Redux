@@ -17,6 +17,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.config.ReduxConfig;
+import net.zepalesque.redux.entity.misc.Rebux;
 import net.zepalesque.redux.entity.monster.Blightbunny;
 import net.zepalesque.redux.entity.passive.Mykapod;
 import net.zepalesque.redux.entity.passive.Shimmercow;
@@ -45,6 +46,9 @@ public class ReduxEntityTypes {
 
     public static final RegistryObject<EntityType<Ember>> EMBER = ENTITY_TYPES.register("ember",
             () -> EntityType.Builder.<Ember>of(Ember::new, MobCategory.MISC).sized(0.125F, 0.125F).clientTrackingRange(4).updateInterval(20).build("ember"));
+
+    public static final RegistryObject<EntityType<Rebux>> REBUX = ENTITY_TYPES.register("rebux",
+            () -> EntityType.Builder.<Rebux>of(Rebux::new, MobCategory.MISC).sized(0.25F, 0.25F).clientTrackingRange(4).updateInterval(20).build("rebux"));
 
     public static final RegistryObject<EntityType<Shimmercow>> SHIMMERCOW = ENTITY_TYPES.register("shimmercow",
             () -> EntityType.Builder.of(Shimmercow::new, MobCategory.CREATURE).sized(1.125F, 1.625F).clientTrackingRange(10).build("shimmercow"));

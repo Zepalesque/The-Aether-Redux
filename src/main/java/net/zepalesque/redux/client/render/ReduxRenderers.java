@@ -23,6 +23,8 @@ import net.zepalesque.redux.client.render.entity.*;
 import net.zepalesque.redux.client.render.entity.layer.entity.*;
 import net.zepalesque.redux.client.render.entity.misc.ReduxBoatRenderer;
 import net.zepalesque.redux.client.render.entity.model.PinModel;
+import net.zepalesque.redux.client.render.entity.model.RebuxModel;
+import net.zepalesque.redux.client.render.entity.model.RebuxRenderer;
 import net.zepalesque.redux.client.render.entity.model.SpearModel;
 import net.zepalesque.redux.client.render.entity.model.entity.*;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
@@ -70,6 +72,8 @@ public class ReduxRenderers {
 
         event.registerEntityRenderer(ReduxEntityTypes.BLIGHTBUNNY.get(), BlightbunnyRenderer::new);
 
+        event.registerEntityRenderer(ReduxEntityTypes.REBUX.get(), RebuxRenderer::new);
+
 //        event.registerEntityRenderer(AetherEntityTypes.MIMIC.get(), ReduxMimicRenderer::new);
 //        event.registerEntityRenderer(AetherEntityTypes.SENTRY.get(), ReduxSentryRenderer::new);
 
@@ -95,6 +99,7 @@ public class ReduxRenderers {
         event.registerLayerDefinition(ReduxModelLayers.SENTRY, SentryReduxModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.BLIGHTBUNNY, BlightbunnyModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.SPEAR, SpearModel::createLayer);
+        event.registerLayerDefinition(ReduxModelLayers.REBUX, RebuxModel::createLayer);
         event.registerLayerDefinition(ReduxModelLayers.SHEEPUFF, SheepuffReduxModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.PHYG, PhygReduxModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.FLYING_COW, FlyingCowReduxModel::createBodyLayer);

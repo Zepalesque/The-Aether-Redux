@@ -19,7 +19,8 @@ public class ReduxPlayerCapability implements ReduxPlayer {
     private final Player player;
 
     private final Map<String, Triple<Type, Consumer<Object>, Supplier<Object>>> synchableFunctions = Map.ofEntries(
-            Map.entry("setMaxAirJumps", Triple.of(Type.INT, (object) -> this.setMaxAirJumps((int) object), this::getMaxAirJumps))
+            Map.entry("setMaxAirJumps", Triple.of(Type.INT, (object) -> this.setMaxAirJumps((int) object), this::getMaxAirJumps)),
+            Map.entry("rebux", Triple.of(Type.INT, (object) -> this.setRebux((int) object), this::rebuxCount))
     );
     @Override
     public Map<String, Triple<Type, Consumer<Object>, Supplier<Object>>> getSynchableFunctions() {
@@ -34,6 +35,8 @@ public class ReduxPlayerCapability implements ReduxPlayer {
 
 
     int maxAirJumps = 0;
+
+    int rebux = 0;
 
 
     int ticksInAir = 0;
@@ -96,6 +99,21 @@ public class ReduxPlayerCapability implements ReduxPlayer {
     @Override
     public int ticksInAir() {
         return ticksInAir;
+    }
+
+    @Override
+    public int rebuxCount() {
+        return this.rebux;
+    }
+
+    @Override
+    public void setRebux(int amount) {
+        this.rebux = amount;
+    }
+
+    @Override
+    public void increaseRebux(int amount) {
+        this.setSynched(Direction.CLIENT, "rebux", this.rebux + amount);
     }
 
     @Override
@@ -206,6 +224,7 @@ public class ReduxPlayerCapability implements ReduxPlayer {
         tag.putInt("max_jumps", this.maxAirJumps);
         tag.putInt("jumps", this.airJumps);
         tag.putInt("ticks_in_air", this.ticksInAir);
+        tag.putInt("rebux_count", this.rebux);
         tag.put("lore_module", this.lore.serializeNBT());
         tag.put("blightshade_module", this.blightshade.serializeNBT());
         return tag;
@@ -216,6 +235,7 @@ public class ReduxPlayerCapability implements ReduxPlayer {
         this.maxAirJumps = nbt.getInt("max_jumps");
         this.airJumps = nbt.getInt("jumps");
         this.ticksInAir = nbt.getInt("ticks_in_air");
+        this.rebux = nbt.getInt("rebux_count");
         this.lore.deserializeNBT(nbt.get("lore_module"));
         this.blightshade.deserializeNBT(nbt.get("blightshade_module"));
     }

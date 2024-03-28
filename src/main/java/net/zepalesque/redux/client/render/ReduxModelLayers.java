@@ -20,6 +20,8 @@ public class ReduxModelLayers {
     public static final ModelLayerLocation BLIGHTBUNNY = register("blightbunny");
     public static final ModelLayerLocation SPEAR = register("blight_spear");
 
+    public static final ModelLayerLocation REBUX = register("rebux");
+
     public static final ModelLayerLocation GLIMMERCOW = register("glimmercow");
 
     public static final ModelLayerLocation SHEEPUFF = register("redux_sheepuff");
