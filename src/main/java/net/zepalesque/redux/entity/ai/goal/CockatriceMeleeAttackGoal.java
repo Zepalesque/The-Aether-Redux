@@ -1,6 +1,7 @@
 package net.zepalesque.redux.entity.ai.goal;
 
 import com.aetherteam.aether.entity.monster.Cockatrice;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EntitySelector;
 import net.minecraft.world.entity.LivingEntity;
@@ -8,6 +9,7 @@ import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.pathfinder.Path;
 import net.minecraftforge.common.util.LazyOptional;
+import net.zepalesque.redux.advancement.trigger.AprilReduxSpecialTrigger;
 import net.zepalesque.redux.capability.cockatrice.CockatriceExtension;
 
 import java.util.EnumSet;
@@ -164,7 +166,9 @@ public class CockatriceMeleeAttackGoal extends Goal {
         if (distToEnemySqr <= d0 && this.ticksUntilNextAttack <= 0) {
             this.resetAttackCooldown();
             this.mob.swing(InteractionHand.MAIN_HAND);
-//            this.mob.doHurtTarget(enemy);
+            if (enemy instanceof ServerPlayer sp) {
+                AprilReduxSpecialTrigger.INSTANCE.trigger(sp, "hug");
+            }
         }
 
     }
