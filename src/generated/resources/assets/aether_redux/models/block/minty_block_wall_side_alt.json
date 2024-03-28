@@ -1,0 +1,8 @@
+{
+  "parent": "aether_redux:block/wooden_side_alt",
+  "textures": {
+    "particle": "aether_redux:block/natural/minty_log",
+    "side": "aether_redux:block/natural/minty_log",
+    "top": "aether_redux:block/natural/minty_log"
+  }
+}

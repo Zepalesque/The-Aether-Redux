@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "aether_redux:block/minty_slab"
+    },
+    "type=double": {
+      "model": "aether_redux:block/minty_planks"
+    },
+    "type=top": {
+      "model": "aether_redux:block/minty_slab_top"
+    }
+  }
+}

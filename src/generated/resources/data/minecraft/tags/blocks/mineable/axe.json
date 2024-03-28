@@ -87,6 +87,19 @@
     "aether_redux:jellyshroom_wall_sign",
     "aether_redux:jellyshroom_stem_wall",
     "aether_redux:jellyshroom_hyphae_wall",
-    "#aether_redux:jellyshroom_stems"
+    "#aether_redux:jellyshroom_stems",
+    "aether_redux:minty_planks",
+    "aether_redux:minty_bookshelf",
+    "aether_redux:minty_stairs",
+    "aether_redux:minty_slab",
+    "aether_redux:minty_fence",
+    "aether_redux:minty_fence_gate",
+    "aether_redux:minty_door",
+    "aether_redux:minty_trapdoor",
+    "aether_redux:minty_sign",
+    "aether_redux:minty_wall_sign",
+    "aether_redux:minty_log_wall",
+    "aether_redux:minty_block_wall",
+    "#aether_redux:minty_logs"
   ]
 }

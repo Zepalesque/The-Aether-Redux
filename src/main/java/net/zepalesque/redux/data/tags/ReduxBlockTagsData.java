@@ -29,7 +29,6 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
 
     protected void addTags(HolderLookup.Provider provider) {
         this.tag(ReduxTags.Blocks.PEPPERMINT_LOGS).add(ReduxBlocks.PEPPERMINT_LOG.get(), ReduxBlocks.PEPPERMINT_BLOCK.get());
-        this.tag(Redux.WoodHandlers.MINTY.logsBlockTag).addTag(ReduxTags.Blocks.PEPPERMINT_LOGS);
 
         this.tag(AetherTags.Blocks.AERCLOUDS).add(ReduxBlocks.BLIGHTED_AERCLOUD.get());
         this.tag(AetherTags.Blocks.SENTRY_BLOCKS).add(
@@ -135,6 +134,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         }
 
 
+        this.tag(Redux.WoodHandlers.MINTY.logsBlockTag).addTag(ReduxTags.Blocks.PEPPERMINT_LOGS);
 
         this.tag(AetherTags.Blocks.AETHER_DIRT).add(
                 ReduxBlocks.AVELIUM.get(),

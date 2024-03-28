@@ -5,6 +5,7 @@
     "aether_redux:glacia_button",
     "aether_redux:fieldsproot_button",
     "aether_redux:cloudcap_button",
-    "aether_redux:jellyshroom_button"
+    "aether_redux:jellyshroom_button",
+    "aether_redux:minty_button"
   ]
 }
