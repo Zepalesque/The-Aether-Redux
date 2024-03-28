@@ -168,9 +168,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.POTTED_EDELWEISS, "Potted Edelweiss");
         addLore(ReduxBlocks.EDELWEISS, "A nice flower found in the Crystallium Woods biome.");
 
-        addBlock(ReduxBlocks.JELLYSHROOM, "Springjelly Shroom");
-        addBlock(ReduxBlocks.POTTED_JELLYSHROOM, "Potted Springjelly Shroom");
-        addLore(ReduxBlocks.JELLYSHROOM, "A jelly-based mushroom, which is found in the NotMoolands.");
+        addBlock(ReduxBlocks.JELLYSHROOM, "Jelloshroom");
+        addBlock(ReduxBlocks.POTTED_JELLYSHROOM, "Potted Jelloshroom");
+        addLore(ReduxBlocks.JELLYSHROOM, "A gelatinous mushroom found in the Cowcaps and the Sugarfields.");
 
         addBlock(ReduxBlocks.SHIMMERSTOOL, "Wackyshroom");
         addBlock(ReduxBlocks.POTTED_SHIMMERSTOOL, "Potted Wackyshroom");
@@ -181,8 +181,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.CLOUDCAP_SPORES, "Cowcap Spores");
         addLore(ReduxBlocks.CLOUDCAP_SPORES, "A block of spores from the large Cowcap Mushrooms, found in the Cowcaps.");
 
-        addBlock(ReduxBlocks.JELLYSHROOM_JELLY_BLOCK, "Springjelly Shroom Spring Jelly Block");
-        addLore(ReduxBlocks.JELLYSHROOM_JELLY_BLOCK, "Jelly from a large Springjelly Shroom, which can be found in the Cowcaps.");
+        addBlock(ReduxBlocks.JELLYSHROOM_JELLY_BLOCK, "Jelloshroom Jello Block");
+        addLore(ReduxBlocks.JELLYSHROOM_JELLY_BLOCK, "Jelly from a large Jelloshroom, which can be found in the Cowcaps.");
 
         addBlock(ReduxBlocks.COARSE_AETHER_DIRT, "Coarse Aether Dirt");
         addLore(ReduxBlocks.COARSE_AETHER_DIRT, "A variant of Aether Dirt that does not regrow any grass.");
