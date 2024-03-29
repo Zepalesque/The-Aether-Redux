@@ -22,6 +22,7 @@ import net.zepalesque.redux.capability.player.ReduxPlayer;
 import net.zepalesque.redux.client.gui.helper.GraphicsHelper;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.effect.ReduxEffects;
+import net.zepalesque.redux.util.math.EasingUtil;
 import net.zepalesque.redux.util.math.MathUtil;
 import org.jetbrains.annotations.Nullable;
 import snownee.jade.Jade;
@@ -82,11 +83,8 @@ public class ReduxOverlays {
         });
     }
 
-    private static boolean shouldShowRebuxCounter(@Nullable Screen screen) {
-        if (screen == null) {
-            return false;
-        }
-        return true;
+    private static boolean shouldShowCounterInGUI(@Nullable Screen screen) {
+        return screen != null && ReduxConfig.CLIENT.show_coinbar_in_gui.get();
     }
 
 
@@ -113,10 +111,10 @@ public class ReduxOverlays {
         if (!ReduxConfig.CLIENT.coinbar_movement.get()) {
             return 64;
         }
-        if (shouldShowRebuxCounter(mc.screen)) {
+        if (shouldShowCounterInGUI(mc.screen)) {
             return 32;
         } else {
-            return (float) MathUtil.costrp(Mth.lerp(partialTicks, prevRebuxY, rebuxY) / 16D, 0, 32);
+            return EasingUtil.Cubic.inOut(Mth.lerp(partialTicks, prevRebuxY, rebuxY) / 16F);
         }
     }
 

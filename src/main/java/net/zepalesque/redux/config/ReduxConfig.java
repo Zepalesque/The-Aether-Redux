@@ -171,6 +171,7 @@ public class ReduxConfig {
 
         public final ForgeConfigSpec.EnumValue<CoinbarSetting> side_coinbar;
         public final ForgeConfigSpec.BooleanValue coinbar_movement;
+        public final ForgeConfigSpec.BooleanValue show_coinbar_in_gui;
 
         public Client(ForgeConfigSpec.Builder builder) {
             builder.push(List.of("Rendering", "Mob Model Upgrades"));
@@ -189,6 +190,7 @@ public class ReduxConfig {
             this.cycle_menu = builder.comment("Cycles between Redux's menus.").define("Cycle Menu", true);
             this.side_coinbar = builder.comment("Whether or not to use the side coinbar even if Jade is not installed").defineEnum("Always Use Side Coinbar", CoinbarSetting.With_Jade, EnumGetMethod.NAME_IGNORECASE);
             this.coinbar_movement = builder.comment("Whether or not to move the coinbar when it appears").define("Coinbar Movement", true);
+            this.show_coinbar_in_gui = builder.comment("Whether or not to show the coinbar when a GUI is open").define("Show Coinbar always when GUI is open", false);
             builder.pop();
             builder.push("Particles");
             this.better_leaf_particles = builder.comment("Improves the leaf particles for Golden Oaks, Gilded Oaks, and Crystal Trees, based on Minecraft 1.20's new cherry tree particles.").define("Better Leaf Particles", true);
