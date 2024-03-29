@@ -181,6 +181,22 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .unlockedBy(getHasName(ReduxBlocks.SENTRITE.get()), has(ReduxBlocks.SENTRITE.get()))
                 .save(consumer);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.PEPPERMINT_LOG.get(), 2)
+                .define('C', AetherItems.CANDY_CANE.get())
+                .pattern("CC")
+                .pattern("CC")
+                .unlockedBy(getHasName(AetherItems.CANDY_CANE.get()), has(AetherItems.CANDY_CANE.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SUGARGRASS_BLOCK.get(), 2)
+                .define('C', ReduxBlocks.COCOA_SOIL.get())
+                .define('S', Items.SUGAR)
+                .pattern("CC")
+                .pattern("SS")
+                .pattern("SS")
+                .unlockedBy(getHasName(ReduxBlocks.COCOA_SOIL.get()), has(ReduxBlocks.COCOA_SOIL.get()))
+                .save(consumer);
+
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRITE_WALL.get(), ReduxBlocks.SENTRITE.get())
                 .save(consumer, Redux.locate(ReduxBlocks.SENTRITE.getId().getPath() + "_wall_stonecutting"));
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRITE_SLAB.get(), ReduxBlocks.SENTRITE.get())
