@@ -7,6 +7,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.network.simple.SimpleChannel;
 import net.zepalesque.redux.advancement.trigger.PickupRebuxTrigger;
+import net.zepalesque.redux.client.render.ReduxOverlays;
 import net.zepalesque.redux.entity.misc.Rebux;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.network.ReduxPacketHandler;
@@ -111,6 +112,9 @@ public class ReduxPlayerCapability implements ReduxPlayer {
 
     @Override
     public void setRebux(int amount) {
+        if (this.rebux != amount && this.player.level().isClientSide()) {
+            ReduxOverlays.rebux(true);
+        }
         this.rebux = amount;
     }
 

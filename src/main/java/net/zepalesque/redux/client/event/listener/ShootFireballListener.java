@@ -10,6 +10,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.capability.player.ReduxPlayer;
 import net.zepalesque.redux.client.keys.ReduxKeys;
+import net.zepalesque.redux.client.render.ReduxOverlays;
 import net.zepalesque.redux.network.ReduxPacketHandler;
 import net.zepalesque.redux.network.packet.ShootFireballPacket;
 
@@ -24,6 +25,8 @@ public class ShootFireballListener {
         if (event.phase != TickEvent.Phase.END) {
             return;
         }
+
+        ReduxOverlays.tick();
 
         Minecraft mc = Minecraft.getInstance();
 

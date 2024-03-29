@@ -69,6 +69,26 @@ public class ReduxOverlays {
     }
 
 
+    public static void tick() {
+        Minecraft minecraft = Minecraft.getInstance();
+        if ((rebuxTarget || minecraft.screen != null) && rebuxY < max) {
+            rebuxY++;
+        } else if (rebuxY > 0) {
+            rebuxY--;
+        }
+        if (rebuxCooldown <= 0) {
+            rebuxTarget = false;
+            rebuxCooldown = 100;
+        } else if (minecraft.screen == null) {
+            rebuxCooldown--;
+        }
+    }
+
+    public static void rebux(boolean set) {
+        rebuxTarget = set;
+    }
+
+
     private static void renderAdrenalineOverlay(GuiGraphics guiGraphics, Minecraft minecraft, Window window, AdrenalineModule module, float partialTicks) {
         double effectScale = minecraft.options.screenEffectScale().get();
         float alpha = module.getTransparency(partialTicks);
