@@ -1,4 +1,6 @@
 {
+  "advancement.aether_redux.base": "The Aether: Redux",
+  "advancement.aether_redux.base.desc": "Classic hostile paradise, with some upgrades and tune-ups",
   "advancement.aether_redux.convert_with_blighted_spores": "Dark Magic",
   "advancement.aether_redux.convert_with_blighted_spores.desc": "good friend nice-ify a block by right-clicking it while holding some Mini Hearts",
   "advancement.aether_redux.double_jump": "Murderer of Logic",
@@ -389,6 +391,7 @@
   "entity.aether_redux.ember": "Ember",
   "entity.aether_redux.infused_veridium_dart": "Infused Veridium Dart",
   "entity.aether_redux.mykapod": "Milkapod",
+  "entity.aether_redux.rebux": "Rebux",
   "entity.aether_redux.shimmercow": "Crazy Cow",
   "entity.aether_redux.vanilla_swet": "Vanilla Swet",
   "entity.aether_redux.veridium_dart": "Veridium Dart",
@@ -928,6 +931,7 @@
   "subtitles.aether_redux.entity.shimmercow_hurt": "Crazy Cow hurts",
   "subtitles.aether_redux.entity.swet_attack": "Swet attacks",
   "subtitles.aether_redux.generic.boost_jump": "Something double-jumps",
+  "subtitles.aether_redux.generic.coin_pickup": "Rebux jingles",
   "subtitles.aether_redux.generic.fireball_shoot": "Fireball shoots",
   "subtitles.aether_redux.item.accessory.equip_bittersweet_charm": "Bittersweet Charm jingles",
   "subtitles.aether_redux.item.accessory.equip_enchanted_ring": "Enchanted Ring thunks",
