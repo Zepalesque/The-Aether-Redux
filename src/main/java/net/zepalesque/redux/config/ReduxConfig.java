@@ -1,6 +1,8 @@
 package net.zepalesque.redux.config;
 
+import com.electronwill.nightconfig.core.EnumGetMethod;
 import net.minecraftforge.common.ForgeConfigSpec;
+import net.zepalesque.redux.config.enums.CoinbarSetting;
 import net.zepalesque.redux.config.enums.MimicModelType;
 import net.zepalesque.redux.config.enums.QuicksoilSetting;
 import net.zepalesque.redux.config.enums.SpawnerType;
@@ -167,7 +169,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue first_startup_lightmap_changes;
         public final ForgeConfigSpec.BooleanValue aercloud_sfx;
 
-        public final ForgeConfigSpec.BooleanValue side_coinbar;
+        public final ForgeConfigSpec.EnumValue<CoinbarSetting> side_coinbar;
         public final ForgeConfigSpec.BooleanValue coinbar_movement;
 
         public Client(ForgeConfigSpec.Builder builder) {
@@ -185,7 +187,7 @@ public class ReduxConfig {
 //            builder.pop();
             builder.push("GUI");
             this.cycle_menu = builder.comment("Cycles between Redux's menus.").define("Cycle Menu", true);
-            this.side_coinbar = builder.comment("Whether or not to use the side coinbar even if Jade is not installed").define("Always Use Side Coinbar", false);
+            this.side_coinbar = builder.comment("Whether or not to use the side coinbar even if Jade is not installed").defineEnum("Always Use Side Coinbar", CoinbarSetting.With_Jade, EnumGetMethod.NAME_IGNORECASE);
             this.coinbar_movement = builder.comment("Whether or not to move the coinbar when it appears").define("Coinbar Movement", true);
             builder.pop();
             builder.push("Particles");

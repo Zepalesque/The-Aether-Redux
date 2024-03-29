@@ -24,7 +24,7 @@ import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.effect.ReduxEffects;
 import net.zepalesque.redux.util.math.MathUtil;
 import org.jetbrains.annotations.Nullable;
-import snownee.jade.overlay.OverlayRenderer;
+import snownee.jade.Jade;
 
 
 @Mod.EventBusSubscriber(
@@ -158,7 +158,7 @@ public class ReduxOverlays {
     private static void renderRebux(GuiGraphics guiGraphics, Window window, float alpha, Font font, int coinCount, float partialTicks) {
         float offs = getRebuxOffset(Minecraft.getInstance(), partialTicks) - 32;
         if (offs > -32) {
-            if (shouldOffset()) {
+            if (useSidebar()) {
                 int x = (window.getGuiScaledWidth() / 2);
                 float y = offs + 16;
                 PoseStack poseStack = guiGraphics.pose();
@@ -178,7 +178,7 @@ public class ReduxOverlays {
                 GraphicsHelper.drawCenteredString(guiGraphics, font, text, x + 16, (int) y, 0xFFFFFF);
                 GraphicsHelper.blit(guiGraphics, REBUX, x - (width / 2F), y - 8, -89, 0.0F, 0.0F, 16, 16, 16, 16);
             } else {
-                int y = (window.getGuiScaledWidth() / 4);
+                int y = (window.getGuiScaledWidth() / 8);
                 float x = offs + 16;
                 PoseStack poseStack = guiGraphics.pose();
                 poseStack.pushPose();
@@ -186,7 +186,7 @@ public class ReduxOverlays {
                 RenderSystem.depthMask(false);
                 RenderSystem.enableBlend();
                 guiGraphics.setColor(1.0F, 1.0F, 1.0F, alpha);
-                GraphicsHelper.blit(guiGraphics, COINBAR, offs, y - 16, -90, 0.0F, 0.0F, 32, 32, 32, 32);
+                GraphicsHelper.blit(guiGraphics, COINBAR_SIDE, offs, y - 16, -90, 0.0F, 0.0F, 32, 32, 32, 32);
                 guiGraphics.setColor(1.0F, 1.0F, 1.0F, 1.0F);
                 RenderSystem.disableBlend();
                 RenderSystem.depthMask(true);
@@ -194,14 +194,18 @@ public class ReduxOverlays {
                 poseStack.popPose();
                 Component text = Component.literal(String.valueOf(coinCount));
                 int height = font.lineHeight;
-                GraphicsHelper.drawCenteredString(guiGraphics, font, text, x, y + 16 - (height / 2F), 0xFFFFFF);
-                GraphicsHelper.blit(guiGraphics, REBUX, x - 8, y - (height / 2F), -89, 0.0F, 0.0F, 16, 16, 16, 16);
+                GraphicsHelper.drawCenteredString(guiGraphics, font, text, x, y - (height / 2F), 0xFFFFFF);
+                GraphicsHelper.blit(guiGraphics, REBUX, x - 8, y - 16 - (height / 2F), -89, 0.0F, 0.0F, 16, 16, 16, 16);
             }
         }
     }
 
-    private static boolean shouldOffset() {
-        return ReduxConfig.CLIENT.side_coinbar.get() || (ModList.get().isLoaded("jade") && OverlayRenderer.shouldShow());
+    private static boolean useSidebar() {
+        return ReduxConfig.CLIENT.side_coinbar.get().useSidebar();
+    }
+
+    public static boolean jadeOn() {
+        return ModList.get().isLoaded("jade") && Jade.CONFIG.get().getGeneral().shouldDisplayTooltip();
     }
 
 }
