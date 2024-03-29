@@ -155,7 +155,7 @@ public class ReduxOverlays {
 
     private static void renderRebux(GuiGraphics guiGraphics, Window window, float alpha, Font font, int coinCount) {
         int topY = getRebuxOffset(Minecraft.getInstance()) - 32;
-        if (topY > 0) {
+        if (topY > -32) {
             int x = (window.getGuiScaledWidth() / (shouldOffset() ? 4 : 2));
             int y = topY + 16;
             PoseStack poseStack = guiGraphics.pose();
