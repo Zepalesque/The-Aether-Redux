@@ -114,7 +114,7 @@ public class ReduxOverlays {
         if (shouldShowCounterInGUI(mc.screen)) {
             return 32;
         } else {
-            return EasingUtil.Cubic.inOut(Mth.lerp(partialTicks, prevRebuxY, rebuxY) / 16F);
+            return EasingUtil.Cubic.inOut(Mth.lerp(partialTicks, prevRebuxY, rebuxY) / 16F) * 32;
         }
     }
 
