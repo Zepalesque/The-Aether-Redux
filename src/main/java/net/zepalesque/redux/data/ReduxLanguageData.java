@@ -779,6 +779,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addGuiText("jei.infusion_charge", "Increases Infusion Level by %s");
         addGuiText("jei.infusion", "Infusion");
         addGuiText("coin_count", "Rebux: %s");
+        addCommand("capability.player.rebux.set", "Set Rebux count for %s to %s");
+        addCommand("capability.player.rebux.add", "Added %s Rebux to %s's count");
+        addCommand("capability.player.rebux.query", "Player %s has %s Rebux");
 
 
         addGuiText("advancement_suffix", "\n- The Aether: Redux -");
