@@ -26,7 +26,7 @@ public class ShootFireballListener {
             return;
         }
 
-        ReduxOverlays.tick();
+
 
         Minecraft mc = Minecraft.getInstance();
 
@@ -34,6 +34,8 @@ public class ShootFireballListener {
 
         AbstractClientPlayer player = mc.player;
 
+        ReduxPlayer.get(player).ifPresent(ReduxOverlays::tick);
+        
         if (world != null && player != null) {
             ReduxPlayer.get(player).ifPresent((reduxPlayer) ->
             {
