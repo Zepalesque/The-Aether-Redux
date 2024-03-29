@@ -5,6 +5,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
@@ -15,6 +16,7 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.capability.player.AdrenalineModule;
 import net.zepalesque.redux.capability.player.ReduxPlayer;
 import net.zepalesque.redux.effect.ReduxEffects;
+import org.jetbrains.annotations.Nullable;
 
 
 @Mod.EventBusSubscriber(
@@ -66,6 +68,13 @@ public class ReduxOverlays {
             }
 
         });
+    }
+
+    private static boolean shouldShowRebuxCounter(@Nullable Screen screen) {
+        if (screen == null) {
+            return false;
+        }
+        return true;
     }
 
 
