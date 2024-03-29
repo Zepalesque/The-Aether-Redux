@@ -24,8 +24,14 @@ import net.zepalesque.redux.effect.ReduxEffects;
 )
 public class ReduxOverlays {
 
+    public static int rebuxY = 0;
+    public static int rebuxCooldown = 100;
+    public static boolean rebuxTarget = false;
+    public static final int max = 32;
+
     private static final ResourceLocation ADRENALINE_OVERLAY = Redux.locate("textures/blur/adrenaline_vignette.png");
     private static final ResourceLocation LOBOTOMY = Redux.locate("textures/blur/there_is_no_fire_in_this_hole.png");
+    private static final ResourceLocation REBUX = Redux.locate("textures/gui/rebux_toast.png");
 
     @SubscribeEvent
     public static void registerOverlays(RegisterGuiOverlaysEvent event) {
@@ -48,6 +54,15 @@ public class ReduxOverlays {
             LocalPlayer player = minecraft.player;
             if (player != null) {
                 renderLobotomy(pStack, minecraft, window, partialTicks);
+            }
+
+        });
+        event.registerAboveAll("rebux_counter", (gui, pStack, partialTicks, screenWidth, screenHeight) -> {
+            Minecraft minecraft = Minecraft.getInstance();
+            Window window = minecraft.getWindow();
+            LocalPlayer player = minecraft.player;
+            if (player != null) {
+                renderRebux(pStack, window, 1.0F, REBUX);
             }
 
         });
@@ -84,5 +99,22 @@ public class ReduxOverlays {
         RenderSystem.depthMask(true);
         RenderSystem.enableDepthTest();
         poseStack.popPose();
+    }
+
+    private static void renderRebux(GuiGraphics guiGraphics, Window window, float alpha, ResourceLocation resource) {
+        if (rebuxY > 0) {
+            PoseStack poseStack = guiGraphics.pose();
+            poseStack.pushPose();
+            RenderSystem.disableDepthTest();
+            RenderSystem.depthMask(false);
+            RenderSystem.enableBlend();
+            guiGraphics.setColor(1.0F, 1.0F, 1.0F, alpha);
+            guiGraphics.blit(resource, (window.getGuiScaledWidth() / 2) - 80, -32 + rebuxY, -90, 0.0F, 0.0F, 160, 32, window.getGuiScaledWidth(), window.getGuiScaledHeight());
+            guiGraphics.setColor(1.0F, 1.0F, 1.0F, 1.0F);
+            RenderSystem.disableBlend();
+            RenderSystem.depthMask(true);
+            RenderSystem.enableDepthTest();
+            poseStack.popPose();
+        }
     }
 }

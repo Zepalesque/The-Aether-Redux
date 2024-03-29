@@ -1,11 +1,11 @@
-// 1.20.1	2024-03-27T23:15:42.5906644	Tags for minecraft:block mod id aether_redux
+// 1.20.1	2024-03-28T22:36:59.5717941	Tags for minecraft:block mod id aether_redux
 533817bb4013392333c7e2101766cb5a8abd9735 data/aether/tags/blocks/aerclouds.json
 4a2b29220b487440187fe3bb318763b54cddfb4a data/aether/tags/blocks/aether_animals_spawnable_on.json
 4368ac3700748ccc27f355a5ff7a4a0bd1caf5ba data/aether/tags/blocks/aether_dirt.json
 a681ef256a73f902c2b7f4517610ae47cccada75 data/aether/tags/blocks/gravitite_ability_blacklist.json
 1acaf7e42c54a1bfdf9c92e14aa3c26bc0b3b058 data/aether/tags/blocks/holystone.json
 3430a77944d334be13ce18f710fdbf73bdf8e971 data/aether/tags/blocks/sentry_blocks.json
-4de4147216389ede263f42a1a7392624063267cc data/aether/tags/blocks/treated_as_aether_block.json
+02c044633f5c61cd5cc76411d3d71944c35cb101 data/aether/tags/blocks/treated_as_aether_block.json
 85b1ad865db965e78fb0da827f9f619ffe9f5878 data/aether_redux/tags/blocks/aether_carver_replaceables.json
 fd01915c57cee8effe17fe38cbedcefa19a98fb3 data/aether_redux/tags/blocks/aether_moss_replaceables.json
 6af03c05dc47726e2795f7d011a935a02927b949 data/aether_redux/tags/blocks/aevelium_grasses.json
@@ -38,7 +38,7 @@ ab5e4a66dad29d80ebba1e08775e7c6a034b7bf4 data/minecraft/tags/blocks/leaves.json
 7ecc89d1c9cda2ca0727444d5c70f46b9c03b7c8 data/minecraft/tags/blocks/logs.json
 dda8e06893dc5ad8e47ebd13bbc16abea4960adb data/minecraft/tags/blocks/mineable/axe.json
 66e0532353864a48a5b67349e5977de2fe7fec5f data/minecraft/tags/blocks/mineable/hoe.json
-d729afb7fc33e9abf12caa2fd4c829a47ebe139b data/minecraft/tags/blocks/mineable/pickaxe.json
+f304077477428db46d9f49e637e25726608fb132 data/minecraft/tags/blocks/mineable/pickaxe.json
 924329aebcf115221107abcfe54139aa0010cafc data/minecraft/tags/blocks/mineable/shovel.json
 6af03c05dc47726e2795f7d011a935a02927b949 data/minecraft/tags/blocks/mushroom_grow_block.json
 3548fd3faa2233aa148f10a28b8537e0e1b1109d data/minecraft/tags/blocks/needs_iron_tool.json

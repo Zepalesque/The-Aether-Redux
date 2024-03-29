@@ -1,11 +1,11 @@
 {
-  "parent": "aether_redux:base_redux",
+  "parent": "aether_redux:install",
   "criteria": {
-    "install": {
+    "nineteen_rebux": {
       "conditions": {
-        "type": "install"
+        "count": 19
       },
-      "trigger": "aether_redux:april_redux_trigger"
+      "trigger": "aether_redux:pickup_rebux"
     }
   },
   "display": {
@@ -17,21 +17,21 @@
           "translate": "gui.aether_redux.advancement_suffix"
         }
       ],
-      "translate": "advancement.aether_redux.install.desc"
+      "translate": "advancement.aether_redux.nineteen_rebux.desc"
     },
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "aether_redux:install_icon"
+      "item": "aether_redux:rebux_card_icon"
     },
     "show_toast": true,
     "title": {
-      "translate": "advancement.aether_redux.install"
+      "translate": "advancement.aether_redux.nineteen_rebux"
     }
   },
   "requirements": [
     [
-      "install"
+      "nineteen_rebux"
     ]
   ],
   "sends_telemetry_event": true

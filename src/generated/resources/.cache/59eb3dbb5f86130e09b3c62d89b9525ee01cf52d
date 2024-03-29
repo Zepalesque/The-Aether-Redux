@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-27T23:15:42.5666796	Loot Tables
+// 1.20.1	2024-03-28T22:36:59.540813	Loot Tables
 c6156555dc4897939b617dabc4521b7fa52feba0 data/aether_redux/loot_tables/blocks/aurum.json
 b5773c78c7b3f27032f1cca6fb72f440e24c7529 data/aether_redux/loot_tables/blocks/avelium.json
 4c8b773f2431b28dd2a48b90d08323d8ff67a3d7 data/aether_redux/loot_tables/blocks/avelium_roots.json
@@ -211,6 +211,7 @@ e81a7e6d64c1c6753eea260f14dc92e835ff731d data/aether_redux/loot_tables/blocks/mi
 966970c6a98ff94e3f8455eed77756d45e0faedd data/aether_redux/loot_tables/blocks/peppermint_barkling.json
 197f2f540610bd4ccf06e654a46ca0186013024b data/aether_redux/loot_tables/blocks/peppermint_block.json
 9df6f7127cd97606575d2876cf9f96e526bc67cc data/aether_redux/loot_tables/blocks/peppermint_log.json
+2a0ab8976ffcdc1bdb5691757201aaa9ed13e1b2 data/aether_redux/loot_tables/blocks/poprock_ore.json
 4f0249868d48ec7cc93a576cffa361313726b466 data/aether_redux/loot_tables/blocks/potted_aurum.json
 4092e5a3c46a30b0602be1f15e769f89c31e1fe8 data/aether_redux/loot_tables/blocks/potted_avelium_roots.json
 ae81bcd103437ee38e0c2fe217101b698e60c5ce data/aether_redux/loot_tables/blocks/potted_azure_fieldsproot_sapling.json
@@ -258,6 +259,10 @@ a8655c14dcb62175a9ab8cf34bfb7372d0c8f805 data/aether_redux/loot_tables/blocks/pu
 4c41d63b70c606f4d6d24eb333c4ff55812f2838 data/aether_redux/loot_tables/blocks/raw_gravitite_block.json
 6f55f9eaef5917b8d6a45c1d3f833085eec67af8 data/aether_redux/loot_tables/blocks/raw_valkyrum_block.json
 31634f3ccbb1109ba54691cd7c7c94d822fddafa data/aether_redux/loot_tables/blocks/raw_veridium_block.json
+e183562a4ad291f016274b4bd25f5d6f1790d58a data/aether_redux/loot_tables/blocks/rock_candy.json
+477768be6813a4163ee065f868b730771bf97680 data/aether_redux/loot_tables/blocks/rock_candy_slab.json
+fc7a71a95baba2d628e09d7ba27fd26eea4592bf data/aether_redux/loot_tables/blocks/rock_candy_stairs.json
+859e0058bdd6b239eec60e303bbb1f9d68224525 data/aether_redux/loot_tables/blocks/rock_candy_wall.json
 e96d57815230fefd220d1aac84dd3ccee0682394 data/aether_redux/loot_tables/blocks/rootrose.json
 853ffb6317f8b66383cc6222a9f5b7e9981debeb data/aether_redux/loot_tables/blocks/sentrite.json
 49834448dd8324265edd752f9816a5a2bdba3c52 data/aether_redux/loot_tables/blocks/sentrite_bricks.json
