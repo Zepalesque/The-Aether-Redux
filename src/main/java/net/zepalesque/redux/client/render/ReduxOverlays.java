@@ -191,8 +191,8 @@ public class ReduxOverlays {
                 poseStack.popPose();
                 Component text = Component.literal(String.valueOf(coinCount));
                 int height = font.lineHeight;
-                GraphicsHelper.drawCenteredString(guiGraphics, font, text, MathUtil.roundIfWithinThreshold(x - 3, threshold), MathUtil.roundIfWithinThreshold(y + 8 - (height / 2F), threshold), 0xFFFFFF);
-                GraphicsHelper.blit(guiGraphics, REBUX, MathUtil.roundIfWithinThreshold(x - 11, threshold), MathUtil.roundIfWithinThreshold(y - 8 - (height / 2F), threshold), -89, 0.0F, 0.0F, 16, 16, 16, 16);
+                GraphicsHelper.drawCenteredString(guiGraphics, font, text, MathUtil.roundIfWithinThreshold(x, threshold), MathUtil.roundIfWithinThreshold(y + 8 - (height / 2F), threshold), 0xFFFFFF);
+                GraphicsHelper.blit(guiGraphics, REBUX, MathUtil.roundIfWithinThreshold(x - 8, threshold), MathUtil.roundIfWithinThreshold(y - 8 - (height / 2F), threshold), -89, 0.0F, 0.0F, 16, 16, 16, 16);
             }
         }
     }
