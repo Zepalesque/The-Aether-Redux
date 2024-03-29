@@ -26,31 +26,20 @@ import java.util.Collection;
 public class RebuxCommand {
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         dispatcher.register(Commands.literal("rebux")
-                .then(Commands.literal("player").requires((commandSourceStack) -> commandSourceStack.hasPermission(2))
-                        .then(Commands.literal("set")
-                                .then(Commands.argument("targets", GameProfileArgument.gameProfile())
-                                                .suggests((context, builder) -> {
-                                                    PlayerList playerlist = context.getSource().getServer().getPlayerList();
-                                                    return SharedSuggestionProvider.suggest(playerlist.getPlayers().stream().map((player) -> player.getGameProfile().getName()), builder);
-                                                }).then(Commands.argument("value", IntegerArgumentType.integer(0)).executes((context) -> setRebux(context.getSource(), GameProfileArgument.getGameProfiles(context, "targets"), IntegerArgumentType.getInteger(context, "value"))))
-                                        )
-                        ).then(Commands.literal("add")
-                                .then(Commands.argument("targets", GameProfileArgument.gameProfile())
-                                                .suggests((context, builder) -> {
-                                                    PlayerList playerlist = context.getSource().getServer().getPlayerList();
-                                                    return SharedSuggestionProvider.suggest(playerlist.getPlayers().stream().map((player) -> player.getGameProfile().getName()), builder);
-                                                }).then(Commands.argument("value", IntegerArgumentType.integer()).executes((context) -> addRebux(context.getSource(), GameProfileArgument.getGameProfiles(context, "targets"), IntegerArgumentType.getInteger(context, "value"))))
-                                        )
-                        ).then(Commands.literal("query")
-                                .then(Commands.argument("targets", GameProfileArgument.gameProfile())
-                                                .suggests((context, builder) -> {
-                                                    PlayerList playerlist = context.getSource().getServer().getPlayerList();
-                                                    return SharedSuggestionProvider.suggest(playerlist.getPlayers().stream().map((player) -> player.getGameProfile().getName()), builder);
-                                                }).executes((context) -> queryRebux(context.getSource(), GameProfileArgument.getGameProfiles(context, "targets")))
-                                        )
+                .then(Commands.argument("targets", GameProfileArgument.gameProfile())
+                        .suggests((context, builder) -> {
+                            PlayerList playerlist = context.getSource().getServer().getPlayerList();
+                            return SharedSuggestionProvider.suggest(playerlist.getPlayers().stream().map((player) -> player.getGameProfile().getName()), builder);
+                        }).then(Commands.literal("set")
+                                .then(Commands.argument("value",
+                                                IntegerArgumentType.integer(0))
+                                        .executes((context) -> setRebux(context.getSource(), GameProfileArgument.getGameProfiles(context, "targets"), IntegerArgumentType.getInteger(context, "value"))))
+                                .then(Commands.literal("set")
+                                        .then(Commands.argument("value",
+                                                        IntegerArgumentType.integer(0))
+                                                .executes((context) -> setRebux(context.getSource(), GameProfileArgument.getGameProfiles(context, "targets"), IntegerArgumentType.getInteger(context, "value"))))
+                                ).then(Commands.literal("query")).executes((context) -> queryRebux(context.getSource(), GameProfileArgument.getGameProfiles(context, "targets")))
                         )
-
-
                 )
         );
     }
@@ -70,7 +59,7 @@ public class RebuxCommand {
                 ReduxPlayer.get(player).ifPresent(aetherPlayer -> {
                     Player innerPlayer = aetherPlayer.getPlayer();
                     aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "rebux", value);
-                    source.sendSuccess(() -> Component.translatable("commands.aether_redux.capability.player.rebux.set", innerPlayer.getDisplayName(), value), true);
+                    source.sendSuccess(() -> Component.translatable("commands.aether_redux.capability.player.rebux.set", value, innerPlayer.getDisplayName()), true);
                 });
             }
         }
@@ -86,7 +75,7 @@ public class RebuxCommand {
                     Player innerPlayer = aetherPlayer.getPlayer();
                     int count = aetherPlayer.rebuxCount();
                     aetherPlayer.setSynched(INBTSynchable.Direction.CLIENT, "rebux", count + value);
-                    source.sendSuccess(() -> Component.translatable("commands.aether_redux.capability.player.rebux.add", innerPlayer.getDisplayName(), value), true);
+                    source.sendSuccess(() -> Component.translatable("commands.aether_redux.capability.player.rebux.add", value, innerPlayer.getDisplayName()), true);
                 });
             }
         }
@@ -101,7 +90,7 @@ public class RebuxCommand {
                 ReduxPlayer.get(player).ifPresent(aetherPlayer -> {
                     Player innerPlayer = aetherPlayer.getPlayer();
                     int count = aetherPlayer.rebuxCount();
-                    source.sendSuccess(() -> Component.translatable("commands.aether_redux.capability.player.rebux.query", count, innerPlayer.getDisplayName()), true);
+                    source.sendSuccess(() -> Component.translatable("commands.aether_redux.capability.player.rebux.query", innerPlayer.getDisplayName(), count), true);
                 });
             }
         }

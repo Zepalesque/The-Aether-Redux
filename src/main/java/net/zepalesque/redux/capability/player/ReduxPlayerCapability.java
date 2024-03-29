@@ -51,6 +51,7 @@ public class ReduxPlayerCapability implements ReduxPlayer {
 
     int airJumpCooldown = 0;
     private boolean secondFireball = false;
+    private boolean changePrevRebux = false;
 
     public ReduxPlayerCapability(Player pPlayer) {
         this.player = pPlayer;
@@ -176,6 +177,13 @@ public class ReduxPlayerCapability implements ReduxPlayer {
             this.fireballCooldown--;
         }*/
 
+        if (this.changePrevRebux) {
+            this.prevRebux = this.rebux;
+            this.changePrevRebux = false;
+        }
+        if (this.prevRebux != this.rebux) {
+            this.changePrevRebux = true;
+        }
     }
 
     @Override
