@@ -790,6 +790,10 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addAdvancementDesc("install", "Thank you for downloading the Aether: Redux's Update Negative Omega Point Zero Zero One version!!!");
         addAdvancement("hug", "OMG how wholesome!!!");
         addAdvancementDesc("hug", "Get hugged by a Cockatrice");
+        addAdvancement("nineteen_rebux", "19 Dollar Rebux Card");
+        addAdvancementDesc("nineteen_rebux", "Collect 19 Rebux");
+        addAdvancement("rebuxionaire", "Rebuxionaire");
+        addAdvancementDesc("rebuxionaire", "Collect 100 Rebux");
         addAdvancement("eat_sugarfields", "Everything here is eatable");
         addAdvancementDesc("eat_sugarfields", "Eat a block from the Sugarfields");
         addAdvancement("phudge_bite", "Even I'M eatable");

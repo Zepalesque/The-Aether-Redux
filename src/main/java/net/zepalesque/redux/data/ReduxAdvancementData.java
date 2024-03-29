@@ -13,10 +13,7 @@ import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.ForgeAdvancementProvider;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.advancement.trigger.AprilReduxSpecialTrigger;
-import net.zepalesque.redux.advancement.trigger.DoubleJumpTrigger;
-import net.zepalesque.redux.advancement.trigger.FallFromAetherTrigger;
-import net.zepalesque.redux.advancement.trigger.InfuseItemTrigger;
+import net.zepalesque.redux.advancement.trigger.*;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.item.ReduxItems;
@@ -38,7 +35,7 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
         public void generate(HolderLookup.Provider provider, Consumer<Advancement> consumer, ExistingFileHelper existingFileHelper) {
 
             Advancement redux = Advancement.Builder.advancement()
-                    .display(ReduxItems.INSTALL_ICON.get(),
+                    .display(ReduxItems.REDUX_ICON.get(),
                             Component.translatable("advancement.aether_redux.base"),
                             Component.translatable("advancement.aether_redux.base.desc")
                                     .append(Component.translatable("gui.aether_redux.advancement_suffix").withStyle(style -> style.withColor(Redux.REDUX_PURPLE))),
@@ -68,6 +65,28 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
                             FrameType.TASK, true, true, false)
                     .addCriterion("fall_from_aether", FallFromAetherTrigger.TriggerInstance.fall())
                     .save(consumer, Redux.locate("fall_from_aether"), existingFileHelper);
+
+            Advancement nineteen_dollar_rebux_card = Advancement.Builder.advancement()
+                    .parent(install)
+                    .display(ReduxItems.REBUX_CARD_ICON.get(),
+                            Component.translatable("advancement.aether_redux.nineteen_rebux"),
+                            Component.translatable("advancement.aether_redux.nineteen_rebux.desc")
+                                    .append(Component.translatable("gui.aether_redux.advancement_suffix").withStyle(style -> style.withColor(Redux.REDUX_PURPLE))),
+                            null,
+                            FrameType.TASK, true, true, false)
+                    .addCriterion("nineteen_rebux", PickupRebuxTrigger.TriggerInstance.forMin(19))
+                    .save(consumer, Redux.locate("nineteen_rebux"), existingFileHelper);
+
+            Advancement.Builder.advancement()
+                    .parent(nineteen_dollar_rebux_card)
+                    .display(ReduxItems.REBUXIONAIRE_ICON.get(),
+                            Component.translatable("advancement.aether_redux.rebuxionaire"),
+                            Component.translatable("advancement.aether_redux.rebuxionaire.desc")
+                                    .append(Component.translatable("gui.aether_redux.advancement_suffix").withStyle(style -> style.withColor(Redux.REDUX_PURPLE))),
+                            null,
+                            FrameType.TASK, true, true, false)
+                    .addCriterion("rebuxionaire", PickupRebuxTrigger.TriggerInstance.forMin(100))
+                    .save(consumer, Redux.locate("rebuxionaire"), existingFileHelper);
 
            Advancement.Builder.advancement()
                     .parent(install)
