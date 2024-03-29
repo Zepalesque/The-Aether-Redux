@@ -74,7 +74,8 @@ public class ReduxOverlays {
         if ((rebuxTarget || minecraft.screen != null) && rebuxY < max) {
             rebuxY++;
         } else if (rebuxY > 0) {
-            rebuxY--;
+            if (!rebuxTarget && minecraft.screen == null)
+                rebuxY--;
         }
         if (rebuxCooldown <= 0) {
             rebuxTarget = false;
@@ -129,7 +130,7 @@ public class ReduxOverlays {
             RenderSystem.depthMask(false);
             RenderSystem.enableBlend();
             guiGraphics.setColor(1.0F, 1.0F, 1.0F, alpha);
-            guiGraphics.blit(resource, (window.getGuiScaledWidth() / 2) - 80, -32 + rebuxY, -90, 0.0F, 0.0F, 160, 32, window.getGuiScaledWidth(), window.getGuiScaledHeight());
+            guiGraphics.blit(resource, (window.getGuiScaledWidth() / 2) - 80, -32 + rebuxY, -90, 0.0F, 0.0F, 160, 32, 160, 32);
             guiGraphics.setColor(1.0F, 1.0F, 1.0F, 1.0F);
             RenderSystem.disableBlend();
             RenderSystem.depthMask(true);
