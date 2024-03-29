@@ -193,7 +193,7 @@ public class ReduxOverlays {
                 Component text = Component.literal(String.valueOf(coinCount));
                 int height = font.lineHeight;
                 GraphicsHelper.drawCenteredString(guiGraphics, font, text, x, y - (height / 2F), 0xFFFFFF);
-                GraphicsHelper.blit(guiGraphics, REBUX, x - 8, y - 16 - (height / 2F), -89, 0.0F, 0.0F, 16, 16, 16, 16);
+                GraphicsHelper.blit(guiGraphics, REBUX, x - 8, y - 8 - (height / 2F), -89, 0.0F, 0.0F, 16, 16, 16, 16);
             }
         }
     }
