@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-29T09:43:27.8296882	Item Models: aether_redux
+// 1.20.1	2024-03-29T13:34:28.1605319	Item Models: aether_redux
 2445055af5b1b7f3c6045199ffce74108003cef6 assets/aether_redux/models/item/airbound_cape.json
 2fa1343a8119a1f49af334c002773099174965bd assets/aether_redux/models/item/aurum.json
 edfe83948874d1436a61893ed9471b47e93dbe88 assets/aether_redux/models/item/avelium.json
@@ -254,7 +254,6 @@ d8de2565b035201fb855f38b6083299efcc91e31 assets/aether_redux/models/item/raw_ver
 8a433ef11c34eda652a3186b21612f69a875b6e8 assets/aether_redux/models/item/raw_veridium_block.json
 1121910cd54f82f61b5da465e8db5153ce6bec95 assets/aether_redux/models/item/rebuxionaire_icon.json
 c9b4e544071c289770675e31d84a8bccabcdad5d assets/aether_redux/models/item/rebux_card_icon.json
-b51c7c16f01f6b05a0fa7d3119215f3cc10c2b37 assets/aether_redux/models/item/rebux_icon.json
 db8558a895f7f63d91e7347eba7cf20845889e19 assets/aether_redux/models/item/redux_base_icon.json
 2b0580de8e9f79ef8502204a23d3575928546d05 assets/aether_redux/models/item/ring_of_wisdom.json
 a2963df6a115ead4aa8288196f51927b597d6177 assets/aether_redux/models/item/rock_candy.json
