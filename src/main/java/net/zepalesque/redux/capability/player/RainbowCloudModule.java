@@ -1,6 +1,7 @@
 package net.zepalesque.redux.capability.player;
 
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
@@ -15,11 +16,11 @@ import java.util.function.Predicate;
 public class RainbowCloudModule implements PlayerTickModule {
 
     private int boostTimer;
-    private final Player player;
+    private final LivingEntity player;
     private boolean inProgress;
     private static final Predicate<BlockState> stateTest = state -> state.is(ReduxBlocks.RAINBOW_AERCLOUD.get());
 
-    public RainbowCloudModule(Player plr) {
+    public RainbowCloudModule(LivingEntity plr) {
         this.player = plr;
     }
 
@@ -63,7 +64,7 @@ public class RainbowCloudModule implements PlayerTickModule {
     }
 
     @Override
-    public Player getPlayer() {
+    public LivingEntity getPlayer() {
         return this.player;
     }
 }

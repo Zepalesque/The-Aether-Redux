@@ -35,6 +35,8 @@ import net.zepalesque.redux.capability.arrow.SubzeroArrow;
 import net.zepalesque.redux.capability.arrow.SubzeroArrowCapability;
 import net.zepalesque.redux.capability.cockatrice.CockatriceExtension;
 import net.zepalesque.redux.capability.cockatrice.CockatriceExtensionCapability;
+import net.zepalesque.redux.capability.living.ReduxLiving;
+import net.zepalesque.redux.capability.living.ReduxLivingCapability;
 import net.zepalesque.redux.capability.living.VampireAmulet;
 import net.zepalesque.redux.capability.living.VampireAmuletCapability;
 import net.zepalesque.redux.capability.player.ReduxPlayer;
@@ -61,6 +63,8 @@ public class ReduxCapabilities {
     });
     public static final Capability<VampireAmulet> VAMPIRE_AMULET = CapabilityManager.get(new CapabilityToken<>() {
     });
+    public static final Capability<ReduxLiving> REDUX_LIVING = CapabilityManager.get(new CapabilityToken<>() {
+    });
     public static final Capability<SwetMass> SWET_MASS = CapabilityManager.get(new CapabilityToken<>() {
     });
     public static final Capability<WackyBat> WACKY_BAT = CapabilityManager.get(new CapabilityToken<>() {
@@ -78,6 +82,7 @@ public class ReduxCapabilities {
         event.register(VampireAmulet.class);
         event.register(SwetMass.class);
         event.register(WackyBat.class);
+        event.register(ReduxLiving.class);
     }
 
     public static IllegalStateException error() {
@@ -112,6 +117,7 @@ public class ReduxCapabilities {
             }
             if (event.getObject() instanceof LivingEntity entity) {
                 event.addCapability(Redux.locate("vampire_amulet"), new CapabilityProvider(ReduxCapabilities.VAMPIRE_AMULET, new VampireAmuletCapability(entity)));
+                event.addCapability(Redux.locate("redux_living"), new CapabilityProvider(ReduxCapabilities.REDUX_LIVING, new ReduxLivingCapability(entity)));
             }
             if (event.getObject() instanceof Swet entity) {
                 event.addCapability(Redux.locate("swet_mass"), new CapabilityProvider(ReduxCapabilities.SWET_MASS, new SwetMassCapability(entity)));

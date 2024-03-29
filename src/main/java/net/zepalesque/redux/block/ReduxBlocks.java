@@ -525,7 +525,7 @@ public class ReduxBlocks {
             () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOL).strength(3.0F).requiresCorrectToolForDrops()));
 
     public static RegistryObject<Block> POPROCK_ORE = register("poprock_ore",
-            () -> new AetherDoubleDropsOreBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(2.0F).requiresCorrectToolForDrops(), UniformInt.of(5, 9)));
+            () -> new AetherDoubleDropsOreBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(2.0F).requiresCorrectToolForDrops().sound(SoundType.BASALT), UniformInt.of(5, 9)));
 
     public static RegistryObject<Block> VERIDIUM_BLOCK = register("veridium_block",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.LAPIS).strength(5.0F, 6.0F).requiresCorrectToolForDrops().sound(SoundType.NETHERITE_BLOCK)));
