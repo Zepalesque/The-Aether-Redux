@@ -76,7 +76,7 @@ public class ReduxOverlays {
             Window window = minecraft.getWindow();
             LocalPlayer player = minecraft.player;
             if (player != null) {
-                ReduxPlayer.get(player).ifPresent(reduxPlayer -> renderRebux(pStack, window, 1.0F, font, reduxPlayer.rebuxCount()));
+                ReduxPlayer.get(player).ifPresent(reduxPlayer -> renderRebux(pStack, window, 1.0F, font, reduxPlayer.rebuxCount(), partialTicks));
             }
 
         });
@@ -111,15 +111,14 @@ public class ReduxOverlays {
         rebuxTarget = set;
     }
 
-    private static float getRebuxOffset(Minecraft mc) {
+    private static float getRebuxOffset(Minecraft mc, float partialTicks) {
         if (!ReduxConfig.CLIENT.coinbar_movement.get()) {
             return rebuxTarget ? 64 : 0;
         }
         if (shouldShowRebuxCounter(mc.screen)) {
             return max;
         } else {
-            float partial = mc.getPartialTick();
-            return (float) MathUtil.costrp(Mth.lerp(partial, prevRebuxY, rebuxY) / 16D, 0, 32);
+            return (float) MathUtil.costrp(Mth.lerp(partialTicks, prevRebuxY, rebuxY) / 16D, 0, 32);
         }
     }
 
@@ -156,8 +155,8 @@ public class ReduxOverlays {
         poseStack.popPose();
     }
 
-    private static void renderRebux(GuiGraphics guiGraphics, Window window, float alpha, Font font, int coinCount) {
-        float offs = getRebuxOffset(Minecraft.getInstance()) - 32;
+    private static void renderRebux(GuiGraphics guiGraphics, Window window, float alpha, Font font, int coinCount, float partialTicks) {
+        float offs = getRebuxOffset(Minecraft.getInstance(), partialTicks) - 32;
         if (offs > -32) {
             if (shouldOffset()) {
                 int x = (window.getGuiScaledWidth() / 2);
