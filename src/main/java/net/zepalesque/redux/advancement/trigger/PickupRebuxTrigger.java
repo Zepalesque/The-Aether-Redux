@@ -21,8 +21,8 @@ public class PickupRebuxTrigger extends SimpleCriterionTrigger<PickupRebuxTrigge
       return new PickupRebuxTrigger.TriggerInstance(pEntityPredicate, count);
    }
 
-   public void trigger(ServerPlayer pPlayer, String id) {
-      this.trigger(pPlayer, (trigger) -> trigger.test(id));
+   public void trigger(ServerPlayer pPlayer, int count) {
+      this.trigger(pPlayer, (trigger) -> trigger.test(count));
    }
 
 

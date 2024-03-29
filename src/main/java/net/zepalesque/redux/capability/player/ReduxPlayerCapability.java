@@ -3,8 +3,11 @@ package net.zepalesque.redux.capability.player;
 import com.aetherteam.aether.item.EquipmentUtil;
 import com.aetherteam.nitrogen.network.BasePacket;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.network.simple.SimpleChannel;
+import net.zepalesque.redux.advancement.trigger.PickupRebuxTrigger;
+import net.zepalesque.redux.entity.misc.Rebux;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.network.ReduxPacketHandler;
 import net.zepalesque.redux.network.packet.ReduxPlayerSyncPacket;
@@ -113,7 +116,11 @@ public class ReduxPlayerCapability implements ReduxPlayer {
 
     @Override
     public void increaseRebux(int amount) {
-        this.setSynched(Direction.CLIENT, "rebux", this.rebux + amount);
+        int count = this.rebuxCount() + amount;
+        this.setSynched(Direction.CLIENT, "rebux", count);
+        if (!this.player.level().isClientSide() && this.player instanceof ServerPlayer sp) {
+            PickupRebuxTrigger.INSTANCE.trigger(sp, count);
+        }
     }
 
     @Override
