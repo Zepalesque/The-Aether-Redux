@@ -4,18 +4,27 @@ import com.mojang.blaze3d.platform.Window;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.components.toasts.AdvancementToast;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
+import net.minecraftforge.common.util.Lazy;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.capability.player.AdrenalineModule;
 import net.zepalesque.redux.capability.player.ReduxPlayer;
+import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.effect.ReduxEffects;
+import net.zepalesque.redux.item.ReduxItems;
+import net.zepalesque.redux.util.math.MathUtil;
 import org.jetbrains.annotations.Nullable;
 
 
@@ -29,7 +38,8 @@ public class ReduxOverlays {
     public static int rebuxY = 0;
     public static int rebuxCooldown = 100;
     public static boolean rebuxTarget = false;
-    public static final int max = 32;
+    public static final int max = 16;
+    public static final Lazy<ItemStack> stack = Lazy.of(() -> new ItemStack(ReduxItems.REBUX_ICON.get()));
 
     private static final ResourceLocation ADRENALINE_OVERLAY = Redux.locate("textures/blur/adrenaline_vignette.png");
     private static final ResourceLocation LOBOTOMY = Redux.locate("textures/blur/there_is_no_fire_in_this_hole.png");
@@ -61,10 +71,11 @@ public class ReduxOverlays {
         });
         event.registerAboveAll("rebux_counter", (gui, pStack, partialTicks, screenWidth, screenHeight) -> {
             Minecraft minecraft = Minecraft.getInstance();
+            Font font = minecraft.font;
             Window window = minecraft.getWindow();
             LocalPlayer player = minecraft.player;
             if (player != null) {
-                renderRebux(pStack, window, 1.0F, REBUX);
+                ReduxPlayer.get(player).ifPresent(reduxPlayer -> renderRebux(pStack, window, 1.0F, font, reduxPlayer.rebuxCount()));
             }
 
         });
@@ -80,22 +91,33 @@ public class ReduxOverlays {
 
     public static void tick() {
         Minecraft minecraft = Minecraft.getInstance();
-        if ((rebuxTarget || minecraft.screen != null) && rebuxY < max) {
+        if ((rebuxTarget) && rebuxY < max) {
             rebuxY++;
         } else if (rebuxY > 0) {
-            if (!rebuxTarget && minecraft.screen == null)
+            if (!rebuxTarget)
                 rebuxY--;
         }
         if (rebuxCooldown <= 0) {
             rebuxTarget = false;
             rebuxCooldown = 100;
-        } else if (minecraft.screen == null) {
+        } else {
             rebuxCooldown--;
         }
     }
 
     public static void rebux(boolean set) {
         rebuxTarget = set;
+    }
+
+    private static int getRebuxOffset(Minecraft mc) {
+        if (!ReduxConfig.CLIENT.slide_coin_indicator.get()) {
+            return rebuxTarget ? 32 : 0;
+        }
+        if (shouldShowRebuxCounter(mc.screen)) {
+            return max;
+        } else {
+            return (int) MathUtil.costrp(rebuxY / 16D, 0, 32);
+        }
     }
 
 
@@ -131,20 +153,32 @@ public class ReduxOverlays {
         poseStack.popPose();
     }
 
-    private static void renderRebux(GuiGraphics guiGraphics, Window window, float alpha, ResourceLocation resource) {
-        if (rebuxY > 0) {
+    private static void renderRebux(GuiGraphics guiGraphics, Window window, float alpha, Font font, int coinCount) {
+        int topY = getRebuxOffset(Minecraft.getInstance()) - 32;
+        if (topY > 0) {
+            int x = (window.getGuiScaledWidth() / (shouldOffset() ? 4 : 2));
+            int y = topY + 16;
             PoseStack poseStack = guiGraphics.pose();
             poseStack.pushPose();
             RenderSystem.disableDepthTest();
             RenderSystem.depthMask(false);
             RenderSystem.enableBlend();
             guiGraphics.setColor(1.0F, 1.0F, 1.0F, alpha);
-            guiGraphics.blit(resource, (window.getGuiScaledWidth() / 2) - 80, -32 + rebuxY, -90, 0.0F, 0.0F, 160, 32, 160, 32);
+            guiGraphics.blit(REBUX, x - 80, topY, -90, 0.0F, 0.0F, 160, 32, 160, 32);
             guiGraphics.setColor(1.0F, 1.0F, 1.0F, 1.0F);
             RenderSystem.disableBlend();
             RenderSystem.depthMask(true);
             RenderSystem.enableDepthTest();
             poseStack.popPose();
+            Component text = Component.translatable("gui.aether_redux.coin_count", coinCount);
+            int width = font.width(text);
+            guiGraphics.drawCenteredString(font, text, x + 16, y, 0xFFFFFF);
+            guiGraphics.renderFakeItem(stack.get(), x - (width / 2), y - 8);
         }
     }
+
+    private static boolean shouldOffset() {
+        return ReduxConfig.CLIENT.always_offset_coin_indicator.get() || ModList.get().isLoaded("jade");
+    }
+
 }

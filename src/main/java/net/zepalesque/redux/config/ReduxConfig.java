@@ -168,6 +168,9 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue first_startup_lightmap_changes;
         public final ForgeConfigSpec.BooleanValue aercloud_sfx;
 
+        public final ForgeConfigSpec.BooleanValue always_offset_coin_indicator;
+        public final ForgeConfigSpec.BooleanValue slide_coin_indicator;
+
         public Client(ForgeConfigSpec.Builder builder) {
             builder.push(List.of("Rendering", "Mob Model Upgrades"));
             this.moa_model_upgrade = builder.comment("Makes Moas resemble their Mutation models").define("Moa Model Upgrade", true);
@@ -183,6 +186,8 @@ public class ReduxConfig {
 //            builder.pop();
             builder.push("GUI");
             this.cycle_menu = builder.comment("Cycles between Redux's menus.").define("Cycle Menu", true);
+            this.always_offset_coin_indicator = builder.comment("Whether or not to offset the coin bar even if Jade is not installed").define("Always Offset Coinbar", false);
+            this.slide_coin_indicator = builder.comment("Whether or not to slide the coinbar").define("Slide Coinbar", true);
             builder.pop();
             builder.push("Particles");
             this.better_leaf_particles = builder.comment("Improves the leaf particles for Golden Oaks, Gilded Oaks, and Crystal Trees, based on Minecraft 1.20's new cherry tree particles.").define("Better Leaf Particles", true);

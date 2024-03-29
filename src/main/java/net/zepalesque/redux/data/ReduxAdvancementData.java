@@ -35,7 +35,7 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
         public void generate(HolderLookup.Provider provider, Consumer<Advancement> consumer, ExistingFileHelper existingFileHelper) {
 
             Advancement redux = Advancement.Builder.advancement()
-                    .display(ReduxItems.REDUX_ICON.get(),
+                    .display(ReduxItems.REDUX_BASE_ICON.get(),
                             Component.translatable("advancement.aether_redux.base"),
                             Component.translatable("advancement.aether_redux.base.desc")
                                     .append(Component.translatable("gui.aether_redux.advancement_suffix").withStyle(style -> style.withColor(Redux.REDUX_PURPLE))),

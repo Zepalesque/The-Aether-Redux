@@ -168,8 +168,9 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         blockCustomTexture(ReduxBlocks.SPECTRAL_FIELDSPROOT_LEAVES, "natural/", "spectral_fieldsproot_leaves");
 
         item(ReduxItems.INSTALL_ICON.get(), "misc/");
-        item(ReduxItems.REDUX_ICON.get(), "misc/");
+        item(ReduxItems.REDUX_BASE_ICON.get(), "misc/");
         item(ReduxItems.REBUX_CARD_ICON.get(), "misc/");
+        item(ReduxItems.REBUX_ICON.get(), "misc/");
         item(ReduxItems.REBUXIONAIRE_ICON.get(), "misc/");
         item(ReduxItems.HUG_ICON.get(), "misc/");
 
