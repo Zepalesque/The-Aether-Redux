@@ -1,0 +1,79 @@
+{
+  "values": [
+    "aether:aechor_plant",
+    "aether:aerbunny",
+    "aether:aerwhale",
+    "aether:cockatrice",
+    "aether:fire_minion",
+    "aether:flying_cow",
+    "aether:mimic",
+    "aether:moa",
+    "aether:phyg",
+    "aether:sentry",
+    "aether:sheepuff",
+    "aether:slider",
+    "aether:sun_spirit",
+    "aether:valkyrie",
+    "aether:valkyrie_queen",
+    "aether:zephyr",
+    "aether_redux:shimmercow",
+    "aether_redux:mykapod",
+    "#aether:swets",
+    {
+      "id": "deep_aether:quail",
+      "required": false
+    },
+    {
+      "id": "deep_aether:aerglow_fish",
+      "required": false
+    },
+    {
+      "id": "deep_aether:venomite",
+      "required": false
+    },
+    {
+      "id": "ancient_aether:fluffalo",
+      "required": false
+    },
+    {
+      "id": "ancient_aether:roothyrn",
+      "required": false
+    },
+    {
+      "id": "ancient_aether:ancient_guardian",
+      "required": false
+    },
+    {
+      "id": "ancient_aether:aeronautic_leaper",
+      "required": false
+    },
+    {
+      "id": "aether_genesis:battle_sentry",
+      "required": false
+    },
+    {
+      "id": "aether_genesis:tempest",
+      "required": false
+    },
+    {
+      "id": "aether_genesis:skyroot_mimic",
+      "required": false
+    },
+    {
+      "id": "aether_genesis:labyrinth_eye",
+      "required": false
+    },
+    {
+      "id": "aether_genesis:tracking_golem",
+      "required": false
+    },
+    {
+      "id": "aether_genesis:slider_host_mimic",
+      "required": false
+    },
+    {
+      "id": "aether_genesis:carrion_sprout",
+      "required": false
+    }
+  ]
+}

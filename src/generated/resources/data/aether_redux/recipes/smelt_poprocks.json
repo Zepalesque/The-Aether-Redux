@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.2,
+  "ingredient": {
+    "item": "aether_redux:poprock_ore"
+  },
+  "result": "aether_redux:lemon_poprocks"
+}

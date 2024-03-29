@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "aether_redux:rock_candy"
+  },
+  "result": "aether_redux:rock_candy_slab"
+}

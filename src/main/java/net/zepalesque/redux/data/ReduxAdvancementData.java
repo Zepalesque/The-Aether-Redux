@@ -41,8 +41,8 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
                                     .append(Component.translatable("gui.aether_redux.advancement_suffix").withStyle(style -> style.withColor(Redux.REDUX_PURPLE))),
                             new ResourceLocation(Redux.MODID, "textures/block/natural/sentrite.png"),
                             FrameType.TASK, false, false, false)
-                    .addCriterion("install", AprilReduxSpecialTrigger.TriggerInstance.type("install"))
-                    .save(consumer, Redux.locate("install"), existingFileHelper);
+                    .addCriterion("base_redux", AprilReduxSpecialTrigger.TriggerInstance.type("install"))
+                    .save(consumer, Redux.locate("base_redux"), existingFileHelper);
 
             Advancement install = Advancement.Builder.advancement()
                     .parent(redux)

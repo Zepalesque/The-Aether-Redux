@@ -17,16 +17,16 @@
           "translate": "gui.aether_redux.advancement_suffix"
         }
       ],
-      "translate": "advancement.aether_redux.install.desc"
+      "translate": "advancement.aether_redux.base.desc"
     },
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "aether_redux:install_icon"
+      "item": "aether_redux:redux_icon"
     },
-    "show_toast": true,
+    "show_toast": false,
     "title": {
-      "translate": "advancement.aether_redux.install"
+      "translate": "advancement.aether_redux.base"
     }
   },
   "requirements": [
