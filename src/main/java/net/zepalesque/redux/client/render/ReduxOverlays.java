@@ -10,6 +10,7 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -34,6 +35,7 @@ import snownee.jade.overlay.OverlayRenderer;
 public class ReduxOverlays {
 
     public static int rebuxY = 0;
+    public static int prevRebuxY = 0;
     public static int rebuxCooldown = 100;
     public static boolean rebuxTarget = false;
     public static final int max = 16;
@@ -89,6 +91,7 @@ public class ReduxOverlays {
 
 
     public static void tick() {
+        prevRebuxY = rebuxY;
         Minecraft minecraft = Minecraft.getInstance();
         if ((rebuxTarget) && rebuxY < max) {
             rebuxY++;
@@ -115,7 +118,8 @@ public class ReduxOverlays {
         if (shouldShowRebuxCounter(mc.screen)) {
             return max;
         } else {
-            return (float) MathUtil.costrp(rebuxY / 16D, 0, 32);
+            float partial = mc.getPartialTick();
+            return (float) MathUtil.costrp(Mth.lerp(partial, prevRebuxY, rebuxY) / 16D, 0, 32);
         }
     }
 
