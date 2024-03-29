@@ -741,6 +741,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addSubtitle("item", "convert_blighted_spores", "Mini Hearts transform");
         addSubtitle("item", "infuse_item", "Item infuses");
         addSubtitle("item", "infusion_expire", "Infusion expires");
+        addSubtitle("item", "poprocks_crackle", "Poprocks crackle");
         addSubtitle("item", "spear_throw", "Spear wooshes");
         addSubtitle("item", "spear_land", "Spear clings");
         addSubtitle("block", "quickroots_pick", "Quickroot pops");

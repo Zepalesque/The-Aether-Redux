@@ -20,6 +20,7 @@ import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.item.accessory.*;
+import net.zepalesque.redux.item.food.PoprocksItem;
 import net.zepalesque.redux.item.food.ReduxFoods;
 import net.zepalesque.redux.item.misc.BlightedSporesItem;
 import net.zepalesque.redux.item.tools.VeridiumAxeItem;
@@ -59,8 +60,7 @@ public class ReduxItems {
     public static final RegistryObject<Item> BLUEBERRY_PIE = register("blueberry_pie", () -> new Item(new Item.Properties().food(ReduxFoods.BLUEBERRY_PIE)));
     public static final RegistryObject<Item> ENCHANTED_BLUEBERRY_PIE = register("enchanted_blueberry_pie", () -> new Item(new Item.Properties().food(ReduxFoods.ENCHANTED_BLUEBERRY_PIE)));
 
-    // TODO: Sounds
-    public static final RegistryObject<Item> LEMON_POPROCKS = register("lemon_poprocks", () -> new Item(new Item.Properties().food(ReduxFoods.POPROCKS)));
+    public static final RegistryObject<Item> LEMON_POPROCKS = register("lemon_poprocks", () -> new PoprocksItem(new Item.Properties().food(ReduxFoods.POPROCKS)));
 
     public static final RegistryObject<Item> FIREINTHEHOLE = register("fireinthehole", () -> new Item(new Item.Properties().food(ReduxFoods.FIREINTHEHOLE)));
 
