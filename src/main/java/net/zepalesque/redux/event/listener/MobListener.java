@@ -54,6 +54,9 @@ public class MobListener {
         @Nullable Player plr = null;
         if (event.getSource().getEntity() instanceof Player ent) {
             plr = ent;
+            if (!event.getEntity().isBaby() && event.getEntity().getType().is(ReduxTags.EntityTypes.DROPS_REBUX)) {
+                MobHooks.createRebux(event.getEntity());
+            }
         }
         if (event.getSource().getDirectEntity() instanceof Player dir) {
             plr = dir;

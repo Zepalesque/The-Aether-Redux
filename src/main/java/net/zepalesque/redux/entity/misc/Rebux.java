@@ -6,6 +6,7 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
@@ -18,7 +19,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.util.ITeleporter;
 import net.minecraftforge.fluids.FluidType;
+import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.capability.player.ReduxPlayer;
+import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 
 import javax.annotation.Nullable;
@@ -131,12 +134,17 @@ public class Rebux extends Entity {
 
     public void doPickup(Player entity) {
         if (!this.level().isClientSide) {
+            this.playSound(ReduxSoundEvents.COIN_PICKUP.get());
             int count = this.getCount();
             ReduxPlayer.get(entity).ifPresent(reduxPlayer -> reduxPlayer.increaseRebux(count));
             this.setCount(0);
             this.discard();
         }
+    }
 
+    @Override
+    public SoundSource getSoundSource() {
+        return SoundSource.PLAYERS;
     }
 
     public int getCount() {

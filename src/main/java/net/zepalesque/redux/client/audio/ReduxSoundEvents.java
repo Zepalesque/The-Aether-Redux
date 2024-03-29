@@ -87,6 +87,8 @@ public class ReduxSoundEvents {
     public static final RegistryObject<SoundEvent> HEARTBEAT_MED = register("generic.heartbeat_med");
     public static final RegistryObject<SoundEvent> HEARTBEAT_SLOW = register("generic.heartbeat_slow");
 
+    public static final RegistryObject<SoundEvent> COIN_PICKUP = register("generic.coin_pickup");
+
     public static final RegistryObject<SoundEvent> BLIGHTSHADE_SPRAY = register("block.blightshade_spray");
     public static final RegistryObject<SoundEvent> QUICKROOTS_PICK = register("block.quickroots_pick");
     public static final RegistryObject<SoundEvent> LIGHTROOTS_PICK = register("block.lightroots_pick");

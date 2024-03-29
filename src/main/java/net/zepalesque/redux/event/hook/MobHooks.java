@@ -16,6 +16,8 @@ import net.minecraft.world.entity.ai.goal.RestrictSunGoal;
 import net.minecraft.world.entity.ai.goal.WrappedGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.capability.animation.mimic.MimicAnimation;
 import net.zepalesque.redux.capability.animation.moa.MoaAnimation;
@@ -29,6 +31,7 @@ import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.entity.ai.goal.CockatriceMeleeAttackGoal;
 import net.zepalesque.redux.entity.ai.goal.CockatriceRangedStrafeGoal;
 import net.zepalesque.redux.entity.ai.target.HurtByOtherTypeTargetGoal;
+import net.zepalesque.redux.entity.misc.Rebux;
 
 public class MobHooks {
 
@@ -109,6 +112,24 @@ public class MobHooks {
 
 
 
-//    public void createRebux()
+    public static void createRebux(LivingEntity entity) {
+        float hp = entity.getMaxHealth() + entity.getRandom().nextInt(10);
+        int total = Mth.floor(hp / 5);
+        int coinSize = (int) Math.max(total / 4F, 1);
+        int coinCount = Mth.floor(total / (double) coinSize);
+        for (int i = 0; i < coinCount; i++) {
+            spawnRebux(entity.level(), coinSize, entity.position(), new Vec3((entity.getRandom().nextDouble() * 0.2 - 0.1) * 2.0, entity.getRandom().nextDouble() * 0.2 * 2.0, (entity.getRandom().nextDouble() * 0.2 - 0.1) * 2.0));
+        }
+        int remainder = total % coinCount;
+        if (remainder > 0) {
+            spawnRebux(entity.level(), remainder, entity.position(), new Vec3((entity.getRandom().nextDouble() * 0.2 - 0.1) * 2.0, entity.getRandom().nextDouble() * 0.2 * 2.0, (entity.getRandom().nextDouble() * 0.2 - 0.1) * 2.0));
+        }
+    }
+
+    public static void spawnRebux(Level lvl, int value, Vec3 pos, Vec3 movement) {
+        Rebux rebux = new Rebux(lvl, pos.x, pos.y, pos.z, value);
+        rebux.setDeltaMovement(movement);
+        lvl.addFreshEntity(rebux);
+    }
 }
 

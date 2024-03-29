@@ -25,6 +25,20 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
                 definition().with(sound("aether_redux:generic/heartbeat/heartbeat_med")));
         this.add(ReduxSoundEvents.HEARTBEAT_SLOW,
                 definition().with(sound("aether_redux:generic/heartbeat/heartbeat_slow")));
+        this.add(ReduxSoundEvents.COIN_PICKUP,
+                definition()
+                        .with(sound("aether_redux:generic/coin/coin1"))
+                        .with(sound("aether_redux:generic/coin/coin2"))
+                        .with(sound("aether_redux:generic/coin/coin3"))
+                        .with(sound("aether_redux:generic/coin/coin4"))
+                        .with(sound("aether_redux:generic/coin/coin5"))
+                        .with(sound("aether_redux:generic/coin/coin6"))
+                        .with(sound("aether_redux:generic/coin/coin7"))
+                        .with(sound("aether_redux:generic/coin/coin8"))
+                        .with(sound("aether_redux:generic/coin/coin9"))
+                        .with(sound("aether_redux:generic/coin/coin10"))
+                        .with(sound("aether_redux:generic/coin/coin11"))
+                        .subtitle("subtitles.aether_redux.generic.coin_pickup"));
         this.add(ReduxSoundEvents.SENTRY_LAND_BASE,
                 definition().with(sound("minecraft:mob/slime/big1"), sound("minecraft:mob/slime/big2"), sound("minecraft:mob/slime/big3"), sound("minecraft:mob/slime/big4"))
                         .subtitle("subtitles.aether.entity.sentry.jump"));

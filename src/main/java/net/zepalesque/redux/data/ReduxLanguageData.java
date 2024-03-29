@@ -642,6 +642,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addEntityType(ReduxEntityTypes.VERIDIUM_DART, "Veridium Dart");
         addEntityType(ReduxEntityTypes.BLIGHTBUNNY_SPAWNER, "Goodbunny Spawner");
         addEntityType(ReduxEntityTypes.COCKATRICE_SPAWNER, "Cockatrice Spawner");
+        addEntityType(ReduxEntityTypes.REBUX, "Rebux");
 
         addPackConfigEnum("classic", "Classic");
         addPackConfigEnum("modern", "Modern");
@@ -718,6 +719,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addSubtitle("item", "lobotomy_effect_high", "'FEER IN DA HEEL!'");
         addSubtitle("generic", "boost_jump", "Something double-jumps");
         addSubtitle("generic", "fireball_shoot", "Fireball shoots");
+        addSubtitle("generic", "coin_pickup", "Rebux jingles");
         addSubtitle("block", "blightshade_spray", "Niceshade sprays");
         addSubtitle("item", "convert_ambrosium", "Ambrosium enchants");
         addSubtitle("item", "convert_swet_ball", "Swet Ball squelches");
