@@ -32,7 +32,6 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
                         .with(sound("aether_redux:generic/coin/coin3"))
                         .with(sound("aether_redux:generic/coin/coin4"))
                         .with(sound("aether_redux:generic/coin/coin5"))
-                        .with(sound("aether_redux:generic/coin/coin6"))
                         .subtitle("subtitles.aether_redux.generic.coin_pickup"));
         this.add(ReduxSoundEvents.SENTRY_LAND_BASE,
                 definition().with(sound("minecraft:mob/slime/big1"), sound("minecraft:mob/slime/big2"), sound("minecraft:mob/slime/big3"), sound("minecraft:mob/slime/big4"))
