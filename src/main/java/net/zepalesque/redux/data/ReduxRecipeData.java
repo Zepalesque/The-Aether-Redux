@@ -79,7 +79,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
         smeltingOreRecipe(ReduxItems.VERIDIUM_INGOT.get(), ReduxItems.RAW_VERIDIUM.get(), 0.8F).save(consumer, name("smelt_raw_veridium"));
         blastingOreRecipe(ReduxItems.VERIDIUM_INGOT.get(), ReduxItems.RAW_VERIDIUM.get(), 0.8F).save(consumer, name("blast_raw_veridium"));
 
-        smeltingOreRecipe(ReduxItems.LEMON_POPROCKS.get(), ReduxBlocks.POPROCK_ORE.get(), 0.2F).save(consumer, name("smelt_veridium"));
+        smeltingOreRecipe(ReduxItems.LEMON_POPROCKS.get(), ReduxBlocks.POPROCK_ORE.get(), 0.2F).save(consumer, name("smelt_poprocks"));
 
         oreBlockStorageRecipesRecipesWithCustomUnpacking(consumer, RecipeCategory.MISC, ReduxItems.VERIDIUM_INGOT.get(), RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.VERIDIUM_BLOCK.get(), "veridium_ingot_from_veridium_block", "veridium_ingot");
 

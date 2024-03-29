@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "aether_redux:block/rock_candy_slab"
+    },
+    "type=double": {
+      "model": "aether_redux:block/rock_candy"
+    },
+    "type=top": {
+      "model": "aether_redux:block/rock_candy_slab_top"
+    }
+  }
+}

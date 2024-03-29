@@ -7,6 +7,7 @@ import com.aetherteam.aether.block.natural.*;
 import com.aetherteam.aether.mixin.mixins.common.accessor.FireBlockAccessor;
 import com.google.common.base.Supplier;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
@@ -524,7 +525,7 @@ public class ReduxBlocks {
             () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOL).strength(3.0F).requiresCorrectToolForDrops()));
 
     public static RegistryObject<Block> POPROCK_ORE = register("poprock_ore",
-            () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(2.0F).requiresCorrectToolForDrops()));
+            () -> new AetherDoubleDropsOreBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(2.0F).requiresCorrectToolForDrops(), UniformInt.of(5, 9)));
 
     public static RegistryObject<Block> VERIDIUM_BLOCK = register("veridium_block",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.LAPIS).strength(5.0F, 6.0F).requiresCorrectToolForDrops().sound(SoundType.NETHERITE_BLOCK)));
