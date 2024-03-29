@@ -173,8 +173,8 @@ public class ReduxOverlays {
                 poseStack.popPose();
                 Component text = Component.translatable("gui.aether_redux.coin_count", coinCount);
                 int width = font.width(text);
-                GraphicsHelper.drawCenteredString(guiGraphics, font, text, x + 16, y, 0xFFFFFF);
-                GraphicsHelper.blit(guiGraphics, REBUX, x - (width / 2F), y - 8, -89, 0.0F, 0.0F, 16, 16, 16, 16);
+                GraphicsHelper.drawCenteredString(guiGraphics, font, text, x + 8, y - (font.lineHeight / 2F), 0xFFFFFF);
+                GraphicsHelper.blit(guiGraphics, REBUX, x - (width / 2F) - 8, y - 8, -89, 0.0F, 0.0F, 16, 16, 16, 16);
             } else {
                 int y = (window.getGuiScaledWidth() / 8);
                 float x = offs + 16;
@@ -192,8 +192,8 @@ public class ReduxOverlays {
                 poseStack.popPose();
                 Component text = Component.literal(String.valueOf(coinCount));
                 int height = font.lineHeight;
-                GraphicsHelper.drawCenteredString(guiGraphics, font, text, x, y - (height / 2F), 0xFFFFFF);
-                GraphicsHelper.blit(guiGraphics, REBUX, x - 8, y - 8 - (height / 2F), -89, 0.0F, 0.0F, 16, 16, 16, 16);
+                GraphicsHelper.drawCenteredString(guiGraphics, font, text, x - 3, y + 8 - (height / 2F), 0xFFFFFF);
+                GraphicsHelper.blit(guiGraphics, REBUX, x - 11, y - 8 - (height / 2F), -89, 0.0F, 0.0F, 16, 16, 16, 16);
             }
         }
     }
