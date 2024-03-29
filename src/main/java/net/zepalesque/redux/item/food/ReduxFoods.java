@@ -41,4 +41,6 @@ public class ReduxFoods {
 
     public static final FoodProperties CANDYFIELDS_BLOCK = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.0F).build();
 
+    public static final FoodProperties POPROCKS = (new FoodProperties.Builder()).nutrition(1).saturationMod(10.0F).build();
+
 }

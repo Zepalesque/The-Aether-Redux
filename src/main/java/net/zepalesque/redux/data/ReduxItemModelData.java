@@ -34,6 +34,10 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlock(ReduxBlocks.DIVINITE_SLAB);
         itemBlock(ReduxBlocks.DIVINITE_STAIRS);
         itemWallBlock(ReduxBlocks.DIVINITE_WALL, ReduxBlocks.DIVINITE, "natural/");
+        itemBlock(ReduxBlocks.ROCK_CANDY);
+        itemBlock(ReduxBlocks.ROCK_CANDY_SLAB);
+        itemBlock(ReduxBlocks.ROCK_CANDY_STAIRS);
+        itemWallBlock(ReduxBlocks.ROCK_CANDY_WALL, ReduxBlocks.ROCK_CANDY, "natural/");
         itemBlock(ReduxBlocks.SENTRITE);
         itemBlock(ReduxBlocks.SENTRITE_SLAB);
         itemBlock(ReduxBlocks.SENTRITE_STAIRS);
@@ -78,6 +82,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         item(ReduxItems.SKYBUD, "materials/");
         item(ReduxItems.BLUEBERRY_PIE, "food/");
         item(ReduxItems.ENCHANTED_BLUEBERRY_PIE, "food/");
+        item(ReduxItems.LEMON_POPROCKS, "food/");
         itemBlockFlatCustomTexture(ReduxBlocks.GOLDEN_CLOVER, "natural/golden_clover_top");
         enchanableOrTintableFlower(ReduxBlocks.AURUM, "natural/");
         enchanableOrTintableFlower(ReduxBlocks.ZYATRIX, "natural/");
@@ -239,6 +244,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
 
         this.itemBlock(ReduxBlocks.VERIDIUM_BLOCK.get());
         this.itemBlock(ReduxBlocks.VERIDIUM_ORE.get());
+        this.itemBlock(ReduxBlocks.POPROCK_ORE.get());
         this.itemBlock(ReduxBlocks.RAW_VERIDIUM_BLOCK.get());
 
         this.itemBlock(ReduxBlocks.RAW_VALKYRUM_BLOCK.get());

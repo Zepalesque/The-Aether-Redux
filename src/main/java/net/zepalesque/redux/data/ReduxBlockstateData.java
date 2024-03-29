@@ -49,6 +49,11 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.stairs(ReduxBlocks.DIVINITE_STAIRS.get(), ReduxBlocks.DIVINITE.get(), "natural/");
         this.wallBlock(ReduxBlocks.DIVINITE_WALL.get(), ReduxBlocks.DIVINITE.get(), "natural/");
 
+        this.blockDoubleDrops(ReduxBlocks.ROCK_CANDY.get(), "natural/");
+        this.slab(ReduxBlocks.ROCK_CANDY_SLAB.get(), ReduxBlocks.ROCK_CANDY.get(), "natural/");
+        this.stairs(ReduxBlocks.ROCK_CANDY_STAIRS.get(), ReduxBlocks.ROCK_CANDY.get(), "natural/");
+        this.wallBlock(ReduxBlocks.ROCK_CANDY_WALL.get(), ReduxBlocks.ROCK_CANDY.get(), "natural/");
+
 
         this.blockDoubleDrops(ReduxBlocks.SENTRITE.get(), "natural/");
         this.slab(ReduxBlocks.SENTRITE_SLAB.get(), ReduxBlocks.SENTRITE.get(), "natural/");
@@ -234,6 +239,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.crossTintedEnchantable(ReduxBlocks.SPLITFERN.get(), "natural/");
         this.tintedPot(ReduxBlocks.POTTED_SPLITFERN.get(), ReduxBlocks.SPLITFERN.get(), "natural/");
         this.blockDoubleDrops(ReduxBlocks.VERIDIUM_ORE.get(), "natural/");
+        this.blockDoubleDrops(ReduxBlocks.POPROCK_ORE.get(), "natural/");
         this.block(ReduxBlocks.RAW_VERIDIUM_BLOCK.get(), "natural/");
         this.block(ReduxBlocks.RAW_VALKYRUM_BLOCK.get(), "natural/");
         this.block(ReduxBlocks.VERIDIUM_BLOCK.get(), "construction/");

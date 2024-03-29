@@ -205,7 +205,7 @@ public class ReduxBlocks {
             () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DIAMOND).requiresCorrectToolForDrops().strength(0.3F, 6.0F).sound(SoundType.BASALT)));
 
     public static RegistryObject<StairBlock> ROCK_CANDY_STAIRS = register("rock_candy_stairs",
-            () -> new StairBlock(() -> (ROCK_CANDY.get()).defaultBlockState(), BlockBehaviour.Properties.copy(DIVINITE.get())));
+            () -> new StairBlock(() -> (ROCK_CANDY.get()).defaultBlockState(), BlockBehaviour.Properties.copy(ROCK_CANDY.get())));
 
     public static RegistryObject<WallBlock> ROCK_CANDY_WALL = register("rock_candy_wall",
             () -> new WallBlock(BlockBehaviour.Properties.copy(ROCK_CANDY.get())));
@@ -522,6 +522,9 @@ public class ReduxBlocks {
 
     public static RegistryObject<Block> VERIDIUM_ORE = register("veridium_ore",
             () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOL).strength(3.0F).requiresCorrectToolForDrops()));
+
+    public static RegistryObject<Block> POPROCK_ORE = register("poprock_ore",
+            () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(2.0F).requiresCorrectToolForDrops()));
 
     public static RegistryObject<Block> VERIDIUM_BLOCK = register("veridium_block",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.LAPIS).strength(5.0F, 6.0F).requiresCorrectToolForDrops().sound(SoundType.NETHERITE_BLOCK)));

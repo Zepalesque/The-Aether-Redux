@@ -67,6 +67,10 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.ENCHANTED_SHELL_SHINGLES, ReduxBlocks.ENCHANTED_SHELL_SHINGLE_STAIRS, event);
             putAfter(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_STAIRS, ReduxBlocks.ENCHANTED_SHELL_SHINGLE_SLAB, event);
             putAfter(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_SLAB, ReduxBlocks.ENCHANTED_SHELL_SHINGLE_WALL, event);
+            putAfter(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_WALL, ReduxBlocks.ROCK_CANDY, event);
+            putAfter(ReduxBlocks.ROCK_CANDY, ReduxBlocks.ROCK_CANDY_STAIRS, event);
+            putAfter(ReduxBlocks.ROCK_CANDY_STAIRS, ReduxBlocks.ROCK_CANDY_SLAB, event);
+            putAfter(ReduxBlocks.ROCK_CANDY_SLAB, ReduxBlocks.ROCK_CANDY_WALL, event);
 
             putAfter(AetherBlocks.ZANITE_BLOCK, ReduxBlocks.VERIDIUM_BLOCK, event);
 
@@ -93,6 +97,7 @@ public class ReduxCreativeTabs {
             putAfter(AetherBlocks.HOLYSTONE, ReduxBlocks.DIVINITE, event);
             putAfter(ReduxBlocks.DIVINITE, ReduxBlocks.SENTRITE, event);
             putAfter(ReduxBlocks.SENTRITE, ReduxBlocks.HOLYSILT, event);
+            putAfter(ReduxBlocks.HOLYSILT, ReduxBlocks.ROCK_CANDY, event);
 
             if (!Redux.deepAetherCompat()) {
                 putAfter(AetherBlocks.AETHER_DIRT, ReduxBlocks.COARSE_AETHER_DIRT, event);
@@ -197,6 +202,9 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.VERIDIUM_ORE, ReduxBlocks.RAW_VERIDIUM_BLOCK, event);
             if (ReduxConfig.COMMON.raw_ores.get()) {
                 putAfter(AetherBlocks.GRAVITITE_ORE, ReduxBlocks.RAW_GRAVITITE_BLOCK, event);
+                putAfter(ReduxBlocks.RAW_GRAVITITE_BLOCK, ReduxBlocks.POPROCK_ORE, event);
+            } else {
+                putAfter(AetherBlocks.GRAVITITE_ORE, ReduxBlocks.POPROCK_ORE, event);
             }
             if (Redux.ancientAetherCompat()) {
                 putAfter(AncientAetherBlocks.VALKYRUM_ORE, ReduxBlocks.RAW_VALKYRUM_BLOCK, event);
@@ -240,6 +248,7 @@ public class ReduxCreativeTabs {
             putAfter(ReduxItems.WYNDSPROUT_BAGEL, ReduxItems.BLUEBERRY_BAGEL, event);
             putAfter(ReduxItems.BLUEBERRY_BAGEL, ReduxItems.WYNDSPROUT_SEEDS, event);
             putAfter(ReduxItems.WYNDSPROUT_SEEDS, ReduxItems.OATMEAL, event);
+            putAfter(ReduxItems.OATMEAL, ReduxItems.LEMON_POPROCKS, event);
 
 
             putAfter(AetherItems.GOLDEN_GUMMY_SWET, ReduxItems.VANILLA_GUMMY_SWET, event);

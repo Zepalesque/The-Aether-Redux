@@ -76,6 +76,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.ENCHANTED_BLUEBERRY_PIE, "Enchanted Blueberry Pie");
         addLore(ReduxItems.ENCHANTED_BLUEBERRY_PIE, "An enchanted variant of the Blueberry Pie. This fancy treat gives you a short regeneration effect!");
 
+        addItem(ReduxItems.LEMON_POPROCKS, "Lemon Poprocks");
+        addLore(ReduxItems.LEMON_POPROCKS, "Some delicious poprocks found in the Sugarfields!");
+
         addItem(ReduxItems.ENCHANTED_RING, "Enchanted Ring");
         addLore(ReduxItems.ENCHANTED_RING, "A ring with a large amount of magical potential. You can use it to craft many other types of rings with a variety of abilities!");
 
@@ -348,6 +351,15 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.DIVINITE_WALL, "Divinite Wall");
         addLore(ReduxBlocks.DIVINITE_WALL, "Crafted from Divinite. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
 
+        addBlock(ReduxBlocks.ROCK_CANDY, "Rock Candy");
+        addLore(ReduxBlocks.ROCK_CANDY, "A type of crystal found in clusters in the Sugarfields. Sometimes, you'll find Poprock Ore in these clumps!");
+        addBlock(ReduxBlocks.ROCK_CANDY_SLAB, "Rock Candy Slab");
+        addLore(ReduxBlocks.ROCK_CANDY_SLAB, "Crafted from Rock Candy. Slabs are half blocks, versatile for decoration and smooth slopes. Try adding some to a building's roofing!");
+        addBlock(ReduxBlocks.ROCK_CANDY_STAIRS, "Rock Candy Stairs");
+        addLore(ReduxBlocks.ROCK_CANDY_STAIRS, "Crafted from Rock Candy. Stairs are useful for adding verticality to builds and are often used for decoration too!");
+        addBlock(ReduxBlocks.ROCK_CANDY_WALL, "Rock Candy Wall");
+        addLore(ReduxBlocks.ROCK_CANDY_WALL, "Crafted from Rock Candy. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
+
         addBlock(ReduxBlocks.HOLYSILT, "Holysilt");
         addLore(ReduxBlocks.HOLYSILT, "Fine particles of broken up holystone and other minerals. Can be found underground, and around the blight. Careful, it's not very stable and may fall beneath your feet!");
 
@@ -554,6 +566,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addBlock(ReduxBlocks.VERIDIUM_ORE, "Veridium Ore");
         addLore(ReduxBlocks.VERIDIUM_ORE, "The ore of Veridium. This can be found around the Aether");
+
+        addBlock(ReduxBlocks.POPROCK_ORE, "Poprock Ore");
+        addLore(ReduxBlocks.POPROCK_ORE, "An ore found in boulders made of Rock Candy. This will drop Lemon Poprocks when mined.");
 
         addBlock(ReduxBlocks.VERIDIUM_BLOCK, "Block of Veridium");
         addLore(ReduxBlocks.VERIDIUM_BLOCK, "A block of pure Veridium. This can be crafted from Veridium Ingots.");

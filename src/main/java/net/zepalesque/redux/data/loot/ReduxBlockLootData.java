@@ -2,6 +2,7 @@ package net.zepalesque.redux.data.loot;
 
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.providers.AetherBlockLootSubProvider;
+import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether.loot.functions.DoubleDrops;
 import com.aetherteam.aether.mixin.mixins.common.accessor.BlockLootAccessor;
 import net.minecraft.advancements.critereon.BlockPredicate;
@@ -61,6 +62,10 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.add(ReduxBlocks.DIVINITE_SLAB.get(), this::createSlabItemTable);
         dropSelf(ReduxBlocks.DIVINITE_STAIRS.get());
         dropSelf(ReduxBlocks.DIVINITE_WALL.get());
+        dropSelfDouble(ReduxBlocks.ROCK_CANDY.get());
+        this.add(ReduxBlocks.ROCK_CANDY_SLAB.get(), this::createSlabItemTable);
+        dropSelf(ReduxBlocks.ROCK_CANDY_STAIRS.get());
+        dropSelf(ReduxBlocks.ROCK_CANDY_WALL.get());
         dropSelfDouble(ReduxBlocks.SENTRITE.get());
         this.add(ReduxBlocks.SENTRITE_SLAB.get(), this::createSlabItemTable);
         dropSelf(ReduxBlocks.SENTRITE_STAIRS.get());
@@ -98,6 +103,8 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
 
         this.add(ReduxBlocks.BLIGHTWILLOW_LEAVES.get(),
                 (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.BLIGHTWILLOW_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
+
+        this.dropDoubleWithFortune(ReduxBlocks.POPROCK_ORE.get(), ReduxItems.LEMON_POPROCKS.get());
 
         this.dropSelf(ReduxBlocks.BLIGHTWILLOW_SAPLING.get());
         this.dropSelf(ReduxBlocks.CRYSTAL_SAPLING.get());
