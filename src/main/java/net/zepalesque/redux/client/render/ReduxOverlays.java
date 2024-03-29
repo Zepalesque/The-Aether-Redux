@@ -36,7 +36,7 @@ public class ReduxOverlays {
 
     public static int rebuxY = 0;
     public static int prevRebuxY = 0;
-    public static int rebuxCooldown = 100;
+    public static int rebuxCooldown = 0;
     public static boolean rebuxTarget = false;
     public static final int max = 16;
 
@@ -90,33 +90,31 @@ public class ReduxOverlays {
     }
 
 
-    public static void tick() {
+    public static void tick(ReduxPlayer plr) {
         prevRebuxY = rebuxY;
-        Minecraft minecraft = Minecraft.getInstance();
+        if (plr.prevRebux() != plr.rebuxCount()) {
+            rebuxTarget = true;
+            rebuxCooldown = 100;
+        }
         if ((rebuxTarget) && rebuxY < max) {
             rebuxY++;
         } else if (rebuxY > 0) {
             if (!rebuxTarget)
                 rebuxY--;
         }
-        if (rebuxCooldown <= 0) {
-            rebuxTarget = false;
-            rebuxCooldown = 100;
-        } else {
+        if (rebuxCooldown > 0) {
             rebuxCooldown--;
+        } else {
+            rebuxTarget = false;
         }
-    }
-
-    public static void rebux(boolean set) {
-        rebuxTarget = set;
     }
 
     private static float getRebuxOffset(Minecraft mc, float partialTicks) {
         if (!ReduxConfig.CLIENT.coinbar_movement.get()) {
-            return rebuxTarget ? 64 : 0;
+            return 64;
         }
         if (shouldShowRebuxCounter(mc.screen)) {
-            return max;
+            return 32;
         } else {
             return (float) MathUtil.costrp(Mth.lerp(partialTicks, prevRebuxY, rebuxY) / 16D, 0, 32);
         }
@@ -158,7 +156,7 @@ public class ReduxOverlays {
     private static void renderRebux(GuiGraphics guiGraphics, Window window, float alpha, Font font, int coinCount, float partialTicks) {
         float offs = getRebuxOffset(Minecraft.getInstance(), partialTicks) - 32;
         if (offs > -32) {
-            if (useSidebar()) {
+            if (!useSidebar()) {
                 int x = (window.getGuiScaledWidth() / 2);
                 float y = offs + 16;
                 PoseStack poseStack = guiGraphics.pose();
@@ -175,7 +173,7 @@ public class ReduxOverlays {
                 poseStack.popPose();
                 Component text = Component.translatable("gui.aether_redux.coin_count", coinCount);
                 int width = font.width(text);
-                GraphicsHelper.drawCenteredString(guiGraphics, font, text, x + 16, (int) y, 0xFFFFFF);
+                GraphicsHelper.drawCenteredString(guiGraphics, font, text, x + 16, y, 0xFFFFFF);
                 GraphicsHelper.blit(guiGraphics, REBUX, x - (width / 2F), y - 8, -89, 0.0F, 0.0F, 16, 16, 16, 16);
             } else {
                 int y = (window.getGuiScaledWidth() / 8);

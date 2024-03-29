@@ -19,6 +19,7 @@ public interface ReduxPlayer extends INBTSynchable<CompoundTag> {
 
     int ticksInAir();
 
+    int prevRebux();
     int rebuxCount();
 
     void setRebux(int amount);

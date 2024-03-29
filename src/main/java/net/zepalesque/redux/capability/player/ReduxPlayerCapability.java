@@ -41,6 +41,7 @@ public class ReduxPlayerCapability implements ReduxPlayer {
     int maxAirJumps = 0;
 
     int rebux = 0;
+    int prevRebux = 0;
 
 
     int ticksInAir = 0;
@@ -111,10 +112,13 @@ public class ReduxPlayerCapability implements ReduxPlayer {
     }
 
     @Override
+    public int prevRebux() {
+        return this.prevRebux;
+    }
+
+    @Override
     public void setRebux(int amount) {
-        if (this.rebux != amount && this.player.level().isClientSide()) {
-            ReduxOverlays.rebux(true);
-        }
+        this.prevRebux = this.rebux;
         this.rebux = amount;
     }
 
