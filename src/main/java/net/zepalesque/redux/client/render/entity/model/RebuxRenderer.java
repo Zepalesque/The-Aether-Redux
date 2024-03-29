@@ -28,10 +28,10 @@ public class RebuxRenderer extends EntityRenderer<Rebux> {
 
     public void render(Rebux entity, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight) {
         poseStack.pushPose();
-        poseStack.translate(0.0, 0.875, 0.0);
+        poseStack.translate(0.0F, 2.0F, 0.0F);
         float f = 0.5F;
         poseStack.scale(f, f, f);
-        this.model.coin.yRot = (entity.tickCount + partialTicks) / 20.0F;
+        this.model.coin.yRot = (entity.tickCount + partialTicks) / 10.0F;
         VertexConsumer vertexconsumer = buffer.getBuffer(RENDER_TYPE);
         this.model.renderToBuffer(poseStack, vertexconsumer, packedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
         poseStack.popPose();

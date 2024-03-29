@@ -10,6 +10,7 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -21,6 +22,7 @@ import net.zepalesque.redux.capability.player.ReduxPlayer;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 
 import javax.annotation.Nullable;
+import java.util.List;
 
 public class Rebux extends Entity {
     private static final int LIFETIME = 6000;
@@ -118,11 +120,17 @@ public class Rebux extends Entity {
                 this.discard();
             }
         }
+        if (!this.isRemoved()) {
+            for (Entity entity : this.level().getEntities(this, this.getBoundingBox())) {
+                if (entity instanceof Player p) {
+                    this.doPickup(p);
+                }
+            }
+        }
     }
 
-    public void playerTouch(Player entity) {
+    public void doPickup(Player entity) {
         if (!this.level().isClientSide) {
-
             int count = this.getCount();
             ReduxPlayer.get(entity).ifPresent(reduxPlayer -> reduxPlayer.increaseRebux(count));
             this.setCount(0);
