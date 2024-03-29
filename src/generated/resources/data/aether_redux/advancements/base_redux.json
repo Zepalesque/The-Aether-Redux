@@ -22,7 +22,7 @@
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "aether_redux:redux_icon"
+      "item": "aether_redux:redux_base_icon"
     },
     "show_toast": false,
     "title": {

@@ -343,12 +343,7 @@
       "aether_redux:generic/coin/coin2",
       "aether_redux:generic/coin/coin3",
       "aether_redux:generic/coin/coin4",
-      "aether_redux:generic/coin/coin5",
-      "aether_redux:generic/coin/coin6",
-      "aether_redux:generic/coin/coin7",
-      "aether_redux:generic/coin/coin8",
-      "aether_redux:generic/coin/coin9",
-      "aether_redux:generic/coin/coin10"
+      "aether_redux:generic/coin/coin5"
     ],
     "subtitle": "subtitles.aether_redux.generic.coin_pickup"
   },

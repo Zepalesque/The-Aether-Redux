@@ -410,6 +410,7 @@
   "gui.aether_redux.airbound_cape_jump_boost": "Grants ability to double jump",
   "gui.aether_redux.bittersweet_charm_poison_chance": "10% chance to poison targets of melee attacks",
   "gui.aether_redux.cockatrice_feather_protection": "literally does nothing",
+  "gui.aether_redux.coin_count": "Rebux: %s",
   "gui.aether_redux.continue_delay": "The continue button will unlock in %s seconds.",
   "gui.aether_redux.continue_delay_expired": "The continue button has been unlocked.",
   "gui.aether_redux.continue_delay_unfocused": "Delay paused until window refocused! Time remaining: %s seconds",
