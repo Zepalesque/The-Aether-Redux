@@ -153,6 +153,7 @@ public class ReduxOverlays {
 
     private static void renderRebux(GuiGraphics guiGraphics, Window window, float alpha, Font font, int coinCount, float partialTicks) {
         float offs = getRebuxOffset(Minecraft.getInstance(), partialTicks) - 32;
+        float threshold = 0.01F;
         if (offs > -32) {
             if (!useSidebar()) {
                 int x = (window.getGuiScaledWidth() / 2);
@@ -163,7 +164,7 @@ public class ReduxOverlays {
                 RenderSystem.depthMask(false);
                 RenderSystem.enableBlend();
                 guiGraphics.setColor(1.0F, 1.0F, 1.0F, alpha);
-                GraphicsHelper.blit(guiGraphics, COINBAR, x - 80, offs, -90, 0.0F, 0.0F, 160, 32, 160, 32);
+                GraphicsHelper.blit(guiGraphics, COINBAR, MathUtil.roundIfWithinThreshold(x - 80, threshold), MathUtil.roundIfWithinThreshold(offs, threshold), -90, 0.0F, 0.0F, 160, 32, 160, 32);
                 guiGraphics.setColor(1.0F, 1.0F, 1.0F, 1.0F);
                 RenderSystem.disableBlend();
                 RenderSystem.depthMask(true);
@@ -172,7 +173,7 @@ public class ReduxOverlays {
                 Component text = Component.translatable("gui.aether_redux.coin_count", coinCount);
                 int width = font.width(text);
                 GraphicsHelper.drawCenteredString(guiGraphics, font, text, x + 8, y - (font.lineHeight / 2F), 0xFFFFFF);
-                GraphicsHelper.blit(guiGraphics, REBUX, x - (width / 2F) - 8, y - 8, -89, 0.0F, 0.0F, 16, 16, 16, 16);
+                GraphicsHelper.blit(guiGraphics, REBUX, MathUtil.roundIfWithinThreshold(x - (width / 2F) - 8, threshold), MathUtil.roundIfWithinThreshold(y - 8, threshold), -89, 0.0F, 0.0F, 16, 16, 16, 16);
             } else {
                 int y = (window.getGuiScaledWidth() / 8);
                 float x = offs + 16;
@@ -182,7 +183,7 @@ public class ReduxOverlays {
                 RenderSystem.depthMask(false);
                 RenderSystem.enableBlend();
                 guiGraphics.setColor(1.0F, 1.0F, 1.0F, alpha);
-                GraphicsHelper.blit(guiGraphics, COINBAR_SIDE, offs, y - 16, -90, 0.0F, 0.0F, 32, 32, 32, 32);
+                GraphicsHelper.blit(guiGraphics, COINBAR_SIDE, MathUtil.roundIfWithinThreshold(offs, threshold), MathUtil.roundIfWithinThreshold(y - 16, threshold), -90, 0.0F, 0.0F, 32, 32, 32, 32);
                 guiGraphics.setColor(1.0F, 1.0F, 1.0F, 1.0F);
                 RenderSystem.disableBlend();
                 RenderSystem.depthMask(true);
@@ -190,8 +191,8 @@ public class ReduxOverlays {
                 poseStack.popPose();
                 Component text = Component.literal(String.valueOf(coinCount));
                 int height = font.lineHeight;
-                GraphicsHelper.drawCenteredString(guiGraphics, font, text, x - 3, y + 8 - (height / 2F), 0xFFFFFF);
-                GraphicsHelper.blit(guiGraphics, REBUX, x - 11, y - 8 - (height / 2F), -89, 0.0F, 0.0F, 16, 16, 16, 16);
+                GraphicsHelper.drawCenteredString(guiGraphics, font, text, MathUtil.roundIfWithinThreshold(x - 3, threshold), MathUtil.roundIfWithinThreshold(y + 8 - (height / 2F), threshold), 0xFFFFFF);
+                GraphicsHelper.blit(guiGraphics, REBUX, MathUtil.roundIfWithinThreshold(x - 11, threshold), MathUtil.roundIfWithinThreshold(y - 8 - (height / 2F), threshold), -89, 0.0F, 0.0F, 16, 16, 16, 16);
             }
         }
     }
