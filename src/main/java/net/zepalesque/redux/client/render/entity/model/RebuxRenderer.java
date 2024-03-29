@@ -28,7 +28,7 @@ public class RebuxRenderer extends EntityRenderer<Rebux> {
 
     public void render(Rebux entity, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight) {
         poseStack.pushPose();
-        poseStack.translate(0.0F, 2.0F, 0.0F);
+//        poseStack.translate(0.0F, .0F, 0.0F);
         float f = 0.5F;
         poseStack.scale(f, f, f);
         this.model.coin.yRot = (entity.tickCount + partialTicks) / 10.0F;
