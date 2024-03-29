@@ -767,6 +767,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addGuiText("advancement_suffix_modified", "\n- Modified by the Aether: Redux -");
 
 
+        addAdvancement("base", "The Aether: Redux");
+        addAdvancementDesc("base", "Classic hostile paradise, with some upgrades and tune-ups");
         addAdvancement("install", "YOU HAVE BEEN THE INSTALL !!");
         addAdvancementDesc("install", "Thank you for downloading the Aether: Redux's Update Negative Omega Point Zero Zero One version!!!");
         addAdvancement("hug", "OMG how wholesome!!!");
