@@ -32,6 +32,7 @@ import net.zepalesque.redux.block.construction.VeridiumLanternBlock;
 import net.zepalesque.redux.block.dungeon.Flareblossom;
 import net.zepalesque.redux.block.natural.*;
 import net.zepalesque.redux.block.natural.blight.*;
+import net.zepalesque.redux.block.natural.candy.CottonCandyBlock;
 import net.zepalesque.redux.block.natural.cloudcap.*;
 import net.zepalesque.redux.block.natural.deep.RainbowAercloudBlock;
 import net.zepalesque.redux.block.natural.enchanted.EnchantableBushBlock;
@@ -52,8 +53,6 @@ import net.zepalesque.redux.data.resource.ReduxConfiguredFeatures;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.item.food.ReduxFoods;
 import net.zepalesque.redux.misc.ReduxTags;
-import net.zepalesque.redux.world.tree.grower.*;
-import teamrazor.deepaether.block.DADoubleDropRotatedPillarBlock;
 import net.zepalesque.redux.world.tree.grower.CrystalTree;
 import net.zepalesque.redux.world.tree.grower.PurpleCrystalFruitTree;
 import net.zepalesque.redux.world.tree.grower.ReduxSuppliedTree;
@@ -200,6 +199,9 @@ public class ReduxBlocks {
             () -> new CustomBoundsFlowerBlock(CommonPlantBounds.FLOWER, () -> MobEffects.MOVEMENT_SPEED, 60, BlockBehaviour.Properties.copy(Blocks.OXEYE_DAISY).mapColor(MapColor.WOOL)), properties -> properties.food(ReduxFoods.CANDYFIELDS_BLOCK));
     public static final RegistryObject<FlowerPotBlock> POTTED_VANILLA = BLOCKS.register("potted_vanilla", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, VANILLA, Block.Properties.copy(Blocks.FLOWER_POT)));
 
+
+    public static final RegistryObject<Block> PINK_CANDYFLOSS_BLOCK = registerModifyItemProperties("pink_candyfloss_block", () -> new CottonCandyBlock(Block.Properties.copy(Blocks.PINK_WOOL)), properties -> properties.food(ReduxFoods.COTTON_CANDY));
+    public static final RegistryObject<Block> BLUE_CANDYFLOSS_BLOCK = registerModifyItemProperties("blue_candyfloss_block", () -> new CottonCandyBlock(Block.Properties.copy(Blocks.BLUE_WOOL)), properties -> properties.food(ReduxFoods.COTTON_CANDY));
 
 
     public static RegistryObject<Block> ROCK_CANDY = register("rock_candy",
@@ -451,6 +453,8 @@ public class ReduxBlocks {
                     (FlowerPotBlock)Blocks.FLOWER_POT, PURPLE_GLACIA_SAPLING,
                     BlockBehaviour.Properties.copy(Blocks.FLOWER_POT))
     );
+
+
 
 
 

@@ -37,10 +37,16 @@ public class ReduxFoods {
             .effect( () -> new MobEffectInstance(MobEffects.NIGHT_VISION, 450, 0), 2F).alwaysEat().build();
 
     public static final FoodProperties FIREINTHEHOLE = (new FoodProperties.Builder()).nutrition(2).alwaysEat().saturationMod(0.2F)
-            .effect( () -> new MobEffectInstance(ReduxEffects.THE_LOBOTOMY.get(), 200, 0), 2F).alwaysEat().build();
+            .effect( () -> new MobEffectInstance(ReduxEffects.THE_LOBOTOMY.get(), 200, 0), 2F)
+            .effect( () -> new MobEffectInstance(MobEffects.CONFUSION, 200, 0), 2F)
+            .alwaysEat().build();
 
     public static final FoodProperties CANDYFIELDS_BLOCK = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.0F).build();
 
     public static final FoodProperties POPROCKS = (new FoodProperties.Builder()).nutrition(1).saturationMod(10.0F).build();
+
+    public static final FoodProperties COTTON_CANDY = (new FoodProperties.Builder()).fast().nutrition(3).saturationMod(0.0F)
+            .effect( () -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 300, 0), 2F).alwaysEat().build();
+
 
 }

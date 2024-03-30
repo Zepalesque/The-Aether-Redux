@@ -148,6 +148,8 @@ public class ReduxCreativeTabs {
             }
             putAfter(ReduxBlocks.CLOUD_CAP_BLOCK, ReduxBlocks.CLOUDCAP_SPORES, event);
             putAfter(ReduxBlocks.CLOUDCAP_SPORES, ReduxBlocks.JELLYSHROOM_JELLY_BLOCK, event);
+            putAfter(ReduxBlocks.JELLYSHROOM_JELLY_BLOCK, ReduxBlocks.PINK_CANDYFLOSS_BLOCK, event);
+            putAfter(ReduxBlocks.PINK_CANDYFLOSS_BLOCK, ReduxBlocks.BLUE_CANDYFLOSS_BLOCK, event);
 
             putAfter(AetherBlocks.GOLDEN_OAK_SAPLING, ReduxBlocks.BLIGHTWILLOW_SAPLING, event);
             putAfter(ReduxBlocks.BLIGHTWILLOW_SAPLING, ReduxBlocks.BLIGHTED_SKYROOT_SAPLING, event);

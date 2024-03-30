@@ -93,6 +93,8 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlock(ReduxBlocks.CARVED_STONE_BRICKS);
         itemBlock(ReduxBlocks.CARVED_STONE_BRICK_SLAB);
         itemBlock(ReduxBlocks.CARVED_STONE_BRICK_STAIRS);
+        itemBlock(ReduxBlocks.PINK_CANDYFLOSS_BLOCK);
+        itemBlock(ReduxBlocks.BLUE_CANDYFLOSS_BLOCK);
         itemWallBlock(ReduxBlocks.CARVED_STONE_BRICK_WALL, ReduxBlocks.CARVED_STONE_BRICKS, "construction/");
         itemBlock(ReduxBlocks.CARVED_STONE_PILLAR);
         eggItem(ReduxItems.VANILLA_SWET_SPAWN_EGG);

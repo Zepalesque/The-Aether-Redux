@@ -155,6 +155,18 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.COCOA_SOIL, "Cocoa Soil");
         addLore(ReduxBlocks.COCOA_SOIL, "Essentially the Sugarfields' version of dirt. It seems to be dark chocolate.");
 
+        addBlock(ReduxBlocks.PINK_CANDYFLOSS_BLOCK, "Pink Candyfloss Block");
+        addLore(ReduxBlocks.PINK_CANDYFLOSS_BLOCK, "A big cube of pure Pink Cotton Candy, also known as Candyfloss. Tasty!");
+
+        addBlock(ReduxBlocks.BLUE_CANDYFLOSS_BLOCK, "Blue Candyfloss Block");
+        addLore(ReduxBlocks.BLUE_CANDYFLOSS_BLOCK, "A big cube of pure Blue Cotton Candy, also known as Candyfloss. Tasty!");
+
+//        addBlock(ReduxBlocks.PAPER_PILLAR, "Paper Pillar");
+//        addLore(ReduxBlocks.PAPER_PILLAR, "A pillar constructed from paper. These are commonly found holding up the top parts of the large Cotton Candy found in the Sugarfields!");
+
+//        addBlock(ReduxBlocks.PAPER_BLOCK, "Paper Block");
+//        addLore(ReduxBlocks.PAPER_BLOCK, "A bunch of paper compressed into a singular block. The pillar variant of this is common in the Sugarfields.");
+
         addBlock(ReduxBlocks.VANILLA, "Vanilla");
         addBlock(ReduxBlocks.POTTED_VANILLA, "Potted Vanilla");
         addLore(ReduxBlocks.VANILLA, "Finally, after all these years, they added vanilla to the Aether!!!");

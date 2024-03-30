@@ -195,6 +195,8 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropPottedContents(ReduxBlocks.POTTED_ZYATRIX.get());
         dropSelf(ReduxBlocks.VANILLA.get());
         this.dropPottedContents(ReduxBlocks.POTTED_VANILLA.get());
+        dropSelf(ReduxBlocks.PINK_CANDYFLOSS_BLOCK.get());
+        dropSelf(ReduxBlocks.BLUE_CANDYFLOSS_BLOCK.get());
         dropSelf(ReduxBlocks.FLAWLESS_BLOOM.get());
         this.dropPottedContents(ReduxBlocks.POTTED_FLAWLESS_BLOOM.get());
         dropSelf(ReduxBlocks.ROOTROSE.get());

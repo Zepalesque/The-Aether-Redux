@@ -113,6 +113,8 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.tintedPotOverlay(ReduxBlocks.POTTED_AURUM.get(), ReduxBlocks.AURUM.get(), "natural/");
         this.tintedPotOverlay(ReduxBlocks.POTTED_ZYATRIX.get(), ReduxBlocks.ZYATRIX.get(), "natural/");
         block(ReduxBlocks.CARVED_STONE_BRICKS.get(), "construction/");
+        block(ReduxBlocks.PINK_CANDYFLOSS_BLOCK.get(), "natural/");
+        block(ReduxBlocks.BLUE_CANDYFLOSS_BLOCK.get(), "natural/");
         wallBlock(ReduxBlocks.CARVED_STONE_BRICK_WALL.get(), ReduxBlocks.CARVED_STONE_BRICKS.get(), "construction/");
         stairs(ReduxBlocks.CARVED_STONE_BRICK_STAIRS.get(), ReduxBlocks.CARVED_STONE_BRICKS.get(), "construction/");
         slab(ReduxBlocks.CARVED_STONE_BRICK_SLAB.get(), ReduxBlocks.CARVED_STONE_BRICKS.get(), "construction/");
