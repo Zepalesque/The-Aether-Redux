@@ -11,6 +11,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraftforge.fluids.FluidType;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.ReduxBlocks;
@@ -18,11 +19,13 @@ import net.zepalesque.redux.data.resource.ReduxDamageTypes;
 import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
 import net.zepalesque.redux.effect.ReduxEffects;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
+import net.zepalesque.redux.fluid.ReduxFluidTypes;
 import net.zepalesque.redux.item.ReduxItems;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
+import java.util.function.Supplier;
 
 public class ReduxLanguageData extends AetherLanguageProvider {
     protected final Map<String, String> TIPS = new HashMap<>();
@@ -336,6 +339,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addBlock(ReduxBlocks.AVELIUM_SPROUTS, "Moo Sprouts");
         addLore(ReduxBlocks.AVELIUM_SPROUTS, "A smaller variant of Moovelium Roots. Can be found in the Cowcaps.");
+
+        addFluidType(ReduxFluidTypes.SYRUP, "Maple Syrup");
 
         addItem(ReduxItems.SKYROOT_SYRUP_BUCKET, "Skyroot Syrup Bucket");
         addLore(ReduxItems.SKYROOT_SYRUP_BUCKET, "A skyroot bucket filled with delicious Maple Syrup!");
@@ -989,5 +994,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         }
 
         return CompletableFuture.allOf(futuresBuilder.build().toArray(CompletableFuture[]::new));
+    }
+
+    public void addFluidType(Supplier<? extends FluidType> key, String name) {
+        this.add(/*"fluid_type." + */key.get().getDescriptionId(), name);
     }
 }
