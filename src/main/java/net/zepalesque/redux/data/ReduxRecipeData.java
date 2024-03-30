@@ -142,6 +142,13 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .pattern("##")
                 .unlockedBy(getHasName(ReduxBlocks.HOLEFIRE_STONE.get()), has(ReduxBlocks.HOLEFIRE_STONE.get()))
                 .save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.HOLEFIRE_SPIKE.get(), 4)
+                .define('#', ReduxBlocks.HOLEFIRE_STONE.get())
+                .pattern(" # ")
+                .pattern(" # ")
+                .pattern("###")
+                .unlockedBy(getHasName(ReduxBlocks.HOLEFIRE_STONE.get()), has(ReduxBlocks.HOLEFIRE_STONE.get()))
+                .save(consumer);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.HOLEFIRE_PILLAR_TOP.get(), 4)
                 .define('#', ReduxBlocks.HOLEFIRE_PILLAR.get())

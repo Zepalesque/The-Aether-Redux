@@ -422,6 +422,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addBlock(ReduxBlocks.HOLEFIRE_STONE, "Holefire Stone");
         addLore(ReduxBlocks.HOLEFIRE_STONE, "The main block making up the Lobotium Dungeon. It is warm to the touch.");
+        addBlock(ReduxBlocks.HOLEFIRE_SPIKE, "Holefire Spike");
+        addLore(ReduxBlocks.HOLEFIRE_SPIKE, "A sharp spike found in the Lobotium Dungeon. Careful, touching it causes damage!");
         addBlock(ReduxBlocks.GLOWY_HOLEFIRE_STONE, "Glowy Holefire Stone");
         addLore(ReduxBlocks.GLOWY_HOLEFIRE_STONE, "The block lighting up the Lobotium Dungeon.");
         addBlock(ReduxBlocks.HOLEFIRE_SLAB, "Holefire Slab");

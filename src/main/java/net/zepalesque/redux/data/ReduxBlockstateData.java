@@ -21,6 +21,7 @@ import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.construction.LayeredBookshelfBlock;
 import net.zepalesque.redux.block.construction.VeridiumLanternBlock;
+import net.zepalesque.redux.block.dungeon.HolefireSpike;
 import net.zepalesque.redux.block.natural.AetherShortGrassBlock;
 import net.zepalesque.redux.block.natural.ExtendedDistanceLeavesBlock;
 import net.zepalesque.redux.block.natural.LeafPileBlock;
@@ -75,6 +76,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.wallBlock(ReduxBlocks.HOLEFIRE_WALL.get(), ReduxBlocks.HOLEFIRE_STONE.get(), "dungeon/");
         this.pillar(ReduxBlocks.HOLEFIRE_PILLAR, "dungeon/");
         this.holefirepillarTop(ReduxBlocks.HOLEFIRE_PILLAR_TOP.get());
+        this.holefireSpike(ReduxBlocks.HOLEFIRE_SPIKE.get(), "dungeon/");
 
         this.other(ReduxBlocks.GRAVITITE_BLOCK, AetherBlocks.ENCHANTED_GRAVITITE, "construction/");
         this.block(ReduxBlocks.RAW_GRAVITITE_BLOCK, "natural/");
@@ -1190,7 +1192,21 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         ResourceLocation end = this.texture(this.name(block), "dungeon/");
         ModelFile vertical = this.models().cubeColumn(this.name(block), side, end);
         ModelFile horizontal = this.models().cubeColumnHorizontal(this.name(block) + "_horizontal", side, end);
-        ((VariantBlockStateBuilder)((VariantBlockStateBuilder)((VariantBlockStateBuilder)((VariantBlockStateBuilder)((VariantBlockStateBuilder)this.getVariantBuilder(block).partialState().with(FacingPillarBlock.FACING, Direction.DOWN).modelForState().modelFile(vertical).rotationX(180).addModel()).partialState().with(FacingPillarBlock.FACING, Direction.EAST).modelForState().modelFile(horizontal).rotationX(90).rotationY(90).addModel()).partialState().with(FacingPillarBlock.FACING, Direction.NORTH).modelForState().modelFile(horizontal).rotationX(90).addModel()).partialState().with(FacingPillarBlock.FACING, Direction.SOUTH).modelForState().modelFile(horizontal).rotationX(90).rotationY(180).addModel()).partialState().with(FacingPillarBlock.FACING, Direction.UP).modelForState().modelFile(vertical).addModel()).partialState().with(FacingPillarBlock.FACING, Direction.WEST).modelForState().modelFile(horizontal).rotationX(90).rotationY(270).addModel();
+        this.getVariantBuilder(block).partialState().with(FacingPillarBlock.FACING, Direction.DOWN).modelForState().modelFile(vertical).rotationX(180).addModel().partialState().with(FacingPillarBlock.FACING, Direction.EAST).modelForState().modelFile(horizontal).rotationX(90).rotationY(90).addModel().partialState().with(FacingPillarBlock.FACING, Direction.NORTH).modelForState().modelFile(horizontal).rotationX(90).addModel().partialState().with(FacingPillarBlock.FACING, Direction.SOUTH).modelForState().modelFile(horizontal).rotationX(90).rotationY(180).addModel().partialState().with(FacingPillarBlock.FACING, Direction.UP).modelForState().modelFile(vertical).addModel().partialState().with(FacingPillarBlock.FACING, Direction.WEST).modelForState().modelFile(horizontal).rotationX(90).rotationY(270).addModel();
+    }
+    public void holefireSpike(HolefireSpike block, String loc) {
+        ResourceLocation glow = this.texture(this.name(block), loc, "_glow");
+        ResourceLocation end = this.texture(this.name(block), loc);
+        ModelFile spike = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/cross/cross_glowing_overlay"))
+                .texture("cross", end)
+                .texture("overlay", glow).renderType("translucent");
+        this.getVariantBuilder(block)
+                .partialState().with(FacingPillarBlock.FACING, Direction.DOWN).modelForState().modelFile(spike).rotationX(180).addModel()
+                .partialState().with(FacingPillarBlock.FACING, Direction.EAST).modelForState().modelFile(spike).rotationX(90).rotationY(90).addModel()
+                .partialState().with(FacingPillarBlock.FACING, Direction.NORTH).modelForState().modelFile(spike).rotationX(90).addModel()
+                .partialState().with(FacingPillarBlock.FACING, Direction.SOUTH).modelForState().modelFile(spike).rotationX(90).rotationY(180).addModel()
+                .partialState().with(FacingPillarBlock.FACING, Direction.UP).modelForState().modelFile(spike).addModel()
+                .partialState().with(FacingPillarBlock.FACING, Direction.WEST).modelForState().modelFile(spike).rotationX(90).rotationY(270).addModel();
     }
 
     public void bookshelf(Supplier<? extends Block> block, Supplier<? extends Block> endBlock) {
@@ -1270,8 +1286,9 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         getVariantBuilder(block.get()).forAllStatesExcept(state -> ConfiguredModel.builder().modelFile(model).build(), property);
     }
     public void ambientCrossBlockExclude(Supplier<? extends Block> block, String location, Property property) {
+        models();
         ambientCrossBlockExclude(block, models().singleTexture(name(block),
-                        Redux.locate(models().BLOCK_FOLDER + "/ambient_cross"),
+                        Redux.locate(BLOCK_FOLDER + "/ambient_cross"),
                         "cross", texture(name(block), location))
                 .renderType("cutout"), property);
     }
@@ -1375,7 +1392,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
     private void logWallBlockInternal(WallBlock block, String baseName, ResourceLocation texture, boolean postUsesTop, ModelFile postBig, ModelFile postShort, ModelFile postTall, ModelFile side, ModelFile sideAlt, ModelFile sideTall, ModelFile sideTallAlt, ModelFile sideShort, ModelFile sideAltShort, ModelFile sideTallShort, ModelFile sideTallAltShort) {
         this.logWallBlock(this.getMultipartBuilder(block), this.models().getBuilder(baseName + "_post_short").parent(postShort).texture("particle", texture).texture("top", texture).texture("side", texture), this.models().getBuilder(baseName + "_post_tall").parent(postTall).texture("particle", texture).texture("top", texture).texture("side", texture), this.models().getBuilder(baseName + "_side").parent(side).texture("particle", texture).texture("top", texture).texture("side", texture), this.models().getBuilder(baseName + "_side_alt").parent(sideAlt).texture("particle", texture).texture("top", texture).texture("side", texture), this.models().getBuilder(baseName + "_side_tall").parent(sideTall).texture("particle", texture).texture("top", texture).texture("side", texture), this.models().getBuilder(baseName + "_side_tall_alt").parent(sideTallAlt).texture("particle", texture).texture("top", texture).texture("side", texture));
-        this.logWallBlockWithPost(this.getMultipartBuilder(block), this.models().getBuilder(baseName + "_post").parent(postBig).texture("particle", texture).texture("top", postUsesTop ? "" + texture + "_top" : texture.toString()).texture("side", texture), this.models().getBuilder(baseName + "_side_short").parent(sideShort).texture("particle", texture).texture("top", texture).texture("side", texture), this.models().getBuilder(baseName + "_side_alt_short").parent(sideAltShort).texture("particle", texture).texture("top", texture).texture("side", texture), this.models().getBuilder(baseName + "_side_tall_short").parent(sideTallShort).texture("particle", texture).texture("top", texture).texture("side", texture), this.models().getBuilder(baseName + "_side_tall_alt_short").parent(sideTallAltShort).texture("particle", texture).texture("top", texture).texture("side", texture));
+        this.logWallBlockWithPost(this.getMultipartBuilder(block), this.models().getBuilder(baseName + "_post").parent(postBig).texture("particle", texture).texture("top", postUsesTop ? texture + "_top" : texture.toString()).texture("side", texture), this.models().getBuilder(baseName + "_side_short").parent(sideShort).texture("particle", texture).texture("top", texture).texture("side", texture), this.models().getBuilder(baseName + "_side_alt_short").parent(sideAltShort).texture("particle", texture).texture("top", texture).texture("side", texture), this.models().getBuilder(baseName + "_side_tall_short").parent(sideTallShort).texture("particle", texture).texture("top", texture).texture("side", texture), this.models().getBuilder(baseName + "_side_tall_alt_short").parent(sideTallAltShort).texture("particle", texture).texture("top", texture).texture("side", texture));
     }
 
     public void logWallBlock(MultiPartBlockStateBuilder builder, ModelFile postShort, ModelFile postTall, ModelFile side, ModelFile sideAlt, ModelFile sideTall, ModelFile sideTallAlt) {

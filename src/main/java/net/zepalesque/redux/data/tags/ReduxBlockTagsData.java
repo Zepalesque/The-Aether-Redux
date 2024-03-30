@@ -178,6 +178,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.ROCK_CANDY_SLAB.get(),
                 ReduxBlocks.ROCK_CANDY_STAIRS.get(),
                 ReduxBlocks.HOLEFIRE_STONE.get(),
+                ReduxBlocks.HOLEFIRE_SPIKE.get(),
                 ReduxBlocks.HOLEFIRE_WALL.get(),
                 ReduxBlocks.HOLEFIRE_SLAB.get(),
                 ReduxBlocks.HOLEFIRE_STAIRS.get(),

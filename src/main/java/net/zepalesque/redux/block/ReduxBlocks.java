@@ -30,6 +30,7 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.construction.VeridiumLanternBlock;
 import net.zepalesque.redux.block.dungeon.Flareblossom;
+import net.zepalesque.redux.block.dungeon.HolefireSpike;
 import net.zepalesque.redux.block.natural.*;
 import net.zepalesque.redux.block.natural.blight.*;
 import net.zepalesque.redux.block.natural.candy.CottonCandyBlock;
@@ -115,6 +116,9 @@ public class ReduxBlocks {
 
     public static RegistryObject<Block> HOLEFIRE_STONE = register("holefire_stone",
             () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.copy(AetherBlocks.HELLFIRE_STONE.get())));
+
+    public static RegistryObject<Block> HOLEFIRE_SPIKE = register("holefire_spike",
+            () -> new HolefireSpike(BlockBehaviour.Properties.copy(AetherBlocks.HELLFIRE_STONE.get()).noOcclusion().isViewBlocking(ReduxBlocks::never).isSuffocating(ReduxBlocks::never)));
 
     public static RegistryObject<Block> GLOWY_HOLEFIRE_STONE = register("glowy_holefire_stone",
             () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.copy(AetherBlocks.LIGHT_HELLFIRE_STONE.get())));

@@ -248,6 +248,7 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.HOLEFIRE_WALL, ReduxBlocks.HOLEFIRE_SLAB, event);
             putAfter(ReduxBlocks.HOLEFIRE_SLAB, ReduxBlocks.HOLEFIRE_PILLAR, event);
             putAfter(ReduxBlocks.HOLEFIRE_PILLAR, ReduxBlocks.HOLEFIRE_PILLAR_TOP, event);
+            putAfter(ReduxBlocks.HOLEFIRE_PILLAR_TOP, ReduxBlocks.HOLEFIRE_SPIKE, event);
 
         }
         if (tab == AetherCreativeTabs.AETHER_FOOD_AND_DRINKS.get()) {
