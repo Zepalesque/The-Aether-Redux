@@ -119,8 +119,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.BLIGHTBUNNY_SPAWN_EGG, "Goodbunny Spawn Egg");
         addLore(ReduxItems.BLIGHTBUNNY_SPAWN_EGG, "A spawn egg. Spawns a Goodbunny.");
 
-        addItem(ReduxItems.BLIGHTBUNNY_SPAWN_EGG, "Goodbunny Spawn Egg");
-        addLore(ReduxItems.BLIGHTBUNNY_SPAWN_EGG, "A spawn egg. Spawns a Goodbunny.");
+        addItem(ReduxItems.PHUDGE_SPAWN_EGG, "Phudge Spawn Egg");
+        addLore(ReduxItems.PHUDGE_SPAWN_EGG, "A spawn egg. Spawns a Phudge.");
 
         addItem(ReduxItems.BLIGHTED_SPORES, "Mini Hearts");
         addLore(ReduxItems.BLIGHTED_SPORES, "Some heart-shaped objects from the Hallowed tree. They can make some things into their nice versions, such as Mossy Holystone to Nicemoss Holystone");
