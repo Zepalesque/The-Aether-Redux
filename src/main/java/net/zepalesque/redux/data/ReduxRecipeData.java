@@ -11,10 +11,7 @@ import com.aetherteam.nitrogen.recipe.builder.BlockStateRecipeBuilder;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.RequirementsStrategy;
-import net.minecraft.advancements.critereon.EntityPredicate;
-import net.minecraft.advancements.critereon.ItemPredicate;
-import net.minecraft.advancements.critereon.KilledTrigger;
-import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
+import net.minecraft.advancements.critereon.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -41,6 +38,7 @@ import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.api.condition.AbstractCondition;
 import net.zepalesque.redux.api.condition.Conditions;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.recipe.builder.StackingRecipeBuilder;
@@ -206,10 +204,17 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SUGARGRASS_BLOCK.get(), 2)
                 .define('C', ReduxBlocks.COCOA_SOIL.get())
                 .define('S', Items.SUGAR)
+                .pattern("SS")
                 .pattern("CC")
-                .pattern("SS")
-                .pattern("SS")
+                .pattern("CC")
                 .unlockedBy(getHasName(ReduxBlocks.COCOA_SOIL.get()), has(ReduxBlocks.COCOA_SOIL.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.COCOA_SOIL.get(), 2)
+                .define('C', Items.COCOA_BEANS)
+                .pattern("CC")
+                .pattern("CC")
+                .unlockedBy("visit_candyfields", PlayerTrigger.TriggerInstance.located(LocationPredicate.inBiome(ReduxBiomes.SUGARFIELDS)))
                 .save(consumer);
 
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRITE_WALL.get(), ReduxBlocks.SENTRITE.get())

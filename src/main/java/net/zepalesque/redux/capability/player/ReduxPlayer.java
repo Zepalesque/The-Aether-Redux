@@ -33,6 +33,7 @@ public interface ReduxPlayer extends INBTSynchable<CompoundTag> {
     void tick();
     boolean doubleJump();
 
+    void login();
 
     boolean increaseAirJumpCount();
     int getPrevTickAirJumps();

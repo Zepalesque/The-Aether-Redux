@@ -6,6 +6,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.network.simple.SimpleChannel;
+import net.zepalesque.redux.advancement.trigger.AprilReduxSpecialTrigger;
 import net.zepalesque.redux.advancement.trigger.PickupRebuxTrigger;
 import net.zepalesque.redux.client.render.ReduxOverlays;
 import net.zepalesque.redux.entity.misc.Rebux;
@@ -26,6 +27,8 @@ public class ReduxPlayerCapability implements ReduxPlayer {
             Map.entry("setMaxAirJumps", Triple.of(Type.INT, (object) -> this.setMaxAirJumps((int) object), this::getMaxAirJumps)),
             Map.entry("rebux", Triple.of(Type.INT, (object) -> this.setRebux((int) object), this::rebuxCount))
     );
+    private int loginTick = 0;
+
     @Override
     public Map<String, Triple<Type, Consumer<Object>, Supplier<Object>>> getSynchableFunctions() {
         return this.synchableFunctions;
@@ -125,8 +128,8 @@ public class ReduxPlayerCapability implements ReduxPlayer {
     public void increaseRebux(int amount) {
         int count = this.rebuxCount() + amount;
         this.setSynched(Direction.CLIENT, "rebux", count);
-        if (!this.player.level().isClientSide() && this.player instanceof ServerPlayer sp) {
-            PickupRebuxTrigger.INSTANCE.trigger(sp, count);
+        if (!this.player.level().isClientSide()) {
+            PickupRebuxTrigger.INSTANCE.trigger((ServerPlayer) this.player, count);
         }
     }
 
@@ -150,6 +153,14 @@ public class ReduxPlayerCapability implements ReduxPlayer {
         this.blightshade.tick();
         this.adrenaline.tick();
 
+        if (!this.player.level().isClientSide()) {
+            if (this.loginTick == 1) {
+                AprilReduxSpecialTrigger.INSTANCE.trigger((ServerPlayer) this.player, "install");
+            }
+            if (this.loginTick > 0) {
+                this.loginTick--;
+            }
+        }
 
         this.prevTickAirJumps = airJumps;
         if (this.getPlayer().onGround()) {
@@ -188,6 +199,12 @@ public class ReduxPlayerCapability implements ReduxPlayer {
             return false;
         }
     }
+
+    @Override
+    public void login() {
+        this.loginTick = 20;
+    }
+
     @Override
     public boolean fireballSetup() {
         if (player.getCooldowns().isOnCooldown(ReduxItems.SOLAR_EMBLEM.get())) {

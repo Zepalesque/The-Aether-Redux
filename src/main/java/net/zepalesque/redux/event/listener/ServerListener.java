@@ -6,6 +6,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.advancement.trigger.AprilReduxSpecialTrigger;
+import net.zepalesque.redux.capability.player.ReduxPlayer;
 import net.zepalesque.redux.world.biome.modifier.AetherGrassColorModifier;
 
 @Mod.EventBusSubscriber(modid = Redux.MODID)
@@ -15,7 +16,7 @@ public class ServerListener {
     public static void sendColors(PlayerEvent.PlayerLoggedInEvent event) {
         if (!event.getEntity().level().isClientSide() && event.getEntity() instanceof ServerPlayer player) {
             AetherGrassColorModifier.sendToClient(player);
-            AprilReduxSpecialTrigger.INSTANCE.trigger(player, "install");
+            ReduxPlayer.get(player).ifPresent(ReduxPlayer::login);
         }
     }
 }
