@@ -43,7 +43,7 @@ public class ReduxFoods {
 
     public static final FoodProperties CANDYFIELDS_BLOCK = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.0F).build();
 
-    public static final FoodProperties POPROCKS = (new FoodProperties.Builder()).nutrition(1).saturationMod(10.0F).build();
+    public static final FoodProperties POPROCKS = (new FoodProperties.Builder()).nutrition(1).saturationMod(5.0F).fast().build();
 
     public static final FoodProperties COTTON_CANDY = (new FoodProperties.Builder()).fast().nutrition(3).saturationMod(0.0F)
             .effect( () -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 300, 0), 2F).alwaysEat().build();
