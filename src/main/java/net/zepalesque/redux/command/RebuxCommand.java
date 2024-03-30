@@ -35,12 +35,12 @@ public class RebuxCommand {
                                                 IntegerArgumentType.integer(0))
                                         .executes((context) -> setRebux(context.getSource(), GameProfileArgument.getGameProfiles(context, "targets"), IntegerArgumentType.getInteger(context, "value"))))
                         )
-                        .then(Commands.literal("set")
+                        .then(Commands.literal("add")
                                 .then(Commands.argument("value",
                                                 IntegerArgumentType.integer(0))
-                                        .executes((context) -> setRebux(context.getSource(), GameProfileArgument.getGameProfiles(context, "targets"), IntegerArgumentType.getInteger(context, "value"))))
-                        ).then(Commands.literal("query")).executes((context) -> queryRebux(context.getSource(), GameProfileArgument.getGameProfiles(context, "targets")))
-
+                                        .executes((context) -> addRebux(context.getSource(), GameProfileArgument.getGameProfiles(context, "targets"), IntegerArgumentType.getInteger(context, "value"))))
+                        ).then(Commands.literal("query")
+                        .executes((context) -> queryRebux(context.getSource(), GameProfileArgument.getGameProfiles(context, "targets"))))
                 )
         );
     }
