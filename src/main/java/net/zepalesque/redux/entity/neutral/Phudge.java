@@ -1,7 +1,11 @@
 package net.zepalesque.redux.entity.neutral;
 
+import com.aetherteam.aether.client.AetherSoundEvents;
+import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.entity.ai.goal.FallingRandomStrollGoal;
 import com.aetherteam.aether.entity.passive.Phyg;
+import com.aetherteam.aether.entity.passive.WingedAnimal;
+import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -24,14 +28,19 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
+import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.misc.ReduxTags;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.UUID;
 
-public class Phudge extends Phyg implements NeutralMob {
+public class Phudge extends WingedAnimal implements NeutralMob {
     private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
     private static final UniformInt FIRST_ANGER_SOUND_DELAY = TimeUtil.rangeOfSeconds(0, 1);
     private int playFirstAngerSoundIn;
@@ -40,7 +49,7 @@ public class Phudge extends Phyg implements NeutralMob {
     private static final UniformInt ALERT_INTERVAL = TimeUtil.rangeOfSeconds(4, 6);
     @javax.annotation.Nullable
     private UUID persistentAngerTarget;
-    public Phudge(EntityType<? extends Phyg> type, Level level) {
+    public Phudge(EntityType<? extends Phudge> type, Level level) {
         super(type, level);
     }
 
@@ -206,5 +215,19 @@ public class Phudge extends Phyg implements NeutralMob {
     public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
         this.readPersistentAngerSaveData(this.level(), tag);
+    }
+
+    protected void playStepSound(BlockPos pos, BlockState state) {
+        this.playSound(AetherSoundEvents.ENTITY_PHYG_STEP.get(), 0.15F, 1.0F);
+    }
+
+    @javax.annotation.Nullable
+    public AgeableMob getBreedOffspring(ServerLevel level, AgeableMob entity) {
+        return ReduxEntityTypes.PHUDGE.get().create(level);
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    public Vec3 getLeashOffset() {
+        return new Vec3(0.0, 0.6F * this.getEyeHeight(), this.getBbWidth() * 0.4F);
     }
 }

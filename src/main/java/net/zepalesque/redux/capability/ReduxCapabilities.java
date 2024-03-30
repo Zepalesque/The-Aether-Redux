@@ -128,10 +128,6 @@ public class ReduxCapabilities {
             if ((event.getObject().getType() == AetherEntityTypes.PHYG.get() || event.getObject().getType() == AetherEntityTypes.FLYING_COW.get())) {
                 event.addCapability(Redux.locate("wacky_bat"), new CapabilityProvider(ReduxCapabilities.WACKY_BAT, new WackyBatCapability((LivingEntity) event.getObject())));
             }
-            if ((event.getObject().getType() == ReduxEntityTypes.PHUDGE.get())) {
-                ResourceLocation rl = new ResourceLocation("lost_aether_content", "winged_animal");
-                event.getCapabilities().remove(rl);
-            }
         }
     }
 }
