@@ -15,6 +15,7 @@ import net.minecraftforge.common.data.ForgeAdvancementProvider;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.advancement.trigger.*;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.data.resource.ReduxStructures;
 import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.item.ReduxItems;
@@ -139,9 +140,19 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
                             ))
                     .save(consumer, Redux.locate("phudge_slayer"), existingFileHelper);
 
-            Advancement.Builder.advancement()
-                    // TODO: 'Where the holes once had fires...'
+            Advancement lobotium = Advancement.Builder.advancement()
                     .parent(install)
+                    .display(ReduxItems.LOBOTIUM_ICON.get(),
+                            Component.translatable("advancement.aether_redux.lobotium_dungeon"),
+                            Component.translatable("advancement.aether_redux.lobotium_dungeon.desc")
+                                    .append(Component.translatable("gui.aether_redux.advancement_suffix").withStyle(style -> style.withColor(Redux.REDUX_PURPLE))),
+                            null,
+                            FrameType.TASK, true, true, false)
+                    .addCriterion("lobotium_dungeon", PlayerTrigger.TriggerInstance.located(LocationPredicate.inStructure(ReduxStructures.LOBOTIUM_DUNGEON)))
+                    .save(consumer, Redux.locate("lobotium_dungeon"), existingFileHelper);
+
+            Advancement.Builder.advancement()
+                    .parent(lobotium)
                     .display(ReduxBlocks.HOLEFIRE_SPIKE.get(),
                             Component.translatable("advancement.aether_redux.holefire_spike"),
                             Component.translatable("advancement.aether_redux.holefire_spike.desc")

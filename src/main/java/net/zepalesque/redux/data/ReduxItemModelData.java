@@ -187,6 +187,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         item(ReduxItems.REBUX_CARD_ICON.get(), "misc/");
         item(ReduxItems.REBUXIONAIRE_ICON.get(), "misc/");
         item(ReduxItems.HUG_ICON.get(), "misc/");
+        item(ReduxItems.LOBOTIUM_ICON.get(), "misc/");
         phudgeIcon(ReduxItems.PHUDGE_ICON, "misc/");
 
         itemBlockFlatItemTexture(ReduxBlocks.VERIDIUM_LANTERN, "misc/");
