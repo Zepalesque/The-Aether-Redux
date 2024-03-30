@@ -329,6 +329,8 @@ public class ReduxItemModelData extends AetherItemModelProvider {
     public ItemModelBuilder phudgeIcon(Supplier<? extends Item> item, String location) {
         ResourceLocation id = ForgeRegistries.ITEMS.getKey(item.get().asItem());
         String redux = id.getPath() + "_redux";
+        withExistingParent(redux, mcLoc("item/generated"))
+                .texture("layer0", modLoc("block/" + location + id.getPath() + "_redux"));
         return withExistingParent(itemName(item.get()), mcLoc("item/generated"))
                 .texture("layer0", texture(itemName(item.get()), location))
                 .override().predicate(Redux.locate("other_model"), 1.0F).model(this.getExistingFile(this.modLoc("item/" + redux))).end();

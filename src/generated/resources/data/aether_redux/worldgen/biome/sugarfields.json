@@ -149,7 +149,14 @@
     ],
     "ambient": [],
     "axolotls": [],
-    "creature": [],
+    "creature": [
+      {
+        "type": "aether_redux:phudge",
+        "maxCount": 5,
+        "minCount": 2,
+        "weight": 18
+      }
+    ],
     "misc": [],
     "monster": [],
     "underground_water_creature": [],
