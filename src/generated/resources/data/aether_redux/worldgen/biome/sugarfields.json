@@ -19,7 +19,7 @@
   "features": [
     [],
     [
-      "aether_redux:surface/surface_rule_water_lake"
+      "aether_redux:surface/syrup_lake"
     ],
     [],
     [],
@@ -37,7 +37,7 @@
     ],
     [],
     [
-      "aether:water_spring"
+      "aether_redux:surface/syrup_spring"
     ],
     [
       "aether_redux:trees/deep_trees",
