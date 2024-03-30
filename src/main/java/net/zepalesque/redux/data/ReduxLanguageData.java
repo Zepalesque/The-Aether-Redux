@@ -652,10 +652,13 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBiome(ReduxBiomes.THE_BLIGHT, "The Nice");
         addBiome(ReduxBiomes.SKYROOT_SHRUBLANDS, "Skyroot Shrublands");
 
-        this.add("item.minecraft.potion.effect.intoxication", "Potion of Intoxication");
-        this.add("item.minecraft.splash_potion.effect.intoxication", "Splash Potion of Intoxication");
-        this.add("item.minecraft.lingering_potion.effect.intoxication", "Lingering Potion of Intoxication");
-        this.add("item.minecraft.tipped_arrow.effect.intoxication", "Arrow of Intoxication");
+        add("item.minecraft.potion.effect.intoxication", "Potion of Intoxication");
+        add("item.minecraft.splash_potion.effect.intoxication", "Splash Potion of Intoxication");
+        add("item.minecraft.lingering_potion.effect.intoxication", "Lingering Potion of Intoxication");
+        add("item.minecraft.tipped_arrow.effect.intoxication", "Arrow of Intoxication");
+
+        addMenuText("lobotium_treasure_chest", "Lobotium Treasure Chest");
+        addGeneric("lobotium_treasure_chest_locked", "This Treasure Chest must be unlocked with a Lobotium Key.");
 
         addGuiText("bittersweet_charm_poison_chance", "10% chance to poison targets of melee attacks");
         addGuiText("wisdom_ring_xp_increase", "+20-30% XP from mobs");
