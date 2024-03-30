@@ -117,6 +117,8 @@ public class ReduxItems {
 
     public static final RegistryObject<SpawnEggItem> BLIGHTBUNNY_SPAWN_EGG = ITEMS.register("blightbunny_spawn_egg", () -> new ForgeSpawnEggItem(ReduxEntityTypes.BLIGHTBUNNY, 0x6B609E, 0x8FD6C0, new Item.Properties()));
 
+    public static final RegistryObject<SpawnEggItem> PHUDGE_SPAWN_EGG = ITEMS.register("phudge_spawn_egg", () -> new ForgeSpawnEggItem(ReduxEntityTypes.PHUDGE, 0x4E3F31, 0xFD2941, new Item.Properties()));
+
 
     public static final RegistryObject<Item> BLIGHTED_SPORES = register("blighted_spores", () -> new BlightedSporesItem(new Item.Properties()));
 

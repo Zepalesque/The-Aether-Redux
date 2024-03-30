@@ -119,6 +119,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.BLIGHTBUNNY_SPAWN_EGG, "Goodbunny Spawn Egg");
         addLore(ReduxItems.BLIGHTBUNNY_SPAWN_EGG, "A spawn egg. Spawns a Goodbunny.");
 
+        addItem(ReduxItems.BLIGHTBUNNY_SPAWN_EGG, "Goodbunny Spawn Egg");
+        addLore(ReduxItems.BLIGHTBUNNY_SPAWN_EGG, "A spawn egg. Spawns a Goodbunny.");
+
         addItem(ReduxItems.BLIGHTED_SPORES, "Mini Hearts");
         addLore(ReduxItems.BLIGHTED_SPORES, "Some heart-shaped objects from the Hallowed tree. They can make some things into their nice versions, such as Mossy Holystone to Nicemoss Holystone");
 
@@ -687,6 +690,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addEntityType(ReduxEntityTypes.SHIMMERCOW, "Crazy Cow");
         addEntityType(ReduxEntityTypes.MYKAPOD, "Milkapod");
         addEntityType(ReduxEntityTypes.BLIGHTBUNNY, "Goodbunny");
+        addEntityType(ReduxEntityTypes.PHUDGE, "Phudge");
         addEntityType(ReduxEntityTypes.EMBER, "Ember");
         addEntityType(ReduxEntityTypes.INFUSED_VERIDIUM_DART, "Infused Veridium Dart");
         addEntityType(ReduxEntityTypes.VOLATILE_FIRE_CRYSTAL, "Volatile Fire Crystal");
