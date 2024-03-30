@@ -7,8 +7,10 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.TimeUtil;
 import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -55,7 +57,7 @@ public class Phudge extends Phyg implements NeutralMob {
         this.goalSelector.addGoal(6, new FallingRandomStrollGoal(this, 1.0));
         this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 6.0F));
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
-        this.targetSelector.addGoal(2, (new HurtByTargetGoal(this)).setAlertOthers());
+        this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setAlertOthers());
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, 10, true, false, this::isAngryAt));
         this.targetSelector.addGoal(3, new ResetUniversalAngerTargetGoal<>(this, true));
     }
@@ -70,7 +72,7 @@ public class Phudge extends Phyg implements NeutralMob {
     }
 
     public static AttributeSupplier.Builder createMobAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 15.0).add(Attributes.MOVEMENT_SPEED, 0.25).add(Attributes.MOVEMENT_SPEED, 0.25);
+        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 15.0).add(Attributes.MOVEMENT_SPEED, 0.25);
     }
 
     @Override
@@ -90,7 +92,6 @@ public class Phudge extends Phyg implements NeutralMob {
     }
 
     protected void customServerAiStep() {
-        AttributeInstance attributeinstance = this.getAttribute(Attributes.MOVEMENT_SPEED);
         if (this.isAngry()) {
             this.maybePlayFirstAngerSound();
         }
@@ -105,6 +106,28 @@ public class Phudge extends Phyg implements NeutralMob {
         }
 
         super.customServerAiStep();
+    }
+
+    @Override
+    public SoundEvent getSaddleSoundEvent() {
+        return ReduxSoundEvents.PHUDGE_SADDLE.get();
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return ReduxSoundEvents.PHUDGE_AMBIENT.get();
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getHurtSound(DamageSource damageSource) {
+        return ReduxSoundEvents.PHUDGE_HURT.get();
+    }
+    @Nullable
+    @Override
+    protected SoundEvent getDeathSound() {
+        return ReduxSoundEvents.PHUDGE_DEATH.get();
     }
 
     private void maybeAlertOthers() {
@@ -136,6 +159,7 @@ public class Phudge extends Phyg implements NeutralMob {
         if (!this.level().isClientSide) {
             this.updatePersistentAnger((ServerLevel)this.level(), true);
         }
+        super.aiStep();
     }
 
     @Override
