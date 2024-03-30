@@ -287,8 +287,16 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         return modLoc("block/" + name);
     }
 
+    protected ResourceLocation itemTex(String name) {
+        return modLoc("item/" + name);
+    }
+
     protected ResourceLocation texture(String name, String location) {
         return modLoc("block/" + location + name);
+    }
+
+    protected ResourceLocation itemTex(String name, String location) {
+        return modLoc("item/" + location + name);
     }
 
     public ItemModelBuilder item(Supplier<? extends Item> item, String location) {
@@ -331,15 +339,15 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         ResourceLocation id = ForgeRegistries.ITEMS.getKey(item.get().asItem());
         String redux = id.getPath() + "_redux";
         withExistingParent(redux, mcLoc("item/generated"))
-                .texture("layer0", modLoc("block/" + location + id.getPath() + "_redux"));
+                .texture("layer0", modLoc("item/" + location + id.getPath() + "_redux"));
         return withExistingParent(itemName(item.get()), mcLoc("item/generated"))
-                .texture("layer0", texture(itemName(item.get()), location))
+                .texture("layer0", itemTex(itemName(item.get()), location))
                 .override().predicate(Redux.locate("other_model"), 1.0F).model(this.getExistingFile(this.modLoc("item/" + redux))).end();
     }
 
     public ItemModelBuilder itemGlow(Supplier<? extends Item> item, String location) {
         ResourceLocation id = ForgeRegistries.ITEMS.getKey(item.get());
-        return withExistingParent(id.getPath(), mcLoc("item/generated"))
+        return withExistingParent(                          id.getPath(), mcLoc("item/generated"))
                 .texture("layer0", modLoc("item/" + location + id.getPath())).texture("layer1", modLoc("item/" + location + id.getPath() + "_glow")).customLoader((itemModelBuilder,existingFileHelper) ->
                         ItemLayerModelBuilder.begin(itemModelBuilder, existingFileHelper).emissive(15, 15, 1)).end();
     }
