@@ -189,8 +189,8 @@ public class ReduxBlocks {
     public static final RegistryObject<AetherLogBlock> PEPPERMINT_BLOCK = registerModifyItemProperties("peppermint_block",
             () -> new ReduxNaturalLog(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD).sound(SoundType.CALCITE).mapColor(MapColor.COLOR_RED)), properties -> properties.food(ReduxFoods.CANDYFIELDS_BLOCK));
 
-    public static final RegistryObject<SaplingBlock> PEPPERMINT_BARKLING = register("peppermint_barkling", () ->
-            new SaplingBlock(new ReduxSuppliedTree(ReduxConfiguredFeatures.CANDY_CANE), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING).sound(SoundType.CALCITE))
+    public static final RegistryObject<SaplingBlock> PEPPERMINT_BARKLING = registerModifyItemProperties("peppermint_barkling", () ->
+            new SaplingBlock(new ReduxSuppliedTree(ReduxConfiguredFeatures.CANDY_CANE), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING).sound(SoundType.CALCITE)), properties -> properties.food(ReduxFoods.CANDYFIELDS_BLOCK)
     );
     public static final RegistryObject<FlowerPotBlock> POTTED_PEPPERMINT_BARKLING = BLOCKS.register("potted_peppermint_barkling",
             () -> new FlowerPotBlock(() ->
@@ -199,7 +199,7 @@ public class ReduxBlocks {
     );
 
     public static final RegistryObject<SaplingBlock> PINK_COTTON_CANDY = registerModifyItemProperties("pink_cotton_candy", () ->
-            new SaplingBlock(new ReduxSuppliedTree(ReduxConfiguredFeatures.PINK_CANDYFLOSS), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING).sound(SoundType.WOOL)), properties -> properties.food(ReduxFoods.COTTON_CANDY)
+            new CustomBoundsSapling(CommonPlantBounds.COTTON_CANDY, new ReduxSuppliedTree(ReduxConfiguredFeatures.PINK_CANDYFLOSS), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING).sound(SoundType.WOOL)), properties -> properties.food(ReduxFoods.COTTON_CANDY)
     );
     public static final RegistryObject<FlowerPotBlock> POTTED_PINK_COTTON_CANDY = BLOCKS.register("potted_pink_cotton_candy",
             () -> new FlowerPotBlock(() ->
@@ -207,7 +207,7 @@ public class ReduxBlocks {
                     BlockBehaviour.Properties.copy(Blocks.FLOWER_POT))
     );
     public static final RegistryObject<SaplingBlock> BLUE_COTTON_CANDY = registerModifyItemProperties("blue_cotton_candy", () ->
-            new SaplingBlock(new ReduxSuppliedTree(ReduxConfiguredFeatures.BLUE_CANDYFLOSS), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING).sound(SoundType.WOOL)), properties -> properties.food(ReduxFoods.COTTON_CANDY)
+            new CustomBoundsSapling(CommonPlantBounds.COTTON_CANDY, new ReduxSuppliedTree(ReduxConfiguredFeatures.BLUE_CANDYFLOSS), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING).sound(SoundType.WOOL)), properties -> properties.food(ReduxFoods.COTTON_CANDY)
     );
     public static final RegistryObject<FlowerPotBlock> POTTED_BLUE_COTTON_CANDY = BLOCKS.register("potted_blue_cotton_candy",
             () -> new FlowerPotBlock(() ->
@@ -224,13 +224,13 @@ public class ReduxBlocks {
             () -> new SugargrassBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOL).randomTicks().strength(0.2F).sound(SoundType.WOOL)), properties -> properties.food(ReduxFoods.CANDYFIELDS_BLOCK));
 
     public static RegistryObject<Block> SUGARSPROUTS = registerModifyItemProperties("sugarsprouts",
-            () -> new CustomBoundsBushBlock(CommonPlantBounds.BUSH, BlockBehaviour.Properties.copy(Blocks.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).sound(SoundType.NETHER_SPROUTS)), properties -> properties.food(ReduxFoods.CANDYFIELDS_BLOCK));
+            () -> new CustomBoundsBushBlock(CommonPlantBounds.SHORT_BUSH, BlockBehaviour.Properties.copy(Blocks.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).sound(SoundType.NETHER_SPROUTS)), properties -> properties.food(ReduxFoods.CANDYFIELDS_BLOCK));
 
     public static RegistryObject<Block> COCOA_SOIL = registerModifyItemProperties("cocoa_soil",
             () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_GRAY).strength(0.2F).sound(SoundType.SOUL_SOIL)), properties -> properties.food(ReduxFoods.CANDYFIELDS_BLOCK));
 
     public static RegistryObject<Block> VANILLA = registerModifyItemProperties("vanilla",
-            () -> new CustomBoundsFlowerBlock(CommonPlantBounds.FLOWER, () -> MobEffects.MOVEMENT_SPEED, 60, BlockBehaviour.Properties.copy(Blocks.OXEYE_DAISY).mapColor(MapColor.WOOL)), properties -> properties.food(ReduxFoods.CANDYFIELDS_BLOCK));
+            () -> new CustomBoundsFlowerBlock(CommonPlantBounds.SHORT_FERN, () -> MobEffects.MOVEMENT_SPEED, 60, BlockBehaviour.Properties.copy(Blocks.OXEYE_DAISY).mapColor(MapColor.WOOL)), properties -> properties.food(ReduxFoods.CANDYFIELDS_BLOCK));
     public static final RegistryObject<FlowerPotBlock> POTTED_VANILLA = BLOCKS.register("potted_vanilla", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, VANILLA, Block.Properties.copy(Blocks.FLOWER_POT)));
 
 

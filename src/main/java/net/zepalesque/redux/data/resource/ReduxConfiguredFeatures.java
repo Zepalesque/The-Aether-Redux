@@ -52,6 +52,7 @@ import net.zepalesque.redux.api.condition.Conditions;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.util.state.ReduxStates;
 import net.zepalesque.redux.block.util.state.enums.PetalPrismaticness;
+import net.zepalesque.redux.fluid.ReduxFluids;
 import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.world.feature.*;
 import net.zepalesque.redux.world.feature.config.*;
@@ -174,6 +175,8 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> SURFACE_RULE_WATER_LAKE = createKey(Folders.SURFACE + "surface_rule_water_lake");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHT_LAKE = createKey(Folders.SURFACE + "blight_lake");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHT_SPRING = createKey(Folders.SURFACE + "blight_spring");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SYRUP_LAKE = createKey(Folders.SURFACE + "syrup_lake");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SYRUP_SPRING = createKey(Folders.SURFACE + "syrup_spring");
     public static final ResourceKey<ConfiguredFeature<?, ?>> VERIDIUM_ORE = createKey(Folders.ORE + name(ReduxBlocks.VERIDIUM_ORE));
     public static final ResourceKey<ConfiguredFeature<?, ?>> DIVINITE_ORE = createKey(Folders.ORE + name(ReduxBlocks.DIVINITE) + "_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SENTRITE_ORE = createKey(Folders.ORE + name(ReduxBlocks.SENTRITE) + "_ore");
@@ -755,6 +758,11 @@ public class ReduxConfiguredFeatures {
                 new SurfaceRuleLakeConfig(BlockStateProvider.simple(Blocks.WATER)));
         register(context, BLIGHT_SPRING, Feature.SPRING,
                 AetherConfiguredFeatureBuilders.spring(Fluids.WATER.defaultFluidState(), true, 4, 1, HolderSet.direct(Block::builtInRegistryHolder, AetherBlocks.HOLYSTONE.get(), AetherBlocks.AETHER_DIRT.get())));
+
+        register(context, SYRUP_LAKE, ReduxFeatures.SURFACE_RULE_LAKE.get(),
+                new SurfaceRuleLakeConfig(prov(ReduxBlocks.MAPLE_SYRUP)));
+        register(context, SYRUP_SPRING, Feature.SPRING,
+                AetherConfiguredFeatureBuilders.spring(ReduxFluids.SYRUP_STILL.get().defaultFluidState(), true, 4, 1, HolderSet.direct(Block::builtInRegistryHolder, AetherBlocks.HOLYSTONE.get(), AetherBlocks.AETHER_DIRT.get())));
 
         register(context, WYNDSPROUTS_PATCH, Feature.FLOWER,
                 randomPatch(24, 5, 3, prov(ReduxBlocks.WYNDSPROUTS)));

@@ -70,7 +70,7 @@ public class Sugarfields {
         new BiomeGenerationSettings.Builder(placed, carvers)
 
                 // TODO: Syrup liquid
-                .addFeature(GenerationStep.Decoration.LAKES, ReduxPlacedFeatures.SURFACE_RULE_WATER_LAKE)
+                .addFeature(GenerationStep.Decoration.LAKES, ReduxPlacedFeatures.SYRUP_LAKE)
 
                 .addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, ReduxPlacedFeatures.CANDY_ROCK)
 
@@ -81,7 +81,7 @@ public class Sugarfields {
                 .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_GRAVITITE_BURIED_PLACEMENT)
                 .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_GRAVITITE_PLACEMENT)
 
-                .addFeature(GenerationStep.Decoration.FLUID_SPRINGS, AetherPlacedFeatures.WATER_SPRING_PLACEMENT)
+                .addFeature(GenerationStep.Decoration.FLUID_SPRINGS, ReduxPlacedFeatures.SYRUP_SPRING)
 
                 .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.CANDY_TREES)
                 .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.SUGARGRASS_PATCH)

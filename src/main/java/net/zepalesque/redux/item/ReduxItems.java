@@ -92,7 +92,7 @@ public class ReduxItems {
     public static final RegistryObject<Item> INFUSED_VERIDIUM_DART_SHOOTER = ITEMS.register("infused_veridium_dart_shooter", () -> new VeridiumDartShooter(VERIDIUM_DART, ReduxItems.VERIDIUM_DART_SHOOTER, 7, (new Item.Properties()).stacksTo(1)));
 
     public static final RegistryObject<Item> SYRUP_BUCKET = register("syrup_bucket", () -> new BucketFoodItem(() -> Items.BUCKET, ReduxFluids.SYRUP_STILL, new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> SKYROOT_SYRUP_BUCKET = register("skyroot_syrup_bucket", () -> new BucketFoodItem(AetherItems.SKYROOT_BUCKET, ReduxFluids.SYRUP_STILLA, new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> SKYROOT_SYRUP_BUCKET = register("skyroot_syrup_bucket", () -> new BucketFoodItem(AetherItems.SKYROOT_BUCKET, ReduxFluids.SYRUP_STILL, new Item.Properties().stacksTo(1)));
 
 
     public static final RegistryObject<Item> ENCHANTED_RING = register("enchanted_ring", () -> new RingItem(ReduxSoundEvents.EQUIP_ENCHANTED_RING, new Item.Properties().stacksTo(1)));

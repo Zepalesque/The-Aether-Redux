@@ -125,6 +125,8 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> SURFACE_RULE_WATER_LAKE = copyKey(ReduxConfiguredFeatures.SURFACE_RULE_WATER_LAKE);
     public static final ResourceKey<PlacedFeature> BLIGHT_LAKE = copyKey(ReduxConfiguredFeatures.BLIGHT_LAKE);
     public static final ResourceKey<PlacedFeature> BLIGHT_SPRING = copyKey(ReduxConfiguredFeatures.BLIGHT_SPRING);
+    public static final ResourceKey<PlacedFeature> SYRUP_LAKE = copyKey(ReduxConfiguredFeatures.SYRUP_LAKE);
+    public static final ResourceKey<PlacedFeature> SYRUP_SPRING = copyKey(ReduxConfiguredFeatures.SYRUP_SPRING);
     public static final ResourceKey<PlacedFeature> OASIS_LAKE = createKey(Folders.SURFACE + "oasis_lake");
     public static final ResourceKey<PlacedFeature> VERIDIUM_ORE = copyKey(ReduxConfiguredFeatures.VERIDIUM_ORE);
     public static final ResourceKey<PlacedFeature> DIVINITE_ORE = copyKey(ReduxConfiguredFeatures.DIVINITE_ORE);
@@ -746,6 +748,19 @@ public class ReduxPlacedFeatures {
 
         register(context, BLIGHT_SPRING, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.BLIGHT_SPRING),
                 CountPlacement.of(30),
+                InSquarePlacement.spread(),
+                HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(8), VerticalAnchor.aboveBottom(128)),
+                BiomeFilter.biome(),
+                new DungeonBlacklistFilter());
+
+        register(context, SYRUP_LAKE, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.SYRUP_LAKE),
+                RarityFilter.onAverageOnceEvery(8),
+                HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE_WG),
+                BiomeFilter.biome()
+        );
+
+        register(context, SYRUP_SPRING, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.SYRUP_SPRING),
+                CountPlacement.of(50),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(8), VerticalAnchor.aboveBottom(128)),
                 BiomeFilter.biome(),

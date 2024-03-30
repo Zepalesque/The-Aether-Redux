@@ -10,4 +10,7 @@ public class CommonPlantBounds {
     public static final VoxelShape FLOWER = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
     public static final VoxelShape FERN = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 15.0D, 12.0D);
 
+    public static final VoxelShape COTTON_CANDY = Block.box(3.0, 0.0, 3.0, 13.0, 16.0, 13.0);
+    public static final VoxelShape SHORT_FERN = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 12.0D, 12.0D);
+    public static final VoxelShape SHORT_BUSH = Block.box(2.0, 0.0, 2.0, 14.0, 8.0, 14.0);
 }
