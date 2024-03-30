@@ -31,12 +31,12 @@ import java.util.Map;
 public class HolefireSpike extends DirectionalBlock implements SimpleWaterloggedBlock{
 
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-    protected static final VoxelShape UP_AABB = Block.box(5.0, 5.0, 5.0, 10.0, 16.0, 10.0);
-    protected static final VoxelShape DOWN_AABB = Block.box(5.0, 0.0, 5.0, 10.0, 11.0, 10.0);
-    protected static final VoxelShape NORTH_AABB = Block.box(5.0, 5.0, 5.0, 10.0, 10.0, 16.0);
-    protected static final VoxelShape SOUTH_AABB = Block.box(5.0, 5.0, 0.0, 10.0, 10.0, 11.0);
-    protected static final VoxelShape WEST_AABB = Block.box(5.0, 5.0, 5.0, 16.0, 10.0, 10.0);
-    protected static final VoxelShape EAST_AABB = Block.box(0.0, 5.0, 5.0, 11.0, 10.0, 10.0);
+    protected static final VoxelShape DOWN_AABB = Block.box(4.0, 5.0, 4.0, 12.0, 16.0, 12.0);
+    protected static final VoxelShape UP_AABB = Block.box(4.0, 0.0, 4.0, 12.0, 11.0, 12.0);
+    protected static final VoxelShape NORTH_AABB = Block.box(4.0, 4.0, 5.0, 12.0, 12.0, 16.0);
+    protected static final VoxelShape SOUTH_AABB = Block.box(4.0, 4.0, 0.0, 12.0, 12.0, 11.0);
+    protected static final VoxelShape WEST_AABB = Block.box(5.0, 4.0, 4.0, 16.0, 12.0, 12.0);
+    protected static final VoxelShape EAST_AABB = Block.box(0.0, 4.0, 4.0, 11.0, 12.0, 12.0);
     private static final Map<Direction, VoxelShape> SHAPES = new ImmutableMap.Builder<Direction, VoxelShape>()
             .put(Direction.DOWN, DOWN_AABB)
             .put(Direction.UP, UP_AABB)
