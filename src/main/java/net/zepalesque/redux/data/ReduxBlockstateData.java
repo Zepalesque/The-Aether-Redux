@@ -1195,11 +1195,8 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.getVariantBuilder(block).partialState().with(FacingPillarBlock.FACING, Direction.DOWN).modelForState().modelFile(vertical).rotationX(180).addModel().partialState().with(FacingPillarBlock.FACING, Direction.EAST).modelForState().modelFile(horizontal).rotationX(90).rotationY(90).addModel().partialState().with(FacingPillarBlock.FACING, Direction.NORTH).modelForState().modelFile(horizontal).rotationX(90).addModel().partialState().with(FacingPillarBlock.FACING, Direction.SOUTH).modelForState().modelFile(horizontal).rotationX(90).rotationY(180).addModel().partialState().with(FacingPillarBlock.FACING, Direction.UP).modelForState().modelFile(vertical).addModel().partialState().with(FacingPillarBlock.FACING, Direction.WEST).modelForState().modelFile(horizontal).rotationX(90).rotationY(270).addModel();
     }
     public void holefireSpike(HolefireSpike block, String loc) {
-        ResourceLocation glow = this.texture(this.name(block), loc, "_glow");
-        ResourceLocation end = this.texture(this.name(block), loc);
-        ModelFile spike = models().withExistingParent(this.name(block), Redux.locate(BLOCK_FOLDER + "/cross/cross_glowing_overlay"))
-                .texture("cross", end)
-                .texture("overlay", glow).renderType("translucent");
+        ResourceLocation tex = this.texture(this.name(block), loc);
+        ModelFile spike = models().cross(this.name(block), tex);
         this.getVariantBuilder(block)
                 .partialState().with(FacingPillarBlock.FACING, Direction.DOWN).modelForState().modelFile(spike).rotationX(180).addModel()
                 .partialState().with(FacingPillarBlock.FACING, Direction.EAST).modelForState().modelFile(spike).rotationX(90).rotationY(90).addModel()
