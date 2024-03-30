@@ -182,7 +182,7 @@ public class ReduxOverlays {
                     guiGraphics.blit(REBUX, (int) (x - (width / 2F) - 8), (int) y - 8, -89, 0.0F, 0.0F, 16, 16, 16, 16);
                 } else {
                     GraphicsHelper.drawCenteredString(guiGraphics, font, text, x + 8, y - (font.lineHeight / 2F), 0xFFFFFF);
-                    GraphicsHelper.blit(guiGraphics, REBUX, x - (width / 2F) - 8, y - 8, -89, 0.0F, 0.0F, 16, 16, 16, 16);
+                    GraphicsHelper.blit(guiGraphics, REBUX, (int) (x - (width / 2F) - 8), y - 8, -89, 0.0F, 0.0F, 16, 16, 16, 16);
                 }
             } else {
                 int y = (window.getGuiScaledWidth() / 8);
@@ -209,8 +209,8 @@ public class ReduxOverlays {
                     guiGraphics.drawCenteredString(font, text, (int) x, (int) (y + 8 - (height / 2F)), 0xFFFFFF);
                     guiGraphics.blit(REBUX, (int) x - 8, (int) (y - 8 - (height / 2F)), -89, 0.0F, 0.0F, 16, 16, 16, 16);
                 } else {
-                    GraphicsHelper.drawCenteredString(guiGraphics, font, text, x, y + 8 - (height / 2F), 0xFFFFFF);
-                    GraphicsHelper.blit(guiGraphics, REBUX, x - 8, y - 8 - (height / 2F), -89, 0.0F, 0.0F, 16, 16, 16, 16);
+                    GraphicsHelper.drawCenteredString(guiGraphics, font, text, x, (int) (y + 8 - (height / 2F)), 0xFFFFFF);
+                    GraphicsHelper.blit(guiGraphics, REBUX, x - 8, (int) (y - 8 - (height / 2F)), -89, 0.0F, 0.0F, 16, 16, 16, 16);
                 }
             }
         }
