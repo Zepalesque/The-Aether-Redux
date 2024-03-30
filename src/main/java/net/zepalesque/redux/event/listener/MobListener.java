@@ -1,6 +1,7 @@
 
 package net.zepalesque.redux.event.listener;
 
+import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.entity.monster.Cockatrice;
 import com.aetherteam.aether.entity.monster.Swet;
 import com.aetherteam.aether.entity.passive.FlyingCow;
@@ -27,6 +28,7 @@ import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.config.enums.QuicksoilSetting;
 import net.zepalesque.redux.effect.ReduxEffects;
+import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.event.hook.MobHooks;
 import net.zepalesque.redux.event.hook.SwetHooks;
 import net.zepalesque.redux.item.ReduxItems;
@@ -82,7 +84,7 @@ public class MobListener {
             Optional<ResourceKey<Biome>> b = player.level().getBiome(player.blockPosition()).unwrapKey();
             b.ifPresent(biomeResourceKey -> ReduxPlayer.get(player).ifPresent(reduxPlayer -> reduxPlayer.getLoreModule().incrementBiome(biomeResourceKey.location())));
         }
-        if (event.getEntity() instanceof FlyingCow || event.getEntity() instanceof Phyg) {
+        if (event.getEntity().getType() == AetherEntityTypes.FLYING_COW.get() || event.getEntity().getType() == AetherEntityTypes.PHYG.get()) {
             MobHooks.wackyBatAI(event.getEntity());
         }
     }
