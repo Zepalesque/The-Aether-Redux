@@ -821,6 +821,14 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addAdvancementDesc("rebuxionaire", "Collect 100 Rebux");
         addAdvancement("eat_sugarfields", "Everything here is eatable");
         addAdvancementDesc("eat_sugarfields", "Eat a block from the Sugarfields");
+        addAdvancement("enter_deeper", "The Deepest of Aethers");
+        addAdvancementDesc("enter_deeper", "Enter the Deeper Aether biome, a shimmering landscape with unusual wildlife");
+        addAdvancement("crystal_gold", "I can’t believe it’s not Mutation!");
+        addAdvancementDesc("crystal_gold", "Mine some Crystal Gold from the Crystallium Woods");
+        addAdvancement("lobotium_dungeon", "Where the holes once had fires...");
+        addAdvancementDesc("lobotium_dungeon", "Discover a Lobotium Dungeon");
+        addAdvancement("holefire_spike", "NEW BEST: 99%");
+        addAdvancementDesc("holefire_spike", "Take damage from a Holefire Spike");
         addAdvancement("phudge_bite", "Even I'M eatable");
         addAdvancementDesc("phudge_bite", "Get bitten by a Phudge");
         addAdvancement("fall_from_aether", "Falling with Style!");
@@ -864,6 +872,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addDeath(ReduxDamageTypes.ZANBERRY_BUSH, "%1$s was poked to death by a zanberry bush, how sad ):");
         addDeath(ReduxDamageTypes.CORRUPTED_VINES, "%1$s was poked to death by some Corrupted Vines");
         addDeath(ReduxDamageTypes.EMBER, "%1$s was sparked by a flying ember");
+        addDeath(ReduxDamageTypes.SPIKE, "%1$s forgot to jump");
         addDeathByPlayer(ReduxDamageTypes.EMBER, "%1$s was sparked by %2$s's flying ember");
         addDeath(ReduxDamageTypes.BLIGHT, "%1$s was uhhhh uhm uhh nothing happened to them");
         addDeathByPlayer(ReduxDamageTypes.BLIGHT, "%1$s was uhhhh uhm uhh nothing happened to them but if it did you should ask %2$s about it");

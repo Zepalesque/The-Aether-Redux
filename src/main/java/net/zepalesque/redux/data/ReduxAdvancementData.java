@@ -15,6 +15,7 @@ import net.minecraftforge.common.data.ForgeAdvancementProvider;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.advancement.trigger.*;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.misc.ReduxTags;
@@ -109,6 +110,17 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
                             FrameType.TASK, true, true, false)
                     .addCriterion("eat_sugarfields", ConsumeItemTrigger.TriggerInstance.usedItem(ItemPredicate.Builder.item().of(ReduxTags.Items.EDIBLE_SUGARFIELDS_BLOCKS).build()))
                     .save(consumer, Redux.locate("eat_sugarfields"), existingFileHelper);
+
+           Advancement.Builder.advancement()
+                    .parent(install)
+                    .display(ReduxBlocks.DEEP_GRASS_BLOCK.get(),
+                            Component.translatable("advancement.aether_redux.enter_deeper"),
+                            Component.translatable("advancement.aether_redux.enter_deeper.desc")
+                                    .append(Component.translatable("gui.aether_redux.advancement_suffix").withStyle(style -> style.withColor(Redux.REDUX_PURPLE))),
+                            null,
+                            FrameType.TASK, true, true, false)
+                    .addCriterion("enter_deeper", PlayerTrigger.TriggerInstance.located(LocationPredicate.inBiome(ReduxBiomes.DEEPER_AETHER)))
+                    .save(consumer, Redux.locate("enter_deeper"), existingFileHelper);
 
             Advancement cape =Advancement.Builder.advancement()
                     .parent(install)
