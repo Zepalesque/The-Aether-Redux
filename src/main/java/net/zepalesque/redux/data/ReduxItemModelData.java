@@ -8,6 +8,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.PointedDripstoneBlock;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.loaders.ItemLayerModelBuilder;
 import net.minecraftforge.client.model.generators.loaders.SeparateTransformsModelBuilder;
@@ -48,6 +49,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemWallBlock(ReduxBlocks.SENTRITE_BRICK_WALL, ReduxBlocks.SENTRITE_BRICKS, "construction/");
         itemBlock(ReduxBlocks.HOLEFIRE_STONE);
         itemBlockFlat(ReduxBlocks.HOLEFIRE_SPIKE, "dungeon/");
+        PointedDripstoneBlock
         itemBlock(ReduxBlocks.GLOWY_HOLEFIRE_STONE);
         itemBlock(ReduxBlocks.HOLEFIRE_SLAB);
         itemBlock(ReduxBlocks.HOLEFIRE_STAIRS);

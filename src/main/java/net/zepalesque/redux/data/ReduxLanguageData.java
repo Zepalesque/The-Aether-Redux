@@ -907,6 +907,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addDeath(ReduxDamageTypes.CORRUPTED_VINES, "%1$s was poked to death by some Corrupted Vines");
         addDeath(ReduxDamageTypes.EMBER, "%1$s was sparked by a flying ember");
         addDeath(ReduxDamageTypes.SPIKE, "%1$s forgot to jump");
+        addDeath(ReduxDamageTypes.SPIKE_FALL, "%1$s was susceptible to a blind jump");
         addDeathByPlayer(ReduxDamageTypes.EMBER, "%1$s was sparked by %2$s's flying ember");
         addDeath(ReduxDamageTypes.BLIGHT, "%1$s was uhhhh uhm uhh nothing happened to them");
         addDeathByPlayer(ReduxDamageTypes.BLIGHT, "%1$s was uhhhh uhm uhh nothing happened to them but if it did you should ask %2$s about it");

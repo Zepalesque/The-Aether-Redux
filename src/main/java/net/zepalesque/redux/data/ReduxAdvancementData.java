@@ -139,6 +139,18 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
                             ))
                     .save(consumer, Redux.locate("phudge_slayer"), existingFileHelper);
 
+            Advancement.Builder.advancement()
+                    // TODO: 'Where the holes once had fires...'
+                    .parent(install)
+                    .display(ReduxBlocks.HOLEFIRE_SPIKE.get(),
+                            Component.translatable("advancement.aether_redux.holefire_spike"),
+                            Component.translatable("advancement.aether_redux.holefire_spike.desc")
+                                    .append(Component.translatable("gui.aether_redux.advancement_suffix").withStyle(style -> style.withColor(Redux.REDUX_PURPLE))),
+                            null,
+                            FrameType.TASK, true, true, false)
+                    .addCriterion("holefire_spike", EntityHurtPlayerTrigger.TriggerInstance.entityHurtPlayer(DamagePredicate.Builder.damageInstance().type(DamageSourcePredicate.Builder.damageType().tag(TagPredicate.is(ReduxTags.DamageTypes.GEOMETRY_SPIKE)))))
+                    .save(consumer, Redux.locate("holefire_spike"), existingFileHelper);
+
            Advancement.Builder.advancement()
                     .parent(install)
                     .display(ReduxBlocks.DEEP_GRASS_BLOCK.get(),

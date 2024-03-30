@@ -19,6 +19,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.DripstoneThickness;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
@@ -84,6 +85,17 @@ public class HolefireSpike extends DirectionalBlock implements SimpleWaterlogged
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return SHAPES.get(state.getValue(FACING));
+    }
+
+    public void fallOn(Level level, BlockState state, BlockPos pos, Entity entity, float fallDistance) {
+        if (state.getValue(FACING) == Direction.UP) {
+            entity.causeFallDamage(fallDistance + 3.0F, 2.0F, ReduxDamageTypes.source(level, fallDistance > 5 ? ReduxDamageTypes.SPIKE_FALL : ReduxDamageTypes.SPIKE));
+        } else if (state.getValue(FACING) != Direction.DOWN) {
+            entity.causeFallDamage(fallDistance + 1.0F, 2.0F, ReduxDamageTypes.source(level, fallDistance > 5 ? ReduxDamageTypes.SPIKE_FALL : ReduxDamageTypes.SPIKE));
+        } else {
+            super.fallOn(level, state, pos, entity, fallDistance);
+        }
+
     }
 
     @Override
