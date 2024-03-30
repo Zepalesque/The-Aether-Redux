@@ -145,6 +145,9 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.log(ReduxBlocks.PEPPERMINT_LOG.get());
         this.wood(ReduxBlocks.PEPPERMINT_BLOCK.get(), ReduxBlocks.PEPPERMINT_LOG.get());
 
+        this.log(ReduxBlocks.PAPER_PILLAR.get());
+        this.wood(ReduxBlocks.PAPER_BLOCK.get(), ReduxBlocks.PAPER_PILLAR.get());
+
         this.leafPile(ReduxBlocks.GOLDEN_LEAF_PILE, AetherBlocks.GOLDEN_OAK_LEAVES, "natural/");
         this.leafPile(ReduxBlocks.GILDED_LEAF_PILE, ReduxBlocks.GILDED_OAK_LEAVES, "natural/");
         this.leafPile(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE, ReduxBlocks.BLIGHTWILLOW_LEAVES, "natural/");
@@ -161,6 +164,12 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
         this.crossBlock(ReduxBlocks.PEPPERMINT_BARKLING.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_PEPPERMINT_BARKLING.get(), ReduxBlocks.PEPPERMINT_BARKLING.get(), "natural/");
+
+        this.crossBlock(ReduxBlocks.BLUE_COTTON_CANDY.get(), "natural/");
+        this.pottedPlant(ReduxBlocks.POTTED_BLUE_COTTON_CANDY.get(), ReduxBlocks.BLUE_COTTON_CANDY.get(), "natural/");
+
+        this.crossBlock(ReduxBlocks.PINK_COTTON_CANDY.get(), "natural/");
+        this.pottedPlant(ReduxBlocks.POTTED_PINK_COTTON_CANDY.get(), ReduxBlocks.PINK_COTTON_CANDY.get(), "natural/");
 
         this.crossBlock(ReduxBlocks.CRYSTAL_SAPLING.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_CRYSTAL_SAPLING.get(), ReduxBlocks.CRYSTAL_SAPLING.get(), "natural/");

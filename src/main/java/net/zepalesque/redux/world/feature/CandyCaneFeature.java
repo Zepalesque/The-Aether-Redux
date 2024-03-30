@@ -16,16 +16,16 @@ import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfigur
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.zepalesque.redux.util.level.WorldgenUtil;
 
-public class CandyCaneFeature extends Feature<CandyCaneFeature.CandyCaneConfiguration> {
-   public CandyCaneFeature(Codec<CandyCaneConfiguration> pCodec) {
+public class CandyCaneFeature extends Feature<CandyCaneFeature.Config> {
+   public CandyCaneFeature(Codec<Config> pCodec) {
       super(pCodec);
    }
 
-   public boolean place(FeaturePlaceContext<CandyCaneConfiguration> pContext) {
+   public boolean place(FeaturePlaceContext<Config> pContext) {
       WorldGenLevel worldgenlevel = pContext.level();
       BlockPos blockpos = pContext.origin();
       RandomSource randomsource = pContext.random();
-      CandyCaneConfiguration config = pContext.config();
+      Config config = pContext.config();
       int height = config.height.sample(randomsource);
       Direction caneFacing = Direction.Plane.HORIZONTAL.getRandomDirection(randomsource);
       BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
@@ -43,7 +43,7 @@ public class CandyCaneFeature extends Feature<CandyCaneFeature.CandyCaneConfigur
       return b.isAir() || b.canBeReplaced();
    }
 
-   protected boolean placeCane(LevelAccessor lvl, RandomSource rand, BlockPos pos, CandyCaneConfiguration config, int height, BlockPos.MutableBlockPos mutable, Direction d, boolean isSimulated) {
+   protected boolean placeCane(LevelAccessor lvl, RandomSource rand, BlockPos pos, Config config, int height, BlockPos.MutableBlockPos mutable, Direction d, boolean isSimulated) {
       boolean success = true;
       for (int i = 0; i < height; ++i) {
          mutable.setWithOffset(pos, 0, i, 0);
@@ -95,17 +95,17 @@ public class CandyCaneFeature extends Feature<CandyCaneFeature.CandyCaneConfigur
       return success;
    }
 
-   public static class CandyCaneConfiguration implements FeatureConfiguration {
-      public static final Codec<CandyCaneConfiguration> CODEC = RecordCodecBuilder.create((mushroom) ->
+   public static class Config implements FeatureConfiguration {
+      public static final Codec<Config> CODEC = RecordCodecBuilder.create((mushroom) ->
               mushroom.group(BlockStateProvider.CODEC.fieldOf("cane_provider").forGetter((config) -> config.caneProvider),
                               BlockStateProvider.CODEC.fieldOf("peppermint_provider").forGetter((config) -> config.peppermintProvider),
                               IntProvider.CODEC.fieldOf("height").forGetter((config) -> config.height))
-                      .apply(mushroom, CandyCaneConfiguration::new));
+                      .apply(mushroom, Config::new));
       public final BlockStateProvider caneProvider;
       public final BlockStateProvider peppermintProvider;
       public final IntProvider height;
 
-      public CandyCaneConfiguration(BlockStateProvider cane, BlockStateProvider peppermint, IntProvider height) {
+      public Config(BlockStateProvider cane, BlockStateProvider peppermint, IntProvider height) {
          this.caneProvider = cane;
          this.peppermintProvider = peppermint;
          this.height = height;

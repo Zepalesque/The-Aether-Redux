@@ -33,6 +33,7 @@ public class ReduxBiomes {
 
     // April fools stuff
     public static final ResourceKey<Biome> DEEPER_AETHER = createKey("deeper_aether");
+    public static final ResourceKey<Biome> SUGARFIELDS = createKey("sugarfields");
 
     // TODO: Add to 2.1
     public static final ResourceKey<Biome> SHIMMERING_HILLS = createKey("shimmering_hills");

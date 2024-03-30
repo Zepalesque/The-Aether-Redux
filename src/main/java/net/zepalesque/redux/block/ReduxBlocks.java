@@ -186,6 +186,29 @@ public class ReduxBlocks {
                     (FlowerPotBlock)Blocks.FLOWER_POT, PEPPERMINT_BARKLING,
                     BlockBehaviour.Properties.copy(Blocks.FLOWER_POT))
     );
+
+    public static final RegistryObject<SaplingBlock> PINK_COTTON_CANDY = registerModifyItemProperties("pink_cotton_candy", () ->
+            new SaplingBlock(new ReduxSuppliedTree(ReduxConfiguredFeatures.PINK_CANDYFLOSS), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING).sound(SoundType.WOOL)), properties -> properties.food(ReduxFoods.COTTON_CANDY)
+    );
+    public static final RegistryObject<FlowerPotBlock> POTTED_PINK_COTTON_CANDY = BLOCKS.register("potted_pink_cotton_candy",
+            () -> new FlowerPotBlock(() ->
+                    (FlowerPotBlock)Blocks.FLOWER_POT, PINK_COTTON_CANDY,
+                    BlockBehaviour.Properties.copy(Blocks.FLOWER_POT))
+    );
+    public static final RegistryObject<SaplingBlock> BLUE_COTTON_CANDY = registerModifyItemProperties("blue_cotton_candy", () ->
+            new SaplingBlock(new ReduxSuppliedTree(ReduxConfiguredFeatures.BLUE_CANDYFLOSS), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING).sound(SoundType.WOOL)), properties -> properties.food(ReduxFoods.COTTON_CANDY)
+    );
+    public static final RegistryObject<FlowerPotBlock> POTTED_BLUE_COTTON_CANDY = BLOCKS.register("potted_blue_cotton_candy",
+            () -> new FlowerPotBlock(() ->
+                    (FlowerPotBlock)Blocks.FLOWER_POT, BLUE_COTTON_CANDY,
+                    BlockBehaviour.Properties.copy(Blocks.FLOWER_POT))
+    );
+    public static RegistryObject<RotatedPillarBlock> PAPER_PILLAR = register("paper_pillar",
+            () -> new AetherLogBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).randomTicks().strength(0.4F).sound(SoundType.BAMBOO_SAPLING)));
+
+    public static RegistryObject<RotatedPillarBlock> PAPER_BLOCK = register("paper_block",
+            () -> new AetherLogBlock(BlockBehaviour.Properties.copy(PAPER_PILLAR.get())));
+
     public static RegistryObject<Block> SUGARGRASS_BLOCK = registerModifyItemProperties("sugargrass_block",
             () -> new SugargrassBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOL).randomTicks().strength(0.2F).sound(SoundType.WOOL)), properties -> properties.food(ReduxFoods.CANDYFIELDS_BLOCK));
 
@@ -200,8 +223,8 @@ public class ReduxBlocks {
     public static final RegistryObject<FlowerPotBlock> POTTED_VANILLA = BLOCKS.register("potted_vanilla", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, VANILLA, Block.Properties.copy(Blocks.FLOWER_POT)));
 
 
-    public static final RegistryObject<Block> PINK_CANDYFLOSS_BLOCK = registerModifyItemProperties("pink_candyfloss_block", () -> new CottonCandyBlock(Block.Properties.copy(Blocks.PINK_WOOL)), properties -> properties.food(ReduxFoods.COTTON_CANDY));
-    public static final RegistryObject<Block> BLUE_CANDYFLOSS_BLOCK = registerModifyItemProperties("blue_candyfloss_block", () -> new CottonCandyBlock(Block.Properties.copy(Blocks.BLUE_WOOL)), properties -> properties.food(ReduxFoods.COTTON_CANDY));
+    public static final RegistryObject<Block> PINK_CANDYFLOSS_BLOCK = registerModifyItemProperties("pink_candyfloss_block", () -> new CottonCandyBlock(Block.Properties.copy(Blocks.PINK_WOOL)), properties -> properties.food(ReduxFoods.CANDYFIELDS_BLOCK));
+    public static final RegistryObject<Block> BLUE_CANDYFLOSS_BLOCK = registerModifyItemProperties("blue_candyfloss_block", () -> new CottonCandyBlock(Block.Properties.copy(Blocks.BLUE_WOOL)), properties -> properties.food(ReduxFoods.CANDYFIELDS_BLOCK));
 
 
     public static RegistryObject<Block> ROCK_CANDY = register("rock_candy",

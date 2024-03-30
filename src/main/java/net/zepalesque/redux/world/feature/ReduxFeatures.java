@@ -21,5 +21,7 @@ public class ReduxFeatures {
     public static RegistryObject<Feature<JellyshroomConfig>> JELLYSHROOM = FEATURES.register("jellyshroom", () -> new HugeJellyshroomFeature(JellyshroomConfig.CODEC));
     public static RegistryObject<Feature<NoneFeatureConfiguration>> TREE_AWARE_SNOW = FEATURES.register("tree_aware_snow", () -> new TreeAwareSnowLayerFeature(NoneFeatureConfiguration.CODEC));
     public static RegistryObject<Feature<UpwardVineFeature.UpwardVinesConfig>> UPWARD_VINE = FEATURES.register("upward_vine", () -> new UpwardVineFeature(UpwardVineFeature.UpwardVinesConfig.CODEC));
-    public static RegistryObject<Feature<CandyCaneFeature.CandyCaneConfiguration>> CANDY_CANE = FEATURES.register("candy_cane", () -> new CandyCaneFeature(CandyCaneFeature.CandyCaneConfiguration.CODEC));
+    public static RegistryObject<Feature<CandyCaneFeature.Config>> CANDY_CANE = FEATURES.register("candy_cane", () -> new CandyCaneFeature(CandyCaneFeature.Config.CODEC));
+    public static RegistryObject<Feature<CottonCandyFeature.Config>> COTTON_CANDY = FEATURES.register("cotton_candy", () -> new CottonCandyFeature(CottonCandyFeature.Config.CODEC));
+    public static RegistryObject<Feature<DynamicRock.Config>> DYNAMIC_ROCK = FEATURES.register("dynamic_rock", () -> new DynamicRock(DynamicRock.Config.CODEC));
 }

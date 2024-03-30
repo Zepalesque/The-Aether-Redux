@@ -37,6 +37,9 @@ public class ReduxCreativeTabs {
             putBefore(Redux.WoodHandlers.MINTY.log, ReduxBlocks.PEPPERMINT_BLOCK, event);
             putBefore(ReduxBlocks.PEPPERMINT_BLOCK, ReduxBlocks.PEPPERMINT_LOG, event);
 
+            putAfter(f1, ReduxBlocks.PAPER_PILLAR, event);
+            putAfter(ReduxBlocks.PAPER_PILLAR, ReduxBlocks.PAPER_BLOCK, event);
+
             putAfter(AetherBlocks.MOSSY_HOLYSTONE_WALL, ReduxBlocks.GILDED_HOLYSTONE, event);
             putAfter(ReduxBlocks.GILDED_HOLYSTONE, ReduxBlocks.GILDED_HOLYSTONE_STAIRS, event);
             putAfter(ReduxBlocks.GILDED_HOLYSTONE_STAIRS, ReduxBlocks.GILDED_HOLYSTONE_SLAB, event);
@@ -171,6 +174,8 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.GILDED_OAK_SAPLING, ReduxBlocks.CRYSTAL_SAPLING, event);
             putAfter(ReduxBlocks.CRYSTAL_SAPLING, ReduxBlocks.CRYSTAL_FRUIT_SAPLING, event);
             putAfter(ReduxBlocks.CRYSTAL_FRUIT_SAPLING, ReduxBlocks.PEPPERMINT_BARKLING, event);
+            putAfter(ReduxBlocks.PEPPERMINT_BARKLING, ReduxBlocks.BLUE_COTTON_CANDY, event);
+            putAfter(ReduxBlocks.BLUE_COTTON_CANDY, ReduxBlocks.PINK_COTTON_CANDY, event);
 
             putAfter(AetherBlocks.BERRY_BUSH, ReduxBlocks.ZANBERRY_BUSH_STEM, event);
             putAfter(ReduxBlocks.ZANBERRY_BUSH_STEM, ReduxBlocks.ZANBERRY_BUSH, event);

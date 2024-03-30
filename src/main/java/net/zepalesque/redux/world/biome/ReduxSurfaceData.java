@@ -35,8 +35,9 @@ public class ReduxSurfaceData {
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.DEEPER_AETHER), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state((ReduxBlocks.DEEP_GRASS_BLOCK.get()).defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true)))),
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.QUICKSOIL_DUNES), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state((AetherBlocks.QUICKSOIL.get()).defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true)))),
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.QUICKSOIL_OASIS), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state((AetherBlocks.QUICKSOIL.get()).defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true)))),
-                SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.SKYROOT_SHRUBLANDS), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.ICE, 0.0, 0.2), SurfaceRules.state(getCoarseDirtBlock().get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true)))))
-                );
+                SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.SKYROOT_SHRUBLANDS), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.ICE, 0.0, 0.2), SurfaceRules.state(getCoarseDirtBlock().get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true))))),
+                SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.SUGARFIELDS), SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.ifTrue(SurfaceRules.not(SurfaceRules.ON_FLOOR), SurfaceRules.state((ReduxBlocks.COCOA_SOIL.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true))))), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state((ReduxBlocks.SUGARGRASS_BLOCK.get()).defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true)))))
+  );
     }
     
     private static Supplier<Block> getCoarseDirtBlock() {

@@ -161,11 +161,11 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.BLUE_CANDYFLOSS_BLOCK, "Blue Candyfloss Block");
         addLore(ReduxBlocks.BLUE_CANDYFLOSS_BLOCK, "A big cube of pure Blue Cotton Candy, also known as Candyfloss. Tasty!");
 
-//        addBlock(ReduxBlocks.PAPER_PILLAR, "Paper Pillar");
-//        addLore(ReduxBlocks.PAPER_PILLAR, "A pillar constructed from paper. These are commonly found holding up the top parts of the large Cotton Candy found in the Sugarfields!");
+        addBlock(ReduxBlocks.PAPER_PILLAR, "Paper Pillar");
+        addLore(ReduxBlocks.PAPER_PILLAR, "A pillar constructed from paper. These are commonly found holding up the top parts of the large Cotton Candy found in the Sugarfields!");
 
-//        addBlock(ReduxBlocks.PAPER_BLOCK, "Paper Block");
-//        addLore(ReduxBlocks.PAPER_BLOCK, "A bunch of paper compressed into a singular block. The pillar variant of this is common in the Sugarfields.");
+        addBlock(ReduxBlocks.PAPER_BLOCK, "Paper Block");
+        addLore(ReduxBlocks.PAPER_BLOCK, "A bunch of paper compressed into a singular block. The pillar variant of this is common in the Sugarfields.");
 
         addBlock(ReduxBlocks.VANILLA, "Vanilla");
         addBlock(ReduxBlocks.POTTED_VANILLA, "Potted Vanilla");
@@ -293,6 +293,14 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.PEPPERMINT_BARKLING, "Peppermint Barkling");
         addBlock(ReduxBlocks.POTTED_PEPPERMINT_BARKLING, "Potted Peppermint Barkling");
         addLore(ReduxBlocks.PEPPERMINT_BARKLING, "A small peppermint growth obtained by stripping a Peppermint Log. Can be grown with Bone Meal into a full-sized Candy Cane!");
+
+        addBlock(ReduxBlocks.BLUE_COTTON_CANDY, "Blue Cotton Candy");
+        addBlock(ReduxBlocks.POTTED_BLUE_COTTON_CANDY, "Potted Blue Cotton Candy");
+        addLore(ReduxBlocks.BLUE_COTTON_CANDY, "A miniature cotton candy blob on a stick! Yum!");
+
+        addBlock(ReduxBlocks.PINK_COTTON_CANDY, "Pink Cotton Candy");
+        addBlock(ReduxBlocks.POTTED_PINK_COTTON_CANDY, "Potted Pink Cotton Candy");
+        addLore(ReduxBlocks.PINK_COTTON_CANDY, "A miniature cotton candy blob on a stick! Yum!");
 
         addBlock(ReduxBlocks.FIELDSPROOT_SAPLING, "Prismachromautomatic Sapling");
         addBlock(ReduxBlocks.POTTED_FIELDSPROOT_SAPLING, "Potted Prismachromautomatic Sapling");

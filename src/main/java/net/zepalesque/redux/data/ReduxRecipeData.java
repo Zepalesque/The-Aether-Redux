@@ -188,6 +188,21 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .unlockedBy(getHasName(AetherItems.CANDY_CANE.get()), has(AetherItems.CANDY_CANE.get()))
                 .save(consumer);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.PAPER_BLOCK.get(), 4)
+                .define('P', Items.PAPER)
+                .pattern("PPP")
+                .pattern("PPP")
+                .pattern("PPP")
+                .unlockedBy(getHasName(Items.PAPER), has(Items.PAPER))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.PAPER_PILLAR.get(), 2)
+                .define('P', ReduxBlocks.PAPER_BLOCK.get())
+                .pattern("P")
+                .pattern("P")
+                .unlockedBy(getHasName(ReduxBlocks.PAPER_BLOCK.get()), has(ReduxBlocks.PAPER_BLOCK.get()))
+                .save(consumer);
+
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SUGARGRASS_BLOCK.get(), 2)
                 .define('C', ReduxBlocks.COCOA_SOIL.get())
                 .define('S', Items.SUGAR)
@@ -515,6 +530,22 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .pattern("VFV")
                 .pattern(" S ")
                 .unlockedBy(getHasName(ReduxItems.COCKATRICE_FEATHER.get()), has(ReduxItems.COCKATRICE_FEATHER.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ReduxBlocks.PINK_COTTON_CANDY.get(), 2)
+                .define('C', ReduxBlocks.PINK_CANDYFLOSS_BLOCK.get())
+                .define('S', Tags.Items.RODS_WOODEN)
+                .pattern("C")
+                .pattern("S")
+                .unlockedBy(getHasName(ReduxBlocks.PINK_CANDYFLOSS_BLOCK.get()), has(ReduxBlocks.PINK_CANDYFLOSS_BLOCK.get()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ReduxBlocks.BLUE_COTTON_CANDY.get(), 2)
+                .define('C', ReduxBlocks.BLUE_CANDYFLOSS_BLOCK.get())
+                .define('S', Tags.Items.RODS_WOODEN)
+                .pattern("C")
+                .pattern("S")
+                .unlockedBy(getHasName(ReduxBlocks.BLUE_CANDYFLOSS_BLOCK.get()), has(ReduxBlocks.BLUE_CANDYFLOSS_BLOCK.get()))
                 .save(consumer);
 
         ConditionalRecipe.builder().addCondition(dc(Conditions.GENESIS)).addRecipe(ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ReduxItems.MOUSE_EAR_SOUP.get())

@@ -205,6 +205,10 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropPottedContents(ReduxBlocks.POTTED_EDELWEISS.get());
         dropSelf(ReduxBlocks.PEPPERMINT_BARKLING.get());
         this.dropPottedContents(ReduxBlocks.POTTED_PEPPERMINT_BARKLING.get());
+        dropSelf(ReduxBlocks.BLUE_COTTON_CANDY.get());
+        this.dropPottedContents(ReduxBlocks.POTTED_BLUE_COTTON_CANDY.get());
+        dropSelf(ReduxBlocks.PINK_COTTON_CANDY.get());
+        this.dropPottedContents(ReduxBlocks.POTTED_PINK_COTTON_CANDY.get());
         dropSelf(ReduxBlocks.CARVED_STONE_BRICKS.get());
         dropSelf(ReduxBlocks.CARVED_STONE_BRICK_STAIRS.get());
         this.add(ReduxBlocks.CARVED_STONE_BRICK_SLAB.get(), this::createSlabItemTable);
@@ -220,6 +224,8 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropSelfDouble(ReduxBlocks.BLIGHTSHADE.get());
         this.dropSelf(ReduxBlocks.GRAVITITE_BLOCK.get());
         this.dropSelf(ReduxBlocks.RAW_GRAVITITE_BLOCK.get());
+        this.dropSelf(ReduxBlocks.PAPER_PILLAR.get());
+        this.dropSelf(ReduxBlocks.PAPER_BLOCK.get());
         this.naturalDrop(ReduxBlocks.PEPPERMINT_BLOCK.get(), ReduxBlocks.PEPPERMINT_LOG.get());
         this.dropSelf(ReduxBlocks.PEPPERMINT_LOG.get());
         this.dropPottedContents(ReduxBlocks.POTTED_BLIGHTSHADE.get());

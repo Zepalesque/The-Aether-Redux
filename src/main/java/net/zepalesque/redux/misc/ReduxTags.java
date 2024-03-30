@@ -28,6 +28,7 @@ public class ReduxTags {
         public static final TagKey<Block> ENCHANTED_VINES_SKIP_PLACEMENT = tag("enchanted_vines_skip_placement");
         public static final TagKey<Block> ENCHANTED_VINES_SURVIVE = tag("enchanted_vines_survive");
         public static final TagKey<Block> MUSHROOM_CAPS = tag("mushroom_caps");
+        public static final TagKey<Block> COTTON_CANDY_CONSTRUCTION = tag("cotton_candy_construction");
         public static final TagKey<Block> DO_NOT_REPLACE_AETHER_GRASS = tag("do_not_replace_aether_grass");
         public static final TagKey<Block> SUGAR_DIRT = tag("sugar_dirt");
         public static final TagKey<Block> PEPPERMINT_LOGS = tag("peppermint_logs");

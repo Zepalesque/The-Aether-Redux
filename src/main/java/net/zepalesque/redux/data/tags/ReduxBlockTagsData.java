@@ -64,6 +64,10 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.JELLYSHROOM_JELLY_BLOCK.get(),
                 ReduxBlocks.CLOUD_CAP_BLOCK.get()
         );
+        this.tag(ReduxTags.Blocks.COTTON_CANDY_CONSTRUCTION).add(
+                ReduxBlocks.PINK_CANDYFLOSS_BLOCK.get(),
+                ReduxBlocks.BLUE_CANDYFLOSS_BLOCK.get()
+        );
         this.tag(ReduxTags.Blocks.DO_NOT_REPLACE_AETHER_GRASS).add(
                 ReduxBlocks.SHORT_AETHER_GRASS.get(),
                 ReduxBlocks.AVELIUM_ROOTS.get(),
@@ -221,6 +225,12 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         this.tag(BlockTags.NEEDS_IRON_TOOL).add(
                 ReduxBlocks.GRAVITITE_BLOCK.get(),
                 ReduxBlocks.RAW_GRAVITITE_BLOCK.get()
+        );
+        this.tag(BlockTags.MINEABLE_WITH_AXE).add(
+                ReduxBlocks.PEPPERMINT_LOG.get(),
+                ReduxBlocks.PEPPERMINT_BLOCK.get(),
+                ReduxBlocks.PAPER_PILLAR.get(),
+                ReduxBlocks.PAPER_BLOCK.get()
         );
         this.tag(BlockTags.MINEABLE_WITH_HOE).add(
                 ReduxBlocks.BLIGHTMOSS_BLOCK.get(),

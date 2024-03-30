@@ -53,10 +53,7 @@ import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.util.state.ReduxStates;
 import net.zepalesque.redux.block.util.state.enums.PetalPrismaticness;
 import net.zepalesque.redux.misc.ReduxTags;
-import net.zepalesque.redux.world.feature.CandyCaneFeature;
-import net.zepalesque.redux.world.feature.CloudcapFeature;
-import net.zepalesque.redux.world.feature.ReduxFeatures;
-import net.zepalesque.redux.world.feature.UpwardVineFeature;
+import net.zepalesque.redux.world.feature.*;
 import net.zepalesque.redux.world.feature.config.*;
 import net.zepalesque.redux.world.stateprov.SimpleConditionAlternativeStateProvider;
 import net.zepalesque.redux.world.tree.decorator.BlightwillowRootsTrunkDecorator;
@@ -82,12 +79,15 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> FUNGAL_PATCH_BONEMEAL = createKey(Folders.CAVE + "fungal_patch_bonemeal");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AURUM_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.AURUM) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> DEEP_GRASS_PATCH = createKey(Folders.PATCH + "deep_grass_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SUGARGRASS_PATCH = createKey(Folders.PATCH + "sugargrass_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ZYATRIX_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.ZYATRIX) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> EDELWEISS_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.EDELWEISS) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> VANILLA_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.VANILLA) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ZANBERRY_BUSH_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.ZANBERRY_BUSH) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTED_SKYROOT_TREE = createKey(Folders.TREE + "blighted_skyroot_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CANDY_CANE = createKey(Folders.TREE + "candy_cane");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PINK_CANDYFLOSS = createKey(Folders.TREE + "pink_candyfloss");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_CANDYFLOSS = createKey(Folders.TREE + "blue_candyfloss");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTMOSS_PATCH = createKey(Folders.CAVE + "blightmoss_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTMOSS_PATCH_BONEMEAL = createKey(Folders.CAVE + "blightmoss_patch_bonemeal");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTMOSS_VEGETATION = createKey(Folders.CAVE + "blightmoss_vegetation");
@@ -107,11 +107,15 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROOTROSE_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.ROOTROSE) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> THERATIP_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.THERATIP) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPLITFERN_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.SPLITFERN) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PINK_COTTON_CANDY_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.PINK_COTTON_CANDY) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_COTTON_CANDY_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.BLUE_COTTON_CANDY) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PEPPERMINT_BARKLING_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.PEPPERMINT_BARKLING) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> AEROGEL_ORE = createKey(Folders.ORE + name(AetherBlocks.AEROGEL) + "_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTED_PURPLE_FLOWER_PATCH = createKey(Folders.PATCH + "frosted_purple_flower_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTED_TREES = createKey(Folders.TREE + "frosted_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLACIAL_TREES = createKey(Folders.TREE + "glacial_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> DEEP_TREES = createKey(Folders.TREE + "deep_trees");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CANDY_TREES = createKey(Folders.TREE + "candy_trees_quote_unquote");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CORRUPTED_VINES_PATCH = createKey(Folders.PATCH + "corrupted_vines_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GILDED_HOLYSTONE_ORE = createKey(Folders.ORE + name(ReduxBlocks.GILDED_HOLYSTONE) + "_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTMOSS_HOLYSTONE_ORE = createKey(Folders.ORE + name(ReduxBlocks.BLIGHTMOSS_HOLYSTONE) + "_ore");
@@ -129,6 +133,7 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> GRASSLAND_TREES = createKey(Folders.TREE + "grassland_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GRASSLAND_TREES_ALT = createKey(Folders.TREE + "grassland_trees_alt");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYFIELDS_ROCK = createKey(Folders.SURFACE + "skyfields_rock");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CANDY_ROCK = createKey(Folders.SURFACE + "candy_rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SHRUBLANDS_ROCK  = createKey(Folders.SURFACE + "shrublands_rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLIMMERSTOOL_ROCK = createKey(Folders.SURFACE + name(ReduxBlocks.SHIMMERSTOOL) + "_rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLIMMERSTOOL_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.SHIMMERSTOOL) + "_patch");
@@ -210,6 +215,9 @@ public class ReduxConfiguredFeatures {
 
         register(context, DEEP_GRASS_PATCH, Feature.RANDOM_PATCH,
                 randomPatch(32, 7, 3, prov(ReduxBlocks.SHORT_DEEP_GRASS)));
+
+        register(context, SUGARGRASS_PATCH, Feature.RANDOM_PATCH,
+                randomPatch(32, 7, 3, prov(ReduxBlocks.SUGARSPROUTS)));
 
 
         register(context, AURUM_PATCH, Feature.FLOWER,
@@ -350,6 +358,12 @@ public class ReduxConfiguredFeatures {
         ).ignoreVines().dirt(BlockStateProvider.simple(Blocks.AIR)).build());
         register(context, DAGGERBLOOM_PATCH, Feature.FLOWER,
                 randomPatch(12, 7, 3, prov(ReduxBlocks.DAGGERBLOOM)));
+        register(context, PINK_COTTON_CANDY_PATCH, Feature.FLOWER,
+                randomPatch(12, 7, 3, prov(ReduxBlocks.PINK_COTTON_CANDY)));
+        register(context, BLUE_COTTON_CANDY_PATCH, Feature.FLOWER,
+                randomPatch(12, 7, 3, prov(ReduxBlocks.BLUE_COTTON_CANDY)));
+        register(context, PEPPERMINT_BARKLING_PATCH, Feature.FLOWER,
+                randomPatch(10, 7, 3, prov(ReduxBlocks.PEPPERMINT_BARKLING)));
         register(context, ROOTROSE_PATCH, Feature.FLOWER,
                 randomPatch(12, 7, 3, prov(ReduxBlocks.ROOTROSE)));
         register(context, SPLITFERN_PATCH, Feature.FLOWER,
@@ -575,6 +589,14 @@ public class ReduxConfiguredFeatures {
         register(context, SKYFIELDS_ROCK, Feature.FOREST_ROCK,
                 new BlockStateConfiguration(AetherFeatureStates.HOLYSTONE));
 
+        register(context, CANDY_ROCK, ReduxFeatures.DYNAMIC_ROCK.get(),
+                new DynamicRock.Config(
+                        new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                                .add(ReduxBlocks.ROCK_CANDY.get().defaultBlockState(), 10)
+                                .add(ReduxBlocks.POPROCK_ORE.get().defaultBlockState(), 1)
+                                .build()
+                        )));
+
         register(context, SHRUBLANDS_ROCK, Feature.FOREST_ROCK,
                 new BlockStateConfiguration(AetherFeatureStates.HOLYSTONE));
 
@@ -639,10 +661,23 @@ public class ReduxConfiguredFeatures {
                                 .build()), 7, 3, 32));
 
         register(context, CANDY_CANE, ReduxFeatures.CANDY_CANE.get(),
-                new CandyCaneFeature.CandyCaneConfiguration(
+                new CandyCaneFeature.Config(
                         prov(ReduxBlocks.PEPPERMINT_LOG),
                         prov(ReduxBlocks.PEPPERMINT_BLOCK),
                         UniformInt.of(6, 10)
+                ));
+
+        register(context, PINK_CANDYFLOSS, ReduxFeatures.COTTON_CANDY.get(),
+                new CottonCandyFeature.Config(
+                        prov(ReduxBlocks.PINK_CANDYFLOSS_BLOCK),
+                        prov(ReduxBlocks.PAPER_PILLAR),
+                        UniformInt.of(9, 13)
+                ));
+        register(context, BLUE_CANDYFLOSS, ReduxFeatures.COTTON_CANDY.get(),
+                new CottonCandyFeature.Config(
+                        prov(ReduxBlocks.BLUE_CANDYFLOSS_BLOCK),
+                        prov(ReduxBlocks.PAPER_PILLAR),
+                        UniformInt.of(9, 13)
                 ));
 
         register(context, PRISMATIC_FIELDSPROOT_TREE, Feature.TREE,
@@ -775,8 +810,17 @@ public class ReduxConfiguredFeatures {
 
         register(context, DEEP_TREES, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
-                        PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(SMALL_DEEP_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.FIELDSPROOT_SAPLING.get())), 0.05F)),
+                        PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(SMALL_DEEP_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.FIELDSPROOT_SAPLING.get())), 0.25F)),
                         PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(LARGE_DEEP_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.FIELDSPROOT_SAPLING.get()))));
+
+        register(context, CANDY_TREES, Feature.RANDOM_SELECTOR,
+                new RandomFeatureConfiguration(List.of(
+                        new WeightedPlacedFeature(
+                        PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(PINK_CANDYFLOSS), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.PINK_COTTON_CANDY.get())), 0.33F),
+                        new WeightedPlacedFeature(
+                        PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(BLUE_CANDYFLOSS), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.BLUE_COTTON_CANDY.get())), 0.33F)
+                ),
+                        PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(CANDY_CANE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.PEPPERMINT_BARKLING.get()))));
 
 
         register(context, SKYFIELDS_TREES, Feature.RANDOM_SELECTOR,
