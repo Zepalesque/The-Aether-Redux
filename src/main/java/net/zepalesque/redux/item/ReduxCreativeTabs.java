@@ -349,6 +349,8 @@ public class ReduxCreativeTabs {
             putAfterVeridium(ReduxItems.VERIDIUM_DART_SHOOTER, ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER, event);
             putAfterVeridium(ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER, ReduxItems.VERIDIUM_DART, event);
 
+            putAfter(AetherItems.GOLD_DUNGEON_KEY, ReduxItems.LOBOTIUM_KEY, event);
+
             putAfter(AetherItems.SKYROOT_POISON_BUCKET, ReduxItems.SKYROOT_SYRUP_BUCKET, event);
             putAfter(ReduxItems.SKYROOT_SYRUP_BUCKET, ReduxItems.SYRUP_BUCKET, event);
 

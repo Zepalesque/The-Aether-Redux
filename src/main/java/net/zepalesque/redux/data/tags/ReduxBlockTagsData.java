@@ -335,6 +335,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING.get()
         );
         this.tag(BlockTags.WALLS).add(
+                ReduxBlocks.HOLEFIRE_WALL.get(),
                 ReduxBlocks.DIVINITE_WALL.get(),
                 ReduxBlocks.CARVED_STONE_BRICK_WALL.get()
         );
