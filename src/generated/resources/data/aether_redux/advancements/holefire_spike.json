@@ -1,0 +1,47 @@
+{
+  "parent": "aether_redux:lobotium_dungeon",
+  "criteria": {
+    "holefire_spike": {
+      "conditions": {
+        "damage": {
+          "type": {
+            "tags": [
+              {
+                "expected": true,
+                "id": "aether_redux:geometry_spike"
+              }
+            ]
+          }
+        }
+      },
+      "trigger": "minecraft:entity_hurt_player"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "extra": [
+        {
+          "color": "#9384F4",
+          "translate": "gui.aether_redux.advancement_suffix"
+        }
+      ],
+      "translate": "advancement.aether_redux.holefire_spike.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "aether_redux:holefire_spike"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.aether_redux.holefire_spike"
+    }
+  },
+  "requirements": [
+    [
+      "holefire_spike"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

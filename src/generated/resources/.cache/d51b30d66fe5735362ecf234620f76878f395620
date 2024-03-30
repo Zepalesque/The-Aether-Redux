@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-30T17:38:14.5972268	Item Models: aether_redux
+// 1.20.1	2024-03-30T18:28:01.0904215	Item Models: aether_redux
 2445055af5b1b7f3c6045199ffce74108003cef6 assets/aether_redux/models/item/airbound_cape.json
 2fa1343a8119a1f49af334c002773099174965bd assets/aether_redux/models/item/aurum.json
 edfe83948874d1436a61893ed9471b47e93dbe88 assets/aether_redux/models/item/avelium.json
@@ -180,7 +180,7 @@ a5174e1e84d1a0014c3c265b2cb4f286d964abf8 assets/aether_redux/models/item/hardene
 3fbe52b7808ac72b3ff7f5ad214e017016d7b622 assets/aether_redux/models/item/holefire_pillar.json
 82f4e1aab9c11ba5c3d8868a6a5742ebfb06c902 assets/aether_redux/models/item/holefire_pillar_top.json
 1c05bcce6966da5b10b2789525952ebefa16ddfd assets/aether_redux/models/item/holefire_slab.json
-c455fe7b354eb47c1840cf8f7c0c36b76954cf45 assets/aether_redux/models/item/holefire_spike.json
+f6e2dca35e9a1edf564f4d1061cb3847a6e0d949 assets/aether_redux/models/item/holefire_spike.json
 0132ea72e384065aea7666a7d69b5f7f3e52259f assets/aether_redux/models/item/holefire_stairs.json
 ce79d526d924f85888589234f4753d1002e1b610 assets/aether_redux/models/item/holefire_stone.json
 387969650c857df94838f718852c3bbfef9e3025 assets/aether_redux/models/item/holefire_wall.json
@@ -217,6 +217,8 @@ ec3c78d30b74b360b8e97bdd426a1588776c1e0d assets/aether_redux/models/item/jellysh
 44541bf4b505ef96ee4fe39cb72f2e2b33fe1220 assets/aether_redux/models/item/jellyshroom_trapdoor.json
 a7206aaa0b62bb3c44f15dcd7b2dd27b9716cb2a assets/aether_redux/models/item/lemon_poprocks.json
 7e5c9c8ea05cc15e0c568d691bccc3a500cb1903 assets/aether_redux/models/item/lightroot_clump.json
+d9310ddc507dfe7d4b06212f6fbd5d61f8683609 assets/aether_redux/models/item/lobotium_icon.json
+7c590342664447885706662822bf1d66c24a21d4 assets/aether_redux/models/item/lobotium_key.json
 419e1a027022a941d08e3625e84160befb2571da assets/aether_redux/models/item/lumina.json
 f57c0aa977ae875c8456515bae2a0f7dbfa313cc assets/aether_redux/models/item/luxweed.json
 0aa18717b8844fd6aece9d2369be35d0b9546a65 assets/aether_redux/models/item/minty_block.json
