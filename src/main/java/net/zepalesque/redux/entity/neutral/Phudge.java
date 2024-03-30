@@ -72,7 +72,7 @@ public class Phudge extends Phyg implements NeutralMob {
     }
 
     public static AttributeSupplier.Builder createMobAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 15.0).add(Attributes.MOVEMENT_SPEED, 0.25);
+        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 15.0).add(Attributes.MOVEMENT_SPEED, 0.25).add(Attributes.ATTACK_DAMAGE, 1.0);
     }
 
     @Override

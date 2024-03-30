@@ -1,5 +1,6 @@
 package net.zepalesque.redux.capability;
 
+import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.entity.monster.Cockatrice;
 import com.aetherteam.aether.entity.monster.Swet;
 import com.aetherteam.aether.entity.monster.dungeon.Mimic;
@@ -122,7 +123,7 @@ public class ReduxCapabilities {
             if (event.getObject() instanceof Swet entity) {
                 event.addCapability(Redux.locate("swet_mass"), new CapabilityProvider(ReduxCapabilities.SWET_MASS, new SwetMassCapability(entity)));
             }
-            if ((event.getObject() instanceof Phyg || event.getObject() instanceof FlyingCow)) {
+            if ((event.getObject().getType() == AetherEntityTypes.PHYG.get() || event.getObject().getType() == AetherEntityTypes.FLYING_COW.get())) {
                 event.addCapability(Redux.locate("wacky_bat"), new CapabilityProvider(ReduxCapabilities.WACKY_BAT, new WackyBatCapability((LivingEntity) event.getObject())));
             }
         }

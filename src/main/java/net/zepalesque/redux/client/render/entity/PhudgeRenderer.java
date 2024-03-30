@@ -2,9 +2,7 @@
 package net.zepalesque.redux.client.render.entity;
 
 import com.aetherteam.aether.client.renderer.AetherModelLayers;
-import com.aetherteam.aether.client.renderer.entity.layers.PhygHaloLayer;
 import com.aetherteam.aether.client.renderer.entity.layers.QuadrupedWingsLayer;
-import com.aetherteam.aether.client.renderer.entity.model.HaloModel;
 import com.aetherteam.aether.client.renderer.entity.model.QuadrupedWingsModel;
 import net.minecraft.client.model.PigModel;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -14,7 +12,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.render.ReduxModelLayers;
 import net.zepalesque.redux.client.render.entity.layer.entity.PhudgeReduxLayer;
-import net.zepalesque.redux.client.render.entity.layer.entity.PhygReduxLayer;
 import net.zepalesque.redux.client.render.entity.model.entity.PhygReduxModel;
 import net.zepalesque.redux.entity.neutral.Phudge;
 import org.jetbrains.annotations.NotNull;
