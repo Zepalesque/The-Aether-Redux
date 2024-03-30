@@ -124,10 +124,5 @@ public class MathUtil {
         return min + (random.nextFloat() * (max - min));
     }
 
-    public static float roundIfWithinThreshold(float val, float threshold) {
-        float remainder = val % 1;
-        float max = 1 - threshold;
-        return remainder < threshold || remainder > max ? Math.round(val) : val;
-    }
 
 }
