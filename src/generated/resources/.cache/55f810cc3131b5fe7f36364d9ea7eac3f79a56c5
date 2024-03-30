@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-30T17:38:14.6152149	Block States: aether_redux
+// 1.20.1	2024-03-30T17:55:48.7221012	Block States: aether_redux
 6d5a134587a37ec8ac1798d9ca3e527d0a1d99b9 assets/aether_redux/blockstates/aurum.json
 bd71aec5ab85b7a1e4570cf04b5dce1bf6226d6b assets/aether_redux/blockstates/avelium.json
 eb68785d90af1f5948885a64db9d1f4c33739323 assets/aether_redux/blockstates/avelium_roots.json
@@ -810,7 +810,7 @@ b7ffef8d58cd84d820233e07f9c7000f8e760501 assets/aether_redux/models/block/harden
 991427a8e081164ca8cf1e4ee40ba125b5618c3d assets/aether_redux/models/block/holefire_pillar_top_horizontal.json
 23de0f9fb717320120442c12f180e61069694a70 assets/aether_redux/models/block/holefire_slab.json
 4b8a30e9eb58816d948e02d0e78040b1a30be804 assets/aether_redux/models/block/holefire_slab_top.json
-5378738f61613783f0d381836e0744dfdac0ac62 assets/aether_redux/models/block/holefire_spike.json
+981ef88d586515cdaf52083932ed699384b3ee13 assets/aether_redux/models/block/holefire_spike.json
 3f710c3964d2942d96af92bcff63364d7581740f assets/aether_redux/models/block/holefire_stairs.json
 df198c387fcef20be7a101eb20f12d3333946bd0 assets/aether_redux/models/block/holefire_stairs_inner.json
 24e5ae4b714de526e8c9cd09ad5be8551ef39842 assets/aether_redux/models/block/holefire_stairs_outer.json
