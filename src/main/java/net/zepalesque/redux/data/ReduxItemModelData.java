@@ -55,6 +55,10 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlock(ReduxBlocks.HOLEFIRE_PILLAR_TOP);
         itemBlockFlatTintOverlay(ReduxBlocks.IRIDIA, "natural/");
         itemBlockFlatTintOverlay(ReduxBlocks.XAELIA_PATCH, "natural/");
+        itemBlock(ReduxBlocks.HARDENED_SYRUP);
+        itemBlock(ReduxBlocks.CHARCOAL_BLOCK);
+        item(ReduxItems.SYRUP_BUCKET.get(), "misc/");
+        item(ReduxItems.SKYROOT_SYRUP_BUCKET.get(), "misc/");
         itemBlock(ReduxBlocks.GILDED_HOLYSTONE);
         itemBlock(ReduxBlocks.GILDED_HOLYSTONE_SLAB);
         itemBlock(ReduxBlocks.GILDED_HOLYSTONE_STAIRS);

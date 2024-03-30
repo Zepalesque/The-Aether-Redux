@@ -88,6 +88,8 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
 
         oreBlockStorageRecipesRecipesWithCustomUnpacking(consumer, RecipeCategory.MISC, ReduxItems.RAW_GRAVITITE.get(), RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.RAW_GRAVITITE_BLOCK.get(), "raw_gravitite_from_raw_gravitite_block", "raw_gravitite");
 
+        oreBlockStorageRecipesRecipesWithCustomUnpacking(consumer, RecipeCategory.MISC, Items.CHARCOAL, RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.CHARCOAL_BLOCK.get(), "charcoal_from_block", "charcoal");
+
 
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.DIVINITE_WALL.get(), ReduxBlocks.DIVINITE.get())
                 .save(consumer, Redux.locate(ReduxBlocks.DIVINITE.getId().getPath() + "_wall_stonecutting"));

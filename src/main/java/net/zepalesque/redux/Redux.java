@@ -85,6 +85,8 @@ import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.entity.dataserializer.ReduxDataSerializers;
 import net.zepalesque.redux.event.hook.SwetHooks;
 import net.zepalesque.redux.event.listener.MobSoundListener;
+import net.zepalesque.redux.fluid.ReduxFluidTypes;
+import net.zepalesque.redux.fluid.ReduxFluids;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.loot.condition.ReduxLootConditions;
 import net.zepalesque.redux.loot.modifiers.ReduxLootModifiers;
@@ -176,6 +178,8 @@ public class Redux {
         ReduxDataSerializers.SERIALIZERS.register(bus);
         ReduxPotions.POTIONS.register(bus);
         ReduxAdvancementSounds.SOUNDS.register(bus);
+        ReduxFluidTypes.FLUID_TYPES.register(bus);
+        ReduxFluids.FLUIDS.register(bus);
         ReduxBlocks.registerWoodTypes();
         ReduxBlocks.registerPots();
         DistExecutor.unsafeRunForDist(() -> () -> {
@@ -246,6 +250,7 @@ public class Redux {
             if (Redux.ancientAetherCompat()) {
                 SwetHooks.registerParticle(AncientAetherEntityTypes.FESTIVE_SWET.get(), AetherItems.SWET_BALL.get());
             }
+            ReduxItems.setupBucketReplacements();
         });
     }
 

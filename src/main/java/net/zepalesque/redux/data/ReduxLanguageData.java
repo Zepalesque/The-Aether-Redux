@@ -337,6 +337,10 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.AVELIUM_SPROUTS, "Moo Sprouts");
         addLore(ReduxBlocks.AVELIUM_SPROUTS, "A smaller variant of Moovelium Roots. Can be found in the Cowcaps.");
 
+        addItem(ReduxItems.SKYROOT_SYRUP_BUCKET, "Skyroot Syrup Bucket");
+        addLore(ReduxItems.SKYROOT_SYRUP_BUCKET, "A skyroot bucket filled with delicious Maple Syrup!");
+        addItem(ReduxItems.SYRUP_BUCKET, "Syrup Bucket");
+        addLore(ReduxItems.SYRUP_BUCKET, "A bucket filled with delicious Maple Syrup!");
 
         addBlock(ReduxBlocks.GILDED_OAK_LEAVES, "Gilded Oak Leaves");
         addLore(ReduxBlocks.GILDED_OAK_LEAVES, "The leaves of the Gilded Oak tree. These sometimes drop Gilded Oak Saplings.");
@@ -382,6 +386,13 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addBlock(ReduxBlocks.HOLYSILT, "Holysilt");
         addLore(ReduxBlocks.HOLYSILT, "Fine particles of broken up holystone and other minerals. Can be found underground, and around the blight. Careful, it's not very stable and may fall beneath your feet!");
+
+
+
+        addBlock(ReduxBlocks.CHARCOAL_BLOCK, "Block of Charcoal");
+        addLore(ReduxBlocks.CHARCOAL_BLOCK, "A block of compressed Charcoal.");
+        addBlock(ReduxBlocks.HARDENED_SYRUP, "Hardened Syrup");
+        addLore(ReduxBlocks.HARDENED_SYRUP, "A block of maple syrup, which due to some process or another has hardened.");
 
         addBlock(ReduxBlocks.SENTRITE, "Sentrite");
         addLore(ReduxBlocks.SENTRITE, "A dark rock found in the Aether. A mixture of this and holystone is what makes up the walls of the Bronze Dungeon.");

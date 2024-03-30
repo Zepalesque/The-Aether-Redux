@@ -50,6 +50,7 @@ import net.zepalesque.redux.block.util.CommonPlantBounds;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.data.resource.ReduxConfiguredFeatures;
+import net.zepalesque.redux.fluid.ReduxFluids;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.item.food.ReduxFoods;
 import net.zepalesque.redux.misc.ReduxTags;
@@ -63,6 +64,16 @@ import java.util.function.UnaryOperator;
 public class ReduxBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Redux.MODID);
     public static final DeferredRegister<Item> ITEMS = ReduxItems.ITEMS;
+
+    public static RegistryObject<Block> CHARCOAL_BLOCK = register("charcoal_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.COAL_BLOCK)));
+
+    public static RegistryObject<Block> HARDENED_SYRUP = register("hardened_syrup",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).sound(SoundType.HONEY_BLOCK)));
+
+    public static RegistryObject<LiquidBlock> MAPLE_SYRUP = BLOCKS.register("maple_syrup",
+            () -> new SyrupLiquidBlock(ReduxFluids.SYRUP_STILL,BlockBehaviour.Properties.copy(Blocks.WATER).mapColor(MapColor.COLOR_BROWN)));
+
 
     public static RegistryObject<Block> DIVINITE = register("divinite",
             () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).requiresCorrectToolForDrops().strength(0.5F, 6.0F).sound(SoundType.TUFF)));

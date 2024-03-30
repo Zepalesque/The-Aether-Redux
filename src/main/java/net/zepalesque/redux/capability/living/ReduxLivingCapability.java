@@ -41,9 +41,7 @@ public class ReduxLivingCapability implements ReduxLiving {
 
     @Override
     public void tick() {
-        if (!this.mob.level().isClientSide()) {
-            this.rainbow.tick();
-        }
+        this.rainbow.tick();
     }
 
 

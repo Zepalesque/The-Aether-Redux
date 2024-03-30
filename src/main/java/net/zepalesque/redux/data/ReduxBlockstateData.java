@@ -49,6 +49,9 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.stairs(ReduxBlocks.DIVINITE_STAIRS.get(), ReduxBlocks.DIVINITE.get(), "natural/");
         this.wallBlock(ReduxBlocks.DIVINITE_WALL.get(), ReduxBlocks.DIVINITE.get(), "natural/");
 
+        this.block(ReduxBlocks.HARDENED_SYRUP.get(), "natural/");
+        this.block(ReduxBlocks.CHARCOAL_BLOCK.get(), "natural/");
+
         this.blockDoubleDrops(ReduxBlocks.ROCK_CANDY.get(), "natural/");
         this.slab(ReduxBlocks.ROCK_CANDY_SLAB.get(), ReduxBlocks.ROCK_CANDY.get(), "natural/");
         this.stairs(ReduxBlocks.ROCK_CANDY_STAIRS.get(), ReduxBlocks.ROCK_CANDY.get(), "natural/");

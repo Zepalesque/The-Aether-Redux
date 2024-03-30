@@ -5,6 +5,7 @@ import com.aetherteam.aether.item.accessories.ring.RingItem;
 import com.aetherteam.aether.item.combat.DartItem;
 import com.aetherteam.aether.item.food.GummySwetItem;
 import com.aetherteam.aether.item.materials.SwetBallItem;
+import com.aetherteam.aether.item.miscellaneous.bucket.SkyrootBucketItem;
 import com.google.common.base.Supplier;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
@@ -19,7 +20,9 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
+import net.zepalesque.redux.fluid.ReduxFluids;
 import net.zepalesque.redux.item.accessory.*;
+import net.zepalesque.redux.item.food.BucketFoodItem;
 import net.zepalesque.redux.item.food.PoprocksItem;
 import net.zepalesque.redux.item.food.ReduxFoods;
 import net.zepalesque.redux.item.misc.BlightedSporesItem;
@@ -87,6 +90,9 @@ public class ReduxItems {
     public static final RegistryObject<Item> VERIDIUM_DART = ITEMS.register("veridium_dart", () -> new DartItem(ReduxEntityTypes.VERIDIUM_DART, new Item.Properties()));
     public static final RegistryObject<Item> VERIDIUM_DART_SHOOTER = ITEMS.register("veridium_dart_shooter", () -> new VeridiumDartShooter(VERIDIUM_DART, ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER, 9, (new Item.Properties()).stacksTo(1)));
     public static final RegistryObject<Item> INFUSED_VERIDIUM_DART_SHOOTER = ITEMS.register("infused_veridium_dart_shooter", () -> new VeridiumDartShooter(VERIDIUM_DART, ReduxItems.VERIDIUM_DART_SHOOTER, 7, (new Item.Properties()).stacksTo(1)));
+
+    public static final RegistryObject<Item> SYRUP_BUCKET = register("syrup_bucket", () -> new BucketFoodItem(() -> Items.BUCKET, ReduxFluids.SYRUP_STILL, new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> SKYROOT_SYRUP_BUCKET = register("skyroot_syrup_bucket", () -> new BucketFoodItem(AetherItems.SKYROOT_BUCKET, ReduxFluids.SYRUP_STILLA, new Item.Properties().stacksTo(1)));
 
 
     public static final RegistryObject<Item> ENCHANTED_RING = register("enchanted_ring", () -> new RingItem(ReduxSoundEvents.EQUIP_ENCHANTED_RING, new Item.Properties().stacksTo(1)));
@@ -158,6 +164,11 @@ public class ReduxItems {
     {
         return ITEMS.register(name, item);
     }
+
+    public static void setupBucketReplacements() {
+        SkyrootBucketItem.REPLACEMENTS.put(SYRUP_BUCKET, SKYROOT_SYRUP_BUCKET);
+    }
+
 
 
 }
