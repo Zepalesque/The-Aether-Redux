@@ -3,20 +3,16 @@
   "category": "building",
   "key": {
     "C": {
-      "item": "aether_redux:cocoa_soil"
-    },
-    "S": {
-      "item": "minecraft:sugar"
+      "item": "minecraft:cocoa_beans"
     }
   },
   "pattern": [
-    "SS",
     "CC",
     "CC"
   ],
   "result": {
     "count": 2,
-    "item": "aether_redux:sugargrass_block"
+    "item": "aether_redux:cocoa_soil"
   },
   "show_notification": true
 }
