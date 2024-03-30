@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "C": {
+      "item": "aether_redux:cocoa_soil"
+    },
+    "S": {
+      "item": "minecraft:sugar"
+    }
+  },
+  "pattern": [
+    "CC",
+    "SS",
+    "SS"
+  ],
+  "result": {
+    "count": 2,
+    "item": "aether_redux:sugargrass_block"
+  },
+  "show_notification": true
+}

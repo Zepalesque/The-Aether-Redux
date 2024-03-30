@@ -20,7 +20,7 @@
     },
     "features": [
       {
-        "chance": 0.05,
+        "chance": 0.25,
         "feature": {
           "feature": "aether_redux:trees/small_deep_tree",
           "placement": [

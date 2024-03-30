@@ -1,6 +1,7 @@
 {
   "remove": [
-    "aether_redux:deeper_aether"
+    "aether_redux:deeper_aether",
+    "aether_redux:sugarfields"
   ],
   "values": []
 }

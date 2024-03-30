@@ -1,0 +1,48 @@
+{
+  "parent": "aether_redux:install",
+  "criteria": {
+    "enter_deeper": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "aether_redux:deeper_aether"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "extra": [
+        {
+          "color": "#9384F4",
+          "translate": "gui.aether_redux.advancement_suffix"
+        }
+      ],
+      "translate": "advancement.aether_redux.enter_deeper.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "aether_redux:deep_grass_block"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.aether_redux.enter_deeper"
+    }
+  },
+  "requirements": [
+    [
+      "enter_deeper"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

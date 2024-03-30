@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "stage=0": {
+      "model": "aether_redux:block/blue_cotton_candy"
+    },
+    "stage=1": {
+      "model": "aether_redux:block/blue_cotton_candy"
+    }
+  }
+}

@@ -100,6 +100,10 @@
     "aether_redux:minty_wall_sign",
     "aether_redux:minty_log_wall",
     "aether_redux:minty_block_wall",
-    "#aether_redux:minty_logs"
+    "#aether_redux:minty_logs",
+    "aether_redux:peppermint_log",
+    "aether_redux:peppermint_block",
+    "aether_redux:paper_pillar",
+    "aether_redux:paper_block"
   ]
 }

@@ -491,6 +491,12 @@
     ],
     "subtitle": "subtitles.aether_redux.item.infusion_expire"
   },
+  "item.sfx.poprocks_crackle": {
+    "sounds": [
+      "aether_redux:item/poprocks_crackle"
+    ],
+    "subtitle": "subtitles.aether_redux.item.poprocks_crackle"
+  },
   "item.spear.land": {
     "sounds": [
       "aether_redux:item/spear_land"

@@ -1,0 +1,28 @@
+{
+  "type": "aether_redux:dynamic_rock",
+  "config": {
+    "state": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "aether_redux:rock_candy",
+            "Properties": {
+              "double_drops": "false"
+            }
+          },
+          "weight": 10
+        },
+        {
+          "data": {
+            "Name": "aether_redux:poprock_ore",
+            "Properties": {
+              "double_drops": "false"
+            }
+          },
+          "weight": 1
+        }
+      ]
+    }
+  }
+}

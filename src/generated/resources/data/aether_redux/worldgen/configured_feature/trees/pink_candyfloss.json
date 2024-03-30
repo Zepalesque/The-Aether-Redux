@@ -1,0 +1,31 @@
+{
+  "type": "aether_redux:cotton_candy",
+  "config": {
+    "candyfloss": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "aether_redux:pink_candyfloss_block",
+        "Properties": {
+          "double_drops": "true"
+        }
+      }
+    },
+    "height": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 13,
+        "min_inclusive": 9
+      }
+    },
+    "pillar": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "aether_redux:paper_pillar",
+        "Properties": {
+          "axis": "y",
+          "double_drops": "true"
+        }
+      }
+    }
+  }
+}

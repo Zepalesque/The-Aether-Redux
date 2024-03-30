@@ -17,6 +17,8 @@
     "aether_redux:blightwillow_leaf_pile",
     "aether_redux:cloud_cap_block",
     "aether_redux:cloudcap_spores",
-    "aether_redux:jellyshroom_jelly_block"
+    "aether_redux:jellyshroom_jelly_block",
+    "aether_redux:pink_candyfloss_block",
+    "aether_redux:blue_candyfloss_block"
   ]
 }

@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-29T13:34:28.1605319	Item Models: aether_redux
+// 1.20.1	2024-03-29T22:52:46.2379159	Item Models: aether_redux
 2445055af5b1b7f3c6045199ffce74108003cef6 assets/aether_redux/models/item/airbound_cape.json
 2fa1343a8119a1f49af334c002773099174965bd assets/aether_redux/models/item/aurum.json
 edfe83948874d1436a61893ed9471b47e93dbe88 assets/aether_redux/models/item/avelium.json
@@ -42,6 +42,8 @@ dc17ffd83782af678c9f09b7048e9725024b29c2 assets/aether_redux/models/item/blightw
 3212d9f0434f1b4c30dc38c002fd9d1930227cfb assets/aether_redux/models/item/blightwillow_wood_wall.json
 2645cf44a0cffbabb1db2316369945d06323b78a assets/aether_redux/models/item/blueberry_bagel.json
 4f78f9674782c319dc3044658e8e857f865277cb assets/aether_redux/models/item/blueberry_pie.json
+1544602292814ee48d5fd16c6f316213dfd431bb assets/aether_redux/models/item/blue_candyfloss_block.json
+a602317f181f51faf5408f5868e1176d21abc911 assets/aether_redux/models/item/blue_cotton_candy.json
 8ff2ab1211df53742cea4b685e48e8907458b953 assets/aether_redux/models/item/blue_swet_jelly.json
 dd16cf2526182e4b4ec50ca96bb1fbc5488181de assets/aether_redux/models/item/bundle_of_wyndsprouts.json
 c972575f0f9f8654ae833a8b8644b04a718da6c6 assets/aether_redux/models/item/carved_stone_bricks.json
@@ -236,9 +238,13 @@ b051b89a70628664a170e73865c8d95642fe3ca8 assets/aether_redux/models/item/minty_s
 beec52eb9364cdb01119c1580478b19527c5cf62 assets/aether_redux/models/item/mykapod_shell_chunk.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/aether_redux/models/item/mykapod_spawn_egg.json
 54842e392da1fcd4941f2f3a60d1cbdfd987f49a assets/aether_redux/models/item/oatmeal.json
+37f311fb9a52612b7593595d4d4a741c324ce7c4 assets/aether_redux/models/item/paper_block.json
+78a877d6a397ac2cd73c68515ebdf594823af0ec assets/aether_redux/models/item/paper_pillar.json
 813f6e3d224c05d95b830d90ba9760f6fd472c02 assets/aether_redux/models/item/peppermint_barkling.json
 6da6df1ebebdba22081249175a63a02889fff270 assets/aether_redux/models/item/peppermint_block.json
 0f96595f55383e416116e7dc1fe8ea5015875225 assets/aether_redux/models/item/peppermint_log.json
+e9026b452ac167117827e449ee7392c41471e8c8 assets/aether_redux/models/item/pink_candyfloss_block.json
+c629a6906599c8db288e381de310e26438aec9f6 assets/aether_redux/models/item/pink_cotton_candy.json
 767f53f2f3c20aff79e069ee6e4359cb66eac872 assets/aether_redux/models/item/poprock_ore.json
 5e32aee6ec5cb4087f9bc50bd5b2b047551df7a7 assets/aether_redux/models/item/prismatic_fieldsproot_leaves.json
 a31a49335c7820befe686a84fc88b6996e400021 assets/aether_redux/models/item/prismatic_fieldsproot_sapling.json
