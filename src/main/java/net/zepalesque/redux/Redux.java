@@ -344,6 +344,7 @@ public class Redux {
         generator.addProvider(event.includeServer(), ReduxLootData.loot(packOutput));
         generator.addProvider(event.includeServer(), new ReduxDamageTypeTagData(packOutput, lookupProvider, fileHelper));
         generator.addProvider(event.includeServer(), new ReduxSoundEventTagData(packOutput, lookupProvider, fileHelper));
+        generator.addProvider(event.includeServer(), new ReduxFluidTagData(packOutput, lookupProvider, fileHelper));
         generator.addProvider(event.includeServer(), new ReduxAdvancementOverrideTagData(packOutput, lookupProvider, fileHelper));
         ReduxBlockTagsData block = new ReduxBlockTagsData(packOutput, lookupProvider, fileHelper);
         generator.addProvider(event.includeServer(), block);

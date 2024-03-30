@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-30T15:44:36.6595045	Item Models: aether_redux
+// 1.20.1	2024-03-30T16:51:48.961451	Item Models: aether_redux
 2445055af5b1b7f3c6045199ffce74108003cef6 assets/aether_redux/models/item/airbound_cape.json
 2fa1343a8119a1f49af334c002773099174965bd assets/aether_redux/models/item/aurum.json
 edfe83948874d1436a61893ed9471b47e93dbe88 assets/aether_redux/models/item/avelium.json
@@ -245,8 +245,8 @@ beec52eb9364cdb01119c1580478b19527c5cf62 assets/aether_redux/models/item/mykapod
 813f6e3d224c05d95b830d90ba9760f6fd472c02 assets/aether_redux/models/item/peppermint_barkling.json
 6da6df1ebebdba22081249175a63a02889fff270 assets/aether_redux/models/item/peppermint_block.json
 0f96595f55383e416116e7dc1fe8ea5015875225 assets/aether_redux/models/item/peppermint_log.json
-7d295e69940d939241a0fd89a8aa8e4f4c2f266b assets/aether_redux/models/item/phudge_icon.json
-1577e24cc8d9871dc544ebcc242e3dc86557dd26 assets/aether_redux/models/item/phudge_icon_redux.json
+bd88eeba920db87abf5d8a8521de4622f25f91aa assets/aether_redux/models/item/phudge_icon.json
+eca0df5a3ecf461e8813af215cea70afdba62e2d assets/aether_redux/models/item/phudge_icon_redux.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/aether_redux/models/item/phudge_spawn_egg.json
 e9026b452ac167117827e449ee7392c41471e8c8 assets/aether_redux/models/item/pink_candyfloss_block.json
 c629a6906599c8db288e381de310e26438aec9f6 assets/aether_redux/models/item/pink_cotton_candy.json

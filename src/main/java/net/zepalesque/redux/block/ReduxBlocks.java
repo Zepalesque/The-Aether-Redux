@@ -33,6 +33,8 @@ import net.zepalesque.redux.block.dungeon.Flareblossom;
 import net.zepalesque.redux.block.natural.*;
 import net.zepalesque.redux.block.natural.blight.*;
 import net.zepalesque.redux.block.natural.candy.CottonCandyBlock;
+import net.zepalesque.redux.block.natural.candy.SugargrassBlock;
+import net.zepalesque.redux.block.natural.candy.SyrupLiquidBlock;
 import net.zepalesque.redux.block.natural.cloudcap.*;
 import net.zepalesque.redux.block.natural.deep.RainbowAercloudBlock;
 import net.zepalesque.redux.block.natural.enchanted.EnchantableBushBlock;

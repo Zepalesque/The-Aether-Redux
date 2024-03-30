@@ -1,4 +1,4 @@
-package net.zepalesque.redux.block.natural;
+package net.zepalesque.redux.block.natural.candy;
 
 import com.aetherteam.aether.block.AetherBlockStateProperties;
 import com.aetherteam.aether.block.AetherBlocks;
