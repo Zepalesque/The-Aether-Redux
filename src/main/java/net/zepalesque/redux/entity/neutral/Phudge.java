@@ -143,6 +143,13 @@ public class Phudge extends Phyg implements NeutralMob {
         return this.entityData.get(DATA_REMAINING_ANGER_TIME);
     }
 
+
+    @Override
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.entityData.define(DATA_REMAINING_ANGER_TIME, 0);
+    }
+
     @Override
     public void setRemainingPersistentAngerTime(int time) {
         this.entityData.set(DATA_REMAINING_ANGER_TIME, time);
