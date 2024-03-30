@@ -23,12 +23,12 @@ public class CottonCandyBlock extends AetherDoubleDropBlock {
         entity.causeFallDamage(dist, 0.2F, level.damageSources().fall());
     }
 
-    public BlockState getStateForPlacement(BlockPlaceContext context) {
+/*    public BlockState getStateForPlacement(BlockPlaceContext context) {
         BlockGetter blockgetter = context.getLevel();
         BlockPos blockpos = context.getClickedPos();
         BlockState blockstate = blockgetter.getBlockState(blockpos);
         return shouldSolidify(blockgetter, blockpos, blockstate) ? Blocks.AIR.defaultBlockState() : super.getStateForPlacement(context);
-    }
+    }*/
 
     private static boolean shouldSolidify(BlockGetter level, BlockPos pos, BlockState state, net.minecraft.world.level.material.FluidState fluidState) {
         return state.canBeHydrated(level, pos, fluidState, pos) || touchesLiquid(level, pos, state);
