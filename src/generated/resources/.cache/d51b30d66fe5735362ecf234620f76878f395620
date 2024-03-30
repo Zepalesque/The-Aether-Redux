@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-30T16:51:48.961451	Item Models: aether_redux
+// 1.20.1	2024-03-30T17:38:14.5972268	Item Models: aether_redux
 2445055af5b1b7f3c6045199ffce74108003cef6 assets/aether_redux/models/item/airbound_cape.json
 2fa1343a8119a1f49af334c002773099174965bd assets/aether_redux/models/item/aurum.json
 edfe83948874d1436a61893ed9471b47e93dbe88 assets/aether_redux/models/item/avelium.json
@@ -180,6 +180,7 @@ a5174e1e84d1a0014c3c265b2cb4f286d964abf8 assets/aether_redux/models/item/hardene
 3fbe52b7808ac72b3ff7f5ad214e017016d7b622 assets/aether_redux/models/item/holefire_pillar.json
 82f4e1aab9c11ba5c3d8868a6a5742ebfb06c902 assets/aether_redux/models/item/holefire_pillar_top.json
 1c05bcce6966da5b10b2789525952ebefa16ddfd assets/aether_redux/models/item/holefire_slab.json
+c455fe7b354eb47c1840cf8f7c0c36b76954cf45 assets/aether_redux/models/item/holefire_spike.json
 0132ea72e384065aea7666a7d69b5f7f3e52259f assets/aether_redux/models/item/holefire_stairs.json
 ce79d526d924f85888589234f4753d1002e1b610 assets/aether_redux/models/item/holefire_stone.json
 387969650c857df94838f718852c3bbfef9e3025 assets/aether_redux/models/item/holefire_wall.json
@@ -326,7 +327,7 @@ d431727282e6d3bb0325ab1b51b4f46da7c66fca assets/aether_redux/models/item/strippe
 992aeafec1f8963ef1d11e6693991358baa283c4 assets/aether_redux/models/item/stripped_glacia_wood.json
 2bd3490fb4474d386bd50208e65422901c06a9a5 assets/aether_redux/models/item/stripped_glacia_wood_wall.json
 697d8f0de366a3b38857a96b65747f4241c3efa0 assets/aether_redux/models/item/sugargrass_block.json
-2784ea919d1726ee9adf29bcd84c0e546bb2ea96 assets/aether_redux/models/item/sugarsprouts.json
+8d369dd105f764b0f26febc0a2207ffb466bd635 assets/aether_redux/models/item/sugarsprouts.json
 bcc4c2ed9188e226b8330cddaec819407d3f5eac assets/aether_redux/models/item/syrup_bucket.json
 5d4edee3b4f4767f82b36604817aec0df6bde727 assets/aether_redux/models/item/theratip.json
 e4bcb896b9819368f3ebd96a6ad2d6d110372065 assets/aether_redux/models/item/vampire_amulet.json

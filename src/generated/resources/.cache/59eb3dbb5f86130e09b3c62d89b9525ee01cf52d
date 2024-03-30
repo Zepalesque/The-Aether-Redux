@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-30T15:37:30.2755517	Loot Tables
+// 1.20.1	2024-03-30T17:38:14.6102178	Loot Tables
 c6156555dc4897939b617dabc4521b7fa52feba0 data/aether_redux/loot_tables/blocks/aurum.json
 b5773c78c7b3f27032f1cca6fb72f440e24c7529 data/aether_redux/loot_tables/blocks/avelium.json
 4c8b773f2431b28dd2a48b90d08323d8ff67a3d7 data/aether_redux/loot_tables/blocks/avelium_roots.json
@@ -165,6 +165,7 @@ f995771c66d15b8b57eb9bfbb728462a236694fc data/aether_redux/loot_tables/blocks/ha
 3c2b9c5420b73f1567254987627aa15a51f133b6 data/aether_redux/loot_tables/blocks/holefire_pillar.json
 8d78203ac11f2ba2ab554704feefa70ac6126dfe data/aether_redux/loot_tables/blocks/holefire_pillar_top.json
 f0a34e8c6ee2001c0f99e299d96e061700ab50ae data/aether_redux/loot_tables/blocks/holefire_slab.json
+81fa4ce5145d8df1b9dac75807ef2f17cccf1626 data/aether_redux/loot_tables/blocks/holefire_spike.json
 7241b93b6d222608947335a8b45e8485ae4a229c data/aether_redux/loot_tables/blocks/holefire_stairs.json
 8377617ef454b82b338a5ad171c7eadfdb7a821f data/aether_redux/loot_tables/blocks/holefire_stone.json
 dfcaffcbbfc6c2f8ba209567f162b4e5626630f2 data/aether_redux/loot_tables/blocks/holefire_wall.json
