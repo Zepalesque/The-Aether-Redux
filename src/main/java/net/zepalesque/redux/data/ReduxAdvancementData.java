@@ -100,7 +100,7 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
                     .addCriterion("hug", AprilReduxSpecialTrigger.TriggerInstance.type("hug"))
                     .save(consumer, Redux.locate("hug"), existingFileHelper);
 
-           Advancement.Builder.advancement()
+           Advancement candy1 = Advancement.Builder.advancement()
                     .parent(install)
                     .display(ReduxBlocks.COCOA_SOIL.get(),
                             Component.translatable("advancement.aether_redux.eat_sugarfields"),
@@ -110,6 +110,34 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
                             FrameType.TASK, true, true, false)
                     .addCriterion("eat_sugarfields", ConsumeItemTrigger.TriggerInstance.usedItem(ItemPredicate.Builder.item().of(ReduxTags.Items.EDIBLE_SUGARFIELDS_BLOCKS).build()))
                     .save(consumer, Redux.locate("eat_sugarfields"), existingFileHelper);
+
+            Advancement candy2 = Advancement.Builder.advancement()
+                    .parent(candy1)
+                    .display(ReduxItems.PHUDGE_ICON.get(),
+                            Component.translatable("advancement.aether_redux.phudge_bite"),
+                            Component.translatable("advancement.aether_redux.phudge_bite.desc")
+                                    .append(Component.translatable("gui.aether_redux.advancement_suffix").withStyle(style -> style.withColor(Redux.REDUX_PURPLE))),
+                            null,
+                            FrameType.TASK, true, true, false)
+                    .addCriterion("phudge_bite", EntityHurtPlayerTrigger.TriggerInstance.entityHurtPlayer(DamagePredicate.Builder.damageInstance().sourceEntity(EntityPredicate.Builder.entity().of(ReduxEntityTypes.PHUDGE.get()).build()).build()))
+                    .save(consumer, Redux.locate("phudge_bite"), existingFileHelper);
+
+            Advancement.Builder.advancement()
+                    .parent(candy2)
+                    .display(AetherItems.PIG_SLAYER.get(),
+                            Component.translatable("advancement.aether_redux.phudge_slayer"),
+                            Component.translatable("advancement.aether_redux.phudge_slayer.desc")
+                                    .append(Component.translatable("gui.aether_redux.advancement_suffix").withStyle(style -> style.withColor(Redux.REDUX_PURPLE))),
+                            null,
+                            FrameType.TASK, true, true, false)
+                    .addCriterion("phudge_slayer",
+                            KilledTrigger.TriggerInstance.playerKilledEntity(
+                                    EntityPredicate.Builder.entity().of(ReduxEntityTypes.PHUDGE.get()),
+                                    new DamageSourcePredicate.Builder().direct(EntityPredicate.Builder.entity().equipment(
+                                            EntityEquipmentPredicate.Builder.equipment().mainhand(ItemPredicate.Builder.item().of(AetherItems.PIG_SLAYER.get()).build()).build()
+                                            ))
+                            ))
+                    .save(consumer, Redux.locate("phudge_slayer"), existingFileHelper);
 
            Advancement.Builder.advancement()
                     .parent(install)

@@ -90,6 +90,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlockFlatCustomTexture(ReduxBlocks.GOLDEN_CLOVER, "natural/golden_clover_top");
         enchanableOrTintableFlower(ReduxBlocks.AURUM, "natural/");
         enchanableOrTintableFlower(ReduxBlocks.ZYATRIX, "natural/");
+        enchanableOrTintableFlower(ReduxBlocks.ZYATRIX, "natural/");
         itemBlockFlat(ReduxBlocks.VANILLA.get(), "natural/");
         itemBlockFlat(ReduxBlocks.FLAWLESS_BLOOM.get(), "natural/");
         itemBlockFlat(ReduxBlocks.ROOTROSE.get(), "natural/");
@@ -182,6 +183,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         item(ReduxItems.REBUX_CARD_ICON.get(), "misc/");
         item(ReduxItems.REBUXIONAIRE_ICON.get(), "misc/");
         item(ReduxItems.HUG_ICON.get(), "misc/");
+        phudgeIcon(ReduxItems.PHUDGE_ICON, "misc/");
 
         itemBlockFlatItemTexture(ReduxBlocks.VERIDIUM_LANTERN, "misc/");
         itemBlockFlatItemTexture(ReduxBlocks.VERIDIUM_CHAIN, "misc/");
@@ -323,6 +325,13 @@ public class ReduxItemModelData extends AetherItemModelProvider {
                 .texture("layer1", texture(blockName(block), location))
                 .texture("layer0", texture(blockName(block) + "_overlay", location))
                 .override().predicate(Redux.locate("enchanted"), 1.0F).model(this.getExistingFile(this.modLoc("item/" + ench))).end();
+    }
+    public ItemModelBuilder phudgeIcon(Supplier<? extends Item> item, String location) {
+        ResourceLocation id = ForgeRegistries.ITEMS.getKey(item.get().asItem());
+        String redux = id.getPath() + "_redux";
+        return withExistingParent(itemName(item.get()), mcLoc("item/generated"))
+                .texture("layer0", texture(itemName(item.get()), location))
+                .override().predicate(Redux.locate("other_model"), 1.0F).model(this.getExistingFile(this.modLoc("item/" + redux))).end();
     }
 
     public ItemModelBuilder itemGlow(Supplier<? extends Item> item, String location) {

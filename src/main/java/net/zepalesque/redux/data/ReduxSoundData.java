@@ -345,6 +345,46 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
                         .with(sound(new ResourceLocation(Aether.MODID, "entity/aerbunny/death")))
                         .subtitle("subtitles.aether_redux.entity.blightbunny_death"));
 
+        this.add(ReduxSoundEvents.JELLOBUNNY_HURT,
+                definition()
+                        .with(sound(new ResourceLocation(Aether.MODID, "entity/aerbunny/hurt")))
+                        .subtitle("subtitles.aether_redux.entity.jellobunny_hurt"));
+
+        this.add(ReduxSoundEvents.JELLOBUNNY_DEATH,
+                definition()
+                        .with(sound(new ResourceLocation(Aether.MODID, "entity/aerbunny/death")))
+                        .subtitle("subtitles.aether_redux.entity.jellobunny_death"));
+
+        this.add(ReduxSoundEvents.PHUDGE_AMBIENT,
+                definition().with(
+                        sound(Redux.locate("entity/phudge/say1")),
+                        sound(Redux.locate("entity/phudge/say2")),
+                        sound(Redux.locate("entity/phudge/say3")),
+                        sound(Redux.locate("entity/phudge/say4"))
+                ).subtitle("subtitles.aether_redux.entity.phudge.ambient")
+        );
+        this.add(ReduxSoundEvents.PHUDGE_DEATH,
+                definition().with(sound(Redux.locate("entity/phudge/death")))
+                        .subtitle("subtitles.aether_redux.entity.phudge.death")
+        );
+        this.add(ReduxSoundEvents.PHUDGE_HURT,
+                definition().with(
+                        sound(Redux.locate("entity/phudge/angry1")),
+                        sound(Redux.locate("entity/phudge/angry2")),
+                        sound(Redux.locate("entity/phudge/angry3"))
+                ).subtitle("subtitles.aether_redux.entity.phudge.hurt")
+        );
+        this.add(ReduxSoundEvents.PHUDGE_ANGRY,
+                definition().with(
+                        sound(Redux.locate("entity/phudge/hurt1")),
+                        sound(Redux.locate("entity/phudge/hurt2")),
+                        sound(Redux.locate("entity/phudge/hurt3"))
+                ).subtitle("subtitles.aether_redux.entity.phudge.angry")
+        );
+        this.add(ReduxSoundEvents.PHUDGE_SADDLE,
+                definition().with(sound("minecraft:mob/horse/leather"))
+                        .subtitle("subtitles.aether_redux.entity.phudge.saddle")
+        );
         this.add(ReduxSoundEvents.ADVANCEMENT_GOLD,
                 definition().with(sound(Redux.locate("achievement/achievement_gold")).stream()));
 

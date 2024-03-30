@@ -133,6 +133,7 @@ public class ReduxItems {
     public static final RegistryObject<Item> REBUXIONAIRE_ICON = register("rebuxionaire_icon", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> INSTALL_ICON = register("install_icon", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> HUG_ICON = register("hug_icon", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> PHUDGE_ICON = register("phudge_icon", () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<SwordItem> VERIDIUM_SWORD = register("veridium_sword", () -> new VeridiumSwordItem(ReduxItemTiers.VERIDIUM, 2, -2.5F, new Item.Properties()));
     public static final RegistryObject<PickaxeItem> VERIDIUM_PICKAXE = register("veridium_pickaxe", () -> new VeridiumPickaxeItem(ReduxItemTiers.VERIDIUM, 0, -2.9F, new Item.Properties()));

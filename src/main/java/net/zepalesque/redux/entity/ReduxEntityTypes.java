@@ -19,6 +19,7 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.entity.misc.Rebux;
 import net.zepalesque.redux.entity.monster.Blightbunny;
+import net.zepalesque.redux.entity.neutral.Phudge;
 import net.zepalesque.redux.entity.passive.Mykapod;
 import net.zepalesque.redux.entity.passive.Shimmercow;
 import net.zepalesque.redux.entity.projectile.*;
@@ -53,6 +54,9 @@ public class ReduxEntityTypes {
     public static final RegistryObject<EntityType<Shimmercow>> SHIMMERCOW = ENTITY_TYPES.register("shimmercow",
             () -> EntityType.Builder.of(Shimmercow::new, MobCategory.CREATURE).sized(1.125F, 1.625F).clientTrackingRange(10).build("shimmercow"));
 
+    public static final RegistryObject<EntityType<Phudge>> PHUDGE = ENTITY_TYPES.register("phudge",
+            () -> EntityType.Builder.of(Phudge::new, MobCategory.CREATURE).sized(0.95F, 0.95F).clientTrackingRange(10).build("phudge"));
+
     public static final RegistryObject<EntityType<Mykapod>> MYKAPOD = ENTITY_TYPES.register("mykapod",
             () -> EntityType.Builder.of(Mykapod::new, MobCategory.CREATURE).sized(0.35F, 0.35F).clientTrackingRange(10).build("mykapod"));
 
@@ -79,6 +83,7 @@ public class ReduxEntityTypes {
         event.register(ReduxEntityTypes.BLIGHTBUNNY_SPAWNER.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, EntitySpawner::checkEntitySpawnerSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
         event.register(ReduxEntityTypes.COCKATRICE_SPAWNER.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (e, l, s, p, r) -> !ReduxConfig.COMMON.cockatrice_burn_in_daylight.get() && EntitySpawner.checkEntitySpawnerSpawnRules(e, l, s, p, r), SpawnPlacementRegisterEvent.Operation.OR);
         event.register(ReduxEntityTypes.QUAIL_TM.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, EntitySpawner::checkEntitySpawnerSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
+        event.register(ReduxEntityTypes.PHUDGE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AetherAnimal::checkAetherAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
     }
 
     @SubscribeEvent
@@ -90,6 +95,7 @@ public class ReduxEntityTypes {
         event.put(ReduxEntityTypes.BLIGHTBUNNY_SPAWNER.get(), EntitySpawner.createAttributes().build());
         event.put(ReduxEntityTypes.COCKATRICE_SPAWNER.get(), EntitySpawner.createAttributes().build());
         event.put(ReduxEntityTypes.QUAIL_TM.get(), EntitySpawner.createAttributes().build());
+        event.put(ReduxEntityTypes.PHUDGE.get(), Phudge.createMobAttributes().build());
     }
 }
 

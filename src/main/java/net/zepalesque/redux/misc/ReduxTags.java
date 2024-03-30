@@ -45,6 +45,7 @@ public class ReduxTags {
     public static class Items {
         public static final TagKey<Item> REDUX_AERBUNNY_FOOD_ITEMS = tag("redux_aerbunny_food_items");
         public static final TagKey<Item> REDUX_PHYG_FOOD_ITEMS = tag("redux_phyg_food_items");
+        public static final TagKey<Item> PHUDGE_TEMPT = tag("phudge_tempt");
         public static final TagKey<Item> REDUX_FLYING_COW_FOOD_ITEMS = tag("redux_flying_cow_food_items");
         public static final TagKey<Item> GLIMMERCOW_TEMPTATION_ITEMS = tag("glimmercow_temptation_items");
         public static final TagKey<Item> MYKAPOD_TEMPTATION_ITEMS = tag("mykapod_temptation_items");

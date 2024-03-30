@@ -70,6 +70,8 @@ public class ReduxRenderers {
 
         event.registerEntityRenderer(ReduxEntityTypes.SHIMMERCOW.get(), ShimmercowRenderer::new);
 
+        event.registerEntityRenderer(ReduxEntityTypes.PHUDGE.get(), PhudgeRenderer::new);
+
         event.registerEntityRenderer(ReduxEntityTypes.BLIGHTBUNNY.get(), BlightbunnyRenderer::new);
 
         event.registerEntityRenderer(ReduxEntityTypes.REBUX.get(), RebuxRenderer::new);

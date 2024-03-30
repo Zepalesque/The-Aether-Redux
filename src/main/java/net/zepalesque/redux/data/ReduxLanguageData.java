@@ -758,6 +758,13 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addSubtitle("entity", "mykapod_death", "Milkapod dies");
         addSubtitle("entity", "blightbunny_hurt", "Goodbunny hurts");
         addSubtitle("entity", "blightbunny_death", "Goodbunny dies");
+        addSubtitle("entity", "jellobunny_hurt", "Jellobunny hurts");
+        addSubtitle("entity", "jellobunny_death", "Jellobunny dies");
+        addSubtitle("entity", "phudge.ambient", "Phudge squeals");
+        addSubtitle("entity", "phudge.angry", "Phudge snorts angrily");
+        addSubtitle("entity", "phudge.hurt", "Phudge hurts");
+        addSubtitle("entity", "phudge.death", "Phudge dies");
+        addSubtitle("entity", "phudge.saddle", "Saddle equips");
         addSubtitle("item.accessory", "equip_bittersweet_charm", "Bittersweet Charm jingles");
         addSubtitle("item.accessory", "equip_enchanted_ring", "Enchanted Ring thunks");
         addSubtitle("item.accessory", "equip_shroom_ring", "Room Shing thunks");
@@ -835,7 +842,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addAdvancementDesc("nineteen_rebux", "Collect 19 Rebux");
         addAdvancement("rebuxionaire", "Rebuxionaire");
         addAdvancementDesc("rebuxionaire", "Collect 100 Rebux");
-        addAdvancement("eat_sugarfields", "Everything here is eatable");
+        addAdvancement("eat_sugarfields", "Everything in this room is eatable");
         addAdvancementDesc("eat_sugarfields", "Eat a block from the Sugarfields");
         addAdvancement("enter_deeper", "The Deepest of Aethers");
         addAdvancementDesc("enter_deeper", "Enter the Deeper Aether biome, a shimmering landscape with unusual wildlife");
@@ -847,6 +854,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addAdvancementDesc("holefire_spike", "Take damage from a Holefire Spike");
         addAdvancement("phudge_bite", "Even I'M eatable");
         addAdvancementDesc("phudge_bite", "Get bitten by a Phudge");
+        addAdvancement("phudge_slayer", "But that is called 'cannibalism', my dear friedns, and is in fact frowned upon in most societies");
+        addAdvancementDesc("phudge_slayer", "Kill a Phudge with a Pig Slayer");
         addAdvancement("fall_from_aether", "Falling with Style!");
         addAdvancementDesc("fall_from_aether", "Fall out of the Aether");
         addAdvancement("infuse_veridium", "Next Level");
