@@ -1196,7 +1196,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
     }
     public void holefireSpike(HolefireSpike block, String loc) {
         ResourceLocation tex = this.texture(this.name(block), loc);
-        ModelFile spike = models().cross(this.name(block), tex);
+        ModelFile spike = models().cross(this.name(block), tex).renderType("cutout");
         this.getVariantBuilder(block)
                 .partialState().with(FacingPillarBlock.FACING, Direction.DOWN).modelForState().modelFile(spike).rotationX(180).addModel()
                 .partialState().with(FacingPillarBlock.FACING, Direction.EAST).modelForState().modelFile(spike).rotationX(90).rotationY(90).addModel()

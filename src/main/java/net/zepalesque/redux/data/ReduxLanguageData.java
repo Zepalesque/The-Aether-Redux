@@ -568,6 +568,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.SENTRY_CHIP, "Sentry Chip");
         addLore(ReduxItems.SENTRY_CHIP, "A circuitboard piece from a Sentry. Nobody knows who created these, just that the Valkyries have utilized them for all of recorded history.");
 
+        addItem(ReduxItems.LOBOTIUM_KEY, "Lobotium Key");
+        addLore(ReduxItems.LOBOTIUM_KEY, "A key to open the chest for the Lobotium Dungeon, how convenient! Good thing you got it out of limbo stuck in that item frame, isn't it?");
+
 
         addBlock(ReduxBlocks.GOLDEN_CLOVER, "Golden Clover");
         addBlock(ReduxBlocks.POTTED_GOLDEN_CLOVER, "Potted Golden Clover");

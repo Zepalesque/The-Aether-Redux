@@ -5,12 +5,14 @@ import com.aetherteam.aether.item.accessories.ring.RingItem;
 import com.aetherteam.aether.item.combat.DartItem;
 import com.aetherteam.aether.item.food.GummySwetItem;
 import com.aetherteam.aether.item.materials.SwetBallItem;
+import com.aetherteam.aether.item.miscellaneous.DungeonKeyItem;
 import com.aetherteam.aether.item.miscellaneous.bucket.SkyrootBucketItem;
 import com.google.common.base.Supplier;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.registries.DeferredRegister;
@@ -162,6 +164,8 @@ public class ReduxItems {
     public static final RegistryObject<Item> SENTRY_CHIP = register("sentry_chip", () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> SPEAR_OF_THE_BLIGHT = register("spear_of_the_blight", () -> new BlightSpearItem(new Item.Properties().stacksTo(1).durability(256), 2.0D, -2.7F));
+
+    public static final RegistryObject<Item> LOBOTIUM_KEY = ITEMS.register("lobotium_key", () -> new DungeonKeyItem(Redux.locate("lobotium"), (new Item.Properties()).stacksTo(1).rarity(AetherItems.AETHER_LOOT).fireResistant()));
 
     public static <T extends Item> RegistryObject<T> register(final String name, final Supplier<T> item)
     {

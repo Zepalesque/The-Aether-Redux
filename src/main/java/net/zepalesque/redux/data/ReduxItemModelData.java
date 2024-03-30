@@ -47,7 +47,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlock(ReduxBlocks.SENTRITE_BRICK_STAIRS);
         itemWallBlock(ReduxBlocks.SENTRITE_BRICK_WALL, ReduxBlocks.SENTRITE_BRICKS, "construction/");
         itemBlock(ReduxBlocks.HOLEFIRE_STONE);
-        itemBlockFlatGlow(ReduxBlocks.HOLEFIRE_SPIKE, "dungeon/");
+        itemBlockFlat(ReduxBlocks.HOLEFIRE_SPIKE, "dungeon/");
         itemBlock(ReduxBlocks.GLOWY_HOLEFIRE_STONE);
         itemBlock(ReduxBlocks.HOLEFIRE_SLAB);
         itemBlock(ReduxBlocks.HOLEFIRE_STAIRS);
@@ -82,6 +82,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         dartShooterItem(ReduxItems.VERIDIUM_DART_SHOOTER.get(), "weapons/");
         item(ReduxItems.VERIDIUM_DART, "weapons/");
         item(ReduxItems.SENTRY_CHIP, "materials/");
+        item(ReduxItems.LOBOTIUM_KEY, "materials/");
         item(ReduxItems.WYNDSPROUT_SEEDS, "food/");
         item(ReduxItems.SKYSPROUT_SEEDS, "materials/");
         item(ReduxItems.SKYBUD, "materials/");
