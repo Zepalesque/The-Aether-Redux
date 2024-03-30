@@ -124,6 +124,7 @@ public class ReduxBiomes {
         context.register(SKYFIELDS, Skyfields.generate(context));
         context.register(SKYROOT_SHRUBLANDS, SkyrootShrublands.generate(context));
         context.register(DEEPER_AETHER, DeeperAether.generate(context));
+        context.register(SUGARFIELDS, Sugarfields.generate(context));
     }
 
 
