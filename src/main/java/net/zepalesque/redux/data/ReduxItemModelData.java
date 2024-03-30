@@ -83,7 +83,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         dartShooterItem(ReduxItems.VERIDIUM_DART_SHOOTER.get(), "weapons/");
         item(ReduxItems.VERIDIUM_DART, "weapons/");
         item(ReduxItems.SENTRY_CHIP, "materials/");
-        item(ReduxItems.LOBOTIUM_KEY, "materials/");
+        item(ReduxItems.LOBOTIUM_KEY, "misc/");
         item(ReduxItems.WYNDSPROUT_SEEDS, "food/");
         item(ReduxItems.SKYSPROUT_SEEDS, "materials/");
         item(ReduxItems.SKYBUD, "materials/");
