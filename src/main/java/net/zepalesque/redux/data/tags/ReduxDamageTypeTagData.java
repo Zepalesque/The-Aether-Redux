@@ -10,6 +10,7 @@ import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.data.ReduxRegistrySets;
 import net.zepalesque.redux.data.resource.ReduxDamageTypes;
 import net.zepalesque.redux.misc.ReduxTags;
 
@@ -17,7 +18,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class ReduxDamageTypeTagData extends TagsProvider<DamageType> {
     public ReduxDamageTypeTagData(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, ExistingFileHelper existingFileHelper) {
-        super(output, Registries.DAMAGE_TYPE, registries, Redux.MODID, existingFileHelper);
+        super(output, Registries.DAMAGE_TYPE, registries.thenApply(ReduxRegistrySets::patchLookup), Redux.MODID, existingFileHelper);
     }
 
 
