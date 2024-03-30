@@ -10,6 +10,7 @@ import com.aetherteam.aether.entity.passive.Moa;
 import com.aetherteam.aether.entity.passive.Phyg;
 import com.aetherteam.aether_genesis.entity.monster.BattleSentry;
 import com.aetherteam.nitrogen.capability.CapabilityProvider;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -44,6 +45,7 @@ import net.zepalesque.redux.capability.player.ReduxPlayer;
 import net.zepalesque.redux.capability.player.ReduxPlayerCapability;
 import net.zepalesque.redux.capability.swet.SwetMass;
 import net.zepalesque.redux.capability.swet.SwetMassCapability;
+import net.zepalesque.redux.entity.ReduxEntityTypes;
 
 
 @Mod.EventBusSubscriber(modid = Redux.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -125,6 +127,10 @@ public class ReduxCapabilities {
             }
             if ((event.getObject().getType() == AetherEntityTypes.PHYG.get() || event.getObject().getType() == AetherEntityTypes.FLYING_COW.get())) {
                 event.addCapability(Redux.locate("wacky_bat"), new CapabilityProvider(ReduxCapabilities.WACKY_BAT, new WackyBatCapability((LivingEntity) event.getObject())));
+            }
+            if ((event.getObject().getType() == ReduxEntityTypes.PHUDGE.get())) {
+                ResourceLocation rl = new ResourceLocation("lost_aether_content", "winged_animal");
+                event.getCapabilities().remove(rl);
             }
         }
     }
