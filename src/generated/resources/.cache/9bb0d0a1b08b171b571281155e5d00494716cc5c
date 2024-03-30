@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-30T17:38:14.6431988	Tags for minecraft:block mod id aether_redux
+// 1.20.1	2024-03-30T19:01:38.6882604	Tags for minecraft:block mod id aether_redux
 533817bb4013392333c7e2101766cb5a8abd9735 data/aether/tags/blocks/aerclouds.json
 4a2b29220b487440187fe3bb318763b54cddfb4a data/aether/tags/blocks/aether_animals_spawnable_on.json
 4368ac3700748ccc27f355a5ff7a4a0bd1caf5ba data/aether/tags/blocks/aether_dirt.json
@@ -50,7 +50,7 @@ f51d98a969b28fe55f3f97e5f1f86494bad04b03 data/minecraft/tags/blocks/mineable/pic
 6809be908660884bf3f51eb8cf9baae91e5082d9 data/minecraft/tags/blocks/slabs.json
 6115f26422ae5e4e9fbe4ead6038b761f41e85e2 data/minecraft/tags/blocks/stairs.json
 ae3b84f599eab38c8017ff2a771805a616b9611a data/minecraft/tags/blocks/standing_signs.json
-951396e4179be7f7202069faf4708512b855afbf data/minecraft/tags/blocks/walls.json
+7a21572cd9750b70a9e3e0d5f23bb8f3cbaad1d5 data/minecraft/tags/blocks/walls.json
 57b7dd4d5671315ff93612982c00a602aac998b3 data/minecraft/tags/blocks/wall_signs.json
 45e1c7fed1532876b0ddaa7eede72d7e6a2cdc8f data/minecraft/tags/blocks/wooden_buttons.json
 af50e28df6d15f80f6b855cd0d7a0c1b088a37ef data/minecraft/tags/blocks/wooden_doors.json
