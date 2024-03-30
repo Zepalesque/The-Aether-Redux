@@ -117,7 +117,7 @@ public class ReduxBlocks {
     public static RegistryObject<Block> HOLEFIRE_STONE = register("holefire_stone",
             () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.copy(AetherBlocks.HELLFIRE_STONE.get())));
 
-    public static RegistryObject<Block> HOLEFIRE_SPIKE = register("holefire_spike",
+    public static RegistryObject<HolefireSpike> HOLEFIRE_SPIKE = register("holefire_spike",
             () -> new HolefireSpike(BlockBehaviour.Properties.copy(AetherBlocks.HELLFIRE_STONE.get()).noOcclusion().isViewBlocking(ReduxBlocks::never).isSuffocating(ReduxBlocks::never)));
 
     public static RegistryObject<Block> GLOWY_HOLEFIRE_STONE = register("glowy_holefire_stone",
