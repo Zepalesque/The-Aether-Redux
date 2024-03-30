@@ -858,7 +858,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addAdvancementDesc("holefire_spike", "Take damage from a Holefire Spike");
         addAdvancement("phudge_bite", "Even I'M eatable");
         addAdvancementDesc("phudge_bite", "Get bitten by a Phudge");
-        addAdvancement("phudge_slayer", "But that is called 'cannibalism', my dear friedns, and is in fact frowned upon in most societies");
+        addAdvancement("phudge_slayer", "But that is called 'cannibalism', my dear friends, and is in fact frowned upon in most societies");
         addAdvancementDesc("phudge_slayer", "Kill a Phudge with a Pig Slayer");
         addAdvancement("fall_from_aether", "Falling with Style!");
         addAdvancementDesc("fall_from_aether", "Fall out of the Aether");
