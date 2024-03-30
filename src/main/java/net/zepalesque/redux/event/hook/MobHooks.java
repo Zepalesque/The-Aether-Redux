@@ -25,6 +25,7 @@ import net.zepalesque.redux.capability.animation.sentry.SentryAnimation;
 import net.zepalesque.redux.capability.animation.sentry.battle.BattleSentryAnimation;
 import net.zepalesque.redux.capability.aprilfools.WackyBat;
 import net.zepalesque.redux.capability.cockatrice.CockatriceExtension;
+import net.zepalesque.redux.capability.living.ReduxLiving;
 import net.zepalesque.redux.capability.living.VampireAmulet;
 import net.zepalesque.redux.capability.player.ReduxPlayer;
 import net.zepalesque.redux.config.ReduxConfig;
@@ -107,6 +108,7 @@ public class MobHooks {
             BattleSentryAnimation.get(battleSentry).ifPresent(BattleSentryAnimation::tick);
         }
         VampireAmulet.get(living).ifPresent(VampireAmulet::tick);
+        ReduxLiving.get(living).ifPresent(ReduxLiving::tick);
     }
 
 
