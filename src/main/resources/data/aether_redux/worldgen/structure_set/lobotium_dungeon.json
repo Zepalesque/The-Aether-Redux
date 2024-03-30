@@ -1,0 +1,18 @@
+{
+  "structures": [
+    {
+      "structure": "aether_redux:lobotium_dungeon",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 10,
+    "separation": 12,
+    "salt": 1646207470
+  },
+  "exclusion_zone": {
+    "chunk_count": 8,
+    "other_set": "#aether:dungeons"
+  }
+}

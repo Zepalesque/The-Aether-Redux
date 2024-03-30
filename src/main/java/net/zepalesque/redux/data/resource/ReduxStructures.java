@@ -8,7 +8,7 @@ import net.zepalesque.redux.Redux;
 
 public class ReduxStructures {
     public static final ResourceKey<Structure> LOBOTIUM_DUNGEON = createKey("lobotium_dungeon");
-    public static final ResourceKey<Structure> ANCIENT_BUILDING = createKey("ancient_building");
+    public static final ResourceKey<Structure> CRYSTALLIUM_RUIN = createKey("crystallium_ruin");
 
 
     private static ResourceKey<Structure> createKey(String name) {
