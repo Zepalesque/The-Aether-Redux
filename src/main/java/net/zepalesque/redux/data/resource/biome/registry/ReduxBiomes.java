@@ -50,6 +50,7 @@ public class ReduxBiomes {
     public static final int GILDED_GRASSLANDS_COLOR = 0xFFF5A3;
     public static final int BLIGHT_GRASS_COLOR = 0xFFAAE2;
     public static final int DEEP_COLOR = 0xD5BAFF;
+    public static final int CANDY_COLOR = 0xD8E9FF;
     public static final int FROSTED_GRASS_COLOR = 0xCCF7FF;
     public static final int SKYFIELDS_GRASS_COLOR = 0xBFFFEC;
     public static final int SHRUBLANDS_GRASS_COLOR = 0xD7FFCC;
@@ -79,6 +80,7 @@ public class ReduxBiomes {
             .put(CLOUDCAPS, CLOUDCAP_GRASS_COLOR)
             .put(SKYROOT_SHRUBLANDS, SHRUBLANDS_GRASS_COLOR)
             .put(DEEPER_AETHER, DEEP_COLOR)
+            .put(SUGARFIELDS, CANDY_COLOR)
             .build();
 
 
