@@ -6,6 +6,12 @@
       "predicate": {
         "aether_redux:enchanted": 1.0
       }
+    },
+    {
+      "model": "aether_redux:item/enchanted_zyatrix",
+      "predicate": {
+        "aether_redux:enchanted": 1.0
+      }
     }
   ],
   "textures": {

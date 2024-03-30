@@ -152,6 +152,18 @@
     ],
     "subtitle": "subtitles.aether_redux.entity.ember_bounce"
   },
+  "entity.jellobunny.death": {
+    "sounds": [
+      "aether:entity/aerbunny/death"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.jellobunny_death"
+  },
+  "entity.jellobunny.hurt": {
+    "sounds": [
+      "aether:entity/aerbunny/hurt"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.jellobunny_hurt"
+  },
   "entity.mimic.slam": {
     "sounds": [
       "aether_redux:entity/mimic/mimic_slam"
@@ -251,6 +263,43 @@
       "mob/turtle/egg/jump_egg4"
     ],
     "subtitle": "subtitles.aether_redux.entity.mykapod_shell_shed"
+  },
+  "entity.phudge.ambient": {
+    "sounds": [
+      "aether_redux:entity/phudge/say1",
+      "aether_redux:entity/phudge/say2",
+      "aether_redux:entity/phudge/say3",
+      "aether_redux:entity/phudge/say4"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.phudge.ambient"
+  },
+  "entity.phudge.angry": {
+    "sounds": [
+      "aether_redux:entity/phudge/hurt1",
+      "aether_redux:entity/phudge/hurt2",
+      "aether_redux:entity/phudge/hurt3"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.phudge.angry"
+  },
+  "entity.phudge.death": {
+    "sounds": [
+      "aether_redux:entity/phudge/death"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.phudge.death"
+  },
+  "entity.phudge.hurt": {
+    "sounds": [
+      "aether_redux:entity/phudge/angry1",
+      "aether_redux:entity/phudge/angry2",
+      "aether_redux:entity/phudge/angry3"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.phudge.hurt"
+  },
+  "entity.phudge.saddle": {
+    "sounds": [
+      "mob/horse/leather"
+    ],
+    "subtitle": "subtitles.aether_redux.entity.phudge.saddle"
   },
   "entity.quail.ambient": {
     "sounds": [

@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-29T22:52:46.2828974	Advancements
+// 1.20.1	2024-03-30T15:37:30.3555016	Advancements
 ea80fed1a0de1fd0a6979d630e67f0da38c35c43 data/aether_redux/advancements/base_redux.json
 544fe54961569bab3885eda093bb005981954029 data/aether_redux/advancements/double_jump.json
 98a4293d9355588261185cf75be607e97c122532 data/aether_redux/advancements/eat_sugarfields.json
@@ -11,4 +11,6 @@ e956cfd5221289daa849f7ca4196fd21e1685bf4 data/aether_redux/advancements/hug.json
 ff3cb5ed0c10fcacf9fe7086db5011290e76ff42 data/aether_redux/advancements/nineteen_rebux.json
 15fc00795b0dde42f38ebe187dd81fb53ac6243b data/aether_redux/advancements/obtain_feather_of_warding.json
 05fe1f4326d7242e4ba0243206751e464fefd666 data/aether_redux/advancements/obtain_grand_medal.json
+dbbc1e2cffeedf70d1face6d2753c5bf7af8568c data/aether_redux/advancements/phudge_bite.json
+d6e24d0ba9a82cef4f7b205658880cfb165124f0 data/aether_redux/advancements/phudge_slayer.json
 3a89c31fe4d8bd6cf2457c01c1308642090e8b75 data/aether_redux/advancements/rebuxionaire.json

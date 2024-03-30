@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-29T22:52:46.245913	Loot Tables
+// 1.20.1	2024-03-30T15:37:30.2755517	Loot Tables
 c6156555dc4897939b617dabc4521b7fa52feba0 data/aether_redux/loot_tables/blocks/aurum.json
 b5773c78c7b3f27032f1cca6fb72f440e24c7529 data/aether_redux/loot_tables/blocks/avelium.json
 4c8b773f2431b28dd2a48b90d08323d8ff67a3d7 data/aether_redux/loot_tables/blocks/avelium_roots.json
@@ -43,6 +43,7 @@ ee5721ca6e44705d98b8b007f322543f28f89255 data/aether_redux/loot_tables/blocks/bl
 9989c277ec74e7ff35d637539e00181a71baa0bc data/aether_redux/loot_tables/blocks/carved_stone_brick_stairs.json
 be5641fd092bfe9a74d2576f741028ed2d5b105f data/aether_redux/loot_tables/blocks/carved_stone_brick_wall.json
 5411baa9d2ff27024507f94b27b17ab916833820 data/aether_redux/loot_tables/blocks/carved_stone_pillar.json
+00098ec1be50de23e2348f39a6ceba7df8c82546 data/aether_redux/loot_tables/blocks/charcoal_block.json
 cefdea4f2a198e2893b7c0062211ad8ca927c4e3 data/aether_redux/loot_tables/blocks/cloudcap_bookshelf.json
 323af1f7624331e833ca539ecbd46a6fcd26ddf6 data/aether_redux/loot_tables/blocks/cloudcap_button.json
 a0b99bca8aa325e5bb394299b8e87fe1cba73084 data/aether_redux/loot_tables/blocks/cloudcap_door.json
@@ -160,6 +161,7 @@ a101eb48c7ffa322a7817abee7934b72b10a2b9c data/aether_redux/loot_tables/blocks/go
 ac2abed3902c6173f2d959271dc99f09d17c45ae data/aether_redux/loot_tables/blocks/golden_vines.json
 f15144dfea5b253651aa6b01316a89dd3692df72 data/aether_redux/loot_tables/blocks/golden_vines_plant.json
 6be9a49f78c3d71a2908e297d48fc3a9fe980606 data/aether_redux/loot_tables/blocks/gravitite_block.json
+f995771c66d15b8b57eb9bfbb728462a236694fc data/aether_redux/loot_tables/blocks/hardened_syrup.json
 3c2b9c5420b73f1567254987627aa15a51f133b6 data/aether_redux/loot_tables/blocks/holefire_pillar.json
 8d78203ac11f2ba2ab554704feefa70ac6126dfe data/aether_redux/loot_tables/blocks/holefire_pillar_top.json
 f0a34e8c6ee2001c0f99e299d96e061700ab50ae data/aether_redux/loot_tables/blocks/holefire_slab.json
@@ -192,6 +194,7 @@ dd2397aa3c310140a7a2ac84ac458d43f821b84d data/aether_redux/loot_tables/blocks/je
 bf8ce21483ea935d8d8ad5ebd462706d7e47dd40 data/aether_redux/loot_tables/blocks/lightroots.json
 a588c1ccff39b719dba3d266940ab1eb21caa21b data/aether_redux/loot_tables/blocks/lumina.json
 88453ff55b2f6c5fb331a4b9e24e4c30c6fb97ae data/aether_redux/loot_tables/blocks/luxweed.json
+1bdc08437bca41d14b0f71e74e7f883745efda6b data/aether_redux/loot_tables/blocks/maple_syrup.json
 5e399b877655a27a2a0ad6878e4b49e401124e96 data/aether_redux/loot_tables/blocks/minty_block.json
 ec0137a098b30874a437accf245dcfa7eee4a4f8 data/aether_redux/loot_tables/blocks/minty_block_wall.json
 e3eb7e30b9d10cba627236266ff62efdfcd8264a data/aether_redux/loot_tables/blocks/minty_bookshelf.json
@@ -333,6 +336,7 @@ d0753e06e1f2a8f2568f0513b09e7ac86f711942 data/aether_redux/loot_tables/entities/
 b206108235b3499dfdc2ebe43b683efd7c86c392 data/aether_redux/loot_tables/entities/blightbunny_spawner.json
 51ea5d53b8e740ad6b8b20969dd7d4cf4a4d06f4 data/aether_redux/loot_tables/entities/cockatrice_spawner.json
 e5fede6edbcfede8c1e92419ec2c6552147a7121 data/aether_redux/loot_tables/entities/mykapod.json
+ede50183f7e52db0511d062367c44ef7c386367d data/aether_redux/loot_tables/entities/phudge.json
 80fa1705d61e583220d673abd0066ab01cdefe63 data/aether_redux/loot_tables/entities/quail_tm.json
 6a64016797a5ac8d9fe91904db7fa259d27e7f81 data/aether_redux/loot_tables/entities/shimmercow.json
 5f8d4bdef19ef87d6a912869cb1ea2bb3d3bd199 data/aether_redux/loot_tables/entities/vanilla_swet.json

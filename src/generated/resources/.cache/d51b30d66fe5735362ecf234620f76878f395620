@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-29T22:52:46.2379159	Item Models: aether_redux
+// 1.20.1	2024-03-30T15:37:30.2615577	Item Models: aether_redux
 2445055af5b1b7f3c6045199ffce74108003cef6 assets/aether_redux/models/item/airbound_cape.json
 2fa1343a8119a1f49af334c002773099174965bd assets/aether_redux/models/item/aurum.json
 edfe83948874d1436a61893ed9471b47e93dbe88 assets/aether_redux/models/item/avelium.json
@@ -51,6 +51,7 @@ a503a359f9fce16dd0d2c43b71c84c70ff35915d assets/aether_redux/models/item/carved_
 d0c9b7220f8ee064bd6b2d343099792d4fd72c0f assets/aether_redux/models/item/carved_stone_brick_stairs.json
 62c0cee458b928ab54f160fb2290d566e4848949 assets/aether_redux/models/item/carved_stone_brick_wall.json
 6f2d8b47f3fbf96c466c1904b0894fcb77b6491b assets/aether_redux/models/item/carved_stone_pillar.json
+50d166fc31d239f6ad67f9523014c765e3cf04a5 assets/aether_redux/models/item/charcoal_block.json
 23672e9631f487255e8e01b1ca696f62f9cd9d61 assets/aether_redux/models/item/cloudcap_boat.json
 d3e8f2c5e6cc5305e805977cef0cb7beb2fd9da8 assets/aether_redux/models/item/cloudcap_bookshelf.json
 1660a61023308e084004647f9bba17abad72904e assets/aether_redux/models/item/cloudcap_button.json
@@ -175,6 +176,7 @@ f2ce34057db0e9dc709688e4f1edd9bcd660a53a assets/aether_redux/models/item/glacia_
 a38cefb731d298e0c795074ba3b4e1a919cc3440 assets/aether_redux/models/item/grand_victory_medal.json
 82e64be5c34f99846b7da189fa44c756f05792de assets/aether_redux/models/item/gravitite_block.json
 9b431089b638dcb1130b7aabc0d58f388827eb67 assets/aether_redux/models/item/gravitite_ingot.json
+a5174e1e84d1a0014c3c265b2cb4f286d964abf8 assets/aether_redux/models/item/hardened_syrup.json
 3fbe52b7808ac72b3ff7f5ad214e017016d7b622 assets/aether_redux/models/item/holefire_pillar.json
 82f4e1aab9c11ba5c3d8868a6a5742ebfb06c902 assets/aether_redux/models/item/holefire_pillar_top.json
 1c05bcce6966da5b10b2789525952ebefa16ddfd assets/aether_redux/models/item/holefire_slab.json
@@ -243,6 +245,8 @@ beec52eb9364cdb01119c1580478b19527c5cf62 assets/aether_redux/models/item/mykapod
 813f6e3d224c05d95b830d90ba9760f6fd472c02 assets/aether_redux/models/item/peppermint_barkling.json
 6da6df1ebebdba22081249175a63a02889fff270 assets/aether_redux/models/item/peppermint_block.json
 0f96595f55383e416116e7dc1fe8ea5015875225 assets/aether_redux/models/item/peppermint_log.json
+7d295e69940d939241a0fd89a8aa8e4f4c2f266b assets/aether_redux/models/item/phudge_icon.json
+1577e24cc8d9871dc544ebcc242e3dc86557dd26 assets/aether_redux/models/item/phudge_icon_redux.json
 e9026b452ac167117827e449ee7392c41471e8c8 assets/aether_redux/models/item/pink_candyfloss_block.json
 c629a6906599c8db288e381de310e26438aec9f6 assets/aether_redux/models/item/pink_cotton_candy.json
 767f53f2f3c20aff79e069ee6e4359cb66eac872 assets/aether_redux/models/item/poprock_ore.json
@@ -287,6 +291,7 @@ aec70cdc85dfdc10f3782dd2c1d08fcff8d1d360 assets/aether_redux/models/item/shell_s
 eb2d2a85cbdb3b26f577b8add4b2e41afa816fcd assets/aether_redux/models/item/short_deep_grass.json
 0b82db1997b953e9a51ed21e7dbf470127c7b6f8 assets/aether_redux/models/item/shroom_ring.json
 4210677a9d19d63a308eb9b0b9bf15627fa7ef1e assets/aether_redux/models/item/skybud.json
+99cdf339303aa4964e7da561bdc3255b23df5e78 assets/aether_redux/models/item/skyroot_syrup_bucket.json
 6eb82aa73b8f464c031aede636157d1f9fb79678 assets/aether_redux/models/item/skysprouts.json
 89e4963a882fcf844fc40d922d740c00443cdc6a assets/aether_redux/models/item/skysprout_seeds.json
 3277043e77cf82c46293a905c797bb8cec8aaf03 assets/aether_redux/models/item/slider_music_disc.json
@@ -321,6 +326,7 @@ d431727282e6d3bb0325ab1b51b4f46da7c66fca assets/aether_redux/models/item/strippe
 2bd3490fb4474d386bd50208e65422901c06a9a5 assets/aether_redux/models/item/stripped_glacia_wood_wall.json
 697d8f0de366a3b38857a96b65747f4241c3efa0 assets/aether_redux/models/item/sugargrass_block.json
 2784ea919d1726ee9adf29bcd84c0e546bb2ea96 assets/aether_redux/models/item/sugarsprouts.json
+bcc4c2ed9188e226b8330cddaec819407d3f5eac assets/aether_redux/models/item/syrup_bucket.json
 5d4edee3b4f4767f82b36604817aec0df6bde727 assets/aether_redux/models/item/theratip.json
 e4bcb896b9819368f3ebd96a6ad2d6d110372065 assets/aether_redux/models/item/vampire_amulet.json
 f638ac2f718eaf0082e4a7e6cd54b463ce4c2b59 assets/aether_redux/models/item/vampire_amulet_active.json
@@ -349,4 +355,4 @@ d956bb58487c96a5cae4ff6ca773baeb504e3cc3 assets/aether_redux/models/item/wyndspr
 9f827a41b1b512474d1d6a2ce1b25e6efbcc4d75 assets/aether_redux/models/item/zanberry.json
 50ca60d8fc1bd373c9832f7e2ab05d1d6ff81d80 assets/aether_redux/models/item/zanberry_bush.json
 1eb2a6a97d6f78da340f96805fb66bf9ac0aac36 assets/aether_redux/models/item/zanberry_bush_stem.json
-c2a41c0ee9f2631aba61c0a82a090ea1385f44bf assets/aether_redux/models/item/zyatrix.json
+f193cd0378b8257bf02c0100dce796e0814b8864 assets/aether_redux/models/item/zyatrix.json

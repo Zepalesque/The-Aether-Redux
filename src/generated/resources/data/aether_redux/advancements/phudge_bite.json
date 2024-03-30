@@ -1,0 +1,42 @@
+{
+  "parent": "aether_redux:eat_sugarfields",
+  "criteria": {
+    "phudge_bite": {
+      "conditions": {
+        "damage": {
+          "source_entity": {
+            "type": "aether_redux:phudge"
+          }
+        }
+      },
+      "trigger": "minecraft:entity_hurt_player"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "extra": [
+        {
+          "color": "#9384F4",
+          "translate": "gui.aether_redux.advancement_suffix"
+        }
+      ],
+      "translate": "advancement.aether_redux.phudge_bite.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "aether_redux:phudge_icon"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.aether_redux.phudge_bite"
+    }
+  },
+  "requirements": [
+    [
+      "phudge_bite"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
