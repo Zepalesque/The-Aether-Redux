@@ -96,6 +96,8 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.DEEP_GRASS_BLOCK, ReduxBlocks.SUGARGRASS_BLOCK, event);
             putAfter(ReduxBlocks.SUGARGRASS_BLOCK, ReduxBlocks.COCOA_SOIL, event);
 
+            putAfter(AetherBlocks.AEROGEL, ReduxBlocks.CHARCOAL_BLOCK, event);
+            putAfter(ReduxBlocks.CHARCOAL_BLOCK, ReduxBlocks.HARDENED_SYRUP, event);
 
             putAfter(AetherBlocks.HOLYSTONE, ReduxBlocks.DIVINITE, event);
             putAfter(ReduxBlocks.DIVINITE, ReduxBlocks.SENTRITE, event);
@@ -345,6 +347,9 @@ public class ReduxCreativeTabs {
             putAfter(AetherItems.ENCHANTED_DART, ReduxItems.VERIDIUM_DART_SHOOTER, event);
             putAfterVeridium(ReduxItems.VERIDIUM_DART_SHOOTER, ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER, event);
             putAfterVeridium(ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER, ReduxItems.VERIDIUM_DART, event);
+
+            putAfter(AetherItems.SKYROOT_POISON_BUCKET, ReduxItems.SKYROOT_SYRUP_BUCKET, event);
+            putAfter(ReduxItems.SKYROOT_SYRUP_BUCKET, ReduxItems.SYRUP_BUCKET, event);
 
             putAfter(AetherItems.PHOENIX_BOW, ReduxItems.SUBZERO_CROSSBOW, event);
 
