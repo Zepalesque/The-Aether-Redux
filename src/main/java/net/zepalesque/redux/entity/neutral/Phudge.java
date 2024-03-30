@@ -19,6 +19,7 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.ResetUniversalAngerTargetGoal;
+import net.minecraft.world.entity.animal.Wolf;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -85,6 +86,7 @@ public class Phudge extends Phyg implements NeutralMob {
         if (livingEntity instanceof Player) {
             this.setLastHurtByPlayer((Player)livingEntity);
         }
+        super.setTarget(livingEntity);
     }
 
     private void playAngerSound() {
@@ -95,7 +97,6 @@ public class Phudge extends Phyg implements NeutralMob {
         if (this.isAngry()) {
             this.maybePlayFirstAngerSound();
         }
-
         this.updatePersistentAnger((ServerLevel)this.level(), true);
         if (this.getTarget() != null) {
             this.maybeAlertOthers();
