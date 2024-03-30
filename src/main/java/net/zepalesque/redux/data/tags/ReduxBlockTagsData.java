@@ -240,7 +240,9 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get(),
                 ReduxBlocks.CLOUD_CAP_BLOCK.get(),
                 ReduxBlocks.CLOUDCAP_SPORES.get(),
-                ReduxBlocks.JELLYSHROOM_JELLY_BLOCK.get()
+                ReduxBlocks.JELLYSHROOM_JELLY_BLOCK.get(),
+                ReduxBlocks.PINK_CANDYFLOSS_BLOCK.get(),
+                ReduxBlocks.BLUE_CANDYFLOSS_BLOCK.get()
         );
         this.tag(BlockTags.STAIRS).add(
                 ReduxBlocks.DIVINITE_STAIRS.get(),
