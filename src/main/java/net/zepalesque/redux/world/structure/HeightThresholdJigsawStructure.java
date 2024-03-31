@@ -87,13 +87,30 @@ public final class HeightThresholdJigsawStructure extends Structure {
     public HeightThresholdJigsawStructure(Structure.StructureSettings settings, Holder<StructureTemplatePool> startPool, int maxDepth, HeightProvider startHeight, boolean useExpansionHack, Optional<Integer> minY, Optional<Integer> maxY) {
         this(settings, startPool, Optional.empty(), maxDepth, startHeight, useExpansionHack, Optional.empty(), 80, minY, maxY);
     }
+    private boolean extraSpawningChecks(GenerationContext context) {
+        if (this.heightMin.isEmpty() && this.heightMax.isEmpty()) {
+            return true;
+        }
+        ChunkPos chunkpos = context.chunkPos();
+        return this.withinRange(context.chunkGenerator().getFirstOccupiedHeight(
+                chunkpos.getMiddleBlockX(),
+                chunkpos.getMiddleBlockZ(),
+                Heightmap.Types.WORLD_SURFACE_WG,
+                context.heightAccessor(),
+                context.randomState())) ;
+    }
+
+    private boolean withinRange(int i) {
+        return (this.heightMin.isEmpty() || i >= this.heightMin.get()) && (this.heightMax.isEmpty() || i <= this.heightMax.get());
+    }
 
     public @NotNull Optional<Structure.GenerationStub> findGenerationPoint(Structure.GenerationContext context) {
-        ChunkPos chunkpos = context.chunkPos();
-        int i = this.startHeight.sample(context.random(), new WorldGenerationContext(context.chunkGenerator(), context.heightAccessor()));
-        if ((this.heightMin.isPresent() && i < this.heightMin.get()) || (this.heightMax.isPresent() && i > this.heightMax.get())) {
+        if (!extraSpawningChecks(context)) {
             return Optional.empty();
         }
+        ChunkPos chunkpos = context.chunkPos();
+        int i = this.startHeight.sample(context.random(), new WorldGenerationContext(context.chunkGenerator(), context.heightAccessor()));
+
         BlockPos blockpos = new BlockPos(chunkpos.getMinBlockX(), i, chunkpos.getMinBlockZ());
         return JigsawPlacement.addPieces(context, this.startPool, this.startJigsawName, this.maxDepth, blockpos, this.useExpansionHack, this.projectStartToHeightmap, this.maxDistanceFromCenter);
     }

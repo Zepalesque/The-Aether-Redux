@@ -4,6 +4,7 @@ package net.zepalesque.redux.event.listener;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.entity.monster.Cockatrice;
 import com.aetherteam.aether.entity.monster.Swet;
+import com.aetherteam.aether.entity.monster.Zephyr;
 import com.aetherteam.aether.entity.passive.FlyingCow;
 import com.aetherteam.aether.entity.passive.Phyg;
 import com.aetherteam.aether.item.EquipmentUtil;
@@ -48,6 +49,9 @@ public class MobListener {
         }
         if (event.getEntity() instanceof Swet swet && ReduxConfig.COMMON.pl_swet_behavior.get()) {
             SwetHooks.modifySwetAI(swet);
+        }
+        if (event.getEntity() instanceof Zephyr zephyr && ReduxConfig.COMMON.zephyr_meme_tweaks.get()) {
+            MobHooks.modifyZephyrAI(zephyr);
         }
     }
 
