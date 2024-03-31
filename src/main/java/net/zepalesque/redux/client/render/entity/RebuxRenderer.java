@@ -39,7 +39,7 @@ public class RebuxRenderer extends EntityRenderer<Rebux> {
         poseStack.translate(0.0F, -0.375F, 0.0F);
         float f = 0.5F;
         poseStack.scale(f, f, f);
-        this.model.coin.yRot = (entity.tickCount + partialTicks) / 10.0F;
+        this.model.coin.yRot = (entity.tickCount + partialTicks) * Mth.PI / 50F;
         VertexConsumer vertexconsumer = buffer.getBuffer(RENDER_TYPE);
         this.model.renderToBuffer(poseStack, vertexconsumer, packedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
         poseStack.popPose();
