@@ -79,6 +79,7 @@ public class ReduxPackConfig {
             packs = List.of(
                     Conditional.of(BuiltinPackUtils.createPack("resource/tintable_grass"), config.tintable_grass),
                     Conditional.of(BuiltinPackUtils.createPack("resource/mob/better_aechor_plants"), config.purple_aechor_plants),
+                    Conditional.of(BuiltinPackUtils.createPack("resource/april_resources"), () -> true),
                     Conditional.of(BuiltinPackUtils.createPack("resource/mob/blighted_cockatrices"), () -> config.cockatrice_texture.get() == CockatriceType.blighted),
                     Conditional.of(BuiltinPackUtils.createPack("resource/mob/retro_cockatrice"), () -> config.cockatrice_texture.get() == CockatriceType.redux_retro),
                     Conditional.of(BuiltinPackUtils.createPack("resource/item/swet_ball"), () -> config.swet_ball_type.get() == SwetBallType.consistent_name),
