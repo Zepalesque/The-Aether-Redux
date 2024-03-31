@@ -1,0 +1,49 @@
+{
+  "type": "aether_redux:raw_ore",
+  "added_item": {
+    "Count": 1,
+    "id": "aether_redux:raw_crystal_gold"
+  },
+  "conditions": [
+    {
+      "condition": "aether_redux:data_loot_condition",
+      "data_loot_condition": {
+        "condition": "aether_redux:redux_config",
+        "config_path": "[Gameplay Changes, Additions, Raw Ores]"
+      }
+    },
+    {
+      "condition": "minecraft:inverted",
+      "term": {
+        "condition": "minecraft:match_tool",
+        "predicate": {
+          "enchantments": [
+            {
+              "enchantment": "minecraft:silk_touch",
+              "levels": {
+                "min": 1
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "block": "aether_redux:veridium_ore",
+      "condition": "minecraft:block_state_property"
+    }
+  ],
+  "functions": [
+    {
+      "add": false,
+      "count": 1.0,
+      "function": "minecraft:set_count"
+    },
+    {
+      "enchantment": "minecraft:fortune",
+      "formula": "minecraft:ore_drops",
+      "function": "minecraft:apply_bonus"
+    }
+  ],
+  "item": "aether_redux:crystal_gold_ore"
+}

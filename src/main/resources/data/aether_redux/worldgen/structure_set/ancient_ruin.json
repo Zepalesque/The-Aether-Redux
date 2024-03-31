@@ -1,0 +1,18 @@
+{
+  "structures": [
+    {
+      "structure": "aether_redux:ancient_ruin",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 6,
+    "separation": 5,
+    "salt": 1646207470
+  },
+  "exclusion_zone": {
+    "chunk_count": 4,
+    "other_set": "#aether:dungeons"
+  }
+}

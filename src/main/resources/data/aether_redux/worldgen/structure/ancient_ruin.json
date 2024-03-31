@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:jigsaw",
+  "biomes": "#aether_redux:has_ancient_ruin",
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "start_pool": "aether_redux:ancient_ruin",
+  "size": 1,
+  "start_height": {
+    "absolute": 1
+  },
+  "max_distance_from_center": 80,
+  "use_expansion_hack": false
+}

@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-30T20:12:24.8888098	Item Models: aether_redux
+// 1.20.1	2024-03-30T22:48:59.1529544	Item Models: aether_redux
 2445055af5b1b7f3c6045199ffce74108003cef6 assets/aether_redux/models/item/airbound_cape.json
 2fa1343a8119a1f49af334c002773099174965bd assets/aether_redux/models/item/aurum.json
 edfe83948874d1436a61893ed9471b47e93dbe88 assets/aether_redux/models/item/avelium.json
@@ -85,6 +85,10 @@ f6a0b14764dc001ae8685074008f96b30e93a97e assets/aether_redux/models/item/crystal
 c442b6cf7dfdfd2408dfde49f456b88542dfd94f assets/aether_redux/models/item/crystal_fence.json
 5ec69fb5f9869d052d6a6771099a611ac7f78956 assets/aether_redux/models/item/crystal_fence_gate.json
 46386a6231b7f981113e0e1324e23e7227932e4b assets/aether_redux/models/item/crystal_fruit_sapling.json
+aa25807a28b348a736210d9e57915fe062021c8b assets/aether_redux/models/item/crystal_gold_block.json
+62623a0a70b9111640453f22190f87fdcfe7ae44 assets/aether_redux/models/item/crystal_gold_ingot.json
+4952a56c30b8a522305b18e54e43481ffc1082f7 assets/aether_redux/models/item/crystal_gold_nugget.json
+56f4fbce5215ea81e59ef0188180fef845feb554 assets/aether_redux/models/item/crystal_gold_ore.json
 86ff75ecbe9788ced52554eff49a4d4a7c3f0d45 assets/aether_redux/models/item/crystal_hanging_sign.json
 1a03018c51219d6d01d3525a1bc1007806706a22 assets/aether_redux/models/item/crystal_log.json
 70ea21867a5d6d3d5c3b9311e550db270be57559 assets/aether_redux/models/item/crystal_log_wall.json
@@ -134,7 +138,7 @@ bebd6cce4daca9681dde097c0bb0deb3dd1a5584 assets/aether_redux/models/item/fieldsp
 d5d5d446c1173457302b545644077b84cdf37955 assets/aether_redux/models/item/fieldsproot_trapdoor.json
 f934b4e25537e364550cfdcf0ed8f80db1a171c4 assets/aether_redux/models/item/fieldsproot_wood.json
 6c9bc0f28c32ba52ca348bf3ead9379879c8aa10 assets/aether_redux/models/item/fieldsproot_wood_wall.json
-8d693404bcb605805674e2582147be36e3416b05 assets/aether_redux/models/item/fireinthehole.json
+9c5673aac0bd4e24bf115014fc858cd86d9cc52f assets/aether_redux/models/item/fireinthehole.json
 6e4e3758c097c655bf3e4cf958d8cbb274237bb8 assets/aether_redux/models/item/flareblossom.json
 3938aa5b805e4db3c7492169ecbe002c04c33360 assets/aether_redux/models/item/flawless_bloom.json
 a7506affe0c538db937cfd49bdd486fec3179ad1 assets/aether_redux/models/item/fungal_carpet.json
@@ -260,6 +264,8 @@ a31a49335c7820befe686a84fc88b6996e400021 assets/aether_redux/models/item/prismat
 e2015d8ef1a31186ff40937a0cfe131c89ec3631 assets/aether_redux/models/item/purple_glacia_leaves.json
 8dc6fb58d1be53bc2dc005d016b961b25d246fec assets/aether_redux/models/item/purple_glacia_sapling.json
 74ed3e24789e7694ab767e9cab185b67faf39f34 assets/aether_redux/models/item/rainbow_aercloud.json
+9f6cc87671b9b4d9cdbc21ef5e4e614e2d665c78 assets/aether_redux/models/item/raw_crystal_gold.json
+e1b259863174cb80e1e193fea7cd6b586d65b530 assets/aether_redux/models/item/raw_crystal_gold_block.json
 1709c24cc08e79ca78246932b84e07b0cba0f215 assets/aether_redux/models/item/raw_gravitite.json
 89ffb8380d6d8ecada16659d1c7eeaeba6599385 assets/aether_redux/models/item/raw_gravitite_block.json
 a5a9128b80aab7974b8ae8690f6fe7d5c22d0192 assets/aether_redux/models/item/raw_valkyrum.json

@@ -202,7 +202,7 @@ public class ReduxPlayerCapability implements ReduxPlayer {
 
     @Override
     public void login() {
-        this.loginTick = 20;
+        this.loginTick = 2;
     }
 
     @Override

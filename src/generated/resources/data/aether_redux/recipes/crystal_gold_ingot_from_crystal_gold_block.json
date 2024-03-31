@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "crystal_gold_ingot",
+  "ingredients": [
+    {
+      "item": "aether_redux:crystal_gold_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "aether_redux:crystal_gold_ingot"
+  }
+}

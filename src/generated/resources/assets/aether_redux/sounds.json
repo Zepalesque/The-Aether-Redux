@@ -632,5 +632,10 @@
         "stream": true
       }
     ]
+  },
+  "ui.toast.aether_redux_lobotium": {
+    "sounds": [
+      "aether_redux:achievement/achievement_lobotium"
+    ]
   }
 }

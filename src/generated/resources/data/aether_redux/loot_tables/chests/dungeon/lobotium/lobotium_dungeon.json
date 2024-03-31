@@ -47,42 +47,40 @@
         {
           "type": "minecraft:item",
           "name": "aether:skyroot_stick",
-          "weight": 5
-        },
-        {
-          "type": "minecraft:item",
-          "name": "aether_redux:splitfern",
           "weight": 3
         },
         {
           "type": "minecraft:item",
+          "name": "aether_redux:splitfern"
+        },
+        {
+          "type": "minecraft:item",
           "name": "aether_redux:wyndsprout_seeds",
-          "weight": 11
+          "weight": 4
         },
         {
           "type": "minecraft:item",
           "name": "aether_redux:lemon_poprocks",
-          "weight": 8
+          "weight": 3
         },
         {
           "type": "minecraft:item",
           "name": "aether_redux:oatmeal",
-          "weight": 7
+          "weight": 3
         },
         {
           "type": "minecraft:item",
           "name": "aether_redux:blueberry_bagel",
-          "weight": 9
+          "weight": 4
         },
         {
           "type": "minecraft:item",
           "name": "aether:candy_cane",
-          "weight": 6
+          "weight": 5
         },
         {
           "type": "minecraft:item",
-          "name": "aether_redux:rainbow_aercloud",
-          "weight": 2
+          "name": "aether_redux:rainbow_aercloud"
         }
       ],
       "rolls": {

@@ -50,6 +50,7 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
 
         this.tag(ReduxTags.Biomes.HAS_AETHER_CAVES).addTag(AetherTags.Biomes.IS_AETHER);
         this.tag(ReduxTags.Biomes.HAS_LOBOTIUM_DUNGEON).addTag(AetherTags.Biomes.IS_AETHER);
+        this.tag(ReduxTags.Biomes.HAS_ANCIENT_RUIN).add(ReduxBiomes.CRYSTALLIUM_WOODS);
         this.tag(ReduxTags.Biomes.HAS_CLOUD_LAYER).addTag(AetherTags.Biomes.IS_AETHER);
         this.tag(ReduxTags.Biomes.HAS_ENDERMAN).addTag(AetherTags.Biomes.IS_AETHER);
         this.tag(ReduxTags.Biomes.HAS_BLIGHTED_CAVES).addTag(AetherTags.Biomes.IS_AETHER).remove(ReduxBiomes.THE_BLIGHT);

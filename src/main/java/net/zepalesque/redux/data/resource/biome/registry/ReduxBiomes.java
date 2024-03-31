@@ -34,6 +34,7 @@ public class ReduxBiomes {
     // April fools stuff
     public static final ResourceKey<Biome> DEEPER_AETHER = createKey("deeper_aether");
     public static final ResourceKey<Biome> SUGARFIELDS = createKey("sugarfields");
+    public static final ResourceKey<Biome> CRYSTALLIUM_WOODS = createKey("crystallium_woods");
 
     // TODO: Add to 2.1
     public static final ResourceKey<Biome> SHIMMERING_HILLS = createKey("shimmering_hills");
@@ -81,6 +82,7 @@ public class ReduxBiomes {
             .put(SKYROOT_SHRUBLANDS, SHRUBLANDS_GRASS_COLOR)
             .put(DEEPER_AETHER, DEEP_COLOR)
             .put(SUGARFIELDS, CANDY_COLOR)
+            .put(CRYSTALLIUM_WOODS, GILDED_GRASS_COLOR)
             .build();
 
 
@@ -125,6 +127,7 @@ public class ReduxBiomes {
         context.register(SKYROOT_SHRUBLANDS, SkyrootShrublands.generate(context));
         context.register(DEEPER_AETHER, DeeperAether.generate(context));
         context.register(SUGARFIELDS, Sugarfields.generate(context));
+        context.register(CRYSTALLIUM_WOODS, CrystalliumWoods.generate(context));
     }
 
 

@@ -104,6 +104,7 @@ public class ReduxTags {
         public static final TagKey<Biome> HAS_WYNDSPROUTS = tag("has_wyndsprouts");
         public static final TagKey<Biome> HAS_VANILLA_SWET = tag("has_vanilla_swet");
         public static final TagKey<Biome> HAS_LOBOTIUM_DUNGEON = tag("has_lobotium_dungeon");
+        public static final TagKey<Biome> HAS_ANCIENT_RUIN = tag("has_lobotium_dungeon");
         public static final TagKey<Biome> HAS_ENDERMAN = tag("has_enderman");
         public static final TagKey<Biome> HAS_VERIDIUM_ORE = tag("has_veridium_ore");
         public static final TagKey<Biome> HAS_DIVINITE = tag("has_divinite");

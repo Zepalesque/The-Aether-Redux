@@ -103,6 +103,9 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYROOT_BUSH = createKey(Folders.PATCH + "skyroot_bush");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CLOUDCAP_MUSHLING_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.CLOUDCAP_MUSHLING) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_GILDED_OAK_TREE = createKey(Folders.TREE + "fancy_gilded_oak_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CRYSTALLIUM_GILDED_TREE = createKey(Folders.TREE + "crystallium_gilded_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CRYSTALLIUM_GOLDEN_TREE = createKey(Folders.TREE + "crystallium_gilded_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CRYSTALLIUM_TREES = createKey(Folders.TREE + "crystallium_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_GOLDEN_OAK_TREE = createKey(Folders.TREE + "fancy_golden_oak_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> DAGGERBLOOM_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.DAGGERBLOOM) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROOTROSE_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.ROOTROSE) + "_patch");
@@ -178,6 +181,7 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> SYRUP_LAKE = createKey(Folders.SURFACE + "syrup_lake");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SYRUP_SPRING = createKey(Folders.SURFACE + "syrup_spring");
     public static final ResourceKey<ConfiguredFeature<?, ?>> VERIDIUM_ORE = createKey(Folders.ORE + name(ReduxBlocks.VERIDIUM_ORE));
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CRYSTAL_GOLD_ORE = createKey(Folders.ORE + name(ReduxBlocks.CRYSTAL_GOLD_ORE));
     public static final ResourceKey<ConfiguredFeature<?, ?>> DIVINITE_ORE = createKey(Folders.ORE + name(ReduxBlocks.DIVINITE) + "_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SENTRITE_ORE = createKey(Folders.ORE + name(ReduxBlocks.SENTRITE) + "_ore");
 
@@ -694,6 +698,27 @@ public class ReduxConfiguredFeatures {
                 )).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT))
                         .decorators(List.of(new PatchTreeDecorator(createPetals(ReduxBlocks.FIELDSPROOT_PETALS), 7, 3, 32)
                         )).build());
+        register(context, CRYSTALLIUM_GILDED_TREE, Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        new WeightedStateProvider(
+                                SimpleWeightedRandomList.<BlockState>builder()
+                                        .add(AetherFeatureStates.SKYROOT_LOG, 3)
+                                        .add(AetherFeatureStates.GOLDEN_OAK_LOG, 1)
+                        ),
+                        new GenesisHookedTrunkPlacer(8, 14, 14),
+                        prov(ReduxBlocks.GILDED_OAK_LEAVES),
+                        new GenesisHookedFoliagePlacer(ConstantInt.of(2), ConstantInt.of(1), ConstantInt.of(2)),
+                        new TwoLayersFeatureSize(2, 1, 4)
+                ).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT)).build());
+
+        register(context, CRYSTALLIUM_GOLDEN_TREE, Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        BlockStateProvider.simple(AetherFeatureStates.GOLDEN_OAK_LOG),
+                        new StraightTrunkPlacer(5, 5, 0),
+                        BlockStateProvider.simple(AetherFeatureStates.GOLDEN_OAK_LEAVES),
+                        new GenesisPineFoliagePlacer(ConstantInt.of(2), ConstantInt.of(1), ConstantInt.of(2)),
+                        new TwoLayersFeatureSize(2, 0, 2))
+                        .ignoreVines().build());
 
         register(context, AZURE_FIELDSPROOT_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
@@ -816,6 +841,11 @@ public class ReduxConfiguredFeatures {
                         PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(GLACIA_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.GLACIA_SAPLING.get())), 0.05F)),
                         PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(PURPLE_GLACIA_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.PURPLE_GLACIA_SAPLING.get()))));
 
+        register(context, CRYSTALLIUM_TREES, Feature.RANDOM_SELECTOR,
+                new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
+                        PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(CRYSTALLIUM_GILDED_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.GLACIA_SAPLING.get())), 0.33F)),
+                        PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(CRYSTALLIUM_GOLDEN_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.PURPLE_GLACIA_SAPLING.get()))));
+
         register(context, DEEP_TREES, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
                         PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(SMALL_DEEP_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.FIELDSPROOT_SAPLING.get())), 0.25F)),
@@ -853,6 +883,9 @@ public class ReduxConfiguredFeatures {
 
         register(context, VERIDIUM_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
                 drops(ReduxBlocks.VERIDIUM_ORE), 9, 0.1F));
+
+        register(context, CRYSTAL_GOLD_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
+                drops(ReduxBlocks.CRYSTAL_GOLD_ORE), 9, 0F));
 
         register(context, DIVINITE_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
                 drops(ReduxBlocks.DIVINITE), 48, 0.0F));
