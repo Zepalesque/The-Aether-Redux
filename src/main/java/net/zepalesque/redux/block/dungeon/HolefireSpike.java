@@ -103,7 +103,7 @@ public class HolefireSpike extends DirectionalBlock implements SimpleWaterlogged
     public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
         super.entityInside(state, level, pos, entity);
         if (!entity.level().isClientSide() && entity instanceof LivingEntity && entity.getBoundingBox().intersects(getShape(state, level, pos, CollisionContext.of(entity)).bounds().move(pos).inflate(0.125))) {
-            entity.hurt(ReduxDamageTypes.source(level, ReduxDamageTypes.SPIKE), 1F);
+            entity.hurt(ReduxDamageTypes.source(level, ReduxDamageTypes.SPIKE), 2F);
         }
     }
 }
