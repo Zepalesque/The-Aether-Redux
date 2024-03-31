@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-30T23:08:27.0266175	Registries
+// 1.20.1	2024-03-30T23:21:14.0596959	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 94d997b0a87f23900f66f9a9e2485391b6ff8e38 data/aether/worldgen/configured_feature/golden_oak_tree.json
 875593e37a52dd63b2d87226b0f0e5e76ef48247 data/aether/worldgen/configured_feature/grass_patch.json
@@ -48,7 +48,7 @@ a523f11b09129716caf509c3b27a5b639c3be56f data/aether_redux/forge/biome_modifier/
 c5b06367d1383d85beefa01a311b63d4751d0cdd data/aether_redux/forge/biome_modifier/mob/enderman.json
 ce936b2a8cd49c65434c9bb428ff96e7c0e7cba8 data/aether_redux/forge/biome_modifier/mob/vanilla_swet.json
 08b440d5814e318669e249b07636fbedc840de85 data/aether_redux/forge/biome_modifier/modify/aether_color_override.json
-f6bb25663664746ace882973dfa98af59346ca6d data/aether_redux/forge/biome_modifier/modify/music_modify.json
+79e71df9dd15f34a735ae6ccc4aa6e165160dcdb data/aether_redux/forge/biome_modifier/modify/music_modify.json
 7d84bd09764a2e2562ca4b35794d713142e7fe42 data/aether_redux/forge/biome_modifier/modify/water_color.json
 d83e6559299c8c073ab71b54dbb79802e6b5e860 data/aether_redux/forge/biome_modifier/overworld_aether_grass/is_cold.json
 f549db7b5c0b21b8c8e74592f3bb4904893fbed0 data/aether_redux/forge/biome_modifier/overworld_aether_grass/is_desert.json
