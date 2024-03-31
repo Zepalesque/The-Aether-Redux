@@ -16,23 +16,26 @@ public class RebuxParticle extends TextureSheetParticle {
 
    RebuxParticle(ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, SpriteSet sprites) {
       super(level, x, y, z, xSpeed, ySpeed, zSpeed);
+      this.xd = xSpeed + (Math.random() * 2.0 - 1.0) * 0.05;
+      this.yd = ySpeed + (Math.random() * 2.0 - 1.0) * 0.05;
+      this.zd = zSpeed + (Math.random() * 2.0 - 1.0) * 0.05;
       this.friction = 0.96F;
       this.speedUpWhenYMotionIsBlocked = true;
       this.sprites = sprites;
-      this.quadSize *= 0.75F;
+      this.quadSize *= 0.5F;
       this.hasPhysics = false;
       this.setSpriteFromAge(sprites);
       this.fadeStartThreshold = this.lifetime / 3;
    }
 
-   @Override
-   public void tick() {
-      super.tick();
-      int countdown = (this.lifetime - this.age);
-      if (countdown <= this.fadeStartThreshold) {
-         this.alpha = (float) countdown / this.fadeStartThreshold;
-      }
-   }
+//   @Override
+//   public void tick() {
+//      super.tick();
+//      int countdown = (this.lifetime - this.age);
+//      if (countdown <= this.fadeStartThreshold) {
+//         this.alpha = (float) countdown / this.fadeStartThreshold;
+//      }
+//   }
 
    public ParticleRenderType getRenderType() {
       return ParticleRenderType.PARTICLE_SHEET_TRANSLUCENT;

@@ -675,7 +675,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         add("item.minecraft.lingering_potion.effect.intoxication", "Lingering Potion of Intoxication");
         add("item.minecraft.tipped_arrow.effect.intoxication", "Arrow of Intoxication");
 
-        addMenuText("aether_redux.lobotium_treasure_chest", "Lobotium Treasure Chest");
+        add("menu.aether_redux.lobotium_treasure_chest", "Lobotium Treasure Chest");
         addGeneric("lobotium_treasure_chest_locked", "This Treasure Chest must be unlocked with a Lobotium Key.");
 
         addGuiText("bittersweet_charm_poison_chance", "10% chance to poison targets of melee attacks");
@@ -872,20 +872,18 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addAdvancementDesc("nineteen_rebux", "Collect 19 Rebux");
         addAdvancement("rebuxionaire", "Rebuxionaire");
         addAdvancementDesc("rebuxionaire", "Collect 100 Rebux");
-        addAdvancement("eat_sugarfields", "Everything in this room is eatable");
+        addAdvancement("eat_sugarfields", "Everything here is eatable");
         addAdvancementDesc("eat_sugarfields", "Eat a block from the Sugarfields");
         addAdvancement("enter_deeper", "The Deepest of Aethers");
         addAdvancementDesc("enter_deeper", "Enter the Deeper Aether biome, a shimmering landscape with unusual wildlife");
         addAdvancement("crystal_gold", "I can’t believe it’s not Mutation!");
         addAdvancementDesc("crystal_gold", "Mine some Crystal Gold from the Crystallium Woods");
-        addAdvancement("lobotium_dungeon", "Where the holes once had fires...");
+        addAdvancement("lobotium_dungeon", "Where the holes once had fires…");
         addAdvancementDesc("lobotium_dungeon", "Discover a Lobotium Dungeon");
         addAdvancement("holefire_spike", "NEW BEST: 99%");
         addAdvancementDesc("holefire_spike", "Take damage from a Holefire Spike");
         addAdvancement("phudge_bite", "Even I'M eatable");
-        addAdvancementDesc("phudge_bite", "Get bitten by a Phudge");
-        addAdvancement("phudge_slayer", "But that is called 'cannibalism', my dear friends, and is in fact frowned upon in most societies");
-        addAdvancementDesc("phudge_slayer", "Kill a Phudge with a Pig Slayer");
+        addAdvancementDesc("phudge_bite", "But that is called 'cannibalism', my dear friends, and is in fact frowned upon in most societies");
         addAdvancement("fall_from_aether", "Falling with Style!");
         addAdvancementDesc("fall_from_aether", "Fall out of the Aether");
         addAdvancement("infuse_veridium", "Next Level");
