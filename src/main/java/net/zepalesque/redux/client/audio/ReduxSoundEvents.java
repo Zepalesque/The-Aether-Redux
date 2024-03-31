@@ -114,6 +114,7 @@ public class ReduxSoundEvents {
     public static final RegistryObject<SoundEvent> MUSIC_DISC_LABYRINTHS_VENGEANCE = register("item.music_disc.labyrinths_vengeance");
 
     public static final RegistryObject<SoundEvent> ADVANCEMENT_GOLD = register("ui.toast.aether_redux_gold");
+    public static final RegistryObject<SoundEvent> ADVANCEMENT_LOBOTIUM = register("ui.toast.aether_redux_lobotium");
 
     public static final RegistryObject<SoundEvent> REDUX_MENU = register("music.redux_menu");
 

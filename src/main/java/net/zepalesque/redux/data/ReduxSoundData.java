@@ -388,6 +388,9 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
         this.add(ReduxSoundEvents.ADVANCEMENT_GOLD,
                 definition().with(sound(Redux.locate("achievement/achievement_gold")).stream()));
 
+        this.add(ReduxSoundEvents.ADVANCEMENT_LOBOTIUM,
+                definition().with(sound(Redux.locate("achievement/achievement_lobotium"))));
+
         this.add(ReduxSoundEvents.SUBZERO_CROSSBOW_SHOOT,
                 definition()
                         .with(sound(Redux.locate("item/subzero_crossbow/shoot1")))
