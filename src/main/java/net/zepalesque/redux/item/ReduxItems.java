@@ -27,6 +27,7 @@ import net.zepalesque.redux.item.accessory.*;
 import net.zepalesque.redux.item.food.BucketFoodItem;
 import net.zepalesque.redux.item.food.PoprocksItem;
 import net.zepalesque.redux.item.food.ReduxFoods;
+import net.zepalesque.redux.item.food.SkyrootBucketFoodItem;
 import net.zepalesque.redux.item.misc.BlightedSporesItem;
 import net.zepalesque.redux.item.tools.VeridiumAxeItem;
 import net.zepalesque.redux.item.tools.VeridiumHoeItem;
@@ -93,8 +94,8 @@ public class ReduxItems {
     public static final RegistryObject<Item> VERIDIUM_DART_SHOOTER = ITEMS.register("veridium_dart_shooter", () -> new VeridiumDartShooter(VERIDIUM_DART, ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER, 9, (new Item.Properties()).stacksTo(1)));
     public static final RegistryObject<Item> INFUSED_VERIDIUM_DART_SHOOTER = ITEMS.register("infused_veridium_dart_shooter", () -> new VeridiumDartShooter(VERIDIUM_DART, ReduxItems.VERIDIUM_DART_SHOOTER, 7, (new Item.Properties()).stacksTo(1)));
 
-    public static final RegistryObject<Item> SYRUP_BUCKET = register("syrup_bucket", () -> new BucketFoodItem(() -> Items.BUCKET, ReduxFluids.SYRUP_STILL, new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> SKYROOT_SYRUP_BUCKET = register("skyroot_syrup_bucket", () -> new BucketFoodItem(AetherItems.SKYROOT_BUCKET, ReduxFluids.SYRUP_STILL, new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> SYRUP_BUCKET = register("syrup_bucket", () -> new BucketFoodItem(ReduxFluids.SYRUP_STILL, new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> SKYROOT_SYRUP_BUCKET = register("skyroot_syrup_bucket", () -> new SkyrootBucketFoodItem(ReduxFluids.SYRUP_STILL, new Item.Properties().stacksTo(1)));
 
 
     public static final RegistryObject<Item> ENCHANTED_RING = register("enchanted_ring", () -> new RingItem(ReduxSoundEvents.EQUIP_ENCHANTED_RING, new Item.Properties().stacksTo(1)));

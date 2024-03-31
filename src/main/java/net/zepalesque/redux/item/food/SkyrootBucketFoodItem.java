@@ -1,5 +1,6 @@
 package net.zepalesque.redux.item.food;
 
+import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether.item.miscellaneous.ConsumableItem;
 import com.aetherteam.aether.item.miscellaneous.bucket.SkyrootBucketItem;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -11,7 +12,10 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemUtils;
+import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.ClipContext.Fluid;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BucketPickup;
@@ -27,17 +31,17 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
-public class BucketFoodItem extends BucketItem implements ConsumableItem {
+public class SkyrootBucketFoodItem extends SkyrootBucketItem implements ConsumableItem {
     boolean drinkAllowed = false;
 
-    public BucketFoodItem(RegistryObject<FlowingFluid> fluid, Item.Properties properties) {
+    public SkyrootBucketFoodItem(RegistryObject<FlowingFluid> fluid, Properties properties) {
         super(fluid, properties);
     }
 
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity user) {
         if (this.drinkAllowed) {
             this.consume(this, stack, user);
-            return stack.isEmpty() ? new ItemStack(Items.BUCKET) : stack;
+            return stack.isEmpty() ? new ItemStack(AetherItems.SKYROOT_BUCKET.get()) : stack;
         } else {
             return stack;
         }
