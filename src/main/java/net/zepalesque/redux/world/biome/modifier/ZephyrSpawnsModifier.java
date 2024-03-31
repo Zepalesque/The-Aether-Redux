@@ -29,9 +29,16 @@ public record ZephyrSpawnsModifier(HolderSet<Biome> biomes, AbstractCondition<?>
         if (phase == BiomeModifier.Phase.ADD && this.biomes.contains(biome) && this.condition.isConditionMet())
         {
             MobSpawnSettingsBuilder spawns = builder.getMobSpawnSettings();
-            spawns.getSpawner(AetherMobCategory.AETHER_SKY_MONSTER).replaceAll(data ->
-                data.type != AetherEntityTypes.ZEPHYR.get() ? data : new MobSpawnSettings.SpawnerData(data.type, data.getWeight().asInt() * 4, data.minCount + 2, data.maxCount + 5)
-            );
+            spawns.getSpawner(AetherMobCategory.AETHER_SKY_MONSTER).forEach(data -> {
+                if (data.type == AetherEntityTypes.ZEPHYR.get()) {
+                    if (!spawns.getSpawnerTypes().contains(MobCategory.MONSTER)) {
+                        Redux.LOGGER.error("UH oh, debug stuff happened!!! There is no Monster category in biome: {}", biome.unwrapKey().map(ResourceKey::location).map(ResourceLocation::toString).orElse("null"));
+                    } else {
+                        spawns.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(data.type, data.getWeight().asInt() * 4, data.minCount + 2, data.maxCount + 5));
+                        spawns.getSpawner(AetherMobCategory.AETHER_SKY_MONSTER).remove(data);
+                    }
+                }
+            });
 
         }
     }
