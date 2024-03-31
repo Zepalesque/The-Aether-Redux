@@ -90,20 +90,22 @@ public class ReduxOverlays {
 
     public static void tick(ReduxPlayer plr) {
         prevRebuxY = rebuxY;
-        if (plr.prevRebux() != plr.rebuxCount()) {
-            rebuxTarget = true;
-            rebuxCooldown = 100;
-        }
-        if ((rebuxTarget) && rebuxY < max) {
-            rebuxY++;
-        } else if (rebuxY > 0) {
-            if (!rebuxTarget)
-                rebuxY--;
-        }
-        if (rebuxCooldown > 0) {
-            rebuxCooldown--;
-        } else {
-            rebuxTarget = false;
+        if (!Minecraft.getInstance().isPaused()) {
+            if (plr.prevRebux() != plr.rebuxCount()) {
+                rebuxTarget = true;
+                rebuxCooldown = 100;
+            }
+            if ((rebuxTarget) && rebuxY < max) {
+                rebuxY++;
+            } else if (rebuxY > 0) {
+                if (!rebuxTarget)
+                    rebuxY--;
+            }
+            if (rebuxCooldown > 0) {
+                rebuxCooldown--;
+            } else {
+                rebuxTarget = false;
+            }
         }
     }
 
@@ -164,10 +166,11 @@ public class ReduxOverlays {
                 RenderSystem.depthMask(false);
                 RenderSystem.enableBlend();
                 guiGraphics.setColor(1.0F, 1.0F, 1.0F, alpha);
+                int barX = x - 80;
                 if (useInt) {
-                    guiGraphics.blit(COINBAR, x - 80, (int) offs, -90, 0.0F, 0.0F, 160, 32, 160, 32);
+                    guiGraphics.blit(COINBAR, barX, (int) offs, -90, 0.0F, 0.0F, 160, 32, 160, 32);
                 } else {
-                    GraphicsHelper.blit(guiGraphics, COINBAR, x - 80, offs, -90, 0.0F, 0.0F, 160, 32, 160, 32);
+                    GraphicsHelper.blit(guiGraphics, COINBAR, barX, offs, -90, 0.0F, 0.0F, 160, 32, 160, 32);
 
                 }
                 guiGraphics.setColor(1.0F, 1.0F, 1.0F, 1.0F);
@@ -177,12 +180,16 @@ public class ReduxOverlays {
                 poseStack.popPose();
                 Component text = Component.translatable("gui.aether_redux.coin_count", coinCount);
                 int width = font.width(text);
+                float buxX = x - (width / 2F) - 8;
+                float buxY = y - 8;
+                int textX = x + 8;
+                float textY = y/* - (font.lineHeight / 2F)*/;
                 if (useInt) {
-                    guiGraphics.drawCenteredString(font, text, x + 8, (int) (y - (font.lineHeight / 2F)), 0xFFFFFF);
-                    guiGraphics.blit(REBUX, (int) (x - (width / 2F) - 8), (int) y - 8, -89, 0.0F, 0.0F, 16, 16, 16, 16);
+                    guiGraphics.drawCenteredString(font, text, textX, (int) textY, 0xFFFFFF);
+                    guiGraphics.blit(REBUX, (int) buxX, (int) buxY, -89, 0.0F, 0.0F, 16, 16, 16, 16);
                 } else {
-                    GraphicsHelper.drawCenteredString(guiGraphics, font, text, x + 8, y - (font.lineHeight / 2F), 0xFFFFFF);
-                    GraphicsHelper.blit(guiGraphics, REBUX, (int) (x - (width / 2F) - 8), y - 8, -89, 0.0F, 0.0F, 16, 16, 16, 16);
+                    GraphicsHelper.drawCenteredString(guiGraphics, font, text, textX, textY, 0xFFFFFF);
+                    GraphicsHelper.blit(guiGraphics, REBUX, (int) buxX, buxY, -89, 0.0F, 0.0F, 16, 16, 16, 16);
                 }
             } else {
                 int y = (window.getGuiScaledWidth() / 8);

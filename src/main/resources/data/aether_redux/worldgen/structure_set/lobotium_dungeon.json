@@ -7,12 +7,12 @@
   ],
   "placement": {
     "type": "minecraft:random_spread",
-    "spacing": 12,
-    "separation": 10,
+    "spacing": 6,
+    "separation": 5,
     "salt": 1646207470
   },
   "exclusion_zone": {
-    "chunk_count": 8,
-    "other_set": "#aether:dungeons"
+    "chunk_count": 4,
+    "other_set": "#aether:silver_and_gold_dungeons"
   }
 }
