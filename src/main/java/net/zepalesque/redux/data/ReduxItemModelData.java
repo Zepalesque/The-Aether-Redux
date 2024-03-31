@@ -263,8 +263,11 @@ public class ReduxItemModelData extends AetherItemModelProvider {
 
         this.itemBlock(ReduxBlocks.VERIDIUM_BLOCK.get());
         this.itemBlock(ReduxBlocks.VERIDIUM_ORE.get());
-        this.itemBlock(ReduxBlocks.POPROCK_ORE.get());
         this.itemBlock(ReduxBlocks.RAW_VERIDIUM_BLOCK.get());
+        this.itemBlock(ReduxBlocks.CRYSTAL_GOLD_BLOCK.get());
+        this.itemBlock(ReduxBlocks.CRYSTAL_GOLD_ORE.get());
+        this.itemBlock(ReduxBlocks.RAW_CRYSTAL_GOLD_BLOCK.get());
+        this.itemBlock(ReduxBlocks.POPROCK_ORE.get());
 
         this.itemBlock(ReduxBlocks.RAW_VALKYRUM_BLOCK.get());
 

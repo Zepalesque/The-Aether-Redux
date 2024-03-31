@@ -565,17 +565,26 @@ public class ReduxBlocks {
             () -> new EnchantableBushBlock(CommonPlantBounds.FERN, BlockBehaviour.Properties.copy(Blocks.FERN).hasPostProcess(ReduxBlocks::always).sound(SoundType.MOSS_CARPET).offsetType(BlockBehaviour.OffsetType.XZ)));
     public static final RegistryObject<FlowerPotBlock> POTTED_SPLITFERN = BLOCKS.register("potted_splitfern", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SPLITFERN, Block.Properties.copy(Blocks.FLOWER_POT)));
 
-    public static RegistryObject<Block> VERIDIUM_ORE = register("veridium_ore",
-            () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOL).strength(3.0F).requiresCorrectToolForDrops()));
-
     public static RegistryObject<Block> POPROCK_ORE = register("poprock_ore",
             () -> new AetherDoubleDropsOreBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(2.0F).requiresCorrectToolForDrops().sound(SoundType.BASALT), UniformInt.of(5, 9)));
+
+    public static RegistryObject<Block> VERIDIUM_ORE = register("veridium_ore",
+            () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOL).strength(3.0F).requiresCorrectToolForDrops()));
 
     public static RegistryObject<Block> VERIDIUM_BLOCK = register("veridium_block",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.LAPIS).strength(5.0F, 6.0F).requiresCorrectToolForDrops().sound(SoundType.NETHERITE_BLOCK)));
 
     public static RegistryObject<Block> RAW_VERIDIUM_BLOCK = register("raw_veridium_block",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.LAPIS).strength(3.0F, 6.0F).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
+
+    public static RegistryObject<Block> CRYSTAL_GOLD_ORE = register("crystal_gold_ore",
+            () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOL).strength(3.0F).requiresCorrectToolForDrops()));
+
+    public static RegistryObject<Block> CRYSTAL_GOLD_BLOCK = register("crystal_gold_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.GOLD_BLOCK).mapColor(MapColor.QUARTZ)));
+
+    public static RegistryObject<Block> RAW_CRYSTAL_GOLD_BLOCK = register("raw_crystal_gold_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_GOLD_BLOCK).mapColor(MapColor.QUARTZ)));
 
     public static RegistryObject<Block> RAW_VALKYRUM_BLOCK = register("raw_valkyrum_block",
             () -> new Block(BlockBehaviour.Properties.copy(AetherBlocks.ZANITE_BLOCK.get()).strength(6.0F, 8.0F).mapColor(MapColor.TERRACOTTA_WHITE)));

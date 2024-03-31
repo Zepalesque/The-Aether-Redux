@@ -76,6 +76,7 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.ROCK_CANDY_SLAB, ReduxBlocks.ROCK_CANDY_WALL, event);
 
             putAfter(AetherBlocks.ZANITE_BLOCK, ReduxBlocks.VERIDIUM_BLOCK, event);
+            putAfter(ReduxBlocks.VERIDIUM_BLOCK, ReduxBlocks.CRYSTAL_GOLD_BLOCK, event);
 
             event.getEntries().put(new ItemStack(ReduxBlocks.VERIDIUM_LANTERN.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.getEntries().put(new ItemStack(ReduxBlocks.VERIDIUM_CHAIN.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
@@ -215,6 +216,8 @@ public class ReduxCreativeTabs {
             } else {
                 putAfter(AetherBlocks.GRAVITITE_ORE, ReduxBlocks.POPROCK_ORE, event);
             }
+            putAfter(ReduxBlocks.POPROCK_ORE, ReduxBlocks.CRYSTAL_GOLD_ORE, event);
+            putAfter(ReduxBlocks.CRYSTAL_GOLD_ORE, ReduxBlocks.RAW_CRYSTAL_GOLD_BLOCK, event);
             if (Redux.ancientAetherCompat()) {
                 putAfter(AncientAetherBlocks.VALKYRUM_ORE, ReduxBlocks.RAW_VALKYRUM_BLOCK, event);
             }

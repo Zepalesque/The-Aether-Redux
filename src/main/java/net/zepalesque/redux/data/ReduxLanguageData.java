@@ -608,17 +608,26 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.POTTED_INFERNIA, "Potted Infernia");
         addLore(ReduxBlocks.INFERNIA, "A flower found on Gold Dungeons. Its petals are hot, like a flame");
 
-        addBlock(ReduxBlocks.VERIDIUM_ORE, "Veridium Ore");
-        addLore(ReduxBlocks.VERIDIUM_ORE, "The ore of Veridium. This can be found around the Aether");
-
         addBlock(ReduxBlocks.POPROCK_ORE, "Poprock Ore");
         addLore(ReduxBlocks.POPROCK_ORE, "An ore found in boulders made of Rock Candy. This will drop Lemon Poprocks when mined.");
+
+        addBlock(ReduxBlocks.VERIDIUM_ORE, "Veridium Ore");
+        addLore(ReduxBlocks.VERIDIUM_ORE, "The ore of Veridium. This can be found around the Aether");
 
         addBlock(ReduxBlocks.VERIDIUM_BLOCK, "Block of Veridium");
         addLore(ReduxBlocks.VERIDIUM_BLOCK, "A block of pure Veridium. This can be crafted from Veridium Ingots.");
 
         addBlock(ReduxBlocks.RAW_VERIDIUM_BLOCK, "Block of Raw Veridium");
         addLore(ReduxBlocks.RAW_VERIDIUM_BLOCK, "A block of raw Veridium. This can be crafted from Raw Veridium.");
+
+        addBlock(ReduxBlocks.CRYSTAL_GOLD_ORE, "Crystal Gold Ore");
+        addLore(ReduxBlocks.CRYSTAL_GOLD_ORE, "The ore of Crystal Gold. This can be found around the Aether");
+
+        addBlock(ReduxBlocks.CRYSTAL_GOLD_BLOCK, "Block of Crystal Gold");
+        addLore(ReduxBlocks.CRYSTAL_GOLD_BLOCK, "A block of pure Crystal Gold. This can be crafted from Crystal Gold Ingots.");
+
+        addBlock(ReduxBlocks.RAW_CRYSTAL_GOLD_BLOCK, "Block of Raw Crystal Gold");
+        addLore(ReduxBlocks.RAW_CRYSTAL_GOLD_BLOCK, "A block of raw Crystal Gold. This can be crafted from Raw Crystal Gold.");
 
         addBlock(ReduxBlocks.RAW_VALKYRUM_BLOCK, "Block of Raw Valkyrum");
         addLore(ReduxBlocks.RAW_VALKYRUM_BLOCK, "A block of raw Valkyrum. This can be crafted from Raw Valkyrum.");
@@ -657,7 +666,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         add("item.minecraft.lingering_potion.effect.intoxication", "Lingering Potion of Intoxication");
         add("item.minecraft.tipped_arrow.effect.intoxication", "Arrow of Intoxication");
 
-        addMenuText("lobotium_treasure_chest", "Lobotium Treasure Chest");
+        addMenuText("aether_redux.lobotium_treasure_chest", "Lobotium Treasure Chest");
         addGeneric("lobotium_treasure_chest_locked", "This Treasure Chest must be unlocked with a Lobotium Key.");
 
         addGuiText("bittersweet_charm_poison_chance", "10% chance to poison targets of melee attacks");
