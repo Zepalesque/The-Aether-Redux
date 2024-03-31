@@ -74,6 +74,7 @@ public class ReduxParticleTypes {
     public static final RegistryObject<SimpleParticleType> FROST = PARTICLES.register("frost", () -> new SimpleParticleType(false));
 
     public static final RegistryObject<SimpleParticleType> SHIMMERSTAR = PARTICLES.register("shimmerstar", () -> new SimpleParticleType(false));
+    public static final RegistryObject<SimpleParticleType> REBUX = PARTICLES.register("rebux_glimmer", () -> new SimpleParticleType(false));
     public static final RegistryObject<ParticleType<ItemParticleOption>> RANDOM_MOVEMENT_ITEM = register("random_movement_item", false, ItemParticleOption.DESERIALIZER, ItemParticleOption::codec);
 
     public static final RegistryObject<SimpleParticleType> BLIGHTSHADE = PARTICLES.register("blightshade", () -> new SimpleParticleType(false));
@@ -132,6 +133,7 @@ public class ReduxParticleTypes {
         registerSpriteSet(event, SPARK.get(), SparkParticle.Provider::new);
 
         registerSpriteSet(event, SHIMMERSTAR.get(), ShimmerstarParticle.Provider::new);
+        registerSpriteSet(event, REBUX.get(), RebuxParticle.Provider::new);
         registerSpriteSet(event, RANDOM_MOVEMENT_ITEM.get(), sprites -> new RandomMovementItemParticle.Provider());
 
         registerSpriteSet(event, BLIGHTSHADE.get(), BlightshadeParticle.Provider::new);

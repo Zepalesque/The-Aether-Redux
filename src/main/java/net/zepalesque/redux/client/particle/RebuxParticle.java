@@ -9,11 +9,12 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
-public class ShimmerstarParticle extends TextureSheetParticle {
+public class RebuxParticle extends TextureSheetParticle {
    static final RandomSource RANDOM = RandomSource.create();
    private final SpriteSet sprites;
+   private final int fadeStartThreshold;
 
-   ShimmerstarParticle(ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, SpriteSet sprites) {
+   RebuxParticle(ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, SpriteSet sprites) {
       super(level, x, y, z, xSpeed, ySpeed, zSpeed);
       this.friction = 0.96F;
       this.speedUpWhenYMotionIsBlocked = true;
@@ -21,12 +22,21 @@ public class ShimmerstarParticle extends TextureSheetParticle {
       this.quadSize *= 0.75F;
       this.hasPhysics = false;
       this.setSpriteFromAge(sprites);
+      this.fadeStartThreshold = this.lifetime / 3;
+   }
+
+   @Override
+   public void tick() {
+      super.tick();
+      int countdown = (this.lifetime - this.age);
+      if (countdown <= this.fadeStartThreshold) {
+         this.alpha = (float) countdown / this.fadeStartThreshold;
+      }
    }
 
    public ParticleRenderType getRenderType() {
       return ParticleRenderType.PARTICLE_SHEET_TRANSLUCENT;
    }
-
 
    public int getLightColor(float partialTick) {
       float f = ((float)this.age + partialTick) / (float)this.lifetime;
@@ -51,7 +61,7 @@ public class ShimmerstarParticle extends TextureSheetParticle {
       }
 
       public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
-         ShimmerstarParticle shimmerstar = new ShimmerstarParticle(level, x, y, z, 0.5D - ShimmerstarParticle.RANDOM.nextDouble(), ySpeed, 0.5D - ShimmerstarParticle.RANDOM.nextDouble(), this.sprite);
+         RebuxParticle shimmerstar = new RebuxParticle(level, x, y, z, 0.5D - RebuxParticle.RANDOM.nextDouble(), ySpeed, 0.5D - RebuxParticle.RANDOM.nextDouble(), this.sprite);
          shimmerstar.pickSprite(this.sprite);
          shimmerstar.yd *= 0.05F;
          if (xSpeed == 0.0D && zSpeed == 0.0D) {

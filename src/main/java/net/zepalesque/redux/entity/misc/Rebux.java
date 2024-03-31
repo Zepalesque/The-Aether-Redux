@@ -16,13 +16,16 @@ import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.util.ITeleporter;
 import net.minecraftforge.fluids.FluidType;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.capability.player.ReduxPlayer;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
+import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
+import net.zepalesque.redux.util.math.MathUtil;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -139,6 +142,14 @@ public class Rebux extends Entity {
             ReduxPlayer.get(entity).ifPresent(reduxPlayer -> reduxPlayer.increaseRebux(count));
             this.setCount(0);
             this.discard();
+            AABB box = this.getBoundingBox();
+            int particles = this.random.nextInt(2) + 4;
+            for (int i = 0; i < particles; i++) {
+                double x = MathUtil.nextDouble(box.minX, box.maxX, this.random);
+                double y = MathUtil.nextDouble(box.minY, box.maxY, this.random);
+                double z = MathUtil.nextDouble(box.minZ, box.maxZ, this.random);
+                this.level().addParticle(ReduxParticleTypes.SHIMMERSTAR.get(), x, y, z, 0D, 0D, 0D);
+            }
         }
     }
 
