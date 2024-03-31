@@ -136,20 +136,21 @@ public class Rebux extends Entity {
     }
 
     public void doPickup(Player entity) {
+        AABB box = this.getBoundingBox();
+        int particles = this.random.nextInt(2) + 4;
+        for (int i = 0; i < particles; i++) {
+            double x = MathUtil.nextDouble(box.minX, box.maxX, this.random);
+            double y = MathUtil.nextDouble(box.minY, box.maxY, this.random);
+            double z = MathUtil.nextDouble(box.minZ, box.maxZ, this.random);
+            this.level().addParticle(ReduxParticleTypes.SHIMMERSTAR.get(), x, y, z, 0D, 0D, 0D);
+        }
         if (!this.level().isClientSide) {
             this.playSound(ReduxSoundEvents.COIN_PICKUP.get());
             int count = this.getCount();
             ReduxPlayer.get(entity).ifPresent(reduxPlayer -> reduxPlayer.increaseRebux(count));
             this.setCount(0);
             this.discard();
-            AABB box = this.getBoundingBox();
-            int particles = this.random.nextInt(2) + 4;
-            for (int i = 0; i < particles; i++) {
-                double x = MathUtil.nextDouble(box.minX, box.maxX, this.random);
-                double y = MathUtil.nextDouble(box.minY, box.maxY, this.random);
-                double z = MathUtil.nextDouble(box.minZ, box.maxZ, this.random);
-                this.level().addParticle(ReduxParticleTypes.SHIMMERSTAR.get(), x, y, z, 0D, 0D, 0D);
-            }
+
         }
     }
 
