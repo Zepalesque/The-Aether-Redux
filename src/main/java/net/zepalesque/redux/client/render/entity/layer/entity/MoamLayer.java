@@ -11,26 +11,21 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.Mth;
-import net.zepalesque.redux.capability.animation.moa.MoaAnimation;
-import net.zepalesque.redux.client.render.entity.model.entity.MoaReduxModel;
+import net.zepalesque.redux.client.render.entity.model.entity.MoamModel;
 import net.zepalesque.redux.client.render.util.MoaUtils;
-import net.zepalesque.redux.config.ReduxConfig;
-import net.zepalesque.redux.config.enums.MoaFeetType;
-import net.zepalesque.redux.util.math.MathUtil;
 
 import javax.annotation.Nonnull;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
+public class MoamLayer extends RenderLayer<Moa, MoaModel> {
 
     protected final MoaRenderer parent;
-    private final MoaReduxModel updated;
+    private final MoamModel updated;
 
     private static final Map<ResourceLocation, ResourceLocation> TRANSLATION_MAP = new HashMap<>();
 
-    public MoaReduxLayer(MoaRenderer entityRenderer, MoaReduxModel updated) {
+    public MoamLayer(MoaRenderer entityRenderer, MoamModel updated) {
         super(entityRenderer);
         this.updated = updated;
         this.parent = entityRenderer;
