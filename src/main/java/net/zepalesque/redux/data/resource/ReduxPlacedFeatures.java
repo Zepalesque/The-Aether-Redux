@@ -65,7 +65,7 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> GLIMMERSTOOL_PATCH = copyKey(ReduxConfiguredFeatures.GLIMMERSTOOL_PATCH);
     public static final ResourceKey<PlacedFeature> BLIGHT_TREES = copyKey(ReduxConfiguredFeatures.BLIGHT_TREES);
     public static final ResourceKey<PlacedFeature> DEEP_TREES = copyKey(ReduxConfiguredFeatures.DEEP_TREES);
-    public static final ResourceKey<PlacedFeature> CANDY_TREES = copyKey(ReduxConfiguredFeatures.DEEP_TREES);
+    public static final ResourceKey<PlacedFeature> CANDY_TREES = copyKey(ReduxConfiguredFeatures.CANDY_TREES);
     public static final ResourceKey<PlacedFeature> CLOUDCAP_MUSHLING_PATCH = copyKey(ReduxConfiguredFeatures.CLOUDCAP_MUSHLING_PATCH);
     public static final ResourceKey<PlacedFeature> DAGGERBLOOM_PATCH = copyKey(ReduxConfiguredFeatures.DAGGERBLOOM_PATCH);
     public static final ResourceKey<PlacedFeature> PINK_COTTON_CANDY_PATCH = copyKey(ReduxConfiguredFeatures.PINK_COTTON_CANDY_PATCH);
