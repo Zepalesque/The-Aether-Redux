@@ -1,8 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package net.zepalesque.redux.world.structure;
 
 import com.mojang.serialization.Codec;
