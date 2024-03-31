@@ -80,6 +80,16 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                         HAS_SILK_TOUCH.invert().build(),
                         LootItemBlockStatePropertyCondition.hasBlockStateProperties(ReduxBlocks.VERIDIUM_ORE.get()).build()}));
 
+        this.add("raw_crystal_gold", new RawOreModifier(ReduxBlocks.CRYSTAL_GOLD_ORE.get().asItem(), new ItemStack(ReduxItems.RAW_CRYSTAL_GOLD.get()),
+                new LootItemFunction[] {
+                        SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)).build(),
+                        ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE).build()
+                },
+                new LootItemCondition[] {
+                        DataLootCondition.conditionOf(Conditions.RAW_ORES).build(),
+                        HAS_SILK_TOUCH.invert().build(),
+                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(ReduxBlocks.VERIDIUM_ORE.get()).build()}));
+
         this.add("sentry_chip", new AddDrops(new ItemStack(ReduxItems.SENTRY_CHIP.get()),
                 new LootItemFunction[] {
                         SetItemCountFunction.setCount(UniformGenerator.between(0, 1.0F)).build(),
