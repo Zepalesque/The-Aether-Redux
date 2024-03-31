@@ -24,7 +24,7 @@ import net.zepalesque.redux.client.render.entity.layer.entity.*;
 import net.zepalesque.redux.client.render.entity.misc.ReduxBoatRenderer;
 import net.zepalesque.redux.client.render.entity.model.PinModel;
 import net.zepalesque.redux.client.render.entity.model.RebuxModel;
-import net.zepalesque.redux.client.render.entity.model.RebuxRenderer;
+import net.zepalesque.redux.client.render.entity.RebuxRenderer;
 import net.zepalesque.redux.client.render.entity.model.SpearModel;
 import net.zepalesque.redux.client.render.entity.model.entity.*;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
