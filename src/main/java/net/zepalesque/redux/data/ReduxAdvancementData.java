@@ -122,7 +122,7 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
                             FrameType.TASK, true, true, false)
                     .addCriterion("phudge_bite", EntityHurtPlayerTrigger.TriggerInstance.entityHurtPlayer(DamagePredicate.Builder.damageInstance().sourceEntity(EntityPredicate.Builder.entity().of(ReduxEntityTypes.PHUDGE.get()).build()).build()))
                     .save(consumer, Redux.locate("phudge_bite"), existingFileHelper);
-
+/*
             Advancement.Builder.advancement()
                     .parent(candy2)
                     .display(AetherItems.PIG_SLAYER.get(),
@@ -138,7 +138,20 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
                                             EntityEquipmentPredicate.Builder.equipment().mainhand(ItemPredicate.Builder.item().of(AetherItems.PIG_SLAYER.get()).build()).build()
                                             ))
                             ))
-                    .save(consumer, Redux.locate("phudge_slayer"), existingFileHelper);
+                    .save(consumer, Redux.locate("phudge_slayer"), existingFileHelper);*/
+
+            Advancement.Builder.advancement()
+                    .parent(install)
+                    .display(ReduxItems.RAW_CRYSTAL_GOLD.get(),
+                            Component.translatable("advancement.aether_redux.crystal_gold"),
+                            Component.translatable("advancement.aether_redux.crystal_gold.desc")
+                                    .append(Component.translatable("gui.aether_redux.advancement_suffix").withStyle(style -> style.withColor(Redux.REDUX_PURPLE))),
+
+                            null,
+                            FrameType.TASK, true, true, false)
+                    .addCriterion("crystal_gold", InventoryChangeTrigger.TriggerInstance.hasItems(ReduxItems.RAW_CRYSTAL_GOLD.get(), ReduxBlocks.CRYSTAL_GOLD_ORE.get()))
+                    .save(consumer, Redux.locate("crystal_gold"), existingFileHelper);
+
 
             Advancement lobotium = Advancement.Builder.advancement()
                     .parent(install)
@@ -195,6 +208,7 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
                             FrameType.TASK, true, true, false)
                     .addCriterion("obtain_grand_medal", InventoryChangeTrigger.TriggerInstance.hasItems(ReduxItems.GRAND_VICTORY_MEDAL.get()))
                     .save(consumer, Redux.locate("obtain_grand_medal"), existingFileHelper);
+
             Advancement.Builder.advancement()
                     .parent(medal)
                     .display(ReduxItems.SOLAR_EMBLEM.get(),
