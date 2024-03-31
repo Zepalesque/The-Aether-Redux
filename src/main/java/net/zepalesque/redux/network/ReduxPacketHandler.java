@@ -25,7 +25,7 @@ public class ReduxPacketHandler {
 
     public static synchronized void register() {
         register(ReduxCockatriceSyncPacket.class, ReduxCockatriceSyncPacket::decode);
-        register(DoubleJumpPacket.class, DoubleJumpPacket::decode);
+        register(DoubleJumpOrDashPacket.class, DoubleJumpOrDashPacket::decode);
         register(ReduxPlayerSyncPacket.class, ReduxPlayerSyncPacket::decode);
         register(UpdateJumpAbilityPacket.class, UpdateJumpAbilityPacket::decode);
         register(ShootFireballPacket.class, ShootFireballPacket::decode);

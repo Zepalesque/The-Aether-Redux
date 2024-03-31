@@ -264,6 +264,7 @@ public class ReduxCreativeTabs {
             putAfter(ReduxItems.OATMEAL, ReduxItems.LEMON_POPROCKS, event);
 
             event.getEntries().put(new ItemStack(ReduxItems.FIREINTHEHOLE.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.getEntries().put(new ItemStack(ReduxItems.SKYBUD_PETAL.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
 
             putAfter(AetherItems.GOLDEN_GUMMY_SWET, ReduxItems.VANILLA_GUMMY_SWET, event);
 

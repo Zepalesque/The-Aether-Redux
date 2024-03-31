@@ -19,6 +19,9 @@ public class ReduxFoods {
     public static final FoodProperties GLOWBUDS = (new FoodProperties.Builder()).fast().nutrition(1).saturationMod(0.05F)
             .effect( () -> new MobEffectInstance(ReduxEffects.BLIGHTWARD.get(), 610, 0), 0.2F).alwaysEat().build();
 
+    public static final FoodProperties C18H24O2 = (new FoodProperties.Builder()).fast().nutrition(1).saturationMod(0.05F)
+            .effect( () -> new MobEffectInstance(ReduxEffects.DASH.get(), 360000, 0), 1.0F).alwaysEat().build();
+
     public static final FoodProperties PURIFIED_GLOWBUDS = (new FoodProperties.Builder()).fast().nutrition(2).saturationMod(0.1F)
             .effect( () -> new MobEffectInstance(ReduxEffects.BLIGHTWARD.get(), 1510, 0), 1.0F).alwaysEat().build();
 

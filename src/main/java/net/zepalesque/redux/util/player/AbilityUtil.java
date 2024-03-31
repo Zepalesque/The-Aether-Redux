@@ -28,6 +28,15 @@ public class AbilityUtil {
                 0.9F + entity.level().random.nextFloat() * 0.2F);
     }
 
+    public static void doDashMovement(LivingEntity entity) {
+        double mult = 1.0D;
+        Vec3 lookVec = entity.getLookAngle().multiply(mult, mult, mult);
+        entity.setDeltaMovement(lookVec);
+        spawnDoubleJumpParticles(entity.level(), entity.position().x, entity.position().y, entity.position().z, 1.5D, 12);
+        entity.level().playSound(null, entity.position().x, entity.position().y, entity.position().z, ReduxSoundEvents.DASH.get(), SoundSource.PLAYERS, 0.4f,
+                0.9F + entity.level().random.nextFloat() * 0.2F);
+    }
+
     public static void spawnDoubleJumpParticles(Level level, double x, double y, double z, double radius, int quantity) {
         RandomSource random = level.random;
 

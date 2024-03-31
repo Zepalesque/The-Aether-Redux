@@ -92,6 +92,7 @@ public class ReduxSoundEvents {
     public static final RegistryObject<SoundEvent> SPEAR_LAND = register("item.spear.land");
 
     public static final RegistryObject<SoundEvent> BOOST_JUMP = register("generic.boost_jump");
+    public static final RegistryObject<SoundEvent> DASH = register("generic.dash");
     public static final RegistryObject<SoundEvent> FIREBALL_SHOOT = register("generic.fireball_shoot");
     public static final RegistryObject<SoundEvent> HEARTBEAT_FAST = register("generic.heartbeat_fast");
     public static final RegistryObject<SoundEvent> HEARTBEAT_MED = register("generic.heartbeat_med");

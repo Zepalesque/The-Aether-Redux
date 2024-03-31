@@ -106,6 +106,9 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
         this.add(ReduxSoundEvents.BOOST_JUMP,
                 definition().with(sound("aether_redux:generic/boost_jump"))
                         .subtitle("subtitles.aether_redux.generic.boost_jump"));
+        this.add(ReduxSoundEvents.DASH,
+                definition().with(sound("aether_redux:generic/dash1"), sound("aether_redux:generic/dash2"))
+                        .subtitle("subtitles.aether_redux.generic.dash"));
         this.add(ReduxSoundEvents.FIREBALL_SHOOT,
                 definition().with(sound("aether_redux:generic/fireball_shoot"))
                         .subtitle("subtitles.aether_redux.generic.fireball_shoot"));

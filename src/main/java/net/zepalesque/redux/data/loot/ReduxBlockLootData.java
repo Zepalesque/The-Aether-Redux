@@ -2,7 +2,6 @@ package net.zepalesque.redux.data.loot;
 
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.providers.AetherBlockLootSubProvider;
-import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether.loot.functions.DoubleDrops;
 import com.aetherteam.aether.mixin.mixins.common.accessor.BlockLootAccessor;
 import net.minecraft.advancements.critereon.BlockPredicate;
@@ -285,7 +284,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropPottedContents(ReduxBlocks.POTTED_INFERNIA.get());
         this.add(ReduxBlocks.WYNDSPROUTS.get(), createSproutsDrops(ReduxBlocks.WYNDSPROUTS.get(), ReduxItems.WYNDSPROUT_SEEDS.get(), 0.25F));
         this.dropPottedContents(ReduxBlocks.POTTED_WYNDSPROUTS.get());
-        this.add(ReduxBlocks.SKYSPROUTS.get(), createSproutsDrops(ReduxBlocks.SKYSPROUTS.get(), ReduxItems.SKYSPROUT_SEEDS.get(), 0.25F));
+        this.add(ReduxBlocks.SKYSPROUTS.get(), createSproutsDrops(ReduxBlocks.SKYSPROUTS.get(), ReduxItems.SKYBUD_PETAL.get(), 0.05F));
         this.dropPottedContents(ReduxBlocks.POTTED_SKYSPROUTS.get());
         this.dropSelf(ReduxBlocks.SPLITFERN.get());
         this.dropPottedContents(ReduxBlocks.POTTED_SPLITFERN.get());
