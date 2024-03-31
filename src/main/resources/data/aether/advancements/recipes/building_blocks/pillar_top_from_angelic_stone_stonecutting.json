@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_angelic_stone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "aether_redux:crystal_gold_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "aether:pillar_top_from_angelic_stone_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_angelic_stone",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "aether:pillar_top_from_angelic_stone_stonecutting"
+    ]
+  },
+  "sends_telemetry_event": false
+}

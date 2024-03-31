@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "C": {
+      "item": "aether_redux:crystal_gold_ingot"
+    }
+  },
+  "pattern": [
+    "CC",
+    "CC",
+    "CC"
+  ],
+  "result": {
+    "count": 2,
+    "item": "aether:pillar"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,18 @@
+{
+  "item.ancient_aether.turquoise_moa_egg": "Turquoise Moammm Egg",
+  "item.ancient_aether.teal_moa_egg": "Teal Moamm Egg",
+  "item.ancient_aether.sky_blue_moa_egg": "Sky Blue Moamm Egg",
+  "item.ancient_aether.lavender_moa_egg": "Lavender Moamm Egg",
+  "item.ancient_aether.sakura_moa_egg": "Sakura Moamm Egg",
+  "item.ancient_aether.violet_moa_egg": "Violet Moamm Egg",
+  "item.ancient_aether.burgundy_moa_egg": "Burgundy Moamm Egg",
+  "advancement.ancient_aether.moa_eggs.desc": "Collect all the different Moamm Eggs",
+  "advancement.ancient_aether.sakura_moa.desc": "Ride a Sakura Moamm",
+  "lore.item.ancient_aether.turquoise_moa_egg": "An egg laid by a Turquoise Moam. Hatching this provides a Turquoise Moam with 7 mid-air jumps.",
+  "lore.item.ancient_aether.teal_moa_egg": "An egg laid by a Teal Moam. Hatching this provides a Teal Moam with 6 mid-air jumps and a faster flying speed.",
+  "lore.item.ancient_aether.sky_blue_moa_egg": "An egg laid by a Sky Blue Moam. Hatching this provides a Sky Blue Moam with 5 mid-air jumps and a faster flying speed.",
+  "lore.item.ancient_aether.lavender_moa_egg": "An egg laid by a Lavender Moam. Hatching this provides a Lavender Moam with 3 mid-air jumps. These moams have been given a very fast a flying speed as a compensation.",
+  "lore.item.ancient_aether.sakura_moa_egg": "An egg laid by a Sakura Moam. Hatching this provides a Sakura Moam with 12 mid-air jumps. Because of their high amount mid-air jumps, their flying speed isn't that great",
+  "lore.item.ancient_aether.violet_moa_egg": "An egg laid by a Violet Moam. Hatching this provides a Violet Moam with 4 mid-air jumps. These moams have been given a very fast a flying speed as a compensation.",
+  "lore.item.ancient_aether.burgundy_moa_egg": "An egg laid by a Burgundy Moam. Hatching this provides a Burgundy Moam with 10 mid-air jumps."
+}

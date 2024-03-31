@@ -132,6 +132,10 @@ public class ReduxItems {
     public static final RegistryObject<Item> VERIDIUM_INGOT = register("veridium_ingot", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> VERIDIUM_NUGGET = register("veridium_nugget", () -> new Item(new Item.Properties()));
 
+    public static final RegistryObject<Item> RAW_CRYSTAL_GOLD = register("raw_crystal_gold", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> CRYSTAL_GOLD_INGOT = register("crystal_gold_ingot", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> CRYSTAL_GOLD_NUGGET = register("crystal_gold_nugget", () -> new Item(new Item.Properties()));
+
     public static final RegistryObject<Item> REDUX_BASE_ICON = register("redux_base_icon", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> REBUX_CARD_ICON = register("rebux_card_icon", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> REBUXIONAIRE_ICON = register("rebuxionaire_icon", () -> new Item(new Item.Properties()));

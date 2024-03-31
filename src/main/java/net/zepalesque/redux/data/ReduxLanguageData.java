@@ -519,6 +519,15 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.RAW_VERIDIUM, "Raw Veridium");
         addLore(ReduxItems.RAW_VERIDIUM, "A chunk of Raw Veridium. This can be smelted into an ingot.");
 
+        addItem(ReduxItems.CRYSTAL_GOLD_INGOT, "Crystal Gold Ingot");
+        addLore(ReduxItems.CRYSTAL_GOLD_INGOT, "An bar of pure Crystal Gold, which can be used to craft the pillars seen on the sides of Silver Dungeons.");
+
+        addItem(ReduxItems.RAW_CRYSTAL_GOLD, "Raw Crystal Gold");
+        addLore(ReduxItems.RAW_CRYSTAL_GOLD, "A chunk of Raw Crystal Gold. This can be smelted into an ingot.");
+
+        addItem(ReduxItems.CRYSTAL_GOLD_NUGGET, "Crystal Gold Nugget");
+        addLore(ReduxItems.CRYSTAL_GOLD_NUGGET, "A small chunk of Crystal Gold, crafted with an ingot.");
+
         addItem(ReduxItems.RAW_GRAVITITE, "Raw Gravitite");
         addLore(ReduxItems.RAW_GRAVITITE, "A chunk of the Aether's pink Gravitite. This can be enchanted at an Altar, and turned into armor and tools with gravity-based abilities!");
 

@@ -252,6 +252,10 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         this.item(ReduxItems.VERIDIUM_INGOT, "materials/");
         this.item(ReduxItems.RAW_VERIDIUM, "materials/");
 
+        this.item(ReduxItems.RAW_CRYSTAL_GOLD, "materials/");
+        this.item(ReduxItems.CRYSTAL_GOLD_INGOT, "materials/");
+        this.item(ReduxItems.CRYSTAL_GOLD_NUGGET, "materials/");
+
         this.item(ReduxItems.RAW_GRAVITITE, "materials/");
         this.item(ReduxItems.RAW_VALKYRUM, "materials/");
         this.item(ReduxItems.GRAVITITE_INGOT, "materials/");

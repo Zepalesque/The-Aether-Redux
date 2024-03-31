@@ -77,9 +77,16 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
         smeltingOreRecipe(ReduxItems.VERIDIUM_INGOT.get(), ReduxItems.RAW_VERIDIUM.get(), 0.8F).save(consumer, name("smelt_raw_veridium"));
         blastingOreRecipe(ReduxItems.VERIDIUM_INGOT.get(), ReduxItems.RAW_VERIDIUM.get(), 0.8F).save(consumer, name("blast_raw_veridium"));
 
+        smeltingOreRecipe(ReduxItems.CRYSTAL_GOLD_INGOT.get(), ReduxItems.RAW_CRYSTAL_GOLD.get(), 0.8F).save(consumer, name("smelt_raw_crystal_gold"));
+        blastingOreRecipe(ReduxItems.CRYSTAL_GOLD_INGOT.get(), ReduxItems.RAW_CRYSTAL_GOLD.get(), 0.8F).save(consumer, name("blast_raw_crystal_gold"));
+
+        smeltingOreRecipe(ReduxItems.CRYSTAL_GOLD_INGOT.get(), ReduxBlocks.CRYSTAL_GOLD_ORE.get(), 0.8F).save(consumer, name("smelt_crystal_gold"));
+        blastingOreRecipe(ReduxItems.CRYSTAL_GOLD_INGOT.get(), ReduxBlocks.CRYSTAL_GOLD_ORE.get(), 0.8F).save(consumer, name("blast_crystal_gold"));
+
         smeltingOreRecipe(ReduxItems.LEMON_POPROCKS.get(), ReduxBlocks.POPROCK_ORE.get(), 0.2F).save(consumer, name("smelt_poprocks"));
 
         oreBlockStorageRecipesRecipesWithCustomUnpacking(consumer, RecipeCategory.MISC, ReduxItems.VERIDIUM_INGOT.get(), RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.VERIDIUM_BLOCK.get(), "veridium_ingot_from_veridium_block", "veridium_ingot");
+        oreBlockStorageRecipesRecipesWithCustomUnpacking(consumer, RecipeCategory.MISC, ReduxItems.CRYSTAL_GOLD_INGOT.get(), RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.CRYSTAL_GOLD_BLOCK.get(), "crystal_gold_ingot_from_crystal_gold_block", "crystal_gold_ingot");
 
         oreBlockStorageRecipesRecipesWithCustomUnpacking(consumer, RecipeCategory.MISC, ReduxItems.RAW_VERIDIUM.get(), RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.RAW_VERIDIUM_BLOCK.get(), "raw_veridium_from_raw_veridium_block", "raw_veridium");
         oreBlockStorageRecipesRecipesWithCustomUnpacking(consumer, RecipeCategory.MISC, ReduxItems.RAW_VALKYRUM.get(), RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.RAW_VALKYRUM_BLOCK.get(), "raw_valkyrum_from_raw_valkyrum_block", "raw_valkyrum");
@@ -615,6 +622,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
         makeSword(ReduxItems.VERIDIUM_SWORD, ReduxItems.VERIDIUM_INGOT).save(consumer);
 
         oreBlockStorageRecipesRecipesWithCustomUnpacking(consumer, RecipeCategory.MISC, ReduxItems.VERIDIUM_NUGGET.get(), RecipeCategory.MISC, ReduxItems.VERIDIUM_INGOT.get(), "veridium_nugget", "veridium_nugget_to_veridium_ingot");
+        oreBlockStorageRecipesRecipesWithCustomUnpacking(consumer, RecipeCategory.MISC, ReduxItems.CRYSTAL_GOLD_NUGGET.get(), RecipeCategory.MISC, ReduxItems.CRYSTAL_GOLD_INGOT.get(), "crystal_gold_nugget", "crystal_gold_nugget_to_crystal_gold_ingot");
 
         woodFromLogs(consumer, ReduxBlocks.PEPPERMINT_BLOCK.get(), ReduxBlocks.PEPPERMINT_LOG.get());
 

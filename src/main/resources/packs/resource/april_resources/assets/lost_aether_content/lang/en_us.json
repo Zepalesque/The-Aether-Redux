@@ -1,0 +1,6 @@
+{
+  "item.lost_aether_content.orange_moa_egg": "Orange Moam Egg",
+  "item.lost_aether_content.brown_moa_egg": "Brown Moam Egg",
+  "lore.item.lost_aether_content.orange_moa_egg": "An egg laid by an Orange Moam. The egg is surprisingly light. When incubated produces an Orange Moam with 2 mid-air jumps. This Moam has a special ability that allows it to speed up gradually when moving in a single direction. Strafing does not seem to harm its speed directly, but does make it speed up slower. Turning decreases its speed. When grounded, it gains speed much slower than it would otherwise in the air.",
+  "lore.item.lost_aether_content.brown_moa_egg": "A mysterious brown egg of a Moam not found in the wild. If a Blue and Orange Moam are near each-other, they can be observed laying these eggs. Hatching this provides a Brown Moam with decent speed, and 3 mid-air jumps, of which are stronger than usual. These Moams are also immune to the effects of inebreation. Once grown, Brown Moams can lay these eggs as expected."
+}
