@@ -104,7 +104,7 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> CLOUDCAP_MUSHLING_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.CLOUDCAP_MUSHLING) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_GILDED_OAK_TREE = createKey(Folders.TREE + "fancy_gilded_oak_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CRYSTALLIUM_GILDED_TREE = createKey(Folders.TREE + "crystallium_gilded_tree");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> CRYSTALLIUM_GOLDEN_TREE = createKey(Folders.TREE + "crystallium_gilded_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CRYSTALLIUM_GOLDEN_TREE = createKey(Folders.TREE + "crystallium_golden_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CRYSTALLIUM_TREES = createKey(Folders.TREE + "crystallium_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_GOLDEN_OAK_TREE = createKey(Folders.TREE + "fancy_golden_oak_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> DAGGERBLOOM_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.DAGGERBLOOM) + "_patch");
