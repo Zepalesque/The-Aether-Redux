@@ -1,11 +1,12 @@
 {
-  "type": "minecraft:jigsaw",
+  "type": "aether_redux:height_threshold_jigsaw",
   "biomes": "#aether_redux:has_lobotium_dungeon",
   "step": "surface_structures",
   "spawn_overrides": {},
   "terrain_adaptation": "beard_thin",
   "start_pool": "aether_redux:lobotium_dungeon",
   "size": 1,
+  "min_height": 16,
   "start_height": {
     "absolute": 1
   },
