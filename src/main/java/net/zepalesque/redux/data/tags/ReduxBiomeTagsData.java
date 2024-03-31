@@ -78,6 +78,7 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
                 .addOptional(GenesisBiomes.VIBRANT_WOODLAND.location())
                 .addOptional(GenesisBiomes.VIBRANT_FOREST.location());
         this.tag(ReduxTags.Biomes.HAS_VERIDIUM_ORE).addTag(AetherTags.Biomes.IS_AETHER);
+        this.tag(ReduxTags.Biomes.ZEPHYR_MODIFY).addTag(AetherTags.Biomes.IS_AETHER);
         this.tag(ReduxTags.Biomes.HAS_DIVINITE).addTag(AetherTags.Biomes.IS_AETHER).remove(ReduxTags.Biomes.IS_GILDED);
         this.tag(ReduxTags.Biomes.HAS_SENTRITE).addTag(AetherTags.Biomes.IS_AETHER).remove(ReduxTags.Biomes.IS_GILDED);
         this.tag(ReduxTags.Biomes.HAS_REDUX_WATER_COLOR).addTag(AetherTags.Biomes.IS_AETHER);

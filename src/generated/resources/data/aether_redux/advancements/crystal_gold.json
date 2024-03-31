@@ -1,0 +1,49 @@
+{
+  "parent": "aether_redux:install",
+  "criteria": {
+    "crystal_gold": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "aether_redux:raw_crystal_gold"
+            ]
+          },
+          {
+            "items": [
+              "aether_redux:crystal_gold_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "extra": [
+        {
+          "color": "#9384F4",
+          "translate": "gui.aether_redux.advancement_suffix"
+        }
+      ],
+      "translate": "advancement.aether_redux.crystal_gold.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "aether_redux:raw_crystal_gold"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.aether_redux.crystal_gold"
+    }
+  },
+  "requirements": [
+    [
+      "crystal_gold"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -50,6 +50,7 @@ public class ReduxBiomeModifiers {
     public static final ResourceKey<BiomeModifier> WATER_COLOR_AETHER = createKey(MODIFY + "water_color");
     public static final ResourceKey<BiomeModifier> AETHER_COLOR_OVERRIDE = createKey(MODIFY + "aether_color_override");
     public static final ResourceKey<BiomeModifier> MUSIC_MODIFY = createKey(MODIFY + "music_modify");
+    public static final ResourceKey<BiomeModifier> MODIFY_ZEPHYR_SPAWNS = createKey(MODIFY + "music_modify");
 
     private static ResourceKey<BiomeModifier> createKey(String name) {
         return ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, Redux.locate(name));
@@ -115,6 +116,8 @@ public class ReduxBiomeModifiers {
 
         context.register(MUSIC_MODIFY, new MusicModifier(biomes.getOrThrow(ReduxTags.Biomes.MUSIC_MODIFY),
                 Optional.empty(), Optional.of(CodecPredicates.DualInt.of(600, 2400)), Optional.of(false), Optional.empty(), Optional.empty(), Optional.empty()));
+
+        context.register(MODIFY_ZEPHYR_SPAWNS, new ZephyrSpawnsModifier(biomes.getOrThrow(ReduxTags.Biomes.ZEPHYR_MODIFY), Conditions.ZEPHYR_MOMENTO));
 
 
 

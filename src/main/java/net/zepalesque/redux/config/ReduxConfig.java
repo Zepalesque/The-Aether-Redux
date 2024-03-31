@@ -80,6 +80,8 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue vanilla_swets;
         public final ForgeConfigSpec.BooleanValue first_startup_aeroblender_setup;
 
+        public final ForgeConfigSpec.BooleanValue zephyr_meme_tweaks;
+
         // TODO: organize
 
         public Common(ForgeConfigSpec.Builder builder) {
@@ -94,6 +96,7 @@ public class ReduxConfig {
             builder.push("Mob Spawns");
             this.enderman_spawns = builder.comment("Allows Endermen to spawn in the Aether").worldRestart().define("Enderman Spawns", false);
             this.vanilla_swets = builder.comment("Allows Vanilla Swets to spawn in the Aether").worldRestart().define("Vanilla Swet Spawns", true);
+            this.zephyr_meme_tweaks = builder.comment("Alters Zephyr spawns to an Improved™ rate and makes them passive").worldRestart().define("Update Tomorrow: Zephyrs Changed!", true);
             builder.pop();
             builder.push("Existing Content Alterations");
             this.nerf_gummy_swets = builder.comment("Nerfs Gummy Swets, but also makes them craftable. Note: Requires the Aether's Gummy Swet Healing config to be false to properly nerf the hunger effect. Requires datapack reload.").worldRestart().define("Nerf Gummy Swets", true);
