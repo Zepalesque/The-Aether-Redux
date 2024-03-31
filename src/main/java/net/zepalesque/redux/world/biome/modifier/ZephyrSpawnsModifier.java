@@ -16,6 +16,7 @@ import net.minecraftforge.common.world.MobSpawnSettingsBuilder;
 import net.minecraftforge.common.world.ModifiableBiomeInfo;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.condition.AbstractCondition;
+import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.world.biome.ReduxMobCategory;
 
 import javax.xml.crypto.Data;
@@ -34,8 +35,8 @@ public record ZephyrSpawnsModifier(HolderSet<Biome> biomes, AbstractCondition<?>
                     if (!spawns.getSpawnerTypes().contains(MobCategory.MONSTER)) {
                         Redux.LOGGER.error("UH oh, debug stuff happened!!! There is no Monster category in biome: {}", biome.unwrapKey().map(ResourceKey::location).map(ResourceLocation::toString).orElse("null"));
                     } else {
-                        spawns.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(data.type, data.getWeight().asInt() * 4, data.minCount + 2, data.maxCount + 5));
-//                        spawns.getSpawner(AetherMobCategory.AETHER_SKY_MONSTER).remove(data);
+                        spawns.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(ReduxEntityTypes.ZEPHYR_SPAWNER.get(), data.getWeight().asInt() * 4, data.minCount + 2, data.maxCount + 5));
+                        spawns.getSpawner(AetherMobCategory.AETHER_SKY_MONSTER).replaceAll(dta -> dta);
                     }
                 }
             });

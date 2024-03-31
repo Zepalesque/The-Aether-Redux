@@ -24,6 +24,7 @@ import net.zepalesque.redux.entity.passive.Mykapod;
 import net.zepalesque.redux.entity.passive.Shimmercow;
 import net.zepalesque.redux.entity.projectile.*;
 import net.zepalesque.redux.entity.util.EntitySpawner;
+import net.zepalesque.redux.entity.util.ManyEntitySpawner;
 
 @Mod.EventBusSubscriber(modid = Redux.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ReduxEntityTypes {
@@ -72,7 +73,10 @@ public class ReduxEntityTypes {
             () -> EntityType.Builder.of(EntitySpawner.fabricate(ReduxEntityTypes.BLIGHTBUNNY), MobCategory.CREATURE).sized(0.6F, 0.5F).clientTrackingRange(4).updateInterval(5).fireImmune().build("blightbunny_spawner")
     );
     public static final RegistryObject<EntityType<EntitySpawner>> QUAIL_TM = ENTITY_TYPES.register("quail_tm",
-            () -> EntityType.Builder.of(EntitySpawner.quail(() -> EntityType.CHICKEN), MobCategory.CREATURE).sized(0.4F, 0.7F).clientTrackingRange(4).updateInterval(5).fireImmune().build("blightbunny_spawner")
+            () -> EntityType.Builder.of(EntitySpawner.quail(() -> EntityType.CHICKEN), MobCategory.CREATURE).sized(0.4F, 0.7F).clientTrackingRange(4).updateInterval(5).fireImmune().build("quail_tm")
+    );
+    public static final RegistryObject<EntityType<ManyEntitySpawner>> ZEPHYR_SPAWNER = ENTITY_TYPES.register("zephyr_spawner",
+            () -> EntityType.Builder.of(ManyEntitySpawner.fabricate(AetherEntityTypes.ZEPHYR), MobCategory.CREATURE).sized(0.4F, 0.7F).clientTrackingRange(4).updateInterval(5).fireImmune().build("zephyr_spawner")
     );
     @SubscribeEvent
     public static void registerSpawnPlacements(SpawnPlacementRegisterEvent event) {
@@ -84,6 +88,7 @@ public class ReduxEntityTypes {
         event.register(ReduxEntityTypes.COCKATRICE_SPAWNER.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (e, l, s, p, r) -> !ReduxConfig.COMMON.cockatrice_burn_in_daylight.get() && EntitySpawner.checkEntitySpawnerSpawnRules(e, l, s, p, r), SpawnPlacementRegisterEvent.Operation.OR);
         event.register(ReduxEntityTypes.QUAIL_TM.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, EntitySpawner::checkEntitySpawnerSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
         event.register(ReduxEntityTypes.PHUDGE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AetherAnimal::checkAetherAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
+        event.register(ReduxEntityTypes.ZEPHYR_SPAWNER.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ManyEntitySpawner::checkManyEntitySpawnerSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
     }
 
     @SubscribeEvent
@@ -95,6 +100,7 @@ public class ReduxEntityTypes {
         event.put(ReduxEntityTypes.BLIGHTBUNNY_SPAWNER.get(), EntitySpawner.createAttributes().build());
         event.put(ReduxEntityTypes.COCKATRICE_SPAWNER.get(), EntitySpawner.createAttributes().build());
         event.put(ReduxEntityTypes.QUAIL_TM.get(), EntitySpawner.createAttributes().build());
+        event.put(ReduxEntityTypes.ZEPHYR_SPAWNER.get(), ManyEntitySpawner.createAttributes().build());
         event.put(ReduxEntityTypes.PHUDGE.get(), Phudge.createMobAttributes().build());
     }
 }
