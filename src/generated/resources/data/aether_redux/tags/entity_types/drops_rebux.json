@@ -18,6 +18,7 @@
     "aether:zephyr",
     "aether_redux:shimmercow",
     "aether_redux:mykapod",
+    "aether_redux:phudge",
     "#aether:swets",
     {
       "id": "deep_aether:quail",
