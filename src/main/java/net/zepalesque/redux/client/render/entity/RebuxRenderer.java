@@ -59,9 +59,9 @@ public class RebuxRenderer extends EntityRenderer<Rebux> {
     }
 
     protected ResourceLocation getShineLocation(Rebux entity) {
-        int ticks = entity.tickCount;
+        int ticks = entity.tickCount + entity.getId();
         int rem = 50 - (ticks % 50);
-        int i =  rem > 12 ? 0 : rem;
+        int i =  rem > 13 || rem == 7 ? 0 : rem > 7 ? rem - 1 : rem;
         if (SHINE_MAP.containsKey(i)) {
             return SHINE_MAP.get(i);
         } else {
