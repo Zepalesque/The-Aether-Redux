@@ -2,6 +2,7 @@ package net.zepalesque.redux;
 
 import com.aetherteam.aether.AetherConfig;
 import com.aetherteam.aether.block.dispenser.DispenseUsableItemBehavior;
+import com.aetherteam.aether.data.resources.AetherMobCategory;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether_genesis.entity.GenesisEntityTypes;
@@ -233,6 +234,9 @@ public class Redux {
                 {
                     GenesisEntityTypes.SKYROOT_MIMIC.get().getDimensions().height = 1.25F;
                 }
+            }
+            if (ReduxConfig.COMMON.zephyr_meme_tweaks.get()) {
+                AetherMobCategory.AETHER_SKY_MONSTER.max = 128;
             }
             PotionBrewing.addMix(Potions.POISON, ReduxItems.BLIGHTED_SPORES.get(), ReduxPotions.INTOXICATION.get());
             PotionBrewing.addMix(Potions.STRONG_POISON, ReduxItems.BLIGHTED_SPORES.get(), ReduxPotions.INTOXICATION.get());
