@@ -13,6 +13,7 @@ public class ReduxLoot {
 
     public static final ResourceLocation STRIP_BLIGHTWILLOW = register("stripping/strip_blightwillow");
     public static final ResourceLocation STRIP_PEPPERMINT = register("stripping/strip_peppermint");
+    public static final ResourceLocation LOBOTIUM_DUNGEON = register("chests/dungeon/lobotium/lobotium_dungeon");
 
     private static ResourceLocation register(String id) {
         return register(new ResourceLocation(Redux.MODID, id));

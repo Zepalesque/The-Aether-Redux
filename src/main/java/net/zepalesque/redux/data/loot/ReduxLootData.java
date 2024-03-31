@@ -16,7 +16,8 @@ public class ReduxLootData {
         return new LootTableProvider(output, ReduxLoot.IMMUTABLE_LOOT_TABLES, List.of(
                 new LootTableProvider.SubProviderEntry(ReduxBlockLootData::new, LootContextParamSets.BLOCK),
                 new LootTableProvider.SubProviderEntry(ReduxEntityLootData::new, LootContextParamSets.ENTITY),
-                new LootTableProvider.SubProviderEntry(ReduxStrippingLootData::new, AetherLootContexts.STRIPPING)
+                new LootTableProvider.SubProviderEntry(ReduxStrippingLootData::new, AetherLootContexts.STRIPPING),
+                new LootTableProvider.SubProviderEntry(ReduxChestLoot::new, LootContextParamSets.CHEST)
         ));
     }
 }
