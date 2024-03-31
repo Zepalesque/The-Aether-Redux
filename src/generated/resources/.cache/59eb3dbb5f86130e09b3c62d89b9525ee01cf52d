@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-30T17:38:14.6102178	Loot Tables
+// 1.20.1	2024-03-30T20:12:24.9257855	Loot Tables
 c6156555dc4897939b617dabc4521b7fa52feba0 data/aether_redux/loot_tables/blocks/aurum.json
 b5773c78c7b3f27032f1cca6fb72f440e24c7529 data/aether_redux/loot_tables/blocks/avelium.json
 4c8b773f2431b28dd2a48b90d08323d8ff67a3d7 data/aether_redux/loot_tables/blocks/avelium_roots.json
@@ -333,6 +333,7 @@ d6c46a7adee1dc0b26674114dcf63801666d7903 data/aether_redux/loot_tables/blocks/ve
 9fb0b4ff7f895cea862dbb252ca30b05aa319804 data/aether_redux/loot_tables/blocks/zanberry_bush.json
 fad248d9dd4c2d6d518cabf7124ba736449bf0c6 data/aether_redux/loot_tables/blocks/zanberry_bush_stem.json
 bde6f239a1a1807b129bf99dedd968b6b04c3175 data/aether_redux/loot_tables/blocks/zyatrix.json
+6c6711cf7db9f2b360e870758fde421dc9ff7dd0 data/aether_redux/loot_tables/chests/dungeon/lobotium/lobotium_dungeon.json
 d0753e06e1f2a8f2568f0513b09e7ac86f711942 data/aether_redux/loot_tables/entities/blightbunny.json
 b206108235b3499dfdc2ebe43b683efd7c86c392 data/aether_redux/loot_tables/entities/blightbunny_spawner.json
 51ea5d53b8e740ad6b8b20969dd7d4cf4a4d06f4 data/aether_redux/loot_tables/entities/cockatrice_spawner.json

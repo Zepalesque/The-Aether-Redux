@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-30T18:28:01.0904215	Item Models: aether_redux
+// 1.20.1	2024-03-30T20:12:24.8888098	Item Models: aether_redux
 2445055af5b1b7f3c6045199ffce74108003cef6 assets/aether_redux/models/item/airbound_cape.json
 2fa1343a8119a1f49af334c002773099174965bd assets/aether_redux/models/item/aurum.json
 edfe83948874d1436a61893ed9471b47e93dbe88 assets/aether_redux/models/item/avelium.json
@@ -218,7 +218,7 @@ ec3c78d30b74b360b8e97bdd426a1588776c1e0d assets/aether_redux/models/item/jellysh
 a7206aaa0b62bb3c44f15dcd7b2dd27b9716cb2a assets/aether_redux/models/item/lemon_poprocks.json
 7e5c9c8ea05cc15e0c568d691bccc3a500cb1903 assets/aether_redux/models/item/lightroot_clump.json
 d9310ddc507dfe7d4b06212f6fbd5d61f8683609 assets/aether_redux/models/item/lobotium_icon.json
-7c590342664447885706662822bf1d66c24a21d4 assets/aether_redux/models/item/lobotium_key.json
+d7f468811aece8258685772f1dbdff5ef7d12713 assets/aether_redux/models/item/lobotium_key.json
 419e1a027022a941d08e3625e84160befb2571da assets/aether_redux/models/item/lumina.json
 f57c0aa977ae875c8456515bae2a0f7dbfa313cc assets/aether_redux/models/item/luxweed.json
 0aa18717b8844fd6aece9d2369be35d0b9546a65 assets/aether_redux/models/item/minty_block.json

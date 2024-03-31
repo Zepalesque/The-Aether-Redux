@@ -1,0 +1,154 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "aether_redux:fireinthehole"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "aether_redux:holefire_spike",
+          "weight": 7
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:poisonous_potato",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "aether_redux:mouse_ear_soup",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "aether_redux:flawless_bloom",
+          "weight": 5
+        }
+      ],
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 5.0,
+        "min": 2.0
+      }
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "aether:skyroot_stick",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "aether_redux:splitfern",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "aether_redux:wyndsprout_seeds",
+          "weight": 11
+        },
+        {
+          "type": "minecraft:item",
+          "name": "aether_redux:lemon_poprocks",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "aether_redux:oatmeal",
+          "weight": 7
+        },
+        {
+          "type": "minecraft:item",
+          "name": "aether_redux:blueberry_bagel",
+          "weight": 9
+        },
+        {
+          "type": "minecraft:item",
+          "name": "aether:candy_cane",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "aether_redux:rainbow_aercloud",
+          "weight": 2
+        }
+      ],
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 10.0,
+        "min": 4.0
+      }
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:cobweb"
+        }
+      ],
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 3.0,
+        "min": 1.0
+      }
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "aether:zanite_gemstone",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "aether_redux:gravitite_ingot"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "aether_redux:veridium_ingot",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "aether_redux:veridium_sword",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "aether_redux:veridium_pickaxe",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "aether_redux:veridium_dart_shooter",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "aether:ambrosium_shard",
+          "weight": 6
+        }
+      ],
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 6.0,
+        "min": 2.0
+      }
+    }
+  ],
+  "random_sequence": "aether_redux:chests/dungeon/lobotium/lobotium_dungeon"
+}

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "aether_redux:item/materials/lobotium_key"
+    "layer0": "aether_redux:item/misc/lobotium_key"
   }
 }
