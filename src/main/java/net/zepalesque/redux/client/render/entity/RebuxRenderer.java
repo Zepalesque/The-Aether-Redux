@@ -43,7 +43,7 @@ public class RebuxRenderer extends EntityRenderer<Rebux> {
         VertexConsumer vertexconsumer = buffer.getBuffer(RENDER_TYPE);
         this.model.renderToBuffer(poseStack, vertexconsumer, packedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
         poseStack.popPose();
-        
+
         poseStack.pushPose();
         poseStack.translate(0.0F, -0.375F, 0.0F);
         poseStack.scale(f, f, f);
@@ -60,7 +60,7 @@ public class RebuxRenderer extends EntityRenderer<Rebux> {
 
     protected ResourceLocation getShineLocation(Rebux entity) {
         int ticks = entity.tickCount;
-        int rem = ticks % 50;
+        int rem = 50 - (ticks % 50);
         int i =  rem > 12 ? 0 : rem;
         if (SHINE_MAP.containsKey(i)) {
             return SHINE_MAP.get(i);
