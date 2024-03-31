@@ -9,6 +9,7 @@ import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -101,8 +102,8 @@ public class HolefireSpike extends DirectionalBlock implements SimpleWaterlogged
     @Override
     public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
         super.entityInside(state, level, pos, entity);
-        if (!entity.level().isClientSide() && entity.getBoundingBox().intersects(getShape(state, level, pos, CollisionContext.of(entity)).bounds().move(pos).inflate(0.125))) {
-            entity.hurt(ReduxDamageTypes.source(level, ReduxDamageTypes.SPIKE), 3F);
+        if (!entity.level().isClientSide() && entity instanceof LivingEntity && entity.getBoundingBox().intersects(getShape(state, level, pos, CollisionContext.of(entity)).bounds().move(pos).inflate(0.125))) {
+            entity.hurt(ReduxDamageTypes.source(level, ReduxDamageTypes.SPIKE), 1F);
         }
     }
 }
