@@ -55,8 +55,6 @@ public class ReduxPlayerCapability implements ReduxPlayer {
     private boolean secondFireball = false;
     private boolean changePrevRebux = false;
 
-    private boolean dashed = false;
-
     public ReduxPlayerCapability(Player pPlayer) {
         this.player = pPlayer;
         this.lore = new LoreBookModule();
@@ -169,9 +167,10 @@ public class ReduxPlayerCapability implements ReduxPlayer {
             this.ticksInAir = 0;
             this.airJumps = 0;
             this.airJumpCooldown = 0;
-            this.dashed = false;
-        } else {
+
+            } else {
             this.ticksInAir++;
+
         }
         if (this.airJumpCooldown > 0) {
             this.airJumpCooldown--;
@@ -195,16 +194,6 @@ public class ReduxPlayerCapability implements ReduxPlayer {
         if (this.increaseAirJumpCount())
         {
                 AbilityUtil.doDoubleJumpMovement(this.getPlayer());
-            return true;
-        } else {
-            return false;
-        }
-    }
-    @Override
-    public boolean dash() {
-        if (!this.dashed)
-        {
-                AbilityUtil.doDashMovement(this.getPlayer());
             return true;
         } else {
             return false;

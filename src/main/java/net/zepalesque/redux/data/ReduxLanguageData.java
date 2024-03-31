@@ -564,9 +564,6 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.FIREINTHEHOLE, "FIREINTHEHOLE");
         addLore(ReduxItems.FIREINTHEHOLE, "LDM ball cube ball big cube ball next Rest In Peace niflheim vismuth slow wave fast robot keep going! slow ship go! slow ball Auto? fast dual ship slow fast ufo slow How? fast ship slow cube fast ball lol slow robot in out slow ufo take a break ????? !!!!! ?? ?! ??! !! ?! !! ?!!? ??! !! ?!!? ??! ?! ?? !! ?? !! ?? ?! ??! ?!!? ?? ??! ?! !! ?!!? slow ufo go! go! Yeah! fast cube dual wave watch out! faster! OMG! mini next next great! verified by NIFLHEIM koreaqwer");
 
-        addItem(ReduxItems.SKYSPROUT_PETAL, "Skybud Petal");
-        addLore(ReduxItems.SKYSPROUT_PETAL, "A petal from the Skysprouts plant. It is said that consuminga this has various side effects, notably allowing the consumer to dash forward with great speed");
-
         addItem(ReduxItems.BLUEBERRY_BAGEL, "Blueberry Bagel");
         addLore(ReduxItems.BLUEBERRY_BAGEL, "A bagel made with Blue Berries. This is much more filling than a plain Wyndsprout Bagel");
 
@@ -809,7 +806,6 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addSubtitle("item", "lobotomy_effect", "'FIRE IN THE HOLE!'");
         addSubtitle("item", "lobotomy_effect_high", "'FEER IN DA HEEL!'");
         addSubtitle("generic", "boost_jump", "Something double-jumps");
-        addSubtitle("generic", "dash", "Something dashes");
         addSubtitle("generic", "fireball_shoot", "Fireball shoots");
         addSubtitle("generic", "coin_pickup", "Rebux jingles");
         addSubtitle("block", "blightshade_spray", "Niceshade sprays");

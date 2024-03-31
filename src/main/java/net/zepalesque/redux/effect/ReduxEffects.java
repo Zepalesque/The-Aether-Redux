@@ -28,7 +28,4 @@ public class ReduxEffects {
     public static final RegistryObject<MobEffect> THE_LOBOTOMY = EFFECTS.register("the_lobotomy", () ->
             new IncurableEffect(MobEffectCategory.NEUTRAL, 0x01FA0E)
     );
-    public static final RegistryObject<MobEffect> DASH = EFFECTS.register("dash", () ->
-            new IncurableEffect(MobEffectCategory.BENEFICIAL, 0xED93D3)
-    );
 }

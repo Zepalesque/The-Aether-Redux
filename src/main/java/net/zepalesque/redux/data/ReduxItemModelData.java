@@ -8,6 +8,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.PointedDripstoneBlock;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.loaders.ItemLayerModelBuilder;
 import net.minecraftforge.client.model.generators.loaders.SeparateTransformsModelBuilder;
@@ -279,8 +280,6 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         this.item(ReduxItems.WYNDSPROUT_BAGEL, "food/");
         this.item(ReduxItems.BLUEBERRY_BAGEL, "food/");
         this.item(ReduxItems.FIREINTHEHOLE, "food/");
-        this.item(ReduxItems.SKYSPROUT_PETAL, "food/");
-
 
         this.item(ReduxItems.ZANBERRY, "food/");
 

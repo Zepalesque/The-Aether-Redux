@@ -7,19 +7,18 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.zepalesque.redux.advancement.trigger.DoubleJumpTrigger;
 import net.zepalesque.redux.capability.player.ReduxPlayer;
-import net.zepalesque.redux.effect.ReduxEffects;
 
 import java.util.UUID;
 
-public record DoubleJumpOrDashPacket(UUID playerID) implements BasePacket {
+public record DoubleJumpPacket(UUID playerID) implements BasePacket {
 
     public void encode(FriendlyByteBuf buf) {
         buf.writeUUID(this.playerID);
     }
 
-    public static DoubleJumpOrDashPacket decode(FriendlyByteBuf buf) {
+    public static DoubleJumpPacket decode(FriendlyByteBuf buf) {
         UUID player = buf.readUUID();
-        return new DoubleJumpOrDashPacket(player);
+        return new DoubleJumpPacket(player);
     }
 
     public void execute(Player playerEntity) {
@@ -27,13 +26,10 @@ public record DoubleJumpOrDashPacket(UUID playerID) implements BasePacket {
         if (playerEntity != null && playerEntity.getServer() != null) {
             Player player = playerEntity.level().getPlayerByUUID(this.playerID());
             if (player != null) {
-                if (player.hasEffect(ReduxEffects.DASH.get())) {
-                    ReduxPlayer.get(player).ifPresent(ReduxPlayer::dash);
-                } else {
-                    ReduxPlayer.get(player).ifPresent(ReduxPlayer::doubleJump);
-                    if (player instanceof ServerPlayer sp) {
-                        DoubleJumpTrigger.INSTANCE.trigger(sp);
-                    }
+                ReduxPlayer.get(player).ifPresent(ReduxPlayer::doubleJump);
+                if (player instanceof ServerPlayer sp)
+                {
+                    DoubleJumpTrigger.INSTANCE.trigger(sp);
                 }
             }
         }
