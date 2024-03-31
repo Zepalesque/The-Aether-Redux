@@ -55,7 +55,8 @@ public class ReduxEntityTypeTagData extends EntityTypeTagsProvider {
                 AetherEntityTypes.VALKYRIE_QUEEN.get(),
                 AetherEntityTypes.ZEPHYR.get(),
                 ReduxEntityTypes.SHIMMERCOW.get(),
-                ReduxEntityTypes.MYKAPOD.get()
+                ReduxEntityTypes.MYKAPOD.get(),
+                ReduxEntityTypes.PHUDGE.get()
         ).addTag(AetherTags.Entities.SWETS)
                 .addOptional(DAEntities.QUAIL.getId())
                 .addOptional(DAEntities.AETHER_FISH.getId())

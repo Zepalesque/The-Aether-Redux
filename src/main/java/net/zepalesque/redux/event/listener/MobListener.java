@@ -8,18 +8,22 @@ import com.aetherteam.aether.entity.monster.Zephyr;
 import com.aetherteam.aether.entity.passive.FlyingCow;
 import com.aetherteam.aether.entity.passive.Phyg;
 import com.aetherteam.aether.item.EquipmentUtil;
+import com.aetherteam.nitrogen.capability.INBTSynchable;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.zepalesque.redux.Redux;
@@ -56,7 +60,25 @@ public class MobListener {
     }
 
     @SubscribeEvent
+    public static void copyPlayerRebux(PlayerEvent.Clone event) {
+        if(!event.isWasDeath())
+            return;
+        if (event.getOriginal().level().getGameRules().getBoolean(GameRules.RULE_KEEPINVENTORY)) {
+            LazyOptional<ReduxPlayer> newPlayer = ReduxPlayer.get(event.getEntity());
+            LazyOptional<ReduxPlayer> originalPlayer = ReduxPlayer.get(event.getOriginal());
+            if (newPlayer.isPresent() && originalPlayer.isPresent()) {
+                newPlayer.orElseThrow(() -> new IllegalStateException("how the heck??")).setSynched(INBTSynchable.Direction.CLIENT, "rebux",
+                        originalPlayer.orElseThrow(() -> new IllegalStateException("how the heck??")).rebuxCount());
+            }
+        }
+    }
+
+
+    @SubscribeEvent
     public static void onKill(LivingDeathEvent event) {
+        if (!event.getEntity().level().getGameRules().getBoolean(GameRules.RULE_KEEPINVENTORY) && event.getEntity() instanceof Player player) {
+            MobHooks.createPlayerRebux(player);
+        }
         @Nullable Player plr = null;
         if (event.getSource().getEntity() instanceof Player ent) {
             plr = ent;

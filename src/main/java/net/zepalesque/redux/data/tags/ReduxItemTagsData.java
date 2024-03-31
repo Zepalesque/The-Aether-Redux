@@ -142,7 +142,19 @@ public class ReduxItemTagsData extends ItemTagsProvider {
                 ReduxBlocks.COCOA_SOIL.get().asItem(),
                 ReduxBlocks.SUGARGRASS_BLOCK.get().asItem(),
                 ReduxBlocks.SUGARSPROUTS.get().asItem(),
-                ReduxBlocks.VANILLA.get().asItem()
+                ReduxBlocks.VANILLA.get().asItem(),
+                ReduxBlocks.PINK_COTTON_CANDY.get().asItem(),
+                ReduxBlocks.BLUE_COTTON_CANDY.get().asItem(),
+                ReduxBlocks.PINK_CANDYFLOSS_BLOCK.get().asItem(),
+                ReduxBlocks.BLUE_CANDYFLOSS_BLOCK.get().asItem(),
+                ReduxBlocks.PEPPERMINT_BARKLING.get().asItem(),
+                ReduxBlocks.PEPPERMINT_LOG.get().asItem(),
+                ReduxBlocks.PEPPERMINT_BLOCK.get().asItem(),
+                ReduxBlocks.ROCK_CANDY.get().asItem(),
+                ReduxBlocks.ROCK_CANDY_STAIRS.get().asItem(),
+                ReduxBlocks.ROCK_CANDY_SLAB.get().asItem(),
+                ReduxBlocks.ROCK_CANDY_WALL.get().asItem(),
+                ReduxItems.LEMON_POPROCKS.get()
         );
     }
 

@@ -142,6 +142,21 @@ public class MobHooks {
         }
     }
 
+    public static void createPlayerRebux(Player entity) {
+        ReduxPlayer.get(entity).ifPresent(reduxPlayer -> {
+            int total = reduxPlayer.rebuxCount();
+            int coinSize = (int) Math.max(total / 4F, 1);
+            int coinCount = Mth.floor(total / (double) coinSize);
+            for (int i = 0; i < coinCount; i++) {
+                spawnRebux(entity.level(), coinSize, entity.position(), new Vec3((entity.getRandom().nextDouble() * 0.2 - 0.1) * 2.0, entity.getRandom().nextDouble() * 0.2 * 2.0, (entity.getRandom().nextDouble() * 0.2 - 0.1) * 2.0));
+            }
+            int remainder = total % coinCount;
+            if (remainder > 0) {
+                spawnRebux(entity.level(), remainder, entity.position(), new Vec3((entity.getRandom().nextDouble() * 0.2 - 0.1) * 2.0, entity.getRandom().nextDouble() * 0.2 * 2.0, (entity.getRandom().nextDouble() * 0.2 - 0.1) * 2.0));
+            }
+        });
+    }
+
     public static void spawnRebux(Level lvl, int value, Vec3 pos, Vec3 movement) {
         Rebux rebux = new Rebux(lvl, pos.x, pos.y, pos.z, value);
         rebux.setDeltaMovement(movement);

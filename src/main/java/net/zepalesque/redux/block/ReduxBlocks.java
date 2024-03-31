@@ -244,17 +244,20 @@ public class ReduxBlocks {
     public static final RegistryObject<Block> BLUE_CANDYFLOSS_BLOCK = registerModifyItemProperties("blue_candyfloss_block", () -> new CottonCandyBlock(Block.Properties.copy(Blocks.BLUE_WOOL)), properties -> properties.food(ReduxFoods.CANDYFIELDS_BLOCK));
 
 
-    public static RegistryObject<Block> ROCK_CANDY = register("rock_candy",
-            () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DIAMOND).requiresCorrectToolForDrops().strength(0.3F, 6.0F).sound(SoundType.BASALT)));
+    public static RegistryObject<Block> ROCK_CANDY = registerModifyItemProperties("rock_candy",
+            () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DIAMOND).requiresCorrectToolForDrops().strength(0.3F, 6.0F).sound(SoundType.BASALT)), properties -> properties.food(ReduxFoods.CANDYFIELDS_BLOCK)  );
 
-    public static RegistryObject<StairBlock> ROCK_CANDY_STAIRS = register("rock_candy_stairs",
-            () -> new StairBlock(() -> (ROCK_CANDY.get()).defaultBlockState(), BlockBehaviour.Properties.copy(ROCK_CANDY.get())));
+    public static RegistryObject<StairBlock> ROCK_CANDY_STAIRS = registerModifyItemProperties("rock_candy_stairs",
+            () -> new StairBlock(() -> (ROCK_CANDY.get()).defaultBlockState(), BlockBehaviour.Properties.copy(ROCK_CANDY.get())), properties -> properties.food(ReduxFoods.CANDYFIELDS_BLOCK));
 
-    public static RegistryObject<WallBlock> ROCK_CANDY_WALL = register("rock_candy_wall",
-            () -> new WallBlock(BlockBehaviour.Properties.copy(ROCK_CANDY.get())));
+    public static RegistryObject<WallBlock> ROCK_CANDY_WALL = registerModifyItemProperties("rock_candy_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.copy(ROCK_CANDY.get())), properties -> properties.food(ReduxFoods.CANDYFIELDS_BLOCK));
 
-    public static RegistryObject<SlabBlock> ROCK_CANDY_SLAB = register("rock_candy_slab",
-            () -> new SlabBlock(BlockBehaviour.Properties.copy(ROCK_CANDY.get()).strength(0.5F, 6.0F)));
+    public static RegistryObject<SlabBlock> ROCK_CANDY_SLAB = registerModifyItemProperties("rock_candy_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(ROCK_CANDY.get()).strength(0.5F, 6.0F)), properties -> properties.food(ReduxFoods.CANDYFIELDS_BLOCK));
+
+    public static RegistryObject<Block> POPROCK_ORE = registerModifyItemProperties("poprock_ore",
+            () -> new AetherDoubleDropsOreBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(2.0F).requiresCorrectToolForDrops().sound(SoundType.BASALT), UniformInt.of(5, 9)), properties -> properties.food(ReduxFoods.CANDYFIELDS_BLOCK));
 
 
     public static RegistryObject<Block> SHORT_DEEP_GRASS = register("short_deep_grass",
@@ -565,8 +568,6 @@ public class ReduxBlocks {
             () -> new EnchantableBushBlock(CommonPlantBounds.FERN, BlockBehaviour.Properties.copy(Blocks.FERN).hasPostProcess(ReduxBlocks::always).sound(SoundType.MOSS_CARPET).offsetType(BlockBehaviour.OffsetType.XZ)));
     public static final RegistryObject<FlowerPotBlock> POTTED_SPLITFERN = BLOCKS.register("potted_splitfern", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SPLITFERN, Block.Properties.copy(Blocks.FLOWER_POT)));
 
-    public static RegistryObject<Block> POPROCK_ORE = register("poprock_ore",
-            () -> new AetherDoubleDropsOreBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(2.0F).requiresCorrectToolForDrops().sound(SoundType.BASALT), UniformInt.of(5, 9)));
 
     public static RegistryObject<Block> VERIDIUM_ORE = register("veridium_ore",
             () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOL).strength(3.0F).requiresCorrectToolForDrops()));
