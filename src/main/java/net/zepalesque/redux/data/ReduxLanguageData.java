@@ -271,19 +271,19 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.BLIGHTWILLOW_LEAVES, "Heartwillow Leaves");
         addLore(ReduxBlocks.BLIGHTWILLOW_LEAVES, "The leaves of the Heartwillow tree. These sometimes drop Heartwillow Saplings.");
 
-        addBlock(ReduxBlocks.FIELDSPROOT_LEAVES, "Prismachromautomatic Leaves");
-        addLore(ReduxBlocks.FIELDSPROOT_LEAVES, "The colorful leaves of the flowering Prismachromautomatic trees! These will occasionally drop Prismachromautomatic Saplings.");
-        addBlock(ReduxBlocks.FIELDSPROOT_PETALS, "Prismachromautomatic Petals");
-        addLore(ReduxBlocks.FIELDSPROOT_PETALS, "The vibrant petals of Prismachromautomatic trees, which are found commonly underneath them.");
+        addBlock(ReduxBlocks.FIELDSPROOT_LEAVES, "Prismroot Leaves");
+        addLore(ReduxBlocks.FIELDSPROOT_LEAVES, "The colorful leaves of the flowering Prismroot trees! These will occasionally drop Prismroot Saplings.");
+        addBlock(ReduxBlocks.FIELDSPROOT_PETALS, "Prismroot Petals");
+        addLore(ReduxBlocks.FIELDSPROOT_PETALS, "The vibrant petals of Prismroot trees, which are found commonly underneath them.");
 
-        addBlock(ReduxBlocks.PRISMATIC_FIELDSPROOT_LEAVES, "Prismatic Prismachromautomatic Leaves");
-        addLore(ReduxBlocks.PRISMATIC_FIELDSPROOT_LEAVES, "The colorful leaves of the Prismatic Prismachromautomatic trees! These will occasionally drop Prismatic Prismachromautomatic Saplings.");
+        addBlock(ReduxBlocks.PRISMATIC_FIELDSPROOT_LEAVES, "Prismatic Prismroot Leaves");
+        addLore(ReduxBlocks.PRISMATIC_FIELDSPROOT_LEAVES, "The colorful leaves of the Prismatic Prismroot trees! These will occasionally drop Prismatic Prismroot Saplings.");
 
-        addBlock(ReduxBlocks.AZURE_FIELDSPROOT_LEAVES, "Azure Prismachromautomatic Leaves");
-        addLore(ReduxBlocks.AZURE_FIELDSPROOT_LEAVES, "The colorful leaves of the Azure Prismachromautomatic trees! These will occasionally drop Azure Prismachromautomatic Saplings.");
+        addBlock(ReduxBlocks.AZURE_FIELDSPROOT_LEAVES, "Azure Prismroot Leaves");
+        addLore(ReduxBlocks.AZURE_FIELDSPROOT_LEAVES, "The colorful leaves of the Azure Prismroot trees! These will occasionally drop Azure Prismroot Saplings.");
 
-        addBlock(ReduxBlocks.SPECTRAL_FIELDSPROOT_LEAVES, "Spectral Prismachromautomatic Leaves");
-        addLore(ReduxBlocks.SPECTRAL_FIELDSPROOT_LEAVES, "The colorful leaves of the Spectral Prismachromautomatic trees! These will occasionally drop Spectral Prismachromautomatic Saplings.");
+        addBlock(ReduxBlocks.SPECTRAL_FIELDSPROOT_LEAVES, "Spectral Prismroot Leaves");
+        addLore(ReduxBlocks.SPECTRAL_FIELDSPROOT_LEAVES, "The colorful leaves of the Spectral Prismroot trees! These will occasionally drop Spectral Prismroot Saplings.");
 
         addBlock(ReduxBlocks.GOLDEN_LEAF_PILE, "Golden Leaf Pile");
         addLore(ReduxBlocks.GOLDEN_LEAF_PILE, "A pile of Golden Oak Leaves. These can be found under Golden Oak trees.");
@@ -308,21 +308,21 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.POTTED_PINK_COTTON_CANDY, "Potted Pink Cotton Candy");
         addLore(ReduxBlocks.PINK_COTTON_CANDY, "A miniature cotton candy blob on a stick! Yum!");
 
-        addBlock(ReduxBlocks.FIELDSPROOT_SAPLING, "Prismachromautomatic Sapling");
-        addBlock(ReduxBlocks.POTTED_FIELDSPROOT_SAPLING, "Potted Prismachromautomatic Sapling");
-        addLore(ReduxBlocks.FIELDSPROOT_SAPLING, "The sapling of the colorful Prismachromautomatic tree. It can be grown by waiting or using Bone Meal.");
+        addBlock(ReduxBlocks.FIELDSPROOT_SAPLING, "Prismroot Sapling");
+        addBlock(ReduxBlocks.POTTED_FIELDSPROOT_SAPLING, "Potted Prismroot Sapling");
+        addLore(ReduxBlocks.FIELDSPROOT_SAPLING, "The sapling of the colorful Prismroot tree. It can be grown by waiting or using Bone Meal.");
 
-        addBlock(ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING, "Prismatic Prismachromautomatic Sapling");
-        addBlock(ReduxBlocks.POTTED_PRISMATIC_FIELDSPROOT_SAPLING, "Potted Prismatic Prismachromautomatic Sapling");
-        addLore(ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING, "The sapling of the Prismatic Prismachromautomatic tree. It can be grown by waiting or using Bone Meal.");
+        addBlock(ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING, "Prismatic Prismroot Sapling");
+        addBlock(ReduxBlocks.POTTED_PRISMATIC_FIELDSPROOT_SAPLING, "Potted Prismatic Prismroot Sapling");
+        addLore(ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING, "The sapling of the Prismatic Prismroot tree. It can be grown by waiting or using Bone Meal.");
 
-        addBlock(ReduxBlocks.AZURE_FIELDSPROOT_SAPLING, "Azure Prismachromautomatic Sapling");
-        addBlock(ReduxBlocks.POTTED_AZURE_FIELDSPROOT_SAPLING, "Potted Azure Prismachromautomatic Sapling");
-        addLore(ReduxBlocks.AZURE_FIELDSPROOT_SAPLING, "The sapling of the Azure Prismachromautomatic tree. It can be grown by waiting or using Bone Meal.");
+        addBlock(ReduxBlocks.AZURE_FIELDSPROOT_SAPLING, "Azure Prismroot Sapling");
+        addBlock(ReduxBlocks.POTTED_AZURE_FIELDSPROOT_SAPLING, "Potted Azure Prismroot Sapling");
+        addLore(ReduxBlocks.AZURE_FIELDSPROOT_SAPLING, "The sapling of the Azure Prismroot tree. It can be grown by waiting or using Bone Meal.");
 
-        addBlock(ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING, "Spectral Prismachromautomatic Sapling");
-        addBlock(ReduxBlocks.POTTED_SPECTRAL_FIELDSPROOT_SAPLING, "Potted Spectral Prismachromautomatic Sapling");
-        addLore(ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING, "The sapling of the Spectral Prismachromautomatic tree. It can be grown by waiting or using Bone Meal.");
+        addBlock(ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING, "Spectral Prismroot Sapling");
+        addBlock(ReduxBlocks.POTTED_SPECTRAL_FIELDSPROOT_SAPLING, "Potted Spectral Prismroot Sapling");
+        addLore(ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING, "The sapling of the Spectral Prismroot tree. It can be grown by waiting or using Bone Meal.");
 
         addBlock(ReduxBlocks.CRYSTAL_SAPLING, "Crystal Sapling");
         addBlock(ReduxBlocks.POTTED_CRYSTAL_SAPLING, "Potted Crystal Sapling");

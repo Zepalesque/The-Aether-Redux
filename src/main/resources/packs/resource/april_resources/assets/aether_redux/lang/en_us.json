@@ -1,4 +1,15 @@
 {
   "gui.aether_redux.pack_config.config.better_moa_sounds": "Upgraded Moam Sounds",
-  "gui.aether_redux.pack_config.config_desc.better_moa_sounds": "Improves the sounds of Moams, giving them their sounds heard in early builds of the Aether II: Highlands."
+  "gui.aether_redux.pack_config.config_desc.better_moa_sounds": "Improves the sounds of Moams, giving them their sounds heard in early builds of the Aether II: Highlands.",
+  "advancement.aether_redux.hug.desc": "Get hugged by a Friendatrice",
+  "aether.pro_tips.line.aether_redux.feather_of_warding": "Sometimes, Friendatrice will drop one of their feathers, which, plot twist, do nothing.",
+  "entity.aether_redux.cockatrice_spawner": "Friendatrice Spawner",
+  "gui.aether_redux.pack_config.config.better_cockatrice_sounds": "Upgraded Friendatrice Sounds",
+  "gui.aether_redux.pack_config.config.cockatrice_texture": "Friendatrice Texture",
+  "gui.aether_redux.pack_config.config_desc.better_cockatrice_sounds": "Improves the sounds of Friendatrices, giving them their sounds heard in early builds of the Aether II: Highlands.",
+  "gui.aether_redux.pack_config.config_desc.cockatrice_texture": "Switch between friendatrice textures. Options are Stinky (the newer version of Redux's texture), Classic (original) and Redux Retro (Redux's old texture from indev versions)",
+  "item.aether_redux.cockatrice_feather": "Friendatrice Feather",
+  "lore.block.aether_redux.blighted_aercloud": "A light teal cloud found in the Unblight. Standing in this will NOT harm you, and will heal nice mobs such as Goodbunnies and Friendatrices!",
+  "lore.item.aether_redux.cockatrice_feather": "A feather from a Friendatrice. This is said to do absolutely nothing. It can also be crafted into its upgraded variant, the Feather of Warding, which does even less nothing!",
+  "lore.item.aether_redux.feather_of_warding": "The upgraded variant of the Friendatrice Feather. While having all the benefits of its less powerful version, this also gives the wearer immunity to Inebriation!",
 }
