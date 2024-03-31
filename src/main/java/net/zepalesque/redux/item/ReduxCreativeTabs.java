@@ -263,6 +263,7 @@ public class ReduxCreativeTabs {
             putAfter(ReduxItems.WYNDSPROUT_SEEDS, ReduxItems.OATMEAL, event);
             putAfter(ReduxItems.OATMEAL, ReduxItems.LEMON_POPROCKS, event);
 
+            event.getEntries().put(new ItemStack(ReduxItems.FIREINTHEHOLE.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
 
             putAfter(AetherItems.GOLDEN_GUMMY_SWET, ReduxItems.VANILLA_GUMMY_SWET, event);
 
@@ -302,7 +303,6 @@ public class ReduxCreativeTabs {
             putAfter(ReduxItems.WYNDSPROUT_SEEDS, ReduxItems.BUNDLE_OF_WYNDSPROUTS, event);
             putAfter(ReduxItems.BUNDLE_OF_WYNDSPROUTS, ReduxItems.LIGHTROOT_CLUMP, event);
 
-            putAfter(ReduxItems.LIGHTROOT_CLUMP, ReduxItems.FIREINTHEHOLE, event);
 
             putAfter(AetherItems.SWET_BALL, Redux.aetherGenesisCompat() ? ReduxItems.VANILLA_SWET_BALL : ReduxItems.GOLDEN_SWET_BALL, event);
             if (!Redux.aetherGenesisCompat()) { putAfter(ReduxItems.GOLDEN_SWET_BALL, ReduxItems.VANILLA_SWET_BALL, event); }
