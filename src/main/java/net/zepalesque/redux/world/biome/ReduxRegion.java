@@ -40,6 +40,7 @@ public class ReduxRegion extends Region {
             ResourceKey<Biome> grasslands = ReduxConfig.COMMON.enable_gilded_biomes.get() ? ReduxBiomes.GILDED_GRASSLANDS : AetherBiomes.SKYROOT_MEADOW;
             ResourceKey<Biome> candy = ReduxBiomes.SUGARFIELDS;
             ResourceKey<Biome> deep = ReduxBiomes.DEEPER_AETHER;
+            ResourceKey<Biome> crystallium = ReduxBiomes.CRYSTALLIUM_WOODS;
             Climate.Parameter temp1 = Climate.Parameter.span(-1.5F, -0.5F);
             Climate.Parameter temp2 = Climate.Parameter.span(-0.5F, -0.2F);
             Climate.Parameter temp3 = Climate.Parameter.span(-0.2F, 0.2F);
@@ -84,7 +85,7 @@ public class ReduxRegion extends Region {
             addBiome(mapper, new Climate.ParameterPoint(temp4, Climate.Parameter.span(-0.05F, 0.2F), fullRange, fullRange, fullRange, fullRange, 0),
                     shrublands);
             addBiome(mapper, new Climate.ParameterPoint(temp4, Climate.Parameter.span(0.2F, 0.5F), fullRange, fullRange, fullRange, fullRange, 0),
-                    AetherBiomes.SKYROOT_GROVE); //ReduxBiomes.QUICKSOIL_DUNES);
+                    crystallium); //ReduxBiomes.QUICKSOIL_DUNES);
             addBiome(mapper, new Climate.ParameterPoint(temp4, Climate.Parameter.span(0.5F, 1.0F), fullRange, fullRange, fullRange, fullRange, 0),
                     deep); //ReduxBiomes.QUICKSOIL_OASIS);
 
@@ -153,7 +154,7 @@ public class ReduxRegion extends Region {
                     ReduxBiomes.DEEPER_AETHER);
 
             addBiome(mapper, new Climate.ParameterPoint(tempSkyroot, Climate.Parameter.span(-1.5F, -0.2F), fullRange, erosionDefault, fullRange, forestDistSkyroot2, 0),
-                    AetherBiomes.SKYROOT_FOREST);  // crystallium forest ig
+                    ReduxBiomes.CRYSTALLIUM_WOODS);
             addBiome(mapper, new Climate.ParameterPoint(tempSkyroot, Climate.Parameter.span(-0.2F, -0.15F), fullRange, erosionDefault, fullRange, forestDistSkyroot2, 0),
                     AetherBiomes.SKYROOT_MEADOW);
             addBiome(mapper, new Climate.ParameterPoint(tempSkyroot, Climate.Parameter.span(-0.15F, 0.1F), fullRange, erosionDefault, fullRange, forestDistSkyroot2, 0),
