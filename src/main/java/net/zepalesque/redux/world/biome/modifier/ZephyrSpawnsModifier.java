@@ -35,7 +35,7 @@ public record ZephyrSpawnsModifier(HolderSet<Biome> biomes, AbstractCondition<?>
                         Redux.LOGGER.error("UH oh, debug stuff happened!!! There is no Monster category in biome: {}", biome.unwrapKey().map(ResourceKey::location).map(ResourceLocation::toString).orElse("null"));
                     } else {
                         spawns.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(data.type, data.getWeight().asInt() * 4, data.minCount + 2, data.maxCount + 5));
-                        spawns.getSpawner(AetherMobCategory.AETHER_SKY_MONSTER).remove(data);
+//                        spawns.getSpawner(AetherMobCategory.AETHER_SKY_MONSTER).remove(data);
                     }
                 }
             });
