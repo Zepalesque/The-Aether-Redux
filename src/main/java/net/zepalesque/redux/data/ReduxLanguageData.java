@@ -900,7 +900,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addAdvancement("double_jump", "Murderer of Logic");
         addAdvancementDesc("double_jump", "Obtain an Airbound cape from a Bronze Dungeon and use it to destroy physics with facts and logicc.");
-        addAdvancement("grand_medal", "Didn't I just get like 10 of thede?");
+        addAdvancement("grand_medal", "Didn't I just get like 10 of these?");
         addAdvancementDesc("grand_medal", "Obtain the Grand Victory Medal, a symbol of great honor in Valkyrie culture, which will give you health regen, scaling up as you lose health!");
         addAdvancement("kill_sheepuff_with_fireball", "There is no fire in this hole");
         addAdvancementDesc("kill_sheepuff_with_fireball", "Obtain the Solar Emblem from the Gold Dungeon and kill a Sheepuff with a fireball. How cruel ):");
