@@ -1,8 +1,9 @@
 {
-  "type": "aether_redux:zephyr_modify",
-  "biomes": "#aether_redux:update_tomorrow_zephyrs_changed",
-  "condition": {
-    "condition": "aether_redux:redux_config",
-    "config_path": "[Gameplay Changes, Mob Spawns, Update Tomorrow: Zephyrs Changed!]"
-  }
+  "type": "aether_redux:music",
+  "biomes": "#aether_redux:music_modify",
+  "delay": {
+    "max": 2400,
+    "min": 600
+  },
+  "replace": false
 }
