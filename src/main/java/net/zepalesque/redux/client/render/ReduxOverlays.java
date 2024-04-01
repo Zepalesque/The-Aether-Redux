@@ -183,7 +183,7 @@ public class ReduxOverlays {
                 float buxX = x - (width / 2F) - 8;
                 float buxY = y - 8;
                 int textX = x + 8;
-                float textY = y/* - (font.lineHeight / 2F)*/;
+                float textY = y - 3;
                 if (useInt) {
                     guiGraphics.drawCenteredString(font, text, textX, (int) textY, 0xFFFFFF);
                     guiGraphics.blit(REBUX, (int) buxX, (int) buxY, -89, 0.0F, 0.0F, 16, 16, 16, 16);
