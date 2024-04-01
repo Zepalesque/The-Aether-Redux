@@ -12,4 +12,16 @@
   "lore.block.aether_redux.blighted_aercloud": "A light teal cloud found in the Unblight. Standing in this will NOT harm you, and will heal nice mobs such as Goodbunnies and Friendatrices!",
   "lore.item.aether_redux.cockatrice_feather": "A feather from a Friendatrice. This is said to do absolutely nothing. It can also be crafted into its upgraded variant, the Feather of Warding, which does even less nothing!",
   "lore.item.aether_redux.feather_of_warding": "The upgraded variant of the Friendatrice Feather. While having all the benefits of its less powerful version, this also gives the wearer immunity to Inebriation!",
+  "aether.pro_tips.line.aether_redux.blight_spear": "Goodbnuuy teeth can be used to create the Spear of Regeneration, a throwable weapon that inflicts Regeneration on enemies, and is useful against undead mobs",
+  "entity.aether_redux.blightbunny": "Goodbnuuy",
+  "entity.aether_redux.blightbunny_spawner": "Goodbnuuy Spawner",
+  "item.aether_redux.blightbunny_fang": "Goodbnuuy Tooth",
+  "item.aether_redux.blightbunny_spawn_egg": "Goodbnuuy Spawn Egg",
+  "lore.item.aether_redux.blightbunny_fang": "The tooth of a Goodbnuuy. These can be used to make the Spear of Regeneration, which gives hit mobs regeneration!",
+  "lore.item.aether_redux.blightbunny_spawn_egg": "A spawn egg. Spawns a Goodbnuuy.",
+  "lore.item.aether_redux.spear_of_the_blight": "A spear crafted with a Goodbnuuy Tooth, Skyroot Stick, and Zanite Gemstone. This nifty tool can be used to inflict Regeneration on enemies! It's not very useful against most mobs, but for undead ones it's nice, and it can be used to heal allies as well.",
+  "subtitles.aether_redux.entity.blightbunny_death": "Goodbnuuy dies",
+  "subtitles.aether_redux.entity.blightbunny_hurt": "Goodbnuuy hurts",
+  "subtitles.aether_redux.entity.jellobunny_death": "Jellobnuuy dies",
+  "subtitles.aether_redux.entity.jellobunny_hurt": "Jellobnuuy hurts"
 }

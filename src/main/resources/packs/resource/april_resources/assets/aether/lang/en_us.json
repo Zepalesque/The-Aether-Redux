@@ -48,5 +48,10 @@
   "lore.item.aether.black_moa_egg": "An egg laid by a Black Moam. Hatching this provides a Black Moam with 8 mid-air jumps, the best and most rare one!",
   "lore.item.aether.blue_moa_egg": "An egg laid by a Blue Moam. Hatching this provides a Blue Moam with 3 mid-air jumps. The most common Moam.",
   "lore.item.aether.nature_staff": "A staff that can allow for commanding tamed Moams. It can allow them to sit on the ground.",
-  "lore.item.aether.white_moa_egg": "An egg laid by a White Moam. Hatching this provides a White Moam with 4 mid-air jumps. This Moam is decently rare."
+  "lore.item.aether.white_moa_egg": "An egg laid by a White Moam. Hatching this provides a White Moam with 4 mid-air jumps. This Moam is decently rare.",
+  "entity.aether.aerbunny": "Aerbnuuy",
+  "item.aether.aerbunny_spawn_egg": "Aerbnuuy Spawn Egg",
+  "subtitles.aether.entity.aerbunny.death": "Aerbnuuy dies",
+  "subtitles.aether.entity.aerbunny.hurt": "Aerbnuuy squeals",
+  "subtitles.aether.entity.aerbunny.lift": "Aerbnuuy squeaks"
 }
