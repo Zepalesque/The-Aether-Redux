@@ -75,15 +75,10 @@ public class ReduxColors {
         if (Redux.ancientAetherCompat()) {
             event.getBlockColors().register((state, level, pos, index) -> level != null && pos != null ? state.hasProperty(AncientAetherBlockStateProperties.TYPE) && state.getValue(AncientAetherBlockStateProperties.TYPE) == AetherGrassType.ENCHANTED ? 0xFFFFFF : getAverageColor(level, pos, AETHER_GRASS_RESOLVER) : ReduxBiomes.AETHER_GRASS_COLOR, AncientAetherBlocks.SKY_GRASS.get());
             event.getBlockColors().register((state, level, pos, index) -> getColor(state, level, pos, index, 1),
-                    AncientAetherBlocks.HIGHLAND_VIOLA.get(),
-                    AncientAetherBlocks.POTTED_HIGHLAND_VIOLA.get(),
                     AncientAetherBlocks.WYND_THISTLE.get(),
                     AncientAetherBlocks.POTTED_WYND_THISTLE.get(),
-                    AncientAetherBlocks.SAKURA_BLOSSOMS.get(),
-                    AncientAetherBlocks.POTTED_SAKURA_BLOSSOMS.get(),
                     AncientAetherBlocks.SKY_BLUES.get(),
-                    AncientAetherBlocks.POTTED_SKY_BLUES.get(),
-                    AncientAetherBlocks.TRAPPED_SAKURA_BLOSSOMS.get()
+                    AncientAetherBlocks.POTTED_SKY_BLUES.get()
             );
         }
 
