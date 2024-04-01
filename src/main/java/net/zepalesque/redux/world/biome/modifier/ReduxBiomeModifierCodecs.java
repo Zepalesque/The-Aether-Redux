@@ -3,11 +3,13 @@ package net.zepalesque.redux.world.biome.modifier;
 import com.mojang.datafixers.util.Either;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.data.worldgen.ProcessorLists;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
+import net.minecraft.world.level.levelgen.structure.templatesystem.ProcessorRule;
 import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -48,8 +50,6 @@ public class ReduxBiomeModifierCodecs {
                     MusicModifier.DELAY.optionalFieldOf("delay_predicate").forGetter(MusicModifier::delayPredicate),
                     CodecPredicates.Bool.CODEC.optionalFieldOf("replace_predicate").forGetter(MusicModifier::replacePredicate)
             ).apply(builder, MusicModifier::new)));
-
-
 
 
     static RegistryObject<Codec<CarverModifier>> CARVER = CODECS.register("add_carver", () ->
