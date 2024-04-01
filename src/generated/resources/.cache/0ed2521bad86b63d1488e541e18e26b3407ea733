@@ -1,5 +1,5 @@
-// 1.20.1	2024-03-31T20:23:57.1160254	Tags for minecraft:worldgen/biome mod id aether_redux
-59b7fd933fee7d6648d98787fc32b1de1716289c data/aether/tags/worldgen/biome/is_aether.json
+// 1.20.1	2024-03-31T21:35:23.4619932	Tags for minecraft:worldgen/biome mod id aether_redux
+bc50fad58ba7fd719e55c7dbff8fed697493b541 data/aether/tags/worldgen/biome/is_aether.json
 809da989aa462c425e80ef6b479be91b6fed4b3e data/aether_redux/tags/worldgen/biome/dense_leaf_fall.json
 6425e7e0a57a451843094090fa1e31c9fbd4c5e0 data/aether_redux/tags/worldgen/biome/has_aether_caves.json
 0dae144aa80bb38401ce6deef642ae2fcf41d1f4 data/aether_redux/tags/worldgen/biome/has_ancient_ruin.json
