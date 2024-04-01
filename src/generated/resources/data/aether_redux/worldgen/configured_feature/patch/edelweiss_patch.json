@@ -15,10 +15,7 @@
           "to_place": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "aether_redux:zyatrix",
-              "Properties": {
-                "enchanted": "false"
-              }
+              "Name": "aether_redux:edelweiss"
             }
           }
         }

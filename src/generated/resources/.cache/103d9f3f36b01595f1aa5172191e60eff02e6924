@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-31T21:50:04.9457204	Registries
+// 1.20.1	2024-03-31T22:29:47.4738829	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 94d997b0a87f23900f66f9a9e2485391b6ff8e38 data/aether/worldgen/configured_feature/golden_oak_tree.json
 875593e37a52dd63b2d87226b0f0e5e76ef48247 data/aether/worldgen/configured_feature/grass_patch.json
@@ -100,7 +100,7 @@ b0ea71de2674a70154347c825687c5521aa8f1c7 data/aether_redux/worldgen/configured_f
 38dd32c1569d71c14eacaa8051d47c748d046914 data/aether_redux/worldgen/configured_feature/patch/corrupted_vines_patch.json
 e64b897a04c6daec60a4fd20764eb0d8121cfdda data/aether_redux/worldgen/configured_feature/patch/daggerbloom_patch.json
 7c34f774a2e3067be7f4649df750a7d46739d8ee data/aether_redux/worldgen/configured_feature/patch/deep_grass_patch.json
-2883f34d51b3a6a5a5e0afbd816abe3d5fc4c8cd data/aether_redux/worldgen/configured_feature/patch/edelweiss_patch.json
+a0b3b8dc7203e9fba15f818bcc6f158763fc37b1 data/aether_redux/worldgen/configured_feature/patch/edelweiss_patch.json
 0ed1b95ccd1bfe272e248bfcec50f2348668c6b6 data/aether_redux/worldgen/configured_feature/patch/flawless_bloom_patch.json
 900516925363e396bb2b04dc24d40b7c81e69039 data/aether_redux/worldgen/configured_feature/patch/frosted_purple_flower_patch.json
 124071c99790c718aff682432a6e970294722214 data/aether_redux/worldgen/configured_feature/patch/genesis_skysprouts_patch.json
