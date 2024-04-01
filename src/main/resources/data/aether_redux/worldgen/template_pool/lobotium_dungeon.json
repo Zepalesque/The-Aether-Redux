@@ -6,7 +6,7 @@
         "element_type": "minecraft:single_pool_element",
         "location": "aether_redux:dungeon/lobotium_dungeon",
         "projection": "rigid",
-        "processors": "minecraft:empty"
+        "processors": "aether_redux:lobotium_dungeon"
       }
     }
   ]
