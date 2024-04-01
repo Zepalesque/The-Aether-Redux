@@ -1,6 +1,6 @@
 {
   "carvers": {},
-  "creature_spawn_probability": 0.25,
+  "creature_spawn_probability": 0.5,
   "downfall": 0.0,
   "effects": {
     "fog_color": 9671612,
@@ -153,7 +153,7 @@
         "type": "aether_redux:quail_tm",
         "maxCount": 5,
         "minCount": 2,
-        "weight": 15
+        "weight": 20
       },
       {
         "type": "aether:phyg",
@@ -162,22 +162,10 @@
         "weight": 10
       },
       {
-        "type": "aether:sheepuff",
-        "maxCount": 4,
-        "minCount": 3,
-        "weight": 12
-      },
-      {
         "type": "aether:flying_cow",
         "maxCount": 5,
         "minCount": 2,
         "weight": 12
-      },
-      {
-        "type": "aether:aerbunny",
-        "maxCount": 3,
-        "minCount": 3,
-        "weight": 11
       },
       {
         "type": "aether:moa",
