@@ -17,5 +17,4 @@ public class Conditions {
     public static final AbstractCondition<?> ENDERMEN = new ReduxConfigCondition(ReduxConfig.COMMON.enderman_spawns);
     public static final AbstractCondition<?> ALT_GILDED = new ReduxConfigCondition(ReduxConfig.COMMON.alternate_gilded_trees);
     public static final AbstractCondition<?> CLASSIC_SKYFIELDS = new ReduxConfigCondition(ReduxConfig.COMMON.classic_skyfields);
-    public static final AbstractCondition<?> ZEPHYR_MOMENTO = new ReduxConfigCondition(ReduxConfig.COMMON.zephyr_meme_tweaks);
 }

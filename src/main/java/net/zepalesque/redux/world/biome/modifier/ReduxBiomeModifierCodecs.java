@@ -63,13 +63,6 @@ public class ReduxBiomeModifierCodecs {
                     Biome.LIST_CODEC.fieldOf("biomes").forGetter(AetherGrassColorModifier::biomes),
                     Codec.INT.fieldOf("grass_color").forGetter(AetherGrassColorModifier::grass)
             ).apply(builder, AetherGrassColorModifier::new)));
-
-    static RegistryObject<Codec<ZephyrSpawnsModifier>> ZEPHYR_MODIFY = CODECS.register("zephyr_modify", () ->
-            RecordCodecBuilder.create(builder -> builder.group(
-                    Biome.LIST_CODEC.fieldOf("biomes").forGetter(ZephyrSpawnsModifier::biomes),
-                    AbstractCondition.CODEC.fieldOf("condition").forGetter(ZephyrSpawnsModifier::condition)
-            ).apply(builder, ZephyrSpawnsModifier::new)));
-
     public static final RegistryObject<Codec<ReduxSpawnsModifier>> MOB_SPAWN_CONFIG = CODECS.register("mob_spawn_config", () ->
             RecordCodecBuilder.create(builder -> builder.group(
                     Biome.LIST_CODEC.fieldOf("biomes").forGetter(ReduxSpawnsModifier::biomes),

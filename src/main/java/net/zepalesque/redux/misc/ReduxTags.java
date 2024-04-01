@@ -113,7 +113,6 @@ public class ReduxTags {
         public static final TagKey<Biome> NO_GRASS_OVERRIDE = tag("no_grass_override");
         public static final TagKey<Biome> HAS_GRASS_OVERRIDE = tag("has_grass_override");
 
-        public static final TagKey<Biome> ZEPHYR_MODIFY = tag("update_tomorrow_zephyrs_changed");
 
         public static final TagKey<Biome> MUSIC_MODIFY = tag("music_modify");
 

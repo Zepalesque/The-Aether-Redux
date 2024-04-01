@@ -67,18 +67,6 @@ public class MobHooks {
         }
     }
 
-    public static void modifyZephyrAI(Zephyr zephyr) {
-        zephyr.targetSelector.getAvailableGoals().removeIf((wrappedGoal -> wrappedGoal.getGoal() instanceof NearestAttackableTargetGoal));
-
-//        zephyr.goalSelector.getAvailableGoals().forEach((goal) -> {
-//            if (goal.getGoal().getClass().equals(Zephyr.ZephyrShootSnowballGoal.class) && goal.getPriority() == 2) {
-//                removeRanged[0] = goal;}});
-//        if (toRemove[0] != null) {
-//            cockatrice.goalSelector.getAvailableGoals().removeIf((wrappedGoal -> wrappedGoal == removeRanged[0]));
-//            cockatrice.goalSelector.addGoal(2, new CockatriceRangedStrafeGoal(cockatrice, 1.0, 60, 10.0F));
-//        }
-    }
-
     public static void modifyEntityQuicksoil(final LivingEntity entity)
     {
         entity.setDeltaMovement(entity.getDeltaMovement().multiply(1.7D, 1D, 1.7D));

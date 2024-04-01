@@ -235,9 +235,6 @@ public class Redux {
                     GenesisEntityTypes.SKYROOT_MIMIC.get().getDimensions().height = 1.25F;
                 }
             }
-            if (ReduxConfig.COMMON.zephyr_meme_tweaks.get()) {
-                AetherMobCategory.AETHER_SKY_MONSTER.max = 128;
-            }
             PotionBrewing.addMix(Potions.POISON, ReduxItems.BLIGHTED_SPORES.get(), ReduxPotions.INTOXICATION.get());
             PotionBrewing.addMix(Potions.STRONG_POISON, ReduxItems.BLIGHTED_SPORES.get(), ReduxPotions.INTOXICATION.get());
             PotionBrewing.addMix(Potions.LONG_POISON, ReduxItems.BLIGHTED_SPORES.get(), ReduxPotions.LONG_INTOXICATION.get());
