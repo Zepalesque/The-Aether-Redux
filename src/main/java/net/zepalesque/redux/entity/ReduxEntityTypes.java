@@ -1,12 +1,17 @@
 package net.zepalesque.redux.entity;
 
+import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.data.resources.AetherMobCategory;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.entity.monster.Swet;
 import com.aetherteam.aether.entity.passive.AetherAnimal;
+import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
@@ -86,9 +91,13 @@ public class ReduxEntityTypes {
         event.register(ReduxEntityTypes.BLIGHTBUNNY.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Blightbunny::checkBunnySpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
         event.register(ReduxEntityTypes.BLIGHTBUNNY_SPAWNER.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, EntitySpawner::checkEntitySpawnerSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
         event.register(ReduxEntityTypes.COCKATRICE_SPAWNER.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (e, l, s, p, r) -> !ReduxConfig.COMMON.cockatrice_burn_in_daylight.get() && EntitySpawner.checkEntitySpawnerSpawnRules(e, l, s, p, r), SpawnPlacementRegisterEvent.Operation.OR);
-        event.register(ReduxEntityTypes.QUAIL_TM.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, EntitySpawner::checkEntitySpawnerSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
+        event.register(ReduxEntityTypes.QUAIL_TM.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ReduxEntityTypes::peacefulSpawner, SpawnPlacementRegisterEvent.Operation.OR);
         event.register(ReduxEntityTypes.PHUDGE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AetherAnimal::checkAetherAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
         event.register(ReduxEntityTypes.ZEPHYR_SPAWNER.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ManyEntitySpawner::checkManyEntitySpawnerSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
+    }
+
+    public static boolean peacefulSpawner(EntityType<? extends EntitySpawner> animal, LevelAccessor level, MobSpawnType spawnReason, BlockPos pos, RandomSource random) {
+        return level.getBlockState(pos.below()).is(AetherTags.Blocks.AETHER_ANIMALS_SPAWNABLE_ON) && level.getRawBrightness(pos, 0) > 8;
     }
 
     @SubscribeEvent
