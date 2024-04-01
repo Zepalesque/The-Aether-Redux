@@ -8,7 +8,5 @@ public class MenuHooks {
         menuHelper.prepareMenu(ReduxMenus.CANDY_MENU.get());
         menuHelper.prepareMenu(ReduxMenus.DEEP_MENU.get());
         menuHelper.prepareMenu(ReduxMenus.DUNGEON_MENU.get());
-        menuHelper.prepareMenu(ReduxMenus.CLOUDCAPS_MENU.get());
-        menuHelper.prepareMenu(ReduxMenus.SKYFIELDS_MENU.get());
     }
 }
