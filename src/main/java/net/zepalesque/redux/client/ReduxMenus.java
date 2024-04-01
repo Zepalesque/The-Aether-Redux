@@ -20,9 +20,9 @@ public class ReduxMenus {
     public static final DeferredRegister<Menu> MENUS = DeferredRegister.create(Cumulus.MENU_REGISTRY_KEY, Redux.MODID);
 
     private static final ResourceLocation ICON = Redux.locate("textures/gui/menu_api/menu_icon_redux.png");
-    private static final Component CANDY_NAME = Component.translatable("aether_redux.menu_title.blight");
-    private static final Component DEEP_NAME = Component.translatable("aether_redux.menu_title.gilded");
-    private static final Component CRYSTALLIUM_NAME = Component.translatable("aether_redux.menu_title.dungeon");
+    private static final Component CANDY_NAME = Component.translatable("aether_redux.menu_title.candy");
+    private static final Component DEEP_NAME = Component.translatable("aether_redux.menu_title.deep");
+    private static final Component CRYSTALLIUM_NAME = Component.translatable("aether_redux.menu_title.crystallium");
 
 
     private static final ResourceLocation THE_AETHER_REGULAR_BACKGROUND = new ResourceLocation(Aether.MODID, "textures/gui/title/options_background.png");
