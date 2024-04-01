@@ -88,7 +88,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                 new LootItemCondition[] {
                         DataLootCondition.conditionOf(Conditions.RAW_ORES).build(),
                         HAS_SILK_TOUCH.invert().build(),
-                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(ReduxBlocks.VERIDIUM_ORE.get()).build()}));
+                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(ReduxBlocks.CRYSTAL_GOLD_ORE.get()).build()}));
 
         this.add("sentry_chip", new AddDrops(new ItemStack(ReduxItems.SENTRY_CHIP.get()),
                 new LootItemFunction[] {

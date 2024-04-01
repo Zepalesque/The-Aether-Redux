@@ -579,7 +579,7 @@ public class ReduxBlocks {
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.LAPIS).strength(3.0F, 6.0F).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
 
     public static RegistryObject<Block> CRYSTAL_GOLD_ORE = register("crystal_gold_ore",
-            () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOL).strength(3.0F).requiresCorrectToolForDrops()));
+            () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOL).strength(1.5F).requiresCorrectToolForDrops()));
 
     public static RegistryObject<Block> CRYSTAL_GOLD_BLOCK = register("crystal_gold_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.GOLD_BLOCK).mapColor(MapColor.QUARTZ)));
