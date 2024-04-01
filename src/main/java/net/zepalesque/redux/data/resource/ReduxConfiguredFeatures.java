@@ -234,7 +234,7 @@ public class ReduxConfiguredFeatures {
                 patchNoCoarse(14, 7, 3, prov(ReduxBlocks.ZYATRIX)));
 
         register(context, EDELWEISS_PATCH, Feature.FLOWER,
-                patchNoCoarse(32, 7, 3, prov(ReduxBlocks.ZYATRIX)));
+                patchNoCoarse(32, 7, 3, prov(ReduxBlocks.EDELWEISS)));
 
         register(context, VANILLA_PATCH, Feature.FLOWER,
                 patchNoCoarse(14, 7, 3, prov(ReduxBlocks.VANILLA)));

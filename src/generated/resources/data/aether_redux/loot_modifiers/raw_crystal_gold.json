@@ -29,7 +29,7 @@
       }
     },
     {
-      "block": "aether_redux:veridium_ore",
+      "block": "aether_redux:crystal_gold_ore",
       "condition": "minecraft:block_state_property"
     }
   ],
