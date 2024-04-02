@@ -67,6 +67,7 @@ public class ReduxColors {
                 ReduxBlocks.POTTED_SPIROLYCTIL.get(),
                 ReduxBlocks.XAELIA_PATCH.get()
         );
+
         // Deep Aether compat
         if (Redux.deepAetherCompat()) {
             event.getBlockColors().register((state, level, pos, index) -> getColor(state, level, pos, index, 1),
@@ -133,7 +134,12 @@ public class ReduxColors {
     }
 
     private static int getAverageColor(BlockAndTintGetter level, BlockPos blockPos, ColorResolver colorResolver) {
-        return level.getBlockTint(blockPos, colorResolver);
+        try {
+            return level.getBlockTint(blockPos, colorResolver);
+        } catch (Exception e) {
+            Redux.LOGGER.error("Failed to get Aether Grass color, this is not intended! Ignoring exception and using default color", e);
+            return ReduxBiomes.AETHER_GRASS_COLOR;
+        }
     }
 
     public static void resolvers(RegisterColorHandlersEvent.ColorResolvers event) {
