@@ -53,9 +53,7 @@ import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.util.state.ReduxStates;
 import net.zepalesque.redux.block.util.state.enums.PetalPrismaticness;
 import net.zepalesque.redux.misc.ReduxTags;
-import net.zepalesque.redux.world.feature.CloudcapFeature;
-import net.zepalesque.redux.world.feature.ReduxFeatures;
-import net.zepalesque.redux.world.feature.UpwardVineFeature;
+import net.zepalesque.redux.world.feature.*;
 import net.zepalesque.redux.world.feature.config.*;
 import net.zepalesque.redux.world.stateprov.SimpleConditionAlternativeStateProvider;
 import net.zepalesque.redux.world.tree.decorator.BlightwillowRootsTrunkDecorator;
@@ -273,8 +271,8 @@ public class ReduxConfiguredFeatures {
         register(context, CLOUD_LAYER, ReduxFeatures.CLOUD_LAYER.get(),
                 new CloudLayerConfig(prov(AetherBlocks.COLD_AERCLOUD), BlockPredicate.matchesBlocks(Blocks.AIR, Blocks.CAVE_AIR, Blocks.VOID_AIR), 8, 1D));
 
-        register(context, BLIGHT_ROCK, Feature.FOREST_ROCK,
-                new BlockStateConfiguration(drops(ReduxBlocks.BLIGHTMOSS_HOLYSTONE)));
+        register(context, BLIGHT_ROCK, ReduxFeatures.CONFIGURED_BOULDER.get(),
+                new ConfiguredBoulder.Config(prov(ReduxBlocks.BLIGHTMOSS_HOLYSTONE)));
         register(context, BLIGHTMOSS_VEGETATION, Feature.SIMPLE_BLOCK,
                 new SimpleBlockConfiguration(new WeightedStateProvider(
                         SimpleWeightedRandomList.<BlockState>builder()
@@ -347,8 +345,8 @@ public class ReduxConfiguredFeatures {
         register(context, GILDED_LEAF_PATCH, Feature.RANDOM_PATCH,
                 blockTestPatch(8, 3, 3, createLeafPileLayers(ReduxBlocks.GILDED_LEAF_PILE),
                         BlockPredicate.wouldSurvive(ReduxBlocks.AURUM.get().defaultBlockState(), BlockPos.ZERO)));
-        register(context, GILDED_ROCK, Feature.FOREST_ROCK,
-                new BlockStateConfiguration(drops(ReduxBlocks.GILDED_HOLYSTONE)));
+        register(context, GILDED_ROCK, ReduxFeatures.CONFIGURED_BOULDER.get(),
+                new ConfiguredBoulder.Config(prov(ReduxBlocks.GILDED_HOLYSTONE)));
 
         register(context, GILDED_OAK_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
@@ -529,11 +527,11 @@ public class ReduxConfiguredFeatures {
         register(context, GOLDEN_LEAF_PATCH, Feature.RANDOM_PATCH,
                 blockTestPatch(8, 3, 3, createLeafPileLayers(ReduxBlocks.GOLDEN_LEAF_PILE),
                         BlockPredicate.wouldSurvive(ReduxBlocks.AURUM.get().defaultBlockState(), BlockPos.ZERO)));
-        register(context, SKYFIELDS_ROCK, Feature.FOREST_ROCK,
-                new BlockStateConfiguration(AetherFeatureStates.HOLYSTONE));
+        register(context, SKYFIELDS_ROCK, ReduxFeatures.CONFIGURED_BOULDER.get(),
+                new ConfiguredBoulder.Config(prov(AetherFeatureStates.HOLYSTONE)));
 
-        register(context, SHRUBLANDS_ROCK, Feature.FOREST_ROCK,
-                new BlockStateConfiguration(AetherFeatureStates.HOLYSTONE));
+        register(context, SHRUBLANDS_ROCK, ReduxFeatures.CONFIGURED_BOULDER.get(),
+                new ConfiguredBoulder.Config(prov(AetherFeatureStates.HOLYSTONE)));
 
         register(context, GLIMMERSTOOL_ROCK, ReduxFeatures.PATCH_ROCK.get(),
                 blockBelowPlacementPatchRock(prov(AetherFeatureStates.HOLYSTONE), 32, 11, 3, prov(ReduxBlocks.SHIMMERSTOOL), BlockPredicate.matchesTag(ReduxTags.Blocks.AEVELIUM_GRASSES)));
@@ -573,11 +571,11 @@ public class ReduxConfiguredFeatures {
 
         register(context, MOSSY_HOLYSTONE_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
                 drops(AetherBlocks.MOSSY_HOLYSTONE), 24, 0.3F));
-        register(context, MOSSY_ROCK, Feature.FOREST_ROCK,
-                new BlockStateConfiguration(drops(AetherBlocks.MOSSY_HOLYSTONE)));
+        register(context, MOSSY_ROCK, ReduxFeatures.CONFIGURED_BOULDER.get(),
+                new ConfiguredBoulder.Config(prov(AetherBlocks.MOSSY_HOLYSTONE)));
 
-        register(context, ICESTONE_ROCK, Feature.FOREST_ROCK,
-                new BlockStateConfiguration(AetherFeatureStates.ICESTONE));
+        register(context, ICESTONE_ROCK, ReduxFeatures.CONFIGURED_BOULDER.get(),
+                new ConfiguredBoulder.Config(prov(AetherFeatureStates.ICESTONE)));
 
         register(context, FIELDSPROOT_TREE, ReduxFeatures.FIELDSPROOT_TREE.get(),
                 new FieldsprootTreeConfig(
@@ -772,8 +770,8 @@ public class ReduxConfiguredFeatures {
         return new RandomPatchConfiguration(tries, xz, y, PlacementUtils.onlyWhenEmpty(
                 ReduxFeatures.TEST_BELOW_BLOCK.get(), new PredicateStateConfig(state, predicate)));
     }
-    private static PatchRockConfig blockBelowPlacementPatchRock(BlockStateProvider rock, int tries, int xz, int y, BlockStateProvider state, BlockPredicate predicate) {
-        return new PatchRockConfig(rock, tries, xz, y, PlacementUtils.onlyWhenEmpty(
+    private static ConfiguredPatchBoulder.Config blockBelowPlacementPatchRock(BlockStateProvider rock, int tries, int xz, int y, BlockStateProvider state, BlockPredicate predicate) {
+        return new ConfiguredPatchBoulder.Config(rock, tries, xz, y, PlacementUtils.onlyWhenEmpty(
                 ReduxFeatures.TEST_BELOW_BLOCK.get(), new PredicateStateConfig(state, predicate)));
     }
     private static RandomPatchConfiguration blockTestPatch(int tries, int xz, int y, BlockStateProvider state, BlockPredicate predicate)

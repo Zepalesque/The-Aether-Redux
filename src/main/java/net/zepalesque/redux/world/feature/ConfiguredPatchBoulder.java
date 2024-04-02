@@ -1,17 +1,21 @@
 package net.zepalesque.redux.world.feature;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
+import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
-import net.zepalesque.redux.world.feature.config.PatchRockConfig;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
-public class PatchRockFeature extends Feature<PatchRockConfig> {
-   public PatchRockFeature(Codec<PatchRockConfig> p_65248_) {
+public class ConfiguredPatchBoulder extends Feature<ConfiguredPatchBoulder.Config> {
+   public ConfiguredPatchBoulder(Codec<Config> p_65248_) {
       super(p_65248_);
    }
 
@@ -21,7 +25,7 @@ public class PatchRockFeature extends Feature<PatchRockConfig> {
     * that they can safely generate into.
     * @param context A context object with a reference to the level and the position the feature is being placed at
     */
-   public boolean place(FeaturePlaceContext<PatchRockConfig> context) {
+   public boolean place(FeaturePlaceContext<Config> context) {
       BlockPos blockpos = context.origin();
       WorldGenLevel worldgenlevel = context.level();
       RandomSource randomsource = context.random();
@@ -58,8 +62,8 @@ public class PatchRockFeature extends Feature<PatchRockConfig> {
       }
    }
 
-   public boolean placePatch(FeaturePlaceContext<PatchRockConfig> p_160210_) {
-      PatchRockConfig randompatchconfiguration = p_160210_.config();
+   public boolean placePatch(FeaturePlaceContext<Config> p_160210_) {
+      Config randompatchconfiguration = p_160210_.config();
       RandomSource randomsource = p_160210_.random();
       BlockPos blockpos = p_160210_.origin();
       WorldGenLevel worldgenlevel = p_160210_.level();
@@ -76,5 +80,16 @@ public class PatchRockFeature extends Feature<PatchRockConfig> {
       }
 
       return i > 0;
+   }
+
+   public record Config(BlockStateProvider provider, int tries, int xzSpread, int ySpread, Holder<PlacedFeature> feature) implements FeatureConfiguration {
+      public static final Codec<Config> CODEC = RecordCodecBuilder.create(
+              builder -> builder.group(
+                      BlockStateProvider.CODEC.fieldOf("rock_state").forGetter(Config::provider),
+                      ExtraCodecs.POSITIVE_INT.fieldOf("patch_tries").forGetter(Config::tries),
+                      ExtraCodecs.NON_NEGATIVE_INT.fieldOf("patch_xz_spread").forGetter(Config::xzSpread),
+                      ExtraCodecs.NON_NEGATIVE_INT.fieldOf("patch_y_spread").forGetter(Config::ySpread),
+                      PlacedFeature.CODEC.fieldOf("patch_feature").forGetter(Config::feature)).apply(builder, Config::new));
+
    }
 }
