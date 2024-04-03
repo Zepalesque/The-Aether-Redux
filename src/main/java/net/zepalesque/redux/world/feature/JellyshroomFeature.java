@@ -1,28 +1,31 @@
 package net.zepalesque.redux.world.feature;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
+import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.zepalesque.redux.misc.ReduxTags;
-import net.zepalesque.redux.world.feature.config.JellyshroomConfig;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class HugeJellyshroomFeature extends Feature<JellyshroomConfig> {
-   public HugeJellyshroomFeature(Codec<JellyshroomConfig> p_65975_) {
+public class JellyshroomFeature extends Feature<JellyshroomFeature.Config> {
+   public JellyshroomFeature(Codec<Config> p_65975_) {
       super(p_65975_);
    }
 
    @Override
-   public boolean place(FeaturePlaceContext<JellyshroomConfig> context) {
+   public boolean place(FeaturePlaceContext<Config> context) {
       int height = context.config().height.sample(context.random());
       Map<BlockPos, BlockState> toPlace = new HashMap<>();
       BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
@@ -102,4 +105,22 @@ public class HugeJellyshroomFeature extends Feature<JellyshroomConfig> {
          return false;
       }
    }*/
+
+   public static class Config implements FeatureConfiguration {
+      public static final Codec<Config> CODEC = RecordCodecBuilder.create((mushroom) ->
+              mushroom.group(BlockStateProvider.CODEC.fieldOf("jelly_block").forGetter((config) -> config.jelly),
+                      BlockStateProvider.CODEC.fieldOf("stem_block").forGetter((config) -> config.stem),
+                      IntProvider.CODEC.fieldOf("height").forGetter((config) -> config.height))
+                      .apply(mushroom, Config::new));
+      public final BlockStateProvider jelly;
+      public final BlockStateProvider stem;
+      public final IntProvider height;
+
+
+      public Config(BlockStateProvider jelly, BlockStateProvider stem, IntProvider height) {
+         this.jelly = jelly;
+         this.stem = stem;
+         this.height = height;
+      }
+   }
 }

@@ -1,6 +1,7 @@
 package net.zepalesque.redux.world.feature;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerChunkCache;
 import net.minecraft.tags.BlockTags;
@@ -18,23 +19,24 @@ import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.carver.CarvingContext;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.zepalesque.redux.mixin.common.world.ChunkAccessAccessor;
-import net.zepalesque.redux.world.feature.config.SurfaceRuleLakeConfig;
 
 import java.util.Optional;
 
-public class SurfaceRuleLakeFeature extends Feature<SurfaceRuleLakeConfig> {
+public class SurfaceRuleLakeFeature extends Feature<SurfaceRuleLakeFeature.Config> {
     private static final BlockState AIR;
 
-    public SurfaceRuleLakeFeature(Codec<SurfaceRuleLakeConfig> p_66259_) {
+    public SurfaceRuleLakeFeature(Codec<Config> p_66259_) {
         super(p_66259_);
     }
 
-    public boolean place(FeaturePlaceContext<SurfaceRuleLakeConfig> context) {
+    public boolean place(FeaturePlaceContext<Config> context) {
         BlockPos blockpos = context.origin();
         WorldGenLevel worldgenlevel = context.level();
         RandomSource random = context.random();
-        SurfaceRuleLakeConfig config = context.config();
+        Config config = context.config();
         if (blockpos.getY() <= worldgenlevel.getMinBuildHeight() + 4) {
             return false;
         } else {
@@ -153,5 +155,9 @@ public class SurfaceRuleLakeFeature extends Feature<SurfaceRuleLakeConfig> {
 
     static {
         AIR = Blocks.CAVE_AIR.defaultBlockState();
+    }
+
+    public static record Config(BlockStateProvider fluid) implements FeatureConfiguration {
+        public static final Codec<Config> CODEC = RecordCodecBuilder.create((p_190962_) -> p_190962_.group(BlockStateProvider.CODEC.fieldOf("fluid").forGetter(Config::fluid)).apply(p_190962_, Config::new));
     }
 }

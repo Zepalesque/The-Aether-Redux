@@ -22,15 +22,15 @@ import net.zepalesque.redux.util.level.WorldgenUtil;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CloudcapFeature extends Feature<CloudcapFeature.CloudcapConfig> {
+public class CloudcapFeature extends Feature<CloudcapFeature.Config> {
 
 
-    public CloudcapFeature(Codec<CloudcapConfig> codec) {
+    public CloudcapFeature(Codec<Config> codec) {
         super(codec);
     }
 
     @Override
-    public boolean place(FeaturePlaceContext<CloudcapFeature.CloudcapConfig> context) {
+    public boolean place(FeaturePlaceContext<Config> context) {
         int totalheight = context.config().height.sample(context.random());
         Map<BlockPos, BlockState> toPlace = new HashMap<>();
         Map<Direction, Map<BlockPos, BlockState>> roots = new HashMap<>();
@@ -180,8 +180,8 @@ public class CloudcapFeature extends Feature<CloudcapFeature.CloudcapConfig> {
         return false;
     }
 
-    public static class CloudcapConfig implements FeatureConfiguration {
-        public static final Codec<CloudcapConfig> CODEC = RecordCodecBuilder.create((mushroom) ->
+    public static class Config implements FeatureConfiguration {
+        public static final Codec<Config> CODEC = RecordCodecBuilder.create((mushroom) ->
                 mushroom.group(BlockStateProvider.CODEC.fieldOf("cap_provider").forGetter((config) -> config.cap),
                                 BlockStateProvider.CODEC.fieldOf("spore_provider").forGetter((config) -> config.spore),
                                 BlockStateProvider.CODEC.fieldOf("stem_provider").forGetter((config) -> config.stem),
@@ -190,7 +190,7 @@ public class CloudcapFeature extends Feature<CloudcapFeature.CloudcapConfig> {
                                 IntProvider.CODEC.fieldOf("root_height").forGetter((config) -> config.rootHeight),
                                 IntProvider.CODEC.fieldOf("root_wall_height").forGetter((config) -> config.rootWallHeight),
                                 IntProvider.CODEC.fieldOf("cap_height").forGetter((config) -> config.capHeight))
-                        .apply(mushroom, CloudcapConfig::new));
+                        .apply(mushroom, Config::new));
         public final BlockStateProvider cap;
         public final BlockStateProvider spore;
         public final BlockStateProvider stem;
@@ -200,7 +200,7 @@ public class CloudcapFeature extends Feature<CloudcapFeature.CloudcapConfig> {
         public final IntProvider rootWallHeight;
         public final IntProvider capHeight;
 
-        public CloudcapConfig(BlockStateProvider cap, BlockStateProvider spore, BlockStateProvider stem, BlockStateProvider stemWall, IntProvider height, IntProvider rootHeight, IntProvider rootWallHeight, IntProvider capHeight) {
+        public Config(BlockStateProvider cap, BlockStateProvider spore, BlockStateProvider stem, BlockStateProvider stemWall, IntProvider height, IntProvider rootHeight, IntProvider rootWallHeight, IntProvider capHeight) {
             this.cap = cap;
             this.spore = spore;
             this.stem = stem;

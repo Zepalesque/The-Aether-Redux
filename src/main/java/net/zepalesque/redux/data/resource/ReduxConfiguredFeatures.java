@@ -269,7 +269,7 @@ public class ReduxConfiguredFeatures {
                         0.75F));
 
         register(context, CLOUD_LAYER, ReduxFeatures.CLOUD_LAYER.get(),
-                new CloudLayerConfig(prov(AetherBlocks.COLD_AERCLOUD), BlockPredicate.matchesBlocks(Blocks.AIR, Blocks.CAVE_AIR, Blocks.VOID_AIR), 8, 1D));
+                new CloudLayerFeature.Config(prov(AetherBlocks.COLD_AERCLOUD), BlockPredicate.matchesBlocks(Blocks.AIR, Blocks.CAVE_AIR, Blocks.VOID_AIR), 8, 1D));
 
         register(context, BLIGHT_ROCK, ReduxFeatures.CONFIGURED_BOULDER.get(),
                 new ConfiguredBoulder.Config(prov(ReduxBlocks.BLIGHTMOSS_HOLYSTONE)));
@@ -514,7 +514,7 @@ public class ReduxConfiguredFeatures {
 
         register(context, CORRUPTED_VINES_PATCH, Feature.RANDOM_PATCH,
                 new RandomPatchConfiguration(12, 7, 3, PlacementUtils.onlyWhenEmpty(
-                        ReduxFeatures.UPWARD_VINE.get(), new UpwardVineFeature.UpwardVinesConfig(
+                        ReduxFeatures.UPWARD_VINE.get(), new UpwardVineFeature.Config(
                                 prov(ReduxBlocks.CORRUPTED_VINES_PLANT),
                                 prov(ReduxBlocks.CORRUPTED_VINES),
                                 BiasedToBottomInt.of(2, 12)
@@ -545,7 +545,7 @@ public class ReduxConfiguredFeatures {
                 randomPatch(32, 7, 3, prov(ReduxBlocks.XAELIA_PATCH)));
 
         register(context, LARGE_CLOUDCAP, ReduxFeatures.CLOUDCAP.get(),
-                new CloudcapFeature.CloudcapConfig(
+                new CloudcapFeature.Config(
                         prov(ReduxBlocks.CLOUD_CAP_BLOCK.get().defaultBlockState().setValue(BlockStateProperties.DOWN, false)),
                         prov(ReduxBlocks.CLOUDCAP_SPORES),
                         prov(Redux.WoodHandlers.CLOUDCAP.log),
@@ -560,7 +560,7 @@ public class ReduxConfiguredFeatures {
                                 PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(LARGE_JELLYSHROOM), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.JELLYSHROOM.get())), 0.3F)),
                         PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(LARGE_CLOUDCAP), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.CLOUDCAP_MUSHLING.get()))));
         register(context, LARGE_JELLYSHROOM, ReduxFeatures.JELLYSHROOM.get(),
-                new JellyshroomConfig(
+                new JellyshroomFeature.Config(
                         prov(ReduxBlocks.JELLYSHROOM_JELLY_BLOCK),
                         prov(Redux.WoodHandlers.JELLYSHROOM.log),
                         UniformInt.of(7, 9)
@@ -578,7 +578,7 @@ public class ReduxConfiguredFeatures {
                 new ConfiguredBoulder.Config(prov(AetherFeatureStates.ICESTONE)));
 
         register(context, FIELDSPROOT_TREE, ReduxFeatures.FIELDSPROOT_TREE.get(),
-                new FieldsprootTreeConfig(
+                new FieldsprootTreeFeature.Config(
                         prov(ReduxBlocks.FIELDSPROOT_LEAVES),
                         prov(Redux.WoodHandlers.FIELDSPROOT.log),
                         prov(naturalDrops(Redux.WoodHandlers.FIELDSPROOT.wood)),
@@ -659,10 +659,10 @@ public class ReduxConfiguredFeatures {
 
 
         register(context, SURFACE_RULE_WATER_LAKE, ReduxFeatures.SURFACE_RULE_LAKE.get(),
-                new SurfaceRuleLakeConfig(BlockStateProvider.simple(Blocks.WATER)));
+                new SurfaceRuleLakeFeature.Config(BlockStateProvider.simple(Blocks.WATER)));
 
         register(context, BLIGHT_LAKE, ReduxFeatures.SURFACE_RULE_LAKE.get(),
-                new SurfaceRuleLakeConfig(BlockStateProvider.simple(Blocks.WATER)));
+                new SurfaceRuleLakeFeature.Config(BlockStateProvider.simple(Blocks.WATER)));
         register(context, BLIGHT_SPRING, Feature.SPRING,
                 AetherConfiguredFeatureBuilders.spring(Fluids.WATER.defaultFluidState(), true, 4, 1, HolderSet.direct(Block::builtInRegistryHolder, AetherBlocks.HOLYSTONE.get(), AetherBlocks.AETHER_DIRT.get())));
 

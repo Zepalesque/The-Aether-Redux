@@ -3,11 +3,14 @@ package net.zepalesque.redux.world.feature;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
+import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.WorldGenLevel;
@@ -16,28 +19,28 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.util.state.ReduxStates;
 import net.zepalesque.redux.block.util.state.enums.PetalPrismaticness;
 import net.zepalesque.redux.util.level.WorldgenUtil;
-import net.zepalesque.redux.world.feature.config.FieldsprootTreeConfig;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Collection;
 import java.util.Map;
 
-public class FieldsproutTreeFeature extends Feature<FieldsprootTreeConfig> {
+public class FieldsprootTreeFeature extends Feature<FieldsprootTreeFeature.Config> {
 
 
-    public FieldsproutTreeFeature(Codec<FieldsprootTreeConfig> codec) {
+    public FieldsprootTreeFeature(Codec<Config> codec) {
         super(codec);
     }
     public static boolean isDirt(BlockState state) {
         return state.is(BlockTags.DIRT);
     }
     @Override
-    public boolean place(FeaturePlaceContext<FieldsprootTreeConfig> context) {
+    public boolean place(FeaturePlaceContext<Config> context) {
         WorldGenLevel level = context.level();
         if (level.isStateAtPosition(context.origin().below(), state -> !isDirt(state))) {
             return false;
@@ -72,7 +75,7 @@ public class FieldsproutTreeFeature extends Feature<FieldsprootTreeConfig> {
     }
 
     @Nullable
-    public BlockPos placeTrunk(FeaturePlaceContext<FieldsprootTreeConfig> context, Map<BlockPos, BlockState> stateMap, Direction d, boolean longerSecondBend) {
+    public BlockPos placeTrunk(FeaturePlaceContext<Config> context, Map<BlockPos, BlockState> stateMap, Direction d, boolean longerSecondBend) {
         
         RandomSource random = context.random();
         BlockPos origin = context.origin();
@@ -141,8 +144,8 @@ public class FieldsproutTreeFeature extends Feature<FieldsprootTreeConfig> {
         return false;
     }
 
-    public void place(FeaturePlaceContext<FieldsprootTreeConfig> context, Map<BlockPos, BlockState> stateMap) {
-        FieldsprootTreeConfig config = context.config();
+    public void place(FeaturePlaceContext<Config> context, Map<BlockPos, BlockState> stateMap) {
+        Config config = context.config();
         int xzSpread = config.patchXZSpread;
         int ySpread = config.patchYSpread;
         int tries = config.patchTries;
@@ -180,7 +183,7 @@ public class FieldsproutTreeFeature extends Feature<FieldsprootTreeConfig> {
     }
 
 
-    protected boolean createFoliage(FeaturePlaceContext<FieldsprootTreeConfig> context, Map<BlockPos, BlockState> stateMap, BlockPos origin, Direction d, boolean longerSecondBend) {
+    protected boolean createFoliage(FeaturePlaceContext<Config> context, Map<BlockPos, BlockState> stateMap, BlockPos origin, Direction d, boolean longerSecondBend) {
         Collection<BlockPos> toPlace = Lists.newArrayList();
         RandomSource random = context.random();
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
@@ -314,5 +317,34 @@ public class FieldsproutTreeFeature extends Feature<FieldsprootTreeConfig> {
     }
 
 
+    public static class Config implements FeatureConfiguration {
+        public static final Codec<Config> CODEC = RecordCodecBuilder.create((mushroom) ->
+                mushroom.group(BlockStateProvider.CODEC.fieldOf("leaf_provider").forGetter((config) -> config.leafProvider),
+                                BlockStateProvider.CODEC.fieldOf("log_provider").forGetter((config) -> config.logProvider),
+                                BlockStateProvider.CODEC.fieldOf("wood_provider").forGetter((config) -> config.woodProvider),
+                                IntProvider.CODEC.fieldOf("vine_length").forGetter((config) -> config.vineLength),
+                        ExtraCodecs.NON_NEGATIVE_INT.fieldOf("patch_xz_spread").orElse(7).forGetter(patchTreeDecorator -> patchTreeDecorator.patchXZSpread),
+                        ExtraCodecs.NON_NEGATIVE_INT.fieldOf("patch_y_spread").orElse(3).forGetter(patchTreeDecorator -> patchTreeDecorator.patchYSpread),
+                        ExtraCodecs.POSITIVE_INT.fieldOf("patch_tries").orElse(128).forGetter(patchTreeDecorator -> patchTreeDecorator.patchTries))
+                        .apply(mushroom, Config::new));
+        public final BlockStateProvider leafProvider;
+        public final BlockStateProvider logProvider;
+        public final BlockStateProvider woodProvider;
+        public final IntProvider vineLength;
 
+        public final int patchXZSpread;
+        public final int patchYSpread;
+        public final int patchTries;
+
+        public Config(BlockStateProvider leafProvider, BlockStateProvider logProvider, BlockStateProvider woodProvider, IntProvider vineLength, int patchXZSpread, int patchYSpread, int patchTries) {
+            this.leafProvider = leafProvider;
+            this.logProvider = logProvider;
+            this.woodProvider = woodProvider;
+            this.vineLength = vineLength;
+            this.patchXZSpread = patchXZSpread;
+            this.patchYSpread = patchYSpread;
+            this.patchTries = patchTries;
+        }
+
+    }
 }
