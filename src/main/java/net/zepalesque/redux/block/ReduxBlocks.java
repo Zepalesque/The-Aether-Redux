@@ -66,16 +66,16 @@ public class ReduxBlocks {
     public static final RegistryObject<RotatedPillarBlock> DRIFTSHALE = register("driftshale",
             () -> new AetherLogBlock(BlockBehaviour.Properties.copy(Blocks.SANDSTONE).strength(0.6F, 3.0F)));
 
-    public static RegistryObject<Block> POLISHED_DRIFTSHALE = register("divinite",
+    public static RegistryObject<Block> POLISHED_DRIFTSHALE = register("polished_driftshale",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).requiresCorrectToolForDrops().strength(0.6F, 3.0F)));
 
-    public static RegistryObject<StairBlock> POLISHED_DRIFTSHALE_STAIRS = register("divinite_stairs",
+    public static RegistryObject<StairBlock> POLISHED_DRIFTSHALE_STAIRS = register("polished_driftshale_stairs",
             () -> new StairBlock(() -> (POLISHED_DRIFTSHALE.get()).defaultBlockState(), BlockBehaviour.Properties.copy(POLISHED_DRIFTSHALE.get())));
 
-    public static RegistryObject<WallBlock> POLISHED_DRIFTSHALE_WALL = register("divinite_wall",
+    public static RegistryObject<WallBlock> POLISHED_DRIFTSHALE_WALL = register("polished_driftshale_wall",
             () -> new WallBlock(BlockBehaviour.Properties.copy(POLISHED_DRIFTSHALE.get())));
 
-    public static RegistryObject<SlabBlock> POLISHED_DRIFTSHALE_SLAB = register("divinite_slab",
+    public static RegistryObject<SlabBlock> POLISHED_DRIFTSHALE_SLAB = register("polished_driftshale_slab",
             () -> new SlabBlock(BlockBehaviour.Properties.copy(POLISHED_DRIFTSHALE.get()).strength(0.75F, 6.0F)));
 
     public static RegistryObject<Block> DIVINITE = register("divinite",
