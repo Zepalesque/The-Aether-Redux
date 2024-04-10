@@ -21,6 +21,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(BlockBehaviour.class)
 public class BlockBehaviourMixin {
 
-    @Inject(method = "getShape", at = @At("RETURN"), cancellable = true)
+    @Inject(method = "getShape", at = @At("HEAD"), cancellable = true)
     protected void redux$getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext, CallbackInfoReturnable<VoxelShape> cir) { }
 }

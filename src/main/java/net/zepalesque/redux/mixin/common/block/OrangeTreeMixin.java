@@ -14,15 +14,17 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(OrangeTreeBlock.class)
-public class OrangeTreeMixin extends BlockBehaviourMixin {
+public class OrangeTreeMixin {
 
     private static final @Unique VoxelShape redux$shapeStage2 = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 26.0D, 14.0D);
     private static final @Unique VoxelShape redux$shape = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 30.0D, 14.0D);
 
-    @Override
+    @Inject(method = "getShape", at = @At("HEAD"), cancellable = true)
     protected void redux$getShape(BlockState state, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext, CallbackInfoReturnable<VoxelShape> cir) {
         int age = state.getValue(OrangeTreeBlock.AGE);
         @Nullable VoxelShape shape = age >= 2 ? age == 2 ? redux$shapeStage2 : redux$shape : null;
