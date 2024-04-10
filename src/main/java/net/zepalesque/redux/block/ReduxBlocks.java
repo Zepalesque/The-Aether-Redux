@@ -61,10 +61,13 @@ public class ReduxBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Redux.MODID);
     public static final DeferredRegister<Item> ITEMS = ReduxItems.ITEMS;
 
+//    TODO
+//    public static final RegistryObject<RotatedPillarBlock> DRIFTSHALE = register("driftshale");
+
     public static RegistryObject<Block> DIVINITE = register("divinite",
             () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).requiresCorrectToolForDrops().strength(0.5F, 6.0F).sound(SoundType.TUFF)));
 
-    public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_stairs",
+public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_stairs",
             () -> new StairBlock(() -> (DIVINITE.get()).defaultBlockState(), BlockBehaviour.Properties.copy(DIVINITE.get())));
 
     public static RegistryObject<WallBlock> DIVINITE_WALL = register("divinite_wall",
