@@ -305,6 +305,15 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.DIVINITE_WALL, "Divinite Wall");
         addLore(ReduxBlocks.DIVINITE_WALL, "Crafted from Divinite. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
 
+        addBlock(ReduxBlocks.POLISHED_DRIFTSHALE, "Polished Driftshale");
+        addLore(ReduxBlocks.POLISHED_DRIFTSHALE, "The polished variant of Driftshale. Can be crafted into some other nice building blocks.");
+        addBlock(ReduxBlocks.POLISHED_DRIFTSHALE_SLAB, "Polished Driftshale Slab");
+        addLore(ReduxBlocks.POLISHED_DRIFTSHALE_SLAB, "Crafted from Polished Driftshale. Slabs are half blocks, versatile for decoration and smooth slopes. Try adding some to a building's roofing!");
+        addBlock(ReduxBlocks.POLISHED_DRIFTSHALE_STAIRS, "Polished Driftshale Stairs");
+        addLore(ReduxBlocks.POLISHED_DRIFTSHALE_STAIRS, "Crafted from Polished Driftshale. Stairs are useful for adding verticality to builds and are often used for decoration too!");
+        addBlock(ReduxBlocks.POLISHED_DRIFTSHALE_WALL, "Polished Driftshale Wall");
+        addLore(ReduxBlocks.POLISHED_DRIFTSHALE_WALL, "Crafted from Polished Driftshale. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
+
         addBlock(ReduxBlocks.HOLYSILT, "Holysilt");
         addLore(ReduxBlocks.HOLYSILT, "Fine particles of broken up holystone and other minerals. Can be found underground, and around the blight. Careful, it's not very stable and may fall beneath your feet!");
 

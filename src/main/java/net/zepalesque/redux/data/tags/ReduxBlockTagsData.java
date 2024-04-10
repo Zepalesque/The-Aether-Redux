@@ -151,6 +151,10 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 );
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
                 ReduxBlocks.DRIFTSHALE.get(),
+                ReduxBlocks.POLISHED_DRIFTSHALE.get(),
+                ReduxBlocks.POLISHED_DRIFTSHALE_WALL.get(),
+                ReduxBlocks.POLISHED_DRIFTSHALE_SLAB.get(),
+                ReduxBlocks.POLISHED_DRIFTSHALE_STAIRS.get(),
                 ReduxBlocks.DIVINITE.get(),
                 ReduxBlocks.DIVINITE_WALL.get(),
                 ReduxBlocks.DIVINITE_SLAB.get(),
@@ -218,12 +222,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.CLOUDCAP_SPORES.get(),
                 ReduxBlocks.JELLYSHROOM_JELLY_BLOCK.get()
         );
-        this.tag(BlockTags.STAIRS).add(
-                ReduxBlocks.DIVINITE_STAIRS.get(),
-                ReduxBlocks.GILDED_HOLYSTONE_STAIRS.get(),
-                ReduxBlocks.BLIGHTMOSS_HOLYSTONE_STAIRS.get(),
-                ReduxBlocks.CARVED_STONE_BRICK_STAIRS.get()
-        );
+
         this.tag(AetherTags.Blocks.HOLYSTONE).add(ReduxBlocks.GILDED_HOLYSTONE.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get());
 
         this.tag(AetherTags.Blocks.AETHER_ANIMALS_SPAWNABLE_ON).add(ReduxBlocks.AVELIUM.get(), ReduxBlocks.COARSE_AETHER_DIRT.get(), Blocks.SNOW_BLOCK, AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get());
@@ -236,12 +235,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         this.tag(ReduxTags.Blocks.QUICKSOIL_BEHAVIOR).add(AetherBlocks.QUICKSOIL.get(), AetherBlocks.QUICKSOIL_GLASS.get(), AetherBlocks.QUICKSOIL_GLASS_PANE.get());
 
 
-        this.tag(BlockTags.SLABS).add(
-                ReduxBlocks.DIVINITE_SLAB.get(),
-                ReduxBlocks.GILDED_HOLYSTONE_SLAB.get(),
-                ReduxBlocks.BLIGHTMOSS_HOLYSTONE_SLAB.get(),
-                ReduxBlocks.CARVED_STONE_BRICK_SLAB.get()
-        );
+
 
         this.tag(ReduxTags.Blocks.FROSTED_PLANTS_PLACEMENT).add(Blocks.SNOW_BLOCK);
 
@@ -299,7 +293,36 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
         );
         this.tag(BlockTags.WALLS).add(
                 ReduxBlocks.DIVINITE_WALL.get(),
+                ReduxBlocks.POLISHED_DRIFTSHALE_WALL.get(),
+                ReduxBlocks.SENTRITE_WALL.get(),
+                ReduxBlocks.SENTRITE_BRICK_WALL.get(),
+                ReduxBlocks.SHELL_SHINGLE_WALL.get(),
+                ReduxBlocks.ENCHANTED_SHELL_SHINGLE_WALL.get(),
+                ReduxBlocks.GILDED_HOLYSTONE_WALL.get(),
+                ReduxBlocks.BLIGHTMOSS_HOLYSTONE_WALL.get(),
                 ReduxBlocks.CARVED_STONE_BRICK_WALL.get()
+        );
+        this.tag(BlockTags.STAIRS).add(
+                ReduxBlocks.DIVINITE_STAIRS.get(),
+                ReduxBlocks.POLISHED_DRIFTSHALE_STAIRS.get(),
+                ReduxBlocks.SENTRITE_STAIRS.get(),
+                ReduxBlocks.SENTRITE_BRICK_STAIRS.get(),
+                ReduxBlocks.SHELL_SHINGLE_STAIRS.get(),
+                ReduxBlocks.ENCHANTED_SHELL_SHINGLE_STAIRS.get(),
+                ReduxBlocks.GILDED_HOLYSTONE_STAIRS.get(),
+                ReduxBlocks.BLIGHTMOSS_HOLYSTONE_STAIRS.get(),
+                ReduxBlocks.CARVED_STONE_BRICK_STAIRS.get()
+        );
+        this.tag(BlockTags.SLABS).add(
+                ReduxBlocks.DIVINITE_SLAB.get(),
+                ReduxBlocks.POLISHED_DRIFTSHALE_SLAB.get(),
+                ReduxBlocks.SENTRITE_SLAB.get(),
+                ReduxBlocks.SENTRITE_BRICK_SLAB.get(),
+                ReduxBlocks.SHELL_SHINGLE_SLAB.get(),
+                ReduxBlocks.ENCHANTED_SHELL_SHINGLE_SLAB.get(),
+                ReduxBlocks.GILDED_HOLYSTONE_SLAB.get(),
+                ReduxBlocks.BLIGHTMOSS_HOLYSTONE_SLAB.get(),
+                ReduxBlocks.CARVED_STONE_BRICK_SLAB.get()
         );
 
         this.tag(BlockTags.REPLACEABLE).add(

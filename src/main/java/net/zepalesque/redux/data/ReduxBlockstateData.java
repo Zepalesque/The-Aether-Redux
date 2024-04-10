@@ -47,6 +47,11 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         // but hey, if it works it works
         this.log(ReduxBlocks.DRIFTSHALE);
 
+        this.blockDoubleDrops(ReduxBlocks.POLISHED_DRIFTSHALE.get(), "natural/");
+        this.slab(ReduxBlocks.POLISHED_DRIFTSHALE_SLAB.get(), ReduxBlocks.POLISHED_DRIFTSHALE.get(), "natural/");
+        this.stairs(ReduxBlocks.POLISHED_DRIFTSHALE_STAIRS.get(), ReduxBlocks.POLISHED_DRIFTSHALE.get(), "natural/");
+        this.wallBlock(ReduxBlocks.POLISHED_DRIFTSHALE_WALL.get(), ReduxBlocks.POLISHED_DRIFTSHALE.get(), "natural/");
+
         this.blockDoubleDrops(ReduxBlocks.DIVINITE.get(), "natural/");
         this.slab(ReduxBlocks.DIVINITE_SLAB.get(), ReduxBlocks.DIVINITE.get(), "natural/");
         this.stairs(ReduxBlocks.DIVINITE_STAIRS.get(), ReduxBlocks.DIVINITE.get(), "natural/");

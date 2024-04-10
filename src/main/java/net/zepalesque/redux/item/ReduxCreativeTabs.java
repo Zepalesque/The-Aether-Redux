@@ -44,6 +44,11 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_SLAB, ReduxBlocks.BLIGHTMOSS_HOLYSTONE_WALL, event);
 
 
+            putAfter(AetherBlocks.QUICKSOIL_GLASS_PANE, ReduxBlocks.POLISHED_DRIFTSHALE, event);
+            putAfter(ReduxBlocks.POLISHED_DRIFTSHALE, ReduxBlocks.POLISHED_DRIFTSHALE_STAIRS, event);
+            putAfter(ReduxBlocks.POLISHED_DRIFTSHALE_STAIRS, ReduxBlocks.POLISHED_DRIFTSHALE_SLAB, event);
+            putAfter(ReduxBlocks.POLISHED_DRIFTSHALE_SLAB, ReduxBlocks.POLISHED_DRIFTSHALE_WALL, event);
+
             putAfter(AetherBlocks.ICESTONE_WALL, ReduxBlocks.DIVINITE, event);
             putAfter(ReduxBlocks.DIVINITE, ReduxBlocks.DIVINITE_STAIRS, event);
             putAfter(ReduxBlocks.DIVINITE_STAIRS, ReduxBlocks.DIVINITE_SLAB, event);

@@ -64,7 +64,19 @@ public class ReduxBlocks {
 
     // L O G
     public static final RegistryObject<RotatedPillarBlock> DRIFTSHALE = register("driftshale",
-            () -> new AetherLogBlock(BlockBehaviour.Properties.copy(Blocks.SANDSTONE).strength(0.6F)));
+            () -> new AetherLogBlock(BlockBehaviour.Properties.copy(Blocks.SANDSTONE).strength(0.6F, 3.0F)));
+
+    public static RegistryObject<Block> POLISHED_DRIFTSHALE = register("divinite",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).requiresCorrectToolForDrops().strength(0.6F, 3.0F)));
+
+    public static RegistryObject<StairBlock> POLISHED_DRIFTSHALE_STAIRS = register("divinite_stairs",
+            () -> new StairBlock(() -> (POLISHED_DRIFTSHALE.get()).defaultBlockState(), BlockBehaviour.Properties.copy(POLISHED_DRIFTSHALE.get())));
+
+    public static RegistryObject<WallBlock> POLISHED_DRIFTSHALE_WALL = register("divinite_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.copy(POLISHED_DRIFTSHALE.get())));
+
+    public static RegistryObject<SlabBlock> POLISHED_DRIFTSHALE_SLAB = register("divinite_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(POLISHED_DRIFTSHALE.get()).strength(0.75F, 6.0F)));
 
     public static RegistryObject<Block> DIVINITE = register("divinite",
             () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).requiresCorrectToolForDrops().strength(0.5F, 6.0F).sound(SoundType.TUFF)));
