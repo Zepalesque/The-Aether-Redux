@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-18T19:17:32.4404295	Block States: aether_redux
+// 1.20.1	2024-04-10T09:17:54.7873839	Block States: aether_redux
 6d5a134587a37ec8ac1798d9ca3e527d0a1d99b9 assets/aether_redux/blockstates/aurum.json
 bd71aec5ab85b7a1e4570cf04b5dce1bf6226d6b assets/aether_redux/blockstates/avelium.json
 eb68785d90af1f5948885a64db9d1f4c33739323 assets/aether_redux/blockstates/avelium_roots.json
@@ -90,6 +90,7 @@ d7f9901e89a7818ccd07730bae56b8ff8983f04f assets/aether_redux/blockstates/crystal
 1d3a827149f91450a2d1584d081c19e948a341eb assets/aether_redux/blockstates/divinite_slab.json
 3920c278804717a4373664991625726e4b4a7eaf assets/aether_redux/blockstates/divinite_stairs.json
 e1e5adce5ce997d193f2ffe3f0d2200d752232c8 assets/aether_redux/blockstates/divinite_wall.json
+b0803b79ac7e3e07ad7c42c64e706cbddaf9e9b8 assets/aether_redux/blockstates/driftshale.json
 6c691a68ed17523e125ca61dabc0d88497cdb7aa assets/aether_redux/blockstates/enchanted_shell_shingles.json
 3916b4024e49c8b50c9de9fbc1d137b53f214387 assets/aether_redux/blockstates/enchanted_shell_shingle_slab.json
 8277e4f0c4ac957d53522e7f713e1eeb5cca3fea assets/aether_redux/blockstates/enchanted_shell_shingle_stairs.json
@@ -512,6 +513,8 @@ c809deb6a2976e7813af4a2427b74f364411e771 assets/aether_redux/models/block/divini
 f9d19f570ec99579f09e4736cb24bbecc53b37f0 assets/aether_redux/models/block/divinite_wall_post.json
 745544d4f7fd5e4f1f69e8c366b10bccd1fd22cf assets/aether_redux/models/block/divinite_wall_side.json
 536a49a7aebebb6018ffa47dd4ad16704483c1a2 assets/aether_redux/models/block/divinite_wall_side_tall.json
+80010e320fbd27a1599b7c3c61245871f0b6bdd0 assets/aether_redux/models/block/driftshale.json
+e8b4b19b7de089a82a31cd07f14c0e73cd58e7a5 assets/aether_redux/models/block/driftshale_horizontal.json
 f73fb7ad581ef696f8a53cf9e4490312018db4ef assets/aether_redux/models/block/enchanted_aurum.json
 ed0f194ad404de954bee8e2586d143e832a3dac1 assets/aether_redux/models/block/enchanted_shell_shingles.json
 ae9bcfc5bdf6cc122934cd196db8532fc75d894d assets/aether_redux/models/block/enchanted_shell_shingle_slab.json

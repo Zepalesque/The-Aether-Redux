@@ -1,10 +1,13 @@
 {
-  "type": "minecraft:forest_rock",
+  "type": "aether_redux:configured_boulder",
   "config": {
     "state": {
-      "Name": "aether_redux:gilded_holystone",
-      "Properties": {
-        "double_drops": "true"
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "aether_redux:gilded_holystone",
+        "Properties": {
+          "double_drops": "true"
+        }
       }
     }
   }
