@@ -308,6 +308,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.HOLYSILT, "Holysilt");
         addLore(ReduxBlocks.HOLYSILT, "Fine particles of broken up holystone and other minerals. Can be found underground, and around the blight. Careful, it's not very stable and may fall beneath your feet!");
 
+        addBlock(ReduxBlocks.DRIFTSHALE, "Driftshale");
+        addLore(ReduxBlocks.DRIFTSHALE, "A hardened rock composed of compacted Quicksoil. Interestingly, it does not keep the speed boost that Quicksoil has.");
+
         addBlock(ReduxBlocks.SENTRITE, "Sentrite");
         addLore(ReduxBlocks.SENTRITE, "A dark rock found in the Aether. A mixture of this and holystone is what makes up the walls of the Bronze Dungeon.");
         addBlock(ReduxBlocks.SENTRITE_SLAB, "Sentrite Slab");

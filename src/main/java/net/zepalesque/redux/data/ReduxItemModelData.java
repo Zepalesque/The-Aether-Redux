@@ -31,6 +31,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlockFlatCustomTexture(ReduxBlocks.SHORT_AETHER_GRASS, "natural/aether_medium_grass");
         itemBlock(ReduxBlocks.HOLYSILT);
         itemBlock(ReduxBlocks.DIVINITE);
+        itemBlock(ReduxBlocks.DRIFTSHALE);
         itemBlock(ReduxBlocks.DIVINITE_SLAB);
         itemBlock(ReduxBlocks.DIVINITE_STAIRS);
         itemWallBlock(ReduxBlocks.DIVINITE_WALL, ReduxBlocks.DIVINITE, "natural/");

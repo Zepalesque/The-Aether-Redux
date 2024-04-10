@@ -19,6 +19,7 @@ public class SimpleConditionAlternativeStateProvider extends BlockStateProvider 
                     BlockState.CODEC.fieldOf("base_state").forGetter((alt) -> alt.base),
                     AbstractCondition.CODEC.fieldOf("condition").forGetter((alt) -> alt.condition),
                     BlockState.CODEC.fieldOf("alternative_state").forGetter((alt) -> alt.alternative))
+
                     .apply(condition, SimpleConditionAlternativeStateProvider::new));
 
     public SimpleConditionAlternativeStateProvider(BlockState base, AbstractCondition<?> condition, BlockState alternative) {

@@ -150,6 +150,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.COARSE_AETHER_DIRT.get()
                 );
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
+                ReduxBlocks.DRIFTSHALE.get(),
                 ReduxBlocks.DIVINITE.get(),
                 ReduxBlocks.DIVINITE_WALL.get(),
                 ReduxBlocks.DIVINITE_SLAB.get(),

@@ -43,6 +43,10 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
         this.blockDoubleDrops(ReduxBlocks.HOLYSILT, "natural/");
 
+        // Ahh yes, my favorite log, driftshale
+        // but hey, if it works it works
+        this.log(ReduxBlocks.DRIFTSHALE);
+
         this.blockDoubleDrops(ReduxBlocks.DIVINITE.get(), "natural/");
         this.slab(ReduxBlocks.DIVINITE_SLAB.get(), ReduxBlocks.DIVINITE.get(), "natural/");
         this.stairs(ReduxBlocks.DIVINITE_STAIRS.get(), ReduxBlocks.DIVINITE.get(), "natural/");
