@@ -8,10 +8,12 @@
   "mixins": [
     "common.block.AercloudBlockMixin",
     "common.block.BlockBehaviorMixin",
-    "common.block.DoubleBlockMixin",
+    "common.block.BlockBehaviourMixin",
+    "common.block.DoublePlantMixin",
     "common.block.FrictionCappedMixin",
     "common.block.GreenAercloudBlockMixin",
     "common.block.IForgeBlockQuicksoilBehaviorMixin",
+    "common.block.OrangeTreeMixin",
     "common.block.ParticleLeavesMixin",
     "common.block.PurpleAercloudBlockMixin",
     "common.block.QuicksoilBlockMixin",
