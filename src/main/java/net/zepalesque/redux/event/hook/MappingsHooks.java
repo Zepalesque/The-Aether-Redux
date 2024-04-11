@@ -156,9 +156,9 @@ public class MappingsHooks {
         builder.put(Redux.locate("oat_muffin"), ReduxItems.WYNDSPROUT_BAGEL);
         builder.put(Redux.locate("mini_pancake"), ReduxItems.BLUEBERRY_BAGEL);
 
+        // TODO: Perhaps reimplement as a Vanilla Flower related accessory?
         builder.put(Redux.locate("bittersweet_charm"), AetherItems.GOLDEN_PENDANT);
 
-        builder.put(Redux.locate("valkyrie_ring"), ReduxItems.GRAND_VICTORY_MEDAL);
         builder.put(Redux.locate("phoenix_ring"), ReduxItems.SOLAR_EMBLEM);
 
         builder.put(Redux.locate("spectral_dart_shooter"), ReduxItems.VERIDIUM_DART_SHOOTER);

@@ -85,6 +85,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.SENTRY_RING, "Sentry Ring");
         addLore(ReduxItems.SENTRY_RING, "One of many different variations of the enchanted ring. When worn, hitting mobs will release buring blue embers that can strike nearby mobs!");
 
+        addItem(ReduxItems.VALKYRIE_RING, "Valkyrie Ring");
+        addLore(ReduxItems.VALKYRIE_RING, "A rare drop from Valkyries, which extends your reach distance. It is said that these were used to construct the Valkyrie Temples found throughout the Aether.");
+
         addItem(ReduxItems.SHROOM_RING, "Shroom Ring");
         addLore(ReduxItems.SHROOM_RING, "One of many different variations of the enchanted ring. When worn, taking damage with low health will have a chance to give an Adrenaline effect, giving a temporary stat boost in turn for a stat debuff when it expires.");
 
@@ -654,6 +657,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addSubtitle("item.accessory", "equip_enchanted_ring", "Enchanted Ring thunks");
         addSubtitle("item.accessory", "equip_shroom_ring", "Shroom Ring thunks");
         addSubtitle("item.accessory", "equip_grand_medal", "Grand Victory Medal clinks");
+        addSubtitle("item.accessory", "equip_valkyrie_ring", "Valkyrie Ring clinks");
         addSubtitle("item.accessory", "equip_wisdom_ring", "Ring of Wisdom clanks");
         addSubtitle("item.accessory", "equip_sentry_ring", "Sentry Ring clanks");
         addSubtitle("item.accessory", "equip_vampire_amulet", "Vampire Amulet clinks");

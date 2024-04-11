@@ -106,6 +106,7 @@ public class ReduxItemTagsData extends ItemTagsProvider {
                 ReduxItems.ENCHANTED_RING.get(),
                 ReduxItems.RING_OF_WISDOM.get(),
                 ReduxItems.SENTRY_RING.get(),
+                ReduxItems.VALKYRIE_RING.get(),
                 ReduxItems.SHROOM_RING.get()
         );
         this.tag(AetherTags.Items.ACCESSORIES_SHIELDS).add(
