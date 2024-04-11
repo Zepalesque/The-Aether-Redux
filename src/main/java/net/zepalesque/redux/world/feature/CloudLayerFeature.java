@@ -1,29 +1,33 @@
 package net.zepalesque.redux.world.feature;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.levelgen.XoroshiroRandomSource;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.synth.PerlinSimplexNoise;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.util.math.MathUtil;
-import net.zepalesque.redux.world.feature.config.CloudLayerConfig;
 
 import java.util.List;
 
-public class CloudLayerFeature extends Feature<CloudLayerConfig> {
+public class CloudLayerFeature extends Feature<CloudLayerFeature.Config> {
 
     public static final PerlinSimplexNoise base_noise = new PerlinSimplexNoise(new XoroshiroRandomSource(42), List.of(0, 1, 2, 3, 4));
     public static final PerlinSimplexNoise y_offset = new PerlinSimplexNoise(new XoroshiroRandomSource(95), List.of(0, 1));
 
-    public CloudLayerFeature(Codec<CloudLayerConfig> codec) {
+    public CloudLayerFeature(Codec<Config> codec) {
         super(codec);
     }
 
     @Override
-    public boolean place(FeaturePlaceContext<CloudLayerConfig> context) {
+
+    public boolean place(FeaturePlaceContext<Config> context) {
         int chunkX = context.origin().getX() - (context.origin().getX() % 16);
         int chunkZ = context.origin().getZ() - (context.origin().getZ() % 16);
         float min = ReduxConfig.COMMON.cloud_layer_threshold_min.get().floatValue() / 2F;
@@ -55,6 +59,14 @@ public class CloudLayerFeature extends Feature<CloudLayerConfig> {
     }
 
 
+    public record Config(BlockStateProvider block, BlockPredicate predicate, int yLevel, double scaleXZ) implements FeatureConfiguration {
+        public static final Codec<Config> CODEC = RecordCodecBuilder.create(
+                (builder) -> builder.group(
+                        BlockStateProvider.CODEC.fieldOf("block").forGetter(Config::block),
+                        BlockPredicate.CODEC.fieldOf("predicate").forGetter(Config::predicate),
+                        Codec.INT.fieldOf("base_height").forGetter(Config::yLevel),
+                        Codec.DOUBLE.fieldOf("xz_scale").forGetter(Config::scaleXZ)
+                ).apply(builder, Config::new));
 
-
+    }
 }

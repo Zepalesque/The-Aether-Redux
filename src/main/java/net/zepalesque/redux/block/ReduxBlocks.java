@@ -4,6 +4,7 @@ import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.miscellaneous.FloatingBlock;
 import com.aetherteam.aether.block.natural.AetherDoubleDropBlock;
 import com.aetherteam.aether.block.natural.AetherDoubleDropsLeaves;
+import com.aetherteam.aether.block.natural.AetherLogBlock;
 import com.aetherteam.aether.block.natural.LeavesWithParticlesBlock;
 import com.aetherteam.aether.item.AetherCreativeTabs;
 import com.aetherteam.aether.mixin.mixins.common.accessor.FireBlockAccessor;
@@ -68,10 +69,26 @@ public class ReduxBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Redux.MODID);
     public static final DeferredRegister<Item> ITEMS = ReduxItems.ITEMS;
 
+    // L O G
+    public static final RegistryObject<RotatedPillarBlock> DRIFTSHALE = register("driftshale",
+            () -> new AetherLogBlock(BlockBehaviour.Properties.copy(Blocks.SANDSTONE).strength(0.6F, 3.0F)));
+
+    public static RegistryObject<Block> POLISHED_DRIFTSHALE = register("polished_driftshale",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).requiresCorrectToolForDrops().strength(0.6F, 3.0F)));
+
+    public static RegistryObject<StairBlock> POLISHED_DRIFTSHALE_STAIRS = register("polished_driftshale_stairs",
+            () -> new StairBlock(() -> (POLISHED_DRIFTSHALE.get()).defaultBlockState(), BlockBehaviour.Properties.copy(POLISHED_DRIFTSHALE.get())));
+
+    public static RegistryObject<WallBlock> POLISHED_DRIFTSHALE_WALL = register("polished_driftshale_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.copy(POLISHED_DRIFTSHALE.get())));
+
+    public static RegistryObject<SlabBlock> POLISHED_DRIFTSHALE_SLAB = register("polished_driftshale_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(POLISHED_DRIFTSHALE.get()).strength(0.75F, 6.0F)));
+
     public static RegistryObject<Block> DIVINITE = register("divinite",
             () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of(Material.STONE).color(MaterialColor.SAND).requiresCorrectToolForDrops().strength(0.5F, 6.0F).sound(SoundType.TUFF)));
 
-    public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_stairs",
+public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_stairs",
             () -> new StairBlock(() -> (DIVINITE.get()).defaultBlockState(), BlockBehaviour.Properties.copy(DIVINITE.get())));
 
     public static RegistryObject<WallBlock> DIVINITE_WALL = register("divinite_wall",

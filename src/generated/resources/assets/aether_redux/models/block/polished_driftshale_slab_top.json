@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "aether_redux:block/natural/polished_driftshale",
+    "side": "aether_redux:block/natural/polished_driftshale",
+    "top": "aether_redux:block/natural/polished_driftshale"
+  }
+}

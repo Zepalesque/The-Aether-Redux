@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-19T22:15:58.9416489	Item Models: aether_redux
+// 1.20.1	2024-04-10T23:29:32.3927721	Item Models: aether_redux
 2445055af5b1b7f3c6045199ffce74108003cef6 assets/aether_redux/models/item/airbound_cape.json
 2fa1343a8119a1f49af334c002773099174965bd assets/aether_redux/models/item/aurum.json
 edfe83948874d1436a61893ed9471b47e93dbe88 assets/aether_redux/models/item/avelium.json
@@ -98,6 +98,7 @@ a5e3d18c9751a9ec185ddc0223f95b47e1307c2a assets/aether_redux/models/item/divinit
 b91cd5f8a586f37ffe16803b8f5b563e751668e9 assets/aether_redux/models/item/divinite_slab.json
 e24bcc1b074b86d43ccd158fd5efde16a4bb156f assets/aether_redux/models/item/divinite_stairs.json
 6d540c067552a05397934bb294384a03aaaf2f0b assets/aether_redux/models/item/divinite_wall.json
+1d1273de73d04aa0fd192b1dafa01ce88157a04f assets/aether_redux/models/item/driftshale.json
 795ee016e7dad0d6ac42593c58ba258161615647 assets/aether_redux/models/item/enchanted_aurum.json
 96affe245dcaad11ed1d16c2abce148117ef5304 assets/aether_redux/models/item/enchanted_blueberry_pie.json
 bbdcf1aaa0310eecd15726f69481b9f7f7ed9229 assets/aether_redux/models/item/enchanted_ring.json
@@ -203,6 +204,10 @@ f57c0aa977ae875c8456515bae2a0f7dbfa313cc assets/aether_redux/models/item/luxweed
 beec52eb9364cdb01119c1580478b19527c5cf62 assets/aether_redux/models/item/mykapod_shell_chunk.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/aether_redux/models/item/mykapod_spawn_egg.json
 54842e392da1fcd4941f2f3a60d1cbdfd987f49a assets/aether_redux/models/item/oatmeal.json
+0eb940cd8178d18bd886f6713ff0b07c7c5d951d assets/aether_redux/models/item/polished_driftshale.json
+795eea7ca73d1fedd3ac6d80a609c7e3c344dde6 assets/aether_redux/models/item/polished_driftshale_slab.json
+e10163b5b2d475775c36c449fd4c1f6799705208 assets/aether_redux/models/item/polished_driftshale_stairs.json
+d1d87e013bc12c1bf86861112d8596d2eb2b0f23 assets/aether_redux/models/item/polished_driftshale_wall.json
 5e32aee6ec5cb4087f9bc50bd5b2b047551df7a7 assets/aether_redux/models/item/prismatic_fieldsproot_leaves.json
 a31a49335c7820befe686a84fc88b6996e400021 assets/aether_redux/models/item/prismatic_fieldsproot_sapling.json
 8972a620651b7079ea83a1ae8a4a9da7ec99c366 assets/aether_redux/models/item/purple_crystal_fruit_sapling.json
@@ -267,6 +272,7 @@ d431727282e6d3bb0325ab1b51b4f46da7c66fca assets/aether_redux/models/item/strippe
 992aeafec1f8963ef1d11e6693991358baa283c4 assets/aether_redux/models/item/stripped_glacia_wood.json
 2bd3490fb4474d386bd50208e65422901c06a9a5 assets/aether_redux/models/item/stripped_glacia_wood_wall.json
 5d4edee3b4f4767f82b36604817aec0df6bde727 assets/aether_redux/models/item/theratip.json
+29dcba2c0af50d5760d798818fc41963f832fa0f assets/aether_redux/models/item/valkyrie_ring.json
 e4bcb896b9819368f3ebd96a6ad2d6d110372065 assets/aether_redux/models/item/vampire_amulet.json
 f638ac2f718eaf0082e4a7e6cd54b463ce4c2b59 assets/aether_redux/models/item/vampire_amulet_active.json
 1f0d2056a180c972a1ad921f3773687252abf2fa assets/aether_redux/models/item/vanilla_gummy_swet.json

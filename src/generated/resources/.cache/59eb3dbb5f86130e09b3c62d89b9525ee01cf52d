@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-18T19:17:32.4324296	Loot Tables
+// 1.20.1	2024-04-10T13:47:54.1539324	Loot Tables
 c6156555dc4897939b617dabc4521b7fa52feba0 data/aether_redux/loot_tables/blocks/aurum.json
 b5773c78c7b3f27032f1cca6fb72f440e24c7529 data/aether_redux/loot_tables/blocks/avelium.json
 4c8b773f2431b28dd2a48b90d08323d8ff67a3d7 data/aether_redux/loot_tables/blocks/avelium_roots.json
@@ -90,6 +90,7 @@ c1ac8e3bb91221dcf14feef492e358a211e2be48 data/aether_redux/loot_tables/blocks/di
 b90e773a77a95ad6721ea40eecd206d2b4510c79 data/aether_redux/loot_tables/blocks/divinite_slab.json
 51aed8c24eb2622ff769ae429c855c5c636ed003 data/aether_redux/loot_tables/blocks/divinite_stairs.json
 b515d9ce3913c4e14ccb5375e4824763b2aef122 data/aether_redux/loot_tables/blocks/divinite_wall.json
+fccff03b2f74e5b997a346eaef8f86faa57fb0ea data/aether_redux/loot_tables/blocks/driftshale.json
 5065b30de2c2a86bba4e67c80c678c0505d8596d data/aether_redux/loot_tables/blocks/enchanted_shell_shingles.json
 51e8cf247dc78bb696839ecc48eed50526f6b6e6 data/aether_redux/loot_tables/blocks/enchanted_shell_shingle_slab.json
 19cdc9ef48b8e37be96ea0e33875caf93c41f7b8 data/aether_redux/loot_tables/blocks/enchanted_shell_shingle_stairs.json
@@ -179,6 +180,10 @@ dd2397aa3c310140a7a2ac84ac458d43f821b84d data/aether_redux/loot_tables/blocks/je
 bf8ce21483ea935d8d8ad5ebd462706d7e47dd40 data/aether_redux/loot_tables/blocks/lightroots.json
 a588c1ccff39b719dba3d266940ab1eb21caa21b data/aether_redux/loot_tables/blocks/lumina.json
 88453ff55b2f6c5fb331a4b9e24e4c30c6fb97ae data/aether_redux/loot_tables/blocks/luxweed.json
+bf1c307ad520c98eb502512f5f9b3ed74d67c05b data/aether_redux/loot_tables/blocks/polished_driftshale.json
+619a7bbb8d8b1df5012c06c75785b5ed3ae2e66b data/aether_redux/loot_tables/blocks/polished_driftshale_slab.json
+27d6092ec4869e41e8051d27444b816e25357654 data/aether_redux/loot_tables/blocks/polished_driftshale_stairs.json
+1592d7248d414f5fca62a235d810ea083e08e2f6 data/aether_redux/loot_tables/blocks/polished_driftshale_wall.json
 4f0249868d48ec7cc93a576cffa361313726b466 data/aether_redux/loot_tables/blocks/potted_aurum.json
 4092e5a3c46a30b0602be1f15e769f89c31e1fe8 data/aether_redux/loot_tables/blocks/potted_avelium_roots.json
 ae81bcd103437ee38e0c2fe217101b698e60c5ce data/aether_redux/loot_tables/blocks/potted_azure_fieldsproot_sapling.json

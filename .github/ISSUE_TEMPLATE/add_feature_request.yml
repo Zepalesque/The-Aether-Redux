@@ -1,6 +1,6 @@
 name: Feature Request
 description: Request a new feature for the mod
-title: '[Feature Request]: >>Title goes here!!<<'
+title: '[Feature Request]: >>Title goes here!! [remove arrows plz]<<'
 labels:
   - feature-request
 body:
