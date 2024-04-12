@@ -10,6 +10,8 @@ import java.util.List;
 
 public class SolarEmblemItem extends AccessoryItem {
 
+    private String keyID = null;
+
     public SolarEmblemItem(Properties properties) {
         super(properties);
     }
@@ -18,7 +20,11 @@ public class SolarEmblemItem extends AccessoryItem {
     public List<Component> getAttributesTooltip(List<Component> tagTooltips, ItemStack stack) {
         tagTooltips.add(Component.empty());
         tagTooltips.add(Component.translatable("curios.modifiers.aether_accessory").withStyle(ChatFormatting.GOLD));
-        tagTooltips.add(Component.translatable("gui.aether_redux.solar_emblem_fireball", ReduxKeys.SHOOT_FIREBALL.getKey().getDisplayName()).withStyle(ChatFormatting.BLUE));
+        String name = ReduxKeys.SHOOT_FIREBALL.getKey().getDisplayName().getString();
+        if (keyID == null || !keyID.equalsIgnoreCase(name)) {
+            keyID = name.toUpperCase();
+        }
+        tagTooltips.add(Component.translatable("gui.aether_redux.solar_emblem_fireball", keyID).withStyle(ChatFormatting.BLUE));
         return super.getAttributesTooltip(tagTooltips, stack);
     }
 
