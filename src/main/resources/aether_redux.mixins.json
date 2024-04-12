@@ -13,7 +13,6 @@
     "common.block.DoublePlantMixin",
     "common.block.FrictionCappedMixin",
     "common.block.IForgeBlockQuicksoilBehaviorMixin",
-    "common.block.OrangeTreeMixin",
     "common.block.ParticleLeavesMixin",
     "common.block.QuicksoilBlockMixin",
     "common.block.ReduxWallBlockAccessor",
