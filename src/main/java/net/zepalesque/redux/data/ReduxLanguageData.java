@@ -573,7 +573,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addGuiText("purified_luxbuds_tooltip", "Gives the helpful Blightward effect when eaten");
 
 
-        addGuiText("jade.entity_model", " (Model changed by the Aether: Redux)");
+        addGuiText("jade.entity_model", " (Model changed by " + Redux.DISPLAY_LOWERCASE_THE + ")");
         add("config.jade.plugin_aether_redux.modification_notices", "Redux - Modify Indicator (Jade)");
 
 
@@ -630,7 +630,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addMenuTitle("skyfields", "Redux - Skyfields");
 
         addPackTitle("overrides", "Redux - Aether Overrides");
-        addPackDescription("overrides", "Configurable overrides for the Aether: Redux");
+        addPackDescription("overrides", "Configurable overrides for " + Redux.DISPLAY);
 
 
         addSubtitle("entity", "mimic_slam", "Mimic slams");
@@ -683,7 +683,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addSubtitle("item", "subzero_crossbow_shoot", "Subzero Crossbow shoots");
         addSubtitle("item", "subzero_crossbow_hit", "Subzero Arrow hits");
 
-        addKeyInfo("category", "The Aether: Redux");
+        addKeyInfo("category", Redux.DISPLAY);
         addKeyInfo("shoot_fireball.desc", "Shoot Fireball");
 
         addEffect(ReduxEffects.BLIGHTWARD, "Blightward");
@@ -692,7 +692,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addTooltip("ambrosium_charge", "Infusion Level: %s");
 
-        addGuiText("welcome_line1", "Welcome to the Aether: Redux!");
+        addGuiText("welcome_line1", "Welcome to " + Redux.DISPLAY + "!");
         addGuiText("welcome_line2", "This mod has a lot of configuration in the configs, resource packs, and data packs.");
         addGuiText("welcome_line3", "Be sure to check them all out to see all of the cool features!");
         addGuiText("welcome_line4", "This message will only appear once.");
@@ -705,8 +705,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addGuiText("jei.infusion", "Infusion");
 
 
-        addGuiText("advancement_suffix", "\n- The Aether: Redux -");
-        addGuiText("advancement_suffix_modified", "\n- Modified by the Aether: Redux -");
+        addGuiText("advancement_suffix", "\n- " + Redux.DISPLAY + " -");
+        addGuiText("advancement_suffix_modified", "\n- Modified by " + Redux.DISPLAY + " -");
 
 
         addAdvancement("fall_from_aether", "Falling with Style!");
@@ -756,11 +756,11 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addDeath(ReduxDamageTypes.SWET, "%1$s was absorbed by %2$s");
 //        addDeathByPlayer(ReduxDamageTypes.SWET, "%1$s was absorbed by %2$s");
         
-        addProTipNoCompat("tip_color", "Tips from the Aether: Redux are in this lavender color!");
-        addGuiTextTip("tip_color", "Tips from the Aether: Redux have a lavender-colored title!");
+        addProTipNoCompat("tip_color", "Tips from " + Redux.DISPLAY + " are in this lavender color!");
+        addGuiTextTip("tip_color", "Tips from " + Redux.DISPLAY + " have a lavender-colored title!");
 
         addProTip("veridium_infusion", "Veridium tools can be temporarily infused into better versions by right-clicking them with an Ambrosium Shard!");
-        addProTip("model_changes", "The Aether: Redux has some model changes to some of the Aether’s mobs, which can be toggled in the client-side config!");
+        addProTip("model_changes", Redux.DISPLAY + " has some model changes to some of the Aether’s mobs, which can be toggled in the client-side config!");
         addProTip("feather_of_warding", "Sometimes, Cockatrices will drop one of their feathers, which can be upgraded into the useful Feather of Warding, giving you immunity from the inebriation effect.");
         addProTip("oatmeal", "Wyndsprout seeds can be crafed into Oatmeal, a nice snack that can fill up a few hunger points for relatively cheap.");
         addProTip("blight_spear", "Blightbunny teeth can be used to create the Spear of the Blight, a throwable weapon that inflicts Inebriation on enemies.");
@@ -771,7 +771,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addProTip("the_blight", "Be careful of the purple Blight biome found in the Aether, it is filled with many dangerous plants. Cockatrices will occasionally drop their feather, which is an accessory that will help you to traverse the biome easier.");
         addProTip("snailshell_shield", "Feeding a Mykapod a Shimmerstool will make it shed the outer layer of its shell. These shell fragments can be used to craft a useful accessory that will decrease knockback.");
         addProTip("divinite", "Divinite can be enchanted into Glowstone, giving a relatively easy way to leave the Aether safely if you get stuck.");
-        addProTip("redux_configs", "The Aether: Redux has a large amount of configs, including many that affect the base mod, so make sure to check out its config file!");
+        addProTip("redux_configs", Redux.DISPLAY + " has a large amount of configs, including many that affect the base mod, so make sure to check out its config file!");
         addProTip("swet_escape", "You can escape a Swet's gelatinous grasp by sneaking. It will still attack you though, so be quick!");
 
         for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS) {
