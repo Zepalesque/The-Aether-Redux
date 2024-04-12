@@ -426,7 +426,7 @@
   "gui.aether_redux.sentry_ring_embers": "Targets of melee attacks release burning embers",
   "gui.aether_redux.shift_info": "Hold [%s] for more info...",
   "gui.aether_redux.shroom_ring_adrenaline": "Taking damage at low health gives an Adrenaline effect for temporary stat boosts, at a price of a debuff soon after",
-  "gui.aether_redux.solar_emblem_fireball": "Grants ability to shoot fireballs",
+  "gui.aether_redux.solar_emblem_fireball": "Grants ability to shoot fireballs by pressing %s",
   "gui.aether_redux.tip_color": "Tips from the Aether: Redux have a lavender-colored title!",
   "gui.aether_redux.vampire_amulet_day_debuff": "Causes more damage to be taken at day",
   "gui.aether_redux.vampire_amulet_night_ability": "After being worn for one overworld day (as symbolized by a gold highlight), will grant the ability to absorb dealt damage",

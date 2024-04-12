@@ -94,9 +94,8 @@ public class ReduxItems {
     public static final RegistryObject<Item> SENTRY_RING = register("sentry_ring", () -> new AbilityTooltipRingItem(ReduxSoundEvents.EQUIP_SENTRY_RING, new Item.Properties().stacksTo(1).tab(AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES), "sentry_ring_embers"));
     public static final RegistryObject<Item> SHROOM_RING = register("shroom_ring", () -> new AbilityTooltipRingItem(ReduxSoundEvents.EQUIP_SHROOM_RING, new Item.Properties().stacksTo(1).tab(AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES), "shroom_ring_adrenaline"));
     public static final RegistryObject<Item> AIRBOUND_CAPE = register("airbound_cape", () -> new AirboundCapeItem("airbound_cape", new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT).tab(AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES), "airbound_cape_jump_boost"));
-    public static final RegistryObject<Item> SOLAR_EMBLEM = register("solar_emblem", () -> new AbilityTooltipMiscItem(new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT).tab(AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES), "solar_emblem_fireball"));
+    public static final RegistryObject<Item> SOLAR_EMBLEM = register("solar_emblem", () -> new SolarEmblemItem(new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT).tab(AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES)));
     public static final RegistryObject<Item> VALKYRIE_RING = register("valkyrie_ring", () -> new ValkyrieRingItem(ReduxSoundEvents.EQUIP_VALKYRIE_RING, new Item.Properties().stacksTo(1).tab(AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES)));
-
 
     public static final RegistryObject<Item> RING_OF_WISDOM = register("ring_of_wisdom", () -> new AbilityTooltipRingItem(ReduxSoundEvents.EQUIP_WISDOM_RING, new Item.Properties().stacksTo(1).tab(AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES), "wisdom_ring_xp_increase"));
 
