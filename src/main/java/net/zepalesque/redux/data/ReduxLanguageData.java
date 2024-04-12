@@ -555,7 +555,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addGuiText("grand_medal_regen", "Regeneration which increases as health drops");
         addGuiText("grand_medal_queen_refight", "Allows replaying the Valkyrie Queen fight without collecting more medals");
         addGuiText("airbound_cape_jump_boost", "Grants ability to double jump");
-        addGuiText("solar_emblem_fireball", "Grants ability to shoot fireballs by pressing %s");
+        addGuiText("solar_emblem_fireball", "Grants ability to shoot fireballs by pressing [%s]");
         addGuiText("sentry_ring_embers", "Targets of melee attacks release burning embers");
         addGuiText("shroom_ring_adrenaline", "Taking damage at low health gives an Adrenaline effect for temporary stat boosts, at a price of a debuff soon after");
         addGuiText("cockatrice_feather_protection", "Grants protection from Blight foliage");
