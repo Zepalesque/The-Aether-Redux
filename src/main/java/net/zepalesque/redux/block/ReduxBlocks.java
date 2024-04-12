@@ -74,7 +74,7 @@ public class ReduxBlocks {
             () -> new AetherLogBlock(BlockBehaviour.Properties.copy(Blocks.SANDSTONE).strength(0.6F, 3.0F)));
 
     public static RegistryObject<Block> POLISHED_DRIFTSHALE = register("polished_driftshale",
-            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).requiresCorrectToolForDrops().strength(0.6F, 3.0F)));
+            () -> new Block(BlockBehaviour.Properties.of(Material.STONE).color(MaterialColor.SAND).requiresCorrectToolForDrops().strength(0.6F, 3.0F)));
 
     public static RegistryObject<StairBlock> POLISHED_DRIFTSHALE_STAIRS = register("polished_driftshale_stairs",
             () -> new StairBlock(() -> (POLISHED_DRIFTSHALE.get()).defaultBlockState(), BlockBehaviour.Properties.copy(POLISHED_DRIFTSHALE.get())));
