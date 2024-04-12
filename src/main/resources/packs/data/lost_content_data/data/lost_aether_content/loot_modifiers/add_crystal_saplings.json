@@ -2,7 +2,7 @@
   "type": "aether_redux:empty",
   "conditions": [
     {
-      "condition": "minecraft:any_of",
+      "condition": "minecraft:alternatives",
       "terms": [
         {
           "block": "aether:crystal_leaves",
