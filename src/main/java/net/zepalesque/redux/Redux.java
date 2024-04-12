@@ -123,7 +123,7 @@ import java.util.concurrent.CompletableFuture;
 @Mod(Redux.MODID)
 public class Redux {
     public static final String MODID = "aether_redux";
-    public static final String DISPLAY = "The Aether: Redux";
+    public static final String DISPLAY = ModList.get().getModFileById(MODID).getMods().get(0).getDisplayName();
     public static final String VERSION_ID = ModList.get().getModFileById(MODID).versionString();
 
     public static final Logger LOGGER = LogUtils.getLogger();
