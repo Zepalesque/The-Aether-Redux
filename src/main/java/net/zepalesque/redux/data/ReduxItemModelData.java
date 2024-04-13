@@ -22,8 +22,8 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class ReduxItemModelData extends AetherItemModelProvider {
-    public ReduxItemModelData(PackOutput output, ExistingFileHelper existingFileHelper) {
-        super(output, Redux.MODID, existingFileHelper);
+    public ReduxItemModelData(PackOutput output, String modid, ExistingFileHelper existingFileHelper) {
+        super(output, modid, existingFileHelper);
     }
     @Override
     protected void registerModels() {

@@ -9,8 +9,8 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 
 public class ReduxSoundData extends SoundDefinitionsProvider {
-    public ReduxSoundData(PackOutput output, ExistingFileHelper helper) {
-        super(output, Redux.MODID, helper);
+    public ReduxSoundData(PackOutput output, String modid, ExistingFileHelper helper) {
+        super(output, modid, helper);
     }
 
     @Override

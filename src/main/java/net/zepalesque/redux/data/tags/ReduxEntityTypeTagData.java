@@ -17,8 +17,8 @@ import java.util.concurrent.CompletableFuture;
 
 public class ReduxEntityTypeTagData extends EntityTypeTagsProvider {
 
-    public ReduxEntityTypeTagData(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, ExistingFileHelper existingFileHelper) {
-        super(output, registries, Redux.MODID, existingFileHelper);
+    public ReduxEntityTypeTagData(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, String modid, ExistingFileHelper existingFileHelper) {
+        super(output, registries, modid, existingFileHelper);
     }
 
     @Override

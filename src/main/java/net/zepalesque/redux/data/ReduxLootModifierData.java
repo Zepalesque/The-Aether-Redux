@@ -42,8 +42,8 @@ import net.zepalesque.redux.misc.ReduxTags;
 import java.util.List;
 
 public class ReduxLootModifierData extends GlobalLootModifierProvider {
-    public ReduxLootModifierData(PackOutput output) {
-        super(output, Redux.MODID);
+    public ReduxLootModifierData(PackOutput output, String modid) {
+        super(output, modid);
     }
     protected static final LootItemCondition.Builder HAS_SILK_TOUCH = MatchTool.toolMatches(ItemPredicate.Builder.item().hasEnchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, MinMaxBounds.Ints.atLeast(1))));
 
