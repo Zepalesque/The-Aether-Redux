@@ -18,10 +18,11 @@ import org.jetbrains.annotations.Nullable;
 import teamrazor.deepaether.world.biomes.DABiomes;
 
 import java.util.concurrent.CompletableFuture;
+import java.util.function.UnaryOperator;
 
 public class ReduxBiomeTagsData extends BiomeTagsProvider {
-    public ReduxBiomeTagsData(PackOutput pOutput, CompletableFuture<HolderLookup.Provider> pProvider, @Nullable ExistingFileHelper existingFileHelper) {
-        super(pOutput, pProvider.thenApply(ReduxRegistrySets::patchLookup), Redux.MODID, existingFileHelper);
+    public ReduxBiomeTagsData(PackOutput pOutput, CompletableFuture<HolderLookup.Provider> pProvider, String modid, UnaryOperator<HolderLookup.Provider> func, @Nullable ExistingFileHelper existingFileHelper) {
+        super(pOutput, pProvider.thenApply(func), modid, existingFileHelper);
     }
 
     @Override

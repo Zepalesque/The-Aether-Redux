@@ -15,8 +15,8 @@ import net.zepalesque.redux.misc.ReduxTags;
 import java.util.concurrent.CompletableFuture;
 
 public class ReduxDamageTypeTagData extends TagsProvider<DamageType> {
-    public ReduxDamageTypeTagData(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, ExistingFileHelper existingFileHelper) {
-        super(output, Registries.DAMAGE_TYPE, registries, Redux.MODID, existingFileHelper);
+    public ReduxDamageTypeTagData(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, String modid, ExistingFileHelper existingFileHelper) {
+        super(output, Registries.DAMAGE_TYPE, registries, modid, existingFileHelper);
     }
 
 

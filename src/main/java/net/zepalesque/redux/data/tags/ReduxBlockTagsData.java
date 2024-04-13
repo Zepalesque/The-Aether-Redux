@@ -22,8 +22,8 @@ import java.util.concurrent.CompletableFuture;
 
 public class    ReduxBlockTagsData extends BlockTagsProvider {
 
-    public ReduxBlockTagsData(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, @Nullable ExistingFileHelper existingFileHelper) {
-        super(output, lookupProvider, Redux.MODID, existingFileHelper);
+    public ReduxBlockTagsData(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, String modid, @Nullable ExistingFileHelper existingFileHelper) {
+        super(output, lookupProvider, modid, existingFileHelper);
     }
 
     protected void addTags(HolderLookup.Provider provider) {

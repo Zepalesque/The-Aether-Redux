@@ -24,8 +24,8 @@ import java.util.concurrent.CompletableFuture;
 
 public class ReduxItemTagsData extends ItemTagsProvider {
 
-    public ReduxItemTagsData(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, CompletableFuture<TagLookup<Block>> blockTags, @Nullable ExistingFileHelper helper) {
-        super(output, registries, blockTags, Redux.MODID, helper);
+    public ReduxItemTagsData(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, String modid, CompletableFuture<TagLookup<Block>> blockTags, @Nullable ExistingFileHelper helper) {
+        super(output, registries, blockTags, modid, helper);
     }
 
 

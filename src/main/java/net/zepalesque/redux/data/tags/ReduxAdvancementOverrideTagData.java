@@ -13,8 +13,8 @@ import org.jetbrains.annotations.NotNull;
 import java.util.concurrent.CompletableFuture;
 
 public class ReduxAdvancementOverrideTagData extends TagsProvider<AdvancementSoundOverride> {
-    public ReduxAdvancementOverrideTagData(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, ExistingFileHelper existingFileHelper) {
-        super(output, AetherAdvancementSoundOverrides.ADVANCEMENT_SOUND_OVERRIDE_REGISTRY_KEY, registries, Redux.MODID, existingFileHelper);
+    public ReduxAdvancementOverrideTagData(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, String modid, ExistingFileHelper existingFileHelper) {
+        super(output, AetherAdvancementSoundOverrides.ADVANCEMENT_SOUND_OVERRIDE_REGISTRY_KEY, registries, modid, existingFileHelper);
     }
 
 
