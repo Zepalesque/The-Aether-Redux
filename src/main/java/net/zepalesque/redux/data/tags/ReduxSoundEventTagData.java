@@ -15,8 +15,8 @@ import org.jetbrains.annotations.NotNull;
 import java.util.concurrent.CompletableFuture;
 
 public class ReduxSoundEventTagData extends TagsProvider<SoundEvent> {
-    public ReduxSoundEventTagData(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, String modid, ExistingFileHelper existingFileHelper) {
-        super(output, Registries.SOUND_EVENT, registries, modid, existingFileHelper);
+    public ReduxSoundEventTagData(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, ExistingFileHelper existingFileHelper) {
+        super(output, Registries.SOUND_EVENT, registries, Redux.MODID, existingFileHelper);
     }
 
 

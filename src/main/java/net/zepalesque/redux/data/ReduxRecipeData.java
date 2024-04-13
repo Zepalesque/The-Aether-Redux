@@ -53,8 +53,8 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class ReduxRecipeData extends AetherRecipeProvider implements IConditionBuilder {
-    public ReduxRecipeData(PackOutput output, String modid) {
-        super(output, modid);
+    public ReduxRecipeData(PackOutput output) {
+        super(output, Redux.MODID);
     }
 
     @Override

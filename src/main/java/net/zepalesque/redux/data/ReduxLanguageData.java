@@ -29,8 +29,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
     protected final PackOutput out;
 
 
-    public ReduxLanguageData(PackOutput output, String modid) {
-        super(output, modid);
+    public ReduxLanguageData(PackOutput output) {
+        super(output, Redux.MODID);
         this.out = output;
     }
 

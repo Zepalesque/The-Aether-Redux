@@ -34,8 +34,8 @@ import static net.minecraftforge.client.model.generators.ModelProvider.BLOCK_FOL
 
 public class ReduxBlockstateData extends AetherBlockStateProvider {
 
-    public ReduxBlockstateData(PackOutput output, String modid, ExistingFileHelper helper) {
-        super(output, modid, helper);
+    public ReduxBlockstateData(PackOutput output, ExistingFileHelper helper) {
+        super(output, Redux.MODID, helper);
     }
 
     @Override
