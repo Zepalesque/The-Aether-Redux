@@ -9,10 +9,12 @@ import net.minecraftforge.common.world.ModifiableBiomeInfo;
 import net.zepalesque.redux.api.condition.AbstractCondition;
 import net.zepalesque.redux.util.function.CodecPredicates;
 
-public record WaterColorReplacementBiomeModifier(HolderSet<Biome> biomes, CodecPredicates.DualInt predicate, int water, int fog, AbstractCondition<?> condition) implements BiomeModifier {
+import java.util.Optional;
+
+public record WaterColorReplacementBiomeModifier(HolderSet<Biome> biomes, CodecPredicates.DualInt predicate, int water, int fog, Optional<AbstractCondition<?>> condition) implements BiomeModifier {
     @Override
     public void modify(Holder<Biome> biome, Phase phase, ModifiableBiomeInfo.BiomeInfo.Builder builder) {
-        if (phase == Phase.AFTER_EVERYTHING && biomes.contains(biome) && condition.isConditionMet() && predicate.test(builder.getSpecialEffects().waterColor(), builder.getSpecialEffects().getWaterFogColor()))
+        if (phase == Phase.AFTER_EVERYTHING && biomes.contains(biome) && (condition.isEmpty() || condition.get().isConditionMet()) && predicate.test(builder.getSpecialEffects().waterColor(), builder.getSpecialEffects().getWaterFogColor()))
         { builder.getSpecialEffects().waterColor(water).waterFogColor(fog); }
 
     }

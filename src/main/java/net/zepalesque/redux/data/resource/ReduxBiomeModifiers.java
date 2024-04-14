@@ -48,6 +48,8 @@ public class ReduxBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_SENTRITE = createKey(FEATURE + "sentrite");
     public static final ResourceKey<BiomeModifier> ADD_SNOW = createKey(FEATURE + "snow");
     public static final ResourceKey<BiomeModifier> WATER_COLOR_AETHER = createKey(MODIFY + "water_color");
+    public static final ResourceKey<BiomeModifier> SKY_COLOR_AETHER = createKey(MODIFY + "sky_color");
+    public static final ResourceKey<BiomeModifier> SKY_COLOR_BLIGHT = createKey(MODIFY + "blight_alt_sky_color");
     public static final ResourceKey<BiomeModifier> AETHER_COLOR_OVERRIDE = createKey(MODIFY + "aether_color_override");
     public static final ResourceKey<BiomeModifier> MUSIC_MODIFY = createKey(MODIFY + "music_modify");
 
@@ -108,7 +110,13 @@ public class ReduxBiomeModifiers {
                 GenerationStep.Decoration.UNDERGROUND_ORES));
 
         context.register(WATER_COLOR_AETHER, new WaterColorReplacementBiomeModifier(biomes.getOrThrow(ReduxTags.Biomes.HAS_REDUX_WATER_COLOR),
-                CodecPredicates.DualInt.of(4159204, 329011), 0x5492A8, 0x0D2835, Conditions.WATER));
+                CodecPredicates.DualInt.of(4159204, 329011), 0x5492A8, 0x0D2835, Optional.of(Conditions.WATER)));
+
+        context.register(SKY_COLOR_AETHER, new SkyModifier(biomes.getOrThrow(ReduxTags.Biomes.HAS_REDUX_SKY_COLOR),
+                CodecPredicates.DualInt.of(12632319, 9671612), 0x9FA4DD, 0xBEC4E5, Optional.of(Conditions.SKY)));
+
+        context.register(SKY_COLOR_BLIGHT, new WaterColorReplacementBiomeModifier(HolderSet.direct(biomes.getOrThrow(ReduxBiomes.THE_BLIGHT)),
+                CodecPredicates.DualInt.of(13025791, 10850748), 0xA89DDB, 0xBCBCE2, Optional.of(Conditions.SKY)));
 
         context.register(AETHER_COLOR_OVERRIDE, new GrassAndFoliageColorModifier(biomes.getOrThrow(ReduxTags.Biomes.NO_GRASS_OVERRIDE),
                 0x91BD59, 0x77AB2F));
