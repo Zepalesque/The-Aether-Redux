@@ -28,8 +28,17 @@ public class ReduxBiomeModifierCodecs {
                     WaterColorReplacementBiomeModifier.WATER_PREDICATE.fieldOf("predicate").forGetter(WaterColorReplacementBiomeModifier::predicate),
                     Codec.INT.fieldOf("water_color").forGetter(WaterColorReplacementBiomeModifier::water),
                     Codec.INT.fieldOf("water_fog_color").forGetter(WaterColorReplacementBiomeModifier::fog),
-                    AbstractCondition.CODEC.fieldOf("condition").forGetter(WaterColorReplacementBiomeModifier::condition)
+                    AbstractCondition.CODEC.optionalFieldOf("condition").forGetter(WaterColorReplacementBiomeModifier::condition)
             ).apply(builder, WaterColorReplacementBiomeModifier::new)));
+
+    static RegistryObject<Codec<SkyModifier>> SKY_COLOR = CODECS.register("sky_color", () ->
+            RecordCodecBuilder.create(builder -> builder.group(
+                    Biome.LIST_CODEC.fieldOf("biomes").forGetter(SkyModifier::biomes),
+                    SkyModifier.SKY_PREDICATE.fieldOf("predicate").forGetter(SkyModifier::predicate),
+                    Codec.INT.fieldOf("water_color").forGetter(SkyModifier::sky),
+                    Codec.INT.fieldOf("water_fog_color").forGetter(SkyModifier::fog),
+                    AbstractCondition.CODEC.optionalFieldOf("condition").forGetter(SkyModifier::condition)
+            ).apply(builder, SkyModifier::new)));
 
     static RegistryObject<Codec<GrassAndFoliageColorModifier>> GRASS_AND_FOLIAGE = CODECS.register("grass_and_foliage", () ->
             RecordCodecBuilder.create(builder -> builder.group(

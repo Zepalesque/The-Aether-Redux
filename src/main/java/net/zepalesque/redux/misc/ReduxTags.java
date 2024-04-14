@@ -93,6 +93,7 @@ public class ReduxTags {
         public static final TagKey<Biome> HAS_DIVINITE = tag("has_divinite");
         public static final TagKey<Biome> HAS_SENTRITE = tag("has_sentrite");
         public static final TagKey<Biome> HAS_REDUX_WATER_COLOR = tag("has_redux_water_color");
+        public static final TagKey<Biome> HAS_REDUX_SKY_COLOR = tag("has_redux_sky_color");
         public static final TagKey<Biome> NO_GRASS_OVERRIDE = tag("no_grass_override");
         public static final TagKey<Biome> HAS_GRASS_OVERRIDE = tag("has_grass_override");
 

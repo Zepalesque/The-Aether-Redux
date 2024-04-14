@@ -322,7 +322,7 @@ public class Redux {
             CraftingHelper.register(DataRecipeCondition.Serializer.INSTANCE);
         }
     }
-
+    
     public  void packSetup(AddPackFindersEvent event) {
 
 
