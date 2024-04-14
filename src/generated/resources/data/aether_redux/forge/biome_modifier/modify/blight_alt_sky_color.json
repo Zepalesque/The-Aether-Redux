@@ -1,5 +1,5 @@
 {
-  "type": "aether_redux:water_color_replacement",
+  "type": "aether_redux:sky_color",
   "biomes": "aether_redux:the_blight",
   "condition": {
     "condition": "aether_redux:redux_config",
@@ -7,7 +7,7 @@
   },
   "predicate": {
     "fog": 10850748,
-    "water": 13025791
+    "sky": 13025791
   },
   "water_color": 11050459,
   "water_fog_color": 12369122
