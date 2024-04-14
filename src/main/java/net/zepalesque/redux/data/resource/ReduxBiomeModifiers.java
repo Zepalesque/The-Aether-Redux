@@ -115,7 +115,7 @@ public class ReduxBiomeModifiers {
         context.register(SKY_COLOR_AETHER, new SkyModifier(biomes.getOrThrow(ReduxTags.Biomes.HAS_REDUX_SKY_COLOR),
                 CodecPredicates.DualInt.of(12632319, 9671612), 0x9FA4DD, 0xBEC4E5, Optional.of(Conditions.SKY)));
 
-        context.register(SKY_COLOR_BLIGHT, new WaterColorReplacementBiomeModifier(HolderSet.direct(biomes.getOrThrow(ReduxBiomes.THE_BLIGHT)),
+        context.register(SKY_COLOR_BLIGHT, new SkyModifier(HolderSet.direct(biomes.getOrThrow(ReduxBiomes.THE_BLIGHT)),
                 CodecPredicates.DualInt.of(13025791, 10850748), 0xA89DDB, 0xBCBCE2, Optional.of(Conditions.SKY)));
 
         context.register(AETHER_COLOR_OVERRIDE, new GrassAndFoliageColorModifier(biomes.getOrThrow(ReduxTags.Biomes.NO_GRASS_OVERRIDE),
