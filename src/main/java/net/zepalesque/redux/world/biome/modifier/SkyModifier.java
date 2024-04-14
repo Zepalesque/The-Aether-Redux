@@ -25,6 +25,6 @@ public record SkyModifier(HolderSet<Biome> biomes, CodecPredicates.DualInt predi
 
     @Override
     public Codec<? extends BiomeModifier> codec() {
-        return ReduxBiomeModifierCodecs.GRASS_AND_FOLIAGE.get();
+        return ReduxBiomeModifierCodecs.SKY_COLOR.get();
     }
 }

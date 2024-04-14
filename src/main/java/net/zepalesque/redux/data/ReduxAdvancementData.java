@@ -15,7 +15,6 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.ForgeAdvancementProvider;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.advancement.trigger.DoubleJumpTrigger;
-import net.zepalesque.redux.advancement.trigger.FallFromAetherTrigger;
 import net.zepalesque.redux.advancement.trigger.InfuseItemTrigger;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.item.ReduxItems;
@@ -36,17 +35,6 @@ public class ReduxAdvancementData extends ForgeAdvancementProvider {
         @Override
         public void generate(HolderLookup.Provider provider, Consumer<Advancement> consumer, ExistingFileHelper existingFileHelper) {
 
-            Advancement.Builder.advancement()
-                    .parent(new ResourceLocation(Aether.MODID, "blue_aercloud"))
-                    .display(AetherItems.GOLDEN_PARACHUTE.get(),
-                            Component.translatable("advancement.aether_redux.fall_from_aether"),
-                            Component.translatable("advancement.aether_redux.fall_from_aether.desc")
-                                    .append(Component.translatable("gui.aether_redux.advancement_suffix").withStyle(style -> style.withColor(Redux.REDUX_PURPLE))),
-                            null,
-                            FrameType.TASK, true, true, false)
-                    .addCriterion("fall_from_aether", FallFromAetherTrigger.TriggerInstance.fall())
-                    .save(consumer, Redux.locate("fall_from_aether"), existingFileHelper);
-            
             Advancement.Builder.advancement()
                     .parent(new ResourceLocation(Aether.MODID, "bronze_dungeon"))
                     .display(ReduxItems.AIRBOUND_CAPE.get(),

@@ -28,7 +28,6 @@
     "common.entity.SlimeMixin",
     "common.entity.SwetMixin",
     "common.entity.ValkQueenMixin",
-    "common.event.DimensionHooksMixin",
     "common.inventory.LoreInventoryMixin",
     "common.item.AmbrosiumShardMixin",
     "common.item.DiggerItemMixin",
