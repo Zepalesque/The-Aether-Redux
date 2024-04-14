@@ -1,0 +1,14 @@
+{
+  "type": "aether_redux:water_color_replacement",
+  "biomes": "aether_redux:the_blight",
+  "condition": {
+    "condition": "aether_redux:redux_config",
+    "config_path": "[Worldgen, Biomes, Alternate Sky Color]"
+  },
+  "predicate": {
+    "fog": 10850748,
+    "water": 13025791
+  },
+  "water_color": 11050459,
+  "water_fog_color": 12369122
+}
