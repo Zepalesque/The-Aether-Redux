@@ -79,36 +79,42 @@ public class ReduxColors {
 
         // Ancient Aether Compat
         if (Redux.ancientAetherCompat()) {
-            register(event.getBlockColors(), (state, level, pos, index) -> level != null && pos != null ? state.hasProperty(AncientAetherBlockStateProperties.TYPE) && state.getValue(AncientAetherBlockStateProperties.TYPE) == AetherGrassType.ENCHANTED ? 0xFFFFFF : getAverageColor(level, pos, AETHER_GRASS_RESOLVER) : ReduxBiomes.AETHER_GRASS_COLOR, new ResourceLocation("anicent_aether", "sky_grass"));
+            register(event.getBlockColors(), (state, level, pos, index) -> level != null && pos != null ? state.hasProperty(AncientAetherBlockStateProperties.TYPE) && state.getValue(AncientAetherBlockStateProperties.TYPE) == AetherGrassType.ENCHANTED ? 0xFFFFFF : getAverageColor(level, pos, AETHER_GRASS_RESOLVER) : ReduxBiomes.AETHER_GRASS_COLOR,
+                    new ResourceLocation("anicent_aether", "sky_grass"));
             register(event.getBlockColors(), (state, level, pos, index) -> getColor(state, level, pos, index, 1),
                     new ResourceLocation("ancient_aether", "wynd_thistle"),
                     new ResourceLocation("ancient_aether", "potted_wynd_thistle"),
                     new ResourceLocation("ancient_aether", "sky_blues"),
-                    new ResourceLocation("ancient_aether", "potted_sky_blues")
+                    new ResourceLocation("ancient_aether", "potted_sky_blues"),
+                    new ResourceLocation("ancient_aether", "highland_viola"),
+                    new ResourceLocation("ancient_aether", "potted_highland_viola"),
+                    new ResourceLocation("ancient_aether", "sakura_blossoms"),
+                    new ResourceLocation("ancient_aether", "potted_sakura_blossoms"),
+                    new ResourceLocation("ancient_aether", "trapped_sakura_blossoms")
             );
         }
 
         // Deep Aether compat
         if (Redux.deepAetherCompat()) {
-            event.getBlockColors().register((state, level, pos, index) -> getColor(state, level, pos, index, 1),
-                    DABlocks.RADIANT_ORCHID.get(),
-                    DABlocks.POTTED_RADIANT_ORCHID.get(),
-                    DABlocks.AERLAVENDER.get(),
-                    DABlocks.POTTED_AERLAVENDER.get(),
-                    DABlocks.TALL_AERLAVENDER.get(),
-                    DABlocks.POTTED_TALL_AERLAVENDER.get(),
-                    DABlocks.FEATHER_GRASS.get(),
-                    DABlocks.SKY_TULIPS.get(),
-                    DABlocks.POTTED_SKY_TULIPS.get(),
-                    DABlocks.IASPOVE.get(),
-                    DABlocks.POTTED_IASPOVE.get(),
-                    DABlocks.GOLDEN_ASPESS.get(),
-                    DABlocks.POTTED_GOLDEN_ASPESS.get(),
-                    DABlocks.ECHAISY.get(),
-                    DABlocks.POTTED_ECHAISY.get()
+            register(event.getBlockColors(), (state, level, pos, index) -> getColor(state, level, pos, index, 1),
+                    new ResourceLocation("deep_aether", "radiant_orchid"),
+                    new ResourceLocation("deep_aether", "potted_radiant_orchid"),
+                    new ResourceLocation("deep_aether", "aerlavender"),
+                    new ResourceLocation("deep_aether", "potted_aerlavender"),
+                    new ResourceLocation("deep_aether", "tall_aerlavender"),
+                    new ResourceLocation("deep_aether", "feather_grass"),
+                    new ResourceLocation("deep_aether", "potted_tall_aerlavender"),
+                    new ResourceLocation("deep_aether", "sky_tulips"),
+                    new ResourceLocation("deep_aether", "potted_sky_tulips"),
+                    new ResourceLocation("deep_aether", "iaspove"),
+                    new ResourceLocation("deep_aether", "potted_iaspove"),
+                    new ResourceLocation("deep_aether", "golden_aspess"),
+                    new ResourceLocation("deep_aether", "potted_golden_aspess"),
+                    new ResourceLocation("deep_aether", "echaisy"),
+                    new ResourceLocation("deep_aether", "potted_echaisy")
             );
-            event.getBlockColors().register((state, level, pos, index) -> pos != null ? getColor(state, level, state.getValue(DoublePlantBlock.HALF) == DoubleBlockHalf.UPPER ? pos.below() : pos, index, 1)  : ReduxBiomes.AETHER_GRASS_COLOR,
-                    DABlocks.TALL_FEATHER_GRASS.get()
+            register(event.getBlockColors(), (state, level, pos, index) -> pos != null ? getColor(state, level, state.getValue(DoublePlantBlock.HALF) == DoubleBlockHalf.UPPER ? pos.below() : pos, index, 1)  : ReduxBiomes.AETHER_GRASS_COLOR,
+                    new ResourceLocation("deep_aether", "tall_feather_grass")
             );
         }
 
@@ -137,22 +143,38 @@ public class ReduxColors {
 
         // Ancient Aether Compat
         if (Redux.ancientAetherCompat()) {
-            register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 0 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AncientAetherBlocks.SKY_GRASS.get());
+            register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 0 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF,
+                    new ResourceLocation("ancient_aether", "sky_grass"));
 
-            event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.FROZEN_GRASS_COLOR : 0xFFFFFF, AncientAetherBlocks.WYND_THISTLE.get());
-            event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AncientAetherBlocks.SKY_BLUES.get());
+            register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.FROZEN_GRASS_COLOR : 0xFFFFFF,
+                    new ResourceLocation("ancient_aether", "wynd_thistle"));
+            register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF,
+                    new ResourceLocation("ancient_aether", "sakura_blossoms"));
+            register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF,
+                    new ResourceLocation("ancient_aether", "sky_blues"));
+            register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF,
+                    new ResourceLocation("ancient_aether", "highland_viola"));
         }
         // Deep AetherAa Compat
         if (Redux.deepAetherCompat()) {
-            event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AERGLOW_GRASS_COLOR : 0xFFFFFF, DABlocks.RADIANT_ORCHID.get());
-            event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AERLAVENDER_GRASS_COLOR : 0xFFFFFF, DABlocks.AERLAVENDER.get());
-            event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AERLAVENDER_GRASS_COLOR : 0xFFFFFF, DABlocks.TALL_AERLAVENDER.get());
-            event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.BLUE_AERGLOW_GRASS_COLOR : 0xFFFFFF, DABlocks.FEATHER_GRASS.get());
-            event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.BLUE_AERGLOW_GRASS_COLOR : 0xFFFFFF, DABlocks.TALL_FEATHER_GRASS.get());
-            event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, DABlocks.SKY_TULIPS.get());
-            event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, DABlocks.IASPOVE.get());
-            event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, DABlocks.GOLDEN_ASPESS.get());
-            event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, DABlocks.ECHAISY.get());
+            register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AERGLOW_GRASS_COLOR : 0xFFFFFF,
+                    new ResourceLocation("ancient_aether", "radiant_orchid"));
+            register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AERLAVENDER_GRASS_COLOR : 0xFFFFFF,
+                    new ResourceLocation("ancient_aether", "aerlavender"));
+            register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AERLAVENDER_GRASS_COLOR : 0xFFFFFF,
+                    new ResourceLocation("ancient_aether", "tall_aerlavender"));
+            register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.BLUE_AERGLOW_GRASS_COLOR : 0xFFFFFF,
+                    new ResourceLocation("ancient_aether", "feather_grass"));
+            register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.BLUE_AERGLOW_GRASS_COLOR : 0xFFFFFF,
+                    new ResourceLocation("ancient_aether", "tall_feather_grass"));
+            register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF,
+                    new ResourceLocation("ancient_aether", "sky_tulips"));
+            register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF,
+                    new ResourceLocation("ancient_aether", "iaspove"));
+            register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF,
+                    new ResourceLocation("ancient_aether", "golden_aspess"));
+            register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF,
+                    new ResourceLocation("ancient_aether", "echaisy"));
         }
     }
 
@@ -177,6 +199,8 @@ public class ReduxColors {
         for (ResourceLocation location : locations) {
             if (ForgeRegistries.ITEMS.containsKey(location)) {
                 colors.register(resolver, ForgeRegistries.ITEMS.getValue(location));
+            } else {
+                Redux.LOGGER.warn("Tried to register compat color for item that does not exist! Could not find: {}", location.toString());
             }
         }
     }
@@ -184,6 +208,8 @@ public class ReduxColors {
         for (ResourceLocation location : locations) {
             if (ForgeRegistries.BLOCKS.containsKey(location)) {
                 colors.register(resolver, ForgeRegistries.BLOCKS.getValue(location));
+            } else {
+                Redux.LOGGER.warn("Tried to register compat color for block that does not exist! Could not find: {}", location.toString());
             }
         }
     }
