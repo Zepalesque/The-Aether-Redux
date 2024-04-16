@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "ancient_aether:block/trapped_sakura_blossoms_overlay",
+    "layer1": "ancient_aether:block/trapped_sakura_blossoms"
+  }
+}
