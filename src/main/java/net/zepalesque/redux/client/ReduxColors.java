@@ -4,7 +4,12 @@ import com.aetherteam.aether.block.AetherBlocks;
 import net.builderdog.ancient_aether.block.AncientAetherBlocks;
 import net.builderdog.ancient_aether.block.blockstate.AetherGrassType;
 import net.builderdog.ancient_aether.block.blockstate.AncientAetherBlockStateProperties;
+import net.minecraft.client.color.block.BlockColor;
+import net.minecraft.client.color.block.BlockColors;
+import net.minecraft.client.color.item.ItemColor;
+import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.FastColor;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.ColorResolver;
@@ -13,6 +18,7 @@ import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.util.state.ReduxStates;
@@ -73,12 +79,12 @@ public class ReduxColors {
 
         // Ancient Aether Compat
         if (Redux.ancientAetherCompat()) {
-            event.getBlockColors().register((state, level, pos, index) -> level != null && pos != null ? state.hasProperty(AncientAetherBlockStateProperties.TYPE) && state.getValue(AncientAetherBlockStateProperties.TYPE) == AetherGrassType.ENCHANTED ? 0xFFFFFF : getAverageColor(level, pos, AETHER_GRASS_RESOLVER) : ReduxBiomes.AETHER_GRASS_COLOR, AncientAetherBlocks.SKY_GRASS.get());
-            event.getBlockColors().register((state, level, pos, index) -> getColor(state, level, pos, index, 1),
-                    AncientAetherBlocks.WYND_THISTLE.get(),
-                    AncientAetherBlocks.POTTED_WYND_THISTLE.get(),
-                    AncientAetherBlocks.SKY_BLUES.get(),
-                    AncientAetherBlocks.POTTED_SKY_BLUES.get()
+            register(event.getBlockColors(), (state, level, pos, index) -> level != null && pos != null ? state.hasProperty(AncientAetherBlockStateProperties.TYPE) && state.getValue(AncientAetherBlockStateProperties.TYPE) == AetherGrassType.ENCHANTED ? 0xFFFFFF : getAverageColor(level, pos, AETHER_GRASS_RESOLVER) : ReduxBiomes.AETHER_GRASS_COLOR, new ResourceLocation("anicent_aether", "sky_grass"));
+            register(event.getBlockColors(), (state, level, pos, index) -> getColor(state, level, pos, index, 1),
+                    new ResourceLocation("ancient_aether", "wynd_thistle"),
+                    new ResourceLocation("ancient_aether", "potted_wynd_thistle"),
+                    new ResourceLocation("ancient_aether", "sky_blues"),
+                    new ResourceLocation("ancient_aether", "potted_sky_blues")
             );
         }
 
@@ -131,13 +137,10 @@ public class ReduxColors {
 
         // Ancient Aether Compat
         if (Redux.ancientAetherCompat()) {
-            event.getItemColors().register((stack, tintIndex) -> tintIndex == 0 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AncientAetherBlocks.SKY_GRASS.get());
+            register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 0 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AncientAetherBlocks.SKY_GRASS.get());
 
             event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.FROZEN_GRASS_COLOR : 0xFFFFFF, AncientAetherBlocks.WYND_THISTLE.get());
             event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AncientAetherBlocks.SKY_BLUES.get());
-            event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AncientAetherBlocks.SAKURA_BLOSSOMS.get());
-            event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AncientAetherBlocks.TRAPPED_SAKURA_BLOSSOMS.get());
-            event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AncientAetherBlocks.HIGHLAND_VIOLA.get());
         }
         // Deep AetherAa Compat
         if (Redux.deepAetherCompat()) {
@@ -168,5 +171,20 @@ public class ReduxColors {
 
     public static void resolvers(RegisterColorHandlersEvent.ColorResolvers event) {
         event.register(AETHER_GRASS_RESOLVER);
+    }
+
+    private static void register(ItemColors colors, ItemColor resolver, ResourceLocation... locations) {
+        for (ResourceLocation location : locations) {
+            if (ForgeRegistries.ITEMS.containsKey(location)) {
+                colors.register(resolver, ForgeRegistries.ITEMS.getValue(location));
+            }
+        }
+    }
+    private static void register(BlockColors colors, BlockColor resolver, ResourceLocation... locations) {
+        for (ResourceLocation location : locations) {
+            if (ForgeRegistries.BLOCKS.containsKey(location)) {
+                colors.register(resolver, ForgeRegistries.BLOCKS.getValue(location));
+            }
+        }
     }
 }
