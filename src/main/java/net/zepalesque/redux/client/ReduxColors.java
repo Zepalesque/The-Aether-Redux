@@ -200,7 +200,8 @@ public class ReduxColors {
             if (ForgeRegistries.ITEMS.containsKey(location)) {
                 colors.register(resolver, ForgeRegistries.ITEMS.getValue(location));
             } else {
-                Redux.LOGGER.info("Tried to register compat color for item that does not exist! Could not find: {}", location.toString());
+                Redux.LOGGER.warn("Tried to register compat color for item that does not exist! Could not find: {}", location.toString());
+                Redux.LOGGER.warn("This is not NECESSARILY an issue, as some items that are mutually-exclusive in compatible mod versions exist, but it is being logged nonetheless");
             }
         }
     }
@@ -209,7 +210,8 @@ public class ReduxColors {
             if (ForgeRegistries.BLOCKS.containsKey(location)) {
                 colors.register(resolver, ForgeRegistries.BLOCKS.getValue(location));
             } else {
-                Redux.LOGGER.info("Tried to register compat color for block that does not exist! Could not find: {}", location.toString());
+                Redux.LOGGER.warn("Tried to register compat color for block that does not exist! Could not find: {}", location.toString());
+                Redux.LOGGER.warn("This is not NECESSARILY an issue, as some blocks that are mutually-exclusive in compatible mod versions exist, but it is being logged nonetheless");
             }
         }
     }
