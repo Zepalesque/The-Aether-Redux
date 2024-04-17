@@ -80,7 +80,7 @@ public class ReduxColors {
         // Ancient Aether Compat
         if (Redux.ancientAetherCompat()) {
             register(event.getBlockColors(), (state, level, pos, index) -> level != null && pos != null ? state.hasProperty(AncientAetherBlockStateProperties.TYPE) && state.getValue(AncientAetherBlockStateProperties.TYPE) == AetherGrassType.ENCHANTED ? 0xFFFFFF : getAverageColor(level, pos, AETHER_GRASS_RESOLVER) : ReduxBiomes.AETHER_GRASS_COLOR,
-                    new ResourceLocation("anicent_aether", "sky_grass"));
+                    new ResourceLocation("ancoent_aether", "sky_grass"));
             register(event.getBlockColors(), (state, level, pos, index) -> getColor(state, level, pos, index, 1),
                     new ResourceLocation("ancient_aether", "wynd_thistle"),
                     new ResourceLocation("ancient_aether", "potted_wynd_thistle"),
@@ -158,23 +158,23 @@ public class ReduxColors {
         // Deep AetherAa Compat
         if (Redux.deepAetherCompat()) {
             register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AERGLOW_GRASS_COLOR : 0xFFFFFF,
-                    new ResourceLocation("ancient_aether", "radiant_orchid"));
+                    new ResourceLocation("deep_aether", "radiant_orchid"));
             register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AERLAVENDER_GRASS_COLOR : 0xFFFFFF,
-                    new ResourceLocation("ancient_aether", "aerlavender"));
+                    new ResourceLocation("deep_aether", "aerlavender"));
             register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AERLAVENDER_GRASS_COLOR : 0xFFFFFF,
-                    new ResourceLocation("ancient_aether", "tall_aerlavender"));
+                    new ResourceLocation("deep_aether", "tall_aerlavender"));
             register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.BLUE_AERGLOW_GRASS_COLOR : 0xFFFFFF,
-                    new ResourceLocation("ancient_aether", "feather_grass"));
+                    new ResourceLocation("deep_aether", "feather_grass"));
             register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.BLUE_AERGLOW_GRASS_COLOR : 0xFFFFFF,
-                    new ResourceLocation("ancient_aether", "tall_feather_grass"));
+                    new ResourceLocation("deep_aether", "tall_feather_grass"));
             register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF,
-                    new ResourceLocation("ancient_aether", "sky_tulips"));
+                    new ResourceLocation("deep_aether", "sky_tulips"));
             register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF,
-                    new ResourceLocation("ancient_aether", "iaspove"));
+                    new ResourceLocation("deep_aether", "iaspove"));
             register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF,
-                    new ResourceLocation("ancient_aether", "golden_aspess"));
+                    new ResourceLocation("deep_aether", "golden_aspess"));
             register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF,
-                    new ResourceLocation("ancient_aether", "echaisy"));
+                    new ResourceLocation("deep_aether", "echaisy"));
         }
     }
 
@@ -200,7 +200,7 @@ public class ReduxColors {
             if (ForgeRegistries.ITEMS.containsKey(location)) {
                 colors.register(resolver, ForgeRegistries.ITEMS.getValue(location));
             } else {
-                Redux.LOGGER.warn("Tried to register compat color for item that does not exist! Could not find: {}", location.toString());
+                Redux.LOGGER.info("Tried to register compat color for item that does not exist! Could not find: {}", location.toString());
             }
         }
     }
@@ -209,7 +209,7 @@ public class ReduxColors {
             if (ForgeRegistries.BLOCKS.containsKey(location)) {
                 colors.register(resolver, ForgeRegistries.BLOCKS.getValue(location));
             } else {
-                Redux.LOGGER.warn("Tried to register compat color for block that does not exist! Could not find: {}", location.toString());
+                Redux.LOGGER.info("Tried to register compat color for block that does not exist! Could not find: {}", location.toString());
             }
         }
     }
