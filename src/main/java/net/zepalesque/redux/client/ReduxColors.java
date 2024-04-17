@@ -84,6 +84,10 @@ public class ReduxColors {
             register(event.getBlockColors(), (state, level, pos, index) -> getColor(state, level, pos, index, 1),
                     new ResourceLocation("ancient_aether", "wynd_thistle"),
                     new ResourceLocation("ancient_aether", "potted_wynd_thistle"),
+                    new ResourceLocation("ancient_aether", "sunset_rose"),
+                    new ResourceLocation("ancient_aether", "potted_sunset_rose"),
+                    new ResourceLocation("ancient_aether", "elevatia"),
+                    new ResourceLocation("ancient_aether", "potted_elevatia"),
                     new ResourceLocation("ancient_aether", "sky_blues"),
                     new ResourceLocation("ancient_aether", "potted_sky_blues"),
                     new ResourceLocation("ancient_aether", "highland_viola"),
@@ -151,9 +155,13 @@ public class ReduxColors {
             register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF,
                     new ResourceLocation("ancient_aether", "sakura_blossoms"));
             register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF,
+                    new ResourceLocation("ancient_aether", "sunset_rose"));
+            register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF,
                     new ResourceLocation("ancient_aether", "sky_blues"));
             register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF,
                     new ResourceLocation("ancient_aether", "highland_viola"));
+            register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.PALE_GRASS_COLOR : 0xFFFFFF,
+                    new ResourceLocation("ancient_aether", "elevatia"));
         }
         // Deep AetherAa Compat
         if (Redux.deepAetherCompat()) {
