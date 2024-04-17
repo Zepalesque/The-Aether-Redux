@@ -8,8 +8,8 @@
   "mixins": [
     "common.block.AercloudBlockMixin",
     "common.block.BlockBehaviorMixin",
-    "common.block.BlueAercloudBlockMixin",
     "common.block.BlockBehaviourMixin",
+    "common.block.BlueAercloudBlockMixin",
     "common.block.DoublePlantMixin",
     "common.block.FrictionCappedMixin",
     "common.block.IForgeBlockQuicksoilBehaviorMixin",
@@ -36,7 +36,8 @@
     "common.item.SubzeroCrossbowItemMixin",
     "common.world.BronzeDungeonRoomMixin",
     "common.world.ChunkAccessAccessor",
-    "common.world.GoldDungeonStructureMixin"
+    "common.world.GoldDungeonStructureMixin",
+    "common.world.StructurePieceMixin"
   ],
   "injectors": {
     "defaultRequire": 1

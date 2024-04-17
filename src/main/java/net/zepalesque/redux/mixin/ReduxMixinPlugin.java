@@ -18,6 +18,7 @@ public final class ReduxMixinPlugin implements IMixinConfigPlugin {
             .put("net.zepalesque.redux.mixin.client.render.layer.BattleSentryLayerMixin", () -> LoadingModList.get().getModFileById("aether_genesis") != null)
             .put("net.zepalesque.redux.mixin.common.block.AetherGrassBlockMixin", () -> LoadingModList.get().getModFileById("ancient_aether") == null)
             .put("net.zepalesque.redux.mixin.common.item.SubzeroCrossbowItemMixin", () -> LoadingModList.get().getModFileById("galosphere") != null)
+            .put("net.zepalesque.redux.mixin.common.world.StructurePieceMixin", () -> LoadingModList.get().getModFileById("ascended_quark") == null)
             .build();
 
     @Override
