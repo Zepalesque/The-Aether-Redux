@@ -37,6 +37,7 @@ public class ReduxColors {
 
 
     public static void blockColors(RegisterColorHandlersEvent.Block event) {
+        Redux.LOGGER.debug("Beginning block color registration for the Aether: Redux");
         // Register Redux's stuff
         event.getBlockColors().register((state, level, pos, index) -> index == 1 ? level != null && pos != null  ? getAverageColor(level, pos, AETHER_GRASS_RESOLVER) : ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AetherBlocks.AETHER_GRASS_BLOCK.get());
         event.getBlockColors().register((state, level, pos, index) -> state.hasProperty(ReduxStates.ENCHANTED) && state.getValue(ReduxStates.ENCHANTED) ? 0xFFFFFF : getColor(state, level, pos, index, 0), ReduxBlocks.SHORT_AETHER_GRASS.get(), ReduxBlocks.SPLITFERN.get());
@@ -134,6 +135,7 @@ public class ReduxColors {
     }
 
     public static void itemColors(RegisterColorHandlersEvent.Item event) {
+        Redux.LOGGER.debug("Beginning item color registration for the Aether: Redux");
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AetherBlocks.AETHER_GRASS_BLOCK.get());
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AetherBlocks.WHITE_FLOWER.get());
         event.getItemColors().register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AetherBlocks.PURPLE_FLOWER.get());
