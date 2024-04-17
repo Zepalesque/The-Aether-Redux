@@ -96,6 +96,7 @@ public class ReduxColors {
                     new ResourceLocation("ancient_aether", "potted_sakura_blossoms"),
                     new ResourceLocation("ancient_aether", "trapped_sakura_blossoms")
             );
+            Redux.LOGGER.info("Registered compat colors for Ancient Aether. Note that if you get messages for either the highland viola and sakura blossoms missing, OR for the sunset rose and elevatia, you can safely ignore these warnings.");
         }
 
         // Deep Aether compat
@@ -121,7 +122,6 @@ public class ReduxColors {
                     new ResourceLocation("deep_aether", "tall_feather_grass")
             );
         }
-
     }
 
     public static void itemColors(RegisterColorHandlersEvent.Item event) {
@@ -162,6 +162,7 @@ public class ReduxColors {
                     new ResourceLocation("ancient_aether", "highland_viola"));
             register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.PALE_GRASS_COLOR : 0xFFFFFF,
                     new ResourceLocation("ancient_aether", "elevatia"));
+            Redux.LOGGER.info("Registered compat colors for Ancient Aether. Note that if you get messages for either the highland viola and sakura blossoms missing, OR for the sunset rose and elevatia, you can safely ignore these warnings.");
         }
         // Deep AetherAa Compat
         if (Redux.deepAetherCompat()) {
