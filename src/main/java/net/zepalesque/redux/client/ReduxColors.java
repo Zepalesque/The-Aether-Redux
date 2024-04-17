@@ -80,7 +80,7 @@ public class ReduxColors {
         // Ancient Aether Compat
         if (Redux.ancientAetherCompat()) {
             register(event.getBlockColors(), (state, level, pos, index) -> level != null && pos != null ? state.hasProperty(AncientAetherBlockStateProperties.TYPE) && state.getValue(AncientAetherBlockStateProperties.TYPE) == AetherGrassType.ENCHANTED ? 0xFFFFFF : getAverageColor(level, pos, AETHER_GRASS_RESOLVER) : ReduxBiomes.AETHER_GRASS_COLOR,
-                    new ResourceLocation("ancoent_aether", "sky_grass"));
+                    new ResourceLocation("ancient_aether", "sky_grass"));
             register(event.getBlockColors(), (state, level, pos, index) -> getColor(state, level, pos, index, 1),
                     new ResourceLocation("ancient_aether", "wynd_thistle"),
                     new ResourceLocation("ancient_aether", "potted_wynd_thistle"),
