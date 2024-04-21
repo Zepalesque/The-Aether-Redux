@@ -95,8 +95,8 @@ public class ReduxColors {
             register(event.getBlockColors(), (state, level, pos, index) -> getColor(state, level, pos, index, 1), !AncientCompatUtil.before090,
                     new ResourceLocation("ancient_aether", "sunset_rose"),
                     new ResourceLocation("ancient_aether", "potted_sunset_rose"),
-                    new ResourceLocation("ancient_aether", "elevetia"),
-                    new ResourceLocation("ancient_aether", "potted_elevetia")
+                    new ResourceLocation("ancient_aether", "elevatia"),
+                    new ResourceLocation("ancient_aether", "potted_elevatia")
 
                     );
             // Only logs in versions prior to 0.9.0
@@ -170,7 +170,7 @@ public class ReduxColors {
             register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, !AncientCompatUtil.before090,
                     new ResourceLocation("ancient_aether", "sunset_rose"));
             register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.PALE_GRASS_COLOR : 0xFFFFFF, !AncientCompatUtil.before090,
-                    new ResourceLocation("ancient_aether", "elevetia"));
+                    new ResourceLocation("ancient_aether", "elevatia"));
 
             // Only logs in versions prior to 0.9.0
             register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AncientCompatUtil.before090,
