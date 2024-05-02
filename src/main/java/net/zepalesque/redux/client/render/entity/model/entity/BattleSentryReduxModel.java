@@ -78,17 +78,15 @@ public class BattleSentryReduxModel<T extends BattleSentry> extends EntityModel<
 				this.legFR.xRot = MathUtil.costrp(1F - progressWake, MathUtil.degToRad(135F), EasingUtil.Cubic.inOut(progress / 0.3F) * MathUtil.degToRad(75F));
 				this.legFL.xRot = this.legFR.xRot;
 				this.legBR.xRot = MathUtil.costrp(1F - progressWake, MathUtil.degToRad(-135F),EasingUtil.Cubic.inOut(progress / 0.3F) * MathUtil.degToRad(10F));
-				this.legBL.xRot = this.legBR.xRot;
-			} else {
+            } else {
 				this.legFR.xRot = MathUtil.costrp(1F - progressWake, MathUtil.degToRad(135F),MathUtil.degToRad(75F) - EasingUtil.Cubic.inOut((progress - 0.3F) / 0.7F) * MathUtil.degToRad(75F));
 				this.legFL.xRot = this.legFR.xRot;
 				this.legBR.xRot = MathUtil.costrp(1F - progressWake, MathUtil.degToRad(-135F),MathUtil.degToRad(10F) - EasingUtil.Cubic.inOut((progress - 0.3F) / 0.7F) * MathUtil.degToRad(10F));
-				this.legBL.xRot = this.legBR.xRot;
-			}
+            }
+            this.legBL.xRot = this.legBR.xRot;
 
 
-
-		});
+        });
 
 
 	}
