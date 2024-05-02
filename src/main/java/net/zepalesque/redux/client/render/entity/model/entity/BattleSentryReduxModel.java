@@ -60,6 +60,8 @@ public class BattleSentryReduxModel<T extends BattleSentry> extends EntityModel<
 
 		BattleSentryAnimation.get(entity).ifPresent((anim) -> {
 
+			// I wish I had DOCUMENTED what any of this DOES while CODING it!!!!
+			// would've been REALLY helpful!!!
 			int wake = anim.getWakeAnim();
 			int prevWake = anim.getPrevWakeAnim();
 			float trueWake = Mth.lerp(ageInTicks % 1, prevWake, wake);
