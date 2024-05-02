@@ -2,6 +2,8 @@ package net.zepalesque.redux.mixin.client.render;
 
 import com.aetherteam.aether_genesis.client.renderer.entity.BattleSentryRenderer;
 import com.aetherteam.aether_genesis.entity.monster.BattleSentry;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.model.SlimeModel;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -24,11 +26,12 @@ public abstract class BattleSentryRendererMixin extends MobRendererMixin<BattleS
         }
     }
 
-    @Override
-    public void renderMob(BattleSentry entity, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight, CallbackInfo ci) {
-        if (ReduxConfig.CLIENT.sentry_model_upgrade.get()) {
-            super.renderMob(entity, entityYaw, partialTicks, poseStack, buffer, packedLight, ci);
-            ci.cancel();
+
+
+    @WrapOperation(at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/vertex/PoseStack;translate(FFF)V"), method = "render(Lcom/aetherteam/aether_genesis/entity/monster/BattleSentry;FFLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V")
+    public void redux$wrapRender(PoseStack instance, float x, float y, float z, Operation<Void> original) {
+        if (!ReduxConfig.CLIENT.sentry_model_upgrade.get()) {
+            original.call(instance, x, y, z);
         }
     }
 
