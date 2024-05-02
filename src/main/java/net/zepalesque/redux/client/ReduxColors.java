@@ -1,7 +1,6 @@
 package net.zepalesque.redux.client;
 
 import com.aetherteam.aether.block.AetherBlocks;
-import net.builderdog.ancient_aether.block.AncientAetherBlocks;
 import net.builderdog.ancient_aether.block.blockstate.AetherGrassType;
 import net.builderdog.ancient_aether.block.blockstate.AncientAetherBlockStateProperties;
 import net.minecraft.client.color.block.BlockColor;
@@ -24,11 +23,11 @@ import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.util.state.ReduxStates;
 import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
 import net.zepalesque.redux.util.compat.AncientCompatUtil;
-import teamrazor.deepaether.init.DABlocks;
 
 import javax.annotation.Nullable;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Consumer;
 
 public class ReduxColors {
 
@@ -92,7 +91,7 @@ public class ReduxColors {
 
                     );
             // Only logs if AA version is 0.9.0 or later
-            register(event.getBlockColors(), (state, level, pos, index) -> getColor(state, level, pos, index, 1), !AncientCompatUtil.before090,
+            register(event.getBlockColors(), (state, level, pos, index) -> getColor(state, level, pos, index, 1),
                     new ResourceLocation("ancient_aether", "sunset_rose"),
                     new ResourceLocation("ancient_aether", "potted_sunset_rose"),
                     new ResourceLocation("ancient_aether", "elevetia"),
@@ -100,7 +99,7 @@ public class ReduxColors {
 
                     );
             // Only logs in versions prior to 0.9.0
-            register(event.getBlockColors(), (state, level, pos, index) -> getColor(state, level, pos, index, 1), AncientCompatUtil.before090,
+            register(event.getBlockColors(), (state, level, pos, index) -> getColor(state, level, pos, index, 1),
                     new ResourceLocation("ancient_aether", "highland_viola"),
                     new ResourceLocation("ancient_aether", "potted_highland_viola"),
                     new ResourceLocation("ancient_aether", "sakura_blossoms"),
@@ -167,17 +166,17 @@ public class ReduxColors {
                     new ResourceLocation("ancient_aether", "sky_blues"));
 
             // Only logs if AA version is 0.9.0 or later
-            register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, !AncientCompatUtil.before090,
+            register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF,
                     new ResourceLocation("ancient_aether", "sunset_rose"));
-            register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.PALE_GRASS_COLOR : 0xFFFFFF, !AncientCompatUtil.before090,
+            register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.PALE_GRASS_COLOR : 0xFFFFFF,
                     new ResourceLocation("ancient_aether", "elevetia"));
 
             // Only logs in versions prior to 0.9.0
-            register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AncientCompatUtil.before090,
+            register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF,
                     new ResourceLocation("ancient_aether", "highland_viola"));
-            register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AncientCompatUtil.before090,
+            register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF,
                     new ResourceLocation("ancient_aether", "sakura_blossoms"));
-            register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF, AncientCompatUtil.before090,
+            register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF,
                     new ResourceLocation("ancient_aether", "trapped_sakura_blossoms"));
         }
         // Deep AetherAa Compat
@@ -220,29 +219,37 @@ public class ReduxColors {
         event.register(AETHER_GRASS_RESOLVER);
     }
 
-    private static void register(ItemColors colors, ItemColor resolver, boolean shouldLogErrors, ResourceLocation... locations) {
+    private static void register(ItemColors colors, ItemColor resolver, Consumer<String> onError, ResourceLocation... locations) {
         for (ResourceLocation location : locations) {
             if (ForgeRegistries.ITEMS.containsKey(location)) {
                 colors.register(resolver, ForgeRegistries.ITEMS.getValue(location));
-            } else if (shouldLogErrors) {
-                Redux.LOGGER.warn("Tried to register compat color for item that does not exist! Could not find: {}", location.toString());
-                Redux.LOGGER.warn("This is not NECESSARILY an issue, as some items that are mutually-exclusive in compatible mod versions exist, but it is being logged nonetheless");
+            } else {
+                onError.accept(location.toString());
             }
         }
     }
+
+    private static final Consumer<String> BLOCK_ERROR = s -> {
+        Redux.LOGGER.warn("Tried to register compat color for block that does not exist! Could not find: {}", s);
+        Redux.LOGGER.warn("This is not NECESSARILY an issue, as some blocks that are mutually-exclusive in compatible mod versions exist, but it is being logged nonetheless");
+    };
+    private static final Consumer<String> ITEM_ERROR = s -> {
+        Redux.LOGGER.warn("Tried to register compat color for item that does not exist! Could not find: {}", s);
+        Redux.LOGGER.warn("This is not NECESSARILY an issue, as some items that are mutually-exclusive in compatible mod versions exist, but it is being logged nonetheless");
+    };
+
     private static void register(ItemColors colors, ItemColor resolver, ResourceLocation... locations) {
-    register(colors, resolver, true, locations);
+    register(colors, resolver, ITEM_ERROR, locations);
     }
     private static void register(BlockColors colors, BlockColor resolver, ResourceLocation... locations) {
-    register(colors, resolver, true, locations);
+    register(colors, resolver, BLOCK_ERROR, locations);
     }
-    private static void register(BlockColors colors, BlockColor resolver, boolean shouldLogErrors, ResourceLocation... locations) {
+    private static void register(BlockColors colors, BlockColor resolver, Consumer<String> onError, ResourceLocation... locations) {
         for (ResourceLocation location : locations) {
             if (ForgeRegistries.BLOCKS.containsKey(location)) {
                 colors.register(resolver, ForgeRegistries.BLOCKS.getValue(location));
-            } else if (shouldLogErrors) {
-                Redux.LOGGER.warn("Tried to register compat color for block that does not exist! Could not find: {}", location.toString());
-                Redux.LOGGER.warn("This is not NECESSARILY an issue, as some blocks that are mutually-exclusive in compatible mod versions exist, but it is being logged nonetheless");
+            } else {
+                onError.accept(location.toString());
             }
         }
     }
