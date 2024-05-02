@@ -60,13 +60,16 @@ public class BattleSentryReduxModel<T extends BattleSentry> extends EntityModel<
 
 		BattleSentryAnimation.get(entity).ifPresent((anim) -> {
 
-			// I wish I had DOCUMENTED what any of this DOES while CODING it!!!!
-			// would've been REALLY helpful!!!
+			// Number from 0 to 5 for current anim state
 			int wake = anim.getWakeAnim();
+			// Previous tick anim state
 			int prevWake = anim.getPrevWakeAnim();
+			// Interpolates the value between the above two by using the current partialTicks (based on the ageInTicks param)
 			float trueWake = Mth.lerp(ageInTicks % 1, prevWake, wake);
+			// Inverts the 0-to-5 value by subtracting it from five, then divides *that* by five to get a value from 0 to 1
 			float progressWake = (5 - trueWake) / 5;
 
+			// Moves the body based on the value. May be good to consider changing this a bit, so it sinks in to the floor like the original
 			this.body.y = 14.0F + (EasingUtil.Back.inOut(progressWake)) * 2F;
 
 

@@ -25,6 +25,14 @@ public abstract class BattleSentryRendererMixin extends MobRendererMixin<BattleS
     }
 
     @Override
+    public void renderMob(BattleSentry entity, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight, CallbackInfo ci) {
+        if (ReduxConfig.CLIENT.sentry_model_upgrade.get()) {
+            ((BattleSentryRenderer) (Object) this).render(entity, entityYaw, partialTicks, poseStack, buffer, packedLight);
+            ci.cancel();
+        }
+    }
+
+    @Override
     public void getRenderType(BattleSentry livingEntity, boolean bodyVisible, boolean translucent, boolean glowing, CallbackInfoReturnable<RenderType> cir) {
         if (ReduxConfig.CLIENT.sentry_model_upgrade.get()) {
             cir.setReturnValue(null);

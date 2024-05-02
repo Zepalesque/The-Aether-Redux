@@ -56,8 +56,8 @@ public class BattleSentryAnimationCapability implements BattleSentryAnimation {
                 this.jumpAnim--;
             }
 
-            if (this.sentry.isAwake() && this.wakeAnim < 5)
-            {
+            //
+            if (this.sentry.isAwake() && this.wakeAnim < 5) {
              this.wakeAnim++;
             } else if (!this.sentry.isAwake() && this.wakeAnim > 0){
                 this.wakeAnim--;
