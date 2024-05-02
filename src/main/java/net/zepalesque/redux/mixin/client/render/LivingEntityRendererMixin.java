@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 @Mixin(LivingEntityRenderer.class)
 public abstract class LivingEntityRendererMixin<T extends LivingEntity, M extends EntityModel<T>> extends EntityRendererMixin<T> {
 
-    @Inject(at = @At("HEAD"), method = "getRenderType")
+    @Inject(at = @At("HEAD"), method = "getRenderType", cancellable = true)
     public void getRenderType(T livingEntity, boolean bodyVisible, boolean translucent, boolean glowing, CallbackInfoReturnable<RenderType> cir) {
     }
 
