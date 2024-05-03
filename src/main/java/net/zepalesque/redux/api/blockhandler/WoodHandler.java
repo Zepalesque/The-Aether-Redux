@@ -488,6 +488,8 @@ public class WoodHandler implements BlockHandler {
         data.addBlock(this.bookshelf, getLocalizedName() + " Bookshelf");
         data.addLore(this.bookshelf, "A nice bookshelf made of " + getLocalizedName() + " wood. These are nice for decoration, and also will enhance the abilities of Enchanting Tables!");
 
+        data.addEntityType(this.boatEntity, getLocalizedName() + " Boat");
+        data.addEntityType(this.chestBoatEntity, getLocalizedName() + " Boat with Chest");
 
     }
 
