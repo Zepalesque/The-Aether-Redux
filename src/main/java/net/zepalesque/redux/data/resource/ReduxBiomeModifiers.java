@@ -122,11 +122,12 @@ public class ReduxBiomeModifiers {
         context.register(AETHER_COLOR_OVERRIDE, new GrassAndFoliageColorModifier(biomes.getOrThrow(ReduxTags.Biomes.NO_GRASS_OVERRIDE),
                 0x91BD59, 0x77AB2F));
 
+        // TODO in 2.1: MusicPredicate, with optional fields for each field of the Music class
         context.register(MUSIC_MODIFY, new MusicModifier(biomes.getOrThrow(ReduxTags.Biomes.MUSIC_MODIFY),
                 Optional.empty(), Optional.of(CodecPredicates.DualInt.of(ReduxMusic.MUSIC_MIN, ReduxMusic.MUSIC_MAX)), Optional.of(false), Optional.empty(), Optional.empty(), Optional.empty()));
 
 
-
+        // TODO in 2.1: Make this more procedural
         ReduxBiomes.AETHER_GRASS_COLORS.forEach((key, color) ->
                 context.register(createKey(AETHER_GRASS_COLOR + key.location().getPath()),
                 new AetherGrassColorModifier(HolderSet.direct(biomes.getOrThrow(key)), color)));
