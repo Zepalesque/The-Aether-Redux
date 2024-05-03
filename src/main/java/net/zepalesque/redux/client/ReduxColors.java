@@ -165,19 +165,20 @@ public class ReduxColors {
             register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF,
                     new ResourceLocation("ancient_aether", "sky_blues"));
 
-            // Only logs if AA version is 0.9.0 or later
-            register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF,
-                    new ResourceLocation("ancient_aether", "sunset_rose"));
-            register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.PALE_GRASS_COLOR : 0xFFFFFF,
-                    new ResourceLocation("ancient_aether", "elevetia"));
-
-            // Only logs in versions prior to 0.9.0
-            register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF,
-                    new ResourceLocation("ancient_aether", "highland_viola"));
-            register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF,
-                    new ResourceLocation("ancient_aether", "sakura_blossoms"));
-            register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF,
-                    new ResourceLocation("ancient_aether", "trapped_sakura_blossoms"));
+            // Version-dependent flowers
+            if (!AncientCompatUtil.before090) {
+                register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF,
+                        new ResourceLocation("ancient_aether", "sunset_rose"));
+                register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.PALE_GRASS_COLOR : 0xFFFFFF,
+                        new ResourceLocation("ancient_aether", "elevetia"));
+            } else {
+                register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF,
+                        new ResourceLocation("ancient_aether", "highland_viola"));
+                register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF,
+                        new ResourceLocation("ancient_aether", "sakura_blossoms"));
+                register(event.getItemColors(), (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF,
+                        new ResourceLocation("ancient_aether", "trapped_sakura_blossoms"));
+            }
         }
         // Deep AetherAa Compat
         if (Redux.deepAetherCompat()) {
