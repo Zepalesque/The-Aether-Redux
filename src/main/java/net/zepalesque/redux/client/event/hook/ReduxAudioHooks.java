@@ -3,6 +3,7 @@ package net.zepalesque.redux.client.event.hook;
 import com.aetherteam.aether.AetherConfig;
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.client.AetherMusicManager;
+import com.aetherteam.aether.data.resources.registries.AetherDimensions;
 import com.aetherteam.aether_genesis.GenesisConfig;
 import com.aetherteam.aether_genesis.client.GenesisMusicManager;
 import net.minecraft.client.Minecraft;
@@ -49,9 +50,10 @@ public class ReduxAudioHooks {
         Optional<Holder<SoundEvent>> optional = ForgeRegistries.SOUND_EVENTS.getHolder(instance.getLocation());
         if (optional.isPresent()) {
             Holder<SoundEvent> sound = optional.get();
+
             Holder<Biome> biome = mc.player.level().getBiome(mc.player.blockPosition());
-            // If the biome ISN'T an aether biome, then we don't need to interfere
-            if (!biome.is(AetherTags.Biomes.AETHER_MUSIC)) {
+            // If the biome ISN'T an aether biome (and the dimension isn't the aether), then we don't need to interfere
+            if (!biome.is(AetherTags.Biomes.AETHER_MUSIC) && mc.player.level().dimension() != AetherDimensions.AETHER_LEVEL) {
                 return false;
             } // If it IS however, and the music isn't a designated aether track, then it shouldn't be playing in the first place. Cancel.
             else if (!sound.is(ReduxTags.Sounds.AETHER_MUSIC)) {
