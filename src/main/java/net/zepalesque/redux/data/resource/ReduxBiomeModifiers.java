@@ -17,6 +17,7 @@ import net.minecraftforge.common.world.ForgeBiomeModifiers;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.condition.Conditions;
+import net.zepalesque.redux.client.audio.ReduxMusic;
 import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.misc.ReduxTags;
@@ -122,7 +123,7 @@ public class ReduxBiomeModifiers {
                 0x91BD59, 0x77AB2F));
 
         context.register(MUSIC_MODIFY, new MusicModifier(biomes.getOrThrow(ReduxTags.Biomes.MUSIC_MODIFY),
-                Optional.empty(), Optional.of(CodecPredicates.DualInt.of(600, 2400)), Optional.of(false), Optional.empty(), Optional.empty(), Optional.empty()));
+                Optional.empty(), Optional.of(CodecPredicates.DualInt.of(ReduxMusic.MUSIC_MIN, ReduxMusic.MUSIC_MAX)), Optional.of(false), Optional.empty(), Optional.empty(), Optional.empty()));
 
 
 
