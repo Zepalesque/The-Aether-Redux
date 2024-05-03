@@ -22,7 +22,7 @@ public class GoTVMusicMixin {
     @Unique
     private static final Music REDUX$NIGHT = new Music(GenesisMusic.AETHER_NIGHT.getEvent(), ReduxMusic.MUSIC_MIN, ReduxMusic.MUSIC_MAX, GenesisMusic.AETHER_NIGHT.replaceCurrentMusic());
 
-    @Inject(method = "getNightMusicForBiome", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "getNightMusicForBiome", at = @At("HEAD"), cancellable = true, remap = false)
     private static void redux$decreasedDelayMusic(Holder<Biome> biomeHolder, CallbackInfoReturnable<Music> cir) {
         cir.setReturnValue(REDUX$NIGHT);
     }
