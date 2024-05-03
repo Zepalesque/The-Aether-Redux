@@ -23,6 +23,7 @@ public class ReduxSoundEventTagData extends TagsProvider<SoundEvent> {
 
     @Override
     protected void addTags(HolderLookup.@NotNull Provider pProvider) {
-        this.tag(ReduxTags.Sounds.AETHER_MUSIC).add(AetherSoundEvents.MUSIC_AETHER.getKey()).addOptional(GenesisSoundEvents.MUSIC_AETHER_NIGHT.getId()).addOptional(LCSounds.MUSIC_PLATINUM_BOSS.getLocation()).addOptional(LCSounds.MUSIC_PLATINUM_BOSS_FOGGY.getLocation());
+        this.tag(ReduxTags.Sounds.ALWAYS_ALLOW).addOptional(LCSounds.MUSIC_PLATINUM_BOSS.getLocation()).addOptional(LCSounds.MUSIC_PLATINUM_BOSS_FOGGY.getLocation());
+        this.tag(ReduxTags.Sounds.AETHER_MUSIC).add(AetherSoundEvents.MUSIC_AETHER.getKey()).addOptional(GenesisSoundEvents.MUSIC_AETHER_NIGHT.getId()).addTag(ReduxTags.Sounds.ALWAYS_ALLOW);
     }
 }

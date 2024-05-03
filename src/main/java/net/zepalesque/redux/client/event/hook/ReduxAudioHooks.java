@@ -50,7 +50,10 @@ public class ReduxAudioHooks {
         Optional<Holder<SoundEvent>> optional = ForgeRegistries.SOUND_EVENTS.getHolder(instance.getLocation());
         if (optional.isPresent()) {
             Holder<SoundEvent> sound = optional.get();
-
+            // Don't cancel lost content's boss music
+            if (sound.is(ReduxTags.Sounds.ALWAYS_ALLOW)) {
+                return false;
+            }
             Holder<Biome> biome = mc.player.level().getBiome(mc.player.blockPosition());
             // If the biome ISN'T an aether biome (and the dimension isn't the aether), then we don't need to interfere
             if (!biome.is(AetherTags.Biomes.AETHER_MUSIC) && mc.player.level().dimension() != AetherDimensions.AETHER_LEVEL) {
