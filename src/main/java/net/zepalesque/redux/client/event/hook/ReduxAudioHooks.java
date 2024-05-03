@@ -1,23 +1,30 @@
 package net.zepalesque.redux.client.event.hook;
 
+import com.aetherteam.aether.AetherConfig;
+import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.client.AetherMusicManager;
+import com.aetherteam.aether_genesis.GenesisConfig;
 import com.aetherteam.aether_genesis.client.GenesisMusicManager;
-import net.minecraft.client.resources.sounds.SimpleSoundInstance;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.sounds.SoundInstance;
 import net.minecraft.client.sounds.SoundEngine;
 import net.minecraft.core.Holder;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.misc.ReduxTags;
+import net.zepalesque.redux.mixin.client.audio.MusicManagerAccessor;
 import net.zepalesque.redux.mixin.client.audio.SoundEngineAccessor;
 
 import java.util.Optional;
 
 public class ReduxAudioHooks {
+
+    private static boolean wasPlayingLastTick;
 
     public static boolean shouldCancelAercloudSound(SoundInstance sound) {
         if (sound.getSource() == SoundSource.BLOCKS && !ReduxConfig.CLIENT.aercloud_sfx.get()) {
@@ -29,35 +36,62 @@ public class ReduxAudioHooks {
         }
     }
 
-    public static boolean shouldCancelMusic(SoundEngine soundEngine, SoundInstance sound) {
-        return alreadyPlaying(soundEngine, sound);
-    }
 
-    private static boolean alreadyPlaying(SoundEngine soundEngine, SoundInstance sound) {
-        if (sound.getSource() == SoundSource.MUSIC) {
-            Optional<Holder<SoundEvent>> optional = ForgeRegistries.SOUND_EVENTS.getHolder(sound.getLocation());
-            if (optional.isPresent()) {
-                Holder<SoundEvent> holder = optional.get();
-                if (holder.is(ReduxTags.Sounds.AETHER_MUSIC)) {
-                    boolean shouldCancel = ((SoundEngineAccessor) soundEngine).genesis$getInstanceToChannel().keySet().stream()
-                            .anyMatch(instance -> {
-                                Optional<Holder<SoundEvent>> instanceHolder = ForgeRegistries.SOUND_EVENTS.getHolder(instance.getLocation());
-                                if (instanceHolder.isPresent()) {
-                                    Holder<SoundEvent> h1 = instanceHolder.get();
-                                    if (h1.is(ReduxTags.Sounds.AETHER_MUSIC)) {
-                                        return instance != AetherMusicManager.getCurrentMusic() && (!Redux.aetherGenesisCompat() || instance != GenesisMusicManager.getCurrentMusic());
-                                    }
-                                }
-                                return false;
-                            });
-                    if (shouldCancel) {
-                        Redux.LOGGER.info("Caught additional music track attempting to play! Cancelling to avoid overlap...");
-                    }
-                    return shouldCancel;
-                }
+    // how this should work: When a sound plays, check if it is music. If it is music but NOT in the Aether music tag, and the player is in the proper biome, CANCEL
+    // If it IS however in the tag, then check if it is already playing. If it is, DO NOT CANCEL!!!
+    // Otherwise, check if it is the current Aether music as is contained in the Aether Music Manager, or the genesis one if it is installed and enabled.
+    // If it is, then something may have slipped by and we should not cancel. The music manager current music is set before the sound is begun, so this should catch any other outliers.
+    // If it goes past all of this and is in the aether music tag while in the biome, but not the music manager's music, cancel it.
+    // Now this may break /playsound stuff, but hopefully neoforge will have a way around this soon that is a much more elegant solution.
+
+    public static boolean shouldCancel(SoundEngine engine, SoundInstance instance) {
+        // If it's not music then we have no reason to cancel it
+        if (instance.getSource() != SoundSource.MUSIC) {
+            return false;
+        }
+        Minecraft mc = Minecraft.getInstance();
+        // If the player is null, we won't be able to check the biome anyway, so it's highly unlikely to be an overlapping aether track. Do not cancel.
+        if (mc.player == null) {
+            return false;
+        }
+        Optional<Holder<SoundEvent>> optional = ForgeRegistries.SOUND_EVENTS.getHolder(instance.getLocation());
+        if (optional.isPresent()) {
+            Holder<SoundEvent> sound = optional.get();
+            Holder<Biome> biome = mc.player.level().getBiome(mc.player.blockPosition());
+            // If the biome ISN'T an aether biome, then we don't need to interfere
+            if (!biome.is(AetherTags.Biomes.AETHER_MUSIC)) {
+                return false;
+            } // If it IS however, and the music isn't a designated aether track, then it shouldn't be playing in the first place. Cancel.
+            else if (!sound.is(ReduxTags.Sounds.AETHER_MUSIC)) {
+                Redux.LOGGER.info("Caught music track that seems to not belong in the Aether trying to play!");
+                return true;
+            } else {
+                // If the given sound (instance) is already playing, then we probably shouldn't cancel as this may cancel music partway through playing.
+                // I believe this can even happen because of streaming sound events, although I'm not certain.
+                // If it is the music manager's track, it may have slipped by. Do not cancel.
+                if (((SoundEngineAccessor) engine).redux$getInstanceToChannel().keySet().stream()
+                        .anyMatch(tested -> tested == instance)) {
+                    return false;
+                } // If it isn't, we want to check if it's the current music in the correct music manager. This is because the currentMusic is set before the sound begins playing.
+                else return !isCurrentTrack(instance);
+
             }
         }
-        return false;
+        Redux.LOGGER.info("Caught potential overlapping music track attempting to play in the Aether!");
+        Redux.LOGGER.info("If this was logged halfway through the music track playing and cancelled it, this is an issue, please report it to the Aether: Redux's issue tracker.");
+        return true;
+
+    }
+
+
+    private static boolean isCurrentTrack(SoundInstance instance) {
+        if (!AetherConfig.CLIENT.disable_music_manager.get()) {
+            return instance == AetherMusicManager.getCurrentMusic();
+        } else if (Redux.aetherGenesisCompat() && GenesisConfig.CLIENT.night_music_tracks.get()) {
+            return instance == GenesisMusicManager.getCurrentMusic();
+        } else {
+            return instance == ((MusicManagerAccessor)Minecraft.getInstance().getMusicManager()).redux$getCurrentMusic();
+        }
     }
 
 }
