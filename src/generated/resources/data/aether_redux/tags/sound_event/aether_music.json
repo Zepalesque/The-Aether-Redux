@@ -5,13 +5,6 @@
       "id": "aether_genesis:music.aether_night",
       "required": false
     },
-    {
-      "id": "lost_aether_content:music.platinum_boss",
-      "required": false
-    },
-    {
-      "id": "lost_aether_content:music.platinum_boss_foggy",
-      "required": false
-    }
+    "#aether_redux:always_allow"
   ]
 }
