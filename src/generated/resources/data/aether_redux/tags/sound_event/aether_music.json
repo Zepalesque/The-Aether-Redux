@@ -2,6 +2,7 @@
   "values": [
     "aether:music.aether",
     "aether_redux:music.aether_night",
-    "aether_redux:music.redux_day"
+    "aether_redux:music.redux_day",
+    "#aether_redux:always_allow"
   ]
 }

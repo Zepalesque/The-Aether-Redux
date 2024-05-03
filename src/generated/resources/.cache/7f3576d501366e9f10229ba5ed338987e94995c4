@@ -1,2 +1,3 @@
-// 1.20.1	2024-03-21T18:20:11.9890415	Tags for minecraft:sound_event mod id aether_redux
-cf78765fa30e8d233fdfa773d4c6720d0e1e1c66 data/aether_redux/tags/sound_event/aether_music.json
+// 1.20.1	2024-05-02T22:13:57.8500194	Tags for minecraft:sound_event mod id aether_redux
+2cd62417adca4c57bfe007e444f57ef956a257a8 data/aether_redux/tags/sound_event/aether_music.json
+909f4c909248342f011424b8a6486f4176648042 data/aether_redux/tags/sound_event/always_allow.json

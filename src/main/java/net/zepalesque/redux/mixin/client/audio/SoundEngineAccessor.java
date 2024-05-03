@@ -11,5 +11,7 @@ import java.util.Map;
 @Mixin(SoundEngine.class)
 public interface SoundEngineAccessor {
     @Accessor("instanceToChannel")
-    Map<SoundInstance, ChannelAccess.ChannelHandle> genesis$getInstanceToChannel();
+    Map<SoundInstance, ChannelAccess.ChannelHandle> redux$getInstanceToChannel();
+    @Accessor("loaded")
+    boolean redux$loaded();
 }

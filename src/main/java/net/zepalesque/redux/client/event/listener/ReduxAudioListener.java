@@ -16,15 +16,23 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.client.event.hook.ReduxAudioHooks;
+import net.zepalesque.redux.mixin.client.audio.SoundEngineAccessor;
+import org.jetbrains.annotations.Nullable;
 
 
 @Mod.EventBusSubscriber(Dist.CLIENT)
 public class ReduxAudioListener {
+
+    @Nullable
+    private static SoundEngine se = null;
     @SubscribeEvent
     public static void onPlaySound(PlaySoundEvent event) {
         SoundEngine soundEngine = event.getEngine();
+        if (se != soundEngine) {
+            se = soundEngine;
+        }
         SoundInstance sound = event.getOriginalSound();
-        if (ReduxAudioHooks.shouldCancelMusic(soundEngine, sound)) {
+        if (ReduxAudioHooks.shouldCancel(soundEngine, sound)) {
             event.setSound(null);
             return;
         }

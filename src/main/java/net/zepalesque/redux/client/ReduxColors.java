@@ -24,6 +24,7 @@ import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
 import javax.annotation.Nullable;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Consumer;
 
 public class ReduxColors {
 
@@ -73,7 +74,6 @@ public class ReduxColors {
                 ReduxBlocks.POTTED_SPIROLYCTIL.get(),
                 ReduxBlocks.XAELIA_PATCH.get()
         );
-
 
         // Deep Aether compat
         if (Redux.deepAetherCompat()) {
@@ -163,29 +163,37 @@ public class ReduxColors {
         event.register(AETHER_GRASS_RESOLVER);
     }
 
-    private static void register(ItemColors colors, ItemColor resolver, boolean shouldLogErrors, ResourceLocation... locations) {
+    private static void register(ItemColors colors, ItemColor resolver, Consumer<String> onError, ResourceLocation... locations) {
         for (ResourceLocation location : locations) {
             if (ForgeRegistries.ITEMS.containsKey(location)) {
                 colors.register(resolver, ForgeRegistries.ITEMS.getValue(location));
-            } else if (shouldLogErrors) {
-                Redux.LOGGER.warn("Tried to register compat color for item that does not exist! Could not find: {}", location.toString());
-                Redux.LOGGER.warn("This is not NECESSARILY an issue, as some items that are mutually-exclusive in compatible mod versions exist, but it is being logged nonetheless");
+            } else {
+                onError.accept(location.toString());
             }
         }
     }
+
+    private static final Consumer<String> BLOCK_ERROR = s -> {
+        Redux.LOGGER.warn("Tried to register compat color for block that does not exist! Could not find: {}", s);
+        Redux.LOGGER.warn("This is not NECESSARILY an issue, as some blocks that are mutually-exclusive in compatible mod versions exist, but it is being logged nonetheless");
+    };
+    private static final Consumer<String> ITEM_ERROR = s -> {
+        Redux.LOGGER.warn("Tried to register compat color for item that does not exist! Could not find: {}", s);
+        Redux.LOGGER.warn("This is not NECESSARILY an issue, as some items that are mutually-exclusive in compatible mod versions exist, but it is being logged nonetheless");
+    };
+
     private static void register(ItemColors colors, ItemColor resolver, ResourceLocation... locations) {
-    register(colors, resolver, true, locations);
+    register(colors, resolver, ITEM_ERROR, locations);
     }
     private static void register(BlockColors colors, BlockColor resolver, ResourceLocation... locations) {
-    register(colors, resolver, true, locations);
+    register(colors, resolver, BLOCK_ERROR, locations);
     }
-    private static void register(BlockColors colors, BlockColor resolver, boolean shouldLogErrors, ResourceLocation... locations) {
+    private static void register(BlockColors colors, BlockColor resolver, Consumer<String> onError, ResourceLocation... locations) {
         for (ResourceLocation location : locations) {
             if (ForgeRegistries.BLOCKS.containsKey(location)) {
                 colors.register(resolver, ForgeRegistries.BLOCKS.getValue(location));
-            } else if (shouldLogErrors) {
-                Redux.LOGGER.warn("Tried to register compat color for block that does not exist! Could not find: {}", location.toString());
-                Redux.LOGGER.warn("This is not NECESSARILY an issue, as some blocks that are mutually-exclusive in compatible mod versions exist, but it is being logged nonetheless");
+            } else {
+                onError.accept(location.toString());
             }
         }
     }

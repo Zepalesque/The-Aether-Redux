@@ -111,6 +111,7 @@ public class ReduxTags {
     public static class Sounds {
 
         public static final TagKey<SoundEvent> AETHER_MUSIC = tag("aether_music");
+        public static final TagKey<SoundEvent> ALWAYS_ALLOW = tag("always_allow");
 
         private static TagKey<SoundEvent> tag(String name) {
             return TagKey.create(ForgeRegistries.SOUND_EVENTS.getRegistryKey(), Redux.locate(name));
