@@ -63,7 +63,7 @@ public class ReduxAudioHooks {
                 return false;
             } // If it IS however, and the music isn't a designated aether track, then it shouldn't be playing in the first place. Cancel.
             else if (!sound.is(ReduxTags.Sounds.AETHER_MUSIC)) {
-                Redux.LOGGER.info("Caught music track that seems to not belong in the Aether trying to play!");
+                Redux.LOGGER.info("Caught music track that seems to not belong in the Aether trying to play! Sound ID: {}", instance.getLocation());
                 return true;
             } else {
                 // If the given sound (instance) is already playing, then we probably shouldn't cancel as this may cancel music partway through playing.
@@ -79,7 +79,7 @@ public class ReduxAudioHooks {
 
             }
         }
-        Redux.LOGGER.info("Caught potential overlapping music track attempting to play in the Aether!");
+        Redux.LOGGER.info("Caught potential overlapping music track attempting to play in the Aether! Sound ID: {}", instance.getLocation());
         Redux.LOGGER.info("If this was logged halfway through the music track playing and cancelled it, this is an issue, please report it to the Aether: Redux's issue tracker.");
         return true;
 
