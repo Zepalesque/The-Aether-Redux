@@ -36,14 +36,6 @@ public class ReduxAudioHooks {
         }
     }
 
-
-    // how this should work: When a sound plays, check if it is music. If it is music but NOT in the Aether music tag, and the player is in the proper biome, CANCEL
-    // If it IS however in the tag, then check if it is already playing. If it is, DO NOT CANCEL!!!
-    // Otherwise, check if it is the current Aether music as is contained in the Aether Music Manager, or the genesis one if it is installed and enabled.
-    // If it is, then something may have slipped by and we should not cancel. The music manager current music is set before the sound is begun, so this should catch any other outliers.
-    // If it goes past all of this and is in the aether music tag while in the biome, but not the music manager's music, cancel it.
-    // Now this may break /playsound stuff, but hopefully neoforge will have a way around this soon that is a much more elegant solution.
-
     public static boolean shouldCancel(SoundEngine engine, SoundInstance instance) {
         // If it's not music then we have no reason to cancel it
         if (instance.getSource() != SoundSource.MUSIC) {
