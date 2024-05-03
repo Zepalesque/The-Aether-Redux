@@ -73,7 +73,9 @@ public class ReduxAudioHooks {
                         .anyMatch(tested -> tested == instance)) {
                     return false;
                 } // If it isn't, we want to check if it's the current music in the correct music manager. This is because the currentMusic is set before the sound begins playing.
-                else return !isCurrentTrack(instance);
+                else if (isCurrentTrack(instance)) {
+                    return false;
+                }
 
             }
         }
