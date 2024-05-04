@@ -13,11 +13,13 @@ import com.aetherteam.nitrogen.data.resources.builders.NitrogenPlacedFeatureBuil
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
+import net.minecraft.core.Vec3i;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.*;
 import net.minecraft.world.level.block.Blocks;
@@ -261,6 +263,7 @@ public class ReduxPlacedFeatures {
                                 .build()), 4),
                 RarityFilter.onAverageOnceEvery(16),
                 InSquarePlacement.spread(),
+                BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(new Vec3i(0, -1, 0), BlockTags.DIRT)),
                 BiomeFilter.biome()
         );
         register(context, GLIMMERSTOOL_ROCK, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.GLIMMERSTOOL_ROCK),
@@ -273,6 +276,7 @@ public class ReduxPlacedFeatures {
                                 .build()), 4),
                 RarityFilter.onAverageOnceEvery(12),
                 InSquarePlacement.spread(),
+                BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(new Vec3i(0, -1, 0), BlockTags.DIRT)),
                 BiomeFilter.biome()
         );
 
@@ -487,6 +491,7 @@ public class ReduxPlacedFeatures {
                                 .build()), 4),
                 RarityFilter.onAverageOnceEvery(16),
                 InSquarePlacement.spread(),
+                BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(new Vec3i(0, -1, 0), BlockTags.DIRT)),
                 BiomeFilter.biome()
         );
 
@@ -517,6 +522,7 @@ public class ReduxPlacedFeatures {
                                 .build()), 4),
                 RarityFilter.onAverageOnceEvery(16),
                 InSquarePlacement.spread(),
+                BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(new Vec3i(0, -1, 0), BlockTags.DIRT)),
                 BiomeFilter.biome()
         );
 
@@ -530,6 +536,7 @@ public class ReduxPlacedFeatures {
                                 .build()), 4),
                 RarityFilter.onAverageOnceEvery(12),
                 InSquarePlacement.spread(),
+                BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(new Vec3i(0, -1, 0), BlockTags.DIRT)),
                 BiomeFilter.biome()
         );
 
@@ -616,6 +623,7 @@ public class ReduxPlacedFeatures {
                                 .build()), 4),
                 RarityFilter.onAverageOnceEvery(16),
                 InSquarePlacement.spread(),
+                BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(new Vec3i(0, -1, 0), BlockTags.DIRT)),
                 BiomeFilter.biome()
         );
         register(context, ICESTONE_ROCK, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.ICESTONE_ROCK),
@@ -628,6 +636,7 @@ public class ReduxPlacedFeatures {
                                 .build()), 4),
                 RarityFilter.onAverageOnceEvery(16),
                 InSquarePlacement.spread(),
+                BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(new Vec3i(0, -1, 0), BlockTags.DIRT)),
                 BiomeFilter.biome()
         );
         register(context, HOLYSILT_DISK, configuredFeatures.getOrThrow(ReduxConfiguredFeatures.HOLYSILT_DISK),
