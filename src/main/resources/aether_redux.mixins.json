@@ -6,7 +6,6 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "aether_redux.refmap.json",
   "mixins": [
-    "client.audio.GoTVMusicMixin",
     "common.block.AercloudBlockMixin",
     "common.block.BlockBehaviorMixin",
     "common.block.BlockBehaviourMixin",
@@ -47,6 +46,7 @@
     "client.audio.MusicManagerAccessor",
     "client.audio.SentryClientMixin",
     "client.audio.SoundEngineAccessor",
+    "client.audio.GoTVMusicMixin",
     "client.block.AetherColorResolversMixin",
     "client.block.AetherLeavesClientMixin",
     "client.block.LeafBlockClientMixin",
