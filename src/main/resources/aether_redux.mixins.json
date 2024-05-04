@@ -6,7 +6,6 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "aether_redux.refmap.json",
   "mixins": [
-    "client.audio.GoTVMusicMixin",
     "common.block.AercloudBlockMixin",
     "common.block.BlockBehaviorMixin",
     "common.block.BlockBehaviourMixin",

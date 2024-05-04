@@ -2,10 +2,9 @@ package net.zepalesque.redux.mixin.client.render;
 
 import com.aetherteam.aether.client.renderer.entity.SentryRenderer;
 import com.aetherteam.aether.entity.monster.dungeon.Sentry;
-import com.aetherteam.aether_genesis.entity.monster.BattleSentry;
 import com.mojang.blaze3d.vertex.PoseStack;
+
 import net.minecraft.client.model.SlimeModel;
-import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.entity.LivingEntity;
 import net.zepalesque.redux.config.ReduxConfig;
