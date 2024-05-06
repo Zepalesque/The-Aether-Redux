@@ -116,6 +116,11 @@ repositories {
     maven { url = "https://gitlab.com/api/v4/projects/21830712/packages/maven" }
     maven { url = 'https://maven.neoforged.net/releases/' }
 
+    maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
+    maven {
+        url "https://maven.cloudsmith.io/geckolib3/geckolib/"
+    }
+
     maven {
         name = "Jared's maven"
         url = "https://maven.blamejared.com/"
@@ -163,7 +168,7 @@ dependencies {
     compileOnly fg.deobf("curse.maven:galosphere-631098:${project.galosphere_version}")
     implementation fg.deobf("curse.maven:ancient-aether-886751:${project.ancient_aether_version}")
     compileOnly fg.deobf("curse.maven:lootr-361276:${project.lootr_version}")
-
+    implementation "com.eliotlash.mclib:mclib:20"
 //    implementation fg.deobf("net.darkhax.bookshelf:Bookshelf-Forge-1.20.1:20.0.5")
 //    implementation fg.deobf("net.darkhax.tips:Tips-Forge-1.20.1:12.0.5")
 }

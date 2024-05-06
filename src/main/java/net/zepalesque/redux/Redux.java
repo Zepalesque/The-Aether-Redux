@@ -70,6 +70,7 @@ import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.client.render.ReduxRenderers;
 import net.zepalesque.redux.client.render.entity.BlightbunnyRenderer;
+import net.zepalesque.redux.client.render.geo.MoaGeoRenderer;
 import net.zepalesque.redux.client.render.geo.MykapodRenderer;
 import net.zepalesque.redux.client.resource.ReduxOverridesPackResources;
 import net.zepalesque.redux.config.ReduxConfig;
@@ -252,6 +253,7 @@ public class Redux {
     private void clientSetup(final FMLClientSetupEvent event) {
         EntityRenderers.register(ReduxEntityTypes.MYKAPOD.get(), MykapodRenderer::new);
         EntityRenderers.register(ReduxEntityTypes.BLIGHTBUNNY.get(), BlightbunnyRenderer::new);
+        EntityRenderers.register(AetherEntityTypes.MOA.get(), MoaGeoRenderer::new);
         ReduxRenderers.registerCuriosRenderers();
         event.enqueueWork(
                 () -> {

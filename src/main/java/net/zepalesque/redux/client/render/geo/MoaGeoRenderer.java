@@ -1,34 +1,59 @@
 package net.zepalesque.redux.client.render.geo;
 
+import com.aetherteam.aether.Aether;
+import com.aetherteam.aether.client.gui.screen.perks.MoaSkinsScreen;
 import com.aetherteam.aether.entity.passive.Moa;
+import com.aetherteam.aether.perk.data.ClientMoaSkinPerkData;
+import com.aetherteam.aether.perk.types.MoaData;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.phys.Vec3;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.entity.geo.GeoMoa;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.core.molang.MolangParser;
 import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.renderer.GeoReplacedEntityRenderer;
 
-public class MoaGeoRender extends GeoReplacedEntityRenderer<Moa, GeoMoa> {
-    public MoaGeoRender(EntityRendererProvider.Context renderManager) {
+import java.util.Map;
+import java.util.Objects;
+import java.util.UUID;
+
+public class MoaGeoRenderer extends GeoReplacedEntityRenderer<Moa, GeoMoa> {
+    public MoaGeoRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager, new MoaGeoModel(), new GeoMoa());
     }
 
     @Override
-    public ResourceLocation getTextureLocation(Moa mykapod) {
-        return null;
+    public @NotNull ResourceLocation getTextureLocation(@NotNull Moa moa) {
+        return Objects.requireNonNullElse(getMoaSkinLocation(moa), MoaGeoModel.FALLBACK);
+    }
+
+
+    @Nullable
+    public static ResourceLocation getMoaSkinLocation(Moa moa) {
+        UUID lastRiderUUID = moa.getLastRider();
+        UUID moaUUID = moa.getMoaUUID();
+        Map<UUID, MoaData> userSkinsData = ClientMoaSkinPerkData.INSTANCE.getClientPerkData();
+        Screen var6 = Minecraft.getInstance().screen;
+        if (var6 instanceof MoaSkinsScreen moaSkinsScreen) {
+            if (moaSkinsScreen.getSelectedSkin() != null && moaSkinsScreen.getPreviewMoa() != null && moaSkinsScreen.getPreviewMoa().getMoaUUID() != null && moaSkinsScreen.getPreviewMoa().getMoaUUID().equals(moaUUID)) {
+                return moaSkinsScreen.getSelectedSkin().getSkinLocation();
+            }
+        }
+
+        return userSkinsData.containsKey(lastRiderUUID) && ((MoaData)userSkinsData.get(lastRiderUUID)).moaUUID() != null && ((MoaData)userSkinsData.get(lastRiderUUID)).moaUUID().equals(moaUUID) ? ((MoaData)userSkinsData.get(lastRiderUUID)).moaSkin().getSkinLocation() : null;
     }
 
     @Override
-    public void render(Moa entity, float entityYaw, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight) {
+    public void render(Moa moa, float entityYaw, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight) {
         ((MoaGeoModel)this.model).setup(this.currentEntity, partialTick);
-        super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
+        super.render(moa, entityYaw, partialTick, poseStack, bufferSource, packedLight);
     }
 
     @Override
@@ -39,10 +64,9 @@ public class MoaGeoRender extends GeoReplacedEntityRenderer<Moa, GeoMoa> {
 
     public static class MoaGeoModel extends GeoModel<GeoMoa> {
 
-        private static final ResourceLocation TEXTURE_LOCATION = Redux.locate("textures/entity/mobs/mykapod/mykapod.png");
-        private static final ResourceLocation DESHELLED_LOCATION = Redux.locate("textures/entity/mobs/mykapod/mykapod_shed.png");
-        private static final ResourceLocation GEO_LOCATION = Redux.locate("geo/mykapod.geo.json");
-        private static final ResourceLocation ANIM_LOCATION = Redux.locate("animations/mykapod.animation.json");
+        private static final ResourceLocation FALLBACK = new ResourceLocation(Aether.MODID, "textures/entity/mobs/moa/blue_moa.png");
+        private static final ResourceLocation GEO_LOCATION = Redux.locate("geo/moa.geo.json");
+        private static final ResourceLocation ANIM_LOCATION = Redux.locate("animations/moa.animation.json");
 
         private @Nullable Moa current = null;
         private float partial;
@@ -54,8 +78,7 @@ public class MoaGeoRender extends GeoReplacedEntityRenderer<Moa, GeoMoa> {
 
         @Override
         public ResourceLocation getTextureResource(GeoMoa moa) {
-            // TODO
-            return null;
+            return this.current == null ? FALLBACK : getMoaSkinLocation(this.current);
         }
 
         public void setup(Moa moa, float partial) {
