@@ -54,6 +54,7 @@ public class MoaGeoRenderer extends GeoReplacedEntityRenderer<Moa, GeoMoa> {
     public void render(Moa moa, float entityYaw, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight) {
         ((MoaGeoModel)this.model).setup(this.currentEntity, partialTick);
         super.render(moa, entityYaw, partialTick, poseStack, bufferSource, packedLight);
+
     }
 
     @Override
@@ -64,6 +65,7 @@ public class MoaGeoRenderer extends GeoReplacedEntityRenderer<Moa, GeoMoa> {
 
     public static class MoaGeoModel extends GeoModel<GeoMoa> {
 
+        // TODO: Easter egg like paradise lost maybe lol
         private static final ResourceLocation FALLBACK = new ResourceLocation(Aether.MODID, "textures/entity/mobs/moa/blue_moa.png");
         private static final ResourceLocation GEO_LOCATION = Redux.locate("geo/moa.geo.json");
         private static final ResourceLocation ANIM_LOCATION = Redux.locate("animations/moa.animation.json");
@@ -78,7 +80,11 @@ public class MoaGeoRenderer extends GeoReplacedEntityRenderer<Moa, GeoMoa> {
 
         @Override
         public ResourceLocation getTextureResource(GeoMoa moa) {
-            return this.current == null ? FALLBACK : getMoaSkinLocation(this.current);
+            if (this.current != null) {
+                ResourceLocation loc = getMoaSkinLocation(this.current);
+                if (loc != null) return loc;
+            }
+            return FALLBACK;
         }
 
         public void setup(Moa moa, float partial) {
