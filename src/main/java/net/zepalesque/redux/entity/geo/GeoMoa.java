@@ -28,7 +28,7 @@ public class GeoMoa implements GeoReplacedEntity {
         registrar.add(new AnimationController<>(this, "wings", 5, this::wingAnim));
         registrar.add(new AnimationController<>(this, "legs", 5, this::legAnim));
         registrar.add(new AnimationController<>(this, "legs", 10, this::bodyAnim));
-        registrar.add(new AnimationController<>(this, "hurt", 10, this::hurtAnim));
+//        registrar.add(new AnimationController<>(this, "hurt", 10, this::hurtAnim));
     }
 
     private static final String WINGS_FLY_START = "animation.moa.wings.fly_start";
@@ -78,15 +78,15 @@ public class GeoMoa implements GeoReplacedEntity {
             return PlayState.CONTINUE;
         }
     }
-
+/*
     private PlayState hurtAnim(AnimationState<GeoMoa> state) {
         Moa moa = (Moa) state.getData(DataTickets.ENTITY);
 
-        if (moa.hurtTime == moa.hurtDuration) {
-            state.getController().setAnimation(RawAnimation.begin().thenPlayXTimes(BODY_HURT, 1));
-        }
+//        if (moa.animateHurt();) {
+//            state.getController().setAnimation(RawAnimation.begin().thenPlay(BODY_HURT));
+//        }
         return PlayState.CONTINUE;
-    }
+    }*/
 
 
     public AnimatableInstanceCache getAnimatableInstanceCache() {

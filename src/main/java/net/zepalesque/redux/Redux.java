@@ -253,7 +253,7 @@ public class Redux {
     private void clientSetup(final FMLClientSetupEvent event) {
         EntityRenderers.register(ReduxEntityTypes.MYKAPOD.get(), MykapodRenderer::new);
         EntityRenderers.register(ReduxEntityTypes.BLIGHTBUNNY.get(), BlightbunnyRenderer::new);
-        EntityRenderers.register(AetherEntityTypes.MOA.get(), MoaGeoRenderer::new);
+//        EntityRenderers.register(AetherEntityTypes.MOA.get(), MoaGeoRenderer::new);
         ReduxRenderers.registerCuriosRenderers();
         event.enqueueWork(
                 () -> {

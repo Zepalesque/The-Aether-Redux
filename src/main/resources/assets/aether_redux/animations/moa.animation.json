@@ -29,7 +29,7 @@
 				},
 				"leg_left": {
 					"rotation": {
-						"vector": ["query..property", 0, 0]
+						"vector": [0, 0, 0]
 					}
 				},
 				"wing_left": {
@@ -118,12 +118,12 @@
 			"bones": {
 				"leg_left": {
 					"rotation": {
-						"vector": ["-math.cos(query.limb_swing*0.666F)*1.4F *query.limb_swing_amount", 0, 0]
+						"vector": ["-math.cos(query.limb_swing*0.666)*1.4*query.limb_swing_amount", 0, 0]
 					}
 				},
 				"leg_right": {
 					"rotation": {
-						"vector": ["math.cos(query.limb_swing*0.666F)*1.4F *query.limb_swing_amount", 0, 0]
+						"vector": ["math.cos(query.limb_swing*0.666)*1.4*query.limb_swing_amount", 0, 0]
 					}
 				}
 			}
@@ -316,11 +316,6 @@
 							"vector": [0, 0, 90],
 							"easing": "easeInOutSine"
 						}
-					}
-				},
-				"leg_left": {
-					"rotation": {
-						"vector": ["query..property", 0, 0]
 					}
 				},
 				"wing_left": {
