@@ -61,8 +61,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
 
         this.add("valkyrie_ring", new AddDrops(new ItemStack(ReduxItems.VALKYRIE_RING.get()),
                 new LootItemFunction[] {
-                        SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)).build(),
-                        LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)).build() },
+                        SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)).build() },
                 new LootItemCondition[] {
                         LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(AetherEntityTypes.VALKYRIE.get())).build(),
                         LootItemRandomChanceCondition.randomChance(0.035F).build()
