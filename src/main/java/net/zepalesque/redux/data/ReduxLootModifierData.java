@@ -64,7 +64,8 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                         SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)).build() },
                 new LootItemCondition[] {
                         LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(AetherEntityTypes.VALKYRIE.get())).build(),
-                        LootItemRandomChanceCondition.randomChance(0.035F).build()
+                        LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.01F, 0.005F).build(),
+
                 }));
 
         this.add("raw_gravitite", new RawOreModifier(AetherBlocks.GRAVITITE_ORE.get().asItem(), new ItemStack(ReduxItems.RAW_GRAVITITE.get()),
