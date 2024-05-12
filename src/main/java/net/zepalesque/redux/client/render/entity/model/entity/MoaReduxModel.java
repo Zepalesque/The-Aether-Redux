@@ -464,7 +464,7 @@ public class MoaReduxModel extends EntityModel<Moa> {
 
         PartDefinition wing_feathers_r4 = feathers_3_wing2.addOrReplaceChild("wing_feathers_r4", CubeListBuilder.create().texOffs(60, 14).mirror().addBox(1.0F, -2.0F, 0.0F, 0.0F, 4.0F, 10.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, -0.6981F, 0.0F, 0.0F));
 
-        PartDefinition leg1 = partdefinition.addOrReplaceChild("leg1", CubeListBuilder.create(), PartPose.offset(4.0F, 7.0F, 2.0F));
+        PartDefinition leg1 = base.addOrReplaceChild("leg1", CubeListBuilder.create(), PartPose.offset(4.0F, 7.0F, 2.0F));
 
         PartDefinition base_leg1 = leg1.addOrReplaceChild("base_leg1", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
 
@@ -480,7 +480,7 @@ public class MoaReduxModel extends EntityModel<Moa> {
 
         PartDefinition back_toes_leg1 = toes_stepanim_leg1.addOrReplaceChild("back_toes_leg1", CubeListBuilder.create(), PartPose.offset(0.0F, -5.0F, -6.0F));
 
-        PartDefinition leg2 = partdefinition.addOrReplaceChild("leg2", CubeListBuilder.create(), PartPose.offset(4.0F, 7.0F, 2.0F));
+        PartDefinition leg2 = base.addOrReplaceChild("leg2", CubeListBuilder.create(), PartPose.offset(4.0F, 7.0F, 2.0F));
 
         PartDefinition base_leg2 = leg2.addOrReplaceChild("base_leg2", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
 
