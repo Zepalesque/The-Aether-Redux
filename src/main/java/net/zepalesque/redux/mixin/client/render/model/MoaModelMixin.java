@@ -7,6 +7,8 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.geom.ModelPart;
 import net.zepalesque.redux.client.render.util.MoaUtils;
+import net.zepalesque.redux.config.ReduxConfig;
+import net.zepalesque.redux.config.enums.MoaModelType;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -36,7 +38,7 @@ public class MoaModelMixin extends BipedBirdModel<Moa> {
     @Inject(method = "prepareMobModel(Lcom/aetherteam/aether/entity/passive/Moa;FFF)V", at = @At(value = "TAIL"), remap = false)
     public void prepareMobModel(Moa moa, float limbSwing, float limbSwingAmount, float partialTicks, CallbackInfo ci) {
         this.useNewModel = MoaUtils.useNewModel(moa);
-        this.renderLegs = ((!moa.isSitting() || (!moa.isEntityOnGround() && moa.isSitting())) && !useNewModel);
+        this.renderLegs = ((!moa.isSitting() || (!moa.isEntityOnGround() && moa.isSitting())) && (!useNewModel || ReduxConfig.CLIENT.moa_model_type.get() == MoaModelType.refreshed));
     }
 
 
@@ -50,7 +52,8 @@ public class MoaModelMixin extends BipedBirdModel<Moa> {
             this.head.render(poseStack, consumer, packedLight, packedOverlay);
             this.rightTailFeather.render(poseStack, consumer, packedLight, packedOverlay);
             this.middleTailFeather.render(poseStack, consumer, packedLight, packedOverlay);
-            this.leftTailFeather.render(poseStack, consumer, packedLight, packedOverlay);}
+            this.leftTailFeather.render(poseStack, consumer, packedLight, packedOverlay);
+        }
 
         if (this.renderLegs) {
             this.rightLeg.render(poseStack, consumer, packedLight, packedOverlay);

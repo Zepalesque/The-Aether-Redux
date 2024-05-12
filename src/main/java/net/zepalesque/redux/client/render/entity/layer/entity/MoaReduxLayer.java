@@ -13,7 +13,7 @@ import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.zepalesque.redux.capability.animation.moa.MoaAnimation;
-import net.zepalesque.redux.client.render.entity.model.entity.LegacyMoaReduxModel;
+import net.zepalesque.redux.client.render.entity.model.entity.MoaReduxModel;
 import net.zepalesque.redux.client.render.util.MoaUtils;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.config.enums.MoaModelType;
@@ -26,14 +26,15 @@ import java.util.Map;
 public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
 
     protected final MoaRenderer parent;
-    private final LegacyMoaReduxModel legacy, legacyTalons, refreshed;
+    private final MoaReduxModel legacy, legacyTalons, refreshed;
 
     private static final Map<ResourceLocation, ResourceLocation> TRANSLATION_MAP = new HashMap<>();
 
-    public MoaReduxLayer(MoaRenderer entityRenderer, LegacyMoaReduxModel legacy, LegacyMoaReduxModel legacyTalons, LegacyMoaReduxModel refreshed) {
+    public MoaReduxLayer(MoaRenderer entityRenderer, MoaReduxModel legacy, MoaReduxModel legacyTalons, MoaReduxModel refreshed) {
         super(entityRenderer);
         this.legacy = legacy;
         this.legacyTalons = legacyTalons;
+        this.refreshed = refreshed;
         this.parent = entityRenderer;
     }
 
@@ -43,7 +44,7 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
             poseStack.scale(0.5F, 0.5F, 0.5F);
             poseStack.translate(0F, 1.5F, /*-0.125F*/ 0F);
             boolean useOriginalLegs = ReduxConfig.CLIENT.moa_model_type.get() == MoaModelType.refreshed;
-            LegacyMoaReduxModel model = ReduxConfig.CLIENT.moa_model_type.get() == MoaModelType.legacy_toes ? this.legacy : this.legacyTalons;
+            MoaReduxModel model = ReduxConfig.CLIENT.moa_model_type.get() == MoaModelType.legacy_toes ? this.legacy : ReduxConfig.CLIENT.moa_model_type.get() == MoaModelType.legacy_talons ? this.legacyTalons : this.refreshed;
             model.neck.yRot = this.getParentModel().head.yRot * 0.333F;
             model.neck.xRot = this.getParentModel().head.xRot * 0.125F;
             model.head_part.yRot = this.getParentModel().head.yRot * 0.667F;
@@ -91,7 +92,7 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
             model.feathers_1_wing2.xRot = model.feathers_1_wing1.xRot;
 
 
-            if (!moa.isSitting() || !moa.isEntityOnGround() && moa.isSitting()) {
+            if ((!moa.isSitting() || (!moa.isEntityOnGround() && moa.isSitting())) && !useOriginalLegs) {
                 model.leg1.skipDraw = false;
                 model.leg2.skipDraw = false;
                 float progress = moa.isEntityOnGround() ? 0 : 1;
