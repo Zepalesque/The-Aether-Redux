@@ -64,6 +64,10 @@ public class SwetHooks {
         return getTrueScale(swet) > 1.1D;
     }
 
+    public static boolean canDamageEntities(Swet swet) {
+        return getTrueScale(swet) > 2.1D;
+    }
+
     public static boolean canGrow(Swet swet, ItemStack stack) {
         return stack.is(AetherTags.Items.SWET_BALLS) ? swet.getSize() < 8 : stack.getItem() instanceof SpawnEggItem spawnEggItem && spawnEggItem.getType(stack.getTag()) == swet.getType() && swet.getSize() < 16;
     }
