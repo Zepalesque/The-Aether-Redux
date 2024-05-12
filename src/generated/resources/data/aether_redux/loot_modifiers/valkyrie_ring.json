@@ -9,8 +9,9 @@
       }
     },
     {
-      "chance": 0.035,
-      "condition": "minecraft:random_chance"
+      "chance": 0.01,
+      "condition": "minecraft:random_chance_with_looting",
+      "looting_multiplier": 0.005
     }
   ],
   "functions": [
@@ -18,14 +19,6 @@
       "add": false,
       "count": 1.0,
       "function": "minecraft:set_count"
-    },
-    {
-      "count": {
-        "type": "minecraft:uniform",
-        "max": 1.0,
-        "min": 0.0
-      },
-      "function": "minecraft:looting_enchant"
     }
   ],
   "item": {
