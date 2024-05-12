@@ -44,9 +44,10 @@ public class CockatriceReduxLayer extends RenderLayer<Cockatrice, CockatriceMode
     @Override
     public void render(@Nonnull PoseStack poseStack, @Nonnull MultiBufferSource buffer, int packedLight, @NotNull Cockatrice cockatrice, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if ((ReduxConfig.CLIENT.cockatrice_model_upgrade.get()) && !cockatrice.isInvisibleTo(Minecraft.getInstance().player)) {
-            CockatriceReduxModel model = ReduxConfig.CLIENT.cockatrice_model_type.get() == CockatriceModelType.legacy ? this.legacy : this.refreshed;
+            poseStack.pushPose();
             poseStack.scale(0.5F, 0.5F, 0.5F);
             poseStack.translate(0F, 1.5F, /*-0.125F*/ 0F);
+            CockatriceReduxModel model = ReduxConfig.CLIENT.cockatrice_model_type.get() == CockatriceModelType.legacy ? this.legacy : this.refreshed;
             float progress = cockatrice.isEntityOnGround() ? 0 : 1;
             float progressAttack = 0F;
             float progressAttackAlways = 0F;
@@ -171,7 +172,7 @@ public class CockatriceReduxLayer extends RenderLayer<Cockatrice, CockatriceMode
 
             VertexConsumer eyesConsumer = buffer.getBuffer(COCKATRICE_EYES);
             model.renderToBuffer(poseStack, eyesConsumer, packedLight, LivingEntityRenderer.getOverlayCoords(cockatrice, 0.0F), 1.0F, 1.0F, 1.0F, 1.0F);
-
+            poseStack.popPose();
         }
 
     }
