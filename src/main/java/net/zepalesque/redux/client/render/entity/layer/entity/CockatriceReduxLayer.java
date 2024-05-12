@@ -46,7 +46,7 @@ public class CockatriceReduxLayer extends RenderLayer<Cockatrice, CockatriceMode
         if ((ReduxConfig.CLIENT.cockatrice_model_upgrade.get()) && !cockatrice.isInvisibleTo(Minecraft.getInstance().player)) {
             CockatriceReduxModel model = ReduxConfig.CLIENT.cockatrice_model_type.get() == CockatriceModelType.legacy ? this.legacy : this.refreshed;
             poseStack.scale(0.5F, 0.5F, 0.5F);
-            poseStack.translate(0F, 1.5F, -0.125F);
+            poseStack.translate(0F, 1.5F, /*-0.125F*/ 0F);
             float progress = cockatrice.isEntityOnGround() ? 0 : 1;
             float progressAttack = 0F;
             float progressAttackAlways = 0F;
