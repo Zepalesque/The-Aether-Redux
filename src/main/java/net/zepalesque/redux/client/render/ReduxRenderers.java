@@ -88,8 +88,8 @@ public class ReduxRenderers {
 
     @SubscribeEvent
     public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
-        event.registerLayerDefinition(ReduxModelLayers.MOA, MoaReduxModel::createBodyLayer);
-        event.registerLayerDefinition(ReduxModelLayers.MOA_TALONS, MoaReduxModel::createTalonsLayer);
+        event.registerLayerDefinition(ReduxModelLayers.MOA, LegacyMoaReduxModel::createBodyLayer);
+        event.registerLayerDefinition(ReduxModelLayers.MOA_TALONS, LegacyMoaReduxModel::createTalonsLayer);
         event.registerLayerDefinition(ReduxModelLayers.COCKATRICE, CockatriceReduxModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.GLIMMERCOW, ShimmercowModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.MIMIC, MimicReduxModel::createBodyLayer);
@@ -115,7 +115,7 @@ public class ReduxRenderers {
         Minecraft mc = Minecraft.getInstance();
         for (EntityRenderer<?> renderer : mc.getEntityRenderDispatcher().renderers.values()) {
             if (renderer instanceof MoaRenderer moa) {
-                moa.addLayer(new MoaReduxLayer(moa, new MoaReduxModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.MOA)), new MoaReduxModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.MOA_TALONS))));
+                moa.addLayer(new MoaReduxLayer(moa, new LegacyMoaReduxModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.MOA)), new LegacyMoaReduxModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.MOA_TALONS))));
             }
             if (renderer instanceof MimicRenderer mimic) {
                 mimic.addLayer(new MimicReduxLayer(mimic, new MimicReduxModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.MIMIC))));

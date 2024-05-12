@@ -13,10 +13,10 @@ import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.zepalesque.redux.capability.animation.moa.MoaAnimation;
-import net.zepalesque.redux.client.render.entity.model.entity.MoaReduxModel;
+import net.zepalesque.redux.client.render.entity.model.entity.LegacyMoaReduxModel;
 import net.zepalesque.redux.client.render.util.MoaUtils;
 import net.zepalesque.redux.config.ReduxConfig;
-import net.zepalesque.redux.config.enums.MoaFeetType;
+import net.zepalesque.redux.config.enums.MoaModelType;
 import net.zepalesque.redux.util.math.MathUtil;
 
 import javax.annotation.Nonnull;
@@ -26,14 +26,14 @@ import java.util.Map;
 public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
 
     protected final MoaRenderer parent;
-    private final MoaReduxModel updated, talons;
+    private final LegacyMoaReduxModel legacy, legacyTalons, refreshed;
 
     private static final Map<ResourceLocation, ResourceLocation> TRANSLATION_MAP = new HashMap<>();
 
-    public MoaReduxLayer(MoaRenderer entityRenderer, MoaReduxModel updated, MoaReduxModel talons) {
+    public MoaReduxLayer(MoaRenderer entityRenderer, LegacyMoaReduxModel legacy, LegacyMoaReduxModel legacyTalons, LegacyMoaReduxModel refreshed) {
         super(entityRenderer);
-        this.updated = updated;
-        this.talons = talons;
+        this.legacy = legacy;
+        this.legacyTalons = legacyTalons;
         this.parent = entityRenderer;
     }
 
@@ -42,7 +42,8 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
         if (MoaUtils.useNewModel(moa)) {
             poseStack.scale(0.5F, 0.5F, 0.5F);
             poseStack.translate(0F, 1.5F, /*-0.125F*/ 0F);
-            MoaReduxModel model = ReduxConfig.CLIENT.moa_feet_type.get() == MoaFeetType.toes ? this.updated : this.talons;
+            boolean useOriginalLegs = ReduxConfig.CLIENT.moa_model_type.get() == MoaModelType.refreshed;
+            LegacyMoaReduxModel model = ReduxConfig.CLIENT.moa_model_type.get() == MoaModelType.legacy_toes ? this.legacy : this.legacyTalons;
             model.neck.yRot = this.getParentModel().head.yRot * 0.333F;
             model.neck.xRot = this.getParentModel().head.xRot * 0.125F;
             model.head_part.yRot = this.getParentModel().head.yRot * 0.667F;

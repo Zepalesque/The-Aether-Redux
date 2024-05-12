@@ -6,13 +6,9 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
-import net.minecraft.client.model.geom.builders.CubeDeformation;
-import net.minecraft.client.model.geom.builders.CubeListBuilder;
-import net.minecraft.client.model.geom.builders.LayerDefinition;
-import net.minecraft.client.model.geom.builders.MeshDefinition;
-import net.minecraft.client.model.geom.builders.PartDefinition;
+import net.minecraft.client.model.geom.builders.*;
 
-public class MoaReduxModel extends EntityModel<Moa> {
+public class LegacyMoaReduxModel extends EntityModel<Moa> {
 
 
     public final ModelPart base;
@@ -56,7 +52,7 @@ public class MoaReduxModel extends EntityModel<Moa> {
     public final ModelPart feathers_2_wing2;
     public final ModelPart feathers_3_wing2;
 
-    public MoaReduxModel(ModelPart root) {
+    public LegacyMoaReduxModel(ModelPart root) {
         this.base = root.getChild("base");
         this.body_additions = base.getChild("body_additions");
         this.head = body_additions.getChild("head");

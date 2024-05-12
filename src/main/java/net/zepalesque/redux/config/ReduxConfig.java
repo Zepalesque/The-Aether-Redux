@@ -2,7 +2,7 @@ package net.zepalesque.redux.config;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.zepalesque.redux.config.enums.MimicModelType;
-import net.zepalesque.redux.config.enums.MoaFeetType;
+import net.zepalesque.redux.config.enums.MoaModelType;
 import net.zepalesque.redux.config.enums.QuicksoilSetting;
 import net.zepalesque.redux.config.enums.SpawnerType;
 import net.zepalesque.redux.config.enums.dungeon.BossRoomType;
@@ -154,7 +154,7 @@ public class ReduxConfig {
     public static class Client {
 
         public final ForgeConfigSpec.BooleanValue moa_model_upgrade;
-        public final ForgeConfigSpec.EnumValue<MoaFeetType> moa_feet_type;
+        public final ForgeConfigSpec.EnumValue<MoaModelType> moa_model_type;
         public final ForgeConfigSpec.BooleanValue cockatrice_model_upgrade;
         public final ForgeConfigSpec.EnumValue<MimicModelType> mimic_model_upgrade;
         public final ForgeConfigSpec.BooleanValue mimic_slam_sound;
@@ -175,7 +175,7 @@ public class ReduxConfig {
             builder.push(List.of("Rendering", "Mob Model Upgrades"));
             builder.push("Moa");
             this.moa_model_upgrade = builder.comment("Makes Moas resemble their Mutation models").define("Moa Model Upgrade", true);
-            this.moa_feet_type = builder.comment("Determines whether the updated Moa model should use more peaceful-appearing toes, or more aggressive talons").defineEnum("Moa Foot Type", MoaFeetType.toes);
+            this.moa_model_type = builder.comment("Determines which model variation to use for the Moa. Refreshed is sort of a preview for a future design that will be used, the two legacy ones are from the old Moa Foot Type config to change between peaceful-appearing toes and menacing talons for the feet.").defineEnum("Moa Model Type", MoaModelType.refreshed);
             builder.pop();
             this.cockatrice_model_upgrade = builder.comment("Makes Cockatrices look far better").define("Cockatrice Model Upgrade", true);
             this.sentry_model_upgrade = builder.comment("Improves the model for Sentries, giving them a new model and a springy jump animation").define("Sentry Model Upgrade", true);
