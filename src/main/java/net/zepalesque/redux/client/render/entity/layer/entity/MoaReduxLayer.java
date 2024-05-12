@@ -41,6 +41,7 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
     @Override
     public void render(@Nonnull PoseStack poseStack, @Nonnull MultiBufferSource buffer, int packedLight, Moa moa, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (MoaUtils.useNewModel(moa)) {
+            poseStack.pushPose();
             poseStack.scale(0.5F, 0.5F, 0.5F);
             poseStack.translate(0F, 1.5F, /*-0.125F*/ 0F);
             boolean useOriginalLegs = ReduxConfig.CLIENT.moa_model_type.get() == MoaModelType.refreshed;
@@ -127,6 +128,7 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
                 VertexConsumer consumer = buffer.getBuffer(RenderType.entityCutoutNoCull(feathersLoc));
                 model.renderToBuffer(poseStack, consumer, packedLight, LivingEntityRenderer.getOverlayCoords(moa, 0.0F), 1.0F, 1.0F, 1.0F, 1.0F);
             }
+            poseStack.popPose();
         }
     }
 
