@@ -3,7 +3,7 @@ package net.zepalesque.redux.mixin.client.render;
 import com.aetherteam.aether.client.renderer.entity.SwetRenderer;
 import com.aetherteam.aether.entity.monster.Swet;
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.builderdog.ancient_aether.client.renderer.entity.renderer.FestiveSwetRenderer;
+import net.builderdog.ancient_aether.client.renderer.entity.FestiveSwetRenderer;
 import net.minecraft.client.model.SlimeModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.util.Mth;
