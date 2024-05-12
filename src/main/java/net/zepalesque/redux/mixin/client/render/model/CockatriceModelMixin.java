@@ -7,6 +7,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.geom.ModelPart;
 import net.zepalesque.redux.config.ReduxConfig;
+import net.zepalesque.redux.config.enums.CockatriceModelType;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -33,13 +34,15 @@ public class CockatriceModelMixin extends BipedBirdModel<Cockatrice> {
     @Inject(method = "renderToBuffer", at = @At(value = "HEAD"), cancellable = true)
     public void renderToBuffer(PoseStack poseStack, VertexConsumer consumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha, CallbackInfo ci) {
         if (!this.useNewModel) {
-            this.rightLeg.render(poseStack, consumer, packedLight, packedOverlay);
-            this.leftLeg.render(poseStack, consumer, packedLight, packedOverlay);
             this.head.render(poseStack, consumer, packedLight, packedOverlay);
             this.rightTailFeather.render(poseStack, consumer, packedLight, packedOverlay);
             this.middleTailFeather.render(poseStack, consumer, packedLight, packedOverlay);
             this.leftTailFeather.render(poseStack, consumer, packedLight, packedOverlay);
             this.body.render(poseStack, consumer, packedLight, packedOverlay);
+        }
+        if (!this.useNewModel || ReduxConfig.CLIENT.cockatrice_model_type.get() == CockatriceModelType.refreshed) {
+            this.rightLeg.render(poseStack, consumer, packedLight, packedOverlay);
+            this.leftLeg.render(poseStack, consumer, packedLight, packedOverlay);
         }
         ci.cancel();
     }

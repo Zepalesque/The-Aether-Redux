@@ -24,7 +24,6 @@ public class ReduxRegion extends Region {
     public void addBiomes(Registry<Biome> registry, Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper) {
         Climate.Parameter fullRange = Climate.Parameter.span(-1.5F, 1.5F);
 
-
         ResourceKey<Biome> frosted = ReduxConfig.COMMON.enable_snowy_biomes.get() ? ReduxBiomes.FROSTED_FORESTS : AetherBiomes.SKYROOT_FOREST;
         ResourceKey<Biome> glaical = ReduxConfig.COMMON.enable_snowy_biomes.get() ? ReduxBiomes.GLACIAL_TUNDRA : AetherBiomes.SKYROOT_FOREST;
         ResourceKey<Biome> cloudcaps = ReduxConfig.COMMON.enable_cloudcaps.get() ? ReduxBiomes.CLOUDCAPS : AetherBiomes.SKYROOT_GROVE;
@@ -38,7 +37,7 @@ public class ReduxRegion extends Region {
         Climate.Parameter temp3 = Climate.Parameter.span(-0.2F, 0.2F);
         Climate.Parameter temp4 = Climate.Parameter.span(0.2F, 0.5F);
         Climate.Parameter temp5 = Climate.Parameter.span(0.5F, 1.5F);
-
+        
         addBiome(mapper, new Climate.ParameterPoint(temp1, Climate.Parameter.span(-1.0F, -0.3F), fullRange, fullRange, fullRange, fullRange, 0),
                 frosted);
         addBiome(mapper, new Climate.ParameterPoint(temp1, Climate.Parameter.span(-0.3F, 0.3F), fullRange, fullRange, fullRange, fullRange, 0),

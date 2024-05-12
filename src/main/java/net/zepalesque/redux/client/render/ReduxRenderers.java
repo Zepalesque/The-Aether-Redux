@@ -83,9 +83,11 @@ public class ReduxRenderers {
 
     @SubscribeEvent
     public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
-        event.registerLayerDefinition(ReduxModelLayers.MOA, MoaReduxModel::createBodyLayer);
+        event.registerLayerDefinition(ReduxModelLayers.MOA_OLD, MoaReduxModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.MOA_TALONS, MoaReduxModel::createTalonsLayer);
-        event.registerLayerDefinition(ReduxModelLayers.COCKATRICE, CockatriceReduxModel::createBodyLayer);
+        event.registerLayerDefinition(ReduxModelLayers.MOA_REFRESHED, MoaReduxModel::createRefreshedLayer);
+        event.registerLayerDefinition(ReduxModelLayers.COCKATRICE_OLD, CockatriceReduxModel::createBodyLayer);
+        event.registerLayerDefinition(ReduxModelLayers.COCKATRICE_REFRESHED, CockatriceReduxModel::createRefreshedLayer);
         event.registerLayerDefinition(ReduxModelLayers.GLIMMERCOW, ShimmercowModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.MIMIC, MimicReduxModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.SENTRY, SentryReduxModel::createBodyLayer);
@@ -109,7 +111,7 @@ public class ReduxRenderers {
         Minecraft mc = Minecraft.getInstance();
         for (EntityRenderer<?> renderer : mc.getEntityRenderDispatcher().renderers.values()) {
             if (renderer instanceof MoaRenderer moa) {
-                moa.addLayer(new MoaReduxLayer(moa, new MoaReduxModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.MOA)), new MoaReduxModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.MOA_TALONS))));
+                moa.addLayer(new MoaReduxLayer(moa, new MoaReduxModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.MOA_OLD)), new MoaReduxModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.MOA_TALONS)), new MoaReduxModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.MOA_REFRESHED))));
             }
             if (renderer instanceof MimicRenderer mimic) {
                 mimic.addLayer(new MimicReduxLayer(mimic, new MimicReduxModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.MIMIC))));
@@ -118,7 +120,7 @@ public class ReduxRenderers {
                 mimic.addLayer(new MimicReduxLayer(mimic, new MimicReduxModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.MIMIC))));
             }
             if (renderer instanceof CockatriceRenderer cockatrice) {
-                cockatrice.addLayer(new CockatriceReduxLayer(cockatrice, new CockatriceReduxModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.COCKATRICE))));
+                cockatrice.addLayer(new CockatriceReduxLayer(cockatrice, new CockatriceReduxModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.COCKATRICE_OLD)), new CockatriceReduxModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.COCKATRICE_REFRESHED))));
             }
             if (renderer instanceof SentryRenderer sentry) {
                 sentry.addLayer(new SentryReduxLayer(sentry, new SentryReduxModel<>(mc.getEntityModels().bakeLayer(ReduxModelLayers.SENTRY))));

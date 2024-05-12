@@ -46,6 +46,7 @@
     "client.audio.MusicManagerAccessor",
     "client.audio.SentryClientMixin",
     "client.audio.SoundEngineAccessor",
+    "client.audio.GoTVMusicMixin",
     "client.block.AetherColorResolversMixin",
     "client.block.AetherLeavesClientMixin",
     "client.block.LeafBlockClientMixin",
