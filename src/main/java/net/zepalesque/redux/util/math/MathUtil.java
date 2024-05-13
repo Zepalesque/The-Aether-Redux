@@ -39,18 +39,6 @@ public class MathUtil {
         return (floored % 2) == 0 ? floored : floored + 1;
     }
 
-    // Deprecated, use Mth.DEG_TO_RAD instead
-    @Deprecated
-    public static float degToRad(float deg) {
-        return deg * Mth.DEG_TO_RAD;
-    }
-
-    // Deprecated, use Mth.RAD_TO_DEG instead
-    @Deprecated
-    public static float radToDeg(float rad) {
-        return rad * Mth.RAD_TO_DEG;
-    }
-
     public static float breathe(Entity entity, float partialTicks) { return breathe(entity, partialTicks, 1F, 1F, 0F); }
 
     public static float breatheOffs(Entity entity, float partialTicks, float offset) { return breathe(entity, partialTicks, 1F, 1F, offset); }

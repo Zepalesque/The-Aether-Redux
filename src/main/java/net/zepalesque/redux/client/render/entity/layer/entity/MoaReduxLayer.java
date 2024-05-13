@@ -18,6 +18,7 @@ import net.zepalesque.redux.client.render.util.MoaUtils;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.config.enums.MoaModelType;
 import net.zepalesque.redux.util.math.MathUtil;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import java.util.HashMap;
@@ -39,7 +40,7 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
     }
 
     @Override
-    public void render(@Nonnull PoseStack poseStack, @Nonnull MultiBufferSource buffer, int packedLight, Moa moa, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
+    public void render(@NotNull PoseStack poseStack, @NotNull MultiBufferSource buffer, int packedLight, @NotNull Moa moa, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         if (MoaUtils.useNewModel(moa)) {
             poseStack.pushPose();
             poseStack.scale(0.5F, 0.5F, 0.5F);
@@ -85,9 +86,9 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
             model.wing_2.xRot = (this.getParentModel().leftWing.xRot * 0.625F) + (( (float) Math.PI) * 0.5F) - (( (float) Math.PI) * 0.08333F) ;
             model.z_rot_wing_2.zRot = (this.getParentModel().leftWing.yRot * 0.875F) - (( (float) Math.PI) * 0.08333F) + breathe;
 
-            model.feathers_3_wing1.xRot = (moa.isEntityOnGround() ? 0F : MathUtil.degToRad(-45F)) -  MathUtil.breatheBase(moa, partialTicks, 0.025F, 0.1F, 0.0F);
-            model.feathers_2_wing1.xRot = (moa.isEntityOnGround() ? 0F : MathUtil.degToRad(-30F)) -  MathUtil.breatheBase(moa, partialTicks, 0.025F, 0.1F, 0.3333F);
-            model.feathers_1_wing1.xRot = (moa.isEntityOnGround() ? 0F : MathUtil.degToRad(-25F)) -  MathUtil.breatheBase(moa, partialTicks, 0.025F, 0.1F, 0.6667F);
+            model.feathers_3_wing1.xRot = (moa.isEntityOnGround() ? 0F : -45F * Mth.DEG_TO_RAD) -  MathUtil.breatheBase(moa, partialTicks, 0.025F, 0.1F, 0.0F);
+            model.feathers_2_wing1.xRot = (moa.isEntityOnGround() ? 0F : -30F * Mth.DEG_TO_RAD) -  MathUtil.breatheBase(moa, partialTicks, 0.025F, 0.1F, 0.3333F);
+            model.feathers_1_wing1.xRot = (moa.isEntityOnGround() ? 0F : -25F * Mth.DEG_TO_RAD) -  MathUtil.breatheBase(moa, partialTicks, 0.025F, 0.1F, 0.6667F);
             model.feathers_3_wing2.xRot = model.feathers_3_wing1.xRot;
             model.feathers_2_wing2.xRot = model.feathers_2_wing1.xRot;
             model.feathers_1_wing2.xRot = model.feathers_1_wing1.xRot;
@@ -107,16 +108,16 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
 //                float left = Mth.cos((float) ((double) (limbSwing * 0.6662F) + Math.PI)) * 1.4F * limbSwingAmount;
 //                float right = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
 
-                model.leg1.xRot = MathUtil.costrp(progress, -swingCalc * 0.8F, MathUtil.degToRad(15F));
-                model.leg2.xRot = MathUtil.costrp(progress, swingCalc * 0.8F, MathUtil.degToRad(15F));
-                model.lower_leg1.xRot = MathUtil.costrp(progress, -MathUtil.returnZeroWhenNegative(MathUtil.animCos(limbSwing * 0.6662F), swingCalc) * 0.3333F * limbSwingAmount, MathUtil.degToRad(25F));
-                model.lower_leg2.xRot = MathUtil.costrp(progress, -MathUtil.returnZeroWhenNegative(MathUtil.animCos((float) ((double) (limbSwing * 0.6662F) + Math.PI)), -swingCalc) * 0.333F * limbSwingAmount, MathUtil.degToRad(25F));
+                model.leg1.xRot = MathUtil.costrp(progress, -swingCalc * 0.8F, 15F * Mth.DEG_TO_RAD);
+                model.leg2.xRot = MathUtil.costrp(progress, swingCalc * 0.8F, 15F * Mth.DEG_TO_RAD);
+                model.lower_leg1.xRot = MathUtil.costrp(progress, -MathUtil.returnZeroWhenNegative(MathUtil.animCos(limbSwing * 0.6662F), swingCalc) * 0.3333F * limbSwingAmount, 25F * Mth.DEG_TO_RAD);
+                model.lower_leg2.xRot = MathUtil.costrp(progress, -MathUtil.returnZeroWhenNegative(MathUtil.animCos((float) ((double) (limbSwing * 0.6662F) + Math.PI)), -swingCalc) * 0.333F * limbSwingAmount, 25F * Mth.DEG_TO_RAD);
                 model.toes_stepanim_leg1.xRot = MathUtil.costrp(progress, -model.lower_leg1.xRot * 0.3333F, 0F);
                 model.toes_stepanim_leg2.xRot = MathUtil.costrp(progress, -model.lower_leg2.xRot * 0.3333F, 0F);
-                model.toes_leg1.xRot = MathUtil.costrp(progress, 0F, MathUtil.degToRad(10F));
-                model.toes_leg2.xRot = MathUtil.costrp(progress, 0F, MathUtil.degToRad(10F));
-                model.back_toes_leg1.xRot = MathUtil.costrp(progress, 0F, MathUtil.degToRad(-75F));
-                model.back_toes_leg2.xRot = MathUtil.costrp(progress, 0F, MathUtil.degToRad(-75F));
+                model.toes_leg1.xRot = MathUtil.costrp(progress, 0F, 10F * Mth.DEG_TO_RAD);
+                model.toes_leg2.xRot = MathUtil.costrp(progress, 0F, 10F * Mth.DEG_TO_RAD);
+                model.back_toes_leg1.xRot = MathUtil.costrp(progress, 0F, -75F * Mth.DEG_TO_RAD);
+                model.back_toes_leg2.xRot = MathUtil.costrp(progress, 0F, -75F * Mth.DEG_TO_RAD);
             } else {
                 model.leg1.skipDraw = true;
                 model.leg2.skipDraw = true;
@@ -126,7 +127,7 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
 
 
             model.setupAnim(moa, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
-            if (Minecraft.getInstance().player != null && !moa.isInvisibleTo(Minecraft.getInstance().player)) {
+            if (Minecraft.getInstance().player == null || !moa.isInvisibleTo(Minecraft.getInstance().player)) {
                 ResourceLocation feathersLoc = getTextureLocation(moa);
                 VertexConsumer consumer = buffer.getBuffer(RenderType.entityCutoutNoCull(feathersLoc));
                 model.renderToBuffer(poseStack, consumer, packedLight, LivingEntityRenderer.getOverlayCoords(moa, 0.0F), 1.0F, 1.0F, 1.0F, 1.0F);
@@ -135,9 +136,9 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
         }
     }
 
-    @Nonnull
+    @NotNull
     @Override
-    public ResourceLocation getTextureLocation(Moa moa) {
+    public ResourceLocation getTextureLocation(@NotNull Moa moa) {
         ResourceLocation key = this.parent.getTextureLocation(moa);
         if (TRANSLATION_MAP.containsKey(key)) {
             return TRANSLATION_MAP.get(key);

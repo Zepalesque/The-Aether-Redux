@@ -204,7 +204,7 @@ public class Ember extends Projectile {
 
       double spread = velocity.length() * 2.5;
       for (int i = 0; i < Mth.floor(velocity.length() * 15); i++) {
-         float angle = MathUtil.degToRad(this.level().getRandom().nextFloat() * 360);
+         float angle = this.level().getRandom().nextFloat() * 360 * Mth.DEG_TO_RAD;
          // trigonometry, how fun
          double opp = Mth.sin(angle) * spread;
          double adj = Mth.cos(angle) * spread;

@@ -80,7 +80,7 @@ public class MimicReduxModel extends EntityModel<Mimic> {
 		float maxValue = 25F;
 		float ticks = f % maxValue;
 		float rotation;
-		float maxRot = MathUtil.degToRad(65);
+		float maxRot = 65 * Mth.DEG_TO_RAD;
 		if (ticks >= 10F)
 		{
 			rotation = ((float) Math.PI) - (maxRot - (EasingUtil.Bounce.out((ticks - 10F) / 15F) * maxRot));

@@ -80,13 +80,13 @@ public class BattleSentryReduxModel<T extends BattleSentry> extends EntityModel<
 
 			if (progress <= 0.3F)
 			{
-				this.legFR.xRot = MathUtil.costrp(1F - progressWake, MathUtil.degToRad(135F), EasingUtil.Cubic.inOut(progress / 0.3F) * MathUtil.degToRad(75F));
+				this.legFR.xRot = MathUtil.costrp(1F - progressWake, 135F * Mth.DEG_TO_RAD, EasingUtil.Cubic.inOut(progress / 0.3F) * 75F * Mth.DEG_TO_RAD);
 				this.legFL.xRot = this.legFR.xRot;
-				this.legBR.xRot = MathUtil.costrp(1F - progressWake, MathUtil.degToRad(-135F),EasingUtil.Cubic.inOut(progress / 0.3F) * MathUtil.degToRad(10F));
+				this.legBR.xRot = MathUtil.costrp(1F - progressWake, -135F * Mth.DEG_TO_RAD, EasingUtil.Cubic.inOut(progress / 0.3F) * 10F * Mth.DEG_TO_RAD);
             } else {
-				this.legFR.xRot = MathUtil.costrp(1F - progressWake, MathUtil.degToRad(135F),MathUtil.degToRad(75F) - EasingUtil.Cubic.inOut((progress - 0.3F) / 0.7F) * MathUtil.degToRad(75F));
+				this.legFR.xRot = MathUtil.costrp(1F - progressWake, 135F * Mth.DEG_TO_RAD, (75F * Mth.DEG_TO_RAD) - EasingUtil.Cubic.inOut((progress - 0.3F) / 0.7F) * (75F * Mth.DEG_TO_RAD));
 				this.legFL.xRot = this.legFR.xRot;
-				this.legBR.xRot = MathUtil.costrp(1F - progressWake, MathUtil.degToRad(-135F),MathUtil.degToRad(10F) - EasingUtil.Cubic.inOut((progress - 0.3F) / 0.7F) * MathUtil.degToRad(10F));
+				this.legBR.xRot = MathUtil.costrp(1F - progressWake, -135F * Mth.DEG_TO_RAD, (10F * Mth.DEG_TO_RAD) - EasingUtil.Cubic.inOut((progress - 0.3F) / 0.7F) * (10F * Mth.DEG_TO_RAD));
             }
             this.legBL.xRot = this.legBR.xRot;
 
