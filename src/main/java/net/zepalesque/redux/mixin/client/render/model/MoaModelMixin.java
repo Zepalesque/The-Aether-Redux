@@ -35,7 +35,7 @@ public class MoaModelMixin extends BipedBirdModelMixin<Moa> {
     }
 
     @Inject(method = "prepareMobModel(Lcom/aetherteam/aether/entity/passive/Moa;FFF)V", at = @At(value = "TAIL"), remap = false)
-    public void prepareMobModel(Moa moa, float limbSwing, float limbSwingAmount, float partialTicks, CallbackInfo ci) {
+    public void redux$moaPrepare(Moa moa, float limbSwing, float limbSwingAmount, float partialTicks, CallbackInfo ci) {
         this.useNewModel = MoaUtils.useNewModel(moa);
         this.renderLegs = ((!moa.isSitting() || (!moa.isEntityOnGround() && moa.isSitting())) && (!useNewModel || ReduxConfig.CLIENT.moa_model_type.get() == MoaModelType.refreshed));
         if (ReduxConfig.CLIENT.moa_model_type.get() == MoaModelType.refreshed) {

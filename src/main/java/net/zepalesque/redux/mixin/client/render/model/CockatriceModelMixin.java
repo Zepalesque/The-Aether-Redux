@@ -36,7 +36,7 @@ public class CockatriceModelMixin extends BipedBirdModelMixin<Cockatrice> {
 
 
     @Override
-    public void prepareMobModel(Cockatrice cockatrice, float limbSwing, float limbSwingAmount, float partialTicks, CallbackInfo ci) {
+    public void redux$prepareMobModel(Cockatrice cockatrice, float limbSwing, float limbSwingAmount, float partialTicks, CallbackInfo ci) {
         if (ReduxConfig.CLIENT.cockatrice_model_type.get() == CockatriceModelType.refreshed) {
             float progress = cockatrice.isEntityOnGround() ? 0 : 1;
             float swingCalc = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
