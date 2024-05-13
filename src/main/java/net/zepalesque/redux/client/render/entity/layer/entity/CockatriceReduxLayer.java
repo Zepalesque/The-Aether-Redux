@@ -76,8 +76,7 @@ public class CockatriceReduxLayer extends RenderLayer<Cockatrice, CockatriceMode
             } else {
                 model.leg1.skipDraw = true;
                 model.leg2.skipDraw = true;
-                this.getParentModel().rightLeg.xRot = MathUtil.costrp(progress, swingCalc, 0.6F);
-                this.getParentModel().leftLeg.xRot = MathUtil.costrp(progress, -swingCalc, 0.6F);
+
             }
 
 

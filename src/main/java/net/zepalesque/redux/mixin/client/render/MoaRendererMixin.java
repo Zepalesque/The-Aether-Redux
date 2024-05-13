@@ -6,6 +6,7 @@ import com.aetherteam.aether.entity.passive.Moa;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.util.Mth;
+import net.zepalesque.redux.capability.animation.moa.MoaAnimation;
 import net.zepalesque.redux.client.render.util.MoaUtils;
 import net.zepalesque.redux.util.math.MathUtil;
 import org.spongepowered.asm.mixin.Mixin;
@@ -37,6 +38,8 @@ public class MoaRendererMixin extends MobRendererMixin<Moa, MoaModel> {
             this.model.body.xRot = (float) (Math.PI * 0.5F);
 
         }
+
+
         super.renderMob(moa, entityYaw, partialTicks, poseStack, buffer, packedLight, ci);
     }
 }

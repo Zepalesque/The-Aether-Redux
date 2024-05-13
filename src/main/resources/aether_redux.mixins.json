@@ -43,10 +43,10 @@
     "defaultRequire": 1
   },
   "client": [
+    "client.audio.GoTVMusicMixin",
     "client.audio.MusicManagerAccessor",
     "client.audio.SentryClientMixin",
     "client.audio.SoundEngineAccessor",
-    "client.audio.GoTVMusicMixin",
     "client.block.AetherColorResolversMixin",
     "client.block.AetherLeavesClientMixin",
     "client.block.LeafBlockClientMixin",
@@ -74,7 +74,9 @@
     "client.render.layer.MoaSaddleEmissiveLayerMixin",
     "client.render.layer.MoaSaddleLayerMixin",
     "client.render.layer.SentryGlowLayerMixin",
+    "client.render.model.BipedBirdModelMixin",
     "client.render.model.CockatriceModelMixin",
+    "client.render.model.EntityModelMixin",
     "client.render.model.FlyingCowModelMixin",
     "client.render.model.MoaModelMixin",
     "client.render.model.QuadrupedModelMixin",

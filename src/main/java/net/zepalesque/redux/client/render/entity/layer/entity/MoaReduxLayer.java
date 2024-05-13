@@ -97,7 +97,7 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
             float swingCalc = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
 
             if (MoaAnimation.get(moa).isPresent()) {
-                MoaAnimation moaAnimation = MoaAnimation.get(moa).orElseThrow(() -> new IllegalStateException("Could not find CockatriceExtension capability!"));
+                MoaAnimation moaAnimation = MoaAnimation.get(moa).orElseThrow(() -> new IllegalStateException("Could not find MoaAnimation capability!"));
                 progress = Mth.lerp(partialTicks, moaAnimation.getPrevLegAnim(), moaAnimation.getLegAnim()) * 0.2F;
             }
 
