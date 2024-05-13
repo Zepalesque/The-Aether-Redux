@@ -173,7 +173,7 @@ dependencies {
         jarJar.ranged(it, "[${project.terrablender_version},)")
         jarJar.pin(it, "${project.terrablender_version}")
     }
-    
+
     jarJar fg.deobf("curse.maven:geckolib-388172:${project.geckolib_version}") {
         jarJar.ranged(it, "[${project.geckolib_version},)")
         jarJar.pin(it, "${project.geckolib_version}")

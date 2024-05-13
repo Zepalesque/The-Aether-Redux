@@ -3,6 +3,7 @@ package net.zepalesque.redux.client.render.entity.model.entity;
 import com.aetherteam.aether_genesis.entity.monster.BattleSentry;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
@@ -60,12 +61,13 @@ public class BattleSentryReduxModel<T extends BattleSentry> extends EntityModel<
 
 		BattleSentryAnimation.get(entity).ifPresent((anim) -> {
 
+			float partial = Minecraft.getInstance().getPartialTick();
 			// Number from 0 to 5 for current anim state
 			int wake = anim.getWakeAnim();
 			// Previous tick anim state
 			int prevWake = anim.getPrevWakeAnim();
 			// Interpolates the value between the above two by using the current partialTicks (based on the ageInTicks param)
-			float trueWake = Mth.lerp(ageInTicks % 1, prevWake, wake);
+			float trueWake = Mth.lerp(partial, prevWake, wake);
 			// Inverts the 0-to-5 value by subtracting it from five, then divides *that* by five to get a value from 0 to 1
 			float progressWake = (5 - trueWake) / 5;
 
@@ -75,7 +77,7 @@ public class BattleSentryReduxModel<T extends BattleSentry> extends EntityModel<
 
 			int jump = anim.getJumpAnim();
 			int prevJump = jump > 1 && anim.getPrevJumpAnim() == 0 ? 10 : anim.getPrevJumpAnim();
-			float trueJump = Mth.lerp(ageInTicks % 1, prevJump, jump);
+			float trueJump = Mth.lerp(partial, prevJump, jump);
 			float progress = (10 - trueJump) / 10;
 
 			if (progress <= 0.3F)

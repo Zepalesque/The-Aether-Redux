@@ -6,6 +6,7 @@ import com.aetherteam.aether.entity.monster.Cockatrice;
 import com.aetherteam.aether.entity.passive.Moa;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.util.Mth;
 import net.zepalesque.redux.capability.animation.moa.MoaAnimation;
@@ -32,7 +33,7 @@ public class CockatriceModelMixin extends BipedBirdModelMixin<Cockatrice> {
         if (this.useNewModel) {
             this.jaw.xRot = 0.10F;
         }
-        float partial = ageInTicks % 1;
+        float partial = Minecraft.getInstance().getPartialTick();
         if (ReduxConfig.CLIENT.cockatrice_model_type.get() == CockatriceModelType.refreshed) {
             float progress = cockatrice.isEntityOnGround() ? 0 : 1;
             float swingCalc = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;

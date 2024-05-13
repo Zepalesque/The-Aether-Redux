@@ -5,6 +5,7 @@ import com.aetherteam.aether.client.renderer.entity.model.MoaModel;
 import com.aetherteam.aether.entity.passive.Moa;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.util.Mth;
 import net.zepalesque.redux.capability.animation.moa.MoaAnimation;
@@ -32,7 +33,7 @@ public class MoaModelMixin extends BipedBirdModelMixin<Moa> {
         if (this.useNewModel && !moa.isSitting()) {
             this.jaw.xRot = 0.15F;
         }
-        float partial = ageInTicks % 1;
+        float partial = Minecraft.getInstance().getPartialTick();
         if (ReduxConfig.CLIENT.moa_model_type.get() == MoaModelType.refreshed) {
             float progress = moa.isEntityOnGround() ? 0 : 1;
             float swingCalc = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;

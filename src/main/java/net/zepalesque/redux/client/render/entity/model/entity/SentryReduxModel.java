@@ -4,6 +4,7 @@ package net.zepalesque.redux.client.render.entity.model.entity;
 import com.aetherteam.aether.entity.monster.dungeon.Sentry;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
@@ -45,11 +46,13 @@ public class SentryReduxModel<T extends Sentry> extends EntityModel<T> {
 	@Override
 	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 
+		float partial = Minecraft.getInstance().getPartialTick();
+
 		SentryAnimation.get(entity).ifPresent((anim) -> {
 
 			int jump = anim.getJumpAnim();
 			int prevJump = jump > 1 && anim.getPrevJumpAnim() == 0 ? 10 : anim.getPrevJumpAnim();
-			float trueJump = Mth.lerp(ageInTicks % 1, prevJump, jump);
+			float trueJump = Mth.lerp(partial, prevJump, jump);
 			float progress = (10 - trueJump) / 10;
 			if (progress <= 0.83F)
 			{
