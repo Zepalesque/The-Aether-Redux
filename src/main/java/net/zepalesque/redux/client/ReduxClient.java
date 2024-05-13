@@ -13,6 +13,9 @@ import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.item.accessory.VampireAmuletItem;
 import net.zepalesque.redux.item.weapons.SubzeroCrossbowItem;
+import software.bernie.geckolib.core.molang.LazyVariable;
+import software.bernie.geckolib.core.molang.MolangParser;
+import software.bernie.shadowed.eliotlash.mclib.math.Variable;
 
 import java.util.Optional;
 
@@ -22,6 +25,18 @@ import java.util.Optional;
         bus = Mod.EventBusSubscriber.Bus.MOD
 )
 public class ReduxClient {
+
+    // GeckoLib Molang variables
+    public static final String LIMB_MOVEMENT = "query.limb_movement";
+
+    public static final String HEAD_X_ROT = "query.head_x_rotation";
+    public static final String HEAD_Y_ROT = "query.head_y_rotation";
+
+    public static void registerMolangQueries() {
+        MolangParser.INSTANCE.register(new LazyVariable(LIMB_MOVEMENT, 0));
+        MolangParser.INSTANCE.register(new LazyVariable(HEAD_X_ROT, 0));
+        MolangParser.INSTANCE.register(new LazyVariable(HEAD_Y_ROT, 0));
+    }
 
 
     public static void registerItemModelProperties() {

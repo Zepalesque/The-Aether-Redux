@@ -179,8 +179,10 @@ public class Redux {
         ReduxAdvancementSounds.SOUNDS.register(bus);
         ReduxBlocks.registerWoodTypes();
         ReduxBlocks.registerPots();
+        // Side-dependent stuff
         DistExecutor.unsafeRunForDist(() -> () -> {
             ReduxMenus.MENUS.register(bus);
+            ReduxClient.registerMolangQueries();
             return true;
         }, () -> () -> false);
         MinecraftForge.EVENT_BUS.register(this);

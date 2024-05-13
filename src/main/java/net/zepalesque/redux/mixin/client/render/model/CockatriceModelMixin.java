@@ -27,16 +27,12 @@ public class CockatriceModelMixin extends BipedBirdModelMixin<Cockatrice> {
     @Unique private boolean useNewModel;
 
     @Inject(method = "setupAnim(Lcom/aetherteam/aether/entity/monster/Cockatrice;FFFFF)V", at = @At(value = "TAIL"), remap = false)
-    public void setupAnim(Cockatrice moa, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, CallbackInfo ci) {
+    public void setupAnim(Cockatrice cockatrice, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, CallbackInfo ci) {
         this.useNewModel = ReduxConfig.CLIENT.cockatrice_model_upgrade.get();
         if (this.useNewModel) {
             this.jaw.xRot = 0.10F;
         }
-    }
-
-
-    @Override
-    public void redux$prepareMobModel(Cockatrice cockatrice, float limbSwing, float limbSwingAmount, float partialTicks, CallbackInfo ci) {
+        float partial = ageInTicks % 1;
         if (ReduxConfig.CLIENT.cockatrice_model_type.get() == CockatriceModelType.refreshed) {
             float progress = cockatrice.isEntityOnGround() ? 0 : 1;
             float swingCalc = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
@@ -44,12 +40,13 @@ public class CockatriceModelMixin extends BipedBirdModelMixin<Cockatrice> {
 
             if (CockatriceExtension.get(cockatrice).isPresent()) {
                 CockatriceExtension cockatriceAnim = CockatriceExtension.get(cockatrice).orElseThrow(() -> new IllegalStateException("Could not find CockatriceExtension capability!"));
-                progress = Mth.lerp(partialTicks, cockatriceAnim.getPrevLegAnim(), cockatriceAnim.getLegAnim()) * 0.2F;
+                progress = Mth.lerp(partial, cockatriceAnim.getPrevLegAnim(), cockatriceAnim.getLegAnim()) * 0.2F;
             }
             this.rightLeg.xRot = MathUtil.costrp(progress, swingCalc, 0.6F);
             this.leftLeg.xRot = MathUtil.costrp(progress, -swingCalc, 0.6F);
         }
     }
+
 
     @Inject(method = "renderToBuffer", at = @At(value = "HEAD"), cancellable = true)
     public void renderToBuffer(PoseStack poseStack, VertexConsumer consumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha, CallbackInfo ci) {

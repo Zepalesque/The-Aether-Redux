@@ -13,11 +13,11 @@ import net.zepalesque.redux.entity.passive.Mykapod;
 import org.joml.Vector3f;
 import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.model.GeoModel;
-import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
-public class MykapodRenderer extends GeoEntityRenderer<Mykapod> {
+// TODO: Redo Mykapod Geckolib stuff
+public class MykapodRenderer extends ReduxGeoBase.Renderer<Mykapod> {
     public MykapodRenderer(EntityRendererProvider.Context renderManager) {
-        super(renderManager, new MykapodModel());
+        super(renderManager, new MykapodModel(), 0.125F);
     }
 
     @Override

@@ -32,24 +32,25 @@ public class MoaModelMixin extends BipedBirdModelMixin<Moa> {
         if (this.useNewModel && !moa.isSitting()) {
             this.jaw.xRot = 0.15F;
         }
-    }
-
-    @Inject(method = "prepareMobModel(Lcom/aetherteam/aether/entity/passive/Moa;FFF)V", at = @At(value = "TAIL"), remap = false)
-    public void redux$moaPrepare(Moa moa, float limbSwing, float limbSwingAmount, float partialTicks, CallbackInfo ci) {
-        this.useNewModel = MoaUtils.useNewModel(moa);
-        this.renderLegs = ((!moa.isSitting() || (!moa.isEntityOnGround() && moa.isSitting())) && (!useNewModel || ReduxConfig.CLIENT.moa_model_type.get() == MoaModelType.refreshed));
+        float partial = ageInTicks % 1;
         if (ReduxConfig.CLIENT.moa_model_type.get() == MoaModelType.refreshed) {
             float progress = moa.isEntityOnGround() ? 0 : 1;
             float swingCalc = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
 
             if (MoaAnimation.get(moa).isPresent()) {
                 MoaAnimation moaAnimation = MoaAnimation.get(moa).orElseThrow(() -> new IllegalStateException("Could not find MoaAnimation capability!"));
-                progress = Mth.lerp(partialTicks, moaAnimation.getPrevLegAnim(), moaAnimation.getLegAnim()) * 0.2F;
+                progress = Mth.lerp(partial, moaAnimation.getPrevLegAnim(), moaAnimation.getLegAnim()) * 0.2F;
             }
 
             this.rightLeg.xRot = MathUtil.costrp(progress, swingCalc, 0.6F);
             this.leftLeg.xRot = MathUtil.costrp(progress, -swingCalc, 0.6F);
         }
+    }
+
+    @Inject(method = "prepareMobModel(Lcom/aetherteam/aether/entity/passive/Moa;FFF)V", at = @At(value = "TAIL"), remap = false)
+    public void redux$moaPrepare(Moa moa, float limbSwing, float limbSwingAmount, float partialTicks, CallbackInfo ci) {
+        this.useNewModel = MoaUtils.useNewModel(moa);
+        this.renderLegs = ((!moa.isSitting() || (!moa.isEntityOnGround() && moa.isSitting())) && (!useNewModel || ReduxConfig.CLIENT.moa_model_type.get() == MoaModelType.refreshed));
 
     }
 
