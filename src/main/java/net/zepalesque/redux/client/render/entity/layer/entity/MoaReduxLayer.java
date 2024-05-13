@@ -92,24 +92,25 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
             model.feathers_2_wing2.xRot = model.feathers_2_wing1.xRot;
             model.feathers_1_wing2.xRot = model.feathers_1_wing1.xRot;
 
+            float progress = moa.isEntityOnGround() ? 0 : 1;
+            float swingCalc = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+
+            if (MoaAnimation.get(moa).isPresent()) {
+                MoaAnimation moaAnimation = MoaAnimation.get(moa).orElseThrow(() -> new IllegalStateException("Could not find CockatriceExtension capability!"));
+                progress = Mth.lerp(partialTicks, moaAnimation.getPrevLegAnim(), moaAnimation.getLegAnim()) * 0.2F;
+            }
 
             if ((!moa.isSitting() || (!moa.isEntityOnGround() && moa.isSitting())) && !useOriginalLegs) {
                 model.leg1.skipDraw = false;
                 model.leg2.skipDraw = false;
-                float progress = moa.isEntityOnGround() ? 0 : 1;
 
-                if (MoaAnimation.get(moa).isPresent()) {
-                    MoaAnimation moaAnimation = MoaAnimation.get(moa).orElse(null);
-                    if (moaAnimation != null)
-                        progress = Mth.lerp(partialTicks, moaAnimation.getPrevLegAnim(), moaAnimation.getLegAnim()) * 0.2F;
-                }
-                float left = Mth.cos((float) ((double) (limbSwing * 0.6662F) + Math.PI)) * 1.4F * limbSwingAmount;
-                float right = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+//                float left = Mth.cos((float) ((double) (limbSwing * 0.6662F) + Math.PI)) * 1.4F * limbSwingAmount;
+//                float right = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
 
-                model.leg1.xRot = MathUtil.costrp(progress, left * 0.8F, MathUtil.degToRad(15F));
-                model.leg2.xRot = MathUtil.costrp(progress, right * 0.8F, MathUtil.degToRad(15F));
-                model.lower_leg1.xRot = MathUtil.costrp(progress, -MathUtil.returnZeroWhenNegative(MathUtil.animCos(limbSwing * 0.6662F), -left) * 0.3333F * limbSwingAmount, MathUtil.degToRad(25F));
-                model.lower_leg2.xRot = MathUtil.costrp(progress, -MathUtil.returnZeroWhenNegative(MathUtil.animCos((float) ((double) (limbSwing * 0.6662F) + Math.PI)), -right) * 0.333F * limbSwingAmount, MathUtil.degToRad(25F));
+                model.leg1.xRot = MathUtil.costrp(progress, -swingCalc * 0.8F, MathUtil.degToRad(15F));
+                model.leg2.xRot = MathUtil.costrp(progress, swingCalc * 0.8F, MathUtil.degToRad(15F));
+                model.lower_leg1.xRot = MathUtil.costrp(progress, -MathUtil.returnZeroWhenNegative(MathUtil.animCos(limbSwing * 0.6662F), swingCalc) * 0.3333F * limbSwingAmount, MathUtil.degToRad(25F));
+                model.lower_leg2.xRot = MathUtil.costrp(progress, -MathUtil.returnZeroWhenNegative(MathUtil.animCos((float) ((double) (limbSwing * 0.6662F) + Math.PI)), -swingCalc) * 0.333F * limbSwingAmount, MathUtil.degToRad(25F));
                 model.toes_stepanim_leg1.xRot = MathUtil.costrp(progress, -model.lower_leg1.xRot * 0.3333F, 0F);
                 model.toes_stepanim_leg2.xRot = MathUtil.costrp(progress, -model.lower_leg2.xRot * 0.3333F, 0F);
                 model.toes_leg1.xRot = MathUtil.costrp(progress, 0F, MathUtil.degToRad(10F));
@@ -119,6 +120,8 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
             } else {
                 model.leg1.skipDraw = true;
                 model.leg2.skipDraw = true;
+                this.getParentModel().rightLeg.xRot = MathUtil.costrp(progress, swingCalc, 0.6F);
+                this.getParentModel().leftLeg.xRot = MathUtil.costrp(progress, -swingCalc, 0.6F);
             }
 
 

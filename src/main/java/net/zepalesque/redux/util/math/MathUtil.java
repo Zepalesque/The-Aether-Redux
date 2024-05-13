@@ -39,11 +39,14 @@ public class MathUtil {
         return (floored % 2) == 0 ? floored : floored + 1;
     }
 
-
+    // Deprecated, use Mth.DEG_TO_RAD instead
+    @Deprecated
     public static float degToRad(float deg) {
         return deg * Mth.DEG_TO_RAD;
     }
 
+    // Deprecated, use Mth.RAD_TO_DEG instead
+    @Deprecated
     public static float radToDeg(float rad) {
         return rad * Mth.RAD_TO_DEG;
     }

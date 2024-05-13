@@ -51,26 +51,25 @@ public class CockatriceReduxLayer extends RenderLayer<Cockatrice, CockatriceMode
             float progress = cockatrice.isEntityOnGround() ? 0 : 1;
             float progressAttack = 0F;
             float progressAttackAlways = 0F;
+            float swingCalc = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
 
-            if (CockatriceExtension.get(cockatrice).isPresent())
-            {
-                CockatriceExtension cockatriceAnim = CockatriceExtension.get(cockatrice).orElse(null);
-                if (cockatriceAnim != null) {
-                    progress = Mth.lerp(partialTicks, cockatriceAnim.getPrevLegAnim(), cockatriceAnim.getLegAnim()) * 0.2F;
-                    progressAttack = (1F - progress) * Mth.lerp(partialTicks, cockatriceAnim.getPrevTargetAnim(), cockatriceAnim.getTargetAnim()) * 0.1F;
-                    progressAttackAlways = Mth.lerp(partialTicks, cockatriceAnim.getPrevTargetAnim(), cockatriceAnim.getTargetAnim()) * 0.1F;
-                }
+
+            if (CockatriceExtension.get(cockatrice).isPresent()) {
+                CockatriceExtension cockatriceAnim = CockatriceExtension.get(cockatrice).orElseThrow(() -> new IllegalStateException("Could not find CockatriceExtension capability!"));
+                progress = Mth.lerp(partialTicks, cockatriceAnim.getPrevLegAnim(), cockatriceAnim.getLegAnim()) * 0.2F;
+                progressAttack = (1F - progress) * Mth.lerp(partialTicks, cockatriceAnim.getPrevTargetAnim(), cockatriceAnim.getTargetAnim()) * 0.1F;
+                progressAttackAlways = Mth.lerp(partialTicks, cockatriceAnim.getPrevTargetAnim(), cockatriceAnim.getTargetAnim()) * 0.1F;
             }
             if (ReduxConfig.CLIENT.cockatrice_model_type.get() != CockatriceModelType.refreshed) {
                 model.leg1.skipDraw = false;
                 model.leg2.skipDraw = false;
-                float left = Mth.cos((float) ((double) (limbSwing * 0.6662F) + Math.PI)) * 1.4F * limbSwingAmount;
-                float right = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+//                float left = Mth.cos((float) ((double) (limbSwing * 0.6662F) + Math.PI)) * 1.4F * limbSwingAmount;
+//                float right = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
 
-                model.leg1.xRot = MathUtil.costrp(progress, left * 0.8F, MathUtil.degToRad(15F));
-                model.leg2.xRot = MathUtil.costrp(progress, right * 0.8F, MathUtil.degToRad(15F));
-                model.lower_leg1.xRot = MathUtil.costrp(progress, -MathUtil.returnZeroWhenNegative(MathUtil.animCos(limbSwing * 0.6662F), -left) * 0.3333F * limbSwingAmount, MathUtil.degToRad(25F));
-                model.lower_leg2.xRot = MathUtil.costrp(progress, -MathUtil.returnZeroWhenNegative(MathUtil.animCos((float) ((double) (limbSwing * 0.6662F) + Math.PI)), -right) * 0.333F * limbSwingAmount, MathUtil.degToRad(25F));
+                model.leg1.xRot = MathUtil.costrp(progress, -swingCalc * 0.8F, MathUtil.degToRad(15F));
+                model.leg2.xRot = MathUtil.costrp(progress, swingCalc * 0.8F, MathUtil.degToRad(15F));
+                model.lower_leg1.xRot = MathUtil.costrp(progress, -MathUtil.returnZeroWhenNegative(MathUtil.animCos(limbSwing * 0.6662F), swingCalc) * 0.3333F * limbSwingAmount, MathUtil.degToRad(25F));
+                model.lower_leg2.xRot = MathUtil.costrp(progress, -MathUtil.returnZeroWhenNegative(MathUtil.animCos((float) ((double) (limbSwing * 0.6662F) + Math.PI)), -swingCalc) * 0.333F * limbSwingAmount, MathUtil.degToRad(25F));
                 model.toes_stepanim_leg1.xRot = MathUtil.costrp(progress, -model.lower_leg1.xRot * 0.3333F, 0F);
                 model.toes_stepanim_leg2.xRot = MathUtil.costrp(progress, -model.lower_leg2.xRot * 0.3333F, 0F);
                 model.toes_leg1.xRot = MathUtil.costrp(progress, 0F, MathUtil.degToRad(10F));
@@ -80,6 +79,8 @@ public class CockatriceReduxLayer extends RenderLayer<Cockatrice, CockatriceMode
             } else {
                 model.leg1.skipDraw = true;
                 model.leg2.skipDraw = true;
+                this.getParentModel().rightLeg.xRot = MathUtil.costrp(progress, swingCalc, 0.6F);
+                this.getParentModel().leftLeg.xRot = MathUtil.costrp(progress, -swingCalc, 0.6F);
             }
 
 
