@@ -544,9 +544,6 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
         pot.addPlant(ReduxBlocks.PURPLE_CRYSTAL_FRUIT_SAPLING.getId(), ReduxBlocks.POTTED_PURPLE_CRYSTAL_FRUIT_SAPLING);
         pot.addPlant(ReduxBlocks.SHIMMERSTOOL.getId(), ReduxBlocks.POTTED_SHIMMERSTOOL);
         pot.addPlant(ReduxBlocks.FIELDSPROOT_SAPLING.getId(), ReduxBlocks.POTTED_FIELDSPROOT_SAPLING);
-        pot.addPlant(ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING.getId(), ReduxBlocks.POTTED_PRISMATIC_FIELDSPROOT_SAPLING);
-        pot.addPlant(ReduxBlocks.AZURE_FIELDSPROOT_SAPLING.getId(), ReduxBlocks.POTTED_AZURE_FIELDSPROOT_SAPLING);
-        pot.addPlant(ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING.getId(), ReduxBlocks.POTTED_SPECTRAL_FIELDSPROOT_SAPLING);
         pot.addPlant(ReduxBlocks.FLAREBLOSSOM.getId(), ReduxBlocks.POTTED_FLAREBLOSSOM);
         pot.addPlant(ReduxBlocks.INFERNIA.getId(), ReduxBlocks.POTTED_INFERNIA);
     }

@@ -265,6 +265,10 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.BLIGHTMOSS_HOLYSTONE_STAIRS.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get())
                 .save(consumer, Redux.locate("blightmoss_holystone_stairs_stonecutting"));
 
+        leafPile(consumer, ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get(), ReduxBlocks.BLIGHTWILLOW_LEAVES.get());
+        leafPile(consumer, ReduxBlocks.GILDED_LEAF_PILE.get(), ReduxBlocks.GILDED_OAK_LEAVES.get());
+        leafPile(consumer, ReduxBlocks.GOLDEN_LEAF_PILE.get(), AetherBlocks.GOLDEN_OAK_LEAVES.get());
+
         // Gummy Swet recipes
         ConditionalRecipe.builder().addCondition(
                         dc(Conditions.GUMMY_NERF)
@@ -573,8 +577,13 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
       infusionStacking(infused.get(), infused.get(), 8).save(consumer, Redux.locate("infuse_and_charge_" + infused.getId().getPath()));
   }
 
+    protected static void leafPile(Consumer<FinishedRecipe> finishedRecipeConsumer, ItemLike carpet, ItemLike material) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, carpet, 6).define('#', material).pattern("##").unlockedBy(getHasName(material), has(material)).save(finishedRecipeConsumer);
+    }
 
-  protected static StackingRecipeBuilder infusionStacking(Item result, ItemLike ingredient) {
+
+
+    protected static StackingRecipeBuilder infusionStacking(Item result, ItemLike ingredient) {
       return infusionStacking(result, ingredient, 0);
   }
 
