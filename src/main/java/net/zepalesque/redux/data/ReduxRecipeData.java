@@ -243,8 +243,8 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
         enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.ENCHANTED_SHELL_SHINGLE_SLAB.get(), ReduxBlocks.SHELL_SHINGLE_SLAB.get(), 0F, 150);
 
 
-        carpet(consumer, ReduxBlocks.BLIGHTMOSS_CARPET.get(), ReduxBlocks.BLIGHTMOSS_BLOCK.get());
-        carpet(consumer, ReduxBlocks.FUNGAL_CARPET.get(), ReduxBlocks.FUNGAL_GROWTH.get());
+        mossCarpet(consumer, ReduxBlocks.BLIGHTMOSS_CARPET.get(), ReduxBlocks.BLIGHTMOSS_BLOCK.get());
+        mossCarpet(consumer, ReduxBlocks.FUNGAL_CARPET.get(), ReduxBlocks.FUNGAL_GROWTH.get());
 
         stairs(ReduxBlocks.GILDED_HOLYSTONE_STAIRS, ReduxBlocks.GILDED_HOLYSTONE).save(consumer);
         slab(consumer, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.GILDED_HOLYSTONE_SLAB.get(), ReduxBlocks.GILDED_HOLYSTONE.get());
@@ -560,48 +560,50 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
         return Redux.locate(name);
     }
 
-  protected static BlockStateRecipeBuilder sporeBlighting(Block result, Block ingredient) {
-      return BlockStateRecipeBuilder.recipe(BlockStateIngredient.of(ingredient), result, ReduxRecipeSerializers.SPORE_BLIGHTING.get());
-  }
+    protected static BlockStateRecipeBuilder sporeBlighting(Block result, Block ingredient) {
+        return BlockStateRecipeBuilder.recipe(BlockStateIngredient.of(ingredient), result, ReduxRecipeSerializers.SPORE_BLIGHTING.get());
+    }
 
-  protected static void infusionStacking(Consumer<FinishedRecipe> consumer, RegistryObject<? extends Item> result, RegistryObject<? extends Item> ingredient) {
-      infusionStacking(result.get(), ingredient.get()).save(consumer, Redux.locate("infuse_" + ingredient.getId().getPath()));
-  }
+    protected static void infusionStacking(Consumer<FinishedRecipe> consumer, RegistryObject<? extends Item> result, RegistryObject<? extends Item> ingredient) {
+        infusionStacking(result.get(), ingredient.get()).save(consumer, Redux.locate("infuse_" + ingredient.getId().getPath()));
+    }
 
-  protected static void infusionStacking(Consumer<FinishedRecipe> consumer, RegistryObject<? extends Item> result, RegistryObject<? extends Item> ingredient, int infusionAmount) {
-      infusionStacking(result.get(), ingredient.get(), infusionAmount).save(consumer, Redux.locate("infuse_and_charge_" + ingredient.getId().getPath()));
-  }
+    protected static void infusionStacking(Consumer<FinishedRecipe> consumer, RegistryObject<? extends Item> result, RegistryObject<? extends Item> ingredient, int infusionAmount) {
+        infusionStacking(result.get(), ingredient.get(), infusionAmount).save(consumer, Redux.locate("infuse_and_charge_" + ingredient.getId().getPath()));
+    }
 
-  protected static void infusionCharge(Consumer<FinishedRecipe> consumer, RegistryObject<? extends Item> uninfused, RegistryObject<? extends Item> infused) {
-      infusionStacking(infused.get(), uninfused.get(), 8).save(consumer, Redux.locate("infuse_and_charge_" + uninfused.getId().getPath()));
-      infusionStacking(infused.get(), infused.get(), 8).save(consumer, Redux.locate("infuse_and_charge_" + infused.getId().getPath()));
-  }
+    protected static void infusionCharge(Consumer<FinishedRecipe> consumer, RegistryObject<? extends Item> uninfused, RegistryObject<? extends Item> infused) {
+        infusionStacking(infused.get(), uninfused.get(), 8).save(consumer, Redux.locate("infuse_and_charge_" + uninfused.getId().getPath()));
+        infusionStacking(infused.get(), infused.get(), 8).save(consumer, Redux.locate("infuse_and_charge_" + infused.getId().getPath()));
+    }
 
-    protected static void leafPile(Consumer<FinishedRecipe> finishedRecipeConsumer, ItemLike carpet, ItemLike material) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, carpet, 6).define('#', material).pattern("##").unlockedBy(getHasName(material), has(material)).save(finishedRecipeConsumer);
+
+    protected static void leafPile(Consumer<FinishedRecipe> finishedRecipeConsumer, ItemLike carpet, ItemLike material) {ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, carpet, 6).define('#', material).pattern("##").unlockedBy(getHasName(material), has(material)).save(finishedRecipeConsumer);
+    }
+    protected static void mossCarpet(Consumer<FinishedRecipe> finishedRecipeConsumer, ItemLike carpet, ItemLike material) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, carpet, 3).define('#', material).pattern("##").unlockedBy(getHasName(material), has(material)).save(finishedRecipeConsumer);
     }
 
 
 
     protected static StackingRecipeBuilder infusionStacking(Item result, ItemLike ingredient) {
-      return infusionStacking(result, ingredient, 0);
-  }
+        return infusionStacking(result, ingredient, 0);
+    }
 
-  protected static StackingRecipeBuilder infusionStacking(Item result, ItemLike ingredient, int infusionAmount) {
-      return StackingRecipeBuilder.recipe(Ingredient.of(ingredient), result, infusionAmount, ReduxRecipeSerializers.INFUSION.get());
-  }
+    protected static StackingRecipeBuilder infusionStacking(Item result, ItemLike ingredient, int infusionAmount) {
+        return StackingRecipeBuilder.recipe(Ingredient.of(ingredient), result, infusionAmount, ReduxRecipeSerializers.INFUSION.get());
+    }
 
-  public ICondition dc(AbstractCondition<?> condition) {
+    public ICondition dc(AbstractCondition<?> condition) {
 
-      return new DataRecipeCondition(condition);
-  }
+        return new DataRecipeCondition(condition);
+    }
 
     public ConditionalAdvancement.Builder dataConditionAdvancement(AbstractCondition<?> condition, ResourceLocation id, ItemLike... ingredients) {
         ConditionalAdvancement.Builder builder = ConditionalAdvancement.builder()
                 .addCondition(dc(condition));
         Advancement.Builder advBuilder = Advancement.Builder.advancement();
-        for (ItemLike item : ingredients) {
-        advBuilder.addCriterion("has_" + ForgeRegistries.ITEMS.getKey(item.asItem()).getPath(), has(item.asItem()));
+        for (ItemLike item : ingredients) {advBuilder.addCriterion("has_" + ForgeRegistries.ITEMS.getKey(item.asItem()).getPath(), has(item.asItem()));
         }
 
         advBuilder.addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(id))
@@ -726,12 +728,4 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
     static ResourceLocation getDefaultRecipeId(ItemLike pItemLike) {
         return BuiltInRegistries.ITEM.getKey(pItemLike.asItem());
     }
-
-
-
-
-
-
-
-
 }
