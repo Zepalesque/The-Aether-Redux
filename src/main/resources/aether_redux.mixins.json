@@ -43,7 +43,6 @@
     "defaultRequire": 1
   },
   "client": [
-    "client.audio.GoTVMusicMixin",
     "client.audio.MusicManagerAccessor",
     "client.audio.SentryClientMixin",
     "client.audio.SoundEngineAccessor",
