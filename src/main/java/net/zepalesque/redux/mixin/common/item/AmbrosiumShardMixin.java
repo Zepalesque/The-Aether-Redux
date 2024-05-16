@@ -25,23 +25,25 @@ public abstract class AmbrosiumShardMixin extends ItemMixin {
 
         Level level = player.level();
 
-        for (InfusionRecipe recipe : level.getRecipeManager().getAllRecipesFor(ReduxRecipeTypes.INFUSION.get())) {
-            if (recipe != null) {
-                if (recipe.matches(level, other)) {
-                    ItemStack newStack = recipe.getResultStack(other);
-                    if (newStack != null) {
-                        ReduxPacketHandler.sendToServer(new InfuseItemPacket(player.getUUID(), new InfusionHolder(other, newStack)));
-                        if (other.getCount() <= 1) {
-                            slot.set(newStack);
-                        } else {
-                            other.shrink(1);
-                            newStack.setCount(1);
-                            player.getInventory().add(newStack);
+        if (level.isClientSide()) {
+            for (InfusionRecipe recipe : level.getRecipeManager().getAllRecipesFor(ReduxRecipeTypes.INFUSION.get())) {
+                if (recipe != null) {
+                    if (recipe.matches(level, other)) {
+                        ItemStack newStack = recipe.getResultStack(other);
+                        if (newStack != null) {
+                            ReduxPacketHandler.sendToServer(new InfuseItemPacket(player.getUUID(), new InfusionHolder(other, newStack)));
+                            if (other.getCount() <= 1) {
+                                slot.set(newStack);
+                            } else {
+                                other.shrink(1);
+                                newStack.setCount(1);
+                                player.getInventory().add(newStack);
+                            }
+                            stack.shrink(1);
+                            slot.setChanged();
+                            player.playSound(ReduxSoundEvents.INFUSE_ITEM.get(), 0.8F, 0.8F + player.level().getRandom().nextFloat() * 0.4F);
+                            cir.setReturnValue(true);
                         }
-                        stack.shrink(1);
-                        slot.setChanged();
-                        player.playSound(ReduxSoundEvents.INFUSE_ITEM.get(), 0.8F, 0.8F + player.level().getRandom().nextFloat() * 0.4F);
-                        cir.setReturnValue(true);
                     }
                 }
             }
