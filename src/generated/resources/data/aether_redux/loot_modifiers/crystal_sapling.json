@@ -18,7 +18,7 @@
     {
       "condition": "minecraft:inverted",
       "term": {
-        "condition": "minecraft:alternatives",
+        "condition": "minecraft:alternative",
         "terms": [
           {
             "condition": "minecraft:match_tool",
