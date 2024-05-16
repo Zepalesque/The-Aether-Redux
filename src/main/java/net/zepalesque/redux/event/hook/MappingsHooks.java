@@ -185,16 +185,7 @@ public class MappingsHooks {
         builder.put(Redux.locate("flowering_fieldsprout_leaves"), ReduxBlocks.FIELDSPROOT_LEAVES);
         builder.put(Redux.locate("flowering_fieldsprout_sapling"), ReduxBlocks.FIELDSPROOT_SAPLING);
         builder.put(Redux.locate("potted_flowering_fieldsprout_sapling"), ReduxBlocks.POTTED_FIELDSPROOT_SAPLING);
-
-
-        builder.put(Redux.locate("pink_prismatic_leaves"), ReduxBlocks.PRISMATIC_FIELDSPROOT_LEAVES);
-        builder.put(Redux.locate("pink_prismatic_sapling"), ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING);
-        builder.put(Redux.locate("potted_pink_prismatic_sapling"), ReduxBlocks.POTTED_PRISMATIC_FIELDSPROOT_SAPLING);
-
-        builder.put(Redux.locate("teal_prismatic_leaves"), ReduxBlocks.SPECTRAL_FIELDSPROOT_LEAVES);
-        builder.put(Redux.locate("teal_prismatic_sapling"), ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING);
-        builder.put(Redux.locate("potted_teal_prismatic_sapling"), ReduxBlocks.POTTED_SPECTRAL_FIELDSPROOT_SAPLING);
-
+        
         builder.put(Redux.locate("blightberry_bush"), ReduxBlocks.ZANBERRY_BUSH);
         builder.put(Redux.locate("blightberry_bush_stem"), ReduxBlocks.ZANBERRY_BUSH_STEM);
 
