@@ -6,9 +6,6 @@
     "aether_redux:zanberry_bush_stem",
     "aether_redux:gilded_oak_sapling",
     "aether_redux:blighted_skyroot_sapling",
-    "aether_redux:fieldsproot_sapling",
-    "aether_redux:prismatic_fieldsproot_sapling",
-    "aether_redux:azure_fieldsproot_sapling",
-    "aether_redux:spectral_fieldsproot_sapling"
+    "aether_redux:fieldsproot_sapling"
   ]
 }

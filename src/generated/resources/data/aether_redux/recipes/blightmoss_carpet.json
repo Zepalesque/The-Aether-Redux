@@ -1,7 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "carpet",
   "key": {
     "#": {
       "item": "aether_redux:blightmoss_block"
