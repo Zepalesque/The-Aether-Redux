@@ -126,7 +126,6 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> AEROGEL_DISK  = createKey(Folders.SURFACE + "aerogel_disk");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYSPROUTS_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.SKYSPROUTS) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYFIELDS_TREES = createKey(Folders.TREE + "skyfields_trees");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> CLASSIC_SKYFIELDS_TREES = createKey(Folders.TREE + "classic_skyfields_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SHRUBLANDS_TREES = createKey(Folders.TREE + "shrublands_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> IRIDIA_PATCH  = createKey(Folders.PATCH + name(ReduxBlocks.IRIDIA) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> XAELIA_PATCH  = createKey(Folders.PATCH + "xaelia_patch");
@@ -143,10 +142,6 @@ public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> MOSSY_ROCK  = createKey(Folders.SURFACE + "mossy_rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ICESTONE_ROCK  = createKey(Folders.SURFACE + "icestone_rock");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FIELDSPROOT_TREE = createKey(Folders.TREE + "fieldsproot_tree");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PRISMATIC_FIELDSPROOT_TREE = createKey(Folders.TREE + "prismatic_fieldsproot_tree");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SPECTRAL_FIELDSPROOT_TREE = createKey(Folders.TREE + "spectral_fieldsproot_tree");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> FANCY_SPECTRAL_FIELDSPROOT_TREE = createKey(Folders.TREE + "fancy_spectral_fieldsproot_tree");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> AZURE_FIELDSPROOT_TREE = createKey(Folders.TREE + "azure_fieldsproot_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> WYNDSPROUTS_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.WYNDSPROUTS) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GENESIS_WYNDSPROUTS_PATCH = createKey(Folders.PATCH + "genesis_" +  name(ReduxBlocks.WYNDSPROUTS) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GENESIS_SKYSPROUTS_PATCH = createKey(Folders.PATCH + "genesis_" + name(ReduxBlocks.SKYSPROUTS) + "_patch");
@@ -589,65 +584,6 @@ public class ReduxConfiguredFeatures {
                                 .add(ConstantInt.of(3), 2)
                                 .add(ConstantInt.of(4), 1)
                                 .build()), 7, 3, 32));
-
-        register(context, PRISMATIC_FIELDSPROOT_TREE, Feature.TREE,
-                new TreeConfiguration.TreeConfigurationBuilder(
-                        prov(Redux.WoodHandlers.FIELDSPROOT.log),
-                        new GenesisHookedTrunkPlacer(8, 14, 14),
-                        prov(ReduxBlocks.PRISMATIC_FIELDSPROOT_LEAVES),
-                        new GenesisHookedFoliagePlacer(ConstantInt.of(2), ConstantInt.of(1), ConstantInt.of(2)),
-                        new TwoLayersFeatureSize(2, 1, 4)
-                ).decorators(List.of(new GenesisTrunkDecorator(prov(Redux.WoodHandlers.FIELDSPROOT.logWall))
-                )).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT))
-                        .decorators(List.of(new PatchTreeDecorator(createPetals(ReduxBlocks.FIELDSPROOT_PETALS), 7, 3, 32)
-                        )).build());
-
-        register(context, AZURE_FIELDSPROOT_TREE, Feature.TREE,
-                new TreeConfiguration.TreeConfigurationBuilder(
-                        prov(Redux.WoodHandlers.FIELDSPROOT.log),
-                        new StraightTrunkPlacer(5, 5, 0),
-                        prov(ReduxBlocks.AZURE_FIELDSPROOT_LEAVES),
-                        new GenesisPineFoliagePlacer(ConstantInt.of(2), ConstantInt.of(1), ConstantInt.of(2)),
-                        new TwoLayersFeatureSize(2, 1, 4)
-                ).decorators(List.of(new GenesisTrunkDecorator(prov(Redux.WoodHandlers.FIELDSPROOT.logWall))
-                )).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT))
-                        .decorators(List.of(new PatchTreeDecorator(createPetals(ReduxBlocks.FIELDSPROOT_PETALS), 7, 3, 32)
-                        )).build());
-
-        register(context, SPECTRAL_FIELDSPROOT_TREE, Feature.TREE,
-                new TreeConfiguration.TreeConfigurationBuilder(
-                        BlockStateProvider.simple(drops(Redux.WoodHandlers.FIELDSPROOT.log)),
-                        new GoldenOakTrunkPlacer(10, 0, 0),
-                        BlockStateProvider.simple(drops(ReduxBlocks.SPECTRAL_FIELDSPROOT_LEAVES)),
-                        new GoldenOakFoliagePlacer(ConstantInt.of(3), ConstantInt.of(1), ConstantInt.of(7)),
-                        new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(10))
-                ).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT))
-                        .decorators(List.of(new PatchTreeDecorator(createPetals(ReduxBlocks.FIELDSPROOT_PETALS), 7, 3, 32)
-                        )).build());
-
-        register(context, FANCY_SPECTRAL_FIELDSPROOT_TREE, Feature.TREE,
-                new TreeConfiguration.TreeConfigurationBuilder(
-                        BlockStateProvider.simple(drops(Redux.WoodHandlers.FIELDSPROOT.log)),
-                        new FancyTrunkPlacer(10, 0, 0),
-                        BlockStateProvider.simple(drops(ReduxBlocks.SPECTRAL_FIELDSPROOT_LEAVES)),
-                        new FancyFoliagePlacer(ConstantInt.of(2), ConstantInt.of(4), 4),
-                        new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(10))
-                ).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT))
-                        .decorators(List.of(new PatchTreeDecorator(createPetals(ReduxBlocks.FIELDSPROOT_PETALS), 7, 3, 32)
-                        )).build());
-
-        register(context, CLASSIC_SKYFIELDS_TREES, Feature.RANDOM_SELECTOR,
-                new RandomFeatureConfiguration(List.of(
-                        new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(SPECTRAL_FIELDSPROOT_TREE),
-                                PlacementUtils.filteredByBlockSurvival(ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING.get())), 0.2F),
-                        new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(FANCY_SPECTRAL_FIELDSPROOT_TREE),
-                                PlacementUtils.filteredByBlockSurvival(ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING.get())), 0.1F),
-                        new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(AZURE_FIELDSPROOT_TREE),
-                                PlacementUtils.filteredByBlockSurvival(ReduxBlocks.AZURE_FIELDSPROOT_SAPLING.get())), 0.2F)
-                ),
-                        PlacementUtils.inlinePlaced(
-                                configuredFeatures.getOrThrow(PRISMATIC_FIELDSPROOT_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING.get()))));
-
 
         register(context, SKYROOT_BUSH, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 prov(AetherFeatureStates.SKYROOT_LOG),

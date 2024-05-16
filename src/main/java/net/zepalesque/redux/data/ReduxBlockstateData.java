@@ -109,21 +109,8 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.floweringFieldsprootLeafBlock(ReduxBlocks.FIELDSPROOT_LEAVES, "natural/");
         this.fieldsprootPetals(ReduxBlocks.FIELDSPROOT_PETALS.get(), "natural/fieldsproot_petals_stem");
 
-        this.classicFieldsprootLeafBlock(ReduxBlocks.PRISMATIC_FIELDSPROOT_LEAVES, ReduxBlocks.FIELDSPROOT_LEAVES, "natural/", true);
-        this.classicFieldsprootLeafBlock(ReduxBlocks.SPECTRAL_FIELDSPROOT_LEAVES, ReduxBlocks.FIELDSPROOT_LEAVES, "natural/", false);
-        this.existingModel(ReduxBlocks.AZURE_FIELDSPROOT_LEAVES, "fieldsproot_leaves_3");
-
         this.crossBlock(ReduxBlocks.FIELDSPROOT_SAPLING.get(), "natural/");
         this.pottedPlant(ReduxBlocks.POTTED_FIELDSPROOT_SAPLING.get(), ReduxBlocks.FIELDSPROOT_SAPLING.get(), "natural/");
-
-        this.crossBlock(ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING.get(), "natural/");
-        this.pottedPlant(ReduxBlocks.POTTED_PRISMATIC_FIELDSPROOT_SAPLING.get(), ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING.get(), "natural/");
-
-        this.crossBlock(ReduxBlocks.AZURE_FIELDSPROOT_SAPLING.get(), "natural/");
-        this.pottedPlant(ReduxBlocks.POTTED_AZURE_FIELDSPROOT_SAPLING.get(), ReduxBlocks.AZURE_FIELDSPROOT_SAPLING.get(), "natural/");
-
-        this.crossBlock(ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING.get(), "natural/");
-        this.pottedPlant(ReduxBlocks.POTTED_SPECTRAL_FIELDSPROOT_SAPLING.get(), ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING.get(), "natural/");
 
         this.leafPile(ReduxBlocks.GOLDEN_LEAF_PILE, AetherBlocks.GOLDEN_OAK_LEAVES, "natural/");
         this.leafPile(ReduxBlocks.GILDED_LEAF_PILE, ReduxBlocks.GILDED_OAK_LEAVES, "natural/");

@@ -122,9 +122,6 @@ public class ReduxItemModelData extends AetherItemModelProvider {
 
         this.itemBlockFlat(ReduxBlocks.BLIGHTWILLOW_SAPLING, "natural/");
         this.itemBlockFlat(ReduxBlocks.FIELDSPROOT_SAPLING.get(), "natural/");
-        this.itemBlockFlat(ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING.get(), "natural/");
-        this.itemBlockFlat(ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING.get(), "natural/");
-        this.itemBlockFlat(ReduxBlocks.AZURE_FIELDSPROOT_SAPLING.get(), "natural/");
         this.itemBlockFlat(ReduxBlocks.CRYSTAL_SAPLING.get(), "natural/");
         this.itemBlockFlat(ReduxBlocks.CRYSTAL_FRUIT_SAPLING.get(), "natural/");
         this.itemBlockFlat(ReduxBlocks.PURPLE_CRYSTAL_FRUIT_SAPLING.get(), "natural/");
@@ -147,9 +144,6 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         blockCustomTexture(ReduxBlocks.FIELDSPROOT_LEAVES, "natural/", "fieldsproot_leaves");
         itemCustomTexture(ReduxBlocks.FIELDSPROOT_PETALS, "misc/", "fieldsproot_petals");
         item(ReduxItems.VERIDIUM_NUGGET.get(), "materials/");
-        blockCustomTexture(ReduxBlocks.PRISMATIC_FIELDSPROOT_LEAVES, "natural/", "prismatic_fieldsproot_leaves");
-        blockCustomTexture(ReduxBlocks.AZURE_FIELDSPROOT_LEAVES, "natural/", "fieldsproot_leaves_3");
-        blockCustomTexture(ReduxBlocks.SPECTRAL_FIELDSPROOT_LEAVES, "natural/", "spectral_fieldsproot_leaves");
 
         itemBlockFlatItemTexture(ReduxBlocks.VERIDIUM_LANTERN, "misc/");
         itemBlockFlatItemTexture(ReduxBlocks.VERIDIUM_CHAIN, "misc/");

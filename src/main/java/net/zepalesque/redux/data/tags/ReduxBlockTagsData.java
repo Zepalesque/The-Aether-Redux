@@ -286,10 +286,7 @@ public class    ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.ZANBERRY_BUSH_STEM.get(),
                 ReduxBlocks.GILDED_OAK_SAPLING.get(),
                 ReduxBlocks.BLIGHTED_SKYROOT_SAPLING.get(),
-                ReduxBlocks.FIELDSPROOT_SAPLING.get(),
-                ReduxBlocks.PRISMATIC_FIELDSPROOT_SAPLING.get(),
-                ReduxBlocks.AZURE_FIELDSPROOT_SAPLING.get(),
-                ReduxBlocks.SPECTRAL_FIELDSPROOT_SAPLING.get()
+                ReduxBlocks.FIELDSPROOT_SAPLING.get()
         );
         this.tag(BlockTags.WALLS).add(
                 ReduxBlocks.DIVINITE_WALL.get(),
