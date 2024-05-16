@@ -43,7 +43,6 @@
     ],
     [
       "aether_redux:trees/skyfields_trees",
-      "aether_redux:trees/classic_skyfields_trees",
       "aether:holiday_tree",
       "aether:grass_patch",
       "aether:tall_grass_patch",

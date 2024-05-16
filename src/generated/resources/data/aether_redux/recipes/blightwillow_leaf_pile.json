@@ -3,15 +3,15 @@
   "category": "misc",
   "key": {
     "#": {
-      "item": "aether_redux:fungal_growth"
+      "item": "aether_redux:blightwillow_leaves"
     }
   },
   "pattern": [
     "##"
   ],
   "result": {
-    "count": 3,
-    "item": "aether_redux:fungal_carpet"
+    "count": 6,
+    "item": "aether_redux:blightwillow_leaf_pile"
   },
   "show_notification": true
 }

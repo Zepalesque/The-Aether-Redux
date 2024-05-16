@@ -17,9 +17,10 @@ import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
 
-public class MykapodRenderer extends GeoEntityRenderer<Mykapod> {
+// TODO: Redo Mykapod Geckolib stuff
+public class MykapodRenderer extends ReduxGeoBase.Renderer<Mykapod> {
     public MykapodRenderer(EntityRendererProvider.Context renderManager) {
-        super(renderManager, new MykapodModel());
+        super(renderManager, new MykapodModel(), 0.125F);
     }
 
     @Override

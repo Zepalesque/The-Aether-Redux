@@ -70,7 +70,6 @@ public class ReduxPlacedFeatures {
     public static final ResourceKey<PlacedFeature> SHRUBLANDS_ROCK  = copyKey(ReduxConfiguredFeatures.SHRUBLANDS_ROCK);
     public static final ResourceKey<PlacedFeature> SKYSPROUTS_PATCH = copyKey(ReduxConfiguredFeatures.SKYSPROUTS_PATCH);
     public static final ResourceKey<PlacedFeature> SKYFIELDS_TREES = copyKey(ReduxConfiguredFeatures.SKYFIELDS_TREES);
-    public static final ResourceKey<PlacedFeature> CLASSIC_SKYFIELDS_TREES = copyKey(ReduxConfiguredFeatures.CLASSIC_SKYFIELDS_TREES);
     public static final ResourceKey<PlacedFeature> SHRUBLANDS_TREES = copyKey(ReduxConfiguredFeatures.SHRUBLANDS_TREES);
     public static final ResourceKey<PlacedFeature> SHIMMERING_TREES = createKey(Folders.TREE + "shimmering_trees");
     public static final ResourceKey<PlacedFeature> IRIDIA_PATCH  = copyKey(ReduxConfiguredFeatures.IRIDIA_PATCH);

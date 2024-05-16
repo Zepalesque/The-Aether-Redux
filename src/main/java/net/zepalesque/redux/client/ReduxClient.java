@@ -34,6 +34,18 @@ import java.util.Optional;
 )
 public class ReduxClient {
 
+    // GeckoLib Molang variables
+    public static final String LIMB_MOVEMENT = "query.limb_movement";
+
+    public static final String HEAD_X_ROT = "query.head_x_rotation";
+    public static final String HEAD_Y_ROT = "query.head_y_rotation";
+
+    public static void registerMolangQueries() {
+//        MolangParser.(new LazyVariable(LIMB_MOVEMENT, 0));
+//        MolangParser.INSTANCE.register(new LazyVariable(HEAD_X_ROT, 0));
+//        MolangParser.INSTANCE.register(new LazyVariable(HEAD_Y_ROT, 0));
+    }
+
 
     public static void registerItemModelProperties() {
         ItemProperties.register(ReduxItems.SUBZERO_CROSSBOW.get(), Redux.locate("pull"), (stack, level, entity, seed) -> {

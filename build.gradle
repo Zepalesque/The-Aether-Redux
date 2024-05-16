@@ -162,6 +162,21 @@ dependencies {
     compileOnly fg.deobf("curse.maven:galosphere-631098:${project.galosphere_version}")
     compileOnly fg.deobf("curse.maven:lootr-361276:${project.lootr_version}")
 
+    jarJar fg.deobf("curse.maven:aeroblender-879879:${project.aeroblender_version}") {
+        jarJar.ranged(it, "[${project.aeroblender_version},)")
+        jarJar.pin(it, "${project.aeroblender_version}")
+    }
+
+    jarJar fg.deobf("curse.maven:terrablender-563928:${project.terrablender_version}") {
+        jarJar.ranged(it, "[${project.terrablender_version},)")
+        jarJar.pin(it, "${project.terrablender_version}")
+    }
+
+    jarJar fg.deobf("curse.maven:geckolib-388172:${project.geckolib_version}") {
+        jarJar.ranged(it, "[${project.geckolib_version},)")
+        jarJar.pin(it, "${project.geckolib_version}")
+    }
+
 //    implementation fg.deobf("net.darkhax.bookshelf:Bookshelf-Forge-1.20.1:20.0.5")
 //    implementation fg.deobf("net.darkhax.tips:Tips-Forge-1.20.1:12.0.5")
 }

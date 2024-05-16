@@ -66,7 +66,6 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue enchanted_vines;
         public final ForgeConfigSpec.BooleanValue wall_roots;
         public final ForgeConfigSpec.BooleanValue alternate_gilded_trees;
-        public final ForgeConfigSpec.BooleanValue classic_skyfields;
         public final ForgeConfigSpec.BooleanValue enderman_spawns;
 
         public final ForgeConfigSpec.BooleanValue skyroot_dungeon_chests;
@@ -129,7 +128,6 @@ public class ReduxConfig {
             this.enchanted_vines = builder.comment("Enables Enchanted/Gilded vines on trees").worldRestart().define("Enable Enchanted and Gilded Vines", true);
             this.wall_roots = builder.comment("Enables roots made of logs and log walls on the sides of Large Cloudcap mushrooms and Blightwillow trees.").worldRestart().define("Wall Roots on Blightwillows and Large Cloudcaps", true);
             this.alternate_gilded_trees = builder.comment("Uses an alternate Gilded Oak shape, more like vanilla Oak trees and Skyroots, for the Gilded biomes.").worldRestart().define("Alternate Gilded Trees", false);
-            this.classic_skyfields = builder.comment("Makes the Skyfields into an upgraded version of their older variant from before Redux's version 1.3.").worldRestart().define("Classic Skyfields", false);
             this.skyroot_dungeon_chests = builder.comment("Replaces chests in the dungeons with Skyroot Chests. Does not do anything when Ascended Quark is installed.").define("Skyroot Dungeon Chests", true);
             builder.push("Cloud Layer");
             this.cloud_layer_gen = builder.comment("Replaces the Aether's large cloud features with a new and improved noise-based cloud layer.").define("Cloud Layer Generation", true);

@@ -4,6 +4,7 @@ package net.zepalesque.redux.client.render.entity.model.entity;
 import com.aetherteam.aether.entity.monster.dungeon.Mimic;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
@@ -65,6 +66,8 @@ public class MimicReduxModel extends EntityModel<Mimic> {
 	public void setupAnim(Mimic mimic, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		boolean flag = mimic.getFallFlyingTicks() > 4;
 
+		float partial = Minecraft.getInstance().getPartialTick();
+
 		float egg = 1.0F;
 		if (flag) {
 			egg = (float)mimic.getDeltaMovement().lengthSqr();
@@ -80,7 +83,7 @@ public class MimicReduxModel extends EntityModel<Mimic> {
 		float maxValue = 25F;
 		float ticks = f % maxValue;
 		float rotation;
-		float maxRot = MathUtil.degToRad(65);
+		float maxRot = 65 * Mth.DEG_TO_RAD;
 		if (ticks >= 10F)
 		{
 			rotation = ((float) Math.PI) - (maxRot - (EasingUtil.Bounce.out((ticks - 10F) / 15F) * maxRot));
@@ -108,7 +111,7 @@ public class MimicReduxModel extends EntityModel<Mimic> {
 			if (anim.getOpenAnim() != 0 && anim.getPrevOpenAnim() != 0)
 			{
 				float prevAnim = anim.getPrevOpenAnim() == 0 && anim.getOpenAnim() > 1 ? 10F : anim.getPrevOpenAnim();
-				float progress = (10F - Mth.lerp(ageInTicks % 1, prevAnim, anim.getOpenAnim())) / 10F;
+				float progress = (10F - Mth.lerp(partial, prevAnim, anim.getOpenAnim())) / 10F;
 				this.head.y = -16f + (-6F * EasingUtil.Back.inOut(progress));
 				float progressLegs = Math.min(progress / 0.5F, 1.0F);
 				float legX =  (5F * EasingUtil.Back.out(progressLegs));

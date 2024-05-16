@@ -1,6 +1,7 @@
 package net.zepalesque.redux.client.render.entity.model.entity;
 
 import com.aetherteam.aether.entity.passive.Sheepuff;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.QuadrupedModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
@@ -70,7 +71,7 @@ public class SheepuffReduxModel extends QuadrupedModel<Sheepuff> {
     public void setupAnim(Sheepuff sheepuff, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
         super.setupAnim(sheepuff, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
 
-        float partialTicks = ageInTicks % 1;
+        float partialTicks = Minecraft.getInstance().getPartialTick();
 
         this.head.y = 6.0F + sheepuff.getHeadEatPositionScale(partialTicks) * 9.0F;
         this.headXRot = sheepuff.getHeadEatAngleScale(partialTicks);

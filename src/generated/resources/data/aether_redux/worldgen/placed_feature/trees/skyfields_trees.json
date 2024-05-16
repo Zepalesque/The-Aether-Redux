@@ -2,16 +2,6 @@
   "feature": "aether_redux:trees/skyfields_trees",
   "placement": [
     {
-      "type": "aether_redux:data_condition",
-      "data_condition": {
-        "condition": "aether_redux:not",
-        "inverted": {
-          "condition": "aether_redux:redux_config",
-          "config_path": "[Worldgen, Additional Features, Classic Skyfields]"
-        }
-      }
-    },
-    {
       "type": "minecraft:count",
       "count": {
         "type": "minecraft:weighted_list",

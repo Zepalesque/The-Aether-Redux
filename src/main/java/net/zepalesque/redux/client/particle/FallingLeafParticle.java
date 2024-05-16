@@ -23,7 +23,7 @@ public class FallingLeafParticle extends TextureSheetParticle {
     protected FallingLeafParticle(ClientLevel level, double x, double y, double z) {
         super(level, x, y, z);
         this.rotSpeed = (float)Math.toRadians(this.random.nextBoolean() ? -30.0D : 30.0D);
-        this.roll = MathUtil.degToRad(this.random.nextFloat() * 360F);
+        this.roll = this.random.nextFloat() * 360F * Mth.DEG_TO_RAD;
         this.oRoll = this.roll;
         this.particleRandom = this.random.nextFloat();
         this.spinAcceleration = (float)Math.toRadians(this.random.nextBoolean() ? -5.0D : 5.0D);
