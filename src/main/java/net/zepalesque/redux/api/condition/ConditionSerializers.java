@@ -13,15 +13,15 @@ import java.util.function.Supplier;
 public class ConditionSerializers {
 
 
-        public static Codec<? extends AbstractCondition<?>> get(ResourceLocation resourceLocation) {
+    public static Codec<? extends AbstractCondition<?>> get(ResourceLocation resourceLocation) {
         return CONDITION_SERIALIZER_REGISTRY.get().getValue(resourceLocation);
-
     }
+
     public static ResourceLocation getKey(Codec<? extends AbstractCondition<?>> condition) {
         return CONDITION_SERIALIZER_REGISTRY.get().getKey(condition);
     }
 
-public static final DeferredRegister<Codec<? extends AbstractCondition<?>>> CODECS = DeferredRegister.create(Redux.Keys.CONDITION_SERIALIZER, Redux.MODID);
+    public static final DeferredRegister<Codec<? extends AbstractCondition<?>>> CODECS = DeferredRegister.create(Redux.Keys.CONDITION_SERIALIZER, Redux.MODID);
     public static final Supplier<IForgeRegistry<Codec<? extends AbstractCondition<?>>>> CONDITION_SERIALIZER_REGISTRY = CODECS.makeRegistry(RegistryBuilder::new);
 
     public static final RegistryObject<Codec<ModLoaded>> MOD_LOADED = CODECS.register("mod_loaded", () -> ModLoaded.CODEC);
