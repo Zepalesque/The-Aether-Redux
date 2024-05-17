@@ -31,6 +31,15 @@
               ],
               "functions": [
                 {
+                  "add": false,
+                  "count": {
+                    "type": "minecraft:uniform",
+                    "max": 1.0,
+                    "min": 1.0
+                  },
+                  "function": "minecraft:set_count"
+                },
+                {
                   "enchantment": "minecraft:fortune",
                   "formula": "minecraft:uniform_bonus_count",
                   "function": "minecraft:apply_bonus",
@@ -42,7 +51,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "aether_redux:skysprout_seeds"
+              "name": "minecraft:air"
             }
           ]
         }

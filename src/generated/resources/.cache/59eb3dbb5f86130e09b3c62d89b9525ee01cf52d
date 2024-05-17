@@ -1,4 +1,4 @@
-// 1.20.1	2024-05-15T20:17:55.9565412	Loot Tables
+// 1.20.1	2024-05-17T13:16:59.5065861	Loot Tables
 c6156555dc4897939b617dabc4521b7fa52feba0 data/aether_redux/loot_tables/blocks/aurum.json
 b5773c78c7b3f27032f1cca6fb72f440e24c7529 data/aether_redux/loot_tables/blocks/avelium.json
 4c8b773f2431b28dd2a48b90d08323d8ff67a3d7 data/aether_redux/loot_tables/blocks/avelium_roots.json
@@ -232,8 +232,7 @@ bfdff5740f573c219698b2d3350c8a1c08a7a658 data/aether_redux/loot_tables/blocks/sh
 20493b54458664c72906d5db877fe147abcf8027 data/aether_redux/loot_tables/blocks/shell_shingle_wall.json
 2a2b42c412d789cd356252b6e5a86fd0de8831a8 data/aether_redux/loot_tables/blocks/shimmerstool.json
 137384099b49bd94738c664b3ed14fc593ec739d data/aether_redux/loot_tables/blocks/short_aether_grass.json
-338c8783fbd3b8dc3f9174031cf32874eba36835 data/aether_redux/loot_tables/blocks/skysprouts.json
-112d78bdaec725675ba2ab76addbc3515ef68207 data/aether_redux/loot_tables/blocks/skysprouts_crop.json
+90682ab215bb50c884338345a74e0beea6a9b2dc data/aether_redux/loot_tables/blocks/skysprouts.json
 96c5ceab0b7e05e25b12f676cbea823aebb21601 data/aether_redux/loot_tables/blocks/spirolyctil.json
 13fca914fcad641d48ab56465f19545dcb55a676 data/aether_redux/loot_tables/blocks/splitfern.json
 1e761e125c140713bbedbb874ad41e48f2a7b01c data/aether_redux/loot_tables/blocks/sporing_blightwillow_log.json
