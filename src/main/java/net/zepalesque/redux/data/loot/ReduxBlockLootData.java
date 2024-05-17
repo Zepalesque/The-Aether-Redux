@@ -38,7 +38,9 @@ import net.zepalesque.redux.block.natural.SproutsCropBlock;
 import net.zepalesque.redux.block.util.state.ReduxStates;
 import net.zepalesque.redux.block.util.state.enums.PetalPrismaticness;
 import net.zepalesque.redux.item.ReduxItems;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -185,15 +187,6 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
                                 hasBlockStateProperties(ReduxBlocks.WYNDSPROUTS_CROP.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SproutsCropBlock.AGE, SproutsCropBlock.MAX_AGE))));
 
-        this.add(ReduxBlocks.SKYSPROUTS_CROP.get(),
-                this.createCropDrops(
-                        ReduxBlocks.SKYSPROUTS_CROP.get(),
-                        ReduxItems.SKYBUD.get(),
-                        ReduxItems.SKYSPROUT_SEEDS.get(),
-                        LootItemBlockStatePropertyCondition.
-                                hasBlockStateProperties(ReduxBlocks.SKYSPROUTS_CROP.get())
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SproutsCropBlock.AGE, SproutsCropBlock.MAX_AGE))));
-
         this.dropSelf(ReduxBlocks.CLOUD_CAP_BLOCK.get());
         this.dropSelf(ReduxBlocks.JELLYSHROOM.get());
         this.dropSelf(ReduxBlocks.SHIMMERSTOOL.get());
@@ -225,7 +218,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropPottedContents(ReduxBlocks.POTTED_INFERNIA.get());
         this.add(ReduxBlocks.WYNDSPROUTS.get(), createSproutsDrops(ReduxBlocks.WYNDSPROUTS.get(), ReduxItems.WYNDSPROUT_SEEDS.get(), 0.25F));
         this.dropPottedContents(ReduxBlocks.POTTED_WYNDSPROUTS.get());
-        this.add(ReduxBlocks.SKYSPROUTS.get(), createSproutsDrops(ReduxBlocks.SKYSPROUTS.get(), ReduxItems.SKYSPROUT_SEEDS.get(), 0.25F));
+        this.add(ReduxBlocks.SKYSPROUTS.get(), shears());
         this.dropPottedContents(ReduxBlocks.POTTED_SKYSPROUTS.get());
         this.dropSelf(ReduxBlocks.SPLITFERN.get());
         this.dropPottedContents(ReduxBlocks.POTTED_SPLITFERN.get());
@@ -269,10 +262,10 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
             this.dropSelf(woodHandler.sign.get());
             this.dropSelf(woodHandler.hangingSign.get());
             this.dropSelf(woodHandler.wallHangingSign.get());
-            this.addPublic(woodHandler.door.get(), this.createDoorTable(woodHandler.door.get()));
+            this.add(woodHandler.door.get(), this.createDoorTable(woodHandler.door.get()));
 
-            woodHandler.sporingLog.ifPresent((block)-> this.addPublic(block.get(), (logBlock) -> this.droppingDoubleGoldenOak(logBlock, woodHandler.log.get(), ReduxItems.BLIGHTED_SPORES.get())));
-            woodHandler.sporingWood.ifPresent((block)-> this.addPublic(block.get(), (wood) -> this.droppingDoubleGoldenOak(wood, woodHandler.wood.get(), ReduxItems.BLIGHTED_SPORES.get())));
+            woodHandler.sporingLog.ifPresent((block)-> this.add(block.get(), (logBlock) -> this.droppingDoubleGoldenOak(logBlock, woodHandler.log.get(), ReduxItems.BLIGHTED_SPORES.get())));
+            woodHandler.sporingWood.ifPresent((block)-> this.add(block.get(), (wood) -> this.droppingDoubleGoldenOak(wood, woodHandler.wood.get(), ReduxItems.BLIGHTED_SPORES.get())));
             this.add(woodHandler.bookshelf.get(), (bookshelf) -> {
                 return this.createSingleItemTableWithSilkTouch(bookshelf, Items.BOOK, ConstantValue.exactly(3.0F));
             });
@@ -281,8 +274,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
     }
 
 
-    protected Function<Block, LootTable.Builder> shearsOr(ItemLike drop, float chance)
-    {
+    protected Function<Block, LootTable.Builder> shearsOr(ItemLike drop, float chance) {
         return shearsOr(drop, chance, 1.0F, 1.0F);
     }
 
@@ -318,14 +310,13 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
     }
 
 
-    public Function<Block, LootTable.Builder> shears()
-    {
+    // Only drops with shears
+    public Function<Block, LootTable.Builder> shears() {
         return shearsOr(Blocks.AIR);
     }
 
-
-    public Function<Block, LootTable.Builder> shearsOr(ItemLike drop, float chance, float min, float max)
-    {
+    // Drops another without shears
+    public Function<Block, LootTable.Builder> shearsOr(ItemLike drop, float chance, float min, float max) {
         return (block) -> createShearsDispatchTable(block, this.applyExplosionDecay(block, LootItem.lootTableItem(drop).when(LootItemRandomChanceCondition.randomChance(chance)).apply(SetItemCountFunction.setCount(UniformGenerator.between(min, max))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2))));
     }
 
@@ -338,8 +329,9 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         return shearsOr(drop, 0.25F);
     }
 
+    @NotNull
     protected Iterable<Block> getKnownBlocks() {
-        Stream stream = ReduxBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get);
+        Stream<Block> stream = ReduxBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get);
         Objects.requireNonNull(stream);
         return stream::iterator;
     }
@@ -348,23 +340,24 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropOther(pBlock, pBlock);
     }
 
+    @ParametersAreNonnullByDefault
     public void dropOther(Block pBlock, ItemLike pItem) {
         this.add(pBlock, this.createSingleItemTable(pItem));
     }
-    public void addPublic(Block pBlock, LootTable.Builder pBuilder) {
-        this.add(pBlock, pBuilder);
-    }
-    public void addPublic(Block pBlock, Function<Block, LootTable.Builder> pFactory) {
-        this.add(pBlock, pFactory.apply(pBlock));
-    }
+
+    @ParametersAreNonnullByDefault
+    @NotNull
     public LootTable.Builder createDoorTable(Block pDoorBlock) {
         return this.createSinglePropConditionTable(pDoorBlock, DoorBlock.HALF, DoubleBlockHalf.LOWER);
     }
 
+    @ParametersAreNonnullByDefault
+    @NotNull
     public LootTable.Builder createSlabItemTable(Block pBlock) {
         return LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(this.applyExplosionDecay(pBlock, LootItem.lootTableItem(pBlock).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SlabBlock.TYPE, SlabType.DOUBLE)))))));
     }
 
+    @ParametersAreNonnullByDefault
     public void dropPottedContents(Block pFlowerPot) {
         this.add(pFlowerPot, (p_250193_) -> {
             return this.createPotFlowerItemTable(((FlowerPotBlock)p_250193_).getContent());
@@ -392,6 +385,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         return base;
     }
 
+    @ParametersAreNonnullByDefault
     public void dropSelf(Block block) {
         this.dropOther(block, block);
     }

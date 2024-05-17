@@ -72,8 +72,6 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         item(ReduxItems.VERIDIUM_DART, "weapons/");
         item(ReduxItems.SENTRY_CHIP, "materials/");
         item(ReduxItems.WYNDSPROUT_SEEDS, "food/");
-        item(ReduxItems.SKYSPROUT_SEEDS, "materials/");
-        item(ReduxItems.SKYBUD, "materials/");
         item(ReduxItems.BLUEBERRY_PIE, "food/");
         item(ReduxItems.ENCHANTED_BLUEBERRY_PIE, "food/");
         itemBlockFlatCustomTexture(ReduxBlocks.GOLDEN_CLOVER, "natural/golden_clover_top");

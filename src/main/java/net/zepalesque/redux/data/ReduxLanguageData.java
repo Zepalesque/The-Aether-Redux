@@ -66,11 +66,6 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.BUNDLE_OF_WYNDSPROUTS, "Bundle of Wyndsprouts");
         addLore(ReduxItems.BUNDLE_OF_WYNDSPROUTS, "A bundle of grown Wyndsprouts. Flying Cows like to munch on these.");
 
-        addItem(ReduxItems.SKYSPROUT_SEEDS, "Skysprout Seeds");
-        addLore(ReduxItems.SKYSPROUT_SEEDS, "Some seeds from the wild Skysprout plant. Can be grown and harvested for a drop that makes some decoration blocks.");
-        addItem(ReduxItems.SKYBUD, "Skybud");
-        addLore(ReduxItems.SKYBUD, "A flower bud from some fully grown Skysprouts. Can be used to make some nice Flower Garland!");
-
         addItem(ReduxItems.BLUEBERRY_PIE, "Blueberry Pie");
         addLore(ReduxItems.BLUEBERRY_PIE, "A pie made of the Aether's native blueberries. These treats taste amazing, and can make a great gift for a friend.");
         addItem(ReduxItems.ENCHANTED_BLUEBERRY_PIE, "Enchanted Blueberry Pie");
