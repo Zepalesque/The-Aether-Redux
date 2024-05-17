@@ -49,6 +49,4 @@ public abstract class AmbrosiumShardMixin extends ItemMixin {
             }
         }
     }
-
-
 }
