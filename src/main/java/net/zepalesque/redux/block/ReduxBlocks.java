@@ -362,12 +362,9 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
     public static RegistryObject<Block> WYNDSPROUTS_CROP = BLOCKS.register("wyndsprouts_crop",
             () -> new SproutsCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.CROP)));
 
-    public static RegistryObject<Block> SKYSPROUTS_CROP = BLOCKS.register("skysprouts_crop",
-            () -> new SproutsCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.CROP)));
-
-
     public static RegistryObject<Block> BLIGHTMOSS_BLOCK = register("blightmoss_block", () -> new BlightmossBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_BLOCK).color(MaterialColor.COLOR_PURPLE)));
     public static final RegistryObject<Block> BLIGHTMOSS_CARPET = register("blightmoss_carpet", () -> new DoubleDropsCarpet(BlockBehaviour.Properties.copy(Blocks.MOSS_CARPET).color(MaterialColor.COLOR_PURPLE)));
+
 
     public static RegistryObject<Block> FUNGAL_GROWTH = register("fungal_growth", () -> new FungalGrowthBlock(BlockBehaviour.Properties.copy(Blocks.MOSS_BLOCK).color(MaterialColor.TERRACOTTA_LIGHT_BLUE).sound(SoundType.WART_BLOCK)));
     public static final RegistryObject<Block> FUNGAL_CARPET = register("fungal_carpet", () -> new DoubleDropsCarpet(BlockBehaviour.Properties.copy(Blocks.MOSS_CARPET).color(MaterialColor.TERRACOTTA_LIGHT_BLUE).sound(SoundType.NETHER_WART)));

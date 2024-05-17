@@ -1,4 +1,4 @@
-// 1.20.1	2024-05-15T20:17:55.9775284	Block States: aether_redux
+// 1.20.1	2024-05-17T13:16:59.5105823	Block States: aether_redux
 6d5a134587a37ec8ac1798d9ca3e527d0a1d99b9 assets/aether_redux/blockstates/aurum.json
 bd71aec5ab85b7a1e4570cf04b5dce1bf6226d6b assets/aether_redux/blockstates/avelium.json
 eb68785d90af1f5948885a64db9d1f4c33739323 assets/aether_redux/blockstates/avelium_roots.json
@@ -230,7 +230,6 @@ de3e293f4f0560ea3863be61b9b3e9d49d4f2bf4 assets/aether_redux/blockstates/shell_s
 c826f22d814b8e75952fcb1265af795da288d418 assets/aether_redux/blockstates/shimmerstool.json
 661ead1f17673f68b874ebff7e6182250f073c8e assets/aether_redux/blockstates/short_aether_grass.json
 edc33c6bb8b0a40e8d40e7f932fac05f26985a15 assets/aether_redux/blockstates/skysprouts.json
-6811737a485cc578fe520d6de5e4e5d70cddd9f7 assets/aether_redux/blockstates/skysprouts_crop.json
 7ef06cc54dfb49c09748ba1a7695ed76401e16dd assets/aether_redux/blockstates/spirolyctil.json
 ce75f37e3fee0b098c5d8cb0852557a65d081062 assets/aether_redux/blockstates/splitfern.json
 9dab0517991e2966f02ce3fe53abca373e69563f assets/aether_redux/blockstates/sporing_blightwillow_log.json
@@ -873,11 +872,6 @@ f682fc8c3e3aa8b74b3d96dc5fd8d8497ba3fbf9 assets/aether_redux/models/block/shimme
 2bf955afd47f41c919e5f5a1b78c76d4c6a6b6a9 assets/aether_redux/models/block/short_aether_grass.json
 00e16fd7a7d8043c5fafb7852d99223485c5b8a5 assets/aether_redux/models/block/short_enchanted_grass.json
 5ef3e51b76f2008418abd55ffd28e9a17f66d7b7 assets/aether_redux/models/block/skysprouts.json
-9bcaf24e96faafd507fa1584a4430629d31d0bd8 assets/aether_redux/models/block/skysprouts_crop_stage0.json
-d2df3031c51dc62c77f0225045c16303cdcbb02f assets/aether_redux/models/block/skysprouts_crop_stage1.json
-856192ef9ffe0ed222986a8b6be3aea01934461a assets/aether_redux/models/block/skysprouts_crop_stage2.json
-bf23b49401ba22f289b52519e6597a9e52f95f4d assets/aether_redux/models/block/skysprouts_crop_stage3.json
-ec9b5d14ba45b5c0c6a6d49f98ccab5ec386cc56 assets/aether_redux/models/block/skysprouts_crop_stage4.json
 54bf5b5e5c9c8f92413b93ffe5b0f7274d533c58 assets/aether_redux/models/block/spirolyctil.json
 b878ac8a118f5c088b66c1eb47da214994c46a7f assets/aether_redux/models/block/splitfern.json
 88e8fb10b5732b2ce95f2ff3e60deae90d3966da assets/aether_redux/models/block/sporing_blightwillow_log.json

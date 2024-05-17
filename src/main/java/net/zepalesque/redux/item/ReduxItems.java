@@ -72,13 +72,9 @@ public class ReduxItems {
     public static final RegistryObject<Item> BLUEBERRY_BAGEL = register("blueberry_bagel", () -> new Item(new Item.Properties().food(ReduxFoods.BLUEBERRY_BAGEL).tab(AetherCreativeTabs.AETHER_FOOD_AND_DRINKS)));
     public static final RegistryObject<Item> OATMEAL = register("oatmeal", () -> new BowlFoodItem(new Item.Properties().food(ReduxFoods.OATMEAL).stacksTo(1).tab(AetherCreativeTabs.AETHER_FOOD_AND_DRINKS)));
 
-    public static final RegistryObject<Item> SKYSPROUT_SEEDS = register("skysprout_seeds", () -> new ItemNameBlockItem(ReduxBlocks.SKYSPROUTS_CROP.get(), new Item.Properties().food(ReduxFoods.SKYSPROUT_SEEDS)));
-    public static final RegistryObject<Item> SKYBUD = register("skybud", () -> new Item(new Item.Properties()));
-
     public static final RegistryObject<Item> RAW_GRAVITITE = register("raw_gravitite", () -> new Item(new Item.Properties().rarity(Rarity.RARE).tab(AetherCreativeTabs.AETHER_INGREDIENTS)));
 
     public static final RegistryObject<Item> GRAVITITE_INGOT = register("gravitite_ingot", () -> new Item(new Item.Properties().rarity(Rarity.RARE).tab(AetherCreativeTabs.AETHER_INGREDIENTS)));
-
 
     public static final RegistryObject<Item> MYKAPOD_SHELL_CHUNK = register("mykapod_shell_chunk", () -> new Item(new Item.Properties().tab(AetherCreativeTabs.AETHER_INGREDIENTS)));
 
