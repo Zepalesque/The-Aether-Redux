@@ -127,9 +127,9 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.add(ReduxBlocks.FIELDSPROOT_LEAVES.get(),
                 (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.FIELDSPROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
 
-        dropWhenSilkTouch(ReduxBlocks.GOLDEN_LEAF_PILE.get());
-        dropWhenSilkTouch(ReduxBlocks.GILDED_LEAF_PILE.get());
-        dropWhenSilkTouch(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get());
+        this.add(ReduxBlocks.GOLDEN_LEAF_PILE.get(), shears());
+        this.add(ReduxBlocks.GILDED_LEAF_PILE.get(), shears());
+        this.add(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get(), shears());
 
         this.add(ReduxBlocks.GLACIA_LEAVES.get(),
                 (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.GLACIA_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
@@ -317,11 +317,11 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
 
     // Drops another without shears
     public Function<Block, LootTable.Builder> shearsOr(ItemLike drop, float chance, float min, float max) {
-        return (block) -> createShearsDispatchTable(block, this.applyExplosionDecay(block, LootItem.lootTableItem(drop).when(LootItemRandomChanceCondition.randomChance(chance)).apply(SetItemCountFunction.setCount(UniformGenerator.between(min, max))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2))));
+        return (block) -> createSilkTouchOrShearsDispatchTable(block, this.applyExplosionDecay(block, LootItem.lootTableItem(drop).when(LootItemRandomChanceCondition.randomChance(chance)).apply(SetItemCountFunction.setCount(UniformGenerator.between(min, max))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2))));
     }
 
     protected LootTable.Builder createSproutsDrops(Block block, ItemLike seeds, float chance) {
-        return createShearsDispatchTable(block, this.applyExplosionDecay(block, LootItem.lootTableItem(seeds).when(LootItemRandomChanceCondition.randomChance(chance)).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2))));
+        return createSilkTouchOrShearsDispatchTable(block, this.applyExplosionDecay(block, LootItem.lootTableItem(seeds).when(LootItemRandomChanceCondition.randomChance(chance)).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2))));
     }
 
     public Function<Block, LootTable.Builder> shearsOr(ItemLike drop)
