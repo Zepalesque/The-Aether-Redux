@@ -70,6 +70,7 @@
     "client.render.SentryRendererMixin",
     "client.render.SwetRendererMixin",
     "client.render.layer.BattleSentryLayerMixin",
+    "client.render.layer.MoaChestLayerMixin",
     "client.render.layer.MoaFeathersLayerMixin",
     "client.render.layer.MoaSaddleEmissiveLayerMixin",
     "client.render.layer.MoaSaddleLayerMixin",
