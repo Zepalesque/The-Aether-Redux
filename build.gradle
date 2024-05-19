@@ -146,6 +146,12 @@ dependencies {
     implementation fg.deobf("com.aetherteam.cumulus:cumulus_menus:${project.cumulus_version}")
     compileOnly "mezz.jei:jei-1.20.1-common:${project.jei_version}"
     compileOnly "mezz.jei:jei-1.20.1-forge:${project.jei_version}"
+
+    // protect your Moam
+    implementation fg.deobf("curse.maven:aether-protect-your-moa-1016303:${project.protect_version}")
+
+    implementation fg.deobf("curse.maven:aether-treasure-reforging-1016302:${project.treasure_version}")
+
     implementation fg.deobf("curse.maven:jei-238222:${project.jei_curse_version}")
     implementation fg.deobf("top.theillusivec4.curios:curios-forge:${project.curios_version}")
     implementation fg.deobf("curse.maven:deep-aether-852465:${project.deep_aether_version}")
