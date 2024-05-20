@@ -20,6 +20,7 @@ public class MoaReduxModel extends EntityModel<Moa> {
     public final ModelPart head_hurtanim;
     public final ModelPart head_part;
     public final ModelPart feathers;
+    public final ModelPart head_feather_top;
     public final ModelPart jaw;
     public final ModelPart tail_feathers;
     public final ModelPart middle_feather;
@@ -62,6 +63,7 @@ public class MoaReduxModel extends EntityModel<Moa> {
         this.head_hurtanim = neck.getChild("head_hurtanim");
         this.head_part = head_hurtanim.getChild("head_part");
         this.feathers = head_part.getChild("feathers");
+        this.head_feather_top = feathers.getChild("head_feather_top");
         this.jaw = head_part.getChild("jaw");
         this.tail_feathers = body_additions.getChild("tail_feathers");
         this.middle_feather = tail_feathers.getChild("middle_feather");

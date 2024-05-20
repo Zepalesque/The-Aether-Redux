@@ -46,7 +46,7 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
             poseStack.scale(0.5F, 0.5F, 0.5F);
             poseStack.translate(0F, 1.5F, /*-0.125F*/ 0F);
             boolean useOriginalLegs = ReduxConfig.CLIENT.moa_model_type.get() == MoaModelType.refreshed;
-            MoaReduxModel model = ReduxConfig.CLIENT.moa_model_type.get() == MoaModelType.legacy_toes ? this.legacy : ReduxConfig.CLIENT.moa_model_type.get() == MoaModelType.legacy_talons ? this.legacyTalons : this.refreshed;
+            MoaReduxModel model = this.getCurrentModel();
             model.neck.yRot = this.getParentModel().head.yRot * 0.333F;
             model.neck.xRot = this.getParentModel().head.xRot * 0.125F;
             model.head_part.yRot = this.getParentModel().head.yRot * 0.667F;
@@ -134,6 +134,10 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
             }
             poseStack.popPose();
         }
+    }
+
+    public MoaReduxModel getCurrentModel() {
+        return ReduxConfig.CLIENT.moa_model_type.get() == MoaModelType.legacy_toes ? this.legacy : ReduxConfig.CLIENT.moa_model_type.get() == MoaModelType.legacy_talons ? this.legacyTalons : this.refreshed;
     }
 
     @NotNull

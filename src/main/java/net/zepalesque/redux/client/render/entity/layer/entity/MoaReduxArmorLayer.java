@@ -32,11 +32,13 @@ import javax.annotation.Nullable;
 // my soul is in critical pain
 public class MoaReduxArmorLayer extends RenderLayer<Moa, MoaModel> {
     private final MoaReduxModel newArmor, oldArmor;
+    private final MoaReduxLayer layerParent;
 
-    public MoaReduxArmorLayer(RenderLayerParent<Moa, MoaModel> renderer, EntityModelSet modelSet) {
+    public MoaReduxArmorLayer(RenderLayerParent<Moa, MoaModel> renderer, MoaReduxLayer layerParent, EntityModelSet modelSet) {
         super(renderer);
         this.newArmor = new MoaReduxModel(modelSet.bakeLayer(ReduxModelLayers.MOA_ARMOR_NEW));
         this.oldArmor = new MoaReduxModel(modelSet.bakeLayer(ReduxModelLayers.MOA_ARMOR_OLD));
+        this.layerParent = layerParent;
     }
 
     public void render(PoseStack poseStack, MultiBufferSource buffer, int packedLight, Moa moa, float limbSwing, float limbSwingAmount, float partialTick, float ageInTicks, float netHeadYaw, float headPitch) {
@@ -45,10 +47,12 @@ public class MoaReduxArmorLayer extends RenderLayer<Moa, MoaModel> {
             poseStack.scale(0.5F, 0.5F, 0.5F);
             poseStack.translate(0F, 1.5F, /*-0.125F*/ 0F);
             MoaArmor.get(moa).ifPresent((moaArmor) -> {
+            this.layerParent.getCurrentModel().head_feather_top.skipDraw = false;
             ItemStack itemStack = moaArmor.getArmor();
             if (itemStack != null && !itemStack.isEmpty()) {
                 Item item = itemStack.getItem();
                 if (item instanceof MoaArmorItem moaArmorItem) {
+                    this.layerParent.getCurrentModel().head_feather_top.skipDraw = true;
                     MoaReduxModel model = this.setupAnimAndModel(moa, limbSwing, limbSwingAmount, partialTick);
                     model.prepareMobModel(moa, limbSwing, limbSwingAmount, partialTick);
                     model.setupAnim(moa, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
@@ -78,6 +82,8 @@ public class MoaReduxArmorLayer extends RenderLayer<Moa, MoaModel> {
 
         boolean useOriginalLegs = ReduxConfig.CLIENT.moa_model_type.get() == MoaModelType.refreshed;
         MoaReduxModel model = useOriginalLegs ? this.newArmor : this.oldArmor;
+
+
         model.neck.yRot = this.getParentModel().head.yRot * 0.333F;
         model.neck.xRot = this.getParentModel().head.xRot * 0.125F;
         model.head_part.yRot = this.getParentModel().head.yRot * 0.667F;
