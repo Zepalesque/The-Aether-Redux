@@ -88,6 +88,8 @@ public class ReduxRenderers {
 
     @SubscribeEvent
     public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+        event.registerLayerDefinition(ReduxModelLayers.MOA_ARMOR_NEW, MoaReduxModel::createNewArmorLayer);
+        event.registerLayerDefinition(ReduxModelLayers.MOA_ARMOR_OLD, MoaReduxModel::createOldArmorLayer);
         event.registerLayerDefinition(ReduxModelLayers.MOA_OLD, MoaReduxModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.MOA_TALONS, MoaReduxModel::createTalonsLayer);
         event.registerLayerDefinition(ReduxModelLayers.MOA_REFRESHED, MoaReduxModel::createRefreshedLayer);
@@ -118,6 +120,9 @@ public class ReduxRenderers {
         for (EntityRenderer<?> renderer : mc.getEntityRenderDispatcher().renderers.values()) {
             if (renderer instanceof MoaRenderer moa) {
                 moa.addLayer(new MoaReduxLayer(moa, new MoaReduxModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.MOA_OLD)), new MoaReduxModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.MOA_TALONS)), new MoaReduxModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.MOA_REFRESHED))));
+                if (Redux.protectCompat()) {
+                    moa.addLayer(new MoaReduxArmorLayer(moa, mc.getEntityModels()));
+                }
             }
             if (renderer instanceof MimicRenderer mimic) {
                 mimic.addLayer(new MimicReduxLayer(mimic, new MimicReduxModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.MIMIC))));
