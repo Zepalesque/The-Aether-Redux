@@ -133,9 +133,9 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
             }
 
             if (Redux.protectCompat()) {
-                this.doHeadFeathersArmorStuff();
+                this.doHeadFeathersArmorStuff(moa, model);
             }
-            
+
             model.setupAnim(moa, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
             if (Minecraft.getInstance().player == null || !moa.isInvisibleTo(Minecraft.getInstance().player)) {
                 ResourceLocation feathersLoc = getTextureLocation(moa);
