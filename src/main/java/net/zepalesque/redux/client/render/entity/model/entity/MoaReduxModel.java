@@ -20,6 +20,7 @@ public class MoaReduxModel extends EntityModel<Moa> {
     public final ModelPart head_hurtanim;
     public final ModelPart head_part;
     public final ModelPart feathers;
+    public final ModelPart head_feather_top;
     public final ModelPart jaw;
     public final ModelPart tail_feathers;
     public final ModelPart middle_feather;
@@ -62,6 +63,7 @@ public class MoaReduxModel extends EntityModel<Moa> {
         this.head_hurtanim = neck.getChild("head_hurtanim");
         this.head_part = head_hurtanim.getChild("head_part");
         this.feathers = head_part.getChild("feathers");
+        this.head_feather_top = feathers.getChild("head_feather_top");
         this.jaw = head_part.getChild("jaw");
         this.tail_feathers = body_additions.getChild("tail_feathers");
         this.middle_feather = tail_feathers.getChild("middle_feather");
@@ -483,6 +485,199 @@ public class MoaReduxModel extends EntityModel<Moa> {
         PartDefinition leg2 = base.addOrReplaceChild("leg2", CubeListBuilder.create(), PartPose.offset(4.0F, 7.0F, 2.0F));
 
         PartDefinition base_leg2 = leg2.addOrReplaceChild("base_leg2", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+        PartDefinition upper_fluff_leg2 = base_leg2.addOrReplaceChild("upper_fluff_leg2", CubeListBuilder.create(), PartPose.offsetAndRotation(0.0F, 0.25F, 1.0F, -0.829F, 0.0F, 0.0F));
+
+        PartDefinition nail_leg2 = base_leg2.addOrReplaceChild("nail_leg2", CubeListBuilder.create(), PartPose.offsetAndRotation(0.0F, 10.25F, 8.25F, 0.2182F, 0.0F, 0.0F));
+
+        PartDefinition lower_leg2 = base_leg2.addOrReplaceChild("lower_leg2", CubeListBuilder.create(), PartPose.offset(0.0F, 10.0F, 5.0F));
+
+        PartDefinition toes_leg2 = lower_leg2.addOrReplaceChild("toes_leg2", CubeListBuilder.create(), PartPose.offset(0.0F, 11.25F, 2.0F));
+
+        PartDefinition toes_stepanim_leg2 = toes_leg2.addOrReplaceChild("toes_stepanim_leg2", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+        PartDefinition back_toes_leg2 = toes_stepanim_leg2.addOrReplaceChild("back_toes_leg2", CubeListBuilder.create(), PartPose.offset(0.0F, -5.0F, -6.0F));
+
+        return LayerDefinition.create(meshdefinition, 128, 64);
+    }
+
+    public static LayerDefinition createNewArmorLayer() {
+        MeshDefinition meshdefinition = new MeshDefinition();
+        PartDefinition partdefinition = meshdefinition.getRoot();
+
+        PartDefinition base = partdefinition.addOrReplaceChild("base", CubeListBuilder.create(), PartPose.offset(4.0F, 7.0F, 2.0F));
+
+        PartDefinition body_additions = base.addOrReplaceChild("body_additions", CubeListBuilder.create(), PartPose.offset(-4.0F, 1.0F, -2.0F));
+
+        PartDefinition head = body_additions.addOrReplaceChild("head", CubeListBuilder.create(), PartPose.offset(0.0F, -12.0F, -10.0F));
+
+        PartDefinition neck_hurtanim = head.addOrReplaceChild("neck_hurtanim", CubeListBuilder.create(), PartPose.offset(0.0F, 6.0F, 2.0F));
+
+        PartDefinition neck = neck_hurtanim.addOrReplaceChild("neck", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+        PartDefinition neck_piece = neck.addOrReplaceChild("neck_piece", CubeListBuilder.create().texOffs(44, 0).addBox(-2.0F, -10.0F, -4.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.25F)), PartPose.offset(0.0F, 0.0F, 2.0F));
+
+        PartDefinition head_hurtanim = neck.addOrReplaceChild("head_hurtanim", CubeListBuilder.create(), PartPose.offset(0.0F, -10.0F, 0.0F));
+
+        PartDefinition head_part = head_hurtanim.addOrReplaceChild("head_part", CubeListBuilder.create().texOffs(0, 26).addBox(-4.0F, -8.0F, -14.0F, 8.0F, 8.0F, 16.0F, new CubeDeformation(0.25F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+        PartDefinition feathers = head_part.addOrReplaceChild("feathers", CubeListBuilder.create(), PartPose.offset(0.0F, -2.0F, -2.0F));
+
+        PartDefinition head_feather_top = feathers.addOrReplaceChild("head_feather_top", CubeListBuilder.create(), PartPose.offset(0.0F, -6.0F, 4.0F));
+
+        PartDefinition head_feather_left = feathers.addOrReplaceChild("head_feather_left", CubeListBuilder.create(), PartPose.offset(4.0F, -2.0F, 4.0F));
+
+        PartDefinition head_feather_right = feathers.addOrReplaceChild("head_feather_right", CubeListBuilder.create(), PartPose.offset(-4.0F, -2.0F, 4.0F));
+
+        PartDefinition jaw = head_part.addOrReplaceChild("jaw", CubeListBuilder.create(), PartPose.offset(0.0F, -2.0F, -2.0F));
+
+        PartDefinition tail_feathers = body_additions.addOrReplaceChild("tail_feathers", CubeListBuilder.create(), PartPose.offset(0.0F, 16.0F, 0.0F));
+
+        PartDefinition middle_feather = tail_feathers.addOrReplaceChild("middle_feather", CubeListBuilder.create(), PartPose.offset(0.0F, -26.0F, 10.0F));
+
+        PartDefinition right_feather = tail_feathers.addOrReplaceChild("right_feather", CubeListBuilder.create(), PartPose.offset(-4.0F, -26.0F, 10.0F));
+
+        PartDefinition left_feather = tail_feathers.addOrReplaceChild("left_feather", CubeListBuilder.create(), PartPose.offset(-4.0F, -26.0F, 10.0F));
+
+        PartDefinition wing_1 = body_additions.addOrReplaceChild("wing_1", CubeListBuilder.create(), PartPose.offsetAndRotation(-8.2F, -4.0F, -4.0F, 1.5708F, 0.0F, 0.0F));
+
+        PartDefinition z_rot_wing_1 = wing_1.addOrReplaceChild("z_rot_wing_1", CubeListBuilder.create(), PartPose.offset(3.0F, -1.0F, 2.0F));
+
+        PartDefinition feathers_1_wing1 = z_rot_wing_1.addOrReplaceChild("feathers_1_wing1", CubeListBuilder.create(), PartPose.offset(-1.0F, 3.0F, -2.0F));
+
+        PartDefinition feathers_2_wing1 = z_rot_wing_1.addOrReplaceChild("feathers_2_wing1", CubeListBuilder.create(), PartPose.offset(-1.0F, 6.0F, -2.0F));
+
+        PartDefinition feathers_3_wing1 = z_rot_wing_1.addOrReplaceChild("feathers_3_wing1", CubeListBuilder.create(), PartPose.offset(-1.0F, 9.0F, -2.0F));
+
+        PartDefinition wing_2 = body_additions.addOrReplaceChild("wing_2", CubeListBuilder.create(), PartPose.offsetAndRotation(8.2F, -4.0F, -4.0F, 1.5708F, 0.0F, 0.0F));
+
+        PartDefinition z_rot_wing_2 = wing_2.addOrReplaceChild("z_rot_wing_2", CubeListBuilder.create(), PartPose.offset(-3.0F, -1.0F, 2.0F));
+
+        PartDefinition feathers_1_wing2 = z_rot_wing_2.addOrReplaceChild("feathers_1_wing2", CubeListBuilder.create(), PartPose.offset(1.0F, 3.0F, -2.0F));
+
+        PartDefinition feathers_2_wing2 = z_rot_wing_2.addOrReplaceChild("feathers_2_wing2", CubeListBuilder.create(), PartPose.offset(1.0F, 6.0F, -2.0F));
+
+        PartDefinition feathers_3_wing2 = z_rot_wing_2.addOrReplaceChild("feathers_3_wing2", CubeListBuilder.create(), PartPose.offset(1.0F, 9.0F, -2.0F));
+
+        PartDefinition leg1 = base.addOrReplaceChild("leg1", CubeListBuilder.create(), PartPose.offset(4.0F, 7.0F, 2.0F));
+
+        PartDefinition base_leg1 = leg1.addOrReplaceChild("base_leg1", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+        PartDefinition upper_fluff_leg1 = base_leg1.addOrReplaceChild("upper_fluff_leg1", CubeListBuilder.create(), PartPose.offsetAndRotation(0.0F, 0.25F, 1.0F, -0.829F, 0.0F, 0.0F));
+
+        PartDefinition nail_leg1 = base_leg1.addOrReplaceChild("nail_leg1", CubeListBuilder.create(), PartPose.offsetAndRotation(0.0F, 10.25F, 8.25F, 0.2182F, 0.0F, 0.0F));
+
+        PartDefinition lower_leg1 = base_leg1.addOrReplaceChild("lower_leg1", CubeListBuilder.create(), PartPose.offset(0.0F, 10.0F, 5.0F));
+
+        PartDefinition toes_leg1 = lower_leg1.addOrReplaceChild("toes_leg1", CubeListBuilder.create(), PartPose.offset(0.0F, 11.25F, 2.0F));
+
+        PartDefinition toes_stepanim_leg1 = toes_leg1.addOrReplaceChild("toes_stepanim_leg1", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+        PartDefinition back_toes_leg1 = toes_stepanim_leg1.addOrReplaceChild("back_toes_leg1", CubeListBuilder.create(), PartPose.offset(0.0F, -5.0F, -6.0F));
+
+        PartDefinition leg2 = base.addOrReplaceChild("leg2", CubeListBuilder.create(), PartPose.offset(4.0F, 7.0F, 2.0F));
+
+        PartDefinition base_leg2 = leg2.addOrReplaceChild("base_leg2", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+        PartDefinition upper_fluff_leg2 = base_leg2.addOrReplaceChild("upper_fluff_leg2", CubeListBuilder.create(), PartPose.offsetAndRotation(0.0F, 0.25F, 1.0F, -0.829F, 0.0F, 0.0F));
+
+        PartDefinition nail_leg2 = base_leg2.addOrReplaceChild("nail_leg2", CubeListBuilder.create(), PartPose.offsetAndRotation(0.0F, 10.25F, 8.25F, 0.2182F, 0.0F, 0.0F));
+
+        PartDefinition lower_leg2 = base_leg2.addOrReplaceChild("lower_leg2", CubeListBuilder.create(), PartPose.offset(0.0F, 10.0F, 5.0F));
+
+        PartDefinition toes_leg2 = lower_leg2.addOrReplaceChild("toes_leg2", CubeListBuilder.create(), PartPose.offset(0.0F, 11.25F, 2.0F));
+
+        PartDefinition toes_stepanim_leg2 = toes_leg2.addOrReplaceChild("toes_stepanim_leg2", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+        PartDefinition back_toes_leg2 = toes_stepanim_leg2.addOrReplaceChild("back_toes_leg2", CubeListBuilder.create(), PartPose.offset(0.0F, -5.0F, -6.0F));
+
+        return LayerDefinition.create(meshdefinition, 128, 64);
+    }
+
+
+    public static LayerDefinition createOldArmorLayer() {
+        MeshDefinition meshdefinition = new MeshDefinition();
+        PartDefinition partdefinition = meshdefinition.getRoot();
+
+        PartDefinition base = partdefinition.addOrReplaceChild("base", CubeListBuilder.create(), PartPose.offset(4.0F, 7.0F, 2.0F));
+
+        PartDefinition body_additions = base.addOrReplaceChild("body_additions", CubeListBuilder.create(), PartPose.offset(-4.0F, 1.0F, -2.0F));
+
+        PartDefinition head = body_additions.addOrReplaceChild("head", CubeListBuilder.create(), PartPose.offset(0.0F, -12.0F, -10.0F));
+
+        PartDefinition neck_hurtanim = head.addOrReplaceChild("neck_hurtanim", CubeListBuilder.create(), PartPose.offset(0.0F, 6.0F, 2.0F));
+
+        PartDefinition neck = neck_hurtanim.addOrReplaceChild("neck", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+        PartDefinition neck_piece = neck.addOrReplaceChild("neck_piece", CubeListBuilder.create(), PartPose.offsetAndRotation(0.0F, 0.0F, 2.0F, -0.1309F, 0.0F, 0.0F));
+
+        PartDefinition neck_piece_r1 = neck_piece.addOrReplaceChild("neck_piece_r1", CubeListBuilder.create().texOffs(44, 0).addBox(-2.0F, -8.0F, -2.0F, 4.0F, 14.0F, 4.0F, new CubeDeformation(0.25F)), PartPose.offsetAndRotation(0.0F, -4.0F, -2.0F, 0.3927F, 0.0F, 0.0F));
+
+        PartDefinition head_hurtanim = neck.addOrReplaceChild("head_hurtanim", CubeListBuilder.create(), PartPose.offset(0.0F, -10.0F, -3.0F));
+
+        PartDefinition head_part = head_hurtanim.addOrReplaceChild("head_part", CubeListBuilder.create().texOffs(0, 26).addBox(-4.0F, -8.0F, -12.0F, 8.0F, 8.0F, 16.0F, new CubeDeformation(0.25F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+        PartDefinition feathers = head_part.addOrReplaceChild("feathers", CubeListBuilder.create(), PartPose.offset(0.0F, -2.0F, 0.0F));
+
+        PartDefinition head_feather_top = feathers.addOrReplaceChild("head_feather_top", CubeListBuilder.create(), PartPose.offset(0.0F, -6.0F, 4.0F));
+
+        PartDefinition head_feather_left = feathers.addOrReplaceChild("head_feather_left", CubeListBuilder.create(), PartPose.offset(4.0F, -2.0F, 4.0F));
+
+        PartDefinition head_feather_right = feathers.addOrReplaceChild("head_feather_right", CubeListBuilder.create(), PartPose.offset(-4.0F, -2.0F, 4.0F));
+
+        PartDefinition jaw = head_part.addOrReplaceChild("jaw", CubeListBuilder.create(), PartPose.offset(0.0F, -2.0F, 0.0F));
+
+        PartDefinition tail_feathers = body_additions.addOrReplaceChild("tail_feathers", CubeListBuilder.create(), PartPose.offset(0.0F, 16.0F, 0.0F));
+
+        PartDefinition middle_feather = tail_feathers.addOrReplaceChild("middle_feather", CubeListBuilder.create(), PartPose.offset(0.0F, -26.0F, 10.0F));
+
+        PartDefinition right_feather = tail_feathers.addOrReplaceChild("right_feather", CubeListBuilder.create(), PartPose.offset(-4.0F, -26.0F, 10.0F));
+
+        PartDefinition left_feather = tail_feathers.addOrReplaceChild("left_feather", CubeListBuilder.create(), PartPose.offset(-4.0F, -26.0F, 10.0F));
+
+        PartDefinition wing_1 = body_additions.addOrReplaceChild("wing_1", CubeListBuilder.create(), PartPose.offsetAndRotation(-8.2F, -4.0F, -4.0F, 1.5708F, 0.0F, 0.0F));
+
+        PartDefinition z_rot_wing_1 = wing_1.addOrReplaceChild("z_rot_wing_1", CubeListBuilder.create(), PartPose.offset(3.0F, -1.0F, 2.0F));
+
+        PartDefinition feathers_1_wing1 = z_rot_wing_1.addOrReplaceChild("feathers_1_wing1", CubeListBuilder.create(), PartPose.offset(-1.0F, 3.0F, -2.0F));
+
+        PartDefinition feathers_2_wing1 = z_rot_wing_1.addOrReplaceChild("feathers_2_wing1", CubeListBuilder.create(), PartPose.offset(-1.0F, 6.0F, -2.0F));
+
+        PartDefinition feathers_3_wing1 = z_rot_wing_1.addOrReplaceChild("feathers_3_wing1", CubeListBuilder.create(), PartPose.offset(-1.0F, 9.0F, -2.0F));
+
+        PartDefinition wing_2 = body_additions.addOrReplaceChild("wing_2", CubeListBuilder.create(), PartPose.offsetAndRotation(8.2F, -4.0F, -4.0F, 1.5708F, 0.0F, 0.0F));
+
+        PartDefinition z_rot_wing_2 = wing_2.addOrReplaceChild("z_rot_wing_2", CubeListBuilder.create(), PartPose.offset(-3.0F, -1.0F, 2.0F));
+
+        PartDefinition feathers_1_wing2 = z_rot_wing_2.addOrReplaceChild("feathers_1_wing2", CubeListBuilder.create(), PartPose.offset(1.0F, 3.0F, -2.0F));
+
+        PartDefinition feathers_2_wing2 = z_rot_wing_2.addOrReplaceChild("feathers_2_wing2", CubeListBuilder.create(), PartPose.offset(1.0F, 6.0F, -2.0F));
+
+        PartDefinition feathers_3_wing2 = z_rot_wing_2.addOrReplaceChild("feathers_3_wing2", CubeListBuilder.create(), PartPose.offset(1.0F, 9.0F, -2.0F));
+
+        PartDefinition leg1 = base.addOrReplaceChild("leg1", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+        PartDefinition base_leg1 = leg1.addOrReplaceChild("base_leg1", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+        PartDefinition upper_leg1_r1 = base_leg1.addOrReplaceChild("upper_leg1_r1", CubeListBuilder.create().texOffs(92, 42).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 13.0F, 4.0F, new CubeDeformation(0.25F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.5236F, 0.0F, 0.0F));
+
+        PartDefinition upper_fluff_leg1 = base_leg1.addOrReplaceChild("upper_fluff_leg1", CubeListBuilder.create(), PartPose.offsetAndRotation(0.0F, 0.25F, 1.0F, -0.829F, 0.0F, 0.0F));
+
+        PartDefinition nail_leg1 = base_leg1.addOrReplaceChild("nail_leg1", CubeListBuilder.create(), PartPose.offsetAndRotation(0.0F, 10.25F, 8.25F, 0.2182F, 0.0F, 0.0F));
+
+        PartDefinition lower_leg1 = base_leg1.addOrReplaceChild("lower_leg1", CubeListBuilder.create(), PartPose.offset(0.0F, 10.0F, 5.0F));
+
+        PartDefinition toes_leg1 = lower_leg1.addOrReplaceChild("toes_leg1", CubeListBuilder.create(), PartPose.offset(0.0F, 11.25F, 2.0F));
+
+        PartDefinition toes_stepanim_leg1 = toes_leg1.addOrReplaceChild("toes_stepanim_leg1", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+        PartDefinition back_toes_leg1 = toes_stepanim_leg1.addOrReplaceChild("back_toes_leg1", CubeListBuilder.create(), PartPose.offset(0.0F, -5.0F, -6.0F));
+
+        PartDefinition leg2 = base.addOrReplaceChild("leg2", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+        PartDefinition base_leg2 = leg2.addOrReplaceChild("base_leg2", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+        PartDefinition upper_leg1_r2 = base_leg2.addOrReplaceChild("upper_leg1_r2", CubeListBuilder.create().texOffs(108, 42).mirror().addBox(-2.0F, 0.0F, -2.0F, 4.0F, 13.0F, 4.0F, new CubeDeformation(0.25F)).mirror(false), PartPose.offsetAndRotation(-8.0F, 0.0F, 0.0F, 0.5236F, 0.0F, 0.0F));
 
         PartDefinition upper_fluff_leg2 = base_leg2.addOrReplaceChild("upper_fluff_leg2", CubeListBuilder.create(), PartPose.offsetAndRotation(0.0F, 0.25F, 1.0F, -0.829F, 0.0F, 0.0F));
 

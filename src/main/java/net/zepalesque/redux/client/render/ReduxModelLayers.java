@@ -6,9 +6,12 @@ import net.zepalesque.redux.Redux;
 
 
 public class ReduxModelLayers {
+    // TODO: actually organize the mess of code that is the updated moa model
     public static final ModelLayerLocation MOA_OLD = register("redux_moa", "legacy_model");
     public static final ModelLayerLocation MOA_TALONS = register("redux_moa", "talons_model");
     public static final ModelLayerLocation MOA_REFRESHED = register("redux_moa", "refreshed");
+    public static final ModelLayerLocation MOA_ARMOR_NEW = register("redux_moa", "armor_new");
+    public static final ModelLayerLocation MOA_ARMOR_OLD = register("redux_moa", "armor_old");
     public static final ModelLayerLocation COCKATRICE_OLD = register("redux_cockatrice", "legacy_model");
     public static final ModelLayerLocation COCKATRICE_REFRESHED = register("redux_cockatrice", "refreshed");
     public static final ModelLayerLocation MIMIC = register("redux_mimic");

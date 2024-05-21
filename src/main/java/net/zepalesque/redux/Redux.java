@@ -454,6 +454,7 @@ public class Redux {
     public static boolean aetherGenesisCompat() { return ModList.get().isLoaded("aether_genesis"); }
     public static boolean ancientAetherCompat() { return ModList.get().isLoaded("ancient_aether"); }
     public static boolean galosphereCompat() { return ModList.get().isLoaded("galosphere"); }
+    public static boolean protectCompat() { return ModList.get().isLoaded("aether_protect_your_moa"); }
 
 
 
