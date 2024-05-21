@@ -47,12 +47,10 @@ public class MoaReduxArmorLayer extends RenderLayer<Moa, MoaModel> {
             poseStack.scale(0.5F, 0.5F, 0.5F);
             poseStack.translate(0F, 1.5F, /*-0.125F*/ 0F);
             MoaArmor.get(moa).ifPresent((moaArmor) -> {
-            this.layerParent.getCurrentModel().head_feather_top.skipDraw = false;
             ItemStack itemStack = moaArmor.getArmor();
             if (itemStack != null && !itemStack.isEmpty()) {
                 Item item = itemStack.getItem();
                 if (item instanceof MoaArmorItem moaArmorItem) {
-                    this.layerParent.getCurrentModel().head_feather_top.skipDraw = true;
                     MoaReduxModel model = this.setupAnimAndModel(moa, limbSwing, limbSwingAmount, partialTick);
                     model.prepareMobModel(moa, limbSwing, limbSwingAmount, partialTick);
                     model.setupAnim(moa, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);

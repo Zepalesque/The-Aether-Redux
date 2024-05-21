@@ -3,6 +3,9 @@ package net.zepalesque.redux.client.render.entity.layer.entity;
 import com.aetherteam.aether.client.renderer.entity.MoaRenderer;
 import com.aetherteam.aether.client.renderer.entity.model.MoaModel;
 import com.aetherteam.aether.entity.passive.Moa;
+import com.aetherteam.protect_your_moa.capability.armor.MoaArmor;
+import com.aetherteam.protect_your_moa.item.combat.DyeableMoaArmorItem;
+import com.aetherteam.protect_your_moa.item.combat.MoaArmorItem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Minecraft;
@@ -10,8 +13,12 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
+import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.capability.animation.moa.MoaAnimation;
 import net.zepalesque.redux.client.render.entity.model.entity.MoaReduxModel;
 import net.zepalesque.redux.client.render.util.MoaUtils;
@@ -125,7 +132,10 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
                 this.getParentModel().leftLeg.xRot = MathUtil.costrp(progress, -swingCalc, 0.6F);
             }
 
-
+            if (Redux.protectCompat()) {
+                this.doHeadFeathersArmorStuff();
+            }
+            
             model.setupAnim(moa, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
             if (Minecraft.getInstance().player == null || !moa.isInvisibleTo(Minecraft.getInstance().player)) {
                 ResourceLocation feathersLoc = getTextureLocation(moa);
@@ -134,6 +144,13 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
             }
             poseStack.popPose();
         }
+    }
+
+    private void doHeadFeathersArmorStuff(Moa moa, MoaReduxModel model) {
+        MoaArmor.get(moa).ifPresent((moaArmor) -> {
+            ItemStack itemStack = moaArmor.getArmor();
+            model.head_feather_top.skipDraw = itemStack != null && !itemStack.isEmpty();
+        });
     }
 
     public MoaReduxModel getCurrentModel() {
