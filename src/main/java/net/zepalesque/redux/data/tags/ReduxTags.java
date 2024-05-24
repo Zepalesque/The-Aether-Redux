@@ -18,15 +18,15 @@ public class ReduxTags {
 
     public static class Blocks {
 
-        public static final TagKey<Block> AETHER_GRASS_NONREPLACING = tag("aether_grass_nonreplacing");
-
         public static TagKey<Block> tag(String name) {
             return TagKey.create(Registries.BLOCK, Redux.loc(name));
         }
     }
 
     public static class Items {
-  
+
+        public static final TagKey<Item> AETHER_GRASS_NONREPLACING = tag("aether_grass_nonreplacing");
+
         public static TagKey<Item> tag(String name) {
             return TagKey.create(Registries.ITEM, Redux.loc(name));
         }

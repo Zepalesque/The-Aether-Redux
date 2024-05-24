@@ -24,11 +24,14 @@ import net.zepalesque.redux.data.tags.ReduxTags;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-// TODO: Look over and see if things can be rewritten
+import java.util.List;
+
 public class AetherShortGrassBlock extends AetherBushBlock {
-    protected static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 7.0D, 14.0D);
-    protected static final VoxelShape SHAPE_TALL = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
-    protected static final VoxelShape SHAPE_SHORT = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 5.0D, 14.0D);
+    public static final List<VoxelShape> SHAPES = List.of(
+            Block.box(2.0D, 0.0D, 2.0D, 14.0D, 7.0D, 14.0D),
+            Block.box(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D),
+            Block.box(2.0D, 0.0D, 2.0D, 14.0D, 5.0D, 14.0D)
+    );
     protected static VoxelShape COLLISION_SHAPE = Shapes.empty();
 
     public AetherShortGrassBlock(Properties properties) {
@@ -37,12 +40,13 @@ public class AetherShortGrassBlock extends AetherBushBlock {
     }
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         GrassSize size = pState.getValue(ReduxStates.GRASS_SIZE);
-        return size == GrassSize.small ? SHAPE_SHORT : size == GrassSize.tall ? SHAPE_TALL : SHAPE;
+        return SHAPES.get(size.ordinal());
     }
 
     @Override
     public boolean canBeReplaced(BlockState pState, BlockPlaceContext pUseContext) {
-        return super.canBeReplaced(pState, pUseContext) && (pUseContext.getItemInHand().getItem() instanceof BlockItem blockItem && !blockItem.getBlock().builtInRegistryHolder().is(ReduxTags.Blocks.AETHER_GRASS_NONREPLACING));
+        return super.canBeReplaced(pState, pUseContext) &&
+                pUseContext.getItemInHand().is(ReduxTags.Items.AETHER_GRASS_NONREPLACING);
     }
 
     @Override

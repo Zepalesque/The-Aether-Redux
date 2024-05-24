@@ -22,10 +22,8 @@ public class ReduxBlocks {
     public static DeferredBlock<AetherShortGrassBlock> SHORT_AETHER_GRASS = register("short_aether_grass",
             () -> new AetherShortGrassBlock(
                     Properties.ofFullCopy(Blocks.SHORT_GRASS)
-                            // TODO: Check if this is necessary
                             .hasPostProcess((state, level, pos) -> true)
             ));
-
 
     private static <T extends Block> DeferredBlock<T> register(final String name, final Supplier<? extends T> block, Function<DeferredBlock<T>, Supplier<? extends Item>> item) {
         DeferredBlock<T> obj = ReduxBlocks.BLOCKS.register(name, block);
