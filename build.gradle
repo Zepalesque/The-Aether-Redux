@@ -64,8 +64,22 @@ dependencies {
 
     implementation "com.aetherteam.aether:aether:${aether_version}"
     implementation "com.aetherteam.nitrogen:nitrogen_internals:${nitrogen_version}"
+    implementation "com.aetherteam.cumulus:cumulus_menus:${project.cumulus_version}"
     implementation "net.zepalesque.zenith:zenith:${zenith_version}"
     implementation "top.theillusivec4.curios:curios-neoforge:${curios_version}+${mc_version}"
+
+    implementation "curse.maven:aeroblender-879879:${project.aeroblender_version}"
+    implementation "com.github.glitchfiend:TerraBlender-neoforge:${project.terrablender_version}"
+
+    jarJar("curse.maven:aeroblender-879879:${project.aeroblender_version}") {
+        jarJar.ranged(it, "[${project.aeroblender_version},)")
+        jarJar.pin(it, "${project.aeroblender_version}")
+    }
+
+    jarJar("com.github.glitchfiend:TerraBlender-neoforge:${project.terrablender_version}") {
+        jarJar.ranged(it, "[${project.terrablender_version_minimum},${project.terrablender_version_maximum})")
+        jarJar.pin(it, "${project.terrablender_version}")
+    }
 
     jarJar("net.zepalesque.zenith:zenith:${zenith_version}") {
         jarJar.ranged(it, "[${zenith_version},)")
@@ -78,7 +92,11 @@ repositories {
     maven { url = "https://maven.blamejared.com" }
     maven { url = "https://maven.theillusivec4.top/" }
     maven { url = "https://gitlab.com/api/v4/projects/21830712/packages/maven" }
+    maven { url = "https://www.cursemaven.com" }
+    maven { url = 'https://maven.minecraftforge.net/' }
     maven githubPackage.invoke("The-Aether-Team/The-Aether")
+    maven githubPackage.invoke("The-Aether-Team/Nitrogen")
+    maven githubPackage.invoke("The-Aether-Team/Cumulus")
     maven githubPackage.invoke("Zepalesque/Zenith")
 }
 
@@ -88,6 +106,7 @@ tasks.withType(ProcessResources).configureEach {
             mod_id                 : mod_id,
             mod_name               : mod_name,
             mod_version            : mod_version,
+            zenith_version         : zenith_version,
     ]
     inputs.properties replaceProperties
 
