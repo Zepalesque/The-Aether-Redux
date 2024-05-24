@@ -716,12 +716,16 @@ public class BaseAetherWoodSet extends BaseWoodSet {
 
     @Override
     @Nullable
-    public String logSuffix(boolean isLang) {
-        return isLang ? " Log" : "_log";
+    public String logSuffix(LangType isLang) {
+        return switch (isLang) {
+            case ID -> "_log";
+            case LANG -> " Log";
+            case LANG_PLURAL -> " Logs";
+        };
     }
 
     @Override
-    public String woodSuffix(boolean isLang) {
+    public String woodSuffix(LangType isLang) {
         return null;
     }
 
