@@ -20,6 +20,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.zepalesque.redux.block.state.ReduxStates;
 import net.zepalesque.redux.block.state.enums.GrassSize;
+import net.zepalesque.redux.data.tags.ReduxTags;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -40,7 +41,7 @@ public class AetherShortGrassBlock extends AetherBushBlock {
 
     @Override
     public boolean canBeReplaced(BlockState pState, BlockPlaceContext pUseContext) {
-        return super.canBeReplaced(pState, pUseContext) && (pUseContext.getItemInHand().getItem() instanceof BlockItem blockItem && !blockItem.getBlock().builtInRegistryHolder().is(ReduxTags.Blocks.DO_NOT_REPLACE_AETHER_GRASS));
+        return super.canBeReplaced(pState, pUseContext) && (pUseContext.getItemInHand().getItem() instanceof BlockItem blockItem && !blockItem.getBlock().builtInRegistryHolder().is(ReduxTags.Blocks.AETHER_GRASS_NONREPLACING));
     }
 
     @Override
