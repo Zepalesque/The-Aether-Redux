@@ -11,7 +11,11 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
+import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.config.ReduxConfig;
+import net.zepalesque.redux.entity.ReduxEntities;
+import net.zepalesque.redux.item.ReduxItems;
+import net.zepalesque.redux.tile.ReduxTiles;
 import net.zepalesque.zenith.api.condition.ConfigCondition;
 import net.zepalesque.zenith.api.condition.config.ConfigSerializer;
 import org.slf4j.Logger;
@@ -27,6 +31,10 @@ public class Redux {
         bus.addListener(this::commonSetup);
         bus.addListener(this::dataSetup);
 
+        ReduxBlocks.BLOCKS.register(bus);
+        ReduxItems.ITEMS.register(bus);
+        ReduxEntities.ENTITIES.register(bus);
+        ReduxTiles.TILES.register(bus);
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ReduxConfig.COMMON_SPEC, MODID + "/common.toml");
         ConfigCondition.registerSerializer("redux_common", new ConfigSerializer(ReduxConfig.Common::serialize, ReduxConfig.Common::deserialize));
