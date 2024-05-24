@@ -24,6 +24,7 @@ import net.zepalesque.redux.data.tags.ReduxTags;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+// TODO: Look over and see if things can be rewritten
 public class AetherShortGrassBlock extends AetherBushBlock {
     protected static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 7.0D, 14.0D);
     protected static final VoxelShape SHAPE_TALL = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
@@ -56,17 +57,9 @@ public class AetherShortGrassBlock extends AetherBushBlock {
         builder.add(ReduxStates.GRASS_SIZE);
     }
 
-/*    protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
-        return state.is(ReduxTags.Blocks.FROSTED_PLANTS_PLACEMENT) || super.mayPlaceOn(state, level, pos);
-    }*/
-
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        long r = Mth.getSeed(context.getClickedPos());
-        RandomSource rand = new XoroshiroRandomSource(r);
-        int i = rand.nextInt(3);
-        GrassSize size = GrassSize.values()[i];
         return setValues(context.getLevel(), context.getClickedPos(), super.getStateForPlacement(context));
     }
 
