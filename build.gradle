@@ -59,6 +59,7 @@ subsystems {
         mappingsVersion = "${mappings}"
     }
 }
+
 dependencies {
     implementation "net.neoforged:neoforge:${neo_version}"
 
