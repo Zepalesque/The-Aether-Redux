@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "aether_redux:block/natural/theratip_overlay",
-    "layer1": "aether_redux:block/natural/theratip"
-  }
-}

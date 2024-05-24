@@ -1,8 +1,0 @@
-{
-  "parent": "aether_redux:block/wooden_post_big",
-  "textures": {
-    "particle": "aether_redux:block/natural/fieldsproot_log",
-    "side": "aether_redux:block/natural/fieldsproot_log",
-    "top": "aether_redux:block/natural/fieldsproot_log_top"
-  }
-}

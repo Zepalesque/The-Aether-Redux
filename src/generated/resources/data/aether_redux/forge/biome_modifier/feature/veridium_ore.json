@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "#aether_redux:has_veridium_ore",
-  "features": "aether_redux:ore/veridium_ore",
-  "step": "underground_ores"
-}

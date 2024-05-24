@@ -1,8 +1,0 @@
-{
-  "parent": "aether_redux:block/template_single_face_gloverlay",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "glow": "aether_redux:block/natural/cloud_cap_block2_glow",
-    "texture": "aether_redux:block/natural/cloud_cap_block2"
-  }
-}

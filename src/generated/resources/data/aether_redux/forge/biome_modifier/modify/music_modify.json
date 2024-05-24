@@ -1,9 +1,0 @@
-{
-  "type": "aether_redux:music",
-  "biomes": "#aether_redux:music_modify",
-  "delay": {
-    "max": 3600,
-    "min": 1200
-  },
-  "replace": false
-}

@@ -1,8 +1,0 @@
-{
-  "remove": [
-    "aether_redux:the_blight"
-  ],
-  "values": [
-    "#aether:is_aether"
-  ]
-}

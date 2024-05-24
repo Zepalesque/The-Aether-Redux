@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "#aether_redux:has_divinite",
-  "features": "aether_redux:ore/divinite_ore",
-  "step": "underground_ores"
-}

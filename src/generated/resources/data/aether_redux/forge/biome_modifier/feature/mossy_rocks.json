@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "#aether_redux:has_mossy_rocks",
-  "features": "aether_redux:surface/mossy_rock",
-  "step": "top_layer_modification"
-}

@@ -1,8 +1,0 @@
-{
-  "parent": "aether_redux:block/wooden_side_tall",
-  "textures": {
-    "particle": "aether_redux:block/natural/stripped_blightwillow_log",
-    "side": "aether_redux:block/natural/stripped_blightwillow_log",
-    "top": "aether_redux:block/natural/stripped_blightwillow_log"
-  }
-}

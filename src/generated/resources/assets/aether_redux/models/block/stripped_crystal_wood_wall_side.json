@@ -1,8 +1,0 @@
-{
-  "parent": "aether_redux:block/wooden_side",
-  "textures": {
-    "particle": "aether_redux:block/natural/stripped_crystal_log",
-    "side": "aether_redux:block/natural/stripped_crystal_log",
-    "top": "aether_redux:block/natural/stripped_crystal_log"
-  }
-}

@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/template_single_face",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "texture": "aether_redux:block/natural/cloud_cap_block_inside"
-  }
-}

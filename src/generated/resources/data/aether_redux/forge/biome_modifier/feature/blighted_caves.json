@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "#aether_redux:has_blighted_caves",
-  "features": "aether_redux:cave_biome/blightmoss_sparse_vegetation",
-  "step": "vegetal_decoration"
-}

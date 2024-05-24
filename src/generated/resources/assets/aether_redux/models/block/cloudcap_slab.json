@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "aether_redux:block/construction/cloudcap_planks",
-    "side": "aether_redux:block/construction/cloudcap_planks",
-    "top": "aether_redux:block/construction/cloudcap_planks"
-  }
-}

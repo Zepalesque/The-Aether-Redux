@@ -1,8 +1,0 @@
-{
-  "parent": "aether_redux:block/cross/cross_tinted_glow",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "cross": "aether_redux:block/natural/luxweed",
-    "overlay": "aether_redux:block/natural/luxweed_glow"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "parent": "aether_redux:block/cross/cross_tinted_dual_gloverlay",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "cross": "aether_redux:block/natural/flareblossom",
-    "glow": "aether_redux:block/natural/flareblossom_glow",
-    "overlay": "aether_redux:block/natural/flareblossom_overlay"
-  }
-}

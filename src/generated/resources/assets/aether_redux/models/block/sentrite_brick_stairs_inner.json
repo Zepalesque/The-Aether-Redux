@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "aether_redux:block/construction/sentrite_bricks",
-    "side": "aether_redux:block/construction/sentrite_bricks",
-    "top": "aether_redux:block/construction/sentrite_bricks"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "parent": "aether_redux:block/cube_all_glow",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "all": "aether_redux:block/natural/cloud_cap_block4",
-    "glow": "aether_redux:block/natural/cloud_cap_block4_glow"
-  }
-}

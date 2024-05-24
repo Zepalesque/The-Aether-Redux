@@ -1,7 +1,0 @@
-{
-  "parent": "aether_redux:block/template_chain",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "chain": "aether_redux:block/construction/veridium_chain"
-  }
-}

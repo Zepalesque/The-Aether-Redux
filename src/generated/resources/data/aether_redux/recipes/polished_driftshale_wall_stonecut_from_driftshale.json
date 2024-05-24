@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "aether_redux:driftshale"
-  },
-  "result": "aether_redux:polished_driftshale_wall"
-}

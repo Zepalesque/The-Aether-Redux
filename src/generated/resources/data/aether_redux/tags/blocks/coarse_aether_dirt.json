@@ -1,9 +1,0 @@
-{
-  "values": [
-    "aether_redux:coarse_aether_dirt",
-    {
-      "id": "deep_aether:aether_coarse_dirt",
-      "required": false
-    }
-  ]
-}

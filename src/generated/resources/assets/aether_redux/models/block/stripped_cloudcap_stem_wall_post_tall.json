@@ -1,8 +1,0 @@
-{
-  "parent": "aether_redux:block/wooden_post_tall",
-  "textures": {
-    "particle": "aether_redux:block/natural/stripped_cloudcap_stem",
-    "side": "aether_redux:block/natural/stripped_cloudcap_stem",
-    "top": "aether_redux:block/natural/stripped_cloudcap_stem"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "aether_redux:block/natural/blighted_skyroot_leaves"
-  }
-}

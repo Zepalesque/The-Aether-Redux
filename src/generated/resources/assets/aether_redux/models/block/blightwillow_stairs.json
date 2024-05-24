@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "aether_redux:block/construction/blightwillow_planks",
-    "side": "aether_redux:block/construction/blightwillow_planks",
-    "top": "aether_redux:block/construction/blightwillow_planks"
-  }
-}

@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column_horizontal",
-  "textures": {
-    "end": "aether_redux:block/natural/crystal_log_top",
-    "side": "aether_redux:block/natural/crystal_log"
-  }
-}
