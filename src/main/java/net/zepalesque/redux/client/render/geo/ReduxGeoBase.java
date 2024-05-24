@@ -45,7 +45,7 @@ public class ReduxGeoBase {
             return netHeadYaw;
         }
 
-        @Override
+    /*    @Override
         public void applyMolangQueries(T entity, double animTime) {
             super.applyMolangQueries(entity, animTime);
             MolangParser molangParser = MolangParser.INSTANCE;
@@ -71,7 +71,7 @@ public class ReduxGeoBase {
 
             molangParser.setMemoizedValue(ReduxClient.HEAD_X_ROT, () -> Mth.lerp(mc.getPartialTick(), entity.xRotO, entity.getXRot()));
             molangParser.setMemoizedValue(ReduxClient.HEAD_Y_ROT, () -> this.calculateHeadY(entity, mc.getPartialTick()));
-        }
+        }*/
     }
 
 }

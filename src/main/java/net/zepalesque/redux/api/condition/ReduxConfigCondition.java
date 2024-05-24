@@ -22,6 +22,7 @@ public class ReduxConfigCondition implements AbstractCondition<ReduxConfigCondit
 
     public static ReduxConfigCondition fromText(String config) {
         return new ReduxConfigCondition(ReduxConfigSerialization.deserialize(config));
+
     }
     public ReduxConfigCondition(ForgeConfigSpec.ConfigValue<Boolean> config) {
         this.config = config;

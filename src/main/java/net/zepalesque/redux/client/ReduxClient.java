@@ -33,9 +33,9 @@ public class ReduxClient {
     public static final String HEAD_Y_ROT = "query.head_y_rotation";
 
     public static void registerMolangQueries() {
-        MolangParser.INSTANCE.register(new LazyVariable(LIMB_MOVEMENT, 0));
-        MolangParser.INSTANCE.register(new LazyVariable(HEAD_X_ROT, 0));
-        MolangParser.INSTANCE.register(new LazyVariable(HEAD_Y_ROT, 0));
+//        MolangParser.INSTANCE.register(new LazyVariable(LIMB_MOVEMENT, 0));
+//        MolangParser.INSTANCE.register(new LazyVariable(HEAD_X_ROT, 0));
+//        MolangParser.INSTANCE.register(new LazyVariable(HEAD_Y_ROT, 0));
     }
 
 
