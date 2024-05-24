@@ -8,6 +8,7 @@ import net.zepalesque.redux.block.natural.AetherShortGrassBlock;
 import net.zepalesque.redux.block.state.ReduxStates;
 
 public abstract class ReduxBlockStateProvider extends AetherBlockStateProvider {
+
     public ReduxBlockStateProvider(PackOutput output, String id, ExistingFileHelper helper) {
         super(output, id, helper);
     }
