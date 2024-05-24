@@ -4,6 +4,8 @@ import com.aetherteam.aether.block.natural.AetherLogBlock;
 import net.minecraft.core.Direction;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.tags.EntityTypeTagsProvider;
+import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.StringUtil;
 import net.minecraft.world.entity.EntityType;
@@ -675,7 +677,6 @@ public class BaseAetherWoodSet extends BaseWoodSet {
         data.add(this.boatEntity());
         data.addEntityType(this.chestBoatEntity(), name + " Boat with Chest");
 
-
         data.add(this.boatItem());
         data.addLore(this.boatItem(), "Crafted from " + name + " Planks. While the Aether does not have many large bodies of water, a boat can occasionally be a useful tool for crossing large distances over ice!");
         data.addItem(this.chestBoatItem(), name + " Boat with Chest");
@@ -690,6 +691,16 @@ public class BaseAetherWoodSet extends BaseWoodSet {
 
     @Override
     public void blockTagData(BlockTagsProvider provider) {
+
+    }
+
+    @Override
+    public void itemTagData(ItemTagsProvider provider) {
+
+    }
+
+    @Override
+    public void entityTagData(EntityTypeTagsProvider data) {
 
     }
 
@@ -717,10 +728,5 @@ public class BaseAetherWoodSet extends BaseWoodSet {
     @Override
     public String treesName(boolean isLang) {
         return null;
-    }
-
-    @Override
-    public String processName(String s) {
-        return s;
     }
 }
