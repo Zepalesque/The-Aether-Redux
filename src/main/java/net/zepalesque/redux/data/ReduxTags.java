@@ -1,4 +1,4 @@
-package net.zepalesque.redux.data.tags;
+package net.zepalesque.redux.data;
 
 import com.aetherteam.aether.api.AetherAdvancementSoundOverrides;
 import com.aetherteam.aether.api.registers.AdvancementSoundOverride;

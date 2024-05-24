@@ -1,5 +1,6 @@
 package net.zepalesque.redux;
 
+import com.aetherteam.aether.data.generators.AetherBlockStateData;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -14,6 +15,7 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.config.ReduxConfig;
+import net.zepalesque.redux.data.gen.ReduxBlockStateGen;
 import net.zepalesque.redux.entity.ReduxEntities;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.tile.ReduxTiles;
@@ -50,6 +52,9 @@ public class Redux {
         ExistingFileHelper fileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
         PackOutput packOutput = generator.getPackOutput();
+
+        // Client Data
+        generator.addProvider(event.includeClient(), new ReduxBlockStateGen(packOutput, fileHelper));
     }
 
     public static ResourceLocation loc(String path) {
