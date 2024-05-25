@@ -78,7 +78,7 @@ public class AetherWoodSet extends BaseWoodSet {
     }
 
     protected DeferredBlock<ReduxNaturalWall> strippedLogWall(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType) {
-        var block = registry.register(id + this.logSuffix(LangType.ID) + "_wall", () -> new ReduxNaturalWall(Properties.of()
+        var block = registry.register("stripped_" + id + this.logSuffix(LangType.ID) + "_wall", () -> new ReduxNaturalWall(Properties.of()
                 .mapColor(MapColor.WOOD)
                 .instrument(NoteBlockInstrument.BASS)
                 .ignitedByLava()
@@ -94,7 +94,7 @@ public class AetherWoodSet extends BaseWoodSet {
     }
 
     protected DeferredBlock<ReduxNaturalWall> strippedWoodWall(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType) {
-        var block = registry.register(id + this.logSuffix(LangType.ID) + "_wall", () -> new ReduxNaturalWall(Properties.of()
+        var block = registry.register("stripped_" + id + this.woodSuffix(LangType.ID) + "_wall", () -> new ReduxNaturalWall(Properties.of()
                 .mapColor(MapColor.WOOD)
                 .instrument(NoteBlockInstrument.BASS)
                 .ignitedByLava()
