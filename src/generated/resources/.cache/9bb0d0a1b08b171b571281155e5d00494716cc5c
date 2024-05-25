@@ -1,0 +1,16 @@
+// 1.20.4	2024-05-25T11:17:02.4943676	Tags for minecraft:block mod id aether_redux
+0cc86dcf2bc780593e5b8133ef2a6e03bc6abb6f data/aether_redux/tags/blocks/crystal_logs.json
+49ad498cef1154d6380c5317f026c7a11b62238d data/minecraft/tags/blocks/fence_gates.json
+5295d732f1c22a1f48681f9c064f14692726fdb3 data/minecraft/tags/blocks/logs.json
+955a10023679a8e61c6cd792e67db4906ad57b4c data/minecraft/tags/blocks/mineable/axe.json
+761d9af3851563316242dac11105074c9f83e129 data/minecraft/tags/blocks/planks.json
+2216fd082ca15e16aa11c8c0da689d112499381f data/minecraft/tags/blocks/standing_signs.json
+7cda59183028b6e5eea368168213a6dcc88647ac data/minecraft/tags/blocks/walls.json
+1e2087191d40249236d1d7fd362590f2dcd2e684 data/minecraft/tags/blocks/wall_signs.json
+a15828faa55bd5dd5834340a1595218fb8bcac59 data/minecraft/tags/blocks/wooden_buttons.json
+e497ee443996efd23f102948de55a574f22c1c87 data/minecraft/tags/blocks/wooden_doors.json
+25a30d476453a3ebe70feba9c712b18aaa9a0bc4 data/minecraft/tags/blocks/wooden_fences.json
+76fedf2355aa13decd4ce56898cba5ac0b92a610 data/minecraft/tags/blocks/wooden_pressure_plates.json
+7a1a19ff67423b0474acb54638d2340b0c375fa2 data/minecraft/tags/blocks/wooden_slabs.json
+e6cfa5a14047374ea3ecce91f34c5cdf265102be data/minecraft/tags/blocks/wooden_stairs.json
+b0b485fd75b8e5d66e4fe504530ed217c3eea3b4 data/minecraft/tags/blocks/wooden_trapdoors.json

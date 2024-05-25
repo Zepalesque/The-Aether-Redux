@@ -1,0 +1,18 @@
+{
+  "values": [
+    "aether_redux:crystal_planks",
+    "aether_redux:crystal_stairs",
+    "aether_redux:crystal_slab",
+    "aether_redux:crystal_fence",
+    "aether_redux:crystal_fence_gate",
+    "aether_redux:crystal_door",
+    "aether_redux:crystal_trapdoor",
+    "aether_redux:crystal_sign",
+    "aether_redux:crystal_wall_sign",
+    "#aether_redux:crystal_logs",
+    "aether_redux:crystal_log_wall",
+    "aether_redux:stripped_crystal_log_wall",
+    "aether_redux:crystal_wood_wall",
+    "aether_redux:stripped_crystal_wood_wall"
+  ]
+}
