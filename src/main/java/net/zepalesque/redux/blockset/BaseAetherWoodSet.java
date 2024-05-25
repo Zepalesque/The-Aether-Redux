@@ -641,7 +641,7 @@ public class BaseAetherWoodSet extends BaseWoodSet {
 
         String indefiniteLowercase = vowel ? "an" : "a";
         String indefiniteUppercase = vowel ? "An" : "A";
-        String name = this.processName(DatagenUtil.getNameLocalized(this.id));
+        String name = DatagenUtil.getNameLocalized(this.id);
 
         data.add(this.log());
         data.addLore(this.log(), "These spawn with " + name + " " + this.treesName(true) + ". They can be double dropped with Skyroot Axes. When put in a crafting table they will provide 4 " + name + " Planks.");
