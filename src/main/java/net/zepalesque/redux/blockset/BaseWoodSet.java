@@ -513,9 +513,9 @@ public class BaseWoodSet extends AbstractWoodSet {
 
     @Override
     protected DeferredHolder<EntityType<?>, EntityType<? extends ZenithChestBoat>> chestBoatEntity(DeferredRegister<EntityType<?>> registry, String id) {
-        return registry.register(id + "_boat", () ->
+        return registry.register(id + "_chest_boat", () ->
                 EntityType.Builder.<ZenithChestBoat>of(ZenithChestBoat::new, MobCategory.MISC)
-                        .sized(1.375F, 0.5625F).clientTrackingRange(10).build(id + "_boat")
+                        .sized(1.375F, 0.5625F).clientTrackingRange(10).build(id + "_chest_boat")
         );
 
     }
