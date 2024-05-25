@@ -181,7 +181,7 @@ public class BaseWoodSet extends AbstractWoodSet {
 
     @Override
     protected DeferredBlock<AetherLogBlock> strippedLog(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType) {
-        var block = registry.register(id + "_stripped" + this.logSuffix(LangType.ID), () -> new AetherLogBlock(Properties.of()
+        var block = registry.register("stripped_" + id + this.logSuffix(LangType.ID), () -> new AetherLogBlock(Properties.of()
                 .mapColor(color)
                 .instrument(NoteBlockInstrument.BASS)
                 .strength(2.0F)
@@ -216,7 +216,7 @@ public class BaseWoodSet extends AbstractWoodSet {
 
     @Override
     protected DeferredBlock<NaturalLog> strippedWood(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType) {
-        var block = registry.register(id + "_stripped" + this.woodSuffix(LangType.ID), () -> new NaturalLog(Properties.of()
+        var block = registry.register("stripped_" + id + this.woodSuffix(LangType.ID), () -> new NaturalLog(Properties.of()
                 .mapColor(color)
                 .instrument(NoteBlockInstrument.BASS)
                 .strength(2.0F)
@@ -560,7 +560,7 @@ public class BaseWoodSet extends AbstractWoodSet {
     @Override
     protected BlockSetType setType(String id, SoundType sound) {
         return BlockSetType.register(new BlockSetType(
-                id,
+                Redux.MODID + ":" + id,
                 true,
                 true,
                 true,
@@ -585,7 +585,7 @@ public class BaseWoodSet extends AbstractWoodSet {
     @Override
     protected WoodType woodType(String id, BlockSetType type, SoundType sound) {
         return WoodType.register(new WoodType(
-                id,
+                Redux.MODID + ":" + id,
                 type,
                 sound,
                 SoundType.HANGING_SIGN,
