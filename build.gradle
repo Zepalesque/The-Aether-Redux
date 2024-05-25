@@ -61,7 +61,7 @@ subsystems {
 }
 
 dependencies {
-    implementation "net.neoforged:neoforge:${neo_version}"
+    implementation "net.neoforged:neoforge:${neoforge_version}"
 
     implementation "com.aetherteam.aether:aether:${aether_version}"
     implementation "com.aetherteam.nitrogen:nitrogen_internals:${nitrogen_version}"

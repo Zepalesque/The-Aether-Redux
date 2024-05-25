@@ -17,7 +17,7 @@ The main reason the mod exists is for the Aether: Redux, but it may be used in t
 [[dependencies.aether_redux]] #optional
 modId="neoforge" #mandatory
 type="required" #mandatory
-versionRange="[20.4,)" #mandatory
+versionRange="[20.4.167,)"
 ordering="NONE"
 side="BOTH"
 
