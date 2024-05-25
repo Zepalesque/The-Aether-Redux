@@ -140,14 +140,14 @@ public class BaseAetherWoodSet extends BaseWoodSet {
 
     @Override
     protected DeferredBlock<AetherLogBlock> log(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor woodColor, MapColor barkColor, SoundType soundType) {
-        var block = registry.register(id + this.logSuffix(false), () -> new AetherLogBlock(Properties.of()
+        var block = registry.register(id + this.logSuffix(LangType.ID), () -> new AetherLogBlock(Properties.of()
                 .mapColor(state -> state.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? woodColor : barkColor)
                 .instrument(NoteBlockInstrument.BASS)
                 .strength(2.0F)
                 .sound(soundType)
                 .ignitedByLava()
         ));
-        items.register(id + this.logSuffix(false), () -> new BlockItem(block.get(), new Item.Properties()));
+        items.register(id + this.logSuffix(LangType.ID), () -> new BlockItem(block.get(), new Item.Properties()));
         return block;
     }
 
@@ -158,13 +158,13 @@ public class BaseAetherWoodSet extends BaseWoodSet {
 
     @Override
     protected DeferredBlock<AetherLogBlock> strippedLog(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType) {
-        var block = registry.register(id + "_stripped" + this.logSuffix(false), () -> new AetherLogBlock(Properties.of()
+        var block = registry.register(id + "_stripped" + this.logSuffix(LangType.ID), () -> new AetherLogBlock(Properties.of()
                 .mapColor(color)
                 .instrument(NoteBlockInstrument.BASS)
                 .strength(2.0F)
                 .sound(soundType)
                 .ignitedByLava()));
-        items.register(id + "_stripped" + this.logSuffix(false), () -> new BlockItem(block.get(), new Item.Properties()));
+        items.register(id + "_stripped" + this.logSuffix(LangType.ID), () -> new BlockItem(block.get(), new Item.Properties()));
         return block;
     }
 
@@ -175,14 +175,14 @@ public class BaseAetherWoodSet extends BaseWoodSet {
 
     @Override
     protected DeferredBlock<NaturalLog> wood(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType) {
-        var block = registry.register(id + this.woodSuffix(false), () -> new NaturalLog(Properties.of()
+        var block = registry.register(id + this.woodSuffix(LangType.ID), () -> new NaturalLog(Properties.of()
                 .mapColor(color)
                 .instrument(NoteBlockInstrument.BASS)
                 .strength(2.0F)
                 .sound(soundType)
                 .ignitedByLava()
         ));
-        items.register(id + this.woodSuffix(false), () -> new BlockItem(block.get(), new Item.Properties()));
+        items.register(id + this.woodSuffix(LangType.ID), () -> new BlockItem(block.get(), new Item.Properties()));
         return block;
     }
 
@@ -193,14 +193,14 @@ public class BaseAetherWoodSet extends BaseWoodSet {
 
     @Override
     protected DeferredBlock<NaturalLog> strippedWood(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType) {
-        var block = registry.register(id + "_stripped" + this.woodSuffix(false), () -> new NaturalLog(Properties.of()
+        var block = registry.register(id + "_stripped" + this.woodSuffix(LangType.ID), () -> new NaturalLog(Properties.of()
                 .mapColor(color)
                 .instrument(NoteBlockInstrument.BASS)
                 .strength(2.0F)
                 .sound(soundType)
                 .ignitedByLava()
         ));
-        items.register(id + "_stripped" + this.woodSuffix(false), () -> new BlockItem(block.get(), new Item.Properties()));
+        items.register(id + "_stripped" + this.woodSuffix(LangType.ID), () -> new BlockItem(block.get(), new Item.Properties()));
         return block;
     }
 
@@ -646,11 +646,11 @@ public class BaseAetherWoodSet extends BaseWoodSet {
         data.add(this.log());
         data.addLore(this.log(), "These spawn with " + name + " " + this.treesName(true) + ". They can be double dropped with Skyroot Axes. When put in a crafting table they will provide 4 " + name + " Planks.");
         data.add(this.strippedLog());
-        data.addLore(this.strippedLog(), indefiniteUppercase + name + " " + this.logSuffix(true) + " that has had its bark stripped away with an Axe. When put in a crafting table they will provide 4 " + name + " Planks.");
+        data.addLore(this.strippedLog(), indefiniteUppercase + name + " " + this.logSuffix(LangType.LANG) + " that has had its bark stripped away with an Axe. When put in a crafting table they will provide 4 " + name + " Planks.");
         data.add(this.wood());
-        data.addLore(this.wood(), "Six-sided variant of " + name + " " + this.logSuffix(true) + "s. When put in a crafting table they will provide 4 " + name + " Planks.");
+        data.addLore(this.wood(), "Six-sided variant of " + name + " " + this.logSuffix(LangType.LANG_PLURAL) + ". When put in a crafting table they will provide 4 " + name + " Planks.");
         data.add(this.strippedWood());
-        data.addLore(this.strippedWood(), name + " " + this.woodSuffix(true) + " that has had its bark stripped away with an Axe. When put in a crafting table they will provide 4 " + name + " Planks.");
+        data.addLore(this.strippedWood(), name + " " + this.woodSuffix(LangType.LANG) + " that has had its bark stripped away with an Axe. When put in a crafting table they will provide 4 " + name + " Planks.");
         data.add(this.planks());
         data.addLore(this.planks(), "Planks from the " + name + " " + this.treesName(false) + ". Can be used as a building material, along with several other useful things.");
         data.add(this.stairs());
@@ -716,8 +716,8 @@ public class BaseAetherWoodSet extends BaseWoodSet {
 
     @Override
     @Nullable
-    public String logSuffix(LangType isLang) {
-        return switch (isLang) {
+    public String logSuffix(LangType type) {
+        return switch (type) {
             case ID -> "_log";
             case LANG -> " Log";
             case LANG_PLURAL -> " Logs";
@@ -725,12 +725,16 @@ public class BaseAetherWoodSet extends BaseWoodSet {
     }
 
     @Override
-    public String woodSuffix(LangType isLang) {
-        return null;
+    public String woodSuffix(LangType type) {
+        return switch (type) {
+            case ID -> "_wood";
+            case LANG -> " Wood";
+            case LANG_PLURAL -> " Wood";
+        };
     }
 
     @Override
-    public String treesName(boolean isLang) {
-        return null;
+    public String treesName(boolean isPlural) {
+        return isPlural ? "trees" : "tree";
     }
 }
