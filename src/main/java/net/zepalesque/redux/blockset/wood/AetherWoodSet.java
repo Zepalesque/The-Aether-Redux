@@ -1,4 +1,4 @@
-package net.zepalesque.redux.blockset;
+package net.zepalesque.redux.blockset.wood;
 
 import com.aetherteam.aether.mixin.mixins.common.accessor.FireBlockAccessor;
 import net.minecraft.data.recipes.RecipeCategory;

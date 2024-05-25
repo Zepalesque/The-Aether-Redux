@@ -19,7 +19,7 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.zepalesque.redux.block.ReduxBlocks;
-import net.zepalesque.redux.blockset.ReduxWoodSets;
+import net.zepalesque.redux.blockset.wood.ReduxWoodSets;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.data.gen.ReduxBlockStateGen;
 import net.zepalesque.redux.data.gen.ReduxItemModelGen;

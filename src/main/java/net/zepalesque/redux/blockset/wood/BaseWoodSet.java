@@ -1,4 +1,4 @@
-package net.zepalesque.redux.blockset;
+package net.zepalesque.redux.blockset.wood;
 
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.natural.AetherLogBlock;
@@ -559,7 +559,7 @@ public class BaseWoodSet extends AbstractWoodSet {
 
     @Override
     protected BlockSetType setType(String id, SoundType sound) {
-        return new BlockSetType(
+        return BlockSetType.register(new BlockSetType(
                 id,
                 true,
                 true,
@@ -574,7 +574,7 @@ public class BaseWoodSet extends AbstractWoodSet {
                 SoundEvents.WOODEN_PRESSURE_PLATE_CLICK_ON,
                 SoundEvents.WOODEN_BUTTON_CLICK_OFF,
                 SoundEvents.WOODEN_BUTTON_CLICK_ON
-        );
+        ));
     }
 
     @Override
@@ -584,14 +584,14 @@ public class BaseWoodSet extends AbstractWoodSet {
 
     @Override
     protected WoodType woodType(String id, BlockSetType type, SoundType sound) {
-        return new WoodType(
+        return WoodType.register(new WoodType(
                 id,
                 type,
                 sound,
                 SoundType.HANGING_SIGN,
                 SoundEvents.FENCE_GATE_CLOSE,
                 SoundEvents.FENCE_GATE_OPEN
-        );
+        ));
     }
 
     @Override

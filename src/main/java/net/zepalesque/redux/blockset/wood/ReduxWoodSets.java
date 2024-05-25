@@ -1,4 +1,4 @@
-package net.zepalesque.redux.blockset;
+package net.zepalesque.redux.blockset.wood;
 
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.MapColor;
