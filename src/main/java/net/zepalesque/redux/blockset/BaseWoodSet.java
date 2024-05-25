@@ -3,6 +3,8 @@ package net.zepalesque.redux.blockset;
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.natural.AetherLogBlock;
 import com.aetherteam.aether.mixin.mixins.common.accessor.FireBlockAccessor;
+import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
+import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.core.Direction;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -40,6 +42,7 @@ import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.Tags;
@@ -50,6 +53,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.natural.NaturalLog;
 import net.zepalesque.redux.data.ReduxTags;
@@ -68,6 +72,7 @@ import net.zepalesque.zenith.block.ZenithCeilingHangingSignBlock;
 import net.zepalesque.zenith.block.ZenithSignBlock;
 import net.zepalesque.zenith.block.ZenithWallHangingSignBlock;
 import net.zepalesque.zenith.block.ZenithWallSignBlock;
+import net.zepalesque.zenith.client.render.entity.ZenithBoatRenderer;
 import net.zepalesque.zenith.entity.misc.ZenithBoat;
 import net.zepalesque.zenith.entity.misc.ZenithChestBoat;
 import net.zepalesque.zenith.item.ZenithBoatItem;
@@ -885,6 +890,14 @@ public class BaseWoodSet extends AbstractWoodSet {
         accessor.callSetFlammable(this.fence().get(), 5, 20);
         accessor.callSetFlammable(this.stairs().get(), 5, 20);
         accessor.callSetFlammable(this.slab().get(), 5, 20);
+    }
+
+    @Override
+    public void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerBlockEntityRenderer(this.signEntity().get(), SignRenderer::new);
+        event.registerBlockEntityRenderer(this.hangingSignEntity().get(), HangingSignRenderer::new);
+        event.registerEntityRenderer(this.boatEntity().get(), (context) -> new ZenithBoatRenderer(context, false, Redux.MODID, this.id));
+        event.registerEntityRenderer(this.chestBoatEntity().get(), (context) -> new ZenithBoatRenderer(context, true, Redux.MODID, this.id));
     }
 
 
