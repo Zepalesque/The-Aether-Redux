@@ -23,28 +23,28 @@ side="BOTH"
 
 [[dependencies.aether_redux]]
 modId="minecraft"
-type="required"
+type="required" #mandatory
 versionRange="[1.20.4,1.21)"
 ordering="NONE"
 side="BOTH"
 
 [[dependencies.aether_redux]]
 modId="zenith"
-type="required"
+type="required" #mandatory
 versionRange="[${zenith_version},)"
 ordering="NONE"
 side="BOTH"
 
 [[dependencies.aether_redux]]
 modId = "aether"
-type="required"
+type="required" #mandatory
 versionRange = "[${mc_version}-,)"
 ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.aether_redux]]
 modId = "aeroblender"
-mandatory = true
+type="required" #mandatory
 versionRange = "[0,)"
 ordering = "AFTER"
 side = "BOTH"
