@@ -31,20 +31,20 @@ public class ReduxDoubleDropsWall extends WallBlock {
     protected void fixShapeMaps() {
         WallBlockAccessor wallBlockAccessor = (WallBlockAccessor) this;
         Map<BlockState, VoxelShape> shapeByIndex = wallBlockAccessor.redux$getShapeByIndex();
-        shapeByIndex = fixShapeMap(shapeByIndex).build();
+        shapeByIndex = fixShapeMap(shapeByIndex);
         wallBlockAccessor.redux$setShapeByIndex(shapeByIndex);
 
         Map<BlockState, VoxelShape> collisionShapeByIndex = wallBlockAccessor.redux$getCollisionShapeByIndex();
-        collisionShapeByIndex = fixShapeMap(collisionShapeByIndex).build();
+        collisionShapeByIndex = fixShapeMap(collisionShapeByIndex);
         wallBlockAccessor.redux$setCollisionShapeByIndex(collisionShapeByIndex);
     }
 
-    protected ImmutableMap.Builder<BlockState, VoxelShape> fixShapeMap(Map<BlockState, VoxelShape> map) {
+    protected ImmutableMap<BlockState, VoxelShape> fixShapeMap(Map<BlockState, VoxelShape> map) {
         ImmutableMap.Builder<BlockState, VoxelShape> builder = ImmutableMap.builder();
         builder.putAll(map);
         for (BlockState state : map.keySet()) {
             builder.put(state.cycle(AetherBlockStateProperties.DOUBLE_DROPS), map.get(state));
         }
-        return builder;
+        return builder.build();
     }
 }
