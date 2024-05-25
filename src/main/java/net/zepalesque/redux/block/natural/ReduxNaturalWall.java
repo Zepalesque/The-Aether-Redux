@@ -17,6 +17,11 @@ public class ReduxNaturalWall extends ReduxDoubleDropsWall {
         this.fixShapeMaps2();
     }
 
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        super.createBlockStateDefinition(builder);
+        builder.add(ReduxStates.NATURAL_GEN);
+    }
 
     private void fixShapeMaps2() {
         WallBlockAccessor accessor = (WallBlockAccessor) this;
