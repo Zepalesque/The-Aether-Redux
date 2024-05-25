@@ -1,18 +1,19 @@
 package net.zepalesque.redux.blockset;
 
-import com.aetherteam.aether.block.AetherBlocks;
+import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.natural.AetherLogBlock;
+import com.aetherteam.aether.mixin.mixins.common.accessor.FireBlockAccessor;
 import net.minecraft.core.Direction;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.data.tags.EntityTypeTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
-import net.minecraft.util.StringUtil;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.item.BlockItem;
@@ -20,6 +21,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ButtonBlock;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.FenceBlock;
@@ -48,7 +50,6 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.natural.NaturalLog;
 import net.zepalesque.redux.data.ReduxTags;
@@ -56,6 +57,9 @@ import net.zepalesque.redux.data.prov.ReduxBlockStateProvider;
 import net.zepalesque.redux.data.prov.ReduxItemModelProvider;
 import net.zepalesque.redux.data.prov.ReduxLanguageProvider;
 import net.zepalesque.redux.data.prov.ReduxRecipeProvider;
+import net.zepalesque.redux.data.prov.loot.ReduxBlockLootProvider;
+import net.zepalesque.redux.data.prov.tags.ReduxBlockTagsProvider;
+import net.zepalesque.redux.data.prov.tags.ReduxItemTagsProvider;
 import net.zepalesque.redux.entity.ReduxEntities;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.tile.ReduxTiles;
@@ -70,12 +74,10 @@ import net.zepalesque.zenith.item.ZenithBoatItem;
 import net.zepalesque.zenith.tile.ZenithHangingSignBlockEntity;
 import net.zepalesque.zenith.tile.ZenithSignBlockEntity;
 import net.zepalesque.zenith.util.DatagenUtil;
-import org.apache.commons.lang3.CharUtils;
-import org.codehaus.plexus.util.StringUtils;
 
 import javax.annotation.Nullable;
 
-public class BaseAetherWoodSet extends AbstractWoodSet {
+public class BaseWoodSet extends AbstractWoodSet {
 
     protected final String id;
 
@@ -112,7 +114,7 @@ public class BaseAetherWoodSet extends AbstractWoodSet {
     public final TagKey<Item> logsTag;
     public final TagKey<Block> logsBlockTag;
 
-    public BaseAetherWoodSet(String id, MapColor woodColor, MapColor barkColor, SoundType sound) {
+    public BaseWoodSet(String id, MapColor woodColor, MapColor barkColor, SoundType sound) {
 
         this.id = id;
 
@@ -163,7 +165,7 @@ public class BaseAetherWoodSet extends AbstractWoodSet {
                 .sound(soundType)
                 .ignitedByLava()
         ));
-        items.register(id + this.logSuffix(LangType.ID), () -> new BlockItem(block.get(), new Item.Properties()));
+        items.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
         return block;
     }
 
@@ -180,7 +182,7 @@ public class BaseAetherWoodSet extends AbstractWoodSet {
                 .strength(2.0F)
                 .sound(soundType)
                 .ignitedByLava()));
-        items.register(id + "_stripped" + this.logSuffix(LangType.ID), () -> new BlockItem(block.get(), new Item.Properties()));
+        items.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
         return block;
     }
 
@@ -198,7 +200,7 @@ public class BaseAetherWoodSet extends AbstractWoodSet {
                 .sound(soundType)
                 .ignitedByLava()
         ));
-        items.register(id + this.woodSuffix(LangType.ID), () -> new BlockItem(block.get(), new Item.Properties()));
+        items.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
         return block;
     }
 
@@ -216,7 +218,7 @@ public class BaseAetherWoodSet extends AbstractWoodSet {
                 .sound(soundType)
                 .ignitedByLava()
         ));
-        items.register(id + "_stripped" + this.woodSuffix(LangType.ID), () -> new BlockItem(block.get(), new Item.Properties()));
+        items.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
         return block;
     }
 
@@ -234,7 +236,7 @@ public class BaseAetherWoodSet extends AbstractWoodSet {
                 .sound(soundType)
                 .ignitedByLava()
         ));
-        items.register(id + "_planks", () -> new BlockItem(block.get(), new Item.Properties()));
+        items.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
         return block;
     }
 
@@ -248,7 +250,7 @@ public class BaseAetherWoodSet extends AbstractWoodSet {
         var block = registry.register(id + "_stairs", () -> new StairBlock(
                 () -> this.planks().get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(this.planks().get())
         ));
-        items.register(id + "_stairs", () -> new BlockItem(block.get(), new Item.Properties()));
+        items.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
         return block;
     }
 
@@ -262,7 +264,7 @@ public class BaseAetherWoodSet extends AbstractWoodSet {
         var block = registry.register(id + "_slab", () -> new SlabBlock(
                 BlockBehaviour.Properties.ofFullCopy(this.planks().get()).strength(2.0F, 3.0F)
         ));
-        items.register(id + "_slab", () -> new BlockItem(block.get(), new Item.Properties()));
+        items.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
         return block;
     }
 
@@ -282,7 +284,7 @@ public class BaseAetherWoodSet extends AbstractWoodSet {
                         .sound(soundType)
                         .ignitedByLava()
         ));
-        items.register(id + "_fence", () -> new BlockItem(block.get(), new Item.Properties()));
+        items.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
         return block;
     }
 
@@ -302,7 +304,7 @@ public class BaseAetherWoodSet extends AbstractWoodSet {
                         .strength(2.0F, 3.0F)
                         .ignitedByLava()
         ));
-        items.register(id + "_fence_gate", () -> new BlockItem(block.get(), new Item.Properties()));
+        items.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
         return block;
     }
 
@@ -323,7 +325,7 @@ public class BaseAetherWoodSet extends AbstractWoodSet {
                         .ignitedByLava()
                         .pushReaction(PushReaction.DESTROY)
         ));
-        items.register(id + "_door", () -> new BlockItem(block.get(), new Item.Properties()));
+        items.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
         return block;
     }
 
@@ -344,7 +346,7 @@ public class BaseAetherWoodSet extends AbstractWoodSet {
                         .isValidSpawn((state, level, pos, entity) -> false)
                         .ignitedByLava()
         ));
-        items.register(id + "_trapdoor", () -> new BlockItem(block.get(), new Item.Properties()));
+        items.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
         return block;
     }
 
@@ -366,7 +368,7 @@ public class BaseAetherWoodSet extends AbstractWoodSet {
                         .ignitedByLava()
                         .pushReaction(PushReaction.DESTROY)
         ));
-        items.register(id + "_pressure_plate", () -> new BlockItem(block.get(), new Item.Properties()));
+        items.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
         return block;
     }
 
@@ -385,7 +387,7 @@ public class BaseAetherWoodSet extends AbstractWoodSet {
                         .strength(0.5F)
                         .pushReaction(PushReaction.DESTROY)
         ));
-        items.register(id + "_button", () -> new BlockItem(block.get(), new Item.Properties()));
+        items.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
         return block;
     }
 
@@ -406,7 +408,7 @@ public class BaseAetherWoodSet extends AbstractWoodSet {
                         .noCollission().strength(1.0F)
                         .sound(soundType)
         ));
-        items.register(id + "_sign", () -> new BlockItem(block.get(), new Item.Properties()));
+        items.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
         return block;
     }
 
@@ -446,7 +448,7 @@ public class BaseAetherWoodSet extends AbstractWoodSet {
                         .noCollission().strength(1.0F)
                         .sound(soundType)
         ));
-        items.register(id + "_hanging_sign", () -> new BlockItem(block.get(), new Item.Properties()));
+        items.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
         return block;
     }
 
@@ -613,13 +615,13 @@ public class BaseAetherWoodSet extends AbstractWoodSet {
     }
 
     @Override
-    public void blockGen(BlockStateProvider provider) {
+    public void blockData(BlockStateProvider provider) {
         if (provider instanceof ReduxBlockStateProvider data) {
-           this.blockGen(data);
+           this.blockData(data);
         }
     }
 
-    protected void blockGen(ReduxBlockStateProvider data) {
+    protected void blockData(ReduxBlockStateProvider data) {
         data.log(this.log().get());
         data.log(this.strippedLog().get());
         data.wood(this.wood().get(), this.log().get());
@@ -638,13 +640,13 @@ public class BaseAetherWoodSet extends AbstractWoodSet {
     }
 
     @Override
-    public void itemGen(ItemModelProvider provider) {
+    public void itemData(ItemModelProvider provider) {
         if (provider instanceof ReduxItemModelProvider data) {
-          this.itemGen(data);
+          this.itemData(data);
         }
     }
 
-    protected void itemGen(ReduxItemModelProvider data) {
+    protected void itemData(ReduxItemModelProvider data) {
         data.itemBlock(this.log().get());
         data.itemBlock(this.strippedLog().get());
         data.itemBlock(this.planks().get());
@@ -666,13 +668,13 @@ public class BaseAetherWoodSet extends AbstractWoodSet {
 
 
     @Override
-    public void langGen(LanguageProvider provider) {
+    public void langData(LanguageProvider provider) {
         if (provider instanceof ReduxLanguageProvider data) {
-            this.langGen(data);
+            this.langData(data);
         }
     }
 
-    public void langGen(ReduxLanguageProvider data) {
+    protected void langData(ReduxLanguageProvider data) {
         boolean vowel = DatagenUtil.isVowel(this.id.charAt(0));
 
         String indefiniteLowercase = vowel ? "an" : "a";
@@ -721,13 +723,13 @@ public class BaseAetherWoodSet extends AbstractWoodSet {
     }
 
     @Override
-    public void recipeGen(RecipeProvider provider, RecipeOutput output) {
+    public void recipeData(RecipeProvider provider, RecipeOutput output) {
         if (provider instanceof ReduxRecipeProvider data) {
-            this.recipeGen(data, output);
+            this.recipeData(data, output);
         }
     }
 
-    public void recipeGen(ReduxRecipeProvider data, RecipeOutput consumer) {
+    protected void recipeData(ReduxRecipeProvider data, RecipeOutput consumer) {
 
         ReduxRecipeProvider.woodFromLogs(consumer, this.wood().get(), this.log().get());
 
@@ -782,28 +784,109 @@ public class BaseAetherWoodSet extends AbstractWoodSet {
 
     @Override
     public void blockTagData(BlockTagsProvider provider) {
+        if (provider instanceof ReduxBlockTagsProvider data) {
+            this.blockTagData(data);
+        }
+    }
 
+    protected void blockTagData(ReduxBlockTagsProvider data) {
+        data.tag(BlockTags.MINEABLE_WITH_AXE).add(
+                this.planks().get(),
+                this.stairs().get(),
+                this.slab().get(),
+                this.fence().get(),
+                this.fenceGate().get(),
+                this.door().get(),
+                this.trapdoor().get(),
+                this.sign().get(),
+                this.wallSign().get()
+        ).addTag(this.logsBlockTag());
+
+        data.tag(this.logsBlockTag()).add(
+                this.log().get(),
+                this.wood().get(),
+                this.strippedLog().get(),
+                this.strippedWood().get()
+        );
+
+        data.tag(BlockTags.LOGS).addTag(this.logsBlockTag());
+        data.tag(BlockTags.PLANKS).add(this.planks().get());
+        data.tag(BlockTags.WOODEN_SLABS).add(this.slab().get());
+        data.tag(BlockTags.WOODEN_STAIRS).add(this.stairs().get());
+        data.tag(BlockTags.WOODEN_FENCES).add(this.fence().get());
+        data.tag(BlockTags.FENCE_GATES).add(this.fenceGate().get());
+        data.tag(BlockTags.WOODEN_PRESSURE_PLATES).add(this.pressurePlate().get());
+        data.tag(BlockTags.WOODEN_BUTTONS).add(this.button().get());
+        data.tag(BlockTags.WOODEN_TRAPDOORS).add(this.trapdoor().get());
+        data.tag(BlockTags.WOODEN_DOORS).add(this.door().get());
+        data.tag(BlockTags.STANDING_SIGNS).add(this.sign().get());
+        data.tag(BlockTags.WALL_SIGNS).add(this.wallSign().get());
     }
 
     @Override
     public void itemTagData(ItemTagsProvider provider) {
-
+        if (provider instanceof ReduxItemTagsProvider data) {
+            this.itemTagData(data);
+        }
     }
 
-    @Override
-    public void entityTagData(EntityTypeTagsProvider data) {
+    protected void itemTagData(ReduxItemTagsProvider data) {
+        data.copy(this.logsBlockTag(), this.logsTag());
+        data.tag(AetherTags.Items.PLANKS_CRAFTING).add(this.planks().get().asItem());
+        data.tag(AetherTags.Items.SKYROOT_STICK_CRAFTING).add(this.planks().get().asItem());
+        data.tag(AetherTags.Items.SKYROOT_TOOL_CRAFTING).add(this.planks().get().asItem());
+        data.tag(AetherTags.Items.SKYROOT_REPAIRING).add(this.planks().get().asItem());
+        data.tag(ItemTags.BOATS).add(this.boatItem().get());
+        data.tag(ItemTags.CHEST_BOATS).add(this.chestBoatItem().get());
 
     }
 
     @Override
     public void lootData(BlockLootSubProvider provider) {
+        if (provider instanceof ReduxBlockLootProvider data) {
+            this.lootData(data);
+        }
+    }
 
+    protected void lootData(ReduxBlockLootProvider data) {
+        data.dropSelfDouble(this.log().get());
+        data.dropSelfDouble(this.strippedLog().get());
+        data.naturalDrop(this.wood().get(), this.log().get());
+        data.naturalDrop(this.strippedWood().get(), this.strippedLog().get());
+        data.dropSelf(this.planks().get());
+        data.dropSelf(this.stairs().get());
+        data.dropSelf(this.slab().get());
+        data.dropSelf(this.fence().get());
+        data.dropSelf(this.fenceGate().get());
+        data.dropSelf(this.trapdoor().get());
+        data.dropSelf(this.pressurePlate().get());
+        data.dropSelf(this.button().get());
+        data.dropOther(this.wallSign().get(), this.sign().get());
+        data.dropSelf(this.sign().get());
+        data.dropSelf(this.hangingSign().get());
+        data.dropSelf(this.wallHangingSign().get());
+        data.add(this.door().get(), data.createDoorTable(this.door().get()));
     }
 
     @Override
     public void mapData(DataMapProvider provider) {
 
     }
+
+    @Override
+    public void flammables() {
+        FireBlockAccessor accessor = (FireBlockAccessor) Blocks.FIRE;
+        accessor.callSetFlammable(this.log().get(), 5, 5);
+        accessor.callSetFlammable(this.strippedLog().get(), 5, 5);
+        accessor.callSetFlammable(this.wood().get(), 5, 5);
+        accessor.callSetFlammable(this.strippedWood().get(), 5, 5);
+        accessor.callSetFlammable(this.planks().get(), 5, 20);
+        accessor.callSetFlammable(this.fenceGate().get(), 5, 20);
+        accessor.callSetFlammable(this.fence().get(), 5, 20);
+        accessor.callSetFlammable(this.stairs().get(), 5, 20);
+        accessor.callSetFlammable(this.slab().get(), 5, 20);
+    }
+
 
     @Override
     @Nullable

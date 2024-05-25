@@ -1,14 +1,16 @@
 package net.zepalesque.redux;
 
-import com.aetherteam.aether.data.generators.AetherBlockStateData;
-import com.aetherteam.aether.data.generators.AetherItemModelData;
-import com.aetherteam.aether.data.generators.AetherLanguageData;
-import com.aetherteam.aether.data.generators.AetherRecipeData;
 import com.mojang.logging.LogUtils;
+import net.minecraft.DetectedVersion;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
+import net.minecraft.data.metadata.PackMetadataGenerator;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.PackType;
+import net.minecraft.server.packs.metadata.pack.PackMetadataSection;
+import net.minecraft.util.InclusiveRange;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
@@ -17,18 +19,26 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.blockset.ReduxWoodSets;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.data.gen.ReduxBlockStateGen;
 import net.zepalesque.redux.data.gen.ReduxItemModelGen;
 import net.zepalesque.redux.data.gen.ReduxLanguageGen;
+import net.zepalesque.redux.data.gen.ReduxLootGen;
 import net.zepalesque.redux.data.gen.ReduxRecipeGen;
+import net.zepalesque.redux.data.gen.tags.ReduxBlockTagsGen;
+import net.zepalesque.redux.data.gen.tags.ReduxItemTagsGen;
 import net.zepalesque.redux.entity.ReduxEntities;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.tile.ReduxTiles;
+import net.zepalesque.zenith.api.blockset.AbstractWoodSet;
 import net.zepalesque.zenith.api.condition.ConfigCondition;
 import net.zepalesque.zenith.api.condition.config.ConfigSerializer;
 import org.slf4j.Logger;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
 @Mod(Redux.MODID)
@@ -36,9 +46,13 @@ public class Redux {
     public static final String MODID = "aether_redux";
     private static final Logger LOGGER = LogUtils.getLogger();
 
+    public static final Collection<AbstractWoodSet> WOOD_SETS = new ArrayList<>();
+
     public Redux(IEventBus bus) {
         bus.addListener(this::commonSetup);
         bus.addListener(this::dataSetup);
+
+        ReduxWoodSets.init();
 
         ReduxBlocks.BLOCKS.register(bus);
         ReduxItems.ITEMS.register(bus);
@@ -66,7 +80,18 @@ public class Redux {
 
         // Server Data
         generator.addProvider(event.includeServer(), new ReduxRecipeGen(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), ReduxLootGen.create(packOutput));
 
+        // Tags
+        ReduxBlockTagsGen blockTags = new ReduxBlockTagsGen(packOutput, lookupProvider, fileHelper);
+        generator.addProvider(event.includeServer(), blockTags);
+        generator.addProvider(event.includeServer(), new ReduxItemTagsGen(packOutput, lookupProvider, blockTags.contentsGetter(), fileHelper));
+
+        // pack.mcmeta
+        generator.addProvider(true, new PackMetadataGenerator(packOutput).add(PackMetadataSection.TYPE, new PackMetadataSection(
+                Component.translatable("pack.aether_redux.mod.description"),
+                DetectedVersion.BUILT_IN.getPackVersion(PackType.SERVER_DATA),
+                Optional.of(new InclusiveRange<>(0, Integer.MAX_VALUE)))));
     }
 
     public static ResourceLocation loc(String path) {

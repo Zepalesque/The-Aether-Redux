@@ -85,4 +85,8 @@ public abstract class ReduxRecipeProvider extends AetherRecipeProvider {
         return super.stairs(stairs, material);
     }
 
+    public static void wall(RecipeOutput output, RecipeCategory category, ItemLike wall, ItemLike material) {
+        RecipeProvider.wall(output, category, wall, material);
+    }
+
 }

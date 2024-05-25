@@ -15,7 +15,9 @@ public class ReduxBlockStateGen extends ReduxBlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        this.tintableShortGrass(ReduxBlocks.SHORT_AETHER_GRASS.get(), "natural/");
 
+        Redux.WOOD_SETS.forEach(set -> set.blockData(this));
+
+        this.tintableShortGrass(ReduxBlocks.SHORT_AETHER_GRASS.get(), "natural/");
     }
 }

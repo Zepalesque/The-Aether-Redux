@@ -14,6 +14,8 @@ public class ReduxItemModelGen extends ReduxItemModelProvider {
 
     @Override
     protected void registerModels() {
+        Redux.WOOD_SETS.forEach(set -> set.itemData(this));
+
         itemBlockFlatCustomTexture(ReduxBlocks.SHORT_AETHER_GRASS, "natural/aether_medium_grass");
     }
 }

@@ -15,7 +15,8 @@ public class ReduxRecipeGen extends ReduxRecipeProvider {
     }
 
     @Override
-    protected void buildRecipes(RecipeOutput pRecipeOutput) {
+    protected void buildRecipes(RecipeOutput output) {
+        Redux.WOOD_SETS.forEach(set -> set.recipeData(this, output));
 
     }
 }
