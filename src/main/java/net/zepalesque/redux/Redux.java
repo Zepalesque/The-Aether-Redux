@@ -3,6 +3,7 @@ package net.zepalesque.redux;
 import com.aetherteam.aether.data.generators.AetherBlockStateData;
 import com.aetherteam.aether.data.generators.AetherItemModelData;
 import com.aetherteam.aether.data.generators.AetherLanguageData;
+import com.aetherteam.aether.data.generators.AetherRecipeData;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -20,6 +21,7 @@ import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.data.gen.ReduxBlockStateGen;
 import net.zepalesque.redux.data.gen.ReduxItemModelGen;
 import net.zepalesque.redux.data.gen.ReduxLanguageGen;
+import net.zepalesque.redux.data.gen.ReduxRecipeGen;
 import net.zepalesque.redux.entity.ReduxEntities;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.tile.ReduxTiles;
@@ -61,6 +63,10 @@ public class Redux {
         generator.addProvider(event.includeClient(), new ReduxBlockStateGen(packOutput, fileHelper));
         generator.addProvider(event.includeClient(), new ReduxItemModelGen(packOutput, fileHelper));
         generator.addProvider(event.includeClient(), new ReduxLanguageGen(packOutput));
+
+        // Server Data
+        generator.addProvider(event.includeServer(), new ReduxRecipeGen(packOutput, lookupProvider));
+
     }
 
     public static ResourceLocation loc(String path) {

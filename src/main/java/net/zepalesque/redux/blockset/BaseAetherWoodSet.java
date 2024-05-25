@@ -1,17 +1,24 @@
 package net.zepalesque.redux.blockset;
 
+import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.natural.AetherLogBlock;
 import net.minecraft.core.Direction;
 import net.minecraft.data.loot.BlockLootSubProvider;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.tags.EntityTypeTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.StringUtil;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ButtonBlock;
 import net.minecraft.world.level.block.DoorBlock;
@@ -33,6 +40,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.DataMapProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
@@ -43,13 +51,15 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.natural.NaturalLog;
+import net.zepalesque.redux.data.ReduxTags;
 import net.zepalesque.redux.data.prov.ReduxBlockStateProvider;
 import net.zepalesque.redux.data.prov.ReduxItemModelProvider;
 import net.zepalesque.redux.data.prov.ReduxLanguageProvider;
+import net.zepalesque.redux.data.prov.ReduxRecipeProvider;
 import net.zepalesque.redux.entity.ReduxEntities;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.tile.ReduxTiles;
-import net.zepalesque.zenith.api.blockset.BaseWoodSet;
+import net.zepalesque.zenith.api.blockset.AbstractWoodSet;
 import net.zepalesque.zenith.block.ZenithCeilingHangingSignBlock;
 import net.zepalesque.zenith.block.ZenithSignBlock;
 import net.zepalesque.zenith.block.ZenithWallHangingSignBlock;
@@ -65,7 +75,7 @@ import org.codehaus.plexus.util.StringUtils;
 
 import javax.annotation.Nullable;
 
-public class BaseAetherWoodSet extends BaseWoodSet {
+public class BaseAetherWoodSet extends AbstractWoodSet {
 
     protected final String id;
 
@@ -99,12 +109,18 @@ public class BaseAetherWoodSet extends BaseWoodSet {
     protected final BlockSetType setType;
     protected final WoodType woodType;
 
+    public final TagKey<Item> logsTag;
+    public final TagKey<Block> logsBlockTag;
+
     public BaseAetherWoodSet(String id, MapColor woodColor, MapColor barkColor, SoundType sound) {
 
         this.id = id;
 
         this.setType = this.setType(id, sound);
         this.woodType = this.woodType(id, this.setType, sound);
+
+        this.logsTag = this.logsTag(id);
+        this.logsBlockTag = this.logsBlockTag(id);
 
         DeferredRegister.Blocks blocks = ReduxBlocks.BLOCKS;
         DeferredRegister.Items items = ReduxItems.ITEMS;
@@ -577,6 +593,26 @@ public class BaseAetherWoodSet extends BaseWoodSet {
     }
 
     @Override
+    protected TagKey<Item> logsTag(String id) {
+        return ReduxTags.Items.tag(id + this.logSuffix(LangType.PLURAL));
+    }
+
+    @Override
+    public TagKey<Item> logsTag() {
+        return this.logsTag;
+    }
+
+    @Override
+    protected TagKey<Block> logsBlockTag(String id) {
+        return ReduxTags.Blocks.tag(id + this.logSuffix(LangType.PLURAL));
+    }
+
+    @Override
+    public TagKey<Block> logsBlockTag() {
+        return this.logsBlockTag;
+    }
+
+    @Override
     public void blockGen(BlockStateProvider provider) {
         if (provider instanceof ReduxBlockStateProvider data) {
            this.blockGen(data);
@@ -685,9 +721,64 @@ public class BaseAetherWoodSet extends BaseWoodSet {
     }
 
     @Override
-    public void recipeGen(RecipeProvider provider) {
-
+    public void recipeGen(RecipeProvider provider, RecipeOutput output) {
+        if (provider instanceof ReduxRecipeProvider data) {
+            this.recipeGen(data, output);
+        }
     }
+
+    public void recipeGen(ReduxRecipeProvider data, RecipeOutput consumer) {
+
+        ReduxRecipeProvider.woodFromLogs(consumer, this.wood().get(), this.log().get());
+
+        ReduxRecipeProvider.woodFromLogs(consumer, this.strippedWood().get(), this.strippedLog().get());
+
+        ReduxRecipeProvider.planksFromLog(consumer, this.planks().get(), this.logsTag(), 4);
+
+        ReduxRecipeProvider.slab(consumer, RecipeCategory.BUILDING_BLOCKS, this.slab().get(), this.planks().get());
+
+        data.stairs(this.stairs(), this.planks()).save(consumer);
+
+        data.fence(this.fence(), this.planks()).save(consumer);
+
+        data.fenceGate(this.fenceGate(), this.planks()).save(consumer);
+
+        ReduxRecipeProvider.doorBuilder(this.door().get(), Ingredient.of(this.planks().get()))
+                .unlockedBy(ReduxRecipeProvider.getHasName(this.planks().get()), ReduxRecipeProvider.has(this.planks().get())).group("wooden_door").save(consumer);
+
+        ReduxRecipeProvider.trapdoorBuilder(this.trapdoor().get(), Ingredient.of(this.planks().get()))
+                .unlockedBy(ReduxRecipeProvider.getHasName(this.planks().get()), ReduxRecipeProvider.has(this.planks().get())).group("wooden_trapdoor").save(consumer);
+
+        ReduxRecipeProvider.pressurePlate(consumer, this.pressurePlate().get(), this.planks().get());
+
+        ReduxRecipeProvider.buttonBuilder(this.button().get(), Ingredient.of(this.planks().get()))
+                .unlockedBy(ReduxRecipeProvider.getHasName(this.planks().get()), ReduxRecipeProvider.has(this.planks().get())).group("wooden_button").save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, this.sign().get(), 3)
+                .group("wooden_sign")
+                .define('P', this.planks().get())
+                .define('/', Tags.Items.RODS_WOODEN)
+                .pattern("PPP")
+                .pattern("PPP")
+                .pattern(" / ")
+                .unlockedBy(ReduxRecipeProvider.getHasName(this.planks()), ReduxRecipeProvider.has(this.planks()))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, this.hangingSign().get(), 6)
+                .group("hanging_sign")
+                .define('#', this.strippedLog())
+                .define('X', Items.CHAIN)
+                .pattern("X X")
+                .pattern("###")
+                .pattern("###")
+                .unlockedBy("has_stripped_logs", ReduxRecipeProvider.has(this.strippedLog()))
+                .save(consumer);
+
+        ReduxRecipeProvider.woodenBoat(consumer, this.boatItem().get(), this.planks().get());
+
+        ReduxRecipeProvider.chestBoat(consumer, this.chestBoatItem().get(), this.boatItem().get());
+    }
+
 
     @Override
     public void blockTagData(BlockTagsProvider provider) {
@@ -719,6 +810,7 @@ public class BaseAetherWoodSet extends BaseWoodSet {
     public String logSuffix(LangType type) {
         return switch (type) {
             case ID -> "_log";
+            case PLURAL -> "_logs";
             case LANG -> " Log";
             case LANG_PLURAL -> " Logs";
         };
@@ -727,9 +819,8 @@ public class BaseAetherWoodSet extends BaseWoodSet {
     @Override
     public String woodSuffix(LangType type) {
         return switch (type) {
-            case ID -> "_wood";
-            case LANG -> " Wood";
-            case LANG_PLURAL -> " Wood";
+            case ID, PLURAL -> "_wood";
+            case LANG, LANG_PLURAL -> " Wood";
         };
     }
 
