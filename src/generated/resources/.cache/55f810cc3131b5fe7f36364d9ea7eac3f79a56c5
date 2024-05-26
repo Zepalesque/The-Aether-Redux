@@ -1,4 +1,5 @@
-// 1.20.4	2024-05-25T14:57:02.8121624	Block States: aether_redux
+// 1.20.4	2024-05-26T12:28:47.3580631	Block States: aether_redux
+aedb88fad36ded58a1a30ea670fdbf8e3607afd6 assets/aether_redux/blockstates/crystal_bookshelf.json
 f723cf30b51993cbed8ca517b7f847953747ca73 assets/aether_redux/blockstates/crystal_button.json
 be620a2c78b38529dddc414046d465b39f4dc237 assets/aether_redux/blockstates/crystal_door.json
 72d715f50f2f1d21bf1037ab2cbf78961dfe4a7d assets/aether_redux/blockstates/crystal_fence.json
@@ -21,6 +22,7 @@ d7f9901e89a7818ccd07730bae56b8ff8983f04f assets/aether_redux/blockstates/crystal
 3dfefb51cf3cdcc8235e85f74ab540f452b15914 assets/aether_redux/blockstates/stripped_crystal_log_wall.json
 0ad51c45ec19e74c7fbbfa63e55ccdbca81ee3cb assets/aether_redux/blockstates/stripped_crystal_wood.json
 d17dd82d8ec79ac5fe047845cea80887c600e2f2 assets/aether_redux/blockstates/stripped_crystal_wood_wall.json
+00310adf0ca01f869b322f84ff8ea9c91ad8fa7d assets/aether_redux/models/block/crystal_bookshelf.json
 d94940d494340fc1fd007174b192525b9400d888 assets/aether_redux/models/block/crystal_button.json
 0bae9953c35f2c8e3ac9cc89f768d0bc1b9e1c8c assets/aether_redux/models/block/crystal_button_pressed.json
 94290889a48b6c4576012cee8fe42d6bb36af8f0 assets/aether_redux/models/block/crystal_door_bottom_left.json

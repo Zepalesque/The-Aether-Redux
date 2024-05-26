@@ -1,4 +1,4 @@
-// 1.20.4	2024-05-25T14:57:02.8101637	Recipes
+// 1.20.4	2024-05-26T12:28:47.3550651	Recipes
 acb6e638c5a04859eeae08778600fa10bc36e4fb data/aether_redux/advancements/recipes/building_blocks/crystal_log_wall.json
 77c1c7872712d00ddf0aa43ab579d0033bf24e26 data/aether_redux/advancements/recipes/building_blocks/crystal_planks.json
 753a432c6879215e53995e48ee8e8427a4fa3763 data/aether_redux/advancements/recipes/building_blocks/crystal_slab.json
@@ -37,3 +37,5 @@ afe50532279c1334e7fd1ff142288bacc53d290d data/aether_redux/recipes/crystal_slab.
 b31981b24ac7bbcfe28e6e17c749a0f9321a4e22 data/aether_redux/recipes/stripped_crystal_log_wall.json
 7c0f8bc139b9c565c159b5f9fde5c4ff3e033c20 data/aether_redux/recipes/stripped_crystal_wood.json
 9ac37d2357aa958811b9814dad4c00110602b1f3 data/aether_redux/recipes/stripped_crystal_wood_wall.json
+14d03367868db5f3db1e3a967cbee6036d738e75 data/minecraft/advancements/recipes/building_blocks/crystal_planks_to_crystal_bookshelf.json
+197eb74a9f2f0ae76cdb4fe05fd85a84adfb8026 data/minecraft/recipes/crystal_planks_to_crystal_bookshelf.json

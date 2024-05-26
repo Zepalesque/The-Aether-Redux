@@ -1,8 +1,9 @@
-// 1.20.4	2024-05-25T14:57:02.8011691	Tags for minecraft:block mod id aether_redux
+// 1.20.4	2024-05-26T12:28:47.3420743	Tags for minecraft:block mod id aether_redux
 ff76e071710735bec611ec58205f07d13cb675bd data/aether_redux/tags/blocks/crystal_logs.json
+eb1ddd122f7ca012d425a54274500f1e589e180d data/forge/tags/blocks/bookshelves.json
 49ad498cef1154d6380c5317f026c7a11b62238d data/minecraft/tags/blocks/fence_gates.json
 5295d732f1c22a1f48681f9c064f14692726fdb3 data/minecraft/tags/blocks/logs.json
-955a10023679a8e61c6cd792e67db4906ad57b4c data/minecraft/tags/blocks/mineable/axe.json
+9c45368b08909c3be45110e285aa25ee5c55221a data/minecraft/tags/blocks/mineable/axe.json
 761d9af3851563316242dac11105074c9f83e129 data/minecraft/tags/blocks/planks.json
 2216fd082ca15e16aa11c8c0da689d112499381f data/minecraft/tags/blocks/standing_signs.json
 7cda59183028b6e5eea368168213a6dcc88647ac data/minecraft/tags/blocks/walls.json
