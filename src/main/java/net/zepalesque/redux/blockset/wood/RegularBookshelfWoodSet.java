@@ -10,6 +10,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.data.prov.ReduxBlockStateProvider;
 import net.zepalesque.redux.item.ReduxItems;
 
 public class RegularBookshelfWoodSet extends BookshelfSet<BookshelfBlock> {
@@ -29,5 +30,11 @@ public class RegularBookshelfWoodSet extends BookshelfSet<BookshelfBlock> {
         ));
         items.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
         return block;
+    }
+
+    @Override
+    protected void blockData(ReduxBlockStateProvider data) {
+        super.blockData(data);
+        data.bookshelf(this.bookshelf().get(), this.planks().get());
     }
 }

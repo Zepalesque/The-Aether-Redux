@@ -11,6 +11,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.construction.LayeredBookshelfBlock;
+import net.zepalesque.redux.data.prov.ReduxBlockStateProvider;
 import net.zepalesque.redux.item.ReduxItems;
 
 public class LayeredBookshelfWoodSet extends BookshelfSet<LayeredBookshelfBlock> {
@@ -31,4 +32,9 @@ public class LayeredBookshelfWoodSet extends BookshelfSet<LayeredBookshelfBlock>
         return block;
     }
 
+    @Override
+    protected void blockData(ReduxBlockStateProvider data) {
+        super.blockData(data);
+        data.layeredBookshelf(this.bookshelf().get(), this.planks().get());
+    }
 }
