@@ -97,7 +97,7 @@
     }
   ],
   "textures": {
-    "side": "aether_redux:block/natural/crystal_stripped_log",
-    "top": "aether_redux:block/natural/crystal_stripped_log_top"
+    "side": "aether_redux:block/natural/stripped_crystal_log",
+    "top": "aether_redux:block/natural/stripped_crystal_log_top"
   }
 }

@@ -1,4 +1,4 @@
-// 1.20.4	2024-05-25T11:17:02.4963667	Item Models: aether_redux
+// 1.20.4	2024-05-25T14:57:02.803168	Item Models: aether_redux
 5fdf5a3add16d05500fe0387c2a8610d2ee1f2f8 assets/aether_redux/models/item/crystal_boat.json
 133f4578698e67f8587d89cabbffee55319dc165 assets/aether_redux/models/item/crystal_button.json
 623b05f96b37ac475ec5667d70ece76502b41e32 assets/aether_redux/models/item/crystal_chest_boat.json
@@ -13,11 +13,11 @@ db556f2d678950860c92809870bb363cf2ba2283 assets/aether_redux/models/item/crystal
 c9e9ac8937cc42fcfa2be59cdfd76d8bf722b150 assets/aether_redux/models/item/crystal_sign.json
 dbbdca14ceaedb205161f43206c1b0e438e0a50d assets/aether_redux/models/item/crystal_slab.json
 32e6a4fd31c4171883c4ffeee52006a368d07b0a assets/aether_redux/models/item/crystal_stairs.json
-0236f929efdcbc734be407bdfe3c7e71c828fe94 assets/aether_redux/models/item/crystal_stripped_log.json
-4ec355952eff4c8f99d98102c8d4847939db5164 assets/aether_redux/models/item/crystal_stripped_wood.json
 663722001bdbda25f3979e9f5071b22877d8a1f3 assets/aether_redux/models/item/crystal_trapdoor.json
 577e2a8c85a9dc1eaf822e80158c336c9fb0c3d6 assets/aether_redux/models/item/crystal_wood.json
 749dc7628b80f06cc7997496b72fbb4e204c11f5 assets/aether_redux/models/item/crystal_wood_wall.json
 262070202f715ccbb93ebca7b4dd3b04851bc0ce assets/aether_redux/models/item/short_aether_grass.json
-855cb7d6157be458a51e211e560acac9d9005155 assets/aether_redux/models/item/stripped_crystal_log_wall.json
-b3f94300f9ba4a961ac73eb772cfc303ad52ea83 assets/aether_redux/models/item/stripped_crystal_wood_wall.json
+e7bfb6b8c011a971909445c8ed6b5f55674ec196 assets/aether_redux/models/item/stripped_crystal_log.json
+3309c49e4daa375a5737eed499cd6556832136f7 assets/aether_redux/models/item/stripped_crystal_log_wall.json
+ede5284a9a6d92cd5ea829abe975db3c0afeef88 assets/aether_redux/models/item/stripped_crystal_wood.json
+f4e55469e88be034a3e02ea3752dd4b77cbbfbb0 assets/aether_redux/models/item/stripped_crystal_wood_wall.json

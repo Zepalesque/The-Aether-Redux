@@ -4,7 +4,7 @@
   "group": "hanging_sign",
   "key": {
     "#": {
-      "item": "aether_redux:crystal_stripped_log"
+      "item": "aether_redux:stripped_crystal_log"
     },
     "X": {
       "item": "minecraft:chain"

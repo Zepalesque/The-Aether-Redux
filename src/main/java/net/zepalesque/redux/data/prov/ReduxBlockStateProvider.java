@@ -2,10 +2,13 @@ package net.zepalesque.redux.data.prov;
 
 import com.aetherteam.aether.data.providers.AetherBlockStateProvider;
 import net.minecraft.data.PackOutput;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ModelBuilder;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.zepalesque.redux.block.construction.LayeredBookshelfBlock;
 import net.zepalesque.redux.block.natural.AetherShortGrassBlock;
 import net.zepalesque.redux.block.state.ReduxStates;
 
@@ -43,5 +46,20 @@ public abstract class ReduxBlockStateProvider extends AetherBlockStateProvider {
     @Override
     public BlockModelBuilder makeWallSideModel(int length, int height, String name, ModelBuilder.FaceRotation faceRotation, int u1, int u2) {
         return super.makeWallSideModel(length, height, name, faceRotation, u1, u2);
+    }
+
+    public void layeredBookshelf(Block block, Block endBlock) {
+        ModelFile bookshelf = this.models().cubeColumn(this.name(block), this.texture(this.name(block), "construction/"), this.texture(this.name(endBlock), "construction/"));
+        ModelFile top = this.models().cubeColumn(this.name(block) + "_top", this.texture(this.name(block) + "_top", "construction/"), this.texture(this.name(endBlock), "construction/"));
+        ModelFile bottom = this.models().cubeColumn(this.name(block) + "_bottom", this.texture(this.name(block) + "_bottom", "construction/"), this.texture(this.name(endBlock), "construction/"));
+        ModelFile center = this.models().cubeColumn(this.name(block) + "_center", this.texture(this.name(block) + "_center", "construction/"), this.texture(this.name(endBlock), "construction/"));
+        this.getVariantBuilder(block).forAllStates(state -> {
+
+            boolean up = state.getValue(LayeredBookshelfBlock.UP);
+            boolean down = state.getValue(LayeredBookshelfBlock.DOWN);
+            return ConfiguredModel.builder().modelFile(up && down ? bookshelf :
+                    !up && down ? bottom :
+                            up ? top : center).build();
+        });
     }
 }

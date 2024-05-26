@@ -12,6 +12,7 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.minecraft.world.level.storage.loot.providers.number.NumberProvider;
 import net.zepalesque.redux.block.state.ReduxStates;
 
 import java.util.Set;
@@ -71,5 +72,15 @@ public abstract class ReduxBlockLootProvider extends AetherBlockLootSubProvider 
     @Override
     public LootTable.Builder createDoorTable(Block pDoorBlock) {
         return super.createDoorTable(pDoorBlock);
+    }
+
+    @Override
+    public LootTable.Builder createSingleItemTableWithSilkTouch(Block pBlock, ItemLike pItem) {
+        return super.createSingleItemTableWithSilkTouch(pBlock, pItem);
+    }
+
+    @Override
+    public LootTable.Builder createSingleItemTableWithSilkTouch(Block pBlock, ItemLike pItem, NumberProvider pCount) {
+        return super.createSingleItemTableWithSilkTouch(pBlock, pItem, pCount);
     }
 }

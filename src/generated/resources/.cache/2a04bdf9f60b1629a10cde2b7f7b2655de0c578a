@@ -1,8 +1,8 @@
-// 1.20.4	2024-05-25T11:17:02.4903702	Tags for minecraft:item mod id aether_redux
+// 1.20.4	2024-05-25T14:57:02.7981709	Tags for minecraft:item mod id aether_redux
 761d9af3851563316242dac11105074c9f83e129 data/aether/tags/items/planks_crafting.json
 761d9af3851563316242dac11105074c9f83e129 data/aether/tags/items/skyroot_repairing.json
 761d9af3851563316242dac11105074c9f83e129 data/aether/tags/items/skyroot_stick_crafting.json
 761d9af3851563316242dac11105074c9f83e129 data/aether/tags/items/skyroot_tool_crafting.json
-0cc86dcf2bc780593e5b8133ef2a6e03bc6abb6f data/aether_redux/tags/items/crystal_logs.json
+ff76e071710735bec611ec58205f07d13cb675bd data/aether_redux/tags/items/crystal_logs.json
 087e45021a49143824a919a1ba7f24cab0c912e8 data/minecraft/tags/items/boats.json
 9ba95bf33ba00ef1c21abc8bed134f26a2bfc2a4 data/minecraft/tags/items/chest_boats.json

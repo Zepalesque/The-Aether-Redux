@@ -16,11 +16,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "aether_redux:crystal_stripped_log"
+          "name": "aether_redux:stripped_crystal_log"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "aether_redux:blocks/crystal_stripped_log"
+  "random_sequence": "aether_redux:blocks/stripped_crystal_log"
 }

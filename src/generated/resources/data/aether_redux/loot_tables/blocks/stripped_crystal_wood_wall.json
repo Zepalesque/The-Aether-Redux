@@ -20,7 +20,7 @@
               "function": "minecraft:explosion_decay"
             }
           ],
-          "name": "aether_redux:crystal_stripped_log"
+          "name": "aether_redux:stripped_crystal_log"
         }
       ],
       "functions": [

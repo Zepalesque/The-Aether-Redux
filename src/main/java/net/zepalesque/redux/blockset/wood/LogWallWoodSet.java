@@ -27,14 +27,15 @@ import net.zepalesque.redux.data.prov.tags.ReduxBlockTagsProvider;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.zenith.util.DatagenUtil;
 
-public class AetherWoodSet extends BaseWoodSet {
+public class LogWallWoodSet extends BaseWoodSet {
 
     protected final DeferredBlock<ReduxNaturalWall> log_wall;
     protected final DeferredBlock<ReduxNaturalWall> wood_wall;
     protected final DeferredBlock<ReduxNaturalWall> stripped_log_wall;
     protected final DeferredBlock<ReduxNaturalWall> stripped_wood_wall;
 
-    public AetherWoodSet(String id, MapColor woodColor, MapColor barkColor, SoundType sound) {
+
+    public LogWallWoodSet(String id, MapColor woodColor, MapColor barkColor, SoundType sound) {
         super(id, woodColor, barkColor, sound);
         DeferredRegister.Blocks blocks = ReduxBlocks.BLOCKS;
         DeferredRegister.Items items = ReduxItems.ITEMS;
@@ -47,11 +48,11 @@ public class AetherWoodSet extends BaseWoodSet {
 
     protected DeferredBlock<ReduxNaturalWall> logWall(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType) {
         var block = registry.register(id + this.logSuffix(LangType.ID) + "_wall", () -> new ReduxNaturalWall(Properties.of()
-                .mapColor(MapColor.WOOD)
+                .mapColor(color)
                 .instrument(NoteBlockInstrument.BASS)
                 .ignitedByLava()
                 .strength(2.0F)
-                .sound(SoundType.WOOD)
+                .sound(soundType)
         ));
         items.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
         return block;
@@ -63,11 +64,11 @@ public class AetherWoodSet extends BaseWoodSet {
 
     protected DeferredBlock<ReduxNaturalWall> woodWall(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType) {
         var block = registry.register(id + this.woodSuffix(LangType.ID) + "_wall", () -> new ReduxNaturalWall(Properties.of()
-                .mapColor(MapColor.WOOD)
+                .mapColor(color)
                 .instrument(NoteBlockInstrument.BASS)
                 .ignitedByLava()
                 .strength(2.0F)
-                .sound(SoundType.WOOD)
+                .sound(soundType)
         ));
         items.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
         return block;
@@ -79,11 +80,11 @@ public class AetherWoodSet extends BaseWoodSet {
 
     protected DeferredBlock<ReduxNaturalWall> strippedLogWall(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType) {
         var block = registry.register("stripped_" + id + this.logSuffix(LangType.ID) + "_wall", () -> new ReduxNaturalWall(Properties.of()
-                .mapColor(MapColor.WOOD)
+                .mapColor(color)
                 .instrument(NoteBlockInstrument.BASS)
                 .ignitedByLava()
                 .strength(2.0F)
-                .sound(SoundType.WOOD)
+                .sound(soundType)
         ));
         items.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
         return block;
@@ -95,11 +96,11 @@ public class AetherWoodSet extends BaseWoodSet {
 
     protected DeferredBlock<ReduxNaturalWall> strippedWoodWall(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType) {
         var block = registry.register("stripped_" + id + this.woodSuffix(LangType.ID) + "_wall", () -> new ReduxNaturalWall(Properties.of()
-                .mapColor(MapColor.WOOD)
+                .mapColor(color)
                 .instrument(NoteBlockInstrument.BASS)
                 .ignitedByLava()
                 .strength(2.0F)
-                .sound(SoundType.WOOD)
+                .sound(soundType)
         ));
         items.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
         return block;

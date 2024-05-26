@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_crystal_stripped_wood": {
+    "has_stripped_crystal_wood": {
       "conditions": {
         "items": [
           {
             "items": [
-              "aether_redux:crystal_stripped_wood"
+              "aether_redux:stripped_crystal_wood"
             ]
           }
         ]
@@ -23,7 +23,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_crystal_stripped_wood"
+      "has_stripped_crystal_wood"
     ]
   ],
   "rewards": {

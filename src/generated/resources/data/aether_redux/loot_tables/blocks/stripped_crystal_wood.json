@@ -5,7 +5,7 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "block": "aether_redux:crystal_stripped_wood",
+          "block": "aether_redux:stripped_crystal_wood",
           "condition": "minecraft:block_state_property",
           "properties": {
             "natural_gen": "true"
@@ -20,7 +20,7 @@
               "function": "minecraft:explosion_decay"
             }
           ],
-          "name": "aether_redux:crystal_stripped_log"
+          "name": "aether_redux:stripped_crystal_log"
         }
       ],
       "functions": [
@@ -34,7 +34,7 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "block": "aether_redux:crystal_stripped_wood",
+          "block": "aether_redux:stripped_crystal_wood",
           "condition": "minecraft:block_state_property",
           "properties": {
             "natural_gen": "false"
@@ -49,7 +49,7 @@
               "function": "minecraft:explosion_decay"
             }
           ],
-          "name": "aether_redux:crystal_stripped_wood"
+          "name": "aether_redux:stripped_crystal_wood"
         }
       ],
       "functions": [
@@ -60,5 +60,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "aether_redux:blocks/crystal_stripped_wood"
+  "random_sequence": "aether_redux:blocks/stripped_crystal_wood"
 }

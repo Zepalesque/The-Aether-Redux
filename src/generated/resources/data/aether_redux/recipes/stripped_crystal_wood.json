@@ -4,7 +4,7 @@
   "group": "bark",
   "key": {
     "#": {
-      "item": "aether_redux:crystal_stripped_log"
+      "item": "aether_redux:stripped_crystal_log"
     }
   },
   "pattern": [
@@ -13,6 +13,6 @@
   ],
   "result": {
     "count": 3,
-    "item": "aether_redux:crystal_stripped_wood"
+    "item": "aether_redux:stripped_crystal_wood"
   }
 }

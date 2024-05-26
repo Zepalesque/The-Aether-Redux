@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_crystal_stripped_log": {
+    "has_stripped_crystal_log": {
       "conditions": {
         "items": [
           {
             "items": [
-              "aether_redux:crystal_stripped_log"
+              "aether_redux:stripped_crystal_log"
             ]
           }
         ]
@@ -23,7 +23,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_crystal_stripped_log"
+      "has_stripped_crystal_log"
     ]
   ],
   "rewards": {
