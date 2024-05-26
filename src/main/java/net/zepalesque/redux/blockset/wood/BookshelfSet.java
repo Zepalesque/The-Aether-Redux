@@ -15,6 +15,7 @@ import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.data.prov.ReduxItemModelProvider;
 import net.zepalesque.redux.data.prov.ReduxLanguageProvider;
 import net.zepalesque.redux.data.prov.loot.ReduxBlockLootProvider;
 import net.zepalesque.redux.data.prov.tags.ReduxBlockTagsProvider;
@@ -39,6 +40,12 @@ public abstract class BookshelfSet<B extends BookshelfBlock> extends LogWallWood
 
     public DeferredBlock<B> bookshelf() {
         return this.bookshelf;
+    }
+
+    @Override
+    protected void itemData(ReduxItemModelProvider data) {
+        super.itemData(data);
+        data.itemBlock(this.bookshelf().get());
     }
 
     @Override

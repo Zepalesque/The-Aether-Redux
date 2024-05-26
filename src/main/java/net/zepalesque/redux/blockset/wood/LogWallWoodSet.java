@@ -48,7 +48,7 @@ public class LogWallWoodSet extends BaseWoodSet {
     }
 
     protected DeferredBlock<ReduxNaturalWall> logWall(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType) {
-        var block = registry.register(id + this.logSuffix(LangType.ID) + "_wall", () -> new ReduxNaturalWall(Properties.of()
+        var block = registry.register(id + this.logSuffix(false, false) + "_wall", () -> new ReduxNaturalWall(Properties.of()
                 .mapColor(color)
                 .instrument(NoteBlockInstrument.BASS)
                 .ignitedByLava()
@@ -64,7 +64,7 @@ public class LogWallWoodSet extends BaseWoodSet {
     }
 
     protected DeferredBlock<ReduxNaturalWall> woodWall(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType) {
-        var block = registry.register(id + this.woodSuffix(LangType.ID) + "_wall", () -> new ReduxNaturalWall(Properties.of()
+        var block = registry.register(id + this.woodSuffix(false, false) + "_wall", () -> new ReduxNaturalWall(Properties.of()
                 .mapColor(color)
                 .instrument(NoteBlockInstrument.BASS)
                 .ignitedByLava()
@@ -80,7 +80,7 @@ public class LogWallWoodSet extends BaseWoodSet {
     }
 
     protected DeferredBlock<ReduxNaturalWall> strippedLogWall(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType) {
-        var block = registry.register("stripped_" + id + this.logSuffix(LangType.ID) + "_wall", () -> new ReduxNaturalWall(Properties.of()
+        var block = registry.register("stripped_" + id + this.logSuffix(false, false) + "_wall", () -> new ReduxNaturalWall(Properties.of()
                 .mapColor(color)
                 .instrument(NoteBlockInstrument.BASS)
                 .ignitedByLava()
@@ -96,7 +96,7 @@ public class LogWallWoodSet extends BaseWoodSet {
     }
 
     protected DeferredBlock<ReduxNaturalWall> strippedWoodWall(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType) {
-        var block = registry.register("stripped_" + id + this.woodSuffix(LangType.ID) + "_wall", () -> new ReduxNaturalWall(Properties.of()
+        var block = registry.register("stripped_" + id + this.woodSuffix(false, false) + "_wall", () -> new ReduxNaturalWall(Properties.of()
                 .mapColor(color)
                 .instrument(NoteBlockInstrument.BASS)
                 .ignitedByLava()
@@ -156,16 +156,16 @@ public class LogWallWoodSet extends BaseWoodSet {
         String name = DatagenUtil.getNameLocalized(this.id);
 
         data.add(this.logWall());
-        data.addLore(this.logWall(), "Crafted from " + name + " " + this.logSuffix(LangType.LANG_PLURAL) + ". Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
+        data.addLore(this.logWall(), "Crafted from " + name + " " + this.logSuffix(true, false) + ". Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
 
         data.add(this.strippedLogWall());
-        data.addLore(this.strippedLogWall(), "Crafted from Stripped " + name + " " + this.logSuffix(LangType.LANG_PLURAL) + ". Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
+        data.addLore(this.strippedLogWall(), "Crafted from Stripped " + name + " " + this.logSuffix(true, false) + ". Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
 
         data.add(this.woodWall());
-        data.addLore(this.woodWall(), "Crafted from " + name + " " + this.woodSuffix(LangType.LANG_PLURAL) + ". Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
+        data.addLore(this.woodWall(), "Crafted from " + name + " " + this.woodSuffix(true, false) + ". Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
 
         data.add(this.strippedWoodWall());
-        data.addLore(this.strippedWoodWall(), "Crafted from Stripped " + name + " " + this.woodSuffix(LangType.LANG_PLURAL) + ". Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
+        data.addLore(this.strippedWoodWall(), "Crafted from Stripped " + name + " " + this.woodSuffix(true, false) + ". Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
     }
 
     @Override

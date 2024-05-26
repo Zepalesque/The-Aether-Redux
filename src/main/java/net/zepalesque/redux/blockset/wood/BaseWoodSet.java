@@ -164,7 +164,7 @@ public class BaseWoodSet extends AbstractWoodSet {
 
     @Override
     protected DeferredBlock<AetherLogBlock> log(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor woodColor, MapColor barkColor, SoundType soundType) {
-        var block = registry.register(id + this.logSuffix(LangType.ID), () -> new AetherLogBlock(Properties.of()
+        var block = registry.register(id + this.logSuffix(false, false), () -> new AetherLogBlock(Properties.of()
                 .mapColor(state -> state.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? woodColor : barkColor)
                 .instrument(NoteBlockInstrument.BASS)
                 .strength(2.0F)
@@ -182,7 +182,7 @@ public class BaseWoodSet extends AbstractWoodSet {
 
     @Override
     protected DeferredBlock<AetherLogBlock> strippedLog(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType) {
-        var block = registry.register("stripped_" + id + this.logSuffix(LangType.ID), () -> new AetherLogBlock(Properties.of()
+        var block = registry.register("stripped_" + id + this.logSuffix(false, false), () -> new AetherLogBlock(Properties.of()
                 .mapColor(color)
                 .instrument(NoteBlockInstrument.BASS)
                 .strength(2.0F)
@@ -199,7 +199,7 @@ public class BaseWoodSet extends AbstractWoodSet {
 
     @Override
     protected DeferredBlock<NaturalLog> wood(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType) {
-        var block = registry.register(id + this.woodSuffix(LangType.ID), () -> new NaturalLog(Properties.of()
+        var block = registry.register(id + this.woodSuffix(false, false), () -> new NaturalLog(Properties.of()
                 .mapColor(color)
                 .instrument(NoteBlockInstrument.BASS)
                 .strength(2.0F)
@@ -217,7 +217,7 @@ public class BaseWoodSet extends AbstractWoodSet {
 
     @Override
     protected DeferredBlock<NaturalLog> strippedWood(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType) {
-        var block = registry.register("stripped_" + id + this.woodSuffix(LangType.ID), () -> new NaturalLog(Properties.of()
+        var block = registry.register("stripped_" + id + this.woodSuffix(false, false), () -> new NaturalLog(Properties.of()
                 .mapColor(color)
                 .instrument(NoteBlockInstrument.BASS)
                 .strength(2.0F)
@@ -602,7 +602,7 @@ public class BaseWoodSet extends AbstractWoodSet {
 
     @Override
     protected TagKey<Item> logsTag(String id) {
-        return ReduxTags.Items.tag(id + this.logSuffix(LangType.PLURAL));
+        return ReduxTags.Items.tag(id + this.logSuffix(true, false));
     }
 
     @Override
@@ -612,7 +612,7 @@ public class BaseWoodSet extends AbstractWoodSet {
 
     @Override
     protected TagKey<Block> logsBlockTag(String id) {
-        return ReduxTags.Blocks.tag(id + this.logSuffix(LangType.PLURAL));
+        return ReduxTags.Blocks.tag(id + this.logSuffix(true, false));
     }
 
     @Override
@@ -690,11 +690,11 @@ public class BaseWoodSet extends AbstractWoodSet {
         data.add(this.log());
         data.addLore(this.log(), "These spawn with " + name + " " + this.treesName(true) + ". They can be double dropped with Skyroot Axes. When put in a crafting table they will provide 4 " + name + " Planks.");
         data.add(this.strippedLog());
-        data.addLore(this.strippedLog(), indefiniteUppercase + name + " " + this.logSuffix(LangType.LANG) + " that has had its bark stripped away with an Axe. When put in a crafting table they will provide 4 " + name + " Planks.");
+        data.addLore(this.strippedLog(), indefiniteUppercase + name + " " + this.logSuffix(false, true) + " that has had its bark stripped away with an Axe. When put in a crafting table they will provide 4 " + name + " Planks.");
         data.add(this.wood());
-        data.addLore(this.wood(), "Six-sided variant of " + name + " " + this.logSuffix(LangType.LANG_PLURAL) + ". When put in a crafting table they will provide 4 " + name + " Planks.");
+        data.addLore(this.wood(), "Six-sided variant of " + name + " " + this.logSuffix(true, true) + ". When put in a crafting table they will provide 4 " + name + " Planks.");
         data.add(this.strippedWood());
-        data.addLore(this.strippedWood(), name + " " + this.woodSuffix(LangType.LANG) + " that has had its bark stripped away with an Axe. When put in a crafting table they will provide 4 " + name + " Planks.");
+        data.addLore(this.strippedWood(), name + " " + this.woodSuffix(false, true) + " that has had its bark stripped away with an Axe. When put in a crafting table they will provide 4 " + name + " Planks.");
         data.add(this.planks());
         data.addLore(this.planks(), "Planks from the " + name + " " + this.treesName(false) + ". Can be used as a building material, along with several other useful things.");
         data.add(this.stairs());
@@ -903,25 +903,20 @@ public class BaseWoodSet extends AbstractWoodSet {
 
     @Override
     @Nullable
-    public String logSuffix(LangType type) {
-        return switch (type) {
-            case ID -> "_log";
-            case PLURAL -> "_logs";
-            case LANG -> " Log";
-            case LANG_PLURAL -> " Logs";
-        };
+    public String logSuffix(boolean plural, boolean localized) {
+        String base = localized ? " Log" : "_log";
+
+        return plural ? base + "s" : base;
     }
 
     @Override
-    public String woodSuffix(LangType type) {
-        return switch (type) {
-            case ID, PLURAL -> "_wood";
-            case LANG, LANG_PLURAL -> " Wood";
-        };
+    public String woodSuffix(boolean plural, boolean localized) {
+        return localized ? " Wood" : "_wood";
     }
 
+
     @Override
-    public String treesName(boolean isPlural) {
-        return isPlural ? "trees" : "tree";
+    public String treesName(boolean plural) {
+        return plural ? "trees" : "tree";
     }
 }
