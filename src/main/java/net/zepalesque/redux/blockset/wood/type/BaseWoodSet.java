@@ -18,8 +18,10 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.SignItem;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ButtonBlock;
@@ -412,7 +414,7 @@ public class BaseWoodSet extends AbstractWoodSet {
                         .noCollission().strength(1.0F)
                         .sound(soundType)
         ));
-        items.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
+        items.register(block.getId().getPath(), () -> new SignItem(new Item.Properties(), this.sign().get(), this.wallSign().get()));
         return block;
     }
 
@@ -452,7 +454,7 @@ public class BaseWoodSet extends AbstractWoodSet {
                         .noCollission().strength(1.0F)
                         .sound(soundType)
         ));
-        items.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
+        items.register(block.getId().getPath(), () -> new HangingSignItem(this.hangingSign().get(), this.wallHangingSign().get(), new Item.Properties()));
         return block;
     }
 
@@ -549,7 +551,8 @@ public class BaseWoodSet extends AbstractWoodSet {
                 BlockEntityType.Builder.of(((pPos, pState) -> new ZenithHangingSignBlockEntity(pPos, pState, () -> this.hangingSignEntity().get())),
                                 this.hangingSign().get(),
                                 this.wallHangingSign().get())
-                        .build(null));    }
+                        .build(null));
+    }
 
     @Override
     public DeferredHolder<BlockEntityType<?>, BlockEntityType<? extends ZenithHangingSignBlockEntity>> hangingSignEntity() {
