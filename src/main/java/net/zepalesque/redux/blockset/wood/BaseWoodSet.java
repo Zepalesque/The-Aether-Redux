@@ -76,6 +76,7 @@ import net.zepalesque.zenith.client.render.entity.ZenithBoatRenderer;
 import net.zepalesque.zenith.entity.misc.ZenithBoat;
 import net.zepalesque.zenith.entity.misc.ZenithChestBoat;
 import net.zepalesque.zenith.item.ZenithBoatItem;
+import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
 import net.zepalesque.zenith.tile.ZenithHangingSignBlockEntity;
 import net.zepalesque.zenith.tile.ZenithSignBlockEntity;
 import net.zepalesque.zenith.util.DatagenUtil;
@@ -879,8 +880,7 @@ public class BaseWoodSet extends AbstractWoodSet {
     }
 
     @Override
-    public void flammables() {
-        FireBlockAccessor accessor = (FireBlockAccessor) Blocks.FIRE;
+    public void flammables(FireAccessor accessor) {
         accessor.callSetFlammable(this.log().get(), 5, 5);
         accessor.callSetFlammable(this.strippedLog().get(), 5, 5);
         accessor.callSetFlammable(this.wood().get(), 5, 5);

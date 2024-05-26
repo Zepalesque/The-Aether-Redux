@@ -19,6 +19,7 @@ import net.zepalesque.redux.data.prov.ReduxLanguageProvider;
 import net.zepalesque.redux.data.prov.loot.ReduxBlockLootProvider;
 import net.zepalesque.redux.data.prov.tags.ReduxBlockTagsProvider;
 import net.zepalesque.redux.item.ReduxItems;
+import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
 import net.zepalesque.zenith.util.DatagenUtil;
 
 public abstract class BookshelfSet<B extends BookshelfBlock> extends LogWallWoodSet {
@@ -63,9 +64,8 @@ public abstract class BookshelfSet<B extends BookshelfBlock> extends LogWallWood
     }
 
     @Override
-    public void flammables() {
-        super.flammables();
-        fireBlockAccessor.callSetFlammable(AetherBlocks.SKYROOT_BOOKSHELF.get(), 30, 20);
-
+    public void flammables(FireAccessor accessor) {
+        super.flammables(accessor);
+        accessor.callSetFlammable(this.bookshelf().get(), 30, 20);
     }
 }

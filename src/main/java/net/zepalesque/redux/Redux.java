@@ -64,7 +64,9 @@ public class Redux {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-
+        event.enqueueWork(() -> {
+            ReduxBlocks.registerFlammability();
+        });
     }
 
     private void dataSetup(GatherDataEvent event) {

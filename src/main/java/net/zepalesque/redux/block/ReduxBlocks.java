@@ -1,5 +1,6 @@
 package net.zepalesque.redux.block;
 
+import com.aetherteam.aether.mixin.mixins.common.accessor.FireBlockAccessor;
 import com.google.common.base.Supplier;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.BlockItem;
@@ -12,6 +13,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.natural.AetherShortGrassBlock;
 import net.zepalesque.redux.item.ReduxItems;
+import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
 
 import java.util.function.Function;
 
@@ -33,5 +35,11 @@ public class ReduxBlocks {
 
     public static <T extends Block> DeferredBlock<T> register(final String name, final Supplier<? extends T> block) {
         return register(name, block, object -> () -> new BlockItem(object.get(), new Item.Properties()));
+    }
+
+    public static void registerFlammability() {
+        FireAccessor accessor = (FireAccessor) Blocks.FIRE;
+
+        Redux.WOOD_SETS.forEach(set -> set.flammables(accessor));
     }
 }

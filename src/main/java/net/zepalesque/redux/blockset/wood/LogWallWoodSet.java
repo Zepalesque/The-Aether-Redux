@@ -25,6 +25,7 @@ import net.zepalesque.redux.data.prov.ReduxRecipeProvider;
 import net.zepalesque.redux.data.prov.loot.ReduxBlockLootProvider;
 import net.zepalesque.redux.data.prov.tags.ReduxBlockTagsProvider;
 import net.zepalesque.redux.item.ReduxItems;
+import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
 import net.zepalesque.zenith.util.DatagenUtil;
 
 public class LogWallWoodSet extends BaseWoodSet {
@@ -209,9 +210,8 @@ public class LogWallWoodSet extends BaseWoodSet {
     }
 
     @Override
-    public void flammables() {
-        super.flammables();
-        FireBlockAccessor accessor = (FireBlockAccessor) Blocks.FIRE;
+    public void flammables(FireAccessor accessor) {
+        super.flammables(accessor);
         accessor.callSetFlammable(this.logWall().get(), 5, 5);
         accessor.callSetFlammable(this.woodWall().get(), 5, 5);
         accessor.callSetFlammable(this.strippedLogWall().get(), 5, 5);
