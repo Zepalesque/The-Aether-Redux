@@ -1,4 +1,4 @@
-package net.zepalesque.redux.blockset.wood;
+package net.zepalesque.redux.blockset.wood.type;
 
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.natural.AetherLogBlock;

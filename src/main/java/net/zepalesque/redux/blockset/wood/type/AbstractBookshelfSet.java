@@ -1,14 +1,9 @@
-package net.zepalesque.redux.blockset.wood;
+package net.zepalesque.redux.blockset.wood.type;
 
-import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.construction.BookshelfBlock;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.neoforged.neoforge.common.Tags;
@@ -23,11 +18,11 @@ import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
 import net.zepalesque.zenith.util.DatagenUtil;
 
-public abstract class BookshelfSet<B extends BookshelfBlock> extends LogWallWoodSet {
+public abstract class AbstractBookshelfSet<B extends BookshelfBlock> extends LogWallWoodSet {
 
     protected final DeferredBlock<B> bookshelf;
 
-    public BookshelfSet(String id, MapColor woodColor, MapColor barkColor, SoundType sound) {
+    public AbstractBookshelfSet(String id, MapColor woodColor, MapColor barkColor, SoundType sound) {
         super(id, woodColor, barkColor, sound);
         DeferredRegister.Blocks blocks = ReduxBlocks.BLOCKS;
         DeferredRegister.Items items = ReduxItems.ITEMS;

@@ -1,6 +1,5 @@
-package net.zepalesque.redux.blockset.wood;
+package net.zepalesque.redux.blockset.wood.type;
 
-import com.aetherteam.aether.block.construction.BookshelfBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.SoundType;
@@ -9,19 +8,17 @@ import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.block.construction.LayeredBookshelfBlock;
 import net.zepalesque.redux.data.prov.ReduxBlockStateProvider;
-import net.zepalesque.redux.item.ReduxItems;
 
-public class RegularBookshelfWoodSet extends BookshelfSet<BookshelfBlock> {
+public class LayeredBookshelfSet extends AbstractBookshelfSet<LayeredBookshelfBlock> {
 
-    public RegularBookshelfWoodSet(String id, MapColor woodColor, MapColor barkColor, SoundType sound) {
+    public LayeredBookshelfSet(String id, MapColor woodColor, MapColor barkColor, SoundType sound) {
         super(id, woodColor, barkColor, sound);
     }
 
-
-    protected DeferredBlock<BookshelfBlock> bookshelf(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType) {
-        var block = registry.register(id + "_bookshelf", () -> new BookshelfBlock(BlockBehaviour.Properties.of()
+    protected DeferredBlock<LayeredBookshelfBlock> bookshelf(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType) {
+        var block = registry.register(id + "_bookshelf", () -> new LayeredBookshelfBlock(BlockBehaviour.Properties.of()
                 .mapColor(color)
                 .instrument(NoteBlockInstrument.BASS)
                 .ignitedByLava()
@@ -35,6 +32,6 @@ public class RegularBookshelfWoodSet extends BookshelfSet<BookshelfBlock> {
     @Override
     protected void blockData(ReduxBlockStateProvider data) {
         super.blockData(data);
-        data.bookshelf(this.bookshelf().get(), this.planks().get());
+        data.layeredBookshelf(this.bookshelf().get(), this.planks().get());
     }
 }
