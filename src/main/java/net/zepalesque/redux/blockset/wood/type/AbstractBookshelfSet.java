@@ -1,6 +1,7 @@
 package net.zepalesque.redux.blockset.wood.type;
 
 import com.aetherteam.aether.block.construction.BookshelfBlock;
+import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.SoundType;
@@ -12,6 +13,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.data.prov.ReduxItemModelProvider;
 import net.zepalesque.redux.data.prov.ReduxLanguageProvider;
+import net.zepalesque.redux.data.prov.ReduxRecipeProvider;
 import net.zepalesque.redux.data.prov.loot.ReduxBlockLootProvider;
 import net.zepalesque.redux.data.prov.tags.ReduxBlockTagsProvider;
 import net.zepalesque.redux.item.ReduxItems;
@@ -53,6 +55,12 @@ public abstract class AbstractBookshelfSet<B extends BookshelfBlock> extends Log
     }
 
     @Override
+    protected void recipeData(ReduxRecipeProvider data, RecipeOutput consumer) {
+        super.recipeData(data, consumer);
+        ReduxRecipeProvider.bookshelf(consumer, this.planks(), this.bookshelf());
+    }
+
+    @Override
     protected void lootData(ReduxBlockLootProvider data) {
         super.lootData(data);
         data.add(this.bookshelf().get(), (bookshelf) -> data.createSingleItemTableWithSilkTouch(bookshelf, Items.BOOK, ConstantValue.exactly(3.0F)));
@@ -70,4 +78,5 @@ public abstract class AbstractBookshelfSet<B extends BookshelfBlock> extends Log
         super.flammables(accessor);
         accessor.callSetFlammable(this.bookshelf().get(), 30, 20);
     }
+
 }

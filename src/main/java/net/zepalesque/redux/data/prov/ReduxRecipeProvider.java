@@ -15,12 +15,14 @@ import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 
 import java.util.concurrent.CompletableFuture;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public abstract class ReduxRecipeProvider extends AetherRecipeProvider {
@@ -89,4 +91,14 @@ public abstract class ReduxRecipeProvider extends AetherRecipeProvider {
         RecipeProvider.wall(output, category, wall, material);
     }
 
+    public static void bookshelf(RecipeOutput output, ItemLike plank, ItemLike bookshelf) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, bookshelf, 1)
+                .define('P', plank)
+                .define('B', Items.BOOK)
+                .pattern("PPP")
+                .pattern("BBB")
+                .pattern("PPP")
+                .unlockedBy(getHasName(Items.BOOK), has(Items.BOOK))
+                .save(output, getItemName(plank) + "_to_" + getItemName(bookshelf));
+    }
 }
