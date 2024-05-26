@@ -7,6 +7,7 @@ import net.zepalesque.redux.blockset.wood.type.AbstractBookshelfSet;
 import net.zepalesque.redux.blockset.wood.type.LogWallWoodSet;
 import net.zepalesque.redux.blockset.wood.type.RegularBookshelfSet;
 
+// TODO: log stripping
 public class ReduxWoodSets {
 
     public static final LogWallWoodSet CRYSTAL = register(new RegularBookshelfSet("crystal", MapColor.COLOR_LIGHT_BLUE, MapColor.TERRACOTTA_CYAN, SoundType.WOOD));

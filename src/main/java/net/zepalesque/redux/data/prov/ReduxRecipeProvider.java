@@ -55,6 +55,10 @@ public abstract class ReduxRecipeProvider extends AetherRecipeProvider {
         return RecipeProvider.getHasName(itemLike);
     }
 
+    public static String getItemName(ItemLike itemLike) {
+        return RecipeProvider.getItemName(itemLike);
+    }
+
     public static Criterion<InventoryChangeTrigger.TriggerInstance> has(ItemLike itemLike) {
         return RecipeProvider.has(itemLike);
     }

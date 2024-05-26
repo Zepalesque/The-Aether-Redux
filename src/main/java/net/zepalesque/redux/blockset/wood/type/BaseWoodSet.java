@@ -56,6 +56,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.natural.NaturalLog;
+import net.zepalesque.redux.blockset.util.ReduxGeneration;
 import net.zepalesque.redux.data.ReduxTags;
 import net.zepalesque.redux.data.prov.ReduxBlockStateProvider;
 import net.zepalesque.redux.data.prov.ReduxItemModelProvider;
@@ -83,9 +84,9 @@ import net.zepalesque.zenith.util.DatagenUtil;
 
 import javax.annotation.Nullable;
 
-public class BaseWoodSet extends AbstractWoodSet {
+public class BaseWoodSet extends AbstractWoodSet implements ReduxGeneration {
 
-    protected final String id;
+    public final String id;
 
     protected final DeferredBlock<AetherLogBlock> log;
     protected final DeferredBlock<AetherLogBlock> stripped_log;
@@ -117,8 +118,8 @@ public class BaseWoodSet extends AbstractWoodSet {
     protected final BlockSetType setType;
     protected final WoodType woodType;
 
-    public final TagKey<Item> logsTag;
-    public final TagKey<Block> logsBlockTag;
+    protected final TagKey<Item> logsTag;
+    protected final TagKey<Block> logsBlockTag;
 
     public BaseWoodSet(String id, MapColor woodColor, MapColor barkColor, SoundType sound) {
 
@@ -621,14 +622,7 @@ public class BaseWoodSet extends AbstractWoodSet {
         return this.logsBlockTag;
     }
 
-    @Override
-    public void blockData(BlockStateProvider provider) {
-        if (provider instanceof ReduxBlockStateProvider data) {
-           this.blockData(data);
-        }
-    }
-
-    protected void blockData(ReduxBlockStateProvider data) {
+    public void blockData(ReduxBlockStateProvider data) {
         data.log(this.log().get());
         data.log(this.strippedLog().get());
         data.wood(this.wood().get(), this.log().get());
@@ -646,14 +640,7 @@ public class BaseWoodSet extends AbstractWoodSet {
         data.hangingSignBlock(this.hangingSign().get(), this.wallHangingSign().get(), data.texture(data.name(this.planks().get()), "construction/"));
     }
 
-    @Override
-    public void itemData(ItemModelProvider provider) {
-        if (provider instanceof ReduxItemModelProvider data) {
-          this.itemData(data);
-        }
-    }
-
-    protected void itemData(ReduxItemModelProvider data) {
+    public void itemData(ReduxItemModelProvider data) {
         data.itemBlock(this.log().get());
         data.itemBlock(this.strippedLog().get());
         data.itemBlock(this.planks().get());
@@ -673,15 +660,7 @@ public class BaseWoodSet extends AbstractWoodSet {
         data.item(this.chestBoatItem().get(), "misc/");
     }
 
-
-    @Override
-    public void langData(LanguageProvider provider) {
-        if (provider instanceof ReduxLanguageProvider data) {
-            this.langData(data);
-        }
-    }
-
-    protected void langData(ReduxLanguageProvider data) {
+    public void langData(ReduxLanguageProvider data) {
         boolean vowel = DatagenUtil.isVowel(this.id.charAt(0));
 
         String indefiniteLowercase = vowel ? "an" : "a";
@@ -729,14 +708,7 @@ public class BaseWoodSet extends AbstractWoodSet {
 
     }
 
-    @Override
-    public void recipeData(RecipeProvider provider, RecipeOutput output) {
-        if (provider instanceof ReduxRecipeProvider data) {
-            this.recipeData(data, output);
-        }
-    }
-
-    protected void recipeData(ReduxRecipeProvider data, RecipeOutput consumer) {
+    public void recipeData(ReduxRecipeProvider data, RecipeOutput consumer) {
 
         ReduxRecipeProvider.woodFromLogs(consumer, this.wood().get(), this.log().get());
 
@@ -788,15 +760,7 @@ public class BaseWoodSet extends AbstractWoodSet {
         ReduxRecipeProvider.chestBoat(consumer, this.chestBoatItem().get(), this.boatItem().get());
     }
 
-
-    @Override
-    public void blockTagData(BlockTagsProvider provider) {
-        if (provider instanceof ReduxBlockTagsProvider data) {
-            this.blockTagData(data);
-        }
-    }
-
-    protected void blockTagData(ReduxBlockTagsProvider data) {
+    public void blockTagData(ReduxBlockTagsProvider data) {
         data.tag(BlockTags.MINEABLE_WITH_AXE).add(
                 this.planks().get(),
                 this.stairs().get(),
@@ -830,14 +794,7 @@ public class BaseWoodSet extends AbstractWoodSet {
         data.tag(BlockTags.WALL_SIGNS).add(this.wallSign().get());
     }
 
-    @Override
-    public void itemTagData(ItemTagsProvider provider) {
-        if (provider instanceof ReduxItemTagsProvider data) {
-            this.itemTagData(data);
-        }
-    }
-
-    protected void itemTagData(ReduxItemTagsProvider data) {
+    public void itemTagData(ReduxItemTagsProvider data) {
         data.copy(this.logsBlockTag(), this.logsTag());
         data.tag(AetherTags.Items.PLANKS_CRAFTING).add(this.planks().get().asItem());
         data.tag(AetherTags.Items.SKYROOT_STICK_CRAFTING).add(this.planks().get().asItem());
@@ -848,14 +805,7 @@ public class BaseWoodSet extends AbstractWoodSet {
 
     }
 
-    @Override
-    public void lootData(BlockLootSubProvider provider) {
-        if (provider instanceof ReduxBlockLootProvider data) {
-            this.lootData(data);
-        }
-    }
-
-    protected void lootData(ReduxBlockLootProvider data) {
+    public void lootData(ReduxBlockLootProvider data) {
         data.dropSelfDouble(this.log().get());
         data.dropSelfDouble(this.strippedLog().get());
         data.naturalDrop(this.wood().get(), this.log().get());
