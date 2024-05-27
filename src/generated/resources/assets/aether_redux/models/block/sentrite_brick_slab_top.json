@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "bottom": "aether_redux:block/constructionsentrite_bricks",
-    "side": "aether_redux:block/constructionsentrite_bricks",
-    "top": "aether_redux:block/constructionsentrite_bricks"
+    "bottom": "aether_redux:block/construction/sentrite_bricks",
+    "side": "aether_redux:block/construction/sentrite_bricks",
+    "top": "aether_redux:block/construction/sentrite_bricks"
   }
 }

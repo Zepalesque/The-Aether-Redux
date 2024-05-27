@@ -1,4 +1,4 @@
-// 1.20.4	2024-05-27T18:37:08.667857	Item Models: aether_redux
+// 1.20.4	2024-05-27T18:41:53.3083398	Item Models: aether_redux
 5fdf5a3add16d05500fe0387c2a8610d2ee1f2f8 assets/aether_redux/models/item/crystal_boat.json
 07ce966d98e80d692506b8b644839f577b457301 assets/aether_redux/models/item/crystal_bookshelf.json
 133f4578698e67f8587d89cabbffee55319dc165 assets/aether_redux/models/item/crystal_button.json
@@ -21,10 +21,10 @@ dbbdca14ceaedb205161f43206c1b0e438e0a50d assets/aether_redux/models/item/crystal
 78eb2611f9163ac081067a4558ff42ad67da6250 assets/aether_redux/models/item/sentrite_bricks.json
 047fe8ef6fa08212f587a5ca906bd4b5de9af340 assets/aether_redux/models/item/sentrite_brick_slab.json
 68e1576db4a6f8c697c3ca7df6b2a6d93386843f assets/aether_redux/models/item/sentrite_brick_stairs.json
-649fb7fda8ecbc0dd61b45728332f7a7d0dd9564 assets/aether_redux/models/item/sentrite_brick_wall.json
+b0932bd6681add278b7476bfe180f0a096672625 assets/aether_redux/models/item/sentrite_brick_wall.json
 4b5a6cf3c2856efd96b6577f6fcb84a0e176fafc assets/aether_redux/models/item/sentrite_slab.json
 cbf1d27224744aef8ad83f00bd888454a5f34b4f assets/aether_redux/models/item/sentrite_stairs.json
-2d64adfd4e052a9349faf15623d6dd2700a8aaa7 assets/aether_redux/models/item/sentrite_wall.json
+2c8457bbcde4e2e32804d90476bb7ca7e0673c97 assets/aether_redux/models/item/sentrite_wall.json
 262070202f715ccbb93ebca7b4dd3b04851bc0ce assets/aether_redux/models/item/short_aether_grass.json
 e7bfb6b8c011a971909445c8ed6b5f55674ec196 assets/aether_redux/models/item/stripped_crystal_log.json
 3309c49e4daa375a5737eed499cd6556832136f7 assets/aether_redux/models/item/stripped_crystal_log_wall.json
