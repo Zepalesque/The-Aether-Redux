@@ -1,8 +1,6 @@
 package net.zepalesque.redux.blockset.stone.type;
 
-import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.natural.AetherDoubleDropBlock;
-import com.aetherteam.aether.block.natural.AetherLogBlock;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
@@ -13,7 +11,6 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.StairBlock;
@@ -36,11 +33,11 @@ import net.zepalesque.redux.data.prov.loot.ReduxBlockLootProvider;
 import net.zepalesque.redux.data.prov.tags.ReduxBlockTagsProvider;
 import net.zepalesque.redux.data.prov.tags.ReduxItemTagsProvider;
 import net.zepalesque.redux.item.ReduxItems;
-import net.zepalesque.redux.item.TabUtil;
 import net.zepalesque.zenith.api.blockset.AbstractStoneSet;
 import net.zepalesque.zenith.api.blockset.util.CraftingMatrix;
 import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
 import net.zepalesque.zenith.util.DatagenUtil;
+import net.zepalesque.zenith.util.TabUtil;
 import org.apache.commons.lang3.tuple.Triple;
 
 import java.util.ArrayList;
@@ -57,7 +54,7 @@ public class BaseStoneSet extends AbstractStoneSet implements ReduxGeneration {
     protected final DeferredBlock<StairBlock> stairs;
     protected final DeferredBlock<SlabBlock> slab;
     protected final DeferredBlock<WallBlock> wall;
-    protected final NoteBlockInstrument instrument;
+    protected NoteBlockInstrument instrument = NoteBlockInstrument.BASEDRUM;
     protected final Map<CraftingMatrix, Supplier<? extends ItemLike>> crafted_blocks = new HashMap<>();
     protected final Map<CraftingMatrix, AbstractStoneSet> crafted_sets = new HashMap<>();
     protected final Map<Supplier<? extends ItemLike>, Integer> stonecut_blocks = new HashMap<>();
@@ -68,21 +65,22 @@ public class BaseStoneSet extends AbstractStoneSet implements ReduxGeneration {
     protected Map<TagKey<Block>, Boolean> tags;
     protected Map<TagKey<Item>, Boolean> itemTags;
 
-    public BaseStoneSet(String id, MapColor color, SoundType sound, float breakTime, float blastResistance, NoteBlockInstrument instrument, String textureFolder, String lore) {
+    public BaseStoneSet(String id, MapColor color, SoundType sound, float breakTime, float blastResistance, String textureFolder, String lore) {
         this.id = id;
         this.textureFolder = textureFolder;
         this.lore = lore;
         DeferredRegister.Blocks blocks = ReduxBlocks.BLOCKS;
         DeferredRegister.Items items = ReduxItems.ITEMS;
-        this.instrument = instrument;
-
         this.base = this.block(blocks, items, id, color, sound, breakTime, blastResistance);
         this.stairs = this.stairs(blocks, items, id, color, sound, breakTime, blastResistance);
         this.slab = this.slab(blocks, items, id, color, sound, breakTime, blastResistance);
         this.wall = this.wall(blocks, items, id, color, sound, breakTime, blastResistance);
-
     }
 
+    public BaseStoneSet instrument(NoteBlockInstrument instrument) {
+        this.instrument = instrument;
+        return this;
+    }
 
     @Override
     protected DeferredBlock<AetherDoubleDropBlock> block(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType, float breakTime, float blastResistance) {
@@ -198,13 +196,13 @@ public class BaseStoneSet extends AbstractStoneSet implements ReduxGeneration {
     }
 
     @Override
-    public AbstractStoneSet withTag(TagKey<Block> tag, boolean allBlocks) {
+    public BaseStoneSet withTag(TagKey<Block> tag, boolean allBlocks) {
         this.tags.put(tag, allBlocks);
         return this;
     }
 
     @Override
-    public AbstractStoneSet withItemTag(TagKey<Item> tag, boolean allBlocks) {
+    public BaseStoneSet withItemTag(TagKey<Item> tag, boolean allBlocks) {
         this.itemTags.put(tag, allBlocks);
         return this;
     }

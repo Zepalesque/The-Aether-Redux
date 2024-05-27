@@ -19,6 +19,7 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
 import net.zepalesque.redux.blockset.wood.ReduxWoodSets;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.data.gen.ReduxBlockStateGen;
@@ -56,6 +57,7 @@ public class Redux {
         bus.addListener(this::dataSetup);
 
         ReduxWoodSets.init();
+        ReduxStoneSets.init();
 
         ReduxBlocks.BLOCKS.register(bus);
         ReduxItems.ITEMS.register(bus);
