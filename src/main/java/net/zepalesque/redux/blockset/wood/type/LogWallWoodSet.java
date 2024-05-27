@@ -225,7 +225,7 @@ public class LogWallWoodSet extends BaseWoodSet {
 
     @Override
     protected Supplier<? extends ItemLike> buildingBlocks(BuildCreativeModeTabContentsEvent event, Supplier<? extends ItemLike> prev) {
-        Supplier<? extends ItemLike> superPrev = super.naturalBlocks(event, prev);
+        Supplier<? extends ItemLike> superPrev = super.buildingBlocks(event, prev);
         TabUtil.putAfter(superPrev, this.logWall(), event);
         TabUtil.putAfter(this.logWall(), this.woodWall(), event);
         TabUtil.putAfter(this.woodWall(), this.strippedLogWall(), event);
