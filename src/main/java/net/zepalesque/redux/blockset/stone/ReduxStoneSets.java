@@ -26,13 +26,25 @@ public class ReduxStoneSets {
                             .pattern("H#")))
             .craftsIntoSet(() -> ReduxStoneSets.SENTRITE_BRICKS, CraftingMatrices.SQUARE_2X2)
             .stonecutIntoSet(() -> ReduxStoneSets.SENTRITE_BRICKS)
-            .creativeTab(AetherCreativeTabs.AETHER_BUILDING_BLOCKS, AetherBlocks.HOLYSTONE_BRICK_WALL, true)
-            .creativeTab(AetherCreativeTabs.AETHER_NATURAL_BLOCKS, AetherBlocks.HOLYSTONE, false)
+            .creativeTab(AetherCreativeTabs.AETHER_BUILDING_BLOCKS, () -> ReduxStoneSets.BLIGHTMOSS_HOLYSTONE.wall().get(), true)
+            .creativeTab(AetherCreativeTabs.AETHER_NATURAL_BLOCKS, () -> ReduxStoneSets.BLIGHTMOSS_HOLYSTONE.block().get(), false)
             .withTag(BlockTags.MINEABLE_WITH_PICKAXE, true);
 
     public static final BaseStoneSet SENTRITE_BRICKS = register(new BrickStoneSet("sentrite_brick", MapColor.DEEPSLATE, SoundType.NETHER_BRICKS, 1.0F, 6.0F, "construction/",
             "Bricks made of Sentrite. These can be used as a nice building block!"))
             .creativeTab(AetherCreativeTabs.AETHER_BUILDING_BLOCKS, () -> ReduxStoneSets.SENTRITE.wall().get(), true)
+            .withTag(BlockTags.MINEABLE_WITH_PICKAXE, true);
+
+    public static final BaseStoneSet GILDED_HOLYSTONE = register(new BaseStoneSet("gilded_holystone", MapColor.SAND, SoundType.STONE, 0.5F, 0.5F, "natural/",
+            "The enchanted form of Mossy Holystone. This rock covered in golden moss glitters in the sunlight."))
+            .creativeTab(AetherCreativeTabs.AETHER_BUILDING_BLOCKS, () -> AetherBlocks.MOSSY_HOLYSTONE_WALL, true)
+            .creativeTab(AetherCreativeTabs.AETHER_NATURAL_BLOCKS, () -> AetherBlocks.MOSSY_HOLYSTONE, false)
+            .withTag(BlockTags.MINEABLE_WITH_PICKAXE, true);
+    
+    public static final BaseStoneSet BLIGHTMOSS_HOLYSTONE = register(new BaseStoneSet("blightmoss_holystone", MapColor.TERRACOTTA_PURPLE, SoundType.STONE, 0.5F, 0.5F, "natural/",
+            "The blighted form of Mosssy Holystone. The viscious moss on this rock wilts in the sunlight and flourishes in the moonlight."))
+            .creativeTab(AetherCreativeTabs.AETHER_BUILDING_BLOCKS, ReduxStoneSets.GILDED_HOLYSTONE::wall, true)
+            .creativeTab(AetherCreativeTabs.AETHER_NATURAL_BLOCKS, ReduxStoneSets.GILDED_HOLYSTONE::block, false)
             .withTag(BlockTags.MINEABLE_WITH_PICKAXE, true);
 
 
