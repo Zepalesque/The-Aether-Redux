@@ -20,7 +20,7 @@ import teamrazor.deepaether.init.DABlocks;
 
 import java.util.concurrent.CompletableFuture;
 
-public class    ReduxBlockTagsData extends BlockTagsProvider {
+public class ReduxBlockTagsData extends BlockTagsProvider {
 
     public ReduxBlockTagsData(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, String modid, @Nullable ExistingFileHelper existingFileHelper) {
         super(output, lookupProvider, modid, existingFileHelper);

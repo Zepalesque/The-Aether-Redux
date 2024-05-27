@@ -79,7 +79,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
         smeltingOreRecipe(ReduxItems.VERIDIUM_INGOT.get(), ReduxItems.RAW_VERIDIUM.get(), 0.8F).save(consumer, name("smelt_raw_veridium"));
         blastingOreRecipe(ReduxItems.VERIDIUM_INGOT.get(), ReduxItems.RAW_VERIDIUM.get(), 0.8F).save(consumer, name("blast_raw_veridium"));
 
-        // TODO: Confirm this is the correct method, I don't know if ore smeltin is the right one here
+        // TODO: Confirm this is the correct method, I don't know if ore smelting is the right one here
         smeltingOreRecipe(ReduxBlocks.POLISHED_DRIFTSHALE.get(), ReduxBlocks.DRIFTSHALE.get(), 0.0F).save(consumer, name("smelt_driftshale"));
 
         oreBlockStorageRecipesRecipesWithCustomUnpacking(consumer, RecipeCategory.MISC, ReduxItems.VERIDIUM_INGOT.get(), RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.VERIDIUM_BLOCK.get(), "veridium_ingot_from_veridium_block", "veridium_ingot");
@@ -625,6 +625,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
             stonecut(RecipeCategory.BUILDING_BLOCKS, item, ingredient, 1).save(consumer, Redux.locate(getItemName(item) + "_stonecut_from_" + getItemName(ingredient)));
         }
     }
+
     public ResourceLocation advLoc(ItemLike result, RecipeCategory category)
     {
         return advLoc(ForgeRegistries.ITEMS.getKey(result.asItem()), result, category);
