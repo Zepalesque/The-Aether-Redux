@@ -1,4 +1,8 @@
-// 1.20.4	2024-05-27T18:41:53.3083398	Item Models: aether_redux
+// 1.20.4	2024-05-27T19:01:00.3780067	Item Models: aether_redux
+a083a7311bfd77483a76afa2e0b34a2dca856c28 assets/aether_redux/models/item/blightmoss_holystone.json
+693490b382231c95e748c88f8daa13be00cd8ceb assets/aether_redux/models/item/blightmoss_holystone_slab.json
+e073f529066aa534f560372ff463759fa6a01401 assets/aether_redux/models/item/blightmoss_holystone_stairs.json
+01182452db12ba6aaf27b32a62ee4b122ee5541c assets/aether_redux/models/item/blightmoss_holystone_wall.json
 5fdf5a3add16d05500fe0387c2a8610d2ee1f2f8 assets/aether_redux/models/item/crystal_boat.json
 07ce966d98e80d692506b8b644839f577b457301 assets/aether_redux/models/item/crystal_bookshelf.json
 133f4578698e67f8587d89cabbffee55319dc165 assets/aether_redux/models/item/crystal_button.json
@@ -17,6 +21,10 @@ dbbdca14ceaedb205161f43206c1b0e438e0a50d assets/aether_redux/models/item/crystal
 663722001bdbda25f3979e9f5071b22877d8a1f3 assets/aether_redux/models/item/crystal_trapdoor.json
 577e2a8c85a9dc1eaf822e80158c336c9fb0c3d6 assets/aether_redux/models/item/crystal_wood.json
 749dc7628b80f06cc7997496b72fbb4e204c11f5 assets/aether_redux/models/item/crystal_wood_wall.json
+c21384e3c0f2e7cf2838fc78bd300726ad88099d assets/aether_redux/models/item/gilded_holystone.json
+7cc45ca1892d40585fe787a30634854a783d1ef1 assets/aether_redux/models/item/gilded_holystone_slab.json
+462c33cc11eaca761757d91060550f705d13724b assets/aether_redux/models/item/gilded_holystone_stairs.json
+b94d7ae7552984746c011a3c414646a7b5538436 assets/aether_redux/models/item/gilded_holystone_wall.json
 85fdfd7f1fdd7ddb47b784671c569c7c72659f65 assets/aether_redux/models/item/sentrite.json
 78eb2611f9163ac081067a4558ff42ad67da6250 assets/aether_redux/models/item/sentrite_bricks.json
 047fe8ef6fa08212f587a5ca906bd4b5de9af340 assets/aether_redux/models/item/sentrite_brick_slab.json

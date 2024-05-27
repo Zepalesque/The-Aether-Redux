@@ -7,6 +7,14 @@
     "aether_redux:sentrite_bricks",
     "aether_redux:sentrite_brick_stairs",
     "aether_redux:sentrite_brick_slab",
-    "aether_redux:sentrite_brick_wall"
+    "aether_redux:sentrite_brick_wall",
+    "aether_redux:gilded_holystone",
+    "aether_redux:gilded_holystone_stairs",
+    "aether_redux:gilded_holystone_slab",
+    "aether_redux:gilded_holystone_wall",
+    "aether_redux:blightmoss_holystone",
+    "aether_redux:blightmoss_holystone_stairs",
+    "aether_redux:blightmoss_holystone_slab",
+    "aether_redux:blightmoss_holystone_wall"
   ]
 }
