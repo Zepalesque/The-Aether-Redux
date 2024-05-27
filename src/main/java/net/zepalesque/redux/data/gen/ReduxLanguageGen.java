@@ -14,6 +14,7 @@ public class ReduxLanguageGen extends ReduxLanguageProvider {
     @Override
     protected void addTranslations() {
         Redux.WOOD_SETS.forEach(set -> set.langData(this));
+        Redux.STONE_SETS.forEach(set -> set.langData(this));
 
         this.add(ReduxBlocks.SHORT_AETHER_GRASS);
 

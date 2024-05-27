@@ -30,7 +30,7 @@ public class LayeredBookshelfSet extends AbstractBookshelfSet<LayeredBookshelfBl
     }
 
     @Override
-    protected void blockData(ReduxBlockStateProvider data) {
+    public void blockData(ReduxBlockStateProvider data) {
         super.blockData(data);
         data.layeredBookshelf(this.bookshelf().get(), this.planks().get());
     }

@@ -19,9 +19,9 @@ import net.zepalesque.redux.data.prov.ReduxRecipeProvider;
 import net.zepalesque.redux.data.prov.loot.ReduxBlockLootProvider;
 import net.zepalesque.redux.data.prov.tags.ReduxBlockTagsProvider;
 import net.zepalesque.redux.item.ReduxItems;
-import net.zepalesque.redux.item.TabUtil;
 import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
 import net.zepalesque.zenith.util.DatagenUtil;
+import net.zepalesque.zenith.util.TabUtil;
 
 import java.util.function.Supplier;
 
@@ -45,13 +45,13 @@ public abstract class AbstractBookshelfSet<B extends BookshelfBlock> extends Log
     }
 
     @Override
-    protected void itemData(ReduxItemModelProvider data) {
+    public void itemData(ReduxItemModelProvider data) {
         super.itemData(data);
         data.itemBlock(this.bookshelf().get());
     }
 
     @Override
-    protected void langData(ReduxLanguageProvider data) {
+    public void langData(ReduxLanguageProvider data) {
         super.langData(data);
         String name = DatagenUtil.getNameLocalized(this.id);
 
@@ -60,19 +60,19 @@ public abstract class AbstractBookshelfSet<B extends BookshelfBlock> extends Log
     }
 
     @Override
-    protected void recipeData(ReduxRecipeProvider data, RecipeOutput consumer) {
+    public void recipeData(ReduxRecipeProvider data, RecipeOutput consumer) {
         super.recipeData(data, consumer);
         ReduxRecipeProvider.bookshelf(consumer, this.planks(), this.bookshelf());
     }
 
     @Override
-    protected void lootData(ReduxBlockLootProvider data) {
+    public void lootData(ReduxBlockLootProvider data) {
         super.lootData(data);
         data.add(this.bookshelf().get(), (bookshelf) -> data.createSingleItemTableWithSilkTouch(bookshelf, Items.BOOK, ConstantValue.exactly(3.0F)));
     }
 
     @Override
-    protected void blockTagData(ReduxBlockTagsProvider data) {
+    public void blockTagData(ReduxBlockTagsProvider data) {
         super.blockTagData(data);
         data.tag(BlockTags.MINEABLE_WITH_AXE).add(this.bookshelf().get());
         data.tag(Tags.Blocks.BOOKSHELVES).add(this.bookshelf().get());

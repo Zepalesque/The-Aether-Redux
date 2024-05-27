@@ -1,8 +1,6 @@
 package net.zepalesque.redux.block;
 
-import com.aetherteam.aether.mixin.mixins.common.accessor.FireBlockAccessor;
 import com.google.common.base.Supplier;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -12,6 +10,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.natural.AetherShortGrassBlock;
+import net.zepalesque.redux.event.hook.ToolModifyHooks;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
 
@@ -41,5 +40,9 @@ public class ReduxBlocks {
         FireAccessor accessor = (FireAccessor) Blocks.FIRE;
 
         Redux.WOOD_SETS.forEach(set -> set.flammables(accessor));
+    }
+
+    public static void registerToolConversions() {
+        Redux.WOOD_SETS.forEach(set -> set.setupStrippables(ToolModifyHooks.STRIPPABLES));
     }
 }

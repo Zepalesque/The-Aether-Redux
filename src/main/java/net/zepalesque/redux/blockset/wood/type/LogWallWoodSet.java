@@ -6,6 +6,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -25,10 +26,11 @@ import net.zepalesque.redux.data.prov.ReduxRecipeProvider;
 import net.zepalesque.redux.data.prov.loot.ReduxBlockLootProvider;
 import net.zepalesque.redux.data.prov.tags.ReduxBlockTagsProvider;
 import net.zepalesque.redux.item.ReduxItems;
-import net.zepalesque.redux.item.TabUtil;
 import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
 import net.zepalesque.zenith.util.DatagenUtil;
+import net.zepalesque.zenith.util.TabUtil;
 
+import java.util.Map;
 import java.util.function.Supplier;
 
 public class LogWallWoodSet extends BaseWoodSet {
@@ -116,7 +118,7 @@ public class LogWallWoodSet extends BaseWoodSet {
 
 
     @Override
-    protected void blockData(ReduxBlockStateProvider data) {
+    public void blockData(ReduxBlockStateProvider data) {
         super.blockData(data);
         ModelFile postBig = data.makeWallPostModel(4, 16, "wooden_post_big");
         ModelFile postShort = data.makeWallPostModel(3, 14, "wooden_post_short");
@@ -145,7 +147,7 @@ public class LogWallWoodSet extends BaseWoodSet {
     }
 
     @Override
-    protected void itemData(ReduxItemModelProvider data) {
+    public void itemData(ReduxItemModelProvider data) {
         super.itemData(data);
         data.itemLogWallBlock(this.logWall().get(), this.log().get(), "natural/", Redux.MODID);
         data.itemLogWallBlock(this.strippedLogWall().get(), this.strippedLog().get(), "natural/", Redux.MODID);
@@ -154,7 +156,7 @@ public class LogWallWoodSet extends BaseWoodSet {
     }
 
     @Override
-    protected void langData(ReduxLanguageProvider data) {
+    public void langData(ReduxLanguageProvider data) {
         super.langData(data);
         String name = DatagenUtil.getNameLocalized(this.id);
 
@@ -172,7 +174,7 @@ public class LogWallWoodSet extends BaseWoodSet {
     }
 
     @Override
-    protected void recipeData(ReduxRecipeProvider data, RecipeOutput consumer) {
+    public void recipeData(ReduxRecipeProvider data, RecipeOutput consumer) {
         super.recipeData(data, consumer);
         ReduxRecipeProvider.wall(consumer, RecipeCategory.BUILDING_BLOCKS, this.logWall().get(), this.log().get());
         ReduxRecipeProvider.wall(consumer, RecipeCategory.BUILDING_BLOCKS, this.strippedLogWall().get(), this.strippedLog().get());
@@ -181,7 +183,7 @@ public class LogWallWoodSet extends BaseWoodSet {
     }
 
     @Override
-    protected void blockTagData(ReduxBlockTagsProvider data) {
+    public void blockTagData(ReduxBlockTagsProvider data) {
         super.blockTagData(data);
         data.tag(BlockTags.MINEABLE_WITH_AXE).add(
                 this.logWall().get(),
@@ -204,7 +206,7 @@ public class LogWallWoodSet extends BaseWoodSet {
     }
 
     @Override
-    protected void lootData(ReduxBlockLootProvider data) {
+    public void lootData(ReduxBlockLootProvider data) {
         super.lootData(data);
         data.naturalDrop(this.logWall().get(), this.log().get());
         data.naturalDrop(this.woodWall().get(), this.log().get());
@@ -236,5 +238,12 @@ public class LogWallWoodSet extends BaseWoodSet {
         Supplier<? extends ItemLike> superPrev = super.naturalBlocks(event, prev);
         TabUtil.putAfter(superPrev, this.logWall(), event);
         return this.logWall();
+    }
+
+    @Override
+    public void setupStrippables(Map<Block, Block> strippingMap) {
+        super.setupStrippables(strippingMap);
+        strippingMap.put(this.logWall().get(), this.strippedLogWall().get());
+        strippingMap.put(this.woodWall().get(), this.strippedWoodWall().get());
     }
 }

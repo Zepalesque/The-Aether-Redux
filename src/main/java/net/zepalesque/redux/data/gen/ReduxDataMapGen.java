@@ -15,8 +15,8 @@ public class ReduxDataMapGen extends ReduxDataMapProvider {
 
     @Override
     protected void gather() {
-
         Redux.WOOD_SETS.forEach(set -> set.mapData(this));
+        Redux.STONE_SETS.forEach(set -> set.mapData(this));
 
     }
 }

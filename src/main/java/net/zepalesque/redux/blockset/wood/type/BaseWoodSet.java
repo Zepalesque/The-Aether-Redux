@@ -4,15 +4,13 @@ import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.natural.AetherLogBlock;
 import com.aetherteam.aether.item.AetherCreativeTabs;
+import com.aetherteam.aether.item.AetherItems;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.core.Direction;
-import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
@@ -47,12 +45,8 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
-import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.Tags;
-import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.DataMapProvider;
-import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -72,7 +66,6 @@ import net.zepalesque.redux.data.prov.tags.ReduxBlockTagsProvider;
 import net.zepalesque.redux.data.prov.tags.ReduxItemTagsProvider;
 import net.zepalesque.redux.entity.ReduxEntities;
 import net.zepalesque.redux.item.ReduxItems;
-import net.zepalesque.redux.item.TabUtil;
 import net.zepalesque.redux.tile.ReduxTiles;
 import net.zepalesque.zenith.api.blockset.AbstractWoodSet;
 import net.zepalesque.zenith.block.ZenithCeilingHangingSignBlock;
@@ -87,9 +80,10 @@ import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
 import net.zepalesque.zenith.tile.ZenithHangingSignBlockEntity;
 import net.zepalesque.zenith.tile.ZenithSignBlockEntity;
 import net.zepalesque.zenith.util.DatagenUtil;
-import org.apache.commons.lang3.tuple.Triple;
+import net.zepalesque.zenith.util.TabUtil;
 
 import javax.annotation.Nullable;
+import java.util.Map;
 import java.util.function.Supplier;
 
 public class BaseWoodSet extends AbstractWoodSet implements ReduxGeneration {
@@ -852,6 +846,12 @@ public class BaseWoodSet extends AbstractWoodSet implements ReduxGeneration {
     }
 
     @Override
+    public void setupStrippables(Map<Block, Block> strippingMap) {
+        strippingMap.put(this.log().get(), this.strippedLog().get());
+        strippingMap.put(this.wood().get(), this.strippedWood().get());
+    }
+
+    @Override
     public void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(this.signEntity().get(), SignRenderer::new);
         event.registerBlockEntityRenderer(this.hangingSignEntity().get(), HangingSignRenderer::new);
@@ -926,5 +926,10 @@ public class BaseWoodSet extends AbstractWoodSet implements ReduxGeneration {
         TabUtil.putAfter(prev, this.sign(), event);
         TabUtil.putAfter(this.sign(), this.hangingSign(), event);
         return this.hangingSign();
+    }
+
+    @Override
+    public Supplier<Item> getStick() {
+        return AetherItems.SKYROOT_STICK;
     }
 }

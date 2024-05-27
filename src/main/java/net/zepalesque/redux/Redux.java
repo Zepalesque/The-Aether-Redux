@@ -31,6 +31,7 @@ import net.zepalesque.redux.data.gen.tags.ReduxItemTagsGen;
 import net.zepalesque.redux.entity.ReduxEntities;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.tile.ReduxTiles;
+import net.zepalesque.zenith.api.blockset.AbstractStoneSet;
 import net.zepalesque.zenith.api.blockset.AbstractWoodSet;
 import net.zepalesque.zenith.api.condition.ConfigCondition;
 import net.zepalesque.zenith.api.condition.config.ConfigSerializer;
@@ -47,6 +48,8 @@ public class Redux {
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public static final Collection<AbstractWoodSet> WOOD_SETS = new ArrayList<>();
+
+    public static final Collection<AbstractStoneSet> STONE_SETS = new ArrayList<>();
 
     public Redux(IEventBus bus) {
         bus.addListener(this::commonSetup);
@@ -66,6 +69,7 @@ public class Redux {
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
             ReduxBlocks.registerFlammability();
+            ReduxBlocks.registerToolConversions();
         });
     }
 

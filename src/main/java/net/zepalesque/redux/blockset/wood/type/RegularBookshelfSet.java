@@ -31,7 +31,7 @@ public class RegularBookshelfSet extends AbstractBookshelfSet<BookshelfBlock> {
     }
 
     @Override
-    protected void blockData(ReduxBlockStateProvider data) {
+    public void blockData(ReduxBlockStateProvider data) {
         super.blockData(data);
         data.bookshelf(this.bookshelf().get(), this.planks().get());
     }

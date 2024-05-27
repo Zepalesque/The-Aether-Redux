@@ -19,6 +19,7 @@ public class ReduxItemTagsGen extends ReduxItemTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         Redux.WOOD_SETS.forEach(set -> set.itemTagData(this));
+        Redux.STONE_SETS.forEach(set -> set.itemTagData(this));
 
     }
 }

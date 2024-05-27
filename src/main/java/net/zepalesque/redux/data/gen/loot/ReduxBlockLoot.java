@@ -26,6 +26,7 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
     @Override
     protected void generate() {
         Redux.WOOD_SETS.forEach(set -> set.lootData(this));
+        Redux.STONE_SETS.forEach(set -> set.lootData(this));
         // TODO
         this.dropNone(ReduxBlocks.SHORT_AETHER_GRASS.get());
     }

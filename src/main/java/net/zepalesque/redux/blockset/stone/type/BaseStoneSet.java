@@ -346,6 +346,7 @@ public class BaseStoneSet extends AbstractStoneSet implements ReduxGeneration {
 
     }
 
+    // Ignore the prev value, implementation is different here
     @Override
     public Supplier<? extends ItemLike> addToCreativeTab(BuildCreativeModeTabContentsEvent event, Supplier<? extends ItemLike> prev) {
         for (Triple<Supplier<CreativeModeTab>, Supplier<? extends ItemLike>, Boolean> triple : this.creativeTabOrdering) {

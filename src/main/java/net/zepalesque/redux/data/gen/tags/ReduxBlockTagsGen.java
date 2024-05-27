@@ -18,6 +18,7 @@ public class ReduxBlockTagsGen extends ReduxBlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         Redux.WOOD_SETS.forEach(set -> set.blockTagData(this));
+        Redux.STONE_SETS.forEach(set -> set.blockTagData(this));
 
     }
 }
