@@ -24,8 +24,8 @@ public class ReduxStoneSets {
                             .define('H', AetherBlocks.HOLYSTONE.get())
                             .pattern("#H")
                             .pattern("H#")))
-            .craftsInto(ReduxStoneSets.SENTRITE_BRICKS, CraftingMatrices.SQUARE_2X2)
-            .stonecutInto(ReduxStoneSets.SENTRITE_BRICKS)
+            .craftsIntoSet(() -> ReduxStoneSets.SENTRITE_BRICKS, CraftingMatrices.SQUARE_2X2)
+            .stonecutIntoSet(() -> ReduxStoneSets.SENTRITE_BRICKS)
             .creativeTab(AetherCreativeTabs.AETHER_BUILDING_BLOCKS, AetherBlocks.HOLYSTONE_BRICK_WALL, true)
             .creativeTab(AetherCreativeTabs.AETHER_NATURAL_BLOCKS, AetherBlocks.HOLYSTONE, false)
             .withTag(BlockTags.MINEABLE_WITH_PICKAXE, true);

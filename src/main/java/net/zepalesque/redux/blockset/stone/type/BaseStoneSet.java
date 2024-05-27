@@ -56,11 +56,11 @@ public class BaseStoneSet extends AbstractStoneSet implements ReduxGeneration {
     protected final DeferredBlock<WallBlock> wall;
     protected NoteBlockInstrument instrument = NoteBlockInstrument.BASEDRUM;
     protected final Map<CraftingMatrix, Supplier<? extends ItemLike>> crafted_blocks = new HashMap<>();
-    protected final Map<CraftingMatrix, AbstractStoneSet> crafted_sets = new HashMap<>();
+    protected final Map<CraftingMatrix, Supplier<AbstractStoneSet>> crafted_sets = new HashMap<>();
     protected final Map<Supplier<? extends ItemLike>, Integer> stonecut_blocks = new HashMap<>();
-    protected final List<AbstractStoneSet> stonecut_sets = new ArrayList<>();
+    protected final List<Supplier<AbstractStoneSet>> stonecut_sets = new ArrayList<>();
     protected final Map<Supplier<? extends ItemLike>, Float> smelted_blocks = new HashMap<>();
-    protected final Map<AbstractStoneSet, Float> smelted_sets = new HashMap<>();
+    protected final Map<Supplier<AbstractStoneSet>, Float> smelted_sets = new HashMap<>();
     protected final List<Triple<Supplier<CreativeModeTab>, Supplier<? extends ItemLike>, Boolean>> creativeTabOrdering = new ArrayList<>();
     protected final Map<TagKey<Block>, Boolean> tags = new HashMap<>();
     protected final Map<TagKey<Item>, Boolean> itemTags = new HashMap<>();
@@ -160,7 +160,7 @@ public class BaseStoneSet extends AbstractStoneSet implements ReduxGeneration {
     }
 
     @Override
-    public BaseStoneSet craftsInto(AbstractStoneSet set, CraftingMatrix shape) {
+    public BaseStoneSet craftsIntoSet(Supplier<AbstractStoneSet> set, CraftingMatrix shape) {
         this.crafted_sets.put(shape, set);
         return this;
     }
@@ -172,7 +172,7 @@ public class BaseStoneSet extends AbstractStoneSet implements ReduxGeneration {
     }
 
     @Override
-    public BaseStoneSet stonecutInto(AbstractStoneSet set) {
+    public BaseStoneSet stonecutIntoSet(Supplier<AbstractStoneSet> set) {
         this.stonecut_sets.add(set);
         return this;
     }
@@ -184,7 +184,7 @@ public class BaseStoneSet extends AbstractStoneSet implements ReduxGeneration {
     }
 
     @Override
-    public BaseStoneSet smeltsInto(AbstractStoneSet set, float experience) {
+    public BaseStoneSet smeltsIntoSet(Supplier<AbstractStoneSet> set, float experience) {
         this.smelted_sets.put(set, experience);
         return this;
     }
@@ -258,10 +258,10 @@ public class BaseStoneSet extends AbstractStoneSet implements ReduxGeneration {
         ReduxRecipeProvider.wall(consumer, RecipeCategory.BUILDING_BLOCKS, this.wall().get(), this.block().get());
 
         this.crafted_sets.forEach((matrix, set) ->
-            matrix.apply(ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, set.block().get(), matrix.count())
+            matrix.apply(ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, set.get().block().get(), matrix.count())
                     .define('#', this.block().get()))
-                    .unlockedBy(ReduxRecipeProvider.getHasName(set.block().get()), ReduxRecipeProvider.has(set.block().get())).save(consumer,
-                            data.name(ReduxRecipeProvider.getConversionRecipeName(set.block().get(), this.block().get()))
+                    .unlockedBy(ReduxRecipeProvider.getHasName(set.get().block().get()), ReduxRecipeProvider.has(set.get().block().get())).save(consumer,
+                            data.name(ReduxRecipeProvider.getConversionRecipeName(set.get().block().get(), this.block().get()))
                     )
         );
 
@@ -278,10 +278,10 @@ public class BaseStoneSet extends AbstractStoneSet implements ReduxGeneration {
         );
 
         this.stonecut_sets.forEach(set -> {
-                    data.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, set.block().get(), this.block().get());
-                    data.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, set.stairs().get(), this.block().get());
-                    data.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, set.slab().get(), this.block().get(), 2);
-                    data.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, set.wall().get(), this.block().get());
+                    data.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, set.get().block().get(), this.block().get());
+                    data.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, set.get().stairs().get(), this.block().get());
+                    data.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, set.get().slab().get(), this.block().get(), 2);
+                    data.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, set.get().wall().get(), this.block().get());
                 }
         );
 
@@ -290,7 +290,7 @@ public class BaseStoneSet extends AbstractStoneSet implements ReduxGeneration {
         );
 
         this.smelted_sets.forEach((set, xp) ->
-                data.smeltingOreRecipe(set.block().get(), this.block().get(), xp).save(consumer, data.name(ReduxRecipeProvider.getConversionRecipeName(set.block().get(), this.block().get()) + "_smelting"))
+                data.smeltingOreRecipe(set.get().block().get(), this.block().get(), xp).save(consumer, data.name(ReduxRecipeProvider.getConversionRecipeName(set.get().block().get(), this.block().get()) + "_smelting"))
         );
 
 
