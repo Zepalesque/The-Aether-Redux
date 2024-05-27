@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "aether_redux:crystal_hanging_sign"
+          "name": "aether_redux:sentrite_brick_stairs"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "aether_redux:blocks/crystal_wall_hanging_sign"
+  "random_sequence": "aether_redux:blocks/sentrite_brick_stairs"
 }

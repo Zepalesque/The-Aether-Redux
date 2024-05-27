@@ -11,7 +11,7 @@
               "add": false,
               "conditions": [
                 {
-                  "block": "aether_redux:crystal_slab",
+                  "block": "aether_redux:sentrite_slab",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "type": "double"
@@ -25,11 +25,11 @@
               "function": "minecraft:explosion_decay"
             }
           ],
-          "name": "aether_redux:crystal_slab"
+          "name": "aether_redux:sentrite_slab"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "aether_redux:blocks/crystal_slab"
+  "random_sequence": "aether_redux:blocks/sentrite_slab"
 }
