@@ -887,14 +887,16 @@ public class BaseWoodSet extends AbstractWoodSet implements ReduxGeneration {
             return this.buildingBlocks(event, prev == null ? AetherBlocks.GOLDEN_OAK_WOOD : prev);
         }
 
-        // prev should be equal to aether:golden_oak_log for first wood type
         if (tab == AetherCreativeTabs.AETHER_NATURAL_BLOCKS.get()) {
             return this.naturalBlocks(event, prev == null ? AetherBlocks.GOLDEN_OAK_LOG : prev);
         }
 
-        // prev should be equal to aether:skyroot_hanging_sign for first wood type
         if (tab == AetherCreativeTabs.AETHER_FUNCTIONAL_BLOCKS.get()) {
             return this.functionalBlocks(event, prev == null ? AetherBlocks.SKYROOT_HANGING_SIGN : prev);
+        }
+
+        if (tab == AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES.get()) {
+            return this.equipment(event, prev == null ? AetherItems.SKYROOT_CHEST_BOAT : prev);
         }
 
         return prev;
@@ -926,6 +928,12 @@ public class BaseWoodSet extends AbstractWoodSet implements ReduxGeneration {
         TabUtil.putAfter(prev, this.sign(), event);
         TabUtil.putAfter(this.sign(), this.hangingSign(), event);
         return this.hangingSign();
+    }
+
+    protected Supplier<? extends ItemLike> equipment(BuildCreativeModeTabContentsEvent event, Supplier<? extends ItemLike> prev) {
+        TabUtil.putAfter(prev, this.boatItem(), event);
+        TabUtil.putAfter(this.boatItem(), this.chestBoatItem(), event);
+        return this.chestBoatItem();
     }
 
     @Override
