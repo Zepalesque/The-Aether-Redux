@@ -4,10 +4,12 @@ import com.aetherteam.aether.block.construction.BookshelfBlock;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.zepalesque.redux.block.ReduxBlocks;
@@ -17,8 +19,11 @@ import net.zepalesque.redux.data.prov.ReduxRecipeProvider;
 import net.zepalesque.redux.data.prov.loot.ReduxBlockLootProvider;
 import net.zepalesque.redux.data.prov.tags.ReduxBlockTagsProvider;
 import net.zepalesque.redux.item.ReduxItems;
+import net.zepalesque.redux.item.TabUtil;
 import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
 import net.zepalesque.zenith.util.DatagenUtil;
+
+import java.util.function.Supplier;
 
 public abstract class AbstractBookshelfSet<B extends BookshelfBlock> extends LogWallWoodSet {
 
@@ -79,4 +84,9 @@ public abstract class AbstractBookshelfSet<B extends BookshelfBlock> extends Log
         accessor.callSetFlammable(this.bookshelf().get(), 30, 20);
     }
 
+    @Override
+    protected Supplier<? extends ItemLike> functionalBlocks(BuildCreativeModeTabContentsEvent event, Supplier<? extends ItemLike> prev) {
+        TabUtil.putAfter(prev, this.bookshelf(), event);
+        return super.functionalBlocks(event, this.bookshelf());
+    }
 }

@@ -1,6 +1,7 @@
 package net.zepalesque.redux.data.prov;
 
 import com.aetherteam.aether.data.providers.AetherRecipeProvider;
+import com.aetherteam.nitrogen.data.providers.NitrogenRecipeProvider;
 import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.ItemPredicate;
@@ -12,6 +13,8 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -104,5 +107,32 @@ public abstract class ReduxRecipeProvider extends AetherRecipeProvider {
                 .pattern("PPP")
                 .unlockedBy(getHasName(Items.BOOK), has(Items.BOOK))
                 .save(output, getItemName(plank) + "_to_" + getItemName(bookshelf));
+    }
+
+    @Override
+    public void stonecuttingRecipe(RecipeOutput output, RecipeCategory category, ItemLike item, ItemLike ingredient) {
+        super.stonecuttingRecipe(output, category, item, ingredient);
+    }
+
+    @Override
+    public void stonecuttingRecipe(RecipeOutput output, RecipeCategory category, ItemLike item, ItemLike ingredient, int count) {
+        super.stonecuttingRecipe(output, category, item, ingredient, count);
+    }
+
+    public static String getConversionRecipeName(ItemLike result, ItemLike ingredient) {
+        return RecipeProvider.getConversionRecipeName(result, ingredient);
+    }
+
+    public static String getConversionRecipeNameSwitched(ItemLike result, ItemLike ingredient) {
+        return getItemName(ingredient) + "_to_" + getItemName(result);
+    }
+
+    public SimpleCookingRecipeBuilder smeltingOreRecipe(ItemLike result, ItemLike ingredient, float experience) {
+        return super.smeltingOreRecipe(result, ingredient, experience);
+    }
+
+    @Override
+    public ResourceLocation name(String name) {
+        return super.name(name);
     }
 }

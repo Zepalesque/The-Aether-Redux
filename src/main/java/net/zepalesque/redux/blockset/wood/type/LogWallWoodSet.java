@@ -5,12 +5,14 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.client.model.generators.ModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.zepalesque.redux.Redux;
@@ -23,8 +25,11 @@ import net.zepalesque.redux.data.prov.ReduxRecipeProvider;
 import net.zepalesque.redux.data.prov.loot.ReduxBlockLootProvider;
 import net.zepalesque.redux.data.prov.tags.ReduxBlockTagsProvider;
 import net.zepalesque.redux.item.ReduxItems;
+import net.zepalesque.redux.item.TabUtil;
 import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
 import net.zepalesque.zenith.util.DatagenUtil;
+
+import java.util.function.Supplier;
 
 public class LogWallWoodSet extends BaseWoodSet {
 
@@ -214,5 +219,22 @@ public class LogWallWoodSet extends BaseWoodSet {
         accessor.callSetFlammable(this.woodWall().get(), 5, 5);
         accessor.callSetFlammable(this.strippedLogWall().get(), 5, 5);
         accessor.callSetFlammable(this.strippedWoodWall().get(), 5, 5);
+    }
+
+    @Override
+    protected Supplier<? extends ItemLike> buildingBlocks(BuildCreativeModeTabContentsEvent event, Supplier<? extends ItemLike> prev) {
+        Supplier<? extends ItemLike> superPrev = super.naturalBlocks(event, prev);
+        TabUtil.putAfter(superPrev, this.logWall(), event);
+        TabUtil.putAfter(this.logWall(), this.woodWall(), event);
+        TabUtil.putAfter(this.woodWall(), this.strippedLogWall(), event);
+        TabUtil.putAfter(this.strippedLogWall(), this.strippedWoodWall(), event);
+        return this.strippedWoodWall();
+    }
+
+    @Override
+    protected Supplier<? extends ItemLike> naturalBlocks(BuildCreativeModeTabContentsEvent event, Supplier<? extends ItemLike> prev) {
+        Supplier<? extends ItemLike> superPrev = super.naturalBlocks(event, prev);
+        TabUtil.putAfter(superPrev, this.logWall(), event);
+        return this.logWall();
     }
 }

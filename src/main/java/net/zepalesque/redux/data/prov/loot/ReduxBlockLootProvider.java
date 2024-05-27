@@ -83,4 +83,9 @@ public abstract class ReduxBlockLootProvider extends AetherBlockLootSubProvider 
     public LootTable.Builder createSingleItemTableWithSilkTouch(Block pBlock, ItemLike pItem, NumberProvider pCount) {
         return super.createSingleItemTableWithSilkTouch(pBlock, pItem, pCount);
     }
+
+    @Override
+    public LootTable.Builder createSlabItemTable(Block pBlock) {
+        return super.createSlabItemTable(pBlock);
+    }
 }

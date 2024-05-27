@@ -6,8 +6,12 @@ import com.aetherteam.aether.block.natural.AetherLogBlock;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SlabBlock;
@@ -19,6 +23,7 @@ import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.common.data.DataMapProvider;
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.zepalesque.redux.block.ReduxBlocks;
@@ -31,10 +36,12 @@ import net.zepalesque.redux.data.prov.loot.ReduxBlockLootProvider;
 import net.zepalesque.redux.data.prov.tags.ReduxBlockTagsProvider;
 import net.zepalesque.redux.data.prov.tags.ReduxItemTagsProvider;
 import net.zepalesque.redux.item.ReduxItems;
+import net.zepalesque.redux.item.TabUtil;
 import net.zepalesque.zenith.api.blockset.AbstractStoneSet;
 import net.zepalesque.zenith.api.blockset.util.CraftingMatrix;
 import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
 import net.zepalesque.zenith.util.DatagenUtil;
+import org.apache.commons.lang3.tuple.Triple;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -51,12 +58,15 @@ public class BaseStoneSet extends AbstractStoneSet implements ReduxGeneration {
     protected final DeferredBlock<SlabBlock> slab;
     protected final DeferredBlock<WallBlock> wall;
     protected final NoteBlockInstrument instrument;
-    protected final Map<CraftingMatrix, Supplier<Block>> crafted_blocks = new HashMap<>();
+    protected final Map<CraftingMatrix, Supplier<? extends ItemLike>> crafted_blocks = new HashMap<>();
     protected final Map<CraftingMatrix, AbstractStoneSet> crafted_sets = new HashMap<>();
-    protected final List<Supplier<Block>> stonecut_blocks = new ArrayList<>();
+    protected final Map<Supplier<? extends ItemLike>, Integer> stonecut_blocks = new HashMap<>();
     protected final List<AbstractStoneSet> stonecut_sets = new ArrayList<>();
-    protected final Map<Supplier<Block>, Float> smelted_blocks = new HashMap<>();
+    protected final Map<Supplier<? extends ItemLike>, Float> smelted_blocks = new HashMap<>();
     protected final Map<AbstractStoneSet, Float> smelted_sets = new HashMap<>();
+    protected List<Triple<Supplier<CreativeModeTab>, Supplier<? extends ItemLike>, Boolean>> creativeTabOrdering;
+    protected Map<TagKey<Block>, Boolean> tags;
+    protected Map<TagKey<Item>, Boolean> itemTags;
 
     public BaseStoneSet(String id, MapColor color, SoundType sound, float breakTime, float blastResistance, NoteBlockInstrument instrument, String textureFolder, String lore) {
         this.id = id;
@@ -95,7 +105,7 @@ public class BaseStoneSet extends AbstractStoneSet implements ReduxGeneration {
 
     @Override
     protected DeferredBlock<StairBlock> stairs(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType, float breakTime, float blastResistance) {
-        var block = registry.register(this.baseName(false) + "_stairs", () -> new StairBlock(() -> this.base.get().defaultBlockState(),
+        var block = registry.register(this.baseName(false) + "_stairs", () -> new StairBlock(() -> this.block().get().defaultBlockState(),
                 BlockBehaviour.Properties.of()
                         .strength(breakTime, blastResistance)
                         .mapColor(color)
@@ -152,43 +162,61 @@ public class BaseStoneSet extends AbstractStoneSet implements ReduxGeneration {
     }
 
     @Override
-    protected BaseStoneSet craftsInto(AbstractStoneSet set, CraftingMatrix shape) {
+    public BaseStoneSet craftsInto(AbstractStoneSet set, CraftingMatrix shape) {
         this.crafted_sets.put(shape, set);
         return this;
     }
 
     @Override
-    protected BaseStoneSet craftsInto(Supplier<Block> block, CraftingMatrix shape) {
+    public BaseStoneSet craftsInto(Supplier<? extends ItemLike> block, CraftingMatrix shape) {
         this.crafted_blocks.put(shape, block);
         return this;
     }
 
     @Override
-    protected BaseStoneSet stonecutInto(AbstractStoneSet set) {
+    public BaseStoneSet stonecutInto(AbstractStoneSet set) {
         this.stonecut_sets.add(set);
         return this;
     }
 
     @Override
-    protected BaseStoneSet stonecutInto(Supplier<Block> block) {
-        this.stonecut_blocks.add(block);
+    public BaseStoneSet stonecutInto(Supplier<? extends ItemLike> block, int count) {
+        this.stonecut_blocks.put(block, count);
         return this;
     }
 
     @Override
-    protected BaseStoneSet smeltsInto(AbstractStoneSet set, float experience) {
+    public BaseStoneSet smeltsInto(AbstractStoneSet set, float experience) {
         this.smelted_sets.put(set, experience);
         return this;
     }
 
     @Override
-    protected BaseStoneSet smeltsInto(Supplier<Block> block, float experience) {
+    public BaseStoneSet smeltsInto(Supplier<? extends ItemLike> block, float experience) {
         this.smelted_blocks.put(block, experience);
         return this;
     }
 
     @Override
-    protected String baseName(boolean isBaseBlock) {
+    public AbstractStoneSet withTag(TagKey<Block> tag, boolean allBlocks) {
+        this.tags.put(tag, allBlocks);
+        return this;
+    }
+
+    @Override
+    public AbstractStoneSet withItemTag(TagKey<Item> tag, boolean allBlocks) {
+        this.itemTags.put(tag, allBlocks);
+        return this;
+    }
+
+    @Override
+    public BaseStoneSet creativeTab(Supplier<CreativeModeTab> tab, Supplier<? extends ItemLike> placeAfter, boolean allBlocks) {
+        this.creativeTabOrdering.add(Triple.of(tab, placeAfter, allBlocks));
+        return this;
+    }
+
+    @Override
+    public String baseName(boolean isBaseBlock) {
         return this.id;
     }
 
@@ -226,38 +254,81 @@ public class BaseStoneSet extends AbstractStoneSet implements ReduxGeneration {
     @Override
     public void recipeData(ReduxRecipeProvider data, RecipeOutput consumer) {
 
-        this.crafted_sets.forEach((matrix, set) -> {
-            matrix.apply(ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, set.block().get(), matrix.count()))
+
+        data.stairs(this.stairs(), this.block()).save(consumer);
+        ReduxRecipeProvider.slab(consumer, RecipeCategory.BUILDING_BLOCKS, this.slab().get(), this.block().get());
+        ReduxRecipeProvider.wall(consumer, RecipeCategory.BUILDING_BLOCKS, this.wall().get(), this.block().get());
+
+        this.crafted_sets.forEach((matrix, set) ->
+            matrix.apply(ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, set.block().get(), matrix.count())
+                    .define('#', this.block().get()))
                     .unlockedBy(ReduxRecipeProvider.getHasName(set.block().get()), ReduxRecipeProvider.has(set.block().get())).save(consumer,
-                            ReduxRecipeProvider.getItemName(set.block().get()) + "_from_" + ReduxRecipeProvider.getItemName(this.block().get()));
-        });
+                            data.name(ReduxRecipeProvider.getConversionRecipeName(set.block().get(), this.block().get()))
+                    )
+        );
 
-        this.crafted_blocks.forEach((matrix, block) -> {
-            matrix.apply(ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, block.get(), matrix.count()))
-                    .unlockedBy(ReduxRecipeProvider.getHasName(block.get()), ReduxRecipeProvider.has(block.get())).save(consumer,
-                            ReduxRecipeProvider.getItemName(block.get()) + "_from_" + ReduxRecipeProvider.getItemName(this.block().get()));
-        });
+        this.crafted_blocks.forEach((matrix, block) ->
+            matrix.apply(ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, block.get(), matrix.count())
+                    .define('#', this.block().get()))
+                    .unlockedBy(ReduxRecipeProvider.getHasName(this.block().get()), ReduxRecipeProvider.has(this.block().get())).save(consumer,
+                            data.name(ReduxRecipeProvider.getConversionRecipeName(block.get(), this.block().get()))
+                    )
+        );
 
-        this.stonecut_blocks.forEach(block -> {
-            data.stone
-        });
+        this.stonecut_blocks.forEach((block, count) ->
+                data.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, block.get(), this.block().get(), count)
+        );
+
+        this.stonecut_sets.forEach(set -> {
+                    data.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, set.block().get(), this.block().get());
+                    data.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, set.stairs().get(), this.block().get());
+                    data.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, set.slab().get(), this.block().get(), 2);
+                    data.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, set.wall().get(), this.block().get());
+                }
+        );
+
+        this.smelted_blocks.forEach((block, xp) ->
+            data.smeltingOreRecipe(block.get(), this.block().get(), xp).save(consumer, data.name(ReduxRecipeProvider.getConversionRecipeName(block.get(), this.block().get()) + "_smelting"))
+        );
+
+        this.smelted_sets.forEach((set, xp) ->
+                data.smeltingOreRecipe(set.block().get(), this.block().get(), xp).save(consumer, data.name(ReduxRecipeProvider.getConversionRecipeName(set.block().get(), this.block().get()) + "_smelting"))
+        );
 
 
     }
 
     @Override
     public void blockTagData(ReduxBlockTagsProvider data) {
-
+        this.tags.forEach((tag, allBlocks) -> {
+            if (allBlocks) {
+                data.tag(tag).add(this.block().get(), this.stairs().get(), this.slab().get(), this.wall().get());
+            } else {
+                data.tag(tag).add(this.block().get());
+            }
+        });
+        data.tag(BlockTags.STAIRS).add(this.stairs().get());
+        data.tag(BlockTags.SLABS).add(this.slab().get());
+        data.tag(BlockTags.WALLS).add(this.wall().get());
     }
 
     @Override
     public void itemTagData(ReduxItemTagsProvider data) {
-
+        this.itemTags.forEach((tag, allBlocks) -> {
+            if (allBlocks) {
+                data.tag(tag).add(this.block().get().asItem(), this.stairs().get().asItem(), this.slab().get().asItem(), this.wall().get().asItem());
+            } else {
+                data.tag(tag).add(this.block().get().asItem());
+            }
+        });
     }
 
     @Override
     public void lootData(ReduxBlockLootProvider data) {
-
+        data.dropSelf(this.block().get());
+        data.dropSelf(this.stairs().get());
+        data.add(this.slab().get(), data::createSlabItemTable);
+        data.dropSelf(this.wall().get());
     }
 
     @Override
@@ -273,5 +344,27 @@ public class BaseStoneSet extends AbstractStoneSet implements ReduxGeneration {
     @Override
     public void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
 
+    }
+
+    @Override
+    public Supplier<? extends ItemLike> addToCreativeTab(BuildCreativeModeTabContentsEvent event, Supplier<? extends ItemLike> prev) {
+        for (Triple<Supplier<CreativeModeTab>, Supplier<? extends ItemLike>, Boolean> triple : this.creativeTabOrdering) {
+            Supplier<CreativeModeTab> tabToAddTo = triple.getLeft();
+            if (event.getTab() == tabToAddTo.get()) {
+                Supplier<? extends ItemLike> addAfter = triple.getMiddle();
+                boolean all = triple.getRight();
+                TabUtil.putAfter(addAfter, this.block(), event);
+                if (all) {
+                    TabUtil.putAfter(this.block(), this.stairs(), event);
+                    TabUtil.putAfter(this.stairs(), this.slab(), event);
+                    TabUtil.putAfter(this.slab(), this.wall(), event);
+                    return this.wall();
+                } else {
+                    return this.block();
+                }
+
+            }
+        }
+        return prev;
     }
 }

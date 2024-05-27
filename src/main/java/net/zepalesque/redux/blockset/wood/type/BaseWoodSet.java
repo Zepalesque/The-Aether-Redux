@@ -1,7 +1,9 @@
 package net.zepalesque.redux.blockset.wood.type;
 
 import com.aetherteam.aether.AetherTags;
+import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.natural.AetherLogBlock;
+import com.aetherteam.aether.item.AetherCreativeTabs;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.core.Direction;
@@ -18,11 +20,13 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.SignItem;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ButtonBlock;
 import net.minecraft.world.level.block.DoorBlock;
@@ -49,6 +53,7 @@ import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.DataMapProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -67,6 +72,7 @@ import net.zepalesque.redux.data.prov.tags.ReduxBlockTagsProvider;
 import net.zepalesque.redux.data.prov.tags.ReduxItemTagsProvider;
 import net.zepalesque.redux.entity.ReduxEntities;
 import net.zepalesque.redux.item.ReduxItems;
+import net.zepalesque.redux.item.TabUtil;
 import net.zepalesque.redux.tile.ReduxTiles;
 import net.zepalesque.zenith.api.blockset.AbstractWoodSet;
 import net.zepalesque.zenith.block.ZenithCeilingHangingSignBlock;
@@ -81,8 +87,10 @@ import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
 import net.zepalesque.zenith.tile.ZenithHangingSignBlockEntity;
 import net.zepalesque.zenith.tile.ZenithSignBlockEntity;
 import net.zepalesque.zenith.util.DatagenUtil;
+import org.apache.commons.lang3.tuple.Triple;
 
 import javax.annotation.Nullable;
+import java.util.function.Supplier;
 
 public class BaseWoodSet extends AbstractWoodSet implements ReduxGeneration {
 
@@ -812,7 +820,7 @@ public class BaseWoodSet extends AbstractWoodSet implements ReduxGeneration {
         data.naturalDrop(this.strippedWood().get(), this.strippedLog().get());
         data.dropSelf(this.planks().get());
         data.dropSelf(this.stairs().get());
-        data.dropSelf(this.slab().get());
+        data.add(this.slab().get(), data::createSlabItemTable);
         data.dropSelf(this.fence().get());
         data.dropSelf(this.fenceGate().get());
         data.dropSelf(this.trapdoor().get());
@@ -869,5 +877,54 @@ public class BaseWoodSet extends AbstractWoodSet implements ReduxGeneration {
     @Override
     public String treesName(boolean plural) {
         return plural ? "trees" : "tree";
+    }
+
+    @Override
+    public Supplier<? extends ItemLike> addToCreativeTab(BuildCreativeModeTabContentsEvent event, @Nullable Supplier<? extends ItemLike> prev) {
+        CreativeModeTab tab = event.getTab();
+
+        if (tab == AetherCreativeTabs.AETHER_BUILDING_BLOCKS.get()) {
+            return this.buildingBlocks(event, prev == null ? AetherBlocks.GOLDEN_OAK_WOOD : prev);
+        }
+
+        // prev should be equal to aether:golden_oak_log for first wood type
+        if (tab == AetherCreativeTabs.AETHER_NATURAL_BLOCKS.get()) {
+            return this.naturalBlocks(event, prev == null ? AetherBlocks.GOLDEN_OAK_LOG : prev);
+        }
+
+        // prev should be equal to aether:skyroot_hanging_sign for first wood type
+        if (tab == AetherCreativeTabs.AETHER_FUNCTIONAL_BLOCKS.get()) {
+            return this.functionalBlocks(event, prev == null ? AetherBlocks.SKYROOT_HANGING_SIGN : prev);
+        }
+
+        return prev;
+    }
+
+    protected Supplier<? extends ItemLike> buildingBlocks(BuildCreativeModeTabContentsEvent event, Supplier<? extends ItemLike> prev) {
+        TabUtil.putAfter(prev, this.log(), event);
+        TabUtil.putAfter(this.log(), this.wood(), event);
+        TabUtil.putAfter(this.wood(), this.strippedLog(), event);
+        TabUtil.putAfter(this.strippedLog(), this.strippedWood(), event);
+        TabUtil.putAfter(this.strippedWood(), this.planks(), event);
+        TabUtil.putAfter(this.planks(), this.stairs(), event);
+        TabUtil.putAfter(this.stairs(), this.slab(), event);
+        TabUtil.putAfter(this.slab(), this.fence(), event);
+        TabUtil.putAfter(this.fence(), this.fenceGate(), event);
+        TabUtil.putAfter(this.fenceGate(), this.door(), event);
+        TabUtil.putAfter(this.door(), this.trapdoor(), event);
+        TabUtil.putAfter(this.trapdoor(), this.pressurePlate(), event);
+        TabUtil.putAfter(this.pressurePlate(), this.button(), event);
+        return this.button();
+    }
+
+    protected Supplier<? extends ItemLike> naturalBlocks(BuildCreativeModeTabContentsEvent event, Supplier<? extends ItemLike> prev) {
+        TabUtil.putAfter(prev, this.log(), event);
+        return this.log();
+    }
+
+    protected Supplier<? extends ItemLike> functionalBlocks(BuildCreativeModeTabContentsEvent event, Supplier<? extends ItemLike> prev) {
+        TabUtil.putAfter(prev, this.sign(), event);
+        TabUtil.putAfter(this.sign(), this.hangingSign(), event);
+        return this.hangingSign();
     }
 }
