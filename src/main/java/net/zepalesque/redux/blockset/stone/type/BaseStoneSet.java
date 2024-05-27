@@ -61,9 +61,9 @@ public class BaseStoneSet extends AbstractStoneSet implements ReduxGeneration {
     protected final List<AbstractStoneSet> stonecut_sets = new ArrayList<>();
     protected final Map<Supplier<? extends ItemLike>, Float> smelted_blocks = new HashMap<>();
     protected final Map<AbstractStoneSet, Float> smelted_sets = new HashMap<>();
-    protected List<Triple<Supplier<CreativeModeTab>, Supplier<? extends ItemLike>, Boolean>> creativeTabOrdering;
-    protected Map<TagKey<Block>, Boolean> tags;
-    protected Map<TagKey<Item>, Boolean> itemTags;
+    protected final List<Triple<Supplier<CreativeModeTab>, Supplier<? extends ItemLike>, Boolean>> creativeTabOrdering = new ArrayList<>();
+    protected final Map<TagKey<Block>, Boolean> tags = new HashMap<>();
+    protected final Map<TagKey<Item>, Boolean> itemTags = new HashMap<>();
 
     public BaseStoneSet(String id, MapColor color, SoundType sound, float breakTime, float blastResistance, String textureFolder, String lore) {
         this.id = id;
