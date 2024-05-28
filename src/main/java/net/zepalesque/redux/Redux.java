@@ -69,11 +69,7 @@ public class Redux {
         ReduxEntities.ENTITIES.register(bus);
         ReduxTiles.TILES.register(bus);
         ReduxConfigHandler.setup(bus);
-        ReduxConfig.COMMON.placeholder.get();
-//
-//        ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, ReduxConfig.SERVER_SPEC, MODID + "/server.toml");
-//        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ReduxConfig.COMMON_SPEC, MODID + "/common.toml");
-//        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ReduxConfig.CLIENT_SPEC, MODID + "/client.toml");
+
         ConfigCondition.registerSerializer("redux_server", new ConfigSerializer(ReduxConfig.Server::serialize, ReduxConfig.Server::deserialize));
         ConfigCondition.registerSerializer("redux_common", new ConfigSerializer(ReduxConfig.Common::serialize, ReduxConfig.Common::deserialize));
     }

@@ -7,6 +7,7 @@ import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.loading.FMLPaths;
 import net.neoforged.neoforge.common.ModConfigSpec;
+import net.zepalesque.redux.Redux;
 
 import java.nio.file.Files;
 
@@ -16,10 +17,10 @@ public class ReduxConfigHandler {
     public static void setup(IEventBus modEventBus) {
 
         try {
-            Files.createDirectories(FMLPaths.CONFIGDIR.get().resolve("aether_redux"));
-            createAndLoadConfigs(ModConfig.Type.CLIENT, ReduxConfig.CLIENT_SPEC, "aether_redux/client.toml");
-            createAndLoadConfigs(ModConfig.Type.COMMON, ReduxConfig.COMMON_SPEC, "aether_redux/common.toml");
-            createAndLoadConfigs(ModConfig.Type.COMMON, ReduxConfig.SERVER_SPEC, "aether_redux/server.toml");
+            Files.createDirectories(FMLPaths.CONFIGDIR.get().resolve(Redux.MODID));
+            createAndLoadConfigs(ModConfig.Type.CLIENT, ReduxConfig.CLIENT_SPEC, Redux.MODID + "/client.toml");
+            createAndLoadConfigs(ModConfig.Type.COMMON, ReduxConfig.COMMON_SPEC, Redux.MODID + "/common.toml");
+            createAndLoadConfigs(ModConfig.Type.COMMON, ReduxConfig.SERVER_SPEC, Redux.MODID + "/server.toml");
         }
         catch (Exception e) {
             throw new RuntimeException("Failed to create Aether: Redux config files: ", e);
