@@ -1,5 +1,7 @@
 package net.zepalesque.redux;
 
+import com.aetherteam.aether.data.AetherData;
+import com.aetherteam.aether.data.generators.AetherRegistrySets;
 import com.mojang.logging.LogUtils;
 import net.minecraft.DetectedVersion;
 import net.minecraft.core.HolderLookup;
@@ -16,6 +18,7 @@ import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.zepalesque.redux.block.ReduxBlocks;
@@ -27,6 +30,7 @@ import net.zepalesque.redux.data.gen.ReduxItemModelGen;
 import net.zepalesque.redux.data.gen.ReduxLanguageGen;
 import net.zepalesque.redux.data.gen.ReduxLootGen;
 import net.zepalesque.redux.data.gen.ReduxRecipeGen;
+import net.zepalesque.redux.data.gen.ReduxRegistrySets;
 import net.zepalesque.redux.data.gen.tags.ReduxBlockTagsGen;
 import net.zepalesque.redux.data.gen.tags.ReduxItemTagsGen;
 import net.zepalesque.redux.entity.ReduxEntities;
@@ -89,6 +93,10 @@ public class Redux {
         // Server Data
         generator.addProvider(event.includeServer(), new ReduxRecipeGen(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), ReduxLootGen.create(packOutput));
+        DatapackBuiltinEntriesProvider registrySets = new ReduxRegistrySets(packOutput, lookupProvider, MODID);
+        // Use for structure and damage type data
+        CompletableFuture<HolderLookup.Provider> registryProvider = registrySets.getRegistryProvider();
+        generator.addProvider(event.includeServer(), registrySets);
 
         // Tags
         ReduxBlockTagsGen blockTags = new ReduxBlockTagsGen(packOutput, lookupProvider, fileHelper);
