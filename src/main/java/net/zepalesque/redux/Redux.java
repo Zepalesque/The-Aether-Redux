@@ -25,6 +25,7 @@ import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
 import net.zepalesque.redux.blockset.wood.ReduxWoodSets;
 import net.zepalesque.redux.config.ReduxConfig;
+import net.zepalesque.redux.config.ReduxConfigHandler;
 import net.zepalesque.redux.data.gen.ReduxBlockStateGen;
 import net.zepalesque.redux.data.gen.ReduxItemModelGen;
 import net.zepalesque.redux.data.gen.ReduxLanguageGen;
@@ -67,8 +68,13 @@ public class Redux {
         ReduxItems.ITEMS.register(bus);
         ReduxEntities.ENTITIES.register(bus);
         ReduxTiles.TILES.register(bus);
-
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ReduxConfig.COMMON_SPEC, MODID + "/common.toml");
+        ReduxConfigHandler.setup(bus);
+        ReduxConfig.COMMON.placeholder.get();
+//
+//        ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, ReduxConfig.SERVER_SPEC, MODID + "/server.toml");
+//        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ReduxConfig.COMMON_SPEC, MODID + "/common.toml");
+//        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ReduxConfig.CLIENT_SPEC, MODID + "/client.toml");
+        ConfigCondition.registerSerializer("redux_server", new ConfigSerializer(ReduxConfig.Server::serialize, ReduxConfig.Server::deserialize));
         ConfigCondition.registerSerializer("redux_common", new ConfigSerializer(ReduxConfig.Common::serialize, ReduxConfig.Common::deserialize));
     }
 

@@ -8,7 +8,9 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
+import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.data.resource.ReduxConditions;
 import net.zepalesque.redux.data.resource.ReduxFeatureConfig;
 import net.zepalesque.redux.data.resource.ReduxPlacements;
 import net.zepalesque.zenith.Zenith;
@@ -22,7 +24,8 @@ import java.util.concurrent.CompletableFuture;
 
 public class ReduxRegistrySets extends DatapackBuiltinEntriesProvider {
     public static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
-            .add(Registries.CONFIGURED_FEATURE, ReduxFeatureConfig::bootstrap);
+            .add(Registries.CONFIGURED_FEATURE, ReduxFeatureConfig::bootstrap)
+            .add(Zenith.Keys.CONDITION, ReduxConditions::bootstrap);
 
     public ReduxRegistrySets(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, String modid, String... otherIds) {
         super(output, registries, BUILDER, buildModidList(modid, otherIds));
