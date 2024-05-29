@@ -1,19 +1,19 @@
 {
   "variants": {
-    "enchanted=false,grass_size=medium": {
-      "model": "aether_redux:block/medium_aether_grass"
+    "enchanted=false,grass_size=medoium": {
+      "model": "aether_redux:block/medoium_aether_grass"
     },
-    "enchanted=false,grass_size=small": {
-      "model": "aether_redux:block/small_aether_grass"
+    "enchanted=false,grass_size=short": {
+      "model": "aether_redux:block/short_aether_grass"
     },
     "enchanted=false,grass_size=tall": {
       "model": "aether_redux:block/tall_aether_grass"
     },
-    "enchanted=true,grass_size=medium": {
-      "model": "aether_redux:block/medium_enchanted_grass"
+    "enchanted=true,grass_size=medoium": {
+      "model": "aether_redux:block/medoium_enchanted_grass"
     },
-    "enchanted=true,grass_size=small": {
-      "model": "aether_redux:block/small_enchanted_grass"
+    "enchanted=true,grass_size=short": {
+      "model": "aether_redux:block/short_enchanted_grass"
     },
     "enchanted=true,grass_size=tall": {
       "model": "aether_redux:block/tall_enchanted_grass"
