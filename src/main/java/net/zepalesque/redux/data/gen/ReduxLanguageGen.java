@@ -19,5 +19,7 @@ public class ReduxLanguageGen extends ReduxLanguageProvider {
         this.add(ReduxBlocks.SHORT_AETHER_GRASS);
 
         this.addPackDescription("mod", "The Aether: Redux Resources");
+        this.addPackTitle("tintable_grass", "Redux - Tintable Grass");
+        this.addPackDescription("tintable_grass", "Grass tint textures for the Aether: Redux");
     }
 }

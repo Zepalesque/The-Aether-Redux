@@ -1,9 +1,11 @@
 package net.zepalesque.redux;
 
+import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.data.AetherData;
 import com.aetherteam.aether.data.generators.AetherRegistrySets;
 import com.mojang.logging.LogUtils;
 import net.minecraft.DetectedVersion;
+import net.minecraft.SharedConstants;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -11,12 +13,18 @@ import net.minecraft.data.metadata.PackMetadataGenerator;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
+import net.minecraft.server.packs.PathPackResources;
 import net.minecraft.server.packs.metadata.pack.PackMetadataSection;
+import net.minecraft.server.packs.repository.Pack;
+import net.minecraft.server.packs.repository.PackCompatibility;
+import net.minecraft.server.packs.repository.PackSource;
 import net.minecraft.util.InclusiveRange;
+import net.minecraft.world.flag.FeatureFlagSet;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.DistExecutor;
+import net.neoforged.fml.ModList;
 import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
@@ -24,6 +32,7 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
+import net.neoforged.neoforge.event.AddPackFindersEvent;
 import net.neoforged.neoforge.registries.datamaps.RegisterDataMapTypesEvent;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
@@ -52,8 +61,10 @@ import net.zepalesque.zenith.api.condition.ConfigCondition;
 import net.zepalesque.zenith.api.condition.config.ConfigSerializer;
 import org.slf4j.Logger;
 
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
@@ -131,6 +142,27 @@ public class Redux {
                 DetectedVersion.BUILT_IN.getPackVersion(PackType.SERVER_DATA),
                 Optional.of(new InclusiveRange<>(0, Integer.MAX_VALUE)))));
     }
+
+    // TODO: probably fairly obvious what is TODO (pack config)
+    public  void packSetup(AddPackFindersEvent event) {
+
+        if (event.getPackType() == PackType.CLIENT_RESOURCES) {
+            Path resourcePath = ModList.get().getModFileById(Aether.MODID).getFile().findResource("packs/resource/tintable_grass");
+            PackMetadataSection metadata = new PackMetadataSection(Component.translatable("pack.aether_redux.tintable_grass.description"), SharedConstants.getCurrentVersion().getPackVersion(PackType.CLIENT_RESOURCES));
+            event.addRepositorySource((source) ->
+                    source.accept(Pack.create(
+                            "builtin/redux/tintable_grass",
+                            Component.translatable("pack.aether_redux.tintable_grass"),
+                            false,
+                            new PathPackResources.PathResourcesSupplier(resourcePath, true),
+                            new Pack.Info(metadata.description(), PackCompatibility.COMPATIBLE, FeatureFlagSet.of(), List.of(), false),
+                            Pack.Position.TOP,
+                            false,
+                            PackSource.BUILT_IN)
+                    )
+            );
+        }
+}
 
     public static ResourceLocation loc(String path) {
         return new ResourceLocation(MODID, path);
