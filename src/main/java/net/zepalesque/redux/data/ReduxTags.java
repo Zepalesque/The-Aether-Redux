@@ -18,6 +18,9 @@ public class ReduxTags {
 
     public static class Blocks {
 
+        public static final TagKey<Block> SHORT_GRASS_BLIGHT_OVERRIDE = tag("short_grass_blight_override");
+        public static final TagKey<Block> SHORT_GRASS_COLORLESS_OVERRIDE = tag("short_grass_colorless_override");
+
         public static TagKey<Block> tag(String name) {
             return TagKey.create(Registries.BLOCK, Redux.loc(name));
         }

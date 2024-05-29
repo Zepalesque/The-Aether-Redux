@@ -3,7 +3,7 @@ package net.zepalesque.redux.block.state.enums;
 import net.minecraft.util.StringRepresentable;
 
 public enum GrassSize implements StringRepresentable {
-    small("small"), medium("medium"), tall("tall");
+    SHORT("short"), MEDIUM("medoium"), TALL("tall");
 
     final String name;
     GrassSize(String name) {

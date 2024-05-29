@@ -13,7 +13,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.metadata.pack.PackMetadataSection;
 import net.minecraft.util.InclusiveRange;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.DistExecutor;
 import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
@@ -21,12 +24,16 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
+import net.neoforged.neoforge.registries.datamaps.RegisterDataMapTypesEvent;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
 import net.zepalesque.redux.blockset.wood.ReduxWoodSets;
+import net.zepalesque.redux.client.ReduxColors;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.config.ReduxConfigHandler;
+import net.zepalesque.redux.data.ReduxDataMaps;
 import net.zepalesque.redux.data.gen.ReduxBlockStateGen;
+import net.zepalesque.redux.data.gen.ReduxDataMapGen;
 import net.zepalesque.redux.data.gen.ReduxItemModelGen;
 import net.zepalesque.redux.data.gen.ReduxLanguageGen;
 import net.zepalesque.redux.data.gen.ReduxLootGen;
@@ -37,6 +44,8 @@ import net.zepalesque.redux.data.gen.tags.ReduxItemTagsGen;
 import net.zepalesque.redux.entity.ReduxEntities;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.tile.ReduxTiles;
+import net.zepalesque.redux.world.biome.tint.ReduxBiomeTints;
+import net.zepalesque.zenith.api.biometint.BiomeTints;
 import net.zepalesque.zenith.api.blockset.AbstractStoneSet;
 import net.zepalesque.zenith.api.blockset.AbstractWoodSet;
 import net.zepalesque.zenith.api.condition.ConfigCondition;
@@ -51,15 +60,21 @@ import java.util.concurrent.CompletableFuture;
 @Mod(Redux.MODID)
 public class Redux {
     public static final String MODID = "aether_redux";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public static final Collection<AbstractWoodSet> WOOD_SETS = new ArrayList<>();
 
     public static final Collection<AbstractStoneSet> STONE_SETS = new ArrayList<>();
 
-    public Redux(IEventBus bus) {
+    public Redux(IEventBus bus, Dist dist) {
         bus.addListener(this::commonSetup);
         bus.addListener(this::dataSetup);
+        bus.addListener(this::registerDataMaps);
+        if (dist == Dist.CLIENT) {
+            bus.addListener(EventPriority.LOWEST, ReduxColors::blockColors);
+            bus.addListener(ReduxColors::itemColors);
+            bus.addListener(ReduxColors::resolvers);
+        }
 
         ReduxWoodSets.init();
         ReduxStoneSets.init();
@@ -68,6 +83,8 @@ public class Redux {
         ReduxItems.ITEMS.register(bus);
         ReduxEntities.ENTITIES.register(bus);
         ReduxTiles.TILES.register(bus);
+        ReduxBiomeTints.TINTS.register(bus);
+
         ReduxConfigHandler.setup(bus);
 
         ConfigCondition.registerSerializer("redux_server", new ConfigSerializer(ReduxConfig.Server::serialize, ReduxConfig.Server::deserialize));
@@ -79,6 +96,9 @@ public class Redux {
             ReduxBlocks.registerFlammability();
             ReduxBlocks.registerToolConversions();
         });
+    }
+
+    private void registerDataMaps(RegisterDataMapTypesEvent event) {
     }
 
     private void dataSetup(GatherDataEvent event) {

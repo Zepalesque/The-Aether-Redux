@@ -35,7 +35,7 @@ public class AetherShortGrassBlock extends AetherBushBlock {
 
     public AetherShortGrassBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.defaultBlockState().setValue(ReduxStates.ENCHANTED, false).setValue(ReduxStates.GRASS_SIZE, GrassSize.medium));
+        this.registerDefaultState(this.defaultBlockState().setValue(ReduxStates.ENCHANTED, false).setValue(ReduxStates.GRASS_SIZE, GrassSize.MEDIUM));
     }
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         GrassSize size = pState.getValue(ReduxStates.GRASS_SIZE);
