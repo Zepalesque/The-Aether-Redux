@@ -77,7 +77,7 @@ public class ReduxColors {
     public static int getColor(BlockState state, @Nullable BlockAndTintGetter level, @Nullable BlockPos pos, int index, int indexGoal, boolean useBelowProperties) {
         if (index == indexGoal) {
             if (level != null && pos != null) {
-                if (level.getBlockState(pos.below()).is(ReduxTags.Blocks.SHORT_GRASS_BLIGHT_OVERRIDE) && useBelowProperties) {
+                if (level.getBlockState(pos.below()).is(ReduxTags.Blocks.BLIGHT_GRASS_BLOCKS) && useBelowProperties) {
                     return Tints.BLIGHT_GRASS_COLOR;
                 } else if (state.hasProperty(ReduxStates.ENCHANTED) && state.getValue(ReduxStates.ENCHANTED)) {
                     return 0xFFFFFF;

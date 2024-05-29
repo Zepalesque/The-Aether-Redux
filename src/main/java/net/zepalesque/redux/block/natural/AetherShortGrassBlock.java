@@ -75,7 +75,7 @@ public class AetherShortGrassBlock extends AetherBushBlock {
             GrassSize size = GrassSize.values()[i];
             BlockState b = state.setValue(ReduxStates.GRASS_SIZE, size);
             BlockPos below = pos.below();
-            if (level.getBlockState(below).is(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get())) {
+            if (level.getBlockState(below).is(ReduxTags.Blocks.ENCHANTED_GRASS_BLOCKS)) {
                 return b.setValue(ReduxStates.ENCHANTED, true);
             }
             return b;
@@ -96,7 +96,7 @@ public class AetherShortGrassBlock extends AetherBushBlock {
             b = b.setValue(ReduxStates.GRASS_SIZE, size);
         }
         if (b.hasProperty(ReduxStates.ENCHANTED) && facing == Direction.DOWN) {
-            if (level.getBlockState(facingPos).is(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get())) {
+            if (level.getBlockState(facingPos).is(ReduxTags.Blocks.ENCHANTED_GRASS_BLOCKS)) {
                 return b.setValue(ReduxStates.ENCHANTED, true);
             }
             return b.setValue(ReduxStates.ENCHANTED, false);

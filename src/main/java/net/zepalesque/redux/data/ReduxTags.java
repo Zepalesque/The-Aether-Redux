@@ -3,7 +3,6 @@ package net.zepalesque.redux.data;
 import com.aetherteam.aether.api.AetherAdvancementSoundOverrides;
 import com.aetherteam.aether.api.registers.AdvancementSoundOverride;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageType;
@@ -18,8 +17,10 @@ public class ReduxTags {
 
     public static class Blocks {
 
-        public static final TagKey<Block> SHORT_GRASS_BLIGHT_OVERRIDE = tag("short_grass_blight_override");
-        public static final TagKey<Block> SHORT_GRASS_COLORLESS_OVERRIDE = tag("short_grass_colorless_override");
+        // Blocks that should override Short Aether Grass's color to be the blight color (blightmoss for instance)
+        public static final TagKey<Block> BLIGHT_GRASS_BLOCKS = tag("blight_grass_blocks");
+        // Blocks that should make Short Aether Grass use its enchanted state
+        public static final TagKey<Block> ENCHANTED_GRASS_BLOCKS = tag("enchanted_grass_blocks");
 
         public static TagKey<Block> tag(String name) {
             return TagKey.create(Registries.BLOCK, Redux.loc(name));

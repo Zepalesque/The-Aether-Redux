@@ -87,8 +87,8 @@ public class Redux {
 
         ReduxConfigHandler.setup(bus);
 
-        ConfigCondition.registerSerializer("redux_server", new ConfigSerializer(ReduxConfig.Server::serialize, ReduxConfig.Server::deserialize));
-        ConfigCondition.registerSerializer("redux_common", new ConfigSerializer(ReduxConfig.Common::serialize, ReduxConfig.Common::deserialize));
+        ConfigCondition.registerSerializer("redux_server", new ConfigSerializer(ReduxConfig.SERVER::serialize, ReduxConfig.SERVER::deserialize));
+        ConfigCondition.registerSerializer("redux_common", new ConfigSerializer(ReduxConfig.COMMON::serialize, ReduxConfig.COMMON::deserialize));
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
