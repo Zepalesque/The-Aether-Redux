@@ -2,6 +2,7 @@ package net.zepalesque.redux.data.resource;
 
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
+import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.zenith.Zenith;
 import net.zepalesque.zenith.api.condition.Condition;
@@ -28,6 +29,6 @@ public class ReduxConditions {
     }
 
     private static ResourceKey<Condition<?>> createKey(String name) {
-        return ResourceKey.create(Zenith.Keys.CONDITION, Zenith.loc(name));
+        return ResourceKey.create(Zenith.Keys.CONDITION, Redux.loc(name));
     }
 }
