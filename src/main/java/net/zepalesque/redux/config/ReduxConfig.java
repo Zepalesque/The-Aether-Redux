@@ -1,6 +1,7 @@
 package net.zepalesque.redux.config;
 
 import net.neoforged.neoforge.common.ModConfigSpec;
+import net.zepalesque.zenith.config.DataSerializableConfig;
 import org.apache.commons.lang3.tuple.Pair;
 
 public class ReduxConfig {
@@ -8,6 +9,7 @@ public class ReduxConfig {
     public static class Server extends DataSerializableConfig {
 
         public final ModConfigSpec.ConfigValue<Boolean> redux_sky_colors;
+        public final ModConfigSpec.ConfigValue<Boolean> cloudbed;
 
         public Server(ModConfigSpec.Builder builder) {
             super(SERVER_SPEC, "redux_server");
@@ -15,6 +17,9 @@ public class ReduxConfig {
             redux_sky_colors = builder
                     .comment("Use Redux's alternative sky colors for the Aether")
                     .define("Redux Sky Colors", true);
+            cloudbed = builder
+                    .comment("Replace the Aether's large Aercloud features with a noise-based cloudbed")
+                    .define("Cloudbed", true);
             builder.pop();
         }
     }

@@ -15,6 +15,7 @@ import net.zepalesque.redux.data.resource.ReduxConditions;
 import net.zepalesque.redux.data.resource.ReduxDensityFunctions;
 import net.zepalesque.redux.data.resource.ReduxFeatureConfig;
 import net.zepalesque.redux.data.resource.ReduxPlacements;
+import net.zepalesque.redux.data.resource.ReduxStructureModifiers;
 import net.zepalesque.zenith.Zenith;
 import org.apache.commons.compress.utils.Lists;
 
@@ -30,6 +31,7 @@ public class ReduxRegistrySets extends DatapackBuiltinEntriesProvider {
             .add(Registries.PLACED_FEATURE, ReduxPlacements::bootstrap)
             .add(Registries.DENSITY_FUNCTION, ReduxDensityFunctions::bootstrap)
             .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ReduxBiomeModifiers::bootstrap)
+            .add(NeoForgeRegistries.Keys.STRUCTURE_MODIFIERS, ReduxStructureModifiers::bootstrap)
             .add(Zenith.Keys.CONDITION, ReduxConditions::bootstrap);
 
     public ReduxRegistrySets(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, String modid, String... otherIds) {

@@ -33,6 +33,7 @@ import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.event.AddPackFindersEvent;
+import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.datamaps.RegisterDataMapTypesEvent;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
@@ -59,8 +60,15 @@ import net.zepalesque.redux.world.feature.gen.ReduxFeatures;
 import net.zepalesque.zenith.api.biometint.BiomeTints;
 import net.zepalesque.zenith.api.blockset.AbstractStoneSet;
 import net.zepalesque.zenith.api.blockset.AbstractWoodSet;
+import net.zepalesque.zenith.api.condition.ConditionElements;
 import net.zepalesque.zenith.api.condition.ConfigCondition;
 import net.zepalesque.zenith.api.condition.config.ConfigSerializer;
+import net.zepalesque.zenith.loot.condition.ZenithLootConditions;
+import net.zepalesque.zenith.recipe.condition.ZenithRecipeConditions;
+import net.zepalesque.zenith.world.density.ZenithDensityFunctions;
+import net.zepalesque.zenith.world.feature.gen.ZenithFeatures;
+import net.zepalesque.zenith.world.feature.placement.ZenithPlacementModifiers;
+import net.zepalesque.zenith.world.state.ZenithStateProviders;
 import org.slf4j.Logger;
 
 import java.nio.file.Path;
@@ -92,17 +100,23 @@ public class Redux {
         ReduxWoodSets.init();
         ReduxStoneSets.init();
 
-        ReduxBlocks.BLOCKS.register(bus);
-        ReduxItems.ITEMS.register(bus);
-        ReduxEntities.ENTITIES.register(bus);
-        ReduxTiles.TILES.register(bus);
-        ReduxBiomeTints.TINTS.register(bus);
-        ReduxFeatures.FEATURES.register(bus);
+        DeferredRegister<?>[] registers = {
+                ReduxBlocks.BLOCKS,
+                ReduxItems.ITEMS,
+                ReduxEntities.ENTITIES,
+                ReduxTiles.TILES,
+                ReduxBiomeTints.TINTS,
+                ReduxFeatures.FEATURES
+        };
+
+        for (DeferredRegister<?> register : registers) {
+            register.register(bus);
+        }
 
         ReduxConfigHandler.setup(bus);
 
-        ConfigCondition.registerSerializer(ReduxConfig.SERVER.serializerID(), new ConfigSerializer(ReduxConfig.SERVER::serialize, ReduxConfig.SERVER::deserialize));
-        ConfigCondition.registerSerializer(ReduxConfig.COMMON.serializerID(), new ConfigSerializer(ReduxConfig.COMMON::serialize, ReduxConfig.COMMON::deserialize));
+        ReduxConfig.SERVER.registerSerializer();
+        ReduxConfig.COMMON.registerSerializer();
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

@@ -1,5 +1,6 @@
 package net.zepalesque.redux.data.resource;
 
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
@@ -18,6 +19,7 @@ import net.zepalesque.redux.data.ReduxTags;
 import net.zepalesque.zenith.Zenith;
 import net.zepalesque.zenith.api.condition.Condition;
 import net.zepalesque.zenith.util.codec.CodecPredicates;
+import net.zepalesque.zenith.world.biome.modifier.ConditionalBiomeModifier;
 import net.zepalesque.zenith.world.biome.modifier.MusicModifier;
 import net.zepalesque.zenith.world.biome.modifier.SkyModifier;
 
@@ -38,12 +40,15 @@ public class ReduxBiomeModifiers {
         HolderGetter<PlacedFeature> features = context.lookup(Registries.PLACED_FEATURE);
         HolderGetter<Condition<?>> conditions = context.lookup(Zenith.Keys.CONDITION);
 
-        context.register(ADD_CLOUDBED, new BiomeModifiers.AddFeaturesBiomeModifier(
-                biomes.getOrThrow(ReduxTags.Biomes.HAS_CLOUDBED), HolderSet.direct(features.getOrThrow(ReduxPlacements.CLOUDBED)),
-                GenerationStep.Decoration.RAW_GENERATION));
 
-        context.register(SKY_COLOR_AETHER, new SkyModifier(biomes.getOrThrow(ReduxTags.Biomes.MODIFY_SKY_COLOR),
-                CodecPredicates.DualInt.of(12632319, 9671612), 0x9FA4DD, 0xBEC4E5, Optional.of(conditions.get(ReduxConditions.SKY_COLORS).orElseThrow())));
+        BiomeModifier cloudbed = new BiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(ReduxTags.Biomes.HAS_CLOUDBED), HolderSet.direct(features.getOrThrow(ReduxPlacements.CLOUDBED)),
+                GenerationStep.Decoration.RAW_GENERATION);
+        context.register(ADD_CLOUDBED, new ConditionalBiomeModifier(Holder.direct(cloudbed), conditions.get(ReduxConditions.CLOUDBED).orElseThrow()));
+
+        BiomeModifier sky = new SkyModifier(biomes.getOrThrow(ReduxTags.Biomes.MODIFY_SKY_COLOR),
+                CodecPredicates.DualInt.of(12632319, 9671612), 0x9FA4DD, 0xBEC4E5);
+        context.register(SKY_COLOR_AETHER, new ConditionalBiomeModifier(Holder.direct(sky), conditions.get(ReduxConditions.SKY_COLORS).orElseThrow()));
 
         // TODO: MusicPredicate, with optional fields for each field of the Music class
         context.register(MUSIC_MODIFY, new MusicModifier(biomes.getOrThrow(ReduxTags.Biomes.MODIFY_MUSIC),
