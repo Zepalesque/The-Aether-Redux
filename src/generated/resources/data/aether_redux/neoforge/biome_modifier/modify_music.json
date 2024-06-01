@@ -1,0 +1,9 @@
+{
+  "type": "zenith:music",
+  "biomes": "#aether_redux:should_modify_music",
+  "delay": {
+    "max": 3600,
+    "min": 1200
+  },
+  "replace": false
+}

@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#aether_redux:has_cloudbed",
+  "features": "aether_redux:cloudbed",
+  "step": "raw_generation"
+}
