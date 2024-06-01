@@ -1,11 +1,14 @@
 {
-  "type": "zenith:sky_color",
-  "biomes": "#aether_redux:should_modify_sky_color",
-  "condition": "zenith:sky_colors",
-  "predicate": {
-    "fog": 9671612,
-    "sky": 12632319
+  "type": "zenith:conditional",
+  "modify": {
+    "type": "zenith:sky_color",
+    "biomes": "#aether_redux:should_modify_sky_color",
+    "predicate": {
+      "fog": 9671612,
+      "sky": 12632319
+    },
+    "water_color": 10462429,
+    "water_fog_color": 12502245
   },
-  "water_color": 10462429,
-  "water_fog_color": 12502245
+  "when": "zenith:sky_colors"
 }

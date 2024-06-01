@@ -1,8 +1,9 @@
-// 1.20.4	2024-06-01T18:30:34.2752575	Registries
+// 1.20.4	2024-06-01T19:15:17.0008118	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
-7cbaecb3dbdc09315b694898416537f2ad2aa1bc data/aether_redux/neoforge/biome_modifier/add_cloudbed.json
+b6a841717406318978f90cf079056810c8033279 data/aether_redux/neoforge/biome_modifier/add_cloudbed.json
 44c7d1a0053c10f29c8dd8751ad8f66cad1c533e data/aether_redux/neoforge/biome_modifier/modify_music.json
-007147f62f7e5940005742bf9708ad3f877a6527 data/aether_redux/neoforge/biome_modifier/modify_sky_color.json
+70154e7f9dcd1402e0ce3f9580ab7b1ef7e8d076 data/aether_redux/neoforge/biome_modifier/modify_sky_color.json
+0de876b2bb0d7f9735c9b4cdfaa2375696f70f35 data/aether_redux/neoforge/structure_modifier/remove_large_clouds.json
 1c82d3ea23de6f5304553b504b789ac2a60a6e53 data/aether_redux/worldgen/configured_feature/cloudbed.json
 c550ee9bf198e69beb565fb697a20ce9e526ecb3 data/aether_redux/worldgen/density_function/cloudbed_noise.json
 123716e2850a50ab2cec88cc5d642fe27e09e41f data/aether_redux/worldgen/density_function/cloudbed_y_offset.json

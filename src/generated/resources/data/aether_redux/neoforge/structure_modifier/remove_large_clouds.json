@@ -1,0 +1,8 @@
+{
+  "type": "zenith:conditional",
+  "modify": {
+    "type": "zenith:remove_structure",
+    "structures": "aether:large_aercloud"
+  },
+  "when": "zenith:cloudbed"
+}
