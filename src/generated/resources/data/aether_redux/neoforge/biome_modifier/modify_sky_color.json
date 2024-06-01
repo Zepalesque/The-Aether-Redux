@@ -10,5 +10,5 @@
     "water_color": 10462429,
     "water_fog_color": 12502245
   },
-  "when": "zenith:sky_colors"
+  "when": "aether_redux:sky_colors"
 }

@@ -6,5 +6,5 @@
     "features": "aether_redux:cloudbed",
     "step": "raw_generation"
   },
-  "when": "zenith:cloudbed"
+  "when": "aether_redux:cloudbed"
 }

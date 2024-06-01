@@ -4,5 +4,5 @@
     "type": "zenith:remove_structure",
     "structures": "aether:large_aercloud"
   },
-  "when": "zenith:cloudbed"
+  "when": "aether_redux:cloudbed"
 }

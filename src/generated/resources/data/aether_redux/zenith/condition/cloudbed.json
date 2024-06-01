@@ -1,0 +1,5 @@
+{
+  "condition": "zenith:config_enabled",
+  "config_path": "[TODO, Cloudbed]",
+  "serializer": "redux_server"
+}
