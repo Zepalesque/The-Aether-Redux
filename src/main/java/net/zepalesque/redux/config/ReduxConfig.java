@@ -12,7 +12,7 @@ public class ReduxConfig {
         public final ModConfigSpec.ConfigValue<Boolean> cloudbed;
 
         public Server(ModConfigSpec.Builder builder) {
-            super(SERVER_SPEC, "redux_server");
+            super(() -> SERVER_SPEC, "redux_server");
             builder.push("TODO");
             redux_sky_colors = builder
                     .comment("Use Redux's alternative sky colors for the Aether")
@@ -29,7 +29,7 @@ public class ReduxConfig {
         public final ModConfigSpec.ConfigValue<Boolean> placeholder;
 
         public Common(ModConfigSpec.Builder builder) {
-            super(COMMON_SPEC, "redux_common");
+            super(() -> COMMON_SPEC, "redux_common");
             builder.push("TODO");
             placeholder = builder
                     .comment("Temporary placeholder config, used")

@@ -44,6 +44,9 @@ import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
+import net.neoforged.api.distmarker.OnlyIns;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.DataMapProvider;
@@ -851,6 +854,7 @@ public class BaseWoodSet extends AbstractWoodSet implements ReduxGeneration {
         strippingMap.put(this.wood().get(), this.strippedWood().get());
     }
 
+    @OnlyIn(Dist.CLIENT)
     @Override
     public void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(this.signEntity().get(), SignRenderer::new);
