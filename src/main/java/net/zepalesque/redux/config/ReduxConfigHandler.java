@@ -20,7 +20,7 @@ public class ReduxConfigHandler {
             Files.createDirectories(FMLPaths.CONFIGDIR.get().resolve(Redux.MODID));
             createAndLoadConfigs(ModConfig.Type.CLIENT, ReduxConfig.CLIENT_SPEC, Redux.MODID + "/client.toml");
             createAndLoadConfigs(ModConfig.Type.COMMON, ReduxConfig.COMMON_SPEC, Redux.MODID + "/common.toml");
-            createAndLoadConfigs(ModConfig.Type.COMMON, ReduxConfig.SERVER_SPEC, Redux.MODID + "/server.toml");
+            createAndLoadConfigs(ModConfig.Type.SERVER, ReduxConfig.SERVER_SPEC, Redux.MODID + "/server.toml");
         }
         catch (Exception e) {
             throw new RuntimeException("Failed to create Aether: Redux config files: ", e);
