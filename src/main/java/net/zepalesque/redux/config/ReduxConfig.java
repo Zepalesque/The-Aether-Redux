@@ -7,14 +7,14 @@ public class ReduxConfig {
 
     public static class Server extends DataSerializableConfig {
 
-        public final ModConfigSpec.ConfigValue<Boolean> placeholder;
+        public final ModConfigSpec.ConfigValue<Boolean> redux_sky_colors;
 
         public Server(ModConfigSpec.Builder builder) {
-            super(SERVER_SPEC);
+            super(SERVER_SPEC, "redux_server");
             builder.push("TODO");
-            placeholder = builder
-                    .comment("Temporary placeholder config, used")
-                    .define("Placeholder Config", true);
+            redux_sky_colors = builder
+                    .comment("Use Redux's alternative sky colors for the Aether")
+                    .define("Redux Sky Colors", true);
             builder.pop();
         }
     }
@@ -24,7 +24,7 @@ public class ReduxConfig {
         public final ModConfigSpec.ConfigValue<Boolean> placeholder;
 
         public Common(ModConfigSpec.Builder builder) {
-            super(COMMON_SPEC);
+            super(COMMON_SPEC, "redux_common");
             builder.push("TODO");
             placeholder = builder
                     .comment("Temporary placeholder config, used")

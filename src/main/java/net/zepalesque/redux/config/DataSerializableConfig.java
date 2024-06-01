@@ -9,9 +9,11 @@ import java.util.List;
 public class DataSerializableConfig {
 
     protected final ModConfigSpec spec;
+    protected final String id;
 
-    public DataSerializableConfig(ModConfigSpec spec) {
+    public DataSerializableConfig(ModConfigSpec spec, String id) {
         this.spec = spec;
+        this.id = id;
     }
 
     public String serialize(ModConfigSpec.ConfigValue<Boolean> config) {
@@ -30,5 +32,9 @@ public class DataSerializableConfig {
 
     public ModConfigSpec spec() {
         return spec;
+    }
+
+    public String serializerID() {
+        return this.id;
     }
 }

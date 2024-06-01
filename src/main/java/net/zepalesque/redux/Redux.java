@@ -48,12 +48,14 @@ import net.zepalesque.redux.data.gen.ReduxLanguageGen;
 import net.zepalesque.redux.data.gen.ReduxLootGen;
 import net.zepalesque.redux.data.gen.ReduxRecipeGen;
 import net.zepalesque.redux.data.gen.ReduxRegistrySets;
+import net.zepalesque.redux.data.gen.tags.ReduxBiomeTagsGen;
 import net.zepalesque.redux.data.gen.tags.ReduxBlockTagsGen;
 import net.zepalesque.redux.data.gen.tags.ReduxItemTagsGen;
 import net.zepalesque.redux.entity.ReduxEntities;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.tile.ReduxTiles;
 import net.zepalesque.redux.world.biome.tint.ReduxBiomeTints;
+import net.zepalesque.redux.world.feature.gen.ReduxFeatures;
 import net.zepalesque.zenith.api.biometint.BiomeTints;
 import net.zepalesque.zenith.api.blockset.AbstractStoneSet;
 import net.zepalesque.zenith.api.blockset.AbstractWoodSet;
@@ -95,11 +97,12 @@ public class Redux {
         ReduxEntities.ENTITIES.register(bus);
         ReduxTiles.TILES.register(bus);
         ReduxBiomeTints.TINTS.register(bus);
+        ReduxFeatures.FEATURES.register(bus);
 
         ReduxConfigHandler.setup(bus);
 
-        ConfigCondition.registerSerializer("redux_server", new ConfigSerializer(ReduxConfig.SERVER::serialize, ReduxConfig.SERVER::deserialize));
-        ConfigCondition.registerSerializer("redux_common", new ConfigSerializer(ReduxConfig.COMMON::serialize, ReduxConfig.COMMON::deserialize));
+        ConfigCondition.registerSerializer(ReduxConfig.SERVER.serializerID(), new ConfigSerializer(ReduxConfig.SERVER::serialize, ReduxConfig.SERVER::deserialize));
+        ConfigCondition.registerSerializer(ReduxConfig.COMMON.serializerID(), new ConfigSerializer(ReduxConfig.COMMON::serialize, ReduxConfig.COMMON::deserialize));
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -135,6 +138,7 @@ public class Redux {
         ReduxBlockTagsGen blockTags = new ReduxBlockTagsGen(packOutput, lookupProvider, fileHelper);
         generator.addProvider(event.includeServer(), blockTags);
         generator.addProvider(event.includeServer(), new ReduxItemTagsGen(packOutput, lookupProvider, blockTags.contentsGetter(), fileHelper));
+        generator.addProvider(event.includeServer(), new ReduxBiomeTagsGen(packOutput, lookupProvider, fileHelper));
 
         // pack.mcmeta
         generator.addProvider(true, new PackMetadataGenerator(packOutput).add(PackMetadataSection.TYPE, new PackMetadataSection(
