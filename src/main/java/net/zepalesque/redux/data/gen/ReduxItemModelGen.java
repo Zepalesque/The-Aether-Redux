@@ -31,7 +31,7 @@ public class ReduxItemModelGen extends ReduxItemModelProvider {
         this.itemOverlayColumn(ReduxBlocks.LOCKED_CARVED_STONE_PILLAR.get(), ReduxBlocks.CARVED_STONE_PILLAR.get(), "dungeon/lock", "dungeon/");
         this.itemOverlayColumn(ReduxBlocks.LOCKED_SENTRY_STONE_BASE.get(), ReduxBlocks.SENTRY_STONE_BASE.get(), "dungeon/lock", "dungeon/");
         this.itemOverlayColumn(ReduxBlocks.LOCKED_SENTRY_STONE_PILLAR.get(), ReduxBlocks.SENTRY_STONE_PILLAR.get(), "dungeon/lock", "dungeon/");
-        
+
         this.itemOverlayColumn(ReduxBlocks.TRAPPED_CARVED_STONE_BASE.get(), ReduxBlocks.CARVED_STONE_BASE.get(), "dungeon/exclamation", "dungeon/");
         this.itemOverlayColumn(ReduxBlocks.TRAPPED_CARVED_STONE_PILLAR.get(), ReduxBlocks.CARVED_STONE_PILLAR.get(), "dungeon/exclamation", "dungeon/");
         this.itemOverlayColumn(ReduxBlocks.TRAPPED_SENTRY_STONE_BASE.get(), ReduxBlocks.SENTRY_STONE_BASE.get(), "dungeon/exclamation", "dungeon/");
