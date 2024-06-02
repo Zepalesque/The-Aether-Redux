@@ -40,14 +40,16 @@ public class SkyrootFoliagePlacer extends FoliagePlacer {
             // If the y offset is 0, only skip the location if it is on the corners, AND a boolean check succeeds
             return x + z >= radius * 2 && rand.nextBoolean();
         } else if (y == -1) {
+            // If the y offset is -1, skip the corners always, and skip stuff outside a diamond shape 75% of the time
             boolean diamond = x + z <= radius;
-            return !diamond;
+            boolean square = x < radius && z < radius;
+            return !diamond || (!square && rand.nextFloat() < 0.75F);
         } else if (y == -2) {
-            // If the y offset is -2, do not skip
-            return false;
+            // If the y offset is -2, skip the location if it is on the corners and an unlikely boolean check succeeds
+            return x + z >= radius * 2 && rand.nextFloat() < 0.25F;
         } else {
             // If the y offset is -3, skip the location if it is on the corners and a boolean check succeeds
-            return x + z >= radius * 2;
+            return x + z >= radius * 2 && rand.nextBoolean();
         }
     }
 
