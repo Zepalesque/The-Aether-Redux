@@ -36,23 +36,27 @@ public class ReduxRecipeGen extends ReduxRecipeProvider {
                 .define('#', AetherBlocks.CARVED_STONE.get())
                 .pattern("##")
                 .pattern("##")
+                .unlockedBy(ReduxRecipeProvider.getHasName(AetherBlocks.CARVED_STONE.get()), ReduxRecipeProvider.has(AetherBlocks.CARVED_STONE.get()))
                 .save(output);
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.CARVED_STONE_PILLAR.get(), 6)
                 .define('#', AetherBlocks.CARVED_STONE.get())
                 .pattern("##")
                 .pattern("##")
                 .pattern("##")
+                .unlockedBy(ReduxRecipeProvider.getHasName(AetherBlocks.CARVED_STONE.get()), ReduxRecipeProvider.has(AetherBlocks.CARVED_STONE.get()))
                 .save(output);
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRY_STONE_BASE.get(), 4)
                 .define('#', AetherBlocks.SENTRY_STONE.get())
                 .pattern("##")
                 .pattern("##")
+                .unlockedBy(ReduxRecipeProvider.getHasName(AetherBlocks.SENTRY_STONE.get()), ReduxRecipeProvider.has(AetherBlocks.SENTRY_STONE.get()))
                 .save(output);
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRY_STONE_PILLAR.get(), 6)
                 .define('#', AetherBlocks.SENTRY_STONE.get())
                 .pattern("##")
                 .pattern("##")
                 .pattern("##")
+                .unlockedBy(ReduxRecipeProvider.getHasName(AetherBlocks.SENTRY_STONE.get()), ReduxRecipeProvider.has(AetherBlocks.SENTRY_STONE.get()))
                 .save(output);
 
 
