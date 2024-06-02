@@ -9,8 +9,7 @@
     "common.QuicksoilMixin",
     "common.accessor.EntityAccessor",
     "common.accessor.WallBlockAccessor",
-    "common.base.BlockBehaviorMixin",
-    "common.base.BlockMixin"
+    "common.base.BlockBehaviorMixin"
   ],
   "client": [
     "client.color.AetherColorResolversMixin"
