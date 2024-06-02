@@ -37,8 +37,8 @@ public class SkyrootFoliagePlacer extends FoliagePlacer {
     @Override
     protected boolean shouldSkipLocation(RandomSource rand, int x, int y, int z, int radius, boolean large) {
         if (y == 0) {
-            // If the y offset is 0, only skip the location if it is on the corners, AND a boolean check succeeds
-            return x + z >= radius * 2 && rand.nextBoolean();
+            // If the y offset is 0, only skip the location if it is on the corners, but do so 75% of the time
+            return x + z >= radius * 2 && rand.nextFloat() < 0.75F;
         } else if (y == -1) {
             // If the y offset is -1, skip the corners always, and skip stuff outside a diamond shape 75% of the time
             boolean diamond = x + z <= radius;
