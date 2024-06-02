@@ -20,7 +20,11 @@
           "to_place": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "minecraft:short_grass"
+              "Name": "aether_redux:short_aether_grass",
+              "Properties": {
+                "enchanted": "false",
+                "grass_size": "medium"
+              }
             }
           }
         }
