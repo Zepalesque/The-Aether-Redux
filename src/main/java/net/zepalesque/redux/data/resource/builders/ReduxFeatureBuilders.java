@@ -7,10 +7,9 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
-import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.data.ReduxTags;
+import net.zepalesque.zenith.world.feature.gen.BlockWithPredicateFeature;
 import net.zepalesque.zenith.world.feature.gen.ZenithFeatures;
-import net.zepalesque.zenith.world.feature.gen.config.PredicateStateConfig;
 
 public class ReduxFeatureBuilders {
 
@@ -23,6 +22,6 @@ public class ReduxFeatureBuilders {
 
     public static RandomPatchConfiguration patch(int tries, int xz, int y, BlockStateProvider state, BlockPredicate predicate) {
         return new RandomPatchConfiguration(tries, xz, y, PlacementUtils.onlyWhenEmpty(
-                ZenithFeatures.TEST_AT_BLOCK.get(), new PredicateStateConfig(state, predicate)));
+                ZenithFeatures.BLOCK_WITH_PREDICATE.get(), new BlockWithPredicateFeature.Config(state, predicate)));
     }
 }
