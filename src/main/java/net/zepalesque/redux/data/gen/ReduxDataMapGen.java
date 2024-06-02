@@ -26,9 +26,9 @@ public class ReduxDataMapGen extends ReduxDataMapProvider {
         Redux.STONE_SETS.forEach(set -> set.mapData(this));
 
         var biomeTints = this.builder(ReduxBiomeTints.AETHER_GRASS.get().getDataMap());
-        biomeTints.add(AetherBiomes.SKYROOT_FOREST, 0x000000, false);
-        biomeTints.add(AetherBiomes.SKYROOT_GROVE, 0xFF0000, false);
-        biomeTints.add(AetherBiomes.SKYROOT_MEADOW, 0x00FF00, false);
-        biomeTints.add(AetherBiomes.SKYROOT_WOODLAND, 0x0000FF, false);
+//        biomeTints.add(AetherBiomes.SKYROOT_FOREST, 0x000000, false);
+//        biomeTints.add(AetherBiomes.SKYROOT_GROVE, 0xFF0000, false);
+//        biomeTints.add(AetherBiomes.SKYROOT_MEADOW, 0x00FF00, false);
+//        biomeTints.add(AetherBiomes.SKYROOT_WOODLAND, 0x0000FF, false);
     }
 }
