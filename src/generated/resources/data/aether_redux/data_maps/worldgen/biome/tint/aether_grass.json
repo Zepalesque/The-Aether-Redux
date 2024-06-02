@@ -1,0 +1,8 @@
+{
+  "values": {
+    "aether:skyroot_forest": 0,
+    "aether:skyroot_grove": 16711680,
+    "aether:skyroot_meadow": 65280,
+    "aether:skyroot_woodland": 255
+  }
+}
