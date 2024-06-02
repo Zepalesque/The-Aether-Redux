@@ -1,4 +1,4 @@
-// 1.20.4	2024-06-02T12:24:01.2017065	Registries
+// 1.20.4	2024-06-02T14:29:21.2369007	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 3d89e7c030d3ec47419f92a3c9d150c15ffe05a9 data/aether/worldgen/configured_feature/grass_patch.json
 47ec4dab1e49d10c7a9d88096f1d8297e837b2e8 data/aether/worldgen/configured_feature/skyroot_tree.json
@@ -10,7 +10,7 @@ b1924e11e2a4cc074084f391e61ba8b59b590874 data/aether_redux/neoforge/biome_modifi
 4a5be552b9f72acc559173e300fee91cca2aba4f data/aether_redux/neoforge/structure_modifier/remove_large_clouds.json
 745c14204c1f7525c86ceb42dc12fac546236c3b data/aether_redux/worldgen/configured_feature/aether_grass_bonemeal.json
 4b381670c718154fb753a5dc522707259b926230 data/aether_redux/worldgen/configured_feature/cloudbed.json
-47ec4dab1e49d10c7a9d88096f1d8297e837b2e8 data/aether_redux/worldgen/configured_feature/cloudroot.json
+055ed56c7d87c9110bf42e73b5bcb484d3c1c4cf data/aether_redux/worldgen/configured_feature/cloudroot.json
 15626864bc7c207008638ad249d0e3597d690a9b data/aether_redux/worldgen/density_function/cloudbed_noise.json
 123716e2850a50ab2cec88cc5d642fe27e09e41f data/aether_redux/worldgen/density_function/cloudbed_y_offset.json
 2e8ce4c531982cca5248401ec7558993018f12df data/aether_redux/worldgen/placed_feature/cloudbed.json

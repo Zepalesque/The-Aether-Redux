@@ -1,0 +1,20 @@
+{
+  "values": [
+    "aether_redux:carved_stone_pillar",
+    "aether_redux:sentry_stone_pillar",
+    "aether_redux:carved_stone_base",
+    "aether_redux:sentry_stone_base",
+    "aether_redux:locked_carved_stone_pillar",
+    "aether_redux:locked_sentry_stone_pillar",
+    "aether_redux:locked_carved_stone_base",
+    "aether_redux:locked_sentry_stone_base",
+    "aether_redux:trapped_carved_stone_pillar",
+    "aether_redux:trapped_sentry_stone_pillar",
+    "aether_redux:trapped_carved_stone_base",
+    "aether_redux:trapped_sentry_stone_base",
+    "aether_redux:boss_doorway_carved_stone_pillar",
+    "aether_redux:boss_doorway_sentry_stone_pillar",
+    "aether_redux:boss_doorway_carved_stone_base",
+    "aether_redux:boss_doorway_sentry_stone_base"
+  ]
+}

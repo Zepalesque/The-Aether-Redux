@@ -15,6 +15,10 @@
     "aether_redux:blightmoss_holystone",
     "aether_redux:blightmoss_holystone_stairs",
     "aether_redux:blightmoss_holystone_slab",
-    "aether_redux:blightmoss_holystone_wall"
+    "aether_redux:blightmoss_holystone_wall",
+    "aether_redux:carved_stone_pillar",
+    "aether_redux:sentry_stone_pillar",
+    "aether_redux:carved_stone_base",
+    "aether_redux:sentry_stone_base"
   ]
 }
