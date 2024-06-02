@@ -53,8 +53,11 @@ public class ReduxFeatureConfig {
                 new CloudbedFeature.Config(
                         prov(AetherFeatureStates.COLD_AERCLOUD),
                         BlockPredicate.ONLY_IN_AIR_PREDICATE,
-                        16, ReduxDensityFunctions.get(functions, ReduxDensityFunctions.CLOUDBED_NOISE),
-                        10, ReduxDensityFunctions.get(functions, ReduxDensityFunctions.CLOUDBED_Y_OFFSET), 10));
+                        8,
+                        ReduxDensityFunctions.get(functions, ReduxDensityFunctions.CLOUDBED_NOISE),
+                        10,
+                        ReduxDensityFunctions.get(functions, ReduxDensityFunctions.CLOUDBED_Y_OFFSET),
+                        10));
     }
 
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
