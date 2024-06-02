@@ -1,10 +1,12 @@
 package net.zepalesque.redux.data.resource.registries;
 
 import com.aetherteam.aether.Aether;
+import com.aetherteam.aether.data.resources.registries.AetherPlacedFeatures;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -19,10 +21,16 @@ public class ReduxPlacements {
 
     public static final ResourceKey<PlacedFeature> CLOUDBED = copyKey(ReduxFeatureConfig.CLOUDBED);
 
+    public static final ResourceKey<PlacedFeature> BONEMEAL_OVERRIDE = AetherPlacedFeatures.AETHER_GRASS_BONEMEAL;
+
+
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configs = context.lookup(Registries.CONFIGURED_FEATURE);
 
         register(context, CLOUDBED, configs.getOrThrow(ReduxFeatureConfig.CLOUDBED));
+
+        // Overrides
+        register(context, BONEMEAL_OVERRIDE, configs.getOrThrow(ReduxFeatureConfig.GRASS_BONEMEAL), PlacementUtils.isEmpty());
     }
 
     private static void register(BootstapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> configuration, List<PlacementModifier> modifiers) {
