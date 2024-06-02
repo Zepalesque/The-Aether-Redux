@@ -29,27 +29,13 @@ public class SkyrootFoliagePlacer extends FoliagePlacer {
         placeLeavesRow(level, setter, rand, config, origin, radius, -3, false);
     }
 
-    // Override vanilla behavior of using the 'large' boolean value to actually affect the size, this is unwanted behavior in this case
-    protected void placeLeavesRow(LevelSimulatedReader level, FoliageSetter setter, RandomSource rand, TreeConfiguration config, BlockPos pos, int radius, int y, boolean large) {
-        BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
-        for(int j = -radius; j <= radius; ++j) {
-            for(int k = -radius; k <= radius; ++k) {
-                if (!this.shouldSkipLocationSigned(rand, j, y, k, radius, large)) {
-                    blockpos$mutableblockpos.setWithOffset(pos, j, y, k);
-                    tryPlaceLeaf(level, setter, rand, config, blockpos$mutableblockpos);
-                }
-            }
-        }
-    }
-
     @Override
     public int foliageHeight(RandomSource rand, int pHeight, TreeConfiguration config) {
         return 0;
     }
-
-
+    
     @Override
-    protected boolean shouldSkipLocation(RandomSource rand, int x, int y, int z, int radius, boolean remove) {
+    protected boolean shouldSkipLocation(RandomSource rand, int x, int y, int z, int radius, boolean large) {
         if (y == 0) {
             // If the y offset is 0, only skip the location if it is on the corners, AND a boolean check succeeds
             return x + z >= radius * 2 && rand.nextBoolean();
