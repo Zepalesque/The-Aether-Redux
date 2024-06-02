@@ -15,8 +15,7 @@ import java.util.function.Supplier;
 public abstract class ReduxItemModelProvider extends AetherItemModelProvider {
 
     public ReduxItemModelProvider(PackOutput output, String id, ExistingFileHelper helper) {
-        super(output, id, helper);
-    }
+        super(output, id, helper);    }
 
     public ItemModelBuilder itemBlockFlat(Supplier<? extends Block> block, String location) {
         return withExistingParent(blockName(block.get()), mcLoc("item/generated"))
