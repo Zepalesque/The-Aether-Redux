@@ -32,10 +32,10 @@ public class ReduxItemModelGen extends ReduxItemModelProvider {
         this.itemOverlayBlock(ReduxBlocks.LOCKED_SENTRY_STONE_BASE.get(), ReduxBlocks.SENTRY_STONE_BASE.get(), "dungeon/lock");
         this.itemOverlayBlock(ReduxBlocks.LOCKED_SENTRY_STONE_PILLAR.get(), ReduxBlocks.SENTRY_STONE_PILLAR.get(), "dungeon/lock");
 
-        this.itemOverlayBlock(ReduxBlocks.TRAPPED_CARVED_STONE_BASE.get(), ReduxBlocks.CARVED_STONE_BASE.get(), "dungon/exclamation");
-        this.itemOverlayBlock(ReduxBlocks.TRAPPED_CARVED_STONE_PILLAR.get(), ReduxBlocks.CARVED_STONE_PILLAR.get(), "dungon/exclamation");
-        this.itemOverlayBlock(ReduxBlocks.TRAPPED_SENTRY_STONE_BASE.get(), ReduxBlocks.SENTRY_STONE_BASE.get(), "dungon/exclamation");
-        this.itemOverlayBlock(ReduxBlocks.TRAPPED_SENTRY_STONE_PILLAR.get(), ReduxBlocks.SENTRY_STONE_PILLAR.get(), "dungon/exclamation");
+        this.itemOverlayBlock(ReduxBlocks.TRAPPED_CARVED_STONE_BASE.get(), ReduxBlocks.CARVED_STONE_BASE.get(), "dungeon/exclamation");
+        this.itemOverlayBlock(ReduxBlocks.TRAPPED_CARVED_STONE_PILLAR.get(), ReduxBlocks.CARVED_STONE_PILLAR.get(), "dungeon/exclamation");
+        this.itemOverlayBlock(ReduxBlocks.TRAPPED_SENTRY_STONE_BASE.get(), ReduxBlocks.SENTRY_STONE_BASE.get(), "dungeon/exclamation");
+        this.itemOverlayBlock(ReduxBlocks.TRAPPED_SENTRY_STONE_PILLAR.get(), ReduxBlocks.SENTRY_STONE_PILLAR.get(), "dungeon/exclamation");
 
         this.itemOverlayBlock(ReduxBlocks.BOSS_DOORWAY_CARVED_STONE_BASE.get(), ReduxBlocks.CARVED_STONE_BASE.get(), "dungeon/door");
         this.itemOverlayBlock(ReduxBlocks.BOSS_DOORWAY_CARVED_STONE_PILLAR.get(), ReduxBlocks.CARVED_STONE_PILLAR.get(), "dungeon/door");
