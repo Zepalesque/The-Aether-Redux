@@ -42,6 +42,7 @@ import net.zepalesque.redux.data.gen.ReduxDataMapGen;
 import net.zepalesque.redux.data.gen.ReduxItemModelGen;
 import net.zepalesque.redux.data.gen.ReduxLanguageGen;
 import net.zepalesque.redux.data.gen.ReduxLootGen;
+import net.zepalesque.redux.data.gen.ReduxParticleGen;
 import net.zepalesque.redux.data.gen.ReduxRecipeGen;
 import net.zepalesque.redux.data.gen.ReduxRegistrySets;
 import net.zepalesque.redux.data.gen.tags.ReduxBiomeTagsGen;
@@ -127,6 +128,7 @@ public class Redux {
         generator.addProvider(event.includeClient(), new ReduxBlockStateGen(packOutput, fileHelper));
         generator.addProvider(event.includeClient(), new ReduxItemModelGen(packOutput, fileHelper));
         generator.addProvider(event.includeClient(), new ReduxLanguageGen(packOutput));
+        generator.addProvider(event.includeClient(), new ReduxParticleGen(packOutput, fileHelper));
 
         // Server Data
         generator.addProvider(event.includeServer(), new ReduxRecipeGen(packOutput, lookupProvider));
