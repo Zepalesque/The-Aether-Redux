@@ -35,6 +35,7 @@ import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
 import net.zepalesque.redux.blockset.wood.ReduxWoodSets;
 import net.zepalesque.redux.client.ReduxColors;
+import net.zepalesque.redux.client.particle.ReduxParticles;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.config.ReduxConfigHandler;
 import net.zepalesque.redux.data.gen.ReduxBlockStateGen;
@@ -95,7 +96,8 @@ public class Redux {
                 ReduxTiles.TILES,
                 ReduxBiomeTints.TINTS,
                 ReduxFeatures.FEATURES,
-                ReduxFoliagePlacers.FOLIAGE_PLACERS
+                ReduxFoliagePlacers.FOLIAGE_PLACERS,
+                ReduxParticles.PARTICLES
         };
 
         for (DeferredRegister<?> register : registers) {
