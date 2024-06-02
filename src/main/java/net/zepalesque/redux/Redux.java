@@ -52,6 +52,7 @@ import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.tile.ReduxTiles;
 import net.zepalesque.redux.world.biome.tint.ReduxBiomeTints;
 import net.zepalesque.redux.world.feature.gen.ReduxFeatures;
+import net.zepalesque.redux.world.tree.foliage.ReduxFoliagePlacers;
 import net.zepalesque.zenith.api.blockset.AbstractStoneSet;
 import net.zepalesque.zenith.api.blockset.AbstractWoodSet;
 import org.slf4j.Logger;
@@ -92,7 +93,8 @@ public class Redux {
                 ReduxEntities.ENTITIES,
                 ReduxTiles.TILES,
                 ReduxBiomeTints.TINTS,
-                ReduxFeatures.FEATURES
+                ReduxFeatures.FEATURES,
+                ReduxFoliagePlacers.FOLIAGE_PLACERS
         };
 
         for (DeferredRegister<?> register : registers) {
