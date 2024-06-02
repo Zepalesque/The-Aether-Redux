@@ -27,20 +27,20 @@ public class ReduxItemModelGen extends ReduxItemModelProvider {
         this.itemBlock(ReduxBlocks.SENTRY_STONE_BASE.get());
         this.itemBlock(ReduxBlocks.SENTRY_STONE_PILLAR.get());
 
-        this.itemOverlayBlock(ReduxBlocks.LOCKED_CARVED_STONE_BASE.get(), ReduxBlocks.CARVED_STONE_BASE.get(), "dungeon/lock");
-        this.itemOverlayBlock(ReduxBlocks.LOCKED_CARVED_STONE_PILLAR.get(), ReduxBlocks.CARVED_STONE_PILLAR.get(), "dungeon/lock");
-        this.itemOverlayBlock(ReduxBlocks.LOCKED_SENTRY_STONE_BASE.get(), ReduxBlocks.SENTRY_STONE_BASE.get(), "dungeon/lock");
-        this.itemOverlayBlock(ReduxBlocks.LOCKED_SENTRY_STONE_PILLAR.get(), ReduxBlocks.SENTRY_STONE_PILLAR.get(), "dungeon/lock");
+        this.itemOverlayColumn(ReduxBlocks.LOCKED_CARVED_STONE_BASE.get(), ReduxBlocks.CARVED_STONE_BASE.get(), "dungeon/lock", "dungeon/");
+        this.itemOverlayColumn(ReduxBlocks.LOCKED_CARVED_STONE_PILLAR.get(), ReduxBlocks.CARVED_STONE_PILLAR.get(), "dungeon/lock", "dungeon/");
+        this.itemOverlayColumn(ReduxBlocks.LOCKED_SENTRY_STONE_BASE.get(), ReduxBlocks.SENTRY_STONE_BASE.get(), "dungeon/lock", "dungeon/");
+        this.itemOverlayColumn(ReduxBlocks.LOCKED_SENTRY_STONE_PILLAR.get(), ReduxBlocks.SENTRY_STONE_PILLAR.get(), "dungeon/lock", "dungeon/");
+        
+        this.itemOverlayColumn(ReduxBlocks.TRAPPED_CARVED_STONE_BASE.get(), ReduxBlocks.CARVED_STONE_BASE.get(), "dungeon/exclamation", "dungeon/");
+        this.itemOverlayColumn(ReduxBlocks.TRAPPED_CARVED_STONE_PILLAR.get(), ReduxBlocks.CARVED_STONE_PILLAR.get(), "dungeon/exclamation", "dungeon/");
+        this.itemOverlayColumn(ReduxBlocks.TRAPPED_SENTRY_STONE_BASE.get(), ReduxBlocks.SENTRY_STONE_BASE.get(), "dungeon/exclamation", "dungeon/");
+        this.itemOverlayColumn(ReduxBlocks.TRAPPED_SENTRY_STONE_PILLAR.get(), ReduxBlocks.SENTRY_STONE_PILLAR.get(), "dungeon/exclamation", "dungeon/");
 
-        this.itemOverlayBlock(ReduxBlocks.TRAPPED_CARVED_STONE_BASE.get(), ReduxBlocks.CARVED_STONE_BASE.get(), "dungeon/exclamation");
-        this.itemOverlayBlock(ReduxBlocks.TRAPPED_CARVED_STONE_PILLAR.get(), ReduxBlocks.CARVED_STONE_PILLAR.get(), "dungeon/exclamation");
-        this.itemOverlayBlock(ReduxBlocks.TRAPPED_SENTRY_STONE_BASE.get(), ReduxBlocks.SENTRY_STONE_BASE.get(), "dungeon/exclamation");
-        this.itemOverlayBlock(ReduxBlocks.TRAPPED_SENTRY_STONE_PILLAR.get(), ReduxBlocks.SENTRY_STONE_PILLAR.get(), "dungeon/exclamation");
-
-        this.itemOverlayBlock(ReduxBlocks.BOSS_DOORWAY_CARVED_STONE_BASE.get(), ReduxBlocks.CARVED_STONE_BASE.get(), "dungeon/door");
-        this.itemOverlayBlock(ReduxBlocks.BOSS_DOORWAY_CARVED_STONE_PILLAR.get(), ReduxBlocks.CARVED_STONE_PILLAR.get(), "dungeon/door");
-        this.itemOverlayBlock(ReduxBlocks.BOSS_DOORWAY_SENTRY_STONE_BASE.get(), ReduxBlocks.SENTRY_STONE_BASE.get(), "dungeon/door");
-        this.itemOverlayBlock(ReduxBlocks.BOSS_DOORWAY_SENTRY_STONE_PILLAR.get(), ReduxBlocks.SENTRY_STONE_PILLAR.get(), "dungeon/door");
+        this.itemOverlayColumn(ReduxBlocks.BOSS_DOORWAY_CARVED_STONE_BASE.get(), ReduxBlocks.CARVED_STONE_BASE.get(), "dungeon/door", "dungeon/");
+        this.itemOverlayColumn(ReduxBlocks.BOSS_DOORWAY_CARVED_STONE_PILLAR.get(), ReduxBlocks.CARVED_STONE_PILLAR.get(), "dungeon/door", "dungeon/");
+        this.itemOverlayColumn(ReduxBlocks.BOSS_DOORWAY_SENTRY_STONE_BASE.get(), ReduxBlocks.SENTRY_STONE_BASE.get(), "dungeon/door", "dungeon/");
+        this.itemOverlayColumn(ReduxBlocks.BOSS_DOORWAY_SENTRY_STONE_PILLAR.get(), ReduxBlocks.SENTRY_STONE_PILLAR.get(), "dungeon/door", "dungeon/");
     }
 
 }

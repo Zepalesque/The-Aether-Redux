@@ -3,6 +3,7 @@ package net.zepalesque.redux.data.prov;
 import com.aetherteam.aether.block.dungeon.DoorwayBlock;
 import com.aetherteam.aether.data.providers.AetherBlockStateProvider;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
@@ -139,5 +140,18 @@ public abstract class ReduxBlockStateProvider extends AetherBlockStateProvider {
                 .modelForState().modelFile(invisible).addModel()
                 .partialState().with(BlockStateProperties.AXIS, Direction.Axis.X).with(DoorwayBlock.INVISIBLE, true)
                 .modelForState().modelFile(invisible).addModel();
+    }
+
+    public static ResourceLocation extendStatic(ResourceLocation location, String suffix) {
+        return new ResourceLocation(location.getNamespace(), location.getPath() + suffix);
+    }
+
+    public static String nameStatic(Block block) {
+        ResourceLocation location = BuiltInRegistries.BLOCK.getKey(block);
+        if (location != null) {
+            return location.getPath();
+        } else {
+            throw new IllegalStateException("Unknown block: " + block.toString());
+        }
     }
 }
