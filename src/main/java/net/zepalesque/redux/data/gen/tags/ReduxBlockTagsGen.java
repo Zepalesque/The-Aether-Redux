@@ -3,8 +3,10 @@ package net.zepalesque.redux.data.gen.tags;
 import com.aetherteam.aether.block.AetherBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
+import net.minecraft.tags.BlockTags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.data.ReduxTags;
 import net.zepalesque.redux.data.prov.tags.ReduxBlockTagsProvider;
 import org.jetbrains.annotations.Nullable;
@@ -23,6 +25,13 @@ public class ReduxBlockTagsGen extends ReduxBlockTagsProvider {
         Redux.STONE_SETS.forEach(set -> set.blockTagData(this));
 
         this.tag(ReduxTags.Blocks.QUICKSOIL_BEHAVIOR).add(AetherBlocks.QUICKSOIL.get());
+
+        this.tag(BlockTags.LEAVES).add(
+                ReduxBlocks.CLOUDROOT_LEAVES.get()
+        );
+        this.tag(BlockTags.MINEABLE_WITH_HOE).add(
+                ReduxBlocks.CLOUDROOT_LEAVES.get()
+        );
 
     }
 }
