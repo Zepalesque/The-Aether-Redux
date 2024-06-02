@@ -1,5 +1,4 @@
-// 1.20.4	2024-06-02T10:20:15.7987618	Tags for minecraft:block mod id aether_redux
-fc9b66cee900f1b4f341fcec6da19eb45d575f43 data/aether_redux/tags/blocks/coarse_aether_dirt.json
+// 1.20.4	2024-06-02T10:36:26.3859041	Tags for minecraft:block mod id aether_redux
 ff76e071710735bec611ec58205f07d13cb675bd data/aether_redux/tags/blocks/crystal_logs.json
 326897805dd0e252157208ee77d3437b3626f008 data/aether_redux/tags/blocks/quicksoil_behavior.json
 eb1ddd122f7ca012d425a54274500f1e589e180d data/forge/tags/blocks/bookshelves.json

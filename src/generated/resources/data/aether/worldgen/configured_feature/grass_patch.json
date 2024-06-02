@@ -3,7 +3,7 @@
   "config": {
     "feature": {
       "feature": {
-        "type": "zenith:test_at_block",
+        "type": "zenith:block_with_predicate",
         "config": {
           "predicate": {
             "type": "minecraft:not",
