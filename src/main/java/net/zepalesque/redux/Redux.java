@@ -1,6 +1,7 @@
 package net.zepalesque.redux;
 
 import com.aetherteam.aether.Aether;
+import com.aetherteam.aether.data.generators.AetherDataMapData;
 import com.mojang.logging.LogUtils;
 import net.minecraft.DetectedVersion;
 import net.minecraft.SharedConstants;
@@ -37,6 +38,7 @@ import net.zepalesque.redux.client.ReduxColors;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.config.ReduxConfigHandler;
 import net.zepalesque.redux.data.gen.ReduxBlockStateGen;
+import net.zepalesque.redux.data.gen.ReduxDataMapGen;
 import net.zepalesque.redux.data.gen.ReduxItemModelGen;
 import net.zepalesque.redux.data.gen.ReduxLanguageGen;
 import net.zepalesque.redux.data.gen.ReduxLootGen;
@@ -127,6 +129,7 @@ public class Redux {
         // Server Data
         generator.addProvider(event.includeServer(), new ReduxRecipeGen(packOutput, lookupProvider));
         generator.addProvider(event.includeServer(), ReduxLootGen.create(packOutput));
+        generator.addProvider(event.includeServer(), new ReduxDataMapGen(packOutput, lookupProvider));
         DatapackBuiltinEntriesProvider registrySets = new ReduxRegistrySets(packOutput, lookupProvider, MODID);
         // Use for structure and damage type data
         CompletableFuture<HolderLookup.Provider> registryProvider = registrySets.getRegistryProvider();

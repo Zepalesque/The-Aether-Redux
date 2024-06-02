@@ -16,7 +16,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class ReduxDataMapGen extends ReduxDataMapProvider {
 
-    protected ReduxDataMapGen(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+    public ReduxDataMapGen(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
         super(packOutput, lookupProvider);
     }
 
