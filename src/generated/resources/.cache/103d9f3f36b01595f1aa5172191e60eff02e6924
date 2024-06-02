@@ -1,6 +1,7 @@
-// 1.20.4	2024-06-02T10:36:26.3909016	Registries
+// 1.20.4	2024-06-02T10:49:21.6763902	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 883b764f7bdfbb5124096cbf5570893f1438f5cc data/aether/worldgen/configured_feature/grass_patch.json
+47ec4dab1e49d10c7a9d88096f1d8297e837b2e8 data/aether/worldgen/configured_feature/skyroot_tree.json
 cbc01407f81c547e1384753574d83f4983bc738b data/aether/worldgen/configured_feature/tall_grass_patch.json
 f068ccf490875b97628304fb858fdeed62f367e8 data/aether/worldgen/placed_feature/aether_grass_bonemeal.json
 b1924e11e2a4cc074084f391e61ba8b59b590874 data/aether_redux/neoforge/biome_modifier/add_cloudbed.json
