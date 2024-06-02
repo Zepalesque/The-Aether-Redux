@@ -31,6 +31,6 @@ public abstract class ReduxItemModelProvider extends AetherItemModelProvider {
     public void itemOverlayBlock(Block block, Block baseBlock, String overlay) {
         this.withExistingParent(this.blockName(block), this.texture(this.blockName(baseBlock)))
                 .texture("overlay", new ResourceLocation(Aether.MODID, "block/" + overlay))
-                .element().from(0.0F, 0.0F, -0.1F).to(16.0F, 16.0F, -0.1F).rotation().angle(0.0F).axis(Direction.Axis.Y).origin(8.0F, 8.0F, 6.9F).end().face(Direction.NORTH).texture("#overlay").emissivity(15, 15).end().end()
+                .element().from(0.0F, 0.0F, -0.1F).to(16.0F, 16.0F, -0.1F).rotation().angle(0.0F).axis(Direction.Axis.Y).origin(8.0F, 8.0F, 6.9F).end().face(Direction.NORTH).texture("#overlay").emissivity(15, 15).end().end();
     }
 }
