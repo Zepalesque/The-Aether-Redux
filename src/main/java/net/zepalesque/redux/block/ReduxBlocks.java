@@ -10,7 +10,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.natural.AetherShortGrassBlock;
-import net.zepalesque.redux.event.hook.ToolModifyHooks;
+import net.zepalesque.redux.event.hook.ToolActionHooks;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
 
@@ -43,6 +43,6 @@ public class ReduxBlocks {
     }
 
     public static void registerToolConversions() {
-        Redux.WOOD_SETS.forEach(set -> set.setupStrippables(ToolModifyHooks.STRIPPABLES));
+        Redux.WOOD_SETS.forEach(set -> set.setupStrippables(ToolActionHooks.STRIPPABLES));
     }
 }

@@ -8,10 +8,10 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.ToolAction;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.event.hook.ToolModifyHooks;
+import net.zepalesque.redux.event.hook.ToolActionHooks;
 
 @Mod.EventBusSubscriber(modid = Redux.MODID)
-public class ToolModifyListener {
+public class ToolActionListener {
 
     @SubscribeEvent
     public static void setupToolModifications(BlockEvent.BlockToolModificationEvent event) {
@@ -19,7 +19,7 @@ public class ToolModifyListener {
         BlockPos pos = event.getPos();
         BlockState oldState = event.getState();
         ToolAction toolAction = event.getToolAction();
-        BlockState newState = ToolModifyHooks.setupToolActions(levelAccessor, pos, oldState, toolAction);
+        BlockState newState = ToolActionHooks.setupToolActions(levelAccessor, pos, oldState, toolAction);
         if (newState != oldState && !event.isSimulated() && !event.isCanceled()) {
             event.setFinalState(newState);
         }

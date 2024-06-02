@@ -10,6 +10,7 @@ public class ReduxConfig {
 
         public final ModConfigSpec.ConfigValue<Boolean> redux_sky_colors;
         public final ModConfigSpec.ConfigValue<Boolean> cloudbed;
+        public final ModConfigSpec.ConfigValue<Boolean> revamped_quicksoil_movement;
 
         public Server(ModConfigSpec.Builder builder) {
             super(() -> SERVER_SPEC, "redux_server");
@@ -20,6 +21,9 @@ public class ReduxConfig {
             cloudbed = builder
                     .comment("Replace the Aether's large Aercloud features with a noise-based cloudbed")
                     .define("Cloudbed", true);
+            revamped_quicksoil_movement = builder
+                    .comment("Changes quicksoil to make it use a better movement system, based on the way it worked in the Aether II: Highlands in 1.12")
+                    .define("Revamped Quicksoil Movement", true);
             builder.pop();
         }
     }

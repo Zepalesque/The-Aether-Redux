@@ -10,7 +10,7 @@ import net.neoforged.neoforge.common.ToolActions;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ToolModifyHooks {
+public class ToolActionHooks {
 
     public static final Map<Block, Block> STRIPPABLES = new HashMap<>();
 

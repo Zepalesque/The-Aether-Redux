@@ -2,7 +2,6 @@ package net.zepalesque.redux.mixin.mixins.client.color;
 
 
 import com.aetherteam.aether.client.AetherColorResolvers;
-import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
