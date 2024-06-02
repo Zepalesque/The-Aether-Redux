@@ -33,6 +33,6 @@
     }
   ],
   "textures": {
-    "overlay": "aether:block/dungon/exclamation"
+    "overlay": "aether:block/dungeon/exclamation"
   }
 }

@@ -1,4 +1,4 @@
-// 1.20.4	2024-06-02T14:54:57.9886759	Item Models: aether_redux
+// 1.20.4	2024-06-02T14:56:41.4210546	Item Models: aether_redux
 a083a7311bfd77483a76afa2e0b34a2dca856c28 assets/aether_redux/models/item/blightmoss_holystone.json
 693490b382231c95e748c88f8daa13be00cd8ceb assets/aether_redux/models/item/blightmoss_holystone_slab.json
 e073f529066aa534f560372ff463759fa6a01401 assets/aether_redux/models/item/blightmoss_holystone_stairs.json
@@ -52,7 +52,7 @@ e7bfb6b8c011a971909445c8ed6b5f55674ec196 assets/aether_redux/models/item/strippe
 3309c49e4daa375a5737eed499cd6556832136f7 assets/aether_redux/models/item/stripped_crystal_log_wall.json
 ede5284a9a6d92cd5ea829abe975db3c0afeef88 assets/aether_redux/models/item/stripped_crystal_wood.json
 f4e55469e88be034a3e02ea3752dd4b77cbbfbb0 assets/aether_redux/models/item/stripped_crystal_wood_wall.json
-d00828d3f36031ffd4de585e3626b1ea3724dfc2 assets/aether_redux/models/item/trapped_carved_stone_base.json
-8f8b1646bc1543a57a25c07ee0271291a1200df7 assets/aether_redux/models/item/trapped_carved_stone_pillar.json
-611135714de1fe610e5e6bca2a2f3f5605530aa8 assets/aether_redux/models/item/trapped_sentry_stone_base.json
-eafbebfc19ff25480e2b322b72ed859235e2c421 assets/aether_redux/models/item/trapped_sentry_stone_pillar.json
+f4e0a9b8c24954087634d7b869a93bc367459df2 assets/aether_redux/models/item/trapped_carved_stone_base.json
+0aa26c95dfad8c5326677337150c26fae89b12f8 assets/aether_redux/models/item/trapped_carved_stone_pillar.json
+110f44bb2e23bc7e8281abeef5facb0b8854b7a0 assets/aether_redux/models/item/trapped_sentry_stone_base.json
+193bdc508e0798e2bdccfcb7d9ba178c217757e3 assets/aether_redux/models/item/trapped_sentry_stone_pillar.json
