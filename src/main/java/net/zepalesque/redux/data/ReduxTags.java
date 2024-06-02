@@ -23,6 +23,8 @@ public class ReduxTags {
         public static final TagKey<Block> ENCHANTED_GRASS_BLOCKS = tag("enchanted_grass_blocks");
         // Blocks that should use the Highlands quicksoil system
         public static final TagKey<Block> QUICKSOIL_BEHAVIOR = tag("quicksoil_behavior");
+        // Blocks that count as Coarse Aether Dirt
+        public static final TagKey<Block> COARSE_AETHER_DIRT = tag("coarse_aether_dirt");
 
         public static TagKey<Block> tag(String name) {
             return TagKey.create(Registries.BLOCK, Redux.loc(name));

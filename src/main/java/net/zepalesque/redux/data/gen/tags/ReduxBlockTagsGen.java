@@ -23,6 +23,7 @@ public class ReduxBlockTagsGen extends ReduxBlockTagsProvider {
         Redux.STONE_SETS.forEach(set -> set.blockTagData(this));
 
         this.tag(ReduxTags.Blocks.QUICKSOIL_BEHAVIOR).add(AetherBlocks.QUICKSOIL.get());
+        this.tag(ReduxTags.Blocks.COARSE_AETHER_DIRT).add(AetherBlocks.AETHER_GRASS_BLOCK.get());
 
     }
 }

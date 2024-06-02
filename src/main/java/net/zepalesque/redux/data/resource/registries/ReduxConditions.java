@@ -1,4 +1,4 @@
-package net.zepalesque.redux.data.resource;
+package net.zepalesque.redux.data.resource.registries;
 
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
