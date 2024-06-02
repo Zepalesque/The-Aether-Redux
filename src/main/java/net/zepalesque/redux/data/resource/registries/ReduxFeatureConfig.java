@@ -58,6 +58,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 
 
 
+    // bootstap
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configs = context.lookup(Registries.CONFIGURED_FEATURE);
         HolderGetter<DensityFunction> functions = context.lookup(Registries.DENSITY_FUNCTION);
@@ -76,7 +77,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
                 new TreeConfiguration.TreeConfigurationBuilder(
                         BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LOG),
                         new StraightTrunkPlacer(4, 2, 0),
-                        BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LEAVES),
+                        prov(ReduxBlocks.CLOUDROOT_LEAVES),
                         new SkyrootFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
                         new TwoLayersFeatureSize(1, 0, 1)
                 ).ignoreVines().build());
@@ -105,40 +106,5 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
                         new SkyrootFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
                         new TwoLayersFeatureSize(1, 0, 1)
                 ).ignoreVines().build());
-
-
-    }
-
-    private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
-        context.register(key, new ConfiguredFeature<>(feature, configuration));
-    }
-
-    private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
-        return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(Redux.MODID, name));
-    }
-
-    private static String name(DeferredHolder<?, ?> reg) {
-        return reg.getId().getPath();
-    }
-
-    private static BlockStateProvider prov(BlockState state) {
-        return BlockStateProvider.simple(drops(state));
-    }
-
-    private static BlockStateProvider prov(Supplier<? extends Block> block) {
-        return prov(block.get().defaultBlockState());
-    }
-
-    private static BlockState drops(BlockState state) {
-        return state.hasProperty(AetherBlockStateProperties.DOUBLE_DROPS) ? state.setValue(AetherBlockStateProperties.DOUBLE_DROPS, true) : state;
-    }
-
-    private static BlockState drops(Supplier<? extends Block> block) {
-        return drops(block.get().defaultBlockState());
-    }
-
-    private static BlockState naturalDrops(Supplier<? extends Block> block) {
-        BlockState b = block.get().defaultBlockState();
-        return b.hasProperty(ReduxStates.NATURAL_GEN) ? drops(b.setValue(ReduxStates.NATURAL_GEN, true)) : drops(b);
     }
 }
