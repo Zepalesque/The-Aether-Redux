@@ -4,13 +4,13 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.Mod.EventBusSubscriber;
 import net.neoforged.neoforge.common.ToolAction;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.event.hook.ToolActionHooks;
 
-@Mod.EventBusSubscriber(modid = Redux.MODID)
+@EventBusSubscriber(modid = Redux.MODID)
 public class ToolActionListener {
 
     @SubscribeEvent

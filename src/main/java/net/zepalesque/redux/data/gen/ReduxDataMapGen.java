@@ -1,11 +1,13 @@
 package net.zepalesque.redux.data.gen;
 
+import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.generators.AetherDataMapData;
 import com.aetherteam.aether.data.resources.registries.AetherBiomes;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.registries.datamaps.builtin.NeoForgeDataMaps;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.client.ReduxColors;
 import net.zepalesque.redux.data.ReduxDataMaps;
 import net.zepalesque.redux.data.ReduxTags;
@@ -26,9 +28,12 @@ public class ReduxDataMapGen extends ReduxDataMapProvider {
         Redux.STONE_SETS.forEach(set -> set.mapData(this));
 
         var biomeTints = this.builder(ReduxBiomeTints.AETHER_GRASS.get().getDataMap());
-//        biomeTints.add(AetherBiomes.SKYROOT_FOREST, 0x000000, false);
-//        biomeTints.add(AetherBiomes.SKYROOT_GROVE, 0xFF0000, false);
-//        biomeTints.add(AetherBiomes.SKYROOT_MEADOW, 0x00FF00, false);
-//        biomeTints.add(AetherBiomes.SKYROOT_WOODLAND, 0x0000FF, false);
+        biomeTints.add(AetherBiomes.SKYROOT_FOREST, 0xA2F2BC, false);
+        biomeTints.add(AetherBiomes.SKYROOT_WOODLAND, 0x96E8B0, false);
+        biomeTints.add(AetherBiomes.SKYROOT_MEADOW, 0xBAFFCB, false);
+
+        var compostables = this.builder(NeoForgeDataMaps.COMPOSTABLES);
+        this.addCompost(compostables, ReduxBlocks.CLOUDROOT_LEAVES, 0.3F);
+        this.addCompost(compostables, ReduxBlocks.CLOUDROOT_SAPLING, 0.3F);
     }
 }

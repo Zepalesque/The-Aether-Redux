@@ -1,6 +1,7 @@
 package net.zepalesque.redux.data.gen.loot;
 
 import com.aetherteam.aether.block.AetherBlocks;
+import com.aetherteam.aether.mixin.mixins.common.accessor.BlockLootAccessor;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
@@ -27,8 +28,14 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
     protected void generate() {
         Redux.WOOD_SETS.forEach(set -> set.lootData(this));
         Redux.STONE_SETS.forEach(set -> set.lootData(this));
-        // TODO
-        this.dropNone(ReduxBlocks.SHORT_AETHER_GRASS.get());
+
+        this.add(ReduxBlocks.SHORT_AETHER_GRASS.get(), shears());
+
+        this.dropSelf(ReduxBlocks.CLOUDROOT_SAPLING.get());
+        this.add(ReduxBlocks.CLOUDROOT_LEAVES.get(),
+                (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.CLOUDROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
+
+
     }
 
     @Override

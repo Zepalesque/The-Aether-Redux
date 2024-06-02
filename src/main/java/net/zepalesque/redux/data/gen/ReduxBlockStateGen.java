@@ -20,5 +20,7 @@ public class ReduxBlockStateGen extends ReduxBlockStateProvider {
         Redux.STONE_SETS.forEach(set -> set.blockData(this));
 
         this.tintableShortGrass(ReduxBlocks.SHORT_AETHER_GRASS.get(), "natural/");
+        this.block(ReduxBlocks.CLOUDROOT_LEAVES.get(), "natural/");
+        this.crossBlock(ReduxBlocks.CLOUDROOT_SAPLING.get(), "natural/");
     }
 }

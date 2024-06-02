@@ -5,14 +5,20 @@ import com.aetherteam.aether.loot.functions.DoubleDrops;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
+import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.NumberProvider;
+import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.zepalesque.redux.block.state.ReduxStates;
 
 import java.util.Set;
@@ -87,5 +93,23 @@ public abstract class ReduxBlockLootProvider extends AetherBlockLootSubProvider 
     @Override
     public LootTable.Builder createSlabItemTable(Block pBlock) {
         return super.createSlabItemTable(pBlock);
+    }
+
+    // Only drops with shears
+    public Function<Block, LootTable.Builder> shears() {
+        return shearsOr(Blocks.AIR);
+    }
+
+    // Drops another without shears
+    public Function<Block, LootTable.Builder> shearsOr(ItemLike drop, float chance, float min, float max) {
+        return (block) -> createSilkTouchOrShearsDispatchTable(block, this.applyExplosionDecay(block, LootItem.lootTableItem(drop).when(LootItemRandomChanceCondition.randomChance(chance)).apply(SetItemCountFunction.setCount(UniformGenerator.between(min, max))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2))));
+    }
+
+    public Function<Block, LootTable.Builder> shearsOr(ItemLike drop, float chance) {
+        return shearsOr(drop, chance, 1.0F, 1.0F);
+    }
+
+    public Function<Block, LootTable.Builder> shearsOr(ItemLike drop) {
+        return shearsOr(drop, 0.25F);
     }
 }

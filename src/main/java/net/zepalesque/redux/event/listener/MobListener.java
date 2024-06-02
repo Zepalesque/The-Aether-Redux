@@ -2,13 +2,13 @@ package net.zepalesque.redux.event.listener;
 
 import net.minecraft.world.entity.LivingEntity;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.Mod.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingEvent;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.event.hook.QuicksoilHooks;
 
-@Mod.EventBusSubscriber(modid = Redux.MODID)
+@EventBusSubscriber(modid = Redux.MODID)
 public class MobListener {
 
     @SubscribeEvent

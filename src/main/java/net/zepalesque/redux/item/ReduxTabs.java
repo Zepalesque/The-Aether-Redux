@@ -4,7 +4,8 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.Mod.EventBusSubscriber;
+import net.neoforged.fml.common.Mod.EventBusSubscriber.Bus;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.zenith.api.blockset.AbstractStoneSet;
@@ -12,7 +13,7 @@ import net.zepalesque.zenith.api.blockset.AbstractWoodSet;
 
 import java.util.function.Supplier;
 
-@Mod.EventBusSubscriber(modid = Redux.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = Redux.MODID, bus = Bus.MOD)
 public class ReduxTabs {
 
     @SubscribeEvent(priority = EventPriority.LOWEST)

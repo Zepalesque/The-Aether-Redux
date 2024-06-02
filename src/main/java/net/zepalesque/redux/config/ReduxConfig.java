@@ -44,14 +44,14 @@ public class ReduxConfig {
 
     public static class Client {
 
-//        public final ModConfigSpec.ConfigValue<Boolean> placeholder;
+        public final ModConfigSpec.ConfigValue<Boolean> leaf_particles;
 
         public Client(ModConfigSpec.Builder builder) {
-            /*builder.push("TODO");
-            placeholder = builder
-                    .comment("Temporary placeholder config, used")
-                    .define("Placeholder Config", true);
-            builder.pop();*/
+            builder.push("TODO");
+            leaf_particles = builder
+                    .comment("Use nice falling leaf particles for Aether leaf blocks")
+                    .define("Leaf Particles", true);
+            builder.pop();
         }
     }
 
