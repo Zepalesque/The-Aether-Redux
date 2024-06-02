@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "invisible=false": {
+      "model": "aether_redux:block/sentry_stone_base"
+    },
+    "invisible=true": {
+      "model": "aether_redux:block/boss_doorway_sentry_stone_base"
+    }
+  }
+}
