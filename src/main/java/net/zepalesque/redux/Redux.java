@@ -156,7 +156,7 @@ public class Redux {
             PackMetadataSection metadata = new PackMetadataSection(Component.translatable("pack.aether_redux.tintable_grass.description"), SharedConstants.getCurrentVersion().getPackVersion(PackType.CLIENT_RESOURCES));
             event.addRepositorySource((source) ->
                     source.accept(Pack.create(
-                            "builtin/redux/tintable_grass",
+                            "builtin/redux/resource/tintable_grass",
                             Component.translatable("pack.aether_redux.tintable_grass"),
                             false,
                             new PathPackResources.PathResourcesSupplier(resourcePath, true),
