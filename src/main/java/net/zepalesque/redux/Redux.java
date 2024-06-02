@@ -152,7 +152,7 @@ public class Redux {
     public  void packSetup(AddPackFindersEvent event) {
 
         if (event.getPackType() == PackType.CLIENT_RESOURCES) {
-            Path resourcePath = ModList.get().getModFileById(Aether.MODID).getFile().findResource("packs/resource/tintable_grass");
+            Path resourcePath = ModList.get().getModFileById(MODID).getFile().findResource("packs/resource/tintable_grass");
             PackMetadataSection metadata = new PackMetadataSection(Component.translatable("pack.aether_redux.tintable_grass.description"), SharedConstants.getCurrentVersion().getPackVersion(PackType.CLIENT_RESOURCES));
             event.addRepositorySource((source) ->
                     source.accept(Pack.create(
