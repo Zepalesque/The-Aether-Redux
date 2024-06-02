@@ -71,7 +71,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
                         10));
 
         // Overrides
-        register(context, GRASS_PATCH, Feature.RANDOM_PATCH, patch(32, 7, 3, BlockStateProvider.simple(Blocks.SHORT_GRASS), NOT_ON_COARSE_DIRT));
+        register(context, GRASS_PATCH, Feature.RANDOM_PATCH, patch(32, 7, 3, prov(ReduxBlocks.SHORT_AETHER_GRASS), NOT_ON_COARSE_DIRT));
         register(context, TALL_GRASS_PATCH, Feature.NO_OP, new NoneFeatureConfiguration());
 
         register(context, GRASS_BONEMEAL, Feature.SIMPLE_BLOCK,
