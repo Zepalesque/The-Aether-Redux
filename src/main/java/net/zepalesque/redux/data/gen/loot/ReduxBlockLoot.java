@@ -36,6 +36,27 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
                 (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.CLOUDROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
 
 
+
+        this.dropSelf(ReduxBlocks.CARVED_STONE_PILLAR.get());
+        this.dropSelf(ReduxBlocks.SENTRY_STONE_PILLAR.get());
+        this.dropSelf(ReduxBlocks.CARVED_STONE_BASE.get());
+        this.dropSelf(ReduxBlocks.SENTRY_STONE_BASE.get());
+
+        this.dropNone(ReduxBlocks.LOCKED_CARVED_STONE_PILLAR.get());
+        this.dropNone(ReduxBlocks.LOCKED_SENTRY_STONE_PILLAR.get());
+        this.dropNone(ReduxBlocks.LOCKED_CARVED_STONE_BASE.get());
+        this.dropNone(ReduxBlocks.LOCKED_SENTRY_STONE_BASE.get());
+
+        this.dropNone(ReduxBlocks.TRAPPED_CARVED_STONE_PILLAR.get());
+        this.dropNone(ReduxBlocks.TRAPPED_SENTRY_STONE_PILLAR.get());
+        this.dropNone(ReduxBlocks.TRAPPED_CARVED_STONE_BASE.get());
+        this.dropNone(ReduxBlocks.TRAPPED_SENTRY_STONE_BASE.get());
+
+        this.dropNone(ReduxBlocks.BOSS_DOORWAY_CARVED_STONE_PILLAR.get());
+        this.dropNone(ReduxBlocks.BOSS_DOORWAY_SENTRY_STONE_PILLAR.get());
+        this.dropNone(ReduxBlocks.BOSS_DOORWAY_CARVED_STONE_BASE.get());
+        this.dropNone(ReduxBlocks.BOSS_DOORWAY_SENTRY_STONE_BASE.get());
+
     }
 
     @Override

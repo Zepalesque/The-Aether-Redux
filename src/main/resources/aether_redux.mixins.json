@@ -7,6 +7,7 @@
   "refmap": "aether_redux.refmap.json",
   "mixins": [
     "common.QuicksoilMixin",
+    "common.SliderMixin",
     "common.accessor.EntityAccessor",
     "common.accessor.WallBlockAccessor",
     "common.base.BlockBehaviorMixin"

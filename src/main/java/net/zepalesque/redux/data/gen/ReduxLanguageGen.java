@@ -25,6 +25,30 @@ public class ReduxLanguageGen extends ReduxLanguageProvider {
         this.add(ReduxBlocks.CLOUDROOT_SAPLING);
         this.addLore(ReduxBlocks.CLOUDROOT_SAPLING, "The sapling of the Cloudroot tree. It can be grown by waiting or using Bone Meal.");
 
+        this.add(ReduxBlocks.CARVED_STONE_PILLAR);
+        this.addLore(ReduxBlocks.CARVED_STONE_PILLAR, "A pillar made of Carved Stone. Pillars look nice for supporting a build, along with giving it nice corners.");
+        this.add(ReduxBlocks.SENTRY_STONE_PILLAR);
+        this.addLore(ReduxBlocks.SENTRY_STONE_PILLAR, "A pillar made of Sentry Stone. Pillars look nice for supporting a build, along with giving it nice corners.");
+        this.add(ReduxBlocks.CARVED_STONE_BASE);
+        this.addLore(ReduxBlocks.CARVED_STONE_BASE, "A nice decorative base block made of Carved Stone. Looks very nice at the bottom of walls!");
+        this.add(ReduxBlocks.SENTRY_STONE_BASE);
+        this.addLore(ReduxBlocks.SENTRY_STONE_BASE, "A nice decorative base block made of Sentry Stone. Looks very nice at the bottom of walls!");
+
+        this.add(ReduxBlocks.LOCKED_CARVED_STONE_PILLAR);
+        this.add(ReduxBlocks.LOCKED_SENTRY_STONE_PILLAR);
+        this.add(ReduxBlocks.LOCKED_CARVED_STONE_BASE);
+        this.add(ReduxBlocks.LOCKED_SENTRY_STONE_BASE);
+
+        this.add(ReduxBlocks.TRAPPED_CARVED_STONE_PILLAR);
+        this.add(ReduxBlocks.TRAPPED_SENTRY_STONE_PILLAR);
+        this.add(ReduxBlocks.TRAPPED_CARVED_STONE_BASE);
+        this.add(ReduxBlocks.TRAPPED_SENTRY_STONE_BASE);
+
+        this.add(ReduxBlocks.BOSS_DOORWAY_CARVED_STONE_PILLAR);
+        this.add(ReduxBlocks.BOSS_DOORWAY_SENTRY_STONE_PILLAR);
+        this.add(ReduxBlocks.BOSS_DOORWAY_CARVED_STONE_BASE);
+        this.add(ReduxBlocks.BOSS_DOORWAY_SENTRY_STONE_BASE);
+
         this.addPackDescription("mod", "The Aether: Redux Resources");
         this.addPackTitle("tintable_grass", "Redux - Tintable Grass");
         this.addPackDescription("tintable_grass", "Grass tint textures for the Aether: Redux");

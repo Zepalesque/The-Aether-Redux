@@ -1,8 +1,13 @@
 package net.zepalesque.redux.data.prov;
 
+import com.aetherteam.aether.block.dungeon.DoorwayBlock;
 import com.aetherteam.aether.data.providers.AetherBlockStateProvider;
+import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ModelBuilder;
@@ -61,5 +66,74 @@ public abstract class ReduxBlockStateProvider extends AetherBlockStateProvider {
                     !up && down ? bottom :
                             up ? top : center).build();
         });
+    }
+
+
+    public void pillar(Block block, Block other, String location) {
+        this.axisBlock(block, other, this.extend(this.texture(this.name(other), location), "_side"), this.extend(this.texture(this.name(other), location), "_top"));
+    }
+
+    public void pillar(Block block, String location) {
+        this.pillar(block, block, location);
+    }
+
+    public void axisBlock(Block block, Block other, ResourceLocation side, ResourceLocation end) {
+        axisBlock(block,
+                models().cubeColumn(name(other), side, end),
+                models().cubeColumnHorizontal(name(other) + "_horizontal", side, end));
+    }
+
+    public void axisBlock(Block block, ModelFile vertical, ModelFile horizontal) {
+        getVariantBuilder(block)
+                .partialState().with(BlockStateProperties.AXIS, Direction.Axis.Y)
+                .modelForState().modelFile(vertical).addModel()
+                .partialState().with(BlockStateProperties.AXIS, Direction.Axis.Z)
+                .modelForState().modelFile(horizontal).rotationX(90).addModel()
+                .partialState().with(BlockStateProperties.AXIS, Direction.Axis.X)
+                .modelForState().modelFile(horizontal).rotationX(90).rotationY(90).addModel();
+    }
+
+    public void baseBrick(Block block, Block other, String location) {
+        ModelFile model = this.cubeBottomTop(this.name(other),
+                this.extend(this.texture(this.name(other), location), "_side"),
+                this.extend(this.texture(this.name(other), location), "_top"),
+                this.extend(this.texture(this.name(other), location), "_top"));
+        this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(model));
+    }
+
+    public void baseBrick(Block block, String location) {
+        this.baseBrick(block, block, location);
+    }
+
+    public void invisibleBaseBrick(Block block, Block baseBlock, String location) {
+        ModelFile visible = this.cubeBottomTop(this.name(baseBlock),
+                this.extend(this.texture(this.name(baseBlock), location), "_side"),
+                this.extend(this.texture(this.name(baseBlock), location), "_top"),
+                this.extend(this.texture(this.name(baseBlock), location), "_top"));
+        ModelFile invisible = this.models().getBuilder(this.name(block));
+        this.getVariantBuilder(block).forAllStatesExcept(state -> {
+            if (!state.getValue(DoorwayBlock.INVISIBLE)) {
+                return ConfiguredModel.builder().modelFile(visible).build();
+            } else {
+                return ConfiguredModel.builder().modelFile(invisible).build();
+            }
+        });
+    }
+
+    public void invisiblePillar(Block block, Block other, String location) {
+        ResourceLocation side = this.extend(this.texture(this.name(other), location), "_side");
+        ResourceLocation end = this.extend(this.texture(this.name(other), location), "_top");
+        ModelFile vertical = models().cubeColumn(name(other), side, end);
+        ModelFile horizontal = models().cubeColumnHorizontal(name(block) + "_horizontal", side, end);
+        ModelFile invisible = this.models().getBuilder(this.name(block));
+        getVariantBuilder(block)
+                .partialState().with(DoorwayBlock.INVISIBLE, true)
+                .modelForState().modelFile(invisible).addModel()
+                .partialState().with(BlockStateProperties.AXIS, Direction.Axis.Y)
+                .modelForState().modelFile(vertical).addModel()
+                .partialState().with(BlockStateProperties.AXIS, Direction.Axis.Z)
+                .modelForState().modelFile(horizontal).rotationX(90).addModel()
+                .partialState().with(BlockStateProperties.AXIS, Direction.Axis.X)
+                .modelForState().modelFile(horizontal).rotationX(90).rotationY(90).addModel();
     }
 }
