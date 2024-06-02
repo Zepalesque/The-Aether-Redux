@@ -127,13 +127,17 @@ public abstract class ReduxBlockStateProvider extends AetherBlockStateProvider {
         ModelFile horizontal = models().cubeColumnHorizontal(name(block) + "_horizontal", side, end);
         ModelFile invisible = this.models().getBuilder(this.name(block));
         getVariantBuilder(block)
-                .partialState().with(DoorwayBlock.INVISIBLE, true)
-                .modelForState().modelFile(invisible).addModel()
-                .partialState().with(BlockStateProperties.AXIS, Direction.Axis.Y)
+                .partialState().with(BlockStateProperties.AXIS, Direction.Axis.Y).with(DoorwayBlock.INVISIBLE, false)
                 .modelForState().modelFile(vertical).addModel()
-                .partialState().with(BlockStateProperties.AXIS, Direction.Axis.Z)
+                .partialState().with(BlockStateProperties.AXIS, Direction.Axis.Z).with(DoorwayBlock.INVISIBLE, false)
                 .modelForState().modelFile(horizontal).rotationX(90).addModel()
-                .partialState().with(BlockStateProperties.AXIS, Direction.Axis.X)
-                .modelForState().modelFile(horizontal).rotationX(90).rotationY(90).addModel();
+                .partialState().with(BlockStateProperties.AXIS, Direction.Axis.X).with(DoorwayBlock.INVISIBLE, false)
+                .modelForState().modelFile(horizontal).rotationX(90).rotationY(90).addModel()
+                .partialState().with(BlockStateProperties.AXIS, Direction.Axis.Y).with(DoorwayBlock.INVISIBLE, true)
+                .modelForState().modelFile(invisible).addModel()
+                .partialState().with(BlockStateProperties.AXIS, Direction.Axis.Z).with(DoorwayBlock.INVISIBLE, true)
+                .modelForState().modelFile(invisible).addModel()
+                .partialState().with(BlockStateProperties.AXIS, Direction.Axis.X).with(DoorwayBlock.INVISIBLE, true)
+                .modelForState().modelFile(invisible).addModel();
     }
 }
