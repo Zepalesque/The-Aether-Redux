@@ -1,0 +1,10 @@
+{
+  "values": {
+    "aether_redux:cloudroot_leaves": {
+      "chance": 0.3
+    },
+    "aether_redux:cloudroot_sapling": {
+      "chance": 0.3
+    }
+  }
+}

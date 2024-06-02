@@ -1,10 +1,12 @@
-// 1.20.4	2024-06-02T10:36:26.3859041	Tags for minecraft:block mod id aether_redux
+// 1.20.4	2024-06-02T12:24:01.1757219	Tags for minecraft:block mod id aether_redux
 ff76e071710735bec611ec58205f07d13cb675bd data/aether_redux/tags/blocks/crystal_logs.json
 326897805dd0e252157208ee77d3437b3626f008 data/aether_redux/tags/blocks/quicksoil_behavior.json
 eb1ddd122f7ca012d425a54274500f1e589e180d data/forge/tags/blocks/bookshelves.json
 49ad498cef1154d6380c5317f026c7a11b62238d data/minecraft/tags/blocks/fence_gates.json
+9873d896d882e516ebfe73b8f35f5c54af51f830 data/minecraft/tags/blocks/leaves.json
 5295d732f1c22a1f48681f9c064f14692726fdb3 data/minecraft/tags/blocks/logs.json
 9c45368b08909c3be45110e285aa25ee5c55221a data/minecraft/tags/blocks/mineable/axe.json
+9873d896d882e516ebfe73b8f35f5c54af51f830 data/minecraft/tags/blocks/mineable/hoe.json
 c540c2524704efa539692f011fcedf113f1c21a7 data/minecraft/tags/blocks/mineable/pickaxe.json
 761d9af3851563316242dac11105074c9f83e129 data/minecraft/tags/blocks/planks.json
 0b1171d251f8355ee4807673e964590f7917bb74 data/minecraft/tags/blocks/slabs.json
