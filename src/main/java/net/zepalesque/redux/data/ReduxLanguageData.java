@@ -11,6 +11,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraftforge.event.ItemStackedOnOtherEvent;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.ReduxBlocks;

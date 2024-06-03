@@ -29,7 +29,6 @@
     "common.entity.SwetMixin",
     "common.entity.ValkQueenMixin",
     "common.inventory.LoreInventoryMixin",
-    "common.item.AmbrosiumShardMixin",
     "common.item.DiggerItemMixin",
     "common.item.GummySwetItemMixin",
     "common.item.ItemMixin",

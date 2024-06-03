@@ -21,8 +21,6 @@ public record WaterColorReplacementBiomeModifier(HolderSet<Biome> biomes, CodecP
 
     public static Codec<CodecPredicates.DualInt> WATER_PREDICATE = CodecPredicates.DualInt.createCodec("water", "fog");
 
-
-
     @Override
     public Codec<? extends BiomeModifier> codec() {
         return ReduxBiomeModifierCodecs.REPLACE_WATER_COLOR.get();

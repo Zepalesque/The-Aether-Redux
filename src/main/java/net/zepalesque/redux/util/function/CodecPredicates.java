@@ -51,7 +51,6 @@ public class CodecPredicates {
                         Codec.BOOL.fieldOf("val").forGetter((config) -> config.arg))
                 .apply(condition, Bool::new));
 
-
         public boolean test(boolean bool) {
             return this.arg == bool;
         }

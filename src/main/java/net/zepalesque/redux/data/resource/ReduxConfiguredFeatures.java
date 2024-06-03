@@ -837,34 +837,31 @@ public class ReduxConfiguredFeatures {
     }
 
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
-        context.register(key, new ConfiguredFeature(feature, configuration));
+        context.register(key, new ConfiguredFeature<>(feature, configuration));
     }
 
     private static String name(RegistryObject<?> reg)
     {
         return reg.getId().getPath();
     }
-    private static BlockStateProvider prov(BlockState state)
-    {
+
+    private static BlockStateProvider prov(BlockState state) {
         return BlockStateProvider.simple(drops(state));
     }
-    private static BlockStateProvider prov(RegistryObject<? extends Block> block)
-    {
+
+    private static BlockStateProvider prov(RegistryObject<? extends Block> block) {
         return prov(block.get().defaultBlockState());
     }
 
-
-    private static BlockState drops(BlockState state)
-    {
+    private static BlockState drops(BlockState state) {
         return state.hasProperty(AetherBlockStateProperties.DOUBLE_DROPS) ? state.setValue(AetherBlockStateProperties.DOUBLE_DROPS, true) : state;
     }
-    private static BlockState drops(RegistryObject<? extends Block> block)
-    {
+
+    private static BlockState drops(RegistryObject<? extends Block> block) {
         return drops(block.get().defaultBlockState());
     }
 
-    private static BlockState naturalDrops(RegistryObject<? extends Block> block)
-    {
+    private static BlockState naturalDrops(RegistryObject<? extends Block> block) {
         BlockState b = block.get().defaultBlockState();
         return b.hasProperty(ReduxStates.NATURAL_GEN) ? drops(b.setValue(ReduxStates.NATURAL_GEN, true)) : drops(b);
     }
