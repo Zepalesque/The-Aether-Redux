@@ -45,5 +45,7 @@ public class ReduxBlockStateGen extends ReduxBlockStateProvider {
         this.invisibleBaseBrick(ReduxBlocks.BOSS_DOORWAY_CARVED_STONE_BASE.get(), ReduxBlocks.CARVED_STONE_BASE.get(), "dungeon/");
         this.invisibleBaseBrick(ReduxBlocks.BOSS_DOORWAY_SENTRY_STONE_BASE.get(), ReduxBlocks.SENTRY_STONE_BASE.get(), "dungeon/");
 
+        this.cubeActivatable(ReduxBlocks.RUNELIGHT.get(), "dungeon/");
+
     }
 }
