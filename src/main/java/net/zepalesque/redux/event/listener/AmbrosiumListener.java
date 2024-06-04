@@ -3,8 +3,10 @@ package net.zepalesque.redux.event.listener;
 import com.aetherteam.aether.item.AetherItems;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.SlotAccess;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.ClickAction;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -23,24 +25,26 @@ public class AmbrosiumListener {
 
     @SubscribeEvent
     public static void infuse(ItemStackedOnOtherEvent event) {
-        ItemStack stack = event.getCarriedItem();
-        ItemStack other = event.getStackedOnItem();
+        // These seem to be inverted for whatever reason?
+        ItemStack carried = event.getStackedOnItem();
+        ItemStack stackedOn = event.getCarriedItem();
         Level level = event.getPlayer().level();
         Player player = event.getPlayer();
         Slot slot = event.getSlot();
-        if (stack.is(AetherItems.AMBROSIUM_SHARD.get())) {
+        SlotAccess access = event.getCarriedSlotAccess();
+        if (event.getClickAction() == ClickAction.SECONDARY && carried.is(AetherItems.AMBROSIUM_SHARD.get())) {
             for (InfusionRecipe recipe : level.getRecipeManager().getAllRecipesFor(ReduxRecipeTypes.INFUSION.get())) {
                 if (recipe != null) {
-                    if (recipe.matches(level, other)) {
-                        ItemStack newStack = recipe.getResultStack(other);
+                    if (recipe.matches(level, stackedOn)) {
+                        ItemStack newStack = recipe.getResultStack(stackedOn);
                         if (newStack != null) {
                             if (!level.isClientSide()) {
-                                InfuseItemTrigger.INSTANCE.trigger((ServerPlayer) player, other, newStack);
+                                InfuseItemTrigger.INSTANCE.trigger((ServerPlayer) player, stackedOn, newStack);
                             }
-                            if (other.getCount() <= 1) {
+                            if (stackedOn.getCount() <= 1) {
                                 slot.set(newStack);
                             } else {
-                                other.shrink(1);
+                                stackedOn.shrink(1);
                                 newStack.setCount(1);
                                 boolean flag = player.getInventory().add(newStack);
                                 if (!flag) {
@@ -52,11 +56,12 @@ public class AmbrosiumListener {
                                     player.containerMenu.broadcastChanges();
                                 }
                             }
-                            stack.shrink(1);
+                            carried.shrink(1);
                             slot.setChanged();
                             level.playSound(player, player.getX(), player.getY(), player.getZ(), ReduxSoundEvents.INFUSE_ITEM.get(), SoundSource.PLAYERS, 0.8F, 0.8F + player.level().getRandom().nextFloat() * 0.4F);
                             event.setCanceled(true);
                         }
+                        break;
                     }
                 }
             }
