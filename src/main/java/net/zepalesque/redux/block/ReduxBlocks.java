@@ -79,16 +79,18 @@ public class ReduxBlocks extends ReduxBlockBuilders {
                     .strength(0.7F, 6.0F)
                     .sound(SoundType.COPPER_BULB)
                     .requiresCorrectToolForDrops()
-                    .instrument(NoteBlockInstrument.IRON_XYLOPHONE)
+                    .instrument(NoteBlockInstrument.IRON_XYLOPHONE),
+                    false
             ));
 
     public static final DeferredBlock<Block> LOCKED_RUNELIGHT = register("runelight", () ->
-            new BaseLitBlock(Properties.of()
+            new RunelightBlock(Properties.of()
                     .mapColor(state -> state.getValue(BaseLitBlock.LIT) ? MapColor.COLOR_LIGHT_BLUE : MapColor.LAPIS)
                     .lightLevel(state -> state.getValue(BaseLitBlock.LIT) ? 13 : 1)
                     .strength(-1.0F, 3600000.0F)
                     .sound(SoundType.COPPER_BULB)
-                    .instrument(NoteBlockInstrument.IRON_XYLOPHONE)
+                    .instrument(NoteBlockInstrument.IRON_XYLOPHONE),
+                    true
             ));
 
     public static void registerFlammability() {

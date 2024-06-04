@@ -12,20 +12,29 @@ import net.zepalesque.redux.block.construction.BaseLitBlock;
 
 public class RunelightBlock extends BaseLitBlock {
 
-    public RunelightBlock(Properties properties) {
+    protected final boolean creativeInteractOnly;
+    public RunelightBlock(Properties properties, boolean creativeInteractOnly) {
         super(properties);
+        this.creativeInteractOnly = creativeInteractOnly;
     }
 
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        if (!level.isClientSide()) {
-            state = state.cycle(LIT);
-            level.setBlock(pos, state, 3);
-            // TODO: sfx
-            level.gameEvent(player, state.getValue(LIT) ? GameEvent.BLOCK_ACTIVATE : GameEvent.BLOCK_DEACTIVATE, pos);
-            return InteractionResult.CONSUME;
-        } else {
-            return InteractionResult.SUCCESS;
+        if (this.isValidForInteraction(player)) {
+            if (!level.isClientSide()) {
+                state = state.cycle(LIT);
+                level.setBlock(pos, state, 3);
+                // TODO: sfx
+                level.gameEvent(player, state.getValue(LIT) ? GameEvent.BLOCK_ACTIVATE : GameEvent.BLOCK_DEACTIVATE, pos);
+                return InteractionResult.CONSUME;
+            } else {
+                return InteractionResult.SUCCESS;
+            }
         }
+        return super.use(state, level, pos, player, hand, hit);
+    }
+
+    public boolean isValidForInteraction(Player player) {
+        return !this.creativeInteractOnly || player.getAbilities().instabuild;
     }
 }

@@ -49,6 +49,10 @@ public class ReduxLanguageGen extends ReduxLanguageProvider {
         this.add(ReduxBlocks.BOSS_DOORWAY_CARVED_STONE_BASE);
         this.add(ReduxBlocks.BOSS_DOORWAY_SENTRY_STONE_BASE);
 
+        this.add(ReduxBlocks.RUNELIGHT);
+        this.addLore(ReduxBlocks.RUNELIGHT, "A glowing block of circuitry made of Veridium, which can be easily toggled on and off. Found in Bronze Dungeons.");
+        this.add(ReduxBlocks.LOCKED_RUNELIGHT);
+
         this.addPackDescription("mod", "The Aether: Redux Resources");
         this.addPackTitle("tintable_grass", "Redux - Tintable Grass");
         this.addPackDescription("tintable_grass", "Grass tint textures for the Aether: Redux");
