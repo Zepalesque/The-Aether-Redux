@@ -31,7 +31,6 @@ public class AmbrosiumListener {
         Level level = event.getPlayer().level();
         Player player = event.getPlayer();
         Slot slot = event.getSlot();
-        SlotAccess access = event.getCarriedSlotAccess();
         if (event.getClickAction() == ClickAction.SECONDARY && carried.is(AetherItems.AMBROSIUM_SHARD.get())) {
             for (InfusionRecipe recipe : level.getRecipeManager().getAllRecipesFor(ReduxRecipeTypes.INFUSION.get())) {
                 if (recipe != null) {
