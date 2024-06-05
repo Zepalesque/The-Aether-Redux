@@ -28,8 +28,8 @@ public class FrostedForests {
                 .downfall(0.4F)
                 .specialEffects(
         new BiomeSpecialEffects.Builder()
-                .fogColor(0x93_93_bc)
                 .skyColor(0xc0_c0_ff)
+                .fogColor(0x93_93_bc)
                 .waterColor(0x6BAED6)
                 .waterFogColor(0x122D3D)
                 .grassColorOverride(0xb1_ff_cb)

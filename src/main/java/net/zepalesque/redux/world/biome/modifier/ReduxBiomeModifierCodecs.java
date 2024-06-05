@@ -34,7 +34,7 @@ public class ReduxBiomeModifierCodecs {
     static RegistryObject<Codec<SkyModifier>> SKY_COLOR = CODECS.register("sky_color", () ->
             RecordCodecBuilder.create(builder -> builder.group(
                     Biome.LIST_CODEC.fieldOf("biomes").forGetter(SkyModifier::biomes),
-                    SkyModifier.SKY_PREDICATE.fieldOf("predicate").forGetter(SkyModifier::predicate),
+                    SkyModifier.SKY_PREDICATE.optionalFieldOf("predicate").forGetter(SkyModifier::predicate),
                     Codec.INT.fieldOf("water_color").forGetter(SkyModifier::sky),
                     Codec.INT.fieldOf("water_fog_color").forGetter(SkyModifier::fog),
                     AbstractCondition.CODEC.optionalFieldOf("condition").forGetter(SkyModifier::condition)

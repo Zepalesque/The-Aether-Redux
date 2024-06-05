@@ -62,7 +62,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue dungeon_stone_recipes;
         public final ForgeConfigSpec.BooleanValue enchanted_gilded_grass;
         public final ForgeConfigSpec.BooleanValue better_water_color;
-        public final ForgeConfigSpec.BooleanValue alternate_sky_color;
+        public final ForgeConfigSpec.BooleanValue alternate_sky_colors;
         public final ForgeConfigSpec.BooleanValue enchanted_vines;
         public final ForgeConfigSpec.BooleanValue wall_roots;
         public final ForgeConfigSpec.BooleanValue alternate_gilded_trees;
@@ -134,7 +134,7 @@ public class ReduxConfig {
             this.auto_reset_biome_values = builder.comment("When enabled, any biome value config changes will be reset. It is recommended that you disable this if you want to keep any custom biome parameters you may have set.").define("Auto-Reset Biome Values", true);
             this.region_size = builder.comment("The value of Redux's biome region size. Larger values correspond to larger biome clumps").define("Region Size", 20);
             this.better_water_color = builder.comment("Improves the water color of Aether biomes, making the color match the rest of the dimension better").define("Better Water Color", true);
-            this.alternate_sky_color = builder.comment("Changes the Aether's sky color to one slightly more consistent with the overworld, making the fog lighter than the rest of the sky").define("Alternate Sky Color", false);
+            this.alternate_sky_colors = builder.comment("Alters the sky colors of the Aether, to be a bit more in line with vanilla. Also adds some new unique colors as well to some of Redux's new biomes").define("Alternate Sky Colors", true);
 
             this.enable_the_blight = builder.comment("Enables the Blight biome.").worldRestart().define("Enable the Blight", true);
             this.enable_gilded_biomes = builder.comment("Enables the Gilded Groves and Gilded Grasslands biomes.").worldRestart().define("Enable Gilded Biomes", true);

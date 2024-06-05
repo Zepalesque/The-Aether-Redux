@@ -13,7 +13,7 @@ public class Conditions {
     public static final AbstractCondition<?> RAW_ORES = new ReduxConfigCondition(ReduxConfig.COMMON.raw_ores);
     public static final AbstractCondition<?> ENCHGRASS = new ReduxConfigCondition(ReduxConfig.COMMON.enchanted_gilded_grass);
     public static final AbstractCondition<?> WATER = new ReduxConfigCondition(ReduxConfig.COMMON.better_water_color);
-    public static final AbstractCondition<?> SKY = new ReduxConfigCondition(ReduxConfig.COMMON.alternate_sky_color);
+    public static final AbstractCondition<?> SKY = new ReduxConfigCondition(ReduxConfig.COMMON.alternate_sky_colors);
     public static final AbstractCondition<?> VINES = new ReduxConfigCondition(ReduxConfig.COMMON.enchanted_vines);
     public static final AbstractCondition<?> ENDERMEN = new ReduxConfigCondition(ReduxConfig.COMMON.enderman_spawns);
     public static final AbstractCondition<?> ALT_GILDED = new ReduxConfigCondition(ReduxConfig.COMMON.alternate_gilded_trees);

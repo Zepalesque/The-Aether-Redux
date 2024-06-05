@@ -29,8 +29,8 @@ public class GildedGroves {
                 .downfall(0.0F)
                 .specialEffects(
         new BiomeSpecialEffects.Builder()
-                .fogColor(0x93_93_bc)
-                .skyColor(0xc0_c0_ff)
+                .skyColor(0xD8D4D2)
+                .fogColor(0xE8E5E7)
                 .waterColor(0x5271A5)
                 .waterFogColor(0x0C1333)
                 .grassColorOverride(0xb1_ff_cb)
