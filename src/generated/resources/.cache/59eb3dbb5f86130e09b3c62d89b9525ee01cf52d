@@ -1,4 +1,4 @@
-// 1.20.4	2024-06-04T20:12:17.4664492	Loot Tables
+// 1.20.4	2024-06-04T21:58:47.7754772	Loot Tables
 16b03329a81906c5130061c5ea9ae1168890a761 data/aether_redux/loot_tables/blocks/blightmoss_holystone.json
 95ce5e6d7a83e0c7f242a6389d5a3a39c565d8c8 data/aether_redux/loot_tables/blocks/blightmoss_holystone_slab.json
 47bbb56cb9acce50d6c97031b9cc801972bd7290 data/aether_redux/loot_tables/blocks/blightmoss_holystone_stairs.json
@@ -36,6 +36,7 @@ ccff96aec2798c0c2dbed8fe51785ea03fa58bbf data/aether_redux/loot_tables/blocks/gi
 5b6c9ada3c67044af925bce8a022f1c51847550f data/aether_redux/loot_tables/blocks/locked_carved_stone_base.json
 0780338aa6752774130ec442edd388f0a5c1b009 data/aether_redux/loot_tables/blocks/locked_carved_stone_pillar.json
 23bde969d7d739d5f88d7ed52444be70a3c09636 data/aether_redux/loot_tables/blocks/locked_runelight.json
+c0545729e1b01540a21d07eb211cc7f1d1b9ac02 data/aether_redux/loot_tables/blocks/locked_sentrite_bricks.json
 85de92a07f228eebe4d2702404c38a7975dfd11f data/aether_redux/loot_tables/blocks/locked_sentry_stone_base.json
 ef5693706422983222e156c23192726f3bc385d4 data/aether_redux/loot_tables/blocks/locked_sentry_stone_pillar.json
 d5f58f0628fd8f86bc78b66978c3c1ca732d9549 data/aether_redux/loot_tables/blocks/runelight.json

@@ -1,4 +1,4 @@
-// 1.20.4	2024-06-04T20:12:17.4684486	Block States: aether_redux
+// 1.20.4	2024-06-04T21:58:47.7834724	Block States: aether_redux
 18cd9d7be4a20d14e14911da277c38674c1d5bd7 assets/aether_redux/blockstates/blightmoss_holystone.json
 4a9e03ff69be912c7f686d6ca7b72f228650f9e4 assets/aether_redux/blockstates/blightmoss_holystone_slab.json
 a4d1a11a2343f5488e53fdc549758dfabb46f198 assets/aether_redux/blockstates/blightmoss_holystone_stairs.json
@@ -36,6 +36,7 @@ ceaf44cea7faf6c003e170711ba221ba54b6e5f6 assets/aether_redux/blockstates/gilded_
 fa28d31052a1ca19ba5ae7bb1a636245df039d74 assets/aether_redux/blockstates/locked_carved_stone_base.json
 76645dc0dc1ad4736d6161700c32a586c5195f71 assets/aether_redux/blockstates/locked_carved_stone_pillar.json
 7033907fbae21b5426d807f7bc4b5cd61ae5c86d assets/aether_redux/blockstates/locked_runelight.json
+32325c658f9a9ae024be2ac574624a9273b991ea assets/aether_redux/blockstates/locked_sentrite_bricks.json
 33786e51e8e62aa9585c62b524229e01698fe2c9 assets/aether_redux/blockstates/locked_sentry_stone_base.json
 5cd07ec31556c8655f61e0a8bd84a22b937e48b6 assets/aether_redux/blockstates/locked_sentry_stone_pillar.json
 7033907fbae21b5426d807f7bc4b5cd61ae5c86d assets/aether_redux/blockstates/runelight.json

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "aether_redux:block/construction/sentrite_bricks"
+    "all": "aether_redux:block/dungeon/sentrite_bricks"
   }
 }

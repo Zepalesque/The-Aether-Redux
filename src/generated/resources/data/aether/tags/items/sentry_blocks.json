@@ -1,5 +1,6 @@
 {
   "values": [
+    "aether_redux:sentrite_bricks",
     "aether_redux:carved_stone_pillar",
     "aether_redux:sentry_stone_pillar",
     "aether_redux:carved_stone_base",
@@ -17,6 +18,7 @@
     "aether_redux:boss_doorway_carved_stone_base",
     "aether_redux:boss_doorway_sentry_stone_base",
     "aether_redux:runelight",
-    "aether_redux:locked_runelight"
+    "aether_redux:locked_runelight",
+    "aether_redux:locked_sentrite_bricks"
   ]
 }
