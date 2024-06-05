@@ -1,4 +1,4 @@
-// 1.20.4	2024-06-04T21:58:47.7714802	Item Models: aether_redux
+// 1.20.4	2024-06-05T08:49:11.7693561	Item Models: aether_redux
 a083a7311bfd77483a76afa2e0b34a2dca856c28 assets/aether_redux/models/item/blightmoss_holystone.json
 693490b382231c95e748c88f8daa13be00cd8ceb assets/aether_redux/models/item/blightmoss_holystone_slab.json
 e073f529066aa534f560372ff463759fa6a01401 assets/aether_redux/models/item/blightmoss_holystone_stairs.json
@@ -35,8 +35,8 @@ c21384e3c0f2e7cf2838fc78bd300726ad88099d assets/aether_redux/models/item/gilded_
 b94d7ae7552984746c011a3c414646a7b5538436 assets/aether_redux/models/item/gilded_holystone_wall.json
 0fab5594f525b72b884c12d441df8b4cbccb9fa9 assets/aether_redux/models/item/locked_carved_stone_base.json
 a63ba96107231047dcafbb6cb74061cc10c4184d assets/aether_redux/models/item/locked_carved_stone_pillar.json
-94f5f95c337b71e3a6372fc76d6b1675a61b2ff4 assets/aether_redux/models/item/locked_runelight.json
-7f10ba2a2f5911d7a1375357be88cb61935aca16 assets/aether_redux/models/item/locked_sentrite_bricks.json
+136d60c440632072914a93fec02b7ffd652cc118 assets/aether_redux/models/item/locked_runelight.json
+bc3db77b4defe372d9b4e6bae1a00d4d7e8e4509 assets/aether_redux/models/item/locked_sentrite_bricks.json
 77a599bae2858f29be996aeb661b0be561b14630 assets/aether_redux/models/item/locked_sentry_stone_base.json
 73cc7bd6234a2a44a85b481e62757bdbf6a45c36 assets/aether_redux/models/item/locked_sentry_stone_pillar.json
 2f79e0034e8e1583e64ccf2ef1eb3a706fb7618d assets/aether_redux/models/item/runelight.json

@@ -167,7 +167,7 @@
     }
   ],
   "textures": {
-    "face": "aether_redux:block/dungeon/sentrite_bricks",
-    "overlay": "aether:block/dungeon/dungeon/lock"
+    "face": "aether_redux:block/construction/sentrite_bricks",
+    "overlay": "aether:block/dungeon/lock"
   }
 }

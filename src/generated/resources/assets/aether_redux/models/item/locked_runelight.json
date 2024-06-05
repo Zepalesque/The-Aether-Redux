@@ -168,6 +168,6 @@
   ],
   "textures": {
     "face": "aether_redux:block/dungeon/runelight_on",
-    "overlay": "aether:block/dungeon/dungeon/lock"
+    "overlay": "aether:block/dungeon/lock"
   }
 }
