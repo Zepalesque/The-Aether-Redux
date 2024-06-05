@@ -103,6 +103,9 @@ body:
         - label: This issue is not a duplicate of another issue
           required: true
         - label: >-
+            If the issue is a modpack-related issue, it only occurs *with* Redux installed, and not without
+          required: true
+        - label: >-
             If the issue is a modpack-related issue, it has been reported to the
             modpack devs as well
           required: true
