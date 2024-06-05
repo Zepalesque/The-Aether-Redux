@@ -1,8 +1,13 @@
-// 1.20.4	2024-05-25T14:57:02.7981709	Tags for minecraft:item mod id aether_redux
+// 1.20.4	2024-06-04T20:12:17.4554572	Tags for minecraft:item mod id aether_redux
+dd47b4010d7b4ec5482dc62b183b47c4230f36b2 data/aether/tags/items/boss_doorway_dungeon_blocks.json
+41ea860bb5b6676c4574b62b47a5ef2ab23d3b11 data/aether/tags/items/dungeon_blocks.json
+d92aab5be1ea71f08cbffc15b599d3ce642e9971 data/aether/tags/items/locked_dungeon_blocks.json
 761d9af3851563316242dac11105074c9f83e129 data/aether/tags/items/planks_crafting.json
+c4893dd7937f0bfbcc862da208c0fe0377a64bb2 data/aether/tags/items/sentry_blocks.json
 761d9af3851563316242dac11105074c9f83e129 data/aether/tags/items/skyroot_repairing.json
 761d9af3851563316242dac11105074c9f83e129 data/aether/tags/items/skyroot_stick_crafting.json
 761d9af3851563316242dac11105074c9f83e129 data/aether/tags/items/skyroot_tool_crafting.json
+59beb2fabeef70ccf9568329b07dbf8ed977ab42 data/aether/tags/items/trapped_dungeon_blocks.json
 ff76e071710735bec611ec58205f07d13cb675bd data/aether_redux/tags/items/crystal_logs.json
 087e45021a49143824a919a1ba7f24cab0c912e8 data/minecraft/tags/items/boats.json
 9ba95bf33ba00ef1c21abc8bed134f26a2bfc2a4 data/minecraft/tags/items/chest_boats.json

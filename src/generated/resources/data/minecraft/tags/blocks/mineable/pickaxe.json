@@ -19,6 +19,7 @@
     "aether_redux:carved_stone_pillar",
     "aether_redux:sentry_stone_pillar",
     "aether_redux:carved_stone_base",
-    "aether_redux:sentry_stone_base"
+    "aether_redux:sentry_stone_base",
+    "aether_redux:runelight"
   ]
 }

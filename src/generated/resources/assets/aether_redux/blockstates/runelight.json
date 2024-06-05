@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "aether_redux:block/runelight"
+    },
+    "lit=true": {
+      "model": "aether_redux:block/runelight_on"
+    }
+  }
+}

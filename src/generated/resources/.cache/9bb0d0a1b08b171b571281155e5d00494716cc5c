@@ -1,8 +1,8 @@
-// 1.20.4	2024-06-02T14:29:21.2219107	Tags for minecraft:block mod id aether_redux
+// 1.20.4	2024-06-04T20:12:17.4584546	Tags for minecraft:block mod id aether_redux
 dd47b4010d7b4ec5482dc62b183b47c4230f36b2 data/aether/tags/blocks/boss_doorway_dungeon_blocks.json
-350ed1e6b85c062bc8e995caa56c1bff69cdd091 data/aether/tags/blocks/dungeon_blocks.json
-536dd4c78e49a1728fe03f1e375f4917a5bb828c data/aether/tags/blocks/locked_dungeon_blocks.json
-014bad100c49f73418368a5acd2802c01a6b58d9 data/aether/tags/blocks/sentry_blocks.json
+41ea860bb5b6676c4574b62b47a5ef2ab23d3b11 data/aether/tags/blocks/dungeon_blocks.json
+d92aab5be1ea71f08cbffc15b599d3ce642e9971 data/aether/tags/blocks/locked_dungeon_blocks.json
+c4893dd7937f0bfbcc862da208c0fe0377a64bb2 data/aether/tags/blocks/sentry_blocks.json
 59beb2fabeef70ccf9568329b07dbf8ed977ab42 data/aether/tags/blocks/trapped_dungeon_blocks.json
 ff76e071710735bec611ec58205f07d13cb675bd data/aether_redux/tags/blocks/crystal_logs.json
 326897805dd0e252157208ee77d3437b3626f008 data/aether_redux/tags/blocks/quicksoil_behavior.json
@@ -12,8 +12,8 @@ eb1ddd122f7ca012d425a54274500f1e589e180d data/forge/tags/blocks/bookshelves.json
 5295d732f1c22a1f48681f9c064f14692726fdb3 data/minecraft/tags/blocks/logs.json
 9c45368b08909c3be45110e285aa25ee5c55221a data/minecraft/tags/blocks/mineable/axe.json
 9873d896d882e516ebfe73b8f35f5c54af51f830 data/minecraft/tags/blocks/mineable/hoe.json
-93ac67fe1f1d0e7352163968b9660f7f19434c23 data/minecraft/tags/blocks/mineable/pickaxe.json
-350ed1e6b85c062bc8e995caa56c1bff69cdd091 data/minecraft/tags/blocks/needs_stone_tool.json
+fb04f71a567de798a78720f81895e00b3ea0b4ac data/minecraft/tags/blocks/mineable/pickaxe.json
+41ea860bb5b6676c4574b62b47a5ef2ab23d3b11 data/minecraft/tags/blocks/needs_stone_tool.json
 761d9af3851563316242dac11105074c9f83e129 data/minecraft/tags/blocks/planks.json
 0b1171d251f8355ee4807673e964590f7917bb74 data/minecraft/tags/blocks/slabs.json
 4075af1c37fbf58cf2cf9d15ff2f1e8dd0997a0c data/minecraft/tags/blocks/stairs.json
