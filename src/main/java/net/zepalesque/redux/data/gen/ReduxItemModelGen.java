@@ -44,7 +44,7 @@ public class ReduxItemModelGen extends ReduxItemModelProvider {
         this.itemOverlayColumn(ReduxBlocks.BOSS_DOORWAY_SENTRY_STONE_PILLAR.get(), ReduxBlocks.SENTRY_STONE_PILLAR.get(), "dungeon/door", "dungeon/");
 
         this.itemBlock(ReduxBlocks.RUNELIGHT.get(), "_on");
-        this.itemOverlayDungeonBlock(ReduxBlocks.LOCKED_RUNELIGHT.get(), ReduxBlocks.RUNELIGHT.get(), "dungeon/lock", "dungeon/", "_on");
+        this.itemOverlayDungeonBlock(ReduxBlocks.LOCKED_RUNELIGHT.get(), ReduxBlocks.RUNELIGHT.get(), "lock", "dungeon/", "_on");
         this.itemOverlayDungeonBlock(ReduxBlocks.LOCKED_SENTRITE_BRICKS.get(), ReduxStoneSets.SENTRITE_BRICKS.block().get(), "lock", "construction/");
     }
 
