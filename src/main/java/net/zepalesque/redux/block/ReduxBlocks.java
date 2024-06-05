@@ -94,12 +94,11 @@ public class ReduxBlocks extends ReduxBlockBuilders {
             ));
 
     public static final DeferredBlock<Block> LOCKED_SENTRITE_BRICKS = register("locked_sentrite_bricks", () ->
-            new RunelightBlock(Properties.of()
+            new Block(Properties.of()
                     .mapColor(MapColor.DEEPSLATE)
                     .strength(-1.0F, 3600000.0F)
                     .sound(SoundType.NETHER_BRICKS)
-                    .instrument(NoteBlockInstrument.BASEDRUM),
-                    true
+                    .instrument(NoteBlockInstrument.BASEDRUM)
             ));
 
     public static void registerFlammability() {
