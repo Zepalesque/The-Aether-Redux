@@ -1,4 +1,4 @@
-// 1.20.1	2024-06-05T09:29:47.6255122	Registries
+// 1.20.1	2024-06-05T09:49:57.4459854	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 94d997b0a87f23900f66f9a9e2485391b6ff8e38 data/aether/worldgen/configured_feature/golden_oak_tree.json
 875593e37a52dd63b2d87226b0f0e5e76ef48247 data/aether/worldgen/configured_feature/grass_patch.json
@@ -60,7 +60,7 @@ bf31aac0ec63c74970e7f5450582a0f4c3b7330e data/aether_redux/forge/biome_modifier/
 e63556ef7bce5889d67fa480d3219e38ef341d96 data/aether_redux/worldgen/biome/cloudcaps.json
 66baa0b3bc1aff8c3710d50458ffa189bb7439b8 data/aether_redux/worldgen/biome/frosted_forests.json
 7a544589dc79beb3697d15cdd492f41532d5a3ed data/aether_redux/worldgen/biome/gilded_grasslands.json
-927ed7d3f90907d0493b80ab3f32a503945dfab9 data/aether_redux/worldgen/biome/gilded_groves.json
+78c72108b44cdec6621cf16de9b09f242c0c9b96 data/aether_redux/worldgen/biome/gilded_groves.json
 6ea7132cabda2c441c8ea07443c76520ebcc1fa1 data/aether_redux/worldgen/biome/glacial_tundra.json
 cbe4e99346ffc90325e5cdc2f7e1b52e18f44f3a data/aether_redux/worldgen/biome/skyfields.json
 4eeb45f9fd8626b64b6ec27602ff461d1fd3c8ec data/aether_redux/worldgen/biome/skyroot_shrublands.json
