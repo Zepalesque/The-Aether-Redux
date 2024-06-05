@@ -35,8 +35,6 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
         this.add(ReduxBlocks.CLOUDROOT_LEAVES.get(),
                 (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.CLOUDROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
 
-
-
         this.dropSelf(ReduxBlocks.CARVED_STONE_PILLAR.get());
         this.dropSelf(ReduxBlocks.SENTRY_STONE_PILLAR.get());
         this.dropSelf(ReduxBlocks.CARVED_STONE_BASE.get());
@@ -57,6 +55,8 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
         this.dropNone(ReduxBlocks.BOSS_DOORWAY_CARVED_STONE_BASE.get());
         this.dropNone(ReduxBlocks.BOSS_DOORWAY_SENTRY_STONE_BASE.get());
 
+        this.dropSelf(ReduxBlocks.RUNELIGHT.get());
+        this.dropNone(ReduxBlocks.LOCKED_RUNELIGHT.get());
     }
 
     @Override

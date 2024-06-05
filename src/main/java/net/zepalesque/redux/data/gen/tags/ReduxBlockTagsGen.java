@@ -50,19 +50,23 @@ public class ReduxBlockTagsGen extends ReduxBlockTagsProvider {
                 ReduxBlocks.BOSS_DOORWAY_CARVED_STONE_PILLAR.get(),
                 ReduxBlocks.BOSS_DOORWAY_SENTRY_STONE_PILLAR.get(),
                 ReduxBlocks.BOSS_DOORWAY_CARVED_STONE_BASE.get(),
-                ReduxBlocks.BOSS_DOORWAY_SENTRY_STONE_BASE.get()
+                ReduxBlocks.BOSS_DOORWAY_SENTRY_STONE_BASE.get(),
+                ReduxBlocks.RUNELIGHT.get(),
+                ReduxBlocks.LOCKED_RUNELIGHT.get()
         );
         this.tag(AetherTags.Blocks.LOCKED_DUNGEON_BLOCKS).add(
                 ReduxBlocks.LOCKED_CARVED_STONE_PILLAR.get(),
                 ReduxBlocks.LOCKED_SENTRY_STONE_PILLAR.get(),
                 ReduxBlocks.LOCKED_CARVED_STONE_BASE.get(),
-                ReduxBlocks.LOCKED_SENTRY_STONE_BASE.get()
+                ReduxBlocks.LOCKED_SENTRY_STONE_BASE.get(),
+                ReduxBlocks.LOCKED_RUNELIGHT.get()
         );
         this.tag(AetherTags.Blocks.DUNGEON_BLOCKS).add(
                 ReduxBlocks.CARVED_STONE_PILLAR.get(),
                 ReduxBlocks.SENTRY_STONE_PILLAR.get(),
                 ReduxBlocks.CARVED_STONE_BASE.get(),
-                ReduxBlocks.SENTRY_STONE_BASE.get()
+                ReduxBlocks.SENTRY_STONE_BASE.get(),
+                ReduxBlocks.RUNELIGHT.get()
         );
         this.tag(AetherTags.Blocks.TRAPPED_DUNGEON_BLOCKS).add(
                 ReduxBlocks.TRAPPED_CARVED_STONE_PILLAR.get(),
@@ -82,14 +86,16 @@ public class ReduxBlockTagsGen extends ReduxBlockTagsProvider {
                 ReduxBlocks.CARVED_STONE_PILLAR.get(),
                 ReduxBlocks.SENTRY_STONE_PILLAR.get(),
                 ReduxBlocks.CARVED_STONE_BASE.get(),
-                ReduxBlocks.SENTRY_STONE_BASE.get()
+                ReduxBlocks.SENTRY_STONE_BASE.get(),
+                ReduxBlocks.RUNELIGHT.get()
         );
 
         this.tag(BlockTags.NEEDS_STONE_TOOL).add(
                 ReduxBlocks.CARVED_STONE_PILLAR.get(),
                 ReduxBlocks.SENTRY_STONE_PILLAR.get(),
                 ReduxBlocks.CARVED_STONE_BASE.get(),
-                ReduxBlocks.SENTRY_STONE_BASE.get()
+                ReduxBlocks.SENTRY_STONE_BASE.get(),
+                ReduxBlocks.RUNELIGHT.get()
         );
 
     }
