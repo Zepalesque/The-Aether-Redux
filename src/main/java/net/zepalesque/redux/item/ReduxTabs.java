@@ -11,6 +11,7 @@ import net.neoforged.fml.common.Mod.EventBusSubscriber.Bus;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
 import net.zepalesque.zenith.api.blockset.AbstractStoneSet;
 import net.zepalesque.zenith.api.blockset.AbstractWoodSet;
 import net.zepalesque.zenith.util.TabUtil;
@@ -64,6 +65,12 @@ public class ReduxTabs {
 
             TabUtil.putAfter(AetherBlocks.BOSS_DOORWAY_SENTRY_STONE, ReduxBlocks.BOSS_DOORWAY_SENTRY_STONE_BASE, event);
             TabUtil.putAfter(ReduxBlocks.BOSS_DOORWAY_SENTRY_STONE_BASE, ReduxBlocks.BOSS_DOORWAY_SENTRY_STONE_PILLAR, event);
+
+            TabUtil.putAfter(ReduxBlocks.BOSS_DOORWAY_SENTRY_STONE_PILLAR, ReduxStoneSets.SENTRITE_BRICKS.block(), event);
+            TabUtil.putAfter(ReduxStoneSets.SENTRITE_BRICKS.block(), ReduxBlocks.LOCKED_SENTRITE_BRICKS, event);
+
+            TabUtil.putAfter(ReduxBlocks.LOCKED_SENTRITE_BRICKS, ReduxBlocks.RUNELIGHT, event);
+            TabUtil.putAfter(ReduxBlocks.RUNELIGHT, ReduxBlocks.LOCKED_RUNELIGHT, event);
         }
     }
 }

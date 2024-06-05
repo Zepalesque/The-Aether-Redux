@@ -5,6 +5,7 @@ import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
 import net.zepalesque.redux.data.prov.ReduxItemModelProvider;
 
 public class ReduxItemModelGen extends ReduxItemModelProvider {
@@ -43,7 +44,8 @@ public class ReduxItemModelGen extends ReduxItemModelProvider {
         this.itemOverlayColumn(ReduxBlocks.BOSS_DOORWAY_SENTRY_STONE_PILLAR.get(), ReduxBlocks.SENTRY_STONE_PILLAR.get(), "dungeon/door", "dungeon/");
 
         this.itemBlock(ReduxBlocks.RUNELIGHT.get(), "_on");
-        this.itemOverlayDungeonBlock(ReduxBlocks.LOCKED_RUNELIGHT.get(), ReduxBlocks.RUNELIGHT.get(), "_on");
+        this.itemOverlayDungeonBlock(ReduxBlocks.LOCKED_RUNELIGHT.get(), ReduxBlocks.RUNELIGHT.get(), "dungeon/lock", "_on");
+        this.itemOverlayDungeonBlock(ReduxBlocks.LOCKED_SENTRITE_BRICKS.get(), ReduxStoneSets.SENTRITE_BRICKS.block().get(), "dungeon/lock");
     }
 
 }

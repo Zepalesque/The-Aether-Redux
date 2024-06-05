@@ -170,4 +170,9 @@ public abstract class ReduxBlockStateProvider extends AetherBlockStateProvider {
                 .partialState().with(BaseLitBlock.LIT, true).modelForState().modelFile(on).addModel()
                 .partialState().with(BaseLitBlock.LIT, false).modelForState().modelFile(off).addModel();
     }
+
+    public void dungeonBlock(Block block, Block baseBlock, String location) {
+        ConfiguredModel dungeonBlock = new ConfiguredModel(this.models().cubeAll(this.name(baseBlock), this.texture(this.name(baseBlock), location)));
+        this.getVariantBuilder(block).partialState().setModels(dungeonBlock);
+    }
 }

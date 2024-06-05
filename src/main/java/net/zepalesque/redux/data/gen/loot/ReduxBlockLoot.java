@@ -57,6 +57,7 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
 
         this.dropSelf(ReduxBlocks.RUNELIGHT.get());
         this.dropNone(ReduxBlocks.LOCKED_RUNELIGHT.get());
+        this.dropNone(ReduxBlocks.LOCKED_SENTRITE_BRICKS.get());
     }
 
     @Override

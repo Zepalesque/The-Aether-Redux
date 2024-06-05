@@ -52,14 +52,16 @@ public class ReduxBlockTagsGen extends ReduxBlockTagsProvider {
                 ReduxBlocks.BOSS_DOORWAY_CARVED_STONE_BASE.get(),
                 ReduxBlocks.BOSS_DOORWAY_SENTRY_STONE_BASE.get(),
                 ReduxBlocks.RUNELIGHT.get(),
-                ReduxBlocks.LOCKED_RUNELIGHT.get()
+                ReduxBlocks.LOCKED_RUNELIGHT.get(),
+                ReduxBlocks.LOCKED_SENTRITE_BRICKS.get()
         );
         this.tag(AetherTags.Blocks.LOCKED_DUNGEON_BLOCKS).add(
                 ReduxBlocks.LOCKED_CARVED_STONE_PILLAR.get(),
                 ReduxBlocks.LOCKED_SENTRY_STONE_PILLAR.get(),
                 ReduxBlocks.LOCKED_CARVED_STONE_BASE.get(),
                 ReduxBlocks.LOCKED_SENTRY_STONE_BASE.get(),
-                ReduxBlocks.LOCKED_RUNELIGHT.get()
+                ReduxBlocks.LOCKED_RUNELIGHT.get(),
+                ReduxBlocks.LOCKED_SENTRITE_BRICKS.get()
         );
         this.tag(AetherTags.Blocks.DUNGEON_BLOCKS).add(
                 ReduxBlocks.CARVED_STONE_PILLAR.get(),

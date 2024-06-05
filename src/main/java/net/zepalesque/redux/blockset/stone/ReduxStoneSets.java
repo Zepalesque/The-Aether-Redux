@@ -1,5 +1,6 @@
 package net.zepalesque.redux.blockset.stone;
 
+import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.item.AetherCreativeTabs;
 import net.minecraft.tags.BlockTags;
@@ -33,7 +34,10 @@ public class ReduxStoneSets {
     public static final BaseStoneSet SENTRITE_BRICKS = register(new BrickStoneSet("sentrite_brick", MapColor.DEEPSLATE, SoundType.NETHER_BRICKS, 1.0F, 6.0F, "construction/",
             "Bricks made of Sentrite. These can be used as a nice building block!"))
             .creativeTab(AetherCreativeTabs.AETHER_BUILDING_BLOCKS, () -> ReduxStoneSets.SENTRITE.wall().get(), true)
-            .withTag(BlockTags.MINEABLE_WITH_PICKAXE, true);
+            .withTag(BlockTags.MINEABLE_WITH_PICKAXE, true)
+            .withTag(AetherTags.Blocks.DUNGEON_BLOCKS, false)
+            .withTag(AetherTags.Blocks.SENTRY_BLOCKS, false)
+            .withItemTag(AetherTags.Items.SENTRY_BLOCKS, false);
 
     public static final BaseStoneSet GILDED_HOLYSTONE = register(new BaseStoneSet("gilded_holystone", MapColor.SAND, SoundType.STONE, 0.5F, 0.5F, "natural/",
             "The enchanted form of Mossy Holystone. This rock covered in golden moss glitters in the sunlight."))

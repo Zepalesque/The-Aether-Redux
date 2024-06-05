@@ -7,6 +7,7 @@ import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
 import net.zepalesque.redux.data.prov.ReduxBlockStateProvider;
 
 public class ReduxBlockStateGen extends ReduxBlockStateProvider {
@@ -47,6 +48,8 @@ public class ReduxBlockStateGen extends ReduxBlockStateProvider {
 
         this.cubeActivatable(ReduxBlocks.RUNELIGHT.get(), "dungeon/");
         this.cubeActivatable(ReduxBlocks.LOCKED_RUNELIGHT.get(), ReduxBlocks.RUNELIGHT.get(), "dungeon/");
+
+        this.dungeonBlock(ReduxBlocks.LOCKED_SENTRITE_BRICKS.get(), ReduxStoneSets.SENTRITE_BRICKS.block().get(), "construction/");
 
     }
 }
