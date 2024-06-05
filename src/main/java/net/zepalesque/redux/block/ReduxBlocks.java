@@ -83,7 +83,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
                     false
             ));
 
-    public static final DeferredBlock<Block> LOCKED_RUNELIGHT = register("runelight", () ->
+    public static final DeferredBlock<Block> LOCKED_RUNELIGHT = register("locked_runelight", () ->
             new RunelightBlock(Properties.of()
                     .mapColor(state -> state.getValue(BaseLitBlock.LIT) ? MapColor.COLOR_LIGHT_BLUE : MapColor.LAPIS)
                     .lightLevel(state -> state.getValue(BaseLitBlock.LIT) ? 13 : 1)
