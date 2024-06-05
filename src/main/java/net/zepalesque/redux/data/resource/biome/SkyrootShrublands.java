@@ -29,8 +29,8 @@ public class SkyrootShrublands {
                 .downfall(0.0F)
                 .specialEffects(
         new BiomeSpecialEffects.Builder()
-                .skyColor(0xB6BFDB)
-                .fogColor(0x9D0DBED)
+                .skyColor(0xACC9E6)
+                .fogColor(0xCEDDEB)
                 .waterColor(0x3f_76_e4)
                 .waterFogColor(0x05_05_33)
                 .grassColorOverride(0xb1_ff_cb)
