@@ -160,8 +160,12 @@ public abstract class ReduxBlockStateProvider extends AetherBlockStateProvider {
     }
 
     public void cubeActivatable(Block block, String location) {
-        ModelFile off = this.models().cubeAll(this.name(block), this.texture(this.name(block), location));
-        ModelFile on = this.models().cubeAll(this.name(block) + "_on", this.texture(this.name(block) + "_on", location));
+        this.cubeActivatable(block, block, location);
+    }
+
+    public void cubeActivatable(Block block, Block other, String location) {
+        ModelFile off = this.models().cubeAll(this.name(other), this.texture(this.name(other), location));
+        ModelFile on = this.models().cubeAll(this.name(other) + "_on", this.texture(this.name(other) + "_on", location));
         this.getVariantBuilder(block)
                 .partialState().with(BaseLitBlock.LIT, true).modelForState().modelFile(on).addModel()
                 .partialState().with(BaseLitBlock.LIT, false).modelForState().modelFile(off).addModel();
