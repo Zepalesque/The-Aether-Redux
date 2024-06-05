@@ -30,8 +30,8 @@ public class Cloudcaps {
                 .downfall(0.0F)
                 .specialEffects(
         new BiomeSpecialEffects.Builder()
-                .skyColor(0xc0_c0_ff)
-                .fogColor(0x93_93_bc)
+                .skyColor(0x8BA2E5)
+                .fogColor(0xC2CCE8)
                 .waterColor(0x5271A5)
                 .waterFogColor(0x0C1333)
                 .grassColorOverride(0xb1_ff_cb)

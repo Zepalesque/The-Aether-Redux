@@ -29,8 +29,8 @@ public class Blight {
                 .downfall(0.0F)
                 .specialEffects(
         new BiomeSpecialEffects.Builder()
-                .skyColor(0xA89DDB)
-                .fogColor(0xBCBCE2)
+                .skyColor(0x938CD3)
+                .fogColor(0xBCAADD)
                 .waterColor(4607385)
                 .waterFogColor(723770)
                 .grassColorOverride(0xb1_ff_cb)
