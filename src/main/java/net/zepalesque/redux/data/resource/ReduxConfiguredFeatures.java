@@ -436,7 +436,7 @@ public class ReduxConfiguredFeatures {
                         prov(AetherBlocks.GOLDEN_OAK_LEAVES),
                         new FancyFoliagePlacer(ConstantInt.of(2), ConstantInt.of(4), 4),
                         new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(10))
-                ).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT))
+                ).ignoreVines()
                         .decorators(Arrays.asList(
                                 new EnchantedVineDecorator(0.5F, 0.75F,
                                         prov(ReduxBlocks.GOLDEN_VINES_PLANT),
@@ -469,7 +469,7 @@ public class ReduxConfiguredFeatures {
                         new StraightTrunkPlacer(9, 10, 0),
                         prov(ReduxBlocks.GLACIA_LEAVES),
                         new GlaciaFoliagePlacer(ConstantInt.of(1), ConstantInt.of(0), ConstantInt.of(1)),
-                        new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT)).build());
+                        new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
 
         register(context, CRYSTAL_LEAF_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
@@ -477,7 +477,7 @@ public class ReduxConfiguredFeatures {
                         new CrystalTreeTrunkPlacer(7, 0, 0),
                         prov(AetherBlocks.CRYSTAL_LEAVES),
                         new CrystalFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0), ConstantInt.of(6)),
-                        new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT)).build());
+                        new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
 
         register(context, CRYSTAL_RARE_FRUIT_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
@@ -487,7 +487,7 @@ public class ReduxConfiguredFeatures {
                                 .add(AetherFeatureStates.CRYSTAL_LEAVES, 9)
                                 .add(AetherFeatureStates.CRYSTAL_FRUIT_LEAVES, 1)),
                         new CrystalFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0), ConstantInt.of(6)),
-                        new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT)).build());
+                        new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
 
         register(context, LIGHTROOTS, Feature.MULTIFACE_GROWTH,
                 new MultifaceGrowthConfiguration(ReduxBlocks.LIGHTROOTS.get(),
@@ -500,7 +500,7 @@ public class ReduxConfiguredFeatures {
                         new StraightTrunkPlacer(5, 2, 0),
                         prov(ReduxBlocks.PURPLE_GLACIA_LEAVES),
                         new GlaciaFoliagePlacer(ConstantInt.of(1), ConstantInt.of(0), ConstantInt.of(1)),
-                        new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT)).build());
+                        new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
 
 
         register(context, GLOWSPROUTS_PATCH, Feature.FLOWER,
@@ -591,7 +591,7 @@ public class ReduxConfiguredFeatures {
                 prov(AetherFeatureStates.SKYROOT_LEAVES),
                 new BushFoliagePlacer(ConstantInt.of(2), ConstantInt.of(1), 2),
                 new TwoLayersFeatureSize(0, 0, 0)
-        ).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT)).build());
+        ).ignoreVines().build());
 
 
         register(context, SURFACE_RULE_WATER_LAKE, ReduxFeatures.SURFACE_RULE_LAKE.get(),
