@@ -3,7 +3,7 @@
   "biomes": "#aether_redux:has_redux_sky_color",
   "condition": {
     "condition": "aether_redux:redux_config",
-    "config_path": "[Worldgen, Biomes, Alternate Sky Color]"
+    "config_path": "[Worldgen, Biomes, Alternate Sky Colors]"
   },
   "predicate": {
     "fog": 9671612,
