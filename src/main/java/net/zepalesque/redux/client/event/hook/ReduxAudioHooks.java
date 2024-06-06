@@ -43,8 +43,8 @@ public class ReduxAudioHooks {
             return false;
         }
         Minecraft mc = Minecraft.getInstance();
-        // If the player is null, we won't be able to check the biome anyway, so it's highly unlikely to be an overlapping aether track. Do not cancel.
-        if (mc.player == null) {
+        // If the player or level is null, we won't be able to check the biome anyway, so it's highly unlikely to be an overlapping aether track. Do not cancel.
+        if (mc.player == null || mc.level == null) {
             return false;
         }
         Optional<Holder<SoundEvent>> optional = ForgeRegistries.SOUND_EVENTS.getHolder(instance.getLocation());
@@ -73,8 +73,9 @@ public class ReduxAudioHooks {
                 else if (isCurrentTrack(instance)) {
                     return false;
                 }
-
             }
+        } else {
+            return false;
         }
         Redux.LOGGER.info("Caught potential overlapping music track attempting to play in the Aether! Sound ID: {}", instance.getLocation());
         Redux.LOGGER.info("If this was logged halfway through the music track playing and cancelled it, this is an issue, please report it to the Aether: Redux's issue tracker.");
