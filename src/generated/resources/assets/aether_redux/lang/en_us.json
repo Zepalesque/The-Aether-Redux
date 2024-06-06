@@ -107,6 +107,8 @@
   "lore.block.aether_redux.stripped_crystal_wood_wall": "Crafted from Stripped Crystal _wood. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!",
   "lore.item.aether_redux.crystal_boat": "Crafted from Crystal Planks. While the Aether does not have many large bodies of water, a boat can occasionally be a useful tool for crossing large distances over ice!",
   "lore.item.aether_redux.crystal_chest_boat": "ACrystal Boat with a handy chest in the back. Helpful for transporting more items over long stretches of water, which are famously difficult to find in the Aether.",
+  "pack.aether_redux.bronze_upgrade.description": "Configurable in config/aether_redux/server.toml",
+  "pack.aether_redux.bronze_upgrade.title": "Redux - Bronze Dungeon Upgrade",
   "pack.aether_redux.mod.description": "The Aether: Redux Resources",
   "pack.aether_redux.tintable_grass.description": "Grass tint textures for the Aether: Redux",
   "pack.aether_redux.tintable_grass.title": "Redux - Tintable Grass"
