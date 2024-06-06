@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.At;
 public class BronzeDungeonMixin {
 
     @WrapOperation(method = "makeSettings", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/levelgen/structure/templatesystem/StructurePlaceSettings;<init>()V"))
-    static StructurePlaceSettings redux$makeSettings(Operation<StructurePlaceSettings> original) {
+    private static StructurePlaceSettings redux$makeSettings(Operation<StructurePlaceSettings> original) {
         return original.call().addProcessor(ReduxDungeonProcessors.BRONZE_BLOCKS).addProcessor(ReduxDungeonProcessors.BRONZE_TRAPS);
     }
 }
