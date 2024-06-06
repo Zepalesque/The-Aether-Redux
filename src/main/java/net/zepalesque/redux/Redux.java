@@ -1,7 +1,5 @@
 package net.zepalesque.redux;
 
-import com.aetherteam.aether.Aether;
-import com.aetherteam.aether.data.generators.AetherDataMapData;
 import com.mojang.logging.LogUtils;
 import net.minecraft.DetectedVersion;
 import net.minecraft.SharedConstants;
@@ -159,21 +157,42 @@ public class Redux {
 
         if (event.getPackType() == PackType.CLIENT_RESOURCES) {
             Path resourcePath = ModList.get().getModFileById(MODID).getFile().findResource("packs/resource/tintable_grass");
-            PackMetadataSection metadata = new PackMetadataSection(Component.translatable("pack.aether_redux.tintable_grass.description"), SharedConstants.getCurrentVersion().getPackVersion(PackType.CLIENT_RESOURCES));
+            PackMetadataSection metadata = new PackMetadataSection(Component.translatable("pack.aether_redux.tintable_grass.description"),
+                    SharedConstants.getCurrentVersion().getPackVersion(PackType.CLIENT_RESOURCES));
             event.addRepositorySource((source) ->
                     source.accept(Pack.create(
                             "builtin/redux/resource/tintable_grass",
-                            Component.translatable("pack.aether_redux.tintable_grass"),
+                            Component.translatable("pack.aether_redux.tintable_grass.title"),
                             false,
                             new PathPackResources.PathResourcesSupplier(resourcePath, true),
                             new Pack.Info(metadata.description(), PackCompatibility.COMPATIBLE, FeatureFlagSet.of(), List.of(), false),
                             Pack.Position.TOP,
                             false,
                             PackSource.BUILT_IN)
-                    )
-            );
+                    ));
+        } else if (event.getPackType() == PackType.SERVER_DATA) {
+            if (ReduxConfig.SERVER.bronze_dungeon_upgrade.get()) { requiredDatapack(event, "dungeon_upgrades/bronze", "bronze_upgrade"); }
         }
-}
+    }
+
+    private void requiredDatapack(AddPackFindersEvent event, String path, String id) {
+        if (event.getPackType() == PackType.SERVER_DATA) {
+            Path resourcePath = ModList.get().getModFileById(MODID).getFile().findResource("packs/data/" + path);
+            PackMetadataSection metadata = new PackMetadataSection(Component.translatable("pack.aether_redux." + id + ".description"),
+                    SharedConstants.getCurrentVersion().getPackVersion(PackType.SERVER_DATA));
+            event.addRepositorySource((source) ->
+                source.accept(Pack.create(
+                        "builtin/redux/data/" + path,
+                        Component.translatable("pack.aether_redux." + id + ".title"),
+                        true,
+                        new PathPackResources.PathResourcesSupplier(resourcePath, true),
+                        new Pack.Info(metadata.description(), PackCompatibility.COMPATIBLE, FeatureFlagSet.of(), List.of(), false),
+                        Pack.Position.TOP,
+                        false,
+                        PackSource.BUILT_IN)
+                ));
+        }
+    }
 
     public static ResourceLocation loc(String path) {
         return new ResourceLocation(MODID, path);

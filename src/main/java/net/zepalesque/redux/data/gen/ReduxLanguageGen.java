@@ -58,5 +58,8 @@ public class ReduxLanguageGen extends ReduxLanguageProvider {
         this.addPackDescription("mod", "The Aether: Redux Resources");
         this.addPackTitle("tintable_grass", "Redux - Tintable Grass");
         this.addPackDescription("tintable_grass", "Grass tint textures for the Aether: Redux");
+
+        this.addPackTitle("bronze_upgrade", "Redux - Bronze Dungeon Upgrade");
+        this.addPackDescription("bronze_upgrade", "Configurable in config/aether_redux/server.toml");
     }
 }
