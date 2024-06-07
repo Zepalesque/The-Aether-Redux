@@ -124,7 +124,7 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
             () -> new HolysiltBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).strength(0.5F).sound(SoundType.SAND)));
 
     public static RegistryObject<AetherShortGrassBlock> SHORT_AETHER_GRASS = register("short_aether_grass",
-                () -> new AetherShortGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).hasPostProcess(ReduxBlocks::always)));
+                () -> new AetherShortGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).hasPostProcess(ReduxBlocks::always)));
 
     public static RegistryObject<Block> AVELIUM = register("avelium",
             () -> new AveliumBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_LIGHT_BLUE).randomTicks().strength(0.2F).sound(SoundType.ROOTED_DIRT)));
