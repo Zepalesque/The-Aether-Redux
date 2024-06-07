@@ -171,7 +171,7 @@ public class Redux {
                             PackSource.BUILT_IN)
                     ));
         } else if (event.getPackType() == PackType.SERVER_DATA) {
-            if (ReduxConfig.SERVER.bronze_dungeon_upgrade.get()) { requiredDatapack(event, "dungeon_upgrades/bronze", "bronze_upgrade"); }
+            if (ReduxConfig.COMMON.bronze_dungeon_upgrade.get()) { requiredDatapack(event, "dungeon_upgrades/bronze", "bronze_upgrade"); }
         }
     }
 
