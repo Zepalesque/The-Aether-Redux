@@ -11,12 +11,14 @@ import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.client.model.generators.ModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.construction.BaseLitBlock;
 import net.zepalesque.redux.block.construction.LayeredBookshelfBlock;
 import net.zepalesque.redux.block.natural.AetherShortGrassBlock;
@@ -174,5 +176,44 @@ public abstract class ReduxBlockStateProvider extends AetherBlockStateProvider {
     public void dungeonBlock(Block block, Block baseBlock, String location) {
         ConfiguredModel dungeonBlock = new ConfiguredModel(this.models().cubeAll(this.name(baseBlock), this.texture(this.name(baseBlock), location)));
         this.getVariantBuilder(block).partialState().setModels(dungeonBlock);
+    }
+
+    // Cross blocks
+    public void crossGlowOverlay(Block block, String location) {
+        BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.loc(ModelProvider.BLOCK_FOLDER + "/cross/cross_glowing_overlay"))
+                .texture("cross", this.texture(this.name(block), location))
+                .texture("overlay", this.texture(this.name(block) + "_glow", location)).renderType("cutout");
+        this.crossBlock(block, cross);
+    }
+
+    public void crossTintedGlow(Block block, String location) {
+        BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.loc(ModelProvider.BLOCK_FOLDER + "/cross/cross_tinted_glow"))
+                .texture("cross", this.texture(this.name(block), location))
+                .texture("overlay", this.texture(this.name(block) + "_glow", location)).renderType("cutout");
+        this.crossBlock(block, cross);
+    }
+
+    public void crossTintedDualGloverlay(Block block, String location, boolean useGlowForParticle) {
+        BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.loc(ModelProvider.BLOCK_FOLDER + "/cross/cross_tinted_gloverlay_" + (useGlowForParticle ? "glow" : "overlay")))
+                .texture("cross", this.texture(this.name(block), location))
+                .texture("glow", this.texture(this.name(block) + "_glow", location)).renderType("cutout")
+                .texture("overlay", this.texture(this.name(block) + "_overlay", location)).renderType("cutout");
+        this.crossBlock(block, cross);
+    }
+    public void crossTintedOverlay(Block block, String location) {
+        BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.loc(ModelProvider.BLOCK_FOLDER + "/cross/cross_tinted_overlay"))
+                .texture("cross", this.texture(this.name(block), location))
+                .texture("overlay", this.texture(this.name(block) + "_overlay", location)).renderType("cutout");
+        this.crossBlock(block, cross);
+    }
+
+    // Crop blocks
+    public void cropGrowable(Block block, String location, IntegerProperty ageProperty) {
+        this.getVariantBuilder(block).forAllStates((state) -> {
+            int stage = state.getValue(ageProperty);
+            BlockModelBuilder cross = models().withExistingParent(this.name(block) + "_stage" + stage, Redux.loc(ModelProvider.BLOCK_FOLDER + "/crop/crop_lowered"))
+                    .texture("plant", this.texture(this.name(block) + "_stage" + stage, location)).renderType("cutout");
+            return ConfiguredModel.builder().modelFile(cross).build();
+        });
     }
 }

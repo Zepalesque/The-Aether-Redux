@@ -3,6 +3,7 @@ package net.zepalesque.redux.block;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.dungeon.DoorwayBlock;
 import com.aetherteam.aether.block.dungeon.TrappedBlock;
+import com.aetherteam.aether.block.natural.AetherBushBlock;
 import com.aetherteam.aether.block.natural.LeavesWithParticlesBlock;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.google.common.base.Supplier;
@@ -10,6 +11,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.SoundType;
@@ -17,6 +19,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.zepalesque.redux.Redux;
@@ -25,6 +28,7 @@ import net.zepalesque.redux.block.dungeon.DoorwayPillarBlock;
 import net.zepalesque.redux.block.dungeon.RunelightBlock;
 import net.zepalesque.redux.block.dungeon.TrappedPillarBlock;
 import net.zepalesque.redux.block.natural.AetherShortGrassBlock;
+import net.zepalesque.redux.block.natural.crop.WyndGrassBlock;
 import net.zepalesque.redux.block.natural.leaves.FallingLeavesBlock;
 import net.zepalesque.redux.block.state.ReduxBlockBuilders;
 import net.zepalesque.redux.client.particle.ReduxParticles;
@@ -42,6 +46,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
     public static DeferredBlock<AetherShortGrassBlock> SHORT_AETHER_GRASS = register("short_aether_grass",
             () -> new AetherShortGrassBlock(
                     Properties.ofFullCopy(Blocks.SHORT_GRASS)
+                            .offsetType(BlockBehaviour.OffsetType.XZ)
                             .hasPostProcess((state, level, pos) -> true)
             ));
 
@@ -100,6 +105,20 @@ public class ReduxBlocks extends ReduxBlockBuilders {
                     .sound(SoundType.NETHER_BRICKS)
                     .instrument(NoteBlockInstrument.BASEDRUM)
             ));
+
+    // TODO: Automate pot creation
+
+    public static DeferredBlock<Block> WYNDSPROUTS = register("wyndsprouts",
+            () -> new AetherBushBlock(Properties.ofFullCopy(Blocks.SHORT_GRASS).sound(SoundType.CHERRY_SAPLING).offsetType(BlockBehaviour.OffsetType.XZ)));
+    public static final DeferredBlock<FlowerPotBlock> POTTED_WYNDSPROUTS = BLOCKS.register("potted_wyndsprouts", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, WYNDSPROUTS, Properties.ofFullCopy(Blocks.FLOWER_POT)));
+
+    public static DeferredBlock<Block> WYND_GRASS = BLOCKS.register("wynd_grass",
+            () -> new WyndGrassBlock(Properties.ofFullCopy(Blocks.WHEAT)));
+
+    public static DeferredBlock<Block> SKYSPROUTS = register("skysprouts",
+            () -> new AetherBushBlock(Properties.ofFullCopy(Blocks.SHORT_GRASS).sound(SoundType.CHERRY_SAPLING).offsetType(BlockBehaviour.OffsetType.XZ)));
+    public static final DeferredBlock<FlowerPotBlock> POTTED_SKYSPROUTS = BLOCKS.register("potted_skysprouts", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SKYSPROUTS, Properties.ofFullCopy(Blocks.FLOWER_POT)));
+
 
     public static void registerFlammability() {
         FireAccessor accessor = (FireAccessor) Blocks.FIRE;
