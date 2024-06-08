@@ -73,6 +73,9 @@ public class ReduxBiomes {
             .put(SKYFIELDS, SKYFIELDS_GRASS_COLOR)
             .put(CLOUDCAPS, CLOUDCAP_GRASS_COLOR)
             .put(SKYROOT_SHRUBLANDS, SHRUBLANDS_GRASS_COLOR)
+            .put(AetherBiomes.SKYROOT_FOREST, 0xA2F2BC)
+            .put(AetherBiomes.SKYROOT_WOODLAND, 0x96E8B0)
+            .put(AetherBiomes.SKYROOT_MEADOW, 0xBAFFCB)
             .build();
 
 
