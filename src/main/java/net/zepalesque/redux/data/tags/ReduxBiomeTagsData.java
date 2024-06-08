@@ -4,6 +4,7 @@ import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.data.resources.registries.AetherBiomes;
 import com.aetherteam.aether_genesis.data.resources.registries.GenesisBiomes;
+import net.builderdog.ancient_aether.data.resources.registries.AncientAetherBiomes;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.BiomeTagsProvider;
@@ -77,9 +78,44 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
         this.tag(ReduxTags.Biomes.HAS_DIVINITE).addTag(AetherTags.Biomes.IS_AETHER).remove(ReduxTags.Biomes.IS_GILDED);
         this.tag(ReduxTags.Biomes.HAS_SENTRITE).addTag(AetherTags.Biomes.IS_AETHER).remove(ReduxTags.Biomes.IS_GILDED);
         this.tag(ReduxTags.Biomes.HAS_REDUX_WATER_COLOR).addTag(AetherTags.Biomes.IS_AETHER);
-        this.tag(ReduxTags.Biomes.REDUX_SKY_COLOR_IS_BASE).add(
-                ReduxBiomes.GILDED_GROVES
-        );
+        this.tag(ReduxTags.Biomes.REDUX_SKY_COLOR_IS_BASE)
+                .add(ReduxBiomes.GILDED_GROVES)
+                .addOptional(AncientAetherBiomes.FROZEN_CAVERNS.location())
+                .addOptional(AncientAetherBiomes.FESTIVE_WYNDCAP_TAIGA.location())
+                .addOptional(AncientAetherBiomes.WYNDCAP_HIGHLAND.location())
+                .addOptional(AncientAetherBiomes.WYNDCAP_PEAKS.location())
+                .addOptional(AncientAetherBiomes.WYNDCAP_TAIGA.location())
+                .addOptional(AncientAetherBiomes.SAKURA_JUNGLE.location())
+                .addOptional(AncientAetherBiomes.SKYROOT_JUNGLE.location()).addOptional(AncientAetherBiomes.ELEVATED_CAVERNS.location())
+                .addOptional(AncientAetherBiomes.ELEVATED_CLEARING.location())
+                .addOptional(AncientAetherBiomes.ELEVATED_FOREST.location())
+                .addOptional(DABiomes.AERGLOW_FOREST.location())
+                .addOptional(DABiomes.BLUE_AERGLOW_FOREST.location())
+                .addOptional(DABiomes.MYSTIC_AERGLOW_FOREST.location());
+
+        this.tag(ReduxTags.Biomes.HAS_REDUX_FROSTED_SKY_COLOR)
+                .addOptional(AncientAetherBiomes.FROZEN_CAVERNS.location())
+                .addOptional(AncientAetherBiomes.FESTIVE_WYNDCAP_TAIGA.location())
+                .addOptional(AncientAetherBiomes.WYNDCAP_HIGHLAND.location())
+                .addOptional(AncientAetherBiomes.WYNDCAP_PEAKS.location())
+                .addOptional(AncientAetherBiomes.WYNDCAP_TAIGA.location());
+
+        this.tag(ReduxTags.Biomes.HAS_REDUX_SHRUBLANDS_SKY_COLOR)
+                .addOptional(AncientAetherBiomes.SAKURA_JUNGLE.location())
+                .addOptional(AncientAetherBiomes.SKYROOT_JUNGLE.location());
+
+        this.tag(ReduxTags.Biomes.HAS_REDUX_SKYFIELDS_SKY_COLOR)
+                .addOptional(AncientAetherBiomes.ELEVATED_CAVERNS.location())
+                .addOptional(AncientAetherBiomes.ELEVATED_CLEARING.location())
+                .addOptional(AncientAetherBiomes.ELEVATED_FOREST.location())
+                .addOptional(DABiomes.AERGLOW_FOREST.location())
+                .addOptional(DABiomes.BLUE_AERGLOW_FOREST.location())
+                .addOptional(DABiomes.MYSTIC_AERGLOW_FOREST.location());
+
+        this.tag(ReduxTags.Biomes.HAS_REDUX_GILDED_SKY_COLOR)
+                .addOptional(DABiomes.GOLDEN_GROVE.location())
+                .addOptional(DABiomes.GOLDEN_HEIGHTS.location());
+
         this.tag(ReduxTags.Biomes.HAS_REDUX_SKY_COLOR).addTag(AetherTags.Biomes.IS_AETHER).remove(ReduxBiomes.THE_BLIGHT).remove(ReduxTags.Biomes.REDUX_SKY_COLOR_IS_BASE);
         this.tag(ReduxTags.Biomes.MUSIC_MODIFY).addTag(AetherTags.Biomes.IS_AETHER);
 

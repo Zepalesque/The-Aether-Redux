@@ -51,6 +51,10 @@ public class ReduxBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_SNOW = createKey(FEATURE + "snow");
     public static final ResourceKey<BiomeModifier> WATER_COLOR_AETHER = createKey(MODIFY + "water_color");
     public static final ResourceKey<BiomeModifier> SKY_COLOR_AETHER = createKey(MODIFY + "alt_sky_color");
+    public static final ResourceKey<BiomeModifier> FROSTED_SKY_COLOR_AETHER = createKey(MODIFY + "alt_sky_color_frosted");
+    public static final ResourceKey<BiomeModifier> SHRUBLANDS_SKY_COLOR_AETHER = createKey(MODIFY + "alt_sky_color_shrublands");
+    public static final ResourceKey<BiomeModifier> SKYFIELDS_SKY_COLOR_AETHER = createKey(MODIFY + "alt_sky_color_skyfields");
+    public static final ResourceKey<BiomeModifier> GILDED_SKY_COLOR_AETHER = createKey(MODIFY + "alt_sky_color_gilded");
     public static final ResourceKey<BiomeModifier> SKY_COLOR_BLIGHT = createKey(MODIFY + "blight_alt_sky_color");
     public static final ResourceKey<BiomeModifier> SKY_COLOR_OFF = createKey(MODIFY + "disabled_alt_sky_color_for_redux_biomes");
     public static final ResourceKey<BiomeModifier> AETHER_COLOR_OVERRIDE = createKey(MODIFY + "aether_color_override");
@@ -120,6 +124,19 @@ public class ReduxBiomeModifiers {
 
         context.register(SKY_COLOR_BLIGHT, new SkyModifier(HolderSet.direct(biomes.getOrThrow(ReduxBiomes.THE_BLIGHT)),
                 Optional.empty(), 13025791, 10850748, Optional.of(new Not<>(Conditions.SKY))));
+
+        context.register(FROSTED_SKY_COLOR_AETHER, new SkyModifier(biomes.getOrThrow(ReduxTags.Biomes.HAS_REDUX_FROSTED_SKY_COLOR),
+                Optional.empty(), 0xB3B3E5, 0xD0D2E5, Optional.of(Conditions.SKY)));
+
+        context.register(SHRUBLANDS_SKY_COLOR_AETHER, new SkyModifier(biomes.getOrThrow(ReduxTags.Biomes.HAS_REDUX_SHRUBLANDS_SKY_COLOR),
+                Optional.empty(), 0xACC9E6, 0xCEDDEB, Optional.of(Conditions.SKY)));
+
+        context.register(SKYFIELDS_SKY_COLOR_AETHER, new SkyModifier(biomes.getOrThrow(ReduxTags.Biomes.HAS_REDUX_SKYFIELDS_SKY_COLOR),
+                Optional.empty(), 0xACBAE6, 0xCED5EB, Optional.of(Conditions.SKY)));
+
+        context.register(GILDED_SKY_COLOR_AETHER, new SkyModifier(biomes.getOrThrow(ReduxTags.Biomes.HAS_REDUX_GILDED_SKY_COLOR),
+                Optional.empty(), 0xC4BDAA, 0xDDD9DA, Optional.of(Conditions.SKY)));
+
 
         context.register(SKY_COLOR_OFF, new SkyModifier(biomes.getOrThrow(ReduxTags.Biomes.REDUX_SKY_COLOR_IS_BASE),
                 Optional.empty(), 0xc0_c0_ff, 0x93_93_bc, Optional.of(new Not<>(Conditions.SKY))));

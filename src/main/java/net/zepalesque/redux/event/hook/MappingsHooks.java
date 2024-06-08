@@ -159,6 +159,13 @@ public class MappingsHooks {
         builder.put(Redux.locate("spectral_dart"), ReduxItems.VERIDIUM_DART);
 
 
+        builder.put(Redux.locate("carved_bricks"), ReduxBlocks.CARVED_BASE);
+        builder.put(Redux.locate("carved_brick_stairs"), AetherBlocks.CARVED_STAIRS);
+        builder.put(Redux.locate("carved_brick_slab"), AetherBlocks.CARVED_SLAB);
+        builder.put(Redux.locate("carved_brick_wall"), AetherBlocks.CARVED_WALL);
+        builder.put(Redux.locate("carved_stone_pillar"), ReduxBlocks.CARVED_PILLAR);
+
+
 
         return builder.build();
     }
@@ -275,6 +282,13 @@ public class MappingsHooks {
         builder.put(Redux.locate("gilded_skyroot_leaves"), ReduxBlocks.GILDED_OAK_LEAVES);
         builder.put(Redux.locate("gilded_skyroot_sapling"), ReduxBlocks.GILDED_OAK_SAPLING);
         builder.put(Redux.locate("potted_gilded_skyroot_sapling"), ReduxBlocks.POTTED_GILDED_OAK_SAPLING);
+
+
+        builder.put(Redux.locate("carved_bricks"), ReduxBlocks.CARVED_BASE);
+        builder.put(Redux.locate("carved_brick_stairs"), AetherBlocks.CARVED_STAIRS);
+        builder.put(Redux.locate("carved_brick_slab"), AetherBlocks.CARVED_SLAB);
+        builder.put(Redux.locate("carved_brick_wall"), AetherBlocks.CARVED_WALL);
+        builder.put(Redux.locate("carved_stone_pillar"), ReduxBlocks.CARVED_PILLAR);
 
         return builder.build();
     }
