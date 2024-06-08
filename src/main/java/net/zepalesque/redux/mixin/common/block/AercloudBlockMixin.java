@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(AercloudBlock.class)
 public class AercloudBlockMixin {
-    @Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;resetFallDistance()V", shift = At.Shift.AFTER), method = "entityInside")
+    @Inject(at = @At(value = "HEAD"), method = "entityInside")
     private void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, CallbackInfo ci) {
         AercloudBlock block = (AercloudBlock) (Object) this;
         if (GenesisCompatUtil.goldCloudSFX(block)) {
