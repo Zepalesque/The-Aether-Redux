@@ -3,6 +3,7 @@ package net.zepalesque.redux.data.resource.biome.registry;
 import com.aetherteam.aether.data.resources.AetherMobCategory;
 import com.aetherteam.aether.data.resources.registries.AetherBiomes;
 import com.aetherteam.aether.entity.AetherEntityTypes;
+import com.aetherteam.aether_genesis.data.resources.registries.GenesisBiomes;
 import com.google.common.collect.ImmutableMap;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.registries.Registries;
@@ -20,6 +21,7 @@ import net.minecraftforge.common.Tags;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.data.resource.biome.*;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
+import net.zepalesque.redux.util.compat.GenesisCompatUtil;
 
 public class ReduxBiomes {
     public static final ResourceKey<Biome> THE_BLIGHT = createKey("the_blight");
@@ -64,7 +66,7 @@ public class ReduxBiomes {
     public static final int MYSTIC_AERGLOW_GRASS_COLOR = 0xD1FFE7;
 
 
-    public static final ImmutableMap<ResourceKey<Biome>, Integer> AETHER_GRASS_COLORS = new ImmutableMap.Builder<ResourceKey<Biome>, Integer>()
+    public static final ImmutableMap<ResourceKey<Biome>, Integer> AETHER_GRASS_COLORS = GenesisCompatUtil.addBiomesToMap(new ImmutableMap.Builder<ResourceKey<Biome>, Integer>()
             .put(THE_BLIGHT, BLIGHT_GRASS_COLOR)
             .put(FROSTED_FORESTS, FROSTED_GRASS_COLOR)
             .put(GLACIAL_TUNDRA, FROSTED_GRASS_COLOR)
@@ -75,7 +77,7 @@ public class ReduxBiomes {
             .put(SKYROOT_SHRUBLANDS, SHRUBLANDS_GRASS_COLOR)
             .put(AetherBiomes.SKYROOT_FOREST, 0xA2F2BC)
             .put(AetherBiomes.SKYROOT_WOODLAND, 0x96E8B0)
-            .put(AetherBiomes.SKYROOT_MEADOW, 0xBAFFCB)
+            .put(AetherBiomes.SKYROOT_MEADOW, 0xBAFFCB))
             .build();
 
 
