@@ -269,7 +269,7 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
 
     public static RegistryObject<SlabBlock> BLIGHTMOSS_HOLYSTONE_SLAB = register("blightmoss_holystone_slab",
             () -> new SlabBlock(BlockBehaviour.Properties.copy(BLIGHTMOSS_HOLYSTONE.get()).strength(2.0F, 6.0F)));
-    
+
     public static final RegistryObject<RotatedPillarBlock> CARVED_PILLAR = register("carved_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).strength(0.5F, 6.0F).requiresCorrectToolForDrops()));
     public static final RegistryObject<RotatedPillarBlock> SENTRY_PILLAR = register("sentry_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(CARVED_PILLAR.get()).lightLevel(state -> 11)));
     public static final RegistryObject<Block> CARVED_BASE = register("carved_base", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).strength(0.5F, 6.0F).requiresCorrectToolForDrops()));
