@@ -1,5 +1,5 @@
 {
   "type": "aether_redux:aether_grass_color",
-  "biomes": "aether:skyroot_meadow",
+  "biomes": "#aether_redux:meadow_colors",
   "grass_color": 12255179
 }
