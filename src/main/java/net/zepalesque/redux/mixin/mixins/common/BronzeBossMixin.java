@@ -15,6 +15,6 @@ public class BronzeBossMixin {
 
     @WrapOperation(method = "makeSettings", at = @At(value = "NEW", target = "()Lnet/minecraft/world/level/levelgen/structure/templatesystem/StructurePlaceSettings;"))
     private static StructurePlaceSettings redux$makeSettings(Operation<StructurePlaceSettings> original) {
-        return original.call().addProcessor(ReduxDungeonProcessors.BRONZE_LOCKED);
+        return original.call().addProcessor(ReduxDungeonProcessors.BRONZE_LOCKED).addProcessor(ReduxDungeonProcessors.BRONZE_BLOCKS);
     }
 }
