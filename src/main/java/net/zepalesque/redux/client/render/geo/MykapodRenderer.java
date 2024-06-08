@@ -15,7 +15,7 @@ import net.zepalesque.redux.entity.passive.Mykapod;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
-import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
+
 
 // TODO: Redo Mykapod Geckolib stuff
 public class MykapodRenderer extends ReduxGeoBase.Renderer<Mykapod> {
