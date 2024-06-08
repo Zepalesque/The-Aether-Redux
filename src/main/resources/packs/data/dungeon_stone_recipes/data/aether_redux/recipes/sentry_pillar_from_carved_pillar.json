@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "S": {
+      "item": "aether_redux:sentry_chip"
+    },
+    "C": {
+      "item": "aether_redux:carved_pillar"
+    }
+  },
+  "pattern": [
+    " C ",
+    "CSC",
+    " C "
+  ],
+  "result": {
+    "count": 4,
+    "item": "aether_redux:sentry_pillar"
+  },
+  "show_notification": true
+}

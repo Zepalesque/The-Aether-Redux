@@ -213,6 +213,15 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .unlockedBy(getHasName(ReduxBlocks.SENTRITE.get()), has(ReduxBlocks.SENTRITE.get()))
                 .save(consumer, Redux.locate("carved_stone"));
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.RUNELIGHT.get(), 1)
+                .define('V', ReduxItems.VERIDIUM_INGOT.get())
+                .define('C', ReduxItems.SENTRY_CHIP.get())
+                .pattern("VVV")
+                .pattern("VCV")
+                .pattern("VVV")
+                .unlockedBy(getHasName(ReduxItems.SENTRY_CHIP.get()), has(ReduxItems.SENTRY_CHIP.get()))
+                .save(consumer);
+
 //        swetBall(AetherItems.SWET_BALL, ReduxTags.Items.BLUE_SWET_JELLY).save(consumer, Redux.locate("blue_swet_ball"));
 //        swetBall(ReduxItems.VANILLA_SWET_BALL, ReduxItems.VANILLA_SWET_JELLY).save(consumer, Redux.locate("vanilla_swet_ball"));
 
