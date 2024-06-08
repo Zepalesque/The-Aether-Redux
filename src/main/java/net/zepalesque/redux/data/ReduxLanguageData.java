@@ -10,8 +10,11 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.damagesource.DamageType;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraftforge.event.ItemStackedOnOtherEvent;
+import net.minecraft.world.level.block.Block;
+import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.ReduxBlocks;
@@ -20,6 +23,7 @@ import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
 import net.zepalesque.redux.effect.ReduxEffects;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.item.ReduxItems;
+import net.zepalesque.redux.util.data.DatagenUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -345,16 +349,36 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_WALL, "Blightmoss Holystone Wall");
         addLore(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_WALL, "Crafted from Blightmoss Holystone. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
 
-        addBlock(ReduxBlocks.CARVED_STONE_BRICKS, "Carved Stone Bricks");
-        addLore(ReduxBlocks.CARVED_STONE_BRICKS, "Bricks made of carved stone. These can be found in the Bronze dungeon.");
-        addBlock(ReduxBlocks.CARVED_STONE_PILLAR, "Carved Stone Pillar");
-        addLore(ReduxBlocks.CARVED_STONE_PILLAR, "A pillar made of carved stone. Can be found in the Bronze dungeon.");
-        addBlock(ReduxBlocks.CARVED_STONE_BRICK_SLAB, "Carved Stone Brick Slab");
-        addLore(ReduxBlocks.CARVED_STONE_BRICK_SLAB, "Crafted from Carved Stone Bricks. Slabs are half blocks, versatile for decoration and smooth slopes. Try adding some to a building's roofing!");
-        addBlock(ReduxBlocks.CARVED_STONE_BRICK_STAIRS, "Carved Stone Brick Stairs");
-        addLore(ReduxBlocks.CARVED_STONE_BRICK_STAIRS, "Crafted from Carved Stone Bricks. Stairs are useful for adding verticality to builds and are often used for decoration too!");
-        addBlock(ReduxBlocks.CARVED_STONE_BRICK_WALL, "Carved Stone Brick Wall");
-        addLore(ReduxBlocks.CARVED_STONE_BRICK_WALL, "Crafted from Carved Stone Bricks. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
+
+        this.addB(ReduxBlocks.CARVED_PILLAR);
+        this.addLore(ReduxBlocks.CARVED_PILLAR, "A pillar made of Carved Stone. Pillars look nice for supporting a build, along with giving it nice corners.");
+        this.addB(ReduxBlocks.SENTRY_PILLAR);
+        this.addLore(ReduxBlocks.SENTRY_PILLAR, "A pillar made of Sentry Stone. Pillars look nice for supporting a build, along with giving it nice corners.");
+        this.addB(ReduxBlocks.CARVED_BASE);
+        this.addLore(ReduxBlocks.CARVED_BASE, "A nice decorative base block made of Carved Stone. Looks very nice at the bottom of walls!");
+        this.addB(ReduxBlocks.SENTRY_BASE);
+        this.addLore(ReduxBlocks.SENTRY_BASE, "A nice decorative base block made of Sentry Stone. Looks very nice at the bottom of walls!");
+
+        this.addB(ReduxBlocks.LOCKED_CARVED_PILLAR);
+        this.addB(ReduxBlocks.LOCKED_SENTRY_PILLAR);
+        this.addB(ReduxBlocks.LOCKED_CARVED_BASE);
+        this.addB(ReduxBlocks.LOCKED_SENTRY_BASE);
+
+        this.addB(ReduxBlocks.TRAPPED_CARVED_PILLAR);
+        this.addB(ReduxBlocks.TRAPPED_SENTRY_PILLAR);
+        this.addB(ReduxBlocks.TRAPPED_CARVED_BASE);
+        this.addB(ReduxBlocks.TRAPPED_SENTRY_BASE);
+
+        this.addB(ReduxBlocks.BOSS_DOORWAY_CARVED_PILLAR);
+        this.addB(ReduxBlocks.BOSS_DOORWAY_SENTRY_PILLAR);
+        this.addB(ReduxBlocks.BOSS_DOORWAY_CARVED_BASE);
+        this.addB(ReduxBlocks.BOSS_DOORWAY_SENTRY_BASE);
+
+        this.addB(ReduxBlocks.RUNELIGHT);
+        this.addLore(ReduxBlocks.RUNELIGHT, "A glowing block of circuitry made of Veridium, which can be easily toggled on and off. Found in Bronze Dungeons.");
+        this.addB(ReduxBlocks.LOCKED_RUNELIGHT);
+
+        this.addB(ReduxBlocks.LOCKED_SENTRITE_BRICKS);
 
         addBlock(ReduxBlocks.VERIDIUM_LANTERN, "Veridium Lantern");
         addLore(ReduxBlocks.VERIDIUM_LANTERN, "A lantern made of Veridium. You can place it on the ground or hang it on the ceiling!");
@@ -830,5 +854,18 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         }
 
         return CompletableFuture.allOf(futuresBuilder.build().toArray(CompletableFuture[]::new));
+    }
+
+    // Backported
+    public void addI(RegistryObject<? extends Item> key) {
+        this.addItem(key, DatagenUtil.getNameLocalized(key));
+    }
+
+    public void addB(RegistryObject<? extends Block> key) {
+        this.addBlock(key, DatagenUtil.getNameLocalized(key));
+    }
+
+    public void addE(RegistryObject<? extends EntityType<?>> key) {
+        this.addEntityType(key, DatagenUtil.getNameLocalized(key));
     }
 }

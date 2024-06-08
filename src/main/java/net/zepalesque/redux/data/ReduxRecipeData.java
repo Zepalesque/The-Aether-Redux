@@ -356,39 +356,6 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
 
         enchantingRecipe(RecipeCategory.FOOD, ReduxItems.ENCHANTED_BLUEBERRY_PIE.get(), ReduxItems.BLUEBERRY_PIE.get(), 0.35F, 250).save(consumer, name("enchanted_blueberry_pie_enchanting"));
 
-        stairs(ReduxBlocks.CARVED_STONE_BRICK_STAIRS, ReduxBlocks.CARVED_STONE_BRICKS).save(consumer);
-        slab(consumer, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.CARVED_STONE_BRICK_SLAB.get(), ReduxBlocks.CARVED_STONE_BRICKS.get());
-        wall(consumer, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.CARVED_STONE_BRICK_WALL.get(), ReduxBlocks.CARVED_STONE_BRICKS.get());
-
-        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.CARVED_STONE_BRICK_WALL.get(), ReduxBlocks.CARVED_STONE_BRICKS.get())
-                .save(consumer, Redux.locate("carved_stone_brick_wall_stonecutting"));
-        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.CARVED_STONE_BRICK_SLAB.get(), ReduxBlocks.CARVED_STONE_BRICKS.get())
-                .save(consumer, Redux.locate("carved_stone_brick_slab_stonecutting"));
-        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.CARVED_STONE_BRICK_STAIRS.get(), ReduxBlocks.CARVED_STONE_BRICKS.get())
-                .save(consumer, Redux.locate("carved_stone_brick_stairs_stonecutting"));
-        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.CARVED_STONE_PILLAR.get(), AetherBlocks.CARVED_STONE.get())
-                .save(consumer, Redux.locate("carved_stone_pillar_stonecutting"));
-
-        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.CARVED_STONE_BRICK_WALL.get(), AetherBlocks.CARVED_STONE.get())
-                .save(consumer, Redux.locate("carved_stone_brick_wall_stonecutting_from_carved_stone"));
-        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.CARVED_STONE_BRICK_SLAB.get(), AetherBlocks.CARVED_STONE.get())
-                .save(consumer, Redux.locate("carved_stone_brick_slab_stonecutting_from_carved_stone"));
-        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.CARVED_STONE_BRICK_STAIRS.get(), AetherBlocks.CARVED_STONE.get())
-                .save(consumer, Redux.locate("carved_stone_brick_stairs_stonecutting_from_carved_stone"));
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.CARVED_STONE_BRICKS.get(), 4)
-                .define('#', AetherBlocks.CARVED_STONE.get())
-                .pattern("##")
-                .pattern("##")
-                .unlockedBy(getHasName(AetherBlocks.CARVED_STONE.get()), has(AetherBlocks.CARVED_STONE.get()))
-                .save(consumer);
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.CARVED_STONE_PILLAR.get(), 4)
-                .define('#', AetherBlocks.CARVED_STONE.get())
-                .pattern("##")
-                .pattern("##")
-                .pattern("##")
-                .unlockedBy(getHasName(AetherBlocks.CARVED_STONE.get()), has(AetherBlocks.CARVED_STONE.get()))
-                .save(consumer);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ReduxBlocks.VERIDIUM_CHAIN.get(), 3)
                 .define('I', ReduxItems.VERIDIUM_INGOT.get())

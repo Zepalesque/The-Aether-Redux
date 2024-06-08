@@ -163,11 +163,31 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropPottedContents(ReduxBlocks.POTTED_AURUM.get());
         dropSelf(ReduxBlocks.ZYATRIX.get());
         this.dropPottedContents(ReduxBlocks.POTTED_ZYATRIX.get());
-        dropSelf(ReduxBlocks.CARVED_STONE_BRICKS.get());
-        dropSelf(ReduxBlocks.CARVED_STONE_BRICK_STAIRS.get());
-        this.add(ReduxBlocks.CARVED_STONE_BRICK_SLAB.get(), this::createSlabItemTable);
-        dropSelf(ReduxBlocks.CARVED_STONE_BRICK_WALL.get());
-        dropSelf(ReduxBlocks.CARVED_STONE_PILLAR.get());
+
+        this.dropSelf(ReduxBlocks.CARVED_PILLAR.get());
+        this.dropSelf(ReduxBlocks.SENTRY_PILLAR.get());
+        this.dropSelf(ReduxBlocks.CARVED_BASE.get());
+        this.dropSelf(ReduxBlocks.SENTRY_BASE.get());
+
+        this.dropNone(ReduxBlocks.LOCKED_CARVED_PILLAR.get());
+        this.dropNone(ReduxBlocks.LOCKED_SENTRY_PILLAR.get());
+        this.dropNone(ReduxBlocks.LOCKED_CARVED_BASE.get());
+        this.dropNone(ReduxBlocks.LOCKED_SENTRY_BASE.get());
+
+        this.dropNone(ReduxBlocks.TRAPPED_CARVED_PILLAR.get());
+        this.dropNone(ReduxBlocks.TRAPPED_SENTRY_PILLAR.get());
+        this.dropNone(ReduxBlocks.TRAPPED_CARVED_BASE.get());
+        this.dropNone(ReduxBlocks.TRAPPED_SENTRY_BASE.get());
+
+        this.dropNone(ReduxBlocks.BOSS_DOORWAY_CARVED_PILLAR.get());
+        this.dropNone(ReduxBlocks.BOSS_DOORWAY_SENTRY_PILLAR.get());
+        this.dropNone(ReduxBlocks.BOSS_DOORWAY_CARVED_BASE.get());
+        this.dropNone(ReduxBlocks.BOSS_DOORWAY_SENTRY_BASE.get());
+
+        this.dropSelf(ReduxBlocks.RUNELIGHT.get());
+        this.dropNone(ReduxBlocks.LOCKED_RUNELIGHT.get());
+        this.dropNone(ReduxBlocks.LOCKED_SENTRITE_BRICKS.get());
+
         this.dropDoubleWithSilk(ReduxBlocks.AVELIUM.get(), AetherBlocks.AETHER_DIRT.get());
         this.add(ReduxBlocks.LUXWEED.get(), shears());
         this.dropPottedContents(ReduxBlocks.POTTED_LUXWEED.get());

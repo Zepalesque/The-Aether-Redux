@@ -194,11 +194,6 @@ public class ReduxCreativeTabs {
             doBookshelves(AetherBlocks.SKYROOT_BOOKSHELF, event);
         }
         if (tab == AetherCreativeTabs.AETHER_DUNGEON_BLOCKS.get()) {
-            putAfter(AetherBlocks.CARVED_STONE, ReduxBlocks.CARVED_STONE_BRICKS, event);
-            putAfter(ReduxBlocks.CARVED_STONE_BRICKS, ReduxBlocks.CARVED_STONE_BRICK_STAIRS, event);
-            putAfter(ReduxBlocks.CARVED_STONE_BRICK_STAIRS, ReduxBlocks.CARVED_STONE_BRICK_SLAB, event);
-            putAfter(ReduxBlocks.CARVED_STONE_BRICK_SLAB, ReduxBlocks.CARVED_STONE_BRICK_WALL, event);
-            putAfter(ReduxBlocks.CARVED_STONE_BRICK_WALL, ReduxBlocks.CARVED_STONE_PILLAR, event);
         }
         if (tab == AetherCreativeTabs.AETHER_FOOD_AND_DRINKS.get()) {
             putAfter(AetherItems.ENCHANTED_BERRY, ReduxItems.BLUEBERRY_PIE, event);
