@@ -1,4 +1,4 @@
-// 1.20.1	2024-06-08T15:01:04.9918172	Recipes
+// 1.20.1	2024-06-08T17:22:59.3876303	Recipes
 142511de235436db9774c32cc1e4cadb796b351e data/aether_redux/advancements/recipes/blue_gummy_swet.json
 51d45028b22196de7aab6ae246ea0eab7f7308fb data/aether_redux/advancements/recipes/blue_swet_jelly.json
 cdecd2fb47465ca3e02446651bb68347dcb877ed data/aether_redux/advancements/recipes/building_blocks/angelic_stone.json
@@ -429,7 +429,7 @@ c4573c9bf54f0d3156b02bc51379299244369b07 data/aether_redux/recipes/raw_valkyrum_
 6390228529b203ebc3053b1491fd112be2fdff54 data/aether_redux/recipes/raw_veridium_from_raw_veridium_block.json
 c165eb41475030e3ba4dfe0dba02e441dafda163 data/aether_redux/recipes/redux_coarse_dirt.json
 514573c94785e22d40abf9487c0377c7cd1d586c data/aether_redux/recipes/ring_of_wisdom.json
-ef8854b64b2abe3c869c87381a0227f628f2bdab data/aether_redux/recipes/runelight.json
+0629460d37b34348c2e82c35eef4a0f944b4c98a data/aether_redux/recipes/runelight.json
 d6655b8b7a109ebfbbccd016667aff43fb1346df data/aether_redux/recipes/sentrite_bricks.json
 f0f67057c3b1ded98c5a1a6eb1894867a34f55d9 data/aether_redux/recipes/sentrite_brick_from_base_block_slab_stonecutting.json
 2e51382c13e6e026cde16eb1ff1a31cf36b00922 data/aether_redux/recipes/sentrite_brick_from_base_block_stairs_stonecutting.json
