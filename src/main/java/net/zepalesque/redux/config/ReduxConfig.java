@@ -6,9 +6,6 @@ import net.zepalesque.redux.config.enums.MimicModelType;
 import net.zepalesque.redux.config.enums.MoaModelType;
 import net.zepalesque.redux.config.enums.QuicksoilSetting;
 import net.zepalesque.redux.config.enums.SpawnerType;
-import net.zepalesque.redux.config.enums.dungeon.BossRoomType;
-import net.zepalesque.redux.config.enums.dungeon.ChestRoomType;
-import net.zepalesque.redux.config.enums.dungeon.LobbyType;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.List;
@@ -68,9 +65,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue alternate_gilded_trees;
         public final ForgeConfigSpec.BooleanValue enderman_spawns;
 
-        public final ForgeConfigSpec.EnumValue<BossRoomType> bronze_boss_room;
-        public final ForgeConfigSpec.EnumValue<ChestRoomType> bronze_chest_room;
-        public final ForgeConfigSpec.EnumValue<LobbyType> bronze_lobby;
+        public final ForgeConfigSpec.BooleanValue bronze_dungeon_upgrade;
 
         public final ForgeConfigSpec.BooleanValue cloud_layer_gen;
 
@@ -125,9 +120,9 @@ public class ReduxConfig {
 
             builder.push("Bronze Dungeon");
             this.genesis_spawner_mobs = builder.comment("Adds dungeon mobs from the Aether: Genesis to the spawners added to the Bronze Dungeon if it is installed").defineEnum("Genesis Mobs in Spawners", SpawnerType.all);
-            this.bronze_boss_room = builder.comment("Which type of Bronze Dungeon Boss Room to use").defineEnum("Bronze Boss Room Type", BossRoomType.vault);
-            this.bronze_chest_room = builder.comment("Which type of Bronze Dungeon Chest Room to use").defineEnum("Bronze Chest Room Type", ChestRoomType.pillars);
-            this.bronze_lobby = builder.comment("Which type of Bronze Dungeon Lobby Room to use").defineEnum("Bronze Lobby Type", LobbyType.doors);
+            bronze_dungeon_upgrade = builder
+                    .comment("Upgrades the Bronze Dungeon structure with new blocks and more depth")
+                    .define("Bronze Dungeon Upgrade", true);
             builder.pop();
 
             builder.push("Biomes");

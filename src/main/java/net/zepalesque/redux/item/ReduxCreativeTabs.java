@@ -194,6 +194,36 @@ public class ReduxCreativeTabs {
             doBookshelves(AetherBlocks.SKYROOT_BOOKSHELF, event);
         }
         if (tab == AetherCreativeTabs.AETHER_DUNGEON_BLOCKS.get()) {
+            putAfter(AetherBlocks.CARVED_STONE, ReduxBlocks.CARVED_BASE, event);
+            putAfter(ReduxBlocks.CARVED_BASE, ReduxBlocks.CARVED_PILLAR, event);
+
+            putAfter(AetherBlocks.LOCKED_CARVED_STONE, ReduxBlocks.LOCKED_CARVED_BASE, event);
+            putAfter(ReduxBlocks.LOCKED_CARVED_BASE, ReduxBlocks.LOCKED_CARVED_PILLAR, event);
+
+            putAfter(AetherBlocks.TRAPPED_CARVED_STONE, ReduxBlocks.TRAPPED_CARVED_BASE, event);
+            putAfter(ReduxBlocks.TRAPPED_CARVED_BASE, ReduxBlocks.TRAPPED_CARVED_PILLAR, event);
+
+            putAfter(AetherBlocks.BOSS_DOORWAY_CARVED_STONE, ReduxBlocks.BOSS_DOORWAY_CARVED_BASE, event);
+            putAfter(ReduxBlocks.BOSS_DOORWAY_CARVED_BASE, ReduxBlocks.BOSS_DOORWAY_CARVED_PILLAR, event);
+
+
+            putAfter(AetherBlocks.SENTRY_STONE, ReduxBlocks.SENTRY_BASE, event);
+            putAfter(ReduxBlocks.SENTRY_BASE, ReduxBlocks.SENTRY_PILLAR, event);
+
+            putAfter(AetherBlocks.LOCKED_SENTRY_STONE, ReduxBlocks.LOCKED_SENTRY_BASE, event);
+            putAfter(ReduxBlocks.LOCKED_SENTRY_BASE, ReduxBlocks.LOCKED_SENTRY_PILLAR, event);
+
+            putAfter(AetherBlocks.TRAPPED_SENTRY_STONE, ReduxBlocks.TRAPPED_SENTRY_BASE, event);
+            putAfter(ReduxBlocks.TRAPPED_SENTRY_BASE, ReduxBlocks.TRAPPED_SENTRY_PILLAR, event);
+
+            putAfter(AetherBlocks.BOSS_DOORWAY_SENTRY_STONE, ReduxBlocks.BOSS_DOORWAY_SENTRY_BASE, event);
+            putAfter(ReduxBlocks.BOSS_DOORWAY_SENTRY_BASE, ReduxBlocks.BOSS_DOORWAY_SENTRY_PILLAR, event);
+
+            putAfter(ReduxBlocks.BOSS_DOORWAY_SENTRY_PILLAR, ReduxBlocks.SENTRITE_BRICKS, event);
+            putAfter(ReduxBlocks.SENTRITE_BRICKS, ReduxBlocks.LOCKED_SENTRITE_BRICKS, event);
+
+            putAfter(ReduxBlocks.LOCKED_SENTRITE_BRICKS, ReduxBlocks.RUNELIGHT, event);
+            putAfter(ReduxBlocks.RUNELIGHT, ReduxBlocks.LOCKED_RUNELIGHT, event);
         }
         if (tab == AetherCreativeTabs.AETHER_FOOD_AND_DRINKS.get()) {
             putAfter(AetherItems.ENCHANTED_BERRY, ReduxItems.BLUEBERRY_PIE, event);

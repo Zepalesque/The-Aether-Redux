@@ -75,13 +75,23 @@ import net.zepalesque.redux.client.render.entity.BlightbunnyRenderer;
 import net.zepalesque.redux.client.render.geo.MykapodRenderer;
 import net.zepalesque.redux.client.resource.ReduxOverridesPackResources;
 import net.zepalesque.redux.config.ReduxConfig;
-import net.zepalesque.redux.config.enums.dungeon.BossRoomType;
-import net.zepalesque.redux.config.enums.dungeon.ChestRoomType;
-import net.zepalesque.redux.config.enums.dungeon.LobbyType;
 import net.zepalesque.redux.config.pack.ReduxPackConfig;
-import net.zepalesque.redux.data.*;
+import net.zepalesque.redux.data.ReduxAdvancementData;
+import net.zepalesque.redux.data.ReduxBlockstateData;
+import net.zepalesque.redux.data.ReduxItemModelData;
+import net.zepalesque.redux.data.ReduxLanguageData;
+import net.zepalesque.redux.data.ReduxLootModifierData;
+import net.zepalesque.redux.data.ReduxRecipeData;
+import net.zepalesque.redux.data.ReduxRegistrySets;
+import net.zepalesque.redux.data.ReduxSoundData;
 import net.zepalesque.redux.data.loot.ReduxLootData;
-import net.zepalesque.redux.data.tags.*;
+import net.zepalesque.redux.data.tags.ReduxAdvancementOverrideTagData;
+import net.zepalesque.redux.data.tags.ReduxBiomeTagsData;
+import net.zepalesque.redux.data.tags.ReduxBlockTagsData;
+import net.zepalesque.redux.data.tags.ReduxDamageTypeTagData;
+import net.zepalesque.redux.data.tags.ReduxEntityTypeTagData;
+import net.zepalesque.redux.data.tags.ReduxItemTagsData;
+import net.zepalesque.redux.data.tags.ReduxSoundEventTagData;
 import net.zepalesque.redux.effect.ReduxEffects;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.entity.dataserializer.ReduxDataSerializers;
@@ -421,9 +431,7 @@ public class Redux {
 
             if (ReduxConfig.COMMON.cloud_layer_gen.get()) { this.setupBuiltinDatapack(event, "data/cloudbed", "Redux - Cloudbed", "Highlands-like Cloudbed"); }
 
-            if (ReduxConfig.COMMON.bronze_boss_room.get() != BossRoomType.classic) { this.setupBuiltinDatapack(event, "data/dungeon/boss_room/" + ReduxConfig.COMMON.bronze_boss_room.get().getSerializedName(), "Bronze Boss Room", "Boss Room Override"); }
-            if (ReduxConfig.COMMON.bronze_chest_room.get() != ChestRoomType.classic) { this.setupBuiltinDatapack(event, "data/dungeon/chest_room/" + ReduxConfig.COMMON.bronze_chest_room.get().getSerializedName(), "Bronze Chest Room", "Chest Room Override"); }
-            if (ReduxConfig.COMMON.bronze_lobby.get() != LobbyType.classic) { this.setupBuiltinDatapack(event, "data/dungeon/lobby/" + ReduxConfig.COMMON.bronze_lobby.get().getSerializedName(), "Bronze Lobby", "Lobby Override"); }
+            if (ReduxConfig.COMMON.bronze_dungeon_upgrade.get()) { this.setupMandatoryDataPack(event, "data/dungeon_upgrades/bronze", "Bronze Dungeon Upgrade", "Configurable in config/aether_redux_common.toml"); }
 
             if (ReduxConfig.COMMON.gravitite_ingot.get()) { this.setupMandatoryDataPack(event, "data/gravitite_ingot", "Redux - Gravitite Ingot", "Can be disabled in the common config"); }
 
