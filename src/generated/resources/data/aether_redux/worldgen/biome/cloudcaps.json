@@ -3,7 +3,7 @@
   "creature_spawn_probability": 0.5,
   "downfall": 0.0,
   "effects": {
-    "fog_color": 12571391,
+    "fog_color": 12567807,
     "foliage_color": 11665355,
     "grass_color": 11665355,
     "music": {
@@ -12,7 +12,7 @@
       "replace_current_music": true,
       "sound": "aether:music.aether"
     },
-    "sky_color": 10070775,
+    "sky_color": 9938164,
     "water_color": 5403045,
     "water_fog_color": 791347
   },

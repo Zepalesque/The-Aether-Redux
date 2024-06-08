@@ -1,0 +1,10 @@
+{
+  "type": "aether_redux:sky_color",
+  "biomes": "#aether_redux:has_redux_gilded_sky_color",
+  "condition": {
+    "condition": "aether_redux:redux_config",
+    "config_path": "[Worldgen, Biomes, Alternate Sky Colors]"
+  },
+  "water_color": 12893610,
+  "water_fog_color": 14539226
+}
