@@ -5,6 +5,7 @@ import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether.loot.AetherLoot;
+import net.builderdog.ancient_aether.data.resources.AncientAetherLoot;
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
@@ -25,6 +26,7 @@ import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.*;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
+import net.minecraftforge.common.crafting.conditions.OrCondition;
 import net.minecraftforge.common.data.GlobalLootModifierProvider;
 import net.minecraftforge.common.loot.LootTableIdCondition;
 import net.zepalesque.redux.Redux;
@@ -142,7 +144,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
 
         this.add("vampire_amulet", new DungeonLootModifier(
                 new LootItemCondition[] {
-                        LootTableIdCondition.builder(AetherLoot.BRONZE_DUNGEON_REWARD).build(),
+                        LootTableIdCondition.builder(AetherLoot.BRONZE_DUNGEON_REWARD).or(LootTableIdCondition.builder(AncientAetherLoot.CHESTS_DUNGEON_BRONZE_DUNGEON_REWARD)).build(),
                         LootItemRandomChanceCondition.randomChance(0.35F).build()
                 },
                 List.of(
@@ -152,11 +154,10 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
         ));
 
         this.add("airbound_cape", new DungeonLootModifier(
-                new LootItemCondition[]
-                        {
-                                LootTableIdCondition.builder(AetherLoot.BRONZE_DUNGEON_REWARD).build(),
-                                LootItemRandomChanceCondition.randomChance(0.75F).build()
-                        },
+                new LootItemCondition[] {
+                        LootTableIdCondition.builder(AetherLoot.BRONZE_DUNGEON_REWARD).or(LootTableIdCondition.builder(AncientAetherLoot.CHESTS_DUNGEON_BRONZE_DUNGEON_REWARD)).build(),
+                        LootItemRandomChanceCondition.randomChance(0.75F).build()
+                },
                 List.of(
                         WeightedEntry.wrap(new ItemStack(ReduxItems.AIRBOUND_CAPE.get()), 1)
                 ),
@@ -196,7 +197,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
 
         this.add("vanilla_gummy_swet", new DungeonLootModifier(
                 new LootItemCondition[] {
-                        LootTableIdCondition.builder(AetherLoot.BRONZE_DUNGEON_REWARD).build()
+                        LootTableIdCondition.builder(AetherLoot.BRONZE_DUNGEON_REWARD).or(LootTableIdCondition.builder(AncientAetherLoot.CHESTS_DUNGEON_BRONZE_DUNGEON_REWARD)).build(),
                 },
                 List.of(
                         WeightedEntry.wrap(new ItemStack(ReduxItems.VANILLA_GUMMY_SWET.get()), 1)
