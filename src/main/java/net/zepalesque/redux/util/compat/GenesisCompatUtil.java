@@ -54,14 +54,4 @@ public class GenesisCompatUtil {
         }
         return block == AetherBlocks.GOLDEN_AERCLOUD.get() && GenesisConfig.COMMON.gold_aercloud_ability.get();
     }
-
-    public static ImmutableMap.Builder<ResourceKey<Biome>, Integer> addBiomesToMap(ImmutableMap.Builder<ResourceKey<Biome>, Integer> builder) {
-        if (!Redux.aetherGenesisCompat()) {
-            return builder;
-        }
-        return builder
-                .put(GenesisBiomes.VIBRANT_FOREST, 0xA2F2BC)
-                .put(GenesisBiomes.VIBRANT_WOODLAND, 0x96E8B0)
-                .put(GenesisBiomes.VIBRANT_MEADOW, 0xBAFFCB);
-    }
 }

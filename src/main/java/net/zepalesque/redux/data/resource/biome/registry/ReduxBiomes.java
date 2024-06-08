@@ -21,6 +21,7 @@ import net.minecraftforge.common.Tags;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.data.resource.biome.*;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
+import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.util.compat.GenesisCompatUtil;
 
 public class ReduxBiomes {
@@ -66,7 +67,7 @@ public class ReduxBiomes {
     public static final int MYSTIC_AERGLOW_GRASS_COLOR = 0xD1FFE7;
 
 
-    public static final ImmutableMap<ResourceKey<Biome>, Integer> AETHER_GRASS_COLORS = GenesisCompatUtil.addBiomesToMap(new ImmutableMap.Builder<ResourceKey<Biome>, Integer>()
+    public static final ImmutableMap<ResourceKey<Biome>, Integer> AETHER_GRASS_COLORS = new ImmutableMap.Builder<ResourceKey<Biome>, Integer>()
             .put(THE_BLIGHT, BLIGHT_GRASS_COLOR)
             .put(FROSTED_FORESTS, FROSTED_GRASS_COLOR)
             .put(GLACIAL_TUNDRA, FROSTED_GRASS_COLOR)
@@ -75,9 +76,12 @@ public class ReduxBiomes {
             .put(SKYFIELDS, SKYFIELDS_GRASS_COLOR)
             .put(CLOUDCAPS, CLOUDCAP_GRASS_COLOR)
             .put(SKYROOT_SHRUBLANDS, SHRUBLANDS_GRASS_COLOR)
-            .put(AetherBiomes.SKYROOT_FOREST, 0xA2F2BC)
-            .put(AetherBiomes.SKYROOT_WOODLAND, 0x96E8B0)
-            .put(AetherBiomes.SKYROOT_MEADOW, 0xBAFFCB))
+            .build();
+
+    public static final ImmutableMap<TagKey<Biome>, Integer> TAG_GRASSES = new ImmutableMap.Builder<TagKey<Biome>, Integer>()
+            .put(ReduxTags.Biomes.FOREST_COLORS, 0xA2F2BC)
+            .put(ReduxTags.Biomes.WOODLAND_COLORS, 0x96E8B0)
+            .put(ReduxTags.Biomes.MEADOW_COLORS, 0xBAFFCB)
             .build();
 
 

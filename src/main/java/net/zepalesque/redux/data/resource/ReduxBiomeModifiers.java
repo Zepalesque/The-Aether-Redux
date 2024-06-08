@@ -153,6 +153,9 @@ public class ReduxBiomeModifiers {
         ReduxBiomes.AETHER_GRASS_COLORS.forEach((key, color) ->
                 context.register(createKey(AETHER_GRASS_COLOR + key.location().getPath()),
                 new AetherGrassColorModifier(HolderSet.direct(biomes.getOrThrow(key)), color)));
+        ReduxBiomes.TAG_GRASSES.forEach((key, color) ->
+                context.register(createKey(AETHER_GRASS_COLOR + "tag/" + key.location().getPath()),
+                new AetherGrassColorModifier(biomes.getOrThrow(key), color)));
         ReduxBiomes.VANILLA_GRASS_COLORS.forEach((key, colors) ->
                 context.register(createKey(GRASS_COLOR_BASE + key.location().getPath()),
                 new GrassAndFoliageColorModifier(HolderSet.direct(biomes.getOrThrow(key)), colors.getFirst(), colors.getSecond())));
