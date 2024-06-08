@@ -1,0 +1,25 @@
+{
+  "variants": {
+    "axis=x,invisible=false": {
+      "model": "aether_redux:block/boss_doorway_sentry_pillar_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,invisible=true": {
+      "model": "aether_redux:block/boss_doorway_sentry_pillar"
+    },
+    "axis=y,invisible=false": {
+      "model": "aether_redux:block/sentry_pillar"
+    },
+    "axis=y,invisible=true": {
+      "model": "aether_redux:block/boss_doorway_sentry_pillar"
+    },
+    "axis=z,invisible=false": {
+      "model": "aether_redux:block/boss_doorway_sentry_pillar_horizontal",
+      "x": 90
+    },
+    "axis=z,invisible=true": {
+      "model": "aether_redux:block/boss_doorway_sentry_pillar"
+    }
+  }
+}

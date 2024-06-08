@@ -1,5 +1,10 @@
 {
   "values": [
-    "aether_redux:veridium_ore"
+    "aether_redux:veridium_ore",
+    "aether_redux:carved_pillar",
+    "aether_redux:sentry_pillar",
+    "aether_redux:carved_base",
+    "aether_redux:sentry_base",
+    "aether_redux:runelight"
   ]
 }

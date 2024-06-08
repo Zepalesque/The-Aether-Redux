@@ -1,17 +1,22 @@
-// 1.20.1	2024-04-10T23:29:32.4087629	Tags for minecraft:item mod id aether_redux
+// 1.20.1	2024-06-08T14:49:41.6557118	Tags for minecraft:item mod id aether_redux
 300781e4ca600daa56e90c34c0dbde6d8e83a30f data/aether/tags/items/accessories_capes.json
 1bc4d30bebbc48e19dd73fcd9b61bcee5c13a066 data/aether/tags/items/accessories_miscellaneous.json
 dee038e142bc18a39fdeae6abccd9121ad40e466 data/aether/tags/items/accessories_pendants.json
 51c7c5a005cddd779678d3d37b667641e59f8ce0 data/aether/tags/items/accessories_rings.json
 7aca7eef71eb29ca1723efa6ca8e844bdb2b4020 data/aether/tags/items/accessories_shields.json
+c191bd82d7ab0270a08a0b6d99db3860549e07ea data/aether/tags/items/boss_doorway_dungeon_blocks.json
+184faca5516506997d979aa45bfac63b68600825 data/aether/tags/items/dungeon_blocks.json
 a40f3f5f697011f9966eb49c6599322302a28195 data/aether/tags/items/flying_cow_temptation_items.json
+079f532874a02f79935f6a4082693e47575060f5 data/aether/tags/items/locked_dungeon_blocks.json
 850be376b429515944edcef7b8692399e619c835 data/aether/tags/items/phyg_temptation_items.json
 7f630f2e13752bc772ec32b658defdb8c91aa84f data/aether/tags/items/planks_crafting.json
+41da7e82851335e26f0259041a498020fedeb075 data/aether/tags/items/sentry_blocks.json
 7f630f2e13752bc772ec32b658defdb8c91aa84f data/aether/tags/items/skyroot_repairing.json
 7f630f2e13752bc772ec32b658defdb8c91aa84f data/aether/tags/items/skyroot_stick_crafting.json
 7f630f2e13752bc772ec32b658defdb8c91aa84f data/aether/tags/items/skyroot_tool_crafting.json
 d7419f8329f04e3bc18cdcf761b7c6288bfbf50b data/aether/tags/items/slider_damaging_items.json
 49b14dbcb079776ac71d48ecb86f2e313bc3cff5 data/aether/tags/items/swet_balls.json
+def6d9c61e45ecd875098eeb799975a50e3d3000 data/aether/tags/items/trapped_dungeon_blocks.json
 3758660b59c341f28e9f356022746007acc660d4 data/aether/tags/items/treated_as_aether_item.json
 af2baa99c63c3c2a4212923a6ca6a80a07db7703 data/aether_redux/tags/items/blightwarding_accessories.json
 edd28d843e4d50fffcd62491dda0fa5e4ba1749b data/aether_redux/tags/items/blightwillow_logs.json
