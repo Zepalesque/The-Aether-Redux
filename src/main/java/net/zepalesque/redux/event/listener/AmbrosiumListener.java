@@ -25,9 +25,8 @@ public class AmbrosiumListener {
 
     @SubscribeEvent
     public static void infuse(ItemStackedOnOtherEvent event) {
-        // These seem to be inverted for whatever reason?
-        ItemStack carried = event.getStackedOnItem();
-        ItemStack stackedOn = event.getCarriedItem();
+        ItemStack stackedOn = event.getStackedOnItem();
+        ItemStack carried = event.getCarriedItem();
         Level level = event.getPlayer().level;
         Player player = event.getPlayer();
         Slot slot = event.getSlot();
