@@ -28,7 +28,7 @@ public class AmbrosiumListener {
         // These seem to be inverted for whatever reason?
         ItemStack carried = event.getStackedOnItem();
         ItemStack stackedOn = event.getCarriedItem();
-        Level level = event.getPlayer().level();
+        Level level = event.getPlayer().level;
         Player player = event.getPlayer();
         Slot slot = event.getSlot();
         if (event.getClickAction() == ClickAction.SECONDARY && carried.is(AetherItems.AMBROSIUM_SHARD.get())) {
@@ -57,7 +57,7 @@ public class AmbrosiumListener {
                             }
                             carried.shrink(1);
                             slot.setChanged();
-                            level.playSound(player, player.getX(), player.getY(), player.getZ(), ReduxSoundEvents.INFUSE_ITEM.get(), SoundSource.PLAYERS, 0.8F, 0.8F + player.level().getRandom().nextFloat() * 0.4F);
+                            level.playSound(player, player.getX(), player.getY(), player.getZ(), ReduxSoundEvents.INFUSE_ITEM.get(), SoundSource.PLAYERS, 0.8F, 0.8F + player.level.getRandom().nextFloat() * 0.4F);
                             event.setCanceled(true);
                         }
                         break;
