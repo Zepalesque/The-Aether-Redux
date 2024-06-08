@@ -11,7 +11,9 @@ import com.mojang.logging.LogUtils;
 import com.mojang.serialization.Codec;
 import net.builderdog.ancient_aether.entity.AncientAetherEntityTypes;
 import net.minecraft.SharedConstants;
+import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.resources.model.Material;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.Registry;
 import net.minecraft.data.DataGenerator;
@@ -187,6 +189,7 @@ public class Redux {
         }, () -> () -> false);
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(MobSoundListener.class);
+        fixSignTextures();
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ReduxConfig.COMMON_SPEC, "aether_redux_common.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ReduxConfig.CLIENT_SPEC, "aether_redux_client.toml");
@@ -249,6 +252,26 @@ public class Redux {
                 SwetHooks.registerParticle(AncientAetherEntityTypes.FESTIVE_SWET.get(), AetherItems.SWET_BALL.get());
             }
         });
+    }
+
+    private void fixSignTextures() {
+        for (WoodHandler handler : WoodHandlers.WOOD_HANDLERS) {
+            Material old = Sheets.SIGN_MATERIALS.get(handler.woodType);
+            if (old == null) {
+                LOGGER.warn("Tried to fix a sign texture for the Aether: Redux but it hadn't generated yet! ID: {}", handler.woodName);
+            } else {
+                ResourceLocation fixTexture = locate("entity/signs/" + handler.woodName);
+                if (!old.texture().equals(fixTexture)) {
+                    Material fixed = new Material(Sheets.SIGN_SHEET, fixTexture);
+                    Sheets.SIGN_MATERIALS.put(handler.woodType, fixed);
+                    LOGGER.info("Successfully fixed sign material with ID {}", handler.woodName);
+                    LOGGER.info("Original ID was: {}", old.texture());
+                    LOGGER.info("New ID is: {}", fixed.texture());
+                } else {
+                    LOGGER.info("Skipping replacement of sign material with ID {} as the fixed texture is equal to the existing one", handler.woodName);
+                }
+            }
+        }
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {
