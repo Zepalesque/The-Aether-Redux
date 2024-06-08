@@ -190,6 +190,7 @@ public class Redux {
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(MobSoundListener.class);
         fixSignTextures();
+        fixHangingSignTextures();
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ReduxConfig.COMMON_SPEC, "aether_redux_common.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ReduxConfig.CLIENT_SPEC, "aether_redux_client.toml");
@@ -269,6 +270,26 @@ public class Redux {
                     LOGGER.info("New ID is: {}", fixed.texture());
                 } else {
                     LOGGER.info("Skipping replacement of sign material with ID {} as the fixed texture is equal to the existing one", handler.woodName);
+                }
+            }
+        }
+    }
+
+    private void fixHangingSignTextures() {
+        for (WoodHandler handler : WoodHandlers.WOOD_HANDLERS) {
+            Material old = Sheets.HANGING_SIGN_MATERIALS.get(handler.woodType);
+            if (old == null) {
+                LOGGER.warn("Tried to fix a hanging sign texture for the Aether: Redux but it hadn't generated yet! ID: {}", handler.woodName);
+            } else {
+                ResourceLocation fixTexture = locate("entity/signs/hanging/" + handler.woodName);
+                if (!old.texture().equals(fixTexture)) {
+                    Material fixed = new Material(Sheets.SIGN_SHEET, fixTexture);
+                    Sheets.HANGING_SIGN_MATERIALS.put(handler.woodType, fixed);
+                    LOGGER.info("Successfully fixed hanging sign material with ID {}", handler.woodName);
+                    LOGGER.info("Original ID was: {}", old.texture());
+                    LOGGER.info("New ID is: {}", fixed.texture());
+                } else {
+                    LOGGER.info("Skipping replacement of hanging sign material with ID {} as the fixed texture is equal to the existing one", handler.woodName);
                 }
             }
         }
