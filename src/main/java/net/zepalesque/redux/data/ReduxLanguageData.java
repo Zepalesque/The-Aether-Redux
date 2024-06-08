@@ -303,7 +303,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addLore(ReduxBlocks.DRIFTSHALE, "A hardened rock composed of compacted Quicksoil. Interestingly, it does not keep the speed boost that Quicksoil has.");
 
         addBlock(ReduxBlocks.SENTRITE, "Sentrite");
-        addLore(ReduxBlocks.SENTRITE, "A dark, metallic rock found throughout the Aether. This crude metal is used in a number of parts of Sentry technology, even their walls of Carved Stone are made of a mixture of this and Holystone.");
+        addLore(ReduxBlocks.SENTRITE, "A dark, metallic rock found throughout the Aether. This crude metal is used in a number of parts of Sentry technology, and even their walls of Carved Stone are made of a mixture of this and Holystone.");
         addBlock(ReduxBlocks.SENTRITE_SLAB, "Sentrite Slab");
         addLore(ReduxBlocks.SENTRITE_SLAB, "Crafted from Sentrite. Slabs are half blocks, versatile for decoration and smooth slopes. Try adding some to a building's roofing!");
         addBlock(ReduxBlocks.SENTRITE_STAIRS, "Sentrite Stairs");
