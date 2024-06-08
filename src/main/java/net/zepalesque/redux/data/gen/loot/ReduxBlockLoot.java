@@ -2,7 +2,6 @@ package net.zepalesque.redux.data.gen.loot;
 
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.mixin.mixins.common.accessor.BlockLootAccessor;
-import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
@@ -35,25 +34,25 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
         this.add(ReduxBlocks.CLOUDROOT_LEAVES.get(),
                 (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.CLOUDROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
 
-        this.dropSelf(ReduxBlocks.CARVED_STONE_PILLAR.get());
-        this.dropSelf(ReduxBlocks.SENTRY_STONE_PILLAR.get());
-        this.dropSelf(ReduxBlocks.CARVED_STONE_BASE.get());
-        this.dropSelf(ReduxBlocks.SENTRY_STONE_BASE.get());
+        this.dropSelf(ReduxBlocks.CARVED_PILLAR.get());
+        this.dropSelf(ReduxBlocks.SENTRY_PILLAR.get());
+        this.dropSelf(ReduxBlocks.CARVED_BASE.get());
+        this.dropSelf(ReduxBlocks.SENTRY_BASE.get());
 
-        this.dropNone(ReduxBlocks.LOCKED_CARVED_STONE_PILLAR.get());
-        this.dropNone(ReduxBlocks.LOCKED_SENTRY_STONE_PILLAR.get());
-        this.dropNone(ReduxBlocks.LOCKED_CARVED_STONE_BASE.get());
-        this.dropNone(ReduxBlocks.LOCKED_SENTRY_STONE_BASE.get());
+        this.dropNone(ReduxBlocks.LOCKED_CARVED_PILLAR.get());
+        this.dropNone(ReduxBlocks.LOCKED_SENTRY_PILLAR.get());
+        this.dropNone(ReduxBlocks.LOCKED_CARVED_BASE.get());
+        this.dropNone(ReduxBlocks.LOCKED_SENTRY_BASE.get());
 
-        this.dropNone(ReduxBlocks.TRAPPED_CARVED_STONE_PILLAR.get());
-        this.dropNone(ReduxBlocks.TRAPPED_SENTRY_STONE_PILLAR.get());
-        this.dropNone(ReduxBlocks.TRAPPED_CARVED_STONE_BASE.get());
-        this.dropNone(ReduxBlocks.TRAPPED_SENTRY_STONE_BASE.get());
+        this.dropNone(ReduxBlocks.TRAPPED_CARVED_PILLAR.get());
+        this.dropNone(ReduxBlocks.TRAPPED_SENTRY_PILLAR.get());
+        this.dropNone(ReduxBlocks.TRAPPED_CARVED_BASE.get());
+        this.dropNone(ReduxBlocks.TRAPPED_SENTRY_BASE.get());
 
-        this.dropNone(ReduxBlocks.BOSS_DOORWAY_CARVED_STONE_PILLAR.get());
-        this.dropNone(ReduxBlocks.BOSS_DOORWAY_SENTRY_STONE_PILLAR.get());
-        this.dropNone(ReduxBlocks.BOSS_DOORWAY_CARVED_STONE_BASE.get());
-        this.dropNone(ReduxBlocks.BOSS_DOORWAY_SENTRY_STONE_BASE.get());
+        this.dropNone(ReduxBlocks.BOSS_DOORWAY_CARVED_PILLAR.get());
+        this.dropNone(ReduxBlocks.BOSS_DOORWAY_SENTRY_PILLAR.get());
+        this.dropNone(ReduxBlocks.BOSS_DOORWAY_CARVED_BASE.get());
+        this.dropNone(ReduxBlocks.BOSS_DOORWAY_SENTRY_BASE.get());
 
         this.dropSelf(ReduxBlocks.RUNELIGHT.get());
         this.dropNone(ReduxBlocks.LOCKED_RUNELIGHT.get());

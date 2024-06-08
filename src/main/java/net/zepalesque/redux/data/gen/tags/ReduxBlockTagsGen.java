@@ -35,68 +35,68 @@ public class ReduxBlockTagsGen extends ReduxBlockTagsProvider {
         );
 
         this.tag(AetherTags.Blocks.SENTRY_BLOCKS).add(
-                ReduxBlocks.CARVED_STONE_PILLAR.get(),
-                ReduxBlocks.SENTRY_STONE_PILLAR.get(),
-                ReduxBlocks.CARVED_STONE_BASE.get(),
-                ReduxBlocks.SENTRY_STONE_BASE.get(),
-                ReduxBlocks.LOCKED_CARVED_STONE_PILLAR.get(),
-                ReduxBlocks.LOCKED_SENTRY_STONE_PILLAR.get(),
-                ReduxBlocks.LOCKED_CARVED_STONE_BASE.get(),
-                ReduxBlocks.LOCKED_SENTRY_STONE_BASE.get(),
-                ReduxBlocks.TRAPPED_CARVED_STONE_PILLAR.get(),
-                ReduxBlocks.TRAPPED_SENTRY_STONE_PILLAR.get(),
-                ReduxBlocks.TRAPPED_CARVED_STONE_BASE.get(),
-                ReduxBlocks.TRAPPED_SENTRY_STONE_BASE.get(),
-                ReduxBlocks.BOSS_DOORWAY_CARVED_STONE_PILLAR.get(),
-                ReduxBlocks.BOSS_DOORWAY_SENTRY_STONE_PILLAR.get(),
-                ReduxBlocks.BOSS_DOORWAY_CARVED_STONE_BASE.get(),
-                ReduxBlocks.BOSS_DOORWAY_SENTRY_STONE_BASE.get(),
+                ReduxBlocks.CARVED_PILLAR.get(),
+                ReduxBlocks.SENTRY_PILLAR.get(),
+                ReduxBlocks.CARVED_BASE.get(),
+                ReduxBlocks.SENTRY_BASE.get(),
+                ReduxBlocks.LOCKED_CARVED_PILLAR.get(),
+                ReduxBlocks.LOCKED_SENTRY_PILLAR.get(),
+                ReduxBlocks.LOCKED_CARVED_BASE.get(),
+                ReduxBlocks.LOCKED_SENTRY_BASE.get(),
+                ReduxBlocks.TRAPPED_CARVED_PILLAR.get(),
+                ReduxBlocks.TRAPPED_SENTRY_PILLAR.get(),
+                ReduxBlocks.TRAPPED_CARVED_BASE.get(),
+                ReduxBlocks.TRAPPED_SENTRY_BASE.get(),
+                ReduxBlocks.BOSS_DOORWAY_CARVED_PILLAR.get(),
+                ReduxBlocks.BOSS_DOORWAY_SENTRY_PILLAR.get(),
+                ReduxBlocks.BOSS_DOORWAY_CARVED_BASE.get(),
+                ReduxBlocks.BOSS_DOORWAY_SENTRY_BASE.get(),
                 ReduxBlocks.RUNELIGHT.get(),
                 ReduxBlocks.LOCKED_RUNELIGHT.get(),
                 ReduxBlocks.LOCKED_SENTRITE_BRICKS.get()
         );
         this.tag(AetherTags.Blocks.LOCKED_DUNGEON_BLOCKS).add(
-                ReduxBlocks.LOCKED_CARVED_STONE_PILLAR.get(),
-                ReduxBlocks.LOCKED_SENTRY_STONE_PILLAR.get(),
-                ReduxBlocks.LOCKED_CARVED_STONE_BASE.get(),
-                ReduxBlocks.LOCKED_SENTRY_STONE_BASE.get(),
+                ReduxBlocks.LOCKED_CARVED_PILLAR.get(),
+                ReduxBlocks.LOCKED_SENTRY_PILLAR.get(),
+                ReduxBlocks.LOCKED_CARVED_BASE.get(),
+                ReduxBlocks.LOCKED_SENTRY_BASE.get(),
                 ReduxBlocks.LOCKED_RUNELIGHT.get(),
                 ReduxBlocks.LOCKED_SENTRITE_BRICKS.get()
         );
         this.tag(AetherTags.Blocks.DUNGEON_BLOCKS).add(
-                ReduxBlocks.CARVED_STONE_PILLAR.get(),
-                ReduxBlocks.SENTRY_STONE_PILLAR.get(),
-                ReduxBlocks.CARVED_STONE_BASE.get(),
-                ReduxBlocks.SENTRY_STONE_BASE.get(),
+                ReduxBlocks.CARVED_PILLAR.get(),
+                ReduxBlocks.SENTRY_PILLAR.get(),
+                ReduxBlocks.CARVED_BASE.get(),
+                ReduxBlocks.SENTRY_BASE.get(),
                 ReduxBlocks.RUNELIGHT.get()
         );
         this.tag(AetherTags.Blocks.TRAPPED_DUNGEON_BLOCKS).add(
-                ReduxBlocks.TRAPPED_CARVED_STONE_PILLAR.get(),
-                ReduxBlocks.TRAPPED_SENTRY_STONE_PILLAR.get(),
-                ReduxBlocks.TRAPPED_CARVED_STONE_BASE.get(),
-                ReduxBlocks.TRAPPED_SENTRY_STONE_BASE.get()
+                ReduxBlocks.TRAPPED_CARVED_PILLAR.get(),
+                ReduxBlocks.TRAPPED_SENTRY_PILLAR.get(),
+                ReduxBlocks.TRAPPED_CARVED_BASE.get(),
+                ReduxBlocks.TRAPPED_SENTRY_BASE.get()
         );
         this.tag(AetherTags.Blocks.BOSS_DOORWAY_DUNGEON_BLOCKS).add(
-                ReduxBlocks.BOSS_DOORWAY_CARVED_STONE_PILLAR.get(),
-                ReduxBlocks.BOSS_DOORWAY_SENTRY_STONE_PILLAR.get(),
-                ReduxBlocks.BOSS_DOORWAY_CARVED_STONE_BASE.get(),
-                ReduxBlocks.BOSS_DOORWAY_SENTRY_STONE_BASE.get()
+                ReduxBlocks.BOSS_DOORWAY_CARVED_PILLAR.get(),
+                ReduxBlocks.BOSS_DOORWAY_SENTRY_PILLAR.get(),
+                ReduxBlocks.BOSS_DOORWAY_CARVED_BASE.get(),
+                ReduxBlocks.BOSS_DOORWAY_SENTRY_BASE.get()
         );
 
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
-                ReduxBlocks.CARVED_STONE_PILLAR.get(),
-                ReduxBlocks.SENTRY_STONE_PILLAR.get(),
-                ReduxBlocks.CARVED_STONE_BASE.get(),
-                ReduxBlocks.SENTRY_STONE_BASE.get(),
+                ReduxBlocks.CARVED_PILLAR.get(),
+                ReduxBlocks.SENTRY_PILLAR.get(),
+                ReduxBlocks.CARVED_BASE.get(),
+                ReduxBlocks.SENTRY_BASE.get(),
                 ReduxBlocks.RUNELIGHT.get()
         );
 
         this.tag(BlockTags.NEEDS_STONE_TOOL).add(
-                ReduxBlocks.CARVED_STONE_PILLAR.get(),
-                ReduxBlocks.SENTRY_STONE_PILLAR.get(),
-                ReduxBlocks.CARVED_STONE_BASE.get(),
-                ReduxBlocks.SENTRY_STONE_BASE.get(),
+                ReduxBlocks.CARVED_PILLAR.get(),
+                ReduxBlocks.SENTRY_PILLAR.get(),
+                ReduxBlocks.CARVED_BASE.get(),
+                ReduxBlocks.SENTRY_BASE.get(),
                 ReduxBlocks.RUNELIGHT.get()
         );
 

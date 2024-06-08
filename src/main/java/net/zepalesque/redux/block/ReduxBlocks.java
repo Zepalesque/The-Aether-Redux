@@ -4,11 +4,7 @@ import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.dungeon.DoorwayBlock;
 import com.aetherteam.aether.block.dungeon.TrappedBlock;
 import com.aetherteam.aether.block.natural.AetherBushBlock;
-import com.aetherteam.aether.block.natural.LeavesWithParticlesBlock;
 import com.aetherteam.aether.entity.AetherEntityTypes;
-import com.google.common.base.Supplier;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
@@ -19,7 +15,6 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
-import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.zepalesque.redux.Redux;
@@ -33,11 +28,8 @@ import net.zepalesque.redux.block.natural.leaves.FallingLeavesBlock;
 import net.zepalesque.redux.block.state.ReduxBlockBuilders;
 import net.zepalesque.redux.client.particle.ReduxParticles;
 import net.zepalesque.redux.event.hook.ToolActionHooks;
-import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.world.tree.ReduxTreeGrowers;
 import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
-
-import java.util.function.Function;
 
 public class ReduxBlocks extends ReduxBlockBuilders {
 
@@ -57,25 +49,25 @@ public class ReduxBlocks extends ReduxBlockBuilders {
             () -> new FallingLeavesBlock(ReduxParticles.CLOUDROOT_LEAF,
                     BlockBehaviour.Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get()).mapColor(MapColor.QUARTZ)));
 
-    public static final DeferredBlock<Block> CARVED_STONE_PILLAR = register("carved_stone_pillar", () -> new RotatedPillarBlock(Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).strength(0.5F, 6.0F).requiresCorrectToolForDrops()));
-    public static final DeferredBlock<Block> SENTRY_STONE_PILLAR = register("sentry_stone_pillar", () -> new RotatedPillarBlock(Properties.ofFullCopy(CARVED_STONE_PILLAR.get()).lightLevel(state -> 11)));
-    public static final DeferredBlock<Block> CARVED_STONE_BASE = register("carved_stone_base", () -> new Block(Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).strength(0.5F, 6.0F).requiresCorrectToolForDrops()));
-    public static final DeferredBlock<Block> SENTRY_STONE_BASE = register("sentry_stone_base", () -> new Block(Properties.ofFullCopy(CARVED_STONE_BASE.get()).lightLevel(state -> 11)));
+    public static final DeferredBlock<Block> CARVED_PILLAR = register("carved_pillar", () -> new RotatedPillarBlock(Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).strength(0.5F, 6.0F).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> SENTRY_PILLAR = register("sentry_pillar", () -> new RotatedPillarBlock(Properties.ofFullCopy(CARVED_PILLAR.get()).lightLevel(state -> 11)));
+    public static final DeferredBlock<Block> CARVED_BASE = register("carved_base", () -> new Block(Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).strength(0.5F, 6.0F).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> SENTRY_BASE = register("sentry_base", () -> new Block(Properties.ofFullCopy(CARVED_BASE.get()).lightLevel(state -> 11)));
 
-    public static final DeferredBlock<Block> LOCKED_CARVED_STONE_PILLAR = register("locked_carved_stone_pillar", () -> new RotatedPillarBlock(Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).strength(-1.0F, 3600000.0F)));
-    public static final DeferredBlock<Block> LOCKED_SENTRY_STONE_PILLAR = register("locked_sentry_stone_pillar", () -> new RotatedPillarBlock(Properties.ofFullCopy(LOCKED_CARVED_STONE_PILLAR.get()).lightLevel(state -> 11)));
-    public static final DeferredBlock<Block> LOCKED_CARVED_STONE_BASE = register("locked_carved_stone_base", () -> new Block(Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).strength(-1.0F, 3600000.0F)));
-    public static final DeferredBlock<Block> LOCKED_SENTRY_STONE_BASE = register("locked_sentry_stone_base", () -> new Block(Properties.ofFullCopy(LOCKED_CARVED_STONE_BASE.get()).lightLevel(state -> 11)));
+    public static final DeferredBlock<Block> LOCKED_CARVED_PILLAR = register("locked_carved_pillar", () -> new RotatedPillarBlock(Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).strength(-1.0F, 3600000.0F)));
+    public static final DeferredBlock<Block> LOCKED_SENTRY_PILLAR = register("locked_sentry_pillar", () -> new RotatedPillarBlock(Properties.ofFullCopy(LOCKED_CARVED_PILLAR.get()).lightLevel(state -> 11)));
+    public static final DeferredBlock<Block> LOCKED_CARVED_BASE = register("locked_carved_base", () -> new Block(Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).strength(-1.0F, 3600000.0F)));
+    public static final DeferredBlock<Block> LOCKED_SENTRY_BASE = register("locked_sentry_base", () -> new Block(Properties.ofFullCopy(LOCKED_CARVED_BASE.get()).lightLevel(state -> 11)));
 
-    public static final DeferredBlock<Block> TRAPPED_CARVED_STONE_PILLAR = register("trapped_carved_stone_pillar", () -> new TrappedPillarBlock(AetherEntityTypes.SENTRY::get, () -> CARVED_STONE_PILLAR.get().defaultBlockState(), Properties.ofFullCopy(CARVED_STONE_PILLAR.get())));
-    public static final DeferredBlock<Block> TRAPPED_SENTRY_STONE_PILLAR = register("trapped_sentry_stone_pillar", () -> new TrappedPillarBlock(AetherEntityTypes.SENTRY::get, () -> SENTRY_STONE_PILLAR.get().defaultBlockState(), Properties.ofFullCopy(SENTRY_STONE_PILLAR.get())));
-    public static final DeferredBlock<Block> TRAPPED_CARVED_STONE_BASE = register("trapped_carved_stone_base", () -> new TrappedBlock(AetherEntityTypes.SENTRY::get, () -> CARVED_STONE_BASE.get().defaultBlockState(), Properties.ofFullCopy(CARVED_STONE_BASE.get())));
-    public static final DeferredBlock<Block> TRAPPED_SENTRY_STONE_BASE = register("trapped_sentry_stone_base", () -> new TrappedBlock(AetherEntityTypes.SENTRY::get, () -> SENTRY_STONE_BASE.get().defaultBlockState(), Properties.ofFullCopy(SENTRY_STONE_BASE.get())));
+    public static final DeferredBlock<Block> TRAPPED_CARVED_PILLAR = register("trapped_carved_pillar", () -> new TrappedPillarBlock(AetherEntityTypes.SENTRY::get, () -> CARVED_PILLAR.get().defaultBlockState(), Properties.ofFullCopy(CARVED_PILLAR.get())));
+    public static final DeferredBlock<Block> TRAPPED_SENTRY_PILLAR = register("trapped_sentry_pillar", () -> new TrappedPillarBlock(AetherEntityTypes.SENTRY::get, () -> SENTRY_PILLAR.get().defaultBlockState(), Properties.ofFullCopy(SENTRY_PILLAR.get())));
+    public static final DeferredBlock<Block> TRAPPED_CARVED_BASE = register("trapped_carved_base", () -> new TrappedBlock(AetherEntityTypes.SENTRY::get, () -> CARVED_BASE.get().defaultBlockState(), Properties.ofFullCopy(CARVED_BASE.get())));
+    public static final DeferredBlock<Block> TRAPPED_SENTRY_BASE = register("trapped_sentry_base", () -> new TrappedBlock(AetherEntityTypes.SENTRY::get, () -> SENTRY_BASE.get().defaultBlockState(), Properties.ofFullCopy(SENTRY_BASE.get())));
 
-    public static final DeferredBlock<Block> BOSS_DOORWAY_CARVED_STONE_PILLAR = register("boss_doorway_carved_stone_pillar", () -> new DoorwayPillarBlock(AetherEntityTypes.SLIDER::get, Properties.ofFullCopy(CARVED_STONE_PILLAR.get())));
-    public static final DeferredBlock<Block> BOSS_DOORWAY_SENTRY_STONE_PILLAR = register("boss_doorway_sentry_stone_pillar", () -> new DoorwayPillarBlock(AetherEntityTypes.SLIDER::get, Properties.ofFullCopy(SENTRY_STONE_PILLAR.get())));
-    public static final DeferredBlock<Block> BOSS_DOORWAY_CARVED_STONE_BASE = register("boss_doorway_carved_stone_base", () -> new DoorwayBlock(AetherEntityTypes.SLIDER::get, Properties.ofFullCopy(CARVED_STONE_BASE.get())));
-    public static final DeferredBlock<Block> BOSS_DOORWAY_SENTRY_STONE_BASE = register("boss_doorway_sentry_stone_base", () -> new DoorwayBlock(AetherEntityTypes.SLIDER::get, Properties.ofFullCopy(SENTRY_STONE_BASE.get())));
+    public static final DeferredBlock<Block> BOSS_DOORWAY_CARVED_PILLAR = register("boss_doorway_carved_pillar", () -> new DoorwayPillarBlock(AetherEntityTypes.SLIDER::get, Properties.ofFullCopy(CARVED_PILLAR.get())));
+    public static final DeferredBlock<Block> BOSS_DOORWAY_SENTRY_PILLAR = register("boss_doorway_sentry_pillar", () -> new DoorwayPillarBlock(AetherEntityTypes.SLIDER::get, Properties.ofFullCopy(SENTRY_PILLAR.get())));
+    public static final DeferredBlock<Block> BOSS_DOORWAY_CARVED_BASE = register("boss_doorway_carved_base", () -> new DoorwayBlock(AetherEntityTypes.SLIDER::get, Properties.ofFullCopy(CARVED_BASE.get())));
+    public static final DeferredBlock<Block> BOSS_DOORWAY_SENTRY_BASE = register("boss_doorway_sentry_base", () -> new DoorwayBlock(AetherEntityTypes.SLIDER::get, Properties.ofFullCopy(SENTRY_BASE.get())));
 
     public static final DeferredBlock<Block> RUNELIGHT = register("runelight", () ->
             new RunelightBlock(Properties.of()

@@ -1,6 +1,5 @@
 package net.zepalesque.redux.data.gen;
 
-import com.aetherteam.aether.block.AetherBlocks;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.zepalesque.redux.Redux;
@@ -23,25 +22,25 @@ public class ReduxItemModelGen extends ReduxItemModelProvider {
         this.itemBlock(ReduxBlocks.CLOUDROOT_LEAVES.get());
         this.itemBlockFlat(ReduxBlocks.CLOUDROOT_SAPLING.get(), "natural/");
 
-        this.itemBlock(ReduxBlocks.CARVED_STONE_BASE.get());
-        this.itemBlock(ReduxBlocks.CARVED_STONE_PILLAR.get());
-        this.itemBlock(ReduxBlocks.SENTRY_STONE_BASE.get());
-        this.itemBlock(ReduxBlocks.SENTRY_STONE_PILLAR.get());
+        this.itemBlock(ReduxBlocks.CARVED_BASE.get());
+        this.itemBlock(ReduxBlocks.CARVED_PILLAR.get());
+        this.itemBlock(ReduxBlocks.SENTRY_BASE.get());
+        this.itemBlock(ReduxBlocks.SENTRY_PILLAR.get());
 
-        this.itemOverlayColumn(ReduxBlocks.LOCKED_CARVED_STONE_BASE.get(), ReduxBlocks.CARVED_STONE_BASE.get(), "dungeon/lock", "dungeon/");
-        this.itemOverlayColumn(ReduxBlocks.LOCKED_CARVED_STONE_PILLAR.get(), ReduxBlocks.CARVED_STONE_PILLAR.get(), "dungeon/lock", "dungeon/");
-        this.itemOverlayColumn(ReduxBlocks.LOCKED_SENTRY_STONE_BASE.get(), ReduxBlocks.SENTRY_STONE_BASE.get(), "dungeon/lock", "dungeon/");
-        this.itemOverlayColumn(ReduxBlocks.LOCKED_SENTRY_STONE_PILLAR.get(), ReduxBlocks.SENTRY_STONE_PILLAR.get(), "dungeon/lock", "dungeon/");
+        this.itemOverlayColumn(ReduxBlocks.LOCKED_CARVED_BASE.get(), ReduxBlocks.CARVED_BASE.get(), "dungeon/lock", "dungeon/");
+        this.itemOverlayColumn(ReduxBlocks.LOCKED_CARVED_PILLAR.get(), ReduxBlocks.CARVED_PILLAR.get(), "dungeon/lock", "dungeon/");
+        this.itemOverlayColumn(ReduxBlocks.LOCKED_SENTRY_BASE.get(), ReduxBlocks.SENTRY_BASE.get(), "dungeon/lock", "dungeon/");
+        this.itemOverlayColumn(ReduxBlocks.LOCKED_SENTRY_PILLAR.get(), ReduxBlocks.SENTRY_PILLAR.get(), "dungeon/lock", "dungeon/");
 
-        this.itemOverlayColumn(ReduxBlocks.TRAPPED_CARVED_STONE_BASE.get(), ReduxBlocks.CARVED_STONE_BASE.get(), "dungeon/exclamation", "dungeon/");
-        this.itemOverlayColumn(ReduxBlocks.TRAPPED_CARVED_STONE_PILLAR.get(), ReduxBlocks.CARVED_STONE_PILLAR.get(), "dungeon/exclamation", "dungeon/");
-        this.itemOverlayColumn(ReduxBlocks.TRAPPED_SENTRY_STONE_BASE.get(), ReduxBlocks.SENTRY_STONE_BASE.get(), "dungeon/exclamation", "dungeon/");
-        this.itemOverlayColumn(ReduxBlocks.TRAPPED_SENTRY_STONE_PILLAR.get(), ReduxBlocks.SENTRY_STONE_PILLAR.get(), "dungeon/exclamation", "dungeon/");
+        this.itemOverlayColumn(ReduxBlocks.TRAPPED_CARVED_BASE.get(), ReduxBlocks.CARVED_BASE.get(), "dungeon/exclamation", "dungeon/");
+        this.itemOverlayColumn(ReduxBlocks.TRAPPED_CARVED_PILLAR.get(), ReduxBlocks.CARVED_PILLAR.get(), "dungeon/exclamation", "dungeon/");
+        this.itemOverlayColumn(ReduxBlocks.TRAPPED_SENTRY_BASE.get(), ReduxBlocks.SENTRY_BASE.get(), "dungeon/exclamation", "dungeon/");
+        this.itemOverlayColumn(ReduxBlocks.TRAPPED_SENTRY_PILLAR.get(), ReduxBlocks.SENTRY_PILLAR.get(), "dungeon/exclamation", "dungeon/");
 
-        this.itemOverlayColumn(ReduxBlocks.BOSS_DOORWAY_CARVED_STONE_BASE.get(), ReduxBlocks.CARVED_STONE_BASE.get(), "dungeon/door", "dungeon/");
-        this.itemOverlayColumn(ReduxBlocks.BOSS_DOORWAY_CARVED_STONE_PILLAR.get(), ReduxBlocks.CARVED_STONE_PILLAR.get(), "dungeon/door", "dungeon/");
-        this.itemOverlayColumn(ReduxBlocks.BOSS_DOORWAY_SENTRY_STONE_BASE.get(), ReduxBlocks.SENTRY_STONE_BASE.get(), "dungeon/door", "dungeon/");
-        this.itemOverlayColumn(ReduxBlocks.BOSS_DOORWAY_SENTRY_STONE_PILLAR.get(), ReduxBlocks.SENTRY_STONE_PILLAR.get(), "dungeon/door", "dungeon/");
+        this.itemOverlayColumn(ReduxBlocks.BOSS_DOORWAY_CARVED_BASE.get(), ReduxBlocks.CARVED_BASE.get(), "dungeon/door", "dungeon/");
+        this.itemOverlayColumn(ReduxBlocks.BOSS_DOORWAY_CARVED_PILLAR.get(), ReduxBlocks.CARVED_PILLAR.get(), "dungeon/door", "dungeon/");
+        this.itemOverlayColumn(ReduxBlocks.BOSS_DOORWAY_SENTRY_BASE.get(), ReduxBlocks.SENTRY_BASE.get(), "dungeon/door", "dungeon/");
+        this.itemOverlayColumn(ReduxBlocks.BOSS_DOORWAY_SENTRY_PILLAR.get(), ReduxBlocks.SENTRY_PILLAR.get(), "dungeon/door", "dungeon/");
 
         this.itemBlock(ReduxBlocks.RUNELIGHT.get(), "_on");
         this.itemOverlayDungeonBlock(ReduxBlocks.LOCKED_RUNELIGHT.get(), ReduxBlocks.RUNELIGHT.get(), "lock", "dungeon/", "_on");
