@@ -102,6 +102,10 @@ public class ReduxTags {
         public static final TagKey<Biome> NO_GRASS_OVERRIDE = tag("no_grass_override");
         public static final TagKey<Biome> HAS_GRASS_OVERRIDE = tag("has_grass_override");
 
+        public static final TagKey<Biome> FOREST_COLORS = tag("forest_colors");
+        public static final TagKey<Biome> WOODLAND_COLORS = tag("woodland_colors");
+        public static final TagKey<Biome> MEADOW_COLORS = tag("meadow_colors");
+
         public static final TagKey<Biome> MUSIC_MODIFY = tag("music_modify");
 
         public static final TagKey<Biome> DENSE_LEAF_FALL = tag("dense_leaf_fall");
