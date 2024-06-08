@@ -2,8 +2,7 @@ package net.zepalesque.redux.api.blockhandler;
 
 public interface BlockHandler {
 
-    static boolean isVowel(char c)
-    {
+    static boolean isVowel(char c) {
         return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
     }
 }

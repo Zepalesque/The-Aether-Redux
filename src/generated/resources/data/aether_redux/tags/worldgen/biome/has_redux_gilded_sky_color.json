@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "deep_aether:golden_grove",
+      "required": false
+    },
+    {
+      "id": "deep_aether:golden_heights",
+      "required": false
+    }
+  ]
+}

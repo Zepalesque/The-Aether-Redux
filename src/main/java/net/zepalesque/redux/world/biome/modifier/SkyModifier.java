@@ -11,10 +11,13 @@ import net.zepalesque.redux.util.function.CodecPredicates;
 
 import java.util.Optional;
 
-public record SkyModifier(HolderSet<Biome> biomes, CodecPredicates.DualInt predicate, int sky, int fog, Optional<AbstractCondition<?>> condition) implements BiomeModifier {
+public record SkyModifier(HolderSet<Biome> biomes, Optional<CodecPredicates.DualInt> predicate, int sky, int fog, Optional<AbstractCondition<?>> condition) implements BiomeModifier {
     @Override
     public void modify(Holder<Biome> biome, Phase phase, ModifiableBiomeInfo.BiomeInfo.Builder builder) {
-        if (phase == Phase.AFTER_EVERYTHING && biomes.contains(biome) && (condition.isEmpty() || condition.get().isConditionMet()) && predicate.test(builder.getSpecialEffects().getSkyColor(), builder.getSpecialEffects().getFogColor())) {
+        if (phase == Phase.AFTER_EVERYTHING &&
+                biomes.contains(biome) &&
+                (condition.isEmpty() || condition.get().isConditionMet()) &&
+                (predicate.isEmpty() || predicate.get().test(builder.getSpecialEffects().getSkyColor(), builder.getSpecialEffects().getFogColor()))) {
             builder.getSpecialEffects().skyColor(sky);
             builder.getSpecialEffects().fogColor(fog);
         }

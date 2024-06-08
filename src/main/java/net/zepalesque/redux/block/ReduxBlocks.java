@@ -1,11 +1,14 @@
 package net.zepalesque.redux.block;
 
 import com.aetherteam.aether.block.AetherBlocks;
+import com.aetherteam.aether.block.dungeon.DoorwayBlock;
+import com.aetherteam.aether.block.dungeon.TrappedBlock;
 import com.aetherteam.aether.block.miscellaneous.FloatingBlock;
 import com.aetherteam.aether.block.natural.AetherDoubleDropBlock;
 import com.aetherteam.aether.block.natural.AetherDoubleDropsLeaves;
 import com.aetherteam.aether.block.natural.AetherLogBlock;
 import com.aetherteam.aether.block.natural.LeavesWithParticlesBlock;
+import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.item.AetherCreativeTabs;
 import com.aetherteam.aether.mixin.mixins.common.accessor.FireBlockAccessor;
 import com.aetherteam.nitrogen.item.block.EntityBlockItem;
@@ -14,9 +17,26 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ChainBlock;
+import net.minecraft.world.level.block.FlowerBlock;
+import net.minecraft.world.level.block.FlowerPotBlock;
+import net.minecraft.world.level.block.GlowLichenBlock;
+import net.minecraft.world.level.block.LadderBlock;
+import net.minecraft.world.level.block.MultifaceBlock;
+import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.WoodType;
@@ -30,11 +50,35 @@ import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.construction.VeridiumLanternBlock;
-import net.zepalesque.redux.block.container.*;
+import net.zepalesque.redux.block.container.HolystoneFurnaceBlock;
+import net.zepalesque.redux.block.container.SkyrootChestBlock;
+import net.zepalesque.redux.block.container.SkyrootChestMimicBlock;
+import net.zepalesque.redux.block.container.SkyrootCraftingTableBlock;
+import net.zepalesque.redux.block.container.TrappedSkyrootChestBlock;
+import net.zepalesque.redux.block.dungeon.DoorwayPillarBlock;
 import net.zepalesque.redux.block.dungeon.Flareblossom;
-import net.zepalesque.redux.block.natural.*;
-import net.zepalesque.redux.block.natural.blight.*;
-import net.zepalesque.redux.block.natural.cloudcap.*;
+import net.zepalesque.redux.block.dungeon.RunelightBlock;
+import net.zepalesque.redux.block.dungeon.TrappedPillarBlock;
+import net.zepalesque.redux.block.natural.AetherShortGrassBlock;
+import net.zepalesque.redux.block.natural.BaseAetherBushPlant;
+import net.zepalesque.redux.block.natural.CustomBoundsFlowerBlock;
+import net.zepalesque.redux.block.natural.DoubleDropsCarpet;
+import net.zepalesque.redux.block.natural.HolysiltBlock;
+import net.zepalesque.redux.block.natural.LeafPileBlock;
+import net.zepalesque.redux.block.natural.SproutsCropBlock;
+import net.zepalesque.redux.block.natural.blight.BlightedAercloudBlock;
+import net.zepalesque.redux.block.natural.blight.BlightmossBlock;
+import net.zepalesque.redux.block.natural.blight.BlightshadeBlock;
+import net.zepalesque.redux.block.natural.blight.CorruptedVinesHeadBlock;
+import net.zepalesque.redux.block.natural.blight.CorruptedVinesPlantBlock;
+import net.zepalesque.redux.block.natural.cloudcap.AetherMushroom;
+import net.zepalesque.redux.block.natural.cloudcap.AveliumBlock;
+import net.zepalesque.redux.block.natural.cloudcap.AveliumPlantBlock;
+import net.zepalesque.redux.block.natural.cloudcap.CloudcapSporesBlock;
+import net.zepalesque.redux.block.natural.cloudcap.FungalGrowthBlock;
+import net.zepalesque.redux.block.natural.cloudcap.HugeAetherMushroomBlock;
+import net.zepalesque.redux.block.natural.cloudcap.JellyshroomCapBlock;
+import net.zepalesque.redux.block.natural.cloudcap.ShimmerstoolBlock;
 import net.zepalesque.redux.block.natural.enchanted.EnchantableBushBlock;
 import net.zepalesque.redux.block.natural.enchanted.EnchantableFlowerBlock;
 import net.zepalesque.redux.block.natural.enchanted.EnchantedVinesHeadBlock;
@@ -108,7 +152,14 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
             () -> new SlabBlock(BlockBehaviour.Properties.copy(SENTRITE.get()).strength(1.25F, 6.0F)));
 
     public static RegistryObject<Block> SENTRITE_BRICKS = register("sentrite_bricks",
-            () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of(Material.STONE).color(MaterialColor.DEEPSLATE).requiresCorrectToolForDrops().strength(1.0F, 6.0F).sound(SoundType.NETHER_BRICKS    )));
+            () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of(Material.STONE).color(MaterialColor.DEEPSLATE).requiresCorrectToolForDrops().strength(1.0F, 6.0F).sound(SoundType.NETHER_BRICKS)));
+
+    public static final RegistryObject<Block> LOCKED_SENTRITE_BRICKS = register("locked_sentrite_bricks", () ->
+            new Block(BlockBehaviour.Properties.of(Material.STONE)
+                    .color(MaterialColor.DEEPSLATE)
+                    .strength(-1.0F, 3600000.0F)
+                    .sound(SoundType.NETHER_BRICKS)
+            ));
 
     public static RegistryObject<StairBlock> SENTRITE_BRICK_STAIRS = register("sentrite_brick_stairs",
             () -> new StairBlock(() -> (SENTRITE_BRICKS.get()).defaultBlockState(), BlockBehaviour.Properties.copy(SENTRITE_BRICKS.get())));
@@ -131,7 +182,7 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
             () -> new HolysiltBlock(BlockBehaviour.Properties.of(Material.DIRT).color(MaterialColor.COLOR_LIGHT_GRAY).strength(0.5F).sound(SoundType.SAND)));
 
     public static RegistryObject<AetherShortGrassBlock> SHORT_AETHER_GRASS = register("short_aether_grass",
-                () -> new AetherShortGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).hasPostProcess(ReduxBlocks::always)));
+                () -> new AetherShortGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).hasPostProcess(ReduxBlocks::always)));
 
     public static RegistryObject<Block> AVELIUM = register("avelium",
             () -> new AveliumBlock(BlockBehaviour.Properties.of(Material.GRASS).color(MaterialColor.TERRACOTTA_LIGHT_BLUE).randomTicks().strength(0.2F).sound(SoundType.ROOTED_DIRT)));
@@ -265,23 +316,50 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
     public static RegistryObject<SlabBlock> BLIGHTMOSS_HOLYSTONE_SLAB = register("blightmoss_holystone_slab",
             () -> new SlabBlock(BlockBehaviour.Properties.copy(BLIGHTMOSS_HOLYSTONE.get()).strength(2.0F, 6.0F)));
 
+    public static final RegistryObject<RotatedPillarBlock> CARVED_PILLAR = register("carved_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.STONE).color(MaterialColor.STONE).strength(0.5F, 6.0F).requiresCorrectToolForDrops()));
+    public static final RegistryObject<RotatedPillarBlock> SENTRY_PILLAR = register("sentry_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(CARVED_PILLAR.get()).lightLevel(state -> 11)));
+    public static final RegistryObject<Block> CARVED_BASE = register("carved_base", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).color(MaterialColor.STONE).strength(0.5F, 6.0F).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> SENTRY_BASE = register("sentry_base", () -> new Block(BlockBehaviour.Properties.copy(CARVED_BASE.get()).lightLevel(state -> 11)));
+
+    public static final RegistryObject<RotatedPillarBlock> LOCKED_CARVED_PILLAR = register("locked_carved_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.STONE).color(MaterialColor.STONE).strength(-1.0F, 3600000.0F)));
+    public static final RegistryObject<RotatedPillarBlock> LOCKED_SENTRY_PILLAR = register("locked_sentry_pillar", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(LOCKED_CARVED_PILLAR.get()).lightLevel(state -> 11)));
+    public static final RegistryObject<Block> LOCKED_CARVED_BASE = register("locked_carved_base", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).color(MaterialColor.STONE).strength(-1.0F, 3600000.0F)));
+    public static final RegistryObject<Block> LOCKED_SENTRY_BASE = register("locked_sentry_base", () -> new Block(BlockBehaviour.Properties.copy(LOCKED_CARVED_BASE.get()).lightLevel(state -> 11)));
 
 
-    public static final RegistryObject<Block> CARVED_STONE_BRICKS = register("carved_stone_bricks", () -> new Block(Block.Properties.of(Material.STONE).strength(0.5F, 6.0F).requiresCorrectToolForDrops()));
-    public static RegistryObject<StairBlock> CARVED_STONE_BRICK_STAIRS = register("carved_stone_brick_stairs",
-            () -> new StairBlock(() -> (CARVED_STONE_BRICKS.get()).defaultBlockState(), BlockBehaviour.Properties.copy(CARVED_STONE_BRICKS.get())));
+    public static final RegistryObject<TrappedPillarBlock> TRAPPED_CARVED_PILLAR = register("trapped_carved_pillar", () -> new TrappedPillarBlock(AetherEntityTypes.SENTRY::get, () -> CARVED_PILLAR.get().defaultBlockState(), BlockBehaviour.Properties.copy(CARVED_PILLAR.get())));
+    public static final RegistryObject<TrappedPillarBlock> TRAPPED_SENTRY_PILLAR = register("trapped_sentry_pillar", () -> new TrappedPillarBlock(AetherEntityTypes.SENTRY::get, () -> SENTRY_PILLAR.get().defaultBlockState(), BlockBehaviour.Properties.copy(SENTRY_PILLAR.get())));
+    public static final RegistryObject<Block> TRAPPED_CARVED_BASE = register("trapped_carved_base", () -> new TrappedBlock(AetherEntityTypes.SENTRY::get, () -> CARVED_BASE.get().defaultBlockState(), BlockBehaviour.Properties.copy(CARVED_BASE.get())));
+    public static final RegistryObject<Block> TRAPPED_SENTRY_BASE = register("trapped_sentry_base", () -> new TrappedBlock(AetherEntityTypes.SENTRY::get, () -> SENTRY_BASE.get().defaultBlockState(), BlockBehaviour.Properties.copy(SENTRY_BASE.get())));
 
-    public static RegistryObject<WallBlock> CARVED_STONE_BRICK_WALL = register("carved_stone_brick_wall",
-            () -> new WallBlock(BlockBehaviour.Properties.copy(CARVED_STONE_BRICKS.get())));
+    public static final RegistryObject<DoorwayPillarBlock> BOSS_DOORWAY_CARVED_PILLAR = register("boss_doorway_carved_pillar", () -> new DoorwayPillarBlock(AetherEntityTypes.SLIDER::get, BlockBehaviour.Properties.copy(CARVED_PILLAR.get())));
+    public static final RegistryObject<DoorwayPillarBlock> BOSS_DOORWAY_SENTRY_PILLAR = register("boss_doorway_sentry_pillar", () -> new DoorwayPillarBlock(AetherEntityTypes.SLIDER::get, BlockBehaviour.Properties.copy(SENTRY_PILLAR.get())));
+    public static final RegistryObject<Block> BOSS_DOORWAY_CARVED_BASE = register("boss_doorway_carved_base", () -> new DoorwayBlock(AetherEntityTypes.SLIDER::get, BlockBehaviour.Properties.copy(CARVED_BASE.get())));
+    public static final RegistryObject<Block> BOSS_DOORWAY_SENTRY_BASE = register("boss_doorway_sentry_base", () -> new DoorwayBlock(AetherEntityTypes.SLIDER::get, BlockBehaviour.Properties.copy(SENTRY_BASE.get())));
 
-    public static RegistryObject<SlabBlock> CARVED_STONE_BRICK_SLAB = register("carved_stone_brick_slab",
-            () -> new SlabBlock(BlockBehaviour.Properties.copy(CARVED_STONE_BRICKS.get()).strength(2.0F, 6.0F)));
 
-    public static final RegistryObject<RotatedPillarBlock> CARVED_STONE_PILLAR = register("carved_stone_pillar",
-            () -> new RotatedPillarBlock(Block.Properties.of(Material.STONE).strength(0.5F, 6.0F).requiresCorrectToolForDrops()));
-    
     public static RegistryObject<Block> BLIGHTWILLOW_LEAVES = register("blightwillow_leaves", () -> new AetherDoubleDropsLeaves(BlockBehaviour.Properties.of(Material.LEAVES).color(MaterialColor.TERRACOTTA_PURPLE).strength(0.2F).randomTicks().sound(SoundType.AZALEA_LEAVES).noOcclusion().isValidSpawn(ReduxBlocks::ocelotOrParrot).isSuffocating(ReduxBlocks::never).isViewBlocking(ReduxBlocks::never)));
+    
 
+
+    public static final RegistryObject<Block> RUNELIGHT = register("runelight", () ->
+            new RunelightBlock(BlockBehaviour.Properties.of(Material.METAL)
+                    .color(MaterialColor.LAPIS)
+                    .lightLevel(state -> state.getValue(RunelightBlock.LIT) ? 13 : 1)
+                    .strength(0.7F, 6.0F)
+                    .sound(SoundType.COPPER)
+                    .requiresCorrectToolForDrops(),
+                    false
+            ));
+
+    public static final RegistryObject<Block> LOCKED_RUNELIGHT = register("locked_runelight", () ->
+            new RunelightBlock(BlockBehaviour.Properties.of(Material.METAL)
+                    .color(MaterialColor.LAPIS)
+                    .lightLevel(state -> state.getValue(RunelightBlock.LIT) ? 13 : 1)
+                    .strength(-1.0F, 3600000.0F)
+                    .sound(SoundType.COPPER),
+                    true
+            ));
 
     public static final RegistryObject<SaplingBlock> BLIGHTWILLOW_SAPLING = register("blightwillow_sapling", () ->
             new SaplingBlock(new ReduxSuppliedTree(ReduxConfiguredFeatures.BLIGHTWILLOW_TREE), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING).sound(SoundType.AZALEA))

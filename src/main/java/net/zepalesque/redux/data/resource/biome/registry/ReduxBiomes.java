@@ -51,24 +51,4 @@ public class ReduxBiomes {
     public static final int BLUE_AERGLOW_GRASS_COLOR = 0xCEFFFD;
     public static final int MYSTIC_AERGLOW_GRASS_COLOR = 0xD1FFE7;
 
-
-
-
-    public static final ImmutableMap<TagKey<Biome>, Integer> OVERWORLD_BIOME_AETHER_GRASS_COLORS = new ImmutableMap.Builder<TagKey<Biome>, Integer>()
-            .put(Tags.Biomes.IS_COLD, FROSTED_GRASS_COLOR)
-            .put(Tags.Biomes.IS_DESERT, OASIS_GRASS_COLOR)
-            .put(Tags.Biomes.IS_LUSH, SKYFIELDS_GRASS_COLOR)
-            .put(Tags.Biomes.IS_MUSHROOM, CLOUDCAP_GRASS_COLOR)
-            .put(Tags.Biomes.IS_MAGICAL, SHIMMERING_GRASS_COLOR)
-            .put(Tags.Biomes.IS_PLATEAU, GILDED_GRASS_COLOR)
-            .put(Tags.Biomes.IS_SPARSE, GILDED_GRASSLANDS_COLOR)
-            .put(BiomeTags.IS_NETHER, DUNES_GRASS_COLOR)
-            .put(BiomeTags.IS_END, BLIGHT_GRASS_COLOR)
-            .build();
-
-
-    public static final int WATER = 5403045;
-    public static final int WATER_FOG = 791347;
-
-    public static final int CRYSTAL_GRASS = 0xBFE5FF;
 }

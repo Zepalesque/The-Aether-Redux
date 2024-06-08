@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "ancient_aether:sakura_jungle",
+      "required": false
+    },
+    {
+      "id": "ancient_aether:skyroot_jungle",
+      "required": false
+    }
+  ]
+}

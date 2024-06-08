@@ -29,7 +29,6 @@
     "aether_redux:shell_shingle_wall",
     "aether_redux:enchanted_shell_shingle_wall",
     "aether_redux:gilded_holystone_wall",
-    "aether_redux:blightmoss_holystone_wall",
-    "aether_redux:carved_stone_brick_wall"
+    "aether_redux:blightmoss_holystone_wall"
   ]
 }

@@ -6,9 +6,6 @@ import net.zepalesque.redux.config.enums.MimicModelType;
 import net.zepalesque.redux.config.enums.MoaModelType;
 import net.zepalesque.redux.config.enums.QuicksoilSetting;
 import net.zepalesque.redux.config.enums.SpawnerType;
-import net.zepalesque.redux.config.enums.dungeon.BossRoomType;
-import net.zepalesque.redux.config.enums.dungeon.ChestRoomType;
-import net.zepalesque.redux.config.enums.dungeon.LobbyType;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.List;
@@ -62,7 +59,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue dungeon_stone_recipes;
         public final ForgeConfigSpec.BooleanValue enchanted_gilded_grass;
         public final ForgeConfigSpec.BooleanValue better_water_color;
-        public final ForgeConfigSpec.BooleanValue alternate_sky_color;
+        public final ForgeConfigSpec.BooleanValue alternate_sky_colors;
         public final ForgeConfigSpec.BooleanValue enchanted_vines;
         public final ForgeConfigSpec.BooleanValue wall_roots;
         public final ForgeConfigSpec.BooleanValue alternate_gilded_trees;
@@ -70,9 +67,7 @@ public class ReduxConfig {
 
         public final ForgeConfigSpec.BooleanValue skyroot_dungeon_chests;
 
-        public final ForgeConfigSpec.EnumValue<BossRoomType> bronze_boss_room;
-        public final ForgeConfigSpec.EnumValue<ChestRoomType> bronze_chest_room;
-        public final ForgeConfigSpec.EnumValue<LobbyType> bronze_lobby;
+        public final ForgeConfigSpec.BooleanValue bronze_dungeon_upgrade;
 
         public final ForgeConfigSpec.BooleanValue cloud_layer_gen;
 
@@ -128,7 +123,6 @@ public class ReduxConfig {
             this.enchanted_vines = builder.comment("Enables Enchanted/Gilded vines on trees").worldRestart().define("Enable Enchanted and Gilded Vines", true);
             this.wall_roots = builder.comment("Enables roots made of logs and log walls on the sides of Large Cloudcap mushrooms and Blightwillow trees.").worldRestart().define("Wall Roots on Blightwillows and Large Cloudcaps", true);
             this.alternate_gilded_trees = builder.comment("Uses an alternate Gilded Oak shape, more like vanilla Oak trees and Skyroots, for the Gilded biomes.").worldRestart().define("Alternate Gilded Trees", false);
-            this.skyroot_dungeon_chests = builder.comment("Replaces chests in the dungeons with Skyroot Chests. Does not do anything when Ascended Quark is installed.").define("Skyroot Dungeon Chests", true);
             builder.push("Cloud Layer");
             this.cloud_layer_gen = builder.comment("Replaces the Aether's large cloud features with a new and improved noise-based cloud layer.").define("Cloud Layer Generation", true);
             this.cloud_layer_threshold_min = builder.comment("Minimum value for the cloud layer's noise threshold").defineInRange("Cloud Layer Threshold Min", 0D, -4D, 4D);
@@ -137,18 +131,19 @@ public class ReduxConfig {
 
 
 
-            builder.push("Bronze Dungeon");
+            builder.push("Dungeon");
             this.genesis_spawner_mobs = builder.comment("Adds dungeon mobs from the Aether: Genesis to the spawners added to the Bronze Dungeon if it is installed").defineEnum("Genesis Mobs in Spawners", SpawnerType.all);
-            this.bronze_boss_room = builder.comment("Which type of Bronze Dungeon Boss Room to use").defineEnum("Bronze Boss Room Type", BossRoomType.vault);
-            this.bronze_chest_room = builder.comment("Which type of Bronze Dungeon Chest Room to use").defineEnum("Bronze Chest Room Type", ChestRoomType.pillars);
-            this.bronze_lobby = builder.comment("Which type of Bronze Dungeon Lobby Room to use").defineEnum("Bronze Lobby Type", LobbyType.doors);
+            bronze_dungeon_upgrade = builder
+                    .comment("Upgrades the Bronze Dungeon structure with new blocks and more depth")
+                    .define("Bronze Dungeon Upgrade", true);
+            this.skyroot_dungeon_chests = builder.comment("Replaces chests in the dungeons with Skyroot Chests. Does not do anything when Ascended Quark is installed.").define("Skyroot Dungeon Chests", true);
             builder.pop();
 
             builder.push("Biomes");
             this.auto_reset_biome_values = builder.comment("When enabled, any biome value config changes will be reset. It is recommended that you disable this if you want to keep any custom biome parameters you may have set.").define("Auto-Reset Biome Values", true);
             this.region_size = builder.comment("The value of Redux's biome region size. Larger values correspond to larger biome clumps").define("Region Size", 20);
             this.better_water_color = builder.comment("Improves the water color of Aether biomes, making the color match the rest of the dimension better").define("Better Water Color", true);
-            this.alternate_sky_color = builder.comment("Changes the Aether's sky color to one slightly more consistent with the overworld, making the fog lighter than the rest of the sky").define("Alternate Sky Color", false);
+            this.alternate_sky_colors = builder.comment("Alters the sky colors of the Aether, to be a bit more in line with vanilla. Also adds some new unique colors as well to some of Redux's new biomes").define("Alternate Sky Colors", true);
 
             this.enable_the_blight = builder.comment("Enables the Blight biome.").worldRestart().define("Enable the Blight", true);
             this.enable_gilded_biomes = builder.comment("Enables the Gilded Groves and Gilded Grasslands biomes.").worldRestart().define("Enable Gilded Biomes", true);

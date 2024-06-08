@@ -2,12 +2,16 @@ package net.zepalesque.redux.mixin.common.world;
 
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.world.structurepiece.bronzedungeon.BronzeDungeonRoom;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.SpawnerBlockEntity;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
+import net.zepalesque.redux.world.ReduxDungeonProcessors;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -27,5 +31,10 @@ public class BronzeDungeonRoomMixin {
                 }
             }
         }
+    }
+
+    @WrapOperation(method = "makeSettings", at = @At(value = "NEW", target = "()Lnet/minecraft/world/level/levelgen/structure/templatesystem/StructurePlaceSettings;"))
+    private static StructurePlaceSettings redux$makeSettings(Operation<StructurePlaceSettings> original) {
+        return original.call().addProcessor(ReduxDungeonProcessors.BRONZE_BLOCKS).addProcessor(ReduxDungeonProcessors.BRONZE_TRAPS);
     }
 }

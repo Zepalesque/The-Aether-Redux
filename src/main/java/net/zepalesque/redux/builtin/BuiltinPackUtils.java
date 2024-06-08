@@ -12,16 +12,15 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.resource.PathPackResources;
 import net.zepalesque.redux.Redux;
 
+
 import java.nio.file.Path;
 
 public class BuiltinPackUtils {
-
-
-
     public static PathPackResources createPack(String path) {
         Path resourcePath = path(path);
         return new PathPackResources(ModList.get().getModFileById(Redux.MODID).getFile().getFileName() + ":" + resourcePath, resourcePath);
     }
+
 
     public static Path path(String path)
     {

@@ -25,11 +25,6 @@
     "aether_redux:blightmoss_holystone_wall",
     "aether_redux:blightmoss_holystone_slab",
     "aether_redux:blightmoss_holystone_stairs",
-    "aether_redux:carved_stone_bricks",
-    "aether_redux:carved_stone_brick_slab",
-    "aether_redux:carved_stone_brick_wall",
-    "aether_redux:carved_stone_brick_stairs",
-    "aether_redux:carved_stone_pillar",
     "aether_redux:veridium_block",
     "aether_redux:raw_valkyrum_block",
     "aether_redux:veridium_ore",
@@ -41,6 +36,11 @@
     "aether_redux:enchanted_shell_shingles",
     "aether_redux:gravitite_block",
     "aether_redux:raw_gravitite_block",
-    "aether_redux:holystone_furnace"
+    "aether_redux:holystone_furnace",
+    "aether_redux:carved_pillar",
+    "aether_redux:sentry_pillar",
+    "aether_redux:carved_base",
+    "aether_redux:sentry_base",
+    "aether_redux:runelight"
   ]
 }

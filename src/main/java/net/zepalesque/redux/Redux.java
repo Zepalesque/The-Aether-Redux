@@ -9,7 +9,9 @@ import com.aetherteam.cumulus.CumulusConfig;
 import com.mojang.logging.LogUtils;
 import com.mojang.serialization.Codec;
 import net.minecraft.SharedConstants;
+import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.resources.model.Material;
 import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
@@ -64,9 +66,6 @@ import net.zepalesque.redux.client.render.entity.BlightbunnyRenderer;
 import net.zepalesque.redux.client.render.geo.MykapodRenderer;
 import net.zepalesque.redux.client.resource.ReduxOverridesPackResources;
 import net.zepalesque.redux.config.ReduxConfig;
-import net.zepalesque.redux.config.enums.dungeon.BossRoomType;
-import net.zepalesque.redux.config.enums.dungeon.ChestRoomType;
-import net.zepalesque.redux.config.enums.dungeon.LobbyType;
 import net.zepalesque.redux.config.pack.ReduxPackConfig;
 import net.zepalesque.redux.effect.ReduxEffects;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
@@ -165,11 +164,11 @@ public class Redux {
         // Side-dependent stuff
         DistExecutor.unsafeRunForDist(() -> () -> {
             ReduxMenus.MENUS.register(bus);
-            ReduxClient.registerMolangQueries();
             return true;
         }, () -> () -> false);
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(MobSoundListener.class);
+        fixSignTextures();
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ReduxConfig.COMMON_SPEC, "aether_redux_common.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ReduxConfig.CLIENT_SPEC, "aether_redux_client.toml");
@@ -231,6 +230,26 @@ public class Redux {
             SwetHooks.registerParticle(AetherEntityTypes.GOLDEN_SWET.get(), ReduxItems.GOLDEN_SWET_BALL.get());
             SwetHooks.registerParticle(ReduxEntityTypes.VANILLA_SWET.get(), ReduxItems.VANILLA_SWET_BALL.get());
         });
+    }
+
+    private void fixSignTextures() {
+        for (WoodHandler handler : WoodHandlers.WOOD_HANDLERS) {
+            Material old = Sheets.SIGN_MATERIALS.get(handler.woodType);
+            if (old == null) {
+                LOGGER.warn("Tried to fix a sign texture for the Aether: Redux but it hadn't generated yet! ID: {}", handler.woodName);
+            } else {
+                ResourceLocation fixTexture = locate("entity/signs/" + handler.woodName);
+                if (!old.texture().equals(fixTexture)) {
+                    Material fixed = new Material(Sheets.SIGN_SHEET, fixTexture);
+                    Sheets.SIGN_MATERIALS.put(handler.woodType, fixed);
+                    LOGGER.info("Successfully fixed sign material with ID {}", handler.woodName);
+                    LOGGER.info("Original ID was: {}", old.texture());
+                    LOGGER.info("New ID is: {}", fixed.texture());
+                } else {
+                    LOGGER.info("Skipping replacement of sign material with ID {} as the fixed texture is equal to the existing one", handler.woodName);
+                }
+            }
+        }
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {
@@ -333,9 +352,7 @@ public class Redux {
 
             if (ReduxConfig.COMMON.cloud_layer_gen.get()) { this.setupBuiltinDatapack(event, "data/cloudbed", "Redux - Cloudbed", "Highlands-like Cloudbed"); }
 
-            if (ReduxConfig.COMMON.bronze_boss_room.get() != BossRoomType.classic) { this.setupBuiltinDatapack(event, "data/dungeon/boss_room/" + ReduxConfig.COMMON.bronze_boss_room.get().getSerializedName(), "Bronze Boss Room", "Boss Room Override"); }
-            if (ReduxConfig.COMMON.bronze_chest_room.get() != ChestRoomType.classic) { this.setupBuiltinDatapack(event, "data/dungeon/chest_room/" + ReduxConfig.COMMON.bronze_chest_room.get().getSerializedName(), "Bronze Chest Room", "Chest Room Override"); }
-            if (ReduxConfig.COMMON.bronze_lobby.get() != LobbyType.classic) { this.setupBuiltinDatapack(event, "data/dungeon/lobby/" + ReduxConfig.COMMON.bronze_lobby.get().getSerializedName(), "Bronze Lobby", "Lobby Override"); }
+            if (ReduxConfig.COMMON.bronze_dungeon_upgrade.get()) { this.setupMandatoryDataPack(event, "data/dungeon_upgrades/bronze", "Bronze Dungeon Upgrade", "Configurable in config/aether_redux_common.toml"); }
 
             if (ReduxConfig.COMMON.gravitite_ingot.get()) { this.setupMandatoryDataPack(event, "data/gravitite_ingot", "Redux - Gravitite Ingot", "Can be disabled in the common config"); }
 

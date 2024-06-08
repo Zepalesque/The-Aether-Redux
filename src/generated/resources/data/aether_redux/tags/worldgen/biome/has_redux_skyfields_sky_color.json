@@ -1,0 +1,28 @@
+{
+  "values": [
+    {
+      "id": "ancient_aether:elevated_caverns",
+      "required": false
+    },
+    {
+      "id": "ancient_aether:elevated_clearing",
+      "required": false
+    },
+    {
+      "id": "ancient_aether:elevated_forest",
+      "required": false
+    },
+    {
+      "id": "deep_aether:aerglow_forest",
+      "required": false
+    },
+    {
+      "id": "deep_aether:blue_aerglow_forest",
+      "required": false
+    },
+    {
+      "id": "deep_aether:mystic_aerglow_forest",
+      "required": false
+    }
+  ]
+}

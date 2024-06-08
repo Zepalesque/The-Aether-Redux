@@ -35,7 +35,7 @@ public interface VeridiumItem {
                 newCharge = (byte) 0;
                 itemForStack = virydium.getReplacementItem(stack);
                 if (user != null) {
-                    if (user instanceof ServerPlayer player) {
+                    if (!user.level().isClientSide() && user instanceof ServerPlayer player) {
                         // TODO: figure out better way to do this maybe
                         ReduxPacketHandler.sendToPlayer(new InfusionExpirePacket(), player);
                     }

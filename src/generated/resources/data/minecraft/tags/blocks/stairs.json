@@ -7,7 +7,6 @@
     "aether_redux:shell_shingle_stairs",
     "aether_redux:enchanted_shell_shingle_stairs",
     "aether_redux:gilded_holystone_stairs",
-    "aether_redux:blightmoss_holystone_stairs",
-    "aether_redux:carved_stone_brick_stairs"
+    "aether_redux:blightmoss_holystone_stairs"
   ]
 }

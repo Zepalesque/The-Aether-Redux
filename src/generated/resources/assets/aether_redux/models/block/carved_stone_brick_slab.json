@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "aether_redux:block/construction/carved_stone_bricks",
-    "side": "aether_redux:block/construction/carved_stone_bricks",
-    "top": "aether_redux:block/construction/carved_stone_bricks"
-  }
-}
