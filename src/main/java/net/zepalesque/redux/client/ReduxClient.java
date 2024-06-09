@@ -1,12 +1,16 @@
 package net.zepalesque.redux.client;
 
+import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.client.resources.model.Material;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.common.Mod;
 import net.orcinus.galosphere.Galosphere;
 import net.orcinus.galosphere.init.GItems;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.capability.living.VampireAmulet;
 import net.zepalesque.redux.config.ReduxConfig;
@@ -38,6 +42,15 @@ public class ReduxClient {
 //        MolangParser.INSTANCE.register(new LazyVariable(HEAD_Y_ROT, 0));
     }
 
+    public static void fixSignTextures(WoodHandler handler) {
+        ResourceLocation texture = Redux.locate("entity/signs/" + handler.woodName);
+        Material material = new Material(Sheets.SIGN_SHEET, texture);
+        Sheets.SIGN_MATERIALS.put(handler.woodType, material);
+
+        ResourceLocation hangingTexture = Redux.locate("entity/signs/hanging/" + handler.woodName);
+        Material hangingMaterial = new Material(Sheets.SIGN_SHEET, hangingTexture);
+        Sheets.HANGING_SIGN_MATERIALS.put(handler.woodType, hangingMaterial);
+    }
 
     public static void registerItemModelProperties() {
         ItemProperties.register(ReduxItems.SUBZERO_CROSSBOW.get(), Redux.locate("pull"), (stack, level, entity, seed) -> {

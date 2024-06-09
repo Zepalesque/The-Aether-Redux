@@ -54,6 +54,7 @@ import net.zepalesque.redux.block.natural.shrublands.ZanberryShrubBlock;
 import net.zepalesque.redux.block.natural.skyfields.FieldsprootLeafBlock;
 import net.zepalesque.redux.block.natural.skyfields.FieldsprootPetalsBlock;
 import net.zepalesque.redux.block.util.CommonPlantBounds;
+import net.zepalesque.redux.client.ReduxClient;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.data.resource.ReduxConfiguredFeatures;
@@ -547,16 +548,10 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
     public static void registerWoodTypes(boolean client) {
         for (WoodHandler handler : Redux.WoodHandlers.WOOD_HANDLERS) {
             if (client) {
-                fixTexture(handler);
+                ReduxClient.fixSignTextures(handler);
             }
             WoodType.register(handler.woodType);
         }
-    }
-
-    private static void fixTexture(WoodHandler handler) {
-        ResourceLocation fixTexture = Redux.locate("entity/signs/" + handler.woodName);
-        Material fixed = new Material(Sheets.SIGN_SHEET, fixTexture);
-        Sheets.SIGN_MATERIALS.put(handler.woodType, fixed);
     }
 
     public static void registerPots() {
