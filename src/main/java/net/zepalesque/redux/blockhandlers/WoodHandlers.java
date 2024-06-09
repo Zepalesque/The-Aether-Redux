@@ -19,5 +19,6 @@ public class WoodHandlers {
     }
 
     public static void init() {
+        // Manually load class
     }
 }
