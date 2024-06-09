@@ -199,8 +199,6 @@ public class Redux {
         }, () -> () -> false);
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(MobSoundListener.class);
-        fixSignTextures();
-        fixHangingSignTextures();
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ReduxConfig.COMMON_SPEC, "aether_redux_common.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ReduxConfig.CLIENT_SPEC, "aether_redux_client.toml");
@@ -311,6 +309,8 @@ public class Redux {
         ReduxRenderers.registerCuriosRenderers();
         event.enqueueWork(
                 () -> {
+                    fixSignTextures();
+                    fixHangingSignTextures();
                     if (ReduxConfig.CLIENT.first_startup_lightmap_changes.get()) {
 //                        AetherConfig.CLIENT.green_sunset.set(true);
 //                        AetherConfig.CLIENT.green_sunset.save();
