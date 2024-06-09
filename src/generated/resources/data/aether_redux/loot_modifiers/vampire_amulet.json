@@ -2,8 +2,17 @@
   "type": "aether_redux:add_dungeon_loot",
   "conditions": [
     {
-      "condition": "forge:loot_table_id",
-      "loot_table_id": "aether:chests/dungeon/bronze/bronze_dungeon_reward"
+      "condition": "minecraft:any_of",
+      "terms": [
+        {
+          "condition": "forge:loot_table_id",
+          "loot_table_id": "aether:chests/dungeon/bronze/bronze_dungeon_reward"
+        },
+        {
+          "condition": "forge:loot_table_id",
+          "loot_table_id": "ancient_aether:chests/dungeon/bronze/bronze_dungeon_reward"
+        }
+      ]
     },
     {
       "chance": 0.35,

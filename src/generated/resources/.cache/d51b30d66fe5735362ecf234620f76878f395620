@@ -1,4 +1,4 @@
-// 1.20.1	2024-06-08T14:49:41.6027436	Item Models: aether_redux
+// 1.20.1	2024-06-08T20:09:13.2918034	Item Models: aether_redux
 2445055af5b1b7f3c6045199ffce74108003cef6 assets/aether_redux/models/item/airbound_cape.json
 2fa1343a8119a1f49af334c002773099174965bd assets/aether_redux/models/item/aurum.json
 edfe83948874d1436a61893ed9471b47e93dbe88 assets/aether_redux/models/item/avelium.json
@@ -45,7 +45,6 @@ dc17ffd83782af678c9f09b7048e9725024b29c2 assets/aether_redux/models/item/blightw
 5cd06f8e467b1902c32bd6db636be51f81f28ca5 assets/aether_redux/models/item/boss_doorway_carved_pillar.json
 e5e380771371ff8039d81ae30ec5e722b0f59200 assets/aether_redux/models/item/boss_doorway_sentry_base.json
 68cd638a5278d41c07f330e14986ed5a2ea34181 assets/aether_redux/models/item/boss_doorway_sentry_pillar.json
-dd16cf2526182e4b4ec50ca96bb1fbc5488181de assets/aether_redux/models/item/bundle_of_wyndsprouts.json
 b12685c079179b9c4813feaac6e8d597d7fc2e8b assets/aether_redux/models/item/carved_base.json
 90eda93131599a3f22ae8ff113b1e3c9f6154d55 assets/aether_redux/models/item/carved_pillar.json
 23672e9631f487255e8e01b1ca696f62f9cd9d61 assets/aether_redux/models/item/cloudcap_boat.json
@@ -299,8 +298,9 @@ a10d36269b90a11c03ea84847453473095fbaeb0 assets/aether_redux/models/item/veridiu
 0800d9276da8f932e06518a5176f0d34864d3c4f assets/aether_redux/models/item/veridium_shovel.json
 25fab51c204f0bf36a3595fcd57e8202736fd397 assets/aether_redux/models/item/veridium_sword.json
 599bcfee1cc00ba1bb268ce17e64bc719d3f4269 assets/aether_redux/models/item/wyndsprouts.json
-96ab325892e2cd2be4ed35332ec32483e2a2e623 assets/aether_redux/models/item/wyndsprout_bagel.json
-d956bb58487c96a5cae4ff6ca773baeb504e3cc3 assets/aether_redux/models/item/wyndsprout_seeds.json
+364bddee4e0790375a223b0c653e1ca7ccba0a07 assets/aether_redux/models/item/wynd_bagel.json
+b504c806f81f09c472208c14b5266cb230b62f26 assets/aether_redux/models/item/wynd_oats.json
+d769e4a3e26230564ec83792cbdfd952a01376e4 assets/aether_redux/models/item/wynd_oat_panicle.json
 13082c59b15ca2ca8b358cd4be6137ff34bee181 assets/aether_redux/models/item/xaelia_patch.json
 9f827a41b1b512474d1d6a2ce1b25e6efbcc4d75 assets/aether_redux/models/item/zanberry.json
 50ca60d8fc1bd373c9832f7e2ab05d1d6ff81d80 assets/aether_redux/models/item/zanberry_bush.json

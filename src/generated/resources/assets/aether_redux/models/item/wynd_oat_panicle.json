@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "aether_redux:item/food/wyndsprout_seeds"
+    "layer0": "aether_redux:item/materials/wynd_oat_panicle"
   }
 }

@@ -7,12 +7,12 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_wyndsprout_seeds": {
+    "has_wynd_oats": {
       "conditions": {
         "items": [
           {
             "items": [
-              "aether_redux:wyndsprout_seeds"
+              "aether_redux:wynd_oats"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_wyndsprout_seeds",
+      "has_wynd_oats",
       "has_the_recipe"
     ]
   ],

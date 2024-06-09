@@ -1,5 +1,6 @@
-// 1.20.1	2024-06-08T15:01:05.0078086	Languages: en_us
-809f9a563e67f91aadb548a51b6aef4c566ca3a2 assets/aether_redux/lang/en_us.json
+// 1.20.1	2024-06-08T20:09:13.3707555	Languages: en_us
+da594f1447a4a8983473ed21e7dee3d9db37977d assets/aether_redux/lang/en_us.json
+ab9f60271b32827fd796e40fdb4fe9088d6f7c01 packs/resource/redux_tips/assets/aether_redux/tips/airbound_cape.json
 37813a3470b780c1f56114be8e3844390457a770 packs/resource/redux_tips/assets/aether_redux/tips/blight_spear.json
 acac88c5e10643ab0fc78b75029a0eab73803c0b packs/resource/redux_tips/assets/aether_redux/tips/divinite.json
 66f6f8908d0b1458824163d43a2db292c760bb27 packs/resource/redux_tips/assets/aether_redux/tips/enchanted_ring.json
@@ -14,4 +15,4 @@ fa21188e26f556d5ee0e27a48144cdba02193936 packs/resource/redux_tips/assets/aether
 a44b89f6ba0538ce718163b437bd910c321f3442 packs/resource/redux_tips/assets/aether_redux/tips/tip_color.json
 e05092e0c5ab024faca5dedbc056cefaca29225b packs/resource/redux_tips/assets/aether_redux/tips/veridium_infusion.json
 a87c7872756f49447a3c3e0e24db7b4e2a22d8b9 packs/resource/redux_tips/assets/aether_redux/tips/veridium_ore.json
-12c9f5f2361f7fd32dc6ca3c7a67af643adae92e packs/resource/redux_tips/assets/aether_redux/tips/wyndsprouts.json
+7652658bc1f65f8f7526b47b5086b415e7c3749d packs/resource/redux_tips/assets/aether_redux/tips/wynd_oats.json

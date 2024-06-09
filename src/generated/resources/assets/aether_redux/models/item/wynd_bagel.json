@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "aether_redux:item/food/wyndsprout_bagel"
+    "layer0": "aether_redux:item/food/wynd_bagel"
   }
 }
