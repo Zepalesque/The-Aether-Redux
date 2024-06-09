@@ -12,6 +12,13 @@
       "chance": 0.01,
       "condition": "minecraft:random_chance_with_looting",
       "looting_multiplier": 0.005
+    },
+    {
+      "condition": "aether_redux:data_loot_condition",
+      "data_loot_condition": {
+        "condition": "aether_redux:redux_config",
+        "config_path": "[Gameplay Changes, Loot, Valkyrie Ring]"
+      }
     }
   ],
   "functions": [

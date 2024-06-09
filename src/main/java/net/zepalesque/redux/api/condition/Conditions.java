@@ -17,4 +17,5 @@ public class Conditions {
     public static final AbstractCondition<?> VINES = new ReduxConfigCondition(ReduxConfig.COMMON.enchanted_vines);
     public static final AbstractCondition<?> ENDERMEN = new ReduxConfigCondition(ReduxConfig.COMMON.enderman_spawns);
     public static final AbstractCondition<?> ALT_GILDED = new ReduxConfigCondition(ReduxConfig.COMMON.alternate_gilded_trees);
+    public static final AbstractCondition<?> VALK_RING = new ReduxConfigCondition(ReduxConfig.COMMON.valkyrie_ring);
 }

@@ -70,6 +70,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue bronze_dungeon_upgrade;
 
         public final ForgeConfigSpec.BooleanValue cloud_layer_gen;
+        public final ForgeConfigSpec.BooleanValue valkyrie_ring;
 
         public final ForgeConfigSpec.DoubleValue cloud_layer_threshold_min;
         public final ForgeConfigSpec.DoubleValue cloud_layer_threshold_max;
@@ -91,6 +92,9 @@ public class ReduxConfig {
             this.pl_swet_behavior = builder.comment("Gives Swets less irritating behavior, based on their behavior in older builds of the Paradise Lost mod. Requires world restart to refresh existing mob AI.").worldRestart().define("PL-Like Swet Behavior", true);
             this.smaller_mimic_hitbox = builder.comment("Decreases the size of mimics. Intended to be used with the client-side model. Requires an MC restart").define("Smaller Mimic Hitbox", true);
             this.mobs_avoid_quicksoil = builder.comment("Causes mobs to try to avoid walking on quicksoil.").define("Mobs Avoid Quicksoil", true);
+            builder.pop();
+            builder.push("Loot");
+            this.valkyrie_ring = builder.comment("Enables the Valkyrie Ring as a drop from Valkyries").worldRestart().define("Valkyrie Ring", true);
             builder.pop();
             builder.push("Mob Spawns");
             this.enderman_spawns = builder.comment("Allows Endermen to spawn in the Aether").worldRestart().define("Enderman Spawns", false);
