@@ -23,6 +23,7 @@ import net.minecraftforge.client.model.generators.ModelBuilder;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.blockhandlers.WoodHandlers;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.construction.LayeredBookshelfBlock;
 import net.zepalesque.redux.block.natural.ReduxNaturalLog;
@@ -476,7 +477,7 @@ public class WoodHandler implements BlockHandler {
         data.addLore(this.fenceGate, "Crafted from " + getLocalizedName() + " Planks and Skyroot Sticks. Fence gates give a homely entrance and exit to your precious enclosures.");
        data.addBlock(this.door, getLocalizedName() + " Door");
         data.addLore(this.door, "Crafted from " + getLocalizedName() +
-                (this == Redux.WoodHandlers.CLOUDCAP ? " Planks. Some have said that these doors cause places to almost feel more spacious inside than out." : " Planks. Doors are an ornate entrance helpful for keeping an enclosed and safe space without worry of monsters wandering in!")
+                (this == WoodHandlers.CLOUDCAP ? " Planks. Some have said that these doors cause places to almost feel more spacious inside than out." : " Planks. Doors are an ornate entrance helpful for keeping an enclosed and safe space without worry of monsters wandering in!")
         );
        data.addBlock(this.trapdoor, getLocalizedName() + " Trapdoor");
         data.addLore(this.trapdoor, "Crafted from "+getLocalizedName()+" Planks. Trapdoors are useful for covering entryways one block wide. They are often used to add extra protection to staircases.");

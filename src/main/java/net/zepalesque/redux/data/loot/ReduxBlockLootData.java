@@ -257,7 +257,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
 
         this.dropSelfDouble(ReduxBlocks.JELLYSHROOM_JELLY_BLOCK.get());
 
-        for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS)
+        for (WoodHandler woodHandler : Redux.WOOD_HANDLERS)
         {
             this.dropSelfDouble(woodHandler.log.get());
             woodHandler.strippedWood.ifPresent((reg) ->

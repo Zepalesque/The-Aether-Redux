@@ -48,6 +48,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.blockhandlers.WoodHandlers;
 import net.zepalesque.redux.api.condition.Conditions;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.util.state.ReduxStates;
@@ -58,13 +59,10 @@ import net.zepalesque.redux.world.feature.config.*;
 import net.zepalesque.redux.world.stateprov.SimpleConditionAlternativeStateProvider;
 import net.zepalesque.redux.world.tree.decorator.BlightwillowRootsTrunkDecorator;
 import net.zepalesque.redux.world.tree.decorator.EnchantedVineDecorator;
-import net.zepalesque.redux.world.tree.decorator.GenesisTrunkDecorator;
 import net.zepalesque.redux.world.tree.decorator.PatchTreeDecorator;
 import net.zepalesque.redux.world.tree.foliage.BlightwillowFoliagePlacer;
-import net.zepalesque.redux.world.tree.foliage.GenesisHookedFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.GenesisPineFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.GlaciaFoliagePlacer;
-import net.zepalesque.redux.world.tree.trunk.GenesisHookedTrunkPlacer;
 
 import java.util.Arrays;
 import java.util.List;
@@ -301,8 +299,8 @@ public class ReduxConfiguredFeatures {
 
         WeightedStateProvider p = new WeightedStateProvider(
                 SimpleWeightedRandomList.<BlockState>builder()
-                        .add(drops(Redux.WoodHandlers.BLIGHTWILLOW.log), 7)
-                        .add(drops(Redux.WoodHandlers.BLIGHTWILLOW.sporingLog.orElseThrow()), 1)
+                        .add(drops(WoodHandlers.BLIGHTWILLOW.log), 7)
+                        .add(drops(WoodHandlers.BLIGHTWILLOW.sporingLog.orElseThrow()), 1)
         );
         register(context, BLIGHTWILLOW_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 p,
@@ -312,7 +310,7 @@ public class ReduxConfiguredFeatures {
                 new TwoLayersFeatureSize(6, 0, 4)
         ).decorators(
                 List.of(
-                        new BlightwillowRootsTrunkDecorator(p, prov(naturalDrops(Redux.WoodHandlers.BLIGHTWILLOW.logWall)), UniformInt.of(1, 4)),
+                        new BlightwillowRootsTrunkDecorator(p, prov(naturalDrops(WoodHandlers.BLIGHTWILLOW.logWall)), UniformInt.of(1, 4)),
                         new PatchTreeDecorator(createLeafPileLayers(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE), 7, 3, 32)
                 )
         ).ignoreVines().dirt(BlockStateProvider.simple(Blocks.AIR)).build());
@@ -447,7 +445,7 @@ public class ReduxConfiguredFeatures {
 
         register(context, CRYSTAL_TREE_OVERRIDE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
-                        prov(Redux.WoodHandlers.CRYSTAL.log),
+                        prov(WoodHandlers.CRYSTAL.log),
                         new CrystalTreeTrunkPlacer(7, 0, 0),
                         new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(AetherFeatureStates.CRYSTAL_LEAVES, 4).add(AetherFeatureStates.CRYSTAL_FRUIT_LEAVES, 1).build()),
                         new CrystalFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0), ConstantInt.of(6)),
@@ -455,7 +453,7 @@ public class ReduxConfiguredFeatures {
 
         register(context, HOLIDAY_TREE_OVERRIDE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
-                        prov(Redux.WoodHandlers.GLACIA.log),
+                        prov(WoodHandlers.GLACIA.log),
                         new StraightTrunkPlacer(9, 0, 0),
                         new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(AetherFeatureStates.HOLIDAY_LEAVES, 4).add(AetherFeatureStates.DECORATED_HOLIDAY_LEAVES, 1).build()),
                         new HolidayFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0), ConstantInt.of(8)),
@@ -465,7 +463,7 @@ public class ReduxConfiguredFeatures {
 
         register(context, GLACIA_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
-                        prov(Redux.WoodHandlers.GLACIA.log),
+                        prov(WoodHandlers.GLACIA.log),
                         new StraightTrunkPlacer(9, 10, 0),
                         prov(ReduxBlocks.GLACIA_LEAVES),
                         new GlaciaFoliagePlacer(ConstantInt.of(1), ConstantInt.of(0), ConstantInt.of(1)),
@@ -473,7 +471,7 @@ public class ReduxConfiguredFeatures {
 
         register(context, CRYSTAL_LEAF_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
-                        prov(Redux.WoodHandlers.CRYSTAL.log),
+                        prov(WoodHandlers.CRYSTAL.log),
                         new CrystalTreeTrunkPlacer(7, 0, 0),
                         prov(AetherBlocks.CRYSTAL_LEAVES),
                         new CrystalFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0), ConstantInt.of(6)),
@@ -481,7 +479,7 @@ public class ReduxConfiguredFeatures {
 
         register(context, CRYSTAL_RARE_FRUIT_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
-                        prov(Redux.WoodHandlers.CRYSTAL.log),
+                        prov(WoodHandlers.CRYSTAL.log),
                         new CrystalTreeTrunkPlacer(7, 0, 0),
                         new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
                                 .add(AetherFeatureStates.CRYSTAL_LEAVES, 9)
@@ -496,7 +494,7 @@ public class ReduxConfiguredFeatures {
 
         register(context, PURPLE_GLACIA_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
-                        prov(Redux.WoodHandlers.GLACIA.log),
+                        prov(WoodHandlers.GLACIA.log),
                         new StraightTrunkPlacer(5, 2, 0),
                         prov(ReduxBlocks.PURPLE_GLACIA_LEAVES),
                         new GlaciaFoliagePlacer(ConstantInt.of(1), ConstantInt.of(0), ConstantInt.of(1)),
@@ -543,8 +541,8 @@ public class ReduxConfiguredFeatures {
                 new CloudcapFeature.Config(
                         prov(ReduxBlocks.CLOUD_CAP_BLOCK.get().defaultBlockState().setValue(BlockStateProperties.DOWN, false)),
                         prov(ReduxBlocks.CLOUDCAP_SPORES),
-                        prov(Redux.WoodHandlers.CLOUDCAP.log),
-                        prov(naturalDrops(Redux.WoodHandlers.CLOUDCAP.logWall)),
+                        prov(WoodHandlers.CLOUDCAP.log),
+                        prov(naturalDrops(WoodHandlers.CLOUDCAP.logWall)),
                         UniformInt.of(17, 21),
                         UniformInt.of(1, 4),
                         UniformInt.of(1, 3),
@@ -557,7 +555,7 @@ public class ReduxConfiguredFeatures {
         register(context, LARGE_JELLYSHROOM, ReduxFeatures.JELLYSHROOM.get(),
                 new JellyshroomFeature.Config(
                         prov(ReduxBlocks.JELLYSHROOM_JELLY_BLOCK),
-                        prov(Redux.WoodHandlers.JELLYSHROOM.log),
+                        prov(WoodHandlers.JELLYSHROOM.log),
                         UniformInt.of(7, 9)
                         ));
 
@@ -575,8 +573,8 @@ public class ReduxConfiguredFeatures {
         register(context, FIELDSPROOT_TREE, ReduxFeatures.FIELDSPROOT_TREE.get(),
                 new FieldsprootTreeFeature.Config(
                         prov(ReduxBlocks.FIELDSPROOT_LEAVES),
-                        prov(Redux.WoodHandlers.FIELDSPROOT.log),
-                        prov(naturalDrops(Redux.WoodHandlers.FIELDSPROOT.wood)),
+                        prov(WoodHandlers.FIELDSPROOT.log),
+                        prov(naturalDrops(WoodHandlers.FIELDSPROOT.wood)),
                         new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
                                 .add(ConstantInt.of(0), 5)
                                 .add(ConstantInt.of(1), 4)

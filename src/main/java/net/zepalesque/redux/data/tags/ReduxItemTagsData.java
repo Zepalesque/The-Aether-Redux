@@ -31,7 +31,7 @@ public class ReduxItemTagsData extends ItemTagsProvider {
 
     protected void addTags(HolderLookup.Provider provider) {
 
-        for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS)        {
+        for (WoodHandler woodHandler : Redux.WOOD_HANDLERS)        {
             this.copy(woodHandler.logsBlockTag, woodHandler.logsTag);
             this.tag(AetherTags.Items.PLANKS_CRAFTING).add(woodHandler.planks.get().asItem());
             this.tag(AetherTags.Items.SKYROOT_STICK_CRAFTING).add(woodHandler.planks.get().asItem());

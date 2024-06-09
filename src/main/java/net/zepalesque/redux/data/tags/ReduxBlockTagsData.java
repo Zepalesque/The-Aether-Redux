@@ -61,7 +61,7 @@ public class ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.AVELIUM_SPROUTS.get()
         );
 
-        for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS)        {
+        for (WoodHandler woodHandler : Redux.WOOD_HANDLERS)        {
             woodHandler.sporingBlocksBlockTag.ifPresent(
                     (tag) -> {
                         this.tag(tag).add(woodHandler.sporingLog.get().get(), woodHandler.sporingWood.get().get());

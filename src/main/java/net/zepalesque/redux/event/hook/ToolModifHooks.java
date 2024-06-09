@@ -22,6 +22,7 @@ import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.ToolActions;
 import net.minecraftforge.event.level.BlockEvent;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.blockhandlers.WoodHandlers;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.loot.ReduxLoot;
@@ -39,7 +40,7 @@ public class ToolModifHooks {
 
     static {
 
-        for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS) {
+        for (WoodHandler woodHandler : Redux.WOOD_HANDLERS) {
             if (woodHandler.hasStrippedLogs) {
                 STRIPPABLES.put(woodHandler.log.get(), woodHandler.strippedLog.get().get());
                 STRIPPABLES.put(woodHandler.wood.get(), woodHandler.strippedWood.get().get());
@@ -99,7 +100,7 @@ public class ToolModifHooks {
     public static void stripBlightwillow(LevelAccessor accessor, BlockState state, ItemStack stack, ToolAction action, UseOnContext context) {
         if (action == ToolActions.AXE_STRIP) {
             if (accessor instanceof Level level) {
-                if (Redux.WoodHandlers.BLIGHTWILLOW.sporingBlocksBlockTag.isPresent() && state.is(Redux.WoodHandlers.BLIGHTWILLOW.sporingBlocksBlockTag.get()) && stack.is(AetherTags.Items.GOLDEN_AMBER_HARVESTERS)) {
+                if (WoodHandlers.BLIGHTWILLOW.sporingBlocksBlockTag.isPresent() && state.is(WoodHandlers.BLIGHTWILLOW.sporingBlocksBlockTag.get()) && stack.is(AetherTags.Items.GOLDEN_AMBER_HARVESTERS)) {
                     if (level.getServer() != null && level instanceof ServerLevel serverLevel) {
                         Vec3 vector = context.getClickLocation();
                         LootParams parameters = (new LootParams.Builder(serverLevel)).withParameter(LootContextParams.TOOL, stack).create(AetherLootContexts.STRIPPING);

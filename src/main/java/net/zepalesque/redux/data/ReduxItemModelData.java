@@ -221,7 +221,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
 
 
 
-        for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS)        {
+        for (WoodHandler woodHandler : Redux.WOOD_HANDLERS)        {
             woodHandler.generateItemModels(this);
         }
 

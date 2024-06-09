@@ -11,9 +11,7 @@ import com.mojang.logging.LogUtils;
 import com.mojang.serialization.Codec;
 import net.builderdog.ancient_aether.entity.AncientAetherEntityTypes;
 import net.minecraft.SharedConstants;
-import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.client.resources.model.Material;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.Registry;
 import net.minecraft.data.DataGenerator;
@@ -34,8 +32,6 @@ import net.minecraft.world.item.alchemy.PotionBrewing;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DispenserBlock;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -64,6 +60,7 @@ import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.util.ReduxSoundTypes;
 import net.zepalesque.redux.block.util.dispenser.ShellShinglesDispenserBehavior;
 import net.zepalesque.redux.blockentity.ReduxBlockEntityTypes;
+import net.zepalesque.redux.blockhandlers.WoodHandlers;
 import net.zepalesque.redux.builtin.BuiltinPackUtils;
 import net.zepalesque.redux.client.ReduxClient;
 import net.zepalesque.redux.client.ReduxColors;
@@ -129,6 +126,8 @@ import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
 
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
@@ -144,6 +143,7 @@ public class Redux {
     public static final int REDUX_PURPLE = 0x9384F4;
 
     public static final RandomSource RAND = RandomSource.create();
+    public static final Collection<WoodHandler> WOOD_HANDLERS = new ArrayList<>();
 
     @Nullable
     public static ReduxPackConfig packConfig;
@@ -195,7 +195,7 @@ public class Redux {
         ReduxBlocks.registerPots();
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(MobSoundListener.class);
-        WoodHandlers.initialize();
+        WoodHandlers.init();
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ReduxConfig.COMMON_SPEC, "aether_redux_common.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ReduxConfig.CLIENT_SPEC, "aether_redux_client.toml");
@@ -203,18 +203,6 @@ public class Redux {
 
     public static class Keys {
         public static final ResourceKey<Registry<Codec<? extends AbstractCondition<?>>>> CONDITION_SERIALIZER = ResourceKey.createRegistryKey(new ResourceLocation(Redux.MODID, "condition_serializer"));
-    }
-    
-    public static class WoodHandlers {
-        public static final WoodHandler FIELDSPROOT = WoodHandler.handler("fieldsproot", null, true, WoodHandler.cherrySoundBlockSet(), "trees", "log", "wood", SoundType.CHERRY_WOOD, SoundType.CHERRY_WOOD, false, MapColor.NETHER, MapColor.COLOR_ORANGE, false, true);
-        public static final WoodHandler BLIGHTWILLOW = WoodHandler.handler("blightwillow", null, true, WoodHandler.bambooSoundBlockSet(), "trees", "log", "wood", SoundType.BAMBOO_WOOD, SoundType.BAMBOO_WOOD, true, MapColor.TERRACOTTA_CYAN, MapColor.COLOR_GREEN, true, false);
-        public static final WoodHandler CLOUDCAP = WoodHandler.fungus("cloudcap", true, MapColor.WOOL, MapColor.TERRACOTTA_PURPLE, false);
-        public static final WoodHandler JELLYSHROOM = WoodHandler.noStrippingFungus("jellyshroom", false, MapColor.COLOR_GRAY, MapColor.COLOR_GRAY, false);
-        public static final WoodHandler CRYSTAL = WoodHandler.tree("crystal", false, MapColor.TERRACOTTA_CYAN, MapColor.COLOR_LIGHT_BLUE, false);
-        public static final WoodHandler GLACIA = WoodHandler.tree("glacia", false, MapColor.TERRACOTTA_BLACK, MapColor.TERRACOTTA_LIGHT_GRAY, true);
-        public static final WoodHandler[] WOOD_HANDLERS = new WoodHandler[] { CRYSTAL, BLIGHTWILLOW, GLACIA, FIELDSPROOT, CLOUDCAP, JELLYSHROOM};
-        public static void initialize() {}
-
     }
 
     private void replaceBlockSounds() {

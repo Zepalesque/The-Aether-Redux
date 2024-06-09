@@ -48,7 +48,7 @@ public class ReduxRenderers {
 
     @SubscribeEvent
     public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS) {
+        for (WoodHandler woodHandler : Redux.WOOD_HANDLERS) {
             event.registerBlockEntityRenderer(woodHandler.signEntity.get(), SignRenderer::new);
             event.registerBlockEntityRenderer(woodHandler.hangingSignEntity.get(), HangingSignRenderer::new);
             event.registerEntityRenderer(woodHandler.boatEntity.get(), (context) -> new ReduxBoatRenderer(context, false, woodHandler.woodName));

@@ -249,7 +249,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.dungeonBlock(ReduxBlocks.LOCKED_SENTRITE_BRICKS.get(), ReduxBlocks.SENTRITE_BRICKS.get(), "construction/");
 
 
-        for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS)        {
+        for (WoodHandler woodHandler : Redux.WOOD_HANDLERS)        {
             woodHandler.generateBlockstateData(this);
         }
 

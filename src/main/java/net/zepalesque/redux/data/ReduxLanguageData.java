@@ -774,7 +774,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addProTip("swet_escape", "You can escape a Swet's gelatinous grasp by sneaking. It will still attack you though, so be quick!");
         addProTip("airbound_cape", "After defeating the Slider, you can occasionally find a nifty accessory in the loot chest known as the Airbound Cape. This will allow you to perform a double-jump, extending your vertical mobility!");
 
-        for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS) {
+        for (WoodHandler woodHandler : Redux.WOOD_HANDLERS) {
             woodHandler.generateLanguageData(this);
         }
 

@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.registries.MissingMappingsEvent;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.blockhandlers.WoodHandlers;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
@@ -27,9 +28,9 @@ import java.util.function.Supplier;
 public class MappingsHooks {
 
     public static final Map<String, WoodHandler> WOOD_TYPES = new ImmutableMap.Builder<String, WoodHandler>()
-            .put("prismatic", Redux.WoodHandlers.FIELDSPROOT)
-            .put("fieldsprout", Redux.WoodHandlers.FIELDSPROOT)
-            .put("springshroom", Redux.WoodHandlers.JELLYSHROOM)
+            .put("prismatic", WoodHandlers.FIELDSPROOT)
+            .put("fieldsprout", WoodHandlers.FIELDSPROOT)
+            .put("springshroom", WoodHandlers.JELLYSHROOM)
             .build();
 
     public static final Map<ResourceLocation, Supplier<? extends ItemLike>> ITEMS = createItemMap();
