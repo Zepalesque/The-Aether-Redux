@@ -501,16 +501,24 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                         ::save).build(consumer, Redux.locate("redux_coarse_dirt"));
 
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ReduxItems.WYND_BAGEL.get(), 1)
-                .requires(ReduxItems.WYND_OAT_PANICLE.get(), 4)
-                .unlockedBy(getHasName(ReduxItems.WYND_OAT_PANICLE.get()), has(ReduxItems.WYND_OAT_PANICLE.get()))
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ReduxItems.WYND_BAGEL.get(), 1)
+                .define('O', ReduxItems.WYND_OAT_PANICLE.get())
+                .pattern(" O ")
+                .pattern("O O")
+                .pattern(" O ")
+                .unlockedBy(getHasName(ReduxItems.WYND_OATS.get()), has(ReduxItems.WYND_OATS.get()))
                 .save(consumer);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ReduxItems.BLUEBERRY_BAGEL.get(), 1)
-                .requires(ReduxItems.WYND_OAT_PANICLE.get(), 3)
-                .requires(AetherItems.BLUE_BERRY.get(), 1)
-                .unlockedBy(getHasName(ReduxItems.WYND_OAT_PANICLE.get()), has(ReduxItems.WYND_OAT_PANICLE.get()))
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ReduxItems.BLUEBERRY_BAGEL.get(), 1)
+                .define('O', ReduxItems.WYND_OAT_PANICLE.get())
+                .define('B', AetherItems.BLUE_BERRY.get())
+                .pattern(" O ")
+                .pattern("OBO")
+                .pattern(" O ")
+                .unlockedBy(getHasName(ReduxItems.WYND_OATS.get()), has(ReduxItems.WYND_OATS.get()))
+                .unlockedBy(getHasName(AetherItems.BLUE_BERRY.get()), has(AetherItems.BLUE_BERRY.get()))
                 .save(consumer);
+
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ReduxItems.OATMEAL.get(), 1)
                         .requires(Items.BOWL)
