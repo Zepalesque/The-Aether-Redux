@@ -152,7 +152,8 @@ public class Redux {
     public Redux() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         bus.addListener(this::commonSetup);
-        bus.addListener(this::clientSetup);
+        // Low priority so that we don't load Sheets.class before Supplementaries
+        bus.addListener(EventPriority.LOW, this::clientSetup);
         DistExecutor.unsafeRunForDist(() -> () -> {
             bus.addListener(EventPriority.LOWEST, ReduxColors::blockColors);
             bus.addListener(ReduxColors::itemColors);
@@ -303,14 +304,15 @@ public class Redux {
         }
     }
 
+
     private void clientSetup(final FMLClientSetupEvent event) {
         EntityRenderers.register(ReduxEntityTypes.MYKAPOD.get(), MykapodRenderer::new);
         EntityRenderers.register(ReduxEntityTypes.BLIGHTBUNNY.get(), BlightbunnyRenderer::new);
         ReduxRenderers.registerCuriosRenderers();
+        fixSignTextures();
+        fixHangingSignTextures();
         event.enqueueWork(
                 () -> {
-                    fixSignTextures();
-                    fixHangingSignTextures();
                     if (ReduxConfig.CLIENT.first_startup_lightmap_changes.get()) {
 //                        AetherConfig.CLIENT.green_sunset.set(true);
 //                        AetherConfig.CLIENT.green_sunset.save();
