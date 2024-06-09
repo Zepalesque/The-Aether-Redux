@@ -122,12 +122,14 @@ public class Redux {
 
     public Redux() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-        bus.addListener(this::commonSetup);
+        // Low priority so that we don't load Sheets.class before Supplementaries
+        bus.addListener(EventPriority.LOW,this::commonSetup);
         bus.addListener(this::clientSetup);
         DistExecutor.unsafeRunForDist(() -> () -> {
             bus.addListener(EventPriority.LOWEST, ReduxColors::blockColors);
             bus.addListener(ReduxColors::itemColors);
             bus.addListener(ReduxColors::resolvers);
+            ReduxMenus.MENUS.register(bus);
             return true;
         }, () -> () -> false);
         bus.addListener(EventPriority.HIGH, this::packSetup);
@@ -159,13 +161,8 @@ public class Redux {
         ReduxPotions.POTIONS.register(bus);
         ReduxMenuTypes.MENU_TYPES.register(bus);
         ReduxAdvancementSounds.SOUNDS.register(bus);
-        ReduxBlocks.registerWoodTypes();
+
         ReduxBlocks.registerPots();
-        // Side-dependent stuff
-        DistExecutor.unsafeRunForDist(() -> () -> {
-            ReduxMenus.MENUS.register(bus);
-            return true;
-        }, () -> () -> false);
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(MobSoundListener.class);
 
@@ -193,7 +190,13 @@ public class Redux {
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         ReduxAdvancementTriggers.init();
-
+        DistExecutor.unsafeRunForDist(() -> () -> {
+            ReduxBlocks.registerWoodTypes(true);
+            return true;
+        }, () -> () -> {
+            ReduxBlocks.registerWoodTypes(false);
+            return true;
+        });
         ReduxPlacementModifiers.init();
         ReduxPacketHandler.register();
         event.enqueueWork(() -> {

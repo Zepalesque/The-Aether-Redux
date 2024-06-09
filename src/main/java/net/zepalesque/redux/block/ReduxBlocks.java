@@ -13,7 +13,10 @@ import com.aetherteam.aether.item.AetherCreativeTabs;
 import com.aetherteam.aether.mixin.mixins.common.accessor.FireBlockAccessor;
 import com.aetherteam.nitrogen.item.block.EntityBlockItem;
 import com.google.common.base.Supplier;
+import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.resources.model.Material;
 import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
@@ -93,6 +96,7 @@ import net.zepalesque.redux.blockentity.ReduxBlockEntityTypes;
 import net.zepalesque.redux.blockentity.SkyrootChestBlockEntity;
 import net.zepalesque.redux.blockentity.SkyrootChestMimicBlockEntity;
 import net.zepalesque.redux.blockentity.TrappedSkyrootChestBlockEntity;
+import net.zepalesque.redux.client.ReduxClient;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.data.resource.ReduxConfiguredFeatures;
@@ -594,10 +598,12 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
         fireBlockAccessor.callSetFlammable(SPIROLYCTIL.get(), 60, 100);
         fireBlockAccessor.callSetFlammable(BLIGHTSHADE.get(), 60, 100);
     }
-    public static void registerWoodTypes() {
-        for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS)
-        {
-            WoodType.register(woodHandler.woodType);
+    public static void registerWoodTypes(boolean client) {
+        for (WoodHandler handler : Redux.WoodHandlers.WOOD_HANDLERS) {
+            if (client) {
+                ReduxClient.fixSignTextures(handler);
+            }
+            WoodType.register(handler.woodType);
         }
     }
 
