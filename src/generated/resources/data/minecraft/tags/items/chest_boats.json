@@ -1,10 +1,10 @@
 {
   "values": [
-    "aether_redux:crystal_chest_boat",
-    "aether_redux:blightwillow_chest_boat",
-    "aether_redux:glacia_chest_boat",
     "aether_redux:fieldsproot_chest_boat",
+    "aether_redux:blightwillow_chest_boat",
     "aether_redux:cloudcap_chest_boat",
-    "aether_redux:jellyshroom_chest_boat"
+    "aether_redux:jellyshroom_chest_boat",
+    "aether_redux:crystal_chest_boat",
+    "aether_redux:glacia_chest_boat"
   ]
 }

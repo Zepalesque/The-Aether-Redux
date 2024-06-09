@@ -1,10 +1,10 @@
 {
   "values": [
-    "aether_redux:crystal_bookshelf",
-    "aether_redux:blightwillow_bookshelf",
-    "aether_redux:glacia_bookshelf",
     "aether_redux:fieldsproot_bookshelf",
+    "aether_redux:blightwillow_bookshelf",
     "aether_redux:cloudcap_bookshelf",
-    "aether_redux:jellyshroom_bookshelf"
+    "aether_redux:jellyshroom_bookshelf",
+    "aether_redux:crystal_bookshelf",
+    "aether_redux:glacia_bookshelf"
   ]
 }
