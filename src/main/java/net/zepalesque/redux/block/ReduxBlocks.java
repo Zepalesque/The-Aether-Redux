@@ -13,10 +13,7 @@ import com.aetherteam.aether.item.AetherCreativeTabs;
 import com.aetherteam.aether.mixin.mixins.common.accessor.FireBlockAccessor;
 import com.aetherteam.nitrogen.item.block.EntityBlockItem;
 import com.google.common.base.Supplier;
-import net.minecraft.client.renderer.Sheets;
-import net.minecraft.client.resources.model.Material;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
@@ -573,7 +570,7 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
         FireBlockAccessor fireBlockAccessor = (FireBlockAccessor)Blocks.FIRE;
         fireBlockAccessor.callSetFlammable(BLIGHTWILLOW_LEAVES.get(), 30, 60);
         fireBlockAccessor.callSetFlammable(GLACIA_LEAVES.get(), 30, 60);
-        for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS) {
+        for (WoodHandler woodHandler : Redux.WOOD_HANDLERS) {
             woodHandler.strippedLog.ifPresent((reg) -> fireBlockAccessor.callSetFlammable(reg.get(), 5, 5));
             fireBlockAccessor.callSetFlammable(woodHandler.log.get(), 5, 5);
             fireBlockAccessor.callSetFlammable(woodHandler.logWall.get(), 5, 5);
@@ -598,8 +595,9 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
         fireBlockAccessor.callSetFlammable(SPIROLYCTIL.get(), 60, 100);
         fireBlockAccessor.callSetFlammable(BLIGHTSHADE.get(), 60, 100);
     }
+
     public static void registerWoodTypes(boolean client) {
-        for (WoodHandler handler : Redux.WoodHandlers.WOOD_HANDLERS) {
+        for (WoodHandler handler : Redux.WOOD_HANDLERS) {
             if (client) {
                 ReduxClient.fixSignTextures(handler);
             }

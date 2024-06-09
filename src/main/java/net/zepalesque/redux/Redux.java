@@ -26,8 +26,6 @@ import net.minecraft.world.item.alchemy.PotionBrewing;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DispenserBlock;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.event.AddPackFindersEvent;
@@ -55,6 +53,7 @@ import net.zepalesque.redux.block.util.ReduxSoundTypes;
 import net.zepalesque.redux.block.util.dispenser.ShellShinglesDispenserBehavior;
 import net.zepalesque.redux.blockentity.ReduxBlockEntityTypes;
 import net.zepalesque.redux.blockentity.ReduxMenuTypes;
+import net.zepalesque.redux.blockhandlers.WoodHandlers;
 import net.zepalesque.redux.builtin.BuiltinPackUtils;
 import net.zepalesque.redux.client.ReduxClient;
 import net.zepalesque.redux.client.ReduxColors;
@@ -102,6 +101,8 @@ import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
 
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.Collection;
 
 @Mod(Redux.MODID)
 public class Redux {
@@ -115,6 +116,7 @@ public class Redux {
     public static final int REDUX_PURPLE = 0x9384F4;
 
     public static final RandomSource RAND = RandomSource.create();
+    public static final Collection<WoodHandler> WOOD_HANDLERS = new ArrayList<>();
 
     @Nullable
     public static ReduxPackConfig packConfig;
@@ -123,7 +125,7 @@ public class Redux {
     public Redux() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         // Low priority so that we don't load Sheets.class before Supplementaries
-        bus.addListener(EventPriority.LOW,this::commonSetup);
+        bus.addListener(EventPriority.LOW, this::commonSetup);
         bus.addListener(this::clientSetup);
         DistExecutor.unsafeRunForDist(() -> () -> {
             bus.addListener(EventPriority.LOWEST, ReduxColors::blockColors);
@@ -161,10 +163,10 @@ public class Redux {
         ReduxPotions.POTIONS.register(bus);
         ReduxMenuTypes.MENU_TYPES.register(bus);
         ReduxAdvancementSounds.SOUNDS.register(bus);
-
         ReduxBlocks.registerPots();
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(MobSoundListener.class);
+        WoodHandlers.init();
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ReduxConfig.COMMON_SPEC, "aether_redux_common.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ReduxConfig.CLIENT_SPEC, "aether_redux_client.toml");
@@ -172,16 +174,6 @@ public class Redux {
 
     public static class Keys {
         public static final ResourceKey<Registry<Codec<? extends AbstractCondition<?>>>> CONDITION_SERIALIZER = ResourceKey.createRegistryKey(new ResourceLocation(Redux.MODID, "condition_serializer"));
-    }
-
-    public static class WoodHandlers {
-        public static final WoodHandler FIELDSPROOT = WoodHandler.handler("fieldsproot", null, true, "trees", "log", "wood", SoundType.WOOD, SoundType.WOOD, false, MaterialColor.NETHER, MaterialColor.COLOR_ORANGE, false, true);
-        public static final WoodHandler BLIGHTWILLOW = WoodHandler.handler("blightwillow", null, true,"trees", "log", "wood", SoundType.WOOD, SoundType.WOOD, true, MaterialColor.TERRACOTTA_CYAN, MaterialColor.COLOR_GREEN, true, false);
-        public static final WoodHandler CLOUDCAP = WoodHandler.fungus("cloudcap", true, MaterialColor.WOOL, MaterialColor.TERRACOTTA_PURPLE, false);
-        public static final WoodHandler JELLYSHROOM = WoodHandler.noStrippingFungus("jellyshroom", false, MaterialColor.COLOR_GRAY, MaterialColor.COLOR_GRAY, false);
-        public static final WoodHandler CRYSTAL = WoodHandler.tree("crystal", false, MaterialColor.TERRACOTTA_CYAN, MaterialColor.COLOR_LIGHT_BLUE, false);
-        public static final WoodHandler GLACIA = WoodHandler.tree("glacia", false, MaterialColor.TERRACOTTA_BLACK, MaterialColor.TERRACOTTA_LIGHT_GRAY, true);
-        public static final WoodHandler[] WOOD_HANDLERS = new WoodHandler[] { CRYSTAL, BLIGHTWILLOW, GLACIA, FIELDSPROOT, CLOUDCAP, JELLYSHROOM};
     }
 
     private void replaceBlockSounds() {
@@ -234,33 +226,12 @@ public class Redux {
         });
     }
 
-    private void fixSignTextures() {
-        for (WoodHandler handler : WoodHandlers.WOOD_HANDLERS) {
-            Material old = Sheets.SIGN_MATERIALS.get(handler.woodType);
-            if (old == null) {
-                LOGGER.warn("Tried to fix a sign texture for the Aether: Redux but it hadn't generated yet! ID: {}", handler.woodName);
-            } else {
-                ResourceLocation fixTexture = locate("entity/signs/" + handler.woodName);
-                if (!old.texture().equals(fixTexture)) {
-                    Material fixed = new Material(Sheets.SIGN_SHEET, fixTexture);
-                    Sheets.SIGN_MATERIALS.put(handler.woodType, fixed);
-                    LOGGER.info("Successfully fixed sign material with ID {}", handler.woodName);
-                    LOGGER.info("Original ID was: {}", old.texture());
-                    LOGGER.info("New ID is: {}", fixed.texture());
-                } else {
-                    LOGGER.info("Skipping replacement of sign material with ID {} as the fixed texture is equal to the existing one", handler.woodName);
-                }
-            }
-        }
-    }
-
     private void clientSetup(final FMLClientSetupEvent event) {
         EntityRenderers.register(ReduxEntityTypes.MYKAPOD.get(), MykapodRenderer::new);
         EntityRenderers.register(ReduxEntityTypes.BLIGHTBUNNY.get(), BlightbunnyRenderer::new);
         ReduxRenderers.registerCuriosRenderers();
         event.enqueueWork(
                 () -> {
-                    fixSignTextures();
                     if (ReduxConfig.CLIENT.night_track_music_manager.get()) {
                         AetherConfig.CLIENT.disable_music_manager.set(true);
                         AetherConfig.CLIENT.disable_music_manager.save();

@@ -19,6 +19,7 @@ import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.blockhandlers.WoodHandlers;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.construction.LayeredBookshelfBlock;
 import net.zepalesque.redux.block.natural.ReduxNaturalLog;
@@ -118,9 +119,7 @@ public class WoodHandler implements BlockHandler {
     }
     /** More general constructor
      */
-    public static WoodHandler handler(String pWoodName, @Nullable String pLangName, boolean pStrippedLog, String pTreeName, String pLogSuffix, String pWoodSuffix, SoundType pPlankSoundType, SoundType pLogSoundType, boolean pLogWalls, MaterialColor barkColor, MaterialColor woodColor, boolean hasSporingLogs, boolean layeredBookshelf)
-    {
-
+    public static WoodHandler handler(String pWoodName, @Nullable String pLangName, boolean pStrippedLog, String pTreeName, String pLogSuffix, String pWoodSuffix, SoundType pPlankSoundType, SoundType pLogSoundType, boolean pLogWalls, MaterialColor barkColor, MaterialColor woodColor, boolean hasSporingLogs, boolean layeredBookshelf) {
         WoodHandler instance = new WoodHandler(pWoodName, pLangName, pStrippedLog, pTreeName, pLogSuffix, pWoodSuffix, pPlankSoundType, pLogSoundType, pLogWalls, barkColor, woodColor, hasSporingLogs, layeredBookshelf);
         return instance;
     }
@@ -228,7 +227,6 @@ public class WoodHandler implements BlockHandler {
     {
         return this.wallSign;
     }
-
 }
 
 

@@ -11,7 +11,6 @@ import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 
-
 // TODO (maybe not the perfect spot for this but whatever) IntProvider-based straight Trunk placer thing (should really be a vanilla feature)
 public class ReduxConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> AEVELIUM_GRASSES_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.AVELIUM) + "_grasses_patch");
