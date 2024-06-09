@@ -168,7 +168,6 @@ public class Redux {
         }, () -> () -> false);
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(MobSoundListener.class);
-        fixSignTextures();
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ReduxConfig.COMMON_SPEC, "aether_redux_common.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ReduxConfig.CLIENT_SPEC, "aether_redux_client.toml");
@@ -258,6 +257,7 @@ public class Redux {
         ReduxRenderers.registerCuriosRenderers();
         event.enqueueWork(
                 () -> {
+                    fixSignTextures();
                     if (ReduxConfig.CLIENT.night_track_music_manager.get()) {
                         AetherConfig.CLIENT.disable_music_manager.set(true);
                         AetherConfig.CLIENT.disable_music_manager.save();
