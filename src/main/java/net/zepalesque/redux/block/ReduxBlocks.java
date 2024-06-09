@@ -11,7 +11,10 @@ import com.aetherteam.aether.block.natural.LeavesWithParticlesBlock;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.mixin.mixins.common.accessor.FireBlockAccessor;
 import com.google.common.base.Supplier;
+import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.resources.model.Material;
 import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
@@ -541,11 +544,19 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
         fireBlockAccessor.callSetFlammable(SPIROLYCTIL.get(), 60, 100);
         fireBlockAccessor.callSetFlammable(BLIGHTSHADE.get(), 60, 100);
     }
-    public static void registerWoodTypes() {
-        for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS)
-        {
-            WoodType.register(woodHandler.woodType);
+    public static void registerWoodTypes(boolean client) {
+        for (WoodHandler handler : Redux.WoodHandlers.WOOD_HANDLERS) {
+            if (client) {
+                fixTexture(handler);
+            }
+            WoodType.register(handler.woodType);
         }
+    }
+
+    private static void fixTexture(WoodHandler handler) {
+        ResourceLocation fixTexture = Redux.locate("entity/signs/" + handler.woodName);
+        Material fixed = new Material(Sheets.SIGN_SHEET, fixTexture);
+        Sheets.SIGN_MATERIALS.put(handler.woodType, fixed);
     }
 
     public static void registerPots() {

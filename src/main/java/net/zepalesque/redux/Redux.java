@@ -151,13 +151,15 @@ public class Redux {
 
     public Redux() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-        bus.addListener(this::commonSetup);
         // Low priority so that we don't load Sheets.class before Supplementaries
-        bus.addListener(EventPriority.LOW, this::clientSetup);
+        bus.addListener(EventPriority.LOW,this::commonSetup);
+        bus.addListener(this::clientSetup);
         DistExecutor.unsafeRunForDist(() -> () -> {
             bus.addListener(EventPriority.LOWEST, ReduxColors::blockColors);
             bus.addListener(ReduxColors::itemColors);
             bus.addListener(ReduxColors::resolvers);
+            ReduxMenus.MENUS.register(bus);
+            ReduxClient.registerMolangQueries();
             return true;
         }, () -> () -> false);
         bus.addListener(EventPriority.HIGH, this::packSetup);
@@ -190,14 +192,14 @@ public class Redux {
         ReduxDataSerializers.SERIALIZERS.register(bus);
         ReduxPotions.POTIONS.register(bus);
         ReduxAdvancementSounds.SOUNDS.register(bus);
-        ReduxBlocks.registerWoodTypes();
-        ReduxBlocks.registerPots();
-        // Side-dependent stuff
         DistExecutor.unsafeRunForDist(() -> () -> {
-            ReduxMenus.MENUS.register(bus);
-            ReduxClient.registerMolangQueries();
+            ReduxBlocks.registerWoodTypes(true);
             return true;
-        }, () -> () -> false);
+        }, () -> () -> {
+            ReduxBlocks.registerWoodTypes(false);
+            return true;
+        });
+        ReduxBlocks.registerPots();
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(MobSoundListener.class);
 
@@ -264,53 +266,11 @@ public class Redux {
         });
     }
 
-    private void fixSignTextures() {
-        for (WoodHandler handler : WoodHandlers.WOOD_HANDLERS) {
-            Material old = Sheets.SIGN_MATERIALS.get(handler.woodType);
-            if (old == null) {
-                LOGGER.warn("Tried to fix a sign texture for the Aether: Redux but it hadn't generated yet! ID: {}", handler.woodName);
-            } else {
-                ResourceLocation fixTexture = locate("entity/signs/" + handler.woodName);
-                if (!old.texture().equals(fixTexture)) {
-                    Material fixed = new Material(Sheets.SIGN_SHEET, fixTexture);
-                    Sheets.SIGN_MATERIALS.put(handler.woodType, fixed);
-                    LOGGER.info("Successfully fixed sign material with ID {}", handler.woodName);
-                    LOGGER.info("Original ID was: {}", old.texture());
-                    LOGGER.info("New ID is: {}", fixed.texture());
-                } else {
-                    LOGGER.info("Skipping replacement of sign material with ID {} as the fixed texture is equal to the existing one", handler.woodName);
-                }
-            }
-        }
-    }
-
-    private void fixHangingSignTextures() {
-        for (WoodHandler handler : WoodHandlers.WOOD_HANDLERS) {
-            Material old = Sheets.HANGING_SIGN_MATERIALS.get(handler.woodType);
-            if (old == null) {
-                LOGGER.warn("Tried to fix a hanging sign texture for the Aether: Redux but it hadn't generated yet! ID: {}", handler.woodName);
-            } else {
-                ResourceLocation fixTexture = locate("entity/signs/hanging/" + handler.woodName);
-                if (!old.texture().equals(fixTexture)) {
-                    Material fixed = new Material(Sheets.SIGN_SHEET, fixTexture);
-                    Sheets.HANGING_SIGN_MATERIALS.put(handler.woodType, fixed);
-                    LOGGER.info("Successfully fixed hanging sign material with ID {}", handler.woodName);
-                    LOGGER.info("Original ID was: {}", old.texture());
-                    LOGGER.info("New ID is: {}", fixed.texture());
-                } else {
-                    LOGGER.info("Skipping replacement of hanging sign material with ID {} as the fixed texture is equal to the existing one", handler.woodName);
-                }
-            }
-        }
-    }
-
 
     private void clientSetup(final FMLClientSetupEvent event) {
         EntityRenderers.register(ReduxEntityTypes.MYKAPOD.get(), MykapodRenderer::new);
         EntityRenderers.register(ReduxEntityTypes.BLIGHTBUNNY.get(), BlightbunnyRenderer::new);
         ReduxRenderers.registerCuriosRenderers();
-        fixSignTextures();
-        fixHangingSignTextures();
         event.enqueueWork(
                 () -> {
                     if (ReduxConfig.CLIENT.first_startup_lightmap_changes.get()) {
