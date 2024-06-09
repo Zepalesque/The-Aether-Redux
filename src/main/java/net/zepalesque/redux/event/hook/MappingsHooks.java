@@ -143,12 +143,15 @@ public class MappingsHooks {
 
         builder.put(Redux.locate("cockatrice_rib"), () -> Items.BONE);
 
-        builder.put(Redux.locate("bundle_of_aether_grass"), ReduxItems.BUNDLE_OF_WYNDSPROUTS);
-        builder.put(Redux.locate("oats"), ReduxItems.WYNDSPROUT_SEEDS);
+        builder.put(Redux.locate("bundle_of_aether_grass"), ReduxItems.WYND_OAT_PANICLE);
+        builder.put(Redux.locate("bundle_of_wyndsprouts"), ReduxItems.WYND_OAT_PANICLE);
+        builder.put(Redux.locate("oats"), ReduxItems.WYND_OATS);
+        builder.put(Redux.locate("wyndsprout_seeds"), ReduxItems.WYND_OATS);
 
         builder.put(Redux.locate("quickroot"), () -> Blocks.HANGING_ROOTS);
 
-        builder.put(Redux.locate("oat_muffin"), ReduxItems.WYNDSPROUT_BAGEL);
+        builder.put(Redux.locate("oat_muffin"), ReduxItems.WYND_BAGEL);
+        builder.put(Redux.locate("wyndsprout_bagel"), ReduxItems.WYND_BAGEL);
         builder.put(Redux.locate("mini_pancake"), ReduxItems.BLUEBERRY_BAGEL);
 
         // TODO: Perhaps reimplement as a Vanilla Flower related accessory?
@@ -284,6 +287,7 @@ public class MappingsHooks {
         builder.put(Redux.locate("gilded_skyroot_sapling"), ReduxBlocks.GILDED_OAK_SAPLING);
         builder.put(Redux.locate("potted_gilded_skyroot_sapling"), ReduxBlocks.POTTED_GILDED_OAK_SAPLING);
 
+        builder.put(Redux.locate("wyndsprout_crop"), ReduxBlocks.WYNDOATS);
 
         builder.put(Redux.locate("carved_bricks"), ReduxBlocks.CARVED_BASE);
         builder.put(Redux.locate("carved_brick_stairs"), AetherBlocks.CARVED_STAIRS);

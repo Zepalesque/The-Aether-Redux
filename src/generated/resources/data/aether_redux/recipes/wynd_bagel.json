@@ -12,10 +12,10 @@
       "item": "aether_redux:wynd_oat_panicle"
     },
     {
-      "item": "aether:blue_berry"
+      "item": "aether_redux:wynd_oat_panicle"
     }
   ],
   "result": {
-    "item": "aether_redux:blueberry_bagel"
+    "item": "aether_redux:wynd_bagel"
   }
 }

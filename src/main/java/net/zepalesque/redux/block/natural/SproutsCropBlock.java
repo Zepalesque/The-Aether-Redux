@@ -26,15 +26,17 @@ import net.minecraftforge.common.PlantType;
 import net.zepalesque.redux.item.ReduxItems;
 
 public class SproutsCropBlock extends BushBlock implements BonemealableBlock {
-   public static final int MAX_AGE = 4;
-   public static final IntegerProperty AGE = BlockStateProperties.AGE_4;
+   public static final int MAX_AGE = 5;
+   public static final IntegerProperty AGE = BlockStateProperties.AGE_5;
 
    private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[]{
            Block.box(3.0D, -1.0D, 3.0D, 13.0D, 2.0D, 13.0D),
            Block.box(3.0D, -1.0D, 3.0D, 13.0D, 4.0D, 13.0D),
            Block.box(3.0D, -1.0D, 3.0D, 13.0D, 6.0D, 13.0D),
            Block.box(3.0D, -1.0D, 3.0D, 13.0D, 9.0D, 13.0D),
-           Block.box(3.0D, -1.0D, 3.0D, 13.0D, 13.0D, 13.0D)};
+           Block.box(3.0D, -1.0D, 3.0D, 13.0D, 11.0D, 13.0D),
+           Block.box(3.0D, -1.0D, 3.0D, 13.0D, 13.0D, 13.0D)
+   };
 
    public SproutsCropBlock(BlockBehaviour.Properties properties) {
       super(properties);
@@ -162,7 +164,7 @@ public class SproutsCropBlock extends BushBlock implements BonemealableBlock {
    }
 
    protected ItemLike getBaseSeedId() {
-      return ReduxItems.WYNDSPROUT_SEEDS.get();
+      return ReduxItems.WYND_OATS.get();
    }
 
    public ItemStack getCloneItemStack(BlockGetter level, BlockPos pos, BlockState state) {

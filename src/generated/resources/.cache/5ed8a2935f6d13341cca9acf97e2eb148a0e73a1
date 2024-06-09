@@ -1,5 +1,5 @@
-// 1.20.1	2024-05-12T16:17:02.3065277	Global Loot Modifiers : aether_redux
-66dec30df76a4bdd5c33e9bab3fafa5bf4f559f6 data/aether_redux/loot_modifiers/airbound_cape.json
+// 1.20.1	2024-06-08T20:09:13.3477703	Global Loot Modifiers : aether_redux
+14e85537170a9cf759a3b518c190cfbf917cb902 data/aether_redux/loot_modifiers/airbound_cape.json
 f79e62e71e6cae7f6c1335d1cf80df3ef77cf5e9 data/aether_redux/loot_modifiers/blue_swet_ball_increase.json
 479dbe07285f60bdde7a63e8c6afeb0b1e1d99c2 data/aether_redux/loot_modifiers/cockatrice_feather.json
 be3ccb422561ba0e15b65cc31af80dd957de7055 data/aether_redux/loot_modifiers/crystal_sapling.json
@@ -15,6 +15,6 @@ de95f255b2d9b10d03736ad22794df274c21c605 data/aether_redux/loot_modifiers/slider
 257eff3856ca36afa938c0795a5626da6bb02e31 data/aether_redux/loot_modifiers/subzero_crossbow.json
 e06d9459f5f96f2d198a9773adec3630f9d3a199 data/aether_redux/loot_modifiers/swet_sugar_no_genesis.json
 1bb3a9ed26953fc73399ed16a1fc000ec70e3092 data/aether_redux/loot_modifiers/valkyrie_ring.json
-4b5acd80dfafd07618bdc89f9488fa8d591dc69d data/aether_redux/loot_modifiers/vampire_amulet.json
-06bfc22731cecfc61e075d9ea55f51f3aff685a0 data/aether_redux/loot_modifiers/vanilla_gummy_swet.json
+5becbc87a42e87be9e999002d83962f0f5b30c40 data/aether_redux/loot_modifiers/vampire_amulet.json
+57e679c6d98a33ff697947ad57a4f615b04384a5 data/aether_redux/loot_modifiers/vanilla_gummy_swet.json
 ce4e3a877ed47e3b2a4e3a5ea0bba38921b94fce data/forge/loot_modifiers/global_loot_modifiers.json

@@ -16,18 +16,18 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "block": "aether_redux:wyndsprouts_crop",
+                  "block": "aether_redux:wyndoats",
                   "condition": "minecraft:block_state_property",
                   "properties": {
-                    "age": "4"
+                    "age": "5"
                   }
                 }
               ],
-              "name": "aether_redux:bundle_of_wyndsprouts"
+              "name": "aether_redux:wynd_oat_panicle"
             },
             {
               "type": "minecraft:item",
-              "name": "aether_redux:wyndsprout_seeds"
+              "name": "aether_redux:wynd_oats"
             }
           ]
         }
@@ -38,10 +38,10 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "block": "aether_redux:wyndsprouts_crop",
+          "block": "aether_redux:wyndoats",
           "condition": "minecraft:block_state_property",
           "properties": {
-            "age": "4"
+            "age": "5"
           }
         }
       ],
@@ -59,11 +59,11 @@
               }
             }
           ],
-          "name": "aether_redux:wyndsprout_seeds"
+          "name": "aether_redux:wynd_oats"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "aether_redux:blocks/wyndsprouts_crop"
+  "random_sequence": "aether_redux:blocks/wyndoats"
 }
