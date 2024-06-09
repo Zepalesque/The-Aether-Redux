@@ -1,10 +1,10 @@
 {
   "values": [
-    "aether_redux:crystal_wall_sign",
-    "aether_redux:blightwillow_wall_sign",
-    "aether_redux:glacia_wall_sign",
     "aether_redux:fieldsproot_wall_sign",
+    "aether_redux:blightwillow_wall_sign",
     "aether_redux:cloudcap_wall_sign",
-    "aether_redux:jellyshroom_wall_sign"
+    "aether_redux:jellyshroom_wall_sign",
+    "aether_redux:crystal_wall_sign",
+    "aether_redux:glacia_wall_sign"
   ]
 }
