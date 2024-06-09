@@ -354,9 +354,9 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
 
 
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ReduxItems.BLUEBERRY_PIE.get()).requires(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get()).requires(AetherItems.BLUE_BERRY.get()).requires(ReduxTags.Items.BLUEBERRY_PIE_EGGS).requires(Items.SUGAR).unlockedBy("has_blue_berry", inventoryTrigger(ItemPredicate.Builder.item()
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ReduxItems.BLUEBERRY_PIE.get()).requires(ReduxItems.WYND_OAT_PANICLE.get()).requires(AetherItems.BLUE_BERRY.get()).requires(ReduxTags.Items.BLUEBERRY_PIE_EGGS).requires(Items.SUGAR).unlockedBy("has_blue_berry", inventoryTrigger(ItemPredicate.Builder.item()
                 .of(AetherItems.BLUE_BERRY.get()).build())).unlockedBy("has_oats", inventoryTrigger(ItemPredicate.Builder.item()
-                .of(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get()).build())).save(consumer);
+                .of(ReduxItems.WYND_OAT_PANICLE.get()).build())).save(consumer);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ReduxItems.VERIDIUM_DART.get(), 4)
                 .define('F', Tags.Items.FEATHERS)
@@ -501,21 +501,21 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                         ::save).build(consumer, Redux.locate("redux_coarse_dirt"));
 
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ReduxItems.WYNDSPROUT_BAGEL.get(), 1)
-                .requires(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get(), 4)
-                .unlockedBy(getHasName(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get()), has(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get()))
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ReduxItems.WYND_BAGEL.get(), 1)
+                .requires(ReduxItems.WYND_OAT_PANICLE.get(), 4)
+                .unlockedBy(getHasName(ReduxItems.WYND_OAT_PANICLE.get()), has(ReduxItems.WYND_OAT_PANICLE.get()))
                 .save(consumer);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ReduxItems.BLUEBERRY_BAGEL.get(), 1)
-                .requires(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get(), 3)
+                .requires(ReduxItems.WYND_OAT_PANICLE.get(), 3)
                 .requires(AetherItems.BLUE_BERRY.get(), 1)
-                .unlockedBy(getHasName(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get()), has(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get()))
+                .unlockedBy(getHasName(ReduxItems.WYND_OAT_PANICLE.get()), has(ReduxItems.WYND_OAT_PANICLE.get()))
                 .save(consumer);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ReduxItems.OATMEAL.get(), 1)
                         .requires(Items.BOWL)
-                        .requires(ReduxItems.WYNDSPROUT_SEEDS.get(), 3)
-                .unlockedBy(getHasName(ReduxItems.WYNDSPROUT_SEEDS.get()), has(ReduxItems.WYNDSPROUT_SEEDS.get()))
+                        .requires(ReduxItems.WYND_OATS.get(), 3)
+                .unlockedBy(getHasName(ReduxItems.WYND_OATS.get()), has(ReduxItems.WYND_OATS.get()))
                 .save(consumer);
 
         makePickaxe(ReduxItems.VERIDIUM_PICKAXE, ReduxItems.VERIDIUM_INGOT).save(consumer);

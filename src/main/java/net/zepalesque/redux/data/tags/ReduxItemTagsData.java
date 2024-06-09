@@ -52,9 +52,9 @@ public class ReduxItemTagsData extends ItemTagsProvider {
                 ReduxItems.INFUSED_VERIDIUM_HOE.get()
         );
 
-        this.tag(ReduxTags.Items.REDUX_PHYG_FOOD_ITEMS).add(ReduxItems.WYNDSPROUT_SEEDS.get());
-        this.tag(ReduxTags.Items.REDUX_FLYING_COW_FOOD_ITEMS).add(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get());
-        this.tag(ReduxTags.Items.GLIMMERCOW_TEMPTATION_ITEMS).add(ReduxItems.BUNDLE_OF_WYNDSPROUTS.get());
+        this.tag(ReduxTags.Items.REDUX_PHYG_FOOD_ITEMS).add(ReduxItems.WYND_OATS.get());
+        this.tag(ReduxTags.Items.REDUX_FLYING_COW_FOOD_ITEMS).add(ReduxItems.WYND_OAT_PANICLE.get());
+        this.tag(ReduxTags.Items.GLIMMERCOW_TEMPTATION_ITEMS).add(ReduxItems.WYND_OAT_PANICLE.get());
         this.tag(ReduxTags.Items.MYKAPOD_TEMPTATION_ITEMS).add(ReduxItems.LIGHTROOT_CLUMP.get());
         this.tag(ReduxTags.Items.MYKAPOD_SHED_FOOD).add(ReduxBlocks.SHIMMERSTOOL.get().asItem());
         this.tag(ReduxTags.Items.MYKAPOD_FOLLOW_ITEMS).addTag(ReduxTags.Items.MYKAPOD_TEMPTATION_ITEMS).addTag(ReduxTags.Items.MYKAPOD_SHED_FOOD);

@@ -66,15 +66,15 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.VANILLA_SWET_BALL, "Vanilla Swet Ball");
         addLore(ReduxItems.VANILLA_SWET_BALL, "A gooey, sweet-smelling orb of a Vanilla Swet's gel. True to the name, this smells like vanilla.");
 
-        addItem(ReduxItems.WYNDSPROUT_SEEDS, "Wyndsprout Seeds");
-        addLore(ReduxItems.WYNDSPROUT_SEEDS, "Some seeds from the wild Wyndsprout plant. Can be grown or eaten.");
-        addItem(ReduxItems.BUNDLE_OF_WYNDSPROUTS, "Bundle of Wyndsprouts");
-        addLore(ReduxItems.BUNDLE_OF_WYNDSPROUTS, "A bundle of grown Wyndsprouts. Flying Cows like to munch on these.");
+        addItem(ReduxItems.WYND_OATS, "Wynd Oats");
+        addLore(ReduxItems.WYND_OATS, "A pile of Wynd Oats. These can be grown into the Wynd Oat plant.");
+        addItem(ReduxItems.WYND_OAT_PANICLE, "Wynd Oat Panicle");
+        addLore(ReduxItems.WYND_OAT_PANICLE, "A panicle of grown Wynd Oats. This can be used for a variety of recipes.");
 
         addItem(ReduxItems.BLUEBERRY_PIE, "Blueberry Pie");
-        addLore(ReduxItems.BLUEBERRY_PIE, "A pie made of the Aether's native blueberries. These treats taste amazing, and can make a great gift for a friend.");
+        addLore(ReduxItems.BLUEBERRY_PIE, "A pie made of the Aether's native blueberries. These delicious treats can make a great gift for a friend.");
         addItem(ReduxItems.ENCHANTED_BLUEBERRY_PIE, "Enchanted Blueberry Pie");
-        addLore(ReduxItems.ENCHANTED_BLUEBERRY_PIE, "An enchanted variant of the Blueberry Pie. This fancy treat gives you a short regeneration effect!");
+        addLore(ReduxItems.ENCHANTED_BLUEBERRY_PIE, "An enchanted variant of the Blueberry Pie. This fancy pastry gives you a short regeneration effect!");
 
         addItem(ReduxItems.ENCHANTED_RING, "Enchanted Ring");
         addLore(ReduxItems.ENCHANTED_RING, "A ring with a large amount of magical potential. You can use it to craft many other types of rings with a variety of abilities!");
@@ -188,7 +188,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addBlock(ReduxBlocks.WYNDSPROUTS, "Wyndsprouts");
         addBlock(ReduxBlocks.POTTED_WYNDSPROUTS, "Potted Wyndsprouts");
-        addLore(ReduxBlocks.WYNDSPROUTS, "A common plant found in the Aether. They occasionally drop Oats, the main edible source of grain in the Aether.");
+        addLore(ReduxBlocks.WYNDSPROUTS, "A common plant found in the Aether. They occasionally drop Wynd Oats, the main edible source of grain in the Aether.");
 
         addBlock(ReduxBlocks.SKYSPROUTS, "Skysprouts");
         addBlock(ReduxBlocks.POTTED_SKYSPROUTS, "Potted Skysprouts");
@@ -450,14 +450,14 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.FEATHER_OF_WARDING, "Feather of Warding");
         addLore(ReduxItems.FEATHER_OF_WARDING, "The upgraded variant of the Cockatrice Feather. While having all the benefits of its less powerful version, this also gives the wearer immunity to Inebriation!");
 
-        addItem(ReduxItems.WYNDSPROUT_BAGEL, "Wyndsprout Bagel");
-        addLore(ReduxItems.WYNDSPROUT_BAGEL, "A nice bagel made of cultivated Wyndsprouts.");
+        addItem(ReduxItems.WYND_BAGEL, "Wynd Bagel");
+        addLore(ReduxItems.WYND_BAGEL, "A nice bagel that uses the grain harvested from Wyndsprouts, Wynd Oats.");
 
         addItem(ReduxItems.BLUEBERRY_BAGEL, "Blueberry Bagel");
-        addLore(ReduxItems.BLUEBERRY_BAGEL, "A bagel made with Blue Berries. This is much more filling than a plain Wyndsprout Bagel");
+        addLore(ReduxItems.BLUEBERRY_BAGEL, "A bagel made with Blue Berries. This is much more filling than a plain Wynd Bagel");
 
         addItem(ReduxItems.OATMEAL, "Oatmeal");
-        addLore(ReduxItems.OATMEAL, "A nice bowl of Oatmeal, made with Wyndsprout Seeds.");
+        addLore(ReduxItems.OATMEAL, "A nice bowl of Oatmeal. Specifically, this is Wynd Oatmeal, as it was made with Wynd Oats.");
 
         addBlock(ReduxBlocks.LIGHTROOTS, "Lightroots");
         addItem(ReduxItems.LIGHTROOT_CLUMP, "Lightroot Clump");
@@ -761,9 +761,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addProTip("veridium_infusion", "Veridium tools can be temporarily infused into better versions by right-clicking them with an Ambrosium Shard!");
         addProTip("model_changes", Redux.DISPLAY + " has some model changes to some of the Aether’s mobs, which can be toggled in the client-side config!");
         addProTip("feather_of_warding", "Sometimes, Cockatrices will drop one of their feathers, which can be upgraded into the useful Feather of Warding, giving you immunity from the inebriation effect.");
-        addProTip("oatmeal", "Wyndsprout seeds can be crafed into Oatmeal, a nice snack that can fill up a few hunger points for relatively cheap.");
+        addProTip("oatmeal", "Wynd Oats can be crafed into Oatmeal, a nice snack that can fill up a few hunger points for relatively cheap.");
         addProTip("blight_spear", "Blightbunny teeth can be used to create the Spear of the Blight, a throwable weapon that inflicts Inebriation on enemies.");
-        addProTip("wyndsprouts", "You can plant Wyndsprout seeds, and when they finish growing, you can use their drops to create tasty Bagels!");
+        addProTip("wynd_oats", "You can plant Wynd Oats, and when they finish growing, you can use their drops to create tasty Bagels!");
         addProTip("quicksoil", "Be careful on quicksoil, it may seem fun, but its slipperiness can cause you to fall off the island if you're not careful!");
         addProTip("enchanted_ring", "With some planks and an Ambrosium Shard, you can craft the Enchanted Ring, which can be turned into various different useful rings!");
         addProTip("veridium_ore", "On occasion, you'll find a blue ore in the Aether known as Veridium. This can be used to make some decoration blocks, as well as useful Veridium tools!");
@@ -772,6 +772,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addProTip("divinite", "Divinite can be enchanted into Glowstone, giving a relatively easy way to leave the Aether safely if you get stuck.");
         addProTip("redux_configs", Redux.DISPLAY + " has a large amount of configs, including many that affect the base mod, so make sure to check out its config file!");
         addProTip("swet_escape", "You can escape a Swet's gelatinous grasp by sneaking. It will still attack you though, so be quick!");
+        addProTip("airbound_cape", "After defeating the Slider, you can occasionally find a nifty accessory in the loot chest known as the Airbound Cape. This will allow you to perform a double-jump, extending your vertical mobility!");
 
         for (WoodHandler woodHandler : Redux.WoodHandlers.WOOD_HANDLERS) {
             woodHandler.generateLanguageData(this);

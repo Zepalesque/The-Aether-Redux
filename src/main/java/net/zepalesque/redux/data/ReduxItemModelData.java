@@ -72,7 +72,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         dartShooterItem(ReduxItems.VERIDIUM_DART_SHOOTER.get(), "weapons/");
         item(ReduxItems.VERIDIUM_DART, "weapons/");
         item(ReduxItems.SENTRY_CHIP, "materials/");
-        item(ReduxItems.WYNDSPROUT_SEEDS, "food/");
+        item(ReduxItems.WYND_OATS, "food/");
         item(ReduxItems.BLUEBERRY_PIE, "food/");
         item(ReduxItems.ENCHANTED_BLUEBERRY_PIE, "food/");
         itemBlockFlatCustomTexture(ReduxBlocks.GOLDEN_CLOVER, "natural/golden_clover_top");
@@ -176,7 +176,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlockFlatTintOverlay(ReduxBlocks.WYNDSPROUTS, "natural/");
         itemBlockFlatTintOverlay(ReduxBlocks.SKYSPROUTS, "natural/");
         itemBlockFlat(ReduxBlocks.SPLITFERN, "natural/");
-        this.item(ReduxItems.BUNDLE_OF_WYNDSPROUTS, "materials/");
+        this.item(ReduxItems.WYND_OAT_PANICLE, "materials/");
 
         this.itemBlockFlatOtherBlockTexture(ReduxBlocks.GOLDEN_VINES, ReduxBlocks.GOLDEN_VINES_PLANT, "natural/");
         this.itemBlockFlatOtherBlockTexture(ReduxBlocks.GILDED_VINES, ReduxBlocks.GILDED_VINES_PLANT, "natural/");
@@ -213,7 +213,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
 
         this.itemGlow(ReduxItems.COCKATRICE_FEATHER, "accessories/");
         this.itemGlow(ReduxItems.FEATHER_OF_WARDING, "accessories/");
-        this.item(ReduxItems.WYNDSPROUT_BAGEL, "food/");
+        this.item(ReduxItems.WYND_BAGEL, "food/");
         this.item(ReduxItems.BLUEBERRY_BAGEL, "food/");
 
 

@@ -228,10 +228,10 @@ public class ReduxCreativeTabs {
         if (tab == AetherCreativeTabs.AETHER_FOOD_AND_DRINKS.get()) {
             putAfter(AetherItems.ENCHANTED_BERRY, ReduxItems.BLUEBERRY_PIE, event);
             putAfter(ReduxItems.BLUEBERRY_PIE, ReduxItems.ENCHANTED_BLUEBERRY_PIE, event);
-            putAfter(ReduxItems.ENCHANTED_BLUEBERRY_PIE, ReduxItems.WYNDSPROUT_BAGEL, event);
-            putAfter(ReduxItems.WYNDSPROUT_BAGEL, ReduxItems.BLUEBERRY_BAGEL, event);
-            putAfter(ReduxItems.BLUEBERRY_BAGEL, ReduxItems.WYNDSPROUT_SEEDS, event);
-            putAfter(ReduxItems.WYNDSPROUT_SEEDS, ReduxItems.OATMEAL, event);
+            putAfter(ReduxItems.ENCHANTED_BLUEBERRY_PIE, ReduxItems.WYND_BAGEL, event);
+            putAfter(ReduxItems.WYND_BAGEL, ReduxItems.BLUEBERRY_BAGEL, event);
+            putAfter(ReduxItems.BLUEBERRY_BAGEL, ReduxItems.WYND_OATS, event);
+            putAfter(ReduxItems.WYND_OATS, ReduxItems.OATMEAL, event);
 
 
             putAfter(AetherItems.GOLDEN_GUMMY_SWET, ReduxItems.VANILLA_GUMMY_SWET, event);
@@ -268,9 +268,9 @@ public class ReduxCreativeTabs {
             }
 
             putAfter(AetherItems.AECHOR_PETAL, ReduxItems.MYKAPOD_SHELL_CHUNK, event);
-            putAfter(ReduxItems.WYNDSPROUT_SEEDS, ReduxItems.WYNDSPROUT_SEEDS, event);
-            putAfter(ReduxItems.WYNDSPROUT_SEEDS, ReduxItems.BUNDLE_OF_WYNDSPROUTS, event);
-            putAfter(ReduxItems.BUNDLE_OF_WYNDSPROUTS, ReduxItems.LIGHTROOT_CLUMP, event);
+            putAfter(ReduxItems.WYND_OATS, ReduxItems.WYND_OATS, event);
+            putAfter(ReduxItems.WYND_OATS, ReduxItems.WYND_OAT_PANICLE, event);
+            putAfter(ReduxItems.WYND_OAT_PANICLE, ReduxItems.LIGHTROOT_CLUMP, event);
 
             putAfter(AetherItems.SWET_BALL, Redux.aetherGenesisCompat() ? ReduxItems.VANILLA_SWET_BALL : ReduxItems.GOLDEN_SWET_BALL, event);
             if (!Redux.aetherGenesisCompat()) { putAfter(ReduxItems.GOLDEN_SWET_BALL, ReduxItems.VANILLA_SWET_BALL, event); }

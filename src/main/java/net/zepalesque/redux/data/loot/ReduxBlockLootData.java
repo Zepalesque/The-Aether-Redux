@@ -198,13 +198,13 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropSelf(ReduxBlocks.RAW_GRAVITITE_BLOCK.get());
         this.dropPottedContents(ReduxBlocks.POTTED_BLIGHTSHADE.get());
 
-        this.add(ReduxBlocks.WYNDSPROUTS_CROP.get(),
+        this.add(ReduxBlocks.WYNDOATS.get(),
                 this.createCropDrops(
-                        ReduxBlocks.WYNDSPROUTS_CROP.get(),
-                        ReduxItems.BUNDLE_OF_WYNDSPROUTS.get(),
-                        ReduxItems.WYNDSPROUT_SEEDS.get(),
+                        ReduxBlocks.WYNDOATS.get(),
+                        ReduxItems.WYND_OAT_PANICLE.get(),
+                        ReduxItems.WYND_OATS.get(),
                         LootItemBlockStatePropertyCondition.
-                                hasBlockStateProperties(ReduxBlocks.WYNDSPROUTS_CROP.get())
+                                hasBlockStateProperties(ReduxBlocks.WYNDOATS.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SproutsCropBlock.AGE, SproutsCropBlock.MAX_AGE))));
 
         this.dropSelf(ReduxBlocks.CLOUD_CAP_BLOCK.get());
@@ -236,7 +236,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropPottedContents(ReduxBlocks.POTTED_FLAREBLOSSOM.get());
         this.dropSelf(ReduxBlocks.INFERNIA.get());
         this.dropPottedContents(ReduxBlocks.POTTED_INFERNIA.get());
-        this.add(ReduxBlocks.WYNDSPROUTS.get(), createSproutsDrops(ReduxBlocks.WYNDSPROUTS.get(), ReduxItems.WYNDSPROUT_SEEDS.get(), 0.25F));
+        this.add(ReduxBlocks.WYNDSPROUTS.get(), createSproutsDrops(ReduxBlocks.WYNDSPROUTS.get(), ReduxItems.WYND_OATS.get(), 0.25F));
         this.dropPottedContents(ReduxBlocks.POTTED_WYNDSPROUTS.get());
         this.add(ReduxBlocks.SKYSPROUTS.get(), shears());
         this.dropPottedContents(ReduxBlocks.POTTED_SKYSPROUTS.get());
