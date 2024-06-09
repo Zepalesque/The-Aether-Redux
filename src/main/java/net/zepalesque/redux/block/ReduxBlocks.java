@@ -545,6 +545,7 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
         fireBlockAccessor.callSetFlammable(SPIROLYCTIL.get(), 60, 100);
         fireBlockAccessor.callSetFlammable(BLIGHTSHADE.get(), 60, 100);
     }
+
     public static void registerWoodTypes(boolean client) {
         for (WoodHandler handler : Redux.WoodHandlers.WOOD_HANDLERS) {
             if (client) {

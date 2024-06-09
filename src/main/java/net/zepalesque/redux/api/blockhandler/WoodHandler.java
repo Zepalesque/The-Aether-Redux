@@ -195,9 +195,12 @@ public class WoodHandler implements BlockHandler {
      */
     public static WoodHandler handler(String pWoodName, @Nullable String pLangName, boolean pStrippedLog, BiFunction<String, SoundType, BlockSetType> blockSetTypeFunction, String pTreeName, String pLogSuffix, String pWoodSuffix, SoundType pPlankSoundType, SoundType pLogSoundType, boolean pLogWalls, MapColor barkColor, MapColor woodColor, boolean hasSporingLogs, boolean layeredBookshelf)
     {
-
-        WoodHandler instance = new WoodHandler(pWoodName, pLangName, pStrippedLog, blockSetTypeFunction, pTreeName, pLogSuffix, pWoodSuffix, pPlankSoundType, pLogSoundType, pLogWalls, barkColor, woodColor, hasSporingLogs, layeredBookshelf);
-        return instance;
+        try {
+            WoodHandler instance = new WoodHandler(pWoodName, pLangName, pStrippedLog, blockSetTypeFunction, pTreeName, pLogSuffix, pWoodSuffix, pPlankSoundType, pLogSoundType, pLogWalls, barkColor, woodColor, hasSporingLogs, layeredBookshelf);
+            return instance;
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     protected WoodHandler(String pWoodName, @Nullable String pLangName, boolean pStrippedLogs, BiFunction<String, SoundType, BlockSetType> blockSetTypeFunction, String pTreeName,  String pLogSuffix, String pWoodSuffix, SoundType pPlankSoundType, SoundType pLogSoundType, boolean pLogWalls, MapColor barkColor, MapColor woodColor, boolean pSporingLogs, boolean layeredBookshelf) {
