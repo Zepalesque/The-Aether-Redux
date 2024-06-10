@@ -14,6 +14,7 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyC
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
+import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.item.ReduxItems;
 
@@ -58,13 +59,14 @@ public class ReduxEntityLootData extends AetherEntityLoot {
                                 .when(LootItemRandomChanceCondition.randomChance(0.25F))
                         )
                 ));
-
-        this.add(ReduxEntityTypes.BLIGHTBUNNY_SPAWNER.get(), LootTable.lootTable());
-        this.add(ReduxEntityTypes.COCKATRICE_SPAWNER.get(), LootTable.lootTable());
     }
 
     @Override
     public Stream<EntityType<?>> getKnownEntityTypes() {
-        return ReduxEntityTypes.ENTITY_TYPES.getEntries().stream().flatMap(entityType -> Stream.of(entityType.get()));
+        return ReduxEntityTypes.ENTITY_TYPES.getEntries().stream().filter(ReduxEntityLootData::filterSpawners).flatMap(entityType -> Stream.of(entityType.get()));
+    }
+
+    private static boolean filterSpawners(RegistryObject<EntityType<?>> reg) {
+        return !ReduxEntityTypes.SPAWNERS.contains(reg);
     }
 }
