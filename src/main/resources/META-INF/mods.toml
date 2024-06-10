@@ -58,13 +58,13 @@ The Aether: Redux is an expansive addon mod for the well-known Aether mod, addin
 [[dependencies.aether_redux]]
 modId = "aether_treasure_reforging"
 mandatory = false
-versionRange = "[1.20.1-,)"
+versionRange = "[1.19.2-,)"
 ordering = "AFTER"
 side = "BOTH"
 [[dependencies.aether_redux]]
 modId = "aether_protect_your_moa"
 mandatory = false
-versionRange = "[1.20.1-,)"
+versionRange = "[1.19.2-,)"
 ordering = "AFTER"
 side = "BOTH"
 
