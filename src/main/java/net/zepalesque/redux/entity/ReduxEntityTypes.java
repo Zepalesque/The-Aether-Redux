@@ -5,6 +5,7 @@ import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.entity.monster.Swet;
 import com.aetherteam.aether.entity.monster.dungeon.Mimic;
 import com.aetherteam.aether.entity.passive.AetherAnimal;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.SpawnPlacements;
@@ -25,8 +26,13 @@ import net.zepalesque.redux.entity.passive.Shimmercow;
 import net.zepalesque.redux.entity.projectile.*;
 import net.zepalesque.redux.entity.util.EntitySpawner;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 @Mod.EventBusSubscriber(modid = Redux.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ReduxEntityTypes {
+
+    public static final Collection<RegistryObject<? extends EntityType<? extends Entity>>> SPAWNERS = new ArrayList<>();
 
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, Redux.MODID);
     
@@ -61,12 +67,13 @@ public class ReduxEntityTypes {
             () -> EntityType.Builder.of(Blightbunny::new, AetherMobCategory.AETHER_DARKNESS_MONSTER).sized(0.6F, 0.5F).clientTrackingRange(10).build("blightbunny"));
 
 
-    public static final RegistryObject<EntityType<EntitySpawner>> COCKATRICE_SPAWNER = ENTITY_TYPES.register("cockatrice_spawner",
-            () -> EntityType.Builder.of(EntitySpawner.fabricate(AetherEntityTypes.COCKATRICE), MobCategory.CREATURE).sized(0.95F, 2.15F).clientTrackingRange(4).updateInterval(5).fireImmune().build("cockatrice_spawner")
+    public static final RegistryObject<EntityType<EntitySpawner>> COCKATRICE_SPAWNER = spawner(ENTITY_TYPES.register("cockatrice_spawner",
+            () -> EntityType.Builder.of(EntitySpawner.fabricate(AetherEntityTypes.COCKATRICE), MobCategory.CREATURE).sized(0.95F, 2.15F).clientTrackingRange(4).updateInterval(5).fireImmune().build("cockatrice_spawner"))
     );
 
-    public static final RegistryObject<EntityType<EntitySpawner>> BLIGHTBUNNY_SPAWNER = ENTITY_TYPES.register("blightbunny_spawner",
-            () -> EntityType.Builder.of(EntitySpawner.fabricate(ReduxEntityTypes.BLIGHTBUNNY), MobCategory.CREATURE).sized(0.6F, 0.5F).clientTrackingRange(4).updateInterval(5).fireImmune().build("blightbunny_spawner")
+    public static final RegistryObject<EntityType<EntitySpawner>> BLIGHTBUNNY_SPAWNER = spawner(ENTITY_TYPES.register("blightbunny_spawner",
+            () -> EntityType.Builder.of(EntitySpawner.fabricate(ReduxEntityTypes.BLIGHTBUNNY), MobCategory.CREATURE).sized(0.6F, 0.5F).clientTrackingRange(4).updateInterval(5).fireImmune().build("blightbunny_spawner"))
+
     );
 
     public static final RegistryObject<EntityType<SkyrootMimic>> SKYROOT_MIMIC = ENTITY_TYPES.register("skyroot_mimic",
@@ -94,6 +101,12 @@ public class ReduxEntityTypes {
         event.put(ReduxEntityTypes.BLIGHTBUNNY_SPAWNER.get(), EntitySpawner.createAttributes().build());
         event.put(ReduxEntityTypes.COCKATRICE_SPAWNER.get(), EntitySpawner.createAttributes().build());
         event.put(ReduxEntityTypes.SKYROOT_MIMIC.get(), Mimic.createMobAttributes().build());
+    }
+
+
+    public static <E extends Entity, R extends RegistryObject<EntityType<E>>> R spawner(R type) {
+        SPAWNERS.add(type);
+        return type;
     }
 }
 
