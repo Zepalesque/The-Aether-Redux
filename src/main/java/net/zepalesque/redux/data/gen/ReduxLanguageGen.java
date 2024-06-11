@@ -81,6 +81,25 @@ public class ReduxLanguageGen extends ReduxLanguageProvider {
 //        add(ReduxItems.OATMEAL);
 //        addLore(ReduxItems.OATMEAL, "A nice bowl of Oatmeal. Specifically, this is Wynd Oatmeal, as it was made with Wynd Oats.");
 
+        add(ReduxItems.VERIDIUM_INGOT);
+        addLore(ReduxItems.VERIDIUM_INGOT, "An bar of pure Veridium, a metal that when coming in contact with ambrosium, takes on a glowing light blue color, strengthening temporarily.");
+        add(ReduxItems.VERIDIUM_NUGGET);
+        addLore(ReduxItems.VERIDIUM_NUGGET, "A small chunk of Veridium. This can be crafted to and from Veridium Ingots.");
+
+        add(ReduxItems.RAW_VERIDIUM);
+        addLore(ReduxItems.RAW_VERIDIUM, "A chunk of Raw Veridium. This can be smelted into an ingot.");
+
+
+        add(ReduxItems.REFINED_SENTRITE);
+        addLore(ReduxItems.REFINED_SENTRITE, "The purified form of Sentrite. This can be used for a variety of different things, but is commonly found associated with Sentry technology.");
+
+        add(ReduxItems.SENTRITE_CHUNK);
+        addLore(ReduxItems.SENTRITE_CHUNK, "A chunk of purified Sentrite. These are occasionally dropped from Sentries, and can be crafted into Refined Sentrite.");
+
+
+
+
+
         addPackDescription("mod", "The Aether: Redux Resources");
         addPackTitle("tintable_grass", "Redux - Tintable Grass");
         addPackDescription("tintable_grass", "Grass tint textures for the Aether: Redux");

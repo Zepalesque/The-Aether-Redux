@@ -48,8 +48,18 @@ public class ReduxItemModelGen extends ReduxItemModelProvider {
         this.itemOverlayDungeonBlock(ReduxBlocks.LOCKED_SENTRITE_BRICKS.get(), ReduxStoneSets.SENTRITE_BRICKS.block().get(), "construction/", "lock");
 
         this.item(ReduxItems.WYND_OAT_PANICLE.get(), "materials/");
+        this.item(ReduxItems.WYND_OATS.get(), "food/");
+
         itemBlockFlatTintOverlay(ReduxBlocks.WYNDSPROUTS.get(), "natural/");
         itemBlockFlatTintOverlay(ReduxBlocks.SKYSPROUTS.get(), "natural/");
+
+        this.item(ReduxItems.RAW_VERIDIUM.get(), "materials/");
+        this.item(ReduxItems.VERIDIUM_INGOT.get(), "materials/");
+        this.item(ReduxItems.VERIDIUM_NUGGET.get(), "materials/");
+
+        this.item(ReduxItems.REFINED_SENTRITE.get(), "materials/");
+        this.item(ReduxItems.SENTRITE_CHUNK.get(), "materials/");
+
     }
 
 }
