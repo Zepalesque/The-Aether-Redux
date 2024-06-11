@@ -1,5 +1,8 @@
 {
   "values": [
-    "aether_redux:cloudroot_leaves"
+    "aether_redux:cloudroot_leaves",
+    "aether_redux:wyndsprouts",
+    "aether_redux:skysprouts",
+    "aether_redux:wyndoats"
   ]
 }

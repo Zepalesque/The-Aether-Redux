@@ -1,9 +1,9 @@
 {
   "values": [
-    "aether_redux:carved_stone_pillar",
-    "aether_redux:sentry_stone_pillar",
-    "aether_redux:carved_stone_base",
-    "aether_redux:sentry_stone_base",
+    "aether_redux:carved_pillar",
+    "aether_redux:sentry_pillar",
+    "aether_redux:carved_base",
+    "aether_redux:sentry_base",
     "aether_redux:runelight"
   ]
 }
