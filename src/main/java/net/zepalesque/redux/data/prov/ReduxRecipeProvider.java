@@ -1,7 +1,10 @@
 package net.zepalesque.redux.data.prov;
 
 import com.aetherteam.aether.data.providers.AetherRecipeProvider;
+import com.aetherteam.aether.recipe.recipes.block.AmbrosiumRecipe;
 import com.aetherteam.nitrogen.data.providers.NitrogenRecipeProvider;
+import com.aetherteam.nitrogen.recipe.BlockStateIngredient;
+import com.aetherteam.nitrogen.recipe.builder.BlockStateRecipeBuilder;
 import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.ItemPredicate;
@@ -18,11 +21,14 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.zepalesque.redux.recipe.recipes.InfusionRecipe;
+import net.zepalesque.zenith.recipe.builder.StackingRecipeBuilder;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
@@ -129,6 +135,10 @@ public abstract class ReduxRecipeProvider extends AetherRecipeProvider {
 
     public SimpleCookingRecipeBuilder smeltingOreRecipe(ItemLike result, ItemLike ingredient, float experience) {
         return super.smeltingOreRecipe(result, ingredient, experience);
+    }
+
+    public StackingRecipeBuilder infuse(ItemLike result, ItemLike ingredient) {
+        return StackingRecipeBuilder.recipe(Ingredient.of(ingredient), new ItemStack(result), InfusionRecipe::new);
     }
 
     @Override

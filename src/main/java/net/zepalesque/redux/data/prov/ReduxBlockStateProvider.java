@@ -196,6 +196,7 @@ public abstract class ReduxBlockStateProvider extends AetherBlockStateProvider {
                 .texture("glow", this.texture(this.name(block) + "_glow", location)).renderType("cutout")
                 .texture("overlay", this.texture(this.name(block) + "_overlay", location)).renderType("cutout");
         this.crossBlock(block, cross);
+
     }
     public void crossTintedOverlay(Block block, String location) {
         BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.loc(ModelProvider.BLOCK_FOLDER + "/template/cross/cross_tinted_overlay"))

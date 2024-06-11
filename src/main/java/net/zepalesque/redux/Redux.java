@@ -49,6 +49,7 @@ import net.zepalesque.redux.data.gen.tags.ReduxBlockTagsGen;
 import net.zepalesque.redux.data.gen.tags.ReduxItemTagsGen;
 import net.zepalesque.redux.entity.ReduxEntities;
 import net.zepalesque.redux.item.ReduxItems;
+import net.zepalesque.redux.recipe.ReduxRecipes;
 import net.zepalesque.redux.tile.ReduxTiles;
 import net.zepalesque.redux.world.biome.tint.ReduxBiomeTints;
 import net.zepalesque.redux.world.feature.gen.ReduxFeatures;
@@ -95,7 +96,9 @@ public class Redux {
                 ReduxBiomeTints.TINTS,
                 ReduxFeatures.FEATURES,
                 ReduxFoliagePlacers.FOLIAGE_PLACERS,
-                ReduxParticles.PARTICLES
+                ReduxParticles.PARTICLES,
+                ReduxRecipes.TYPES,
+                ReduxRecipes.Serializers.SERIALIZERS
         };
 
         for (DeferredRegister<?> register : registers) {
