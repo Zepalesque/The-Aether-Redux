@@ -58,61 +58,61 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
     }
 
     @Override
-    protected void buildRecipes(@NotNull Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(@NotNull Consumer<FinishedRecipe> output) {
 
-        stairs(ReduxBlocks.DIVINITE_STAIRS, ReduxBlocks.DIVINITE).save(consumer);
-        slab(consumer, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.DIVINITE_SLAB.get(), ReduxBlocks.DIVINITE.get());
-        wall(consumer, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.DIVINITE_WALL.get(), ReduxBlocks.DIVINITE.get());
-        stairs(ReduxBlocks.POLISHED_DRIFTSHALE_STAIRS, ReduxBlocks.POLISHED_DRIFTSHALE).save(consumer);
-        slab(consumer, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.POLISHED_DRIFTSHALE_SLAB.get(), ReduxBlocks.POLISHED_DRIFTSHALE.get());
-        wall(consumer, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.POLISHED_DRIFTSHALE_WALL.get(), ReduxBlocks.POLISHED_DRIFTSHALE.get());
-        enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, Blocks.GLOWSTONE, ReduxBlocks.DIVINITE.get(), 0.0F, 200).save(consumer, Redux.locate(ReduxBlocks.DIVINITE.getId().getPath() + "_to_glowstone"));
-        enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, AetherBlocks.ENCHANTED_GRAVITITE.get(), ReduxItems.RAW_GRAVITITE.get(), 1.0F, 750).save(consumer, this.name("enchanted_gravitite_enchanting_from_raw_ore"));
-        enchantingRecipe(RecipeCategory.DECORATIONS, ReduxBlocks.CRYSTAL_FRUIT_SAPLING.get(), ReduxTags.Items.BLUE_CRYSTAL_SAPLINGS, 0.0F, 150, "crystal_sapling").save(consumer, this.name("enchant_crystal_sapling"));
+        stairs(ReduxBlocks.DIVINITE_STAIRS, ReduxBlocks.DIVINITE).save(output);
+        slab(output, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.DIVINITE_SLAB.get(), ReduxBlocks.DIVINITE.get());
+        wall(output, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.DIVINITE_WALL.get(), ReduxBlocks.DIVINITE.get());
+        stairs(ReduxBlocks.POLISHED_DRIFTSHALE_STAIRS, ReduxBlocks.POLISHED_DRIFTSHALE).save(output);
+        slab(output, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.POLISHED_DRIFTSHALE_SLAB.get(), ReduxBlocks.POLISHED_DRIFTSHALE.get());
+        wall(output, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.POLISHED_DRIFTSHALE_WALL.get(), ReduxBlocks.POLISHED_DRIFTSHALE.get());
+        enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, Blocks.GLOWSTONE, ReduxBlocks.DIVINITE.get(), 0.0F, 200).save(output, Redux.locate(ReduxBlocks.DIVINITE.getId().getPath() + "_to_glowstone"));
+        enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, AetherBlocks.ENCHANTED_GRAVITITE.get(), ReduxItems.RAW_GRAVITITE.get(), 1.0F, 750).save(output, this.name("enchanted_gravitite_enchanting_from_raw_ore"));
+        enchantingRecipe(RecipeCategory.DECORATIONS, ReduxBlocks.CRYSTAL_FRUIT_SAPLING.get(), ReduxTags.Items.BLUE_CRYSTAL_SAPLINGS, 0.0F, 150, "crystal_sapling").save(output, this.name("enchant_crystal_sapling"));
 
         ConditionalRecipe.builder().addCondition(
                 dc(Conditions.GENESIS)
-        ).addRecipe(enchantingRecipe(RecipeCategory.DECORATIONS, ReduxBlocks.PURPLE_CRYSTAL_FRUIT_SAPLING.get(), GenesisBlocks.PURPLE_CRYSTAL_TREE_SAPLING.get().asItem(), 0.0F, 150)::save).generateAdvancement().build(consumer, this.name("enchant_purple_crystal_sapling"));
+        ).addRecipe(enchantingRecipe(RecipeCategory.DECORATIONS, ReduxBlocks.PURPLE_CRYSTAL_FRUIT_SAPLING.get(), GenesisBlocks.PURPLE_CRYSTAL_TREE_SAPLING.get().asItem(), 0.0F, 150)::save).generateAdvancement().build(output, this.name("enchant_purple_crystal_sapling"));
 
-        smeltingOreRecipe(ReduxItems.VERIDIUM_INGOT.get(), ReduxBlocks.VERIDIUM_ORE.get(), 0.8F).save(consumer, name("smelt_veridium"));
-        blastingOreRecipe(ReduxItems.VERIDIUM_INGOT.get(), ReduxBlocks.VERIDIUM_ORE.get(), 0.8F).save(consumer, name("blast_veridium"));
-        smeltingOreRecipe(ReduxItems.VERIDIUM_INGOT.get(), ReduxItems.RAW_VERIDIUM.get(), 0.8F).save(consumer, name("smelt_raw_veridium"));
-        blastingOreRecipe(ReduxItems.VERIDIUM_INGOT.get(), ReduxItems.RAW_VERIDIUM.get(), 0.8F).save(consumer, name("blast_raw_veridium"));
+        smeltingOreRecipe(ReduxItems.VERIDIUM_INGOT.get(), ReduxBlocks.VERIDIUM_ORE.get(), 0.8F).save(output, name("smelt_veridium"));
+        blastingOreRecipe(ReduxItems.VERIDIUM_INGOT.get(), ReduxBlocks.VERIDIUM_ORE.get(), 0.8F).save(output, name("blast_veridium"));
+        smeltingOreRecipe(ReduxItems.VERIDIUM_INGOT.get(), ReduxItems.RAW_VERIDIUM.get(), 0.8F).save(output, name("smelt_raw_veridium"));
+        blastingOreRecipe(ReduxItems.VERIDIUM_INGOT.get(), ReduxItems.RAW_VERIDIUM.get(), 0.8F).save(output, name("blast_raw_veridium"));
 
         // TODO: Confirm this is the correct method, I don't know if ore smelting is the right one here
-        smeltingOreRecipe(ReduxBlocks.POLISHED_DRIFTSHALE.get(), ReduxBlocks.DRIFTSHALE.get(), 0.0F).save(consumer, name("smelt_driftshale"));
+        smeltingOreRecipe(ReduxBlocks.POLISHED_DRIFTSHALE.get(), ReduxBlocks.DRIFTSHALE.get(), 0.0F).save(output, name("smelt_driftshale"));
 
-        oreBlockStorageRecipesRecipesWithCustomUnpacking(consumer, RecipeCategory.MISC, ReduxItems.VERIDIUM_INGOT.get(), RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.VERIDIUM_BLOCK.get(), "veridium_ingot_from_veridium_block", "veridium_ingot");
+        oreBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, ReduxItems.VERIDIUM_INGOT.get(), RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.VERIDIUM_BLOCK.get(), "veridium_ingot_from_veridium_block", "veridium_ingot");
 
-        oreBlockStorageRecipesRecipesWithCustomUnpacking(consumer, RecipeCategory.MISC, ReduxItems.RAW_VERIDIUM.get(), RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.RAW_VERIDIUM_BLOCK.get(), "raw_veridium_from_raw_veridium_block", "raw_veridium");
-        oreBlockStorageRecipesRecipesWithCustomUnpacking(consumer, RecipeCategory.MISC, ReduxItems.RAW_VALKYRUM.get(), RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.RAW_VALKYRUM_BLOCK.get(), "raw_valkyrum_from_raw_valkyrum_block", "raw_valkyrum");
+        oreBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, ReduxItems.RAW_VERIDIUM.get(), RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.RAW_VERIDIUM_BLOCK.get(), "raw_veridium_from_raw_veridium_block", "raw_veridium");
+        oreBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, ReduxItems.RAW_VALKYRUM.get(), RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.RAW_VALKYRUM_BLOCK.get(), "raw_valkyrum_from_raw_valkyrum_block", "raw_valkyrum");
 
-        oreBlockStorageRecipesRecipesWithCustomUnpacking(consumer, RecipeCategory.MISC, ReduxItems.GRAVITITE_INGOT.get(), RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.GRAVITITE_BLOCK.get(), "gravitite_ingot_from_gravitite_block", "gravitite_ingot");
+        oreBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, ReduxItems.GRAVITITE_INGOT.get(), RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.GRAVITITE_BLOCK.get(), "gravitite_ingot_from_gravitite_block", "gravitite_ingot");
 
-        oreBlockStorageRecipesRecipesWithCustomUnpacking(consumer, RecipeCategory.MISC, ReduxItems.RAW_GRAVITITE.get(), RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.RAW_GRAVITITE_BLOCK.get(), "raw_gravitite_from_raw_gravitite_block", "raw_gravitite");
+        oreBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, ReduxItems.RAW_GRAVITITE.get(), RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.RAW_GRAVITITE_BLOCK.get(), "raw_gravitite_from_raw_gravitite_block", "raw_gravitite");
 
 
-        stonecut(consumer, ReduxBlocks.POLISHED_DRIFTSHALE_STAIRS.get(), ReduxBlocks.POLISHED_DRIFTSHALE.get(), ReduxBlocks.DRIFTSHALE.get());
-        stonecut(consumer, ReduxBlocks.POLISHED_DRIFTSHALE_WALL.get(), ReduxBlocks.POLISHED_DRIFTSHALE.get(), ReduxBlocks.DRIFTSHALE.get());
-        stonecut(consumer, ReduxBlocks.POLISHED_DRIFTSHALE_SLAB.get(), ReduxBlocks.POLISHED_DRIFTSHALE.get(), ReduxBlocks.DRIFTSHALE.get());
-        stonecut(consumer, ReduxBlocks.POLISHED_DRIFTSHALE.get(), ReduxBlocks.DRIFTSHALE.get());
+        stonecut(output, ReduxBlocks.POLISHED_DRIFTSHALE_STAIRS.get(), ReduxBlocks.POLISHED_DRIFTSHALE.get(), ReduxBlocks.DRIFTSHALE.get());
+        stonecut(output, ReduxBlocks.POLISHED_DRIFTSHALE_WALL.get(), ReduxBlocks.POLISHED_DRIFTSHALE.get(), ReduxBlocks.DRIFTSHALE.get());
+        stonecut(output, ReduxBlocks.POLISHED_DRIFTSHALE_SLAB.get(), ReduxBlocks.POLISHED_DRIFTSHALE.get(), ReduxBlocks.DRIFTSHALE.get());
+        stonecut(output, ReduxBlocks.POLISHED_DRIFTSHALE.get(), ReduxBlocks.DRIFTSHALE.get());
 
 
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.DIVINITE_WALL.get(), ReduxBlocks.DIVINITE.get())
-                .save(consumer, Redux.locate(ReduxBlocks.DIVINITE.getId().getPath() + "_wall_stonecutting"));
+                .save(output, Redux.locate(ReduxBlocks.DIVINITE.getId().getPath() + "_wall_stonecutting"));
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.DIVINITE_SLAB.get(), ReduxBlocks.DIVINITE.get())
-                .save(consumer, Redux.locate(ReduxBlocks.DIVINITE.getId().getPath() + "_slab_stonecutting"));
+                .save(output, Redux.locate(ReduxBlocks.DIVINITE.getId().getPath() + "_slab_stonecutting"));
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.DIVINITE_STAIRS.get(), ReduxBlocks.DIVINITE.get())
-                .save(consumer, Redux.locate(ReduxBlocks.DIVINITE.getId().getPath() + "_stairs_stonecutting"));
+                .save(output, Redux.locate(ReduxBlocks.DIVINITE.getId().getPath() + "_stairs_stonecutting"));
 
         stonecut(RecipeCategory.BUILDING_BLOCKS, AetherBlocks.ANGELIC_STONE.get(), ReduxBlocks.DIVINITE.get())
-                .save(consumer, Redux.locate(ReduxBlocks.DIVINITE.getId().getPath() + "_to_angelic_stone_stonecutting"));
+                .save(output, Redux.locate(ReduxBlocks.DIVINITE.getId().getPath() + "_to_angelic_stone_stonecutting"));
         stonecut(RecipeCategory.BUILDING_BLOCKS, AetherBlocks.ANGELIC_WALL.get(), ReduxBlocks.DIVINITE.get())
-                .save(consumer, Redux.locate(ReduxBlocks.DIVINITE.getId().getPath() + "_to_angelic_wall_stonecutting"));
+                .save(output, Redux.locate(ReduxBlocks.DIVINITE.getId().getPath() + "_to_angelic_wall_stonecutting"));
         stonecut(RecipeCategory.BUILDING_BLOCKS, AetherBlocks.ANGELIC_SLAB.get(), ReduxBlocks.DIVINITE.get())
-                .save(consumer, Redux.locate(ReduxBlocks.DIVINITE.getId().getPath() + "_to_angelic_slab_stonecutting"));
+                .save(output, Redux.locate(ReduxBlocks.DIVINITE.getId().getPath() + "_to_angelic_slab_stonecutting"));
         stonecut(RecipeCategory.BUILDING_BLOCKS, AetherBlocks.ANGELIC_STAIRS.get(), ReduxBlocks.DIVINITE.get())
-                .save(consumer, Redux.locate(ReduxBlocks.DIVINITE.getId().getPath() + "_to_angelic_stairs_stonecutting"));
+                .save(output, Redux.locate(ReduxBlocks.DIVINITE.getId().getPath() + "_to_angelic_stairs_stonecutting"));
 
 
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, AetherBlocks.HELLFIRE_STONE.get(), 4)
@@ -121,88 +121,88 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .pattern("DN")
                 .pattern("ND")
                 .unlockedBy(getHasName(ReduxBlocks.DIVINITE.get()), has(ReduxBlocks.DIVINITE.get()))
-                .save(consumer, Redux.locate("hellfire_stone"));
+                .save(output, Redux.locate("hellfire_stone"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, AetherBlocks.ANGELIC_STONE.get(), 4)
                 .define('D', ReduxBlocks.DIVINITE.get())
                 .pattern("DD")
                 .pattern("DD")
                 .unlockedBy(getHasName(ReduxBlocks.DIVINITE.get()), has(ReduxBlocks.DIVINITE.get()))
-                .save(consumer, Redux.locate("angelic_stone"));
+                .save(output, Redux.locate("angelic_stone"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRITE_BRICKS.get(), 4)
                 .define('S', ReduxBlocks.SENTRITE.get())
                 .pattern("SS")
                 .pattern("SS")
                 .unlockedBy(getHasName(ReduxBlocks.SENTRITE.get()), has(ReduxBlocks.SENTRITE.get()))
-                .save(consumer);
+                .save(output);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.DRIFTSHALE.get(), 1)
                 .define('Q', AetherBlocks.QUICKSOIL.get())
                 .pattern("QQ")
                 .pattern("QQ")
                 .unlockedBy(getHasName(AetherBlocks.QUICKSOIL.get()), has(AetherBlocks.QUICKSOIL.get()))
-                .save(consumer);
+                .save(output);
 
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRITE_WALL.get(), ReduxBlocks.SENTRITE.get())
-                .save(consumer, Redux.locate(ReduxBlocks.SENTRITE.getId().getPath() + "_wall_stonecutting"));
+                .save(output, Redux.locate(ReduxBlocks.SENTRITE.getId().getPath() + "_wall_stonecutting"));
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRITE_SLAB.get(), ReduxBlocks.SENTRITE.get())
-                .save(consumer, Redux.locate(ReduxBlocks.SENTRITE.getId().getPath() + "_slab_stonecutting"));
+                .save(output, Redux.locate(ReduxBlocks.SENTRITE.getId().getPath() + "_slab_stonecutting"));
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRITE_STAIRS.get(), ReduxBlocks.SENTRITE.get())
-                .save(consumer, Redux.locate(ReduxBlocks.SENTRITE.getId().getPath() + "_stairs_stonecutting"));
-        stairs(ReduxBlocks.SENTRITE_STAIRS, ReduxBlocks.SENTRITE).save(consumer);
-        slab(consumer, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.SENTRITE_SLAB.get(), ReduxBlocks.SENTRITE.get());
-        wall(consumer, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.SENTRITE_WALL.get(), ReduxBlocks.SENTRITE.get());
+                .save(output, Redux.locate(ReduxBlocks.SENTRITE.getId().getPath() + "_stairs_stonecutting"));
+        stairs(ReduxBlocks.SENTRITE_STAIRS, ReduxBlocks.SENTRITE).save(output);
+        slab(output, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.SENTRITE_SLAB.get(), ReduxBlocks.SENTRITE.get());
+        wall(output, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.SENTRITE_WALL.get(), ReduxBlocks.SENTRITE.get());
 
 
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRITE_BRICK_WALL.get(), ReduxBlocks.SENTRITE.get())
-                .save(consumer, Redux.locate(ReduxBlocks.SENTRITE.getId().getPath() + "_brick_wall_from_base_block_stonecutting"));
+                .save(output, Redux.locate(ReduxBlocks.SENTRITE.getId().getPath() + "_brick_wall_from_base_block_stonecutting"));
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRITE_BRICK_SLAB.get(), ReduxBlocks.SENTRITE.get())
-                .save(consumer, Redux.locate(ReduxBlocks.SENTRITE.getId().getPath() + "_brick_from_base_block_slab_stonecutting"));
+                .save(output, Redux.locate(ReduxBlocks.SENTRITE.getId().getPath() + "_brick_from_base_block_slab_stonecutting"));
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRITE_BRICK_STAIRS.get(), ReduxBlocks.SENTRITE.get())
-                .save(consumer, Redux.locate(ReduxBlocks.SENTRITE.getId().getPath() + "_brick_from_base_block_stairs_stonecutting"));
+                .save(output, Redux.locate(ReduxBlocks.SENTRITE.getId().getPath() + "_brick_from_base_block_stairs_stonecutting"));
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRITE_BRICK_WALL.get(), ReduxBlocks.SENTRITE_BRICKS.get())
-                .save(consumer, Redux.locate(ReduxBlocks.SENTRITE.getId().getPath() + "_brick_wall_stonecutting"));
+                .save(output, Redux.locate(ReduxBlocks.SENTRITE.getId().getPath() + "_brick_wall_stonecutting"));
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRITE_BRICK_SLAB.get(), ReduxBlocks.SENTRITE_BRICKS.get())
-                .save(consumer, Redux.locate(ReduxBlocks.SENTRITE.getId().getPath() + "_brick_slab_stonecutting"));
+                .save(output, Redux.locate(ReduxBlocks.SENTRITE.getId().getPath() + "_brick_slab_stonecutting"));
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRITE_BRICK_STAIRS.get(), ReduxBlocks.SENTRITE_BRICKS.get())
-                .save(consumer, Redux.locate(ReduxBlocks.SENTRITE.getId().getPath() + "_brick_stairs_stonecutting"));
-        stairs(ReduxBlocks.SENTRITE_BRICK_STAIRS, ReduxBlocks.SENTRITE_BRICKS).save(consumer);
-        slab(consumer, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.SENTRITE_BRICK_SLAB.get(), ReduxBlocks.SENTRITE_BRICKS.get());
-        wall(consumer, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.SENTRITE_BRICK_WALL.get(), ReduxBlocks.SENTRITE_BRICKS.get());
+                .save(output, Redux.locate(ReduxBlocks.SENTRITE.getId().getPath() + "_brick_stairs_stonecutting"));
+        stairs(ReduxBlocks.SENTRITE_BRICK_STAIRS, ReduxBlocks.SENTRITE_BRICKS).save(output);
+        slab(output, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.SENTRITE_BRICK_SLAB.get(), ReduxBlocks.SENTRITE_BRICKS.get());
+        wall(output, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.SENTRITE_BRICK_WALL.get(), ReduxBlocks.SENTRITE_BRICKS.get());
 
 
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.CARVED_BASE.get(), AetherBlocks.CARVED_STONE.get());
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.CARVED_PILLAR.get(), AetherBlocks.CARVED_STONE.get());
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRY_BASE.get(), AetherBlocks.SENTRY_STONE.get());
-        stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRY_PILLAR.get(), AetherBlocks.SENTRY_STONE.get());
+        stonecuttingRecipe(output, RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.CARVED_BASE.get(), AetherBlocks.CARVED_STONE.get());
+        stonecuttingRecipe(output, RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.CARVED_PILLAR.get(), AetherBlocks.CARVED_STONE.get());
+        stonecuttingRecipe(output, RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRY_BASE.get(), AetherBlocks.SENTRY_STONE.get());
+        stonecuttingRecipe(output, RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRY_PILLAR.get(), AetherBlocks.SENTRY_STONE.get());
 
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.CARVED_BASE.get(), 4)
                 .define('#', AetherBlocks.CARVED_STONE.get())
                 .pattern("##")
                 .pattern("##")
                 .unlockedBy(getHasName(AetherBlocks.CARVED_STONE.get()), has(AetherBlocks.CARVED_STONE.get()))
-                .save(consumer);
+                .save(output);
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.CARVED_PILLAR.get(), 6)
                 .define('#', AetherBlocks.CARVED_STONE.get())
                 .pattern("##")
                 .pattern("##")
                 .pattern("##")
                 .unlockedBy(getHasName(AetherBlocks.CARVED_STONE.get()), has(AetherBlocks.CARVED_STONE.get()))
-                .save(consumer);
+                .save(output);
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRY_BASE.get(), 4)
                 .define('#', AetherBlocks.SENTRY_STONE.get())
                 .pattern("##")
                 .pattern("##")
                 .unlockedBy(getHasName(AetherBlocks.SENTRY_STONE.get()), has(AetherBlocks.SENTRY_STONE.get()))
-                .save(consumer);
+                .save(output);
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRY_PILLAR.get(), 6)
                 .define('#', AetherBlocks.SENTRY_STONE.get())
                 .pattern("##")
                 .pattern("##")
                 .pattern("##")
                 .unlockedBy(getHasName(AetherBlocks.SENTRY_STONE.get()), has(AetherBlocks.SENTRY_STONE.get()))
-                .save(consumer);
+                .save(output);
 
 
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, AetherBlocks.CARVED_STONE.get(), 4)
@@ -211,7 +211,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .pattern("SH")
                 .pattern("HS")
                 .unlockedBy(getHasName(ReduxBlocks.SENTRITE.get()), has(ReduxBlocks.SENTRITE.get()))
-                .save(consumer, Redux.locate("carved_stone"));
+                .save(output, Redux.locate("carved_stone"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.RUNELIGHT.get(), 2)
                 .define('V', ReduxItems.VERIDIUM_INGOT.get())
@@ -220,143 +220,143 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .pattern("VCV")
                 .pattern("VVV")
                 .unlockedBy(getHasName(ReduxItems.SENTRY_CHIP.get()), has(ReduxItems.SENTRY_CHIP.get()))
-                .save(consumer);
+                .save(output);
 
 //        swetBall(AetherItems.SWET_BALL, ReduxTags.Items.BLUE_SWET_JELLY).save(consumer, Redux.locate("blue_swet_ball"));
 //        swetBall(ReduxItems.VANILLA_SWET_BALL, ReduxItems.VANILLA_SWET_JELLY).save(consumer, Redux.locate("vanilla_swet_ball"));
 
-        enchantingRecipe(RecipeCategory.MISC, ReduxBlocks.GILDED_HOLYSTONE.get(), AetherBlocks.MOSSY_HOLYSTONE.get(), 0.0F, 100).save(consumer, Redux.locate("enchant_mossy_holystone"));
-        oneToOneConversionRecipe(consumer, Items.LIGHT_BLUE_DYE, ReduxBlocks.SPIROLYCTIL.get(), null);
-        oneToOneConversionRecipe(consumer, Items.PURPLE_DYE, ReduxBlocks.BLIGHTSHADE.get(), null);
+        enchantingRecipe(RecipeCategory.MISC, ReduxBlocks.GILDED_HOLYSTONE.get(), AetherBlocks.MOSSY_HOLYSTONE.get(), 0.0F, 100).save(output, Redux.locate("enchant_mossy_holystone"));
+        oneToOneConversionRecipe(output, Items.LIGHT_BLUE_DYE, ReduxBlocks.SPIROLYCTIL.get(), null);
+        oneToOneConversionRecipe(output, Items.PURPLE_DYE, ReduxBlocks.BLIGHTSHADE.get(), null);
 
-        oneToOneConversionRecipe(consumer, Items.YELLOW_DYE, ReduxBlocks.AURUM.get(), null);
-        oneToOneConversionRecipe(consumer, Items.PURPLE_DYE, ReduxBlocks.ZYATRIX.get(), null);
+        oneToOneConversionRecipe(output, Items.YELLOW_DYE, ReduxBlocks.AURUM.get(), null);
+        oneToOneConversionRecipe(output, Items.PURPLE_DYE, ReduxBlocks.ZYATRIX.get(), null);
 
-        oneToOneConversionRecipe(consumer, Items.WHITE_DYE, ReduxBlocks.DAGGERBLOOM.get(), null);
-        oneToOneConversionRecipe(consumer, Items.BLACK_DYE, ReduxBlocks.LUMINA.get(), null);
+        oneToOneConversionRecipe(output, Items.WHITE_DYE, ReduxBlocks.DAGGERBLOOM.get(), null);
+        oneToOneConversionRecipe(output, Items.BLACK_DYE, ReduxBlocks.LUMINA.get(), null);
 
-        oneToOneConversionRecipe(consumer, Items.PINK_DYE, ReduxBlocks.THERATIP.get(), null);
+        oneToOneConversionRecipe(output, Items.PINK_DYE, ReduxBlocks.THERATIP.get(), null);
 
-        oneToOneConversionRecipe(consumer, Items.BLAZE_POWDER, ReduxBlocks.INFERNIA.get(), null);
+        oneToOneConversionRecipe(output, Items.BLAZE_POWDER, ReduxBlocks.INFERNIA.get(), null);
 
-        oneToOneConversionRecipe(consumer, Items.WHITE_DYE, ReduxBlocks.FLAREBLOSSOM.get(), null);
+        oneToOneConversionRecipe(output, Items.WHITE_DYE, ReduxBlocks.FLAREBLOSSOM.get(), null);
 
-        oneToOneConversionRecipe(consumer, Items.MAGENTA_DYE, ReduxBlocks.IRIDIA.get(), null);
+        oneToOneConversionRecipe(output, Items.MAGENTA_DYE, ReduxBlocks.IRIDIA.get(), null);
 
-        oneToOneConversionRecipe(consumer, Items.LIGHT_GRAY_DYE, ReduxBlocks.XAELIA_PATCH.get(), null);
+        oneToOneConversionRecipe(output, Items.LIGHT_GRAY_DYE, ReduxBlocks.XAELIA_PATCH.get(), null);
 
-        ambrosiumEnchanting(ReduxBlocks.GILDED_HOLYSTONE.get(), AetherBlocks.MOSSY_HOLYSTONE.get()).save(consumer, name("ambrosium_enchant_mossy_holystone_to_gilded_holystone"));
-        sporeBlighting(ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), AetherBlocks.MOSSY_HOLYSTONE.get()).save(consumer, name("spore_blight_mossy_holystone_to_blightmoss_holystone"));
-        sporeBlighting(ReduxBlocks.BLIGHTMOSS_BLOCK.get(), DABlocks.AETHER_MOSS_BLOCK.get()).save(consumer, name("spore_blight_deep_aether_aether_moss_block_to_blightmoss_block"));
-        sporeBlighting(ReduxBlocks.BLIGHTMOSS_CARPET.get(), DABlocks.AETHER_MOSS_CARPET.get()).save(consumer, name("spore_blight_deep_aether_aether_moss_carpet_to_blightmoss_carpet"));
+        ambrosiumEnchanting(ReduxBlocks.GILDED_HOLYSTONE.get(), AetherBlocks.MOSSY_HOLYSTONE.get()).save(output, name("ambrosium_enchant_mossy_holystone_to_gilded_holystone"));
+        sporeBlighting(ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), AetherBlocks.MOSSY_HOLYSTONE.get()).save(output, name("spore_blight_mossy_holystone_to_blightmoss_holystone"));
+        sporeBlighting(ReduxBlocks.BLIGHTMOSS_BLOCK.get(), DABlocks.AETHER_MOSS_BLOCK.get()).save(output, name("spore_blight_deep_aether_aether_moss_block_to_blightmoss_block"));
+        sporeBlighting(ReduxBlocks.BLIGHTMOSS_CARPET.get(), DABlocks.AETHER_MOSS_CARPET.get()).save(output, name("spore_blight_deep_aether_aether_moss_carpet_to_blightmoss_carpet"));
 
-        infusionCharge(consumer, ReduxItems.VERIDIUM_PICKAXE, ReduxItems.INFUSED_VERIDIUM_PICKAXE);
-        infusionCharge(consumer, ReduxItems.VERIDIUM_AXE, ReduxItems.INFUSED_VERIDIUM_AXE);
-        infusionCharge(consumer, ReduxItems.VERIDIUM_SWORD, ReduxItems.INFUSED_VERIDIUM_SWORD);
-        infusionCharge(consumer, ReduxItems.VERIDIUM_HOE, ReduxItems.INFUSED_VERIDIUM_HOE);
-        infusionCharge(consumer, ReduxItems.VERIDIUM_SHOVEL, ReduxItems.INFUSED_VERIDIUM_SHOVEL);
-        infusionCharge(consumer, ReduxItems.VERIDIUM_DART_SHOOTER, ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER);
+        infusionCharge(output, ReduxItems.VERIDIUM_PICKAXE, ReduxItems.INFUSED_VERIDIUM_PICKAXE);
+        infusionCharge(output, ReduxItems.VERIDIUM_AXE, ReduxItems.INFUSED_VERIDIUM_AXE);
+        infusionCharge(output, ReduxItems.VERIDIUM_SWORD, ReduxItems.INFUSED_VERIDIUM_SWORD);
+        infusionCharge(output, ReduxItems.VERIDIUM_HOE, ReduxItems.INFUSED_VERIDIUM_HOE);
+        infusionCharge(output, ReduxItems.VERIDIUM_SHOVEL, ReduxItems.INFUSED_VERIDIUM_SHOVEL);
+        infusionCharge(output, ReduxItems.VERIDIUM_DART_SHOOTER, ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER);
 
-        twoByTwoPacker(consumer, RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SHELL_SHINGLES.get(), ReduxItems.MYKAPOD_SHELL_CHUNK.get());
+        twoByTwoPacker(output, RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SHELL_SHINGLES.get(), ReduxItems.MYKAPOD_SHELL_CHUNK.get());
         enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.ENCHANTED_SHELL_SHINGLES.get(), ReduxBlocks.SHELL_SHINGLES.get(), 0F, 150);
 
 
-        stairs(ReduxBlocks.SHELL_SHINGLE_STAIRS, ReduxBlocks.SHELL_SHINGLES).save(consumer);
-        slab(consumer, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.SHELL_SHINGLE_SLAB.get(), ReduxBlocks.SHELL_SHINGLES.get());
-        wall(consumer, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.SHELL_SHINGLE_WALL.get(), ReduxBlocks.SHELL_SHINGLES.get());
+        stairs(ReduxBlocks.SHELL_SHINGLE_STAIRS, ReduxBlocks.SHELL_SHINGLES).save(output);
+        slab(output, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.SHELL_SHINGLE_SLAB.get(), ReduxBlocks.SHELL_SHINGLES.get());
+        wall(output, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.SHELL_SHINGLE_WALL.get(), ReduxBlocks.SHELL_SHINGLES.get());
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SHELL_SHINGLE_WALL.get(), ReduxBlocks.SHELL_SHINGLES.get())
-                .save(consumer, Redux.locate("shell_shingle_wall_stonecutting"));
+                .save(output, Redux.locate("shell_shingle_wall_stonecutting"));
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SHELL_SHINGLE_SLAB.get(), ReduxBlocks.SHELL_SHINGLES.get())
-                .save(consumer, Redux.locate("shell_shingle_slab_stonecutting"));
+                .save(output, Redux.locate("shell_shingle_slab_stonecutting"));
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SHELL_SHINGLE_STAIRS.get(), ReduxBlocks.SHELL_SHINGLES.get())
-                .save(consumer, Redux.locate("shell_shingle_stairs_stonecutting"));
+                .save(output, Redux.locate("shell_shingle_stairs_stonecutting"));
 
-        stairs(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_STAIRS, ReduxBlocks.ENCHANTED_SHELL_SHINGLES).save(consumer);
-        slab(consumer, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.ENCHANTED_SHELL_SHINGLE_SLAB.get(), ReduxBlocks.ENCHANTED_SHELL_SHINGLES.get());
-        wall(consumer, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.ENCHANTED_SHELL_SHINGLE_WALL.get(), ReduxBlocks.ENCHANTED_SHELL_SHINGLES.get());
+        stairs(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_STAIRS, ReduxBlocks.ENCHANTED_SHELL_SHINGLES).save(output);
+        slab(output, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.ENCHANTED_SHELL_SHINGLE_SLAB.get(), ReduxBlocks.ENCHANTED_SHELL_SHINGLES.get());
+        wall(output, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.ENCHANTED_SHELL_SHINGLE_WALL.get(), ReduxBlocks.ENCHANTED_SHELL_SHINGLES.get());
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.ENCHANTED_SHELL_SHINGLE_WALL.get(), ReduxBlocks.ENCHANTED_SHELL_SHINGLES.get())
-                .save(consumer, Redux.locate("enchanted_shell_shingle_wall_stonecutting"));
+                .save(output, Redux.locate("enchanted_shell_shingle_wall_stonecutting"));
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.ENCHANTED_SHELL_SHINGLE_SLAB.get(), ReduxBlocks.ENCHANTED_SHELL_SHINGLES.get())
-                .save(consumer, Redux.locate("enchanted_shell_shingle_slab_stonecutting"));
+                .save(output, Redux.locate("enchanted_shell_shingle_slab_stonecutting"));
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.ENCHANTED_SHELL_SHINGLE_STAIRS.get(), ReduxBlocks.ENCHANTED_SHELL_SHINGLES.get())
-                .save(consumer, Redux.locate("enchanted_shell_shingle_stairs_stonecutting"));
+                .save(output, Redux.locate("enchanted_shell_shingle_stairs_stonecutting"));
 
         enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.ENCHANTED_SHELL_SHINGLE_STAIRS.get(), ReduxBlocks.SHELL_SHINGLE_STAIRS.get(), 0F, 150);
         enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.ENCHANTED_SHELL_SHINGLE_WALL.get(), ReduxBlocks.SHELL_SHINGLE_WALL.get(), 0F, 150);
         enchantingRecipe(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.ENCHANTED_SHELL_SHINGLE_SLAB.get(), ReduxBlocks.SHELL_SHINGLE_SLAB.get(), 0F, 150);
 
 
-        mossCarpet(consumer, ReduxBlocks.BLIGHTMOSS_CARPET.get(), ReduxBlocks.BLIGHTMOSS_BLOCK.get());
-        mossCarpet(consumer, ReduxBlocks.FUNGAL_CARPET.get(), ReduxBlocks.FUNGAL_GROWTH.get());
+        mossCarpet(output, ReduxBlocks.BLIGHTMOSS_CARPET.get(), ReduxBlocks.BLIGHTMOSS_BLOCK.get());
+        mossCarpet(output, ReduxBlocks.FUNGAL_CARPET.get(), ReduxBlocks.FUNGAL_GROWTH.get());
 
-        stairs(ReduxBlocks.GILDED_HOLYSTONE_STAIRS, ReduxBlocks.GILDED_HOLYSTONE).save(consumer);
-        slab(consumer, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.GILDED_HOLYSTONE_SLAB.get(), ReduxBlocks.GILDED_HOLYSTONE.get());
-        wall(consumer, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.GILDED_HOLYSTONE_WALL.get(), ReduxBlocks.GILDED_HOLYSTONE.get());
-        stairs(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_STAIRS, ReduxBlocks.BLIGHTMOSS_HOLYSTONE).save(consumer);
-        slab(consumer, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.BLIGHTMOSS_HOLYSTONE_SLAB.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get());
-        wall(consumer, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.BLIGHTMOSS_HOLYSTONE_WALL.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get());
+        stairs(ReduxBlocks.GILDED_HOLYSTONE_STAIRS, ReduxBlocks.GILDED_HOLYSTONE).save(output);
+        slab(output, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.GILDED_HOLYSTONE_SLAB.get(), ReduxBlocks.GILDED_HOLYSTONE.get());
+        wall(output, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.GILDED_HOLYSTONE_WALL.get(), ReduxBlocks.GILDED_HOLYSTONE.get());
+        stairs(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_STAIRS, ReduxBlocks.BLIGHTMOSS_HOLYSTONE).save(output);
+        slab(output, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.BLIGHTMOSS_HOLYSTONE_SLAB.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get());
+        wall(output, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.BLIGHTMOSS_HOLYSTONE_WALL.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get());
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.GILDED_HOLYSTONE_WALL.get(), ReduxBlocks.GILDED_HOLYSTONE.get())
-                .save(consumer, Redux.locate("gilded_holystone_wall_stonecutting"));
+                .save(output, Redux.locate("gilded_holystone_wall_stonecutting"));
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.GILDED_HOLYSTONE_SLAB.get(), ReduxBlocks.GILDED_HOLYSTONE.get())
-                .save(consumer, Redux.locate("gilded_holystone_slab_stonecutting"));
+                .save(output, Redux.locate("gilded_holystone_slab_stonecutting"));
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.GILDED_HOLYSTONE_STAIRS.get(), ReduxBlocks.GILDED_HOLYSTONE.get())
-                .save(consumer, Redux.locate("gilded_holystone_stairs_stonecutting"));
+                .save(output, Redux.locate("gilded_holystone_stairs_stonecutting"));
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.BLIGHTMOSS_HOLYSTONE_WALL.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get())
-                .save(consumer, Redux.locate("blightmoss_holystone_wall_stonecutting"));
+                .save(output, Redux.locate("blightmoss_holystone_wall_stonecutting"));
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.BLIGHTMOSS_HOLYSTONE_SLAB.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get())
-                        .save(consumer, Redux.locate("blightmoss_holystone_slab_stonecutting"));
+                        .save(output, Redux.locate("blightmoss_holystone_slab_stonecutting"));
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.BLIGHTMOSS_HOLYSTONE_STAIRS.get(), ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get())
-                .save(consumer, Redux.locate("blightmoss_holystone_stairs_stonecutting"));
+                .save(output, Redux.locate("blightmoss_holystone_stairs_stonecutting"));
 
-        leafPile(consumer, ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get(), ReduxBlocks.BLIGHTWILLOW_LEAVES.get());
-        leafPile(consumer, ReduxBlocks.GILDED_LEAF_PILE.get(), ReduxBlocks.GILDED_OAK_LEAVES.get());
-        leafPile(consumer, ReduxBlocks.GOLDEN_LEAF_PILE.get(), AetherBlocks.GOLDEN_OAK_LEAVES.get());
+        leafPile(output, ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get(), ReduxBlocks.BLIGHTWILLOW_LEAVES.get());
+        leafPile(output, ReduxBlocks.GILDED_LEAF_PILE.get(), ReduxBlocks.GILDED_OAK_LEAVES.get());
+        leafPile(output, ReduxBlocks.GOLDEN_LEAF_PILE.get(), AetherBlocks.GOLDEN_OAK_LEAVES.get());
 
         // Gummy Swet recipes
         ConditionalRecipe.builder().addCondition(
                         dc(Conditions.GUMMY_NERF)
                 )
                 .addRecipe(gummySwet(GenesisItems.DARK_GUMMY_SWET, GenesisItems.DARK_SWET_BALL)::save)
-                .generateAdvancement().build(consumer, Redux.locate("genesis_dark_gummy_swet"));
+                .generateAdvancement().build(output, Redux.locate("genesis_dark_gummy_swet"));
 
         ConditionalRecipe.builder().addCondition(
                         dc(Conditions.GUMMY_NERF)
                 )
                 .addRecipe(gummySwet(AetherItems.BLUE_GUMMY_SWET, AetherItems.SWET_BALL)::save)
-                .generateAdvancement().build(consumer, Redux.locate("blue_gummy_swet"));
+                .generateAdvancement().build(output, Redux.locate("blue_gummy_swet"));
 
         ConditionalRecipe.builder().addCondition(
                         dc(Conditions.GUMMY_NERF)
                 )
                 .addRecipe(gummySwet(AetherItems.GOLDEN_GUMMY_SWET, ReduxTags.Items.GOLDEN_SWET_BALL, "has_golden_swet_ball")::save)
-                .generateAdvancement().build(consumer, Redux.locate("golden_gummy_swet"));
+                .generateAdvancement().build(output, Redux.locate("golden_gummy_swet"));
 
         ConditionalRecipe.builder().addCondition(
                         dc(Conditions.GUMMY_NERF)
                 )
                 .addRecipe(gummySwet(ReduxItems.VANILLA_GUMMY_SWET, ReduxItems.VANILLA_SWET_BALL)::save)
-                .generateAdvancement().build(consumer, Redux.locate("vanilla_gummy_swet"));
+                .generateAdvancement().build(output, Redux.locate("vanilla_gummy_swet"));
 
 
         // Swet jelly recipes
 
-        swetJelly(ReduxItems.VANILLA_SWET_JELLY, ReduxItems.VANILLA_SWET_BALL).save(consumer, Redux.locate("vanilla_swet_jelly"));
+        swetJelly(ReduxItems.VANILLA_SWET_JELLY, ReduxItems.VANILLA_SWET_BALL).save(output, Redux.locate("vanilla_swet_jelly"));
         ConditionalRecipe.builder().addCondition(
                         not(dc(Conditions.GENESIS))
                 )
                 .addRecipe(swetJelly(ReduxItems.GOLDEN_SWET_JELLY, ReduxTags.Items.GOLDEN_SWET_BALL)::save)
-                .generateAdvancement().build(consumer, Redux.locate("golden_swet_jelly"));
+                .generateAdvancement().build(output, Redux.locate("golden_swet_jelly"));
         ConditionalRecipe.builder().addCondition(
                         not(dc(Conditions.GENESIS))
                 )
                 .addRecipe(swetJelly(ReduxItems.BLUE_SWET_JELLY, AetherItems.SWET_BALL)::save)
-                .generateAdvancement().build(consumer, Redux.locate("blue_swet_jelly"));
+                .generateAdvancement().build(output, Redux.locate("blue_swet_jelly"));
 
 
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ReduxItems.BLUEBERRY_PIE.get()).requires(ReduxItems.WYND_OAT_PANICLE.get()).requires(AetherItems.BLUE_BERRY.get()).requires(ReduxTags.Items.BLUEBERRY_PIE_EGGS).requires(Items.SUGAR).unlockedBy("has_blue_berry", inventoryTrigger(ItemPredicate.Builder.item()
                 .of(AetherItems.BLUE_BERRY.get()).build())).unlockedBy("has_oats", inventoryTrigger(ItemPredicate.Builder.item()
-                .of(ReduxItems.WYND_OAT_PANICLE.get()).build())).save(consumer);
+                .of(ReduxItems.WYND_OAT_PANICLE.get()).build())).save(output);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ReduxItems.VERIDIUM_DART.get(), 4)
                 .define('F', Tags.Items.FEATHERS)
@@ -367,7 +367,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .pattern("V")
                 .unlockedBy("has_feather", has(Tags.Items.FEATHERS))
                 .unlockedBy(getHasName(ReduxItems.VERIDIUM_INGOT.get()), has(ReduxItems.VERIDIUM_INGOT.get()))
-                .save(consumer);
+                .save(output);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ReduxItems.VERIDIUM_DART_SHOOTER.get(), 1)
                 .define('H', AetherBlocks.HOLYSTONE.get())
@@ -376,7 +376,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .pattern("H")
                 .pattern("V")
                 .unlockedBy(getHasName(ReduxItems.VERIDIUM_INGOT.get()), has(ReduxItems.VERIDIUM_INGOT.get()))
-                .save(consumer);
+                .save(output);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ReduxItems.SPEAR_OF_THE_BLIGHT.get(), 1)
                 .define('F', ReduxItems.BLIGHTBUNNY_FANG.get())
@@ -386,7 +386,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .pattern("/")
                 .pattern("G")
                 .unlockedBy(getHasName(ReduxItems.BLIGHTBUNNY_FANG.get()), has(ReduxItems.BLIGHTBUNNY_FANG.get()))
-                .save(consumer);
+                .save(output);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ReduxItems.SNAILSHELL_SHIELD.get(), 1)
                 .define('S', ReduxItems.MYKAPOD_SHELL_CHUNK.get())
@@ -395,9 +395,9 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .pattern("SSS")
                 .pattern("GSG")
                 .unlockedBy(getHasName(ReduxItems.MYKAPOD_SHELL_CHUNK.get()), has(ReduxItems.MYKAPOD_SHELL_CHUNK.get()))
-                .save(consumer);
+                .save(output);
 
-        enchantingRecipe(RecipeCategory.FOOD, ReduxItems.ENCHANTED_BLUEBERRY_PIE.get(), ReduxItems.BLUEBERRY_PIE.get(), 0.35F, 250).save(consumer, name("enchanted_blueberry_pie_enchanting"));
+        enchantingRecipe(RecipeCategory.FOOD, ReduxItems.ENCHANTED_BLUEBERRY_PIE.get(), ReduxItems.BLUEBERRY_PIE.get(), 0.35F, 250).save(output, name("enchanted_blueberry_pie_enchanting"));
 
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ReduxBlocks.VERIDIUM_CHAIN.get(), 3)
@@ -407,7 +407,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .pattern("I")
                 .pattern("N")
                 .unlockedBy(getHasName(ReduxItems.VERIDIUM_NUGGET.get()), has(ReduxItems.VERIDIUM_NUGGET.get()))
-                .save(consumer);
+                .save(output);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ReduxItems.ENCHANTED_RING.get(), 1)
                 .define('P', AetherTags.Items.PLANKS_CRAFTING)
@@ -416,7 +416,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .pattern("P P")
                 .pattern("PPP")
                 .unlockedBy(getHasName(AetherItems.AMBROSIUM_SHARD.get()), has(AetherItems.AMBROSIUM_SHARD.get()))
-                .save(consumer);
+                .save(output);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ReduxItems.RING_OF_WISDOM.get(), 1)
                 .define('H', AetherTags.Items.HOLYSTONE)
@@ -426,7 +426,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .pattern("HRH")
                 .pattern("HHH")
                 .unlockedBy(getHasName(ReduxItems.ENCHANTED_RING.get()), has(ReduxItems.ENCHANTED_RING.get()))
-                .save(consumer);
+                .save(output);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ReduxItems.SENTRY_RING.get(), 1)
                 .define('H', ReduxBlocks.SENTRITE.get())
@@ -436,7 +436,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .pattern("HRH")
                 .pattern("HHH")
                 .unlockedBy(getHasName(ReduxItems.SENTRY_CHIP.get()), has(ReduxItems.SENTRY_CHIP.get()))
-                .save(consumer);
+                .save(output);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ReduxItems.SHROOM_RING.get(), 1)
                 .define('L', ReduxItems.LIGHTROOT_CLUMP.get())
@@ -447,7 +447,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .pattern("CRC")
                 .pattern("LCL")
                 .unlockedBy(getHasName(ReduxBlocks.SHIMMERSTOOL.get()), has(ReduxBlocks.SHIMMERSTOOL.get()))
-                .save(consumer);
+                .save(output);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ReduxBlocks.VERIDIUM_LANTERN.get(), 1)
                 .define('I', ReduxItems.VERIDIUM_INGOT.get())
@@ -459,7 +459,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .unlockedBy(getHasName(ReduxItems.VERIDIUM_NUGGET.get()), has(ReduxItems.VERIDIUM_NUGGET.get()))
                 .unlockedBy(getHasName(AetherBlocks.AMBROSIUM_TORCH.get()), has(AetherBlocks.AMBROSIUM_TORCH.get()))
                 .unlockedBy(getHasName(AetherItems.AMBROSIUM_SHARD.get()), has(AetherItems.AMBROSIUM_SHARD.get()))
-                .save(consumer);
+                .save(output);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ReduxItems.FEATHER_OF_WARDING.get(), 1)
                 .define('V', ReduxBlocks.VERIDIUM_BLOCK.get())
@@ -470,12 +470,12 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .pattern("VFV")
                 .pattern(" S ")
                 .unlockedBy(getHasName(ReduxItems.COCKATRICE_FEATHER.get()), has(ReduxItems.COCKATRICE_FEATHER.get()))
-                .save(consumer);
+                .save(output);
 
         ConditionalRecipe.builder().addCondition(dc(Conditions.GENESIS)).addRecipe(ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ReduxItems.MOUSE_EAR_SOUP.get())
                 .requires(Ingredient.of(Items.BOWL)).requires(ReduxTags.Items.MOUSE_EAR_CAPS)
                 .unlockedBy("has_mouse_ear_cap", inventoryTrigger(ItemPredicate.Builder.item()
-                .of(ReduxTags.Items.MOUSE_EAR_CAPS).build()))::save).build(consumer, Redux.locate("mouse_ear_soup"));
+                .of(ReduxTags.Items.MOUSE_EAR_CAPS).build()))::save).build(output, Redux.locate("mouse_ear_soup"));
 
 
         ConditionalRecipe.builder().addCondition(
@@ -487,7 +487,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                         .pattern("DH")
                         .pattern("HD")
                         .unlockedBy(getHasName(ReduxBlocks.HOLYSILT.get()), has(ReduxBlocks.HOLYSILT.get()))
-                        ::save).build(consumer, Redux.locate("deep_aether_coarse_dirt"));
+                        ::save).build(output, Redux.locate("deep_aether_coarse_dirt"));
 
         ConditionalRecipe.builder().addCondition(
                 not(dc(Conditions.DEEP))
@@ -498,7 +498,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                         .pattern("DH")
                         .pattern("HD")
                         .unlockedBy(getHasName(ReduxBlocks.HOLYSILT.get()), has(ReduxBlocks.HOLYSILT.get()))
-                        ::save).build(consumer, Redux.locate("redux_coarse_dirt"));
+                        ::save).build(output, Redux.locate("redux_coarse_dirt"));
 
 
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ReduxItems.WYND_BAGEL.get(), 1)
@@ -507,7 +507,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .pattern("O O")
                 .pattern(" O ")
                 .unlockedBy(getHasName(ReduxItems.WYND_OATS.get()), has(ReduxItems.WYND_OATS.get()))
-                .save(consumer);
+                .save(output);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ReduxItems.BLUEBERRY_BAGEL.get(), 1)
                 .define('O', ReduxItems.WYND_OAT_PANICLE.get())
@@ -517,57 +517,57 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .pattern(" O ")
                 .unlockedBy(getHasName(ReduxItems.WYND_OATS.get()), has(ReduxItems.WYND_OATS.get()))
                 .unlockedBy(getHasName(AetherItems.BLUE_BERRY.get()), has(AetherItems.BLUE_BERRY.get()))
-                .save(consumer);
+                .save(output);
 
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ReduxItems.OATMEAL.get(), 1)
                         .requires(Items.BOWL)
                         .requires(ReduxItems.WYND_OATS.get(), 3)
                 .unlockedBy(getHasName(ReduxItems.WYND_OATS.get()), has(ReduxItems.WYND_OATS.get()))
-                .save(consumer);
+                .save(output);
 
-        makePickaxe(ReduxItems.VERIDIUM_PICKAXE, ReduxItems.VERIDIUM_INGOT).save(consumer);
-        makeShovel(ReduxItems.VERIDIUM_SHOVEL, ReduxItems.VERIDIUM_INGOT).save(consumer);
-        makeAxe(ReduxItems.VERIDIUM_AXE, ReduxItems.VERIDIUM_INGOT).save(consumer);
-        makeHoe(ReduxItems.VERIDIUM_HOE, ReduxItems.VERIDIUM_INGOT).save(consumer);
-        makeSword(ReduxItems.VERIDIUM_SWORD, ReduxItems.VERIDIUM_INGOT).save(consumer);
+        makePickaxe(ReduxItems.VERIDIUM_PICKAXE, ReduxItems.VERIDIUM_INGOT).save(output);
+        makeShovel(ReduxItems.VERIDIUM_SHOVEL, ReduxItems.VERIDIUM_INGOT).save(output);
+        makeAxe(ReduxItems.VERIDIUM_AXE, ReduxItems.VERIDIUM_INGOT).save(output);
+        makeHoe(ReduxItems.VERIDIUM_HOE, ReduxItems.VERIDIUM_INGOT).save(output);
+        makeSword(ReduxItems.VERIDIUM_SWORD, ReduxItems.VERIDIUM_INGOT).save(output);
 
-        oreBlockStorageRecipesRecipesWithCustomUnpacking(consumer, RecipeCategory.MISC, ReduxItems.VERIDIUM_NUGGET.get(), RecipeCategory.MISC, ReduxItems.VERIDIUM_INGOT.get(), "veridium_nugget", "veridium_nugget_to_veridium_ingot");
+        oreBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, ReduxItems.VERIDIUM_NUGGET.get(), RecipeCategory.MISC, ReduxItems.VERIDIUM_INGOT.get(), "veridium_nugget", "veridium_nugget_to_veridium_ingot");
 
         for (WoodHandler woodHandler : Redux.WOOD_HANDLERS) {
-            woodFromLogs(consumer, woodHandler.wood.get(), woodHandler.log.get());
-            planksFromLog(consumer, woodHandler.planks.get(), woodHandler.logsTag, 4);
-            fence(woodHandler.fence, woodHandler.planks).save(consumer);
-            fenceGate(woodHandler.fenceGate, woodHandler.planks).save(consumer);
-            doorBuilder(woodHandler.door.get(), Ingredient.of(woodHandler.planks.get())).unlockedBy(getHasName(woodHandler.planks.get()), has(woodHandler.planks.get())).group("wooden_door").save(consumer);
-            trapdoorBuilder(woodHandler.trapdoor.get(), Ingredient.of(woodHandler.planks.get())).unlockedBy(getHasName(woodHandler.planks.get()), has(woodHandler.planks.get())).group("wooden_trapdoor").save(consumer);
-            pressurePlate(consumer, woodHandler.pressurePlate.get(), woodHandler.planks.get());
-            buttonBuilder(woodHandler.button.get(), Ingredient.of(woodHandler.planks.get())).unlockedBy(getHasName(woodHandler.planks.get()), has(woodHandler.planks.get())).group("wooden_button").save(consumer);
-            skyrootSignBuilder(woodHandler.signItem.get(), Ingredient.of(woodHandler.planks.get())).unlockedBy(getHasName(woodHandler.planks.get()), has(woodHandler.planks.get())).group("wooden_sign").save(consumer);
-            hangingAetherSign(consumer, woodHandler.hangingSignItem.get(), woodHandler.hasStrippedLogs && woodHandler.strippedLog.isPresent() ? woodHandler.strippedLog.get().get() : woodHandler.log.get());
-            woodenBoat(consumer, woodHandler.boatItem.get(), woodHandler.planks.get());
-            chestBoat(consumer, woodHandler.chestBoatItem.get(), woodHandler.boatItem.get());
-            slab(consumer, RecipeCategory.BUILDING_BLOCKS, woodHandler.slab.get(), woodHandler.planks.get());
-            stairs(woodHandler.stairs, woodHandler.planks).save(consumer);
-            bookshelf(consumer, woodHandler.planks.get(), woodHandler.bookshelf.get());
+            woodFromLogs(output, woodHandler.wood.get(), woodHandler.log.get());
+            planksFromLog(output, woodHandler.planks.get(), woodHandler.logsTag, 4);
+            fence(woodHandler.fence, woodHandler.planks).save(output);
+            fenceGate(woodHandler.fenceGate, woodHandler.planks).save(output);
+            doorBuilder(woodHandler.door.get(), Ingredient.of(woodHandler.planks.get())).unlockedBy(getHasName(woodHandler.planks.get()), has(woodHandler.planks.get())).group("wooden_door").save(output);
+            trapdoorBuilder(woodHandler.trapdoor.get(), Ingredient.of(woodHandler.planks.get())).unlockedBy(getHasName(woodHandler.planks.get()), has(woodHandler.planks.get())).group("wooden_trapdoor").save(output);
+            pressurePlate(output, woodHandler.pressurePlate.get(), woodHandler.planks.get());
+            buttonBuilder(woodHandler.button.get(), Ingredient.of(woodHandler.planks.get())).unlockedBy(getHasName(woodHandler.planks.get()), has(woodHandler.planks.get())).group("wooden_button").save(output);
+            skyrootSignBuilder(woodHandler.signItem.get(), Ingredient.of(woodHandler.planks.get())).unlockedBy(getHasName(woodHandler.planks.get()), has(woodHandler.planks.get())).group("wooden_sign").save(output);
+            hangingAetherSign(output, woodHandler.hangingSignItem.get(), woodHandler.hasStrippedLogs && woodHandler.strippedLog.isPresent() ? woodHandler.strippedLog.get().get() : woodHandler.log.get());
+            woodenBoat(output, woodHandler.boatItem.get(), woodHandler.planks.get());
+            chestBoat(output, woodHandler.chestBoatItem.get(), woodHandler.boatItem.get());
+            slab(output, RecipeCategory.BUILDING_BLOCKS, woodHandler.slab.get(), woodHandler.planks.get());
+            stairs(woodHandler.stairs, woodHandler.planks).save(output);
+            bookshelf(output, woodHandler.planks.get(), woodHandler.bookshelf.get());
             if (woodHandler.hasStrippedLogs && woodHandler.strippedLog.isPresent() && woodHandler.strippedWood.isPresent())
             {
-                woodFromLogs(consumer, woodHandler.strippedWood.get().get(), woodHandler.strippedLog.get().get());
+                woodFromLogs(output, woodHandler.strippedWood.get().get(), woodHandler.strippedLog.get().get());
             }
             if (woodHandler.alwaysLogWalls)
             {
-                wall(consumer, RecipeCategory.BUILDING_BLOCKS, woodHandler.logWall.get(), woodHandler.log.get());
-                wall(consumer, RecipeCategory.BUILDING_BLOCKS, woodHandler.woodWall.get(), woodHandler.wood.get());
+                wall(output, RecipeCategory.BUILDING_BLOCKS, woodHandler.logWall.get(), woodHandler.log.get());
+                wall(output, RecipeCategory.BUILDING_BLOCKS, woodHandler.woodWall.get(), woodHandler.wood.get());
                 if (woodHandler.hasStrippedLogs && woodHandler.strippedLogWall.isPresent() && woodHandler.strippedWoodWall.isPresent() && woodHandler.strippedLog.isPresent() && woodHandler.strippedWood.isPresent()) {
-                    wall(consumer, RecipeCategory.BUILDING_BLOCKS, woodHandler.strippedLogWall.get().get(), woodHandler.strippedLog.get().get());
-                    wall(consumer, RecipeCategory.BUILDING_BLOCKS, woodHandler.strippedWoodWall.get().get(), woodHandler.strippedWood.get().get());
+                    wall(output, RecipeCategory.BUILDING_BLOCKS, woodHandler.strippedLogWall.get().get(), woodHandler.strippedLog.get().get());
+                    wall(output, RecipeCategory.BUILDING_BLOCKS, woodHandler.strippedWoodWall.get().get(), woodHandler.strippedWood.get().get());
                 }
             } else {
-                ConditionalRecipe.builder().addCondition(dc(Conditions.GENESIS)).addRecipe(wallNoBuild(RecipeCategory.BUILDING_BLOCKS, woodHandler.logWall.get(), woodHandler.log.get())::save).generateAdvancement().build(consumer, getDefaultRecipeId(woodHandler.logWall.get()));
-                ConditionalRecipe.builder().addCondition(dc(Conditions.GENESIS)).addRecipe(wallNoBuild(RecipeCategory.BUILDING_BLOCKS, woodHandler.woodWall.get(), woodHandler.wood.get())::save).generateAdvancement().build(consumer, getDefaultRecipeId(woodHandler.woodWall.get()));
+                ConditionalRecipe.builder().addCondition(dc(Conditions.GENESIS)).addRecipe(wallNoBuild(RecipeCategory.BUILDING_BLOCKS, woodHandler.logWall.get(), woodHandler.log.get())::save).generateAdvancement().build(output, getDefaultRecipeId(woodHandler.logWall.get()));
+                ConditionalRecipe.builder().addCondition(dc(Conditions.GENESIS)).addRecipe(wallNoBuild(RecipeCategory.BUILDING_BLOCKS, woodHandler.woodWall.get(), woodHandler.wood.get())::save).generateAdvancement().build(output, getDefaultRecipeId(woodHandler.woodWall.get()));
                 if (woodHandler.hasStrippedLogs && woodHandler.strippedLogWall.isPresent() && woodHandler.strippedWoodWall.isPresent() && woodHandler.strippedLog.isPresent() && woodHandler.strippedWood.isPresent()) {
-                    ConditionalRecipe.builder().addCondition(dc(Conditions.GENESIS)).addRecipe(wallNoBuild(RecipeCategory.BUILDING_BLOCKS, woodHandler.strippedLogWall.get().get(), woodHandler.strippedLog.get().get())::save).generateAdvancement().build(consumer, getDefaultRecipeId(woodHandler.strippedLogWall.get().get()));
-                    ConditionalRecipe.builder().addCondition(dc(Conditions.GENESIS)).addRecipe(wallNoBuild(RecipeCategory.BUILDING_BLOCKS, woodHandler.strippedWoodWall.get().get(), woodHandler.strippedWood.get().get())::save).generateAdvancement().build(consumer, getDefaultRecipeId(woodHandler.strippedWoodWall.get().get()));
+                    ConditionalRecipe.builder().addCondition(dc(Conditions.GENESIS)).addRecipe(wallNoBuild(RecipeCategory.BUILDING_BLOCKS, woodHandler.strippedLogWall.get().get(), woodHandler.strippedLog.get().get())::save).generateAdvancement().build(output, getDefaultRecipeId(woodHandler.strippedLogWall.get().get()));
+                    ConditionalRecipe.builder().addCondition(dc(Conditions.GENESIS)).addRecipe(wallNoBuild(RecipeCategory.BUILDING_BLOCKS, woodHandler.strippedWoodWall.get().get(), woodHandler.strippedWood.get().get())::save).generateAdvancement().build(output, getDefaultRecipeId(woodHandler.strippedWoodWall.get().get()));
                 }
             }
         }

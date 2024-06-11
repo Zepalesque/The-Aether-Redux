@@ -55,13 +55,12 @@ public class EntitySpawner extends Mob {
         return level.getRawBrightness(pos, 0) > 8 && level.getDifficulty() != Difficulty.PEACEFUL;
     }
 
-
-    @Nullable
     @Override
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason, @Nullable SpawnGroupData spawnData, @Nullable CompoundTag dataTag) {
-        SpawnGroupData data = super.finalizeSpawn(level, difficulty, reason, spawnData, dataTag);
-        this.spawnEntity();
-        this.discard();
-        return data;
+    public void tick() {
+        super.tick();
+        if (!this.isRemoved()) {
+            this.spawnEntity();
+            this.discard();
+        }
     }
 }
