@@ -114,7 +114,7 @@ public class Ember extends Projectile {
       float f = 0.99F;
       float f1 = 0.06F;
 
-      this.setDeltaMovement(vec3.scale((double)0.99F));
+      this.setDeltaMovement(vec3.multiply(0.995D, 0.99D, 0.995D));
       if (hitresult.getType() != HitResult.Type.MISS && !net.minecraftforge.event.ForgeEventFactory.onProjectileImpact(this, hitresult))
          this.onHit(hitresult);
       if (!this.isNoGravity() && hitresult.getType() != HitResult.Type.BLOCK) {
