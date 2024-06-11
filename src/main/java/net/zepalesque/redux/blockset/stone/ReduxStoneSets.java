@@ -19,7 +19,7 @@ import net.zepalesque.zenith.api.blockset.util.CraftingMatrix;
 public class ReduxStoneSets {
 
     public static final BaseStoneSet SENTRITE = register(new BaseStoneSet("sentrite", MapColor.DEEPSLATE, SoundType.NETHER_ORE, 1.0F, 6.0F, "natural/",
-            "A dark rock found in the Aether. A mixture of this and holystone is what makes up the walls of the Bronze Dungeon.")).craftsInto(AetherBlocks.CARVED_STONE,
+            "A dark, metallic rock found throughout the Aether. This crude metal is used in a number of parts of Sentry technology, even their walls of Carved Stone are made of a mixture of this and Holystone.")).craftsInto(AetherBlocks.CARVED_STONE,
             new CraftingMatrix(4, builder ->
                     builder
                             .define('H', AetherBlocks.HOLYSTONE.get())

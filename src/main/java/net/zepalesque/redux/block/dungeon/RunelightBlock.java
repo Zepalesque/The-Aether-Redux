@@ -5,17 +5,23 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
-import net.zepalesque.redux.block.construction.BaseLitBlock;
 
-public class RunelightBlock extends BaseLitBlock {
+public class RunelightBlock extends Block {
+    public static final BooleanProperty LIT = BlockStateProperties.LIT;
 
     protected final boolean creativeInteractOnly;
+
     public RunelightBlock(Properties properties, boolean creativeInteractOnly) {
         super(properties);
         this.creativeInteractOnly = creativeInteractOnly;
+        this.registerDefaultState(this.getStateDefinition().any().setValue(LIT, true));
     }
 
     @Override
@@ -36,5 +42,11 @@ public class RunelightBlock extends BaseLitBlock {
 
     public boolean isValidForInteraction(Player player) {
         return !this.creativeInteractOnly || player.getAbilities().instabuild;
+    }
+
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        super.createBlockStateDefinition(builder);
+        builder.add(LIT);
     }
 }

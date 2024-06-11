@@ -1,15 +1,12 @@
 package net.zepalesque.redux.data.prov;
 
-import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.block.dungeon.DoorwayBlock;
 import com.aetherteam.aether.data.providers.AetherBlockStateProvider;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
@@ -19,8 +16,8 @@ import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.client.model.generators.ModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.block.construction.BaseLitBlock;
 import net.zepalesque.redux.block.construction.LayeredBookshelfBlock;
+import net.zepalesque.redux.block.dungeon.RunelightBlock;
 import net.zepalesque.redux.block.natural.AetherShortGrassBlock;
 import net.zepalesque.redux.block.state.ReduxStates;
 
@@ -169,8 +166,8 @@ public abstract class ReduxBlockStateProvider extends AetherBlockStateProvider {
         ModelFile off = this.models().cubeAll(this.name(other), this.texture(this.name(other), location));
         ModelFile on = this.models().cubeAll(this.name(other) + "_on", this.texture(this.name(other) + "_on", location));
         this.getVariantBuilder(block)
-                .partialState().with(BaseLitBlock.LIT, true).modelForState().modelFile(on).addModel()
-                .partialState().with(BaseLitBlock.LIT, false).modelForState().modelFile(off).addModel();
+                .partialState().with(RunelightBlock.LIT, true).modelForState().modelFile(on).addModel()
+                .partialState().with(RunelightBlock.LIT, false).modelForState().modelFile(off).addModel();
     }
 
     public void dungeonBlock(Block block, Block baseBlock, String location) {

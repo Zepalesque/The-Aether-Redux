@@ -18,7 +18,6 @@ import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.block.construction.BaseLitBlock;
 import net.zepalesque.redux.block.dungeon.DoorwayPillarBlock;
 import net.zepalesque.redux.block.dungeon.RunelightBlock;
 import net.zepalesque.redux.block.dungeon.TrappedPillarBlock;
@@ -71,8 +70,8 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 
     public static final DeferredBlock<Block> RUNELIGHT = register("runelight", () ->
             new RunelightBlock(Properties.of()
-                    .mapColor(state -> state.getValue(BaseLitBlock.LIT) ? MapColor.COLOR_LIGHT_BLUE : MapColor.LAPIS)
-                    .lightLevel(state -> state.getValue(BaseLitBlock.LIT) ? 13 : 1)
+                    .mapColor(state -> state.getValue(RunelightBlock.LIT) ? MapColor.COLOR_LIGHT_BLUE : MapColor.LAPIS)
+                    .lightLevel(state -> state.getValue(RunelightBlock.LIT) ? 13 : 1)
                     .strength(0.7F, 6.0F)
                     .sound(SoundType.COPPER_BULB)
                     .requiresCorrectToolForDrops()
@@ -82,8 +81,8 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 
     public static final DeferredBlock<Block> LOCKED_RUNELIGHT = register("locked_runelight", () ->
             new RunelightBlock(Properties.of()
-                    .mapColor(state -> state.getValue(BaseLitBlock.LIT) ? MapColor.COLOR_LIGHT_BLUE : MapColor.LAPIS)
-                    .lightLevel(state -> state.getValue(BaseLitBlock.LIT) ? 13 : 1)
+                    .mapColor(state -> state.getValue(RunelightBlock.LIT) ? MapColor.COLOR_LIGHT_BLUE : MapColor.LAPIS)
+                    .lightLevel(state -> state.getValue(RunelightBlock.LIT) ? 13 : 1)
                     .strength(-1.0F, 3600000.0F)
                     .sound(SoundType.COPPER_BULB)
                     .instrument(NoteBlockInstrument.IRON_XYLOPHONE),

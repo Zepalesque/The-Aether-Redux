@@ -37,7 +37,7 @@ public class ReduxConfig {
             builder.push("TODO");
             bronze_dungeon_upgrade = builder
                     .comment("Upgrades the Bronze Dungeon structure with new blocks and more depth")
-                    .define("Revamped Quicksoil Movement", true);
+                    .define("Bronze Dungeon Upgrade", true);
             builder.pop();
         }
     }

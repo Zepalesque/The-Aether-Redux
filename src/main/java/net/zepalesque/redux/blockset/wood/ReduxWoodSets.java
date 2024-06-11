@@ -16,5 +16,7 @@ public class ReduxWoodSets {
         return set;
     }
 
-    public static void init() {}
+    public static void init() {
+        // Manually load class
+    }
 }
