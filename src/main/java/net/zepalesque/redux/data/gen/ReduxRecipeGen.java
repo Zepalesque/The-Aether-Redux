@@ -77,7 +77,8 @@ public class ReduxRecipeGen extends ReduxRecipeProvider {
                 .save(output);
 
         // Temporary test recipe
-        infuse(ReduxItems.VERIDIUM_INGOT.get(), Items.IRON_INGOT).withSound(BuiltInRegistries.SOUND_EVENT.wrapAsHolder(SoundEvents.ENCHANTMENT_TABLE_USE));
+        infuse(ReduxItems.VERIDIUM_INGOT.get(), Items.IRON_INGOT).withSound(BuiltInRegistries.SOUND_EVENT.wrapAsHolder(SoundEvents.ENCHANTMENT_TABLE_USE))
+                .save(output, Redux.loc("infusion_test"));
 
     }
 }
