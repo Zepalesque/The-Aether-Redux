@@ -1,3 +1,4 @@
+/*
 package net.zepalesque.redux.entity.projectile;
 
 import com.aetherteam.nitrogen.entity.BossMob;
@@ -20,13 +21,8 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.event.EventHooks;
-import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.client.audio.ReduxSounds;
-import net.zepalesque.redux.client.particle.ReduxParticleTypes;
-import net.zepalesque.redux.data.resource.ReduxDamageTypes;
 import net.zepalesque.redux.entity.ReduxEntities;
-import net.zepalesque.redux.entity.ReduxEntityTypes;
-import net.zepalesque.redux.util.math.MathUtil;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -103,9 +99,11 @@ public class Ember extends Projectile {
    }
 
 
-   /**
+   */
+/**
     * Called to update the entity's position/logic.
-    */
+    *//*
+
    public void tick() {
       super.tick();
       Vec3 vec3 = this.getDeltaMovement();
@@ -244,3 +242,4 @@ public class Ember extends Projectile {
       this.setDeltaMovement(d0, d1, d2);
    }
 }
+*/
