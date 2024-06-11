@@ -41,7 +41,7 @@ public abstract class ReduxBlockStateProvider extends AetherBlockStateProvider {
             return ConfiguredModel.builder()
                     .modelFile(models()
                             .singleTexture(state.getValue(ReduxStates.GRASS_SIZE).getSerializedName() + "_aether_grass",
-                                    modLoc("block/template/tinted_cross"), "cross",
+                                    mcLoc("block/tinted_cross"), "cross",
                                     modLoc("block/natural/aether_" + state.getValue(ReduxStates.GRASS_SIZE).getSerializedName() + "_grass"))
                             .renderType("cutout")).build();
         });
