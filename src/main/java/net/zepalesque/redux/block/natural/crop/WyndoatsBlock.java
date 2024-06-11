@@ -7,6 +7,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.monster.Ravager;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.ItemLike;
@@ -21,6 +22,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.common.CommonHooks;
@@ -29,26 +31,32 @@ import net.neoforged.neoforge.common.PlantType;
 import net.neoforged.neoforge.event.EventHooks;
 import net.zepalesque.redux.item.ReduxItems;
 
-public class WyndGrassBlock extends BushBlock implements BonemealableBlock {
-   public static final int MAX_AGE = 4;
-   public static final IntegerProperty AGE = BlockStateProperties.AGE_4;
+public class WyndoatsBlock extends BushBlock implements BonemealableBlock {
+   public static final int MAX_AGE = 5;
+   public static final IntegerProperty AGE = BlockStateProperties.AGE_5;
 
    private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[]{
            Block.box(3.0D, -1.0D, 3.0D, 13.0D, 2.0D, 13.0D),
            Block.box(3.0D, -1.0D, 3.0D, 13.0D, 4.0D, 13.0D),
            Block.box(3.0D, -1.0D, 3.0D, 13.0D, 6.0D, 13.0D),
            Block.box(3.0D, -1.0D, 3.0D, 13.0D, 9.0D, 13.0D),
-           Block.box(3.0D, -1.0D, 3.0D, 13.0D, 13.0D, 13.0D)};
+           Block.box(3.0D, -1.0D, 3.0D, 13.0D, 11.0D, 13.0D),
+           Block.box(3.0D, -1.0D, 3.0D, 13.0D, 13.0D, 13.0D)
+   };
 
-   public WyndGrassBlock(BlockBehaviour.Properties properties) {
+   public static final MapCodec<WyndoatsBlock> CODEC = simpleCodec(WyndoatsBlock::new);
+
+   public WyndoatsBlock(BlockBehaviour.Properties properties) {
       super(properties);
       this.registerDefaultState(this.stateDefinition.any().setValue(this.getAgeProperty(), Integer.valueOf(0)));
    }
 
+   @Override
    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
       return SHAPE_BY_AGE[this.getAge(state)];
    }
 
+   @Override
    protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
       return state.is(Blocks.FARMLAND);
    }
@@ -76,6 +84,7 @@ public class WyndGrassBlock extends BushBlock implements BonemealableBlock {
    /**
     * @return whether this block needs random ticking.
     */
+   @Override
    public boolean isRandomlyTicking(BlockState state) {
       return !this.isMaxAge(state);
    }
@@ -83,8 +92,9 @@ public class WyndGrassBlock extends BushBlock implements BonemealableBlock {
    /**
     * Performs a random tick on a block.
     */
+   @Override
    public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-      if (!level.isAreaLoaded(pos, 1)) return; // NeoForge: prevent loading unloaded chunks when checking neighbor's light
+      if (!level.isAreaLoaded(pos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light
       if (level.getRawBrightness(pos, 0) >= 9) {
          int i = this.getAge(state);
          if (i < this.getMaxAge()) {
@@ -153,10 +163,12 @@ public class WyndGrassBlock extends BushBlock implements BonemealableBlock {
       return f;
    }
 
+   @Override
    public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
       return (level.getRawBrightness(pos, 0) >= 8 || level.canSeeSky(pos)) && super.canSurvive(state, level, pos);
    }
 
+   @Override
    public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
       if (entity instanceof Ravager && EventHooks.getMobGriefingEvent(level, entity)) {
          level.destroyBlock(pos, true, entity);
@@ -166,24 +178,28 @@ public class WyndGrassBlock extends BushBlock implements BonemealableBlock {
    }
 
    protected ItemLike getBaseSeedId() {
-      return ReduxItems.WYNDSPROUT_SEEDS.get();
+      return ReduxItems.WYND_OATS.get();
    }
 
-   public ItemStack getCloneItemStack(BlockGetter level, BlockPos pos, BlockState state) {
+   @Override
+   public ItemStack getCloneItemStack(BlockState state, HitResult target, LevelReader level, BlockPos pos, Player player) {
       return new ItemStack(this.getBaseSeedId());
    }
 
    /**
     * @return whether bonemeal can be used on this block
     */
+   @Override
    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
       return !this.isMaxAge(state);
    }
 
+   @Override
    public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {
       return true;
    }
 
+   @Override
    public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
       this.growCrops(level, pos, state);
    }
@@ -193,11 +209,10 @@ public class WyndGrassBlock extends BushBlock implements BonemealableBlock {
       return PlantType.CROP;
    }
 
+   @Override
    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
       builder.add(AGE);
    }
-
-   public static final MapCodec<WyndGrassBlock> CODEC = simpleCodec(WyndGrassBlock::new);
 
    @Override
    protected MapCodec<? extends BushBlock> codec() {

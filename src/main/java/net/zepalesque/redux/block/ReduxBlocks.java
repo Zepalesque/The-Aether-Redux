@@ -11,8 +11,8 @@ import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
+import net.minecraft.world.level.block.state.BlockBehaviour.OffsetType;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -22,7 +22,7 @@ import net.zepalesque.redux.block.dungeon.DoorwayPillarBlock;
 import net.zepalesque.redux.block.dungeon.RunelightBlock;
 import net.zepalesque.redux.block.dungeon.TrappedPillarBlock;
 import net.zepalesque.redux.block.natural.AetherShortGrassBlock;
-import net.zepalesque.redux.block.natural.crop.WyndGrassBlock;
+import net.zepalesque.redux.block.natural.crop.WyndoatsBlock;
 import net.zepalesque.redux.block.natural.leaves.FallingLeavesBlock;
 import net.zepalesque.redux.block.state.ReduxBlockBuilders;
 import net.zepalesque.redux.client.particle.ReduxParticles;
@@ -37,16 +37,15 @@ public class ReduxBlocks extends ReduxBlockBuilders {
     public static DeferredBlock<AetherShortGrassBlock> SHORT_AETHER_GRASS = register("short_aether_grass",
             () -> new AetherShortGrassBlock(
                     Properties.ofFullCopy(Blocks.SHORT_GRASS)
-                            .offsetType(BlockBehaviour.OffsetType.XZ)
+                            .offsetType(OffsetType.XZ)
                             .hasPostProcess((state, level, pos) -> true)
             ));
 
     public static final DeferredBlock<SaplingBlock> CLOUDROOT_SAPLING = register("cloudroot_sapling",
-            () -> new SaplingBlock(ReduxTreeGrowers.CLOUDROOT, Properties.ofFullCopy(Blocks.OAK_SAPLING)));
+            () -> new SaplingBlock(ReduxTreeGrowers.CLOUDROOT, Properties.ofFullCopy(Blocks.OAK_SAPLING).mapColor(MapColor.QUARTZ)));
 
     public static DeferredBlock<FallingLeavesBlock> CLOUDROOT_LEAVES = register("cloudroot_leaves",
-            () -> new FallingLeavesBlock(ReduxParticles.CLOUDROOT_LEAF,
-                    BlockBehaviour.Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get()).mapColor(MapColor.QUARTZ)));
+            () -> new FallingLeavesBlock(ReduxParticles.CLOUDROOT_LEAF, Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get()).mapColor(MapColor.QUARTZ)));
 
     public static final DeferredBlock<Block> CARVED_PILLAR = register("carved_pillar", () -> new RotatedPillarBlock(Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).strength(0.5F, 6.0F).requiresCorrectToolForDrops()));
     public static final DeferredBlock<Block> SENTRY_PILLAR = register("sentry_pillar", () -> new RotatedPillarBlock(Properties.ofFullCopy(CARVED_PILLAR.get()).lightLevel(state -> 11)));
@@ -100,20 +99,19 @@ public class ReduxBlocks extends ReduxBlockBuilders {
     // TODO: Automate pot creation
 
     public static DeferredBlock<Block> WYNDSPROUTS = register("wyndsprouts",
-            () -> new AetherBushBlock(Properties.ofFullCopy(Blocks.SHORT_GRASS).sound(SoundType.CHERRY_SAPLING).offsetType(BlockBehaviour.OffsetType.XZ)));
+            () -> new AetherBushBlock(Properties.ofFullCopy(Blocks.SHORT_GRASS).sound(SoundType.CHERRY_SAPLING).offsetType(OffsetType.XZ)));
     public static final DeferredBlock<FlowerPotBlock> POTTED_WYNDSPROUTS = BLOCKS.register("potted_wyndsprouts", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, WYNDSPROUTS, Properties.ofFullCopy(Blocks.FLOWER_POT)));
 
-    public static DeferredBlock<Block> WYND_GRASS = BLOCKS.register("wynd_grass",
-            () -> new WyndGrassBlock(Properties.ofFullCopy(Blocks.WHEAT)));
-
     public static DeferredBlock<Block> SKYSPROUTS = register("skysprouts",
-            () -> new AetherBushBlock(Properties.ofFullCopy(Blocks.SHORT_GRASS).sound(SoundType.CHERRY_SAPLING).offsetType(BlockBehaviour.OffsetType.XZ)));
+            () -> new AetherBushBlock(Properties.ofFullCopy(Blocks.SHORT_GRASS).sound(SoundType.CHERRY_SAPLING).offsetType(OffsetType.XZ)));
     public static final DeferredBlock<FlowerPotBlock> POTTED_SKYSPROUTS = BLOCKS.register("potted_skysprouts", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SKYSPROUTS, Properties.ofFullCopy(Blocks.FLOWER_POT)));
+
+    public static DeferredBlock<Block> WYNDOATS = BLOCKS.register("wyndoats",
+            () -> new WyndoatsBlock(Properties.ofFullCopy(Blocks.WHEAT)));
 
 
     public static void registerFlammability() {
         FireAccessor accessor = (FireAccessor) Blocks.FIRE;
-
         Redux.WOOD_SETS.forEach(set -> set.flammables(accessor));
     }
 

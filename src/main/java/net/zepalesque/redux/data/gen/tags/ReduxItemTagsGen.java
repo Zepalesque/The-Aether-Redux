@@ -3,11 +3,13 @@ package net.zepalesque.redux.data.gen.tags;
 import com.aetherteam.aether.AetherTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.data.prov.tags.ReduxItemTagsProvider;
+import net.zepalesque.redux.item.ReduxItems;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
@@ -72,5 +74,9 @@ public class ReduxItemTagsGen extends ReduxItemTagsProvider {
                 ReduxBlocks.BOSS_DOORWAY_CARVED_BASE.get().asItem(),
                 ReduxBlocks.BOSS_DOORWAY_SENTRY_BASE.get().asItem()
         );
+
+        this.tag(AetherTags.Items.PHYG_TEMPTATION_ITEMS).replace(true).add(ReduxItems.WYND_OATS.get());
+        this.tag(AetherTags.Items.FLYING_COW_TEMPTATION_ITEMS).replace(true).add(ReduxItems.WYND_OAT_PANICLE.get());
+
     }
 }

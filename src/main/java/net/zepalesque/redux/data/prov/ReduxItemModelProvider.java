@@ -10,6 +10,7 @@ import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
+import net.neoforged.neoforge.client.model.generators.loaders.ItemLayerModelBuilder;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import java.util.function.Supplier;
@@ -20,15 +21,53 @@ public abstract class ReduxItemModelProvider extends AetherItemModelProvider {
         super(output, id, helper);
     }
 
-    public ItemModelBuilder itemBlockFlat(Supplier<? extends Block> block, String location) {
-        return withExistingParent(blockName(block.get()), mcLoc("item/generated"))
-                .texture("layer0", texture(blockName(block.get()), location));
-    }
 
-    public ItemModelBuilder itemBlockFlatCustomTexture(Supplier<? extends Block> block, String locationPlusName) {
-        return withExistingParent(blockName(block.get()), mcLoc("item/generated"))
+    public ItemModelBuilder itemBlockFlatCustomTexture(Block block, String locationPlusName) {
+        return withExistingParent(blockName(block), mcLoc("item/generated"))
                 .texture("layer0", texture(locationPlusName));
     }
+
+    // TODO: Templates for all of these
+
+    public ItemModelBuilder itemBlockFlatGlow(Block block, String location) {
+        return withExistingParent(blockName(block), mcLoc("item/generated"))
+                .texture("layer0", texture(blockName(block), location))
+                .texture("layer1", texture(blockName(block) + "_glow", location)).customLoader((itemModelBuilder,existingFileHelper) ->
+                        ItemLayerModelBuilder.begin(itemModelBuilder, existingFileHelper).emissive(15, 15, 1)).end();
+    }
+    public ItemModelBuilder itemBlockFlatTintOverlay(Block block, String location) {
+        return withExistingParent(blockName(block), mcLoc("item/generated"))
+                .texture("layer1", texture(blockName(block), location))
+                .texture("layer0", texture(blockName(block) + "_overlay", location));
+    }
+
+    public ItemModelBuilder itemBlockFlatGlow(Block block, String location, String suffix) {
+        return withExistingParent(blockName(block), mcLoc("item/generated"))
+                .texture("layer0", texture(blockName(block), location) + suffix)
+                .texture("layer1", texture(blockName(block) + suffix + "_glow", location)).customLoader((itemModelBuilder,existingFileHelper) ->
+                        ItemLayerModelBuilder.begin(itemModelBuilder, existingFileHelper).emissive(15, 15, 1)).end();
+    }
+    public ItemModelBuilder itemBlockFlatGlowOtherTexture(Block block, Block other, String location) {
+        return withExistingParent(blockName(block), mcLoc("item/generated"))
+                .texture("layer0", texture(blockName(other), location))
+                .texture("layer1", texture(blockName(other) + "_glow", location)).customLoader((itemModelBuilder,existingFileHelper) ->
+                        ItemLayerModelBuilder.begin(itemModelBuilder, existingFileHelper).emissive(15, 15, 1)).end();
+    }
+    public ItemModelBuilder itemBlockFlatTintGlowOverlay(Block block, String location) {
+        return withExistingParent(blockName(block), mcLoc("item/generated"))
+                .texture("layer1", texture(blockName(block), location))
+                .texture("layer2", texture(blockName(block) + "_glow", location)).customLoader((itemModelBuilder,existingFileHelper) ->
+                        ItemLayerModelBuilder.begin(itemModelBuilder, existingFileHelper).emissive(15, 15, 2)).end()
+                .texture("layer0", texture(blockName(block) + "_overlay", location));
+    }
+    public ItemModelBuilder itemBlockFlatTintGlow(Block block, String location) {
+        return withExistingParent(blockName(block), mcLoc("item/generated"))
+                .texture("layer1", texture(blockName(block), location))
+                .texture("layer0", texture(blockName(block) + "_glow", location)).customLoader((itemModelBuilder,existingFileHelper) ->
+                        ItemLayerModelBuilder.begin(itemModelBuilder, existingFileHelper).emissive(15, 15, 0)).end();
+    }
+
+    // End templates
 
     public void itemOverlayColumn(Block block, Block baseBlock, String overlay, String location) {
         ResourceLocation side = ReduxBlockStateProvider.extendStatic(this.texture(ReduxBlockStateProvider.nameStatic(baseBlock), location), "_side");

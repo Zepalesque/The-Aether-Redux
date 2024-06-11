@@ -112,4 +112,5 @@ public abstract class ReduxBlockLootProvider extends AetherBlockLootSubProvider 
     public Function<Block, LootTable.Builder> shearsOr(ItemLike drop) {
         return shearsOr(drop, 0.25F);
     }
+
 }

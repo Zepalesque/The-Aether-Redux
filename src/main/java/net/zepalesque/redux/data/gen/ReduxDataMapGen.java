@@ -12,6 +12,7 @@ import net.zepalesque.redux.client.ReduxColors;
 import net.zepalesque.redux.data.ReduxDataMaps;
 import net.zepalesque.redux.data.ReduxTags;
 import net.zepalesque.redux.data.prov.ReduxDataMapProvider;
+import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.world.biome.tint.ReduxBiomeTints;
 
 import java.util.concurrent.CompletableFuture;
@@ -35,5 +36,9 @@ public class ReduxDataMapGen extends ReduxDataMapProvider {
         var compostables = this.builder(NeoForgeDataMaps.COMPOSTABLES);
         this.addCompost(compostables, ReduxBlocks.CLOUDROOT_LEAVES, 0.3F);
         this.addCompost(compostables, ReduxBlocks.CLOUDROOT_SAPLING, 0.3F);
+        this.addCompost(compostables, ReduxBlocks.SHORT_AETHER_GRASS, 0.3F);
+        this.addCompost(compostables, ReduxItems.WYND_OATS, 0.3F);
+        this.addCompost(compostables, ReduxBlocks.WYNDSPROUTS, 0.3F);
+        this.addCompost(compostables, ReduxItems.WYND_OAT_PANICLE, 0.65F);
     }
 }

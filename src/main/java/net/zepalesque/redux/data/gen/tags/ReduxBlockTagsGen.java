@@ -100,5 +100,20 @@ public class ReduxBlockTagsGen extends ReduxBlockTagsProvider {
                 ReduxBlocks.RUNELIGHT.get()
         );
 
+        this.tag(BlockTags.FLOWER_POTS).add(
+                ReduxBlocks.POTTED_WYNDSPROUTS.get(),
+                ReduxBlocks.POTTED_SKYSPROUTS.get()
+        );
+
+        this.tag(BlockTags.CROPS).add(
+                ReduxBlocks.WYNDOATS.get()
+        );
+
+        this.tag(BlockTags.MINEABLE_WITH_HOE).add(
+                ReduxBlocks.WYNDSPROUTS.get(),
+                ReduxBlocks.SKYSPROUTS.get(),
+                ReduxBlocks.WYNDOATS.get()
+        );
+
     }
 }

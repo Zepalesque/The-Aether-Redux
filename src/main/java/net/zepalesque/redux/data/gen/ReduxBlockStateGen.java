@@ -4,7 +4,7 @@ import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
-import net.zepalesque.redux.block.natural.crop.WyndGrassBlock;
+import net.zepalesque.redux.block.natural.crop.WyndoatsBlock;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
 import net.zepalesque.redux.data.prov.ReduxBlockStateProvider;
 
@@ -51,7 +51,7 @@ public class ReduxBlockStateGen extends ReduxBlockStateProvider {
 
         // TODO: Textures and stuff
         this.crossTintedOverlay(ReduxBlocks.WYNDSPROUTS.get(), "natural/");
-        this.cropGrowable(ReduxBlocks.WYND_GRASS.get(), "natural/", WyndGrassBlock.AGE);
+        this.cropGrowable(ReduxBlocks.WYNDOATS.get(), "natural/", WyndoatsBlock.AGE);
 
     }
 }

@@ -2,13 +2,17 @@ package net.zepalesque.redux.data.gen.loot;
 
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.mixin.mixins.common.accessor.BlockLootAccessor;
+import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.block.natural.crop.WyndoatsBlock;
 import net.zepalesque.redux.data.prov.loot.ReduxBlockLootProvider;
+import net.zepalesque.redux.item.ReduxItems;
 
 import java.util.Set;
 import java.util.function.Supplier;
@@ -57,6 +61,19 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
         this.dropSelf(ReduxBlocks.RUNELIGHT.get());
         this.dropNone(ReduxBlocks.LOCKED_RUNELIGHT.get());
         this.dropNone(ReduxBlocks.LOCKED_SENTRITE_BRICKS.get());
+
+        this.add(ReduxBlocks.WYNDSPROUTS.get(), shearsOr(ReduxItems.WYND_OATS.get(), 0.25F));
+        this.dropPottedContents(ReduxBlocks.POTTED_WYNDSPROUTS.get());
+        this.add(ReduxBlocks.SKYSPROUTS.get(), shears());
+        this.dropPottedContents(ReduxBlocks.POTTED_SKYSPROUTS.get());
+        this.add(ReduxBlocks.WYNDOATS.get(),
+                this.createCropDrops(
+                        ReduxBlocks.WYNDOATS.get(),
+                        ReduxItems.WYND_OAT_PANICLE.get(),
+                        ReduxItems.WYND_OATS.get(),
+                        LootItemBlockStatePropertyCondition.
+                                hasBlockStateProperties(ReduxBlocks.WYNDOATS.get())
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(WyndoatsBlock.AGE, WyndoatsBlock.MAX_AGE))));
     }
 
     @Override

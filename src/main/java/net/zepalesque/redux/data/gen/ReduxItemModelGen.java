@@ -6,6 +6,7 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
 import net.zepalesque.redux.data.prov.ReduxItemModelProvider;
+import net.zepalesque.redux.item.ReduxItems;
 
 public class ReduxItemModelGen extends ReduxItemModelProvider {
 
@@ -18,7 +19,7 @@ public class ReduxItemModelGen extends ReduxItemModelProvider {
         Redux.WOOD_SETS.forEach(set -> set.itemData(this));
         Redux.STONE_SETS.forEach(set -> set.itemData(this));
 
-        itemBlockFlatCustomTexture(ReduxBlocks.SHORT_AETHER_GRASS, "natural/aether_medium_grass");
+        itemBlockFlatCustomTexture(ReduxBlocks.SHORT_AETHER_GRASS.get(), "natural/aether_medium_grass");
         this.itemBlock(ReduxBlocks.CLOUDROOT_LEAVES.get());
         this.itemBlockFlat(ReduxBlocks.CLOUDROOT_SAPLING.get(), "natural/");
 
@@ -45,6 +46,10 @@ public class ReduxItemModelGen extends ReduxItemModelProvider {
         this.itemBlock(ReduxBlocks.RUNELIGHT.get(), "_on");
         this.itemOverlayDungeonBlock(ReduxBlocks.LOCKED_RUNELIGHT.get(), ReduxBlocks.RUNELIGHT.get(), "lock", "dungeon/", "_on");
         this.itemOverlayDungeonBlock(ReduxBlocks.LOCKED_SENTRITE_BRICKS.get(), ReduxStoneSets.SENTRITE_BRICKS.block().get(), "construction/", "lock");
+
+        this.item(ReduxItems.WYND_OAT_PANICLE.get(), "materials/");
+        itemBlockFlatTintOverlay(ReduxBlocks.WYNDSPROUTS.get(), "natural/");
+        itemBlockFlatTintOverlay(ReduxBlocks.SKYSPROUTS.get(), "natural/");
     }
 
 }
