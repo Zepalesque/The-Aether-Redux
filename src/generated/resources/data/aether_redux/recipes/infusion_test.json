@@ -1,0 +1,13 @@
+{
+  "type": "aether_redux:infusion",
+  "additional_data": {
+    "sound_id": "minecraft:block.enchantment_table.use"
+  },
+  "ingredient": {
+    "item": "minecraft:iron_ingot"
+  },
+  "result": {
+    "Count": 1,
+    "id": "aether_redux:veridium_ingot"
+  }
+}

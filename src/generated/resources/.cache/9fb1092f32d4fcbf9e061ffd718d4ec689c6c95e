@@ -1,4 +1,4 @@
-// 1.20.4	2024-06-11T19:44:42.3271223	Recipes
+// 1.20.4	2024-06-11T19:50:35.9016695	Recipes
 a9f671e068777fa355a7558f2c7670e4cff8a021 data/aether_redux/advancements/recipes/building_blocks/blightmoss_holystone_slab.json
 f58b313b8a141f92f30b24786ddef5a741786aaa data/aether_redux/advancements/recipes/building_blocks/blightmoss_holystone_stairs.json
 d98ea1e5c4eab2dffa29ab07eed4c1d3c64d2cc7 data/aether_redux/advancements/recipes/building_blocks/blightmoss_holystone_wall.json
@@ -82,6 +82,7 @@ afe50532279c1334e7fd1ff142288bacc53d290d data/aether_redux/recipes/crystal_slab.
 2a38b907f260e36a1969f117f6e2e6fd841a29ca data/aether_redux/recipes/gilded_holystone_slab.json
 2e61de8a5aef99eacad390b68698c3d42a5ce01b data/aether_redux/recipes/gilded_holystone_stairs.json
 6d41cff8d9b3cc1c4566319ff51b2bbec40b2b28 data/aether_redux/recipes/gilded_holystone_wall.json
+e8668e5b0dd6804bca975620ec7ce53a91b5835a data/aether_redux/recipes/infusion_test.json
 e92a270f42462a655ba1c047a77caf461758c41d data/aether_redux/recipes/refined_sentrite.json
 217424f442d72d60a089a1addb8ed7b976257f13 data/aether_redux/recipes/refine_sentrite_blast.json
 e8642326d1024c4b5c8e15cd30732c85eddca103 data/aether_redux/recipes/refine_sentrite_smelt.json
