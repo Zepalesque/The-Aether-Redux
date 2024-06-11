@@ -1,5 +1,5 @@
 {
-  "parent": "aether_redux:block/tinted_grass_block",
+  "parent": "aether_redux:block/template/tinted_grass_block",
   "textures": {
     "bottom": "aether:block/natural/aether_dirt",
     "overlay": "aether_redux:block/natural/aether_grass_block_side_overlay",

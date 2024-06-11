@@ -41,7 +41,7 @@ public abstract class ReduxBlockStateProvider extends AetherBlockStateProvider {
             return ConfiguredModel.builder()
                     .modelFile(models()
                             .singleTexture(state.getValue(ReduxStates.GRASS_SIZE).getSerializedName() + "_aether_grass",
-                                    mcLoc("block/tinted_cross"), "cross",
+                                    modLoc("block/template/tinted_cross"), "cross",
                                     modLoc("block/natural/aether_" + state.getValue(ReduxStates.GRASS_SIZE).getSerializedName() + "_grass"))
                             .renderType("cutout")).build();
         });
@@ -177,28 +177,28 @@ public abstract class ReduxBlockStateProvider extends AetherBlockStateProvider {
 
     // Cross blocks
     public void crossGlowOverlay(Block block, String location) {
-        BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.loc(ModelProvider.BLOCK_FOLDER + "/cross/cross_glowing_overlay"))
+        BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.loc(ModelProvider.BLOCK_FOLDER + "/template/cross/cross_glowing_overlay"))
                 .texture("cross", this.texture(this.name(block), location))
                 .texture("overlay", this.texture(this.name(block) + "_glow", location)).renderType("cutout");
         this.crossBlock(block, cross);
     }
 
     public void crossTintedGlow(Block block, String location) {
-        BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.loc(ModelProvider.BLOCK_FOLDER + "/cross/cross_tinted_glow"))
+        BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.loc(ModelProvider.BLOCK_FOLDER + "/template/cross/cross_tinted_glow"))
                 .texture("cross", this.texture(this.name(block), location))
                 .texture("overlay", this.texture(this.name(block) + "_glow", location)).renderType("cutout");
         this.crossBlock(block, cross);
     }
 
     public void crossTintedDualGloverlay(Block block, String location, boolean useGlowForParticle) {
-        BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.loc(ModelProvider.BLOCK_FOLDER + "/cross/cross_tinted_gloverlay_" + (useGlowForParticle ? "glow" : "overlay")))
+        BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.loc(ModelProvider.BLOCK_FOLDER + "/template/cross/cross_tinted_gloverlay_" + (useGlowForParticle ? "glow" : "overlay")))
                 .texture("cross", this.texture(this.name(block), location))
                 .texture("glow", this.texture(this.name(block) + "_glow", location)).renderType("cutout")
                 .texture("overlay", this.texture(this.name(block) + "_overlay", location)).renderType("cutout");
         this.crossBlock(block, cross);
     }
     public void crossTintedOverlay(Block block, String location) {
-        BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.loc(ModelProvider.BLOCK_FOLDER + "/cross/cross_tinted_overlay"))
+        BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.loc(ModelProvider.BLOCK_FOLDER + "/template/cross/cross_tinted_overlay"))
                 .texture("cross", this.texture(this.name(block), location))
                 .texture("overlay", this.texture(this.name(block) + "_overlay", location)).renderType("cutout");
         this.crossBlock(block, cross);
@@ -208,7 +208,7 @@ public abstract class ReduxBlockStateProvider extends AetherBlockStateProvider {
     public void cropGrowable(Block block, String location, IntegerProperty ageProperty) {
         this.getVariantBuilder(block).forAllStates((state) -> {
             int stage = state.getValue(ageProperty);
-            BlockModelBuilder cross = models().withExistingParent(this.name(block) + "_stage" + stage, Redux.loc(ModelProvider.BLOCK_FOLDER + "/crop/crop_lowered"))
+            BlockModelBuilder cross = models().withExistingParent(this.name(block) + "_stage" + stage, Redux.loc(ModelProvider.BLOCK_FOLDER + "/template/crop/crop_lowered"))
                     .texture("plant", this.texture(this.name(block) + "_stage" + stage, location)).renderType("cutout");
             return ConfiguredModel.builder().modelFile(cross).build();
         });
