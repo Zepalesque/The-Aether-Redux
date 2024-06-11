@@ -137,6 +137,16 @@ public abstract class ReduxRecipeProvider extends AetherRecipeProvider {
         return super.smeltingOreRecipe(result, ingredient, experience);
     }
 
+    protected SimpleCookingRecipeBuilder smeltingOreRecipe(ItemLike result, ItemLike ingredient, float experience, int cookTime) {
+        return SimpleCookingRecipeBuilder.smelting(Ingredient.of(ingredient), RecipeCategory.MISC, result, experience, cookTime)
+                .unlockedBy(getHasName(ingredient), has(ingredient));
+    }
+
+    protected SimpleCookingRecipeBuilder blastingOreRecipe(ItemLike result, ItemLike ingredient, float experience, int cookTime) {
+        return SimpleCookingRecipeBuilder.blasting(Ingredient.of(ingredient), RecipeCategory.MISC, result, experience, cookTime)
+                .unlockedBy(getHasName(ingredient), has(ingredient));
+    }
+
     public StackingRecipeBuilder infuse(ItemLike result, ItemLike ingredient) {
         return StackingRecipeBuilder.recipe(Ingredient.of(ingredient), new ItemStack(result), InfusionRecipe::new);
     }
