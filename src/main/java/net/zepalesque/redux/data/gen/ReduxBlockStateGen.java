@@ -49,9 +49,11 @@ public class ReduxBlockStateGen extends ReduxBlockStateProvider {
 
         this.dungeonBlock(ReduxBlocks.LOCKED_SENTRITE_BRICKS.get(), ReduxStoneSets.SENTRITE_BRICKS.block().get(), "construction/");
 
-        // TODO: Textures and stuff
         this.crossTintedOverlay(ReduxBlocks.WYNDSPROUTS.get(), "natural/");
         this.cropGrowable(ReduxBlocks.WYNDOATS.get(), "natural/", WyndoatsBlock.AGE);
+
+        this.chain(ReduxBlocks.SENTRITE_CHAIN.get(), "construction/");
+        this.lantern(ReduxBlocks.SENTRITE_LANTERN.get(), "construction/");
 
     }
 }

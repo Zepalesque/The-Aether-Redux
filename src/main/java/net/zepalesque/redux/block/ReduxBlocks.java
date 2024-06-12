@@ -7,10 +7,13 @@ import com.aetherteam.aether.block.natural.AetherBushBlock;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ChainBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
+import net.minecraft.world.level.block.LanternBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.level.block.state.BlockBehaviour.OffsetType;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -108,6 +111,12 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 
     public static DeferredBlock<Block> WYNDOATS = BLOCKS.register("wyndoats",
             () -> new WyndoatsBlock(Properties.ofFullCopy(Blocks.WHEAT)));
+
+    public static DeferredBlock<Block> SENTRITE_CHAIN = register("sentrite_chain",
+            () -> new ChainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHAIN)));
+
+    public static DeferredBlock<Block> SENTRITE_LANTERN = register("sentrite_lantern",
+            () -> new LanternBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LANTERN).mapColor(MapColor.DEEPSLATE).lightLevel(state -> 13)));
 
 
     public static void registerFlammability() {

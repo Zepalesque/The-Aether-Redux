@@ -74,6 +74,8 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
                         LootItemBlockStatePropertyCondition.
                                 hasBlockStateProperties(ReduxBlocks.WYNDOATS.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(WyndoatsBlock.AGE, WyndoatsBlock.MAX_AGE))));
+        this.dropSelf(ReduxBlocks.SENTRITE_CHAIN.get());
+        this.dropSelf(ReduxBlocks.SENTRITE_LANTERN.get());
     }
 
     @Override

@@ -7,6 +7,8 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.ChainBlock;
+import net.minecraft.world.level.block.LanternBlock;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
@@ -213,5 +215,26 @@ public abstract class ReduxBlockStateProvider extends AetherBlockStateProvider {
                     .texture("plant", this.texture(this.name(block) + "_stage" + stage, location)).renderType("cutout");
             return ConfiguredModel.builder().modelFile(cross).build();
         });
+    }
+
+
+    public void lantern(Block block, String location) {
+        BlockModelBuilder lantern = models().withExistingParent(this.name(block), mcLoc("template_lantern"))
+                .texture("lantern", this.texture(this.name(block), location)).renderType("cutout");
+        BlockModelBuilder hangingLantern = models().withExistingParent("hanging_" + this.name(block), mcLoc("template_hanging_lantern"))
+                .texture("lantern", this.texture(this.name(block), location)).renderType("cutout");
+        this.getVariantBuilder(block).forAllStates((state -> ConfiguredModel.builder().modelFile(state.getValue(LanternBlock.HANGING) ? hangingLantern : lantern).build()));
+    }
+
+    public void chain(Block block, String location) {
+        BlockModelBuilder chain = models().withExistingParent(this.name(block), Redux.loc("block/template/construction/chain"))
+                .texture("chain", this.texture(this.name(block), location)).renderType("cutout");
+        this.getVariantBuilder(block).forAllStates((state -> {
+            Direction.Axis axis = state.getValue(ChainBlock.AXIS);
+            ConfiguredModel.Builder<?> builder = ConfiguredModel.builder().modelFile(chain);
+            if (axis == Direction.Axis.X) { builder = builder.rotationY(90); }
+            if (axis != Direction.Axis.Y) { builder = builder.rotationX(90); }
+            return builder.build();
+        }));
     }
 }

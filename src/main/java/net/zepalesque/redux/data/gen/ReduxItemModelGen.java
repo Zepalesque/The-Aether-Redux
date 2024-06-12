@@ -60,6 +60,9 @@ public class ReduxItemModelGen extends ReduxItemModelProvider {
         this.item(ReduxItems.REFINED_SENTRITE.get(), "materials/");
         this.item(ReduxItems.SENTRITE_CHUNK.get(), "materials/");
 
+        this.item(ReduxBlocks.SENTRITE_LANTERN.get().asItem(), "misc/");
+        this.item(ReduxBlocks.SENTRITE_CHAIN.get().asItem(), "misc/");
+
     }
 
 }

@@ -89,7 +89,9 @@ public class ReduxBlockTagsGen extends ReduxBlockTagsProvider {
                 ReduxBlocks.SENTRY_PILLAR.get(),
                 ReduxBlocks.CARVED_BASE.get(),
                 ReduxBlocks.SENTRY_BASE.get(),
-                ReduxBlocks.RUNELIGHT.get()
+                ReduxBlocks.RUNELIGHT.get(),
+                ReduxBlocks.SENTRITE_CHAIN.get(),
+                ReduxBlocks.SENTRITE_LANTERN.get()
         );
 
         this.tag(BlockTags.NEEDS_STONE_TOOL).add(

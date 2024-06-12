@@ -96,6 +96,10 @@ public class ReduxLanguageGen extends ReduxLanguageProvider {
         add(ReduxItems.SENTRITE_CHUNK);
         addLore(ReduxItems.SENTRITE_CHUNK, "A chunk of purified Sentrite. These are occasionally dropped from Sentries, and can be crafted into Refined Sentrite.");
 
+        add(ReduxBlocks.SENTRITE_CHAIN);
+        addLore(ReduxBlocks.SENTRITE_CHAIN, "A chain made of purified Sentrite. This is crafted with a piece of Refined Sentrite and two Sentrite Chunks.");
+        add(ReduxBlocks.SENTRITE_LANTERN);
+        addLore(ReduxBlocks.SENTRITE_LANTERN, "A lantern made of Sentrite. You can place it on the ground or hang it on the ceiling!");
 
 
 

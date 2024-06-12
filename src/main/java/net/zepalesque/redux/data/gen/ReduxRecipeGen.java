@@ -1,6 +1,7 @@
 package net.zepalesque.redux.data.gen;
 
 import com.aetherteam.aether.block.AetherBlocks;
+import com.aetherteam.aether.item.AetherItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
@@ -79,6 +80,29 @@ public class ReduxRecipeGen extends ReduxRecipeProvider {
         // Temporary test recipe
         infuse(ReduxItems.VERIDIUM_INGOT.get(), Items.IRON_INGOT).withSound(BuiltInRegistries.SOUND_EVENT.wrapAsHolder(SoundEvents.ENCHANTMENT_TABLE_USE))
                 .save(output, Redux.loc("infusion_test"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ReduxBlocks.SENTRITE_LANTERN.get(), 1)
+                .define('C', ReduxItems.SENTRITE_CHUNK.get())
+                .define('A', AetherBlocks.AMBROSIUM_TORCH.get())
+                .pattern("CCC")
+                .pattern("CAC")
+                .pattern("CCC")
+                .unlockedBy(getHasName(ReduxItems.SENTRITE_CHUNK.get()), has(ReduxItems.SENTRITE_CHUNK.get()))
+                .unlockedBy(getHasName(ReduxItems.REFINED_SENTRITE.get()), has(ReduxItems.REFINED_SENTRITE.get()))
+                .unlockedBy(getHasName(AetherBlocks.AMBROSIUM_TORCH.get()), has(AetherBlocks.AMBROSIUM_TORCH.get()))
+                .unlockedBy(getHasName(AetherItems.AMBROSIUM_SHARD.get()), has(AetherItems.AMBROSIUM_SHARD.get()))
+                .save(output);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ReduxBlocks.SENTRITE_CHAIN.get(), 3)
+                .define('I', ReduxItems.REFINED_SENTRITE.get())
+                .define('N', ReduxItems.SENTRITE_CHUNK.get())
+                .pattern("N")
+                .pattern("I")
+                .pattern("N")
+                .unlockedBy(getHasName(ReduxItems.SENTRITE_CHUNK.get()), has(ReduxItems.SENTRITE_CHUNK.get()))
+                .unlockedBy(getHasName(ReduxItems.REFINED_SENTRITE.get()), has(ReduxItems.REFINED_SENTRITE.get()))
+                .save(output);
+
 
     }
 }
