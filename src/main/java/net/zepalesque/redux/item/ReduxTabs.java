@@ -3,6 +3,7 @@ package net.zepalesque.redux.item;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.item.AetherCreativeTabs;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -64,13 +65,17 @@ public class ReduxTabs {
             TabUtil.putAfter(ReduxBlocks.TRAPPED_SENTRY_BASE, ReduxBlocks.TRAPPED_SENTRY_PILLAR, event);
 
             TabUtil.putAfter(AetherBlocks.BOSS_DOORWAY_SENTRY_STONE, ReduxBlocks.BOSS_DOORWAY_SENTRY_BASE, event);
-            TabUtil.putAfter(ReduxBlocks.BOSS_DOORWAY_SENTRY_BASE, ReduxBlocks.BOSS_DOORWAY_SENTRY_PILLAR, event);
 
             TabUtil.putAfter(ReduxBlocks.BOSS_DOORWAY_SENTRY_PILLAR, ReduxStoneSets.SENTRITE_BRICKS.block(), event);
             TabUtil.putAfter(ReduxStoneSets.SENTRITE_BRICKS.block(), ReduxBlocks.LOCKED_SENTRITE_BRICKS, event);
 
             TabUtil.putAfter(ReduxBlocks.LOCKED_SENTRITE_BRICKS, ReduxBlocks.RUNELIGHT, event);
             TabUtil.putAfter(ReduxBlocks.RUNELIGHT, ReduxBlocks.LOCKED_RUNELIGHT, event);
+        }
+
+        if (tab == AetherCreativeTabs.AETHER_BUILDING_BLOCKS.get()) {
+            TabUtil.add(ReduxBlocks.SENTRITE_LANTERN, event);
+            TabUtil.add(ReduxBlocks.SENTRITE_CHAIN, event);
         }
     }
 }
