@@ -1,4 +1,4 @@
-// 1.20.4	2024-06-11T19:44:42.3121318	Tags for minecraft:block mod id aether_redux
+// 1.20.4	2024-06-11T20:25:39.2170858	Tags for minecraft:block mod id aether_redux
 c191bd82d7ab0270a08a0b6d99db3860549e07ea data/aether/tags/blocks/boss_doorway_dungeon_blocks.json
 0bd5b2c5e211b2dd7346d4ad438675e1279452ca data/aether/tags/blocks/dungeon_blocks.json
 079f532874a02f79935f6a4082693e47575060f5 data/aether/tags/blocks/locked_dungeon_blocks.json
@@ -14,7 +14,7 @@ f7669ce02f7fbf7eaf5423b83ab028d964b10868 data/minecraft/tags/blocks/flower_pots.
 5295d732f1c22a1f48681f9c064f14692726fdb3 data/minecraft/tags/blocks/logs.json
 9c45368b08909c3be45110e285aa25ee5c55221a data/minecraft/tags/blocks/mineable/axe.json
 f141daab0b0f29a32bbbdb833121b35dd2135772 data/minecraft/tags/blocks/mineable/hoe.json
-9464a77f9bf97ed09e5565d2c016acd84b8dd42f data/minecraft/tags/blocks/mineable/pickaxe.json
+27f5897f544919492d36862667039c6f6f0fd423 data/minecraft/tags/blocks/mineable/pickaxe.json
 184faca5516506997d979aa45bfac63b68600825 data/minecraft/tags/blocks/needs_stone_tool.json
 761d9af3851563316242dac11105074c9f83e129 data/minecraft/tags/blocks/planks.json
 0b1171d251f8355ee4807673e964590f7917bb74 data/minecraft/tags/blocks/slabs.json

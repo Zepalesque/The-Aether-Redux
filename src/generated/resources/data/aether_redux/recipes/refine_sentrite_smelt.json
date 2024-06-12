@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smelting",
   "category": "misc",
-  "cookingtime": 400,
+  "cookingtime": 200,
   "experience": 0.8,
   "ingredient": {
     "item": "aether_redux:sentrite"

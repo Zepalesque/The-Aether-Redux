@@ -1,4 +1,4 @@
-// 1.20.4	2024-06-11T19:44:42.3151304	Item Models: aether_redux
+// 1.20.4	2024-06-11T20:25:39.2220827	Item Models: aether_redux
 a083a7311bfd77483a76afa2e0b34a2dca856c28 assets/aether_redux/models/item/blightmoss_holystone.json
 693490b382231c95e748c88f8daa13be00cd8ceb assets/aether_redux/models/item/blightmoss_holystone_slab.json
 e073f529066aa534f560372ff463759fa6a01401 assets/aether_redux/models/item/blightmoss_holystone_stairs.json
@@ -47,7 +47,9 @@ d8de2565b035201fb855f38b6083299efcc91e31 assets/aether_redux/models/item/raw_ver
 047fe8ef6fa08212f587a5ca906bd4b5de9af340 assets/aether_redux/models/item/sentrite_brick_slab.json
 68e1576db4a6f8c697c3ca7df6b2a6d93386843f assets/aether_redux/models/item/sentrite_brick_stairs.json
 b0932bd6681add278b7476bfe180f0a096672625 assets/aether_redux/models/item/sentrite_brick_wall.json
+234adf66085bb9048fa67fcdfa53897fd20e2298 assets/aether_redux/models/item/sentrite_chain.json
 45aaeee0cb57fecbe78cff0f3ddbc6d8bb92a714 assets/aether_redux/models/item/sentrite_chunk.json
+e141c48396ae4e2dd7aae418592cffa3a42704f9 assets/aether_redux/models/item/sentrite_lantern.json
 4b5a6cf3c2856efd96b6577f6fcb84a0e176fafc assets/aether_redux/models/item/sentrite_slab.json
 cbf1d27224744aef8ad83f00bd888454a5f34b4f assets/aether_redux/models/item/sentrite_stairs.json
 2c8457bbcde4e2e32804d90476bb7ca7e0673c97 assets/aether_redux/models/item/sentrite_wall.json
