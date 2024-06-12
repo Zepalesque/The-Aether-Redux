@@ -1,14 +1,17 @@
 package net.zepalesque.redux.item.util;
 
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.protocol.game.ClientboundSoundPacket;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.network.ReduxPacketHandler;
-import net.zepalesque.redux.network.packet.InfusionExpirePacket;
 
 import javax.annotation.Nullable;
 
@@ -35,9 +38,8 @@ public interface VeridiumItem {
                 newCharge = (byte) 0;
                 itemForStack = virydium.getReplacementItem(stack);
                 if (user != null) {
-                    if (!user.level().isClientSide() && user instanceof ServerPlayer player) {
-                        // TODO: figure out better way to do this maybe
-                        ReduxPacketHandler.sendToPlayer(new InfusionExpirePacket(), player);
+                    if (user.level().isClientSide() && user instanceof Player player) {
+                        player.level().playSound(player, player.getX(), player.getY(), player.getZ(), ReduxSoundEvents.INFUSION_EXPIRE.get(), SoundSource.PLAYERS, 0.8F, 0.8F + player.level().getRandom().nextFloat() * 0.4F);
                     }
                 }
             }
