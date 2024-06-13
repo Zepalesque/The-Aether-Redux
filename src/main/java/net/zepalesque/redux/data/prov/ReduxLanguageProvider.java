@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
+import net.zepalesque.redux.Redux;
 import net.zepalesque.zenith.util.DatagenUtil;
 
 public abstract class ReduxLanguageProvider extends AetherLanguageProvider {
@@ -26,5 +27,9 @@ public abstract class ReduxLanguageProvider extends AetherLanguageProvider {
 
     public void add(DeferredHolder<EntityType<?>, ? extends EntityType<?>> key) {
         this.addEntityType(key, DatagenUtil.getNameLocalized(key));
+    }
+
+    public void addTooltip(String key, String name) {
+        this.add("tooltip." + this.id + "." + key, name);
     }
 }

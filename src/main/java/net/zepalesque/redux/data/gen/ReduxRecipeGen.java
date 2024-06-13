@@ -9,6 +9,7 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.Items;
@@ -18,6 +19,7 @@ import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
 import net.zepalesque.redux.data.prov.ReduxRecipeProvider;
 import net.zepalesque.redux.item.ReduxItems;
+import net.zepalesque.redux.recipe.recipes.InfusionRecipe;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.CompletableFuture;
@@ -77,8 +79,12 @@ public class ReduxRecipeGen extends ReduxRecipeProvider {
                 .unlockedBy(ReduxRecipeProvider.getHasName(AetherBlocks.SENTRY_STONE.get()), ReduxRecipeProvider.has(AetherBlocks.SENTRY_STONE.get()))
                 .save(output);
 
-        // Temporary test recipe
-        infuse(ReduxItems.VERIDIUM_INGOT.get(), Items.IRON_INGOT).withSound(BuiltInRegistries.SOUND_EVENT.wrapAsHolder(SoundEvents.ENCHANTMENT_TABLE_USE))
+        CompoundTag infusionInfo = new CompoundTag();
+        infusionInfo.putByte(InfusionRecipe.ADDED_INFUSION, (byte) 4);
+
+        infuse(ReduxItems.INFUSED_VERIDIUM_PICKAXE.get(), ReduxItems.VERIDIUM_PICKAXE.get())
+//                .withSound(BuiltInRegistries.SOUND_EVENT.wrapAsHolder(SoundEvents.ENCHANTMENT_TABLE_USE))
+                .withExtra(infusionInfo)
                 .save(output, Redux.loc("infusion_test"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ReduxBlocks.SENTRITE_LANTERN.get(), 1)

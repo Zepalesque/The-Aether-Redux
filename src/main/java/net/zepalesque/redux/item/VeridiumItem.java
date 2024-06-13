@@ -18,11 +18,7 @@ public interface VeridiumItem extends CustomStackingBehavior {
 
     String NBT_KEY = "infusion_level";
     String INFUSION_AMOUNT = "infusion_increase";
-
-    static byte getInfusionLevel(ItemStack stack) {
-        CompoundTag compound = stack.getTag();
-        return compound == null ? 0 : compound.getByte(NBT_KEY);
-    }
+    int DURABILITY_DMG_MULTIPLIER = 4;
 
     Item getUninfusedItem(ItemStack stack);
 
@@ -61,12 +57,14 @@ public interface VeridiumItem extends CustomStackingBehavior {
     // If null is returned, do not change the item in the slot
     @Nullable
     static ItemStack deplete(ItemStack stack, @Nullable LivingEntity user, int amount) {
+        if (user != null && user.level().isClientSide()) {
+            return stack;
+        }
         if (stack.getItem() instanceof VeridiumItem vi) {
             CompoundTag tag = stack.getOrCreateTag();
             if (tag.getByte(NBT_KEY) > amount) {
                 byte infusion = (byte) (tag.getByte(NBT_KEY) - amount);
                 stack.addTagElement(NBT_KEY, ByteTag.valueOf(infusion));
-                return null;
             } else {
                 return vi.getUninfusedStack(stack);
             }

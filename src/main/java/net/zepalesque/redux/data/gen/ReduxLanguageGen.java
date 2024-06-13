@@ -101,6 +101,9 @@ public class ReduxLanguageGen extends ReduxLanguageProvider {
         add(ReduxBlocks.SENTRITE_LANTERN);
         addLore(ReduxBlocks.SENTRITE_LANTERN, "A lantern made of Sentrite. You can place it on the ground or hang it on the ceiling!");
 
+        addGuiText("shift_info", "Hold [%s] for more info...");
+        addTooltip("infusion_level", "Infusion Level: %s");
+        addGuiText("infusion_info", "Can be infused by right-clicking with an Ambrosium Shard");
 
 
 
