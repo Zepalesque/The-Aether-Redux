@@ -13,6 +13,7 @@ import net.zepalesque.zenith.recipe.serializer.StackingRecipeSerializer;
 import java.util.Optional;
 
 public class InfusionRecipe extends AbstractStackingRecipe {
+    public static final String ADDED_INFUSION = "added_infusion";
     public InfusionRecipe(Ingredient ingredient, ItemStack result, Optional<CompoundTag> additional, Optional<Holder<SoundEvent>> sound) {
         super(ReduxRecipes.INFUSION.get(), ingredient, result, additional, sound);
     }

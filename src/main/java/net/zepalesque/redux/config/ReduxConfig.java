@@ -11,10 +11,11 @@ public class ReduxConfig {
         public final ModConfigSpec.ConfigValue<Boolean> redux_sky_colors;
         public final ModConfigSpec.ConfigValue<Boolean> cloudbed;
         public final ModConfigSpec.ConfigValue<Boolean> revamped_quicksoil_movement;
+        public final ModConfigSpec.IntValue max_veridium_tool_infusion;
 
         public Server(ModConfigSpec.Builder builder) {
             super(() -> SERVER_SPEC, "redux_server");
-            builder.push("TODO");
+            builder.push("Tweaks");
             redux_sky_colors = builder
                     .comment("Use Redux's alternative sky colors for the Aether")
                     .define("Redux Sky Colors", true);
@@ -24,6 +25,11 @@ public class ReduxConfig {
             revamped_quicksoil_movement = builder
                     .comment("Changes quicksoil to make it use a better movement system, based on the way it worked in the Aether II: Highlands in 1.12")
                     .define("Revamped Quicksoil Movement", true);
+            builder.pop();
+            builder.push("Tweaks");
+            max_veridium_tool_infusion = builder
+                    .comment("The maximum amount of infusion a Veridium tool is able to carry. Note that by default, a tools infusion level is increased by 4 when it is infused with a single Ambrosium Shard.")
+                    .defineInRange("Max Veridium Tool Infusion", 64, 1, 127);
             builder.pop();
         }
     }

@@ -1,0 +1,76 @@
+package net.zepalesque.redux.item;
+
+import net.minecraft.nbt.ByteTag;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.zepalesque.redux.config.ReduxConfig;
+import net.zepalesque.redux.recipe.recipes.InfusionRecipe;
+import net.zepalesque.zenith.item.CustomStackingBehavior;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.Optional;
+
+public interface VeridiumItem extends CustomStackingBehavior {
+
+    String NBT_KEY = "infusion_level";
+    String INFUSION_AMOUNT = "infusion_increase";
+
+    static byte getInfusionLevel(ItemStack stack) {
+        CompoundTag compound = stack.getTag();
+        return compound == null ? 0 : compound.getByte(NBT_KEY);
+    }
+
+    Item getUninfusedItem(ItemStack stack);
+
+    default ItemStack getUninfusedStack(ItemStack stack) {
+        ItemStack i = new ItemStack(this.getUninfusedItem(stack));
+        CompoundTag tag = stack.getOrCreateTag().copy();
+        tag.remove(NBT_KEY);
+        i.setTag(tag);
+        return i;
+    }
+
+    @Nullable
+    @Override
+    default ItemStack transformStack(Ingredient ingredient, ItemStack original, RecipeType<?> type, Optional<CompoundTag> additionalData) {
+        if (additionalData.isEmpty()) {
+            return original;
+        }
+        CompoundTag additional = additionalData.get();
+        int increase = additional.getByte(InfusionRecipe.ADDED_INFUSION);
+        if (increase <= 0) {
+            return original;
+        }
+        int max = ReduxConfig.SERVER.max_veridium_tool_infusion.get();
+        CompoundTag tag = original.getOrCreateTag();
+        // CompoundTags already return 0 if they do not contain the given byte key, and as the config has a minimum value of 1, it will skip this and add infusion if the item doesn't have the tag
+        if (tag.getByte(NBT_KEY) >= max) {
+            return null;
+        } else {
+            // As the above comment mentions, CompoundTags will return 0 when the byte key isn't present. This will still result in the correct value, as it will add the amount to zero.
+            byte infusion = (byte) Math.min(tag.getByte(NBT_KEY) + additional.getByte(InfusionRecipe.ADDED_INFUSION), max);
+            original.addTagElement(NBT_KEY, ByteTag.valueOf(infusion));
+            return original;
+        }
+    }
+
+    // If null is returned, do not change the item in the slot
+    @Nullable
+    static ItemStack deplete(ItemStack stack, @Nullable LivingEntity user, int amount) {
+        if (stack.getItem() instanceof VeridiumItem vi) {
+            CompoundTag tag = stack.getOrCreateTag();
+            if (tag.getByte(NBT_KEY) > amount) {
+                byte infusion = (byte) (tag.getByte(NBT_KEY) - amount);
+                stack.addTagElement(NBT_KEY, ByteTag.valueOf(infusion));
+                return null;
+            } else {
+                return vi.getUninfusedStack(stack);
+            }
+        }
+        return null;
+    }
+}
