@@ -8,9 +8,9 @@ import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
 import net.zepalesque.redux.data.prov.ReduxItemModelProvider;
 import net.zepalesque.redux.item.ReduxItems;
 
-public class ReduxItemModelGen extends ReduxItemModelProvider {
+public class ReduxItemModelData extends ReduxItemModelProvider {
 
-    public ReduxItemModelGen(PackOutput output, ExistingFileHelper helper) {
+    public ReduxItemModelData(PackOutput output, ExistingFileHelper helper) {
         super(output, Redux.MODID, helper);
     }
 

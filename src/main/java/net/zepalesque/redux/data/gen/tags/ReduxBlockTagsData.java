@@ -16,9 +16,9 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
 
-public class ReduxBlockTagsGen extends ReduxBlockTagsProvider {
+public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
 
-    public ReduxBlockTagsGen(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, @Nullable ExistingFileHelper existingFileHelper) {
+    public ReduxBlockTagsData(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, @Nullable ExistingFileHelper existingFileHelper) {
         super(output, lookupProvider, Redux.MODID, existingFileHelper);
     }
 

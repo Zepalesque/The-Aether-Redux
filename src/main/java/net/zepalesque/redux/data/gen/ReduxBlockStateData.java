@@ -8,9 +8,9 @@ import net.zepalesque.redux.block.natural.crop.WyndoatsBlock;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
 import net.zepalesque.redux.data.prov.ReduxBlockStateProvider;
 
-public class ReduxBlockStateGen extends ReduxBlockStateProvider {
+public class ReduxBlockStateData extends ReduxBlockStateProvider {
 
-    public ReduxBlockStateGen(PackOutput output, ExistingFileHelper helper) {
+    public ReduxBlockStateData(PackOutput output, ExistingFileHelper helper) {
         super(output, Redux.MODID, helper);
     }
 

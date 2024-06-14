@@ -11,9 +11,9 @@ import net.zepalesque.redux.data.ReduxTags;
 import javax.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
-public class ReduxBiomeTagsGen extends BiomeTagsProvider {
+public class ReduxBiomeTagsData extends BiomeTagsProvider {
 
-    public ReduxBiomeTagsGen(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, @Nullable ExistingFileHelper helper) {
+    public ReduxBiomeTagsData(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, @Nullable ExistingFileHelper helper) {
         super(output, registries, Redux.MODID, helper);
     }
 

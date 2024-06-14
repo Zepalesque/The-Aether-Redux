@@ -6,8 +6,8 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.particle.ReduxParticles;
 import net.zepalesque.redux.data.prov.ReduxParticleProvider;
 
-public class ReduxParticleGen extends ReduxParticleProvider {
-    public ReduxParticleGen(PackOutput output, ExistingFileHelper fileHelper) {
+public class ReduxParticleData extends ReduxParticleProvider {
+    public ReduxParticleData(PackOutput output, ExistingFileHelper fileHelper) {
         super(output, fileHelper);
     }
 

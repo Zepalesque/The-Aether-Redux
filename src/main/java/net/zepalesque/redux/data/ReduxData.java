@@ -1,8 +1,6 @@
 package net.zepalesque.redux.data;
 
-import com.aetherteam.aether.data.generators.AetherSoundData;
 import net.minecraft.DetectedVersion;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -15,18 +13,18 @@ import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.data.gen.ReduxBlockStateGen;
-import net.zepalesque.redux.data.gen.ReduxDataMapGen;
-import net.zepalesque.redux.data.gen.ReduxItemModelGen;
-import net.zepalesque.redux.data.gen.ReduxLanguageGen;
-import net.zepalesque.redux.data.gen.ReduxLootGen;
-import net.zepalesque.redux.data.gen.ReduxParticleGen;
-import net.zepalesque.redux.data.gen.ReduxRecipeGen;
+import net.zepalesque.redux.data.gen.ReduxBlockStateData;
+import net.zepalesque.redux.data.gen.ReduxMapData;
+import net.zepalesque.redux.data.gen.ReduxItemModelData;
+import net.zepalesque.redux.data.gen.ReduxLanguageData;
+import net.zepalesque.redux.data.gen.ReduxLootData;
+import net.zepalesque.redux.data.gen.ReduxParticleData;
+import net.zepalesque.redux.data.gen.ReduxRecipeData;
 import net.zepalesque.redux.data.gen.ReduxRegistrySets;
-import net.zepalesque.redux.data.gen.ReduxSoundsGen;
-import net.zepalesque.redux.data.gen.tags.ReduxBiomeTagsGen;
-import net.zepalesque.redux.data.gen.tags.ReduxBlockTagsGen;
-import net.zepalesque.redux.data.gen.tags.ReduxItemTagsGen;
+import net.zepalesque.redux.data.gen.ReduxSoundsData;
+import net.zepalesque.redux.data.gen.tags.ReduxBiomeTagsData;
+import net.zepalesque.redux.data.gen.tags.ReduxBlockTagsData;
+import net.zepalesque.redux.data.gen.tags.ReduxItemTagsData;
 
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
@@ -39,26 +37,26 @@ public class ReduxData {
         PackOutput packOutput = generator.getPackOutput();
 
         // Client Data
-        generator.addProvider(event.includeClient(), new ReduxBlockStateGen(packOutput, fileHelper));
-        generator.addProvider(event.includeClient(), new ReduxItemModelGen(packOutput, fileHelper));
-        generator.addProvider(event.includeClient(), new ReduxLanguageGen(packOutput));
-        generator.addProvider(event.includeClient(), new ReduxParticleGen(packOutput, fileHelper));
-        generator.addProvider(event.includeClient(), new ReduxSoundsGen(packOutput, fileHelper));
+        generator.addProvider(event.includeClient(), new ReduxBlockStateData(packOutput, fileHelper));
+        generator.addProvider(event.includeClient(), new ReduxItemModelData(packOutput, fileHelper));
+        generator.addProvider(event.includeClient(), new ReduxLanguageData(packOutput));
+        generator.addProvider(event.includeClient(), new ReduxParticleData(packOutput, fileHelper));
+        generator.addProvider(event.includeClient(), new ReduxSoundsData(packOutput, fileHelper));
 
         // Server Data
-        generator.addProvider(event.includeServer(), new ReduxRecipeGen(packOutput, lookupProvider));
-        generator.addProvider(event.includeServer(), ReduxLootGen.create(packOutput));
-        generator.addProvider(event.includeServer(), new ReduxDataMapGen(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new ReduxRecipeData(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), ReduxLootData.create(packOutput));
+        generator.addProvider(event.includeServer(), new ReduxMapData(packOutput, lookupProvider));
         DatapackBuiltinEntriesProvider registrySets = new ReduxRegistrySets(packOutput, lookupProvider, Redux.MODID);
         // Use for structure and damage type data
         CompletableFuture<Provider> registryProvider = registrySets.getRegistryProvider();
         generator.addProvider(event.includeServer(), registrySets);
 
         // Tags
-        ReduxBlockTagsGen blockTags = new ReduxBlockTagsGen(packOutput, lookupProvider, fileHelper);
+        ReduxBlockTagsData blockTags = new ReduxBlockTagsData(packOutput, lookupProvider, fileHelper);
         generator.addProvider(event.includeServer(), blockTags);
-        generator.addProvider(event.includeServer(), new ReduxItemTagsGen(packOutput, lookupProvider, blockTags.contentsGetter(), fileHelper));
-        generator.addProvider(event.includeServer(), new ReduxBiomeTagsGen(packOutput, lookupProvider, fileHelper));
+        generator.addProvider(event.includeServer(), new ReduxItemTagsData(packOutput, lookupProvider, blockTags.contentsGetter(), fileHelper));
+        generator.addProvider(event.includeServer(), new ReduxBiomeTagsData(packOutput, lookupProvider, fileHelper));
 
         // pack.mcmeta
         generator.addProvider(true, new PackMetadataGenerator(packOutput).add(PackMetadataSection.TYPE, new PackMetadataSection(

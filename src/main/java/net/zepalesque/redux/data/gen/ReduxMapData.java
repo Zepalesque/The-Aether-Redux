@@ -1,25 +1,20 @@
 package net.zepalesque.redux.data.gen;
 
-import com.aetherteam.aether.block.AetherBlocks;
-import com.aetherteam.aether.data.generators.AetherDataMapData;
 import com.aetherteam.aether.data.resources.registries.AetherBiomes;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.registries.datamaps.builtin.NeoForgeDataMaps;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
-import net.zepalesque.redux.client.ReduxColors;
-import net.zepalesque.redux.data.ReduxDataMaps;
-import net.zepalesque.redux.data.ReduxTags;
 import net.zepalesque.redux.data.prov.ReduxDataMapProvider;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.world.biome.tint.ReduxBiomeTints;
 
 import java.util.concurrent.CompletableFuture;
 
-public class ReduxDataMapGen extends ReduxDataMapProvider {
+public class ReduxMapData extends ReduxDataMapProvider {
 
-    public ReduxDataMapGen(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+    public ReduxMapData(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
         super(packOutput, lookupProvider);
     }
 

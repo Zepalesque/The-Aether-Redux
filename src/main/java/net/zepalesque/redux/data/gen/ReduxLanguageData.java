@@ -8,9 +8,9 @@ import net.zepalesque.redux.data.prov.ReduxLanguageProvider;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.zenith.util.DatagenUtil;
 
-public class ReduxLanguageGen extends ReduxLanguageProvider {
+public class ReduxLanguageData extends ReduxLanguageProvider {
 
-    public ReduxLanguageGen(PackOutput output) {
+    public ReduxLanguageData(PackOutput output) {
         super(output, Redux.MODID);
     }
 

@@ -7,8 +7,8 @@ import net.zepalesque.redux.client.audio.ReduxSounds;
 import net.zepalesque.redux.data.prov.ReduxSoundsProvider;
 import net.zepalesque.zenith.util.DatagenUtil;
 
-public class ReduxSoundsGen extends ReduxSoundsProvider {
-    public ReduxSoundsGen(PackOutput output, ExistingFileHelper helper) {
+public class ReduxSoundsData extends ReduxSoundsProvider {
+    public ReduxSoundsData(PackOutput output, ExistingFileHelper helper) {
         super(output, Redux.MODID, helper);
     }
 
