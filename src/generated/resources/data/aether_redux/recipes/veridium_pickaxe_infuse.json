@@ -3,15 +3,13 @@
   "additional_data": {
     "added_infusion": 4
   },
-  "id": {
-    "ingredient": {
-      "item": "aether_redux:veridium_pickaxe"
-    }
+  "ingredient": {
+    "item": "aether_redux:veridium_pickaxe"
   },
   "result": {
     "item": "aether_redux:infused_veridium_pickaxe"
   },
   "sound": {
-    "sound_id": "minecraft:block.enchantment_table.use"
+    "sound_id": "aether_redux:item.generic.infuse"
   }
 }

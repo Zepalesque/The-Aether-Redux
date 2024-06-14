@@ -1,0 +1,14 @@
+{
+  "item.generic.infuse": {
+    "sounds": [
+      "aether_redux:item/generic/infuse_item"
+    ],
+    "subtitle": "subtitles.aether_redux.item.generic.infuse"
+  },
+  "item.generic.infusion_expire": {
+    "sounds": [
+      "aether_redux:item/generic/infusion_expire"
+    ],
+    "subtitle": "subtitles.aether_redux.item.generic.infusion_expire"
+  }
+}

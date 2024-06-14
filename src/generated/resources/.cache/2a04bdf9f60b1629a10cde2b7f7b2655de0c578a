@@ -1,4 +1,4 @@
-// 1.20.4	2024-06-11T19:44:42.3101334	Tags for minecraft:item mod id aether_redux
+// 1.20.4	2024-06-14T13:58:13.2660116	Tags for minecraft:item mod id aether_redux
 c191bd82d7ab0270a08a0b6d99db3860549e07ea data/aether/tags/items/boss_doorway_dungeon_blocks.json
 184faca5516506997d979aa45bfac63b68600825 data/aether/tags/items/dungeon_blocks.json
 752d7b101062e40cc5449bf130575be14909a28b data/aether/tags/items/flying_cow_temptation_items.json
@@ -9,7 +9,10 @@ c191bd82d7ab0270a08a0b6d99db3860549e07ea data/aether/tags/items/boss_doorway_dun
 761d9af3851563316242dac11105074c9f83e129 data/aether/tags/items/skyroot_repairing.json
 761d9af3851563316242dac11105074c9f83e129 data/aether/tags/items/skyroot_stick_crafting.json
 761d9af3851563316242dac11105074c9f83e129 data/aether/tags/items/skyroot_tool_crafting.json
+d7419f8329f04e3bc18cdcf761b7c6288bfbf50b data/aether/tags/items/slider_damaging_items.json
 def6d9c61e45ecd875098eeb799975a50e3d3000 data/aether/tags/items/trapped_dungeon_blocks.json
+d7419f8329f04e3bc18cdcf761b7c6288bfbf50b data/aether/tags/items/treated_as_aether_item.json
 ff76e071710735bec611ec58205f07d13cb675bd data/aether_redux/tags/items/crystal_logs.json
 087e45021a49143824a919a1ba7f24cab0c912e8 data/minecraft/tags/items/boats.json
 9ba95bf33ba00ef1c21abc8bed134f26a2bfc2a4 data/minecraft/tags/items/chest_boats.json
+d7419f8329f04e3bc18cdcf761b7c6288bfbf50b data/minecraft/tags/items/pickaxes.json

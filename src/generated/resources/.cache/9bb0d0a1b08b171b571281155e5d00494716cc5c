@@ -1,9 +1,10 @@
-// 1.20.4	2024-06-11T20:25:39.2170858	Tags for minecraft:block mod id aether_redux
+// 1.20.4	2024-06-14T13:58:13.2670113	Tags for minecraft:block mod id aether_redux
 c191bd82d7ab0270a08a0b6d99db3860549e07ea data/aether/tags/blocks/boss_doorway_dungeon_blocks.json
 0bd5b2c5e211b2dd7346d4ad438675e1279452ca data/aether/tags/blocks/dungeon_blocks.json
 079f532874a02f79935f6a4082693e47575060f5 data/aether/tags/blocks/locked_dungeon_blocks.json
 1da24719bdf8ede41a69286763554958c408486f data/aether/tags/blocks/sentry_blocks.json
 def6d9c61e45ecd875098eeb799975a50e3d3000 data/aether/tags/blocks/trapped_dungeon_blocks.json
+a207226799b1e97c7912c68fb11bd895b88ee98a data/aether/tags/blocks/treated_as_aether_block.json
 ff76e071710735bec611ec58205f07d13cb675bd data/aether_redux/tags/blocks/crystal_logs.json
 326897805dd0e252157208ee77d3437b3626f008 data/aether_redux/tags/blocks/quicksoil_behavior.json
 eb1ddd122f7ca012d425a54274500f1e589e180d data/forge/tags/blocks/bookshelves.json
