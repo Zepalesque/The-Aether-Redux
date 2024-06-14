@@ -28,8 +28,10 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.zepalesque.redux.recipe.recipes.InfusionRecipe;
+import net.zepalesque.zenith.api.itemstack.ItemStackConstructor;
 import net.zepalesque.zenith.recipe.builder.StackingRecipeBuilder;
 
+import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -147,8 +149,9 @@ public abstract class ReduxRecipeProvider extends AetherRecipeProvider {
                 .unlockedBy(getHasName(ingredient), has(ingredient));
     }
 
+    @SuppressWarnings("deprecation")
     public StackingRecipeBuilder infuse(ItemLike result, ItemLike ingredient) {
-        return StackingRecipeBuilder.recipe(Ingredient.of(ingredient), new ItemStack(result), InfusionRecipe::new);
+        return StackingRecipeBuilder.recipe(Ingredient.of(ingredient), new ItemStackConstructor(result.asItem().builtInRegistryHolder(), Optional.empty()), InfusionRecipe::new);
     }
 
     @Override
