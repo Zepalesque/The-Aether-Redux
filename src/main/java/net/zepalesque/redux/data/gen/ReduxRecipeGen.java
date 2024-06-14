@@ -83,7 +83,7 @@ public class ReduxRecipeGen extends ReduxRecipeProvider {
         infusionInfo.putByte(InfusionRecipe.ADDED_INFUSION, (byte) 4);
 
         infuse(ReduxItems.INFUSED_VERIDIUM_PICKAXE.get(), ReduxItems.VERIDIUM_PICKAXE.get())
-//                .withSound(BuiltInRegistries.SOUND_EVENT.wrapAsHolder(SoundEvents.ENCHANTMENT_TABLE_USE))
+                .withSound(BuiltInRegistries.SOUND_EVENT.wrapAsHolder(SoundEvents.ENCHANTMENT_TABLE_USE))
                 .withExtra(infusionInfo)
                 .save(output, Redux.loc("infusion_test"));
 
