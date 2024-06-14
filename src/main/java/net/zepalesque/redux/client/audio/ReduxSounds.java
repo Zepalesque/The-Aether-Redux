@@ -16,6 +16,10 @@ public class ReduxSounds {
     public static final DeferredHolder<SoundEvent, SoundEvent> EMBER_BOUNCE_MED = register("entity.ember.bounce_med");
     public static final DeferredHolder<SoundEvent, SoundEvent> EMBER_BOUNCE_SMALL = register("entity.ember.bounce_small");
 
+    public static final DeferredHolder<SoundEvent, SoundEvent> INFUSE_ITEM = register("item.generic.infuse");
+    public static final DeferredHolder<SoundEvent, SoundEvent> INFUSION_EXPIRE = register("item.generic.infusion_expire");
+
+
     private static DeferredHolder<SoundEvent, SoundEvent> register(String location) {
         return SOUNDS.register(location, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(Redux.MODID, location)));
     }

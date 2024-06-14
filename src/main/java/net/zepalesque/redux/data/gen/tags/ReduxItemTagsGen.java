@@ -25,7 +25,18 @@ public class ReduxItemTagsGen extends ReduxItemTagsProvider {
         Redux.WOOD_SETS.forEach(set -> set.itemTagData(this));
         Redux.STONE_SETS.forEach(set -> set.itemTagData(this));
 
-
+        this.tag(AetherTags.Items.TREATED_AS_AETHER_ITEM).add(
+                ReduxItems.VERIDIUM_PICKAXE.get(),
+//                ReduxItems.VERIDIUM_AXE.get(),
+//                ReduxItems.VERIDIUM_HOE.get(),
+//                ReduxItems.VERIDIUM_SHOVEL.get(),
+//                ReduxItems.VERIDIUM_SWORD.get(),
+                ReduxItems.INFUSED_VERIDIUM_PICKAXE.get()/*,*/
+//                ReduxItems.INFUSED_VERIDIUM_AXE.get(),
+//                ReduxItems.INFUSED_VERIDIUM_HOE.get(),
+//                ReduxItems.INFUSED_VERIDIUM_SHOVEL.get(),
+//                ReduxItems.INFUSED_VERIDIUM_SWORD.get()
+        );
         this.tag(AetherTags.Items.SENTRY_BLOCKS).add(
                 ReduxBlocks.CARVED_PILLAR.get().asItem(),
                 ReduxBlocks.SENTRY_PILLAR.get().asItem(),

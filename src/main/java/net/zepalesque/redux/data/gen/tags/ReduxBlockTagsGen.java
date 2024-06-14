@@ -5,7 +5,9 @@ import com.aetherteam.aether.block.AetherBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.data.ReduxTags;
@@ -24,6 +26,12 @@ public class ReduxBlockTagsGen extends ReduxBlockTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
         Redux.WOOD_SETS.forEach(set -> set.blockTagData(this));
         Redux.STONE_SETS.forEach(set -> set.blockTagData(this));
+
+        // Adds every single Redux block as a block that should be treaded as an Aether Block and get the tool debuff
+        IntrinsicTagAppender<Block> tag = this.tag(AetherTags.Blocks.TREATED_AS_AETHER_BLOCK);
+        for (DeferredHolder<Block, ? extends Block> block : ReduxBlocks.BLOCKS.getEntries()) {
+            tag.add(block.get());
+        }
 
         this.tag(ReduxTags.Blocks.QUICKSOIL_BEHAVIOR).add(AetherBlocks.QUICKSOIL.get());
 
@@ -116,6 +124,5 @@ public class ReduxBlockTagsGen extends ReduxBlockTagsProvider {
                 ReduxBlocks.SKYSPROUTS.get(),
                 ReduxBlocks.WYNDOATS.get()
         );
-
     }
 }

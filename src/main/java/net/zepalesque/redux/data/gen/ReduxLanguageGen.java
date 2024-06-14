@@ -3,8 +3,10 @@ package net.zepalesque.redux.data.gen;
 import net.minecraft.data.PackOutput;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.client.audio.ReduxSounds;
 import net.zepalesque.redux.data.prov.ReduxLanguageProvider;
 import net.zepalesque.redux.item.ReduxItems;
+import net.zepalesque.zenith.util.DatagenUtil;
 
 public class ReduxLanguageGen extends ReduxLanguageProvider {
 
@@ -102,7 +104,7 @@ public class ReduxLanguageGen extends ReduxLanguageProvider {
         addLore(ReduxBlocks.SENTRITE_LANTERN, "A lantern made of Sentrite. You can place it on the ground or hang it on the ceiling!");
 
         addGuiText("shift_info", "Hold [%s] for more info...");
-        addTooltip("infusion_level", "Infusion Level: %s");
+        addTooltip("infusion_charge", "Infusion Charge: %s");
         addGuiText("infusion_info", "Can be infused by right-clicking with an Ambrosium Shard");
 
 
@@ -113,5 +115,8 @@ public class ReduxLanguageGen extends ReduxLanguageProvider {
 
         addPackTitle("bronze_upgrade", "Redux - Bronze Dungeon Upgrade");
         addPackDescription("bronze_upgrade", "Configurable in config/aether_redux/common.toml");
+
+        addSubtitle(ReduxSounds.INFUSE_ITEM, DatagenUtil::subtitleFor, "Item infuses");
+        addSubtitle(ReduxSounds.INFUSION_EXPIRE, DatagenUtil::subtitleFor, "Item infusion runs out");
     }
 }
