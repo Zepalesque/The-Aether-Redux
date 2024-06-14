@@ -24,6 +24,7 @@ import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
 import net.zepalesque.redux.blockset.wood.ReduxWoodSets;
 import net.zepalesque.redux.client.ReduxColors;
+import net.zepalesque.redux.client.audio.ReduxSounds;
 import net.zepalesque.redux.client.particle.ReduxParticles;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.config.ReduxConfigHandler;
@@ -77,7 +78,8 @@ public class Redux {
                 ReduxFoliagePlacers.FOLIAGE_PLACERS,
                 ReduxParticles.PARTICLES,
                 ReduxRecipes.TYPES,
-                ReduxRecipes.Serializers.SERIALIZERS
+                ReduxRecipes.Serializers.SERIALIZERS,
+                ReduxSounds.SOUNDS
         };
 
         for (DeferredRegister<?> register : registers) {
