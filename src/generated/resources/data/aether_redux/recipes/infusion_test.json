@@ -1,16 +1,17 @@
 {
   "type": "aether_redux:infusion",
   "additional_data": {
-    "sound_id": "minecraft:block.enchantment_table.use"
+    "added_infusion": 4
   },
-  "ingredient": {
-    "item": "aether_redux:veridium_pickaxe"
+  "id": {
+    "ingredient": {
+      "item": "aether_redux:veridium_pickaxe"
+    }
   },
   "result": {
-    "Count": 1,
-    "id": "aether_redux:infused_veridium_pickaxe",
-    "tag": {
-      "Damage": 0
-    }
+    "item": "aether_redux:infused_veridium_pickaxe"
+  },
+  "sound": {
+    "sound_id": "minecraft:block.enchantment_table.use"
   }
 }
