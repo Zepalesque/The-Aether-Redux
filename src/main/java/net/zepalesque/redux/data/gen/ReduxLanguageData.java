@@ -103,11 +103,15 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
         add(ReduxBlocks.SENTRITE_LANTERN);
         addLore(ReduxBlocks.SENTRITE_LANTERN, "A lantern made of Sentrite. You can place it on the ground or hang it on the ceiling!");
 
+        add(ReduxItems.VERIDIUM_PICKAXE);
+        addLore(ReduxItems.VERIDIUM_PICKAXE, "A pickaxe made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it far more powerful for a short time!");
+        add(ReduxItems.INFUSED_VERIDIUM_PICKAXE);
+        addLore(ReduxItems.INFUSED_VERIDIUM_PICKAXE, "A pickaxe made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it far more powerful for a short time!");
+
+
         addGuiText("shift_info", "Hold [%s] for more info...");
         addTooltip("infusion_charge", "Infusion Charge: %s");
         addGuiText("infusion_info", "Can be infused by right-clicking with an Ambrosium Shard");
-
-
 
         addPackDescription("mod", "The Aether: Redux Resources");
         addPackTitle("tintable_grass", "Redux - Tintable Grass");

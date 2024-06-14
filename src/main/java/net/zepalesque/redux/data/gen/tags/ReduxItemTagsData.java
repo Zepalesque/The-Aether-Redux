@@ -3,6 +3,7 @@ package net.zepalesque.redux.data.gen.tags;
 import com.aetherteam.aether.AetherTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.zepalesque.redux.Redux;
@@ -23,6 +24,14 @@ public class ReduxItemTagsData extends ReduxItemTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
         Redux.WOOD_SETS.forEach(set -> set.itemTagData(this));
         Redux.STONE_SETS.forEach(set -> set.itemTagData(this));
+
+        this.tag(ItemTags.PICKAXES).add(ReduxItems.VERIDIUM_PICKAXE.get(), ReduxItems.INFUSED_VERIDIUM_PICKAXE.get());
+//        this.tag(ItemTags.SHOVELS).add(ReduxItems.VERIDIUM_SHOVEL.get(), ReduxItems.INFUSED_VERIDIUM_SHOVEL.get());
+//        this.tag(ItemTags.HOES).add(ReduxItems.VERIDIUM_HOE.get(), ReduxItems.INFUSED_VERIDIUM_HOE.get());
+//        this.tag(ItemTags.AXES).add(ReduxItems.VERIDIUM_AXE.get(), ReduxItems.INFUSED_VERIDIUM_AXE.get());
+//        this.tag(ItemTags.SWORDS).add(ReduxItems.VERIDIUM_SWORD.get(), ReduxItems.INFUSED_VERIDIUM_SWORD.get());
+
+        this.tag(AetherTags.Items.SLIDER_DAMAGING_ITEMS).add(ReduxItems.VERIDIUM_PICKAXE.get(), ReduxItems.INFUSED_VERIDIUM_PICKAXE.get());
 
         this.tag(AetherTags.Items.TREATED_AS_AETHER_ITEM).add(
                 ReduxItems.VERIDIUM_PICKAXE.get(),
