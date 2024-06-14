@@ -15,6 +15,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
+import net.zepalesque.redux.client.audio.ReduxSounds;
 import net.zepalesque.redux.data.prov.ReduxRecipeProvider;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.recipe.recipes.InfusionRecipe;
@@ -79,7 +80,7 @@ public class ReduxRecipeData extends ReduxRecipeProvider {
 
         CompoundTag infusionInfo = new CompoundTag();
         infusionInfo.putByte(InfusionRecipe.ADDED_INFUSION, (byte) 4);
-        Holder<SoundEvent> infusionSound = BuiltInRegistries.SOUND_EVENT.wrapAsHolder(SoundEvents.ENCHANTMENT_TABLE_USE);
+        Holder<SoundEvent> infusionSound = ReduxSounds.INFUSE_ITEM;
 
         infuse(ReduxItems.INFUSED_VERIDIUM_PICKAXE.get(), ReduxItems.VERIDIUM_PICKAXE.get())
                 .withSound(infusionSound)
