@@ -15,7 +15,6 @@ import net.zepalesque.redux.client.audio.ReduxSounds;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.recipe.recipes.InfusionRecipe;
 import net.zepalesque.zenith.item.CustomStackingBehavior;
-import net.zepalesque.zenith.network.ZenithNetworking;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
@@ -82,6 +81,6 @@ public interface VeridiumItem extends CustomStackingBehavior {
     }
 
     default SoundEvent getUninfuseSound() {
-        return ReduxSounds.INFUSION_EXPIRE.get()
+        return ReduxSounds.INFUSION_EXPIRE.get();
     }
 }
