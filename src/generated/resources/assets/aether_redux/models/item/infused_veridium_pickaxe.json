@@ -1,6 +1,17 @@
 {
   "parent": "minecraft:item/handheld",
+  "loader": "neoforge:item_layers",
+  "neoforge_data": {
+    "layers": {
+      "1": {
+        "block_light": 15,
+        "sky_light": 15
+      }
+    }
+  },
+  "render_types": {},
   "textures": {
-    "layer0": "aether_redux:item/tools/infused_veridium_pickaxe"
+    "layer0": "aether_redux:item/tools/infused_veridium_pickaxe",
+    "layer1": "aether_redux:item/tools/infused_veridium_pickaxe_glow"
   }
 }

@@ -1,4 +1,4 @@
-// 1.20.4	2024-06-13T22:05:22.5244175	Item Models: aether_redux
+// 1.20.4	2024-06-14T09:17:11.7698705	Item Models: aether_redux
 a083a7311bfd77483a76afa2e0b34a2dca856c28 assets/aether_redux/models/item/blightmoss_holystone.json
 693490b382231c95e748c88f8daa13be00cd8ceb assets/aether_redux/models/item/blightmoss_holystone_slab.json
 e073f529066aa534f560372ff463759fa6a01401 assets/aether_redux/models/item/blightmoss_holystone_stairs.json
@@ -33,7 +33,7 @@ c21384e3c0f2e7cf2838fc78bd300726ad88099d assets/aether_redux/models/item/gilded_
 7cc45ca1892d40585fe787a30634854a783d1ef1 assets/aether_redux/models/item/gilded_holystone_slab.json
 462c33cc11eaca761757d91060550f705d13724b assets/aether_redux/models/item/gilded_holystone_stairs.json
 b94d7ae7552984746c011a3c414646a7b5538436 assets/aether_redux/models/item/gilded_holystone_wall.json
-57faf76af8d5961d1edffbb5946870122649926c assets/aether_redux/models/item/infused_veridium_pickaxe.json
+61eb8571e24f150cff006a0a41a18f2343cef7aa assets/aether_redux/models/item/infused_veridium_pickaxe.json
 8ce957a746719967288761a1531921e0a3f939cb assets/aether_redux/models/item/locked_carved_base.json
 11124fbbc813a05498b82ee07ea3a9236e5774cb assets/aether_redux/models/item/locked_carved_pillar.json
 136d60c440632072914a93fec02b7ffd652cc118 assets/aether_redux/models/item/locked_runelight.json
