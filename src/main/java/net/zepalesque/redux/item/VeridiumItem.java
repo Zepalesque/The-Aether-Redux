@@ -66,17 +66,16 @@ public interface VeridiumItem extends CustomStackingBehavior {
         if (user != null && user.level().isClientSide()) {
             return stack;
         }
-        if (stack.getItem() instanceof VeridiumItem vi) {
-            CompoundTag tag = stack.getOrCreateTag();
-            if (tag.getByte(NBT_KEY) > amount) {
-                byte infusion = (byte) (tag.getByte(NBT_KEY) - amount);
-                stack.addTagElement(NBT_KEY, ByteTag.valueOf(infusion));
-            } else {
-                if (user != null && !user.level().isClientSide() && user instanceof ServerPlayer sp) {
-                    sp.connection.send(new ClientboundSoundPacket(getUninfuseSound(), SoundSource.PLAYERS, sp.getX(), sp.getY(), sp.getZ(), 0.8F, 0.8F + sp.level().getRandom().nextFloat() * 0.4F, sp.level().getRandom().nextLong()));
-                }
-                return vi.getUninfusedStack(stack);
+
+        CompoundTag tag = stack.getOrCreateTag();
+        if (tag.getByte(NBT_KEY) > amount) {
+            byte infusion = (byte) (tag.getByte(NBT_KEY) - amount);
+            stack.addTagElement(NBT_KEY, ByteTag.valueOf(infusion));
+        } else {
+            if (user != null && !user.level().isClientSide() && user instanceof ServerPlayer sp) {
+                sp.connection.send(new ClientboundSoundPacket(getUninfuseSound(), SoundSource.PLAYERS, sp.getX(), sp.getY(), sp.getZ(), 0.8F, 0.8F + sp.level().getRandom().nextFloat() * 0.4F, sp.level().getRandom().nextLong()));
             }
+            return this.getUninfusedStack(stack);
         }
         return null;
     }
