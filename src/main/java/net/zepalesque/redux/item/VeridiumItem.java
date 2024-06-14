@@ -2,14 +2,20 @@ package net.zepalesque.redux.item;
 
 import net.minecraft.nbt.ByteTag;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.protocol.game.ClientboundSoundPacket;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeType;
+import net.zepalesque.redux.client.audio.ReduxSounds;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.recipe.recipes.InfusionRecipe;
 import net.zepalesque.zenith.item.CustomStackingBehavior;
+import net.zepalesque.zenith.network.ZenithNetworking;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
@@ -66,9 +72,16 @@ public interface VeridiumItem extends CustomStackingBehavior {
                 byte infusion = (byte) (tag.getByte(NBT_KEY) - amount);
                 stack.addTagElement(NBT_KEY, ByteTag.valueOf(infusion));
             } else {
+                if (user != null && !user.level().isClientSide() && user instanceof ServerPlayer sp) {
+                    sp.connection.send(new ClientboundSoundPacket(ReduxSounds.INFUSION_EXPIRE, SoundSource.PLAYERS, sp.getX(), sp.getY(), sp.getZ(), 0.8F, 0.8F + sp.level().getRandom().nextFloat() * 0.4F, sp.level().getRandom().nextLong()));
+                }
                 return vi.getUninfusedStack(stack);
             }
         }
         return null;
+    }
+
+    default SoundEvent getUninfuseSound() {
+        return ReduxSounds.INFUSION_EXPIRE.get()
     }
 }
