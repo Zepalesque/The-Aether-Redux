@@ -19,13 +19,13 @@ public enum     ReduxItemTiers implements Tier {
     private final int enchantability;
     private final LazyLoadedValue<Ingredient> repairMaterial;
 
-    ReduxItemTiers(int harvestLevelIn, int maxUsesIn, float efficiencyIn, float attackDamageIn, int enchantabilityIn, Supplier repairMaterialIn) {
+    ReduxItemTiers(int harvestLevelIn, int maxUsesIn, float efficiencyIn, float attackDamageIn, int enchantabilityIn, Supplier<Ingredient> repairMaterialIn) {
         this.harvestLevel = harvestLevelIn;
         this.maxUses = maxUsesIn;
         this.efficiency = efficiencyIn;
         this.attackDamage = attackDamageIn;
         this.enchantability = enchantabilityIn;
-        this.repairMaterial = new LazyLoadedValue(repairMaterialIn);
+        this.repairMaterial = new LazyLoadedValue<>(repairMaterialIn);
     }
 
     public int getUses() {
