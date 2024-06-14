@@ -6,6 +6,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
@@ -27,7 +28,34 @@ public abstract class ReduxItemModelProvider extends AetherItemModelProvider {
                 .texture("layer0", texture(locationPlusName));
     }
 
-    // TODO: Templates for all of these
+    // TODO: Templates for all of these maybe?
+
+    public ItemModelBuilder itemGlow(Item item, String location) {
+        ResourceLocation id = BuiltInRegistries.ITEM.getKey(item);
+        return withExistingParent(id.getPath(), mcLoc("item/generated"))
+                .texture("layer0", modLoc("item/" + location + id.getPath())).texture("layer1", modLoc("item/" + location + id.getPath() + "_glow")).customLoader((itemModelBuilder,existingFileHelper) ->
+                        ItemLayerModelBuilder.begin(itemModelBuilder, existingFileHelper).emissive(15, 15, 1)).end();
+    }
+    public ItemModelBuilder handheldGlow(Item item, String location) {
+        ResourceLocation id = BuiltInRegistries.ITEM.getKey(item);
+        return withExistingParent(id.getPath(), mcLoc("item/handheld"))
+                .texture("layer0", modLoc("item/" + location + id.getPath())).texture("layer1", modLoc("item/" + location + id.getPath() + "_glow")).customLoader((itemModelBuilder,existingFileHelper) ->
+                        ItemLayerModelBuilder.begin(itemModelBuilder, existingFileHelper).emissive(15, 15, 1)).end();
+    }
+
+    public void dartShooterGlow(Item item, String location) {
+        ResourceLocation id = BuiltInRegistries.ITEM.getKey(item);
+        this.withExistingParent(id.getPath(), this.mcLoc("item/handheld"))
+                .texture("layer0", this.modLoc("item/" + location + id.getPath()))
+                .texture("layer1", modLoc("item/" + location + id.getPath() + "_glow")).customLoader((itemModelBuilder,existingFileHelper) ->
+                        ItemLayerModelBuilder.begin(itemModelBuilder, existingFileHelper).emissive(15, 15, 1)).end()
+                .transforms()
+                .transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND).rotation(0.0F, -90.0F, 45.0F).translation(0.0F, 1.5F, -1.0F).scale(0.85F, 0.85F, 0.85F).end()
+                .transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND).rotation(0.0F, 90.0F, -45.0F).translation(0.0F, 1.5F, -1.0F).scale(0.85F, 0.85F, 0.85F).end()
+                .end();
+    }
+
+
 
     public ItemModelBuilder itemBlockFlatGlow(Block block, String location) {
         return withExistingParent(blockName(block), mcLoc("item/generated"))

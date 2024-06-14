@@ -64,7 +64,7 @@ public class ReduxItemModelGen extends ReduxItemModelProvider {
         this.item(ReduxBlocks.SENTRITE_CHAIN.get().asItem(), "misc/");
 
         this.handheldItem(ReduxItems.VERIDIUM_PICKAXE.get(), "tools/");
-        this.handheldItem(ReduxItems.INFUSED_VERIDIUM_PICKAXE.get(), "tools/");
+        this.handheldGlow(ReduxItems.INFUSED_VERIDIUM_PICKAXE.get(), "tools/");
 
     }
 
