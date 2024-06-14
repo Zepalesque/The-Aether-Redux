@@ -1,5 +1,6 @@
 package net.zepalesque.redux.item;
 
+import net.minecraft.core.Holder;
 import net.minecraft.nbt.ByteTag;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.game.ClientboundSoundPacket;
@@ -72,7 +73,7 @@ public interface VeridiumItem extends CustomStackingBehavior {
                 stack.addTagElement(NBT_KEY, ByteTag.valueOf(infusion));
             } else {
                 if (user != null && !user.level().isClientSide() && user instanceof ServerPlayer sp) {
-                    sp.connection.send(new ClientboundSoundPacket(ReduxSounds.INFUSION_EXPIRE, SoundSource.PLAYERS, sp.getX(), sp.getY(), sp.getZ(), 0.8F, 0.8F + sp.level().getRandom().nextFloat() * 0.4F, sp.level().getRandom().nextLong()));
+                    sp.connection.send(new ClientboundSoundPacket(getUninfuseSound(), SoundSource.PLAYERS, sp.getX(), sp.getY(), sp.getZ(), 0.8F, 0.8F + sp.level().getRandom().nextFloat() * 0.4F, sp.level().getRandom().nextLong()));
                 }
                 return vi.getUninfusedStack(stack);
             }
@@ -80,7 +81,7 @@ public interface VeridiumItem extends CustomStackingBehavior {
         return null;
     }
 
-    default SoundEvent getUninfuseSound() {
-        return ReduxSounds.INFUSION_EXPIRE.get();
+    default Holder<SoundEvent> getUninfuseSound() {
+        return ReduxSounds.INFUSION_EXPIRE;
     }
 }
