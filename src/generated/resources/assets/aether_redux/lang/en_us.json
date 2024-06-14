@@ -65,6 +65,8 @@
   "block.aether_redux.wyndsprouts": "Wyndsprouts",
   "entity.aether_redux.crystal_boat": "Crystal Boat",
   "entity.aether_redux.crystal_chest_boat": "Crystal Boat with Chest",
+  "gui.aether_redux.infusion_info": "Can be infused by right-clicking with an Ambrosium Shard",
+  "gui.aether_redux.shift_info": "Hold [%s] for more info...",
   "item.aether_redux.crystal_boat": "Crystal Boat",
   "item.aether_redux.crystal_chest_boat": "Crystal Boat with Chest",
   "item.aether_redux.raw_veridium": "Raw Veridium",
@@ -135,5 +137,6 @@
   "pack.aether_redux.bronze_upgrade.title": "Redux - Bronze Dungeon Upgrade",
   "pack.aether_redux.mod.description": "The Aether: Redux Resources",
   "pack.aether_redux.tintable_grass.description": "Grass tint textures for the Aether: Redux",
-  "pack.aether_redux.tintable_grass.title": "Redux - Tintable Grass"
+  "pack.aether_redux.tintable_grass.title": "Redux - Tintable Grass",
+  "tooltip.aether_redux.infusion_level": "Infusion Level: %s"
 }

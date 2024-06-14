@@ -1,5 +1,5 @@
 {
   "condition": "zenith:config_enabled",
-  "config_path": "[TODO, Redux Sky Colors]",
+  "config_path": "[Tweaks, Redux Sky Colors]",
   "serializer": "redux_server"
 }
