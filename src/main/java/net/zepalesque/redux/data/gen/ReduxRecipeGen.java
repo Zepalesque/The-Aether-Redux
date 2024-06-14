@@ -2,6 +2,7 @@ package net.zepalesque.redux.data.gen;
 
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.item.AetherItems;
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
@@ -81,11 +82,17 @@ public class ReduxRecipeGen extends ReduxRecipeProvider {
 
         CompoundTag infusionInfo = new CompoundTag();
         infusionInfo.putByte(InfusionRecipe.ADDED_INFUSION, (byte) 4);
+        Holder<SoundEvent> infusionSound = BuiltInRegistries.SOUND_EVENT.wrapAsHolder(SoundEvents.ENCHANTMENT_TABLE_USE);
 
         infuse(ReduxItems.INFUSED_VERIDIUM_PICKAXE.get(), ReduxItems.VERIDIUM_PICKAXE.get())
-                .withSound(BuiltInRegistries.SOUND_EVENT.wrapAsHolder(SoundEvents.ENCHANTMENT_TABLE_USE))
+                .withSound(infusionSound)
                 .withExtra(infusionInfo)
-                .save(output, Redux.loc("infusion_test"));
+                .save(output, Redux.loc("veridium_pickaxe_infuse"));
+
+        infuse(ReduxItems.INFUSED_VERIDIUM_PICKAXE.get(), ReduxItems.INFUSED_VERIDIUM_PICKAXE.get())
+                .withSound(infusionSound)
+                .withExtra(infusionInfo)
+                .save(output, Redux.loc("veridium_pickaxe_increase_infusion"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ReduxBlocks.SENTRITE_LANTERN.get(), 1)
                 .define('C', ReduxItems.SENTRITE_CHUNK.get())
