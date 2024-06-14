@@ -41,7 +41,8 @@ public class ReduxTags {
     }
 
     public static class Entities {
-        
+        public static final TagKey<EntityType<?>> VALID_PICKAXE_TARGETS = tag("valid_pickaxe_targets");
+
         private static TagKey<EntityType<?>> tag(String name) {
             return TagKey.create(Registries.ENTITY_TYPE, Redux.loc(name));
         }

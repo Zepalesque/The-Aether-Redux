@@ -1,5 +1,6 @@
-package net.zepalesque.redux.mixin.mixins.common;
+package net.zepalesque.redux.mixin.mixins.common.world.structure;
 
+import com.aetherteam.aether.world.structurepiece.bronzedungeon.BronzeBossRoom;
 import com.aetherteam.aether.world.structurepiece.bronzedungeon.BronzeDungeonRoom;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
@@ -9,11 +10,11 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
 
-@Mixin(BronzeDungeonRoom.class)
-public class BronzeDungeonMixin {
+@Mixin(BronzeBossRoom.class)
+public class BronzeBossMixin {
 
     @WrapOperation(method = "makeSettings", at = @At(value = "NEW", target = "()Lnet/minecraft/world/level/levelgen/structure/templatesystem/StructurePlaceSettings;"))
     private static StructurePlaceSettings redux$makeSettings(Operation<StructurePlaceSettings> original) {
-        return original.call().addProcessor(ReduxDungeonProcessors.BRONZE_BLOCKS).addProcessor(ReduxDungeonProcessors.BRONZE_TRAPS);
+        return original.call().addProcessor(ReduxDungeonProcessors.BRONZE_LOCKED).addProcessor(ReduxDungeonProcessors.BRONZE_BLOCKS);
     }
 }

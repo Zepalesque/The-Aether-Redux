@@ -1,4 +1,4 @@
-package net.zepalesque.redux.mixin.mixins.common;
+package net.zepalesque.redux.mixin.mixins.common.block;
 
 import com.aetherteam.aether.block.natural.QuicksoilBlock;
 import net.minecraft.core.BlockPos;
@@ -9,7 +9,6 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.zepalesque.redux.config.ReduxConfig;
-import net.zepalesque.redux.mixin.mixins.common.base.BlockBehaviorMixin;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

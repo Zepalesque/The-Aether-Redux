@@ -1,5 +1,6 @@
 package net.zepalesque.redux.data;
 
+import com.aetherteam.aether.data.generators.tags.AetherEntityTagData;
 import net.minecraft.DetectedVersion;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.DataGenerator;
@@ -24,6 +25,7 @@ import net.zepalesque.redux.data.gen.ReduxRegistrySets;
 import net.zepalesque.redux.data.gen.ReduxSoundsData;
 import net.zepalesque.redux.data.gen.tags.ReduxBiomeTagsData;
 import net.zepalesque.redux.data.gen.tags.ReduxBlockTagsData;
+import net.zepalesque.redux.data.gen.tags.ReduxEntityTagsData;
 import net.zepalesque.redux.data.gen.tags.ReduxItemTagsData;
 
 import java.util.Optional;
@@ -56,6 +58,8 @@ public class ReduxData {
         ReduxBlockTagsData blockTags = new ReduxBlockTagsData(packOutput, lookupProvider, fileHelper);
         generator.addProvider(event.includeServer(), blockTags);
         generator.addProvider(event.includeServer(), new ReduxItemTagsData(packOutput, lookupProvider, blockTags.contentsGetter(), fileHelper));
+        generator.addProvider(event.includeServer(), new ReduxEntityTagsData(packOutput, lookupProvider, fileHelper));
+        
         generator.addProvider(event.includeServer(), new ReduxBiomeTagsData(packOutput, lookupProvider, fileHelper));
 
         // pack.mcmeta

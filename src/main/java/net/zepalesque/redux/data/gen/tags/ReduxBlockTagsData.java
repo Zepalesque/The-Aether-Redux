@@ -91,7 +91,6 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
                 ReduxBlocks.BOSS_DOORWAY_SENTRY_BASE.get()
         );
 
-
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
                 ReduxBlocks.CARVED_PILLAR.get(),
                 ReduxBlocks.SENTRY_PILLAR.get(),

@@ -72,9 +72,6 @@ public interface VeridiumItem extends CustomStackingBehavior {
             byte infusion = (byte) (tag.getByte(NBT_KEY) - amount);
             stack.addTagElement(NBT_KEY, ByteTag.valueOf(infusion));
         } else {
-            if (user != null && !user.level().isClientSide() && user instanceof ServerPlayer sp) {
-                sp.connection.send(new ClientboundSoundPacket(getUninfuseSound(), SoundSource.PLAYERS, sp.getX(), sp.getY(), sp.getZ(), 0.8F, 0.8F + sp.level().getRandom().nextFloat() * 0.4F, sp.level().getRandom().nextLong()));
-            }
             return this.getUninfusedStack(stack);
         }
         return null;
@@ -82,5 +79,9 @@ public interface VeridiumItem extends CustomStackingBehavior {
 
     default Holder<SoundEvent> getUninfuseSound() {
         return ReduxSounds.INFUSION_EXPIRE;
+    }
+
+    default void sendSound(ServerPlayer sp) {
+        sp.connection.send(new ClientboundSoundPacket(getUninfuseSound(), SoundSource.PLAYERS, sp.getX(), sp.getY(), sp.getZ(), 0.8F, 0.8F + sp.level().getRandom().nextFloat() * 0.4F, sp.level().getRandom().nextLong()));
     }
 }

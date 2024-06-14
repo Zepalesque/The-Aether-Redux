@@ -5,6 +5,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -15,6 +16,7 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.zepalesque.redux.data.ReduxTags;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.item.TooltipUtils;
 import net.zepalesque.redux.item.VeridiumItem;
@@ -46,17 +48,22 @@ public class VeridiumPickaxeItem extends PickaxeItem implements VeridiumItem {
     @Override
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         // TODO: Entity tag
-        int amount = target instanceof Slider ? 1 : 2;
+        int amount = target.getType().is(ReduxTags.Entities.VALID_PICKAXE_TARGETS) ? 1 : 2;
+        boolean bool = super.hurtEnemy(stack, target, attacker);
         ItemStack transform = this.deplete(stack, attacker, amount);
         if (!attacker.level().isClientSide() && transform != null && transform != stack) {
-            // TODO: play sound
             attacker.setItemSlot(EquipmentSlot.MAINHAND, transform);
+            if (attacker instanceof ServerPlayer sp) {
+                this.sendSound(sp);
+            }
         }
-        return super.hurtEnemy(stack, target, attacker);
+        return bool;
     }
 
     @Override
     public boolean mineBlock(ItemStack stack, Level level, BlockState state, BlockPos pos, LivingEntity user) {
+        // Call the vanilla method do do things like tool damaging
+        boolean bool = super.mineBlock(stack, level, state, pos, user);
         if (!user.level().isClientSide()) {
             boolean instaBreak = state.getDestroySpeed(level, pos) <= 0.0F;
             // Avoid decreasing infusion on insta-break blocks
@@ -64,12 +71,14 @@ public class VeridiumPickaxeItem extends PickaxeItem implements VeridiumItem {
                 int amount = stack.isCorrectToolForDrops(state) ? 1 : 2;
                 ItemStack transform = this.deplete(stack, user, amount);
                 if (!user.level().isClientSide() && transform != null && transform != stack) {
-                    // TODO: play sound
                     user.setItemSlot(EquipmentSlot.MAINHAND, transform);
+                    if (user instanceof ServerPlayer sp) {
+                        this.sendSound(sp);
+                    }
                 }
             }
         }
-        return super.mineBlock(stack, level, state, pos, user);
+        return bool;
     }
 
     @Override

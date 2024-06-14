@@ -1,4 +1,4 @@
-package net.zepalesque.redux.mixin.mixins.common;
+package net.zepalesque.redux.mixin.mixins.common.entity;
 
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.entity.monster.dungeon.boss.Slider;
