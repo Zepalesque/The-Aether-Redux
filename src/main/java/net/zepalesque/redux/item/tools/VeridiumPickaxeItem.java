@@ -35,7 +35,7 @@ public class VeridiumPickaxeItem extends PickaxeItem implements VeridiumItem {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltips, TooltipFlag advanced) {
-        MutableComponent infusion = Component.translatable("tooltip.aether_redux.infusion_level", stack.getTagElement(VeridiumItem.NBT_KEY)).withStyle(ChatFormatting.GRAY);
+        MutableComponent infusion = Component.translatable("tooltip.aether_redux.infusion_level", stack.getTag() == null ? 0 : stack.getTag().getByte(VeridiumItem.NBT_KEY)).withStyle(ChatFormatting.GRAY);
 
         tooltips.add(infusion);
         Component info = TooltipUtils.TOOLTIP_SHIFT_FOR_INFO.apply(Component.translatable("gui.aether_redux.infusion_info"));
@@ -47,7 +47,7 @@ public class VeridiumPickaxeItem extends PickaxeItem implements VeridiumItem {
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         // TODO: Entity tag
         int amount = target instanceof Slider ? 1 : 2;
-        ItemStack transform = VeridiumItem.deplete(stack, attacker, amount);
+        ItemStack transform = this.deplete(stack, attacker, amount);
         if (!attacker.level().isClientSide() && transform != null && transform != stack) {
             // TODO: play sound
             attacker.setItemSlot(EquipmentSlot.MAINHAND, transform);
@@ -62,7 +62,7 @@ public class VeridiumPickaxeItem extends PickaxeItem implements VeridiumItem {
             // Avoid decreasing infusion on insta-break blocks
             if (!instaBreak) {
                 int amount = stack.isCorrectToolForDrops(state) ? 1 : 2;
-                ItemStack transform = VeridiumItem.deplete(stack, user, amount);
+                ItemStack transform = this.deplete(stack, user, amount);
                 if (!user.level().isClientSide() && transform != null && transform != stack) {
                     // TODO: play sound
                     user.setItemSlot(EquipmentSlot.MAINHAND, transform);

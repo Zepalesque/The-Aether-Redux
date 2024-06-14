@@ -56,7 +56,7 @@ public interface VeridiumItem extends CustomStackingBehavior {
 
     // If null is returned, do not change the item in the slot
     @Nullable
-    static ItemStack deplete(ItemStack stack, @Nullable LivingEntity user, int amount) {
+    default ItemStack deplete(ItemStack stack, @Nullable LivingEntity user, int amount) {
         if (user != null && user.level().isClientSide()) {
             return stack;
         }
