@@ -34,7 +34,7 @@ public class ReduxLootModifierData extends ReduxLootModifierProvider {
                         ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE).build()
                 },
                 new LootItemCondition[] {
-                        new ConditionLootModule(provider.lookupOrThrow(Zenith.Keys.CONDITION).getOrThrow(ReduxConditions.)).build(),
+                        new ConditionLootModule(provider.lookupOrThrow(Zenith.Keys.CONDITION).getOrThrow(ReduxConditions.RAW_ORES)),
                         HAS_SILK_TOUCH.invert().build(),
                         LootItemBlockStatePropertyCondition.hasBlockStateProperties(ReduxBlocks.VERIDIUM_ORE.get()).build()}));
 
