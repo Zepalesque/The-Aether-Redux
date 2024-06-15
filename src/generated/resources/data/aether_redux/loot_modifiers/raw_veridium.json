@@ -7,7 +7,7 @@
   "conditions": [
     {
       "condition": "zenith:when",
-      "zenith_condition": {
+      "inline_condition": {
         "config_path": "[Tweaks, Raw Ores]",
         "element": "zenith:config_enabled",
         "serializer": "redux_server"

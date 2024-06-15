@@ -1,4 +1,4 @@
-// 1.20.4	2024-06-15T15:14:52.1944276	Registries
+// 1.20.4	2024-06-15T15:46:31.112316	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 3d89e7c030d3ec47419f92a3c9d150c15ffe05a9 data/aether/worldgen/configured_feature/grass_patch.json
 47ec4dab1e49d10c7a9d88096f1d8297e837b2e8 data/aether/worldgen/configured_feature/skyroot_tree.json
@@ -19,5 +19,4 @@ c74207f8d01818e83140eff095b4487801234b07 data/aether_redux/zenith/condition/aeth
 be0283c9198f7c9e3615671df6f6c8f81946f790 data/aether_redux/zenith/condition/cloudbed.json
 3ad7ec02ad141427ec626e2a51cb0dc120f5916b data/aether_redux/zenith/condition/deep_aether.json
 a69de6adead55660109151ecf2d0b65a212251a5 data/aether_redux/zenith/condition/lost_content.json
-e94a0a9fb747820846f62feb5e9c16a5174af5ae data/aether_redux/zenith/condition/raw_ores.json
 0ebd36b0a965201b39ebd3b5e353c3b70e3d9c18 data/aether_redux/zenith/condition/sky_colors.json
