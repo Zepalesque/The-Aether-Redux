@@ -12,6 +12,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(BlockBehaviour.class)
 public class BlockBehaviorMixin {
+
+    // Maybe PR a neoforge event? idk
     @Inject(method = "isPathfindable", at = @At("HEAD"), cancellable = true)
     public void redux$pathFindable(BlockState state, BlockGetter level, BlockPos pos, PathComputationType type, CallbackInfoReturnable<Boolean> cir) {}
 }
