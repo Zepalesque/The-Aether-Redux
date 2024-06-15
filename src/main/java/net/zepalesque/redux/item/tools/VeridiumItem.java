@@ -1,4 +1,4 @@
-package net.zepalesque.redux.item;
+package net.zepalesque.redux.item.tools;
 
 import net.minecraft.core.Holder;
 import net.minecraft.nbt.ByteTag;

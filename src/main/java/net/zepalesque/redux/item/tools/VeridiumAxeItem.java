@@ -12,16 +12,12 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.zepalesque.redux.data.ReduxTags;
-import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.item.TooltipUtils;
-import net.zepalesque.redux.item.VeridiumItem;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
