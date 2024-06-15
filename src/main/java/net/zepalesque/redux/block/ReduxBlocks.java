@@ -3,7 +3,9 @@ package net.zepalesque.redux.block;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.dungeon.DoorwayBlock;
 import com.aetherteam.aether.block.dungeon.TrappedBlock;
+import com.aetherteam.aether.block.miscellaneous.FloatingBlock;
 import com.aetherteam.aether.block.natural.AetherBushBlock;
+import com.aetherteam.aether.block.natural.AetherDoubleDropBlock;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -118,6 +120,52 @@ public class ReduxBlocks extends ReduxBlockBuilders {
     public static DeferredBlock<Block> SENTRITE_LANTERN = register("sentrite_lantern",
             () -> new LanternBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LANTERN).mapColor(MapColor.DEEPSLATE).lightLevel(state -> 13)));
 
+    public static final DeferredBlock<Block> VERIDIUM_ORE = register(
+            "veridium_ore",
+            () -> new AetherDoubleDropBlock(
+                    Block.Properties.of()
+                            .mapColor(MapColor.WOOL)
+                            .instrument(NoteBlockInstrument.BASEDRUM)
+                            .strength(3.0F)
+                            .requiresCorrectToolForDrops()
+            )
+    );
+
+    public static final DeferredBlock<Block> RAW_VERIDIUM_BLOCK = register(
+            "raw_veridium_block",
+            () -> new Block(
+                    BlockBehaviour.Properties.of()
+                            .mapColor(MapColor.LAPIS)
+                            .instrument(NoteBlockInstrument.BASEDRUM)
+                            .requiresCorrectToolForDrops()
+                            .sound(SoundType.STONE)
+                            .strength(3.0F, 6.0F)
+            )
+    );
+
+    public static final DeferredBlock<Block> VERIDIUM_BLOCK = register(
+            "veridium_block",
+            () -> new Block(
+                    BlockBehaviour.Properties.of()
+                            .mapColor(MapColor.LAPIS)
+//                            .instrument(NoteBlockInstrument.)
+                            .requiresCorrectToolForDrops()
+                            .strength(5.0F, 6.0F)
+                            .sound(SoundType.METAL)
+            )
+    );
+
+    public static final DeferredBlock<Block> REFINED_SENTRITE_BLOCK = register(
+            "refined_sentrite_block",
+            () -> new Block(
+                    BlockBehaviour.Properties.of()
+                            .mapColor(MapColor.COLOR_GRAY)
+//                            .instrument(NoteBlockInstrument.IRON_XYLOPHONE)
+                            .requiresCorrectToolForDrops()
+                            .strength(6.0F, 6.0F)
+                            .sound(SoundType.NETHERITE_BLOCK)
+            )
+    );
 
     public static void registerFlammability() {
         FireAccessor accessor = (FireAccessor) Blocks.FIRE;

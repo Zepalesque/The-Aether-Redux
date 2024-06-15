@@ -160,16 +160,16 @@ public class LogWallWoodSet extends BaseWoodSet {
         super.langData(data);
         String name = DatagenUtil.getNameLocalized(this.id);
 
-        data.add(this.logWall());
+        data.addBlock(this.logWall());
         data.addLore(this.logWall(), "Crafted from " + name + " " + this.logSuffix(true, false) + ". Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
 
-        data.add(this.strippedLogWall());
+        data.addBlock(this.strippedLogWall());
         data.addLore(this.strippedLogWall(), "Crafted from Stripped " + name + " " + this.logSuffix(true, false) + ". Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
 
-        data.add(this.woodWall());
+        data.addBlock(this.woodWall());
         data.addLore(this.woodWall(), "Crafted from " + name + " " + this.woodSuffix(true, false) + ". Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
 
-        data.add(this.strippedWoodWall());
+        data.addBlock(this.strippedWoodWall());
         data.addLore(this.strippedWoodWall(), "Crafted from Stripped " + name + " " + this.woodSuffix(true, false) + ". Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
     }
 

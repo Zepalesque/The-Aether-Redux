@@ -72,6 +72,11 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
         this.handheldItem(ReduxItems.VERIDIUM_HOE.get(), "tools/");
         this.handheldGlow(ReduxItems.INFUSED_VERIDIUM_HOE.get(), "tools/");
 
+        this.itemBlock(ReduxBlocks.VERIDIUM_ORE.get());
+        this.itemBlock(ReduxBlocks.RAW_VERIDIUM_BLOCK.get());
+        this.itemBlock(ReduxBlocks.VERIDIUM_BLOCK.get());
+        this.itemBlock(ReduxBlocks.REFINED_SENTRITE_BLOCK.get());
+
     }
 
 }

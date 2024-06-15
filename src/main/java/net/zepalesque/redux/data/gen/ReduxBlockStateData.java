@@ -55,5 +55,10 @@ public class ReduxBlockStateData extends ReduxBlockStateProvider {
         this.chain(ReduxBlocks.SENTRITE_CHAIN.get(), "construction/");
         this.lantern(ReduxBlocks.SENTRITE_LANTERN.get(), "construction/");
 
+        this.blockDoubleDrops(ReduxBlocks.VERIDIUM_ORE.get(), "natural/");
+        this.block(ReduxBlocks.RAW_VERIDIUM_BLOCK.get(), "construction/");
+        this.block(ReduxBlocks.VERIDIUM_BLOCK.get(), "construction/");
+        this.block(ReduxBlocks.REFINED_SENTRITE_BLOCK.get(), "construction/");
+
     }
 }

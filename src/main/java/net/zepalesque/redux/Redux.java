@@ -31,6 +31,7 @@ import net.zepalesque.redux.config.ReduxConfigHandler;
 import net.zepalesque.redux.data.ReduxData;
 import net.zepalesque.redux.entity.ReduxEntities;
 import net.zepalesque.redux.item.ReduxItems;
+import net.zepalesque.redux.loot.modifer.ReduxLootModifiers;
 import net.zepalesque.redux.recipe.ReduxRecipes;
 import net.zepalesque.redux.tile.ReduxTiles;
 import net.zepalesque.redux.world.biome.tint.ReduxBiomeTints;
@@ -79,7 +80,8 @@ public class Redux {
                 ReduxParticles.PARTICLES,
                 ReduxRecipes.TYPES,
                 ReduxRecipes.Serializers.SERIALIZERS,
-                ReduxSounds.SOUNDS
+                ReduxSounds.SOUNDS,
+                ReduxLootModifiers.GLOBAL_LOOT_MODIFIERS
         };
 
         for (DeferredRegister<?> register : registers) {

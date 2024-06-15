@@ -239,13 +239,13 @@ public class BaseStoneSet extends AbstractStoneSet implements ReduxGeneration {
 
         String blockName = DatagenUtil.getNameLocalized(this.block());
 
-        data.add(this.block());
+        data.addBlock(this.block());
         data.addLore(this.block(), this.lore);
-        data.add(this.stairs());
+        data.addBlock(this.stairs());
         data.addLore(this.stairs(), "Crafted from " + blockName + ". Stairs are useful for adding verticality to builds and are often used for decoration too!");
-        data.add(this.slab());
+        data.addBlock(this.slab());
         data.addLore(this.slab(), "Crafted from " + blockName + ". Slabs are half blocks, versatile for decoration and smooth slopes. Try adding some to a building's roofing!");
-        data.add(this.wall());
+        data.addBlock(this.wall());
         data.addLore(this.wall(), "Crafted from " + blockName + ". Walls can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
     }
 

@@ -6,6 +6,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.zepalesque.redux.Redux;
@@ -23,6 +24,7 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     protected void addTags(HolderLookup.Provider provider) {
         Redux.WOOD_SETS.forEach(set -> set.blockTagData(this));
         Redux.STONE_SETS.forEach(set -> set.blockTagData(this));
@@ -98,7 +100,11 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
                 ReduxBlocks.SENTRY_BASE.get(),
                 ReduxBlocks.RUNELIGHT.get(),
                 ReduxBlocks.SENTRITE_CHAIN.get(),
-                ReduxBlocks.SENTRITE_LANTERN.get()
+                ReduxBlocks.SENTRITE_LANTERN.get(),
+                ReduxBlocks.VERIDIUM_ORE.get(),
+                ReduxBlocks.RAW_VERIDIUM_BLOCK.get(),
+                ReduxBlocks.VERIDIUM_BLOCK.get(),
+                ReduxBlocks.REFINED_SENTRITE_BLOCK.get()
         );
 
         this.tag(BlockTags.NEEDS_STONE_TOOL).add(
@@ -106,7 +112,10 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
                 ReduxBlocks.SENTRY_PILLAR.get(),
                 ReduxBlocks.CARVED_BASE.get(),
                 ReduxBlocks.SENTRY_BASE.get(),
-                ReduxBlocks.RUNELIGHT.get()
+                ReduxBlocks.RUNELIGHT.get(),
+                ReduxBlocks.VERIDIUM_ORE.get(),
+                ReduxBlocks.RAW_VERIDIUM_BLOCK.get(),
+                ReduxBlocks.VERIDIUM_BLOCK.get()
         );
 
         this.tag(BlockTags.FLOWER_POTS).add(
@@ -122,6 +131,30 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
                 ReduxBlocks.WYNDSPROUTS.get(),
                 ReduxBlocks.SKYSPROUTS.get(),
                 ReduxBlocks.WYNDOATS.get()
+        );
+
+
+
+        this.tag(Tags.Blocks.ORES).addTag(ReduxTags.Blocks.VERIDIUM_ORES);
+
+        this.tag(Tags.Blocks.STORAGE_BLOCKS).addTags(
+                ReduxTags.Blocks.STORAGE_BLOCKS_VERIDIUM, ReduxTags.Blocks.STORAGE_BLOCKS_RAW_VERIDIUM, ReduxTags.Blocks.STORAGE_BLOCKS_SENTRITE
+        );
+
+        this.tag(ReduxTags.Blocks.VERIDIUM_ORES).add(
+                ReduxBlocks.VERIDIUM_ORE.get()
+        );
+
+        this.tag(ReduxTags.Blocks.STORAGE_BLOCKS_RAW_VERIDIUM).add(
+                ReduxBlocks.RAW_VERIDIUM_BLOCK.get()
+        );
+
+        this.tag(ReduxTags.Blocks.STORAGE_BLOCKS_VERIDIUM).add(
+                ReduxBlocks.VERIDIUM_BLOCK.get()
+        );
+
+        this.tag(ReduxTags.Blocks.STORAGE_BLOCKS_SENTRITE).add(
+                ReduxBlocks.REFINED_SENTRITE_BLOCK.get()
         );
     }
 }

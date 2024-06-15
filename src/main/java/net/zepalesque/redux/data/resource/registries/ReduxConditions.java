@@ -19,6 +19,8 @@ public class ReduxConditions {
     public static final ResourceKey<Condition<?>> SKY_COLORS = createKey("sky_colors");
     public static final ResourceKey<Condition<?>> CLOUDBED = createKey("cloudbed");
 
+    public static final ResourceKey<Condition<?>> RAW_ORES = createKey("cloudbed");
+
     public static void bootstrap(BootstapContext<Condition<?>> context) {
         context.register(DEEP, new ModLoadedCondition("deep_aether"));
         context.register(GENESIS, new ModLoadedCondition("aether_genesis"));

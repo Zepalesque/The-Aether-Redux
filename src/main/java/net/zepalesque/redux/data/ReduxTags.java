@@ -26,6 +26,13 @@ public class ReduxTags {
         // Blocks that count as Coarse Aether Dirt
         public static final TagKey<Block> COARSE_AETHER_DIRT = tag("coarse_aether_dirt");
 
+
+        // NeoForge tags
+        public static final TagKey<Block> VERIDIUM_ORES = tag("veridium_ores");
+        public static final TagKey<Block> STORAGE_BLOCKS_VERIDIUM = tag("storage_blocks_veridium");
+        public static final TagKey<Block> STORAGE_BLOCKS_RAW_VERIDIUM = tag("storage_blocks_raw_veridium");
+        public static final TagKey<Block> STORAGE_BLOCKS_SENTRITE = tag("storage_blocks_sentrite");
+
         public static TagKey<Block> tag(String name) {
             return TagKey.create(Registries.BLOCK, Redux.loc(name));
         }

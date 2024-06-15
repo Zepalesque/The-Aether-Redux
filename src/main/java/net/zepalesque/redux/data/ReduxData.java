@@ -2,6 +2,7 @@ package net.zepalesque.redux.data;
 
 import com.aetherteam.aether.data.generators.tags.AetherEntityTagData;
 import net.minecraft.DetectedVersion;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -15,6 +16,7 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.data.gen.ReduxBlockStateData;
+import net.zepalesque.redux.data.gen.ReduxLootModifierData;
 import net.zepalesque.redux.data.gen.ReduxMapData;
 import net.zepalesque.redux.data.gen.ReduxItemModelData;
 import net.zepalesque.redux.data.gen.ReduxLanguageData;
@@ -35,7 +37,7 @@ public class ReduxData {
     public static void dataSetup(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
         ExistingFileHelper fileHelper = event.getExistingFileHelper();
-        CompletableFuture<Provider> lookupProvider = event.getLookupProvider();
+        CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
         PackOutput packOutput = generator.getPackOutput();
 
         // Client Data
@@ -53,6 +55,7 @@ public class ReduxData {
         // Use for structure and damage type data
         CompletableFuture<Provider> registryProvider = registrySets.getRegistryProvider();
         generator.addProvider(event.includeServer(), registrySets);
+        generator.addProvider(event.includeServer(), new ReduxLootModifierData(packOutput, lookupProvider));
 
         // Tags
         ReduxBlockTagsData blockTags = new ReduxBlockTagsData(packOutput, lookupProvider, fileHelper);

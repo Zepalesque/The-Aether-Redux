@@ -55,7 +55,7 @@ public abstract class AbstractBookshelfSet<B extends BookshelfBlock> extends Log
         super.langData(data);
         String name = DatagenUtil.getNameLocalized(this.id);
 
-        data.add(this.bookshelf());
+        data.addBlock(this.bookshelf());
         data.addLore(this.bookshelf(), "A nice bookshelf made of " + name + " wood. These are nice for decoration, and also will enhance the abilities of Enchanting Tables!");
     }
 
