@@ -1,4 +1,4 @@
-// 1.20.4	2024-06-15T13:56:42.7389791	Registries
+// 1.20.4	2024-06-15T14:31:59.9384146	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 3d89e7c030d3ec47419f92a3c9d150c15ffe05a9 data/aether/worldgen/configured_feature/grass_patch.json
 47ec4dab1e49d10c7a9d88096f1d8297e837b2e8 data/aether/worldgen/configured_feature/skyroot_tree.json
@@ -14,10 +14,10 @@ b1924e11e2a4cc074084f391e61ba8b59b590874 data/aether_redux/neoforge/biome_modifi
 15626864bc7c207008638ad249d0e3597d690a9b data/aether_redux/worldgen/density_function/cloudbed_noise.json
 123716e2850a50ab2cec88cc5d642fe27e09e41f data/aether_redux/worldgen/density_function/cloudbed_y_offset.json
 2e8ce4c531982cca5248401ec7558993018f12df data/aether_redux/worldgen/placed_feature/cloudbed.json
-d1c424fddd3d29564e7c4b5371fca645bb3170b9 data/aether_redux/zenith/condition/aether_genesis.json
-4d058722e9174ace67c5b78d90eb0422af95990c data/aether_redux/zenith/condition/ancient_aether.json
-26d611c41f63e87e4ce1bb1f5571a1421f089342 data/aether_redux/zenith/condition/cloudbed.json
-713c3f2a42b24b736cc6177cb36906e3f1032c9f data/aether_redux/zenith/condition/deep_aether.json
-f3df1f199e2ac5f79e6d90d780ba452ccb7545ef data/aether_redux/zenith/condition/lost_content.json
-c8c1c8b83c6a6845975debafba125fbb8fc145b9 data/aether_redux/zenith/condition/raw_ores.json
-375b5b3400cba539c9316142dc087fbbe16b30ee data/aether_redux/zenith/condition/sky_colors.json
+c74207f8d01818e83140eff095b4487801234b07 data/aether_redux/zenith/condition/aether_genesis.json
+96bcb520c9c52e1167f75b6cc0819b1ace80ee87 data/aether_redux/zenith/condition/ancient_aether.json
+be0283c9198f7c9e3615671df6f6c8f81946f790 data/aether_redux/zenith/condition/cloudbed.json
+3ad7ec02ad141427ec626e2a51cb0dc120f5916b data/aether_redux/zenith/condition/deep_aether.json
+a69de6adead55660109151ecf2d0b65a212251a5 data/aether_redux/zenith/condition/lost_content.json
+e94a0a9fb747820846f62feb5e9c16a5174af5ae data/aether_redux/zenith/condition/raw_ores.json
+0ebd36b0a965201b39ebd3b5e353c3b70e3d9c18 data/aether_redux/zenith/condition/sky_colors.json

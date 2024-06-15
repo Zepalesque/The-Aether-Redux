@@ -1,0 +1,50 @@
+{
+  "type": "aether_redux:raw_ores",
+  "added_item": {
+    "Count": 1,
+    "id": "aether_redux:raw_veridium"
+  },
+  "conditions": [
+    {
+      "condition": "zenith:when",
+      "zenith_condition": {
+        "config_path": "[Tweaks, Raw Ores]",
+        "element": "zenith:config_enabled",
+        "serializer": "redux_server"
+      }
+    },
+    {
+      "condition": "minecraft:inverted",
+      "term": {
+        "condition": "minecraft:match_tool",
+        "predicate": {
+          "enchantments": [
+            {
+              "enchantment": "minecraft:silk_touch",
+              "levels": {
+                "min": 1
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "block": "aether_redux:veridium_ore",
+      "condition": "minecraft:block_state_property"
+    }
+  ],
+  "functions": [
+    {
+      "add": false,
+      "count": 1.0,
+      "function": "minecraft:set_count"
+    },
+    {
+      "enchantment": "minecraft:fortune",
+      "formula": "minecraft:ore_drops",
+      "function": "minecraft:apply_bonus"
+    }
+  ],
+  "removed_item": "aether_redux:veridium_ore"
+}

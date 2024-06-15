@@ -1,4 +1,6 @@
 {
-  "entries": [],
+  "entries": [
+    "aether_redux:raw_veridium"
+  ],
   "replace": false
 }

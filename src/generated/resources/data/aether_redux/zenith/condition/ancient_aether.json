@@ -1,4 +1,4 @@
 {
-  "condition": "zenith:mod_loaded",
+  "element": "zenith:mod_loaded",
   "modid": "ancient_aether"
 }
