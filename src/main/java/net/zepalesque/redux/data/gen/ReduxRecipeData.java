@@ -92,6 +92,36 @@ public class ReduxRecipeData extends ReduxRecipeProvider {
                 .withExtra(infusionInfo)
                 .save(output, Redux.loc("veridium_pickaxe_increase_infusion"));
 
+        infuse(ReduxItems.INFUSED_VERIDIUM_AXE.get(), ReduxItems.VERIDIUM_AXE.get())
+                .withSound(infusionSound)
+                .withExtra(infusionInfo)
+                .save(output, Redux.loc("veridium_axe_infuse"));
+
+        infuse(ReduxItems.INFUSED_VERIDIUM_AXE.get(), ReduxItems.INFUSED_VERIDIUM_AXE.get())
+                .withSound(infusionSound)
+                .withExtra(infusionInfo)
+                .save(output, Redux.loc("veridium_axe_increase_infusion"));
+
+        infuse(ReduxItems.INFUSED_VERIDIUM_SHOVEL.get(), ReduxItems.VERIDIUM_SHOVEL.get())
+                .withSound(infusionSound)
+                .withExtra(infusionInfo)
+                .save(output, Redux.loc("veridium_shovel_infuse"));
+
+        infuse(ReduxItems.INFUSED_VERIDIUM_SHOVEL.get(), ReduxItems.INFUSED_VERIDIUM_SHOVEL.get())
+                .withSound(infusionSound)
+                .withExtra(infusionInfo)
+                .save(output, Redux.loc("veridium_shovel_increase_infusion"));
+
+        infuse(ReduxItems.INFUSED_VERIDIUM_HOE.get(), ReduxItems.VERIDIUM_HOE.get())
+                .withSound(infusionSound)
+                .withExtra(infusionInfo)
+                .save(output, Redux.loc("veridium_hoe_infuse"));
+
+        infuse(ReduxItems.INFUSED_VERIDIUM_HOE.get(), ReduxItems.INFUSED_VERIDIUM_HOE.get())
+                .withSound(infusionSound)
+                .withExtra(infusionInfo)
+                .save(output, Redux.loc("veridium_hoe_increase_infusion"));
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ReduxBlocks.SENTRITE_LANTERN.get(), 1)
                 .define('C', ReduxItems.SENTRITE_CHUNK.get())
                 .define('A', AetherBlocks.AMBROSIUM_TORCH.get())
