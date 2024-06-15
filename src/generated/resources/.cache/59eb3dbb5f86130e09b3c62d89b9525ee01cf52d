@@ -1,4 +1,4 @@
-// 1.20.4	2024-06-11T20:25:39.2300784	Loot Tables
+// 1.20.4	2024-06-15T13:11:28.8687072	Loot Tables
 16b03329a81906c5130061c5ea9ae1168890a761 data/aether_redux/loot_tables/blocks/blightmoss_holystone.json
 95ce5e6d7a83e0c7f242a6389d5a3a39c565d8c8 data/aether_redux/loot_tables/blocks/blightmoss_holystone_slab.json
 47bbb56cb9acce50d6c97031b9cc801972bd7290 data/aether_redux/loot_tables/blocks/blightmoss_holystone_stairs.json
@@ -41,6 +41,8 @@ c0545729e1b01540a21d07eb211cc7f1d1b9ac02 data/aether_redux/loot_tables/blocks/lo
 f2ee8a0340fe4250b507a2c2f68bb5a4683720ea data/aether_redux/loot_tables/blocks/locked_sentry_pillar.json
 c8a2a7b592ef9664b2ac679b84029f1c5264d986 data/aether_redux/loot_tables/blocks/potted_skysprouts.json
 a8bc8724f9f839107bd4f743549a92ecd6053197 data/aether_redux/loot_tables/blocks/potted_wyndsprouts.json
+31634f3ccbb1109ba54691cd7c7c94d822fddafa data/aether_redux/loot_tables/blocks/raw_veridium_block.json
+0ebc7dcb8eb4341e49b22474ca24a82197aa4203 data/aether_redux/loot_tables/blocks/refined_sentrite_block.json
 d5f58f0628fd8f86bc78b66978c3c1ca732d9549 data/aether_redux/loot_tables/blocks/runelight.json
 853ffb6317f8b66383cc6222a9f5b7e9981debeb data/aether_redux/loot_tables/blocks/sentrite.json
 49834448dd8324265edd752f9816a5a2bdba3c52 data/aether_redux/loot_tables/blocks/sentrite_bricks.json
@@ -64,5 +66,7 @@ a2bb26b94f18248f25dd36d6ea7564aef18a1fd5 data/aether_redux/loot_tables/blocks/st
 a6494ba38611426272bb7e47027a6a9856ae86c7 data/aether_redux/loot_tables/blocks/trapped_carved_pillar.json
 2f124ec5e163eea5521ae751bb16847e55e94417 data/aether_redux/loot_tables/blocks/trapped_sentry_base.json
 7bc783fa84000f2254cea129501b0d0c984b110e data/aether_redux/loot_tables/blocks/trapped_sentry_pillar.json
+dcdc5c938c7ec1dd68a18d3c97701ff5d00bf833 data/aether_redux/loot_tables/blocks/veridium_block.json
+d6c46a7adee1dc0b26674114dcf63801666d7903 data/aether_redux/loot_tables/blocks/veridium_ore.json
 a198ab49e897c09558738dd570dd5251e6efbed2 data/aether_redux/loot_tables/blocks/wyndoats.json
 2bcc6bcbec89ab9fef547f48b40b5e036eca65ed data/aether_redux/loot_tables/blocks/wyndsprouts.json
