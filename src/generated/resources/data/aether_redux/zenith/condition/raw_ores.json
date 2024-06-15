@@ -1,0 +1,5 @@
+{
+  "config_path": "[Tweaks, Raw Ores]",
+  "element": "zenith:config_enabled",
+  "serializer": "redux_server"
+}
