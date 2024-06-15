@@ -65,6 +65,12 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
 
         this.handheldItem(ReduxItems.VERIDIUM_PICKAXE.get(), "tools/");
         this.handheldGlow(ReduxItems.INFUSED_VERIDIUM_PICKAXE.get(), "tools/");
+        this.handheldItem(ReduxItems.VERIDIUM_AXE.get(), "tools/");
+        this.handheldGlow(ReduxItems.INFUSED_VERIDIUM_AXE.get(), "tools/");
+        this.handheldItem(ReduxItems.VERIDIUM_SHOVEL.get(), "tools/");
+        this.handheldGlow(ReduxItems.INFUSED_VERIDIUM_SHOVEL.get(), "tools/");
+        this.handheldItem(ReduxItems.VERIDIUM_HOE.get(), "tools/");
+        this.handheldGlow(ReduxItems.INFUSED_VERIDIUM_HOE.get(), "tools/");
 
     }
 

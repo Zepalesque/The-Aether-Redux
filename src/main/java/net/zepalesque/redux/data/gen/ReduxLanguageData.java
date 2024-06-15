@@ -108,6 +108,22 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
         add(ReduxItems.INFUSED_VERIDIUM_PICKAXE);
         addLore(ReduxItems.INFUSED_VERIDIUM_PICKAXE, "A pickaxe made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it far more powerful for a short time!");
 
+        add(ReduxItems.VERIDIUM_AXE);
+        addLore(ReduxItems.VERIDIUM_AXE, "A axe made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it far more powerful for a short time!");
+        add(ReduxItems.INFUSED_VERIDIUM_AXE);
+        addLore(ReduxItems.INFUSED_VERIDIUM_AXE, "A axe made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it far more powerful for a short time!");
+
+        add(ReduxItems.VERIDIUM_SHOVEL);
+        addLore(ReduxItems.VERIDIUM_SHOVEL, "A shovel made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it far more powerful for a short time!");
+        add(ReduxItems.INFUSED_VERIDIUM_SHOVEL);
+        addLore(ReduxItems.INFUSED_VERIDIUM_SHOVEL, "A shovel made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it far more powerful for a short time!");
+
+        add(ReduxItems.VERIDIUM_HOE);
+        addLore(ReduxItems.VERIDIUM_HOE, "A hoe made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it far more powerful for a short time!");
+        add(ReduxItems.INFUSED_VERIDIUM_HOE);
+        addLore(ReduxItems.INFUSED_VERIDIUM_HOE, "A hoe made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it far more powerful for a short time!");
+
+
 
         addGuiText("shift_info", "Hold [%s] for more info...");
         addTooltip("infusion_charge", "Infusion Charge: %s");

@@ -1,6 +1,5 @@
 package net.zepalesque.redux.item.tools;
 
-import com.aetherteam.aether.entity.monster.dungeon.boss.Slider;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -8,10 +7,10 @@ import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.PickaxeItem;
+import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -26,10 +25,10 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-public class VeridiumPickaxeItem extends PickaxeItem implements VeridiumItem {
+public class VeridiumHoeItem extends HoeItem implements VeridiumItem {
     private final Supplier<? extends Item> uninfused;
 
-    public VeridiumPickaxeItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties, Supplier<? extends Item> uninfused) {
+    public VeridiumHoeItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties, Supplier<? extends Item> uninfused) {
         super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
         this.uninfused = uninfused;
     }
@@ -89,7 +88,7 @@ public class VeridiumPickaxeItem extends PickaxeItem implements VeridiumItem {
         return super.damageItem(stack, amount, entity, onBroken) * VeridiumItem.DURABILITY_DMG_MULTIPLIER;
     }
 
-    public static class Uninfused extends PickaxeItem {
+    public static class Uninfused extends HoeItem {
 
         public Uninfused(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
             super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
