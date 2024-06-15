@@ -2,6 +2,7 @@ package net.zepalesque.redux.item;
 
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.item.AetherCreativeTabs;
+import com.aetherteam.aether.item.AetherItems;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
@@ -76,6 +77,21 @@ public class ReduxTabs {
         if (tab == AetherCreativeTabs.AETHER_BUILDING_BLOCKS.get()) {
             TabUtil.add(ReduxBlocks.SENTRITE_LANTERN, event);
             TabUtil.add(ReduxBlocks.SENTRITE_CHAIN, event);
+        }
+
+
+
+        if (tab == AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES.get()) {
+            TabUtil.putBefore(AetherItems.GRAVITITE_SWORD, ReduxItems.INFUSED_VERIDIUM_HOE, event);
+            TabUtil.putBefore(ReduxItems.INFUSED_VERIDIUM_HOE, ReduxItems.INFUSED_VERIDIUM_AXE, event);
+            TabUtil.putBefore(ReduxItems.INFUSED_VERIDIUM_AXE, ReduxItems.INFUSED_VERIDIUM_PICKAXE, event);
+            TabUtil.putBefore(ReduxItems.INFUSED_VERIDIUM_PICKAXE, ReduxItems.INFUSED_VERIDIUM_SHOVEL, event);
+            TabUtil.putBefore(ReduxItems.INFUSED_VERIDIUM_SHOVEL, /*ReduxItems.INFUSED_VERIDIUM_SWORD, event);
+            TabUtil.putBefore(ReduxItems.INFUSED_VERIDIUM_SWORD,*/ ReduxItems.VERIDIUM_HOE, event);
+            TabUtil.putBefore(ReduxItems.VERIDIUM_HOE, ReduxItems.VERIDIUM_AXE, event);
+            TabUtil.putBefore(ReduxItems.VERIDIUM_AXE, ReduxItems.VERIDIUM_PICKAXE, event);
+            TabUtil.putBefore(ReduxItems.VERIDIUM_PICKAXE, ReduxItems.VERIDIUM_SHOVEL, event);
+//            TabUtil.putBefore(ReduxItems.VERIDIUM_SHOVEL, ReduxItems.VERIDIUM_SWORD, event);
         }
     }
 }

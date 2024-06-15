@@ -6,15 +6,16 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "aether_redux.refmap.json",
   "mixins": [
-    "common.world.structure.BronzeBossMixin",
-    "common.world.structure.BronzeDungeonMixin",
-    "common.block.QuicksoilMixin",
-    "common.entity.SliderMixin",
+    "common.TabUtilMixin",
     "common.accessor.EntityAccessor",
     "common.accessor.WallBlockAccessor",
     "common.block.BlockBehaviorMixin",
+    "common.block.QuicksoilMixin",
+    "common.entity.SliderMixin",
     "common.item.DiggerItemMixin",
-    "common.item.PickaxeItemMixin"
+    "common.item.PickaxeItemMixin",
+    "common.world.structure.BronzeBossMixin",
+    "common.world.structure.BronzeDungeonMixin"
   ],
   "client": [
     "client.color.AetherColorResolversMixin"
