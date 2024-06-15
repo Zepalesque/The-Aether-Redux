@@ -80,6 +80,7 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
         this.dropSelf(ReduxBlocks.VERIDIUM_ORE.get());
         this.dropSelf(ReduxBlocks.VERIDIUM_BLOCK.get());
         this.dropSelf(ReduxBlocks.RAW_VERIDIUM_BLOCK.get());
+        this.dropSelf(ReduxBlocks.REFINED_SENTRITE_BLOCK.get());
     }
 
     @Override
