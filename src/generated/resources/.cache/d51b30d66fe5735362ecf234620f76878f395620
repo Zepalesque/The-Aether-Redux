@@ -1,4 +1,4 @@
-// 1.20.4	2024-06-14T09:17:11.7698705	Item Models: aether_redux
+// 1.20.4	2024-06-14T20:15:30.3276683	Item Models: aether_redux
 a083a7311bfd77483a76afa2e0b34a2dca856c28 assets/aether_redux/models/item/blightmoss_holystone.json
 693490b382231c95e748c88f8daa13be00cd8ceb assets/aether_redux/models/item/blightmoss_holystone_slab.json
 e073f529066aa534f560372ff463759fa6a01401 assets/aether_redux/models/item/blightmoss_holystone_stairs.json
@@ -33,7 +33,10 @@ c21384e3c0f2e7cf2838fc78bd300726ad88099d assets/aether_redux/models/item/gilded_
 7cc45ca1892d40585fe787a30634854a783d1ef1 assets/aether_redux/models/item/gilded_holystone_slab.json
 462c33cc11eaca761757d91060550f705d13724b assets/aether_redux/models/item/gilded_holystone_stairs.json
 b94d7ae7552984746c011a3c414646a7b5538436 assets/aether_redux/models/item/gilded_holystone_wall.json
+799296c4d4b51c7508d64cc40b7f5af08fac78f1 assets/aether_redux/models/item/infused_veridium_axe.json
+e00233f8f617b931ac5a25f0bad5e540d5399350 assets/aether_redux/models/item/infused_veridium_hoe.json
 61eb8571e24f150cff006a0a41a18f2343cef7aa assets/aether_redux/models/item/infused_veridium_pickaxe.json
+b7a76be36d161bbb3c1c88a291640d20ed9d590a assets/aether_redux/models/item/infused_veridium_shovel.json
 8ce957a746719967288761a1531921e0a3f939cb assets/aether_redux/models/item/locked_carved_base.json
 11124fbbc813a05498b82ee07ea3a9236e5774cb assets/aether_redux/models/item/locked_carved_pillar.json
 136d60c440632072914a93fec02b7ffd652cc118 assets/aether_redux/models/item/locked_runelight.json
@@ -66,9 +69,12 @@ b71e309f2f2178dac6e064595c3a526051996e50 assets/aether_redux/models/item/trapped
 ae35ce3e133b74afcf9da44956dc675c069494b2 assets/aether_redux/models/item/trapped_carved_pillar.json
 bd3d3ad20b8dbfeea5505e61b48aaf4a64ed23f5 assets/aether_redux/models/item/trapped_sentry_base.json
 63c3485837cbacd6c15979a79e008e0353678c97 assets/aether_redux/models/item/trapped_sentry_pillar.json
+2c78df1e9275f237b1b0fc10b3c039bdaca1bb91 assets/aether_redux/models/item/veridium_axe.json
+2d4c2c4e77ee65d2d8da5fe989a0f0bd7d364513 assets/aether_redux/models/item/veridium_hoe.json
 7fe518aef675b78120cc6aac20d274687e5bf417 assets/aether_redux/models/item/veridium_ingot.json
 ae664ab76cfacf04198b02c4cc00c3039ca8954d assets/aether_redux/models/item/veridium_nugget.json
 0d78cc71932909a7fc306a4d5de2ec8c29ce63d4 assets/aether_redux/models/item/veridium_pickaxe.json
+0800d9276da8f932e06518a5176f0d34864d3c4f assets/aether_redux/models/item/veridium_shovel.json
 599bcfee1cc00ba1bb268ce17e64bc719d3f4269 assets/aether_redux/models/item/wyndsprouts.json
 b504c806f81f09c472208c14b5266cb230b62f26 assets/aether_redux/models/item/wynd_oats.json
 d769e4a3e26230564ec83792cbdfd952a01376e4 assets/aether_redux/models/item/wynd_oat_panicle.json
