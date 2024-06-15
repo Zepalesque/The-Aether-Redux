@@ -38,7 +38,7 @@ public abstract class ReduxLootModifierProvider extends GlobalLootModifierProvid
 
     @Override
     public CompletableFuture<?> run(CachedOutput cache) {
-        return CompletableFuture.allOf(super.run(cache), this.doHolderLookupModifiers());
+        return CompletableFuture.allOf(this.doHolderLookupModifiers(), super.run(cache));
     }
 
     protected CompletableFuture<HolderLookup.Provider> doHolderLookupModifiers() {
