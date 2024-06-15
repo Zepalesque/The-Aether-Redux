@@ -19,7 +19,7 @@ public class ReduxConditions {
     public static final ResourceKey<Condition<?>> SKY_COLORS = createKey("sky_colors");
     public static final ResourceKey<Condition<?>> CLOUDBED = createKey("cloudbed");
 
-    public static final ResourceKey<Condition<?>> RAW_ORES = createKey("raw_ores");
+//    public static final ResourceKey<Condition<?>> RAW_ORES = createKey("raw_ores");
 
     public static void bootstrap(BootstapContext<Condition<?>> context) {
         context.register(DEEP, new ModLoadedCondition("deep_aether"));
@@ -28,7 +28,7 @@ public class ReduxConditions {
         context.register(ANCIENT, new ModLoadedCondition("ancient_aether"));
         context.register(SKY_COLORS, new ConfigCondition(ReduxConfig.SERVER.serializerID(), ReduxConfig.SERVER.redux_sky_colors));
         context.register(CLOUDBED, new ConfigCondition(ReduxConfig.SERVER.serializerID(), ReduxConfig.SERVER.cloudbed));
-        context.register(RAW_ORES, new ConfigCondition(ReduxConfig.SERVER.serializerID(), ReduxConfig.SERVER.raw_ores));
+//        context.register(RAW_ORES, new ConfigCondition(ReduxConfig.SERVER.serializerID(), ReduxConfig.SERVER.raw_ores));
     }
 
     private static ResourceKey<Condition<?>> createKey(String name) {
