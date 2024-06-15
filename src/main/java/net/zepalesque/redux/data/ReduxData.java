@@ -52,10 +52,10 @@ public class ReduxData {
         generator.addProvider(event.includeServer(), ReduxLootData.create(packOutput));
         generator.addProvider(event.includeServer(), new ReduxMapData(packOutput, lookupProvider));
         DatapackBuiltinEntriesProvider registrySets = new ReduxRegistrySets(packOutput, lookupProvider, Redux.MODID);
-        // Use for structure and damage type data
+        // Use for structure and damage type data, plus any custom ones that need to access the condition registry
         CompletableFuture<Provider> registryProvider = registrySets.getRegistryProvider();
         generator.addProvider(event.includeServer(), registrySets);
-        generator.addProvider(event.includeServer(), new ReduxLootModifierData(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new ReduxLootModifierData(packOutput, registryProvider));
 
         // Tags
         ReduxBlockTagsData blockTags = new ReduxBlockTagsData(packOutput, lookupProvider, fileHelper);

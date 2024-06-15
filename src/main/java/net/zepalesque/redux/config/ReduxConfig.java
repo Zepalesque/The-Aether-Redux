@@ -13,6 +13,7 @@ public class ReduxConfig {
         public final ModConfigSpec.ConfigValue<Boolean> revamped_quicksoil_movement;
         public final ModConfigSpec.IntValue max_veridium_tool_infusion;
         public final ModConfigSpec.ConfigValue<Boolean> consistent_break_speeds;
+        public final ModConfigSpec.ConfigValue<Boolean> raw_ores;
 
         public Server(ModConfigSpec.Builder builder) {
             super(() -> SERVER_SPEC, "redux_server");
@@ -23,7 +24,9 @@ public class ReduxConfig {
             cloudbed = builder
                     .comment("Replace the Aether's large Aercloud features with a noise-based cloudbed")
                     .define("Cloudbed", true);
-
+            raw_ores = builder
+                    .comment("Use raw ores like modern vanilla versions, instead of just getting the ore block when mining it")
+                    .define("Raw Ores", true);
             builder.pop();
             builder.push("Gameplay");
             max_veridium_tool_infusion = builder

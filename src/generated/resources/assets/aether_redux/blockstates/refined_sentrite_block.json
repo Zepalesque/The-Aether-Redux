@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "aether_redux:block/refined_sentrite_block"
+    }
+  }
+}
