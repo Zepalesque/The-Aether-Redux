@@ -13,7 +13,6 @@ import java.util.Map;
 
 public class BlockBreakHooks {
 
-
     private static final Lazy<Map<Block, Float>> BREAK_SPEED_REMAP = Lazy.of(() -> Maps.newHashMap((new ImmutableMap.Builder<Block, Float>()
             .put(AetherBlocks.HOLYSTONE.get(), 1.0F))
             .put(AetherBlocks.HOLYSTONE_WALL.get(), 1.0F)

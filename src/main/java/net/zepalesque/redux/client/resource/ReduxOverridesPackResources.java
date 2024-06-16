@@ -75,9 +75,6 @@ public class ReduxOverridesPackResources extends AbstractPackResources
         return ImmutableMap.copyOf(map);
     }
 
-
-
-
     @SuppressWarnings("unchecked")
     @Nullable
     @Override

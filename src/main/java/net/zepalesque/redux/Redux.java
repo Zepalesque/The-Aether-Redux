@@ -403,7 +403,6 @@ public class Redux {
                 ReduxOverridesPackResources combined = ReduxPackConfig.generate(id, title, desc);
                 BuiltinPackUtils.mandatory(event, combined, id, title, desc);
             }
-
         }
     }
 

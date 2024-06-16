@@ -124,9 +124,9 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
         this.add(ReduxSoundEvents.CONVERT_BLIGHTED_SPORES,
                 definition().with(sound("aether_redux:item/convert_blighted_spores"))
                         .subtitle("subtitles.aether_redux.item.convert_blighted_spores"));
-        this.add(ReduxSoundEvents.INFUSE_ITEM,
-                definition().with(sound("aether_redux:item/infuse_item"))
-                        .subtitle("subtitles.aether_redux.item.infuse_item"));
+    this.add(ReduxSoundEvents.INFUSE_ITEM,
+            definition().with(sound("aether_redux:item/infuse_item"))
+                    .subtitle("subtitles.aether_redux.item.infuse_item"));
         this.add(ReduxSoundEvents.INFUSION_EXPIRE,
                 definition().with(sound("aether_redux:item/infusion_expire"))
                         .subtitle("subtitles.aether_redux.item.infusion_expire"));
