@@ -60,11 +60,18 @@ public class ReduxConfig {
 
         public final ModConfigSpec.ConfigValue<Boolean> leaf_particles;
 
+        public final ModConfigSpec.ConfigValue<Boolean> tintable_grass;
+
         public Client(ModConfigSpec.Builder builder) {
-            builder.push("TODO");
+            builder.push("Visual");
             leaf_particles = builder
                     .comment("Use nice falling leaf particles for Aether leaf blocks")
                     .define("Leaf Particles", true);
+            builder.pop();
+            builder.push("Built-in Packs");
+            tintable_grass = builder
+                    .comment("Use modified models to allow tintable Aether Grass blocks and plants. Only disable if you know what you're doing!")
+                    .define("Tinted Grass", true);
             builder.pop();
         }
     }

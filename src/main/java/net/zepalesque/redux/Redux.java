@@ -32,6 +32,8 @@ import net.zepalesque.redux.data.ReduxData;
 import net.zepalesque.redux.entity.ReduxEntities;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.loot.modifer.ReduxLootModifiers;
+import net.zepalesque.redux.pack.ReduxPackConfig;
+import net.zepalesque.redux.pack.PackUtils;
 import net.zepalesque.redux.recipe.ReduxRecipes;
 import net.zepalesque.redux.tile.ReduxTiles;
 import net.zepalesque.redux.world.biome.tint.ReduxBiomeTints;
@@ -104,45 +106,13 @@ public class Redux {
     private void registerDataMaps(RegisterDataMapTypesEvent event) {
     }
 
-    // TODO: probably fairly obvious what is TODO (pack config)
     public  void packSetup(AddPackFindersEvent event) {
-
         if (event.getPackType() == PackType.CLIENT_RESOURCES) {
-            Path resourcePath = ModList.get().getModFileById(MODID).getFile().findResource("packs/resource/tintable_grass");
-            PackMetadataSection metadata = new PackMetadataSection(Component.translatable("pack.aether_redux.tintable_grass.description"),
-                    SharedConstants.getCurrentVersion().getPackVersion(PackType.CLIENT_RESOURCES));
-            event.addRepositorySource((source) ->
-                    source.accept(Pack.create(
-                            "builtin/redux/resource/tintable_grass",
-                            Component.translatable("pack.aether_redux.tintable_grass.title"),
-                            false,
-                            new PathPackResources.PathResourcesSupplier(resourcePath, true),
-                            new Pack.Info(metadata.description(), PackCompatibility.COMPATIBLE, FeatureFlagSet.of(), List.of(), false),
-                            Pack.Position.TOP,
-                            false,
-                            PackSource.BUILT_IN)
-                    ));
+            String pathString = "resource/overrides_pack";
+            String id = "overrides_pack";
+            PackUtils.setupPack(event, pathString, id, PackType.CLIENT_RESOURCES, true, ReduxPackConfig::generate);
         } else if (event.getPackType() == PackType.SERVER_DATA) {
-            if (ReduxConfig.COMMON.bronze_dungeon_upgrade.get()) { requiredDatapack(event, "dungeon_upgrades/bronze", "bronze_upgrade"); }
-        }
-    }
-
-    private void requiredDatapack(AddPackFindersEvent event, String path, String id) {
-        if (event.getPackType() == PackType.SERVER_DATA) {
-            Path resourcePath = ModList.get().getModFileById(MODID).getFile().findResource("packs/data/" + path);
-            PackMetadataSection metadata = new PackMetadataSection(Component.translatable("pack.aether_redux." + id + ".description"),
-                    SharedConstants.getCurrentVersion().getPackVersion(PackType.SERVER_DATA));
-            event.addRepositorySource((source) ->
-                source.accept(Pack.create(
-                        "builtin/redux/data/" + path,
-                        Component.translatable("pack.aether_redux." + id + ".title"),
-                        true,
-                        new PathPackResources.PathResourcesSupplier(resourcePath, true),
-                        new Pack.Info(metadata.description(), PackCompatibility.COMPATIBLE, FeatureFlagSet.of(), List.of(), false),
-                        Pack.Position.TOP,
-                        false,
-                        PackSource.BUILT_IN)
-                ));
+            if (ReduxConfig.COMMON.bronze_dungeon_upgrade.get()) { PackUtils.setupPack(event, "dungeon_upgrades/bronze", "bronze_upgrade", PackType.SERVER_DATA, true); }
         }
     }
 
