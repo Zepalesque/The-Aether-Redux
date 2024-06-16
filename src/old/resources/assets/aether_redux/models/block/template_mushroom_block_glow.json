@@ -57,12 +57,12 @@
 			"from": [5, 0, 6],
 			"to": [9, 10, 10],
 			"faces": {
-				"north": {"uv": [1, 2, 2, 7], "texture": "#glow", "forge_data": { "block_light": 15, "sky_light": 15 }},
-				"east": {"uv": [0, 2, 1, 7], "texture": "#glow", "forge_data": { "block_light": 15, "sky_light": 15 }},
-				"south": {"uv": [3, 2, 4, 7], "texture": "#glow", "forge_data": { "block_light": 15, "sky_light": 15 }},
-				"west": {"uv": [2, 2, 3, 7], "texture": "#glow", "forge_data": { "block_light": 15, "sky_light": 15 }},
-				"up": {"uv": [2, 2, 1, 0], "texture": "#glow", "forge_data": { "block_light": 15, "sky_light": 15 }},
-				"down": {"uv": [3, 0, 2, 2], "texture": "#glow", "cullface": "down", "forge_data": { "block_light": 15, "sky_light": 15 }}
+				"north": {"uv": [1, 2, 2, 7], "texture": "#glow", "neoforge_data": { "block_light": 15, "sky_light": 15 }},
+				"east": {"uv": [0, 2, 1, 7], "texture": "#glow", "neoforge_data": { "block_light": 15, "sky_light": 15 }},
+				"south": {"uv": [3, 2, 4, 7], "texture": "#glow", "neoforge_data": { "block_light": 15, "sky_light": 15 }},
+				"west": {"uv": [2, 2, 3, 7], "texture": "#glow", "neoforge_data": { "block_light": 15, "sky_light": 15 }},
+				"up": {"uv": [2, 2, 1, 0], "texture": "#glow", "neoforge_data": { "block_light": 15, "sky_light": 15 }},
+				"down": {"uv": [3, 0, 2, 2], "texture": "#glow", "cullface": "down", "neoforge_data": { "block_light": 15, "sky_light": 15 }}
 			}
 		},
 		{
@@ -70,12 +70,12 @@
 			"from": [0, 10, 0],
 			"to": [16, 16, 16],
 			"faces": {
-				"north": {"uv": [4, 8, 8, 11], "texture": "#glow", "cullface": "north", "forge_data": { "block_light": 15, "sky_light": 15 }},
-				"east": {"uv": [0, 8, 4, 11], "texture": "#glow", "cullface": "east", "forge_data": { "block_light": 15, "sky_light": 15 }},
-				"south": {"uv": [12, 8, 16, 11], "texture": "#glow", "cullface": "south", "forge_data": { "block_light": 15, "sky_light": 15 }},
-				"west": {"uv": [8, 8, 12, 11], "texture": "#glow", "cullface": "west", "forge_data": { "block_light": 15, "sky_light": 15 }},
-				"up": {"uv": [8, 8, 4, 0], "texture": "#glow", "cullface": "up", "forge_data": { "block_light": 15, "sky_light": 15 }},
-				"down": {"uv": [12, 0, 8, 8], "texture": "#glow", "forge_data": { "block_light": 15, "sky_light": 15 }}
+				"north": {"uv": [4, 8, 8, 11], "texture": "#glow", "cullface": "north", "neoforge_data": { "block_light": 15, "sky_light": 15 }},
+				"east": {"uv": [0, 8, 4, 11], "texture": "#glow", "cullface": "east", "neoforge_data": { "block_light": 15, "sky_light": 15 }},
+				"south": {"uv": [12, 8, 16, 11], "texture": "#glow", "cullface": "south", "neoforge_data": { "block_light": 15, "sky_light": 15 }},
+				"west": {"uv": [8, 8, 12, 11], "texture": "#glow", "cullface": "west", "neoforge_data": { "block_light": 15, "sky_light": 15 }},
+				"up": {"uv": [8, 8, 4, 0], "texture": "#glow", "cullface": "up", "neoforge_data": { "block_light": 15, "sky_light": 15 }},
+				"down": {"uv": [12, 0, 8, 8], "texture": "#glow", "neoforge_data": { "block_light": 15, "sky_light": 15 }}
 			}
 		},
 		{
@@ -84,8 +84,8 @@
 			"to": [8, 10, 13.5],
 			"rotation": {"angle": -45, "axis": "y", "origin": [8, 8, 8]},
 			"faces": {
-				"east": {"uv": [12, 0, 14, 2], "texture": "#glow", "forge_data": { "block_light": 15, "sky_light": 15 }},
-				"west": {"uv": [12, 0, 14, 2], "texture": "#glow", "forge_data": { "block_light": 15, "sky_light": 15 }}
+				"east": {"uv": [12, 0, 14, 2], "texture": "#glow", "neoforge_data": { "block_light": 15, "sky_light": 15 }},
+				"west": {"uv": [12, 0, 14, 2], "texture": "#glow", "neoforge_data": { "block_light": 15, "sky_light": 15 }}
 			}
 		},
 		{
@@ -94,8 +94,8 @@
 			"to": [8, 10, 13.5],
 			"rotation": {"angle": 45, "axis": "y", "origin": [8, 8, 8]},
 			"faces": {
-				"east": {"uv": [12, 0, 14, 2], "texture": "#glow", "forge_data": { "block_light": 15, "sky_light": 15 }},
-				"west": {"uv": [12, 0, 14, 2], "texture": "#glow", "forge_data": { "block_light": 15, "sky_light": 15 }}
+				"east": {"uv": [12, 0, 14, 2], "texture": "#glow", "neoforge_data": { "block_light": 15, "sky_light": 15 }},
+				"west": {"uv": [12, 0, 14, 2], "texture": "#glow", "neoforge_data": { "block_light": 15, "sky_light": 15 }}
 			}
 		}
 	],

@@ -1,21 +1,13 @@
 package net.zepalesque.redux.pack;
 
 import com.google.common.collect.ImmutableMap;
-import com.mojang.datafixers.util.Pair;
-import net.minecraft.SharedConstants;
-import net.minecraft.network.chat.Component;
 import net.minecraft.server.packs.PackResources;
-import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.PathPackResources;
-import net.minecraft.server.packs.metadata.pack.PackMetadataSection;
 import net.neoforged.fml.ModList;
-import net.neoforged.neoforge.common.ModConfigSpec;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.config.ReduxConfig;
 
 import java.nio.file.Path;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.function.Supplier;
 
 public class ReduxPackConfig {
