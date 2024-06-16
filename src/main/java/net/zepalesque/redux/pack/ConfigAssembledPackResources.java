@@ -97,7 +97,7 @@ public class ConfigAssembledPackResources extends AbstractPackResources {
                 }
             }
 
-            if (combined.isEmpty()) {
+            if (combined.entrySet().isEmpty()) {
                 return null;
             }
             String input = GSON.toJson(combined);
