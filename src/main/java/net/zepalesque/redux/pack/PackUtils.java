@@ -19,13 +19,12 @@ import java.util.function.Function;
 
 public class PackUtils {
 
-    public static void setupPack(AddPackFindersEvent event, String path, String id, PackType side, boolean required, Function<Path, Pack.ResourcesSupplier> packBuilder) {
-        if (event.getPackType() == side) {
-            String folder = (side == PackType.SERVER_DATA ? "data/" : "resource/");
-            Path resourcePath = ModList.get().getModFileById(Redux.MODID).getFile().findResource("packs/" + folder + path);
-            PackMetadataSection metadata = new PackMetadataSection(Component.translatable("pack.aether_redux." + id + ".description"),
-                    SharedConstants.getCurrentVersion().getPackVersion(side));
-            event.addRepositorySource((source) ->
+    public static void setupPack(AddPackFindersEvent event, String path, String id, boolean required, Function<Path, Pack.ResourcesSupplier> packBuilder) {
+        String folder = (event.getPackType() == PackType.SERVER_DATA ? "data/" : "resource/");
+        Path resourcePath = ModList.get().getModFileById(Redux.MODID).getFile().findResource("packs/" + folder + path);
+        PackMetadataSection metadata = new PackMetadataSection(Component.translatable("pack.aether_redux." + id + ".description"),
+                SharedConstants.getCurrentVersion().getPackVersion(event.getPackType()));
+        event.addRepositorySource((source) ->
                 source.accept(Pack.create(
                         "builtin/redux/" + folder + path,
                         Component.translatable("pack.aether_redux." + id + ".title"),
@@ -36,10 +35,10 @@ public class PackUtils {
                         false,
                         PackSource.BUILT_IN)
                 ));
-        }
+
     }
 
-    public static void setupPack(AddPackFindersEvent event, String path, String id, PackType side, boolean required) {
-        setupPack(event, path, id, side, required, resourcePath -> new PathPackResources.PathResourcesSupplier(resourcePath, true));
+    public static void setupPack(AddPackFindersEvent event, String path, String id, boolean required) {
+        setupPack(event, path, id, required, resourcePath -> new PathPackResources.PathResourcesSupplier(resourcePath, true));
     }
 }

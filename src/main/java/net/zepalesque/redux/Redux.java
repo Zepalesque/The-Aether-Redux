@@ -1,20 +1,11 @@
 package net.zepalesque.redux;
 
 import com.mojang.logging.LogUtils;
-import net.minecraft.SharedConstants;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
-import net.minecraft.server.packs.PathPackResources;
-import net.minecraft.server.packs.metadata.pack.PackMetadataSection;
-import net.minecraft.server.packs.repository.Pack;
-import net.minecraft.server.packs.repository.PackCompatibility;
-import net.minecraft.server.packs.repository.PackSource;
-import net.minecraft.world.flag.FeatureFlagSet;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.event.AddPackFindersEvent;
@@ -32,8 +23,8 @@ import net.zepalesque.redux.data.ReduxData;
 import net.zepalesque.redux.entity.ReduxEntities;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.loot.modifer.ReduxLootModifiers;
-import net.zepalesque.redux.pack.ReduxPackConfig;
 import net.zepalesque.redux.pack.PackUtils;
+import net.zepalesque.redux.pack.ReduxPackConfig;
 import net.zepalesque.redux.recipe.ReduxRecipes;
 import net.zepalesque.redux.tile.ReduxTiles;
 import net.zepalesque.redux.world.biome.tint.ReduxBiomeTints;
@@ -43,10 +34,8 @@ import net.zepalesque.zenith.api.blockset.AbstractStoneSet;
 import net.zepalesque.zenith.api.blockset.AbstractWoodSet;
 import org.slf4j.Logger;
 
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 @Mod(Redux.MODID)
 public class Redux {
@@ -110,9 +99,9 @@ public class Redux {
         if (event.getPackType() == PackType.CLIENT_RESOURCES) {
             String pathString = "resource/overrides_pack";
             String id = "overrides_pack";
-            PackUtils.setupPack(event, pathString, id, PackType.CLIENT_RESOURCES, true, ReduxPackConfig::generate);
+            PackUtils.setupPack(event, pathString, id, true, ReduxPackConfig::generate);
         } else if (event.getPackType() == PackType.SERVER_DATA) {
-            if (ReduxConfig.COMMON.bronze_dungeon_upgrade.get()) { PackUtils.setupPack(event, "dungeon_upgrades/bronze", "bronze_upgrade", PackType.SERVER_DATA, true); }
+            if (ReduxConfig.COMMON.bronze_dungeon_upgrade.get()) { PackUtils.setupPack(event, "dungeon_upgrades/bronze", "bronze_upgrade", true); }
         }
     }
 
