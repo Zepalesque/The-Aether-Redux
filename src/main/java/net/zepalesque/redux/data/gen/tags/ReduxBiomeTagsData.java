@@ -22,5 +22,7 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
         this.tag(ReduxTags.Biomes.HAS_CLOUDBED).addTag(AetherTags.Biomes.IS_AETHER);
         this.tag(ReduxTags.Biomes.MODIFY_MUSIC).addTag(AetherTags.Biomes.IS_AETHER);
         this.tag(ReduxTags.Biomes.MODIFY_SKY_COLOR).addTag(AetherTags.Biomes.IS_AETHER);
+        this.tag(ReduxTags.Biomes.MODIFY_WATER_COLOR).addTag(AetherTags.Biomes.IS_AETHER);
+        this.tag(ReduxTags.Biomes.HAS_SENTRITE).addTag(AetherTags.Biomes.IS_AETHER);
     }
 }
