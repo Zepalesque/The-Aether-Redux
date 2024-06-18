@@ -36,6 +36,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Supplier;
 
+
+// TODO: Wire up the data side of this
 public class ConfigAssembledPackResources extends AbstractPackResources {
 
     private final Map<Supplier<Boolean>, PackResources> packs;

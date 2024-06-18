@@ -75,11 +75,13 @@ public class ReduxTabs {
         }
 
         if (tab == AetherCreativeTabs.AETHER_BUILDING_BLOCKS.get()) {
+            TabUtil.putAfter(AetherBlocks.ZANITE_BLOCK, ReduxBlocks.RAW_VERIDIUM_BLOCK, event);
+            TabUtil.putAfter(ReduxBlocks.RAW_VERIDIUM_BLOCK, ReduxBlocks.VERIDIUM_BLOCK, event);
+            TabUtil.putAfter(ReduxBlocks.VERIDIUM_BLOCK, ReduxBlocks.REFINED_SENTRITE_BLOCK, event);
+
             TabUtil.add(ReduxBlocks.SENTRITE_LANTERN, event);
             TabUtil.add(ReduxBlocks.SENTRITE_CHAIN, event);
         }
-
-
 
         if (tab == AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES.get()) {
             TabUtil.putBefore(AetherItems.GRAVITITE_SWORD, ReduxItems.INFUSED_VERIDIUM_HOE, event);
@@ -92,6 +94,12 @@ public class ReduxTabs {
             TabUtil.putBefore(ReduxItems.VERIDIUM_AXE, ReduxItems.VERIDIUM_PICKAXE, event);
             TabUtil.putBefore(ReduxItems.VERIDIUM_PICKAXE, ReduxItems.VERIDIUM_SHOVEL, event);
 //            TabUtil.putBefore(ReduxItems.VERIDIUM_SHOVEL, ReduxItems.VERIDIUM_SWORD, event);
+        }
+
+        if (tab == AetherCreativeTabs.AETHER_INGREDIENTS.get()) {
+            TabUtil.putAfter(AetherItems.ZANITE_GEMSTONE, ReduxItems.RAW_VERIDIUM, event);
+            TabUtil.putAfter(ReduxItems.RAW_VERIDIUM, ReduxItems.VERIDIUM_INGOT, event);
+            TabUtil.putAfter(ReduxItems.VERIDIUM_INGOT, ReduxItems.VERIDIUM_NUGGET, event);
         }
     }
 }

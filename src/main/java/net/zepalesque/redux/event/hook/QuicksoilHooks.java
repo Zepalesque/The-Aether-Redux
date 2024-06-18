@@ -8,7 +8,8 @@ import net.zepalesque.redux.mixin.mixins.common.accessor.EntityAccessor;
 public class QuicksoilHooks {
 
     public static boolean shouldAlterMovement(final LivingEntity entity) {
-        return entity.onGround() &&
+        return entity.level().isLoaded(((EntityAccessor) entity).callGetBlockPosBelowThatAffectsMyMovement()) &&
+                entity.onGround() &&
                 !entity.isInWater() &&
                 !(Math.abs(entity.getDeltaMovement().x + entity.getDeltaMovement().y + entity.getDeltaMovement().z) < 0.001D) &&
                 !entity.isSpectator()

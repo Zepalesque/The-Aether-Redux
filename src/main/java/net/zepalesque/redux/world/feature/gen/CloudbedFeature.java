@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
+import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.DensityFunction;
 import net.minecraft.world.level.levelgen.XoroshiroRandomSource;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
@@ -12,6 +13,7 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.synth.PerlinSimplexNoise;
+import net.zepalesque.zenith.world.density.PerlinNoiseFunction;
 
 import java.util.List;
 
@@ -25,9 +27,21 @@ public class CloudbedFeature extends Feature<CloudbedFeature.Config> {
     public boolean place(FeaturePlaceContext<Config> context) {
 
         Config config = context.config();
+        WorldGenLevel level = context.level();
 
         DensityFunction cloudNoise = config.cloudNoise();
         DensityFunction yOffsetNoise = config.yOffset();
+
+        DensityFunction.Visitor visitor = new PerlinNoiseFunction.PerlinNoiseVisitor(noise -> {
+            if (noise.initialized()) {
+                return noise;
+            } else {
+                return noise.initialize(offset -> new XoroshiroRandomSource(level.getSeed() + offset));
+            }
+        });
+
+        cloudNoise.mapAll(visitor);
+        yOffsetNoise.mapAll(visitor);
 
         // This should be placed, once per chunk
         int chunkX = context.origin().getX() - (context.origin().getX() % 16);
