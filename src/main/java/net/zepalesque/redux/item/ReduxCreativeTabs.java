@@ -267,8 +267,9 @@ public class ReduxCreativeTabs {
                 putAfter(AncientAetherItems.VALKYRUM, ReduxItems.RAW_VALKYRUM, event);
             }
 
-            putAfter(AetherItems.AECHOR_PETAL, ReduxItems.MYKAPOD_SHELL_CHUNK, event);
-            putAfter(ReduxItems.WYND_OATS, ReduxItems.WYND_OATS, event);
+            putAfter(ReduxItems.VERIDIUM_NUGGET, ReduxItems.MYKAPOD_SHELL_CHUNK, event);
+
+            putAfter(AetherItems.AECHOR_PETAL, ReduxItems.WYND_OATS, event);
             putAfter(ReduxItems.WYND_OATS, ReduxItems.WYND_OAT_PANICLE, event);
             putAfter(ReduxItems.WYND_OAT_PANICLE, ReduxItems.LIGHTROOT_CLUMP, event);
 

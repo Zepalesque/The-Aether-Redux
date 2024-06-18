@@ -15,7 +15,7 @@ import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.zepalesque.redux.client.audio.ReduxMusic;
-import net.zepalesque.redux.data.resource.ReduxPlacedFeatures;
+import net.zepalesque.redux.data.resource.ReduxPlacements;
 
 public class SkyrootShrublands {
 
@@ -70,9 +70,9 @@ public class SkyrootShrublands {
 
                 .addFeature(GenerationStep.Decoration.RAW_GENERATION, AetherPlacedFeatures.QUICKSOIL_SHELF_PLACEMENT)
 
-                .addFeature(GenerationStep.Decoration.LAKES, ReduxPlacedFeatures.SURFACE_RULE_WATER_LAKE)
+                .addFeature(GenerationStep.Decoration.LAKES, ReduxPlacements.SURFACE_RULE_WATER_LAKE)
 
-                .addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, ReduxPlacedFeatures.SHRUBLANDS_ROCK)
+                .addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, ReduxPlacements.SHRUBLANDS_ROCK)
 
                 .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_AETHER_DIRT_PLACEMENT)
                 .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_ICESTONE_PLACEMENT)
@@ -83,19 +83,19 @@ public class SkyrootShrublands {
 
                 .addFeature(GenerationStep.Decoration.FLUID_SPRINGS, AetherPlacedFeatures.WATER_SPRING_PLACEMENT)
 
-                .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.SHRUBLANDS_TREES)
+                .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.SHRUBLANDS_TREES)
                 .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.HOLIDAY_TREE_PLACEMENT)
-                .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.DENSE_GRASS)
+                .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.DENSE_GRASS)
                 .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.TALL_GRASS_PATCH_PLACEMENT)
-                .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.SHRUBLANDS_PURPLE_PATCH)
-                .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.SHRUBLANDS_WHITE_PATCH)
-                .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.ZYATRIX_PATCH)
-                .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.ZANBERRY_BUSH_PATCH)
-                .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.THERATIP_PATCH)
-                .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacedFeatures.SPLITFERN_PATCH)
+                .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.SHRUBLANDS_PURPLE_PATCH)
+                .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.SHRUBLANDS_WHITE_PATCH)
+                .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.ZYATRIX_PATCH)
+                .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.ZANBERRY_BUSH_PATCH)
+                .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.THERATIP_PATCH)
+                .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.SPLITFERN_PATCH)
 
                 .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.COLD_AERCLOUD_PLACEMENT)
-                .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, ReduxPlacedFeatures.SPARSE_BLUE_AERCLOUD)
+                .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, ReduxPlacements.SPARSE_BLUE_AERCLOUD)
                 .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.GOLDEN_AERCLOUD_PLACEMENT)
 
                 .build())

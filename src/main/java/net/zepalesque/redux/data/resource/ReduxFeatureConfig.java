@@ -71,7 +71,7 @@ import java.util.OptionalInt;
 
 
 // TODO (maybe not the perfect spot for this but whatever) IntProvider-based straight Trunk placer thing (should really be a vanilla feature)
-public class ReduxConfiguredFeatures {
+public class ReduxFeatureConfig {
     public static final ResourceKey<ConfiguredFeature<?, ?>> AEVELIUM_GRASSES_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.AVELIUM) + "_grasses_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FUNGAL_PATCH = createKey(Folders.CAVE + "fungal_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FUNGAL_PATCH_BONEMEAL = createKey(Folders.CAVE + "fungal_patch_bonemeal");
@@ -381,7 +381,7 @@ public class ReduxConfiguredFeatures {
                                         UniformInt.of(2, 3), Optional.of(Conditions.VINES)),
                                 new PatchTreeDecorator(createLeafPileLayers(ReduxBlocks.GILDED_LEAF_PILE), 7, 3, 32))).build());
 
-        register(context, ReduxConfiguredFeatures.FANCY_GILDED_OAK_TREE, Feature.TREE,
+        register(context, ReduxFeatureConfig.FANCY_GILDED_OAK_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
                         new WeightedStateProvider(
                                 SimpleWeightedRandomList.<BlockState>builder()
@@ -427,7 +427,7 @@ public class ReduxConfiguredFeatures {
                         new TwoLayersFeatureSize(2, 0, 2))
                         .ignoreVines().build());
 
-        register(context, ReduxConfiguredFeatures.FANCY_GOLDEN_OAK_TREE, Feature.TREE,
+        register(context, ReduxFeatureConfig.FANCY_GOLDEN_OAK_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
                         BlockStateProvider.simple(AetherFeatureStates.GOLDEN_OAK_LOG),
                         new FancyTrunkPlacer(10, 0, 0),
@@ -655,9 +655,9 @@ public class ReduxConfiguredFeatures {
 
         register(context, SKYFIELDS_TREES, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(
-                        new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(ReduxConfiguredFeatures.CRYSTAL_RARE_FRUIT_TREE),
+                        new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(ReduxFeatureConfig.CRYSTAL_RARE_FRUIT_TREE),
                                 PlacementUtils.filteredByBlockSurvival(AetherBlocks.SKYROOT_SAPLING.get())), 0.05F),
-                        new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(ReduxConfiguredFeatures.CRYSTAL_LEAF_TREE),
+                        new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(ReduxFeatureConfig.CRYSTAL_LEAF_TREE),
                                 PlacementUtils.filteredByBlockSurvival(AetherBlocks.SKYROOT_SAPLING.get())), 0.3F)
                 ),
                         PlacementUtils.inlinePlaced(
@@ -666,7 +666,7 @@ public class ReduxConfiguredFeatures {
 
         register(context, SHRUBLANDS_TREES, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(
-                        new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(ReduxConfiguredFeatures.SKYROOT_PINE),
+                        new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configuredFeatures.getOrThrow(ReduxFeatureConfig.SKYROOT_PINE),
                                 PlacementUtils.filteredByBlockSurvival(AetherBlocks.SKYROOT_SAPLING.get())), 0.05F)
                 ),
                         PlacementUtils.inlinePlaced(
