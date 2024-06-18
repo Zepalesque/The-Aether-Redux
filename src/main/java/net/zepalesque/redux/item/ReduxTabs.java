@@ -100,6 +100,9 @@ public class ReduxTabs {
             TabUtil.putAfter(AetherItems.ZANITE_GEMSTONE, ReduxItems.RAW_VERIDIUM, event);
             TabUtil.putAfter(ReduxItems.RAW_VERIDIUM, ReduxItems.VERIDIUM_INGOT, event);
             TabUtil.putAfter(ReduxItems.VERIDIUM_INGOT, ReduxItems.VERIDIUM_NUGGET, event);
+
+            TabUtil.putAfter(AetherItems.AECHOR_PETAL, ReduxItems.WYND_OATS, event);
+            TabUtil.putAfter(ReduxItems.WYND_OATS, ReduxItems.WYND_OAT_PANICLE, event);
         }
     }
 }
