@@ -1,5 +1,6 @@
 package net.zepalesque.redux.data.resource.registries;
 
+import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.AetherBlockStateProperties;
 import com.aetherteam.aether.data.resources.AetherFeatureStates;
 import com.aetherteam.aether.data.resources.registries.AetherConfiguredFeatures;
@@ -22,6 +23,7 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
@@ -29,10 +31,12 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlac
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
+import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.state.ReduxStates;
+import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
 import net.zepalesque.redux.blockset.wood.ReduxWoodSets;
 import net.zepalesque.redux.data.resource.builders.ReduxFeatureBuilders;
 import net.zepalesque.redux.world.feature.gen.CloudbedFeature;
@@ -46,6 +50,9 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
     public static final ResourceKey<ConfiguredFeature<?, ?>> CLOUDBED = createKey("cloudbed");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> CLOUDROOT_TREE = createKey("cloudroot");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SENTRITE_ORE = createKey(name(ReduxStoneSets.SENTRITE.block()) + "_ore");
+
 
     // Overrides
     public static final ResourceKey<ConfiguredFeature<?, ?>> GRASS_BONEMEAL = createKey("aether_grass_bonemeal");
@@ -81,6 +88,9 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
                         new SkyrootFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
                         new TwoLayersFeatureSize(1, 0, 1)
                 ).ignoreVines().build());
+
+        register(context, SENTRITE_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
+                drops(ReduxStoneSets.SENTRITE.block()), 48, 0.0F));
 
 
         // Overrides

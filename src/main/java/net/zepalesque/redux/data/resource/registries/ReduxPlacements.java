@@ -9,7 +9,12 @@ import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.heightproviders.TrapezoidHeight;
+import net.minecraft.world.level.levelgen.placement.BiomeFilter;
+import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
+import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -20,6 +25,7 @@ import java.util.List;
 public class ReduxPlacements {
 
     public static final ResourceKey<PlacedFeature> CLOUDBED = copyKey(ReduxFeatureConfig.CLOUDBED);
+    public static final ResourceKey<PlacedFeature> SENTRITE_ORE = copyKey(ReduxFeatureConfig.SENTRITE_ORE);
 
     public static final ResourceKey<PlacedFeature> BONEMEAL_OVERRIDE = AetherPlacedFeatures.AETHER_GRASS_BONEMEAL;
 
@@ -28,6 +34,11 @@ public class ReduxPlacements {
         HolderGetter<ConfiguredFeature<?, ?>> configs = context.lookup(Registries.CONFIGURED_FEATURE);
 
         register(context, CLOUDBED, configs.getOrThrow(ReduxFeatureConfig.CLOUDBED));
+        register(context, SENTRITE_ORE, configs.getOrThrow(ReduxFeatureConfig.SENTRITE_ORE),
+                InSquarePlacement.spread(),
+                HeightRangePlacement.of(TrapezoidHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.aboveBottom(128))),
+                BiomeFilter.biome()
+        );
 
         // Overrides
         register(context, BONEMEAL_OVERRIDE, configs.getOrThrow(ReduxFeatureConfig.GRASS_BONEMEAL), PlacementUtils.isEmpty());

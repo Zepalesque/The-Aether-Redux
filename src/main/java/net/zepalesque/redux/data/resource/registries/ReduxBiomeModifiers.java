@@ -29,6 +29,7 @@ public class ReduxBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_CLOUDBED = createKey("add_cloudbed");
     public static final ResourceKey<BiomeModifier> SKY_COLOR_AETHER = createKey("modify_sky_color");
     public static final ResourceKey<BiomeModifier> MUSIC_MODIFY = createKey("modify_music");
+    public static final ResourceKey<BiomeModifier> ADD_SENTRITE = createKey("add_sentrite");
 
     private static ResourceKey<BiomeModifier> createKey(String name) {
         return ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, Redux.loc(name));
@@ -53,5 +54,11 @@ public class ReduxBiomeModifiers {
         // TODO: MusicPredicate, with optional fields for each field of the Music class
         context.register(MUSIC_MODIFY, new MusicModifier(biomes.getOrThrow(ReduxTags.Biomes.MODIFY_MUSIC),
                 Optional.empty(), Optional.of(CodecPredicates.DualInt.of(ReduxMusic.MUSIC_MIN, ReduxMusic.MUSIC_MAX)), Optional.of(false), Optional.empty(), Optional.empty(), Optional.empty()));
-  }
+
+        context.register(ADD_SENTRITE, new BiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(ReduxTags.Biomes.HAS_SENTRITE), HolderSet.direct(features.getOrThrow(ReduxPlacements.SENTRITE_ORE)),
+                GenerationStep.Decoration.UNDERGROUND_ORES));
+
+
+    }
 }
