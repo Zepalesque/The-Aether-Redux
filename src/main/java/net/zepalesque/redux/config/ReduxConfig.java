@@ -9,6 +9,7 @@ public class ReduxConfig {
     public static class Server extends DataSerializableConfig {
 
         public final ModConfigSpec.ConfigValue<Boolean> redux_sky_colors;
+        public final ModConfigSpec.ConfigValue<Boolean> redux_water_colors;
         public final ModConfigSpec.ConfigValue<Boolean> cloudbed;
         public final ModConfigSpec.ConfigValue<Boolean> revamped_quicksoil_movement;
         public final ModConfigSpec.IntValue max_veridium_tool_infusion;
@@ -21,6 +22,9 @@ public class ReduxConfig {
             redux_sky_colors = builder
                     .comment("Use Redux's alternative sky colors for the Aether")
                     .define("Redux Sky Colors", true);
+            redux_water_colors = builder
+                    .comment("Use Redux's alternative water colors for the Aether")
+                    .define("Redux Water Colors", true);
             cloudbed = builder
                     .comment("Replace the Aether's large Aercloud features with a noise-based cloudbed")
                     .define("Cloudbed", true);

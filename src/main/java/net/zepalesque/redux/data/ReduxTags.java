@@ -58,8 +58,8 @@ public class ReduxTags {
     public static class Biomes {
 
         public static final TagKey<Biome> MODIFY_MUSIC = tag("should_modify_music");
-        // TODO: Biome-dependent skies
         public static final TagKey<Biome> MODIFY_SKY_COLOR = tag("should_modify_sky_color");
+        public static final TagKey<Biome> MODIFY_WATER_COLOR = tag("should_modify_water_color");
 
         public static final TagKey<Biome> HAS_SENTRITE = tag("has_sentrite");
         public static final TagKey<Biome> HAS_CLOUDBED = tag("has_cloudbed");
