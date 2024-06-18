@@ -55,14 +55,6 @@
     "aether_redux:stripped_crystal_log_wall",
     "aether_redux:stripped_crystal_wood_wall",
     "aether_redux:crystal_bookshelf",
-    "aether_redux:sentrite",
-    "aether_redux:sentrite_stairs",
-    "aether_redux:sentrite_slab",
-    "aether_redux:sentrite_wall",
-    "aether_redux:sentrite_bricks",
-    "aether_redux:sentrite_brick_stairs",
-    "aether_redux:sentrite_brick_slab",
-    "aether_redux:sentrite_brick_wall",
     "aether_redux:gilded_holystone",
     "aether_redux:gilded_holystone_stairs",
     "aether_redux:gilded_holystone_slab",
@@ -70,6 +62,14 @@
     "aether_redux:blightmoss_holystone",
     "aether_redux:blightmoss_holystone_stairs",
     "aether_redux:blightmoss_holystone_slab",
-    "aether_redux:blightmoss_holystone_wall"
+    "aether_redux:blightmoss_holystone_wall",
+    "aether_redux:sentrite",
+    "aether_redux:sentrite_stairs",
+    "aether_redux:sentrite_slab",
+    "aether_redux:sentrite_wall",
+    "aether_redux:sentrite_bricks",
+    "aether_redux:sentrite_brick_stairs",
+    "aether_redux:sentrite_brick_slab",
+    "aether_redux:sentrite_brick_wall"
   ]
 }

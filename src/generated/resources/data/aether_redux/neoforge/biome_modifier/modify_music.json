@@ -1,9 +1,8 @@
 {
-  "type": "zenith:music",
+  "type": "zenith:modify_music",
   "biomes": "#aether_redux:should_modify_music",
-  "delay": {
-    "max": 3600,
-    "min": 1200
-  },
-  "replace": false
+  "new_track": {
+    "max_delay": 3600,
+    "min_delay": 1200
+  }
 }

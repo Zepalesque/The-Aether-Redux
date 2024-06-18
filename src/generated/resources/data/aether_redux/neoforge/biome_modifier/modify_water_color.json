@@ -1,0 +1,22 @@
+{
+  "type": "zenith:conditional",
+  "modify": {
+    "type": "zenith:water_colors",
+    "default_colors": {
+      "biomes": "#aether_redux:should_modify_water_color",
+      "fog": 1581606,
+      "water": 8764881
+    },
+    "fog_map": {
+      "aether:skyroot_forest": 1317921,
+      "aether:skyroot_meadow": 1778984,
+      "aether:skyroot_woodland": 1054492
+    },
+    "water_map": {
+      "aether:skyroot_forest": 7973060,
+      "aether:skyroot_meadow": 9554136,
+      "aether:skyroot_woodland": 6984885
+    }
+  },
+  "when": "aether_redux:water_colors"
+}
