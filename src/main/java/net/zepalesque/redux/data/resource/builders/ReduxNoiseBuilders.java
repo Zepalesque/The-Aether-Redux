@@ -21,7 +21,7 @@ import java.util.List;
 
 public class ReduxNoiseBuilders {
 
-
+ 
     public static DensityFunction createFinal(HolderGetter<DensityFunction> functions) {
         DensityFunction density = getFunction(functions, ResourceKey.create(Registries.DENSITY_FUNCTION, new ResourceLocation("nether/base_3d_noise")));
         density = DensityFunctions.add(density, DensityFunctions.constant(-0.13));
