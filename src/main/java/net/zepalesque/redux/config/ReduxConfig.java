@@ -1,6 +1,7 @@
 package net.zepalesque.redux.config;
 
 import net.neoforged.neoforge.common.ModConfigSpec;
+import net.zepalesque.redux.config.enums.AACompatType;
 import net.zepalesque.zenith.config.DataSerializableConfig;
 import org.apache.commons.lang3.tuple.Pair;
 
@@ -49,6 +50,7 @@ public class ReduxConfig {
     public static class Common extends DataSerializableConfig {
 
         public final ModConfigSpec.ConfigValue<Boolean> bronze_dungeon_upgrade;
+        public final ModConfigSpec.EnumValue<AACompatType> redux_noise;
 
         public Common(ModConfigSpec.Builder builder) {
             super(() -> COMMON_SPEC, "redux_common");
@@ -56,6 +58,9 @@ public class ReduxConfig {
             bronze_dungeon_upgrade = builder
                     .comment("Upgrades the Bronze Dungeon structure with new blocks and more depth")
                     .define("Bronze Dungeon Upgrade", true);
+            redux_noise = builder
+                    .comment("Uses an alternative noise for the Aether. By default, this is disabled with the Ancient Aether mod installed.")
+                    .defineEnum("Redux Noise", AACompatType.WITHOUT_AA);
             builder.pop();
         }
     }
