@@ -102,6 +102,7 @@ public class Redux {
             PackUtils.setupPack(event, pathString, id, true, ReduxPackConfig::generate);
         } else if (event.getPackType() == PackType.SERVER_DATA) {
             if (ReduxConfig.COMMON.bronze_dungeon_upgrade.get()) { PackUtils.setupPack(event, "dungeon_upgrades/bronze", "bronze_upgrade", true); }
+            if (ReduxConfig.COMMON.bronze_dungeon_upgrade.get()) { PackUtils.setupPack(event, "dungeon_upgrades/bronze", "bronze_upgrade", true); }
         }
     }
 

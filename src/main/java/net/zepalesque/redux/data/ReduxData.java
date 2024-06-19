@@ -72,9 +72,9 @@ public class ReduxData {
                 DetectedVersion.BUILT_IN.getPackVersion(PackType.SERVER_DATA),
                 Optional.of(new InclusiveRange<>(0, Integer.MAX_VALUE)))));
 
+
         Path builtinData = packOutput.getOutputFolder().resolve("packs").resolve("data");
-
-
+        
         DataGenerator.PackGenerator noisePack = generator.new PackGenerator(true, "reduxnoise", new PackOutput(builtinData.resolve("redux_noise")));
         noisePack.addProvider(output -> new ReduxRegistrySets.NoisePack(output, lookupProvider, Redux.MODID));
     }
