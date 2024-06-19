@@ -4,18 +4,18 @@
     "type": "zenith:water_colors",
     "default_colors": {
       "biomes": "#aether_redux:should_modify_water_color",
-      "fog": 1253670,
-      "water": 7652834
+      "fog": 1581606,
+      "water": 8764881
     },
     "fog_map": {
-      "aether:skyroot_forest": 1121571,
+      "aether:skyroot_forest": 1317921,
       "aether:skyroot_meadow": 1778984,
-      "aether:skyroot_woodland": 923422
+      "aether:skyroot_woodland": 1054492
     },
     "water_map": {
-      "aether:skyroot_forest": 6859989,
-      "aether:skyroot_meadow": 8507880,
-      "aether:skyroot_woodland": 5871302
+      "aether:skyroot_forest": 7973060,
+      "aether:skyroot_meadow": 9554136,
+      "aether:skyroot_woodland": 6984885
     }
   },
   "when": "aether_redux:water_colors"
