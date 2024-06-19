@@ -36,9 +36,9 @@ public class ReduxDensityFunctions extends ReduxNoiseBuilders {
 
         context.register(REDUX_3D_NOISE, BlendedNoise.createUnseeded(
                 0.375, // xz scale
-                0.375, // y scale
+                0.25, // y scale
                 80.0, // xz factor
-                120.0, // y factor
+                80.0, // y factor
                 8.0 // smear scale multiplier, capped at 8
         ));
 

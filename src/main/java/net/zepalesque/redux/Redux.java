@@ -6,6 +6,7 @@ import net.minecraft.server.packs.PackType;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.event.AddPackFindersEvent;
@@ -109,5 +110,10 @@ public class Redux {
     public static ResourceLocation loc(String path) {
         return new ResourceLocation(MODID, path);
     }
+
+    public static boolean compat(String modid) {
+        return ModList.get().isLoaded(modid);
+    }
+
 
 }
