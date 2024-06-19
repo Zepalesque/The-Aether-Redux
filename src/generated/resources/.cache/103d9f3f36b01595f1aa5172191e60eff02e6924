@@ -1,4 +1,4 @@
-// 1.20.4	2024-06-18T19:21:57.7790813	Registries
+// 1.20.4	2024-06-18T20:59:45.7146277	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 3d89e7c030d3ec47419f92a3c9d150c15ffe05a9 data/aether/worldgen/configured_feature/grass_patch.json
 47ec4dab1e49d10c7a9d88096f1d8297e837b2e8 data/aether/worldgen/configured_feature/skyroot_tree.json
@@ -16,6 +16,7 @@ e8e41405a958584146b0eae50a27095e5d7ba69c data/aether_redux/neoforge/biome_modifi
 8af65e703426f8b539d9818d42cde0aa2a8f48b1 data/aether_redux/worldgen/configured_feature/sentrite_ore.json
 15626864bc7c207008638ad249d0e3597d690a9b data/aether_redux/worldgen/density_function/cloudbed_noise.json
 123716e2850a50ab2cec88cc5d642fe27e09e41f data/aether_redux/worldgen/density_function/cloudbed_y_offset.json
+170c4a60c4a8dccf85693ac7cf1f7bf9850c4352 data/aether_redux/worldgen/density_function/redux_final_density.json
 2e8ce4c531982cca5248401ec7558993018f12df data/aether_redux/worldgen/placed_feature/cloudbed.json
 667257c68f50d4873605192cbb3fc468ae584632 data/aether_redux/worldgen/placed_feature/sentrite_ore.json
 c74207f8d01818e83140eff095b4487801234b07 data/aether_redux/zenith/condition/aether_genesis.json
