@@ -11,6 +11,7 @@ import net.zepalesque.redux.data.resource.registries.ReduxBiomeModifiers;
 import net.zepalesque.redux.data.resource.registries.ReduxConditions;
 import net.zepalesque.redux.data.resource.registries.ReduxDensityFunctions;
 import net.zepalesque.redux.data.resource.registries.ReduxFeatureConfig;
+import net.zepalesque.redux.data.resource.registries.ReduxNoiseSettings;
 import net.zepalesque.redux.data.resource.registries.ReduxPlacements;
 import net.zepalesque.redux.data.resource.registries.ReduxStructureModifiers;
 import net.zepalesque.zenith.Zenith;
@@ -39,5 +40,15 @@ public class ReduxRegistrySets extends DatapackBuiltinEntriesProvider {
         list.add(modid);
         list.addAll(Arrays.stream(otherIds).toList());
         return Set.copyOf(list);
+    }
+
+
+    public static class NoisePack extends DatapackBuiltinEntriesProvider {
+        public static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
+                .add(Registries.NOISE_SETTINGS, ReduxNoiseSettings.NoisePack::bootstrap);
+
+        public NoisePack(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, String modid, String... otherIds) {
+            super(output, registries, BUILDER, buildModidList(modid, otherIds));
+        }
     }
 }
