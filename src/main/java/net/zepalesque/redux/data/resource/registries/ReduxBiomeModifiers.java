@@ -59,16 +59,16 @@ public class ReduxBiomeModifiers {
         context.register(SKY_COLOR_AETHER, new ConditionalBiomeModifier(Holder.direct(sky), conditions.get(ReduxConditions.SKY_COLORS).orElseThrow()));
 
         BiomeModifier water = new WaterModifier(
-                Optional.of(new WaterModifier.DefaultWaterSettings(biomes.getOrThrow(ReduxTags.Biomes.MODIFY_WATER_COLOR), Optional.of(0x74C5E2), Optional.of(0x132126))),
+                Optional.of(new WaterModifier.DefaultWaterSettings(biomes.getOrThrow(ReduxTags.Biomes.MODIFY_WATER_COLOR), Optional.of(0x85BDD1), Optional.of(0x182226))),
                 ImmutableMap.<Holder<Biome>, Integer>builder()
-                        .put(biomes.getOrThrow(AetherBiomes.SKYROOT_MEADOW), 0x81D1E8)
-                        .put(biomes.getOrThrow(AetherBiomes.SKYROOT_FOREST), 0x68ACD5)
-                        .put(biomes.getOrThrow(AetherBiomes.SKYROOT_WOODLAND), 0x5996C6)
+                        .put(biomes.getOrThrow(AetherBiomes.SKYROOT_MEADOW), 0x91C8D8)
+                        .put(biomes.getOrThrow(AetherBiomes.SKYROOT_FOREST), 0x79A8C4)
+                        .put(biomes.getOrThrow(AetherBiomes.SKYROOT_WOODLAND), 0x6A94B5)
                         .build(),
                 ImmutableMap.<Holder<Biome>, Integer>builder()
                         .put(biomes.getOrThrow(AetherBiomes.SKYROOT_MEADOW), 0x1B2528)
-                        .put(biomes.getOrThrow(AetherBiomes.SKYROOT_FOREST), 0x111D23)
-                        .put(biomes.getOrThrow(AetherBiomes.SKYROOT_WOODLAND), 0x0E171E)
+                        .put(biomes.getOrThrow(AetherBiomes.SKYROOT_FOREST), 0x141C21)
+                        .put(biomes.getOrThrow(AetherBiomes.SKYROOT_WOODLAND), 0x10171C)
                         .build());
         context.register(WATER_COLOR_AETHER, new ConditionalBiomeModifier(Holder.direct(water), conditions.get(ReduxConditions.WATER_COLORS).orElseThrow()));
 
