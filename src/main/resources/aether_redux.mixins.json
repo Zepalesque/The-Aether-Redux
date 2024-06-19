@@ -7,7 +7,6 @@
   "refmap": "aether_redux.refmap.json",
   "mixins": [
     "common.TabUtilMixin",
-    "common.ValueWriterMixin",
     "common.accessor.AetherNoiseBuildersMixin",
     "common.accessor.EntityAccessor",
     "common.accessor.WallBlockAccessor",
