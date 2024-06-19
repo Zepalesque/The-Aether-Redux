@@ -21,9 +21,8 @@ import java.util.List;
 
 public class ReduxNoiseBuilders {
 
- 
-    public static DensityFunction createFinal(HolderGetter<DensityFunction> functions) {
-        DensityFunction density = getFunction(functions, ResourceKey.create(Registries.DENSITY_FUNCTION, new ResourceLocation("nether/base_3d_noise")));
+
+    public static DensityFunction createFinal(DensityFunction density) {
         density = DensityFunctions.add(density, DensityFunctions.constant(-0.13));
         density = slide(density, 0, 128, 72, 0, -0.2, 8, 40, -0.1);
         density = DensityFunctions.add(density, DensityFunctions.constant(-0.05));
@@ -33,7 +32,7 @@ public class ReduxNoiseBuilders {
         return density;
     }
 
-    private static DensityFunction getFunction(HolderGetter<DensityFunction> densityFunctions, ResourceKey<DensityFunction> key) {
+    protected static DensityFunction getFunction(HolderGetter<DensityFunction> densityFunctions, ResourceKey<DensityFunction> key) {
         return new DensityFunctions.HolderHolder(densityFunctions.getOrThrow(key));
     }
 

@@ -5,11 +5,14 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.NoiseData;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.levelgen.DensityFunction;
 import net.minecraft.world.level.levelgen.DensityFunctions;
+import net.minecraft.world.level.levelgen.NoiseRouterData;
+import net.minecraft.world.level.levelgen.synth.BlendedNoise;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.data.resource.builders.ReduxNoiseBuilders;
@@ -22,6 +25,7 @@ public class ReduxDensityFunctions extends ReduxNoiseBuilders {
     public static final ResourceKey<DensityFunction> CLOUDBED_NOISE = createKey("cloudbed_noise");
     public static final ResourceKey<DensityFunction> CLOUDBED_Y_OFFSET = createKey("cloudbed_y_offset");
 
+    public static final ResourceKey<DensityFunction> REDUX_3D_NOISE = createKey("base_3d_noise_redux");
     public static final ResourceKey<DensityFunction> REDUX_FINAL_DENSITY = createKey("redux_final_density");
 
     public static void bootstrap(BootstapContext<DensityFunction> context) {
@@ -30,7 +34,15 @@ public class ReduxDensityFunctions extends ReduxNoiseBuilders {
 
         context.register(CLOUDBED_Y_OFFSET, DensityFunctions.mul(new PerlinNoiseFunction(new NormalNoise.NoiseParameters(0, 1, 1), 0.005D, 0.0D, 95), DensityFunctions.constant(1.5D)));
 
-        context.register(REDUX_FINAL_DENSITY, createFinal(functions));
+        context.register(REDUX_3D_NOISE, BlendedNoise.createUnseeded(
+                0.25,
+                0.375,
+                80.0,
+                100.0,
+                8.0
+        ));
+
+        context.register(REDUX_FINAL_DENSITY, createFinal(getFunction(functions, REDUX_3D_NOISE)));
 
     }
 
