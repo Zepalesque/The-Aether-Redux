@@ -22,6 +22,7 @@ public class ReduxMapData extends ReduxDataMapProvider {
     protected void gather() {
         Redux.WOOD_SETS.forEach(set -> set.mapData(this));
         Redux.STONE_SETS.forEach(set -> set.mapData(this));
+        Redux.FLOWER_SETS.forEach(set -> set.mapData(this));
 
         var biomeTints = this.builder(ReduxBiomeTints.AETHER_GRASS.get().getDataMap());
         biomeTints.add(AetherBiomes.SKYROOT_FOREST, 0xA2F2BC, false);

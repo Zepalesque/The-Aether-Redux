@@ -24,6 +24,7 @@ public class ReduxItemTagsData extends ReduxItemTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
         Redux.WOOD_SETS.forEach(set -> set.itemTagData(this));
         Redux.STONE_SETS.forEach(set -> set.itemTagData(this));
+        Redux.FLOWER_SETS.forEach(set -> set.itemTagData(this));
 
         this.tag(ItemTags.PICKAXES).add(ReduxItems.VERIDIUM_PICKAXE.get(), ReduxItems.INFUSED_VERIDIUM_PICKAXE.get());
         this.tag(ItemTags.SHOVELS).add(ReduxItems.VERIDIUM_SHOVEL.get(), ReduxItems.INFUSED_VERIDIUM_SHOVEL.get());

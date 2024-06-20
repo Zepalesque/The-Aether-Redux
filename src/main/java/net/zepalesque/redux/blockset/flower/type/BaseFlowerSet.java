@@ -6,7 +6,6 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -14,17 +13,13 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.state.BlockBehaviour.OffsetType;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
-import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.datamaps.builtin.NeoForgeDataMaps;
 import net.zepalesque.redux.block.ReduxBlocks;
-import net.zepalesque.redux.block.natural.bush.CustomBoundsFlowerBlock;
 import net.zepalesque.redux.blockset.util.MutableLoreGeneration;
 import net.zepalesque.redux.data.prov.ReduxDataMapProvider;
 import net.zepalesque.redux.data.prov.ReduxLanguageProvider;
@@ -47,12 +42,13 @@ import java.util.Map;
 import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
 
-public abstract class BaseFlowerSet extends AbstractFlowerSet implements MutableLoreGeneration<BaseFlowerSet> {
+@SuppressWarnings("unchecked")
+public abstract class BaseFlowerSet<B extends Block> extends AbstractFlowerSet implements MutableLoreGeneration<BaseFlowerSet<B>> {
 
     public final String id, textureFolder;
     protected String lore;
-    protected final VoxelShape shape;
-    private float compost = 0.65F;
+    protected float compost = 0.65F;
+    protected boolean usePottedPrefix = false;
 
     protected final Map<CraftingMatrix, Pair<Supplier<? extends ItemLike>, RecipeCategory>> crafted = new HashMap<>();
     protected final Map<Integer, Triple<Supplier<? extends ItemLike>, Integer, RecipeCategory>> shapeless = new HashMap<>();
@@ -64,33 +60,28 @@ public abstract class BaseFlowerSet extends AbstractFlowerSet implements Mutable
     @Nullable
     protected Pair<Integer, Integer> flammability = Pair.of(60, 100);
 
-    protected final DeferredBlock<CustomBoundsFlowerBlock> flower;
+    protected final DeferredBlock<B> flower;
     protected final DeferredBlock<FlowerPotBlock> pot;
-    private UnaryOperator<Properties> properties;
-    private UnaryOperator<Properties> potProperties;
+    protected UnaryOperator<Properties> potProperties;
 
-    public BaseFlowerSet(String id, String textureFolder, VoxelShape shape, Supplier<MobEffect> effect, int duration, OffsetType offset, SoundType sound) {
+    public BaseFlowerSet(String id, String textureFolder, Supplier<B> constructor) {
         this.id = id;
         DeferredRegister.Blocks blocks = ReduxBlocks.BLOCKS;
         DeferredRegister.Items items = ReduxItems.ITEMS;
         this.textureFolder = textureFolder;
-        this.shape = shape;
-        this.flower = flower(blocks, items, id, effect, duration, offset, sound);
+        this.flower = flower(blocks, items, id, constructor);
         this.pot = pot(blocks, id);
     }
 
     @Override
-    protected DeferredBlock<CustomBoundsFlowerBlock> flower(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, Supplier<MobEffect> effect, int duration, OffsetType offset, SoundType sound) {
-        var flower = registry.register(id, () -> new CustomBoundsFlowerBlock(this.shape, effect, duration, this.properties.apply(Properties.ofFullCopy(Blocks.DANDELION)
-                .sound(sound)
-                .offsetType(offset)
-        )));
+    protected <T extends Block> DeferredBlock<T> flower(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, Supplier<T> constructor) {
+        var flower = registry.register(id, constructor);
         items.register(flower.getId().getPath(), () -> new BlockItem(flower.get(), new Item.Properties()));
         return flower;
     }
 
     @Override
-    public DeferredBlock<CustomBoundsFlowerBlock> flower() {
+    public DeferredBlock<B> flower() {
         return this.flower;
     }
 
@@ -105,63 +96,56 @@ public abstract class BaseFlowerSet extends AbstractFlowerSet implements Mutable
     }
 
     @Override
-    public AbstractFlowerSet craftsInto(Supplier<? extends ItemLike> block, CraftingMatrix shape, RecipeCategory category) {
+    public BaseFlowerSet<B> craftsInto(Supplier<? extends ItemLike> block, CraftingMatrix shape, RecipeCategory category) {
         this.crafted.put(shape, Pair.of(block, category));
         return this;
     }
 
     @Override
-    public AbstractFlowerSet craftsIntoShapeless(int ingredientCount, Supplier<? extends ItemLike> result, int resultCount, RecipeCategory category) {
+    public BaseFlowerSet<B> craftsIntoShapeless(int ingredientCount, Supplier<? extends ItemLike> result, int resultCount, RecipeCategory category) {
         this.shapeless.put(ingredientCount, Triple.of(result, resultCount, category));
         return this;
     }
 
     @Override
-    public AbstractFlowerSet withFlowerTag(TagKey<Block> tag) {
+    public BaseFlowerSet<B> withFlowerTag(TagKey<Block> tag) {
         this.tags.add(tag);
         return this;
     }
 
     @Override
-    public AbstractFlowerSet withPotTag(TagKey<Block> tag) {
+    public BaseFlowerSet<B> withPotTag(TagKey<Block> tag) {
         this.potTags.add(tag);
         return this;
     }
 
     @Override
-    public AbstractFlowerSet withItemTag(TagKey<Item> tag) {
+    public BaseFlowerSet<B> withItemTag(TagKey<Item> tag) {
         this.itemTags.add(tag);
         return this;
     }
 
     @Override
-    public AbstractFlowerSet creativeTab(Supplier<CreativeModeTab> tab, Supplier<? extends ItemLike> placeAfter) {
+    public BaseFlowerSet<B> creativeTab(Supplier<CreativeModeTab> tab, Supplier<? extends ItemLike> placeAfter) {
         this.creativeTabOrdering.put(tab, placeAfter);
         return this;
     }
 
     @Override
-    public AbstractFlowerSet compost(float amount) {
+    public BaseFlowerSet<B> compost(float amount) {
         this.compost = amount;
         return this;
     }
 
     @Override
-    public AbstractFlowerSet withProperties(UnaryOperator<Properties> prop) {
-        UnaryOperator<Properties> old = this.properties;
-        this.properties = original -> prop.apply(old.apply(original));
-        return this;
-    }
-
-    @Override
-    public AbstractFlowerSet withPotProperties(UnaryOperator<Properties> prop) {
+    public BaseFlowerSet<B> withPotProperties(UnaryOperator<Properties> prop) {
         UnaryOperator<Properties> old = this.potProperties;
         this.potProperties = original -> prop.apply(old.apply(original));
         return this;
     }
 
     @Override
-    public AbstractFlowerSet flammable(int encouragement, int flammability) {
+    public BaseFlowerSet<B> flammable(int encouragement, int flammability) {
         this.flammability = Pair.of(encouragement, flammability);
         return this;
     }
@@ -228,8 +212,14 @@ public abstract class BaseFlowerSet extends AbstractFlowerSet implements Mutable
     }
 
     @Override
-    public BaseFlowerSet withLore(String lore) {
+    public BaseFlowerSet<B> withLore(String lore) {
         this.lore = lore;
+        return this;
+    }
+
+    @Override
+    public BaseFlowerSet<B> withPottedPrefix() {
+        this.usePottedPrefix = true;
         return this;
     }
 

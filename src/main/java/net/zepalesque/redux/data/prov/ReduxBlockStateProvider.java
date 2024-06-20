@@ -237,4 +237,46 @@ public abstract class ReduxBlockStateProvider extends AetherBlockStateProvider {
             return builder.build();
         }));
     }
+
+    public void potAlt(Block block, Block flower, String location) {
+        ModelFile pot = this.models().withExistingParent(this.name(block), mcLoc("block/flower_pot_cross"))
+                .texture("plant", this.modLoc("block/" + location + "potted_" + this.name(flower))).renderType("cutout");
+        this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
+    }
+    public void tintedPotDualGloverlay(Block block, Block flower, String location) {
+        ModelFile pot = this.models().withExistingParent(this.name(block), Redux.loc("block/pot/flower_pot_tinted_dual_gloverlay"))
+                .texture("plant", this.modLoc("block/" + location + this.name(flower)))
+                .texture("glow", this.modLoc("block/" + location + this.name(flower) + "_glow"))
+                .texture("overlay", this.modLoc("block/" + location + this.name(flower) + "_overlay")).renderType("cutout");
+        this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
+    }
+    public void tintedPotGlowOverlay(Block block, Block flower, String location) {
+        ModelFile pot = this.models().withExistingParent(this.name(block), Redux.loc("block/pot/flower_pot_tinted_glowing_overlay"))
+                .texture("plant", this.modLoc("block/" + location + this.name(flower)))
+                .texture("overlay", this.modLoc("block/" + location + this.name(flower) + "_glow")).renderType("cutout");
+        this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
+    }
+    public void tintedPotGlowOverlayAlt(Block block, Block flower, String location) {
+        ModelFile pot = this.models().withExistingParent(this.name(block), Redux.loc("block/pot/flower_pot_tinted_glowing_overlay"))
+                .texture("plant", this.modLoc("block/" + location + "potted_" + this.name(flower)))
+                .texture("overlay", this.modLoc("block/" + location + "potted_" + this.name(flower) + "_glow")).renderType("cutout");
+        this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
+    }
+    public void tintedPotOverlay(Block block, Block flower, String location) {
+        ModelFile pot = this.models().withExistingParent(this.name(block), Redux.loc("block/pot/flower_pot_tinted_overlay"))
+                .texture("plant", this.modLoc("block/" + location + this.name(flower)))
+                .texture("overlay", this.modLoc("block/" + location + this.name(flower) + "_overlay")).renderType("cutout");
+        this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
+    }
+    public void tintedPot(Block block, Block flower, String location) {
+        ModelFile pot = this.models().withExistingParent(this.name(block), Redux.loc("block/pot/flower_pot_tinted"))
+                .texture("plant", this.modLoc("block/" + location + this.name(flower))).renderType("cutout");
+        this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
+    }
+    public void tintedPotOverlayAlt(Block block, Block flower, String location) {
+        ModelFile pot = this.models().withExistingParent(this.name(block), Redux.loc("block/pot/flower_pot_tinted_overlay"))
+                .texture("plant", this.modLoc("block/" + location + "potted_" + this.name(flower)))
+                .texture("overlay", this.modLoc("block/" + location + "potted_" + this.name(flower) + "_overlay")).renderType("cutout");
+        this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
+    }
 }

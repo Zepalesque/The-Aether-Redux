@@ -31,6 +31,7 @@ import net.zepalesque.redux.tile.ReduxTiles;
 import net.zepalesque.redux.world.biome.tint.ReduxBiomeTints;
 import net.zepalesque.redux.world.feature.gen.ReduxFeatures;
 import net.zepalesque.redux.world.tree.foliage.ReduxFoliagePlacers;
+import net.zepalesque.zenith.api.blockset.AbstractFlowerSet;
 import net.zepalesque.zenith.api.blockset.AbstractStoneSet;
 import net.zepalesque.zenith.api.blockset.AbstractWoodSet;
 import org.slf4j.Logger;
@@ -44,8 +45,8 @@ public class Redux {
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public static final Collection<AbstractWoodSet> WOOD_SETS = new ArrayList<>();
-
     public static final Collection<AbstractStoneSet> STONE_SETS = new ArrayList<>();
+    public static final Collection<AbstractFlowerSet> FLOWER_SETS = new ArrayList<>();
 
     public Redux(IEventBus bus, Dist dist) {
         bus.addListener(ReduxData::dataSetup);

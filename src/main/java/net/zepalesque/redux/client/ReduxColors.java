@@ -13,11 +13,14 @@ import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.state.ReduxStates;
+import net.zepalesque.redux.blockset.util.TintableSet;
 import net.zepalesque.redux.data.ReduxTags;
 import net.zepalesque.redux.world.biome.tint.ReduxBiomeTints;
+import net.zepalesque.zenith.api.blockset.AbstractFlowerSet;
 
 import javax.annotation.Nullable;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 public class ReduxColors {
 
@@ -31,15 +34,19 @@ public class ReduxColors {
     public static void blockColors(RegisterColorHandlersEvent.Block event) {
         Redux.LOGGER.debug("Beginning block color registration for the Aether: Redux");
 
-        event.register((state, level, pos, index) -> getColor(state, level, pos, index, 1, false), AetherBlocks.AETHER_GRASS_BLOCK.get());
-        event.register((state, level, pos, index) -> getColor(state, level, pos, index, 0, true), ReduxBlocks.SHORT_AETHER_GRASS.get());
-        event.register((state, level, pos, index) -> getColor(state, level, pos, index, 1, true),
+        event.register((state, level, pos, index) -> getColor(state, level, pos, index, i -> i == 1, false), AetherBlocks.AETHER_GRASS_BLOCK.get());
+        event.register((state, level, pos, index) -> getColor(state, level, pos, index, i -> i == 0, true), ReduxBlocks.SHORT_AETHER_GRASS.get());
+        event.register((state, level, pos, index) -> getColor(state, level, pos, index, i -> i == 1, true),
                 AetherBlocks.WHITE_FLOWER.get(),
                 AetherBlocks.POTTED_WHITE_FLOWER.get(),
                 AetherBlocks.PURPLE_FLOWER.get(),
                 AetherBlocks.POTTED_PURPLE_FLOWER.get()
         );
-
+        for (AbstractFlowerSet set : Redux.FLOWER_SETS) {
+            if (set instanceof TintableSet tintable) {
+                event.register((state, level, pos, index) -> getColor(state, level, pos, index, i -> i == tintable.getTintIndex(), true), set.flower().get());
+            }
+        }
     }
 
     public static void itemColors(RegisterColorHandlersEvent.Item event) {
@@ -56,6 +63,12 @@ public class ReduxColors {
                 ReduxBlocks.SHORT_AETHER_GRASS.get()/*,
                 ReduxBlocks.SPLITFERN.get())*/
         );
+
+        for (AbstractFlowerSet set : Redux.FLOWER_SETS) {
+            if (set instanceof TintableSet tintable) {
+                event.register((stack, tintIndex) -> tintIndex == tintable.getTintIndex() ? tintable.getDefaultItemTint() : 0xFFFFFF, set.flower().get());
+            }
+        }
 
     }
 
@@ -74,8 +87,8 @@ public class ReduxColors {
         return Tints.AETHER_GRASS_COLOR;
     }
 
-    public static int getColor(BlockState state, @Nullable BlockAndTintGetter level, @Nullable BlockPos pos, int index, int indexGoal, boolean useBelowProperties) {
-        if (index == indexGoal) {
+    public static int getColor(BlockState state, @Nullable BlockAndTintGetter level, @Nullable BlockPos pos, int index, Predicate<Integer> indexGoal, boolean useBelowProperties) {
+        if (indexGoal.test(index)) {
             if (level != null && pos != null) {
                 if (level.getBlockState(pos.below()).is(ReduxTags.Blocks.BLIGHT_GRASS_BLOCKS) && useBelowProperties) {
                     return Tints.BLIGHT_GRASS_COLOR;

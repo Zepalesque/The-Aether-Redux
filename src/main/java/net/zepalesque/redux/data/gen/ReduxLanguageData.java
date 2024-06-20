@@ -18,6 +18,7 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
     protected void addTranslations() {
         Redux.WOOD_SETS.forEach(set -> set.langData(this));
         Redux.STONE_SETS.forEach(set -> set.langData(this));
+        Redux.FLOWER_SETS.forEach(set -> set.langData(this));
 
         addBlock(ReduxBlocks.SHORT_AETHER_GRASS);
         addLore(ReduxBlocks.SHORT_AETHER_GRASS, "Blades of the Aether's grass. It feels slightly cool to the touch.");

@@ -28,6 +28,7 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
         Redux.WOOD_SETS.forEach(set -> set.blockTagData(this));
         Redux.STONE_SETS.forEach(set -> set.blockTagData(this));
+        Redux.FLOWER_SETS.forEach(set -> set.blockTagData(this));
 
         // Adds every single Redux block as a block that should be treaded as an Aether Block and get the tool debuff
         IntrinsicTagAppender<Block> tag = this.tag(AetherTags.Blocks.TREATED_AS_AETHER_BLOCK);

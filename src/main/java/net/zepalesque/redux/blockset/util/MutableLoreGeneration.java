@@ -1,5 +1,7 @@
 package net.zepalesque.redux.blockset.util;
 
-public interface MutableLoreGeneration<T extends MutableLoreGeneration<?>> extends ReduxGeneration {
+import net.zepalesque.redux.blockset.flower.type.BaseFlowerSet;
+
+public interface MutableLoreGeneration<T extends MutableLoreGeneration<T>> extends ReduxGeneration {
     T withLore(String lore);
 }

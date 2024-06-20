@@ -14,6 +14,7 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
+import net.zepalesque.zenith.api.blockset.AbstractFlowerSet;
 import net.zepalesque.zenith.api.blockset.AbstractStoneSet;
 import net.zepalesque.zenith.api.blockset.AbstractWoodSet;
 import net.zepalesque.zenith.util.TabUtil;
@@ -34,6 +35,11 @@ public class ReduxTabs {
 
         sup = null;
         for (AbstractStoneSet set : Redux.STONE_SETS) {
+            sup = set.addToCreativeTab(event, sup);
+        }
+
+        sup = null;
+        for (AbstractFlowerSet set : Redux.FLOWER_SETS) {
             sup = set.addToCreativeTab(event, sup);
         }
 
