@@ -1,0 +1,10 @@
+{
+  "values": {
+    "aether_redux:crystal_bookshelf": {
+      "burn_time": 300
+    },
+    "aether_redux:crystal_planks": {
+      "burn_time": 300
+    }
+  }
+}
