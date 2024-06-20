@@ -1,4 +1,5 @@
-// 1.20.4	2024-06-15T13:11:28.8687072	Loot Tables
+// 1.20.4	2024-06-20T19:44:44.5868646	Loot Tables
+c6156555dc4897939b617dabc4521b7fa52feba0 data/aether_redux/loot_tables/blocks/aurum.json
 16b03329a81906c5130061c5ea9ae1168890a761 data/aether_redux/loot_tables/blocks/blightmoss_holystone.json
 95ce5e6d7a83e0c7f242a6389d5a3a39c565d8c8 data/aether_redux/loot_tables/blocks/blightmoss_holystone_slab.json
 47bbb56cb9acce50d6c97031b9cc801972bd7290 data/aether_redux/loot_tables/blocks/blightmoss_holystone_stairs.json
@@ -39,6 +40,7 @@ e680fa317e1e2de6efbc6c99ba0ebcd91c08bdb9 data/aether_redux/loot_tables/blocks/lo
 c0545729e1b01540a21d07eb211cc7f1d1b9ac02 data/aether_redux/loot_tables/blocks/locked_sentrite_bricks.json
 2b1811acf4bb8093ceb0d5599a72fc00d2fd20e1 data/aether_redux/loot_tables/blocks/locked_sentry_base.json
 f2ee8a0340fe4250b507a2c2f68bb5a4683720ea data/aether_redux/loot_tables/blocks/locked_sentry_pillar.json
+4f0249868d48ec7cc93a576cffa361313726b466 data/aether_redux/loot_tables/blocks/potted_aurum.json
 c8a2a7b592ef9664b2ac679b84029f1c5264d986 data/aether_redux/loot_tables/blocks/potted_skysprouts.json
 a8bc8724f9f839107bd4f743549a92ecd6053197 data/aether_redux/loot_tables/blocks/potted_wyndsprouts.json
 31634f3ccbb1109ba54691cd7c7c94d822fddafa data/aether_redux/loot_tables/blocks/raw_veridium_block.json

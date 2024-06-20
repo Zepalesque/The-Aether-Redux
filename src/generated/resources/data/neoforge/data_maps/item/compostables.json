@@ -1,5 +1,8 @@
 {
   "values": {
+    "aether_redux:aurum": {
+      "chance": 0.65
+    },
     "aether_redux:cloudroot_leaves": {
       "chance": 0.3
     },

@@ -70,6 +70,8 @@
     "aether_redux:sentrite_bricks",
     "aether_redux:sentrite_brick_stairs",
     "aether_redux:sentrite_brick_slab",
-    "aether_redux:sentrite_brick_wall"
+    "aether_redux:sentrite_brick_wall",
+    "aether_redux:aurum",
+    "aether_redux:potted_aurum"
   ]
 }

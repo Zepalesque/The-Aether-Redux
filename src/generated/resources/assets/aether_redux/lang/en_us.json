@@ -1,4 +1,5 @@
 {
+  "block.aether_redux.aurum": "Aurum",
   "block.aether_redux.blightmoss_holystone": "Blightmoss Holystone",
   "block.aether_redux.blightmoss_holystone_slab": "Blightmoss Holystone Slab",
   "block.aether_redux.blightmoss_holystone_stairs": "Blightmoss Holystone Stairs",
@@ -37,6 +38,7 @@
   "block.aether_redux.locked_sentrite_bricks": "Locked Sentrite Bricks",
   "block.aether_redux.locked_sentry_base": "Locked Sentry Base",
   "block.aether_redux.locked_sentry_pillar": "Locked Sentry Pillar",
+  "block.aether_redux.potted_aurum": "Potted Aurum",
   "block.aether_redux.potted_skysprouts": "Potted Skysprouts",
   "block.aether_redux.potted_wyndsprouts": "Potted Wyndsprouts",
   "block.aether_redux.raw_veridium_block": "Block of Raw Veridium",
