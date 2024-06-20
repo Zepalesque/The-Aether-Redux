@@ -9,6 +9,8 @@ plugins {
     id 'net.neoforged.gradle.userdev' version '7.0.97'
 }
 
+boolean runWithDeps = false
+
 version = "${mc_version}-${mod_version}-neoforge"
 group = "net.zepalesque.redux"
 
@@ -43,9 +45,15 @@ runs {
     }
 
     data {
+        dependencies {
+            dependencies.get().runtime("curse.maven:aether-protect-your-moa-1016303:${build.project.protect_version}")
+            dependencies.get().runtime("blank:aether_genesis-${build.project.genesis_version}:${build.project.genesis_version}")
+        }
         programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath(), '--existing-mod', 'aether'
     }
+
 }
+
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
@@ -61,6 +69,9 @@ subsystems {
 }
 
 dependencies {
+
+
+
     implementation "net.neoforged:neoforge:${neoforge_version}"
 
     implementation "com.aetherteam.aether:aether:${aether_version}"
@@ -76,7 +87,6 @@ dependencies {
         jarJar.ranged(it, "[${project.aeroblender_version},)")
         jarJar.pin(it, "${project.aeroblender_version}")
     }
-
     jarJar("com.github.glitchfiend:TerraBlender-neoforge:${project.terrablender_version}") {
         jarJar.ranged(it, "[${project.terrablender_version_minimum},${project.terrablender_version_maximum})")
         jarJar.pin(it, "${project.terrablender_version}")
@@ -86,9 +96,25 @@ dependencies {
         jarJar.ranged(it, "[${zenith_version},)")
         jarJar.pin(it, "${zenith_version}")
     }
+
+
+
+
+
+    // Other dependencies
+
+    ifData(runWithDeps, dependencies, "blank:aether_genesis-${project.genesis_version}:${project.genesis_version}")
+    ifData(runWithDeps, dependencies, "curse.maven:aether-protect-your-moa-1016303:${project.protect_version}")
+
 }
 
+static void ifData(boolean runWithDeps, DependencyHandler dependencies, Object args) {
+    runWithDeps ? dependencies.add("implementation", args) : dependencies.add("compileOnly", args)
+}
+
+
 repositories {
+    flatDir { dir 'libs' }
     maven { url = "https://jitpack.io" }
     maven { url = "https://maven.blamejared.com" }
     maven { url = "https://maven.theillusivec4.top/" }

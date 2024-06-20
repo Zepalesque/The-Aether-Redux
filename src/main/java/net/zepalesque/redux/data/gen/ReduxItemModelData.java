@@ -79,4 +79,14 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
 
     }
 
+
+    public static class Grass extends ReduxItemModelProvider {
+        public Grass(PackOutput output, ExistingFileHelper helper) {
+            super(output, Redux.MODID, helper);
+        }
+
+        @Override
+        protected void registerModels() { }
+    }
+
 }
