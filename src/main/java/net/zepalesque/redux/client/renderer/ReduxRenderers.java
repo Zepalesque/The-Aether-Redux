@@ -11,6 +11,6 @@ public class ReduxRenderers {
 
     @SubscribeEvent
     public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        Redux.WOOD_SETS.forEach(set -> set.registerRenderers(event));
+        Redux.BLOCK_SETS.forEach(set -> set.registerRenderers(event));
     }
 }

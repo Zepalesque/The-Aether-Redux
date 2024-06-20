@@ -17,6 +17,7 @@ import net.zepalesque.redux.blockset.util.TintableSet;
 import net.zepalesque.redux.data.ReduxTags;
 import net.zepalesque.redux.world.biome.tint.ReduxBiomeTints;
 import net.zepalesque.zenith.api.blockset.AbstractFlowerSet;
+import net.zepalesque.zenith.api.blockset.BlockSet;
 
 import javax.annotation.Nullable;
 import java.util.function.Consumer;
@@ -42,9 +43,9 @@ public class ReduxColors {
                 AetherBlocks.PURPLE_FLOWER.get(),
                 AetherBlocks.POTTED_PURPLE_FLOWER.get()
         );
-        for (AbstractFlowerSet set : Redux.FLOWER_SETS) {
-            if (set instanceof TintableSet tintable) {
-                event.register((state, level, pos, index) -> getColor(state, level, pos, index, i -> i == tintable.getTintIndex(), true), set.flower().get());
+        for (BlockSet set : Redux.BLOCK_SETS) {
+            if (set instanceof TintableSet tintable && set instanceof AbstractFlowerSet flowerSet) {
+                event.register((state, level, pos, index) -> getColor(state, level, pos, index, i -> i == tintable.getTintIndex(), true), flowerSet.flower().get());
             }
         }
     }
@@ -64,12 +65,11 @@ public class ReduxColors {
                 ReduxBlocks.SPLITFERN.get())*/
         );
 
-        for (AbstractFlowerSet set : Redux.FLOWER_SETS) {
-            if (set instanceof TintableSet tintable) {
-                event.register((stack, tintIndex) -> tintIndex == tintable.getTintIndex() ? tintable.getDefaultItemTint() : 0xFFFFFF, set.flower().get());
+        for (BlockSet set : Redux.BLOCK_SETS) {
+            if (set instanceof TintableSet tintable && set instanceof AbstractFlowerSet flowerSet) {
+                event.register((stack, tintIndex) -> tintIndex == tintable.getTintIndex() ? tintable.getDefaultItemTint() : 0xFFFFFF, flowerSet.flower().get());
             }
         }
-
     }
 
     public static void resolvers(RegisterColorHandlersEvent.ColorResolvers event) {

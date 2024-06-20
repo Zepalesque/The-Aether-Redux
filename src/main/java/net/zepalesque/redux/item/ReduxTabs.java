@@ -17,6 +17,7 @@ import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
 import net.zepalesque.zenith.api.blockset.AbstractFlowerSet;
 import net.zepalesque.zenith.api.blockset.AbstractStoneSet;
 import net.zepalesque.zenith.api.blockset.AbstractWoodSet;
+import net.zepalesque.zenith.api.blockset.BlockSet;
 import net.zepalesque.zenith.util.TabUtil;
 
 import java.util.function.Supplier;
@@ -29,11 +30,11 @@ public class ReduxTabs {
         CreativeModeTab tab = event.getTab();
 
         Supplier<? extends ItemLike> sup = null;
-        for (AbstractWoodSet set : Redux.WOOD_SETS) {
+        for (BlockSet set : Redux.BLOCK_SETS) {
             sup = set.addToCreativeTab(event, sup);
         }
 
-        sup = null;
+/*        sup = null;
         for (AbstractStoneSet set : Redux.STONE_SETS) {
             sup = set.addToCreativeTab(event, sup);
         }
@@ -41,7 +42,7 @@ public class ReduxTabs {
         sup = null;
         for (AbstractFlowerSet set : Redux.FLOWER_SETS) {
             sup = set.addToCreativeTab(event, sup);
-        }
+        }*/
 
         if (tab == AetherCreativeTabs.AETHER_NATURAL_BLOCKS.get()) {
             TabUtil.putAfter(AetherBlocks.SKYROOT_LEAVES, ReduxBlocks.CLOUDROOT_LEAVES, event);

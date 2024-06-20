@@ -34,6 +34,7 @@ import net.zepalesque.redux.world.tree.foliage.ReduxFoliagePlacers;
 import net.zepalesque.zenith.api.blockset.AbstractFlowerSet;
 import net.zepalesque.zenith.api.blockset.AbstractStoneSet;
 import net.zepalesque.zenith.api.blockset.AbstractWoodSet;
+import net.zepalesque.zenith.api.blockset.BlockSet;
 import org.slf4j.Logger;
 
 import java.util.ArrayList;
@@ -43,10 +44,8 @@ import java.util.Collection;
 public class Redux {
     public static final String MODID = "aether_redux";
     public static final Logger LOGGER = LogUtils.getLogger();
-
-    public static final Collection<AbstractWoodSet> WOOD_SETS = new ArrayList<>();
-    public static final Collection<AbstractStoneSet> STONE_SETS = new ArrayList<>();
-    public static final Collection<AbstractFlowerSet> FLOWER_SETS = new ArrayList<>();
+    
+    public static final Collection<BlockSet> BLOCK_SETS = new ArrayList<>();
 
     public Redux(IEventBus bus, Dist dist) {
         bus.addListener(ReduxData::dataSetup);

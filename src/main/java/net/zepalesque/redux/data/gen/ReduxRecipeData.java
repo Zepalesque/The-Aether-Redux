@@ -31,9 +31,7 @@ public class ReduxRecipeData extends ReduxRecipeProvider {
 
     @Override
     protected void buildRecipes(@NotNull RecipeOutput output) {
-        Redux.WOOD_SETS.forEach(set -> set.recipeData(this, output));
-        Redux.STONE_SETS.forEach(set -> set.recipeData(this, output));
-        Redux.FLOWER_SETS.forEach(set -> set.recipeData(this, output));
+        Redux.BLOCK_SETS.forEach(set -> set.recipeData(this, output));
 
         oreBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, ReduxItems.VERIDIUM_NUGGET.get(), RecipeCategory.MISC, ReduxItems.VERIDIUM_INGOT.get(), "veridium_nugget", "veridium_nugget_to_veridium_ingot");
         oreBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, ReduxItems.SENTRITE_CHUNK.get(), RecipeCategory.MISC, ReduxItems.REFINED_SENTRITE.get(), "sentrite_chunk", "sentrite_chunk_to_refined_sentrite");

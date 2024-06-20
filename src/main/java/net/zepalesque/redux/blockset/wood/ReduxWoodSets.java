@@ -12,7 +12,7 @@ public class ReduxWoodSets {
     public static final LogWallWoodSet CRYSTAL = register(new RegularBookshelfSet("crystal", MapColor.COLOR_LIGHT_BLUE, MapColor.TERRACOTTA_CYAN, SoundType.WOOD));
 
     public static <T extends AbstractBookshelfSet<?>> T register(T set) {
-        Redux.WOOD_SETS.add(set);
+        Redux.BLOCK_SETS.add(set);
         return set;
     }
 

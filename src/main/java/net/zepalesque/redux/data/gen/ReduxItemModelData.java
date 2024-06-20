@@ -16,9 +16,7 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
 
     @Override
     protected void registerModels() {
-        Redux.WOOD_SETS.forEach(set -> set.itemData(this));
-        Redux.STONE_SETS.forEach(set -> set.itemData(this));
-        Redux.FLOWER_SETS.forEach(set -> set.itemData(this));
+        Redux.BLOCK_SETS.forEach(set -> set.itemData(this));
 
         itemBlockFlatCustomTexture(ReduxBlocks.SHORT_AETHER_GRASS.get(), "natural/aether_medium_grass");
         this.itemBlock(ReduxBlocks.CLOUDROOT_LEAVES.get());

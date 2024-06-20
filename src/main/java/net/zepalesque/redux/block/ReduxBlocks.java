@@ -33,6 +33,7 @@ import net.zepalesque.redux.block.state.ReduxBlockBuilders;
 import net.zepalesque.redux.client.particle.ReduxParticles;
 import net.zepalesque.redux.event.hook.ToolActionHooks;
 import net.zepalesque.redux.world.tree.ReduxTreeGrowers;
+import net.zepalesque.zenith.api.blockset.AbstractWoodSet;
 import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
 
 public class ReduxBlocks extends ReduxBlockBuilders {
@@ -169,10 +170,14 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 
     public static void registerFlammability() {
         FireAccessor accessor = (FireAccessor) Blocks.FIRE;
-        Redux.WOOD_SETS.forEach(set -> set.flammables(accessor));
+        Redux.BLOCK_SETS.forEach(set -> set.flammables(accessor));
     }
 
     public static void registerToolConversions() {
-        Redux.WOOD_SETS.forEach(set -> set.setupStrippables(ToolActionHooks.STRIPPABLES));
+        Redux.BLOCK_SETS.forEach(set -> {
+            if (set instanceof AbstractWoodSet wood) {
+                wood.setupStrippables(ToolActionHooks.STRIPPABLES);
+            }
+        });
     }
 }

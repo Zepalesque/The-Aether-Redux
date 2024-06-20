@@ -27,7 +27,7 @@ public class ReduxFlowerSets {
             .craftsIntoShapeless(1, () -> Items.YELLOW_DYE, 1, RecipeCategory.MISC);
 
     public static <T extends AbstractFlowerSet> T register(T set) {
-        Redux.FLOWER_SETS.add(set);
+        Redux.BLOCK_SETS.add(set);
         return set;
     }
 

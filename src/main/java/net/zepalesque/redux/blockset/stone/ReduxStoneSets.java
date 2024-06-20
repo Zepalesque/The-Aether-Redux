@@ -53,7 +53,7 @@ public class ReduxStoneSets {
 
 
     public static <T extends AbstractStoneSet> T register(T set) {
-        Redux.STONE_SETS.add(set);
+        Redux.BLOCK_SETS.add(set);
         return set;
     }
 
