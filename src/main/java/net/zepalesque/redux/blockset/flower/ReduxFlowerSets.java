@@ -24,7 +24,8 @@ public class ReduxFlowerSets {
             () -> new CustomBoundsFlowerBlock(CommonPlantBounds.FLOWER,
                     () -> MobEffects.LUCK, 60, Properties.ofFullCopy(Blocks.DANDELION)), 1, /*TODO*/ 0xFFED96))
             .creativeTab(AetherCreativeTabs.AETHER_NATURAL_BLOCKS, AetherBlocks.WHITE_FLOWER)
-            .craftsIntoShapeless(1, () -> Items.YELLOW_DYE, 1, RecipeCategory.MISC);
+            .craftsIntoShapeless(1, () -> Items.YELLOW_DYE, 1, RecipeCategory.MISC)
+            .withLore("A golden flower found in the Gilded Groves. Some say it brings good luck!");
 
     public static <T extends AbstractFlowerSet> T register(T set) {
         Redux.BLOCK_SETS.add(set);
