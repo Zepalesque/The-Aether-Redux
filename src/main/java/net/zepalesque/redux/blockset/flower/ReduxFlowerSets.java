@@ -13,6 +13,7 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.natural.bush.CustomBoundsFlowerBlock;
 import net.zepalesque.redux.blockset.flower.type.AetherFlowerSet;
 import net.zepalesque.redux.blockset.flower.type.BaseFlowerSet;
+import net.zepalesque.redux.blockset.flower.type.EnchantedFlowerSet;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
 import net.zepalesque.zenith.api.blockset.AbstractFlowerSet;
 import net.zepalesque.zenith.api.blockset.AbstractStoneSet;
@@ -20,8 +21,8 @@ import net.zepalesque.zenith.block.util.CommonPlantBounds;
 
 public class ReduxFlowerSets {
 
-    public static final BaseFlowerSet<CustomBoundsFlowerBlock> AURUM = register(new AetherFlowerSet<>("aurum", "natural/",
-            () -> new CustomBoundsFlowerBlock(CommonPlantBounds.FLOWER,
+    public static final BaseFlowerSet<CustomBoundsFlowerBlock.Enchanted> AURUM = register(new EnchantedFlowerSet<>("aurum", "natural/",
+            () -> new CustomBoundsFlowerBlock.Enchanted(CommonPlantBounds.FLOWER,
                     () -> MobEffects.LUCK, 60, Properties.ofFullCopy(Blocks.DANDELION)), 1, /*TODO*/ 0xFFED96))
             .creativeTab(AetherCreativeTabs.AETHER_NATURAL_BLOCKS, AetherBlocks.WHITE_FLOWER)
             .craftsIntoShapeless(1, () -> Items.YELLOW_DYE, 1, RecipeCategory.MISC)

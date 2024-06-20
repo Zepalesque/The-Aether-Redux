@@ -155,4 +155,9 @@ public abstract class ReduxItemModelProvider extends AetherItemModelProvider {
                 .transform(ItemDisplayContext.FIXED).scale(0.5F, 0.5F, 0.5F).end()
                 .end();
     }
+
+    public void itemBlockFlatPrefix(Block block, String location, String prefix) {
+        this.withExistingParent(this.blockName(block), this.mcLoc("item/generated"))
+                .texture("layer0", this.texture(prefix + this.blockName(block), location));
+    }
 }
