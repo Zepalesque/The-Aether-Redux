@@ -13,6 +13,7 @@ import net.neoforged.neoforge.event.AddPackFindersEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.datamaps.RegisterDataMapTypesEvent;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.blockset.flower.ReduxFlowerSets;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
 import net.zepalesque.redux.blockset.wood.ReduxWoodSets;
 import net.zepalesque.redux.client.ReduxColors;
@@ -44,7 +45,7 @@ import java.util.Collection;
 public class Redux {
     public static final String MODID = "aether_redux";
     public static final Logger LOGGER = LogUtils.getLogger();
-    
+
     public static final Collection<BlockSet> BLOCK_SETS = new ArrayList<>();
 
     public Redux(IEventBus bus, Dist dist) {
@@ -60,6 +61,7 @@ public class Redux {
 
         ReduxWoodSets.init();
         ReduxStoneSets.init();
+        ReduxFlowerSets.init();
 
         DeferredRegister<?>[] registers = {
                 ReduxBlocks.BLOCKS,
