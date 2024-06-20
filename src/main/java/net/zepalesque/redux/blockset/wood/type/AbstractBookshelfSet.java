@@ -12,7 +12,10 @@ import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.registries.datamaps.builtin.FurnaceFuel;
+import net.neoforged.neoforge.registries.datamaps.builtin.NeoForgeDataMaps;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.data.prov.ReduxDataMapProvider;
 import net.zepalesque.redux.data.prov.ReduxItemModelProvider;
 import net.zepalesque.redux.data.prov.ReduxLanguageProvider;
 import net.zepalesque.redux.data.prov.ReduxRecipeProvider;
@@ -88,5 +91,12 @@ public abstract class AbstractBookshelfSet<B extends BookshelfBlock> extends Log
     protected Supplier<? extends ItemLike> functionalBlocks(BuildCreativeModeTabContentsEvent event, Supplier<? extends ItemLike> prev) {
         TabUtil.putAfter(prev, this.bookshelf(), event);
         return super.functionalBlocks(event, this.bookshelf());
+    }
+
+    @Override
+    public void mapData(ReduxDataMapProvider data) {
+        super.mapData(data);
+        var fuels = data.builder(NeoForgeDataMaps.FURNACE_FUELS);
+        fuels.add(this.bookshelf().get().asItem().builtInRegistryHolder(), new FurnaceFuel(300), false);
     }
 }

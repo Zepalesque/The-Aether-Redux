@@ -1,6 +1,8 @@
 package net.zepalesque.redux.blockset.stone.type;
 
 import com.aetherteam.aether.block.natural.AetherDoubleDropBlock;
+import com.google.common.collect.HashBasedTable;
+import com.google.common.collect.Table;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
@@ -24,8 +26,10 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.blockset.util.MutableLoreGeneration;
 import net.zepalesque.redux.blockset.util.ReduxGeneration;
 import net.zepalesque.redux.data.prov.ReduxBlockStateProvider;
+import net.zepalesque.redux.data.prov.ReduxDataMapProvider;
 import net.zepalesque.redux.data.prov.ReduxItemModelProvider;
 import net.zepalesque.redux.data.prov.ReduxLanguageProvider;
 import net.zepalesque.redux.data.prov.ReduxRecipeProvider;
@@ -42,13 +46,15 @@ import org.apache.commons.lang3.tuple.Triple;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
 
-public class BaseStoneSet extends AbstractStoneSet implements ReduxGeneration {
+public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGeneration<BaseStoneSet> {
 
-    public final String id, textureFolder, lore;
+    public final String id, textureFolder;
+    protected String lore;
 
     protected final DeferredBlock<AetherDoubleDropBlock> base;
     protected final DeferredBlock<StairBlock> stairs;
@@ -61,14 +67,13 @@ public class BaseStoneSet extends AbstractStoneSet implements ReduxGeneration {
     protected final List<Supplier<AbstractStoneSet>> stonecut_sets = new ArrayList<>();
     protected final Map<Supplier<? extends ItemLike>, Float> smelted_blocks = new HashMap<>();
     protected final Map<Supplier<AbstractStoneSet>, Float> smelted_sets = new HashMap<>();
-    protected final List<Triple<Supplier<CreativeModeTab>, Supplier<? extends ItemLike>, Boolean>> creativeTabOrdering = new ArrayList<>();
+    protected final Table<Supplier<CreativeModeTab>, Supplier<? extends ItemLike>, Boolean> creativeTabOrdering = HashBasedTable.create();
     protected final Map<TagKey<Block>, Boolean> tags = new HashMap<>();
     protected final Map<TagKey<Item>, Boolean> itemTags = new HashMap<>();
 
-    public BaseStoneSet(String id, MapColor color, SoundType sound, float breakTime, float blastResistance, String textureFolder, String lore) {
+    public BaseStoneSet(String id, MapColor color, SoundType sound, float breakTime, float blastResistance, String textureFolder) {
         this.id = id;
         this.textureFolder = textureFolder;
-        this.lore = lore;
         DeferredRegister.Blocks blocks = ReduxBlocks.BLOCKS;
         DeferredRegister.Items items = ReduxItems.ITEMS;
         this.base = this.block(blocks, items, id, color, sound, breakTime, blastResistance);
@@ -134,6 +139,7 @@ public class BaseStoneSet extends AbstractStoneSet implements ReduxGeneration {
         items.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
         return block;
     }
+
 
     @Override
     public DeferredBlock<SlabBlock> slab() {
@@ -209,7 +215,7 @@ public class BaseStoneSet extends AbstractStoneSet implements ReduxGeneration {
 
     @Override
     public BaseStoneSet creativeTab(Supplier<CreativeModeTab> tab, Supplier<? extends ItemLike> placeAfter, boolean allBlocks) {
-        this.creativeTabOrdering.add(Triple.of(tab, placeAfter, allBlocks));
+        this.creativeTabOrdering.put(tab, placeAfter, allBlocks);
         return this;
     }
 
@@ -240,7 +246,7 @@ public class BaseStoneSet extends AbstractStoneSet implements ReduxGeneration {
         String blockName = DatagenUtil.getNameLocalized(this.block());
 
         data.addBlock(this.block());
-        data.addLore(this.block(), this.lore);
+        if (this.lore != null) { data.addLore(this.block(), this.lore); }
         data.addBlock(this.stairs());
         data.addLore(this.stairs(), "Crafted from " + blockName + ". Stairs are useful for adding verticality to builds and are often used for decoration too!");
         data.addBlock(this.slab());
@@ -330,28 +336,28 @@ public class BaseStoneSet extends AbstractStoneSet implements ReduxGeneration {
     }
 
     @Override
-    public void mapData(DataMapProvider data) {
-
+    public BaseStoneSet withLore(String lore) {
+        this.lore = lore;
+        return this;
     }
 
     @Override
-    public void flammables(FireAccessor accessor) {
-
-    }
+    public void mapData(ReduxDataMapProvider data) { }
 
     @Override
-    public void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
+    public void flammables(FireAccessor accessor) { }
 
-    }
+    @Override
+    public void registerRenderers(EntityRenderersEvent.RegisterRenderers event) { }
 
     // Ignore the prev value, implementation is different here
     @Override
     public Supplier<? extends ItemLike> addToCreativeTab(BuildCreativeModeTabContentsEvent event, Supplier<? extends ItemLike> prev) {
-        for (Triple<Supplier<CreativeModeTab>, Supplier<? extends ItemLike>, Boolean> triple : this.creativeTabOrdering) {
-            Supplier<CreativeModeTab> tabToAddTo = triple.getLeft();
+        for (Table.Cell<Supplier<CreativeModeTab>, Supplier<? extends ItemLike>, Boolean> triple : this.creativeTabOrdering.cellSet()) {
+            Supplier<CreativeModeTab> tabToAddTo = triple.getRowKey();
             if (event.getTab() == tabToAddTo.get()) {
-                Supplier<? extends ItemLike> addAfter = triple.getMiddle();
-                boolean all = triple.getRight();
+                Supplier<? extends ItemLike> addAfter = triple.getColumnKey();
+                boolean all = triple.getValue();
                 TabUtil.putAfter(addAfter, this.block(), event);
                 if (all) {
                     TabUtil.putAfter(this.block(), this.stairs(), event);
@@ -361,7 +367,6 @@ public class BaseStoneSet extends AbstractStoneSet implements ReduxGeneration {
                 } else {
                     return this.block();
                 }
-
             }
         }
         return prev;

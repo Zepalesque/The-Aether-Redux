@@ -54,12 +54,15 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.registries.datamaps.builtin.FurnaceFuel;
+import net.neoforged.neoforge.registries.datamaps.builtin.NeoForgeDataMaps;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.natural.NaturalLog;
 import net.zepalesque.redux.blockset.util.ReduxGeneration;
 import net.zepalesque.redux.data.ReduxTags;
 import net.zepalesque.redux.data.prov.ReduxBlockStateProvider;
+import net.zepalesque.redux.data.prov.ReduxDataMapProvider;
 import net.zepalesque.redux.data.prov.ReduxItemModelProvider;
 import net.zepalesque.redux.data.prov.ReduxLanguageProvider;
 import net.zepalesque.redux.data.prov.ReduxRecipeProvider;
@@ -830,7 +833,9 @@ public class BaseWoodSet extends AbstractWoodSet implements ReduxGeneration {
     }
 
     @Override
-    public void mapData(DataMapProvider provider) {
+    public void mapData(ReduxDataMapProvider data) {
+        var fuels = data.builder(NeoForgeDataMaps.FURNACE_FUELS);
+        fuels.add(this.planks().get().asItem().builtInRegistryHolder(), new FurnaceFuel(300), false);
 
     }
 

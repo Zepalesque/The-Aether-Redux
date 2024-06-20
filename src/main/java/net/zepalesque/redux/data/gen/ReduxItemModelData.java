@@ -86,7 +86,10 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
         }
 
         @Override
-        protected void registerModels() { }
+        protected void registerModels() {
+
+
+        }
     }
 
 }

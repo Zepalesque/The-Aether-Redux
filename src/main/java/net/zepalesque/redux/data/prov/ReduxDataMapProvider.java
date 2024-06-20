@@ -15,7 +15,7 @@ public abstract class ReduxDataMapProvider extends DataMapProvider {
         super(packOutput, lookupProvider);
     }
 
-    protected void addCompost(DataMapProvider.Builder<Compostable, Item> map, ItemLike item, float chance) {
+    public void addCompost(DataMapProvider.Builder<Compostable, Item> map, ItemLike item, float chance) {
         map.add(item.asItem().builtInRegistryHolder(), new Compostable(chance), false);
     }
 }

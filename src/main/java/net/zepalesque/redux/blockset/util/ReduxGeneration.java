@@ -7,8 +7,11 @@ import net.minecraft.data.tags.ItemTagsProvider;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
+import net.neoforged.neoforge.common.data.DataMapProvider;
 import net.neoforged.neoforge.common.data.LanguageProvider;
+import net.zepalesque.redux.blockset.stone.type.BaseStoneSet;
 import net.zepalesque.redux.data.prov.ReduxBlockStateProvider;
+import net.zepalesque.redux.data.prov.ReduxDataMapProvider;
 import net.zepalesque.redux.data.prov.ReduxItemModelProvider;
 import net.zepalesque.redux.data.prov.ReduxLanguageProvider;
 import net.zepalesque.redux.data.prov.ReduxRecipeProvider;
@@ -88,6 +91,12 @@ public interface ReduxGeneration extends BlockSet {
 
     void lootData(ReduxBlockLootProvider data);
 
+    @Override
+    default void mapData(DataMapProvider provider) {
+        if (provider instanceof ReduxDataMapProvider data) {
+            this.mapData(data);
+        }
+    }
 
-
+    void mapData(ReduxDataMapProvider data);
 }

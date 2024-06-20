@@ -24,6 +24,7 @@ import net.zepalesque.redux.block.state.ReduxStates;
 import java.util.Set;
 import java.util.function.Function;
 
+// Many of these are just public overrides with no differences, as this is used by the BlockSets
 public abstract class ReduxBlockLootProvider extends AetherBlockLootSubProvider {
 
     public ReduxBlockLootProvider(Set<Item> items, FeatureFlagSet flags) {
@@ -88,6 +89,11 @@ public abstract class ReduxBlockLootProvider extends AetherBlockLootSubProvider 
     @Override
     public LootTable.Builder createSingleItemTableWithSilkTouch(Block pBlock, ItemLike pItem, NumberProvider pCount) {
         return super.createSingleItemTableWithSilkTouch(pBlock, pItem, pCount);
+    }
+
+    @Override
+    public void dropPottedContents(Block pFlowerPot) {
+        super.dropPottedContents(pFlowerPot);
     }
 
     @Override
