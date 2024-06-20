@@ -62,7 +62,7 @@ public abstract class BaseFlowerSet<B extends Block> extends AbstractFlowerSet i
 
     protected final DeferredBlock<B> flower;
     protected final DeferredBlock<FlowerPotBlock> pot;
-    protected UnaryOperator<Properties> potProperties;
+    protected UnaryOperator<Properties> potProperties = UnaryOperator.identity();
 
     public BaseFlowerSet(String id, String textureFolder, Supplier<B> constructor) {
         this.id = id;
