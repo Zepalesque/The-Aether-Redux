@@ -11,6 +11,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.levelgen.DensityFunction;
 import net.minecraft.world.level.levelgen.DensityFunctions;
+import net.minecraft.world.level.levelgen.NoiseRouter;
 import net.minecraft.world.level.levelgen.NoiseRouterData;
 import net.minecraft.world.level.levelgen.synth.BlendedNoise;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
@@ -35,8 +36,8 @@ public class ReduxDensityFunctions extends ReduxNoiseBuilders {
         context.register(CLOUDBED_Y_OFFSET, DensityFunctions.mul(new PerlinNoiseFunction(new NormalNoise.NoiseParameters(0, 1, 1), 0.005D, 0.0D, 95), DensityFunctions.constant(1.5D)));
 
         context.register(REDUX_3D_NOISE, BlendedNoise.createUnseeded(
-                0.375, // xz scale
-                0.25, // y scale
+                0.25, // xz scale
+                0.375, // y scale
                 80.0, // xz factor
                 80.0, // y factor
                 8.0 // smear scale multiplier, capped at 8
