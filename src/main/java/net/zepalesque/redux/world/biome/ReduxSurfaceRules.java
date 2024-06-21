@@ -7,6 +7,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.dimension.LevelStem;
 import net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator;
@@ -17,6 +18,8 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.event.server.ServerAboutToStartEvent;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.data.resource.registries.ReduxBiomes;
+import net.zepalesque.zenith.world.density.PerlinNoiseFunction;
+import terrablender.api.SurfaceRuleManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,30 +29,24 @@ public class ReduxSurfaceRules {
     @SubscribeEvent
     public static void onServerAboutToStart(ServerAboutToStartEvent event) {
         MinecraftServer server = event.getServer();
-        RegistryAccess registryAccess = server.registryAccess();
-        Registry<LevelStem> levelStemRegistry = registryAccess.registryOrThrow(Registries.LEVEL_STEM);
-        LevelStem levelStem = levelStemRegistry.get(AetherDimensions.AETHER_LEVEL_STEM);
-        if (levelStem != null) {
-            ChunkGenerator chunkGenerator = levelStem.generator();
-            if (chunkGenerator instanceof NoiseBasedChunkGenerator noiseGenerator) {
-                NoiseGeneratorSettings noiseGeneratorSettings = noiseGenerator.settings.value();
-                SurfaceRules.RuleSource currentRuleSource = noiseGeneratorSettings.surfaceRule();
-                if (currentRuleSource instanceof SurfaceRules.SequenceRuleSource sequenceRuleSource) {
-                    Redux.LOGGER.info("Patching Redux surface rules...");
-                    SurfaceRules.RuleSource sequence = makeRules(sequenceRuleSource);
-                    NoiseGeneratorSettings moddedNoiseGeneratorSettings = new NoiseGeneratorSettings(noiseGeneratorSettings.noiseSettings(), noiseGeneratorSettings.defaultBlock(), noiseGeneratorSettings.defaultFluid(), noiseGeneratorSettings.noiseRouter(), sequence, noiseGeneratorSettings.spawnTarget(), noiseGeneratorSettings.seaLevel(), noiseGeneratorSettings.disableMobGeneration(), noiseGeneratorSettings.aquifersEnabled(), noiseGeneratorSettings.oreVeinsEnabled(), noiseGeneratorSettings.useLegacyRandomSource());
-                    noiseGenerator.settings = Holder.direct(moddedNoiseGeneratorSettings);
-                }
+        RegistryAccess access = server.registryAccess();
+        Registry<LevelStem> registry = access.registryOrThrow(Registries.LEVEL_STEM);
+        LevelStem stem = registry.get(AetherDimensions.AETHER_LEVEL_STEM);
+        if (stem != null) {
+            ChunkGenerator generator = stem.generator();
+            ServerLevel level = server.getLevel(AetherDimensions.AETHER_LEVEL);
+            if (generator instanceof NoiseBasedChunkGenerator noiseGen && level != null) {
+                noiseGen.generatorSettings().value().noiseRouter().finalDensity().mapAll(PerlinNoiseFunction.createOrGetVisitor(level.getSeed()));
             }
         }
     }
 
-    public static SurfaceRules.RuleSource makeRules(SurfaceRules.SequenceRuleSource base) {
-        List<SurfaceRules.RuleSource> list = new ArrayList<>(base.sequence());
-        List<SurfaceRules.RuleSource> list1 = List.of(
+    public static SurfaceRules.RuleSource makeRules(/*SurfaceRules.SequenceRuleSource base*/) {
+        return SurfaceRules.sequence(
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.GILDED_GROVES), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state((AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get().defaultBlockState()))))
+
+
+
         );
-        list.addAll(list1);
-        return SurfaceRules.sequence(list.toArray(new SurfaceRules.RuleSource[0]));
     }
 }

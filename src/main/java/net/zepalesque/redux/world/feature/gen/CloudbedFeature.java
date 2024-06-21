@@ -31,13 +31,7 @@ public class CloudbedFeature extends Feature<CloudbedFeature.Config> {
         DensityFunction cloudNoise = config.cloudNoise();
         DensityFunction yOffsetNoise = config.yOffset();
 
-        DensityFunction.Visitor visitor = new PerlinNoiseFunction.PerlinNoiseVisitor(noise -> {
-            if (noise.initialized()) {
-                return noise;
-            } else {
-                return noise.initialize(offset -> new XoroshiroRandomSource(level.getSeed() + offset));
-            }
-        });
+        DensityFunction.Visitor visitor = PerlinNoiseFunction.createOrGetVisitor(level.getSeed());
 
         cloudNoise.mapAll(visitor);
         yOffsetNoise.mapAll(visitor);
