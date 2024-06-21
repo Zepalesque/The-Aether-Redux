@@ -150,15 +150,6 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
                         prov(ReduxBlocks.GILDED_VINES),
                         UniformInt.of(1, 3))))*/.build());
 
-        register(context, LARGE_CLOUDROOT_TREE, Feature.TREE,
-                new TreeConfiguration.TreeConfigurationBuilder(
-                        BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LOG),
-                        new StraightTrunkPlacer(4, 2, 0),
-                        prov(ReduxBlocks.CLOUDROOT_LEAVES),
-                        new SkyrootFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
-                        new TwoLayersFeatureSize(1, 0, 1)
-                ).ignoreVines().build());
-
         register(context, GROVE_TREES, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(
                         new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configs.getOrThrow(CLOUDROOT_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.CLOUDROOT_SAPLING.get())), 0.2F),
