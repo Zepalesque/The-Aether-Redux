@@ -247,10 +247,15 @@ public abstract class ReduxBlockStateProvider extends AetherBlockStateProvider {
     }
 
     public void potAlt(Block block, Block flower, String location) {
+        this.potPrefix(block, flower, location, "potted_");
+    }
+
+    public void potPrefix(Block block, Block flower, String location, String prefix) {
         ModelFile pot = this.models().withExistingParent(this.name(block), mcLoc("block/flower_pot_cross"))
-                .texture("plant", this.modLoc("block/" + location + "potted_" + this.name(flower))).renderType("cutout");
+                .texture("plant", this.modLoc("block/" + location + prefix + this.name(flower))).renderType("cutout");
         this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
     }
+
     public void tintedPotDualGloverlay(Block block, Block flower, String location) {
         ModelFile pot = this.models().withExistingParent(this.name(block), Redux.loc("block/template/pot/flower_pot_tinted_dual_gloverlay"))
                 .texture("plant", this.modLoc("block/" + location + this.name(flower)))

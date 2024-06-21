@@ -1,6 +1,9 @@
 {
   "variants": {
-    "": {
+    "enchanted=false": {
+      "model": "aether_redux:block/aurum"
+    },
+    "enchanted=true": {
       "model": "aether_redux:block/aurum"
     }
   }
