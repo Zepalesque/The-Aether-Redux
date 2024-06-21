@@ -64,7 +64,7 @@ public class ReduxData {
         generator.addProvider(event.includeServer(), new ReduxItemTagsData(packOutput, lookupProvider, blockTags.contentsGetter(), fileHelper));
         generator.addProvider(event.includeServer(), new ReduxEntityTagsData(packOutput, lookupProvider, fileHelper));
 
-        generator.addProvider(event.includeServer(), new ReduxBiomeTagsData(packOutput, lookupProvider, fileHelper));
+        generator.addProvider(event.includeServer(), new ReduxBiomeTagsData(packOutput, registryProvider, fileHelper));
 
         // pack.mcmeta
         generator.addProvider(true, new PackMetadataGenerator(packOutput).add(PackMetadataSection.TYPE, new PackMetadataSection(

@@ -19,7 +19,6 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.data.resource.registries.ReduxBiomes;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Mod.EventBusSubscriber(modid = Redux.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
