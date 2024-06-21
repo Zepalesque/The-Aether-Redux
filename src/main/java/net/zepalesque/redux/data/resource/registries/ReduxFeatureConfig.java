@@ -150,7 +150,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
                         prov(ReduxBlocks.GILDED_VINES),
                         UniformInt.of(1, 3))))*/.build());
 
-        register(context, GROVE_GOLDEN_OAK_TREE, Feature.TREE,
+        register(context, LARGE_CLOUDROOT_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
                         BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LOG),
                         new StraightTrunkPlacer(4, 2, 0),
