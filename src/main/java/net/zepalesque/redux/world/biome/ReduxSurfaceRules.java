@@ -18,6 +18,10 @@ import net.neoforged.neoforge.event.server.ServerAboutToStartEvent;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.data.resource.registries.ReduxBiomes;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 @Mod.EventBusSubscriber(modid = Redux.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ReduxSurfaceRules {
     @SubscribeEvent
@@ -32,6 +36,7 @@ public class ReduxSurfaceRules {
                 NoiseGeneratorSettings noiseGeneratorSettings = noiseGenerator.settings.value();
                 SurfaceRules.RuleSource currentRuleSource = noiseGeneratorSettings.surfaceRule();
                 if (currentRuleSource instanceof SurfaceRules.SequenceRuleSource sequenceRuleSource) {
+                    Redux.LOGGER.info("Patching Redux surface rules...");
                     SurfaceRules.RuleSource sequence = makeRules(sequenceRuleSource);
                     NoiseGeneratorSettings moddedNoiseGeneratorSettings = new NoiseGeneratorSettings(noiseGeneratorSettings.noiseSettings(), noiseGeneratorSettings.defaultBlock(), noiseGeneratorSettings.defaultFluid(), noiseGeneratorSettings.noiseRouter(), sequence, noiseGeneratorSettings.spawnTarget(), noiseGeneratorSettings.seaLevel(), noiseGeneratorSettings.disableMobGeneration(), noiseGeneratorSettings.aquifersEnabled(), noiseGeneratorSettings.oreVeinsEnabled(), noiseGeneratorSettings.useLegacyRandomSource());
                     noiseGenerator.settings = Holder.direct(moddedNoiseGeneratorSettings);
@@ -41,8 +46,11 @@ public class ReduxSurfaceRules {
     }
 
     public static SurfaceRules.RuleSource makeRules(SurfaceRules.SequenceRuleSource base) {
-        return SurfaceRules.sequence(base,
+        List<SurfaceRules.RuleSource> list = new ArrayList<>(base.sequence());
+        List<SurfaceRules.RuleSource> list1 = List.of(
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.GILDED_GROVES), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state((AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get().defaultBlockState()))))
         );
+        list.addAll(list1);
+        return SurfaceRules.sequence(list.toArray(new SurfaceRules.RuleSource[0]));
     }
 }
