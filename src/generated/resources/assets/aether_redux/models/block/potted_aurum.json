@@ -1,8 +1,7 @@
 {
-  "parent": "aether_redux:block/template/pot/flower_pot_tinted_overlay",
+  "parent": "minecraft:block/flower_pot_cross",
   "render_type": "minecraft:cutout",
   "textures": {
-    "overlay": "aether_redux:block/natural/aurum_overlay",
-    "plant": "aether_redux:block/natural/aurum"
+    "plant": "aether_redux:block/natural/enchanted_aurum"
   }
 }

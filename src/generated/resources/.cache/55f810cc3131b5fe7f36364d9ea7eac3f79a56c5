@@ -1,5 +1,5 @@
-// 1.20.4	2024-06-20T19:58:40.7821489	Block States: aether_redux
-1f9e83b8b96a1661f15b2bc780182342521bd089 assets/aether_redux/blockstates/aurum.json
+// 1.20.4	2024-06-20T20:02:28.2599694	Block States: aether_redux
+6d5a134587a37ec8ac1798d9ca3e527d0a1d99b9 assets/aether_redux/blockstates/aurum.json
 18cd9d7be4a20d14e14911da277c38674c1d5bd7 assets/aether_redux/blockstates/blightmoss_holystone.json
 4a9e03ff69be912c7f686d6ca7b72f228650f9e4 assets/aether_redux/blockstates/blightmoss_holystone_slab.json
 a4d1a11a2343f5488e53fdc549758dfabb46f198 assets/aether_redux/blockstates/blightmoss_holystone_stairs.json
@@ -146,6 +146,7 @@ b9b66853067143d438bb05b7b996fbb89d4de90e assets/aether_redux/models/block/crysta
 fa24d74c6cacd72fc28d9e7eba20a008c3f58afc assets/aether_redux/models/block/crystal_wood_wall_side_tall_alt.json
 ae7307eddb056f5c7edf83843543e66d6559e6b8 assets/aether_redux/models/block/crystal_wood_wall_side_tall_alt_short.json
 54268b5a0262e24820badd95902dda0f8bc8863b assets/aether_redux/models/block/crystal_wood_wall_side_tall_short.json
+f73fb7ad581ef696f8a53cf9e4490312018db4ef assets/aether_redux/models/block/enchanted_aurum.json
 0cc63fee3fa6c0f67319c0b644892be8d0963c7e assets/aether_redux/models/block/gilded_holystone.json
 17f2ee1e61c4b8bee3eb4042fbea52ff869da309 assets/aether_redux/models/block/gilded_holystone_slab.json
 03c5a4c63b7df560af231ff32f675b610b72e8bc assets/aether_redux/models/block/gilded_holystone_slab_top.json
@@ -158,7 +159,7 @@ ae5eeaa5a73d3ad4f7e4fd91454915070fb90bbf assets/aether_redux/models/block/gilded
 54982f9389fb19c223ce4df1419f91d0e8d28760 assets/aether_redux/models/block/hanging_sentrite_lantern.json
 074e7c7cc4162fdb2aadb64186ba0bc7425dd11f assets/aether_redux/models/block/medium_aether_grass.json
 7e90177f893d151767db272f1a6271eda32a6ab1 assets/aether_redux/models/block/medium_enchanted_grass.json
-5fadf1014640e0d8ade1910e4be9e0cbf462f943 assets/aether_redux/models/block/potted_aurum.json
+67a2bb52114b1b121a694b8f710a19216a42457f assets/aether_redux/models/block/potted_aurum.json
 5ecd4be15373042ae22d11bc320f3db60e601b2f assets/aether_redux/models/block/raw_veridium_block.json
 84ef0a84c2a5ef18299b6e31a716fe076aedd163 assets/aether_redux/models/block/refined_sentrite_block.json
 e58234ecceb5be45245a714d5ea6a63f541dd591 assets/aether_redux/models/block/runelight.json

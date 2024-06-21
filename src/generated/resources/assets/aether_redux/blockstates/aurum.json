@@ -4,7 +4,7 @@
       "model": "aether_redux:block/aurum"
     },
     "enchanted=true": {
-      "model": "aether_redux:block/aurum"
+      "model": "aether_redux:block/enchanted_aurum"
     }
   }
 }
