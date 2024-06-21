@@ -20,6 +20,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -56,6 +57,7 @@ import net.zepalesque.redux.world.tree.foliage.SkyrootFoliagePlacer;
 import net.zepalesque.zenith.Zenith;
 import net.zepalesque.zenith.world.feature.gen.SurfaceRuleLakeFeature;
 import net.zepalesque.zenith.world.feature.gen.ZenithFeatures;
+import net.zepalesque.zenith.world.tree.trunk.IntProviderTrunkPlacer;
 
 import java.util.Arrays;
 import java.util.List;
@@ -129,7 +131,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
                                 .add(AetherFeatureStates.GOLDEN_OAK_LOG, 1)
                                 .add(AetherFeatureStates.SKYROOT_LOG, 7)
                         ),
-                        new StraightTrunkPlacer(9, 0, 0),
+                        new IntProviderTrunkPlacer(UniformInt.of(8, 14)),
                         BlockStateProvider.simple(AetherFeatureStates.GOLDEN_OAK_LEAVES),
                         new GoldenOakFoliagePlacer(ConstantInt.of(3), ConstantInt.of(1), ConstantInt.of(6)),
                         new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(9))
@@ -141,7 +143,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
                                 .add(AetherFeatureStates.GOLDEN_OAK_LOG, 1)
                                 .add(AetherFeatureStates.SKYROOT_LOG, 3)
                         ),
-                        new StraightTrunkPlacer(13, 0, 0),
+                        new IntProviderTrunkPlacer(UniformInt.of(10, 18)),
                         BlockStateProvider.simple(AetherFeatureStates.GOLDEN_OAK_LEAVES),
                         new GoldenOakFoliagePlacer(ConstantInt.of(3), ConstantInt.of(1), ConstantInt.of(10)),
                         new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(13))
