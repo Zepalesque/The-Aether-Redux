@@ -1,7 +1,13 @@
 package net.zepalesque.redux.data.resource.registries;
 
 import com.aetherteam.aether.Aether;
+import com.aetherteam.aether.block.AetherBlocks;
+import com.aetherteam.aether.data.resources.builders.AetherPlacedFeatureBuilders;
+import com.aetherteam.aether.data.resources.registries.AetherConfiguredFeatures;
 import com.aetherteam.aether.data.resources.registries.AetherPlacedFeatures;
+import com.aetherteam.aether.world.placementmodifier.DungeonBlacklistFilter;
+import com.aetherteam.aether.world.placementmodifier.ImprovedLayerPlacementModifier;
+import com.aetherteam.nitrogen.data.resources.builders.NitrogenPlacedFeatureBuilders;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
@@ -9,14 +15,24 @@ import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.valueproviders.BiasedToBottomInt;
+import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.util.valueproviders.IntProvider;
+import net.minecraft.util.valueproviders.WeightedListInt;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.heightproviders.TrapezoidHeight;
 import net.minecraft.world.level.levelgen.placement.BiomeFilter;
+import net.minecraft.world.level.levelgen.placement.CountPlacement;
 import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
+import net.minecraft.world.level.levelgen.placement.HeightmapPlacement;
 import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
+import net.minecraft.world.level.levelgen.placement.NoiseThresholdCountPlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
+import net.minecraft.world.level.levelgen.placement.RarityFilter;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.zepalesque.redux.Redux;
 
@@ -26,17 +42,75 @@ public class ReduxPlacements {
 
     public static final ResourceKey<PlacedFeature> CLOUDBED = copyKey(ReduxFeatureConfig.CLOUDBED);
     public static final ResourceKey<PlacedFeature> SENTRITE_ORE = copyKey(ReduxFeatureConfig.SENTRITE_ORE);
+    public static final ResourceKey<PlacedFeature> GROVE_TREES = copyKey(ReduxFeatureConfig.GROVE_TREES);
+    public static final ResourceKey<PlacedFeature> AURUM_PATCH = copyKey(ReduxFeatureConfig.AURUM_PATCH);
+
+    public static final ResourceKey<PlacedFeature> SPARSE_BLUE_AERCLOUD = createKey("sparse_blue_aercloud");
+    public static final ResourceKey<PlacedFeature> DENSE_BLUE_AERCLOUD = createKey("dense_blue_aercloud");
+    public static final ResourceKey<PlacedFeature> SPARSE_ZANITE_ORE = createKey("sparse_zanite_ore");
+    public static final ResourceKey<PlacedFeature> SPARSE_AMBROSIUM_ORE = createKey("sparse_ambrosium_ore");
+    public static final ResourceKey<PlacedFeature> DENSE_ZANITE_ORE = createKey("dense_zanite_ore");
+    public static final ResourceKey<PlacedFeature> DENSE_AMBROSIUM_ORE = createKey("dense_ambrosium_ore");
+    public static final ResourceKey<PlacedFeature> SURFACE_RULE_WATER_LAKE = copyKey(ReduxFeatureConfig.SURFACE_RULE_WATER_LAKE);
 
     public static final ResourceKey<PlacedFeature> BONEMEAL_OVERRIDE = AetherPlacedFeatures.AETHER_GRASS_BONEMEAL;
 
 
+
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configs = context.lookup(Registries.CONFIGURED_FEATURE);
+        DungeonBlacklistFilter blacklist = new DungeonBlacklistFilter();
+        NoiseThresholdCountPlacement threshold = NoiseThresholdCountPlacement.of(-0.8D, 5, 10);
 
         register(context, CLOUDBED, configs.getOrThrow(ReduxFeatureConfig.CLOUDBED));
         register(context, SENTRITE_ORE, configs.getOrThrow(ReduxFeatureConfig.SENTRITE_ORE),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(TrapezoidHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.aboveBottom(128))),
+                BiomeFilter.biome()
+        );
+
+        register(context, GROVE_TREES, configs.getOrThrow(ReduxFeatureConfig.GROVE_TREES),
+                CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
+                        .add(ConstantInt.of(9), 9)
+                        .add(ConstantInt.of(7), 3)
+                        .add(ConstantInt.of(3), 5)
+                        .add(ConstantInt.of(16), 1)
+                        .build())),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.OCEAN_FLOOR, ConstantInt.of(2), 4),
+                BiomeFilter.biome(),
+                PlacementUtils.filteredByBlockSurvival(AetherBlocks.GOLDEN_OAK_SAPLING.get()),
+                blacklist
+        );
+
+        register(context, AURUM_PATCH, configs.getOrThrow(ReduxFeatureConfig.AURUM_PATCH),
+                threshold,
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, BiasedToBottomInt.of(0, 2), 4),
+                RarityFilter.onAverageOnceEvery(12),
+                BiomeFilter.biome());
+
+        register(context, SPARSE_BLUE_AERCLOUD,
+                configs.getOrThrow(AetherConfiguredFeatures.BLUE_AERCLOUD_CONFIGURATION),
+                AetherPlacedFeatureBuilders.aercloudPlacement(32, 64, 48));
+
+        register(context, DENSE_BLUE_AERCLOUD,
+                configs.getOrThrow(AetherConfiguredFeatures.BLUE_AERCLOUD_CONFIGURATION),
+                AetherPlacedFeatureBuilders.aercloudPlacement(32, 64, 14));
+
+        register(context, SPARSE_AMBROSIUM_ORE, configs.getOrThrow(AetherConfiguredFeatures.ORE_AMBROSIUM_CONFIGURATION),
+                NitrogenPlacedFeatureBuilders.commonOrePlacement(10, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(128))));
+
+        register(context, SPARSE_ZANITE_ORE, configs.getOrThrow(AetherConfiguredFeatures.ORE_ZANITE_CONFIGURATION),
+                NitrogenPlacedFeatureBuilders.commonOrePlacement(7, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(75))));
+
+        register(context, DENSE_AMBROSIUM_ORE, configs.getOrThrow(AetherConfiguredFeatures.ORE_AMBROSIUM_CONFIGURATION),
+                NitrogenPlacedFeatureBuilders.commonOrePlacement(30, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(128))));
+
+        register(context, DENSE_ZANITE_ORE, configs.getOrThrow(AetherConfiguredFeatures.ORE_ZANITE_CONFIGURATION),
+                NitrogenPlacedFeatureBuilders.commonOrePlacement(21, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(75))));
+
+        register(context, SURFACE_RULE_WATER_LAKE, configs.getOrThrow(ReduxFeatureConfig.SURFACE_RULE_WATER_LAKE),
+                RarityFilter.onAverageOnceEvery(15),
+                HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE_WG),
                 BiomeFilter.biome()
         );
 

@@ -8,6 +8,7 @@ import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import net.zepalesque.redux.data.resource.registries.ReduxBiomeModifiers;
+import net.zepalesque.redux.data.resource.registries.ReduxBiomes;
 import net.zepalesque.redux.data.resource.registries.ReduxConditions;
 import net.zepalesque.redux.data.resource.registries.ReduxDensityFunctions;
 import net.zepalesque.redux.data.resource.registries.ReduxFeatureConfig;
@@ -29,7 +30,8 @@ public class ReduxRegistrySets extends DatapackBuiltinEntriesProvider {
             .add(Registries.DENSITY_FUNCTION, ReduxDensityFunctions::bootstrap)
             .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ReduxBiomeModifiers::bootstrap)
             .add(NeoForgeRegistries.Keys.STRUCTURE_MODIFIERS, ReduxStructureModifiers::bootstrap)
-            .add(Zenith.Keys.CONDITION, ReduxConditions::bootstrap);
+            .add(Zenith.Keys.CONDITION, ReduxConditions::bootstrap)
+            .add(Registries.BIOME, ReduxBiomes::bootstrap);
 
     public ReduxRegistrySets(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, String modid, String... otherIds) {
         super(output, registries, BUILDER, buildModidList(modid, otherIds));

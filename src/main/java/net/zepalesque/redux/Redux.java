@@ -29,14 +29,17 @@ import net.zepalesque.redux.pack.PackUtils;
 import net.zepalesque.redux.pack.ReduxPackConfig;
 import net.zepalesque.redux.recipe.ReduxRecipes;
 import net.zepalesque.redux.tile.ReduxTiles;
+import net.zepalesque.redux.world.biome.ReduxRegion;
 import net.zepalesque.redux.world.biome.tint.ReduxBiomeTints;
 import net.zepalesque.redux.world.feature.gen.ReduxFeatures;
+import net.zepalesque.redux.world.tree.decorator.ReduxTreeDecorators;
 import net.zepalesque.redux.world.tree.foliage.ReduxFoliagePlacers;
 import net.zepalesque.zenith.api.blockset.AbstractFlowerSet;
 import net.zepalesque.zenith.api.blockset.AbstractStoneSet;
 import net.zepalesque.zenith.api.blockset.AbstractWoodSet;
 import net.zepalesque.zenith.api.blockset.BlockSet;
 import org.slf4j.Logger;
+import terrablender.api.Regions;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -75,7 +78,8 @@ public class Redux {
                 ReduxRecipes.TYPES,
                 ReduxRecipes.Serializers.SERIALIZERS,
                 ReduxSounds.SOUNDS,
-                ReduxLootModifiers.GLOBAL_LOOT_MODIFIERS
+                ReduxLootModifiers.GLOBAL_LOOT_MODIFIERS,
+                ReduxTreeDecorators.TREE_DECORATORS
         };
 
         for (DeferredRegister<?> register : registers) {
@@ -90,6 +94,7 @@ public class Redux {
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
+            Regions.register(new ReduxRegion(new ResourceLocation(MODID, "aether_redux_region"), /*ReduxConfig.COMMON.region_size.get()*/ 20));
             ReduxBlocks.registerFlammability();
             ReduxBlocks.registerToolConversions();
         });

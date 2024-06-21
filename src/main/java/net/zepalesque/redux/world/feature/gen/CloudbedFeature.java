@@ -25,7 +25,6 @@ public class CloudbedFeature extends Feature<CloudbedFeature.Config> {
 
     @Override
     public boolean place(FeaturePlaceContext<Config> context) {
-
         Config config = context.config();
         WorldGenLevel level = context.level();
 
