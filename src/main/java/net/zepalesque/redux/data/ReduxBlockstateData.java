@@ -862,6 +862,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         BlockModelBuilder ench = models().cross("enchanted_" + this.name(block), this.texture("enchanted_" + this.name(block), location)).renderType("cutout");
         this.getVariantBuilder(block).forAllStates((state) ->  ConfiguredModel.builder().modelFile(state.getValue(ReduxStates.ENCHANTED) ? ench : cross).build());
     }
+
     public void crossTintedEnchantable(Block block, String location) {
         BlockModelBuilder cross = models().withExistingParent(this.name(block), mcLoc(BLOCK_FOLDER + "/tinted_cross"))
                 .texture("cross", this.texture(this.name(block), location)).renderType("cutout");

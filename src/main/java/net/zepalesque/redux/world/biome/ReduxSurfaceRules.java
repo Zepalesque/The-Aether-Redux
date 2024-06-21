@@ -16,7 +16,7 @@ import teamrazor.deepaether.init.DABlocks;
 
 import java.util.function.Supplier;
 
-public class ReduxSurfaceData {
+public class ReduxSurfaceRules {
     public static SurfaceRules.RuleSource makeRules() {
         return SurfaceRules.sequence(
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.THE_BLIGHT), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.SWAMP, 0.4), SurfaceRules.state((getCoarseDirtBlock().get()).defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true))))),
