@@ -166,13 +166,13 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
                 patch(12, 7, 3, prov(ReduxFlowerSets.AURUM.flower())));
 
         register(context, GOLDEN_CLOVERS_PATCH, Feature.FLOWER,
-                patch(8, 3, 3, petals(drops(ReduxBlocks.GOLDEN_CLOVERS))));
+                patch(24, 7, 3, petals(drops(ReduxBlocks.GOLDEN_CLOVERS))));
 
         register(context, SURFACE_RULE_WATER_LAKE, ZenithFeatures.SURFACE_RULE_LAKE.get(),
                 new SurfaceRuleLakeFeature.Config(BlockStateProvider.simple(Blocks.WATER)));
 
         // Overrides
-        register(context, GRASS_PATCH, Feature.RANDOM_PATCH, patch(32, 7, 3, prov(ReduxBlocks.SHORT_AETHER_GRASS), NOT_ON_COARSE_DIRT));
+        register(context, GRASS_PATCH, Feature.RANDOM_PATCH, patch(48, 7, 3, prov(ReduxBlocks.SHORT_AETHER_GRASS), NOT_ON_COARSE_DIRT));
         register(context, TALL_GRASS_PATCH, Feature.NO_OP, new NoneFeatureConfiguration());
 
         register(context, GRASS_BONEMEAL, Feature.SIMPLE_BLOCK,
