@@ -9,6 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ChainBlock;
 import net.minecraft.world.level.block.LanternBlock;
+import net.minecraft.world.level.block.PinkPetalsBlock;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
@@ -16,6 +17,7 @@ import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.client.model.generators.ModelProvider;
+import net.neoforged.neoforge.client.model.generators.MultiPartBlockStateBuilder;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.construction.LayeredBookshelfBlock;
@@ -291,5 +293,33 @@ public abstract class ReduxBlockStateProvider extends AetherBlockStateProvider {
                 .texture("plant", this.modLoc("block/" + location + "potted_" + this.name(flower)))
                 .texture("overlay", this.modLoc("block/" + location + "potted_" + this.name(flower) + "_overlay")).renderType("cutout");
         this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
+    }
+
+    // Other
+
+    public void flowerbed(Block block, String location) {
+        ModelFile flowerbed1 = this.models().withExistingParent(this.name(block) + "_1", mcLoc("flowerbed_1"))
+                .texture("flowerbed", this.texture(this.name(block), location))
+                .texture("stem", this.extend(this.texture(this.name(block), location), "_stem"))
+                .renderType("cutout");
+        ModelFile flowerbed2 = this.models().withExistingParent(this.name(block) + "_2", mcLoc("flowerbed_2"))
+                .texture("flowerbed", this.texture(this.name(block), location))
+                .texture("stem", this.extend(this.texture(this.name(block), location), "_stem"))
+                .renderType("cutout");
+        ModelFile flowerbed3 = this.models().withExistingParent(this.name(block) + "_3", mcLoc("flowerbed_3"))
+                .texture("flowerbed", this.texture(this.name(block), location))
+                .texture("stem", this.extend(this.texture(this.name(block), location), "_stem"))
+                .renderType("cutout");
+        ModelFile flowerbed4 = this.models().withExistingParent(this.name(block) + "_4", mcLoc("flowerbed_4"))
+                .texture("flowerbed", this.texture(this.name(block), location))
+                .texture("stem", this.extend(this.texture(this.name(block), location), "_stem"))
+                .renderType("cutout");
+        MultiPartBlockStateBuilder builder = this.getMultipartBuilder(block);
+        for (Direction d : new Direction[] {Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST}) {
+            builder.part().modelFile(flowerbed1).rotationY(d.getOpposite().get2DDataValue() * 90).addModel().condition(PinkPetalsBlock.AMOUNT, 1, 2, 3, 4).condition(PinkPetalsBlock.FACING, d).end();
+            builder.part().modelFile(flowerbed2).rotationY(d.getOpposite().get2DDataValue() * 90).addModel().condition(PinkPetalsBlock.AMOUNT, 2, 3, 4).condition(PinkPetalsBlock.FACING, d).end();
+            builder.part().modelFile(flowerbed3).rotationY(d.getOpposite().get2DDataValue() * 90).addModel().condition(PinkPetalsBlock.AMOUNT, 3, 4).condition(PinkPetalsBlock.FACING, d).end();
+            builder.part().modelFile(flowerbed4).rotationY(d.getOpposite().get2DDataValue() * 90).addModel().condition(PinkPetalsBlock.AMOUNT, 4).condition(PinkPetalsBlock.FACING, d).end();
+        }
     }
 }

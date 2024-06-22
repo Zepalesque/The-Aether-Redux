@@ -29,7 +29,6 @@ public class ReduxMapData extends ReduxDataMapProvider {
 
         var compostables = this.builder(NeoForgeDataMaps.COMPOSTABLES);
         this.addCompost(compostables, ReduxBlocks.CLOUDROOT_LEAVES, 0.3F);
-        this.addCompost(compostables, ReduxBlocks.CLOUDROOT_SAPLING, 0.3F);
         this.addCompost(compostables, ReduxBlocks.SHORT_AETHER_GRASS, 0.3F);
         this.addCompost(compostables, ReduxItems.WYND_OATS, 0.3F);
         this.addCompost(compostables, ReduxBlocks.WYNDSPROUTS, 0.3F);

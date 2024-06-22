@@ -20,7 +20,6 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
 
         itemBlockFlatCustomTexture(ReduxBlocks.SHORT_AETHER_GRASS.get(), "natural/aether_medium_grass");
         this.itemBlock(ReduxBlocks.CLOUDROOT_LEAVES.get());
-        this.itemBlockFlat(ReduxBlocks.CLOUDROOT_SAPLING.get(), "natural/");
 
         this.itemBlock(ReduxBlocks.CARVED_BASE.get());
         this.itemBlock(ReduxBlocks.CARVED_PILLAR.get());
@@ -75,6 +74,8 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
         this.itemBlock(ReduxBlocks.RAW_VERIDIUM_BLOCK.get());
         this.itemBlock(ReduxBlocks.VERIDIUM_BLOCK.get());
         this.itemBlock(ReduxBlocks.REFINED_SENTRITE_BLOCK.get());
+
+        item(ReduxBlocks.GOLDEN_CLOVERS.get().asItem(), "misc/");
 
     }
 

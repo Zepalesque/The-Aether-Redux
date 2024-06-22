@@ -41,7 +41,16 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
                 ReduxBlocks.CLOUDROOT_LEAVES.get()
         );
         this.tag(BlockTags.MINEABLE_WITH_HOE).add(
-                ReduxBlocks.CLOUDROOT_LEAVES.get()
+                ReduxBlocks.CLOUDROOT_LEAVES.get(),
+                ReduxBlocks.GOLDEN_CLOVERS.get()
+        );
+
+        this.tag(BlockTags.INSIDE_STEP_SOUND_BLOCKS).add(
+                ReduxBlocks.GOLDEN_CLOVERS.get()
+        );
+
+        this.tag(BlockTags.SWORD_EFFICIENT).add(
+                ReduxBlocks.GOLDEN_CLOVERS.get()
         );
 
         this.tag(AetherTags.Blocks.SENTRY_BLOCKS).add(

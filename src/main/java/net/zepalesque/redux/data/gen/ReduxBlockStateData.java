@@ -21,7 +21,6 @@ public class ReduxBlockStateData extends ReduxBlockStateProvider {
 
         this.tintableShortGrass(ReduxBlocks.SHORT_AETHER_GRASS.get(), "natural/");
         this.block(ReduxBlocks.CLOUDROOT_LEAVES.get(), "natural/");
-        this.crossBlock(ReduxBlocks.CLOUDROOT_SAPLING.get(), "natural/");
 
         this.pillar(ReduxBlocks.CARVED_PILLAR.get(), "dungeon/");
         this.pillar(ReduxBlocks.SENTRY_PILLAR.get(), "dungeon/");
@@ -58,6 +57,8 @@ public class ReduxBlockStateData extends ReduxBlockStateProvider {
         this.block(ReduxBlocks.RAW_VERIDIUM_BLOCK.get(), "construction/");
         this.block(ReduxBlocks.VERIDIUM_BLOCK.get(), "construction/");
         this.block(ReduxBlocks.REFINED_SENTRITE_BLOCK.get(), "construction/");
+
+        this.flowerbed(ReduxBlocks.GOLDEN_CLOVERS.get(), "natural/");
 
     }
 }

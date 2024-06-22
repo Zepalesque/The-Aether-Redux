@@ -1,13 +1,16 @@
 package net.zepalesque.redux.data.resource.builders;
 
 import com.aetherteam.aether.block.AetherBlockStateProperties;
+import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.PinkPetalsBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -16,6 +19,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfigur
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.state.ReduxStates;
@@ -70,5 +74,17 @@ public class ReduxFeatureBuilders {
     protected static BlockState naturalDrops(Supplier<? extends Block> block) {
         BlockState b = block.get().defaultBlockState();
         return b.hasProperty(ReduxStates.NATURAL_GEN) ? drops(b.setValue(ReduxStates.NATURAL_GEN, true)) : drops(b);
+    }
+
+
+    protected static BlockStateProvider petals(BlockState state) {
+        SimpleWeightedRandomList.Builder<BlockState> builder = SimpleWeightedRandomList.builder();
+        for (Direction d : PinkPetalsBlock.FACING.getPossibleValues()) {
+            BlockState temp = state.setValue(PinkPetalsBlock.FACING, d);
+            for (int i : PinkPetalsBlock.AMOUNT.getPossibleValues()) {
+                builder.add(temp.setValue(PinkPetalsBlock.AMOUNT, i), i);
+            }
+        }
+        return new WeightedStateProvider(builder);
     }
 }

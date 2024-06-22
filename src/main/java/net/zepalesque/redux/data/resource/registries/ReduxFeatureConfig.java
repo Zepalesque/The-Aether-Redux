@@ -67,6 +67,7 @@ import java.util.function.Supplier;
 public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> AURUM_PATCH = createKey(name(ReduxFlowerSets.AURUM.flower()) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_CLOVERS_PATCH = createKey(name(ReduxBlocks.GOLDEN_CLOVERS) + "_patch");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> CLOUDBED = createKey("cloudbed");
 
@@ -154,8 +155,8 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 
         register(context, GROVE_TREES, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(
-                        new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configs.getOrThrow(CLOUDROOT_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.CLOUDROOT_SAPLING.get())), 0.2F),
-                        new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configs.getOrThrow(LARGE_CLOUDROOT_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.CLOUDROOT_SAPLING.get())), 0.15F)),
+                        new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configs.getOrThrow(CLOUDROOT_TREE), PlacementUtils.filteredByBlockSurvival(ReduxFlowerSets.CLOUDROOT_SAPLING.flower().get())), 0.2F),
+                        new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configs.getOrThrow(LARGE_CLOUDROOT_TREE), PlacementUtils.filteredByBlockSurvival(ReduxFlowerSets.CLOUDROOT_SAPLING.flower().get())), 0.15F)),
                         PlacementUtils.inlinePlaced(configs.getOrThrow(GROVE_GOLDEN_OAK_TREE), PlacementUtils.filteredByBlockSurvival(AetherBlocks.GOLDEN_OAK_SAPLING.get()))));
 
         register(context, SENTRITE_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
@@ -163,6 +164,9 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 
         register(context, AURUM_PATCH, Feature.FLOWER,
                 patch(12, 7, 3, prov(ReduxFlowerSets.AURUM.flower())));
+
+        register(context, GOLDEN_CLOVERS_PATCH, Feature.FLOWER,
+                patch(8, 3, 3, petals(drops(ReduxBlocks.GOLDEN_CLOVERS))));
 
         register(context, SURFACE_RULE_WATER_LAKE, ZenithFeatures.SURFACE_RULE_LAKE.get(),
                 new SurfaceRuleLakeFeature.Config(BlockStateProvider.simple(Blocks.WATER)));

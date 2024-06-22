@@ -13,6 +13,7 @@ import net.neoforged.fml.common.Mod.EventBusSubscriber.Bus;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.blockset.flower.ReduxFlowerSets;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
 import net.zepalesque.zenith.api.blockset.AbstractFlowerSet;
 import net.zepalesque.zenith.api.blockset.AbstractStoneSet;
@@ -34,19 +35,9 @@ public class ReduxTabs {
             sup = set.addToCreativeTab(event, sup);
         }
 
-/*        sup = null;
-        for (AbstractStoneSet set : Redux.STONE_SETS) {
-            sup = set.addToCreativeTab(event, sup);
-        }
-
-        sup = null;
-        for (AbstractFlowerSet set : Redux.FLOWER_SETS) {
-            sup = set.addToCreativeTab(event, sup);
-        }*/
-
         if (tab == AetherCreativeTabs.AETHER_NATURAL_BLOCKS.get()) {
             TabUtil.putAfter(AetherBlocks.SKYROOT_LEAVES, ReduxBlocks.CLOUDROOT_LEAVES, event);
-            TabUtil.putAfter(AetherBlocks.SKYROOT_SAPLING, ReduxBlocks.CLOUDROOT_SAPLING, event);
+            TabUtil.putAfter(ReduxFlowerSets.AURUM.flower(), ReduxBlocks.GOLDEN_CLOVERS, event);
         }
 
         if (tab == AetherCreativeTabs.AETHER_DUNGEON_BLOCKS.get()) {

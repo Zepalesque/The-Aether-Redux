@@ -11,6 +11,7 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePrope
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.natural.crop.WyndoatsBlock;
+import net.zepalesque.redux.blockset.flower.ReduxFlowerSets;
 import net.zepalesque.redux.data.prov.loot.ReduxBlockLootProvider;
 import net.zepalesque.redux.item.ReduxItems;
 
@@ -33,9 +34,8 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
 
         this.add(ReduxBlocks.SHORT_AETHER_GRASS.get(), shears());
 
-        this.dropSelf(ReduxBlocks.CLOUDROOT_SAPLING.get());
         this.add(ReduxBlocks.CLOUDROOT_LEAVES.get(),
-                (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxBlocks.CLOUDROOT_SAPLING.get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
+                (leaves) -> droppingWithChancesAndSkyrootSticks(leaves, ReduxFlowerSets.CLOUDROOT_SAPLING.flower().get(), BlockLootAccessor.aether$getNormalLeavesSaplingChances()));
 
         this.dropSelf(ReduxBlocks.CARVED_PILLAR.get());
         this.dropSelf(ReduxBlocks.SENTRY_PILLAR.get());
@@ -80,6 +80,8 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
         this.dropSelf(ReduxBlocks.VERIDIUM_BLOCK.get());
         this.dropSelf(ReduxBlocks.RAW_VERIDIUM_BLOCK.get());
         this.dropSelf(ReduxBlocks.REFINED_SENTRITE_BLOCK.get());
+
+        this.createPetalsDrops(ReduxBlocks.GOLDEN_CLOVERS.get());
     }
 
     @Override

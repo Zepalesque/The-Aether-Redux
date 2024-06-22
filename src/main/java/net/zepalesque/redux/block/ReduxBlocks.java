@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ChainBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.LanternBlock;
+import net.minecraft.world.level.block.PinkPetalsBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.SoundType;
@@ -20,6 +21,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.level.block.state.BlockBehaviour.OffsetType;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.zepalesque.redux.Redux;
@@ -27,6 +29,7 @@ import net.zepalesque.redux.block.dungeon.DoorwayPillarBlock;
 import net.zepalesque.redux.block.dungeon.RunelightBlock;
 import net.zepalesque.redux.block.dungeon.TrappedPillarBlock;
 import net.zepalesque.redux.block.natural.AetherShortGrassBlock;
+import net.zepalesque.redux.block.natural.GoldenCloversBlock;
 import net.zepalesque.redux.block.natural.crop.WyndoatsBlock;
 import net.zepalesque.redux.block.natural.leaves.FallingLeavesBlock;
 import net.zepalesque.redux.block.state.ReduxBlockBuilders;
@@ -47,11 +50,16 @@ public class ReduxBlocks extends ReduxBlockBuilders {
                             .hasPostProcess((state, level, pos) -> true)
             ));
 
-    public static final DeferredBlock<SaplingBlock> CLOUDROOT_SAPLING = register("cloudroot_sapling",
-            () -> new SaplingBlock(ReduxTreeGrowers.CLOUDROOT, Properties.ofFullCopy(Blocks.OAK_SAPLING).mapColor(MapColor.QUARTZ)));
-
     public static DeferredBlock<FallingLeavesBlock> CLOUDROOT_LEAVES = register("cloudroot_leaves",
             () -> new FallingLeavesBlock(ReduxParticles.CLOUDROOT_LEAF, Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get()).mapColor(MapColor.QUARTZ)));
+
+    public static DeferredBlock<GoldenCloversBlock> GOLDEN_CLOVERS = register("golden_clovers",
+            () -> new GoldenCloversBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.GOLD)
+                    .noCollission()
+                    .sound(SoundType.PINK_PETALS)
+                    .pushReaction(PushReaction.DESTROY)
+            ));
 
     public static final DeferredBlock<Block> CARVED_PILLAR = register("carved_pillar", () -> new RotatedPillarBlock(Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).strength(0.5F, 6.0F).requiresCorrectToolForDrops()));
     public static final DeferredBlock<Block> SENTRY_PILLAR = register("sentry_pillar", () -> new RotatedPillarBlock(Properties.ofFullCopy(CARVED_PILLAR.get()).lightLevel(state -> 11)));
