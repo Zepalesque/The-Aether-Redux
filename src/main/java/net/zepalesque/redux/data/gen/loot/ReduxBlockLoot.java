@@ -82,6 +82,8 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
         this.dropSelf(ReduxBlocks.REFINED_SENTRITE_BLOCK.get());
 
         this.add(ReduxBlocks.GOLDEN_CLOVERS.get(), this::createPetalsDrops);
+        this.add(ReduxBlocks.GOLDEN_VINES.get(), shears());
+        this.add(ReduxBlocks.GOLDEN_VINES_PLANT.get(), shears().apply(ReduxBlocks.GOLDEN_VINES.get()));
     }
 
     @Override

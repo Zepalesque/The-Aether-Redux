@@ -60,5 +60,8 @@ public class ReduxBlockStateData extends ReduxBlockStateProvider {
 
         this.flowerbed(ReduxBlocks.GOLDEN_CLOVERS.get(), "natural/");
 
+        this.cropOccluded(ReduxBlocks.GOLDEN_VINES.get(), "natural/");
+        this.cropOccluded(ReduxBlocks.GOLDEN_VINES_PLANT.get(), "natural/");
+
     }
 }

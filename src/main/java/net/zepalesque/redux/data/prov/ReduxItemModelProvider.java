@@ -10,11 +10,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
-import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.client.model.generators.loaders.ItemLayerModelBuilder;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
-
-import java.util.function.Supplier;
 
 public abstract class ReduxItemModelProvider extends AetherItemModelProvider {
 
@@ -24,8 +21,14 @@ public abstract class ReduxItemModelProvider extends AetherItemModelProvider {
 
 
     public ItemModelBuilder itemBlockFlatCustomTexture(Block block, String locationPlusName) {
+
         return withExistingParent(blockName(block), mcLoc("item/generated"))
                 .texture("layer0", texture(locationPlusName));
+    }
+
+    public ItemModelBuilder itemBlockFlatOther(Block block, Block other, String location) {
+        return withExistingParent(blockName(block), mcLoc("item/generated"))
+                .texture("layer0", texture(blockName(other), location));
     }
 
     // TODO: Templates for all of these maybe?
@@ -75,7 +78,7 @@ public abstract class ReduxItemModelProvider extends AetherItemModelProvider {
                 .texture("layer1", texture(blockName(block) + suffix + "_glow", location)).customLoader((itemModelBuilder,existingFileHelper) ->
                         ItemLayerModelBuilder.begin(itemModelBuilder, existingFileHelper).emissive(15, 15, 1)).end();
     }
-    public ItemModelBuilder itemBlockFlatGlowOtherTexture(Block block, Block other, String location) {
+    public ItemModelBuilder itemBlockFlatGlowOther(Block block, Block other, String location) {
         return withExistingParent(blockName(block), mcLoc("item/generated"))
                 .texture("layer0", texture(blockName(other), location))
                 .texture("layer1", texture(blockName(other) + "_glow", location)).customLoader((itemModelBuilder,existingFileHelper) ->

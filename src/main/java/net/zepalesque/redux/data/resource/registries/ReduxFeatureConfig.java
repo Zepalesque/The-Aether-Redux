@@ -148,10 +148,10 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
                         BlockStateProvider.simple(AetherFeatureStates.GOLDEN_OAK_LEAVES),
                         new GoldenOakFoliagePlacer(ConstantInt.of(3), ConstantInt.of(1), ConstantInt.of(10)),
                         new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(13))
-                ).ignoreVines()/*.decorators(List.of(new GoldenVineDecorator(0.25F,
-                        prov(ReduxBlocks.GILDED_VINES_PLANT),
-                        prov(ReduxBlocks.GILDED_VINES),
-                        UniformInt.of(1, 3))))*/.build());
+                ).ignoreVines().decorators(List.of(new GoldenVineDecorator(0.25F,
+                        prov(ReduxBlocks.GOLDEN_VINES_PLANT),
+                        prov(ReduxBlocks.GOLDEN_VINES),
+                        UniformInt.of(1, 5)))).build());
 
         register(context, GROVE_TREES, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(

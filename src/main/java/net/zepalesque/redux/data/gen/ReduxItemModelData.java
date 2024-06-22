@@ -75,7 +75,8 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
         this.itemBlock(ReduxBlocks.VERIDIUM_BLOCK.get());
         this.itemBlock(ReduxBlocks.REFINED_SENTRITE_BLOCK.get());
 
-        item(ReduxBlocks.GOLDEN_CLOVERS.get().asItem(), "misc/");
+        this.item(ReduxBlocks.GOLDEN_CLOVERS.get().asItem(), "misc/");
+        this.itemBlockFlatOther(ReduxBlocks.GOLDEN_VINES.get(), ReduxBlocks.GOLDEN_VINES_PLANT.get(), "natural/");
 
     }
 

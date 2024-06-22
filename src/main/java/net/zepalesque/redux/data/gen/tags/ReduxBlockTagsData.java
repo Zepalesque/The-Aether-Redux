@@ -34,6 +34,7 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
             tag.add(block.get());
         }
         this.tag(ReduxTags.Blocks.ENCHANTED_GRASS_BLOCKS).add(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get());
+        this.tag(ReduxTags.Blocks.GOLDEN_VINE_SUSTAINABLE).add(AetherBlocks.GOLDEN_OAK_LEAVES.get());
 
         this.tag(ReduxTags.Blocks.QUICKSOIL_BEHAVIOR).add(AetherBlocks.QUICKSOIL.get());
 
@@ -50,7 +51,17 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
         );
 
         this.tag(BlockTags.SWORD_EFFICIENT).add(
-                ReduxBlocks.GOLDEN_CLOVERS.get()
+                ReduxBlocks.GOLDEN_CLOVERS.get(),
+                ReduxBlocks.GOLDEN_VINES.get(),
+                ReduxBlocks.GOLDEN_VINES_PLANT.get()
+        );
+        
+        this.tag(BlockTags.CLIMBABLE).add(
+                ReduxBlocks.GOLDEN_VINES_PLANT.get()
+        );
+
+        this.tag(BlockTags.FALL_DAMAGE_RESETTING).add(
+                ReduxBlocks.GOLDEN_VINES_PLANT.get()
         );
 
         this.tag(AetherTags.Blocks.SENTRY_BLOCKS).add(

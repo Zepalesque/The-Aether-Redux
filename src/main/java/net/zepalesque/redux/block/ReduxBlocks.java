@@ -3,7 +3,6 @@ package net.zepalesque.redux.block;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.dungeon.DoorwayBlock;
 import com.aetherteam.aether.block.dungeon.TrappedBlock;
-import com.aetherteam.aether.block.miscellaneous.FloatingBlock;
 import com.aetherteam.aether.block.natural.AetherBushBlock;
 import com.aetherteam.aether.block.natural.AetherDoubleDropBlock;
 import com.aetherteam.aether.entity.AetherEntityTypes;
@@ -12,9 +11,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ChainBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.LanternBlock;
-import net.minecraft.world.level.block.PinkPetalsBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
-import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
@@ -29,13 +26,15 @@ import net.zepalesque.redux.block.dungeon.DoorwayPillarBlock;
 import net.zepalesque.redux.block.dungeon.RunelightBlock;
 import net.zepalesque.redux.block.dungeon.TrappedPillarBlock;
 import net.zepalesque.redux.block.natural.AetherShortGrassBlock;
+import net.zepalesque.redux.block.natural.GoldenVinesHeadBlock;
+import net.zepalesque.redux.block.natural.GoldenVinesBodyBlock;
 import net.zepalesque.redux.block.natural.GoldenCloversBlock;
 import net.zepalesque.redux.block.natural.crop.WyndoatsBlock;
 import net.zepalesque.redux.block.natural.leaves.FallingLeavesBlock;
 import net.zepalesque.redux.block.state.ReduxBlockBuilders;
 import net.zepalesque.redux.client.particle.ReduxParticles;
+import net.zepalesque.redux.data.ReduxTags;
 import net.zepalesque.redux.event.hook.ToolActionHooks;
-import net.zepalesque.redux.world.tree.ReduxTreeGrowers;
 import net.zepalesque.zenith.api.blockset.AbstractWoodSet;
 import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
 
@@ -175,6 +174,16 @@ public class ReduxBlocks extends ReduxBlockBuilders {
                             .sound(SoundType.NETHERITE_BLOCK)
             )
     );
+
+
+    public static DeferredBlock<GoldenVinesHeadBlock> GOLDEN_VINES = register("golden_vines",
+            () -> new GoldenVinesHeadBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WEEPING_VINES)
+                    .mapColor(MapColor.GOLD).sound(SoundType.CAVE_VINES), ReduxTags.Blocks.GOLDEN_VINE_SUSTAINABLE));
+
+    public static DeferredBlock<GoldenVinesBodyBlock> GOLDEN_VINES_PLANT = BLOCKS.register("golden_vines_plant",
+            () -> new GoldenVinesBodyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WEEPING_VINES_PLANT)
+                    .mapColor(MapColor.GOLD).sound(SoundType.CAVE_VINES), ReduxTags.Blocks.GOLDEN_VINE_SUSTAINABLE));
+
 
     public static void registerFlammability() {
         FireAccessor accessor = (FireAccessor) Blocks.FIRE;
