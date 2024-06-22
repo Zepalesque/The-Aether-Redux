@@ -44,21 +44,35 @@ public class GoldenVineDecorator extends TreeDecorator {
             int y = leafPos.getY();
             int z = leafPos.getZ();
             try {
-                if (!xzyLowestMap.contains(x, z) || y < xzyLowestMap.get(x, z)) {
+                if (!xzyLowestMap.contains(x, z)) {
+                    Redux.LOGGER.debug("Leaf table does not have value: x={}, y={}, z={}, adding", x, y, z);
                     xzyLowestMap.put(x, z, y);
+                } else {
+                    int old = xzyLowestMap.get(x, z);
+                    if (y < old) {
+                        Redux.LOGGER.debug("Found new lowest value in table: x={}, y={}, z={}, old value was y={}", x, y, z, old);
+                        xzyLowestMap.put(x, z, y);
+                    }
                 }
             } catch (NullPointerException exception) {
-                Redux.LOGGER.error("Caught error when trying to add leaf to map!", exception);
+                Redux.LOGGER.error("Caught error when trying to add leaf to table!", exception);
             }
         }
-        Collection<BlockPos> lowestLeaves = xzyLowestMap.cellSet().stream().map(cell -> new BlockPos(cell.getRowKey(), cell.getValue(), cell.getColumnKey())).toList();
         RandomSource randomsource = pContext.random();
-        for (BlockPos leafPos : lowestLeaves) {
+        for (Table.Cell<Integer, Integer, Integer> leafPos : xzyLowestMap.cellSet()) {
+            Redux.LOGGER.debug("Converting Table.Cell {}, {} -> {} to BlockPos", leafPos.getRowKey(), leafPos.getColumnKey(), leafPos.getValue());
+            BlockPos pos = new BlockPos(leafPos.getRowKey(), leafPos.getValue(), leafPos.getColumnKey());
+            Redux.LOGGER.debug("Got BlockPos: x={}, y={}, z={}", pos.getX(), pos.getY(), pos.getZ());
             int length = this.length.sample(randomsource);
+            Redux.LOGGER.debug("Sampled length with value of {}", length);
             if (randomsource.nextFloat() < probability) {
-                BlockPos blockpos = leafPos.below();
+                BlockPos blockpos = pos.below();
+                Redux.LOGGER.debug("Getting block under pos x={}, y={}, z={}", pos.getX(), pos.getY(), pos.getZ());
                 if (pContext.isAir(blockpos)) {
+                    Redux.LOGGER.debug("Block is air!");
                     this.addVine(blockpos, pContext, length);
+                } else {
+                    Redux.LOGGER.debug("Block is not air!");
                 }
             }
         }
@@ -68,13 +82,24 @@ public class GoldenVineDecorator extends TreeDecorator {
         for (int i = 1; i <= length; i++) {
             BlockPos placement = pPos.offset(0, 1 - i, 0);
             if (!pContext.isAir(placement)) {
+                Redux.LOGGER.debug("Failed to place vine #{}", i);
                 break;
             }
 
-            if (!pContext.isAir(placement.below()) || i >= length) {
+            boolean notAirBelow = !pContext.isAir(placement.below());
+            boolean maxLength = i >= length;
+            if (notAirBelow || maxLength) {
+                if (notAirBelow && maxLength) {
+                    Redux.LOGGER.debug("Placing vine block #{}, which should be the final one as there is no air below, and the max length has been reached", i);
+                } else if (notAirBelow) {
+                    Redux.LOGGER.debug("Placing vine block #{}, which should be the final one as there is no air below", i);
+                } else {
+                    Redux.LOGGER.debug("Placing vine block #{}, which should be the final one as the max length has been reached", i);
+                }
                 pContext.setBlock(placement, this.headBlock.getState(pContext.random(), pPos));
                 break;
             } else {
+                Redux.LOGGER.debug("Placing vine block #{}, which should be a body block", i);
                 pContext.setBlock(placement, this.bodyBlock.getState(pContext.random(), pPos));
             }
         }
