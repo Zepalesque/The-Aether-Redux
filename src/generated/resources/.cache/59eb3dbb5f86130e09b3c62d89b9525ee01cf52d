@@ -1,4 +1,4 @@
-// 1.20.4	2024-06-22T17:47:20.9111385	Loot Tables
+// 1.20.4	2024-06-22T19:21:40.6664134	Loot Tables
 c6156555dc4897939b617dabc4521b7fa52feba0 data/aether_redux/loot_tables/blocks/aurum.json
 16b03329a81906c5130061c5ea9ae1168890a761 data/aether_redux/loot_tables/blocks/blightmoss_holystone.json
 95ce5e6d7a83e0c7f242a6389d5a3a39c565d8c8 data/aether_redux/loot_tables/blocks/blightmoss_holystone_slab.json
@@ -35,6 +35,8 @@ eea21b34d4dbbcb2ad814075bba411717f8b7670 data/aether_redux/loot_tables/blocks/gi
 ccff96aec2798c0c2dbed8fe51785ea03fa58bbf data/aether_redux/loot_tables/blocks/gilded_holystone_stairs.json
 44318b6c445024a97e10f578ebbede32c96eb996 data/aether_redux/loot_tables/blocks/gilded_holystone_wall.json
 cea11480a51838247cdcebebb7e544df4ddd08ac data/aether_redux/loot_tables/blocks/golden_clovers.json
+0370c843ea859d258a1caa32fee9f1f0bf256577 data/aether_redux/loot_tables/blocks/golden_vines.json
+b4e1671cbeeb8abeb3fedce164313b94abe4c368 data/aether_redux/loot_tables/blocks/golden_vines_plant.json
 2318ad656965dc092c2289afec52159cb602f5e2 data/aether_redux/loot_tables/blocks/locked_carved_base.json
 e680fa317e1e2de6efbc6c99ba0ebcd91c08bdb9 data/aether_redux/loot_tables/blocks/locked_carved_pillar.json
 23bde969d7d739d5f88d7ed52444be70a3c09636 data/aether_redux/loot_tables/blocks/locked_runelight.json

@@ -1,7 +1,34 @@
 {
   "type": "minecraft:tree",
   "config": {
-    "decorators": [],
+    "decorators": [
+      {
+        "type": "aether_redux:golden_vines",
+        "length": {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_inclusive": 5,
+            "min_inclusive": 1
+          }
+        },
+        "plant_body_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "aether_redux:golden_vines_plant"
+          }
+        },
+        "plant_head_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "aether_redux:golden_vines",
+            "Properties": {
+              "age": "0"
+            }
+          }
+        },
+        "probability": 0.25
+      }
+    ],
     "dirt_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {

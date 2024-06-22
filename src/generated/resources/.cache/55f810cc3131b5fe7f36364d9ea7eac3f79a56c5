@@ -1,4 +1,4 @@
-// 1.20.4	2024-06-22T17:47:20.9181354	Block States: aether_redux
+// 1.20.4	2024-06-22T19:21:40.6704103	Block States: aether_redux
 6d5a134587a37ec8ac1798d9ca3e527d0a1d99b9 assets/aether_redux/blockstates/aurum.json
 18cd9d7be4a20d14e14911da277c38674c1d5bd7 assets/aether_redux/blockstates/blightmoss_holystone.json
 4a9e03ff69be912c7f686d6ca7b72f228650f9e4 assets/aether_redux/blockstates/blightmoss_holystone_slab.json
@@ -35,6 +35,8 @@ cbee6c80adc35fe6f3e1fbb633f83d458583a2b4 assets/aether_redux/blockstates/gilded_
 ceaf44cea7faf6c003e170711ba221ba54b6e5f6 assets/aether_redux/blockstates/gilded_holystone_stairs.json
 85cbdf0b0eaf79dc6afcaa608ad69142caa2e620 assets/aether_redux/blockstates/gilded_holystone_wall.json
 fe15d254140f52c84094e00ace0635fa70cbd907 assets/aether_redux/blockstates/golden_clovers.json
+a74fe165f4a1f8443e0a1617cf0fe943eee15dda assets/aether_redux/blockstates/golden_vines.json
+d80b7e6ca0b3e637c0688a9fe669c2c29c5b57a7 assets/aether_redux/blockstates/golden_vines_plant.json
 94c3083780c75c168a9e238637724f599f50c714 assets/aether_redux/blockstates/locked_carved_base.json
 8e5005c9aec33bb49d5119920b393b93f97df20d assets/aether_redux/blockstates/locked_carved_pillar.json
 7033907fbae21b5426d807f7bc4b5cd61ae5c86d assets/aether_redux/blockstates/locked_runelight.json
@@ -162,6 +164,8 @@ b432dde87dbe7002b91c873de277b4b0d325044d assets/aether_redux/models/block/golden
 26853f5f03d1fad5fc1a5352d685a1d84a2926f7 assets/aether_redux/models/block/golden_clovers_2.json
 724d12aaa950cf6882d575886a2e643f633ac193 assets/aether_redux/models/block/golden_clovers_3.json
 2f8ae0d96bbea9179548019943eb7b4105dcd7d1 assets/aether_redux/models/block/golden_clovers_4.json
+f3969ac879626ba505ab792480707d1fa7c92826 assets/aether_redux/models/block/golden_vines.json
+972c123de3bb72a6e297d379115f084df4d628c4 assets/aether_redux/models/block/golden_vines_plant.json
 54982f9389fb19c223ce4df1419f91d0e8d28760 assets/aether_redux/models/block/hanging_sentrite_lantern.json
 074e7c7cc4162fdb2aadb64186ba0bc7425dd11f assets/aether_redux/models/block/medium_aether_grass.json
 7e90177f893d151767db272f1a6271eda32a6ab1 assets/aether_redux/models/block/medium_enchanted_grass.json

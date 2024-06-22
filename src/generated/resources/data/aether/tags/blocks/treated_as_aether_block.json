@@ -33,6 +33,8 @@
     "aether_redux:raw_veridium_block",
     "aether_redux:veridium_block",
     "aether_redux:refined_sentrite_block",
+    "aether_redux:golden_vines",
+    "aether_redux:golden_vines_plant",
     "aether_redux:crystal_log",
     "aether_redux:stripped_crystal_log",
     "aether_redux:crystal_wood",
