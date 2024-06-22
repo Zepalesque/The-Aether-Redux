@@ -23,7 +23,7 @@ public class ReduxFlowerSets {
 
     public static final BaseFlowerSet<CustomBoundsFlowerBlock.Enchanted> AURUM = register(new EnchantedFlowerSet<>("aurum", "natural/",
             () -> new CustomBoundsFlowerBlock.Enchanted(CommonPlantBounds.FLOWER,
-                    () -> MobEffects.LUCK, 60, Properties.ofFullCopy(Blocks.DANDELION)), 1, /*TODO*/ 0xFFED96))
+                    () -> MobEffects.LUCK, 60, Properties.ofFullCopy(Blocks.DANDELION).hasPostProcess((s, l, p) -> true)), 1, null))
             .creativeTab(AetherCreativeTabs.AETHER_NATURAL_BLOCKS, AetherBlocks.WHITE_FLOWER)
             .craftsIntoShapeless(1, () -> Items.YELLOW_DYE, 1, RecipeCategory.MISC)
             .withLore("A golden flower found in the Gilded Groves. Some say it brings good luck!");

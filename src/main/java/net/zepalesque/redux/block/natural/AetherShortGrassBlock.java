@@ -45,7 +45,7 @@ public class AetherShortGrassBlock extends AetherBushBlock {
     @Override
     public boolean canBeReplaced(BlockState pState, BlockPlaceContext pUseContext) {
         return super.canBeReplaced(pState, pUseContext) &&
-                pUseContext.getItemInHand().is(ReduxTags.Items.AETHER_GRASS_NONREPLACING);
+                !pUseContext.getItemInHand().is(ReduxTags.Items.AETHER_GRASS_NONREPLACING);
     }
 
     @Override
