@@ -26,7 +26,7 @@ public class ReduxTags {
         // Blocks that count as Coarse Aether Dirt
         public static final TagKey<Block> COARSE_AETHER_DIRT = tag("coarse_aether_dirt");
 
-        // Blocks that count as Coarse Aether Dirt
+        // Blocks that Golden Vines can grow on
         public static final TagKey<Block> GOLDEN_VINE_SUSTAINABLE = tag("golden_vine_sustainable");
 
 
