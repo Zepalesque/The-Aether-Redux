@@ -33,6 +33,7 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
         for (DeferredHolder<Block, ? extends Block> block : ReduxBlocks.BLOCKS.getEntries()) {
             tag.add(block.get());
         }
+        this.tag(ReduxTags.Blocks.ENCHANTED_GRASS_BLOCKS).add(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get());
 
         this.tag(ReduxTags.Blocks.QUICKSOIL_BEHAVIOR).add(AetherBlocks.QUICKSOIL.get());
 

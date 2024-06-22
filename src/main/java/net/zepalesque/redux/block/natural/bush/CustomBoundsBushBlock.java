@@ -15,6 +15,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.zepalesque.redux.block.state.ReduxStates;
+import net.zepalesque.redux.data.ReduxTags;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -68,7 +69,7 @@ public class CustomBoundsBushBlock extends AetherBushBlock {
         public BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor level, BlockPos currentPos, BlockPos facingPos) {
             BlockState b = super.updateShape(state, facing, facingState, level, currentPos, facingPos);
             if (b.hasProperty(ReduxStates.ENCHANTED) && facing == Direction.DOWN) {
-                if (level.getBlockState(facingPos).is(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get())) {
+                if (level.getBlockState(facingPos).is(ReduxTags.Blocks.ENCHANTED_GRASS_BLOCKS)) {
                     return b.setValue(ReduxStates.ENCHANTED, true);
                 }
                 return b.setValue(ReduxStates.ENCHANTED, false);
