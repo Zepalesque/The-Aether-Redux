@@ -8,6 +8,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.GrowingPlantHeadBlock;
@@ -64,7 +65,7 @@ public class GoldenVinesHeadBlock extends GrowingPlantHeadBlock {
         }
     }
 
-    public int getLength(ServerLevel level, BlockPos pos) {
+    public int getLength(Level level, BlockPos pos) {
         BlockPos.MutableBlockPos mutableBlockPos = pos.mutable();
         int i = 0;
         while (!level.isOutsideBuildHeight(pos.getY() + i) && level.isStateAtPosition(pos.above(i), state -> state.is(this.getHeadBlock()) || state.is(this.getBodyBlock()))) {
