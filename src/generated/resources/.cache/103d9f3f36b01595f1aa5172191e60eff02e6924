@@ -1,4 +1,4 @@
-// 1.20.4	2024-06-22T18:12:25.9365277	Registries
+// 1.20.4	2024-06-22T18:20:49.6329065	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 8a507cefcf541bbc45bcce1bcd6fff668c4429cd data/aether/worldgen/configured_feature/golden_oak_tree.json
 c3e70def2e4f0db7fd45d43de17ffcbe9d6dbc86 data/aether/worldgen/configured_feature/grass_patch.json
@@ -31,8 +31,8 @@ d30e768357242063e77a87bc153d5bd7a88479e8 data/aether_redux/worldgen/density_func
 8b12954e0cac03680abc4b12f49d262e7559a4d6 data/aether_redux/worldgen/placed_feature/dense_ambrosium_ore.json
 2cdb57bbf592d7f051c022af159a15cb3e4533fa data/aether_redux/worldgen/placed_feature/dense_blue_aercloud.json
 e2a2442c7d70015e6cb6662a672968da3cd947e6 data/aether_redux/worldgen/placed_feature/dense_zanite_ore.json
-5c595237537d380a71c5b8b6331d4d7088881e40 data/aether_redux/worldgen/placed_feature/gilded_groves_trees.json
-6851525a5e480ab6e1f6f991acb969ade559661c data/aether_redux/worldgen/placed_feature/golden_clovers_patch.json
+ade305f71dbc33bbd21cc91d1bb30048c4024dce data/aether_redux/worldgen/placed_feature/gilded_groves_trees.json
+40233f6888bfeafb91710855091ea2994faea4dc data/aether_redux/worldgen/placed_feature/golden_clovers_patch.json
 667257c68f50d4873605192cbb3fc468ae584632 data/aether_redux/worldgen/placed_feature/sentrite_ore.json
 1741f6c947a7d82f7a6ee104b166cfa1b83bbfab data/aether_redux/worldgen/placed_feature/sparse_ambrosium_ore.json
 12c684bf1f4a41f655e365c0e1603b98c4513046 data/aether_redux/worldgen/placed_feature/sparse_blue_aercloud.json

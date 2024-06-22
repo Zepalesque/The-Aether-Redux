@@ -73,10 +73,10 @@ public class ReduxPlacements {
 
         register(context, GROVE_TREES, configs.getOrThrow(ReduxFeatureConfig.GROVE_TREES),
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
-                        .add(ConstantInt.of(7), 9)
-                        .add(ConstantInt.of(5), 3)
+                        .add(ConstantInt.of(6), 9)
+                        .add(ConstantInt.of(4), 3)
                         .add(ConstantInt.of(2), 5)
-                        .add(ConstantInt.of(12), 1)
+                        .add(ConstantInt.of(10), 1)
                         .build())),
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.OCEAN_FLOOR, ConstantInt.of(2), 4),
                 BiomeFilter.biome(),
