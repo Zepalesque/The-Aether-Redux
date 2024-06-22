@@ -44,7 +44,7 @@ public class ReduxPlacements {
     public static final ResourceKey<PlacedFeature> SENTRITE_ORE = copyKey(ReduxFeatureConfig.SENTRITE_ORE);
     public static final ResourceKey<PlacedFeature> GROVE_TREES = copyKey(ReduxFeatureConfig.GROVE_TREES);
     public static final ResourceKey<PlacedFeature> AURUM_PATCH = copyKey(ReduxFeatureConfig.AURUM_PATCH);
-    public static final ResourceKey<PlacedFeature> GOLDEN_CLOVERS_PATCH = copyKey(ReduxFeatureConfig.AURUM_PATCH);
+    public static final ResourceKey<PlacedFeature> GOLDEN_CLOVERS_PATCH = copyKey(ReduxFeatureConfig.GOLDEN_CLOVERS_PATCH);
 
     public static final ResourceKey<PlacedFeature> SPARSE_BLUE_AERCLOUD = createKey("sparse_blue_aercloud");
     public static final ResourceKey<PlacedFeature> DENSE_BLUE_AERCLOUD = createKey("dense_blue_aercloud");

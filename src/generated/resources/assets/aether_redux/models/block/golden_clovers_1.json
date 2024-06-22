@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/flowerbed_1",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "flowerbed": "aether_redux:block/natural/golden_clovers",
+    "stem": "aether_redux:block/natural/golden_clovers_stem"
+  }
+}
