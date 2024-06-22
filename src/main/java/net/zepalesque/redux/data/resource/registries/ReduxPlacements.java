@@ -84,15 +84,13 @@ public class ReduxPlacements {
         );
 
         register(context, AURUM_PATCH, configs.getOrThrow(ReduxFeatureConfig.AURUM_PATCH),
-                threshold,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, BiasedToBottomInt.of(0, 2), 4),
                 RarityFilter.onAverageOnceEvery(12),
                 BiomeFilter.biome());
 
         register(context, GOLDEN_CLOVERS_PATCH, configs.getOrThrow(ReduxFeatureConfig.GOLDEN_CLOVERS_PATCH),
                 threshold,
-                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, BiasedToBottomInt.of(0, 2), 4),
-                RarityFilter.onAverageOnceEvery(6),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, BiasedToBottomInt.of(0, 1), 4),
                 BiomeFilter.biome());
 
         register(context, SPARSE_BLUE_AERCLOUD,
