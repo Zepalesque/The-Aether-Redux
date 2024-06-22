@@ -1,0 +1,7 @@
+{
+  "parent": "aether_redux:block/template/crop/crop_occluded",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "plant": "aether_redux:block/natural/golden_vines_plant"
+  }
+}

@@ -82,6 +82,6 @@ public class GoldenVineDecorator extends TreeDecorator {
 
     @Override
     protected TreeDecoratorType<?> type() {
-        return null;
+        return ReduxTreeDecorators.GOLDEN_VINES.get();
     }
 }
