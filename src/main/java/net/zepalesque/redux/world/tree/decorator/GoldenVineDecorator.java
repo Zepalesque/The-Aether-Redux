@@ -15,6 +15,8 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.data.ReduxTags;
 
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 public class GoldenVineDecorator extends TreeDecorator {
@@ -39,7 +41,9 @@ public class GoldenVineDecorator extends TreeDecorator {
 
     public void place(TreeDecorator.Context pContext) {
         Table<Integer, Integer, Integer> xzyLowestMap = HashBasedTable.create();
-        for (BlockPos leafPos : pContext.leaves()) {
+        List<BlockPos> l = pContext.leaves().clone();
+        Collections.reverse(l);
+        for (BlockPos leafPos : l) {
             int x = leafPos.getX();
             int y = leafPos.getY();
             int z = leafPos.getZ();
@@ -52,7 +56,10 @@ public class GoldenVineDecorator extends TreeDecorator {
                     if (y < old) {
                         Redux.LOGGER.debug("Found new lowest value in table: x={}, y={}, z={}, old value was y={}", x, y, z, old);
                         xzyLowestMap.put(x, z, y);
+                    } else {
+                        Redux.LOGGER.debug("Skipping leaf block: x={}, y={}, z={}, as old value y={} is lower", x, y, z, old);
                     }
+
                 }
             } catch (NullPointerException exception) {
                 Redux.LOGGER.error("Caught error when trying to add leaf to table!", exception);
@@ -72,7 +79,7 @@ public class GoldenVineDecorator extends TreeDecorator {
                     Redux.LOGGER.debug("Block is air!");
                     this.addVine(blockpos, pContext, length);
                 } else {
-                    Redux.LOGGER.debug("Block is not air!");
+                    Redux.LOGGER.error("Block is not air!");
                 }
             }
         }
