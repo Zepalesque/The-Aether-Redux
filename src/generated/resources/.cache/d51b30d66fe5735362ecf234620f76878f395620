@@ -1,4 +1,4 @@
-// 1.20.4	2024-06-20T19:58:40.7661581	Item Models: aether_redux
+// 1.20.4	2024-06-22T17:47:20.8880938	Item Models: aether_redux
 795ee016e7dad0d6ac42593c58ba258161615647 assets/aether_redux/models/item/aurum.json
 a083a7311bfd77483a76afa2e0b34a2dca856c28 assets/aether_redux/models/item/blightmoss_holystone.json
 693490b382231c95e748c88f8daa13be00cd8ceb assets/aether_redux/models/item/blightmoss_holystone_slab.json
@@ -34,6 +34,7 @@ c21384e3c0f2e7cf2838fc78bd300726ad88099d assets/aether_redux/models/item/gilded_
 7cc45ca1892d40585fe787a30634854a783d1ef1 assets/aether_redux/models/item/gilded_holystone_slab.json
 462c33cc11eaca761757d91060550f705d13724b assets/aether_redux/models/item/gilded_holystone_stairs.json
 b94d7ae7552984746c011a3c414646a7b5538436 assets/aether_redux/models/item/gilded_holystone_wall.json
+497b1fee83f743dda1c78e4c303f9635b30a915d assets/aether_redux/models/item/golden_clovers.json
 799296c4d4b51c7508d64cc40b7f5af08fac78f1 assets/aether_redux/models/item/infused_veridium_axe.json
 e00233f8f617b931ac5a25f0bad5e540d5399350 assets/aether_redux/models/item/infused_veridium_hoe.json
 61eb8571e24f150cff006a0a41a18f2343cef7aa assets/aether_redux/models/item/infused_veridium_pickaxe.json

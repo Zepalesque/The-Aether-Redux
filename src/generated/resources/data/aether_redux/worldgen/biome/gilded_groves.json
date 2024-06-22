@@ -43,7 +43,8 @@
       "aether_redux:gilded_groves_trees",
       "aether:holiday_tree",
       "aether:grass_patch",
-      "aether_redux:aurum_patch"
+      "aether_redux:aurum_patch",
+      "aether_redux:golden_clovers_patch"
     ],
     [
       "aether:cold_aercloud",
