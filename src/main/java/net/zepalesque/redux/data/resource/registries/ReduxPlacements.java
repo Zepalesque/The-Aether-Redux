@@ -91,7 +91,8 @@ public class ReduxPlacements {
                 BiomeFilter.biome());
 
         register(context, GOLDEN_CLOVERS_PATCH, configs.getOrThrow(ReduxFeatureConfig.GOLDEN_CLOVERS_PATCH),
-                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, BiasedToBottomInt.of(0, 1), 4),
+                threshold,
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
                 RarityFilter.onAverageOnceEvery(2),
                 BiomeFilter.biome());
 
