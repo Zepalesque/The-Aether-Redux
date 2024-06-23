@@ -194,7 +194,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 
         register(context, GROVE_TREES, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(
-                        new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configs.getOrThrow(GROVE_CLOUD_TREES), PlacementUtils.filteredByBlockSurvival(ReduxFlowerSets.CLOUDROOT_SAPLING.flower().get())), 0.25F)),
+                        new WeightedPlacedFeature(PlacementUtils.inlinePlaced(configs.getOrThrow(GROVE_CLOUD_TREES), PlacementUtils.filteredByBlockSurvival(ReduxFlowerSets.CLOUDROOT_SAPLING.flower().get())), 0.375F)),
                         PlacementUtils.inlinePlaced(configs.getOrThrow(GROVE_GOLDEN_TREES), PlacementUtils.filteredByBlockSurvival(AetherBlocks.GOLDEN_OAK_SAPLING.get()))));
 
         register(context, SENTRITE_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
