@@ -25,7 +25,9 @@
     ],
     [],
     [],
-    [],
+    [
+      "aether_redux:ambrosium_rock"
+    ],
     [],
     [
       "aether:aether_dirt_ore",
