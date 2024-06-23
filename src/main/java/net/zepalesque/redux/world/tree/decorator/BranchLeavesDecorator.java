@@ -6,6 +6,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -21,36 +22,37 @@ public class BranchLeavesDecorator extends TreeDecorator {
 
     public static final Codec<BranchLeavesDecorator> CODEC = RecordCodecBuilder.create((vines) ->
             vines.group(Codec.floatRange(0.0F, 1.0F).fieldOf("probability").forGetter((config) -> config.probability),
-                            IntProvider.CODEC.fieldOf("min_height").forGetter((config) -> config.minHeight),
+                            IntProvider.CODEC.fieldOf("range").forGetter((config) -> config.range),
                             IntProvider.CODEC.fieldOf("radius").forGetter((config) -> config.radius),
                             BlockStateProvider.CODEC.fieldOf("leaf_block").forGetter((config) -> config.leaf))
                                     .apply(vines, BranchLeavesDecorator::new));
     private final float probability;
-    private final IntProvider minHeight;
+    private final IntProvider range;
     private final IntProvider radius;
     private final BlockStateProvider leaf;
 
-    public BranchLeavesDecorator(float probability, IntProvider minHeight, IntProvider radius, BlockStateProvider leaf) {
+    public BranchLeavesDecorator(float probability, IntProvider range, IntProvider radius, BlockStateProvider leaf) {
         this.probability = probability;
-        this.minHeight = minHeight;
+        this.range = range;
         this.radius = radius;
         this.leaf = leaf;
     }
 
     public void place(Context context) {
-        int yTest = Integer.MAX_VALUE;
-        int minYOffset = this.minHeight.sample(context.random());
+        int yTest = Integer.MIN_VALUE;
+        int maxRange = this.range.sample(context.random());
         for (BlockPos pos : context.logs()) {
-            if (pos.getY() < yTest) {
+            if (pos.getY() > yTest) {
                 yTest = pos.getY();
             }
         }
-        int lowest = yTest;
-        List<BlockPos> positions = context.logs().stream().filter(pos -> pos.getY() > lowest + minYOffset).toList();
+        int highest = yTest;
+        List<BlockPos> positions = context.logs().stream().filter(pos -> pos.getY() > highest - maxRange && (context.random().nextBoolean() ? Mth.isMultipleOf(pos.getY(), 2) : Mth.isMultipleOf(pos.getY() + 1, 2))).toList();
         for (BlockPos pos : positions) {
             if (context.random().nextFloat() < this.probability) {
                 int rad = this.radius.sample(context.random());
                 Direction d = Direction.Plane.HORIZONTAL.getRandomDirection(context.random());
+                placeBlob(pos, context, rad);
                 placeBlob(pos.relative(d), context, rad);
             }
         }

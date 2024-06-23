@@ -151,7 +151,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
                         new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(13))
                 ).ignoreVines().decorators(List.of(
                         new BranchLeavesDecorator(0.1F,
-                                ConstantInt.of(3), 
+                                ConstantInt.of(7),
                                 ConstantInt.of(1),
                                 prov(AetherBlocks.GOLDEN_OAK_LEAVES)),
                         new GoldenVineDecorator(0.25F,
