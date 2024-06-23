@@ -40,6 +40,8 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
 
         this.tag(ReduxTags.Blocks.ROCK_REPLACEABLE).addTag(BlockTags.DIRT);
 
+        this.tag(BlockTags.REPLACEABLE).add(ReduxBlocks.SHORT_AETHER_GRASS.get());
+
         this.tag(BlockTags.LEAVES).add(
                 ReduxBlocks.CLOUDROOT_LEAVES.get()
         );
