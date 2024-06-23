@@ -133,7 +133,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
                         new GoldenVineDecorator(0.25F,
                                 prov(ReduxBlocks.GOLDEN_VINES_PLANT),
                                 prov(ReduxBlocks.GOLDEN_VINES),
-                                UniformInt.of(1, 5))
+                                UniformInt.of(1, 3))
                 )).build());
 
         register(context, LARGE_GOLDEN_VINE_TREE, Feature.TREE,
