@@ -9,7 +9,7 @@
       }
     },
     "foliage_placer": {
-      "type": "aether_redux:skyroot_foliage",
+      "type": "aether_redux:small_golden_oak_foliage",
       "offset": 0,
       "radius": 2
     },
@@ -38,8 +38,8 @@
       "height": {
         "type": "minecraft:uniform",
         "value": {
-          "max_inclusive": 7,
-          "min_inclusive": 5
+          "max_inclusive": 8,
+          "min_inclusive": 6
         }
       }
     },
