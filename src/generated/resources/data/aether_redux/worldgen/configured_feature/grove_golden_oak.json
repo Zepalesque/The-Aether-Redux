@@ -16,9 +16,9 @@
             }
           }
         },
-        "min_height": 3,
-        "probability": 0.1,
-        "radius": 1
+        "probability": 0.2,
+        "radius": 1,
+        "range": 7
       },
       {
         "type": "aether_redux:golden_vines",

@@ -1,4 +1,4 @@
-// 1.20.4	2024-06-22T21:30:57.5140984	Registries
+// 1.20.4	2024-06-22T21:43:14.2543584	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 8a507cefcf541bbc45bcce1bcd6fff668c4429cd data/aether/worldgen/configured_feature/golden_oak_tree.json
 c3e70def2e4f0db7fd45d43de17ffcbe9d6dbc86 data/aether/worldgen/configured_feature/grass_patch.json
@@ -18,7 +18,7 @@ ec1742984d7560746e6f3ff6cf50b7cb75377fcd data/aether_redux/neoforge/biome_modifi
 055ed56c7d87c9110bf42e73b5bcb484d3c1c4cf data/aether_redux/worldgen/configured_feature/cloudroot.json
 aea9daf059363df457df69de9f2d77b0d29d95c6 data/aether_redux/worldgen/configured_feature/gilded_groves_trees.json
 2c55a45952f287051c6c1b44356f245d2502fbb3 data/aether_redux/worldgen/configured_feature/golden_clovers_patch.json
-d4589132a3aafe13dfec8b4ace6cfe3d10b0f562 data/aether_redux/worldgen/configured_feature/grove_golden_oak.json
+72ec6513696d512e560bf6ee523ea3969796d1ee data/aether_redux/worldgen/configured_feature/grove_golden_oak.json
 7dabeb5e6350694a8b4517ee6c97da9e4dc45f24 data/aether_redux/worldgen/configured_feature/large_cloudroot.json
 8af65e703426f8b539d9818d42cde0aa2a8f48b1 data/aether_redux/worldgen/configured_feature/sentrite_ore.json
 f8ec4e4b773e6d10bf361f5edeebad4777daa5d3 data/aether_redux/worldgen/configured_feature/surface_rule_water_lake.json
