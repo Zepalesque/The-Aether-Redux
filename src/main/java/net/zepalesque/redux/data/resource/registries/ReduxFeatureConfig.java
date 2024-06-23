@@ -135,7 +135,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
                                 .add(AetherFeatureStates.GOLDEN_OAK_LOG, 1)
                                 .add(AetherFeatureStates.SKYROOT_LOG, 7)
                         ),
-                        new IntProviderTrunkPlacer(UniformInt.of(6, 8)),
+                        new IntProviderTrunkPlacer(UniformInt.of(7, 9)),
                         BlockStateProvider.simple(AetherFeatureStates.GOLDEN_OAK_LEAVES),
                         new SmallGoldenOakFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
                         new TwoLayersFeatureSize(1, 0, 1)
@@ -169,7 +169,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
                                 .add(AetherFeatureStates.GOLDEN_OAK_LOG, 1)
                                 .add(AetherFeatureStates.SKYROOT_LOG, 7)
                         ),
-                        new IntProviderTrunkPlacer(UniformInt.of(5, 7)),
+                        new IntProviderTrunkPlacer(UniformInt.of(6, 8)),
                         BlockStateProvider.simple(AetherFeatureStates.GOLDEN_OAK_LEAVES),
                         new SmallGoldenOakFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
                         new TwoLayersFeatureSize(1, 0, 1)
