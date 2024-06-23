@@ -70,6 +70,7 @@ public class ReduxConfig {
         public final ModConfigSpec.ConfigValue<Boolean> leaf_particles;
 
         public final ModConfigSpec.ConfigValue<Boolean> tintable_grass;
+        public final ModConfigSpec.ConfigValue<Boolean> jappafied_textures;
 
         public Client(ModConfigSpec.Builder builder) {
             builder.push("Visual");
@@ -81,6 +82,9 @@ public class ReduxConfig {
             tintable_grass = builder
                     .comment("Use modified models to allow tintable Aether Grass blocks and plants. Only disable if you know what you're doing!")
                     .define("Tinted Grass", true);
+            jappafied_textures = builder
+                    .comment("Use textures designed to fit with the Jappafied Aethers resource pack. May be merged into the main pack at some point.")
+                    .define("Jappafied Textures", false);
             builder.pop();
         }
     }
