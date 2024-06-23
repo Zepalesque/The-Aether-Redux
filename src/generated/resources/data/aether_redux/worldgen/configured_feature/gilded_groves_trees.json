@@ -20,7 +20,7 @@
     },
     "features": [
       {
-        "chance": 0.25,
+        "chance": 0.375,
         "feature": {
           "feature": "aether_redux:grove_cloud_trees",
           "placement": [
