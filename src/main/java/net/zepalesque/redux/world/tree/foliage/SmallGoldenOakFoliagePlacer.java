@@ -27,7 +27,7 @@ public class SmallGoldenOakFoliagePlacer extends FoliagePlacer {
         placeLeavesRow(level, setter, rand, config, origin, radius, -1, false);
         placeLeavesRow(level, setter, rand, config, origin, radius, -2, false);
         placeLeavesRow(level, setter, rand, config, origin, radius, -3, false);
-        placeLeavesRow(level, setter, rand, config, origin, radius, -4, false);
+        placeLeavesRow(level, setter, rand, config, origin, radius - 1, -4, false);
     }
 
     @Override

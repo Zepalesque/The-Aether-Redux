@@ -36,11 +36,14 @@ import net.zepalesque.redux.data.prov.loot.ReduxBlockLootProvider;
 import net.zepalesque.redux.data.prov.tags.ReduxBlockTagsProvider;
 import net.zepalesque.redux.data.prov.tags.ReduxItemTagsProvider;
 import net.zepalesque.redux.item.ReduxItems;
+import net.zepalesque.zenith.api.blockset.AbstractFlowerSet;
 import net.zepalesque.zenith.api.blockset.AbstractStoneSet;
+import net.zepalesque.zenith.api.blockset.BlockSet;
 import net.zepalesque.zenith.api.blockset.util.CraftingMatrix;
 import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
 import net.zepalesque.zenith.util.DatagenUtil;
 import net.zepalesque.zenith.util.TabUtil;
+import com.mojang.datafixers.util.Pair;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -64,7 +67,9 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
     protected final List<Supplier<AbstractStoneSet>> stonecut_sets = new ArrayList<>();
     protected final Map<Supplier<? extends ItemLike>, Float> smelted_blocks = new HashMap<>();
     protected final Map<Supplier<AbstractStoneSet>, Float> smelted_sets = new HashMap<>();
-    protected final Table<Supplier<CreativeModeTab>, Supplier<? extends ItemLike>, Boolean> creativeTabOrdering = HashBasedTable.create();
+    protected final Table<Supplier<CreativeModeTab>, Supplier<? extends ItemLike>, Pair<Boolean, TabAdditionPhase>> afterOrdering = HashBasedTable.create();
+    protected final Table<Supplier<CreativeModeTab>, Supplier<? extends ItemLike>, Pair<Boolean, TabAdditionPhase>> beforeOrdering = HashBasedTable.create();
+    protected final Table<Supplier<CreativeModeTab>, TabAdditionPhase, Boolean> appended = HashBasedTable.create();
     protected final Map<TagKey<Block>, Boolean> tags = new HashMap<>();
     protected final Map<TagKey<Item>, Boolean> itemTags = new HashMap<>();
 
@@ -211,8 +216,20 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
     }
 
     @Override
-    public BaseStoneSet creativeTab(Supplier<CreativeModeTab> tab, Supplier<? extends ItemLike> placeAfter, boolean allBlocks) {
-        this.creativeTabOrdering.put(tab, placeAfter, allBlocks);
+    public BaseStoneSet tabAfter(Supplier<CreativeModeTab> tab, Supplier<? extends ItemLike> placeAfter, boolean allBlocks, TabAdditionPhase phase) {
+        this.afterOrdering.put(tab, placeAfter, Pair.of(allBlocks, phase));
+        return this;
+    }
+
+    @Override
+    public BaseStoneSet tabBefore(Supplier<CreativeModeTab> tab, Supplier<? extends ItemLike> placeBefore, boolean allBlocks, TabAdditionPhase phase) {
+        this.beforeOrdering.put(tab, placeBefore, Pair.of(allBlocks, phase));
+        return this;
+    }
+
+    @Override
+    public BaseStoneSet tabAppend(Supplier<CreativeModeTab> tab, boolean allBlocks, TabAdditionPhase phase) {
+        this.appended.put(tab, phase, allBlocks);
         return this;
     }
 
@@ -349,23 +366,54 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
 
     // Ignore the prev value, implementation is different here
     @Override
-    public Supplier<? extends ItemLike> addToCreativeTab(BuildCreativeModeTabContentsEvent event, Supplier<? extends ItemLike> prev) {
-        for (Table.Cell<Supplier<CreativeModeTab>, Supplier<? extends ItemLike>, Boolean> triple : this.creativeTabOrdering.cellSet()) {
+    public Supplier<? extends ItemLike> addToCreativeTab(BuildCreativeModeTabContentsEvent event, Supplier<? extends ItemLike> prev, TabAdditionPhase phase) {
+        for (Table.Cell<Supplier<CreativeModeTab>, Supplier<? extends ItemLike>, Pair<Boolean, TabAdditionPhase>> triple : this.afterOrdering.cellSet()) {
             Supplier<CreativeModeTab> tabToAddTo = triple.getRowKey();
             if (event.getTab() == tabToAddTo.get()) {
                 Supplier<? extends ItemLike> addAfter = triple.getColumnKey();
-                boolean all = triple.getValue();
-                TabUtil.putAfter(addAfter, this.block(), event);
-                if (all) {
-                    TabUtil.putAfter(this.block(), this.stairs(), event);
-                    TabUtil.putAfter(this.stairs(), this.slab(), event);
-                    TabUtil.putAfter(this.slab(), this.wall(), event);
-                    return this.wall();
-                } else {
-                    return this.block();
+                Pair<Boolean, TabAdditionPhase> pair = triple.getValue();
+                if (pair.getSecond() == phase) {
+                    TabUtil.putAfter(addAfter, this.block(), event);
+                    if (pair.getFirst()) {
+                        TabUtil.putAfter(this.block(), this.stairs(), event);
+                        TabUtil.putAfter(this.stairs(), this.slab(), event);
+                        TabUtil.putAfter(this.slab(), this.wall(), event);
+                    }
                 }
             }
         }
-        return prev;
+        for (Table.Cell<Supplier<CreativeModeTab>, Supplier<? extends ItemLike>, Pair<Boolean, TabAdditionPhase>> triple : this.beforeOrdering.cellSet()) {
+            Supplier<CreativeModeTab> tabToAddTo = triple.getRowKey();
+            if (event.getTab() == tabToAddTo.get()) {
+                Supplier<? extends ItemLike> addBefore = triple.getColumnKey();
+                Pair<Boolean, TabAdditionPhase> pair = triple.getValue();
+                if (pair.getSecond() == phase) {
+                    if (pair.getFirst()) {
+                        TabUtil.putBefore(addBefore, this.wall(), event);
+                        TabUtil.putBefore(this.wall(), this.slab(), event);
+                        TabUtil.putBefore(this.slab(), this.stairs(), event);
+                        TabUtil.putBefore(this.stairs(), this.block(), event);
+                    } else {
+                        TabUtil.putBefore(addBefore, this.block(), event);
+                    }
+                }
+            }
+        }
+        for (Table.Cell<Supplier<CreativeModeTab>, TabAdditionPhase, Boolean> triple : this.appended.cellSet()) {
+            Supplier<CreativeModeTab> tabToAddTo = triple.getRowKey();
+            if (event.getTab() == tabToAddTo.get()) {
+                boolean addAll = triple.getValue();
+                TabAdditionPhase current = triple.getColumnKey();
+                if (current == phase) {
+                    TabUtil.add(this.block(), event);
+                    if (addAll) {
+                        TabUtil.add(this.stairs(), event);
+                        TabUtil.add(this.slab(), event);
+                        TabUtil.add(this.wall(), event);
+                    }
+                }
+            }
+        }
+        return null;
     }
 }

@@ -32,7 +32,7 @@ public class ReduxTabs {
 
         Supplier<? extends ItemLike> sup = null;
         for (BlockSet set : Redux.BLOCK_SETS) {
-            sup = set.addToCreativeTab(event, sup);
+            sup = set.addToCreativeTab(event, sup, BlockSet.TabAdditionPhase.BEFORE);
         }
 
         if (tab == AetherCreativeTabs.AETHER_NATURAL_BLOCKS.get()) {
@@ -101,6 +101,18 @@ public class ReduxTabs {
 
             TabUtil.putAfter(AetherItems.AECHOR_PETAL, ReduxItems.WYND_OATS, event);
             TabUtil.putAfter(ReduxItems.WYND_OATS, ReduxItems.WYND_OAT_PANICLE, event);
+        }
+
+
+
+
+
+
+
+        // SHOULD BE AT THE VERY END
+        sup = null;
+        for (BlockSet set : Redux.BLOCK_SETS) {
+            sup = set.addToCreativeTab(event, sup, BlockSet.TabAdditionPhase.AFTER);
         }
     }
 }

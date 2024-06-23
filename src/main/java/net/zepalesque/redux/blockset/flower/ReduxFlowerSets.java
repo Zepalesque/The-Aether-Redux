@@ -21,6 +21,7 @@ import net.zepalesque.redux.blockset.flower.type.EnchantedFlowerSet;
 import net.zepalesque.redux.blockset.flower.type.UntintedFlowerSet;
 import net.zepalesque.redux.world.tree.ReduxTreeGrowers;
 import net.zepalesque.zenith.api.blockset.AbstractFlowerSet;
+import net.zepalesque.zenith.api.blockset.BlockSet;
 import net.zepalesque.zenith.block.util.CommonPlantBounds;
 
 public class ReduxFlowerSets {
@@ -28,7 +29,7 @@ public class ReduxFlowerSets {
     public static final BaseFlowerSet<CustomBoundsFlowerBlock.Enchanted> AURUM = register(new EnchantedFlowerSet<>("aurum", "natural/",
             () -> new CustomBoundsFlowerBlock.Enchanted(CommonPlantBounds.FLOWER,
                     () -> MobEffects.LUCK, 60, Properties.ofFullCopy(Blocks.DANDELION).hasPostProcess((s, l, p) -> true)), 1, 0xFFFFFF)
-            .creativeTab(AetherCreativeTabs.AETHER_NATURAL_BLOCKS, AetherBlocks.WHITE_FLOWER)
+            .tabAfter(AetherCreativeTabs.AETHER_NATURAL_BLOCKS, AetherBlocks.WHITE_FLOWER, BlockSet.TabAdditionPhase.BEFORE)
             .craftsIntoShapeless(1, () -> Items.YELLOW_DYE, 1, RecipeCategory.MISC)
             .withFlowerTag(BlockTags.FLOWERS)
             .withPotTag(BlockTags.FLOWER_POTS)
@@ -36,7 +37,7 @@ public class ReduxFlowerSets {
 
     public static final BaseFlowerSet<SaplingBlock> CLOUDROOT_SAPLING = register(new UntintedFlowerSet<>("cloudroot_sapling", "natural/",
             () -> new SaplingBlock(ReduxTreeGrowers.CLOUDROOT, Properties.ofFullCopy(Blocks.OAK_SAPLING).mapColor(MapColor.QUARTZ)))
-            .creativeTab(AetherCreativeTabs.AETHER_NATURAL_BLOCKS, AetherBlocks.SKYROOT_SAPLING)
+            .tabAfter(AetherCreativeTabs.AETHER_NATURAL_BLOCKS, AetherBlocks.SKYROOT_SAPLING, BlockSet.TabAdditionPhase.BEFORE)
             .withFlowerTag(BlockTags.SAPLINGS)
             .withPotTag(BlockTags.FLOWER_POTS)
             .compost(0.3F)
@@ -44,7 +45,7 @@ public class ReduxFlowerSets {
 
     public static final BaseFlowerSet<CustomBoundsBushBlock> LUCKY_CLOVER = register(new CloverSet<>("lucky_clover", "natural/",
             () -> new CustomBoundsBushBlock(Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D), Properties.ofFullCopy(Blocks.DANDELION).mapColor(MapColor.GOLD)))
-            .creativeTab(AetherCreativeTabs.AETHER_NATURAL_BLOCKS, ReduxBlocks.GOLDEN_CLOVERS)
+            .tabAfter(AetherCreativeTabs.AETHER_NATURAL_BLOCKS, ReduxBlocks.GOLDEN_CLOVERS, BlockSet.TabAdditionPhase.AFTER)
             .withPotTag(BlockTags.FLOWER_POTS)
             .withLore("A large four-leaved clover found in the Gilded Groves. Makes a nice decoration, and can be placed in a flower pot!"));
 

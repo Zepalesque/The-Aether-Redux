@@ -73,6 +73,7 @@ import net.zepalesque.redux.entity.ReduxEntities;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.tile.ReduxTiles;
 import net.zepalesque.zenith.api.blockset.AbstractWoodSet;
+import net.zepalesque.zenith.api.blockset.BlockSet;
 import net.zepalesque.zenith.block.ZenithCeilingHangingSignBlock;
 import net.zepalesque.zenith.block.ZenithSignBlock;
 import net.zepalesque.zenith.block.ZenithWallHangingSignBlock;
@@ -888,25 +889,27 @@ public class BaseWoodSet extends AbstractWoodSet implements ReduxGeneration {
     }
 
     @Override
-    public Supplier<? extends ItemLike> addToCreativeTab(BuildCreativeModeTabContentsEvent event, @Nullable Supplier<? extends ItemLike> prev) {
-        CreativeModeTab tab = event.getTab();
+    public Supplier<? extends ItemLike> addToCreativeTab(BuildCreativeModeTabContentsEvent event, @Nullable Supplier<? extends ItemLike> prev, TabAdditionPhase phase) {
+        if (phase == TabAdditionPhase.BEFORE) {
+            CreativeModeTab tab = event.getTab();
 
-        if (tab == AetherCreativeTabs.AETHER_BUILDING_BLOCKS.get()) {
-            return this.buildingBlocks(event, prev == null ? AetherBlocks.GOLDEN_OAK_WOOD : prev);
+            if (tab == AetherCreativeTabs.AETHER_BUILDING_BLOCKS.get()) {
+                return this.buildingBlocks(event, prev == null ? AetherBlocks.GOLDEN_OAK_WOOD : prev);
+            }
+
+            if (tab == AetherCreativeTabs.AETHER_NATURAL_BLOCKS.get()) {
+                return this.naturalBlocks(event, prev == null ? AetherBlocks.GOLDEN_OAK_LOG : prev);
+            }
+
+            if (tab == AetherCreativeTabs.AETHER_FUNCTIONAL_BLOCKS.get()) {
+                return this.functionalBlocks(event, prev == null ? AetherBlocks.SKYROOT_HANGING_SIGN : prev);
+            }
+
+            if (tab == AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES.get()) {
+                return this.equipment(event, prev == null ? AetherItems.SKYROOT_CHEST_BOAT : prev);
+            }
+
         }
-
-        if (tab == AetherCreativeTabs.AETHER_NATURAL_BLOCKS.get()) {
-            return this.naturalBlocks(event, prev == null ? AetherBlocks.GOLDEN_OAK_LOG : prev);
-        }
-
-        if (tab == AetherCreativeTabs.AETHER_FUNCTIONAL_BLOCKS.get()) {
-            return this.functionalBlocks(event, prev == null ? AetherBlocks.SKYROOT_HANGING_SIGN : prev);
-        }
-
-        if (tab == AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES.get()) {
-            return this.equipment(event, prev == null ? AetherItems.SKYROOT_CHEST_BOAT : prev);
-        }
-
         return prev;
     }
 
