@@ -13,10 +13,6 @@
         "type": "minecraft:weighted_list",
         "distribution": [
           {
-            "data": 0,
-            "weight": 7
-          },
-          {
             "data": {
               "type": "minecraft:uniform",
               "value": {
@@ -30,7 +26,7 @@
             "data": {
               "type": "minecraft:uniform",
               "value": {
-                "max_inclusive": 3,
+                "max_inclusive": 4,
                 "min_inclusive": 1
               }
             },
@@ -43,7 +39,7 @@
     },
     {
       "type": "minecraft:rarity_filter",
-      "chance": 12
+      "chance": 9
     },
     {
       "type": "minecraft:in_square"
