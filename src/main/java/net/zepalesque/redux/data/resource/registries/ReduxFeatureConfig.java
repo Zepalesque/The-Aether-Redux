@@ -46,6 +46,7 @@ import net.zepalesque.redux.world.feature.gen.CloudbedFeature;
 import net.zepalesque.redux.world.feature.gen.ReduxFeatures;
 import net.zepalesque.redux.world.tree.decorator.GoldenVineDecorator;
 import net.zepalesque.redux.world.tree.foliage.SkyrootFoliagePlacer;
+import net.zepalesque.redux.world.tree.foliage.SmallGoldenOakFoliagePlacer;
 import net.zepalesque.zenith.world.feature.gen.LargeRockFeature;
 import net.zepalesque.zenith.world.feature.gen.SurfaceRuleLakeFeature;
 import net.zepalesque.zenith.world.feature.gen.ZenithFeatures;
@@ -136,7 +137,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
                         ),
                         new IntProviderTrunkPlacer(UniformInt.of(6, 8)),
                         BlockStateProvider.simple(AetherFeatureStates.GOLDEN_OAK_LEAVES),
-                        new SkyrootFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
+                        new SmallGoldenOakFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
                         new TwoLayersFeatureSize(1, 0, 1)
                 ).ignoreVines().decorators(List.of(
                         new GoldenVineDecorator(0.25F,
@@ -170,7 +171,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
                         ),
                         new IntProviderTrunkPlacer(UniformInt.of(5, 7)),
                         BlockStateProvider.simple(AetherFeatureStates.GOLDEN_OAK_LEAVES),
-                        new SkyrootFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
+                        new SmallGoldenOakFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
                         new TwoLayersFeatureSize(1, 0, 1)
                 ).ignoreVines().build());
 

@@ -68,13 +68,13 @@ public class ReduxBiomeModifiers {
                         .put(biomes.getOrThrow(AetherBiomes.SKYROOT_MEADOW), 0x91C8D8)
                         .put(biomes.getOrThrow(AetherBiomes.SKYROOT_FOREST), 0x79A8C4)
                         .put(biomes.getOrThrow(AetherBiomes.SKYROOT_WOODLAND), 0x6A94B5)
-                        .put(biomes.getOrThrow(ReduxBiomes.GILDED_GROVES), 0x80B0BA)
+                        .put(biomes.getOrThrow(ReduxBiomes.GILDED_GROVES), 0x89C1C6)
                         .build(),
                 ImmutableMap.<Holder<Biome>, Integer>builder() // fog
                         .put(biomes.getOrThrow(AetherBiomes.SKYROOT_MEADOW), 0x1B2528)
                         .put(biomes.getOrThrow(AetherBiomes.SKYROOT_FOREST), 0x141C21)
                         .put(biomes.getOrThrow(AetherBiomes.SKYROOT_WOODLAND), 0x10171C)
-                        .put(biomes.getOrThrow(ReduxBiomes.GILDED_GROVES), 0x1C2628)
+                        .put(biomes.getOrThrow(ReduxBiomes.GILDED_GROVES), 0x1E2A2B)
                         .build());
         context.register(WATER_COLOR_AETHER, new ConditionalBiomeModifier(Holder.direct(water), conditions.get(ReduxConditions.WATER_COLORS).orElseThrow()));
 
