@@ -1,0 +1,82 @@
+package net.zepalesque.redux.world.tree.decorator;
+
+import com.google.common.collect.HashBasedTable;
+import com.google.common.collect.Table;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
+import net.minecraft.util.valueproviders.IntProvider;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
+import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
+import net.zepalesque.redux.Redux;
+
+import java.util.Collections;
+import java.util.List;
+
+public class BranchLeavesDecorator extends TreeDecorator {
+
+    public static final Codec<BranchLeavesDecorator> CODEC = RecordCodecBuilder.create((vines) ->
+            vines.group(Codec.floatRange(0.0F, 1.0F).fieldOf("probability").forGetter((config) -> config.probability),
+                            IntProvider.CODEC.fieldOf("min_height").forGetter((config) -> config.minHeight),
+                            IntProvider.CODEC.fieldOf("radius").forGetter((config) -> config.radius),
+                            BlockStateProvider.CODEC.fieldOf("leaf_block").forGetter((config) -> config.leaf))
+                                    .apply(vines, BranchLeavesDecorator::new));
+    private final float probability;
+    private final IntProvider minHeight;
+    private final IntProvider radius;
+    private final BlockStateProvider leaf;
+
+    public BranchLeavesDecorator(float probability, IntProvider minHeight, IntProvider radius, BlockStateProvider leaf) {
+        this.probability = probability;
+        this.minHeight = minHeight;
+        this.radius = radius;
+        this.leaf = leaf;
+    }
+
+    public void place(Context context) {
+        int yTest = Integer.MAX_VALUE;
+        int minYOffset = this.minHeight.sample(context.random());
+        for (BlockPos pos : context.logs()) {
+            if (pos.getY() < yTest) {
+                yTest = pos.getY();
+            }
+        }
+        int lowest = yTest;
+        List<BlockPos> positions = context.logs().stream().filter(pos -> pos.getY() > lowest + minYOffset).toList();
+        for (BlockPos pos : positions) {
+            if (context.random().nextFloat() < this.probability) {
+                int rad = this.radius.sample(context.random());
+                Direction d = Direction.Plane.HORIZONTAL.getRandomDirection(context.random());
+                placeBlob(pos.relative(d), context, rad);
+            }
+        }
+    }
+
+    private void placeBlob(BlockPos pos, Context context, int radius) {
+        for (int x = -radius; x <= radius; x++) {
+            for (int y = -radius; y <= radius; y++) {
+                for (int z = -radius; z <= radius; z++) {
+                    int total = Math.abs(x) + Math.abs(y) + Math.abs(z);
+                    boolean place = context.random().nextBoolean() ? total <= 1 : total <= 2;
+                    if (place) {
+                        BlockPos p1 = pos.offset(x, y, z);
+                        if (context.level().isStateAtPosition(p1, BlockBehaviour.BlockStateBase::isAir)) {
+                            context.setBlock(p1, this.leaf.getState(context.random(), p1));
+                            context.leaves().add(p1);
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    @Override
+    protected TreeDecoratorType<?> type() {
+        return ReduxTreeDecorators.BRANCH_LEAVES.get();
+    }
+}

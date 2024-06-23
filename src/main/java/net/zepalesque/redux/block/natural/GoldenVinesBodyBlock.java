@@ -29,14 +29,7 @@ public class GoldenVinesBodyBlock extends GrowingPlantBodyBlock {
     public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
         BlockPos blockpos = pPos.relative(this.growthDirection.getOpposite());
         BlockState blockstate = pLevel.getBlockState(blockpos);
-        if (!this.canAttachTo(blockstate)) {
-            return false;
-        } else {
-            return blockstate.is(this.getHeadBlock())
-                    || blockstate.is(this.getBodyBlock())
-                    || blockstate.is(this.leafTag)
-                    || blockstate.isFaceSturdy(pLevel, blockpos, this.growthDirection);
-        }
+        return !this.canAttachTo(blockstate) ? super.canSurvive(pState, pLevel, pPos) : super.canSurvive(pState, pLevel, pPos) || blockstate.is(this.leafTag);
     }
 
     @Override

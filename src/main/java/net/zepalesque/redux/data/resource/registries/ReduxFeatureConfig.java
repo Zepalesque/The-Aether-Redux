@@ -52,6 +52,7 @@ import net.zepalesque.redux.blockset.wood.ReduxWoodSets;
 import net.zepalesque.redux.data.resource.builders.ReduxFeatureBuilders;
 import net.zepalesque.redux.world.feature.gen.CloudbedFeature;
 import net.zepalesque.redux.world.feature.gen.ReduxFeatures;
+import net.zepalesque.redux.world.tree.decorator.BranchLeavesDecorator;
 import net.zepalesque.redux.world.tree.decorator.GoldenVineDecorator;
 import net.zepalesque.redux.world.tree.foliage.SkyrootFoliagePlacer;
 import net.zepalesque.zenith.Zenith;
@@ -148,10 +149,16 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
                         BlockStateProvider.simple(AetherFeatureStates.GOLDEN_OAK_LEAVES),
                         new GoldenOakFoliagePlacer(ConstantInt.of(3), ConstantInt.of(1), ConstantInt.of(10)),
                         new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(13))
-                ).ignoreVines().decorators(List.of(new GoldenVineDecorator(0.25F,
-                        prov(ReduxBlocks.GOLDEN_VINES_PLANT),
-                        prov(ReduxBlocks.GOLDEN_VINES),
-                        UniformInt.of(1, 5)))).build());
+                ).ignoreVines().decorators(List.of(
+                        new BranchLeavesDecorator(0.1F,
+                                ConstantInt.of(3), 
+                                ConstantInt.of(1),
+                                prov(AetherBlocks.GOLDEN_OAK_LEAVES)),
+                        new GoldenVineDecorator(0.25F,
+                                prov(ReduxBlocks.GOLDEN_VINES_PLANT),
+                                prov(ReduxBlocks.GOLDEN_VINES),
+                                UniformInt.of(1, 5))
+                        )).build());
 
         register(context, GROVE_TREES, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(
