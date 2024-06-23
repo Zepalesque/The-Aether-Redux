@@ -136,7 +136,7 @@ public class ReduxPlacements {
                                 .add(UniformInt.of(1, 2), 5)
                                 .add(UniformInt.of(1, 4), 3)
                                 .build()), 4),
-                RarityFilter.onAverageOnceEvery(9),
+                RarityFilter.onAverageOnceEvery(24),
                 InSquarePlacement.spread(),
                 BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(new Vec3i(0, -1, 0), BlockTags.DIRT)),
                 BiomeFilter.biome()
