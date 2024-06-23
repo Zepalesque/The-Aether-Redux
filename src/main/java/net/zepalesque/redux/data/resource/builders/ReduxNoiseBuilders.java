@@ -24,7 +24,7 @@ public class ReduxNoiseBuilders {
 
     public static DensityFunction createFinal(DensityFunction density) {
         density = DensityFunctions.add(density, DensityFunctions.constant(-0.13));
-        density = slide(density, 0, 192, 128, 0, -0.2, 8, 40, -0.1);
+        density = slide(density, 0, 144, 88, 0, -0.2, 8, 40, -0.1);
         density = DensityFunctions.add(density, DensityFunctions.constant(-0.05));
         density = DensityFunctions.blendDensity(density);
         density = DensityFunctions.interpolated(density);
@@ -50,7 +50,7 @@ public class ReduxNoiseBuilders {
     public static NoiseGeneratorSettings reduxSkylandsNoiseSettings(HolderGetter<DensityFunction> functions, HolderGetter<NormalNoise.NoiseParameters> noise) {
         BlockState holystone = AetherBlocks.HOLYSTONE.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true);
         return new NoiseGeneratorSettings(
-                new NoiseSettings(0, 192, 2, 1), // noiseSettings
+                new NoiseSettings(0, 144, 2, 1), // noiseSettings
                 holystone, // defaultBlock
                 Blocks.WATER.defaultBlockState(), // defaultFluid
                 AetherNoiseBuildersMixin.callCreateNoiseRouter(functions, noise, getFunction(functions, ReduxDensityFunctions.REDUX_FINAL_DENSITY)), // noiseRouter
