@@ -12,9 +12,9 @@ public class ReduxTreeGrowers {
             0.3F,
             Optional.empty(),
             Optional.empty(),
-            Optional.of(ReduxFeatureConfig.CLOUDROOT_TREE),
+            Optional.of(ReduxFeatureConfig.SMALL_CLOUDROOT_TREE),
             // TODO: Large cloudroot
-            Optional.of(ReduxFeatureConfig.CLOUDROOT_TREE),
+            Optional.of(ReduxFeatureConfig.SMALL_CLOUDROOT_TREE),
             Optional.empty(),
             Optional.empty()
     );
