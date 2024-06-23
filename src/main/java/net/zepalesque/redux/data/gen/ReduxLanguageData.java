@@ -27,6 +27,10 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
         addBlock(ReduxBlocks.GOLDEN_CLOVERS);
         addLore(ReduxBlocks.GOLDEN_CLOVERS, "A nice patch of clovers that can be found in the Gilded Groves.");
 
+        addBlock(ReduxBlocks.GOLDEN_VINES);
+        addBlock(ReduxBlocks.GOLDEN_VINES_PLANT);
+        addLore(ReduxBlocks.GOLDEN_VINES, "A golden vine that grows in a symbiotic relationship with Golden Oak trees when they are healthy, such as when found in the Gilded Groves");
+
         addBlock(ReduxBlocks.CARVED_PILLAR);
         addLore(ReduxBlocks.CARVED_PILLAR, "A pillar made of Carved Stone. Pillars look nice for supporting a build, along with giving it nice corners.");
         addBlock(ReduxBlocks.SENTRY_PILLAR);

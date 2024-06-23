@@ -51,6 +51,7 @@ public class ReduxPlacements {
     public static final ResourceKey<PlacedFeature> AURUM_PATCH = copyKey(ReduxFeatureConfig.AURUM_PATCH);
     public static final ResourceKey<PlacedFeature> GOLDEN_CLOVERS_PATCH = copyKey(ReduxFeatureConfig.GOLDEN_CLOVERS_PATCH);
     public static final ResourceKey<PlacedFeature> AMBROSIUM_ROCK = copyKey(ReduxFeatureConfig.AMBROSIUM_ROCK);
+    public static final ResourceKey<PlacedFeature> LUCKY_CLOVER_PATCH = copyKey(ReduxFeatureConfig.LUCKY_CLOVER_PATCH);
 
     public static final ResourceKey<PlacedFeature> SPARSE_BLUE_AERCLOUD = createKey("sparse_blue_aercloud");
     public static final ResourceKey<PlacedFeature> DENSE_BLUE_AERCLOUD = createKey("dense_blue_aercloud");
@@ -94,6 +95,13 @@ public class ReduxPlacements {
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 2), 4),
                 RarityFilter.onAverageOnceEvery(8),
                 BiomeFilter.biome());
+
+        register(context, LUCKY_CLOVER_PATCH, configs.getOrThrow(ReduxFeatureConfig.LUCKY_CLOVER_PATCH),
+                threshold,
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 2), 4),
+                RarityFilter.onAverageOnceEvery(16),
+                BiomeFilter.biome());
+
 
         register(context, GOLDEN_CLOVERS_PATCH, configs.getOrThrow(ReduxFeatureConfig.GOLDEN_CLOVERS_PATCH),
                 threshold,

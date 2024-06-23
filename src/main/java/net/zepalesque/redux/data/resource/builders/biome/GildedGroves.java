@@ -87,6 +87,7 @@ public class GildedGroves {
                 .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.GRASS_PATCH_PLACEMENT)
                 .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.AURUM_PATCH)
                 .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.GOLDEN_CLOVERS_PATCH)
+                .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.LUCKY_CLOVER_PATCH)
 
                 .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.COLD_AERCLOUD_PLACEMENT)
                 .addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, ReduxPlacements.SPARSE_BLUE_AERCLOUD)

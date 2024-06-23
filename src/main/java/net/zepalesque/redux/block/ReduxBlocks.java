@@ -58,6 +58,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
                     .noCollission()
                     .sound(SoundType.PINK_PETALS)
                     .pushReaction(PushReaction.DESTROY)
+                    .replaceable()
             ));
 
     public static final DeferredBlock<Block> CARVED_PILLAR = register("carved_pillar", () -> new RotatedPillarBlock(Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).strength(0.5F, 6.0F).requiresCorrectToolForDrops()));

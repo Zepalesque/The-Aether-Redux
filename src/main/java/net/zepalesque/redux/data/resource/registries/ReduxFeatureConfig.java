@@ -58,6 +58,7 @@ import java.util.OptionalInt;
 public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> AURUM_PATCH = createKey(name(ReduxFlowerSets.AURUM.flower()) + "_patch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LUCKY_CLOVER_PATCH = createKey(name(ReduxFlowerSets.LUCKY_CLOVER.flower()) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_CLOVERS_PATCH = createKey(name(ReduxBlocks.GOLDEN_CLOVERS) + "_patch");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> CLOUDBED = createKey("cloudbed");
@@ -210,6 +211,9 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 
         register(context, AURUM_PATCH, Feature.FLOWER,
                 patch(12, 7, 3, prov(ReduxFlowerSets.AURUM.flower())));
+
+        register(context, LUCKY_CLOVER_PATCH, Feature.FLOWER,
+                patch(14, 7, 3, prov(ReduxFlowerSets.LUCKY_CLOVER.flower())));
 
         register(context, GOLDEN_CLOVERS_PATCH, Feature.FLOWER,
                 patch(24, 7, 3, petals(drops(ReduxBlocks.GOLDEN_CLOVERS))));

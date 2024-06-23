@@ -6,13 +6,17 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.level.material.MapColor;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.block.natural.bush.CustomBoundsBushBlock;
 import net.zepalesque.redux.block.natural.bush.CustomBoundsFlowerBlock;
 import net.zepalesque.redux.blockset.flower.type.BaseFlowerSet;
+import net.zepalesque.redux.blockset.flower.type.CloverSet;
 import net.zepalesque.redux.blockset.flower.type.EnchantedFlowerSet;
 import net.zepalesque.redux.blockset.flower.type.UntintedFlowerSet;
 import net.zepalesque.redux.world.tree.ReduxTreeGrowers;
@@ -37,6 +41,12 @@ public class ReduxFlowerSets {
             .withPotTag(BlockTags.FLOWER_POTS)
             .compost(0.3F)
             .withLore("The sapling of the Cloudroot tree. It can be grown by waiting or using Bone Meal."));
+
+    public static final BaseFlowerSet<CustomBoundsBushBlock> LUCKY_CLOVER = register(new CloverSet<>("lucky_clover", "natural/",
+            () -> new CustomBoundsBushBlock(Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D), Properties.ofFullCopy(Blocks.DANDELION).mapColor(MapColor.GOLD)))
+            .creativeTab(AetherCreativeTabs.AETHER_NATURAL_BLOCKS, ReduxBlocks.GOLDEN_CLOVERS)
+            .withPotTag(BlockTags.FLOWER_POTS)
+            .withLore("A large four-leaved clover found in the Gilded Groves. Makes a nice decoration, and can be placed in a flower pot!"));
 
     public static <T extends AbstractFlowerSet> T register(T set) {
         Redux.BLOCK_SETS.add(set);

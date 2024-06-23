@@ -328,4 +328,21 @@ public abstract class ReduxBlockStateProvider extends AetherBlockStateProvider {
             builder.part().modelFile(flowerbed4).rotationY(d.getOpposite().get2DDataValue() * 90).addModel().condition(PinkPetalsBlock.AMOUNT, 4).condition(PinkPetalsBlock.FACING, d).end();
         }
     }
+
+
+    public void clover(Block block, String location) {
+        ModelFile cross = this.models().withExistingParent(this.name(block), Redux.loc("block/template/cross/large_clover"))
+                .texture("stem", this.modLoc("block/" + location + this.name(block) + "_stem"))
+                .texture("top", this.modLoc("block/" + location + this.name(block) + "_top"))
+                .renderType(new ResourceLocation("cutout"));
+        this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(cross));
+    }
+
+    public void pottedClover(Block block, Block flower, String location) {
+        ModelFile pot = this.models().withExistingParent(this.name(block), Redux.loc("block/template/pot/flower_pot_clover"))
+                .texture("stem", this.modLoc("block/" + location + this.name(flower) + "_stem"))
+                .texture("top", this.modLoc("block/" + location + this.name(flower) + "_top"))
+                .renderType(new ResourceLocation("cutout"));
+        this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
+    }
 }
