@@ -24,7 +24,7 @@ public class ReduxNoiseBuilders {
 
     public static DensityFunction createFinal(DensityFunction density) {
         density = DensityFunctions.add(density, DensityFunctions.constant(-0.13));
-        density = slide(density, 0, 192, 72, 0, -0.2, 8, 40, -0.1);
+        density = slide(density, 0, 192, 128, 0, -0.2, 8, 40, -0.1);
         density = DensityFunctions.add(density, DensityFunctions.constant(-0.05));
         density = DensityFunctions.blendDensity(density);
         density = DensityFunctions.interpolated(density);
