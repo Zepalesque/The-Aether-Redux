@@ -1,0 +1,8 @@
+{
+  "parent": "aether_redux:block/template/pot/flower_pot_clover",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "stem": "aether_redux:block/natural/lucky_clover_stem",
+    "top": "aether_redux:block/natural/lucky_clover_top"
+  }
+}

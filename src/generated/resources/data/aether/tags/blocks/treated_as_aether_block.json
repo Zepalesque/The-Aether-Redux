@@ -76,6 +76,8 @@
     "aether_redux:aurum",
     "aether_redux:potted_aurum",
     "aether_redux:cloudroot_sapling",
-    "aether_redux:potted_cloudroot_sapling"
+    "aether_redux:potted_cloudroot_sapling",
+    "aether_redux:lucky_clover",
+    "aether_redux:potted_lucky_clover"
   ]
 }
