@@ -3,6 +3,24 @@
   "config": {
     "decorators": [
       {
+        "type": "aether_redux:branch_leaves",
+        "leaf_block": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "aether:golden_oak_leaves",
+            "Properties": {
+              "distance": "7",
+              "double_drops": "true",
+              "persistent": "false",
+              "waterlogged": "false"
+            }
+          }
+        },
+        "min_height": 3,
+        "probability": 0.1,
+        "radius": 1
+      },
+      {
         "type": "aether_redux:golden_vines",
         "length": {
           "type": "minecraft:uniform",
