@@ -71,6 +71,8 @@ public class GildedGroves {
 
                 .addFeature(GenerationStep.Decoration.LAKES, ReduxPlacements.SURFACE_RULE_WATER_LAKE)
 
+                .addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, ReduxPlacements.AMBROSIUM_ROCK)
+
                 .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_AETHER_DIRT_PLACEMENT)
                 .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_ICESTONE_PLACEMENT)
                 .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_AMBROSIUM_PLACEMENT)

@@ -29,6 +29,9 @@ public class ReduxTags {
         // Blocks that Golden Vines can grow on
         public static final TagKey<Block> GOLDEN_VINE_SUSTAINABLE = tag("golden_vine_sustainable");
 
+        // Blocks that Golden Vines can grow on
+        public static final TagKey<Block> ROCK_REPLACEABLE = tag("rock_replaceable");
+
 
         // NeoForge tags
         public static final TagKey<Block> VERIDIUM_ORES = tag("veridium_ores");

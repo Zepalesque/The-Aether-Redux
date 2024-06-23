@@ -38,6 +38,8 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
 
         this.tag(ReduxTags.Blocks.QUICKSOIL_BEHAVIOR).add(AetherBlocks.QUICKSOIL.get());
 
+        this.tag(ReduxTags.Blocks.ROCK_REPLACEABLE).addTag(BlockTags.DIRT);
+
         this.tag(BlockTags.LEAVES).add(
                 ReduxBlocks.CLOUDROOT_LEAVES.get()
         );

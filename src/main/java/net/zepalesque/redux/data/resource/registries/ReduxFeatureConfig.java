@@ -10,6 +10,7 @@ import com.aetherteam.aether.world.trunkplacer.CrystalTreeTrunkPlacer;
 import com.aetherteam.nitrogen.world.foliageplacer.HookedFoliagePlacer;
 import com.aetherteam.nitrogen.world.trunkplacer.HookedTrunkPlacer;
 import net.minecraft.core.HolderGetter;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
@@ -17,6 +18,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.DensityFunction;
@@ -38,16 +40,19 @@ import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.blockset.flower.ReduxFlowerSets;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
 import net.zepalesque.redux.blockset.wood.ReduxWoodSets;
+import net.zepalesque.redux.data.ReduxTags;
 import net.zepalesque.redux.data.resource.builders.ReduxFeatureBuilders;
 import net.zepalesque.redux.world.feature.gen.CloudbedFeature;
 import net.zepalesque.redux.world.feature.gen.ReduxFeatures;
 import net.zepalesque.redux.world.tree.decorator.GoldenVineDecorator;
 import net.zepalesque.redux.world.tree.foliage.SkyrootFoliagePlacer;
+import net.zepalesque.zenith.world.feature.gen.LargeRockFeature;
 import net.zepalesque.zenith.world.feature.gen.SurfaceRuleLakeFeature;
 import net.zepalesque.zenith.world.feature.gen.ZenithFeatures;
 import net.zepalesque.zenith.world.tree.trunk.IntProviderTrunkPlacer;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.OptionalInt;
 
 public class ReduxFeatureConfig extends ReduxFeatureBuilders {
@@ -74,6 +79,8 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SURFACE_RULE_WATER_LAKE = createKey("surface_rule_water_lake");
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>> AMBROSIUM_ROCK = createKey("ambrosium_rock");
+
     // Overrides
     public static final ResourceKey<ConfiguredFeature<?, ?>> GRASS_BONEMEAL = createKey("aether_grass_bonemeal");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GRASS_PATCH = AetherConfiguredFeatures.GRASS_PATCH_CONFIGURATION;
@@ -90,6 +97,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configs = context.lookup(Registries.CONFIGURED_FEATURE);
         HolderGetter<DensityFunction> functions = context.lookup(Registries.DENSITY_FUNCTION);
+        HolderGetter<Block> blocks = context.lookup(Registries.BLOCK);
 
         register(context, CLOUDBED, ReduxFeatures.CLOUDBED.get(),
                 new CloudbedFeature.Config(
@@ -208,6 +216,13 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 
         register(context, SURFACE_RULE_WATER_LAKE, ZenithFeatures.SURFACE_RULE_LAKE.get(),
                 new SurfaceRuleLakeFeature.Config(BlockStateProvider.simple(Blocks.WATER)));
+
+        register(context, AMBROSIUM_ROCK, ZenithFeatures.LARGE_ROCK.get(),
+                new LargeRockFeature.Config(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                        .add(AetherFeatureStates.HOLYSTONE, 5)
+                        .add(drops(ReduxStoneSets.GILDED_HOLYSTONE.block()), 3)
+                        .add(AetherFeatureStates.AMBROSIUM_ORE, 1)
+                ), Optional.of(blocks.getOrThrow(ReduxTags.Blocks.ROCK_REPLACEABLE))));
 
         // Overrides
         register(context, GRASS_PATCH, Feature.RANDOM_PATCH, patch(48, 7, 3, prov(ReduxBlocks.SHORT_AETHER_GRASS), NOT_ON_COARSE_DIRT));
