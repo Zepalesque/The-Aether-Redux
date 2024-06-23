@@ -2,9 +2,11 @@ package net.zepalesque.redux.block.natural;
 
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.GrowingPlantBodyBlock;
 import net.minecraft.world.level.block.GrowingPlantHeadBlock;
@@ -24,13 +26,22 @@ public class GoldenVinesBodyBlock extends GrowingPlantBodyBlock {
     }
 
     @Override
-    protected GrowingPlantHeadBlock getHeadBlock() {
-        return ReduxBlocks.GOLDEN_VINES.get();
+    public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
+        BlockPos blockpos = pPos.relative(this.growthDirection.getOpposite());
+        BlockState blockstate = pLevel.getBlockState(blockpos);
+        if (!this.canAttachTo(blockstate)) {
+            return false;
+        } else {
+            return blockstate.is(this.getHeadBlock())
+                    || blockstate.is(this.getBodyBlock())
+                    || blockstate.is(this.leafTag)
+                    || blockstate.isFaceSturdy(pLevel, blockpos, this.growthDirection);
+        }
     }
 
     @Override
-    protected boolean canAttachTo(BlockState state) {
-        return super.canAttachTo(state) && state.is(this.getHeadBlock()) || state.is(this.getBodyBlock()) || state.is(this.leafTag);
+    protected GrowingPlantHeadBlock getHeadBlock() {
+        return ReduxBlocks.GOLDEN_VINES.get();
     }
 
     public static final MapCodec<GoldenVinesBodyBlock> CODEC = RecordCodecBuilder.mapCodec(builder ->

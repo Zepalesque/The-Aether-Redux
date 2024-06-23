@@ -88,11 +88,6 @@ public class GoldenVineDecorator extends TreeDecorator {
     private void addVine(BlockPos pPos, TreeDecorator.Context pContext, int length) {
         for (int i = 1; i <= length; i++) {
             BlockPos placement = pPos.offset(0, 1 - i, 0);
-            if (!pContext.isAir(placement)) {
-                Redux.LOGGER.debug("Failed to place vine #{}", i);
-                break;
-            }
-
             boolean notAirBelow = !pContext.isAir(placement.below());
             boolean maxLength = i >= length;
             if (notAirBelow || maxLength) {

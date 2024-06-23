@@ -4,6 +4,7 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.TagKey;
@@ -54,16 +55,6 @@ public class GoldenVinesHeadBlock extends GrowingPlantHeadBlock {
         return NetherVines.isValidGrowthState(p_154971_);
     }
 
-    @Override
-    public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-        BlockPos blockpos = pPos.relative(this.growthDirection.getOpposite());
-        BlockState blockstate = pLevel.getBlockState(blockpos);
-        if (!this.canAttachTo(blockstate)) {
-            return false;
-        } else {
-            return blockstate.is(this.getHeadBlock()) || blockstate.is(this.getBodyBlock()) || blockstate.is(this.leafTag);
-        }
-    }
 
     public int getLength(Level level, BlockPos pos) {
         BlockPos.MutableBlockPos mutableBlockPos = pos.mutable();
@@ -72,6 +63,20 @@ public class GoldenVinesHeadBlock extends GrowingPlantHeadBlock {
             i++;
         }
         return i;
+    }
+
+    @Override
+    public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
+        BlockPos blockpos = pPos.relative(this.growthDirection.getOpposite());
+        BlockState blockstate = pLevel.getBlockState(blockpos);
+        if (!this.canAttachTo(blockstate)) {
+            return false;
+        } else {
+            return blockstate.is(this.getHeadBlock())
+                    || blockstate.is(this.getBodyBlock())
+                    || blockstate.is(this.leafTag)
+                    || blockstate.isFaceSturdy(pLevel, blockpos, this.growthDirection);
+        }
     }
 
     @Override
