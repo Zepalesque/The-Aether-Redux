@@ -25,10 +25,11 @@ public class FallingLeavesBlock extends AetherDoubleDropsLeaves {
 
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource rand) {
         super.animateTick(state, level, pos, rand);
+
         if (ReduxConfig.CLIENT.leaf_particles.get() && rand.nextInt(15) == 0) {
             BlockPos blockpos = pos.below();
             BlockState blockstate = level.getBlockState(blockpos);
-            if (!blockstate.canOcclude() || !blockstate.isFaceSturdy(level, blockpos, Direction.UP)) {
+            if (!blockstate.isCollisionShapeFullBlock(level, blockpos)) {
                 ParticleUtils.spawnParticleBelow(level, pos, rand, this.particle.get());
             }
         }
