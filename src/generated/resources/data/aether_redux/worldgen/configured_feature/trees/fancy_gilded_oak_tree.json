@@ -8,17 +8,10 @@
           "condition": "aether_redux:redux_config",
           "config_path": "[Worldgen, Additional Features, Enable Enchanted and Gilded Vines]"
         },
-        "length_max": {
+        "length": {
           "type": "minecraft:uniform",
           "value": {
-            "max_inclusive": 5,
-            "min_inclusive": 3
-          }
-        },
-        "length_min": {
-          "type": "minecraft:uniform",
-          "value": {
-            "max_inclusive": 2,
+            "max_inclusive": 3,
             "min_inclusive": 1
           }
         },
@@ -37,8 +30,7 @@
             }
           }
         },
-        "probability_max": 0.75,
-        "probability_min": 0.5
+        "probability": 0.25
       },
       {
         "type": "aether_redux:patch",
