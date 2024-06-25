@@ -76,6 +76,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
     public static final ResourceKey<ConfiguredFeature<?, ?>> GROVE_CLOUD_TREES = createKey("grove_cloud_trees");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SENTRITE_ORE = createKey(name(ReduxStoneSets.SENTRITE.block()) + "_ore");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GILDED_HOLYSTONE_ORE = createKey(name(ReduxStoneSets.GILDED_HOLYSTONE.block()) + "_ore");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GROVE_TREES = createKey("gilded_groves_trees");
 
@@ -209,6 +210,9 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 
         register(context, SENTRITE_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
                 drops(ReduxStoneSets.SENTRITE.block()), 48, 0.0F));
+
+        register(context, GILDED_HOLYSTONE_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
+                drops(ReduxStoneSets.GILDED_HOLYSTONE.block()), 24, 0.3F));
 
         register(context, AURUM_PATCH, Feature.FLOWER,
                 patch(12, 7, 3, prov(ReduxFlowerSets.AURUM.flower())));
