@@ -105,7 +105,6 @@ import net.zepalesque.redux.recipe.condition.DataRecipeCondition;
 import net.zepalesque.redux.recipe.serializer.ReduxRecipeSerializers;
 import net.zepalesque.redux.util.compat.AncientCompatUtil;
 import net.zepalesque.redux.world.biome.ReduxRegion;
-import net.zepalesque.redux.world.biome.ReduxSurfaceRules;
 import net.zepalesque.redux.world.biome.modifier.ReduxBiomeModifierCodecs;
 import net.zepalesque.redux.world.biome.surfacerule.ReduxConditionSources;
 import net.zepalesque.redux.world.carver.ReduxCarvers;
@@ -121,9 +120,7 @@ import net.zepalesque.redux.world.tree.trunk.ReduxTrunkPlacers;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import teamrazor.aeroblender.AeroBlenderConfig;
-import teamrazor.aeroblender.aether.AetherRuleCategory;
 import terrablender.api.Regions;
-import terrablender.api.SurfaceRuleManager;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -229,7 +226,6 @@ public class Redux {
             registerDispenserBehaviors();
             replaceBlockSounds();
             Regions.register(new ReduxRegion(new ResourceLocation(MODID, "aether_redux_region"), ReduxConfig.COMMON.region_size.get()));
-            SurfaceRuleManager.addSurfaceRules(AetherRuleCategory.THE_AETHER, "aether_redux", ReduxSurfaceRules.makeRules());
             if (ReduxConfig.COMMON.smaller_mimic_hitbox.get()) {
                 AetherEntityTypes.MIMIC.get().getDimensions().height = 1.25F;
                 if (aetherGenesisCompat())
