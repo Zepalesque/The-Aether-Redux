@@ -354,11 +354,11 @@ public class ReduxFeatureConfig {
                         new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(10))
                 ).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT))
                         .decorators(Arrays.asList(
-                                new EnchantedVineDecorator(0.125F, 0.35F,
+                                new EnchantedVineDecorator(0.25F,
                                         prov(ReduxBlocks.GILDED_VINES_PLANT),
                                         prov(ReduxBlocks.GILDED_VINES),
-                                        UniformInt.of(1, 2),
-                                        UniformInt.of(2, 3), Optional.of(Conditions.VINES)),
+                                        UniformInt.of(1, 3),
+                                        Conditions.VINES),
                                 new PatchTreeDecorator(createLeafPileLayers(ReduxBlocks.GILDED_LEAF_PILE), 7, 3, 32))).build());
 
         register(context, SMALL_GILDED_OAK_TREE, Feature.TREE,
@@ -374,11 +374,11 @@ public class ReduxFeatureConfig {
                         new TwoLayersFeatureSize(1, 0, 1)
                 ).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT))
                         .decorators(Arrays.asList(
-                                new EnchantedVineDecorator(0.125F, 0.35F,
+                                new EnchantedVineDecorator(0.25F,
                                         prov(ReduxBlocks.GILDED_VINES_PLANT),
                                         prov(ReduxBlocks.GILDED_VINES),
-                                        UniformInt.of(1, 2),
-                                        UniformInt.of(2, 3), Optional.of(Conditions.VINES)),
+                                        UniformInt.of(1, 3),
+                                        Conditions.VINES),
                                 new PatchTreeDecorator(createLeafPileLayers(ReduxBlocks.GILDED_LEAF_PILE), 7, 3, 32))).build());
 
         register(context, ReduxFeatureConfig.FANCY_GILDED_OAK_TREE, Feature.TREE,
@@ -394,11 +394,11 @@ public class ReduxFeatureConfig {
                         new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(10))
                 ).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT))
                         .decorators(Arrays.asList(
-                                new EnchantedVineDecorator(0.5F, 0.75F,
+                                new EnchantedVineDecorator(0.25F,
                                         prov(ReduxBlocks.GILDED_VINES_PLANT),
                                         prov(ReduxBlocks.GILDED_VINES),
-                                        UniformInt.of(1, 2),
-                                        UniformInt.of(3, 5), Optional.of(Conditions.VINES)
+                                        UniformInt.of(1, 3),
+                                        Conditions.VINES
                                 ), new PatchTreeDecorator(createLeafPileLayers(ReduxBlocks.GILDED_LEAF_PILE), 7, 3, 32))).build());
 
         register(context, GOLDEN_OAK_TREE_OVERRIDE, Feature.TREE,
@@ -410,12 +410,12 @@ public class ReduxFeatureConfig {
                         new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(10))
                 ).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT))
                         .decorators(Arrays.asList(
-                                new EnchantedVineDecorator(0.125F, 0.35F,
+                                new EnchantedVineDecorator(0.25F,
                                         prov(ReduxBlocks.GOLDEN_VINES_PLANT),
                                         prov(ReduxBlocks.GOLDEN_VINES),
-                                        UniformInt.of(1, 2),
-                                        UniformInt.of(2, 3), Optional.of(Conditions.VINES)),
-                                new PatchTreeDecorator(createLeafPileLayers(ReduxBlocks.GOLDEN_LEAF_PILE), 7, 3, 32))).ignoreVines().build());
+                                        UniformInt.of(1, 3),
+                                        Conditions.VINES
+                                ), new PatchTreeDecorator(createLeafPileLayers(ReduxBlocks.GOLDEN_LEAF_PILE), 7, 3, 32))).ignoreVines().build());
 
 
         register(context, SKYROOT_PINE, Feature.TREE,
@@ -436,11 +436,11 @@ public class ReduxFeatureConfig {
                         new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(10))
                 ).ignoreVines()
                         .decorators(Arrays.asList(
-                                new EnchantedVineDecorator(0.5F, 0.75F,
+                                new EnchantedVineDecorator(0.25F,
                                         prov(ReduxBlocks.GOLDEN_VINES_PLANT),
                                         prov(ReduxBlocks.GOLDEN_VINES),
-                                        UniformInt.of(1, 2),
-                                        UniformInt.of(3, 5), Optional.of(Conditions.VINES)
+                                        UniformInt.of(1, 3),
+                                        Conditions.VINES
                                 ), new PatchTreeDecorator(createLeafPileLayers(ReduxBlocks.GOLDEN_LEAF_PILE), 7, 3, 32))).build());
 
         register(context, CRYSTAL_TREE_OVERRIDE, Feature.TREE,
