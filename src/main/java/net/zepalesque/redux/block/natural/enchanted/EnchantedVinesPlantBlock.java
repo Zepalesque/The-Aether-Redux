@@ -40,5 +40,4 @@ public class EnchantedVinesPlantBlock extends GrowingPlantBodyBlock {
             return blockstate.is(this.getHeadBlock()) || blockstate.is(this.getBodyBlock()) || this.leafBlock.apply(blockstate);
         }
     }
-
 }

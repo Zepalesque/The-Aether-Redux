@@ -458,8 +458,6 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
             builder.part().modelFile(flowerbed3).rotationY(d.getOpposite().get2DDataValue() * 90).addModel().condition(PinkPetalsBlock.AMOUNT, 3, 4).condition(PinkPetalsBlock.FACING, d).end();
             builder.part().modelFile(flowerbed4).rotationY(d.getOpposite().get2DDataValue() * 90).addModel().condition(PinkPetalsBlock.AMOUNT, 4).condition(PinkPetalsBlock.FACING, d).end();
         }
-
-
     }
 
     public void floweringFieldsprootLeafBlock(Supplier<? extends Block> block, String location) {
