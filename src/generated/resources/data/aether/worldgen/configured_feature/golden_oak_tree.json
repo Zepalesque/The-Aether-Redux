@@ -4,33 +4,35 @@
     "decorators": [
       {
         "type": "aether_redux:enchanted_vine",
-        "condition": {
-          "condition": "aether_redux:redux_config",
-          "config_path": "[Worldgen, Additional Features, Enable Enchanted and Gilded Vines]"
-        },
-        "length": {
-          "type": "minecraft:uniform",
-          "value": {
-            "max_inclusive": 3,
-            "min_inclusive": 1
-          }
-        },
-        "plant_body_provider": {
-          "type": "minecraft:simple_state_provider",
-          "state": {
-            "Name": "aether_redux:golden_vines_plant"
-          }
-        },
-        "plant_head_provider": {
-          "type": "minecraft:simple_state_provider",
-          "state": {
-            "Name": "aether_redux:golden_vines",
-            "Properties": {
-              "age": "0"
+        "value": {
+          "condition": {
+            "condition": "aether_redux:redux_config",
+            "config_path": "[Worldgen, Additional Features, Enable Enchanted and Gilded Vines]"
+          },
+          "length": {
+            "type": "minecraft:uniform",
+            "value": {
+              "max_inclusive": 3,
+              "min_inclusive": 1
             }
-          }
-        },
-        "probability": 0.25
+          },
+          "plant_body_provider": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "aether_redux:golden_vines_plant"
+            }
+          },
+          "plant_head_provider": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "aether_redux:golden_vines",
+              "Properties": {
+                "age": "0"
+              }
+            }
+          },
+          "probability": 0.25
+        }
       },
       {
         "type": "aether_redux:patch",
