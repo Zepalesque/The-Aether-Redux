@@ -40,11 +40,9 @@ public class EnchantedVineDecorator extends TreeDecorator {
                            IntProvider.codec(1,128).fieldOf("length_max").forGetter((config) -> ConstantInt.ZERO),
                            AbstractCondition.CODEC.optionalFieldOf("condition").forGetter((config) -> config.condition))
                    .apply(vines, (unused1, unused2, body, head, unused3, unused4, condition) -> forBackwardsCompat(body, head, condition)));
-
-   public static final Codec<Either<EnchantedVineDecorator, EnchantedVineDecorator>> EITHER_CODEC = Codec.either(BASE_CODEC, COMPAT_CODEC);
-
+   
    // hopefully will work?
-   public static final Codec<EnchantedVineDecorator> CODEC = EITHER_CODEC.xmap(either -> either.left().orElseGet(() -> either.right().get()), vine -> Either.left(vine));
+   public static final Codec<EnchantedVineDecorator> CODEC = Codec.either(BASE_CODEC, COMPAT_CODEC).xmap(either -> either.left().orElseGet(() -> either.right().get()), vine -> Either.left(vine));
 
    private final float probability;
    private final BlockStateProvider bodyBlock;
