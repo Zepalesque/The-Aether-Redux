@@ -169,6 +169,7 @@ dependencies {
     compileOnly fg.deobf("curse.maven:galosphere-631098:${project.galosphere_version}")
     implementation fg.deobf("curse.maven:ancient-aether-886751:${project.ancient_aether_version}")
     compileOnly fg.deobf("curse.maven:lootr-361276:${project.lootr_version}")
+    implementation fg.deobf("curse.maven:cyanide-541676:${project.cyanide_version}")
 
 //    jarJar fg.deobf("curse.maven:aeroblender-879879:${project.aeroblender_version}") {
 //        jarJar.ranged(it, "[${project.aeroblender_version},)")

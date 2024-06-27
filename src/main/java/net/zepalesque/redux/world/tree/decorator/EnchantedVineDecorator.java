@@ -4,9 +4,9 @@ import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 import com.mojang.datafixers.util.Either;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
-import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.IntProvider;
@@ -20,10 +20,11 @@ import net.zepalesque.redux.api.condition.AbstractCondition;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Function;
 
 public class EnchantedVineDecorator extends TreeDecorator {
 
-   public static final Codec<EnchantedVineDecorator> BASE_CODEC = RecordCodecBuilder.create(builder ->
+   public static final MapCodec<EnchantedVineDecorator> BASE_CODEC = RecordCodecBuilder.mapCodec(builder ->
            builder.group(Codec.floatRange(0.0F, 1.0F).fieldOf("probability").forGetter(config -> config.probability),
                            BlockStateProvider.CODEC.fieldOf("plant_body_provider").forGetter(config -> config.bodyBlock),
                            BlockStateProvider.CODEC.fieldOf("plant_head_provider").forGetter(config -> config.headBlock),
@@ -31,7 +32,7 @@ public class EnchantedVineDecorator extends TreeDecorator {
                            AbstractCondition.CODEC.optionalFieldOf("condition").forGetter(config -> config.condition))
                    .apply(builder, EnchantedVineDecorator::new));
 
-   public static final Codec<EnchantedVineDecorator> COMPAT_CODEC = RecordCodecBuilder.create((vines) ->
+   public static final MapCodec<EnchantedVineDecorator> COMPAT_CODEC = RecordCodecBuilder.mapCodec((vines) ->
            vines.group(Codec.floatRange(0.0F, 1.0F).fieldOf("probability_min").forGetter(config -> 0F),
                            Codec.floatRange(0.0F, 1.0F).fieldOf("probability_max").forGetter((config) -> 0F),
                            BlockStateProvider.CODEC.fieldOf("plant_body_provider").forGetter((config) -> config.bodyBlock),
@@ -40,9 +41,9 @@ public class EnchantedVineDecorator extends TreeDecorator {
                            IntProvider.codec(1,128).fieldOf("length_max").forGetter((config) -> ConstantInt.ZERO),
                            AbstractCondition.CODEC.optionalFieldOf("condition").forGetter((config) -> config.condition))
                    .apply(vines, (unused1, unused2, body, head, unused3, unused4, condition) -> forBackwardsCompat(body, head, condition)));
-   
+
    // hopefully will work?
-   public static final Codec<EnchantedVineDecorator> CODEC = Codec.either(BASE_CODEC, COMPAT_CODEC).xmap(either -> either.left().orElseGet(() -> either.right().get()), vine -> Either.left(vine));
+   public static final Codec<EnchantedVineDecorator> CODEC = mapAlternative(BASE_CODEC, COMPAT_CODEC).codec();
 
    private final float probability;
    private final BlockStateProvider bodyBlock;
@@ -111,6 +112,30 @@ public class EnchantedVineDecorator extends TreeDecorator {
    @Override
    protected TreeDecoratorType<?> type() {
       return ReduxTreeDecorators.ENCHANTED_VINES.get();
+   }
+
+   static <T> Codec<T> withAlternative(final Codec<T> primary, final Codec<? extends T> alternative) {
+      return Codec.either(
+              primary,
+              alternative
+      ).xmap(
+              EnchantedVineDecorator::unwrap,
+              Either::left
+      );
+   }
+
+   static <T> MapCodec<T> mapAlternative(final MapCodec<T> primary, final MapCodec<? extends T> alternative) {
+      return Codec.mapEither(
+              primary,
+              alternative
+      ).xmap(
+              EnchantedVineDecorator::unwrap,
+              Either::left
+      );
+   }
+
+   public static <U> U unwrap(final Either<? extends U, ? extends U> either) {
+      return either.map(Function.identity(), Function.identity());
    }
 }
 
