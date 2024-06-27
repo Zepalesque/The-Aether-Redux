@@ -81,8 +81,8 @@ public class GildedGroves {
 
                 .addFeature(GenerationStep.Decoration.FLUID_SPRINGS, AetherPlacedFeatures.WATER_SPRING_PLACEMENT)
 
+                .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.GROVE_TREES_LEGACY)
                 .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.GROVE_TREES)
-                .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.GROVE_TREES_ALT)
                 .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.HOLIDAY_TREE_PLACEMENT)
                 .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.GRASS_PATCH_PLACEMENT)
                 .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.ANCIENT_ENCHANTED_GRASS)

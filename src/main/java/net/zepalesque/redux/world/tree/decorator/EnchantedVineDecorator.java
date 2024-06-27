@@ -53,7 +53,7 @@ public class EnchantedVineDecorator extends TreeDecorator {
 
 
    static EnchantedVineDecorator forBackwardsCompat(BlockStateProvider body, BlockStateProvider head, Optional<AbstractCondition<?>> condition) {
-      return new EnchantedVineDecorator(0.25F, body, head, UniformInt.of(1, 3), condition);
+      return new EnchantedVineDecorator(0.25F, body, head, UniformInt.of(1, 5), condition);
    }
 
    public EnchantedVineDecorator(float vineProbability, BlockStateProvider bodyBlock, BlockStateProvider headBlock, IntProvider vineLength, Optional<AbstractCondition<?>> condition) {

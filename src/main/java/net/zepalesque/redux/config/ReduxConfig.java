@@ -62,7 +62,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue alternate_sky_colors;
         public final ForgeConfigSpec.BooleanValue enchanted_vines;
         public final ForgeConfigSpec.BooleanValue wall_roots;
-        public final ForgeConfigSpec.BooleanValue alternate_gilded_trees;
+        public final ForgeConfigSpec.BooleanValue legacy_gilded_groves;
         public final ForgeConfigSpec.BooleanValue enderman_spawns;
 
         public final ForgeConfigSpec.BooleanValue bronze_dungeon_upgrade;
@@ -113,7 +113,7 @@ public class ReduxConfig {
             this.mossy_holystone_ores = builder.comment("Enables Mossy Holystone as an ore. Configurable so that if you disable it, it's easier to tell if you've come across a dungeon.").worldRestart().define("Mossy Holystone Ores", true);
             this.enchanted_vines = builder.comment("Enables Enchanted/Gilded vines on trees").worldRestart().define("Enable Enchanted and Gilded Vines", true);
             this.wall_roots = builder.comment("Enables roots made of logs and log walls on the sides of Large Cloudcap mushrooms and Blightwillow trees.").worldRestart().define("Wall Roots on Blightwillows and Large Cloudcaps", true);
-            this.alternate_gilded_trees = builder.comment("Uses an alternate Gilded Oak shape, more like vanilla Oak trees and Skyroots, for the Gilded biomes.").worldRestart().define("Alternate Gilded Trees", false);
+            this.legacy_gilded_groves = builder.comment("Uses the legacy design for the gilded groves, instead of the new one added in 2.0.17 that is an inbetween of 2.0 and 2.1's designs").worldRestart().define("Legacy Gilded Groves Design", false);
             builder.push("Cloud Layer");
             this.cloud_layer_gen = builder.comment("Replaces the Aether's large cloud features with a new and improved noise-based cloud layer.").define("Cloud Layer Generation", true);
             this.cloud_layer_threshold_min = builder.comment("Minimum value for the cloud layer's noise threshold").defineInRange("Cloud Layer Threshold Min", 0D, -4D, 4D);
