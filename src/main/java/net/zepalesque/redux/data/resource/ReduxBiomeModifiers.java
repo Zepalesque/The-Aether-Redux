@@ -1,6 +1,9 @@
 package net.zepalesque.redux.data.resource;
 
 import com.aetherteam.aether.AetherTags;
+import com.aetherteam.aether.data.resources.registries.AetherBiomes;
+import com.google.common.collect.ImmutableMap;
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
@@ -116,8 +119,34 @@ public class ReduxBiomeModifiers {
                 biomes.getOrThrow(ReduxTags.Biomes.HAS_SENTRITE), HolderSet.direct(features.getOrThrow(ReduxPlacements.SENTRITE_ORE)),
                 GenerationStep.Decoration.UNDERGROUND_ORES));
 
-        context.register(WATER_COLOR_AETHER, new WaterColorReplacementBiomeModifier(biomes.getOrThrow(ReduxTags.Biomes.HAS_REDUX_WATER_COLOR),
-                CodecPredicates.DualInt.of(4159204, 329011), 0x5492A8, 0x0D2835, Optional.of(Conditions.WATER)));
+        BiomeModifier water = new WaterModifier(
+                Optional.of(new WaterModifier.DefaultWaterSettings(biomes.getOrThrow(ReduxTags.Biomes.MODIFY_WATER_COLOR), Optional.of(0x85BDD1), Optional.of(0x182226))),
+                ImmutableMap.<Holder<Biome>, Integer>builder() // water
+                        .put(biomes.getOrThrow(AetherBiomes.SKYROOT_MEADOW), 0x91C8D8)
+                        .put(biomes.getOrThrow(AetherBiomes.SKYROOT_FOREST), 0x79A8C4)
+                        .put(biomes.getOrThrow(AetherBiomes.SKYROOT_WOODLAND), 0x6A94B5)
+                        .put(biomes.getOrThrow(ReduxBiomes.GILDED_GROVES), 0x89C1C6)
+                        .build(),
+                ImmutableMap.<Holder<Biome>, Integer>builder() // fog
+                        .put(biomes.getOrThrow(AetherBiomes.SKYROOT_MEADOW), 0x1B2528)
+                        .put(biomes.getOrThrow(AetherBiomes.SKYROOT_FOREST), 0x141C21)
+                        .put(biomes.getOrThrow(AetherBiomes.SKYROOT_WOODLAND), 0x10171C)
+                        .put(biomes.getOrThrow(ReduxBiomes.GILDED_GROVES), 0x1E2A2B)
+                        .build());
+        context.register(WATER_COLOR_AETHER, new ConditionalBiomeModifier(Holder.direct(water), Conditions.WATER));
+
+        BiomeModifier sky = new SkiesModifier(
+                Optional.of(new SkiesModifier.DefaultSkySettings(biomes.getOrThrow(ReduxTags.Biomes.HAS_REDUX_SKY_COLOR), Optional.of(0x9FA4DD), Optional.of(0xBEC4E5))),
+                ImmutableMap.<Holder<Biome>, Integer>builder() // sky
+                        .put(biomes.getOrThrow(ReduxBiomes.GILDED_GROVES), 0xC4BDAA)
+                        .put(biomes.getOrThrow(ReduxBiomes.THE_BLIGHT), 0x9994D1)
+                        .build(),
+                ImmutableMap.<Holder<Biome>, Integer>builder() // fog
+                        .put(biomes.getOrThrow(ReduxBiomes.GILDED_GROVES), 0xDDD9DA)
+                        .put(biomes.getOrThrow(ReduxBiomes.THE_BLIGHT), 0xC0B1DB)
+                        .build());
+        context.register(SKY_COLOR_AETHER, new ConditionalBiomeModifier(Holder.direct(sky), Conditions.SKY));
+
 
         context.register(SKY_COLOR_AETHER, new SkyModifier(biomes.getOrThrow(ReduxTags.Biomes.HAS_REDUX_SKY_COLOR),
                 Optional.of(CodecPredicates.DualInt.of(12632319, 9671612)), 0x9FA4DD, 0xBEC4E5, Optional.of(Conditions.SKY)));

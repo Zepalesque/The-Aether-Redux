@@ -100,7 +100,7 @@ public class ReduxTags {
         public static final TagKey<Biome> HAS_VERIDIUM_ORE = tag("has_veridium_ore");
         public static final TagKey<Biome> HAS_DIVINITE = tag("has_divinite");
         public static final TagKey<Biome> HAS_SENTRITE = tag("has_sentrite");
-        public static final TagKey<Biome> HAS_REDUX_WATER_COLOR = tag("has_redux_water_color");
+        public static final TagKey<Biome> MODIFY_WATER_COLOR = tag("has_redux_water_color");
         public static final TagKey<Biome> HAS_REDUX_SKY_COLOR = tag("has_redux_sky_color");
         public static final TagKey<Biome> HAS_REDUX_FROSTED_SKY_COLOR = tag("has_redux_frosted_sky_color");
         public static final TagKey<Biome> HAS_REDUX_SHRUBLANDS_SKY_COLOR = tag("has_redux_shrublands_sky_color");
