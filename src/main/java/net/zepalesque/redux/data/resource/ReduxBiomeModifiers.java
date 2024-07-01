@@ -137,7 +137,6 @@ public class ReduxBiomeModifiers {
         BiomeModifier sky = new SkiesModifier(
                 Optional.of(new SkiesModifier.DefaultSkySettings(biomes.getOrThrow(ReduxTags.Biomes.HAS_REDUX_SKY_COLOR), Optional.of(0x9FA4DD), Optional.of(0xBEC4E5))),
                 ImmutableMap.<Holder<Biome>, Integer>builder() // sky
-                        .put(biomes.getOrThrow(ReduxBiomes.GILDED_GROVES), 0xC4BDAA)
                         .put(biomes.getOrThrow(ReduxBiomes.THE_BLIGHT), 0x9994D1)
                         .put(biomes.getOrThrow(ReduxBiomes.FROSTED_FORESTS), 0xB3B3E5)
                         .put(biomes.getOrThrow(ReduxBiomes.GLACIAL_TUNDRA), 0xB3B3E5)
@@ -147,7 +146,6 @@ public class ReduxBiomeModifiers {
                         .put(biomes.getOrThrow(ReduxBiomes.GILDED_GRASSLANDS), 0xC4BDAA)
                         .build(),
                 ImmutableMap.<Holder<Biome>, Integer>builder() // fog
-                        .put(biomes.getOrThrow(ReduxBiomes.GILDED_GROVES), 0xDDD9DA)
                         .put(biomes.getOrThrow(ReduxBiomes.THE_BLIGHT), 0xC0B1DB)
                         .put(biomes.getOrThrow(ReduxBiomes.FROSTED_FORESTS), 0xD0D2E5)
                         .put(biomes.getOrThrow(ReduxBiomes.GLACIAL_TUNDRA), 0xD0D2E5)
