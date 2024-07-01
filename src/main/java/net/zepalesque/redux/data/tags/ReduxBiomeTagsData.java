@@ -1,6 +1,5 @@
 package net.zepalesque.redux.data.tags;
 
-import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.data.resources.registries.AetherBiomes;
 import com.aetherteam.aether_genesis.data.resources.registries.GenesisBiomes;
@@ -8,10 +7,7 @@ import net.builderdog.ancient_aether.data.resources.registries.AncientAetherBiom
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.BiomeTagsProvider;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
 import net.zepalesque.redux.misc.ReduxTags;
 import org.jetbrains.annotations.Nullable;
@@ -116,7 +112,7 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
                 .addOptional(DABiomes.GOLDEN_HEIGHTS.location());
 
         this.tag(ReduxTags.Biomes.HAS_REDUX_SKY_COLOR).addTag(AetherTags.Biomes.IS_AETHER).remove(ReduxBiomes.THE_BLIGHT).remove(ReduxTags.Biomes.REDUX_SKY_COLOR_IS_BASE);
-        this.tag(ReduxTags.Biomes.MUSIC_MODIFY).addTag(AetherTags.Biomes.IS_AETHER);
+        this.tag(ReduxTags.Biomes.MODIFY_MUSIC).addTag(AetherTags.Biomes.IS_AETHER);
 
         this.tag(ReduxTags.Biomes.DENSE_LEAF_FALL).add(AetherBiomes.SKYROOT_FOREST, AetherBiomes.SKYROOT_WOODLAND);
 
@@ -124,15 +120,6 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
         this.tag(ReduxTags.Biomes.IS_GILDED).add(ReduxBiomes.GILDED_GROVES, ReduxBiomes.GILDED_GRASSLANDS);
         this.tag(ReduxTags.Biomes.IS_FROSTED).add(ReduxBiomes.FROSTED_FORESTS, ReduxBiomes.GLACIAL_TUNDRA);
 
-        this.tag(ReduxTags.Biomes.NO_GRASS_OVERRIDE).addTag(AetherTags.Biomes.IS_AETHER).remove(ReduxTags.Biomes.HAS_GRASS_OVERRIDE);
-
-        for (ResourceKey<Biome> e : ReduxBiomes.VANILLA_GRASS_COLORS.keySet()) {
-            if (e.location().getNamespace().equals(Redux.MODID) || e.location().getNamespace().equals(Aether.MODID)) {
-                this.tag(ReduxTags.Biomes.HAS_GRASS_OVERRIDE).add(e);
-            } else {
-                this.tag(ReduxTags.Biomes.HAS_GRASS_OVERRIDE).addOptional(e.location());
-            }
-        }
-
+        this.tag(ReduxTags.Biomes.CHANGE_VANILLA_GRASS_COLORS).addTag(AetherTags.Biomes.IS_AETHER);
     }
 }

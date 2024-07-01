@@ -20,12 +20,11 @@ import net.minecraftforge.common.world.ForgeBiomeModifiers;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.condition.Conditions;
-import net.zepalesque.redux.api.condition.Not;
+import net.zepalesque.redux.api.predicate.MusicPredicate;
 import net.zepalesque.redux.client.audio.ReduxMusic;
 import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.misc.ReduxTags;
-import net.zepalesque.redux.util.function.CodecPredicates;
 import net.zepalesque.redux.world.biome.modifier.*;
 
 import java.util.List;
@@ -60,7 +59,7 @@ public class ReduxBiomeModifiers {
     public static final ResourceKey<BiomeModifier> GILDED_SKY_COLOR_AETHER = createKey(MODIFY + "alt_sky_color_gilded");
     public static final ResourceKey<BiomeModifier> SKY_COLOR_BLIGHT = createKey(MODIFY + "blight_alt_sky_color");
     public static final ResourceKey<BiomeModifier> SKY_COLOR_OFF = createKey(MODIFY + "disabled_alt_sky_color_for_redux_biomes");
-    public static final ResourceKey<BiomeModifier> AETHER_COLOR_OVERRIDE = createKey(MODIFY + "aether_color_override");
+    public static final ResourceKey<BiomeModifier> VANILLA_GRASS_OVERRIDE = createKey(MODIFY + "aether_color_override");
     public static final ResourceKey<BiomeModifier> MUSIC_MODIFY = createKey(MODIFY + "music_modify");
 
     private static ResourceKey<BiomeModifier> createKey(String name) {
@@ -140,54 +139,66 @@ public class ReduxBiomeModifiers {
                 ImmutableMap.<Holder<Biome>, Integer>builder() // sky
                         .put(biomes.getOrThrow(ReduxBiomes.GILDED_GROVES), 0xC4BDAA)
                         .put(biomes.getOrThrow(ReduxBiomes.THE_BLIGHT), 0x9994D1)
+                        .put(biomes.getOrThrow(ReduxBiomes.FROSTED_FORESTS), 0xB3B3E5)
+                        .put(biomes.getOrThrow(ReduxBiomes.GLACIAL_TUNDRA), 0xB3B3E5)
+                        .put(biomes.getOrThrow(ReduxBiomes.SKYROOT_SHRUBLANDS), 0xACC9E6)
+                        .put(biomes.getOrThrow(ReduxBiomes.SKYFIELDS), 0xACBAE6)
+                        .put(biomes.getOrThrow(ReduxBiomes.GILDED_GROVES), 0xC4BDAA)
+                        .put(biomes.getOrThrow(ReduxBiomes.GILDED_GRASSLANDS), 0xC4BDAA)
                         .build(),
                 ImmutableMap.<Holder<Biome>, Integer>builder() // fog
                         .put(biomes.getOrThrow(ReduxBiomes.GILDED_GROVES), 0xDDD9DA)
                         .put(biomes.getOrThrow(ReduxBiomes.THE_BLIGHT), 0xC0B1DB)
+                        .put(biomes.getOrThrow(ReduxBiomes.FROSTED_FORESTS), 0xD0D2E5)
+                        .put(biomes.getOrThrow(ReduxBiomes.GLACIAL_TUNDRA), 0xD0D2E5)
+                        .put(biomes.getOrThrow(ReduxBiomes.SKYROOT_SHRUBLANDS), 0xCEDDEB)
+                        .put(biomes.getOrThrow(ReduxBiomes.SKYFIELDS), 0xCED5EB)
+                        .put(biomes.getOrThrow(ReduxBiomes.GILDED_GROVES), 0xDDD9DA)
+                        .put(biomes.getOrThrow(ReduxBiomes.GILDED_GRASSLANDS), 0xDDD9DA)
                         .build());
         context.register(SKY_COLOR_AETHER, new ConditionalBiomeModifier(Holder.direct(sky), Conditions.SKY));
 
+        BiomeModifier vanillaGrass = new FoliageModifier(
+                Optional.of(new FoliageModifier.DefaultFoliageSettings(biomes.getOrThrow(ReduxTags.Biomes.CHANGE_VANILLA_GRASS_COLORS), Optional.of(0x91BD59), Optional.of(0x77AB2F))),
+                ImmutableMap.<Holder<Biome>, Integer>builder() // sky
+                        .put(biomes.getOrThrow(ReduxBiomes.THE_BLIGHT), 0x97B276)
+                        .put(biomes.getOrThrow(ReduxBiomes.FROSTED_FORESTS), 0x86B783)
+                        .put(biomes.getOrThrow(ReduxBiomes.GLACIAL_TUNDRA), 0x86B783)
+                        .put(biomes.getOrThrow(ReduxBiomes.SKYROOT_SHRUBLANDS), 0x9ABE4B)
+                        .put(biomes.getOrThrow(ReduxBiomes.SKYFIELDS), 0x59C93C)
+                        .put(biomes.getOrThrow(ReduxBiomes.GILDED_GROVES), 0xACBA4F)
+                        .put(biomes.getOrThrow(ReduxBiomes.GILDED_GRASSLANDS), 0xACBA4F)
+                        .put(biomes.getOrThrow(ReduxBiomes.CLOUDCAPS), 0x55C93F)
+                        .put(biomes.getOrThrow(AetherBiomes.SKYROOT_FOREST), 0x79C05A)
+                        .put(biomes.getOrThrow(AetherBiomes.SKYROOT_WOODLAND), 0x79C05A)
+                        .build(),
+                ImmutableMap.<Holder<Biome>, Integer>builder() // fog
+                        .put(biomes.getOrThrow(ReduxBiomes.THE_BLIGHT), 0x819D5D)
+                        .put(biomes.getOrThrow(ReduxBiomes.FROSTED_FORESTS), 0x68A464)
+                        .put(biomes.getOrThrow(ReduxBiomes.GLACIAL_TUNDRA), 0x68A464)
+                        .put(biomes.getOrThrow(ReduxBiomes.SKYROOT_SHRUBLANDS), 0x82AC1E)
+                        .put(biomes.getOrThrow(ReduxBiomes.SKYFIELDS), 0x30BB0B)
+                        .put(biomes.getOrThrow(ReduxBiomes.GILDED_GROVES), 0x97A823)
+                        .put(biomes.getOrThrow(ReduxBiomes.GILDED_GRASSLANDS), 0x97A823)
+                        .put(biomes.getOrThrow(ReduxBiomes.CLOUDCAPS), 0x2BBB0F)
+                        .put(biomes.getOrThrow(AetherBiomes.SKYROOT_FOREST), 0x59AE30)
+                        .put(biomes.getOrThrow(AetherBiomes.SKYROOT_WOODLAND), 0x59AE30)
+                        .build());
+        context.register(VANILLA_GRASS_OVERRIDE, vanillaGrass);
 
-        context.register(SKY_COLOR_AETHER, new SkyModifier(biomes.getOrThrow(ReduxTags.Biomes.HAS_REDUX_SKY_COLOR),
-                Optional.of(CodecPredicates.DualInt.of(12632319, 9671612)), 0x9FA4DD, 0xBEC4E5, Optional.of(Conditions.SKY)));
-
-        context.register(SKY_COLOR_BLIGHT, new SkyModifier(HolderSet.direct(biomes.getOrThrow(ReduxBiomes.THE_BLIGHT)),
-                Optional.empty(), 13025791, 10850748, Optional.of(new Not<>(Conditions.SKY))));
-
-        context.register(FROSTED_SKY_COLOR_AETHER, new SkyModifier(biomes.getOrThrow(ReduxTags.Biomes.HAS_REDUX_FROSTED_SKY_COLOR),
-                Optional.empty(), 0xB3B3E5, 0xD0D2E5, Optional.of(Conditions.SKY)));
-
-        context.register(SHRUBLANDS_SKY_COLOR_AETHER, new SkyModifier(biomes.getOrThrow(ReduxTags.Biomes.HAS_REDUX_SHRUBLANDS_SKY_COLOR),
-                Optional.empty(), 0xACC9E6, 0xCEDDEB, Optional.of(Conditions.SKY)));
-
-        context.register(SKYFIELDS_SKY_COLOR_AETHER, new SkyModifier(biomes.getOrThrow(ReduxTags.Biomes.HAS_REDUX_SKYFIELDS_SKY_COLOR),
-                Optional.empty(), 0xACBAE6, 0xCED5EB, Optional.of(Conditions.SKY)));
-
-        context.register(GILDED_SKY_COLOR_AETHER, new SkyModifier(biomes.getOrThrow(ReduxTags.Biomes.HAS_REDUX_GILDED_SKY_COLOR),
-                Optional.empty(), 0xC4BDAA, 0xDDD9DA, Optional.of(Conditions.SKY)));
-
-
-        context.register(SKY_COLOR_OFF, new SkyModifier(biomes.getOrThrow(ReduxTags.Biomes.REDUX_SKY_COLOR_IS_BASE),
-                Optional.empty(), 0xc0_c0_ff, 0x93_93_bc, Optional.of(new Not<>(Conditions.SKY))));
-
-        context.register(AETHER_COLOR_OVERRIDE, new GrassAndFoliageColorModifier(biomes.getOrThrow(ReduxTags.Biomes.NO_GRASS_OVERRIDE),
-                0x91BD59, 0x77AB2F));
-
-        // TODO in 2.1: MusicPredicate, with optional fields for each field of the Music class
-        context.register(MUSIC_MODIFY, new MusicModifier(biomes.getOrThrow(ReduxTags.Biomes.MUSIC_MODIFY),
-                Optional.empty(), Optional.of(CodecPredicates.DualInt.of(ReduxMusic.MUSIC_MIN, ReduxMusic.MUSIC_MAX)), Optional.of(false), Optional.empty(), Optional.empty(), Optional.empty()));
+        context.register(MUSIC_MODIFY, new MusicModifier(biomes.getOrThrow(ReduxTags.Biomes.MODIFY_MUSIC),
+                new MusicModifier.MusicOperator(Optional.empty(), Optional.of(ReduxMusic.MUSIC_MIN), Optional.of(ReduxMusic.MUSIC_MAX), Optional.empty()),
+                Optional.of(new MusicPredicate(Optional.empty(), Optional.of(List.of(12000)), Optional.of(List.of(24000)), Optional.empty()))));
 
 
         // TODO in 2.1: Make this more procedural
+        // aaand guess what? it'll be in 2.0.17 :3
         ReduxBiomes.AETHER_GRASS_COLORS.forEach((key, color) ->
                 context.register(createKey(AETHER_GRASS_COLOR + key.location().getPath()),
                 new AetherGrassColorModifier(HolderSet.direct(biomes.getOrThrow(key)), color)));
         ReduxBiomes.TAG_GRASSES.forEach((key, color) ->
                 context.register(createKey(AETHER_GRASS_COLOR + "tag/" + key.location().getPath()),
                 new AetherGrassColorModifier(biomes.getOrThrow(key), color)));
-        ReduxBiomes.VANILLA_GRASS_COLORS.forEach((key, colors) ->
-                context.register(createKey(GRASS_COLOR_BASE + key.location().getPath()),
-                new GrassAndFoliageColorModifier(HolderSet.direct(biomes.getOrThrow(key)), colors.getFirst(), colors.getSecond())));
         ReduxBiomes.OVERWORLD_BIOME_AETHER_GRASS_COLORS.forEach((key, colors) ->
                 context.register(createKey(OVERWORLD_AETHER_GRASS + key.location().getPath()),
                 new AetherGrassColorModifier(biomes.getOrThrow(key), colors)));

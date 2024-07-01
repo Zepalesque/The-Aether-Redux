@@ -107,14 +107,13 @@ public class ReduxTags {
         public static final TagKey<Biome> HAS_REDUX_SKYFIELDS_SKY_COLOR = tag("has_redux_skyfields_sky_color");
         public static final TagKey<Biome> HAS_REDUX_GILDED_SKY_COLOR = tag("has_redux_gilded_sky_color");
         public static final TagKey<Biome> REDUX_SKY_COLOR_IS_BASE = tag("redux_sky_color_is_base");
-        public static final TagKey<Biome> NO_GRASS_OVERRIDE = tag("no_grass_override");
-        public static final TagKey<Biome> HAS_GRASS_OVERRIDE = tag("has_grass_override");
+        public static final TagKey<Biome> CHANGE_VANILLA_GRASS_COLORS = tag("change_vanilla_grass_colors");
 
         public static final TagKey<Biome> FOREST_COLORS = tag("forest_colors");
         public static final TagKey<Biome> WOODLAND_COLORS = tag("woodland_colors");
         public static final TagKey<Biome> MEADOW_COLORS = tag("meadow_colors");
 
-        public static final TagKey<Biome> MUSIC_MODIFY = tag("music_modify");
+        public static final TagKey<Biome> MODIFY_MUSIC = tag("modify_music");
 
         public static final TagKey<Biome> DENSE_LEAF_FALL = tag("dense_leaf_fall");
 

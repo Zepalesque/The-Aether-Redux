@@ -85,20 +85,6 @@ public class ReduxBiomes {
             .build();
 
 
-    public static final ImmutableMap<ResourceKey<Biome>, Pair<Integer, Integer>> VANILLA_GRASS_COLORS = new ImmutableMap.Builder<ResourceKey<Biome>, Pair<Integer, Integer>>()
-            .put(THE_BLIGHT, Pair.of(0x97B276, 0x819D5D))
-            .put(FROSTED_FORESTS, Pair.of(0x86B783, 0x68A464))
-            .put(GLACIAL_TUNDRA, Pair.of(0x86B783, 0x68A464))
-            .put(GILDED_GROVES, Pair.of(0xACBA4F, 0x97A823))
-            .put(GILDED_GRASSLANDS, Pair.of(0xACBA4F, 0x97A823))
-            .put(SKYFIELDS, Pair.of(0x59C93C, 0x30BB0B))
-            .put(CLOUDCAPS, Pair.of(0x55C93F, 0x2BBB0F))
-            .put(SKYROOT_SHRUBLANDS, Pair.of(0x9ABE4B, 0x82AC1E))
-            .put(AetherBiomes.SKYROOT_FOREST, Pair.of(0x79C05A, 0x59AE30))
-            .put(AetherBiomes.SKYROOT_WOODLAND, Pair.of(0x79C05A, 0x59AE30))
-            .build();
-
-
     public static final ImmutableMap<TagKey<Biome>, Integer> OVERWORLD_BIOME_AETHER_GRASS_COLORS = new ImmutableMap.Builder<TagKey<Biome>, Integer>()
             .put(Tags.Biomes.IS_COLD, FROSTED_GRASS_COLOR)
             .put(Tags.Biomes.IS_DESERT, OASIS_GRASS_COLOR)
