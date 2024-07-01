@@ -16,6 +16,7 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.condition.AbstractCondition;
+import net.zepalesque.redux.util.codec.ReduxCodecs;
 
 import java.util.Collections;
 import java.util.List;
@@ -43,7 +44,7 @@ public class EnchantedVineDecorator extends TreeDecorator {
                    .apply(vines, (unused1, unused2, body, head, unused3, unused4, condition) -> forBackwardsCompat(body, head, condition)));
 
    // hopefully will work?
-   public static final Codec<EnchantedVineDecorator> CODEC = mapAlternative(BASE_CODEC, COMPAT_CODEC).codec();
+   public static final Codec<EnchantedVineDecorator> CODEC = ReduxCodecs.mapAlternative(BASE_CODEC, COMPAT_CODEC).codec();
 
    private final float probability;
    private final BlockStateProvider bodyBlock;
@@ -114,25 +115,8 @@ public class EnchantedVineDecorator extends TreeDecorator {
       return ReduxTreeDecorators.ENCHANTED_VINES.get();
    }
 
-   static <T> Codec<T> withAlternative(final Codec<T> primary, final Codec<? extends T> alternative) {
-      return Codec.either(
-              primary,
-              alternative
-      ).xmap(
-              EnchantedVineDecorator::unwrap,
-              Either::left
-      );
-   }
 
-   static <T> MapCodec<T> mapAlternative(final MapCodec<T> primary, final MapCodec<? extends T> alternative) {
-      return Codec.mapEither(
-              primary,
-              alternative
-      ).xmap(
-              EnchantedVineDecorator::unwrap,
-              Either::left
-      );
-   }
+
 
    public static <U> U unwrap(final Either<? extends U, ? extends U> either) {
       return either.map(Function.identity(), Function.identity());
