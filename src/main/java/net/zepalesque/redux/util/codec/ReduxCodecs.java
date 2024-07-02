@@ -13,9 +13,8 @@ import java.util.Map;
 
 public class ReduxCodecs {
 
-    public static final Codec<Holder<Biome>> OPTIONAL_BIOME = OptionalHolderCodec.create(Registries.BIOME);
 
-    public static final Codec<Map<Holder<Biome>, Integer>> MAP_CODEC = Codec.unboundedMap(OPTIONAL_BIOME, Codec.INT);
+    public static final Codec<Map<Holder<Biome>, Integer>> MAP_CODEC = Codec.unboundedMap(Biome.CODEC, Codec.INT);
 
     public static <T> MapCodec<T> mapAlternative(final MapCodec<T> primary, final MapCodec<? extends T> alternative) {
         return Codec.mapEither(
