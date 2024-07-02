@@ -9,6 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.common.world.ModifiableBiomeInfo;
+import net.zepalesque.redux.util.HolderUtil;
 import net.zepalesque.redux.util.codec.ReduxCodecs;
 
 import java.util.HashMap;
@@ -26,7 +27,7 @@ public record AetherGrassColors(Map<Holder<Biome>, Integer> colorMap) implements
     @Override
     public void modify(Holder<Biome> biome, Phase phase, ModifiableBiomeInfo.BiomeInfo.Builder builder) {
         if (phase == Phase.AFTER_EVERYTHING && colorMap.containsKey(biome)) {
-            Optional<ResourceKey<Biome>> optional = biome.unwrapKey();
+            Optional<ResourceKey<Biome>> optional = HolderUtil.unwrapKey(biome);
             optional.ifPresent(key -> SERVER_MAP.put(key.location(), colorMap.get(biome)));
         }
     }
