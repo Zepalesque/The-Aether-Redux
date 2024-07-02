@@ -1,8 +1,0 @@
-{
-  "type": "aether_redux:aether_grass_color",
-  "biomes": [
-    "ancient_aether:elevated_forest",
-    "ancient_aether:elevated_clearing"
-  ],
-  "grass_color": 12707530
-}

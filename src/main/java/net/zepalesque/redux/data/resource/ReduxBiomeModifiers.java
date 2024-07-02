@@ -2,7 +2,11 @@ package net.zepalesque.redux.data.resource;
 
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.data.resources.registries.AetherBiomes;
+import com.aetherteam.aether_genesis.data.resources.registries.GenesisBiomes;
 import com.google.common.collect.ImmutableMap;
+import net.builderdog.ancient_aether.AncientAether;
+import net.builderdog.ancient_aether.AncientAetherTags;
+import net.builderdog.ancient_aether.data.resources.registries.AncientAetherBiomes;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
@@ -26,6 +30,7 @@ import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.world.biome.modifier.*;
+import teamrazor.deepaether.world.biomes.DABiomes;
 
 import java.util.List;
 import java.util.Optional;
@@ -53,14 +58,9 @@ public class ReduxBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_SNOW = createKey(FEATURE + "snow");
     public static final ResourceKey<BiomeModifier> WATER_COLOR_AETHER = createKey(MODIFY + "water_color");
     public static final ResourceKey<BiomeModifier> SKY_COLOR_AETHER = createKey(MODIFY + "alt_sky_color");
-    public static final ResourceKey<BiomeModifier> FROSTED_SKY_COLOR_AETHER = createKey(MODIFY + "alt_sky_color_frosted");
-    public static final ResourceKey<BiomeModifier> SHRUBLANDS_SKY_COLOR_AETHER = createKey(MODIFY + "alt_sky_color_shrublands");
-    public static final ResourceKey<BiomeModifier> SKYFIELDS_SKY_COLOR_AETHER = createKey(MODIFY + "alt_sky_color_skyfields");
-    public static final ResourceKey<BiomeModifier> GILDED_SKY_COLOR_AETHER = createKey(MODIFY + "alt_sky_color_gilded");
-    public static final ResourceKey<BiomeModifier> SKY_COLOR_BLIGHT = createKey(MODIFY + "blight_alt_sky_color");
-    public static final ResourceKey<BiomeModifier> SKY_COLOR_OFF = createKey(MODIFY + "disabled_alt_sky_color_for_redux_biomes");
     public static final ResourceKey<BiomeModifier> VANILLA_GRASS_OVERRIDE = createKey(MODIFY + "aether_color_override");
     public static final ResourceKey<BiomeModifier> MUSIC_MODIFY = createKey(MODIFY + "music_modify");
+    public static final ResourceKey<BiomeModifier> AETHER_GRASS_COLORS = createKey(MODIFY + "aether_grass_colors");
 
     private static ResourceKey<BiomeModifier> createKey(String name) {
         return ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, Redux.locate(name));
@@ -156,6 +156,7 @@ public class ReduxBiomeModifiers {
                         .build());
         context.register(SKY_COLOR_AETHER, new ConditionalBiomeModifier(Holder.direct(sky), Conditions.SKY));
 
+        // TODO: Look into, maybe somehow convert the map so it has a fake map with something like a TagEntry, and then it computes the actual map on creation (alternatively on fire, only if it is null) In fact, maybe even a builder wrapper class to add them easier
         BiomeModifier vanillaGrass = new FoliageModifier(
                 Optional.of(new FoliageModifier.DefaultFoliageSettings(biomes.getOrThrow(ReduxTags.Biomes.CHANGE_VANILLA_GRASS_COLORS), Optional.of(0x91BD59), Optional.of(0x77AB2F))),
                 ImmutableMap.<ResourceKey<Biome>, Integer>builder() // grass
@@ -169,14 +170,37 @@ public class ReduxBiomeModifiers {
                 Optional.of(new MusicPredicate(Optional.empty(), Optional.of(List.of(12000)), Optional.of(List.of(24000)), Optional.empty()))));
 
 
-        // TODO in 2.1: Make this more procedural
-        // aaand guess what? it'll be in 2.0.17 :3
-        ReduxBiomes.AETHER_GRASS_COLORS.forEach((key, color) ->
-                context.register(createKey(AETHER_GRASS_COLOR + key.location().getPath()),
-                new AetherGrassColorModifier(HolderSet.direct(biomes.getOrThrow(key)), color)));
 
-        ReduxBiomes.OVERWORLD_BIOME_AETHER_GRASS_COLORS.forEach((key, colors) ->
-                context.register(createKey(OVERWORLD_AETHER_GRASS + key.location().getPath()),
-                new AetherGrassColorModifier(biomes.getOrThrow(key), colors)));
+        BiomeModifier aetherGrass = new AetherGrassColors(ImmutableMap.<ResourceKey<Biome>, Integer>builder()
+                .put(AetherBiomes.SKYROOT_FOREST, 0xA2F2BC)
+                .put(AetherBiomes.SKYROOT_WOODLAND, 0x96E8B0)
+                .put(AetherBiomes.SKYROOT_MEADOW, 0xBAFFCB)
+                .put(ReduxBiomes.THE_BLIGHT, ReduxBiomes.BLIGHT_GRASS_COLOR)
+                .put(ReduxBiomes.FROSTED_FORESTS, ReduxBiomes.FROSTED_GRASS_COLOR)
+                .put(ReduxBiomes.GLACIAL_TUNDRA, ReduxBiomes.FROSTED_GRASS_COLOR)
+                .put(ReduxBiomes.GILDED_GROVES, ReduxBiomes.GILDED_GRASS_COLOR)
+                .put(ReduxBiomes.GILDED_GRASSLANDS, ReduxBiomes.GILDED_GRASSLANDS_COLOR)
+                .put(ReduxBiomes.SKYFIELDS, ReduxBiomes.SKYFIELDS_GRASS_COLOR)
+                .put(ReduxBiomes.CLOUDCAPS, ReduxBiomes.CLOUDCAP_GRASS_COLOR)
+                .put(ReduxBiomes.SKYROOT_SHRUBLANDS, ReduxBiomes.SHRUBLANDS_GRASS_COLOR)
+                .put(AncientAetherBiomes.WYNDCAP_HIGHLAND, ReduxBiomes.FROZEN_GRASS_COLOR)
+                .put(AncientAetherBiomes.WYNDCAP_TAIGA, ReduxBiomes.FROZEN_GRASS_COLOR)
+                .put(AncientAetherBiomes.FESTIVE_WYNDCAP_TAIGA, ReduxBiomes.FROZEN_GRASS_COLOR)
+                .put(AncientAetherBiomes.WYNDCAP_PEAKS, ReduxBiomes.FROZEN_GRASS_COLOR)
+                .put(AncientAetherBiomes.FROZEN_CAVERNS, ReduxBiomes.FROZEN_GRASS_COLOR)
+                .put(AncientAetherBiomes.ELEVATED_FOREST, ReduxBiomes.PALE_GRASS_COLOR)
+                .put(AncientAetherBiomes.ELEVATED_CLEARING, ReduxBiomes.PALE_GRASS_COLOR)
+                .put(AncientAetherBiomes.ELEVATED_CAVERNS, ReduxBiomes.PALE_GRASS_COLOR)
+                .put(DABiomes.AERGLOW_FOREST, ReduxBiomes.AERGLOW_GRASS_COLOR)
+                .put(DABiomes.AERLAVENDER_FIELDS, ReduxBiomes.AERLAVENDER_GRASS_COLOR)
+                .put(DABiomes.BLUE_AERGLOW_FOREST, ReduxBiomes.BLUE_AERGLOW_GRASS_COLOR)
+                .put(DABiomes.GOLDEN_GROVE, ReduxBiomes.GOLDEN_GRASS_COLOR)
+                .put(DABiomes.GOLDEN_HEIGHTS, ReduxBiomes.GOLDEN_GRASS_COLOR)
+                .put(DABiomes.MYSTIC_AERGLOW_FOREST, ReduxBiomes.MYSTIC_AERGLOW_GRASS_COLOR)
+                .put(GenesisBiomes.VIBRANT_FOREST, 0xA2F2BC)
+                .put(GenesisBiomes.VIBRANT_WOODLAND, 0x96E8B0)
+                .put(GenesisBiomes.VIBRANT_MEADOW, 0xBAFFCB)
+                .build());
+        context.register(AETHER_GRASS_COLORS, aetherGrass);
     }
 }
