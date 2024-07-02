@@ -120,47 +120,47 @@ public class ReduxBiomeModifiers {
 
         BiomeModifier water = new WaterModifier(
                 Optional.of(new WaterModifier.DefaultWaterSettings(biomes.getOrThrow(ReduxTags.Biomes.MODIFY_WATER_COLOR), Optional.of(0x85BDD1), Optional.of(0x182226))),
-                ImmutableMap.<Holder<Biome>, Integer>builder() // water
-                        .put(biomes.getOrThrow(AetherBiomes.SKYROOT_MEADOW), 0x91C8D8)
-                        .put(biomes.getOrThrow(AetherBiomes.SKYROOT_FOREST), 0x79A8C4)
-                        .put(biomes.getOrThrow(AetherBiomes.SKYROOT_WOODLAND), 0x6A94B5)
-                        .put(biomes.getOrThrow(ReduxBiomes.GILDED_GROVES), 0x89C1C6)
+                ImmutableMap.<ResourceKey<Biome>, Integer>builder() // water
+                        .put(AetherBiomes.SKYROOT_MEADOW, 0x91C8D8)
+                        .put(AetherBiomes.SKYROOT_FOREST, 0x79A8C4)
+                        .put(AetherBiomes.SKYROOT_WOODLAND, 0x6A94B5)
+                        .put(ReduxBiomes.GILDED_GROVES, 0x89C1C6)
                         .build(),
-                ImmutableMap.<Holder<Biome>, Integer>builder() // fog
-                        .put(biomes.getOrThrow(AetherBiomes.SKYROOT_MEADOW), 0x1B2528)
-                        .put(biomes.getOrThrow(AetherBiomes.SKYROOT_FOREST), 0x141C21)
-                        .put(biomes.getOrThrow(AetherBiomes.SKYROOT_WOODLAND), 0x10171C)
-                        .put(biomes.getOrThrow(ReduxBiomes.GILDED_GROVES), 0x1E2A2B)
+                ImmutableMap.<ResourceKey<Biome>, Integer>builder() // fog
+                        .put(AetherBiomes.SKYROOT_MEADOW, 0x1B2528)
+                        .put(AetherBiomes.SKYROOT_FOREST, 0x141C21)
+                        .put(AetherBiomes.SKYROOT_WOODLAND, 0x10171C)
+                        .put(ReduxBiomes.GILDED_GROVES, 0x1E2A2B)
                         .build());
         context.register(WATER_COLOR_AETHER, new ConditionalBiomeModifier(Holder.direct(water), Conditions.WATER));
 
         BiomeModifier sky = new SkiesModifier(
                 Optional.of(new SkiesModifier.DefaultSkySettings(biomes.getOrThrow(ReduxTags.Biomes.HAS_REDUX_SKY_COLOR), Optional.of(0x9FA4DD), Optional.of(0xBEC4E5))),
-                ImmutableMap.<Holder<Biome>, Integer>builder() // sky
-                        .put(biomes.getOrThrow(ReduxBiomes.THE_BLIGHT), 0x9994D1)
-                        .put(biomes.getOrThrow(ReduxBiomes.FROSTED_FORESTS), 0xB3B3E5)
-                        .put(biomes.getOrThrow(ReduxBiomes.GLACIAL_TUNDRA), 0xB3B3E5)
-                        .put(biomes.getOrThrow(ReduxBiomes.SKYROOT_SHRUBLANDS), 0xACC9E6)
-                        .put(biomes.getOrThrow(ReduxBiomes.SKYFIELDS), 0xACBAE6)
-                        .put(biomes.getOrThrow(ReduxBiomes.GILDED_GROVES), 0xC4BDAA)
-                        .put(biomes.getOrThrow(ReduxBiomes.GILDED_GRASSLANDS), 0xC4BDAA)
+                ImmutableMap.<ResourceKey<Biome>, Integer>builder() // sky
+                        .put(ReduxBiomes.THE_BLIGHT, 0x9994D1)
+                        .put(ReduxBiomes.FROSTED_FORESTS, 0xB3B3E5)
+                        .put(ReduxBiomes.GLACIAL_TUNDRA, 0xB3B3E5)
+                        .put(ReduxBiomes.SKYROOT_SHRUBLANDS, 0xACC9E6)
+                        .put(ReduxBiomes.SKYFIELDS, 0xACBAE6)
+                        .put(ReduxBiomes.GILDED_GROVES, 0xC4BDAA)
+                        .put(ReduxBiomes.GILDED_GRASSLANDS, 0xC4BDAA)
                         .build(),
-                ImmutableMap.<Holder<Biome>, Integer>builder() // fog
-                        .put(biomes.getOrThrow(ReduxBiomes.THE_BLIGHT), 0xC0B1DB)
-                        .put(biomes.getOrThrow(ReduxBiomes.FROSTED_FORESTS), 0xD0D2E5)
-                        .put(biomes.getOrThrow(ReduxBiomes.GLACIAL_TUNDRA), 0xD0D2E5)
-                        .put(biomes.getOrThrow(ReduxBiomes.SKYROOT_SHRUBLANDS), 0xCEDDEB)
-                        .put(biomes.getOrThrow(ReduxBiomes.SKYFIELDS), 0xCED5EB)
-                        .put(biomes.getOrThrow(ReduxBiomes.GILDED_GROVES), 0xDDD9DA)
-                        .put(biomes.getOrThrow(ReduxBiomes.GILDED_GRASSLANDS), 0xDDD9DA)
+                ImmutableMap.<ResourceKey<Biome>, Integer>builder() // fog
+                        .put(ReduxBiomes.THE_BLIGHT, 0xC0B1DB)
+                        .put(ReduxBiomes.FROSTED_FORESTS, 0xD0D2E5)
+                        .put(ReduxBiomes.GLACIAL_TUNDRA, 0xD0D2E5)
+                        .put(ReduxBiomes.SKYROOT_SHRUBLANDS, 0xCEDDEB)
+                        .put(ReduxBiomes.SKYFIELDS, 0xCED5EB)
+                        .put(ReduxBiomes.GILDED_GROVES, 0xDDD9DA)
+                        .put(ReduxBiomes.GILDED_GRASSLANDS, 0xDDD9DA)
                         .build());
         context.register(SKY_COLOR_AETHER, new ConditionalBiomeModifier(Holder.direct(sky), Conditions.SKY));
 
         BiomeModifier vanillaGrass = new FoliageModifier(
                 Optional.of(new FoliageModifier.DefaultFoliageSettings(biomes.getOrThrow(ReduxTags.Biomes.CHANGE_VANILLA_GRASS_COLORS), Optional.of(0x91BD59), Optional.of(0x77AB2F))),
-                ImmutableMap.<Holder<Biome>, Integer>builder() // grass
+                ImmutableMap.<ResourceKey<Biome>, Integer>builder() // grass
                         .build(),
-                ImmutableMap.<Holder<Biome>, Integer>builder() // foliage
+                ImmutableMap.<ResourceKey<Biome>, Integer>builder() // foliage
                         .build());
         context.register(VANILLA_GRASS_OVERRIDE, vanillaGrass);
 

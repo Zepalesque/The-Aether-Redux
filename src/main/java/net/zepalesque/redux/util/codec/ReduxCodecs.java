@@ -6,6 +6,7 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.RegistryFileCodec;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
 import net.zepalesque.redux.world.tree.decorator.EnchantedVineDecorator;
 
@@ -14,7 +15,7 @@ import java.util.Map;
 public class ReduxCodecs {
 
 
-    public static final Codec<Map<Holder<Biome>, Integer>> MAP_CODEC = Codec.unboundedMap(Biome.CODEC, Codec.INT);
+    public static final Codec<Map<ResourceKey<Biome>, Integer>> MAP_CODEC = Codec.unboundedMap(ResourceKey.codec(Registries.BIOME), Codec.INT);
 
     public static <T> MapCodec<T> mapAlternative(final MapCodec<T> primary, final MapCodec<? extends T> alternative) {
         return Codec.mapEither(

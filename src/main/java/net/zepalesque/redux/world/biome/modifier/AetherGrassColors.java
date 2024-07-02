@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-public record AetherGrassColors(Map<Holder<Biome>, Integer> colorMap) implements BiomeModifier {
+public record AetherGrassColors(Map<ResourceKey<Biome>, Integer> colorMap) implements BiomeModifier {
 
     public static Map<ResourceLocation, Integer> SERVER_MAP = new HashMap<>();
 
@@ -25,9 +25,12 @@ public record AetherGrassColors(Map<Holder<Biome>, Integer> colorMap) implements
 
     @Override
     public void modify(Holder<Biome> biome, Phase phase, ModifiableBiomeInfo.BiomeInfo.Builder builder) {
-        if (phase == Phase.AFTER_EVERYTHING && colorMap.containsKey(biome)) {
-            Optional<ResourceKey<Biome>> optional = HolderUtil.unwrapKey(biome);
-            optional.ifPresent(key -> SERVER_MAP.put(key.location(), colorMap.get(biome)));
+        Optional<ResourceKey<Biome>> unwrapped = HolderUtil.unwrapKey(biome);
+        if (phase == Phase.AFTER_EVERYTHING && unwrapped.isPresent()) {
+            ResourceKey<Biome> key = unwrapped.get();
+            if (colorMap.containsKey(key)) {
+                SERVER_MAP.put(key.location(), colorMap.get(key));
+            }
         }
     }
 
