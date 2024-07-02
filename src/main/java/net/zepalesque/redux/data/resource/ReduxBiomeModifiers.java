@@ -39,9 +39,6 @@ public class ReduxBiomeModifiers {
     public static String FEATURE = "feature/";
     public static String MOB = "mob/";
     public static String MODIFY = "modify/";
-    public static String AETHER_GRASS_COLOR = "aether_grass_colors/";
-    public static String GRASS_COLOR_BASE = "grass_color_base/";
-    public static String OVERWORLD_AETHER_GRASS = "overworld_aether_grass/";
 
     public static final ResourceKey<BiomeModifier> ADD_AETHER_CAVES = createKey(FEATURE + "aether_caves");
     public static final ResourceKey<BiomeModifier> ADD_BLIGHTED_CAVES = createKey(FEATURE + "blighted_caves");

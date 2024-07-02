@@ -24,13 +24,9 @@ public class ReduxBiomeModifierCodecs {
 
     static RegistryObject<Codec<CarverModifier>> CARVER = CODECS.register("add_carver", () -> CarverModifier.CODEC);
 
-    static RegistryObject<Codec<AetherGrassColorModifier>> AETHER_GRASS_COLOR = CODECS.register("aether_grass_color", () ->
-            RecordCodecBuilder.create(builder -> builder.group(
-                    Biome.LIST_CODEC.fieldOf("biomes").forGetter(AetherGrassColorModifier::biomes),
-                    Codec.INT.fieldOf("grass_color").forGetter(AetherGrassColorModifier::grass)
-            ).apply(builder, AetherGrassColorModifier::new)));
-
     public static final RegistryObject<Codec<ReduxSpawnsModifier>> MOB_SPAWN_CONFIG = CODECS.register("mob_spawn_config", () -> ReduxSpawnsModifier.CODEC);
+
+    public static final RegistryObject<Codec<AetherGrassColors>> AETHER_GRASSES = CODECS.register("aether_grass", () -> AetherGrassColors.CODEC);
 
     public static final RegistryObject<Codec<MusicModifier>> MUSIC = CODECS.register("modify_music", () -> MusicModifier.CODEC);
     public static final RegistryObject<Codec<WaterModifier>> WATER_COLOR = CODECS.register("water_colors", () -> WaterModifier.CODEC);

@@ -5,9 +5,12 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.common.world.ModifiableBiomeInfo;
+import net.zepalesque.redux.network.ReduxPacketHandler;
+import net.zepalesque.redux.network.packet.SyncAetherGrassesPacket;
 import net.zepalesque.redux.util.holder.HolderUtil;
 import net.zepalesque.redux.util.codec.ReduxCodecs;
 
@@ -32,6 +35,10 @@ public record AetherGrassColors(Map<ResourceKey<Biome>, Integer> colorMap) imple
                 SERVER_MAP.put(key.location(), colorMap.get(key));
             }
         }
+    }
+
+    public static void sendToClient(ServerPlayer player) {
+        ReduxPacketHandler.sendToPlayer(new SyncAetherGrassesPacket(SERVER_MAP), player);
     }
 
     @Override
