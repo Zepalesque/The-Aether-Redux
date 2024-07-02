@@ -16,6 +16,7 @@ public class ReduxCodecs {
 
 
     public static final Codec<Map<ResourceKey<Biome>, Integer>> MAP_CODEC = Codec.unboundedMap(ResourceKey.codec(Registries.BIOME), Codec.INT);
+//    public static final Codec<RegistryMap<Biome, Integer>> MAP_CODEC = RegistryMap.codec(Registries.BIOME, Codec.INT);
 
     public static <T> MapCodec<T> mapAlternative(final MapCodec<T> primary, final MapCodec<? extends T> alternative) {
         return Codec.mapEither(
