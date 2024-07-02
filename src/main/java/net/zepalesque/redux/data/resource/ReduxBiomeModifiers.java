@@ -158,29 +158,9 @@ public class ReduxBiomeModifiers {
 
         BiomeModifier vanillaGrass = new FoliageModifier(
                 Optional.of(new FoliageModifier.DefaultFoliageSettings(biomes.getOrThrow(ReduxTags.Biomes.CHANGE_VANILLA_GRASS_COLORS), Optional.of(0x91BD59), Optional.of(0x77AB2F))),
-                ImmutableMap.<Holder<Biome>, Integer>builder() // sky
-                        .put(biomes.getOrThrow(ReduxBiomes.THE_BLIGHT), 0x97B276)
-                        .put(biomes.getOrThrow(ReduxBiomes.FROSTED_FORESTS), 0x86B783)
-                        .put(biomes.getOrThrow(ReduxBiomes.GLACIAL_TUNDRA), 0x86B783)
-                        .put(biomes.getOrThrow(ReduxBiomes.SKYROOT_SHRUBLANDS), 0x9ABE4B)
-                        .put(biomes.getOrThrow(ReduxBiomes.SKYFIELDS), 0x59C93C)
-                        .put(biomes.getOrThrow(ReduxBiomes.GILDED_GROVES), 0xACBA4F)
-                        .put(biomes.getOrThrow(ReduxBiomes.GILDED_GRASSLANDS), 0xACBA4F)
-                        .put(biomes.getOrThrow(ReduxBiomes.CLOUDCAPS), 0x55C93F)
-                        .put(biomes.getOrThrow(AetherBiomes.SKYROOT_FOREST), 0x79C05A)
-                        .put(biomes.getOrThrow(AetherBiomes.SKYROOT_WOODLAND), 0x79C05A)
+                ImmutableMap.<Holder<Biome>, Integer>builder() // grass
                         .build(),
-                ImmutableMap.<Holder<Biome>, Integer>builder() // fog
-                        .put(biomes.getOrThrow(ReduxBiomes.THE_BLIGHT), 0x819D5D)
-                        .put(biomes.getOrThrow(ReduxBiomes.FROSTED_FORESTS), 0x68A464)
-                        .put(biomes.getOrThrow(ReduxBiomes.GLACIAL_TUNDRA), 0x68A464)
-                        .put(biomes.getOrThrow(ReduxBiomes.SKYROOT_SHRUBLANDS), 0x82AC1E)
-                        .put(biomes.getOrThrow(ReduxBiomes.SKYFIELDS), 0x30BB0B)
-                        .put(biomes.getOrThrow(ReduxBiomes.GILDED_GROVES), 0x97A823)
-                        .put(biomes.getOrThrow(ReduxBiomes.GILDED_GRASSLANDS), 0x97A823)
-                        .put(biomes.getOrThrow(ReduxBiomes.CLOUDCAPS), 0x2BBB0F)
-                        .put(biomes.getOrThrow(AetherBiomes.SKYROOT_FOREST), 0x59AE30)
-                        .put(biomes.getOrThrow(AetherBiomes.SKYROOT_WOODLAND), 0x59AE30)
+                ImmutableMap.<Holder<Biome>, Integer>builder() // foliage
                         .build());
         context.register(VANILLA_GRASS_OVERRIDE, vanillaGrass);
 
