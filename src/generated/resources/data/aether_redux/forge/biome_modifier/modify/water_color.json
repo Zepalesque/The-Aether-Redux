@@ -1,14 +1,27 @@
 {
-  "type": "aether_redux:water_color_replacement",
-  "biomes": "#aether_redux:has_redux_water_color",
-  "condition": {
+  "type": "aether_redux:conditional",
+  "modify": {
+    "type": "aether_redux:water_colors",
+    "default_colors": {
+      "biomes": "#aether_redux:has_redux_water_color",
+      "fog": 1581606,
+      "water": 8764881
+    },
+    "fog_map": {
+      "aether:skyroot_forest": 1317921,
+      "aether:skyroot_meadow": 1778984,
+      "aether:skyroot_woodland": 1054492,
+      "aether_redux:gilded_groves": 1976875
+    },
+    "water_map": {
+      "aether:skyroot_forest": 7973060,
+      "aether:skyroot_meadow": 9554136,
+      "aether:skyroot_woodland": 6984885,
+      "aether_redux:gilded_groves": 9028038
+    }
+  },
+  "when": {
     "condition": "aether_redux:redux_config",
     "config_path": "[Worldgen, Biomes, Better Water Color]"
-  },
-  "predicate": {
-    "fog": 329011,
-    "water": 4159204
-  },
-  "water_color": 5542568,
-  "water_fog_color": 862261
+  }
 }

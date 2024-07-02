@@ -1,9 +1,16 @@
 {
-  "type": "aether_redux:music",
-  "biomes": "#aether_redux:music_modify",
-  "delay": {
-    "max": 3600,
-    "min": 1200
+  "type": "aether_redux:modify_music",
+  "biomes": "#aether_redux:modify_music",
+  "new_track": {
+    "max_delay": 3600,
+    "min_delay": 1200
   },
-  "replace": false
+  "predicate": {
+    "valid_max_delays": [
+      24000
+    ],
+    "valid_min_delays": [
+      12000
+    ]
+  }
 }
