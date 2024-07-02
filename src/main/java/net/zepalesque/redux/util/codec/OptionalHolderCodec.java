@@ -11,7 +11,9 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.RegistryOps;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.zepalesque.redux.util.HolderUtil;
+import net.zepalesque.redux.mixin.common.registry.MappedGetterAccessor;
+import net.zepalesque.redux.util.holder.HolderUtil;
+import net.zepalesque.redux.util.holder.KeyHolder;
 
 import java.util.Optional;
 public class OptionalHolderCodec<E> implements Codec<Holder<E>> {
@@ -50,6 +52,7 @@ public class OptionalHolderCodec<E> implements Codec<Holder<E>> {
     }
 
 
+    @SuppressWarnings("unchecked")
     @Override
     public <T> DataResult<Pair<Holder<E>, T>> decode(DynamicOps<T> ops, T value) {
         if (ops instanceof RegistryOps<T> registryops) {
@@ -61,18 +64,13 @@ public class OptionalHolderCodec<E> implements Codec<Holder<E>> {
                 ResourceKey<E> key = ResourceKey.create(this.registryKey, loc);
                 if (optGet.isPresent()) {
                     HolderGetter<E> getter = optGet.get();
-                    Optional<Holder.Reference<E>> refOpt = getter.get(key);
-                    if (refOpt.isPresent()) {
-                        holder = refOpt.get();
+                    if (getter.getClass().getName().equals("net.minecraft.core.MappedRegistry$2") && ((MappedGetterAccessor<E>) getter).zenith$registry().containsKey(key)) {
+                        holder = getter.getOrThrow(key);
                         return DataResult.success(Pair.of(holder, pair.getSecond()));
                     }
                 }
-                if (optOwn.isPresent()) {
-                    HolderOwner<E> owner = optOwn.get();
-                    holder = Holder.Reference.createStandAlone(owner, key);
-                    return DataResult.success(Pair.of(holder, pair.getSecond()));
-                }
-                return DataResult.error(() -> "Could not decode holder: " + loc.toString() + "!");
+                holder = optOwn.map(owner -> KeyHolder.create(key, owner)).orElseGet(() -> KeyHolder.create(key));
+                return DataResult.success(Pair.of(holder, pair.getSecond()));
             });
         }
         return DataResult.error(() -> "Failed to decode holder from value " + value);

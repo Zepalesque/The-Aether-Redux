@@ -1,4 +1,4 @@
-package net.zepalesque.redux.util;
+package net.zepalesque.redux.util.holder;
 
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceKey;

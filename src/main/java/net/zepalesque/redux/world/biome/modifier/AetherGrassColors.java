@@ -3,13 +3,12 @@ package net.zepalesque.redux.world.biome.modifier;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.Holder;
-import net.minecraft.core.HolderSet;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.common.world.ModifiableBiomeInfo;
-import net.zepalesque.redux.util.HolderUtil;
+import net.zepalesque.redux.util.holder.HolderUtil;
 import net.zepalesque.redux.util.codec.ReduxCodecs;
 
 import java.util.HashMap;

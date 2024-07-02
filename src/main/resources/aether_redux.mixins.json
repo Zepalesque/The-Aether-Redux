@@ -35,7 +35,7 @@
     "common.item.ItemMixin",
     "common.item.PickaxeItemMixin",
     "common.item.SubzeroCrossbowItemMixin",
-    "common.registry.ReferenceAccessor",
+    "common.registry.MappedGetterAccessor",
     "common.world.BronzeBossMixin",
     "common.world.BronzeDungeonRoomMixin",
     "common.world.ChunkAccessAccessor",
