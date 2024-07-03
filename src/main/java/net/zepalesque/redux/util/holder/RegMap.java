@@ -11,7 +11,6 @@ import java.util.Map;
 import java.util.Optional;
 
 public interface RegMap<K, V> {
-
     Map<Either<TagKey<K>, ResourceKey<K>>, V> keyMap();
 
     Map<Holder<K>, V> holderMap();
