@@ -10,11 +10,12 @@ import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.common.world.ModifiableBiomeInfo;
 import net.zepalesque.redux.util.codec.ReduxCodecs;
 import net.zepalesque.redux.util.holder.HolderUtil;
+import net.zepalesque.redux.util.holder.RegistryMap;
 
 import java.util.Map;
 import java.util.Optional;
 
-public record WaterModifier(Optional<DefaultWaterSettings> settings, Map<ResourceKey<Biome>, Integer> waterMap, Map<ResourceKey<Biome>, Integer> fogMap) implements BiomeModifier {
+public record WaterModifier(Optional<DefaultWaterSettings> settings, RegistryMap<Biome, Integer> waterMap, RegistryMap<Biome, Integer> fogMap) implements BiomeModifier {
 
     public static final Codec<WaterModifier> CODEC = RecordCodecBuilder.create(builder -> builder.group(
             DefaultWaterSettings.CODEC.optionalFieldOf("default_colors").forGetter(WaterModifier::settings),
@@ -24,22 +25,14 @@ public record WaterModifier(Optional<DefaultWaterSettings> settings, Map<Resourc
 
     @Override
     public void modify(Holder<Biome> biome, Phase phase, ModifiableBiomeInfo.BiomeInfo.Builder builder) {
-        Optional<ResourceKey<Biome>> unwrapped = HolderUtil.unwrapKey(biome);
-        if (phase == Phase.AFTER_EVERYTHING && unwrapped.isPresent()) {
-            ResourceKey<Biome> key = unwrapped.get();
+        if (phase == Phase.AFTER_EVERYTHING) {
             if (settings.isEmpty() || settings.get().biomes.contains(biome)) {
                 if (settings.isPresent()) {
                     settings.get().water.ifPresent(builder.getSpecialEffects()::waterColor);
                     settings.get().fog.ifPresent(builder.getSpecialEffects()::waterFogColor);
                 }
-
-                if (waterMap.containsKey(key)) {
-                    builder.getSpecialEffects().waterColor(waterMap.get(key));
-                }
-
-                if (fogMap.containsKey(key)) {
-                    builder.getSpecialEffects().waterFogColor(fogMap.get(key));
-                }
+                waterMap.get(biome).ifPresent(builder.getSpecialEffects()::waterColor);
+                fogMap.get(biome).ifPresent(builder.getSpecialEffects()::waterFogColor);
             }
         }
     }

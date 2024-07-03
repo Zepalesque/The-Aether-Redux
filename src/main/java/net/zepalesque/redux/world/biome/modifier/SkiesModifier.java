@@ -13,11 +13,12 @@ import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.common.world.ModifiableBiomeInfo;
 import net.zepalesque.redux.util.codec.ReduxCodecs;
 import net.zepalesque.redux.util.holder.HolderUtil;
+import net.zepalesque.redux.util.holder.RegistryMap;
 
 import java.util.Map;
 import java.util.Optional;
 
-public record SkiesModifier(Optional<DefaultSkySettings> settings, Map<ResourceKey<Biome>, Integer> skyMap, Map<ResourceKey<Biome>, Integer> fogMap) implements BiomeModifier {
+public record SkiesModifier(Optional<DefaultSkySettings> settings, RegistryMap<Biome, Integer> skyMap, RegistryMap<Biome, Integer> fogMap) implements BiomeModifier {
 
     public static final Codec<SkiesModifier> CODEC = RecordCodecBuilder.create(builder -> builder.group(
             DefaultSkySettings.CODEC.optionalFieldOf("default_colors").forGetter(SkiesModifier::settings),
@@ -27,22 +28,14 @@ public record SkiesModifier(Optional<DefaultSkySettings> settings, Map<ResourceK
 
     @Override
     public void modify(Holder<Biome> biome, Phase phase, ModifiableBiomeInfo.BiomeInfo.Builder builder) {
-        Optional<ResourceKey<Biome>> unwrapped = HolderUtil.unwrapKey(biome);
-        if (phase == Phase.AFTER_EVERYTHING && unwrapped.isPresent()) {
-            ResourceKey<Biome> key = unwrapped.get();
+        if (phase == Phase.AFTER_EVERYTHING) {
             if (settings.isEmpty() || settings.get().biomes.contains(biome)) {
                 if (settings.isPresent()) {
                     settings.get().sky.ifPresent(builder.getSpecialEffects()::skyColor);
                     settings.get().fog.ifPresent(builder.getSpecialEffects()::fogColor);
                 }
-
-                if (skyMap.containsKey(key)) {
-                    builder.getSpecialEffects().skyColor(skyMap.get(key));
-                }
-
-                if (fogMap.containsKey(key)) {
-                    builder.getSpecialEffects().fogColor(fogMap.get(key));
-                }
+                skyMap.get(biome).ifPresent(builder.getSpecialEffects()::skyColor);
+                fogMap.get(biome).ifPresent(builder.getSpecialEffects()::fogColor);
             }
         }
     }

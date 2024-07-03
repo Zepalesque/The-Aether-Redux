@@ -1,5 +1,6 @@
 package net.zepalesque.redux.util.holder;
 
+import com.google.common.base.Preconditions;
 import com.mojang.datafixers.util.Either;
 import net.minecraft.core.Holder;
 import net.minecraft.core.RegistryAccess;
@@ -11,17 +12,23 @@ import java.util.Optional;
 
 public interface RegMap<K, V> {
 
-    Map<Either<TagKey<K>, ResourceKey<K>>, V> getMap();
+    Map<Either<TagKey<K>, ResourceKey<K>>, V> keyMap();
 
-    V getOrThrow(Holder<K> key);
+    Map<Holder<K>, V> holderMap();
 
-    boolean initialized();
-
+    default V getOrThrow(Holder<K> key) {
+        Preconditions.checkState(this.containsKey(key), "RegistryMap does not contain value {}!", key);
+        return this.holderMap().get(key);
+    }
     default Optional<V> get(Holder<K> key) {
-       return this.initialized() ? Optional.ofNullable(getOrThrow(key)) : Optional.empty();
+        return this.containsKey(key) ? Optional.of(this.getOrThrow(key)) : Optional.empty();
     }
 
-    boolean initialize(RegistryAccess access);
+    default boolean containsKey(Holder<K> key) {
+        return this.holderMap().containsKey(key);
+    }
 
-    boolean initIf(RegistryAccess access);
+    default boolean containsValue(V key) {
+        return this.keyMap().containsValue(key);
+    }
 }

@@ -10,11 +10,12 @@ import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.common.world.ModifiableBiomeInfo;
 import net.zepalesque.redux.util.codec.ReduxCodecs;
 import net.zepalesque.redux.util.holder.HolderUtil;
+import net.zepalesque.redux.util.holder.RegistryMap;
 
 import java.util.Map;
 import java.util.Optional;
 
-public record FoliageModifier(Optional<DefaultFoliageSettings> settings, Map<ResourceKey<Biome>, Integer> grassMap, Map<ResourceKey<Biome>, Integer> foliageMap) implements BiomeModifier {
+public record FoliageModifier(Optional<DefaultFoliageSettings> settings, RegistryMap<Biome, Integer> grassMap, RegistryMap<Biome, Integer> foliageMap) implements BiomeModifier {
 
     public static final Codec<FoliageModifier> CODEC = RecordCodecBuilder.create(builder -> builder.group(
             DefaultFoliageSettings.CODEC.optionalFieldOf("default_colors").forGetter(FoliageModifier::settings),
@@ -24,22 +25,14 @@ public record FoliageModifier(Optional<DefaultFoliageSettings> settings, Map<Res
 
     @Override
     public void modify(Holder<Biome> biome, Phase phase, ModifiableBiomeInfo.BiomeInfo.Builder builder) {
-        Optional<ResourceKey<Biome>> unwrapped = HolderUtil.unwrapKey(biome);
-        if (phase == Phase.AFTER_EVERYTHING && unwrapped.isPresent()) {
-            ResourceKey<Biome> key = unwrapped.get();
+        if (phase == Phase.AFTER_EVERYTHING) {
             if (settings.isEmpty() || settings.get().biomes.contains(biome)) {
                 if (settings.isPresent()) {
                     settings.get().grass.ifPresent(builder.getSpecialEffects()::grassColorOverride);
                     settings.get().foliage.ifPresent(builder.getSpecialEffects()::foliageColorOverride);
                 }
-
-                if (grassMap.containsKey(key)) {
-                    builder.getSpecialEffects().grassColorOverride(grassMap.get(key));
-                }
-
-                if (foliageMap.containsKey(key)) {
-                    builder.getSpecialEffects().foliageColorOverride(foliageMap.get(key));
-                }
+                grassMap.get(biome).ifPresent(builder.getSpecialEffects()::grassColorOverride);
+                foliageMap.get(biome).ifPresent(builder.getSpecialEffects()::foliageColorOverride);
             }
         }
     }

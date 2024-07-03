@@ -13,12 +13,13 @@ import net.zepalesque.redux.network.ReduxPacketHandler;
 import net.zepalesque.redux.network.packet.SyncAetherGrassesPacket;
 import net.zepalesque.redux.util.holder.HolderUtil;
 import net.zepalesque.redux.util.codec.ReduxCodecs;
+import net.zepalesque.redux.util.holder.RegistryMap;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-public record AetherGrassColors(Map<ResourceKey<Biome>, Integer> colorMap) implements BiomeModifier {
+public record AetherGrassColors(RegistryMap<Biome, Integer> colorMap) implements BiomeModifier {
 
     public static Map<ResourceLocation, Integer> SERVER_MAP = new HashMap<>();
 
@@ -28,12 +29,10 @@ public record AetherGrassColors(Map<ResourceKey<Biome>, Integer> colorMap) imple
 
     @Override
     public void modify(Holder<Biome> biome, Phase phase, ModifiableBiomeInfo.BiomeInfo.Builder builder) {
-        Optional<ResourceKey<Biome>> unwrapped = HolderUtil.unwrapKey(biome);
-        if (phase == Phase.AFTER_EVERYTHING && unwrapped.isPresent()) {
-            ResourceKey<Biome> key = unwrapped.get();
-            if (colorMap.containsKey(key)) {
-                SERVER_MAP.put(key.location(), colorMap.get(key));
-            }
+        if (phase == Phase.AFTER_EVERYTHING) {
+            Optional<ResourceKey<Biome>> key = biome.unwrapKey();
+            key.ifPresent(biomeResourceKey -> colorMap.get(biome).ifPresent(color ->
+                    SERVER_MAP.put(biomeResourceKey.location(), color)));
         }
     }
 
