@@ -9,16 +9,19 @@ import net.builderdog.ancient_aether.AncientAetherTags;
 import net.builderdog.ancient_aether.data.resources.registries.AncientAetherBiomes;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.common.world.ForgeBiomeModifiers;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -29,6 +32,7 @@ import net.zepalesque.redux.client.audio.ReduxMusic;
 import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.misc.ReduxTags;
+import net.zepalesque.redux.util.holder.RegistryMap;
 import net.zepalesque.redux.world.biome.modifier.*;
 import teamrazor.deepaether.world.biomes.DABiomes;
 
@@ -67,6 +71,7 @@ public class ReduxBiomeModifiers {
         HolderGetter<Biome> biomes = context.lookup(Registries.BIOME);
         HolderGetter<ConfiguredWorldCarver<?>> carvers = context.lookup(Registries.CONFIGURED_CARVER);
         HolderGetter<PlacedFeature> features = context.lookup(Registries.PLACED_FEATURE);
+        HolderLookup.RegistryLookup<Biome> biomeLookup = context.registryLookup(Registries.BIOME).orElseThrow();
         context.register(ADD_AETHER_CAVES, new CarverModifier(biomes.getOrThrow(ReduxTags.Biomes.HAS_AETHER_CAVES), carvers.getOrThrow(ReduxConfiguredCarvers.AETHER_CAVES)));
 
         context.register(ADD_BLIGHTED_CAVES, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
@@ -117,23 +122,23 @@ public class ReduxBiomeModifiers {
 
         BiomeModifier water = new WaterModifier(
                 Optional.of(new WaterModifier.DefaultWaterSettings(biomes.getOrThrow(ReduxTags.Biomes.MODIFY_WATER_COLOR), Optional.of(0x85BDD1), Optional.of(0x182226))),
-                ImmutableMap.<ResourceKey<Biome>, Integer>builder() // water
+                RegistryMap.Builder.<Biome, Integer>create() // water
                         .put(AetherBiomes.SKYROOT_MEADOW, 0x91C8D8)
                         .put(AetherBiomes.SKYROOT_FOREST, 0x79A8C4)
                         .put(AetherBiomes.SKYROOT_WOODLAND, 0x6A94B5)
                         .put(ReduxBiomes.GILDED_GROVES, 0x89C1C6)
-                        .build(),
-                ImmutableMap.<ResourceKey<Biome>, Integer>builder() // fog
+                        .build(biomeLookup),
+                RegistryMap.Builder.<Biome, Integer>create() // fog
                         .put(AetherBiomes.SKYROOT_MEADOW, 0x1B2528)
                         .put(AetherBiomes.SKYROOT_FOREST, 0x141C21)
                         .put(AetherBiomes.SKYROOT_WOODLAND, 0x10171C)
                         .put(ReduxBiomes.GILDED_GROVES, 0x1E2A2B)
-                        .build());
+                        .build(biomeLookup));
         context.register(WATER_COLOR_AETHER, new ConditionalBiomeModifier(Holder.direct(water), Conditions.WATER));
 
         BiomeModifier sky = new SkiesModifier(
                 Optional.of(new SkiesModifier.DefaultSkySettings(biomes.getOrThrow(ReduxTags.Biomes.HAS_REDUX_SKY_COLOR), Optional.of(0x9FA4DD), Optional.of(0xBEC4E5))),
-                ImmutableMap.<ResourceKey<Biome>, Integer>builder() // sky
+                RegistryMap.Builder.<Biome, Integer>create() // sky
                         .put(ReduxBiomes.THE_BLIGHT, 0x9994D1)
                         .put(ReduxBiomes.FROSTED_FORESTS, 0xB3B3E5)
                         .put(ReduxBiomes.GLACIAL_TUNDRA, 0xB3B3E5)
@@ -141,8 +146,8 @@ public class ReduxBiomeModifiers {
                         .put(ReduxBiomes.SKYFIELDS, 0xACBAE6)
                         .put(ReduxBiomes.GILDED_GROVES, 0xC4BDAA)
                         .put(ReduxBiomes.GILDED_GRASSLANDS, 0xC4BDAA)
-                        .build(),
-                ImmutableMap.<ResourceKey<Biome>, Integer>builder() // fog
+                        .build(biomeLookup),
+                RegistryMap.Builder.<Biome, Integer>create() // fog
                         .put(ReduxBiomes.THE_BLIGHT, 0xC0B1DB)
                         .put(ReduxBiomes.FROSTED_FORESTS, 0xD0D2E5)
                         .put(ReduxBiomes.GLACIAL_TUNDRA, 0xD0D2E5)
@@ -150,16 +155,35 @@ public class ReduxBiomeModifiers {
                         .put(ReduxBiomes.SKYFIELDS, 0xCED5EB)
                         .put(ReduxBiomes.GILDED_GROVES, 0xDDD9DA)
                         .put(ReduxBiomes.GILDED_GRASSLANDS, 0xDDD9DA)
-                        .build());
+                        .build(biomeLookup));
         context.register(SKY_COLOR_AETHER, new ConditionalBiomeModifier(Holder.direct(sky), Conditions.SKY));
 
-        // TODO: Look into, maybe somehow convert the map so it has a fake map with something like a TagEntry, and then it computes the actual map on creation (alternatively on fire, only if it is null) In fact, maybe even a builder wrapper class to add them easier
         BiomeModifier vanillaGrass = new FoliageModifier(
                 Optional.of(new FoliageModifier.DefaultFoliageSettings(biomes.getOrThrow(ReduxTags.Biomes.CHANGE_VANILLA_GRASS_COLORS), Optional.of(0x91BD59), Optional.of(0x77AB2F))),
-                ImmutableMap.<ResourceKey<Biome>, Integer>builder() // grass
-                        .build(),
-                ImmutableMap.<ResourceKey<Biome>, Integer>builder() // foliage
-                        .build());
+                RegistryMap.Builder.<Biome, Integer>create() // grass
+                        .put(ReduxBiomes.THE_BLIGHT, 0x97B276)
+                        .put(ReduxBiomes.FROSTED_FORESTS, 0x86B783)
+                        .put(ReduxBiomes.GLACIAL_TUNDRA, 0x86B783)
+                        .put(ReduxBiomes.GILDED_GROVES, 0xACBA4F)
+                        .put(ReduxBiomes.GILDED_GRASSLANDS, 0xACBA4F)
+                        .put(ReduxBiomes.SKYFIELDS, 0x59C93C)
+                        .put(ReduxBiomes.CLOUDCAPS, 0x55C93F)
+                        .put(ReduxBiomes.SKYROOT_SHRUBLANDS, 0x9ABE4B)
+                        .put(AetherBiomes.SKYROOT_FOREST, 0x79C05A)
+                        .put(AetherBiomes.SKYROOT_WOODLAND, 0x79C05A)
+                        .build(biomeLookup),
+                RegistryMap.Builder.<Biome, Integer>create() // foliage
+                        .put(ReduxBiomes.THE_BLIGHT, 0x819D5D)
+                        .put(ReduxBiomes.FROSTED_FORESTS, 0x68A464)
+                        .put(ReduxBiomes.GLACIAL_TUNDRA, 0x68A464)
+                        .put(ReduxBiomes.GILDED_GROVES, 0x97A823)
+                        .put(ReduxBiomes.GILDED_GRASSLANDS, 0x97A823)
+                        .put(ReduxBiomes.SKYFIELDS, 0x30BB0B)
+                        .put(ReduxBiomes.CLOUDCAPS, 0x2BBB0F)
+                        .put(ReduxBiomes.SKYROOT_SHRUBLANDS, 0x82AC1E)
+                        .put(AetherBiomes.SKYROOT_FOREST, 0x59AE30)
+                        .put(AetherBiomes.SKYROOT_WOODLAND, 0x59AE30)
+                        .build(biomeLookup));
         context.register(VANILLA_GRASS_OVERRIDE, vanillaGrass);
 
         context.register(MUSIC_MODIFY, new MusicModifier(biomes.getOrThrow(ReduxTags.Biomes.MODIFY_MUSIC),
@@ -168,7 +192,7 @@ public class ReduxBiomeModifiers {
 
 
 
-        BiomeModifier aetherGrass = new AetherGrassColors(ImmutableMap.<ResourceKey<Biome>, Integer>builder()
+        BiomeModifier aetherGrass = new AetherGrassColors(RegistryMap.Builder.<Biome, Integer>create()
                 .put(AetherBiomes.SKYROOT_FOREST, 0xA2F2BC)
                 .put(AetherBiomes.SKYROOT_WOODLAND, 0x96E8B0)
                 .put(AetherBiomes.SKYROOT_MEADOW, 0xBAFFCB)
@@ -197,7 +221,16 @@ public class ReduxBiomeModifiers {
                 .put(GenesisBiomes.VIBRANT_FOREST, 0xA2F2BC)
                 .put(GenesisBiomes.VIBRANT_WOODLAND, 0x96E8B0)
                 .put(GenesisBiomes.VIBRANT_MEADOW, 0xBAFFCB)
-                .build());
+                .put(Tags.Biomes.IS_COLD, ReduxBiomes.FROSTED_GRASS_COLOR)
+                .put(Tags.Biomes.IS_DESERT, ReduxBiomes.OASIS_GRASS_COLOR)
+                .put(Tags.Biomes.IS_LUSH, ReduxBiomes.SKYFIELDS_GRASS_COLOR)
+                .put(Tags.Biomes.IS_MUSHROOM, ReduxBiomes.CLOUDCAP_GRASS_COLOR)
+                .put(Tags.Biomes.IS_MAGICAL, ReduxBiomes.SHIMMERING_GRASS_COLOR)
+                .put(Tags.Biomes.IS_PLATEAU, ReduxBiomes.GILDED_GRASS_COLOR)
+                .put(Tags.Biomes.IS_SPARSE, ReduxBiomes.GILDED_GRASSLANDS_COLOR)
+                .put(BiomeTags.IS_NETHER, ReduxBiomes.DUNES_GRASS_COLOR)
+                .put(BiomeTags.IS_END, ReduxBiomes.BLIGHT_GRASS_COLOR)
+                .build(biomeLookup));
         context.register(AETHER_GRASS_COLORS, aetherGrass);
     }
 }
