@@ -51,7 +51,7 @@ public interface RegistryMap<K, V> {
         return this.holderMap().isPresent() && this.holderMap().get().containsValue(val) || this.encodeMap().containsValue(val);
     }
 
-    public Registered<K, V> asRegistered(HolderLookup<K> lookup);
+    Registered<K, V> asRegistered(HolderLookup<K> lookup);
 
     class Keyed<K, V>  implements RegistryMap<K, V> {
         protected final Map<Either<TagKey<K>, ResourceKey<K>>, V> encodeMap;
