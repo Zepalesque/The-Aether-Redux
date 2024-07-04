@@ -67,7 +67,6 @@ public class RecipeListener {
                             }
                             carried.shrink(1);
                             slot.setChanged();
-                            level.playSound(player, player.getX(), player.getY(), player.getZ(), ReduxSoundEvents.INFUSE_ITEM.get(), SoundSource.PLAYERS, 0.8F, 0.8F + player.level().getRandom().nextFloat() * 0.4F);
                             event.setCanceled(true);
                         }
                         break;
