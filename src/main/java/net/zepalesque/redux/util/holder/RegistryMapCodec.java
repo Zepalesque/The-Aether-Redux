@@ -17,12 +17,12 @@ import java.util.Optional;
 
 public class RegistryMapCodec<K, V> implements Codec<RegistryMap<K, V>> {
 
-    private final Codec<Map<Either<TagKey<K>, ResourceKey<K>>, V>> mapCodec;
+    private final Codec<Map<Either<TagKey<K>, ResourceKey<K>>, V>> codec;
     private final ResourceKey<? extends Registry<K>> key;
 
     RegistryMapCodec(ResourceKey<? extends Registry<K>> registry, Codec<V> valueCodec) {
         Codec<Either<TagKey<K>, ResourceKey<K>>> eitherCodec = Codec.either(TagKey.hashedCodec(registry), ResourceKey.codec(registry));
-        this.mapCodec = Codec.unboundedMap(eitherCodec, valueCodec);
+        this.codec = Codec.unboundedMap(eitherCodec, valueCodec);
         this.key = registry;
     }
 
@@ -34,8 +34,8 @@ public class RegistryMapCodec<K, V> implements Codec<RegistryMap<K, V>> {
                 return DataResult.error(() -> "Unknown registry: " + this.key);
             }
             if (optional.get() instanceof HolderLookup.RegistryLookup<K> lookup) {
-                DataResult<Pair<Map<Either<TagKey<K>, ResourceKey<K>>, V>, T>> mapResult = this.mapCodec.decode(ops, input);
-                return mapResult.map(pair -> pair.mapFirst(map -> new RegistryMap<>(lookup, map)));
+                DataResult<Pair<Map<Either<TagKey<K>, ResourceKey<K>>, V>, T>> mapResult = this.codec.decode(ops, input);
+                return mapResult.map(pair -> pair.mapFirst(map -> new RegistryMap.Registered<>(lookup, map)));
             }
         }
         return DataResult.error(() -> "Not a registry ops");
@@ -43,6 +43,6 @@ public class RegistryMapCodec<K, V> implements Codec<RegistryMap<K, V>> {
 
     @Override
     public <T> DataResult<T> encode(RegistryMap<K, V> input, DynamicOps<T> ops, T prefix) {
-        return this.mapCodec.encode(input.keyMap(), ops, prefix);
+        return this.codec.encode(input.encodeMap(), ops, prefix);
     }
 }
