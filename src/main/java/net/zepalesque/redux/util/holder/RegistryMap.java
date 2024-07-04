@@ -57,7 +57,7 @@ public interface RegistryMap<K, V> {
         protected final Map<Either<TagKey<K>, ResourceKey<K>>, V> encodeMap;
         protected final Map<ResourceKey<K>, V> keyMap;
 
-        Keyed(Map<Either<TagKey<K>, ResourceKey<K>>, V> encodeMap, HolderGetter<K> getter) {
+        private Keyed(Map<Either<TagKey<K>, ResourceKey<K>>, V> encodeMap, HolderGetter<K> getter) {
             this.encodeMap = encodeMap;
             this.keyMap = RegistryMap.createKeyMap(getter, encodeMap);
         }
@@ -86,7 +86,7 @@ public interface RegistryMap<K, V> {
     class Registered<K, V> extends Keyed<K, V> {
 
         private final Map<Holder<K>, V> holderMap;
-        Registered(Map<Either<TagKey<K>, ResourceKey<K>>, V> keyMap, HolderLookup<K> lookup) {
+        private Registered(Map<Either<TagKey<K>, ResourceKey<K>>, V> keyMap, HolderLookup<K> lookup) {
             super(keyMap, lookup);
             this.holderMap = this.keyMap.entrySet().stream().flatMap(entry -> Stream.ofNullable(lookup.get(entry.getKey()).map(holder -> Pair.of(holder, entry.getValue())).orElse(null))).collect(Collectors.toMap(Pair::getFirst, Pair::getSecond));
         }
@@ -104,7 +104,15 @@ public interface RegistryMap<K, V> {
          public Registered<K, V> asRegistered(HolderLookup<K> lookup) {
              return this;
          }
-     }
+    }
+
+    static <K, V> Keyed<K, V> createPartial(Map<Either<TagKey<K>, ResourceKey<K>>, V> encodeMap, HolderGetter<K> getter) {
+        return new Keyed<>(encodeMap, getter);
+    }
+
+    static <K, V> Registered<K, V> createFull(Map<Either<TagKey<K>, ResourceKey<K>>, V> encodeMap, HolderLookup<K> lookup) {
+        return new Registered<>(encodeMap, lookup);
+    }
 
 
 
@@ -143,7 +151,7 @@ public interface RegistryMap<K, V> {
                 oldVal, newVal);
     }
 
-    public static class Builder<K, V> {
+    class Builder<K, V> {
         private final ImmutableMap.Builder<Either<TagKey<K>, ResourceKey<K>>, V> builder;
 
         private Builder(ImmutableMap.Builder<Either<TagKey<K>, ResourceKey<K>>, V> builder) {
@@ -165,11 +173,11 @@ public interface RegistryMap<K, V> {
         }
 
         public RegistryMap<K, V> full(HolderLookup<K> lookup) {
-            return new RegistryMap.Registered<>(this.builder.build(), lookup);
+            return createFull(this.builder.build(), lookup);
         }
 
         public RegistryMap<K, V> build(HolderGetter<K> getter) {
-            return new RegistryMap.Keyed<>(this.builder.build(), getter);
+            return createPartial(this.builder.build(), getter);
         }
 
     }

@@ -35,7 +35,7 @@ public class RegistryMapCodec<K, V> implements Codec<RegistryMap<K, V>> {
             }
             if (optional.get() instanceof HolderLookup.RegistryLookup<K> lookup) {
                 DataResult<Pair<Map<Either<TagKey<K>, ResourceKey<K>>, V>, T>> mapResult = this.codec.decode(ops, input);
-                return mapResult.map(pair -> pair.mapFirst(map -> new RegistryMap.Registered<>(map, lookup)));
+                return mapResult.map(pair -> pair.mapFirst(map -> RegistryMap.createFull(map, lookup)));
             }
         }
         return DataResult.error(() -> "Not a registry ops");
