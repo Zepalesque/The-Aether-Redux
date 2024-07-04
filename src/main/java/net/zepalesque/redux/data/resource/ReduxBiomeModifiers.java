@@ -60,11 +60,11 @@ public class ReduxBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_DIVINITE = createKey(FEATURE + "divinite");
     public static final ResourceKey<BiomeModifier> ADD_SENTRITE = createKey(FEATURE + "sentrite");
     public static final ResourceKey<BiomeModifier> ADD_SNOW = createKey(FEATURE + "snow");
-    public static final ResourceKey<BiomeModifier> WATER_COLOR_AETHER = createKey(MODIFY + "water_color");
-    public static final ResourceKey<BiomeModifier> SKY_COLOR_AETHER = createKey(MODIFY + "alt_sky_color");
-    public static final ResourceKey<BiomeModifier> VANILLA_GRASS_OVERRIDE = createKey(MODIFY + "aether_color_override");
-    public static final ResourceKey<BiomeModifier> MUSIC_MODIFY = createKey(MODIFY + "music_modify");
-    public static final ResourceKey<BiomeModifier> AETHER_GRASS_COLORS = createKey(MODIFY + "aether_grass_colors");
+    public static final ResourceKey<BiomeModifier> MODIFY_MUSIC = createKey(MODIFY + "modify_music");
+    public static final ResourceKey<BiomeModifier> WATER_COLOR_AETHER = createKey(MODIFY + "redux_water_colors");
+    public static final ResourceKey<BiomeModifier> SKY_COLOR_AETHER = createKey(MODIFY + "redux_sky_colors");
+    public static final ResourceKey<BiomeModifier> VANILLA_GRASS_OVERRIDE = createKey(MODIFY + "redux_vanilla_grasses");
+    public static final ResourceKey<BiomeModifier> AETHER_GRASS_COLORS = createKey(MODIFY + "redux_aether_grasses");
 
     private static ResourceKey<BiomeModifier> createKey(String name) {
         return ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, Redux.locate(name));
@@ -188,7 +188,7 @@ public class ReduxBiomeModifiers {
                         .build(biomes));
         context.register(VANILLA_GRASS_OVERRIDE, vanillaGrass);
 
-        context.register(MUSIC_MODIFY, new MusicModifier(biomes.getOrThrow(ReduxTags.Biomes.MODIFY_MUSIC),
+        context.register(MODIFY_MUSIC, new MusicModifier(biomes.getOrThrow(ReduxTags.Biomes.MODIFY_MUSIC),
                 new MusicModifier.MusicOperator(Optional.empty(), Optional.of(ReduxMusic.MUSIC_MIN), Optional.of(ReduxMusic.MUSIC_MAX), Optional.empty()),
                 Optional.of(new MusicPredicate(Optional.empty(), Optional.of(List.of(12000)), Optional.of(List.of(24000)), Optional.empty()))));
 
