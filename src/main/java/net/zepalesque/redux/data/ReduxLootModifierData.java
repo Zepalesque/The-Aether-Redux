@@ -26,10 +26,8 @@ import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.*;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
-import net.minecraftforge.common.crafting.conditions.OrCondition;
 import net.minecraftforge.common.data.GlobalLootModifierProvider;
 import net.minecraftforge.common.loot.LootTableIdCondition;
-import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.condition.Conditions;
 import net.zepalesque.redux.api.condition.Not;
 import net.zepalesque.redux.block.ReduxBlocks;
@@ -60,7 +58,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                         LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.05F, 0.01F).build()
                 }));
 
-        this.add("valkyrie_ring", new AddDrops(new ItemStack(ReduxItems.VALKYRIE_RING.get()),
+        this.add("valkyrie_ring", new AddDrops(new ItemStack(ReduxItems.RING_OF_CONSTRUCTION.get()),
                 new LootItemFunction[] {
                         SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)).build() },
                 new LootItemCondition[] {

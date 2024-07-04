@@ -13,11 +13,11 @@ import top.theillusivec4.curios.api.SlotContext;
 import java.util.UUID;
 import java.util.function.Supplier;
 
-public class ValkyrieRingItem extends RingItem {
+public class ConstructionRingItem extends RingItem {
 
 
 
-    public ValkyrieRingItem(Supplier<? extends SoundEvent> ringSound, Properties properties) {
+    public ConstructionRingItem(Supplier<? extends SoundEvent> ringSound, Properties properties) {
         super(ringSound, properties);
     }
     

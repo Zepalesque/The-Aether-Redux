@@ -22,8 +22,8 @@ public class ReduxFoods {
     public static final FoodProperties PURIFIED_GLOWBUDS = (new FoodProperties.Builder()).fast().nutrition(2).saturationMod(0.1F)
             .effect( () -> new MobEffectInstance(ReduxEffects.BLIGHTWARD.get(), 1510, 0), 1.0F).alwaysEat().build();
 
-    public static final FoodProperties WYNDSPROUT_BAGEL = (new FoodProperties.Builder()).nutrition(6).saturationMod(0.2F).build();
-    public static final FoodProperties BLUEBERRY_BAGEL = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.2F)
+    public static final FoodProperties WYNDSPROUT_BAGEL = (new FoodProperties.Builder()).nutrition(5).saturationMod(0.2F).build();
+    public static final FoodProperties BLUEBERRY_BAGEL = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.2F)
             .effect( () -> new MobEffectInstance(MobEffects.DIG_SPEED, 1200, 0), 1.0F).alwaysEat().build();
 
     public static final FoodProperties OATMEAL = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.7F).build();

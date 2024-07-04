@@ -59,7 +59,7 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
                         sound("minecraft:item/armor/equip_gold6")
                 ).subtitle("subtitles.aether_redux.item.accessory.equip_grand_medal")
         );
-        this.add(ReduxSoundEvents.EQUIP_VALKYRIE_RING,
+        this.add(ReduxSoundEvents.EQUIP_CONSTRUCTION_RING,
                 definition().with(
                         sound("minecraft:item/armor/equip_gold1"),
                         sound("minecraft:item/armor/equip_gold2"),
@@ -67,7 +67,7 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
                         sound("minecraft:item/armor/equip_gold4"),
                         sound("minecraft:item/armor/equip_gold5"),
                         sound("minecraft:item/armor/equip_gold6")
-                ).subtitle("subtitles.aether_redux.item.accessory.equip_valkyrie_ring")
+                ).subtitle("subtitles.aether_redux.item.accessory.equip_construction_ring")
         );
         this.add(ReduxSoundEvents.SWET_ATTACK,
                 definition().with(
