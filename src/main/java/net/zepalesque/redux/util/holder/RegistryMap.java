@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 
-public interface RegistryMap<K, V> extends RegMap<K, V> {
+public interface RegistryMap<K, V> {
     static <K, V> Codec<RegistryMap<K, V>> codec(ResourceKey<? extends Registry<K>> registry, Codec<V> valueCodec) {
         return new RegistryMapCodec<>(registry, valueCodec);
     }
