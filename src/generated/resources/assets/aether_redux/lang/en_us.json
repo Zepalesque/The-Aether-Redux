@@ -379,7 +379,7 @@
   "gui.aether_redux.feather_of_warding_immunity": "Grants immunity to Inebriation and protection from Blight foliage",
   "gui.aether_redux.grand_medal_queen_refight": "Allows replaying the Valkyrie Queen fight without collecting more medals",
   "gui.aether_redux.grand_medal_regen": "Regeneration which increases as health drops",
-  "gui.aether_redux.infusion_tooltip": "Can be infused by right-clicking with an Ambrosium Shard",
+  "gui.aether_redux.infusion_info": "Can be infused by right-clicking with an Ambrosium Shard",
   "gui.aether_redux.jade.entity_model": " (Model changed by the Aether: Redux)",
   "gui.aether_redux.jei.infusion": "Infusion",
   "gui.aether_redux.jei.infusion_charge": "Increases Infusion Level by %s",
@@ -870,5 +870,6 @@
   "subtitles.aether_redux.item.subzero_crossbow_hit": "Subzero Arrow hits",
   "subtitles.aether_redux.item.subzero_crossbow_load": "Subzero Crossbow loads",
   "subtitles.aether_redux.item.subzero_crossbow_shoot": "Subzero Crossbow shoots",
-  "tooltip.aether_redux.ambrosium_charge": "Infusion Level: %s"
+  "tooltip.aether_redux.ambrosium_charge": "Infusion Level: %s",
+  "tooltip.aether_redux.infusion_charge": "Infusion Charge: %s"
 }

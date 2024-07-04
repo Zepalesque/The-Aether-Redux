@@ -1,10 +1,13 @@
 {
   "type": "aether_redux:infusion",
-  "infusion_increase": 8,
+  "additional": {
+    "added_infusion": 4
+  },
   "ingredient": {
     "item": "aether_redux:infused_veridium_hoe"
   },
   "result": {
     "item": "aether_redux:infused_veridium_hoe"
-  }
+  },
+  "sound": "aether_redux:item.sfx.infuse"
 }
