@@ -128,13 +128,23 @@ public class ReduxBiomeModifiers {
                         .put(AetherBiomes.SKYROOT_MEADOW, 0x91C8D8)
                         .put(AetherBiomes.SKYROOT_FOREST, 0x79A8C4)
                         .put(AetherBiomes.SKYROOT_WOODLAND, 0x6A94B5)
-                        .put(ReduxBiomes.GILDED_GROVES, 0x89C1C6)
+                        .put(ReduxBiomes.THE_BLIGHT, 0x96B2DD)
+                        .put(ReduxBiomes.SKYFIELDS, 0x65C5F2)
+                        .put(ReduxBiomes.CLOUDCAPS, 0x7DB7ED)
+                        .put(ReduxBiomes.SKYROOT_SHRUBLANDS, 0x7FD6E0)
+                        .put(ReduxTags.Biomes.IS_GILDED, 0x89C1C6)
+                        .put(ReduxTags.Biomes.IS_FROSTED, 0x9CC6E5)
                         .build(biomes),
                 RegistryMap.Builder.<Biome, Integer>create() // fog
                         .put(AetherBiomes.SKYROOT_MEADOW, 0x1B2528)
                         .put(AetherBiomes.SKYROOT_FOREST, 0x141C21)
                         .put(AetherBiomes.SKYROOT_WOODLAND, 0x10171C)
-                        .put(ReduxBiomes.GILDED_GROVES, 0x1E2A2B)
+                        .put(ReduxBiomes.THE_BLIGHT, 0x14181E)
+                        .put(ReduxBiomes.SKYFIELDS, 0x12232B)
+                        .put(ReduxBiomes.CLOUDCAPS, 0x151F28)
+                        .put(ReduxBiomes.SKYROOT_SHRUBLANDS, 0x122021)
+                        .put(ReduxTags.Biomes.IS_GILDED, 0x1E2A2B)
+                        .put(ReduxTags.Biomes.IS_FROSTED, 0x181F23)
                         .build(biomes));
         context.register(WATER_COLOR_AETHER, new ConditionalBiomeModifier(Holder.direct(water), Conditions.WATER));
 
@@ -142,49 +152,43 @@ public class ReduxBiomeModifiers {
                 Optional.of(new SkiesModifier.DefaultSkySettings(biomes.getOrThrow(ReduxTags.Biomes.HAS_REDUX_SKY_COLOR), Optional.of(0x9FA4DD), Optional.of(0xBEC4E5))),
                 RegistryMap.Builder.<Biome, Integer>create() // sky
                         .put(ReduxBiomes.THE_BLIGHT, 0x9994D1)
-                        .put(ReduxBiomes.FROSTED_FORESTS, 0xB3B3E5)
-                        .put(ReduxBiomes.GLACIAL_TUNDRA, 0xB3B3E5)
-                        .put(ReduxBiomes.SKYROOT_SHRUBLANDS, 0xACC9E6)
                         .put(ReduxBiomes.SKYFIELDS, 0xACBAE6)
-                        .put(ReduxBiomes.GILDED_GROVES, 0xC4BDAA)
-                        .put(ReduxBiomes.GILDED_GRASSLANDS, 0xC4BDAA)
+                        .put(ReduxBiomes.CLOUDCAPS, 0x97A4F4)
+                        .put(ReduxBiomes.SKYROOT_SHRUBLANDS, 0xACC9E6)
+                        .put(ReduxTags.Biomes.IS_GILDED, 0xC4BDAA)
+                        .put(ReduxTags.Biomes.IS_FROSTED, 0xB3B3E5)
                         .build(biomes),
                 RegistryMap.Builder.<Biome, Integer>create() // fog
                         .put(ReduxBiomes.THE_BLIGHT, 0xC0B1DB)
-                        .put(ReduxBiomes.FROSTED_FORESTS, 0xD0D2E5)
-                        .put(ReduxBiomes.GLACIAL_TUNDRA, 0xD0D2E5)
-                        .put(ReduxBiomes.SKYROOT_SHRUBLANDS, 0xCEDDEB)
                         .put(ReduxBiomes.SKYFIELDS, 0xCED5EB)
-                        .put(ReduxBiomes.GILDED_GROVES, 0xDDD9DA)
-                        .put(ReduxBiomes.GILDED_GRASSLANDS, 0xDDD9DA)
+                        .put(ReduxBiomes.CLOUDCAPS, 0xBFC4FF)
+                        .put(ReduxBiomes.SKYROOT_SHRUBLANDS, 0xCEDDEB)
+                        .put(ReduxTags.Biomes.IS_GILDED, 0xDDD9DA)
+                        .put(ReduxTags.Biomes.IS_FROSTED, 0xD0D2E5)
                         .build(biomes));
         context.register(SKY_COLOR_AETHER, new ConditionalBiomeModifier(Holder.direct(sky), Conditions.SKY));
 
         BiomeModifier vanillaGrass = new FoliageModifier(
                 Optional.of(new FoliageModifier.DefaultFoliageSettings(biomes.getOrThrow(ReduxTags.Biomes.CHANGE_VANILLA_GRASS_COLORS), Optional.of(0x91BD59), Optional.of(0x77AB2F))),
                 RegistryMap.Builder.<Biome, Integer>create() // grass
+                        .put(AetherBiomes.SKYROOT_FOREST, 0x79C05A)
+                        .put(AetherBiomes.SKYROOT_WOODLAND, 0x79C05A)
                         .put(ReduxBiomes.THE_BLIGHT, 0x97B276)
-                        .put(ReduxBiomes.FROSTED_FORESTS, 0x86B783)
-                        .put(ReduxBiomes.GLACIAL_TUNDRA, 0x86B783)
-                        .put(ReduxBiomes.GILDED_GROVES, 0xACBA4F)
-                        .put(ReduxBiomes.GILDED_GRASSLANDS, 0xACBA4F)
                         .put(ReduxBiomes.SKYFIELDS, 0x59C93C)
                         .put(ReduxBiomes.CLOUDCAPS, 0x55C93F)
                         .put(ReduxBiomes.SKYROOT_SHRUBLANDS, 0x9ABE4B)
-                        .put(AetherBiomes.SKYROOT_FOREST, 0x79C05A)
-                        .put(AetherBiomes.SKYROOT_WOODLAND, 0x79C05A)
+                        .put(ReduxTags.Biomes.IS_GILDED, 0xACBA4F)
+                        .put(ReduxTags.Biomes.IS_FROSTED, 0x86B783)
                         .build(biomes),
                 RegistryMap.Builder.<Biome, Integer>create() // foliage
+                        .put(AetherBiomes.SKYROOT_FOREST, 0x59AE30)
+                        .put(AetherBiomes.SKYROOT_WOODLAND, 0x59AE30)
                         .put(ReduxBiomes.THE_BLIGHT, 0x819D5D)
-                        .put(ReduxBiomes.FROSTED_FORESTS, 0x68A464)
-                        .put(ReduxBiomes.GLACIAL_TUNDRA, 0x68A464)
-                        .put(ReduxBiomes.GILDED_GROVES, 0x97A823)
-                        .put(ReduxBiomes.GILDED_GRASSLANDS, 0x97A823)
                         .put(ReduxBiomes.SKYFIELDS, 0x30BB0B)
                         .put(ReduxBiomes.CLOUDCAPS, 0x2BBB0F)
                         .put(ReduxBiomes.SKYROOT_SHRUBLANDS, 0x82AC1E)
-                        .put(AetherBiomes.SKYROOT_FOREST, 0x59AE30)
-                        .put(AetherBiomes.SKYROOT_WOODLAND, 0x59AE30)
+                        .put(ReduxTags.Biomes.IS_GILDED, 0x97A823)
+                        .put(ReduxTags.Biomes.IS_FROSTED, 0x68A464)
                         .build(biomes));
         context.register(VANILLA_GRASS_OVERRIDE, vanillaGrass);
 
@@ -199,13 +203,12 @@ public class ReduxBiomeModifiers {
                 .put(AetherBiomes.SKYROOT_WOODLAND, 0x96E8B0)
                 .put(AetherBiomes.SKYROOT_MEADOW, 0xBAFFCB)
                 .put(ReduxBiomes.THE_BLIGHT, ReduxBiomes.BLIGHT_GRASS_COLOR)
-                .put(ReduxBiomes.FROSTED_FORESTS, ReduxBiomes.FROSTED_GRASS_COLOR)
-                .put(ReduxBiomes.GLACIAL_TUNDRA, ReduxBiomes.FROSTED_GRASS_COLOR)
                 .put(ReduxBiomes.GILDED_GROVES, ReduxBiomes.GILDED_GRASS_COLOR)
                 .put(ReduxBiomes.GILDED_GRASSLANDS, ReduxBiomes.GILDED_GRASSLANDS_COLOR)
                 .put(ReduxBiomes.SKYFIELDS, ReduxBiomes.SKYFIELDS_GRASS_COLOR)
                 .put(ReduxBiomes.CLOUDCAPS, ReduxBiomes.CLOUDCAP_GRASS_COLOR)
                 .put(ReduxBiomes.SKYROOT_SHRUBLANDS, ReduxBiomes.SHRUBLANDS_GRASS_COLOR)
+                .put(ReduxTags.Biomes.IS_FROSTED, ReduxBiomes.FROSTED_GRASS_COLOR)
                 .put(AncientAetherBiomes.WYNDCAP_HIGHLAND, ReduxBiomes.FROZEN_GRASS_COLOR)
                 .put(AncientAetherBiomes.WYNDCAP_TAIGA, ReduxBiomes.FROZEN_GRASS_COLOR)
                 .put(AncientAetherBiomes.FESTIVE_WYNDCAP_TAIGA, ReduxBiomes.FROZEN_GRASS_COLOR)

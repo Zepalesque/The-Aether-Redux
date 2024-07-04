@@ -77,7 +77,7 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
         this.tag(ReduxTags.Biomes.HAS_REDUX_SKY_COLOR).addTag(AetherTags.Biomes.IS_AETHER);
         this.tag(ReduxTags.Biomes.MODIFY_MUSIC).addTag(AetherTags.Biomes.IS_AETHER);
 
-        this.tag(ReduxTags.Biomes.DENSE_LEAF_FALL).add(AetherBiomes.SKYROOT_FOREST, AetherBiomes.SKYROOT_WOODLAND);
+        this.tag(ReduxTags.Biomes.DENSE_LEAF_FALL).add(AetherBiomes.SKYROOT_FOREST, AetherBiomes.SKYROOT_WOODLAND, ReduxBiomes.THE_BLIGHT);
 
 
         this.tag(ReduxTags.Biomes.IS_GILDED).add(ReduxBiomes.GILDED_GROVES, ReduxBiomes.GILDED_GRASSLANDS);
