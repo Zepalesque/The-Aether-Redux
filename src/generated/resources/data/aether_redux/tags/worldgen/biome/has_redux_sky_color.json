@@ -1,8 +1,4 @@
 {
-  "remove": [
-    "aether_redux:the_blight",
-    "#aether_redux:redux_sky_color_is_base"
-  ],
   "values": [
     "#aether:is_aether"
   ]
