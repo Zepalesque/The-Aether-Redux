@@ -11,6 +11,7 @@ import net.zepalesque.redux.Redux;
 /**
  * Criterion trigger used for checking an item infused with an Ambrosium Shard.
  */
+// TODO: Rename to StackingRecipeTrigger and add a parameter for the recipe type
 public class InfuseItemTrigger extends SimpleCriterionTrigger<InfuseItemTrigger.Instance> {
     private static final ResourceLocation ID = new ResourceLocation(Redux.MODID, "infuse_with_ambrosium");
     public static final InfuseItemTrigger INSTANCE = new InfuseItemTrigger();

@@ -5,7 +5,9 @@ import com.aetherteam.aether.item.combat.DartShooterItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -59,7 +61,13 @@ public class VeridiumDartShooter extends DartShooterItem implements VeridiumItem
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity user) {
         ItemStack original = super.finishUsingItem(stack, level, user);
         ItemStack transform = this.deplete(original, user, 1);
+        if (!user.level().isClientSide()) {
+            if (user instanceof ServerPlayer sp) {
+                this.sendSound(sp);
+            }
+        }
         return transform == null ? original : transform;
+
     }
 
     @Override
