@@ -58,7 +58,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                         LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.05F, 0.01F).build()
                 }));
 
-        this.add("valkyrie_ring", new AddDrops(new ItemStack(ReduxItems.RING_OF_CONSTRUCTION.get()),
+        this.add("construction_ring", new AddDrops(new ItemStack(ReduxItems.RING_OF_CONSTRUCTION.get()),
                 new LootItemFunction[] {
                         SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)).build() },
                 new LootItemCondition[] {
