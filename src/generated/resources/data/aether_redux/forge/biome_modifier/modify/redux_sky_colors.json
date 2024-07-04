@@ -8,19 +8,17 @@
       "sky": 10462429
     },
     "fog_map": {
-      "aether_redux:frosted_forests": 13685477,
-      "aether_redux:gilded_grasslands": 14539226,
-      "aether_redux:gilded_groves": 14539226,
-      "aether_redux:glacial_tundra": 13685477,
+      "#aether_redux:is_frosted": 13685477,
+      "#aether_redux:is_gilded": 14539226,
+      "aether_redux:cloudcaps": 12567807,
       "aether_redux:skyfields": 13555179,
       "aether_redux:skyroot_shrublands": 13557227,
       "aether_redux:the_blight": 12628443
     },
     "sky_map": {
-      "aether_redux:frosted_forests": 11776997,
-      "aether_redux:gilded_grasslands": 12893610,
-      "aether_redux:gilded_groves": 12893610,
-      "aether_redux:glacial_tundra": 11776997,
+      "#aether_redux:is_frosted": 11776997,
+      "#aether_redux:is_gilded": 12893610,
+      "aether_redux:cloudcaps": 9938164,
       "aether_redux:skyfields": 11320038,
       "aether_redux:skyroot_shrublands": 11323878,
       "aether_redux:the_blight": 10065105

@@ -1,6 +1,7 @@
 {
   "type": "aether_redux:aether_grass",
   "colormap": {
+    "#aether_redux:is_frosted": 13432831,
     "#forge:is_cold": 13432831,
     "#forge:is_desert": 14090198,
     "#forge:is_lush": 12582892,
@@ -17,10 +18,8 @@
     "aether_genesis:vibrant_meadow": 12255179,
     "aether_genesis:vibrant_woodland": 9889968,
     "aether_redux:cloudcaps": 13035007,
-    "aether_redux:frosted_forests": 13432831,
     "aether_redux:gilded_grasslands": 16774563,
     "aether_redux:gilded_groves": 16772502,
-    "aether_redux:glacial_tundra": 13432831,
     "aether_redux:skyfields": 12582892,
     "aether_redux:skyroot_shrublands": 14155724,
     "aether_redux:the_blight": 14007039,

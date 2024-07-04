@@ -1,4 +1,4 @@
-// 1.20.1	2024-07-04T13:41:01.6261224	Registries
+// 1.20.1	2024-07-04T14:27:44.3577442	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 45de07a7c47e1a824ea90184f63d6e228e7d07b5 data/aether/worldgen/configured_feature/golden_oak_tree.json
 875593e37a52dd63b2d87226b0f0e5e76ef48247 data/aether/worldgen/configured_feature/grass_patch.json
@@ -25,10 +25,10 @@ e257a1fc16eb9abee3ffeb917c35e54c87d8c97c data/aether_redux/forge/biome_modifier/
 c5b06367d1383d85beefa01a311b63d4751d0cdd data/aether_redux/forge/biome_modifier/mob/enderman.json
 ce936b2a8cd49c65434c9bb428ff96e7c0e7cba8 data/aether_redux/forge/biome_modifier/mob/vanilla_swet.json
 5b221c1a44e9c7a058fff9cdad8efd4d6c38a9ac data/aether_redux/forge/biome_modifier/modify/modify_music.json
-b401e6afbfb266192281ac1dd81cba643eb95813 data/aether_redux/forge/biome_modifier/modify/redux_aether_grasses.json
-9d40c754a4e0ce1bdad5ae771b6a6dfeded0a5e2 data/aether_redux/forge/biome_modifier/modify/redux_sky_colors.json
-91465b88901b40aacb3fad3a14c1c478b4f000ca data/aether_redux/forge/biome_modifier/modify/redux_vanilla_grasses.json
-2ddd9b5f34b636be3ed7aa0b428654e6de3a7437 data/aether_redux/forge/biome_modifier/modify/redux_water_colors.json
+0d42e4d00213dcba9079639182925607496cfa5d data/aether_redux/forge/biome_modifier/modify/redux_aether_grasses.json
+669bed884e489db484f84add4e86d4f9b9c66444 data/aether_redux/forge/biome_modifier/modify/redux_sky_colors.json
+0c6a0ee92e04fad17c98e21bf04e9a0694c28560 data/aether_redux/forge/biome_modifier/modify/redux_vanilla_grasses.json
+c40b430a451c8694c61c9c3880c18580f00088c0 data/aether_redux/forge/biome_modifier/modify/redux_water_colors.json
 cd3b3bc7a1de215b3ff6d189b5405837a748a9cb data/aether_redux/worldgen/biome/cloudcaps.json
 f84e45a9f5de18074dbd5f68bd459f3db3ce9169 data/aether_redux/worldgen/biome/frosted_forests.json
 373e1ddb43391b5e982cc648646e7ee1ed4751cc data/aether_redux/worldgen/biome/gilded_grasslands.json
