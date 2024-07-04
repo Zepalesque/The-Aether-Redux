@@ -18,6 +18,7 @@ import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -37,18 +38,22 @@ import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.api.ItemStackConstructor;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.api.condition.AbstractCondition;
 import net.zepalesque.redux.api.condition.Conditions;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.misc.ReduxTags;
+import net.zepalesque.redux.recipe.InfusionRecipe;
 import net.zepalesque.redux.recipe.builder.StackingRecipeBuilder;
 import net.zepalesque.redux.recipe.condition.DataRecipeCondition;
 import net.zepalesque.redux.recipe.serializer.ReduxRecipeSerializers;
 import org.jetbrains.annotations.NotNull;
 import teamrazor.deepaether.init.DABlocks;
 
+import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
@@ -582,17 +587,10 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
         return BlockStateRecipeBuilder.recipe(BlockStateIngredient.of(ingredient), result, ReduxRecipeSerializers.SPORE_BLIGHTING.get());
     }
 
-    protected static void infusionStacking(Consumer<FinishedRecipe> consumer, RegistryObject<? extends Item> result, RegistryObject<? extends Item> ingredient) {
-        infusionStacking(result.get(), ingredient.get()).save(consumer, Redux.locate("infuse_" + ingredient.getId().getPath()));
-    }
-
-    protected static void infusionStacking(Consumer<FinishedRecipe> consumer, RegistryObject<? extends Item> result, RegistryObject<? extends Item> ingredient, int infusionAmount) {
-        infusionStacking(result.get(), ingredient.get(), infusionAmount).save(consumer, Redux.locate("infuse_and_charge_" + ingredient.getId().getPath()));
-    }
 
     protected static void infusionCharge(Consumer<FinishedRecipe> consumer, RegistryObject<? extends Item> uninfused, RegistryObject<? extends Item> infused) {
-        infusionStacking(infused.get(), uninfused.get(), 8).save(consumer, Redux.locate("infuse_and_charge_" + uninfused.getId().getPath()));
-        infusionStacking(infused.get(), infused.get(), 8).save(consumer, Redux.locate("infuse_and_charge_" + infused.getId().getPath()));
+        infuse(infused.get(), uninfused.get()).withExtra(INFUSION_TAG).save(consumer, Redux.locate("infuse_and_charge_" + uninfused.getId().getPath()));
+        infuse(infused.get(), infused.get()).withExtra(INFUSION_TAG).save(consumer, Redux.locate("infuse_and_charge_" + infused.getId().getPath()));
     }
 
 
@@ -604,17 +602,21 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
 
 
 
-    protected static StackingRecipeBuilder infusionStacking(Item result, ItemLike ingredient) {
-        return infusionStacking(result, ingredient, 0);
-    }
-
-    protected static StackingRecipeBuilder infusionStacking(Item result, ItemLike ingredient, int infusionAmount) {
-        return StackingRecipeBuilder.recipe(Ingredient.of(ingredient), result, infusionAmount, ReduxRecipeSerializers.INFUSION.get());
+    public static StackingRecipeBuilder infuse(ItemLike result, ItemLike ingredient) {
+        return StackingRecipeBuilder.recipe(Ingredient.of(ingredient), new ItemStackConstructor(result.asItem(), Optional.empty()), ReduxRecipeSerializers.INFUSION.get()).withSound(ReduxSoundEvents.INFUSE_ITEM.get());
     }
 
     public ICondition dc(AbstractCondition<?> condition) {
 
         return new DataRecipeCondition(condition);
+    }
+
+    protected static final CompoundTag INFUSION_TAG = createInfusionTag();
+
+    private static CompoundTag createInfusionTag() {
+        CompoundTag infusionInfo = new CompoundTag();
+        infusionInfo.putByte(InfusionRecipe.ADDED_INFUSION, (byte) 4);
+        return infusionInfo;
     }
 
     public ConditionalAdvancement.Builder dataConditionAdvancement(AbstractCondition<?> condition, ResourceLocation id, ItemLike... ingredients) {

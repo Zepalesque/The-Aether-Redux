@@ -565,7 +565,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addGuiText("vampire_amulet_day_debuff", "Causes more damage to be taken at day");
 
         addGuiText("shift_info", "Hold [%s] for more info...");
-        addGuiText("infusion_tooltip", "Can be infused by right-clicking with an Ambrosium Shard");
+        addTooltip("infusion_charge", "Infusion Charge: %s");
+        addGuiText("infusion_info", "Can be infused by right-clicking with an Ambrosium Shard");
 
         addGuiText("luxbuds_tooltip", "Occasionally gives the helpful Blightward effect when eaten");
         addGuiText("purified_luxbuds_tooltip", "Gives the helpful Blightward effect when eaten");

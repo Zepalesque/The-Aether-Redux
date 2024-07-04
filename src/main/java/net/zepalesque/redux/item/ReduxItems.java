@@ -10,7 +10,13 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.BowlFoodItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.RecordItem;
+import net.minecraft.world.item.SpawnEggItem;
+import net.minecraft.world.item.SwordItem;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -19,7 +25,14 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
-import net.zepalesque.redux.item.accessory.*;
+import net.zepalesque.redux.item.accessory.AbilityTooltipMiscItem;
+import net.zepalesque.redux.item.accessory.AbilityTooltipPendantItem;
+import net.zepalesque.redux.item.accessory.AbilityTooltipRingItem;
+import net.zepalesque.redux.item.accessory.AirboundCapeItem;
+import net.zepalesque.redux.item.accessory.ConstructionRingItem;
+import net.zepalesque.redux.item.accessory.SnailshellShieldItem;
+import net.zepalesque.redux.item.accessory.SolarEmblemItem;
+import net.zepalesque.redux.item.accessory.VampireAmuletItem;
 import net.zepalesque.redux.item.food.ReduxFoods;
 import net.zepalesque.redux.item.misc.BlightedSporesItem;
 import net.zepalesque.redux.item.tools.VeridiumAxeItem;
@@ -78,9 +91,6 @@ public class ReduxItems {
 
     public static final RegistryObject<Item> SNAILSHELL_SHIELD = register("snailshell_shield", () -> new SnailshellShieldItem(new Item.Properties().stacksTo(1)));
 
-    public static final RegistryObject<Item> VERIDIUM_DART = ITEMS.register("veridium_dart", () -> new DartItem(ReduxEntityTypes.VERIDIUM_DART, new Item.Properties()));
-    public static final RegistryObject<Item> VERIDIUM_DART_SHOOTER = ITEMS.register("veridium_dart_shooter", () -> new VeridiumDartShooter(VERIDIUM_DART, ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER, 9, (new Item.Properties()).stacksTo(1)));
-    public static final RegistryObject<Item> INFUSED_VERIDIUM_DART_SHOOTER = ITEMS.register("infused_veridium_dart_shooter", () -> new VeridiumDartShooter(VERIDIUM_DART, ReduxItems.VERIDIUM_DART_SHOOTER, 7, (new Item.Properties()).stacksTo(1)));
 
 
     public static final RegistryObject<Item> ENCHANTED_RING = register("enchanted_ring", () -> new RingItem(ReduxSoundEvents.EQUIP_ENCHANTED_RING, new Item.Properties().stacksTo(1)));
@@ -116,16 +126,22 @@ public class ReduxItems {
     public static final RegistryObject<Item> VERIDIUM_INGOT = register("veridium_ingot", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> VERIDIUM_NUGGET = register("veridium_nugget", () -> new Item(new Item.Properties()));
 
-    public static final RegistryObject<SwordItem> VERIDIUM_SWORD = register("veridium_sword", () -> new VeridiumSwordItem(ReduxItemTiers.VERIDIUM, 2, -2.5F, new Item.Properties()));
-    public static final RegistryObject<PickaxeItem> VERIDIUM_PICKAXE = register("veridium_pickaxe", () -> new VeridiumPickaxeItem(ReduxItemTiers.VERIDIUM, 0, -2.9F, new Item.Properties()));
-    public static final RegistryObject<ShovelItem> VERIDIUM_SHOVEL = register("veridium_shovel", () -> new VeridiumShovelItem(ReduxItemTiers.VERIDIUM, 0, -3.1F, new Item.Properties()));
-    public static final RegistryObject<AxeItem> VERIDIUM_AXE = register("veridium_axe", () -> new VeridiumAxeItem(ReduxItemTiers.VERIDIUM, 1, 0 -3.2F, new Item.Properties()));
-    public static final RegistryObject<HoeItem> VERIDIUM_HOE = register("veridium_hoe", () -> new VeridiumHoeItem(ReduxItemTiers.VERIDIUM, 0, -1.7F, new Item.Properties()));
-    public static final RegistryObject<SwordItem> INFUSED_VERIDIUM_SWORD = register("infused_veridium_sword", () -> new VeridiumSwordItem(ReduxItemTiers.INFUSED_VERIDIUM, 4, -2.2F, new Item.Properties()));
-    public static final RegistryObject<PickaxeItem> INFUSED_VERIDIUM_PICKAXE = register("infused_veridium_pickaxe", () -> new VeridiumPickaxeItem(ReduxItemTiers.INFUSED_VERIDIUM, 1, -2.6F, new Item.Properties()));
-    public static final RegistryObject<ShovelItem> INFUSED_VERIDIUM_SHOVEL = register("infused_veridium_shovel", () -> new VeridiumShovelItem(ReduxItemTiers.INFUSED_VERIDIUM, 0, -2.8F, new Item.Properties()));
-    public static final RegistryObject<AxeItem> INFUSED_VERIDIUM_AXE = register("infused_veridium_axe", () -> new VeridiumAxeItem(ReduxItemTiers.INFUSED_VERIDIUM, 1, -2.9F, new Item.Properties()));
-    public static final RegistryObject<HoeItem> INFUSED_VERIDIUM_HOE = register("infused_veridium_hoe", () -> new VeridiumHoeItem(ReduxItemTiers.INFUSED_VERIDIUM, 0, -1.4F, new Item.Properties()));
+    public static final RegistryObject<VeridiumPickaxeItem.Uninfused> VERIDIUM_PICKAXE = ITEMS.register("veridium_pickaxe", () -> new VeridiumPickaxeItem.Uninfused(ReduxItemTiers.VERIDIUM, 0, -2.9F, new Item.Properties()));
+    public static final RegistryObject<VeridiumAxeItem.Uninfused> VERIDIUM_AXE = ITEMS.register("veridium_axe", () -> new VeridiumAxeItem.Uninfused(ReduxItemTiers.VERIDIUM, 1, 0 -3.2F, new Item.Properties()));
+    public static final RegistryObject<VeridiumShovelItem.Uninfused> VERIDIUM_SHOVEL = ITEMS.register("veridium_shovel", () -> new VeridiumShovelItem.Uninfused(ReduxItemTiers.VERIDIUM, 0, -3.1F, new Item.Properties()));
+    public static final RegistryObject<VeridiumHoeItem.Uninfused> VERIDIUM_HOE = ITEMS.register("veridium_hoe", () -> new VeridiumHoeItem.Uninfused(ReduxItemTiers.VERIDIUM, 0, -1.7F, new Item.Properties()));
+    public static final RegistryObject<VeridiumPickaxeItem> INFUSED_VERIDIUM_PICKAXE = ITEMS.register("infused_veridium_pickaxe", () -> new VeridiumPickaxeItem(ReduxItemTiers.INFUSED_VERIDIUM, 1, -2.6F, new Item.Properties(), VERIDIUM_PICKAXE));
+    public static final RegistryObject<VeridiumAxeItem> INFUSED_VERIDIUM_AXE = ITEMS.register("infused_veridium_axe", () -> new VeridiumAxeItem(ReduxItemTiers.INFUSED_VERIDIUM, 1, -2.9F, new Item.Properties(), VERIDIUM_AXE));
+    public static final RegistryObject<VeridiumShovelItem> INFUSED_VERIDIUM_SHOVEL = ITEMS.register("infused_veridium_shovel", () -> new VeridiumShovelItem(ReduxItemTiers.INFUSED_VERIDIUM, 0, -2.8F, new Item.Properties(), VERIDIUM_SHOVEL));
+    public static final RegistryObject<VeridiumHoeItem> INFUSED_VERIDIUM_HOE = ITEMS.register("infused_veridium_hoe", () -> new VeridiumHoeItem(ReduxItemTiers.INFUSED_VERIDIUM, 0, -1.4F, new Item.Properties(), VERIDIUM_HOE));
+
+    public static final RegistryObject<VeridiumSwordItem.Uninfused> VERIDIUM_SWORD = register("veridium_sword", () -> new VeridiumSwordItem.Uninfused(ReduxItemTiers.VERIDIUM, 2, -2.5F, new Item.Properties()));
+    public static final RegistryObject<SwordItem> INFUSED_VERIDIUM_SWORD = register("infused_veridium_sword", () -> new VeridiumSwordItem(ReduxItemTiers.INFUSED_VERIDIUM, 4, -2.2F, new Item.Properties(), ReduxItems.VERIDIUM_SWORD));
+
+    public static final RegistryObject<Item> VERIDIUM_DART = ITEMS.register("veridium_dart", () -> new DartItem(ReduxEntityTypes.VERIDIUM_DART, new Item.Properties()));
+    public static final RegistryObject<VeridiumDartShooter.Uninfused> VERIDIUM_DART_SHOOTER = ITEMS.register("veridium_dart_shooter", () -> new VeridiumDartShooter.Uninfused(VERIDIUM_DART, 9, new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<VeridiumDartShooter> INFUSED_VERIDIUM_DART_SHOOTER = ITEMS.register("infused_veridium_dart_shooter", () -> new VeridiumDartShooter(VERIDIUM_DART, 7, new Item.Properties().stacksTo(1), ReduxItems.VERIDIUM_DART_SHOOTER));
+
 
     public static final RegistryObject<Item> COCKATRICE_FEATHER = register("cockatrice_feather", () -> new AbilityTooltipMiscItem(new Item.Properties().stacksTo(1),
             "cockatrice_feather_protection"));

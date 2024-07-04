@@ -7,7 +7,7 @@ import com.aetherteam.aether_genesis.block.GenesisBlocks;
 import com.legacy.lost_aether.registry.LCBlocks;
 import net.builderdog.ancient_aether.block.AncientAetherBlocks;
 import net.builderdog.ancient_aether.item.AncientAetherItems;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ByteTag;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
@@ -20,8 +20,7 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.config.ReduxConfig;
-import net.zepalesque.redux.item.util.VeridiumItem;
-import net.zepalesque.redux.misc.ReduxTags;
+import net.zepalesque.redux.item.tools.VeridiumItem;
 
 @Mod.EventBusSubscriber(modid = Redux.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 
@@ -72,12 +71,12 @@ public class ReduxCreativeTabs {
 
             putAfter(AetherBlocks.ZANITE_BLOCK, ReduxBlocks.VERIDIUM_BLOCK, event);
 
-            event.getEntries().put(new ItemStack(ReduxBlocks.VERIDIUM_LANTERN.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.getEntries().put(new ItemStack(ReduxBlocks.VERIDIUM_CHAIN.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.getEntries().put(stack(ReduxBlocks.VERIDIUM_LANTERN.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.getEntries().put(stack(ReduxBlocks.VERIDIUM_CHAIN.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
 
             if (ReduxConfig.COMMON.gravitite_ingot.get()) {
                 putBefore(AetherBlocks.ENCHANTED_GRAVITITE, ReduxBlocks.GRAVITITE_BLOCK, event);
-                event.getEntries().remove(new ItemStack(AetherBlocks.ENCHANTED_GRAVITITE.get()));
+                event.getEntries().remove(stack(AetherBlocks.ENCHANTED_GRAVITITE.get()));
             }
 
         }
@@ -140,7 +139,7 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.GILDED_OAK_SAPLING, ReduxBlocks.FIELDSPROOT_SAPLING, event);
 
             if (Redux.lostAetherCompat()) {
-                event.getEntries().remove(new ItemStack(LCBlocks.crystal_sapling));
+                event.getEntries().remove(stack(LCBlocks.crystal_sapling));
             }
 
             putAfter(ReduxBlocks.GILDED_OAK_SAPLING, ReduxBlocks.CRYSTAL_SAPLING, event);
@@ -185,7 +184,7 @@ public class ReduxCreativeTabs {
         if (tab == AetherCreativeTabs.AETHER_REDSTONE_BLOCKS.get()) {
             if (ReduxConfig.COMMON.gravitite_ingot.get()) {
                 putBefore(AetherBlocks.ENCHANTED_GRAVITITE, ReduxBlocks.GRAVITITE_BLOCK, event);
-                event.getEntries().remove(new ItemStack(AetherBlocks.ENCHANTED_GRAVITITE.get()));
+                event.getEntries().remove(stack(AetherBlocks.ENCHANTED_GRAVITITE.get()));
             }
         }
         if (tab == AetherCreativeTabs.AETHER_FUNCTIONAL_BLOCKS.get()) {
@@ -247,7 +246,7 @@ public class ReduxCreativeTabs {
             putBefore(AetherItems.SKYROOT_MILK_BUCKET, ReduxItems.MOUSE_EAR_SOUP, event);
 
             if (!Redux.aetherGenesisCompat()) {
-                event.getEntries().remove(new ItemStack(ReduxItems.MOUSE_EAR_SOUP.get()));
+                event.getEntries().remove(stack(ReduxItems.MOUSE_EAR_SOUP.get()));
             }
         }
         if (tab == AetherCreativeTabs.AETHER_INGREDIENTS.get()) {
@@ -278,7 +277,7 @@ public class ReduxCreativeTabs {
 
             if (ReduxConfig.COMMON.gravitite_ingot.get()) {
                 putBefore(AetherBlocks.ENCHANTED_GRAVITITE, ReduxItems.GRAVITITE_INGOT, event);
-                event.getEntries().remove(new ItemStack(AetherBlocks.ENCHANTED_GRAVITITE.get()));
+                event.getEntries().remove(stack(AetherBlocks.ENCHANTED_GRAVITITE.get()));
             }
 
         }
@@ -305,12 +304,12 @@ public class ReduxCreativeTabs {
         }
         if (tab == AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES.get()) {
 
-            putBeforeVeridium(AetherItems.GRAVITITE_SWORD, ReduxItems.INFUSED_VERIDIUM_HOE, event);
-            putBeforeVeridium(ReduxItems.INFUSED_VERIDIUM_HOE, ReduxItems.INFUSED_VERIDIUM_AXE, event);
-            putBeforeVeridium(ReduxItems.INFUSED_VERIDIUM_AXE, ReduxItems.INFUSED_VERIDIUM_PICKAXE, event);
-            putBeforeVeridium(ReduxItems.INFUSED_VERIDIUM_PICKAXE, ReduxItems.INFUSED_VERIDIUM_SHOVEL, event);
-            putBeforeVeridium(ReduxItems.INFUSED_VERIDIUM_SHOVEL, ReduxItems.INFUSED_VERIDIUM_SWORD, event);
-            putBeforeVeridium(ReduxItems.INFUSED_VERIDIUM_SWORD, ReduxItems.VERIDIUM_HOE, event);
+            putBefore(AetherItems.GRAVITITE_SWORD, ReduxItems.INFUSED_VERIDIUM_HOE, event);
+            putBefore(ReduxItems.INFUSED_VERIDIUM_HOE, ReduxItems.INFUSED_VERIDIUM_AXE, event);
+            putBefore(ReduxItems.INFUSED_VERIDIUM_AXE, ReduxItems.INFUSED_VERIDIUM_PICKAXE, event);
+            putBefore(ReduxItems.INFUSED_VERIDIUM_PICKAXE, ReduxItems.INFUSED_VERIDIUM_SHOVEL, event);
+            putBefore(ReduxItems.INFUSED_VERIDIUM_SHOVEL, ReduxItems.INFUSED_VERIDIUM_SWORD, event);
+            putBefore(ReduxItems.INFUSED_VERIDIUM_SWORD, ReduxItems.VERIDIUM_HOE, event);
             putBefore(ReduxItems.VERIDIUM_HOE, ReduxItems.VERIDIUM_AXE, event);
             putBefore(ReduxItems.VERIDIUM_AXE, ReduxItems.VERIDIUM_PICKAXE, event);
             putBefore(ReduxItems.VERIDIUM_PICKAXE, ReduxItems.VERIDIUM_SHOVEL, event);
@@ -319,8 +318,8 @@ public class ReduxCreativeTabs {
             putBefore(AetherItems.GOLDEN_DART_SHOOTER, ReduxItems.SPEAR_OF_THE_BLIGHT, event);
 
             putAfter(AetherItems.ENCHANTED_DART, ReduxItems.VERIDIUM_DART_SHOOTER, event);
-            putAfterVeridium(ReduxItems.VERIDIUM_DART_SHOOTER, ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER, event);
-            putAfterVeridium(ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER, ReduxItems.VERIDIUM_DART, event);
+            putAfter(ReduxItems.VERIDIUM_DART_SHOOTER, ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER, event);
+            putAfter(ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER, ReduxItems.VERIDIUM_DART, event);
 
             putAfter(AetherItems.PHOENIX_BOW, ReduxItems.SUBZERO_CROSSBOW, event);
 
@@ -444,45 +443,20 @@ public class ReduxCreativeTabs {
     }
 
     private static void putAfter(RegistryObject<? extends ItemLike> itemBefore, RegistryObject<? extends ItemLike> insertedItem, BuildCreativeModeTabContentsEvent event) {
-        event.getEntries().putAfter(new ItemStack(itemBefore.get()), new ItemStack(insertedItem.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+        event.getEntries().putAfter(stack(itemBefore.get()), stack(insertedItem.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
     }
     private static void putBefore(RegistryObject<? extends ItemLike> itemAfter, RegistryObject<? extends ItemLike> insertedItem, BuildCreativeModeTabContentsEvent event) {
-        event.getEntries().putBefore(new ItemStack(itemAfter.get()), new ItemStack(insertedItem.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+        event.getEntries().putBefore(stack(itemAfter.get()), stack(insertedItem.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
     }
 
-    private static void putAfterVeridium(RegistryObject<? extends ItemLike> itemBefore, RegistryObject<? extends ItemLike> insertedItem, BuildCreativeModeTabContentsEvent event) {
-        ItemStack stackBefore = new ItemStack(itemBefore.get());
-        if (stackBefore.is(ReduxTags.Items.INFUSED_VERIDIUM_ITEMS))
-        {
-            CompoundTag compound = VeridiumItem.createCompoundFor(stackBefore);
-            compound.putByte(VeridiumItem.nbt_tag, VeridiumItem.MAXIUMUM_VERIDIUM_INFUSION);
-            stackBefore.setTag(compound);
+
+
+    private static ItemStack stack(ItemLike item) {
+        ItemStack stack = new ItemStack(item);
+        if (item instanceof VeridiumItem) {
+            stack.addTagElement(VeridiumItem.NBT_KEY, ByteTag.valueOf((byte)64));
         }
-        ItemStack stackInserted = new ItemStack(insertedItem.get());
-        if (stackInserted.is(ReduxTags.Items.INFUSED_VERIDIUM_ITEMS))
-        {
-            CompoundTag compound1 = VeridiumItem.createCompoundFor(stackInserted);
-            compound1.putByte(VeridiumItem.nbt_tag, VeridiumItem.MAXIUMUM_VERIDIUM_INFUSION);
-            stackInserted.setTag(compound1);
-        }
-        event.getEntries().putAfter(stackBefore, stackInserted, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-    }
-    private static void putBeforeVeridium(RegistryObject<? extends ItemLike> itemAfter, RegistryObject<? extends ItemLike> insertedItem, BuildCreativeModeTabContentsEvent event) {
-        ItemStack stackAfter = new ItemStack(itemAfter.get());
-        if (stackAfter.is(ReduxTags.Items.INFUSED_VERIDIUM_ITEMS))
-        {
-            CompoundTag compound = VeridiumItem.createCompoundFor(stackAfter);
-            compound.putByte(VeridiumItem.nbt_tag, VeridiumItem.MAXIUMUM_VERIDIUM_INFUSION);
-            stackAfter.setTag(compound);
-        }
-        ItemStack stackInserted = new ItemStack(insertedItem.get());
-        if (stackInserted.is(ReduxTags.Items.INFUSED_VERIDIUM_ITEMS))
-        {
-            CompoundTag compound1 = VeridiumItem.createCompoundFor(stackInserted);
-            compound1.putByte(VeridiumItem.nbt_tag, VeridiumItem.MAXIUMUM_VERIDIUM_INFUSION);
-            stackInserted.setTag(compound1);
-        }
-        event.getEntries().putBefore(stackAfter, stackInserted, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+        return stack;
     }
 
 }
