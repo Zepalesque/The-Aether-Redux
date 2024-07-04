@@ -102,11 +102,6 @@ public class ReduxTags {
         public static final TagKey<Biome> HAS_SENTRITE = tag("has_sentrite");
         public static final TagKey<Biome> MODIFY_WATER_COLOR = tag("has_redux_water_color");
         public static final TagKey<Biome> HAS_REDUX_SKY_COLOR = tag("has_redux_sky_color");
-        public static final TagKey<Biome> HAS_REDUX_FROSTED_SKY_COLOR = tag("has_redux_frosted_sky_color");
-        public static final TagKey<Biome> HAS_REDUX_SHRUBLANDS_SKY_COLOR = tag("has_redux_shrublands_sky_color");
-        public static final TagKey<Biome> HAS_REDUX_SKYFIELDS_SKY_COLOR = tag("has_redux_skyfields_sky_color");
-        public static final TagKey<Biome> HAS_REDUX_GILDED_SKY_COLOR = tag("has_redux_gilded_sky_color");
-        public static final TagKey<Biome> REDUX_SKY_COLOR_IS_BASE = tag("redux_sky_color_is_base");
         public static final TagKey<Biome> CHANGE_VANILLA_GRASS_COLORS = tag("change_vanilla_grass_colors");
 
         public static final TagKey<Biome> FOREST_COLORS = tag("forest_colors");
