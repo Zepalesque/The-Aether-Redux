@@ -336,6 +336,17 @@
     ],
     "subtitle": "subtitles.aether_redux.item.accessory.equip_bittersweet_charm"
   },
+  "item.accessory.equip_construction_ring": {
+    "sounds": [
+      "item/armor/equip_gold1",
+      "item/armor/equip_gold2",
+      "item/armor/equip_gold3",
+      "item/armor/equip_gold4",
+      "item/armor/equip_gold5",
+      "item/armor/equip_gold6"
+    ],
+    "subtitle": "subtitles.aether_redux.item.accessory.equip_construction_ring"
+  },
   "item.accessory.equip_enchanted_ring": {
     "sounds": [
       "mob/turtle/armor"
@@ -369,17 +380,6 @@
       "mob/turtle/armor"
     ],
     "subtitle": "subtitles.aether_redux.item.accessory.equip_shroom_ring"
-  },
-  "item.accessory.equip_valkyrie_ring": {
-    "sounds": [
-      "item/armor/equip_gold1",
-      "item/armor/equip_gold2",
-      "item/armor/equip_gold3",
-      "item/armor/equip_gold4",
-      "item/armor/equip_gold5",
-      "item/armor/equip_gold6"
-    ],
-    "subtitle": "subtitles.aether_redux.item.accessory.equip_valkyrie_ring"
   },
   "item.accessory.equip_vampire_amulet": {
     "sounds": [
