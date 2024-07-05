@@ -8,26 +8,26 @@
       "water": 8764881
     },
     "fog_map": {
-      "#aether_redux:is_frosted": 1580835,
-      "#aether_redux:is_gilded": 1976875,
+      "#aether_redux:is_frosted": 1712163,
+      "#aether_redux:is_gilded": 1580321,
       "aether:skyroot_forest": 1317921,
       "aether:skyroot_meadow": 1778984,
       "aether:skyroot_woodland": 1054492,
-      "aether_redux:cloudcaps": 1384232,
-      "aether_redux:skyfields": 1188651,
-      "aether_redux:skyroot_shrublands": 1187873,
-      "aether_redux:the_blight": 1316894
+      "aether_redux:cloudcaps": 1515043,
+      "aether_redux:skyfields": 1647400,
+      "aether_redux:skyroot_shrublands": 1580833,
+      "aether_redux:the_blight": 1842726
     },
     "water_map": {
-      "#aether_redux:is_frosted": 10274533,
-      "#aether_redux:is_gilded": 9028038,
+      "#aether_redux:is_frosted": 10666968,
+      "#aether_redux:is_gilded": 9415617,
       "aether:skyroot_forest": 7973060,
       "aether:skyroot_meadow": 9554136,
       "aether:skyroot_woodland": 6984885,
-      "aether_redux:cloudcaps": 8239085,
-      "aether_redux:skyfields": 6669810,
-      "aether_redux:skyroot_shrublands": 8378080,
-      "aether_redux:the_blight": 9876189
+      "aether_redux:cloudcaps": 10407149,
+      "aether_redux:skyfields": 9753327,
+      "aether_redux:skyroot_shrublands": 9749710,
+      "aether_redux:the_blight": 10661080
     }
   },
   "when": {
