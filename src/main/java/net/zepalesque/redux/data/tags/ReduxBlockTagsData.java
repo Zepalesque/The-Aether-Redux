@@ -44,13 +44,6 @@ public class ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.GILDED_OAK_LEAVES.get()
         );
 
-
-
-        this.tag(ReduxTags.Blocks.ENCHANTED_VINES_SURVIVE).add(
-                AetherBlocks.GOLDEN_OAK_LEAVES.get(),
-                ReduxBlocks.GILDED_OAK_LEAVES.get()
-        );
-
         this.tag(ReduxTags.Blocks.MUSHROOM_CAPS).add(
                 ReduxBlocks.JELLYSHROOM_JELLY_BLOCK.get(),
                 ReduxBlocks.CLOUD_CAP_BLOCK.get()
