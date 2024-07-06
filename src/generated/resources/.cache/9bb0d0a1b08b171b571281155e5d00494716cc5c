@@ -1,4 +1,4 @@
-// 1.20.1	2024-06-09T16:09:58.4575579	Tags for minecraft:block mod id aether_redux
+// 1.20.1	2024-07-06T13:00:10.3313234	Tags for minecraft:block mod id aether_redux
 8f59d0f2e59cb5eca343062c21759ff8593f2e46 data/aether/tags/blocks/aerclouds.json
 593f50c73d9619ba0b2f5bbedad8cf5bef48adbc data/aether/tags/blocks/aether_animals_spawnable_on.json
 1abbb8fbbd6aaa2a65960af8b043d21b8cd619e9 data/aether/tags/blocks/aether_dirt.json
@@ -20,7 +20,6 @@ ff76e071710735bec611ec58205f07d13cb675bd data/aether_redux/tags/blocks/crystal_l
 e0dba934faba5edd8ce150350f5b09b1f4986bb6 data/aether_redux/tags/blocks/do_not_replace_aether_grass.json
 f88e31ba010e8b41d4256635de26d1cf8a0aa221 data/aether_redux/tags/blocks/enchanted_grasses.json
 cfa8f11bb1b7280f4421cd627b807061781b78b8 data/aether_redux/tags/blocks/enchanted_vines_skip_placement.json
-4040f25e47af494a954cf298b91aa37aec210545 data/aether_redux/tags/blocks/enchanted_vines_survive.json
 4b84d89dc4750b471d3f43f98a379edd142fab59 data/aether_redux/tags/blocks/fieldsproot_logs.json
 efc061c9dfb2dd7e812e035162091fb307075fe5 data/aether_redux/tags/blocks/frosted_plants_placement.json
 82cdd6960b818e0e4b249c6f1b960a9ef8e0cc1c data/aether_redux/tags/blocks/glacia_logs.json
