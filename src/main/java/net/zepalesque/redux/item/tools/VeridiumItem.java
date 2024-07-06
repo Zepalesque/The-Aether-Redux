@@ -64,7 +64,7 @@ public interface VeridiumItem extends CustomStackingBehavior {
     @Nullable
     default ItemStack deplete(ItemStack stack, @Nullable LivingEntity user, int amount) {
         if (user != null && user.level().isClientSide()) {
-            return stack;
+            return null;
         }
         if (user instanceof Player p && p.isCreative()) {
             return null;
