@@ -1,4 +1,4 @@
-// 1.20.1	2024-06-08T20:09:13.3177879	Block States: aether_redux
+// 1.20.1	2024-07-09T14:19:16.9907857	Block States: aether_redux
 6d5a134587a37ec8ac1798d9ca3e527d0a1d99b9 assets/aether_redux/blockstates/aurum.json
 bd71aec5ab85b7a1e4570cf04b5dce1bf6226d6b assets/aether_redux/blockstates/avelium.json
 eb68785d90af1f5948885a64db9d1f4c33739323 assets/aether_redux/blockstates/avelium_roots.json
@@ -841,8 +841,8 @@ e25bbd06c24c54567e094244e5d288a8821b9458 assets/aether_redux/models/block/potted
 8d02b9efd764e3a5fdbeb702afa7a34a7b5603ee assets/aether_redux/models/block/potted_splitfern.json
 f23dfad60c4c545bf26cff34108f67d13cfa1599 assets/aether_redux/models/block/potted_theratip.json
 a12634157e9a48c8d1db91c3b50e0d4130e6f90f assets/aether_redux/models/block/potted_wyndsprouts.json
-746af85aef812ba8ccea0a842feaf05ed8705b16 assets/aether_redux/models/block/potted_zanberry_bush.json
-c008aeeb404074ce8c23ecff3141ff35f55c733d assets/aether_redux/models/block/potted_zanberry_bush_stem.json
+fb08388638453f6b7b33c94b2498cef3a0eaecca assets/aether_redux/models/block/potted_zanberry_bush.json
+9dbddd5a935fb6288c867433caec6045b7cdc9af assets/aether_redux/models/block/potted_zanberry_bush_stem.json
 09c6092f607dee8ba4115ba3852446755c018fa0 assets/aether_redux/models/block/potted_zyatrix.json
 220e9b8f598d87be172193e00cb441e44bbbb438 assets/aether_redux/models/block/purple_crystal_fruit_sapling.json
 a7b3d68b7ca243dc9b16741d5e8e5c0c8e5528d4 assets/aether_redux/models/block/purple_glacia_leaves.json

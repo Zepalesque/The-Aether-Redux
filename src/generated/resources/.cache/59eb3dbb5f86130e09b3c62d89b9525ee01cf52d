@@ -1,4 +1,4 @@
-// 1.20.1	2024-07-06T13:00:10.3213286	Loot Tables
+// 1.20.1	2024-07-09T14:19:16.9807916	Loot Tables
 c6156555dc4897939b617dabc4521b7fa52feba0 data/aether_redux/loot_tables/blocks/aurum.json
 b5773c78c7b3f27032f1cca6fb72f440e24c7529 data/aether_redux/loot_tables/blocks/avelium.json
 1f6564fd00a86b66a503958622c7436688f1e63e data/aether_redux/loot_tables/blocks/avelium_roots.json
@@ -285,5 +285,5 @@ bde6f239a1a1807b129bf99dedd968b6b04c3175 data/aether_redux/loot_tables/blocks/zy
 d0753e06e1f2a8f2568f0513b09e7ac86f711942 data/aether_redux/loot_tables/entities/blightbunny.json
 e5fede6edbcfede8c1e92419ec2c6552147a7121 data/aether_redux/loot_tables/entities/mykapod.json
 6a64016797a5ac8d9fe91904db7fa259d27e7f81 data/aether_redux/loot_tables/entities/shimmercow.json
-5f8d4bdef19ef87d6a912869cb1ea2bb3d3bd199 data/aether_redux/loot_tables/entities/vanilla_swet.json
+13e0464cbeeeb9d3b965a6065ec0e2a9f2ffef0b data/aether_redux/loot_tables/entities/vanilla_swet.json
 aee3ab539e3471c2e79566dd0797bc43a01094c2 data/aether_redux/loot_tables/stripping/strip_blightwillow.json

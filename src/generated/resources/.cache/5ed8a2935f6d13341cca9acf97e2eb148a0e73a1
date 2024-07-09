@@ -1,10 +1,10 @@
-// 1.20.1	2024-07-04T14:59:28.1476815	Global Loot Modifiers : aether_redux
+// 1.20.1	2024-07-09T14:19:17.0057753	Global Loot Modifiers : aether_redux
 14e85537170a9cf759a3b518c190cfbf917cb902 data/aether_redux/loot_modifiers/airbound_cape.json
-f79e62e71e6cae7f6c1335d1cf80df3ef77cf5e9 data/aether_redux/loot_modifiers/blue_swet_ball_increase.json
+c3b73cb57c5a8e8510c43c0b16a2f1e6054f4de3 data/aether_redux/loot_modifiers/blue_swet_ball_increase.json
 479dbe07285f60bdde7a63e8c6afeb0b1e1d99c2 data/aether_redux/loot_modifiers/cockatrice_feather.json
 2d6011579d3f7a581dd6fd03b29ebe70e018d8ec data/aether_redux/loot_modifiers/construction_ring.json
 be3ccb422561ba0e15b65cc31af80dd957de7055 data/aether_redux/loot_modifiers/crystal_sapling.json
-75b48810ff0c1cd8bece07bc12ca5f03dff4c4ec data/aether_redux/loot_modifiers/golden_swet_ball_add.json
+9f41dbe6bf95384f54bbe7fec1f505ece7339b4d data/aether_redux/loot_modifiers/golden_swet_ball_add.json
 c7935c0b13736b3c42b7d2895413b046f79cd9ad data/aether_redux/loot_modifiers/grand_medal.json
 cb9edd00abeb10e638e9531c55a7057e16bbe807 data/aether_redux/loot_modifiers/raw_gravitite.json
 1cd7ed8456603cabf1084e11ae39d8e205c700fb data/aether_redux/loot_modifiers/raw_veridium.json
