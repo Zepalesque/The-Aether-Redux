@@ -17,6 +17,7 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.item.ReduxItems;
+import net.zepalesque.redux.loot.functions.SwetSizeFunction;
 
 import java.util.stream.Stream;
 
@@ -28,7 +29,7 @@ public class ReduxEntityLootData extends AetherEntityLoot {
         this.add(ReduxEntityTypes.VANILLA_SWET.get(), LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1))
                         .add(LootItem.lootTableItem(ReduxItems.VANILLA_SWET_BALL.get())
-                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F)))
+                                .apply(SwetSizeFunction.instance())
                                 .apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)))
                         )
                 )

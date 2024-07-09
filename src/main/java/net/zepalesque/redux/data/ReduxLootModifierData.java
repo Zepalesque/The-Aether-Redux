@@ -33,10 +33,12 @@ import net.zepalesque.redux.api.condition.Not;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.loot.condition.DataLootCondition;
+import net.zepalesque.redux.loot.functions.SwetSizeFunction;
 import net.zepalesque.redux.loot.modifiers.AddDrops;
 import net.zepalesque.redux.loot.modifiers.DungeonLootModifier;
 import net.zepalesque.redux.loot.modifiers.RawOreModifier;
 import net.zepalesque.redux.loot.modifiers.RemoveDrops;
+import net.zepalesque.redux.loot.modifiers.ReplaceDrops;
 import net.zepalesque.redux.misc.ReduxTags;
 
 import java.util.List;
@@ -206,11 +208,9 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
     }
 
     private void doSwetBallIncreases() {
-
-
-        this.add("blue_swet_ball_increase", new AddDrops(new ItemStack(AetherItems.SWET_BALL.get()),
+        this.add("blue_swet_ball_increase", new ReplaceDrops(AetherItems.SWET_BALL.get(), new ItemStack(AetherItems.SWET_BALL.get()),
                 new LootItemFunction[] {
-                        SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F)).build(),
+                        SwetSizeFunction.instance().build(),
                         LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)).build() },
                 new LootItemCondition[] {LootItemEntityPropertyCondition
                         .hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(AetherEntityTypes.BLUE_SWET.get()))
@@ -219,7 +219,7 @@ public class ReduxLootModifierData extends GlobalLootModifierProvider {
                 }));
         this.add("golden_swet_ball_add", new AddDrops(new ItemStack(ReduxItems.GOLDEN_SWET_BALL.get()),
                 new LootItemFunction[] {
-                        SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F)).build(),
+                        SwetSizeFunction.instance().build(),
                         LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0F, 1.0F)).build() },
                 new LootItemCondition[] {LootItemEntityPropertyCondition
                         .hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(AetherEntityTypes.GOLDEN_SWET.get()))

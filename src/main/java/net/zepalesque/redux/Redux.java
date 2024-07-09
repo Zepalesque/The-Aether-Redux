@@ -96,6 +96,7 @@ import net.zepalesque.redux.event.hook.SwetHooks;
 import net.zepalesque.redux.event.listener.MobSoundListener;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.loot.condition.ReduxLootConditions;
+import net.zepalesque.redux.loot.functions.ReduxLootFunctions;
 import net.zepalesque.redux.loot.modifiers.ReduxLootModifiers;
 import net.zepalesque.redux.misc.ReduxPackSources;
 import net.zepalesque.redux.misc.ReduxPotions;
@@ -190,6 +191,7 @@ public class Redux {
         ReduxPotions.POTIONS.register(bus);
         ReduxAdvancementSounds.SOUNDS.register(bus);
         ReduxBlocks.registerPots();
+        ReduxLootFunctions.LOOT_FUNCTION_TYPES.register(bus);
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(MobSoundListener.class);
         WoodHandlers.init();
