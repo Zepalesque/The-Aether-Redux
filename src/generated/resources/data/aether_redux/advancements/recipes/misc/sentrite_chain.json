@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_refined_sentrite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "aether_redux:refined_sentrite"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_sentrite_chunk": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "aether_redux:sentrite_chunk"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "aether_redux:sentrite_chain"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_sentrite_chunk",
+      "has_refined_sentrite",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "aether_redux:sentrite_chain"
+    ]
+  },
+  "sends_telemetry_event": false
+}

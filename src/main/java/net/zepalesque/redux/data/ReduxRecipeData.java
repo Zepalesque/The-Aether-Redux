@@ -64,7 +64,6 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
 
     @Override
     protected void buildRecipes(@NotNull Consumer<FinishedRecipe> output) {
-        oreBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, ReduxItems.VERIDIUM_NUGGET.get(), RecipeCategory.MISC, ReduxItems.VERIDIUM_INGOT.get(), "veridium_nugget", "veridium_nugget_to_veridium_ingot");
         oreBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, ReduxItems.SENTRITE_CHUNK.get(), RecipeCategory.MISC, ReduxItems.REFINED_SENTRITE.get(), "sentrite_chunk", "sentrite_chunk_to_refined_sentrite");
         smeltingOreRecipe(ReduxItems.REFINED_SENTRITE.get(), ReduxBlocks.SENTRITE.get(), 0.8F, 300).save(output, name("refine_sentrite_smelt"));
         blastingOreRecipe(ReduxItems.REFINED_SENTRITE.get(), ReduxBlocks.SENTRITE.get(), 0.8F, 150).save(output, name("refine_sentrite_blast"));
