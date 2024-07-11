@@ -28,7 +28,7 @@ public class LegacyBlockItem extends BlockItem {
         MutableComponent infusion = Component.translatable("tooltip.aether_redux.legacy_item").withStyle(ChatFormatting.GRAY);
 
         tooltips.add(infusion);
-        Component info = TooltipUtils.TOOLTIP_SHIFT_FOR_INFO.apply(Component.translatable("gui.aether_redux.item_replacement", this.replacement.get().getName()).withStyle(ChatFormatting.GRAY));
+        Component info = TooltipUtils.TOOLTIP_SHIFT_FOR_INFO.apply(Component.translatable("tooltip.aether_redux.item_replacement", this.replacement.get().getName()).withStyle(ChatFormatting.GRAY));
         tooltips.add(info);
         super.appendHoverText(stack, level, tooltips, advanced);
     }
