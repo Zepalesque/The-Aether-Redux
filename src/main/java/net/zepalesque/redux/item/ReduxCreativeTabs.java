@@ -22,6 +22,8 @@ import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.item.tools.VeridiumItem;
 
+import java.util.function.Supplier;
+
 @Mod.EventBusSubscriber(modid = Redux.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 
 public class ReduxCreativeTabs {
@@ -70,10 +72,10 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_SLAB, ReduxBlocks.ENCHANTED_SHELL_SHINGLE_WALL, event);
 
             putAfter(AetherBlocks.ZANITE_BLOCK, ReduxBlocks.VERIDIUM_BLOCK, event);
+            putAfter(ReduxBlocks.VERIDIUM_BLOCK, ReduxBlocks.REFINED_SENTRITE_BLOCK, event);
 
-            event.getEntries().put(stack(ReduxBlocks.VERIDIUM_LANTERN.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.getEntries().put(stack(ReduxBlocks.VERIDIUM_CHAIN.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-
+            add(ReduxBlocks.SENTRITE_LANTERN, event);
+            add(ReduxBlocks.SENTRITE_CHAIN, event);
             if (ReduxConfig.COMMON.gravitite_ingot.get()) {
                 putBefore(AetherBlocks.ENCHANTED_GRAVITITE, ReduxBlocks.GRAVITITE_BLOCK, event);
                 event.getEntries().remove(stack(AetherBlocks.ENCHANTED_GRAVITITE.get()));
@@ -253,7 +255,9 @@ public class ReduxCreativeTabs {
             putAfter(AetherItems.ZANITE_GEMSTONE, ReduxItems.RAW_VERIDIUM, event);
             putAfter(ReduxItems.RAW_VERIDIUM, ReduxItems.VERIDIUM_INGOT, event);
             putAfter(ReduxItems.VERIDIUM_INGOT, ReduxItems.VERIDIUM_NUGGET, event);
-            putAfter(ReduxItems.VERIDIUM_NUGGET, ReduxItems.SENTRY_CHIP, event);
+            putAfter(ReduxItems.VERIDIUM_NUGGET, ReduxItems.REFINED_SENTRITE, event);
+            putAfter(ReduxItems.REFINED_SENTRITE, ReduxItems.SENTRITE_CHUNK, event);
+            putAfter(ReduxItems.SENTRITE_CHUNK, ReduxItems.SENTRY_CHIP, event);
 
             putAfter(AetherItems.SKYROOT_STICK, ReduxItems.BLIGHTED_SPORES, event);
 
@@ -449,6 +453,9 @@ public class ReduxCreativeTabs {
         event.getEntries().putBefore(stack(itemAfter.get()), stack(insertedItem.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
     }
 
+    private static void add(Supplier<? extends ItemLike> toAdd, BuildCreativeModeTabContentsEvent event) {
+        event.getEntries().put(stack(toAdd.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+    }
 
 
     private static ItemStack stack(ItemLike item) {
