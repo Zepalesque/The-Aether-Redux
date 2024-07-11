@@ -1,4 +1,4 @@
-// 1.20.1	2024-07-09T14:19:16.9807916	Loot Tables
+// 1.20.1	2024-07-11T10:12:11.9324032	Loot Tables
 c6156555dc4897939b617dabc4521b7fa52feba0 data/aether_redux/loot_tables/blocks/aurum.json
 b5773c78c7b3f27032f1cca6fb72f440e24c7529 data/aether_redux/loot_tables/blocks/avelium.json
 1f6564fd00a86b66a503958622c7436688f1e63e data/aether_redux/loot_tables/blocks/avelium_roots.json
@@ -225,12 +225,15 @@ a8655c14dcb62175a9ab8cf34bfb7372d0c8f805 data/aether_redux/loot_tables/blocks/pu
 4c41d63b70c606f4d6d24eb333c4ff55812f2838 data/aether_redux/loot_tables/blocks/raw_gravitite_block.json
 6f55f9eaef5917b8d6a45c1d3f833085eec67af8 data/aether_redux/loot_tables/blocks/raw_valkyrum_block.json
 31634f3ccbb1109ba54691cd7c7c94d822fddafa data/aether_redux/loot_tables/blocks/raw_veridium_block.json
+0ebc7dcb8eb4341e49b22474ca24a82197aa4203 data/aether_redux/loot_tables/blocks/refined_sentrite_block.json
 d5f58f0628fd8f86bc78b66978c3c1ca732d9549 data/aether_redux/loot_tables/blocks/runelight.json
 853ffb6317f8b66383cc6222a9f5b7e9981debeb data/aether_redux/loot_tables/blocks/sentrite.json
 49834448dd8324265edd752f9816a5a2bdba3c52 data/aether_redux/loot_tables/blocks/sentrite_bricks.json
 6e90b18d32ef3e9581d5363d24436e6f99686ebe data/aether_redux/loot_tables/blocks/sentrite_brick_slab.json
 52222e5bb58cec609afd3af6e0b1c9337661dfbc data/aether_redux/loot_tables/blocks/sentrite_brick_stairs.json
 ac19e5aa1de54241ed658de5fae5c4ede43943e1 data/aether_redux/loot_tables/blocks/sentrite_brick_wall.json
+6f0082271492547b07f296aac231105c0f405336 data/aether_redux/loot_tables/blocks/sentrite_chain.json
+7e169e6455d2cf5b649f06dd16b7fe184e14a07b data/aether_redux/loot_tables/blocks/sentrite_lantern.json
 2c0e190662382e6e3cd2205da86dc47685bee2a3 data/aether_redux/loot_tables/blocks/sentrite_slab.json
 20c37089c16329b37ab874aace569b249b35b0aa data/aether_redux/loot_tables/blocks/sentrite_stairs.json
 094aa3d3030a334bb9f3dfd02a1711ea0d0d2e1b data/aether_redux/loot_tables/blocks/sentrite_wall.json

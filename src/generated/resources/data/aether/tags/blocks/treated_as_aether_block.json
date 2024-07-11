@@ -1,5 +1,8 @@
 {
   "values": [
+    "aether_redux:refined_sentrite_block",
+    "aether_redux:sentrite_chain",
+    "aether_redux:sentrite_lantern",
     "aether_redux:driftshale",
     "aether_redux:polished_driftshale",
     "aether_redux:polished_driftshale_stairs",
