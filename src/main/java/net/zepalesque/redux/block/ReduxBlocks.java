@@ -501,7 +501,7 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
             () -> new EnchantedVinesPlantBlock(BlockBehaviour.Properties.copy(Blocks.WEEPING_VINES_PLANT)
                     .mapColor(MapColor.GOLD).sound(SoundType.CAVE_VINES), ReduxBlocks.GOLDEN_VINES, BlockTags.LEAVES));
 
-    public static RegistryObject<EnchantedVinesHeadBlock> GILDED_VINES = register("gilded_vines",
+    public static RegistryObject<EnchantedVinesHeadBlock> GILDED_VINES = legacyDel("gilded_vines",
             () -> new EnchantedVinesHeadBlock(BlockBehaviour.Properties.copy(Blocks.WEEPING_VINES)
                     .mapColor(MapColor.QUARTZ).sound(SoundType.CAVE_VINES), ReduxBlocks.GILDED_VINES_PLANT, BlockTags.LEAVES));
 
@@ -518,13 +518,13 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
             () -> new CorruptedVinesPlantBlock(BlockBehaviour.Properties.copy(Blocks.TWISTING_VINES_PLANT)
                     .mapColor(MapColor.TERRACOTTA_MAGENTA).sound(SoundType.CAVE_VINES).lightLevel(value -> 8), ReduxBlocks.CORRUPTED_VINES));
 
-    public static RegistryObject<Block> VERIDIUM_CHAIN = legacy("veridium_chain",
+    public static RegistryObject<Block> VERIDIUM_CHAIN = legacyRep("veridium_chain",
             () -> new ChainBlock(BlockBehaviour.Properties.copy(Blocks.CHAIN)),
-            () -> Blocks.CHAIN);
+            () -> Blocks.CHAIN, ReduxBlocks.SENTRITE_CHAIN::get);
 
-    public static RegistryObject<Block> VERIDIUM_LANTERN = legacy("veridium_lantern",
+    public static RegistryObject<Block> VERIDIUM_LANTERN = legacyRep("veridium_lantern",
             () -> new VeridiumLanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).lightLevel((p_187433_) -> 13).noOcclusion()),
-            () -> Blocks.SOUL_LANTERN);
+            () -> Blocks.SOUL_LANTERN, ReduxBlocks.SENTRITE_LANTERN::get);
 
     public static RegistryObject<Block> FLAREBLOSSOM = register("flareblossom",
             () -> new Flareblossom(() -> MobEffects.BLINDNESS, 60, BlockBehaviour.Properties.copy(Blocks.POPPY).hasPostProcess(ReduxBlocks::always).lightLevel((state) -> 11).mapColor(MapColor.GOLD)));
@@ -621,8 +621,20 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
         return registerItem(name, block, object -> () -> new BlockItem(object.get(), new Item.Properties()));
     }
 
-    public static <T extends Block> RegistryObject<T> legacy(final String name, final Supplier<? extends T> block, final Supplier<? extends ItemLike> replacement) {
-        return registerItem(name, block, object -> () -> new LegacyBlockItem(object.get(), replacement, new Item.Properties()));
+    public static <T extends Block> RegistryObject<T> legacyRep(final String name, final Supplier<? extends T> block, final Supplier<? extends ItemLike> replacement) {
+        return registerItem(name, block, object -> () -> LegacyBlockItem.toReplace(object.get(), new Item.Properties(), replacement));
+    }
+
+    public static <T extends Block> RegistryObject<T> legacyRep(final String name, final Supplier<? extends T> block, final Supplier<? extends ItemLike> replacement, final Supplier<? extends ItemLike> counterpart) {
+        return registerItem(name, block, object -> () -> LegacyBlockItem.toReplace(object.get(), new Item.Properties(), replacement, counterpart));
+    }
+
+    public static <T extends Block> RegistryObject<T> legacyDel(final String name, final Supplier<? extends T> block) {
+        return registerItem(name, block, object -> () -> LegacyBlockItem.toDelete(object.get(), new Item.Properties()));
+    }
+
+    public static <T extends Block> RegistryObject<T> legacyDel(final String name, final Supplier<? extends T> block, final Supplier<? extends ItemLike> counterpart) {
+        return registerItem(name, block, object -> () -> LegacyBlockItem.toDelete(object.get(), new Item.Properties(), counterpart));
     }
 
     public static <T extends Block> RegistryObject<T> registerModifyItemProperties(final String name, final Supplier<? extends T> block, UnaryOperator<Item.Properties> propertyModifier) {
