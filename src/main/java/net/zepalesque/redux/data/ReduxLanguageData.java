@@ -52,6 +52,21 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.SPEAR_OF_THE_BLIGHT, "Spear of the Blight");
         addLore(ReduxItems.SPEAR_OF_THE_BLIGHT, "A spear crafted with a Blightbunny Fang, Skyroot Stick, and Zanite Gemstone. This nifty weapon can be used to inflict Inebriation on enemies! It will also return when thrown into the void if enchanted with Loyalty.");
 
+        addItem(ReduxItems.REFINED_SENTRITE, "Refined Sentrite");
+        addLore(ReduxItems.REFINED_SENTRITE, "The purified form of Sentrite. This can be used for a variety of different things, but is commonly found associated with Sentry technology.");
+
+        addItem(ReduxItems.SENTRITE_CHUNK, "Sentrite Chunk");
+        addLore(ReduxItems.SENTRITE_CHUNK, "A chunk of purified Sentrite. These are occasionally dropped from Sentries, and can be crafted into Refined Sentrite.");
+
+        addBlock(ReduxBlocks.REFINED_SENTRITE_BLOCK, "Block of Refined Sentrite");
+        addLore(ReduxBlocks.REFINED_SENTRITE_BLOCK, "A block of the refined form of Sentrite, crafted with Refined Sentrite.");
+
+        addBlock(ReduxBlocks.SENTRITE_CHAIN, "Sentrite Chain");
+        addLore(ReduxBlocks.SENTRITE_CHAIN, "A chain made of purified Sentrite. This is crafted with a piece of Refined Sentrite and two Sentrite Chunks.");
+        addBlock(ReduxBlocks.SENTRITE_LANTERN, "Sentrite Lantern");
+        addLore(ReduxBlocks.SENTRITE_LANTERN, "A lantern made of Sentrite. You can place it on the ground or hang it on the ceiling!");
+
+
         addItem(ReduxItems.ZANBERRY, "Zanberry");
         addLore(ReduxItems.ZANBERRY, "A type of berry found on bushes in the Skyroot Shrublands. This can be eaten, and nourishes slightly more hunger than Blueberries.");
 
@@ -567,6 +582,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addGuiText("shift_info", "Hold [%s] for more info...");
         addTooltip("infusion_charge", "Infusion Charge: %s");
         addGuiText("infusion_info", "Can be infused by right-clicking with an Ambrosium Shard");
+
+        addTooltip("legacy_item", "LEGACY ITEM");
+        addTooltip("item_replacement", "Will be replaced with %s in update 2.1");
 
         addGuiText("luxbuds_tooltip", "Occasionally gives the helpful Blightward effect when eaten");
         addGuiText("purified_luxbuds_tooltip", "Gives the helpful Blightward effect when eaten");

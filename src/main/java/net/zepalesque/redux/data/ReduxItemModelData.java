@@ -108,6 +108,12 @@ public class ReduxItemModelData extends AetherItemModelProvider {
 
         spear(ReduxItems.SPEAR_OF_THE_BLIGHT, "weapons/");
 
+        this.item(ReduxItems.REFINED_SENTRITE.get(), "materials/");
+        this.item(ReduxItems.SENTRITE_CHUNK.get(), "materials/");
+
+//        this.item(ReduxBlocks.SENTRITE_LANTERN.get().asItem(), "misc/");
+//        this.item(ReduxBlocks.SENTRITE_CHAIN.get().asItem(), "misc/");
+
         this.itemBlockWithParent(ReduxBlocks.GOLDEN_LEAF_PILE.get(), (block) -> modLoc(BLOCK_FOLDER + "/" + this.blockName(block) + "1"));
         this.itemBlockWithParent(ReduxBlocks.GILDED_LEAF_PILE.get(), (block) -> modLoc(BLOCK_FOLDER + "/" + this.blockName(block) + "1"));
         this.itemBlockWithParent(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get(), (block) -> modLoc(BLOCK_FOLDER + "/" + this.blockName(block) + "1"));

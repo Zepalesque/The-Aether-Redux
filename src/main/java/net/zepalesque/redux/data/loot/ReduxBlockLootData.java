@@ -113,6 +113,9 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.add(ReduxBlocks.CORRUPTED_VINES.get(), shears());
         this.add(ReduxBlocks.CORRUPTED_VINES_PLANT.get(), shears().apply(ReduxBlocks.CORRUPTED_VINES.get()));
 
+        this.dropSelf(ReduxBlocks.SENTRITE_CHAIN.get());
+        this.dropSelf(ReduxBlocks.SENTRITE_LANTERN.get());
+        this.dropSelf(ReduxBlocks.REFINED_SENTRITE_BLOCK.get());
 
         this.dropSelf(ReduxBlocks.BLIGHTED_SKYROOT_SAPLING.get());
         this.dropPottedContents(ReduxBlocks.POTTED_BLIGHTED_SKYROOT_SAPLING.get());

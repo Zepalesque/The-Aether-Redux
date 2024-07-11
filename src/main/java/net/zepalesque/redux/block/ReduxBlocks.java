@@ -57,6 +57,7 @@ import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.data.resource.ReduxFeatureConfig;
 import net.zepalesque.redux.item.ReduxItems;
+import net.zepalesque.redux.item.misc.LegacyBlockItem;
 import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.world.tree.grower.CrystalTree;
 import net.zepalesque.redux.world.tree.grower.PurpleCrystalFruitTree;
@@ -68,6 +69,24 @@ import java.util.function.UnaryOperator;
 public class ReduxBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Redux.MODID);
     public static final DeferredRegister<Item> ITEMS = ReduxItems.ITEMS;
+
+    public static final RegistryObject<Block> REFINED_SENTRITE_BLOCK = register(
+            "refined_sentrite_block",
+            () -> new Block(
+                    BlockBehaviour.Properties.of()
+                            .mapColor(MapColor.COLOR_GRAY)
+                            .requiresCorrectToolForDrops()
+                            .strength(6.0F, 6.0F)
+                            .sound(SoundType.NETHERITE_BLOCK)
+            )
+    );
+
+    public static RegistryObject<Block> SENTRITE_CHAIN = register("sentrite_chain",
+            () -> new ChainBlock(BlockBehaviour.Properties.copy(Blocks.CHAIN)));
+
+    public static RegistryObject<Block> SENTRITE_LANTERN = register("sentrite_lantern",
+            () -> new LanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).mapColor(MapColor.DEEPSLATE).lightLevel(state -> 13)));
+
 
     // L O G
     public static final RegistryObject<RotatedPillarBlock> DRIFTSHALE = register("driftshale",
@@ -452,10 +471,10 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
             () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOL).strength(3.0F).requiresCorrectToolForDrops()));
 
     public static RegistryObject<Block> VERIDIUM_BLOCK = register("veridium_block",
-            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.LAPIS).strength(5.0F, 6.0F).requiresCorrectToolForDrops().sound(SoundType.NETHERITE_BLOCK)));
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.LAPIS).strength(5.0F, 6.0F).requiresCorrectToolForDrops().sound(SoundType.METAL)));
 
     public static RegistryObject<Block> RAW_VERIDIUM_BLOCK = register("raw_veridium_block",
-            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.LAPIS).strength(3.0F, 6.0F).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.LAPIS).strength(3.0F, 6.0F).requiresCorrectToolForDrops().sound(SoundType.STONE)));
 
     public static RegistryObject<Block> RAW_VALKYRUM_BLOCK = register("raw_valkyrum_block",
             () -> new Block(BlockBehaviour.Properties.copy(AetherBlocks.ZANITE_BLOCK.get()).strength(6.0F, 8.0F).mapColor(MapColor.TERRACOTTA_WHITE)));
@@ -498,11 +517,13 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
             () -> new CorruptedVinesPlantBlock(BlockBehaviour.Properties.copy(Blocks.TWISTING_VINES_PLANT)
                     .mapColor(MapColor.TERRACOTTA_MAGENTA).sound(SoundType.CAVE_VINES).lightLevel(value -> 8), ReduxBlocks.CORRUPTED_VINES));
 
-    public static RegistryObject<Block> VERIDIUM_CHAIN = register("veridium_chain",
-            () -> new ChainBlock(BlockBehaviour.Properties.copy(Blocks.CHAIN)));
+    public static RegistryObject<Block> VERIDIUM_CHAIN = legacy("veridium_chain",
+            () -> new ChainBlock(BlockBehaviour.Properties.copy(Blocks.CHAIN)),
+            () -> Blocks.CHAIN);
 
-    public static RegistryObject<Block> VERIDIUM_LANTERN = register("veridium_lantern",
-            () -> new VeridiumLanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).lightLevel((p_187433_) -> 13).noOcclusion()));
+    public static RegistryObject<Block> VERIDIUM_LANTERN = legacy("veridium_lantern",
+            () -> new VeridiumLanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).lightLevel((p_187433_) -> 13).noOcclusion()),
+            () -> Blocks.SOUL_LANTERN);
 
     public static RegistryObject<Block> FLAREBLOSSOM = register("flareblossom",
             () -> new Flareblossom(() -> MobEffects.BLINDNESS, 60, BlockBehaviour.Properties.copy(Blocks.POPPY).hasPostProcess(ReduxBlocks::always).lightLevel((state) -> 11).mapColor(MapColor.GOLD)));
@@ -597,6 +618,10 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
 
     public static <T extends Block> RegistryObject<T> register(final String name, final Supplier<? extends T> block) {
         return registerItem(name, block, object -> () -> new BlockItem(object.get(), new Item.Properties()));
+    }
+
+    public static <T extends Block> RegistryObject<T> legacy(final String name, final Supplier<? extends T> block, final Supplier<? extends Block> replacement) {
+        return registerItem(name, block, object -> () -> new LegacyBlockItem(object.get(), replacement, new Item.Properties()));
     }
 
     public static <T extends Block> RegistryObject<T> registerModifyItemProperties(final String name, final Supplier<? extends T> block, UnaryOperator<Item.Properties> propertyModifier) {

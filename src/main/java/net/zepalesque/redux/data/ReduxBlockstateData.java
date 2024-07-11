@@ -248,6 +248,9 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
         this.dungeonBlock(ReduxBlocks.LOCKED_SENTRITE_BRICKS.get(), ReduxBlocks.SENTRITE_BRICKS.get(), "construction/");
 
+        this.block(ReduxBlocks.REFINED_SENTRITE_BLOCK.get(), "construction/");
+        this.chain(ReduxBlocks.SENTRITE_CHAIN.get(), "construction/");
+        this.lantern(ReduxBlocks.SENTRITE_LANTERN.get(), "construction/");
 
         for (WoodHandler woodHandler : Redux.WOOD_HANDLERS)        {
             woodHandler.generateBlockstateData(this);
@@ -637,6 +640,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
                 .texture("lantern", this.texture(this.name(block), location)).renderType("cutout");
         this.getVariantBuilder(block).forAllStates((state -> ConfiguredModel.builder().modelFile(state.getValue(LanternBlock.HANGING) ? hangingLantern : lantern).build()));
     }
+
     public void chain(Block block, String location) {
         BlockModelBuilder chain = models().withExistingParent(this.name(block), Redux.locate("template_chain"))
                 .texture("chain", this.texture(this.name(block), location)).renderType("cutout");

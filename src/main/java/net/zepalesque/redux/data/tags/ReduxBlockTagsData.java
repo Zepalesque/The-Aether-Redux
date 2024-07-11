@@ -171,7 +171,10 @@ public class ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.SHELL_SHINGLES.get(),
                 ReduxBlocks.ENCHANTED_SHELL_SHINGLES.get(),
                 ReduxBlocks.GRAVITITE_BLOCK.get(),
-                ReduxBlocks.RAW_GRAVITITE_BLOCK.get()
+                ReduxBlocks.RAW_GRAVITITE_BLOCK.get(),
+                ReduxBlocks.REFINED_SENTRITE_BLOCK.get(),
+                ReduxBlocks.SENTRITE_CHAIN.get(),
+                ReduxBlocks.SENTRITE_LANTERN.get()
         );
         this.tag(BlockTags.NEEDS_STONE_TOOL).add(
                 ReduxBlocks.VERIDIUM_ORE.get()

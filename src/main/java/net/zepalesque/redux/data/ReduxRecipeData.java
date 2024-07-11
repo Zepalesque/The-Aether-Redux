@@ -64,6 +64,33 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
 
     @Override
     protected void buildRecipes(@NotNull Consumer<FinishedRecipe> output) {
+        oreBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, ReduxItems.VERIDIUM_NUGGET.get(), RecipeCategory.MISC, ReduxItems.VERIDIUM_INGOT.get(), "veridium_nugget", "veridium_nugget_to_veridium_ingot");
+        oreBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, ReduxItems.SENTRITE_CHUNK.get(), RecipeCategory.MISC, ReduxItems.REFINED_SENTRITE.get(), "sentrite_chunk", "sentrite_chunk_to_refined_sentrite");
+        smeltingOreRecipe(ReduxItems.REFINED_SENTRITE.get(), ReduxBlocks.SENTRITE.get(), 0.8F, 300).save(output, name("refine_sentrite_smelt"));
+        blastingOreRecipe(ReduxItems.REFINED_SENTRITE.get(), ReduxBlocks.SENTRITE.get(), 0.8F, 150).save(output, name("refine_sentrite_blast"));
+        oreBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, ReduxItems.REFINED_SENTRITE.get(), RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.REFINED_SENTRITE_BLOCK.get(), "refined_sentrite_from_refined_sentrite_block", "refined_sentrite");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ReduxBlocks.SENTRITE_LANTERN.get(), 1)
+                .define('C', ReduxItems.SENTRITE_CHUNK.get())
+                .define('A', AetherBlocks.AMBROSIUM_TORCH.get())
+                .pattern("CCC")
+                .pattern("CAC")
+                .pattern("CCC")
+                .unlockedBy(getHasName(ReduxItems.SENTRITE_CHUNK.get()), has(ReduxItems.SENTRITE_CHUNK.get()))
+                .unlockedBy(getHasName(ReduxItems.REFINED_SENTRITE.get()), has(ReduxItems.REFINED_SENTRITE.get()))
+                .unlockedBy(getHasName(AetherBlocks.AMBROSIUM_TORCH.get()), has(AetherBlocks.AMBROSIUM_TORCH.get()))
+                .unlockedBy(getHasName(AetherItems.AMBROSIUM_SHARD.get()), has(AetherItems.AMBROSIUM_SHARD.get()))
+                .save(output);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ReduxBlocks.SENTRITE_CHAIN.get(), 3)
+                .define('I', ReduxItems.REFINED_SENTRITE.get())
+                .define('N', ReduxItems.SENTRITE_CHUNK.get())
+                .pattern("N")
+                .pattern("I")
+                .pattern("N")
+                .unlockedBy(getHasName(ReduxItems.SENTRITE_CHUNK.get()), has(ReduxItems.SENTRITE_CHUNK.get()))
+                .unlockedBy(getHasName(ReduxItems.REFINED_SENTRITE.get()), has(ReduxItems.REFINED_SENTRITE.get()))
+                .save(output);
 
         stairs(ReduxBlocks.DIVINITE_STAIRS, ReduxBlocks.DIVINITE).save(output);
         slab(output, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.DIVINITE_SLAB.get(), ReduxBlocks.DIVINITE.get());
@@ -434,7 +461,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .save(output);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ReduxItems.SENTRY_RING.get(), 1)
-                .define('H', ReduxBlocks.SENTRITE.get())
+                .define('H', ReduxItems.REFINED_SENTRITE.get())
                 .define('E', ReduxItems.SENTRY_CHIP.get())
                 .define('R', ReduxItems.ENCHANTED_RING.get())
                 .pattern("HEH")
@@ -442,6 +469,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .pattern("HHH")
                 .unlockedBy(getHasName(ReduxItems.SENTRY_CHIP.get()), has(ReduxItems.SENTRY_CHIP.get()))
                 .save(output);
+
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ReduxItems.SHROOM_RING.get(), 1)
                 .define('L', ReduxItems.LIGHTROOT_CLUMP.get())
@@ -748,5 +776,19 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
 
     static ResourceLocation getDefaultRecipeId(ItemLike pItemLike) {
         return BuiltInRegistries.ITEM.getKey(pItemLike.asItem());
+    }
+
+    public SimpleCookingRecipeBuilder smeltingOreRecipe(ItemLike result, ItemLike ingredient, float experience) {
+        return super.smeltingOreRecipe(result, ingredient, experience);
+    }
+
+    protected SimpleCookingRecipeBuilder smeltingOreRecipe(ItemLike result, ItemLike ingredient, float experience, int cookTime) {
+        return SimpleCookingRecipeBuilder.smelting(Ingredient.of(ingredient), RecipeCategory.MISC, result, experience, cookTime)
+                .unlockedBy(getHasName(ingredient), has(ingredient));
+    }
+
+    protected SimpleCookingRecipeBuilder blastingOreRecipe(ItemLike result, ItemLike ingredient, float experience, int cookTime) {
+        return SimpleCookingRecipeBuilder.blasting(Ingredient.of(ingredient), RecipeCategory.MISC, result, experience, cookTime)
+                .unlockedBy(getHasName(ingredient), has(ingredient));
     }
 }
