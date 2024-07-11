@@ -21,6 +21,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -620,7 +621,7 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
         return registerItem(name, block, object -> () -> new BlockItem(object.get(), new Item.Properties()));
     }
 
-    public static <T extends Block> RegistryObject<T> legacy(final String name, final Supplier<? extends T> block, final Supplier<? extends Block> replacement) {
+    public static <T extends Block> RegistryObject<T> legacy(final String name, final Supplier<? extends T> block, final Supplier<? extends ItemLike> replacement) {
         return registerItem(name, block, object -> () -> new LegacyBlockItem(object.get(), replacement, new Item.Properties()));
     }
 

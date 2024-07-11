@@ -8,6 +8,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.util.Lazy;
@@ -18,15 +19,18 @@ import java.util.List;
 
 public class LegacyBlockItem extends BlockItem {
     private static final Component LEGACY = Component.translatable("tooltip.aether_redux.legacy_item").withStyle(ChatFormatting.YELLOW, ChatFormatting.BOLD);
-    private final Supplier<? extends Item> replacement;
+    private final Supplier<? extends ItemLike> replacement;
     private final Lazy<ItemStack> stack;
     private final Lazy<Component> component;
 
-    public LegacyBlockItem(Block block, Supplier<? extends Item> replacement, Properties properties) {
+    public LegacyBlockItem(Block block, Supplier<? extends ItemLike> replacement, Properties properties) {
         super(block, properties);
         this.replacement = replacement;
         this.stack = () -> new ItemStack(this.replacement.get());
-        this.component = () -> Component.translatable("tooltip.aether_redux.item_replacement", stack.get().getDisplayName()).withStyle(ChatFormatting.GRAY);
+        this.component = () -> Component.translatable("tooltip.aether_redux.item_replacement",
+                stack.get().getHoverName().copy()
+                        .withStyle(stack.get().getRarity().getStyleModifier())
+                ).withStyle(ChatFormatting.GRAY);
     }
 
     @Override
