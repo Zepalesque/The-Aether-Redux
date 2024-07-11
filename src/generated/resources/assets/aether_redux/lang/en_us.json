@@ -882,6 +882,8 @@
   "subtitles.aether_redux.item.subzero_crossbow_shoot": "Subzero Crossbow shoots",
   "tooltip.aether_redux.ambrosium_charge": "Infusion Level: %s",
   "tooltip.aether_redux.infusion_charge": "Infusion Charge: %s",
-  "tooltip.aether_redux.item_replacement": "Will be replaced with %s in update 2.1",
-  "tooltip.aether_redux.legacy_item": "LEGACY ITEM"
+  "tooltip.aether_redux.legacy_counterpart": "Please use the new counterpart, %s",
+  "tooltip.aether_redux.legacy_deletion": "Existing items/blocks will be removed in update 2.1 of the Aether: Redux",
+  "tooltip.aether_redux.legacy_item": "LEGACY ITEM",
+  "tooltip.aether_redux.legacy_replacement": "Existing items/blocks will be replaced with %s in update 2.1 of the Aether: Redux"
 }
