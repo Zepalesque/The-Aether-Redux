@@ -33,7 +33,7 @@ public class LegacyBlockItem extends BlockItem {
         this.counterStack = counterpart == null ? null : () -> counterpart.get().asItem().getDefaultInstance();
 
         this.repMsg = () -> this.repStack == null ?
-                Component.translatable("tooltip.aether_redux.legacy_deletion") :
+                Component.translatable("tooltip.aether_redux.legacy_deletion").withStyle(ChatFormatting.GRAY) :
                 Component.translatable("tooltip.aether_redux.legacy_replacement", name(this.repStack.get())
                 ).withStyle(ChatFormatting.GRAY);
 
