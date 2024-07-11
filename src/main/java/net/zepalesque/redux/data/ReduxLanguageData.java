@@ -584,7 +584,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addGuiText("infusion_info", "Can be infused by right-clicking with an Ambrosium Shard");
 
         addTooltip("legacy_item", "LEGACY ITEM");
-        addTooltip("item_replacement", "Will be replaced with %s in update 2.1");
+        addTooltip("item_replacement", "Will be replaced with %s in update 2.1 of the Aether: Redux");
 
         addGuiText("luxbuds_tooltip", "Occasionally gives the helpful Blightward effect when eaten");
         addGuiText("purified_luxbuds_tooltip", "Gives the helpful Blightward effect when eaten");
