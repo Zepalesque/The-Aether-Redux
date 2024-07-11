@@ -484,12 +484,11 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
     public static RegistryObject<Block> RAW_GRAVITITE_BLOCK = register("raw_gravitite_block",
             () -> new FloatingBlock(false, BlockBehaviour.Properties.copy(AetherBlocks.ENCHANTED_GRAVITITE.get())));
 
-    /** TODO: implement, see {@link ReduxItems#GRAVITITE_INGOT} */
     public static RegistryObject<Block> GRAVITITE_BLOCK = registerModifyItemProperties("gravitite_block",
             () -> new FloatingBlock(true, BlockBehaviour.Properties.copy(AetherBlocks.ENCHANTED_GRAVITITE.get())), properties -> properties.rarity(Rarity.RARE));
 
 
-    // TODO: Consider using unique behavior rather than reskinned Glow Lichen
+    // TODO 2.1: Make more like Quickroots were
     public static RegistryObject<MultifaceBlock> LIGHTROOTS = BLOCKS.register("lightroots",
             () -> new GlowLichenBlock(BlockBehaviour.Properties.copy(Blocks.GLOW_LICHEN).lightLevel(GlowLichenBlock.emission(12)).mapColor(MapColor.DIAMOND).randomTicks()));
 
