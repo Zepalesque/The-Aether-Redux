@@ -111,8 +111,9 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         this.item(ReduxItems.REFINED_SENTRITE.get(), "materials/");
         this.item(ReduxItems.SENTRITE_CHUNK.get(), "materials/");
 
-//        this.item(ReduxBlocks.SENTRITE_LANTERN.get().asItem(), "misc/");
-//        this.item(ReduxBlocks.SENTRITE_CHAIN.get().asItem(), "misc/");
+        this.itemBlock(ReduxBlocks.REFINED_SENTRITE_BLOCK.get());
+        this.item(ReduxBlocks.SENTRITE_LANTERN.get().asItem(), "misc/");
+        this.item(ReduxBlocks.SENTRITE_CHAIN.get().asItem(), "misc/");
 
         this.itemBlockWithParent(ReduxBlocks.GOLDEN_LEAF_PILE.get(), (block) -> modLoc(BLOCK_FOLDER + "/" + this.blockName(block) + "1"));
         this.itemBlockWithParent(ReduxBlocks.GILDED_LEAF_PILE.get(), (block) -> modLoc(BLOCK_FOLDER + "/" + this.blockName(block) + "1"));
