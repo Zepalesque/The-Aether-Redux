@@ -11,10 +11,13 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.EggItem;
+import net.minecraftforge.common.util.LazyOptional;
 import net.zepalesque.redux.Redux;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -27,39 +30,46 @@ public interface RegistryMap<K, V> {
 
     Map<Either<TagKey<K>, ResourceKey<K>>, V> encodeMap();
 
-    Map<ResourceKey<K>, V> keyMap();
+    LazyOptional<Map<ResourceKey<K>, V>> keyMap();
 
-    Optional<Map<Holder<K>, V>> holderMap();
+    LazyOptional<Map<Holder<K>, V>> holderMap();
 
     default Map<Holder<K>, V> holderMapOrThrow() {
-        return this.holderMap().orElseThrow();
+        return this.holderMap().orElseThrow(RegistryMap::exception);
     }
 
     default V getOrThrow(Holder<K> key) {
         Preconditions.checkState(this.containsKey(key), "RegistryMap does not contain value {}!", key);
-        return this.holderMap().orElseThrow().get(key);
+        return this.holderMap().orElseThrow(RegistryMap::exception).get(key);
     }
     default Optional<V> get(Holder<K> key) {
         return this.containsKey(key) ? Optional.of(this.getOrThrow(key)) : Optional.empty();
     }
 
+    // wacko logic
     default boolean containsKey(Holder<K> holder) {
-        return this.holderMap().isPresent() && this.holderMap().get().containsKey(holder) || holder.unwrapKey().map(this.keyMap()::containsKey).orElse(false);
+        return this.holderMap().map(map -> map.containsKey(holder)).orElse(false) ||
+                this.keyMap().map(map -> holder.unwrapKey().map(map::containsKey).orElse(false)).orElse(false);
     }
 
     default boolean containsValue(V val) {
-        return this.holderMap().isPresent() && this.holderMap().get().containsValue(val) || this.encodeMap().containsValue(val);
+        return this.holderMap().map(map -> map.containsValue(val)).orElse(false) || this.encodeMap().containsValue(val);
     }
 
     Registered<K, V> asRegistered(HolderLookup<K> lookup);
 
+
+    void initialize();
+
     class Keyed<K, V>  implements RegistryMap<K, V> {
         protected final Map<Either<TagKey<K>, ResourceKey<K>>, V> encodeMap;
-        protected final Map<ResourceKey<K>, V> keyMap;
+        protected final LazyOptional<Map<ResourceKey<K>, V>> keyMap;
+        protected final HolderGetter<K> getter;
 
         private Keyed(Map<Either<TagKey<K>, ResourceKey<K>>, V> encodeMap, HolderGetter<K> getter) {
             this.encodeMap = encodeMap;
-            this.keyMap = RegistryMap.createKeyMap(getter, encodeMap);
+            this.getter = getter;
+            this.keyMap = LazyOptional.of(() -> RegistryMap.createKeyMap(getter, encodeMap));
         }
 
         @Override
@@ -68,42 +78,58 @@ public interface RegistryMap<K, V> {
         }
 
         @Override
-        public Map<ResourceKey<K>, V> keyMap() {
+        public LazyOptional<Map<ResourceKey<K>, V>> keyMap() {
+            this.initialize();
             return this.keyMap;
         }
 
         @Override
-        public Optional<Map<Holder<K>, V>> holderMap() {
-            return Optional.empty();
+        public LazyOptional<Map<Holder<K>, V>> holderMap() {
+            return LazyOptional.empty();
         }
 
         @Override
         public Registered<K, V> asRegistered(HolderLookup<K> lookup) {
             return new Registered<>(this.encodeMap, lookup);
         }
+
+        @Override
+        public void initialize() {
+            if (this.keyMap == null) {
+            }
+        }
     }
 
     class Registered<K, V> extends Keyed<K, V> {
 
-        private final Map<Holder<K>, V> holderMap;
+        private final LazyOptional<Map<Holder<K>, V>> holderMap;
+        private final HolderLookup<K> getterAsLookup;
         private Registered(Map<Either<TagKey<K>, ResourceKey<K>>, V> keyMap, HolderLookup<K> lookup) {
             super(keyMap, lookup);
-            this.holderMap = this.keyMap.entrySet().stream().flatMap(entry -> Stream.ofNullable(lookup.get(entry.getKey()).map(holder -> Pair.of(holder, entry.getValue())).orElse(null))).collect(Collectors.toMap(Pair::getFirst, Pair::getSecond));
+            this.getterAsLookup = lookup;
+            this.holderMap = this.keyMap.lazyMap(keys -> keys.entrySet().stream()
+                            .flatMap(entry -> Stream.ofNullable(getterAsLookup.get(entry.getKey()).map(holder -> Pair.of(holder, entry.getValue())).orElse(null)))
+                    .collect(Collectors.toMap(Pair::getFirst, Pair::getSecond)));
         }
          @Override
-         public Optional<Map<Holder<K>, V>> holderMap() {
-             return Optional.of(this.holderMap);
+         public LazyOptional<Map<Holder<K>, V>> holderMap() {
+             return this.holderMap;
          }
 
          @Override
          public Map<Holder<K>, V> holderMapOrThrow() {
-             return this.holderMap;
+             return this.holderMap().orElseThrow(RegistryMap::exception);
          }
 
          @Override
          public Registered<K, V> asRegistered(HolderLookup<K> lookup) {
              return this;
          }
+
+        @Override
+        public void initialize() {
+            super.initialize();
+        }
     }
 
     static <K, V> Keyed<K, V> createPartial(Map<Either<TagKey<K>, ResourceKey<K>>, V> encodeMap, HolderGetter<K> getter) {
@@ -112,6 +138,10 @@ public interface RegistryMap<K, V> {
 
     static <K, V> Registered<K, V> createFull(Map<Either<TagKey<K>, ResourceKey<K>>, V> encodeMap, HolderLookup<K> lookup) {
         return new Registered<>(encodeMap, lookup);
+    }
+
+    private static RuntimeException exception() {
+        return new NoSuchElementException("No value present");
     }
 
 
@@ -181,4 +211,6 @@ public interface RegistryMap<K, V> {
         }
 
     }
+
+
 }
