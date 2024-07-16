@@ -1,154 +1,44 @@
 {
-  "type": "minecraft:tree",
+  "type": "minecraft:random_selector",
   "config": {
-    "decorators": [
-      {
-        "type": "aether_redux:enchanted_vine",
-        "condition": {
-          "condition": "aether_redux:redux_config",
-          "config_path": "[Worldgen, Additional Features, Enable Enchanted and Gilded Vines]"
-        },
-        "length": {
-          "type": "minecraft:uniform",
-          "value": {
-            "max_inclusive": 5,
-            "min_inclusive": 1
-          }
-        },
-        "plant_body_provider": {
-          "type": "minecraft:simple_state_provider",
-          "state": {
-            "Name": "aether_redux:golden_vines_plant"
-          }
-        },
-        "plant_head_provider": {
-          "type": "minecraft:simple_state_provider",
-          "state": {
-            "Name": "aether_redux:golden_vines",
-            "Properties": {
-              "age": "0"
+    "default": {
+      "feature": "aether_redux:trees/large_golden_oak",
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:would_survive",
+            "state": {
+              "Name": "aether:golden_oak_sapling",
+              "Properties": {
+                "stage": "0"
+              }
             }
           }
-        },
-        "probability": 0.25
-      },
+        }
+      ]
+    },
+    "features": [
       {
-        "type": "aether_redux:patch",
-        "provider": {
-          "type": "minecraft:weighted_state_provider",
-          "entries": [
+        "chance": 0.35,
+        "feature": {
+          "feature": "aether_redux:trees/small_golden_oak",
+          "placement": [
             {
-              "data": {
-                "Name": "aether_redux:golden_leaf_pile",
-                "Properties": {
-                  "layers": "1"
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:would_survive",
+                "state": {
+                  "Name": "aether:golden_oak_sapling",
+                  "Properties": {
+                    "stage": "0"
+                  }
                 }
-              },
-              "weight": 6
-            },
-            {
-              "data": {
-                "Name": "aether_redux:golden_leaf_pile",
-                "Properties": {
-                  "layers": "2"
-                }
-              },
-              "weight": 5
-            },
-            {
-              "data": {
-                "Name": "aether_redux:golden_leaf_pile",
-                "Properties": {
-                  "layers": "3"
-                }
-              },
-              "weight": 4
-            },
-            {
-              "data": {
-                "Name": "aether_redux:golden_leaf_pile",
-                "Properties": {
-                  "layers": "4"
-                }
-              },
-              "weight": 3
-            },
-            {
-              "data": {
-                "Name": "aether_redux:golden_leaf_pile",
-                "Properties": {
-                  "layers": "5"
-                }
-              },
-              "weight": 2
-            },
-            {
-              "data": {
-                "Name": "aether_redux:golden_leaf_pile",
-                "Properties": {
-                  "layers": "6"
-                }
-              },
-              "weight": 1
+              }
             }
           ]
-        },
-        "tries": 32,
-        "xz_spread": 7,
-        "y_spread": 3
-      }
-    ],
-    "dirt_provider": {
-      "type": "minecraft:simple_state_provider",
-      "state": {
-        "Name": "aether:aether_dirt",
-        "Properties": {
-          "double_drops": "true"
         }
       }
-    },
-    "foliage_placer": {
-      "type": "aether:golden_oak_foliage_placer",
-      "offset": 1,
-      "radius": 3,
-      "trunk_height": 7
-    },
-    "foliage_provider": {
-      "type": "minecraft:simple_state_provider",
-      "state": {
-        "Name": "aether:golden_oak_leaves",
-        "Properties": {
-          "distance": "7",
-          "double_drops": "true",
-          "persistent": "false",
-          "waterlogged": "false"
-        }
-      }
-    },
-    "force_dirt": false,
-    "ignore_vines": true,
-    "minimum_size": {
-      "type": "minecraft:two_layers_feature_size",
-      "limit": 0,
-      "lower_size": 0,
-      "min_clipped_height": 10,
-      "upper_size": 0
-    },
-    "trunk_placer": {
-      "type": "aether:golden_oak_trunk_placer",
-      "base_height": 10,
-      "height_rand_a": 0,
-      "height_rand_b": 0
-    },
-    "trunk_provider": {
-      "type": "minecraft:simple_state_provider",
-      "state": {
-        "Name": "aether:golden_oak_log",
-        "Properties": {
-          "axis": "y",
-          "double_drops": "true"
-        }
-      }
-    }
+    ]
   }
 }
