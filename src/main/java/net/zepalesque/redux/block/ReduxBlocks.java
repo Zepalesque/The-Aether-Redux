@@ -59,7 +59,6 @@ import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.data.resource.ReduxFeatureConfig;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.item.misc.LegacyBlockItem;
-import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.world.tree.grower.CrystalTree;
 import net.zepalesque.redux.world.tree.grower.PurpleCrystalFruitTree;
 import net.zepalesque.redux.world.tree.grower.ReduxSuppliedTree;
@@ -440,7 +439,7 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
 
 
     public static final RegistryObject<SaplingBlock> GILDED_OAK_SAPLING = register("gilded_oak_sapling", () ->
-            new SaplingBlock(new ReduxSuppliedTree(random -> ReduxConfig.COMMON.legacy_gilded_groves.get() ? random.nextBoolean() ? ReduxFeatureConfig.FANCY_GILDED_OAK_TREE : ReduxFeatureConfig.LEGACY_GILDED_OAK_TREE : ReduxFeatureConfig.GILDED_OAK_TREE), BlockBehaviour.Properties.copy(AetherBlocks.GOLDEN_OAK_SAPLING.get()))
+            new SaplingBlock(new ReduxSuppliedTree(random -> ReduxConfig.COMMON.legacy_gilded_groves.get() ? ReduxFeatureConfig.LEGACY_GILDED_OAK_TREE : ReduxFeatureConfig.GROVE_GILDED_TREES), BlockBehaviour.Properties.copy(AetherBlocks.GOLDEN_OAK_SAPLING.get()))
     );
 
     public static final RegistryObject<FlowerPotBlock> POTTED_GILDED_OAK_SAPLING = BLOCKS.register("potted_gilded_oak_sapling",

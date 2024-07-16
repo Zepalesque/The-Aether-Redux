@@ -14,4 +14,8 @@ public class ReduxFoliagePlacers {
     public static final RegistryObject<FoliagePlacerType<GenesisPineFoliagePlacer>> GENESIS_PINE = FOLIAGE_PLACERS.register("genesis_pine", () -> new FoliagePlacerType<>(GenesisPineFoliagePlacer.CODEC));
 
     public static final RegistryObject<FoliagePlacerType<BlightwillowFoliagePlacer>> BLIGHTWILLOW = FOLIAGE_PLACERS.register("blightwillow", () -> new FoliagePlacerType<>(BlightwillowFoliagePlacer.CODEC));
+
+    public static final RegistryObject<FoliagePlacerType<SkyrootFoliagePlacer>> SKYROOT_FOLIAGE = FOLIAGE_PLACERS.register("skyroot_foliage", () -> new FoliagePlacerType<>(SkyrootFoliagePlacer.CODEC));
+    public static final RegistryObject<FoliagePlacerType<SmallGoldenOakFoliagePlacer>> SMALL_GOLDEN_OAK_FOLIAGE = FOLIAGE_PLACERS.register("small_golden_oak_foliage", () -> new FoliagePlacerType<>(SmallGoldenOakFoliagePlacer.CODEC));
+
 }
