@@ -32,6 +32,7 @@ public interface RegistryMap<K, V> {
     Optional<Map<Holder<K>, V>> holderMap();
 
     default Map<Holder<K>, V> holderMapOrThrow() {
+        this.initialize();
         return this.holderMap().orElseThrow();
     }
 
@@ -53,13 +54,17 @@ public interface RegistryMap<K, V> {
 
     Registered<K, V> asRegistered(HolderLookup<K> lookup);
 
+
+    void initialize();
+
     class Keyed<K, V>  implements RegistryMap<K, V> {
         protected final Map<Either<TagKey<K>, ResourceKey<K>>, V> encodeMap;
-        protected final Map<ResourceKey<K>, V> keyMap;
+        protected Map<ResourceKey<K>, V> keyMap;
+        protected final HolderGetter<K> getter;
 
         private Keyed(Map<Either<TagKey<K>, ResourceKey<K>>, V> encodeMap, HolderGetter<K> getter) {
             this.encodeMap = encodeMap;
-            this.keyMap = RegistryMap.createKeyMap(getter, encodeMap);
+            this.getter = getter;
         }
 
         @Override
@@ -69,6 +74,7 @@ public interface RegistryMap<K, V> {
 
         @Override
         public Map<ResourceKey<K>, V> keyMap() {
+            this.initialize();
             return this.keyMap;
         }
 
@@ -81,22 +87,32 @@ public interface RegistryMap<K, V> {
         public Registered<K, V> asRegistered(HolderLookup<K> lookup) {
             return new Registered<>(this.encodeMap, lookup);
         }
+
+        @Override
+        public void initialize() {
+            if (this.keyMap == null) {
+            this.keyMap = RegistryMap.createKeyMap(getter, encodeMap);
+            }
+        }
     }
 
     class Registered<K, V> extends Keyed<K, V> {
 
-        private final Map<Holder<K>, V> holderMap;
+        private Map<Holder<K>, V> holderMap;
+        private final HolderLookup<K> getterAsLookup;
         private Registered(Map<Either<TagKey<K>, ResourceKey<K>>, V> keyMap, HolderLookup<K> lookup) {
             super(keyMap, lookup);
-            this.holderMap = this.keyMap.entrySet().stream().flatMap(entry -> Stream.ofNullable(lookup.get(entry.getKey()).map(holder -> Pair.of(holder, entry.getValue())).orElse(null))).collect(Collectors.toMap(Pair::getFirst, Pair::getSecond));
+            this.getterAsLookup = lookup;
         }
          @Override
          public Optional<Map<Holder<K>, V>> holderMap() {
+             this.initialize();
              return Optional.of(this.holderMap);
          }
 
          @Override
          public Map<Holder<K>, V> holderMapOrThrow() {
+             this.initialize();
              return this.holderMap;
          }
 
@@ -104,6 +120,14 @@ public interface RegistryMap<K, V> {
          public Registered<K, V> asRegistered(HolderLookup<K> lookup) {
              return this;
          }
+
+        @Override
+        public void initialize() {
+            super.initialize();
+            if (this.holderMap == null) {
+                this.holderMap = this.keyMap.entrySet().stream().flatMap(entry -> Stream.ofNullable(getterAsLookup.get(entry.getKey()).map(holder -> Pair.of(holder, entry.getValue())).orElse(null))).collect(Collectors.toMap(Pair::getFirst, Pair::getSecond));
+            }
+        }
     }
 
     static <K, V> Keyed<K, V> createPartial(Map<Either<TagKey<K>, ResourceKey<K>>, V> encodeMap, HolderGetter<K> getter) {
