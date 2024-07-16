@@ -104,7 +104,6 @@ import net.zepalesque.redux.network.ReduxPacketHandler;
 import net.zepalesque.redux.recipe.ReduxRecipeTypes;
 import net.zepalesque.redux.recipe.condition.DataRecipeCondition;
 import net.zepalesque.redux.recipe.serializer.ReduxRecipeSerializers;
-import net.zepalesque.redux.util.compat.AncientCompatUtil;
 import net.zepalesque.redux.world.biome.ReduxRegion;
 import net.zepalesque.redux.world.biome.modifier.ReduxBiomeModifierCodecs;
 import net.zepalesque.redux.world.biome.surfacerule.ReduxConditionSources;
@@ -375,9 +374,6 @@ public class Redux {
             if (lostAetherCompat()) { this.setupMandatoryDataPack(event, "data/lost_content_data", "Lost Content Compat", "Compatibility with the Aether: Lost Content"); }
             if (deepAetherCompat()) { this.setupMandatoryDataPack(event, "data/deep_aether_data", "Deep Aether Compat", "Compatibility with Deep Aether"); }
             if (ancientAetherCompat()) { this.setupMandatoryDataPack(event, "data/ancient_aether_data", "Ancient Aether Compat", "Compatibility with Ancient Aether"); }
-
-            if (ancientAetherCompat() && AncientCompatUtil.before090) { this.setupMandatoryDataPack(event, "data/ancient_aether_gold_tree", "Ancient Aether Golden Oak", "Compatibility with Ancient Aether, fixes crash"); }
-
             if (ReduxConfig.COMMON.cloud_layer_gen.get()) { this.setupBuiltinDatapack(event, "data/cloudbed", "Redux - Cloudbed", "Highlands-like Cloudbed"); }
 
             if (ReduxConfig.COMMON.bronze_dungeon_upgrade.get()) { this.setupMandatoryDataPack(event, "data/dungeon_upgrades/bronze", "Bronze Dungeon Upgrade", "Configurable in config/aether_redux_common.toml"); }
