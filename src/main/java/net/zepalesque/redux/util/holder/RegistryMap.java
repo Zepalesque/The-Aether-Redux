@@ -59,8 +59,6 @@ public interface RegistryMap<K, V> {
     Registered<K, V> asRegistered(HolderLookup<K> lookup);
 
 
-    void initialize();
-
     class Keyed<K, V>  implements RegistryMap<K, V> {
         protected final Map<Either<TagKey<K>, ResourceKey<K>>, V> encodeMap;
         protected final LazyOptional<Map<ResourceKey<K>, V>> keyMap;
@@ -79,7 +77,6 @@ public interface RegistryMap<K, V> {
 
         @Override
         public LazyOptional<Map<ResourceKey<K>, V>> keyMap() {
-            this.initialize();
             return this.keyMap;
         }
 
@@ -91,12 +88,6 @@ public interface RegistryMap<K, V> {
         @Override
         public Registered<K, V> asRegistered(HolderLookup<K> lookup) {
             return new Registered<>(this.encodeMap, lookup);
-        }
-
-        @Override
-        public void initialize() {
-            if (this.keyMap == null) {
-            }
         }
     }
 
@@ -114,7 +105,7 @@ public interface RegistryMap<K, V> {
          @Override
          public LazyOptional<Map<Holder<K>, V>> holderMap() {
              return this.holderMap;
-         }
+        }
 
          @Override
          public Map<Holder<K>, V> holderMapOrThrow() {
@@ -125,11 +116,6 @@ public interface RegistryMap<K, V> {
          public Registered<K, V> asRegistered(HolderLookup<K> lookup) {
              return this;
          }
-
-        @Override
-        public void initialize() {
-            super.initialize();
-        }
     }
 
     static <K, V> Keyed<K, V> createPartial(Map<Either<TagKey<K>, ResourceKey<K>>, V> encodeMap, HolderGetter<K> getter) {
