@@ -27,7 +27,7 @@ public class SwetSizeFunction extends LootItemConditionalFunction {
     public ItemStack run(ItemStack stack, LootContext context) {
         Entity e = context.getParamOrNull(LootContextParams.THIS_ENTITY);
         if (e instanceof Swet swet) {
-            int i = Mth.floor((swet.getSize() - 1) / 2F) + context.getRandom().nextInt(2);
+            int i = Mth.floor((swet.getSize() - 1) * 0.75) + context.getRandom().nextInt(2);
             stack.setCount(i);
         }
         return stack;

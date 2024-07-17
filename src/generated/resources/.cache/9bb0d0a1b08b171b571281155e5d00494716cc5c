@@ -1,4 +1,4 @@
-// 1.20.1	2024-07-11T10:12:11.9783753	Tags for minecraft:block mod id aether_redux
+// 1.20.1	2024-07-16T21:46:36.5659465	Tags for minecraft:block mod id aether_redux
 8f59d0f2e59cb5eca343062c21759ff8593f2e46 data/aether/tags/blocks/aerclouds.json
 593f50c73d9619ba0b2f5bbedad8cf5bef48adbc data/aether/tags/blocks/aether_animals_spawnable_on.json
 1abbb8fbbd6aaa2a65960af8b043d21b8cd619e9 data/aether/tags/blocks/aether_dirt.json
@@ -42,7 +42,7 @@ aebb81a662af000ceb531f2278fdd26b1f4365ca data/minecraft/tags/blocks/mineable/axe
 8f324fc927e00fa03a044e076f6795d40bf18d93 data/minecraft/tags/blocks/mineable/shovel.json
 6af03c05dc47726e2795f7d011a935a02927b949 data/minecraft/tags/blocks/mushroom_grow_block.json
 3548fd3faa2233aa148f10a28b8537e0e1b1109d data/minecraft/tags/blocks/needs_iron_tool.json
-250338fcdf50950ee9e3ff261dd65cb378a70e78 data/minecraft/tags/blocks/needs_stone_tool.json
+467ccd1a9507a73635606d4659925a105689407c data/minecraft/tags/blocks/needs_stone_tool.json
 06be3691dab7294d125235836fdc18259df1d2c2 data/minecraft/tags/blocks/planks.json
 e0dba934faba5edd8ce150350f5b09b1f4986bb6 data/minecraft/tags/blocks/replaceable.json
 273afc711df53b1050058ba27c0259edeb92aa77 data/minecraft/tags/blocks/saplings.json

@@ -25,7 +25,21 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ChainBlock;
+import net.minecraft.world.level.block.FlowerBlock;
+import net.minecraft.world.level.block.FlowerPotBlock;
+import net.minecraft.world.level.block.GlowLichenBlock;
+import net.minecraft.world.level.block.LadderBlock;
+import net.minecraft.world.level.block.LanternBlock;
+import net.minecraft.world.level.block.MultifaceBlock;
+import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.WoodType;
@@ -88,7 +102,6 @@ import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.data.resource.ReduxFeatureConfig;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.item.block.WoodenBlockItem;
-import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.item.misc.LegacyBlockItem;
 import net.zepalesque.redux.world.tree.grower.CrystalTree;
 import net.zepalesque.redux.world.tree.grower.ReduxSuppliedTree;
@@ -354,20 +367,20 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
 
     public static final RegistryObject<Block> RUNELIGHT = register("runelight", () ->
             new RunelightBlock(BlockBehaviour.Properties.of(Material.METAL)
-                    .color(MaterialColor.LAPIS)
+                    .color(MaterialColor.COLOR_LIGHT_GRAY)
                     .lightLevel(state -> state.getValue(RunelightBlock.LIT) ? 13 : 1)
-                    .strength(0.7F, 6.0F)
-                    .sound(SoundType.COPPER)
+                    .strength(0.6F, 6.0F)
+                    .sound(SoundType.DEEPSLATE)
                     .requiresCorrectToolForDrops(),
                     false
             ));
 
     public static final RegistryObject<Block> LOCKED_RUNELIGHT = register("locked_runelight", () ->
             new RunelightBlock(BlockBehaviour.Properties.of(Material.METAL)
-                    .color(MaterialColor.LAPIS)
+                    .color(MaterialColor.COLOR_LIGHT_GRAY)
                     .lightLevel(state -> state.getValue(RunelightBlock.LIT) ? 13 : 1)
                     .strength(-1.0F, 3600000.0F)
-                    .sound(SoundType.COPPER),
+                    .sound(SoundType.DEEPSLATE),
                     true
             ));
 
