@@ -245,7 +245,7 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .save(output, Redux.locate("carved_stone"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.RUNELIGHT.get(), 2)
-                .define('V', ReduxItems.VERIDIUM_INGOT.get())
+                .define('V', AetherBlocks.CARVED_STONE.get())
                 .define('C', ReduxItems.SENTRY_CHIP.get())
                 .pattern("VVV")
                 .pattern("VCV")

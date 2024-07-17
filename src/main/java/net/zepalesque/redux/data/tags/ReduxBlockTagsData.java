@@ -377,8 +377,7 @@ public class ReduxBlockTagsData extends BlockTagsProvider {
                 ReduxBlocks.CARVED_PILLAR.get(),
                 ReduxBlocks.SENTRY_PILLAR.get(),
                 ReduxBlocks.CARVED_BASE.get(),
-                ReduxBlocks.SENTRY_BASE.get(),
-                ReduxBlocks.RUNELIGHT.get()
+                ReduxBlocks.SENTRY_BASE.get()
         );
     }
 

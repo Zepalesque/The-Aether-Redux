@@ -316,20 +316,20 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
 
     public static final RegistryObject<Block> RUNELIGHT = register("runelight", () ->
             new RunelightBlock(BlockBehaviour.Properties.of()
-                    .mapColor(state -> state.getValue(RunelightBlock.LIT) ? MapColor.COLOR_LIGHT_BLUE : MapColor.LAPIS)
+                    .mapColor(state -> state.getValue(RunelightBlock.LIT) ? MapColor.COLOR_LIGHT_BLUE : MapColor.COLOR_LIGHT_GRAY)
                     .lightLevel(state -> state.getValue(RunelightBlock.LIT) ? 13 : 1)
-                    .strength(0.7F, 6.0F)
-                    .sound(SoundType.COPPER)
+                    .strength(0.6F, 6.0F)
+                    .sound(SoundType.DEEPSLATE)
                     .requiresCorrectToolForDrops(),
                     false
             ));
 
     public static final RegistryObject<Block> LOCKED_RUNELIGHT = register("locked_runelight", () ->
             new RunelightBlock(BlockBehaviour.Properties.of()
-                    .mapColor(state -> state.getValue(RunelightBlock.LIT) ? MapColor.COLOR_LIGHT_BLUE : MapColor.LAPIS)
+                    .mapColor(state -> state.getValue(RunelightBlock.LIT) ? MapColor.COLOR_LIGHT_BLUE : MapColor.COLOR_LIGHT_GRAY)
                     .lightLevel(state -> state.getValue(RunelightBlock.LIT) ? 13 : 1)
                     .strength(-1.0F, 3600000.0F)
-                    .sound(SoundType.COPPER),
+                    .sound(SoundType.DEEPSLATE),
                     true
             ));
 
