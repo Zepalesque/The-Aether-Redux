@@ -148,6 +148,7 @@ public class ReduxOverridesPackResources extends AbstractPackResources
 
         return path;
     }
+
     @Override
     protected boolean hasResource(@Nonnull String name) {
         Path path = this.resolve(name);

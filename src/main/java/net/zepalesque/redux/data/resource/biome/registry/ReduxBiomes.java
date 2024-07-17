@@ -50,4 +50,5 @@ public class ReduxBiomes {
     public static final int AERLAVENDER_GRASS_COLOR = 0xBDEDCC;
     public static final int BLUE_AERGLOW_GRASS_COLOR = 0xCEFFFD;
     public static final int MYSTIC_AERGLOW_GRASS_COLOR = 0xD1FFE7;
+    public static final int GOLDEN_GRASS_COLOR = 0xFFF47F;
 }

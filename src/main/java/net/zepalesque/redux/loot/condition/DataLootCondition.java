@@ -43,13 +43,13 @@ public class DataLootCondition implements LootItemCondition {
         public void serialize(JsonObject json, DataLootCondition instance, JsonSerializationContext context) {
 
             DataResult<JsonElement> result = AbstractCondition.CODEC.encodeStart(JsonOps.INSTANCE, instance.condition);
-            result.resultOrPartial(errorMessage -> Redux.LOGGER.warn("Could not write DataLootCondition with id {} - error: {}", "data_loot_condition", errorMessage))
+            result.resultOrPartial(Redux.LOGGER::error)
                     .ifPresent((jsonElement) -> json.add("data_loot_condition", jsonElement));
         }
 
         public DataLootCondition deserialize(JsonObject json, JsonDeserializationContext context) {
             JsonElement element = json.get("data_loot_condition");
-            Optional<? extends AbstractCondition<?>> optional = AbstractCondition.CODEC.parse(JsonOps.INSTANCE, element).resultOrPartial(errorMessage -> Redux.LOGGER.warn("Could not parse DataRecipeCondition from json with id {} - error: {}", "data_loot_condition", errorMessage));
+            Optional<? extends AbstractCondition<?>> optional = AbstractCondition.CODEC.parse(JsonOps.INSTANCE, element).resultOrPartial(Redux.LOGGER::error);
             if (optional.isPresent())
             {
                 return new DataLootCondition(optional.get());

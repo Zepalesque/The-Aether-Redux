@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "axis=x,waterlogged=false": {
+      "model": "aether_redux:block/sentrite_chain",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,waterlogged=true": {
+      "model": "aether_redux:block/sentrite_chain",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y,waterlogged=false": {
+      "model": "aether_redux:block/sentrite_chain"
+    },
+    "axis=y,waterlogged=true": {
+      "model": "aether_redux:block/sentrite_chain"
+    },
+    "axis=z,waterlogged=false": {
+      "model": "aether_redux:block/sentrite_chain",
+      "x": 90
+    },
+    "axis=z,waterlogged=true": {
+      "model": "aether_redux:block/sentrite_chain",
+      "x": 90
+    }
+  }
+}

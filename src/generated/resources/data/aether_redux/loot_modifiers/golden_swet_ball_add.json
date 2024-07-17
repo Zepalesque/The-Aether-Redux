@@ -21,13 +21,7 @@
   ],
   "functions": [
     {
-      "add": false,
-      "count": {
-        "type": "minecraft:uniform",
-        "max": 3.0,
-        "min": 1.0
-      },
-      "function": "minecraft:set_count"
+      "function": "aether_redux:swet_gel_count"
     },
     {
       "count": {

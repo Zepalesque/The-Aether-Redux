@@ -1,0 +1,28 @@
+{
+  "type": "aether_redux:foliage_colors",
+  "default_colors": {
+    "biomes": "#aether_redux:change_vanilla_grass_colors",
+    "foliage": 7842607,
+    "grass": 9551193
+  },
+  "foliage_map": {
+    "#aether_redux:is_frosted": 6857828,
+    "#aether_redux:is_gilded": 9938979,
+    "aether:skyroot_forest": 5877296,
+    "aether:skyroot_woodland": 5877296,
+    "aether_redux:cloudcaps": 2865935,
+    "aether_redux:skyfields": 3193611,
+    "aether_redux:skyroot_shrublands": 8563742,
+    "aether_redux:the_blight": 8494429
+  },
+  "grass_map": {
+    "#aether_redux:is_frosted": 8828803,
+    "#aether_redux:is_gilded": 11319887,
+    "aether:skyroot_forest": 7979098,
+    "aether:skyroot_woodland": 7979098,
+    "aether_redux:cloudcaps": 5622079,
+    "aether_redux:skyfields": 5884220,
+    "aether_redux:skyroot_shrublands": 10141259,
+    "aether_redux:the_blight": 9941622
+  }
+}

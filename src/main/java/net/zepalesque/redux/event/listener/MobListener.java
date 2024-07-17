@@ -120,12 +120,13 @@ public class MobListener {
     public static void movementHandling(LivingEvent.LivingTickEvent event) {
         if (ReduxConfig.COMMON.quicksoil_movement_system.get() == QuicksoilSetting.highlands) {
             final LivingEntity entity = event.getEntity();
+            if (!entity.getLevel().isLoaded(entity.getBlockPosBelowThatAffectsMyMovement())) { return; }
             if (!entity.isOnGround()) { return; }
             if (entity.isInWater()) { return; }
             if (Math.abs(entity.getDeltaMovement().x + entity.getDeltaMovement().y + entity.getDeltaMovement().z) < 0.001D) { return; }
             if (entity instanceof Player player && player.isSpectator())  { return; }
 
-            if (entity.level.getBlockState(entity.getBlockPosBelowThatAffectsMyMovement()).is(ReduxTags.Blocks.QUICKSOIL_BEHAVIOR)) {
+            if (entity.getLevel().getBlockState(entity.getBlockPosBelowThatAffectsMyMovement()).is(ReduxTags.Blocks.QUICKSOIL_BEHAVIOR)) {
                 MobHooks.modifyEntityQuicksoil(entity);
             }
         }

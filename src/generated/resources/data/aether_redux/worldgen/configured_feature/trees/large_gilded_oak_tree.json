@@ -1,0 +1,120 @@
+{
+  "type": "minecraft:tree",
+  "config": {
+    "decorators": [
+      {
+        "type": "aether_redux:patch",
+        "provider": {
+          "type": "minecraft:weighted_state_provider",
+          "entries": [
+            {
+              "data": {
+                "Name": "aether_redux:gilded_leaf_pile",
+                "Properties": {
+                  "layers": "1"
+                }
+              },
+              "weight": 6
+            },
+            {
+              "data": {
+                "Name": "aether_redux:gilded_leaf_pile",
+                "Properties": {
+                  "layers": "2"
+                }
+              },
+              "weight": 5
+            },
+            {
+              "data": {
+                "Name": "aether_redux:gilded_leaf_pile",
+                "Properties": {
+                  "layers": "3"
+                }
+              },
+              "weight": 4
+            },
+            {
+              "data": {
+                "Name": "aether_redux:gilded_leaf_pile",
+                "Properties": {
+                  "layers": "4"
+                }
+              },
+              "weight": 3
+            },
+            {
+              "data": {
+                "Name": "aether_redux:gilded_leaf_pile",
+                "Properties": {
+                  "layers": "5"
+                }
+              },
+              "weight": 2
+            },
+            {
+              "data": {
+                "Name": "aether_redux:gilded_leaf_pile",
+                "Properties": {
+                  "layers": "6"
+                }
+              },
+              "weight": 1
+            }
+          ]
+        },
+        "tries": 32,
+        "xz_spread": 7,
+        "y_spread": 3
+      }
+    ],
+    "dirt_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:dirt"
+      }
+    },
+    "foliage_placer": {
+      "type": "aether_redux:genesis_hooked",
+      "offset": 1,
+      "radius": 2,
+      "trunk_height": 2
+    },
+    "foliage_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "aether_redux:gilded_oak_leaves",
+        "Properties": {
+          "distance": "7",
+          "double_drops": "true",
+          "persistent": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "force_dirt": false,
+    "ignore_vines": true,
+    "minimum_size": {
+      "type": "minecraft:two_layers_feature_size",
+      "limit": 2,
+      "lower_size": 1,
+      "upper_size": 4
+    },
+    "trunk_placer": {
+      "type": "aether_redux:genesis_hooked_trunk_placer",
+      "base_height": 8,
+      "height_rand_a": 14,
+      "height_rand_b": 14
+    },
+    "trunk_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "aether:skyroot_log",
+        "Properties": {
+          "axis": "y",
+          "double_drops": "true"
+        }
+      }
+    }
+  }
+}

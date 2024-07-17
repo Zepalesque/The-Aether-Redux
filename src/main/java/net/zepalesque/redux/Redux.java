@@ -73,6 +73,7 @@ import net.zepalesque.redux.event.hook.SwetHooks;
 import net.zepalesque.redux.event.listener.MobSoundListener;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.loot.condition.ReduxLootConditions;
+import net.zepalesque.redux.loot.functions.ReduxLootFunctions;
 import net.zepalesque.redux.loot.modifiers.ReduxLootModifiers;
 import net.zepalesque.redux.misc.ReduxPackSources;
 import net.zepalesque.redux.misc.ReduxPotions;
@@ -81,7 +82,6 @@ import net.zepalesque.redux.recipe.ReduxRecipeTypes;
 import net.zepalesque.redux.recipe.condition.DataRecipeCondition;
 import net.zepalesque.redux.recipe.serializer.ReduxRecipeSerializers;
 import net.zepalesque.redux.world.biome.ReduxRegion;
-import net.zepalesque.redux.world.biome.ReduxSurfaceData;
 import net.zepalesque.redux.world.biome.modifier.ReduxBiomeModifierCodecs;
 import net.zepalesque.redux.world.biome.surfacerule.ReduxConditionSources;
 import net.zepalesque.redux.world.carver.ReduxCarvers;
@@ -96,9 +96,7 @@ import net.zepalesque.redux.world.tree.trunk.ReduxTrunkPlacers;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import teamrazor.aeroblender.AeroBlenderConfig;
-import teamrazor.aeroblender.aether.AetherRuleCategory;
 import terrablender.api.Regions;
-import terrablender.api.SurfaceRuleManager;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -164,6 +162,7 @@ public class Redux {
         ReduxMenuTypes.MENU_TYPES.register(bus);
         ReduxAdvancementSounds.SOUNDS.register(bus);
         ReduxBlocks.registerPots();
+        ReduxLootFunctions.LOOT_FUNCTION_TYPES.register(bus);
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(MobSoundListener.class);
         WoodHandlers.init();
@@ -211,7 +210,6 @@ public class Redux {
             registerDispenserBehaviors();
             replaceBlockSounds();
             Regions.register(new ReduxRegion(new ResourceLocation(MODID, "aether_redux_region"), ReduxConfig.COMMON.region_size.get()));
-            SurfaceRuleManager.addSurfaceRules(AetherRuleCategory.THE_AETHER, "aether_redux", ReduxSurfaceData.makeRules());
             if (ReduxConfig.COMMON.smaller_mimic_hitbox.get()) {
                 AetherEntityTypes.MIMIC.get().getDimensions().height = 1.25F;
                 ReduxEntityTypes.SKYROOT_MIMIC.get().getDimensions().height = 1.25F;
@@ -347,7 +345,6 @@ public class Redux {
                 ReduxOverridesPackResources combined = ReduxPackConfig.generate(id, title, desc);
                 BuiltinPackUtils.mandatory(event, combined, id, title, desc);
             }
-
         }
     }
 

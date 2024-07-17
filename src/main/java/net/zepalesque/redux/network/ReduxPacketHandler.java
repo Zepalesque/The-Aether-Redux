@@ -35,7 +35,6 @@ public class ReduxPacketHandler {
         register(VampireAmuletSyncPacket.class, VampireAmuletSyncPacket::decode);
         register(LoreUnlockPacket.class, LoreUnlockPacket::decode);
         register(SyncAetherGrassesPacket.class, SyncAetherGrassesPacket::decode);
-        register(InfusionExpirePacket.class, buf -> new InfusionExpirePacket());
         register(BlightshadeParticlePacket.class, BlightshadeParticlePacket::decode);
     }
 

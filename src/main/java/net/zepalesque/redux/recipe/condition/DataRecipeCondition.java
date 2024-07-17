@@ -52,8 +52,7 @@ public  class DataRecipeCondition implements ICondition {
         {
 
             DataResult<JsonElement> result = AbstractCondition.CODEC.encodeStart(JsonOps.INSTANCE, value.condition);
-            result.resultOrPartial(errorMessage -> Redux.LOGGER.warn("Could not write DataRecipeCondition with id {} - error: {}", this.getID(), errorMessage))
-                    .ifPresent((jsonElement) -> json.add("data_recipe_condition", jsonElement));
+            result.resultOrPartial(Redux.LOGGER::error).ifPresent((jsonElement) -> json.add("data_recipe_condition", jsonElement));
 
         }
 
@@ -61,7 +60,7 @@ public  class DataRecipeCondition implements ICondition {
         public DataRecipeCondition read(JsonObject json)
         {
             JsonElement element = json.get("data_recipe_condition");
-            Optional<? extends AbstractCondition<?>> optional = AbstractCondition.CODEC.parse(JsonOps.INSTANCE, element).resultOrPartial(errorMessage -> Redux.LOGGER.warn("Could not parse DataRecipeCondition from json with id {} - error: {}", this.getID(), errorMessage));
+            Optional<? extends AbstractCondition<?>> optional = AbstractCondition.CODEC.parse(JsonOps.INSTANCE, element).resultOrPartial(Redux.LOGGER::error);
             if (optional.isPresent())
             {
                 return new DataRecipeCondition(optional.get());

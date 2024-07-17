@@ -37,7 +37,7 @@ public class AetherLeavesClientMixin extends LeafBlockClientMixin {
 
         // we are already on the client side
         @Nullable Supplier<? extends ParticleOptions> supplier = redux$getParticle((AetherDoubleDropsLeaves) (Object) this);
-        int chance = level.getBiome(pos).is(ReduxTags.Biomes.DENSE_LEAF_FALL) ? 20 : 30;
+        int chance = level.getBiome(pos).is(ReduxTags.Biomes.DENSE_LEAF_FALL) ? 15 : 30;
         if (supplier != null && random.nextInt(chance) == 0) {
             BlockPos blockpos = pos.below();
             BlockState blockstate = level.getBlockState(blockpos);

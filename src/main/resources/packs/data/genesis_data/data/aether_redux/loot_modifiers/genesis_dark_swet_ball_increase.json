@@ -1,5 +1,9 @@
 {
-  "type": "aether_redux:add_drops",
+  "type": "aether_redux:replace",
+  "added_item": {
+    "Count": 1,
+    "id": "aether_genesis:dark_swet_ball"
+  },
   "conditions": [
     {
       "condition": "minecraft:entity_properties",
@@ -18,13 +22,7 @@
   ],
   "functions": [
     {
-      "add": false,
-      "count": {
-        "type": "minecraft:uniform",
-        "max": 2.0,
-        "min": 0.0
-      },
-      "function": "minecraft:set_count"
+      "function": "aether_redux:swet_gel_count"
     },
     {
       "count": {
@@ -35,8 +33,5 @@
       "function": "minecraft:looting_enchant"
     }
   ],
-  "item": {
-    "Count": 1,
-    "id": "aether_genesis:dark_swet_ball"
-  }
+  "removed_item": "aether_genesis:dark_swet_ball"
 }

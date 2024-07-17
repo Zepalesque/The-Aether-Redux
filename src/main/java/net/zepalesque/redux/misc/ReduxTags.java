@@ -24,7 +24,6 @@ public class ReduxTags {
         public static final TagKey<Block> AEVELIUM_GRASSES = tag("aevelium_grasses");
         public static final TagKey<Block> QUICKSOIL_BEHAVIOR = tag("quicksoil_behavior");
         public static final TagKey<Block> ENCHANTED_VINES_SKIP_PLACEMENT = tag("enchanted_vines_skip_placement");
-        public static final TagKey<Block> ENCHANTED_VINES_SURVIVE = tag("enchanted_vines_survive");
         public static final TagKey<Block> MUSHROOM_CAPS = tag("mushroom_caps");
         public static final TagKey<Block> DO_NOT_REPLACE_AETHER_GRASS = tag("do_not_replace_aether_grass");
 
@@ -92,21 +91,15 @@ public class ReduxTags {
         public static final TagKey<Biome> HAS_VERIDIUM_ORE = tag("has_veridium_ore");
         public static final TagKey<Biome> HAS_DIVINITE = tag("has_divinite");
         public static final TagKey<Biome> HAS_SENTRITE = tag("has_sentrite");
-        public static final TagKey<Biome> HAS_REDUX_WATER_COLOR = tag("has_redux_water_color");
+        public static final TagKey<Biome> MODIFY_WATER_COLOR = tag("has_redux_water_color");
         public static final TagKey<Biome> HAS_REDUX_SKY_COLOR = tag("has_redux_sky_color");
-        public static final TagKey<Biome> HAS_REDUX_FROSTED_SKY_COLOR = tag("has_redux_frosted_sky_color");
-        public static final TagKey<Biome> HAS_REDUX_SHRUBLANDS_SKY_COLOR = tag("has_redux_shrublands_sky_color");
-        public static final TagKey<Biome> HAS_REDUX_SKYFIELDS_SKY_COLOR = tag("has_redux_skyfields_sky_color");
-        public static final TagKey<Biome> HAS_REDUX_GILDED_SKY_COLOR = tag("has_redux_gilded_sky_color");
-        public static final TagKey<Biome> REDUX_SKY_COLOR_IS_BASE = tag("redux_sky_color_is_base");
-        public static final TagKey<Biome> NO_GRASS_OVERRIDE = tag("no_grass_override");
-        public static final TagKey<Biome> HAS_GRASS_OVERRIDE = tag("has_grass_override");
+        public static final TagKey<Biome> CHANGE_VANILLA_GRASS_COLORS = tag("change_vanilla_grass_colors");
 
         public static final TagKey<Biome> FOREST_COLORS = tag("forest_colors");
         public static final TagKey<Biome> WOODLAND_COLORS = tag("woodland_colors");
         public static final TagKey<Biome> MEADOW_COLORS = tag("meadow_colors");
 
-        public static final TagKey<Biome> MUSIC_MODIFY = tag("music_modify");
+        public static final TagKey<Biome> MODIFY_MUSIC = tag("modify_music");
 
         public static final TagKey<Biome> DENSE_LEAF_FALL = tag("dense_leaf_fall");
 

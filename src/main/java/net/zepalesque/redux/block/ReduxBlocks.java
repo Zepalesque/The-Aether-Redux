@@ -14,6 +14,7 @@ import com.aetherteam.aether.mixin.mixins.common.accessor.FireBlockAccessor;
 import com.aetherteam.nitrogen.item.block.EntityBlockItem;
 import com.google.common.base.Supplier;
 import net.minecraft.core.BlockPos;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
@@ -23,20 +24,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.ChainBlock;
-import net.minecraft.world.level.block.FlowerBlock;
-import net.minecraft.world.level.block.FlowerPotBlock;
-import net.minecraft.world.level.block.GlowLichenBlock;
-import net.minecraft.world.level.block.LadderBlock;
-import net.minecraft.world.level.block.MultifaceBlock;
-import net.minecraft.world.level.block.RotatedPillarBlock;
-import net.minecraft.world.level.block.SaplingBlock;
-import net.minecraft.world.level.block.SlabBlock;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.StairBlock;
-import net.minecraft.world.level.block.WallBlock;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.WoodType;
@@ -96,10 +85,11 @@ import net.zepalesque.redux.blockentity.TrappedSkyrootChestBlockEntity;
 import net.zepalesque.redux.client.ReduxClient;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.config.ReduxConfig;
-import net.zepalesque.redux.data.resource.ReduxConfiguredFeatures;
+import net.zepalesque.redux.data.resource.ReduxFeatureConfig;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.item.block.WoodenBlockItem;
 import net.zepalesque.redux.misc.ReduxTags;
+import net.zepalesque.redux.item.misc.LegacyBlockItem;
 import net.zepalesque.redux.world.tree.grower.CrystalTree;
 import net.zepalesque.redux.world.tree.grower.ReduxSuppliedTree;
 
@@ -111,6 +101,24 @@ import java.util.function.UnaryOperator;
 public class ReduxBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Redux.MODID);
     public static final DeferredRegister<Item> ITEMS = ReduxItems.ITEMS;
+
+    public static final RegistryObject<Block> REFINED_SENTRITE_BLOCK = register(
+            "refined_sentrite_block",
+            () -> new Block(
+                    BlockBehaviour.Properties.of(Material.METAL)
+                            .color(MaterialColor.COLOR_GRAY)
+                            .requiresCorrectToolForDrops()
+                            .strength(6.0F, 6.0F)
+                            .sound(SoundType.NETHERITE_BLOCK)
+            )
+    );
+
+    public static RegistryObject<Block> SENTRITE_CHAIN = register("sentrite_chain",
+            () -> new ChainBlock(BlockBehaviour.Properties.copy(Blocks.CHAIN)));
+
+    public static RegistryObject<Block> SENTRITE_LANTERN = register("sentrite_lantern",
+            () -> new LanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).color(MaterialColor.DEEPSLATE).lightLevel(state -> 13)));
+
 
     // L O G
     public static final RegistryObject<RotatedPillarBlock> DRIFTSHALE = register("driftshale",
@@ -230,7 +238,7 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
     public static RegistryObject<Block> CLOUDCAP_SPORES = register("cloudcap_spores",
             () -> new CloudcapSporesBlock(BlockBehaviour.Properties.of(Material.PLANT).color(MaterialColor.COLOR_LIGHT_BLUE).strength(0.3F).sound(SoundType.WART_BLOCK).lightLevel((state) -> 15).emissiveRendering(ReduxBlocks::always).noOcclusion()));
 
-    public static final RegistryObject<Block> JELLYSHROOM = register("jellyshroom", () -> new AetherMushroom(Block.box(2D, 0D, 3D, 12D, 13D, 12D), Block.Properties.of(Material.PLANT).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().instabreak().sound(SoundType.FUNGUS).color(MaterialColor.COLOR_PURPLE), ReduxConfiguredFeatures.LARGE_JELLYSHROOM));
+    public static final RegistryObject<Block> JELLYSHROOM = register("jellyshroom", () -> new AetherMushroom(Block.box(2D, 0D, 3D, 12D, 13D, 12D), Block.Properties.of(Material.PLANT).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().instabreak().sound(SoundType.FUNGUS).color(MaterialColor.COLOR_PURPLE), ReduxFeatureConfig.LARGE_JELLYSHROOM));
     public static final RegistryObject<FlowerPotBlock> POTTED_JELLYSHROOM = BLOCKS.register("potted_jellyshroom", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, JELLYSHROOM, Block.Properties.copy(Blocks.FLOWER_POT)));
 
     public static final RegistryObject<Block> SHIMMERSTOOL = register("shimmerstool", () -> new ShimmerstoolBlock(Block.Properties.of(Material.PLANT).sound(SoundType.FUNGUS /* TODO: Amethyst-like sounds? */).noCollission().offsetType(BlockBehaviour.OffsetType.XZ).instabreak().color(MaterialColor.TERRACOTTA_LIGHT_BLUE).lightLevel((state) -> 10)));
@@ -282,7 +290,8 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
     public static final RegistryObject<FlowerPotBlock> POTTED_BLIGHTSHADE = BLOCKS.register("potted_blightshade", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, BLIGHTSHADE, Block.Properties.copy(Blocks.FLOWER_POT)));
 
     public static RegistryObject<Block> CLOUDCAP_MUSHLING = register("cloudcap_mushling",
-            () -> new AetherMushroom(Block.box(4.0D, 0.0D, 4.0D, 12.0D, 12.0D, 12.0D), BlockBehaviour.Properties.of(Material.PLANT).lightLevel((state) -> 6).noCollission().instabreak().sound(SoundType.NETHER_SPROUTS).offsetType(BlockBehaviour.OffsetType.XZ), ReduxConfiguredFeatures.LARGE_CLOUDCAP));
+            () -> new AetherMushroom(Block.box(4.0D, 0.0D, 4.0D, 12.0D, 12.0D, 12.0D), BlockBehaviour.Properties.of(Material.PLANT).lightLevel((state) -> 6).noCollission().instabreak().sound(SoundType.NETHER_SPROUTS).offsetType(BlockBehaviour.OffsetType.XZ), ReduxFeatureConfig.LARGE_CLOUDCAP));
+
     public static final RegistryObject<FlowerPotBlock> POTTED_CLOUDCAP_MUSHLING = BLOCKS.register("potted_cloudcap_mushling", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CLOUDCAP_MUSHLING, Block.Properties.copy(Blocks.FLOWER_POT).lightLevel((state) -> 3)));
 
     public static RegistryObject<Block> LUMINA = register("lumina",
@@ -363,7 +372,7 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
             ));
 
     public static final RegistryObject<SaplingBlock> BLIGHTWILLOW_SAPLING = register("blightwillow_sapling", () ->
-            new SaplingBlock(new ReduxSuppliedTree(ReduxConfiguredFeatures.BLIGHTWILLOW_TREE), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING).sound(SoundType.AZALEA))
+            new SaplingBlock(new ReduxSuppliedTree(ReduxFeatureConfig.BLIGHTWILLOW_TREE), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING).sound(SoundType.AZALEA))
     );
     public static final RegistryObject<FlowerPotBlock> POTTED_BLIGHTWILLOW_SAPLING = BLOCKS.register("potted_blightwillow_sapling",
             () -> new FlowerPotBlock(() ->
@@ -391,7 +400,7 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
 
 
     public static final RegistryObject<SaplingBlock> FIELDSPROOT_SAPLING = register("fieldsproot_sapling", () ->
-            new SaplingBlock(new ReduxSuppliedTree(ReduxConfiguredFeatures.FIELDSPROOT_TREE), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING).sound(SoundType.BAMBOO_SAPLING))
+            new SaplingBlock(new ReduxSuppliedTree(ReduxFeatureConfig.FIELDSPROOT_TREE), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING).sound(SoundType.BAMBOO_SAPLING))
     );
     public static final RegistryObject<FlowerPotBlock> POTTED_FIELDSPROOT_SAPLING = BLOCKS.register("potted_fieldsproot_sapling",
             () -> new FlowerPotBlock(() ->
@@ -405,7 +414,7 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
 
 
     public static final RegistryObject<SaplingBlock> GLACIA_SAPLING = register("glacia_sapling", () ->
-            new SaplingBlock(new ReduxSuppliedTree(ReduxConfiguredFeatures.GLACIA_TREE), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING))
+            new SaplingBlock(new ReduxSuppliedTree(ReduxFeatureConfig.GLACIA_TREE), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING))
     );
     public static final RegistryObject<FlowerPotBlock> POTTED_GLACIA_SAPLING = BLOCKS.register("potted_glacia_sapling",
             () -> new FlowerPotBlock(() ->
@@ -415,7 +424,7 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
 
 
     public static final RegistryObject<SaplingBlock> PURPLE_GLACIA_SAPLING = register("purple_glacia_sapling", () ->
-            new SaplingBlock(new ReduxSuppliedTree(ReduxConfiguredFeatures.PURPLE_GLACIA_TREE), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING))
+            new SaplingBlock(new ReduxSuppliedTree(ReduxFeatureConfig.PURPLE_GLACIA_TREE), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING))
     );
     public static final RegistryObject<FlowerPotBlock> POTTED_PURPLE_GLACIA_SAPLING = BLOCKS.register("purple_potted_glacia_sapling",
             () -> new FlowerPotBlock(() ->
@@ -462,7 +471,7 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
 
 
     public static final RegistryObject<SaplingBlock> GILDED_OAK_SAPLING = register("gilded_oak_sapling", () ->
-            new SaplingBlock(new ReduxSuppliedTree(random -> ReduxConfig.COMMON.alternate_gilded_trees.get() ? ReduxConfiguredFeatures.SMALL_GILDED_OAK_TREE : random.nextBoolean() ? ReduxConfiguredFeatures.FANCY_GILDED_OAK_TREE : ReduxConfiguredFeatures.GILDED_OAK_TREE), BlockBehaviour.Properties.copy(AetherBlocks.GOLDEN_OAK_SAPLING.get()))
+            new SaplingBlock(new ReduxSuppliedTree(random -> ReduxConfig.COMMON.legacy_gilded_groves.get() ? ReduxFeatureConfig.LEGACY_GILDED_OAK_TREE : ReduxFeatureConfig.GROVE_GILDED_TREES), BlockBehaviour.Properties.copy(AetherBlocks.GOLDEN_OAK_SAPLING.get()))
     );
 
     public static final RegistryObject<FlowerPotBlock> POTTED_GILDED_OAK_SAPLING = BLOCKS.register("potted_gilded_oak_sapling",
@@ -472,7 +481,7 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
     );
 
     public static final RegistryObject<SaplingBlock> BLIGHTED_SKYROOT_SAPLING = register("blighted_skyroot_sapling", () ->
-            new SaplingBlock(new ReduxSuppliedTree(ReduxConfiguredFeatures.BLIGHTED_SKYROOT_TREE), BlockBehaviour.Properties.copy(AetherBlocks.SKYROOT_SAPLING.get()))
+            new SaplingBlock(new ReduxSuppliedTree(ReduxFeatureConfig.BLIGHTED_SKYROOT_TREE), BlockBehaviour.Properties.copy(AetherBlocks.SKYROOT_SAPLING.get()))
     );
 
     public static final RegistryObject<FlowerPotBlock> POTTED_BLIGHTED_SKYROOT_SAPLING = BLOCKS.register("potted_blighted_skyroot_sapling",
@@ -494,10 +503,11 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
             () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of(Material.STONE).color(MaterialColor.WOOL).strength(3.0F).requiresCorrectToolForDrops()));
 
     public static RegistryObject<Block> VERIDIUM_BLOCK = register("veridium_block",
-            () -> new Block(BlockBehaviour.Properties.of(Material.METAL).color(MaterialColor.LAPIS).strength(5.0F, 6.0F).requiresCorrectToolForDrops().sound(SoundType.NETHERITE_BLOCK)));
+            () -> new Block(BlockBehaviour.Properties.of(Material.METAL).color(MaterialColor.LAPIS).strength(5.0F, 6.0F).requiresCorrectToolForDrops().sound(SoundType.METAL)));
 
     public static RegistryObject<Block> RAW_VERIDIUM_BLOCK = register("raw_veridium_block",
-            () -> new Block(BlockBehaviour.Properties.of(Material.METAL).color(MaterialColor.LAPIS).strength(3.0F, 6.0F).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
+            () -> new Block(BlockBehaviour.Properties.of(Material.METAL).color(MaterialColor.LAPIS).strength(3.0F, 6.0F).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+
 
     public static RegistryObject<Block> RAW_VALKYRUM_BLOCK = register("raw_valkyrum_block",
             () -> new Block(BlockBehaviour.Properties.copy(AetherBlocks.ZANITE_BLOCK.get()).strength(6.0F, 8.0F).color(MaterialColor.TERRACOTTA_WHITE)));
@@ -510,25 +520,25 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
             () -> new FloatingBlock(true, BlockBehaviour.Properties.copy(AetherBlocks.ENCHANTED_GRAVITITE.get())), properties -> properties.rarity(Rarity.RARE));
 
 
-    // TODO: Consider using unique behavior rather than reskinned Glow Lichen
+    // TODO 2.1: Make more like Quickroots were
     public static RegistryObject<MultifaceBlock> LIGHTROOTS = BLOCKS.register("lightroots",
             () -> new GlowLichenBlock(BlockBehaviour.Properties.copy(Blocks.GLOW_LICHEN).lightLevel(GlowLichenBlock.emission(12)).color(MaterialColor.DIAMOND).randomTicks()));
 
     public static RegistryObject<EnchantedVinesHeadBlock> GOLDEN_VINES = register("golden_vines",
             () -> new EnchantedVinesHeadBlock(BlockBehaviour.Properties.copy(Blocks.WEEPING_VINES)
-                    .color(MaterialColor.GOLD).sound(SoundType.CAVE_VINES), (state) -> state.is(ReduxTags.Blocks.ENCHANTED_VINES_SURVIVE), ReduxBlocks.GOLDEN_VINES_PLANT));
+                    .color(MaterialColor.GOLD).sound(SoundType.CAVE_VINES), ReduxBlocks.GOLDEN_VINES_PLANT, BlockTags.LEAVES));
 
     public static RegistryObject<EnchantedVinesPlantBlock> GOLDEN_VINES_PLANT = BLOCKS.register("golden_vines_plant",
             () -> new EnchantedVinesPlantBlock(BlockBehaviour.Properties.copy(Blocks.WEEPING_VINES_PLANT)
-                    .color(MaterialColor.GOLD).sound(SoundType.CAVE_VINES), (state) -> state.is(ReduxTags.Blocks.ENCHANTED_VINES_SURVIVE), ReduxBlocks.GOLDEN_VINES));
+                    .color(MaterialColor.GOLD).sound(SoundType.CAVE_VINES), ReduxBlocks.GOLDEN_VINES, BlockTags.LEAVES));
 
-    public static RegistryObject<EnchantedVinesHeadBlock> GILDED_VINES = register("gilded_vines",
+    public static RegistryObject<EnchantedVinesHeadBlock> GILDED_VINES = legacyDel("gilded_vines",
             () -> new EnchantedVinesHeadBlock(BlockBehaviour.Properties.copy(Blocks.WEEPING_VINES)
-                    .color(MaterialColor.QUARTZ).sound(SoundType.CAVE_VINES), (state) -> state.is(ReduxTags.Blocks.ENCHANTED_VINES_SURVIVE), ReduxBlocks.GILDED_VINES_PLANT));
+                    .color(MaterialColor.QUARTZ).sound(SoundType.CAVE_VINES), ReduxBlocks.GILDED_VINES_PLANT, BlockTags.LEAVES));
 
     public static RegistryObject<EnchantedVinesPlantBlock> GILDED_VINES_PLANT = BLOCKS.register("gilded_vines_plant",
             () -> new EnchantedVinesPlantBlock(BlockBehaviour.Properties.copy(Blocks.WEEPING_VINES_PLANT)
-                    .color(MaterialColor.QUARTZ).sound(SoundType.CAVE_VINES), (state) -> state.is(ReduxTags.Blocks.ENCHANTED_VINES_SURVIVE), ReduxBlocks.GILDED_VINES));
+                    .color(MaterialColor.QUARTZ).sound(SoundType.CAVE_VINES), ReduxBlocks.GILDED_VINES, BlockTags.LEAVES));
 
 
     public static RegistryObject<CorruptedVinesHeadBlock> CORRUPTED_VINES = register("corrupted_vines",
@@ -539,11 +549,13 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
             () -> new CorruptedVinesPlantBlock(BlockBehaviour.Properties.copy(Blocks.TWISTING_VINES_PLANT)
                     .color(MaterialColor.TERRACOTTA_MAGENTA).sound(SoundType.CAVE_VINES).lightLevel(value -> 8), ReduxBlocks.CORRUPTED_VINES));
 
-    public static RegistryObject<Block> VERIDIUM_CHAIN = register("veridium_chain",
-            () -> new ChainBlock(BlockBehaviour.Properties.copy(Blocks.CHAIN)));
+    public static RegistryObject<Block> VERIDIUM_CHAIN = legacyRep("veridium_chain",
+            () -> new ChainBlock(BlockBehaviour.Properties.copy(Blocks.CHAIN)),
+            () -> Blocks.CHAIN, ReduxBlocks.SENTRITE_CHAIN::get);
 
-    public static RegistryObject<Block> VERIDIUM_LANTERN = register("veridium_lantern",
-            () -> new VeridiumLanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).lightLevel((p_187433_) -> 13).noOcclusion()));
+    public static RegistryObject<Block> VERIDIUM_LANTERN = legacyRep("veridium_lantern",
+            () -> new VeridiumLanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).lightLevel((p_187433_) -> 13).noOcclusion()),
+            () -> Blocks.SOUL_LANTERN, ReduxBlocks.SENTRITE_LANTERN::get);
 
 
     public static final RegistryObject<Block> SKYROOT_CRAFTING_TABLE = register("skyroot_crafting_table", () -> new SkyrootCraftingTableBlock(Block.Properties.of(Material.WOOD).strength(2.5F).sound(SoundType.WOOD)));
@@ -680,6 +692,22 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
     }
     public static <T extends Block> RegistryObject<T> registerNoTab(final String name, final Supplier<? extends T> block) {
         return registerItem(name, block, object -> () -> new BlockItem(object.get(), new Item.Properties()));
+    }
+
+    public static <T extends Block> RegistryObject<T> legacyRep(final String name, final Supplier<? extends T> block, final Supplier<? extends ItemLike> replacement) {
+        return registerItem(name, block, object -> () -> LegacyBlockItem.toReplace(object.get(), new Item.Properties(), replacement));
+    }
+
+    public static <T extends Block> RegistryObject<T> legacyRep(final String name, final Supplier<? extends T> block, final Supplier<? extends ItemLike> replacement, final Supplier<? extends ItemLike> counterpart) {
+        return registerItem(name, block, object -> () -> LegacyBlockItem.toReplace(object.get(), new Item.Properties(), replacement, counterpart));
+    }
+
+    public static <T extends Block> RegistryObject<T> legacyDel(final String name, final Supplier<? extends T> block) {
+        return registerItem(name, block, object -> () -> LegacyBlockItem.toDelete(object.get(), new Item.Properties()));
+    }
+
+    public static <T extends Block> RegistryObject<T> legacyDel(final String name, final Supplier<? extends T> block, final Supplier<? extends ItemLike> counterpart) {
+        return registerItem(name, block, object -> () -> LegacyBlockItem.toDelete(object.get(), new Item.Properties(), counterpart));
     }
 
     public static <T extends Block> RegistryObject<T> registerModifyItemProperties(final String name, final Supplier<? extends T> block, UnaryOperator<Item.Properties> propertyModifier) {

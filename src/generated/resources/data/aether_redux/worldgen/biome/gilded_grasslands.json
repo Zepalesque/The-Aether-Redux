@@ -42,8 +42,8 @@
       "aether:water_spring"
     ],
     [
+      "aether_redux:trees/grassland_trees_legacy",
       "aether_redux:trees/grassland_trees",
-      "aether_redux:trees/grassland_trees_alt",
       "aether:holiday_tree",
       "aether:grass_patch",
       "aether_redux:compat/ancient_enchanted_grass",

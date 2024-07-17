@@ -1,0 +1,62 @@
+{
+  "feature": "aether_redux:trees/grassland_trees_legacy",
+  "placement": [
+    {
+      "type": "aether_redux:data_condition",
+      "data_condition": {
+        "condition": "aether_redux:redux_config",
+        "config_path": "[Worldgen, Additional Features, Legacy Gilded Groves Design]"
+      }
+    },
+    {
+      "type": "minecraft:count",
+      "count": {
+        "type": "minecraft:weighted_list",
+        "distribution": [
+          {
+            "data": 2,
+            "weight": 9
+          },
+          {
+            "data": 3,
+            "weight": 1
+          },
+          {
+            "data": 0,
+            "weight": 4
+          }
+        ]
+      }
+    },
+    {
+      "type": "aether:improved_layer_placement",
+      "count": {
+        "type": "minecraft:uniform",
+        "value": {
+          "max_inclusive": 1,
+          "min_inclusive": 0
+        }
+      },
+      "heightmap": "MOTION_BLOCKING",
+      "verticalBounds": 4
+    },
+    {
+      "type": "minecraft:biome"
+    },
+    {
+      "type": "aether:dungeon_blacklist_filter"
+    },
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:would_survive",
+        "state": {
+          "Name": "aether_redux:gilded_oak_sapling",
+          "Properties": {
+            "stage": "0"
+          }
+        }
+      }
+    }
+  ]
+}

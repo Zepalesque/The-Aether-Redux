@@ -1,4 +1,4 @@
-// 1.20.1	2024-06-09T16:09:58.4575579	Tags for minecraft:block mod id aether_redux
+// 1.20.1	2024-07-11T10:12:11.9783753	Tags for minecraft:block mod id aether_redux
 8f59d0f2e59cb5eca343062c21759ff8593f2e46 data/aether/tags/blocks/aerclouds.json
 593f50c73d9619ba0b2f5bbedad8cf5bef48adbc data/aether/tags/blocks/aether_animals_spawnable_on.json
 1abbb8fbbd6aaa2a65960af8b043d21b8cd619e9 data/aether/tags/blocks/aether_dirt.json
@@ -9,7 +9,7 @@ a681ef256a73f902c2b7f4517610ae47cccada75 data/aether/tags/blocks/gravitite_abili
 079f532874a02f79935f6a4082693e47575060f5 data/aether/tags/blocks/locked_dungeon_blocks.json
 41da7e82851335e26f0259041a498020fedeb075 data/aether/tags/blocks/sentry_blocks.json
 def6d9c61e45ecd875098eeb799975a50e3d3000 data/aether/tags/blocks/trapped_dungeon_blocks.json
-10e66359cf066d796b2ab7fdbbf9c16d874e85da data/aether/tags/blocks/treated_as_aether_block.json
+3fca897360173b59eda3e1d7e28b10466fcd3a8b data/aether/tags/blocks/treated_as_aether_block.json
 85b1ad865db965e78fb0da827f9f619ffe9f5878 data/aether_redux/tags/blocks/aether_carver_replaceables.json
 fd01915c57cee8effe17fe38cbedcefa19a98fb3 data/aether_redux/tags/blocks/aether_moss_replaceables.json
 6af03c05dc47726e2795f7d011a935a02927b949 data/aether_redux/tags/blocks/aevelium_grasses.json
@@ -20,7 +20,6 @@ ff76e071710735bec611ec58205f07d13cb675bd data/aether_redux/tags/blocks/crystal_l
 e0dba934faba5edd8ce150350f5b09b1f4986bb6 data/aether_redux/tags/blocks/do_not_replace_aether_grass.json
 f88e31ba010e8b41d4256635de26d1cf8a0aa221 data/aether_redux/tags/blocks/enchanted_grasses.json
 cfa8f11bb1b7280f4421cd627b807061781b78b8 data/aether_redux/tags/blocks/enchanted_vines_skip_placement.json
-4040f25e47af494a954cf298b91aa37aec210545 data/aether_redux/tags/blocks/enchanted_vines_survive.json
 4b84d89dc4750b471d3f43f98a379edd142fab59 data/aether_redux/tags/blocks/fieldsproot_logs.json
 efc061c9dfb2dd7e812e035162091fb307075fe5 data/aether_redux/tags/blocks/frosted_plants_placement.json
 82cdd6960b818e0e4b249c6f1b960a9ef8e0cc1c data/aether_redux/tags/blocks/glacia_logs.json
@@ -39,7 +38,7 @@ ab5e4a66dad29d80ebba1e08775e7c6a034b7bf4 data/minecraft/tags/blocks/leaves.json
 9d64387cacc0624ec595813a14c98f027d71dabd data/minecraft/tags/blocks/logs.json
 aebb81a662af000ceb531f2278fdd26b1f4365ca data/minecraft/tags/blocks/mineable/axe.json
 66e0532353864a48a5b67349e5977de2fe7fec5f data/minecraft/tags/blocks/mineable/hoe.json
-a752c1b538c4f357364d740f7d7f1bb657aa3481 data/minecraft/tags/blocks/mineable/pickaxe.json
+34ab7ed0b66e8d299a5d5afbb4707b786cb0d355 data/minecraft/tags/blocks/mineable/pickaxe.json
 8f324fc927e00fa03a044e076f6795d40bf18d93 data/minecraft/tags/blocks/mineable/shovel.json
 6af03c05dc47726e2795f7d011a935a02927b949 data/minecraft/tags/blocks/mushroom_grow_block.json
 3548fd3faa2233aa148f10a28b8537e0e1b1109d data/minecraft/tags/blocks/needs_iron_tool.json

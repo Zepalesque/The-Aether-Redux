@@ -170,7 +170,7 @@ public class MappingsHooks {
         builder.put(Redux.locate("carved_brick_wall"), AetherBlocks.CARVED_WALL);
         builder.put(Redux.locate("carved_stone_pillar"), ReduxBlocks.CARVED_PILLAR);
 
-
+        builder.put(Redux.locate("valkyrie_ring"), ReduxItems.RING_OF_CONSTRUCTION);
 
         return builder.build();
     }

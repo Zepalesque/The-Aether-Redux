@@ -12,8 +12,7 @@
       }
     },
     "foliage_placer": {
-      "type": "minecraft:blob_foliage_placer",
-      "height": 3,
+      "type": "aether_redux:skyroot_foliage",
       "offset": 0,
       "radius": 2
     },

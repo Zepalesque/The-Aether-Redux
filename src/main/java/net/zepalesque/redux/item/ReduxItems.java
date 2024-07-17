@@ -11,7 +11,13 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.BowlFoodItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.RecordItem;
+import net.minecraft.world.item.SpawnEggItem;
+import net.minecraft.world.item.SwordItem;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -20,7 +26,14 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
-import net.zepalesque.redux.item.accessory.*;
+import net.zepalesque.redux.item.accessory.AbilityTooltipMiscItem;
+import net.zepalesque.redux.item.accessory.AbilityTooltipPendantItem;
+import net.zepalesque.redux.item.accessory.AbilityTooltipRingItem;
+import net.zepalesque.redux.item.accessory.AirboundCapeItem;
+import net.zepalesque.redux.item.accessory.ConstructionRingItem;
+import net.zepalesque.redux.item.accessory.SnailshellShieldItem;
+import net.zepalesque.redux.item.accessory.SolarEmblemItem;
+import net.zepalesque.redux.item.accessory.VampireAmuletItem;
 import net.zepalesque.redux.item.food.ReduxFoods;
 import net.zepalesque.redux.item.misc.BlightedSporesItem;
 import net.zepalesque.redux.item.tools.VeridiumAxeItem;
@@ -80,35 +93,34 @@ public class ReduxItems {
 
     public static final RegistryObject<Item> SNAILSHELL_SHIELD = register("snailshell_shield", () -> new SnailshellShieldItem(new Item.Properties().stacksTo(1).tab(AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES)));
 
-    public static final RegistryObject<Item> VERIDIUM_DART = ITEMS.register("veridium_dart", () -> new DartItem(ReduxEntityTypes.VERIDIUM_DART, new Item.Properties().tab(AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES)));
-    public static final RegistryObject<Item> VERIDIUM_DART_SHOOTER = ITEMS.register("veridium_dart_shooter", () -> new VeridiumDartShooter(VERIDIUM_DART, ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER, 9, (new Item.Properties()).stacksTo(1).tab(AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES)));
-    public static final RegistryObject<Item> INFUSED_VERIDIUM_DART_SHOOTER = ITEMS.register("infused_veridium_dart_shooter", () -> new VeridiumDartShooter(VERIDIUM_DART, ReduxItems.VERIDIUM_DART_SHOOTER, 7, (new Item.Properties()).stacksTo(1).tab(AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES)));
+    public static final RegistryObject<Item> ENCHANTED_RING = register("enchanted_ring", () -> new RingItem(ReduxSoundEvents.EQUIP_ENCHANTED_RING, new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> GRAND_VICTORY_MEDAL = register("grand_victory_medal", () -> new AbilityTooltipPendantItem(Redux.locate("grand_medal"), ReduxSoundEvents.EQUIP_GRAND_MEDAL, new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT), "grand_medal_regen", "grand_medal_queen_refight"));
+    public static final RegistryObject<Item> SENTRY_RING = register("sentry_ring", () -> new AbilityTooltipRingItem(ReduxSoundEvents.EQUIP_SENTRY_RING, new Item.Properties().stacksTo(1), "sentry_ring_embers"));
+    public static final RegistryObject<Item> SHROOM_RING = register("shroom_ring", () -> new AbilityTooltipRingItem(ReduxSoundEvents.EQUIP_SHROOM_RING, new Item.Properties().stacksTo(1), "shroom_ring_adrenaline"));
+    public static final RegistryObject<Item> AIRBOUND_CAPE = register("airbound_cape", () -> new AirboundCapeItem("airbound_cape", new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT), "airbound_cape_jump_boost"));
+    public static final RegistryObject<Item> SOLAR_EMBLEM = register("solar_emblem", () -> new SolarEmblemItem(new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT)));
+    public static final RegistryObject<Item> RING_OF_CONSTRUCTION = register("ring_of_construction", () -> new ConstructionRingItem(ReduxSoundEvents.EQUIP_CONSTRUCTION_RING, new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> RING_OF_WISDOM = register("ring_of_wisdom", () -> new AbilityTooltipRingItem(ReduxSoundEvents.EQUIP_WISDOM_RING, new Item.Properties().stacksTo(1), "wisdom_ring_xp_increase"));
+
+    public static final RegistryObject<Item> MOUSE_EAR_SOUP = register("mouse_ear_soup", () -> new BowlFoodItem(new Item.Properties().food(ReduxFoods.MOUSE_EAR_SOUP).stacksTo(1)));
+
+    public static final RegistryObject<Item> SUBZERO_CROSSBOW = register("subzero_crossbow", () -> new SubzeroCrossbowItem(new Item.Properties().stacksTo(1).durability(1024).rarity(AetherItems.AETHER_LOOT)));
+
+    public static final RegistryObject<SpawnEggItem> VANILLA_SWET_SPAWN_EGG = ITEMS.register("vanilla_swet_spawn_egg", () -> new ForgeSpawnEggItem(ReduxEntityTypes.VANILLA_SWET, 0xF7F3E3, 0xD3CABB, new Item.Properties()));
+    public static final RegistryObject<Item> SLIDER_MUSIC_DISC = ITEMS.register("slider_music_disc", () -> (new RecordItem(1, ReduxSoundEvents.MUSIC_DISC_LABYRINTHS_VENGEANCE, (new Item.Properties()).stacksTo(1).rarity(Rarity.RARE), 4300)));
+
+    public static final RegistryObject<SpawnEggItem> SHIMMERCOW_SPAWN_EGG = ITEMS.register("shimmercow_spawn_egg", () -> new ForgeSpawnEggItem(ReduxEntityTypes.SHIMMERCOW, 0x7B7F90, 0x7876CC, new Item.Properties()));
+
+    public static final RegistryObject<SpawnEggItem> MYKAPOD_SPAWN_EGG = ITEMS.register("mykapod_spawn_egg", () -> new ForgeSpawnEggItem(ReduxEntityTypes.MYKAPOD, 0xDAE3E7, 0x7178C2, new Item.Properties()));
+
+    public static final RegistryObject<SpawnEggItem> BLIGHTBUNNY_SPAWN_EGG = ITEMS.register("blightbunny_spawn_egg", () -> new ForgeSpawnEggItem(ReduxEntityTypes.BLIGHTBUNNY, 0x6B609E, 0x8FD6C0, new Item.Properties()));
 
 
-    public static final RegistryObject<Item> ENCHANTED_RING = register("enchanted_ring", () -> new RingItem(ReduxSoundEvents.EQUIP_ENCHANTED_RING, new Item.Properties().stacksTo(1).tab(AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES)));
-    public static final RegistryObject<Item> GRAND_VICTORY_MEDAL = register("grand_victory_medal", () -> new AbilityTooltipPendantItem(Redux.locate("grand_medal"), ReduxSoundEvents.EQUIP_GRAND_MEDAL, new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT).tab(AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES), "grand_medal_regen", "grand_medal_queen_refight"));
-    public static final RegistryObject<Item> SENTRY_RING = register("sentry_ring", () -> new AbilityTooltipRingItem(ReduxSoundEvents.EQUIP_SENTRY_RING, new Item.Properties().stacksTo(1).tab(AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES), "sentry_ring_embers"));
-    public static final RegistryObject<Item> SHROOM_RING = register("shroom_ring", () -> new AbilityTooltipRingItem(ReduxSoundEvents.EQUIP_SHROOM_RING, new Item.Properties().stacksTo(1).tab(AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES), "shroom_ring_adrenaline"));
-    public static final RegistryObject<Item> AIRBOUND_CAPE = register("airbound_cape", () -> new AirboundCapeItem("airbound_cape", new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT).tab(AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES), "airbound_cape_jump_boost"));
-    public static final RegistryObject<Item> SOLAR_EMBLEM = register("solar_emblem", () -> new SolarEmblemItem(new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT).tab(AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES)));
-    public static final RegistryObject<Item> VALKYRIE_RING = register("valkyrie_ring", () -> new ValkyrieRingItem(ReduxSoundEvents.EQUIP_VALKYRIE_RING, new Item.Properties().stacksTo(1).tab(AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES)));
+    public static final RegistryObject<Item> BLIGHTED_SPORES = register("blighted_spores", () -> new BlightedSporesItem(new Item.Properties()));
 
-    public static final RegistryObject<Item> RING_OF_WISDOM = register("ring_of_wisdom", () -> new AbilityTooltipRingItem(ReduxSoundEvents.EQUIP_WISDOM_RING, new Item.Properties().stacksTo(1).tab(AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES), "wisdom_ring_xp_increase"));
-
-    public static final RegistryObject<Item> SUBZERO_CROSSBOW = register("subzero_crossbow", () -> new SubzeroCrossbowItem(new Item.Properties().stacksTo(1).durability(1024).rarity(AetherItems.AETHER_LOOT).tab(AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES)));
-
-    public static final RegistryObject<SpawnEggItem> VANILLA_SWET_SPAWN_EGG = ITEMS.register("vanilla_swet_spawn_egg", () -> new ForgeSpawnEggItem(ReduxEntityTypes.VANILLA_SWET, 0xF7F3E3, 0xD3CABB, new Item.Properties().tab(AetherCreativeTabs.AETHER_SPAWN_EGGS)));
-    public static final RegistryObject<SpawnEggItem> DARK_SWET_SPAWN_EGG = ITEMS.register("dark_swet_spawn_egg", () -> new ForgeSpawnEggItem(ReduxEntityTypes.DARK_SWET, 0x7857AE, 0x664D93, new Item.Properties().tab(AetherCreativeTabs.AETHER_SPAWN_EGGS)));
-    public static final RegistryObject<Item> SLIDER_MUSIC_DISC = ITEMS.register("slider_music_disc", () -> (new RecordItem(1, ReduxSoundEvents.MUSIC_DISC_LABYRINTHS_VENGEANCE, (new Item.Properties()).stacksTo(1).rarity(Rarity.RARE).tab(AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES), 4300)));
-
-    public static final RegistryObject<SpawnEggItem> SHIMMERCOW_SPAWN_EGG = ITEMS.register("shimmercow_spawn_egg", () -> new ForgeSpawnEggItem(ReduxEntityTypes.SHIMMERCOW, 0x7B7F90, 0x7876CC, new Item.Properties().tab(AetherCreativeTabs.AETHER_SPAWN_EGGS)));
-
-    public static final RegistryObject<SpawnEggItem> MYKAPOD_SPAWN_EGG = ITEMS.register("mykapod_spawn_egg", () -> new ForgeSpawnEggItem(ReduxEntityTypes.MYKAPOD, 0xDAE3E7, 0x7178C2, new Item.Properties().tab(AetherCreativeTabs.AETHER_SPAWN_EGGS)));
-
-    public static final RegistryObject<SpawnEggItem> BLIGHTBUNNY_SPAWN_EGG = ITEMS.register("blightbunny_spawn_egg", () -> new ForgeSpawnEggItem(ReduxEntityTypes.BLIGHTBUNNY, 0x6B609E, 0x8FD6C0, new Item.Properties().tab(AetherCreativeTabs.AETHER_SPAWN_EGGS)));
+   public static final RegistryObject<SpawnEggItem> DARK_SWET_SPAWN_EGG = ITEMS.register("dark_swet_spawn_egg", () -> new ForgeSpawnEggItem(ReduxEntityTypes.DARK_SWET, 0x7857AE, 0x664D93, new Item.Properties().tab(AetherCreativeTabs.AETHER_SPAWN_EGGS)));
 
 
-    public static final RegistryObject<Item> BLIGHTED_SPORES = register("blighted_spores", () -> new BlightedSporesItem(new Item.Properties().tab(AetherCreativeTabs.AETHER_INGREDIENTS)));
 
     // TODO in future update: Blighted Dagger (placeholder name) to make moas lay cockatrice eggs, so you can get a pet cockatrice to help you fight! :D
     public static final RegistryObject<Item> BLIGHTBUNNY_FANG = register("blightbunny_fang", () -> new Item(new Item.Properties().tab(AetherCreativeTabs.AETHER_INGREDIENTS)));
@@ -118,16 +130,22 @@ public class ReduxItems {
     public static final RegistryObject<Item> VERIDIUM_INGOT = register("veridium_ingot", () -> new Item(new Item.Properties().tab(AetherCreativeTabs.AETHER_INGREDIENTS)));
     public static final RegistryObject<Item> VERIDIUM_NUGGET = register("veridium_nugget", () -> new Item(new Item.Properties().tab(AetherCreativeTabs.AETHER_INGREDIENTS)));
 
-    public static final RegistryObject<SwordItem> VERIDIUM_SWORD = register("veridium_sword", () -> new VeridiumSwordItem(ReduxItemTiers.VERIDIUM, 2, -2.5F, new Item.Properties().tab(AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES)));
-    public static final RegistryObject<PickaxeItem> VERIDIUM_PICKAXE = register("veridium_pickaxe", () -> new VeridiumPickaxeItem(ReduxItemTiers.VERIDIUM, 0, -2.9F, new Item.Properties().tab(AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES)));
-    public static final RegistryObject<ShovelItem> VERIDIUM_SHOVEL = register("veridium_shovel", () -> new VeridiumShovelItem(ReduxItemTiers.VERIDIUM, 0, -3.1F, new Item.Properties().tab(AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES)));
-    public static final RegistryObject<AxeItem> VERIDIUM_AXE = register("veridium_axe", () -> new VeridiumAxeItem(ReduxItemTiers.VERIDIUM, 1, 0 -3.2F, new Item.Properties().tab(AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES)));
-    public static final RegistryObject<HoeItem> VERIDIUM_HOE = register("veridium_hoe", () -> new VeridiumHoeItem(ReduxItemTiers.VERIDIUM, 0, -1.7F, new Item.Properties().tab(AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES)));
-    public static final RegistryObject<SwordItem> INFUSED_VERIDIUM_SWORD = register("infused_veridium_sword", () -> new VeridiumSwordItem(ReduxItemTiers.INFUSED_VERIDIUM, 4, -2.2F, new Item.Properties().tab(AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES)));
-    public static final RegistryObject<PickaxeItem> INFUSED_VERIDIUM_PICKAXE = register("infused_veridium_pickaxe", () -> new VeridiumPickaxeItem(ReduxItemTiers.INFUSED_VERIDIUM, 1, -2.6F, new Item.Properties().tab(AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES)));
-    public static final RegistryObject<ShovelItem> INFUSED_VERIDIUM_SHOVEL = register("infused_veridium_shovel", () -> new VeridiumShovelItem(ReduxItemTiers.INFUSED_VERIDIUM, 0, -2.8F, new Item.Properties().tab(AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES)));
-    public static final RegistryObject<AxeItem> INFUSED_VERIDIUM_AXE = register("infused_veridium_axe", () -> new VeridiumAxeItem(ReduxItemTiers.INFUSED_VERIDIUM, 1, -2.9F, new Item.Properties().tab(AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES)));
-    public static final RegistryObject<HoeItem> INFUSED_VERIDIUM_HOE = register("infused_veridium_hoe", () -> new VeridiumHoeItem(ReduxItemTiers.INFUSED_VERIDIUM, 0, -1.4F, new Item.Properties().tab(AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES)));
+    public static final RegistryObject<VeridiumPickaxeItem.Uninfused> VERIDIUM_PICKAXE = ITEMS.register("veridium_pickaxe", () -> new VeridiumPickaxeItem.Uninfused(ReduxItemTiers.VERIDIUM, 0, -2.9F, new Item.Properties()));
+    public static final RegistryObject<VeridiumAxeItem.Uninfused> VERIDIUM_AXE = ITEMS.register("veridium_axe", () -> new VeridiumAxeItem.Uninfused(ReduxItemTiers.VERIDIUM, 1, 0 -3.2F, new Item.Properties()));
+    public static final RegistryObject<VeridiumShovelItem.Uninfused> VERIDIUM_SHOVEL = ITEMS.register("veridium_shovel", () -> new VeridiumShovelItem.Uninfused(ReduxItemTiers.VERIDIUM, 0, -3.1F, new Item.Properties()));
+    public static final RegistryObject<VeridiumHoeItem.Uninfused> VERIDIUM_HOE = ITEMS.register("veridium_hoe", () -> new VeridiumHoeItem.Uninfused(ReduxItemTiers.VERIDIUM, 0, -1.7F, new Item.Properties()));
+    public static final RegistryObject<VeridiumPickaxeItem> INFUSED_VERIDIUM_PICKAXE = ITEMS.register("infused_veridium_pickaxe", () -> new VeridiumPickaxeItem(ReduxItemTiers.INFUSED_VERIDIUM, 1, -2.6F, new Item.Properties(), VERIDIUM_PICKAXE));
+    public static final RegistryObject<VeridiumAxeItem> INFUSED_VERIDIUM_AXE = ITEMS.register("infused_veridium_axe", () -> new VeridiumAxeItem(ReduxItemTiers.INFUSED_VERIDIUM, 1, -2.9F, new Item.Properties(), VERIDIUM_AXE));
+    public static final RegistryObject<VeridiumShovelItem> INFUSED_VERIDIUM_SHOVEL = ITEMS.register("infused_veridium_shovel", () -> new VeridiumShovelItem(ReduxItemTiers.INFUSED_VERIDIUM, 0, -2.8F, new Item.Properties(), VERIDIUM_SHOVEL));
+    public static final RegistryObject<VeridiumHoeItem> INFUSED_VERIDIUM_HOE = ITEMS.register("infused_veridium_hoe", () -> new VeridiumHoeItem(ReduxItemTiers.INFUSED_VERIDIUM, 0, -1.4F, new Item.Properties(), VERIDIUM_HOE));
+
+    public static final RegistryObject<VeridiumSwordItem.Uninfused> VERIDIUM_SWORD = register("veridium_sword", () -> new VeridiumSwordItem.Uninfused(ReduxItemTiers.VERIDIUM, 2, -2.5F, new Item.Properties()));
+    public static final RegistryObject<SwordItem> INFUSED_VERIDIUM_SWORD = register("infused_veridium_sword", () -> new VeridiumSwordItem(ReduxItemTiers.INFUSED_VERIDIUM, 4, -2.2F, new Item.Properties(), ReduxItems.VERIDIUM_SWORD));
+
+    public static final RegistryObject<Item> VERIDIUM_DART = ITEMS.register("veridium_dart", () -> new DartItem(ReduxEntityTypes.VERIDIUM_DART, new Item.Properties()));
+    public static final RegistryObject<VeridiumDartShooter.Uninfused> VERIDIUM_DART_SHOOTER = ITEMS.register("veridium_dart_shooter", () -> new VeridiumDartShooter.Uninfused(VERIDIUM_DART, 9, new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<VeridiumDartShooter> INFUSED_VERIDIUM_DART_SHOOTER = ITEMS.register("infused_veridium_dart_shooter", () -> new VeridiumDartShooter(VERIDIUM_DART, 7, new Item.Properties().stacksTo(1), ReduxItems.VERIDIUM_DART_SHOOTER));
+
 
     public static final RegistryObject<Item> COCKATRICE_FEATHER = register("cockatrice_feather", () -> new AbilityTooltipMiscItem(new Item.Properties().stacksTo(1).tab(AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES),
             "cockatrice_feather_protection"));
@@ -143,6 +161,10 @@ public class ReduxItems {
     public static final RegistryObject<Item> SENTRY_CHIP = register("sentry_chip", () -> new Item(new Item.Properties().tab(AetherCreativeTabs.AETHER_INGREDIENTS)));
 
     public static final RegistryObject<Item> SPEAR_OF_THE_BLIGHT = register("spear_of_the_blight", () -> new BlightSpearItem(new Item.Properties().stacksTo(1).durability(256).tab(AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES), 5.0D, -2.7F));
+
+    public static final RegistryObject<Item> REFINED_SENTRITE = ITEMS.register("refined_sentrite", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> SENTRITE_CHUNK = ITEMS.register("sentrite_chunk", () -> new Item(new Item.Properties()));
+
 
     public static <T extends Item> RegistryObject<T> register(final String name, final Supplier<T> item)
     {
