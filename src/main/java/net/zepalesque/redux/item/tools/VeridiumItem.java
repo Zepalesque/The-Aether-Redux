@@ -63,7 +63,7 @@ public interface VeridiumItem extends CustomStackingBehavior {
     // If null is returned, do not change the item in the slot
     @Nullable
     default ItemStack deplete(ItemStack stack, @Nullable LivingEntity user, int amount) {
-        if (user != null && user.level().isClientSide()) {
+        if (user != null && user.getLevel().isClientSide()) {
             return null;
         }
         if (user instanceof Player p && p.isCreative()) {
@@ -80,11 +80,11 @@ public interface VeridiumItem extends CustomStackingBehavior {
         return null;
     }
 
-    default Optional<Holder<SoundEvent>> getUninfuseSound() {
-        return ReduxSoundEvents.INFUSION_EXPIRE.getHolder();
+    default SoundEvent getUninfuseSound() {
+        return ReduxSoundEvents.INFUSION_EXPIRE.get();
     }
 
     default void sendSound(ServerPlayer sp) {
-        this.getUninfuseSound().ifPresent(sound -> sp.connection.send(new ClientboundSoundPacket(sound, SoundSource.PLAYERS, sp.getX(), sp.getY(), sp.getZ(), 0.8F, 0.8F + sp.level().getRandom().nextFloat() * 0.4F, sp.level().getRandom().nextLong())));
+        sp.connection.send(new ClientboundSoundPacket(this.getUninfuseSound(), SoundSource.PLAYERS, sp.getX(), sp.getY(), sp.getZ(), 0.8F, 0.8F + sp.getLevel().getRandom().nextFloat() * 0.4F, sp.getLevel().getRandom().nextLong()));
     }
 }
