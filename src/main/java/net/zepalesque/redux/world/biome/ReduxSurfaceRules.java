@@ -7,7 +7,6 @@ import com.aetherteam.aether.data.resources.registries.AetherDimensions;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -41,7 +40,7 @@ public class ReduxSurfaceRules {
     public static void onServerAboutToStart(ServerAboutToStartEvent event) {
         MinecraftServer server = event.getServer();
         RegistryAccess access = server.registryAccess();
-        Registry<LevelStem> registry = access.registryOrThrow(Registries.LEVEL_STEM);
+        Registry<LevelStem> registry = access.registryOrThrow(Registry.LEVEL_STEM_REGISTRY);
         LevelStem levelStem = registry.get(AetherDimensions.AETHER_LEVEL_STEM);
         if (levelStem != null) {
             ChunkGenerator generator = levelStem.generator();

@@ -1,21 +1,15 @@
 package net.zepalesque.redux.world.biome.modifier;
 
-import com.mojang.datafixers.util.Either;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.util.ExtraCodecs;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.common.world.ModifiableBiomeInfo;
 import net.zepalesque.redux.util.codec.ReduxCodecs;
-import net.zepalesque.redux.util.holder.HolderUtil;
 import net.zepalesque.redux.util.holder.RegistryMap;
 
-import java.util.Map;
 import java.util.Optional;
 
 public record SkiesModifier(Optional<DefaultSkySettings> settings, RegistryMap<Biome, Integer> skyMap, RegistryMap<Biome, Integer> fogMap) implements BiomeModifier {

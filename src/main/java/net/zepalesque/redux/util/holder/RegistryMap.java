@@ -6,12 +6,10 @@ import com.mojang.datafixers.util.Either;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.Holder;
-import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.EggItem;
 import net.minecraftforge.common.util.LazyOptional;
 import net.zepalesque.redux.Redux;
 
@@ -56,15 +54,15 @@ public interface RegistryMap<K, V> {
         return this.holderMap().map(map -> map.containsValue(val)).orElse(false) || this.encodeMap().containsValue(val);
     }
 
-    Registered<K, V> asRegistered(HolderLookup<K> lookup);
+    Registered<K, V> asRegistered();
 
 
     class Keyed<K, V>  implements RegistryMap<K, V> {
         protected final Map<Either<TagKey<K>, ResourceKey<K>>, V> encodeMap;
         protected final LazyOptional<Map<ResourceKey<K>, V>> keyMap;
-        protected final HolderGetter<K> getter;
+        protected final Registry<K> getter;
 
-        private Keyed(Map<Either<TagKey<K>, ResourceKey<K>>, V> encodeMap, HolderGetter<K> getter) {
+        private Keyed(Map<Either<TagKey<K>, ResourceKey<K>>, V> encodeMap, Registry<K> getter) {
             this.encodeMap = encodeMap;
             this.getter = getter;
             this.keyMap = LazyOptional.of(() -> RegistryMap.createKeyMap(getter, encodeMap));
@@ -86,20 +84,18 @@ public interface RegistryMap<K, V> {
         }
 
         @Override
-        public Registered<K, V> asRegistered(HolderLookup<K> lookup) {
-            return new Registered<>(this.encodeMap, lookup);
+        public Registered<K, V> asRegistered() {
+            return new Registered<>(this.encodeMap, this.getter);
         }
     }
 
     class Registered<K, V> extends Keyed<K, V> {
 
         private final LazyOptional<Map<Holder<K>, V>> holderMap;
-        private final HolderLookup<K> getterAsLookup;
-        private Registered(Map<Either<TagKey<K>, ResourceKey<K>>, V> keyMap, HolderLookup<K> lookup) {
+        private Registered(Map<Either<TagKey<K>, ResourceKey<K>>, V> keyMap, Registry<K> lookup) {
             super(keyMap, lookup);
-            this.getterAsLookup = lookup;
             this.holderMap = this.keyMap.lazyMap(keys -> keys.entrySet().stream()
-                            .flatMap(entry -> Stream.ofNullable(getterAsLookup.get(entry.getKey()).map(holder -> Pair.of(holder, entry.getValue())).orElse(null)))
+                            .flatMap(entry -> Stream.ofNullable(lookup.getHolder(entry.getKey()).map(holder -> Pair.of(holder, entry.getValue())).orElse(null)))
                     .collect(Collectors.toMap(Pair::getFirst, Pair::getSecond)));
         }
          @Override
@@ -113,16 +109,16 @@ public interface RegistryMap<K, V> {
          }
 
          @Override
-         public Registered<K, V> asRegistered(HolderLookup<K> lookup) {
+         public Registered<K, V> asRegistered() {
              return this;
          }
     }
 
-    static <K, V> Keyed<K, V> createPartial(Map<Either<TagKey<K>, ResourceKey<K>>, V> encodeMap, HolderGetter<K> getter) {
+    static <K, V> Keyed<K, V> createPartial(Map<Either<TagKey<K>, ResourceKey<K>>, V> encodeMap, Registry<K> getter) {
         return new Keyed<>(encodeMap, getter);
     }
 
-    static <K, V> Registered<K, V> createFull(Map<Either<TagKey<K>, ResourceKey<K>>, V> encodeMap, HolderLookup<K> lookup) {
+    static <K, V> Registered<K, V> createFull(Map<Either<TagKey<K>, ResourceKey<K>>, V> encodeMap, Registry<K> lookup) {
         return new Registered<>(encodeMap, lookup);
     }
 
@@ -132,13 +128,13 @@ public interface RegistryMap<K, V> {
 
 
 
-    static <K, V> Map<ResourceKey<K>, V> createKeyMap(HolderGetter<K> registry, Map<Either<TagKey<K>, ResourceKey<K>>, V> keys) {
+    static <K, V> Map<ResourceKey<K>, V> createKeyMap(Registry<K> registry, Map<Either<TagKey<K>, ResourceKey<K>>, V> keys) {
         Map<ResourceKey<K>, V> map = new HashMap<>();
         var entrySet = keys.entrySet();
         var tagValues = entrySet.stream().filter(entry -> entry.getKey().map(tag -> true, rk -> false)).map(entry -> Pair.of(entry.getKey().left().orElseThrow(), entry.getValue())).collect(Collectors.toSet());
         var keyValues = entrySet.stream().filter(entry -> entry.getKey().map(tag -> false, rk -> true)).map(entry -> Pair.of(entry.getKey().right().orElseThrow(), entry.getValue())).collect(Collectors.toSet());
         tagValues.forEach(pair ->
-                registry.get(pair.getFirst()).ifPresent(set -> set.stream().forEach(holder -> holder.unwrapKey().ifPresent(key -> {
+                registry.getTag(pair.getFirst()).ifPresent(set -> set.stream().forEach(holder -> holder.unwrapKey().ifPresent(key -> {
                 if (map.containsKey(key)) {
                     logExistingFromTag(key, pair.getFirst(), map.get(key), pair.getSecond());
                 }
@@ -188,11 +184,11 @@ public interface RegistryMap<K, V> {
             return this;
         }
 
-        public RegistryMap<K, V> full(HolderLookup<K> lookup) {
+        public RegistryMap<K, V> full(Registry<K> lookup) {
             return createFull(this.builder.build(), lookup);
         }
 
-        public RegistryMap<K, V> build(HolderGetter<K> getter) {
+        public RegistryMap<K, V> build(Registry<K> getter) {
             return createPartial(this.builder.build(), getter);
         }
 

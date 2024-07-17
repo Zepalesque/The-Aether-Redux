@@ -5,8 +5,6 @@ import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.DynamicOps;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.core.HolderOwner;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.RegistryOps;
 import net.minecraft.resources.ResourceKey;
@@ -29,16 +27,14 @@ public class RegistryMapCodec<K, V> implements Codec<RegistryMap<K, V>> {
     @Override
     public <T> DataResult<Pair<RegistryMap<K, V>, T>> decode(DynamicOps<T> ops, T input) {
         if (ops instanceof RegistryOps<T> regOps) {
-            Optional<HolderOwner<K>> optional = regOps.owner(this.key);
+            Optional<? extends Registry<K>> optional = regOps.registry(this.key);
             if (optional.isEmpty()) {
-                return DataResult.error(() -> "Unknown registry: " + this.key);
+                return DataResult.error("Unknown registry: " + this.key);
             }
-            if (optional.get() instanceof HolderLookup.RegistryLookup<K> lookup) {
-                DataResult<Pair<Map<Either<TagKey<K>, ResourceKey<K>>, V>, T>> mapResult = this.codec.decode(ops, input);
-                return mapResult.map(pair -> pair.mapFirst(map -> RegistryMap.createFull(map, lookup)));
-            }
+            DataResult<Pair<Map<Either<TagKey<K>, ResourceKey<K>>, V>, T>> mapResult = this.codec.decode(ops, input);
+            return mapResult.map(pair -> pair.mapFirst(map -> RegistryMap.createFull(map, optional.get())));
         }
-        return DataResult.error(() -> "Not a registry ops");
+        return DataResult.error("Not a registry ops");
     }
 
     @Override

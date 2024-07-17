@@ -25,7 +25,7 @@ public class StackingRecipeHelper {
         // These seem to be inverted for whatever reason?
         ItemStack carried = event.getStackedOnItem();
         ItemStack stackedOn = event.getCarriedItem();
-        Level level = event.getPlayer().level();
+        Level level = event.getPlayer().getLevel();
         Player player = event.getPlayer();
         Slot slot = event.getSlot();
         if (carriedPredicate.test(carried)) {
@@ -54,7 +54,7 @@ public class StackingRecipeHelper {
                         carried.shrink(1);
                         slot.setChanged();
                         if (recipe.getSound().isPresent()) {
-                            level.playSound(player, player.getX(), player.getY(), player.getZ(), recipe.getSound().get(), SoundSource.PLAYERS, 0.8F, 0.8F + player.level().getRandom().nextFloat() * 0.4F);
+                            level.playSound(player, player.getX(), player.getY(), player.getZ(), recipe.getSound().get(), SoundSource.PLAYERS, 0.8F, 0.8F + player.getLevel().getRandom().nextFloat() * 0.4F);
                         }
                         return true;
                     }
