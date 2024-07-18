@@ -162,8 +162,8 @@ public class ReduxItems {
 
     public static final RegistryObject<Item> SPEAR_OF_THE_BLIGHT = register("spear_of_the_blight", () -> new BlightSpearItem(new Item.Properties().stacksTo(1).durability(256).tab(AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES), 5.0D, -2.7F));
 
-    public static final RegistryObject<Item> REFINED_SENTRITE = ITEMS.register("refined_sentrite", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SENTRITE_CHUNK = ITEMS.register("sentrite_chunk", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> REFINED_SENTRITE = ITEMS.register("refined_sentrite", () -> new Item(new Item.Properties().tab(AetherCreativeTabs.AETHER_INGREDIENTS)));
+    public static final RegistryObject<Item> SENTRITE_CHUNK = ITEMS.register("sentrite_chunk", () -> new Item(new Item.Properties().tab(AetherCreativeTabs.AETHER_INGREDIENTS)));
 
 
     public static <T extends Item> RegistryObject<T> register(final String name, final Supplier<T> item)
