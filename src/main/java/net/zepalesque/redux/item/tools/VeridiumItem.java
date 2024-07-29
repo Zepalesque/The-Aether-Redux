@@ -8,6 +8,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -64,7 +65,10 @@ public interface VeridiumItem extends CustomStackingBehavior {
     @Nullable
     default ItemStack deplete(ItemStack stack, @Nullable LivingEntity user, int amount) {
         if (user != null && user.level().isClientSide()) {
-            return stack;
+            return null;
+        }
+        if (user instanceof Player p && p.isCreative()) {
+            return null;
         }
 
         CompoundTag tag = stack.getOrCreateTag();

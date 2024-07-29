@@ -50,9 +50,8 @@ public class VeridiumShovelItem extends ShovelItem implements VeridiumItem {
 
     @Override
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        int amount = target.getType().is(ReduxTags.Entities.VALID_PICKAXE_TARGETS) ? 1 : 2;
         boolean bool = super.hurtEnemy(stack, target, attacker);
-        ItemStack transform = this.deplete(stack, attacker, amount);
+        ItemStack transform = this.deplete(stack, attacker, 1);
         if (!attacker.level().isClientSide() && transform != null && transform != stack) {
             attacker.setItemSlot(EquipmentSlot.MAINHAND, transform);
             if (attacker instanceof ServerPlayer sp) {

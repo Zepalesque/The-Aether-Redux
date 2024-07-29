@@ -75,11 +75,11 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(WyndoatsBlock.AGE, WyndoatsBlock.MAX_AGE))));
         this.dropSelf(ReduxBlocks.SENTRITE_CHAIN.get());
         this.dropSelf(ReduxBlocks.SENTRITE_LANTERN.get());
+        this.dropSelf(ReduxBlocks.REFINED_SENTRITE_BLOCK.get());
 
         this.dropSelf(ReduxBlocks.VERIDIUM_ORE.get());
         this.dropSelf(ReduxBlocks.VERIDIUM_BLOCK.get());
         this.dropSelf(ReduxBlocks.RAW_VERIDIUM_BLOCK.get());
-        this.dropSelf(ReduxBlocks.REFINED_SENTRITE_BLOCK.get());
 
         this.add(ReduxBlocks.GOLDEN_CLOVERS.get(), this::createPetalsDrops);
         this.add(ReduxBlocks.GOLDEN_VINES.get(), shears());

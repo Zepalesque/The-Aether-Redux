@@ -6,6 +6,7 @@ import com.aetherteam.aether.block.dungeon.TrappedBlock;
 import com.aetherteam.aether.block.natural.AetherBushBlock;
 import com.aetherteam.aether.block.natural.AetherDoubleDropBlock;
 import com.aetherteam.aether.entity.AetherEntityTypes;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ChainBlock;
@@ -179,11 +180,11 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 
     public static DeferredBlock<GoldenVinesHeadBlock> GOLDEN_VINES = register("golden_vines",
             () -> new GoldenVinesHeadBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WEEPING_VINES)
-                    .mapColor(MapColor.GOLD).sound(SoundType.CAVE_VINES), ReduxTags.Blocks.GOLDEN_VINE_SUSTAINABLE));
+                    .mapColor(MapColor.GOLD).sound(SoundType.CAVE_VINES), BlockTags.LEAVES));
 
     public static DeferredBlock<GoldenVinesBodyBlock> GOLDEN_VINES_PLANT = BLOCKS.register("golden_vines_plant",
             () -> new GoldenVinesBodyBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WEEPING_VINES_PLANT)
-                    .mapColor(MapColor.GOLD).sound(SoundType.CAVE_VINES), ReduxTags.Blocks.GOLDEN_VINE_SUSTAINABLE));
+                    .mapColor(MapColor.GOLD).sound(SoundType.CAVE_VINES), BlockTags.LEAVES));
 
 
     public static void registerFlammability() {

@@ -32,8 +32,8 @@
     [
       "aether:aether_dirt_ore",
       "aether:icestone_ore",
-      "aether:ambrosium_ore",
-      "aether:zanite_ore",
+      "aether_redux:dense_ambrosium_ore",
+      "aether_redux:sparse_zanite_ore",
       "aether:gravitite_ore_buried",
       "aether:gravitite_ore"
     ],

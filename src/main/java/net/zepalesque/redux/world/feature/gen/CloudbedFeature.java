@@ -86,7 +86,6 @@ public class CloudbedFeature extends Feature<CloudbedFeature.Config> {
                         Codec.DOUBLE.fieldOf("cloud_radius").forGetter(Config::cloudRadius),
                         DensityFunction.HOLDER_HELPER_CODEC.fieldOf("offset_noise").forGetter(Config::yOffset),
                         Codec.DOUBLE.fieldOf("offset_max").forGetter(Config::maxYOffset)
-
                 ).apply(builder, Config::new));
     }
 }

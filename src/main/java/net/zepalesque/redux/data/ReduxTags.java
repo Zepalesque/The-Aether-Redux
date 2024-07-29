@@ -27,9 +27,6 @@ public class ReduxTags {
         public static final TagKey<Block> COARSE_AETHER_DIRT = tag("coarse_aether_dirt");
 
         // Blocks that Golden Vines can grow on
-        public static final TagKey<Block> GOLDEN_VINE_SUSTAINABLE = tag("golden_vine_sustainable");
-
-        // Blocks that Golden Vines can grow on
         public static final TagKey<Block> ROCK_REPLACEABLE = tag("rock_replaceable");
 
 
