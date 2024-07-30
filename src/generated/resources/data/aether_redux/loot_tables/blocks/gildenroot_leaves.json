@@ -40,7 +40,7 @@
                   ]
                 }
               ],
-              "name": "aether_redux:cloudroot_leaves"
+              "name": "aether_redux:gildenroot_leaves"
             },
             {
               "type": "minecraft:item",
@@ -59,7 +59,7 @@
                   "enchantment": "minecraft:fortune"
                 }
               ],
-              "name": "aether_redux:cloudroot_sapling"
+              "name": "aether_redux:gildenroot_sapling"
             }
           ]
         }
@@ -135,5 +135,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "aether_redux:blocks/cloudroot_leaves"
+  "random_sequence": "aether_redux:blocks/gildenroot_leaves"
 }

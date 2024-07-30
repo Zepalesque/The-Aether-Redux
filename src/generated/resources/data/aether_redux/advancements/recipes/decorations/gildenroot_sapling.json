@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "aether_redux:cloudroot_sapling"
+        "recipe": "aether_redux:gildenroot_sapling"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "aether_redux:cloudroot_sapling"
+      "aether_redux:gildenroot_sapling"
     ]
   }
 }

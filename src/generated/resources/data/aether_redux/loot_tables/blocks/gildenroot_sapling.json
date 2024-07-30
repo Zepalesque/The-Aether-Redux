@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "aether_redux:cloudroot_sapling"
+          "name": "aether_redux:gildenroot_sapling"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "aether_redux:blocks/cloudroot_sapling"
+  "random_sequence": "aether_redux:blocks/gildenroot_sapling"
 }

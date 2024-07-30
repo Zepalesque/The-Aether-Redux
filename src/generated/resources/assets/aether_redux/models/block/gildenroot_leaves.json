@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "aether_redux:block/natural/cloudroot_leaves"
+    "all": "aether_redux:block/natural/gildenroot_leaves"
   }
 }

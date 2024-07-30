@@ -1,7 +1,7 @@
 {
   "values": [
     "aether_redux:short_aether_grass",
-    "aether_redux:cloudroot_leaves",
+    "aether_redux:gildenroot_leaves",
     "aether_redux:golden_clovers",
     "aether_redux:carved_pillar",
     "aether_redux:sentry_pillar",
@@ -75,8 +75,8 @@
     "aether_redux:sentrite_brick_wall",
     "aether_redux:aurum",
     "aether_redux:potted_aurum",
-    "aether_redux:cloudroot_sapling",
-    "aether_redux:potted_cloudroot_sapling",
+    "aether_redux:gildenroot_sapling",
+    "aether_redux:potted_gildenroot_sapling",
     "aether_redux:lucky_clover",
     "aether_redux:potted_lucky_clover"
   ]

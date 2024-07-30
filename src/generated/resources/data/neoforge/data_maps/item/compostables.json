@@ -3,10 +3,10 @@
     "aether_redux:aurum": {
       "chance": 0.65
     },
-    "aether_redux:cloudroot_leaves": {
+    "aether_redux:gildenroot_leaves": {
       "chance": 0.3
     },
-    "aether_redux:cloudroot_sapling": {
+    "aether_redux:gildenroot_sapling": {
       "chance": 0.3
     },
     "aether_redux:lucky_clover": {

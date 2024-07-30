@@ -22,14 +22,14 @@
       {
         "chance": 0.375,
         "feature": {
-          "feature": "aether_redux:grove_cloud_trees",
+          "feature": "aether_redux:grove_gilded_trees",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",
               "predicate": {
                 "type": "minecraft:would_survive",
                 "state": {
-                  "Name": "aether_redux:cloudroot_sapling",
+                  "Name": "aether_redux:gildenroot_sapling",
                   "Properties": {
                     "stage": "0"
                   }

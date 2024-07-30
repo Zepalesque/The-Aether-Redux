@@ -2,14 +2,14 @@
   "type": "minecraft:random_selector",
   "config": {
     "default": {
-      "feature": "aether_redux:large_cloudroot",
+      "feature": "aether_redux:large_gildenroot",
       "placement": [
         {
           "type": "minecraft:block_predicate_filter",
           "predicate": {
             "type": "minecraft:would_survive",
             "state": {
-              "Name": "aether_redux:cloudroot_sapling",
+              "Name": "aether_redux:gildenroot_sapling",
               "Properties": {
                 "stage": "0"
               }
@@ -22,14 +22,14 @@
       {
         "chance": 0.6,
         "feature": {
-          "feature": "aether_redux:small_cloudroot",
+          "feature": "aether_redux:small_gildenroot",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",
               "predicate": {
                 "type": "minecraft:would_survive",
                 "state": {
-                  "Name": "aether_redux:cloudroot_sapling",
+                  "Name": "aether_redux:gildenroot_sapling",
                   "Properties": {
                     "stage": "0"
                   }
