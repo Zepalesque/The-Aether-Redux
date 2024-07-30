@@ -21,8 +21,8 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
         addBlock(ReduxBlocks.SHORT_AETHER_GRASS);
         addLore(ReduxBlocks.SHORT_AETHER_GRASS, "Blades of the Aether's grass. It feels slightly cool to the touch.");
 
-        addBlock(ReduxBlocks.CLOUDROOT_LEAVES);
-        addLore(ReduxBlocks.CLOUDROOT_LEAVES, "Leaves of the Cloudroot tree, a variation of Skyroot that has been touched by Ambrosium but has not fully adapted as Golden Oaks have. These sometimes will drop Cloudroot Saplings");
+        addBlock(ReduxBlocks.GILDENROOT_LEAVES);
+        addLore(ReduxBlocks.GILDENROOT_LEAVES, "Leaves of the Gildenroot tree, a variation of Skyroot that has been touched by Ambrosium but has not fully adapted as Golden Oaks have. These sometimes will drop Gildenroot Saplings");
 
         addBlock(ReduxBlocks.GOLDEN_CLOVERS);
         addLore(ReduxBlocks.GOLDEN_CLOVERS, "A nice patch of clovers that can be found in the Gilded Groves.");

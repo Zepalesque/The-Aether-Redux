@@ -35,13 +35,13 @@ public class ReduxFlowerSets {
             .withPotTag(BlockTags.FLOWER_POTS)
             .withLore("A golden flower found in the Gilded Groves. Some say it brings good luck!"));
 
-    public static final BaseFlowerSet<SaplingBlock> CLOUDROOT_SAPLING = register(new UntintedFlowerSet<>("cloudroot_sapling", "natural/",
-            () -> new SaplingBlock(ReduxTreeGrowers.CLOUDROOT, Properties.ofFullCopy(Blocks.OAK_SAPLING).mapColor(MapColor.QUARTZ)))
+    public static final BaseFlowerSet<SaplingBlock> GILDENROOT_SAPLING = register(new UntintedFlowerSet<>("gildenroot_sapling", "natural/",
+            () -> new SaplingBlock(ReduxTreeGrowers.GILDENROOT, Properties.ofFullCopy(Blocks.OAK_SAPLING).mapColor(MapColor.QUARTZ)))
             .tabAfter(AetherCreativeTabs.AETHER_NATURAL_BLOCKS, AetherBlocks.SKYROOT_SAPLING, BlockSet.TabAdditionPhase.BEFORE)
             .withFlowerTag(BlockTags.SAPLINGS)
             .withPotTag(BlockTags.FLOWER_POTS)
             .compost(0.3F)
-            .withLore("The sapling of the Cloudroot tree. It can be grown by waiting or using Bone Meal."));
+            .withLore("The sapling of the Gildenroot tree. It can be grown by waiting or using Bone Meal."));
 
     public static final BaseFlowerSet<CustomBoundsBushBlock> LUCKY_CLOVER = register(new CloverSet<>("lucky_clover", "natural/",
             () -> new CustomBoundsBushBlock(Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D), Properties.ofFullCopy(Blocks.DANDELION).mapColor(MapColor.GOLD)))

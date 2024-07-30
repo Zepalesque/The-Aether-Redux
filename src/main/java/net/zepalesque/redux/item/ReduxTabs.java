@@ -4,7 +4,6 @@ import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.item.AetherCreativeTabs;
 import com.aetherteam.aether.item.AetherItems;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -15,9 +14,6 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.blockset.flower.ReduxFlowerSets;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
-import net.zepalesque.zenith.api.blockset.AbstractFlowerSet;
-import net.zepalesque.zenith.api.blockset.AbstractStoneSet;
-import net.zepalesque.zenith.api.blockset.AbstractWoodSet;
 import net.zepalesque.zenith.api.blockset.BlockSet;
 import net.zepalesque.zenith.util.TabUtil;
 
@@ -36,7 +32,7 @@ public class ReduxTabs {
         }
 
         if (tab == AetherCreativeTabs.AETHER_NATURAL_BLOCKS.get()) {
-            TabUtil.putAfter(AetherBlocks.SKYROOT_LEAVES, ReduxBlocks.CLOUDROOT_LEAVES, event);
+            TabUtil.putAfter(AetherBlocks.SKYROOT_LEAVES, ReduxBlocks.GILDENROOT_LEAVES, event);
             TabUtil.putAfter(ReduxFlowerSets.AURUM.flower(), ReduxBlocks.GOLDEN_CLOVERS, event);
         }
 

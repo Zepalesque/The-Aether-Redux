@@ -49,10 +49,10 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
         );
 
         this.tag(BlockTags.LEAVES).add(
-                ReduxBlocks.CLOUDROOT_LEAVES.get()
+                ReduxBlocks.GILDENROOT_LEAVES.get()
         );
         this.tag(BlockTags.MINEABLE_WITH_HOE).add(
-                ReduxBlocks.CLOUDROOT_LEAVES.get(),
+                ReduxBlocks.GILDENROOT_LEAVES.get(),
                 ReduxBlocks.GOLDEN_CLOVERS.get()
         );
 

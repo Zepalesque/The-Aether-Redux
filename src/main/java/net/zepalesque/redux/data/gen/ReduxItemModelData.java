@@ -19,7 +19,7 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
         Redux.BLOCK_SETS.forEach(set -> set.itemData(this));
 
         itemBlockFlatCustomTexture(ReduxBlocks.SHORT_AETHER_GRASS.get(), "natural/aether_medium_grass");
-        this.itemBlock(ReduxBlocks.CLOUDROOT_LEAVES.get());
+        this.itemBlock(ReduxBlocks.GILDENROOT_LEAVES.get());
 
         this.itemBlock(ReduxBlocks.CARVED_BASE.get());
         this.itemBlock(ReduxBlocks.CARVED_PILLAR.get());

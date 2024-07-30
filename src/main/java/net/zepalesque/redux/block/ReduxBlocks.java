@@ -34,7 +34,6 @@ import net.zepalesque.redux.block.natural.crop.WyndoatsBlock;
 import net.zepalesque.redux.block.natural.leaves.FallingLeavesBlock;
 import net.zepalesque.redux.block.state.ReduxBlockBuilders;
 import net.zepalesque.redux.client.particle.ReduxParticles;
-import net.zepalesque.redux.data.ReduxTags;
 import net.zepalesque.redux.event.hook.ToolActionHooks;
 import net.zepalesque.zenith.api.blockset.AbstractWoodSet;
 import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
@@ -50,8 +49,8 @@ public class ReduxBlocks extends ReduxBlockBuilders {
                             .hasPostProcess((state, level, pos) -> true)
             ));
 
-    public static DeferredBlock<FallingLeavesBlock> CLOUDROOT_LEAVES = register("cloudroot_leaves",
-            () -> new FallingLeavesBlock(ReduxParticles.CLOUDROOT_LEAF, Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get()).mapColor(MapColor.QUARTZ)));
+    public static DeferredBlock<FallingLeavesBlock> GILDENROOT_LEAVES = register("gildenroot_leaves",
+            () -> new FallingLeavesBlock(ReduxParticles.GILDENROOT_LEAF, Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get()).mapColor(MapColor.QUARTZ)));
 
     public static DeferredBlock<GoldenCloversBlock> GOLDEN_CLOVERS = register("golden_clovers",
             () -> new GoldenCloversBlock(BlockBehaviour.Properties.of()

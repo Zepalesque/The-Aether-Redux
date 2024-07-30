@@ -20,7 +20,7 @@ public class ReduxBlockStateData extends ReduxBlockStateProvider {
         Redux.BLOCK_SETS.forEach(set -> set.blockData(this));
 
         this.tintableShortGrass(ReduxBlocks.SHORT_AETHER_GRASS.get(), "natural/");
-        this.block(ReduxBlocks.CLOUDROOT_LEAVES.get(), "natural/");
+        this.block(ReduxBlocks.GILDENROOT_LEAVES.get(), "natural/");
 
         this.pillar(ReduxBlocks.CARVED_PILLAR.get(), "dungeon/");
         this.pillar(ReduxBlocks.SENTRY_PILLAR.get(), "dungeon/");

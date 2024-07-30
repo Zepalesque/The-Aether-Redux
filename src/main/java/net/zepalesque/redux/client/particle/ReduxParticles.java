@@ -17,12 +17,12 @@ import net.zepalesque.redux.Redux;
 public class ReduxParticles {
     public static final DeferredRegister<ParticleType<?>> PARTICLES = DeferredRegister.create(BuiltInRegistries.PARTICLE_TYPE, Redux.MODID);
 
-    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> CLOUDROOT_LEAF = PARTICLES.register("cloudroot_leaf", () -> new SimpleParticleType(false));
+    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> GILDENROOT_LEAF = PARTICLES.register("gildenroot_leaf", () -> new SimpleParticleType(false));
 
     @SubscribeEvent
     @OnlyIn(Dist.CLIENT)
     public static void registerParticleFactories(RegisterParticleProvidersEvent event) {
-        event.registerSpriteSet(CLOUDROOT_LEAF.get(), ReduxLeafParticle.Provider::new);
+        event.registerSpriteSet(GILDENROOT_LEAF.get(), ReduxLeafParticle.Provider::new);
 
     }
 }

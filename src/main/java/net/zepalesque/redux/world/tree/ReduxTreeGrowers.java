@@ -7,14 +7,13 @@ import java.util.Optional;
 
 public class ReduxTreeGrowers {
 
-    public static final TreeGrower CLOUDROOT = new TreeGrower(
-            "cloudroot",
+    public static final TreeGrower GILDENROOT = new TreeGrower(
+            "gildenroot",
             0.3F,
             Optional.empty(),
             Optional.empty(),
-            Optional.of(ReduxFeatureConfig.SMALL_CLOUDROOT_TREE),
-            // TODO: Large cloudroot
-            Optional.of(ReduxFeatureConfig.SMALL_CLOUDROOT_TREE),
+            Optional.of(ReduxFeatureConfig.SMALL_GILDENROOT_TREE),
+            Optional.of(ReduxFeatureConfig.LARGE_GILDENROOT_TREE),
             Optional.empty(),
             Optional.empty()
     );

@@ -13,6 +13,6 @@ public class ReduxParticleData extends ReduxParticleProvider {
 
     @Override
     protected void addDescriptions() {
-        this.spriteSet(ReduxParticles.CLOUDROOT_LEAF.get(), Redux.loc("leaves/cloudroot"));
+        this.spriteSet(ReduxParticles.GILDENROOT_LEAF.get(), Redux.loc("leaves/gildenroot"));
     }
 }
