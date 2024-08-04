@@ -12,6 +12,9 @@ import net.zepalesque.redux.block.ReduxBlocks;
 
 public class ReduxDungeonProcessors {
 
+
+    // TODO: Figure out why all Redux Sentry blocks are trapped
+
     public static final RuleProcessor BRONZE_BLOCKS = new RuleProcessor(ImmutableList.of(
             new ProcessorRule(new RandomBlockMatchTest(ReduxBlocks.CARVED_BASE.get(), 0.1F), AlwaysTrueTest.INSTANCE, ReduxBlocks.SENTRY_BASE.get().defaultBlockState()),
             new ProcessorRule(new RandomBlockStateMatchTest(ReduxBlocks.CARVED_PILLAR.get().defaultBlockState()
