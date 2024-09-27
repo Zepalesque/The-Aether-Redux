@@ -32,7 +32,10 @@ public class ReduxTabs {
         }
 
         if (tab == AetherCreativeTabs.AETHER_NATURAL_BLOCKS.get()) {
-            TabUtil.putAfter(AetherBlocks.SKYROOT_LEAVES, ReduxBlocks.GILDENROOT_LEAVES, event);
+            TabUtil.putAfter(AetherBlocks.SKYROOT_LEAVES, ReduxBlocks.SKYROOT_LEAF_PILE, event);
+            TabUtil.putAfter(ReduxBlocks.SKYROOT_LEAF_PILE, ReduxBlocks.GILDENROOT_LEAVES, event);
+            TabUtil.putAfter(ReduxBlocks.GILDENROOT_LEAVES, ReduxBlocks.GILDENROOT_LEAF_PILE, event);
+            TabUtil.putAfter(AetherBlocks.GOLDEN_OAK_LEAVES, ReduxBlocks.GOLDEN_OAK_LEAF_PILE, event);
             TabUtil.putAfter(ReduxFlowerSets.AURUM.flower(), ReduxBlocks.GOLDEN_CLOVERS, event);
         }
 

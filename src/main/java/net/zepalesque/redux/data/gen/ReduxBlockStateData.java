@@ -1,5 +1,6 @@
 package net.zepalesque.redux.data.gen;
 
+import com.aetherteam.aether.block.AetherBlocks;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.zepalesque.redux.Redux;
@@ -21,6 +22,9 @@ public class ReduxBlockStateData extends ReduxBlockStateProvider {
 
         this.tintableShortGrass(ReduxBlocks.SHORT_AETHER_GRASS.get(), "natural/");
         this.block(ReduxBlocks.GILDENROOT_LEAVES.get(), "natural/");
+        this.leafPile(ReduxBlocks.GILDENROOT_LEAF_PILE.get(), ReduxBlocks.GILDENROOT_LEAVES.get(), "natural");
+        this.leafPile(ReduxBlocks.GOLDEN_OAK_LEAF_PILE.get(), AetherBlocks.GOLDEN_OAK_LEAVES.get(), "natural");
+        this.leafPile(ReduxBlocks.SKYROOT_LEAF_PILE.get(), AetherBlocks.SKYROOT_LEAVES.get(), "natural");
 
         this.pillar(ReduxBlocks.CARVED_PILLAR.get(), "dungeon/");
         this.pillar(ReduxBlocks.SENTRY_PILLAR.get(), "dungeon/");

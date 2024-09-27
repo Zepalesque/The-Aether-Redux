@@ -19,10 +19,12 @@ import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.client.model.generators.ModelProvider;
 import net.neoforged.neoforge.client.model.generators.MultiPartBlockStateBuilder;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.construction.LayeredBookshelfBlock;
 import net.zepalesque.redux.block.dungeon.RunelightBlock;
 import net.zepalesque.redux.block.natural.AetherShortGrassBlock;
+import net.zepalesque.redux.block.natural.leaves.LeafPileBlock;
 import net.zepalesque.redux.block.state.ReduxStates;
 
 public abstract class ReduxBlockStateProvider extends AetherBlockStateProvider {
@@ -345,4 +347,21 @@ public abstract class ReduxBlockStateProvider extends AetherBlockStateProvider {
                 .renderType(new ResourceLocation("cutout"));
         this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(pot));
     }
+
+    public void leafPile(Block block, Block baseBlock, String location) {
+        this.getVariantBuilder(block).forAllStates(
+                state -> ConfiguredModel.builder().modelFile(state.getValue(
+                        LeafPileBlock.LAYERS) == 16 ? this.models().cubeAll(this.name(block) + "_full", this.texture(baseBlock, location)).renderType("cutout") :
+                        this.models().singleTexture(this.name(block) + "_size_" + state.getValue(LeafPileBlock.LAYERS),
+                                this.modLoc("block/template/layer/layer_size" + state.getValue(LeafPileBlock.LAYERS)),
+                                "block", this.texture(baseBlock, location)).renderType("cutout")).build());
+    }
+
+
+
+
+    public ResourceLocation texture(Block block, String location) {
+        return new ResourceLocation(BuiltInRegistries.BLOCK.getKey(block).getNamespace(), "block/" + location + name(block));
+    }
+
 }

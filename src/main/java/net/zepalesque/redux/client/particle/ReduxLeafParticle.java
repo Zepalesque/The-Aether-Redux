@@ -15,6 +15,7 @@ import net.neoforged.api.distmarker.OnlyIn;
 
 import java.util.List;
 
+// TODO: Apply horizontal friction to particles touching the SIDE of a block
 @OnlyIn(Dist.CLIENT)
 public class ReduxLeafParticle extends TextureSheetParticle {
     private float rotSpeed;

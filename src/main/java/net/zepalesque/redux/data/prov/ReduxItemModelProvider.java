@@ -12,6 +12,9 @@ import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.loaders.ItemLayerModelBuilder;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.zepalesque.redux.block.ReduxBlocks;
+
+import java.util.function.Function;
 
 public abstract class ReduxItemModelProvider extends AetherItemModelProvider {
 
@@ -19,6 +22,9 @@ public abstract class ReduxItemModelProvider extends AetherItemModelProvider {
         super(output, id, helper);
     }
 
+    public void itemBlockWithParent(Block block, Function<Block, ResourceLocation> existingParent) {
+        this.withExistingParent(this.blockName(block), existingParent.apply(block));
+    }
 
     public ItemModelBuilder itemBlockFlatCustomTexture(Block block, String locationPlusName) {
 
@@ -162,5 +168,10 @@ public abstract class ReduxItemModelProvider extends AetherItemModelProvider {
     public void itemBlockFlatPrefix(Block block, String location, String prefix) {
         this.withExistingParent(this.blockName(block), this.mcLoc("item/generated"))
                 .texture("layer0", this.texture(prefix + this.blockName(block), location));
+    }
+    
+    public void leafPile(Block block) {
+        this.itemBlockWithParent(block, b -> modLoc(BLOCK_FOLDER + "/" + this.blockName(b) + "_size_1"));
+
     }
 }

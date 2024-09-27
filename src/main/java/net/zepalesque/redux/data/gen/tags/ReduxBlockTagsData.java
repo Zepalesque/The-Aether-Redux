@@ -53,7 +53,10 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
         );
         this.tag(BlockTags.MINEABLE_WITH_HOE).add(
                 ReduxBlocks.GILDENROOT_LEAVES.get(),
-                ReduxBlocks.GOLDEN_CLOVERS.get()
+                ReduxBlocks.GOLDEN_CLOVERS.get(),
+                ReduxBlocks.GILDENROOT_LEAF_PILE.get(),
+                ReduxBlocks.GOLDEN_OAK_LEAF_PILE.get(),
+                ReduxBlocks.SKYROOT_LEAF_PILE.get()
         );
 
         this.tag(BlockTags.INSIDE_STEP_SOUND_BLOCKS).add(

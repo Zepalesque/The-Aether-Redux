@@ -32,6 +32,7 @@ import net.zepalesque.redux.block.natural.GoldenVinesBodyBlock;
 import net.zepalesque.redux.block.natural.GoldenCloversBlock;
 import net.zepalesque.redux.block.natural.crop.WyndoatsBlock;
 import net.zepalesque.redux.block.natural.leaves.FallingLeavesBlock;
+import net.zepalesque.redux.block.natural.leaves.LeafPileBlock;
 import net.zepalesque.redux.block.state.ReduxBlockBuilders;
 import net.zepalesque.redux.client.particle.ReduxParticles;
 import net.zepalesque.redux.event.hook.ToolActionHooks;
@@ -51,6 +52,15 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 
     public static DeferredBlock<FallingLeavesBlock> GILDENROOT_LEAVES = register("gildenroot_leaves",
             () -> new FallingLeavesBlock(ReduxParticles.GILDENROOT_LEAF, Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get()).mapColor(MapColor.QUARTZ)));
+
+    public static DeferredBlock<LeafPileBlock> SKYROOT_LEAF_PILE = register("skyroot_leaf_pile",
+            () -> new LeafPileBlock(AetherBlocks.SKYROOT_LEAVES));
+
+    public static DeferredBlock<LeafPileBlock> GOLDEN_OAK_LEAF_PILE = register("golden_oak_leaf_pile",
+            () -> new LeafPileBlock(AetherBlocks.GOLDEN_OAK_LEAVES));
+
+    public static DeferredBlock<LeafPileBlock> GILDENROOT_LEAF_PILE = register("gildenroot_leaf_pile",
+            () -> new LeafPileBlock(GILDENROOT_LEAVES));
 
     public static DeferredBlock<GoldenCloversBlock> GOLDEN_CLOVERS = register("golden_clovers",
             () -> new GoldenCloversBlock(BlockBehaviour.Properties.of()

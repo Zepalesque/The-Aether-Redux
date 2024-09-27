@@ -1,5 +1,6 @@
 package net.zepalesque.redux.data.gen;
 
+import com.aetherteam.aether.block.AetherBlocks;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.zepalesque.redux.Redux;
@@ -20,6 +21,9 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
 
         itemBlockFlatCustomTexture(ReduxBlocks.SHORT_AETHER_GRASS.get(), "natural/aether_medium_grass");
         this.itemBlock(ReduxBlocks.GILDENROOT_LEAVES.get());
+        this.leafPile(ReduxBlocks.GILDENROOT_LEAF_PILE.get());
+        this.leafPile(ReduxBlocks.GOLDEN_OAK_LEAF_PILE.get());
+        this.leafPile(ReduxBlocks.SKYROOT_LEAF_PILE.get());
 
         this.itemBlock(ReduxBlocks.CARVED_BASE.get());
         this.itemBlock(ReduxBlocks.CARVED_PILLAR.get());

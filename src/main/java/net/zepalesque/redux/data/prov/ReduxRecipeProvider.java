@@ -42,6 +42,14 @@ public abstract class ReduxRecipeProvider extends AetherRecipeProvider {
         super(output, lookupProvider, id);
     }
 
+
+    protected static void leafPile(RecipeOutput recipeOutput, ItemLike carpet, ItemLike material) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, carpet, 6)
+                .define('#', material).pattern("##")
+                .unlockedBy(getHasName(material), has(material))
+                .save(recipeOutput);
+    }
+
     public static void woodFromLogs(RecipeOutput recipeOutput, ItemLike wood, ItemLike log) {
         RecipeProvider.woodFromLogs(recipeOutput, wood, log);
     }
@@ -158,4 +166,6 @@ public abstract class ReduxRecipeProvider extends AetherRecipeProvider {
     public ResourceLocation name(String name) {
         return super.name(name);
     }
+
+
 }
