@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cube_all",
   "render_type": "minecraft:cutout",
   "textures": {
-    "all": "aether:block/naturalskyroot_leaves"
+    "all": "aether:block/natural/skyroot_leaves"
   }
 }

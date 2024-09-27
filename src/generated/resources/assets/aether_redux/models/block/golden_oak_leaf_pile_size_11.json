@@ -2,6 +2,6 @@
   "parent": "aether_redux:block/template/layer/layer_size11",
   "render_type": "minecraft:cutout",
   "textures": {
-    "block": "aether:block/naturalgolden_oak_leaves"
+    "block": "aether:block/natural/golden_oak_leaves"
   }
 }

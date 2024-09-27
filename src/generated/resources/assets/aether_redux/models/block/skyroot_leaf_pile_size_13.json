@@ -2,6 +2,6 @@
   "parent": "aether_redux:block/template/layer/layer_size13",
   "render_type": "minecraft:cutout",
   "textures": {
-    "block": "aether:block/naturalskyroot_leaves"
+    "block": "aether:block/natural/skyroot_leaves"
   }
 }
