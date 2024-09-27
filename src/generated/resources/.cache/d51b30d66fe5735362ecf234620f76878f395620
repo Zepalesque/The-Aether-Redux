@@ -1,4 +1,4 @@
-// 1.20.4	2024-07-29T22:33:18.3437578	Item Models: aether_redux
+// 1.20.4	2024-09-26T20:08:50.6527615	Item Models: aether_redux
 795ee016e7dad0d6ac42593c58ba258161615647 assets/aether_redux/models/item/aurum.json
 a083a7311bfd77483a76afa2e0b34a2dca856c28 assets/aether_redux/models/item/blightmoss_holystone.json
 693490b382231c95e748c88f8daa13be00cd8ceb assets/aether_redux/models/item/blightmoss_holystone_slab.json
@@ -32,9 +32,11 @@ c21384e3c0f2e7cf2838fc78bd300726ad88099d assets/aether_redux/models/item/gilded_
 7cc45ca1892d40585fe787a30634854a783d1ef1 assets/aether_redux/models/item/gilded_holystone_slab.json
 462c33cc11eaca761757d91060550f705d13724b assets/aether_redux/models/item/gilded_holystone_stairs.json
 b94d7ae7552984746c011a3c414646a7b5538436 assets/aether_redux/models/item/gilded_holystone_wall.json
+bf3d3ea55172aeaff49ed8528826bc5ef7a0f0ed assets/aether_redux/models/item/gildenroot_leaf_pile.json
 c113e613258a7e3d9e824cf97d76d2807703f0f7 assets/aether_redux/models/item/gildenroot_leaves.json
 c957473410573f950e98933cb17599021c650ccf assets/aether_redux/models/item/gildenroot_sapling.json
 497b1fee83f743dda1c78e4c303f9635b30a915d assets/aether_redux/models/item/golden_clovers.json
+996869e9b86a85af2c13bf31a2e6e03c6fccb8e9 assets/aether_redux/models/item/golden_oak_leaf_pile.json
 830712522b96695b2c26d31f844efcaa964e0d48 assets/aether_redux/models/item/golden_vines.json
 799296c4d4b51c7508d64cc40b7f5af08fac78f1 assets/aether_redux/models/item/infused_veridium_axe.json
 e00233f8f617b931ac5a25f0bad5e540d5399350 assets/aether_redux/models/item/infused_veridium_hoe.json
@@ -66,6 +68,7 @@ cbf1d27224744aef8ad83f00bd888454a5f34b4f assets/aether_redux/models/item/sentrit
 58ea8b8e6fff7717dc67222718c780da317bc3b6 assets/aether_redux/models/item/sentry_base.json
 ff88166bf4d096e3efbd4eb04082d13f80b2fbd2 assets/aether_redux/models/item/sentry_pillar.json
 262070202f715ccbb93ebca7b4dd3b04851bc0ce assets/aether_redux/models/item/short_aether_grass.json
+8b955f1366ea1252f56beac15a2b0bf2e24678b9 assets/aether_redux/models/item/skyroot_leaf_pile.json
 6eb82aa73b8f464c031aede636157d1f9fb79678 assets/aether_redux/models/item/skysprouts.json
 e7bfb6b8c011a971909445c8ed6b5f55674ec196 assets/aether_redux/models/item/stripped_crystal_log.json
 3309c49e4daa375a5737eed499cd6556832136f7 assets/aether_redux/models/item/stripped_crystal_log_wall.json
