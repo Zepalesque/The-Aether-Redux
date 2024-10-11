@@ -621,8 +621,10 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
     }
 
 
-    protected static void leafPile(Consumer<FinishedRecipe> finishedRecipeConsumer, ItemLike carpet, ItemLike material) {ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, carpet, 6).define('#', material).pattern("##").unlockedBy(getHasName(material), has(material)).save(finishedRecipeConsumer);
+    protected static void leafPile(Consumer<FinishedRecipe> finishedRecipeConsumer, ItemLike carpet, ItemLike material) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, carpet, 6).define('#', material).pattern("##").unlockedBy(getHasName(material), has(material)).save(finishedRecipeConsumer);
     }
+
     protected static void mossCarpet(Consumer<FinishedRecipe> finishedRecipeConsumer, ItemLike carpet, ItemLike material) {
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, carpet, 3).define('#', material).pattern("##").unlockedBy(getHasName(material), has(material)).save(finishedRecipeConsumer);
     }

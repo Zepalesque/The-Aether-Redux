@@ -750,7 +750,6 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
                                 this.name(block) + state.getValue(LeafPileBlock.LAYERS),
                                 modLoc(BLOCK_FOLDER + "/layer/layer_size" + state.getValue(LeafPileBlock.LAYERS)),
                                 "block", this.texture(baseBlock, location)).renderType("cutout")).build());
-
     }
 
 
