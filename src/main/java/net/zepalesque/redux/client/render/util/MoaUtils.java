@@ -29,7 +29,6 @@ public class MoaUtils {
                 return moaSkinsScreen.getSelectedSkin().getSkinLocation();
             }
         }
-
         return userSkinsData.containsKey(lastRiderUUID) && userSkinsData.get(lastRiderUUID).moaUUID() != null && userSkinsData.get(lastRiderUUID).moaUUID().equals(moaUUID) ? userSkinsData.get(lastRiderUUID).moaSkin().getSkinLocation() : null;
     }
 }

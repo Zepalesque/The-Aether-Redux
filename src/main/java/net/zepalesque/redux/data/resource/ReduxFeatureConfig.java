@@ -168,6 +168,7 @@ public class    ReduxFeatureConfig {
     public static final ResourceKey<ConfiguredFeature<?, ?>> CRYSTAL_TREE_OVERRIDE = AetherConfiguredFeatures.CRYSTAL_TREE_CONFIGURATION;
     public static final ResourceKey<ConfiguredFeature<?, ?>> HOLIDAY_TREE_OVERRIDE = AetherConfiguredFeatures.HOLIDAY_TREE_CONFIGURATION;
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_OAK_TREE_OVERRIDE = AetherConfiguredFeatures.GOLDEN_OAK_TREE_CONFIGURATION;
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GOLD_DUNGEON_FLOWER_OVERRIDE = AetherConfiguredFeatures.SINGLE_GOLD_DUNGEON_FLOWER_CONFIGURATION;
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYROOT_TREE_OVERRIDE = AetherConfiguredFeatures.SKYROOT_TREE_CONFIGURATION;
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GRASS_PATCH_OVERRIDE = AetherConfiguredFeatures.GRASS_PATCH_CONFIGURATION;
@@ -455,6 +456,12 @@ public class    ReduxFeatureConfig {
                                         UniformInt.of(1, 5),
                                         Optional.of(Conditions.VINES)
                                 ), new PatchTreeDecorator(createLeafPileLayers(ReduxBlocks.GOLDEN_LEAF_PILE), 7, 3, 32))).ignoreVines().build());
+
+        register(context, GOLD_DUNGEON_FLOWER_OVERRIDE, Feature.SIMPLE_BLOCK,
+                new SimpleBlockConfiguration(new WeightedStateProvider(
+                        new SimpleWeightedRandomList.Builder<BlockState>()
+                                .add(ReduxBlocks.INFERNIA.get().defaultBlockState(), 2)
+                                .add(ReduxBlocks.FLAREBLOSSOM.get().defaultBlockState(), 1))));
 
 
         register(context, SKYROOT_PINE, Feature.TREE,
