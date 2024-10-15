@@ -1,8 +1,9 @@
-// 1.20.1	2024-07-16T14:12:31.9802953	Registries
+// 1.20.1	2024-10-14T21:44:39.4558337	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 3899e831707994c2ecc93af7d8997043a0f0a462 data/aether/worldgen/configured_feature/golden_oak_tree.json
 875593e37a52dd63b2d87226b0f0e5e76ef48247 data/aether/worldgen/configured_feature/grass_patch.json
 c97512c8d599baeed2c8376cf402cae9eac5800d data/aether/worldgen/configured_feature/holiday_tree.json
+1d627418a0b6c65a1f1a8340405ae171e8bbb56a data/aether/worldgen/configured_feature/single_gold_dungeon_flower.json
 47ec4dab1e49d10c7a9d88096f1d8297e837b2e8 data/aether/worldgen/configured_feature/skyroot_tree.json
 cbc01407f81c547e1384753574d83f4983bc738b data/aether/worldgen/configured_feature/tall_grass_patch.json
 c20afbd7fecd669e0d4eac0f7242d7a813011855 data/aether/worldgen/placed_feature/aether_grass_bonemeal.json

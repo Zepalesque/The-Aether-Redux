@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:simple_block",
+  "config": {
+    "to_place": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "aether_redux:infernia"
+          },
+          "weight": 2
+        },
+        {
+          "data": {
+            "Name": "aether_redux:flareblossom"
+          },
+          "weight": 1
+        }
+      ]
+    }
+  }
+}
