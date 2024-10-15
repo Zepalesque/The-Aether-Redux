@@ -50,7 +50,7 @@ public class ReduxAudioHooks {
         Optional<Holder<SoundEvent>> optional = ForgeRegistries.SOUND_EVENTS.getHolder(instance.getLocation());
         if (optional.isPresent()) {
             Holder<SoundEvent> sound = optional.get();
-            // Don't cancel lost content's boss music
+            // Don't cancel boss music
             if (sound.is(ReduxTags.Sounds.ALWAYS_ALLOW)) {
                 return false;
             }
