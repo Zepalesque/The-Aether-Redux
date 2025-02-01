@@ -2,7 +2,7 @@ package net.zepalesque.redux.config;
 
 import net.neoforged.neoforge.common.ModConfigSpec;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.config.enums.AACompatType;
+import net.zepalesque.redux.config.enums.AACompatFeature;
 import net.zepalesque.zenith.api.serialization.config.DataSerializableConfig;
 import org.apache.commons.lang3.tuple.Pair;
 
@@ -63,7 +63,7 @@ public class ReduxConfig {
     public static class Common extends DataSerializableConfig {
 
         public final ModConfigSpec.ConfigValue<Boolean> bronze_dungeon_upgrade;
-        public final ModConfigSpec.EnumValue<AACompatType> redux_noise;
+        public final ModConfigSpec.EnumValue<AACompatFeature.Overridden> redux_noise;
 
         // TODO: Move this stuff to server when switching to PackConfig? assuming the configs are loaded before data stuff is initially loaded
         public Common(ModConfigSpec.Builder builder) {
@@ -72,7 +72,7 @@ public class ReduxConfig {
             redux_noise = builder
                     .comment("Uses an alternative noise for the Aether. By default, this is disabled with the Ancient Aether mod installed.")
                     .worldRestart()
-                    .defineEnum("Redux Noise", AACompatType.WITHOUT_AA);
+                    .defineEnum("Redux Noise", AACompatFeature.Overridden.WITHOUT_AA);
             bronze_dungeon_upgrade = builder
                     .comment("Upgrades the Bronze Dungeon structure with new blocks and more depth")
                     .worldRestart()
