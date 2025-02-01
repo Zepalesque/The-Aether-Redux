@@ -3,17 +3,8 @@
   "argument1": 1.5,
   "argument2": {
     "type": "zenith:perlin_noise",
-    "noise": {
-      "amplitudes": [
-        1.0,
-        1.0,
-        1.0,
-        1.0,
-        1.0
-      ],
-      "firstOctave": 0
-    },
-    "seed": 42,
+    "noise": "aether_redux:cloudbed_noise",
+    "seed_offset": 42,
     "xz_scale": 0.01,
     "y_scale": 0.0
   }

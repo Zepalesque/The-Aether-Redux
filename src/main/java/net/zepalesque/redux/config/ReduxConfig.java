@@ -3,6 +3,7 @@ package net.zepalesque.redux.config;
 import net.neoforged.neoforge.common.ModConfigSpec;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.config.enums.AACompatFeature;
+import net.zepalesque.redux.config.enums.ConditionalConfig;
 import net.zepalesque.zenith.api.serialization.config.DataSerializableConfig;
 import org.apache.commons.lang3.tuple.Pair;
 
@@ -21,6 +22,9 @@ public class ReduxConfig {
         public final ModConfigSpec.ConfigValue<Boolean> raw_ores;
         public final ModConfigSpec.ConfigValue<Boolean> gummy_swet_nerf;
 
+        public final ModConfigSpec.ConfigValue<Boolean> bronze_dungeon_upgrade;
+        public final ModConfigSpec.EnumValue<AACompatFeature.Overridden> redux_noise;
+
         public Server(ModConfigSpec.Builder builder) {
             super(() -> SERVER_SPEC, "redux_server");
             builder.push("Worldgen Tweaks");
@@ -36,7 +40,14 @@ public class ReduxConfig {
                     .comment("Replace the Aether's large Aercloud features with a noise-based cloudbed")
                     .worldRestart()
                     .define("Cloudbed", true);
-
+            redux_noise = Redux.DATA_CONFIG.register(builder
+                    .comment("Uses an alternative noise for the Aether. By default, this is disabled with the Ancient Aether mod installed.")
+                    .worldRestart()
+                    .defineEnum("Redux Noise", AACompatFeature.Overridden.WITHOUT_AA), "redux_noise", ConditionalConfig::enabled);
+            bronze_dungeon_upgrade = Redux.DATA_CONFIG.register(builder
+                    .comment("Upgrades the Bronze Dungeon structure with new blocks and more depth")
+                    .worldRestart()
+                    .define("Bronze Dungeon Upgrade", true), "dungeon_upgrades");
             builder.pop();
             builder.push("Gameplay");
             max_veridium_tool_infusion = builder
@@ -62,21 +73,10 @@ public class ReduxConfig {
 
     public static class Common extends DataSerializableConfig {
 
-        public final ModConfigSpec.ConfigValue<Boolean> bronze_dungeon_upgrade;
-        public final ModConfigSpec.EnumValue<AACompatFeature.Overridden> redux_noise;
-
         // TODO: Move this stuff to server when switching to PackConfig? assuming the configs are loaded before data stuff is initially loaded
         public Common(ModConfigSpec.Builder builder) {
             super(() -> COMMON_SPEC, "redux_common");
             builder.push("Datapack Registration");
-            redux_noise = builder
-                    .comment("Uses an alternative noise for the Aether. By default, this is disabled with the Ancient Aether mod installed.")
-                    .worldRestart()
-                    .defineEnum("Redux Noise", AACompatFeature.Overridden.WITHOUT_AA);
-            bronze_dungeon_upgrade = builder
-                    .comment("Upgrades the Bronze Dungeon structure with new blocks and more depth")
-                    .worldRestart()
-                    .define("Bronze Dungeon Upgrade", true);
             builder.pop();
         }
     }
@@ -95,6 +95,7 @@ public class ReduxConfig {
 
             leaf_particles = builder
                     .comment("Use nice falling leaf particles for Aether leaf blocks")
+                    .worldRestart()
                     .define("Leaf Particles", true);
             improved_whirlwinds = builder
                     .comment("Gives Whirlwinds a new design, based on Minecraft 1.21's new Breeze mob")
@@ -102,6 +103,7 @@ public class ReduxConfig {
 
             jappafied_textures = Redux.ASSETS_CONFIG.register(builder
                     .comment("Use textures designed to fit with the Jappafied Aethers resource pack.")
+                    .worldRestart()
                     .define("Jappafied Textures", false), "jappafied");
 
 

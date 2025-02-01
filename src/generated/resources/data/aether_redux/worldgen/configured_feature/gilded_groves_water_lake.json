@@ -1,0 +1,197 @@
+{
+  "type": "zenith:rule_based_lake",
+  "config": {
+    "floor_block": {
+      "fallback": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "aether:aether_dirt",
+          "Properties": {
+            "double_drops": "true"
+          }
+        }
+      },
+      "rules": [
+        {
+          "if_true": {
+            "type": "minecraft:all_of",
+            "predicates": [
+              {
+                "type": "minecraft:matching_blocks",
+                "blocks": "aether:enchanted_aether_grass_block"
+              },
+              {
+                "type": "minecraft:not",
+                "predicate": {
+                  "type": "minecraft:solid",
+                  "offset": [
+                    0,
+                    1,
+                    0
+                  ]
+                }
+              },
+              {
+                "type": "minecraft:not",
+                "predicate": {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:water",
+                  "offset": [
+                    0,
+                    1,
+                    0
+                  ]
+                }
+              }
+            ]
+          },
+          "then": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "aether:enchanted_aether_grass_block",
+              "Properties": {
+                "snowy": "false"
+              }
+            }
+          }
+        },
+        {
+          "if_true": {
+            "type": "minecraft:any_of",
+            "predicates": [
+              {
+                "type": "minecraft:matching_blocks",
+                "blocks": "aether:enchanted_aether_grass_block",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              },
+              {
+                "type": "minecraft:matching_blocks",
+                "blocks": "aether:aether_dirt",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            ]
+          },
+          "then": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "aether:aether_dirt",
+              "Properties": {
+                "double_drops": "true"
+              }
+            }
+          }
+        },
+        {
+          "if_true": {
+            "type": "minecraft:all_of",
+            "predicates": [
+              {
+                "type": "zenith:perlin_noise",
+                "max_threshold": 0.1,
+                "min_threshold": -0.3,
+                "noise": "minecraft:surface_swamp",
+                "seed_offset": 2743
+              },
+              {
+                "type": "minecraft:matching_blocks",
+                "blocks": "minecraft:water",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            ]
+          },
+          "then": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "aether_unity:aether_mud",
+              "Properties": {
+                "double_drops": "true"
+              }
+            }
+          }
+        },
+        {
+          "if_true": {
+            "type": "minecraft:all_of",
+            "predicates": [
+              {
+                "type": "minecraft:matching_blocks",
+                "blocks": "minecraft:water",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              },
+              {
+                "type": "zenith:perlin_noise",
+                "max_threshold": 1.7976931348623157E308,
+                "min_threshold": 0.1,
+                "noise": "minecraft:surface_swamp",
+                "seed_offset": 2743
+              }
+            ]
+          },
+          "then": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "aether_unity:valkyrie_clay",
+              "Properties": {
+                "double_drops": "true"
+              }
+            }
+          }
+        },
+        {
+          "if_true": {
+            "type": "minecraft:all_of",
+            "predicates": [
+              {
+                "type": "minecraft:matching_blocks",
+                "blocks": "aether:enchanted_aether_grass_block"
+              },
+              {
+                "type": "minecraft:matching_block_tag",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ],
+                "tag": "minecraft:air"
+              }
+            ]
+          },
+          "then": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "aether:enchanted_aether_grass_block",
+              "Properties": {
+                "snowy": "false"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "fluid": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:water",
+        "Properties": {
+          "level": "0"
+        }
+      }
+    }
+  }
+}
