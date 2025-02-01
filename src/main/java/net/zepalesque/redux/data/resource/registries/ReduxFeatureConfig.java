@@ -44,6 +44,7 @@ import net.zepalesque.redux.blockset.flower.ReduxFlowerSets;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
 import net.zepalesque.redux.blockset.wood.ReduxWoodSets;
 import net.zepalesque.redux.data.ReduxTags;
+import net.zepalesque.redux.data.resource.builders.ReduxDensityBuilders;
 import net.zepalesque.redux.data.resource.builders.ReduxFeatureBuilders;
 import net.zepalesque.redux.world.feature.gen.CloudbedFeature;
 import net.zepalesque.redux.world.feature.gen.ReduxFeatures;
@@ -57,7 +58,6 @@ import net.zepalesque.unity.extendablestate.UnityStateLists;
 import net.zepalesque.zenith.api.block.predicate.InBiomePredicate;
 import net.zepalesque.zenith.api.world.feature.gen.ExtendableStateListBlockFeature;
 import net.zepalesque.zenith.api.world.feature.gen.LargeRockFeature;
-import net.zepalesque.zenith.api.world.feature.gen.RuleBasedLakeFeature;
 import net.zepalesque.zenith.api.world.tree.trunk.IntProviderTrunkPlacer;
 import net.zepalesque.zenith.core.registry.ZenithFeatures;
 
@@ -119,9 +119,9 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
                         prov(AetherFeatureStates.COLD_AERCLOUD),
                         BlockPredicate.ONLY_IN_AIR_PREDICATE,
                         8,
-                        ReduxDensityFunctions.get(functions, ReduxDensityFunctions.CLOUDBED_NOISE),
+                        ReduxDensityBuilders.get(functions, ReduxDensityFunctions.CLOUDBED_NOISE),
                         10,
-                        ReduxDensityFunctions.get(functions, ReduxDensityFunctions.CLOUDBED_Y_OFFSET),
+                        ReduxDensityBuilders.get(functions, ReduxDensityFunctions.CLOUDBED_Y_OFFSET),
                         10));
 
         register(context, SMALL_GILDENROOT_TREE, Feature.TREE,

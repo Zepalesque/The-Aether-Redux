@@ -7,11 +7,11 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.world.level.levelgen.DensityFunction;
 import net.minecraft.world.level.levelgen.NoiseGeneratorSettings;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
-import net.zepalesque.redux.data.resource.builders.ReduxNoiseBuilders;
+import net.zepalesque.redux.data.resource.builders.ReduxDensityBuilders;
 
 public class ReduxNoiseSettings {
 
-    public static class NoisePack extends ReduxNoiseBuilders {
+    public static class NoisePack extends ReduxDensityBuilders {
         public static void bootstrap(BootstrapContext<NoiseGeneratorSettings> context) {
             HolderGetter<DensityFunction> densityFunctions = context.lookup(Registries.DENSITY_FUNCTION);
             HolderGetter<NormalNoise.NoiseParameters> noise = context.lookup(Registries.NOISE);

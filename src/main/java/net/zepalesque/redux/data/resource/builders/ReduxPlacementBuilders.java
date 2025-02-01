@@ -22,8 +22,8 @@ public class ReduxPlacementBuilders extends BasePlacementBuilders {
         return ResourceKey.create(Registries.PLACED_FEATURE, Redux.loc(name));
     }
 
-    protected static ResourceKey<PlacedFeature> copyKey(ResourceKey<ConfiguredFeature<?, ?>> configFeat) {
-        return createKey(configFeat.location().getPath());
+    protected static ResourceKey<PlacedFeature> copyKey(ResourceKey<ConfiguredFeature<?, ?>> config) {
+        return createKey(config.location().getPath());
     }
 
     protected static ResourceKey<PlacedFeature> aetherKey(String name) {
