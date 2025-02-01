@@ -41,7 +41,7 @@ public class VeridiumDartShooter extends DartShooterItem implements VeridiumItem
     public int getUseDuration(ItemStack stack, LivingEntity entity) {
         return this.useTime;
     }
-    
+
     @Override
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity user) {
         ItemStack original = super.finishUsingItem(stack, level, user);
