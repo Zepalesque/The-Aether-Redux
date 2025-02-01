@@ -206,8 +206,7 @@ public abstract class BaseFlowerSet<B extends Block> extends AbstractFlowerSet i
     @Override
     public void recipeData(ReduxRecipeProvider data, RecipeOutput consumer) {
         this.crafted.forEach((matrix, result) ->
-                matrix.apply(ShapedRecipeBuilder.shaped(result.getSecond(), result.getFirst().get(), matrix.count())
-                                .define('#', this.flower().get()))
+                matrix.apply(ShapedRecipeBuilder.shaped(result.getSecond(), result.getFirst().get(), matrix.count()), this.flower().get())
                         .unlockedBy(ReduxRecipeProvider.getHasName(this.flower().get()), ReduxRecipeProvider.has(this.flower().get()))
                         .save(consumer, data.name(ReduxRecipeProvider.getConversionRecipeName(result.getFirst().get(), this.flower().get()))));
         this.shapeless.forEach((ingredient, result) ->

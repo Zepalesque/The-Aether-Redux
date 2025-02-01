@@ -69,7 +69,7 @@ public class GildedGroves {
 
                 .addFeature(GenerationStep.Decoration.RAW_GENERATION, AetherPlacedFeatures.QUICKSOIL_SHELF_PLACEMENT)
 
-                .addFeature(GenerationStep.Decoration.LAKES, ReduxPlacements.SURFACE_RULE_WATER_LAKE)
+                .addFeature(GenerationStep.Decoration.LAKES, ReduxPlacements.GILDED_LAKE)
 
                 .addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, ReduxPlacements.AMBROSIUM_ROCK)
 
@@ -80,8 +80,9 @@ public class GildedGroves {
                 .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_GRAVITITE_BURIED_PLACEMENT)
                 .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_GRAVITITE_PLACEMENT)
 
+                // TODO: Mossy stones gen
                 //.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ReduxPlacements.GILDED_HOLYSTONE_ORE)
-                // TODO vvv
+                // TODO Increased Angilite, decreased Sentrite
                 //.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ReduxPlacements.DIVINITE_ORE_INCREASED)
 
                 .addFeature(GenerationStep.Decoration.FLUID_SPRINGS, AetherPlacedFeatures.WATER_SPRING_PLACEMENT)

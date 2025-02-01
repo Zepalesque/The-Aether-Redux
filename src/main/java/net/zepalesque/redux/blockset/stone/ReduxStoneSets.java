@@ -32,9 +32,10 @@ public class ReduxStoneSets {
     public static final BaseStoneSet SENTRITE = register(new BaseStoneSet("sentrite", MapColor.DEEPSLATE, SoundType.NETHER_ORE, 1.0F, 6.0F, "natural/"))
             .withLore("A dark, metallic rock found throughout the Aether. This crude metal is used in a number of parts of Sentry technology, even their walls of Carved Stone are made of a mixture of this and Holystone.")
             .craftsInto(AetherBlocks.CARVED_STONE,
-                    new CraftingMatrix(4, builder ->
+                    new CraftingMatrix(4, (builder, ingredient) ->
                             builder
                                     .define('H', AetherBlocks.HOLYSTONE.get())
+                                    .define('#', ingredient)
                                     .pattern("#H")
                                     .pattern("H#")))
             .craftsIntoSet(() -> ReduxStoneSets.POLISHED_SENTRITE, CommonMatrices.SQUARE_2X2)

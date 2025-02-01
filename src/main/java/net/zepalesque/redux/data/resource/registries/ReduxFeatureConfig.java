@@ -38,6 +38,7 @@ import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlac
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
+import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.blockset.flower.ReduxFlowerSets;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
@@ -56,7 +57,7 @@ import net.zepalesque.unity.extendablestate.UnityStateLists;
 import net.zepalesque.zenith.api.block.predicate.InBiomePredicate;
 import net.zepalesque.zenith.api.world.feature.gen.ExtendableStateListBlockFeature;
 import net.zepalesque.zenith.api.world.feature.gen.LargeRockFeature;
-import net.zepalesque.zenith.api.world.feature.gen.SurfaceRuleLakeFeature;
+import net.zepalesque.zenith.api.world.feature.gen.RuleBasedLakeFeature;
 import net.zepalesque.zenith.api.world.tree.trunk.IntProviderTrunkPlacer;
 import net.zepalesque.zenith.core.registry.ZenithFeatures;
 
@@ -87,7 +88,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHT_TREES = createKey("the_blight_trees");
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SURFACE_RULE_WATER_LAKE = createKey("surface_rule_water_lake");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GILDED_LAKE = createKey("gilded_groves_water_lake");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> AMBROSIUM_ROCK = createKey("ambrosium_rock");
 
@@ -111,6 +112,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
         HolderGetter<ConfiguredFeature<?, ?>> configs = context.lookup(Registries.CONFIGURED_FEATURE);
         HolderGetter<DensityFunction> functions = context.lookup(Registries.DENSITY_FUNCTION);
         HolderGetter<Block> blocks = context.lookup(Registries.BLOCK);
+        HolderGetter<NormalNoise.NoiseParameters> noises = context.lookup(Registries.NOISE);
 
         register(context, CLOUDBED, ReduxFeatures.CLOUDBED.get(),
                 new CloudbedFeature.Config(
@@ -251,8 +253,8 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
         register(context, GOLDEN_CLOVERS_PATCH, Feature.FLOWER,
                 patch(24, 7, 3, petals(drops(ReduxBlocks.GOLDEN_CLOVERS))));
 
-        register(context, SURFACE_RULE_WATER_LAKE, ZenithFeatures.SURFACE_RULE_LAKE.get(),
-                new SurfaceRuleLakeFeature.Config(BlockStateProvider.simple(Blocks.WATER)));
+        register(context, GILDED_LAKE, ZenithFeatures.RULE_BASED_LAKE.get(),
+                lakeWithGrassBlock(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK, () -> Blocks.WATER, noises));
 
         register(context, AMBROSIUM_ROCK, ZenithFeatures.LARGE_ROCK.get(),
                 new LargeRockFeature.Config(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()

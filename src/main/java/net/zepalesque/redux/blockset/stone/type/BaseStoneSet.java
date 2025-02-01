@@ -299,16 +299,14 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
         ReduxRecipeProvider.wall(consumer, RecipeCategory.BUILDING_BLOCKS, this.wall().get(), this.block().get());
 
         this.crafted_sets.forEach((matrix, set) ->
-            matrix.apply(ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, set.get().block().get(), matrix.count())
-                    .define('#', this.block().get()))
+            matrix.apply(ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, set.get().block().get(), matrix.count()), this.block().get())
                     .unlockedBy(ReduxRecipeProvider.getHasName(set.get().block().get()), ReduxRecipeProvider.has(set.get().block().get())).save(consumer,
                             data.name(ReduxRecipeProvider.getConversionRecipeName(set.get().block().get(), this.block().get()))
                     )
         );
 
         this.crafted_blocks.forEach((matrix, block) ->
-            matrix.apply(ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, block.get(), matrix.count())
-                    .define('#', this.block().get()))
+            matrix.apply(ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, block.get(), matrix.count()), this.block().get())
                     .unlockedBy(ReduxRecipeProvider.getHasName(this.block().get()), ReduxRecipeProvider.has(this.block().get())).save(consumer,
                             data.name(ReduxRecipeProvider.getConversionRecipeName(block.get(), this.block().get()))
                     )
