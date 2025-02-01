@@ -30,6 +30,7 @@ import net.zepalesque.zenith.api.data.DatagenUtil;
 import net.zepalesque.zenith.api.item.TabUtil;
 import net.zepalesque.zenith.core.Zenith;
 import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
+import net.zepalesque.zenith.util.CompatHelper;
 
 import java.util.Map;
 import java.util.function.Supplier;
@@ -234,7 +235,7 @@ public class LogWallWoodSet extends BaseWoodSet {
     @Override
     protected Supplier<? extends ItemLike> naturalBlocks(BuildCreativeModeTabContentsEvent event, Supplier<? extends ItemLike> prev) {
         Supplier<? extends ItemLike> superPrev = super.naturalBlocks(event, prev);
-        if (Zenith.loaded("aether_genesis")) {
+        if (CompatHelper.loaded("aether_genesis")) {
             TabUtil.putAfter(event, superPrev, this.logWall());
             return this.logWall();
         } else return superPrev;

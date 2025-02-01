@@ -9,7 +9,6 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
-import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -147,7 +146,7 @@ public class Redux {
             ASSETS_CONFIG.setup(event);
         } else if (event.getPackType() == PackType.SERVER_DATA) {
             if (ReduxConfig.COMMON.bronze_dungeon_upgrade.get()) { PackUtils.setupPack(event, MODID, "data/dungeon_upgrades/bronze", "bronze_upgrade", true, true); }
-            if (ReduxConfig.COMMON.redux_noise.get().get()) { PackUtils.setupPack(event, MODID, "data/redux_noise", "redux_noise", true, true); }
+            if (ReduxConfig.COMMON.redux_noise.get().enabled()) { PackUtils.setupPack(event, MODID, "data/redux_noise", "redux_noise", true, true); }
         }
     }
 

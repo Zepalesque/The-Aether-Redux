@@ -1,14 +1,13 @@
 package net.zepalesque.redux.config.enums;
 
-import net.zepalesque.redux.Redux;
-import net.zepalesque.zenith.core.Zenith;
+import net.zepalesque.zenith.util.CompatHelper;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
-// Idk if this is a good idea lul
-public enum AACompatType implements CharSequence, Supplier<Boolean> {
-    ALWAYS_TRUE("always_true", () -> true), ALWAYS_FALSE("always_false", () -> false), WITHOUT_AA("without_aa", () -> !Zenith.loaded("ancient_aether"));
+// me when charsequence wrapper
+public enum AACompatType implements ConditionalConfig {
+    ALWAYS_TRUE("always_true", () -> true), ALWAYS_FALSE("always_false", () -> false), WITHOUT_AA("without_aa", () -> !CompatHelper.loaded("ancient_aether"));
 
     private final String serialized;
     private final Supplier<Boolean> value;
@@ -40,7 +39,7 @@ public enum AACompatType implements CharSequence, Supplier<Boolean> {
     }
 
     @Override
-    public Boolean get() {
+    public boolean enabled() {
         return value.get();
     }
 }
