@@ -75,7 +75,7 @@ public class ReduxConfig {
             bronze_dungeon_upgrade = Redux.DATA_CONFIG.register(builder
                     .comment("Upgrades the Bronze Dungeon structure with new blocks and more depth")
                     .worldRestart()
-                    .define("Bronze Dungeon Upgrade", true), "dungeon_upgrades");
+                    .define("Bronze Dungeon Upgrade", true), "dungeon_upgrades/bronze");
             builder.pop();
         }
     }
