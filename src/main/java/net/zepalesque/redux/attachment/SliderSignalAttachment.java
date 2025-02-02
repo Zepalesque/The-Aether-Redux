@@ -1,11 +1,12 @@
 package net.zepalesque.redux.attachment;
 
 import com.aetherteam.aether.entity.monster.dungeon.boss.Slider;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.neoforge.network.PacketDistributor;
 import net.zepalesque.redux.client.audio.ReduxSounds;
 import net.zepalesque.redux.config.ReduxConfig;
@@ -85,7 +86,7 @@ public class SliderSignalAttachment {
 
     protected void playSound(Slider slider) {
         if (ReduxConfig.CLIENT.slider_signal_sfx.get())
-            slider.level().playSound(Minecraft.getInstance().player, slider.getX(), slider.getY(), slider.getZ(), ReduxSounds.SLIDER_SIGNAL, SoundSource.HOSTILE, 1F, 1F);
+            slider.level().playLocalSound(slider, ReduxSounds.SLIDER_SIGNAL.get(), SoundSource.HOSTILE, 1F, 1F);
     }
 
     public static @NotNull SliderSignalAttachment get(@NotNull Slider slider) {

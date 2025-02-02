@@ -1,13 +1,9 @@
 package net.zepalesque.redux.config;
 
-import com.electronwill.nightconfig.core.file.CommentedFileConfig;
-import com.electronwill.nightconfig.core.io.WritingMode;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
-import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.loading.FMLPaths;
-import net.neoforged.neoforge.common.ModConfigSpec;
 import net.zepalesque.redux.Redux;
 
 import java.nio.file.Files;
@@ -28,4 +24,19 @@ public class ReduxConfigHandler {
             throw new RuntimeException("Failed to create Aether: Redux config files: ", e);
         }
     }
+
+    // TODO: do this stuff for server idk
+    /*private static void createAndLoadConfigs(ModContainer mod, ModConfig.Type type, ModConfigSpec spec, String path) {
+        mod.registerConfig(type, spec, path);
+
+        final CommentedFileConfig configData = CommentedFileConfig.builder(FMLPaths.CONFIGDIR.get().resolve(path))
+                .preserveInsertionOrder()
+                .autoreload()
+                .writingMode(WritingMode.REPLACE)
+                .sync()
+                .build();
+
+        configData.load();
+        spec.acceptConfig(configData);
+    }*/
 }

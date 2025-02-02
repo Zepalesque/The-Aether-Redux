@@ -22,9 +22,6 @@ public class ReduxConfig {
         public final ModConfigSpec.ConfigValue<Boolean> raw_ores;
         public final ModConfigSpec.ConfigValue<Boolean> gummy_swet_nerf;
 
-        public final ModConfigSpec.ConfigValue<Boolean> bronze_dungeon_upgrade;
-        public final ModConfigSpec.EnumValue<AACompatFeature.Overridden> redux_noise;
-
         public Server(ModConfigSpec.Builder builder) {
             super(() -> SERVER_SPEC, "redux_server");
             builder.push("Worldgen Tweaks");
@@ -40,14 +37,6 @@ public class ReduxConfig {
                     .comment("Replace the Aether's large Aercloud features with a noise-based cloudbed")
                     .worldRestart()
                     .define("Cloudbed", true);
-            redux_noise = Redux.DATA_CONFIG.register(builder
-                    .comment("Uses an alternative noise for the Aether. By default, this is disabled with the Ancient Aether mod installed.")
-                    .worldRestart()
-                    .defineEnum("Redux Noise", AACompatFeature.Overridden.WITHOUT_AA), "redux_noise", ConditionalConfig::enabled);
-            bronze_dungeon_upgrade = Redux.DATA_CONFIG.register(builder
-                    .comment("Upgrades the Bronze Dungeon structure with new blocks and more depth")
-                    .worldRestart()
-                    .define("Bronze Dungeon Upgrade", true), "dungeon_upgrades");
             builder.pop();
             builder.push("Gameplay");
             max_veridium_tool_infusion = builder
@@ -73,10 +62,20 @@ public class ReduxConfig {
 
     public static class Common extends DataSerializableConfig {
 
-        // TODO: Move this stuff to server when switching to PackConfig? assuming the configs are loaded before data stuff is initially loaded
+        public final ModConfigSpec.ConfigValue<Boolean> bronze_dungeon_upgrade;
+        public final ModConfigSpec.EnumValue<AACompatFeature.Overridden> redux_noise;
+
         public Common(ModConfigSpec.Builder builder) {
             super(() -> COMMON_SPEC, "redux_common");
             builder.push("Datapack Registration");
+            redux_noise = Redux.DATA_CONFIG.register(builder
+                    .comment("Uses an alternative noise for the Aether. By default, this is disabled with the Ancient Aether mod installed.")
+                    .worldRestart()
+                    .defineEnum("Redux Noise", AACompatFeature.Overridden.WITHOUT_AA), "redux_noise", ConditionalConfig::enabled);
+            bronze_dungeon_upgrade = Redux.DATA_CONFIG.register(builder
+                    .comment("Upgrades the Bronze Dungeon structure with new blocks and more depth")
+                    .worldRestart()
+                    .define("Bronze Dungeon Upgrade", true), "dungeon_upgrades");
             builder.pop();
         }
     }

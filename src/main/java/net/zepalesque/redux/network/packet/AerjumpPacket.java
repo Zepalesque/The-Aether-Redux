@@ -75,11 +75,9 @@ public class AerjumpPacket {
 
 
         public static void execute(Accepted packet, IPayloadContext context) {
-            Player player = Minecraft.getInstance().player;
-            if (player != null) {
-                ReduxPlayerAttachment attachment = ReduxPlayerAttachment.get(player);
-                attachment.doAerjumpMovement(player, packet.jumpIndex());
-            }
+            Player player = context.player();
+            ReduxPlayerAttachment attachment = ReduxPlayerAttachment.get(player);
+            attachment.doAerjumpMovement(player, packet.jumpIndex());
         }
 
         @Override
@@ -110,13 +108,11 @@ public class AerjumpPacket {
         }
 
         public static void execute(Particles packet, IPayloadContext context) {
-            Player player = Minecraft.getInstance().player;
-            if (player != null) {
-                double x = packet.x();
-                double y = packet.y();
-                double z = packet.z();
-                ReduxPlayerAttachment.spawnAerjumpParticles(player.level(),  x, y, z);
-            }
+            Player player = context.player();
+            double x = packet.x();
+            double y = packet.y();
+            double z = packet.z();
+            ReduxPlayerAttachment.spawnAerjumpParticles(player.level(),  x, y, z);
         }
 
         @Override
