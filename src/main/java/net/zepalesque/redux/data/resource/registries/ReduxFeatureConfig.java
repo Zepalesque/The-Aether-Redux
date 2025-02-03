@@ -52,6 +52,7 @@ import net.zepalesque.redux.world.tree.decorator.GoldenVineDecorator;
 import net.zepalesque.redux.world.tree.foliage.BlightwillowFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.SkyrootFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.SmallGoldenOakFoliagePlacer;
+import net.zepalesque.redux.world.tree.roots.BlightwillowRootsPlacer;
 import net.zepalesque.redux.world.tree.trunk.BlightwillowTrunkPlacer;
 import net.zepalesque.unity.data.UnityTags;
 import net.zepalesque.unity.extendablestate.UnityStateLists;
@@ -146,10 +147,11 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
                 new TreeConfiguration.TreeConfigurationBuilder(
                         prov(ReduxWoodSets.BLIGHTWILLOW.log()),
                         // TODO
-                        new BlightwillowTrunkPlacer(UniformInt.of(12, 14), Optional.of(prov(ReduxWoodSets.BLIGHTWILLOW.wood()))),
+                        new BlightwillowTrunkPlacer(ConstantInt.of(6)),
                         // TODO
                         prov(drops(ReduxBlocks.SHADEROOT_LEAVES)),
                         new BlightwillowFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
+                        Optional.of(new BlightwillowRootsPlacer(UniformInt.of(6, 8), prov(ReduxWoodSets.BLIGHTWILLOW.wood()))),
                         new TwoLayersFeatureSize(7, 0, 3)
                 ).ignoreVines()
                         // TODO

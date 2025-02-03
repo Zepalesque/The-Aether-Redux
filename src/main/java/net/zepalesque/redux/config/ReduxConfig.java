@@ -56,6 +56,7 @@ public class ReduxConfig {
                     .comment("Nerfs Gummy Swets and makes them craftable.")
                     .worldRestart()
                     .define("Gummy Swet Nerf", true);
+
             builder.pop();
         }
     }

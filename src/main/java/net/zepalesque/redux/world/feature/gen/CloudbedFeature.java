@@ -24,6 +24,7 @@ public class CloudbedFeature extends Feature<CloudbedFeature.Config> {
         Config config = context.config();
         WorldGenLevel level = context.level();
 
+        //
         DensityFunction cloudNoise = config.cloudNoise();
         DensityFunction yOffsetNoise = config.yOffset();
 
@@ -32,7 +33,7 @@ public class CloudbedFeature extends Feature<CloudbedFeature.Config> {
         cloudNoise.mapAll(visitor);
         yOffsetNoise.mapAll(visitor);
 
-        // This should be placed, once per chunk
+        // The feature should be placed once per chunk as it places one-chunk pieces of the cloudbed
         int chunkX = context.origin().getX() - (context.origin().getX() % 16);
         int chunkZ = context.origin().getZ() - (context.origin().getZ() % 16);
         // Place blocks across the entire chunk
