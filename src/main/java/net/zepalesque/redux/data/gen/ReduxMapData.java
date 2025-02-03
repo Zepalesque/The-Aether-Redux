@@ -1,5 +1,6 @@
 package net.zepalesque.redux.data.gen;
 
+import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.resources.registries.AetherBiomes;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -7,6 +8,8 @@ import net.neoforged.neoforge.registries.datamaps.builtin.NeoForgeDataMaps;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.client.ReduxColors;
+import net.zepalesque.redux.client.particle.ReduxParticles;
+import net.zepalesque.redux.data.ReduxDataMaps;
 import net.zepalesque.redux.data.prov.ReduxDataMapProvider;
 import net.zepalesque.redux.data.resource.registries.ReduxBiomes;
 import net.zepalesque.redux.item.ReduxItems;
@@ -36,5 +39,14 @@ public class ReduxMapData extends ReduxDataMapProvider {
         this.addCompost(compostables, ReduxItems.WYND_OATS, 0.3F);
         this.addCompost(compostables, ReduxBlocks.WYNDSPROUTS, 0.3F);
         this.addCompost(compostables, ReduxItems.WYND_OAT_PANICLE, 0.65F);
+
+        var leaves = this.builder(ReduxDataMaps.LEAF_PARTICLES);
+        this.addLeafParticle(leaves, AetherBlocks.SKYROOT_LEAVES, ReduxParticles.SKYROOT_LEAF, 20);
+        this.addLeafParticle(leaves, AetherBlocks.CRYSTAL_LEAVES, ReduxParticles.CRYSTAL_LEAF, 30);
+        this.addLeafParticle(leaves, AetherBlocks.CRYSTAL_FRUIT_LEAVES, ReduxParticles.CRYSTAL_LEAF, 30);
+        this.addLeafParticle(leaves, AetherBlocks.GOLDEN_OAK_LEAVES, ReduxParticles.GOLDEN_OAK_LEAF);
+        this.addLeafParticle(leaves, ReduxBlocks.GILDENROOT_LEAVES, ReduxParticles.GILDENROOT_LEAF, 20);
+        this.addLeafParticle(leaves, ReduxBlocks.SHADEROOT_LEAVES, ReduxParticles.SHADEROOT_LEAF, 13);
+        this.addLeafParticle(leaves, ReduxBlocks.BLIGHTWILLOW_LEAVES, ReduxParticles.BLIGHTWILLOW_LEAF, 12);
     }
 }

@@ -29,6 +29,7 @@ import net.zepalesque.redux.client.particle.ReduxParticles;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.config.ReduxConfigHandler;
 import net.zepalesque.redux.data.ReduxData;
+import net.zepalesque.redux.data.ReduxDataMaps;
 import net.zepalesque.redux.entity.ReduxEntities;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.item.components.ReduxDataComponents;
@@ -137,16 +138,13 @@ public class Redux {
     }
 
     private void registerDataMaps(RegisterDataMapTypesEvent event) {
+        event.register(ReduxDataMaps.LEAF_PARTICLES);
     }
 
     public  void packSetup(AddPackFindersEvent event) {
-        if (event.getPackType() == PackType.CLIENT_RESOURCES) {
-            ASSETS_CONFIG.setup(event);
-        } else if (event.getPackType() == PackType.SERVER_DATA) {
-//            if (ReduxConfig.COMMON.bronze_dungeon_upgrade.get()) { PackUtils.setupPack(event, MODID, "data/dungeon_upgrades/bronze", "bronze_upgrade", true, true); }
-//            if (ReduxConfig.COMMON.redux_noise.get().enabled()) { PackUtils.setupPack(event, MODID, "data/redux_noise", "redux_noise", true, true); }
-            DATA_CONFIG.setup(event);
-        }
+
+        PackConfig pack = event.getPackType() == PackType.CLIENT_RESOURCES ? ASSETS_CONFIG : DATA_CONFIG;
+        pack.setup(event);
     }
 
     public static ResourceLocation loc(String path) {

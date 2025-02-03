@@ -1,5 +1,6 @@
 package net.zepalesque.redux.block.natural.leaves;
 
+import com.aetherteam.aether.block.natural.AetherDoubleDropsLeaves;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.world.level.BlockGetter;
@@ -7,11 +8,11 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.function.Supplier;
 
-public class ShadedLeavesBlock extends FallingLeavesBlock {
+public class ShadedLeavesBlock extends AetherDoubleDropsLeaves {
     private final int lightBlock;
 
-    public ShadedLeavesBlock(Supplier<? extends ParticleOptions> particle, int lightBlock, Properties properties) {
-        super(particle, properties);
+    public ShadedLeavesBlock(int lightBlock, Properties properties) {
+        super(properties);
         this.lightBlock = lightBlock;
     }
 

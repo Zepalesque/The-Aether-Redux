@@ -25,17 +25,27 @@ public class ReduxParticles {
 
     public static final DeferredRegister<ParticleType<?>> PARTICLES = DeferredRegister.create(BuiltInRegistries.PARTICLE_TYPE, Redux.MODID);
 
-    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> GILDENROOT_LEAF = PARTICLES.register("gildenroot_leaf", () -> new SimpleParticleType(false));
-    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> SHADEROOT_LEAF = PARTICLES.register("shaderoot_leaf", () -> new SimpleParticleType(false));
-    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> WHIRLWIND_LIGHTNING = PARTICLES.register("whirlwind_lightning", () -> new SimpleParticleType(false));
-
-    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> SPARK = PARTICLES.register("spark", () -> new SimpleParticleType(false));
+    public static final DeferredHolder<ParticleType<?>, SimpleParticleType>
+            GILDENROOT_LEAF = PARTICLES.register("gildenroot_leaf", () -> new SimpleParticleType(false)),
+            SHADEROOT_LEAF = PARTICLES.register("shaderoot_leaf", () -> new SimpleParticleType(false)),
+            BLIGHTWILLOW_LEAF = PARTICLES.register("blightwillow_leaf", () -> new SimpleParticleType(false)),
+            CRYSTAL_LEAF = PARTICLES.register("crystal_leaf", () -> new SimpleParticleType(false)),
+            SKYROOT_LEAF = PARTICLES.register("skyroot_leaf", () -> new SimpleParticleType(false)),
+            GOLDEN_OAK_LEAF = PARTICLES.register("golden_oak_leaf", () -> new SimpleParticleType(false)),
+            WHIRLWIND_LIGHTNING = PARTICLES.register("whirlwind_lightning", () -> new SimpleParticleType(false)),
+            SPARK = PARTICLES.register("spark", () -> new SimpleParticleType(false));
 
     @SubscribeEvent
     @OnlyIn(Dist.CLIENT)
     public static void registerParticleFactories(RegisterParticleProvidersEvent event) {
         event.registerSpriteSet(GILDENROOT_LEAF.get(), ReduxLeafParticle.Provider::new);
         event.registerSpriteSet(SHADEROOT_LEAF.get(), ReduxLeafParticle.Provider::new);
+        event.registerSpriteSet(BLIGHTWILLOW_LEAF.get(), ReduxLeafParticle.Provider::new);
+        event.registerSpriteSet(CRYSTAL_LEAF.get(), ReduxLeafParticle.Provider::new);
+        event.registerSpriteSet(SKYROOT_LEAF.get(), ReduxLeafParticle.Provider::new);
+        event.registerSpriteSet(GOLDEN_OAK_LEAF.get(), ReduxLeafParticle.Provider::new);
+
+
         event.registerSpriteSet(WHIRLWIND_LIGHTNING.get(), ReduxGlowParticle.Lightning::new);
         event.registerSpriteSet(SPARK.get(), SparkParticle.Provider::new);
 

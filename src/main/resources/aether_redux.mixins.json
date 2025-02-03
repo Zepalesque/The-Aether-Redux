@@ -32,5 +32,9 @@
     "common.world.structure.piece.BronzeBossMixin",
     "common.world.structure.piece.BronzeDungeonMixin"
   ],
-  "client": []
+  "client": [
+    "client.block.ParticleLeavesMixin",
+    "client.block.AetherLeavesClientMixin",
+    "client.block.LeafBlockClientMixin"
+  ]
 }

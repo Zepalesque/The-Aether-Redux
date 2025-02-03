@@ -148,8 +148,8 @@ public abstract class BaseFlowerSet<B extends Block> extends AbstractFlowerSet i
     }
 
     @Override
-    public BaseFlowerSet<B> compost(float amount) {
-        this.compost = amount;
+    public BaseFlowerSet<B> compost(float chance) {
+        this.compost = chance;
         return this;
     }
 
