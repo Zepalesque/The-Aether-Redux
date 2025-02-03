@@ -33,14 +33,14 @@
       "lower_size": 0,
       "upper_size": 3
     },
-    "trunk_placer": {
-      "type": "aether_redux:blightwillow_trunk",
-      "height": {
+    "root_placer": {
+      "type": "aether_redux:blightwillow_roots",
+      "trunk_offset_y": {
         "type": "minecraft:uniform",
-        "max_inclusive": 14,
-        "min_inclusive": 12
+        "max_inclusive": 8,
+        "min_inclusive": 6
       },
-      "wood_block": {
+      "wood": {
         "type": "minecraft:simple_state_provider",
         "state": {
           "Name": "aether_redux:blightwillow_wood",
@@ -51,6 +51,10 @@
           }
         }
       }
+    },
+    "trunk_placer": {
+      "type": "aether_redux:blightwillow_trunk",
+      "height": 6
     },
     "trunk_provider": {
       "type": "minecraft:simple_state_provider",
