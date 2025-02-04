@@ -60,7 +60,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
             () -> new LeafPileBlock(SHADEROOT_LEAVES));
 
     public static DeferredBlock<ShadedLeavesBlock> BLIGHTWILLOW_LEAVES = register("blightwillow_leaves",
-            () -> new ShadedLeavesBlock(10, Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get()).mapColor(MapColor.TERRACOTTA_PURPLE)));
+            () -> new ShadedLeavesBlock(13, Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get()).mapColor(MapColor.TERRACOTTA_PURPLE)));
 
     public static DeferredBlock<LeafPileBlock> BLIGHTWILLOW_LEAF_PILE = register("blightwillow_leaf_pile",
             () -> new LeafPileBlock(BLIGHTWILLOW_LEAVES));

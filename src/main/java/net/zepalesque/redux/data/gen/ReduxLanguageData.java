@@ -32,6 +32,12 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
         addBlock(ReduxBlocks.SHADEROOT_LEAF_PILE);
         addLore(ReduxBlocks.SHADEROOT_LEAF_PILE, "A pile of Shaderoot Leaves. These can be stacked on top of eachother to make various sizes!");
 
+        addBlock(ReduxBlocks.BLIGHTWILLOW_LEAVES);
+        addLore(ReduxBlocks.BLIGHTWILLOW_LEAVES, "Leaves of the Blightwillow tree, The most common tree found in the Blight. Some claim that these may be a blighted version of Golden Oak trees.");
+
+        addBlock(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE);
+        addLore(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE, "A pile of Blightwillow Leaves. These can be stacked on top of eachother to make various sizes!");
+
         addBlock(ReduxBlocks.GOLDEN_CLOVERS);
         addLore(ReduxBlocks.GOLDEN_CLOVERS, "A nice patch of clovers that can be found in the Gilded Groves.");
 
