@@ -146,17 +146,13 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
         register(context, BLIGHTWILLOW_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
                         prov(ReduxWoodSets.BLIGHTWILLOW.log()),
-                        // TODO
                         new BlightwillowTrunkPlacer(ConstantInt.of(6)),
                         // TODO
                         prov(drops(ReduxBlocks.BLIGHTWILLOW_LEAVES)),
                         new BlightwillowFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
                         Optional.of(new BlightwillowRootsPlacer(UniformInt.of(6, 8), prov(ReduxWoodSets.BLIGHTWILLOW.wood()))),
                         new TwoLayersFeatureSize(7, 0, 3)
-                ).ignoreVines()
-                        // TODO
-                        //.decorators()
-                        .build());
+                ).ignoreVines().build());
 
         register(context, LARGE_GILDENROOT_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
