@@ -21,7 +21,7 @@ public class ReduxLeafParticle extends TextureSheetParticle {
     private float rotSpeed;
     private final float particleRandom;
     private final float spinAcceleration;
-    private float onGroundTime = 40;
+    private int onGroundTime = 40;
     protected static final double MAXIMUM_COLLISION_VELOCITY_SQUARED = Mth.square(100.0D);
 
     protected ReduxLeafParticle(ClientLevel level, double x, double y, double z) {
@@ -75,8 +75,8 @@ public class ReduxLeafParticle extends TextureSheetParticle {
             }
 
 
-            if (onGroundTime <= 20) {
-                this.alpha = this.onGroundTime / 20;
+            if (onGroundTime <= 21) {
+                this.alpha = Math.max((this.onGroundTime - 1) / 20F, 0F);
             }
 
             if (!this.removed) {

@@ -16,7 +16,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(LeavesWithParticlesBlock.class)
 public class ParticleLeavesMixin {
 
-    @Inject(method = "animateTick", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/world/level/block/LeavesBlock;animateTick(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/util/RandomSource;)V"), cancellable = true)
+    // Invoke as we are already on the client, don't need an extra isClient call
+    @Inject(method = "animateTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;isClientSide()Z"), cancellable = true)
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random, CallbackInfo ci) {
         @Nullable LeafChanceEntry entry = LeavesParticleUtil.findEntry((LeavesWithParticlesBlock) (Object) this);
         if (entry != null) {
