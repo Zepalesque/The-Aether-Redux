@@ -1,9 +1,6 @@
 package net.zepalesque.redux.mixin.mixins.client.block;
 
-import com.aetherteam.aether.block.natural.AetherDoubleDropsLeaves;
 import com.aetherteam.aether.block.natural.LeavesWithParticlesBlock;
-import com.llamalad7.mixinextras.sugar.Share;
-import com.llamalad7.mixinextras.sugar.ref.LocalBooleanRef;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleOptions;
@@ -22,7 +19,7 @@ public class ParticleLeavesMixin {
 
     @Inject(method = "animateTick", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/world/level/block/LeavesBlock;animateTick(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/util/RandomSource;)V"), cancellable = true)
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random, CallbackInfo ci) {
-        @Nullable Pair<ParticleOptions, Integer> pair = LeavesParticleUtil.particleFor((LeavesWithParticlesBlock) (Object) this);
+        @Nullable Pair<ParticleOptions, Integer> pair = LeavesParticleUtil.entryOf((LeavesWithParticlesBlock) (Object) this);
         if (pair != null) {
             LeavesParticleUtil.createParticle(state, level, pos, random, pair.getFirst(), pair.getSecond());
             ci.cancel();

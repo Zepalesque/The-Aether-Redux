@@ -10,6 +10,7 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.DataMapProvider;
 import net.neoforged.neoforge.registries.datamaps.builtin.Compostable;
+import net.zepalesque.redux.api.LeafChanceEntry;
 import net.zepalesque.unity.data.prov.UnityDataMapProvider;
 
 import java.util.concurrent.CompletableFuture;
@@ -22,12 +23,17 @@ public abstract class ReduxDataMapProvider extends UnityDataMapProvider {
     }
 
     @SuppressWarnings("deprecation")
-    public void addLeafParticle(DataMapProvider.Builder<Pair<ParticleOptions, Integer>, Block> map, Supplier<? extends Block> block, Supplier<? extends ParticleOptions> particle) {
-        map.add(block.get().builtInRegistryHolder().unwrapKey().orElseThrow(), Pair.of(particle.get(), 15), false);
+    public void addLeafParticle(DataMapProvider.Builder<LeafChanceEntry, Block> map, Supplier<? extends Block> block, Supplier<? extends ParticleOptions> particle) {
+        map.add(block.get().builtInRegistryHolder().unwrapKey().orElseThrow(), LeafChanceEntry.of(particle.get()), false);
     }
 
     @SuppressWarnings("deprecation")
-    public void addLeafParticle(DataMapProvider.Builder<Pair<ParticleOptions, Integer>, Block> map, Supplier<? extends Block> block, Supplier<? extends ParticleOptions> particle, int rarity) {
-        map.add(block.get().builtInRegistryHolder().unwrapKey().orElseThrow(), Pair.of(particle.get(), rarity), false);
+    public void addLeafParticle(DataMapProvider.Builder<LeafChanceEntry, Block> map, Supplier<? extends Block> block, Supplier<? extends ParticleOptions> particle, int rarity) {
+        map.add(block.get().builtInRegistryHolder().unwrapKey().orElseThrow(), LeafChanceEntry.of(particle.get(), rarity), false);
+    }
+
+    @SuppressWarnings("deprecation")
+    public void addLeafParticle(DataMapProvider.Builder<LeafChanceEntry, Block> map, Supplier<? extends Block> block, Supplier<? extends ParticleOptions> particle, float chance) {
+        map.add(block.get().builtInRegistryHolder().unwrapKey().orElseThrow(), LeafChanceEntry.of(particle.get(), chance), false);
     }
 }
