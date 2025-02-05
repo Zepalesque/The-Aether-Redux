@@ -3,7 +3,12 @@ package net.zepalesque.redux.entity.projectile;
 
 import com.aetherteam.nitrogen.entity.BossMob;
 import net.minecraft.core.Direction;
+import net.minecraft.nbt.CollectionTag;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.IntArrayTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.NbtUtils;
+import net.minecraft.nbt.Tag;
 import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
@@ -27,7 +32,12 @@ import net.zepalesque.redux.entity.ReduxEntities;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 // TODO: Rewrite from scratch
 public class Ember extends Projectile {
@@ -35,13 +45,13 @@ public class Ember extends Projectile {
         super(entityType, level);
     }
 
-    public static final double VELOCITY_THRESHOLD_XZ = 0.075D;
+    public static final double VELOCITY_THRESHOLD_XZ = 0.05D;
     public static final double VELOCITY_THRESHOLD_Y = 0.05D;
     public static final double BOUNCE_FRICTION_XZ = 0.75D;
     public static final double BOUNCE_FRICTION_Y = 0.7D;
 
     private @Nullable UUID source;
-    private final ArrayList<UUID> hitEntities = new ArrayList<>();
+    private final Set<UUID> hitEntities = new HashSet<>();
     public final int lifetime = 80;
     public Ember(Level level, Player owner) {
         this(ReduxEntities.EMBER.get(), level);
@@ -101,17 +111,26 @@ public class Ember extends Projectile {
         }
     }
 
+    @Override
+    public void remove(RemovalReason reason) {
+        this.hitEntities.clear();
+        super.remove(reason);
+    }
+
     protected void addAdditionalSaveData(CompoundTag compound) {
         super.addAdditionalSaveData(compound);
         if (this.source != null) {
             compound.putUUID("Source", this.source);
         }
-        if (this.hitEntities != null && !this.hitEntities.isEmpty()) {
-            CompoundTag hits = new CompoundTag();
-            for (int i = 0; i < this.hitEntities.size(); i++) {
-                UUID id = this.hitEntities.get(i);
-                hits.putUUID(String.valueOf(i), id);
+        if (!this.hitEntities.isEmpty()) {
+            ListTag hits = new ListTag();
+
+            List<IntArrayTag> list = this.hitEntities.stream().map(NbtUtils::createUUID).toList();
+            for (int i = 0; i < list.size(); i++) {
+                IntArrayTag arrayTag = list.get(i);
+                hits.addTag(i, arrayTag);
             }
+
             compound.put("Hits", hits);
         }
     }
@@ -120,9 +139,11 @@ public class Ember extends Projectile {
         if (compound.hasUUID("Source")) {
             this.source = compound.getUUID("Source");
         }
-        if (compound.contains("Hits") && compound.get("Hits") instanceof CompoundTag hits) {
-            for (String s : hits.getAllKeys()) {
-                this.hitEntities.add(hits.getUUID(s));
+        if (compound.contains("Hits") && compound.get("Hits") instanceof ListTag hits) {
+            for (Tag tag : hits) {
+                if (tag.getType() == IntArrayTag.TYPE) {
+                    this.hitEntities.add(NbtUtils.loadUUID(tag));
+                }
             }
         }
     }

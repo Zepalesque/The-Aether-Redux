@@ -54,7 +54,7 @@ public class SparkParticle extends TextureSheetParticle {
     public void tick() {
         Vec3 velocity = new Vec3(this.xd, this.yd, this.zd);
         Vec3 pos = new Vec3(this.x, this.y, this.z);
-        velocity = velocity.multiply(1D, Math.abs(velocity.y) > Ember.VELOCITY_THRESHOLD_Y ? 1 : 0, 1D);
+        velocity = velocity.multiply(Math.abs(velocity.x) > Ember.VELOCITY_THRESHOLD_XZ ? 1 : 0, Math.abs(velocity.y) > Ember.VELOCITY_THRESHOLD_Y ? 1 : 0, Math.abs(velocity.z) > Ember.VELOCITY_THRESHOLD_XZ ? 1 : 0);
         HitResult hitresult = getHitResult(pos, velocity.length() == 0 ? velocity.add(0, -0.04, 0) : velocity, this.level);
         if (velocity.length() > 0D && hitresult.getType() == HitResult.Type.BLOCK) {
             Vec3 bounce = Ember.bounceAxis(velocity, ((BlockHitResult)hitresult).getDirection());

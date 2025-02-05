@@ -47,12 +47,13 @@ public class ReduxLeafParticle extends TextureSheetParticle {
         this.xo = this.x;
         this.yo = this.y;
         this.zo = this.z;
-        if (this.lifetime-- <= 0) {
+
+        if (this.age++ <= this.lifetime) {
             this.remove();
         }
 
         if (!this.removed) {
-            float f = (float)(300 - this.lifetime);
+            float f = (float)this.age;
             float f1 = Math.min(f / 300.0F, 1.0F);
             double d0 = Math.cos(Math.toRadians(this.particleRandom * 60.0F)) * 2.0D * Math.pow(f1, 1.25D);
             double d1 = Math.sin(Math.toRadians(this.particleRandom * 60.0F)) * 2.0D * Math.pow(f1, 1.25D);
@@ -65,7 +66,7 @@ public class ReduxLeafParticle extends TextureSheetParticle {
                 this.roll += this.rotSpeed / 20.0F;
             }
             this.move(this.xd, this.yd, this.zd);
-            if ((this.onGround || this.onGroundTime < 40) && this.lifetime < 299) {
+            if ((this.onGround || this.onGroundTime < 40) && this.age > 1) {
                 this.onGroundTime--;
                 this.xd = 0.0D;
                 this.zd = 0.0D;
@@ -74,9 +75,16 @@ public class ReduxLeafParticle extends TextureSheetParticle {
                 this.remove();
             }
 
+            float groundAlpha, lifeAlpha;
 
-            if (onGroundTime <= 20) {
-                this.alpha = this.onGroundTime / 20;
+            if (onGroundTime <= 20 && this.age >= this.lifetime - 20) {
+                this.alpha = (this.onGroundTime * (this.lifetime - this.age)) / 400F;
+            } else if (onGroundTime <= 20) {
+                this.alpha = this.onGroundTime / 20F;
+            } else if (this.age >= this.lifetime - 20) {
+                this.alpha = (this.lifetime - this.age) / 20F;
+            } else {
+                this.alpha = 1.0F;
             }
 
             if (!this.removed) {
