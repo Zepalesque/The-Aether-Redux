@@ -72,7 +72,7 @@ public class ReduxConfig {
             redux_noise = Redux.DATA_CONFIG.register(builder
                     .comment("Uses an alternative noise for the Aether. By default, this is disabled with the Ancient Aether mod installed.")
                     .worldRestart()
-                    .defineEnum("Redux Noise", AACompatFeature.Overridden.WITHOUT_AA), "redux_noise", ConditionalConfig::enabled);
+                    .defineEnum("Redux Noise", AACompatFeature.Overridden.WITHOUT_ANCIENT_AETHER), "redux_noise", ConditionalConfig::enabled);
             bronze_dungeon_upgrade = Redux.DATA_CONFIG.register(builder
                     .comment("Upgrades the Bronze Dungeon structure with new blocks and more depth")
                     .worldRestart()
@@ -95,7 +95,6 @@ public class ReduxConfig {
 
             leaf_particles = builder
                     .comment("Use nice falling leaf particles for Aether leaf blocks")
-                    .worldRestart()
                     .define("Leaf Particles", true);
             improved_whirlwinds = builder
                     .comment("Gives Whirlwinds a new design, based on Minecraft 1.21's new Breeze mob")
@@ -103,7 +102,6 @@ public class ReduxConfig {
 
             jappafied_textures = Redux.ASSETS_CONFIG.register(builder
                     .comment("Use textures designed to fit with the Jappafied Aethers resource pack.")
-                    .worldRestart()
                     .define("Jappafied Textures", false), "jappafied");
 
 

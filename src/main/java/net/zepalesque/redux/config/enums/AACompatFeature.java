@@ -8,7 +8,7 @@ import java.util.function.Supplier;
 // me when charsequence wrappers
 public class AACompatFeature {
     public enum Overridden implements ConditionalConfig {
-        ALWAYS_TRUE("always_true", true), ALWAYS_FALSE("always_false", false), WITHOUT_AA("without_aa", () -> !CompatHelper.loaded("ancient_aether"));
+        ALWAYS_TRUE("always_true", true), ALWAYS_FALSE("always_false", false), WITHOUT_ANCIENT_AETHER("without_ancient_aethe    r", () -> !CompatHelper.loaded("ancient_aether"));
 
         private final String serialized;
         @Nullable
@@ -45,7 +45,7 @@ public class AACompatFeature {
     }
 
     public enum Compat implements ConditionalConfig {
-        ALWAYS_TRUE("always_true", true), ALWAYS_FALSE("always_false", false), WITH_AA("with_aa", () -> CompatHelper.loaded("ancient_aether"));
+        ALWAYS_TRUE("always_true", true), ALWAYS_FALSE("always_false", false), WITH_ANCIENT_AETHER("with_ancient_aether", () -> CompatHelper.loaded("ancient_aether"));
 
         private final String serialized;
         @Nullable
