@@ -18,7 +18,7 @@ public class AetherLeavesClientMixin extends LeafBlockClientMixin {
     protected void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random, CallbackInfo ci) {
         super.animateTick(state, level, pos, random, ci);
 
-        @Nullable LeafChanceEntry entry = LeavesParticleUtil.entryOf((AetherDoubleDropsLeaves) (Object) this);
+        @Nullable LeafChanceEntry entry = LeavesParticleUtil.findEntry((AetherDoubleDropsLeaves) (Object) this);
         if (entry != null) {
             LeavesParticleUtil.createParticle(state, level, pos, random, entry);
         }

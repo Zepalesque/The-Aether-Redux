@@ -1,7 +1,6 @@
 package net.zepalesque.redux.block.natural.leaves;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.util.ParticleUtils;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
@@ -16,7 +15,7 @@ public class LeavesParticleUtil {
 
     @Nullable
     @SuppressWarnings("deprecation")
-    public static LeafChanceEntry entryOf(Block b) {
+    public static LeafChanceEntry findEntry(Block b) {
         @Nullable LeafChanceEntry entry = b.builtInRegistryHolder().getData(ReduxDataMaps.LEAF_PARTICLES);
 
         return ReduxConfig.CLIENT.leaf_particles.get() ? entry : null;
