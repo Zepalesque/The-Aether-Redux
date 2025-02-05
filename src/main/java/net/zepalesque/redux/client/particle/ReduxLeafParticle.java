@@ -75,8 +75,8 @@ public class ReduxLeafParticle extends TextureSheetParticle {
             }
 
 
-            if (onGroundTime <= 21) {
-                this.alpha = Math.max((this.onGroundTime - 1) / 20F, 0F);
+            if (onGroundTime <= 20) {
+                this.alpha = this.onGroundTime / 20;
             }
 
             if (!this.removed) {
