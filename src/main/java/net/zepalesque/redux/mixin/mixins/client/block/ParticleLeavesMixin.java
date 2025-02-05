@@ -7,6 +7,7 @@ import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.zepalesque.redux.api.LeafChanceEntry;
 import net.zepalesque.redux.block.natural.leaves.LeavesParticleUtil;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
@@ -19,9 +20,9 @@ public class ParticleLeavesMixin {
 
     @Inject(method = "animateTick", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/world/level/block/LeavesBlock;animateTick(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/util/RandomSource;)V"), cancellable = true)
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random, CallbackInfo ci) {
-        @Nullable Pair<ParticleOptions, Integer> pair = LeavesParticleUtil.entryOf((LeavesWithParticlesBlock) (Object) this);
-        if (pair != null) {
-            LeavesParticleUtil.createParticle(state, level, pos, random, pair.getFirst(), pair.getSecond());
+        @Nullable LeafChanceEntry entry = LeavesParticleUtil.entryOf((LeavesWithParticlesBlock) (Object) this);
+        if (entry != null) {
+            LeavesParticleUtil.createParticle(state, level, pos, random, entry);
             ci.cancel();
         }
     }
