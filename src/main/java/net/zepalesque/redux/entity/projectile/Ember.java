@@ -49,6 +49,7 @@ public class Ember extends Projectile {
     public static final double VELOCITY_THRESHOLD_Y = 0.05D;
     public static final double BOUNCE_FRICTION_XZ = 0.75D;
     public static final double BOUNCE_FRICTION_Y = 0.7D;
+    public static final double GRAVITY = -0.04D;
 
     private @Nullable UUID source;
     private final Set<UUID> hitEntities = new HashSet<>();
@@ -100,8 +101,8 @@ public class Ember extends Projectile {
         this.setDeltaMovement(vec3.multiply(0.999D, 0.99D, 0.999D));
         if (hitresult.getType() != HitResult.Type.MISS && !EventHooks.onProjectileImpact(this, hitresult))
             this.onHit(hitresult);
-        if (!this.isNoGravity() && hitresult.getType() != HitResult.Type.BLOCK) {
-            this.setDeltaMovement(this.getDeltaMovement().add(0.0D, -0.04D, 0.0D));
+        if (!this.isNoGravity() && hitresult.getType() == HitResult.Type.MISS) {
+            this.setDeltaMovement(this.getDeltaMovement().add(0.0D, GRAVITY, 0.0D));
         }
         if (hitresult.getType() == HitResult.Type.MISS) {
             this.setPos(d0, d1, d2);
@@ -178,7 +179,7 @@ public class Ember extends Projectile {
         super.onHitEntity(result);
         if (result.getEntity() instanceof LivingEntity livingentity && !this.ownedBy(livingentity) && !this.originatedFrom(livingentity) && !this.hasHit(livingentity) && !(livingentity instanceof BossMob<?>)) {
             // TODO
-//         livingentity.hurt(ReduxDamageTypes.entitySource(this.level(), ReduxDamageTypes.EMBER, this.getOwner()), 1.0F);
+            // livingentity.hurt(ReduxDamageTypes.entitySource(this.level(), ReduxDamageTypes.EMBER, this.getOwner()), 1.0F);
             this.hit(livingentity);
         }
 
