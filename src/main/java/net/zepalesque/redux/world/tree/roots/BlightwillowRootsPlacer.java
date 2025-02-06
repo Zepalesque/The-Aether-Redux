@@ -16,6 +16,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.TreeConfigurati
 import net.minecraft.world.level.levelgen.feature.rootplacers.RootPlacer;
 import net.minecraft.world.level.levelgen.feature.rootplacers.RootPlacerType;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
 import net.zepalesque.redux.ArrayUtil;
 import org.apache.commons.lang3.ArrayUtils;
 
@@ -52,7 +53,9 @@ public class BlightwillowRootsPlacer extends RootPlacer {
     private final Map<BlockPos, Boolean> placements = new HashMap<>();
 
     @Override
-    public boolean placeRoots(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> blockSetter, RandomSource random, BlockPos origin, BlockPos trunkOrigin, TreeConfiguration treeConfig) {
+    public boolean placeRoots(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> setter, RandomSource random, BlockPos origin, BlockPos trunkOrigin, TreeConfiguration treeConfig) {
+
+        TrunkPlacer.setDirtAt(level, setter, random, origin.below(), treeConfig);
 
         if (level.isStateAtPosition(origin.below(), state -> !isDirt(state))) {
             return false;
@@ -94,9 +97,9 @@ public class BlightwillowRootsPlacer extends RootPlacer {
 
             for (int i = min; i < rootSize; i++) {
                 BlockPos pos = rootStart.above(i);
-                if (i < rootSize - 1 && validTreePos(level, pos.above())) {
+                if (i < rootSize - 1 && validRootPos(level, pos.above())) {
                     this.placements.put(pos, false);
-                } else if (validTreePos(level, pos)) {
+                } else if (validRootPos(level, pos)) {
                     this.placements.put(pos, true);
                 }
             }
@@ -105,7 +108,7 @@ public class BlightwillowRootsPlacer extends RootPlacer {
         unshuffle();
 
         if (validateAll(level, this.placements)) {
-            this.placements.forEach((pos, useWood) -> blockSetter.accept(pos, !useWood ? treeConfig.trunkProvider.getState(random, pos) : this.wood.getState(random, pos)));
+            this.placements.forEach((pos, useWood) -> setter.accept(pos, !useWood ? treeConfig.trunkProvider.getState(random, pos) : this.wood.getState(random, pos)));
 
             return true;
         } else return false;
@@ -113,7 +116,7 @@ public class BlightwillowRootsPlacer extends RootPlacer {
 
     private boolean validateAll(LevelSimulatedReader level, Map<BlockPos, Boolean> placements) {
         for (var key : placements.keySet())
-            if (!this.validTreePos(level, key)) return false;
+            if (!this.validRootPos(level, key)) return false;
         return true;
     }
 
@@ -122,8 +125,8 @@ public class BlightwillowRootsPlacer extends RootPlacer {
         System.arraycopy(HORIZONTAL_PLANE, 0, HORIZONTAL_PLANE_SHUFFLE, 0, HORIZONTAL_PLANE.length);
     }
 
-    protected boolean validTreePos(LevelSimulatedReader level, BlockPos pos) {
-        return TreeFeature.validTreePos(level, pos);
+    protected boolean validRootPos(LevelSimulatedReader level, BlockPos pos) {
+        return TreeFeature.validTreePos(level, pos) || level.isStateAtPosition(pos, state -> state.isAir() || state.is(BlockTags.REPLACEABLE));
     }
 
     public static boolean isDirt(BlockState state) {

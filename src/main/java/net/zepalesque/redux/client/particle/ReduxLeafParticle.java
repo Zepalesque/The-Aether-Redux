@@ -71,6 +71,7 @@ public class ReduxLeafParticle extends TextureSheetParticle {
                 this.xd = 0.0D;
                 this.zd = 0.0D;
             }
+
             if (this.onGroundTime < 0) {
                 this.remove();
             }

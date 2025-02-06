@@ -44,7 +44,6 @@ public class BlightwillowTrunkPlacer extends TrunkPlacer {
 
     @Override
     public List<FoliagePlacer.FoliageAttachment> placeTrunk(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> setter, RandomSource random, int height, BlockPos origin, TreeConfiguration config) {
-        setDirtAt(level, setter, random, origin.below(), config);
 
         this.placeLog(level, setter, random, origin, config);
 
