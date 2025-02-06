@@ -1,4 +1,4 @@
-// 1.21.1	2025-02-04T19:07:04.4923924	Tags for minecraft:block mod id aether_redux
+// 1.21.1	2025-02-05T21:22:46.1308926	Tags for minecraft:block mod id aether_redux
 f88e31ba010e8b41d4256635de26d1cf8a0aa221 data/aether/tags/block/aether_animals_spawnable_on.json
 0f75c1b96051b4efed4a7984780ddae4b908b93d data/aether/tags/block/aether_dirt.json
 c191bd82d7ab0270a08a0b6d99db3860549e07ea data/aether/tags/block/boss_doorway_dungeon_blocks.json
@@ -7,7 +7,7 @@ e1976f006a7f28b9ee8c22584e8d5d7c82641ca7 data/aether/tags/block/locked_dungeon_b
 1a3cad2b844bcb0ff147912d293818c000fd02e4 data/aether/tags/block/sentry_blocks.json
 f88e31ba010e8b41d4256635de26d1cf8a0aa221 data/aether/tags/block/swet_spawnable_on.json
 def6d9c61e45ecd875098eeb799975a50e3d3000 data/aether/tags/block/trapped_dungeon_blocks.json
-09bce6606358fbf653c23f3d9e5716960705eff7 data/aether/tags/block/treated_as_aether_block.json
+2af391e8f31d5a49857058374a08d1d3b4ab832b data/aether/tags/block/treated_as_aether_block.json
 badc27df7b47bfd554e200272eae2349e38b2d7e data/aether_redux/tags/block/blightwillow_logs.json
 ff76e071710735bec611ec58205f07d13cb675bd data/aether_redux/tags/block/crystal_logs.json
 326897805dd0e252157208ee77d3437b3626f008 data/aether_redux/tags/block/quicksoil_behavior.json

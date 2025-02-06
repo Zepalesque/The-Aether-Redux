@@ -54,6 +54,13 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
                         BlockLootAccessor.aether$getNormalLeavesSaplingChances())
         );
 
+        // TODO
+        this.add(ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES.get(),
+                (leaves) -> droppingWithChancesAndSkyrootSticks(
+                        leaves, ReduxFlowerSets.BLIGHTWILLOW_SAPLING.flower().get(),
+                        BlockLootAccessor.aether$getNormalLeavesSaplingChances())
+        );
+
         this.add(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get(), shears());
 
         this.dropSelf(ReduxBlocks.CARVED_PILLAR.get());

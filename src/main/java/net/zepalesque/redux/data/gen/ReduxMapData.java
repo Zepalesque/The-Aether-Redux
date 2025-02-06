@@ -37,6 +37,7 @@ public class ReduxMapData extends ReduxDataMapProvider {
         this.addCompost(compostables, ReduxBlocks.SHADEROOT_LEAVES, 0.3F);
         this.addCompost(compostables, ReduxBlocks.SHADEROOT_LEAF_PILE, 0.05F);
         this.addCompost(compostables, ReduxBlocks.BLIGHTWILLOW_LEAVES, 0.3F);
+        this.addCompost(compostables, ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES, 0.2F);
         this.addCompost(compostables, ReduxBlocks.BLIGHTWILLOW_LEAF_PILE, 0.05F);
         this.addCompost(compostables, ReduxItems.WYND_OATS, 0.3F);
         this.addCompost(compostables, ReduxBlocks.WYNDSPROUTS, 0.3F);

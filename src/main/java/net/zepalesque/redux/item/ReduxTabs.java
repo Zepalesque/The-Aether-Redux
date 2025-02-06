@@ -43,6 +43,7 @@ public class ReduxTabs {
                     ReduxBlocks.SHADEROOT_LEAVES,
                     ReduxBlocks.SHADEROOT_LEAF_PILE,
                     ReduxBlocks.BLIGHTWILLOW_LEAVES,
+                    ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES,
                     ReduxBlocks.BLIGHTWILLOW_LEAF_PILE
             );
 

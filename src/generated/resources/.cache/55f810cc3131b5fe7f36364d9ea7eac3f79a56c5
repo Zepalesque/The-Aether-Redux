@@ -1,4 +1,4 @@
-// 1.21.1	2025-02-04T19:07:04.4814006	Block States: aether_redux
+// 1.21.1	2025-02-05T22:04:15.5836598	Block States: aether_redux
 27b55e671cfc0a044bf9fa27933bc8d7890a09d7 assets/aether_redux/blockstates/angilite.json
 2cbe20499de76107b080997bbf04f8c3dbe5093e assets/aether_redux/blockstates/angilite_slab.json
 decdc25a329c583be2f4a7eec1f07e3ae4b5a7ed assets/aether_redux/blockstates/angilite_stairs.json
@@ -65,6 +65,7 @@ e05566974db60d08fef20c64a962c455472614d5 assets/aether_redux/blockstates/gildenr
 fe15d254140f52c84094e00ace0635fa70cbd907 assets/aether_redux/blockstates/golden_clovers.json
 a74fe165f4a1f8443e0a1617cf0fe943eee15dda assets/aether_redux/blockstates/golden_vines.json
 d80b7e6ca0b3e637c0688a9fe669c2c29c5b57a7 assets/aether_redux/blockstates/golden_vines_plant.json
+9810fa2a31551ee63d980a08980c216729d4aceb assets/aether_redux/blockstates/infected_blightwillow_leaves.json
 94c3083780c75c168a9e238637724f599f50c714 assets/aether_redux/blockstates/locked_carved_base.json
 8e5005c9aec33bb49d5119920b393b93f97df20d assets/aether_redux/blockstates/locked_carved_pillar.json
 53864c345799ff020929378facbd298b05e6111f assets/aether_redux/blockstates/locked_polished_sentrite.json
@@ -320,6 +321,7 @@ f3969ac879626ba505ab792480707d1fa7c92826 assets/aether_redux/models/block/golden
 972c123de3bb72a6e297d379115f084df4d628c4 assets/aether_redux/models/block/golden_vines_plant.json
 2e9002aceff29e5d2c463387034cc5140366a450 assets/aether_redux/models/block/hanging_runic_lantern.json
 54982f9389fb19c223ce4df1419f91d0e8d28760 assets/aether_redux/models/block/hanging_sentrite_lantern.json
+ecbad5d140b2a15c9704919f86e997f0ce854b9a assets/aether_redux/models/block/infected_blightwillow_leaves.json
 7504eedea42a9dc371c785c1e802159a605cd936 assets/aether_redux/models/block/logicator_and.json
 69ee1a0a28595876951a547ecd86b7be61fef70f assets/aether_redux/models/block/logicator_and_in_l.json
 9bf6b44db9277374124d7a93dba287f3c9b5210a assets/aether_redux/models/block/logicator_and_in_lr.json

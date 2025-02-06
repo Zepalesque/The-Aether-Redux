@@ -35,6 +35,9 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
         addBlock(ReduxBlocks.BLIGHTWILLOW_LEAVES);
         addLore(ReduxBlocks.BLIGHTWILLOW_LEAVES, "Leaves of the Blightwillow tree, The most common tree found in the Blight. Some claim that these may be a blighted version of Golden Oak trees.");
 
+        addBlock(ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES);
+        addLore(ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES, "Blightwillow leaves that have been inhabited by the very essence of the Blight itself.");
+
         addBlock(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE);
         addLore(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE, "A pile of Blightwillow Leaves. These can be stacked on top of eachother to make various sizes!");
 

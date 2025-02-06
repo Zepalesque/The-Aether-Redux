@@ -25,6 +25,7 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
         this.leafPile(ReduxBlocks.SHADEROOT_LEAF_PILE.get());
 
         this.itemBlock(ReduxBlocks.BLIGHTWILLOW_LEAVES.get());
+        this.itemBlock(ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES.get());
         this.leafPile(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get());
 
         this.itemBlock(ReduxBlocks.CARVED_BASE.get());

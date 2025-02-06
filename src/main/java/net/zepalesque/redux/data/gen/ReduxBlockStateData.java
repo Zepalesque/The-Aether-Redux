@@ -26,6 +26,7 @@ public class ReduxBlockStateData extends ReduxBlockStateProvider {
         this.leafPile(ReduxBlocks.SHADEROOT_LEAF_PILE.get(), ReduxBlocks.SHADEROOT_LEAVES.get(), "natural/");
 
         this.block(ReduxBlocks.BLIGHTWILLOW_LEAVES.get(), "natural/");
+        this.cubeAllGlow(ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES.get(), "natural/");
         this.leafPile(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get(), ReduxBlocks.BLIGHTWILLOW_LEAVES.get(), "natural/");
 
         this.pillar(ReduxBlocks.CARVED_PILLAR.get(), "dungeon/");

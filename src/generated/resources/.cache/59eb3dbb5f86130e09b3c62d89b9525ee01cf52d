@@ -1,4 +1,4 @@
-// 1.21.1	2025-02-04T19:07:04.4784025	Loot Tables
+// 1.21.1	2025-02-05T21:22:46.1159001	Loot Tables
 206de14cd46a27e35f3a396b7919a25e4db9e49e data/aether_redux/loot_table/blocks/angilite.json
 b09d499acb797946909c71addf6e5b0fc93e72c3 data/aether_redux/loot_table/blocks/angilite_slab.json
 4cd1cece3abac15a9a6e1fb4e9b2a70091cf7c23 data/aether_redux/loot_table/blocks/angilite_stairs.json
@@ -65,6 +65,7 @@ f52454e7ca1036ff3da3d68dbff53d72e1530d45 data/aether_redux/loot_table/blocks/gil
 d2e6549e1e55433ff4b1de496cab867ed94d9ee2 data/aether_redux/loot_table/blocks/golden_clovers.json
 c116bdde8b7716cea027687f44bd094aecb403e3 data/aether_redux/loot_table/blocks/golden_vines.json
 bceda55e02781889b3ec6227ec5a078706f8e3a7 data/aether_redux/loot_table/blocks/golden_vines_plant.json
+ca001b628f9a4f7f02a647379396cc4c6dd9ce2b data/aether_redux/loot_table/blocks/infected_blightwillow_leaves.json
 2318ad656965dc092c2289afec52159cb602f5e2 data/aether_redux/loot_table/blocks/locked_carved_base.json
 e680fa317e1e2de6efbc6c99ba0ebcd91c08bdb9 data/aether_redux/loot_table/blocks/locked_carved_pillar.json
 1ecf1163b5a25a68fdcc2abda569d131995d1ded data/aether_redux/loot_table/blocks/locked_polished_sentrite.json
