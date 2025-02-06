@@ -26,6 +26,7 @@ public class ReduxColors {
     }
 
     public static Optional<Integer> reduxColors(BlockState state, BlockAndTintGetter level, BlockPos pos, int index, Predicate<Integer> indexGoal, boolean useBelowProperties) {
+        if (level == null || pos == null) return Optional.empty();
         if (level.getBlockState(pos.below()).is(ReduxTags.Blocks.SHORT_AETHER_GRASS_BLEAKMOSS_COLORING)) {
             return UnityColors.encapsulate(Tints.BLEAKMOSS_GRASS_COLOR);
         }
