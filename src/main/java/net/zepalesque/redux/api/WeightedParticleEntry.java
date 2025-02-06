@@ -19,9 +19,9 @@ public record WeightedParticleEntry(ParticleOptions particle, Either<Integer, Fl
             Codec.FLOAT.optionalFieldOf("chance", 0.05F)
     );
 
-    private static final Codec<SimpleParticleType> SIMPLE_PARTICLE_CODEC = BuiltInRegistries.PARTICLE_TYPE.byNameCodec().flatXmap(WeightedParticleEntry::simple, WeightedParticleEntry::simple);
+    private static final Codec<ParticleOptions> SIMPLE_PARTICLE_CODEC = BuiltInRegistries.PARTICLE_TYPE.byNameCodec().flatXmap(WeightedParticleEntry::simple, options -> DataResult.success(options).map(ParticleOptions::getType));
 
-    private static final Codec<ParticleOptions> PARTICLE_CODEC = withAlternativeSwitched(SIMPLE_PARTICLE_CODEC, ParticleTypes.CODEC);
+    private static final Codec<ParticleOptions> PARTICLE_CODEC = Codec.withAlternative(SIMPLE_PARTICLE_CODEC, ParticleTypes.CODEC);
 
     public static final Codec<WeightedParticleEntry> CODEC = RecordCodecBuilder.create(builder -> builder.group(
             PARTICLE_CODEC.fieldOf("particle").forGetter(WeightedParticleEntry::particle),
@@ -49,19 +49,11 @@ public record WeightedParticleEntry(ParticleOptions particle, Either<Integer, Fl
         return new WeightedParticleEntry(particle, Either.left(15));
     }
 
-    public static DataResult<SimpleParticleType> simple(ParticleType<?> options) {
-        return options instanceof SimpleParticleType simple ? DataResult.success(simple) :
-                DataResult.error(() -> "Particle type %s was not instanceof SimpleParticleType!"
+    public static DataResult<ParticleOptions> simple(ParticleType<?> options) {
+        return options instanceof ParticleOptions simple ? DataResult.success(simple) :
+                DataResult.error(() -> "Particle type %s does not implement ParticleOptions!"
                         .formatted(BuiltInRegistries.PARTICLE_TYPE.getKey(options)));
     }
 
-    private static <T> Codec<T> withAlternativeSwitched(final Codec<? extends T> primary, final Codec<T> alternative) {
-        return Codec.either(
-                primary,
-                alternative
-        ).xmap(
-                Either::unwrap,
-                Either::right
-        );
-    }
+
 }
