@@ -11,8 +11,8 @@ import net.minecraft.util.RandomSource;
 public record WeightedParticleEntry(ParticleOptions particle, Either<Integer, Float> probability) {
 
     private static final MapCodec<Either<Integer, Float>> PROBABILITY_CODEC = Codec.mapEither(
-            Codec.INT.fieldOf("rarity"),
-            Codec.FLOAT.fieldOf("chance")
+            Codec.INT.optionalFieldOf("rarity", 15),
+            Codec.FLOAT.optionalFieldOf("chance", 0.05F)
     );
 
     public static WeightedParticleEntry of(ParticleOptions particle, int rarity) {
