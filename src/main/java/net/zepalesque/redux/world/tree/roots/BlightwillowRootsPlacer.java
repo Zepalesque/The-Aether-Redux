@@ -1,5 +1,6 @@
 package net.zepalesque.redux.world.tree.roots;
 
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
@@ -31,13 +32,16 @@ public class BlightwillowRootsPlacer extends RootPlacer {
     public static final MapCodec<BlightwillowRootsPlacer> CODEC = RecordCodecBuilder.mapCodec(builder ->
             builder.group(
                     IntProvider.CODEC.fieldOf("trunk_offset_y").forGetter(roots -> roots.trunkOffsetY),
+                    Codec.INT.optionalFieldOf("max_root_depth", 2).forGetter(roots -> roots.maxRootDepth),
                     BlockStateProvider.CODEC.fieldOf("wood").forGetter(roots -> roots.wood)
             ).apply(builder, BlightwillowRootsPlacer::new));
 
+    private final int maxRootDepth;
     private final BlockStateProvider wood;
 
-    public BlightwillowRootsPlacer(IntProvider trunkOffset, BlockStateProvider wood) {
+    public BlightwillowRootsPlacer(IntProvider trunkOffset, int maxRootDepth, BlockStateProvider wood) {
         super(trunkOffset, BlockStateProvider.simple(Blocks.AIR), Optional.empty());
+        this.maxRootDepth = maxRootDepth;
         this.wood = wood;
     }
 
@@ -83,10 +87,10 @@ public class BlightwillowRootsPlacer extends RootPlacer {
 
             int min = 0;
 
-            for (int i = -1; i > -4; i--) {
+            for (int i = -1; i > -2 - maxRootDepth; i--) {
                 BlockPos test = rootStart.above(i);
                 if (this.validRootPos(level, test))
-                    if (i == -3) {
+                    if (i < -maxRootDepth) {
                         unshuffle();
                         return false;
                     } else continue;
