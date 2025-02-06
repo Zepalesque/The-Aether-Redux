@@ -6,6 +6,7 @@ import com.aetherteam.aether.block.dungeon.TrappedBlock;
 import com.aetherteam.aether.block.natural.AetherDoubleDropBlock;
 import com.aetherteam.aether.block.natural.AetherDoubleDropsLeaves;
 import com.aetherteam.aether.entity.AetherEntityTypes;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -32,6 +33,7 @@ import net.zepalesque.redux.block.natural.HangingAetherVinesBody;
 import net.zepalesque.redux.block.natural.HangingAetherVinesHead;
 import net.zepalesque.redux.block.natural.bush.CustomBoundsBushBlock;
 import net.zepalesque.redux.block.natural.crop.WyndoatsBlock;
+import net.zepalesque.redux.block.natural.leaves.InfectedLeavesBlock;
 import net.zepalesque.redux.block.natural.leaves.ShadedLeavesBlock;
 import net.zepalesque.redux.block.redstone.LogicatorBlock;
 import net.zepalesque.redux.data.resource.registries.ReduxFeatureConfig;
@@ -53,17 +55,18 @@ public class ReduxBlocks extends ReduxBlockBuilders {
             () -> new LeafPileBlock(GILDENROOT_LEAVES));
 
     public static DeferredBlock<ShadedLeavesBlock> SHADEROOT_LEAVES = register("shaderoot_leaves",
-            () -> new ShadedLeavesBlock(7, Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get()).mapColor(MapColor.TERRACOTTA_PURPLE)));
+            () -> new ShadedLeavesBlock(3, Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get()).mapColor(MapColor.TERRACOTTA_PURPLE)));
 
     public static DeferredBlock<LeafPileBlock> SHADEROOT_LEAF_PILE = register("shaderoot_leaf_pile",
             () -> new LeafPileBlock(SHADEROOT_LEAVES));
 
     public static DeferredBlock<ShadedLeavesBlock> BLIGHTWILLOW_LEAVES = register("blightwillow_leaves",
-            () -> new ShadedLeavesBlock(10, Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get()).mapColor(MapColor.TERRACOTTA_PURPLE)));
+            () -> new ShadedLeavesBlock(5, Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get()).mapColor(MapColor.TERRACOTTA_PURPLE)));
 
+    // TODO: custom particles (more, block breaking and stuff) + use real particle other than obsidian????
     // TODO: Rename, add drip particles, make these work like crystal leaves perhaps (maybe, or just ALWAYS use berry bush like behavior)
-    public static DeferredBlock<ShadedLeavesBlock> INFECTED_BLIGHTWILLOW_LEAVES = register("infected_blightwillow_leaves",
-            () -> new ShadedLeavesBlock(2, Properties.ofFullCopy(BLIGHTWILLOW_LEAVES.get()).lightLevel(value -> 7).strength(0.3F)));
+    public static DeferredBlock<InfectedLeavesBlock> INFECTED_BLIGHTWILLOW_LEAVES = register("infected_blightwillow_leaves",
+            () -> new InfectedLeavesBlock(() -> ParticleTypes.DRIPPING_OBSIDIAN_TEAR, Properties.ofFullCopy(BLIGHTWILLOW_LEAVES.get()).lightLevel(value -> 7).strength(0.3F)));
 
     public static DeferredBlock<LeafPileBlock> BLIGHTWILLOW_LEAF_PILE = register("blightwillow_leaf_pile",
             () -> new LeafPileBlock(BLIGHTWILLOW_LEAVES));

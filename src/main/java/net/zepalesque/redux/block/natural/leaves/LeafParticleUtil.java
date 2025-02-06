@@ -23,9 +23,9 @@ public class LeafParticleUtil {
 
     public static void createParticle(BlockState state, Level level, BlockPos pos, RandomSource rand, WeightedParticleEntry entry) {
         if (entry.success(rand)) {
-            BlockPos blockpos = pos.below();
-            BlockState blockstate = level.getBlockState(blockpos);
-            if (!blockstate.isCollisionShapeFullBlock(level, blockpos)) {
+            BlockPos below = pos.below();
+            BlockState blockstate = level.getBlockState(below);
+            if (!blockstate.isCollisionShapeFullBlock(level, below)) {
                 ParticleUtils.spawnParticleBelow(level, pos, rand, entry.particle());
             }
         }
