@@ -1,8 +1,9 @@
-// 1.21.1	2025-02-04T19:07:04.4943909	Particle Descriptions
+// 1.21.1	2025-02-06T16:12:22.8078607	Particle Descriptions
 b23f76ae33950be86cbf78e7561034b81baddaaa assets/aether_redux/particles/blightwillow_leaf.json
 4bc264e920156dc348d61f36efe4f8244c5d9825 assets/aether_redux/particles/crystal_leaf.json
 f962464d3fea6ac5b10c3eda9334bab0ecf409aa assets/aether_redux/particles/gildenroot_leaf.json
 b82a5facfd7b81d47e3cc3117dcd307b302226b8 assets/aether_redux/particles/golden_oak_leaf.json
+c5c182f63957eb6b93a47ececfea84c3c3fdad91 assets/aether_redux/particles/infected_blightwillow_leaf.json
 bfbed5a74b20b397ec08c79e28aa8545616e8abb assets/aether_redux/particles/shaderoot_leaf.json
 2b5888024dcf3aa74743e53d97a3452cea59ad34 assets/aether_redux/particles/skyroot_leaf.json
 ac441243188501e49db93adc97278da49ab9138a assets/aether_redux/particles/spark.json
