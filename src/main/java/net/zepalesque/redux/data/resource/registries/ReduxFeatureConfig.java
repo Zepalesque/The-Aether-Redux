@@ -152,7 +152,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
                                 .add(drops(ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES), 1)
                                 .build()),
                         new BlightwillowFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
-                        Optional.of(new BlightwillowRootsPlacer(UniformInt.of(6, 8), prov(ReduxWoodSets.BLIGHTWILLOW.wood()))),
+                        Optional.of(new BlightwillowRootsPlacer(UniformInt.of(6, 8), 2, prov(ReduxWoodSets.BLIGHTWILLOW.wood()))),
                         new TwoLayersFeatureSize(7, 0, 3)
                 ).ignoreVines().build());
 
