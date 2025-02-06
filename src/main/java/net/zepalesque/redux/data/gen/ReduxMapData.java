@@ -44,12 +44,14 @@ public class ReduxMapData extends ReduxDataMapProvider {
         this.addCompost(compostables, ReduxItems.WYND_OAT_PANICLE, 0.65F);
 
         var leaves = this.builder(ReduxDataMaps.LEAF_PARTICLES);
-        this.addLeafParticle(leaves, AetherBlocks.SKYROOT_LEAVES, ReduxParticles.SKYROOT_LEAF, 20);
-        this.addLeafParticle(leaves, AetherBlocks.CRYSTAL_LEAVES, ReduxParticles.CRYSTAL_LEAF, 30);
-        this.addLeafParticle(leaves, AetherBlocks.CRYSTAL_FRUIT_LEAVES, ReduxParticles.CRYSTAL_LEAF, 30);
-        this.addLeafParticle(leaves, AetherBlocks.GOLDEN_OAK_LEAVES, ReduxParticles.GOLDEN_OAK_LEAF);
-        this.addLeafParticle(leaves, ReduxBlocks.GILDENROOT_LEAVES, ReduxParticles.GILDENROOT_LEAF, 20);
-        this.addLeafParticle(leaves, ReduxBlocks.SHADEROOT_LEAVES, ReduxParticles.SHADEROOT_LEAF, 13);
-        this.addLeafParticle(leaves, ReduxBlocks.BLIGHTWILLOW_LEAVES, ReduxParticles.BLIGHTWILLOW_LEAF, 12);
+        final int crystal;
+        this.addLeafParticle(leaves, AetherBlocks.SKYROOT_LEAVES, ReduxParticles.SKYROOT_LEAF, 16);
+        this.addLeafParticle(leaves, AetherBlocks.CRYSTAL_LEAVES, ReduxParticles.CRYSTAL_LEAF, crystal = 18);
+        this.addLeafParticle(leaves, AetherBlocks.CRYSTAL_FRUIT_LEAVES, ReduxParticles.CRYSTAL_LEAF, crystal);
+        this.addLeafParticle(leaves, AetherBlocks.GOLDEN_OAK_LEAVES, ReduxParticles.GOLDEN_OAK_LEAF, 14);
+        this.addLeafParticle(leaves, ReduxBlocks.GILDENROOT_LEAVES, ReduxParticles.GILDENROOT_LEAF);
+        this.addLeafParticle(leaves, ReduxBlocks.SHADEROOT_LEAVES, ReduxParticles.SHADEROOT_LEAF, 18);
+        this.addLeafParticle(leaves, ReduxBlocks.BLIGHTWILLOW_LEAVES, ReduxParticles.BLIGHTWILLOW_LEAF, 20);
+        this.addLeafParticle(leaves, ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES, ReduxParticles.INFECTED_BLIGHTWILLOW_LEAF, 25);
     }
 }

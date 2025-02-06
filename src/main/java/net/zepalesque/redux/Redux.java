@@ -138,7 +138,7 @@ public class Redux {
     }
 
     private void registerDataMaps(RegisterDataMapTypesEvent event) {
-        event.register(ReduxDataMaps.LEAF_PARTICLES);
+        ReduxDataMaps.TYPES.forEach(event::register);
     }
 
     public  void packSetup(AddPackFindersEvent event) {

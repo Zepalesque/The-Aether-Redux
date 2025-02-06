@@ -20,6 +20,7 @@ public class ReduxParticleData extends ReduxParticleProvider {
         this.spriteSet(ReduxParticles.GILDENROOT_LEAF.get(), Redux.loc("leaves/gildenroot"));
         this.spriteSet(ReduxParticles.SHADEROOT_LEAF.get(), Redux.loc("leaves/shaderoot"));
         this.spriteSet(ReduxParticles.BLIGHTWILLOW_LEAF.get(), Redux.loc("leaves/blightwillow"));
+        this.spriteSet(ReduxParticles.INFECTED_BLIGHTWILLOW_LEAF.get(), Redux.loc("leaves/infected_blightwillow"));
         this.spriteSet(ReduxParticles.CRYSTAL_LEAF.get(), Redux.loc("leaves/crystal"));
         this.spriteSet(ReduxParticles.SKYROOT_LEAF.get(), Redux.loc("leaves/skyroot"));
         this.spriteSet(ReduxParticles.GOLDEN_OAK_LEAF.get(), Redux.loc("leaves/golden_oak"));

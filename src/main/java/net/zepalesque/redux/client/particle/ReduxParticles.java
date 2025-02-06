@@ -29,6 +29,7 @@ public class ReduxParticles {
             GILDENROOT_LEAF = PARTICLES.register("gildenroot_leaf", () -> new SimpleParticleType(false)),
             SHADEROOT_LEAF = PARTICLES.register("shaderoot_leaf", () -> new SimpleParticleType(false)),
             BLIGHTWILLOW_LEAF = PARTICLES.register("blightwillow_leaf", () -> new SimpleParticleType(false)),
+            INFECTED_BLIGHTWILLOW_LEAF = PARTICLES.register("infected_blightwillow_leaf", () -> new SimpleParticleType(false)),
             CRYSTAL_LEAF = PARTICLES.register("crystal_leaf", () -> new SimpleParticleType(false)),
             SKYROOT_LEAF = PARTICLES.register("skyroot_leaf", () -> new SimpleParticleType(false)),
             GOLDEN_OAK_LEAF = PARTICLES.register("golden_oak_leaf", () -> new SimpleParticleType(false)),
@@ -41,6 +42,7 @@ public class ReduxParticles {
         event.registerSpriteSet(GILDENROOT_LEAF.get(), ReduxLeafParticle.Provider::new);
         event.registerSpriteSet(SHADEROOT_LEAF.get(), ReduxLeafParticle.Provider::new);
         event.registerSpriteSet(BLIGHTWILLOW_LEAF.get(), ReduxLeafParticle.Provider::new);
+        event.registerSpriteSet(INFECTED_BLIGHTWILLOW_LEAF.get(), ReduxLeafParticle.Provider::new);
         event.registerSpriteSet(CRYSTAL_LEAF.get(), ReduxLeafParticle.Provider::new);
         event.registerSpriteSet(SKYROOT_LEAF.get(), ReduxLeafParticle.Provider::new);
         event.registerSpriteSet(GOLDEN_OAK_LEAF.get(), ReduxLeafParticle.Provider::new);

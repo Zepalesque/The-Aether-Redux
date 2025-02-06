@@ -28,7 +28,7 @@ public class InfectedLeavesBlock extends AetherDoubleDropsLeaves {
             BlockPos below = pos.below();
             BlockState blockstate = level.getBlockState(below);
             if (!blockstate.isCollisionShapeFullBlock(level, below)) {
-                ParticleUtils.spawnParticleBelow(level, pos, random, this.particle.get());
+//                ParticleUtils.spawnParticleBelow(level, pos, random, this.particle.get());
             }
         }
     }
