@@ -1,16 +1,11 @@
 package net.zepalesque.redux.data.prov;
 
-import com.mojang.datafixers.util.Pair;
-import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.data.PackOutput;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.DataMapProvider;
-import net.neoforged.neoforge.registries.datamaps.builtin.Compostable;
-import net.zepalesque.redux.api.LeafChanceEntry;
+import net.zepalesque.redux.api.WeightedParticleEntry;
 import net.zepalesque.unity.data.prov.UnityDataMapProvider;
 
 import java.util.concurrent.CompletableFuture;
@@ -23,17 +18,17 @@ public abstract class ReduxDataMapProvider extends UnityDataMapProvider {
     }
 
     @SuppressWarnings("deprecation")
-    public void addLeafParticle(DataMapProvider.Builder<LeafChanceEntry, Block> map, Supplier<? extends Block> block, Supplier<? extends ParticleOptions> particle) {
-        map.add(block.get().builtInRegistryHolder().unwrapKey().orElseThrow(), LeafChanceEntry.of(particle.get()), false);
+    public void addLeafParticle(DataMapProvider.Builder<WeightedParticleEntry, Block> map, Supplier<? extends Block> block, Supplier<? extends ParticleOptions> particle) {
+        map.add(block.get().builtInRegistryHolder().unwrapKey().orElseThrow(), WeightedParticleEntry.of(particle.get()), false);
     }
 
     @SuppressWarnings("deprecation")
-    public void addLeafParticle(DataMapProvider.Builder<LeafChanceEntry, Block> map, Supplier<? extends Block> block, Supplier<? extends ParticleOptions> particle, int rarity) {
-        map.add(block.get().builtInRegistryHolder().unwrapKey().orElseThrow(), LeafChanceEntry.of(particle.get(), rarity), false);
+    public void addLeafParticle(DataMapProvider.Builder<WeightedParticleEntry, Block> map, Supplier<? extends Block> block, Supplier<? extends ParticleOptions> particle, int rarity) {
+        map.add(block.get().builtInRegistryHolder().unwrapKey().orElseThrow(), WeightedParticleEntry.of(particle.get(), rarity), false);
     }
 
     @SuppressWarnings("deprecation")
-    public void addLeafParticle(DataMapProvider.Builder<LeafChanceEntry, Block> map, Supplier<? extends Block> block, Supplier<? extends ParticleOptions> particle, float chance) {
-        map.add(block.get().builtInRegistryHolder().unwrapKey().orElseThrow(), LeafChanceEntry.of(particle.get(), chance), false);
+    public void addLeafParticle(DataMapProvider.Builder<WeightedParticleEntry, Block> map, Supplier<? extends Block> block, Supplier<? extends ParticleOptions> particle, float chance) {
+        map.add(block.get().builtInRegistryHolder().unwrapKey().orElseThrow(), WeightedParticleEntry.of(particle.get(), chance), false);
     }
 }

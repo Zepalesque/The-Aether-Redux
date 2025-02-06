@@ -6,22 +6,22 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.zepalesque.redux.api.LeafChanceEntry;
+import net.zepalesque.redux.api.WeightedParticleEntry;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.data.ReduxDataMaps;
 import org.jetbrains.annotations.Nullable;
 
-public class LeavesParticleUtil {
+public class LeafParticleUtil {
 
     @Nullable
     @SuppressWarnings("deprecation")
-    public static LeafChanceEntry findEntry(Block b) {
-        @Nullable LeafChanceEntry entry = b.builtInRegistryHolder().getData(ReduxDataMaps.LEAF_PARTICLES);
+    public static WeightedParticleEntry findEntry(Block b) {
+        @Nullable WeightedParticleEntry entry = b.builtInRegistryHolder().getData(ReduxDataMaps.LEAF_PARTICLES);
 
         return ReduxConfig.CLIENT.leaf_particles.get() ? entry : null;
     }
 
-    public static void createParticle(BlockState state, Level level, BlockPos pos, RandomSource rand, LeafChanceEntry entry) {
+    public static void createParticle(BlockState state, Level level, BlockPos pos, RandomSource rand, WeightedParticleEntry entry) {
         if (entry.success(rand)) {
             BlockPos blockpos = pos.below();
             BlockState blockstate = level.getBlockState(blockpos);
