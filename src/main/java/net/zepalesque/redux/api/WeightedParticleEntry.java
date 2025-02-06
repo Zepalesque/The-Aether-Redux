@@ -9,7 +9,9 @@ import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.RandomSource;
+import net.neoforged.neoforge.common.util.NeoForgeExtraCodecs;
 
 public record WeightedParticleEntry(ParticleOptions particle, Either<Integer, Float> probability) {
 
@@ -30,7 +32,7 @@ public record WeightedParticleEntry(ParticleOptions particle, Either<Integer, Fl
             PROBABILITY_CODEC.forGetter(WeightedParticleEntry::probability)
     ).apply(builder, WeightedParticleEntry::new));
 
-    public static final Codec<WeightedParticleEntry> COMPRESSABLE_CODEC = Codec.withAlternative(
+    public static final Codec<WeightedParticleEntry> COMPRESSABLE_CODEC = NeoForgeExtraCodecs.withAlternative(
             PARTICLE_CODEC.flatXmap(
                     options -> DataResult.success(WeightedParticleEntry.of(options)),
                     entry -> !entry.hasDefaultProbability() ?
@@ -60,11 +62,13 @@ public record WeightedParticleEntry(ParticleOptions particle, Either<Integer, Fl
         return new WeightedParticleEntry(particle, Either.left(15));
     }
 
-    public static DataResult<ParticleOptions> simple(ParticleType<?> options) {
-        return options instanceof ParticleOptions simple ? DataResult.success(simple) :
+    public static DataResult<ParticleOptions> simple(ParticleType<?> type) {
+        return type instanceof ParticleOptions simple ? DataResult.success(simple) :
                 DataResult.error(() -> "Particle type %s does not implement ParticleOptions!"
-                        .formatted(BuiltInRegistries.PARTICLE_TYPE.getKey(options)));
+                        .formatted(BuiltInRegistries.PARTICLE_TYPE.getKey(type)));
     }
+
+
 
 
 }
