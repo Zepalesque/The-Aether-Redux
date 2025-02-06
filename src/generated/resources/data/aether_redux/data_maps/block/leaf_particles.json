@@ -1,35 +1,12 @@
 {
   "values": {
-    "aether:crystal_fruit_leaves": {
-      "particle": "aether_redux:crystal_leaf",
-      "rarity": 18
-    },
-    "aether:crystal_leaves": {
-      "particle": "aether_redux:crystal_leaf",
-      "rarity": 18
-    },
-    "aether:golden_oak_leaves": {
-      "particle": "aether_redux:golden_oak_leaf",
-      "rarity": 14
-    },
-    "aether:skyroot_leaves": {
-      "particle": "aether_redux:skyroot_leaf",
-      "rarity": 16
-    },
-    "aether_redux:blightwillow_leaves": {
-      "particle": "aether_redux:blightwillow_leaf",
-      "rarity": 20
-    },
-    "aether_redux:gildenroot_leaves": {
-      "particle": "aether_redux:gildenroot_leaf"
-    },
-    "aether_redux:infected_blightwillow_leaves": {
-      "particle": "aether_redux:infected_blightwillow_leaf",
-      "rarity": 25
-    },
-    "aether_redux:shaderoot_leaves": {
-      "particle": "aether_redux:shaderoot_leaf",
-      "rarity": 18
-    }
+    "aether:crystal_fruit_leaves": "aether_redux:crystal_leaf",
+    "aether:crystal_leaves": "aether_redux:crystal_leaf",
+    "aether:golden_oak_leaves": "aether_redux:golden_oak_leaf",
+    "aether:skyroot_leaves": "aether_redux:skyroot_leaf",
+    "aether_redux:blightwillow_leaves": "aether_redux:blightwillow_leaf",
+    "aether_redux:gildenroot_leaves": "aether_redux:gildenroot_leaf",
+    "aether_redux:infected_blightwillow_leaves": "aether_redux:infected_blightwillow_leaf",
+    "aether_redux:shaderoot_leaves": "aether_redux:shaderoot_leaf"
   }
 }

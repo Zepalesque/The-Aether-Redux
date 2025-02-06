@@ -8,15 +8,17 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.util.RandomSource;
 
 public record WeightedParticleEntry(ParticleOptions particle, Either<Integer, Float> probability) {
 
+    private static final int DEFAULT_RARITY = 15;
+    private static final float DEFAULT_CHANCE = 0.05F;
+
     private static final MapCodec<Either<Integer, Float>> PROBABILITY_CODEC = Codec.mapEither(
-            Codec.INT.optionalFieldOf("rarity", 15),
-            Codec.FLOAT.optionalFieldOf("chance", 0.05F)
+            Codec.INT.optionalFieldOf("rarity", DEFAULT_RARITY),
+            Codec.FLOAT.optionalFieldOf("chance", DEFAULT_CHANCE)
     );
 
     private static final Codec<ParticleOptions> SIMPLE_PARTICLE_CODEC = BuiltInRegistries.PARTICLE_TYPE.byNameCodec().flatXmap(WeightedParticleEntry::simple, options -> DataResult.success(options).map(ParticleOptions::getType));
@@ -28,7 +30,13 @@ public record WeightedParticleEntry(ParticleOptions particle, Either<Integer, Fl
             PROBABILITY_CODEC.forGetter(WeightedParticleEntry::probability)
     ).apply(builder, WeightedParticleEntry::new));
 
-    public static final Codec<WeightedParticleEntry> COMPRESSABLE_CODEC = Codec.withAlternative(PARTICLE_CODEC.xmap(WeightedParticleEntry::of, WeightedParticleEntry::particle), CODEC);
+    public static final Codec<WeightedParticleEntry> COMPRESSABLE_CODEC = Codec.withAlternative(
+            PARTICLE_CODEC.flatXmap(
+                    options -> DataResult.success(WeightedParticleEntry.of(options)),
+                    entry -> !entry.hasDefaultProbability() ?
+                            DataResult.error(() -> "Skipping to main codec as entry has non-default values...")
+                            : DataResult.success(entry.particle())
+            ), CODEC);
 
 
 
@@ -36,6 +44,9 @@ public record WeightedParticleEntry(ParticleOptions particle, Either<Integer, Fl
         return this.probability().map(i -> random.nextInt(i) == 0, f -> random.nextFloat() < f);
     }
 
+    public boolean hasDefaultProbability() {
+        return this.probability().map(i -> i == DEFAULT_RARITY, f -> f == DEFAULT_CHANCE);
+    }
 
     public static WeightedParticleEntry of(ParticleOptions particle, int rarity) {
         return new WeightedParticleEntry(particle, Either.left(rarity));
