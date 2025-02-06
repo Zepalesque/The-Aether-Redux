@@ -28,7 +28,7 @@ public record WeightedParticleEntry(ParticleOptions particle, Either<Integer, Fl
             PROBABILITY_CODEC.forGetter(WeightedParticleEntry::probability)
     ).apply(builder, WeightedParticleEntry::new));
 
-    public static final Codec<WeightedParticleEntry> COMPRESSABLE_CODEC = Codec.withAlternative(CODEC, PARTICLE_CODEC.xmap(WeightedParticleEntry::of, WeightedParticleEntry::particle));
+    public static final Codec<WeightedParticleEntry> COMPRESSABLE_CODEC = Codec.withAlternative(PARTICLE_CODEC.xmap(WeightedParticleEntry::of, WeightedParticleEntry::particle), CODEC);
 
 
 
