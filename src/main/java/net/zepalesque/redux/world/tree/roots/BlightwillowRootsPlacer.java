@@ -18,6 +18,7 @@ import net.minecraft.world.level.levelgen.feature.rootplacers.RootPlacerType;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
 import net.zepalesque.redux.ArrayUtil;
+import net.zepalesque.redux.config.ReduxConfig;
 import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.HashMap;
@@ -55,8 +56,6 @@ public class BlightwillowRootsPlacer extends RootPlacer {
     @Override
     public boolean placeRoots(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> setter, RandomSource random, BlockPos origin, BlockPos trunkOrigin, TreeConfiguration treeConfig) {
 
-        TrunkPlacer.setDirtAt(level, setter, random, origin.below(), treeConfig);
-
         if (level.isStateAtPosition(origin.below(), state -> !isDirt(state))) {
             return false;
         }
@@ -86,7 +85,7 @@ public class BlightwillowRootsPlacer extends RootPlacer {
 
             for (int i = -1; i > -4; i--) {
                 BlockPos test = rootStart.above(i);
-                if (level.isStateAtPosition(test, BlockBehaviour.BlockStateBase::isAir))
+                if (this.validRootPos(level, test))
                     if (i == -3) {
                         unshuffle();
                         return false;
@@ -108,7 +107,8 @@ public class BlightwillowRootsPlacer extends RootPlacer {
         unshuffle();
 
         if (validateAll(level, this.placements)) {
-            this.placements.forEach((pos, useWood) -> setter.accept(pos, !useWood ? treeConfig.trunkProvider.getState(random, pos) : this.wood.getState(random, pos)));
+            this.placements.forEach((pos, useWood) -> setter.accept(pos, !useWood || !ReduxConfig.SERVER.use_wood_blocks.get() ? treeConfig.trunkProvider.getState(random, pos) : this.wood.getState(random, pos)));
+            TrunkPlacer.setDirtAt(level, setter, random, origin.below(), treeConfig);
 
             return true;
         } else return false;
@@ -126,7 +126,7 @@ public class BlightwillowRootsPlacer extends RootPlacer {
     }
 
     protected boolean validRootPos(LevelSimulatedReader level, BlockPos pos) {
-        return TreeFeature.validTreePos(level, pos) || level.isStateAtPosition(pos, state -> state.isAir() || state.is(BlockTags.REPLACEABLE));
+        return level.isStateAtPosition(pos, state -> state.isAir() || state.is(BlockTags.REPLACEABLE) || state.is(BlockTags.REPLACEABLE_BY_TREES));
     }
 
     public static boolean isDirt(BlockState state) {

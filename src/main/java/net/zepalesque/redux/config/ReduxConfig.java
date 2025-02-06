@@ -14,6 +14,7 @@ public class ReduxConfig {
         public final ModConfigSpec.ConfigValue<Boolean> redux_sky_colors;
         public final ModConfigSpec.ConfigValue<Boolean> redux_water_colors;
         public final ModConfigSpec.ConfigValue<Boolean> cloudbed;
+        public final ModConfigSpec.ConfigValue<Boolean> use_wood_blocks;
         public final ModConfigSpec.ConfigValue<Boolean> revamped_quicksoil_movement;
         // TODO: Item component?
         public final ModConfigSpec.IntValue max_veridium_tool_infusion;
@@ -37,6 +38,10 @@ public class ReduxConfig {
                     .comment("Replace the Aether's large Aercloud features with a noise-based cloudbed")
                     .worldRestart()
                     .define("Cloudbed", true);
+            use_wood_blocks = builder
+                    .comment("Allow generation of wood blocks (6-sided log block) in certain tree generators in order to make more natural-looking trees")
+                    .worldRestart()
+                    .define("Use Wood Blocks in Tree Generation", true);
             builder.pop();
             builder.push("Gameplay");
             max_veridium_tool_infusion = builder
