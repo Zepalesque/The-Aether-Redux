@@ -12,6 +12,7 @@ import net.zepalesque.redux.data.ReduxTags;
 import net.zepalesque.unity.client.UnityColors;
 import net.zepalesque.zenith.api.blockset.BlockSet;
 import net.zepalesque.zenith.api.blockset.type.AbstractFlowerSet;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 import java.util.function.Predicate;
@@ -25,7 +26,7 @@ public class ReduxColors {
         public static final int BLEAKMOSS_GRASS_COLOR = 0xB79EC1;
     }
 
-    public static Optional<Integer> reduxColors(BlockState state, BlockAndTintGetter level, BlockPos pos, int index, Predicate<Integer> indexGoal, boolean useBelowProperties) {
+    public static Optional<Integer> reduxColors(BlockState state, @Nullable BlockAndTintGetter level, @Nullable BlockPos pos, int index, Predicate<Integer> indexGoal, boolean useBelowProperties) {
         if (level == null || pos == null) return Optional.empty();
         if (level.getBlockState(pos.below()).is(ReduxTags.Blocks.SHORT_AETHER_GRASS_BLEAKMOSS_COLORING)) {
             return UnityColors.encapsulate(Tints.BLEAKMOSS_GRASS_COLOR);

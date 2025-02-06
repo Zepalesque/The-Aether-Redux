@@ -1,4 +1,4 @@
-package net.zepalesque.redux.block.state;
+package net.zepalesque.redux.block;
 
 import com.google.common.base.Supplier;
 import net.minecraft.world.item.BlockItem;

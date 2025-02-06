@@ -1,14 +1,6 @@
 package net.zepalesque.redux.item;
 
-import com.aetherteam.aether.data.resources.registries.AetherJukeboxSongs;
 import com.aetherteam.aether.item.AetherItems;
-import com.aetherteam.aether.item.combat.DartItem;
-import io.wispforest.accessories.api.AccessoriesAPI;
-import io.wispforest.accessories.api.Accessory;
-import net.minecraft.ChatFormatting;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
@@ -22,7 +14,6 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.data.resource.registries.ReduxJukeboxSongs;
-import net.zepalesque.redux.entity.ReduxEntities;
 import net.zepalesque.redux.item.accessories.cape.AerboundCapeItem;
 import net.zepalesque.redux.item.combat.VeridiumDartItem;
 import net.zepalesque.redux.item.combat.VeridiumDartShooter;
@@ -34,9 +25,7 @@ import net.zepalesque.redux.item.tools.VeridiumHoeItem;
 import net.zepalesque.redux.item.tools.VeridiumPickaxeItem;
 import net.zepalesque.redux.item.tools.VeridiumShovelItem;
 
-import java.util.function.UnaryOperator;
-
-public class ReduxItems {
+public class ReduxItems extends ReduxItemBuilders {
 
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Redux.MODID);
 
@@ -73,9 +62,5 @@ public class ReduxItems {
 
     public static void registerAccessories() {
         registerAccessory(AERBOUND_CAPE.get());
-    }
-
-    private static <T extends Item & Accessory> void registerAccessory(T accessory) {
-        AccessoriesAPI.registerAccessory(accessory, accessory);
     }
 }
