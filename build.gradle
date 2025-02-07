@@ -36,6 +36,9 @@ neoForge {
 
             @Nullable String username = System.getenv "MC_USR_DEV";
             if (username != null) programArguments.addAll '--username', username
+
+            @Nullable String uuid = System.getenv "MC_UUID_DEV";
+            if (uuid != null) programArguments.addAll '--uuid', uuid
         }
 
         server {
