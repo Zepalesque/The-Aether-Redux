@@ -148,7 +148,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
                         prov(ReduxWoodSets.BLIGHTWILLOW.log()),
                         new BlightwillowTrunkPlacer(ConstantInt.of(6)),
                         new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                                .add(drops(ReduxBlocks.BLIGHTWILLOW_LEAVES), 10)
+                                .add(drops(ReduxBlocks.BLIGHTWILLOW_LEAVES), 15)
                                 .add(drops(ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES), 1)
                                 .build()),
                         new BlightwillowFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),

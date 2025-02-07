@@ -25,7 +25,8 @@ public class ReduxConfig {
 
         public Server(ModConfigSpec.Builder builder) {
             super(() -> SERVER_SPEC, "redux_server");
-            builder.push("Worldgen Tweaks");
+            builder.push("Worldgen");
+            builder.push("Tweaks");
             redux_sky_colors = builder
                     .worldRestart()
                     .comment("Use Redux's alternative sky colors for the Aether")
@@ -38,12 +39,16 @@ public class ReduxConfig {
                     .comment("Replace the Aether's large Aercloud features with a noise-based cloudbed")
                     .worldRestart()
                     .define("Cloudbed", true);
+            builder.pop();
+
             use_wood_blocks = builder
                     .comment("Allow generation of wood blocks (6-sided log block) in certain tree generators in order to make more natural-looking trees")
                     .worldRestart()
                     .define("Use Wood Blocks in Tree Generation", true);
             builder.pop();
+
             builder.push("Gameplay");
+
             max_veridium_tool_infusion = builder
                     .comment("The maximum amount of infusion a Veridium tool is able to carry. Note that by default, a tools infusion level is increased by 4 when it is infused with a single Ambrosium Shard.")
                     .defineInRange("Max Veridium Tool Infusion", 64, 1, Short.MAX_VALUE);
