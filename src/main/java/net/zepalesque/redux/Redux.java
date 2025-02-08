@@ -142,7 +142,6 @@ public class Redux {
     }
 
     public  void packSetup(AddPackFindersEvent event) {
-
         PackConfig pack = event.getPackType() == PackType.CLIENT_RESOURCES ? ASSETS_CONFIG : DATA_CONFIG;
         pack.setup(event);
     }

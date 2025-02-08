@@ -47,7 +47,6 @@ public class ReduxBiomeModifiers {
         HolderGetter<PlacedFeature> features = context.lookup(Registries.PLACED_FEATURE);
         HolderGetter<Condition<?>> conditions = context.lookup(Zenith.Keys.CONDITION);
 
-
         BiomeModifier cloudbed = new BiomeModifiers.AddFeaturesBiomeModifier(
                 biomes.getOrThrow(ReduxTags.Biomes.HAS_CLOUDBED), HolderSet.direct(features.getOrThrow(ReduxPlacements.CLOUDBED)),
                 GenerationStep.Decoration.RAW_GENERATION);
