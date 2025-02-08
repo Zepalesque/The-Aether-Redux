@@ -152,7 +152,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
                 new TreeConfiguration.TreeConfigurationBuilder(
                         BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LOG),
                         // TODO
-                        new DarkOakTrunkPlacer(6, 2, 1),
+                        new DarkOakTrunkPlacer(7, 2, 1),
                         prov(ReduxBlocks.STORMROOT_LEAVES),
                         // TODO
                         new DarkOakFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0)),
