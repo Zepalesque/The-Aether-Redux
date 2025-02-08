@@ -26,11 +26,11 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
         addBlock(ReduxBlocks.GILDENROOT_LEAF_PILE);
         addLore(ReduxBlocks.GILDENROOT_LEAF_PILE, "A pile of Gildenroot Leaves. These can be stacked on top of eachother to make various sizes!");
 
-        addBlock(ReduxBlocks.SHADEROOT_LEAVES);
-        addLore(ReduxBlocks.SHADEROOT_LEAVES, "Leaves of the Shaderoot tree, a corrupted variation of Skyroot that has been inflicted by the Blight.");
+        addBlock(ReduxBlocks.STORMROOT_LEAVES);
+        addLore(ReduxBlocks.STORMROOT_LEAVES, "Leaves of the Stormroot tree, a corrupted variation of Skyroot that has been inflicted by the Blight.");
 
-        addBlock(ReduxBlocks.SHADEROOT_LEAF_PILE);
-        addLore(ReduxBlocks.SHADEROOT_LEAF_PILE, "A pile of Shaderoot Leaves. These can be stacked on top of eachother to make various sizes!");
+        addBlock(ReduxBlocks.STORMROOT_LEAF_PILE);
+        addLore(ReduxBlocks.STORMROOT_LEAF_PILE, "A pile of Stormroot Leaves. These can be stacked on top of eachother to make various sizes!");
 
         addBlock(ReduxBlocks.BLIGHTWILLOW_LEAVES);
         addLore(ReduxBlocks.BLIGHTWILLOW_LEAVES, "Leaves of the Blightwillow tree, The most common tree found in the Blight. Some claim that these may be a blighted version of Golden Oak trees.");

@@ -98,7 +98,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLEAKMOSS_VEGETATION = createKey("bleakmoss_vegetation");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLEAKMOSS_BONEMEAL = createKey("bleakmoss_bonemeal");
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_SHADEROOT_TREE = createKey("small_shaderoot");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_STORMROOT_TREE = createKey("small_stormroot");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTWILLOW_TREE = createKey("blightwillow");
 
@@ -134,11 +134,11 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
                         new TwoLayersFeatureSize(1, 0, 1)
                 ).ignoreVines().build());
 
-        register(context, SMALL_SHADEROOT_TREE, Feature.TREE,
+        register(context, SMALL_STORMROOT_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
                         BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LOG),
                         new StraightTrunkPlacer(4, 2, 0),
-                        prov(ReduxBlocks.SHADEROOT_LEAVES),
+                        prov(ReduxBlocks.STORMROOT_LEAVES),
                         new SkyrootFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
                         new TwoLayersFeatureSize(1, 0, 1)
                 ).ignoreVines().build());
@@ -229,8 +229,8 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
                 new RandomFeatureConfiguration(List.of(
                         new WeightedPlacedFeature(
                                 PlacementUtils.inlinePlaced(
-                                        configs.getOrThrow(SMALL_SHADEROOT_TREE),
-                                        PlacementUtils.filteredByBlockSurvival(ReduxFlowerSets.SHADEROOT_SAPLING.flower().get()))
+                                        configs.getOrThrow(SMALL_STORMROOT_TREE),
+                                        PlacementUtils.filteredByBlockSurvival(ReduxFlowerSets.STORMROOT_SAPLING.flower().get()))
                                 , 0.375F)),
                         PlacementUtils.inlinePlaced(
                                 configs.getOrThrow(BLIGHTWILLOW_TREE),

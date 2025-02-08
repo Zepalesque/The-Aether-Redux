@@ -40,13 +40,13 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
         );
         this.add(ReduxBlocks.GILDENROOT_LEAF_PILE.get(), shears());
 
-        this.add(ReduxBlocks.SHADEROOT_LEAVES.get(),
+        this.add(ReduxBlocks.STORMROOT_LEAVES.get(),
                 (leaves) -> droppingWithChancesAndSkyrootSticks(
-                        leaves, ReduxFlowerSets.SHADEROOT_SAPLING.flower().get(),
+                        leaves, ReduxFlowerSets.STORMROOT_SAPLING.flower().get(),
                         BlockLootAccessor.aether$getNormalLeavesSaplingChances())
         );
 
-        this.add(ReduxBlocks.SHADEROOT_LEAF_PILE.get(), shears());
+        this.add(ReduxBlocks.STORMROOT_LEAF_PILE.get(), shears());
 
         this.add(ReduxBlocks.BLIGHTWILLOW_LEAVES.get(),
                 (leaves) -> droppingWithChancesAndSkyrootSticks(

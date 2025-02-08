@@ -1,7 +1,6 @@
 package net.zepalesque.redux.data.gen;
 
 import com.aetherteam.aether.block.AetherBlocks;
-import com.aetherteam.aether.data.resources.registries.AetherBiomes;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.registries.datamaps.builtin.NeoForgeDataMaps;
@@ -34,8 +33,8 @@ public class ReduxMapData extends ReduxDataMapProvider {
         var compostables = this.builder(NeoForgeDataMaps.COMPOSTABLES);
         this.addCompost(compostables, ReduxBlocks.GILDENROOT_LEAVES, 0.3F);
         this.addCompost(compostables, ReduxBlocks.GILDENROOT_LEAF_PILE, 0.05F);
-        this.addCompost(compostables, ReduxBlocks.SHADEROOT_LEAVES, 0.3F);
-        this.addCompost(compostables, ReduxBlocks.SHADEROOT_LEAF_PILE, 0.05F);
+        this.addCompost(compostables, ReduxBlocks.STORMROOT_LEAVES, 0.3F);
+        this.addCompost(compostables, ReduxBlocks.STORMROOT_LEAF_PILE, 0.05F);
         this.addCompost(compostables, ReduxBlocks.BLIGHTWILLOW_LEAVES, 0.3F);
         this.addCompost(compostables, ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES, 0.2F);
         this.addCompost(compostables, ReduxBlocks.BLIGHTWILLOW_LEAF_PILE, 0.05F);
@@ -50,7 +49,7 @@ public class ReduxMapData extends ReduxDataMapProvider {
         this.addLeafParticle(leaves, AetherBlocks.CRYSTAL_FRUIT_LEAVES, ReduxParticles.CRYSTAL_LEAF, crystal);
         this.addLeafParticle(leaves, AetherBlocks.GOLDEN_OAK_LEAVES, ReduxParticles.GOLDEN_OAK_LEAF, 14);
         this.addLeafParticle(leaves, ReduxBlocks.GILDENROOT_LEAVES, ReduxParticles.GILDENROOT_LEAF);
-        this.addLeafParticle(leaves, ReduxBlocks.SHADEROOT_LEAVES, ReduxParticles.SHADEROOT_LEAF, 18);
+        this.addLeafParticle(leaves, ReduxBlocks.STORMROOT_LEAVES, ReduxParticles.STORMROOT_LEAF, 18);
         this.addLeafParticle(leaves, ReduxBlocks.BLIGHTWILLOW_LEAVES, ReduxParticles.BLIGHTWILLOW_LEAF, 20);
         this.addLeafParticle(leaves, ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES, ReduxParticles.INFECTED_BLIGHTWILLOW_LEAF, 25);
     }

@@ -19,7 +19,6 @@ import net.zepalesque.redux.blockset.flower.type.AetherFlowerSet;
 import net.zepalesque.redux.blockset.flower.type.BaseFlowerSet;
 import net.zepalesque.redux.blockset.flower.type.CloverSet;
 import net.zepalesque.redux.blockset.flower.type.EnchantedFlowerSet;
-import net.zepalesque.redux.blockset.flower.type.TintedFlowerSet;
 import net.zepalesque.redux.blockset.flower.type.UntintedFlowerSet;
 import net.zepalesque.redux.client.ReduxColors;
 import net.zepalesque.redux.world.tree.ReduxTreeGrowers;
@@ -44,16 +43,16 @@ public class ReduxFlowerSets {
             .compost(0.3F)
             .withLore("The sapling of the Gildenroot tree. It can be grown by waiting or using Bone Meal."));
 
-    public static final BaseFlowerSet<SaplingBlock> SHADEROOT_SAPLING = register(new UntintedFlowerSet<>("shaderoot_sapling", "natural/",
-            () -> new SaplingBlock(ReduxTreeGrowers.SHADEROOT, Properties.ofFullCopy(Blocks.OAK_SAPLING).mapColor(MapColor.TERRACOTTA_PURPLE)))
+    public static final BaseFlowerSet<SaplingBlock> STORMROOT_SAPLING = register(new UntintedFlowerSet<>("stormroot_sapling", "natural/",
+            () -> new SaplingBlock(ReduxTreeGrowers.STORMROOT, Properties.ofFullCopy(Blocks.OAK_SAPLING).mapColor(MapColor.TERRACOTTA_PURPLE)))
             .tabAfter(AetherCreativeTabs.AETHER_NATURAL_BLOCKS, () -> ReduxFlowerSets.GILDENROOT_SAPLING.flower().get(), BlockSet.TabAdditionPhase.BEFORE)
             .withFlowerTag(BlockTags.SAPLINGS)
             .compost(0.3F)
-            .withLore("The sapling of the Shaderoot tree. It can be grown by waiting or using Bone Meal."));
+            .withLore("The sapling of the Stormroot tree. It can be grown by waiting or using Bone Meal."));
 
     public static final BaseFlowerSet<SaplingBlock> BLIGHTWILLOW_SAPLING = register(new UntintedFlowerSet<>("blightwillow_sapling", "natural/",
             () -> new SaplingBlock(ReduxTreeGrowers.BLIGHTWILLOW, Properties.ofFullCopy(Blocks.OAK_SAPLING).mapColor(MapColor.COLOR_PURPLE)))
-            .tabAfter(AetherCreativeTabs.AETHER_NATURAL_BLOCKS, () -> ReduxFlowerSets.SHADEROOT_SAPLING.flower().get(), BlockSet.TabAdditionPhase.BEFORE)
+            .tabAfter(AetherCreativeTabs.AETHER_NATURAL_BLOCKS, () -> ReduxFlowerSets.STORMROOT_SAPLING.flower().get(), BlockSet.TabAdditionPhase.BEFORE)
             .withFlowerTag(BlockTags.SAPLINGS)
             .compost(0.3F)
             .withLore("The sapling of the Blightwillow tree. It can be grown by waiting or using Bone Meal."));

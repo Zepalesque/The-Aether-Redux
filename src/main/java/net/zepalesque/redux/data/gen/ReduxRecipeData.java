@@ -11,7 +11,6 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
@@ -50,7 +49,7 @@ public class ReduxRecipeData extends ReduxRecipeProvider {
         ambrosiumEnchanting(ReduxBlocks.GILDENROOT_LEAVES.get(), AetherBlocks.SKYROOT_LEAVES.get()).save(output);
 
         layerBlock(output, ReduxBlocks.GILDENROOT_LEAF_PILE.get(), ReduxBlocks.GILDENROOT_LEAVES.get(), 6);
-        layerBlock(output, ReduxBlocks.SHADEROOT_LEAF_PILE.get(), ReduxBlocks.SHADEROOT_LEAVES.get(), 6);
+        layerBlock(output, ReduxBlocks.STORMROOT_LEAF_PILE.get(), ReduxBlocks.STORMROOT_LEAVES.get(), 6);
         layerBlock(output, ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get(), ReduxBlocks.BLIGHTWILLOW_LEAVES.get(), 6);
 
         stonecuttingRecipe(output, RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.CARVED_BASE.get(), AetherBlocks.CARVED_STONE.get());
