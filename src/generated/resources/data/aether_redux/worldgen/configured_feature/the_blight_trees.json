@@ -9,7 +9,7 @@
           "predicate": {
             "type": "minecraft:would_survive",
             "state": {
-              "Name": "aether:golden_oak_sapling",
+              "Name": "aether_redux:blightwillow_sapling",
               "Properties": {
                 "stage": "0"
               }
@@ -20,16 +20,36 @@
     },
     "features": [
       {
-        "chance": 0.375,
+        "chance": 0.35,
         "feature": {
-          "feature": "aether_redux:small_shaderoot",
+          "feature": "aether_redux:small_stormroot",
           "placement": [
             {
               "type": "minecraft:block_predicate_filter",
               "predicate": {
                 "type": "minecraft:would_survive",
                 "state": {
-                  "Name": "aether_redux:shaderoot_sapling",
+                  "Name": "aether_redux:stormroot_sapling",
+                  "Properties": {
+                    "stage": "0"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "chance": 0.4,
+        "feature": {
+          "feature": "aether_redux:large_stormroot",
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:would_survive",
+                "state": {
+                  "Name": "aether_redux:stormroot_sapling",
                   "Properties": {
                     "stage": "0"
                   }

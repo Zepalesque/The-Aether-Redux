@@ -39,7 +39,7 @@
       "predicate": {
         "type": "minecraft:would_survive",
         "state": {
-          "Name": "aether_redux:shaderoot_sapling",
+          "Name": "aether_redux:stormroot_sapling",
           "Properties": {
             "stage": "0"
           }
