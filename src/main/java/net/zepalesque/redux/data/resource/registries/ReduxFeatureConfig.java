@@ -38,6 +38,7 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.DarkOakTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
+import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
@@ -250,7 +251,9 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
                         new WeightedPlacedFeature(
                                 PlacementUtils.inlinePlaced(
                                         configs.getOrThrow(LARGE_STORMROOT_TREE),
-                                        PlacementUtils.filteredByBlockSurvival(ReduxFlowerSets.STORMROOT_SAPLING.flower().get()))
+                                        PlacementUtils.filteredByBlockSurvival(ReduxFlowerSets.STORMROOT_SAPLING.flower().get()),
+                                        // TODO: similar to blightwillow?
+                                        HAS_TRUNK_SUPPORT_2X2)
                                 , 0.4F)
                 ), PlacementUtils.inlinePlaced(
                         configs.getOrThrow(BLIGHTWILLOW_TREE),
