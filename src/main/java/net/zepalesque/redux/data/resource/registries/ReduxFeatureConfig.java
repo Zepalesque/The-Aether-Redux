@@ -31,9 +31,12 @@ import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguratio
 import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.VegetationPatchConfiguration;
+import net.minecraft.world.level.levelgen.feature.featuresize.ThreeLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.DarkOakFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.DarkOakTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
@@ -99,6 +102,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLEAKMOSS_BONEMEAL = createKey("bleakmoss_bonemeal");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_STORMROOT_TREE = createKey("small_stormroot");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_STORMROOT_TREE = createKey("large_stormroot");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTWILLOW_TREE = createKey("blightwillow");
 
@@ -141,6 +145,17 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
                         prov(ReduxBlocks.STORMROOT_LEAVES),
                         new SkyrootFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
                         new TwoLayersFeatureSize(1, 0, 1)
+                ).ignoreVines().build());
+
+        register(context, LARGE_STORMROOT_TREE, Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LOG),
+                        // TODO
+                        new DarkOakTrunkPlacer(6, 2, 1),
+                        prov(ReduxBlocks.STORMROOT_LEAVES),
+                        // TODO
+                        new DarkOakFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0)),
+                        new ThreeLayersFeatureSize(1, 1, 0, 1, 2, OptionalInt.empty())
                 ).ignoreVines().build());
 
         register(context, BLIGHTWILLOW_TREE, Feature.TREE,
@@ -219,11 +234,11 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
                                 PlacementUtils.inlinePlaced(
                                         configs.getOrThrow(VARIED_GILDENROOT_TREE),
                                         PlacementUtils.filteredByBlockSurvival(ReduxFlowerSets.GILDENROOT_SAPLING.flower().get()))
-                                , 0.375F)),
-                        PlacementUtils.inlinePlaced(
-                                configs.getOrThrow(GOLDEN_OAK_TREE),
-                                PlacementUtils.filteredByBlockSurvival(AetherBlocks.GOLDEN_OAK_SAPLING.get())
-                        )));
+                                , 0.375F)
+                ), PlacementUtils.inlinePlaced(
+                        configs.getOrThrow(GOLDEN_OAK_TREE),
+                        PlacementUtils.filteredByBlockSurvival(AetherBlocks.GOLDEN_OAK_SAPLING.get())
+                )));
 
         register(context, BLIGHT_TREES, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(
@@ -231,12 +246,16 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
                                 PlacementUtils.inlinePlaced(
                                         configs.getOrThrow(SMALL_STORMROOT_TREE),
                                         PlacementUtils.filteredByBlockSurvival(ReduxFlowerSets.STORMROOT_SAPLING.flower().get()))
-                                , 0.375F)),
-                        PlacementUtils.inlinePlaced(
-                                configs.getOrThrow(BLIGHTWILLOW_TREE),
-                                // TODO: Filter via Blightwillow Sapling
-                                PlacementUtils.filteredByBlockSurvival(AetherBlocks.GOLDEN_OAK_SAPLING.get())
-                        )));
+                                , 0.35F),
+                        new WeightedPlacedFeature(
+                                PlacementUtils.inlinePlaced(
+                                        configs.getOrThrow(LARGE_STORMROOT_TREE),
+                                        PlacementUtils.filteredByBlockSurvival(ReduxFlowerSets.STORMROOT_SAPLING.flower().get()))
+                                , 0.4F)
+                ), PlacementUtils.inlinePlaced(
+                        configs.getOrThrow(BLIGHTWILLOW_TREE),
+                        PlacementUtils.filteredByBlockSurvival(ReduxFlowerSets.BLIGHTWILLOW_SAPLING.flower().get())
+                )));
 
         register(context, SENTRITE_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
                 drops(ReduxStoneSets.SENTRITE.block()), 48, 0.0F));

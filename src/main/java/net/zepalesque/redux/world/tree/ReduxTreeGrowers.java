@@ -24,8 +24,7 @@ public class ReduxTreeGrowers {
             Optional.empty(),
             Optional.empty(),
             Optional.of(ReduxFeatureConfig.SMALL_STORMROOT_TREE),
-//            Optional.of(ReduxFeatureConfig.LARGE_GILDENROOT_TREE),
-            Optional.empty(),
+            Optional.of(ReduxFeatureConfig.LARGE_STORMROOT_TREE),
             Optional.empty(),
             Optional.empty()
     );
