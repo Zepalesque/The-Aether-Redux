@@ -252,7 +252,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
                                 PlacementUtils.inlinePlaced(
                                         configs.getOrThrow(LARGE_STORMROOT_TREE),
                                         PlacementUtils.filteredByBlockSurvival(ReduxFlowerSets.STORMROOT_SAPLING.flower().get()),
-                                        // TODO: similar to blightwillow?
+                                        // TODO: similar to blightwillow? allow up to ONE block of leeway, up or down
                                         HAS_TRUNK_SUPPORT_2X2)
                                 , 0.4F)
                 ), PlacementUtils.inlinePlaced(
