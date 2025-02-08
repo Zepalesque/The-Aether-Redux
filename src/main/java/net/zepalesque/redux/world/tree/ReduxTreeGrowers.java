@@ -21,10 +21,10 @@ public class ReduxTreeGrowers {
     public static final TreeGrower STORMROOT = new TreeGrower(
             "stormroot",
             0.3F,
-            Optional.empty(),
+            Optional.of(ReduxFeatureConfig.LARGE_STORMROOT_TREE),
             Optional.empty(),
             Optional.of(ReduxFeatureConfig.SMALL_STORMROOT_TREE),
-            Optional.of(ReduxFeatureConfig.LARGE_STORMROOT_TREE),
+            Optional.empty(),
             Optional.empty(),
             Optional.empty()
     );
