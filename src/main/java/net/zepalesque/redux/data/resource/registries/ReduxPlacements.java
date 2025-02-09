@@ -56,7 +56,6 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
     public static final ResourceKey<PlacedFeature> SPARSE_AMBROSIUM_ORE = createKey("sparse_ambrosium_ore");
     public static final ResourceKey<PlacedFeature> DENSE_ZANITE_ORE = createKey("dense_zanite_ore");
     public static final ResourceKey<PlacedFeature> DENSE_AMBROSIUM_ORE = createKey("dense_ambrosium_ore");
-    public static final ResourceKey<PlacedFeature> GILDED_LAKE = copyKey(ReduxFeatureConfig.GILDED_LAKE);
     public static final ResourceKey<PlacedFeature> WYNDSPROUTS_PATCH = copyKey(ReduxFeatureConfig.WYNDSPROUTS_PATCH);
 
 
@@ -167,12 +166,6 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
 
         PlacementUtils.register(context, DENSE_ZANITE_ORE, configs.getOrThrow(AetherConfiguredFeatures.ORE_ZANITE_CONFIGURATION),
                 NitrogenPlacedFeatureBuilders.commonOrePlacement(21, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(75))));
-
-        PlacementUtils.register(context, GILDED_LAKE, configs.getOrThrow(ReduxFeatureConfig.GILDED_LAKE),
-                RarityFilter.onAverageOnceEvery(15),
-                HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE_WG),
-                BiomeFilter.biome()
-        );
 
         PlacementUtils.register(context, AMBROSIUM_ROCK, configs.getOrThrow(ReduxFeatureConfig.AMBROSIUM_ROCK),
                 threshold,

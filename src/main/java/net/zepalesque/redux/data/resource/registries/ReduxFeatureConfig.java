@@ -94,8 +94,6 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHT_TREES = createKey("the_blight_trees");
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> GILDED_LAKE = createKey("gilded_groves_water_lake");
-
     public static final ResourceKey<ConfiguredFeature<?, ?>> AMBROSIUM_ROCK = createKey("ambrosium_rock");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WYNDSPROUTS_PATCH = createKey(name(ReduxBlocks.WYNDSPROUTS) + "_patch");
@@ -275,9 +273,6 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 
         FeatureUtils.register(context, GOLDEN_CLOVERS_PATCH, Feature.FLOWER,
                 patch(24, 7, 3, petals(drops(ReduxBlocks.GOLDEN_CLOVERS))));
-
-        FeatureUtils.register(context, GILDED_LAKE, ZenithFeatures.RULE_BASED_LAKE.get(),
-                lakeWithGrassBlock(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK, () -> Blocks.WATER, noises));
 
         FeatureUtils.register(context, AMBROSIUM_ROCK, ZenithFeatures.LARGE_ROCK.get(),
                 new LargeRockFeature.Config(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()

@@ -16,6 +16,7 @@ import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.zepalesque.redux.client.audio.ReduxMusic;
 import net.zepalesque.redux.data.resource.registries.ReduxPlacements;
+import net.zepalesque.unity.data.resource.registries.UnityPlacements;
 
 public class GildedGroves {
 
@@ -69,7 +70,7 @@ public class GildedGroves {
 
                 .addFeature(GenerationStep.Decoration.RAW_GENERATION, AetherPlacedFeatures.QUICKSOIL_SHELF_PLACEMENT)
 
-                .addFeature(GenerationStep.Decoration.LAKES, ReduxPlacements.GILDED_LAKE)
+                .addFeature(GenerationStep.Decoration.LAKES, AetherPlacedFeatures.WATER_LAKE_PLACEMENT)
 
                 .addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, ReduxPlacements.AMBROSIUM_ROCK)
 
