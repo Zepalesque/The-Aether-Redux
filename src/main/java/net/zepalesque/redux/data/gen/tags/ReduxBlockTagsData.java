@@ -13,6 +13,8 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.data.ReduxTags;
 import net.zepalesque.redux.data.prov.tags.ReduxBlockTagsProvider;
+import net.zepalesque.unity.block.UnityBlocks;
+import net.zepalesque.unity.data.UnityTags;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
@@ -38,6 +40,8 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
         this.tag(AetherTags.Blocks.SWET_SPAWNABLE_ON).add(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get());
 
         this.tag(AetherTags.Blocks.AETHER_DIRT).add(ReduxBlocks.BLEAKMOSS_BLOCK.get());
+
+        this.tag(UnityTags.Blocks.AETHER_LAKE_SKIP_REPLACEMENT).add(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get());
 
         this.tag(ReduxTags.Blocks.QUICKSOIL_BEHAVIOR).add(AetherBlocks.QUICKSOIL.get());
 

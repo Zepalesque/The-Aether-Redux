@@ -72,22 +72,22 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
         DungeonBlacklistFilter blacklist = new DungeonBlacklistFilter();
         NoiseThresholdCountPlacement threshold = NoiseThresholdCountPlacement.of(-0.8D, 5, 10);
 
-        register(context, CLOUDBED, configs.getOrThrow(ReduxFeatureConfig.CLOUDBED));
+        PlacementUtils.register(context, CLOUDBED, configs.getOrThrow(ReduxFeatureConfig.CLOUDBED));
 
-        register(context, SENTRITE_ORE, configs.getOrThrow(ReduxFeatureConfig.SENTRITE_ORE),
+        PlacementUtils.register(context, SENTRITE_ORE, configs.getOrThrow(ReduxFeatureConfig.SENTRITE_ORE),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(TrapezoidHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.aboveBottom(128))),
                 BiomeFilter.biome()
         );
 
-        register(context, WYNDSPROUTS_PATCH, configs.getOrThrow(ReduxFeatureConfig.WYNDSPROUTS_PATCH),
+        PlacementUtils.register(context, WYNDSPROUTS_PATCH, configs.getOrThrow(ReduxFeatureConfig.WYNDSPROUTS_PATCH),
                 threshold,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
                 RarityFilter.onAverageOnceEvery(4),
                 BiomeFilter.biome()
         );
 
-        register(context, SPARSE_WYNDSPROUTS_PATCH, configs.getOrThrow(ReduxFeatureConfig.WYNDSPROUTS_PATCH),
+        PlacementUtils.register(context, SPARSE_WYNDSPROUTS_PATCH, configs.getOrThrow(ReduxFeatureConfig.WYNDSPROUTS_PATCH),
                 threshold,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
                 RarityFilter.onAverageOnceEvery(8),
@@ -96,7 +96,7 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
 
 
 
-//        register(context, GILDED_HOLYSTONE_ORE, configs.getOrThrow(ReduxFeatureConfig.GILDED_HOLYSTONE_ORE),
+//        PlacementUtils.register(context, GILDED_HOLYSTONE_ORE, configs.getOrThrow(ReduxFeatureConfig.GILDED_HOLYSTONE_ORE),
 //                CountPlacement.of(24),
 //                InSquarePlacement.spread(),
 //                HeightRangePlacement.of(UniformHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(128))),
@@ -104,7 +104,7 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
 //                BiomeFilter.biome()
 //        );
 
-        register(context, GROVE_TREES, configs.getOrThrow(ReduxFeatureConfig.GROVE_TREES),
+        PlacementUtils.register(context, GROVE_TREES, configs.getOrThrow(ReduxFeatureConfig.GROVE_TREES),
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
                         .add(ConstantInt.of(6), 9)
                         .add(ConstantInt.of(4), 3)
@@ -117,7 +117,7 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
                 blacklist
         );
 
-        register(context, BLIGHT_TREES, configs.getOrThrow(ReduxFeatureConfig.BLIGHT_TREES),
+        PlacementUtils.register(context, BLIGHT_TREES, configs.getOrThrow(ReduxFeatureConfig.BLIGHT_TREES),
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
                         .add(ConstantInt.of(18), 9)
                         .add(ConstantInt.of(14), 3)
@@ -130,51 +130,51 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
                 blacklist
         );
 
-        register(context, AURUM_PATCH, configs.getOrThrow(ReduxFeatureConfig.AURUM_PATCH),
+        PlacementUtils.register(context, AURUM_PATCH, configs.getOrThrow(ReduxFeatureConfig.AURUM_PATCH),
                 threshold,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 2), 4),
                 RarityFilter.onAverageOnceEvery(8),
                 BiomeFilter.biome());
 
-        register(context, LUCKY_CLOVER_PATCH, configs.getOrThrow(ReduxFeatureConfig.LUCKY_CLOVER_PATCH),
+        PlacementUtils.register(context, LUCKY_CLOVER_PATCH, configs.getOrThrow(ReduxFeatureConfig.LUCKY_CLOVER_PATCH),
                 threshold,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 2), 4),
                 RarityFilter.onAverageOnceEvery(16),
                 BiomeFilter.biome());
 
 
-        register(context, GOLDEN_CLOVERS_PATCH, configs.getOrThrow(ReduxFeatureConfig.GOLDEN_CLOVERS_PATCH),
+        PlacementUtils.register(context, GOLDEN_CLOVERS_PATCH, configs.getOrThrow(ReduxFeatureConfig.GOLDEN_CLOVERS_PATCH),
                 threshold,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
                 BiomeFilter.biome());
 
-        register(context, SPARSE_BLUE_AERCLOUD,
+        PlacementUtils.register(context, SPARSE_BLUE_AERCLOUD,
                 configs.getOrThrow(AetherConfiguredFeatures.BLUE_AERCLOUD_CONFIGURATION),
                 AetherPlacedFeatureBuilders.aercloudPlacement(32, 64, 48));
 
-        register(context, DENSE_BLUE_AERCLOUD,
+        PlacementUtils.register(context, DENSE_BLUE_AERCLOUD,
                 configs.getOrThrow(AetherConfiguredFeatures.BLUE_AERCLOUD_CONFIGURATION),
                 AetherPlacedFeatureBuilders.aercloudPlacement(32, 64, 14));
 
-        register(context, SPARSE_AMBROSIUM_ORE, configs.getOrThrow(AetherConfiguredFeatures.ORE_AMBROSIUM_CONFIGURATION),
+        PlacementUtils.register(context, SPARSE_AMBROSIUM_ORE, configs.getOrThrow(AetherConfiguredFeatures.ORE_AMBROSIUM_CONFIGURATION),
                 NitrogenPlacedFeatureBuilders.commonOrePlacement(10, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(128))));
 
-        register(context, SPARSE_ZANITE_ORE, configs.getOrThrow(AetherConfiguredFeatures.ORE_ZANITE_CONFIGURATION),
+        PlacementUtils.register(context, SPARSE_ZANITE_ORE, configs.getOrThrow(AetherConfiguredFeatures.ORE_ZANITE_CONFIGURATION),
                 NitrogenPlacedFeatureBuilders.commonOrePlacement(7, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(75))));
 
-        register(context, DENSE_AMBROSIUM_ORE, configs.getOrThrow(AetherConfiguredFeatures.ORE_AMBROSIUM_CONFIGURATION),
+        PlacementUtils.register(context, DENSE_AMBROSIUM_ORE, configs.getOrThrow(AetherConfiguredFeatures.ORE_AMBROSIUM_CONFIGURATION),
                 NitrogenPlacedFeatureBuilders.commonOrePlacement(30, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(128))));
 
-        register(context, DENSE_ZANITE_ORE, configs.getOrThrow(AetherConfiguredFeatures.ORE_ZANITE_CONFIGURATION),
+        PlacementUtils.register(context, DENSE_ZANITE_ORE, configs.getOrThrow(AetherConfiguredFeatures.ORE_ZANITE_CONFIGURATION),
                 NitrogenPlacedFeatureBuilders.commonOrePlacement(21, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(75))));
 
-        register(context, GILDED_LAKE, configs.getOrThrow(ReduxFeatureConfig.GILDED_LAKE),
+        PlacementUtils.register(context, GILDED_LAKE, configs.getOrThrow(ReduxFeatureConfig.GILDED_LAKE),
                 RarityFilter.onAverageOnceEvery(15),
                 HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE_WG),
                 BiomeFilter.biome()
         );
 
-        register(context, AMBROSIUM_ROCK, configs.getOrThrow(ReduxFeatureConfig.AMBROSIUM_ROCK),
+        PlacementUtils.register(context, AMBROSIUM_ROCK, configs.getOrThrow(ReduxFeatureConfig.AMBROSIUM_ROCK),
                 threshold,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING,
                         new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()

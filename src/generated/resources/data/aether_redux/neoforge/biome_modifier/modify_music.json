@@ -2,7 +2,7 @@
   "type": "zenith:modify_music",
   "biomes": "#aether_redux:should_modify_music",
   "new_track": {
-    "max_delay": 3600,
-    "min_delay": 1200
+    "max_delay": 4800,
+    "min_delay": 2400
   }
 }
