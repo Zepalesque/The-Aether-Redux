@@ -22,6 +22,7 @@ public class ReduxConfig {
         // TODO: Other Ores
         public final ModConfigSpec.ConfigValue<Boolean> raw_ores;
         public final ModConfigSpec.ConfigValue<Boolean> gummy_swet_nerf;
+        public final ModConfigSpec.ConfigValue<Boolean> mossy_holystone_gen;
 
         public Server(ModConfigSpec.Builder builder) {
             super(() -> SERVER_SPEC, "redux_server");
@@ -39,6 +40,10 @@ public class ReduxConfig {
                     .comment("Replace the Aether's large Aercloud features with a noise-based cloudbed")
                     .worldRestart()
                     .define("Cloudbed", true);
+            mossy_holystone_gen = builder
+                    .comment("Enables the natural spawning of Mossy Holystone, alongside Gilded and Bleakmoss Holystone in their respective biomes.")
+                    .worldRestart()
+                    .define("Mossy Holystone Generation", true);
             builder.pop();
 
             use_wood_blocks = builder

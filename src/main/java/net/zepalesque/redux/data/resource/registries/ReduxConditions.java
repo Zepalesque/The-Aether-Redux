@@ -19,6 +19,7 @@ public class ReduxConditions {
     public static final ResourceKey<Condition<?>> SKY_COLORS = createKey("sky_colors");
     public static final ResourceKey<Condition<?>> WATER_COLORS = createKey("water_colors");
     public static final ResourceKey<Condition<?>> CLOUDBED = createKey("cloudbed");
+    public static final ResourceKey<Condition<?>> MOSSY_ORE = createKey("mossy_ores");
 
 
     public static void bootstrap(BootstrapContext<Condition<?>> context) {
@@ -29,6 +30,7 @@ public class ReduxConditions {
         context.register(SKY_COLORS, new ConfigCondition(ReduxConfig.SERVER.serializerID(), ReduxConfig.SERVER.redux_sky_colors));
         context.register(CLOUDBED, new ConfigCondition(ReduxConfig.SERVER.serializerID(), ReduxConfig.SERVER.cloudbed));
         context.register(WATER_COLORS, new ConfigCondition(ReduxConfig.SERVER.serializerID(), ReduxConfig.SERVER.redux_water_colors));
+        context.register(MOSSY_ORE, new ConfigCondition(ReduxConfig.SERVER.serializerID(), ReduxConfig.SERVER.mossy_holystone_gen));
     }
 
     private static ResourceKey<Condition<?>> createKey(String name) {

@@ -1,4 +1,4 @@
-// 1.21.1	2025-02-08T20:01:05.6825442	Registries
+// 1.21.1	2025-02-09T10:53:01.5914563	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 36359e7f855c63655f66afb67ad5e5bffb49b9ad data/aether/worldgen/configured_feature/golden_oak_tree.json
 47ec4dab1e49d10c7a9d88096f1d8297e837b2e8 data/aether/worldgen/configured_feature/skyroot_tree.json
@@ -47,6 +47,7 @@ a6e5905005f12cf951d10a2d0e8ad5ed04bda91b data/aether_redux/worldgen/placed_featu
 2cdb57bbf592d7f051c022af159a15cb3e4533fa data/aether_redux/worldgen/placed_feature/dense_blue_aercloud.json
 e2a2442c7d70015e6cb6662a672968da3cd947e6 data/aether_redux/worldgen/placed_feature/dense_zanite_ore.json
 ade305f71dbc33bbd21cc91d1bb30048c4024dce data/aether_redux/worldgen/placed_feature/gilded_groves_trees.json
+7feb37ec035e4995299523e71bd9c7842ce6d66b data/aether_redux/worldgen/placed_feature/gilded_holystone_ore.json
 c6c2a4b945012dfbe35bd0e7b2fbfd2309f67b9e data/aether_redux/worldgen/placed_feature/golden_clovers_patch.json
 c0723cf0d332b9a8a5b1b8d02d8d404a4146030f data/aether_redux/worldgen/placed_feature/lucky_clover_patch.json
 667257c68f50d4873605192cbb3fc468ae584632 data/aether_redux/worldgen/placed_feature/sentrite_ore.json
@@ -61,5 +62,6 @@ c74207f8d01818e83140eff095b4487801234b07 data/aether_redux/zenith/condition/aeth
 db1b3a90bc84fa195d2cebf18131c96cee31f603 data/aether_redux/zenith/condition/cloudbed.json
 3ad7ec02ad141427ec626e2a51cb0dc120f5916b data/aether_redux/zenith/condition/deep_aether.json
 a69de6adead55660109151ecf2d0b65a212251a5 data/aether_redux/zenith/condition/lost_content.json
+d70bc3e395eb1caf0b60121b98c88604199da07a data/aether_redux/zenith/condition/mossy_ores.json
 6d83894aa62ba160851aa860f21e8fe6e669f911 data/aether_redux/zenith/condition/sky_colors.json
 254e50ff4edb89aa01bfa881b89bfc2677ef50c2 data/aether_redux/zenith/condition/water_colors.json

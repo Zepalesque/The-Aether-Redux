@@ -24,6 +24,7 @@ import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.heightproviders.TrapezoidHeight;
+import net.minecraft.world.level.levelgen.heightproviders.UniformHeight;
 import net.minecraft.world.level.levelgen.placement.BiomeFilter;
 import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.levelgen.placement.CountPlacement;
@@ -36,18 +37,26 @@ import net.minecraft.world.level.levelgen.placement.RarityFilter;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.blockset.flower.ReduxFlowerSets;
 import net.zepalesque.redux.data.resource.builders.ReduxPlacementBuilders;
+import net.zepalesque.zenith.api.condition.Condition;
+import net.zepalesque.zenith.api.world.feature.placement.ConditionPlacementModule;
+import net.zepalesque.zenith.core.Zenith;
 
 public class ReduxPlacements extends ReduxPlacementBuilders {
 
     public static final ResourceKey<PlacedFeature> CLOUDBED = copyKey(ReduxFeatureConfig.CLOUDBED);
     public static final ResourceKey<PlacedFeature> SENTRITE_ORE = copyKey(ReduxFeatureConfig.SENTRITE_ORE);
+    public static final ResourceKey<PlacedFeature> SPARSE_SENTRITE_ORE = copyKey(SENTRITE_ORE, "sparse_%s");
+    public static final ResourceKey<PlacedFeature> ANGILITE_ORE = copyKey(ReduxFeatureConfig.ANGILITE_ORE);
+    public static final ResourceKey<PlacedFeature> DENSE_ANGILITE_ORE = copyKey(ANGILITE_ORE, "dense_%s");
     public static final ResourceKey<PlacedFeature> GROVE_TREES = copyKey(ReduxFeatureConfig.GROVE_TREES);
     public static final ResourceKey<PlacedFeature> AURUM_PATCH = copyKey(ReduxFeatureConfig.AURUM_PATCH);
     public static final ResourceKey<PlacedFeature> GOLDEN_CLOVERS_PATCH = copyKey(ReduxFeatureConfig.GOLDEN_CLOVERS_PATCH);
     public static final ResourceKey<PlacedFeature> AMBROSIUM_ROCK = copyKey(ReduxFeatureConfig.AMBROSIUM_ROCK);
     public static final ResourceKey<PlacedFeature> LUCKY_CLOVER_PATCH = copyKey(ReduxFeatureConfig.LUCKY_CLOVER_PATCH);
 
+    public static final ResourceKey<PlacedFeature> MOSSY_HOLYSTONE_ORE = copyKey(ReduxFeatureConfig.MOSSY_HOLYSTONE_ORE);
     public static final ResourceKey<PlacedFeature> GILDED_HOLYSTONE_ORE = copyKey(ReduxFeatureConfig.GILDED_HOLYSTONE_ORE);
+    public static final ResourceKey<PlacedFeature> BLEAKMOSS_HOLYSTONE_ORE = copyKey(ReduxFeatureConfig.BLEAKMOSS_HOLYSTONE_ORE);
 
 
     public static final ResourceKey<PlacedFeature> SPARSE_BLUE_AERCLOUD = createKey("sparse_blue_aercloud");
@@ -62,12 +71,13 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
     public static final ResourceKey<PlacedFeature> BLIGHT_TREES = copyKey(ReduxFeatureConfig.BLIGHT_TREES);
 
 
-    public static final ResourceKey<PlacedFeature> SPARSE_WYNDSPROUTS_PATCH = createKey("sparse_" + name(ReduxBlocks.WYNDSPROUTS) + "_patch");
+    public static final ResourceKey<PlacedFeature> SPARSE_WYNDSPROUTS_PATCH = copyKey(ReduxFeatureConfig.WYNDSPROUTS_PATCH, "sparse_%s");
 
     public static final ResourceKey<PlacedFeature> BONEMEAL_OVERRIDE = AetherPlacedFeatures.AETHER_GRASS_BONEMEAL;
 
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configs = context.lookup(Registries.CONFIGURED_FEATURE);
+        HolderGetter<Condition<?>> conditions = context.lookup(Zenith.Keys.CONDITION);
         DungeonBlacklistFilter blacklist = new DungeonBlacklistFilter();
         NoiseThresholdCountPlacement threshold = NoiseThresholdCountPlacement.of(-0.8D, 5, 10);
 
@@ -76,6 +86,27 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
         PlacementUtils.register(context, SENTRITE_ORE, configs.getOrThrow(ReduxFeatureConfig.SENTRITE_ORE),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(TrapezoidHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.aboveBottom(128))),
+                BiomeFilter.biome()
+        );
+
+        PlacementUtils.register(context, SPARSE_SENTRITE_ORE, configs.getOrThrow(ReduxFeatureConfig.SENTRITE_ORE),
+                InSquarePlacement.spread(),
+                RarityFilter.onAverageOnceEvery(3),
+                HeightRangePlacement.of(TrapezoidHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.aboveBottom(128))),
+                BiomeFilter.biome()
+        );
+
+        register(context, ANGILITE_ORE, configs.getOrThrow(ReduxFeatureConfig.ANGILITE_ORE),
+                InSquarePlacement.spread(),
+                RarityFilter.onAverageOnceEvery(6),
+                HeightRangePlacement.of(TrapezoidHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.aboveBottom(192))),
+                BiomeFilter.biome()
+        );
+
+        register(context, DENSE_ANGILITE_ORE, configs.getOrThrow(ReduxFeatureConfig.ANGILITE_ORE),
+                InSquarePlacement.spread(),
+                RarityFilter.onAverageOnceEvery(2),
+                HeightRangePlacement.of(TrapezoidHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.aboveBottom(192))),
                 BiomeFilter.biome()
         );
 
@@ -95,13 +126,29 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
 
 
 
-//        PlacementUtils.register(context, GILDED_HOLYSTONE_ORE, configs.getOrThrow(ReduxFeatureConfig.GILDED_HOLYSTONE_ORE),
-//                CountPlacement.of(24),
-//                InSquarePlacement.spread(),
-//                HeightRangePlacement.of(UniformHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(128))),
-//                ConditionPlacementModule.of(ReduxConditions.MOSSY_ORE),
-//                BiomeFilter.biome()
-//        );
+        PlacementUtils.register(context, MOSSY_HOLYSTONE_ORE, configs.getOrThrow(ReduxFeatureConfig.MOSSY_HOLYSTONE_ORE),
+                CountPlacement.of(24),
+                InSquarePlacement.spread(),
+                HeightRangePlacement.of(UniformHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(128))),
+                ConditionPlacementModule.of(conditions.getOrThrow(ReduxConditions.MOSSY_ORE)),
+                BiomeFilter.biome()
+        );
+
+        PlacementUtils.register(context, GILDED_HOLYSTONE_ORE, configs.getOrThrow(ReduxFeatureConfig.GILDED_HOLYSTONE_ORE),
+                CountPlacement.of(24),
+                InSquarePlacement.spread(),
+                HeightRangePlacement.of(UniformHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(128))),
+                ConditionPlacementModule.of(conditions.getOrThrow(ReduxConditions.MOSSY_ORE)),
+                BiomeFilter.biome()
+        );
+
+        PlacementUtils.register(context, BLEAKMOSS_HOLYSTONE_ORE, configs.getOrThrow(ReduxFeatureConfig.BLEAKMOSS_HOLYSTONE_ORE),
+                CountPlacement.of(24),
+                InSquarePlacement.spread(),
+                HeightRangePlacement.of(UniformHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(128))),
+                ConditionPlacementModule.of(conditions.getOrThrow(ReduxConditions.MOSSY_ORE)),
+                BiomeFilter.biome()
+        );
 
         PlacementUtils.register(context, GROVE_TREES, configs.getOrThrow(ReduxFeatureConfig.GROVE_TREES),
                 CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()

@@ -18,7 +18,6 @@ import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.audio.ReduxMusic;
 import net.zepalesque.redux.data.ReduxTags;
-import net.zepalesque.redux.data.resource.builders.ReduxCarverBuilders;
 import net.zepalesque.zenith.api.condition.Condition;
 import net.zepalesque.zenith.api.world.biome.modifier.ConditionalBiomeModifier;
 import net.zepalesque.zenith.api.world.biome.modifier.MusicModifier;
@@ -34,6 +33,7 @@ public class ReduxBiomeModifiers {
     public static final ResourceKey<BiomeModifier> WATER_COLOR_AETHER = createKey("modify_water_color");
     public static final ResourceKey<BiomeModifier> MUSIC_MODIFY = createKey("modify_music");
     public static final ResourceKey<BiomeModifier> ADD_SENTRITE = createKey("add_sentrite");
+    public static final ResourceKey<BiomeModifier> ADD_ANGILITE = createKey("add_angilite");
     public static final ResourceKey<BiomeModifier> ADD_WYNDSPROUTS = createKey("add_wyndsprouts");
     public static final ResourceKey<BiomeModifier> ADD_CAVES = createKey("add_caves");
 
@@ -88,6 +88,10 @@ public class ReduxBiomeModifiers {
 
         context.register(ADD_SENTRITE, new BiomeModifiers.AddFeaturesBiomeModifier(
                 biomes.getOrThrow(ReduxTags.Biomes.HAS_SENTRITE), HolderSet.direct(features.getOrThrow(ReduxPlacements.SENTRITE_ORE)),
+                GenerationStep.Decoration.UNDERGROUND_ORES));
+
+        context.register(ADD_ANGILITE, new BiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(ReduxTags.Biomes.HAS_ANGILITE), HolderSet.direct(features.getOrThrow(ReduxPlacements.ANGILITE_ORE)),
                 GenerationStep.Decoration.UNDERGROUND_ORES));
 
         context.register(ADD_WYNDSPROUTS, new BiomeModifiers.AddFeaturesBiomeModifier(

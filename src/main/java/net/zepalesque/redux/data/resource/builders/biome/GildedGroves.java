@@ -39,6 +39,7 @@ public class GildedGroves {
                 .backgroundMusic(ReduxMusic.DEFAULT_AETHER_MUSIC)
                 .build())
                 .mobSpawnSettings(
+                        // TODO: Gilded mobs? idk -- OH!!!! GILDED MOB *VARIANTS* like the new cow/pig/chicken variants!!!!
                 new MobSpawnSettings.Builder()
                         .addMobCharge(AetherEntityTypes.COCKATRICE.get(), 0.5, 0.15)
                         .addMobCharge(AetherEntityTypes.ZEPHYR.get(), 0.6, 0.16)
@@ -80,11 +81,8 @@ public class GildedGroves {
                 .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ReduxPlacements.SPARSE_ZANITE_ORE)
                 .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_GRAVITITE_BURIED_PLACEMENT)
                 .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_GRAVITITE_PLACEMENT)
-
-                // TODO: Mossy stones gen
-                //.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ReduxPlacements.GILDED_HOLYSTONE_ORE)
-                // TODO Increased Angilite, decreased Sentrite
-                //.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ReduxPlacements.DIVINITE_ORE_INCREASED)
+                .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ReduxPlacements.DENSE_ANGILITE_ORE)
+                .addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ReduxPlacements.SPARSE_SENTRITE_ORE)
 
                 .addFeature(GenerationStep.Decoration.FLUID_SPRINGS, AetherPlacedFeatures.WATER_SPRING_PLACEMENT)
 

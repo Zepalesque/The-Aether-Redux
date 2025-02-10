@@ -18,21 +18,23 @@
     },
     {
       "apply": {
-        "model": "aether_redux:block/sentrite_bars_cap"
+        "model": "aether_redux:block/sentrite_bars_cap",
+        "y": 90
       },
       "when": {
-        "east": "false",
-        "north": "true",
+        "east": "true",
+        "north": "false",
         "south": "false",
         "west": "false"
       }
     },
     {
       "apply": {
-        "model": "aether_redux:block/sentrite_bars_side"
+        "model": "aether_redux:block/sentrite_bars_side",
+        "y": 90
       },
       "when": {
-        "north": "true"
+        "east": "true"
       }
     },
     {
@@ -56,27 +58,6 @@
     },
     {
       "apply": {
-        "model": "aether_redux:block/sentrite_bars_cap",
-        "y": 90
-      },
-      "when": {
-        "east": "true",
-        "north": "false",
-        "south": "false",
-        "west": "false"
-      }
-    },
-    {
-      "apply": {
-        "model": "aether_redux:block/sentrite_bars_side",
-        "y": 90
-      },
-      "when": {
-        "east": "true"
-      }
-    },
-    {
-      "apply": {
         "model": "aether_redux:block/sentrite_bars_cap_alt",
         "y": 90
       },
@@ -94,6 +75,25 @@
       },
       "when": {
         "west": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/sentrite_bars_cap"
+      },
+      "when": {
+        "east": "false",
+        "north": "true",
+        "south": "false",
+        "west": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/sentrite_bars_side"
+      },
+      "when": {
+        "north": "true"
       }
     }
   ]

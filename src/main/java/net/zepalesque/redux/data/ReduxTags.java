@@ -65,9 +65,14 @@ public class ReduxTags {
         public static final TagKey<Biome> MODIFY_WATER_COLOR = tag("should_modify_water_color");
 
         public static final TagKey<Biome> HAS_SENTRITE = tag("has_sentrite");
+        public static final TagKey<Biome> HAS_ANGILITE = tag("has_angilite");
         public static final TagKey<Biome> HAS_WYNDSPROUTS = tag("has_wyndsprouts");
         public static final TagKey<Biome> HAS_CLOUDBED = tag("has_cloudbed");
         public static final TagKey<Biome> HAS_CAVES = tag("has_wyndsprouts");
+
+        public static final TagKey<Biome> HAS_MOSSY_HOLYSTONE = tag("has_mossy_holystone");
+        public static final TagKey<Biome> HAS_GILDED_HOLYSTONE = tag("has_gilded_holystone");
+        public static final TagKey<Biome> HAS_BLEAKMOSS_HOLYSTONE = tag("has_bleakmoss_holystone");
 
         public static final TagKey<Biome> HAS_GOLDEN_VINES = tag("has_golden_vines");
 

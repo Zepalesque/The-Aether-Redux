@@ -88,7 +88,11 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SENTRITE_ORE = createKey(name(ReduxStoneSets.SENTRITE.block()) + "_ore");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ANGILITE_ORE = createKey(name(ReduxStoneSets.ANGILITE.block()) + "_ore");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> MOSSY_HOLYSTONE_ORE = createKey(name(AetherBlocks.MOSSY_HOLYSTONE) + "_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GILDED_HOLYSTONE_ORE = createKey(name(ReduxStoneSets.GILDED_HOLYSTONE.block()) + "_ore");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BLEAKMOSS_HOLYSTONE_ORE = createKey(name(ReduxStoneSets.BLEAKMOSS_HOLYSTONE.block()) + "_ore");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GROVE_TREES = createKey("gilded_groves_trees");
 
@@ -262,8 +266,17 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
         FeatureUtils.register(context, SENTRITE_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
                 drops(ReduxStoneSets.SENTRITE.block()), 48, 0.0F));
 
+        FeatureUtils.register(context, ANGILITE_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
+                drops(ReduxStoneSets.ANGILITE.block()), 32, 0.0F));
+
+        FeatureUtils.register(context, MOSSY_HOLYSTONE_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
+                drops(AetherBlocks.MOSSY_HOLYSTONE), 24, 0.3F));
+
         FeatureUtils.register(context, GILDED_HOLYSTONE_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
                 drops(ReduxStoneSets.GILDED_HOLYSTONE.block()), 24, 0.3F));
+
+        FeatureUtils.register(context, BLEAKMOSS_HOLYSTONE_ORE, Feature.ORE, new OreConfiguration(new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
+                drops(ReduxStoneSets.BLEAKMOSS_HOLYSTONE.block()), 24, 0.3F));
 
         FeatureUtils.register(context, AURUM_PATCH, Feature.FLOWER,
                 patch(12, 7, 3, prov(ReduxFlowerSets.AURUM.flower())));
