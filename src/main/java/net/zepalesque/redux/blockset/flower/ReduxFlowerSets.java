@@ -74,7 +74,7 @@ public class ReduxFlowerSets {
             .withFlowerTag(BlockTags.FLOWERS)
             .withLore("An indigo flower found in the Blight. This plant almost feels like an outlier, as it gives off a much more peaceful vibe than other surrounding Blight foliage."));
 
-    public static final BaseFlowerSet<Flareblossom> FLAREBLOSSOM = register(new GlowingFlowerSet<>("flareblossom", "natural/",
+    public static final BaseFlowerSet<Flareblossom> FLAREBLOSSOM = register(new GlowingFlowerSet<>("flareblossom", "dungeon/",
             () -> new Flareblossom(
                     MobEffects.BLINDNESS, 60, Properties.ofFullCopy(Blocks.POPPY).lightLevel((state) -> 11).mapColor(MapColor.GOLD)), 1, UnityColors.AETHER_GRASS_COLOR)
             // GlowingFlowerSet flags
