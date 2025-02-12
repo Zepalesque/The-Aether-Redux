@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "aether_redux:block/natural/flareblossom_overlay",
-    "layer1": "aether_redux:block/natural/flareblossom"
+    "layer0": "aether_redux:block/dungeon/flareblossom_overlay",
+    "layer1": "aether_redux:block/dungeon/flareblossom"
   }
 }
