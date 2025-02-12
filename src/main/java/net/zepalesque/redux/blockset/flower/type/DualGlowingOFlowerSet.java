@@ -7,10 +7,10 @@ import net.zepalesque.zenith.api.function.Consumers;
 
 import java.util.function.Supplier;
 
-public class GlowingFlowerSet<B extends Block> extends TintedFlowerSet<B> {
+public class DualGlowingOFlowerSet<B extends Block> extends TintedFlowerSet<B> {
     private boolean glowAsParticle;
 
-    public GlowingFlowerSet(String id, String textureFolder, Supplier<B> constructor, int tintdex, int itemTint) {
+    public DualGlowingOFlowerSet(String id, String textureFolder, Supplier<B> constructor, int tintdex, int itemTint) {
         super(id, textureFolder, constructor, tintdex, itemTint);
     }
 
@@ -23,10 +23,10 @@ public class GlowingFlowerSet<B extends Block> extends TintedFlowerSet<B> {
 
     @Override
     public void itemData(ReduxItemModelProvider data) {
-        data.itemBlockFlatTintOverlay(this.flower().get(), this.textureFolder);
+        data.itemBlockFlatTintGlowOverlay(this.flower().get(), this.textureFolder);
     }
 
-    public GlowingFlowerSet<B> useGlowAsParticle() {
+    public DualGlowingOFlowerSet<B> useGlowAsParticle() {
         this.glowAsParticle = true;
         return this;
     }

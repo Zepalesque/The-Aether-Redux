@@ -20,7 +20,7 @@ import net.zepalesque.redux.blockset.flower.type.AetherFlowerSet;
 import net.zepalesque.redux.blockset.flower.type.BaseFlowerSet;
 import net.zepalesque.redux.blockset.flower.type.CloverSet;
 import net.zepalesque.redux.blockset.flower.type.EnchantedFlowerSet;
-import net.zepalesque.redux.blockset.flower.type.GlowingFlowerSet;
+import net.zepalesque.redux.blockset.flower.type.DualGlowingOFlowerSet;
 import net.zepalesque.redux.blockset.flower.type.UntintedFlowerSet;
 import net.zepalesque.redux.client.ReduxColors;
 import net.zepalesque.redux.world.tree.ReduxTreeGrowers;
@@ -74,7 +74,7 @@ public class ReduxFlowerSets {
             .withFlowerTag(BlockTags.FLOWERS)
             .withLore("An indigo flower found in the Blight. This plant almost feels like an outlier, as it gives off a much more peaceful vibe than other surrounding Blight foliage."));
 
-    public static final BaseFlowerSet<Flareblossom> FLAREBLOSSOM = register(new GlowingFlowerSet<>("flareblossom", "dungeon/",
+    public static final BaseFlowerSet<Flareblossom> FLAREBLOSSOM = register(new DualGlowingOFlowerSet<>("flareblossom", "dungeon/",
             () -> new Flareblossom(
                     MobEffects.BLINDNESS, 60, Properties.ofFullCopy(Blocks.POPPY).lightLevel((state) -> 11).mapColor(MapColor.GOLD)), 1, UnityColors.AETHER_GRASS_COLOR)
             // GlowingFlowerSet flags
