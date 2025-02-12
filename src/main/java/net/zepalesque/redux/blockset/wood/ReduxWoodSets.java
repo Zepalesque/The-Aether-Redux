@@ -6,13 +6,14 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.blockset.wood.type.AbstractBookshelfSet;
 import net.zepalesque.redux.blockset.wood.type.LogWallWoodSet;
 import net.zepalesque.redux.blockset.wood.type.RegularBookshelfSet;
+import net.zepalesque.zenith.api.blockset.type.AbstractWoodSet;
 
 public class ReduxWoodSets {
 
     public static final LogWallWoodSet CRYSTAL = register(new RegularBookshelfSet("crystal", MapColor.COLOR_LIGHT_BLUE, MapColor.TERRACOTTA_CYAN, SoundType.WOOD));
     public static final LogWallWoodSet BLIGHTWILLOW = register(new RegularBookshelfSet("blightwillow", MapColor.COLOR_GREEN, MapColor.COLOR_GRAY, SoundType.CHERRY_WOOD));
 
-    public static <T extends AbstractBookshelfSet<?>> T register(T set) {
+    public static <T extends AbstractWoodSet> T register(T set) {
         Redux.BLOCK_SETS.add(set);
         return set;
     }

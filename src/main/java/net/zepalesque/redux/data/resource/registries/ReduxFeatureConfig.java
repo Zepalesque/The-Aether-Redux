@@ -30,6 +30,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.VegetationPatchConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.ThreeLayersFeatureSize;
@@ -314,6 +315,14 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 
         FeatureUtils.register(context, WYNDSPROUTS_PATCH, Feature.FLOWER,
                 patch(24, 5, 3, prov(ReduxBlocks.WYNDSPROUTS)));
+
+        FeatureUtils.
+                register(context, AetherConfiguredFeatures.SINGLE_GOLD_DUNGEON_FLOWER_CONFIGURATION, Feature.SIMPLE_BLOCK,
+                new SimpleBlockConfiguration(new WeightedStateProvider(
+                        new SimpleWeightedRandomList.Builder<BlockState>()
+                                .add(ReduxFlowerSets.AURUM.flower().get().defaultBlockState(), 2)
+                                .add(ReduxFlowerSets.FLAREBLOSSOM.flower().get().defaultBlockState(), 1))));
+
 
         // TODO
         FeatureUtils.register(context, BLEAKMOSS_VEGETATION, ZenithFeatures.EXTENDABLE_STATE_LIST_BLOCK.get(),

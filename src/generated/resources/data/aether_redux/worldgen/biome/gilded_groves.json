@@ -35,7 +35,9 @@
       "aether_redux:dense_ambrosium_ore",
       "aether_redux:sparse_zanite_ore",
       "aether:gravitite_ore_buried",
-      "aether:gravitite_ore"
+      "aether:gravitite_ore",
+      "aether_redux:dense_angilite_ore",
+      "aether_redux:sparse_sentrite_ore"
     ],
     [],
     [

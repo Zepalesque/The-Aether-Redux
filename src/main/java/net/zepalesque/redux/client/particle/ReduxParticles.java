@@ -1,5 +1,6 @@
 package net.zepalesque.redux.client.particle;
 
+import net.minecraft.client.particle.FlameParticle;
 import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
@@ -34,7 +35,8 @@ public class ReduxParticles {
             SKYROOT_LEAF = PARTICLES.register("skyroot_leaf", () -> new SimpleParticleType(false)),
             GOLDEN_OAK_LEAF = PARTICLES.register("golden_oak_leaf", () -> new SimpleParticleType(false)),
             WHIRLWIND_LIGHTNING = PARTICLES.register("whirlwind_lightning", () -> new SimpleParticleType(false)),
-            SPARK = PARTICLES.register("spark", () -> new SimpleParticleType(false));
+            SPARK = PARTICLES.register("spark", () -> new SimpleParticleType(false)),
+            BLOSSOM_FLARE = PARTICLES.register("blossom_flare", () -> new SimpleParticleType(false));
 
     @SubscribeEvent
     @OnlyIn(Dist.CLIENT)
@@ -50,6 +52,7 @@ public class ReduxParticles {
 
         event.registerSpriteSet(WHIRLWIND_LIGHTNING.get(), ReduxGlowParticle.Lightning::new);
         event.registerSpriteSet(SPARK.get(), SparkParticle.Provider::new);
+        event.registerSpriteSet(BLOSSOM_FLARE.get(), FlameParticle.Provider::new);
 
     }
 }

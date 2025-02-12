@@ -1,4 +1,4 @@
-// 1.21.1	2025-02-08T17:35:40.2497066	Loot Tables
+// 1.21.1	2025-02-11T22:34:24.4270836	Loot Tables
 206de14cd46a27e35f3a396b7919a25e4db9e49e data/aether_redux/loot_table/blocks/angilite.json
 b09d499acb797946909c71addf6e5b0fc93e72c3 data/aether_redux/loot_table/blocks/angilite_slab.json
 4cd1cece3abac15a9a6e1fb4e9b2a70091cf7c23 data/aether_redux/loot_table/blocks/angilite_stairs.json
@@ -55,6 +55,7 @@ c9dfec37bbdd3203494475a7cb67ed7946031cf3 data/aether_redux/loot_table/blocks/cry
 d03558f46f27687d9174c53bc443a011826d7ce1 data/aether_redux/loot_table/blocks/crystal_wall_sign.json
 a436bad64905547095e3ffe03e1a657912ce4f04 data/aether_redux/loot_table/blocks/crystal_wood.json
 3896bb8265cd885eec28a9e8b52d44c950d76d18 data/aether_redux/loot_table/blocks/crystal_wood_wall.json
+b249692f0e954e2a587a63e84240fa2525526b09 data/aether_redux/loot_table/blocks/flareblossom.json
 fed16b87dbc83af60de1ccc2d37972740e5d78cb data/aether_redux/loot_table/blocks/gilded_holystone.json
 eea21b34d4dbbcb2ad814075bba411717f8b7670 data/aether_redux/loot_table/blocks/gilded_holystone_slab.json
 ccff96aec2798c0c2dbed8fe51785ea03fa58bbf data/aether_redux/loot_table/blocks/gilded_holystone_stairs.json
@@ -80,6 +81,7 @@ a07183a20b6a4db4788987a78e20947a29e4984a data/aether_redux/loot_table/blocks/pol
 f49da05173679a7274b924be168638a5847f870c data/aether_redux/loot_table/blocks/polished_sentrite_wall.json
 4f0249868d48ec7cc93a576cffa361313726b466 data/aether_redux/loot_table/blocks/potted_aurum.json
 24cab3912b612c2dfd7bfd3878294f926bf23527 data/aether_redux/loot_table/blocks/potted_blightwillow_sapling.json
+bdd98b7dda5247fe99176b826932bafbf9281fd7 data/aether_redux/loot_table/blocks/potted_flareblossom.json
 648296f2d059096c4f9e7884b43c4e1f7eb62af6 data/aether_redux/loot_table/blocks/potted_gildenroot_sapling.json
 33c3732e978e625db69b365f41109dcd89b5cd6e data/aether_redux/loot_table/blocks/potted_lucky_clover.json
 4c842f25cf221c44d2a16820e778e01d76c48c90 data/aether_redux/loot_table/blocks/potted_spirolyctil.json

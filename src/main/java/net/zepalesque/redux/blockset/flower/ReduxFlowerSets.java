@@ -13,15 +13,18 @@ import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.level.material.MapColor;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.block.dungeon.Flareblossom;
 import net.zepalesque.redux.block.natural.bush.CustomBoundsBushBlock;
 import net.zepalesque.redux.block.natural.bush.CustomBoundsFlowerBlock;
 import net.zepalesque.redux.blockset.flower.type.AetherFlowerSet;
 import net.zepalesque.redux.blockset.flower.type.BaseFlowerSet;
 import net.zepalesque.redux.blockset.flower.type.CloverSet;
 import net.zepalesque.redux.blockset.flower.type.EnchantedFlowerSet;
+import net.zepalesque.redux.blockset.flower.type.GlowingFlowerSet;
 import net.zepalesque.redux.blockset.flower.type.UntintedFlowerSet;
 import net.zepalesque.redux.client.ReduxColors;
 import net.zepalesque.redux.world.tree.ReduxTreeGrowers;
+import net.zepalesque.unity.client.UnityColors;
 import net.zepalesque.zenith.api.block.CommonPlantBounds;
 import net.zepalesque.zenith.api.blockset.BlockSet;
 import net.zepalesque.zenith.api.blockset.type.AbstractFlowerSet;
@@ -70,6 +73,18 @@ public class ReduxFlowerSets {
             .craftsIntoShapeless(1, () -> Items.LIGHT_BLUE_DYE, 1, RecipeCategory.MISC)
             .withFlowerTag(BlockTags.FLOWERS)
             .withLore("An indigo flower found in the Blight. This plant almost feels like an outlier, as it gives off a much more peaceful vibe than other surrounding Blight foliage."));
+
+    public static final BaseFlowerSet<Flareblossom> FLAREBLOSSOM = register(new GlowingFlowerSet<>("flareblossom", "natural/",
+            () -> new Flareblossom(
+                    MobEffects.BLINDNESS, 60, Properties.ofFullCopy(Blocks.POPPY).lightLevel((state) -> 11).mapColor(MapColor.GOLD)), 1, UnityColors.AETHER_GRASS_COLOR)
+            // GlowingFlowerSet flags
+            .useGlowAsParticle()
+            // Base
+            .tabAfter(AetherCreativeTabs.AETHER_DUNGEON_BLOCKS, AetherBlocks.TREASURE_DOORWAY_LIGHT_HELLFIRE_STONE, BlockSet.TabAdditionPhase.BEFORE)
+            .craftsIntoShapeless(1, () -> Items.BLAZE_POWDER, 1, RecipeCategory.MISC)
+            .withFlowerTag(BlockTags.FLOWERS)
+            // TODO: change once the use has been implemented
+            .withLore("A rare, exotic flower found on Gold Dungeons. Its properties have not yet been discovered..."));
 
 
     public static <T extends AbstractFlowerSet> T register(T set) {

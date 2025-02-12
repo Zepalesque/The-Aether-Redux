@@ -30,5 +30,8 @@ public class ReduxParticleData extends ReduxParticleProvider {
 
         ResourceLocation[] sparkTextures = ArrayUtil.generateContents(new ResourceLocation[3], i -> Redux.loc("spark/spark" + i));
         this.spriteSet(ReduxParticles.SPARK.get(), List.of(sparkTextures));
+
+        this.spriteSet(ReduxParticles.BLOSSOM_FLARE.get(), Redux.loc("blossom_flare"));
+
     }
 }
