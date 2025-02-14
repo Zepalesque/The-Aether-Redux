@@ -1,4 +1,4 @@
-// 1.21.1	2025-02-11T22:34:24.4270836	Loot Tables
+// 1.21.1	2025-02-13T21:45:57.7661686	Loot Tables
 206de14cd46a27e35f3a396b7919a25e4db9e49e data/aether_redux/loot_table/blocks/angilite.json
 b09d499acb797946909c71addf6e5b0fc93e72c3 data/aether_redux/loot_table/blocks/angilite_slab.json
 4cd1cece3abac15a9a6e1fb4e9b2a70091cf7c23 data/aether_redux/loot_table/blocks/angilite_stairs.json
@@ -63,6 +63,7 @@ ccff96aec2798c0c2dbed8fe51785ea03fa58bbf data/aether_redux/loot_table/blocks/gil
 f52454e7ca1036ff3da3d68dbff53d72e1530d45 data/aether_redux/loot_table/blocks/gildenroot_leaf_pile.json
 058308626b13bfa17836f40a248f60db555b5b1e data/aether_redux/loot_table/blocks/gildenroot_leaves.json
 2e43ac04c33feee1468f1d2c509bcda3e47683ae data/aether_redux/loot_table/blocks/gildenroot_sapling.json
+6cd03a6650824c5c5623c69b827ddff15fb74a80 data/aether_redux/loot_table/blocks/gloomshade.json
 d2e6549e1e55433ff4b1de496cab867ed94d9ee2 data/aether_redux/loot_table/blocks/golden_clovers.json
 c116bdde8b7716cea027687f44bd094aecb403e3 data/aether_redux/loot_table/blocks/golden_vines.json
 bceda55e02781889b3ec6227ec5a078706f8e3a7 data/aether_redux/loot_table/blocks/golden_vines_plant.json
@@ -83,6 +84,7 @@ f49da05173679a7274b924be168638a5847f870c data/aether_redux/loot_table/blocks/pol
 24cab3912b612c2dfd7bfd3878294f926bf23527 data/aether_redux/loot_table/blocks/potted_blightwillow_sapling.json
 bdd98b7dda5247fe99176b826932bafbf9281fd7 data/aether_redux/loot_table/blocks/potted_flareblossom.json
 648296f2d059096c4f9e7884b43c4e1f7eb62af6 data/aether_redux/loot_table/blocks/potted_gildenroot_sapling.json
+5137e891732871ac9e2600fc45f0c01f222a9b79 data/aether_redux/loot_table/blocks/potted_gloomshade.json
 33c3732e978e625db69b365f41109dcd89b5cd6e data/aether_redux/loot_table/blocks/potted_lucky_clover.json
 4c842f25cf221c44d2a16820e778e01d76c48c90 data/aether_redux/loot_table/blocks/potted_spirolyctil.json
 8c130cfb0824a10c64596665e07a5d78af929a23 data/aether_redux/loot_table/blocks/potted_stormroot_sapling.json
