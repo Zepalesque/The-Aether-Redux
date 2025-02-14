@@ -205,6 +205,8 @@ public class ReduxBlocks extends ReduxBlockBuilders {
             )
     );
 
+
+
     public static DeferredBlock<HangingAetherVinesHead> GOLDEN_VINES = register("golden_vines",
             () -> new HangingAetherVinesHead(BlockBehaviour.Properties.ofFullCopy(Blocks.WEEPING_VINES)
                     .mapColor(MapColor.GOLD).sound(SoundType.CAVE_VINES), BlockTags.LEAVES, ReduxBlocks.GOLDEN_VINES_PLANT));

@@ -29,20 +29,20 @@ public class CustomBoundsFlowerBlock extends FlowerBlock {
 
     private final VoxelShape shape;
 
-    public CustomBoundsFlowerBlock(VoxelShape shape, Holder<MobEffect> effectSupplier, int pEffectDuration, Properties pProperties) {
-        super(effectSupplier, pEffectDuration, pProperties);
+    public CustomBoundsFlowerBlock(VoxelShape shape, Holder<MobEffect> effect, int duration, Properties properties) {
+        super(effect, duration, properties);
         this.shape = shape;
     }
 
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        Vec3 vec3 = pState.getOffset(pLevel, pPos);
+    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        Vec3 vec3 = state.getOffset(level, pos);
         return this.shape.move(vec3.x, vec3.y, vec3.z);
     }
 
     public static class Enchanted extends CustomBoundsFlowerBlock {
 
-        public Enchanted(VoxelShape shape, Holder<MobEffect> effectSupplier, int pEffectDuration, Properties pProperties) {
-            super(shape, effectSupplier, pEffectDuration, pProperties);
+        public Enchanted(VoxelShape shape, Holder<MobEffect> effect, int duration, Properties properties) {
+            super(shape, effect, duration, properties);
             this.registerDefaultState(this.defaultBlockState().setValue(UnityStates.ENCHANTED, false));
         }
 

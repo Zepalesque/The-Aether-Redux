@@ -14,14 +14,10 @@ import net.minecraft.world.level.material.MapColor;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.dungeon.Flareblossom;
+import net.zepalesque.redux.block.natural.GloomshadeBlock;
 import net.zepalesque.redux.block.natural.bush.CustomBoundsBushBlock;
 import net.zepalesque.redux.block.natural.bush.CustomBoundsFlowerBlock;
-import net.zepalesque.redux.blockset.flower.type.AetherFlowerSet;
-import net.zepalesque.redux.blockset.flower.type.BaseFlowerSet;
-import net.zepalesque.redux.blockset.flower.type.CloverSet;
-import net.zepalesque.redux.blockset.flower.type.EnchantedFlowerSet;
-import net.zepalesque.redux.blockset.flower.type.DualGlowingOFlowerSet;
-import net.zepalesque.redux.blockset.flower.type.UntintedFlowerSet;
+import net.zepalesque.redux.blockset.flower.type.*;
 import net.zepalesque.redux.client.ReduxColors;
 import net.zepalesque.redux.world.tree.ReduxTreeGrowers;
 import net.zepalesque.unity.client.UnityColors;
@@ -76,7 +72,8 @@ public class ReduxFlowerSets {
 
     public static final BaseFlowerSet<Flareblossom> FLAREBLOSSOM = register(new DualGlowingOFlowerSet<>("flareblossom", "dungeon/",
             () -> new Flareblossom(
-                    MobEffects.BLINDNESS, 60, Properties.ofFullCopy(Blocks.POPPY).lightLevel((state) -> 11).mapColor(MapColor.GOLD)), 1, UnityColors.AETHER_GRASS_COLOR)
+                    MobEffects.BLINDNESS, 60, Properties.ofFullCopy(Blocks.POPPY).lightLevel((state) -> 11).mapColor(MapColor.GOLD)),
+            1, UnityColors.AETHER_GRASS_COLOR)
             // GlowingFlowerSet flags
             .useGlowAsParticle()
             // Base
@@ -85,6 +82,16 @@ public class ReduxFlowerSets {
             .withFlowerTag(BlockTags.FLOWERS)
             // TODO: change once the use has been implemented
             .withLore("A rare, exotic flower found on Gold Dungeons. Its properties have not yet been discovered..."));
+
+    public static final BaseFlowerSet<GloomshadeBlock> GLOOMSHADE = register(new AetherFlowerSet<>("gloomshade", "natural/",
+            () -> new GloomshadeBlock(CommonPlantBounds.BUSH,
+                    // TODO
+                    MobEffects.DARKNESS, 60, Properties.ofFullCopy(Blocks.WITHER_ROSE).mapColor(MapColor.COLOR_BLACK)),
+            1, UnityColors.AETHER_GRASS_COLOR)
+            .tabAfter(AetherCreativeTabs.AETHER_NATURAL_BLOCKS, ReduxFlowerSets.SPIROLYCTIL.flower(), BlockSet.TabAdditionPhase.BEFORE)
+            .craftsIntoShapeless(1, () -> Items.BLACK_DYE, 1, RecipeCategory.MISC)
+            .withFlowerTag(BlockTags.FLOWERS)
+            .withLore("Dark purple flowers found in the Blight. These release a gas that limits their target's vision."));
 
 
     public static <T extends AbstractFlowerSet> T register(T set) {

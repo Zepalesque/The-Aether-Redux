@@ -25,14 +25,14 @@ public class CustomBoundsBushBlock extends AetherBushBlock {
 
     protected final VoxelShape shape;
 
-    public CustomBoundsBushBlock(VoxelShape shape, Properties pProperties) {
-        super(pProperties);
+    public CustomBoundsBushBlock(VoxelShape shape, Properties properties) {
+        super(properties);
         this.shape = shape;
     }
 
     @Override
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        Vec3 vec3 = pState.getOffset(pLevel, pPos);
+    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        Vec3 vec3 = state.getOffset(level, pos);
         return this.shape.move(vec3.x, vec3.y, vec3.z);
     }
 
