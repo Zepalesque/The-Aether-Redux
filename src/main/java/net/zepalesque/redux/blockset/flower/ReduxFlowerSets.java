@@ -2,6 +2,8 @@ package net.zepalesque.redux.blockset.flower;
 
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.item.AetherCreativeTabs;
+import net.minecraft.client.renderer.entity.ItemEntityRenderer;
+import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.effect.MobEffects;
@@ -64,17 +66,19 @@ public class ReduxFlowerSets {
 
     public static final BaseFlowerSet<CustomBoundsFlowerBlock> SPIROLYCTIL = register(new AetherFlowerSet<>("spirolyctil", "natural/",
             () -> new CustomBoundsFlowerBlock(CommonPlantBounds.FLOWER,
-                    MobEffects.LEVITATION, 4, Properties.ofFullCopy(Blocks.DANDELION).mapColor(MapColor.TERRACOTTA_LIGHT_BLUE)), 1, ReduxColors.Tints.BLIGHT_GRASS_COLOR)
+                    MobEffects.LEVITATION, 4, Properties.ofFullCopy(Blocks.DANDELION).mapColor(MapColor.TERRACOTTA_LIGHT_BLUE)),
+            1, ReduxColors.Tints.BLIGHT_GRASS_COLOR)
             .tabAfter(AetherCreativeTabs.AETHER_NATURAL_BLOCKS, AetherBlocks.WHITE_FLOWER, BlockSet.TabAdditionPhase.BEFORE)
             .craftsIntoShapeless(1, () -> Items.LIGHT_BLUE_DYE, 1, RecipeCategory.MISC)
             .withFlowerTag(BlockTags.FLOWERS)
             .withLore("An indigo flower found in the Blight. This plant almost feels like an outlier, as it gives off a much more peaceful vibe than other surrounding Blight foliage."));
 
-    public static final BaseFlowerSet<Flareblossom> FLAREBLOSSOM = register(new DualGlowingOFlowerSet<>("flareblossom", "dungeon/",
+    public static final BaseFlowerSet<Flareblossom> FLAREBLOSSOM = register(new DualGlowingFlowerSet<>("flareblossom", "dungeon/",
             () -> new Flareblossom(
                     MobEffects.BLINDNESS, 60, Properties.ofFullCopy(Blocks.POPPY).lightLevel((state) -> 11).mapColor(MapColor.GOLD)),
             1, UnityColors.AETHER_GRASS_COLOR)
             // GlowingFlowerSet flags
+            ItemEntityRenderer
             .useGlowAsParticle()
             // Base
             .tabAfter(AetherCreativeTabs.AETHER_DUNGEON_BLOCKS, AetherBlocks.TREASURE_DOORWAY_LIGHT_HELLFIRE_STONE, BlockSet.TabAdditionPhase.BEFORE)
@@ -87,7 +91,7 @@ public class ReduxFlowerSets {
             () -> new GloomshadeBlock(CommonPlantBounds.BUSH,
                     // TODO
                     MobEffects.DARKNESS, 60, Properties.ofFullCopy(Blocks.WITHER_ROSE).mapColor(MapColor.COLOR_BLACK)),
-            1, UnityColors.AETHER_GRASS_COLOR)
+            1, ReduxColors.Tints.BLIGHT_GRASS_COLOR)
             .tabAfter(AetherCreativeTabs.AETHER_NATURAL_BLOCKS, ReduxFlowerSets.SPIROLYCTIL.flower(), BlockSet.TabAdditionPhase.BEFORE)
             .craftsIntoShapeless(1, () -> Items.BLACK_DYE, 1, RecipeCategory.MISC)
             .withFlowerTag(BlockTags.FLOWERS)

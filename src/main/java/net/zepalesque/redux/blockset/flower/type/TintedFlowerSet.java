@@ -11,7 +11,7 @@ public abstract class TintedFlowerSet<B extends Block> extends BaseFlowerSet<B> 
     public TintedFlowerSet(String id, String textureFolder, Supplier<B> constructor, int tintdex, int itemTint) {
         super(id, textureFolder, constructor);
         this.tintdex = tintdex;
-        this.itemTint = itemTint;
+        this.itemTint = itemTint | 0xFF000000;
     }
 
     @Override

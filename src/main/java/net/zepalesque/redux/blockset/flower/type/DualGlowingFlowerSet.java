@@ -7,10 +7,10 @@ import net.zepalesque.zenith.api.function.Consumers;
 
 import java.util.function.Supplier;
 
-public class DualGlowingOFlowerSet<B extends Block> extends TintedFlowerSet<B> {
+public class DualGlowingFlowerSet<B extends Block> extends TintedFlowerSet<B> {
     private boolean glowAsParticle;
 
-    public DualGlowingOFlowerSet(String id, String textureFolder, Supplier<B> constructor, int tintdex, int itemTint) {
+    public DualGlowingFlowerSet(String id, String textureFolder, Supplier<B> constructor, int tintdex, int itemTint) {
         super(id, textureFolder, constructor, tintdex, itemTint);
     }
 
@@ -26,7 +26,7 @@ public class DualGlowingOFlowerSet<B extends Block> extends TintedFlowerSet<B> {
         data.itemBlockFlatTintGlowOverlay(this.flower().get(), this.textureFolder);
     }
 
-    public DualGlowingOFlowerSet<B> useGlowAsParticle() {
+    public DualGlowingFlowerSet<B> useGlowAsParticle() {
         this.glowAsParticle = true;
         return this;
     }
