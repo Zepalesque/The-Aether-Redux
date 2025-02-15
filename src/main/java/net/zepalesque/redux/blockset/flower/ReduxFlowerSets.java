@@ -2,7 +2,6 @@ package net.zepalesque.redux.blockset.flower;
 
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.item.AetherCreativeTabs;
-import net.minecraft.client.renderer.entity.ItemEntityRenderer;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.tags.BlockTags;
@@ -78,7 +77,6 @@ public class ReduxFlowerSets {
                     MobEffects.BLINDNESS, 60, Properties.ofFullCopy(Blocks.POPPY).lightLevel((state) -> 11).mapColor(MapColor.GOLD)),
             1, UnityColors.AETHER_GRASS_COLOR)
             // GlowingFlowerSet flags
-            ItemEntityRenderer
             .useGlowAsParticle()
             // Base
             .tabAfter(AetherCreativeTabs.AETHER_DUNGEON_BLOCKS, AetherBlocks.TREASURE_DOORWAY_LIGHT_HELLFIRE_STONE, BlockSet.TabAdditionPhase.BEFORE)
