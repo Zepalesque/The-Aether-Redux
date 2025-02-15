@@ -736,8 +736,8 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
     public void carpet(Block block, Block baseBlock, String location) {
         this.simpleBlock(block, this.models().singleTexture(this.name(block), mcLoc(BLOCK_FOLDER + "/carpet"), "wool", this.texture(this.name(baseBlock), location)));
-
     }
+
     public void cutoutCarpet(Block block, Block baseBlock, String location) {
         this.simpleBlock(block, this.models().singleTexture(this.name(block), mcLoc(BLOCK_FOLDER + "/carpet"), "wool", this.texture(this.name(baseBlock), location)).renderType("cutout"));
 

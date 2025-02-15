@@ -22,8 +22,7 @@ public class AbilityTooltipCapeItem extends CapeItem {
     public List<Component> getAttributesTooltip(List<Component> tagTooltips, ItemStack stack) {
         tagTooltips.add(Component.empty());
         tagTooltips.add(Component.translatable("curios.modifiers.aether_cape").withStyle(ChatFormatting.GOLD));
-        for (String ability : this.abilities)
-        {
+        for (String ability : this.abilities) {
             tagTooltips.add(Component.translatable("gui.aether_redux." + ability).withStyle(ChatFormatting.BLUE));
         }
         return super.getAttributesTooltip(tagTooltips, stack);

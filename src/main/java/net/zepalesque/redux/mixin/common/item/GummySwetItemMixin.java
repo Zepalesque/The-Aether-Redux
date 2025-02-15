@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(GummySwetItem.class)
-public abstract class   GummySwetItemMixin extends ItemMixin {
+public abstract class GummySwetItemMixin extends ItemMixin {
 
     @Override
     public void getFoodProperties(CallbackInfoReturnable<FoodProperties> cir) {

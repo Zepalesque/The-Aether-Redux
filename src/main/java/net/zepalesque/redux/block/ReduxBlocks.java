@@ -430,8 +430,6 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
 
     public static RegistryObject<Block> BLIGHTED_SKYROOT_LEAVES = register("blighted_skyroot_leaves", () -> new AetherDoubleDropsLeaves(BlockBehaviour.Properties.copy(AetherBlocks.SKYROOT_LEAVES.get()).isSuffocating(ReduxBlocks::never).isViewBlocking(ReduxBlocks::never).mapColor(MapColor.TERRACOTTA_PURPLE)));
 
-
-
     public static final RegistryObject<Block> ZANBERRY_BUSH = register("zanberry_bush", () -> new ZanberryBushBlock(Block.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.COLOR_LIGHT_GRAY).strength(0.2F).sound(SoundType.GRASS).noOcclusion().isValidSpawn(ReduxBlocks::ocelotOrParrot).isSuffocating(ReduxBlocks::never).isViewBlocking(ReduxBlocks::never)));
     public static final RegistryObject<Block> ZANBERRY_BUSH_STEM = register("zanberry_bush_stem", () -> new ZanberryShrubBlock(Block.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.COLOR_LIGHT_GRAY).strength(0.2F).sound(SoundType.GRASS).noCollission()));
     public static final RegistryObject<FlowerPotBlock> POTTED_ZANBERRY_BUSH_STEM = BLOCKS.register("potted_zanberry_bush_stem", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, ZANBERRY_BUSH_STEM, Block.Properties.copy(Blocks.FLOWER_POT)));
