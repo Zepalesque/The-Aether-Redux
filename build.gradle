@@ -1,5 +1,7 @@
 import net.minecraftforge.gradle.userdev.tasks.JarJar
 
+import javax.annotation.Nullable
+
 plugins {
     id 'eclipse'
     id 'maven-publish'
@@ -40,8 +42,12 @@ minecraft {
 
             property 'forge.enabledGameTestNamespaces', 'aether_redux'
 
-            args '--username', Objects.requireNonNullElse(System.getenv("MC_USR_DEV"), "Dev");
+            @Nullable String username = System.getenv "MC_USR_DEV";
+            if (username != null) args '--username', username
 
+            @Nullable String uuid = System.getenv "MC_UUID_DEV";
+            if (uuid != null) args '--uuid', uuid
+            
             mods {
                 aether_redux {
                     source sourceSets.main
