@@ -64,7 +64,7 @@ public class ReduxColors {
 
         for (BlockSet set : Redux.BLOCK_SETS) {
             if (set instanceof TintableSet tintable && set instanceof AbstractFlowerSet flowerSet) {
-                event.register((stack, tintIndex) -> tintIndex == tintable.getTintIndex() ? tintable.getDefaultItemTint() : 0xFFFFFF, flowerSet.flower().get());
+                event.register((stack, tintIndex) -> tintIndex == tintable.getTintIndex() ? tintable.getDefaultItemTint() : 0xFFFFFFFF, flowerSet.flower().get());
             }
         }
     }
