@@ -1,4 +1,4 @@
-// 1.21.1	2025-02-13T21:45:57.7661686	Loot Tables
+// 1.21.1	2025-02-16T12:39:56.8144603	Loot Tables
 206de14cd46a27e35f3a396b7919a25e4db9e49e data/aether_redux/loot_table/blocks/angilite.json
 b09d499acb797946909c71addf6e5b0fc93e72c3 data/aether_redux/loot_table/blocks/angilite_slab.json
 4cd1cece3abac15a9a6e1fb4e9b2a70091cf7c23 data/aether_redux/loot_table/blocks/angilite_stairs.json
@@ -60,6 +60,8 @@ fed16b87dbc83af60de1ccc2d37972740e5d78cb data/aether_redux/loot_table/blocks/gil
 eea21b34d4dbbcb2ad814075bba411717f8b7670 data/aether_redux/loot_table/blocks/gilded_holystone_slab.json
 ccff96aec2798c0c2dbed8fe51785ea03fa58bbf data/aether_redux/loot_table/blocks/gilded_holystone_stairs.json
 44318b6c445024a97e10f578ebbede32c96eb996 data/aether_redux/loot_table/blocks/gilded_holystone_wall.json
+b6d50ded5f39e32651d3594ce48ffb22f073307f data/aether_redux/loot_table/blocks/gildenmoss_block.json
+73f4dc4986e4715e73177f96031c62782e1915eb data/aether_redux/loot_table/blocks/gildenmoss_carpet.json
 f52454e7ca1036ff3da3d68dbff53d72e1530d45 data/aether_redux/loot_table/blocks/gildenroot_leaf_pile.json
 058308626b13bfa17836f40a248f60db555b5b1e data/aether_redux/loot_table/blocks/gildenroot_leaves.json
 2e43ac04c33feee1468f1d2c509bcda3e47683ae data/aether_redux/loot_table/blocks/gildenroot_sapling.json
