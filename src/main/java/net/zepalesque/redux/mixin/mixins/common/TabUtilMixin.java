@@ -15,6 +15,7 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(TabUtil.class)
 public class TabUtilMixin {
 
+    // TODO: instead, make veridium tools full infusion by default
     @WrapOperation(method = "stack", at = @At(value = "NEW", target = "(Lnet/minecraft/world/level/ItemLike;)Lnet/minecraft/world/item/ItemStack;"))
     private static ItemStack redux$stack(ItemLike item, Operation<ItemStack> original) {
         ItemStack stack = original.call(item);

@@ -47,10 +47,16 @@ public class ReduxTabs {
                     ReduxBlocks.BLIGHTWILLOW_LEAF_PILE
             );
 
-            TabUtil.putAfter(event, ReduxFlowerSets.AURUM.flower(), ReduxBlocks.GOLDEN_CLOVERS);
+            TabUtil.putAfter(event, ReduxFlowerSets.AURUM.flower(),
+                    ReduxBlocks.GOLDEN_CLOVERS
+            );
 
-            // TODO: Insert Enchanted Moss (NAME PENDING) into here before Bleakmoss
-            TabUtil.putAfter(event, UnityBlocks.FLUTEMOSS_CARPET, ReduxBlocks.BLEAKMOSS_BLOCK, ReduxBlocks.BLEAKMOSS_CARPET);
+            TabUtil.putAfter(event, UnityBlocks.FLUTEMOSS_CARPET,
+                    ReduxBlocks.GILDENMOSS_BLOCK,
+                    ReduxBlocks.GILDENMOSS_CARPET,
+                    ReduxBlocks.BLEAKMOSS_BLOCK,
+                    ReduxBlocks.BLEAKMOSS_CARPET
+            );
 
             
         } else if (TabUtil.isForTab(event, AetherCreativeTabs.AETHER_DUNGEON_BLOCKS)) {

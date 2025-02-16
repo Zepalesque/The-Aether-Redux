@@ -36,17 +36,34 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
             tag.add(block.get());
         }
 
-        this.tag(AetherTags.Blocks.AETHER_ANIMALS_SPAWNABLE_ON).add(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get());
-        this.tag(AetherTags.Blocks.SWET_SPAWNABLE_ON).add(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get());
+        this.tag(AetherTags.Blocks.AETHER_ANIMALS_SPAWNABLE_ON).add(
+                AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get()
+        );
 
-        
-        this.tag(AetherTags.Blocks.AETHER_DIRT).add(ReduxBlocks.BLEAKMOSS_BLOCK.get());
+        this.tag(AetherTags.Blocks.SWET_SPAWNABLE_ON).add(
+                AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get()
+        );
 
-        this.tag(UnityTags.Blocks.AETHER_LAKE_SKIP_REPLACEMENT).add(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get());
+        this.tag(AetherTags.Blocks.AETHER_DIRT).add(
+                ReduxBlocks.BLEAKMOSS_BLOCK.get(),
+                ReduxBlocks.GILDENMOSS_BLOCK.get()
+        );
 
-        this.tag(ReduxTags.Blocks.QUICKSOIL_BEHAVIOR).add(AetherBlocks.QUICKSOIL.get());
+        this.tag(UnityTags.Blocks.AETHER_LAKE_SKIP_REPLACEMENT).add(
+                AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get()
+        );
 
-        this.tag(ReduxTags.Blocks.ROCK_REPLACEABLE).addTag(BlockTags.DIRT);
+        this.tag(UnityTags.Blocks.SHORT_AETHER_GRASS_STATE_ENCHANTING).add(
+                ReduxBlocks.GILDENMOSS_BLOCK.get()
+        );
+
+        this.tag(ReduxTags.Blocks.QUICKSOIL_BEHAVIOR).add(
+                AetherBlocks.QUICKSOIL.get()
+        );
+
+        this.tag(ReduxTags.Blocks.ROCK_REPLACEABLE).addTag(
+                BlockTags.DIRT
+        );
 
         this.tag(BlockTags.REPLACEABLE).add(
                 ReduxBlocks.GOLDEN_CLOVERS.get()
@@ -60,7 +77,12 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
                 ReduxBlocks.GOLDEN_CLOVERS.get(),
                 ReduxBlocks.GILDENROOT_LEAF_PILE.get(),
                 ReduxBlocks.BLEAKMOSS_BLOCK.get(),
-                ReduxBlocks.BLEAKMOSS_CARPET.get()
+                ReduxBlocks.BLEAKMOSS_CARPET.get(),
+                ReduxBlocks.GILDENMOSS_BLOCK.get(),
+                ReduxBlocks.GILDENMOSS_CARPET.get(),
+                ReduxBlocks.WYNDSPROUTS.get(),
+                ReduxBlocks.SKYSPROUTS.get(),
+                ReduxBlocks.WYNDOATS.get()
         );
 
         this.tag(ReduxTags.Blocks.SHORT_AETHER_GRASS_BLEAKMOSS_COLORING).add(
@@ -165,15 +187,9 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
                 ReduxBlocks.WYNDOATS.get()
         );
 
-        this.tag(BlockTags.MINEABLE_WITH_HOE).add(
-                ReduxBlocks.WYNDSPROUTS.get(),
-                ReduxBlocks.SKYSPROUTS.get(),
-                ReduxBlocks.WYNDOATS.get()
+        this.tag(Tags.Blocks.ORES).addTag(
+                ReduxTags.Blocks.VERIDIUM_ORES
         );
-
-
-
-        this.tag(Tags.Blocks.ORES).addTag(ReduxTags.Blocks.VERIDIUM_ORES);
 
         this.tag(Tags.Blocks.STORAGE_BLOCKS).addTags(
                 ReduxTags.Blocks.STORAGE_BLOCKS_VERIDIUM, ReduxTags.Blocks.STORAGE_BLOCKS_RAW_VERIDIUM, ReduxTags.Blocks.STORAGE_BLOCKS_SENTRITE

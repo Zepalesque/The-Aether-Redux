@@ -106,6 +106,9 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLEAKMOSS_VEGETATION = createKey("bleakmoss_vegetation");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLEAKMOSS_BONEMEAL = createKey("bleakmoss_bonemeal");
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GILDENMOSS_VEGETATION = createKey("gildenmoss_vegetation");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GILDENMOSS_BONEMEAL = createKey("gildenmoss_bonemeal");
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_STORMROOT_TREE = createKey("small_stormroot");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_STORMROOT_TREE = createKey("large_stormroot");
 
@@ -332,6 +335,23 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
                 new VegetationPatchConfiguration(UnityTags.Blocks.AETHER_CARVER_REPLACEABLES,
                         prov(ReduxBlocks.BLEAKMOSS_BLOCK),
                         Holder.direct(new PlacedFeature(configs.getOrThrow(BLEAKMOSS_VEGETATION),
+                                List.of())),
+                        CaveSurface.FLOOR,
+                        ConstantInt.of(1),
+                        0.0F,
+                        2,
+                        0.8F,
+                        UniformInt.of(1, 2),
+                        0.75F));
+
+        // TODO
+        FeatureUtils.register(context, GILDENMOSS_VEGETATION, ZenithFeatures.EXTENDABLE_STATE_LIST_BLOCK.get(),
+                new ExtendableStateListBlockFeature.Config(UnityStateLists.FLUTEMOSS.get(), Optional.empty()));
+
+        FeatureUtils.register(context, GILDENMOSS_BONEMEAL, Feature.VEGETATION_PATCH,
+                new VegetationPatchConfiguration(UnityTags.Blocks.AETHER_CARVER_REPLACEABLES,
+                        prov(ReduxBlocks.GILDENMOSS_BLOCK),
+                        Holder.direct(new PlacedFeature(configs.getOrThrow(GILDENMOSS_VEGETATION),
                                 List.of())),
                         CaveSurface.FLOOR,
                         ConstantInt.of(1),

@@ -86,10 +86,16 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
         addLore(ReduxBlocks.SKYSPROUTS, "A relative of the common Wyndsprouts, this flowering grass is found in the Skyfields.");
 
         addBlock(ReduxBlocks.BLEAKMOSS_BLOCK);
-        addLore(ReduxBlocks.BLEAKMOSS_BLOCK, "A corrupted, blighted variation of the Aether's Flutemoss. This can be found in the Blight.");
-
+        addLore(ReduxBlocks.BLEAKMOSS_BLOCK, "A corrupted, blighted variation of the Aether's Flutemoss. This can be found in the Blight, and occasionally underground.");
         addBlock(ReduxBlocks.BLEAKMOSS_CARPET);
-        addLore(ReduxBlocks.BLEAKMOSS_CARPET, "A blanket-like, vegetative layer of Bleakmoss. This can be found in the Blight, and has the capacity to grow when bonemealed.");
+        addLore(ReduxBlocks.BLEAKMOSS_CARPET, "A blanket-like, vegetative layer of Bleakmoss. This has the capacity to grow when bonemealed.");
+
+        addBlock(ReduxBlocks.GILDENMOSS_BLOCK);
+        addLore(ReduxBlocks.GILDENMOSS_BLOCK, "The enchanted variation of the Aether's Flutemoss. This can be found in the Blight.");
+        addBlock(ReduxBlocks.GILDENMOSS_CARPET);
+        addLore(ReduxBlocks.GILDENMOSS_CARPET, "A blanket-like, vegetative layer of Gildenmoss.");
+
+
 
         addItem(ReduxItems.AERBOUND_CAPE);
         addLore(ReduxItems.AERBOUND_CAPE, "A cape found in the Bronze Dungeon. It allows the wearer to double-jump!");

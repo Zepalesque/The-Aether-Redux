@@ -37,6 +37,7 @@ import net.zepalesque.redux.block.natural.leaves.InfectedLeavesBlock;
 import net.zepalesque.redux.block.natural.leaves.ShadedLeavesBlock;
 import net.zepalesque.redux.block.redstone.LogicatorBlock;
 import net.zepalesque.redux.data.resource.registries.ReduxFeatureConfig;
+import net.zepalesque.unity.block.natural.DoubleDropsCarpet;
 import net.zepalesque.unity.block.natural.DoubleDropsGrowthBlock;
 import net.zepalesque.unity.block.natural.leaves.LeafPileBlock;
 import net.zepalesque.unity.event.hook.BlockHooks;
@@ -85,6 +86,12 @@ public class ReduxBlocks extends ReduxBlockBuilders {
             () -> new DoubleDropsGrowthBlock(Properties.ofFullCopy(Blocks.MOSS_BLOCK).mapColor(MapColor.TERRACOTTA_MAGENTA), ReduxFeatureConfig.BLEAKMOSS_BONEMEAL));
     public static DeferredBlock<DoubleDropsMossCarpet> BLEAKMOSS_CARPET = register("bleakmoss_carpet",
             () -> new DoubleDropsMossCarpet(Properties.ofFullCopy(Blocks.MOSS_CARPET).mapColor(MapColor.TERRACOTTA_MAGENTA)));
+
+    public static DeferredBlock<DoubleDropsGrowthBlock> GILDENMOSS_BLOCK = register("gildenmoss_block",
+            () -> new DoubleDropsGrowthBlock(Properties.ofFullCopy(Blocks.MOSS_BLOCK).mapColor(MapColor.TERRACOTTA_YELLOW), ReduxFeatureConfig.GILDENMOSS_BONEMEAL));
+    public static DeferredBlock<DoubleDropsCarpet> GILDENMOSS_CARPET = register("gildenmoss_carpet",
+            () -> new DoubleDropsCarpet(Properties.ofFullCopy(Blocks.MOSS_CARPET).mapColor(MapColor.TERRACOTTA_YELLOW)));
+
 
     public static final DeferredBlock<Block> CARVED_PILLAR = register("carved_pillar", () -> new RotatedPillarBlock(Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).strength(0.5F, 6.0F).requiresCorrectToolForDrops()));
     public static final DeferredBlock<Block> SENTRY_PILLAR = register("sentry_pillar", () -> new RotatedPillarBlock(Properties.ofFullCopy(CARVED_PILLAR.get()).lightLevel(state -> 11)));

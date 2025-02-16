@@ -114,6 +114,9 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
         this.dropSelf(ReduxBlocks.BLEAKMOSS_BLOCK.get());
         this.mossyCarpet(ReduxBlocks.BLEAKMOSS_CARPET.get());
 
+        this.dropSelf(ReduxBlocks.GILDENMOSS_BLOCK.get());
+        this.dropSelf(ReduxBlocks.GILDENMOSS_CARPET.get());
+
         this.dropSelf(ReduxBlocks.LOGICATOR.get());
     }
 
