@@ -62,7 +62,7 @@ public class VeridiumPickaxeItem extends PickaxeItem implements VeridiumItem {
 
     @Override
     public boolean mineBlock(ItemStack stack, Level level, BlockState state, BlockPos pos, LivingEntity user) {
-        // Call the vanilla method do do things like tool damaging
+        // Call the vanilla method to do things like tool damaging
         boolean bool = super.mineBlock(stack, level, state, pos, user);
         if (!user.level().isClientSide()) {
             boolean instaBreak = state.getDestroySpeed(level, pos) <= 0.0F;

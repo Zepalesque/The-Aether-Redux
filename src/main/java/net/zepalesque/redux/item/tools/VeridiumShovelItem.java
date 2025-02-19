@@ -63,7 +63,7 @@ public class VeridiumShovelItem extends ShovelItem implements VeridiumItem {
 
     @Override
     public boolean mineBlock(ItemStack stack, Level level, BlockState state, BlockPos pos, LivingEntity user) {
-        // Call the vanilla method do do things like tool damaging
+        // Call the vanilla method to do things like tool damaging
         boolean bool = super.mineBlock(stack, level, state, pos, user);
         if (!user.level().isClientSide()) {
             boolean instaBreak = state.getDestroySpeed(level, pos) <= 0.0F;
@@ -85,15 +85,13 @@ public class VeridiumShovelItem extends ShovelItem implements VeridiumItem {
     @Override
     public InteractionResult useOn(UseOnContext context) {
         InteractionResult result = super.useOn(context);
-        if (result == InteractionResult.sidedSuccess(context.getLevel().isClientSide()) && !context.getPlayer().level().isClientSide() && !context.getPlayer().isCreative()) {
+        if (result == InteractionResult.sidedSuccess(context.getLevel().isClientSide()) && !context.getLevel().isClientSide() && (context.getPlayer() == null || !context.getPlayer().hasInfiniteMaterials())) {
             ItemStack stack = context.getItemInHand();
             Player player = context.getPlayer();
             ItemStack transform = this.deplete(stack, player, 1);
             if (!player.level().isClientSide() && transform != null && transform != stack) {
                 player.setItemSlot(EquipmentSlot.MAINHAND, transform);
-                if (player instanceof ServerPlayer sp) {
-                    this.sendSound(sp);
-                }
+                if (player instanceof ServerPlayer sp) this.sendSound(sp);
             }
         }
         return result;

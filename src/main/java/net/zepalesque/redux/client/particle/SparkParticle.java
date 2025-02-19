@@ -1,7 +1,5 @@
 package net.zepalesque.redux.client.particle;
 
-import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.minecraft.client.Camera;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.ParticleProvider;
@@ -9,7 +7,6 @@ import net.minecraft.client.particle.ParticleRenderType;
 import net.minecraft.client.particle.SpriteSet;
 import net.minecraft.client.particle.TextureSheetParticle;
 import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
@@ -20,9 +17,8 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import net.zepalesque.redux.entity.projectile.Ember;
-import org.joml.Quaternionf;
+import net.zepalesque.redux.temp.VectorUtil;
 
-import java.util.Arrays;
 import java.util.List;
 
 @OnlyIn(Dist.CLIENT)
@@ -54,11 +50,11 @@ public class SparkParticle extends TextureSheetParticle {
     public void tick() {
         Vec3 velocity = new Vec3(this.xd, this.yd, this.zd);
         Vec3 pos = new Vec3(this.x, this.y, this.z);
-        velocity = velocity.multiply(Math.abs(velocity.x) > Ember.VELOCITY_THRESHOLD_XZ ? 1 : 0, Math.abs(velocity.y) > Ember.VELOCITY_THRESHOLD_Y ? 1 : 0, Math.abs(velocity.z) > Ember.VELOCITY_THRESHOLD_XZ ? 1 : 0);
+        velocity = VectorUtil.threshold(velocity, Ember.VELOCITY_THRESHOLD);
         HitResult hitresult = getHitResult(pos, velocity, this.level);
         if (velocity.length() > 0D && hitresult.getType() == HitResult.Type.BLOCK) {
             Vec3 bounce = Ember.bounceAxis(velocity, ((BlockHitResult)hitresult).getDirection());
-            Vec3 scaled = bounce.multiply(Ember.BOUNCE_FRICTION_XZ, Ember.BOUNCE_FRICTION_Y, Ember.BOUNCE_FRICTION_XZ);
+            Vec3 scaled = bounce.multiply(Ember.BOUNCE_FRICTION);
             this.xd = scaled.x;
             this.yd = scaled.y;
             this.zd = scaled.z;
@@ -67,16 +63,12 @@ public class SparkParticle extends TextureSheetParticle {
             double z = hitresult.getLocation().z;
             this.setPos(x, y, z);
             this.gravity = 0.0F;
-        } else {
-            this.gravity = 1.0F;
-        }
+        } else this.gravity = 1.0F;
 
         this.baseTick();
 
         int i = 10;
-        if (this.lifetime - this.age < i) {
-            this.alpha = (float)(this.lifetime - this.age) / i;
-        }
+        if (this.lifetime - this.age < i) this.alpha = (float) (this.lifetime - this.age) / i;
     }
 
     protected void baseTick() {

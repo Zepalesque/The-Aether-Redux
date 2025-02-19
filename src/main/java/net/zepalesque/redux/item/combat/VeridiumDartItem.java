@@ -22,11 +22,9 @@ public class VeridiumDartItem extends DartItem {
 
     @Override
     public AbstractDart createDart(Level level, ItemStack ammo, LivingEntity shooter, @Nullable ItemStack firedFromWeapon) {
-        if (firedFromWeapon != null && firedFromWeapon.is(ReduxTags.Items.INFUSED_VERIDIUM_ITEMS)) {
+        if (firedFromWeapon != null && firedFromWeapon.is(ReduxTags.Items.INFUSED_VERIDIUM_ITEMS))
             return new VeridiumDart(level, shooter, ammo, firedFromWeapon);
-        } else {
-            return new VeridiumDart.Uninfused(level, shooter, ammo, firedFromWeapon);
-        }
+        else return new VeridiumDart.Uninfused(level, shooter, ammo, firedFromWeapon);
     }
 
     @Override

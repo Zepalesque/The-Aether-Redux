@@ -45,19 +45,20 @@ public interface VeridiumItem extends CustomStackingBehavior {
     @Nullable
     @Override
     default ItemStack transformStack(Ingredient ingredient, ItemStack original, RecipeType<? extends AbstractStackingRecipe> type, @Nullable CompoundTag additional) {
-        if (additional == null) {
-            return original;
-        }
+        if (additional == null) return original;
+
         int increase = additional.getShort(InfusionRecipe.ADDED_INFUSION);
-        if (increase <= 0) {
-            return original;
-        }
+
+        if (increase <= 0) return original;
+
         int max = ReduxConfig.SERVER.max_veridium_tool_infusion.get();
+
         int i = Objects.requireNonNullElse(original.get(ReduxDataComponents.INFUSION), 0);
+
         // The integer i will already be zero if the component is not present, and as the config has a minimum value of 1, it will skip this and add infusion if the item doesn't have the component
-        if (i >= max) {
-            return null;
-        } else {
+        if (i >= max) return null;
+
+        else {
             int infusion = Math.min(i + additional.getShort(InfusionRecipe.ADDED_INFUSION), max);
             original.applyComponents(DataComponentPatch.builder().set(ReduxDataComponents.INFUSION.get(), infusion).build());
             return original;
@@ -67,20 +68,15 @@ public interface VeridiumItem extends CustomStackingBehavior {
     // If null is returned, do not change the item in the slot
     @Nullable
     default ItemStack deplete(ItemStack stack, @Nullable LivingEntity user, int amount) {
-        if (user != null && user.level().isClientSide()) {
+        if (user != null && user.level().isClientSide() || user instanceof Player p && p.hasInfiniteMaterials())
             return null;
-        }
-        if (user instanceof Player p && p.isCreative()) {
-            return null;
-        }
+
         int original = Objects.requireNonNullElse(stack.get(ReduxDataComponents.INFUSION), 0);
 
         if (original > amount) {
             int infusion = (short) (original - amount);
             stack.set(ReduxDataComponents.INFUSION.get(), infusion);
-        } else {
-            return this.getUninfusedStack(stack);
-        }
+        } else return this.getUninfusedStack(stack);
         return null;
     }
 

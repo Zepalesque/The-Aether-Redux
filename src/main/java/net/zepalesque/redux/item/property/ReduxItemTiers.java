@@ -62,7 +62,4 @@ public enum ReduxItemTiers implements Tier {
     public Ingredient getRepairIngredient() {
         return this.repairMaterial.get();
     }
-
-
-
 }

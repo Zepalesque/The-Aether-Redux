@@ -28,9 +28,9 @@ public class MobListener {
     @SubscribeEvent
     public static void onTick(EntityTickEvent.Post event) {
         final Entity entity = event.getEntity();
-        if (ReduxConfig.SERVER.revamped_quicksoil_movement.get() && QuicksoilHooks.shouldAlterMovement(entity)) {
+
+        if (ReduxConfig.SERVER.revamped_quicksoil_movement.get() && QuicksoilHooks.shouldAlterMovement(entity))
             QuicksoilHooks.alterMovement(entity);
-        }
 
         if (entity instanceof Player player) {
             ReduxPlayerAttachment attachment = ReduxPlayerAttachment.get(player);

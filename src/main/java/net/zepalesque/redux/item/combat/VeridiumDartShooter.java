@@ -46,11 +46,8 @@ public class VeridiumDartShooter extends DartShooterItem implements VeridiumItem
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity user) {
         ItemStack original = super.finishUsingItem(stack, level, user);
         ItemStack transform = this.deplete(original, user, 1);
-        if (!user.level().isClientSide() && transform != null && transform != original) {
-            if (user instanceof ServerPlayer sp) {
-                this.sendSound(sp);
-            }
-        }
+        if (!user.level().isClientSide() && transform != null && transform != original && user instanceof ServerPlayer sp)
+            this.sendSound(sp);
         return transform == null ? original : transform;
 
     }

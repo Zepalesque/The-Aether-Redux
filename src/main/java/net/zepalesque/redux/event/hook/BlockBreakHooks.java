@@ -6,14 +6,16 @@ import com.google.common.collect.Maps;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.util.Lazy;
+import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
 import net.zepalesque.redux.config.ReduxConfig;
+import net.zepalesque.unity.block.UnityBlocks;
 
 import java.util.Map;
 
 public class BlockBreakHooks {
 
-    private static final Lazy<Map<Block, Float>> BREAK_SPEED_REMAP = Lazy.of(() -> Maps.newHashMap((new ImmutableMap.Builder<Block, Float>()
-            .put(AetherBlocks.HOLYSTONE.get(), 1.0F))
+    private static final Lazy<Map<Block, Float>> BREAK_SPEED_REMAP = Lazy.of(() -> Maps.newHashMap(new ImmutableMap.Builder<Block, Float>()
+            .put(AetherBlocks.HOLYSTONE.get(), 1.0F)
             .put(AetherBlocks.HOLYSTONE_WALL.get(), 1.0F)
             .put(AetherBlocks.HOLYSTONE_STAIRS.get(), 1.0F)
             .put(AetherBlocks.HOLYSTONE_SLAB.get(), 1.5F)
@@ -48,44 +50,41 @@ public class BlockBreakHooks {
             .put(AetherBlocks.AETHER_GRASS_BLOCK.get(), getSpeed(Blocks.GRASS_BLOCK))
             .put(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get(), getSpeed(Blocks.GRASS_BLOCK))
 //            .put(ReduxBlocks.AVELIUM.get(), getSpeed(Blocks.MYCELIUM))
-//            .put(ReduxBlocks.COARSE_AETHER_DIRT.get(), getSpeed(Blocks.COARSE_DIRT))
-//            .put(ReduxBlocks.GILDED_HOLYSTONE.get(), 1.0F)
-//            .put(ReduxBlocks.GILDED_HOLYSTONE_WALL.get(), 1.0F)
-//            .put(ReduxBlocks.GILDED_HOLYSTONE_STAIRS.get(), 1.0F)
-//            .put(ReduxBlocks.GILDED_HOLYSTONE_SLAB.get(), 1.5F)
-//            .put(ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), 1.0F)
-//            .put(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_WALL.get(), 1.0F)
-//            .put(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_STAIRS.get(), 1.0F)
-//            .put(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_SLAB.get(), 1.5F)
+            .put(UnityBlocks.COARSE_AETHER_DIRT.get(), getSpeed(Blocks.COARSE_DIRT))
+            .put(ReduxStoneSets.GILDED_HOLYSTONE.block().get(), 1.0F)
+            .put(ReduxStoneSets.GILDED_HOLYSTONE.wall().get(), 1.0F)
+            .put(ReduxStoneSets.GILDED_HOLYSTONE.stairs().get(), 1.0F)
+            .put(ReduxStoneSets.GILDED_HOLYSTONE.slab().get(), 1.5F)
+            .put(ReduxStoneSets.BLEAKMOSS_HOLYSTONE.block().get(), 1.0F)
+            .put(ReduxStoneSets.BLEAKMOSS_HOLYSTONE.wall().get(), 1.0F)
+            .put(ReduxStoneSets.BLEAKMOSS_HOLYSTONE.stairs().get(), 1.0F)
+            .put(ReduxStoneSets.BLEAKMOSS_HOLYSTONE.slab().get(), 1.5F)
 //            .put(ReduxBlocks.DRIFTSHALE.get(), 1.1F)
-//            .put(ReduxBlocks.POLISHED_DRIFTSHALE.get(), 1.1F)
-//            .put(ReduxBlocks.POLISHED_DRIFTSHALE_WALL.get(), 1.1F)
-//            .put(ReduxBlocks.POLISHED_DRIFTSHALE_STAIRS.get(), 1.1F)
-//            .put(ReduxBlocks.POLISHED_DRIFTSHALE_SLAB.get(), 1.35F)
-//            .put(ReduxBlocks.DIVINITE.get(), 1.25F)
-//            .put(ReduxBlocks.DIVINITE_WALL.get(), 1.25F)
-//            .put(ReduxBlocks.DIVINITE_STAIRS.get(), 1.25F)
-//            .put(ReduxBlocks.DIVINITE_SLAB.get(), 1.5F)
-//            .put(ReduxBlocks.SENTRITE.get(), 1.75F)
-//            .put(ReduxBlocks.SENTRITE_WALL.get(), 1.75F)
-//            .put(ReduxBlocks.SENTRITE_STAIRS.get(), 1.75F)
-//            .put(ReduxBlocks.SENTRITE_SLAB.get(), 2F)
-//            .put(ReduxBlocks.SENTRITE_BRICKS.get(), 1.75F)
-//            .put(ReduxBlocks.SENTRITE_BRICK_WALL.get(), 1.75F)
-//            .put(ReduxBlocks.SENTRITE_BRICK_STAIRS.get(), 1.75F)
-//            .put(ReduxBlocks.SENTRITE_BRICK_SLAB.get(), 2F)
+//            .put(ReduxStoneSets.POLISHED_DRIFTSHALE.block().get(), 1.1F)
+//            .put(ReduxStoneSets.POLISHED_DRIFTSHALE.wall().get(), 1.1F)
+//            .put(ReduxStoneSets.POLISHED_DRIFTSHALE.stairs().get(), 1.1F)
+//            .put(ReduxStoneSets.POLISHED_DRIFTSHALE.slab().get(), 1.35F)
+            .put(ReduxStoneSets.ANGILITE.block().get(), 1.25F)
+            .put(ReduxStoneSets.ANGILITE.wall().get(), 1.25F)
+            .put(ReduxStoneSets.ANGILITE.stairs().get(), 1.25F)
+            .put(ReduxStoneSets.ANGILITE.slab().get(), 1.5F)
+            .put(ReduxStoneSets.SENTRITE.block().get(), 1.75F)
+            .put(ReduxStoneSets.SENTRITE.wall().get(), 1.75F)
+            .put(ReduxStoneSets.SENTRITE.stairs().get(), 1.75F)
+            .put(ReduxStoneSets.SENTRITE.slab().get(), 2F)
+            .put(ReduxStoneSets.SENTRITE_BRICKS.block().get(), 1.75F)
+            .put(ReduxStoneSets.SENTRITE_BRICKS.wall().get(), 1.75F)
+            .put(ReduxStoneSets.SENTRITE_BRICKS.stairs().get(), 1.75F)
+            .put(ReduxStoneSets.SENTRITE_BRICKS.slab().get(), 2F)
             .build()));
 
     public static float modify(Block block, float speed) {
-        if (ReduxConfig.SERVER.consistent_break_speeds.get() && BREAK_SPEED_REMAP.get().containsKey(block)) {
+        if (ReduxConfig.SERVER.consistent_break_speeds.get() && BREAK_SPEED_REMAP.get().containsKey(block))
             return speed / (BREAK_SPEED_REMAP.get().get(block) / block.properties.destroyTime);
-        }
         return speed;
     }
 
     private static float getSpeed(Block block) {
         return block.properties.destroyTime;
     }
-
-
 }

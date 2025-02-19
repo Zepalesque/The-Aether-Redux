@@ -3,7 +3,6 @@ package net.zepalesque.redux.entity.projectile;
 
 import com.aetherteam.nitrogen.entity.BossMob;
 import net.minecraft.core.Direction;
-import net.minecraft.nbt.CollectionTag;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.IntArrayTag;
 import net.minecraft.nbt.ListTag;
@@ -29,26 +28,22 @@ import net.neoforged.neoforge.event.EventHooks;
 import net.zepalesque.redux.client.audio.ReduxSounds;
 import net.zepalesque.redux.client.particle.ReduxParticles;
 import net.zepalesque.redux.entity.ReduxEntities;
+import net.zepalesque.redux.temp.VectorUtil;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
-// TODO: Rewrite from scratch
 public class Ember extends Projectile {
     public Ember(EntityType<? extends Ember> entityType, Level level) {
         super(entityType, level);
     }
+    public static final Vec3 VELOCITY_THRESHOLD = new Vec3(0.05D, 0.05D, 0.05D);
 
-    public static final double VELOCITY_THRESHOLD_XZ = 0.05D;
-    public static final double VELOCITY_THRESHOLD_Y = 0.05D;
-    public static final double BOUNCE_FRICTION_XZ = 0.75D;
-    public static final double BOUNCE_FRICTION_Y = 0.7D;
+    public static final Vec3 BOUNCE_FRICTION = new Vec3(0.75D, 0.7D, 0.75D);
+
     public static final double GRAVITY = -0.04D;
 
     private @Nullable UUID source;
@@ -101,15 +96,13 @@ public class Ember extends Projectile {
         this.setDeltaMovement(vec3.multiply(0.999D, 0.99D, 0.999D));
         if (hitresult.getType() != HitResult.Type.MISS && !EventHooks.onProjectileImpact(this, hitresult))
             this.onHit(hitresult);
-        if (!this.isNoGravity() && hitresult.getType() == HitResult.Type.MISS) {
-            this.setDeltaMovement(this.getDeltaMovement().add(0.0D, GRAVITY, 0.0D));
-        }
+
         if (hitresult.getType() == HitResult.Type.MISS) {
+            if (!this.isNoGravity()) this.setDeltaMovement(this.getDeltaMovement().add(0.0D, GRAVITY, 0.0D));
             this.setPos(d0, d1, d2);
         }
-        if (this.tickCount >= this.lifetime && !this.isRemoved()) {
-            this.remove(RemovalReason.DISCARDED);
-        }
+
+        if (this.tickCount >= this.lifetime && !this.isRemoved()) this.remove(RemovalReason.DISCARDED);
     }
 
     @Override
@@ -120,9 +113,9 @@ public class Ember extends Projectile {
 
     protected void addAdditionalSaveData(CompoundTag compound) {
         super.addAdditionalSaveData(compound);
-        if (this.source != null) {
-            compound.putUUID("Source", this.source);
-        }
+
+        if (this.source != null) compound.putUUID("Source", this.source);
+
         if (!this.hitEntities.isEmpty()) {
             ListTag hits = new ListTag();
 
@@ -137,24 +130,21 @@ public class Ember extends Projectile {
     }
     protected void readAdditionalSaveData(CompoundTag compound) {
         super.readAdditionalSaveData(compound);
-        if (compound.hasUUID("Source")) {
-            this.source = compound.getUUID("Source");
-        }
-        if (compound.contains("Hits") && compound.get("Hits") instanceof ListTag hits) {
-            for (Tag tag : hits) {
-                if (tag.getType() == IntArrayTag.TYPE) {
+
+        if (compound.hasUUID("Source")) this.source = compound.getUUID("Source");
+
+        if (compound.contains("Hits") && compound.get("Hits") instanceof ListTag hits)
+            for (Tag tag : hits)
+                if (tag.getType() == IntArrayTag.TYPE)
                     this.hitEntities.add(NbtUtils.loadUUID(tag));
-                }
-            }
-        }
     }
 
      public static Vec3 bounceVector(Vec3 velocity, Vec3 normal) {
-        double mult = velocity.x * normal.x + velocity.y * normal.y + velocity.z * normal.z;
+        double multiplier = velocity.x * normal.x + velocity.y * normal.y + velocity.z * normal.z;
         return new Vec3(
-                velocity.x - 2 * mult * normal.x,
-                velocity.y - 2 * mult * normal.y,
-                velocity.z - 2 * mult * normal.z
+                velocity.x - 2 * multiplier * normal.x,
+                velocity.y - 2 * multiplier * normal.y,
+                velocity.z - 2 * multiplier * normal.z
         );
     }
 
@@ -164,12 +154,10 @@ public class Ember extends Projectile {
         double y = velocity.y;
         double z = velocity.z;
 
-        if (axis == Direction.Axis.X) {
-            x = -x;
-        } else if (axis == Direction.Axis.Y) {
-            y = -y;
-        } else if (axis == Direction.Axis.Z) {
-            z = -z;
+        switch (axis) {
+            case X -> x = -x;
+            case Y -> y = -y;
+            case Z -> z = -z;
         }
 
         return new Vec3(x, y, z);
@@ -187,47 +175,53 @@ public class Ember extends Projectile {
 
     protected void onHitBlock(BlockHitResult result) {
         super.onHitBlock(result);
-        Direction d = result.getDirection();
-        Direction.Axis axis = d.getAxis();
+        Direction dir = result.getDirection();
+        Direction.Axis axis = dir.getAxis();
         Vec3 loc = result.getLocation();
         Vec3 velocity = this.getDeltaMovement();
-        velocity = velocity.multiply(Math.abs(velocity.x) > VELOCITY_THRESHOLD_XZ ? 1 : 0, Math.abs(velocity.y) > VELOCITY_THRESHOLD_Y ? 1 : 0, Math.abs(velocity.z) > VELOCITY_THRESHOLD_XZ ? 1 : 0);
-         Vec3 bounce = bounceAxis(velocity, d);
 
-        // Spawn spark particles
+        velocity = VectorUtil.threshold(velocity, VELOCITY_THRESHOLD);
+        Vec3 bounce = bounceAxis(velocity, dir);
+        // How much the particles should be spread
         double spread = velocity.length() * 2.5;
+        // Spawn spark particles
         for (int i = 0; i < Mth.floor(velocity.length() * 15); i++) {
-            float angle = this.level().getRandom().nextFloat() * 2 * Mth.PI;
-            // trigonometry, how fun
-            double opp = Mth.sin(angle) * spread;
-            double adj = Mth.cos(angle) * spread;
-            if (axis == Direction.Axis.X) {
-                            this.level().addParticle(ReduxParticles.SPARK.get(), loc.x(), loc.y(), loc.z(), velocity.length(), opp, adj);
-            } else if (axis == Direction.Axis.Y) {
-                            this.level().addParticle(ReduxParticles.SPARK.get(), loc.x(), loc.y(), loc.z(), opp, velocity.length(), adj);
-            } else if (axis == Direction.Axis.Z) {
-                            this.level().addParticle(ReduxParticles.SPARK.get(), loc.x(), loc.y(), loc.z(), opp, adj, velocity.length());
+            // Random radian angle
+            float theta = this.level().getRandom().nextFloat() * 2 * Mth.PI;
+
+            // trigonometry, how fun !! trigonometry dash 2.2 when
+
+            //
+            double sin = Mth.sin(theta) * spread;
+            double cos = Mth.cos(theta) * spread;
+
+            switch (axis) {
+                case X -> this.level().addParticle(ReduxParticles.SPARK.get(), loc.x(), loc.y(), loc.z(), velocity.length(), sin, cos);
+                case Y -> this.level().addParticle(ReduxParticles.SPARK.get(), loc.x(), loc.y(), loc.z(), sin, velocity.length(), cos);
+                case Z -> this.level().addParticle(ReduxParticles.SPARK.get(), loc.x(), loc.y(), loc.z(), sin, cos, velocity.length());
             }
         }
-        SoundEvent sound;
-        if (velocity.length() <= 0.75) sound = ReduxSounds.EMBER_BOUNCE_SMALL.get();
-        else if (velocity.length() <= 1.5) sound = ReduxSounds.EMBER_BOUNCE_MEDIUM.get();
-        else sound = ReduxSounds.EMBER_BOUNCE_BIG.get();
-        this.level().playSound(null, loc.x(), loc.y(), loc.z(), sound, SoundSource.NEUTRAL, (float) (velocity.length() * 10D), 0.8F + (this.level().random.nextFloat() * 0.4F));
 
-        Vec3 scaled = bounce.multiply(Ember.BOUNCE_FRICTION_XZ, Ember.BOUNCE_FRICTION_Y, Ember.BOUNCE_FRICTION_XZ);
-        this.setDeltaMovement(scaled);
+        SoundEvent sound = velocity.length() <= 0.75 ? ReduxSounds.EMBER_BOUNCE_SMALL.get()
+                : velocity.length() <= 1.5 ? ReduxSounds.EMBER_BOUNCE_MEDIUM.get()
+                : ReduxSounds.EMBER_BOUNCE_BIG.get();
+
+        this.level().playSound(null, loc.x(), loc.y(), loc.z(), sound, SoundSource.NEUTRAL, (float) (velocity.length() * 10D), 0.8F + this.level().random.nextFloat() * 0.4F);
+
+        Vec3 frictionized = bounce.multiply(Ember.BOUNCE_FRICTION);
+        this.setDeltaMovement(frictionized);
         this.setPos(loc);
     }
 
     @Override
     public void recreateFromPacket(ClientboundAddEntityPacket packet) {
         super.recreateFromPacket(packet);
-        double d0 = packet.getXa();
-        double d1 = packet.getYa();
-        double d2 = packet.getZa();
 
-        this.setDeltaMovement(d0, d1, d2);
+        double dx = packet.getXa();
+        double dy = packet.getYa();
+        double dz = packet.getZa();
+
+        this.setDeltaMovement(dx, dy, dz);
     }
 }
 

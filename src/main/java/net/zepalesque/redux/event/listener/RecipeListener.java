@@ -14,9 +14,8 @@ public class RecipeListener {
 
     @SubscribeEvent
     public static void onStackItem(ItemStackedOnOtherEvent event) {
-        if (event.getClickAction() == ClickAction.SECONDARY &&
-                StackingRecipeHelper.stack(event, stack -> stack.is(AetherItems.AMBROSIUM_SHARD), ReduxRecipes.INFUSION.get())) {
+        if (event.getClickAction() == ClickAction.SECONDARY
+                && StackingRecipeHelper.stack(event, stack -> stack.is(AetherItems.AMBROSIUM_SHARD), ReduxRecipes.INFUSION.get()))
             event.setCanceled(true);
-        }
     }
 }
