@@ -17,6 +17,7 @@ import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.datamaps.RegisterDataMapTypesEvent;
+import net.zepalesque.redux.advancement.ReduxAdvancementTriggers;
 import net.zepalesque.redux.attachment.ReduxDataAttachments;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.blockset.flower.ReduxFlowerSets;
@@ -98,12 +99,11 @@ public class Redux {
                 ReduxTreeDecorators.TREE_DECORATORS,
                 ReduxDataComponents.TYPES,
                 ReduxDataAttachments.ATTACHMENTS,
-                ReduxCarvers.CARVERS
+                ReduxCarvers.CARVERS,
+                ReduxAdvancementTriggers.TRIGGERS
         };
 
-        for (DeferredRegister<?> register : registers) {
-            register.register(bus);
-        }
+        for (DeferredRegister<?> register : registers) register.register(bus);
 
         ReduxConfigHandler.setup(mod, bus);
 

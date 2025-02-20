@@ -1,21 +1,18 @@
 package net.zepalesque.redux.item.combat;
 
-import com.aetherteam.aether.entity.projectile.dart.AbstractDart;
 import com.aetherteam.aether.item.combat.DartShooterItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.zepalesque.redux.entity.ReduxEntities;
 import net.zepalesque.redux.item.components.ReduxDataComponents;
 import net.zepalesque.redux.item.tools.VeridiumItem;
-import net.zepalesque.redux.item.util.TooltipUtils;
+import net.zepalesque.redux.util.item.TooltipUtils;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;

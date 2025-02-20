@@ -19,7 +19,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.zepalesque.redux.item.components.ReduxDataComponents;
 import net.zepalesque.redux.item.tools.VeridiumItem;
-import net.zepalesque.redux.item.util.TooltipUtils;
+import net.zepalesque.redux.util.item.TooltipUtils;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;

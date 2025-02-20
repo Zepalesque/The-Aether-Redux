@@ -1,4 +1,4 @@
-package net.zepalesque.redux.item.util;
+package net.zepalesque.redux.util.item;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.platform.InputConstants;

@@ -25,7 +25,9 @@
     "common.entity.ai.SliderUpDownMixin",
     "common.item.DiggerItemMixin",
     "common.item.GummySwetItemMixin",
+    "common.item.ItemMixin",
     "common.item.PickaxeItemMixin",
+    "common.item.RingItemMixin",
     "common.world.feature.AercloudFeatureMixin",
     "common.world.feature.FeatureMixin",
     "common.world.structure.AetherTemplateStructurePieceMixin",
@@ -33,8 +35,8 @@
     "common.world.structure.piece.BronzeDungeonMixin"
   ],
   "client": [
-    "client.block.ParticleLeavesMixin",
     "client.block.AetherLeavesClientMixin",
-    "client.block.LeafBlockClientMixin"
+    "client.block.LeafBlockClientMixin",
+    "client.block.ParticleLeavesMixin"
   ]
 }

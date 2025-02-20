@@ -17,6 +17,7 @@ import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.data.gen.ReduxAdvancementData;
 import net.zepalesque.redux.data.gen.ReduxBlockStateData;
 import net.zepalesque.redux.data.gen.ReduxLootModifierData;
 import net.zepalesque.redux.data.gen.ReduxMapData;
@@ -40,49 +41,50 @@ public class ReduxData {
     public static void dataSetup(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
         ExistingFileHelper fileHelper = event.getExistingFileHelper();
-        CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
-        PackOutput packOutput = generator.getPackOutput();
+        CompletableFuture<HolderLookup.Provider> lookup = event.getLookupProvider();
+        PackOutput output = generator.getPackOutput();
 
         // Client Data
-        generator.addProvider(event.includeClient(), new ReduxBlockStateData(packOutput, fileHelper));
-        generator.addProvider(event.includeClient(), new ReduxItemModelData(packOutput, fileHelper));
-        generator.addProvider(event.includeClient(), new ReduxLanguageData(packOutput));
-        generator.addProvider(event.includeClient(), new ReduxParticleData(packOutput, fileHelper));
-        generator.addProvider(event.includeClient(), new ReduxSoundsData(packOutput, fileHelper));
+        generator.addProvider(event.includeClient(), new ReduxBlockStateData(output, fileHelper));
+        generator.addProvider(event.includeClient(), new ReduxItemModelData(output, fileHelper));
+        generator.addProvider(event.includeClient(), new ReduxLanguageData(output));
+        generator.addProvider(event.includeClient(), new ReduxParticleData(output, fileHelper));
+        generator.addProvider(event.includeClient(), new ReduxSoundsData(output, fileHelper));
 
         // TODO: look into better solutions for this
-        AetherRegistrySets patch = new AetherRegistrySets(packOutput, lookupProvider);
-        lookupProvider = patch.getRegistryProvider();
+        AetherRegistrySets patch = new AetherRegistrySets(output, lookup);
+        lookup = patch.getRegistryProvider();
 
         // Server Data
-        DatapackBuiltinEntriesProvider registrySets = new ReduxRegistrySets(packOutput, lookupProvider, Redux.MODID);
+        DatapackBuiltinEntriesProvider registrySets = new ReduxRegistrySets(output, lookup, Redux.MODID);
             // Use for structure and damage type data, plus any custom ones that need to access the condition registry
-        CompletableFuture<Provider> registryProvider = registrySets.getRegistryProvider();
+        CompletableFuture<Provider> registries = registrySets.getRegistryProvider();
         generator.addProvider(event.includeServer(), registrySets);
-        generator.addProvider(event.includeServer(), new ReduxRecipeData(packOutput, lookupProvider));
-        generator.addProvider(event.includeServer(), ReduxLootData.create(packOutput, lookupProvider));
-        generator.addProvider(event.includeServer(), new ReduxMapData(packOutput, lookupProvider));
-        generator.addProvider(event.includeServer(), new ReduxLootModifierData(packOutput, registryProvider));
+        generator.addProvider(event.includeServer(), new ReduxRecipeData(output, lookup));
+        generator.addProvider(event.includeServer(), ReduxLootData.create(output, lookup));
+        generator.addProvider(event.includeServer(), new ReduxMapData(output, lookup));
+        generator.addProvider(event.includeServer(), new ReduxLootModifierData(output, registries));
+        generator.addProvider(event.includeServer(), new ReduxAdvancementData(output, registries, fileHelper));
 
         // Tags
-        ReduxBlockTagsData blockTags = new ReduxBlockTagsData(packOutput, lookupProvider, fileHelper);
+        ReduxBlockTagsData blockTags = new ReduxBlockTagsData(output, lookup, fileHelper);
         generator.addProvider(event.includeServer(), blockTags);
-        generator.addProvider(event.includeServer(), new ReduxItemTagsData(packOutput, lookupProvider, blockTags.contentsGetter(), fileHelper));
-        generator.addProvider(event.includeServer(), new ReduxEntityTagsData(packOutput, lookupProvider, fileHelper));
+        generator.addProvider(event.includeServer(), new ReduxItemTagsData(output, lookup, blockTags.contentsGetter(), fileHelper));
+        generator.addProvider(event.includeServer(), new ReduxEntityTagsData(output, lookup, fileHelper));
 
-        generator.addProvider(event.includeServer(), new ReduxBiomeTagsData(packOutput, registryProvider, fileHelper));
+        generator.addProvider(event.includeServer(), new ReduxBiomeTagsData(output, registries, fileHelper));
 
         // pack.mcmeta
-        generator.addProvider(true, new PackMetadataGenerator(packOutput).add(PackMetadataSection.TYPE, new PackMetadataSection(
+        generator.addProvider(true, new PackMetadataGenerator(output).add(PackMetadataSection.TYPE, new PackMetadataSection(
                 Component.translatable("pack.aether_redux.mod.description"),
                 DetectedVersion.BUILT_IN.getPackVersion(PackType.SERVER_DATA),
                 Optional.of(new InclusiveRange<>(0, Integer.MAX_VALUE)))));
 
 
-        Path builtinData = packOutput.getOutputFolder().resolve("packs").resolve("data");
+        Path builtinData = output.getOutputFolder().resolve("packs").resolve("data");
         
         DataGenerator.PackGenerator noisePack = generator.new PackGenerator(event.includeServer(), "reduxnoise", new PackOutput(builtinData.resolve("redux_noise")));
-        CompletableFuture<Provider> finalLookupProvider = lookupProvider;
-        noisePack.addProvider(output -> new ReduxRegistrySets.NoisePack(output, finalLookupProvider, Redux.MODID));
+        CompletableFuture<Provider> finalLookupProvider = lookup;
+        noisePack.addProvider(output1 -> new ReduxRegistrySets.NoisePack(output1, finalLookupProvider, Redux.MODID));
     }
 }
