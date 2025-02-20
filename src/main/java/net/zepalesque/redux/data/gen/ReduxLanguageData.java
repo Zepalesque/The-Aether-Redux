@@ -215,5 +215,6 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
         addSubtitle(ReduxSounds.EMBER_BOUNCE_MEDIUM, DatagenUtil::subtitleFor, "Ember crackles");
         addSubtitle(ReduxSounds.EMBER_BOUNCE_SMALL, DatagenUtil::subtitleFor, "Ember sparks");
 
+        addAdvancement("throw_ring_in_lava", "Cast it into the fire! Destroy it!", "Throw a Gold Ring into lava in the Nether");
     }
 }

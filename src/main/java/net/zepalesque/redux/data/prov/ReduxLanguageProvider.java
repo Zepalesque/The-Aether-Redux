@@ -25,4 +25,9 @@ public abstract class ReduxLanguageProvider extends UnityLanguageProvider {
     public void addJukeboxSong(ResourceKey<JukeboxSong> songName, String name) {
         this.addJukeboxSong(songName.location().getPath(), name);
     }
+
+    public void addAdvancement(String key, String name, String desc) {
+        this.addAdvancement(key, name);
+        this.addAdvancementDesc(key, desc);
+    }
 }
