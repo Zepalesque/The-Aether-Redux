@@ -12,7 +12,7 @@ import net.minecraft.world.level.levelgen.carver.CaveCarverConfiguration;
 import net.minecraft.world.level.levelgen.carver.CaveWorldCarver;
 import org.jetbrains.annotations.Nullable;
 
-// TODO: Custom air block?
+// TODO: Custom air block? Or not, vanilla lava lakes use cave air so the mismatch may be fine
 public class AetherCaveCarver extends CaveWorldCarver {
 
     public AetherCaveCarver(Codec<CaveCarverConfiguration> codec) {
