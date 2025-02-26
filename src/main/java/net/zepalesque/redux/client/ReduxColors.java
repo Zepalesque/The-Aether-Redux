@@ -28,9 +28,8 @@ public class ReduxColors {
 
     public static Optional<Integer> reduxColors(BlockState state, @Nullable BlockAndTintGetter level, @Nullable BlockPos pos, int index, Predicate<Integer> indexGoal, boolean useBelowProperties) {
         if (level == null || pos == null) return Optional.empty();
-        if (level.getBlockState(pos.below()).is(ReduxTags.Blocks.SHORT_AETHER_GRASS_BLEAKMOSS_COLORING)) {
+        if (level.getBlockState(pos.below()).is(ReduxTags.Blocks.SHORT_AETHER_GRASS_BLEAKMOSS_COLORING))
             return UnityColors.encapsulate(Tints.BLEAKMOSS_GRASS_COLOR);
-        }
         return Optional.empty();
     }
 
@@ -44,11 +43,9 @@ public class ReduxColors {
                 AetherBlocks.POTTED_PURPLE_FLOWER.get(),
                 ReduxBlocks.WYNDSPROUTS.get()
         );
-        for (BlockSet set : Redux.BLOCK_SETS) {
-            if (set instanceof TintableSet tintable && set instanceof AbstractFlowerSet flowerSet) {
+        for (BlockSet set : Redux.BLOCK_SETS)
+            if (set instanceof TintableSet tintable && set instanceof AbstractFlowerSet flowerSet)
                 event.register((state, level, pos, index) -> UnityColors.getColor(state, level, pos, index, i -> i == tintable.getTintIndex(), true), flowerSet.flower().get(), flowerSet.pot().get());
-            }
-        }
     }
 
     public static void itemColors(RegisterColorHandlersEvent.Item event) {
@@ -62,10 +59,8 @@ public class ReduxColors {
                 ReduxBlocks.SPLITFERN.get())
         );*/
 
-        for (BlockSet set : Redux.BLOCK_SETS) {
-            if (set instanceof TintableSet tintable && set instanceof AbstractFlowerSet flowerSet) {
+        for (BlockSet set : Redux.BLOCK_SETS)
+            if (set instanceof TintableSet tintable && set instanceof AbstractFlowerSet flowerSet)
                 event.register((stack, tintIndex) -> tintIndex == tintable.getTintIndex() ? tintable.getDefaultItemTint() : 0xFFFFFFFF, flowerSet.flower().get());
-            }
-        }
     }
 }

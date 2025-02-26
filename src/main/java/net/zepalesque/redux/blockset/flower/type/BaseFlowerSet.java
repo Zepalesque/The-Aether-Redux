@@ -180,9 +180,8 @@ public abstract class BaseFlowerSet<B extends Block> extends AbstractFlowerSet i
 
     @Override
     public void flammables(FireAccessor accessor) {
-        if (this.flammability != null) {
+        if (this.flammability != null)
             accessor.callSetFlammable(this.flower().get(), flammability.getFirst(), flammability.getSecond());
-        }
 
         // Do pot stuff while we're at it
         FlowerPotBlock pot = (FlowerPotBlock) Blocks.FLOWER_POT;
@@ -199,7 +198,7 @@ public abstract class BaseFlowerSet<B extends Block> extends AbstractFlowerSet i
     @Override
     public void langData(ReduxLanguageProvider data) {
         data.addBlock(this.flower());
-        if (this.lore != null) { data.addLore(this.flower(), this.lore); }
+        if (this.lore != null) data.addLore(this.flower(), this.lore);
         data.addBlock(this.pot());
     }
 
@@ -253,27 +252,21 @@ public abstract class BaseFlowerSet<B extends Block> extends AbstractFlowerSet i
             Supplier<CreativeModeTab> tabToAddTo = entry.getKey();
             if (TabUtil.isForTab(event, tabToAddTo)) {
                 Pair<Supplier<? extends ItemLike>, TabAdditionPhase> pair = entry.getValue();
-                if (phase == pair.getSecond()) {
-                    TabUtil.putAfter(event, pair.getFirst(), this.flower());
-                }
+                if (phase == pair.getSecond()) TabUtil.putAfter(event, pair.getFirst(), this.flower());
             }
         }
         for (Map.Entry<Supplier<CreativeModeTab>, Pair<Supplier<? extends ItemLike>, TabAdditionPhase>> entry : this.beforeOrdering.entrySet()) {
             Supplier<CreativeModeTab> tabToAddTo = entry.getKey();
             if (TabUtil.isForTab(event, tabToAddTo)) {
                 Pair<Supplier<? extends ItemLike>, TabAdditionPhase> pair = entry.getValue();
-                if (phase == pair.getSecond()) {
-                    TabUtil.putBefore(event, pair.getFirst(), this.flower());
-                }
+                if (phase == pair.getSecond()) TabUtil.putBefore(event, pair.getFirst(), this.flower());
             }
         }
         for (Map.Entry<Supplier<CreativeModeTab>, TabAdditionPhase> entry : this.appended.entrySet()) {
             Supplier<CreativeModeTab> tabToAddTo = entry.getKey();
             if (TabUtil.isForTab(event, tabToAddTo)) {
                 TabAdditionPhase current = entry.getValue();
-                if (phase == current) {
-                    TabUtil.put(event, this.flower());
-                }
+                if (phase == current) TabUtil.put(event, this.flower());
             }
         }
         return null;

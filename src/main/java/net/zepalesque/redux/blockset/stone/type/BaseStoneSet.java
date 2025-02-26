@@ -53,10 +53,10 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
     public final String id, textureFolder;
     protected String lore;
 
-    protected final DeferredBlock<AetherDoubleDropBlock> base;
-    protected final DeferredBlock<StairBlock> stairs;
-    protected final DeferredBlock<SlabBlock> slab;
-    protected final DeferredBlock<WallBlock> wall;
+    protected final DeferredBlock<? extends AetherDoubleDropBlock> base;
+    protected final DeferredBlock<? extends StairBlock> stairs;
+    protected final DeferredBlock<? extends SlabBlock> slab;
+    protected final DeferredBlock<? extends WallBlock> wall;
     protected NoteBlockInstrument instrument = NoteBlockInstrument.BASEDRUM;
     protected final Map<CraftingMatrix, Supplier<? extends ItemLike>> crafted_blocks = new HashMap<>();
     protected final Map<CraftingMatrix, Supplier<AbstractStoneSet>> crafted_sets = new HashMap<>();
@@ -91,7 +91,7 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
     }
 
     @Override
-    protected DeferredBlock<AetherDoubleDropBlock> block(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType, float breakTime, float blastResistance) {
+    protected DeferredBlock<? extends AetherDoubleDropBlock> block(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType, float breakTime, float blastResistance) {
         var block = registry.register(this.baseName(true), () -> new AetherDoubleDropBlock(
                 BlockBehaviour.Properties.of()
                         .strength(breakTime, blastResistance)
@@ -105,12 +105,12 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
     }
 
     @Override
-    public DeferredBlock<AetherDoubleDropBlock> block() {
+    public DeferredBlock<? extends AetherDoubleDropBlock> block() {
         return this.base;
     }
 
     @Override
-    protected DeferredBlock<StairBlock> stairs(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType, float breakTime, float blastResistance) {
+    protected DeferredBlock<? extends StairBlock> stairs(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType, float breakTime, float blastResistance) {
         var block = registry.register(this.baseName(false) + "_stairs", () -> new StairBlock(this.block().get().defaultBlockState(),
                 BlockBehaviour.Properties.of()
                         .strength(breakTime, blastResistance)
@@ -124,12 +124,12 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
     }
 
     @Override
-    public DeferredBlock<StairBlock> stairs() {
+    public DeferredBlock<? extends StairBlock> stairs() {
         return this.stairs;
     }
 
     @Override
-    protected DeferredBlock<SlabBlock> slab(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType, float breakTime, float blastResistance) {
+    protected DeferredBlock<? extends SlabBlock> slab(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType, float breakTime, float blastResistance) {
         var block = registry.register(this.baseName(false) + "_slab", () -> new SlabBlock(
                 BlockBehaviour.Properties.of()
                         // Unchanged as vanilla appears to no longer have higher break times for slabs
@@ -145,12 +145,12 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
 
 
     @Override
-    public DeferredBlock<SlabBlock> slab() {
+    public DeferredBlock<? extends SlabBlock> slab() {
         return this.slab;
     }
 
     @Override
-    protected DeferredBlock<WallBlock> wall(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType, float breakTime, float blastResistance) {
+    protected DeferredBlock<? extends WallBlock> wall(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType, float breakTime, float blastResistance) {
         var block = registry.register(this.baseName(false) + "_wall", () -> new WallBlock(
                 BlockBehaviour.Properties.of()
                         .strength(breakTime, blastResistance)
@@ -164,7 +164,7 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
     }
 
     @Override
-    public DeferredBlock<WallBlock> wall() {
+    public DeferredBlock<? extends WallBlock> wall() {
         return this.wall;
     }
 
