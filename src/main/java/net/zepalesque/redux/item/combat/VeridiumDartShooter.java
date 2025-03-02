@@ -10,7 +10,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.item.components.ReduxDataComponents;
 import net.zepalesque.redux.item.tools.VeridiumItem;
 import net.zepalesque.redux.util.item.TooltipUtils;
@@ -67,9 +66,7 @@ public class VeridiumDartShooter extends DartShooterItem implements VeridiumItem
 
     @Override
     public ItemStack getDefaultInstance() {
-        ItemStack stack = super.getDefaultInstance();
-        stack.set(ReduxDataComponents.INFUSION, ReduxConfig.SERVER.max_veridium_tool_infusion.get());
-        return stack;
+        return creativeStack(super.getDefaultInstance());
     }
 
     public static class Uninfused extends DartShooterItem {

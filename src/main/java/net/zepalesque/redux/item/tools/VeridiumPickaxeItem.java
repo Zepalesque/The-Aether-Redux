@@ -14,7 +14,6 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.data.ReduxTags;
 import net.zepalesque.redux.util.item.TooltipUtils;
 import net.zepalesque.redux.item.components.ReduxDataComponents;
@@ -89,9 +88,7 @@ public class VeridiumPickaxeItem extends PickaxeItem implements VeridiumItem {
 
     @Override
     public ItemStack getDefaultInstance() {
-        ItemStack stack = super.getDefaultInstance();
-        stack.set(ReduxDataComponents.INFUSION, ReduxConfig.SERVER.max_veridium_tool_infusion.get());
-        return stack;
+        return creativeStack(super.getDefaultInstance());
     }
 
     public static class Uninfused extends PickaxeItem {

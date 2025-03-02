@@ -87,4 +87,9 @@ public interface VeridiumItem extends CustomStackingBehavior {
     default void sendSound(ServerPlayer sp) {
         sp.connection.send(new ClientboundSoundPacket(getUninfuseSound(), SoundSource.PLAYERS, sp.getX(), sp.getY(), sp.getZ(), 0.8F, 0.8F + sp.level().getRandom().nextFloat() * 0.4F, sp.level().getRandom().nextLong()));
     }
+
+    default ItemStack creativeStack(ItemStack stack) {
+        stack.set(ReduxDataComponents.INFUSION, ReduxConfig.SERVER.max_veridium_tool_infusion.get());
+        return stack;
+    }
 }
