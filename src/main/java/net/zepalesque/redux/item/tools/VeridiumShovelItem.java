@@ -17,6 +17,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.util.item.TooltipUtils;
 import net.zepalesque.redux.item.components.ReduxDataComponents;
 import org.jetbrains.annotations.Nullable;
@@ -100,6 +101,13 @@ public class VeridiumShovelItem extends ShovelItem implements VeridiumItem {
     @Override
     public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, @Nullable T entity, Consumer<Item> onBroken) {
         return super.damageItem(stack, amount, entity, onBroken) * VeridiumItem.DURABILITY_DMG_MULTIPLIER;
+    }
+
+    @Override
+    public ItemStack getDefaultInstance() {
+        ItemStack stack = super.getDefaultInstance();
+        stack.set(ReduxDataComponents.INFUSION, ReduxConfig.SERVER.max_veridium_tool_infusion.get());
+        return stack;
     }
 
     public static class Uninfused extends ShovelItem {

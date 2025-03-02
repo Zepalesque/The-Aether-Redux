@@ -6,7 +6,6 @@
   "compatibilityLevel": "JAVA_21",
   "refmap": "aether_redux.refmap.json",
   "mixins": [
-    "common.TabUtilMixin",
     "common.accessor.AetherNoiseBuildersMixin",
     "common.accessor.EntityAccessor",
     "common.accessor.MossyCarpetAccessor",

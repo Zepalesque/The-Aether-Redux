@@ -10,6 +10,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.item.components.ReduxDataComponents;
 import net.zepalesque.redux.item.tools.VeridiumItem;
 import net.zepalesque.redux.util.item.TooltipUtils;
@@ -62,6 +63,13 @@ public class VeridiumDartShooter extends DartShooterItem implements VeridiumItem
     @Override
     public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, @Nullable T entity, Consumer<Item> onBroken) {
         return super.damageItem(stack, amount, entity, onBroken) * VeridiumItem.DURABILITY_DMG_MULTIPLIER;
+    }
+
+    @Override
+    public ItemStack getDefaultInstance() {
+        ItemStack stack = super.getDefaultInstance();
+        stack.set(ReduxDataComponents.INFUSION, ReduxConfig.SERVER.max_veridium_tool_infusion.get());
+        return stack;
     }
 
     public static class Uninfused extends DartShooterItem {
