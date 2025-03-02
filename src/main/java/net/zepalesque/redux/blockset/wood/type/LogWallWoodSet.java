@@ -26,11 +26,10 @@ import net.zepalesque.redux.data.prov.ReduxRecipeProvider;
 import net.zepalesque.redux.data.prov.loot.ReduxBlockLootProvider;
 import net.zepalesque.redux.data.prov.tags.ReduxBlockTagsProvider;
 import net.zepalesque.redux.item.ReduxItems;
-import net.zepalesque.zenith.api.data.DatagenUtil;
-import net.zepalesque.zenith.api.item.TabUtil;
-import net.zepalesque.zenith.core.Zenith;
 import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
-import net.zepalesque.zenith.util.CompatHelper;
+import net.zepalesque.zenith.util.data.DatagenUtil;
+import net.zepalesque.zenith.util.item.TabUtil;
+import net.zepalesque.zenith.util.mod.CompatHelper;
 
 import java.util.Map;
 import java.util.function.Supplier;
@@ -226,15 +225,15 @@ public class LogWallWoodSet extends BaseWoodSet {
     }
 
     @Override
-    protected Supplier<? extends ItemLike> buildingBlocks(BuildCreativeModeTabContentsEvent event, Supplier<? extends ItemLike> prev) {
-        Supplier<? extends ItemLike> superPrev = super.buildingBlocks(event, prev);
+    protected ItemLike buildingBlocks(BuildCreativeModeTabContentsEvent event, ItemLike prev) {
+        ItemLike superPrev = super.buildingBlocks(event, prev);
         TabUtil.putAfter(event, superPrev, this.logWall(), this.woodWall(), this.strippedLogWall(), this.strippedWoodWall());
         return this.strippedWoodWall();
     }
 
     @Override
-    protected Supplier<? extends ItemLike> naturalBlocks(BuildCreativeModeTabContentsEvent event, Supplier<? extends ItemLike> prev) {
-        Supplier<? extends ItemLike> superPrev = super.naturalBlocks(event, prev);
+    protected ItemLike naturalBlocks(BuildCreativeModeTabContentsEvent event, ItemLike prev) {
+        ItemLike superPrev = super.naturalBlocks(event, prev);
         if (CompatHelper.loaded("aether_genesis")) {
             TabUtil.putAfter(event, superPrev, this.logWall());
             return this.logWall();

@@ -38,9 +38,9 @@ import net.zepalesque.redux.data.prov.tags.ReduxItemTagsProvider;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.zenith.api.blockset.CraftingMatrix;
 import net.zepalesque.zenith.api.blockset.type.AbstractStoneSet;
-import net.zepalesque.zenith.api.data.DatagenUtil;
-import net.zepalesque.zenith.api.item.TabUtil;
 import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
+import net.zepalesque.zenith.util.data.DatagenUtil;
+import net.zepalesque.zenith.util.item.TabUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -58,18 +58,18 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
     protected final DeferredBlock<? extends SlabBlock> slab;
     protected final DeferredBlock<? extends WallBlock> wall;
     protected NoteBlockInstrument instrument = NoteBlockInstrument.BASEDRUM;
-    protected final Map<CraftingMatrix, Supplier<? extends ItemLike>> crafted_blocks = new HashMap<>();
+    protected final Map<CraftingMatrix, ItemLike> crafted_blocks = new HashMap<>();
     protected final Map<CraftingMatrix, Supplier<AbstractStoneSet>> crafted_sets = new HashMap<>();
-    protected final Map<Supplier<? extends ItemLike>, Integer> stonecut_blocks = new HashMap<>();
+    protected final Map<ItemLike, Integer> stonecut_blocks = new HashMap<>();
     protected final List<Supplier<AbstractStoneSet>> stonecut_sets = new ArrayList<>();
-    protected final Map<Supplier<? extends ItemLike>, Float> smelted_blocks = new HashMap<>();
+    protected final Map<ItemLike, Float> smelted_blocks = new HashMap<>();
     protected final Map<Supplier<AbstractStoneSet>, Float> smelted_sets = new HashMap<>();
-    protected final Map<Supplier<? extends ItemLike>, Float> blasted_blocks = new HashMap<>();
+    protected final Map<ItemLike, Float> blasted_blocks = new HashMap<>();
     protected final Map<Supplier<AbstractStoneSet>, Float> blasted_sets = new HashMap<>();
-    protected final Map<Supplier<? extends ItemLike>, Pair<Float, Integer>> enchanted_blocks = new HashMap<>();
+    protected final Map<ItemLike, Pair<Float, Integer>> enchanted_blocks = new HashMap<>();
     protected final Map<Supplier<AbstractStoneSet>, Pair<Float, Integer>> enchanted_sets = new HashMap<>();
-    protected final Table<Supplier<CreativeModeTab>, Supplier<? extends ItemLike>, Pair<Boolean, TabAdditionPhase>> afterOrdering = HashBasedTable.create();
-    protected final Table<Supplier<CreativeModeTab>, Supplier<? extends ItemLike>, Pair<Boolean, TabAdditionPhase>> beforeOrdering = HashBasedTable.create();
+    protected final Table<Supplier<CreativeModeTab>, ItemLike, Pair<Boolean, TabAdditionPhase>> afterOrdering = HashBasedTable.create();
+    protected final Table<Supplier<CreativeModeTab>, ItemLike, Pair<Boolean, TabAdditionPhase>> beforeOrdering = HashBasedTable.create();
     protected final Table<Supplier<CreativeModeTab>, TabAdditionPhase, Boolean> appended = HashBasedTable.create();
     protected final Map<TagKey<Block>, Boolean> tags = new HashMap<>();
     protected final Map<TagKey<Item>, Boolean> itemTags = new HashMap<>();
@@ -175,7 +175,7 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
     }
 
     @Override
-    public BaseStoneSet craftsInto(Supplier<? extends ItemLike> block, CraftingMatrix shape) {
+    public BaseStoneSet craftsInto(ItemLike block, CraftingMatrix shape) {
         this.crafted_blocks.put(shape, block);
         return this;
     }
@@ -187,7 +187,7 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
     }
 
     @Override
-    public BaseStoneSet stonecutInto(Supplier<? extends ItemLike> block, int count) {
+    public BaseStoneSet stonecutInto(ItemLike block, int count) {
         this.stonecut_blocks.put(block, count);
         return this;
     }
@@ -199,7 +199,7 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
     }
 
     @Override
-    public BaseStoneSet smeltsInto(Supplier<? extends ItemLike> block, float experience) {
+    public BaseStoneSet smeltsInto(ItemLike block, float experience) {
         this.smelted_blocks.put(block, experience);
         return this;
     }
@@ -209,7 +209,7 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
         return this;
     }
 
-    public BaseStoneSet blastsInto(Supplier<? extends ItemLike> block, float experience) {
+    public BaseStoneSet blastsInto(ItemLike block, float experience) {
         this.blasted_blocks.put(block, experience);
         return this;
     }
@@ -219,7 +219,7 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
         return this;
     }
 
-    public BaseStoneSet enchantsInto(Supplier<? extends ItemLike> block, float experience, int time) {
+    public BaseStoneSet enchantsInto(ItemLike block, float experience, int time) {
         this.enchanted_blocks.put(block, Pair.of(experience, time));
         return this;
     }
@@ -237,13 +237,13 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
     }
 
     @Override
-    public BaseStoneSet tabAfter(Supplier<CreativeModeTab> tab, Supplier<? extends ItemLike> placeAfter, boolean allBlocks, TabAdditionPhase phase) {
+    public BaseStoneSet tabAfter(Supplier<CreativeModeTab> tab, ItemLike placeAfter, boolean allBlocks, TabAdditionPhase phase) {
         this.afterOrdering.put(tab, placeAfter, Pair.of(allBlocks, phase));
         return this;
     }
 
     @Override
-    public BaseStoneSet tabBefore(Supplier<CreativeModeTab> tab, Supplier<? extends ItemLike> placeBefore, boolean allBlocks, TabAdditionPhase phase) {
+    public BaseStoneSet tabBefore(Supplier<CreativeModeTab> tab, ItemLike placeBefore, boolean allBlocks, TabAdditionPhase phase) {
         this.beforeOrdering.put(tab, placeBefore, Pair.of(allBlocks, phase));
         return this;
     }
@@ -281,7 +281,7 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
         String blockName = DatagenUtil.localize(this.block());
 
         data.addBlock(this.block());
-        if (this.lore != null) { data.addLore(this.block(), this.lore); }
+        if (this.lore != null) data.addLore(this.block(), this.lore);
         data.addBlock(this.stairs());
         data.addLore(this.stairs(), "Crafted from " + blockName + ". Stairs are useful for adding verticality to builds and are often used for decoration too!");
         data.addBlock(this.slab());
@@ -306,14 +306,14 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
         );
 
         this.crafted_blocks.forEach((matrix, block) ->
-            matrix.apply(ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, block.get(), matrix.count()), this.block().get())
+            matrix.apply(ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, block, matrix.count()), this.block().get())
                     .unlockedBy(ReduxRecipeProvider.getHasName(this.block().get()), ReduxRecipeProvider.has(this.block().get())).save(consumer,
-                            data.name(ReduxRecipeProvider.getConversionRecipeName(block.get(), this.block().get()))
+                            data.name(ReduxRecipeProvider.getConversionRecipeName(block, this.block().get()))
                     )
         );
 
         this.stonecut_blocks.forEach((block, count) ->
-                data.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, block.get(), this.block().get(), count)
+                data.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, block, this.block().get(), count)
         );
 
         this.stonecut_sets.forEach(set -> {
@@ -325,7 +325,7 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
         );
 
         this.smelted_blocks.forEach((block, xp) ->
-            data.smeltingOreRecipe(block.get(), this.block().get(), xp).save(consumer, data.name(ReduxRecipeProvider.getConversionRecipeName(block.get(), this.block().get()) + "_smelting"))
+            data.smeltingOreRecipe(block, this.block().get(), xp).save(consumer, data.name(ReduxRecipeProvider.getConversionRecipeName(block, this.block().get()) + "_smelting"))
         );
 
         this.smelted_sets.forEach((set, xp) ->
@@ -333,7 +333,7 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
         );
 
         this.blasted_blocks.forEach((block, xp) ->
-            data.blastingOreRecipe(block.get(), this.block().get(), xp).save(consumer, data.name(ReduxRecipeProvider.getConversionRecipeName(block.get(), this.block().get()) + "_blasting"))
+            data.blastingOreRecipe(block, this.block().get(), xp).save(consumer, data.name(ReduxRecipeProvider.getConversionRecipeName(block, this.block().get()) + "_blasting"))
         );
 
         this.blasted_sets.forEach((set, xp) ->
@@ -341,7 +341,7 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
         );
 
         this.enchanted_blocks.forEach((block, xpAndTime) ->
-            data.enchantingRecipe(RecipeCategory.MISC, block.get(), this.block().get(), xpAndTime.getFirst(), xpAndTime.getSecond()).save(consumer, data.name(ReduxRecipeProvider.getConversionRecipeName(block.get(), this.block().get()) + "_enchanting"))
+            data.enchantingRecipe(RecipeCategory.MISC, block, this.block().get(), xpAndTime.getFirst(), xpAndTime.getSecond()).save(consumer, data.name(ReduxRecipeProvider.getConversionRecipeName(block, this.block().get()) + "_enchanting"))
         );
 
         this.enchanted_sets.forEach((set, xpAndTime) ->
@@ -401,11 +401,11 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
 
     // Ignore the prev value, implementation is different here
     @Override
-    public Supplier<? extends ItemLike> addToCreativeTab(BuildCreativeModeTabContentsEvent event, Supplier<? extends ItemLike> prev, TabAdditionPhase phase) {
-        for (Table.Cell<Supplier<CreativeModeTab>, Supplier<? extends ItemLike>, Pair<Boolean, TabAdditionPhase>> triple : this.afterOrdering.cellSet()) {
+    public ItemLike addToCreativeTab(BuildCreativeModeTabContentsEvent event, ItemLike prev, TabAdditionPhase phase) {
+        for (Table.Cell<Supplier<CreativeModeTab>, ItemLike, Pair<Boolean, TabAdditionPhase>> triple : this.afterOrdering.cellSet()) {
             Supplier<CreativeModeTab> tabToAddTo = triple.getRowKey();
             if (TabUtil.isForTab(event, tabToAddTo)) {
-                Supplier<? extends ItemLike> addAfter = triple.getColumnKey();
+                ItemLike addAfter = triple.getColumnKey();
                 Pair<Boolean, TabAdditionPhase> pair = triple.getValue();
                 if (pair.getSecond() == phase) {
                     TabUtil.putAfter(event, addAfter, this.block());
@@ -413,15 +413,15 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
                 }
             }
         }
-        for (Table.Cell<Supplier<CreativeModeTab>, Supplier<? extends ItemLike>, Pair<Boolean, TabAdditionPhase>> triple : this.beforeOrdering.cellSet()) {
+        for (Table.Cell<Supplier<CreativeModeTab>, ItemLike, Pair<Boolean, TabAdditionPhase>> triple : this.beforeOrdering.cellSet()) {
             Supplier<CreativeModeTab> tabToAddTo = triple.getRowKey();
             if (TabUtil.isForTab(event, tabToAddTo)) {
-                Supplier<? extends ItemLike> addBefore = triple.getColumnKey();
+                ItemLike addBefore = triple.getColumnKey();
                 Pair<Boolean, TabAdditionPhase> pair = triple.getValue();
-                if (pair.getSecond() == phase) {
-                    if (pair.getFirst()) TabUtil.putBefore(event, addBefore, this.wall(), this.slab(), this.stairs(), this.block());
-                    else TabUtil.putBefore(event, addBefore, this.block());
-                }
+                if (pair.getSecond() == phase)
+                    if (pair.getFirst())
+                        TabUtil.putBefore(event, addBefore, this.wall(), this.slab(), this.stairs(), this.block());
+                else TabUtil.putBefore(event, addBefore, this.block());
             }
         }
         for (Table.Cell<Supplier<CreativeModeTab>, TabAdditionPhase, Boolean> triple : this.appended.cellSet()) {

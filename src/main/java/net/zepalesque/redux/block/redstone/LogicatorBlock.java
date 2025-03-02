@@ -25,7 +25,7 @@ import net.minecraft.world.ticks.TickPriority;
 import net.zepalesque.redux.block.state.ReduxStates;
 import net.zepalesque.redux.block.state.enums.LogicatorMode;
 import net.zepalesque.redux.client.audio.ReduxSounds;
-import net.zepalesque.zenith.api.block.StateUtil;
+import net.zepalesque.zenith.util.block.StateUtil;
 
 public class LogicatorBlock extends DiodeBlock {
     public static final MapCodec<LogicatorBlock> CODEC = simpleCodec(LogicatorBlock::new);

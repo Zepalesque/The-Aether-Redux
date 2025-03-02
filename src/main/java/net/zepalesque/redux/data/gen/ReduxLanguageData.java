@@ -8,7 +8,6 @@ import net.zepalesque.redux.data.prov.ReduxLanguageProvider;
 import net.zepalesque.redux.data.resource.registries.ReduxJukeboxSongs;
 import net.zepalesque.redux.entity.ReduxEntities;
 import net.zepalesque.redux.item.ReduxItems;
-import net.zepalesque.zenith.api.data.DatagenUtil;
 
 public class ReduxLanguageData extends ReduxLanguageProvider {
 
@@ -206,14 +205,14 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
         addPackTitle("bronze_upgrade", "Redux - Bronze Dungeon Upgrade");
         addPackDescription("bronze_upgrade", "Configurable in config/aether_redux/common.toml");
 
-        addSubtitle(ReduxSounds.INFUSE_ITEM, DatagenUtil::subtitleFor, "Item infuses");
-        addSubtitle(ReduxSounds.INFUSION_EXPIRE, DatagenUtil::subtitleFor, "Item infusion runs out");
-        addSubtitle(ReduxSounds.LOGICATOR_CLICK, DatagenUtil::subtitleFor, "Logicator clicks");
-        addSubtitle(ReduxSounds.AERJUMP, DatagenUtil::subtitleFor, "Something aerjumps");
-        addSubtitle(ReduxSounds.SLIDER_SIGNAL, DatagenUtil::subtitleFor, "Slider signals");
-        addSubtitle(ReduxSounds.EMBER_BOUNCE_BIG, DatagenUtil::subtitleFor, "Ember shatters");
-        addSubtitle(ReduxSounds.EMBER_BOUNCE_MEDIUM, DatagenUtil::subtitleFor, "Ember crackles");
-        addSubtitle(ReduxSounds.EMBER_BOUNCE_SMALL, DatagenUtil::subtitleFor, "Ember sparks");
+        addSubtitle(ReduxSounds.INFUSE_ITEM, "Item infuses");
+        addSubtitle(ReduxSounds.INFUSION_EXPIRE, "Item infusion runs out");
+        addSubtitle(ReduxSounds.LOGICATOR_CLICK, "Logicator clicks");
+        addSubtitle(ReduxSounds.AERJUMP, "Something aerjumps");
+        addSubtitle(ReduxSounds.SLIDER_SIGNAL, "Slider signals");
+        addSubtitle(ReduxSounds.EMBER_BOUNCE_BIG, "Ember shatters");
+        addSubtitle(ReduxSounds.EMBER_BOUNCE_MEDIUM, "Ember crackles");
+        addSubtitle(ReduxSounds.EMBER_BOUNCE_SMALL, "Ember sparks");
 
         addAdvancement("throw_ring_in_lava", "Cast it into the fire! Destroy it!", "Throw a Gold Ring into lava in the Nether");
     }

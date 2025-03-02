@@ -1,6 +1,6 @@
 package net.zepalesque.redux.config.enums;
 
-import net.zepalesque.zenith.util.CompatHelper;
+import net.zepalesque.zenith.util.mod.CompatHelper;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Supplier;

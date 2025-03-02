@@ -10,17 +10,12 @@ import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
-import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
-import net.zepalesque.redux.ArrayUtil;
-import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.function.BiConsumer;
 
 // TODO: move root stuff to custom root placer -- can return false on root placement method if overhangs go over a block down (USE A MAP, DO NOT IMMEDIATELY PLACE)

@@ -7,7 +7,7 @@ import net.minecraft.world.level.ItemLike;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.item.components.ReduxDataComponents;
 import net.zepalesque.redux.item.tools.VeridiumItem;
-import net.zepalesque.zenith.api.item.TabUtil;
+import net.zepalesque.zenith.util.item.TabUtil;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
@@ -16,12 +16,11 @@ import org.spongepowered.asm.mixin.injection.At;
 public class TabUtilMixin {
 
     // TODO: instead, make veridium tools full infusion by default
-    @WrapOperation(method = "stack", at = @At(value = "NEW", target = "(Lnet/minecraft/world/level/ItemLike;)Lnet/minecraft/world/item/ItemStack;"))
+    @WrapOperation(method = "stack", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/world/item/Item;getDefaultInstance()Lnet/minecraft/world/item/ItemStack;"))
     private static ItemStack redux$stack(ItemLike item, Operation<ItemStack> original) {
         ItemStack stack = original.call(item);
-        if (item instanceof VeridiumItem) {
+        if (item instanceof VeridiumItem)
             stack.set(ReduxDataComponents.INFUSION, ReduxConfig.SERVER.max_veridium_tool_infusion.get());
-        }
         return stack;
     }
 }

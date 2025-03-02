@@ -41,9 +41,9 @@ import net.zepalesque.unity.block.natural.DoubleDropsCarpet;
 import net.zepalesque.unity.block.natural.DoubleDropsGrowthBlock;
 import net.zepalesque.unity.block.natural.leaves.LeafPileBlock;
 import net.zepalesque.unity.event.hook.BlockHooks;
-import net.zepalesque.zenith.api.block.CommonPlantBounds;
 import net.zepalesque.zenith.api.blockset.type.AbstractWoodSet;
 import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
+import net.zepalesque.zenith.util.block.CommonPlantBounds;
 
 public class ReduxBlocks extends ReduxBlockBuilders {
 

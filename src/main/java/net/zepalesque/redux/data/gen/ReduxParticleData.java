@@ -3,10 +3,10 @@ package net.zepalesque.redux.data.gen;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
-import net.zepalesque.redux.ArrayUtil;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.particle.ReduxParticles;
 import net.zepalesque.redux.data.prov.ReduxParticleProvider;
+import net.zepalesque.zenith.util.ArrayUtil;
 
 import java.util.List;
 

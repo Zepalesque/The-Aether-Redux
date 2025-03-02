@@ -18,8 +18,8 @@ import net.minecraft.world.level.levelgen.feature.rootplacers.RootPlacer;
 import net.minecraft.world.level.levelgen.feature.rootplacers.RootPlacerType;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
-import net.zepalesque.redux.ArrayUtil;
 import net.zepalesque.redux.config.ReduxConfig;
+import net.zepalesque.zenith.util.ArrayUtil;
 import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.HashMap;
@@ -71,9 +71,7 @@ public class BlightwillowRootsPlacer extends RootPlacer {
 
         int height = trunkOrigin.getY() - origin.getY();
 
-        for(int i = 0; i < height; i++) {
-            this.placements.put(origin.above(i), false);
-        }
+        for(int i = 0; i < height; i++) this.placements.put(origin.above(i), false);
 
         // from 2 to 3 --
         int baseRootHeight = Math.max(height - 5, 2);

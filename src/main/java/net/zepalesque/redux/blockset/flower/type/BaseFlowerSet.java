@@ -32,8 +32,8 @@ import net.zepalesque.redux.data.prov.tags.ReduxItemTagsProvider;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.zenith.api.blockset.CraftingMatrix;
 import net.zepalesque.zenith.api.blockset.type.AbstractFlowerSet;
-import net.zepalesque.zenith.api.item.TabUtil;
 import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
+import net.zepalesque.zenith.util.item.TabUtil;
 import org.apache.commons.lang3.tuple.Triple;
 import org.jetbrains.annotations.Nullable;
 
@@ -51,11 +51,11 @@ public abstract class BaseFlowerSet<B extends Block> extends AbstractFlowerSet i
     protected float compost = 0.65F;
     protected boolean usePottedPrefix = false;
 
-    protected final Map<CraftingMatrix, Pair<Supplier<? extends ItemLike>, RecipeCategory>> crafted = new HashMap<>();
-    protected final Map<Integer, Triple<Supplier<? extends ItemLike>, Integer, RecipeCategory>> shapeless = new HashMap<>();
-    protected final Map<Supplier<? extends ItemLike>, Float> smelted = new HashMap<>();
-    protected final Map<Supplier<CreativeModeTab>, Pair<Supplier<? extends ItemLike>, TabAdditionPhase>> beforeOrdering = new HashMap<>();
-    protected final Map<Supplier<CreativeModeTab>,Pair<Supplier<? extends ItemLike>, TabAdditionPhase>> afterOrdering = new HashMap<>();
+    protected final Map<CraftingMatrix, Pair<ItemLike, RecipeCategory>> crafted = new HashMap<>();
+    protected final Map<Integer, Triple<ItemLike, Integer, RecipeCategory>> shapeless = new HashMap<>();
+    protected final Map<ItemLike, Float> smelted = new HashMap<>();
+    protected final Map<Supplier<CreativeModeTab>, Pair<ItemLike, TabAdditionPhase>> beforeOrdering = new HashMap<>();
+    protected final Map<Supplier<CreativeModeTab>,Pair<ItemLike, TabAdditionPhase>> afterOrdering = new HashMap<>();
     protected final Map<Supplier<CreativeModeTab>, TabAdditionPhase> appended = new HashMap<>();
     protected final Collection<TagKey<Block>> tags = new ArrayList<>();
     protected final Collection<TagKey<Block>> potTags = new ArrayList<>();
@@ -100,13 +100,13 @@ public abstract class BaseFlowerSet<B extends Block> extends AbstractFlowerSet i
     }
 
     @Override
-    public BaseFlowerSet<B> craftsInto(Supplier<? extends ItemLike> block, CraftingMatrix shape, RecipeCategory category) {
+    public BaseFlowerSet<B> craftsInto(ItemLike block, CraftingMatrix shape, RecipeCategory category) {
         this.crafted.put(shape, Pair.of(block, category));
         return this;
     }
 
     @Override
-    public BaseFlowerSet<B> craftsIntoShapeless(int ingredientCount, Supplier<? extends ItemLike> result, int resultCount, RecipeCategory category) {
+    public BaseFlowerSet<B> craftsIntoShapeless(int ingredientCount, ItemLike result, int resultCount, RecipeCategory category) {
         this.shapeless.put(ingredientCount, Triple.of(result, resultCount, category));
         return this;
     }
@@ -130,13 +130,13 @@ public abstract class BaseFlowerSet<B extends Block> extends AbstractFlowerSet i
     }
 
     @Override
-    public BaseFlowerSet<B> tabAfter(Supplier<CreativeModeTab> tab, Supplier<? extends ItemLike> placeAfter, TabAdditionPhase phase) {
+    public BaseFlowerSet<B> tabAfter(Supplier<CreativeModeTab> tab, ItemLike placeAfter, TabAdditionPhase phase) {
         this.afterOrdering.put(tab, Pair.of(placeAfter, phase));
         return this;
     }
 
     @Override
-    public BaseFlowerSet<B> tabBefore(Supplier<CreativeModeTab> tab, Supplier<? extends ItemLike> placeBefore, TabAdditionPhase phase) {
+    public BaseFlowerSet<B> tabBefore(Supplier<CreativeModeTab> tab, ItemLike placeBefore, TabAdditionPhase phase) {
         this.beforeOrdering.put(tab, Pair.of(placeBefore, phase));
         return this;
     }
@@ -205,14 +205,14 @@ public abstract class BaseFlowerSet<B extends Block> extends AbstractFlowerSet i
     @Override
     public void recipeData(ReduxRecipeProvider data, RecipeOutput consumer) {
         this.crafted.forEach((matrix, result) ->
-                matrix.apply(ShapedRecipeBuilder.shaped(result.getSecond(), result.getFirst().get(), matrix.count()), this.flower().get())
+                matrix.apply(ShapedRecipeBuilder.shaped(result.getSecond(), result.getFirst(), matrix.count()), this.flower().get())
                         .unlockedBy(ReduxRecipeProvider.getHasName(this.flower().get()), ReduxRecipeProvider.has(this.flower().get()))
-                        .save(consumer, data.name(ReduxRecipeProvider.getConversionRecipeName(result.getFirst().get(), this.flower().get()))));
+                        .save(consumer, data.name(ReduxRecipeProvider.getConversionRecipeName(result.getFirst(), this.flower().get()))));
         this.shapeless.forEach((ingredient, result) ->
-            ShapelessRecipeBuilder.shapeless(result.getRight(), result.getLeft().get(), result.getMiddle())
+            ShapelessRecipeBuilder.shapeless(result.getRight(), result.getLeft(), result.getMiddle())
                     .requires(this.flower(), ingredient)
                     .unlockedBy(ReduxRecipeProvider.getHasName(this.flower().get()), ReduxRecipeProvider.has(this.flower().get()))
-                    .save(consumer, data.name(ReduxRecipeProvider.getConversionRecipeName(result.getLeft().get(), this.flower().get()))));
+                    .save(consumer, data.name(ReduxRecipeProvider.getConversionRecipeName(result.getLeft(), this.flower().get()))));
     }
 
     @Override
@@ -247,18 +247,18 @@ public abstract class BaseFlowerSet<B extends Block> extends AbstractFlowerSet i
 
     // Ignore the prev value, implementation is different here
     @Override
-    public Supplier<? extends ItemLike> addToCreativeTab(BuildCreativeModeTabContentsEvent event, Supplier<? extends ItemLike> prev, TabAdditionPhase phase) {
-        for (Map.Entry<Supplier<CreativeModeTab>, Pair<Supplier<? extends ItemLike>, TabAdditionPhase>> entry : this.afterOrdering.entrySet()) {
+    public ItemLike addToCreativeTab(BuildCreativeModeTabContentsEvent event, ItemLike prev, TabAdditionPhase phase) {
+        for (Map.Entry<Supplier<CreativeModeTab>, Pair<ItemLike, TabAdditionPhase>> entry : this.afterOrdering.entrySet()) {
             Supplier<CreativeModeTab> tabToAddTo = entry.getKey();
             if (TabUtil.isForTab(event, tabToAddTo)) {
-                Pair<Supplier<? extends ItemLike>, TabAdditionPhase> pair = entry.getValue();
+                Pair<ItemLike, TabAdditionPhase> pair = entry.getValue();
                 if (phase == pair.getSecond()) TabUtil.putAfter(event, pair.getFirst(), this.flower());
             }
         }
-        for (Map.Entry<Supplier<CreativeModeTab>, Pair<Supplier<? extends ItemLike>, TabAdditionPhase>> entry : this.beforeOrdering.entrySet()) {
+        for (Map.Entry<Supplier<CreativeModeTab>, Pair<ItemLike, TabAdditionPhase>> entry : this.beforeOrdering.entrySet()) {
             Supplier<CreativeModeTab> tabToAddTo = entry.getKey();
             if (TabUtil.isForTab(event, tabToAddTo)) {
-                Pair<Supplier<? extends ItemLike>, TabAdditionPhase> pair = entry.getValue();
+                Pair<ItemLike, TabAdditionPhase> pair = entry.getValue();
                 if (phase == pair.getSecond()) TabUtil.putBefore(event, pair.getFirst(), this.flower());
             }
         }

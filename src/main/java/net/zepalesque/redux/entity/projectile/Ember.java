@@ -28,7 +28,7 @@ import net.neoforged.neoforge.event.EventHooks;
 import net.zepalesque.redux.client.audio.ReduxSounds;
 import net.zepalesque.redux.client.particle.ReduxParticles;
 import net.zepalesque.redux.entity.ReduxEntities;
-import net.zepalesque.redux.temp.VectorUtil;
+import net.zepalesque.zenith.util.math.VectorUtil;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.HashSet;

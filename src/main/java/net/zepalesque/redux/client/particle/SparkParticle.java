@@ -17,7 +17,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import net.zepalesque.redux.entity.projectile.Ember;
-import net.zepalesque.redux.temp.VectorUtil;
+import net.zepalesque.zenith.util.math.VectorUtil;
 
 import java.util.List;
 

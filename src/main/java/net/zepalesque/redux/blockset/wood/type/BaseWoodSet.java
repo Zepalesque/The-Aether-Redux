@@ -73,15 +73,15 @@ import net.zepalesque.redux.entity.ReduxEntities;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.tile.ReduxTiles;
 import net.zepalesque.zenith.api.blockset.type.AbstractWoodSet;
-import net.zepalesque.zenith.api.data.DatagenUtil;
-import net.zepalesque.zenith.api.item.TabUtil;
-import net.zepalesque.zenith.core.block.type.tile.ZenithCeilingHangingSignBlock;
-import net.zepalesque.zenith.core.block.type.tile.ZenithSignBlock;
-import net.zepalesque.zenith.core.block.type.tile.ZenithWallHangingSignBlock;
-import net.zepalesque.zenith.core.block.type.tile.ZenithWallSignBlock;
+import net.zepalesque.zenith.util.data.DatagenUtil;
+import net.zepalesque.zenith.util.item.TabUtil;
+import net.zepalesque.zenith.api.block.type.tile.ZenithCeilingHangingSignBlock;
+import net.zepalesque.zenith.api.block.type.tile.ZenithSignBlock;
+import net.zepalesque.zenith.api.block.type.tile.ZenithWallHangingSignBlock;
+import net.zepalesque.zenith.api.block.type.tile.ZenithWallSignBlock;
 import net.zepalesque.zenith.core.client.render.entity.ZenithBoatRenderer;
-import net.zepalesque.zenith.core.entity.misc.ZenithBoat;
-import net.zepalesque.zenith.core.entity.misc.ZenithChestBoat;
+import net.zepalesque.zenith.api.entity.misc.ZenithBoat;
+import net.zepalesque.zenith.api.entity.misc.ZenithChestBoat;
 import net.zepalesque.zenith.core.item.type.ZenithBoatItem;
 import net.zepalesque.zenith.core.tile.ZenithHangingSignBlockEntity;
 import net.zepalesque.zenith.core.tile.ZenithSignBlockEntity;
@@ -895,31 +895,27 @@ public class BaseWoodSet extends AbstractWoodSet implements ReduxGeneration {
     }
 
     @Override
-    public Supplier<? extends ItemLike> addToCreativeTab(BuildCreativeModeTabContentsEvent event, @Nullable Supplier<? extends ItemLike> prev, TabAdditionPhase phase) {
+    public ItemLike addToCreativeTab(BuildCreativeModeTabContentsEvent event, @Nullable ItemLike prev, TabAdditionPhase phase) {
         if (phase == TabAdditionPhase.BEFORE) {
             CreativeModeTab tab = event.getTab();
 
-            if (TabUtil.isForTab(event, AetherCreativeTabs.AETHER_BUILDING_BLOCKS)) {
+            if (TabUtil.isForTab(event, AetherCreativeTabs.AETHER_BUILDING_BLOCKS))
                 return this.buildingBlocks(event, prev == null ? AetherBlocks.GOLDEN_OAK_WOOD : prev);
-            }
 
-            if (TabUtil.isForTab(event, AetherCreativeTabs.AETHER_NATURAL_BLOCKS)) {
+            if (TabUtil.isForTab(event, AetherCreativeTabs.AETHER_NATURAL_BLOCKS))
                 return this.naturalBlocks(event, prev == null ? AetherBlocks.GOLDEN_OAK_LOG : prev);
-            }
 
-            if (TabUtil.isForTab(event, AetherCreativeTabs.AETHER_FUNCTIONAL_BLOCKS)) {
+            if (TabUtil.isForTab(event, AetherCreativeTabs.AETHER_FUNCTIONAL_BLOCKS))
                 return this.functionalBlocks(event, prev == null ? AetherBlocks.SKYROOT_HANGING_SIGN : prev);
-            }
 
-            if (TabUtil.isForTab(event, AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES)) {
+            if (TabUtil.isForTab(event, AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES))
                 return this.equipment(event, prev == null ? AetherItems.SKYROOT_CHEST_BOAT : prev);
-            }
 
         }
         return prev;
     }
 
-    protected Supplier<? extends ItemLike> buildingBlocks(BuildCreativeModeTabContentsEvent event, Supplier<? extends ItemLike> prev) {
+    protected ItemLike buildingBlocks(BuildCreativeModeTabContentsEvent event, ItemLike prev) {
         TabUtil.putAfter(event, prev,
                 this.log(),
                 this.wood(),
@@ -937,17 +933,17 @@ public class BaseWoodSet extends AbstractWoodSet implements ReduxGeneration {
         return this.button();
     }
 
-    protected Supplier<? extends ItemLike> naturalBlocks(BuildCreativeModeTabContentsEvent event, Supplier<? extends ItemLike> prev) {
+    protected ItemLike naturalBlocks(BuildCreativeModeTabContentsEvent event, ItemLike prev) {
         TabUtil.putAfter(event, prev, this.log());
         return this.log();
     }
 
-    protected Supplier<? extends ItemLike> functionalBlocks(BuildCreativeModeTabContentsEvent event, Supplier<? extends ItemLike> prev) {
+    protected ItemLike functionalBlocks(BuildCreativeModeTabContentsEvent event, ItemLike prev) {
         TabUtil.putAfter(event, prev, this.sign(), this.hangingSign());
         return this.hangingSign();
     }
 
-    protected Supplier<? extends ItemLike> equipment(BuildCreativeModeTabContentsEvent event, Supplier<? extends ItemLike> prev) {
+    protected ItemLike equipment(BuildCreativeModeTabContentsEvent event, ItemLike prev) {
         TabUtil.putAfter(event, prev, this.boatItem(), this.chestBoatItem());
         return this.chestBoatItem();
     }

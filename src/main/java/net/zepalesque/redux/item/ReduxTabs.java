@@ -18,7 +18,7 @@ import net.zepalesque.redux.blockset.flower.ReduxFlowerSets;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
 import net.zepalesque.unity.block.UnityBlocks;
 import net.zepalesque.zenith.api.blockset.BlockSet;
-import net.zepalesque.zenith.api.item.TabUtil;
+import net.zepalesque.zenith.util.item.TabUtil;
 
 import java.util.function.Supplier;
 
@@ -28,7 +28,7 @@ public class ReduxTabs {
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void buildCreativeModeTabs(BuildCreativeModeTabContentsEvent event) {
         CreativeModeTab tab = event.getTab();
-        Supplier<? extends ItemLike> sup = null; for (BlockSet set : Redux.BLOCK_SETS) sup = set.addToCreativeTab(event, sup, BlockSet.TabAdditionPhase.BEFORE);
+        ItemLike sup = null; for (BlockSet set : Redux.BLOCK_SETS) sup = set.addToCreativeTab(event, sup, BlockSet.TabAdditionPhase.BEFORE);
 
 
         if (TabUtil.isForTab(event, AetherCreativeTabs.AETHER_NATURAL_BLOCKS)) {

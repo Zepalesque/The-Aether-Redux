@@ -12,7 +12,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.zepalesque.redux.block.natural.bush.CustomBoundsFlowerBlock;
 import net.zepalesque.redux.client.particle.ReduxParticles;
-import net.zepalesque.zenith.api.math.MathUtil;
+import net.zepalesque.zenith.util.math.MathUtil;
 
 public class Flareblossom extends CustomBoundsFlowerBlock {
     public static final VoxelShape SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 13.0D, 12.0D);
@@ -30,8 +30,7 @@ public class Flareblossom extends CustomBoundsFlowerBlock {
         double y = (double)pos.getY() + MathUtil.nextDouble(aabb.minY + 0.25, aabb.maxY, random);
         double z = (double)pos.getZ() + MathUtil.nextDouble(aabb.minZ, aabb.maxZ, random);
 
-        if (random.nextFloat() > 0.25F) {
+        if (random.nextFloat() > 0.25F)
             level.addParticle(ReduxParticles.BLOSSOM_FLARE.get(), x, y, z, 0.0D, 0.0D, 0.0D);
-        }
     }
 }

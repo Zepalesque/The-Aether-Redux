@@ -50,7 +50,6 @@ import net.zepalesque.redux.world.tree.roots.ReduxRootPlacers;
 import net.zepalesque.redux.world.tree.trunk.ReduxTrunkPlacers;
 import net.zepalesque.zenith.api.blockset.BlockSet;
 import net.zepalesque.zenith.api.packconfig.PackConfig;
-import net.zepalesque.zenith.api.packconfig.PackUtils;
 import org.slf4j.Logger;
 import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;

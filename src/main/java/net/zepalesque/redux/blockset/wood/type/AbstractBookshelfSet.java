@@ -22,11 +22,9 @@ import net.zepalesque.redux.data.prov.ReduxRecipeProvider;
 import net.zepalesque.redux.data.prov.loot.ReduxBlockLootProvider;
 import net.zepalesque.redux.data.prov.tags.ReduxBlockTagsProvider;
 import net.zepalesque.redux.item.ReduxItems;
-import net.zepalesque.zenith.api.data.DatagenUtil;
-import net.zepalesque.zenith.api.item.TabUtil;
 import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
-
-import java.util.function.Supplier;
+import net.zepalesque.zenith.util.data.DatagenUtil;
+import net.zepalesque.zenith.util.item.TabUtil;
 
 public abstract class AbstractBookshelfSet<B extends BookshelfBlock> extends LogWallWoodSet {
 
@@ -88,7 +86,7 @@ public abstract class AbstractBookshelfSet<B extends BookshelfBlock> extends Log
     }
 
     @Override
-    protected Supplier<? extends ItemLike> functionalBlocks(BuildCreativeModeTabContentsEvent event, Supplier<? extends ItemLike> prev) {
+    protected ItemLike functionalBlocks(BuildCreativeModeTabContentsEvent event, ItemLike prev) {
         TabUtil.putAfter(event, prev, this.bookshelf());
         return super.functionalBlocks(event, this.bookshelf());
     }

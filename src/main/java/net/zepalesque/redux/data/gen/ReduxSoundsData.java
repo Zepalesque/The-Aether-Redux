@@ -5,7 +5,7 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.audio.ReduxSounds;
 import net.zepalesque.redux.data.prov.ReduxSoundsProvider;
-import net.zepalesque.zenith.api.data.DatagenUtil;
+import net.zepalesque.zenith.util.data.DatagenUtil;
 
 public class ReduxSoundsData extends ReduxSoundsProvider {
     public ReduxSoundsData(PackOutput output, ExistingFileHelper helper) {

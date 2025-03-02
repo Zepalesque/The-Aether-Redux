@@ -26,11 +26,11 @@ public class ReduxColors {
         public static final int BLEAKMOSS_GRASS_COLOR = 0xB79EC1;
     }
 
-    public static Optional<Integer> reduxColors(BlockState state, @Nullable BlockAndTintGetter level, @Nullable BlockPos pos, int index, Predicate<Integer> indexGoal, boolean useBelowProperties) {
-        if (level == null || pos == null) return Optional.empty();
+    public static Integer reduxColors(BlockState state, @Nullable BlockAndTintGetter level, @Nullable BlockPos pos, int index, Predicate<Integer> indexGoal, boolean useBelowProperties) {
+        if (level == null || pos == null) return null;
         if (level.getBlockState(pos.below()).is(ReduxTags.Blocks.SHORT_AETHER_GRASS_BLEAKMOSS_COLORING))
-            return UnityColors.encapsulate(Tints.BLEAKMOSS_GRASS_COLOR);
-        return Optional.empty();
+            return Tints.BLEAKMOSS_GRASS_COLOR;
+        return null;
     }
 
     public static void blockColors(RegisterColorHandlersEvent.Block event) {
