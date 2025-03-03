@@ -92,8 +92,10 @@ public class WhirlwindModel<T extends AbstractWhirlwind> extends EntityModel<T> 
 				int a = Math.round(255F * EasingUtil.Sinusoidal.inOut(prog)) << 24 | mask;
 				alpha[i] = a;
 			}
-		if (entity.deathTime >= total) alpha = new int[]{mask, mask, mask, mask};
-
+		if (entity.deathTime >= total) {
+			alpha[0] = mask;
+			alpha[1] = mask;
+			alpha[2] = mask;
 			alpha[3] = mask;
 		}
 		
