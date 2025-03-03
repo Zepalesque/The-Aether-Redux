@@ -40,9 +40,7 @@ public class ReduxGlowParticle extends TextureSheetParticle {
       int j = i & 255;
       int k = i >> 16 & 255;
       j += (int)(f * 15.0F * 16.0F);
-      if (j > 240) {
-         j = 240;
-      }
+      if (j > 240) j = 240;
 
       return j | k << 16;
    }
@@ -52,9 +50,7 @@ public class ReduxGlowParticle extends TextureSheetParticle {
    @Override
    public void tick() {
       super.tick();
-      if (this.animated) {
-         this.setSpriteFromAge(sprites);
-      }
+      if (this.animated) this.setSpriteFromAge(sprites);
    }
 
    @OnlyIn(Dist.CLIENT)

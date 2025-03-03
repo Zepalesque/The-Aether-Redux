@@ -17,16 +17,12 @@ public abstract class SliderMixin extends MobMixin {
     @Shadow public abstract boolean isCritical();
 
     @Shadow private int moveDelay;
-
-    @Shadow private Direction moveDirection;
-
+    
     @Shadow public abstract int getMoveDelay();
 
     @Inject(method = "getAmbientSound", at = @At("RETURN"), cancellable = true)
     protected void redux$getAmbientSound(CallbackInfoReturnable<SoundEvent> cir) {
-        if (((Slider) (Object) this).isAwake()) {
-            cir.setReturnValue(null);
-        }
+        if (((Slider) (Object) this).isAwake()) cir.setReturnValue(null);
     }
 
     @Inject(method = "calculateMoveDelay", at = @At("HEAD"), cancellable = true)
@@ -38,16 +34,14 @@ public abstract class SliderMixin extends MobMixin {
 
     @Inject(method = "customServerAiStep", at = @At("HEAD"))
     protected void redux$customServerAiStep(CallbackInfo ci) {
-        if (!this.isCritical() && this.moveDelay == 7 || this.isCritical() && this.moveDelay == 3) {
+        if (!this.isCritical() && this.moveDelay == 7 || this.isCritical() && this.moveDelay == 3)
             SliderSignalAttachment.sendSignal((Slider) (Object) this);
-        }
     }
 
     @Inject(method = "setMoveDirection", at = @At("HEAD"))
     protected void redux$setMoveDirection(Direction moveDirection, CallbackInfo ci) {
-        if (moveDirection != null && !((Slider) (Object) this).isCritical() && this.getMoveDelay() > 0) {
+        if (moveDirection != null && !this.isCritical() && this.getMoveDelay() > 0)
             SliderSignalAttachment.syncDirection((Slider) (Object) this, moveDirection);
-        }
     }
 
     @Override

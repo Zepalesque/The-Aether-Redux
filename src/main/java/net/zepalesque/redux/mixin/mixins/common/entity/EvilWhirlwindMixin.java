@@ -1,6 +1,5 @@
 package net.zepalesque.redux.mixin.mixins.common.entity;
 
-import com.aetherteam.aether.client.particle.AetherParticleTypes;
 import com.aetherteam.aether.entity.monster.EvilWhirlwind;
 import net.minecraft.util.Mth;
 import net.zepalesque.redux.client.particle.ReduxParticles;

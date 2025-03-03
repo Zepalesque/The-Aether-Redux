@@ -4,7 +4,6 @@ import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether.item.accessories.ring.RingItem;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.item.Item;
 import net.zepalesque.redux.advancement.ReduxAdvancementTriggers;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;

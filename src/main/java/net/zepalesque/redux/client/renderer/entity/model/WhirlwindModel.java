@@ -28,7 +28,7 @@ public class WhirlwindModel<T extends AbstractWhirlwind> extends EntityModel<T> 
 	private final ModelPart whirl_top;
 	private final ModelPart top_render;
 
-	private int[] alpha = {-1, -1, -1, -1};
+	private final int[] alpha = {-1, -1, -1, -1};
 
 	public WhirlwindModel(ModelPart root) {
 		this.whirl_body = root.getChild("whirl_body");
@@ -94,6 +94,9 @@ public class WhirlwindModel<T extends AbstractWhirlwind> extends EntityModel<T> 
 			}
 		if (entity.deathTime >= total) alpha = new int[]{mask, mask, mask, mask};
 
+			alpha[3] = mask;
+		}
+		
 		boolean flag = entity.getType() == AetherEntityTypes.EVIL_WHIRLWIND.get();
 
 		float speedModif = flag ? -0.075F : -0.1F;
@@ -120,8 +123,10 @@ public class WhirlwindModel<T extends AbstractWhirlwind> extends EntityModel<T> 
 		lower_render.render(poseStack, buffer, packedLight, packedOverlay, color & alpha[1]);
 		upper_render.render(poseStack, buffer, packedLight, packedOverlay, color & alpha[2]);
 		top_render.render(poseStack, buffer, packedLight, packedOverlay, color & alpha[3]);
-		alpha = new int[]{-1, -1, -1, -1};
+		
+		alpha[0] = 0xffffffff;
+		alpha[1] = 0xffffffff;
+		alpha[2] = 0xffffffff;
+		alpha[3] = 0xffffffff;
 	}
-
-
 }

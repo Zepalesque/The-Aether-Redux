@@ -37,10 +37,7 @@ public class ReduxEvilWhirlwindRenderer<T extends AbstractWhirlwind> extends Red
     protected float xOffset(float tickCount) {
         return tickCount * 0.015F;
     }
-
-    @Override
-    protected void setupRotations(@NotNull AbstractWhirlwind entity, @NotNull PoseStack poseStack, float bob, float yBodyRot, float partialTick, float scale) {}
-
+    
     @Override
     protected void scale(T livingEntity, PoseStack poseStack, float partialTickTime) {
         poseStack.scale(1.25F, 1.25F, 1.25F);

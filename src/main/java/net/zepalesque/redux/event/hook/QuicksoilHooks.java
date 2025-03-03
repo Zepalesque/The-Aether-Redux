@@ -3,7 +3,6 @@ package net.zepalesque.redux.event.hook;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
 import net.zepalesque.redux.data.ReduxTags;
 import net.zepalesque.redux.mixin.mixins.common.accessor.EntityAccessor;
 

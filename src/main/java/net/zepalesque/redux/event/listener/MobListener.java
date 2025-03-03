@@ -1,16 +1,10 @@
 package net.zepalesque.redux.event.listener;
 
-import com.aetherteam.aether.attachment.AetherPlayerAttachment;
-import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.entity.monster.dungeon.boss.Slider;
-import com.aetherteam.aether.item.EquipmentUtil;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityDimensions;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.event.entity.EntityEvent;
 import net.neoforged.neoforge.event.entity.living.LivingFallEvent;
 import net.neoforged.neoforge.event.tick.EntityTickEvent;
 import net.zepalesque.redux.Redux;
@@ -18,9 +12,6 @@ import net.zepalesque.redux.attachment.ReduxPlayerAttachment;
 import net.zepalesque.redux.attachment.SliderSignalAttachment;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.event.hook.QuicksoilHooks;
-import net.zepalesque.redux.item.ReduxItems;
-
-import java.util.List;
 
 @EventBusSubscriber(modid = Redux.MODID)
 public class MobListener {

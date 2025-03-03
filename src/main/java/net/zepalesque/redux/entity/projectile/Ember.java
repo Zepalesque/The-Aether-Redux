@@ -191,7 +191,6 @@ public class Ember extends Projectile {
 
             // trigonometry, how fun !! trigonometry dash 2.2 when
 
-            //
             double sin = Mth.sin(theta) * spread;
             double cos = Mth.cos(theta) * spread;
 
@@ -208,8 +207,8 @@ public class Ember extends Projectile {
 
         this.level().playSound(null, loc.x(), loc.y(), loc.z(), sound, SoundSource.NEUTRAL, (float) (velocity.length() * 10D), 0.8F + this.level().random.nextFloat() * 0.4F);
 
-        Vec3 frictionized = bounce.multiply(Ember.BOUNCE_FRICTION);
-        this.setDeltaMovement(frictionized);
+        Vec3 modified = bounce.multiply(Ember.BOUNCE_FRICTION);
+        this.setDeltaMovement(modified);
         this.setPos(loc);
     }
 

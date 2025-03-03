@@ -13,7 +13,6 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.data.ReduxTags;
 import net.zepalesque.redux.data.prov.tags.ReduxBlockTagsProvider;
-import net.zepalesque.unity.block.UnityBlocks;
 import net.zepalesque.unity.data.UnityTags;
 import org.jetbrains.annotations.Nullable;
 
@@ -30,11 +29,9 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
         Redux.BLOCK_SETS.forEach(set -> set.blockTagData(this));
 
-        // Adds every single Redux block as a block that should be treaded as an Aether Block and get the tool debuff
+        // Adds every single Redux block as a block that should be treated as an Aether Block and get the tool debuff
         IntrinsicTagAppender<Block> tag = this.tag(AetherTags.Blocks.TREATED_AS_AETHER_BLOCK);
-        for (DeferredHolder<Block, ? extends Block> block : ReduxBlocks.BLOCKS.getEntries()) {
-            tag.add(block.get());
-        }
+        for (DeferredHolder<Block, ? extends Block> block : ReduxBlocks.BLOCKS.getEntries()) tag.add(block.get());
 
         this.tag(AetherTags.Blocks.AETHER_ANIMALS_SPAWNABLE_ON).add(
                 AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get()

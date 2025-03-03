@@ -20,10 +20,7 @@ public class ReduxLoot {
         return register(ResourceKey.create(Registries.LOOT_TABLE, Redux.loc(id)));
     }
     private static ResourceKey<LootTable> register(ResourceKey<LootTable> id) {
-        if (LOOT_TABLES.add(id)) {
-            return id;
-        } else {
-            throw new IllegalArgumentException(id + " is already a registered built-in loot table");
-        }
+        if (LOOT_TABLES.add(id)) return id;
+        else throw new IllegalArgumentException(id + " is already a registered built-in loot table");
     }
 }

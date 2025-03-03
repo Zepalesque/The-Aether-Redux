@@ -28,11 +28,8 @@ public abstract class AbstractWhirlwindMixin extends LivingEntityMixin {
 
     @WrapOperation(method = "aiStep", at = @At(value = "INVOKE", target = "Ljava/util/stream/Stream;toList()Ljava/util/List;"))
     protected <T> List<T> redux$swirlMobs(Stream<T> stream, Operation<List<T>> original) {
-        if (((AbstractWhirlwind) (Object) this).isDeadOrDying()) {
-            return List.of();
-        } else {
-            return original.call(stream);
-        }
+        if (((AbstractWhirlwind) (Object) this).isDeadOrDying()) return List.of();
+        else return original.call(stream);
     }
 
     @Override

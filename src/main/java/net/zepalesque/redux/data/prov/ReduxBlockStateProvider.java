@@ -112,11 +112,9 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
                 this.extend(this.texture(this.name(baseBlock), location), "_top"));
         ModelFile invisible = this.models().getBuilder(this.name(block));
         this.getVariantBuilder(block).forAllStatesExcept(state -> {
-            if (!state.getValue(DoorwayBlock.INVISIBLE)) {
-                return ConfiguredModel.builder().modelFile(visible).build();
-            } else {
-                return ConfiguredModel.builder().modelFile(invisible).build();
-            }
+            if (!state.getValue(DoorwayBlock.INVISIBLE))
+                 return ConfiguredModel.builder().modelFile(visible).build();
+            else return ConfiguredModel.builder().modelFile(invisible).build();
         });
     }
 
@@ -193,8 +191,8 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
         this.getVariantBuilder(block).forAllStates((state -> {
             Direction.Axis axis = state.getValue(ChainBlock.AXIS);
             ConfiguredModel.Builder<?> builder = ConfiguredModel.builder().modelFile(chain);
-            if (axis == Direction.Axis.X) { builder = builder.rotationY(90); }
-            if (axis != Direction.Axis.Y) { builder = builder.rotationX(90); }
+            if (axis == Direction.Axis.X) builder = builder.rotationY(90);
+            if (axis != Direction.Axis.Y) builder = builder.rotationX(90);
             return builder.build();
         }));
     }
@@ -243,9 +241,7 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
             int rot = d.getAxis() == Direction.Axis.Z ? 0 : 90;
 
             PartBuilder b1 = builder.part().modelFile(useAlt ? capAlt : cap).rotationY(rot).addModel().condition(b, true);
-            for (Direction other : others) {
-                b1.condition(directionProperties.get(other), false);
-            }
+            for (Direction other : others) b1.condition(directionProperties.get(other), false);
             b1.end();
 
             builder.part().modelFile(useAlt ? sideAlt : side).rotationY(rot).addModel().condition(b, true).end();
@@ -360,9 +356,8 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
             var noneBuilder = builder.part().modelFile(sideTall).rotationY(key.getOpposite().get2DDataValue() * 90);
             if (key != Direction.NORTH) noneBuilder = noneBuilder.uvLock(true);
             var modelAdded = noneBuilder.addModel().condition(MossyCarpetBlock.BASE, false);
-            for (EnumProperty<WallSide> property : MossyCarpetBlock.PROPERTY_BY_DIRECTION.values()) {
+            for (EnumProperty<WallSide> property : MossyCarpetBlock.PROPERTY_BY_DIRECTION.values())
                 modelAdded.condition(property, WallSide.NONE);
-            }
             builder = modelAdded.end();
         }
     }

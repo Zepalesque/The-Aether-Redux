@@ -4,7 +4,6 @@ import com.aetherteam.aether.block.natural.QuicksoilBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.vehicle.Boat;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.PathComputationType;
@@ -19,9 +18,8 @@ public class QuicksoilMixin extends BlockBehaviorMixin {
 
     @Override
     public void redux$pathFindable(BlockState state, PathComputationType type, CallbackInfoReturnable<Boolean> cir) {
-        if (ReduxConfig.SERVER.revamped_quicksoil_movement.get() && type == PathComputationType.LAND) {
+        if (ReduxConfig.SERVER.revamped_quicksoil_movement.get() && type == PathComputationType.LAND)
             cir.setReturnValue(false);
-        }
     }
 
 

@@ -11,8 +11,7 @@ import net.zepalesque.redux.item.ReduxItems;
 import java.util.function.Function;
 
 public class ReduxBlockBuilders {
-
-
+    
     protected static <T extends Block> DeferredBlock<T> register(final String name, final Supplier<? extends T> block, Function<DeferredBlock<T>, Supplier<? extends Item>> item) {
         DeferredBlock<T> obj = ReduxBlocks.BLOCKS.register(name, block);
         ReduxItems.ITEMS.register(name, item.apply(obj));

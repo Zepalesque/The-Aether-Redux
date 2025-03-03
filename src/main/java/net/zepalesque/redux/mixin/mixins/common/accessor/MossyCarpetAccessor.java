@@ -1,6 +1,5 @@
 package net.zepalesque.redux.mixin.mixins.common.accessor;
 
-import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.zepalesque.redux.block.backport.MossyCarpetBlock;

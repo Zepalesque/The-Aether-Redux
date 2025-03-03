@@ -42,9 +42,7 @@ public class BlightwillowTrunkPlacer extends TrunkPlacer {
 
         this.placeLog(level, setter, random, origin, config);
 
-        for(int i = 1; i < height; i++) {
-            this.placeLog(level, setter, random, origin.above(i), config);
-        }
+        for(int i = 1; i < height; i++) this.placeLog(level, setter, random, origin.above(i), config);
 
         BlockPos top = origin.above(height - 1);
 

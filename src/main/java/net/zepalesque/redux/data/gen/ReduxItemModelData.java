@@ -112,11 +112,8 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
             super(output, Redux.MODID, helper);
         }
 
-        @Override
-        protected void registerModels() {
-
-
-        }
+        // generate via templates
+        protected void registerModels() {}
     }
 
 }

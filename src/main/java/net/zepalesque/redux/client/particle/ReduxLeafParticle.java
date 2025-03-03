@@ -48,9 +48,7 @@ public class ReduxLeafParticle extends TextureSheetParticle {
         this.yo = this.y;
         this.zo = this.z;
 
-        if (this.age++ >= this.lifetime) {
-            this.remove();
-        }
+        if (this.age++ >= this.lifetime) this.remove();
 
         if (!this.removed) {
             float f = (float)this.age;
@@ -72,19 +70,15 @@ public class ReduxLeafParticle extends TextureSheetParticle {
                 this.zd = 0.0D;
             }
 
-            if (this.onGroundTime < 0) {
-                this.remove();
-            }
+            if (this.onGroundTime < 0) this.remove();
 
-            if (onGroundTime <= 20 && this.age >= this.lifetime - 20) {
+            if (onGroundTime <= 20 && this.age >= this.lifetime - 20)
                 this.alpha = (this.onGroundTime * (this.lifetime - this.age)) / 400F;
-            } else if (onGroundTime <= 20) {
+            else if (onGroundTime <= 20)
                 this.alpha = this.onGroundTime / 20F;
-            } else if (this.age >= this.lifetime - 20) {
+            else if (this.age >= this.lifetime - 20)
                 this.alpha = (this.lifetime - this.age) / 20F;
-            } else {
-                this.alpha = 1.0F;
-            }
+            else this.alpha = 1.0F;
 
             if (!this.removed) {
                 this.xd *= this.friction;
@@ -96,9 +90,9 @@ public class ReduxLeafParticle extends TextureSheetParticle {
 
     @Override
     public void move(double x, double y, double z) {
-        double d0 = x;
-        double d1 = y;
-        double d2 = z;
+        double x1 = x;
+        double y1 = y;
+        double z1 = z;
         if (this.hasPhysics && (x != 0.0D || y != 0.0D || z != 0.0D) && x * x + y * y + z * z < MAXIMUM_COLLISION_VELOCITY_SQUARED) {
             Vec3 vec3 = Entity.collideBoundingBox(null, new Vec3(x, y, z), this.getBoundingBox(), this.level, List.of());
             x = vec3.x;
@@ -109,15 +103,11 @@ public class ReduxLeafParticle extends TextureSheetParticle {
             this.setBoundingBox(this.getBoundingBox().move(x, y, z));
             this.setLocationFromBoundingbox();
         }
-        this.onGround = d1 != y && d1 < 0.0D;
+        this.onGround = y1 != y && y1 < 0.0D;
 
-        if (d0 != x) {
-            this.xd = 0.0D;
-        }
+        if (x1 != x) this.xd = 0.0D;
 
-        if (d2 != z) {
-            this.zd = 0.0D;
-        }
+        if (z1 != z) this.zd = 0.0D;
     }
 
     @OnlyIn(Dist.CLIENT)

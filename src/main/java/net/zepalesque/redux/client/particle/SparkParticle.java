@@ -76,9 +76,8 @@ public class SparkParticle extends TextureSheetParticle {
         this.yo = this.y;
         this.zo = this.z;
 
-        if (this.age++ >= this.lifetime) {
-            this.remove();
-        } else {
+        if (this.age++ >= this.lifetime) this.remove();
+        else {
             this.yd = this.yd + Ember.GRAVITY * (double)this.gravity;
             this.move(this.xd, this.yd, this.zd);
             if (this.speedUpWhenYMotionIsBlocked && this.y == this.yo) {
@@ -112,9 +111,7 @@ public class SparkParticle extends TextureSheetParticle {
                 this.setLocationFromBoundingbox();
             }
 
-            if (Math.abs(y1) >= 1.0E-5F && Math.abs(y) < 1.0E-5F) {
-                this.stoppedByCollision = true;
-            }
+            if (Math.abs(y1) >= 1.0E-5F && Math.abs(y) < 1.0E-5F) this.stoppedByCollision = true;
 
             this.onGround = y1 != y && y1 < 0.0;
             /*if (x1 != x) {

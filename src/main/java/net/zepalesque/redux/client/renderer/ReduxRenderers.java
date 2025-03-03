@@ -55,9 +55,8 @@ public class ReduxRenderers {
 
     @SubscribeEvent
     public static void addRenderLayers(EntityRenderersEvent.AddLayers event) {
-        if (event.getRenderer(AetherEntityTypes.SLIDER.get()) instanceof SliderRenderer renderer) {
+        if (event.getRenderer(AetherEntityTypes.SLIDER.get()) instanceof SliderRenderer renderer)
             renderer.addLayer(new SliderSignalLayer(renderer));
-        }
     }
 
     public static void registerAccessoryRenderers() {
