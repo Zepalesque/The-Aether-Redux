@@ -22,11 +22,11 @@ import java.util.Optional;
 public class GoldenVineDecorator extends TreeDecorator {
 
     public static final MapCodec<GoldenVineDecorator> CODEC = RecordCodecBuilder.mapCodec(builder ->
-            builder.group(Codec.floatRange(0.0F, 1.0F).fieldOf("probability").forGetter(deco -> deco.probability),
-                            BlockStateProvider.CODEC.fieldOf("plant_body_provider").forGetter(deco -> deco.bodyBlock),
-                            BlockStateProvider.CODEC.fieldOf("plant_head_provider").forGetter(deco -> deco.headBlock),
-                            IntProvider.codec(1,128).fieldOf("length").forGetter(deco -> deco.length),
-                            BlockPredicate.CODEC.optionalFieldOf("predicate").forGetter(deco -> deco.predicate))
+            builder.group(Codec.floatRange(0.0F, 1.0F).fieldOf("probability").forGetter(instance -> instance.probability),
+                            BlockStateProvider.CODEC.fieldOf("plant_body_provider").forGetter(instance -> instance.bodyBlock),
+                            BlockStateProvider.CODEC.fieldOf("plant_head_provider").forGetter(instance -> instance.headBlock),
+                            IntProvider.codec(1,128).fieldOf("length").forGetter(instance -> instance.length),
+                            BlockPredicate.CODEC.optionalFieldOf("predicate").forGetter(instance -> instance.predicate))
                                     .apply(builder, GoldenVineDecorator::new));
     private final float probability;
     private final BlockStateProvider bodyBlock;

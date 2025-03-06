@@ -31,9 +31,9 @@ public class BlightwillowRootsPlacer extends RootPlacer {
 
     public static final MapCodec<BlightwillowRootsPlacer> CODEC = RecordCodecBuilder.mapCodec(builder ->
             builder.group(
-                    IntProvider.CODEC.fieldOf("trunk_offset_y").forGetter(roots -> roots.trunkOffsetY),
-                    Codec.INT.optionalFieldOf("max_root_depth", 2).forGetter(roots -> roots.maxRootDepth),
-                    BlockStateProvider.CODEC.fieldOf("wood").forGetter(roots -> roots.wood)
+                    IntProvider.CODEC.fieldOf("trunk_offset_y").forGetter(instance -> instance.trunkOffsetY),
+                    Codec.INT.optionalFieldOf("max_root_depth", 2).forGetter(instance -> instance.maxRootDepth),
+                    BlockStateProvider.CODEC.fieldOf("wood").forGetter(instance -> instance.wood)
             ).apply(builder, BlightwillowRootsPlacer::new));
 
     private final int maxRootDepth;

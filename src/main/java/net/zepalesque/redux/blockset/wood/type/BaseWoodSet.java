@@ -18,7 +18,6 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -72,20 +71,20 @@ import net.zepalesque.redux.data.prov.tags.ReduxItemTagsProvider;
 import net.zepalesque.redux.entity.ReduxEntities;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.tile.ReduxTiles;
-import net.zepalesque.zenith.api.blockset.type.AbstractWoodSet;
-import net.zepalesque.zenith.util.data.DatagenUtil;
-import net.zepalesque.zenith.util.item.TabUtil;
 import net.zepalesque.zenith.api.block.type.tile.ZenithCeilingHangingSignBlock;
 import net.zepalesque.zenith.api.block.type.tile.ZenithSignBlock;
 import net.zepalesque.zenith.api.block.type.tile.ZenithWallHangingSignBlock;
 import net.zepalesque.zenith.api.block.type.tile.ZenithWallSignBlock;
-import net.zepalesque.zenith.core.client.render.entity.ZenithBoatRenderer;
+import net.zepalesque.zenith.api.blockset.type.AbstractWoodSet;
 import net.zepalesque.zenith.api.entity.misc.ZenithBoat;
 import net.zepalesque.zenith.api.entity.misc.ZenithChestBoat;
+import net.zepalesque.zenith.core.client.render.entity.ZenithBoatRenderer;
 import net.zepalesque.zenith.core.item.type.ZenithBoatItem;
 import net.zepalesque.zenith.core.tile.ZenithHangingSignBlockEntity;
 import net.zepalesque.zenith.core.tile.ZenithSignBlockEntity;
 import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
+import net.zepalesque.zenith.util.data.DatagenUtil;
+import net.zepalesque.zenith.util.item.TabUtil;
 
 import javax.annotation.Nullable;
 import java.util.Map;
@@ -546,7 +545,9 @@ public class BaseWoodSet extends AbstractWoodSet implements ReduxGeneration {
         return this.chest_boat;
     }
 
+    
     @Override
+    @SuppressWarnings("DataFlowIssue")
     protected DeferredHolder<BlockEntityType<?>, BlockEntityType<? extends ZenithSignBlockEntity>> signEntity(DeferredRegister<BlockEntityType<?>> registry, String id) {
         return registry.register(id + "_sign", () ->
                 BlockEntityType.Builder.of((pPos, pState) -> new ZenithSignBlockEntity(pPos, pState, () -> this.signEntity().get()),
@@ -561,7 +562,7 @@ public class BaseWoodSet extends AbstractWoodSet implements ReduxGeneration {
     }
     
     @Override
-    @SuppressWarnings("nullability")
+    @SuppressWarnings("DataFlowIssue")
     protected DeferredHolder<BlockEntityType<?>, BlockEntityType<? extends ZenithHangingSignBlockEntity>> hangingSignEntity(DeferredRegister<BlockEntityType<?>> registry, String id) {
         return registry.register(id + "_hanging_sign", () ->
                 BlockEntityType.Builder.of((pPos, pState) -> ZenithHangingSignBlockEntity.create(pPos, pState, () -> this.hangingSignEntity().get()),

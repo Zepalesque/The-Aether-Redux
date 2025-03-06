@@ -23,7 +23,7 @@ public class BlightwillowTrunkPlacer extends TrunkPlacer {
 
 
     public static final MapCodec<BlightwillowTrunkPlacer> CODEC = RecordCodecBuilder.mapCodec(builder -> builder.group(
-            IntProvider.codec(5, Integer.MAX_VALUE).fieldOf("height").forGetter(placer -> placer.height)
+            IntProvider.codec(5, Integer.MAX_VALUE).fieldOf("height").forGetter(instance -> instance.height)
             ).apply(builder, BlightwillowTrunkPlacer::new));
 
     protected final IntProvider height;

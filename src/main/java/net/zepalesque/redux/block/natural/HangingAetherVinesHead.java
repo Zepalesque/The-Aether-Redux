@@ -33,8 +33,8 @@ public class HangingAetherVinesHead extends GrowingPlantHeadBlock {
     public static final MapCodec<HangingAetherVinesHead> CODEC = RecordCodecBuilder.mapCodec(builder ->
             builder.group(
                     propertiesCodec(),
-                            TagKey.codec(Registries.BLOCK).fieldOf("leaf_tag").forGetter(block -> block.leafTag),
-                            BuiltInRegistries.BLOCK.holderByNameCodec().fieldOf("body_block").forGetter(block -> block.body))
+                            TagKey.codec(Registries.BLOCK).fieldOf("leaf_tag").forGetter(instance -> instance.leafTag),
+                            BuiltInRegistries.BLOCK.holderByNameCodec().fieldOf("body_block").forGetter(instance -> instance.body))
                     .apply(builder, HangingAetherVinesHead::new));
 
 
