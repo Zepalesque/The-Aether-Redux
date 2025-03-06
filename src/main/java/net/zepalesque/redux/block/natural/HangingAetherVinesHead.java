@@ -17,7 +17,6 @@ import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.NetherVines;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.zepalesque.redux.block.ReduxBlocks;
 
 public class HangingAetherVinesHead extends GrowingPlantHeadBlock {
     protected static final VoxelShape SHAPE = Block.box(2.0D, 10.0D, 2.0D, 14.0D, 16.0D, 14.0D);
@@ -45,8 +44,8 @@ public class HangingAetherVinesHead extends GrowingPlantHeadBlock {
     }
 
     @Override
-    protected int getBlocksToGrowWhenBonemealed(RandomSource p_222680_) {
-        return NetherVines.getBlocksToGrowWhenBonemealed(p_222680_);
+    protected int getBlocksToGrowWhenBonemealed(RandomSource random) {
+        return NetherVines.getBlocksToGrowWhenBonemealed(random);
     }
 
     @Override
@@ -55,15 +54,14 @@ public class HangingAetherVinesHead extends GrowingPlantHeadBlock {
     }
 
     @Override
-    protected boolean canGrowInto(BlockState p_154971_) {
-        return NetherVines.isValidGrowthState(p_154971_);
+    protected boolean canGrowInto(BlockState state) {
+        return NetherVines.isValidGrowthState(state);
     }
 
     public int getLength(Level level, BlockPos pos) {
         int i = 0;
-        while (!level.isOutsideBuildHeight(pos.getY() + i) && level.isStateAtPosition(pos.above(i), state -> state.is(this.getHeadBlock()) || state.is(this.getBodyBlock()))) {
+        while (!level.isOutsideBuildHeight(pos.getY() + i) && level.isStateAtPosition(pos.above(i), state -> state.is(this.getHeadBlock()) || state.is(this.getBodyBlock())))
             i++;
-        }
         return i;
     }
 
@@ -76,8 +74,6 @@ public class HangingAetherVinesHead extends GrowingPlantHeadBlock {
 
     @Override
     public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
-        if (this.getLength(pLevel, pPos) < 10) {
-            super.randomTick(pState, pLevel, pPos, pRandom);
-        }
+        if (this.getLength(pLevel, pPos) < 10) super.randomTick(pState, pLevel, pPos, pRandom);
     }
 }

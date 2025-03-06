@@ -24,9 +24,8 @@ public class AerjumpListener {
 
         if (level != null && player != null) {
             boolean jumpPressed = mc.options.keyJump.isDown();
-            if (jumpPressed && !prevJumpBindState) {
+            if (jumpPressed && !prevJumpBindState)
                 PacketDistributor.sendToServer(new AerjumpPacket.Request(player.getId()));
-            }
             prevJumpBindState = jumpPressed;
         }
     }

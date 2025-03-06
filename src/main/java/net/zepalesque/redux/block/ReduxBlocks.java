@@ -31,7 +31,6 @@ import net.zepalesque.redux.block.natural.DoubleDropsMossCarpet;
 import net.zepalesque.redux.block.natural.GoldenCloversBlock;
 import net.zepalesque.redux.block.natural.HangingAetherVinesBody;
 import net.zepalesque.redux.block.natural.HangingAetherVinesHead;
-import net.zepalesque.redux.block.natural.bush.CustomBoundsBushBlock;
 import net.zepalesque.redux.block.natural.crop.WyndoatsBlock;
 import net.zepalesque.redux.block.natural.leaves.InfectedLeavesBlock;
 import net.zepalesque.redux.block.natural.leaves.ShadedLeavesBlock;
@@ -39,11 +38,13 @@ import net.zepalesque.redux.block.redstone.LogicatorBlock;
 import net.zepalesque.redux.data.resource.registries.ReduxFeatureConfig;
 import net.zepalesque.unity.block.natural.DoubleDropsCarpet;
 import net.zepalesque.unity.block.natural.DoubleDropsGrowthBlock;
+import net.zepalesque.unity.block.natural.bush.CustomBoundsBushBlock;
 import net.zepalesque.unity.block.natural.leaves.LeafPileBlock;
 import net.zepalesque.unity.event.hook.BlockHooks;
 import net.zepalesque.zenith.api.blockset.type.AbstractWoodSet;
 import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
 import net.zepalesque.zenith.util.block.CommonPlantBounds;
+
 
 public class ReduxBlocks extends ReduxBlockBuilders {
 
@@ -233,9 +234,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 
     public static void registerToolConversions() {
         Redux.BLOCK_SETS.forEach(set -> {
-            if (set instanceof AbstractWoodSet wood) {
-                wood.setupStrippables(BlockHooks.ToolConversions.STRIPPABLES);
-            }
+            if (set instanceof AbstractWoodSet wood) wood.setupStrippables(BlockHooks.ToolConversions.STRIPPABLES);
         });
     }
 }

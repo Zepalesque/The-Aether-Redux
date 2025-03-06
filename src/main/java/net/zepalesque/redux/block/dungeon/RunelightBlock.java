@@ -1,7 +1,6 @@
 package net.zepalesque.redux.block.dungeon;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -26,17 +25,14 @@ public class RunelightBlock extends Block {
 
     @Override
     public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
-        if (this.isValidForInteraction(player)) {
+        if (this.isValidForInteraction(player))
             if (!level.isClientSide()) {
                 state = state.cycle(LIT);
                 level.setBlock(pos, state, 3);
                 // TODO: sfx
                 level.gameEvent(player, state.getValue(LIT) ? GameEvent.BLOCK_ACTIVATE : GameEvent.BLOCK_DEACTIVATE, pos);
                 return InteractionResult.CONSUME;
-            } else {
-                return InteractionResult.SUCCESS;
-            }
-        }
+        } else return InteractionResult.SUCCESS;
         return super.useWithoutItem(state, level, pos, player, hit);
     }
 

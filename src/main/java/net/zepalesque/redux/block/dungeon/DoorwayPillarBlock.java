@@ -1,7 +1,6 @@
 package net.zepalesque.redux.block.dungeon;
 
 import com.aetherteam.aether.block.dungeon.DoorwayBlock;
-import com.aetherteam.aether.block.dungeon.TrappedBlock;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.context.BlockPlaceContext;

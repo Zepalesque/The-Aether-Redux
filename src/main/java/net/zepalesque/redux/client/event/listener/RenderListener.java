@@ -1,7 +1,6 @@
 package net.zepalesque.redux.client.event.listener;
 
 import com.aetherteam.aether.entity.AetherEntityTypes;
-import com.google.common.collect.Iterators;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Camera;
 import net.minecraft.client.DeltaTracker;
@@ -11,7 +10,6 @@ import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderBuffers;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.culling.Frustum;
 import net.minecraft.client.renderer.entity.EntityRenderDispatcher;
 import net.minecraft.client.renderer.entity.EntityRenderer;
@@ -28,8 +26,6 @@ import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.renderer.api.IPostRenderer;
 
-import java.util.Iterator;
-import java.util.function.Predicate;
 import java.util.stream.StreamSupport;
 
 @EventBusSubscriber(Dist.CLIENT)
@@ -62,24 +58,23 @@ public class RenderListener {
             Iterable<Entity> whirlwinds = () -> StreamSupport.stream(allEntities.spliterator(), false)
                     .filter(e -> e.getType() == AetherEntityTypes.EVIL_WHIRLWIND.get()).iterator();
 
-            for (Entity entity : whirlwinds) {
+            for (Entity entity : whirlwinds)
                 if (dispatch.shouldRender(entity, frustum, x, y, z) || entity.hasIndirectPassenger(player)) {
                     BlockPos blockpos = entity.blockPosition();
                     if ((level.isOutsideBuildHeight(blockpos.getY()) || renderer.isSectionCompiled(blockpos))
-                            && (
-                            entity != camera.getEntity()
-                                    || camera.isDetached()
-                                    || camera.getEntity() instanceof LivingEntity && ((LivingEntity) camera.getEntity()).isSleeping()
+                        && (
+                    entity != camera.getEntity()
+                    || camera.isDetached()
+                    || camera.getEntity() instanceof LivingEntity && ((LivingEntity) camera.getEntity()).isSleeping()
                     )) {
-
+                        
                         MultiBufferSource.BufferSource multibuffersource = buffers.bufferSource();
-
-
+                        
+                        
                         float f2 = deltaTracker.getGameTimeDeltaPartialTick(!tickratemanager.isEntityFrozen(entity));
                         renderEntity(entity, x, y, z, f2, posestack, multibuffersource, dispatch);
                     }
                 }
-            }
         }
     }
 
@@ -111,11 +106,9 @@ public class RenderListener {
             double d0 = z + vec3.z();
             poseStack.pushPose();
             poseStack.translate(d2, d3, d0);
-            if (!post.actuallyRender(entity, rotationYaw, partialTicks, poseStack, buffer, dispatcher.getPackedLightCoords(entity, partialTicks))) {
+            if (!post.actuallyRender(entity, rotationYaw, partialTicks, poseStack, buffer, dispatcher.getPackedLightCoords(entity, partialTicks)))
                 Redux.LOGGER.debug("Did not render entity: {}", entity);
-            } else {
-                buffer.endBatch();
-            }
+            else buffer.endBatch();
             poseStack.popPose();
         }
     }

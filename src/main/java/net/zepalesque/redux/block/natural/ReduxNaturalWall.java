@@ -37,9 +37,8 @@ public class ReduxNaturalWall extends ReduxDoubleDropsWall {
     private static Map<BlockState, VoxelShape> fixShapeMap2(Map<BlockState, VoxelShape> map) {
         ImmutableMap.Builder<BlockState, VoxelShape> builder = ImmutableMap.builder();
         builder.putAll(map);
-        for (BlockState state : map.keySet()) {
+        for (BlockState state : map.keySet())
             builder.put(state.cycle(ReduxStates.NATURAL_GEN), map.get(state));
-        }
         return builder.build();
     }
 

@@ -14,7 +14,6 @@ import net.zepalesque.zenith.api.blockset.BlockSet;
 import net.zepalesque.zenith.api.blockset.type.AbstractFlowerSet;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Optional;
 import java.util.function.Predicate;
 
 public class ReduxColors {

@@ -50,9 +50,8 @@ public class ReduxFeatureBuilders extends BaseFeatureBuilders {
         SimpleWeightedRandomList.Builder<BlockState> builder = SimpleWeightedRandomList.builder();
         for (Direction d : PinkPetalsBlock.FACING.getPossibleValues()) {
             BlockState temp = state.setValue(PinkPetalsBlock.FACING, d);
-            for (int i : PinkPetalsBlock.AMOUNT.getPossibleValues()) {
+            for (int i : PinkPetalsBlock.AMOUNT.getPossibleValues())
                 builder.add(temp.setValue(PinkPetalsBlock.AMOUNT, i), i);
-            }
         }
         return new WeightedStateProvider(builder);
     }

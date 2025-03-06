@@ -1,6 +1,5 @@
 package net.zepalesque.redux.data.prov;
 
-import com.aetherteam.aether.data.providers.AetherRecipeProvider;
 import com.aetherteam.aether.recipe.builder.AetherCookingRecipeBuilder;
 import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;

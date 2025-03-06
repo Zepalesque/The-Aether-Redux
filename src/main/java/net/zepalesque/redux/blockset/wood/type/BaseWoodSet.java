@@ -532,7 +532,7 @@ public class BaseWoodSet extends AbstractWoodSet implements ReduxGeneration {
     @Override
     protected DeferredHolder<EntityType<?>, EntityType<? extends ZenithChestBoat>> chestBoatEntity(DeferredRegister<EntityType<?>> registry, String id) {
         return registry.register(id + "_chest_boat", () ->
-                EntityType.Builder.<ZenithChestBoat>of(this::createChestBoat, MobCategory.MISC)
+                EntityType.Builder.of(this::createChestBoat, MobCategory.MISC)
                         .sized(1.375F, 0.5625F).clientTrackingRange(10).build(id + "_chest_boat")
         );
     }
@@ -549,7 +549,7 @@ public class BaseWoodSet extends AbstractWoodSet implements ReduxGeneration {
     @Override
     protected DeferredHolder<BlockEntityType<?>, BlockEntityType<? extends ZenithSignBlockEntity>> signEntity(DeferredRegister<BlockEntityType<?>> registry, String id) {
         return registry.register(id + "_sign", () ->
-                BlockEntityType.Builder.of(((pPos, pState) -> new ZenithSignBlockEntity(pPos, pState, () -> this.signEntity().get())),
+                BlockEntityType.Builder.of((pPos, pState) -> new ZenithSignBlockEntity(pPos, pState, () -> this.signEntity().get()),
                         this.sign().get(),
                         this.wallSign().get())
                         .build(null));
@@ -561,9 +561,10 @@ public class BaseWoodSet extends AbstractWoodSet implements ReduxGeneration {
     }
     
     @Override
+    @SuppressWarnings("nullability")
     protected DeferredHolder<BlockEntityType<?>, BlockEntityType<? extends ZenithHangingSignBlockEntity>> hangingSignEntity(DeferredRegister<BlockEntityType<?>> registry, String id) {
         return registry.register(id + "_hanging_sign", () ->
-                BlockEntityType.Builder.of(((pPos, pState) -> ZenithHangingSignBlockEntity.create(pPos, pState, () -> this.hangingSignEntity().get())),
+                BlockEntityType.Builder.of((pPos, pState) -> ZenithHangingSignBlockEntity.create(pPos, pState, () -> this.hangingSignEntity().get()),
                                 this.hangingSign().get(),
                                 this.wallHangingSign().get())
                         .build(null));
@@ -676,8 +677,7 @@ public class BaseWoodSet extends AbstractWoodSet implements ReduxGeneration {
 
     public void langData(ReduxLanguageProvider data) {
         boolean vowel = DatagenUtil.isVowel(this.id.charAt(0));
-
-        String indefiniteLowercase = vowel ? "an" : "a";
+        
         String indefiniteUppercase = vowel ? "An" : "A";
         String name = DatagenUtil.localize(this.id);
 
@@ -840,6 +840,7 @@ public class BaseWoodSet extends AbstractWoodSet implements ReduxGeneration {
     }
 
     @Override
+    @SuppressWarnings("deprecation")
     public void mapData(ReduxDataMapProvider data) {
         var fuels = data.builder(NeoForgeDataMaps.FURNACE_FUELS);
         fuels.add(this.planks().get().asItem().builtInRegistryHolder(), new FurnaceFuel(300), false);
@@ -870,8 +871,8 @@ public class BaseWoodSet extends AbstractWoodSet implements ReduxGeneration {
     public void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(this.signEntity().get(), SignRenderer::new);
         event.registerBlockEntityRenderer(this.hangingSignEntity().get(), HangingSignRenderer::new);
-        event.registerEntityRenderer(this.boatEntity().get(), (context) -> new ZenithBoatRenderer(context, false, Redux.MODID, this.id));
-        event.registerEntityRenderer(this.chestBoatEntity().get(), (context) -> new ZenithBoatRenderer(context, true, Redux.MODID, this.id));
+        event.registerEntityRenderer(this.boatEntity().get(), context -> new ZenithBoatRenderer(context, false, Redux.MODID, this.id));
+        event.registerEntityRenderer(this.chestBoatEntity().get(), context -> new ZenithBoatRenderer(context, true, Redux.MODID, this.id));
     }
 
 
@@ -895,10 +896,9 @@ public class BaseWoodSet extends AbstractWoodSet implements ReduxGeneration {
     }
 
     @Override
+    @Nullable
     public ItemLike addToCreativeTab(BuildCreativeModeTabContentsEvent event, @Nullable ItemLike prev, TabAdditionPhase phase) {
         if (phase == TabAdditionPhase.BEFORE) {
-            CreativeModeTab tab = event.getTab();
-
             if (TabUtil.isForTab(event, AetherCreativeTabs.AETHER_BUILDING_BLOCKS))
                 return this.buildingBlocks(event, prev == null ? AetherBlocks.GOLDEN_OAK_WOOD : prev);
 

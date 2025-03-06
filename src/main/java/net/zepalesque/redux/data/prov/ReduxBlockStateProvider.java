@@ -2,7 +2,6 @@ package net.zepalesque.redux.data.prov;
 
 import com.aetherteam.aether.block.dungeon.DoorwayBlock;
 import net.minecraft.core.Direction;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
@@ -31,8 +30,6 @@ import net.zepalesque.redux.block.construction.LayeredBookshelfBlock;
 import net.zepalesque.redux.block.dungeon.RunelightBlock;
 import net.zepalesque.redux.block.redstone.LogicatorBlock;
 import net.zepalesque.redux.block.state.enums.LogicatorMode;
-import net.zepalesque.unity.Unity;
-import net.zepalesque.unity.block.natural.leaves.LeafPileBlock;
 import net.zepalesque.unity.data.prov.UnityBlockStateProvider;
 
 import java.util.Map;
@@ -162,7 +159,7 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
 
     // Crop blocks
     public void cropGrowable(Block block, String location, IntegerProperty ageProperty) {
-        this.getVariantBuilder(block).forAllStates((state) -> {
+        this.getVariantBuilder(block).forAllStates(state -> {
             int stage = state.getValue(ageProperty);
             BlockModelBuilder cross = models().withExistingParent(this.name(block) + "_stage" + stage, Redux.loc(ModelProvider.BLOCK_FOLDER + "/template/crop/crop_lowered"))
                     .texture("plant", this.texture(this.name(block) + "_stage" + stage, location)).renderType("cutout");
@@ -182,19 +179,19 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
                 .texture("lantern", this.texture(this.name(block), location)).renderType("cutout");
         BlockModelBuilder hangingLantern = models().withExistingParent("hanging_" + this.name(block), mcLoc("template_hanging_lantern"))
                 .texture("lantern", this.texture(this.name(block), location)).renderType("cutout");
-        this.getVariantBuilder(block).forAllStates((state -> ConfiguredModel.builder().modelFile(state.getValue(LanternBlock.HANGING) ? hangingLantern : lantern).build()));
+        this.getVariantBuilder(block).forAllStates(state -> ConfiguredModel.builder().modelFile(state.getValue(LanternBlock.HANGING) ? hangingLantern : lantern).build());
     }
 
     public void chain(Block block, String location) {
         BlockModelBuilder chain = models().withExistingParent(this.name(block), Redux.loc("block/template/construction/chain"))
                 .texture("chain", this.texture(this.name(block), location)).renderType("cutout");
-        this.getVariantBuilder(block).forAllStates((state -> {
+        this.getVariantBuilder(block).forAllStates(state -> {
             Direction.Axis axis = state.getValue(ChainBlock.AXIS);
             ConfiguredModel.Builder<?> builder = ConfiguredModel.builder().modelFile(chain);
             if (axis == Direction.Axis.X) builder = builder.rotationY(90);
             if (axis != Direction.Axis.Y) builder = builder.rotationX(90);
             return builder.build();
-        }));
+        });
     }
 
     public void metalBars(Block block, String location) {

@@ -12,11 +12,8 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.projectile.DragonFireball;
-import net.minecraft.world.entity.projectile.Fireball;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.entity.projectile.Ember;
-import org.joml.Matrix3f;
-import org.joml.Matrix4f;
 
 public class EmberRenderer extends EntityRenderer<Ember> {
     private static final ResourceLocation TEXTURE_LOCATION = Redux.loc("textures/entity/projectile/ember.png");
@@ -53,7 +50,7 @@ public class EmberRenderer extends EntityRenderer<Ember> {
     }
 
     private static void vertex(VertexConsumer consumer, PoseStack.Pose pose, int packedLight, float x, float y, int u, int v, int alpha) {
-        consumer.addVertex(pose, x/* - 0.5F*/, (float)y/* - 0.25F*/, 0.0F)
+        consumer.addVertex(pose, x/* - 0.5F*/, y/* - 0.25F*/, 0.0F)
                 .setColor(255, 255, 255, alpha)
                 .setUv((float)u, (float)v)
                 .setOverlay(OverlayTexture.NO_OVERLAY)

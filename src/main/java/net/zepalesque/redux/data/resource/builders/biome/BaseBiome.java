@@ -15,9 +15,8 @@ import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.zepalesque.redux.client.audio.ReduxMusic;
-import net.zepalesque.redux.data.resource.registries.ReduxPlacements;
-import net.zepalesque.unity.data.resource.registries.UnityPlacements;
 
+@SuppressWarnings({"DuplicatedCode", "unused"})
 public class BaseBiome {
 
 

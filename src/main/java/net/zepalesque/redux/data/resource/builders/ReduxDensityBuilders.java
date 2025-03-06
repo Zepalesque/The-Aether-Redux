@@ -15,8 +15,6 @@ import net.minecraft.world.level.levelgen.DensityFunction;
 import net.minecraft.world.level.levelgen.DensityFunctions;
 import net.minecraft.world.level.levelgen.NoiseGeneratorSettings;
 import net.minecraft.world.level.levelgen.NoiseSettings;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.data.resource.registries.ReduxDensityFunctions;
@@ -26,7 +24,6 @@ import java.util.List;
 import java.util.Optional;
 
 public class ReduxDensityBuilders {
-
 
     public static DensityFunction createFinal(DensityFunction density) {
         density = DensityFunctions.add(density, DensityFunctions.constant(-0.13));
@@ -88,9 +85,7 @@ public class ReduxDensityBuilders {
             HolderLookup.RegistryLookup<DensityFunction> lookup = optional.get();
             return lookup.getOrThrow(key).value();
 
-        } else {
-            throw new NullPointerException("Optional value is not present!");
-        }
+        } else throw new NullPointerException("Optional value is not present!");
     }
 
     public static DensityFunction get(Level level, ResourceKey<DensityFunction> key) {

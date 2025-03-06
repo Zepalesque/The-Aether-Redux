@@ -53,7 +53,7 @@ public abstract class BaseFlowerSet<B extends Block> extends AbstractFlowerSet i
 
     protected final Map<CraftingMatrix, Pair<ItemLike, RecipeCategory>> crafted = new HashMap<>();
     protected final Map<Integer, Triple<ItemLike, Integer, RecipeCategory>> shapeless = new HashMap<>();
-    protected final Map<ItemLike, Float> smelted = new HashMap<>();
+//    protected final Map<ItemLike, Float> smelted = new HashMap<>();
     protected final Map<Supplier<CreativeModeTab>, Pair<ItemLike, TabAdditionPhase>> beforeOrdering = new HashMap<>();
     protected final Map<Supplier<CreativeModeTab>,Pair<ItemLike, TabAdditionPhase>> afterOrdering = new HashMap<>();
     protected final Map<Supplier<CreativeModeTab>, TabAdditionPhase> appended = new HashMap<>();

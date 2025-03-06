@@ -69,7 +69,7 @@ public abstract class AbstractBookshelfSet<B extends BookshelfBlock> extends Log
     @Override
     public void lootData(ReduxBlockLootProvider data) {
         super.lootData(data);
-        data.add(this.bookshelf().get(), (bookshelf) -> data.createSingleItemTableWithSilkTouch(bookshelf, Items.BOOK, ConstantValue.exactly(3.0F)));
+        data.add(this.bookshelf().get(), bookshelf -> data.createSingleItemTableWithSilkTouch(bookshelf, Items.BOOK, ConstantValue.exactly(3.0F)));
     }
 
     @Override
@@ -92,6 +92,7 @@ public abstract class AbstractBookshelfSet<B extends BookshelfBlock> extends Log
     }
 
     @Override
+    @SuppressWarnings("deprecation")
     public void mapData(ReduxDataMapProvider data) {
         super.mapData(data);
         var fuels = data.builder(NeoForgeDataMaps.FURNACE_FUELS);

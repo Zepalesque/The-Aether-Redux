@@ -22,7 +22,7 @@ public class ReduxPlacementBuilders extends BasePlacementBuilders {
         return createKey(format.formatted(key.location().getPath()));
     }
 
-    protected static ResourceKey<PlacedFeature> aetherKey(String name) {
-        return ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(Aether.MODID, name));
-    }
+//    protected static ResourceKey<PlacedFeature> aetherKey(String name) {
+//        return ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(Aether.MODID, name));
+//    }
 }

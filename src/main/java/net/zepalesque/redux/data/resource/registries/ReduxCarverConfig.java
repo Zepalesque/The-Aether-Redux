@@ -6,7 +6,6 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.zepalesque.redux.data.resource.builders.ReduxCarverBuilders;
 
 public class ReduxCarverConfig extends ReduxCarverBuilders {

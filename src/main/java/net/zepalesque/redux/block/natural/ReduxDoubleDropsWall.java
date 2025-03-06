@@ -42,9 +42,8 @@ public class ReduxDoubleDropsWall extends WallBlock {
     protected ImmutableMap<BlockState, VoxelShape> fixShapeMap(Map<BlockState, VoxelShape> map) {
         ImmutableMap.Builder<BlockState, VoxelShape> builder = ImmutableMap.builder();
         builder.putAll(map);
-        for (BlockState state : map.keySet()) {
+        for (BlockState state : map.keySet())
             builder.put(state.cycle(AetherBlockStateProperties.DOUBLE_DROPS), map.get(state));
-        }
         return builder.build();
     }
 }

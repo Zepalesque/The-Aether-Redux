@@ -3,7 +3,6 @@ package net.zepalesque.redux.item;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.item.AetherCreativeTabs;
 import com.aetherteam.aether.item.AetherItems;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
@@ -20,16 +19,12 @@ import net.zepalesque.unity.block.UnityBlocks;
 import net.zepalesque.zenith.api.blockset.BlockSet;
 import net.zepalesque.zenith.util.item.TabUtil;
 
-import java.util.function.Supplier;
-
 @EventBusSubscriber(modid = Redux.MODID, bus = Bus.MOD)
 public class ReduxTabs {
     
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void buildCreativeModeTabs(BuildCreativeModeTabContentsEvent event) {
-        CreativeModeTab tab = event.getTab();
         ItemLike sup = null; for (BlockSet set : Redux.BLOCK_SETS) sup = set.addToCreativeTab(event, sup, BlockSet.TabAdditionPhase.BEFORE);
-
 
         if (TabUtil.isForTab(event, AetherCreativeTabs.AETHER_NATURAL_BLOCKS)) {
 
@@ -148,15 +143,14 @@ public class ReduxTabs {
                     ReduxItems.WYND_OAT_PANICLE
             );
 
-        } else if (TabUtil.isForTab(event, AetherCreativeTabs.AETHER_REDSTONE_BLOCKS)) {
+        } else if (TabUtil.isForTab(event, AetherCreativeTabs.AETHER_REDSTONE_BLOCKS))
             TabUtil.put(event, ReduxBlocks.LOGICATOR);
-        } else if (TabUtil.isForTab(event, AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES)) {
+        else if (TabUtil.isForTab(event, AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES))
             TabUtil.putAfter(event, AetherItems.SWET_CAPE, ReduxItems.AERBOUND_CAPE);
-        } else if (TabUtil.isForTab(event, AetherCreativeTabs.AETHER_FUNCTIONAL_BLOCKS)) {
+        else if (TabUtil.isForTab(event, AetherCreativeTabs.AETHER_FUNCTIONAL_BLOCKS))
             TabUtil.putAfter(event, AetherBlocks.AMBROSIUM_TORCH, ReduxBlocks.SENTRITE_LANTERN);
-        } else if (TabUtil.isForTab(event, CreativeModeTabs.REDSTONE_BLOCKS)) {
+        else if (TabUtil.isForTab(event, CreativeModeTabs.REDSTONE_BLOCKS))
             TabUtil.putAfter(event, () -> Items.COMPARATOR, ReduxBlocks.LOGICATOR);
-        }
 
 
         // SHOULD BE AT THE VERY END

@@ -21,7 +21,6 @@ import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.DensityFunction;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
@@ -40,11 +39,9 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.DarkOakTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
-import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
-import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.blockset.flower.ReduxFlowerSets;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
@@ -125,7 +122,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
         HolderGetter<ConfiguredFeature<?, ?>> configs = context.lookup(Registries.CONFIGURED_FEATURE);
         HolderGetter<DensityFunction> functions = context.lookup(Registries.DENSITY_FUNCTION);
         HolderGetter<Block> blocks = context.lookup(Registries.BLOCK);
-        HolderGetter<NormalNoise.NoiseParameters> noises = context.lookup(Registries.NOISE);
+//        HolderGetter<NormalNoise.NoiseParameters> noises = context.lookup(Registries.NOISE);
 
         FeatureUtils.register(context, CLOUDBED, ReduxFeatures.CLOUDBED.get(),
                 new CloudbedFeature.Config(

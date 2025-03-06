@@ -27,8 +27,6 @@ import java.util.Objects;
 
 public interface VeridiumItem extends CustomStackingBehavior {
 
-    String NBT_KEY = "infusion_level";
-    String INFUSION_AMOUNT = "infusion_increase";
     int DURABILITY_DMG_MULTIPLIER = 4;
     Component HOVER_TOOLTIP = Component.translatable("tooltip.aether_redux.infusion_info").withStyle(ChatFormatting.GRAY);
 

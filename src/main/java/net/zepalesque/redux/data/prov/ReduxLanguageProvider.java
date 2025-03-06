@@ -7,7 +7,6 @@ import net.minecraft.world.item.JukeboxSong;
 import net.zepalesque.unity.data.prov.UnityLanguageProvider;
 import net.zepalesque.zenith.util.data.DatagenUtil;
 
-import java.util.function.Function;
 import java.util.function.Supplier;
 
 public abstract class ReduxLanguageProvider extends UnityLanguageProvider {

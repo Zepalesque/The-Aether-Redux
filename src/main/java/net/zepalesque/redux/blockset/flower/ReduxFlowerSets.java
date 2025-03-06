@@ -15,8 +15,8 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.dungeon.Flareblossom;
 import net.zepalesque.redux.block.natural.GloomshadeBlock;
-import net.zepalesque.redux.block.natural.bush.CustomBoundsBushBlock;
-import net.zepalesque.redux.block.natural.bush.CustomBoundsFlowerBlock;
+import net.zepalesque.unity.block.natural.bush.CustomBoundsBushBlock;
+import net.zepalesque.unity.block.natural.bush.CustomBoundsFlowerBlock;
 import net.zepalesque.redux.blockset.flower.type.AetherFlowerSet;
 import net.zepalesque.redux.blockset.flower.type.BaseFlowerSet;
 import net.zepalesque.redux.blockset.flower.type.CloverSet;
@@ -78,7 +78,7 @@ public class ReduxFlowerSets {
 
     public static final BaseFlowerSet<Flareblossom> FLAREBLOSSOM = register(new DualGlowingFlowerSet<>("flareblossom", "dungeon/",
             () -> new Flareblossom(
-                    MobEffects.BLINDNESS, 60, Properties.ofFullCopy(Blocks.POPPY).lightLevel((state) -> 11).mapColor(MapColor.GOLD)),
+                    MobEffects.BLINDNESS, 60, Properties.ofFullCopy(Blocks.POPPY).lightLevel(state -> 11).mapColor(MapColor.GOLD)),
             1, UnityColors.AETHER_GRASS_COLOR)
             // GlowingFlowerSet flags
             .useGlowAsParticle()

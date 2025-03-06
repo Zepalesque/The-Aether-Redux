@@ -50,23 +50,23 @@ public class WhirlwindModel<T extends AbstractWhirlwind> extends EntityModel<T> 
 
 		PartDefinition whirl_bottom = whirl_body.addOrReplaceChild("whirl_bottom", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
 
-		PartDefinition bottom_render = whirl_bottom.addOrReplaceChild("bottom_render", CubeListBuilder.create().texOffs(0, 126).addBox(-3.5F, -18.0F, -3.5F, 7.0F, 18.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+		whirl_bottom.addOrReplaceChild("bottom_render", CubeListBuilder.create().texOffs(0, 126).addBox(-3.5F, -18.0F, -3.5F, 7.0F, 18.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 
 		PartDefinition whirl_lower = whirl_bottom.addOrReplaceChild("whirl_lower", CubeListBuilder.create(), PartPose.offset(0.0F, -7.0F, 0.0F));
 
-		PartDefinition lower_render = whirl_lower.addOrReplaceChild("lower_render", CubeListBuilder.create().texOffs(228, 103).addBox(-3.5F, -27.0F, -3.5F, 7.0F, 16.0F, 7.0F, new CubeDeformation(0.0F))
+		whirl_lower.addOrReplaceChild("lower_render", CubeListBuilder.create().texOffs(228, 103).addBox(-3.5F, -27.0F, -3.5F, 7.0F, 16.0F, 7.0F, new CubeDeformation(0.0F))
 				.texOffs(116, 98).addBox(-6.0F, -27.0F, -6.0F, 12.0F, 16.0F, 12.0F, new CubeDeformation(0.0F))
 				.texOffs(0, 92).addBox(-9.0F, -27.0F, -9.0F, 18.0F, 16.0F, 18.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 
 		PartDefinition whirl_upper = whirl_lower.addOrReplaceChild("whirl_upper", CubeListBuilder.create(), PartPose.offset(0.0F, -6.0F, 0.0F));
 
-		PartDefinition upper_render = whirl_upper.addOrReplaceChild("upper_render", CubeListBuilder.create().texOffs(208, 60).addBox(-6.0F, -41.0F, -6.0F, 12.0F, 20.0F, 12.0F, new CubeDeformation(0.0F))
+		whirl_upper.addOrReplaceChild("upper_render", CubeListBuilder.create().texOffs(208, 60).addBox(-6.0F, -41.0F, -6.0F, 12.0F, 20.0F, 12.0F, new CubeDeformation(0.0F))
 				.texOffs(116, 54).addBox(-9.0F, -41.0F, -9.0F, 18.0F, 20.0F, 18.0F, new CubeDeformation(0.0F))
 				.texOffs(0, 48).addBox(-12.0F, -41.0F, -12.0F, 24.0F, 20.0F, 24.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 
 		PartDefinition whirl_top = whirl_upper.addOrReplaceChild("whirl_top", CubeListBuilder.create(), PartPose.offset(0.0F, -20.0F, 0.0F));
 
-		PartDefinition top_render = whirl_top.addOrReplaceChild("top_render", CubeListBuilder.create().texOffs(116, 18).addBox(-9.0F, -53.0F, -9.0F, 18.0F, 12.0F, 18.0F, new CubeDeformation(0.0F))
+		whirl_top.addOrReplaceChild("top_render", CubeListBuilder.create().texOffs(116, 18).addBox(-9.0F, -53.0F, -9.0F, 18.0F, 12.0F, 18.0F, new CubeDeformation(0.0F))
 				.texOffs(160, 12).addBox(-12.0F, -53.0F, -12.0F, 24.0F, 12.0F, 24.0F, new CubeDeformation(0.0F))
 				.texOffs(0, 0).addBox(-18.0F, -53.0F, -18.0F, 36.0F, 12.0F, 36.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 

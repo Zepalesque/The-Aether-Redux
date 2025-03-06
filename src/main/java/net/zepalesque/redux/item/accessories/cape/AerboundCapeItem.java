@@ -1,6 +1,5 @@
 package net.zepalesque.redux.item.accessories.cape;
 
-import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.item.accessories.cape.CapeItem;
 import io.wispforest.accessories.api.slot.SlotReference;
 import io.wispforest.accessories.api.slot.SlotType;
@@ -9,9 +8,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.attributes.AttributeInstance;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -43,7 +39,7 @@ public class AerboundCapeItem extends CapeItem {
     }
 
     /**
-     * Adds the aerjumps modifier when the Aerbound Cape is unequipped.
+     * Adds the aerjumps modifier when the Aerbound Cape is equipped.
      *
      * @param stack       The accessory {@link ItemStack}.
      * @param reference   The {@link SlotReference} of the accessory.

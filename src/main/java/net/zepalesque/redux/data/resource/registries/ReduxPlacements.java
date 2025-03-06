@@ -3,7 +3,6 @@ package net.zepalesque.redux.data.resource.registries;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.resources.builders.AetherPlacedFeatureBuilders;
 import com.aetherteam.aether.data.resources.registries.AetherConfiguredFeatures;
-import com.aetherteam.aether.data.resources.registries.AetherPlacedFeatures;
 import com.aetherteam.aether.world.placementmodifier.DungeonBlacklistFilter;
 import com.aetherteam.aether.world.placementmodifier.ImprovedLayerPlacementModifier;
 import com.aetherteam.nitrogen.data.resources.builders.NitrogenPlacedFeatureBuilders;
@@ -29,12 +28,10 @@ import net.minecraft.world.level.levelgen.placement.BiomeFilter;
 import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.levelgen.placement.CountPlacement;
 import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
-import net.minecraft.world.level.levelgen.placement.HeightmapPlacement;
 import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraft.world.level.levelgen.placement.NoiseThresholdCountPlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.RarityFilter;
-import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.blockset.flower.ReduxFlowerSets;
 import net.zepalesque.redux.data.resource.builders.ReduxPlacementBuilders;
 import net.zepalesque.zenith.api.condition.Condition;
@@ -72,9 +69,7 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
 
 
     public static final ResourceKey<PlacedFeature> SPARSE_WYNDSPROUTS_PATCH = copyKey(ReduxFeatureConfig.WYNDSPROUTS_PATCH, "sparse_%s");
-
-    public static final ResourceKey<PlacedFeature> BONEMEAL_OVERRIDE = AetherPlacedFeatures.AETHER_GRASS_BONEMEAL;
-
+    
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configs = context.lookup(Registries.CONFIGURED_FEATURE);
         HolderGetter<Condition<?>> conditions = context.lookup(Zenith.Keys.CONDITION);

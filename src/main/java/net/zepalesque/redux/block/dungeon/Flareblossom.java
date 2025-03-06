@@ -10,8 +10,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.zepalesque.redux.block.natural.bush.CustomBoundsFlowerBlock;
 import net.zepalesque.redux.client.particle.ReduxParticles;
+import net.zepalesque.unity.block.natural.bush.CustomBoundsFlowerBlock;
 import net.zepalesque.zenith.util.math.MathUtil;
 
 public class Flareblossom extends CustomBoundsFlowerBlock {

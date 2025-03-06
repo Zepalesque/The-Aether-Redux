@@ -1,6 +1,5 @@
 package net.zepalesque.redux.entity.projectile;
 
-import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.entity.projectile.dart.AbstractDart;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.effect.MobEffectInstance;

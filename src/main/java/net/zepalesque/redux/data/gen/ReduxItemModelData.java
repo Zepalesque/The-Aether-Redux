@@ -106,7 +106,7 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
         this.item(ReduxItems.MUSIC_DISC_SENTIENCE.get(), "misc/");
     }
 
-    // TODO (although, move to Unity)
+/*    // TODO (although, move to Unity)
     public static class Grass extends ReduxItemModelProvider {
         public Grass(PackOutput output, ExistingFileHelper helper) {
             super(output, Redux.MODID, helper);
@@ -114,6 +114,6 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
 
         // generate via templates
         protected void registerModels() {}
-    }
+    }*/
 
 }

@@ -73,7 +73,7 @@ public class Ember extends Projectile {
     }
 
     protected boolean hasHit(Entity entity) {
-        return this.hitEntities != null && this.hitEntities.contains(entity.getUUID());
+        return !this.hitEntities.isEmpty() && this.hitEntities.contains(entity.getUUID());
     }
 
 

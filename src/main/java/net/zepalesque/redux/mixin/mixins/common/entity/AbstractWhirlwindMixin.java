@@ -20,7 +20,7 @@ public abstract class AbstractWhirlwindMixin extends LivingEntityMixin {
         ((AbstractWhirlwind) (Object) this).setHealth(0.0F);
         ci.cancel();
     }
-    @Inject(method = "kill", at = @At(value = "HEAD"), cancellable = true)
+    @Inject(method = "kill", at = @At("HEAD"), cancellable = true)
     protected void redux$kill(CallbackInfo ci) {
         ((AbstractWhirlwind) (Object) this).setHealth(0.0F);
         ci.cancel();

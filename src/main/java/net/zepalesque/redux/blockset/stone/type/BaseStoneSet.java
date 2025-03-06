@@ -354,11 +354,9 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
     @Override
     public void blockTagData(ReduxBlockTagsProvider data) {
         this.tags.forEach((tag, allBlocks) -> {
-            if (allBlocks) {
+            if (allBlocks)
                 data.tag(tag).add(this.block().get(), this.stairs().get(), this.slab().get(), this.wall().get());
-            } else {
-                data.tag(tag).add(this.block().get());
-            }
+            else data.tag(tag).add(this.block().get());
         });
         data.tag(BlockTags.STAIRS).add(this.stairs().get());
         data.tag(BlockTags.SLABS).add(this.slab().get());
@@ -368,11 +366,9 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
     @Override
     public void itemTagData(ReduxItemTagsProvider data) {
         this.itemTags.forEach((tag, allBlocks) -> {
-            if (allBlocks) {
+            if (allBlocks)
                 data.tag(tag).add(this.block().get().asItem(), this.stairs().get().asItem(), this.slab().get().asItem(), this.wall().get().asItem());
-            } else {
-                data.tag(tag).add(this.block().get().asItem());
-            }
+            else data.tag(tag).add(this.block().get().asItem());
         });
     }
 

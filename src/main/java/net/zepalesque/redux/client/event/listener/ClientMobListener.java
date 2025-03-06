@@ -2,12 +2,10 @@ package net.zepalesque.redux.client.event.listener;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.event.entity.living.LivingEvent;
 import net.neoforged.neoforge.event.tick.EntityTickEvent;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.event.hook.KeyHooks;
@@ -21,8 +19,7 @@ public class ClientMobListener {
     @SubscribeEvent
     public static void cancelSneak(EntityTickEvent.Post event) {
         final Entity entity = event.getEntity();
-        if (entity.level().isClientSide() && ReduxConfig.SERVER.revamped_quicksoil_movement.get() && QuicksoilHooks.shouldAlterMovement(entity)) {
+        if (entity.level().isClientSide() && ReduxConfig.SERVER.revamped_quicksoil_movement.get() && QuicksoilHooks.shouldAlterMovement(entity))
             KeyHooks.cancelKey(entity, Minecraft.getInstance().options.keyShift);
-        }
     }
 }

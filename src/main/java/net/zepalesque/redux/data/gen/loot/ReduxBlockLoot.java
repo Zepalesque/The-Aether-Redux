@@ -33,32 +33,33 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
     protected void generate() {
         Redux.BLOCK_SETS.forEach(set -> set.lootData(this));
 
-        this.add(ReduxBlocks.GILDENROOT_LEAVES.get(),
-                (leaves) -> droppingWithChancesAndSkyrootSticks(
-                        leaves, ReduxFlowerSets.GILDENROOT_SAPLING.flower().get(),
-                        BlockLootAccessor.aether$getNormalLeavesSaplingChances())
+        this.add(
+        ReduxBlocks.GILDENROOT_LEAVES.get(),
+            leaves -> droppingWithChancesAndSkyrootSticks(
+                leaves, ReduxFlowerSets.GILDENROOT_SAPLING.flower().get(),
+                BlockLootAccessor.aether$getNormalLeavesSaplingChances())
         );
         this.add(ReduxBlocks.GILDENROOT_LEAF_PILE.get(), shears());
 
         this.add(ReduxBlocks.STORMROOT_LEAVES.get(),
-                (leaves) -> droppingWithChancesAndSkyrootSticks(
-                        leaves, ReduxFlowerSets.STORMROOT_SAPLING.flower().get(),
-                        BlockLootAccessor.aether$getNormalLeavesSaplingChances())
+            leaves -> droppingWithChancesAndSkyrootSticks(
+                leaves, ReduxFlowerSets.STORMROOT_SAPLING.flower().get(),
+                BlockLootAccessor.aether$getNormalLeavesSaplingChances())
         );
 
         this.add(ReduxBlocks.STORMROOT_LEAF_PILE.get(), shears());
 
         this.add(ReduxBlocks.BLIGHTWILLOW_LEAVES.get(),
-                (leaves) -> droppingWithChancesAndSkyrootSticks(
-                        leaves, ReduxFlowerSets.BLIGHTWILLOW_SAPLING.flower().get(),
+            leaves -> droppingWithChancesAndSkyrootSticks(
+                leaves, ReduxFlowerSets.BLIGHTWILLOW_SAPLING.flower().get(),
                         BlockLootAccessor.aether$getNormalLeavesSaplingChances())
         );
 
         // TODO
         this.add(ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES.get(),
-                (leaves) -> droppingWithChancesAndSkyrootSticks(
-                        leaves, ReduxFlowerSets.BLIGHTWILLOW_SAPLING.flower().get(),
-                        BlockLootAccessor.aether$getNormalLeavesSaplingChances())
+            leaves -> droppingWithChancesAndSkyrootSticks(
+                leaves, ReduxFlowerSets.BLIGHTWILLOW_SAPLING.flower().get(),
+                BlockLootAccessor.aether$getNormalLeavesSaplingChances())
         );
 
         this.add(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get(), shears());

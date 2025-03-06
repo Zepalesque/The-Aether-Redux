@@ -1,21 +1,13 @@
 package net.zepalesque.redux.data.prov;
 
 import com.aetherteam.aether.Aether;
-import com.aetherteam.aether.data.providers.AetherItemModelProvider;
 import net.minecraft.core.Direction;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.level.block.Block;
-import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
-import net.neoforged.neoforge.client.model.generators.loaders.ItemLayerModelBuilder;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
-import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.unity.data.prov.UnityItemModelProvider;
-
-import java.util.function.Function;
 
 public abstract class ReduxItemModelProvider extends UnityItemModelProvider {
 

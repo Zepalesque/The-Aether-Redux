@@ -1,9 +1,7 @@
 package net.zepalesque.redux.loot;
 
-import com.aetherteam.aether.Aether;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.zepalesque.redux.Redux;
 

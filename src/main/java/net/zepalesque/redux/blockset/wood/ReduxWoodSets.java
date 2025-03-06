@@ -3,7 +3,6 @@ package net.zepalesque.redux.blockset.wood;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.MapColor;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.blockset.wood.type.AbstractBookshelfSet;
 import net.zepalesque.redux.blockset.wood.type.LogWallWoodSet;
 import net.zepalesque.redux.blockset.wood.type.RegularBookshelfSet;
 import net.zepalesque.zenith.api.blockset.type.AbstractWoodSet;

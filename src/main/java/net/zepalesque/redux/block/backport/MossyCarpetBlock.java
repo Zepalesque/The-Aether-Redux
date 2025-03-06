@@ -34,6 +34,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.BooleanSupplier;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -46,24 +47,24 @@ public class MossyCarpetBlock extends Block implements BonemealableBlock {
     public static final EnumProperty<WallSide> SOUTH = BlockStateProperties.SOUTH_WALL;
     public static final EnumProperty<WallSide> WEST = BlockStateProperties.WEST_WALL;
     public static final Map<Direction, EnumProperty<WallSide>> PROPERTY_BY_DIRECTION = ImmutableMap.copyOf(
-        Util.make(Maps.newEnumMap(Direction.class), p_380156_ -> {
-            p_380156_.put(Direction.NORTH, NORTH);
-            p_380156_.put(Direction.EAST, EAST);
-            p_380156_.put(Direction.SOUTH, SOUTH);
-            p_380156_.put(Direction.WEST, WEST);
+        Util.make(Maps.newEnumMap(Direction.class), map -> {
+            map.put(Direction.NORTH, NORTH);
+            map.put(Direction.EAST, EAST);
+            map.put(Direction.SOUTH, SOUTH);
+            map.put(Direction.WEST, WEST);
         })
     );
-    private static final float AABB_OFFSET = 1.0F;
-    private static final VoxelShape DOWN_AABB = Block.box(0.0, 0.0, 0.0, 16.0, 1.0, 16.0);
-    private static final VoxelShape WEST_AABB = Block.box(0.0, 0.0, 0.0, 1.0, 16.0, 16.0);
-    private static final VoxelShape EAST_AABB = Block.box(15.0, 0.0, 0.0, 16.0, 16.0, 16.0);
-    private static final VoxelShape NORTH_AABB = Block.box(0.0, 0.0, 0.0, 16.0, 16.0, 1.0);
-    private static final VoxelShape SOUTH_AABB = Block.box(0.0, 0.0, 15.0, 16.0, 16.0, 16.0);
+    private static final int AABB_OFFSET = 1;
+    private static final VoxelShape DOWN_AABB = Block.box(0.0, 0.0, 0.0, 16.0, AABB_OFFSET, 16.0);
+    private static final VoxelShape WEST_AABB = Block.box(0.0, 0.0, 0.0, AABB_OFFSET, 16.0, 16.0);
+    private static final VoxelShape EAST_AABB = Block.box(16.0 - AABB_OFFSET, 0.0, 0.0, 16.0, 16.0, 16.0);
+    private static final VoxelShape NORTH_AABB = Block.box(0.0, 0.0, 0.0, 16.0, 16.0, AABB_OFFSET);
+    private static final VoxelShape SOUTH_AABB = Block.box(0.0, 0.0, 16.0 - AABB_OFFSET, 16.0, 16.0, 16.0);
     private static final int SHORT_HEIGHT = 10;
-    private static final VoxelShape WEST_SHORT_AABB = Block.box(0.0, 0.0, 0.0, 1.0, 10.0, 16.0);
-    private static final VoxelShape EAST_SHORT_AABB = Block.box(15.0, 0.0, 0.0, 16.0, 10.0, 16.0);
-    private static final VoxelShape NORTH_SHORT_AABB = Block.box(0.0, 0.0, 0.0, 16.0, 10.0, 1.0);
-    private static final VoxelShape SOUTH_SHORT_AABB = Block.box(0.0, 0.0, 15.0, 16.0, 10.0, 16.0);
+    private static final VoxelShape WEST_SHORT_AABB = Block.box(0.0, 0.0, 0.0, AABB_OFFSET, SHORT_HEIGHT, 16.0);
+    private static final VoxelShape EAST_SHORT_AABB = Block.box(16.0 - AABB_OFFSET, 0.0, 0.0, 16.0, SHORT_HEIGHT, 16.0);
+    private static final VoxelShape NORTH_SHORT_AABB = Block.box(0.0, 0.0, 0.0, 16.0, SHORT_HEIGHT, AABB_OFFSET);
+    private static final VoxelShape SOUTH_SHORT_AABB = Block.box(0.0, 0.0, 16.0 - AABB_OFFSET, 16.0, SHORT_HEIGHT, 16.0);
     private final Map<BlockState, VoxelShape> shapesCache;
 
     @Override
@@ -71,12 +72,12 @@ public class MossyCarpetBlock extends Block implements BonemealableBlock {
         return CODEC;
     }
 
-    public MossyCarpetBlock(BlockBehaviour.Properties p_380381_) {
-        super(p_380381_);
+    public MossyCarpetBlock(BlockBehaviour.Properties properties) {
+        super(properties);
         this.registerDefaultState(
             this.stateDefinition
                 .any()
-                .setValue(BASE, Boolean.valueOf(true))
+                .setValue(BASE, true)
                 .setValue(NORTH, WallSide.NONE)
                 .setValue(EAST, WallSide.NONE)
                 .setValue(SOUTH, WallSide.NONE)
@@ -95,9 +96,7 @@ public class MossyCarpetBlock extends Block implements BonemealableBlock {
 
     private static VoxelShape calculateShape(BlockState state) {
         VoxelShape voxelshape = Shapes.empty();
-        if (state.getValue(BASE)) {
-            voxelshape = DOWN_AABB;
-        }
+        if (state.getValue(BASE)) voxelshape = DOWN_AABB;
         voxelshape = switch (state.getValue(NORTH)) {
             case NONE -> voxelshape;
             case LOW -> Shapes.or(voxelshape, NORTH_SHORT_AABB);
@@ -125,13 +124,13 @@ public class MossyCarpetBlock extends Block implements BonemealableBlock {
     }
 
     @Override
-    protected VoxelShape getShape(BlockState p_380262_, BlockGetter p_379532_, BlockPos p_379586_, CollisionContext p_380281_) {
-        return this.shapesCache.get(p_380262_);
+    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        return this.shapesCache.get(state);
     }
 
     @Override
-    protected VoxelShape getCollisionShape(BlockState p_380336_, BlockGetter p_380068_, BlockPos p_379717_, CollisionContext p_379651_) {
-        return p_380336_.getValue(BASE) ? DOWN_AABB : Shapes.empty();
+    protected VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        return state.getValue(BASE) ? DOWN_AABB : Shapes.empty();
     }
 
 
@@ -141,20 +140,16 @@ public class MossyCarpetBlock extends Block implements BonemealableBlock {
     }
 
     @Override
-    protected boolean canSurvive(BlockState p_379574_, LevelReader p_379768_, BlockPos p_380354_) {
-        BlockState blockstate = p_379768_.getBlockState(p_380354_.below());
-        return p_379574_.getValue(BASE) ? !blockstate.isAir() : blockstate.is(this) && blockstate.getValue(BASE);
+    protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+        BlockState blockstate = level.getBlockState(pos.below());
+        return state.getValue(BASE) ? !blockstate.isAir() : blockstate.is(this) && blockstate.getValue(BASE);
     }
 
     private static boolean hasFaces(BlockState state) {
-        if (state.getValue(BASE)) {
-            return true;
-        } else {
-            for (EnumProperty<WallSide> enumproperty : PROPERTY_BY_DIRECTION.values()) {
-                if (state.getValue(enumproperty) != WallSide.NONE) {
-                    return true;
-                }
-            }
+        if (state.getValue(BASE)) return true;
+        else {
+            for (EnumProperty<WallSide> enumproperty : PROPERTY_BY_DIRECTION.values())
+                if (state.getValue(enumproperty) != WallSide.NONE) return true;
 
             return false;
         }
@@ -177,26 +172,21 @@ public class MossyCarpetBlock extends Block implements BonemealableBlock {
 
         for (Direction direction : Direction.Plane.HORIZONTAL) {
             EnumProperty<WallSide> enumproperty = getPropertyForFace(direction);
+            Objects.requireNonNull(enumproperty);
             WallSide wallside = canSupportAtFace(level, pos, direction)
-                ? (tip ? WallSide.LOW : state.getValue(enumproperty))
+                ? tip ? WallSide.LOW : state.getValue(enumproperty)
                 : WallSide.NONE;
             if (wallside == WallSide.LOW) {
-                if (blockstate == null) {
-                    blockstate = level.getBlockState(pos.above());
-                }
+                if (blockstate == null) blockstate = level.getBlockState(pos.above());
 
-                if (blockstate.is(this) && blockstate.getValue(enumproperty) != WallSide.NONE && !blockstate.getValue(BASE)) {
+                if (blockstate.is(this) && blockstate.getValue(enumproperty) != WallSide.NONE && !blockstate.getValue(BASE))
                     wallside = WallSide.TALL;
-                }
 
                 if (!state.getValue(BASE)) {
-                    if (blockstate1 == null) {
-                        blockstate1 = level.getBlockState(pos.below());
-                    }
+                    if (blockstate1 == null) blockstate1 = level.getBlockState(pos.below());
 
-                    if (blockstate1.is(this) && blockstate1.getValue(enumproperty) == WallSide.NONE) {
+                    if (blockstate1.is(this) && blockstate1.getValue(enumproperty) == WallSide.NONE)
                         wallside = WallSide.NONE;
-                    }
                 }
             }
 
@@ -208,29 +198,29 @@ public class MossyCarpetBlock extends Block implements BonemealableBlock {
 
     @Nullable
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext p_380111_) {
-        return getUpdatedState(this.defaultBlockState(), p_380111_.getLevel(), p_380111_.getClickedPos(), true);
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
+        return getUpdatedState(this.defaultBlockState(), context.getLevel(), context.getClickedPos(), true);
     }
+    
 
-    // TODO: Mixin into SimpleBlockFeature
+    /**
+     * TODO: Mixin into {@link net.minecraft.world.level.levelgen.feature.SimpleBlockFeature}
+     */
+    @SuppressWarnings("unused") // TODO: remove annotation
     public void placeAt(LevelAccessor level, BlockPos pos, RandomSource random, int flags) {
         BlockState blockstate = this.defaultBlockState();
         BlockState blockstate1 = getUpdatedState(blockstate, level, pos, true);
         level.setBlock(pos, blockstate1, 3);
         BlockState blockstate2 = createTopperWithSideChance(level, pos, random::nextBoolean);
-        if (!blockstate2.isAir()) {
-            level.setBlock(pos.above(), blockstate2, flags);
-        }
+        if (!blockstate2.isAir()) level.setBlock(pos.above(), blockstate2, flags);
     }
 
     @Override
-    public void setPlacedBy(Level p_380310_, BlockPos p_380202_, BlockState p_379659_, @Nullable LivingEntity p_379877_, ItemStack p_380344_) {
-        if (!p_380310_.isClientSide) {
-            RandomSource randomsource = p_380310_.getRandom();
-            BlockState blockstate = createTopperWithSideChance(p_380310_, p_380202_, randomsource::nextBoolean);
-            if (!blockstate.isAir()) {
-                p_380310_.setBlock(p_380202_.above(), blockstate, 3);
-            }
+    public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity entity, ItemStack stack) {
+        if (!level.isClientSide) {
+            RandomSource randomsource = level.getRandom();
+            BlockState blockstate = createTopperWithSideChance(level, pos, randomsource::nextBoolean);
+            if (!blockstate.isAir()) level.setBlock(pos.above(), blockstate, 3);
         }
     }
 
@@ -239,63 +229,66 @@ public class MossyCarpetBlock extends Block implements BonemealableBlock {
         BlockState blockstate = level.getBlockState(blockpos);
         boolean flag = blockstate.is(this);
         if ((!flag || !blockstate.getValue(BASE)) && (flag || blockstate.canBeReplaced())) {
-            BlockState blockstate1 = this.defaultBlockState().setValue(BASE, Boolean.valueOf(false));
+            BlockState blockstate1 = this.defaultBlockState().setValue(BASE, true);
             BlockState blockstate2 = getUpdatedState(blockstate1, level, pos.above(), true);
 
             for (Direction direction : Direction.Plane.HORIZONTAL) {
                 EnumProperty<WallSide> enumproperty = getPropertyForFace(direction);
-                if (blockstate2.getValue(enumproperty) != WallSide.NONE && !placeSide.getAsBoolean()) {
+                Objects.requireNonNull(enumproperty);
+                if (blockstate2.getValue(enumproperty) != WallSide.NONE && !placeSide.getAsBoolean())
                     blockstate2 = blockstate2.setValue(enumproperty, WallSide.NONE);
-                }
             }
 
             return hasFaces(blockstate2) && blockstate2 != blockstate ? blockstate2 : Blocks.AIR.defaultBlockState();
-        } else {
-            return Blocks.AIR.defaultBlockState();
-        }
+        } else return Blocks.AIR.defaultBlockState();
     }
 
 
     @Override
     protected BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
-        if (!state.canSurvive(level, pos)) {
-            return Blocks.AIR.defaultBlockState();
-        } else {
+        if (!state.canSurvive(level, pos)) return Blocks.AIR.defaultBlockState();
+        else {
             BlockState blockstate = getUpdatedState(state, level, pos, false);
             return !hasFaces(blockstate) ? Blocks.AIR.defaultBlockState() : blockstate;
         }
     }
 
     @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_379510_) {
-        p_379510_.add(BASE, NORTH, EAST, SOUTH, WEST);
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        builder.add(BASE, NORTH, EAST, SOUTH, WEST);
     }
 
     @Override
-    protected BlockState rotate(BlockState p_379325_, Rotation p_380164_) {
-        return switch (p_380164_) {
-            case CLOCKWISE_180 -> p_379325_.setValue(NORTH, p_379325_.getValue(SOUTH))
-            .setValue(EAST, p_379325_.getValue(WEST))
-            .setValue(SOUTH, p_379325_.getValue(NORTH))
-            .setValue(WEST, p_379325_.getValue(EAST));
-            case COUNTERCLOCKWISE_90 -> p_379325_.setValue(NORTH, p_379325_.getValue(EAST))
-            .setValue(EAST, p_379325_.getValue(SOUTH))
-            .setValue(SOUTH, p_379325_.getValue(WEST))
-            .setValue(WEST, p_379325_.getValue(NORTH));
-            case CLOCKWISE_90 -> p_379325_.setValue(NORTH, p_379325_.getValue(WEST))
-            .setValue(EAST, p_379325_.getValue(NORTH))
-            .setValue(SOUTH, p_379325_.getValue(EAST))
-            .setValue(WEST, p_379325_.getValue(SOUTH));
-            default -> p_379325_;
+    // Ahh yes
+    @Deprecated
+    @SuppressWarnings("deprecation")
+    protected BlockState rotate(BlockState state, Rotation rotation) {
+        return switch (rotation) {
+            case CLOCKWISE_180 -> state.setValue(NORTH, state.getValue(SOUTH))
+            .setValue(EAST, state.getValue(WEST))
+            .setValue(SOUTH, state.getValue(NORTH))
+            .setValue(WEST, state.getValue(EAST));
+            case COUNTERCLOCKWISE_90 -> state.setValue(NORTH, state.getValue(EAST))
+            .setValue(EAST, state.getValue(SOUTH))
+            .setValue(SOUTH, state.getValue(WEST))
+            .setValue(WEST, state.getValue(NORTH));
+            case CLOCKWISE_90 -> state.setValue(NORTH, state.getValue(WEST))
+            .setValue(EAST, state.getValue(NORTH))
+            .setValue(SOUTH, state.getValue(EAST))
+            .setValue(WEST, state.getValue(SOUTH));
+            default -> state;
         };
     }
 
     @Override
-    protected BlockState mirror(BlockState p_379462_, Mirror p_380184_) {
-        return switch (p_380184_) {
-            case LEFT_RIGHT -> p_379462_.setValue(NORTH, p_379462_.getValue(SOUTH)).setValue(SOUTH, p_379462_.getValue(NORTH));
-            case FRONT_BACK -> p_379462_.setValue(EAST, p_379462_.getValue(WEST)).setValue(WEST, p_379462_.getValue(EAST));
-            default -> super.mirror(p_379462_, p_380184_);
+    // Ahh yes
+    @Deprecated
+    @SuppressWarnings("deprecation")
+    protected BlockState mirror(BlockState state, Mirror mirror) {
+        return switch (mirror) {
+            case LEFT_RIGHT -> state.setValue(NORTH, state.getValue(SOUTH)).setValue(SOUTH, state.getValue(NORTH));
+            case FRONT_BACK -> state.setValue(EAST, state.getValue(WEST)).setValue(WEST, state.getValue(EAST));
+            default -> super.mirror(state, mirror);
         };
     }
 
@@ -305,20 +298,18 @@ public class MossyCarpetBlock extends Block implements BonemealableBlock {
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader p_379909_, BlockPos p_379807_, BlockState p_379358_) {
-        return p_379358_.getValue(BASE) && !createTopperWithSideChance(p_379909_, p_379807_, () -> true).isAir();
+    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
+        return state.getValue(BASE) && !createTopperWithSideChance(level, pos, () -> true).isAir();
     }
 
     @Override
-    public boolean isBonemealSuccess(Level p_380168_, RandomSource p_380045_, BlockPos p_380299_, BlockState p_379595_) {
+    public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {
         return true;
     }
 
     @Override
-    public void performBonemeal(ServerLevel p_379402_, RandomSource p_379670_, BlockPos p_379387_, BlockState p_379934_) {
-        BlockState blockstate = createTopperWithSideChance(p_379402_, p_379387_, () -> true);
-        if (!blockstate.isAir()) {
-            p_379402_.setBlock(p_379387_.above(), blockstate, 3);
-        }
+    public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
+        BlockState blockstate = createTopperWithSideChance(level, pos, () -> true);
+        if (!blockstate.isAir()) level.setBlock(pos.above(), blockstate, 3);
     }
 }

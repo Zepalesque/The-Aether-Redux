@@ -55,9 +55,7 @@ public class VeridiumAxeItem extends AxeItem implements VeridiumItem {
         ItemStack transform = this.deplete(stack, attacker, 1);
         if (!attacker.level().isClientSide() && transform != null && transform != stack) {
             attacker.setItemSlot(EquipmentSlot.MAINHAND, transform);
-            if (attacker instanceof ServerPlayer sp) {
-                this.sendSound(sp);
-            }
+            if (attacker instanceof ServerPlayer sp) this.sendSound(sp);
         }
         return bool;
     }
@@ -88,7 +86,7 @@ public class VeridiumAxeItem extends AxeItem implements VeridiumItem {
             ItemStack stack = context.getItemInHand();
             Player player = context.getPlayer();
             ItemStack transform = this.deplete(stack, player, 1);
-            if (!player.level().isClientSide() && transform != null && transform != stack) {
+            if (player != null && player.level().isClientSide() && transform != null && transform != stack) {
                 player.setItemSlot(EquipmentSlot.MAINHAND, transform);
                 if (player instanceof ServerPlayer sp) this.sendSound(sp);
             }

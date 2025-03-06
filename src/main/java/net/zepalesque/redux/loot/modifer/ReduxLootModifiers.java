@@ -1,7 +1,6 @@
 package net.zepalesque.redux.loot.modifer;
 
 
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import net.neoforged.neoforge.common.loot.IGlobalLootModifier;
 import net.neoforged.neoforge.registries.DeferredHolder;

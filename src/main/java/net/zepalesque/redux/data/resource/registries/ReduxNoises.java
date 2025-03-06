@@ -2,7 +2,6 @@ package net.zepalesque.redux.data.resource.registries;
 
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.level.levelgen.DensityFunction;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import net.minecraft.world.level.levelgen.synth.NormalNoise.NoiseParameters;
 import net.zepalesque.redux.data.resource.builders.ReduxNoiseBuilders;

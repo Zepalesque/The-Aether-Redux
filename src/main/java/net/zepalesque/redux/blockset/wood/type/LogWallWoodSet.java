@@ -32,7 +32,6 @@ import net.zepalesque.zenith.util.item.TabUtil;
 import net.zepalesque.zenith.util.mod.CompatHelper;
 
 import java.util.Map;
-import java.util.function.Supplier;
 
 public class LogWallWoodSet extends BaseWoodSet {
 

@@ -48,7 +48,7 @@ public class WyndoatsBlock extends BushBlock implements BonemealableBlock {
 
    public WyndoatsBlock(BlockBehaviour.Properties properties) {
       super(properties);
-      this.registerDefaultState(this.stateDefinition.any().setValue(this.getAgeProperty(), Integer.valueOf(0)));
+      this.registerDefaultState(this.stateDefinition.any().setValue(this.getAgeProperty(), 0));
    }
 
 
@@ -58,8 +58,8 @@ public class WyndoatsBlock extends BushBlock implements BonemealableBlock {
       return SHAPE_BY_AGE[this.getAge(state)];
    }
 
-   protected boolean mayPlaceOn(BlockState p_52302_, BlockGetter p_52303_, BlockPos p_52304_) {
-      return p_52302_.getBlock() instanceof FarmBlock;
+   protected boolean mayPlaceOn(BlockState state , BlockGetter level, BlockPos pos) {
+      return state.getBlock() instanceof FarmBlock;
    }
 
 
@@ -76,7 +76,7 @@ public class WyndoatsBlock extends BushBlock implements BonemealableBlock {
    }
 
    public BlockState getStateForAge(int age) {
-      return this.defaultBlockState().setValue(this.getAgeProperty(), Integer.valueOf(age));
+      return this.defaultBlockState().setValue(this.getAgeProperty(), age);
    }
 
    public final boolean isMaxAge(BlockState state) {
@@ -113,9 +113,7 @@ public class WyndoatsBlock extends BushBlock implements BonemealableBlock {
    public void growCrops(Level level, BlockPos pos, BlockState state) {
       int i = this.getAge(state) + this.getBonemealAgeIncrease(level);
       int j = this.getMaxAge();
-      if (i > j) {
-         i = j;
-      }
+      if (i > j) i = j;
 
       level.setBlock(pos, this.getStateForAge(i), 2);
    }
@@ -125,52 +123,40 @@ public class WyndoatsBlock extends BushBlock implements BonemealableBlock {
    }
 
    protected static float getGrowthSpeed(BlockState blockState, BlockGetter level, BlockPos pos) {
-      Block p_52273_ = blockState.getBlock();
+      Block block = blockState.getBlock();
       float f = 1.0F;
       BlockPos blockpos = pos.below();
 
-      for(int i = -1; i <= 1; ++i) {
-         for(int j = -1; j <= 1; ++j) {
-            float f1;
-            label71: {
-               f1 = 0.0F;
-               BlockState blockstate = level.getBlockState(blockpos.offset(i, 0, j));
-               TriState soilDecision = blockstate.canSustainPlant(level, blockpos.offset(i, 0, j), Direction.UP, blockState);
-               if (soilDecision.isDefault()) {
-                  if (!(blockstate.getBlock() instanceof FarmBlock)) {
-                     break label71;
-                  }
-               } else if (!soilDecision.isTrue()) {
-                  break label71;
-               }
-
-               f1 = 1.0F;
-               if (blockstate.isFertile(level, pos.offset(i, 0, j))) {
-                  f1 = 3.0F;
-               }
-            }
-
-            if (i != 0 || j != 0) {
-               f1 /= 4.0F;
-            }
-
-            f += f1;
-         }
-      }
+      for(int i = -1; i <= 1; ++i)
+          for (int j = -1; j <= 1; ++j) {
+              float f1;
+              label71: {
+                  f1 = 0.0F;
+                  BlockState blockstate = level.getBlockState(blockpos.offset(i, 0, j));
+                  TriState soilDecision = blockstate.canSustainPlant(level, blockpos.offset(i, 0, j), Direction.UP, blockState);
+                  if (soilDecision.isDefault()) {
+                      if (!(blockstate.getBlock() instanceof FarmBlock)) break label71;
+                  } else if (!soilDecision.isTrue()) break label71;
+                  
+                  f1 = 1.0F;
+                  if (blockstate.isFertile(level, pos.offset(i, 0, j))) f1 = 3.0F;
+              }
+              
+              if (i != 0 || j != 0) f1 /= 4.0F;
+              
+              f += f1;
+          }
 
       BlockPos blockpos1 = pos.north();
       BlockPos blockpos2 = pos.south();
       BlockPos blockpos3 = pos.west();
       BlockPos blockpos4 = pos.east();
-      boolean flag = level.getBlockState(blockpos3).is(p_52273_) || level.getBlockState(blockpos4).is(p_52273_);
-      boolean flag1 = level.getBlockState(blockpos1).is(p_52273_) || level.getBlockState(blockpos2).is(p_52273_);
-      if (flag && flag1) {
-         f /= 2.0F;
-      } else {
-         boolean flag2 = level.getBlockState(blockpos3.north()).is(p_52273_) || level.getBlockState(blockpos4.north()).is(p_52273_) || level.getBlockState(blockpos4.south()).is(p_52273_) || level.getBlockState(blockpos3.south()).is(p_52273_);
-         if (flag2) {
-            f /= 2.0F;
-         }
+      boolean flag = level.getBlockState(blockpos3).is(block) || level.getBlockState(blockpos4).is(block);
+      boolean flag1 = level.getBlockState(blockpos1).is(block) || level.getBlockState(blockpos2).is(block);
+      if (flag && flag1) f /= 2.0F;
+      else {
+         boolean flag2 = level.getBlockState(blockpos3.north()).is(block) || level.getBlockState(blockpos4.north()).is(block) || level.getBlockState(blockpos4.south()).is(block) || level.getBlockState(blockpos3.south()).is(block);
+         if (flag2) f /= 2.0F;
       }
 
       return f;
@@ -178,11 +164,8 @@ public class WyndoatsBlock extends BushBlock implements BonemealableBlock {
 
    protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
       TriState soilDecision = level.getBlockState(pos.below()).canSustainPlant(level, pos.below(), Direction.UP, state);
-      if (!soilDecision.isDefault()) {
-         return soilDecision.isTrue();
-      } else {
-         return hasSufficientLight(level, pos) && super.canSurvive(state, level, pos);
-      }
+      if (!soilDecision.isDefault()) return soilDecision.isTrue();
+      else return hasSufficientLight(level, pos) && super.canSurvive(state, level, pos);
    }
 
    public static boolean hasSufficientLight(LevelReader level, BlockPos pos) {
@@ -191,9 +174,8 @@ public class WyndoatsBlock extends BushBlock implements BonemealableBlock {
 
    @Override
    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-      if (entity instanceof Ravager && EventHooks.canEntityGrief(level, entity)) {
+      if (entity instanceof Ravager && EventHooks.canEntityGrief(level, entity))
          level.destroyBlock(pos, true, entity);
-      }
 
       super.entityInside(state, level, pos, entity);
    }

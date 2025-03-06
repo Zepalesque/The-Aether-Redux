@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
+@SuppressWarnings("CancellableInjectionUsage")
 public abstract class LivingEntityMixin extends EntityMixin {
 
     @Inject(method = "makePoofParticles", at = @At("HEAD"), cancellable = true)

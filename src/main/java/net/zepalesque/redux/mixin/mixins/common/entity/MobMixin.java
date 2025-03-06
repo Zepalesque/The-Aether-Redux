@@ -9,7 +9,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Mob.class)
 public abstract class MobMixin extends LivingEntityMixin {
-
+    
+    @SuppressWarnings("CancellableInjectionUsage")
     @Inject(method = "setTarget", at = @At("HEAD"), cancellable = true)
     protected void redux$setTarget(LivingEntity target, CallbackInfo ci) {}
 

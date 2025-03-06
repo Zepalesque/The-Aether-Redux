@@ -1,7 +1,6 @@
 package net.zepalesque.redux.mixin.mixins.common.entity.ai;
 
 import com.aetherteam.aether.entity.monster.dungeon.boss.Slider;
-import com.aetherteam.aether.entity.monster.dungeon.boss.goal.AvoidObstaclesGoal;
 import com.aetherteam.aether.entity.monster.dungeon.boss.goal.BackOffAfterAttackGoal;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;

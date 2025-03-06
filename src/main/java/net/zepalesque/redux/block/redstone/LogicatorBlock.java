@@ -44,9 +44,8 @@ public class LogicatorBlock extends DiodeBlock {
 
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
-        if (!player.getAbilities().mayBuild) {
-            return InteractionResult.PASS;
-        } else {
+        if (!player.getAbilities().mayBuild) return InteractionResult.PASS;
+        else {
             state = StateUtil.mapValue(state, MODE, LogicatorMode::flipOperationType);
             float f = state.getValue(MODE).isOr() ? 0.55F : 0.5F;
             level.playSound(player, pos, ReduxSounds.LOGICATOR_CLICK.get(), SoundSource.BLOCKS, 0.3F, f);
@@ -89,9 +88,7 @@ public class LogicatorBlock extends DiodeBlock {
 
     @Override
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
-        if (this.shouldUpdateOnPlacement(level, pos, state)) {
-            level.scheduleTick(pos, this, 1);
-        }
+        if (this.shouldUpdateOnPlacement(level, pos, state)) level.scheduleTick(pos, this, 1);
     }
 
     @Override
@@ -147,11 +144,8 @@ public class LogicatorBlock extends DiodeBlock {
             boolean shouldBeExclusive = shouldBeExclusive(level, pos, state);
             if ((wasOn != shouldTurnOn || hadInputL != shouldHaveInputL || hadInputR != shouldHaveInputR || wasExclusive != shouldBeExclusive) && !level.getBlockTicks().willTickThisTick(pos, this)) {
                 TickPriority tickpriority = TickPriority.HIGH;
-                if (this.shouldPrioritize(level, pos, state)) {
-                    tickpriority = TickPriority.EXTREMELY_HIGH;
-                } else if (wasOn) {
-                    tickpriority = TickPriority.VERY_HIGH;
-                }
+                if (this.shouldPrioritize(level, pos, state)) tickpriority = TickPriority.EXTREMELY_HIGH;
+                else if (wasOn) tickpriority = TickPriority.VERY_HIGH;
 
                 level.scheduleTick(pos, this, this.getDelay(state), tickpriority);
             }

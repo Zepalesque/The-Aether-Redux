@@ -14,9 +14,6 @@ import net.minecraft.world.level.block.GrowingPlantBodyBlock;
 import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.zepalesque.redux.block.ReduxBlocks;
-
-import java.util.function.Supplier;
 
 public class HangingAetherVinesBody extends GrowingPlantBodyBlock {
 

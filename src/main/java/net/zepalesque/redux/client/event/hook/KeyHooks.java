@@ -7,10 +7,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 
 public class KeyHooks {
-
     public static void cancelKey(final Entity entity, KeyMapping key) {
-        if (entity == Minecraft.getInstance().player) {
-            ToggleKeyMapping.set(key.getKey(), false);
-        }
+        if (entity == Minecraft.getInstance().player) ToggleKeyMapping.set(key.getKey(), false);
     }
 }

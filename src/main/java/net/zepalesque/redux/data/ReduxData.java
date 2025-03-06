@@ -1,8 +1,6 @@
 package net.zepalesque.redux.data;
 
-import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.data.generators.AetherRegistrySets;
-import com.aetherteam.aether.data.generators.tags.AetherEntityTagData;
 import net.minecraft.DetectedVersion;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
@@ -19,11 +17,11 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.data.gen.ReduxAdvancementData;
 import net.zepalesque.redux.data.gen.ReduxBlockStateData;
-import net.zepalesque.redux.data.gen.ReduxLootModifierData;
-import net.zepalesque.redux.data.gen.ReduxMapData;
 import net.zepalesque.redux.data.gen.ReduxItemModelData;
 import net.zepalesque.redux.data.gen.ReduxLanguageData;
 import net.zepalesque.redux.data.gen.ReduxLootData;
+import net.zepalesque.redux.data.gen.ReduxLootModifierData;
+import net.zepalesque.redux.data.gen.ReduxMapData;
 import net.zepalesque.redux.data.gen.ReduxParticleData;
 import net.zepalesque.redux.data.gen.ReduxRecipeData;
 import net.zepalesque.redux.data.gen.ReduxRegistrySets;
@@ -51,7 +49,6 @@ public class ReduxData {
         generator.addProvider(event.includeClient(), new ReduxParticleData(output, fileHelper));
         generator.addProvider(event.includeClient(), new ReduxSoundsData(output, fileHelper));
 
-        // TODO: look into better solutions for this
         AetherRegistrySets patch = new AetherRegistrySets(output, lookup);
         lookup = patch.getRegistryProvider();
 

@@ -54,9 +54,7 @@ public class VeridiumShovelItem extends ShovelItem implements VeridiumItem {
         ItemStack transform = this.deplete(stack, attacker, 1);
         if (!attacker.level().isClientSide() && transform != null && transform != stack) {
             attacker.setItemSlot(EquipmentSlot.MAINHAND, transform);
-            if (attacker instanceof ServerPlayer sp) {
-                this.sendSound(sp);
-            }
+            if (attacker instanceof ServerPlayer sp) this.sendSound(sp);
         }
         return bool;
     }
@@ -73,9 +71,7 @@ public class VeridiumShovelItem extends ShovelItem implements VeridiumItem {
                 ItemStack transform = this.deplete(stack, user, amount);
                 if (!user.level().isClientSide() && transform != null && transform != stack) {
                     user.setItemSlot(EquipmentSlot.MAINHAND, transform);
-                    if (user instanceof ServerPlayer sp) {
-                        this.sendSound(sp);
-                    }
+                    if (user instanceof ServerPlayer sp) this.sendSound(sp);
                 }
             }
         }
@@ -89,7 +85,7 @@ public class VeridiumShovelItem extends ShovelItem implements VeridiumItem {
             ItemStack stack = context.getItemInHand();
             Player player = context.getPlayer();
             ItemStack transform = this.deplete(stack, player, 1);
-            if (!player.level().isClientSide() && transform != null && transform != stack) {
+            if (player != null && !player.level().isClientSide() && transform != null && transform != stack) {
                 player.setItemSlot(EquipmentSlot.MAINHAND, transform);
                 if (player instanceof ServerPlayer sp) this.sendSound(sp);
             }

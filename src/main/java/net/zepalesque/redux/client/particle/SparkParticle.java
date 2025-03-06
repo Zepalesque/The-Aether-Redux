@@ -33,7 +33,7 @@ public class SparkParticle extends TextureSheetParticle {
         this.yd *= 0.8F;
         this.zd *= 0.8F;
         this.quadSize = 0.125F;
-        this.scale((random.nextFloat() * 0.2F) + 0.4F);
+        this.scale(random.nextFloat() * 0.2F + 0.4F);
         this.lifetime = (int)(32.0D / (Math.random() * 0.6D + 0.4D));
     }
 
@@ -94,9 +94,9 @@ public class SparkParticle extends TextureSheetParticle {
     @Override
     public void move(double x, double y, double z) {
         if (!this.stoppedByCollision) {
-            double x1 = x;
+//            double x1 = x;
             double y1 = y;
-            double z1 = z;
+//            double z1 = z;
             if (this.hasPhysics
                     && (x != 0.0 || y != 0.0 || z != 0.0)
                     && x * x + y * y + z * z < MAXIMUM_COLLISION_VELOCITY_SQUARED) {
