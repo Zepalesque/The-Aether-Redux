@@ -1,6 +1,7 @@
 {
   "values": [
     "aether_redux:bleakmoss_block",
-    "aether_redux:gildenmoss_block"
+    "aether_redux:gildenmoss_block",
+    "aether_redux:permablight_aether_grass_block"
   ]
 }

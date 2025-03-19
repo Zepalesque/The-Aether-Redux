@@ -18,12 +18,12 @@ import java.util.List;
 
 public class RawOreModifier extends LootModifier {
     private static final Codec<LootItemFunction[]> LOOT_FUNCTIONS_CODEC = LootItemFunctions.ROOT_CODEC.listOf().xmap(list -> list.toArray(LootItemFunction[]::new), List::of);
-    public static final MapCodec<RawOreModifier> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
+    public static final MapCodec<RawOreModifier> CODEC = RecordCodecBuilder.mapCodec(builder -> builder.group(
             BuiltInRegistries.ITEM.byNameCodec().fieldOf("removed_item").forGetter(instance -> instance.toRemove),
             ItemStack.CODEC.fieldOf("added_item").forGetter(instance -> instance.rawOre),
             LOOT_FUNCTIONS_CODEC.fieldOf("functions").forGetter(instance -> instance.functions),
             LootModifier.LOOT_CONDITIONS_CODEC.fieldOf("conditions").forGetter(instance -> instance.conditions)
-    ).apply(instance, RawOreModifier::new));
+    ).apply(builder, RawOreModifier::new));
 
     private final Item toRemove;
     private final LootItemFunction[] functions;

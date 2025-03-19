@@ -17,13 +17,17 @@ public class ReduxTags {
 
     public static class Blocks {
 
-        // Blocks that should override Short Aether Grass's color to be the blight color (blightmoss for instance)
+        // Blocks that should override Short Aether Grass's color to be the color of bleakmoss
         public static final TagKey<Block> SHORT_AETHER_GRASS_BLEAKMOSS_COLORING = tag("short_aether_grass_bleakmoss_coloring");
+        // Blocks that should override Short Aether Grass's color to be the blight color (permablight grass block for instance)
+        public static final TagKey<Block> SHORT_AETHER_GRASS_BLIGHT_COLORING = tag("short_aether_grass_bleakmoss_coloring");
         // Blocks that should use the Highlands quicksoil system
         public static final TagKey<Block> QUICKSOIL_BEHAVIOR = tag("quicksoil_behavior");
 
         // Blocks that can be replaced by generated rocks
         public static final TagKey<Block> ROCK_REPLACEABLE = tag("rock_replaceable");
+        
+        public static final TagKey<Block> AETHER_GRASS_SPREAD_BLACKLIST = tag("aether_grass_spread_blacklist");
 
 
         // NeoForge tags

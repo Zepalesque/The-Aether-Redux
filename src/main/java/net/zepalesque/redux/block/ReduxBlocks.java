@@ -5,6 +5,7 @@ import com.aetherteam.aether.block.dungeon.DoorwayBlock;
 import com.aetherteam.aether.block.dungeon.TrappedBlock;
 import com.aetherteam.aether.block.natural.AetherDoubleDropBlock;
 import com.aetherteam.aether.block.natural.AetherDoubleDropsLeaves;
+import com.aetherteam.aether.block.natural.AetherGrassBlock;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.tags.BlockTags;
@@ -51,30 +52,34 @@ public class ReduxBlocks extends ReduxBlockBuilders {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Redux.MODID);
 
     public static DeferredBlock<AetherDoubleDropsLeaves> GILDENROOT_LEAVES = register("gildenroot_leaves",
-            () -> new AetherDoubleDropsLeaves(Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get()).mapColor(MapColor.QUARTZ)));
+        () -> new AetherDoubleDropsLeaves(Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get()).mapColor(MapColor.QUARTZ)));
+    
+    // TODO: custom texture? perhaps for the side, like the old one?
+    public static DeferredBlock<AetherGrassBlock> PERMABLIGHT_AETHER_GRASS_BLOCK = register("permablight_aether_grass_block",
+        () -> new AetherGrassBlock(Properties.ofFullCopy(AetherBlocks.AETHER_GRASS_BLOCK.get())));
 
     public static DeferredBlock<LeafPileBlock> GILDENROOT_LEAF_PILE = register("gildenroot_leaf_pile",
-            () -> new LeafPileBlock(GILDENROOT_LEAVES));
+        () -> new LeafPileBlock(GILDENROOT_LEAVES));
 
     public static DeferredBlock<ShadedLeavesBlock> STORMROOT_LEAVES = register("stormroot_leaves",
-            () -> new ShadedLeavesBlock(3, Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get()).mapColor(MapColor.TERRACOTTA_PURPLE)));
+        () -> new ShadedLeavesBlock(3, Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get()).mapColor(MapColor.TERRACOTTA_PURPLE)));
 
     public static DeferredBlock<LeafPileBlock> STORMROOT_LEAF_PILE = register("stormroot_leaf_pile",
-            () -> new LeafPileBlock(STORMROOT_LEAVES));
+        () -> new LeafPileBlock(STORMROOT_LEAVES));
 
     public static DeferredBlock<ShadedLeavesBlock> BLIGHTWILLOW_LEAVES = register("blightwillow_leaves",
-            () -> new ShadedLeavesBlock(5, Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get()).mapColor(MapColor.TERRACOTTA_PURPLE)));
+        () -> new ShadedLeavesBlock(5, Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get()).mapColor(MapColor.TERRACOTTA_PURPLE)));
 
     // TODO: custom particles (more, block breaking and stuff) + use real particle other than obsidian????
     // TODO: Rename, add drip particles, make these work like crystal leaves perhaps (maybe, or just ALWAYS use berry bush like behavior)
     public static DeferredBlock<InfectedLeavesBlock> INFECTED_BLIGHTWILLOW_LEAVES = register("infected_blightwillow_leaves",
-            () -> new InfectedLeavesBlock(() -> ParticleTypes.DRIPPING_OBSIDIAN_TEAR, Properties.ofFullCopy(BLIGHTWILLOW_LEAVES.get()).lightLevel(value -> 7).strength(0.3F)));
+        () -> new InfectedLeavesBlock(() -> ParticleTypes.DRIPPING_OBSIDIAN_TEAR, Properties.ofFullCopy(BLIGHTWILLOW_LEAVES.get()).lightLevel(value -> 7).strength(0.3F)));
 
     public static DeferredBlock<LeafPileBlock> BLIGHTWILLOW_LEAF_PILE = register("blightwillow_leaf_pile",
-            () -> new LeafPileBlock(BLIGHTWILLOW_LEAVES));
+        () -> new LeafPileBlock(BLIGHTWILLOW_LEAVES));
 
     public static DeferredBlock<GoldenCloversBlock> GOLDEN_CLOVERS = register("golden_clovers",
-            () -> new GoldenCloversBlock(BlockBehaviour.Properties.of()
+        () -> new GoldenCloversBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.GOLD)
                     .noCollission()
                     .sound(SoundType.PINK_PETALS)
@@ -84,14 +89,14 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 
     // TODO: Moss BlockSet
     public static DeferredBlock<DoubleDropsGrowthBlock> BLEAKMOSS_BLOCK = register("bleakmoss_block",
-            () -> new DoubleDropsGrowthBlock(Properties.ofFullCopy(Blocks.MOSS_BLOCK).mapColor(MapColor.TERRACOTTA_MAGENTA), ReduxFeatureConfig.BLEAKMOSS_BONEMEAL));
+        () -> new DoubleDropsGrowthBlock(Properties.ofFullCopy(Blocks.MOSS_BLOCK).mapColor(MapColor.TERRACOTTA_MAGENTA), ReduxFeatureConfig.BLEAKMOSS_BONEMEAL));
     public static DeferredBlock<DoubleDropsMossCarpet> BLEAKMOSS_CARPET = register("bleakmoss_carpet",
-            () -> new DoubleDropsMossCarpet(Properties.ofFullCopy(Blocks.MOSS_CARPET).mapColor(MapColor.TERRACOTTA_MAGENTA)));
+        () -> new DoubleDropsMossCarpet(Properties.ofFullCopy(Blocks.MOSS_CARPET).mapColor(MapColor.TERRACOTTA_MAGENTA)));
 
     public static DeferredBlock<DoubleDropsGrowthBlock> GILDENMOSS_BLOCK = register("gildenmoss_block",
-            () -> new DoubleDropsGrowthBlock(Properties.ofFullCopy(Blocks.MOSS_BLOCK).mapColor(MapColor.TERRACOTTA_YELLOW), ReduxFeatureConfig.GILDENMOSS_BONEMEAL));
+        () -> new DoubleDropsGrowthBlock(Properties.ofFullCopy(Blocks.MOSS_BLOCK).mapColor(MapColor.TERRACOTTA_YELLOW), ReduxFeatureConfig.GILDENMOSS_BONEMEAL));
     public static DeferredBlock<DoubleDropsCarpet> GILDENMOSS_CARPET = register("gildenmoss_carpet",
-            () -> new DoubleDropsCarpet(Properties.ofFullCopy(Blocks.MOSS_CARPET).mapColor(MapColor.TERRACOTTA_YELLOW)));
+        () -> new DoubleDropsCarpet(Properties.ofFullCopy(Blocks.MOSS_CARPET).mapColor(MapColor.TERRACOTTA_YELLOW)));
 
 
     public static final DeferredBlock<Block> CARVED_PILLAR = register("carved_pillar", () -> new RotatedPillarBlock(Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).strength(0.5F, 6.0F).requiresCorrectToolForDrops()));
@@ -122,7 +127,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
                     .sound(SoundType.COPPER_BULB)
                     .requiresCorrectToolForDrops()
                     .instrument(NoteBlockInstrument.IRON_XYLOPHONE),
-                    false
+                false
             ));
 
     public static final DeferredBlock<Block> LOCKED_RUNELIGHT = register("locked_runelight", () ->
@@ -132,7 +137,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
                     .strength(-1.0F, 3600000.0F)
                     .sound(SoundType.COPPER_BULB)
                     .instrument(NoteBlockInstrument.IRON_XYLOPHONE),
-                    true
+                true
             ));
 
     public static final DeferredBlock<Block> LOCKED_POLISHED_SENTRITE = register("locked_polished_sentrite", () ->
@@ -144,31 +149,31 @@ public class ReduxBlocks extends ReduxBlockBuilders {
             ));
 
     public static DeferredBlock<Block> WYNDSPROUTS = register("wyndsprouts",
-            () -> new CustomBoundsBushBlock.Enchanted(CommonPlantBounds.BUSH, Properties.ofFullCopy(Blocks.SHORT_GRASS).sound(SoundType.CHERRY_SAPLING).offsetType(OffsetType.XZ).hasPostProcess((s, l, p) -> true)));
+        () -> new CustomBoundsBushBlock.Enchanted(CommonPlantBounds.BUSH, Properties.ofFullCopy(Blocks.SHORT_GRASS).sound(SoundType.CHERRY_SAPLING).offsetType(OffsetType.XZ).hasPostProcess((s, l, p) -> true)));
 
     public static DeferredBlock<Block> SKYSPROUTS = register("skysprouts",
-            () -> new CustomBoundsBushBlock(CommonPlantBounds.BUSH, Properties.ofFullCopy(Blocks.SHORT_GRASS).sound(SoundType.CHERRY_SAPLING).offsetType(OffsetType.XZ)));
+        () -> new CustomBoundsBushBlock(CommonPlantBounds.BUSH, Properties.ofFullCopy(Blocks.SHORT_GRASS).sound(SoundType.CHERRY_SAPLING).offsetType(OffsetType.XZ)));
 
     public static DeferredBlock<Block> WYNDOATS = BLOCKS.register("wyndoats",
-            () -> new WyndoatsBlock(Properties.ofFullCopy(Blocks.WHEAT)));
+        () -> new WyndoatsBlock(Properties.ofFullCopy(Blocks.WHEAT)));
 
     public static DeferredBlock<Block> SENTRITE_CHAIN = register("sentrite_chain",
-            () -> new ChainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHAIN)));
+        () -> new ChainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHAIN)));
 
     public static DeferredBlock<Block> SENTRITE_LANTERN = register("sentrite_lantern",
-            () -> new LanternBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LANTERN).mapColor(MapColor.DEEPSLATE).lightLevel(state -> 13)));
+        () -> new LanternBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LANTERN).mapColor(MapColor.DEEPSLATE).lightLevel(state -> 13)));
 
     public static DeferredBlock<Block> SENTRITE_BARS = register("sentrite_bars",
-            () -> new IronBarsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BARS).mapColor(MapColor.DEEPSLATE)));
+        () -> new IronBarsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BARS).mapColor(MapColor.DEEPSLATE)));
 
 
     public static DeferredBlock<Block> RUNIC_LANTERN = register("runic_lantern",
-            () -> new LanternBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LANTERN).mapColor(MapColor.DEEPSLATE).lightLevel(state -> 8)));
+        () -> new LanternBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LANTERN).mapColor(MapColor.DEEPSLATE).lightLevel(state -> 8)));
 
 
     public static final DeferredBlock<Block> VERIDIUM_ORE = register(
             "veridium_ore",
-            () -> new AetherDoubleDropBlock(
+        () -> new AetherDoubleDropBlock(
                     Block.Properties.of()
                             .mapColor(MapColor.WOOL)
                             .instrument(NoteBlockInstrument.BASEDRUM)
@@ -179,7 +184,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 
     public static final DeferredBlock<Block> RAW_VERIDIUM_BLOCK = register(
             "raw_veridium_block",
-            () -> new Block(
+        () -> new Block(
                     BlockBehaviour.Properties.of()
                             .mapColor(MapColor.LAPIS)
                             .instrument(NoteBlockInstrument.BASEDRUM)
@@ -191,7 +196,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 
     public static final DeferredBlock<Block> VERIDIUM_BLOCK = register(
             "veridium_block",
-            () -> new Block(
+        () -> new Block(
                     BlockBehaviour.Properties.of()
                             .mapColor(MapColor.LAPIS)
 //                            .instrument(NoteBlockInstrument.)
@@ -203,7 +208,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 
     public static final DeferredBlock<Block> REFINED_SENTRITE_BLOCK = register(
             "refined_sentrite_block",
-            () -> new Block(
+        () -> new Block(
                     BlockBehaviour.Properties.of()
                             .mapColor(MapColor.COLOR_GRAY)
 //                            .instrument(NoteBlockInstrument.IRON_XYLOPHONE)
@@ -216,15 +221,15 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 
 
     public static DeferredBlock<HangingAetherVinesHead> GOLDEN_VINES = register("golden_vines",
-            () -> new HangingAetherVinesHead(BlockBehaviour.Properties.ofFullCopy(Blocks.WEEPING_VINES)
+        () -> new HangingAetherVinesHead(BlockBehaviour.Properties.ofFullCopy(Blocks.WEEPING_VINES)
                     .mapColor(MapColor.GOLD).sound(SoundType.CAVE_VINES), BlockTags.LEAVES, ReduxBlocks.GOLDEN_VINES_PLANT));
 
     public static DeferredBlock<HangingAetherVinesBody> GOLDEN_VINES_PLANT = BLOCKS.register("golden_vines_plant",
-            () -> new HangingAetherVinesBody(BlockBehaviour.Properties.ofFullCopy(Blocks.WEEPING_VINES_PLANT)
+        () -> new HangingAetherVinesBody(BlockBehaviour.Properties.ofFullCopy(Blocks.WEEPING_VINES_PLANT)
                     .mapColor(MapColor.GOLD).sound(SoundType.CAVE_VINES), BlockTags.LEAVES, ReduxBlocks.GOLDEN_VINES));
 
     public static final DeferredBlock<LogicatorBlock> LOGICATOR = register("logicator",
-            () -> new LogicatorBlock(BlockBehaviour.Properties.of().instabreak().sound(SoundType.STONE).pushReaction(PushReaction.DESTROY))
+        () -> new LogicatorBlock(BlockBehaviour.Properties.of().instabreak().sound(SoundType.STONE).pushReaction(PushReaction.DESTROY))
     );
 
     public static void registerFlammability() {

@@ -1,12 +1,15 @@
 package net.zepalesque.redux.data.gen;
 
+import com.aetherteam.aether.Aether;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
 import net.zepalesque.redux.data.prov.ReduxItemModelProvider;
 import net.zepalesque.redux.item.ReduxItems;
+import net.zepalesque.unity.Unity;
 
 public class ReduxItemModelData extends ReduxItemModelProvider {
 
@@ -17,13 +20,17 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
     @Override
     protected void registerModels() {
         Redux.BLOCK_SETS.forEach(set -> set.itemData(this));
-
+        
+        this.withExistingParent(this.blockName(ReduxBlocks.PERMABLIGHT_AETHER_GRASS_BLOCK.get()),
+            ResourceLocation.fromNamespaceAndPath(Aether.MODID, BLOCK_FOLDER + "/aether_grass_block"));
+      
         this.itemBlock(ReduxBlocks.GILDENROOT_LEAVES.get());
         this.leafPile(ReduxBlocks.GILDENROOT_LEAF_PILE.get());
 
         this.itemBlock(ReduxBlocks.STORMROOT_LEAVES.get());
         this.leafPile(ReduxBlocks.STORMROOT_LEAF_PILE.get());
-
+        
+        
         this.itemBlock(ReduxBlocks.BLIGHTWILLOW_LEAVES.get());
         this.itemBlock(ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES.get());
         this.leafPile(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get());

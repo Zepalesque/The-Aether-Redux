@@ -43,6 +43,9 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
         addBlock(ReduxBlocks.GOLDEN_CLOVERS);
         addLore(ReduxBlocks.GOLDEN_CLOVERS, "A nice patch of clovers that can be found in the Gilded Groves.");
 
+        addBlock(ReduxBlocks.PERMABLIGHT_AETHER_GRASS_BLOCK);
+        addLore(ReduxBlocks.PERMABLIGHT_AETHER_GRASS_BLOCK, "A block of the Aether's grass which has been corrupted in a more permanent way than others. Good for building blight-themed builds!");
+
         addBlock(ReduxBlocks.GOLDEN_VINES);
         addBlock(ReduxBlocks.GOLDEN_VINES_PLANT);
         addLore(ReduxBlocks.GOLDEN_VINES, "A golden vine that grows in a symbiotic relationship with Golden Oak trees when they are healthy, such as when found in the Gilded Groves");

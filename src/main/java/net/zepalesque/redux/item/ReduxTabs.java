@@ -31,6 +31,10 @@ public class ReduxTabs {
             TabUtil.putAfter(event, UnityBlocks.SHORT_AETHER_GRASS,
                     ReduxBlocks.WYNDSPROUTS
             );
+            
+            TabUtil.putAfter(event, AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK,
+                    ReduxBlocks.PERMABLIGHT_AETHER_GRASS_BLOCK
+            );
 
             TabUtil.putAfter(event, UnityBlocks.SKYROOT_LEAF_PILE,
                     ReduxBlocks.GILDENROOT_LEAVES,
