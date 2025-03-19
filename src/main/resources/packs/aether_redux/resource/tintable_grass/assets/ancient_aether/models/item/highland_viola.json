@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "ancient_aether:block/highland_viola_overlay",
-    "layer1": "ancient_aether:block/highland_viola"
-  }
-}

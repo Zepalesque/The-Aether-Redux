@@ -32,8 +32,11 @@ public class ReduxColors {
     
     public static Integer reduxColors(BlockState state, @Nullable BlockAndTintGetter level, @Nullable BlockPos pos, int index, Predicate<Integer> indexGoal, boolean useBelowProperties) {
         if (level == null || pos == null) return null;
-        if (level.getBlockState(pos.below()).is(ReduxTags.Blocks.SHORT_AETHER_GRASS_BLEAKMOSS_COLORING))
+        BlockPos below = pos.below();
+        if (level.getBlockState(below).is(ReduxTags.Blocks.SHORT_AETHER_GRASS_BLEAKMOSS_COLORING))
             return Tints.BLEAKMOSS_GRASS_COLOR;
+        else if (level.getBlockState(below).is(ReduxTags.Blocks.SHORT_AETHER_GRASS_BLIGHT_COLORING))
+            return Tints.BLIGHT_GRASS_COLOR;
         return null;
     }
 

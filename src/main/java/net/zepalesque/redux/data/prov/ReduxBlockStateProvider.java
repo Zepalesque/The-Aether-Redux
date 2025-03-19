@@ -1,5 +1,6 @@
 package net.zepalesque.redux.data.prov;
 
+import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.dungeon.DoorwayBlock;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
@@ -49,7 +50,17 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
     public BlockModelBuilder makeWallSideModel(int length, int height, String name, ModelBuilder.FaceRotation faceRotation, int u1, int u2) {
         return super.makeWallSideModel(length, height, name, faceRotation, u1, u2);
     }
-
+    
+    public void permaGrass(Block block, Block dirt, String location, String dirtLocation) {
+        ResourceLocation bottom = texture(dirt, dirtLocation);
+        ResourceLocation top = texture(AetherBlocks.AETHER_GRASS_BLOCK.get(), "natural/", "_side");
+        ResourceLocation overlay = texture(block, location, "_side_overlay");
+        ResourceLocation side = texture(block, location, "_top");
+        ResourceLocation snow = texture(block, location, "_side_snow");
+        tintableGrassBlock(block, bottom, top, overlay, side, models().cubeBottomTop(nameID(block, "%s_snow"), snow, bottom, top));
+    }
+    
+    
     public void layeredBookshelf(Block block, Block endBlock) {
         ModelFile bookshelf = this.models().cubeColumn(this.name(block), this.texture(this.name(block), "construction/"), this.texture(this.name(endBlock), "construction/"));
         ModelFile top = this.models().cubeColumn(this.name(block) + "_top", this.texture(this.name(block) + "_top", "construction/"), this.texture(this.name(endBlock), "construction/"));
