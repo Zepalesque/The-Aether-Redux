@@ -57,7 +57,26 @@
   },
   "item.willow_spores.convert": {
     "sounds": [
-      "aether_redux:item/conversion/willow_spores_convert"
+      {
+        "name": "block/sculk/spread1",
+        "pitch": 0.9
+      },
+      {
+        "name": "block/sculk/spread2",
+        "pitch": 0.9
+      },
+      {
+        "name": "block/sculk/spread3",
+        "pitch": 0.9
+      },
+      {
+        "name": "block/sculk/spread4",
+        "pitch": 0.9
+      },
+      {
+        "name": "block/sculk/spread5",
+        "pitch": 0.9
+      }
     ],
     "subtitle": "subtitles.aether_redux.item.willow_spores.convert"
   }
