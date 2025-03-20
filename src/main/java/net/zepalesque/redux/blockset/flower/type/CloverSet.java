@@ -25,6 +25,6 @@ public class CloverSet<B extends Block> extends BaseFlowerSet<B>{
 
     @Override
     public void itemData(ReduxItemModelProvider data) {
-        data.itemBlockFlatCustomTexture(this.flower().get(), this.textureFolder + data.blockName(this.flower.get()) + "_top");
+        data.itemBlockFlatCustomTexture(this.flower().get(), this.flower().getId().withPath("block/" + this.textureFolder + data.blockName(this.flower.get()) + "_top"));
     }
 }
