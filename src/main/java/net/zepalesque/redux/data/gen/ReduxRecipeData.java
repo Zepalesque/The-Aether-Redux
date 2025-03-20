@@ -47,7 +47,6 @@ public class ReduxRecipeData extends ReduxRecipeProvider {
 
         enchantingRecipe(RecipeCategory.DECORATIONS, ReduxFlowerSets.GILDENROOT_SAPLING.flower().get(), AetherBlocks.SKYROOT_SAPLING.get(), 0.1F, 1000).save(output);
         ambrosiumEnchanting(output, ReduxBlocks.GILDENROOT_LEAVES.get(), AetherBlocks.SKYROOT_LEAVES.get());
-        ambrosiumEnchanting(output, ReduxBlocks.GILDENROOT_LEAVES.get(), AetherBlocks.SKYROOT_LEAVES.get());
         ambrosiumEnchanting(output, AetherBlocks.SKYROOT_LEAVES.get(), ReduxBlocks.STORMROOT_LEAVES.get());
         ambrosiumEnchanting(output, AetherBlocks.AETHER_GRASS_BLOCK.get(), ReduxBlocks.PERMABLIGHT_AETHER_GRASS_BLOCK.get());
         sporeBlighting(output, AetherBlocks.SKYROOT_LEAVES.get(), ReduxBlocks.GILDENROOT_LEAVES.get());

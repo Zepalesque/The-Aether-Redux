@@ -54,5 +54,11 @@
         "stream": true
       }
     ]
+  },
+  "item.willow_spores.convert": {
+    "sounds": [
+      "aether_redux:item/conversion/willow_spores_convert"
+    ],
+    "subtitle": "subtitles.aether_redux.item.willow_spores.convert"
   }
 }
