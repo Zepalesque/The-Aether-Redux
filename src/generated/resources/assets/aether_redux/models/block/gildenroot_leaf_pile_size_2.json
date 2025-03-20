@@ -1,5 +1,5 @@
 {
-  "parent": "aether_redux:block/template/layer/layer_size2",
+  "parent": "aether_unity:block/template/layer/layer_size2",
   "render_type": "minecraft:cutout",
   "textures": {
     "block": "aether_redux:block/natural/gildenroot_leaves"
