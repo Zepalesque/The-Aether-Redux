@@ -12,7 +12,6 @@
     "common.accessor.WallBlockAccessor",
     "common.block.BlockBehaviorMixin",
     "common.block.QuicksoilMixin",
-    "common.block.SpreadingSnowyDirtMixin",
     "common.entity.AbstractWhirlwindMixin",
     "common.entity.EntityMixin",
     "common.entity.EvilWhirlwindMixin",
