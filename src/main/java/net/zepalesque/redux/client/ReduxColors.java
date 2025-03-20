@@ -21,7 +21,7 @@ import java.util.function.Predicate;
 public class ReduxColors {
 
     public static class Tints {
-        public static final int GILDED_GRASS_COLOR = 0xFFF3FFDD;
+        public static final int GILDED_GRASS_COLOR = 0xFFFFCC99;
         public static final int BLIGHT_GRASS_COLOR = 0xFFBEAEE5;
 
         public static final int BLEAKMOSS_GRASS_COLOR = 0xFFB79EC1;
