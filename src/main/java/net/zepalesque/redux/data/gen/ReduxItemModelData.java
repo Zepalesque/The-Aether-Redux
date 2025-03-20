@@ -110,16 +110,6 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
         this.itemBlock(ReduxBlocks.GILDENMOSS_CARPET.get());
 
         this.item(ReduxItems.MUSIC_DISC_SENTIENCE.get(), "misc/");
+        this.item(ReduxItems.WILLOW_SPORES.get(), "materials/");
     }
-
-/*    // TODO (although, move to Unity)
-    public static class Grass extends ReduxItemModelProvider {
-        public Grass(PackOutput output, ExistingFileHelper helper) {
-            super(output, Redux.MODID, helper);
-        }
-
-        // generate via templates
-        protected void registerModels() {}
-    }*/
-
 }

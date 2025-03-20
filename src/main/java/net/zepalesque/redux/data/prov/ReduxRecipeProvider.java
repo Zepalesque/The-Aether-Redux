@@ -1,6 +1,9 @@
 package net.zepalesque.redux.data.prov;
 
 import com.aetherteam.aether.recipe.builder.AetherCookingRecipeBuilder;
+import com.aetherteam.aether.recipe.recipes.block.AmbrosiumRecipe;
+import com.aetherteam.nitrogen.recipe.BlockStateIngredient;
+import com.aetherteam.nitrogen.recipe.builder.BlockStateRecipeBuilder;
 import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.core.HolderLookup;
@@ -19,6 +22,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.zepalesque.redux.recipe.recipes.InfusionRecipe;
+import net.zepalesque.redux.recipe.recipes.WillowSporeRecipe;
 import net.zepalesque.unity.data.prov.UnityRecipeProvider;
 import net.zepalesque.zenith.api.item.stack.ItemStackConstructor;
 import net.zepalesque.zenith.api.recipe.builder.StackingRecipeBuilder;
@@ -158,7 +162,29 @@ public abstract class ReduxRecipeProvider extends UnityRecipeProvider {
     public StackingRecipeBuilder infuse(ItemLike result, ItemLike ingredient) {
         return StackingRecipeBuilder.recipe(Ingredient.of(ingredient), new ItemStackConstructor(result.asItem().builtInRegistryHolder(), Optional.empty()), InfusionRecipe::new);
     }
-
+    
+    @Override
+    public BlockStateRecipeBuilder ambrosiumEnchanting(Block result, Block ingredient) {
+        return super.ambrosiumEnchanting(result, ingredient);
+    }
+    
+    public void ambrosiumEnchanting(RecipeOutput output, Block result, Block ingredient) {
+        ambrosiumEnchanting(result, ingredient).save(output, name(
+            String.format("ambrosium_convert_%s_to_%s", getItemName(ingredient), getItemName(result))
+        ));
+    }
+    
+    protected BlockStateRecipeBuilder sporeBlighting(Block result, Block ingredient) {
+        return BlockStateRecipeBuilder.recipe(BlockStateIngredient.of(ingredient), result, WillowSporeRecipe::new);
+    }
+    
+    public void sporeBlighting(RecipeOutput output, Block result, Block ingredient) {
+        sporeBlighting(result, ingredient).save(output, name(
+            String.format("willow_spores_convert_%s_to_%s", getItemName(ingredient), getItemName(result))
+        ));
+    }
+    
+    
     @Override
     public ResourceLocation name(String name) {
         return super.name(name);

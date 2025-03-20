@@ -46,8 +46,15 @@ public class ReduxRecipeData extends ReduxRecipeProvider {
         blastingOreRecipe(ReduxItems.REFINED_SENTRITE.get(), ReduxStoneSets.SENTRITE.block().get(), 0.8F, 150).save(output, name("refine_sentrite_blast"));
 
         enchantingRecipe(RecipeCategory.DECORATIONS, ReduxFlowerSets.GILDENROOT_SAPLING.flower().get(), AetherBlocks.SKYROOT_SAPLING.get(), 0.1F, 1000).save(output);
-        ambrosiumEnchanting(ReduxBlocks.GILDENROOT_LEAVES.get(), AetherBlocks.SKYROOT_LEAVES.get()).save(output);
-
+        ambrosiumEnchanting(output, ReduxBlocks.GILDENROOT_LEAVES.get(), AetherBlocks.SKYROOT_LEAVES.get());
+        ambrosiumEnchanting(output, ReduxBlocks.GILDENROOT_LEAVES.get(), AetherBlocks.SKYROOT_LEAVES.get());
+        ambrosiumEnchanting(output, AetherBlocks.SKYROOT_LEAVES.get(), ReduxBlocks.STORMROOT_LEAVES.get());
+        ambrosiumEnchanting(output, AetherBlocks.AETHER_GRASS_BLOCK.get(), ReduxBlocks.PERMABLIGHT_AETHER_GRASS_BLOCK.get());
+        sporeBlighting(output, AetherBlocks.SKYROOT_LEAVES.get(), ReduxBlocks.GILDENROOT_LEAVES.get());
+        sporeBlighting(output, ReduxBlocks.STORMROOT_LEAVES.get(), AetherBlocks.SKYROOT_LEAVES.get());
+        sporeBlighting(output, ReduxBlocks.PERMABLIGHT_AETHER_GRASS_BLOCK.get(), AetherBlocks.AETHER_GRASS_BLOCK.get());
+        sporeBlighting(output, AetherBlocks.AETHER_GRASS_BLOCK.get(), AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get());
+        
         layerBlock(output, ReduxBlocks.GILDENROOT_LEAF_PILE.get(), ReduxBlocks.GILDENROOT_LEAVES.get(), 6);
         layerBlock(output, ReduxBlocks.STORMROOT_LEAF_PILE.get(), ReduxBlocks.STORMROOT_LEAVES.get(), 6);
         layerBlock(output, ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get(), ReduxBlocks.BLIGHTWILLOW_LEAVES.get(), 6);
@@ -219,6 +226,5 @@ public class ReduxRecipeData extends ReduxRecipeProvider {
         oreBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, ReduxItems.RAW_VERIDIUM.get(), RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.RAW_VERIDIUM_BLOCK.get(), "raw_veridium_from_raw_veridium_block", "raw_veridium");
 
         oreBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, ReduxItems.REFINED_SENTRITE.get(), RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.REFINED_SENTRITE_BLOCK.get(), "refined_sentrite_from_refined_sentrite_block", "refined_sentrite");
-
     }
 }

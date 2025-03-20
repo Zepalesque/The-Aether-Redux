@@ -18,6 +18,8 @@ public class ReduxSounds {
     public static final DeferredHolder<SoundEvent, SoundEvent> INFUSE_ITEM = register("item.generic.infuse");
     public static final DeferredHolder<SoundEvent, SoundEvent> INFUSION_EXPIRE = register("item.generic.infusion_expire");
     public static final DeferredHolder<SoundEvent, SoundEvent> ITEM_MUSIC_DISC_SENTIENCE = register("item.music_disc.sentience");
+    
+    public static final DeferredHolder<SoundEvent, SoundEvent> WILLOW_SPORES_CONVERT = register("item.willow_spores.convert");
 
     public static final DeferredHolder<SoundEvent, SoundEvent> LOGICATOR_CLICK = register("block.logicator.click");
 

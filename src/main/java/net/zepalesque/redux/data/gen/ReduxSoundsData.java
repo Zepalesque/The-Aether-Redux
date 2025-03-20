@@ -14,6 +14,9 @@ public class ReduxSoundsData extends ReduxSoundsProvider {
 
     @Override
     public void registerSounds() {
+        this.add(ReduxSounds.WILLOW_SPORES_CONVERT, sound ->
+            definition().with(sound("aether_redux:item/conversion/willow_spores_convert"))
+                .subtitle(DatagenUtil.subtitleFor(sound)));
         this.add(ReduxSounds.INFUSE_ITEM, sound ->
                 definition().with(sound("aether_redux:item/generic/infuse_item"))
                         .subtitle(DatagenUtil.subtitleFor(sound)));

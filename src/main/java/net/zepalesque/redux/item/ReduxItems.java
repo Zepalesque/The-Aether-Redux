@@ -18,6 +18,7 @@ import net.zepalesque.redux.item.accessories.cape.AerboundCapeItem;
 import net.zepalesque.redux.item.combat.VeridiumDartItem;
 import net.zepalesque.redux.item.combat.VeridiumDartShooter;
 import net.zepalesque.redux.item.combat.VeridiumSwordItem;
+import net.zepalesque.redux.item.misc.WillowSporesItem;
 import net.zepalesque.redux.item.property.ReduxFoods;
 import net.zepalesque.redux.item.property.ReduxItemTiers;
 import net.zepalesque.redux.item.tools.VeridiumAxeItem;
@@ -57,6 +58,7 @@ public class ReduxItems extends ReduxItemBuilders {
 
     public static final DeferredItem<Item> MUSIC_DISC_SENTIENCE = ITEMS.register("music_disc_sentience", () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(ReduxJukeboxSongs.SENTIENCE)));
 
+    public static final DeferredItem<WillowSporesItem> WILLOW_SPORES = ITEMS.register("willow_spores", () -> new WillowSporesItem(new Item.Properties()));
 
     public static final DeferredItem<AerboundCapeItem> AERBOUND_CAPE = ITEMS.register("aerbound_cape", () -> new AerboundCapeItem(new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT)));
 

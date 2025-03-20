@@ -195,7 +195,10 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
         addEntityType(ReduxEntities.EMBER);
         addEntityType(ReduxEntities.VERIDIUM_DART);
         addEntityType(ReduxEntities.INFUSED_VERIDIUM_DART);
-
+        
+        addItem(ReduxItems.WILLOW_SPORES);
+        addLore(ReduxItems.WILLOW_SPORES, "Spores from the Blightwillow tree. These seem to channel the pure essence of the Blight, and can be used to spread it.   ");
+        
         addTooltip("shift_info", "Hold [%s] for more info...");
         addTooltip("infusion_charge", "Infusion Charge: %s");
         addTooltip("infusion_info", "Can be infused by right-clicking the item in your inventory while hovering over it with an Ambrosium Shard");
@@ -210,6 +213,7 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 
         addSubtitle(ReduxSounds.INFUSE_ITEM, "Item infuses");
         addSubtitle(ReduxSounds.INFUSION_EXPIRE, "Item infusion runs out");
+        addSubtitle(ReduxSounds.WILLOW_SPORES_CONVERT, "Willow Spores used");
         addSubtitle(ReduxSounds.LOGICATOR_CLICK, "Logicator clicks");
         addSubtitle(ReduxSounds.AERJUMP, "Something aerjumps");
         addSubtitle(ReduxSounds.SLIDER_SIGNAL, "Slider signals");
@@ -217,6 +221,6 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
         addSubtitle(ReduxSounds.EMBER_BOUNCE_MEDIUM, "Ember crackles");
         addSubtitle(ReduxSounds.EMBER_BOUNCE_SMALL, "Ember sparks");
 
-        addAdvancement("throw_ring_in_lava", "Cast it into the fire! Destroy it!", "Throw a Gold Ring into lava in the Nether");
+        addAdvancement("throw_ring_in_lava", "Cast It into the Fire! Destroy It!", "Throw a Golden Ring into lava in the Nether");
     }
 }

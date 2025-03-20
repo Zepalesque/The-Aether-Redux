@@ -141,6 +141,10 @@ public class ReduxTabs {
                     ReduxItems.REFINED_SENTRITE,
                     ReduxItems.SENTRITE_CHUNK
             );
+            
+            TabUtil.putAfter(event, AetherItems.SKYROOT_STICK,
+                ReduxItems.WILLOW_SPORES
+            );
 
             TabUtil.putAfter(event, AetherItems.AECHOR_PETAL,
                     ReduxItems.WYND_OATS,
