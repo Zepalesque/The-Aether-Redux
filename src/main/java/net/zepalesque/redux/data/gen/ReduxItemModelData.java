@@ -21,8 +21,7 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
     protected void registerModels() {
         Redux.BLOCK_SETS.forEach(set -> set.itemData(this));
         
-        this.withExistingParent(this.blockName(ReduxBlocks.PERMABLIGHT_AETHER_GRASS_BLOCK.get()),
-            ResourceLocation.fromNamespaceAndPath(Aether.MODID, BLOCK_FOLDER + "/aether_grass_block"));
+        this.itemBlock(ReduxBlocks.PERMABLIGHT_AETHER_GRASS_BLOCK.get());
       
         this.itemBlock(ReduxBlocks.GILDENROOT_LEAVES.get());
         this.leafPile(ReduxBlocks.GILDENROOT_LEAF_PILE.get());
