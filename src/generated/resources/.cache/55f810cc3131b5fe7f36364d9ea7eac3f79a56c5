@@ -1,4 +1,4 @@
-// 1.21.1	2025-03-19T17:15:05.1465355	Block States: aether_redux
+// 1.21.1	2025-03-19T19:18:13.7737016	Block States: aether_redux
 27b55e671cfc0a044bf9fa27933bc8d7890a09d7 assets/aether_redux/blockstates/angilite.json
 2cbe20499de76107b080997bbf04f8c3dbe5093e assets/aether_redux/blockstates/angilite_slab.json
 decdc25a329c583be2f4a7eec1f07e3ae4b5a7ed assets/aether_redux/blockstates/angilite_stairs.json
@@ -78,6 +78,7 @@ d80b7e6ca0b3e637c0688a9fe669c2c29c5b57a7 assets/aether_redux/blockstates/golden_
 e404e8960beb87e7f65d409e66ffaabc6edc7e60 assets/aether_redux/blockstates/locked_sentry_pillar.json
 40458ab9f1572df662fc0a955db70ab5b856fbcc assets/aether_redux/blockstates/logicator.json
 6fef1e080dbd1903c1214bd47a10aecfc26d763d assets/aether_redux/blockstates/lucky_clover.json
+08444cab0c84deb3d80ad30a1af8418b49eaeda4 assets/aether_redux/blockstates/permablight_aether_grass_block.json
 53864c345799ff020929378facbd298b05e6111f assets/aether_redux/blockstates/polished_sentrite.json
 eb2b5db2caf75ab607c6da16b178dcc981fc84ad assets/aether_redux/blockstates/polished_sentrite_slab.json
 2772c723f9389977838bcce177121660aa9dd9a0 assets/aether_redux/blockstates/polished_sentrite_stairs.json
@@ -365,6 +366,8 @@ c0375b9d6176cde849558f6ae3541f722b1ea5bb assets/aether_redux/models/block/logica
 1072704c6998edb2b89386f2a049e0d5433a2be1 assets/aether_redux/models/block/logicator_xor_in_r_out.json
 fd70574dc7d43f07418dc59ff78ea057738f9d7d assets/aether_redux/models/block/logicator_xor_out.json
 234fee9359900cd9614e12a4c5c7b5ab75fe9d72 assets/aether_redux/models/block/lucky_clover.json
+a0eb33e19ca86bfba9289fe879a7f2322dc19b21 assets/aether_redux/models/block/permablight_aether_grass_block.json
+99282e983fc2dc982b65297d9130400170d1578b assets/aether_redux/models/block/permablight_aether_grass_block_snow.json
 74e5862c2b5128ef8c0459072b8942a98574f17e assets/aether_redux/models/block/polished_sentrite.json
 01996e41ceb60f88799b74f85faf3e7f8412051b assets/aether_redux/models/block/polished_sentrite_slab.json
 2083d7993746b47863929c67aa9100151059729a assets/aether_redux/models/block/polished_sentrite_slab_top.json

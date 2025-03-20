@@ -53,9 +53,9 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
     
     public void permaGrass(Block block, Block dirt, String location, String dirtLocation) {
         ResourceLocation bottom = texture(dirt, dirtLocation);
-        ResourceLocation top = texture(AetherBlocks.AETHER_GRASS_BLOCK.get(), "natural/", "_side");
+        ResourceLocation top = texture(AetherBlocks.AETHER_GRASS_BLOCK.get(), "natural/", "_top");
         ResourceLocation overlay = texture(block, location, "_side_overlay");
-        ResourceLocation side = texture(block, location, "_top");
+        ResourceLocation side = texture(block, location, "_side");
         ResourceLocation snow = texture(block, location, "_side_snow");
         tintableGrassBlock(block, bottom, top, overlay, side, models().cubeBottomTop(nameID(block, "%s_snow"), snow, bottom, top));
     }

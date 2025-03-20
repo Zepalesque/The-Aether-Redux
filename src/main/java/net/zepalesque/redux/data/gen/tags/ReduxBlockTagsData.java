@@ -54,6 +54,10 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
         this.tag(UnityTags.Blocks.SHORT_AETHER_GRASS_STATE_ENCHANTING).add(
             ReduxBlocks.GILDENMOSS_BLOCK.get()
         );
+        
+        this.tag(ReduxTags.Blocks.SHORT_AETHER_GRASS_BLIGHT_COLORING).add(
+            ReduxBlocks.PERMABLIGHT_AETHER_GRASS_BLOCK.get()
+        );
 
         this.tag(ReduxTags.Blocks.QUICKSOIL_BEHAVIOR).add(
             AetherBlocks.QUICKSOIL.get()
