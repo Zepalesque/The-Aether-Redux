@@ -8,6 +8,7 @@ import com.aetherteam.nitrogen.recipe.builder.BlockStateRecipeBuilder;
 import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -171,7 +172,7 @@ public abstract class ReduxRecipeProvider extends UnityRecipeProvider {
     
     public void ambrosiumEnchanting(RecipeOutput output, Block result, Block ingredient) {
         ambrosiumEnchanting(result, ingredient).save(output, name(
-            String.format("ambrosium_convert_%s_to_%s", getItemName(ingredient), getItemName(result))
+            String.format("ambrosium_convert_%s_to_%s", getBlockName(ingredient), getBlockName(result))
         ));
     }
     
@@ -181,7 +182,7 @@ public abstract class ReduxRecipeProvider extends UnityRecipeProvider {
     
     public void sporeBlighting(RecipeOutput output, Block result, Block ingredient) {
         sporeBlighting(result, ingredient).save(output, name(
-            String.format("willow_spores_convert_%s_to_%s", getItemName(ingredient), getItemName(result))
+            String.format("willow_spores_convert_%s_to_%s", getBlockName(ingredient), getBlockName(result))
         ));
     }
     
@@ -191,6 +192,10 @@ public abstract class ReduxRecipeProvider extends UnityRecipeProvider {
             ambrosiumEnchanting(output, enchanted, base);
         sporeBlighting(output, blighted, base);
         sporeBlighting(output, base, enchanted);
+    }
+    
+    public static String getBlockName(Block block) {
+        return BuiltInRegistries.BLOCK.getKey(block).getPath();
     }
     
     
