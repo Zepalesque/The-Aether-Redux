@@ -1,0 +1,9 @@
+{
+  "type": "aether:ambrosium_enchanting",
+  "ingredient": {
+    "block": "aether:potted_skyroot_sapling"
+  },
+  "result": {
+    "block": "aether_redux:potted_gildenroot_sapling"
+  }
+}
