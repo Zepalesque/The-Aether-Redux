@@ -34,7 +34,7 @@
                   }
                 }
               ],
-              "name": "aether_redux:permablight_aether_grass_block"
+              "name": "aether_redux:blighted_aether_grass_block"
             },
             {
               "type": "minecraft:item",
@@ -51,5 +51,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "aether_redux:blocks/permablight_aether_grass_block"
+  "random_sequence": "aether_redux:blocks/blighted_aether_grass_block"
 }

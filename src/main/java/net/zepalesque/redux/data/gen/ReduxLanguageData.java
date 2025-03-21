@@ -32,7 +32,7 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
         addLore(ReduxBlocks.STORMROOT_LEAF_PILE, "A pile of Stormroot Leaves. These can be stacked on top of eachother to make various sizes!");
 
         addBlock(ReduxBlocks.BLIGHTWILLOW_LEAVES);
-        addLore(ReduxBlocks.BLIGHTWILLOW_LEAVES, "Leaves of the Blightwillow tree, The most common tree found in the Blight. Some claim that these may be a blighted version of Golden Oak trees.");
+        addLore(ReduxBlocks.BLIGHTWILLOW_LEAVES, "Leaves of the Blightwillow tree, The most common tree found in the Blight. Some biologists across the Aether theorize that these may be a blighted form of Golden Oak trees.");
 
         addBlock(ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES);
         addLore(ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES, "Blightwillow leaves that have been inhabited by the very essence of the Blight itself.");
@@ -43,8 +43,8 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
         addBlock(ReduxBlocks.GOLDEN_CLOVERS);
         addLore(ReduxBlocks.GOLDEN_CLOVERS, "A nice patch of clovers that can be found in the Gilded Groves.");
 
-        addBlock(ReduxBlocks.PERMABLIGHT_AETHER_GRASS_BLOCK);
-        addLore(ReduxBlocks.PERMABLIGHT_AETHER_GRASS_BLOCK, "A block of the Aether's grass which has been corrupted in a more permanent way than others. Good for building blight-themed builds!");
+        addBlock(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK);
+        addLore(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK, "A block of the Aether's grass which has been corrupted by the Blight.");
 
         addBlock(ReduxBlocks.GOLDEN_VINES);
         addBlock(ReduxBlocks.GOLDEN_VINES_PLANT);

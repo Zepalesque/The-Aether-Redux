@@ -28,6 +28,7 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.dungeon.DoorwayPillarBlock;
 import net.zepalesque.redux.block.dungeon.RunelightBlock;
 import net.zepalesque.redux.block.dungeon.TrappedPillarBlock;
+import net.zepalesque.redux.block.natural.BlightedGrassBlock;
 import net.zepalesque.redux.block.natural.DoubleDropsMossCarpet;
 import net.zepalesque.redux.block.natural.GoldenCloversBlock;
 import net.zepalesque.redux.block.natural.HangingAetherVinesBody;
@@ -54,9 +55,8 @@ public class ReduxBlocks extends ReduxBlockBuilders {
     public static DeferredBlock<AetherDoubleDropsLeaves> GILDENROOT_LEAVES = register("gildenroot_leaves",
         () -> new AetherDoubleDropsLeaves(Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get()).mapColor(MapColor.QUARTZ)));
     
-    // TODO: custom texture? perhaps for the side, like the old one?
-    public static DeferredBlock<AetherGrassBlock> PERMABLIGHT_AETHER_GRASS_BLOCK = register("permablight_aether_grass_block",
-        () -> new AetherGrassBlock(Properties.ofFullCopy(AetherBlocks.AETHER_GRASS_BLOCK.get())));
+    public static DeferredBlock<BlightedGrassBlock> BLIGHTED_AETHER_GRASS_BLOCK = register("blighted_aether_grass_block",
+        () -> new BlightedGrassBlock(Properties.ofFullCopy(AetherBlocks.AETHER_GRASS_BLOCK.get())));
 
     public static DeferredBlock<LeafPileBlock> GILDENROOT_LEAF_PILE = register("gildenroot_leaf_pile",
         () -> new LeafPileBlock(GILDENROOT_LEAVES));

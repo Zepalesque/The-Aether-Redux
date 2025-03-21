@@ -47,7 +47,7 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
                 BlockLootAccessor.aether$getNormalLeavesSaplingChances())
         );
         
-        this.dropDoubleWithSilk(ReduxBlocks.PERMABLIGHT_AETHER_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT.get());
+        this.dropDoubleWithSilk(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT.get());
 
         this.add(ReduxBlocks.STORMROOT_LEAF_PILE.get(), shears());
 

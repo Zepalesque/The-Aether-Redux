@@ -17,6 +17,9 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.server.ServerAboutToStartEvent;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.block.state.ReduxStates;
+import net.zepalesque.redux.block.state.enums.BlightGrassColor;
 import net.zepalesque.redux.data.resource.registries.ReduxBiomes;
 import net.zepalesque.unity.block.UnityBlocks;
 import net.zepalesque.unity.data.prov.UnityBlockStateProvider;
@@ -47,11 +50,24 @@ public class ReduxSurfaceRules {
                         SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR,
                                 SurfaceRules.state(
                                         AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get().defaultBlockState()
-                                ))),
-                SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.THE_BLIGHT),
+                                )
+                        )
+                ),
+                SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.THE_BLIGHT), SurfaceRules.sequence(
                         SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR,
                                 SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.SWAMP, 0.4),
-                                        SurfaceRules.state(UnityFeatureBuilders.drops(UnityBlocks.COARSE_AETHER_DIRT)))))
+                                        SurfaceRules.state(
+                                            UnityFeatureBuilders.drops(UnityBlocks.COARSE_AETHER_DIRT)
+                                        )
+                                )
+                        ),
+                        SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR,
+                            SurfaceRules.state(
+                                UnityFeatureBuilders.drops(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get().defaultBlockState()).setValue(ReduxStates.BLIGHT_GRASS_COLOR, BlightGrassColor.TINTABLE)
+                            )
+                        )
+                    )
+                )
         );
     }
 }

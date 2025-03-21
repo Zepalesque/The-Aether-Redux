@@ -1,14 +1,15 @@
 package net.zepalesque.redux.client;
 
 import com.aetherteam.aether.block.AetherBlocks;
-import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.block.state.enums.CustomTintingProperty;
 import net.zepalesque.redux.blockset.util.TintableSet;
 import net.zepalesque.redux.data.ReduxTags;
 import net.zepalesque.unity.client.UnityColors;
@@ -16,6 +17,7 @@ import net.zepalesque.zenith.api.blockset.BlockSet;
 import net.zepalesque.zenith.api.blockset.type.AbstractFlowerSet;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Optional;
 import java.util.function.Predicate;
 
 public class ReduxColors {
@@ -27,17 +29,22 @@ public class ReduxColors {
         public static final int BLEAKMOSS_GRASS_COLOR = 0xFFB79EC1;
     }
     
-    public static final BlockColor PERMABLIGHT = (state, level, pos, index) -> index == 1 ? Tints.BLIGHT_GRASS_COLOR : 0xFFFFFFFF;
     public static final ItemColor ITEM_PERMABLIGHT = (stack, index) -> index == 1 ? Tints.BLIGHT_GRASS_COLOR : 0xFFFFFFFF;
     
-    public static Integer reduxColors(BlockState state, @Nullable BlockAndTintGetter level, @Nullable BlockPos pos, int index, Predicate<Integer> indexGoal, boolean useBelowProperties) {
+    public static Integer reduxColors(BlockState state, @Nullable BlockAndTintGetter level, @Nullable BlockPos pos, boolean useBelowProperties) {
         if (level == null || pos == null) return null;
-        BlockPos below = pos.below();
-        if (level.getBlockState(below).is(ReduxTags.Blocks.SHORT_AETHER_GRASS_BLEAKMOSS_COLORING))
-            return Tints.BLEAKMOSS_GRASS_COLOR;
-        else if (level.getBlockState(below).is(ReduxTags.Blocks.SHORT_AETHER_GRASS_BLIGHT_COLORING))
-            return Tints.BLIGHT_GRASS_COLOR;
-        return null;
+        if (useBelowProperties) {
+            BlockPos below = pos.below();
+            if (level.getBlockState(below).is(ReduxTags.Blocks.SHORT_AETHER_GRASS_BLEAKMOSS_COLORING))
+                return Tints.BLEAKMOSS_GRASS_COLOR;
+            else if (level.getBlockState(below).is(ReduxTags.Blocks.SHORT_AETHER_GRASS_BLIGHT_COLORING))
+                return Tints.BLIGHT_GRASS_COLOR;
+        }
+        
+        Optional<Property<?>> property =
+            state.getProperties().stream().filter(p -> CustomTintingProperty.class.isAssignableFrom(p.getValueClass())).findFirst();
+        
+        return property.map(value -> ((CustomTintingProperty) state.getValue(value)).colorOverride()).orElse(null);
     }
 
     public static void blockColors(RegisterColorHandlersEvent.Block event) {
@@ -51,8 +58,8 @@ public class ReduxColors {
             ReduxBlocks.WYNDSPROUTS.get()
         );
         
-        event.register(PERMABLIGHT,
-            ReduxBlocks.PERMABLIGHT_AETHER_GRASS_BLOCK.get()
+        event.register(UnityColors.OVERLAY_BASE,
+            ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get()
         );
         
         for (BlockSet set : Redux.BLOCK_SETS)
@@ -67,7 +74,7 @@ public class ReduxColors {
         );
         
         event.register(ITEM_PERMABLIGHT,
-            ReduxBlocks.PERMABLIGHT_AETHER_GRASS_BLOCK.get()
+            ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get()
         );
 
         for (BlockSet set : Redux.BLOCK_SETS)

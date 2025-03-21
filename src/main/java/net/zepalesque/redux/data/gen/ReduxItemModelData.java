@@ -1,15 +1,12 @@
 package net.zepalesque.redux.data.gen;
 
-import com.aetherteam.aether.Aether;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
 import net.zepalesque.redux.data.prov.ReduxItemModelProvider;
 import net.zepalesque.redux.item.ReduxItems;
-import net.zepalesque.unity.Unity;
 
 public class ReduxItemModelData extends ReduxItemModelProvider {
 
@@ -21,7 +18,7 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
     protected void registerModels() {
         Redux.BLOCK_SETS.forEach(set -> set.itemData(this));
         
-        this.itemBlock(ReduxBlocks.PERMABLIGHT_AETHER_GRASS_BLOCK.get());
+        this.itemBlock(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get());
       
         this.itemBlock(ReduxBlocks.GILDENROOT_LEAVES.get());
         this.leafPile(ReduxBlocks.GILDENROOT_LEAF_PILE.get());

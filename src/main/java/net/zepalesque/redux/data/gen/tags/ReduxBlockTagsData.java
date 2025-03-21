@@ -44,7 +44,7 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
         this.tag(AetherTags.Blocks.AETHER_DIRT).add(
             ReduxBlocks.BLEAKMOSS_BLOCK.get(),
             ReduxBlocks.GILDENMOSS_BLOCK.get(),
-            ReduxBlocks.PERMABLIGHT_AETHER_GRASS_BLOCK.get()
+            ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get()
         );
 
         this.tag(UnityTags.Blocks.AETHER_LAKE_SKIP_REPLACEMENT).add(
@@ -56,7 +56,7 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
         );
         
         this.tag(ReduxTags.Blocks.SHORT_AETHER_GRASS_BLIGHT_COLORING).add(
-            ReduxBlocks.PERMABLIGHT_AETHER_GRASS_BLOCK.get()
+            ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get()
         );
 
         this.tag(ReduxTags.Blocks.QUICKSOIL_BEHAVIOR).add(
@@ -69,7 +69,7 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
         
         this.tag(ReduxTags.Blocks.AETHER_GRASS_SPREAD_BLACKLIST).add(
             AetherBlocks.AETHER_GRASS_BLOCK.get(),
-            ReduxBlocks.PERMABLIGHT_AETHER_GRASS_BLOCK.get()
+            ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get()
         );
 
         this.tag(BlockTags.REPLACEABLE).add(

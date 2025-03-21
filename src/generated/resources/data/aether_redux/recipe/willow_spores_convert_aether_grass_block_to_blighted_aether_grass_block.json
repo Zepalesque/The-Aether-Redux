@@ -4,6 +4,6 @@
     "block": "aether:aether_grass_block"
   },
   "result": {
-    "block": "aether_redux:permablight_aether_grass_block"
+    "block": "aether_redux:blighted_aether_grass_block"
   }
 }

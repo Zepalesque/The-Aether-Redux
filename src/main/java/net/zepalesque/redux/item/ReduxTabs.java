@@ -33,7 +33,7 @@ public class ReduxTabs {
             );
             
             TabUtil.putAfter(event, AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK,
-                    ReduxBlocks.PERMABLIGHT_AETHER_GRASS_BLOCK
+                    ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK
             );
 
             TabUtil.putAfter(event, UnityBlocks.SKYROOT_LEAF_PILE,

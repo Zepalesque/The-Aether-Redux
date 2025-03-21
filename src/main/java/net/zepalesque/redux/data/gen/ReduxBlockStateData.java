@@ -20,7 +20,7 @@ public class ReduxBlockStateData extends ReduxBlockStateProvider {
 
         Redux.BLOCK_SETS.forEach(set -> set.blockData(this));
         
-        this.permaGrass(ReduxBlocks.PERMABLIGHT_AETHER_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT.get(), "natural/", "natural/");
+        this.permaGrass(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT.get(), "natural/", "natural/");
 
         this.block(ReduxBlocks.GILDENROOT_LEAVES.get(), "natural/");
         this.leafPile(ReduxBlocks.GILDENROOT_LEAF_PILE.get(), ReduxBlocks.GILDENROOT_LEAVES.get(), "natural/");
