@@ -22,6 +22,7 @@ import net.zepalesque.redux.client.audio.ReduxSounds;
 import net.zepalesque.redux.data.prov.ReduxRecipeProvider;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.recipe.recipes.InfusionRecipe;
+import net.zepalesque.unity.block.UnityBlocks;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.CompletableFuture;
@@ -53,6 +54,52 @@ public class ReduxRecipeData extends ReduxRecipeProvider {
         sporeBlighting(output, ReduxBlocks.STORMROOT_LEAVES.get(), AetherBlocks.SKYROOT_LEAVES.get());
         sporeBlighting(output, ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(), AetherBlocks.AETHER_GRASS_BLOCK.get());
         sporeBlighting(output, AetherBlocks.AETHER_GRASS_BLOCK.get(), AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get());
+        triConversion(output,
+            ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(),
+            AetherBlocks.AETHER_GRASS_BLOCK.get(),
+            AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get()
+        );
+        triConversion(output,
+            ReduxBlocks.STORMROOT_LEAVES.get(),
+            AetherBlocks.SKYROOT_LEAVES.get(),
+            ReduxBlocks.GILDENROOT_LEAVES.get()
+        );
+        triConversion(output,
+            ReduxBlocks.STORMROOT_LEAF_PILE.get(),
+            UnityBlocks.SKYROOT_LEAF_PILE.get(),
+            ReduxBlocks.GILDENROOT_LEAF_PILE.get()
+        );
+        triConversion(output,
+            ReduxStoneSets.BLEAKMOSS_HOLYSTONE.block().get(),
+            AetherBlocks.MOSSY_HOLYSTONE.get(),
+            ReduxStoneSets.GILDED_HOLYSTONE.block().get()
+        );
+        triConversion(output,
+            ReduxStoneSets.BLEAKMOSS_HOLYSTONE.slab().get(),
+            AetherBlocks.MOSSY_HOLYSTONE_SLAB.get(),
+            ReduxStoneSets.GILDED_HOLYSTONE.slab().get()
+        );
+        triConversion(output,
+            ReduxStoneSets.BLEAKMOSS_HOLYSTONE.stairs().get(),
+            AetherBlocks.MOSSY_HOLYSTONE_STAIRS.get(),
+            ReduxStoneSets.GILDED_HOLYSTONE.stairs().get()
+        );
+        triConversion(output,
+            ReduxStoneSets.BLEAKMOSS_HOLYSTONE.wall().get(),
+            AetherBlocks.MOSSY_HOLYSTONE_WALL.get(),
+            ReduxStoneSets.GILDED_HOLYSTONE.wall().get()
+        );
+        triConversion(output,
+            ReduxBlocks.BLEAKMOSS_BLOCK.get(),
+            UnityBlocks.FLUTEMOSS_BLOCK.get(),
+            ReduxBlocks.GILDENMOSS_BLOCK.get()
+        );
+        triConversion(output,
+            ReduxBlocks.BLEAKMOSS_CARPET.get(),
+            UnityBlocks.FLUTEMOSS_CARPET.get(),
+            ReduxBlocks.GILDENMOSS_CARPET.get()
+        );
+        
         
         layerBlock(output, ReduxBlocks.GILDENROOT_LEAF_PILE.get(), ReduxBlocks.GILDENROOT_LEAVES.get(), 6);
         layerBlock(output, ReduxBlocks.STORMROOT_LEAF_PILE.get(), ReduxBlocks.STORMROOT_LEAVES.get(), 6);

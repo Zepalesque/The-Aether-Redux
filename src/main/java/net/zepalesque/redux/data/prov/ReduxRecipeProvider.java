@@ -1,5 +1,6 @@
 package net.zepalesque.redux.data.prov;
 
+import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.recipe.builder.AetherCookingRecipeBuilder;
 import com.aetherteam.aether.recipe.recipes.block.AmbrosiumRecipe;
 import com.aetherteam.nitrogen.recipe.BlockStateIngredient;
@@ -182,6 +183,14 @@ public abstract class ReduxRecipeProvider extends UnityRecipeProvider {
         sporeBlighting(result, ingredient).save(output, name(
             String.format("willow_spores_convert_%s_to_%s", getItemName(ingredient), getItemName(result))
         ));
+    }
+    
+    public void triConversion(RecipeOutput output, Block blighted, Block base, Block enchanted) {
+        ambrosiumEnchanting(output, base, blighted);
+        if (base != AetherBlocks.AETHER_GRASS_BLOCK.get() && enchanted != AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get())
+            ambrosiumEnchanting(output, enchanted, base);
+        sporeBlighting(output, blighted, base);
+        sporeBlighting(output, base, enchanted);
     }
     
     
