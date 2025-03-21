@@ -47,13 +47,7 @@ public class ReduxRecipeData extends ReduxRecipeProvider {
         blastingOreRecipe(ReduxItems.REFINED_SENTRITE.get(), ReduxStoneSets.SENTRITE.block().get(), 0.8F, 150).save(output, name("refine_sentrite_blast"));
 
         enchantingRecipe(RecipeCategory.DECORATIONS, ReduxFlowerSets.GILDENROOT_SAPLING.flower().get(), AetherBlocks.SKYROOT_SAPLING.get(), 0.1F, 1000).save(output);
-        ambrosiumEnchanting(output, ReduxBlocks.GILDENROOT_LEAVES.get(), AetherBlocks.SKYROOT_LEAVES.get());
-        ambrosiumEnchanting(output, AetherBlocks.SKYROOT_LEAVES.get(), ReduxBlocks.STORMROOT_LEAVES.get());
-        ambrosiumEnchanting(output, AetherBlocks.AETHER_GRASS_BLOCK.get(), ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get());
-        sporeBlighting(output, AetherBlocks.SKYROOT_LEAVES.get(), ReduxBlocks.GILDENROOT_LEAVES.get());
-        sporeBlighting(output, ReduxBlocks.STORMROOT_LEAVES.get(), AetherBlocks.SKYROOT_LEAVES.get());
-        sporeBlighting(output, ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(), AetherBlocks.AETHER_GRASS_BLOCK.get());
-        sporeBlighting(output, AetherBlocks.AETHER_GRASS_BLOCK.get(), AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get());
+
         triConversion(output,
             ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(),
             AetherBlocks.AETHER_GRASS_BLOCK.get(),
@@ -63,6 +57,16 @@ public class ReduxRecipeData extends ReduxRecipeProvider {
             ReduxBlocks.STORMROOT_LEAVES.get(),
             AetherBlocks.SKYROOT_LEAVES.get(),
             ReduxBlocks.GILDENROOT_LEAVES.get()
+        );
+        triConversion(output,
+            ReduxFlowerSets.STORMROOT_SAPLING.flower().get(),
+            AetherBlocks.SKYROOT_SAPLING.get(),
+            ReduxFlowerSets.GILDENROOT_SAPLING.flower().get()
+        );
+        triConversion(output,
+            ReduxFlowerSets.STORMROOT_SAPLING.pot().get(),
+            AetherBlocks.POTTED_SKYROOT_SAPLING.get(),
+            ReduxFlowerSets.GILDENROOT_SAPLING.pot().get()
         );
         triConversion(output,
             ReduxBlocks.STORMROOT_LEAF_PILE.get(),
