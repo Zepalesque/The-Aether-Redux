@@ -10,6 +10,10 @@
     {
       "id": "lost_aether_content:music.platinum_boss_foggy",
       "required": false
+    },
+    {
+      "id": "deep_aether:item.music_disc.locus_for_winds",
+      "required": false
     }
   ]
 }

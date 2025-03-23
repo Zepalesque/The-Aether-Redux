@@ -5,6 +5,10 @@
       "id": "aether_genesis:music.aether_night",
       "required": false
     },
+    {
+      "id": "deep_aether:music.deep_aether",
+      "required": false
+    },
     "#aether_redux:always_allow"
   ]
 }

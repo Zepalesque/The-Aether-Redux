@@ -134,6 +134,7 @@ public class ReduxTags {
     public static class Sounds {
 
         public static final TagKey<SoundEvent> AETHER_MUSIC = tag("aether_music");
+        public static final TagKey<SoundEvent> REPLACE_WITH_AETHER_MUSIC = tag("replace_with_aether_music");
         public static final TagKey<SoundEvent> ALWAYS_ALLOW = tag("always_allow");
 
         private static TagKey<SoundEvent> tag(String name) {

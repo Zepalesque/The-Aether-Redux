@@ -42,7 +42,7 @@ public class VeridiumHoeItem extends HoeItem implements VeridiumItem {
         MutableComponent infusion = Component.translatable("tooltip.aether_redux.infusion_charge", stack.getTag() == null ? 0 : stack.getTag().getByte(VeridiumItem.NBT_KEY)).withStyle(ChatFormatting.GRAY);
 
         tooltips.add(infusion);
-        Component info = TooltipUtils.TOOLTIP_SHIFT_FOR_INFO.apply(Component.translatable("gui.aether_redux.infusion_info"));
+        Component info = TooltipUtils.shiftForInfo(HOVER_TOOLTIP);
         tooltips.add(info);
         super.appendHoverText(stack, level, tooltips, advanced);
     }
@@ -111,7 +111,7 @@ public class VeridiumHoeItem extends HoeItem implements VeridiumItem {
 
         @Override
         public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltips, TooltipFlag advanced) {
-            Component info = TooltipUtils.TOOLTIP_SHIFT_FOR_INFO.apply(Component.translatable("gui.aether_redux.infusion_info"));
+            Component info = TooltipUtils.shiftForInfo(HOVER_TOOLTIP);
             tooltips.add(info);
             super.appendHoverText(stack, level, tooltips, advanced);
         }

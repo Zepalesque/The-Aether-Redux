@@ -1,6 +1,7 @@
 package net.zepalesque.redux.item.misc;
 
 import com.google.common.base.Supplier;
+import com.google.common.collect.ImmutableList;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -15,6 +16,7 @@ import net.minecraftforge.common.util.Lazy;
 import net.zepalesque.redux.item.util.TooltipUtils;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Collection;
 import java.util.List;
 
 public class LegacyBlockItem extends BlockItem {
@@ -22,7 +24,7 @@ public class LegacyBlockItem extends BlockItem {
     @Nullable
     private final Supplier<? extends ItemLike> replacement, counterpart;
     private final Lazy<ItemStack> repStack, counterStack;
-    private final Lazy<Component> repMsg, counterMsg;
+    private final Lazy<Collection<Component>> info;
 
     private LegacyBlockItem(Block block, Properties properties, @Nullable Supplier<? extends ItemLike> replacement, @Nullable Supplier<? extends ItemLike> counterpart) {
         super(block, properties);
@@ -32,15 +34,20 @@ public class LegacyBlockItem extends BlockItem {
         this.repStack = replacement == null ? null : () -> replacement.get().asItem().getDefaultInstance();
         this.counterStack = counterpart == null ? null : () -> counterpart.get().asItem().getDefaultInstance();
 
-        this.repMsg = () -> this.repStack == null ?
-                Component.translatable("tooltip.aether_redux.legacy_deletion").withStyle(ChatFormatting.GRAY) :
-                Component.translatable("tooltip.aether_redux.legacy_replacement", name(this.repStack.get())
-                ).withStyle(ChatFormatting.GRAY);
+        this.info = () -> {
+            Component replace = this.repStack == null ?
+                    Component.translatable("tooltip.aether_redux.legacy_deletion").withStyle(ChatFormatting.GRAY) :
+                    Component.translatable("tooltip.aether_redux.legacy_replacement", name(this.repStack.get())
+                    ).withStyle(ChatFormatting.GRAY);
 
-        this.counterMsg = () -> this.counterStack == null ?
-                null :
-                Component.translatable("tooltip.aether_redux.legacy_counterpart", name(this.counterStack.get())
-                ).withStyle(ChatFormatting.GRAY);
+            @Nullable Component counter = this.counterStack == null ?
+                    null :
+                    Component.translatable("tooltip.aether_redux.legacy_counterpart", name(this.counterStack.get())
+                    ).withStyle(ChatFormatting.GRAY);
+
+            if (counter == null) return ImmutableList.of(replace);
+            else return ImmutableList.of(replace, counter);
+        };
     }
 
     // Creation methods
@@ -69,9 +76,10 @@ public class LegacyBlockItem extends BlockItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltips, TooltipFlag advanced) {
         tooltips.add(LEGACY);
-        tooltips.add(TooltipUtils.TOOLTIP_SHIFT_FOR_INFO.apply(this.repMsg.get()));
-        Component other = TooltipUtils.TOOLTIP_HIDDEN_SHIFT_INFO.apply(this.counterMsg.get());
-        if (other != null) tooltips.add(other);
+
+        Collection<Component> info = TooltipUtils.shiftForInfo(this.info.get());
+        tooltips.addAll(info);
+
         super.appendHoverText(stack, level, tooltips, advanced);
     }
 }

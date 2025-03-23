@@ -2,7 +2,7 @@
     "parent": "builtin/entity",
     "gui_light": "front",
     "textures": {
-        "particle": "aether_redux:item/weapon/spear_of_the_blight"
+        "particle": "aether_redux:item/weapons/spear_of_the_blight"
     },
     "display": {
         "thirdperson_righthand": {

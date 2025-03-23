@@ -47,6 +47,7 @@
   },
   "client": [
     "client.audio.GoTVMusicMixin",
+    "client.audio.GenesisMusicManagerMixin",
     "client.audio.MusicManagerAccessor",
     "client.audio.SentryClientMixin",
     "client.audio.SoundEngineAccessor",

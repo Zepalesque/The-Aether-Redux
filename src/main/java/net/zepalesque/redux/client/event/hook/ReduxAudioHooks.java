@@ -37,6 +37,7 @@ public class ReduxAudioHooks {
         }
     }
 
+    // TODO: rewrite music deduplication stuff in 1.21.1+ (system feels a little convoluted tbh and could do with some readability improvements alongside a rethinking to ensure nothing is unnecessary here)
     public static boolean shouldCancel(SoundEngine engine, SoundInstance instance) {
         // If it's not music then we have no reason to cancel it
         if (instance.getSource() != SoundSource.MUSIC) {
@@ -85,13 +86,15 @@ public class ReduxAudioHooks {
 
 
     private static boolean isCurrentTrack(SoundInstance instance) {
+        boolean isCurrentAether = false;
         if (!AetherConfig.CLIENT.disable_music_manager.get()) {
-            return instance == AetherMusicManager.getCurrentMusic();
+            isCurrentAether = instance == AetherMusicManager.getCurrentMusic();
         } else if (Redux.aetherGenesisCompat() && GenesisConfig.CLIENT.night_music_tracks.get()) {
-            return instance == GenesisMusicManager.getCurrentMusic();
-        } else {
-            return instance == ((MusicManagerAccessor)Minecraft.getInstance().getMusicManager()).redux$getCurrentMusic();
+            isCurrentAether = instance == GenesisMusicManager.getCurrentMusic();
         }
+
+        // By this time, non-aether musics will have been filtered out anyway, so we allow for vanilla's music manager to play as well if it wants to
+        return isCurrentAether || instance == ((MusicManagerAccessor)Minecraft.getInstance().getMusicManager()).redux$getCurrentMusic();
     }
 
 }
