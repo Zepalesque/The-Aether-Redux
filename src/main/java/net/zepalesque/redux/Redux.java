@@ -1,6 +1,7 @@
 package net.zepalesque.redux;
 
 import com.aetherteam.aether.AetherConfig;
+import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.dispenser.DispenseUsableItemBehavior;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.item.AetherItems;
@@ -30,7 +31,10 @@ import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionBrewing;
 import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.crafting.CraftingHelper;
@@ -127,6 +131,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
+import java.util.function.Supplier;
 
 @Mod(Redux.MODID)
 public class Redux {
@@ -226,11 +231,11 @@ public class Redux {
             ReduxBlocks.registerFlammability();
             registerDispenserBehaviors();
             replaceBlockSounds();
+            registerComposting();
             Regions.register(new ReduxRegion(new ResourceLocation(MODID, "aether_redux_region"), ReduxConfig.COMMON.region_size.get()));
             if (ReduxConfig.COMMON.smaller_mimic_hitbox.get()) {
                 AetherEntityTypes.MIMIC.get().getDimensions().height = 1.25F;
-                if (aetherGenesisCompat())
-                {
+                if (aetherGenesisCompat()) {
                     GenesisEntityTypes.SKYROOT_MIMIC.get().getDimensions().height = 1.25F;
                 }
             }
@@ -294,7 +299,6 @@ public class Redux {
         }
     }
 
-
     private void registerDispenserBehaviors() {
         DispenserBlock.registerBehavior(ReduxItems.BLIGHTED_SPORES.get(), new DispenseUsableItemBehavior<>(ReduxRecipeTypes.SPORE_BLIGHTING.get()));
         DispenserBlock.registerBehavior(ReduxBlocks.SHELL_SHINGLES.get(), new ShellShinglesDispenserBehavior());
@@ -306,27 +310,96 @@ public class Redux {
         DispenserBlock.registerBehavior(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_SLAB.get(), new ShellShinglesDispenserBehavior());
         DispenserBlock.registerBehavior(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_WALL.get(), new ShellShinglesDispenserBehavior());
     }
-
-/*    *//**
-     * semi-arbitrarily chosen event soon before the resource packs are first reloaded in order to apply the overrides pack before it is done
-     *//*
-    public void applyResourcePack(RegisterKeyMappingsEvent event)
-    {
-        if (packConfig != null && packConfig.auto_apply.get()) {
-            for (Pack pack : Minecraft.getInstance().getResourcePackRepository().getAvailablePacks()) {
-                if (pack.getPackSource() == ReduxPackSources.AUTO_APPLY_RESOURCE) {
-                    Minecraft.getInstance().getResourcePackRepository().addPack(pack.getId());
-                }
-            }
-        }
-    }*/
-
-    public void registerRecipeSerializers(RegisterEvent event)
-    {
-        if (event.getRegistryKey().equals(ForgeRegistries.Keys.RECIPE_SERIALIZERS))
-        {
+    
+    public void registerRecipeSerializers(RegisterEvent event) {
+        if (event.getRegistryKey().equals(ForgeRegistries.Keys.RECIPE_SERIALIZERS)) {
             CraftingHelper.register(DataRecipeCondition.Serializer.INSTANCE);
         }
+    }
+    
+    private void registerComposting() {
+        this.addCompost(0.3F, ReduxItems.WYND_OATS);
+        this.addCompost(0.3F, ReduxBlocks.WYNDSPROUTS);
+        this.addCompost(0.3F, ReduxBlocks.SKYSPROUTS);
+        this.addCompost(0.3F, ReduxBlocks.LUXWEED);
+        this.addCompost(0.65F, ReduxItems.WYND_OAT_PANICLE);
+        
+        this.addCompost(0.3F, ReduxBlocks.GILDED_OAK_LEAVES);
+        this.addCompost(0.3F, ReduxBlocks.GILDED_LEAF_PILE);
+        this.addCompost(0.3F, ReduxBlocks.GOLDEN_LEAF_PILE);
+        this.addCompost(0.3F, ReduxBlocks.BLIGHTWILLOW_LEAF_PILE);
+        this.addCompost(0.3F, ReduxBlocks.BLIGHTED_SKYROOT_LEAVES);
+        this.addCompost(0.3F, ReduxBlocks.BLIGHTWILLOW_LEAVES);
+        this.addCompost(0.3F, ReduxBlocks.BLIGHTWILLOW_LEAF_PILE);
+        this.addCompost(0.3F, ReduxBlocks.FIELDSPROOT_LEAVES);
+        this.addCompost(0.3F, ReduxBlocks.GLACIA_LEAVES);
+        this.addCompost(0.3F, ReduxBlocks.PURPLE_GLACIA_LEAVES);
+        this.addCompost(0.3F, ReduxBlocks.FIELDSPROOT_PETALS);
+        
+        this.addCompost(0.65F, ReduxBlocks.AVELIUM_ROOTS);
+        this.addCompost(0.5F, ReduxBlocks.AVELIUM_SPROUTS);
+        
+        this.addCompost(0.65F, ReduxBlocks.JELLYSHROOM);
+        this.addCompost(0.65F, ReduxBlocks.SHIMMERSTOOL);
+        this.addCompost(0.65F, ReduxBlocks.IRIDIA);
+        this.addCompost(0.65F, ReduxBlocks.SPIROLYCTIL);
+        this.addCompost(0.65F, ReduxBlocks.GOLDEN_CLOVER);
+        this.addCompost(0.65F, ReduxBlocks.AURUM);
+        this.addCompost(0.65F, ReduxBlocks.ZYATRIX);
+        this.addCompost(0.65F, ReduxBlocks.DAGGERBLOOM);
+        this.addCompost(0.65F, ReduxBlocks.THERATIP);
+        this.addCompost(0.65F, ReduxBlocks.BLIGHTSHADE);
+        this.addCompost(0.65F, ReduxBlocks.CLOUDCAP_MUSHLING);
+        this.addCompost(0.65F, ReduxBlocks.LUMINA);
+        this.addCompost(0.65F, ReduxBlocks.ZANBERRY_BUSH_STEM);
+        this.addCompost(0.65F, ReduxBlocks.ZANBERRY_BUSH);
+        this.addCompost(0.65F, ReduxBlocks.SPLITFERN);
+        this.addCompost(0.65F, ReduxBlocks.INFERNIA);
+        this.addCompost(0.65F, ReduxBlocks.XAELIA_PATCH);
+        
+        this.addCompost(0.85F, ReduxBlocks.CLOUD_CAP_BLOCK);
+        this.addCompost(0.85F, ReduxBlocks.JELLYSHROOM);
+        this.addCompost(0.65F, ReduxBlocks.CLOUDCAP_SPORES);
+        this.addCompost(0.65F, WoodHandlers.CLOUDCAP.log);
+        this.addCompost(0.65F, WoodHandlers.JELLYSHROOM.log);
+        
+        this.addCompost(0.5F, ReduxBlocks.LIGHTROOTS);
+        this.addCompost(0.5F, ReduxBlocks.CORRUPTED_VINES);
+        this.addCompost(0.5F, ReduxBlocks.GILDED_VINES);
+        this.addCompost(0.5F, ReduxBlocks.GOLDEN_VINES);
+        
+        this.addCompost(0.65F, ReduxBlocks.BLIGHTMOSS_BLOCK);
+        this.addCompost(0.3F, ReduxBlocks.BLIGHTMOSS_CARPET);
+        this.addCompost(0.3F, ReduxBlocks.SHORT_AETHER_GRASS);
+        
+        this.addCompost(0.3F, ReduxBlocks.BLIGHTWILLOW_SAPLING);
+        this.addCompost(0.3F, ReduxBlocks.CRYSTAL_SAPLING);
+        this.addCompost(0.3F, ReduxBlocks.CRYSTAL_FRUIT_SAPLING);
+        this.addCompost(0.3F, ReduxBlocks.PURPLE_CRYSTAL_FRUIT_SAPLING);
+        this.addCompost(0.3F, ReduxBlocks.FIELDSPROOT_SAPLING);
+        this.addCompost(0.3F, ReduxBlocks.GLACIA_SAPLING);
+        this.addCompost(0.3F, ReduxBlocks.PURPLE_GLACIA_SAPLING);
+        this.addCompost(0.3F, ReduxBlocks.GILDED_OAK_SAPLING);
+        this.addCompost(0.3F, ReduxBlocks.BLIGHTED_SKYROOT_SAPLING);
+        
+        this.addCompost(0.85F, ReduxBlocks.FLAREBLOSSOM);
+        
+        this.addCompost(0.85F, ReduxBlocks.FUNGAL_GROWTH);
+        this.addCompost(0.5F, ReduxBlocks.FUNGAL_CARPET);
+        this.addCompost(0.85F, ReduxItems.WYND_BAGEL);
+        this.addCompost(0.85F, ReduxItems.BLUEBERRY_BAGEL);
+        
+        this.addCompost(0.65F, ReduxItems.ZANBERRY);
+        this.addCompost(1.0F, ReduxItems.BLUEBERRY_PIE);
+        this.addCompost(1.0F, ReduxItems.ENCHANTED_BLUEBERRY_PIE);
+        this.addCompost(0.85F, ReduxItems.BLUE_SWET_JELLY);
+        this.addCompost(0.85F, ReduxItems.GOLDEN_SWET_JELLY);
+        this.addCompost(0.85F, ReduxItems.VANILLA_SWET_JELLY);
+        this.addCompost(0.65F, ReduxItems.OATMEAL);
+    }
+    
+    private void addCompost(float chance, Supplier<? extends ItemLike> item) {
+        ComposterBlock.COMPOSTABLES.put(item.get().asItem(), chance);
     }
 
     public void dataSetup(GatherDataEvent event) {
@@ -363,34 +436,26 @@ public class Redux {
     }
 
     public  void packSetup(AddPackFindersEvent event) {
-
-
         if (event.getPackType() == PackType.CLIENT_RESOURCES) {
             PackConfigBootstrap.bootstrap();
 
             overridesPack(event);
 
-            if (ModList.get().isLoaded("tipsmod")) {
-                setupMandatoryPack(event, "resource/redux_tips", "Tips Mod Compat", "Tips for the Aether: Redux");
-            }
+            if (ModList.get().isLoaded("tipsmod")) setupMandatoryPack(event, "resource/redux_tips", "Tips Mod Compat", "Tips for the Aether: Redux");
 
         } else if (event.getPackType() == PackType.SERVER_DATA) {
-            if (aetherGenesisCompat()) { this.setupMandatoryDataPack(event, "data/genesis_data", "Genesis Compat", "Compatibility with the Aether: Genesis"); }
-            if (lostAetherCompat()) { this.setupMandatoryDataPack(event, "data/lost_content_data", "Lost Content Compat", "Compatibility with the Aether: Lost Content"); }
-            if (deepAetherCompat()) { this.setupMandatoryDataPack(event, "data/deep_aether_data", "Deep Aether Compat", "Compatibility with Deep Aether"); }
-            if (ancientAetherCompat()) { this.setupMandatoryDataPack(event, "data/ancient_aether_data", "Ancient Aether Compat", "Compatibility with Ancient Aether"); }
+            if (aetherGenesisCompat())  this.setupMandatoryDataPack(event, "data/genesis_data", "Genesis Compat", "Compatibility with the Aether: Genesis");
+            if (lostAetherCompat())  this.setupMandatoryDataPack(event, "data/lost_content_data", "Lost Content Compat", "Compatibility with the Aether: Lost Content");
+            if (deepAetherCompat())  this.setupMandatoryDataPack(event, "data/deep_aether_data", "Deep Aether Compat", "Compatibility with Deep Aether");
+            if (ancientAetherCompat())  this.setupMandatoryDataPack(event, "data/ancient_aether_data", "Ancient Aether Compat", "Compatibility with Ancient Aether");
 
             String desc = "See config/aether_redux_common.toml";
 
-            if (ReduxConfig.COMMON.cloud_layer_gen.get()) { this.setupBuiltinDatapack(event, "data/cloudbed", "Redux - Cloudbed", desc); }
-
-            if (ReduxConfig.COMMON.bronze_dungeon_upgrade.get()) { this.setupMandatoryDataPack(event, "data/dungeon_upgrades/bronze", "Bronze Dungeon Upgrade", desc); }
-
-            if (ReduxConfig.COMMON.gravitite_ingot.get()) { this.setupMandatoryDataPack(event, "data/gravitite_ingot", "Redux - Gravitite Ingot", desc); }
-
-            if (ReduxConfig.COMMON.dungeon_stone_recipes.get()) { this.setupMandatoryDataPack(event, "data/dungeon_stone_recipes", "Redux - Light Dungeon Stone Recipes", desc); }
-
-            if (ReduxConfig.COMMON.redux_noise.get().get()) { this.setupMandatoryDataPack(event, "data/redux_noise", "Redux - New Island Noise", desc); }
+            if (ReduxConfig.COMMON.cloud_layer_gen.get()) this.setupBuiltinDatapack(event, "data/cloudbed", "Redux - Cloudbed", desc);
+            if (ReduxConfig.COMMON.bronze_dungeon_upgrade.get()) this.setupMandatoryDataPack(event, "data/dungeon_upgrades/bronze", "Bronze Dungeon Upgrade", desc);
+            if (ReduxConfig.COMMON.gravitite_ingot.get()) this.setupMandatoryDataPack(event, "data/gravitite_ingot", "Redux - Gravitite Ingot", desc);
+            if (ReduxConfig.COMMON.dungeon_stone_recipes.get()) this.setupMandatoryDataPack(event, "data/dungeon_stone_recipes", "Redux - Light Dungeon Stone Recipes", desc);
+            if (ReduxConfig.COMMON.redux_noise.get().get()) this.setupMandatoryDataPack(event, "data/redux_noise", "Redux - New Island Noise", desc);
 
 
         }

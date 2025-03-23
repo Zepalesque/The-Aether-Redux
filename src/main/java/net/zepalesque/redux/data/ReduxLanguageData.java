@@ -103,8 +103,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.RING_OF_CONSTRUCTION, "Ring of Construction");
         addLore(ReduxItems.RING_OF_CONSTRUCTION, "A rare drop from Valkyries, which extends the distance you can reach when building. It is said that these were used to construct the Valkyrie Temples found throughout the Aether.");
 
-        addItem(ReduxItems.SHROOM_RING, "Shroom Ring");
-        addLore(ReduxItems.SHROOM_RING, "One of many different variations of the enchanted ring. When worn, taking damage with low health will have a chance to give an Adrenaline effect, giving a temporary stat boost in turn for a stat debuff when it expires.");
+        addItem(ReduxItems.SHROOM_RING, "Ring of Adrenaline");
+        addLore(ReduxItems.SHROOM_RING, "One of many different variations of the Enchanted Ring. When worn, taking damage with low health will have a chance to give an Adrenaline effect, giving a temporary stat boost in turn for a stat debuff when it expires.");
 
         addItem(ReduxItems.VAMPIRE_AMULET, "Vampire Amulet");
         addLore(ReduxItems.VAMPIRE_AMULET, "A pendant found in Bronze Dungeon reward chests. It gives the wearer life steal at night, but decreases their damage resistance at day");
@@ -131,8 +131,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.BLIGHTBUNNY_SPAWN_EGG, "Blightbunny Spawn Egg");
         addLore(ReduxItems.BLIGHTBUNNY_SPAWN_EGG, "A spawn egg. Spawns a Blightbunny.");
 
-        addItem(ReduxItems.BLIGHTED_SPORES, "Blighted Spores");
-        addLore(ReduxItems.BLIGHTED_SPORES, "Spores from the Blightwillow tree. They act like an opposite to Ambrosium, turning some things into their blighted variant");
+        addItem(ReduxItems.BLIGHTED_SPORES, "Willow Spores");
+        addLore(ReduxItems.BLIGHTED_SPORES, "Spores from the Blightwillow tree. These seem to channel the pure essence of the Blight, and can be used to spread it.");
 
         addItem(ReduxItems.VERIDIUM_DART, "Veridium Dart");
         addLore(ReduxItems.VERIDIUM_DART, "The ammo for the Veridium Dart Shooter. When shot with an Infused Veridium Dart Shooter, hit enemies will glow!");
@@ -174,10 +174,10 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.COARSE_AETHER_DIRT, "Coarse Aether Dirt");
         addLore(ReduxBlocks.COARSE_AETHER_DIRT, "A variant of Aether Dirt that does not regrow any grass.");
 
-        addBlock(ReduxBlocks.BLIGHTMOSS_BLOCK, "Blightmoss Block");
+        addBlock(ReduxBlocks.BLIGHTMOSS_BLOCK, "Bleakmoss Block");
         addLore(ReduxBlocks.BLIGHTMOSS_BLOCK, "Moss that has been infected by the Blight. This can be found in some caves in the Aether.");
-        addBlock(ReduxBlocks.BLIGHTMOSS_CARPET, "Blightmoss Carpet");
-        addLore(ReduxBlocks.BLIGHTMOSS_CARPET, "A thin blanket of Blightmoss. This can be found in some caves in the Aether.");
+        addBlock(ReduxBlocks.BLIGHTMOSS_CARPET, "Bleakmoss Carpet");
+        addLore(ReduxBlocks.BLIGHTMOSS_CARPET, "A thin blanket of Bleakmoss. This can be found in some caves in the Aether.");
 
 
         addBlock(ReduxBlocks.FUNGAL_GROWTH, "Fungal Growth");
@@ -190,7 +190,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addLore(ReduxBlocks.GOLDEN_VINES, "A type of gold-colored vine that commonly grows under the leaves of Golden Oak trees.");
         addBlock(ReduxBlocks.GILDED_VINES, "Gilded Vines");
         addBlock(ReduxBlocks.GILDED_VINES_PLANT, "Gilded Vines Plant");
-        addLore(ReduxBlocks.GILDED_VINES, "A type of off-white vine that commonly grows under the leaves of Gilded Oak trees.");
+        addLore(ReduxBlocks.GILDED_VINES, "A type of off-white vine that commonly grows under the leaves of Gildenroot trees.");
 
 
         addBlock(ReduxBlocks.CORRUPTED_VINES, "Corrupted Vines");
@@ -218,15 +218,15 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addBlock(ReduxBlocks.CLOUDCAP_MUSHLING, "Cloudcap Mushling");
         addBlock(ReduxBlocks.POTTED_CLOUDCAP_MUSHLING, "Potted Cloudcap Mushling");
-        addLore(ReduxBlocks.CLOUDCAP_MUSHLING, "A mushroom found commonly in the Cloudcaps. It glows faintly.");
+        addLore(ReduxBlocks.CLOUDCAP_MUSHLING, "A mushroom found commonly in the Cloudcaps. It gives off a faint glow, and can be grown into a larger variation.");
 
         addBlock(ReduxBlocks.SPIROLYCTIL, "Spirolyctil");
         addBlock(ReduxBlocks.POTTED_SPIROLYCTIL, "Potted Spirolyctil");
-        addLore(ReduxBlocks.SPIROLYCTIL, "A shiny blue flower found in the Blight. It almost seems like an island of peace in the ocean of chaos.");
+        addLore(ReduxBlocks.SPIROLYCTIL, "An indigo flower found in the Blight. This plant almost feels like an outlier, as it gives off a much more peaceful vibe than other surrounding Blight foliage.");
 
-        addBlock(ReduxBlocks.BLIGHTSHADE, "Blightshade");
-        addBlock(ReduxBlocks.POTTED_BLIGHTSHADE, "Potted Blightshade");
-        addLore(ReduxBlocks.BLIGHTSHADE, "Dark purple flowers found in the Blight. They release a gas that will make their target temporarily see darkness around them.");
+        addBlock(ReduxBlocks.BLIGHTSHADE, "Gloomshade");
+        addBlock(ReduxBlocks.POTTED_BLIGHTSHADE, "Potted Gloomshade");
+        addLore(ReduxBlocks.BLIGHTSHADE, "Dark purple flowers found in the Blight. These release a gas that limits their target's vision.");
 
         addBlock(ReduxBlocks.BLIGHTWILLOW_LEAVES, "Blightwillow Leaves");
         addLore(ReduxBlocks.BLIGHTWILLOW_LEAVES, "The leaves of the Blightwillow tree. These sometimes drop Blightwillow Saplings.");
@@ -239,7 +239,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.GOLDEN_LEAF_PILE, "Golden Leaf Pile");
         addLore(ReduxBlocks.GOLDEN_LEAF_PILE, "A pile of Golden Oak Leaves. These can be found under Golden Oak trees.");
         addBlock(ReduxBlocks.GILDED_LEAF_PILE, "Gilded Leaf Pile");
-        addLore(ReduxBlocks.GILDED_LEAF_PILE, "A pile of Gilded Oak Leaves. These can be found under Gilded Oak trees.");
+        addLore(ReduxBlocks.GILDED_LEAF_PILE, "A pile of Gildenroot Leaves. These can be found under Gildenroot trees.");
         addBlock(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE, "Blightwillow Leaf Pile");
         addLore(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE, "A pile of Blightwillow Leaves. These can be found in the Blight biome.");
         addBlock(ReduxBlocks.BLIGHTWILLOW_SAPLING, "Blightwillow Sapling");
@@ -269,16 +269,16 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.AVELIUM_SPROUTS, "Avelium Sprouts");
         addLore(ReduxBlocks.AVELIUM_SPROUTS, "A smaller variant of Avelium Roots. Can be found in the Cloudcaps.");
 
-        addBlock(ReduxBlocks.GILDED_OAK_LEAVES, "Gilded Oak Leaves");
-        addLore(ReduxBlocks.GILDED_OAK_LEAVES, "The leaves of the Gilded Oak tree. These sometimes drop Gilded Oak Saplings.");
-        addBlock(ReduxBlocks.GILDED_OAK_SAPLING, "Gilded Oak Sapling");
-        addBlock(ReduxBlocks.POTTED_GILDED_OAK_SAPLING, "Potted Gilded Oak Sapling");
-        addLore(ReduxBlocks.GILDED_OAK_SAPLING, "The sapling of the Gilded Oak tree. It can be grown by waiting or using Bone Meal.");
+        addBlock(ReduxBlocks.GILDED_OAK_LEAVES, "Gildenroot Leaves");
+        addLore(ReduxBlocks.GILDED_OAK_LEAVES, "The leaves of the Gildenroot tree. These sometimes drop Gildenroot Saplings.");
+        addBlock(ReduxBlocks.GILDED_OAK_SAPLING, "Gildenroot Sapling");
+        addBlock(ReduxBlocks.POTTED_GILDED_OAK_SAPLING, "Potted Gildenroot Sapling");
+        addLore(ReduxBlocks.GILDED_OAK_SAPLING, "The sapling of the Gildenroot tree. It can be grown by waiting or using Bone Meal.");
 
-        addBlock(ReduxBlocks.BLIGHTED_SKYROOT_LEAVES, "Blighted Skyroot Leaves");
-        addLore(ReduxBlocks.BLIGHTED_SKYROOT_LEAVES, "The leaves of the blighted variant of the Skyroot Tree. These sometimes drop Blighted Skyroot Saplings.");
-        addBlock(ReduxBlocks.BLIGHTED_SKYROOT_SAPLING, "Blighted Skyroot Sapling");
-        addBlock(ReduxBlocks.POTTED_BLIGHTED_SKYROOT_SAPLING, "Potted Blighted Skyroot Sapling");
+        addBlock(ReduxBlocks.BLIGHTED_SKYROOT_LEAVES, "Stormroot Leaves");
+        addLore(ReduxBlocks.BLIGHTED_SKYROOT_LEAVES, "The leaves of the blighted variant of the Skyroot Tree. These sometimes drop Stormroot Saplings.");
+        addBlock(ReduxBlocks.BLIGHTED_SKYROOT_SAPLING, "Stormroot Sapling");
+        addBlock(ReduxBlocks.POTTED_BLIGHTED_SKYROOT_SAPLING, "Potted Stormroot Sapling");
         addLore(ReduxBlocks.BLIGHTED_SKYROOT_SAPLING, "The sapling of the blighted variant of the Skyroot Tree. It can be grown by waiting or using Bone Meal.");
 
         addBlock(ReduxBlocks.GLACIA_LEAVES, "Glacia Leaves");
@@ -293,14 +293,14 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.POTTED_PURPLE_GLACIA_SAPLING, "Potted Purple Glacia Sapling");
         addLore(ReduxBlocks.PURPLE_GLACIA_SAPLING, "The sapling of the purple variant of the Glacia tree. It can be grown by waiting or using Bone Meal.");
 
-        addBlock(ReduxBlocks.DIVINITE, "Divinite");
+        addBlock(ReduxBlocks.DIVINITE, "Angilite");
         addLore(ReduxBlocks.DIVINITE, "A rock found in the Aether. This rock is commonly used in structures built by Valkyries. Additionally, when enchanted, it buds into a dazzlingly bright glowing stone!");
-        addBlock(ReduxBlocks.DIVINITE_SLAB, "Divinite Slab");
-        addLore(ReduxBlocks.DIVINITE_SLAB, "Crafted from Divinite. Slabs are half blocks, versatile for decoration and smooth slopes. Try adding some to a building's roofing!");
-        addBlock(ReduxBlocks.DIVINITE_STAIRS, "Divinite Stairs");
-        addLore(ReduxBlocks.DIVINITE_STAIRS, "Crafted from Divinite. Stairs are useful for adding verticality to builds and are often used for decoration too!");
-        addBlock(ReduxBlocks.DIVINITE_WALL, "Divinite Wall");
-        addLore(ReduxBlocks.DIVINITE_WALL, "Crafted from Divinite. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
+        addBlock(ReduxBlocks.DIVINITE_SLAB, "Angilite Slab");
+        addLore(ReduxBlocks.DIVINITE_SLAB, "Crafted from Angilite. Slabs are half blocks, versatile for decoration and smooth slopes. Try adding some to a building's roofing!");
+        addBlock(ReduxBlocks.DIVINITE_STAIRS, "Angilite Stairs");
+        addLore(ReduxBlocks.DIVINITE_STAIRS, "Crafted from Angilite. Stairs are useful for adding verticality to builds and are often used for decoration too!");
+        addBlock(ReduxBlocks.DIVINITE_WALL, "Angilite Wall");
+        addLore(ReduxBlocks.DIVINITE_WALL, "Crafted from Angilite. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
 
         addBlock(ReduxBlocks.POLISHED_DRIFTSHALE, "Polished Driftshale");
         addLore(ReduxBlocks.POLISHED_DRIFTSHALE, "The polished variant of Driftshale. Can be crafted into some other nice building blocks.");
@@ -336,7 +336,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addLore(ReduxBlocks.SENTRITE_BRICK_WALL, "Crafted from Sentrite Bricks. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
 
 
-        addBlock(ReduxBlocks.BLIGHTED_AERCLOUD, "Blighted Aercloud");
+        addBlock(ReduxBlocks.BLIGHTED_AERCLOUD, "Corrupted Aercloud");
         addLore(ReduxBlocks.BLIGHTED_AERCLOUD, "A light teal cloud found in the Blight. Standing in this will harm you, but will heal Blighted mobs such as Blightbunnies and Cockatrices!");
 
         addBlock(ReduxBlocks.IRIDIA, "Iridia");
@@ -355,14 +355,14 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.GILDED_HOLYSTONE_WALL, "Gilded Holystone Wall");
         addLore(ReduxBlocks.GILDED_HOLYSTONE_WALL, "Crafted from Gilded Holystone. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
 
-        addBlock(ReduxBlocks.BLIGHTMOSS_HOLYSTONE, "Blightmoss Holystone");
+        addBlock(ReduxBlocks.BLIGHTMOSS_HOLYSTONE, "Bleakmoss Holystone");
         addLore(ReduxBlocks.BLIGHTMOSS_HOLYSTONE, "The blighted form of Mosssy Holystone. The viscious moss on this rock wilts in the sunlight and flourishes in the moonlight.");
-        addBlock(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_SLAB, "Blightmoss Holystone Slab");
-        addLore(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_SLAB, "Crafted from Blightmoss Holystone. Slabs are half blocks, versatile for decoration and smooth slopes. Try adding some to a building's roofing!");
-        addBlock(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_STAIRS, "Blightmoss Holystone Stairs");
-        addLore(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_STAIRS, "Crafted from Blightmoss Holystone. Stairs are useful for adding verticality to builds and are often used for decoration too!");
-        addBlock(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_WALL, "Blightmoss Holystone Wall");
-        addLore(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_WALL, "Crafted from Blightmoss Holystone. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
+        addBlock(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_SLAB, "Bleakmoss Holystone Slab");
+        addLore(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_SLAB, "Crafted from Bleakmoss Holystone. Slabs are half blocks, versatile for decoration and smooth slopes. Try adding some to a building's roofing!");
+        addBlock(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_STAIRS, "Bleakmoss Holystone Stairs");
+        addLore(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_STAIRS, "Crafted from Bleakmoss Holystone. Stairs are useful for adding verticality to builds and are often used for decoration too!");
+        addBlock(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_WALL, "Bleakmoss Holystone Wall");
+        addLore(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_WALL, "Crafted from Bleakmoss Holystone. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
 
 
         this.addB(ReduxBlocks.CARVED_PILLAR);
@@ -451,10 +451,10 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addLore(ReduxBlocks.RAW_GRAVITITE_BLOCK, "A block of Raw Gravitite. This can be crafted with Raw Gravitite, and acts as a way to store more in a smaller space.");
 
         addItem(ReduxItems.MYKAPOD_SHELL_CHUNK, "Mykapod Shell Chunk");
-        addLore(ReduxItems.MYKAPOD_SHELL_CHUNK, "A fragment of the outer layer of a Mykapod. Can be used to craft the Snailshell Shield!");
+        addLore(ReduxItems.MYKAPOD_SHELL_CHUNK, "A fragmented chunk of a Mykapod's protective shell. Can be used to craft the Snailshell Shield!");
 
         addItem(ReduxItems.SNAILSHELL_SHIELD, "Snailshell Shield");
-        addLore(ReduxItems.SNAILSHELL_SHIELD, "A shield accessory. When worn, you will not take any knockback.");
+        addLore(ReduxItems.SNAILSHELL_SHIELD, "A shield accessory. When worn, you will be extra resistant to knockback.");
 
         addItem(ReduxItems.BLIGHTBUNNY_FANG, "Blightbunny Fang");
         addLore(ReduxItems.BLIGHTBUNNY_FANG, "A fang from a vicious Blightbunny. These can be crafted into a neat spear, which will inflict Inebriation on hurt enemies!");
@@ -472,14 +472,14 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addLore(ReduxItems.BLUEBERRY_BAGEL, "A bagel made with Blue Berries. This is much more filling than a plain Wynd Bagel");
 
         addItem(ReduxItems.OATMEAL, "Oatmeal");
-        addLore(ReduxItems.OATMEAL, "A nice bowl of Oatmeal. Specifically, this is Wynd Oatmeal, as it was made with Wynd Oats.");
+        addLore(ReduxItems.OATMEAL, "A nice bowl of Oatmeal, made from Wynd Oats.");
 
         addBlock(ReduxBlocks.LIGHTROOTS, "Lightroots");
         addItem(ReduxItems.LIGHTROOT_CLUMP, "Lightroot Clump");
         addLore(ReduxItems.LIGHTROOT_CLUMP, "A clump of the glowing roots that grow in the Cloudcaps. These can be eaten, and give night vision.");
 
         addItem(ReduxItems.SENTRY_CHIP, "Sentry Chip");
-        addLore(ReduxItems.SENTRY_CHIP, "A circuitboard piece from a Sentry. Nobody knows who created these, just that the Valkyries have utilized them for all of recorded history.");
+        addLore(ReduxItems.SENTRY_CHIP, "A circuitry piece from a Sentry. Nobody knows who created these, just that the Valkyries have utilized them for all of recorded history.");
 
         addBlock(ReduxBlocks.GOLDEN_CLOVER, "Golden Clover");
         addBlock(ReduxBlocks.POTTED_GOLDEN_CLOVER, "Potted Golden Clover");
@@ -491,7 +491,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addBlock(ReduxBlocks.AURUM, "Aurum");
         addBlock(ReduxBlocks.POTTED_AURUM, "Potted Aurum");
-        addLore(ReduxBlocks.AURUM, "A golden flower found in the Gilded Groves. Some say it brings luck!");
+        addLore(ReduxBlocks.AURUM, "A golden flower found in the Gilded Groves. Some say it brings good luck!");
 
         addBlock(ReduxBlocks.ZYATRIX, "Zyatrix");
         addBlock(ReduxBlocks.POTTED_ZYATRIX, "Potted Zyatrix");
@@ -499,11 +499,11 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addBlock(ReduxBlocks.LUMINA, "Lumina");
         addBlock(ReduxBlocks.POTTED_LUMINA, "Potted Lumina");
-        addLore(ReduxBlocks.LUMINA, "A flower found in the Frosted Forests. It gives off a glow, lighting the area around it");
+        addLore(ReduxBlocks.LUMINA, "A flower found in the Frosted Forests. It has a subtle luminant aura (hence the name), lighting the area around it.");
 
         addBlock(ReduxBlocks.DAGGERBLOOM, "Daggerbloom");
         addBlock(ReduxBlocks.POTTED_DAGGERBLOOM, "Potted Daggerbloom");
-        addLore(ReduxBlocks.DAGGERBLOOM, "A flower found in the Frosted Forests. Its petals are as cold as ice");
+        addLore(ReduxBlocks.DAGGERBLOOM, "A flower found in the Frosted Forests. Its pointed petals are as cold as ice.");
 
         addBlock(ReduxBlocks.THERATIP, "Theratip");
         addBlock(ReduxBlocks.POTTED_THERATIP, "Potted Theratip");
@@ -515,7 +515,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addBlock(ReduxBlocks.INFERNIA, "Infernia");
         addBlock(ReduxBlocks.POTTED_INFERNIA, "Potted Infernia");
-        addLore(ReduxBlocks.INFERNIA, "A flower found on Gold Dungeons. Its petals are hot, like a flame");
+        addLore(ReduxBlocks.INFERNIA, "A flower found on Gold Dungeons. Its petals are hot, like a flame.");
 
         addBlock(ReduxBlocks.VERIDIUM_ORE, "Veridium Ore");
         addLore(ReduxBlocks.VERIDIUM_ORE, "The ore of Veridium. This can be found around the Aether");
@@ -670,7 +670,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addSubtitle("entity", "blightbunny_death", "Blightbunny dies");
         addSubtitle("item.accessory", "equip_bittersweet_charm", "Bittersweet Charm jingles");
         addSubtitle("item.accessory", "equip_enchanted_ring", "Enchanted Ring thunks");
-        addSubtitle("item.accessory", "equip_shroom_ring", "Shroom Ring thunks");
+        addSubtitle("item.accessory", "equip_shroom_ring", "Ring of Adrenaline thunks");
         addSubtitle("item.accessory", "equip_grand_medal", "Grand Victory Medal clinks");
         addSubtitle("item.accessory", "equip_construction_ring", "Ring of Construction clinks");
         addSubtitle("item.accessory", "equip_wisdom_ring", "Ring of Wisdom clanks");
@@ -678,7 +678,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addSubtitle("item.accessory", "equip_vampire_amulet", "Vampire Amulet clinks");
         addSubtitle("generic", "boost_jump", "Something double-jumps");
         addSubtitle("generic", "fireball_shoot", "Fireball shoots");
-        addSubtitle("block", "blightshade_spray", "Blightshade sprays");
+        addSubtitle("block", "blightshade_spray", "Gloomshade sprays");
         addSubtitle("item", "convert_ambrosium", "Ambrosium enchants");
         addSubtitle("item", "convert_swet_ball", "Swet Ball squelches");
         addSubtitle("item", "convert_blighted_spores", "Blighted Spores bewitch");
@@ -707,6 +707,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addTooltip("ambrosium_charge", "Infusion Level: %s");
 
+        // TODO: is this even used anymore?
         addGuiText("welcome_line1", "Welcome to " + Redux.DISPLAY + "!");
         addGuiText("welcome_line2", "This mod has a lot of configuration in the configs, resource packs, and data packs.");
         addGuiText("welcome_line3", "Be sure to check them all out to see all of the cool features!");
@@ -716,6 +717,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addGuiText("continue_delay_unfocused", "Delay paused until window refocused! Time remaining: %s seconds");
         addGuiText("continue_delay_unmoved", "Please move the mouse to begin continue button cooldown.");
         addGuiText("continue_to_menu", "Continue to Main Menu");
+        
         addGuiText("jei.infusion_charge", "Increases Infusion Level by %s");
         addGuiText("jei.infusion", "Infusion");
 
@@ -762,7 +764,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addAdvancement("mouse_ear_soup", "Who Let Them Cook?");
         addAdvancementDesc("mouse_ear_soup", "Craft and cosume the legendary Mouse Ear Soup, one of the Aether's finest, yet least well-known dishes.");
 
-        addDeath(ReduxDamageTypes.ZANBERRY_BUSH, "%1$s was poked to death by a zanberry bush, how sad ):");
+        addDeath(ReduxDamageTypes.ZANBERRY_BUSH, "%1$s was poked to death by a zanberry bush, how path ):");
         addDeath(ReduxDamageTypes.CORRUPTED_VINES, "%1$s was poked to death by some Corrupted Vines");
         addDeath(ReduxDamageTypes.EMBER, "%1$s was sparked by a flying ember");
         addDeathByPlayer(ReduxDamageTypes.EMBER, "%1$s was sparked by %2$s's flying ember");
@@ -785,7 +787,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addProTip("veridium_ore", "On occasion, you'll find a blue ore in the Aether known as Veridium. This can be used to make some decoration blocks, as well as useful Veridium tools!");
         addProTip("the_blight", "Be careful of the purple Blight biome found in the Aether, it is filled with many dangerous plants. Cockatrices will occasionally drop their feather, which is an accessory that will help you to traverse the biome easier.");
         addProTip("snailshell_shield", "Feeding a Mykapod a Shimmerstool will make it shed the outer layer of its shell. These shell fragments can be used to craft a useful accessory that will decrease knockback.");
-        addProTip("divinite", "Divinite can be enchanted into Glowstone, giving a relatively easy way to leave the Aether safely if you get stuck.");
+        addProTip("divinite", "Angilite can be enchanted into Glowstone, giving a relatively easy way to leave the Aether safely if you get stuck.");
         addProTip("redux_configs", Redux.DISPLAY + " has a large amount of configs, including many that affect the base mod, so make sure to check out its config file!");
         addProTip("swet_escape", "You can escape a Swet's gelatinous grasp by sneaking. It will still attack you though, so be quick!");
         addProTip("airbound_cape", "After defeating the Slider, you can occasionally find a nifty accessory in the loot chest known as the Airbound Cape. This will allow you to perform a double-jump, extending your vertical mobility!");
