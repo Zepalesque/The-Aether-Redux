@@ -9,6 +9,7 @@ package net.zepalesque.redux.util.function;
  * @param <T> type of the fourth argument
 
  */
+@Deprecated // Use net.zepalesque.redux.util.function.Consumers.C4
 public interface QuadConsumer<K, V, S, T> {
 
     /**

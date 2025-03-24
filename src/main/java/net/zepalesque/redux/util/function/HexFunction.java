@@ -13,6 +13,7 @@ package net.zepalesque.redux.util.function;
  * @param <Z> type of the return value
 
  */
+@Deprecated // Use net.zepalesque.redux.util.function.Functions.F6
 public interface HexFunction<K, V, S, T, R, Y, Z> {
 
     /**

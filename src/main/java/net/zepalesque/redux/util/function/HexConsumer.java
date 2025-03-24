@@ -11,6 +11,7 @@ package net.zepalesque.redux.util.function;
  * @param <Y> type of the sixth argument
  *
  */
+@Deprecated // Use net.zepalesque.redux.util.function.Consumers.C6
 public interface HexConsumer<K, V, S, T, R, Y> {
 
     /**

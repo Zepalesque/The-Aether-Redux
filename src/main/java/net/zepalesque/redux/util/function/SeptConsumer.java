@@ -12,6 +12,7 @@ package net.zepalesque.redux.util.function;
  * @param <L> type of the seventh argument
 
  */
+@Deprecated // Use net.zepalesque.redux.util.function.Consumers.C7
 public interface SeptConsumer<K, V, S, T, R, Q, L> {
 
     /**

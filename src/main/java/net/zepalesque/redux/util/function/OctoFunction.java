@@ -15,6 +15,7 @@ package net.zepalesque.redux.util.function;
  * @param <Z> type of the return value
 
  */
+@Deprecated // Use net.zepalesque.redux.util.function.Functions.F8
 public interface OctoFunction<K, V, S, T, R, Q, L, X, Z> {
 
     /**

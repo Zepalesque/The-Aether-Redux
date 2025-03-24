@@ -700,17 +700,18 @@ public class ReduxPlacements {
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
                 RarityFilter.onAverageOnceEvery(5),
                 BiomeFilter.biome());
-
-        register(context, BLIGHT_TREES, configs.getOrThrow(ReduxFeatureConfig.BLIGHT_TREES),
-                CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
-                        .add(UniformInt.of(2, 6), 5)
-                        .add(ConstantInt.of(4), 3)
-                        .add(ConstantInt.of(6), 1)
-                        .build())),
-                ImprovedLayerPlacementModifier.of(Heightmap.Types.OCEAN_FLOOR, UniformInt.of(0, 1), 4),
-                BiomeFilter.biome(),
-                PlacementUtils.filteredByBlockSurvival(ReduxBlocks.BLIGHTWILLOW_SAPLING.get()),
-                DUNGEON_BLACKLIST
+        
+        PlacementUtils.register(context, BLIGHT_TREES, configs.getOrThrow(ReduxFeatureConfig.BLIGHT_TREES),
+            CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
+                                                      .add(ConstantInt.of(18), 9)
+                                                      .add(ConstantInt.of(14), 3)
+                                                      .add(ConstantInt.of(12), 5)
+                                                      .add(ConstantInt.of(22), 1)
+                                                      .build())),
+            ImprovedLayerPlacementModifier.of(Heightmap.Types.OCEAN_FLOOR, ConstantInt.of(2), 4),
+            BiomeFilter.biome(),
+            PlacementUtils.filteredByBlockSurvival(ReduxBlocks.BLIGHTED_SKYROOT_SAPLING.get()),
+            DUNGEON_BLACKLIST
         );
 
         register(context, BONEMEAL_OVERRIDE, configs.getOrThrow(ReduxFeatureConfig.GRASS_PATCH_BONEMEAL), PlacementUtils.isEmpty());

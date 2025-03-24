@@ -19,9 +19,11 @@ import com.google.common.collect.ImmutableList;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.*;
 import net.minecraft.world.level.block.Block;
@@ -35,15 +37,20 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
+import net.minecraft.world.level.levelgen.feature.featuresize.ThreeLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BushFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.DarkOakFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FancyFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.DarkOakTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.FancyTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
+import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.world.level.levelgen.placement.PlacementFilter;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.registries.RegistryObject;
@@ -61,11 +68,14 @@ import net.zepalesque.redux.world.tree.decorator.BlightwillowRootsTrunkDecorator
 import net.zepalesque.redux.world.tree.decorator.EnchantedVineDecorator;
 import net.zepalesque.redux.world.tree.decorator.PatchTreeDecorator;
 import net.zepalesque.redux.world.tree.foliage.BlightwillowFoliagePlacer;
+import net.zepalesque.redux.world.tree.foliage.LegacyBlightwillowFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.GenesisHookedFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.GenesisPineFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.GlaciaFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.SkyrootFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.SmallGoldenOakFoliagePlacer;
+import net.zepalesque.redux.world.tree.root.BlightwillowRootsPlacer;
+import net.zepalesque.redux.world.tree.trunk.BlightwillowTrunkPlacer;
 import net.zepalesque.redux.world.tree.trunk.GenesisHookedTrunkPlacer;
 import net.zepalesque.redux.world.tree.trunk.IntProviderTrunkPlacer;
 
@@ -84,6 +94,7 @@ public class    ReduxFeatureConfig {
     public static final ResourceKey<ConfiguredFeature<?, ?>> ZYATRIX_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.ZYATRIX) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ZANBERRY_BUSH_PATCH = createKey(Folders.PATCH + name(ReduxBlocks.ZANBERRY_BUSH) + "_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTED_SKYROOT_TREE = createKey(Folders.TREE + "blighted_skyroot_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_BLIGHTED_SKYROOT_TREE = createKey(Folders.TREE + "large_blighted_skyroot_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTMOSS_PATCH = createKey(Folders.CAVE + "blightmoss_patch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTMOSS_PATCH_BONEMEAL = createKey(Folders.CAVE + "blightmoss_patch_bonemeal");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTMOSS_VEGETATION = createKey(Folders.CAVE + "blightmoss_vegetation");
@@ -329,27 +340,34 @@ public class    ReduxFeatureConfig {
                 new SkyrootFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
                 new TwoLayersFeatureSize(1, 0, 1)
         ).ignoreVines().dirt(prov(AetherBlocks.AETHER_DIRT)).build());
+        
+        register(context, LARGE_BLIGHTED_SKYROOT_TREE, Feature.TREE,
+            new TreeConfiguration.TreeConfigurationBuilder(
+                BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LOG),
+                new DarkOakTrunkPlacer(7, 2, 1),
+                prov(ReduxBlocks.BLIGHTED_SKYROOT_LEAVES),
+                new DarkOakFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0)),
+                new ThreeLayersFeatureSize(1, 1, 0, 1, 2, OptionalInt.empty())
+            ).ignoreVines().build());
+        
         register(context, BLIGHTSHADE_PATCH, Feature.FLOWER,
                 blockBelowPlacementPatch(16, 7, 3, prov(ReduxBlocks.BLIGHTSHADE),
                         BlockPredicate.matchesBlocks(AetherBlocks.AETHER_GRASS_BLOCK.get())));
 
-        WeightedStateProvider p = new WeightedStateProvider(
-                SimpleWeightedRandomList.<BlockState>builder()
+        register(context, BLIGHTWILLOW_TREE, Feature.TREE,
+            new TreeConfiguration.TreeConfigurationBuilder(
+                new WeightedStateProvider(
+                    SimpleWeightedRandomList.<BlockState>builder()
                         .add(drops(WoodHandlers.BLIGHTWILLOW.log), 7)
                         .add(drops(WoodHandlers.BLIGHTWILLOW.sporingLog.orElseThrow()), 1)
-        );
-        register(context, BLIGHTWILLOW_TREE, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
-                p,
-                new StraightTrunkPlacer(8, 4, 3),
+                ),
+                new BlightwillowTrunkPlacer(ConstantInt.of(6)),
                 prov(ReduxBlocks.BLIGHTWILLOW_LEAVES),
                 new BlightwillowFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
-                new TwoLayersFeatureSize(6, 0, 4)
-        ).decorators(
-                List.of(
-                        new BlightwillowRootsTrunkDecorator(p, prov(naturalDrops(WoodHandlers.BLIGHTWILLOW.logWall)), UniformInt.of(1, 4)),
-                        new PatchTreeDecorator(createLeafPileLayers(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE), 7, 3, 32)
-                )
-        ).ignoreVines().dirt(BlockStateProvider.simple(Blocks.AIR)).build());
+                Optional.of(new BlightwillowRootsPlacer(UniformInt.of(6, 8), 2, prov(WoodHandlers.BLIGHTWILLOW.wood))),
+                new TwoLayersFeatureSize(7, 0, 3)
+            ).ignoreVines().build());
+        
         register(context, DAGGERBLOOM_PATCH, Feature.FLOWER,
                 randomPatch(12, 7, 3, prov(ReduxBlocks.DAGGERBLOOM)));
         register(context, SPLITFERN_PATCH, Feature.FLOWER,
@@ -699,13 +717,32 @@ public class    ReduxFeatureConfig {
         register(context, JELLYSHROOM_PATCH, Feature.FLOWER,
                 blockBelowPlacementPatch(8, 7, 3, prov(ReduxBlocks.JELLYSHROOM),
                         BlockPredicate.matchesTag(ReduxTags.Blocks.AEVELIUM_GRASSES)));
-
-
+        
+        PlacementFilter has_trunk_support_2x2 = BlockPredicateFilter.forPredicate(BlockPredicate.allOf(
+            BlockPredicate.matchesTag(new Vec3i(0, -1, 0), BlockTags.DIRT),
+            BlockPredicate.matchesTag(new Vec3i(1, -1, 0), BlockTags.DIRT),
+            BlockPredicate.matchesTag(new Vec3i(0, -1, 1), BlockTags.DIRT),
+            BlockPredicate.matchesTag(new Vec3i(1, -1, 1), BlockTags.DIRT)
+        ));
+        
         register(context, BLIGHT_TREES, Feature.RANDOM_SELECTOR,
-                new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
-                        PlacementUtils.inlinePlaced(configs.getOrThrow(BLIGHTED_SKYROOT_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.BLIGHTED_SKYROOT_SAPLING.get())), 0.25F)),
-                        PlacementUtils.inlinePlaced(configs.getOrThrow(BLIGHTWILLOW_TREE), PlacementUtils.filteredByBlockSurvival(ReduxBlocks.BLIGHTWILLOW_SAPLING.get()))));
-
+            new RandomFeatureConfiguration(List.of(
+                new WeightedPlacedFeature(
+                    PlacementUtils.inlinePlaced(
+                        configs.getOrThrow(BLIGHTED_SKYROOT_TREE),
+                        PlacementUtils.filteredByBlockSurvival(ReduxBlocks.BLIGHTED_SKYROOT_SAPLING.get()))
+                    , 0.35F),
+                new WeightedPlacedFeature(
+                    PlacementUtils.inlinePlaced(
+                        configs.getOrThrow(LARGE_BLIGHTED_SKYROOT_TREE),
+                        PlacementUtils.filteredByBlockSurvival(ReduxBlocks.BLIGHTED_SKYROOT_SAPLING.get()),
+                        has_trunk_support_2x2)
+                    , 0.4F)
+            ), PlacementUtils.inlinePlaced(
+                configs.getOrThrow(BLIGHTWILLOW_TREE),
+                PlacementUtils.filteredByBlockSurvival(ReduxBlocks.BLIGHTWILLOW_SAPLING.get())
+            )));
+        
         register(context, GROVE_TREES_LEGACY, Feature.RANDOM_SELECTOR,
                 new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
                         PlacementUtils.inlinePlaced(configs.getOrThrow(AetherConfiguredFeatures.GOLDEN_OAK_TREE_CONFIGURATION), PlacementUtils.filteredByBlockSurvival(AetherBlocks.GOLDEN_OAK_SAPLING.get())), 0.67F)),

@@ -10,6 +10,7 @@ package net.zepalesque.redux.util.function;
  * @param <R> type of the result
 
  */
+@Deprecated // Use net.zepalesque.redux.util.function.Functions.F4
 public interface QuadFunction<K, V, S, T, R> {
 
     /**
