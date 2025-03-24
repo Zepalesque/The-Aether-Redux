@@ -20,7 +20,7 @@
     },
     "features": [
       {
-        "chance": 0.25,
+        "chance": 0.35,
         "feature": {
           "feature": "aether_redux:trees/blighted_skyroot_tree",
           "placement": [
@@ -34,6 +34,70 @@
                     "stage": "0"
                   }
                 }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "chance": 0.4,
+        "feature": {
+          "feature": "aether_redux:trees/large_blighted_skyroot_tree",
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:would_survive",
+                "state": {
+                  "Name": "aether_redux:blighted_skyroot_sapling",
+                  "Properties": {
+                    "stage": "0"
+                  }
+                }
+              }
+            },
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:all_of",
+                "predicates": [
+                  {
+                    "type": "minecraft:matching_block_tag",
+                    "offset": [
+                      0,
+                      -1,
+                      0
+                    ],
+                    "tag": "minecraft:dirt"
+                  },
+                  {
+                    "type": "minecraft:matching_block_tag",
+                    "offset": [
+                      1,
+                      -1,
+                      0
+                    ],
+                    "tag": "minecraft:dirt"
+                  },
+                  {
+                    "type": "minecraft:matching_block_tag",
+                    "offset": [
+                      0,
+                      -1,
+                      1
+                    ],
+                    "tag": "minecraft:dirt"
+                  },
+                  {
+                    "type": "minecraft:matching_block_tag",
+                    "offset": [
+                      1,
+                      -1,
+                      1
+                    ],
+                    "tag": "minecraft:dirt"
+                  }
+                ]
               }
             }
           ]

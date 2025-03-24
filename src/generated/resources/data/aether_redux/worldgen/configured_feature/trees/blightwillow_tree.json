@@ -1,128 +1,11 @@
 {
   "type": "minecraft:tree",
   "config": {
-    "decorators": [
-      {
-        "type": "aether_redux:blightwillow_roots",
-        "root_block": {
-          "type": "minecraft:weighted_state_provider",
-          "entries": [
-            {
-              "data": {
-                "Name": "aether_redux:blightwillow_log",
-                "Properties": {
-                  "axis": "y",
-                  "double_drops": "true"
-                }
-              },
-              "weight": 7
-            },
-            {
-              "data": {
-                "Name": "aether_redux:sporing_blightwillow_log",
-                "Properties": {
-                  "axis": "y",
-                  "double_drops": "true"
-                }
-              },
-              "weight": 1
-            }
-          ]
-        },
-        "root_height": {
-          "type": "minecraft:uniform",
-          "value": {
-            "max_inclusive": 4,
-            "min_inclusive": 1
-          }
-        },
-        "wall_block": {
-          "type": "minecraft:simple_state_provider",
-          "state": {
-            "Name": "aether_redux:blightwillow_log_wall",
-            "Properties": {
-              "double_drops": "true",
-              "east": "none",
-              "natural_gen": "true",
-              "north": "none",
-              "south": "none",
-              "up": "true",
-              "waterlogged": "false",
-              "west": "none"
-            }
-          }
-        }
-      },
-      {
-        "type": "aether_redux:patch",
-        "provider": {
-          "type": "minecraft:weighted_state_provider",
-          "entries": [
-            {
-              "data": {
-                "Name": "aether_redux:blightwillow_leaf_pile",
-                "Properties": {
-                  "layers": "1"
-                }
-              },
-              "weight": 6
-            },
-            {
-              "data": {
-                "Name": "aether_redux:blightwillow_leaf_pile",
-                "Properties": {
-                  "layers": "2"
-                }
-              },
-              "weight": 5
-            },
-            {
-              "data": {
-                "Name": "aether_redux:blightwillow_leaf_pile",
-                "Properties": {
-                  "layers": "3"
-                }
-              },
-              "weight": 4
-            },
-            {
-              "data": {
-                "Name": "aether_redux:blightwillow_leaf_pile",
-                "Properties": {
-                  "layers": "4"
-                }
-              },
-              "weight": 3
-            },
-            {
-              "data": {
-                "Name": "aether_redux:blightwillow_leaf_pile",
-                "Properties": {
-                  "layers": "5"
-                }
-              },
-              "weight": 2
-            },
-            {
-              "data": {
-                "Name": "aether_redux:blightwillow_leaf_pile",
-                "Properties": {
-                  "layers": "6"
-                }
-              },
-              "weight": 1
-            }
-          ]
-        },
-        "tries": 32,
-        "xz_spread": 7,
-        "y_spread": 3
-      }
-    ],
+    "decorators": [],
     "dirt_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "minecraft:air"
+        "Name": "minecraft:dirt"
       }
     },
     "foliage_placer": {
@@ -146,15 +29,34 @@
     "ignore_vines": true,
     "minimum_size": {
       "type": "minecraft:two_layers_feature_size",
-      "limit": 6,
+      "limit": 7,
       "lower_size": 0,
-      "upper_size": 4
+      "upper_size": 3
+    },
+    "root_placer": {
+      "type": "aether_redux:blightwillow_roots",
+      "trunk_offset_y": {
+        "type": "minecraft:uniform",
+        "value": {
+          "max_inclusive": 8,
+          "min_inclusive": 6
+        }
+      },
+      "wood": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "aether_redux:blightwillow_wood",
+          "Properties": {
+            "axis": "y",
+            "double_drops": "true",
+            "natural_gen": "false"
+          }
+        }
+      }
     },
     "trunk_placer": {
-      "type": "minecraft:straight_trunk_placer",
-      "base_height": 8,
-      "height_rand_a": 4,
-      "height_rand_b": 3
+      "type": "aether_redux:blightwillow_trunk",
+      "height": 6
     },
     "trunk_provider": {
       "type": "minecraft:weighted_state_provider",

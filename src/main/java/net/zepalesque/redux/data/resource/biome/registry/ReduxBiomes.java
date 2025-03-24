@@ -42,12 +42,13 @@ public class ReduxBiomes {
     private static ResourceKey<Biome> createKey(String name) {
         return ResourceKey.create(Registries.BIOME, Redux.locate(name));
     }
-
+    
+    public static final int BLEAKMOSS_GRASS_COLOR = 0xFFB79EC1;
 
     public static final int AETHER_GRASS_COLOR = 0xADF9C4;
     public static final int GILDED_GRASS_COLOR = 0xFFED96;
     public static final int GILDED_GRASSLANDS_COLOR = 0xFFF5A3;
-    public static final int BLIGHT_GRASS_COLOR = 0xD5BAFF;
+    public static final int BLIGHT_GRASS_COLOR = 0xBEAEE5;
     public static final int FROSTED_GRASS_COLOR = 0xCCF7FF;
     public static final int SKYFIELDS_GRASS_COLOR = 0xBFFFEC;
     public static final int SHRUBLANDS_GRASS_COLOR = 0xD7FFCC;

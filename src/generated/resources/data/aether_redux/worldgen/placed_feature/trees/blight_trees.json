@@ -7,21 +7,19 @@
         "type": "minecraft:weighted_list",
         "distribution": [
           {
-            "data": {
-              "type": "minecraft:uniform",
-              "value": {
-                "max_inclusive": 6,
-                "min_inclusive": 2
-              }
-            },
-            "weight": 5
+            "data": 18,
+            "weight": 9
           },
           {
-            "data": 4,
+            "data": 14,
             "weight": 3
           },
           {
-            "data": 6,
+            "data": 12,
+            "weight": 5
+          },
+          {
+            "data": 22,
             "weight": 1
           }
         ]
@@ -29,13 +27,7 @@
     },
     {
       "type": "aether:improved_layer_placement",
-      "count": {
-        "type": "minecraft:uniform",
-        "value": {
-          "max_inclusive": 1,
-          "min_inclusive": 0
-        }
-      },
+      "count": 2,
       "heightmap": "OCEAN_FLOOR",
       "verticalBounds": 4
     },
@@ -47,7 +39,7 @@
       "predicate": {
         "type": "minecraft:would_survive",
         "state": {
-          "Name": "aether_redux:blightwillow_sapling",
+          "Name": "aether_redux:blighted_skyroot_sapling",
           "Properties": {
             "stage": "0"
           }
