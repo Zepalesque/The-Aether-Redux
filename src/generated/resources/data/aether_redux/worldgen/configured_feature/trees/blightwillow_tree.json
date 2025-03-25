@@ -43,15 +43,30 @@
         }
       },
       "wood": {
-        "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "aether_redux:blightwillow_wood",
-          "Properties": {
-            "axis": "y",
-            "double_drops": "true",
-            "natural_gen": "false"
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "data": {
+              "Name": "aether_redux:blightwillow_wood",
+              "Properties": {
+                "axis": "y",
+                "double_drops": "true",
+                "natural_gen": "false"
+              }
+            },
+            "weight": 7
+          },
+          {
+            "data": {
+              "Name": "aether_redux:sporing_blightwillow_wood",
+              "Properties": {
+                "axis": "y",
+                "double_drops": "true"
+              }
+            },
+            "weight": 1
           }
-        }
+        ]
       }
     },
     "trunk_placer": {

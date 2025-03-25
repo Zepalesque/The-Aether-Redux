@@ -8,7 +8,10 @@
           "to_place": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "aether_redux:skysprouts"
+              "Name": "aether_redux:skysprouts",
+              "Properties": {
+                "enchanted": "false"
+              }
             }
           }
         }

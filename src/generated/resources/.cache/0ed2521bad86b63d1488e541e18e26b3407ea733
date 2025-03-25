@@ -1,4 +1,4 @@
-// 1.20.1	2024-07-04T14:27:44.3517482	Tags for minecraft:worldgen/biome mod id aether_redux
+// 1.20.1	2025-03-24T21:55:17.7508909	Tags for minecraft:worldgen/biome mod id aether_redux
 7472468965a936215f29785199534a04e87de485 data/aether/tags/worldgen/biome/is_aether.json
 6425e7e0a57a451843094090fa1e31c9fbd4c5e0 data/aether_redux/tags/worldgen/biome/change_vanilla_grass_colors.json
 a7bface40765aac0eb656500c63dc79c149c66d5 data/aether_redux/tags/worldgen/biome/dense_leaf_fall.json
@@ -16,7 +16,7 @@ f60ed1511ced922e996aed19dbe2fcf7f6ba2054 data/aether_redux/tags/worldgen/biome/h
 95bbc50a8668572aa49f7d1bce179ddf9565cd7f data/aether_redux/tags/worldgen/biome/has_sentrite.json
 9bab4001ef797ff8e23a98e18b1fafae5afe280a data/aether_redux/tags/worldgen/biome/has_vanilla_swet.json
 6425e7e0a57a451843094090fa1e31c9fbd4c5e0 data/aether_redux/tags/worldgen/biome/has_veridium_ore.json
-8b35baa18ab237cca09ca885ed8ee1589d1da139 data/aether_redux/tags/worldgen/biome/has_wyndsprouts.json
+a95c7f45756e8fe7a200f4f87d4b1b3ccf707a53 data/aether_redux/tags/worldgen/biome/has_wyndsprouts.json
 d43b3f5d321259d8fd095fcdb642ce35cae99b8a data/aether_redux/tags/worldgen/biome/is_frosted.json
 5f79d63b252562212b7c191f306f4bc59093ec83 data/aether_redux/tags/worldgen/biome/is_gilded.json
 6425e7e0a57a451843094090fa1e31c9fbd4c5e0 data/aether_redux/tags/worldgen/biome/modify_music.json

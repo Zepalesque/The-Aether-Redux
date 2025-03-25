@@ -13,7 +13,7 @@
       "aether_redux:cloudcaps": 12567807,
       "aether_redux:skyfields": 13555179,
       "aether_redux:skyroot_shrublands": 13557227,
-      "aether_redux:the_blight": 12628443
+      "aether_redux:the_blight": 11382483
     },
     "sky_map": {
       "#aether_redux:is_frosted": 11776997,
@@ -21,7 +21,7 @@
       "aether_redux:cloudcaps": 9938164,
       "aether_redux:skyfields": 11320038,
       "aether_redux:skyroot_shrublands": 11323878,
-      "aether_redux:the_blight": 10065105
+      "aether_redux:the_blight": 8158629
     }
   },
   "when": {
