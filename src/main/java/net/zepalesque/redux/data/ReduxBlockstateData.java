@@ -189,8 +189,8 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.crossTintedOverlay(ReduxBlocks.THERATIP.get(), "natural/");
         this.tintedPotOverlay(ReduxBlocks.POTTED_THERATIP.get(), ReduxBlocks.THERATIP.get(), "natural/");
 
-        this.crossTintedOverlay(ReduxBlocks.WYNDSPROUTS.get(), "natural/");
-        this.crossTintedOverlay(ReduxBlocks.SKYSPROUTS.get(), "natural/");
+        this.crossTintedOverlayEnchantable(ReduxBlocks.WYNDSPROUTS.get(), "natural/");
+        this.crossTintedOverlayEnchantable(ReduxBlocks.SKYSPROUTS.get(), "natural/");
 
         this.crossTintedEnchantable(ReduxBlocks.SPLITFERN.get(), "natural/");
         this.tintedPot(ReduxBlocks.POTTED_SPLITFERN.get(), ReduxBlocks.SPLITFERN.get(), "natural/");
