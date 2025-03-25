@@ -17,7 +17,6 @@ import org.jetbrains.annotations.Nullable;
 @Mod.EventBusSubscriber(modid = Redux.MODID)
 public class MappingsListener {
 
-    // TODO: Convert to, funnily enough, some HashMaps
     @SubscribeEvent
     public static void remapItems(MissingMappingsEvent event)
     {

@@ -172,6 +172,9 @@ public class MappingsHooks {
         builder.put(Redux.locate("valkyrie_ring"), ReduxItems.RING_OF_CONSTRUCTION);
 
         builder.put(Redux.locate("silder_music_disc"), ReduxItems.ANCIENT_SENTRITE_MUSIC_DISC);
+        
+        builder.put(Redux.locate("potted_wyndsprouts"), () -> Blocks.FLOWER_POT);
+        builder.put(Redux.locate("potted_skysprouts"), () -> Blocks.FLOWER_POT);
 
         return builder.build();
     }
@@ -252,7 +255,8 @@ public class MappingsHooks {
         builder.put(Redux.locate("potted_frosted_fern"), ReduxBlocks.POTTED_SPLITFERN);
 
         builder.put(Redux.locate("glowsprouts"), ReduxBlocks.LUXWEED);
-        builder.put(Redux.locate("potted_glowsprouts"), ReduxBlocks.POTTED_LUXWEED);
+        builder.put(Redux.locate("potted_glowsprouts"), () -> Blocks.FLOWER_POT);
+        builder.put(Redux.locate("potted_luxweed"), () -> Blocks.FLOWER_POT);
         
         builder.put(Redux.locate("xaelia_flowers"), ReduxBlocks.XAELIA_PATCH);
 

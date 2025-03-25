@@ -17,23 +17,23 @@ import net.zepalesque.redux.misc.ReduxTags;
 import java.util.concurrent.CompletableFuture;
 
 public class ReduxEntityTypeTagData extends EntityTypeTagsProvider {
-
+    
     public ReduxEntityTypeTagData(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, String modid, ExistingFileHelper existingFileHelper) {
         super(output, registries, modid, existingFileHelper);
     }
-
+    
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
         this.tag(ReduxTags.EntityTypes.BLIGHTED_MOBS).add(AetherEntityTypes.COCKATRICE.get(), ReduxEntityTypes.BLIGHTBUNNY.get()).addOptional(GenesisEntityTypes.TEMPEST.getId());
         this.tag(ReduxTags.EntityTypes.SENTRIES).add(AetherEntityTypes.SENTRY.get())
-                .addOptional(GenesisEntityTypes.BATTLE_SENTRY.getId())
-                .addOptional(GenesisEntityTypes.TRACKING_GOLEM.getId());
+            .addOptional(GenesisEntityTypes.BATTLE_SENTRY.getId())
+            .addOptional(GenesisEntityTypes.TRACKING_GOLEM.getId());
         this.tag(ReduxTags.EntityTypes.SWET_PASSTHROUGH).add(
-                EntityType.SLIME,
-                AetherEntityTypes.ZEPHYR.get(),
-                AetherEntityTypes.MOA.get(),
-                AetherEntityTypes.COCKATRICE.get(),
-                AetherEntityTypes.AECHOR_PLANT.get()
+            EntityType.SLIME,
+            AetherEntityTypes.ZEPHYR.get(),
+            AetherEntityTypes.MOA.get(),
+            AetherEntityTypes.COCKATRICE.get(),
+            AetherEntityTypes.AECHOR_PLANT.get()
         ).addOptional(new ResourceLocation("aether_genesis", "tempest"));
         this.tag(AetherTags.Entities.SWETS).add(ReduxEntityTypes.VANILLA_SWET.get());
     }

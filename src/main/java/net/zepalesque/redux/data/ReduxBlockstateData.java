@@ -137,7 +137,6 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.block(ReduxBlocks.CLOUDCAP_SPORES.get(), "natural/");
 
         this.crossTintedGlow(ReduxBlocks.LUXWEED.get(), "natural/");
-        this.tintedPotGlowOverlayAlt(ReduxBlocks.POTTED_LUXWEED.get(), ReduxBlocks.LUXWEED.get(), "natural/");
         this.crossTintedOverlay(ReduxBlocks.SPIROLYCTIL.get(), "natural/");
         this.tintedPotOverlay(ReduxBlocks.POTTED_SPIROLYCTIL.get(), ReduxBlocks.SPIROLYCTIL.get(), "natural/");
         this.crossTintedOverlay(ReduxBlocks.BLIGHTSHADE.get(), "natural/");
@@ -192,8 +191,6 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
         this.crossTintedOverlay(ReduxBlocks.WYNDSPROUTS.get(), "natural/");
         this.crossTintedOverlay(ReduxBlocks.SKYSPROUTS.get(), "natural/");
-        this.tintedPotOverlayAlt(ReduxBlocks.POTTED_WYNDSPROUTS.get(), ReduxBlocks.WYNDSPROUTS.get(), "natural/");
-        this.tintedPotOverlayAlt(ReduxBlocks.POTTED_SKYSPROUTS.get(), ReduxBlocks.SKYSPROUTS.get(), "natural/");
 
         this.crossTintedEnchantable(ReduxBlocks.SPLITFERN.get(), "natural/");
         this.tintedPot(ReduxBlocks.POTTED_SPLITFERN.get(), ReduxBlocks.SPLITFERN.get(), "natural/");

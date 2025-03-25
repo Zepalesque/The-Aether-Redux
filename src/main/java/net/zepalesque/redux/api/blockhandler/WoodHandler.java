@@ -422,11 +422,11 @@ public class WoodHandler implements BlockHandler {
 
 
         this.sporingLog.ifPresent((block) -> {
-            data.addBlock(block, "Sporing " + getLocalizedName() + " " + StringUtils.capitalise(this.logSuffix));
+            data.addBlock(block, "Infected " + getLocalizedName() + " " + StringUtils.capitalise(this.logSuffix));
             data.addLore(block,"This variant of the " + getLocalizedName() + " " + StringUtils.capitalise(this.logSuffix) + " has spores on it, which it drops when mined with a Zanite Axe or better.");
         });
         this.sporingWood.ifPresent((block) -> {
-            data.addBlock(block, "Sporing " + getLocalizedName() + " " + StringUtils.capitalise(this.woodSuffix));
+            data.addBlock(block, "Infected " + getLocalizedName() + " " + StringUtils.capitalise(this.woodSuffix));
             data.addLore(block,"This variant of the " + getLocalizedName() + " " + StringUtils.capitalise(this.woodSuffix) + " has spores on it, which it drops when mined with a Zanite Axe or better.");
         });
 

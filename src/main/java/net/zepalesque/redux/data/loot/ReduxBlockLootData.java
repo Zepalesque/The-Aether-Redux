@@ -193,7 +193,6 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
 
         this.dropDoubleWithSilk(ReduxBlocks.AVELIUM.get(), AetherBlocks.AETHER_DIRT.get());
         this.add(ReduxBlocks.LUXWEED.get(), shears());
-        this.dropPottedContents(ReduxBlocks.POTTED_LUXWEED.get());
         this.dropSelfDouble(ReduxBlocks.SPIROLYCTIL.get());
         this.dropPottedContents(ReduxBlocks.POTTED_SPIROLYCTIL.get());
         this.dropSelfDouble(ReduxBlocks.BLIGHTSHADE.get());
@@ -240,9 +239,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropSelf(ReduxBlocks.INFERNIA.get());
         this.dropPottedContents(ReduxBlocks.POTTED_INFERNIA.get());
         this.add(ReduxBlocks.WYNDSPROUTS.get(), createSproutsDrops(ReduxBlocks.WYNDSPROUTS.get(), ReduxItems.WYND_OATS.get(), 0.25F));
-        this.dropPottedContents(ReduxBlocks.POTTED_WYNDSPROUTS.get());
         this.add(ReduxBlocks.SKYSPROUTS.get(), shears());
-        this.dropPottedContents(ReduxBlocks.POTTED_SKYSPROUTS.get());
         this.dropSelf(ReduxBlocks.SPLITFERN.get());
         this.dropPottedContents(ReduxBlocks.POTTED_SPLITFERN.get());
         this.dropSelf(ReduxBlocks.VERIDIUM_BLOCK.get());

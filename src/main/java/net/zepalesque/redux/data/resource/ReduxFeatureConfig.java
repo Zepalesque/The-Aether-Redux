@@ -364,7 +364,13 @@ public class    ReduxFeatureConfig {
                 new BlightwillowTrunkPlacer(ConstantInt.of(6)),
                 prov(ReduxBlocks.BLIGHTWILLOW_LEAVES),
                 new BlightwillowFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
-                Optional.of(new BlightwillowRootsPlacer(UniformInt.of(6, 8), 2, prov(WoodHandlers.BLIGHTWILLOW.wood))),
+                Optional.of(new BlightwillowRootsPlacer(UniformInt.of(6, 8), 2,
+                    new WeightedStateProvider(
+                        SimpleWeightedRandomList.<BlockState>builder()
+                            .add(drops(WoodHandlers.BLIGHTWILLOW.wood), 7)
+                            .add(drops(WoodHandlers.BLIGHTWILLOW.sporingWood.orElseThrow()), 1)
+                    )
+                )),
                 new TwoLayersFeatureSize(7, 0, 3)
             ).ignoreVines().build());
         

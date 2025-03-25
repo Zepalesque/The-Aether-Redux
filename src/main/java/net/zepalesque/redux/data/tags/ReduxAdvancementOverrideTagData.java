@@ -16,8 +16,8 @@ public class ReduxAdvancementOverrideTagData extends TagsProvider<AdvancementSou
     public ReduxAdvancementOverrideTagData(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, String modid, ExistingFileHelper existingFileHelper) {
         super(output, AetherAdvancementSoundOverrides.ADVANCEMENT_SOUND_OVERRIDE_REGISTRY_KEY, registries, modid, existingFileHelper);
     }
-
-
+    
+    
     @Override
     protected void addTags(HolderLookup.@NotNull Provider pProvider) {
         this.tag(ReduxTags.Adverrides.LOW_PRIORITY).add(AetherAdvancementSoundOverrides.GENERAL.getKey());

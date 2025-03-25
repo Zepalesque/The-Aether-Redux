@@ -109,7 +109,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.VAMPIRE_AMULET, "Vampire Amulet");
         addLore(ReduxItems.VAMPIRE_AMULET, "A pendant found in Bronze Dungeon reward chests. It gives the wearer life steal at night, but decreases their damage resistance at day");
 
-        addItem(ReduxItems.AIRBOUND_CAPE, "Airbound Cape");
+        addItem(ReduxItems.AIRBOUND_CAPE, "Aerbound Cape");
         addLore(ReduxItems.AIRBOUND_CAPE, "A cape found in the Bronze Dungeon. It allows the wearer to double-jump!");
 
         addItem(ReduxItems.GRAND_VICTORY_MEDAL, "Grand Victory Medal");
@@ -177,13 +177,13 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.BLIGHTMOSS_BLOCK, "Bleakmoss Block");
         addLore(ReduxBlocks.BLIGHTMOSS_BLOCK, "Moss that has been infected by the Blight. This can be found in some caves in the Aether.");
         addBlock(ReduxBlocks.BLIGHTMOSS_CARPET, "Bleakmoss Carpet");
-        addLore(ReduxBlocks.BLIGHTMOSS_CARPET, "A thin blanket of Bleakmoss. This can be found in some caves in the Aether.");
+        addLore(ReduxBlocks.BLIGHTMOSS_CARPET, "A blanket-like, vegetative layer of Bleakmoss. This can be found in some caves in the Aether.");
 
 
         addBlock(ReduxBlocks.FUNGAL_GROWTH, "Fungal Growth");
         addLore(ReduxBlocks.FUNGAL_GROWTH, "A fungal spread found in some caves in the Aether");
         addBlock(ReduxBlocks.FUNGAL_CARPET, "Fungal Carpet");
-        addLore(ReduxBlocks.FUNGAL_CARPET, "A thin blanket of fungal growth. This can be found in some caves in the Aether.");
+        addLore(ReduxBlocks.FUNGAL_CARPET, "A blanket-like, growing layer of Fungal Growth. This can be found in some caves in the Aether.");
 
         addBlock(ReduxBlocks.GOLDEN_VINES, "Golden Vines");
         addBlock(ReduxBlocks.GOLDEN_VINES_PLANT, "Golden Vines Plant");
@@ -192,29 +192,26 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.GILDED_VINES_PLANT, "Gilded Vines Plant");
         addLore(ReduxBlocks.GILDED_VINES, "A type of off-white vine that commonly grows under the leaves of Gildenroot trees.");
 
-
+        // TODO
         addBlock(ReduxBlocks.CORRUPTED_VINES, "Corrupted Vines");
         addBlock(ReduxBlocks.CORRUPTED_VINES_PLANT, "Corrupted Vines Plant");
         addLore(ReduxBlocks.CORRUPTED_VINES, "A purple, spiky vine that grows in patches in the Blight.");
 
         addBlock(ReduxBlocks.LUXWEED, "Luxweed");
-        addBlock(ReduxBlocks.POTTED_LUXWEED, "Potted Luxweed");
-        addLore(ReduxBlocks.LUXWEED, "A plant in the blight biome, which is a distant relative to Wyndsprouts. It gives off a subtle glow, lighting the area around it.");
+        addLore(ReduxBlocks.LUXWEED, "A blighted relative of Wyndsprouts. It gives off a subtle glow, lighting the area around it.");
 
         addBlock(ReduxBlocks.WYNDSPROUTS, "Wyndsprouts");
-        addBlock(ReduxBlocks.POTTED_WYNDSPROUTS, "Potted Wyndsprouts");
-        addLore(ReduxBlocks.WYNDSPROUTS, "A common plant found in the Aether. They occasionally drop Wynd Oats, the main edible source of grain in the Aether.");
+        addLore(ReduxBlocks.WYNDSPROUTS, "A common grassy plant found in the Aether. They occasionally drop Wynd Oats, the main edible source of grain in the Aether.");
 
         addBlock(ReduxBlocks.SKYSPROUTS, "Skysprouts");
-        addBlock(ReduxBlocks.POTTED_SKYSPROUTS, "Potted Skysprouts");
-        addLore(ReduxBlocks.SKYSPROUTS, "A relative of the common Wyndsprouts, this flowering grass is found in the Skyfields.");
-
+        addLore(ReduxBlocks.SKYSPROUTS, "A vibrant relative of the Aether's common Wyndsprouts, this flowering grass is found in the Skyfields.");
+    
         addBlock(ReduxBlocks.ZANBERRY_BUSH, "Zanberry Bush");
         addLore(ReduxBlocks.ZANBERRY_BUSH, "A nice bush of Zanberries!");
 
         addBlock(ReduxBlocks.ZANBERRY_BUSH_STEM, "Zanberry Bush Stem");
         addBlock(ReduxBlocks.POTTED_ZANBERRY_BUSH_STEM, "Potted Zanberry Bush Stem");
-        addLore(ReduxBlocks.ZANBERRY_BUSH_STEM, "The stem of the Zanberry Bush. This will grow into a full bush, and will have Zanberries, which can be picked!");
+        addLore(ReduxBlocks.ZANBERRY_BUSH_STEM, "The stem of the Zanberry Bush. This will grow into a full bush full of the delicious Zanberries!");
 
         addBlock(ReduxBlocks.CLOUDCAP_MUSHLING, "Cloudcap Mushling");
         addBlock(ReduxBlocks.POTTED_CLOUDCAP_MUSHLING, "Potted Cloudcap Mushling");
@@ -481,13 +478,13 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.SENTRY_CHIP, "Sentry Chip");
         addLore(ReduxItems.SENTRY_CHIP, "A circuitry piece from a Sentry. Nobody knows who created these, just that the Valkyries have utilized them for all of recorded history.");
 
-        addBlock(ReduxBlocks.GOLDEN_CLOVER, "Golden Clover");
-        addBlock(ReduxBlocks.POTTED_GOLDEN_CLOVER, "Potted Golden Clover");
+        addBlock(ReduxBlocks.GOLDEN_CLOVER, "Lucky Clover");
+        addBlock(ReduxBlocks.POTTED_GOLDEN_CLOVER, "Potted Lucky Clover");
         addLore(ReduxBlocks.GOLDEN_CLOVER, "A four-leaved clover found in the Gilded Groves. Makes a nice decoration, and can be placed in a flower pot!");
 
-        addBlock(ReduxBlocks.SPLITFERN, "Splitfern");
-        addBlock(ReduxBlocks.POTTED_SPLITFERN, "Potted Splitfern");
-        addLore(ReduxBlocks.SPLITFERN, "A soft, fern-like plant with smooth leaves, with a split-end top.");
+        addBlock(ReduxBlocks.SPLITFERN, "Skyfern");
+        addBlock(ReduxBlocks.POTTED_SPLITFERN, "Potted Skyfern");
+        addLore(ReduxBlocks.SPLITFERN, "The Aether's local fern plant. These have soft, silky leaves.");
 
         addBlock(ReduxBlocks.AURUM, "Aurum");
         addBlock(ReduxBlocks.POTTED_AURUM, "Potted Aurum");
@@ -743,7 +740,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addAdvancementDesc("feather_of_warding", "Obtain the Feather of Warding, a useful accessory that gives the wearer protection from many Blight-related dangers");
 
         addAdvancement("double_jump", "Take THAT, Physics!");
-        addAdvancementDesc("double_jump", "Obtain an Airbound cape from a Bronze Dungeon and use it to double-jump");
+        addAdvancementDesc("double_jump", "Obtain an Aerbound cape from a Bronze Dungeon and use it to double-jump");
         addAdvancement("grand_medal", "Valkyrie Champion");
         addAdvancementDesc("grand_medal", "Obtain the Grand Victory Medal, a symbol of great honor in Valkyrie culture, which will give you health regen, scaling up as you lose health!");
         addAdvancement("kill_sheepuff_with_fireball", "Pyromaniac");
@@ -790,7 +787,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addProTip("divinite", "Angilite can be enchanted into Glowstone, giving a relatively easy way to leave the Aether safely if you get stuck.");
         addProTip("redux_configs", Redux.DISPLAY + " has a large amount of configs, including many that affect the base mod, so make sure to check out its config file!");
         addProTip("swet_escape", "You can escape a Swet's gelatinous grasp by sneaking. It will still attack you though, so be quick!");
-        addProTip("airbound_cape", "After defeating the Slider, you can occasionally find a nifty accessory in the loot chest known as the Airbound Cape. This will allow you to perform a double-jump, extending your vertical mobility!");
+        addProTip("airbound_cape", "After defeating the Slider, you can occasionally find a nifty accessory in the loot chest known as the Aerbound Cape. This will allow you to perform a double-jump, extending your vertical mobility!");
 
         for (WoodHandler woodHandler : Redux.WOOD_HANDLERS) {
             woodHandler.generateLanguageData(this);
