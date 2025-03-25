@@ -32,12 +32,12 @@ public class ReduxMapData extends ReduxDataMapProvider {
 
         var compostables = this.builder(NeoForgeDataMaps.COMPOSTABLES);
         this.addCompost(compostables, ReduxBlocks.GILDENROOT_LEAVES, 0.3F);
-        this.addCompost(compostables, ReduxBlocks.GILDENROOT_LEAF_PILE, 0.05F);
+        this.addCompost(compostables, ReduxBlocks.GILDENROOT_LEAF_PILE, 0.3F);
         this.addCompost(compostables, ReduxBlocks.STORMROOT_LEAVES, 0.3F);
-        this.addCompost(compostables, ReduxBlocks.STORMROOT_LEAF_PILE, 0.05F);
+        this.addCompost(compostables, ReduxBlocks.STORMROOT_LEAF_PILE, 0.3F);
         this.addCompost(compostables, ReduxBlocks.BLIGHTWILLOW_LEAVES, 0.3F);
-        this.addCompost(compostables, ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES, 0.2F);
-        this.addCompost(compostables, ReduxBlocks.BLIGHTWILLOW_LEAF_PILE, 0.05F);
+        this.addCompost(compostables, ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES, 0.5F);
+        this.addCompost(compostables, ReduxBlocks.BLIGHTWILLOW_LEAF_PILE, 0.3F);
         this.addCompost(compostables, ReduxItems.WYND_OATS, 0.3F);
         this.addCompost(compostables, ReduxBlocks.WYNDSPROUTS, 0.3F);
         this.addCompost(compostables, ReduxItems.WYND_OAT_PANICLE, 0.65F);

@@ -197,7 +197,7 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
         addEntityType(ReduxEntities.INFUSED_VERIDIUM_DART);
         
         addItem(ReduxItems.WILLOW_SPORES);
-        addLore(ReduxItems.WILLOW_SPORES, "Spores from the Blightwillow tree. These seem to channel the pure essence of the Blight, and can be used to spread it.   ");
+        addLore(ReduxItems.WILLOW_SPORES, "Spores from the Blightwillow tree. These seem to channel the pure essence of the Blight, and can be used to spread it.");
         
         addTooltip("shift_info", "Hold [%s] for more info...");
         addTooltip("infusion_charge", "Infusion Charge: %s");

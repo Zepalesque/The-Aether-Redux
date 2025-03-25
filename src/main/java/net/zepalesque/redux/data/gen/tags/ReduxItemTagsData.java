@@ -73,14 +73,21 @@ public class ReduxItemTagsData extends ReduxItemTagsProvider {
                 ReduxItems.VERIDIUM_PICKAXE.get(),
                 ReduxItems.INFUSED_VERIDIUM_PICKAXE.get()
         );
-
+        
         this.tag(Tags.Items.INGOTS).add(
-                ReduxItems.VERIDIUM_INGOT.get(),
-                ReduxItems.REFINED_SENTRITE.get()
+            ReduxItems.VERIDIUM_INGOT.get(),
+//            ReduxItems.GRAVITITE_INGOT.get(),
+            ReduxItems.REFINED_SENTRITE.get()
         );
+        
         this.tag(Tags.Items.NUGGETS).add(
                 ReduxItems.VERIDIUM_NUGGET.get(),
                 ReduxItems.SENTRITE_CHUNK.get()
+        );
+        
+        this.tag(Tags.Items.RAW_MATERIALS).add(
+            ReduxItems.RAW_VERIDIUM.get()//,
+//            ReduxItems.RAW_GRAVITITE.get()
         );
 
         this.tag(AetherTags.Items.BRONZE_DUNGEON_LOOT).add(
