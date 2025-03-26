@@ -110,7 +110,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addLore(ReduxItems.VAMPIRE_AMULET, "A pendant found in Bronze Dungeon reward chests. It gives the wearer life steal at night, but decreases their damage resistance at day");
 
         addItem(ReduxItems.AIRBOUND_CAPE, "Aerbound Cape");
-        addLore(ReduxItems.AIRBOUND_CAPE, "A cape found in the Bronze Dungeon. It allows the wearer to double-jump!");
+        addLore(ReduxItems.AIRBOUND_CAPE, "A flowy purple cape found in the Bronze Dungeon. It allows the wearer to double-jump!");
 
         addItem(ReduxItems.GRAND_VICTORY_MEDAL, "Grand Victory Medal");
         addLore(ReduxItems.GRAND_VICTORY_MEDAL, "A pendant dropped by the Valkyrie Queen. In Valkyrie culture, having one of these shows you are a noble warrior.");
@@ -175,13 +175,13 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addLore(ReduxBlocks.COARSE_AETHER_DIRT, "A variant of Aether Dirt that does not regrow any grass.");
 
         addBlock(ReduxBlocks.BLIGHTMOSS_BLOCK, "Bleakmoss Block");
-        addLore(ReduxBlocks.BLIGHTMOSS_BLOCK, "Moss that has been infected by the Blight. This can be found in some caves in the Aether.");
+        addLore(ReduxBlocks.BLIGHTMOSS_BLOCK, "A corrupted, blighted type of moss. This can be found in the Blight, and occasionally underground.");
         addBlock(ReduxBlocks.BLIGHTMOSS_CARPET, "Bleakmoss Carpet");
-        addLore(ReduxBlocks.BLIGHTMOSS_CARPET, "A blanket-like, vegetative layer of Bleakmoss. This can be found in some caves in the Aether.");
+        addLore(ReduxBlocks.BLIGHTMOSS_CARPET, "A blanket-like, vegetative layer of Bleakmoss. This can be found in some caves in the Aether, alongside the Blight.");
 
 
         addBlock(ReduxBlocks.FUNGAL_GROWTH, "Fungal Growth");
-        addLore(ReduxBlocks.FUNGAL_GROWTH, "A fungal spread found in some caves in the Aether");
+        addLore(ReduxBlocks.FUNGAL_GROWTH, "A fungal spread found in some caves in the Aether. It behaves similarly to moss, and spreads when bonemealed.");
         addBlock(ReduxBlocks.FUNGAL_CARPET, "Fungal Carpet");
         addLore(ReduxBlocks.FUNGAL_CARPET, "A blanket-like, growing layer of Fungal Growth. This can be found in some caves in the Aether.");
 
@@ -475,8 +475,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.LIGHTROOT_CLUMP, "Lightroot Clump");
         addLore(ReduxItems.LIGHTROOT_CLUMP, "A clump of the glowing roots that grow in the Cloudcaps. These can be eaten, and give night vision.");
 
-        addItem(ReduxItems.SENTRY_CHIP, "Sentry Chip");
-        addLore(ReduxItems.SENTRY_CHIP, "A circuitry piece from a Sentry. Nobody knows who created these, just that the Valkyries have utilized them for all of recorded history.");
+        addItem(ReduxItems.SENTRY_CHIP, "Sentry Circuit");
+        addLore(ReduxItems.SENTRY_CHIP, "A fragment of the mechanical inner workings of a Sentry. Nobody knows who created these, just that the Valkyries have utilized them for all of recorded history.");
 
         addBlock(ReduxBlocks.GOLDEN_CLOVER, "Lucky Clover");
         addBlock(ReduxBlocks.POTTED_GOLDEN_CLOVER, "Potted Lucky Clover");

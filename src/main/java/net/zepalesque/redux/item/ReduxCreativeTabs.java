@@ -81,12 +81,7 @@ public class ReduxCreativeTabs {
                 event.getEntries().remove(stack(AetherBlocks.ENCHANTED_GRAVITITE.get()));
             }
 
-        }
-
-        if (tab == AetherCreativeTabs.AETHER_NATURAL_BLOCKS.get()) {
-
-
-
+        } else if (tab == AetherCreativeTabs.AETHER_NATURAL_BLOCKS.get()) {
             putAfter(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK, ReduxBlocks.AVELIUM, event);
 
 
@@ -162,14 +157,15 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.ZYATRIX, ReduxBlocks.LUXWEED, event);
             putAfter(ReduxBlocks.LUXWEED, ReduxBlocks.SPIROLYCTIL, event);
             putAfter(ReduxBlocks.SPIROLYCTIL, ReduxBlocks.BLIGHTSHADE, event);
-            putAfter(ReduxBlocks.BLIGHTSHADE, ReduxBlocks.LUMINA, event);
+            putAfter(ReduxBlocks.BLIGHTSHADE, ReduxBlocks.CORRUPTED_VINES, event);
+            putAfter(ReduxBlocks.CORRUPTED_VINES, ReduxBlocks.LUMINA, event);
             putAfter(ReduxBlocks.LUMINA, ReduxBlocks.DAGGERBLOOM, event);
             putAfter(ReduxBlocks.DAGGERBLOOM, ReduxBlocks.THERATIP, event);
             putAfter(ReduxBlocks.THERATIP, ReduxBlocks.CLOUDCAP_MUSHLING, event);
             putAfter(ReduxBlocks.CLOUDCAP_MUSHLING, ReduxBlocks.JELLYSHROOM, event);
             putAfter(ReduxBlocks.JELLYSHROOM, ReduxBlocks.SHIMMERSTOOL, event);
             putAfter(ReduxBlocks.SHIMMERSTOOL, ReduxBlocks.FLAREBLOSSOM, event);
-            putAfter(ReduxBlocks.FLAREBLOSSOM, ReduxBlocks.INFERNIA, event);
+//            putAfter(ReduxBlocks.FLAREBLOSSOM, ReduxBlocks.INFERNIA, event);
 
             putAfter(AetherBlocks.ZANITE_ORE, ReduxBlocks.VERIDIUM_ORE, event);
             putAfter(ReduxBlocks.VERIDIUM_ORE, ReduxBlocks.RAW_VERIDIUM_BLOCK, event);
@@ -182,19 +178,20 @@ public class ReduxCreativeTabs {
             if (Redux.aetherGenesisCompat()) {
                 putAfter(GenesisBlocks.PURPLE_CRYSTAL_TREE_SAPLING, ReduxBlocks.PURPLE_CRYSTAL_FRUIT_SAPLING, event);
             }
-        }
-        if (tab == AetherCreativeTabs.AETHER_REDSTONE_BLOCKS.get()) {
+            
+        } else if (tab == AetherCreativeTabs.AETHER_REDSTONE_BLOCKS.get()) {
             if (ReduxConfig.COMMON.gravitite_ingot.get()) {
                 putBefore(AetherBlocks.ENCHANTED_GRAVITITE, ReduxBlocks.GRAVITITE_BLOCK, event);
                 event.getEntries().remove(stack(AetherBlocks.ENCHANTED_GRAVITITE.get()));
             }
-        }
-        if (tab == AetherCreativeTabs.AETHER_FUNCTIONAL_BLOCKS.get()) {
-            putAfter(AetherBlocks.AMBROSIUM_TORCH, ReduxBlocks.VERIDIUM_LANTERN, event);
+            
+        } else if (tab == AetherCreativeTabs.AETHER_FUNCTIONAL_BLOCKS.get()) {
+            putAfter(AetherBlocks.AMBROSIUM_TORCH, ReduxBlocks.SENTRITE_LANTERN, event);
             doSigns(AetherBlocks.SKYROOT_HANGING_SIGN, event);
             doBookshelves(AetherBlocks.SKYROOT_BOOKSHELF, event);
-        }
-        if (tab == AetherCreativeTabs.AETHER_DUNGEON_BLOCKS.get()) {
+            
+        } else if (tab == AetherCreativeTabs.AETHER_DUNGEON_BLOCKS.get()) {
+            
             putAfter(AetherBlocks.CARVED_STONE, ReduxBlocks.CARVED_BASE, event);
             putAfter(ReduxBlocks.CARVED_BASE, ReduxBlocks.CARVED_PILLAR, event);
 
@@ -225,8 +222,8 @@ public class ReduxCreativeTabs {
 
             putAfter(ReduxBlocks.LOCKED_SENTRITE_BRICKS, ReduxBlocks.RUNELIGHT, event);
             putAfter(ReduxBlocks.RUNELIGHT, ReduxBlocks.LOCKED_RUNELIGHT, event);
-        }
-        if (tab == AetherCreativeTabs.AETHER_FOOD_AND_DRINKS.get()) {
+            
+        } else if (tab == AetherCreativeTabs.AETHER_FOOD_AND_DRINKS.get()) {
             putAfter(AetherItems.ENCHANTED_BERRY, ReduxItems.BLUEBERRY_PIE, event);
             putAfter(ReduxItems.BLUEBERRY_PIE, ReduxItems.ENCHANTED_BLUEBERRY_PIE, event);
             putAfter(ReduxItems.ENCHANTED_BLUEBERRY_PIE, ReduxItems.WYND_BAGEL, event);
@@ -250,8 +247,8 @@ public class ReduxCreativeTabs {
             if (!Redux.aetherGenesisCompat()) {
                 event.getEntries().remove(stack(ReduxItems.MOUSE_EAR_SOUP.get()));
             }
-        }
-        if (tab == AetherCreativeTabs.AETHER_INGREDIENTS.get()) {
+            
+        } else if (tab == AetherCreativeTabs.AETHER_INGREDIENTS.get()) {
             putAfter(AetherItems.ZANITE_GEMSTONE, ReduxItems.RAW_VERIDIUM, event);
             putAfter(ReduxItems.RAW_VERIDIUM, ReduxItems.VERIDIUM_INGOT, event);
             putAfter(ReduxItems.VERIDIUM_INGOT, ReduxItems.VERIDIUM_NUGGET, event);
@@ -284,9 +281,7 @@ public class ReduxCreativeTabs {
                 event.getEntries().remove(stack(AetherBlocks.ENCHANTED_GRAVITITE.get()));
             }
 
-        }
-        if (tab == AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES.get()) {
-
+        } else if (tab == AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES.get()) {
             putAfter(AetherItems.VALKYRIE_CAPE, ReduxItems.GRAND_VICTORY_MEDAL, event);
             putAfter(ReduxItems.GRAND_VICTORY_MEDAL, ReduxItems.RING_OF_CONSTRUCTION, event);
             putAfter(ReduxItems.RING_OF_CONSTRUCTION, ReduxItems.COCKATRICE_FEATHER, event);
@@ -305,9 +300,8 @@ public class ReduxCreativeTabs {
             putAfter(AetherItems.SWET_CAPE, ReduxItems.AIRBOUND_CAPE, event);
 
             putAfter(AetherItems.SHIELD_OF_REPULSION, ReduxItems.SNAILSHELL_SHIELD, event);
-        }
-        if (tab == AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES.get()) {
-
+            
+        } else if (tab == AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES.get()) {
             putBefore(AetherItems.GRAVITITE_SWORD, ReduxItems.INFUSED_VERIDIUM_HOE, event);
             putBefore(ReduxItems.INFUSED_VERIDIUM_HOE, ReduxItems.INFUSED_VERIDIUM_AXE, event);
             putBefore(ReduxItems.INFUSED_VERIDIUM_AXE, ReduxItems.INFUSED_VERIDIUM_PICKAXE, event);
@@ -330,9 +324,8 @@ public class ReduxCreativeTabs {
             putAfter(AetherItems.MUSIC_DISC_ASCENDING_DAWN, ReduxItems.ANCIENT_SENTRITE_MUSIC_DISC, event);
 
             doBoats(AetherItems.SKYROOT_CHEST_BOAT, event);
-        }
-
-        if (tab == AetherCreativeTabs.AETHER_SPAWN_EGGS.get()) {
+            
+        } else if (tab == AetherCreativeTabs.AETHER_SPAWN_EGGS.get()) {
             putBefore(AetherItems.WHIRLWIND_SPAWN_EGG, ReduxItems.VANILLA_SWET_SPAWN_EGG, event);
             putBefore(AetherItems.BLUE_SWET_SPAWN_EGG, ReduxItems.BLIGHTBUNNY_SPAWN_EGG, event);
             putAfter(AetherItems.FLYING_COW_SPAWN_EGG, ReduxItems.SHIMMERCOW_SPAWN_EGG, event);
@@ -374,19 +367,17 @@ public class ReduxCreativeTabs {
         }
         return b;
     }
+    
     private static RegistryObject<? extends ItemLike> doNaturalWoods(RegistryObject<? extends ItemLike>  prevEntry, BuildCreativeModeTabContentsEvent event) {
-
         RegistryObject<? extends ItemLike> b = null;
-        for (WoodHandler woodHandler : Redux.WOOD_HANDLERS)
-        {
+        for (WoodHandler woodHandler : Redux.WOOD_HANDLERS) {
             boolean addSporingLogs = woodHandler.hasSporingLogs && woodHandler.sporingLog.isPresent() && woodHandler.sporingWood.isPresent();
             putAfter(b == null ? prevEntry : b, woodHandler.log, event);
             if (Redux.aetherGenesisCompat() || woodHandler.alwaysLogWalls) {
                 putAfter(woodHandler.log, woodHandler.logWall, event);
             }
             b = Redux.aetherGenesisCompat() || woodHandler.alwaysLogWalls ? woodHandler.logWall : woodHandler.log;
-            if (addSporingLogs)
-            {
+            if (addSporingLogs) {
                 putAfter(b, woodHandler.sporingLog.get(), event);
                 putAfter(woodHandler.sporingLog.get(), woodHandler.sporingWood.get(), event);
                 b = woodHandler.sporingWood.get();
@@ -395,10 +386,8 @@ public class ReduxCreativeTabs {
         return b;
     }
     private static RegistryObject<? extends ItemLike> doSigns(RegistryObject<? extends ItemLike>  prevEntry, BuildCreativeModeTabContentsEvent event) {
-
         RegistryObject<? extends ItemLike> b = null;
-        for (WoodHandler woodHandler : Redux.WOOD_HANDLERS)
-        {
+        for (WoodHandler woodHandler : Redux.WOOD_HANDLERS) {
             putAfter(b == null ? prevEntry : b, woodHandler.signItem, event);
             putAfter(woodHandler.signItem, woodHandler.hangingSignItem, event);
             b = woodHandler.hangingSignItem;
@@ -409,32 +398,30 @@ public class ReduxCreativeTabs {
     private static RegistryObject<? extends ItemLike> doBoats(RegistryObject<? extends ItemLike>  prevEntry, BuildCreativeModeTabContentsEvent event) {
 
         RegistryObject<? extends ItemLike> b = null;
-        for (WoodHandler woodHandler : Redux.WOOD_HANDLERS)
-        {
+        for (WoodHandler woodHandler : Redux.WOOD_HANDLERS) {
             putAfter(b == null ? prevEntry : b, woodHandler.boatItem, event);
             putAfter(woodHandler.boatItem, woodHandler.chestBoatItem, event);
             b = woodHandler.chestBoatItem;
         }
         return b;
     }
+    
     private static RegistryObject<? extends ItemLike> doBookshelves(RegistryObject<? extends ItemLike>  prevEntry, BuildCreativeModeTabContentsEvent event) {
 
         RegistryObject<? extends ItemLike> b = null;
-        for (WoodHandler woodHandler : Redux.WOOD_HANDLERS)
-        {
+        for (WoodHandler woodHandler : Redux.WOOD_HANDLERS) {
             putAfter(b == null ? prevEntry : b, woodHandler.bookshelf, event);
             b = woodHandler.bookshelf;
         }
         return b;
     }
+    
     private static void doRedstoneWoods(RegistryObject<? extends ItemLike>  pressurePlate, RegistryObject<? extends ItemLike>  door, RegistryObject<? extends ItemLike>  button, RegistryObject<? extends ItemLike>  trapdoor, BuildCreativeModeTabContentsEvent event) {
-
         RegistryObject<? extends ItemLike> plate = null;
         RegistryObject<? extends ItemLike> dr = null;
         RegistryObject<? extends ItemLike> btn = null;
         RegistryObject<? extends ItemLike> td = null;
-        for (WoodHandler woodHandler : Redux.WOOD_HANDLERS)
-        {
+        for (WoodHandler woodHandler : Redux.WOOD_HANDLERS) {
             putAfter(plate == null ? pressurePlate : plate, woodHandler.pressurePlate, event);
             plate = woodHandler.pressurePlate;
             putAfter(dr == null ? door : dr, woodHandler.door, event);
@@ -449,6 +436,7 @@ public class ReduxCreativeTabs {
     private static void putAfter(RegistryObject<? extends ItemLike> itemBefore, RegistryObject<? extends ItemLike> insertedItem, BuildCreativeModeTabContentsEvent event) {
         event.getEntries().putAfter(stack(itemBefore.get()), stack(insertedItem.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
     }
+    
     private static void putBefore(RegistryObject<? extends ItemLike> itemAfter, RegistryObject<? extends ItemLike> insertedItem, BuildCreativeModeTabContentsEvent event) {
         event.getEntries().putBefore(stack(itemAfter.get()), stack(insertedItem.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
     }
@@ -456,8 +444,7 @@ public class ReduxCreativeTabs {
     private static void add(Supplier<? extends ItemLike> toAdd, BuildCreativeModeTabContentsEvent event) {
         event.getEntries().put(stack(toAdd.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
     }
-
-
+    
     private static ItemStack stack(ItemLike item) {
         ItemStack stack = new ItemStack(item);
         if (item instanceof VeridiumItem) {

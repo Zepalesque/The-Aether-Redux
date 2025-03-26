@@ -218,8 +218,6 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         this.crossGlowOverlay(ReduxBlocks.CORRUPTED_VINES.get(), "natural/");
         this.crossGlowOverlay(ReduxBlocks.CORRUPTED_VINES_PLANT.get(), "natural/");
 
-
-
         this.pillar(ReduxBlocks.CARVED_PILLAR.get(), "dungeon/");
         this.pillar(ReduxBlocks.SENTRY_PILLAR.get(), "dungeon/");
         this.baseBrick(ReduxBlocks.CARVED_BASE.get(), "dungeon/");

@@ -509,7 +509,7 @@ public class    ReduxFeatureConfig {
         register(context, GOLD_DUNGEON_FLOWER_OVERRIDE, Feature.SIMPLE_BLOCK,
                 new SimpleBlockConfiguration(new WeightedStateProvider(
                         new SimpleWeightedRandomList.Builder<BlockState>()
-                                .add(ReduxBlocks.INFERNIA.get().defaultBlockState(), 2)
+                                .add(ReduxBlocks.AURUM.get().defaultBlockState(), 2)
                                 .add(ReduxBlocks.FLAREBLOSSOM.get().defaultBlockState(), 1))));
 
 
