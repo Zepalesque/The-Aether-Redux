@@ -1,9 +1,0 @@
-{
-  "type": "aether_redux:spore_blighting",
-  "ingredient": {
-    "block": "deep_aether:aether_moss_carpet"
-  },
-  "result": {
-    "block": "aether_redux:blightmoss_carpet"
-  }
-}

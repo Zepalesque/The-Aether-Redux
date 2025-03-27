@@ -1,9 +1,10 @@
-// 1.20.1	2025-03-24T21:55:17.759885	Loot Tables
+// 1.20.1	2025-03-26T22:55:46.6186806	Loot Tables
 c6156555dc4897939b617dabc4521b7fa52feba0 data/aether_redux/loot_tables/blocks/aurum.json
 b5773c78c7b3f27032f1cca6fb72f440e24c7529 data/aether_redux/loot_tables/blocks/avelium.json
 1f6564fd00a86b66a503958622c7436688f1e63e data/aether_redux/loot_tables/blocks/avelium_roots.json
 1635119923a8f8bead8d9b379fe2393c7e7b72d8 data/aether_redux/loot_tables/blocks/avelium_sprouts.json
 4cad00c5a24feee4e79d161f10561280bd26f5bb data/aether_redux/loot_tables/blocks/blighted_aercloud.json
+8153a8287c5f158b1028050ba767f57728d26f6b data/aether_redux/loot_tables/blocks/blighted_aether_grass_block.json
 761fdc7bcbd04035f563fc96f119efb692a36278 data/aether_redux/loot_tables/blocks/blighted_skyroot_leaves.json
 320a7cf0dea8eab70e6a9539b396a7c9261f1eb6 data/aether_redux/loot_tables/blocks/blighted_skyroot_sapling.json
 09a8039dcbd304a3d2540ea4c4ebe0f8a7e3c1be data/aether_redux/loot_tables/blocks/blightmoss_block.json

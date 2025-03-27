@@ -1,0 +1,45 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "aether_redux:data_recipe_condition",
+          "data_recipe_condition": {
+            "condition": "aether_redux:mod_loaded",
+            "mod_id": "deep_aether"
+          }
+        }
+      ],
+      "recipe": {
+        "type": "aether_redux:spore_blighting",
+        "ingredient": {
+          "block": "deep_aether:aether_moss_block"
+        },
+        "result": {
+          "block": "aether_redux:blightmoss_block"
+        }
+      }
+    },
+    {
+      "conditions": [
+        {
+          "type": "aether_redux:data_recipe_condition",
+          "data_recipe_condition": {
+            "condition": "aether_redux:mod_loaded",
+            "mod_id": "deep_aether"
+          }
+        }
+      ],
+      "recipe": {
+        "type": "aether:ambrosium_enchanting",
+        "ingredient": {
+          "block": "aether_redux:blightmoss_block"
+        },
+        "result": {
+          "block": "deep_aether:aether_moss_block"
+        }
+      }
+    }
+  ]
+}
