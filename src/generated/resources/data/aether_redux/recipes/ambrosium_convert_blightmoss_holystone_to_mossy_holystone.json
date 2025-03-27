@@ -1,0 +1,9 @@
+{
+  "type": "aether:ambrosium_enchanting",
+  "ingredient": {
+    "block": "aether_redux:blightmoss_holystone"
+  },
+  "result": {
+    "block": "aether:mossy_holystone"
+  }
+}

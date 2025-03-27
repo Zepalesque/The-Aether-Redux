@@ -411,7 +411,26 @@
   },
   "item.convert.blighted_spores": {
     "sounds": [
-      "aether_redux:item/convert_blighted_spores"
+      {
+        "name": "block/sculk/spread1",
+        "pitch": 0.9
+      },
+      {
+        "name": "block/sculk/spread2",
+        "pitch": 0.9
+      },
+      {
+        "name": "block/sculk/spread3",
+        "pitch": 0.9
+      },
+      {
+        "name": "block/sculk/spread4",
+        "pitch": 0.9
+      },
+      {
+        "name": "block/sculk/spread5",
+        "pitch": 0.9
+      }
     ],
     "subtitle": "subtitles.aether_redux.item.convert_blighted_spores"
   },

@@ -1,0 +1,9 @@
+{
+  "type": "aether_redux:spore_blighting",
+  "ingredient": {
+    "block": "aether_redux:gilded_oak_sapling"
+  },
+  "result": {
+    "block": "aether:skyroot_sapling"
+  }
+}

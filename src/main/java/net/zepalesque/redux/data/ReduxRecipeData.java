@@ -320,8 +320,10 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
             ReduxBlocks.GILDED_HOLYSTONE_WALL.get()
         );
         
-        ConditionalRecipe.builder().addCondition(dc(Conditions.DEEP))
+        ConditionalRecipe.builder()
+            .addCondition(dc(Conditions.DEEP))
             .addRecipe(consumer -> sporeBlighting(consumer, ReduxBlocks.BLIGHTMOSS_BLOCK.get(), DABlocks.AETHER_MOSS_BLOCK.get()))
+            .addCondition(dc(Conditions.DEEP))
             .addRecipe(consumer -> ambrosiumEnchanting(consumer, DABlocks.AETHER_MOSS_BLOCK.get(), ReduxBlocks.BLIGHTMOSS_BLOCK.get()))
             .build(output, name("deep_aether_moss_conversions"));
         
