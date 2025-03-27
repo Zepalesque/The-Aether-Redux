@@ -82,7 +82,8 @@ public class ReduxCreativeTabs {
             }
 
         } else if (tab == AetherCreativeTabs.AETHER_NATURAL_BLOCKS.get()) {
-            putAfter(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK, ReduxBlocks.AVELIUM, event);
+            putAfter(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK, ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK, event);
+            putAfter(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK, ReduxBlocks.AVELIUM, event);
 
 
             putAfter(AetherBlocks.HOLYSTONE, ReduxBlocks.DIVINITE, event);

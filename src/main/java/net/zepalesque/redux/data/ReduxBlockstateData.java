@@ -265,7 +265,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider implements Tex
         ResourceLocation overlay = texture(block, location, "_side_overlay");
         ResourceLocation side = texture(block, location, "_side");
         ResourceLocation snow = texture(block, location, "_side_snow");
-        tintableGrassBlock(block, bottom, top, overlay, side, models().cubeBottomTop(nameID(block, "%s_snow"), snow, bottom, top));
+        tintableGrassBlock(block, bottom, top, overlay, side, models().cubeBottomTop(nameID(block, "%s_snow"), snow, bottom, top), AetherBlockStateProperties.DOUBLE_DROPS, AncientAetherBlockStateProperties.TYPE);
     }
 
 
@@ -649,13 +649,12 @@ public class ReduxBlockstateData extends AetherBlockStateProvider implements Tex
                                    ResourceLocation overlay,
                                    ResourceLocation side,
                                    ModelFile snowModel, Property<?>... ignored) {
-        
-        ModelFile model = models().withExistingParent(texture(block).getNamespace() + ":" + name(block), Redux.locate(ModelProvider.BLOCK_FOLDER + "/template/tinted_grass_block"))
-                              .texture("overlay", overlay)
-                              .texture("side", side)
-                              .texture("top", top)
-                              .texture("bottom", bottom)
-                              .texture("particle", bottom);
+        ModelFile model = models().withExistingParent(texture(block).getNamespace() + ":" + name(block), Redux.locate(ModelProvider.BLOCK_FOLDER + "/tinted_grass_block"))
+            .texture("overlay", overlay)
+            .texture("side", side)
+            .texture("top", top)
+            .texture("bottom", bottom)
+            .texture("particle", bottom);
         Function<BlockState, ConfiguredModel[]> mapper = state -> {
             boolean isSnowy = state.getValue(SpreadingSnowyDirtBlock.SNOWY);
             return ConfiguredModel.allYRotations(isSnowy ? snowModel : model, 0, false);

@@ -117,7 +117,7 @@ public class WoodHandler implements BlockHandler {
 
     public static BiFunction<String, SoundType, BlockSetType> createBlockSet(SoundEvent doorClose, SoundEvent doorOpen, SoundEvent trapdoorClose, SoundEvent trapdoorOpen, SoundEvent pressurePlateClickOff, SoundEvent pressurePlateClickOn, SoundEvent buttonClickOff, SoundEvent buttonClickOn)
     {
-        return ((name, soundType) -> new BlockSetType(name, true, soundType, doorClose, doorOpen, trapdoorClose, trapdoorOpen, pressurePlateClickOff, pressurePlateClickOn, buttonClickOff, buttonClickOn));
+        return (name, soundType) -> new BlockSetType(name, true, soundType, doorClose, doorOpen, trapdoorClose, trapdoorOpen, pressurePlateClickOff, pressurePlateClickOn, buttonClickOff, buttonClickOn);
     }
 
     public static BiFunction<String, SoundType, BlockSetType> bambooSoundBlockSet()
@@ -197,8 +197,7 @@ public class WoodHandler implements BlockHandler {
     public static WoodHandler handler(String pWoodName, @Nullable String pLangName, boolean pStrippedLog, BiFunction<String, SoundType, BlockSetType> blockSetTypeFunction, String pTreeName, String pLogSuffix, String pWoodSuffix, SoundType pPlankSoundType, SoundType pLogSoundType, boolean pLogWalls, MapColor barkColor, MapColor woodColor, boolean hasSporingLogs, boolean layeredBookshelf)
     {
         try {
-            WoodHandler instance = new WoodHandler(pWoodName, pLangName, pStrippedLog, blockSetTypeFunction, pTreeName, pLogSuffix, pWoodSuffix, pPlankSoundType, pLogSoundType, pLogWalls, barkColor, woodColor, hasSporingLogs, layeredBookshelf);
-            return instance;
+            return new WoodHandler(pWoodName, pLangName, pStrippedLog, blockSetTypeFunction, pTreeName, pLogSuffix, pWoodSuffix, pPlankSoundType, pLogSoundType, pLogWalls, barkColor, woodColor, hasSporingLogs, layeredBookshelf);
         } catch (Exception e) {
             return null;
         }
@@ -235,8 +234,8 @@ public class WoodHandler implements BlockHandler {
 
         this.blockSet = blockSetTypeFunction.apply(Redux.MODID + ":" + pWoodName, pPlankSoundType);
         this.woodType = new WoodType(Redux.MODID + ":" + pWoodName, this.blockSet);
-        this.signEntity = ReduxBlockEntityTypes.BLOCK_ENTITY_TYPES.register(pWoodName + "_sign", () -> BlockEntityType.Builder.of(((pPos, pState) -> new ReduxSignBlockEntity(pPos, pState, this.getSign().get())), this.getSignBlock().get(), this.getWallSignBlock().get()).build(null));
-        this.hangingSignEntity = ReduxBlockEntityTypes.BLOCK_ENTITY_TYPES.register(pWoodName + "_hanging_sign", () -> BlockEntityType.Builder.of(((pPos, pState) -> new ReduxHangingSignBlockEntity(pPos, pState, this.getHangingSign().get())), this.getHangingSignBlock().get(), this.getWallHangingSignBlock().get()).build(null));
+        this.signEntity = ReduxBlockEntityTypes.BLOCK_ENTITY_TYPES.register(pWoodName + "_sign", () -> BlockEntityType.Builder.of((pPos, pState) -> new ReduxSignBlockEntity(pPos, pState, this.getSign().get()), this.getSignBlock().get(), this.getWallSignBlock().get()).build(null));
+        this.hangingSignEntity = ReduxBlockEntityTypes.BLOCK_ENTITY_TYPES.register(pWoodName + "_hanging_sign", () -> BlockEntityType.Builder.of((pPos, pState) -> new ReduxHangingSignBlockEntity(pPos, pState, this.getHangingSign().get()), this.getHangingSignBlock().get(), this.getWallHangingSignBlock().get()).build(null));
         this.boatEntity = ReduxEntityTypes.ENTITY_TYPES.register(pWoodName + "_boat",
                 () -> EntityType.Builder.<ReduxBoat>of(ReduxBoat::new, MobCategory.MISC).sized(1.375F, 0.5625F).clientTrackingRange(10).build(pWoodName + "_boat"));
         this.chestBoatEntity = ReduxEntityTypes.ENTITY_TYPES.register(pWoodName + "_chest_boat",
@@ -297,12 +296,12 @@ public class WoodHandler implements BlockHandler {
         });
 
 
-        this.boatItem = ReduxItems.ITEMS.register(pWoodName + "_boat", () -> new ReduxBoatItem(false, (new Item.Properties()).stacksTo(1),
-                ((level, hitresult) -> new ReduxBoat(this, level, hitresult.getLocation().x, hitresult.getLocation().y, hitresult.getLocation().z) {
-                })));
-        this.chestBoatItem = ReduxItems.ITEMS.register(pWoodName + "_chest_boat", () -> new ReduxBoatItem(false, (new Item.Properties()).stacksTo(1),
-                ((level, hitresult)  -> new ReduxChestBoat(this, level, hitresult.getLocation().x, hitresult.getLocation().y, hitresult.getLocation().z) {
-                })));
+        this.boatItem = ReduxItems.ITEMS.register(pWoodName + "_boat", () -> new ReduxBoatItem(false, new Item.Properties().stacksTo(1),
+            (level, hitresult) -> new ReduxBoat(this, level, hitresult.getLocation().x, hitresult.getLocation().y, hitresult.getLocation().z) {
+            }));
+        this.chestBoatItem = ReduxItems.ITEMS.register(pWoodName + "_chest_boat", () -> new ReduxBoatItem(false, new Item.Properties().stacksTo(1),
+            (level, hitresult)  -> new ReduxChestBoat(this, level, hitresult.getLocation().x, hitresult.getLocation().y, hitresult.getLocation().z) {
+            }));
 
         this.signItem = ReduxItems.register(pWoodName + "_sign", () -> new SignItem((new Item.Properties()).stacksTo(16), this.sign.get(), this.wallSign.get()));
         this.hangingSignItem = ReduxItems.register(pWoodName + "_hanging_sign", () -> new HangingSignItem(this.hangingSign.get(), this.wallHangingSign.get(), (new Item.Properties()).stacksTo(16)));

@@ -50,7 +50,8 @@ public class ReduxSurfaceRules {
                 SurfaceRules.RuleSource current = settings.surfaceRule();
                 if (current instanceof SurfaceRules.SequenceRuleSource sequence) {
                     List<SurfaceRules.RuleSource> newRules = new ArrayList<>(sequence.sequence());
-
+                    
+                    newRules.add(0, SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.THE_BLIGHT), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true)))));
                     newRules.add(0, SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.THE_BLIGHT), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.SWAMP, 0.4), SurfaceRules.state((getCoarseDirtBlock().get()).defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, true))))));
                     newRules.add(1, SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.FROSTED_FORESTS), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.ICE, 0.0, 0.4), SurfaceRules.state(Blocks.SNOW_BLOCK.defaultBlockState())))));
                     newRules.add(1, SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.FROSTED_FORESTS), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.POWDER_SNOW, 0.35D, 0.45D), SurfaceRules.state(Blocks.POWDER_SNOW.defaultBlockState())))));

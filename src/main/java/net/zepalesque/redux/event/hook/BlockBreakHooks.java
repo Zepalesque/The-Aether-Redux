@@ -13,8 +13,8 @@ import java.util.Map;
 
 public class BlockBreakHooks {
 
-    private static final Lazy<Map<Block, Float>> BREAK_SPEED_REMAP = Lazy.of(() -> Maps.newHashMap((new ImmutableMap.Builder<Block, Float>()
-            .put(AetherBlocks.HOLYSTONE.get(), 1.0F))
+    private static final Lazy<Map<Block, Float>> BREAK_SPEED_REMAP = Lazy.of(() -> Maps.newHashMap(new ImmutableMap.Builder<Block, Float>()
+            .put(AetherBlocks.HOLYSTONE.get(), 1.0F)
             .put(AetherBlocks.HOLYSTONE_WALL.get(), 1.0F)
             .put(AetherBlocks.HOLYSTONE_STAIRS.get(), 1.0F)
             .put(AetherBlocks.HOLYSTONE_SLAB.get(), 1.5F)
@@ -49,6 +49,7 @@ public class BlockBreakHooks {
             .put(AetherBlocks.AETHER_GRASS_BLOCK.get(), getSpeed(Blocks.GRASS_BLOCK))
             .put(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get(), getSpeed(Blocks.GRASS_BLOCK))
             .put(ReduxBlocks.AVELIUM.get(), getSpeed(Blocks.MYCELIUM))
+            .put(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(), getSpeed(Blocks.GRASS_BLOCK))
             .put(ReduxBlocks.COARSE_AETHER_DIRT.get(), getSpeed(Blocks.COARSE_DIRT))
             .put(ReduxBlocks.GILDED_HOLYSTONE.get(), 1.0F)
             .put(ReduxBlocks.GILDED_HOLYSTONE_WALL.get(), 1.0F)
@@ -75,7 +76,9 @@ public class BlockBreakHooks {
             .put(ReduxBlocks.SENTRITE_BRICK_WALL.get(), 1.75F)
             .put(ReduxBlocks.SENTRITE_BRICK_STAIRS.get(), 1.75F)
             .put(ReduxBlocks.SENTRITE_BRICK_SLAB.get(), 2F)
-            .build()));
+            .build()
+        )
+    );
 
     public static float modify(Block block, float speed)
     {

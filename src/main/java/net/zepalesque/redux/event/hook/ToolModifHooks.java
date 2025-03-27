@@ -31,42 +31,44 @@ import java.util.List;
 import java.util.Map;
 
 public class ToolModifHooks {
-
-
-        public static final Map<Block, Block> STRIPPABLES = Maps.newHashMap(new ImmutableMap.Builder<Block, Block>()
-
-            .build());
-
-
+  
+  
+    public static final Map<Block, Block> STRIPPABLES = Maps.newHashMap(new ImmutableMap.Builder<Block, Block>().build());
     static {
-
         for (WoodHandler woodHandler : Redux.WOOD_HANDLERS) {
             if (woodHandler.hasStrippedLogs) {
-                STRIPPABLES.put(woodHandler.log.get(), woodHandler.strippedLog.get().get());
-                STRIPPABLES.put(woodHandler.wood.get(), woodHandler.strippedWood.get().get());
-                STRIPPABLES.put(woodHandler.logWall.get(), woodHandler.strippedLogWall.get().get());
-                STRIPPABLES.put(woodHandler.woodWall.get(), woodHandler.strippedWoodWall.get().get());
-                woodHandler.sporingLog.ifPresent((log) -> STRIPPABLES.put(log.get(), woodHandler.strippedLog.get().get()));
-                woodHandler.sporingWood.ifPresent((wood) -> STRIPPABLES.put(wood.get(), woodHandler.strippedWood.get().get()));
+                woodHandler.strippedLog.ifPresent(block -> {
+                    STRIPPABLES.put(woodHandler.log.get(), block.get());
+                    woodHandler.sporingLog.ifPresent(block1 -> STRIPPABLES.put(block1.get(), block.get()));
+                });
+                woodHandler.strippedWood.ifPresent(block -> {
+                    STRIPPABLES.put(woodHandler.wood.get(), block.get());
+                    woodHandler.sporingWood.ifPresent(block1 -> STRIPPABLES.put(block1.get(), block.get()));
+                });
+                
+                woodHandler.strippedLogWall.ifPresent(block -> STRIPPABLES.put(woodHandler.logWall.get(), block.get()));
+                woodHandler.strippedWoodWall.ifPresent(block -> STRIPPABLES.put(woodHandler.woodWall.get(), block.get()));
             }
         }
     }
-
+    
     /**
      * Blocks able to be flattened with {@link ToolActions#SHOVEL_FLATTEN}, and the equivalent result block.
      */
-    public static final Map<Block, Block> FLATTENABLES = Maps.newHashMap((new ImmutableMap.Builder<Block, Block>())
-            .put(ReduxBlocks.AVELIUM.get(), AetherBlocks.AETHER_DIRT_PATH.get())
-            .build());
-
+    public static final Map<Block, Block> FLATTENABLES = Maps.newHashMap(new ImmutableMap.Builder<Block, Block>()
+        .put(ReduxBlocks.AVELIUM.get(), AetherBlocks.AETHER_DIRT_PATH.get())
+        .put(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT_PATH.get())
+        .build());
+    
     /**
      * Blocks able to be tilled with {@link ToolActions#HOE_TILL}, and the equivalent result block.
      */
-    public static final Map<Block, Block> TILLABLES = Maps.newHashMap((new ImmutableMap.Builder<Block, Block>())
-            .put(ReduxBlocks.AVELIUM.get(), AetherBlocks.AETHER_FARMLAND.get())
-            .put(ReduxBlocks.COARSE_AETHER_DIRT.get(), AetherBlocks.AETHER_DIRT.get())
-            .build());
-
+    public static final Map<Block, Block> TILLABLES = Maps.newHashMap(new ImmutableMap.Builder<Block, Block>()
+        .put(ReduxBlocks.AVELIUM.get(), AetherBlocks.AETHER_FARMLAND.get())
+        .put(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(), AetherBlocks.AETHER_FARMLAND.get())
+        .put(ReduxBlocks.COARSE_AETHER_DIRT.get(), AetherBlocks.AETHER_DIRT.get())
+        .build());
+    
     /**
      * Handles modifying blocks when a {@link ToolAction} is performed on them.
      * @param accessor The {@link LevelAccessor} of the level.
@@ -95,15 +97,15 @@ public class ToolModifHooks {
         }
         return old;
     }
-
-
+    
+    
     public static void stripBlightwillow(LevelAccessor accessor, BlockState state, ItemStack stack, ToolAction action, UseOnContext context) {
         if (action == ToolActions.AXE_STRIP) {
             if (accessor instanceof Level level) {
                 if (WoodHandlers.BLIGHTWILLOW.sporingBlocksBlockTag.isPresent() && state.is(WoodHandlers.BLIGHTWILLOW.sporingBlocksBlockTag.get()) && stack.is(AetherTags.Items.GOLDEN_AMBER_HARVESTERS)) {
                     if (level.getServer() != null && level instanceof ServerLevel serverLevel) {
                         Vec3 vector = context.getClickLocation();
-                        LootParams parameters = (new LootParams.Builder(serverLevel)).withParameter(LootContextParams.TOOL, stack).create(AetherLootContexts.STRIPPING);
+                        LootParams parameters = new LootParams.Builder(serverLevel).withParameter(LootContextParams.TOOL, stack).create(AetherLootContexts.STRIPPING);
                         LootTable lootTable = level.getServer().getLootData().getLootTable(ReduxLoot.STRIP_BLIGHTWILLOW);
                         List<ItemStack> list = lootTable.getRandomItems(parameters);
                         for (ItemStack itemStack : list) {
@@ -116,6 +118,6 @@ public class ToolModifHooks {
             }
         }
     }
-
-
+    
+    
 }
