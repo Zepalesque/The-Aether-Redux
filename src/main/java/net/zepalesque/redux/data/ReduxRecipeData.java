@@ -46,11 +46,13 @@ import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.misc.ReduxTags;
+import net.zepalesque.redux.recipe.BlightedSporeRecipe;
 import net.zepalesque.redux.recipe.InfusionRecipe;
 import net.zepalesque.redux.recipe.builder.StackingRecipeBuilder;
 import net.zepalesque.redux.recipe.condition.DataRecipeCondition;
 import net.zepalesque.redux.recipe.serializer.ReduxRecipeSerializers;
 import org.jetbrains.annotations.NotNull;
+import teamrazor.deepaether.DeepAether;
 import teamrazor.deepaether.init.DABlocks;
 
 import java.util.Optional;
@@ -275,12 +277,54 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
         oneToOneConversionRecipe(output, Items.MAGENTA_DYE, ReduxBlocks.IRIDIA.get(), null);
 
         oneToOneConversionRecipe(output, Items.LIGHT_GRAY_DYE, ReduxBlocks.XAELIA_PATCH.get(), null);
-
-        ambrosiumEnchanting(ReduxBlocks.GILDED_HOLYSTONE.get(), AetherBlocks.MOSSY_HOLYSTONE.get()).save(output, name("ambrosium_enchant_mossy_holystone_to_gilded_holystone"));
-        sporeBlighting(ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(), AetherBlocks.MOSSY_HOLYSTONE.get()).save(output, name("spore_blight_mossy_holystone_to_blightmoss_holystone"));
-        sporeBlighting(ReduxBlocks.BLIGHTMOSS_BLOCK.get(), DABlocks.AETHER_MOSS_BLOCK.get()).save(output, name("spore_blight_deep_aether_aether_moss_block_to_blightmoss_block"));
-        sporeBlighting(ReduxBlocks.BLIGHTMOSS_CARPET.get(), DABlocks.AETHER_MOSS_CARPET.get()).save(output, name("spore_blight_deep_aether_aether_moss_carpet_to_blightmoss_carpet"));
-
+        
+        
+        triConversion(output,
+            ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(),
+            AetherBlocks.AETHER_GRASS_BLOCK.get(),
+            AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get()
+        );
+        triConversion(output,
+            ReduxBlocks.BLIGHTED_SKYROOT_LEAVES.get(),
+            AetherBlocks.SKYROOT_LEAVES.get(),
+            ReduxBlocks.GILDED_OAK_LEAVES.get()
+        );
+        triConversion(output,
+            ReduxBlocks.BLIGHTED_SKYROOT_SAPLING.get(),
+            AetherBlocks.SKYROOT_SAPLING.get(),
+            ReduxBlocks.GILDED_OAK_SAPLING.get()
+        );
+        triConversion(output,
+            ReduxBlocks.POTTED_BLIGHTED_SKYROOT_SAPLING.get(),
+            AetherBlocks.POTTED_SKYROOT_SAPLING.get(),
+            ReduxBlocks.POTTED_GILDED_OAK_SAPLING.get()
+        );
+        triConversion(output,
+            ReduxBlocks.BLIGHTMOSS_HOLYSTONE.get(),
+            AetherBlocks.MOSSY_HOLYSTONE.get(),
+            ReduxBlocks.GILDED_HOLYSTONE.get()
+        );
+        triConversion(output,
+            ReduxBlocks.BLIGHTMOSS_HOLYSTONE_SLAB.get(),
+            AetherBlocks.MOSSY_HOLYSTONE_SLAB.get(),
+            ReduxBlocks.GILDED_HOLYSTONE_SLAB.get()
+        );
+        triConversion(output,
+            ReduxBlocks.BLIGHTMOSS_HOLYSTONE_STAIRS.get(),
+            AetherBlocks.MOSSY_HOLYSTONE_STAIRS.get(),
+            ReduxBlocks.GILDED_HOLYSTONE_STAIRS.get()
+        );
+        triConversion(output,
+            ReduxBlocks.BLIGHTMOSS_HOLYSTONE_WALL.get(),
+            AetherBlocks.MOSSY_HOLYSTONE_WALL.get(),
+            ReduxBlocks.GILDED_HOLYSTONE_WALL.get()
+        );
+        
+        ConditionalRecipe.builder().addCondition(dc(Conditions.DEEP))
+            .addRecipe(consumer -> sporeBlighting(consumer, ReduxBlocks.BLIGHTMOSS_BLOCK.get(), DABlocks.AETHER_MOSS_BLOCK.get()))
+            .addRecipe(consumer -> ambrosiumEnchanting(consumer, DABlocks.AETHER_MOSS_BLOCK.get(), ReduxBlocks.BLIGHTMOSS_BLOCK.get()))
+            .build(output, name("deep_aether_moss_conversions"));
+        
         infusionCharge(output, ReduxItems.VERIDIUM_PICKAXE, ReduxItems.INFUSED_VERIDIUM_PICKAXE);
         infusionCharge(output, ReduxItems.VERIDIUM_AXE, ReduxItems.INFUSED_VERIDIUM_AXE);
         infusionCharge(output, ReduxItems.VERIDIUM_SWORD, ReduxItems.INFUSED_VERIDIUM_SWORD);
@@ -615,11 +659,6 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
         return Redux.locate(name);
     }
 
-    protected static BlockStateRecipeBuilder sporeBlighting(Block result, Block ingredient) {
-        return BlockStateRecipeBuilder.recipe(BlockStateIngredient.of(ingredient), result, ReduxRecipeSerializers.SPORE_BLIGHTING.get());
-    }
-
-
     protected static void infusionCharge(Consumer<FinishedRecipe> consumer, RegistryObject<? extends Item> uninfused, RegistryObject<? extends Item> infused) {
         infuse(infused.get(), uninfused.get()).withExtra(INFUSION_TAG).save(consumer, Redux.locate("infuse_and_charge_" + uninfused.getId().getPath()));
         infuse(infused.get(), infused.get()).withExtra(INFUSION_TAG).save(consumer, Redux.locate("infuse_and_charge_" + infused.getId().getPath()));
@@ -796,5 +835,40 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
     protected SimpleCookingRecipeBuilder blastingOreRecipe(ItemLike result, ItemLike ingredient, float experience, int cookTime) {
         return SimpleCookingRecipeBuilder.blasting(Ingredient.of(ingredient), RecipeCategory.MISC, result, experience, cookTime)
                 .unlockedBy(getHasName(ingredient), has(ingredient));
+    }
+    
+    @Override
+    public BlockStateRecipeBuilder ambrosiumEnchanting(Block result, Block ingredient) {
+        return super.ambrosiumEnchanting(result, ingredient);
+    }
+    
+    public void ambrosiumEnchanting(Consumer<FinishedRecipe> output, Block result, Block ingredient) {
+        ambrosiumEnchanting(result, ingredient).save(output, name(
+            String.format("ambrosium_convert_%s_to_%s", getBlockName(ingredient), getBlockName(result))
+        ));
+    }
+    
+    protected BlockStateRecipeBuilder sporeBlighting(Block result, Block ingredient) {
+        return BlockStateRecipeBuilder.recipe(BlockStateIngredient.of(ingredient), result, ReduxRecipeSerializers.SPORE_BLIGHTING.get());
+    }
+    
+    public void sporeBlighting(Consumer<FinishedRecipe> output, Block result, Block ingredient) {
+        sporeBlighting(result, ingredient).save(output, name(
+            String.format("blighted_spores_convert_%s_to_%s", getBlockName(ingredient), getBlockName(result))
+        ));
+    }
+    
+    public void triConversion(Consumer<FinishedRecipe> output, Block blighted, Block base, Block enchanted) {
+        ambrosiumEnchanting(output, base, blighted);
+        if (base != AetherBlocks.AETHER_GRASS_BLOCK.get() && enchanted != AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get())
+            ambrosiumEnchanting(output, enchanted, base);
+        sporeBlighting(output, blighted, base);
+        sporeBlighting(output, base, enchanted);
+    }
+    
+    public static String getBlockName(Block block) {
+        ResourceLocation loc = ForgeRegistries.BLOCKS.getKey(block);
+        if (loc == null) throw new IllegalStateException();
+        return loc.getPath();
     }
 }

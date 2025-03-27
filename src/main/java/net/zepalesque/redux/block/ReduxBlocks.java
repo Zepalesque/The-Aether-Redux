@@ -163,7 +163,11 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
 
     public static RegistryObject<Block> AVELIUM = register("avelium",
             () -> new AveliumBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_LIGHT_BLUE).randomTicks().strength(0.2F).sound(SoundType.ROOTED_DIRT)));
-
+    
+    public static RegistryObject<Block> BLIGHTED_AETHER_GRASS_BLOCK = register("blighted_aether_grass_block",
+        () -> new BlightedGrassBlock(BlockBehaviour.Properties.copy(AetherBlocks.AETHER_GRASS_BLOCK.get())));
+    
+    
     public static RegistryObject<Block> AVELIUM_SPROUTS = register("avelium_sprouts",
             () -> new AveliumPlantBlock(BlockBehaviour.Properties.copy(Blocks.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).sound(SoundType.NETHER_SPROUTS), true));
     public static RegistryObject<Block> AVELIUM_ROOTS = register("avelium_roots",
@@ -504,7 +508,6 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
     public static RegistryObject<EnchantedVinesPlantBlock> GILDED_VINES_PLANT = BLOCKS.register("gilded_vines_plant",
             () -> new EnchantedVinesPlantBlock(BlockBehaviour.Properties.copy(Blocks.WEEPING_VINES_PLANT)
                     .mapColor(MapColor.QUARTZ).sound(SoundType.CAVE_VINES), ReduxBlocks.GILDED_VINES, BlockTags.LEAVES));
-
 
     public static RegistryObject<CorruptedVinesHeadBlock> CORRUPTED_VINES = register("corrupted_vines",
             () -> new CorruptedVinesHeadBlock(BlockBehaviour.Properties.copy(Blocks.TWISTING_VINES).lightLevel(value -> 5)

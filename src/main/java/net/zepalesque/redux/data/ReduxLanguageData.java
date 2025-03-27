@@ -151,7 +151,10 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addBlock(ReduxBlocks.SHORT_AETHER_GRASS, "Aether Grass");
         addLore(ReduxBlocks.SHORT_AETHER_GRASS, "Blades of the Aether's grass. It feels slightly cool to the touch.");
-
+        
+        addBlock(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK, "Blighted Aether Grass Block");
+        addLore(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK, "A block of the Aether's grass which has been corrupted by the Blight.");
+        
         addBlock(ReduxBlocks.AVELIUM, "Avelium");
         addLore(ReduxBlocks.AVELIUM, "A fungal grass-like growth that spreads across Aether Dirt. Can be found in the Cloudcaps.");
 

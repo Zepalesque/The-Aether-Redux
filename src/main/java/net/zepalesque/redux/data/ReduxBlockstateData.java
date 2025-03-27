@@ -7,11 +7,14 @@ import com.aetherteam.aether.block.dungeon.DoorwayBlock;
 import com.aetherteam.aether.data.providers.AetherBlockStateProvider;
 import net.builderdog.ancient_aether.block.blockstate.AncientAetherBlockStateProperties;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Registry;
 import net.minecraft.core.Vec3i;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraftforge.client.model.generators.*;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -31,11 +34,12 @@ import net.zepalesque.redux.block.util.state.ReduxStates;
 import net.zepalesque.redux.block.util.state.enums.PetalPrismaticness;
 
 import java.util.Map;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 import static net.minecraftforge.client.model.generators.ModelProvider.BLOCK_FOLDER;
 
-public class ReduxBlockstateData extends AetherBlockStateProvider {
+public class ReduxBlockstateData extends AetherBlockStateProvider implements TextureExtensions {
 
     public ReduxBlockstateData(PackOutput output, String modid, ExistingFileHelper helper) {
         super(output, modid, helper);
@@ -43,7 +47,9 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
 
     @Override
     public void registerStatesAndModels() {
-
+        
+        this.permaGrass(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT.get(), "natural/", "natural/");
+        
         this.blockDoubleDrops(ReduxBlocks.HOLYSILT, "natural/");
 
         // Ahh yes, my favorite log, driftshale
@@ -252,6 +258,15 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         }
 
     }
+    
+    public void permaGrass(Block block, Block dirt, String location, String dirtLocation) {
+        ResourceLocation bottom = texture(dirt, dirtLocation);
+        ResourceLocation top = texture(AetherBlocks.AETHER_GRASS_BLOCK.get(), "natural/", "_top");
+        ResourceLocation overlay = texture(block, location, "_side_overlay");
+        ResourceLocation side = texture(block, location, "_side");
+        ResourceLocation snow = texture(block, location, "_side_snow");
+        tintableGrassBlock(block, bottom, top, overlay, side, models().cubeBottomTop(nameID(block, "%s_snow"), snow, bottom, top));
+    }
 
 
     private void createMushroomBlock(RegistryObject<Block> block, String loc) {
@@ -259,8 +274,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
         ModelFile out = this.models().singleTexture(this.name(block), mcLoc("block/template_single_face"), this.texture(block, loc));
         ModelFile in = this.models().singleTexture(this.name(block) + "_inside", mcLoc("block/template_single_face"), this.texture(block, loc).withSuffix("_inside"));
         MultiPartBlockStateBuilder builder = this.getMultipartBuilder(block.get());
-        for (Direction d : Direction.values())
-        {
+        for (Direction d : Direction.values()) {
             Vec3i v3 = rot(d);
             // exterior
             builder.part().modelFile(out).rotationX(v3.getX()).rotationY(v3.getY()).addModel().condition(dirToProp(d), true).end();
@@ -309,8 +323,13 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
                                 up ? top : center).build();
         });
     }
-
-
+    
+    // in format of example: "enchanted_%s", allows modified model names
+    public String nameID(Block block, String format) {
+        ResourceLocation loc = ForgeRegistries.BLOCKS.getKey(block);
+        if (loc == null) throw new IllegalStateException();
+        return loc.getNamespace() + ":" + String.format(format, loc.getPath());
+    }
 
     private Vec3i rot(Direction d) {
         return d == Direction.NORTH ? new Vec3i(0, 0, 0) :
@@ -601,6 +620,49 @@ public class ReduxBlockstateData extends AetherBlockStateProvider {
                 return ConfiguredModel.builder().modelFile(models().cross(state.getValue(ReduxStates.GRASS_SIZE).getSerializedName()  + "_enchanted_grass", modLoc("block/natural/enchanted_" + state.getValue(ReduxStates.GRASS_SIZE).getSerializedName()  + "_grass")).renderType("cutout")).build();
             }
             return ConfiguredModel.builder().modelFile(models().singleTexture(state.getValue(ReduxStates.GRASS_SIZE).getSerializedName() + "_aether_grass", mcLoc(BLOCK_FOLDER + "/tinted_cross"), "cross", modLoc("block/natural/aether_" + state.getValue(ReduxStates.GRASS_SIZE).getSerializedName() + "_grass")).renderType("cutout")).build();       }       );
+    }
+    
+    public void tintableGrassBlock(Block block, Block dirt, String location, String dirtLocation, Property<?>... ignored) {
+        tintableGrassBlock(block, dirt, location, dirtLocation, (snow, bottom, top) -> models().cubeBottomTop(texture(block).getNamespace() + ":" + name(block) + "_snow", snow, bottom, top), ignored);
+    }
+    
+    public void tintableGrassBlockOverride(Block block, Block dirt, String location, String dirtLocation, Property<?>... ignored) {
+        tintableGrassBlock(block, dirt, location, dirtLocation, (snow, bottom, top) -> models().getExistingFile(texture(block, "", "_snow")), ignored);
+    }
+    
+    public void tintableGrassBlock(Block block, Block dirt, String location, String dirtLocation, SnowGrassModelMaker snowModel, Property<?>... ignored) {
+        ResourceLocation bottom = texture(dirt, dirtLocation);
+        ResourceLocation top = texture(block, location, "_top");
+        ResourceLocation overlay = texture(block, location, "_side_overlay");
+        ResourceLocation side = texture(block, location, "_side");
+        ResourceLocation snow = texture(block, location, "_side_snow");
+        tintableGrassBlock(block, bottom, top, overlay, side, snowModel.create(snow, bottom, top), ignored);
+    }
+    
+    @FunctionalInterface
+    public interface SnowGrassModelMaker {
+        ModelFile create(ResourceLocation snow, ResourceLocation bottom, ResourceLocation top);
+    }
+    
+    public void tintableGrassBlock(Block block, ResourceLocation bottom,
+                                   ResourceLocation top,
+                                   ResourceLocation overlay,
+                                   ResourceLocation side,
+                                   ModelFile snowModel, Property<?>... ignored) {
+        
+        ModelFile model = models().withExistingParent(texture(block).getNamespace() + ":" + name(block), Redux.locate(ModelProvider.BLOCK_FOLDER + "/template/tinted_grass_block"))
+                              .texture("overlay", overlay)
+                              .texture("side", side)
+                              .texture("top", top)
+                              .texture("bottom", bottom)
+                              .texture("particle", bottom);
+        Function<BlockState, ConfiguredModel[]> mapper = state -> {
+            boolean isSnowy = state.getValue(SpreadingSnowyDirtBlock.SNOWY);
+            return ConfiguredModel.allYRotations(isSnowy ? snowModel : model, 0, false);
+        };
+        
+        if (ignored.length == 0) this.getVariantBuilder(block).forAllStates(mapper);
+        else this.getVariantBuilder(block).forAllStatesExcept(mapper, ignored);
     }
 
     public void tintedGrass(Supplier<? extends Block> block) {

@@ -30,6 +30,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
     protected void registerModels() {
 
         itemBlockFlatCustomTexture(ReduxBlocks.SHORT_AETHER_GRASS, "natural/aether_medium_grass");
+        itemBlock(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK);
         itemBlock(ReduxBlocks.HOLYSILT);
         itemBlock(ReduxBlocks.DRIFTSHALE);
         itemBlock(ReduxBlocks.POLISHED_DRIFTSHALE);

@@ -4,6 +4,7 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.zepalesque.redux.block.natural.ExtendedDistanceLeavesBlock;
+import net.zepalesque.redux.block.util.state.enums.BlightGrassColor;
 import net.zepalesque.redux.block.util.state.enums.GrassBlockTint;
 import net.zepalesque.redux.block.util.state.enums.GrassSize;
 import net.zepalesque.redux.block.util.state.enums.PetalPrismaticness;
@@ -29,7 +30,9 @@ public class ReduxStates {
     public static final BooleanProperty ENCHANTED = BooleanProperty.create("enchanted");
 
     public static final BooleanProperty NATURAL_GEN = BooleanProperty.create("natural_gen");
-
+    
+    
+    
     public static final EnumProperty<GrassBlockTint> GRASS_BLOCK_TINT = EnumProperty.create("grass_block_tint", GrassBlockTint.class);
     public static final EnumProperty<GrassSize> GRASS_SIZE = EnumProperty.create("grass_size", GrassSize.class);
 
@@ -37,5 +40,7 @@ public class ReduxStates {
     public static final EnumProperty<PetalPrismaticness> PETAL_2 = EnumProperty.create("petal2", PetalPrismaticness.class);
     public static final EnumProperty<PetalPrismaticness> PETAL_3 = EnumProperty.create("petal3", PetalPrismaticness.class);
     public static final EnumProperty<PetalPrismaticness> PETAL_4 = EnumProperty.create("petal4", PetalPrismaticness.class);
+    
+    public static final EnumProperty<BlightGrassColor> BLIGHT_GRASS_COLOR = EnumProperty.create("color", BlightGrassColor.class);
 
 }

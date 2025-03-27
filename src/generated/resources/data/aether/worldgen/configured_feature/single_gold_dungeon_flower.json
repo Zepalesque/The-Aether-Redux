@@ -6,7 +6,10 @@
       "entries": [
         {
           "data": {
-            "Name": "aether_redux:infernia"
+            "Name": "aether_redux:aurum",
+            "Properties": {
+              "enchanted": "false"
+            }
           },
           "weight": 2
         },
