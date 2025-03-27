@@ -109,7 +109,7 @@ public class ReduxConfig {
             builder.pop();
             builder.push("Misc");
             this.change_double_plant_hitbox = builder.comment("Changes the hitboxes of vanilla double plants. Disable if it causes odd behavior.").define("Change Double Plant Hitboxes", true);
-            this.better_conversion_sounds = builder.comment("Makes blockstate conversion sounds (ambrosium, swet ball) better").define("Better Conversion Sounds", true);
+            this.better_conversion_sounds = builder.comment("Gives blockstate conversion recipes (ambrosium, swet ball) alternate sounds").define("Alternate Conversion Sounds", false);
             builder.pop(2);
             builder.push("Worldgen");
             this.redux_noise = builder.comment("Uses an alternative island noise for the Aether. By default, this is disabled with the Ancient Aether mod installed.").defineEnum("Redux Noise", AACompatType.WITHOUT_AA);

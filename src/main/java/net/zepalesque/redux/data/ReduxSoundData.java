@@ -122,8 +122,13 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
                 definition().with(sound("aether_redux:item/convert_swet_ball"))
                         .subtitle("subtitles.aether_redux.item.convert_swet_ball"));
         this.add(ReduxSoundEvents.CONVERT_BLIGHTED_SPORES,
-                definition().with(sound("aether_redux:item/convert_blighted_spores"))
-                        .subtitle("subtitles.aether_redux.item.convert_blighted_spores"));
+            definition().with(
+                    sound("block/sculk/spread1").pitch(0.9D),
+                    sound("block/sculk/spread2").pitch(0.9D),
+                    sound("block/sculk/spread3").pitch(0.9D),
+                    sound("block/sculk/spread4").pitch(0.9D),
+                    sound("block/sculk/spread5").pitch(0.9D)
+                ).subtitle("subtitles.aether_redux.item.convert_blighted_spores"));
     this.add(ReduxSoundEvents.INFUSE_ITEM,
             definition().with(sound("aether_redux:item/infuse_item"))
                     .subtitle("subtitles.aether_redux.item.infuse_item"));

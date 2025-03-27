@@ -356,7 +356,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addLore(ReduxBlocks.GILDED_HOLYSTONE_WALL, "Crafted from Gilded Holystone. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
 
         addBlock(ReduxBlocks.BLIGHTMOSS_HOLYSTONE, "Bleakmoss Holystone");
-        addLore(ReduxBlocks.BLIGHTMOSS_HOLYSTONE, "The blighted form of Mosssy Holystone. The viscious moss on this rock wilts in the sunlight and flourishes in the moonlight.");
+        addLore(ReduxBlocks.BLIGHTMOSS_HOLYSTONE, "The blighted form of Mossy Holystone. The vicious moss on this rock wilts in the sunlight and flourishes in the moonlight.");
         addBlock(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_SLAB, "Bleakmoss Holystone Slab");
         addLore(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_SLAB, "Crafted from Bleakmoss Holystone. Slabs are half blocks, versatile for decoration and smooth slopes. Try adding some to a building's roofing!");
         addBlock(ReduxBlocks.BLIGHTMOSS_HOLYSTONE_STAIRS, "Bleakmoss Holystone Stairs");
@@ -681,7 +681,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addSubtitle("block", "blightshade_spray", "Gloomshade sprays");
         addSubtitle("item", "convert_ambrosium", "Ambrosium enchants");
         addSubtitle("item", "convert_swet_ball", "Swet Ball squelches");
-        addSubtitle("item", "convert_blighted_spores", "Blighted Spores bewitch");
+        addSubtitle("item", "convert_blighted_spores", "Willow Spores used");
         addSubtitle("item", "infuse_item", "Item infuses");
         addSubtitle("item", "infusion_expire", "Infusion expires");
         addSubtitle("item", "spear_throw", "Spear wooshes");
@@ -733,7 +733,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addAdvancement("enter_blight", "Shattered Glass");
         addAdvancementDesc("enter_blight", "Enter the Blight biome, a dangerous zone filled with hazardous plants and creatures");
         addAdvancement("convert_with_blighted_spores", "Dark Magic");
-        addAdvancementDesc("convert_with_blighted_spores", "Blight a block by right-clicking it while holding some Blighted Spores");
+        addAdvancementDesc("convert_with_blighted_spores", "Blight a block by right-clicking it while holding some Willow Spores");
         addAdvancement("obtain_subzero_crossbow", "Below Zero");
         addAdvancementDesc("obtain_subzero_crossbow", "Obtain the Subzero Crossbow, a chilling ranged weapon found in the Gold Dungeon");
 
