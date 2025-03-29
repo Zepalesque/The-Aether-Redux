@@ -81,53 +81,40 @@ public class ReduxColors {
         if (Redux.ancientAetherCompat()) {
             register(event, (state, level, pos, index) -> level != null && pos != null ? state.hasProperty(AncientAetherBlockStateProperties.TYPE) && state.getValue(AncientAetherBlockStateProperties.TYPE) == AetherGrassType.ENCHANTED ? 0xFFFFFF : getColor(state, level, pos, index, 0) : ReduxBiomes.AETHER_GRASS_COLOR,
                     new ResourceLocation("ancient_aether", "sky_grass"));
-            // These will always be registered and log if there is an issue
             register(event, (state, level, pos, index) -> getColor(state, level, pos, index, 1),
                     new ResourceLocation("ancient_aether", "wynd_thistle"),
                     new ResourceLocation("ancient_aether", "potted_wynd_thistle"),
                     new ResourceLocation("ancient_aether", "sky_blues"),
-                    new ResourceLocation("ancient_aether", "potted_sky_blues")
-
-                    );
-            // Only logs if AA version is 0.9.0 or later
-            register(event, (state, level, pos, index) -> getColor(state, level, pos, index, 1),
+                    new ResourceLocation("ancient_aether", "potted_sky_blues"),
                     new ResourceLocation("ancient_aether", "sunset_rose"),
                     new ResourceLocation("ancient_aether", "potted_sunset_rose"),
                     new ResourceLocation("ancient_aether", "elevetia"),
                     new ResourceLocation("ancient_aether", "potted_elevetia")
-
-                    );
-            // Only logs in versions prior to 0.9.0
-            register(event, (state, level, pos, index) -> getColor(state, level, pos, index, 1),
-                    new ResourceLocation("ancient_aether", "highland_viola"),
-                    new ResourceLocation("ancient_aether", "potted_highland_viola"),
-                    new ResourceLocation("ancient_aether", "sakura_blossoms"),
-                    new ResourceLocation("ancient_aether", "potted_sakura_blossoms"),
-                    new ResourceLocation("ancient_aether", "trapped_sakura_blossoms")
             );
         }
 
         // Deep Aether compat
         if (Redux.deepAetherCompat()) {
             register(event, (state, level, pos, index) -> getColor(state, level, pos, index, 1),
-                    new ResourceLocation("deep_aether", "radiant_orchid"),
-                    new ResourceLocation("deep_aether", "potted_radiant_orchid"),
-                    new ResourceLocation("deep_aether", "aerlavender"),
-                    new ResourceLocation("deep_aether", "potted_aerlavender"),
-                    new ResourceLocation("deep_aether", "tall_aerlavender"),
-                    new ResourceLocation("deep_aether", "feather_grass"),
-                    new ResourceLocation("deep_aether", "potted_tall_aerlavender"),
-                    new ResourceLocation("deep_aether", "sky_tulips"),
-                    new ResourceLocation("deep_aether", "potted_sky_tulips"),
-                    new ResourceLocation("deep_aether", "iaspove"),
-                    new ResourceLocation("deep_aether", "potted_iaspove"),
-                    new ResourceLocation("deep_aether", "golden_aspess"),
-                    new ResourceLocation("deep_aether", "potted_golden_aspess"),
-                    new ResourceLocation("deep_aether", "echaisy"),
-                    new ResourceLocation("deep_aether", "potted_echaisy")
+                new ResourceLocation("deep_aether", "radiant_orchid"),
+                new ResourceLocation("deep_aether", "potted_radiant_orchid"),
+                new ResourceLocation("deep_aether", "aerlavender"),
+                new ResourceLocation("deep_aether", "potted_aerlavender"),
+                new ResourceLocation("deep_aether", "tall_aerlavender"),
+                new ResourceLocation("deep_aether", "feather_grass"),
+                new ResourceLocation("deep_aether", "potted_tall_aerlavender"),
+                new ResourceLocation("deep_aether", "sky_tulips"),
+                new ResourceLocation("deep_aether", "potted_sky_tulips"),
+                new ResourceLocation("deep_aether", "iaspove"),
+                new ResourceLocation("deep_aether", "potted_iaspove"),
+                new ResourceLocation("deep_aether", "golden_aspess"),
+                new ResourceLocation("deep_aether", "potted_golden_aspess"),
+                new ResourceLocation("deep_aether", "echaisy"),
+                new ResourceLocation("deep_aether", "potted_echaisy")
             );
             register(event, (state, level, pos, index) -> pos != null ? getColor(state, level, state.getValue(DoublePlantBlock.HALF) == DoubleBlockHalf.UPPER ? pos.below() : pos, index, 1)  : ReduxBiomes.AETHER_GRASS_COLOR,
-                    new ResourceLocation("deep_aether", "tall_feather_grass")
+                new ResourceLocation("deep_aether", "tall_feather_grass"),
+                new ResourceLocation("deep_aether", "tall_glowing_grass")
             );
         }
     }
@@ -170,7 +157,7 @@ public class ReduxColors {
             register(event, (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.PALE_GRASS_COLOR : 0xFFFFFF,
                     new ResourceLocation("ancient_aether", "elevetia"));
         }
-        // Deep AetherAa Compat
+        // Deep Aether Compat
         if (Redux.deepAetherCompat()) {
             register(event, (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AERGLOW_GRASS_COLOR : 0xFFFFFF,
                     new ResourceLocation("deep_aether", "radiant_orchid"));
@@ -227,12 +214,11 @@ public class ReduxColors {
         }
     }
 
-    private static final Consumer<String> BLOCK_ERROR = s -> {
+    private static final Consumer<String> BLOCK_ERROR = s ->
         Redux.LOGGER.warn("Tried to register compat color for block that does not exist! Could not find: {}", s);
-    };
-    private static final Consumer<String> ITEM_ERROR = s -> {
+    
+    private static final Consumer<String> ITEM_ERROR = s ->
         Redux.LOGGER.warn("Tried to register compat color for item that does not exist! Could not find: {}", s);
-    };
 
     private static void register(RegisterColorHandlersEvent.Item colors, ItemColor resolver, ResourceLocation... locations) {
     register(colors, resolver, ITEM_ERROR, locations);

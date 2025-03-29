@@ -1,0 +1,9 @@
+{
+  "type": "deep_aether:glowing_spores_recipe",
+  "ingredient": {
+    "block": "aether_redux:short_aether_grass"
+  },
+  "result": {
+    "block": "deep_aether:tall_glowing_grass"
+  }
+}

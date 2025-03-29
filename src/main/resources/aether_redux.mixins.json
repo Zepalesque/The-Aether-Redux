@@ -54,6 +54,7 @@
     "client.block.AetherColorResolversMixin",
     "client.block.AetherLeavesClientMixin",
     "client.block.LeafBlockClientMixin",
+    "client.block.DeepAetherColorMixin",
     "client.gui.PackEntryMixin",
     "client.gui.PackSelectionModelAccessor",
     "client.gui.PackSelectionScreenMixin",
