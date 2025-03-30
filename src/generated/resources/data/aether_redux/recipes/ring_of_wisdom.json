@@ -2,18 +2,18 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "E": {
-      "item": "minecraft:emerald"
-    },
     "H": {
       "tag": "aether:holystone"
     },
     "R": {
       "item": "aether_redux:enchanted_ring"
+    },
+    "Z": {
+      "item": "aether:zanite_gemstone"
     }
   },
   "pattern": [
-    "HEH",
+    "HZH",
     "HRH",
     "HHH"
   ],

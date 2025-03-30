@@ -33,15 +33,8 @@
     "root_height": {
       "type": "minecraft:uniform",
       "value": {
-        "max_inclusive": 4,
-        "min_inclusive": 1
-      }
-    },
-    "root_wall_height": {
-      "type": "minecraft:uniform",
-      "value": {
-        "max_inclusive": 3,
-        "min_inclusive": 1
+        "max_inclusive": 7,
+        "min_inclusive": 3
       }
     },
     "spore_provider": {
@@ -53,6 +46,17 @@
         }
       }
     },
+    "stem_hyphae_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "aether_redux:cloudcap_hyphae",
+        "Properties": {
+          "axis": "y",
+          "double_drops": "true",
+          "natural_gen": "true"
+        }
+      }
+    },
     "stem_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
@@ -60,22 +64,6 @@
         "Properties": {
           "axis": "y",
           "double_drops": "true"
-        }
-      }
-    },
-    "stem_wall_provider": {
-      "type": "minecraft:simple_state_provider",
-      "state": {
-        "Name": "aether_redux:cloudcap_stem_wall",
-        "Properties": {
-          "double_drops": "true",
-          "east": "none",
-          "natural_gen": "true",
-          "north": "none",
-          "south": "none",
-          "up": "true",
-          "waterlogged": "false",
-          "west": "none"
         }
       }
     }

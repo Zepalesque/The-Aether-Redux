@@ -2,6 +2,7 @@ package net.zepalesque.redux.data.tags;
 
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.AetherBlocks;
+import com.aetherteam.aether_genesis.block.GenesisBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
@@ -270,7 +271,7 @@ public class ReduxBlockTagsData extends BlockTagsProvider {
             ReduxBlocks.POTTED_SPLITFERN.get()
         );
         this.tag(ReduxTags.Blocks.HIGHLANDS_GRASSES).add(AetherBlocks.AETHER_GRASS_BLOCK.get());
-        this.tag(ReduxTags.Blocks.ENCHANTED_GRASSES).add(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get());
+        this.tag(ReduxTags.Blocks.ENCHANTED_GRASSES).add(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get()).addOptional(GenesisBlocks.ENCHANTED_GRASS_BLOCK.getId());
         this.tag(ReduxTags.Blocks.AEVELIUM_GRASSES).add(ReduxBlocks.AVELIUM.get());
         this.tag(BlockTags.SAPLINGS).add(
             ReduxBlocks.BLIGHTWILLOW_SAPLING.get(),

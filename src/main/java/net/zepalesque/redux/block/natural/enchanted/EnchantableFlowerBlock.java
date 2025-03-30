@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.zepalesque.redux.block.natural.CustomBoundsFlowerBlock;
 import net.zepalesque.redux.block.util.state.ReduxStates;
+import net.zepalesque.redux.misc.ReduxTags;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -32,7 +33,7 @@ public class EnchantableFlowerBlock extends CustomBoundsFlowerBlock {
 
     public BlockState setValues(Level level, BlockPos pos, BlockState state) {
         BlockPos below = pos.below();
-        if (level.getBlockState(below).is(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get())) {
+        if (level.getBlockState(below).is(ReduxTags.Blocks.ENCHANTED_GRASSES)) {
             return state.setValue(ReduxStates.ENCHANTED, true);
         }
 

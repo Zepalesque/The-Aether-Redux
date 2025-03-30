@@ -1,10 +1,10 @@
 {
 	"credit": "Made with Blockbench",
 	"parent": "minecraft:block/block",
-	"render_type": "minecraft:translucent",
+	"render_type": "minecraft:cutout",
         "ambientocclusion": false,
 	"textures": {
-		"2": "aether_redux:block/natural/golden_clover_stem",
+		"2": "aether_redux:block/natural/enchanted_golden_clover_stem",
 		"3": "aether_redux:block/natural/golden_clover_top",
 		"dirt": "block/dirt",
 		"particle": "block/flower_pot",
