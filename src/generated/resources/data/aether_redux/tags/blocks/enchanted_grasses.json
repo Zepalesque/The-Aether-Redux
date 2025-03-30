@@ -1,5 +1,9 @@
 {
   "values": [
-    "aether:enchanted_aether_grass_block"
+    "aether:enchanted_aether_grass_block",
+    {
+      "id": "aether_genesis:enchanted_grass_block",
+      "required": false
+    }
   ]
 }

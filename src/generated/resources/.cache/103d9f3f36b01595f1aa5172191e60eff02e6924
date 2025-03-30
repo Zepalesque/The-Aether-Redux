@@ -1,4 +1,4 @@
-// 1.20.1	2025-03-29T22:02:18.5260706	Registries
+// 1.20.1	2025-03-29T22:17:24.7489721	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 3899e831707994c2ecc93af7d8997043a0f0a462 data/aether/worldgen/configured_feature/golden_oak_tree.json
 875593e37a52dd63b2d87226b0f0e5e76ef48247 data/aether/worldgen/configured_feature/grass_patch.json
@@ -69,7 +69,7 @@ f52e1dc341ab75ae2e62f45f3c9513a4cf0b398e data/aether_redux/worldgen/configured_f
 848bc02fc48f61d53619b85f7c2f8708376ebd0d data/aether_redux/worldgen/configured_feature/patch/genesis_wyndsprouts_patch.json
 7588ae36161f5cfda786d5a1efa86fb916399689 data/aether_redux/worldgen/configured_feature/patch/gilded_leaf_patch.json
 bd26ff25a26c7abdd42a1a2b09fe96b2f0e36662 data/aether_redux/worldgen/configured_feature/patch/gilded_white_flower_patch.json
-5c4332259e7265c00c656014a0b57966bbe71c44 data/aether_redux/worldgen/configured_feature/patch/golden_clover_patch.json
+ac37b546c6d027752117925f9960958d921bbe89 data/aether_redux/worldgen/configured_feature/patch/golden_clover_patch.json
 ca4f7b9221ea92fdefa2f3352f6d7d36f30af6ea data/aether_redux/worldgen/configured_feature/patch/golden_leaf_patch.json
 4974aa4aa22116d14487f6259350866cfff246c0 data/aether_redux/worldgen/configured_feature/patch/iridia_patch.json
 22b21f14e31b7598a6a045c2af8c1015f36f1db3 data/aether_redux/worldgen/configured_feature/patch/jellyshroom_patch.json
