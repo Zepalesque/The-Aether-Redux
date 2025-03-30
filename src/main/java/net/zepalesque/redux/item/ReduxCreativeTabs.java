@@ -58,7 +58,11 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.SENTRITE, ReduxBlocks.SENTRITE_STAIRS, event);
             putAfter(ReduxBlocks.SENTRITE_STAIRS, ReduxBlocks.SENTRITE_SLAB, event);
             putAfter(ReduxBlocks.SENTRITE_SLAB, ReduxBlocks.SENTRITE_WALL, event);
-            putAfter(ReduxBlocks.SENTRITE_WALL, ReduxBlocks.SENTRITE_BRICKS, event);
+            putAfter(ReduxBlocks.SENTRITE_WALL, ReduxBlocks.POLISHED_SENTRITE, event);
+            putAfter(ReduxBlocks.POLISHED_SENTRITE, ReduxBlocks.POLISHED_SENTRITE_STAIRS, event);
+            putAfter(ReduxBlocks.POLISHED_SENTRITE_STAIRS, ReduxBlocks.POLISHED_SENTRITE_SLAB, event);
+            putAfter(ReduxBlocks.POLISHED_SENTRITE_SLAB, ReduxBlocks.POLISHED_SENTRITE_WALL, event);
+            putAfter(ReduxBlocks.POLISHED_SENTRITE_WALL, ReduxBlocks.SENTRITE_BRICKS, event);
             putAfter(ReduxBlocks.SENTRITE_BRICKS, ReduxBlocks.SENTRITE_BRICK_STAIRS, event);
             putAfter(ReduxBlocks.SENTRITE_BRICK_STAIRS, ReduxBlocks.SENTRITE_BRICK_SLAB, event);
             putAfter(ReduxBlocks.SENTRITE_BRICK_SLAB, ReduxBlocks.SENTRITE_BRICK_WALL, event);
@@ -218,10 +222,10 @@ public class ReduxCreativeTabs {
             putAfter(AetherBlocks.BOSS_DOORWAY_SENTRY_STONE, ReduxBlocks.BOSS_DOORWAY_SENTRY_BASE, event);
             putAfter(ReduxBlocks.BOSS_DOORWAY_SENTRY_BASE, ReduxBlocks.BOSS_DOORWAY_SENTRY_PILLAR, event);
 
-            putAfter(ReduxBlocks.BOSS_DOORWAY_SENTRY_PILLAR, ReduxBlocks.SENTRITE_BRICKS, event);
-            putAfter(ReduxBlocks.SENTRITE_BRICKS, ReduxBlocks.LOCKED_SENTRITE_BRICKS, event);
+            putAfter(ReduxBlocks.BOSS_DOORWAY_SENTRY_PILLAR, ReduxBlocks.POLISHED_SENTRITE, event);
+            putAfter(ReduxBlocks.POLISHED_SENTRITE, ReduxBlocks.LOCKED_POLISHED_SENTRITE, event);
 
-            putAfter(ReduxBlocks.LOCKED_SENTRITE_BRICKS, ReduxBlocks.RUNELIGHT, event);
+            putAfter(ReduxBlocks.LOCKED_POLISHED_SENTRITE, ReduxBlocks.RUNELIGHT, event);
             putAfter(ReduxBlocks.RUNELIGHT, ReduxBlocks.LOCKED_RUNELIGHT, event);
             
         } else if (tab == AetherCreativeTabs.AETHER_FOOD_AND_DRINKS.get()) {

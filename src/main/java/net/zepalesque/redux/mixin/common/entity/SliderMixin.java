@@ -24,7 +24,7 @@ public abstract class SliderMixin {
             .put(ReduxBlocks.LOCKED_SENTRY_BASE.get(), ReduxBlocks.SENTRY_BASE.get())
             .put(ReduxBlocks.LOCKED_CARVED_PILLAR.get(), ReduxBlocks.CARVED_PILLAR.get())
             .put(ReduxBlocks.LOCKED_RUNELIGHT.get(), ReduxBlocks.RUNELIGHT.get())
-            .put(ReduxBlocks.LOCKED_SENTRITE_BRICKS.get(), ReduxBlocks.SENTRITE_BRICKS.get())
+            .put(ReduxBlocks.LOCKED_POLISHED_SENTRITE.get(), ReduxBlocks.POLISHED_SENTRITE.get())
             .build()
     );
 

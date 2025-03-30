@@ -127,11 +127,24 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
 
     public static RegistryObject<SlabBlock> SENTRITE_SLAB = register("sentrite_slab",
             () -> new SlabBlock(BlockBehaviour.Properties.copy(SENTRITE.get()).strength(1.25F, 6.0F)));
-
+    
+    public static RegistryObject<Block> POLISHED_SENTRITE = register("polished_sentrite",
+        () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).requiresCorrectToolForDrops().strength(1.0F, 6.0F).sound(SoundType.NETHER_BRICKS)));
+    
+    public static RegistryObject<StairBlock> POLISHED_SENTRITE_STAIRS = register("polished_sentrite_stairs",
+        () -> new StairBlock(() -> POLISHED_SENTRITE.get().defaultBlockState(), BlockBehaviour.Properties.copy(POLISHED_SENTRITE.get())));
+    
+    public static RegistryObject<WallBlock> POLISHED_SENTRITE_WALL = register("polished_sentrite_wall",
+        () -> new WallBlock(BlockBehaviour.Properties.copy(POLISHED_SENTRITE.get())));
+    
+    public static RegistryObject<SlabBlock> POLISHED_SENTRITE_SLAB = register("polished_sentrite_slab",
+        () -> new SlabBlock(BlockBehaviour.Properties.copy(POLISHED_SENTRITE.get()).strength(1.25F, 6.0F)));
+    
+    
     public static RegistryObject<Block> SENTRITE_BRICKS = register("sentrite_bricks",
             () -> new AetherDoubleDropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).requiresCorrectToolForDrops().strength(1.0F, 6.0F).sound(SoundType.NETHER_BRICKS)));
 
-    public static final RegistryObject<Block> LOCKED_SENTRITE_BRICKS = register("locked_sentrite_bricks", () ->
+    public static final RegistryObject<Block> LOCKED_POLISHED_SENTRITE = register("locked_polished_sentrite", () ->
             new Block(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.DEEPSLATE)
                     .strength(-1.0F, 3600000.0F)
@@ -139,7 +152,7 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
             ));
 
     public static RegistryObject<StairBlock> SENTRITE_BRICK_STAIRS = register("sentrite_brick_stairs",
-            () -> new StairBlock(() -> (SENTRITE_BRICKS.get()).defaultBlockState(), BlockBehaviour.Properties.copy(SENTRITE_BRICKS.get())));
+            () -> new StairBlock(() -> SENTRITE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(SENTRITE_BRICKS.get())));
 
     public static RegistryObject<WallBlock> SENTRITE_BRICK_WALL = register("sentrite_brick_wall",
             () -> new WallBlock(BlockBehaviour.Properties.copy(SENTRITE_BRICKS.get())));

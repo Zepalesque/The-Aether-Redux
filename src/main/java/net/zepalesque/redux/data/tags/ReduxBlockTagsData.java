@@ -154,6 +154,10 @@ public class ReduxBlockTagsData extends BlockTagsProvider {
             ReduxBlocks.SENTRITE_BRICK_WALL.get(),
             ReduxBlocks.SENTRITE_BRICK_SLAB.get(),
             ReduxBlocks.SENTRITE_BRICK_STAIRS.get(),
+            ReduxBlocks.POLISHED_SENTRITE.get(),
+            ReduxBlocks.POLISHED_SENTRITE_WALL.get(),
+            ReduxBlocks.POLISHED_SENTRITE_SLAB.get(),
+            ReduxBlocks.POLISHED_SENTRITE_STAIRS.get(),
             ReduxBlocks.GILDED_HOLYSTONE.get(),
             ReduxBlocks.GILDED_HOLYSTONE_WALL.get(),
             ReduxBlocks.GILDED_HOLYSTONE_SLAB.get(),
@@ -339,7 +343,7 @@ public class ReduxBlockTagsData extends BlockTagsProvider {
             ReduxBlocks.BOSS_DOORWAY_SENTRY_BASE.get(),
             ReduxBlocks.RUNELIGHT.get(),
             ReduxBlocks.LOCKED_RUNELIGHT.get(),
-            ReduxBlocks.LOCKED_SENTRITE_BRICKS.get()
+            ReduxBlocks.LOCKED_POLISHED_SENTRITE.get()
         );
         this.tag(AetherTags.Blocks.LOCKED_DUNGEON_BLOCKS).add(
             ReduxBlocks.LOCKED_CARVED_PILLAR.get(),
@@ -347,14 +351,15 @@ public class ReduxBlockTagsData extends BlockTagsProvider {
             ReduxBlocks.LOCKED_CARVED_BASE.get(),
             ReduxBlocks.LOCKED_SENTRY_BASE.get(),
             ReduxBlocks.LOCKED_RUNELIGHT.get(),
-            ReduxBlocks.LOCKED_SENTRITE_BRICKS.get()
+            ReduxBlocks.LOCKED_POLISHED_SENTRITE.get()
         );
         this.tag(AetherTags.Blocks.DUNGEON_BLOCKS).add(
             ReduxBlocks.CARVED_PILLAR.get(),
             ReduxBlocks.SENTRY_PILLAR.get(),
             ReduxBlocks.CARVED_BASE.get(),
             ReduxBlocks.SENTRY_BASE.get(),
-            ReduxBlocks.RUNELIGHT.get()
+            ReduxBlocks.RUNELIGHT.get(),
+            ReduxBlocks.POLISHED_SENTRITE.get()
         );
         this.tag(AetherTags.Blocks.TRAPPED_DUNGEON_BLOCKS).add(
             ReduxBlocks.TRAPPED_CARVED_PILLAR.get(),
@@ -362,13 +367,13 @@ public class ReduxBlockTagsData extends BlockTagsProvider {
             ReduxBlocks.TRAPPED_CARVED_BASE.get(),
             ReduxBlocks.TRAPPED_SENTRY_BASE.get()
         );
+        
         this.tag(AetherTags.Blocks.BOSS_DOORWAY_DUNGEON_BLOCKS).add(
             ReduxBlocks.BOSS_DOORWAY_CARVED_PILLAR.get(),
             ReduxBlocks.BOSS_DOORWAY_SENTRY_PILLAR.get(),
             ReduxBlocks.BOSS_DOORWAY_CARVED_BASE.get(),
             ReduxBlocks.BOSS_DOORWAY_SENTRY_BASE.get()
         );
-        
         
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
             ReduxBlocks.CARVED_PILLAR.get(),

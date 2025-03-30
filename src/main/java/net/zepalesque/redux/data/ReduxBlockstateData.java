@@ -7,10 +7,8 @@ import com.aetherteam.aether.block.dungeon.DoorwayBlock;
 import com.aetherteam.aether.data.providers.AetherBlockStateProvider;
 import net.builderdog.ancient_aether.block.blockstate.AncientAetherBlockStateProperties;
 import net.minecraft.core.Direction;
-import net.minecraft.core.Registry;
 import net.minecraft.core.Vec3i;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
@@ -71,6 +69,11 @@ public class ReduxBlockstateData extends AetherBlockStateProvider implements Tex
         this.slab(ReduxBlocks.SENTRITE_SLAB.get(), ReduxBlocks.SENTRITE.get(), "natural/");
         this.stairs(ReduxBlocks.SENTRITE_STAIRS.get(), ReduxBlocks.SENTRITE.get(), "natural/");
         this.wallBlock(ReduxBlocks.SENTRITE_WALL.get(), ReduxBlocks.SENTRITE.get(), "natural/");
+
+        this.blockDoubleDrops(ReduxBlocks.POLISHED_SENTRITE.get(), "construction/");
+        this.slab(ReduxBlocks.POLISHED_SENTRITE_SLAB.get(), ReduxBlocks.POLISHED_SENTRITE.get(), "construction/");
+        this.stairs(ReduxBlocks.POLISHED_SENTRITE_STAIRS.get(), ReduxBlocks.POLISHED_SENTRITE.get(), "construction/");
+        this.wallBlock(ReduxBlocks.POLISHED_SENTRITE_WALL.get(), ReduxBlocks.POLISHED_SENTRITE.get(), "construction/");
 
         this.blockDoubleDrops(ReduxBlocks.SENTRITE_BRICKS.get(), "construction/");
         this.slab(ReduxBlocks.SENTRITE_BRICK_SLAB.get(), ReduxBlocks.SENTRITE_BRICKS.get(), "construction/");
@@ -247,7 +250,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider implements Tex
         this.cubeActivatable(ReduxBlocks.RUNELIGHT.get(), "dungeon/");
         this.cubeActivatable(ReduxBlocks.LOCKED_RUNELIGHT.get(), ReduxBlocks.RUNELIGHT.get(), "dungeon/");
 
-        this.dungeonBlock(ReduxBlocks.LOCKED_SENTRITE_BRICKS.get(), ReduxBlocks.SENTRITE_BRICKS.get(), "construction/");
+        this.dungeonBlock(ReduxBlocks.LOCKED_POLISHED_SENTRITE.get(), ReduxBlocks.POLISHED_SENTRITE.get(), "construction/");
 
         this.block(ReduxBlocks.REFINED_SENTRITE_BLOCK.get(), "construction/");
         this.chain(ReduxBlocks.SENTRITE_CHAIN.get(), "construction/");

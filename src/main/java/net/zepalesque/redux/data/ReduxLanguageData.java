@@ -326,6 +326,15 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addBlock(ReduxBlocks.SENTRITE_WALL, "Sentrite Wall");
         addLore(ReduxBlocks.SENTRITE_WALL, "Crafted from Sentrite. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
 
+        addBlock(ReduxBlocks.POLISHED_SENTRITE, "Polished Sentrite");
+        addLore(ReduxBlocks.POLISHED_SENTRITE, "The polished form of Sentrite. These can be used as a nice building block!");
+        addBlock(ReduxBlocks.POLISHED_SENTRITE_SLAB, "Polished Sentrite Slab");
+        addLore(ReduxBlocks.POLISHED_SENTRITE_SLAB, "Crafted from Polished Sentrite. Slabs are half blocks, versatile for decoration and smooth slopes. Try adding some to a building's roofing!");
+        addBlock(ReduxBlocks.POLISHED_SENTRITE_STAIRS, "Polished Sentrite Stairs");
+        addLore(ReduxBlocks.POLISHED_SENTRITE_STAIRS, "Crafted from Polished Sentrite. Stairs are useful for adding verticality to builds and are often used for decoration too!");
+        addBlock(ReduxBlocks.POLISHED_SENTRITE_WALL, "Polished Sentrite Wall");
+        addLore(ReduxBlocks.POLISHED_SENTRITE_WALL, "Crafted from Polished Sentrite. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
+
         addBlock(ReduxBlocks.SENTRITE_BRICKS, "Sentrite Bricks");
         addLore(ReduxBlocks.SENTRITE_BRICKS, "Bricks made of Sentrite. These can be used as a nice building block!");
         addBlock(ReduxBlocks.SENTRITE_BRICK_SLAB, "Sentrite Brick Slab");
@@ -393,7 +402,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         this.addLore(ReduxBlocks.RUNELIGHT, "A glowing block of circuitry made of Veridium, which can be easily toggled on and off. Found in Bronze Dungeons.");
         this.addB(ReduxBlocks.LOCKED_RUNELIGHT);
 
-        this.addB(ReduxBlocks.LOCKED_SENTRITE_BRICKS);
+        this.addB(ReduxBlocks.LOCKED_POLISHED_SENTRITE);
 
         addBlock(ReduxBlocks.VERIDIUM_LANTERN, "Veridium Lantern");
         addLore(ReduxBlocks.VERIDIUM_LANTERN, "A lantern made of Veridium. You can place it on the ground or hang it on the ceiling!");

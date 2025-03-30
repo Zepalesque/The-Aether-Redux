@@ -76,6 +76,10 @@ public class BlockBreakHooks {
             .put(ReduxBlocks.SENTRITE_BRICK_WALL.get(), 1.75F)
             .put(ReduxBlocks.SENTRITE_BRICK_STAIRS.get(), 1.75F)
             .put(ReduxBlocks.SENTRITE_BRICK_SLAB.get(), 2F)
+            .put(ReduxBlocks.POLISHED_SENTRITE.get(), 1.75F)
+            .put(ReduxBlocks.POLISHED_SENTRITE_WALL.get(), 1.75F)
+            .put(ReduxBlocks.POLISHED_SENTRITE_STAIRS.get(), 1.75F)
+            .put(ReduxBlocks.POLISHED_SENTRITE_SLAB.get(), 2F)
             .build()
         )
     );

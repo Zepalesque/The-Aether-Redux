@@ -45,6 +45,10 @@ public class ReduxItemModelData extends AetherItemModelProvider {
         itemBlock(ReduxBlocks.SENTRITE_SLAB);
         itemBlock(ReduxBlocks.SENTRITE_STAIRS);
         itemWallBlock(ReduxBlocks.SENTRITE_WALL, ReduxBlocks.SENTRITE, "natural/");
+        itemBlock(ReduxBlocks.POLISHED_SENTRITE);
+        itemBlock(ReduxBlocks.POLISHED_SENTRITE_SLAB);
+        itemBlock(ReduxBlocks.POLISHED_SENTRITE_STAIRS);
+        itemWallBlock(ReduxBlocks.POLISHED_SENTRITE_WALL, ReduxBlocks.POLISHED_SENTRITE, "construction/");
         itemBlock(ReduxBlocks.SENTRITE_BRICKS);
         itemBlock(ReduxBlocks.SENTRITE_BRICK_SLAB);
         itemBlock(ReduxBlocks.SENTRITE_BRICK_STAIRS);
@@ -257,7 +261,7 @@ public class ReduxItemModelData extends AetherItemModelProvider {
 
         this.itemBlock(ReduxBlocks.RUNELIGHT.get(), "_on");
         this.itemOverlayDungeonBlock(ReduxBlocks.LOCKED_RUNELIGHT.get(), ReduxBlocks.RUNELIGHT.get(), "lock", "dungeon/", "_on");
-        this.itemOverlayDungeonBlock(ReduxBlocks.LOCKED_SENTRITE_BRICKS.get(), ReduxBlocks.SENTRITE_BRICKS.get(), "construction/", "lock");
+        this.itemOverlayDungeonBlock(ReduxBlocks.LOCKED_POLISHED_SENTRITE.get(), ReduxBlocks.POLISHED_SENTRITE.get(), "construction/", "lock");
 
     }
     public String blockName(Supplier<? extends Block> block) {

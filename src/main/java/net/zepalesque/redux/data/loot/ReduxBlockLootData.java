@@ -71,10 +71,16 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.add(ReduxBlocks.SENTRITE_SLAB.get(), this::createSlabItemTable);
         dropSelf(ReduxBlocks.SENTRITE_STAIRS.get());
         dropSelf(ReduxBlocks.SENTRITE_WALL.get());
+        
         dropSelfDouble(ReduxBlocks.SENTRITE_BRICKS.get());
         this.add(ReduxBlocks.SENTRITE_BRICK_SLAB.get(), this::createSlabItemTable);
         dropSelf(ReduxBlocks.SENTRITE_BRICK_STAIRS.get());
         dropSelf(ReduxBlocks.SENTRITE_BRICK_WALL.get());
+        
+        dropSelfDouble(ReduxBlocks.POLISHED_SENTRITE.get());
+        this.add(ReduxBlocks.POLISHED_SENTRITE_SLAB.get(), this::createSlabItemTable);
+        dropSelf(ReduxBlocks.POLISHED_SENTRITE_STAIRS.get());
+        dropSelf(ReduxBlocks.POLISHED_SENTRITE_WALL.get());
 
         dropSelf(ReduxBlocks.SHELL_SHINGLES.get());
         this.add(ReduxBlocks.SHELL_SHINGLE_SLAB.get(), this::createSlabItemTable);
@@ -189,7 +195,7 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
 
         this.dropSelf(ReduxBlocks.RUNELIGHT.get());
         this.dropNone(ReduxBlocks.LOCKED_RUNELIGHT.get());
-        this.dropNone(ReduxBlocks.LOCKED_SENTRITE_BRICKS.get());
+        this.dropNone(ReduxBlocks.LOCKED_POLISHED_SENTRITE.get());
 
         this.dropDoubleWithSilk(ReduxBlocks.AVELIUM.get(), AetherBlocks.AETHER_DIRT.get());
         this.dropDoubleWithSilk(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT.get());

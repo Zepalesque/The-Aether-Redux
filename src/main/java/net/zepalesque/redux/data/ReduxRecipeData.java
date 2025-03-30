@@ -164,6 +164,13 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
                 .save(output, Redux.locate("angelic_stone"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRITE_BRICKS.get(), 4)
+                .define('S', ReduxBlocks.POLISHED_SENTRITE.get())
+                .pattern("SS")
+                .pattern("SS")
+                .unlockedBy(getHasName(ReduxBlocks.SENTRITE.get()), has(ReduxBlocks.SENTRITE.get()))
+                .save(output);
+        
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.POLISHED_SENTRITE.get(), 4)
                 .define('S', ReduxBlocks.SENTRITE.get())
                 .pattern("SS")
                 .pattern("SS")
@@ -187,22 +194,38 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
         slab(output, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.SENTRITE_SLAB.get(), ReduxBlocks.SENTRITE.get());
         wall(output, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.SENTRITE_WALL.get(), ReduxBlocks.SENTRITE.get());
 
-
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRITE_BRICK_WALL.get(), ReduxBlocks.SENTRITE.get())
                 .save(output, Redux.locate(ReduxBlocks.SENTRITE.getId().getPath() + "_brick_wall_from_base_block_stonecutting"));
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRITE_BRICK_SLAB.get(), ReduxBlocks.SENTRITE.get())
                 .save(output, Redux.locate(ReduxBlocks.SENTRITE.getId().getPath() + "_brick_from_base_block_slab_stonecutting"));
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRITE_BRICK_STAIRS.get(), ReduxBlocks.SENTRITE.get())
                 .save(output, Redux.locate(ReduxBlocks.SENTRITE.getId().getPath() + "_brick_from_base_block_stairs_stonecutting"));
+        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRITE_BRICK_WALL.get(), ReduxBlocks.POLISHED_SENTRITE.get())
+                .save(output, Redux.locate(ReduxBlocks.SENTRITE.getId().getPath() + "_brick_wall_from_polished_block_stonecutting"));
+        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRITE_BRICK_SLAB.get(), ReduxBlocks.POLISHED_SENTRITE.get())
+                .save(output, Redux.locate(ReduxBlocks.SENTRITE.getId().getPath() + "_brick_from_polished_block_slab_stonecutting"));
+        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRITE_BRICK_STAIRS.get(), ReduxBlocks.POLISHED_SENTRITE.get())
+                .save(output, Redux.locate(ReduxBlocks.SENTRITE.getId().getPath() + "_brick_from_polished_block_stairs_stonecutting"));
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRITE_BRICK_WALL.get(), ReduxBlocks.SENTRITE_BRICKS.get())
                 .save(output, Redux.locate(ReduxBlocks.SENTRITE.getId().getPath() + "_brick_wall_stonecutting"));
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRITE_BRICK_SLAB.get(), ReduxBlocks.SENTRITE_BRICKS.get())
                 .save(output, Redux.locate(ReduxBlocks.SENTRITE.getId().getPath() + "_brick_slab_stonecutting"));
         stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRITE_BRICK_STAIRS.get(), ReduxBlocks.SENTRITE_BRICKS.get())
                 .save(output, Redux.locate(ReduxBlocks.SENTRITE.getId().getPath() + "_brick_stairs_stonecutting"));
+        
+        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.POLISHED_SENTRITE_WALL.get(), ReduxBlocks.POLISHED_SENTRITE.get())
+                .save(output, Redux.locate(ReduxBlocks.POLISHED_SENTRITE.getId().getPath() + "_wall_stonecutting"));
+        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.POLISHED_SENTRITE_SLAB.get(), ReduxBlocks.POLISHED_SENTRITE.get())
+                .save(output, Redux.locate(ReduxBlocks.POLISHED_SENTRITE.getId().getPath() + "_slab_stonecutting"));
+        stonecut(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.POLISHED_SENTRITE_STAIRS.get(), ReduxBlocks.POLISHED_SENTRITE.get())
+                .save(output, Redux.locate(ReduxBlocks.POLISHED_SENTRITE.getId().getPath() + "_stairs_stonecutting"));
+        
         stairs(ReduxBlocks.SENTRITE_BRICK_STAIRS, ReduxBlocks.SENTRITE_BRICKS).save(output);
         slab(output, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.SENTRITE_BRICK_SLAB.get(), ReduxBlocks.SENTRITE_BRICKS.get());
         wall(output, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.SENTRITE_BRICK_WALL.get(), ReduxBlocks.SENTRITE_BRICKS.get());
+        stairs(ReduxBlocks.POLISHED_SENTRITE_STAIRS, ReduxBlocks.POLISHED_SENTRITE).save(output);
+        slab(output, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.POLISHED_SENTRITE_SLAB.get(), ReduxBlocks.POLISHED_SENTRITE.get());
+        wall(output, RecipeCategory.BUILDING_BLOCKS,ReduxBlocks.POLISHED_SENTRITE_WALL.get(), ReduxBlocks.POLISHED_SENTRITE.get());
 
 
         stonecuttingRecipe(output, RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.CARVED_BASE.get(), AetherBlocks.CARVED_STONE.get());
@@ -270,9 +293,9 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
 
         oneToOneConversionRecipe(output, Items.PINK_DYE, ReduxBlocks.THERATIP.get(), null);
 
-        oneToOneConversionRecipe(output, Items.BLAZE_POWDER, ReduxBlocks.INFERNIA.get(), null);
+        oneToOneConversionRecipe(output, Items.ORANGE_DYE, ReduxBlocks.INFERNIA.get(), null);
 
-        oneToOneConversionRecipe(output, Items.WHITE_DYE, ReduxBlocks.FLAREBLOSSOM.get(), null);
+        oneToOneConversionRecipe(output, Items.BLAZE_POWDER, ReduxBlocks.FLAREBLOSSOM.get(), null);
 
         oneToOneConversionRecipe(output, Items.MAGENTA_DYE, ReduxBlocks.IRIDIA.get(), null);
 
