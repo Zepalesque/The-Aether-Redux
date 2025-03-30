@@ -737,6 +737,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addAdvancement("fall_from_aether", "Falling with Style!");
         addAdvancementDesc("fall_from_aether", "Fall out of the Aether");
+        addAdvancement("throw_ring_in_lava", "Cast It into the Fire! Destroy It!");
+        addAdvancementDesc("throw_ring_in_lava", "Throw a Golden Ring into lava in the Nether");
         addAdvancement("infuse_veridium", "Next Level");
         addAdvancementDesc("infuse_veridium", "Infuse a Veridium weapon or tool by right-clicking it with an Ambrosium Shard");
         addAdvancement("enter_blight", "Shattered Glass");

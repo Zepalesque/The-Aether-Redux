@@ -10,14 +10,11 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.HugeMushroomBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
-import net.minecraft.world.level.block.state.properties.WallSide;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
-import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.misc.ReduxTags;
-import net.zepalesque.redux.util.level.WorldgenUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -51,11 +48,10 @@ public class CloudcapFeature extends Feature<CloudcapFeature.Config> {
         for (Direction d : Direction.Plane.HORIZONTAL) {
             HashMap<BlockPos, BlockState> stem = new HashMap<>();
             int rootHeight = context.config().rootHeight.sample(context.random());
-            int rootWallHeight = context.config().rootWallHeight.sample(context.random());
             for (int i = 0; i < rootHeight; i++) {
                 mutable.setWithOffset(origin, d.getStepX(), i, d.getStepZ());
                 BlockPos immutable1 = mutable.immutable();
-                stem.putIfAbsent(immutable1, context.config().stem.getState(context.random(), immutable1));
+                stem.putIfAbsent(immutable1, (i == rootHeight - 1 ? context.config().stemHyphae : context.config().stem).getState(context.random(), immutable1));
             }
             for (int i = -1; i > -5; i--) {
                 mutable.setWithOffset(origin, d.getStepX(), i, d.getStepZ());
@@ -68,14 +64,6 @@ public class CloudcapFeature extends Feature<CloudcapFeature.Config> {
                     break;
                 }
             }
-            BlockPos wallOrigin = origin.above(rootHeight);
-            for (int i = 0; i < rootWallHeight; i++) {
-                mutable.setWithOffset(wallOrigin, d.getStepX(), i, d.getStepZ());
-                BlockPos immutable1 = mutable.immutable();
-                BlockState b = context.config().stemWall.getState(context.random(), immutable1);
-                b = trySet(b, WorldgenUtil.getWallSide(d.getOpposite()), i == rootWallHeight - 1 ? WallSide.LOW : WallSide.TALL);
-                stem.putIfAbsent(immutable1, b);
-            }
             roots.put(d, stem);
         }
 
@@ -84,7 +72,7 @@ public class CloudcapFeature extends Feature<CloudcapFeature.Config> {
         // Spore Blocks
         for (int x = -1; x <= 1; x++) {
             for (int z = -1; z <= 1; z++) {
-                for (int y = -1; y <= 0; y++) {
+                for (int y = -3; y <= 0; y++) {
                     if (x != 0 || z != 0) {
                         mutable.setWithOffset(stemTop, x, y, z);
                         BlockPos immutable1 = mutable.immutable();
@@ -142,22 +130,19 @@ public class CloudcapFeature extends Feature<CloudcapFeature.Config> {
 
 
         // Roots
-        if (ReduxConfig.COMMON.wall_roots.get()) {
-            for (Direction d : Direction.Plane.HORIZONTAL) {
-                if (roots.containsKey(d)) {
-                    Map<BlockPos, BlockState> map = roots.get(d);
-                    boolean flag = false;
-                    for (Map.Entry<BlockPos, BlockState> entry : map.entrySet()) {
-                        if (!canPlaceBlockHere(context.level(), entry.getKey())) {
-                            flag = true;
-                            break;
-                        }
+        for (Direction d : Direction.Plane.HORIZONTAL) {
+            if (roots.containsKey(d)) {
+                Map<BlockPos, BlockState> map = roots.get(d);
+                boolean flag = false;
+                for (Map.Entry<BlockPos, BlockState> entry : map.entrySet()) {
+                    if (!canPlaceBlockHere(context.level(), entry.getKey())) {
+                        flag = true;
+                        break;
                     }
-                    if (!flag) {
-                        for (Map.Entry<BlockPos, BlockState> entry : map.entrySet()) {
-                            this.setBlock(context.level(), entry.getKey(), entry.getValue());
-
-                        }
+                }
+                if (!flag) {
+                    for (Map.Entry<BlockPos, BlockState> entry : map.entrySet()) {
+                        this.setBlock(context.level(), entry.getKey(), entry.getValue());
                     }
                 }
             }
@@ -185,29 +170,26 @@ public class CloudcapFeature extends Feature<CloudcapFeature.Config> {
                 mushroom.group(BlockStateProvider.CODEC.fieldOf("cap_provider").forGetter((config) -> config.cap),
                                 BlockStateProvider.CODEC.fieldOf("spore_provider").forGetter((config) -> config.spore),
                                 BlockStateProvider.CODEC.fieldOf("stem_provider").forGetter((config) -> config.stem),
-                                BlockStateProvider.CODEC.fieldOf("stem_wall_provider").forGetter((config) -> config.stemWall),
+                                BlockStateProvider.CODEC.fieldOf("stem_hyphae_provider").forGetter((config) -> config.stemHyphae),
                                 IntProvider.CODEC.fieldOf("height").forGetter((config) -> config.height),
                                 IntProvider.CODEC.fieldOf("root_height").forGetter((config) -> config.rootHeight),
-                                IntProvider.CODEC.fieldOf("root_wall_height").forGetter((config) -> config.rootWallHeight),
                                 IntProvider.CODEC.fieldOf("cap_height").forGetter((config) -> config.capHeight))
                         .apply(mushroom, Config::new));
         public final BlockStateProvider cap;
         public final BlockStateProvider spore;
         public final BlockStateProvider stem;
-        public final BlockStateProvider stemWall;
+        public final BlockStateProvider stemHyphae;
         public final IntProvider height;
         public final IntProvider rootHeight;
-        public final IntProvider rootWallHeight;
         public final IntProvider capHeight;
 
-        public Config(BlockStateProvider cap, BlockStateProvider spore, BlockStateProvider stem, BlockStateProvider stemWall, IntProvider height, IntProvider rootHeight, IntProvider rootWallHeight, IntProvider capHeight) {
+        public Config(BlockStateProvider cap, BlockStateProvider spore, BlockStateProvider stem, BlockStateProvider stemHyphae, IntProvider height, IntProvider rootHeight, IntProvider capHeight) {
             this.cap = cap;
             this.spore = spore;
             this.stem = stem;
-            this.stemWall = stemWall;
+            this.stemHyphae = stemHyphae;
             this.height = height;
             this.rootHeight = rootHeight;
-            this.rootWallHeight = rootWallHeight;
             this.capHeight = capHeight;
         }
     }

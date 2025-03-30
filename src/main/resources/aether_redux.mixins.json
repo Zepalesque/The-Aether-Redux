@@ -40,7 +40,8 @@
     "common.world.BronzeDungeonRoomMixin",
     "common.world.ChunkAccessAccessor",
     "common.world.PerlinNoiseAccessor",
-    "common.world.RandomStateMixin"
+    "common.world.RandomStateMixin",
+    "common.item.RingItemMixin"
   ],
   "injectors": {
     "defaultRequire": 1

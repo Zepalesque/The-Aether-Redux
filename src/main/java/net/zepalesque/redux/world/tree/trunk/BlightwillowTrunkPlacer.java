@@ -19,9 +19,7 @@ import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
 import java.util.List;
 import java.util.function.BiConsumer;
 
-// TODO: move root stuff to custom root placer -- can return false on root placement method if overhangs go over a block down (USE A MAP, DO NOT IMMEDIATELY PLACE)
 public class BlightwillowTrunkPlacer extends TrunkPlacer {
-
 
     public static final Codec<BlightwillowTrunkPlacer> CODEC = RecordCodecBuilder.create(builder -> builder.group(
             IntProvider.codec(5, Integer.MAX_VALUE).fieldOf("height").forGetter(instance -> instance.height)
@@ -46,10 +44,7 @@ public class BlightwillowTrunkPlacer extends TrunkPlacer {
         for(int i = 1; i < height; i++) this.placeLog(level, setter, random, origin.above(i), config);
 
         BlockPos top = origin.above(height - 1);
-
-
-
-
+        
         // Branches
         for (Direction d : Direction.Plane.HORIZONTAL) {
             // Lower branch

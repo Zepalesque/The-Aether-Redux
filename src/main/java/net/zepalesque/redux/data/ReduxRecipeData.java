@@ -520,9 +520,9 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ReduxItems.RING_OF_WISDOM.get(), 1)
                 .define('H', AetherTags.Items.HOLYSTONE)
-                .define('E', Items.EMERALD)
+                .define('Z', AetherItems.ZANITE_GEMSTONE.get())
                 .define('R', ReduxItems.ENCHANTED_RING.get())
-                .pattern("HEH")
+                .pattern("HZH")
                 .pattern("HRH")
                 .pattern("HHH")
                 .unlockedBy(getHasName(ReduxItems.ENCHANTED_RING.get()), has(ReduxItems.ENCHANTED_RING.get()))

@@ -16,16 +16,25 @@ import com.aetherteam.aether.world.treedecorator.HolidayTreeDecorator;
 import com.aetherteam.aether.world.trunkplacer.CrystalTreeTrunkPlacer;
 import com.aetherteam.aether.world.trunkplacer.GoldenOakTrunkPlacer;
 import com.google.common.collect.ImmutableList;
-import net.minecraft.core.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
+import net.minecraft.core.HolderGetter;
+import net.minecraft.core.HolderSet;
+import net.minecraft.core.Vec3i;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
-import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.random.SimpleWeightedRandomList;
-import net.minecraft.util.valueproviders.*;
+import net.minecraft.util.valueproviders.BiasedToBottomInt;
+import net.minecraft.util.valueproviders.ConstantFloat;
+import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.util.valueproviders.IntProvider;
+import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.util.valueproviders.WeightedListInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.PinkPetalsBlock;
@@ -36,7 +45,14 @@ import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.*;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.MultifaceGrowthConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.VegetationPatchConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.ThreeLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BushFoliagePlacer;
@@ -55,20 +71,25 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.blockhandlers.WoodHandlers;
 import net.zepalesque.redux.api.condition.Conditions;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.util.state.ReduxStates;
 import net.zepalesque.redux.block.util.state.enums.PetalPrismaticness;
+import net.zepalesque.redux.blockhandlers.WoodHandlers;
 import net.zepalesque.redux.misc.ReduxTags;
-import net.zepalesque.redux.world.feature.*;
-import net.zepalesque.redux.world.feature.config.*;
+import net.zepalesque.redux.world.feature.CloudbedFeature;
+import net.zepalesque.redux.world.feature.CloudcapFeature;
+import net.zepalesque.redux.world.feature.FieldsprootTreeFeature;
+import net.zepalesque.redux.world.feature.JellyshroomFeature;
+import net.zepalesque.redux.world.feature.LargeRockFeature;
+import net.zepalesque.redux.world.feature.ReduxFeatures;
+import net.zepalesque.redux.world.feature.SurfaceRuleLakeFeature;
+import net.zepalesque.redux.world.feature.UpwardVineFeature;
+import net.zepalesque.redux.world.feature.config.PredicateStateConfig;
 import net.zepalesque.redux.world.stateprov.SimpleConditionAlternativeStateProvider;
-import net.zepalesque.redux.world.tree.decorator.BlightwillowRootsTrunkDecorator;
 import net.zepalesque.redux.world.tree.decorator.EnchantedVineDecorator;
 import net.zepalesque.redux.world.tree.decorator.PatchTreeDecorator;
 import net.zepalesque.redux.world.tree.foliage.BlightwillowFoliagePlacer;
-import net.zepalesque.redux.world.tree.foliage.LegacyBlightwillowFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.GenesisHookedFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.GenesisPineFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.GlaciaFoliagePlacer;
@@ -639,10 +660,9 @@ public class    ReduxFeatureConfig {
                         prov(ReduxBlocks.CLOUD_CAP_BLOCK.get().defaultBlockState().setValue(BlockStateProperties.DOWN, false)),
                         prov(ReduxBlocks.CLOUDCAP_SPORES),
                         prov(WoodHandlers.CLOUDCAP.log),
-                        prov(naturalDrops(WoodHandlers.CLOUDCAP.logWall)),
+                        prov(naturalDrops(WoodHandlers.CLOUDCAP.wood)),
                         UniformInt.of(17, 21),
-                        UniformInt.of(1, 4),
-                        UniformInt.of(1, 3),
+                        UniformInt.of(3, 7),
                         UniformInt.of(7, 9))
         );
         register(context, LARGE_MUSHROOMS, Feature.RANDOM_SELECTOR,
