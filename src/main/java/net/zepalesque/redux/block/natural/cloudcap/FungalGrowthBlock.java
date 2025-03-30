@@ -12,8 +12,8 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.zepalesque.redux.data.resource.ReduxFeatureConfig;
 
 public class FungalGrowthBlock extends MossBlock {
-    public FungalGrowthBlock(Properties p_153790_) {
-        super(p_153790_);
+    public FungalGrowthBlock(Properties properties) {
+        super(properties);
         this.registerDefaultState(this.defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, false));
     }
 
@@ -24,10 +24,7 @@ public class FungalGrowthBlock extends MossBlock {
     }
 
     public void performBonemeal(ServerLevel level, RandomSource rand, BlockPos pos, BlockState state) {
-        level.registryAccess().registry(Registries.CONFIGURED_FEATURE).flatMap((configuredFeatures) -> {
-            return configuredFeatures.getHolder(ReduxFeatureConfig.FUNGAL_PATCH_BONEMEAL);
-        }).ifPresent((feature) -> {
-            feature.value().place(level, level.getChunkSource().getGenerator(), rand, pos.above());
-        });
+        level.registryAccess().registry(Registries.CONFIGURED_FEATURE).flatMap(configuredFeatures -> configuredFeatures.getHolder(ReduxFeatureConfig.FUNGAL_PATCH_BONEMEAL)
+        ).ifPresent(feature -> feature.value().place(level, level.getChunkSource().getGenerator(), rand, pos.above()));
     }
 }

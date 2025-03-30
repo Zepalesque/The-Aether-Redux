@@ -17,9 +17,7 @@ import net.zepalesque.redux.block.ReduxBlocks;
 import java.util.List;
 
 public class AveliumBlock extends AetherGrassBlock {
-
-
-
+    
     public AveliumBlock(Properties properties) {
         super(properties);
     }

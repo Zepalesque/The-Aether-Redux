@@ -18,7 +18,7 @@ public class CloudcapSporesBlock extends AetherDoubleDropBlock {
         int x = pos.getX();
         int y = pos.getY();
         int z = pos.getZ();
-        if (level.random.nextInt(8) == 0 && level.isStateAtPosition(pos.below(), bs -> (!bs.canOcclude() || !bs.isFaceSturdy(level, pos, Direction.UP)))) {
+        if (level.random.nextInt(16) == 0 && level.isStateAtPosition(pos.below(), bs -> !bs.canOcclude() || !bs.isFaceSturdy(level, pos, Direction.UP))) {
 
             double d0 = (double) x + random.nextDouble();
             double d1 = (double) y + 0.7D;

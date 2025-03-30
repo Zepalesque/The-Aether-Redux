@@ -41,7 +41,8 @@
     "common.world.ChunkAccessAccessor",
     "common.world.PerlinNoiseAccessor",
     "common.world.RandomStateMixin",
-    "common.item.RingItemMixin"
+    "common.item.RingItemMixin",
+    "common.item.GlowingSporesItemMixin"
   ],
   "injectors": {
     "defaultRequire": 1
