@@ -110,7 +110,8 @@ public class ReduxColors {
                 new ResourceLocation("deep_aether", "golden_aspess"),
                 new ResourceLocation("deep_aether", "potted_golden_aspess"),
                 new ResourceLocation("deep_aether", "echaisy"),
-                new ResourceLocation("deep_aether", "potted_echaisy")
+                new ResourceLocation("deep_aether", "potted_echaisy"),
+                new ResourceLocation("deep_aether", "glowing_spores")
             );
             register(event, (state, level, pos, index) -> pos != null ? getColor(state, level, state.getValue(DoublePlantBlock.HALF) == DoubleBlockHalf.UPPER ? pos.below() : pos, index, 1)  : ReduxBiomes.AETHER_GRASS_COLOR,
                 new ResourceLocation("deep_aether", "tall_feather_grass"),

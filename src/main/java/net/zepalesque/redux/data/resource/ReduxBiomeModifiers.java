@@ -225,6 +225,8 @@ public class ReduxBiomeModifiers {
                 .put(DABiomes.GOLDEN_GROVE, ReduxBiomes.GOLDEN_GRASS_COLOR)
                 .put(DABiomes.GOLDEN_HEIGHTS, ReduxBiomes.GOLDEN_GRASS_COLOR)
                 .put(DABiomes.MYSTIC_AERGLOW_FOREST, ReduxBiomes.MYSTIC_AERGLOW_GRASS_COLOR)
+                .put(DABiomes.LUMINESCENT_FOREST, ReduxBiomes.LUMINESCENT_GRASS_COLOR)
+                .put(DABiomes.CLOUD, ReduxBiomes.LUMINESCENT_GRASS_COLOR)
                 .put(GenesisBiomes.VIBRANT_FOREST, 0xA2F2BC)
                 .put(GenesisBiomes.VIBRANT_WOODLAND, 0x96E8B0)
                 .put(GenesisBiomes.VIBRANT_MEADOW, 0xBAFFCB)
