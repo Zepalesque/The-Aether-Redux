@@ -2,17 +2,18 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "S": {
+    "#": {
       "item": "aether_redux:polished_sentrite"
     }
   },
   "pattern": [
-    "SS",
-    "SS"
+    "#  ",
+    "## ",
+    "###"
   ],
   "result": {
     "count": 4,
-    "item": "aether_redux:sentrite_bricks"
+    "item": "aether_redux:polished_sentrite_stairs"
   },
   "show_notification": true
 }

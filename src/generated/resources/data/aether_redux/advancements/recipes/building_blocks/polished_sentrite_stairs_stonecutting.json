@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_flareblossom": {
+    "has_polished_sentrite": {
       "conditions": {
         "items": [
           {
             "items": [
-              "aether_redux:flareblossom"
+              "aether_redux:polished_sentrite"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:white_dye_from_flareblossom"
+        "recipe": "aether_redux:polished_sentrite_stairs_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_flareblossom",
+      "has_polished_sentrite",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:white_dye_from_flareblossom"
+      "aether_redux:polished_sentrite_stairs_stonecutting"
     ]
   },
   "sends_telemetry_event": false

@@ -3,7 +3,7 @@
   "category": "building",
   "key": {
     "S": {
-      "item": "aether_redux:polished_sentrite"
+      "item": "aether_redux:sentrite"
     }
   },
   "pattern": [
@@ -12,7 +12,7 @@
   ],
   "result": {
     "count": 4,
-    "item": "aether_redux:sentrite_bricks"
+    "item": "aether_redux:polished_sentrite"
   },
   "show_notification": true
 }

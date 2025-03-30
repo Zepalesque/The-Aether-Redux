@@ -4,6 +4,7 @@
     "aether_redux:sentry_pillar",
     "aether_redux:carved_base",
     "aether_redux:sentry_base",
-    "aether_redux:runelight"
+    "aether_redux:runelight",
+    "aether_redux:polished_sentrite"
   ]
 }
