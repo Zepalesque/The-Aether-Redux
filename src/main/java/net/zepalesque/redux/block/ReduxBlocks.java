@@ -422,11 +422,11 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
 
 
     public static RegistryObject<Block> WYNDSPROUTS = register("wyndsprouts",
-            () -> new EnchantableBushBlock(CommonPlantBounds.BUSH, BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.CHERRY_SAPLING).offsetType(BlockBehaviour.OffsetType.XZ)));
+            () -> new EnchantableBushBlock(CommonPlantBounds.BUSH, BlockBehaviour.Properties.of().hasPostProcess(ReduxBlocks::always).pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.CHERRY_SAPLING).offsetType(BlockBehaviour.OffsetType.XZ)));
 //    public static final RegistryObject<FlowerPotBlock> POTTED_WYNDSPROUTS = BLOCKS.register("potted_wyndsprouts", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, WYNDSPROUTS, Block.Properties.copy(Blocks.FLOWER_POT)));
 
     public static RegistryObject<Block> SKYSPROUTS = register("skysprouts",
-            () -> new EnchantableBushBlock(CommonPlantBounds.BUSH, BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.CHERRY_SAPLING).offsetType(BlockBehaviour.OffsetType.XZ)));
+            () -> new EnchantableBushBlock(CommonPlantBounds.BUSH, BlockBehaviour.Properties.of().hasPostProcess(ReduxBlocks::always).pushReaction(PushReaction.DESTROY).noCollission().instabreak().sound(SoundType.CHERRY_SAPLING).offsetType(BlockBehaviour.OffsetType.XZ)));
 //    public static final RegistryObject<FlowerPotBlock> POTTED_SKYSPROUTS = BLOCKS.register("potted_skysprouts", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, SKYSPROUTS, Block.Properties.copy(Blocks.FLOWER_POT)));
 
     public static RegistryObject<Block> LUXWEED = register("luxweed",
