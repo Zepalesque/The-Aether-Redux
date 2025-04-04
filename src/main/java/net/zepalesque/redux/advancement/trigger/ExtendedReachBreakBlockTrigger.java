@@ -20,7 +20,7 @@ public class ExtendedReachBreakBlockTrigger extends SimpleCriterionTrigger<Exten
    }
 
    public void trigger(ServerPlayer pPlayer) {
-      this.trigger(pPlayer, (trigger) -> true);
+      this.trigger(pPlayer, trigger -> true);
    }
 
 
