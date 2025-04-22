@@ -54,7 +54,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
         addItem(ReduxItems.REFINED_SENTRITE, "Refined Sentrite");
         addLore(ReduxItems.REFINED_SENTRITE, "The purified form of Sentrite. This can be used for a variety of different things, but is commonly found associated with Sentry technology.");
-
+        
         addItem(ReduxItems.SENTRITE_CHUNK, "Sentrite Chunk");
         addLore(ReduxItems.SENTRITE_CHUNK, "A chunk of purified Sentrite. These are occasionally dropped from Sentries, and can be crafted into Refined Sentrite.");
 
@@ -103,7 +103,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addItem(ReduxItems.RING_OF_CONSTRUCTION, "Ring of Construction");
         addLore(ReduxItems.RING_OF_CONSTRUCTION, "A rare drop from Valkyries, which extends the distance you can reach when building. It is said that these were used to construct the Valkyrie Temples found throughout the Aether.");
 
-        addItem(ReduxItems.SHROOM_RING, "Ring of Adrenaline");
+        addItem(ReduxItems.SHROOM_RING, "Adrenaline Ring");
         addLore(ReduxItems.SHROOM_RING, "One of many different variations of the Enchanted Ring. When worn, taking damage with low health will have a chance to give an Adrenaline effect, giving a temporary stat boost in turn for a stat debuff when it expires.");
 
         addItem(ReduxItems.VAMPIRE_AMULET, "Vampire Amulet");
@@ -294,7 +294,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addLore(ReduxBlocks.PURPLE_GLACIA_SAPLING, "The sapling of the purple variant of the Glacia tree. It can be grown by waiting or using Bone Meal.");
 
         addBlock(ReduxBlocks.DIVINITE, "Angilite");
-        addLore(ReduxBlocks.DIVINITE, "A rock found in the Aether. This rock is commonly used in structures built by Valkyries. Additionally, when enchanted, it buds into a dazzlingly bright glowing stone!");
+        addLore(ReduxBlocks.DIVINITE, "A rock found in the Aether. This rock is commonly used in structures built by Valkyries. Additionally, when enchanted, it buds into a dazzlingly bright glowing stone! Glow-stone, perhaps?");
         addBlock(ReduxBlocks.DIVINITE_SLAB, "Angilite Slab");
         addLore(ReduxBlocks.DIVINITE_SLAB, "Crafted from Angilite. Slabs are half blocks, versatile for decoration and smooth slopes. Try adding some to a building's roofing!");
         addBlock(ReduxBlocks.DIVINITE_STAIRS, "Angilite Stairs");
@@ -579,13 +579,13 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addGuiText("airbound_cape_jump_boost", "Grants ability to double jump");
         addGuiText("solar_emblem_fireball", "Grants ability to shoot fireballs by pressing [%s]");
         addGuiText("sentry_ring_embers", "Targets of melee attacks release burning embers");
-        addGuiText("shroom_ring_adrenaline", "Taking damage at low health gives an Adrenaline effect for temporary stat boosts, at a price of a debuff soon after");
+        addGuiText("shroom_ring_adrenaline", "Gives a temporary Adrenaline effect when health is dangerously low, followed by a debuff soon after");
         addGuiText("cockatrice_feather_protection", "Grants protection from Blight foliage");
         addGuiText("feather_of_warding_immunity", "Grants immunity to Inebriation and protection from Blight foliage");
 
         addGuiText("player.dialog.has_grand_medal", "I'm ready, I have a Grand Victory Medal!");
 
-        addGuiText("vampire_amulet_night_ability", "After being worn for one overworld day (as symbolized by a gold highlight), will grant the ability to absorb dealt damage");
+        addGuiText("vampire_amulet_night_ability", "After being worn for one overworld day, will grant the ability to absorb dealt damage");
         addGuiText("vampire_amulet_day_debuff", "Causes more damage to be taken at day");
 
         addGuiText("shift_info", "Hold [%s] for more info...");
@@ -679,7 +679,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addSubtitle("entity", "blightbunny_death", "Blightbunny dies");
         addSubtitle("item.accessory", "equip_bittersweet_charm", "Bittersweet Charm jingles");
         addSubtitle("item.accessory", "equip_enchanted_ring", "Enchanted Ring thunks");
-        addSubtitle("item.accessory", "equip_shroom_ring", "Ring of Adrenaline thunks");
+        addSubtitle("item.accessory", "equip_shroom_ring", "Adrenaline Ring thunks");
         addSubtitle("item.accessory", "equip_grand_medal", "Grand Victory Medal clinks");
         addSubtitle("item.accessory", "equip_construction_ring", "Ring of Construction clinks");
         addSubtitle("item.accessory", "equip_wisdom_ring", "Ring of Wisdom clanks");
