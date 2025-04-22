@@ -95,7 +95,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addLore(ReduxItems.ENCHANTED_RING, "A ring with a large amount of magical potential. You can use it to craft many other types of rings with a variety of abilities!");
 
         addItem(ReduxItems.RING_OF_WISDOM, "Ring of Wisdom");
-        addLore(ReduxItems.RING_OF_WISDOM, "One of many variations of the enchanted ring, this one is crafted using Holystone and a strange green crystal not native to the Aether, known as an Emerald");
+        addLore(ReduxItems.RING_OF_WISDOM, "One of many variations of the enchanted ring, this one is crafted using Holystone and a Zanite Gemstone");
 
         addItem(ReduxItems.SENTRY_RING, "Sentry Ring");
         addLore(ReduxItems.SENTRY_RING, "One of many different variations of the enchanted ring. When worn, hitting mobs will release buring blue embers that can strike nearby mobs!");
