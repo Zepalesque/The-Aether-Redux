@@ -393,7 +393,9 @@ public class    ReduxFeatureConfig {
                     )
                 )),
                 new TwoLayersFeatureSize(7, 0, 3)
-            ).ignoreVines().build());
+            ).ignoreVines().decorators(List.of(
+                new PatchTreeDecorator(createLeafPileLayers(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE), 7, 3, 32)
+            )).build());
         
         register(context, DAGGERBLOOM_PATCH, Feature.FLOWER,
                 randomPatch(12, 7, 3, prov(ReduxBlocks.DAGGERBLOOM)));

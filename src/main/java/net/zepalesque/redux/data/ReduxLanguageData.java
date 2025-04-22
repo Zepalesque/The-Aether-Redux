@@ -588,6 +588,7 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addGuiText("vampire_amulet_night_ability", "After being worn for one overworld day, will grant the ability to absorb dealt damage");
         addGuiText("vampire_amulet_day_debuff", "Causes more damage to be taken at day");
 
+        // TODO: Seperate keybind for this?
         addGuiText("shift_info", "Hold [%s] for more info...");
         addTooltip("infusion_charge", "Infusion Charge: %s");
         addGuiText("infusion_info", "Can be infused by right-clicking with an Ambrosium Shard");
