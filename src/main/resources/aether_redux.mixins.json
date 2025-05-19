@@ -42,7 +42,8 @@
     "common.world.PerlinNoiseAccessor",
     "common.world.RandomStateMixin",
     "common.item.RingItemMixin",
-    "common.item.GlowingSporesItemMixin"
+    "common.item.GlowingSporesItemMixin",
+    "common.world.NoiseSettingsAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
