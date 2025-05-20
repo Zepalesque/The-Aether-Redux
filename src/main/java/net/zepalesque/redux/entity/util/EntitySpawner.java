@@ -19,6 +19,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Supplier;
 
+// TODO: Bind to mob, kill on mob death (to ensure spawn consistency)
 public class EntitySpawner extends Mob {
     private final EntityType<? extends Mob> typeToSpawn;
 
@@ -42,6 +43,7 @@ public class EntitySpawner extends Mob {
                 e.copyPosition(this);
                 e.yBodyRot = this.yBodyRot;
                 // TODO: Test this, see if it is a good idea
+                //  also, why exactly was this something I did?
                 e.setPersistenceRequired();
                 this.level().addFreshEntity(e);
                 return e;
