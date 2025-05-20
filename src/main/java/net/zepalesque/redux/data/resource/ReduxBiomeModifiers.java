@@ -11,6 +11,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BiomeTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.MobSpawnSettings;
@@ -65,6 +66,11 @@ public class ReduxBiomeModifiers {
     public static final ResourceKey<BiomeModifier> SKY_COLOR_AETHER = createKey(MODIFY + "redux_sky_colors");
     public static final ResourceKey<BiomeModifier> VANILLA_GRASS_OVERRIDE = createKey(MODIFY + "redux_vanilla_grasses");
     public static final ResourceKey<BiomeModifier> AETHER_GRASS_COLORS = createKey(MODIFY + "redux_aether_grasses");
+    
+    // ok so i wish i knew why single-line javadocs with three slashes aren't working smh my head
+    /** Fix for RazorDevs/Deep-Aether<a href="https://github.com/RazorDevs/Deep-Aether/issues/271">#271</a> */
+    public static final ResourceKey<BiomeModifier> FIX_DEEP_AETHER_ISSUE_271 = createKey(MODIFY + "fix_deep_aether_issue_271");
+    
     
     private static ResourceKey<BiomeModifier> createKey(String name) {
         return ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, Redux.locate(name));
@@ -197,7 +203,9 @@ public class ReduxBiomeModifiers {
             new MusicModifier.MusicOperator(Optional.empty(), Optional.of(ReduxMusic.MUSIC_MIN), Optional.of(ReduxMusic.MUSIC_MAX), Optional.empty()),
             Optional.empty()));
         
-        
+        context.register(FIX_DEEP_AETHER_ISSUE_271, new MusicModifier(biomes.getOrThrow(ReduxTags.Biomes.DA_BIOMES),
+            new MusicModifier.MusicOperator(Optional.empty(), Optional.empty(), Optional.empty(), Optional.of(false)),
+            Optional.empty()));
         
         context.register(AETHER_GRASS_COLORS, new AetherGrassColors(
             RegistryMap.Builder.<Biome, Integer>create()

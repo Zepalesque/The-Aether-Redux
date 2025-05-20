@@ -86,6 +86,8 @@ public class ReduxTags {
         public static final TagKey<Biome> IS_QUICKSOIL_DESERT = tag("is_quicksoil_desert");
 
         public static final TagKey<Biome> AA_SKY_GRASS = tagAncient("has_aether_grass_patches");
+        
+        public static final TagKey<Biome> DA_BIOMES = tag("deep_aether_biomes");
 
         public static final TagKey<Biome> HAS_AETHER_CAVES = tag("has_aether_caves");
         public static final TagKey<Biome> HAS_CLOUD_LAYER = tag("has_cloud_layer");
@@ -103,7 +105,6 @@ public class ReduxTags {
         public static final TagKey<Biome> MODIFY_WATER_COLOR = tag("has_redux_water_color");
         public static final TagKey<Biome> HAS_REDUX_SKY_COLOR = tag("has_redux_sky_color");
         public static final TagKey<Biome> CHANGE_VANILLA_GRASS_COLORS = tag("change_vanilla_grass_colors");
-
         public static final TagKey<Biome> FOREST_COLORS = tag("forest_colors");
         public static final TagKey<Biome> WOODLAND_COLORS = tag("woodland_colors");
         public static final TagKey<Biome> MEADOW_COLORS = tag("meadow_colors");
@@ -144,6 +145,7 @@ public class ReduxTags {
     // Portmanteau of Advancement and Override, for context
     public static class Adverrides {
 
+        // TODO: where is this used exactly?
         public static final TagKey<AdvancementSoundOverride> LOW_PRIORITY = tag("low_priority");
 
         private static TagKey<AdvancementSoundOverride> tag(String name) {

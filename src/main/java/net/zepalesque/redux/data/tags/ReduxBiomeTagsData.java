@@ -39,6 +39,17 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
             ReduxTags.Biomes.IS_FROSTED
         ).add(ReduxBiomes.SKYROOT_SHRUBLANDS, ReduxBiomes.SKYFIELDS, ReduxBiomes.THE_BLIGHT);
         
+        this.tag(ReduxTags.Biomes.DA_BIOMES)
+            .addOptional(DABiomes.GOLDEN_HEIGHTS.location())
+            .addOptional(DABiomes.GOLDEN_GROVE.location())
+            .addOptional(DABiomes.MYSTIC_AERGLOW_FOREST.location())
+            .addOptional(DABiomes.AERGLOW_FOREST.location())
+            .addOptional(DABiomes.BLUE_AERGLOW_FOREST.location())
+            .addOptional(DABiomes.AERLAVENDER_FIELDS.location())
+            .addOptional(DABiomes.CLOUD.location())
+            .addOptional(DABiomes.LUMINESCENT_FOREST.location())
+            .addOptional(DABiomes.YAGROOT_SWAMP.location());
+        
         
         this.tag(ReduxTags.Biomes.HAS_AETHER_CAVES).addTag(AetherTags.Biomes.IS_AETHER);
         this.tag(ReduxTags.Biomes.HAS_CLOUD_LAYER).addTag(AetherTags.Biomes.IS_AETHER);

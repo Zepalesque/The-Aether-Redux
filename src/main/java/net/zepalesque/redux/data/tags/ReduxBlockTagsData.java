@@ -109,6 +109,8 @@ public class ReduxBlockTagsData extends BlockTagsProvider {
             this.tag(BlockTags.WOODEN_DOORS).add(woodHandler.door.get());
             this.tag(BlockTags.STANDING_SIGNS).add(woodHandler.sign.get());
             this.tag(BlockTags.WALL_SIGNS).add(woodHandler.wallSign.get());
+            this.tag(BlockTags.CEILING_HANGING_SIGNS).add(woodHandler.hangingSign.get());
+            this.tag(BlockTags.WALL_HANGING_SIGNS).add(woodHandler.wallHangingSign.get());
             this.tag(BlockTags.WALLS).add(woodHandler.logWall.get(), woodHandler.woodWall.get());
             if (woodHandler.hasStrippedLogs) {
                 this.tag(BlockTags.WALLS).add(woodHandler.strippedLogWall.get().get(), woodHandler.strippedWoodWall.get().get());
