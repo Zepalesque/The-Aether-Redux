@@ -3,6 +3,7 @@ package net.zepalesque.redux.util.compat;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.natural.AercloudBlock;
 import com.aetherteam.aether.data.resources.registries.AetherBiomes;
+import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether_genesis.GenesisConfig;
 import com.aetherteam.aether_genesis.block.GenesisBlocks;
 import com.aetherteam.aether_genesis.client.particle.GenesisParticleTypes;
@@ -18,6 +19,7 @@ import net.minecraftforge.common.util.Lazy;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.advancement.predicate.StatePredicate;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
+import net.zepalesque.redux.config.ReduxConfig;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
@@ -39,19 +41,18 @@ public class GenesisCompatUtil {
     public static boolean isPurpleCrystal(ParticleOptions particle) {
         return particle == GenesisParticleTypes.PURPLE_CRYSTAL_LEAVES.get();
     }
-
-    public static boolean isSkyrootMimic(EntityType<?> type) {
-        return Redux.aetherGenesisCompat() && type == GenesisEntityTypes.SKYROOT_MIMIC.get();
+    
+    public static void addGenesisNames(ImmutableMap.Builder<EntityType<?>, Supplier<Boolean>> builder) {
+        if (Redux.aetherGenesisCompat())
+            builder
+                .put(GenesisEntityTypes.BATTLE_SENTRY.get(), ReduxConfig.CLIENT.sentry_model_upgrade)
+                .put(GenesisEntityTypes.SKYROOT_MIMIC.get(), () -> ReduxConfig.CLIENT.mimic_model_upgrade.get().shouldUseModern());
     }
+    
 
-    public static boolean isBattleSentry(EntityType<?> type) {
-        return Redux.aetherGenesisCompat() && type == GenesisEntityTypes.BATTLE_SENTRY.get();
-    }
 
     public static boolean goldCloudSFX(AercloudBlock block) {
-        if (!Redux.aetherGenesisCompat()) {
-            return false;
-        }
+        if (!Redux.aetherGenesisCompat()) return false;
         return block == AetherBlocks.GOLDEN_AERCLOUD.get() && GenesisConfig.COMMON.gold_aercloud_ability.get();
     }
 }
