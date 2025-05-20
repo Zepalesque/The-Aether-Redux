@@ -25,9 +25,16 @@ public class ReduxSoundEventTagData extends TagsProvider<SoundEvent> {
 
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
-        this.tag(ReduxTags.Sounds.ALWAYS_ALLOW)
-                .add(AetherSoundEvents.MUSIC_BOSS_SLIDER.getKey(), AetherSoundEvents.MUSIC_BOSS_VALKYRIE_QUEEN.getKey(), AetherSoundEvents.MUSIC_BOSS_SUN_SPIRIT.getKey())
-                .addOptional(LCSounds.MUSIC_PLATINUM_BOSS.getLocation())
+        this.tag(ReduxTags.Sounds.ALWAYS_ALLOW).add()
+                .add(
+                    AetherSoundEvents.MUSIC_BOSS_SLIDER.getKey(),
+                    AetherSoundEvents.MUSIC_BOSS_VALKYRIE_QUEEN.getKey(),
+                    AetherSoundEvents.MUSIC_BOSS_SUN_SPIRIT.getKey(),
+                    AetherSoundEvents.UI_TOAST_AETHER_GENERAL.getKey(),
+                    AetherSoundEvents.UI_TOAST_AETHER_BRONZE.getKey(),
+                    AetherSoundEvents.UI_TOAST_AETHER_SILVER.getKey(),
+                    AetherSoundEvents.UI_TOAST_AETHER_GOLD.getKey()
+                ).addOptional(LCSounds.MUSIC_PLATINUM_BOSS.getLocation())
                 .addOptional(LCSounds.MUSIC_PLATINUM_BOSS_FOGGY.getLocation())
                 .addOptional(DASounds.LOCUS_FOR_WINDS.getId());
         this.tag(ReduxTags.Sounds.AETHER_MUSIC)
