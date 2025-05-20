@@ -23,6 +23,9 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.condition.Conditions;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.block.natural.blight.BlightedGrassBlock;
+import net.zepalesque.redux.block.util.state.ReduxStates;
+import net.zepalesque.redux.block.util.state.enums.BlightGrassColor;
 import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
 import net.zepalesque.redux.mixin.common.world.NoiseSettingsAccessor;
 import net.zepalesque.redux.world.biome.surfacerule.ConditionCondition;
@@ -61,7 +64,9 @@ public class ReduxSurfaceRules {
                         SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR,
                             SurfaceRules.state(
                                 ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get().defaultBlockState()
-                                    .setValue(AetherBlockStateProperties.DOUBLE_DROPS, true))))
+                                    .setValue(AetherBlockStateProperties.DOUBLE_DROPS, true)
+                                    .setValue(ReduxStates.BLIGHT_GRASS_COLOR, BlightGrassColor.TINTABLE)
+                            )))
                     );
                     newRules.add(0, SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.THE_BLIGHT),
                         SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR,
