@@ -652,16 +652,12 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
             stairs(woodHandler.stairs, woodHandler.planks).save(output);
             bookshelf(output, woodHandler.planks.get(), woodHandler.bookshelf.get());
             if (woodHandler.hasStrippedLogs && woodHandler.strippedLog.isPresent() && woodHandler.strippedWood.isPresent())
-            {
                 woodFromLogs(output, woodHandler.strippedWood.get().get(), woodHandler.strippedLog.get().get());
-            }
 
-            if (woodHandler.hasSporingLogs && woodHandler.sporingWood.isPresent() && woodHandler.sporingLog.isPresent()) {
+            if (woodHandler.hasSporingLogs && woodHandler.sporingWood.isPresent() && woodHandler.sporingLog.isPresent())
                 woodFromLogs(output, woodHandler.sporingWood.get().get(), woodHandler.sporingLog.get().get());
-            }
 
-            if (woodHandler.alwaysLogWalls)
-            {
+            if (woodHandler.alwaysLogWalls) {
                 wall(output, RecipeCategory.BUILDING_BLOCKS, woodHandler.logWall.get(), woodHandler.log.get());
                 wall(output, RecipeCategory.BUILDING_BLOCKS, woodHandler.woodWall.get(), woodHandler.wood.get());
                 if (woodHandler.hasStrippedLogs && woodHandler.strippedLogWall.isPresent() && woodHandler.strippedWoodWall.isPresent() && woodHandler.strippedLog.isPresent() && woodHandler.strippedWood.isPresent()) {

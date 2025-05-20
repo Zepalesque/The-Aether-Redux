@@ -32,11 +32,10 @@ public class ReduxAudioHooks {
             return sound.getLocation().equals(ReduxSoundEvents.GOLD_AERCLOUD_WHOOSH.get().getLocation()) ||
                    sound.getLocation().equals(ReduxSoundEvents.PURPLE_AERCLOUD_ZOOM.get().getLocation()) ||
                    sound.getLocation().equals(ReduxSoundEvents.GREEN_AERCLOUD_WUBBLE.get().getLocation());
-        } else {
-            return false;
-        }
+        } else return false;
     }
 
+    @Deprecated
     // TODO: rewrite music deduplication stuff in 1.21.1+ (system feels a little convoluted tbh and could do with some readability improvements alongside a rethinking to ensure nothing is unnecessary here)
     public static boolean shouldCancel(SoundEngine engine, SoundInstance instance) {
         // If it's not music then we have no reason to cancel it
