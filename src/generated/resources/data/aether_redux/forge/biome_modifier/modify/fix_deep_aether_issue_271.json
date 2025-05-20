@@ -1,0 +1,7 @@
+{
+  "type": "aether_redux:modify_music",
+  "biomes": "#aether_redux:deep_aether_biomes",
+  "new_track": {
+    "replace_current": false
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "values": [
+    {
+      "id": "deep_aether:golden_heights",
+      "required": false
+    },
+    {
+      "id": "deep_aether:golden_grove",
+      "required": false
+    },
+    {
+      "id": "deep_aether:mystic_aerglow_forest",
+      "required": false
+    },
+    {
+      "id": "deep_aether:aerglow_forest",
+      "required": false
+    },
+    {
+      "id": "deep_aether:blue_aerglow_forest",
+      "required": false
+    },
+    {
+      "id": "deep_aether:aerlavender_fields",
+      "required": false
+    },
+    {
+      "id": "deep_aether:cloud",
+      "required": false
+    },
+    {
+      "id": "deep_aether:luminescent_forest",
+      "required": false
+    },
+    {
+      "id": "deep_aether:yagroot_swamp",
+      "required": false
+    }
+  ]
+}

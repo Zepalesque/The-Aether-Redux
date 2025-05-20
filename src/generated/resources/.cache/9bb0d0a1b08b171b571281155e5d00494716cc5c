@@ -1,4 +1,4 @@
-// 1.20.1	2025-03-29T22:17:24.7369793	Tags for minecraft:block mod id aether_redux
+// 1.20.1	2025-05-20T14:52:32.5990511	Tags for minecraft:block mod id aether_redux
 8f59d0f2e59cb5eca343062c21759ff8593f2e46 data/aether/tags/blocks/aerclouds.json
 ebab2728703e916d5aa6c4a4c1f2c4f2d65ec1e3 data/aether/tags/blocks/aether_animals_spawnable_on.json
 5d63809160d2566cbfd5e796337c24e28cbf4a09 data/aether/tags/blocks/aether_dirt.json
@@ -31,6 +31,7 @@ ce3087631d37c89562a170802a2473a14f8d9153 data/aether_redux/tags/blocks/quicksoil
 22ee7218d1c999a0eb0ddf1bba7425c125a68c2a data/aether_redux/tags/blocks/sporing_blightwillow_logs.json
 16ef77309fae16577bda3e27ff7b957860a527c8 data/forge/tags/blocks/bookshelves.json
 0e8fb38437f81b67991a52679cfc519a1b68a2bf data/minecraft/tags/blocks/beacon_base_blocks.json
+a0990144195e679583d6e69ae9cd3792b6a0fb62 data/minecraft/tags/blocks/ceiling_hanging_signs.json
 52ea20c1c74e51ec1a1c3150d7a4daa7eba5f82c data/minecraft/tags/blocks/climbable.json
 bc430080ca8b72a216980bde57ae5b01cf09065f data/minecraft/tags/blocks/fence_gates.json
 9497d1b0e6a6221a8cf7adccd08583725900e5fa data/minecraft/tags/blocks/flowers.json
@@ -51,6 +52,7 @@ e0dba934faba5edd8ce150350f5b09b1f4986bb6 data/minecraft/tags/blocks/replaceable.
 0106cbaeef54aee3feec2d80efd976ed7369e1d1 data/minecraft/tags/blocks/stairs.json
 799840a10fbe1ec76ae1a2438c90785506b75c39 data/minecraft/tags/blocks/standing_signs.json
 a4a7dd35bf64d09bc9430282e3c4aaf1bb286b12 data/minecraft/tags/blocks/walls.json
+765d197ecc8d1ef17784fca0ee7430c62bb6cd1e data/minecraft/tags/blocks/wall_hanging_signs.json
 f6c24111d4763ba7b309b7eb0912d4cb4647ba9e data/minecraft/tags/blocks/wall_signs.json
 ffe2a1c78a8346535a029c61b1ffc491594eb4f4 data/minecraft/tags/blocks/wooden_buttons.json
 8179fdd4a0239992ac6aa76b6198b6e5335de4d9 data/minecraft/tags/blocks/wooden_doors.json
