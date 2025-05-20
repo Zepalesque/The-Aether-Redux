@@ -444,7 +444,6 @@
   "gui.aether_redux.player.dialog.has_grand_medal": "I'm ready, I have a Grand Victory Medal!",
   "gui.aether_redux.purified_luxbuds_tooltip": "Gives the helpful Blightward effect when eaten",
   "gui.aether_redux.sentry_ring_embers": "Targets of melee attacks release burning embers",
-  "gui.aether_redux.shift_info": "Hold [%s] for more info...",
   "gui.aether_redux.shroom_ring_adrenaline": "Gives a temporary Adrenaline effect when health is dangerously low, followed by a debuff soon after",
   "gui.aether_redux.solar_emblem_fireball": "Grants ability to shoot fireballs by pressing [%s]",
   "gui.aether_redux.tip_color": "Tips from The Aether: Redux have a lavender-colored title!",
@@ -890,5 +889,6 @@
   "tooltip.aether_redux.legacy_counterpart": "Please use the new counterpart, %s",
   "tooltip.aether_redux.legacy_deletion": "Existing items/blocks will be removed in update 2.1 of the Aether: Redux",
   "tooltip.aether_redux.legacy_item": "LEGACY ITEM",
-  "tooltip.aether_redux.legacy_replacement": "Existing items/blocks will be replaced with %s in update 2.1 of the Aether: Redux"
+  "tooltip.aether_redux.legacy_replacement": "Existing items/blocks will be replaced with %s in update 2.1 of the Aether: Redux",
+  "tooltip.aether_redux.shift_info": "Hold [%s] for more info..."
 }
