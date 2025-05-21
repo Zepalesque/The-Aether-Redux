@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(QuicksoilBlock.class)
-public class QuicksoilBlockMixin extends BlockBehaviorMixin {
+public class QuicksoilBlockMixin extends BlockBehaviourMixin {
 
     @Override
     public void pathFindable(BlockState state, BlockGetter level, BlockPos pos, PathComputationType type, CallbackInfoReturnable<Boolean> cir) {

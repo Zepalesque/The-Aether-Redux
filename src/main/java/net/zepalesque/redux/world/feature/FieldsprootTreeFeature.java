@@ -28,6 +28,7 @@ import net.zepalesque.redux.util.level.WorldgenUtil;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 
 public class FieldsprootTreeFeature extends Feature<FieldsprootTreeFeature.Config> {
@@ -42,17 +43,21 @@ public class FieldsprootTreeFeature extends Feature<FieldsprootTreeFeature.Confi
     @Override
     public boolean place(FeaturePlaceContext<Config> context) {
         WorldGenLevel level = context.level();
-        if (level.isStateAtPosition(context.origin().below(), state -> !isDirt(state))) {
-            return false;
-        }
+        
+        // ensure above dirt
+        if (level.isStateAtPosition(context.origin().below(), state -> !isDirt(state))) return false;
+        
+        // get a random direction to face
         Direction d = Direction.Plane.HORIZONTAL.getRandomDirection(context.random());
-        Map<BlockPos, BlockState> trunk = Maps.newHashMap();
+        
+        // Make a block map for the trunk
+        Map<BlockPos, BlockState> trunk = new HashMap<>();
+        
         boolean longerSecondBend = context.random().nextBoolean();
         BlockPos foliagePos = this.placeTrunk(context, trunk, d, longerSecondBend);
-        if (foliagePos == null) {
-            return false;
-        }
-        Map<BlockPos, BlockState> foliage = Maps.newHashMap();
+        
+        if (foliagePos == null) return false;
+        Map<BlockPos, BlockState> foliage = new HashMap<>();
         if (!createFoliage(context, foliage, foliagePos, d, longerSecondBend)) {
             return false;
         }
@@ -83,28 +88,37 @@ public class FieldsprootTreeFeature extends Feature<FieldsprootTreeFeature.Confi
         BlockStateProvider woodProvider = context.config().woodProvider;
         BlockStateProvider logProvider = context.config().logProvider;
         
+        // height of the base
         int baseHeight = 3 + random.nextInt(2);
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
+        // how many blocks to move forward in the trunk zigzag
         int forwards = 2;
+        
+        // move back
         int backwards = forwards + (longerSecondBend ? 1 : 0);
 
+        // number of blocks above for the top of the tree
         int top = 3;
 
+        // place the base straight part
         for (int i = 0; i < baseHeight; i++) {
             mutable.setWithOffset(origin, 0, i, 0);
             stateMap.put(mutable.immutable(), (i == baseHeight - 1 ? woodProvider : logProvider ).getState(random, mutable));
         }
         BlockPos straightEnd = origin.relative(Direction.UP, baseHeight - 1);
+        // place the forward bend
         for (int i = 1; i < forwards; i++) {
             WorldgenUtil.setWithOffset(mutable, straightEnd, d, i);
             stateMap.put(mutable.immutable(), WorldgenUtil.trySetValue(woodProvider.getState(random, mutable), RotatedPillarBlock.AXIS, d.getAxis()));
             stateMap.put(mutable.immutable().above(2), WorldgenUtil.trySetValue(woodProvider.getState(random, mutable), RotatedPillarBlock.AXIS, d.getAxis()));
         }
+        // go up
         BlockPos edge1 = straightEnd.relative(d, forwards);
         for (int i = 0; i <= 2; i++) {
             mutable.setWithOffset(edge1, 0, i, 0);
             stateMap.put(mutable.immutable(), (i == 1 ? logProvider : woodProvider).getState(random, mutable));
         }
+        // place the second row/curve, going backwards
         BlockPos row2Start = straightEnd.above(2);
         Direction o = d.getOpposite();
         stateMap.put(row2Start, WorldgenUtil.trySetValue(logProvider.getState(random, row2Start), RotatedPillarBlock.AXIS, d.getAxis()));
@@ -114,15 +128,29 @@ public class FieldsprootTreeFeature extends Feature<FieldsprootTreeFeature.Confi
             stateMap.put(mutable.immutable().above(2), WorldgenUtil.trySetValue(woodProvider.getState(random, mutable), RotatedPillarBlock.AXIS, o.getAxis()));
         }
         BlockPos edge2 = row2Start.relative(o, backwards);
+        // place the straight up part of the second bend
         for (int i = 0; i <= 2; i++) {
             mutable.setWithOffset(edge2, 0, i, 0);
             stateMap.put(mutable.immutable(), (i == 1 ? logProvider : woodProvider).getState(random, mutable));
         }
+        // place the last part
         BlockPos topStart = row2Start.above(2);
         for (int i = 0; i < top; i++) {
             mutable.setWithOffset(topStart, 0, i, 0);
             stateMap.put(mutable.immutable(), (i == 0 ? woodProvider : logProvider).getState(random, mutable));
         }
+        
+        BlockPos crossStart = topStart.above();
+        
+        for (Direction di : Direction.Plane.HORIZONTAL) {
+            if (di != o) {
+                for (int i = 1; i < 3; i++) {
+                    WorldgenUtil.setWithOffset(mutable, crossStart, di, i);
+                    stateMap.put(mutable.immutable(), WorldgenUtil.trySetValue(logProvider.getState(random, mutable), RotatedPillarBlock.AXIS, di.getAxis()));
+                }
+            }
+        }
+        
         BlockPos absTop = topStart.above(top);
 
         WorldGenLevel level = context.level();

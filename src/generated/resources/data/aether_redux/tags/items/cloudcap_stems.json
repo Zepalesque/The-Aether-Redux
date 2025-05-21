@@ -1,5 +1,7 @@
 {
   "values": [
+    "aether_redux:stripped_cloudcap_stem_wall",
+    "aether_redux:cloudcap_stem_wall",
     "aether_redux:cloudcap_stem",
     "aether_redux:cloudcap_hyphae",
     "aether_redux:stripped_cloudcap_stem",

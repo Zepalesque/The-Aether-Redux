@@ -174,6 +174,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue first_startup_menu_setup;
         public final ForgeConfigSpec.BooleanValue first_startup_lightmap_changes;
         public final ForgeConfigSpec.BooleanValue aercloud_sfx;
+        public final ForgeConfigSpec.BooleanValue improved_whirlwinds;
 
         public Client(ForgeConfigSpec.Builder builder) {
             builder.push(List.of("Rendering", "Mob Model Upgrades"));
@@ -186,6 +187,7 @@ public class ReduxConfig {
             this.sheepuff_model_upgrade = builder.comment("Gives the Sheepuff's model some touchups and improvements").define("Sheepuff Model Upgrade", true);
             this.phyg_model_upgrade = builder.comment("Gives the Phyg's model some touchups and improvements").define("Phyg Model Upgrade", true);
             this.flying_cow_model_upgrade = builder.comment("Gives the Flying Cow's model some touchups and improvements").define("Flying Cow Model Upgrade", true);
+            this.improved_whirlwinds = builder.comment("Gives Whirlwinds a new design, based on Minecraft 1.21's new Breeze mob").define("Improved Whirlwinds", true);
             builder.pop();
 //            builder.push("Shader FX");
 //            this.enable_adrenaline_postproccess = builder.comment("Enables a post processing effect for the Shroom Ring's adrenaline ability. Only works with Fabulous graphics, and will cause issues when underwater (even when the ability is not active)").define("Enable Adrenaline Post Processing Effect", false);

@@ -1,0 +1,58 @@
+package net.zepalesque.redux.client.render.entity;
+
+import com.aetherteam.aether.Aether;
+import com.aetherteam.aether.entity.monster.AbstractWhirlwind;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.mojang.math.Axis;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.LivingEntityRenderer;
+import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.resources.ResourceLocation;
+import net.zepalesque.redux.client.render.ReduxModelLayers;
+import net.zepalesque.redux.client.render.ReduxRenderTypes;
+import net.zepalesque.redux.client.render.entity.model.WhirlwindModel;
+import net.zepalesque.redux.config.ReduxConfig;
+import org.jetbrains.annotations.NotNull;
+
+public class ReduxWhirlwindRenderer<T extends AbstractWhirlwind> extends LivingEntityRenderer<T, WhirlwindModel<T>> {
+
+    private static final ResourceLocation WHIRLWIND = new ResourceLocation(Aether.MODID, "textures/entity/mobs/whirlwind/whirlwind.png");
+
+    public ReduxWhirlwindRenderer(EntityRendererProvider.Context context) {
+        super(context, new WhirlwindModel<>(context.bakeLayer(ReduxModelLayers.WHIRLWIND)), 0.0F);
+    }
+
+    @Override
+    @NotNull
+    public ResourceLocation getTextureLocation(@NotNull T whirlwind) {
+        return WHIRLWIND;
+    }
+
+    @Override
+    public void render(@NotNull T entity, float entityYaw, float partialTicks, @NotNull PoseStack poseStack, @NotNull MultiBufferSource buffer, int packedLight) {
+        if (ReduxConfig.CLIENT.improved_whirlwinds.get()) {
+            float age = this.getBob(entity, partialTicks);
+            VertexConsumer vertexconsumer = buffer.getBuffer(renderType(getTextureLocation(entity), this.xOffset(age) % 1.0F));
+            poseStack.pushPose();
+            this.model.setupAnim(entity, 0.0F, 0.0F, age, 0.0F, 0.0F);
+            poseStack.mulPose(Axis.ZP.rotationDegrees(180.0F));
+            this.scale(entity, poseStack, partialTicks);
+            this.model.renderToBuffer(poseStack, vertexconsumer, packedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+            poseStack.popPose();
+        }
+    }
+
+    protected RenderType renderType(ResourceLocation texture, float xOffset) {
+        return ReduxRenderTypes.breezeWind(texture, xOffset, 0.0F);
+    }
+
+    protected float xOffset(float tickCount) {
+        return tickCount * 0.01F;
+    }
+    
+    @Override
+    protected void setupRotations(T entityLiving, PoseStack poseStack, float ageInTicks, float rotationYaw, float partialTicks) {}
+}

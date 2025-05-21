@@ -1,5 +1,6 @@
 package net.zepalesque.redux.block.natural.skyfields;
 
+import com.aetherteam.aether.block.natural.AetherDoubleDropsLeaves;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleOptions;
@@ -22,7 +23,7 @@ import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import java.util.function.BiFunction;
 import java.util.stream.IntStream;
 
-public class FieldsprootLeafBlock extends ExtendedDistanceLeavesBlock {
+public class FieldsprootLeafBlock extends AetherDoubleDropsLeaves {
     private final BiFunction<RandomSource, BlockState, ? extends ParticleOptions> particle;
 
     public static final PerlinNoise PERLIN = PerlinNoise.create(new XoroshiroRandomSource(2743), IntStream.of(0));
@@ -51,26 +52,26 @@ public class FieldsprootLeafBlock extends ExtendedDistanceLeavesBlock {
 
     public static ParticleOptions particleFromState(RandomSource rand, BlockState state) {
 
-        if (!state.hasProperty(ReduxStates.PRISMATICNESS) || rand.nextFloat() < 0.2F) {
+        if (!state.hasProperty(ReduxStates.PRISMATICNESS) || rand.nextFloat() < 0.2F)
             return ReduxParticleTypes.FALLING_PRISMATIC_LEAVES.get();
-        } else {
+        else {
             int i = state.getValue(ReduxStates.PRISMATICNESS);
-            return
-              i == 0 ? ReduxParticleTypes.FIELDSPROUT_PETALS_0.get() :
-              i == 1 ? ReduxParticleTypes.FIELDSPROUT_PETALS_1.get() :
-              i == 2 ? ReduxParticleTypes.FIELDSPROUT_PETALS_2.get() :
-              i == 3 ? ReduxParticleTypes.FIELDSPROUT_PETALS_3.get() :
-              i == 4 ? ReduxParticleTypes.FIELDSPROUT_PETALS_4.get() :
-              i == 5 ? ReduxParticleTypes.FIELDSPROUT_PETALS_5.get() :
-              i == 6 ? ReduxParticleTypes.FIELDSPROUT_PETALS_6.get() :
-                       ReduxParticleTypes.FALLING_PRISMATIC_LEAVES.get();
+            return switch (i) {
+                case 0 -> ReduxParticleTypes.FIELDSPROUT_PETALS_0.get();
+                case 1 -> ReduxParticleTypes.FIELDSPROUT_PETALS_1.get();
+                case 2 -> ReduxParticleTypes.FIELDSPROUT_PETALS_2.get();
+                case 3 -> ReduxParticleTypes.FIELDSPROUT_PETALS_3.get();
+                case 4 -> ReduxParticleTypes.FIELDSPROUT_PETALS_4.get();
+                case 5 -> ReduxParticleTypes.FIELDSPROUT_PETALS_5.get();
+                case 6 -> ReduxParticleTypes.FIELDSPROUT_PETALS_6.get();
+                default -> ReduxParticleTypes.FALLING_PRISMATIC_LEAVES.get();
+            };
         }
     }
     public static MapColor colorFromState(BlockState state) {
 
-        if (!state.hasProperty(ReduxStates.PRISMATICNESS)) {
-            return MapColor.COLOR_BLUE;
-        } else {
+        if (!state.hasProperty(ReduxStates.PRISMATICNESS)) return MapColor.COLOR_BLUE;
+        else {
             int i = state.getValue(ReduxStates.PRISMATICNESS);
             return i <= 1 ? MapColor.COLOR_LIGHT_BLUE : i >= 5 ? MapColor.COLOR_PINK : MapColor.COLOR_PURPLE;
         }
@@ -79,10 +80,7 @@ public class FieldsprootLeafBlock extends ExtendedDistanceLeavesBlock {
     @Override
     public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
         BlockState newState = this.getState(pState, pLevel, pCurrentPos);
-        if (newState != pState)
-        {
-            pLevel.setBlock(pCurrentPos, newState, 3);
-        }
+        if (newState != pState) pLevel.setBlock(pCurrentPos, newState, 3);
         return super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pFacingPos);
     }
 
@@ -106,9 +104,8 @@ public class FieldsprootLeafBlock extends ExtendedDistanceLeavesBlock {
         if (rand.nextInt(15) == 0) {
             BlockPos blockpos = position.below();
             BlockState blockstate = world.getBlockState(blockpos);
-            if (!blockstate.canOcclude() || !blockstate.isFaceSturdy(world, blockpos, Direction.UP)) {
+            if (!blockstate.canOcclude() || !blockstate.isFaceSturdy(world, blockpos, Direction.UP))
                 ParticleUtils.spawnParticleBelow(world, position, rand, this.particle.apply(rand, block));
-            }
         }
     }
 }

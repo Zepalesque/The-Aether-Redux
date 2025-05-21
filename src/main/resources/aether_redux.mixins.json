@@ -7,7 +7,6 @@
   "refmap": "aether_redux.refmap.json",
   "mixins": [
     "common.block.AercloudBlockMixin",
-    "common.block.BlockBehaviorMixin",
     "common.block.BlockBehaviourMixin",
     "common.block.DoublePlantMixin",
     "common.block.FrictionCappedMixin",
@@ -19,8 +18,10 @@
     "common.block.QuicksoilBlockMixin",
     "common.block.ReduxWallBlockAccessor",
     "common.compat.ModNameProviderMixin",
+    "common.entity.AbstractWhirlwindMixin",
     "common.entity.ArrowMixin",
     "common.entity.EntityMixin",
+    "common.entity.EvilWhirlwindMixin",
     "common.entity.LivingEntityMixin",
     "common.entity.MimicMixin",
     "common.entity.MobMixin",

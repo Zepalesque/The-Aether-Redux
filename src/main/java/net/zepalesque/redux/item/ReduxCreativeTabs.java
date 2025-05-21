@@ -77,9 +77,8 @@ public class ReduxCreativeTabs {
 
             putAfter(AetherBlocks.ZANITE_BLOCK, ReduxBlocks.VERIDIUM_BLOCK, event);
             putAfter(ReduxBlocks.VERIDIUM_BLOCK, ReduxBlocks.REFINED_SENTRITE_BLOCK, event);
+            putAfter(ReduxBlocks.REFINED_SENTRITE_BLOCK, ReduxBlocks.SENTRITE_CHAIN, event);
 
-            add(ReduxBlocks.SENTRITE_LANTERN, event);
-            add(ReduxBlocks.SENTRITE_CHAIN, event);
             if (ReduxConfig.COMMON.gravitite_ingot.get()) {
                 putBefore(AetherBlocks.ENCHANTED_GRAVITITE, ReduxBlocks.GRAVITITE_BLOCK, event);
                 event.getEntries().remove(stack(AetherBlocks.ENCHANTED_GRAVITITE.get()));
@@ -118,7 +117,6 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.GOLDEN_LEAF_PILE, ReduxBlocks.GOLDEN_VINES, event);
             putAfter(ReduxBlocks.GOLDEN_VINES, ReduxBlocks.GILDED_OAK_LEAVES, event);
             putAfter(ReduxBlocks.GILDED_OAK_LEAVES, ReduxBlocks.GILDED_LEAF_PILE, event);
-            putAfter(ReduxBlocks.GILDED_LEAF_PILE, ReduxBlocks.GILDED_VINES, event);
 
             putBefore(AetherBlocks.HOLIDAY_LEAVES, ReduxBlocks.PURPLE_GLACIA_LEAVES, event);
             putBefore(ReduxBlocks.PURPLE_GLACIA_LEAVES, ReduxBlocks.GLACIA_LEAVES, event);
@@ -170,7 +168,6 @@ public class ReduxCreativeTabs {
             putAfter(ReduxBlocks.CLOUDCAP_MUSHLING, ReduxBlocks.JELLYSHROOM, event);
             putAfter(ReduxBlocks.JELLYSHROOM, ReduxBlocks.SHIMMERSTOOL, event);
             putAfter(ReduxBlocks.SHIMMERSTOOL, ReduxBlocks.FLAREBLOSSOM, event);
-//            putAfter(ReduxBlocks.FLAREBLOSSOM, ReduxBlocks.INFERNIA, event);
 
             putAfter(AetherBlocks.ZANITE_ORE, ReduxBlocks.VERIDIUM_ORE, event);
             putAfter(ReduxBlocks.VERIDIUM_ORE, ReduxBlocks.RAW_VERIDIUM_BLOCK, event);
@@ -192,6 +189,7 @@ public class ReduxCreativeTabs {
             
         } else if (tab == AetherCreativeTabs.AETHER_FUNCTIONAL_BLOCKS.get()) {
             putAfter(AetherBlocks.AMBROSIUM_TORCH, ReduxBlocks.SENTRITE_LANTERN, event);
+            putAfter(ReduxBlocks.SENTRITE_LANTERN, ReduxBlocks.SENTRITE_CHAIN, event);
             doSigns(AetherBlocks.SKYROOT_HANGING_SIGN, event);
             doBookshelves(AetherBlocks.SKYROOT_BOOKSHELF, event);
             

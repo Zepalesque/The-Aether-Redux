@@ -23,8 +23,11 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.zepalesque.redux.block.util.state.ReduxStates;
 import net.zepalesque.redux.block.util.state.enums.PetalPrismaticness;
+import net.zepalesque.redux.util.ArrayUtil;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.StreamSupport;
 
 public class FieldsprootPetalsBlock extends BushBlock implements BonemealableBlock {
    public static final int MIN_FLOWERS = 1;
@@ -64,20 +67,16 @@ public class FieldsprootPetalsBlock extends BushBlock implements BonemealableBlo
       BlockState b = state;
       int r = (int) (Mth.getSeed(currentPos) % 4);
       Direction d = r == 0 ? Direction.NORTH : r == 1 ? Direction.EAST : r == 2 ? Direction.SOUTH : Direction.EAST;
-      if (state.hasProperty(BlockStateProperties.HORIZONTAL_FACING) && state.getValue(BlockStateProperties.HORIZONTAL_FACING) != d) {
-         b = state.setValue(BlockStateProperties.HORIZONTAL_FACING, d);
-      }
+      if (state.hasProperty(BlockStateProperties.HORIZONTAL_FACING) && state.getValue(BlockStateProperties.HORIZONTAL_FACING) != d)
+          b = state.setValue(BlockStateProperties.HORIZONTAL_FACING, d);
       List<Property<PetalPrismaticness>> list = List.of(ReduxStates.PETAL_1, ReduxStates.PETAL_2, ReduxStates.PETAL_3, ReduxStates.PETAL_4);
-      for (Property<PetalPrismaticness> prop : list) {
-         if (b.hasProperty(prop) && b.getValue(prop) != PetalPrismaticness.NONE) {
-            RandomSource rand = new XoroshiroRandomSource(Mth.getSeed(currentPos) + getCountFromProperty(prop));
-            PetalPrismaticness val = PetalPrismaticness.getFromIndex(rand.nextInt(7));
-            b = b.setValue(prop, val);
-         }
-      }
-      if (b != state && state.canSurvive(level, currentPos)) {
-         return b;
-      }
+      for (Property<PetalPrismaticness> prop : list)
+          if (b.hasProperty(prop) && b.getValue(prop) != PetalPrismaticness.NONE) {
+              RandomSource rand = new XoroshiroRandomSource(Mth.getSeed(currentPos) + getCountFromProperty(prop));
+              PetalPrismaticness val = PetalPrismaticness.getFromIndex(rand.nextInt(7));
+              b = b.setValue(prop, val);
+          }
+      if (b != state && state.canSurvive(level, currentPos)) return b;
 
 
       return super.updateShape(state, facing, facingState, level, currentPos, facingPos);
@@ -94,11 +93,8 @@ public class FieldsprootPetalsBlock extends BushBlock implements BonemealableBlo
       RandomSource rand = new XoroshiroRandomSource(Mth.getSeed(pos) + flowerCount);
       Property<PetalPrismaticness> p = getPropertyFromCount(flowerCount);
       PetalPrismaticness val = PetalPrismaticness.getFromIndex(rand.nextInt(7));
-      if (state.hasProperty(p)) {
-         return state.setValue(p, val);
-      } else {
-         return this.defaultBlockState().setValue(p, val);
-      }
+      if (state.hasProperty(p)) return state.setValue(p, val);
+      else return this.defaultBlockState().setValue(p, val);
    }
 
 
@@ -118,22 +114,23 @@ public class FieldsprootPetalsBlock extends BushBlock implements BonemealableBlo
    }
 
    public static int getFlowerCount(BlockState b) {
-      if (!b.hasProperty(ReduxStates.PETAL_1) || !b.hasProperty(ReduxStates.PETAL_2) || !b.hasProperty(ReduxStates.PETAL_3) || !b.hasProperty(ReduxStates.PETAL_4)) {
-         return 0;
+      if (!b.hasProperty(ReduxStates.PETAL_1) || !b.hasProperty(ReduxStates.PETAL_2) || !b.hasProperty(ReduxStates.PETAL_3) || !b.hasProperty(ReduxStates.PETAL_4))
+          return 0;
+      int c = 0;
+      for (int i = 0; i < 4; i++) {
+         Property<PetalPrismaticness> p = getPropertyFromCount(i);
+         if (b.getValue(p) != PetalPrismaticness.NONE) c++;
       }
-      boolean hasFirst = b.getValue(ReduxStates.PETAL_1) != PetalPrismaticness.NONE;
-      boolean hasSecond = b.getValue(ReduxStates.PETAL_2) != PetalPrismaticness.NONE;
-      boolean hasThird = b.getValue(ReduxStates.PETAL_3) != PetalPrismaticness.NONE;
-      boolean hasFourth = b.getValue(ReduxStates.PETAL_4) != PetalPrismaticness.NONE;
 
-      return hasFirst ? (hasSecond ? (hasThird ? (hasFourth ? 4 : 3) : 2) : 1) : 0;
+      return c;
    }
+   
+   // java doesn't like generic arrays ig, casting works tho
+   private static final Object[] BY_INDEX = new Object[]{ ReduxStates.PETAL_1, ReduxStates.PETAL_2, ReduxStates.PETAL_3, ReduxStates.PETAL_4 };
 
+   @SuppressWarnings("unchecked")
    public static Property<PetalPrismaticness> getPropertyFromCount(int i) {
-      return i <= 1 ? ReduxStates.PETAL_1 :
-              i == 2 ? ReduxStates.PETAL_2 :
-              i == 3 ? ReduxStates.PETAL_3 :
-                      ReduxStates.PETAL_4;
+      return (Property<PetalPrismaticness>) BY_INDEX[i - 1];
    }
    public static int getCountFromProperty(Property<PetalPrismaticness> i) {
       return i == ReduxStates.PETAL_1 ? 1:
@@ -144,10 +141,7 @@ public class FieldsprootPetalsBlock extends BushBlock implements BonemealableBlo
 
    public void performBonemeal(ServerLevel level, RandomSource rand, BlockPos pos, BlockState state) {
       int amount = getFlowerCount(state);
-      if (amount < 4) {
-         level.setBlock(pos, this.increaseFlowers(pos, level), 2);
-      } else {
-         popResource(level, pos, new ItemStack(this));
-      }
+      if (amount < 4) level.setBlock(pos, this.increaseFlowers(pos, level), 2);
+      else popResource(level, pos, new ItemStack(this));
    }
 }

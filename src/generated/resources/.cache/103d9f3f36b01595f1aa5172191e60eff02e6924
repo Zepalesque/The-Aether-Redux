@@ -1,4 +1,4 @@
-// 1.20.1	2025-05-20T14:52:32.6010506	Registries
+// 1.20.1	2025-05-21T16:45:30.2775735	Registries
 1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
 3899e831707994c2ecc93af7d8997043a0f0a462 data/aether/worldgen/configured_feature/golden_oak_tree.json
 875593e37a52dd63b2d87226b0f0e5e76ef48247 data/aether/worldgen/configured_feature/grass_patch.json
@@ -106,7 +106,7 @@ d7edb140092c867d48e6d6088e135511d0039ff2 data/aether_redux/worldgen/configured_f
 f10f871533faced1fce3c2fa40c5318706d08aa0 data/aether_redux/worldgen/configured_feature/trees/crystal_rare_fruit_tree.json
 e6b8b005677394c1ad178150554cb389f8aebe5b data/aether_redux/worldgen/configured_feature/trees/fancy_gilded_oak_tree.json
 ad8a9cc0f4ddb5de18ce229d8f38038cff6c6bde data/aether_redux/worldgen/configured_feature/trees/fancy_golden_oak_tree.json
-10287a06febd637c1e8841341afee69797a7ee6c data/aether_redux/worldgen/configured_feature/trees/fieldsproot_tree.json
+890648f9432c914d3cedb23b7d68773f5e6a0121 data/aether_redux/worldgen/configured_feature/trees/fieldsproot_tree.json
 f489c5ac4baf262889a488d48e9540beb2a1ea08 data/aether_redux/worldgen/configured_feature/trees/frosted_trees.json
 532ba4902a6a46868c83be04bb4472197b836036 data/aether_redux/worldgen/configured_feature/trees/glacial_trees.json
 3c85bab4315d5ec035a0eb45b45a0d7a79bf47db data/aether_redux/worldgen/configured_feature/trees/glacia_tree.json

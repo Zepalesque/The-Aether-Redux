@@ -17,6 +17,7 @@ public class ReduxModelLayers {
     public static final ModelLayerLocation MIMIC = register("redux_mimic");
     public static final ModelLayerLocation SENTRY = register("redux_sentry");
     public static final ModelLayerLocation BATTLE_SENTRY = register("redux_batlle_sentry");
+    public static final ModelLayerLocation WHIRLWIND = register("whirlwind");
 
     // for debugging
     public static final ModelLayerLocation CUBE = register("cube");

@@ -1,4 +1,4 @@
-// 1.20.1	2025-03-29T20:32:12.6490508	Block States: aether_redux
+// 1.20.1	2025-05-21T16:45:30.2355995	Block States: aether_redux
 6d5a134587a37ec8ac1798d9ca3e527d0a1d99b9 assets/aether_redux/blockstates/aurum.json
 bd71aec5ab85b7a1e4570cf04b5dce1bf6226d6b assets/aether_redux/blockstates/avelium.json
 eb68785d90af1f5948885a64db9d1f4c33739323 assets/aether_redux/blockstates/avelium_roots.json
@@ -102,7 +102,7 @@ a5fd48b48ee50ab6ce79aec58fd27306a54638f9 assets/aether_redux/blockstates/fieldsp
 f36411218d13105a3365290e020a368b145d3035 assets/aether_redux/blockstates/fieldsproot_fence.json
 f9a7d5bddec2b1080d424198d8834654403cbc76 assets/aether_redux/blockstates/fieldsproot_fence_gate.json
 e8424002c7531cd6cbcd06ef189b9c09d2fd59b1 assets/aether_redux/blockstates/fieldsproot_hanging_sign.json
-55404c272d369c44a805cb918ad8aeb0eb61bb05 assets/aether_redux/blockstates/fieldsproot_leaves.json
+9632c9b33b640d3c947839c3c53a517ff395dd08 assets/aether_redux/blockstates/fieldsproot_leaves.json
 2d64c45933c269376fae3a207a6e91fa98e5f71a assets/aether_redux/blockstates/fieldsproot_log.json
 a86cc1a5ca747457bb455f9ba848bdf5eea4001a assets/aether_redux/blockstates/fieldsproot_log_wall.json
 a57b6f98cd18a993256be81cb7a3a3e088f3b0d0 assets/aether_redux/blockstates/fieldsproot_petals.json

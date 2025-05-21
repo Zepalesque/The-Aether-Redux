@@ -21,8 +21,8 @@ public class AercloudBlockMixin {
         AercloudBlock block = (AercloudBlock) (Object) this;
         if (GenesisCompatUtil.goldCloudSFX(block)) {
             if (!entity.isShiftKeyDown()) {
-                level.playSound((entity instanceof Player player ? player : null), pos, ReduxSoundEvents.GOLD_AERCLOUD_WHOOSH.get(), SoundSource.BLOCKS, 0.8f,
-                        0.9f + (level.random.nextFloat() * 0.2f));
+                level.playSound(entity instanceof Player player ? player : null, pos, ReduxSoundEvents.GOLD_AERCLOUD_WHOOSH.get(), SoundSource.BLOCKS, 0.8f,
+                        0.9f + level.random.nextFloat() * 0.2f);
             }
         }
     }

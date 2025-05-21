@@ -1,5 +1,7 @@
 {
   "values": [
+    "aether_redux:stripped_crystal_log_wall",
+    "aether_redux:crystal_log_wall",
     "aether_redux:crystal_log",
     "aether_redux:crystal_wood",
     "aether_redux:stripped_crystal_log",

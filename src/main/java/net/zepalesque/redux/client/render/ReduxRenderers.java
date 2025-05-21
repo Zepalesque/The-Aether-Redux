@@ -2,6 +2,7 @@ package net.zepalesque.redux.client.render;
 
 import com.aetherteam.aether.client.renderer.accessory.PendantRenderer;
 import com.aetherteam.aether.client.renderer.entity.*;
+import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether_genesis.client.renderer.entity.BattleSentryRenderer;
 import com.aetherteam.aether_genesis.client.renderer.entity.SkyrootMimicRenderer;
 import net.minecraft.client.Minecraft;
@@ -82,6 +83,9 @@ public class ReduxRenderers {
 //            event.registerEntityRenderer(GenesisEntityTypes.SKYROOT_MIMIC.get(), ReduxSkyrootMimicRenderer::new);
 //            event.registerEntityRenderer(GenesisEntityTypes.BATTLE_SENTRY.get(), ReduxBattleSentryRenderer::new);
         }
+        
+        event.registerEntityRenderer(AetherEntityTypes.WHIRLWIND.get(), ReduxWhirlwindRenderer::new);
+        event.registerEntityRenderer(AetherEntityTypes.EVIL_WHIRLWIND.get(), ReduxEvilWhirlwindRenderer::new);
     }
 
     public static void registerCuriosRenderers() {

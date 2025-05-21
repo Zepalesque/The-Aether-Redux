@@ -1,5 +1,7 @@
 {
   "values": [
+    "aether_redux:stripped_blightwillow_log_wall",
+    "aether_redux:blightwillow_log_wall",
     {
       "id": "#aether_redux:sporing_blightwillow_logs",
       "required": false
