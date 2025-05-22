@@ -31,7 +31,7 @@ public class RenderListener {
 
     @SubscribeEvent
     public static void renderPost(RenderLevelStageEvent event) {
-        if (event.getStage() == RenderLevelStageEvent.Stage.AFTER_WEATHER) {
+        if (event.getStage() == RenderLevelStageEvent.Stage.AFTER_PARTICLES) {
             LevelRenderer renderer = event.getLevelRenderer();
             Minecraft minecraft = Minecraft.getInstance();
             LocalPlayer player = minecraft.player;
@@ -53,7 +53,7 @@ public class RenderListener {
 
             Iterable<Entity> allEntities = level.entitiesForRendering();
             Iterable<Entity> whirlwinds = () -> StreamSupport.stream(allEntities.spliterator(), false)
-                    .filter(e -> e.getType() == AetherEntityTypes.EVIL_WHIRLWIND.get()).iterator();
+                    .filter(e -> e.getType() == AetherEntityTypes.EVIL_WHIRLWIND.get() || e.getType() == AetherEntityTypes.WHIRLWIND.get()).iterator();
 
             for (Entity entity : whirlwinds)
                 if (dispatch.shouldRender(entity, frustum, x, y, z) || entity.hasIndirectPassenger(player)) {

@@ -17,7 +17,7 @@ import net.zepalesque.redux.client.render.entity.model.WhirlwindModel;
 import net.zepalesque.redux.config.ReduxConfig;
 import org.jetbrains.annotations.NotNull;
 
-public class ReduxWhirlwindRenderer<T extends AbstractWhirlwind> extends LivingEntityRenderer<T, WhirlwindModel<T>> {
+public class ReduxWhirlwindRenderer<T extends AbstractWhirlwind> extends LivingEntityRenderer<T, WhirlwindModel<T>> implements IPostRenderer<T> {
 
     private static final ResourceLocation WHIRLWIND = new ResourceLocation(Aether.MODID, "textures/entity/mobs/whirlwind/whirlwind.png");
 
@@ -32,7 +32,10 @@ public class ReduxWhirlwindRenderer<T extends AbstractWhirlwind> extends LivingE
     }
 
     @Override
-    public void render(@NotNull T entity, float entityYaw, float partialTicks, @NotNull PoseStack poseStack, @NotNull MultiBufferSource buffer, int packedLight) {
+    public void render(@NotNull T entity, float entityYaw, float partialTicks, @NotNull PoseStack poseStack, @NotNull MultiBufferSource buffer, int packedLight) {}
+    
+    @Override
+    public void internalRender(@NotNull T entity, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight) {
         if (ReduxConfig.CLIENT.improved_whirlwinds.get()) {
             float age = this.getBob(entity, partialTicks);
             VertexConsumer vertexconsumer = buffer.getBuffer(renderType(getTextureLocation(entity), this.xOffset(age) % 1.0F));
@@ -44,9 +47,9 @@ public class ReduxWhirlwindRenderer<T extends AbstractWhirlwind> extends LivingE
             poseStack.popPose();
         }
     }
-
+    
     protected RenderType renderType(ResourceLocation texture, float xOffset) {
-        return ReduxRenderTypes.breezeWind(texture, xOffset, 0.0F);
+        return ReduxRenderTypes.whirlwindParticleTranslucency(texture, xOffset, 0.0F);
     }
 
     protected float xOffset(float tickCount) {

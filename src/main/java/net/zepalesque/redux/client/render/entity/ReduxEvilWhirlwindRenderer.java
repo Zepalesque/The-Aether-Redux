@@ -10,7 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.zepalesque.redux.client.render.ReduxRenderTypes;
 import org.jetbrains.annotations.NotNull;
 
-public class ReduxEvilWhirlwindRenderer<T extends AbstractWhirlwind> extends ReduxWhirlwindRenderer<T> implements IPostRenderer<T> {
+public class ReduxEvilWhirlwindRenderer<T extends AbstractWhirlwind> extends ReduxWhirlwindRenderer<T> {
 
     private static final ResourceLocation EVIL_WHIRLWIND = new ResourceLocation(Aether.MODID, "textures/entity/mobs/whirlwind/evil_whirlwind.png");
 
@@ -23,13 +23,10 @@ public class ReduxEvilWhirlwindRenderer<T extends AbstractWhirlwind> extends Red
     public ResourceLocation getTextureLocation(@NotNull T whirlwind) {
         return EVIL_WHIRLWIND;
     }
-
-    @Override
-    public void render(@NotNull T entity, float entityYaw, float partialTicks, @NotNull PoseStack poseStack, @NotNull MultiBufferSource buffer, int packedLight) {}
-
+    
     @Override
     public void internalRender(@NotNull T entity, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight) {
-        super.render(entity, entityYaw, partialTicks, poseStack, buffer, packedLight);
+        super.internalRender(entity, entityYaw, partialTicks, poseStack, buffer, packedLight);
     }
 
     @Override
@@ -41,9 +38,5 @@ public class ReduxEvilWhirlwindRenderer<T extends AbstractWhirlwind> extends Red
     protected void scale(T livingEntity, PoseStack poseStack, float partialTickTime) {
         poseStack.scale(1.25F, 1.25F, 1.25F);
     }
-
-    @Override
-    protected RenderType renderType(ResourceLocation texture, float xOffset) {
-        return ReduxRenderTypes.whirlwindParticleTranslucency(texture, xOffset, 0.0F);
-    }
+    
 }

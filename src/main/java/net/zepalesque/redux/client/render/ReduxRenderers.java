@@ -26,6 +26,7 @@ import net.zepalesque.redux.client.render.entity.layer.entity.*;
 import net.zepalesque.redux.client.render.entity.misc.ReduxBoatRenderer;
 import net.zepalesque.redux.client.render.entity.model.PinModel;
 import net.zepalesque.redux.client.render.entity.model.SpearModel;
+import net.zepalesque.redux.client.render.entity.model.WhirlwindModel;
 import net.zepalesque.redux.client.render.entity.model.entity.*;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.item.ReduxItems;
@@ -112,6 +113,7 @@ public class ReduxRenderers {
         event.registerLayerDefinition(ReduxModelLayers.PHYG, PhygReduxModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.FLYING_COW, FlyingCowReduxModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.PIN, PinModel::createLayer);
+        event.registerLayerDefinition(ReduxModelLayers.WHIRLWIND, WhirlwindModel::createBodyLayer);
 
         if (Redux.aetherGenesisCompat()) {
             event.registerLayerDefinition(ReduxModelLayers.BATTLE_SENTRY, BattleSentryReduxModel::createBodyLayer);
