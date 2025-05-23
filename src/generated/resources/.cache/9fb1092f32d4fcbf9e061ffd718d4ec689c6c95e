@@ -1,4 +1,4 @@
-// 1.20.1	2025-03-29T22:02:18.5340663	Recipes
+// 1.20.1	2025-05-23T14:18:37.6797788	Recipes
 142511de235436db9774c32cc1e4cadb796b351e data/aether_redux/advancements/recipes/blue_gummy_swet.json
 51d45028b22196de7aab6ae246ea0eab7f7308fb data/aether_redux/advancements/recipes/blue_swet_jelly.json
 cdecd2fb47465ca3e02446651bb68347dcb877ed data/aether_redux/advancements/recipes/building_blocks/angelic_stone.json
@@ -235,6 +235,7 @@ f9ed9eb11f87e0738c7b43f5af39d9b9e4671142 data/aether_redux/advancements/recipes/
 78db3148afe06a52a1285d0d23e928a1c7d1d372 data/aether_redux/advancements/recipes/redstone/jellyshroom_fence_gate.json
 ce77ce79cedb8cf57f221b3d94ac7d97fd060494 data/aether_redux/advancements/recipes/redstone/jellyshroom_pressure_plate.json
 fe07adc27194e63f6241d1b13c4c9f1bad97a358 data/aether_redux/advancements/recipes/redstone/jellyshroom_trapdoor.json
+8bad42e4f626017cbb4d048cfe9f80027423a26a data/aether_redux/advancements/recipes/redstone/logicator.json
 b7266dbb2156004c61e0db45f7a4c282f01ce4c1 data/aether_redux/advancements/recipes/stripped_crystal_log_wall.json
 002b68db31bb1ca32ac5978104631a725d1943f0 data/aether_redux/advancements/recipes/stripped_crystal_wood_wall.json
 a01d6b9b927940aed5a9f03a451bed82e148e218 data/aether_redux/advancements/recipes/stripped_fieldsproot_log_wall.json
@@ -459,6 +460,7 @@ afa470ec4326a1d1586b240a3cf9f80430d01458 data/aether_redux/recipes/jellyshroom_s
 20d2ca461c30546f25c8b47dfdc69c9306628549 data/aether_redux/recipes/jellyshroom_stairs.json
 ab97a5cf5321d1008eabe1a0f40e61361ecd0f15 data/aether_redux/recipes/jellyshroom_stem_wall.json
 016fa439c4f5417b0d19368f6fbdf291ea1c7582 data/aether_redux/recipes/jellyshroom_trapdoor.json
+81f103fc94d97b2851905995ee71bb4c8404b6d5 data/aether_redux/recipes/logicator.json
 86f2f8f5dc86a3a2661db69762ea6ca538fa3beb data/aether_redux/recipes/mouse_ear_soup.json
 e6f39980f1b205a41aeb55820db2f3a18a478305 data/aether_redux/recipes/oatmeal.json
 78dc79d23ff1c4a0c553abad11944b056af109e8 data/aether_redux/recipes/polished_driftshale_slab.json

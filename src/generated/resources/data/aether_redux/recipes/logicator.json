@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "S": {
+      "item": "minecraft:stone"
+    },
+    "T": {
+      "item": "minecraft:redstone_torch"
+    },
+    "V": {
+      "item": "aether_redux:sentry_chip"
+    }
+  },
+  "pattern": [
+    "RTR",
+    "SVS"
+  ],
+  "result": {
+    "item": "aether_redux:logicator"
+  },
+  "show_notification": true
+}

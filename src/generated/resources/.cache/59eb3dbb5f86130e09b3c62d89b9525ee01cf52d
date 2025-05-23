@@ -1,4 +1,4 @@
-// 1.20.1	2025-03-29T20:32:12.6410564	Loot Tables
+// 1.20.1	2025-05-23T14:18:37.638804	Loot Tables
 c6156555dc4897939b617dabc4521b7fa52feba0 data/aether_redux/loot_tables/blocks/aurum.json
 b5773c78c7b3f27032f1cca6fb72f440e24c7529 data/aether_redux/loot_tables/blocks/avelium.json
 1f6564fd00a86b66a503958622c7436688f1e63e data/aether_redux/loot_tables/blocks/avelium_roots.json
@@ -184,6 +184,7 @@ e680fa317e1e2de6efbc6c99ba0ebcd91c08bdb9 data/aether_redux/loot_tables/blocks/lo
 23bde969d7d739d5f88d7ed52444be70a3c09636 data/aether_redux/loot_tables/blocks/locked_runelight.json
 2b1811acf4bb8093ceb0d5599a72fc00d2fd20e1 data/aether_redux/loot_tables/blocks/locked_sentry_base.json
 f2ee8a0340fe4250b507a2c2f68bb5a4683720ea data/aether_redux/loot_tables/blocks/locked_sentry_pillar.json
+0b7e608123d1ce99e7cd2cef249c7af361351c8a data/aether_redux/loot_tables/blocks/logicator.json
 a588c1ccff39b719dba3d266940ab1eb21caa21b data/aether_redux/loot_tables/blocks/lumina.json
 bbdd79fe826f68484037861b28fc2f8e233ac718 data/aether_redux/loot_tables/blocks/luxweed.json
 bf1c307ad520c98eb502512f5f9b3ed74d67c05b data/aether_redux/loot_tables/blocks/polished_driftshale.json

@@ -1,4 +1,4 @@
-// 1.20.1	2025-03-29T20:32:12.6300629	Item Models: aether_redux
+// 1.20.1	2025-05-23T14:18:37.6218145	Item Models: aether_redux
 2445055af5b1b7f3c6045199ffce74108003cef6 assets/aether_redux/models/item/airbound_cape.json
 ecaf5351821bcc0b65e09e6c21ff78fab555595c assets/aether_redux/models/item/ancient_sentrite_music_disc.json
 2fa1343a8119a1f49af334c002773099174965bd assets/aether_redux/models/item/aurum.json
@@ -204,6 +204,7 @@ e2d185daff0e5347a73e5c15b29d56927e3cce39 assets/aether_redux/models/item/locked_
 3b6e8e03e4198890d3ac8857ef8b62f519626814 assets/aether_redux/models/item/locked_runelight.json
 1db096f35deee3b13dbbf61a4336d2e3076612bd assets/aether_redux/models/item/locked_sentry_base.json
 9274d432ee4e0b55f1323c0385579f354864814c assets/aether_redux/models/item/locked_sentry_pillar.json
+11107c9d0152f7017b3fa0e6d47ff6ed2b84cca2 assets/aether_redux/models/item/logicator.json
 419e1a027022a941d08e3625e84160befb2571da assets/aether_redux/models/item/lumina.json
 f57c0aa977ae875c8456515bae2a0f7dbfa313cc assets/aether_redux/models/item/luxweed.json
 47516c71de9a063c4c70bd0fe9c269f3f4e5c946 assets/aether_redux/models/item/mouse_ear_soup.json

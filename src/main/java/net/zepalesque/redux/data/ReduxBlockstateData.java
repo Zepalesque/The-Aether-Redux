@@ -1561,7 +1561,7 @@ public class ReduxBlockstateData extends AetherBlockStateProvider implements Tex
                 
                 return ConfiguredModel.builder().modelFile(
                         this.models().singleTexture(baseModelName + configuration,
-                            this.modLoc("block/template/redstone/template_logicator_" + (mode.isOr() ? "or" : "and")),
+                            this.modLoc("block/redstone/template_logicator_" + (mode.isOr() ? "or" : "and")),
                             "top", this.texture(baseTextureName, location, configuration)).renderType("cutout"))
                     .rotationY(d.get2DDataValue() * 90).build();
             });
