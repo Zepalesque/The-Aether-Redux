@@ -556,8 +556,11 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addLore(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_STAIRS, "Crafted from Enchanted Shell Shingles. Stairs are useful for adding verticality to builds and are often used for decoration too!");
         addBlock(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_WALL, "Enchanted Shell Shingle Wall");
         addLore(ReduxBlocks.ENCHANTED_SHELL_SHINGLE_WALL, "Crafted from Enchanted Shell Shingles. Can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
-
-
+        
+        addBlock(ReduxBlocks.LOGICATOR, "Redstone Logicator");
+        addLore(ReduxBlocks.LOGICATOR, "A fascinating circuit made with an exotic material not found in the Aether - Redstone. This little diode takes in two inputs on the side, and will perform a logical operation on the two for the output. The operation is controlled by the torch on the top and the back input. The torch controls AND/OR mode, and the back input controls exclusivity (XNOR/XOR).");
+        
+        
         addBiome(ReduxBiomes.CLOUDCAPS, "Cloudcaps");
         addBiome(ReduxBiomes.FROSTED_FORESTS, "Frosted Forests");
         addBiome(ReduxBiomes.GLACIAL_TUNDRA, "Glacial Tundra");
@@ -707,6 +710,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addSubtitle("item", "subzero_crossbow_charge", "Subzero Crossbow charges");
         addSubtitle("item", "subzero_crossbow_shoot", "Subzero Crossbow shoots");
         addSubtitle("item", "subzero_crossbow_hit", "Subzero Arrow hits");
+        
+        addSubtitle("block", "logicator_click", "Logicator clicks");
 
         addKeyInfo("category", Redux.DISPLAY);
         addKeyInfo("shoot_fireball.desc", "Shoot Fireball");

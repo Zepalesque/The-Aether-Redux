@@ -52,6 +52,7 @@ import net.zepalesque.redux.block.natural.shrublands.ZanberryBushBlock;
 import net.zepalesque.redux.block.natural.shrublands.ZanberryShrubBlock;
 import net.zepalesque.redux.block.natural.skyfields.FieldsprootLeafBlock;
 import net.zepalesque.redux.block.natural.skyfields.FieldsprootPetalsBlock;
+import net.zepalesque.redux.block.redstone.LogicatorBlock;
 import net.zepalesque.redux.block.util.CommonPlantBounds;
 import net.zepalesque.redux.client.ReduxClient;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
@@ -96,7 +97,7 @@ public class ReduxBlocks {
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).requiresCorrectToolForDrops().strength(0.6F, 3.0F)));
 
     public static RegistryObject<StairBlock> POLISHED_DRIFTSHALE_STAIRS = register("polished_driftshale_stairs",
-            () -> new StairBlock(() -> (POLISHED_DRIFTSHALE.get()).defaultBlockState(), BlockBehaviour.Properties.copy(POLISHED_DRIFTSHALE.get())));
+            () -> new StairBlock(() -> POLISHED_DRIFTSHALE.get().defaultBlockState(), BlockBehaviour.Properties.copy(POLISHED_DRIFTSHALE.get())));
 
     public static RegistryObject<WallBlock> POLISHED_DRIFTSHALE_WALL = register("polished_driftshale_wall",
             () -> new WallBlock(BlockBehaviour.Properties.copy(POLISHED_DRIFTSHALE.get())));
@@ -542,7 +543,11 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
             () -> new Flareblossom(() -> MobEffects.BLINDNESS, 60, BlockBehaviour.Properties.copy(Blocks.POPPY).hasPostProcess(ReduxBlocks::always).lightLevel((state) -> 11).mapColor(MapColor.GOLD)));
 
     public static final RegistryObject<FlowerPotBlock> POTTED_FLAREBLOSSOM = BLOCKS.register("potted_flareblossom", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, FLAREBLOSSOM, Block.Properties.copy(Blocks.FLOWER_POT)));
-
+    
+    public static final RegistryObject<LogicatorBlock> LOGICATOR = register("logicator",
+        () -> new LogicatorBlock(BlockBehaviour.Properties.of().instabreak().sound(SoundType.STONE).pushReaction(PushReaction.DESTROY))
+    );
+    
     // Deprecated -- Will be replaced in generation with the Aurum
     public static RegistryObject<Block> INFERNIA = legacyDel("infernia",
             () -> new CustomBoundsFlowerBlock(CommonPlantBounds.FLOWER, () -> MobEffects.FIRE_RESISTANCE, 60, BlockBehaviour.Properties.copy(Blocks.POPPY).hasPostProcess(ReduxBlocks::always).mapColor(MapColor.COLOR_ORANGE)));

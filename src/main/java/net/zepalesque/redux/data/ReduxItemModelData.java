@@ -230,7 +230,8 @@ public class ReduxItemModelData extends AetherItemModelProvider {
 
 
         this.item(ReduxItems.ZANBERRY, "food/");
-
+        
+        this.item(ReduxBlocks.LOGICATOR.get().asItem(), "misc/");
 
 
         for (WoodHandler woodHandler : Redux.WOOD_HANDLERS)        {

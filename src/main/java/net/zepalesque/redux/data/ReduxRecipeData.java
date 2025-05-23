@@ -301,6 +301,15 @@ public class ReduxRecipeData extends AetherRecipeProvider implements IConditionB
 
         oneToOneConversionRecipe(output, Items.LIGHT_GRAY_DYE, ReduxBlocks.XAELIA_PATCH.get(), null);
         
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, ReduxBlocks.LOGICATOR.get())
+            .define('S', Blocks.STONE)
+            .define('R', Items.REDSTONE)
+            .define('T', Blocks.REDSTONE_TORCH)
+            .define('V', ReduxItems.SENTRY_CHIP.get())
+            .pattern("RTR")
+            .pattern("SVS")
+            .unlockedBy(getHasName(ReduxItems.SENTRY_CHIP.get()), has(ReduxItems.SENTRY_CHIP.get()))
+            .save(output);
         
         triConversion(output,
             ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(),

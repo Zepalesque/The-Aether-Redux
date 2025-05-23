@@ -41,6 +41,7 @@ public class ReduxSoundEvents {
     public static final RegistryObject<SoundEvent> GLOWSTONE_HIT = register("block.glowstone.hit");
 
     public static final RegistryObject<SoundEvent> FUNGUS_BOUNCE = register("block.fungus.bounce");
+    public static final RegistryObject<SoundEvent> LOGICATOR_CLICK = register("block.logicator.click");
 
     public static final RegistryObject<SoundEvent> EMBER_BOUNCE_BIG = register("entity.ember.bounce_big");
     public static final RegistryObject<SoundEvent> EMBER_BOUNCE_MED = register("entity.ember.bounce_med");

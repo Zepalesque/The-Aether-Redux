@@ -28,7 +28,9 @@ import net.zepalesque.redux.block.natural.AetherShortGrassBlock;
 import net.zepalesque.redux.block.natural.ExtendedDistanceLeavesBlock;
 import net.zepalesque.redux.block.natural.LeafPileBlock;
 import net.zepalesque.redux.block.natural.SproutsCropBlock;
+import net.zepalesque.redux.block.redstone.LogicatorBlock;
 import net.zepalesque.redux.block.util.state.ReduxStates;
+import net.zepalesque.redux.block.util.state.enums.LogicatorMode;
 import net.zepalesque.redux.block.util.state.enums.PetalPrismaticness;
 
 import java.util.Map;
@@ -255,6 +257,8 @@ public class ReduxBlockstateData extends AetherBlockStateProvider implements Tex
         this.block(ReduxBlocks.REFINED_SENTRITE_BLOCK.get(), "construction/");
         this.chain(ReduxBlocks.SENTRITE_CHAIN.get(), "construction/");
         this.lantern(ReduxBlocks.SENTRITE_LANTERN.get(), "construction/");
+        
+        this.logicator(ReduxBlocks.LOGICATOR.get(), "redstone/");
 
         for (WoodHandler woodHandler : Redux.WOOD_HANDLERS)        {
             woodHandler.generateBlockstateData(this);
@@ -1531,6 +1535,36 @@ public class ReduxBlockstateData extends AetherBlockStateProvider implements Tex
     public void dungeonBlock(Block block, Block baseBlock, String location) {
         ConfiguredModel dungeonBlock = new ConfiguredModel(this.models().cubeAll(this.name(baseBlock), this.texture(this.name(baseBlock), location)));
         this.getVariantBuilder(block).partialState().setModels(dungeonBlock);
+    }
+    
+    
+    public void logicator(Block block, String location) {
+        String name = this.name(block);
+        this.getVariantBuilder(block).forAllStates(
+            state -> {
+                Direction d = state.getValue(DiodeBlock.FACING);
+                LogicatorMode mode = state.getValue(LogicatorBlock.MODE);
+                String baseTextureName = mode.isExclusive() ? name + "_exclusive" : name;
+                String baseModelName = name + '_' + mode.getSerializedName();
+                boolean l = state.getValue(LogicatorBlock.LEFT);
+                boolean r = state.getValue(LogicatorBlock.RIGHT);
+                String configuration = "";
+                if (l || r) {
+                    configuration = configuration + "_in_";
+                    
+                    if (l) configuration = configuration + 'l';
+                    if (r) configuration = configuration + 'r';
+                }
+                
+                if (state.getValue(LogicatorBlock.POWERED))
+                    configuration = configuration + "_out";
+                
+                return ConfiguredModel.builder().modelFile(
+                        this.models().singleTexture(baseModelName + configuration,
+                            this.modLoc("block/template/redstone/template_logicator_" + (mode.isOr() ? "or" : "and")),
+                            "top", this.texture(baseTextureName, location, configuration)).renderType("cutout"))
+                    .rotationY(d.get2DDataValue() * 90).build();
+            });
     }
 
 

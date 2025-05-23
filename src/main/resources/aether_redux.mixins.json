@@ -25,6 +25,7 @@
     "common.entity.LivingEntityMixin",
     "common.entity.MimicMixin",
     "common.entity.MobMixin",
+    "common.entity.PassiveWhirlwindMixin",
     "common.entity.SentryMixin",
     "common.entity.SliderMixin",
     "common.entity.SlimeMixin",

@@ -7,6 +7,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.SoundDefinitionsProvider;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.audio.ReduxSoundEvents;
+import net.zepalesque.redux.util.data.DatagenUtil;
 
 public class ReduxSoundData extends SoundDefinitionsProvider {
     public ReduxSoundData(PackOutput output, String modid, ExistingFileHelper helper) {
@@ -153,7 +154,11 @@ public class ReduxSoundData extends SoundDefinitionsProvider {
                 definition().with(sound("aether_redux:block/fungus/bounce"))
                         .subtitle("subtitles.aether_redux.block.fungus_bounce")
         );
-
+        
+        this.add(ReduxSoundEvents.LOGICATOR_CLICK, definition().with(
+            sound("random/click")
+        ).subtitle("subtitles.aether_redux.block.logicator_click"));
+        
         this.add(ReduxSoundEvents.EMBER_BOUNCE_BIG, definition().with(
                 sound("aether_redux:entity/ember/ember_bouncebig")
         ).subtitle("subtitles.aether_redux.entity.ember_bounce"));

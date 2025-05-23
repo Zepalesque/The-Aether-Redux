@@ -260,7 +260,8 @@ public class ReduxBlockLootData extends AetherBlockLootSubProvider {
         this.dropPottedContents(ReduxBlocks.POTTED_CLOUDCAP_MUSHLING.get());
 
         this.dropSelfDouble(ReduxBlocks.CLOUDCAP_SPORES.get());
-
+        
+        this.dropSelf(ReduxBlocks.LOGICATOR.get());
 
         this.dropSelfDouble(ReduxBlocks.JELLYSHROOM_JELLY_BLOCK.get());
 

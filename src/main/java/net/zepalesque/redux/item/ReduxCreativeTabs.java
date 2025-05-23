@@ -7,9 +7,12 @@ import com.aetherteam.aether_genesis.block.GenesisBlocks;
 import com.legacy.lost_aether.registry.LCBlocks;
 import net.builderdog.ancient_aether.block.AncientAetherBlocks;
 import net.builderdog.ancient_aether.item.AncientAetherItems;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.ByteTag;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -171,15 +174,12 @@ public class ReduxCreativeTabs {
 
             putAfter(AetherBlocks.ZANITE_ORE, ReduxBlocks.VERIDIUM_ORE, event);
             putAfter(ReduxBlocks.VERIDIUM_ORE, ReduxBlocks.RAW_VERIDIUM_BLOCK, event);
-            if (ReduxConfig.COMMON.raw_ores.get()) {
+            if (ReduxConfig.COMMON.raw_ores.get())
                 putAfter(AetherBlocks.GRAVITITE_ORE, ReduxBlocks.RAW_GRAVITITE_BLOCK, event);
-            }
-            if (Redux.ancientAetherCompat()) {
+            if (Redux.ancientAetherCompat())
                 putAfter(AncientAetherBlocks.VALKYRUM_ORE, ReduxBlocks.RAW_VALKYRUM_BLOCK, event);
-            }
-            if (Redux.aetherGenesisCompat()) {
+            if (Redux.aetherGenesisCompat())
                 putAfter(GenesisBlocks.PURPLE_CRYSTAL_TREE_SAPLING, ReduxBlocks.PURPLE_CRYSTAL_FRUIT_SAPLING, event);
-            }
             
         } else if (tab == AetherCreativeTabs.AETHER_REDSTONE_BLOCKS.get()) {
             if (ReduxConfig.COMMON.gravitite_ingot.get()) {
@@ -187,7 +187,9 @@ public class ReduxCreativeTabs {
                 event.getEntries().remove(stack(AetherBlocks.ENCHANTED_GRAVITITE.get()));
             }
             
-        } else if (tab == AetherCreativeTabs.AETHER_FUNCTIONAL_BLOCKS.get()) {
+        }  else if (tab == AetherCreativeTabs.AETHER_REDSTONE_BLOCKS.get())
+            add(ReduxBlocks.LOGICATOR, event);
+        else if (tab == AetherCreativeTabs.AETHER_FUNCTIONAL_BLOCKS.get()) {
             putAfter(AetherBlocks.AMBROSIUM_TORCH, ReduxBlocks.SENTRITE_LANTERN, event);
             putAfter(ReduxBlocks.SENTRITE_LANTERN, ReduxBlocks.SENTRITE_CHAIN, event);
             doSigns(AetherBlocks.SKYROOT_HANGING_SIGN, event);
@@ -333,17 +335,17 @@ public class ReduxCreativeTabs {
             putBefore(AetherItems.BLUE_SWET_SPAWN_EGG, ReduxItems.BLIGHTBUNNY_SPAWN_EGG, event);
             putAfter(AetherItems.FLYING_COW_SPAWN_EGG, ReduxItems.SHIMMERCOW_SPAWN_EGG, event);
             putAfter(AetherItems.MOA_SPAWN_EGG, ReduxItems.MYKAPOD_SPAWN_EGG, event);
-        }
+        } else if (tab == BuiltInRegistries.CREATIVE_MODE_TAB.get(CreativeModeTabs.REDSTONE_BLOCKS))
+            putAfter(() -> Items.COMPARATOR, ReduxBlocks.LOGICATOR, event);
     }
 
     private static RegistryObject<? extends ItemLike> doBuildingWoods(RegistryObject<? extends ItemLike>  prevEntry, BuildCreativeModeTabContentsEvent event) {
 
         RegistryObject<? extends ItemLike> b = null;
-        for (WoodHandler woodHandler : Redux.WOOD_HANDLERS)
-        {
+        for (WoodHandler woodHandler : Redux.WOOD_HANDLERS) {
             boolean addSporingLogs = woodHandler.hasSporingLogs && woodHandler.sporingLog.isPresent() && woodHandler.sporingWood.isPresent();
             putAfter(b == null ? prevEntry : b, woodHandler.log, event);
-            boolean lw = (Redux.aetherGenesisCompat() || woodHandler.alwaysLogWalls);
+            boolean lw = Redux.aetherGenesisCompat() || woodHandler.alwaysLogWalls;
             boolean s = woodHandler.hasStrippedLogs;
             if (lw) { putAfter(woodHandler.log, woodHandler.logWall, event); }
             putAfter(lw ? woodHandler.logWall : woodHandler.log, woodHandler.wood, event);
@@ -353,8 +355,7 @@ public class ReduxCreativeTabs {
             if (s) { putAfter(lw ? woodHandler.strippedLogWall.get() : woodHandler.strippedLog.get(), woodHandler.strippedWood.get(), event); }
             if (lw && s) { putAfter(woodHandler.strippedWood.get(), woodHandler.strippedWoodWall.get(), event); }
             if (s) { putAfter(lw ? woodHandler.strippedWoodWall.get() : woodHandler.strippedWood.get(), addSporingLogs ? woodHandler.sporingLog.get() : woodHandler.planks, event); }
-            if (addSporingLogs)
-            {
+            if (addSporingLogs) {
                 putAfter(woodHandler.sporingLog.get(), woodHandler.sporingWood.get(), event);
                 putAfter(woodHandler.sporingWood.get(), woodHandler.planks, event);
             }
@@ -436,11 +437,11 @@ public class ReduxCreativeTabs {
         }
     }
 
-    private static void putAfter(RegistryObject<? extends ItemLike> itemBefore, RegistryObject<? extends ItemLike> insertedItem, BuildCreativeModeTabContentsEvent event) {
+    private static void putAfter(Supplier<? extends ItemLike> itemBefore, Supplier<? extends ItemLike> insertedItem, BuildCreativeModeTabContentsEvent event) {
         event.getEntries().putAfter(stack(itemBefore.get()), stack(insertedItem.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
     }
     
-    private static void putBefore(RegistryObject<? extends ItemLike> itemAfter, RegistryObject<? extends ItemLike> insertedItem, BuildCreativeModeTabContentsEvent event) {
+    private static void putBefore(Supplier<? extends ItemLike> itemAfter, Supplier<? extends ItemLike> insertedItem, BuildCreativeModeTabContentsEvent event) {
         event.getEntries().putBefore(stack(itemAfter.get()), stack(insertedItem.get()), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
     }
 

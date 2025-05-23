@@ -7,6 +7,7 @@ import net.zepalesque.redux.block.natural.ExtendedDistanceLeavesBlock;
 import net.zepalesque.redux.block.util.state.enums.BlightGrassColor;
 import net.zepalesque.redux.block.util.state.enums.GrassBlockTint;
 import net.zepalesque.redux.block.util.state.enums.GrassSize;
+import net.zepalesque.redux.block.util.state.enums.LogicatorMode;
 import net.zepalesque.redux.block.util.state.enums.PetalPrismaticness;
 
 public class ReduxStates {
@@ -30,6 +31,10 @@ public class ReduxStates {
     public static final BooleanProperty ENCHANTED = BooleanProperty.create("enchanted");
 
     public static final BooleanProperty NATURAL_GEN = BooleanProperty.create("natural_gen");
+    
+    public static final BooleanProperty LEFT_INPUT = BooleanProperty.create("left_input");
+    public static final BooleanProperty RIGHT_INPUT = BooleanProperty.create("right_input");
+    public static final EnumProperty<LogicatorMode> MODE_LOGICATOR = EnumProperty.create("mode", LogicatorMode.class);
     
     
     
