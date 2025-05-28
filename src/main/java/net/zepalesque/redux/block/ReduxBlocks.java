@@ -545,7 +545,7 @@ public static RegistryObject<StairBlock> DIVINITE_STAIRS = register("divinite_st
     public static final RegistryObject<FlowerPotBlock> POTTED_FLAREBLOSSOM = BLOCKS.register("potted_flareblossom", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, FLAREBLOSSOM, Block.Properties.copy(Blocks.FLOWER_POT)));
     
     public static final RegistryObject<LogicatorBlock> LOGICATOR = register("logicator",
-        () -> new LogicatorBlock(BlockBehaviour.Properties.of().instabreak().sound(SoundType.STONE).pushReaction(PushReaction.DESTROY))
+        () -> new LogicatorBlock(BlockBehaviour.Properties.of().instabreak().sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY))
     );
     
     // Deprecated -- Will be replaced in generation with the Aurum
