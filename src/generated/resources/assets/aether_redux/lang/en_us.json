@@ -337,6 +337,7 @@
   "block.aether_redux.zanberry_bush": "Zanberry Bush",
   "block.aether_redux.zanberry_bush_stem": "Zanberry Bush Stem",
   "block.aether_redux.zyatrix": "Zyatrix",
+  "config.jade.plugin_aether_redux.logicator": "Logicator Info",
   "config.jade.plugin_aether_redux.modification_notices": "Redux - Modify Indicator (Jade)",
   "death.attack.aether_redux.blight": "%1$s was taken by the Blight",
   "death.attack.aether_redux.blight.player": "%1$s was blighted away by %2$s",
