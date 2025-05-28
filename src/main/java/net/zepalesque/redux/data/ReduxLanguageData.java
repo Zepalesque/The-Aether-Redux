@@ -600,6 +600,11 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addTooltip("legacy_replacement", "Existing items/blocks will be replaced with %s in update 2.1 of the Aether: Redux");
         addTooltip("legacy_deletion", "Existing items/blocks will be removed in update 2.1 of the Aether: Redux");
         addTooltip("legacy_counterpart", "Please use the new counterpart, %s");
+        
+        addTooltip("jade.logicator_and", "AND");
+        addTooltip("jade.logicator_or", "OR");
+        addTooltip("jade.logicator_xor", "XOR");
+        addTooltip("jade.logicator_xnor", "XNOR");
 
         addGuiText("luxbuds_tooltip", "Occasionally gives the helpful Blightward effect when eaten");
         addGuiText("purified_luxbuds_tooltip", "Gives the helpful Blightward effect when eaten");
