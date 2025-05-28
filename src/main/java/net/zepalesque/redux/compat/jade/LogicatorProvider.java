@@ -34,7 +34,7 @@ public enum LogicatorProvider implements IBlockComponentProvider {
 //            else activation = "none";
             
 //            Component activationInfo = t.info(Component.translatable("tooltip.aether_redux.jade.state_" + activation));
-            Component modeInfo = t.info(Component.translatable("tooltip.aether_redux.jade.logicator_" + mode));
+            Component modeInfo = t.info(Component.translatable("tooltip.aether_redux.jade.logicator_" + mode.getSerializedName()));
 //            tooltip.add(Component.translatable("tooltip.jade.state", activationInfo));
             tooltip.add(Component.translatable("tooltip.jade.mode", modeInfo));
         }
