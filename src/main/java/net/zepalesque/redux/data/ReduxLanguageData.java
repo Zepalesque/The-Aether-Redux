@@ -9,6 +9,7 @@ import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
@@ -18,6 +19,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.compat.jade.LogicatorProvider;
 import net.zepalesque.redux.data.resource.ReduxDamageTypes;
 import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
 import net.zepalesque.redux.effect.ReduxEffects;
@@ -605,6 +607,8 @@ public class ReduxLanguageData extends AetherLanguageProvider {
         addTooltip("jade.logicator_or", "OR");
         addTooltip("jade.logicator_xor", "XOR");
         addTooltip("jade.logicator_xnor", "XNOR");
+        
+        addJadePlugin(LogicatorProvider.LOC, "Logicator Info");
 
         addGuiText("luxbuds_tooltip", "Occasionally gives the helpful Blightward effect when eaten");
         addGuiText("purified_luxbuds_tooltip", "Gives the helpful Blightward effect when eaten");
@@ -908,5 +912,9 @@ public class ReduxLanguageData extends AetherLanguageProvider {
 
     public void addE(RegistryObject<? extends EntityType<?>> key) {
         this.addEntityType(key, DatagenUtil.getNameLocalized(key));
+    }
+    
+    public void addJadePlugin(ResourceLocation id, String name) {
+        this.add(String.format("config.jade.plugin_%s.%s", id.getNamespace(), id.getPath()), name);
     }
 }
