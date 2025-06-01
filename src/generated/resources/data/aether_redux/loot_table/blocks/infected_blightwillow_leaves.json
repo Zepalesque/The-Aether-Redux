@@ -6,6 +6,9 @@
     },
     {
       "function": "aether:double_drops"
+    },
+    {
+      "function": "aether:double_drops"
     }
   ],
   "pools": [
@@ -135,6 +138,74 @@
             }
           ],
           "name": "aether:skyroot_stick"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:match_tool",
+              "predicate": {
+                "items": "#aether_redux:willow_spore_harvesters"
+              }
+            },
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:any_of",
+                "terms": [
+                  {
+                    "condition": "minecraft:match_tool",
+                    "predicate": {
+                      "items": "minecraft:shears"
+                    }
+                  },
+                  {
+                    "condition": "minecraft:match_tool",
+                    "predicate": {
+                      "predicates": {
+                        "minecraft:enchantments": [
+                          {
+                            "enchantments": "minecraft:silk_touch",
+                            "levels": {
+                              "min": 1
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 2.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            },
+            {
+              "enchantment": "minecraft:fortune",
+              "formula": "minecraft:ore_drops",
+              "function": "minecraft:apply_bonus"
+            }
+          ],
+          "name": "aether_redux:willow_spores"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:explosion_decay"
         }
       ],
       "rolls": 1.0

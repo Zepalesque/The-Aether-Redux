@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:crystal_planks_to_crystal_bookshelf"
+        "recipe": "aether_redux:blightwillow_planks_to_blightwillow_bookshelf"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:crystal_planks_to_crystal_bookshelf"
+      "aether_redux:blightwillow_planks_to_blightwillow_bookshelf"
     ]
   }
 }

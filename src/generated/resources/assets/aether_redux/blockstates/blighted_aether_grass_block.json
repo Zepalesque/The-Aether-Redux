@@ -1,6 +1,6 @@
 {
   "variants": {
-    "color=constant,double_drops=false,snowy=false": [
+    "color=constant,snowy=false": [
       {
         "model": "aether_redux:block/blighted_aether_grass_block"
       },
@@ -17,7 +17,7 @@
         "y": 270
       }
     ],
-    "color=constant,double_drops=false,snowy=true": [
+    "color=constant,snowy=true": [
       {
         "model": "aether_redux:block/blighted_aether_grass_block_snow"
       },
@@ -34,7 +34,7 @@
         "y": 270
       }
     ],
-    "color=constant,double_drops=true,snowy=false": [
+    "color=tintable,snowy=false": [
       {
         "model": "aether_redux:block/blighted_aether_grass_block"
       },
@@ -51,75 +51,7 @@
         "y": 270
       }
     ],
-    "color=constant,double_drops=true,snowy=true": [
-      {
-        "model": "aether_redux:block/blighted_aether_grass_block_snow"
-      },
-      {
-        "model": "aether_redux:block/blighted_aether_grass_block_snow",
-        "y": 90
-      },
-      {
-        "model": "aether_redux:block/blighted_aether_grass_block_snow",
-        "y": 180
-      },
-      {
-        "model": "aether_redux:block/blighted_aether_grass_block_snow",
-        "y": 270
-      }
-    ],
-    "color=tintable,double_drops=false,snowy=false": [
-      {
-        "model": "aether_redux:block/blighted_aether_grass_block"
-      },
-      {
-        "model": "aether_redux:block/blighted_aether_grass_block",
-        "y": 90
-      },
-      {
-        "model": "aether_redux:block/blighted_aether_grass_block",
-        "y": 180
-      },
-      {
-        "model": "aether_redux:block/blighted_aether_grass_block",
-        "y": 270
-      }
-    ],
-    "color=tintable,double_drops=false,snowy=true": [
-      {
-        "model": "aether_redux:block/blighted_aether_grass_block_snow"
-      },
-      {
-        "model": "aether_redux:block/blighted_aether_grass_block_snow",
-        "y": 90
-      },
-      {
-        "model": "aether_redux:block/blighted_aether_grass_block_snow",
-        "y": 180
-      },
-      {
-        "model": "aether_redux:block/blighted_aether_grass_block_snow",
-        "y": 270
-      }
-    ],
-    "color=tintable,double_drops=true,snowy=false": [
-      {
-        "model": "aether_redux:block/blighted_aether_grass_block"
-      },
-      {
-        "model": "aether_redux:block/blighted_aether_grass_block",
-        "y": 90
-      },
-      {
-        "model": "aether_redux:block/blighted_aether_grass_block",
-        "y": 180
-      },
-      {
-        "model": "aether_redux:block/blighted_aether_grass_block",
-        "y": 270
-      }
-    ],
-    "color=tintable,double_drops=true,snowy=true": [
+    "color=tintable,snowy=true": [
       {
         "model": "aether_redux:block/blighted_aether_grass_block_snow"
       },

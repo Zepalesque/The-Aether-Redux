@@ -20,6 +20,12 @@
   },
   "display": {
     "description": {
+      "extra": [
+        {
+          "color": "#9384F4",
+          "translate": "gui.aether_redux.advancement_suffix"
+        }
+      ],
       "translate": "advancement.aether_redux.throw_ring_in_lava.desc"
     },
     "hidden": true,

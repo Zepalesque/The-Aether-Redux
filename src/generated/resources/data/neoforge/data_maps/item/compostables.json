@@ -1,10 +1,10 @@
 {
   "values": {
     "aether_redux:aurum": {
-      "chance": 0.65
+      "chance": 0.3
     },
     "aether_redux:blightwillow_leaf_pile": {
-      "chance": 0.05
+      "chance": 0.3
     },
     "aether_redux:blightwillow_leaves": {
       "chance": 0.3
@@ -16,7 +16,7 @@
       "chance": 0.65
     },
     "aether_redux:gildenroot_leaf_pile": {
-      "chance": 0.05
+      "chance": 0.3
     },
     "aether_redux:gildenroot_leaves": {
       "chance": 0.3
@@ -28,7 +28,7 @@
       "chance": 0.65
     },
     "aether_redux:infected_blightwillow_leaves": {
-      "chance": 0.2
+      "chance": 0.5
     },
     "aether_redux:lucky_clover": {
       "chance": 0.65
@@ -37,7 +37,7 @@
       "chance": 0.65
     },
     "aether_redux:stormroot_leaf_pile": {
-      "chance": 0.05
+      "chance": 0.3
     },
     "aether_redux:stormroot_leaves": {
       "chance": 0.3
