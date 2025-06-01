@@ -188,7 +188,7 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 
         addBlock(ReduxBlocks.REFINED_SENTRITE_BLOCK, "Block of Refined Sentrite");
         addLore(ReduxBlocks.REFINED_SENTRITE_BLOCK, "A block of the refined form of Sentrite, crafted with Refined Sentrite.");
-
+        
         addBlock(ReduxBlocks.LOGICATOR, "Redstone Logicator");
         addLore(ReduxBlocks.LOGICATOR, "A fascinating circuit made with an exotic material not found in the Aether - Redstone. This little diode takes in two inputs on the side, and will perform a logical operation on the two for the output. The operation is controlled by the torch on the top and the back input. The torch controls AND/OR mode, and the back input controls exclusivity (XNOR/XOR).");
 

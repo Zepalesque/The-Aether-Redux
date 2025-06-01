@@ -5,10 +5,35 @@ import net.minecraft.util.StringRepresentable;
 import java.util.function.BinaryOperator;
 
 public enum LogicatorMode implements StringRepresentable {
-    AND("and", Boolean::logicalAnd),
-    OR("or", Boolean::logicalOr),
-    XNOR("xnor", (b1, b2) -> b1 == b2), // XAND
-    XOR("xor", Boolean::logicalXor);
+    
+    AND("and", Boolean::logicalAnd), // a AND b = c
+    //  a | b | c
+    // ---|---|---
+    //  1 | 1 | 1
+    //  1 | 0 | 0
+    //  0 | 1 | 0
+    //  0 | 0 | 0
+    OR("or", Boolean::logicalOr), // a OR b = c
+    //  a | b | c
+    // ---|---|---
+    //  1 | 1 | 1
+    //  1 | 0 | 1
+    //  0 | 1 | 1
+    //  0 | 0 | 0
+    XNOR("xnor", (b1, b2) -> b1 == b2), // a XNOR b = c
+    //  a | b | c
+    // ---|---|---
+    //  1 | 1 | 1
+    //  1 | 0 | 0
+    //  0 | 1 | 0
+    //  0 | 0 | 1
+    XOR("xor", Boolean::logicalXor); // a XOR b = c
+    //  a | b | c
+    // ---|---|---
+    //  1 | 1 | 0
+    //  1 | 0 | 1
+    //  0 | 1 | 1
+    //  0 | 0 | 0
 
     final String name;
     final BinaryOperator<Boolean> operator;

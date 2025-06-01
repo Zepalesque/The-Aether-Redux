@@ -15,6 +15,7 @@ import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.client.ReduxColors;
 import net.zepalesque.redux.data.gen.ReduxAdvancementData;
 import net.zepalesque.redux.data.gen.ReduxBlockStateData;
 import net.zepalesque.redux.data.gen.ReduxItemModelData;
@@ -61,7 +62,7 @@ public class ReduxData {
         generator.addProvider(event.includeServer(), ReduxLootData.create(output, lookups));
         generator.addProvider(event.includeServer(), new ReduxMapData(output, lookups));
         generator.addProvider(event.includeServer(), new ReduxLootModifierData(output, registries));
-        generator.addProvider(event.includeServer(), new ReduxAdvancementData(output, registries, fileHelper));
+        generator.addProvider(event.includeServer(), new ReduxAdvancementData(output, registries, fileHelper, ReduxColors.REDUX_PURPLE));
 
         // Tags
         ReduxBlockTagsData blockTags = new ReduxBlockTagsData(output, lookups, fileHelper);

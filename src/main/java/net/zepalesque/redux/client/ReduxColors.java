@@ -29,6 +29,8 @@ public class ReduxColors {
         public static final int BLEAKMOSS_GRASS_COLOR = 0xFFB79EC1;
     }
     
+    public static final int REDUX_PURPLE = 0x9384F4;
+    
     public static final ItemColor ITEM_PERMABLIGHT = (stack, index) -> index == 1 ? Tints.BLIGHT_GRASS_COLOR : 0xFFFFFFFF;
     
     public static Integer reduxColors(BlockState state, @Nullable BlockAndTintGetter level, @Nullable BlockPos pos, boolean useBelowProperties) {

@@ -8,7 +8,9 @@ import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.network.chat.Component;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.mixin.mixins.common.accessor.LangProviderAccessor;
 import net.zepalesque.unity.data.prov.UnityLanguageProvider;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,6 +28,11 @@ public abstract class ReduxLanguageProvider extends UnityLanguageProvider {
     public CompletableFuture<?> run(CachedOutput cache) {
         return generateTips(super.run(cache), cache);
     }*/
+    
+    @Nullable
+    protected String remove(String key) {
+        return ((LangProviderAccessor) this).redux$getData().remove(key);
+    }
     
 /*    private CompletableFuture<?> generateTips(CompletableFuture<?> languageGen, CachedOutput cache) {
         ImmutableList.Builder<CompletableFuture<?>> futuresBuilder = new ImmutableList.Builder<>();

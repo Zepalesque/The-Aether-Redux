@@ -2,7 +2,9 @@ package net.zepalesque.redux.data.prov;
 
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.dungeon.DoorwayBlock;
+import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Vec3i;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
@@ -16,6 +18,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.block.state.properties.WallSide;
 import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
@@ -31,7 +34,9 @@ import net.zepalesque.redux.block.construction.LayeredBookshelfBlock;
 import net.zepalesque.redux.block.dungeon.RunelightBlock;
 import net.zepalesque.redux.block.redstone.LogicatorBlock;
 import net.zepalesque.redux.block.state.enums.LogicatorMode;
+import net.zepalesque.unity.Unity;
 import net.zepalesque.unity.data.prov.UnityBlockStateProvider;
+import net.zepalesque.zenith.util.ArrayUtil;
 
 import java.util.Map;
 
@@ -51,13 +56,74 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
         return super.makeWallSideModel(length, height, name, faceRotation, u1, u2);
     }
     
-    public void permaGrass(Block block, Block dirt, String location, String dirtLocation) {
+    private static final Map<Direction, BooleanProperty> DIRECTION_TO_PROPERTY = ImmutableMap.<Direction, BooleanProperty>builder()
+        .put(Direction.DOWN, BlockStateProperties.DOWN)
+        .put(Direction.UP, BlockStateProperties.UP)
+        .put(Direction.WEST, BlockStateProperties.WEST)
+        .put(Direction.EAST, BlockStateProperties.EAST)
+        .put(Direction.SOUTH, BlockStateProperties.SOUTH)
+        .put(Direction.NORTH, BlockStateProperties.NORTH)
+        .build();
+    
+    // Degrees!!!!!
+    private static final Map<Direction, Vec3i> DIRECTION_TO_ROTATION = ImmutableMap.<Direction, Vec3i>builder()
+        .put(Direction.DOWN, new Vec3i(0, 0, 0))
+        .put(Direction.UP, new Vec3i(0, 90, 0))
+        .put(Direction.WEST, new Vec3i(0, 180, 0))
+        .put(Direction.EAST, new Vec3i(0, 270, 0))
+        .put(Direction.SOUTH, new Vec3i(270, 0, 0))
+        .put(Direction.NORTH, new Vec3i(90, 0, 0))
+        .build();
+    
+    public void createCloudcapBlock(Block block, String loc) {
+        this.models().withExistingParent(this.name(block), Unity.loc("block/cube_all_glow")).texture("all", this.texture(this.name(block) + "4", loc)).texture("glow", this.texture(this.name(block) + "4_glow", loc)).renderType("cutout");
+        ModelFile[] outer = ArrayUtil.generateContents(new ModelFile[5], value -> {
+            if (value == 0) return this.models().singleTexture(this.name(block) + value, mcLoc("block/template_single_face"), this.texture(block, loc).withSuffix(String.valueOf(value))).renderType("cutout");
+            else return this.models().withExistingParent(this.name(block) + value, Unity.loc("block/template_single_face_gloverlay")).texture("texture", this.texture(block, loc).withSuffix(String.valueOf(value))).texture("glow", this.texture(block, loc).withSuffix(value + "_glow")).renderType("cutout");
+        });
+        
+        int[] weights = new int[] {
+            10,
+            7,
+            5,
+            5,
+            3
+        };
+        
+        ModelFile in = this.models().singleTexture(this.name(block) + "_inside", mcLoc("block/template_single_face"), this.texture(block, loc).withSuffix("_inside")).renderType("cutout");
+        MultiPartBlockStateBuilder builder = this.getMultipartBuilder(block);
+        for (Direction direction : Direction.values()) {
+            Vec3i rotVec = DIRECTION_TO_ROTATION.get(direction);
+            
+            ConfiguredModel.Builder<PartBuilder> part = builder.part();
+            
+            // exterior
+            for (int i = 1; i < 5; i++) {
+                var v = part.modelFile(outer[0])
+                    .weight(weights[0])
+                    .rotationX(rotVec.getX())
+                    .rotationY(rotVec.getY());
+                if (i < 4) part = v.nextModel();
+            }
+            part.addModel().condition(DIRECTION_TO_PROPERTY.get(direction), true).end();
+            
+            // interior
+            builder.part().modelFile(in)
+                .rotationX(rotVec.getX())
+                .rotationY(rotVec.getY())
+                .addModel()
+                .condition(DIRECTION_TO_PROPERTY.get(direction), false)
+                .end();
+        }
+    }
+    
+    public void permaGrass(Block block, Block dirt, String location, String dirtLocation, Property<?>... ignored) {
         ResourceLocation bottom = texture(dirt, dirtLocation);
         ResourceLocation top = texture(AetherBlocks.AETHER_GRASS_BLOCK.get(), "natural/", "_top");
         ResourceLocation overlay = texture(block, location, "_side_overlay");
         ResourceLocation side = texture(block, location, "_side");
         ResourceLocation snow = texture(block, location, "_side_snow");
-        tintableGrassBlock(block, bottom, top, overlay, side, models().cubeBottomTop(nameID(block, "%s_snow"), snow, bottom, top));
+        tintableGrassBlock(block, bottom, top, overlay, side, models().cubeBottomTop(nameID(block, "%s_snow"), snow, bottom, top), ignored);
     }
     
     

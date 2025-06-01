@@ -43,6 +43,4 @@ public abstract class AbstractWhirlwindMixin extends LivingEntityMixin {
     protected void redux$poof(CallbackInfo ci) {
         ci.cancel();
     }
-
-
 }

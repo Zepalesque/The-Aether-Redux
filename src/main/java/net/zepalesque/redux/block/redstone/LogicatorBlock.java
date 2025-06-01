@@ -169,7 +169,7 @@ public class LogicatorBlock extends DiodeBlock {
 
     @Override
     protected int getDelay(BlockState state) {
-        return 1;
+        return 2;
     }
 
     @Override

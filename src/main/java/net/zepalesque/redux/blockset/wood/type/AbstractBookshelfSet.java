@@ -63,7 +63,7 @@ public abstract class AbstractBookshelfSet<B extends BookshelfBlock> extends Log
     @Override
     public void recipeData(ReduxRecipeProvider data, RecipeOutput consumer) {
         super.recipeData(data, consumer);
-        ReduxRecipeProvider.bookshelf(consumer, this.planks(), this.bookshelf());
+        data.bookshelf(consumer, this.planks(), this.bookshelf());
     }
 
     @Override

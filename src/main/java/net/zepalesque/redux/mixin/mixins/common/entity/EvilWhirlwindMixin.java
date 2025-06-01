@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(EvilWhirlwind.class)
 public abstract class EvilWhirlwindMixin extends AbstractWhirlwindMixin {
 
-    @Inject(method = "spawnParticles", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "spawnParticles", at = @At("HEAD"), cancellable = true, remap = false)
     protected void redux$spawnParticles(CallbackInfo ci) {
         if (ReduxConfig.CLIENT.improved_whirlwinds.get()) {
             EvilWhirlwind self = (EvilWhirlwind) (Object) this;

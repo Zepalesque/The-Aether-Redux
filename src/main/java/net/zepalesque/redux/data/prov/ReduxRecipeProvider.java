@@ -103,7 +103,7 @@ public abstract class ReduxRecipeProvider extends UnityRecipeProvider {
         RecipeProvider.wall(output, category, wall, material);
     }
 
-    public static void bookshelf(RecipeOutput output, ItemLike plank, ItemLike bookshelf) {
+    public void bookshelf(RecipeOutput output, ItemLike plank, ItemLike bookshelf) {
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, bookshelf, 1)
                 .define('P', plank)
                 .define('B', Items.BOOK)
@@ -111,7 +111,7 @@ public abstract class ReduxRecipeProvider extends UnityRecipeProvider {
                 .pattern("BBB")
                 .pattern("PPP")
                 .unlockedBy(getHasName(Items.BOOK), has(Items.BOOK))
-                .save(output, getItemName(plank) + "_to_" + getItemName(bookshelf));
+                .save(output, this.name(getItemName(plank) + "_to_" + getItemName(bookshelf)));
     }
 
     @Override

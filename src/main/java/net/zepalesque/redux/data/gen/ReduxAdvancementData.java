@@ -25,38 +25,44 @@ import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
 public class ReduxAdvancementData extends AdvancementProvider {
-
-    public ReduxAdvancementData(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, ExistingFileHelper existingFileHelper) {
-        super(output, registries, existingFileHelper, List.of(new ReduxAdvancements(Redux.MODID)));
+    
+    protected final int suffixColor;
+    
+    public ReduxAdvancementData(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, ExistingFileHelper existingFileHelper, int suffixColor) {
+        super(output, registries, existingFileHelper, List.of(new ReduxAdvancements(Redux.MODID, suffixColor)));
+        this.suffixColor = suffixColor;
     }
-
+    
     public static class ReduxAdvancements implements AdvancementGenerator, IConditionBuilder  {
-
+        
         private final String modid;
-
-        public ReduxAdvancements(String modid) {
+        private final int suffixColor;
+        
+        public ReduxAdvancements(String modid, int suffixColor) {
             this.modid = modid;
+            this.suffixColor = suffixColor;
         }
-
+        
         @Override
         public void generate(HolderLookup.Provider registries, Consumer<AdvancementHolder> output, ExistingFileHelper existingFileHelper) {
-
+            
             AdvancementHolder aether = Advancement.Builder.advancement().build(ResourceLocation.fromNamespaceAndPath(Aether.MODID, "the_aether"));
-
+            
             Advancement.Builder.advancement()
-                    .parent(aether)
-                    .display(
-                            AetherItems.GOLDEN_RING.get(),
-                            Component.translatable("advancement." + modid + ".throw_ring_in_lava"),
-                            Component.translatable("advancement." + modid + ".throw_ring_in_lava.desc"),
-                            null,
-                            AdvancementType.TASK, true, true, true)
-                    .addCriterion("throw_ring_in_lava",
-                            ReduxAdvancementTriggers.THROW_GOLD_RING_INTO_LAVA.get().createCriterion(
-                                    new PlayerTrigger.TriggerInstance(EntityPredicate.wrap(Optional.of(EntityPredicate.Builder.entity().located(LocationPredicate.Builder.inDimension(Level.NETHER)).build())))
-                            ))
-                    .save(output, Redux.loc("throw_ring_in_lava"), existingFileHelper);
-
+                .parent(aether)
+                .display(
+                    AetherItems.GOLDEN_RING.get(),
+                    Component.translatable("advancement." + modid + ".throw_ring_in_lava"),
+                    Component.translatable("advancement." + modid + ".throw_ring_in_lava.desc")
+                        .append(Component.translatable("gui." + modid + ".advancement_suffix").withStyle(style -> style.withColor(this.suffixColor))),
+                    null,
+                    AdvancementType.TASK, true, true, true)
+                .addCriterion("throw_ring_in_lava",
+                    ReduxAdvancementTriggers.THROW_GOLD_RING_INTO_LAVA.get().createCriterion(
+                        new PlayerTrigger.TriggerInstance(EntityPredicate.wrap(Optional.of(EntityPredicate.Builder.entity().located(LocationPredicate.Builder.inDimension(Level.NETHER)).build())))
+                    ))
+                .save(output, Redux.loc("throw_ring_in_lava"), existingFileHelper);
+            
         }
     }
 }

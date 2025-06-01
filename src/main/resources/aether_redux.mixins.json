@@ -31,7 +31,8 @@
     "common.world.feature.FeatureMixin",
     "common.world.structure.AetherTemplateStructurePieceMixin",
     "common.world.structure.piece.BronzeBossMixin",
-    "common.world.structure.piece.BronzeDungeonMixin"
+    "common.world.structure.piece.BronzeDungeonMixin",
+    "common.accessor.LangProviderAccessor"
   ],
   "client": [
     "client.block.AetherLeavesClientMixin",
