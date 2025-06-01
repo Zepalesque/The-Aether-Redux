@@ -1,21 +1,30 @@
 package net.zepalesque.redux.data.prov.loot;
 
+import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether.loot.functions.DoubleDrops;
+import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
+import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.predicates.BonusLevelTableCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.NumberProvider;
+import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.zepalesque.redux.block.backport.MossyCarpetBlock;
 import net.zepalesque.redux.block.state.ReduxStates;
+import net.zepalesque.redux.data.ReduxTags;
 import net.zepalesque.unity.data.prov.loot.UnityBlockLootProvider;
 
 import java.util.Set;
@@ -110,5 +119,23 @@ public abstract class ReduxBlockLootProvider extends UnityBlockLootProvider {
     public LootTable.Builder createSlabItemTable(Block pBlock) {
         return super.createSlabItemTable(pBlock);
     }
-
+    
+    public LootTable.Builder infectedBlightwillow(Block block, Block sapling, Item item, float... chances) {
+        return createForgeSilkTouchOrShearsDispatchTable(block,
+            this.applyExplosionCondition(block, LootItem.lootTableItem(sapling)).when(BonusLevelTableCondition.bonusLevelFlatChance(this.registries.holderOrThrow(Enchantments.FORTUNE), chances))
+        )
+            .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1)).when(HAS_SHEARS.or(this.hasSilkTouch()).invert())
+                .add(this.applyExplosionDecay(block,
+                        LootItem.lootTableItem(AetherItems.SKYROOT_STICK.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F))))
+                    .when(BonusLevelTableCondition.bonusLevelFlatChance(this.registries.holderOrThrow(Enchantments.FORTUNE), 0.02F, 0.022222223F, 0.025F, 0.033333335F, 0.1F))))
+            .apply(DoubleDrops.builder())
+            .withPool(this.applyExplosionDecay(item, LootPool.lootPool().setRolls(ConstantValue.exactly(1)).add(LootItem.lootTableItem(item)
+                .when(MatchTool.toolMatches(ItemPredicate.Builder.item().of(ReduxTags.Items.WILLOW_SPORE_HARVESTERS)))
+                .when(HAS_SHEARS.or(this.hasSilkTouch()).invert())
+                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))
+                .apply(ApplyBonusCount.addOreBonusCount(this.registries.holderOrThrow(Enchantments.FORTUNE))))))
+            .apply(DoubleDrops.builder());
+        
+        
+    }
 }

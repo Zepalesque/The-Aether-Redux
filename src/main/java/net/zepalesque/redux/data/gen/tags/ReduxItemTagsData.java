@@ -1,6 +1,7 @@
 package net.zepalesque.redux.data.gen.tags;
 
 import com.aetherteam.aether.AetherTags;
+import com.aetherteam.aether.item.AetherItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.ItemTags;
@@ -154,6 +155,11 @@ public class ReduxItemTagsData extends ReduxItemTagsProvider {
                 ReduxBlocks.TRAPPED_CARVED_BASE.get().asItem(),
                 ReduxBlocks.TRAPPED_SENTRY_BASE.get().asItem()
         );
+        
+        this.tag(AetherTags.Items.GOLDEN_AMBER_HARVESTERS).add(
+            ReduxItems.VERIDIUM_AXE.get(),
+            ReduxItems.INFUSED_VERIDIUM_AXE.get()
+        );
 
         this.tag(AetherTags.Items.BOSS_DOORWAY_DUNGEON_BLOCKS).add(
                 ReduxBlocks.BOSS_DOORWAY_CARVED_PILLAR.get().asItem(),
@@ -167,6 +173,14 @@ public class ReduxItemTagsData extends ReduxItemTagsProvider {
         );
         this.tag(AetherTags.Items.FLYING_COW_TEMPTATION_ITEMS).replace(true).add(
                 ReduxItems.WYND_OAT_PANICLE.get()
+        );
+        
+        this.tag(ReduxTags.Items.WILLOW_SPORE_HARVESTERS).add(
+            AetherItems.ZANITE_HOE.get(),
+            AetherItems.GRAVITITE_HOE.get(),
+            AetherItems.VALKYRIE_HOE.get(),
+            ReduxItems.VERIDIUM_HOE.get(),
+            ReduxItems.INFUSED_VERIDIUM_HOE.get()
         );
 
     }

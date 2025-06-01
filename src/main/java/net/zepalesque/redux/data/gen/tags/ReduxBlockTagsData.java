@@ -77,10 +77,18 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
         );
 
         this.tag(BlockTags.LEAVES).add(
-            ReduxBlocks.GILDENROOT_LEAVES.get()
+            ReduxBlocks.GILDENROOT_LEAVES.get(),
+            ReduxBlocks.STORMROOT_LEAVES.get(),
+            ReduxBlocks.BLIGHTWILLOW_LEAVES.get(),
+            ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES.get()
         );
         this.tag(BlockTags.MINEABLE_WITH_HOE).add(
             ReduxBlocks.GILDENROOT_LEAVES.get(),
+            ReduxBlocks.STORMROOT_LEAVES.get(),
+            ReduxBlocks.BLIGHTWILLOW_LEAVES.get(),
+            ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES.get(),
+            ReduxBlocks.STORMROOT_LEAF_PILE.get(),
+            ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get(),
             ReduxBlocks.GOLDEN_CLOVERS.get(),
             ReduxBlocks.GILDENROOT_LEAF_PILE.get(),
             ReduxBlocks.BLEAKMOSS_BLOCK.get(),

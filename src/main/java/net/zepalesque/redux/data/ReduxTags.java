@@ -29,7 +29,6 @@ public class ReduxTags {
         
         public static final TagKey<Block> AETHER_GRASS_SPREAD_BLACKLIST = tag("aether_grass_spread_blacklist");
 
-
         // NeoForge tags
         public static final TagKey<Block> VERIDIUM_ORES = tag("veridium_ores");
         public static final TagKey<Block> STORAGE_BLOCKS_VERIDIUM = tag("storage_blocks_veridium");
@@ -44,6 +43,8 @@ public class ReduxTags {
     public static class Items {
 
         public static final TagKey<Item> INFUSED_VERIDIUM_ITEMS = tag("infused_veridium_items");
+        
+        public static final TagKey<Item> WILLOW_SPORE_HARVESTERS = tag("willow_spore_harvesters");
 
         public static TagKey<Item> tag(String name) {
             return TagKey.create(Registries.ITEM, Redux.loc(name));

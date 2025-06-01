@@ -57,10 +57,10 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
                         BlockLootAccessor.aether$getNormalLeavesSaplingChances())
         );
 
-        // TODO
         this.add(ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES.get(),
-            leaves -> droppingWithChancesAndSkyrootSticks(
+            leaves -> infectedBlightwillow(
                 leaves, ReduxFlowerSets.BLIGHTWILLOW_SAPLING.flower().get(),
+                ReduxItems.WILLOW_SPORES.get(),
                 BlockLootAccessor.aether$getNormalLeavesSaplingChances())
         );
 

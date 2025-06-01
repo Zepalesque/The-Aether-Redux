@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
-public abstract class ReduxLanguageProvider extends UnityLanguageProvider {
+public abstract class  ReduxLanguageProvider extends UnityLanguageProvider {
 //    protected final Map<String, String> TIPS = new HashMap<>();
     
     
