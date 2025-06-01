@@ -28,6 +28,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.function.Predicate;
 
+// TODO: why exactly am I mixin-ing into my own class again? This could be done in the item code
 @Mixin(SubzeroCrossbowItem.class)
 public class SubzeroCrossbowItemMixin {
     @Unique

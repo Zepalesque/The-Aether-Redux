@@ -2,6 +2,7 @@ package net.zepalesque.redux.item.tools;
 
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -61,7 +62,7 @@ public class VeridiumPickaxeItem extends PickaxeItem implements VeridiumItem {
 
     @Override
     public boolean mineBlock(ItemStack stack, Level level, BlockState state, BlockPos pos, LivingEntity user) {
-        // Call the vanilla method do do things like tool damaging
+        // Call the vanilla method to do things like tool damaging
         boolean bool = super.mineBlock(stack, level, state, pos, user);
         if (!user.level().isClientSide()) {
             boolean instaBreak = state.getDestroySpeed(level, pos) <= 0.0F;
