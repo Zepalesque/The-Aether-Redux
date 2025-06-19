@@ -28,6 +28,7 @@ import net.zepalesque.redux.block.util.state.ReduxStates;
 import net.zepalesque.redux.block.util.state.enums.BlightGrassColor;
 import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
 import net.zepalesque.redux.mixin.common.world.NoiseSettingsAccessor;
+import net.zepalesque.redux.util.level.WorldgenUtil;
 import net.zepalesque.redux.world.biome.surfacerule.ConditionCondition;
 import teamrazor.deepaether.init.DABlocks;
 
@@ -63,9 +64,9 @@ public class ReduxSurfaceRules {
                     newRules.add(0, SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.THE_BLIGHT),
                         SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR,
                             SurfaceRules.state(
-                                ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get().defaultBlockState()
-                                    .setValue(AetherBlockStateProperties.DOUBLE_DROPS, true)
-                                    .setValue(ReduxStates.BLIGHT_GRASS_COLOR, BlightGrassColor.TINTABLE)
+                                WorldgenUtil.trySetValue(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get().defaultBlockState()
+                                        .setValue(AetherBlockStateProperties.DOUBLE_DROPS, true),
+                                    ReduxStates.BLIGHT_GRASS_COLOR, BlightGrassColor.TINTABLE)
                             )))
                     );
                     newRules.add(0, SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.THE_BLIGHT),

@@ -161,7 +161,6 @@ public class Redux {
             bus.addListener(ReduxColors::itemColors);
             bus.addListener(ReduxColors::resolvers);
             ReduxMenus.MENUS.register(bus);
-            ReduxClient.registerMolangQueries();
             return true;
         }, () -> () -> false);
         bus.addListener(EventPriority.HIGH, this::packSetup);

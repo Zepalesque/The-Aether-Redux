@@ -207,7 +207,7 @@ public class    ReduxFeatureConfig {
     public static final ResourceKey<ConfiguredFeature<?, ?>> GRASS_PATCH_OVERRIDE = AetherConfiguredFeatures.GRASS_PATCH_CONFIGURATION;
     public static final ResourceKey<ConfiguredFeature<?, ?>> TALL_GRASS_PATCH_OVERRIDE = AetherConfiguredFeatures.TALL_GRASS_PATCH_CONFIGURATION;
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> GRASS_PATCH_BONEMEAL = createKey(Folders.MISC + "aether_grass_bonemeal");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SINGLE_PIECE_OF_AETHER_GRASS = createKey(Folders.MISC + "single_piece_of_aether_grass");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ANCIENT_ENCHANTED_GRASS = createKey(Folders.COMPAT + "ancient_enchanted_grass");
 
@@ -217,8 +217,9 @@ public class    ReduxFeatureConfig {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GROVE_GOLDEN_TREES = createKey(Folders.TREE + "grove_golden_trees");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GROVE_GILDED_TREES = createKey(Folders.TREE + "grove_gilded_trees");
-
-
+    
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SINGLE_PIECE_OF_AVELIUM_FOLIAGE = createKey(Folders.TREE + "single_piece_of_avelium_foliage");
+    
     private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(Redux.MODID, name));
     }
@@ -234,10 +235,10 @@ public class    ReduxFeatureConfig {
         HolderGetter<DensityFunction> functions = context.lookup(Registries.DENSITY_FUNCTION);
 
         register(context, AEVELIUM_GRASSES_PATCH, Feature.RANDOM_PATCH,
-                blockBelowPlacementPatch(32, 7, 3, (new WeightedStateProvider(
+                blockBelowPlacementPatch(32, 7, 3, new WeightedStateProvider(
                                 SimpleWeightedRandomList.<BlockState>builder()
                                         .add(drops(ReduxBlocks.AVELIUM_SPROUTS), 5)
-                                        .add(drops(ReduxBlocks.AVELIUM_ROOTS), 3))),
+                                        .add(drops(ReduxBlocks.AVELIUM_ROOTS), 3)),
                         BlockPredicate.matchesTag(ReduxTags.Blocks.AEVELIUM_GRASSES)));
 
         register(context, AURUM_PATCH, Feature.FLOWER,
@@ -938,8 +939,15 @@ public class    ReduxFeatureConfig {
         register(context, GRASS_PATCH_OVERRIDE, Feature.RANDOM_PATCH,
                 patchNoCoarse(32, 7, 3, prov(ReduxBlocks.SHORT_AETHER_GRASS)));
 
-        register(context, GRASS_PATCH_BONEMEAL, Feature.SIMPLE_BLOCK,
+        register(context, SINGLE_PIECE_OF_AETHER_GRASS, Feature.SIMPLE_BLOCK,
                 new SimpleBlockConfiguration(prov(ReduxBlocks.SHORT_AETHER_GRASS)));
+
+        register(context, SINGLE_PIECE_OF_AVELIUM_FOLIAGE, Feature.SIMPLE_BLOCK,
+            new SimpleBlockConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                .add(drops(ReduxBlocks.AVELIUM_SPROUTS), 3)
+                .add(drops(ReduxBlocks.AVELIUM_ROOTS), 2)
+                .build()
+            )));
 
         register(context, SKYROOT_TREE_OVERRIDE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(

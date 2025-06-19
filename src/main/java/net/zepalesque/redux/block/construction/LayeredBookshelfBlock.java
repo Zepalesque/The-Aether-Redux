@@ -36,12 +36,8 @@ public class LayeredBookshelfBlock extends BookshelfBlock {
 
     private BlockState getState(LevelAccessor level, BlockPos pos) {
         BlockState b = this.defaultBlockState();
-        if (level.getBlockState(pos.above()).is(this)) {
-            b = b.setValue(UP, false);
-        }
-        if (level.getBlockState(pos.below()).is(this)) {
-            b = b.setValue(DOWN, false);
-        }
+        if (level.getBlockState(pos.above()).is(this)) b = b.setValue(UP, false);
+        if (level.getBlockState(pos.below()).is(this)) b = b.setValue(DOWN, false);
         return b;
     }
 

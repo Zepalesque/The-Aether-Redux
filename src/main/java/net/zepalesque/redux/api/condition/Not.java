@@ -5,9 +5,9 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 public class Not<E extends AbstractCondition<?>> implements AbstractCondition<Not<?>> {
 
-    public static final Codec<Not<?>> CODEC = RecordCodecBuilder.create((condition) ->
-            condition.group(AbstractCondition.CODEC.fieldOf("inverted").forGetter((cond) -> cond.condition))
-                    .apply(condition, Not::new));
+    public static final Codec<Not<?>> CODEC = RecordCodecBuilder.create(builder ->
+            builder.group(AbstractCondition.CODEC.fieldOf("inverted").forGetter(instance -> instance.condition))
+                    .apply(builder, Not::new));
 
     protected final E condition;
 

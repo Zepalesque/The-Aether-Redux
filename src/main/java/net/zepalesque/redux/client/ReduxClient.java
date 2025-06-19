@@ -27,18 +27,6 @@ import java.util.Optional;
 )
 public class ReduxClient {
 
-    // GeckoLib Molang variables
-    public static final String LIMB_MOVEMENT = "query.limb_movement";
-
-    public static final String HEAD_X_ROT = "query.head_x_rotation";
-    public static final String HEAD_Y_ROT = "query.head_y_rotation";
-
-    public static void registerMolangQueries() {
-//        MolangParser.INSTANCE.register(new LazyVariable(LIMB_MOVEMENT, 0));
-//        MolangParser.INSTANCE.register(new LazyVariable(HEAD_X_ROT, 0));
-//        MolangParser.INSTANCE.register(new LazyVariable(HEAD_Y_ROT, 0));
-    }
-
     public static void fixSignTextures(WoodHandler handler) {
         ResourceLocation texture = Redux.locate("entity/signs/" + handler.woodName);
         Material material = new Material(Sheets.SIGN_SHEET, texture);
@@ -51,11 +39,9 @@ public class ReduxClient {
 
     public static void registerItemModelProperties() {
         ItemProperties.register(ReduxItems.SUBZERO_CROSSBOW.get(), Redux.locate("pull"), (stack, level, entity, seed) -> {
-            if (entity == null) {
-                return 0.0F;
-            } else {
-                return SubzeroCrossbowItem.isCharged(stack) ? 0.0F : (float)(stack.getUseDuration() - entity.getUseItemRemainingTicks()) / (float)SubzeroCrossbowItem.getChargeDuration(stack);
-            }
+            if (entity == null) return 0.0F;
+            else return SubzeroCrossbowItem.isCharged(stack) ? 0.0F
+                : (float) (stack.getUseDuration() - entity.getUseItemRemainingTicks()) / SubzeroCrossbowItem.getChargeDuration(stack);
         });
         ItemProperties.register(ReduxItems.SUBZERO_CROSSBOW.get(), Redux.locate("pulling"), (stack, level, entity, seed) -> entity != null && entity.isUsingItem() && entity.getUseItem() == stack && !SubzeroCrossbowItem.isCharged(stack) ? 1.0F : 0.0F);
         ItemProperties.register(ReduxItems.SUBZERO_CROSSBOW.get(), Redux.locate("charged"), (stack, level, entity, seed) -> SubzeroCrossbowItem.isCharged(stack) ? 1.0F : 0.0F);

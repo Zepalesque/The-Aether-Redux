@@ -1,30 +1,40 @@
-package net.zepalesque.redux.block.natural.cloudcap;
+package net.zepalesque.redux.block.natural;
 
 import com.aetherteam.aether.block.AetherBlockStateProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.MossBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.zepalesque.redux.data.resource.ReduxFeatureConfig;
 
-public class FungalGrowthBlock extends MossBlock {
-    public FungalGrowthBlock(Properties properties) {
+public class DoubleDropsGrowthBlock extends MossBlock {
+    protected final ResourceKey<ConfiguredFeature<?, ?>> key;
+    
+    public DoubleDropsGrowthBlock(ResourceKey<ConfiguredFeature<?, ?>> key, Properties properties) {
         super(properties);
+        this.key = key;
         this.registerDefaultState(this.defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, false));
     }
-
+    
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);
         builder.add(AetherBlockStateProperties.DOUBLE_DROPS);
     }
-
+    
     public void performBonemeal(ServerLevel level, RandomSource rand, BlockPos pos, BlockState state) {
-        level.registryAccess().registry(Registries.CONFIGURED_FEATURE).flatMap(configuredFeatures -> configuredFeatures.getHolder(ReduxFeatureConfig.FUNGAL_PATCH_BONEMEAL)
-        ).ifPresent(feature -> feature.value().place(level, level.getChunkSource().getGenerator(), rand, pos.above()));
+        level.registryAccess().registry(Registries.CONFIGURED_FEATURE).flatMap(configuredFeatures ->
+            configuredFeatures.getHolder(this.resourceKey())).ifPresent(feature ->
+            feature.value().place(level, level.getChunkSource().getGenerator(), rand, pos.above()));
+    }
+    
+    private ResourceKey<ConfiguredFeature<?, ?>> resourceKey() {
+        return this.key;
     }
 }

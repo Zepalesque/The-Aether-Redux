@@ -32,8 +32,8 @@ public class BlockStateRecipeTrigger extends SimpleCriterionTrigger<BlockStateRe
         return new TriggerInstance(entity, ingredient, result, recipe);
     }
 
-    public void trigger(ServerPlayer player, BlockState ingredient, BlockState result, RecipeType recipe) {
-        this.trigger(player, (instance) -> instance.test(ingredient, result, recipe));
+    public void trigger(ServerPlayer player, BlockState ingredient, BlockState result, RecipeType<? extends AbstractBlockStateRecipe> recipe) {
+        this.trigger(player, instance -> instance.test(ingredient, result, recipe));
     }
 
     public static class TriggerInstance extends AbstractCriterionTriggerInstance {

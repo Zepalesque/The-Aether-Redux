@@ -27,21 +27,20 @@ public class BlightshadeBlock extends CustomBoundsFlowerBlock {
         super.entityInside(pState, pLevel, pPos, pEntity);
         if (!pEntity.level().isClientSide() && pEntity instanceof Player player && player.getBoundingBox().intersects(getShape(pState, pLevel, pPos, CollisionContext.of(player)).bounds().move(pPos)) && !player.getType().is(ReduxTags.EntityTypes.BLIGHTED_MOBS))
         {
-            if (!EquipmentHooks.isImmuneToBlightPlants(player)) {
-                if ((pEntity.xOld != pEntity.getX() || pEntity.zOld != pEntity.getZ())) {
+            if (!EquipmentHooks.isImmuneToBlightPlants(player))
+                if (pEntity.xOld != pEntity.getX() || pEntity.zOld != pEntity.getZ()) {
                     double d0 = Math.abs(pEntity.getX() - pEntity.xOld);
                     double d1 = Math.abs(pEntity.getZ() - pEntity.zOld);
-                    if (d0 >= 0.003D || d1 >= 0.003D) {
-                        ReduxPlayer.get(player).ifPresent((reduxPlayer) -> reduxPlayer.getBlightshadeModule().blightshade(pPos, getShape(pState, pLevel, pPos, CollisionContext.of(pEntity)).bounds().move(pPos), player));
-                    }
+                    if (d0 >= 0.003D || d1 >= 0.003D)
+                        ReduxPlayer.get(player).ifPresent(reduxPlayer ->
+                            reduxPlayer.getBlightshadeModule()
+                                .blightshade(pPos, getShape(pState, pLevel, pPos, CollisionContext.of(pEntity)).bounds().move(pPos), player));
                 }
-            }
-            if (pLevel.random.nextInt(100) == 0) {
+            if (pLevel.random.nextInt(100) == 0)
                 EquipmentUtil.findFirstCurio(player, stack -> stack.is(ReduxTags.Items.BLIGHTWARDING_ACCESSORIES))
-                        .ifPresent(slotResult ->
-                                slotResult.stack().hurtAndBreak(1, slotResult.slotContext().entity(),
-                                        livingEntity -> CuriosApi.broadcastCurioBreakEvent(slotResult.slotContext())));
-            }
+                    .ifPresent(slotResult ->
+                        slotResult.stack().hurtAndBreak(1, slotResult.slotContext().entity(),
+                            livingEntity -> CuriosApi.broadcastCurioBreakEvent(slotResult.slotContext())));
 
         }
     }

@@ -5,7 +5,6 @@ import com.aetherteam.aether.AetherConfig;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.resources.builders.AetherPlacedFeatureBuilders;
 import com.aetherteam.aether.data.resources.registries.AetherConfiguredFeatures;
-import com.aetherteam.aether.data.resources.registries.AetherPlacedFeatures;
 import com.aetherteam.aether.world.placementmodifier.ConfigFilter;
 import com.aetherteam.aether.world.placementmodifier.DungeonBlacklistFilter;
 import com.aetherteam.aether.world.placementmodifier.ImprovedLayerPlacementModifier;
@@ -21,7 +20,11 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.random.SimpleWeightedRandomList;
-import net.minecraft.util.valueproviders.*;
+import net.minecraft.util.valueproviders.BiasedToBottomInt;
+import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.util.valueproviders.IntProvider;
+import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.util.valueproviders.WeightedListInt;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
@@ -29,7 +32,19 @@ import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.heightproviders.TrapezoidHeight;
 import net.minecraft.world.level.levelgen.heightproviders.UniformHeight;
-import net.minecraft.world.level.levelgen.placement.*;
+import net.minecraft.world.level.levelgen.placement.BiomeFilter;
+import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
+import net.minecraft.world.level.levelgen.placement.CountPlacement;
+import net.minecraft.world.level.levelgen.placement.EnvironmentScanPlacement;
+import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
+import net.minecraft.world.level.levelgen.placement.HeightmapPlacement;
+import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
+import net.minecraft.world.level.levelgen.placement.NoiseThresholdCountPlacement;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.world.level.levelgen.placement.PlacementModifier;
+import net.minecraft.world.level.levelgen.placement.RandomOffsetPlacement;
+import net.minecraft.world.level.levelgen.placement.RarityFilter;
+import net.minecraft.world.level.levelgen.placement.SurfaceWaterDepthFilter;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.condition.Conditions;
@@ -38,7 +53,7 @@ import net.zepalesque.redux.world.placement.ConditionFilter;
 
 import java.util.List;
 
-import static net.zepalesque.redux.data.resource.Folders.ORE;
+import static com.aetherteam.aether.data.resources.registries.AetherPlacedFeatures.AETHER_GRASS_BONEMEAL;
 
 public class ReduxPlacements {
 
@@ -85,7 +100,7 @@ public class ReduxPlacements {
     public static final ResourceKey<PlacedFeature> GILDED_WHITE_FLOWER_PATCH = copyKey(ReduxFeatureConfig.GILDED_WHITE_FLOWER_PATCH);
     public static final ResourceKey<PlacedFeature> GLOWSPROUTS_PATCH = copyKey(ReduxFeatureConfig.GLOWSPROUTS_PATCH);
     public static final ResourceKey<PlacedFeature> GOLDEN_CLOVER_PATCH = copyKey(ReduxFeatureConfig.GOLDEN_CLOVER_PATCH);
-    public static final ResourceKey<PlacedFeature> GOLDEN_HEIGHTS_GILDED_HOLYSTONE_ORE = createKey(ORE + "golden_heights_" + name(ReduxBlocks.GILDED_HOLYSTONE) + "_ore");
+    public static final ResourceKey<PlacedFeature> GOLDEN_HEIGHTS_GILDED_HOLYSTONE_ORE = createKey(Folders.ORE + "golden_heights_" + name(ReduxBlocks.GILDED_HOLYSTONE) + "_ore");
     public static final ResourceKey<PlacedFeature> GROVE_TREES_LEGACY = copyKey(ReduxFeatureConfig.GROVE_TREES_LEGACY);
     public static final ResourceKey<PlacedFeature> GRASSLAND_TREES_LEGACY = copyKey(ReduxFeatureConfig.GRASSLAND_TREES_LEGACY);
     public static final ResourceKey<PlacedFeature> GROVE_TREES = copyKey(ReduxFeatureConfig.GROVE_TREES);
@@ -101,7 +116,7 @@ public class ReduxPlacements {
     public static final ResourceKey<PlacedFeature> LARGE_MUSHROOMS = copyKey(ReduxFeatureConfig.LARGE_MUSHROOMS);
     public static final ResourceKey<PlacedFeature> LUMINA_PATCH = copyKey(ReduxFeatureConfig.LUMINA_PATCH);
     public static final ResourceKey<PlacedFeature> LIGHTROOTS = copyKey(ReduxFeatureConfig.LIGHTROOTS);
-    public static final ResourceKey<PlacedFeature> MOSSY_HOLYSTONE_ORE  = createKey(ORE + name(AetherBlocks.MOSSY_HOLYSTONE) + "_ore");
+    public static final ResourceKey<PlacedFeature> MOSSY_HOLYSTONE_ORE  = createKey(Folders.ORE + name(AetherBlocks.MOSSY_HOLYSTONE) + "_ore");
     public static final ResourceKey<PlacedFeature> MOSSY_ROCK  = copyKey(ReduxFeatureConfig.MOSSY_ROCK);
     public static final ResourceKey<PlacedFeature> ICESTONE_ROCK  = copyKey(ReduxFeatureConfig.ICESTONE_ROCK);
     public static final ResourceKey<PlacedFeature> WYNDSPROUTS_PATCH = copyKey(ReduxFeatureConfig.WYNDSPROUTS_PATCH);
@@ -120,13 +135,11 @@ public class ReduxPlacements {
     public static final ResourceKey<PlacedFeature> HOLYSILT_DISK = copyKey(ReduxFeatureConfig.HOLYSILT_DISK);
     public static final ResourceKey<PlacedFeature> AEROGEL_DISK = copyKey(ReduxFeatureConfig.AEROGEL_DISK);
     public static final ResourceKey<PlacedFeature> CLOUD_LAYER = copyKey(ReduxFeatureConfig.CLOUD_LAYER);
+    public static final ResourceKey<PlacedFeature> AVELIUM_BONEMEAL = createKey(Folders.MISC + "avelium_bonemeal");
 
     public static final ResourceKey<PlacedFeature> AETHER_SNOW_LAYER = copyKey(ReduxFeatureConfig.AETHER_SNOW_LAYER);
 
     public static final ResourceKey<PlacedFeature> ANCIENT_ENCHANTED_GRASS = copyKey(ReduxFeatureConfig.ANCIENT_ENCHANTED_GRASS);
-
-    public static final ResourceKey<PlacedFeature> BONEMEAL_OVERRIDE = AetherPlacedFeatures.AETHER_GRASS_BONEMEAL;
-
 
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
 
@@ -714,7 +727,9 @@ public class ReduxPlacements {
             DUNGEON_BLACKLIST
         );
 
-        register(context, BONEMEAL_OVERRIDE, configs.getOrThrow(ReduxFeatureConfig.GRASS_PATCH_BONEMEAL), PlacementUtils.isEmpty());
+        register(context, AETHER_GRASS_BONEMEAL, configs.getOrThrow(ReduxFeatureConfig.SINGLE_PIECE_OF_AETHER_GRASS), PlacementUtils.isEmpty());
+        
+        register(context, AVELIUM_BONEMEAL, configs.getOrThrow(ReduxFeatureConfig.SINGLE_PIECE_OF_AVELIUM_FOLIAGE), PlacementUtils.isEmpty());
 
         register(context, VERIDIUM_ORE, configs.getOrThrow(ReduxFeatureConfig.VERIDIUM_ORE),
                 CountPlacement.of(11),
