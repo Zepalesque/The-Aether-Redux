@@ -11,6 +11,7 @@ import net.minecraft.world.entity.item.FallingBlockEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Fallable;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Material;
 
 public class HolysiltBlock extends AetherDoubleDropBlock implements Fallable {
     public HolysiltBlock(Properties properties) {
@@ -29,10 +30,12 @@ public class HolysiltBlock extends AetherDoubleDropBlock implements Fallable {
     }
 
     public static boolean isFree(BlockState state) {
-        return state.isAir() || state.is(BlockTags.FIRE) || state.liquid() || state.canBeReplaced();
+        Material material = state.getMaterial();
+        return state.isAir() || state.is(BlockTags.FIRE) || material.isLiquid() || material.isReplaceable();
     }
-    protected void falling(FallingBlockEntity pEntity) {
-    }
+    
+    protected void falling(FallingBlockEntity pEntity) {}
+    
     public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
         if (pRandom.nextInt(16) == 0) {
             BlockPos blockpos = pPos.below();

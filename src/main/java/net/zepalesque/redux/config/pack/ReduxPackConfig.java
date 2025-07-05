@@ -1,9 +1,9 @@
 package net.zepalesque.redux.config.pack;
 
+import com.mojang.bridge.game.PackType;
 import net.minecraft.SharedConstants;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.packs.PackResources;
-import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.metadata.pack.PackMetadataSection;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.Conditional;
@@ -98,8 +98,8 @@ public class ReduxPackConfig {
                     Conditional.of(BuiltinPackUtils.createPack("resource/sounds/tempest"), config.better_tempest_sounds)
             );
         }
-        return new ReduxOverridesPackResources(id, true, new PackMetadataSection(
-                desc, SharedConstants.getCurrentVersion().getPackVersion(PackType.CLIENT_RESOURCES)), packs);
+        return new ReduxOverridesPackResources(id, new PackMetadataSection(
+            desc, SharedConstants.getCurrentVersion().getPackVersion(PackType.RESOURCE)), packs);
 
     }
 }

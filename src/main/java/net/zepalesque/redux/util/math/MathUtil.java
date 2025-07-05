@@ -4,6 +4,7 @@ import net.minecraft.util.FastColor;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
+import net.zepalesque.redux.util.BackportUtil;
 import org.jetbrains.annotations.NotNull;
 
 public class MathUtil {
@@ -25,7 +26,7 @@ public class MathUtil {
         return Mth.clamp(Mth.inverseLerp(delta, min, max), min, max);
     }
     public static int clampedLerpInt(float delta, int min, int max) {
-        return Mth.clamp(Mth.lerpInt(delta, min, max), min, max);
+        return Mth.clamp(BackportUtil.lerpInt(delta, min, max), min, max);
     }
 
     public static int toNearestEven(float f)

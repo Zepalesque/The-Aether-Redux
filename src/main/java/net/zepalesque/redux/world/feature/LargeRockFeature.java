@@ -6,15 +6,12 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
+import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryCodecs;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
@@ -120,7 +117,7 @@ public class LargeRockFeature extends Feature<LargeRockFeature.Config> {
         BlockStateProvider provider = config.block();
         RandomSource rand = context.random();
         Optional<HolderSet<Block>> optional = config.replaceableStates();
-        if (level.isStateAtPosition(pos, bs -> bs.isAir() || bs.canBeReplaced() || (!bs.isCollisionShapeFullBlock(level, pos) && bs.getDestroySpeed(level, pos) != -1.0F) || bs.getDestroySpeed(level, pos) == 0.0F || (optional.isPresent() && bs.is(optional.get())))) {
+        if (level.isStateAtPosition(pos, state -> state.isAir() || state.getMaterial().isReplaceable() || (!state.isCollisionShapeFullBlock(level, pos) && state.getDestroySpeed(level, pos) != -1.0F) || state.getDestroySpeed(level, pos) == 0.0F || (optional.isPresent() && state.is(optional.get())))) {
             level.setBlock(pos, provider.getState(rand, pos), 2);
         }
     }
@@ -156,7 +153,7 @@ public class LargeRockFeature extends Feature<LargeRockFeature.Config> {
     public record Config(BlockStateProvider block, Optional<HolderSet<Block>> replaceableStates, Optional<PatchData> patch) implements FeatureConfiguration {
         public static final Codec<Config> CODEC = RecordCodecBuilder.create((config) -> config.group(
                 BlockStateProvider.CODEC.fieldOf("block").forGetter(Config::block),
-                RegistryCodecs.homogeneousList(Registries.BLOCK).optionalFieldOf("replaceable_states").forGetter(Config::replaceableStates),
+                RegistryCodecs.homogeneousList(Registry.BLOCK_REGISTRY).optionalFieldOf("replaceable_states").forGetter(Config::replaceableStates),
                 PatchData.CODEC.optionalFieldOf("patch_gen").forGetter(Config::patch)
         ).apply(config, Config::new));
     }

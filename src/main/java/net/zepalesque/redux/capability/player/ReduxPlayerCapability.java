@@ -118,7 +118,7 @@ public class ReduxPlayerCapability implements ReduxPlayer {
 
 
         this.prevTickAirJumps = airJumps;
-        if (this.getPlayer().onGround()) {
+        if (this.getPlayer().isOnGround()) {
             this.ticksInAir = 0;
             this.airJumps = 0;
             this.airJumpCooldown = 0;
@@ -161,7 +161,7 @@ public class ReduxPlayerCapability implements ReduxPlayer {
 
     @Override
     public boolean canShootFireball() {
-        return !this.player.level().isClientSide() &&
+        return !this.player.getLevel().isClientSide() &&
                 !this.player.getCooldowns().isOnCooldown(ReduxItems.SOLAR_EMBLEM.get())
                 && EquipmentUtil.hasCurio(this.player, ReduxItems.SOLAR_EMBLEM.get());
     }
@@ -208,8 +208,8 @@ public class ReduxPlayerCapability implements ReduxPlayer {
         this.maxAirJumps = nbt.getInt("max_jumps");
         this.airJumps = nbt.getInt("jumps");
         this.ticksInAir = nbt.getInt("ticks_in_air");
-        this.lore.deserializeNBT(nbt.get("lore_module"));
-        this.blightshade.deserializeNBT(nbt.get("blightshade_module"));
+        this.lore.deserializeNBT(nbt.getCompound("lore_module"));
+        this.blightshade.deserializeNBT(nbt.getCompound("blightshade_module"));
     }
 
 

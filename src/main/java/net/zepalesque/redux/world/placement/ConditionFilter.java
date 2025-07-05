@@ -35,7 +35,7 @@ public class ConditionFilter extends PlacementFilter {
 
     @Nonnull
     public PlacementModifierType<?> type() {
-        return ReduxPlacementModifiers.DATA_CONDITION;
+        return ReduxPlacementModifiers.DATA_CONDITION.get();
     }
 }
 

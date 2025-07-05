@@ -1,8 +1,9 @@
 package net.zepalesque.redux.client.gui.screen.config;
 
 import com.google.common.collect.Lists;
+import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
@@ -13,6 +14,7 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.packconfig.Category;
 import net.zepalesque.redux.api.packconfig.IConfigSaving;
 import net.zepalesque.redux.api.packconfig.PackConfig;
+import net.zepalesque.redux.client.gui.backported.GuiGraphicsHelper;
 import net.zepalesque.redux.client.gui.component.DynamicButton;
 import net.zepalesque.redux.client.gui.component.DynamicImageButton;
 import net.zepalesque.redux.client.gui.component.DynamicRenderableString;
@@ -27,7 +29,7 @@ import java.util.*;
 import java.util.function.Supplier;
 
 public class PackConfigMenu extends Screen {
-
+    
     private final Map<Integer, List<IConfigSaving>> pages = new HashMap<>();
     private final Map<Category, PackConfigMenu> cachedMenus = new HashMap<>();
     public static final ResourceLocation LIGHT_DIRT_BACKGROUND = new ResourceLocation("textures/gui/light_dirt_background.png");
@@ -45,21 +47,21 @@ public class PackConfigMenu extends Screen {
     private boolean valChanged = false;
     private boolean goingUp = false;
     private @Nullable PackSelectionScreen selSc = null;
-
+    
     private final Collection<ISaveable> saveables = new ArrayList<>();
-
+    
     public PackConfigMenu(Component title, Category base, @Nullable PackConfigMenu parent) {
         super(title);
         this.category = base;
         this.top = base.getRoot();
         this.parentScreen = parent;
     }
-
+    
     public void setSelectionScreen(PackSelectionScreen screen)
     {
         this.selSc = screen;
     }
-
+    
     public void markChanged(boolean shouldMark)
     {
         if (shouldMark) {
@@ -77,20 +79,20 @@ public class PackConfigMenu extends Screen {
             this.cachedMenus.forEach((category1, menu) -> menu.markChildren(true));
         }
     }
-
+    
     public boolean isMarked()
     {
         return this.valChanged;
     }
-
-
-    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-        this.renderDirtBackground(guiGraphics);
+    
+    
+    public void render(PoseStack guiGraphics, int mouseX, int mouseY, float partialTicks) {
+        this.renderDirtBackground(0);
         this.renderMenu(guiGraphics);
         this.renderList(guiGraphics);
         super.render(guiGraphics, mouseX, mouseY, partialTicks);
     }
-
+    
     public void goInto(Category cat, Minecraft mc)
     {
         PackConfigMenu menu;
@@ -105,21 +107,25 @@ public class PackConfigMenu extends Screen {
         }
         mc.setScreen(menu);
     }
-
+    
     public int getCurrentPage() {
         return currentPageNumber;
     }
-
-    private void renderMenu(GuiGraphics guiGraphics) {
-        guiGraphics.blitNineSliced(MENU_LOC, this.centerXStart(this.frameWidth()), this.centerYStart(this.frameHeight()), this.frameWidth(), this.frameHeight(), 30, 41, 30, 31, 192, 192, 0, 0);
+    
+    private void renderMenu(PoseStack guiGraphics) {
+        GuiGraphicsHelper.blitNineSliced(MENU_LOC, guiGraphics,  this.centerXStart(this.frameWidth()), this.centerYStart(this.frameHeight()), this.frameWidth(), this.frameHeight(), 30, 41, 30, 31, 192, 192, 0, 0);
     }
-    private void renderList(GuiGraphics guiGraphics) {
+    private void renderList(PoseStack guiGraphics) {
         int width = this.frameWidth() - 28;
         int height = this.frameHeight() - 72;
-        guiGraphics.blit(LIST_LOC, this.centerXStart(this.frameWidth()) + 14, this.centerYStart(this.frameHeight()) + 41, width, height, 0.0F, 0.0F, width / 3, height / 3, 16, 16);
+        RenderSystem.setShaderTexture(0, LIST_LOC);
+        guiGraphics.pushPose();
+        blit(guiGraphics, this.centerXStart(this.frameWidth()) + 14, this.centerYStart(this.frameHeight()) + 41, width, height, 0.0F, 0.0F, width / 3, height / 3, 16, 16);
+        guiGraphics.popPose();
     }
-
-
+    
+    
+    
     private int centerXStart(int width)
     {
         return this.width / 2 - width / 2;
@@ -136,7 +142,7 @@ public class PackConfigMenu extends Screen {
     {
         return this.height / 2 + height / 2;
     }
-
+    
     private int frameWidth()
     {
         return MathUtil.toNearestEven(this.width * (0.64F));
@@ -147,25 +153,25 @@ public class PackConfigMenu extends Screen {
         int diff = h % 24;
         return Math.max(h - diff, 96);
     }
-
+    
     private int getMaxInList()
     {
         return Math.max(0, (this.frameHeight() / 24) - 3);
     }
-
+    
     @Override
     protected void init() {
         this.pages.clear();
         super.init();
-
+        
         int titleX = this.centerXStart(this.frameWidth()) + 32;
         int titleY = this.centerYStart(this.frameHeight()) + 21;
         int wide = this.frameWidth() - 64;
-
+        
         this.addRenderableOnly(new RenderableString(Component.translatable("gui.aether_redux.pack_config.file", this.top.id()), titleX, titleY, wide, 0xFFFFFF, this.font));
         this.addRenderableOnly(new RenderableString(Component.translatable(this.category.parent() == null ? "gui.aether_redux.pack_config.top" : "gui.aether_redux.pack_config.category",
-                Component.translatable("gui.aether_redux.pack_config.category." + this.category.id())), titleX, titleY - this.font.lineHeight, wide, 0xFFFFFF, this.font));
-
+            Component.translatable("gui.aether_redux.pack_config.category." + this.category.id())), titleX, titleY - this.font.lineHeight, wide, 0xFFFFFF, this.font));
+        
         List<Category> cats = new ArrayList<>();
         for (IConfigSaving iid : this.category.members.values()) {
             if (iid instanceof Category cat) {
@@ -183,11 +189,11 @@ public class PackConfigMenu extends Screen {
         this.createPages();
         for (Map.Entry<Integer, List<IConfigSaving>> entry : this.pages.entrySet())
         {
-
+            
             int baseXCat = this.centerXStart(this.frameWidth()) + 16;
             int baseXConfig = this.centerXEnd(this.frameWidth()) - 80;
             int baseY = this.centerYStart(this.frameHeight()) + 42;
-
+            
             int pg = entry.getKey();
             List<IConfigSaving> list = entry.getValue();
             for (int i = 0; i < list.size(); i++) {
@@ -201,43 +207,43 @@ public class PackConfigMenu extends Screen {
                     this.addRenderableOnly(string);
                 } else if (id instanceof Category cat)
                 {
-                    DynamicButton button = new DynamicButton(Button.builder(Component.translatable("gui.aether_redux.pack_config.category." + cat.id()), b -> this.goInto(cat, this.minecraft)).bounds(baseXCat, baseY + i * 24,  this.frameWidth() - 32, 20), pg, Component.translatable("gui.aether_redux.pack_config.category_desc." + cat.id())) ;
+                    DynamicButton button = new DynamicButton(baseXCat, baseY + i * 24,this.frameWidth() - 32, 20, this, Component.translatable("gui.aether_redux.pack_config.category." + cat.id()), b -> this.goInto(cat, this.minecraft), pg, Component.translatable("gui.aether_redux.pack_config.category_desc." + cat.id())) ;
                     Supplier<Boolean> rightPage = () -> button.getPage() == this.getCurrentPage();
                     button.setActiveSupplier(rightPage);
                     button.setVisibleSupplier(rightPage);
                     this.addRenderableWidget(button);
                 }
-
+                
             }
         }
-
+        
         Supplier<Component> supplier = () -> {
             int page = (this.currentPageNumber + 1);
             return Component.translatable("gui.aether_redux.pack_config.page", page + "/" + this.pages.size());
         };
         Supplier<Integer> width = () -> Math.min(this.frameWidth() - 54, this.font.width(supplier.get()));
         DynamicRenderableString pages = new DynamicRenderableString(
-                supplier,
-                this.width / 2,
-                this.centerYEnd(this.frameHeight()) - 16 - (this.font.lineHeight / 2),
-                width,
-                0xFFFFFF,
-                this.font);
+            supplier,
+            this.width / 2,
+            this.centerYEnd(this.frameHeight()) - 16 - (this.font.lineHeight / 2),
+            width,
+            0xFFFFFF,
+            this.font);
         this.addRenderableOnly(pages);
-
+        
         Button next = new DynamicImageButton(this.centerXEnd(this.frameWidth()) - 26, this.centerYEnd(this.frameHeight()) - 26, 20, 20, 0, 0, 20, NEXT_BUTTON_LOC, 64, 64, (button) -> {
             if (this.hasNext()) this.currentPageNumber++; }).setActiveSupplier(this::hasNext);
         this.addRenderableWidget(next);
-
+        
         Button prev = new DynamicImageButton(this.centerXStart(this.frameWidth()) + 6, this.centerYEnd(this.frameHeight()) - 26, 20, 20, 0, 0, 20, BACK_BUTTON_LOC, 64, 64, (button) -> {
             if (this.hasPrev()) this.currentPageNumber--; }).setActiveSupplier(this::hasPrev);
         this.addRenderableWidget(prev);
-
+        
         Button out = new DynamicImageButton(this.centerXStart(this.frameWidth()) + 6, this.centerYStart(this.frameHeight()) + 11, 20, 20, 0, 0, 20, BACK_BUTTON_LOC, 64, 64, (button) -> {
             this.onClose();
         });
         this.addRenderableWidget(out);
-
+        
         Button up = new DynamicImageButton(this.centerXEnd(this.frameWidth()) - 26, this.centerYStart(this.frameHeight()) + 11, 20, 20, 0, 0, 20, PARENT_BUTTON_LOC, 64, 64, (button) -> {
             if (this.parentScreen != null) {
                 this.goingUp = true;
@@ -246,10 +252,10 @@ public class PackConfigMenu extends Screen {
             }
         }).setActiveSupplier(() -> this.category.parent() != null);
         this.addRenderableWidget(up);
-
+        
     }
-
-
+    
+    
     @Override
     public void onClose() {
         double mX = minecraft.mouseHandler.xpos();
@@ -261,11 +267,11 @@ public class PackConfigMenu extends Screen {
                 this.parentScreen.currentPageNumber = 0;
                 this.minecraft.setScreen(this.parentScreen);
                 GLFW.glfwSetCursorPos(this.minecraft.getWindow().getWindow(), mX, mY);
-        }   } else {
+            }   } else {
             this.closeRecursive(mX, mY);
         }
     }
-
+    
     public void closeRecursive(double mX, double mY)
     {
         super.onClose();
@@ -278,25 +284,25 @@ public class PackConfigMenu extends Screen {
             GLFW.glfwSetCursorPos(this.minecraft.getWindow().getWindow(), mX, mY);
         }
     }
-
+    
     public void saveAll()
     {
         this.saveables.forEach(ISaveable::save);
     }
-
+    
     private boolean hasNext()
     {
         return this.currentPageNumber < this.pages.size() - 1;
     }
-
+    
     private boolean hasPrev()
     {
         return this.currentPageNumber > 0;
     }
-
-
-
-
+    
+    
+    
+    
     private void createPages() {
         List<IConfigSaving> all = new ArrayList<>();
         all.addAll(this.categories);
@@ -306,7 +312,7 @@ public class PackConfigMenu extends Screen {
             this.pages.put(0, all);
         } else {
             List<List<IConfigSaving>> list = Lists.partition(all, this.getMaxInList());
-
+            
             for (int i = 0; i < list.size(); ++i) {
                 this.pages.put(i, list.get(i));
             }

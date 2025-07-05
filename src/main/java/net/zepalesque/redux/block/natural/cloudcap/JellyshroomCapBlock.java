@@ -3,6 +3,7 @@ package net.zepalesque.redux.block.natural.cloudcap;
 import com.aetherteam.aether.block.AetherBlockStateProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -36,7 +37,7 @@ public class JellyshroomCapBlock extends AbstractGlassBlock {
         if (pEntity.isSuppressingBounce()) {
             super.fallOn(pLevel, pState, pPos, pEntity, pFallDistance);
         } else {
-            pEntity.causeFallDamage(pFallDistance, 0.0F, pLevel.damageSources().fall());
+            pEntity.causeFallDamage(pFallDistance, 0.0F, DamageSource.FALL);
             pLevel.playSound((pEntity instanceof Player player ? player : null), pPos, ReduxSoundEvents.FUNGUS_BOUNCE.get(), SoundSource.BLOCKS, Math.min(pFallDistance / 10F, 0.8F),
                     0.9f + (pLevel.random.nextFloat() * 0.2f));
         }

@@ -15,18 +15,18 @@ public record InfuseItemPacket(UUID playerID, InfusionHolder holder) implements 
 
     public void encode(FriendlyByteBuf buf) {
         buf.writeUUID(this.playerID);
-        buf.writeJsonWithCodec(InfusionHolder.CODEC, this.holder);
+        buf.writeWithCodec(InfusionHolder.CODEC, this.holder);
     }
     public static InfuseItemPacket decode(FriendlyByteBuf buf) {
         UUID player = buf.readUUID();
-        InfusionHolder holder = buf.readJsonWithCodec(InfusionHolder.CODEC);
+        InfusionHolder holder = buf.readWithCodec(InfusionHolder.CODEC);
         return new InfuseItemPacket(player, holder);
     }
 
     public void execute(Player playerEntity) {
 
         if (playerEntity != null && playerEntity.getServer() != null) {
-            Player player = playerEntity.level().getPlayerByUUID(this.playerID());
+            Player player = playerEntity.getLevel().getPlayerByUUID(this.playerID());
             if (player instanceof ServerPlayer sp) {
                 InfuseItemTrigger.INSTANCE.trigger(sp, this.holder.getInfused(), this.holder.getResult());
                 if (this.holder.getInfused().getCount() > 1) {
@@ -35,9 +35,9 @@ public record InfuseItemPacket(UUID playerID, InfusionHolder holder) implements 
                     boolean flag = sp.getInventory().add(s);
                     if (!flag) {
                         double d0 = sp.getEyeY() - (double)0.3F;
-                        ItemEntity itementity = new ItemEntity(sp.level(), sp.getX(), d0, sp.getZ(), s);
+                        ItemEntity itementity = new ItemEntity(sp.getLevel(), sp.getX(), d0, sp.getZ(), s);
                         itementity.setPickUpDelay(40);
-                        sp.level().addFreshEntity(itementity);
+                        sp.getLevel().addFreshEntity(itementity);
                     } else {
                         sp.containerMenu.broadcastChanges();
                     }

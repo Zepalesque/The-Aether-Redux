@@ -17,7 +17,7 @@ public class DoubleJumpTrigger extends SimpleCriterionTrigger<DoubleJumpTrigger.
       return ID;
    }
 
-   public DoubleJumpTrigger.TriggerInstance createInstance(JsonObject pJson, ContextAwarePredicate pEntityPredicate, DeserializationContext pConditionsParser) {
+   public DoubleJumpTrigger.TriggerInstance createInstance(JsonObject pJson, EntityPredicate.Composite pEntityPredicate, DeserializationContext pConditionsParser) {
        return new DoubleJumpTrigger.TriggerInstance(pEntityPredicate);
    }
 
@@ -29,13 +29,13 @@ public class DoubleJumpTrigger extends SimpleCriterionTrigger<DoubleJumpTrigger.
    public static class TriggerInstance extends AbstractCriterionTriggerInstance {
 
 
-      public TriggerInstance(ContextAwarePredicate pPlayer) {
+      public TriggerInstance(EntityPredicate.Composite pPlayer) {
          super(DoubleJumpTrigger.ID, pPlayer);
 
       }
 
       public static DoubleJumpTrigger.TriggerInstance jump() {
-         return new DoubleJumpTrigger.TriggerInstance(ContextAwarePredicate.ANY);
+         return new DoubleJumpTrigger.TriggerInstance(EntityPredicate.Composite.ANY);
       }
 
       @NotNull

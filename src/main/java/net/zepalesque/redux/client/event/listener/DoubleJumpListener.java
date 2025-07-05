@@ -18,10 +18,8 @@ public class DoubleJumpListener {
     private static boolean prevJumpBindState = false;
 
     @SubscribeEvent
-    public static void onClientTick(TickEvent.ClientTickEvent event)
-    {
-        if (event.phase != TickEvent.Phase.END)
-        {
+    public static void onClientTick(TickEvent.ClientTickEvent event) {
+        if (event.phase != TickEvent.Phase.END) {
             return;
         }
 
@@ -31,12 +29,9 @@ public class DoubleJumpListener {
 
         AbstractClientPlayer player = mc.player;
 
-        if (world != null && player != null)
-        {
-            ReduxPlayer.get(player).ifPresent((reduxPlayer) ->
-            {
-                if (mc.options.keyJump.isDown() && !prevJumpBindState && !player.isInWater() && reduxPlayer.ticksInAir() > 2 && !player.isCreative() && !player.isSpectator() && !player.isPassenger())
-                {
+        if (world != null && player != null) {
+            ReduxPlayer.get(player).ifPresent((reduxPlayer) -> {
+                if (mc.options.keyJump.isDown() && !prevJumpBindState && !player.isInWater() && reduxPlayer.ticksInAir() > 2 && !player.isCreative() && !player.isSpectator() && !player.isPassenger()) {
                     ReduxPacketHandler.sendToServer(new DoubleJumpPacket(player.getUUID()));
                     reduxPlayer.doubleJump();
                 }

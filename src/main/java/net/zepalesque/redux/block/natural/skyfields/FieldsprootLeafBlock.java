@@ -15,10 +15,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.levelgen.XoroshiroRandomSource;
 import net.minecraft.world.level.levelgen.synth.PerlinNoise;
-import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.MaterialColor;
 import net.zepalesque.redux.block.natural.ExtendedDistanceLeavesBlock;
 import net.zepalesque.redux.block.util.state.ReduxStates;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
+import net.zepalesque.redux.util.BackportUtil;
 
 import java.util.function.BiFunction;
 import java.util.stream.IntStream;
@@ -68,12 +69,12 @@ public class FieldsprootLeafBlock extends AetherDoubleDropsLeaves {
             };
         }
     }
-    public static MapColor colorFromState(BlockState state) {
+    public static MaterialColor colorFromState(BlockState state) {
 
-        if (!state.hasProperty(ReduxStates.PRISMATICNESS)) return MapColor.COLOR_BLUE;
+        if (!state.hasProperty(ReduxStates.PRISMATICNESS)) return MaterialColor.COLOR_BLUE;
         else {
             int i = state.getValue(ReduxStates.PRISMATICNESS);
-            return i <= 1 ? MapColor.COLOR_LIGHT_BLUE : i >= 5 ? MapColor.COLOR_PINK : MapColor.COLOR_PURPLE;
+            return i <= 1 ? MaterialColor.COLOR_LIGHT_BLUE : i >= 5 ? MaterialColor.COLOR_PINK : MaterialColor.COLOR_PURPLE;
         }
     }
 
@@ -91,7 +92,7 @@ public class FieldsprootLeafBlock extends AetherDoubleDropsLeaves {
         double z = pos.getZ() * scale;
         double noiseVal = PERLIN.getValue(x, y, z);
         double clamped = Mth.clamp(noiseVal, -0.5D, 0.5D);
-        int prism = Mth.lerpInt((float) clamped + 0.5F, 0, 6);
+        int prism = BackportUtil.lerpInt((float) clamped + 0.5F, 0, 6);
         return state.setValue(ReduxStates.PRISMATICNESS, prism);
     }
 
@@ -105,7 +106,7 @@ public class FieldsprootLeafBlock extends AetherDoubleDropsLeaves {
             BlockPos blockpos = position.below();
             BlockState blockstate = world.getBlockState(blockpos);
             if (!blockstate.canOcclude() || !blockstate.isFaceSturdy(world, blockpos, Direction.UP))
-                ParticleUtils.spawnParticleBelow(world, position, rand, this.particle.apply(rand, block));
+                BackportUtil.spawnParticleBelow(world, position, rand, this.particle.apply(rand, block));
         }
     }
 }

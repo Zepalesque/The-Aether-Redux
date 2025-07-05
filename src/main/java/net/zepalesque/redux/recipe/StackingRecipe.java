@@ -34,7 +34,7 @@ public interface StackingRecipe extends Recipe<Container> {
     }
 
     @Override
-    default ItemStack assemble(Container container, RegistryAccess registryAccess) {
+    default ItemStack assemble(Container container) {
         return ItemStack.EMPTY;
     }
 
@@ -44,7 +44,7 @@ public interface StackingRecipe extends Recipe<Container> {
     }
 
     @Override
-    default ItemStack getResultItem(RegistryAccess registryAccess) {
+    default ItemStack getResultItem() {
         return ItemStack.EMPTY;
     }
 

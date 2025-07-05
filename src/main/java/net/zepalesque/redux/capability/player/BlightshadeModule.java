@@ -15,7 +15,7 @@ import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.network.ReduxPacketHandler;
 import net.zepalesque.redux.network.packet.BlightshadeParticlePacket;
 
-public class BlightshadeModule implements INBTSerializable {
+public class BlightshadeModule implements INBTSerializable<CompoundTag> {
 
     private int blightshadeCooldown;
     private int blightshadeEffectCooldown;
@@ -46,13 +46,13 @@ public class BlightshadeModule implements INBTSerializable {
     }
 
     public boolean blightshade(BlockPos pos, AABB bounds, LivingEntity entity) {
-        if (!this.player.level().isClientSide()) {
+        if (!this.player.getLevel().isClientSide()) {
             if (this.blightshadeCooldown > 0) {
                 return false;
             } else {
                 this.blightshadeCooldown = 100;
                 this.doParticles(bounds, entity);
-                this.player.level().playSound(null, pos, ReduxSoundEvents.BLIGHTSHADE_SPRAY.get(), SoundSource.BLOCKS, 0.8F, 0.9F + this.player.level().random.nextFloat() * 0.2F);
+                this.player.getLevel().playSound(null, pos, ReduxSoundEvents.BLIGHTSHADE_SPRAY.get(), SoundSource.BLOCKS, 0.8F, 0.9F + this.player.getLevel().random.nextFloat() * 0.2F);
                 this.blightshadeEffectCooldown = 10;
                 return true;
             }
@@ -61,14 +61,14 @@ public class BlightshadeModule implements INBTSerializable {
 
     public void doParticles(AABB bounds, LivingEntity entity) {
         Vec3 pos = entity.position();
-        ReduxPacketHandler.sendToNear(new BlightshadeParticlePacket(bounds), pos.x, pos.y, pos.z, 100D, entity.level().dimension());
+        ReduxPacketHandler.sendToNear(new BlightshadeParticlePacket(bounds), pos.x, pos.y, pos.z, 100D, entity.getLevel().dimension());
     }
 
 
 
 
     @Override
-    public Tag serializeNBT() {
+    public CompoundTag serializeNBT() {
         CompoundTag tag = new CompoundTag();
         tag.putInt("cooldown", this.blightshadeCooldown);
         tag.putInt("effect_cooldown", this.blightshadeEffectCooldown);
@@ -76,10 +76,8 @@ public class BlightshadeModule implements INBTSerializable {
     }
 
     @Override
-    public void deserializeNBT(Tag nbt) {
-        if (nbt instanceof CompoundTag tag) {
-            this.blightshadeCooldown = tag.getInt("cooldown");
-            this.blightshadeEffectCooldown = tag.getInt("effect_cooldown");
-        }
+    public void deserializeNBT(CompoundTag tag) {
+        this.blightshadeCooldown = tag.getInt("cooldown");
+        this.blightshadeEffectCooldown = tag.getInt("effect_cooldown");
     }
 }

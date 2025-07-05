@@ -1,13 +1,16 @@
 package net.zepalesque.redux.client.render;
 
 import com.aetherteam.aether.client.renderer.accessory.PendantRenderer;
-import com.aetherteam.aether.client.renderer.entity.*;
+import com.aetherteam.aether.client.renderer.entity.CockatriceRenderer;
+import com.aetherteam.aether.client.renderer.entity.FlyingCowRenderer;
+import com.aetherteam.aether.client.renderer.entity.MimicRenderer;
+import com.aetherteam.aether.client.renderer.entity.MoaRenderer;
+import com.aetherteam.aether.client.renderer.entity.PhygRenderer;
+import com.aetherteam.aether.client.renderer.entity.SentryRenderer;
+import com.aetherteam.aether.client.renderer.entity.SheepuffRenderer;
 import com.aetherteam.aether.entity.AetherEntityTypes;
-import com.aetherteam.aether_genesis.client.renderer.entity.BattleSentryRenderer;
-import com.aetherteam.aether_genesis.client.renderer.entity.SkyrootMimicRenderer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
-import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.NoopRenderer;
@@ -21,13 +24,40 @@ import net.minecraftforge.fml.loading.FMLLoader;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.client.render.bewlr.ReduxBEWLR;
-import net.zepalesque.redux.client.render.entity.*;
-import net.zepalesque.redux.client.render.entity.layer.entity.*;
+import net.zepalesque.redux.client.render.entity.BlightbunnyRenderer;
+import net.zepalesque.redux.client.render.entity.EmberRenderer;
+import net.zepalesque.redux.client.render.entity.InfusedVeridiumDartRenderer;
+import net.zepalesque.redux.client.render.entity.ReduxEvilWhirlwindRenderer;
+import net.zepalesque.redux.client.render.entity.ReduxWhirlwindRenderer;
+import net.zepalesque.redux.client.render.entity.ShimmercowRenderer;
+import net.zepalesque.redux.client.render.entity.SolarEmblemRenderer;
+import net.zepalesque.redux.client.render.entity.ThrownSpearRenderer;
+import net.zepalesque.redux.client.render.entity.VampireAmuletRenderer;
+import net.zepalesque.redux.client.render.entity.VanillaSwetRenderer;
+import net.zepalesque.redux.client.render.entity.VeridiumArrowRenderer;
+import net.zepalesque.redux.client.render.entity.VolatileFireCrystalRenderer;
+import net.zepalesque.redux.client.render.entity.layer.entity.CockatriceReduxLayer;
+import net.zepalesque.redux.client.render.entity.layer.entity.FlyingCowReduxLayer;
+import net.zepalesque.redux.client.render.entity.layer.entity.MimicReduxLayer;
+import net.zepalesque.redux.client.render.entity.layer.entity.MoaReduxArmorLayer;
+import net.zepalesque.redux.client.render.entity.layer.entity.MoaReduxLayer;
+import net.zepalesque.redux.client.render.entity.layer.entity.PhygReduxLayer;
+import net.zepalesque.redux.client.render.entity.layer.entity.SentryReduxLayer;
+import net.zepalesque.redux.client.render.entity.layer.entity.SheepuffReduxLayer;
 import net.zepalesque.redux.client.render.entity.misc.ReduxBoatRenderer;
 import net.zepalesque.redux.client.render.entity.model.PinModel;
 import net.zepalesque.redux.client.render.entity.model.SpearModel;
 import net.zepalesque.redux.client.render.entity.model.WhirlwindModel;
-import net.zepalesque.redux.client.render.entity.model.entity.*;
+import net.zepalesque.redux.client.render.entity.model.entity.BlightbunnyModel;
+import net.zepalesque.redux.client.render.entity.model.entity.CockatriceReduxModel;
+import net.zepalesque.redux.client.render.entity.model.entity.CubeModel;
+import net.zepalesque.redux.client.render.entity.model.entity.FlyingCowReduxModel;
+import net.zepalesque.redux.client.render.entity.model.entity.MimicReduxModel;
+import net.zepalesque.redux.client.render.entity.model.entity.MoaReduxModel;
+import net.zepalesque.redux.client.render.entity.model.entity.PhygReduxModel;
+import net.zepalesque.redux.client.render.entity.model.entity.SentryReduxModel;
+import net.zepalesque.redux.client.render.entity.model.entity.SheepuffReduxModel;
+import net.zepalesque.redux.client.render.entity.model.entity.ShimmercowModel;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.item.ReduxItems;
 import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
@@ -53,7 +83,6 @@ public class ReduxRenderers {
     public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
         for (WoodHandler woodHandler : Redux.WOOD_HANDLERS) {
             event.registerBlockEntityRenderer(woodHandler.signEntity.get(), SignRenderer::new);
-            event.registerBlockEntityRenderer(woodHandler.hangingSignEntity.get(), HangingSignRenderer::new);
             event.registerEntityRenderer(woodHandler.boatEntity.get(), (context) -> new ReduxBoatRenderer(context, false, woodHandler.woodName));
             event.registerEntityRenderer(woodHandler.chestBoatEntity.get(), (context) -> new ReduxBoatRenderer(context, true, woodHandler.woodName));
         }
@@ -114,11 +143,6 @@ public class ReduxRenderers {
         event.registerLayerDefinition(ReduxModelLayers.FLYING_COW, FlyingCowReduxModel::createBodyLayer);
         event.registerLayerDefinition(ReduxModelLayers.PIN, PinModel::createLayer);
         event.registerLayerDefinition(ReduxModelLayers.WHIRLWIND, WhirlwindModel::createBodyLayer);
-
-        if (Redux.aetherGenesisCompat()) {
-            event.registerLayerDefinition(ReduxModelLayers.BATTLE_SENTRY, BattleSentryReduxModel::createBodyLayer);
-        }
-
         if (!FMLLoader.isProduction()) {
             event.registerLayerDefinition(ReduxModelLayers.CUBE, CubeModel::create);
         }
@@ -153,12 +177,7 @@ public class ReduxRenderers {
             if (renderer instanceof FlyingCowRenderer cow) {
                 cow.addLayer(new FlyingCowReduxLayer(cow, new FlyingCowReduxModel<>(mc.getEntityModels().bakeLayer(ReduxModelLayers.FLYING_COW))));
             }
-            if (Redux.aetherGenesisCompat() && renderer instanceof BattleSentryRenderer sentry) {
-                sentry.addLayer(new BattleSentryReduxLayer(sentry, new BattleSentryReduxModel<>(mc.getEntityModels().bakeLayer(ReduxModelLayers.BATTLE_SENTRY))));
-            }
-            if (Redux.aetherGenesisCompat() && renderer instanceof SkyrootMimicRenderer mimic) {
-                mimic.addLayer(new MimicReduxLayer(mimic, new MimicReduxModel(mc.getEntityModels().bakeLayer(ReduxModelLayers.MIMIC))));
-            }
+
         }
     }
 

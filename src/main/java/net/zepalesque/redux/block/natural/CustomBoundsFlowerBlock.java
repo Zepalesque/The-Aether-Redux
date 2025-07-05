@@ -19,7 +19,8 @@ public class CustomBoundsFlowerBlock extends FlowerBlock {
         super(effectSupplier, pEffectDuration, pProperties);
         this.shape = shape;
     }
-
+    
+    @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         Vec3 vec3 = pState.getOffset(pLevel, pPos);
         return this.shape.move(vec3.x, vec3.y, vec3.z);

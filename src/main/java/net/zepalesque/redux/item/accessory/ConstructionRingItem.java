@@ -24,8 +24,7 @@ public class ConstructionRingItem extends RingItem {
     @Override
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(SlotContext slotContext, UUID uuid, ItemStack stack) {
         Multimap<Attribute, AttributeModifier> attributes = HashMultimap.create();
-        attributes.put(ForgeMod.BLOCK_REACH.get(), new AttributeModifier(uuid, "Valkyrie Ring Block Reach Boost", 1.5, AttributeModifier.Operation.ADDITION));
-        attributes.put(ForgeMod.ENTITY_REACH.get(), new AttributeModifier(uuid, "Valkyrie Ring Entity Reach Boost", 1.5, AttributeModifier.Operation.ADDITION));
+        attributes.put(ForgeMod.REACH_DISTANCE.get(), new AttributeModifier(uuid, "Valkyrie Ring Reach Boost", 1.5, AttributeModifier.Operation.ADDITION));
         return attributes;    }
 
 }

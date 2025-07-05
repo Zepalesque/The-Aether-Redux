@@ -2,7 +2,7 @@ package net.zepalesque.redux.block.natural;
 
 import com.aetherteam.aether.block.AetherBlockStateProperties;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.registries.Registries;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -11,7 +11,6 @@ import net.minecraft.world.level.block.MossBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.zepalesque.redux.data.resource.ReduxFeatureConfig;
 
 public class DoubleDropsGrowthBlock extends MossBlock {
     protected final ResourceKey<ConfiguredFeature<?, ?>> key;
@@ -28,8 +27,9 @@ public class DoubleDropsGrowthBlock extends MossBlock {
         builder.add(AetherBlockStateProperties.DOUBLE_DROPS);
     }
     
+    @Override
     public void performBonemeal(ServerLevel level, RandomSource rand, BlockPos pos, BlockState state) {
-        level.registryAccess().registry(Registries.CONFIGURED_FEATURE).flatMap(configuredFeatures ->
+        level.registryAccess().registry(Registry.CONFIGURED_FEATURE_REGISTRY).flatMap(configuredFeatures ->
             configuredFeatures.getHolder(this.resourceKey())).ifPresent(feature ->
             feature.value().place(level, level.getChunkSource().getGenerator(), rand, pos.above()));
     }

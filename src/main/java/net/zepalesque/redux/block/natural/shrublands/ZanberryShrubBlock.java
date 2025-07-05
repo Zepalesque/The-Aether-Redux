@@ -31,11 +31,13 @@ public class ZanberryShrubBlock extends AetherBushBlock implements BonemealableB
         super(properties);
         this.registerDefaultState(this.defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, false));
     }
-
+    
+    @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(AetherBlockStateProperties.DOUBLE_DROPS);
     }
-
+    
+    @Override
     public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
         if (entity instanceof LivingEntity living && living.getBoundingBox().intersects(getShape(state, level, pos, CollisionContext.of(living)).bounds().move(pos)) && entity.getType() != EntityType.FOX && entity.getType() != EntityType.BEE) {
             entity.makeStuckInBlock(state, new Vec3(0.5, 0.75, 0.5));
@@ -44,13 +46,14 @@ public class ZanberryShrubBlock extends AetherBushBlock implements BonemealableB
                 double d0 = Math.abs(entity.getX() - entity.xOld);
                 double d1 = Math.abs(entity.getZ() - entity.zOld);
                 if (d0 >= (double)0.003F || d1 >= (double)0.003F) {
-                    entity.hurt(ReduxDamageTypes.source(level, ReduxDamageTypes.ZANBERRY_BUSH), 1.0F);
+                    entity.hurt(ReduxDamageTypes.ZANBERRY_BUSH, 1.0F);
                 }
             }
         }
 
     }
-
+    
+    @Override
     public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         if (level.getRawBrightness(pos.above(), 0) >= 9 && ForgeHooks.onCropsGrowPre(level, pos, state, random.nextInt(60) == 0)) {
             level.setBlockAndUpdate(pos, ReduxBlocks.ZANBERRY_BUSH.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, state.getValue(AetherBlockStateProperties.DOUBLE_DROPS)));
@@ -58,24 +61,29 @@ public class ZanberryShrubBlock extends AetherBushBlock implements BonemealableB
         }
 
     }
-
+    
+    @Override
     public boolean isRandomlyTicking(BlockState blockState) {
         return true;
     }
-
+    
+    @Override
     public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
         level.setBlockAndUpdate(pos, ReduxBlocks.ZANBERRY_BUSH.get().defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, state.getValue(AetherBlockStateProperties.DOUBLE_DROPS)));
     }
-
+    
+    @Override
     public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {
         return (double)random.nextFloat() <= 0.45;
     }
-
-    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean isClient) {
+    
+    @Override
+    public boolean isValidBonemealTarget(BlockGetter level, BlockPos pos, BlockState state, boolean isClient) {
         return true;
     }
-
-    public @NotNull VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+    
+    @Override
+    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return SHAPE;
     }
 }

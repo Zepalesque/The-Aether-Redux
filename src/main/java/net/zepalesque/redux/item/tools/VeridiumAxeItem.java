@@ -51,7 +51,7 @@ public class VeridiumAxeItem extends AxeItem implements VeridiumItem {
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         boolean bool = super.hurtEnemy(stack, target, attacker);
         ItemStack transform = this.deplete(stack, attacker, 1);
-        if (!attacker.level().isClientSide() && transform != null && transform != stack) {
+        if (!attacker.getLevel().isClientSide() && transform != null && transform != stack) {
             attacker.setItemSlot(EquipmentSlot.MAINHAND, transform);
             if (attacker instanceof ServerPlayer sp) {
                 this.sendSound(sp);
@@ -64,13 +64,13 @@ public class VeridiumAxeItem extends AxeItem implements VeridiumItem {
     public boolean mineBlock(ItemStack stack, Level level, BlockState state, BlockPos pos, LivingEntity user) {
         // Call the vanilla method to do things like tool damaging
         boolean bool = super.mineBlock(stack, level, state, pos, user);
-        if (!user.level().isClientSide()) {
+        if (!user.getLevel().isClientSide()) {
             boolean instaBreak = state.getDestroySpeed(level, pos) <= 0.0F;
             // Avoid decreasing infusion on insta-break blocks
             if (!instaBreak) {
                 int amount = stack.isCorrectToolForDrops(state) ? 1 : 2;
                 ItemStack transform = this.deplete(stack, user, amount);
-                if (!user.level().isClientSide() && transform != null && transform != stack) {
+                if (!user.getLevel().isClientSide() && transform != null && transform != stack) {
                     user.setItemSlot(EquipmentSlot.MAINHAND, transform);
                     if (user instanceof ServerPlayer sp) {
                         this.sendSound(sp);
@@ -84,11 +84,11 @@ public class VeridiumAxeItem extends AxeItem implements VeridiumItem {
     @Override
     public InteractionResult useOn(UseOnContext context) {
         InteractionResult result = super.useOn(context);
-        if (result == InteractionResult.sidedSuccess(context.getLevel().isClientSide()) && !context.getPlayer().level().isClientSide() && !context.getPlayer().isCreative()) {
+        if (result == InteractionResult.sidedSuccess(context.getLevel().isClientSide()) && !context.getPlayer().getLevel().isClientSide() && !context.getPlayer().isCreative()) {
             ItemStack stack = context.getItemInHand();
             Player player = context.getPlayer();
             ItemStack transform = this.deplete(stack, player, 1);
-            if (!player.level().isClientSide() && transform != null && transform != stack) {
+            if (!player.getLevel().isClientSide() && transform != null && transform != stack) {
                 player.setItemSlot(EquipmentSlot.MAINHAND, transform);
                 if (player instanceof ServerPlayer sp) {
                     this.sendSound(sp);

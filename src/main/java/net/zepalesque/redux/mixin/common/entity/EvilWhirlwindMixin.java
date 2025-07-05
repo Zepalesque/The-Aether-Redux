@@ -30,7 +30,7 @@ public abstract class EvilWhirlwindMixin extends AbstractWhirlwindMixin {
                 double y = self.getY() + height;
                 double z = self.getZ() + Mth.lerp(rZ, -radius, radius);
 
-                self.level().addParticle(ReduxParticleTypes.WHIRLWIND_LIGHTNING.get(), x, y, z, 0.0D, 0.0D, 0.0D);
+                self.getLevel().addParticle(ReduxParticleTypes.WHIRLWIND_LIGHTNING.get(), x, y, z, 0.0D, 0.0D, 0.0D);
             }
             ci.cancel();
         }

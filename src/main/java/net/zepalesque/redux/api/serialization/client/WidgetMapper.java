@@ -11,7 +11,7 @@ import net.zepalesque.redux.api.serialization.Mapper;
 import net.zepalesque.redux.client.gui.component.config.SaveableEditBox;
 import net.zepalesque.redux.client.gui.component.config.SaveableEnumButton;
 import net.zepalesque.redux.client.gui.screen.config.PackConfigMenu;
-import net.zepalesque.redux.util.function.OctoFunction;
+import net.zepalesque.redux.util.function.Functions;
 
 import java.util.Optional;
 import java.util.function.Function;
@@ -73,7 +73,7 @@ public interface WidgetMapper<T> extends Mapper<T> {
     }
 
     /** See {@link Mapper#xmap(Function, Function)} */
-    default <Q> WidgetMapper<Q> xmap(Function<T, Q> to, Function<Q, T> from, OctoFunction<PackConfig<?>, Integer, PackConfigMenu, Integer, Integer, Integer, Integer, Font, AbstractWidget> widgetConstructor) {
+    default <Q> WidgetMapper<Q> xmap(Function<T, Q> to, Function<Q, T> from, Functions.F8<PackConfig<?>, Integer, PackConfigMenu, Integer, Integer, Integer, Integer, Font, AbstractWidget> widgetConstructor) {
         Function<Optional<T>, Optional<Q>> optionalFunc = ogVal -> ogVal.isEmpty() ? Optional.empty() : Optional.of(to.apply(ogVal.get()));
         final WidgetMapper<T> og = this;
         return new WidgetMapper<>() {
@@ -130,8 +130,8 @@ public interface WidgetMapper<T> extends Mapper<T> {
         };
     }
 
-    /** Returns a {@link WidgetMapper} based on a given {@link Mapper}, giving an {@link OctoFunction} to construct the {@link AbstractWidget}. */
-    static <T> WidgetMapper<T> fromMapper(final Mapper<T> mapper, OctoFunction<PackConfig<?>, Integer, PackConfigMenu, Integer, Integer, Integer, Integer, Font, AbstractWidget> widgetConstructor)
+    /** Returns a {@link WidgetMapper} based on a given {@link Mapper}, giving an {@link Functions.F8} to construct the {@link AbstractWidget}. */
+    static <T> WidgetMapper<T> fromMapper(final Mapper<T> mapper, Functions.F8<PackConfig<?>, Integer, PackConfigMenu, Integer, Integer, Integer, Integer, Font, AbstractWidget> widgetConstructor)
     {
         return new WidgetMapper<>() {
             @Override

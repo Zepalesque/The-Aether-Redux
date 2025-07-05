@@ -1,10 +1,13 @@
 package net.zepalesque.redux.advancement.predicate;
 
 import com.google.common.collect.ImmutableSet;
-import com.google.gson.*;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonNull;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonSyntaxException;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.GsonHelper;
@@ -50,7 +53,7 @@ public class StatePredicate {
 
             for(JsonElement jsonelement : jsonarray) {
                ResourceLocation resourcelocation = new ResourceLocation(GsonHelper.convertToString(jsonelement, "block"));
-               builder.add(BuiltInRegistries.BLOCK.getOptional(resourcelocation).orElseThrow(() -> new JsonSyntaxException("Unknown block id '" + resourcelocation + "'")));
+               builder.add(Registry.BLOCK.getOptional(resourcelocation).orElseThrow(() -> new JsonSyntaxException("Unknown block id '" + resourcelocation + "'")));
             }
 
             set = builder.build();
@@ -59,7 +62,7 @@ public class StatePredicate {
          TagKey<Block> tagkey = null;
          if (jsonobject.has("tag")) {
             ResourceLocation resourcelocation1 = new ResourceLocation(GsonHelper.getAsString(jsonobject, "tag"));
-            tagkey = TagKey.create(Registries.BLOCK, resourcelocation1);
+            tagkey = TagKey.create(Registry.BLOCK_REGISTRY, resourcelocation1);
          }
 
          StatePropertiesPredicate statepropertiespredicate = StatePropertiesPredicate.fromJson(jsonobject.get("state"));
@@ -78,7 +81,7 @@ public class StatePredicate {
             JsonArray jsonarray = new JsonArray();
 
             for(Block block : this.blocks) {
-               jsonarray.add(BuiltInRegistries.BLOCK.getKey(block).toString());
+               jsonarray.add(Registry.BLOCK.getKey(block).toString());
             }
 
             jsonobject.add("blocks", jsonarray);

@@ -26,6 +26,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.zepalesque.redux.block.util.state.ReduxStates;
+import net.zepalesque.redux.util.BackportUtil;
 
 import java.util.OptionalInt;
 
@@ -39,7 +40,8 @@ public class ExtendedDistanceLeavesBlock extends Block implements SimpleWaterlog
       super(properties);
       this.registerDefaultState(this.stateDefinition.any().setValue(AetherBlockStateProperties.DOUBLE_DROPS, false).setValue(EXTENDED_DISTANCE, Integer.valueOf(DECAY_DISTANCE)).setValue(PERSISTENT, Boolean.valueOf(false)).setValue(WATERLOGGED, Boolean.valueOf(false)));
    }
-
+   
+   @Override
    public VoxelShape getBlockSupportShape(BlockState state, BlockGetter reader, BlockPos pos) {
       return Shapes.empty();
    }
@@ -52,6 +54,7 @@ public class ExtendedDistanceLeavesBlock extends Block implements SimpleWaterlog
    /**
     * @return whether this block needs random ticking.
     */
+   @Override
    public boolean isRandomlyTicking(BlockState state) {
       return state.getValue(EXTENDED_DISTANCE) == DECAY_DISTANCE && !state.getValue(PERSISTENT);
    }
@@ -138,7 +141,7 @@ public class ExtendedDistanceLeavesBlock extends Block implements SimpleWaterlog
             BlockPos blockpos = pos.below();
             BlockState blockstate = level.getBlockState(blockpos);
             if (!blockstate.canOcclude() || !blockstate.isFaceSturdy(level, blockpos, Direction.UP)) {
-               ParticleUtils.spawnParticleBelow(level, pos, random, ParticleTypes.DRIPPING_WATER);
+               BackportUtil.spawnParticleBelow(level, pos, random, ParticleTypes.DRIPPING_WATER);
             }
          }
       }

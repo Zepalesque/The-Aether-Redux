@@ -33,7 +33,7 @@ public class GenesisTrunkDecorator extends TreeDecorator {
         for (int i = 0; i < 4; i++) {
             int j = (int) Mth.cos(f);
             int k = (int) Mth.sin(f);
-            Direction direction = Direction.fromDelta(j, 0, k);
+            Direction direction = Direction.fromNormal(j, 0, k);
             if (direction != null) {
                 if (direction == Direction.NORTH) {
                     BlockPos pos = basePos.offset(j, 0, k);

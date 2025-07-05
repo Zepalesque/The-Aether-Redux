@@ -15,6 +15,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.TreeConfigurati
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
+import net.zepalesque.redux.util.BackportUtil;
 
 import java.util.List;
 import java.util.function.BiConsumer;
@@ -49,13 +50,13 @@ public class BlightwillowTrunkPlacer extends TrunkPlacer {
         for (Direction d : Direction.Plane.HORIZONTAL) {
             // Lower branch
             BlockPos lower = top.below(4).relative(d);
-            this.placeLog(level, setter, random, lower, config, state -> state.trySetValue(RotatedPillarBlock.AXIS, d.getAxis()));
+            this.placeLog(level, setter, random, lower, config, state -> BackportUtil.trySetValue(state, RotatedPillarBlock.AXIS, d.getAxis()));
 
             // Upper branch
             BlockPos upper = top.below(2);
             for (int i = 1; i < 3; i++) {
                 BlockPos pos = upper.relative(d, i);
-                this.placeLog(level, setter, random, pos, config, state -> state.trySetValue(RotatedPillarBlock.AXIS, d.getAxis()));
+                this.placeLog(level, setter, random, pos, config, state -> BackportUtil.trySetValue(state, RotatedPillarBlock.AXIS, d.getAxis()));
             }
             BlockPos upper2 = top.below(1).relative(d, 3);
             this.placeLog(level, setter, random, upper2, config);

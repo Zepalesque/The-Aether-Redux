@@ -2,11 +2,10 @@ package net.zepalesque.redux.misc;
 
 import com.aetherteam.aether.api.AetherAdvancementSoundOverrides;
 import com.aetherteam.aether.api.registers.AdvancementSoundOverride;
-import net.minecraft.core.registries.Registries;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
@@ -31,11 +30,11 @@ public class ReduxTags {
         public static final TagKey<Block> ROCK_REPLACEABLE = tag("rock_replaceable");
 
         public static TagKey<Block> tag(String name) {
-            return TagKey.create(Registries.BLOCK, Redux.locate(name));
+            return TagKey.create(Registry.BLOCK_REGISTRY, Redux.locate(name));
         }
 
         public static TagKey<Block> tagGenesis(String name) {
-            return TagKey.create(Registries.BLOCK,new ResourceLocation("aether_genesis",name));
+            return TagKey.create(Registry.BLOCK_REGISTRY,new ResourceLocation("aether_genesis",name));
         }
     }
 
@@ -63,7 +62,7 @@ public class ReduxTags {
         public static final TagKey<Item> MOUSE_EAR_CAPS = tag("compat/mouse_ear_caps");
 
         public static TagKey<Item> tag(String name) {
-            return TagKey.create(Registries.ITEM, Redux.locate(name));
+            return TagKey.create(Registry.ITEM_REGISTRY, Redux.locate(name));
         }
     }
 
@@ -74,7 +73,7 @@ public class ReduxTags {
         public static final TagKey<EntityType<?>> SWET_PASSTHROUGH = tag("swet_passthrough");
 
         private static TagKey<EntityType<?>> tag(String name) {
-            return TagKey.create(Registries.ENTITY_TYPE, Redux.locate(name));
+            return TagKey.create(Registry.ENTITY_TYPE_REGISTRY, Redux.locate(name));
         }
     }
 
@@ -85,7 +84,7 @@ public class ReduxTags {
         // TODO: Implement in 2.1
         public static final TagKey<Biome> IS_QUICKSOIL_DESERT = tag("is_quicksoil_desert");
 
-        public static final TagKey<Biome> AA_SKY_GRASS = tagAncient("has_aether_grass_patches");
+//        public static final TagKey<Biome> AA_SKY_GRASS = tagAncient("has_aether_grass_patches");
         
         public static final TagKey<Biome> DA_BIOMES = tag("deep_aether_biomes");
 
@@ -115,23 +114,14 @@ public class ReduxTags {
 
 
         private static TagKey<Biome> tag(String name) {
-            return TagKey.create(Registries.BIOME, Redux.locate(name));
+            return TagKey.create(Registry.BIOME_REGISTRY, Redux.locate(name));
         }
 
-        private static TagKey<Biome> tagAncient(String name) {
-            return TagKey.create(Registries.BIOME, new ResourceLocation("ancient_aether", name));
-        }
+/*        private static TagKey<Biome> tagAncient(String name) {
+            return TagKey.create(Registry.BIOME_REGISTRY, new ResourceLocation("ancient_aether", name));
+        }*/
     }
-    public static class DamageTypes {
-
-        public static final TagKey<DamageType> IS_ATTACK = tag("is_attack");
-        public static final TagKey<DamageType> FIREBALL = tag("fireball");
-        public static final TagKey<DamageType> BYPASS_MYKAPOD = tag("bypass_mykapod");
-
-        private static TagKey<DamageType> tag(String name) {
-            return TagKey.create(Registries.DAMAGE_TYPE, Redux.locate(name));
-        }
-    }
+    
     public static class Sounds {
 
         public static final TagKey<SoundEvent> AETHER_MUSIC = tag("aether_music");
@@ -139,7 +129,7 @@ public class ReduxTags {
         public static final TagKey<SoundEvent> ALWAYS_ALLOW = tag("always_allow");
 
         private static TagKey<SoundEvent> tag(String name) {
-            return TagKey.create(Registries.SOUND_EVENT, Redux.locate(name));
+            return TagKey.create(Registry.SOUND_EVENT_REGISTRY, Redux.locate(name));
         }
     }
     // Portmanteau of Advancement and Override, for context

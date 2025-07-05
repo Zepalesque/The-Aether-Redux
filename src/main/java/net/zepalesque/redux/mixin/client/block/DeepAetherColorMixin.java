@@ -11,12 +11,12 @@ import teamrazor.deepaether.event.DAClientModBusEvents;
 @Mixin(DAClientModBusEvents.class)
 public class DeepAetherColorMixin {
     
-    @WrapWithCondition(method = "registerBlockColors", at = {
+/*    @WrapWithCondition(method = "registerBlockColors", at = {
         @At(value = "INVOKE", target = "Lnet/minecraftforge/client/event/RegisterColorHandlersEvent$Block;register(Lnet/minecraft/client/color/block/BlockColor;[Lnet/minecraft/world/level/block/Block;)V", ordinal = 0),
         @At(value = "INVOKE", target = "Lnet/minecraftforge/client/event/RegisterColorHandlersEvent$Block;register(Lnet/minecraft/client/color/block/BlockColor;[Lnet/minecraft/world/level/block/Block;)V", ordinal = 2)
     }, remap = false)
     private static boolean stupidJavaBlackMagic(RegisterColorHandlersEvent.Block instance, BlockColor blockColor, Block[] blocks) {
         // Cancel deep aether's tall glowing grass stuff
         return false;
-    }
+    }*/
 }

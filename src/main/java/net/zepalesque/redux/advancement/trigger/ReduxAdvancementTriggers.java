@@ -5,6 +5,9 @@ import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.advancements.critereon.LocationPredicate;
 import net.minecraft.advancements.critereon.PlayerTrigger;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
 import net.zepalesque.redux.Redux;
 
 
@@ -21,6 +24,6 @@ public class ReduxAdvancementTriggers {
     }
     
     public static PlayerTrigger.TriggerInstance throwRing() {
-        return new PlayerTrigger.TriggerInstance(THROW_GOLD_RING_INTO_LAVA.getId(), EntityPredicate.wrap(EntityPredicate.Builder.entity().located(LocationPredicate.Builder.location().setDimension(Level.NETHER).build()).build()));
+        return new PlayerTrigger.TriggerInstance(THROW_GOLD_RING_INTO_LAVA.getId(), EntityPredicate.Composite.wrap(EntityPredicate.Builder.entity().located(LocationPredicate.Builder.location().setDimension(Level.NETHER).build()).build()));
     }
 }

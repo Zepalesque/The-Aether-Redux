@@ -23,7 +23,6 @@ import net.zepalesque.redux.client.audio.ReduxSoundEvents;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.data.resource.ReduxDamageTypes;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
-import net.zepalesque.redux.util.math.MathUtil;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -63,8 +62,8 @@ public class Ember extends Projectile {
    public Entity getEmberSource() {
       if (this.cachedSource != null && !this.cachedSource.isRemoved()) {
          return this.cachedSource;
-      } else if (this.sourceUUID != null && this.level() instanceof ServerLevel) {
-         this.cachedSource = ((ServerLevel)this.level()).getEntity(this.sourceUUID);
+      } else if (this.sourceUUID != null && this.getLevel() instanceof ServerLevel) {
+         this.cachedSource = ((ServerLevel)this.getLevel()).getEntity(this.sourceUUID);
          return this.cachedSource;
       } else {
          return null;
@@ -74,7 +73,7 @@ public class Ember extends Projectile {
    public ArrayList<Entity> getHits() {
       if (this.cachedHits != null && !this.cachedHits.isEmpty()) {
          return this.cachedHits;
-      } else if (this.hitUUIDs != null && !this.hitUUIDs.isEmpty() && this.level() instanceof ServerLevel serverLevel) {
+      } else if (this.hitUUIDs != null && !this.hitUUIDs.isEmpty() && this.getLevel () instanceof ServerLevel serverLevel) {
          ArrayList<Entity> collection = new ArrayList<>();
          for (UUID id : this.hitUUIDs) {
             Entity e = serverLevel.getEntity(id);
@@ -106,7 +105,7 @@ public class Ember extends Projectile {
    public void tick() {
       super.tick();
       Vec3 vec3 = this.getDeltaMovement();
-      HitResult hitresult = ProjectileUtil.getHitResultOnMoveVector(this, this::canHitEntity);
+      HitResult hitresult = ProjectileUtil.getHitResult(this, this::canHitEntity);
       double d0 = this.getX() + vec3.x;
       double d1 = this.getY() + vec3.y;
       double d2 = this.getZ() + vec3.z;
@@ -187,7 +186,7 @@ public class Ember extends Projectile {
    protected void onHitEntity(EntityHitResult result) {
       super.onHitEntity(result);
       if (result.getEntity() instanceof LivingEntity livingentity && !this.ownedBy(livingentity) && !this.originatedFrom(livingentity) && !this.hasHit(livingentity) && !(livingentity instanceof BossMob<?>)) {
-         livingentity.hurt(ReduxDamageTypes.entitySource(this.level(), ReduxDamageTypes.EMBER, this.getOwner()), 1.0F);
+         livingentity.hurt(ReduxDamageTypes.ember(this, this.getOwner()), 1.0F);
       }
 
    }
@@ -204,20 +203,20 @@ public class Ember extends Projectile {
 
       double spread = velocity.length() * 2.5;
       for (int i = 0; i < Mth.floor(velocity.length() * 15); i++) {
-         float angle = this.level().getRandom().nextFloat() * 360 * Mth.DEG_TO_RAD;
+         float angle = this.getLevel().getRandom().nextFloat() * 360 * Mth.DEG_TO_RAD;
          // trigonometry, how fun
          double opp = Mth.sin(angle) * spread;
          double adj = Mth.cos(angle) * spread;
          if (axis == Direction.Axis.X) {
-            this.level().addParticle(ReduxParticleTypes.SPARK.get(), loc.x(), loc.y(), loc.z(), velocity.length(), opp, adj);
+            this.getLevel().addParticle(ReduxParticleTypes.SPARK.get(), loc.x(), loc.y(), loc.z(), velocity.length(), opp, adj);
          } else if (axis == Direction.Axis.Y) {
-            this.level().addParticle(ReduxParticleTypes.SPARK.get(), loc.x(), loc.y(), loc.z(), opp, velocity.length(), adj);
+            this.getLevel().addParticle(ReduxParticleTypes.SPARK.get(), loc.x(), loc.y(), loc.z(), opp, velocity.length(), adj);
          } else if (axis == Direction.Axis.Z) {
-            this.level().addParticle(ReduxParticleTypes.SPARK.get(), loc.x(), loc.y(), loc.z(), opp, adj, velocity.length());
+            this.getLevel().addParticle(ReduxParticleTypes.SPARK.get(), loc.x(), loc.y(), loc.z(), opp, adj, velocity.length());
          }
       }
       SoundEvent sound = velocity.length() <= 0.75 ? ReduxSoundEvents.EMBER_BOUNCE_SMALL.get() : velocity.length() <= 1.5 ? ReduxSoundEvents.EMBER_BOUNCE_MED.get() : ReduxSoundEvents.EMBER_BOUNCE_BIG.get();
-      this.level().playSound(null, loc.x(), loc.y(), loc.z(), sound, SoundSource.NEUTRAL, (float) (velocity.length() * 10D), 0.8F + (this.level().random.nextFloat() * 0.4F));
+      this.getLevel().playSound(null, loc.x(), loc.y(), loc.z(), sound, SoundSource.NEUTRAL, (float) (velocity.length() * 10D), 0.8F + (this.getLevel().random.nextFloat() * 0.4F));
       this.setDeltaMovement(bounce.scale(0.5D));
       this.setPos(loc);
    }

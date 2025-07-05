@@ -2,7 +2,7 @@
 package net.zepalesque.redux.network.packet;
 
 import com.aetherteam.nitrogen.network.BasePacket;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.Registry;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
@@ -16,7 +16,7 @@ public record LoreUnlockPacket(UUID playerID, @Nullable Item itemUnlock) impleme
 
     public void encode(FriendlyByteBuf buf) {
         buf.writeUUID(this.playerID);
-        buf.writeUtf(itemUnlock == null ? "" : BuiltInRegistries.ITEM.getKey(this.itemUnlock).toString());
+        buf.writeUtf(itemUnlock == null ? "" : Registry.ITEM.getKey(this.itemUnlock).toString());
     }
 
     public static LoreUnlockPacket decode(FriendlyByteBuf buf) {
@@ -24,8 +24,8 @@ public record LoreUnlockPacket(UUID playerID, @Nullable Item itemUnlock) impleme
         String location = buf.readUtf();
         if (location != null && !location.isEmpty()) {
             ResourceLocation loc = new ResourceLocation(location);
-            if (BuiltInRegistries.ITEM.containsKey(loc)) {
-                return new LoreUnlockPacket(player, BuiltInRegistries.ITEM.get(loc));
+            if (Registry.ITEM.containsKey(loc)) {
+                return new LoreUnlockPacket(player, Registry.ITEM.get(loc));
             }
         }
         return new LoreUnlockPacket(player, null);
@@ -33,8 +33,8 @@ public record LoreUnlockPacket(UUID playerID, @Nullable Item itemUnlock) impleme
 
     public void execute(Player playerEntity) {
 
-        if (itemUnlock != null && playerEntity != null && playerEntity.level() != null) {
-            Player player = playerEntity.level().getPlayerByUUID(this.playerID());
+        if (itemUnlock != null && playerEntity != null && playerEntity.getLevel() != null) {
+            Player player = playerEntity.getLevel().getPlayerByUUID(this.playerID());
             if (player != null) {
                 ReduxPlayer.get(player).ifPresent((reduxPlayer) -> {
                     reduxPlayer.getLoreModule().unlock(itemUnlock);

@@ -47,7 +47,7 @@ public class VeridiumDartShooter extends DartShooterItem implements VeridiumItem
 
     @Override
     public AbstractDart customDart(AbstractDart dart) {
-            AbstractDart newDart = ReduxEntityTypes.INFUSED_VERIDIUM_DART.get().create(dart.level());
+            AbstractDart newDart = ReduxEntityTypes.INFUSED_VERIDIUM_DART.get().create(dart.getLevel());
             if (newDart != null && dart.getOwner() != null) {
                 Entity owner = dart.getOwner();
                 newDart.setPos(owner.getX(), owner.getEyeY() - 0.1, owner.getZ());
@@ -61,7 +61,7 @@ public class VeridiumDartShooter extends DartShooterItem implements VeridiumItem
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity user) {
         ItemStack original = super.finishUsingItem(stack, level, user);
         ItemStack transform = this.deplete(original, user, 1);
-        if (!user.level().isClientSide() && transform != null && transform != original) {
+        if (!user.getLevel().isClientSide() && transform != null && transform != original) {
             if (user instanceof ServerPlayer sp) {
                 this.sendSound(sp);
             }

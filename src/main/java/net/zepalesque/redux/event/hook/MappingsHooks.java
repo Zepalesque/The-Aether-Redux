@@ -370,7 +370,6 @@ public class MappingsHooks {
         map.put(Redux.locate(oldId + "_button"), newHandler.button);
         map.put(Redux.locate(oldId + "_bookshelf"), newHandler.bookshelf);
         map.put(Redux.locate(oldId + "_sign"), newHandler.signItem);
-        map.put(Redux.locate(oldId + "_hanging_sign"), newHandler.hangingSignItem);
         map.put(Redux.locate(oldId + "_boat"), newHandler.boatItem);
         map.put(Redux.locate(oldId + "_chest_boat"), newHandler.chestBoatItem);
         map.put(Redux.locate(oldId + "_" + newHandler.logSuffix + "_wall"), newHandler.logWall);
@@ -395,8 +394,6 @@ public class MappingsHooks {
         map.put(Redux.locate(oldId + "_bookshelf"), newHandler.bookshelf);
         map.put(Redux.locate(oldId + "_sign"), newHandler.sign);
         map.put(Redux.locate(oldId + "_wall_sign"), newHandler.wallSign);
-        map.put(Redux.locate(oldId + "_hanging_sign"), newHandler.hangingSign);
-        map.put(Redux.locate(oldId + "_wall_hanging_sign"), newHandler.wallHangingSign);
         map.put(Redux.locate(oldId + "_" + newHandler.logSuffix + "_wall"), newHandler.logWall);
         map.put(Redux.locate(oldId + "_" + newHandler.woodSuffix + "_wall"), newHandler.woodWall);
         newHandler.strippedLogWall.ifPresent(reg -> map.put(Redux.locate("stripped_" + oldId + "_" + newHandler.logSuffix + "_wall"), reg));

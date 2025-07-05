@@ -13,6 +13,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.TreeConfigurati
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
+import net.minecraft.world.level.material.Material;
 
 import java.util.List;
 import java.util.function.BiConsumer;
@@ -111,9 +112,9 @@ public abstract class BaseGenesisHookedTrunkPlacer extends TrunkPlacer {
     protected boolean validBranchPos(LevelSimulatedReader level, BlockPos pos) {
         return TreeFeature.isAirOrLeaves(level, pos) || isReplaceable(level, pos) || level.isStateAtPosition(pos, state -> state.is(Blocks.WATER)) || this.isTrunk(level, pos);
     }
-
+    
     private static boolean isReplaceable(LevelSimulatedReader level, BlockPos pos) {
-        return level.isStateAtPosition(pos, BlockBehaviour.BlockStateBase::canBeReplaced);
+        return level.isStateAtPosition(pos, state -> state.getMaterial().isReplaceable());
     }
 
     public abstract boolean isTrunk(LevelSimulatedReader level, BlockPos pos);

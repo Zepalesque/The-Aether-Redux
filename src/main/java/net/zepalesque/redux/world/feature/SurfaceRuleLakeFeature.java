@@ -78,11 +78,11 @@ public class SurfaceRuleLakeFeature extends Feature<SurfaceRuleLakeFeature.Confi
                         boolean flag = !aboolean[(k1 * 16 + i2) * 8 + j3] && (k1 < 15 && aboolean[((k1 + 1) * 16 + i2) * 8 + j3] || k1 > 0 && aboolean[((k1 - 1) * 16 + i2) * 8 + j3] || i2 < 15 && aboolean[(k1 * 16 + i2 + 1) * 8 + j3] || i2 > 0 && aboolean[(k1 * 16 + (i2 - 1)) * 8 + j3] || j3 < 7 && aboolean[(k1 * 16 + i2) * 8 + j3 + 1] || j3 > 0 && aboolean[(k1 * 16 + i2) * 8 + (j3 - 1)]);
                         if (flag) {
                             BlockState testState = worldgenlevel.getBlockState(blockpos.offset(k1, j3, i2));
-                            if (j3 >= 4 && testState.liquid()) {
+                            if (j3 >= 4 && testState.getMaterial().isLiquid()) {
                                 return false;
                             }
 
-                            if (j3 < 4 && !testState.isSolid() && worldgenlevel.getBlockState(blockpos.offset(k1, j3, i2)) != blockstate1) {
+                            if (j3 < 4 && !testState.getMaterial().isSolid() && worldgenlevel.getBlockState(blockpos.offset(k1, j3, i2)) != blockstate1) {
                                 return false;
                             }
                         }

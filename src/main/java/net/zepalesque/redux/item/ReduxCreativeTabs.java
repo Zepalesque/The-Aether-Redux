@@ -1,41 +1,13 @@
 package net.zepalesque.redux.item;
 
-import com.aetherteam.aether.block.AetherBlocks;
-import com.aetherteam.aether.item.AetherCreativeTabs;
-import com.aetherteam.aether.item.AetherItems;
-import com.aetherteam.aether_genesis.block.GenesisBlocks;
-import com.legacy.lost_aether.registry.LCBlocks;
-import net.builderdog.ancient_aether.block.AncientAetherBlocks;
-import net.builderdog.ancient_aether.item.AncientAetherItems;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.nbt.ByteTag;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.level.ItemLike;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.eventbus.api.EventPriority;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.RegistryObject;
-import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.api.blockhandler.WoodHandler;
-import net.zepalesque.redux.block.ReduxBlocks;
-import net.zepalesque.redux.config.ReduxConfig;
-import net.zepalesque.redux.item.tools.VeridiumItem;
-
-import java.util.function.Supplier;
-
-@Mod.EventBusSubscriber(modid = Redux.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
-
+//@Mod.EventBusSubscriber(modid = Redux.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ReduxCreativeTabs {
-
+/*
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void buildCreativeModeTabs(BuildCreativeModeTabContentsEvent event) {
         CreativeModeTab tab = event.getTab();
 
-        if (tab == AetherCreativeTabs.AETHER_BUILDING_BLOCKS.get()) {
+        if (tab == AetherCreativeTabs.AETHER_BLOCKS) {
             RegistryObject<? extends ItemLike> f1 = doBuildingWoods(AetherBlocks.GOLDEN_OAK_WOOD, event);
 
             putAfter(AetherBlocks.MOSSY_HOLYSTONE_WALL, ReduxBlocks.GILDED_HOLYSTONE, event);
@@ -455,6 +427,6 @@ public class ReduxCreativeTabs {
             stack.addTagElement(VeridiumItem.NBT_KEY, ByteTag.valueOf((byte)64));
         }
         return stack;
-    }
+    }*/
 
 }

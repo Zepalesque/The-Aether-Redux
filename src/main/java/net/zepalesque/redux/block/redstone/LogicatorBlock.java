@@ -13,7 +13,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.SignalGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DiodeBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -54,33 +53,33 @@ public class LogicatorBlock extends DiodeBlock {
         }
     }
     
-    protected static int getLeftInput(SignalGetter level, BlockPos pos, BlockState state) {
+    protected static int getLeftInput(Level level, BlockPos pos, BlockState state) {
         Direction direction = state.getValue(FACING);
         // Counterintuitive, but DiodeBlocks are placed backwards
         Direction left = direction.getClockWise();
         return level.getSignal(pos.relative(left), left);
     }
 
-    protected static int getRightInput(SignalGetter level, BlockPos pos, BlockState state) {
+    protected static int getRightInput(Level level, BlockPos pos, BlockState state) {
         Direction direction = state.getValue(FACING);
         // Counterintuitive, but DiodeBlocks are placed backwards
         Direction right = direction.getCounterClockWise();
         return level.getSignal(pos.relative(right), right);
     }
 
-    protected static int getBackInput(SignalGetter level, BlockPos pos, BlockState state) {
+    protected static int getBackInput(Level level, BlockPos pos, BlockState state) {
         Direction direction = state.getValue(FACING);
         // Counterintuitive, but DiodeBlocks are placed backwards
         return level.getSignal(pos.relative(direction), direction);
     }
 
-    protected boolean shouldHaveLeftInput(SignalGetter level, BlockPos pos, BlockState state) {
+    protected boolean shouldHaveLeftInput(Level level, BlockPos pos, BlockState state) {
         return getLeftInput(level, pos, state) > 0;
     }
-    protected boolean shouldHaveRightInput(SignalGetter level, BlockPos pos, BlockState state) {
+    protected boolean shouldHaveRightInput(Level level, BlockPos pos, BlockState state) {
         return getRightInput(level, pos, state) > 0;
     }
-    protected boolean shouldBeExclusive(SignalGetter level, BlockPos pos, BlockState state) {
+    protected boolean shouldBeExclusive(Level level, BlockPos pos, BlockState state) {
         return getBackInput(level, pos, state) > 0;
     }
 

@@ -11,8 +11,7 @@ public class BlockBreakListener {
     @SubscribeEvent
     public static void modifyMiningSpeed(PlayerEvent.BreakSpeed event) {
         float modifiedSpeed = BlockBreakHooks.modify(event.getState().getBlock(), event.getNewSpeed());
-        if (modifiedSpeed != event.getNewSpeed())
-        {
+        if (modifiedSpeed != event.getNewSpeed()) {
             event.setNewSpeed(modifiedSpeed);
         }
     }

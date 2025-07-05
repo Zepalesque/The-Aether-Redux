@@ -37,15 +37,15 @@ public class EntitySpawner extends Mob {
     }
 
     protected Mob spawnEntity() {
-        if (!this.level().isClientSide()) {
-            Mob e = this.typeToSpawn.create(this.level());
+        if (!this.getLevel().isClientSide()) {
+            Mob e = this.typeToSpawn.create(this.getLevel());
             if (e != null) {
                 e.copyPosition(this);
                 e.yBodyRot = this.yBodyRot;
                 // TODO: Test this, see if it is a good idea
                 //  also, why exactly was this something I did?
                 e.setPersistenceRequired();
-                this.level().addFreshEntity(e);
+                this.getLevel().addFreshEntity(e);
                 return e;
             }
         }

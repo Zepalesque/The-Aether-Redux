@@ -14,7 +14,7 @@ import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 public record BlightshadeParticlePacket(AABB bounds) implements BasePacket {
 
     public void encode(FriendlyByteBuf buf) {
-        buf.writeJsonWithCodec(AABB_CODEC, this.bounds);
+        buf.writeWithCodec(AABB_CODEC, this.bounds);
     }
 
     public static final Codec<AABB> AABB_CODEC = RecordCodecBuilder.create((mushroom) ->
@@ -28,7 +28,7 @@ public record BlightshadeParticlePacket(AABB bounds) implements BasePacket {
                     .apply(mushroom, AABB::new));
 
     public static BlightshadeParticlePacket decode(FriendlyByteBuf buf) {
-        AABB box = buf.readJsonWithCodec(AABB_CODEC);
+        AABB box = buf.readWithCodec(AABB_CODEC);
         return new BlightshadeParticlePacket(box);
     }
 

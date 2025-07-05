@@ -3,7 +3,6 @@ package net.zepalesque.redux.client.render.entity.layer.entity;
 import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.client.renderer.entity.model.MimicModel;
 import com.aetherteam.aether.entity.monster.dungeon.Mimic;
-import com.aetherteam.aether_genesis.entity.GenesisEntityTypes;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Minecraft;
@@ -16,7 +15,6 @@ import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraftforge.fml.ModList;
-import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.capability.animation.mimic.MimicAnimation;
 import net.zepalesque.redux.client.render.entity.model.entity.MimicReduxModel;
 import net.zepalesque.redux.config.ReduxConfig;
@@ -86,7 +84,7 @@ public class MimicReduxLayer extends RenderLayer<Mimic, MimicModel> {
 
     @Nonnull
     @Override
-    public ResourceLocation getTextureLocation(@Nonnull Mimic mimic) {
-        return ModList.get().isLoaded("lootr") ? REDUX_LOOTR_TEXTURE : this.isChristmas ? REDUX_XMAS_TEXTURE : Redux.aetherGenesisCompat() && mimic.getType() == GenesisEntityTypes.SKYROOT_MIMIC.get() ? REDUX_SKYROOT : REDUX_TEXTURE;
+    public ResourceLocation getTextureLocation(@Nonnull Mimic mimic) { // TODO
+        return ModList.get().isLoaded("lootr") ? REDUX_LOOTR_TEXTURE : this.isChristmas ? REDUX_XMAS_TEXTURE : REDUX_TEXTURE;
     }
 }

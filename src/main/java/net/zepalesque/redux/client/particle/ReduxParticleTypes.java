@@ -1,11 +1,15 @@
 package net.zepalesque.redux.client.particle;
 
+import com.mojang.math.Vector3f;
 import com.mojang.serialization.Codec;
 import net.minecraft.client.particle.FlameParticle;
 import net.minecraft.client.particle.ParticleEngine;
 import net.minecraft.client.particle.ParticleProvider;
-import net.minecraft.client.particle.TextureSheetParticle;
-import net.minecraft.core.particles.*;
+import net.minecraft.core.particles.DustParticleOptions;
+import net.minecraft.core.particles.ItemParticleOption;
+import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.ParticleType;
+import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -17,7 +21,6 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
-import org.joml.Vector3f;
 
 import java.util.function.Function;
 
@@ -84,7 +87,7 @@ public class ReduxParticleTypes {
     public static final RegistryObject<SimpleParticleType> WHIRLWIND_LIGHTNING = PARTICLES.register("whirlwind_lightning", () -> new SimpleParticleType(false));
     
     
-    private static final Vector3f SHINY_CLOUD_COLOR = Vec3.fromRGB24(16777215).toVector3f();
+    public static final Vector3f SHINY_CLOUD_COLOR = new Vector3f(Vec3.fromRGB24(16777215));
     public static final DustParticleOptions SHINY_CLOUD = new DustParticleOptions(SHINY_CLOUD_COLOR, 1.0F);
 
 
@@ -121,7 +124,7 @@ public class ReduxParticleTypes {
         registerSpriteSet(event, FALLING_PRISMATIC_LEAVES.get(), FallingLeafParticle.Provider::new);
         registerSpriteSet(event, FALLING_GLACIA_NEEDLES.get(), FallingLeafParticle.Provider::new);
         registerSpriteSet(event, FALLING_PURPLE_GLACIA_NEEDLES.get(), FallingLeafParticle.Provider::new);
-        event.registerSpriteSet(WHIRLWIND_LIGHTNING.get(), ReduxGlowParticle.Lightning::new);
+        registerSpriteSet(event, WHIRLWIND_LIGHTNING.get(), ReduxGlowParticle.Lightning::new);
 
         // TODO: Investigate making this more unique?
         registerSpriteSet(event, BLOSSOM_FLARE.get(), FlameParticle.Provider::new);
@@ -140,23 +143,16 @@ public class ReduxParticleTypes {
 
         registerSpriteSet(event, BLIGHTSHADE.get(), BlightshadeParticle.Provider::new);
     }
-
+    
     @OnlyIn(Dist.CLIENT)
-    public static <T extends ParticleOptions> void registerSpriteSet(RegisterParticleProvidersEvent event, ParticleType<T> particleType, ParticleProvider.Sprite<T> sprite) {
-        registerSpriteSet(event, particleType, (p_272320_) -> (p_272323_, p_272324_, p_272325_, p_272326_, p_272327_, p_272328_, p_272329_, p_272330_) -> {
-            TextureSheetParticle texturesheetparticle = sprite.createParticle(p_272323_, p_272324_, p_272325_, p_272326_, p_272327_, p_272328_, p_272329_, p_272330_);
-            if (texturesheetparticle != null) {
-                texturesheetparticle.pickSprite(p_272320_);
-            }
-
-            return texturesheetparticle;
-        });
+    public static <T extends ParticleOptions> void registerSpriteSet(RegisterParticleProvidersEvent event, ParticleType<T> particleType, ParticleProvider<T> sprite) {
+        event.register(particleType, sprite);
     }
-
+    
     public static <T extends ParticleOptions> void registerSpriteSet(RegisterParticleProvidersEvent event, ParticleType<T> type, ParticleEngine.SpriteParticleRegistration<T> registration) {
-        event.registerSpriteSet(type, registration);
+        event.register(type, registration);
     }
-
+    
     private static <T extends ParticleOptions> RegistryObject<ParticleType<T>> register(String key, boolean overrideLimiter, ParticleOptions.Deserializer<T> deserializer, final Function<ParticleType<T>, Codec<T>> p_codecFactory) {
         return PARTICLES.register(key, () -> new ParticleType<T>(overrideLimiter, deserializer) {
             public Codec<T> codec() {

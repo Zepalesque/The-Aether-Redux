@@ -124,7 +124,7 @@ public class BlightwillowRootsPlacer extends RootPlacer {
     }
 
     protected boolean validRootPos(LevelSimulatedReader level, BlockPos pos) {
-        return level.isStateAtPosition(pos, state -> state.isAir() || state.is(BlockTags.REPLACEABLE) || state.is(BlockTags.REPLACEABLE_BY_TREES));
+        return level.isStateAtPosition(pos, state -> state.isAir() || state.getMaterial().isReplaceable() || state.is(BlockTags.MANGROVE_ROOTS_CAN_GROW_THROUGH));
     }
 
     public static boolean isDirt(BlockState state) {

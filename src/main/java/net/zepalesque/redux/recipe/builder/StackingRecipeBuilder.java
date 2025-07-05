@@ -4,7 +4,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.mojang.serialization.JsonOps;
 import net.minecraft.advancements.CriterionTriggerInstance;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.Registry;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.nbt.CompoundTag;
@@ -114,7 +114,7 @@ public class StackingRecipeBuilder implements RecipeBuilder {
 
             this.extra.flatMap(tag -> CompoundTag.CODEC.encodeStart(ops, tag).resultOrPartial(Redux.LOGGER::error)).ifPresent(element -> json.add("additional", element));
 
-            this.sound.map(BuiltInRegistries.SOUND_EVENT::getKey).ifPresent(loc -> json.addProperty("sound", loc.toString()));
+            this.sound.map(Registry.SOUND_EVENT::getKey).ifPresent(loc -> json.addProperty("sound", loc.toString()));
 
         }
 

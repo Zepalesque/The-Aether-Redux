@@ -35,6 +35,7 @@ public class AetherShortGrassBlock extends AetherBushBlock {
         super(properties);
         this.registerDefaultState(this.defaultBlockState().setValue(ReduxStates.ENCHANTED, false).setValue(ReduxStates.GRASS_SIZE, GrassSize.med));
     }
+    @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         GrassSize size = pState.getValue(ReduxStates.GRASS_SIZE);
         return size == GrassSize.shrt ? SHAPE_SHORT : size == GrassSize.tall ? SHAPE_TALL : SHAPE;
@@ -56,7 +57,8 @@ public class AetherShortGrassBlock extends AetherBushBlock {
         builder.add(ReduxStates.ENCHANTED);
         builder.add(ReduxStates.GRASS_SIZE);
     }
-
+    
+    @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
         return state.is(ReduxTags.Blocks.FROSTED_PLANTS_PLACEMENT) || super.mayPlaceOn(state, level, pos);
     }

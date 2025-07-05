@@ -39,7 +39,7 @@ public class ReduxRenderTypes extends RenderType {
     @SubscribeEvent
     public static void registerShaders(RegisterShadersEvent event) {
         try {
-            ShaderInstance si = new ShaderInstance(event.getResourceProvider(), Redux.locate("rendertype_breeze_wind"), DefaultVertexFormat.NEW_ENTITY);
+            ShaderInstance si = new ShaderInstance(event.getResourceManager(), Redux.locate("rendertype_breeze_wind"), DefaultVertexFormat.NEW_ENTITY);
             event.registerShader(si, s -> rendertypeBreezeWindShader = s);
         } catch (IOException io) {
             Redux.LOGGER.error("Failed to register breeze wind shader!", io);

@@ -22,7 +22,7 @@ public class InfuseItemTrigger extends SimpleCriterionTrigger<InfuseItemTrigger.
     }
 
     @Override
-    public InfuseItemTrigger.Instance createInstance(JsonObject json, ContextAwarePredicate entity, DeserializationContext context) {
+    public InfuseItemTrigger.Instance createInstance(JsonObject json, EntityPredicate.Composite entity, DeserializationContext context) {
         ItemPredicate ingredient = json.has("infused_item") ? ItemPredicate.fromJson(json.get("infused_item")) : ItemPredicate.ANY;
         ItemPredicate result = json.has("result_item") ? ItemPredicate.fromJson(json.get("result_item")) : ItemPredicate.ANY;
         return new InfuseItemTrigger.Instance(entity, ingredient, result);
@@ -37,14 +37,14 @@ public class InfuseItemTrigger extends SimpleCriterionTrigger<InfuseItemTrigger.
         private final ItemPredicate infusedItem;
         private final ItemPredicate resultItem;
 
-        public Instance(ContextAwarePredicate entity, ItemPredicate infusedItem, ItemPredicate resultItem) {
+        public Instance(EntityPredicate.Composite entity, ItemPredicate infusedItem, ItemPredicate resultItem) {
             super(InfuseItemTrigger.ID, entity);
             this.infusedItem = infusedItem;
             this.resultItem = resultItem;
         }
 
         public static InfuseItemTrigger.Instance forIngredient(ItemPredicate item) {
-            return new InfuseItemTrigger.Instance(ContextAwarePredicate.ANY, item, ItemPredicate.ANY);
+            return new InfuseItemTrigger.Instance(EntityPredicate.Composite.ANY, item, ItemPredicate.ANY);
         }
 
         public static InfuseItemTrigger.Instance forIngredient(ItemLike item) {
@@ -52,14 +52,14 @@ public class InfuseItemTrigger extends SimpleCriterionTrigger<InfuseItemTrigger.
         }
 
         public static InfuseItemTrigger.Instance forResult(ItemPredicate item) {
-            return new InfuseItemTrigger.Instance(ContextAwarePredicate.ANY, ItemPredicate.ANY, item);
+            return new InfuseItemTrigger.Instance(EntityPredicate.Composite.ANY, ItemPredicate.ANY, item);
         }
 
         public static InfuseItemTrigger.Instance forResult(ItemLike item) {
             return forResult(ItemPredicate.Builder.item().of(item).build());
         }
         public static InfuseItemTrigger.Instance forConversion(ItemPredicate ingredient, ItemPredicate result) {
-            return new InfuseItemTrigger.Instance(ContextAwarePredicate.ANY, ingredient, result);
+            return new InfuseItemTrigger.Instance(EntityPredicate.Composite.ANY, ingredient, result);
         }
 
         public static InfuseItemTrigger.Instance forConversion(ItemLike ingredient, ItemLike result) {

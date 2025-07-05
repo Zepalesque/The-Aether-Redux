@@ -22,7 +22,7 @@ public class MobSoundListener {
 
     @SubscribeEvent
     public static void onPlaySound(PlayLevelSoundEvent event) {
-        SoundEvent sound = event.getSound().get();
+        SoundEvent sound = event.getSound();
         RegistryObject<SoundEvent> newSound = null;
 
         // TODO: Move to built-in pack!!!
@@ -35,8 +35,7 @@ public class MobSoundListener {
             }
         }
         if (newSound != null) {
-            Optional<Holder<SoundEvent>> holder = ForgeRegistries.SOUND_EVENTS.getHolder(newSound.get());
-            holder.ifPresent(event::setSound);
+            event.setSound(newSound.get());
         }
     }
 }

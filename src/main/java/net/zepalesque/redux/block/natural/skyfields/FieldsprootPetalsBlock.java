@@ -44,16 +44,19 @@ public class FieldsprootPetalsBlock extends BushBlock implements BonemealableBlo
               .setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH)
       );
    }
-
+   
+   @Override
    public boolean canBeReplaced(BlockState state, BlockPlaceContext context) {
       return !context.isSecondaryUseActive() && context.getItemInHand().is(this.asItem()) && getFlowerCount(state) < 4 || super.canBeReplaced(state, context);
    }
-
-   public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+   
+   @Override
+      public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
       return Block.box(0.0D, 0.0D, 0.0D, 16.0D, 3.0D, 16.0D);
    }
-
-   public BlockState getStateForPlacement(BlockPlaceContext context) {
+   
+   @Override
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
       int r = (int) (Mth.getSeed(context.getClickedPos()) % 4);
       Direction d = r == 0 ? Direction.NORTH : r == 1 ? Direction.EAST : r == 2 ? Direction.SOUTH : Direction.EAST;
       BlockState b = this.increaseFlowers(context.getClickedPos(), context.getLevel());
@@ -88,6 +91,7 @@ public class FieldsprootPetalsBlock extends BushBlock implements BonemealableBlo
       return this.increaseFlowers(pos, level.getBlockState(pos));
 
    }
+   
    public BlockState increaseFlowers(BlockPos pos, BlockState state) {
       int flowerCount = getFlowerCount(state) + 1;
       RandomSource rand = new XoroshiroRandomSource(Mth.getSeed(pos) + flowerCount);
@@ -96,8 +100,9 @@ public class FieldsprootPetalsBlock extends BushBlock implements BonemealableBlo
       if (state.hasProperty(p)) return state.setValue(p, val);
       else return this.defaultBlockState().setValue(p, val);
    }
-
-
+   
+   
+   @Override
    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
       builder.add(ReduxStates.PETAL_1, ReduxStates.PETAL_2, ReduxStates.PETAL_3, ReduxStates.PETAL_4, BlockStateProperties.HORIZONTAL_FACING);
    }
@@ -105,10 +110,12 @@ public class FieldsprootPetalsBlock extends BushBlock implements BonemealableBlo
    /**
     * @return whether bonemeal can be used on this block
     */
-   public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean client) {
+   @Override
+   public boolean isValidBonemealTarget(BlockGetter level, BlockPos pos, BlockState state, boolean client) {
       return true;
    }
 
+   @Override
    public boolean isBonemealSuccess(Level level, RandomSource rand, BlockPos pos, BlockState state) {
       return true;
    }
@@ -138,7 +145,8 @@ public class FieldsprootPetalsBlock extends BushBlock implements BonemealableBlo
              i == ReduxStates.PETAL_3 ? 3 :
              i == ReduxStates.PETAL_4 ? 4 : 0;
    }
-
+   
+   @Override
    public void performBonemeal(ServerLevel level, RandomSource rand, BlockPos pos, BlockState state) {
       int amount = getFlowerCount(state);
       if (amount < 4) level.setBlock(pos, this.increaseFlowers(pos, level), 2);

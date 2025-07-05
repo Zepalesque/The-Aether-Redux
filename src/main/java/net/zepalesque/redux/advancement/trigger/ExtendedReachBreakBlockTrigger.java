@@ -15,7 +15,7 @@ public class ExtendedReachBreakBlockTrigger extends SimpleCriterionTrigger<Exten
       return ID;
    }
 
-   public ExtendedReachBreakBlockTrigger.TriggerInstance createInstance(JsonObject pJson, ContextAwarePredicate pEntityPredicate, DeserializationContext pConditionsParser) {
+   public ExtendedReachBreakBlockTrigger.TriggerInstance createInstance(JsonObject pJson, EntityPredicate.Composite pEntityPredicate, DeserializationContext pConditionsParser) {
        return new ExtendedReachBreakBlockTrigger.TriggerInstance(pEntityPredicate);
    }
 
@@ -27,13 +27,13 @@ public class ExtendedReachBreakBlockTrigger extends SimpleCriterionTrigger<Exten
    public static class TriggerInstance extends AbstractCriterionTriggerInstance {
 
 
-      public TriggerInstance(ContextAwarePredicate pPlayer) {
+      public TriggerInstance(EntityPredicate.Composite pPlayer) {
          super(ExtendedReachBreakBlockTrigger.ID, pPlayer);
 
       }
 
       public static ExtendedReachBreakBlockTrigger.TriggerInstance mineBlock() {
-         return new ExtendedReachBreakBlockTrigger.TriggerInstance(ContextAwarePredicate.ANY);
+         return new ExtendedReachBreakBlockTrigger.TriggerInstance(EntityPredicate.Composite.ANY);
       }
 
       @NotNull

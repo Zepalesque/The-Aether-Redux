@@ -1,7 +1,9 @@
+/*
 package net.zepalesque.redux.mixin.common.world;
 
 import com.aetherteam.aether.world.configuration.AercloudConfiguration;
 import com.aetherteam.aether.world.feature.AercloudFeature;
+import com.mojang.math.Vector3f;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
@@ -15,9 +17,13 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+*/
 /**
  * See <a href="https://github.com/KdotJPG/The-Aether/blob/feature/tuneups/src/main/java/com/aetherteam/aether/world/feature/AercloudFeature.java">github.com/KdotJPG/The-Aether/.../AercloudFeature.java</a>
- */
+ *//*
+
+// TODO: figure out 1.19.2 implementation, maybe add joml as a built-in library?
+
 @Mixin(AercloudFeature.class)
 public abstract class AercloudFeatureMixin extends FeatureMixin<AercloudConfiguration> {
 
@@ -108,3 +114,4 @@ public abstract class AercloudFeatureMixin extends FeatureMixin<AercloudConfigur
     }
 
 }
+*/

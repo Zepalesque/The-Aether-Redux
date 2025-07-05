@@ -35,11 +35,12 @@ public class ReduxMenus {
     private static final ResourceLocation THE_AETHER_TAB_BUTTON = new ResourceLocation(Aether.MODID, "textures/gui/title/tab_button.png");
 
     private static final Menu.Background REDUX_BACKGROUND = new Menu.Background()
-            .regularBackground(THE_AETHER_REGULAR_BACKGROUND)
-            .darkBackground(THE_AETHER_DARK_BACKGROUND)
-            .headerSeparator(THE_AETHER_HEADER_SEPARATOR)
-            .footerSeparator(THE_AETHER_FOOTER_SEPARATOR)
-            .tabButton(THE_AETHER_TAB_BUTTON);
+        .regularBackground(THE_AETHER_REGULAR_BACKGROUND)
+//            .darkBackground(THE_AETHER_DARK_BACKGROUND)
+//            .headerSeparator(THE_AETHER_HEADER_SEPARATOR)
+//            .footerSeparator(THE_AETHER_FOOTER_SEPARATOR)
+//            .tabButton(THE_AETHER_TAB_BUTTON)
+        ;
 
 
     public static final RegistryObject<Menu> REDUX_MENU = register("aether_redux_menu", ICON, MENU_NAME, ReduxTitleScreen::new, () -> new Menu.Properties().music(ReduxMusic.REDUX_MENU).background(REDUX_BACKGROUND));

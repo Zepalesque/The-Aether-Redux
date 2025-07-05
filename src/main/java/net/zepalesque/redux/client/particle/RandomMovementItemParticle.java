@@ -24,7 +24,7 @@ public class RandomMovementItemParticle extends TextureSheetParticle {
 
    protected RandomMovementItemParticle(ClientLevel level, double x, double y, double z, ItemStack stack) {
       super(level, x, y, z, 0.0D, 0.0D, 0.0D);
-      var model = Minecraft.getInstance().getItemRenderer().getModel(stack, level, (LivingEntity)null, 0);
+      var model = Minecraft.getInstance().getItemRenderer().getModel(stack, level, null, 0);
       this.setSprite(model.getOverrides().resolve(model, stack, level, null, 0).getParticleIcon(net.minecraftforge.client.model.data.ModelData.EMPTY));
       this.gravity = 1.0F;
       this.quadSize /= 2.0F;

@@ -58,7 +58,7 @@ public class UpwardVineFeature extends Feature<UpwardVineFeature.Config> {
    }
 
    private static boolean validBlockPos(LevelAccessor level, BlockPos pos) {
-      return level.isStateAtPosition(pos, state -> state.isAir() || state.canBeReplaced());
+      return level.isStateAtPosition(pos, state -> state.isAir() || state.getMaterial().isReplaceable());
    }
 
    public record Config(BlockStateProvider vine, BlockStateProvider head, IntProvider length) implements FeatureConfiguration {

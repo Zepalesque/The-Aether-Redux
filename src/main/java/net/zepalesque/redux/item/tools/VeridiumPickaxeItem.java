@@ -51,7 +51,7 @@ public class VeridiumPickaxeItem extends PickaxeItem implements VeridiumItem {
         int amount = target.getType().equals(AetherEntityTypes.SLIDER.get()) ? 1 : 2;
         boolean bool = super.hurtEnemy(stack, target, attacker);
         ItemStack transform = this.deplete(stack, attacker, amount);
-        if (!attacker.level().isClientSide() && transform != null && transform != stack) {
+        if (!attacker.getLevel().isClientSide() && transform != null && transform != stack) {
             attacker.setItemSlot(EquipmentSlot.MAINHAND, transform);
             if (attacker instanceof ServerPlayer sp) {
                 this.sendSound(sp);
@@ -64,13 +64,13 @@ public class VeridiumPickaxeItem extends PickaxeItem implements VeridiumItem {
     public boolean mineBlock(ItemStack stack, Level level, BlockState state, BlockPos pos, LivingEntity user) {
         // Call the vanilla method to do things like tool damaging
         boolean bool = super.mineBlock(stack, level, state, pos, user);
-        if (!user.level().isClientSide()) {
+        if (!user.getLevel().isClientSide()) {
             boolean instaBreak = state.getDestroySpeed(level, pos) <= 0.0F;
             // Avoid decreasing infusion on insta-break blocks
             if (!instaBreak) {
                 int amount = stack.isCorrectToolForDrops(state) ? 1 : 2;
                 ItemStack transform = this.deplete(stack, user, amount);
-                if (!user.level().isClientSide() && transform != null && transform != stack) {
+                if (!user.getLevel().isClientSide() && transform != null && transform != stack) {
                     user.setItemSlot(EquipmentSlot.MAINHAND, transform);
                     if (user instanceof ServerPlayer sp) {
                         this.sendSound(sp);

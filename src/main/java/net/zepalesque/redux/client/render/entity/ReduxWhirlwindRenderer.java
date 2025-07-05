@@ -4,7 +4,7 @@ import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.entity.monster.AbstractWhirlwind;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.mojang.math.Axis;
+import com.mojang.math.Vector3f;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -41,7 +41,7 @@ public class ReduxWhirlwindRenderer<T extends AbstractWhirlwind> extends LivingE
             VertexConsumer vertexconsumer = buffer.getBuffer(renderType(getTextureLocation(entity), this.xOffset(age) % 1.0F));
             poseStack.pushPose();
             this.model.setupAnim(entity, 0.0F, 0.0F, age, 0.0F, 0.0F);
-            poseStack.mulPose(Axis.ZP.rotationDegrees(180.0F));
+            poseStack.mulPose(Vector3f.ZP.rotationDegrees(180.0F));
             this.scale(entity, poseStack, partialTicks);
             this.model.renderToBuffer(poseStack, vertexconsumer, packedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
             poseStack.popPose();

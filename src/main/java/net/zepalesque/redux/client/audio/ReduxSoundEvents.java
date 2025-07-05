@@ -95,8 +95,9 @@ public class ReduxSoundEvents {
     public static final RegistryObject<SoundEvent> ADVANCEMENT_GOLD = register("ui.toast.aether_redux_gold");
 
     public static final RegistryObject<SoundEvent> REDUX_MENU = register("music.redux_menu");
+    public static final RegistryObject<SoundEvent> AETHER_NIGHT = register("music.aether_night");
 
     private static RegistryObject<SoundEvent> register(String name) {
-        return SOUNDS.register(name, () -> SoundEvent.createVariableRangeEvent(Redux.locate(name)));
+        return SOUNDS.register(name, () -> new SoundEvent(Redux.locate(name)));
     }
 }

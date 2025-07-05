@@ -13,7 +13,8 @@ public class CloudcapSporesBlock extends AetherDoubleDropBlock {
     public CloudcapSporesBlock(Properties properties) {
         super(properties);
     }
-
+    
+    @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
         int x = pos.getX();
         int y = pos.getY();

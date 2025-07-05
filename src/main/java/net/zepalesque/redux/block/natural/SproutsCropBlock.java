@@ -43,10 +43,12 @@ public class SproutsCropBlock extends BushBlock implements BonemealableBlock {
       this.registerDefaultState(this.stateDefinition.any().setValue(this.getAgeProperty(), Integer.valueOf(0)));
    }
 
+   @Override
    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
       return SHAPE_BY_AGE[this.getAge(state)];
    }
-
+   
+   @Override
    protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
       return state.is(Blocks.FARMLAND);
    }
@@ -74,6 +76,7 @@ public class SproutsCropBlock extends BushBlock implements BonemealableBlock {
    /**
     * @return whether this block needs random ticking.
     */
+   @Override
    public boolean isRandomlyTicking(BlockState state) {
       return !this.isMaxAge(state);
    }
@@ -81,6 +84,7 @@ public class SproutsCropBlock extends BushBlock implements BonemealableBlock {
    /**
     * Performs a random tick on a block.
     */
+   @Override
    public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
       if (!level.isAreaLoaded(pos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light
       if (level.getRawBrightness(pos, 0) >= 9) {
@@ -150,11 +154,13 @@ public class SproutsCropBlock extends BushBlock implements BonemealableBlock {
 
       return f;
    }
-
+   
+   @Override
    public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
       return (level.getRawBrightness(pos, 0) >= 8 || level.canSeeSky(pos)) && super.canSurvive(state, level, pos);
    }
-
+   
+   @Override
    public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
       if (entity instanceof Ravager && net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(level, entity)) {
          level.destroyBlock(pos, true, entity);
@@ -166,7 +172,8 @@ public class SproutsCropBlock extends BushBlock implements BonemealableBlock {
    protected ItemLike getBaseSeedId() {
       return ReduxItems.WYND_OATS.get();
    }
-
+   
+   @Override
    public ItemStack getCloneItemStack(BlockGetter level, BlockPos pos, BlockState state) {
       return new ItemStack(this.getBaseSeedId());
    }
@@ -174,14 +181,17 @@ public class SproutsCropBlock extends BushBlock implements BonemealableBlock {
    /**
     * @return whether bonemeal can be used on this block
     */
-   public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean isClient) {
+   @Override
+   public boolean isValidBonemealTarget(BlockGetter level, BlockPos pos, BlockState state, boolean isClient) {
       return !this.isMaxAge(state);
    }
-
+   
+   @Override
    public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {
       return true;
    }
-
+   
+   @Override
    public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
       this.growCrops(level, pos, state);
    }
@@ -190,7 +200,8 @@ public class SproutsCropBlock extends BushBlock implements BonemealableBlock {
    public PlantType getPlantType(BlockGetter level, BlockPos pos) {
       return PlantType.CROP;
    }
-
+   
+   @Override
    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
       builder.add(AGE);
    }

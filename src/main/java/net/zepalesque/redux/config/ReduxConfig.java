@@ -1,7 +1,6 @@
 package net.zepalesque.redux.config;
 
 import net.minecraftforge.common.ForgeConfigSpec;
-import net.zepalesque.redux.config.enums.AACompatType;
 import net.zepalesque.redux.config.enums.CockatriceModelType;
 import net.zepalesque.redux.config.enums.MimicModelType;
 import net.zepalesque.redux.config.enums.MoaModelType;
@@ -76,7 +75,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue vanilla_swets;
         public final ForgeConfigSpec.BooleanValue first_startup_aeroblender_setup;
 
-        public final ForgeConfigSpec.EnumValue<AACompatType> redux_noise;
+        public final ForgeConfigSpec.BooleanValue redux_noise;
 
         // TODO: organize
 
@@ -111,7 +110,7 @@ public class ReduxConfig {
             this.better_conversion_sounds = builder.comment("Gives blockstate conversion recipes (ambrosium, swet ball) alternate sounds").define("Alternate Conversion Sounds", false);
             builder.pop(2);
             builder.push("Worldgen");
-            this.redux_noise = builder.comment("Uses an alternative island noise for the Aether. By default, this is disabled with the Ancient Aether mod installed.").defineEnum("Redux Noise", AACompatType.WITHOUT_AA);
+            this.redux_noise = builder.comment("Uses an alternative island noise for the Aether. By default, this is disabled with the Ancient Aether mod installed.").define("Redux Noise", true);
             builder.push("Additional Features");
             this.mossy_holystone_ores = builder.comment("Enables Mossy Holystone as an ore. Configurable so that if you disable it, it's easier to tell if you've come across a dungeon.").worldRestart().define("Mossy Holystone Ores", true);
             this.enchanted_vines = builder.comment("Enables Enchanted/Gilded vines on trees").worldRestart().define("Enable Enchanted and Gilded Vines", true);
@@ -159,6 +158,7 @@ public class ReduxConfig {
         public final ForgeConfigSpec.EnumValue<CockatriceModelType> cockatrice_model_type;
         public final ForgeConfigSpec.EnumValue<MimicModelType> mimic_model_upgrade;
         public final ForgeConfigSpec.BooleanValue mimic_slam_sound;
+        public final ForgeConfigSpec.BooleanValue night_track_music_manager;
         public final ForgeConfigSpec.BooleanValue sentry_model_upgrade;
         public final ForgeConfigSpec.BooleanValue sheepuff_model_upgrade;
         public final ForgeConfigSpec.BooleanValue phyg_model_upgrade;
@@ -173,7 +173,6 @@ public class ReduxConfig {
         public final ForgeConfigSpec.BooleanValue centered_logo;
         public final ForgeConfigSpec.BooleanValue first_startup_menu_setup;
         public final ForgeConfigSpec.BooleanValue first_startup_lightmap_changes;
-        public final ForgeConfigSpec.BooleanValue aercloud_sfx;
         public final ForgeConfigSpec.BooleanValue improved_whirlwinds;
 
         public Client(ForgeConfigSpec.Builder builder) {
@@ -190,11 +189,11 @@ public class ReduxConfig {
             this.improved_whirlwinds = builder.comment("Gives Whirlwinds a new design, based on Minecraft 1.21's new Breeze mob").define("Improved Whirlwinds", true);
             builder.pop();
 //            builder.push("Shader FX");
-//            this.enable_adrenaline_postproccess = builder.comment("Enables a post processing effect for the Shroom Ring's adrenaline ability. Only works with Fabulous graphics, and will cause issues when underwater (even when the ability is not active)").define("Enable Adrenaline Post Processing Effect", false);
+//            this.enable_adrenaline_postproccess = builder.comment("Enables a post-processing effect for the AdrenalineZ Ring's adrenaline ability. Only works with Fabulous graphics, and will cause issues when underwater (even when the ability is not active)").define("Enable Adrenaline Post Processing Effect", false);
 //            builder.pop();
             builder.push(List.of("GUI", "Menu"));
             this.menu_directory = builder.comment("Current folder used for the menu panorama").define("Menu Directory", "skyfields");
-            this.menu_choices = builder.comment("Which menu panorama directories to cycle between. Make empty to disable cycling logic").defineListAllowEmpty("Menu Choices", List.of("skyfields", "dungeon", "blight", "cloudcaps", "gilded"), o -> String.class.isAssignableFrom(o.getClass()));
+            this.menu_choices = builder.comment("Which menu panorama directories to cycle between. Make empty to disable cycling logic").defineListAllowEmpty(List.of("Menu Choices"), () -> List.of("skyfields", "dungeon", "blight", "cloudcaps", "gilded"), o -> String.class.isAssignableFrom(o.getClass()));
             this.randomize_menu_cycling = builder.comment("Randomize menu panorama ranther than cycling in order.").define("Randomize Menu Cycling", false);
             this.centered_logo = builder.comment("Center the mod's logo in the menu").define("Center Aether: Redux Logo", true);
             builder.pop(2);
@@ -205,10 +204,11 @@ public class ReduxConfig {
             this.fix_biome_modifier_bug = builder.comment("Fixes a forge/neoforge bug causing biome modifiers to not be able to change grass colors, so Redux can have vanilla grass use vanilla colors in the Aether").define("Fix Biome Modifier Grass Bug", true);
             builder.pop();
             builder.push("Audio");
-            this.mimic_slam_sound = builder.comment("Enables a slamming sound for mimics when using the new model. Disable if it gets too annoying XD").define("Mimic Slam Sound Effect", true);
-            this.aercloud_sfx = builder
-                    .comment("Gives sounds to the other clouds for the Aether: Genesis when it is installed")
-                    .define("Aercloud Ability Sounds", true);
+            this.night_track_music_manager = builder
+                .comment("Adds some nice night tracks to the Aether's music selection. Also disables the default music manager for the Aether, to prevent overlap")
+                .define("Nighttime music tracks", true);
+            this.mimic_slam_sound = builder
+                .comment("Enables a slamming sound for mimics when using the new model. Disable if it gets too annoying XD").define("Mimic Slam Sound Effect", true);
             builder.pop();
             builder.push("Internal");
             this.first_startup_menu_setup = builder.comment("Internal value to do menu changes. Set this to false in modpacks if you want to use your own menu.").define("First Startup - Menu Setup", true);

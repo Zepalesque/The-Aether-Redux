@@ -2,13 +2,11 @@ package net.zepalesque.redux.world.biome;
 
 import com.aetherteam.aether.data.resources.registries.AetherBiomes;
 import com.mojang.datafixers.util.Pair;
-import net.builderdog.ancient_aether.data.resources.registries.AncientAetherBiomes;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Climate;
-import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
 import teamrazor.aeroblender.aether.AetherRegionType;

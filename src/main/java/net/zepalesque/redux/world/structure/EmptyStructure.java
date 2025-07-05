@@ -15,7 +15,7 @@ public class EmptyStructure extends Structure {
     public static final Codec<EmptyStructure> CODEC = RecordCodecBuilder.create((builder) -> builder.group(settingsCodec(builder)).apply(builder, EmptyStructure::new));
 
     @Override
-    protected Optional<GenerationStub> findGenerationPoint(GenerationContext context) {
+    public Optional<GenerationStub> findGenerationPoint(GenerationContext context) {
         return Optional.empty();
     }
 

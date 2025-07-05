@@ -19,8 +19,6 @@ public class ReduxAudioListener {
         SoundInstance sound = event.getOriginalSound();
         if (ReduxAudioHooks.shouldCancel(soundEngine, sound)) {
             event.setSound(null);
-            return;
         }
-        if (ReduxAudioHooks.shouldCancelAercloudSound(sound)) event.setSound(null);
     }
 }

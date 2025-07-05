@@ -4,10 +4,8 @@ import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.world.entity.EntityType;
 import net.zepalesque.redux.config.ReduxConfig;
-import net.zepalesque.redux.util.compat.GenesisCompatUtil;
 
 import java.util.Map;
-import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
 
 public class ModNameUtils {
@@ -23,7 +21,6 @@ public class ModNameUtils {
             .put(AetherEntityTypes.SHEEPUFF.get(), ReduxConfig.CLIENT.sheepuff_model_upgrade)
             .put(AetherEntityTypes.PHYG.get(), ReduxConfig.CLIENT.phyg_model_upgrade)
             .put(AetherEntityTypes.FLYING_COW.get(), ReduxConfig.CLIENT.flying_cow_model_upgrade);
-        GenesisCompatUtil.addGenesisNames(builder);
         ENTITIES = builder.build();
     }
 }

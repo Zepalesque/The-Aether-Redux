@@ -4,8 +4,6 @@ import com.aetherteam.aether.AetherConfig;
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.client.AetherMusicManager;
 import com.aetherteam.aether.data.resources.registries.AetherDimensions;
-import com.aetherteam.aether_genesis.GenesisConfig;
-import com.aetherteam.aether_genesis.client.GenesisMusicManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.sounds.SoundInstance;
 import net.minecraft.client.sounds.SoundEngine;
@@ -15,7 +13,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.client.audio.ReduxSoundEvents;
+import net.zepalesque.redux.client.audio.ReduxMusicManager;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.misc.ReduxTags;
 import net.zepalesque.redux.mixin.client.audio.MusicManagerAccessor;
@@ -26,14 +24,6 @@ import java.util.Optional;
 public class ReduxAudioHooks {
 
     private static boolean wasPlayingLastTick;
-
-    public static boolean shouldCancelAercloudSound(SoundInstance sound) {
-        if (sound.getSource() == SoundSource.BLOCKS && !ReduxConfig.CLIENT.aercloud_sfx.get()) {
-            return sound.getLocation().equals(ReduxSoundEvents.GOLD_AERCLOUD_WHOOSH.get().getLocation()) ||
-                   sound.getLocation().equals(ReduxSoundEvents.PURPLE_AERCLOUD_ZOOM.get().getLocation()) ||
-                   sound.getLocation().equals(ReduxSoundEvents.GREEN_AERCLOUD_WUBBLE.get().getLocation());
-        } else return false;
-    }
 
     @Deprecated
     // TODO: rewrite music deduplication stuff in 1.21.1+ (system feels a little convoluted tbh and could do with some readability improvements alongside a rethinking to ensure nothing is unnecessary here)
@@ -54,9 +44,9 @@ public class ReduxAudioHooks {
             if (sound.is(ReduxTags.Sounds.ALWAYS_ALLOW)) {
                 return false;
             }
-            Holder<Biome> biome = mc.player.level().getBiome(mc.player.blockPosition());
+            Holder<Biome> biome = mc.player.getLevel().getBiome(mc.player.blockPosition());
             // If the biome ISN'T an aether biome (and the dimension isn't the aether), then we don't need to interfere
-            if (!biome.is(AetherTags.Biomes.AETHER_MUSIC) && mc.player.level().dimension() != AetherDimensions.AETHER_LEVEL) {
+            if (!biome.is(AetherTags.Biomes.AETHER_MUSIC) && mc.player.getLevel().dimension() != AetherDimensions.AETHER_LEVEL) {
                 return false;
             } // If it IS however, and the music isn't a designated aether track, then it shouldn't be playing in the first place. Cancel.
             else if (!sound.is(ReduxTags.Sounds.AETHER_MUSIC)) {
@@ -88,8 +78,8 @@ public class ReduxAudioHooks {
         boolean isCurrentAether = false;
         if (!AetherConfig.CLIENT.disable_music_manager.get()) {
             isCurrentAether = instance == AetherMusicManager.getCurrentMusic();
-        } else if (Redux.aetherGenesisCompat() && GenesisConfig.CLIENT.night_music_tracks.get()) {
-            isCurrentAether = instance == GenesisMusicManager.getCurrentMusic();
+        } else if (ReduxConfig.CLIENT.night_track_music_manager.get()) {
+            isCurrentAether = instance == ReduxMusicManager.getCurrentMusic();
         }
 
         // By this time, non-aether musics will have been filtered out anyway, so we allow for vanilla's music manager to play as well if it wants to

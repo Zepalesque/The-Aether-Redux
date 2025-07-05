@@ -1,10 +1,9 @@
 package net.zepalesque.redux.block.natural.blight;
 
 import com.aetherteam.aether.block.natural.AetherGrassBlock;
-import com.aetherteam.aether.data.resources.registries.AetherPlacedFeatures;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
-import net.minecraft.core.registries.Registries;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -32,7 +31,7 @@ public class CustomAetherGrassBlock extends AetherGrassBlock {
     public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
         BlockPos abovePos = pos.above();
         Block grass = this.bonemealPropogationBlock();
-        Optional<Holder.Reference<PlacedFeature>> grassFeatureOptional = level.registryAccess().registryOrThrow(Registries.PLACED_FEATURE).getHolder(this.getFeatureKey());
+        Optional<Holder<PlacedFeature>> grassFeatureOptional = level.registryAccess().registryOrThrow(Registry.PLACED_FEATURE_REGISTRY).getHolder(this.getFeatureKey());
         
         start:
         for (int i = 0; i < 128; ++i) {

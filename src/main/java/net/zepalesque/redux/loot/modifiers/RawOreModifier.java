@@ -27,7 +27,7 @@ public class RawOreModifier extends LootModifier {
                     return DataResult.success(functions);
                 } catch (JsonSyntaxException e) {
                     LootModifierManager.LOGGER.warn("Unable to decode loot functions", e);
-                    return DataResult.error(e::getMessage);
+                    return DataResult.error(e.getMessage());
                 }
             }, functions -> {
                 try {
@@ -35,7 +35,7 @@ public class RawOreModifier extends LootModifier {
                     return DataResult.success(new Dynamic<>(JsonOps.INSTANCE, element));
                 } catch (JsonSyntaxException e) {
                     LootModifierManager.LOGGER.warn("Unable to encode loot functions", e);
-                    return DataResult.error(e::getMessage);
+                    return DataResult.error(e.getMessage());
                 }
             }
     );

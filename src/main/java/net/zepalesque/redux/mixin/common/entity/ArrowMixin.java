@@ -28,7 +28,7 @@ public class ArrowMixin
         SubzeroArrow.get(arrow).ifPresent(subzeroArrow -> {
             if (subzeroArrow.isSubzeroArrow()) {
                 subzeroArrow.tick();
-                if (!arrow.level().isClientSide) {
+                if (!arrow.getLevel().isClientSide) {
                     ReduxPacketHandler.sendToAll(new SubzeroArrowPacket(arrow.getId(), true));
                 }
             }

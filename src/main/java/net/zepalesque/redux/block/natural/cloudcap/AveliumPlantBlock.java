@@ -18,11 +18,13 @@ public class AveliumPlantBlock extends AetherBushBlock {
     protected static final VoxelShape SHAPE_SPROUTS = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 4.0D, 14.0D);
     protected static final VoxelShape SHAPE_GROWTH = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 10.0D, 14.0D);
     private final boolean isSprouts;
+    
     public AveliumPlantBlock(Properties properties, boolean sprouts) {
         super(properties);
         this.isSprouts = sprouts;
     }
-
+    
+    @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         Vec3 vec3 = pState.getOffset(pLevel, pPos);
         return this.isSprouts ? SHAPE_SPROUTS.move(vec3.x, vec3.y, vec3.z) : SHAPE_GROWTH.move(vec3.x, vec3.y, vec3.z);

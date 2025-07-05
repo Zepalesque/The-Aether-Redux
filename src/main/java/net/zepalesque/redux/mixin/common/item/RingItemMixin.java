@@ -15,7 +15,9 @@ public class RingItemMixin extends ItemMixin {
     protected void redux$OnDestroyed(ItemEntity itemEntity, CallbackInfo ci) {
         super.redux$OnDestroyed(itemEntity, ci);
         RingItem self = (RingItem) (Object) this;
-        if (AetherItems.GOLDEN_RING.get().equals(self) && !itemEntity.level().isClientSide() && itemEntity.getOwner() != null && itemEntity.getOwner() instanceof ServerPlayer sp)
+        if (AetherItems.GOLDEN_RING.get().equals(self) && !itemEntity.getLevel().isClientSide() && itemEntity.getOwner() != null
+            // implicit nullcast in instanceof check, may be able to improve in 1.20.1 as it uses the entity rather than the uuid i believe?
+            && itemEntity.getLevel().getPlayerByUUID(itemEntity.getOwner()) instanceof ServerPlayer sp)
             ReduxAdvancementTriggers.THROW_GOLD_RING_INTO_LAVA.trigger(sp);
     }
 }

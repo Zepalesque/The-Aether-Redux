@@ -6,7 +6,6 @@ import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleOptions;
-import net.minecraft.util.ParticleUtils;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -19,9 +18,8 @@ import net.zepalesque.redux.block.natural.ExtendedDistanceLeavesBlock;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.misc.ReduxTags;
-import net.zepalesque.redux.util.compat.AncientCompatUtil;
+import net.zepalesque.redux.util.BackportUtil;
 import net.zepalesque.redux.util.compat.DeepCompatUtil;
-import net.zepalesque.redux.util.compat.GenesisCompatUtil;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -44,7 +42,7 @@ public class AetherLeavesClientMixin extends LeafBlockClientMixin {
             BlockPos blockpos = pos.below();
             BlockState blockstate = level.getBlockState(blockpos);
             if ((!blockstate.canOcclude() || !blockstate.isFaceSturdy(level, blockpos, Direction.UP)) && !(blockstate.getBlock() instanceof LeavesBlock) && !(blockstate.getBlock() instanceof ExtendedDistanceLeavesBlock)) {
-                ParticleUtils.spawnParticleBelow(level, pos, random, supplier.get());
+                BackportUtil.spawnParticleBelow(level, pos, random, supplier.get());
             }
         }
     }
@@ -58,18 +56,6 @@ public class AetherLeavesClientMixin extends LeafBlockClientMixin {
                     @Nullable Supplier<? extends ParticleOptions> deep = DeepCompatUtil.getParticle(self);
                     if (deep != null) {
                         particle = deep;
-                    }
-                }
-                if (Redux.aetherGenesisCompat()) {
-                    @Nullable Supplier<? extends ParticleOptions> genesis = GenesisCompatUtil.getParticle(self);
-                    if (genesis != null) {
-                        particle = genesis;
-                    }
-                }
-                if (Redux.ancientAetherCompat()) {
-                    @Nullable Supplier<? extends ParticleOptions> ancient = AncientCompatUtil.getParticle(self);
-                    if (ancient != null) {
-                        particle = ancient;
                     }
                 }
             }

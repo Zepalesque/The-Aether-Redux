@@ -41,7 +41,7 @@ public record MusicModifier(HolderSet<Biome> biomes, MusicOperator newMusic, Opt
         return CODEC;
     }
 
-    public record MusicOperator(Optional<Holder<SoundEvent>> sound, Optional<Integer> minDelay, Optional<Integer> maxDelay, Optional<Boolean> replaceCurrent) implements UnaryOperator<Music> {
+    public record MusicOperator(Optional<SoundEvent> sound, Optional<Integer> minDelay, Optional<Integer> maxDelay, Optional<Boolean> replaceCurrent) implements UnaryOperator<Music> {
 
         public static final Codec<MusicOperator> CODEC = RecordCodecBuilder.create(builder -> builder.group(
                 SoundEvent.CODEC.optionalFieldOf("sound").forGetter(MusicOperator::sound),
@@ -54,7 +54,7 @@ public record MusicModifier(HolderSet<Biome> biomes, MusicOperator newMusic, Opt
             if (sound.isEmpty() && minDelay.isEmpty() && maxDelay.isEmpty() && replaceCurrent.isEmpty()) {
                 return music;
             }
-            Holder<SoundEvent> soundEvent = music.getEvent();
+            SoundEvent soundEvent = music.getEvent();
             int minimum = music.getMinDelay();
             int maximum = music.getMaxDelay();
             boolean replace = music.replaceCurrentMusic();

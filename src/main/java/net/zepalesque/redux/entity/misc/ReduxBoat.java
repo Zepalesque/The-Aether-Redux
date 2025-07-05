@@ -3,7 +3,6 @@ package net.zepalesque.redux.entity.misc;
 import com.aetherteam.aether.item.AetherItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.protocol.Packet;
-import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.item.Item;
@@ -21,7 +20,7 @@ public class ReduxBoat extends Boat implements ReduxBoatBehavior {
     public ReduxBoat(EntityType<? extends ReduxBoat> type, Level level) {
         super(type, level);
     }
-
+    
     public ReduxBoat(WoodHandler pWoodHandler, Level level, double x, double y, double z) {
         this(pWoodHandler.boatEntity.get(), level);
         this.setPos(x, y, z);
@@ -29,32 +28,33 @@ public class ReduxBoat extends Boat implements ReduxBoatBehavior {
         this.yo = y;
         this.zo = z;
     }
-
+    
     @Nonnull
     public Item getDropItem() {
         return getBoat();
     }
-
+    
     protected void checkFallDamage(double y, boolean onGround, @Nonnull BlockState state, @Nonnull BlockPos pos) {
         this.fall(this, y, onGround);
     }
-
+    
+    
     @Nonnull
-    public Packet<ClientGamePacketListener> getAddEntityPacket() {
+    public Packet<?> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }
-
+    
     @Override
     public Item getStick() {
         return AetherItems.SKYROOT_STICK.get();
     }
-
+    
     @Override
     public Item getPlanks() {
         return this.woodHandler == null ? Blocks.AIR.asItem() : ((ItemLike)this.woodHandler.planks.get()).asItem();
-
+        
     }
-
+    
     @Override
     public Item getBoat() {
         return this.woodHandler == null ? Blocks.AIR.asItem() : ((ItemLike)this.woodHandler.boatItem.get()).asItem();

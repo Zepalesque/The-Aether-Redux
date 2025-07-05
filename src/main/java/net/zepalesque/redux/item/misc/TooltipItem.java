@@ -5,15 +5,15 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.zepalesque.redux.util.function.QuadConsumer;
+import net.zepalesque.redux.util.function.Consumers;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 public class TooltipItem extends Item {
-    private final QuadConsumer<ItemStack, Level, List<Component>, TooltipFlag> tooltipConsumer;
+    private final Consumers.C4<ItemStack, Level, List<Component>, TooltipFlag> tooltipConsumer;
 
-    public TooltipItem(Properties pProperties, QuadConsumer<ItemStack, Level, List<Component>, TooltipFlag> tooltipAppendment) {
+    public TooltipItem(Properties pProperties, Consumers.C4<ItemStack, Level, List<Component>, TooltipFlag> tooltipAppendment) {
         super(pProperties);
         this.tooltipConsumer = tooltipAppendment;
     }

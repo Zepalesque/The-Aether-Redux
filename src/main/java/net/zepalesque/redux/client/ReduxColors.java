@@ -1,12 +1,8 @@
 package net.zepalesque.redux.client;
 
 import com.aetherteam.aether.block.AetherBlocks;
-import net.builderdog.ancient_aether.block.blockstate.AetherGrassType;
-import net.builderdog.ancient_aether.block.blockstate.AncientAetherBlockStateProperties;
 import net.minecraft.client.color.block.BlockColor;
-import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.color.item.ItemColor;
-import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.FastColor;
@@ -23,7 +19,6 @@ import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.util.state.ReduxStates;
 import net.zepalesque.redux.block.util.state.enums.BlightGrassColor;
 import net.zepalesque.redux.data.resource.biome.registry.ReduxBiomes;
-import net.zepalesque.redux.util.compat.AncientCompatUtil;
 
 import javax.annotation.Nullable;
 import java.util.HashMap;
@@ -76,23 +71,7 @@ public class ReduxColors {
                 ReduxBlocks.POTTED_SPIROLYCTIL.get(),
                 ReduxBlocks.XAELIA_PATCH.get()
         );
-
-        // Ancient Aether Compat
-        if (Redux.ancientAetherCompat()) {
-            register(event, (state, level, pos, index) -> level != null && pos != null ? state.hasProperty(AncientAetherBlockStateProperties.TYPE) && state.getValue(AncientAetherBlockStateProperties.TYPE) == AetherGrassType.ENCHANTED ? 0xFFFFFF : getColor(state, level, pos, index, 0) : ReduxBiomes.AETHER_GRASS_COLOR,
-                    new ResourceLocation("ancient_aether", "sky_grass"));
-            register(event, (state, level, pos, index) -> getColor(state, level, pos, index, 1),
-                    new ResourceLocation("ancient_aether", "wynd_thistle"),
-                    new ResourceLocation("ancient_aether", "potted_wynd_thistle"),
-                    new ResourceLocation("ancient_aether", "sky_blues"),
-                    new ResourceLocation("ancient_aether", "potted_sky_blues"),
-                    new ResourceLocation("ancient_aether", "sunset_rose"),
-                    new ResourceLocation("ancient_aether", "potted_sunset_rose"),
-                    new ResourceLocation("ancient_aether", "elevetia"),
-                    new ResourceLocation("ancient_aether", "potted_elevetia")
-            );
-        }
-
+        
         // Deep Aether compat
         if (Redux.deepAetherCompat()) {
             register(event, (state, level, pos, index) -> getColor(state, level, pos, index, 1),
@@ -147,22 +126,7 @@ public class ReduxColors {
         event.register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.FROSTED_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.LUMINA.get());
         event.register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.BLIGHT_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.SPIROLYCTIL.get());
         event.register((stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.BLIGHT_GRASS_COLOR : 0xFFFFFF, ReduxBlocks.BLIGHTSHADE.get());
-
-        // Ancient Aether Compat
-        if (Redux.ancientAetherCompat()) {
-            register(event, (stack, tintIndex) -> tintIndex == 0 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF,
-                    new ResourceLocation("ancient_aether", "sky_grass"));
-
-            register(event, (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.FROZEN_GRASS_COLOR : 0xFFFFFF,
-                    new ResourceLocation("ancient_aether", "wynd_thistle"));
-            register(event, (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF,
-                    new ResourceLocation("ancient_aether", "sky_blues"));
-
-            register(event, (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AETHER_GRASS_COLOR : 0xFFFFFF,
-                    new ResourceLocation("ancient_aether", "sunset_rose"));
-            register(event, (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.PALE_GRASS_COLOR : 0xFFFFFF,
-                    new ResourceLocation("ancient_aether", "elevetia"));
-        }
+        
         // Deep Aether Compat
         if (Redux.deepAetherCompat()) {
             register(event, (stack, tintIndex) -> tintIndex == 1 ? ReduxBiomes.AERGLOW_GRASS_COLOR : 0xFFFFFF,

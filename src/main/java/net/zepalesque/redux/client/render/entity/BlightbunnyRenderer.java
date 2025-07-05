@@ -1,12 +1,7 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package net.zepalesque.redux.client.render.entity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Axis;
+import com.mojang.math.Vector3f;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
@@ -22,32 +17,32 @@ public class BlightbunnyRenderer extends MobRenderer<Blightbunny, BlightbunnyMod
     private static final ResourceLocation BLIGHTBUNNY_TEXTURE = Redux.locate("textures/entity/mobs/blightbunny/blightbunny.png");
     private static final ResourceLocation BLIGHTBUNNY_GLOW_TEXTURE = Redux.locate("textures/entity/mobs/blightbunny/blightbunny_glow.png");
     private static final ResourceLocation BLIGHTBUNNY_EYES_TEXTURE = Redux.locate("textures/entity/mobs/blightbunny/blightbunny_eyes.png");
-
+    
     public BlightbunnyRenderer(EntityRendererProvider.Context context) {
         super(context, new BlightbunnyModel(context.bakeLayer(ReduxModelLayers.BLIGHTBUNNY)), 0.3F);
         this.addLayer(new TranslucentEmissiveLayer<>(this, BLIGHTBUNNY_GLOW_TEXTURE));
         this.addLayer(new GlowLayer<>(this, BLIGHTBUNNY_EYES_TEXTURE));
-
+        
     }
-
+    
     protected void scale(Blightbunny aerbunny, PoseStack poseStack, float partialTicks) {
         poseStack.translate(0.0, 1.2, 0.0);
     }
-
+    
     protected void setupRotations(Blightbunny aerbunny, PoseStack poseStack, float ageInTicks, float rotationYaw, float partialTicks) {
         super.setupRotations(aerbunny, poseStack, ageInTicks, rotationYaw, partialTicks);
-        if (!aerbunny.onGround()) {
+        if (!aerbunny.isOnGround()) {
             if (aerbunny.getDeltaMovement().y() > 0.5) {
-                poseStack.mulPose(Axis.XN.rotationDegrees(Mth.rotLerp(partialTicks, 0.0F, 15.0F)));
+                poseStack.mulPose(Vector3f.XN.rotationDegrees(Mth.rotLerp(partialTicks, 0.0F, 15.0F)));
             } else if (aerbunny.getDeltaMovement().y() < -0.5) {
-                poseStack.mulPose(Axis.XN.rotationDegrees(Mth.rotLerp(partialTicks, 0.0F, -15.0F)));
+                poseStack.mulPose(Vector3f.XN.rotationDegrees(Mth.rotLerp(partialTicks, 0.0F, -15.0F)));
             } else {
-                poseStack.mulPose(Axis.XN.rotationDegrees((float)(aerbunny.getDeltaMovement().y() * 30.0)));
+                poseStack.mulPose(Vector3f.XN.rotationDegrees((float)(aerbunny.getDeltaMovement().y() * 30.0)));
             }
         }
-
+        
     }
-
+    
     public ResourceLocation getTextureLocation(Blightbunny aerbunny) {
         return BLIGHTBUNNY_TEXTURE;
     }

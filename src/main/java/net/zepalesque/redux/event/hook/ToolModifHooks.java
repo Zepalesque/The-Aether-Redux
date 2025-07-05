@@ -14,7 +14,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.storage.loot.LootParams;
+import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.Vec3;
@@ -22,9 +22,9 @@ import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.ToolActions;
 import net.minecraftforge.event.level.BlockEvent;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.blockhandlers.WoodHandlers;
 import net.zepalesque.redux.api.blockhandler.WoodHandler;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.blockhandlers.WoodHandlers;
 import net.zepalesque.redux.loot.ReduxLoot;
 
 import java.util.List;
@@ -105,9 +105,9 @@ public class ToolModifHooks {
                 if (WoodHandlers.BLIGHTWILLOW.sporingBlocksBlockTag.isPresent() && state.is(WoodHandlers.BLIGHTWILLOW.sporingBlocksBlockTag.get()) && stack.is(AetherTags.Items.GOLDEN_AMBER_HARVESTERS)) {
                     if (level.getServer() != null && level instanceof ServerLevel serverLevel) {
                         Vec3 vector = context.getClickLocation();
-                        LootParams parameters = new LootParams.Builder(serverLevel).withParameter(LootContextParams.TOOL, stack).create(AetherLootContexts.STRIPPING);
-                        LootTable lootTable = level.getServer().getLootData().getLootTable(ReduxLoot.STRIP_BLIGHTWILLOW);
-                        List<ItemStack> list = lootTable.getRandomItems(parameters);
+                        LootContext.Builder lootContext = new LootContext.Builder(serverLevel).withParameter(LootContextParams.TOOL, stack);
+                        LootTable lootTable = level.getServer().getLootTables().get(ReduxLoot.STRIP_BLIGHTWILLOW);
+                        List<ItemStack> list = lootTable.getRandomItems(lootContext.create(AetherLootContexts.STRIPPING));
                         for (ItemStack itemStack : list) {
                             ItemEntity itemEntity = new ItemEntity(level, vector.x(), vector.y(), vector.z(), itemStack);
                             itemEntity.setDefaultPickUpDelay();

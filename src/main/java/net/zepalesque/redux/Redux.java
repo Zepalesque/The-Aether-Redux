@@ -1,23 +1,15 @@
 package net.zepalesque.redux;
 
 import com.aetherteam.aether.AetherConfig;
-import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.dispenser.DispenseUsableItemBehavior;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.item.AetherItems;
-import com.aetherteam.aether_genesis.entity.GenesisEntityTypes;
-import com.aetherteam.aether_genesis.item.GenesisItems;
 import com.aetherteam.cumulus.CumulusConfig;
 import com.mojang.logging.LogUtils;
 import com.mojang.serialization.Codec;
-import net.builderdog.ancient_aether.entity.AncientAetherEntityTypes;
 import net.minecraft.SharedConstants;
 import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.core.Registry;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.PackOutput;
-import net.minecraft.data.metadata.PackMetadataGenerator;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -26,20 +18,15 @@ import net.minecraft.server.packs.metadata.pack.PackMetadataSection;
 import net.minecraft.server.packs.repository.Pack;
 import net.minecraft.server.packs.repository.PackSource;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.flag.FeatureFlag;
-import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionBrewing;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.crafting.CraftingHelper;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.AddPackFindersEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -77,22 +64,6 @@ import net.zepalesque.redux.client.render.geo.MykapodRenderer;
 import net.zepalesque.redux.client.resource.ReduxOverridesPackResources;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.config.pack.ReduxPackConfig;
-import net.zepalesque.redux.data.ReduxAdvancementData;
-import net.zepalesque.redux.data.ReduxBlockstateData;
-import net.zepalesque.redux.data.ReduxItemModelData;
-import net.zepalesque.redux.data.ReduxLanguageData;
-import net.zepalesque.redux.data.ReduxLootModifierData;
-import net.zepalesque.redux.data.ReduxRecipeData;
-import net.zepalesque.redux.data.ReduxRegistrySets;
-import net.zepalesque.redux.data.ReduxSoundData;
-import net.zepalesque.redux.data.loot.ReduxLootData;
-import net.zepalesque.redux.data.tags.ReduxAdvancementOverrideTagData;
-import net.zepalesque.redux.data.tags.ReduxBiomeTagsData;
-import net.zepalesque.redux.data.tags.ReduxBlockTagsData;
-import net.zepalesque.redux.data.tags.ReduxDamageTypeTagData;
-import net.zepalesque.redux.data.tags.ReduxEntityTypeTagData;
-import net.zepalesque.redux.data.tags.ReduxItemTagsData;
-import net.zepalesque.redux.data.tags.ReduxSoundEventTagData;
 import net.zepalesque.redux.effect.ReduxEffects;
 import net.zepalesque.redux.entity.ReduxEntityTypes;
 import net.zepalesque.redux.entity.dataserializer.ReduxDataSerializers;
@@ -102,13 +73,13 @@ import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.loot.condition.ReduxLootConditions;
 import net.zepalesque.redux.loot.functions.ReduxLootFunctions;
 import net.zepalesque.redux.loot.modifiers.ReduxLootModifiers;
-import net.zepalesque.redux.misc.ReduxPackSources;
 import net.zepalesque.redux.misc.ReduxPotions;
 import net.zepalesque.redux.network.ReduxPacketHandler;
 import net.zepalesque.redux.recipe.ReduxRecipeTypes;
 import net.zepalesque.redux.recipe.condition.DataRecipeCondition;
 import net.zepalesque.redux.recipe.serializer.ReduxRecipeSerializers;
 import net.zepalesque.redux.world.biome.ReduxRegion;
+import net.zepalesque.redux.world.biome.ReduxSurfaceRules;
 import net.zepalesque.redux.world.biome.modifier.ReduxBiomeModifierCodecs;
 import net.zepalesque.redux.world.biome.surfacerule.ReduxConditionSources;
 import net.zepalesque.redux.world.carver.ReduxCarvers;
@@ -124,13 +95,13 @@ import net.zepalesque.redux.world.tree.trunk.ReduxTrunkPlacers;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import teamrazor.aeroblender.AeroBlenderConfig;
+import teamrazor.aeroblender.aether.AetherRuleCategory;
 import terrablender.api.Regions;
+import terrablender.api.SurfaceRuleManager;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Map;
-import java.util.concurrent.CompletableFuture;
 import java.util.function.Supplier;
 
 @Mod(Redux.MODID)
@@ -164,7 +135,6 @@ public class Redux {
             return true;
         }, () -> () -> false);
         bus.addListener(EventPriority.HIGH, this::packSetup);
-        bus.addListener(this::dataSetup);
         bus.addListener(this::registerRecipeSerializers);
         packConfig = PackConfigBootstrap.register("aether_redux_pack_config", ReduxPackConfig::new);
         ReduxBlocks.BLOCKS.register(bus);
@@ -193,6 +163,7 @@ public class Redux {
         ReduxDataSerializers.SERIALIZERS.register(bus);
         ReduxPotions.POTIONS.register(bus);
         ReduxAdvancementSounds.SOUNDS.register(bus);
+        ReduxPlacementModifiers.MODIFIERS.register(bus);
         ReduxBlocks.registerPots();
         ReduxLootFunctions.LOOT_FUNCTION_TYPES.register(bus);
         MinecraftForge.EVENT_BUS.register(this);
@@ -220,7 +191,6 @@ public class Redux {
             ReduxBlocks.registerWoodTypes(false);
             return true;
         });
-        ReduxPlacementModifiers.init();
         ReduxPacketHandler.register();
         event.enqueueWork(() -> {
             if (ReduxConfig.COMMON.first_startup_aeroblender_setup.get()) {
@@ -232,11 +202,12 @@ public class Redux {
             replaceBlockSounds();
             registerComposting();
             Regions.register(new ReduxRegion(new ResourceLocation(MODID, "aether_redux_region"), ReduxConfig.COMMON.region_size.get()));
+            SurfaceRuleManager.addSurfaceRules(AetherRuleCategory.THE_AETHER, "aether_redux", ReduxSurfaceRules.makeRules());
             if (ReduxConfig.COMMON.smaller_mimic_hitbox.get()) {
                 AetherEntityTypes.MIMIC.get().getDimensions().height = 1.25F;
-                if (aetherGenesisCompat()) {
+                /*if (aetherGenesisCompat()) {
                     GenesisEntityTypes.SKYROOT_MIMIC.get().getDimensions().height = 1.25F;
-                }
+                }*/
             }
             PotionBrewing.addMix(Potions.POISON, ReduxItems.BLIGHTED_SPORES.get(), ReduxPotions.INTOXICATION.get());
             PotionBrewing.addMix(Potions.STRONG_POISON, ReduxItems.BLIGHTED_SPORES.get(), ReduxPotions.INTOXICATION.get());
@@ -245,14 +216,10 @@ public class Redux {
             SwetHooks.registerParticle(AetherEntityTypes.BLUE_SWET.get(), AetherItems.SWET_BALL.get());
             SwetHooks.registerParticle(ReduxEntityTypes.VANILLA_SWET.get(), ReduxItems.VANILLA_SWET_BALL.get());
             if (Redux.aetherGenesisCompat()) {
-                SwetHooks.registerParticle(GenesisEntityTypes.DARK_SWET.get(), GenesisItems.DARK_SWET_BALL.get());
-                SwetHooks.registerParticle(AetherEntityTypes.GOLDEN_SWET.get(), GenesisItems.GOLDEN_SWET_BALL.get());
+//                SwetHooks.registerParticle(GenesisEntityTypes.DARK_SWET.get(), GenesisItems.DARK_SWET_BALL.get());
+//                SwetHooks.registerParticle(AetherEntityTypes.GOLDEN_SWET.get(), GenesisItems.GOLDEN_SWET_BALL.get());
             } else {
                 SwetHooks.registerParticle(AetherEntityTypes.GOLDEN_SWET.get(), ReduxItems.GOLDEN_SWET_BALL.get());
-            }
-            // TODO: Proper particles for this one
-            if (Redux.ancientAetherCompat()) {
-                SwetHooks.registerParticle(AncientAetherEntityTypes.FESTIVE_SWET.get(), AetherItems.SWET_BALL.get());
             }
         });
     }
@@ -374,7 +341,6 @@ public class Redux {
         this.addCompost(0.3F, ReduxBlocks.BLIGHTWILLOW_SAPLING);
         this.addCompost(0.3F, ReduxBlocks.CRYSTAL_SAPLING);
         this.addCompost(0.3F, ReduxBlocks.CRYSTAL_FRUIT_SAPLING);
-        this.addCompost(0.3F, ReduxBlocks.PURPLE_CRYSTAL_FRUIT_SAPLING);
         this.addCompost(0.3F, ReduxBlocks.FIELDSPROOT_SAPLING);
         this.addCompost(0.3F, ReduxBlocks.GLACIA_SAPLING);
         this.addCompost(0.3F, ReduxBlocks.PURPLE_GLACIA_SAPLING);
@@ -401,39 +367,6 @@ public class Redux {
         ComposterBlock.COMPOSTABLES.put(item.get().asItem(), chance);
     }
 
-    public void dataSetup(GatherDataEvent event) {
-        DataGenerator generator = event.getGenerator();
-        ExistingFileHelper fileHelper = event.getExistingFileHelper();
-        CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
-        PackOutput packOutput = generator.getPackOutput();
-        generator.addProvider(event.includeServer(), new ReduxRegistrySets(packOutput, lookupProvider, ReduxRegistrySets.BUILDER, MODID));
-        generator.addProvider(event.includeClient(), new ReduxBlockstateData(packOutput, MODID, fileHelper));
-        generator.addProvider(event.includeClient(), new ReduxItemModelData(packOutput, MODID, fileHelper));
-        generator.addProvider(event.includeClient(), new ReduxLanguageData(packOutput, MODID));
-        generator.addProvider(event.includeClient(), new ReduxSoundData(packOutput, MODID, fileHelper));
-        generator.addProvider(event.includeServer(), new ReduxRecipeData(packOutput, MODID));
-        generator.addProvider(event.includeServer(), ReduxLootData.loot(packOutput));
-        generator.addProvider(event.includeServer(), new ReduxDamageTypeTagData(packOutput, lookupProvider, MODID, fileHelper));
-        generator.addProvider(event.includeServer(), new ReduxSoundEventTagData(packOutput, lookupProvider, MODID, fileHelper));
-        generator.addProvider(event.includeServer(), new ReduxAdvancementOverrideTagData(packOutput, lookupProvider, MODID, fileHelper));
-        ReduxBlockTagsData block = new ReduxBlockTagsData(packOutput, lookupProvider, MODID, fileHelper);
-        generator.addProvider(event.includeServer(), block);
-        generator.addProvider(event.includeServer(), new ReduxItemTagsData(packOutput, lookupProvider, MODID, block.contentsGetter(), fileHelper));
-        generator.addProvider(event.includeServer(), new ReduxBiomeTagsData(packOutput, lookupProvider, MODID, ReduxRegistrySets::patchLookup, fileHelper));
-        generator.addProvider(event.includeServer(), new ReduxEntityTypeTagData(packOutput, lookupProvider, MODID, fileHelper));
-        generator.addProvider(event.includeServer(), new ReduxAdvancementData(packOutput, lookupProvider, fileHelper));
-        generator.addProvider(event.includeServer(), new ReduxLootModifierData(packOutput, MODID));
-        PackMetadataGenerator packMeta = new PackMetadataGenerator(packOutput);
-        Map<PackType, Integer> packTypes = Map.of(PackType.SERVER_DATA, SharedConstants.getCurrentVersion().getPackVersion(PackType.SERVER_DATA));
-        packMeta.add(PackMetadataSection.TYPE, new PackMetadataSection(Component.literal("Aether: Redux data/resources"), SharedConstants.getCurrentVersion().getPackVersion(PackType.CLIENT_RESOURCES), packTypes));
-        generator.addProvider(true, packMeta);
-
-        Path builtinData = packOutput.getOutputFolder().resolve("packs").resolve("data");
-
-        DataGenerator.PackGenerator noisePack = generator.new PackGenerator(event.includeServer(), "reduxnoise", new PackOutput(builtinData.resolve("redux_noise")));
-        noisePack.addProvider(output -> new ReduxRegistrySets.NoisePack(output, lookupProvider, Redux.MODID));
-    }
-
     public  void packSetup(AddPackFindersEvent event) {
         if (event.getPackType() == PackType.CLIENT_RESOURCES) {
             PackConfigBootstrap.bootstrap();
@@ -454,7 +387,7 @@ public class Redux {
             if (ReduxConfig.COMMON.bronze_dungeon_upgrade.get()) this.setupMandatoryDataPack(event, "data/dungeon_upgrades/bronze", "Bronze Dungeon Upgrade", desc);
             if (ReduxConfig.COMMON.gravitite_ingot.get()) this.setupMandatoryDataPack(event, "data/gravitite_ingot", "Redux - Gravitite Ingot", desc);
             if (ReduxConfig.COMMON.dungeon_stone_recipes.get()) this.setupMandatoryDataPack(event, "data/dungeon_stone_recipes", "Redux - Light Dungeon Stone Recipes", desc);
-            if (ReduxConfig.COMMON.redux_noise.get().get()) this.setupMandatoryDataPack(event, "data/redux_noise", "Redux - New Island Noise", desc);
+            if (ReduxConfig.COMMON.redux_noise.get()) this.setupMandatoryDataPack(event, "data/redux_noise", "Redux - New Island Noise", desc);
 
 
         }
@@ -474,105 +407,86 @@ public class Redux {
             }
         }
     }
-
+    
     private void setupMandatoryPack(AddPackFindersEvent event, String path, String displayName, String desc) {
         if (event.getPackType() == PackType.CLIENT_RESOURCES) {
             Path resourcePath = ModList.get().getModFileById(MODID).getFile().findResource("packs/" + path);
-            PathPackResources pack = new PathPackResources(ModList.get().getModFileById(MODID).getFile().getFileName() + ":" + resourcePath, true, resourcePath);
+            PathPackResources pack = new PathPackResources(ModList.get().getModFileById(MODID).getFile().getFileName() + ":" + resourcePath, resourcePath);
             PackMetadataSection metadata = new PackMetadataSection(Component.translatable(desc)
-                    , SharedConstants.getCurrentVersion().getPackVersion(PackType.CLIENT_RESOURCES));
-            event.addRepositorySource((packConsumer) -> {
-                packConsumer.accept(Pack.create("builtin/" + path, Component.literal("Redux - " + displayName),
-                        true,
-                        (string) -> pack,
-                        new Pack.Info(metadata.getDescription(), metadata.getPackFormat(PackType.SERVER_DATA), metadata.getPackFormat(PackType.CLIENT_RESOURCES), FeatureFlagSet.of(), pack.isHidden()),
-                        PackType.CLIENT_RESOURCES,
-                        Pack.Position.TOP,
-                        false,
-                        PackSource.BUILT_IN));
+                , SharedConstants.getCurrentVersion().getPackVersion(com.mojang.bridge.game.PackType.RESOURCE));
+            event.addRepositorySource((packConsumer, packConstructor) -> {
+                packConsumer.accept(packConstructor.create(
+                    "builtin/" + path,
+                    Component.literal("Redux - " + displayName),
+                    false,
+                    () -> pack,
+                    metadata,
+                    Pack.Position.TOP,
+                    PackSource.BUILT_IN,
+                    false));
             });
         }
     }
-
     private void setupOptionalPack(AddPackFindersEvent event, String path, String displayName, String desc) {
         if (event.getPackType() == PackType.CLIENT_RESOURCES) {
             Path resourcePath = ModList.get().getModFileById(MODID).getFile().findResource("packs/" + path);
-            PathPackResources pack = new PathPackResources(ModList.get().getModFileById(MODID).getFile().getFileName() + ":" + resourcePath, true, resourcePath);
+            PathPackResources pack = new PathPackResources(ModList.get().getModFileById(MODID).getFile().getFileName() + ":" + resourcePath, resourcePath);
             PackMetadataSection metadata = new PackMetadataSection(Component.translatable(desc)
-                    , SharedConstants.getCurrentVersion().getPackVersion(PackType.CLIENT_RESOURCES));
-            event.addRepositorySource((packConsumer) -> {
-                packConsumer.accept(Pack.create("builtin/" + path, Component.literal("Redux - " + displayName),
-                        false,
-                        (string) -> pack,
-                        new Pack.Info(metadata.getDescription(), metadata.getPackFormat(PackType.SERVER_DATA), metadata.getPackFormat(PackType.CLIENT_RESOURCES), FeatureFlagSet.of(), pack.isHidden()),
-                        PackType.CLIENT_RESOURCES,
-                        Pack.Position.TOP,
-                        false,
-                        PackSource.BUILT_IN));
+                , SharedConstants.getCurrentVersion().getPackVersion(com.mojang.bridge.game.PackType.RESOURCE));
+            event.addRepositorySource((packConsumer, packConstructor) -> {
+                packConsumer.accept(packConstructor.create(
+                    "builtin/" + path,
+                    Component.literal("Redux - " + displayName),
+                    false,
+                    () -> pack,
+                    metadata,
+                    Pack.Position.TOP,
+                    PackSource.BUILT_IN,
+                    false));
             });
         }
     }
+    
+    
     private void setupMandatoryDataPack(AddPackFindersEvent event, String path, String displayName, String desc) {
         if (event.getPackType() == PackType.SERVER_DATA) {
             Path resourcePath = ModList.get().getModFileById(MODID).getFile().findResource("packs/" + path);
-            PathPackResources pack = new PathPackResources(ModList.get().getModFileById(MODID).getFile().getFileName() + ":" + resourcePath, true, resourcePath);
+            PathPackResources pack = new PathPackResources(ModList.get().getModFileById(MODID).getFile().getFileName() + ":" + resourcePath, resourcePath);
             PackMetadataSection metadata = new PackMetadataSection(Component.translatable(desc)
-                    , SharedConstants.getCurrentVersion().getPackVersion(PackType.SERVER_DATA));
-            event.addRepositorySource((packConsumer) -> {
-                packConsumer.accept(Pack.create("builtin/" + path, Component.literal("Redux - " + displayName),
-                        true,
-                        (string) -> pack,
-                        new Pack.Info(metadata.getDescription(), metadata.getPackFormat(PackType.SERVER_DATA), metadata.getPackFormat(PackType.CLIENT_RESOURCES), FeatureFlagSet.of(), pack.isHidden()),
-                        PackType.SERVER_DATA,
-                        Pack.Position.TOP,
-                        false,
-                        PackSource.BUILT_IN));
+                , SharedConstants.getCurrentVersion().getPackVersion(com.mojang.bridge.game.PackType.DATA));
+            event.addRepositorySource((packConsumer, packConstructor) -> {
+                packConsumer.accept(packConstructor.create(
+                    "builtin/" + path,
+                    Component.literal("Redux - " + displayName),
+                    true,
+                    () -> pack,
+                    metadata,
+                    Pack.Position.TOP,
+                    PackSource.BUILT_IN,
+                    false));
             });
         }
-
+        
     }
     private void setupBuiltinDatapack(AddPackFindersEvent event, String path, String displayName, String desc) {
         setupDatapack(event, path, displayName, desc, PackSource.BUILT_IN);
     }
-    private void setupFeatureDatapack(AddPackFindersEvent event, String path, String displayName, String desc) {
-        setupDatapack(event, path, displayName, desc, PackSource.FEATURE);
-    }
-    private void setupOptionalDatapack(AddPackFindersEvent event, String path, String displayName, String desc) {
-        setupDatapack(event, path, displayName, desc, ReduxPackSources.OPTIONAL_DATAPACK);
-    }
     private void setupDatapack(AddPackFindersEvent event, String path, String displayName, String desc, PackSource source) {
         if (event.getPackType() == PackType.SERVER_DATA) {
             Path resourcePath = ModList.get().getModFileById(MODID).getFile().findResource("packs/" + path);
-            PathPackResources pack = new PathPackResources(ModList.get().getModFileById(MODID).getFile().getFileName() + ":" + resourcePath, true, resourcePath);
+            PathPackResources pack = new PathPackResources(ModList.get().getModFileById(MODID).getFile().getFileName() + ":" + resourcePath, resourcePath);
             PackMetadataSection metadata = new PackMetadataSection(Component.translatable(desc)
-                    , SharedConstants.getCurrentVersion().getPackVersion(PackType.SERVER_DATA));
-            event.addRepositorySource((packConsumer) -> {
-                packConsumer.accept(Pack.create("builtin/" + path, Component.literal("Redux - " + displayName),
-                        false,
-                        (string) -> pack,
-                        new Pack.Info(metadata.getDescription(), metadata.getPackFormat(PackType.SERVER_DATA), metadata.getPackFormat(PackType.CLIENT_RESOURCES), FeatureFlagSet.of(), pack.isHidden()),
-                        PackType.SERVER_DATA,
-                        Pack.Position.TOP,
-                        false,
-                        source));
-            });
-        }
-    }
-    private void setupDatapackFeatureFlags(AddPackFindersEvent event, String path, String displayName, String desc, PackSource source, FeatureFlag flag, FeatureFlag... otherFlags) {
-        if (event.getPackType() == PackType.SERVER_DATA) {
-            Path resourcePath = ModList.get().getModFileById(MODID).getFile().findResource("packs/" + path);
-            PathPackResources pack = new PathPackResources(ModList.get().getModFileById(MODID).getFile().getFileName() + ":" + resourcePath, true, resourcePath);
-            PackMetadataSection metadata = new PackMetadataSection(Component.translatable(desc)
-                    , SharedConstants.getCurrentVersion().getPackVersion(PackType.SERVER_DATA));
-            event.addRepositorySource((packConsumer) -> {
-                packConsumer.accept(Pack.create("builtin/" + path, Component.literal("Redux - " + displayName),
-                        false,
-                        (string) -> pack,
-                        new Pack.Info(metadata.getDescription(), metadata.getPackFormat(PackType.SERVER_DATA), metadata.getPackFormat(PackType.CLIENT_RESOURCES), FeatureFlagSet.of(flag, otherFlags), pack.isHidden()),
-                        PackType.SERVER_DATA,
-                        Pack.Position.TOP,
-                        false,
-                        source));
+                , SharedConstants.getCurrentVersion().getPackVersion(com.mojang.bridge.game.PackType.DATA));
+            event.addRepositorySource((packConsumer, packConstructor) -> {
+                packConsumer.accept(packConstructor.create(
+                    "builtin/" + path,
+                    Component.literal("Redux - " + displayName),
+                    false,
+                    () -> pack,
+                    metadata,
+                    Pack.Position.TOP,
+                    source,
+                    false));
             });
         }
     }

@@ -8,9 +8,12 @@ import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.LevelSimulatedReader;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
+
+import java.util.function.BiConsumer;
 
 public class BlightwillowFoliagePlacer extends FoliagePlacer {
 
@@ -23,7 +26,7 @@ public class BlightwillowFoliagePlacer extends FoliagePlacer {
     }
 
     @Override
-    protected void createFoliage(LevelSimulatedReader level, FoliageSetter setter, RandomSource rand, TreeConfiguration config, int maxHeight, FoliageAttachment attachment, int height, int radius, int offset) {
+    protected void createFoliage(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> setter, RandomSource rand, TreeConfiguration config, int maxHeight, FoliageAttachment attachment, int height, int radius, int offset) {
         BlockPos origin = attachment.pos();
 
         // Place main blob
@@ -44,7 +47,7 @@ public class BlightwillowFoliagePlacer extends FoliagePlacer {
         }
     }
 
-    private void placeSpine(LevelSimulatedReader level, FoliageSetter setter, RandomSource rand, TreeConfiguration config, BlockPos start, int radius, BlockPos.MutableBlockPos mutable, Direction d) {
+    private void placeSpine(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> setter, RandomSource rand, TreeConfiguration config, BlockPos start, int radius, BlockPos.MutableBlockPos mutable, Direction d) {
         boolean extendBelow = false;
         boolean extendAbove = false;
 
@@ -73,7 +76,7 @@ public class BlightwillowFoliagePlacer extends FoliagePlacer {
         }
     }
 
-    private void placeSideSpine(LevelSimulatedReader level, FoliageSetter setter, RandomSource rand, TreeConfiguration config, BlockPos start, int radius, BlockPos.MutableBlockPos mutable, Direction d, boolean extendBelow) {
+    private void placeSideSpine(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> setter, RandomSource rand, TreeConfiguration config, BlockPos start, int radius, BlockPos.MutableBlockPos mutable, Direction d, boolean extendBelow) {
         for (int i = 0; i <= radius; i++) {
             boolean place = i != 0 || (extendBelow && rand.nextFloat() < 0.75F);
             if (place) {
@@ -85,7 +88,7 @@ public class BlightwillowFoliagePlacer extends FoliagePlacer {
 
 
     // Override vanilla behavior of using the 'large' boolean value to actually affect the size, this is unwanted behavior in this case
-    protected void placeLeavesRow(LevelSimulatedReader level, FoliageSetter setter, RandomSource random, TreeConfiguration config, BlockPos pos, int radius, int y, boolean large) {
+    protected void placeLeavesRow(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> setter, RandomSource random, TreeConfiguration config, BlockPos pos, int radius, int y, boolean large) {
         // Also avoid creating a new mutable block pos if the radius is 0 anyway
         if (radius <= 0) {
             if (!this.shouldSkipLocationSigned(random, 0, y, 0, radius, large)) {
