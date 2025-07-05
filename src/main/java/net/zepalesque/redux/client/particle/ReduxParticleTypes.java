@@ -139,7 +139,7 @@ public class ReduxParticleTypes {
         registerSpriteSet(event, SPARK.get(), SparkParticle.Provider::new);
 
         registerSpriteSet(event, SHIMMERSTAR.get(), ShimmerstarParticle.Provider::new);
-        registerSpriteSet(event, RANDOM_MOVEMENT_ITEM.get(), sprites -> new RandomMovementItemParticle.Provider());
+        registerSpriteSet(event, RANDOM_MOVEMENT_ITEM.get(), new RandomMovementItemParticle.Provider());
 
         registerSpriteSet(event, BLIGHTSHADE.get(), BlightshadeParticle.Provider::new);
     }
