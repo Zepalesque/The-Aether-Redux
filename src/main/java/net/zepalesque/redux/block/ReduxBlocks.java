@@ -9,6 +9,7 @@ import com.aetherteam.aether.block.natural.AetherDoubleDropsLeaves;
 import com.aetherteam.aether.block.natural.AetherLogBlock;
 import com.aetherteam.aether.block.natural.LeavesWithParticlesBlock;
 import com.aetherteam.aether.entity.AetherEntityTypes;
+import com.aetherteam.aether.item.AetherCreativeTabs;
 import com.aetherteam.aether.mixin.mixins.common.accessor.FireBlockAccessor;
 import com.google.common.base.Supplier;
 import net.minecraft.core.BlockPos;
@@ -647,7 +648,7 @@ public class ReduxBlocks {
     }
     
     public static <T extends Block> RegistryObject<T> register(final String name, final Supplier<? extends T> block) {
-        return registerItem(name, block, object -> () -> new BlockItem(object.get(), new Item.Properties()));
+        return registerItem(name, block, object -> () -> new BlockItem(object.get(), new Item.Properties().tab(AetherCreativeTabs.AETHER_BLOCKS)));
     }
     
     public static <T extends Block> RegistryObject<T> legacyRep(final String name, final Supplier<? extends T> block, final Supplier<? extends ItemLike> replacement) {
