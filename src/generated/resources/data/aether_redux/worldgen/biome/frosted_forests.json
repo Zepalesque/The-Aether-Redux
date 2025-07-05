@@ -56,7 +56,7 @@
       "aether:blue_aercloud"
     ]
   ],
-  "has_precipitation": true,
+  "precipitation": "rain",
   "spawn_costs": {
     "aether:aerwhale": {
       "charge": 0.5,
