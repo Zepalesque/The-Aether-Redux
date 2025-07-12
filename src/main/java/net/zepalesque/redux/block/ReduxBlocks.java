@@ -29,6 +29,7 @@ import net.minecraft.world.level.block.ChainBlock;
 import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.GlowLichenBlock;
+import net.minecraft.world.level.block.LadderBlock;
 import net.minecraft.world.level.block.LanternBlock;
 import net.minecraft.world.level.block.MultifaceBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
@@ -52,6 +53,7 @@ import net.zepalesque.redux.block.construction.VeridiumLanternBlock;
 import net.zepalesque.redux.block.dungeon.DoorwayPillarBlock;
 import net.zepalesque.redux.block.dungeon.Flareblossom;
 import net.zepalesque.redux.block.dungeon.RunelightBlock;
+import net.zepalesque.redux.block.dungeon.SkyrootChestMimicBlock;
 import net.zepalesque.redux.block.dungeon.TrappedPillarBlock;
 import net.zepalesque.redux.block.natural.AetherShortGrassBlock;
 import net.zepalesque.redux.block.natural.CustomBoundsBushBlock;
@@ -84,6 +86,10 @@ import net.zepalesque.redux.block.natural.skyfields.FieldsprootLeafBlock;
 import net.zepalesque.redux.block.natural.skyfields.FieldsprootPetalsBlock;
 import net.zepalesque.redux.block.redstone.LogicatorBlock;
 import net.zepalesque.redux.block.util.CommonPlantBounds;
+import net.zepalesque.redux.block.utility.HolystoneFurnaceBlock;
+import net.zepalesque.redux.block.utility.SkyrootChestBlock;
+import net.zepalesque.redux.block.utility.SkyrootCraftingTableBlock;
+import net.zepalesque.redux.blockentity.ReduxBlockEntityTypes;
 import net.zepalesque.redux.client.ReduxClient;
 import net.zepalesque.redux.client.particle.ReduxParticleTypes;
 import net.zepalesque.redux.config.ReduxConfig;
@@ -570,6 +576,14 @@ public class ReduxBlocks {
         () -> new CustomBoundsFlowerBlock(CommonPlantBounds.FLOWER, () -> MobEffects.FIRE_RESISTANCE, 60, BlockBehaviour.Properties.copy(Blocks.POPPY).hasPostProcess(ReduxBlocks::always).color(MaterialColor.COLOR_ORANGE)));
     
     public static final RegistryObject<FlowerPotBlock> POTTED_INFERNIA = BLOCKS.register("potted_infernia", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, INFERNIA, Block.Properties.copy(Blocks.FLOWER_POT)));
+    
+    // Silly genesis stuff since it has no 1.19.2 version :3
+    public static final RegistryObject<Block> SKYROOT_CRAFTING_TABLE = register("skyroot_crafting_table", () -> new SkyrootCraftingTableBlock(Block.Properties.copy(Blocks.CRAFTING_TABLE)));
+    public static final RegistryObject<Block> HOLYSTONE_FURNACE = register("holystone_furnace", () -> new HolystoneFurnaceBlock(Block.Properties.copy(Blocks.FURNACE)));
+    public static final RegistryObject<Block> SKYROOT_CHEST = register("skyroot_chest", () -> new SkyrootChestBlock(Block.Properties.copy(Blocks.CHEST), ReduxBlockEntityTypes.SKYROOT_CHEST::get));
+    public static final RegistryObject<LadderBlock> SKYROOT_LADDER = register("skyroot_ladder", () -> new LadderBlock(BlockBehaviour.Properties.copy(Blocks.LADDER).strength(0.4F).sound(SoundType.LADDER).noOcclusion()));
+    public static final RegistryObject<Block> SKYROOT_CHEST_MIMIC = register("skyroot_chest_mimic", () -> new SkyrootChestMimicBlock(Block.Properties.copy(SKYROOT_CHEST.get()).noLootTable()));
+    
     
     
     public static void registerFlammability() {

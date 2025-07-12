@@ -66,6 +66,7 @@
     "client.render.BiomeMixin",
     "client.render.EntityRendererMixin",
     "client.render.LivingEntityRendererMixin",
+    "client.render.MimicRendererMixin",
     "client.render.MoaRendererMixin",
     "client.render.MobRendererMixin",
     "client.render.RenderAccessor",

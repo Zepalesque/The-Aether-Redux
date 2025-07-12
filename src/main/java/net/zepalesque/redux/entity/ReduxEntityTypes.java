@@ -19,6 +19,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.entity.monster.Blightbunny;
+import net.zepalesque.redux.entity.monster.SkyrootMimic;
 import net.zepalesque.redux.entity.passive.Mykapod;
 import net.zepalesque.redux.entity.passive.Shimmercow;
 import net.zepalesque.redux.entity.projectile.*;
@@ -70,6 +71,10 @@ public class ReduxEntityTypes {
             () -> EntityType.Builder.of(EntitySpawner.fabricate(ReduxEntityTypes.BLIGHTBUNNY), MobCategory.CREATURE).sized(0.6F, 0.5F).clientTrackingRange(4).updateInterval(5).fireImmune().build("blightbunny_spawner"))
 
     );
+    
+    public static final RegistryObject<EntityType<SkyrootMimic>> SKYROOT_MIMIC = ENTITY_TYPES.register("skyroot_mimic",
+        () -> EntityType.Builder.of(SkyrootMimic::new, MobCategory.MONSTER).sized(1.0F, 2.0F).clientTrackingRange(8).build("skyroot_mimic"));
+    
     @SubscribeEvent
     public static void registerSpawnPlacements(SpawnPlacementRegisterEvent event) {
         event.register(ReduxEntityTypes.VANILLA_SWET.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Swet::checkSwetSpawnRules, SpawnPlacementRegisterEvent.Operation.OR);
