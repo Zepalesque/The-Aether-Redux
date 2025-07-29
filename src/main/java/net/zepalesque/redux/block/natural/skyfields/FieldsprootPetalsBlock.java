@@ -29,6 +29,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.StreamSupport;
 
+// TODO: Rewrite entirely, store num of flowers as a blockstate of its own - better yet, handle randomness in the blockstate json itself
 public class FieldsprootPetalsBlock extends BushBlock implements BonemealableBlock {
    public static final int MIN_FLOWERS = 1;
    public static final int MAX_FLOWERS = 4;
@@ -89,9 +90,10 @@ public class FieldsprootPetalsBlock extends BushBlock implements BonemealableBlo
 
    }
    public BlockState increaseFlowers(BlockPos pos, BlockState state) {
-      int flowerCount = getFlowerCount(state) + 1;
+      int flowerCount = getFlowerCount(state);
       RandomSource rand = new XoroshiroRandomSource(Mth.getSeed(pos) + flowerCount);
-      Property<PetalPrismaticness> p = getPropertyFromCount(flowerCount);
+      if (flowerCount >= 4) return state;
+      Property<PetalPrismaticness> p = getPropertyFromCount(flowerCount + 1);
       PetalPrismaticness val = PetalPrismaticness.getFromIndex(rand.nextInt(7));
       if (state.hasProperty(p)) return state.setValue(p, val);
       else return this.defaultBlockState().setValue(p, val);
@@ -117,7 +119,7 @@ public class FieldsprootPetalsBlock extends BushBlock implements BonemealableBlo
       if (!b.hasProperty(ReduxStates.PETAL_1) || !b.hasProperty(ReduxStates.PETAL_2) || !b.hasProperty(ReduxStates.PETAL_3) || !b.hasProperty(ReduxStates.PETAL_4))
           return 0;
       int c = 0;
-      for (int i = 0; i < 4; i++) {
+      for (int i = 1; i < 5; i++) {
          Property<PetalPrismaticness> p = getPropertyFromCount(i);
          if (b.getValue(p) != PetalPrismaticness.NONE) c++;
       }
