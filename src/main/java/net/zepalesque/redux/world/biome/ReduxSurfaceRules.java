@@ -64,9 +64,8 @@ public class ReduxSurfaceRules {
                     newRules.add(0, SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.THE_BLIGHT),
                         SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR,
                             SurfaceRules.state(
-                                WorldgenUtil.trySetValue(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get().defaultBlockState()
-                                        .setValue(AetherBlockStateProperties.DOUBLE_DROPS, true),
-                                    ReduxStates.BLIGHT_GRASS_COLOR, BlightGrassColor.TINTABLE)
+                                WorldgenUtil.trySetValue(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get().defaultBlockState(),
+                                    ReduxStates.BLIGHT_GRASS_COLOR, BlightGrassColor.TINTABLE).setValue(AetherBlockStateProperties.DOUBLE_DROPS, true)
                             )))
                     );
                     newRules.add(0, SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.THE_BLIGHT),
