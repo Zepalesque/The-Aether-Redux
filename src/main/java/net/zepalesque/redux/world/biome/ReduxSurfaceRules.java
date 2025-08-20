@@ -40,6 +40,7 @@ import static net.minecraftforge.fml.common.Mod.EventBusSubscriber;
     bus = EventBusSubscriber.Bus.FORGE
 )
 public class ReduxSurfaceRules {
+    
     public static SurfaceRules.RuleSource makeRules() {
         Supplier<Block> coarseDirt = getCoarseDirt();
         BlockState cds = coarseDirt.get().defaultBlockState();
@@ -47,9 +48,9 @@ public class ReduxSurfaceRules {
             SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.THE_BLIGHT),
                 SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR,
                     SurfaceRules.state(
-                        WorldgenUtil.trySetValue(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get().defaultBlockState()
-                                .setValue(AetherBlockStateProperties.DOUBLE_DROPS, true),
+                        WorldgenUtil.trySetValue(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get().defaultBlockState(),
                             ReduxStates.BLIGHT_GRASS_COLOR, BlightGrassColor.TINTABLE)
+                            .setValue(AetherBlockStateProperties.DOUBLE_DROPS, true)
                     ))),
             SurfaceRules.ifTrue(SurfaceRules.isBiome(ReduxBiomes.THE_BLIGHT),
                 SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR,
@@ -101,7 +102,6 @@ public class ReduxSurfaceRules {
                 SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.ICE, 0.0, 0.2),
                     SurfaceRules.state(cds))))
         );
-        
     }
     
     private static Supplier<Block> getCoarseDirt() {
