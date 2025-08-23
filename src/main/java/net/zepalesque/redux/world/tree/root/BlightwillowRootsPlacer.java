@@ -105,7 +105,11 @@ public class BlightwillowRootsPlacer extends RootPlacer {
         unshuffle();
 
         if (validateAll(level, this.placements)) {
-            this.placements.forEach((pos, useWood) -> setter.accept(pos, !useWood ? treeConfig.trunkProvider.getState(random, pos) : this.wood.getState(random, pos)));
+            for (Map.Entry<BlockPos, Boolean> entry : new HashMap<>(this.placements).entrySet()) {
+            BlockPos pos = entry.getKey();
+            boolean useWood = entry.getValue();
+            setter.accept(pos, !useWood ? treeConfig.trunkProvider.getState(random, pos) : this.wood.getState(random, pos));
+            }
             TrunkPlacer.setDirtAt(level, setter, random, origin.below(), treeConfig);
 
             return true;
