@@ -122,6 +122,7 @@ dependencies {
 repositories {
     var user = System.getenv("GITHUB_USERNAME");
     var tok = System.getenv("GITHUB_TOKEN");
+
     maven { url 'https://maven.wispforest.io/releases' }
     maven { url 'https://maven.su5ed.dev/releases' }
     maven { url 'https://maven.fabricmc.net' }
@@ -133,13 +134,14 @@ repositories {
     maven { url = "https://www.cursemaven.com" }
     maven { url = 'https://maven.minecraftforge.net/' }
     maven { url = 'https://maven.parchmentmc.org' }
-    for (var txt in [
-            "The-Aether-Team/The-Aether",
-            "The-Aether-Team/Nitrogen",
-            "The-Aether-Team/Cumulus",
-            "Zepalesque/Zenith",
-            "The-Aether-Unity"
-    ]) maven { url = uri("https://maven.pkg.github.com/${txt}")
+    maven { url = "https://packages.aether-mod.net/Nitrogen" }
+    maven { url = "https://packages.aether-mod.net/Cumulus" }
+    maven { url = "https://packages.aether-mod.net/The-Aether" }
+    for (txt in [
+        "Zepalesque/Zenith",
+        "The-Aether-Unity"
+    ]) maven {
+        url = uri("https://maven.pkg.github.com/${txt}")
         credentials { username = user; password = tok }
     }
 
@@ -148,22 +150,22 @@ repositories {
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
     var replaceProperties = [
-            mod_id                      : mod_id,
-            mod_name                    : mod_name,
-            mod_version                 : mod_version,
-            mod_license                 : mod_license,
-            mod_url                     : mod_url,
-            mod_tracker                 : mod_tracker,
-            mod_credits                 : mod_credits,
-            mod_authors                 : mod_authors,
-            mod_description             : mod_description,
-            minecraft_version           : minecraft_version,
-            minecraft_version_range     : minecraft_version_range,
-            neo_version                 : neo_version,
-            neo_version_range           : neo_version_range,
-            loader_version_range        : loader_version_range,
-            zenith_version              : zenith_version,
-            aether_version              : aether_version
+        mod_id : mod_id,
+        mod_name : mod_name,
+        mod_version : mod_version,
+        mod_license : mod_license,
+        mod_url : mod_url,
+        mod_tracker : mod_tracker,
+        mod_credits : mod_credits,
+        mod_authors : mod_authors,
+        mod_description : mod_description,
+        minecraft_version : minecraft_version,
+        minecraft_version_range : minecraft_version_range,
+        neo_version : neo_version,
+        neo_version_range : neo_version_range,
+        loader_version_range : loader_version_range,
+        zenith_version : zenith_version,
+        aether_version : aether_version
     ]
     inputs.properties replaceProperties
     expand replaceProperties
