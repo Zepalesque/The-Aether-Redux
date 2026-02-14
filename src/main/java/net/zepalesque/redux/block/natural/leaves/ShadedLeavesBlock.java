@@ -23,6 +23,7 @@ public class ShadedLeavesBlock extends AetherDoubleDropsLeaves {
 
     @Override
     protected boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) {
-        return this.lightBlock <= level.getMaxLightLevel() && super.propagatesSkylightDown(state, level, pos);
+        return this.lightBlock <= level.getMaxLightLevel()
+            && super.propagatesSkylightDown(state, level, pos);
     }
 }

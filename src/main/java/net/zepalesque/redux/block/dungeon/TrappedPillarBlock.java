@@ -16,12 +16,16 @@ import java.util.function.Supplier;
 public class TrappedPillarBlock extends TrappedBlock {
     public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.AXIS;
 
-    public TrappedPillarBlock(Supplier<EntityType<?>> spawnableEntityTypeSupplier, Supplier<? extends BlockState> defaultStateSupplier, Properties properties) {
+    public TrappedPillarBlock(
+        Supplier<EntityType<?>> spawnableEntityTypeSupplier,
+        Supplier<? extends BlockState> defaultStateSupplier,
+        Properties properties) {
         super(spawnableEntityTypeSupplier, defaultStateSupplier, properties);
         this.registerDefaultState(this.getStateDefinition().any().setValue(AXIS, Direction.Axis.Y));
     }
 
     @Override
+    @SuppressWarnings("deprecation")
     public BlockState rotate(BlockState state, Rotation rot) {
         return rotatePillar(state, rot);
     }

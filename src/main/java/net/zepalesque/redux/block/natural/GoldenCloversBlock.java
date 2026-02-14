@@ -9,7 +9,9 @@ import net.minecraft.world.level.block.state.StateDefinition;
 public class GoldenCloversBlock extends PinkPetalsBlock {
     public GoldenCloversBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, false));
+        this.registerDefaultState(this.defaultBlockState()
+            .setValue(AetherBlockStateProperties.DOUBLE_DROPS, false)
+        );
     }
 
     @Override

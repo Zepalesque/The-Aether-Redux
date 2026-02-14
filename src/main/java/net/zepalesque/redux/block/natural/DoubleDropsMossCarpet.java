@@ -14,7 +14,9 @@ import java.util.Map;
 public class DoubleDropsMossCarpet extends MossyCarpetBlock {
     public DoubleDropsMossCarpet(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, false));
+        this.registerDefaultState(this.defaultBlockState().setValue(
+            AetherBlockStateProperties.DOUBLE_DROPS, false
+        ));
         this.fixShapeMaps();
     }
 
@@ -28,8 +30,8 @@ public class DoubleDropsMossCarpet extends MossyCarpetBlock {
      * Based on the Framed Blocks mod's shape map fix for implementing a wall with additional block properties.
      */
     protected void fixShapeMaps() {
-        MossyCarpetAccessor mossyCarpetAccessor = (MossyCarpetAccessor) this;
-        Map<BlockState, VoxelShape> shapesCache = mossyCarpetAccessor.redux$getShapesCache();
+        var mossyCarpetAccessor = (MossyCarpetAccessor) this;
+        var shapesCache = mossyCarpetAccessor.redux$getShapesCache();
         shapesCache = fixShapeMap(shapesCache);
         mossyCarpetAccessor.redux$setShapesCache(shapesCache);
 
@@ -38,7 +40,7 @@ public class DoubleDropsMossCarpet extends MossyCarpetBlock {
     protected ImmutableMap<BlockState, VoxelShape> fixShapeMap(Map<BlockState, VoxelShape> map) {
         ImmutableMap.Builder<BlockState, VoxelShape> builder = ImmutableMap.builder();
         builder.putAll(map);
-        for (BlockState state : map.keySet())
+        for (var state : map.keySet())
             builder.put(state.cycle(AetherBlockStateProperties.DOUBLE_DROPS), map.get(state));
 
         return builder.buildKeepingLast();

@@ -7,7 +7,13 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.zepalesque.redux.Redux;
 
 public class ReduxTrunkPlacers {
-    public static final DeferredRegister<TrunkPlacerType<?>> TRUNK_PLACERS = DeferredRegister.create(BuiltInRegistries.TRUNK_PLACER_TYPE, Redux.MODID);
+    public static final DeferredRegister<TrunkPlacerType<?>>
+        TRUNK_PLACERS = DeferredRegister.create(BuiltInRegistries.TRUNK_PLACER_TYPE, Redux.MODID);
 
-    public static final DeferredHolder<TrunkPlacerType<?>, TrunkPlacerType<BlightwillowTrunkPlacer>> BLIGHTWILLOW_TRUNK = TRUNK_PLACERS.register("blightwillow_trunk", () -> new TrunkPlacerType<>(BlightwillowTrunkPlacer.CODEC));
+    public static final DeferredHolder<TrunkPlacerType<?>, TrunkPlacerType<BlightwillowTrunkPlacer>>
+        BLIGHTWILLOW_TRUNK = TRUNK_PLACERS.register(
+            "blightwillow_trunk",
+            () -> new TrunkPlacerType<>(
+                BlightwillowTrunkPlacer.CODEC
+            ));
 }

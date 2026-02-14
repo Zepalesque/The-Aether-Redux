@@ -7,7 +7,12 @@ import net.zepalesque.redux.data.prov.ReduxItemModelProvider;
 import java.util.function.Supplier;
 
 public class EnchantedFlowerSet<B extends Block> extends TintedFlowerSet<B> {
-    public EnchantedFlowerSet(String id, String textureFolder, Supplier<B> constructor, int tintdex, int itemTint) {
+    public EnchantedFlowerSet(
+        String id,
+        String textureFolder,
+        Supplier<B> constructor,
+        int tintdex,
+        int itemTint) {
         super(id, textureFolder, constructor, tintdex, itemTint);
     }
 

@@ -7,7 +7,7 @@ import net.zepalesque.zenith.util.function.Consumers;
 
 import java.util.function.Supplier;
 
-public class UntintedFlowerSet<B extends Block> extends BaseFlowerSet<B>{
+public class UntintedFlowerSet<B extends Block> extends BaseFlowerSet<B> {
     public UntintedFlowerSet(String id, String textureFolder, Supplier<B> constructor) {
         super(id, textureFolder, constructor);
     }
@@ -15,7 +15,9 @@ public class UntintedFlowerSet<B extends Block> extends BaseFlowerSet<B>{
     @Override
     public void blockData(ReduxBlockStateProvider data) {
         data.crossBlock(this.flower().get(), this.textureFolder);
-        Consumers.C3<Block, Block, String> pot = this.usePottedPrefix ? data::potAlt : data::pottedPlant;
+        Consumers.C3<Block, Block, String> pot = this.usePottedPrefix
+            ? data::potAlt
+            : data::pottedPlant;
         pot.accept(this.pot().get(), this.flower().get(), this.textureFolder);
     }
 

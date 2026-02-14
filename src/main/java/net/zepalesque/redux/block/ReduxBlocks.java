@@ -51,33 +51,54 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Redux.MODID);
 
-    public static DeferredBlock<AetherDoubleDropsLeaves> GILDENROOT_LEAVES = register("gildenroot_leaves",
-        () -> new AetherDoubleDropsLeaves(Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get()).mapColor(MapColor.QUARTZ)));
+    public static DeferredBlock<AetherDoubleDropsLeaves> GILDENROOT_LEAVES = register(
+        "gildenroot_leaves",
+        () -> new AetherDoubleDropsLeaves(
+            Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get())
+                .mapColor(MapColor.QUARTZ)
+        ));
     
-    public static DeferredBlock<BlightedGrassBlock> BLIGHTED_AETHER_GRASS_BLOCK = register("blighted_aether_grass_block",
-        () -> new BlightedGrassBlock(Properties.ofFullCopy(AetherBlocks.AETHER_GRASS_BLOCK.get())));
+    public static DeferredBlock<BlightedGrassBlock> BLIGHTED_AETHER_GRASS_BLOCK = register(
+        "blighted_aether_grass_block",
+        () -> new BlightedGrassBlock(
+            Properties.ofFullCopy(AetherBlocks.AETHER_GRASS_BLOCK.get())
+        ));
 
-    public static DeferredBlock<LeafPileBlock> GILDENROOT_LEAF_PILE = register("gildenroot_leaf_pile",
+    public static DeferredBlock<LeafPileBlock> GILDENROOT_LEAF_PILE = register(
+        "gildenroot_leaf_pile",
         () -> new LeafPileBlock(GILDENROOT_LEAVES));
 
-    public static DeferredBlock<ShadedLeavesBlock> STORMROOT_LEAVES = register("stormroot_leaves",
-        () -> new ShadedLeavesBlock(3, Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get()).mapColor(MapColor.TERRACOTTA_PURPLE)));
+    public static DeferredBlock<ShadedLeavesBlock> STORMROOT_LEAVES = register(
+        "stormroot_leaves",
+        () -> new ShadedLeavesBlock(3, Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get())
+            .mapColor(MapColor.TERRACOTTA_PURPLE)
+        ));
 
-    public static DeferredBlock<LeafPileBlock> STORMROOT_LEAF_PILE = register("stormroot_leaf_pile",
+    public static DeferredBlock<LeafPileBlock> STORMROOT_LEAF_PILE = register(
+        "stormroot_leaf_pile",
         () -> new LeafPileBlock(STORMROOT_LEAVES));
 
-    public static DeferredBlock<ShadedLeavesBlock> BLIGHTWILLOW_LEAVES = register("blightwillow_leaves",
-        () -> new ShadedLeavesBlock(5, Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get()).mapColor(MapColor.TERRACOTTA_PURPLE)));
+    public static DeferredBlock<ShadedLeavesBlock> BLIGHTWILLOW_LEAVES = register(
+        "blightwillow_leaves",
+        () -> new ShadedLeavesBlock(5, Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get())
+            .mapColor(MapColor.TERRACOTTA_PURPLE)));
 
     // TODO: custom particles (more, block breaking and stuff) + use real particle other than obsidian????
     // TODO: Rename, add drip particles, make these work like crystal leaves perhaps (maybe, or just ALWAYS use berry bush like behavior)
-    public static DeferredBlock<InfectedLeavesBlock> INFECTED_BLIGHTWILLOW_LEAVES = register("infected_blightwillow_leaves",
-        () -> new InfectedLeavesBlock(() -> ParticleTypes.DRIPPING_OBSIDIAN_TEAR, Properties.ofFullCopy(BLIGHTWILLOW_LEAVES.get()).lightLevel(value -> 7).strength(0.3F)));
+    public static DeferredBlock<InfectedLeavesBlock> INFECTED_BLIGHTWILLOW_LEAVES = register(
+        "infected_blightwillow_leaves",
+        () -> new InfectedLeavesBlock(() -> ParticleTypes.DRIPPING_OBSIDIAN_TEAR,
+            Properties.ofFullCopy(BLIGHTWILLOW_LEAVES.get())
+                .lightLevel(value -> 7)
+                .strength(0.3F)
+        ));
 
-    public static DeferredBlock<LeafPileBlock> BLIGHTWILLOW_LEAF_PILE = register("blightwillow_leaf_pile",
+    public static DeferredBlock<LeafPileBlock> BLIGHTWILLOW_LEAF_PILE = register(
+        "blightwillow_leaf_pile",
         () -> new LeafPileBlock(BLIGHTWILLOW_LEAVES));
 
-    public static DeferredBlock<GoldenCloversBlock> GOLDEN_CLOVERS = register("golden_clovers",
+    public static DeferredBlock<GoldenCloversBlock> GOLDEN_CLOVERS = register(
+        "golden_clovers",
         () -> new GoldenCloversBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.GOLD)
                     .noCollission()
@@ -142,45 +163,117 @@ public class ReduxBlocks extends ReduxBlockBuilders {
             .lightLevel(state -> 11)
         ));
 
-    public static final DeferredBlock<Block> LOCKED_CARVED_PILLAR = register("locked_carved_pillar", () -> new RotatedPillarBlock(Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).strength(-1.0F, 3600000.0F)));
-    public static final DeferredBlock<Block> LOCKED_SENTRY_PILLAR = register("locked_sentry_pillar", () -> new RotatedPillarBlock(Properties.ofFullCopy(LOCKED_CARVED_PILLAR.get()).lightLevel(state -> 11)));
-    public static final DeferredBlock<Block> LOCKED_CARVED_BASE = register("locked_carved_base", () -> new Block(Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).strength(-1.0F, 3600000.0F)));
-    public static final DeferredBlock<Block> LOCKED_SENTRY_BASE = register("locked_sentry_base", () -> new Block(Properties.ofFullCopy(LOCKED_CARVED_BASE.get()).lightLevel(state -> 11)));
+    public static final DeferredBlock<Block> LOCKED_CARVED_PILLAR = register(
+        "locked_carved_pillar",
+        () -> new RotatedPillarBlock(Properties.of()
+            .mapColor(MapColor.STONE)
+            .instrument(NoteBlockInstrument.BASEDRUM)
+            .strength(-1.0F, 3600000.0F)
+        ));
+    
+    public static final DeferredBlock<Block> LOCKED_SENTRY_PILLAR = register(
+        "locked_sentry_pillar",
+        () -> new RotatedPillarBlock(Properties.ofFullCopy(LOCKED_CARVED_PILLAR.get())
+            .lightLevel(state -> 11)
+        ));
+    
+    public static final DeferredBlock<Block> LOCKED_CARVED_BASE = register(
+        "locked_carved_base",
+        () -> new Block(Properties.of().mapColor(MapColor.STONE)
+            .instrument(NoteBlockInstrument.BASEDRUM)
+            .strength(-1.0F, 3600000.0F)
+        ));
+    
+    public static final DeferredBlock<Block> LOCKED_SENTRY_BASE = register(
+        "locked_sentry_base",
+        () -> new Block(Properties.ofFullCopy(LOCKED_CARVED_BASE.get())
+            .lightLevel(state -> 11)
+        ));
 
-    public static final DeferredBlock<Block> TRAPPED_CARVED_PILLAR = register("trapped_carved_pillar", () -> new TrappedPillarBlock(AetherEntityTypes.SENTRY::get, () -> CARVED_PILLAR.get().defaultBlockState(), Properties.ofFullCopy(CARVED_PILLAR.get())));
-    public static final DeferredBlock<Block> TRAPPED_SENTRY_PILLAR = register("trapped_sentry_pillar", () -> new TrappedPillarBlock(AetherEntityTypes.SENTRY::get, () -> SENTRY_PILLAR.get().defaultBlockState(), Properties.ofFullCopy(SENTRY_PILLAR.get())));
-    public static final DeferredBlock<Block> TRAPPED_CARVED_BASE = register("trapped_carved_base", () -> new TrappedBlock(AetherEntityTypes.SENTRY::get, () -> CARVED_BASE.get().defaultBlockState(), Properties.ofFullCopy(CARVED_BASE.get())));
-    public static final DeferredBlock<Block> TRAPPED_SENTRY_BASE = register("trapped_sentry_base", () -> new TrappedBlock(AetherEntityTypes.SENTRY::get, () -> SENTRY_BASE.get().defaultBlockState(), Properties.ofFullCopy(SENTRY_BASE.get())));
+    public static final DeferredBlock<Block> TRAPPED_CARVED_PILLAR = register(
+        "trapped_carved_pillar",
+        () -> new TrappedPillarBlock(
+            AetherEntityTypes.SENTRY::get,
+            () -> CARVED_PILLAR.get().defaultBlockState(),
+            Properties.ofFullCopy(CARVED_PILLAR.get())
+        ));
+    
+    public static final DeferredBlock<Block> TRAPPED_SENTRY_PILLAR = register(
+        "trapped_sentry_pillar",
+        () -> new TrappedPillarBlock(
+            AetherEntityTypes.SENTRY::get,
+            () -> SENTRY_PILLAR.get().defaultBlockState(),
+            Properties.ofFullCopy(SENTRY_PILLAR.get())
+        ));
+    
+    public static final DeferredBlock<Block> TRAPPED_CARVED_BASE = register(
+        "trapped_carved_base",
+        () -> new TrappedBlock(
+            AetherEntityTypes.SENTRY::get,
+            () -> CARVED_BASE.get().defaultBlockState(),
+            Properties.ofFullCopy(CARVED_BASE.get())
+        ));
+    
+    public static final DeferredBlock<Block> TRAPPED_SENTRY_BASE = register(
+        "trapped_sentry_base",
+        () -> new TrappedBlock(
+            AetherEntityTypes.SENTRY::get,
+            () -> SENTRY_BASE.get().defaultBlockState(),
+            Properties.ofFullCopy(SENTRY_BASE.get())
+        ));
 
-    public static final DeferredBlock<Block> BOSS_DOORWAY_CARVED_PILLAR = register("boss_doorway_carved_pillar", () -> new DoorwayPillarBlock(AetherEntityTypes.SLIDER::get, Properties.ofFullCopy(CARVED_PILLAR.get())));
-    public static final DeferredBlock<Block> BOSS_DOORWAY_SENTRY_PILLAR = register("boss_doorway_sentry_pillar", () -> new DoorwayPillarBlock(AetherEntityTypes.SLIDER::get, Properties.ofFullCopy(SENTRY_PILLAR.get())));
-    public static final DeferredBlock<Block> BOSS_DOORWAY_CARVED_BASE = register("boss_doorway_carved_base", () -> new DoorwayBlock(AetherEntityTypes.SLIDER::get, Properties.ofFullCopy(CARVED_BASE.get())));
-    public static final DeferredBlock<Block> BOSS_DOORWAY_SENTRY_BASE = register("boss_doorway_sentry_base", () -> new DoorwayBlock(AetherEntityTypes.SLIDER::get, Properties.ofFullCopy(SENTRY_BASE.get())));
+    public static final DeferredBlock<Block> BOSS_DOORWAY_CARVED_PILLAR = register(
+        "boss_doorway_carved_pillar",
+        () -> new DoorwayPillarBlock(
+            AetherEntityTypes.SLIDER::get,
+            Properties.ofFullCopy(CARVED_PILLAR.get())
+        ));
+    
+    public static final DeferredBlock<Block> BOSS_DOORWAY_SENTRY_PILLAR = register(
+        "boss_doorway_sentry_pillar",
+        () -> new DoorwayPillarBlock(
+            AetherEntityTypes.SLIDER::get,
+            Properties.ofFullCopy(SENTRY_PILLAR.get())
+        ));
+    
+    public static final DeferredBlock<Block> BOSS_DOORWAY_CARVED_BASE = register(
+        "boss_doorway_carved_base",
+        () -> new DoorwayBlock(
+            AetherEntityTypes.SLIDER::get,
+            Properties.ofFullCopy(CARVED_BASE.get())
+        ));
+    
+    public static final DeferredBlock<Block> BOSS_DOORWAY_SENTRY_BASE = register(
+        "boss_doorway_sentry_base",
+        () -> new DoorwayBlock(
+            AetherEntityTypes.SLIDER::get,
+            Properties.ofFullCopy(SENTRY_BASE.get())
+        ));
 
     public static final DeferredBlock<Block> RUNELIGHT = register(
         "runelight",
         () -> new RunelightBlock(Properties.of()
-                    .mapColor(state -> state.getValue(RunelightBlock.LIT) ? MapColor.COLOR_LIGHT_BLUE : MapColor.LAPIS)
-                    .lightLevel(state -> state.getValue(RunelightBlock.LIT) ? 13 : 1)
-                    .strength(0.7F, 6.0F)
-                    .sound(SoundType.COPPER_BULB)
-                    .requiresCorrectToolForDrops()
-                    .instrument(NoteBlockInstrument.IRON_XYLOPHONE),
-                false
-            ));
+            .mapColor(state -> state.getValue(RunelightBlock.LIT) ? MapColor.COLOR_LIGHT_BLUE : MapColor.LAPIS)
+            .lightLevel(state -> state.getValue(RunelightBlock.LIT) ? 13 : 1)
+            .strength(0.7F, 6.0F)
+            .sound(SoundType.COPPER_BULB)
+            .requiresCorrectToolForDrops()
+            .instrument(NoteBlockInstrument.IRON_XYLOPHONE),
+            false
+        ));
 
     public static final DeferredBlock<Block> LOCKED_RUNELIGHT = register(
         "locked_runelight",
         () -> new RunelightBlock(Properties.of()
-                .mapColor(state -> state.getValue(RunelightBlock.LIT)
-                    ? MapColor.COLOR_LIGHT_BLUE
-                    : MapColor.LAPIS
-                ).lightLevel(state -> state.getValue(RunelightBlock.LIT) ? 13 : 1)
-                .strength(-1.0F, 3600000.0F)
-                .sound(SoundType.COPPER_BULB)
-                .instrument(NoteBlockInstrument.IRON_XYLOPHONE),
-                true
-            ));
+            .mapColor(state -> state.getValue(RunelightBlock.LIT)
+                ? MapColor.COLOR_LIGHT_BLUE
+                : MapColor.LAPIS
+            ).lightLevel(state -> state.getValue(RunelightBlock.LIT) ? 13 : 1)
+            .strength(-1.0F, 3600000.0F)
+            .sound(SoundType.COPPER_BULB)
+            .instrument(NoteBlockInstrument.IRON_XYLOPHONE),
+            true
+        ));
 
     public static final DeferredBlock<Block> LOCKED_POLISHED_SENTRITE = register(
         "locked_polished_sentrite",
@@ -193,7 +286,8 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 
     public static DeferredBlock<Block> WYNDSPROUTS = register(
         "wyndsprouts",
-        () -> new CustomBoundsBushBlock.Enchanted(CommonPlantBounds.BUSH,
+        () -> new CustomBoundsBushBlock.Enchanted(
+            CommonPlantBounds.BUSH,
             Properties.ofFullCopy(Blocks.SHORT_GRASS)
                 .sound(SoundType.CHERRY_SAPLING)
                 .offsetType(OffsetType.XZ)
@@ -219,10 +313,9 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 
     public static DeferredBlock<Block> SENTRITE_LANTERN = register(
         "sentrite_lantern",
-        () -> new LanternBlock(
-            BlockBehaviour.Properties.ofFullCopy(Blocks.LANTERN)
-                .mapColor(MapColor.DEEPSLATE)
-                .lightLevel(state -> 13)
+        () -> new LanternBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LANTERN)
+            .mapColor(MapColor.DEEPSLATE)
+            .lightLevel(state -> 13)
         ));
 
     public static DeferredBlock<Block> SENTRITE_BARS = register(
@@ -242,50 +335,42 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 
     public static final DeferredBlock<Block> VERIDIUM_ORE = register(
         "veridium_ore",
-        () -> new AetherDoubleDropBlock(
-                    Block.Properties.of()
-                            .mapColor(MapColor.WOOL)
-                            .instrument(NoteBlockInstrument.BASEDRUM)
-                            .strength(3.0F)
-                            .requiresCorrectToolForDrops()
-            )
-    );
+        () -> new AetherDoubleDropBlock(Block.Properties.of()
+            .mapColor(MapColor.WOOL)
+            .instrument(NoteBlockInstrument.BASEDRUM)
+            .strength(3.0F)
+            .requiresCorrectToolForDrops()
+        ));
 
     public static final DeferredBlock<Block> RAW_VERIDIUM_BLOCK = register(
         "raw_veridium_block",
-        () -> new Block(
-                    BlockBehaviour.Properties.of()
-                            .mapColor(MapColor.LAPIS)
-                            .instrument(NoteBlockInstrument.BASEDRUM)
-                            .requiresCorrectToolForDrops()
-                            .sound(SoundType.STONE)
-                            .strength(3.0F, 6.0F)
-            )
-    );
+        () -> new Block(BlockBehaviour.Properties.of()
+            .mapColor(MapColor.LAPIS)
+            .instrument(NoteBlockInstrument.BASEDRUM)
+            .requiresCorrectToolForDrops()
+            .sound(SoundType.STONE)
+            .strength(3.0F, 6.0F)
+        ));
 
     public static final DeferredBlock<Block> VERIDIUM_BLOCK = register(
         "veridium_block",
-        () -> new Block(
-                    BlockBehaviour.Properties.of()
-                            .mapColor(MapColor.LAPIS)
-//                            .instrument(NoteBlockInstrument.)
-                            .requiresCorrectToolForDrops()
-                            .strength(5.0F, 6.0F)
-                            .sound(SoundType.METAL)
-            )
-    );
+        () -> new Block(BlockBehaviour.Properties.of()
+            .mapColor(MapColor.LAPIS)
+//            .instrument(NoteBlockInstrument.)
+            .requiresCorrectToolForDrops()
+            .strength(5.0F, 6.0F)
+            .sound(SoundType.METAL)
+        ));
 
     public static final DeferredBlock<Block> REFINED_SENTRITE_BLOCK = register(
         "refined_sentrite_block",
-        () -> new Block(
-                    BlockBehaviour.Properties.of()
-                            .mapColor(MapColor.COLOR_GRAY)
-//                            .instrument(NoteBlockInstrument.IRON_XYLOPHONE)
-                            .requiresCorrectToolForDrops()
-                            .strength(6.0F, 6.0F)
-                            .sound(SoundType.NETHERITE_BLOCK)
-            )
-    );
+        () -> new Block(BlockBehaviour.Properties.of()
+            .mapColor(MapColor.COLOR_GRAY)
+//            .instrument(NoteBlockInstrument.IRON_XYLOPHONE)
+            .requiresCorrectToolForDrops()
+            .strength(6.0F, 6.0F)
+            .sound(SoundType.NETHERITE_BLOCK)
+        ));
 
 
 
@@ -314,13 +399,14 @@ public class ReduxBlocks extends ReduxBlockBuilders {
         ));
     
     public static void registerFlammability() {
-        FireAccessor accessor = (FireAccessor) Blocks.FIRE;
-        Redux.BLOCK_SETS.forEach(set -> set.flammables(accessor));
+        var fire = (FireAccessor) Blocks.FIRE;
+        Redux.BLOCK_SETS.forEach(set -> set.flammables(fire));
     }
 
     public static void registerToolConversions() {
         Redux.BLOCK_SETS.forEach(set -> {
-            if (set instanceof AbstractWoodSet wood) wood.setupStrippables(BlockHooks.ToolConversions.STRIPPABLES);
+            if (set instanceof AbstractWoodSet wood)
+                wood.setupStrippables(BlockHooks.ToolConversions.STRIPPABLES);
         });
     }
 }

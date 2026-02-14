@@ -29,12 +29,19 @@ import java.util.function.BiConsumer;
 
 public class BlightwillowRootsPlacer extends RootPlacer {
 
-    public static final MapCodec<BlightwillowRootsPlacer> CODEC = RecordCodecBuilder.mapCodec(builder ->
-            builder.group(
-                    IntProvider.CODEC.fieldOf("trunk_offset_y").forGetter(instance -> instance.trunkOffsetY),
-                    Codec.INT.optionalFieldOf("max_root_depth", 2).forGetter(instance -> instance.maxRootDepth),
-                    BlockStateProvider.CODEC.fieldOf("wood").forGetter(instance -> instance.wood)
-            ).apply(builder, BlightwillowRootsPlacer::new));
+    public static final MapCodec<BlightwillowRootsPlacer>
+        CODEC = RecordCodecBuilder.mapCodec(
+            builder -> builder.group(
+                IntProvider.CODEC.fieldOf("trunk_offset_y")
+                    .forGetter(instance -> instance.trunkOffsetY),
+                Codec.INT.optionalFieldOf("max_root_depth", 2)
+                    .forGetter(instance -> instance.maxRootDepth),
+                BlockStateProvider.CODEC.fieldOf("wood")
+                    .forGetter(instance -> instance.wood)
+            ).apply(
+                builder,
+                BlightwillowRootsPlacer::new
+            ));
 
     private final int maxRootDepth;
     private final BlockStateProvider wood;
@@ -50,44 +57,45 @@ public class BlightwillowRootsPlacer extends RootPlacer {
         return ReduxRootPlacers.BLIGHTWILLOW_ROOTS.get();
     }
 
-    private static final Direction[] HORIZONTAL_PLANE = Direction.Plane.HORIZONTAL.stream().toArray(Direction[]::new);
+    private static final Direction[] HORIZONTAL_PLANE = Direction.Plane.HORIZONTAL.stream()
+        .toArray(Direction[]::new);
     private static final Direction[] HORIZONTAL_PLANE_SHUFFLE = HORIZONTAL_PLANE.clone();
 
 
-    // Reuse this instance as to avoid unneeded object creation -- boolean determines if it should use the wood block instead of the log
+    // Reuse this instance as to avoid unneeded object creation
+    //  The boolean determines if it should use the wood block instead of the log
     private final Map<BlockPos, Boolean> placements = new HashMap<>();
 
     @Override
     public boolean placeRoots(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> setter, RandomSource random, BlockPos origin, BlockPos trunkOrigin, TreeConfiguration treeConfig) {
 
-        if (level.isStateAtPosition(origin.below(), state -> !isDirt(state))) {
+        if (level.isStateAtPosition(origin.below(), state -> !isDirt(state)))
             return false;
-        }
 
         this.placements.clear();
 
         // Method to ensure there will be one of all 4 possible root heights for the tree
         ArrayUtil.shuffle(HORIZONTAL_PLANE_SHUFFLE, random);
+        
+        var height = trunkOrigin.getY() - origin.getY();
 
-        int height = trunkOrigin.getY() - origin.getY();
-
-        for(int i = 0; i < height; i++) this.placements.put(origin.above(i), false);
+        for(var i = 0; i < height; i++) this.placements.put(origin.above(i), false);
 
         // from 2 to 3 --
-        int baseRootHeight = Math.max(height - 5, 2);
+        var baseRootHeight = Math.max(height - 5, 2);
 
-        for (Direction d : Direction.Plane.HORIZONTAL) {
+        for (var dir : Direction.Plane.HORIZONTAL) {
 
             // Place side roots
-            int rootSize = baseRootHeight + ArrayUtils.indexOf(HORIZONTAL_PLANE_SHUFFLE, d);
+            var rootSize = baseRootHeight + ArrayUtils.indexOf(HORIZONTAL_PLANE_SHUFFLE, dir);
+            
+            var rootStartPos = origin.relative(dir, 1);
+            
+            var min = 0;
 
-            BlockPos rootStart = origin.relative(d, 1);
-
-            int min = 0;
-
-            for (int i = -1; i > -2 - maxRootDepth; i--) {
-                BlockPos test = rootStart.above(i);
-                if (this.validRootPos(level, test))
+            for (var i = -1; i > -2 - maxRootDepth; i--) {
+                var testPos = rootStartPos.above(i);
+                if (this.validRootPos(level, testPos))
                     if (i < -maxRootDepth) {
                         unshuffle();
                         return false;
@@ -96,13 +104,9 @@ public class BlightwillowRootsPlacer extends RootPlacer {
                 break;
             }
 
-            for (int i = min; i < rootSize; i++) {
-                BlockPos pos = rootStart.above(i);
-                if (i < rootSize - 1 && validRootPos(level, pos.above())) {
-                    this.placements.put(pos, false);
-                } else if (validRootPos(level, pos)) {
-                    this.placements.put(pos, true);
-                }
+            for (var i = min; i < rootSize; i++) {
+                var pos = rootStartPos.above(i);
+                this.placements.put(pos, !(i < rootSize - 1 && validRootPos(level, pos.above())));
             }
         }
 

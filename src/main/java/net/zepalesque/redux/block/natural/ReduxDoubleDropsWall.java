@@ -15,7 +15,9 @@ import java.util.Map;
 public class ReduxDoubleDropsWall extends WallBlock {
     public ReduxDoubleDropsWall(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, false));
+        this.registerDefaultState(this.defaultBlockState()
+            .setValue(AetherBlockStateProperties.DOUBLE_DROPS, false)
+        );
         this.fixShapeMaps();
     }
 
@@ -29,20 +31,21 @@ public class ReduxDoubleDropsWall extends WallBlock {
      * Based on the Framed Blocks mod's shape map fix for implementing a wall with additional block properties.
      */
     protected void fixShapeMaps() {
-        WallBlockAccessor wallBlockAccessor = (WallBlockAccessor) this;
-        Map<BlockState, VoxelShape> shapeByIndex = wallBlockAccessor.redux$getShapeByIndex();
+        var acc = (WallBlockAccessor) this;
+        var shapeByIndex = acc
+            .redux$getShapeByIndex();
         shapeByIndex = fixShapeMap(shapeByIndex);
-        wallBlockAccessor.redux$setShapeByIndex(shapeByIndex);
-
-        Map<BlockState, VoxelShape> collisionShapeByIndex = wallBlockAccessor.redux$getCollisionShapeByIndex();
+        acc.redux$setShapeByIndex(shapeByIndex);
+        
+        var collisionShapeByIndex = acc.redux$getCollisionShapeByIndex();
         collisionShapeByIndex = fixShapeMap(collisionShapeByIndex);
-        wallBlockAccessor.redux$setCollisionShapeByIndex(collisionShapeByIndex);
+        acc.redux$setCollisionShapeByIndex(collisionShapeByIndex);
     }
 
     protected ImmutableMap<BlockState, VoxelShape> fixShapeMap(Map<BlockState, VoxelShape> map) {
         ImmutableMap.Builder<BlockState, VoxelShape> builder = ImmutableMap.builder();
         builder.putAll(map);
-        for (BlockState state : map.keySet())
+        for (var state : map.keySet())
             builder.put(state.cycle(AetherBlockStateProperties.DOUBLE_DROPS), map.get(state));
         return builder.build();
     }

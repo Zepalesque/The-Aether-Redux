@@ -24,11 +24,11 @@ public class Flareblossom extends CustomBoundsFlowerBlock {
     @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
         super.animateTick(state, level, pos, random);
-        VoxelShape voxelshape = this.getShape(state, level, pos, CollisionContext.empty());
-        AABB aabb = voxelshape.bounds();
-        double x = (double)pos.getX() + MathUtil.nextDouble(aabb.minX, aabb.maxX, random);
-        double y = (double)pos.getY() + MathUtil.nextDouble(aabb.minY + 0.25, aabb.maxY, random);
-        double z = (double)pos.getZ() + MathUtil.nextDouble(aabb.minZ, aabb.maxZ, random);
+        var shape = this.getShape(state, level, pos, CollisionContext.empty());
+        var bb = shape.bounds();
+        var x = (double)pos.getX() + MathUtil.nextDouble(bb.minX, bb.maxX, random);
+        var y = (double)pos.getY() + MathUtil.nextDouble(bb.minY + 0.25, bb.maxY, random);
+        var z = (double)pos.getZ() + MathUtil.nextDouble(bb.minZ, bb.maxZ, random);
 
         if (random.nextFloat() > 0.25F)
             level.addParticle(ReduxParticles.BLOSSOM_FLARE.get(), x, y, z, 0.0D, 0.0D, 0.0D);

@@ -16,18 +16,23 @@ public class LeafParticleUtil {
     @Nullable
     @SuppressWarnings("deprecation")
     public static WeightedParticleEntry findEntry(Block b) {
-        @Nullable WeightedParticleEntry entry = b.builtInRegistryHolder().getData(ReduxDataMaps.LEAF_PARTICLES);
+        @Nullable WeightedParticleEntry entry = b.builtInRegistryHolder()
+            .getData(ReduxDataMaps.LEAF_PARTICLES);
 
         return ReduxConfig.CLIENT.leaf_particles.get() ? entry : null;
     }
 
-    public static void createParticle(BlockState state, Level level, BlockPos pos, RandomSource rand, WeightedParticleEntry entry) {
+    public static void createParticle(
+        BlockState state,
+        Level level,
+        BlockPos pos,
+        RandomSource rand,
+        WeightedParticleEntry entry) {
         if (entry.success(rand)) {
-            BlockPos below = pos.below();
-            BlockState blockstate = level.getBlockState(below);
-            if (!blockstate.isCollisionShapeFullBlock(level, below)) {
+            var below = pos.below();
+            var blockstate = level.getBlockState(below);
+            if (!blockstate.isCollisionShapeFullBlock(level, below))
                 ParticleUtils.spawnParticleBelow(level, pos, rand, entry.particle());
-            }
         }
     }
 

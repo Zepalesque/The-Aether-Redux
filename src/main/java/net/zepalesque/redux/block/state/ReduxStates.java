@@ -15,6 +15,10 @@ public class ReduxStates {
     
     public static final BooleanProperty HAS_SPORES = BooleanProperty.create("has_spores");
     
-    public static final EnumProperty<LogicatorMode> MODE_LOGICATOR = EnumProperty.create("mode", LogicatorMode.class);
-    public static final EnumProperty<BlightGrassColor> BLIGHT_GRASS_COLOR = EnumProperty.create("color", BlightGrassColor.class);
+    public static final EnumProperty<LogicatorMode>
+        MODE_LOGICATOR = EnumProperty
+        .create("mode", LogicatorMode.class);
+    public static final EnumProperty<BlightGrassColor>
+        BLIGHT_GRASS_COLOR = EnumProperty
+        .create("color", BlightGrassColor.class);
 }

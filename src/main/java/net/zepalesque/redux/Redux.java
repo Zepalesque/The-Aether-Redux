@@ -64,8 +64,15 @@ public class Redux {
 
     public static final Collection<BlockSet> BLOCK_SETS = new ArrayList<>();
 
-    public static final PackConfig ASSETS_CONFIG = new PackConfig(loc("asset_overrides"), PackType.CLIENT_RESOURCES, false);
-    public static final PackConfig DATA_CONFIG = new PackConfig(loc("data_overrides"), PackType.SERVER_DATA);
+    public static final PackConfig ASSETS_CONFIG = new PackConfig(
+        loc("asset_overrides"),
+        PackType.CLIENT_RESOURCES,
+        false
+    );
+    public static final PackConfig DATA_CONFIG = new PackConfig(
+        loc("data_overrides"),
+        PackType.SERVER_DATA
+    );
 
     public Redux(ModContainer mod, IEventBus bus, Dist dist) {
         bus.addListener(EventPriority.LOWEST, ReduxData::dataSetup);
@@ -102,7 +109,7 @@ public class Redux {
                 ReduxAdvancementTriggers.TRIGGERS
         };
 
-        for (DeferredRegister<?> register : registers) register.register(bus);
+        for (var register : registers) register.register(bus);
 
         ReduxConfigHandler.setup(mod, bus);
 
@@ -112,8 +119,12 @@ public class Redux {
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
-            Regions.register(new ReduxRegion(loc("aether_redux_region"), /*ReduxConfig.COMMON.region_size.get()*/ 20));
-            SurfaceRuleManager.addSurfaceRules(AetherRuleCategory.THE_AETHER, "aether_redux", ReduxSurfaceRules.makeRules());
+            Regions.register(new ReduxRegion(loc("aether_redux_region"),
+                /*ReduxConfig.COMMON.region_size.get()*/ 20
+            ));
+            SurfaceRuleManager.addSurfaceRules(AetherRuleCategory.THE_AETHER,
+                "aether_redux", ReduxSurfaceRules.makeRules()
+            );
             ReduxBlocks.registerFlammability();
             ReduxBlocks.registerToolConversions();
             ReduxItems.registerAccessories();
@@ -127,13 +138,41 @@ public class Redux {
 
     public void registerPackets(RegisterPayloadHandlersEvent event) {
         PayloadRegistrar registrar = event.registrar(MODID).versioned("1.0.0").optional();
-        registrar.playToServer(AerjumpPacket.Request.TYPE, AerjumpPacket.Request.STREAM_CODEC, AerjumpPacket.Request::execute);
-        registrar.playToClient(AerjumpPacket.Accepted.TYPE, AerjumpPacket.Accepted.STREAM_CODEC, AerjumpPacket.Accepted::execute);
-        registrar.playToClient(AerjumpPacket.Particles.TYPE, AerjumpPacket.Particles.STREAM_CODEC, AerjumpPacket.Particles::execute);
-        registrar.playBidirectional(ReduxPlayerSyncPacket.TYPE, ReduxPlayerSyncPacket.STREAM_CODEC, ReduxPlayerSyncPacket::execute);
-        registrar.playToClient(SliderSignalPacket.Signal.TYPE, SliderSignalPacket.Signal.STREAM_CODEC, SliderSignalPacket.Signal::execute);
-        registrar.playToClient(SliderSignalPacket.DirectionOverride.TYPE, SliderSignalPacket.DirectionOverride.STREAM_CODEC, SliderSignalPacket.DirectionOverride::execute);
-        registrar.playToClient(SliderSignalPacket.SyncTarget.TYPE, SliderSignalPacket.SyncTarget.STREAM_CODEC, SliderSignalPacket.SyncTarget::execute);
+        registrar.playToServer(
+            AerjumpPacket.Request.TYPE,
+            AerjumpPacket.Request.STREAM_CODEC,
+            AerjumpPacket.Request::execute
+        );
+        registrar.playToClient(
+            AerjumpPacket.Accepted.TYPE,
+            AerjumpPacket.Accepted.STREAM_CODEC,
+            AerjumpPacket.Accepted::execute
+        );
+        registrar.playToClient(
+            AerjumpPacket.Particles.TYPE,
+            AerjumpPacket.Particles.STREAM_CODEC,
+            AerjumpPacket.Particles::execute
+        );
+        registrar.playBidirectional(
+            ReduxPlayerSyncPacket.TYPE,
+            ReduxPlayerSyncPacket.STREAM_CODEC,
+            ReduxPlayerSyncPacket::execute
+        );
+        registrar.playToClient(
+            SliderSignalPacket.Signal.TYPE,
+            SliderSignalPacket.Signal.STREAM_CODEC,
+            SliderSignalPacket.Signal::execute
+        );
+        registrar.playToClient(
+            SliderSignalPacket.DirectionOverride.TYPE,
+            SliderSignalPacket.DirectionOverride.STREAM_CODEC,
+            SliderSignalPacket.DirectionOverride::execute
+        );
+        registrar.playToClient(
+            SliderSignalPacket.SyncTarget.TYPE,
+            SliderSignalPacket.SyncTarget.STREAM_CODEC,
+            SliderSignalPacket.SyncTarget::execute
+        );
     }
 
     private void registerDataMaps(RegisterDataMapTypesEvent event) {
@@ -141,8 +180,10 @@ public class Redux {
     }
 
     public  void packSetup(AddPackFindersEvent event) {
-        PackConfig pack = event.getPackType() == PackType.CLIENT_RESOURCES ? ASSETS_CONFIG : DATA_CONFIG;
-        pack.setup(event);
+        var packCfg = event.getPackType() == PackType.CLIENT_RESOURCES
+            ? ASSETS_CONFIG
+            : DATA_CONFIG;
+        packCfg.setup(event);
     }
 
     public static ResourceLocation loc(String path) {

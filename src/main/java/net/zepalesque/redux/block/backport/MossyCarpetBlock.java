@@ -95,32 +95,32 @@ public class MossyCarpetBlock extends Block implements BonemealableBlock {
     }
 
     private static VoxelShape calculateShape(BlockState state) {
-        VoxelShape voxelshape = Shapes.empty();
-        if (state.getValue(BASE)) voxelshape = DOWN_AABB;
-        voxelshape = switch (state.getValue(NORTH)) {
-            case NONE -> voxelshape;
-            case LOW -> Shapes.or(voxelshape, NORTH_SHORT_AABB);
-            case TALL -> Shapes.or(voxelshape, NORTH_AABB);
+        var shape = Shapes.empty();
+        if (state.getValue(BASE)) shape = DOWN_AABB;
+        shape = switch (state.getValue(NORTH)) {
+            case NONE -> shape;
+            case LOW -> Shapes.or(shape, NORTH_SHORT_AABB);
+            case TALL -> Shapes.or(shape, NORTH_AABB);
         };
 
-        voxelshape = switch (state.getValue(SOUTH)) {
-            case NONE -> voxelshape;
-            case LOW -> Shapes.or(voxelshape, SOUTH_SHORT_AABB);
-            case TALL -> Shapes.or(voxelshape, SOUTH_AABB);
+        shape = switch (state.getValue(SOUTH)) {
+            case NONE -> shape;
+            case LOW -> Shapes.or(shape, SOUTH_SHORT_AABB);
+            case TALL -> Shapes.or(shape, SOUTH_AABB);
         };
 
-        voxelshape = switch (state.getValue(EAST)) {
-            case NONE -> voxelshape;
-            case LOW -> Shapes.or(voxelshape, EAST_SHORT_AABB);
-            case TALL -> Shapes.or(voxelshape, EAST_AABB);
+        shape = switch (state.getValue(EAST)) {
+            case NONE -> shape;
+            case LOW -> Shapes.or(shape, EAST_SHORT_AABB);
+            case TALL -> Shapes.or(shape, EAST_AABB);
         };
 
-        voxelshape = switch (state.getValue(WEST)) {
-            case NONE -> voxelshape;
-            case LOW -> Shapes.or(voxelshape, WEST_SHORT_AABB);
-            case TALL -> Shapes.or(voxelshape, WEST_AABB);
+        shape = switch (state.getValue(WEST)) {
+            case NONE -> shape;
+            case LOW -> Shapes.or(shape, WEST_SHORT_AABB);
+            case TALL -> Shapes.or(shape, WEST_AABB);
         };
-        return voxelshape.isEmpty() ? Shapes.block() : voxelshape;
+        return shape.isEmpty() ? Shapes.block() : shape;
     }
 
     @Override

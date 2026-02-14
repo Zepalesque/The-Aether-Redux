@@ -39,7 +39,6 @@ public class InfectedLeavesBlock extends AetherDoubleDropsLeaves {
         super(properties);
         this.particle = particle;
 //        this.registerDefaultState(this.defaultBlockState().setValue(ReduxStates.HAS_SPORES, false));
-        
     }
 
     @Override
@@ -47,8 +46,8 @@ public class InfectedLeavesBlock extends AetherDoubleDropsLeaves {
         super.animateTick(state, level, pos, random);
 
         if (random.nextInt(10) == 0) {
-            BlockPos below = pos.below();
-            BlockState blockstate = level.getBlockState(below);
+            var below = pos.below();
+            var blockstate = level.getBlockState(below);
             if (!blockstate.isCollisionShapeFullBlock(level, below)) {
             }
         }
