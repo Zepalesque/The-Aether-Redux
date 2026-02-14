@@ -51,12 +51,17 @@ public abstract class BaseFlowerSet<B extends Block> extends AbstractFlowerSet i
     protected float compost = 0.65F;
     protected boolean usePottedPrefix = false;
 
-    protected final Map<CraftingMatrix, Pair<ItemLike, RecipeCategory>> crafted = new HashMap<>();
-    protected final Map<Integer, Triple<ItemLike, Integer, RecipeCategory>> shapeless = new HashMap<>();
+    protected final Map<CraftingMatrix, Pair<ItemLike, RecipeCategory>>
+        crafted = new HashMap<>();
+    protected final Map<Integer, Triple<ItemLike, Integer, RecipeCategory>>
+        shapeless = new HashMap<>();
 //    protected final Map<ItemLike, Float> smelted = new HashMap<>();
-    protected final Map<Supplier<CreativeModeTab>, Pair<ItemLike, TabAdditionPhase>> beforeOrdering = new HashMap<>();
-    protected final Map<Supplier<CreativeModeTab>,Pair<ItemLike, TabAdditionPhase>> afterOrdering = new HashMap<>();
-    protected final Map<Supplier<CreativeModeTab>, TabAdditionPhase> appended = new HashMap<>();
+    protected final Map<Supplier<CreativeModeTab>, Pair<ItemLike, TabAdditionPhase>>
+        beforeOrdering = new HashMap<>();
+    protected final Map<Supplier<CreativeModeTab>,Pair<ItemLike, TabAdditionPhase>>
+        afterOrdering = new HashMap<>();
+    protected final Map<Supplier<CreativeModeTab>, TabAdditionPhase>
+        appended = new HashMap<>();
     protected final Collection<TagKey<Block>> tags = new ArrayList<>();
     protected final Collection<TagKey<Block>> potTags = new ArrayList<>();
     protected final Collection<TagKey<Item>> itemTags = new ArrayList<>();
@@ -69,8 +74,8 @@ public abstract class BaseFlowerSet<B extends Block> extends AbstractFlowerSet i
 
     public BaseFlowerSet(String id, String textureFolder, Supplier<B> constructor) {
         this.id = id;
-        DeferredRegister.Blocks blocks = ReduxBlocks.BLOCKS;
-        DeferredRegister.Items items = ReduxItems.ITEMS;
+        var blocks = ReduxBlocks.BLOCKS;
+        var items = ReduxItems.ITEMS;
         this.textureFolder = textureFolder;
         this.flower = flower(blocks, items, id, constructor);
         this.pot = pot(blocks, id);
@@ -78,12 +83,16 @@ public abstract class BaseFlowerSet<B extends Block> extends AbstractFlowerSet i
     }
 
     @Override
-    protected <T extends Block> DeferredBlock<T> flower(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, Supplier<T> constructor) {
+    protected <T extends Block> DeferredBlock<T> flower(
+        DeferredRegister.Blocks registry,
+        DeferredRegister.Items items,
+        String id,
+        Supplier<T> constructor) {
         var flower = registry.register(id, constructor);
         items.register(flower.getId().getPath(), () -> new BlockItem(flower.get(), new Item.Properties()));
         return flower;
     }
-
+    
     @Override
     public DeferredBlock<B> flower() {
         return this.flower;
@@ -91,7 +100,14 @@ public abstract class BaseFlowerSet<B extends Block> extends AbstractFlowerSet i
 
     @Override
     protected DeferredBlock<FlowerPotBlock> pot(DeferredRegister.Blocks registry, String id) {
-        return registry.register("potted_" + id, () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, () -> this.flower().get(), this.potProperties.apply(Properties.ofFullCopy(Blocks.FLOWER_POT))));
+        return registry.register(
+            "potted_" + id,
+            () -> new FlowerPotBlock(
+                () -> (FlowerPotBlock) Blocks.FLOWER_POT,
+                () -> this.flower().get(),
+                // why does java not allow this.potProperties(..) smh my head
+                this.potProperties.apply(Properties.ofFullCopy(Blocks.FLOWER_POT))
+            ));
     }
 
     @Override
@@ -99,14 +115,23 @@ public abstract class BaseFlowerSet<B extends Block> extends AbstractFlowerSet i
         return this.pot;
     }
 
+    // If only hav
     @Override
-    public BaseFlowerSet<B> craftsInto(ItemLike block, CraftingMatrix shape, RecipeCategory category) {
+    public BaseFlowerSet<B> craftsInto(
+        ItemLike block,
+        CraftingMatrix shape,
+        RecipeCategory category) {
+        
         this.crafted.put(shape, Pair.of(block, category));
         return this;
     }
-
+    
     @Override
-    public BaseFlowerSet<B> craftsIntoShapeless(int ingredientCount, ItemLike result, int resultCount, RecipeCategory category) {
+    public BaseFlowerSet<B> craftsIntoShapeless(
+        int ingredientCount,
+        ItemLike result,
+        int resultCount,
+        RecipeCategory category) {
         this.shapeless.put(ingredientCount, Triple.of(result, resultCount, category));
         return this;
     }
@@ -130,13 +155,19 @@ public abstract class BaseFlowerSet<B extends Block> extends AbstractFlowerSet i
     }
 
     @Override
-    public BaseFlowerSet<B> tabAfter(Supplier<CreativeModeTab> tab, ItemLike placeAfter, TabAdditionPhase phase) {
+    public BaseFlowerSet<B> tabAfter(
+        Supplier<CreativeModeTab> tab,
+        ItemLike placeAfter,
+        TabAdditionPhase phase) {
         this.afterOrdering.put(tab, Pair.of(placeAfter, phase));
         return this;
     }
 
     @Override
-    public BaseFlowerSet<B> tabBefore(Supplier<CreativeModeTab> tab, ItemLike placeBefore, TabAdditionPhase phase) {
+    public BaseFlowerSet<B> tabBefore(
+        Supplier<CreativeModeTab> tab,
+        ItemLike placeBefore,
+        TabAdditionPhase phase) {
         this.beforeOrdering.put(tab, Pair.of(placeBefore, phase));
         return this;
     }
@@ -179,16 +210,23 @@ public abstract class BaseFlowerSet<B extends Block> extends AbstractFlowerSet i
     }
 
     @Override
-    public void flammables(FireAccessor accessor) {
+    public void flammables(FireAccessor fire) {
         if (this.flammability != null)
-            accessor.callSetFlammable(this.flower().get(), flammability.getFirst(), flammability.getSecond());
+            fire.callSetFlammable(
+                this.flower().get(),
+                flammability.getFirst(),
+                flammability.getSecond()
+            );
 
         // Do pot stuff while we're at it
-        FlowerPotBlock pot = (FlowerPotBlock) Blocks.FLOWER_POT;
+        var pot = (FlowerPotBlock) Blocks.FLOWER_POT;
         addFlower(pot, this.flower, this.pot);
     }
 
-    protected void addFlower(FlowerPotBlock base, Supplier<? extends Block> flower, Supplier<? extends Block> pot) {
+    protected void addFlower(
+        FlowerPotBlock base,
+        Supplier<? extends Block> flower,
+        Supplier<? extends Block> pot) {
         base.addPlant(BuiltInRegistries.BLOCK.getKey(flower.get()), pot);
     }
 
@@ -204,15 +242,36 @@ public abstract class BaseFlowerSet<B extends Block> extends AbstractFlowerSet i
 
     @Override
     public void recipeData(ReduxRecipeProvider data, RecipeOutput consumer) {
-        this.crafted.forEach((matrix, result) ->
-                matrix.apply(ShapedRecipeBuilder.shaped(result.getSecond(), result.getFirst(), matrix.count()), this.flower().get())
-                        .unlockedBy(ReduxRecipeProvider.getHasName(this.flower().get()), ReduxRecipeProvider.has(this.flower().get()))
-                        .save(consumer, data.name(ReduxRecipeProvider.getConversionRecipeName(result.getFirst(), this.flower().get()))));
-        this.shapeless.forEach((ingredient, result) ->
-            ShapelessRecipeBuilder.shapeless(result.getRight(), result.getLeft(), result.getMiddle())
-                    .requires(this.flower(), ingredient)
-                    .unlockedBy(ReduxRecipeProvider.getHasName(this.flower().get()), ReduxRecipeProvider.has(this.flower().get()))
-                    .save(consumer, data.name(ReduxRecipeProvider.getConversionRecipeName(result.getLeft(), this.flower().get()))));
+        this.crafted.forEach(
+            (matrix, result) -> matrix.apply(
+                ShapedRecipeBuilder
+                    .shaped(result.getSecond(),
+                        result.getFirst(),
+                        matrix.count()),
+                this.flower().get()
+            ).unlockedBy(
+                ReduxRecipeProvider.getHasName(this.flower().get()),
+                ReduxRecipeProvider.has(this.flower().get())
+            ).save(
+                consumer,
+                data.name(ReduxRecipeProvider.getConversionRecipeName(
+                    result.getFirst(),
+                    this.flower().get()
+                ))
+            ));
+        this.shapeless.forEach(
+            (ingredient, result) -> ShapelessRecipeBuilder
+                .shapeless(result.getRight(), result.getLeft(), result.getMiddle())
+                .requires(this.flower(), ingredient)
+                .unlockedBy(
+                    ReduxRecipeProvider.getHasName(this.flower().get()),
+                    ReduxRecipeProvider.has(this.flower().get()))
+                .save(
+                    consumer,
+                    data.name(ReduxRecipeProvider.getConversionRecipeName(
+                        result.getLeft(),
+                        this.flower().get()
+                    ))));
     }
 
     @Override
@@ -247,25 +306,29 @@ public abstract class BaseFlowerSet<B extends Block> extends AbstractFlowerSet i
 
     // Ignore the prev value, implementation is different here
     @Override
-    public ItemLike addToCreativeTab(BuildCreativeModeTabContentsEvent event, ItemLike prev, TabAdditionPhase phase) {
-        for (Map.Entry<Supplier<CreativeModeTab>, Pair<ItemLike, TabAdditionPhase>> entry : this.afterOrdering.entrySet()) {
-            Supplier<CreativeModeTab> tabToAddTo = entry.getKey();
+    public ItemLike addToCreativeTab(
+        BuildCreativeModeTabContentsEvent event,
+        ItemLike prev,
+        TabAdditionPhase phase) {
+        for (var entry : this.afterOrdering.entrySet()) {
+            var tabToAddTo = entry.getKey();
             if (TabUtil.isForTab(event, tabToAddTo)) {
-                Pair<ItemLike, TabAdditionPhase> pair = entry.getValue();
-                if (phase == pair.getSecond()) TabUtil.putAfter(event, pair.getFirst(), this.flower());
+                var pair = entry.getValue();
+                if (phase == pair.getSecond())
+                    TabUtil.putAfter(event, pair.getFirst(), this.flower());
             }
         }
-        for (Map.Entry<Supplier<CreativeModeTab>, Pair<ItemLike, TabAdditionPhase>> entry : this.beforeOrdering.entrySet()) {
-            Supplier<CreativeModeTab> tabToAddTo = entry.getKey();
+        for (var entry : this.beforeOrdering.entrySet()) {
+            var tabToAddTo = entry.getKey();
             if (TabUtil.isForTab(event, tabToAddTo)) {
-                Pair<ItemLike, TabAdditionPhase> pair = entry.getValue();
+                var pair = entry.getValue();
                 if (phase == pair.getSecond()) TabUtil.putBefore(event, pair.getFirst(), this.flower());
             }
         }
-        for (Map.Entry<Supplier<CreativeModeTab>, TabAdditionPhase> entry : this.appended.entrySet()) {
-            Supplier<CreativeModeTab> tabToAddTo = entry.getKey();
+        for (var entry : this.appended.entrySet()) {
+            var tabToAddTo = entry.getKey();
             if (TabUtil.isForTab(event, tabToAddTo)) {
-                TabAdditionPhase current = entry.getValue();
+                var current = entry.getValue();
                 if (phase == current) TabUtil.put(event, this.flower());
             }
         }

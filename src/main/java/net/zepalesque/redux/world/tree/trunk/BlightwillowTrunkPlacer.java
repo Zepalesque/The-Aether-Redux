@@ -20,13 +20,17 @@ import java.util.function.BiConsumer;
 
 // TODO: move root stuff to custom root placer -- can return false on root placement method if overhangs go over a block down (USE A MAP, DO NOT IMMEDIATELY PLACE)
 public class BlightwillowTrunkPlacer extends TrunkPlacer {
-
-
-    public static final MapCodec<BlightwillowTrunkPlacer> CODEC = RecordCodecBuilder.mapCodec(builder -> builder.group(
-            IntProvider.codec(5, Integer.MAX_VALUE).fieldOf("height").forGetter(instance -> instance.height)
+    
+    public static final MapCodec<BlightwillowTrunkPlacer>
+        CODEC = RecordCodecBuilder.mapCodec(
+            builder -> builder.group(
+                IntProvider.codec(5, Integer.MAX_VALUE)
+                    .fieldOf("height")
+                    .forGetter(instance -> instance.height)
             ).apply(builder, BlightwillowTrunkPlacer::new));
 
     protected final IntProvider height;
+    
     public BlightwillowTrunkPlacer(IntProvider height) {
         super(0, 0, 0);
         this.height = height;
@@ -38,43 +42,41 @@ public class BlightwillowTrunkPlacer extends TrunkPlacer {
     }
 
     @Override
-    public List<FoliagePlacer.FoliageAttachment> placeTrunk(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> setter, RandomSource random, int height, BlockPos origin, TreeConfiguration config) {
+    public List<FoliagePlacer.FoliageAttachment> placeTrunk(
+        LevelSimulatedReader level,
+        BiConsumer<BlockPos, BlockState> setter,
+        RandomSource random,
+        int height,
+        BlockPos origin,
+        TreeConfiguration config) {
 
         this.placeLog(level, setter, random, origin, config);
 
-        for(int i = 1; i < height; i++) this.placeLog(level, setter, random, origin.above(i), config);
-
-        BlockPos top = origin.above(height - 1);
+        for(var i = 1; i < height; i++) this.placeLog(level, setter, random, origin.above(i), config);
+        
+        var topPos = origin.above(height - 1);
 
 
 
 
         // Branches
-        for (Direction d : Direction.Plane.HORIZONTAL) {
+        for (var dir : Direction.Plane.HORIZONTAL) {
             // Lower branch
-            BlockPos lower = top.below(4).relative(d);
-            this.placeLog(level, setter, random, lower, config, state -> state.trySetValue(RotatedPillarBlock.AXIS, d.getAxis()));
+            var lower = topPos.below(4).relative(dir);
+            this.placeLog(level, setter, random, lower, config, state -> state.trySetValue(RotatedPillarBlock.AXIS, dir.getAxis()));
 
             // Upper branch
-            BlockPos upper = top.below(2);
-            for (int i = 1; i < 3; i++) {
-                BlockPos pos = upper.relative(d, i);
-                this.placeLog(level, setter, random, pos, config, state -> state.trySetValue(RotatedPillarBlock.AXIS, d.getAxis()));
+            var upper = topPos.below(2);
+            for (var i = 1; i < 3; i++) {
+                var pos = upper.relative(dir, i);
+                this.placeLog(level, setter, random, pos, config, state -> state.trySetValue(RotatedPillarBlock.AXIS, dir.getAxis()));
             }
-            BlockPos upper2 = top.below(1).relative(d, 3);
+            var upper2 = topPos.below(1).relative(dir, 3);
             this.placeLog(level, setter, random, upper2, config);
-
-
-
-
         }
         return ImmutableList.of(new FoliagePlacer.FoliageAttachment(origin.above(height), 0, false));
     }
-
-
-
-
-
+    
     @Override
     public int getTreeHeight(RandomSource random) {
         return this.height.sample(random);

@@ -120,8 +120,7 @@ dependencies {
 }
 
 repositories {
-    var user = System.getenv("GITHUB_USERNAME");
-    var tok = System.getenv("GITHUB_TOKEN");
+
     maven { url 'https://maven.wispforest.io/releases' }
     maven { url 'https://maven.su5ed.dev/releases' }
     maven { url 'https://maven.fabricmc.net' }
@@ -133,13 +132,16 @@ repositories {
     maven { url = "https://www.cursemaven.com" }
     maven { url = 'https://maven.minecraftforge.net/' }
     maven { url = 'https://maven.parchmentmc.org' }
-    for (var txt in [
+
+    var user = System.getenv("GITHUB_USERNAME")
+    var tok = System.getenv("GITHUB_TOKEN")
+    for (var repo in [
             "The-Aether-Team/The-Aether",
             "The-Aether-Team/Nitrogen",
             "The-Aether-Team/Cumulus",
             "Zepalesque/Zenith",
             "The-Aether-Unity"
-    ]) maven { url = uri("https://maven.pkg.github.com/${txt}")
+    ]) maven { url = uri("https://maven.pkg.github.com/${repo}")
         credentials { username = user; password = tok }
     }
 

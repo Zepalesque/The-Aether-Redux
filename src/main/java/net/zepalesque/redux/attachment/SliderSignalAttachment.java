@@ -37,9 +37,8 @@ public class SliderSignalAttachment {
     protected void tickSignal(Slider slider) {
         if (this.signalTick > 0 && slider.level().isClientSide()) {
             if (this.signalTick == 2) playSound(slider);
-            else if (this.signalTick == 1) {
+            else if (this.signalTick == 1)
                 this.overrideDirection = null;
-            }
             this.signalTick--;
         }
     }
@@ -49,30 +48,45 @@ public class SliderSignalAttachment {
     }
 
     public static void sendSignal(Slider slider) {
-        if (!slider.level().isClientSide()) PacketDistributor.sendToPlayersNear(
-                (ServerLevel) slider.level(), null,
-                slider.getX(), slider.getY(), slider.getZ(), 50D,
+        if (!slider.level().isClientSide())
+            PacketDistributor.sendToPlayersNear(
+                (ServerLevel) slider.level(),
+                null,
+                slider.getX(),
+                slider.getY(),
+                slider.getZ(),
+                50D,
                 new SliderSignalPacket.Signal(
-                        slider.getId()
+                    slider.getId()
                 ));
     }
 
     public static void syncDirection(Slider slider, Direction direction) {
-        if (!slider.level().isClientSide() && direction != null) PacketDistributor.sendToPlayersNear(
-                (ServerLevel) slider.level(), null,
-                slider.getX(), slider.getY(), slider.getZ(), 50D,
+        if (!slider.level().isClientSide() && direction != null)
+            PacketDistributor.sendToPlayersNear(
+                (ServerLevel) slider.level(),
+                null,
+                slider.getX(),
+                slider.getY(),
+                slider.getZ(),
+                50D,
                 new SliderSignalPacket.DirectionOverride(
-                        slider.getId(), direction
+                    slider.getId(), direction
                 ));
     }
 
     public static void syncTarget(Slider slider, Entity target) {
-        if (!slider.level().isClientSide()) PacketDistributor.sendToPlayersNear(
-                (ServerLevel) slider.level(), null,
-                slider.getX(), slider.getY(), slider.getZ(), 50D,
+        if (!slider.level().isClientSide())
+            PacketDistributor.sendToPlayersNear(
+                (ServerLevel) slider.level(),
+                null,
+                slider.getX(),
+                slider.getY(),
+                slider.getZ(),
+                50D,
                 new SliderSignalPacket.SyncTarget(
-                        slider.getId(),
-                        Optional.ofNullable(target).map(Entity::getId)
+                    slider.getId(),
+                    Optional.ofNullable(target).map(Entity::getId)
                 ));
     }
 
@@ -86,7 +100,13 @@ public class SliderSignalAttachment {
 
     protected void playSound(Slider slider) {
         if (ReduxConfig.CLIENT.slider_signal_sfx.get())
-            slider.level().playLocalSound(slider, ReduxSounds.SLIDER_SIGNAL.get(), SoundSource.HOSTILE, 1F, 1F);
+            slider.level().playLocalSound(
+                slider,
+                ReduxSounds.SLIDER_SIGNAL.get(),
+                SoundSource.HOSTILE,
+                1F,
+                1F
+            );
     }
 
     public static @NotNull SliderSignalAttachment get(@NotNull Slider slider) {
@@ -101,13 +121,17 @@ public class SliderSignalAttachment {
         this.signalTick = signalTick;
     }
 
-    public void setOverrideDirection(Slider entity, Direction direction) {
-        if ((direction == null && !this.hasOverriden) || (direction == null && this.signalTick == 0)) return;
+    public void setOverrideDirection(Slider slider, Direction direction) {
+        if (direction == null
+            && !this.hasOverriden
+            || direction == null
+            && this.signalTick == 0
+        ) return;
         this.overrideDirection = direction;
         this.hasOverriden = true;
     }
 
-    public Direction getOverrideDirection(Slider entity) {
+    public Direction getOverrideDirection(Slider slider) {
         return this.overrideDirection;
     }
 

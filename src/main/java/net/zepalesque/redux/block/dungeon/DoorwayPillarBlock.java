@@ -22,6 +22,7 @@ public class DoorwayPillarBlock extends DoorwayBlock {
     }
 
     @Override
+    @SuppressWarnings("deprecation")
     public BlockState rotate(BlockState state, Rotation rot) {
         return rotatePillar(state, rot);
     }

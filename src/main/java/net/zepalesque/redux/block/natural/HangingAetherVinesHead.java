@@ -30,12 +30,17 @@ public class HangingAetherVinesHead extends GrowingPlantHeadBlock {
         this.body = body;
     }
 
-    public static final MapCodec<HangingAetherVinesHead> CODEC = RecordCodecBuilder.mapCodec(builder ->
-            builder.group(
-                    propertiesCodec(),
-                            TagKey.codec(Registries.BLOCK).fieldOf("leaf_tag").forGetter(instance -> instance.leafTag),
-                            BuiltInRegistries.BLOCK.holderByNameCodec().fieldOf("body_block").forGetter(instance -> instance.body))
-                    .apply(builder, HangingAetherVinesHead::new));
+    public static final MapCodec<HangingAetherVinesHead> CODEC = RecordCodecBuilder.mapCodec(
+        builder -> builder.group(
+            propertiesCodec(),
+                TagKey.codec(Registries.BLOCK)
+                    .fieldOf("leaf_tag")
+                    .forGetter(instance -> instance.leafTag),
+                BuiltInRegistries.BLOCK
+                    .holderByNameCodec()
+                    .fieldOf("body_block")
+                    .forGetter(instance -> instance.body)
+            ).apply(builder, HangingAetherVinesHead::new));
 
 
     @Override
@@ -59,21 +64,28 @@ public class HangingAetherVinesHead extends GrowingPlantHeadBlock {
     }
 
     public int getLength(Level level, BlockPos pos) {
-        int i = 0;
-        while (!level.isOutsideBuildHeight(pos.getY() + i) && level.isStateAtPosition(pos.above(i), state -> state.is(this.getHeadBlock()) || state.is(this.getBodyBlock())))
-            i++;
+        var i = 0;
+        while (!level.isOutsideBuildHeight(pos.getY() + i)
+            && level.isStateAtPosition(
+                pos.above(i),
+                state -> state.is(this.getHeadBlock())
+                    || state.is(this.getBodyBlock())
+            )) i++;
         return i;
     }
 
     @Override
-    public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-        BlockPos blockpos = pPos.relative(this.growthDirection.getOpposite());
-        BlockState blockstate = pLevel.getBlockState(blockpos);
-        return !this.canAttachTo(blockstate) ? super.canSurvive(pState, pLevel, pPos) : super.canSurvive(pState, pLevel, pPos) || blockstate.is(this.leafTag);
+    public boolean canSurvive(BlockState state, LevelReader lvl, BlockPos pos) {
+        var relative = pos.relative(this.growthDirection.getOpposite());
+        var relState = lvl.getBlockState(relative);
+        return !this.canAttachTo(relState)
+            ? super.canSurvive(state, lvl, pos)
+            : super.canSurvive(state, lvl, pos) || relState.is(this.leafTag);
     }
 
     @Override
     public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
-        if (this.getLength(pLevel, pPos) < 10) super.randomTick(pState, pLevel, pPos, pRandom);
+        if (this.getLength(pLevel, pPos) < 10)
+            super.randomTick(pState, pLevel, pPos, pRandom);
     }
 }

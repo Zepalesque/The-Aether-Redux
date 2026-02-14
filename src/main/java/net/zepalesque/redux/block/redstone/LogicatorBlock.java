@@ -34,21 +34,33 @@ public class LogicatorBlock extends DiodeBlock {
 
     public LogicatorBlock(Properties properties) {
         super(properties);
-        BlockState b = this.defaultBlockState()
+        var state = this.defaultBlockState()
                 .setValue(FACING, Direction.NORTH)
                 .setValue(POWERED, false)
                 .setValue(LEFT, false).setValue(RIGHT, false)
                 .setValue(MODE, LogicatorMode.AND);
-        this.registerDefaultState(b);
+        this.registerDefaultState(state);
     }
 
     @Override
-    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
+    protected InteractionResult useWithoutItem(
+        BlockState state,
+        Level level,
+        BlockPos pos,
+        Player player,
+        BlockHitResult hitResult) {
         if (!player.getAbilities().mayBuild) return InteractionResult.PASS;
         else {
             state = StateUtil.mapValue(state, MODE, LogicatorMode::flipOperationType);
-            float f = state.getValue(MODE).isOr() ? 0.55F : 0.5F;
-            level.playSound(player, pos, ReduxSounds.LOGICATOR_CLICK.get(), SoundSource.BLOCKS, 0.3F, f);
+            var f = state.getValue(MODE).isOr() ? 0.55F : 0.5F;
+            level.playSound(
+                player,
+                pos,
+                ReduxSounds.LOGICATOR_CLICK.get(),
+                SoundSource.BLOCKS,
+                0.3F,
+                f
+            );
             level.setBlock(pos, state, 2);
             this.refreshOutputState(level, state, pos);
             return InteractionResult.sidedSuccess(level.isClientSide);
@@ -56,23 +68,23 @@ public class LogicatorBlock extends DiodeBlock {
     }
 
     protected static int getLeftInput(SignalGetter level, BlockPos pos, BlockState state) {
-        Direction direction = state.getValue(FACING);
+        var face = state.getValue(FACING);
         // Counterintuitive, but DiodeBlocks are placed backwards
-        Direction left = direction.getClockWise();
-        return level.getSignal(pos.relative(left), left);
+        var cw = face.getClockWise();
+        return level.getSignal(pos.relative(cw), cw);
     }
 
     protected static int getRightInput(SignalGetter level, BlockPos pos, BlockState state) {
-        Direction direction = state.getValue(FACING);
+        var face = state.getValue(FACING);
         // Counterintuitive, but DiodeBlocks are placed backwards
-        Direction right = direction.getCounterClockWise();
-        return level.getSignal(pos.relative(right), right);
+        var ccw = face.getCounterClockWise();
+        return level.getSignal(pos.relative(ccw), ccw);
     }
 
     protected static int getBackInput(SignalGetter level, BlockPos pos, BlockState state) {
-        Direction direction = state.getValue(FACING);
+        var dir = state.getValue(FACING);
         // Counterintuitive, but DiodeBlocks are placed backwards
-        return level.getSignal(pos.relative(direction), direction);
+        return level.getSignal(pos.relative(dir), dir);
     }
 
     protected boolean shouldHaveLeftInput(SignalGetter level, BlockPos pos, BlockState state) {
@@ -87,35 +99,43 @@ public class LogicatorBlock extends DiodeBlock {
 
 
     @Override
-    public void setPlacedBy(Level level, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
-        if (this.shouldUpdateOnPlacement(level, pos, state)) level.scheduleTick(pos, this, 1);
+    public void setPlacedBy(
+        Level level,
+        BlockPos pos,
+        BlockState state,
+        LivingEntity placer,
+        ItemStack stack) {
+        
+        if (this.shouldUpdateOnPlacement(level, pos, state))
+            level.scheduleTick(pos, this, 1);
     }
 
     @Override
     protected boolean shouldTurnOn(Level level, BlockPos pos, BlockState state) {
-        LogicatorMode mode = state.getValue(MODE);
-        boolean l = this.shouldHaveLeftInput(level, pos, state);
-        boolean r = this.shouldHaveRightInput(level, pos, state);
+        var mode = state.getValue(MODE);
+        var l = this.shouldHaveLeftInput(level, pos, state);
+        var r = this.shouldHaveRightInput(level, pos, state);
         return mode.operate(l, r);
     }
 
     protected boolean shouldUpdateOnPlacement(Level level, BlockPos pos, BlockState state) {
-        LogicatorMode mode = state.getValue(MODE);
-        boolean exclusive = this.shouldBeExclusive(level, pos, state);
-        LogicatorMode correct = mode.withExclusivity(exclusive);
-        boolean l = this.shouldHaveLeftInput(level, pos, state);
-        boolean r = this.shouldHaveRightInput(level, pos, state);
-        return correct != mode || l || r /*|| correct.operate(l, r) l and r are both false by here */ || correct.operate(false, false);
+        var base = state.getValue(MODE);
+        var exclusive = this.shouldBeExclusive(level, pos, state);
+        var mode = base.withExclusivity(exclusive);
+        var l = this.shouldHaveLeftInput(level, pos, state);
+        var r = this.shouldHaveRightInput(level, pos, state);
+        return mode != base || l || r /*|| mode.operate(l, r) l and r are both false by here */
+            || mode.operate(false, false);
     }
 
     protected void refreshOutputState(Level level, BlockState state, BlockPos pos) {
         if (!this.isLocked(level, pos, state)) {
-            BlockState oldState = state;
-            boolean l = shouldHaveLeftInput(level, pos, state);
-            boolean r = shouldHaveRightInput(level, pos, state);
-            boolean exclusive = shouldBeExclusive(level, pos, state);
-            boolean or = state.getValue(MODE).isOr();
-            boolean powered = this.shouldTurnOn(level, pos, state);
+            var prev = state;
+            var l = shouldHaveLeftInput(level, pos, state);
+            var r = shouldHaveRightInput(level, pos, state);
+            var exclusive = shouldBeExclusive(level, pos, state);
+            var or = state.getValue(MODE).isOr();
+            var powered = this.shouldTurnOn(level, pos, state);
 
             state = state
                     .setValue(MODE, LogicatorMode.getMode(exclusive, or))
@@ -123,7 +143,7 @@ public class LogicatorBlock extends DiodeBlock {
                     .setValue(RIGHT, r)
                     .setValue(POWERED, powered);
 
-            if (state != oldState) {
+            if (state != prev) {
                 level.setBlock(pos, state, 2);
                 level.scheduleTick(pos, this, this.getDelay(state), TickPriority.VERY_HIGH);
                 this.updateNeighborsInFront(level, pos, state);
@@ -135,15 +155,19 @@ public class LogicatorBlock extends DiodeBlock {
     protected void checkTickOnNeighbor(Level level, BlockPos pos, BlockState state) {
         if (!this.isLocked(level, pos, state)) {
             boolean wasOn = state.getValue(POWERED);
-            boolean shouldTurnOn = this.shouldTurnOn(level, pos, state);
+            var shouldTurnOn = this.shouldTurnOn(level, pos, state);
             boolean hadInputL = state.getValue(LEFT);
-            boolean shouldHaveInputL = shouldHaveLeftInput(level, pos, state);
+            var shouldHaveInputL = shouldHaveLeftInput(level, pos, state);
             boolean hadInputR = state.getValue(RIGHT);
-            boolean shouldHaveInputR = shouldHaveRightInput(level, pos, state);
-            boolean wasExclusive = state.getValue(MODE).isExclusive();
-            boolean shouldBeExclusive = shouldBeExclusive(level, pos, state);
-            if ((wasOn != shouldTurnOn || hadInputL != shouldHaveInputL || hadInputR != shouldHaveInputR || wasExclusive != shouldBeExclusive) && !level.getBlockTicks().willTickThisTick(pos, this)) {
-                TickPriority tickpriority = TickPriority.HIGH;
+            var shouldHaveInputR = shouldHaveRightInput(level, pos, state);
+            var wasExclusive = state.getValue(MODE).isExclusive();
+            var shouldBeExclusive = shouldBeExclusive(level, pos, state);
+            if ((wasOn != shouldTurnOn
+                || hadInputL != shouldHaveInputL
+                || hadInputR != shouldHaveInputR
+                || wasExclusive != shouldBeExclusive)
+                && !level.getBlockTicks().willTickThisTick(pos, this)) {
+                var tickpriority = TickPriority.HIGH;
                 if (this.shouldPrioritize(level, pos, state)) tickpriority = TickPriority.EXTREMELY_HIGH;
                 else if (wasOn) tickpriority = TickPriority.VERY_HIGH;
 
@@ -180,12 +204,12 @@ public class LogicatorBlock extends DiodeBlock {
     @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
         if (state.getValue(MODE).isOr()) {
-            double d0 = (double)pos.getX() + 0.5 + (random.nextDouble() - 0.5) * 0.2;
-            double d1 = (double)pos.getY() + 0.4 + (random.nextDouble() - 0.5) * 0.2;
-            double d2 = (double)pos.getZ() + 0.5 + (random.nextDouble() - 0.5) * 0.2;
+            var x = (double)pos.getX() + 0.5 + (random.nextDouble() - 0.5) * 0.2;
+            var y = (double)pos.getY() + 0.4 + (random.nextDouble() - 0.5) * 0.2;
+            var z = (double)pos.getZ() + 0.5 + (random.nextDouble() - 0.5) * 0.2;
 
             if (random.nextBoolean())
-                level.addParticle(DustParticleOptions.REDSTONE, d0, d1, d2, 0.0, 0.0, 0.0);
+                level.addParticle(DustParticleOptions.REDSTONE, x, y, z, 0.0, 0.0, 0.0);
         }
     }
 }

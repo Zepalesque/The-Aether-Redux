@@ -29,30 +29,36 @@ public class HangingAetherVinesBody extends GrowingPlantBodyBlock {
     }
 
     @Override
-    public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-        BlockPos blockpos = pPos.relative(this.growthDirection.getOpposite());
-        BlockState blockstate = pLevel.getBlockState(blockpos);
-        return !this.canAttachTo(blockstate) ? super.canSurvive(pState, pLevel, pPos) : super.canSurvive(pState, pLevel, pPos) || blockstate.is(this.leafTag);
+    public boolean canSurvive(BlockState state, LevelReader lvl, BlockPos pos) {
+        var relative = pos.relative(this.growthDirection.getOpposite());
+        var relState = lvl.getBlockState(relative);
+        return !this.canAttachTo(relState)
+            ? super.canSurvive(state, lvl, pos)
+            : super.canSurvive(state, lvl, pos)
+                || relState.is(this.leafTag);
     }
 
     @Override
     protected GrowingPlantHeadBlock getHeadBlock() {
         try {
-            Block b = this.head.value();
-            return (GrowingPlantHeadBlock) b;
+            var head = this.head.value();
+            return (GrowingPlantHeadBlock) head;
         } catch (ClassCastException e) { // Don't cast the IllegalStateException that occurs if the holder has no value, as it should give enough info
             throw new IllegalStateException("HangingAetherVinesBody's associated head block was not an instance of GrowingPlantHeadBlock!", e);
         }
     }
 
-    public static final MapCodec<HangingAetherVinesBody> CODEC = RecordCodecBuilder.mapCodec(builder ->
-            builder.group(
-                    propertiesCodec(),
-                            TagKey.codec(Registries.BLOCK).fieldOf("leaf_tag").forGetter(instance -> instance.leafTag),
-                            BuiltInRegistries.BLOCK.holderByNameCodec().fieldOf("head_block").forGetter(instance -> instance.head)
-
-                    )
-                    .apply(builder, HangingAetherVinesBody::new));
+    public static final MapCodec<HangingAetherVinesBody> CODEC = RecordCodecBuilder.mapCodec(
+        builder -> builder.group(
+            propertiesCodec(),
+            TagKey.codec(Registries.BLOCK)
+                .fieldOf("leaf_tag")
+                .forGetter(instance -> instance.leafTag),
+            BuiltInRegistries.BLOCK
+                .holderByNameCodec()
+                .fieldOf("head_block")
+                .forGetter(instance -> instance.head)
+        ).apply(builder, HangingAetherVinesBody::new));
 
 
     @Override

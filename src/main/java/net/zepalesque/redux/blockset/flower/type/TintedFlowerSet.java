@@ -8,7 +8,12 @@ import java.util.function.Supplier;
 public abstract class TintedFlowerSet<B extends Block> extends BaseFlowerSet<B> implements TintableSet {
     private final int tintdex, itemTint;
 
-    public TintedFlowerSet(String id, String textureFolder, Supplier<B> constructor, int tintdex, int itemTint) {
+    public TintedFlowerSet(
+        String id,
+        String textureFolder,
+        Supplier<B> constructor,
+        int tintdex,
+        int itemTint) {
         super(id, textureFolder, constructor);
         this.tintdex = tintdex;
         this.itemTint = itemTint | 0xFF000000;

@@ -24,20 +24,20 @@ public class ReduxNaturalWall extends ReduxDoubleDropsWall {
     }
 
     private void fixShapeMaps2() {
-        WallBlockAccessor accessor = (WallBlockAccessor) this;
-        Map<BlockState, VoxelShape> shapeByIndex = accessor.redux$getShapeByIndex();
+        var acc = (WallBlockAccessor) this;
+        var shapeByIndex = acc.redux$getShapeByIndex();
         shapeByIndex = fixShapeMap2(shapeByIndex);
-        accessor.redux$setShapeByIndex(shapeByIndex);
-
-        Map<BlockState, VoxelShape> collisionShapeByIndex = accessor.redux$getCollisionShapeByIndex();
+        acc.redux$setShapeByIndex(shapeByIndex);
+        
+        var collisionShapeByIndex = acc.redux$getCollisionShapeByIndex();
         collisionShapeByIndex = fixShapeMap2(collisionShapeByIndex);
-        accessor.redux$setCollisionShapeByIndex(collisionShapeByIndex);
+        acc.redux$setCollisionShapeByIndex(collisionShapeByIndex);
     }
 
     private static Map<BlockState, VoxelShape> fixShapeMap2(Map<BlockState, VoxelShape> map) {
         ImmutableMap.Builder<BlockState, VoxelShape> builder = ImmutableMap.builder();
         builder.putAll(map);
-        for (BlockState state : map.keySet())
+        for (var state : map.keySet())
             builder.put(state.cycle(ReduxStates.NATURAL_GEN), map.get(state));
         return builder.build();
     }

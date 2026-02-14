@@ -10,14 +10,21 @@ import java.util.function.Supplier;
 public class DualGlowingFlowerSet<B extends Block> extends TintedFlowerSet<B> {
     private boolean glowAsParticle;
 
-    public DualGlowingFlowerSet(String id, String textureFolder, Supplier<B> constructor, int tintdex, int itemTint) {
+    public DualGlowingFlowerSet(
+        String id,
+        String textureFolder,
+        Supplier<B> constructor,
+        int tintdex,
+        int itemTint) {
         super(id, textureFolder, constructor, tintdex, itemTint);
     }
 
     @Override
     public void blockData(ReduxBlockStateProvider data) {
         data.crossTintedDualGloverlay(this.flower().get(), this.textureFolder, this.glowAsParticle);
-        Consumers.C3<Block, Block, String> pot = this.usePottedPrefix ? data::tintedPotOverlayAlt : data::tintedPotOverlay;
+        Consumers.C3<Block, Block, String> pot = this.usePottedPrefix
+            ? data::tintedPotOverlayAlt
+            : data::tintedPotOverlay;
         pot.accept(this.pot().get(), this.flower().get(), this.textureFolder);
     }
 

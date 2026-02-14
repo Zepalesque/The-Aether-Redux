@@ -67,18 +67,28 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
     protected final Map<ItemLike, Float> blasted_blocks = new HashMap<>();
     protected final Map<Supplier<AbstractStoneSet>, Float> blasted_sets = new HashMap<>();
     protected final Map<ItemLike, Pair<Float, Integer>> enchanted_blocks = new HashMap<>();
-    protected final Map<Supplier<AbstractStoneSet>, Pair<Float, Integer>> enchanted_sets = new HashMap<>();
-    protected final Table<Supplier<CreativeModeTab>, ItemLike, Pair<Boolean, TabAdditionPhase>> afterOrdering = HashBasedTable.create();
-    protected final Table<Supplier<CreativeModeTab>, ItemLike, Pair<Boolean, TabAdditionPhase>> beforeOrdering = HashBasedTable.create();
-    protected final Table<Supplier<CreativeModeTab>, TabAdditionPhase, Boolean> appended = HashBasedTable.create();
+    protected final Map<Supplier<AbstractStoneSet>, Pair<Float, Integer>>
+        enchanted_sets = new HashMap<>();
+    protected final Table<Supplier<CreativeModeTab>, ItemLike, Pair<Boolean, TabAdditionPhase>>
+        afterOrdering = HashBasedTable.create();
+    protected final Table<Supplier<CreativeModeTab>, ItemLike, Pair<Boolean, TabAdditionPhase>>
+        beforeOrdering = HashBasedTable.create();
+    protected final Table<Supplier<CreativeModeTab>, TabAdditionPhase, Boolean>
+        appended = HashBasedTable.create();
     protected final Map<TagKey<Block>, Boolean> tags = new HashMap<>();
     protected final Map<TagKey<Item>, Boolean> itemTags = new HashMap<>();
 
-    public BaseStoneSet(String id, MapColor color, SoundType sound, float breakTime, float blastResistance, String textureFolder) {
+    public BaseStoneSet(
+        String id,
+        MapColor color,
+        SoundType sound,
+        float breakTime,
+        float blastResistance,
+        String textureFolder) {
         this.id = id;
         this.textureFolder = textureFolder;
-        DeferredRegister.Blocks blocks = ReduxBlocks.BLOCKS;
-        DeferredRegister.Items items = ReduxItems.ITEMS;
+        var blocks = ReduxBlocks.BLOCKS;
+        var items = ReduxItems.ITEMS;
         this.base = this.block(blocks, items, id, color, sound, breakTime, blastResistance);
         this.stairs = this.stairs(blocks, items, id, color, sound, breakTime, blastResistance);
         this.slab = this.slab(blocks, items, id, color, sound, breakTime, blastResistance);

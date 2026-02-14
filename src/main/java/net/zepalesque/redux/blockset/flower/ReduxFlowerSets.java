@@ -32,32 +32,57 @@ import net.zepalesque.zenith.util.block.CommonPlantBounds;
 
 public class ReduxFlowerSets {
 
-    public static final BaseFlowerSet<CustomBoundsFlowerBlock.Enchanted> AURUM = register(new EnchantedFlowerSet<>("aurum", "natural/",
-        () -> new CustomBoundsFlowerBlock.Enchanted(CommonPlantBounds.FLOWER,
-            MobEffects.LUCK, 60, Properties.ofFullCopy(Blocks.DANDELION).hasPostProcess((s, l, p) -> true)), 1, 0xFFFFFF)
-        .tabAfter(AetherCreativeTabs.AETHER_NATURAL_BLOCKS, AetherBlocks.WHITE_FLOWER, BlockSet.TabAdditionPhase.BEFORE)
-        .craftsIntoShapeless(1, () -> Items.YELLOW_DYE, 1, RecipeCategory.MISC)
-        .withFlowerTag(BlockTags.FLOWERS)
-        .compost(0.3F)
-        .withLore("A golden flower found in the Gilded Groves. Some say it brings good luck!"));
+    public static final BaseFlowerSet<CustomBoundsFlowerBlock.Enchanted> AURUM =
+        register(new EnchantedFlowerSet<>("aurum", "natural/",
+            () -> new CustomBoundsFlowerBlock.Enchanted(CommonPlantBounds.FLOWER,
+                MobEffects.LUCK, 60,
+                Properties.ofFullCopy(Blocks.DANDELION)
+                    .hasPostProcess((s, l, p) -> true)
+            ), 1, 0xFFFFFF)
+            .tabAfter(
+                AetherCreativeTabs.AETHER_NATURAL_BLOCKS,
+                AetherBlocks.WHITE_FLOWER,
+                BlockSet.TabAdditionPhase.BEFORE
+            ).craftsIntoShapeless(1, () -> Items.YELLOW_DYE, 1, RecipeCategory.MISC)
+            .withFlowerTag(BlockTags.FLOWERS)
+            .compost(0.3F)
+            .withLore("A golden flower found in the Gilded Groves. Some say it brings good luck!"));
 
     public static final BaseFlowerSet<SaplingBlock> GILDENROOT_SAPLING = register(new UntintedFlowerSet<>("gildenroot_sapling", "natural/",
-        () -> new SaplingBlock(ReduxTreeGrowers.GILDENROOT, Properties.ofFullCopy(Blocks.OAK_SAPLING).mapColor(MapColor.QUARTZ)))
-        .tabAfter(AetherCreativeTabs.AETHER_NATURAL_BLOCKS, AetherBlocks.SKYROOT_SAPLING, BlockSet.TabAdditionPhase.BEFORE)
-        .withFlowerTag(BlockTags.SAPLINGS)
+        () -> new SaplingBlock(ReduxTreeGrowers.GILDENROOT,
+            Properties.ofFullCopy(Blocks.OAK_SAPLING)
+                .mapColor(MapColor.QUARTZ)
+        )).tabAfter(AetherCreativeTabs.AETHER_NATURAL_BLOCKS,
+            AetherBlocks.SKYROOT_SAPLING,
+            BlockSet.TabAdditionPhase.BEFORE
+        ).withFlowerTag(BlockTags.SAPLINGS)
         .compost(0.3F)
         .withLore("The sapling of the Gildenroot tree. It can be grown by waiting or using Bone Meal."));
 
-    public static final BaseFlowerSet<SaplingBlock> STORMROOT_SAPLING = register(new UntintedFlowerSet<>("stormroot_sapling", "natural/",
-        () -> new SaplingBlock(ReduxTreeGrowers.STORMROOT, Properties.ofFullCopy(Blocks.OAK_SAPLING).mapColor(MapColor.TERRACOTTA_PURPLE)))
-        .tabAfter(AetherCreativeTabs.AETHER_NATURAL_BLOCKS, () -> ReduxFlowerSets.GILDENROOT_SAPLING.flower().asItem(), BlockSet.TabAdditionPhase.BEFORE)
-        .withFlowerTag(BlockTags.SAPLINGS)
+    public static final BaseFlowerSet<SaplingBlock> STORMROOT_SAPLING = register(new UntintedFlowerSet<>(
+        "stormroot_sapling",
+        "natural/",
+        () -> new SaplingBlock(ReduxTreeGrowers.STORMROOT,
+            Properties.ofFullCopy(Blocks.OAK_SAPLING)
+                .mapColor(MapColor.TERRACOTTA_PURPLE)
+        )).tabAfter(
+            AetherCreativeTabs.AETHER_NATURAL_BLOCKS,
+            () -> ReduxFlowerSets.GILDENROOT_SAPLING.flower().asItem(),
+            BlockSet.TabAdditionPhase.BEFORE
+        ).withFlowerTag(BlockTags.SAPLINGS)
         .compost(0.3F)
         .withLore("The sapling of the Stormroot tree. It can be grown by waiting or using Bone Meal."));
 
-    public static final BaseFlowerSet<SaplingBlock> BLIGHTWILLOW_SAPLING = register(new UntintedFlowerSet<>("blightwillow_sapling", "natural/",
-        () -> new SaplingBlock(ReduxTreeGrowers.BLIGHTWILLOW, Properties.ofFullCopy(Blocks.OAK_SAPLING).mapColor(MapColor.COLOR_PURPLE)))
-        .tabAfter(AetherCreativeTabs.AETHER_NATURAL_BLOCKS, () -> ReduxFlowerSets.STORMROOT_SAPLING.flower().asItem(), BlockSet.TabAdditionPhase.BEFORE)
+    public static final BaseFlowerSet<SaplingBlock> BLIGHTWILLOW_SAPLING = register(new UntintedFlowerSet<>(
+        "blightwillow_sapling",
+        "natural/",
+        () -> new SaplingBlock(ReduxTreeGrowers.BLIGHTWILLOW,
+            Properties.ofFullCopy(Blocks.OAK_SAPLING)
+                .mapColor(MapColor.COLOR_PURPLE)
+        )).tabAfter(
+            AetherCreativeTabs.AETHER_NATURAL_BLOCKS,
+            () -> ReduxFlowerSets.STORMROOT_SAPLING.flower().asItem(),
+            BlockSet.TabAdditionPhase.BEFORE)
         .withFlowerTag(BlockTags.SAPLINGS)
         .compost(0.3F)
         .withLore("The sapling of the Blightwillow tree. It can be grown by waiting or using Bone Meal."));
@@ -79,13 +104,19 @@ public class ReduxFlowerSets {
 
     public static final BaseFlowerSet<Flareblossom> FLAREBLOSSOM = register(new DualGlowingFlowerSet<>("flareblossom", "dungeon/",
         () -> new Flareblossom(
-            MobEffects.BLINDNESS, 60, Properties.ofFullCopy(Blocks.POPPY).lightLevel(state -> 11).mapColor(MapColor.GOLD)),
+            MobEffects.BLINDNESS, 60,
+            Properties.ofFullCopy(Blocks.POPPY)
+                .lightLevel(state -> 11)
+                .mapColor(MapColor.GOLD)),
         1, UnityColors.AETHER_GRASS_COLOR)
-        // GlowingFlowerSet flags
+        // GlowingFlowerSet flags (wouldn't be an issue if only java had a Self or This type :anguish:
         .useGlowAsParticle()
         // Base
-        .tabAfter(AetherCreativeTabs.AETHER_DUNGEON_BLOCKS, AetherBlocks.TREASURE_DOORWAY_LIGHT_HELLFIRE_STONE, BlockSet.TabAdditionPhase.BEFORE)
-        .craftsIntoShapeless(1, () -> Items.BLAZE_POWDER, 1, RecipeCategory.MISC)
+        .tabAfter(
+            AetherCreativeTabs.AETHER_DUNGEON_BLOCKS,
+            AetherBlocks.TREASURE_DOORWAY_LIGHT_HELLFIRE_STONE,
+            BlockSet.TabAdditionPhase.BEFORE
+        ).craftsIntoShapeless(1, () -> Items.BLAZE_POWDER, 1, RecipeCategory.MISC)
         .withFlowerTag(BlockTags.FLOWERS)
         // TODO: change once the use has been implemented
         .withLore("A rare, exotic flower found on Gold Dungeons. Its properties have not yet been discovered..."));
@@ -95,8 +126,11 @@ public class ReduxFlowerSets {
             // TODO
             MobEffects.DARKNESS, 60, Properties.ofFullCopy(Blocks.WITHER_ROSE).mapColor(MapColor.COLOR_BLACK)),
         1, ReduxColors.Tints.BLIGHT_GRASS_COLOR)
-        .tabAfter(AetherCreativeTabs.AETHER_NATURAL_BLOCKS, ReduxFlowerSets.SPIROLYCTIL.flower(), BlockSet.TabAdditionPhase.BEFORE)
-        .craftsIntoShapeless(1, () -> Items.BLACK_DYE, 1, RecipeCategory.MISC)
+        .tabAfter(
+            AetherCreativeTabs.AETHER_NATURAL_BLOCKS,
+            ReduxFlowerSets.SPIROLYCTIL.flower(),
+            BlockSet.TabAdditionPhase.BEFORE
+        ).craftsIntoShapeless(1, () -> Items.BLACK_DYE, 1, RecipeCategory.MISC)
         .withFlowerTag(BlockTags.FLOWERS)
         .withLore("Dark purple flowers found in the Blight. These release a gas that limits their target's vision."));
 
