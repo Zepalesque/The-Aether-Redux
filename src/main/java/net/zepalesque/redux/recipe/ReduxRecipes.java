@@ -12,13 +12,32 @@ import net.zepalesque.redux.recipe.recipes.WillowSporeRecipe;
 import net.zepalesque.zenith.api.recipe.serializer.StackingRecipeSerializer;
 
 public class ReduxRecipes {
-    public static final DeferredRegister<RecipeType<?>> TYPES = DeferredRegister.create(BuiltInRegistries.RECIPE_TYPE, Redux.MODID);
-    public static final DeferredHolder<RecipeType<?>, RecipeType<InfusionRecipe>> INFUSION = TYPES.register("infusion", () -> RecipeType.simple(Redux.loc("infusion")));
-    public static final DeferredHolder<RecipeType<?>, RecipeType<WillowSporeRecipe>> WILLOW_SPORES = TYPES.register("willow_spore_blighting", () -> RecipeType.simple(Redux.loc("willow_spore_blighting")));
+    public static final DeferredRegister<RecipeType<?>>
+        TYPES = DeferredRegister.create(BuiltInRegistries.RECIPE_TYPE, Redux.MODID
+    );
+    public static final DeferredHolder<RecipeType<?>, RecipeType<InfusionRecipe>>
+        INFUSION = TYPES.register("infusion",
+        () -> RecipeType.simple(Redux.loc("infusion"))
+    );
+    public static final DeferredHolder<RecipeType<?>, RecipeType<WillowSporeRecipe>>
+        WILLOW_SPORES = TYPES.register("willow_spore_blighting",
+        () -> RecipeType.simple(Redux.loc("willow_spore_blighting"))
+    );
 
     public static class Serializers {
-        public static final DeferredRegister<RecipeSerializer<?>> SERIALIZERS = DeferredRegister.create(BuiltInRegistries.RECIPE_SERIALIZER, Redux.MODID);
-        public static final DeferredHolder<RecipeSerializer<?>, StackingRecipeSerializer<InfusionRecipe>> INFUSION = SERIALIZERS.register("infusion", InfusionRecipe.Serializer::new);
-        public static final DeferredHolder<RecipeSerializer<?>, BlockStateRecipeSerializer<WillowSporeRecipe>> WILLOW_SPORES = SERIALIZERS.register("willow_spore_blighting", WillowSporeRecipe.Serializer::new);
+        public static final DeferredRegister<RecipeSerializer<?>>
+            SERIALIZERS = DeferredRegister.create(
+                BuiltInRegistries.RECIPE_SERIALIZER, Redux.MODID
+        );
+        
+        public static final DeferredHolder<RecipeSerializer<?>, StackingRecipeSerializer<InfusionRecipe>>
+            INFUSION = SERIALIZERS.register("infusion",
+            InfusionRecipe.Serializer::new
+        );
+        
+        public static final DeferredHolder<RecipeSerializer<?>, BlockStateRecipeSerializer<WillowSporeRecipe>>
+            WILLOW_SPORES = SERIALIZERS.register("willow_spore_blighting",
+            WillowSporeRecipe.Serializer::new
+        );
     }
 }

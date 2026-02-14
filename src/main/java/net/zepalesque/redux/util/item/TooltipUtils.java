@@ -10,7 +10,13 @@ import javax.annotation.Nullable;
 import java.util.Collection;
 
 public class TooltipUtils {
-    public static final Component INFO = Component.translatable("tooltip.aether_redux.shift_info", Minecraft.getInstance().options.keyShift.getKey().getDisplayName().getString()).withStyle(ChatFormatting.DARK_GRAY);
+    public static final Component INFO = Component.translatable(
+        "tooltip.aether_redux.shift_info",
+        Minecraft.getInstance().options.keyShift
+            .getKey()
+            .getDisplayName()
+            .getString()
+    ).withStyle(ChatFormatting.DARK_GRAY);
 
     private static final Collection<Component> INFO_ARRAY = ImmutableList.of(INFO);
 
@@ -30,15 +36,23 @@ public class TooltipUtils {
 
     @Nullable
     public static Component shiftDownElse(Component whenDown, @Nullable Component otherwise) {
-        if (InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), Minecraft.getInstance().options.keyShift.getKey().getValue()))
-            return whenDown;
+        var mc = Minecraft.getInstance();
+        if (InputConstants.isKeyDown(
+            mc.getWindow().getWindow(),
+            mc.options.keyShift.getKey().getValue()
+        )) return whenDown;
         else return otherwise;
     }
 
     @Nullable
-    public static Collection<Component> shiftDownElseMulti(Collection<Component> whenDown, @Nullable Collection<Component> otherwise) {
-        if (InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), Minecraft.getInstance().options.keyShift.getKey().getValue()))
-            return whenDown;
+    public static Collection<Component> shiftDownElseMulti(
+        Collection<Component> whenDown,
+        @Nullable Collection<Component> otherwise) {
+        var mc = Minecraft.getInstance();
+        if (InputConstants.isKeyDown(
+            mc.getWindow().getWindow(),
+            mc.options.keyShift.getKey().getValue()
+        )) return whenDown;
         else return otherwise;
     }
 }

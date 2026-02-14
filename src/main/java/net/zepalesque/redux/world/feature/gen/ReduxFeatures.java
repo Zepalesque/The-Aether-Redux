@@ -7,7 +7,13 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.zepalesque.redux.Redux;
 
 public class ReduxFeatures {
-    public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(BuiltInRegistries.FEATURE, Redux.MODID);
+    public static final DeferredRegister<Feature<?>>
+        FEATURES = DeferredRegister.create(BuiltInRegistries.FEATURE, Redux.MODID);
 
-    public static DeferredHolder<Feature<?>, Feature<CloudbedFeature.Config>> CLOUDBED = FEATURES.register("cloudbed", () -> new CloudbedFeature(CloudbedFeature.Config.CODEC));
+    public static DeferredHolder<Feature<?>, Feature<CloudbedFeature.Config>>
+        CLOUDBED = FEATURES.register(
+            "cloudbed",
+            () -> new CloudbedFeature(
+                CloudbedFeature.Config.CODEC
+            ));
 }

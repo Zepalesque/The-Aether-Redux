@@ -31,16 +31,19 @@ public class ReduxSurfaceRules {
 
     @SubscribeEvent
     public static void onServerAboutToStart(ServerAboutToStartEvent event) {
-        MinecraftServer server = event.getServer();
-        RegistryAccess access = server.registryAccess();
-        Registry<LevelStem> registry = access.registryOrThrow(Registries.LEVEL_STEM);
-        LevelStem stem = registry.get(AetherDimensions.AETHER_LEVEL_STEM);
+        var server = event.getServer();
+        var access = server.registryAccess();
+        var registry = access.registryOrThrow(Registries.LEVEL_STEM);
+        var stem = registry.get(AetherDimensions.AETHER_LEVEL_STEM);
         if (stem != null) {
-            ChunkGenerator generator = stem.generator();
-            ServerLevel level = server.getLevel(AetherDimensions.AETHER_LEVEL);
-            if (generator instanceof NoiseBasedChunkGenerator noiseGen && level != null) {
-                noiseGen.generatorSettings().value().noiseRouter().finalDensity().mapAll(PerlinNoiseFunction.createOrGetVisitor(level.getSeed()));
-            }
+            var gen = stem.generator();
+            var level = server.getLevel(AetherDimensions.AETHER_LEVEL);
+            if (gen instanceof NoiseBasedChunkGenerator noise && level != null)
+                noise.generatorSettings()
+                    .value().noiseRouter()
+                    .finalDensity().mapAll(
+                        PerlinNoiseFunction.createOrGetVisitor(level.getSeed())
+                    );
         }
     }
 

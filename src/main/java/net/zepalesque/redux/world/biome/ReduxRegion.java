@@ -1,6 +1,5 @@
 package net.zepalesque.redux.world.biome;
 
-
 import com.aetherteam.aether.data.resources.registries.AetherBiomes;
 import com.mojang.datafixers.util.Pair;
 import io.github.razordevs.aeroblender.aether.AetherRegionType;
@@ -21,22 +20,29 @@ public class ReduxRegion extends Region {
     }
 
     @Override
-    public void addBiomes(Registry<Biome> registry, Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper) {
-        Climate.Parameter fullRange = Climate.Parameter.span(-1.5F, 1.5F);
+    public void addBiomes(
+        Registry<Biome> registry,
+        Consumer<Pair<
+            Climate.ParameterPoint,
+            ResourceKey<Biome>
+        >> mapper) {
+        
+        var fullRange = Climate.Parameter.span(-1.5F, 1.5F);
 
 //        ResourceKey<Biome> frosted = ReduxConfig.COMMON.enable_snowy_biomes.get() ? ReduxBiomes.FROSTED_FORESTS : AetherBiomes.SKYROOT_FOREST;
 //        ResourceKey<Biome> glaical = ReduxConfig.COMMON.enable_snowy_biomes.get() ? ReduxBiomes.GLACIAL_TUNDRA : AetherBiomes.SKYROOT_FOREST;
 //        ResourceKey<Biome> cloudcaps = ReduxConfig.COMMON.enable_cloudcaps.get() ? ReduxBiomes.CLOUDCAPS : AetherBiomes.SKYROOT_GROVE;
-        ResourceKey<Biome> blight = /*ReduxConfig.COMMON.enable_the_blight.get() ?*/ ReduxBiomes.THE_BLIGHT /*: AetherBiomes.SKYROOT_WOODLAND*/;
+        var blight = /*ReduxConfig.COMMON.enable_the_blight.get() ?*/ ReduxBiomes.THE_BLIGHT /*: AetherBiomes.SKYROOT_WOODLAND*/;
 //        ResourceKey<Biome> highfields = ReduxConfig.COMMON.enable_skyfields.get() ? ReduxBiomes.SKYFIELDS : AetherBiomes.SKYROOT_MEADOW;
 //        ResourceKey<Biome> shrublands = ReduxConfig.COMMON.enable_skyroot_shrublands.get() ? ReduxBiomes.SKYROOT_SHRUBLANDS : AetherBiomes.SKYROOT_MEADOW;
-        ResourceKey<Biome> grove = /*ReduxConfig.COMMON.enable_gilded_biomes.get() ?*/ ReduxBiomes.GILDED_GROVES /*: AetherBiomes.SKYROOT_GROVE*/;
+        var grove = /*ReduxConfig.COMMON.enable_gilded_biomes.get() ?*/ ReduxBiomes.GILDED_GROVES /*: AetherBiomes.SKYROOT_GROVE*/;
 //        ResourceKey<Biome> grasslands = ReduxConfig.COMMON.enable_gilded_biomes.get() ? ReduxBiomes.GILDED_GRASSLANDS : AetherBiomes.SKYROOT_MEADOW;
-        Climate.Parameter temp1 = Climate.Parameter.span(-1.5F, -0.5F);
-        Climate.Parameter temp2 = Climate.Parameter.span(-0.5F, -0.2F);
-        Climate.Parameter temp3 = Climate.Parameter.span(-0.2F, 0.2F);
-        Climate.Parameter temp4 = Climate.Parameter.span(0.2F, 0.5F);
-        Climate.Parameter temp5 = Climate.Parameter.span(0.5F, 1.5F);
+      
+        var temp1 = Climate.Parameter.span(-1.5F, -0.5F);
+        var temp2 = Climate.Parameter.span(-0.5F, -0.2F);
+        var temp3 = Climate.Parameter.span(-0.2F, 0.2F);
+        var temp4 = Climate.Parameter.span(0.2F, 0.5F);
+        var temp5 = Climate.Parameter.span(0.5F, 1.5F);
 
 /*        addBiome(mapper, new Climate.ParameterPoint(temp1, Climate.Parameter.span(-1.0F, -0.3F), fullRange, fullRange, fullRange, fullRange, 0),
                 frosted);

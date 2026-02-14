@@ -27,15 +27,13 @@ public class AetherCaveCarver extends CaveWorldCarver {
     }
 
     private static BlockState aetherDebugState(CarverConfiguration config, BlockState state) {
-        
-        
-        if (state.is(Blocks.CAVE_AIR)) return config.debugSettings.getAirState();
+        if (state.is(Blocks.CAVE_AIR))
+            return config.debugSettings.getAirState();
         else if (state.is(Blocks.WATER)) {
-            BlockState blockstate = config.debugSettings.getWaterState();
-            return blockstate.hasProperty(BlockStateProperties.WATERLOGGED)
-                    ? blockstate.setValue(BlockStateProperties.WATERLOGGED, true)
-                    : blockstate;
+            var water = config.debugSettings.getWaterState();
+            return water.hasProperty(BlockStateProperties.WATERLOGGED)
+                ? water.setValue(BlockStateProperties.WATERLOGGED, true)
+                : water;
         } else return state;
-        
     }
 }

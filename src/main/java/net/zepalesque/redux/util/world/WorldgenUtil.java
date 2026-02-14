@@ -8,8 +8,12 @@ import net.minecraft.core.Vec3i;
 public class WorldgenUtil {
 
     // Offsets a MutableBlockPos in a direction, a certain amount of blocks
-    public static BlockPos.MutableBlockPos setWithOffset(BlockPos.MutableBlockPos mutable, Vec3i origin, Direction direction, int amount) {
-        return mutable.set(origin.getX() + direction.getStepX() * amount, origin.getY() + direction.getStepY() * amount, origin.getZ() + direction.getStepZ() * amount);
+    public static BlockPos.MutableBlockPos setWithOffset(
+        BlockPos.MutableBlockPos mut,
+        Vec3i pos,
+        Direction dir,
+        int amount) {
+        return mut.set(pos.getX() + dir.getStepX() * amount, pos.getY() + dir.getStepY() * amount, pos.getZ() + dir.getStepZ() * amount);
     }
 
 }

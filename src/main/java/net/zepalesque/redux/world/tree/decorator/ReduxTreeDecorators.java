@@ -7,8 +7,19 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.zepalesque.redux.Redux;
 
 public class ReduxTreeDecorators {
-    public static final DeferredRegister<TreeDecoratorType<?>> TREE_DECORATORS = DeferredRegister.create(BuiltInRegistries.TREE_DECORATOR_TYPE, Redux.MODID);
+    public static final DeferredRegister<TreeDecoratorType<?>>
+        TREE_DECORATORS = DeferredRegister.create(BuiltInRegistries.TREE_DECORATOR_TYPE, Redux.MODID);
 
-    public static final DeferredHolder<TreeDecoratorType<?>, TreeDecoratorType<GoldenVineDecorator>> GOLDEN_VINES = TREE_DECORATORS.register("golden_vines", () -> new TreeDecoratorType<>(GoldenVineDecorator.CODEC));
-    public static final DeferredHolder<TreeDecoratorType<?>, TreeDecoratorType<BranchLeavesDecorator>> BRANCH_LEAVES = TREE_DECORATORS.register("branch_leaves", () -> new TreeDecoratorType<>(BranchLeavesDecorator.CODEC));
+    public static final DeferredHolder<TreeDecoratorType<?>, TreeDecoratorType<GoldenVineDecorator>>
+        GOLDEN_VINES = TREE_DECORATORS.register(
+            "golden_vines",
+            () -> new TreeDecoratorType<>(
+                GoldenVineDecorator.CODEC
+            ));
+    public static final DeferredHolder<TreeDecoratorType<?>, TreeDecoratorType<BranchLeavesDecorator>>
+        BRANCH_LEAVES = TREE_DECORATORS.register(
+            "branch_leaves",
+            () -> new TreeDecoratorType<>(
+                BranchLeavesDecorator.CODEC
+            ));
 }

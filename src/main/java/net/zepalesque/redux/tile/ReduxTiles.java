@@ -7,5 +7,9 @@ import net.zepalesque.redux.Redux;
 
 public class ReduxTiles {
 
-    public static final DeferredRegister<BlockEntityType<?>> TILES = DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, Redux.MODID);
+    public static final DeferredRegister<BlockEntityType<?>>
+        TILES = DeferredRegister.create(
+            BuiltInRegistries.BLOCK_ENTITY_TYPE,
+            Redux.MODID
+    );
 }

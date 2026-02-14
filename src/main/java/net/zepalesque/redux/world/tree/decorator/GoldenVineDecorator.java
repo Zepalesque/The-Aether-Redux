@@ -6,7 +6,6 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
-import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
@@ -43,60 +42,57 @@ public class GoldenVineDecorator extends TreeDecorator {
     }
 
     // Avoid new table instantiation for every single tree, formatted as [X, Z, Y]
-    private static final Table<Integer, Integer, Integer> LOWEST_FOR_XZ = HashBasedTable.create();
+    private static final Table<Integer, Integer, Integer> LOWEST_BY_XZ = HashBasedTable.create();
 
     public void place(TreeDecorator.Context context) {
-        if (context.level() instanceof WorldGenLevel genLevel) {
+        if (context.level() instanceof WorldGenLevel level) {
             if (this.predicate.isPresent()) {
-                BlockPredicate bp = this.predicate.get();
+                var predicate = this.predicate.get();
                 List<BlockPos> logs = context.logs();
                 if (!logs.isEmpty()) {
-                    if (!bp.test(genLevel, logs.getFirst())) return;
+                    if (!predicate.test(level, logs.getFirst())) return;
                 }
             }
         } else Redux.LOGGER.warn("Failed BlockPredicate check as level was not an instance of WorldGenLevel!");
 
-        if (!LOWEST_FOR_XZ.isEmpty()) {
-            LOWEST_FOR_XZ.clear();
+        if (!LOWEST_BY_XZ.isEmpty()) {
+            LOWEST_BY_XZ.clear();
         }
 
         List<BlockPos> leavesClone = context.leaves().clone();
         Collections.reverse(leavesClone);
-        for (BlockPos leafPos : leavesClone) {
-            int x = leafPos.getX();
-            int y = leafPos.getY();
-            int z = leafPos.getZ();
+        for (var leafPos : leavesClone) {
+            var x = leafPos.getX();
+            var y = leafPos.getY();
+            var z = leafPos.getZ();
             try {
-                if (!LOWEST_FOR_XZ.contains(x, z)) LOWEST_FOR_XZ.put(x, z, y);
-                else if (y < LOWEST_FOR_XZ.get(x, z)) LOWEST_FOR_XZ.put(x, z, y);
+                if (!LOWEST_BY_XZ.contains(x, z)) LOWEST_BY_XZ.put(x, z, y);
+                else // noinspection DataFlowIssue
+                    if (y < LOWEST_BY_XZ.get(x, z)) LOWEST_BY_XZ.put(x, z, y);
             } catch (NullPointerException exception) {
                 Redux.LOGGER.error("Caught error when trying to add leaf to table!", exception);
             }
         }
-        RandomSource randomsource = context.random();
-        for (Table.Cell<Integer, Integer, Integer> leafPos : LOWEST_FOR_XZ.cellSet()) {
-            BlockPos pos = new BlockPos(leafPos.getRowKey(), leafPos.getValue(), leafPos.getColumnKey());
-            int length = this.length.sample(randomsource);
-            if (randomsource.nextFloat() < probability) {
-                BlockPos blockpos = pos.below();
-                if (context.isAir(blockpos)) {
-                    this.addVine(blockpos, context, length);
-                }
+        var rand = context.random();
+        for (var leafPos : LOWEST_BY_XZ.cellSet()) {
+            var pos = new BlockPos(leafPos.getRowKey(), leafPos.getValue(), leafPos.getColumnKey());
+            var length = this.length.sample(rand);
+            if (rand.nextFloat() < probability) {
+                var below = pos.below();
+                if (context.isAir(below)) this.addVine(below, context, length);
             }
         }
     }
 
-    private void addVine(BlockPos pPos, TreeDecorator.Context pContext, int length) {
-        for (int i = 1; i <= length; i++) {
-            BlockPos placement = pPos.offset(0, 1 - i, 0);
-            boolean notAirBelow = !pContext.isAir(placement.below());
-            boolean maxLength = i >= length;
+    private void addVine(BlockPos pos, TreeDecorator.Context ctx, int length) {
+        for (var i = 1; i <= length; i++) {
+            var offset = pos.offset(0, 1 - i, 0);
+            var notAirBelow = !ctx.isAir(offset.below());
+            var maxLength = i >= length;
             if (notAirBelow || maxLength) {
-                pContext.setBlock(placement, this.headBlock.getState(pContext.random(), pPos));
+                ctx.setBlock(offset, this.headBlock.getState(ctx.random(), pos));
                 break;
-            } else {
-                pContext.setBlock(placement, this.bodyBlock.getState(pContext.random(), pPos));
-            }
+            } else ctx.setBlock(offset, this.bodyBlock.getState(ctx.random(), pos));
         }
     }
 
