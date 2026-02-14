@@ -120,6 +120,8 @@ dependencies {
 }
 
 repositories {
+    var user = System.getenv("GITHUB_USERNAME");
+    var tok = System.getenv("GITHUB_TOKEN");
     maven { url 'https://maven.wispforest.io/releases' }
     maven { url 'https://maven.su5ed.dev/releases' }
     maven { url 'https://maven.fabricmc.net' }
@@ -131,11 +133,36 @@ repositories {
     maven { url = "https://www.cursemaven.com" }
     maven { url = 'https://maven.minecraftforge.net/' }
     maven { url = 'https://maven.parchmentmc.org' }
-    maven githubPackage.invoke("The-Aether-Team/The-Aether")
-    maven githubPackage.invoke("The-Aether-Team/Nitrogen")
-    maven githubPackage.invoke("The-Aether-Team/Cumulus")
-    maven githubPackage.invoke("Zepalesque/Zenith")
-    maven githubPackage.invoke("Zepalesque/The-Aether-Unity")
+    maven { url = uri("https://maven.pkg.github.com/The-Aether-Team/The-Aether")
+        credentials {
+            username = user
+            password = tok
+        }
+    }
+    maven { url = uri("https://maven.pkg.github.com/The-Aether-Team/Nitrogen")
+        credentials {
+            username = user
+            password = tok
+        }
+    }
+    maven { url = uri("https://maven.pkg.github.com/The-Aether-Team/Cumulus")
+        credentials {
+            username = user
+            password = tok
+        }
+    }
+    maven { url = uri("https://maven.pkg.github.com/Zepalesque/Zenith")
+        credentials {
+            username = user
+            password = tok
+        }
+    }
+    maven { url = uri("https://maven.pkg.github.com/Zepalesque/The-Aether-Unity")
+        credentials {
+            username = user
+            password = tok
+        }
+    }
     flatDir { dir 'libs' }
 }
 
