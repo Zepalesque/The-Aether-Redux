@@ -8,7 +8,7 @@ import net.zepalesque.redux.Redux;
 
 public class ReduxFeatures {
     public static final DeferredRegister<Feature<?>>
-        FEATURES = DeferredRegister.create(BuiltInRegistries.FEATURE, Redux.MODID);
+        FEATURES = Redux.reg(BuiltInRegistries.FEATURE);
 
     public static DeferredHolder<Feature<?>, Feature<CloudbedFeature.Config>>
         CLOUDBED = FEATURES.register(

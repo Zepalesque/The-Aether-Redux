@@ -24,7 +24,8 @@ public class ReduxParticles {
     private static final Vector3f SHINY_CLOUD_COLOR = Vec3.fromRGB24(16777215).toVector3f();
     public static final DustParticleOptions SHINY_CLOUD = new DustParticleOptions(SHINY_CLOUD_COLOR, 1.0F);
 
-    public static final DeferredRegister<ParticleType<?>> PARTICLES = DeferredRegister.create(BuiltInRegistries.PARTICLE_TYPE, Redux.MODID);
+    public static final DeferredRegister<ParticleType<?>>
+        PARTICLES = Redux.reg(BuiltInRegistries.PARTICLE_TYPE);
 
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType>
             GILDENROOT_LEAF = PARTICLES.register("gildenroot_leaf", () -> new SimpleParticleType(false)),

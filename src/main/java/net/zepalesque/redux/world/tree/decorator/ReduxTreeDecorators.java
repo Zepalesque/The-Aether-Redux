@@ -8,7 +8,7 @@ import net.zepalesque.redux.Redux;
 
 public class ReduxTreeDecorators {
     public static final DeferredRegister<TreeDecoratorType<?>>
-        TREE_DECORATORS = DeferredRegister.create(BuiltInRegistries.TREE_DECORATOR_TYPE, Redux.MODID);
+        TREE_DECORATORS = Redux.reg(BuiltInRegistries.TREE_DECORATOR_TYPE);
 
     public static final DeferredHolder<TreeDecoratorType<?>, TreeDecoratorType<GoldenVineDecorator>>
         GOLDEN_VINES = TREE_DECORATORS.register(

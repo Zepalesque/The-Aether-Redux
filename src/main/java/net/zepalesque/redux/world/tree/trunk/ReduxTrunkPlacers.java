@@ -8,7 +8,7 @@ import net.zepalesque.redux.Redux;
 
 public class ReduxTrunkPlacers {
     public static final DeferredRegister<TrunkPlacerType<?>>
-        TRUNK_PLACERS = DeferredRegister.create(BuiltInRegistries.TRUNK_PLACER_TYPE, Redux.MODID);
+            TRUNK_PLACERS = Redux.reg(BuiltInRegistries.TRUNK_PLACER_TYPE);
 
     public static final DeferredHolder<TrunkPlacerType<?>, TrunkPlacerType<BlightwillowTrunkPlacer>>
         BLIGHTWILLOW_TRUNK = TRUNK_PLACERS.register(

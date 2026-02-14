@@ -26,7 +26,7 @@ import net.zepalesque.unity.data.prov.UnityBlockStateProvider;
 import net.zepalesque.unity.data.resource.builders.UnityFeatureBuilders;
 import net.zepalesque.zenith.api.world.density.PerlinNoiseFunction;
 
-@EventBusSubscriber(modid = Redux.MODID, bus = EventBusSubscriber.Bus.GAME)
+@EventBusSubscriber(modid = Redux.MODID)
 public class ReduxSurfaceRules {
 
     @SubscribeEvent

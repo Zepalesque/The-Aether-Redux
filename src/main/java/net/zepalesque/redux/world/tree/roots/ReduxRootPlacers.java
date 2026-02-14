@@ -11,7 +11,7 @@ import net.zepalesque.redux.world.tree.trunk.BlightwillowTrunkPlacer;
 
 public class ReduxRootPlacers {
     public static final DeferredRegister<RootPlacerType<?>>
-        ROOT_PLACERS = DeferredRegister.create(BuiltInRegistries.ROOT_PLACER_TYPE, Redux.MODID);
+        ROOT_PLACERS = Redux.reg(BuiltInRegistries.ROOT_PLACER_TYPE);
 
     public static final DeferredHolder<RootPlacerType<?>, RootPlacerType<BlightwillowRootsPlacer>>
         BLIGHTWILLOW_ROOTS = ROOT_PLACERS.register(

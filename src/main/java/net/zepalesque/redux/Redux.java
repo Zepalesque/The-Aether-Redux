@@ -3,6 +3,8 @@ package net.zepalesque.redux;
 import com.google.common.reflect.Reflection;
 import com.mojang.logging.LogUtils;
 import io.github.razordevs.aeroblender.aether.AetherRuleCategory;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.neoforged.api.distmarker.Dist;
@@ -188,5 +190,15 @@ public class Redux {
 
     public static ResourceLocation loc(String path) {
         return ResourceLocation.fromNamespaceAndPath(MODID, path);
+    }
+    
+    // courtesy of juni(deergirl) :3
+    //  tis peak, like her,,
+    public static <T> DeferredRegister<T> reg(Registry<T> type) {
+        return DeferredRegister.create(type, MODID);
+    }
+    
+    public static <T> DeferredRegister<T> reg(ResourceKey<? extends Registry<T>> type) {
+        return DeferredRegister.create(type, MODID);
     }
 }
