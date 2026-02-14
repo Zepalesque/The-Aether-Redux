@@ -134,34 +134,20 @@ repositories {
     maven { url = 'https://maven.minecraftforge.net/' }
     maven { url = 'https://maven.parchmentmc.org' }
     maven { url = uri("https://maven.pkg.github.com/The-Aether-Team/The-Aether")
-        credentials {
-            username = user
-            password = tok
-        }
+        credentials { username = user; password = tok }
     }
     maven { url = uri("https://maven.pkg.github.com/The-Aether-Team/Nitrogen")
-        credentials {
-            username = user
-            password = tok
-        }
+        credentials { username = user; password = tok }
     }
     maven { url = uri("https://maven.pkg.github.com/The-Aether-Team/Cumulus")
-        credentials {
-            username = user
-            password = tok
-        }
+        credentials { username = user; password = tok }
     }
     maven { url = uri("https://maven.pkg.github.com/Zepalesque/Zenith")
-        credentials {
-            username = user
-            password = tok
-        }
+        credentials { username = user; password = tok }
+
     }
     maven { url = uri("https://maven.pkg.github.com/Zepalesque/The-Aether-Unity")
-        credentials {
-            username = user
-            password = tok
-        }
+        credentials { username = user; password = tok }
     }
     flatDir { dir 'libs' }
 }
