@@ -139,11 +139,10 @@ repositories {
             "The-Aether-Team/Cumulus",
             "Zepalesque/Zenith",
             "The-Aether-Unity"
-    ]) {
-        maven { url = uri("https://maven.pkg.github.com/${txt}")
-            credentials { username = user; password = tok }
-        }
+    ]) maven { url = uri("https://maven.pkg.github.com/${txt}")
+        credentials { username = user; password = tok }
     }
+
     flatDir { dir 'libs' }
 }
 
