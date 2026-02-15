@@ -74,11 +74,20 @@ public class ReduxCrystalIslandFeature extends Feature<NoneFeatureConfiguration>
 	private void setIslandBlock(WorldGenLevel level, BlockPos pos, BlockState testState) {
 		// If the processor is running outside the center chunk, return immediately.
 		if (level instanceof WorldGenRegion region && BlockLogicUtil.isOutOfBounds(pos, region.getCenter())) return;
-
 		// If the block is a log, return immediately.
 		if (level.getBlockState(pos).is(BlockTags.LOGS)) return;
 
-		var newState = testState;
+		this.setBlock(level, pos, chooseState(level, pos, testState));
+	}
+
+	private BlockState chooseState(WorldGenLevel level, BlockPos pos, BlockState testState) {
+		if (
+			testState.is(AetherTags.Blocks.AETHER_DIRT)
+			&& level.getBlockState(pos.above()).isSolidRender(level, pos)
+		) {
+			return AetherFeatureStates.AETHER_DIRT;
+		}
+
 		if (
 			level.getChunkSource() instanceof ServerChunkCache serverChunkCache 
 			&& serverChunkCache.getGenerator() instanceof NoiseBasedChunkGenerator generator
@@ -105,18 +114,17 @@ public class ReduxCrystalIslandFeature extends Feature<NoneFeatureConfiguration>
 					false
 				);
 				
-				if (state.isEmpty()) return;
-
 				if (
-					testState.is(AetherTags.Blocks.AETHER_DIRT)
-					&& !testState.is(AetherBlocks.AETHER_DIRT.get())
+					state.isPresent()
 					&& state.get().is(AetherTags.Blocks.AETHER_DIRT)
+					&& testState.is(AetherTags.Blocks.AETHER_DIRT)
+					&& !testState.is(AetherBlocks.AETHER_DIRT.get())
 				) {
-					newState = state.get();
+					return state.get();
 				}
 			}
 		}
 
-		this.setBlock(level, pos, newState);
+		return testState;
 	}
 }
