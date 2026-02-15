@@ -4,9 +4,7 @@ import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.resources.AetherFeatureStates;
 import com.aetherteam.aether.data.resources.registries.AetherConfiguredFeatures;
-import com.aetherteam.aether.world.foliageplacer.CrystalFoliagePlacer;
 import com.aetherteam.aether.world.foliageplacer.GoldenOakFoliagePlacer;
-import com.aetherteam.aether.world.trunkplacer.CrystalTreeTrunkPlacer;
 import com.aetherteam.nitrogen.world.foliageplacer.HookedFoliagePlacer;
 import com.aetherteam.nitrogen.world.trunkplacer.HookedTrunkPlacer;
 import net.minecraft.core.Holder;
@@ -53,6 +51,7 @@ import net.zepalesque.redux.world.feature.gen.CloudbedFeature;
 import net.zepalesque.redux.world.feature.gen.ReduxFeatures;
 import net.zepalesque.redux.world.tree.decorator.GoldenVineDecorator;
 import net.zepalesque.redux.world.tree.foliage.BlightwillowFoliagePlacer;
+import net.zepalesque.redux.world.tree.foliage.CrystalFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.SkyrootFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.SmallGoldenOakFoliagePlacer;
 import net.zepalesque.redux.world.tree.roots.BlightwillowRootsPlacer;
@@ -299,9 +298,9 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
         FeatureUtils.register(context, CRYSTAL_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
                         prov(ReduxWoodSets.CRYSTAL.log()),
-                        new CrystalTreeTrunkPlacer(7, 0, 0),
+                        new StraightTrunkPlacer(7, 0, 0),
                         new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(AetherFeatureStates.CRYSTAL_LEAVES, 4).add(AetherFeatureStates.CRYSTAL_FRUIT_LEAVES, 1).build()),
-                        new CrystalFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0), ConstantInt.of(6)),
+                        new CrystalFoliagePlacer(ConstantInt.of(4), ConstantInt.of(0)),
                         new TwoLayersFeatureSize(1, 0, 1)).ignoreVines().build());
 
         FeatureUtils.register(context, SKYROOT_TREE, Feature.TREE,
