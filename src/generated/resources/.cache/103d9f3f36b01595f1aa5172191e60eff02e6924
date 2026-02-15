@@ -1,5 +1,6 @@
-// 1.21.1	2025-02-16T12:39:56.8484396	Registries
-1bf1e96a91388f7bf47c90dab07b1152d3861b11 data/aether/worldgen/configured_feature/crystal_tree.json
+// 1.21.1	2026-02-15T13:06:13.950083191	Registries
+43a88714c5b2d33c82c98ef495770e508a788c7f data/aether/worldgen/configured_feature/crystal_island.json
+b77ff25dce45f2264878dac63b91baba47c33c7f data/aether/worldgen/configured_feature/crystal_tree.json
 36359e7f855c63655f66afb67ad5e5bffb49b9ad data/aether/worldgen/configured_feature/golden_oak_tree.json
 a7117e770b89182c36081d0777c6f3aeac60b4e1 data/aether/worldgen/configured_feature/single_gold_dungeon_flower.json
 47ec4dab1e49d10c7a9d88096f1d8297e837b2e8 data/aether/worldgen/configured_feature/skyroot_tree.json
