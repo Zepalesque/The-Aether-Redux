@@ -40,6 +40,7 @@ public class SkyrootFoliagePlacer extends FoliagePlacer {
 		placeLeavesRow(level, setter, rand, config, origin, radius, -1, false);
 		placeLeavesRow(level, setter, rand, config, origin, radius, -2, false);
 		placeLeavesRow(level, setter, rand, config, origin, radius, -3, false);
+		placeLeavesRow(level, setter, rand, config, origin, radius - 1, -4, false);
 	}
 
 	@Override
@@ -50,22 +51,24 @@ public class SkyrootFoliagePlacer extends FoliagePlacer {
 	@Override
 	protected boolean shouldSkipLocation(
 		RandomSource rand,
-		int x, int y, int z,
+		int x,
+		int y,
+		int z,
 		int radius,
 		boolean large
 	) {
 		return switch (y) {
-			// If the y offset is 0, only skip the location if it is on the corners, but do so 75% of the time
-			case 0 -> x + z >= radius * 2 && rand.nextFloat() < 0.75F;
-			// If the y offset is -1, skip the corners always, and skip stuff outside a diamond shape 75% of the time
+			// Only skip the location if it is on the corners, but do so 75% of the time
+			case 0, -4 -> x + z >= radius * 2 && rand.nextFloat() < 0.75F;
+			// Skip the corners always, and skip stuff outside a diamond shape 75% of the time
 			case -1 -> {
 				var diamond = x + z <= radius;
 				var corners = x + z <= radius + 1;
 				yield !corners || (!diamond && rand.nextFloat() < 0.75F);
 			}
-			// If the y offset is -2, skip the location if it is on the corners and an unlikely boolean check succeeds
+			// Skip the location if it is on the corners and an unlikely boolean check succeeds
 			case -2 -> x + z >= radius * 2 && rand.nextFloat() < 0.25F;
-			// If the y offset is -3, skip the location if it is on the corners and a boolean check succeeds
+			// Skip the location if it is on the corners and a boolean check succeeds
 			default -> x + z >= radius * 2 && rand.nextBoolean();
 		};
 	}
