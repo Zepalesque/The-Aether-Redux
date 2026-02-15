@@ -77,7 +77,13 @@ public class ReduxCrystalIslandFeature extends Feature<NoneFeatureConfiguration>
 		// If the block is a log, return immediately.
 		if (level.getBlockState(pos).is(BlockTags.LOGS)) return;
 
-		this.setBlock(level, pos, chooseState(level, pos, testState));
+		var state = chooseState(level, pos, testState);
+		this.setBlock(level, pos, state);
+
+		// Ensure island doesn't leave grass beneath it
+		if (state.is(AetherBlocks.HOLYSTONE) && level.getBlockState(pos.below()).is(AetherTags.Blocks.AETHER_DIRT)) {
+			level.setBlock(pos.below(), AetherFeatureStates.HOLYSTONE, 3);
+		}
 	}
 
 	private BlockState chooseState(WorldGenLevel level, BlockPos pos, BlockState testState) {
