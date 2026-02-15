@@ -25,6 +25,7 @@ import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
@@ -110,11 +111,11 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTWILLOW_TREE = createKey("blightwillow");
 
-
     // Overrides
-    public static final ResourceKey<ConfiguredFeature<?, ?>> CRYSTAL_TREE = AetherConfiguredFeatures.CRYSTAL_TREE_CONFIGURATION;
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYROOT_TREE = AetherConfiguredFeatures.SKYROOT_TREE_CONFIGURATION;
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_OAK_TREE = AetherConfiguredFeatures.GOLDEN_OAK_TREE_CONFIGURATION;
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CRYSTAL_TREE = AetherConfiguredFeatures.CRYSTAL_TREE_CONFIGURATION;
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CRYSTAL_ISLAND = AetherConfiguredFeatures.CRYSTAL_ISLAND_CONFIGURATION;
 
     // rip bootstap :pensive:
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
@@ -132,6 +133,8 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
                         10,
                         ReduxDensityBuilders.get(functions, ReduxDensityFunctions.CLOUDBED_Y_OFFSET),
                         10));
+
+        FeatureUtils.register(context, CRYSTAL_ISLAND, ReduxFeatures.CRYSTAL_ISLAND.get(), NoneFeatureConfiguration.INSTANCE);
 
         FeatureUtils.register(context, SMALL_GILDENROOT_TREE, Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
