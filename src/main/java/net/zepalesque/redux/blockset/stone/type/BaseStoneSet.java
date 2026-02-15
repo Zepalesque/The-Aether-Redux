@@ -42,11 +42,14 @@ import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
 import net.zepalesque.zenith.util.data.DatagenUtil;
 import net.zepalesque.zenith.util.item.TabUtil;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
+
+import static net.zepalesque.redux.data.prov.ReduxRecipeProvider.*;
 
 public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGeneration<BaseStoneSet> {
 
@@ -102,15 +105,19 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
 
     @Override
     protected DeferredBlock<? extends AetherDoubleDropBlock> block(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType, float breakTime, float blastResistance) {
-        var block = registry.register(this.baseName(true), () -> new AetherDoubleDropBlock(
+        var block = registry.register(
+            this.baseName(true),
+            () -> new AetherDoubleDropBlock(
                 BlockBehaviour.Properties.of()
-                        .strength(breakTime, blastResistance)
-                        .mapColor(color)
-                        .sound(soundType)
-                        .requiresCorrectToolForDrops()
-                        .instrument(this.instrument)
+                    .strength(breakTime, blastResistance)
+                    .mapColor(color)
+                    .sound(soundType)
+                    .requiresCorrectToolForDrops()
+                    .instrument(this.instrument)
         ));
-        items.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
+        items.register(
+            block.getId().getPath(),
+            () -> new BlockItem(block.get(), new Item.Properties()));
         return block;
     }
 
@@ -121,15 +128,20 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
 
     @Override
     protected DeferredBlock<? extends StairBlock> stairs(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType, float breakTime, float blastResistance) {
-        var block = registry.register(this.baseName(false) + "_stairs", () -> new StairBlock(this.block().get().defaultBlockState(),
+        var block = registry.register(
+            this.baseName(false) + "_stairs",
+            () -> new StairBlock(this.block().get().defaultBlockState(),
                 BlockBehaviour.Properties.of()
-                        .strength(breakTime, blastResistance)
-                        .mapColor(color)
-                        .sound(soundType)
-                        .requiresCorrectToolForDrops()
-                        .instrument(this.instrument)
+                    .strength(breakTime, blastResistance)
+                    .mapColor(color)
+                    .sound(soundType)
+                    .requiresCorrectToolForDrops()
+                    .instrument(this.instrument)
         ));
-        items.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
+        items.register(
+            block.getId().getPath(),
+            () -> new BlockItem(block.get(), new Item.Properties())
+        );
         return block;
     }
 
@@ -140,36 +152,44 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
 
     @Override
     protected DeferredBlock<? extends SlabBlock> slab(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType, float breakTime, float blastResistance) {
-        var block = registry.register(this.baseName(false) + "_slab", () -> new SlabBlock(
-                BlockBehaviour.Properties.of()
-                        // Unchanged as vanilla appears to no longer have higher break times for slabs
-                        .strength(breakTime, blastResistance)
-                        .mapColor(color)
-                        .sound(soundType)
-                        .requiresCorrectToolForDrops()
-                        .instrument(this.instrument)
+        var block = registry.register(
+            this.baseName(false) + "_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.of()
+                // Unchanged as vanilla appears to no longer have higher break times for slabs
+                .strength(breakTime, blastResistance)
+                .mapColor(color)
+                .sound(soundType)
+                .requiresCorrectToolForDrops()
+                .instrument(this.instrument)
         ));
-        items.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
+        items.register(
+            block.getId().getPath(),
+            () -> new BlockItem(block.get(), new Item.Properties())
+        );
         return block;
     }
-
 
     @Override
     public DeferredBlock<? extends SlabBlock> slab() {
         return this.slab;
     }
-
+    
     @Override
     protected DeferredBlock<? extends WallBlock> wall(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType, float breakTime, float blastResistance) {
-        var block = registry.register(this.baseName(false) + "_wall", () -> new WallBlock(
-                BlockBehaviour.Properties.of()
-                        .strength(breakTime, blastResistance)
-                        .mapColor(color)
-                        .sound(soundType)
-                        .requiresCorrectToolForDrops()
-                        .instrument(this.instrument)
+        var block = registry.register(
+            this.baseName(false) + "_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.of()
+                .strength(breakTime, blastResistance)
+                .mapColor(color)
+                .sound(soundType)
+                .requiresCorrectToolForDrops()
+                .instrument(this.instrument)
         ));
-        items.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
+        items.register(
+            block.getId().getPath(),
+            () -> new BlockItem(block.get(),
+                new Item.Properties())
+        );
         return block;
     }
 
@@ -247,19 +267,30 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
     }
 
     @Override
-    public BaseStoneSet tabAfter(Supplier<CreativeModeTab> tab, ItemLike placeAfter, boolean allBlocks, TabAdditionPhase phase) {
+    public BaseStoneSet tabAfter(
+        Supplier<CreativeModeTab> tab,
+        ItemLike placeAfter,
+        boolean allBlocks,
+        TabAdditionPhase phase) {
         this.afterOrdering.put(tab, placeAfter, Pair.of(allBlocks, phase));
         return this;
     }
 
     @Override
-    public BaseStoneSet tabBefore(Supplier<CreativeModeTab> tab, ItemLike placeBefore, boolean allBlocks, TabAdditionPhase phase) {
+    public BaseStoneSet tabBefore(
+        Supplier<CreativeModeTab> tab,
+        ItemLike placeBefore,
+        boolean allBlocks,
+        TabAdditionPhase phase) {
         this.beforeOrdering.put(tab, placeBefore, Pair.of(allBlocks, phase));
         return this;
     }
 
     @Override
-    public BaseStoneSet tabAppend(Supplier<CreativeModeTab> tab, boolean allBlocks, TabAdditionPhase phase) {
+    public BaseStoneSet tabAppend(
+        Supplier<CreativeModeTab> tab,
+        boolean allBlocks,
+        TabAdditionPhase phase) {
         this.appended.put(tab, phase, allBlocks);
         return this;
     }
@@ -293,11 +324,14 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
         data.addBlock(this.block());
         if (this.lore != null) data.addLore(this.block(), this.lore);
         data.addBlock(this.stairs());
-        data.addLore(this.stairs(), "Crafted from " + blockName + ". Stairs are useful for adding verticality to builds and are often used for decoration too!");
+        data.addLore(this.stairs(),
+            "Crafted from " + blockName + ". Stairs are useful for adding verticality to builds and are often used for decoration too!");
         data.addBlock(this.slab());
-        data.addLore(this.slab(), "Crafted from " + blockName + ". Slabs are half blocks, versatile for decoration and smooth slopes. Try adding some to a building's roofing!");
+        data.addLore(this.slab(),
+            "Crafted from " + blockName + ". Slabs are half blocks, versatile for decoration and smooth slopes. Try adding some to a building's roofing!");
         data.addBlock(this.wall());
-        data.addLore(this.wall(), "Crafted from " + blockName + ". Walls can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
+        data.addLore(this.wall(),
+            "Crafted from " + blockName + ". Walls can be used for decorative enclosures and defences. Great for keeping nasty intruders away!");
     }
 
     @Override
@@ -305,80 +339,198 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
 
 
         data.stairs(this.stairs(), this.block()).save(consumer);
-        ReduxRecipeProvider.slab(consumer, RecipeCategory.BUILDING_BLOCKS, this.slab().get(), this.block().get());
-        ReduxRecipeProvider.wall(consumer, RecipeCategory.BUILDING_BLOCKS, this.wall().get(), this.block().get());
-
-        this.crafted_sets.forEach((matrix, set) ->
-            matrix.apply(ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, set.get().block().get(), matrix.count()), this.block().get())
-                    .unlockedBy(ReduxRecipeProvider.getHasName(set.get().block().get()), ReduxRecipeProvider.has(set.get().block().get())).save(consumer,
-                            data.name(ReduxRecipeProvider.getConversionRecipeName(set.get().block().get(), this.block().get()))
-                    )
+        ReduxRecipeProvider.slab(consumer,
+            RecipeCategory.BUILDING_BLOCKS,
+            this.slab().get(),
+            this.block().get()
+        );
+        ReduxRecipeProvider.wall(consumer,
+            RecipeCategory.BUILDING_BLOCKS,
+            this.wall().get(),
+            this.block().get()
         );
 
-        this.crafted_blocks.forEach((matrix, block) ->
-            matrix.apply(ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, block, matrix.count()), this.block().get())
-                    .unlockedBy(ReduxRecipeProvider.getHasName(this.block().get()), ReduxRecipeProvider.has(this.block().get())).save(consumer,
-                            data.name(ReduxRecipeProvider.getConversionRecipeName(block, this.block().get()))
-                    )
-        );
+        this.crafted_sets.forEach(
+            (matrix, set) -> matrix.apply(
+                ShapedRecipeBuilder.shaped(
+                    RecipeCategory.BUILDING_BLOCKS,
+                    set.get().block().get(),
+                    matrix.count()),
+                this.block().get()
+            ).unlockedBy(
+                getHasName(set.get().block().get()),
+                has(set.get().block().get())
+            ).save(
+                consumer,
+                data.name(getConversionRecipeName(
+                    set.get().block().get(),
+                    this.block().get())
+                )));
 
-        this.stonecut_blocks.forEach((block, count) ->
-                data.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, block, this.block().get(), count)
+        this.crafted_blocks.forEach(
+            (matrix, block) -> matrix.apply(
+                ShapedRecipeBuilder.shaped(
+                    RecipeCategory.BUILDING_BLOCKS,
+                    block, matrix.count()),
+                this.block().get()
+            ).unlockedBy(
+                getHasName(this.block().get()),
+                has(this.block().get())
+            ).save(
+                consumer,
+                data.name(getConversionRecipeName(
+                    block,
+                    this.block().get())
+                )));
+
+        this.stonecut_blocks.forEach(
+            (block, count) -> data.stonecuttingRecipe(
+                consumer,
+                RecipeCategory.BUILDING_BLOCKS,
+                block,
+                this.block().get(),
+                count)
         );
 
         this.stonecut_sets.forEach(set -> {
-                    data.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, set.get().block().get(), this.block().get());
-                    data.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, set.get().stairs().get(), this.block().get());
-                    data.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, set.get().slab().get(), this.block().get(), 2);
-                    data.stonecuttingRecipe(consumer, RecipeCategory.BUILDING_BLOCKS, set.get().wall().get(), this.block().get());
-                }
-        );
+            data.stonecuttingRecipe(
+                consumer,
+                RecipeCategory.BUILDING_BLOCKS,
+                set.get().block().get(),
+                this.block().get()
+            );
+            data.stonecuttingRecipe(
+                consumer,
+                RecipeCategory.BUILDING_BLOCKS,
+                set.get().stairs().get(),
+                this.block().get()
+            );
+            data.stonecuttingRecipe(
+                consumer,
+                RecipeCategory.BUILDING_BLOCKS,
+                set.get().slab().get(),
+                this.block().get(),
+                2
+            );
+            data.stonecuttingRecipe(
+                consumer,
+                RecipeCategory.BUILDING_BLOCKS,
+                set.get().wall().get(),
+                this.block().get()
+            );
+        });
 
-        this.smelted_blocks.forEach((block, xp) ->
-            data.smeltingOreRecipe(block, this.block().get(), xp).save(consumer, data.name(ReduxRecipeProvider.getConversionRecipeName(block, this.block().get()) + "_smelting"))
-        );
+        this.smelted_blocks.forEach(
+            (block, xp) -> data.smeltingOreRecipe(
+                block,
+                this.block().get(),
+                xp
+            ).save(
+                consumer,
+                data.name(getConversionRecipeName(
+                    block,
+                    this.block().get()) + "_smelting"
+                )));
 
-        this.smelted_sets.forEach((set, xp) ->
-                data.smeltingOreRecipe(set.get().block().get(), this.block().get(), xp).save(consumer, data.name(ReduxRecipeProvider.getConversionRecipeName(set.get().block().get(), this.block().get()) + "_smelting"))
-        );
+        this.smelted_sets.forEach(
+            (set, xp) -> data.smeltingOreRecipe(
+                set.get().block().get(),
+                this.block().get(), xp
+            ).save(
+                consumer,
+                data.name(getConversionRecipeName(
+                    set.get().block().get(),
+                    this.block().get()) + "_smelting"
+                )));
 
-        this.blasted_blocks.forEach((block, xp) ->
-            data.blastingOreRecipe(block, this.block().get(), xp).save(consumer, data.name(ReduxRecipeProvider.getConversionRecipeName(block, this.block().get()) + "_blasting"))
-        );
+        this.blasted_blocks.forEach(
+            (block, xp) -> data.blastingOreRecipe(
+                block,
+                this.block().get(), xp
+            ).save(
+                consumer,
+                data.name(getConversionRecipeName(
+                    block,
+                    this.block().get()) + "_blasting"
+                )));
 
-        this.blasted_sets.forEach((set, xp) ->
-                data.blastingOreRecipe(set.get().block().get(), this.block().get(), xp).save(consumer, data.name(ReduxRecipeProvider.getConversionRecipeName(set.get().block().get(), this.block().get()) + "_blasting"))
-        );
+        this.blasted_sets.forEach(
+            (set, xp) -> data.blastingOreRecipe(
+                set.get().block().get(),
+                this.block().get(),
+                xp
+            ).save(
+                consumer,
+                data.name(getConversionRecipeName(
+                    set.get().block().get(),
+                    this.block().get()) + "_blasting"
+                )));
 
-        this.enchanted_blocks.forEach((block, xpAndTime) ->
-            data.enchantingRecipe(RecipeCategory.MISC, block, this.block().get(), xpAndTime.getFirst(), xpAndTime.getSecond()).save(consumer, data.name(ReduxRecipeProvider.getConversionRecipeName(block, this.block().get()) + "_enchanting"))
-        );
+        this.enchanted_blocks.forEach(
+            (block, xpAndTime) -> data.enchantingRecipe(
+                RecipeCategory.MISC,
+                block,
+                this.block().get(),
+                xpAndTime.getFirst(),
+                xpAndTime.getSecond()
+            ).save(
+                consumer,
+                data.name(getConversionRecipeName(
+                    block,
+                    this.block().get()) + "_enchanting"
+                )));
 
-        this.enchanted_sets.forEach((set, xpAndTime) ->
-                data.enchantingRecipe(RecipeCategory.MISC, set.get().block().get(), this.block().get(), xpAndTime.getFirst(), xpAndTime.getSecond()).save(consumer, data.name(ReduxRecipeProvider.getConversionRecipeName(set.get().block().get(), this.block().get()) + "_enchanting"))
-        );
-
-
+        this.enchanted_sets.forEach(
+            (set, xpAndTime) -> data.enchantingRecipe(
+                RecipeCategory.MISC,
+                set.get().block().get(),
+                this.block().get(),
+                xpAndTime.getFirst(),
+                xpAndTime.getSecond()
+            ).save(
+                consumer,
+                data.name(getConversionRecipeName(
+                    set.get().block().get(),
+                    this.block().get()) + "_enchanting"
+                )));
     }
 
     @Override
     public void blockTagData(ReduxBlockTagsProvider data) {
-        this.tags.forEach((tag, allBlocks) -> {
-            if (allBlocks)
-                data.tag(tag).add(this.block().get(), this.stairs().get(), this.slab().get(), this.wall().get());
-            else data.tag(tag).add(this.block().get());
+        this.tags.forEach(
+            (tag, allBlocks) -> {
+                if (allBlocks) data.tag(tag)
+                    .add(
+                        this.block().get(),
+                        this.stairs().get(),
+                        this.slab().get(),
+                        this.wall().get()
+                    );
+                else data.tag(tag)
+                    .add(
+                        this.block().get()
+                    );
         });
-        data.tag(BlockTags.STAIRS).add(this.stairs().get());
-        data.tag(BlockTags.SLABS).add(this.slab().get());
-        data.tag(BlockTags.WALLS).add(this.wall().get());
+        data.tag(BlockTags.STAIRS)
+            .add(this.stairs().get());
+        data.tag(BlockTags.SLABS)
+            .add(this.slab().get());
+        data.tag(BlockTags.WALLS)
+            .add(this.wall().get());
     }
 
     @Override
     public void itemTagData(ReduxItemTagsProvider data) {
-        this.itemTags.forEach((tag, allBlocks) -> {
-            if (allBlocks)
-                data.tag(tag).add(this.block().get().asItem(), this.stairs().get().asItem(), this.slab().get().asItem(), this.wall().get().asItem());
-            else data.tag(tag).add(this.block().get().asItem());
+        this.itemTags.forEach(
+            (tag, allBlocks) -> {
+                if (allBlocks) data.tag(tag)
+                    .add(
+                        this.block().get().asItem(),
+                        this.stairs().get().asItem(),
+                        this.slab().get().asItem(),
+                        this.wall().get().asItem());
+                else data.tag(tag)
+                    .add(this.block().get().asItem());
         });
     }
 
@@ -407,34 +559,47 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
 
     // Ignore the prev value, implementation is different here
     @Override
-    public ItemLike addToCreativeTab(BuildCreativeModeTabContentsEvent event, ItemLike prev, TabAdditionPhase phase) {
-        for (Table.Cell<Supplier<CreativeModeTab>, ItemLike, Pair<Boolean, TabAdditionPhase>> triple : this.afterOrdering.cellSet()) {
-            Supplier<CreativeModeTab> tabToAddTo = triple.getRowKey();
+    @Nullable
+    public ItemLike addToCreativeTab(BuildCreativeModeTabContentsEvent event, @Nullable ItemLike prev, TabAdditionPhase phase) {
+        for (var triple : this.afterOrdering.cellSet()) {
+            var tabToAddTo = triple.getRowKey();
             if (TabUtil.isForTab(event, tabToAddTo)) {
-                ItemLike addAfter = triple.getColumnKey();
-                Pair<Boolean, TabAdditionPhase> pair = triple.getValue();
+                var addAfter = triple.getColumnKey();
+                var pair = triple.getValue();
                 if (pair.getSecond() == phase) {
                     TabUtil.putAfter(event, addAfter, this.block());
-                    if (pair.getFirst()) TabUtil.putAfter(event, this.block(), this.stairs(), this.slab(), this.wall());
+                    if (pair.getFirst()) TabUtil.putAfter(
+                        event,
+                        this.block(),
+                        this.stairs(),
+                        this.slab(),
+                        this.wall()
+                    );
                 }
             }
         }
-        for (Table.Cell<Supplier<CreativeModeTab>, ItemLike, Pair<Boolean, TabAdditionPhase>> triple : this.beforeOrdering.cellSet()) {
-            Supplier<CreativeModeTab> tabToAddTo = triple.getRowKey();
+        for (var triple : this.beforeOrdering.cellSet()) {
+            var tabToAddTo = triple.getRowKey();
             if (TabUtil.isForTab(event, tabToAddTo)) {
-                ItemLike addBefore = triple.getColumnKey();
-                Pair<Boolean, TabAdditionPhase> pair = triple.getValue();
+                var addBefore = triple.getColumnKey();
+                var pair = triple.getValue();
                 if (pair.getSecond() == phase)
                     if (pair.getFirst())
-                        TabUtil.putBefore(event, addBefore, this.wall(), this.slab(), this.stairs(), this.block());
+                        TabUtil.putBefore(
+                            event,
+                            addBefore,
+                            this.wall(),
+                            this.slab(),
+                            this.stairs(),
+                            this.block());
                 else TabUtil.putBefore(event, addBefore, this.block());
             }
         }
-        for (Table.Cell<Supplier<CreativeModeTab>, TabAdditionPhase, Boolean> triple : this.appended.cellSet()) {
-            Supplier<CreativeModeTab> tabToAddTo = triple.getRowKey();
+        for (var triple : this.appended.cellSet()) {
+            var tabToAddTo = triple.getRowKey();
             if (TabUtil.isForTab(event, tabToAddTo)) {
                 boolean addAll = triple.getValue();
-                TabAdditionPhase current = triple.getColumnKey();
+                var current = triple.getColumnKey();
                 if (current == phase) {
                     TabUtil.put(event, this.block());
                     if (addAll) TabUtil.put(event, this.stairs(), this.slab(), this.wall());

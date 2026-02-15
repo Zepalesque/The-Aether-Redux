@@ -13,8 +13,7 @@ import net.zepalesque.zenith.api.recipe.serializer.StackingRecipeSerializer;
 
 public class ReduxRecipes {
     public static final DeferredRegister<RecipeType<?>>
-        TYPES = DeferredRegister.create(BuiltInRegistries.RECIPE_TYPE, Redux.MODID
-    );
+        TYPES = Redux.reg(BuiltInRegistries.RECIPE_TYPE);
     public static final DeferredHolder<RecipeType<?>, RecipeType<InfusionRecipe>>
         INFUSION = TYPES.register("infusion",
         () -> RecipeType.simple(Redux.loc("infusion"))
@@ -26,9 +25,7 @@ public class ReduxRecipes {
 
     public static class Serializers {
         public static final DeferredRegister<RecipeSerializer<?>>
-            SERIALIZERS = DeferredRegister.create(
-                BuiltInRegistries.RECIPE_SERIALIZER, Redux.MODID
-        );
+            SERIALIZERS = Redux.reg(BuiltInRegistries.RECIPE_SERIALIZER);
         
         public static final DeferredHolder<RecipeSerializer<?>, StackingRecipeSerializer<InfusionRecipe>>
             INFUSION = SERIALIZERS.register("infusion",

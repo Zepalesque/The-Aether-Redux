@@ -9,7 +9,7 @@ import net.zepalesque.redux.Redux;
 public class ReduxDataAttachments {
 
     public static final DeferredRegister<AttachmentType<?>>
-        ATTACHMENTS = DeferredRegister.create(NeoForgeRegistries.ATTACHMENT_TYPES, Redux.MODID);
+        ATTACHMENTS = Redux.reg(NeoForgeRegistries.ATTACHMENT_TYPES);
 
     public static final DeferredHolder<AttachmentType<?>, AttachmentType<ReduxPlayerAttachment>>
         REDUX_PLAYER = ATTACHMENTS.register(

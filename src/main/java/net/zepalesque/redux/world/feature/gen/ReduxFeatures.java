@@ -8,7 +8,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.zepalesque.redux.Redux;
 
 public class ReduxFeatures {
-	public static final DeferredRegister<Feature<?>> FEATURES = 
+	public static final DeferredRegister<Feature<?>> FEATURES =
 		Redux.reg(BuiltInRegistries.FEATURE);
 
 	public static final DeferredHolder<Feature<?>, Feature<CloudbedFeature.Config>> CLOUDBED = 

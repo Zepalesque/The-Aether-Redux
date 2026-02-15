@@ -19,7 +19,8 @@ import java.util.function.Function;
 
 public class ReduxEntities {
 
-    public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(BuiltInRegistries.ENTITY_TYPE, Redux.MODID);
+    public static final DeferredRegister<EntityType<?>>
+        ENTITIES = Redux.reg(BuiltInRegistries.ENTITY_TYPE);
 
     public static final DeferredHolder<EntityType<?>, EntityType<Ember>> EMBER = ENTITIES.register("ember",
             () -> EntityType.Builder.<Ember>of(Ember::new, MobCategory.MISC).sized(0.125F, 0.125F).clientTrackingRange(4).updateInterval(20).build("ember"));

@@ -38,10 +38,10 @@ import java.util.concurrent.CompletableFuture;
 
 public class ReduxData {
     public static void dataSetup(GatherDataEvent event) {
-        DataGenerator generator = event.getGenerator();
-        ExistingFileHelper fileHelper = event.getExistingFileHelper();
-        CompletableFuture<HolderLookup.Provider> lookups = event.getLookupProvider();
-        PackOutput output = generator.getPackOutput();
+        var generator = event.getGenerator();
+        var fileHelper = event.getExistingFileHelper();
+        var lookups = event.getLookupProvider();
+        var output = generator.getPackOutput();
 
         // Client Data
         generator.addProvider(event.includeClient(), new ReduxBlockStateData(output, fileHelper));
@@ -49,14 +49,14 @@ public class ReduxData {
         generator.addProvider(event.includeClient(), new ReduxLanguageData(output));
         generator.addProvider(event.includeClient(), new ReduxParticleData(output, fileHelper));
         generator.addProvider(event.includeClient(), new ReduxSoundsData(output, fileHelper));
-
-        AetherRegistrySets patch = new AetherRegistrySets(output, lookups);
+        
+        var patch = new AetherRegistrySets(output, lookups);
         lookups = patch.getRegistryProvider();
 
         // Server Data
         DatapackBuiltinEntriesProvider registrySets = new ReduxRegistrySets(output, lookups, Redux.MODID);
-            // Use for structure and damage type data, plus any custom ones that need to access the condition registry
-        CompletableFuture<Provider> registries = registrySets.getRegistryProvider();
+        // Use for structure and damage type data, plus any custom ones that need to access the condition registry
+        var registries = registrySets.getRegistryProvider();
         generator.addProvider(event.includeServer(), registrySets);
         generator.addProvider(event.includeServer(), new ReduxRecipeData(output, lookups));
         generator.addProvider(event.includeServer(), ReduxLootData.create(output, lookups));
@@ -65,7 +65,7 @@ public class ReduxData {
         generator.addProvider(event.includeServer(), new ReduxAdvancementData(output, registries, fileHelper, ReduxColors.REDUX_PURPLE));
 
         // Tags
-        ReduxBlockTagsData blockTags = new ReduxBlockTagsData(output, lookups, fileHelper);
+        var blockTags = new ReduxBlockTagsData(output, lookups, fileHelper);
         generator.addProvider(event.includeServer(), blockTags);
         generator.addProvider(event.includeServer(), new ReduxItemTagsData(output, lookups, blockTags.contentsGetter(), fileHelper));
         generator.addProvider(event.includeServer(), new ReduxEntityTagsData(output, lookups, fileHelper));
@@ -77,12 +77,12 @@ public class ReduxData {
                 Component.translatable("pack.aether_redux.mod.description"),
                 DetectedVersion.BUILT_IN.getPackVersion(PackType.SERVER_DATA),
                 Optional.of(new InclusiveRange<>(0, Integer.MAX_VALUE)))));
-
-
-        Path builtinData = output.getOutputFolder().resolve("packs").resolve("data");
         
-        DataGenerator.PackGenerator noisePack = generator.new PackGenerator(event.includeServer(), "reduxnoise", new PackOutput(builtinData.resolve("redux_noise")));
-        final CompletableFuture<Provider> finalLookups = lookups;
-        noisePack.addProvider(output1 -> new ReduxRegistrySets.NoisePack(output1, finalLookups, Redux.MODID));
+        
+        var builtinData = output.getOutputFolder().resolve("packs").resolve("data");
+        
+        var noisePack = generator.new PackGenerator(event.includeServer(), "reduxnoise", new PackOutput(builtinData.resolve("redux_noise")));
+        final var immLookups = lookups;
+        noisePack.addProvider(output1 -> new ReduxRegistrySets.NoisePack(output1, immLookups, Redux.MODID));
     }
 }

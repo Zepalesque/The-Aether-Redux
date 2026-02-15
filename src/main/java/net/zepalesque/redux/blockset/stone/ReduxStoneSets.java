@@ -18,11 +18,18 @@ import net.zepalesque.zenith.util.blockset.CommonMatrices;
 
 public class ReduxStoneSets extends ReduxBlockSetBuilders {
 
-    public static final BaseStoneSet GILDED_HOLYSTONE = register(new BaseStoneSet("gilded_holystone", MapColor.SAND, SoundType.STONE, 0.5F, 0.5F, "natural/"))
-            .withLore("The enchanted form of Mossy Holystone. This rock covered in golden moss glitters in the sunlight.")
-            .tabAfter(AetherCreativeTabs.AETHER_BUILDING_BLOCKS, AetherBlocks.MOSSY_HOLYSTONE_WALL, true, BlockSet.TabAdditionPhase.BEFORE)
-            .tabAfter(AetherCreativeTabs.AETHER_NATURAL_BLOCKS, AetherBlocks.MOSSY_HOLYSTONE, false, BlockSet.TabAdditionPhase.BEFORE)
-            .withTag(BlockTags.MINEABLE_WITH_PICKAXE, true);
+    public static final BaseStoneSet GILDED_HOLYSTONE = register(
+        new BaseStoneSet(
+            "gilded_holystone",
+            MapColor.SAND,
+            SoundType.STONE,
+            0.5F,
+            0.5F,
+            "natural/"
+        )).withLore("The enchanted form of Mossy Holystone. This rock covered in golden moss glitters in the sunlight.")
+        .tabAfter(AetherCreativeTabs.AETHER_BUILDING_BLOCKS, AetherBlocks.MOSSY_HOLYSTONE_WALL, true, BlockSet.TabAdditionPhase.BEFORE)
+        .tabAfter(AetherCreativeTabs.AETHER_NATURAL_BLOCKS, AetherBlocks.MOSSY_HOLYSTONE, false, BlockSet.TabAdditionPhase.BEFORE)
+        .withTag(BlockTags.MINEABLE_WITH_PICKAXE, true);
     
     public static final BaseStoneSet BLEAKMOSS_HOLYSTONE = register(new BaseStoneSet("bleakmoss_holystone", MapColor.TERRACOTTA_PURPLE, SoundType.STONE, 0.5F, 0.5F, "natural/"))
             .withLore("The blighted form of Mossy Holystone. The vicious moss on this rock wilts in the sunlight and flourishes in the moonlight.")

@@ -9,7 +9,7 @@ import net.zepalesque.redux.Redux;
 
 public class ReduxCarvers {
     public static final DeferredRegister<WorldCarver<?>>
-        CARVERS = DeferredRegister.create(BuiltInRegistries.CARVER, Redux.MODID);
+        CARVERS = Redux.reg(BuiltInRegistries.CARVER);
 
     public static final DeferredHolder<WorldCarver<?>, AetherCaveCarver>
         AETHER_CAVE = CARVERS.register(

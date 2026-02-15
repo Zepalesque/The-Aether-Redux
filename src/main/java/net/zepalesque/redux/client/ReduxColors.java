@@ -36,15 +36,17 @@ public class ReduxColors {
     public static Integer reduxColors(BlockState state, @Nullable BlockAndTintGetter level, @Nullable BlockPos pos, boolean useBelowProperties) {
         if (level == null || pos == null) return null;
         if (useBelowProperties) {
-            BlockPos below = pos.below();
+            var below = pos.below();
             if (level.getBlockState(below).is(ReduxTags.Blocks.SHORT_AETHER_GRASS_BLEAKMOSS_COLORING))
                 return Tints.BLEAKMOSS_GRASS_COLOR;
             else if (level.getBlockState(below).is(ReduxTags.Blocks.SHORT_AETHER_GRASS_BLIGHT_COLORING))
                 return Tints.BLIGHT_GRASS_COLOR;
         }
         
-        Optional<Property<?>> property =
-            state.getProperties().stream().filter(p -> CustomTintingProperty.class.isAssignableFrom(p.getValueClass())).findFirst();
+        var property = state.getProperties()
+            .stream().filter(
+                p -> CustomTintingProperty.class.isAssignableFrom(p.getValueClass())
+            ).findFirst();
         
         return property.map(value -> ((CustomTintingProperty) state.getValue(value)).colorOverride()).orElse(null);
     }
