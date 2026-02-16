@@ -16,7 +16,6 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.event.AddPackFindersEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
-import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.datamaps.RegisterDataMapTypesEvent;
 import net.zepalesque.redux.advancement.ReduxAdvancementTriggers;
@@ -139,7 +138,7 @@ public class Redux {
     }
 
     public void registerPackets(RegisterPayloadHandlersEvent event) {
-        PayloadRegistrar registrar = event.registrar(MODID).versioned("1.0.0").optional();
+        var registrar = event.registrar(MODID).versioned("1.0.0").optional();
         registrar.playToServer(
             AerjumpPacket.Request.TYPE,
             AerjumpPacket.Request.STREAM_CODEC,
