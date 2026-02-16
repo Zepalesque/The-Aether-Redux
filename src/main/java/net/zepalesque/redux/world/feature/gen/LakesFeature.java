@@ -1,6 +1,6 @@
 package net.zepalesque.redux.world.feature.gen;
 
-import com.aetherteam.aether.block.AetherBlocks;
+import com.aetherteam.aether.data.resources.AetherFeatureStates;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
@@ -11,7 +11,6 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
-import net.zepalesque.redux.Redux;
 import net.zepalesque.zenith.api.world.density.PerlinNoiseFunction;
 
 public class LakesFeature extends Feature<LakesFeature.Config> {
@@ -49,9 +48,6 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 					new DensityFunction.SinglePointContext(xCoord, yLevel, zCoord)
 				);
 
-				// We don't need to, and shouldn't, generate anything if the cloud noise value is below zero
-				if (cloudCalc < 0) continue;
-
 				// A Y offset is then calculated and applied using a second, smoother and larger noise
 				var offsetCalc = yOffsetNoise.compute(
 					new DensityFunction.SinglePointContext(xCoord, yLevel, zCoord)
@@ -64,33 +60,47 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 
 				// Interpolate for some extra smoothness
 				var realCloud = cosineInterp((float) Mth.clamp(cloudCalc, 0, 1), 0, 1);
-				// Calculate how many blocks down from the main y offset plane should be generated
-				var blocksDown = Mth.floor(
+				// Calculate how deep the lake should be
+				var depth = Mth.floor(
 					-(Mth.lerp(realCloud, 0F, (float) config.cloudRadius() - 1F) - realOffset)
 				);
-				
-				// Floor these values and then place the blocks
-				for (var i = blocksDown; i <= 0; i++) {
-					var y = Mth.clamp(
-						yLevel + i,
-						context.level().getMinBuildHeight(),
-						context.level().getMaxBuildHeight()
-					);
-					var pos = new BlockPos(xCoord, y, zCoord);
-					if (config.predicate().test(context.level(), pos)) {
-						this.setBlock(context.level(), pos, config.block().getState(context.random(), pos));
-					}
+
+				if (depth < 1) {
+					// Place the water itself
+					placeWater(context, xCoord, yLevel, zCoord, depth);
+					// Place stone underneath the water
+					placeBottom(context, xCoord, yLevel, zCoord, depth);
 				}
 
-				if (blocksDown > 1) continue;
-
-				var btm = new BlockPos(xCoord, blocksDown + yLevel, zCoord);
-				if (config.predicate().test(context.level(), btm.below())) {
-					this.setBlock(context.level(), btm.below(), AetherBlocks.HOLYSTONE.get().defaultBlockState());
+				// Place the quicksoil shores
+				var pos = new BlockPos(xCoord, yLevel, zCoord);
+				if (config.predicate().test(level, pos) && depth == 1) {
+					this.setBlock(level, pos, AetherFeatureStates.QUICKSOIL);
 				}
 			}
 		}
 		return false;
+	}
+
+	private void placeWater(FeaturePlaceContext<Config> context, int x, int y, int z, int depth) {
+		for (var i = depth; i <= 0; i++) {
+			var y2 = Mth.clamp(
+				y + i,
+				context.level().getMinBuildHeight(),
+				context.level().getMaxBuildHeight()
+			);
+			var pos = new BlockPos(x, y2, z);
+			if (context.config().predicate().test(context.level(), pos)) {
+				this.setBlock(context.level(), pos, context.config().block().getState(context.random(), pos));
+			}
+		}
+	}
+
+	private void placeBottom(FeaturePlaceContext<Config> context, int x, int y, int z, int depth) {
+		var btm = new BlockPos(x, depth + y, z);
+		if (context.config().predicate().test(context.level(), btm.below())) {
+			this.setBlock(context.level(), btm.below(), AetherFeatureStates.HOLYSTONE);
+		}
 	}
 
 	private static float cosineInterp(float progress, float start, float end) {
