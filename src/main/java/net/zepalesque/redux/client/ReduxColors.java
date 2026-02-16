@@ -5,7 +5,6 @@ import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.Property;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
@@ -16,9 +15,6 @@ import net.zepalesque.unity.client.UnityColors;
 import net.zepalesque.zenith.api.blockset.BlockSet;
 import net.zepalesque.zenith.api.blockset.type.AbstractFlowerSet;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.Optional;
-import java.util.function.Predicate;
 
 public class ReduxColors {
 

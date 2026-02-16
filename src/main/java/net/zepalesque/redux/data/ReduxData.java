@@ -2,9 +2,6 @@ package net.zepalesque.redux.data;
 
 import com.aetherteam.aether.data.generators.AetherRegistrySets;
 import net.minecraft.DetectedVersion;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.core.HolderLookup.Provider;
-import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.metadata.PackMetadataGenerator;
 import net.minecraft.network.chat.Component;
@@ -12,7 +9,6 @@ import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.metadata.pack.PackMetadataSection;
 import net.minecraft.util.InclusiveRange;
 import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.ReduxColors;
@@ -32,9 +28,7 @@ import net.zepalesque.redux.data.gen.tags.ReduxBlockTagsData;
 import net.zepalesque.redux.data.gen.tags.ReduxEntityTagsData;
 import net.zepalesque.redux.data.gen.tags.ReduxItemTagsData;
 
-import java.nio.file.Path;
 import java.util.Optional;
-import java.util.concurrent.CompletableFuture;
 
 public class ReduxData {
     public static void dataSetup(GatherDataEvent event) {

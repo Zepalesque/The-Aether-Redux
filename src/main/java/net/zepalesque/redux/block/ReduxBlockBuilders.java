@@ -7,7 +7,6 @@ import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.zepalesque.redux.item.ReduxItems;
 
-import javax.swing.text.html.Option;
 import java.util.function.Function;
 
 public class ReduxBlockBuilders {

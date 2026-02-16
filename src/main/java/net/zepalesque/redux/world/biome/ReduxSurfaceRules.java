@@ -1,15 +1,8 @@
 package net.zepalesque.redux.world.biome;
 
-import com.aetherteam.aether.block.AetherBlockStateProperties;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.resources.registries.AetherDimensions;
-import net.minecraft.core.Registry;
-import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.level.chunk.ChunkGenerator;
-import net.minecraft.world.level.dimension.LevelStem;
 import net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator;
 import net.minecraft.world.level.levelgen.Noises;
 import net.minecraft.world.level.levelgen.SurfaceRules;
@@ -22,7 +15,6 @@ import net.zepalesque.redux.block.state.ReduxStates;
 import net.zepalesque.redux.block.state.enums.BlightGrassColor;
 import net.zepalesque.redux.data.resource.registries.ReduxBiomes;
 import net.zepalesque.unity.block.UnityBlocks;
-import net.zepalesque.unity.data.prov.UnityBlockStateProvider;
 import net.zepalesque.unity.data.resource.builders.UnityFeatureBuilders;
 import net.zepalesque.zenith.api.world.density.PerlinNoiseFunction;
 
