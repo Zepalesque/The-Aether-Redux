@@ -2,7 +2,6 @@ package net.zepalesque.redux.data.prov;
 
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.recipe.builder.AetherCookingRecipeBuilder;
-import com.aetherteam.aether.recipe.recipes.block.AmbrosiumRecipe;
 import com.aetherteam.nitrogen.recipe.BlockStateIngredient;
 import com.aetherteam.nitrogen.recipe.builder.BlockStateRecipeBuilder;
 import net.minecraft.advancements.Criterion;

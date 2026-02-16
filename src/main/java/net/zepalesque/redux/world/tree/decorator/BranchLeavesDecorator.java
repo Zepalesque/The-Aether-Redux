@@ -12,8 +12,6 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 
-import java.util.List;
-
 public class BranchLeavesDecorator extends TreeDecorator {
 
     public static final MapCodec<BranchLeavesDecorator> 

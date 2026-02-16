@@ -1,20 +1,9 @@
 package net.zepalesque.redux.data.prov;
 
-import com.google.common.collect.ImmutableList;
-import com.google.gson.JsonObject;
-import net.minecraft.ChatFormatting;
-import net.minecraft.data.CachedOutput;
-import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
-import net.minecraft.network.chat.Component;
-import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.mixin.mixins.common.accessor.LangProviderAccessor;
 import net.zepalesque.unity.data.prov.UnityLanguageProvider;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.CompletableFuture;
 
 public abstract class  ReduxLanguageProvider extends UnityLanguageProvider {
 //    protected final Map<String, String> TIPS = new HashMap<>();

@@ -1,7 +1,6 @@
 package net.zepalesque.redux.mixin.mixins.common.world.structure.piece;
 
 import com.aetherteam.aether.world.structurepiece.bronzedungeon.BronzeBossRoom;
-import com.aetherteam.aether.world.structurepiece.bronzedungeon.BronzeDungeonRoom;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;

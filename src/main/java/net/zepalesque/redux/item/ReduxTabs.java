@@ -9,7 +9,6 @@ import net.minecraft.world.level.ItemLike;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.fml.common.EventBusSubscriber.Bus;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
@@ -19,7 +18,7 @@ import net.zepalesque.unity.block.UnityBlocks;
 import net.zepalesque.zenith.api.blockset.BlockSet;
 import net.zepalesque.zenith.util.item.TabUtil;
 
-@EventBusSubscriber(modid = Redux.MODID, bus = Bus.MOD)
+@EventBusSubscriber(modid = Redux.MODID)
 public class ReduxTabs {
     
     @SubscribeEvent(priority = EventPriority.LOWEST)

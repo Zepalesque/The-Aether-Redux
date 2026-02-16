@@ -1,15 +1,7 @@
 package net.zepalesque.redux.mixin.mixins.common.world.structure;
 
 import com.aetherteam.aether.world.structurepiece.AetherTemplateStructurePiece;
-import com.aetherteam.aether.world.structurepiece.bronzedungeon.BronzeDungeonRoom;
-import net.minecraft.core.Holder;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
-import net.zepalesque.redux.mixin.ReduxDungeonProcessors;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(AetherTemplateStructurePiece.class)
 public class AetherTemplateStructurePieceMixin {
