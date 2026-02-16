@@ -29,6 +29,7 @@ import java.util.Optional;
 
 public class ReduxBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_CLOUDBED = createKey("add_cloudbed");
+	public static final ResourceKey<BiomeModifier> ADD_LAKES = createKey("add_lakes");
     public static final ResourceKey<BiomeModifier> SKY_COLOR_AETHER = createKey("modify_sky_color");
     public static final ResourceKey<BiomeModifier> WATER_COLOR_AETHER = createKey("modify_water_color");
     public static final ResourceKey<BiomeModifier> MUSIC_MODIFY = createKey("modify_music");
@@ -51,6 +52,11 @@ public class ReduxBiomeModifiers {
                 biomes.getOrThrow(ReduxTags.Biomes.HAS_CLOUDBED), HolderSet.direct(features.getOrThrow(ReduxPlacements.CLOUDBED)),
                 GenerationStep.Decoration.RAW_GENERATION);
         context.register(ADD_CLOUDBED, new ConditionalBiomeModifier(Holder.direct(cloudbed), conditions.get(ReduxConditions.CLOUDBED).orElseThrow()));
+
+        BiomeModifier lakes = new BiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(ReduxTags.Biomes.HAS_CLOUDBED), HolderSet.direct(features.getOrThrow(ReduxPlacements.LAKES)),
+                GenerationStep.Decoration.RAW_GENERATION);
+        context.register(ADD_LAKES, new ConditionalBiomeModifier(Holder.direct(lakes), conditions.get(ReduxConditions.CLOUDBED).orElseThrow()));
 
         BiomeModifier sky = new SkiesModifier(
                 Optional.of(new SkiesModifier.DefaultSkySettings(biomes.getOrThrow(ReduxTags.Biomes.MODIFY_SKY_COLOR), Optional.of(0x9FA4DD), Optional.of(0xBEC4E5))),
