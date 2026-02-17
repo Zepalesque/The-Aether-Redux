@@ -169,6 +169,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			ReduxFeatures.LAKES.get(),
 			new LakesFeature.Config(
 				prov(Blocks.WATER.defaultBlockState()),
+				prov(AetherFeatureStates.QUICKSOIL),
 				BlockPredicate.ONLY_IN_AIR_PREDICATE,
 				36,
 				ReduxDensityBuilders.get(functions, ReduxDensityFunctions.LAKES_NOISE),

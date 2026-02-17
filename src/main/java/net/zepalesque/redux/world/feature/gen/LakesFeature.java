@@ -25,14 +25,14 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 		var config = context.config();
 		var level = context.level();
 
-		var cloudNoise = config.cloudNoise();
+		var lakeNoise = config.lakeNoise();
 		var yOffsetNoise = config.yOffset();
 		var visitor = PerlinNoiseFunction.createOrGetVisitor(level.getSeed() + 1);
 
-		cloudNoise.mapAll(visitor);
+		lakeNoise.mapAll(visitor);
 		yOffsetNoise.mapAll(visitor);
 
-		// The feature should be placed once per chunk as it places one-chunk pieces of the cloudbed
+		// The feature should be placed once per chunk as it places one-chunk pieces of the lake
 		var chunkX = context.origin().getX() - (context.origin().getX() % 16);
 		var chunkZ = context.origin().getZ() - (context.origin().getZ() % 16);
 
@@ -44,8 +44,8 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 				// calculate new coords based on the for loops' values
 				var xCoord = chunkX + x;
 				var zCoord = chunkZ + z;
-				// The main cloud noise is what is used for the distinction of gaps and non-gaps
-				var cloudCalc = cloudNoise.compute(
+				// The main lake noise is what is used for the distinction of gaps and non-gaps
+				var lakeCalc = lakeNoise.compute(
 					new DensityFunction.SinglePointContext(xCoord, yLevel, zCoord)
 				);
 
@@ -60,10 +60,10 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 				);
 
 				// Interpolate for some extra smoothness
-				var realCloud = cosineInterp((float) Mth.clamp(cloudCalc, 0, 1), 0, 1);
+				var reallake = cosineInterp((float) Mth.clamp(lakeCalc, 0, 1), 0, 1);
 				// Calculate how deep the lake should be
 				var depth = Mth.floor(
-					-(Mth.lerp(realCloud, 0F, (float) config.cloudRadius() - 1F) - realOffset)
+					-(Mth.lerp(reallake, 0F, (float) config.lakeRadius() - 1F) - realOffset)
 				);
 
 				if (depth < 1) {
@@ -76,7 +76,7 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 				// Place the quicksoil shores
 				var pos = new BlockPos(xCoord, yLevel, zCoord);
 				if (config.predicate().test(level, pos) && depth == 1) {
-					this.setBlock(level, pos, AetherFeatureStates.QUICKSOIL);
+					this.setBlock(level, pos, config.shore().getState(context.random(), pos));
 				}
 			}
 		}
@@ -90,7 +90,7 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 			var y2 = Mth.clamp(y + i, level.getMinBuildHeight(), level.getMaxBuildHeight());
 			var pos = new BlockPos(x, y2, z);
 			if (context.config().predicate().test(level, pos)) {
-				this.setBlock(level, pos, context.config().block().getState(context.random(), pos));
+				this.setBlock(level, pos, context.config().fluid().getState(context.random(), pos));
 			
 				// Ensure there is grass below the water
 				if (level.getBlockState(pos.below()).is(AetherTags.Blocks.AETHER_DIRT)) {
@@ -112,22 +112,24 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 	}
 
 	public record Config(
-		BlockStateProvider block,
+		BlockStateProvider fluid,
+		BlockStateProvider shore,
 		BlockPredicate predicate,
 		int yLevel,
-		DensityFunction cloudNoise,
-		double cloudRadius,
+		DensityFunction lakeNoise,
+		double lakeRadius,
 		DensityFunction yOffset,
 		double maxYOffset
 	) implements FeatureConfiguration {
 		public static final Codec<Config> CODEC = RecordCodecBuilder.create((builder) ->
 			builder
 				.group(
-					BlockStateProvider.CODEC.fieldOf("block").forGetter(Config::block),
+					BlockStateProvider.CODEC.fieldOf("fluid").forGetter(Config::fluid),
+					BlockStateProvider.CODEC.fieldOf("shore").forGetter(Config::shore),
 					BlockPredicate.CODEC.fieldOf("predicate").forGetter(Config::predicate),
 					Codec.INT.fieldOf("y_level").forGetter(Config::yLevel),
-					DensityFunction.HOLDER_HELPER_CODEC.fieldOf("cloud_noise").forGetter(Config::cloudNoise),
-					Codec.DOUBLE.fieldOf("cloud_radius").forGetter(Config::cloudRadius),
+					DensityFunction.HOLDER_HELPER_CODEC.fieldOf("lake_noise").forGetter(Config::lakeNoise),
+					Codec.DOUBLE.fieldOf("lake_radius").forGetter(Config::lakeRadius),
 					DensityFunction.HOLDER_HELPER_CODEC.fieldOf("offset_noise").forGetter(Config::yOffset),
 					Codec.DOUBLE.fieldOf("offset_max").forGetter(Config::maxYOffset)
 				)
