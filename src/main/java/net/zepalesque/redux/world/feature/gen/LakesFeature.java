@@ -1,5 +1,6 @@
 package net.zepalesque.redux.world.feature.gen;
 
+import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.data.resources.AetherFeatureStates;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -83,15 +84,18 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 	}
 
 	private void placeWater(FeaturePlaceContext<Config> context, int x, int y, int z, int depth) {
+		var level = context.level();
+
 		for (var i = depth; i <= 0; i++) {
-			var y2 = Mth.clamp(
-				y + i,
-				context.level().getMinBuildHeight(),
-				context.level().getMaxBuildHeight()
-			);
+			var y2 = Mth.clamp(y + i, level.getMinBuildHeight(), level.getMaxBuildHeight());
 			var pos = new BlockPos(x, y2, z);
-			if (context.config().predicate().test(context.level(), pos)) {
-				this.setBlock(context.level(), pos, context.config().block().getState(context.random(), pos));
+			if (context.config().predicate().test(level, pos)) {
+				this.setBlock(level, pos, context.config().block().getState(context.random(), pos));
+			
+				// Ensure there is grass below the water
+				if (level.getBlockState(pos.below()).is(AetherTags.Blocks.AETHER_DIRT)) {
+					this.setBlock(level, pos.below(), AetherFeatureStates.AETHER_DIRT);
+				}
 			}
 		}
 	}

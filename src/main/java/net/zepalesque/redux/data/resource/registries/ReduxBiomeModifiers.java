@@ -55,7 +55,7 @@ public class ReduxBiomeModifiers {
 
         BiomeModifier lakes = new BiomeModifiers.AddFeaturesBiomeModifier(
                 biomes.getOrThrow(ReduxTags.Biomes.HAS_CLOUDBED), HolderSet.direct(features.getOrThrow(ReduxPlacements.LAKES)),
-                GenerationStep.Decoration.RAW_GENERATION);
+                GenerationStep.Decoration.LAKES);
         context.register(ADD_LAKES, new ConditionalBiomeModifier(Holder.direct(lakes), conditions.get(ReduxConditions.CLOUDBED).orElseThrow()));
 
         BiomeModifier sky = new SkiesModifier(
