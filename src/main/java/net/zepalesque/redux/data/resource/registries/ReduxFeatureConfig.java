@@ -22,6 +22,7 @@ import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.DensityFunction;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
@@ -53,6 +54,7 @@ import net.zepalesque.redux.data.ReduxTags;
 import net.zepalesque.redux.data.resource.builders.ReduxDensityBuilders;
 import net.zepalesque.redux.data.resource.builders.ReduxFeatureBuilders;
 import net.zepalesque.redux.world.feature.gen.CloudbedFeature;
+import net.zepalesque.redux.world.feature.gen.LakesFeature;
 import net.zepalesque.redux.world.feature.gen.ReduxFeatures;
 import net.zepalesque.redux.world.tree.decorator.GoldenVineDecorator;
 import net.zepalesque.redux.world.tree.foliage.BlightwillowFoliagePlacer;
@@ -81,6 +83,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 	);
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> CLOUDBED = createKey("cloudbed");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> LAKES = createKey("lakes");
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_GILDENROOT_TREE = createKey("small_gildenroot");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_GILDENROOT_TREE = createKey("large_gildenroot");
@@ -157,6 +160,21 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				ReduxDensityBuilders.get(functions, ReduxDensityFunctions.CLOUDBED_NOISE),
 				10,
 				ReduxDensityBuilders.get(functions, ReduxDensityFunctions.CLOUDBED_Y_OFFSET),
+				10
+			)
+		);
+		FeatureUtils.register(
+			context,
+			LAKES,
+			ReduxFeatures.LAKES.get(),
+			new LakesFeature.Config(
+				prov(Blocks.WATER.defaultBlockState()),
+				prov(AetherFeatureStates.QUICKSOIL),
+				BlockPredicate.ONLY_IN_AIR_PREDICATE,
+				36,
+				ReduxDensityBuilders.get(functions, ReduxDensityFunctions.LAKES_NOISE),
+				10,
+				ReduxDensityBuilders.get(functions, ReduxDensityFunctions.LAKES_Y_OFFSET),
 				10
 			)
 		);

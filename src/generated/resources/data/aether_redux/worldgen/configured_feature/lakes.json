@@ -1,0 +1,23 @@
+{
+  "type": "aether_redux:lakes",
+  "config": {
+    "block": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:water",
+        "Properties": {
+          "level": "0"
+        }
+      }
+    },
+    "cloud_noise": "aether_redux:lakes_noise",
+    "cloud_radius": 10.0,
+    "offset_max": 10.0,
+    "offset_noise": "aether_redux:lakes_y_offset",
+    "predicate": {
+      "type": "minecraft:matching_blocks",
+      "blocks": "minecraft:air"
+    },
+    "y_level": 36
+  }
+}

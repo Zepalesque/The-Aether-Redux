@@ -41,6 +41,7 @@ import net.zepalesque.zenith.core.Zenith;
 public class ReduxPlacements extends ReduxPlacementBuilders {
 
     public static final ResourceKey<PlacedFeature> CLOUDBED = copyKey(ReduxFeatureConfig.CLOUDBED);
+    public static final ResourceKey<PlacedFeature> LAKES = copyKey(ReduxFeatureConfig.LAKES);
     public static final ResourceKey<PlacedFeature> SENTRITE_ORE = copyKey(ReduxFeatureConfig.SENTRITE_ORE);
     public static final ResourceKey<PlacedFeature> SPARSE_SENTRITE_ORE = copyKey(SENTRITE_ORE, "sparse_%s");
     public static final ResourceKey<PlacedFeature> ANGILITE_ORE = copyKey(ReduxFeatureConfig.ANGILITE_ORE);
@@ -77,6 +78,7 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
         NoiseThresholdCountPlacement threshold = NoiseThresholdCountPlacement.of(-0.8D, 5, 10);
 
         PlacementUtils.register(context, CLOUDBED, configs.getOrThrow(ReduxFeatureConfig.CLOUDBED));
+        PlacementUtils.register(context, LAKES, configs.getOrThrow(ReduxFeatureConfig.LAKES));
 
         PlacementUtils.register(context, SENTRITE_ORE, configs.getOrThrow(ReduxFeatureConfig.SENTRITE_ORE),
                 InSquarePlacement.spread(),

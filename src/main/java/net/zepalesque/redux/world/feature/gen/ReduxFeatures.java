@@ -11,6 +11,12 @@ public class ReduxFeatures {
 	public static final DeferredRegister<Feature<?>> FEATURES =
 		Redux.reg(BuiltInRegistries.FEATURE);
 
+	public static final DeferredHolder<Feature<?>, Feature<LakesFeature.Config>> LAKES = 
+		FEATURES.register(
+			"lakes",
+			() -> new LakesFeature(LakesFeature.Config.CODEC)
+		);
+
 	public static final DeferredHolder<Feature<?>, Feature<CloudbedFeature.Config>> CLOUDBED = 
 		FEATURES.register(
 			"cloudbed",
