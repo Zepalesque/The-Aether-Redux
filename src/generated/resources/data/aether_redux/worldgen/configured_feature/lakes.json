@@ -1,7 +1,7 @@
 {
   "type": "aether_redux:lakes",
   "config": {
-    "block": {
+    "fluid": {
       "type": "minecraft:simple_state_provider",
       "state": {
         "Name": "minecraft:water",
@@ -10,13 +10,22 @@
         }
       }
     },
-    "cloud_noise": "aether_redux:lakes_noise",
-    "cloud_radius": 10.0,
+    "lake_noise": "aether_redux:lakes_noise",
+    "lake_radius": 10.0,
     "offset_max": 10.0,
     "offset_noise": "aether_redux:lakes_y_offset",
     "predicate": {
       "type": "minecraft:matching_blocks",
       "blocks": "minecraft:air"
+    },
+    "shore": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "aether:quicksoil",
+        "Properties": {
+          "double_drops": "true"
+        }
+      }
     },
     "y_level": 36
   }

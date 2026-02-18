@@ -48,7 +48,7 @@ public class ReduxDensityFunctions extends ReduxDensityBuilders {
 			LAKES_Y_OFFSET,
 			DensityFunctions.mul(
 				new PerlinNoiseFunction(noises.getOrThrow(ReduxNoises.LAKES_Y_OFFSET), 0.01D, 0.0D, 95),
-				DensityFunctions.constant(1.75D)
+				DensityFunctions.constant(4D)
 			)
 		);
 

@@ -19,6 +19,7 @@ import net.minecraft.world.level.levelgen.carver.CarvingContext;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.material.Fluids;
 import net.zepalesque.redux.data.resource.registries.ReduxFeatureConfig;
 
 public class ReduxCrystalIslandFeature extends Feature<NoneFeatureConfiguration> {
@@ -33,7 +34,11 @@ public class ReduxCrystalIslandFeature extends Feature<NoneFeatureConfiguration>
 		var rand = context.random();
 		var feature = PlacementUtils.inlinePlaced(level.holderOrThrow(ReduxFeatureConfig.CRYSTAL_TREE)).value();
 		
-		if (!feature.place(level, context.chunkGenerator(), context.random(), context.origin().above())) {
+		if (level.getFluidState(pos.above()).is(Fluids.WATER)) {
+			return false;
+		}
+
+		if (!feature.place(level, context.chunkGenerator(), context.random(), pos.above())) {
 			return false;
 		}
 
@@ -87,16 +92,20 @@ public class ReduxCrystalIslandFeature extends Feature<NoneFeatureConfiguration>
 	}
 
 	private BlockState chooseState(WorldGenLevel level, BlockPos pos, BlockState testState) {
+		if (!testState.is(AetherTags.Blocks.AETHER_DIRT)) {
+			return testState;
+		}
+
 		if (
-			testState.is(AetherTags.Blocks.AETHER_DIRT)
-			&& level.getBlockState(pos.above()).isSolidRender(level, pos)
+			level.getBlockState(pos.above()).isSolidRender(level, pos)
+			|| !level.getFluidState(pos.above()).is(Fluids.EMPTY)
 		) {
 			return AetherFeatureStates.AETHER_DIRT;
 		}
 
 		if (
-			level.getChunkSource() instanceof ServerChunkCache serverChunkCache 
-			&& serverChunkCache.getGenerator() instanceof NoiseBasedChunkGenerator generator
+			level.getChunkSource() instanceof ServerChunkCache chunkCache 
+			&& chunkCache.getGenerator() instanceof NoiseBasedChunkGenerator generator
 		) {
 			var settingsHolder = generator.generatorSettings().value();
 			var surfaceRule = settingsHolder.surfaceRule();
@@ -109,7 +118,7 @@ public class ReduxCrystalIslandFeature extends Feature<NoneFeatureConfiguration>
 					level.registryAccess(),
 					chunkAccess.getHeightAccessorForGeneration(),
 					noiseChunk,
-					serverChunkCache.randomState(),
+					chunkCache.randomState(),
 					surfaceRule
 				);
 				@SuppressWarnings("deprecation") // `carvingcontext.topMaterial` is fine to use
@@ -120,12 +129,7 @@ public class ReduxCrystalIslandFeature extends Feature<NoneFeatureConfiguration>
 					false
 				);
 				
-				if (
-					state.isPresent()
-					&& state.get().is(AetherTags.Blocks.AETHER_DIRT)
-					&& testState.is(AetherTags.Blocks.AETHER_DIRT)
-					&& !testState.is(AetherBlocks.AETHER_DIRT.get())
-				) {
+				if (state.isPresent() && state.get().is(AetherTags.Blocks.AETHER_DIRT)) {
 					return state.get();
 				}
 			}
