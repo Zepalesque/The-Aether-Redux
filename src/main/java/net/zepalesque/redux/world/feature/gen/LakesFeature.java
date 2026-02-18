@@ -12,9 +12,12 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.material.Fluids;
 import net.zepalesque.zenith.api.world.density.PerlinNoiseFunction;
 
 public class LakesFeature extends Feature<LakesFeature.Config> {
+	private static final int SHORE_DEPTH = -1;
+	private static final int WATER_DEPTH = SHORE_DEPTH - 1;
 
 	public LakesFeature(Codec<Config> codec) {
 		super(codec);
@@ -66,7 +69,7 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 					-(Mth.lerp(reallake, 0F, (float) config.lakeRadius() - 1F) - realOffset)
 				);
 
-				if (depth < 1) {
+				if (depth < SHORE_DEPTH) {
 					// Place the water itself
 					placeWater(context, xCoord, yLevel, zCoord, depth);
 					// Place stone underneath the water
@@ -75,7 +78,7 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 
 				// Place the quicksoil shores
 				var pos = new BlockPos(xCoord, yLevel, zCoord);
-				if (config.predicate().test(level, pos) && depth == 1) {
+				if (config.predicate().test(level, pos) && depth == SHORE_DEPTH) {
 					this.setBlock(level, pos, config.shore().getState(context.random(), pos));
 				}
 			}
@@ -86,12 +89,17 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 	private void placeWater(FeaturePlaceContext<Config> context, int x, int y, int z, int depth) {
 		var level = context.level();
 
-		for (var i = depth; i <= 0; i++) {
+		for (var i = depth - WATER_DEPTH; i <= 0; i++) {
 			var y2 = Mth.clamp(y + i, level.getMinBuildHeight(), level.getMaxBuildHeight());
 			var pos = new BlockPos(x, y2, z);
 			if (context.config().predicate().test(level, pos)) {
 				this.setBlock(level, pos, context.config().fluid().getState(context.random(), pos));
-			
+
+				// Ensure that exposed water flows
+				if (i == 0) {
+					level.scheduleTick(pos, Fluids.WATER, 0);
+				}
+
 				// Ensure there is grass below the water
 				if (level.getBlockState(pos.below()).is(AetherTags.Blocks.AETHER_DIRT)) {
 					this.setBlock(level, pos.below(), AetherFeatureStates.AETHER_DIRT);
@@ -101,7 +109,7 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 	}
 
 	private void placeBottom(FeaturePlaceContext<Config> context, int x, int y, int z, int depth) {
-		var btm = new BlockPos(x, depth + y, z);
+		var btm = new BlockPos(x, depth + y - WATER_DEPTH, z);
 		if (context.config().predicate().test(context.level(), btm.below())) {
 			this.setBlock(context.level(), btm.below(), AetherFeatureStates.HOLYSTONE);
 		}
