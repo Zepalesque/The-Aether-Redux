@@ -5,6 +5,7 @@ import com.aetherteam.aether.data.resources.AetherFeatureStates;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.levelgen.DensityFunction;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
@@ -109,9 +110,20 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 	}
 
 	private void placeBottom(FeaturePlaceContext<Config> context, int x, int y, int z, int depth) {
-		var btm = new BlockPos(x, depth + y - WATER_DEPTH, z);
-		if (context.config().predicate().test(context.level(), btm.below())) {
-			this.setBlock(context.level(), btm.below(), AetherFeatureStates.HOLYSTONE);
+		var btm = new BlockPos(x, depth + y - WATER_DEPTH, z).below();
+		var level = context.level();
+		var predicate = context.config().predicate();
+
+		if (predicate.test(level, btm)) {
+			this.setBlock(level, btm, AetherFeatureStates.HOLYSTONE);
+		}
+
+		for (var dir : Direction.Plane.HORIZONTAL) {
+			var pos = btm.relative(dir);
+
+			if (predicate.test(level, pos)) {
+				this.setBlock(level, pos, AetherFeatureStates.HOLYSTONE);
+			} 
 		}
 	}
 
