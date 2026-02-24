@@ -24,8 +24,8 @@ public class ReduxStructureModifiers {
     }
 
     public static void bootstrap(BootstrapContext<StructureModifier> context) {
-        HolderGetter<Structure> structures = context.lookup(Registries.STRUCTURE);
-        HolderGetter<Condition<?>> conditions = context.lookup(Zenith.Keys.CONDITION);
+        var structures = context.lookup(Registries.STRUCTURE);
+        var conditions = context.lookup(Zenith.Keys.CONDITION);
 
         StructureModifier largeCloud = new RemoveStructureModifier(HolderSet.direct(structures.getOrThrow(AetherStructures.LARGE_AERCLOUD)));
         context.register(REMOVE_LARGE_CLOUDS, new ConditionalStructureModifier(Holder.direct(largeCloud), conditions.get(ReduxConditions.CLOUDBED).orElseThrow()));

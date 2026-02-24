@@ -10,6 +10,8 @@ import com.aetherteam.nitrogen.world.trunkplacer.HookedTrunkPlacer;
 import java.util.List;
 import java.util.Optional;
 import java.util.OptionalInt;
+import java.util.stream.Stream;
+
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.Vec3i;
@@ -18,6 +20,7 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -25,6 +28,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.DensityFunction;
+import net.minecraft.world.level.levelgen.Noises;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -39,6 +43,7 @@ import net.minecraft.world.level.levelgen.feature.featuresize.ThreeLayersFeature
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.DarkOakFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.RuleBasedBlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.CherryTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.DarkOakTrunkPlacer;
@@ -46,6 +51,7 @@ import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlac
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
+import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.blockset.flower.ReduxFlowerSets;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
@@ -63,11 +69,14 @@ import net.zepalesque.redux.world.tree.foliage.SkyrootFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.SmallGoldenOakFoliagePlacer;
 import net.zepalesque.redux.world.tree.roots.BlightwillowRootsPlacer;
 import net.zepalesque.redux.world.tree.trunk.BlightwillowTrunkPlacer;
+import net.zepalesque.unity.block.UnityBlocks;
 import net.zepalesque.unity.data.UnityTags;
 import net.zepalesque.unity.extendablestate.UnityStateLists;
 import net.zepalesque.zenith.api.block.predicate.InBiomePredicate;
+import net.zepalesque.zenith.api.block.predicate.NoisePredicate;
 import net.zepalesque.zenith.api.world.feature.gen.ExtendableStateListBlockFeature;
 import net.zepalesque.zenith.api.world.feature.gen.LargeRockFeature;
+import net.zepalesque.zenith.api.world.feature.gen.RuleBasedLakeFeature;
 import net.zepalesque.zenith.api.world.tree.trunk.IntProviderTrunkPlacer;
 import net.zepalesque.zenith.core.registry.ZenithFeatures;
 
@@ -166,6 +175,51 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				10
 			)
 		);
+		
+		HolderGetter<NormalNoise.NoiseParameters> noises = context.lookup(Registries.NOISE);
+		double threshold;
+		var lakeFloor = new RuleBasedBlockStateProvider(
+			BlockStateProvider.simple(AetherFeatureStates.AETHER_DIRT), Stream.of(
+			new RuleBasedBlockStateProvider.Rule(
+				BlockPredicate.allOf(
+					BlockPredicate.matchesTag(UnityTags.Blocks.AETHER_LAKE_SKIP_REPLACEMENT),
+					BlockPredicate.not(BlockPredicate.solid(OFFSET_ABOVE)),
+					BlockPredicate.not(BlockPredicate.matchesBlocks(OFFSET_ABOVE, Blocks.WATER))
+				), BlockStateProvider.simple(Blocks.AIR)
+			),
+			
+			new RuleBasedBlockStateProvider.Rule(
+				BlockPredicate.anyOf(
+					BlockPredicate.matchesTag(OFFSET_ABOVE, AetherTags.Blocks.AETHER_DIRT),
+					BlockPredicate.matchesBlocks(OFFSET_ABOVE, AetherBlocks.AETHER_DIRT.get())
+				), prov(AetherBlocks.AETHER_DIRT)
+			),
+			
+			new RuleBasedBlockStateProvider.Rule(
+				BlockPredicate.allOf(
+					new NoisePredicate(noises.getOrThrow(Noises.SWAMP), 2743L, -0.3, threshold = 0.1),
+					BlockPredicate.matchesBlocks(OFFSET_ABOVE, Blocks.WATER)
+				),
+				prov(UnityBlocks.AETHER_MUD)
+			),
+			
+			new RuleBasedBlockStateProvider.Rule(
+				BlockPredicate.allOf(
+					// Use same seed, mud will surround clay
+					BlockPredicate.matchesBlocks(OFFSET_ABOVE, Blocks.WATER),
+					new NoisePredicate(noises.getOrThrow(Noises.SWAMP), 2743L, threshold, Double.MAX_VALUE)
+				),
+				prov(UnityBlocks.VALKYRIE_CLAY)
+			),
+			
+			new RuleBasedBlockStateProvider.Rule(
+				BlockPredicate.allOf(
+					BlockPredicate.matchesTag(UnityTags.Blocks.AETHER_LAKE_SKIP_REPLACEMENT),
+					BlockPredicate.matchesTag(OFFSET_ABOVE, BlockTags.AIR)
+				), BlockStateProvider.simple(Blocks.AIR)
+			)
+		).toList());
+		
 		FeatureUtils.register(
 			context,
 			LAKES,
@@ -173,7 +227,8 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			new LakesFeature.Config(
 				prov(Blocks.WATER.defaultBlockState()),
 				prov(AetherFeatureStates.QUICKSOIL),
-				BlockPredicate.ONLY_IN_AIR_PREDICATE,
+				lakeFloor,
+				BlockPredicate.replaceable(),
 				36,
 				ReduxDensityBuilders.get(functions, ReduxDensityFunctions.LAKES_NOISE),
 				10,

@@ -55,9 +55,9 @@ public class ReduxBiomeModifiers {
         context.register(ADD_CLOUDBED, new ConditionalBiomeModifier(Holder.direct(cloudbed), conditions.get(ReduxConditions.CLOUDBED).orElseThrow()));
 
         BiomeModifier lakes = new BiomeModifiers.AddFeaturesBiomeModifier(
-                biomes.getOrThrow(ReduxTags.Biomes.HAS_CLOUDBED), HolderSet.direct(features.getOrThrow(ReduxPlacements.LAKES)),
-                GenerationStep.Decoration.LAKES);
-        context.register(ADD_LAKES, new ConditionalBiomeModifier(Holder.direct(lakes), conditions.get(ReduxConditions.CLOUDBED).orElseThrow()));
+                biomes.getOrThrow(ReduxTags.Biomes.HAS_LAKES), HolderSet.direct(features.getOrThrow(ReduxPlacements.LAKES)),
+                GenerationStep.Decoration.RAW_GENERATION);
+        context.register(ADD_LAKES, new ConditionalBiomeModifier(Holder.direct(lakes), conditions.get(ReduxConditions.LAKES).orElseThrow()));
 
         context.register(ADD_LAKE_FOLIAGE, new BiomeModifiers.AddFeaturesBiomeModifier(
                 biomes.getOrThrow(ReduxTags.Biomes.HAS_CLOUDBED), HolderSet.direct(features.getOrThrow(ReduxPlacements.TURBO_VERBENA_PATCH)),

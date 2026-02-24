@@ -14,6 +14,7 @@ public class ReduxConfig {
         public final ModConfigSpec.ConfigValue<Boolean> redux_sky_colors;
         public final ModConfigSpec.ConfigValue<Boolean> redux_water_colors;
         public final ModConfigSpec.ConfigValue<Boolean> cloudbed;
+        public final ModConfigSpec.ConfigValue<Boolean> lakes;
         public final ModConfigSpec.ConfigValue<Boolean> use_wood_blocks;
         public final ModConfigSpec.ConfigValue<Boolean> revamped_quicksoil_movement;
         // TODO: Item component?
@@ -40,6 +41,10 @@ public class ReduxConfig {
                     .comment("Replace the Aether's large Aercloud features with a noise-based cloudbed")
                     .worldRestart()
                     .define("Cloudbed", true);
+            lakes = builder
+                    .comment("Add large lakes to the Aether")
+                    .worldRestart()
+                    .define("Lakes", true);
             mossy_holystone_gen = builder
                     .comment("Enables the natural spawning of Mossy Holystone, alongside Gilded and Bleakmoss Holystone in their respective biomes.")
                     .worldRestart()

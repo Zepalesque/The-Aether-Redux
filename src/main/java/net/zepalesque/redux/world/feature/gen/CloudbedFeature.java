@@ -45,8 +45,8 @@ public class CloudbedFeature extends Feature<CloudbedFeature.Config> {
                 // The main cloud noise is what is used for the distinction of gaps and non-gaps
                 double cloudCalc = cloudNoise.compute(new DensityFunction.SinglePointContext(xCoord, config.yLevel(), zCoord));
                 // A Y offset is then calculated and applied using a second, smoother and larger noise
-                double offsetCalc = yOffsetNoise.compute(new DensityFunction.SinglePointContext(xCoord, config.yLevel(), zCoord));
-                float realOffset =  cosineInterp((float) Mth.inverseLerp(offsetCalc, -0.5, 0.5), 0F, (float) config.maxYOffset());
+                double rollCalc = yOffsetNoise.compute(new DensityFunction.SinglePointContext(xCoord, config.yLevel(), zCoord));
+                float realOffset =  cosineInterp((float) Mth.inverseLerp(rollCalc, -0.5, 0.5), 0F, (float) config.maxYOffset());
                 // We don't need to, and shouldn't, generate anything if the cloud noise value is below zero
                 if (cloudCalc >= 0) {
                     // Interpolate for some extra smoothness
@@ -75,7 +75,7 @@ public class CloudbedFeature extends Feature<CloudbedFeature.Config> {
 
     public record Config(BlockStateProvider block, BlockPredicate predicate, int yLevel, DensityFunction cloudNoise, double cloudRadius, DensityFunction yOffset, double maxYOffset) implements FeatureConfiguration {
         public static final Codec<Config> CODEC = RecordCodecBuilder.create(
-                (builder) -> builder.group(
+            builder -> builder.group(
                         BlockStateProvider.CODEC.fieldOf("block").forGetter(Config::block),
                         BlockPredicate.CODEC.fieldOf("predicate").forGetter(Config::predicate),
                         Codec.INT.fieldOf("y_level").forGetter(Config::yLevel),
