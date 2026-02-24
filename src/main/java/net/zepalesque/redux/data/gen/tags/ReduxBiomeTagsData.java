@@ -34,6 +34,10 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
                 AetherTags.Biomes.IS_AETHER
         );
 
+        this.tag(ReduxTags.Biomes.HAS_LAKES).addTag(
+                AetherTags.Biomes.IS_AETHER
+        );
+
         this.tag(ReduxTags.Biomes.HAS_CAVES).addTag(
                 AetherTags.Biomes.IS_AETHER
         );

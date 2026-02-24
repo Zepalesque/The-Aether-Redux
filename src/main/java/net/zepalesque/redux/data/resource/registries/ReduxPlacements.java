@@ -72,10 +72,10 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
     public static final ResourceKey<PlacedFeature> SPARSE_WYNDSPROUTS_PATCH = copyKey(ReduxFeatureConfig.WYNDSPROUTS_PATCH, "sparse_%s");
     
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
-        HolderGetter<ConfiguredFeature<?, ?>> configs = context.lookup(Registries.CONFIGURED_FEATURE);
-        HolderGetter<Condition<?>> conditions = context.lookup(Zenith.Keys.CONDITION);
-        DungeonBlacklistFilter blacklist = new DungeonBlacklistFilter();
-        NoiseThresholdCountPlacement threshold = NoiseThresholdCountPlacement.of(-0.8D, 5, 10);
+        var configs = context.lookup(Registries.CONFIGURED_FEATURE);
+        var conditions = context.lookup(Zenith.Keys.CONDITION);
+        var blacklist = new DungeonBlacklistFilter();
+        var threshold = NoiseThresholdCountPlacement.of(-0.8D, 5, 10);
 
         PlacementUtils.register(context, CLOUDBED, configs.getOrThrow(ReduxFeatureConfig.CLOUDBED));
         PlacementUtils.register(context, LAKES, configs.getOrThrow(ReduxFeatureConfig.LAKES));

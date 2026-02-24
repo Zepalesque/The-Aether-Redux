@@ -13,6 +13,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.RuleBasedBlockStateProvider;
 import net.minecraft.world.level.material.Fluids;
 import net.zepalesque.zenith.api.world.density.PerlinNoiseFunction;
 
@@ -64,10 +65,10 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 				);
 
 				// Interpolate for some extra smoothness
-				var reallake = cosineInterp((float) Mth.clamp(lakeCalc, 0, 1), 0, 1);
+				var reallake = lakeInterp((float) Mth.clamp(lakeCalc, 0, 1), 0, 1);
 				// Calculate how deep the lake should be
 				var depth = Mth.floor(
-					-(Mth.lerp(reallake, 0F, (float) config.lakeRadius() - 1F) - realOffset)
+					-(Mth.lerp(reallake, 0F, (float) config.lakeDepth() - 1F) - realOffset)
 				);
 
 				if (depth < SHORE_DEPTH) {
@@ -113,47 +114,56 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 		var btm = new BlockPos(x, depth + y - WATER_DEPTH, z).below();
 		var level = context.level();
 		var predicate = context.config().predicate();
+		var floor = context.config().floor();
 
 		if (predicate.test(level, btm)) {
-			this.setBlock(level, btm, AetherFeatureStates.HOLYSTONE);
+			this.setBlock(level, btm, floor.getState(context.level(), context.random(), btm));
+			this.setBlock(level, btm.below()	, AetherFeatureStates.HOLYSTONE);
 		}
 
 		for (var dir : Direction.Plane.HORIZONTAL) {
 			var pos = btm.relative(dir);
 
 			if (predicate.test(level, pos)) {
-				this.setBlock(level, pos, AetherFeatureStates.HOLYSTONE);
-			} 
+				this.setBlock(level, pos, floor.getState(context.level(), context.random(), btm));
+				this.setBlock(level, pos.below(), AetherFeatureStates.HOLYSTONE);
+			}
 		}
 	}
 
+	// TODO: Modular system for interpolation?
 	private static float cosineInterp(float progress, float start, float end) {
 		return (-Mth.cos((float) (Math.PI * progress)) + 1F) * 0.5F * (end - start) + start;
+	}
+	
+	private static float lakeInterp(float progress, float start, float end) {
+		var costrp = (-Mth.cos((float) (Math.PI * progress)) + 1F) * 0.5F;
+		
+		return 1 - costrp * costrp * (end - start) + start;
 	}
 
 	public record Config(
 		BlockStateProvider fluid,
 		BlockStateProvider shore,
+		RuleBasedBlockStateProvider floor,
 		BlockPredicate predicate,
 		int yLevel,
 		DensityFunction lakeNoise,
-		double lakeRadius,
+		double lakeDepth,
 		DensityFunction yOffset,
 		double maxYOffset
 	) implements FeatureConfiguration {
-		public static final Codec<Config> CODEC = RecordCodecBuilder.create((builder) ->
-			builder
-				.group(
-					BlockStateProvider.CODEC.fieldOf("fluid").forGetter(Config::fluid),
-					BlockStateProvider.CODEC.fieldOf("shore").forGetter(Config::shore),
-					BlockPredicate.CODEC.fieldOf("predicate").forGetter(Config::predicate),
-					Codec.INT.fieldOf("y_level").forGetter(Config::yLevel),
-					DensityFunction.HOLDER_HELPER_CODEC.fieldOf("lake_noise").forGetter(Config::lakeNoise),
-					Codec.DOUBLE.fieldOf("lake_radius").forGetter(Config::lakeRadius),
-					DensityFunction.HOLDER_HELPER_CODEC.fieldOf("offset_noise").forGetter(Config::yOffset),
-					Codec.DOUBLE.fieldOf("offset_max").forGetter(Config::maxYOffset)
-				)
-				.apply(builder, Config::new)
+		public static final Codec<Config> CODEC = RecordCodecBuilder.create(
+			builder -> builder.group(
+				BlockStateProvider.CODEC.fieldOf("fluid").forGetter(Config::fluid),
+				BlockStateProvider.CODEC.fieldOf("shore").forGetter(Config::shore),
+				RuleBasedBlockStateProvider.CODEC.fieldOf("floor").forGetter(Config::floor), BlockPredicate.CODEC.fieldOf("predicate").forGetter(Config::predicate),
+				Codec.INT.fieldOf("y_level").forGetter(Config::yLevel),
+				DensityFunction.HOLDER_HELPER_CODEC.fieldOf("lake_noise").forGetter(Config::lakeNoise),
+				Codec.DOUBLE.fieldOf("lake_depth").forGetter(Config::lakeDepth),
+				DensityFunction.HOLDER_HELPER_CODEC.fieldOf("offset_noise").forGetter(Config::yOffset),
+				Codec.DOUBLE.fieldOf("offset_max").forGetter(Config::maxYOffset)
+			).apply(builder, Config::new)
 		);
 	}
 }
