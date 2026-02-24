@@ -94,7 +94,7 @@
                 "type": "zenith:perlin_noise",
                 "max_threshold": 0.1,
                 "min_threshold": -0.3,
-                "noise": "minecraft:gravel",
+                "noise": "minecraft:surface_swamp",
                 "seed_offset": 2743
               },
               {
@@ -135,7 +135,7 @@
                 "type": "zenith:perlin_noise",
                 "max_threshold": 1.7976931348623157E308,
                 "min_threshold": 0.1,
-                "noise": "minecraft:gravel",
+                "noise": "minecraft:surface_swamp",
                 "seed_offset": 2743
               }
             ]

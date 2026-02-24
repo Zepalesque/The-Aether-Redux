@@ -38,8 +38,8 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 		yOffsetNoise.mapAll(visitor);
 
 		// The feature should be placed once per chunk as it places one-chunk pieces of the lake
-		var chunkX = context.origin().getX() - (context.origin().getX() % 16);
-		var chunkZ = context.origin().getZ() - (context.origin().getZ() % 16);
+		var chunkX = context.origin().getX() - context.origin().getX() % 16;
+		var chunkZ = context.origin().getZ() - context.origin().getZ() % 16;
 
 		var yLevel = config.yLevel();
 
@@ -139,7 +139,7 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 	private static float lakeInterp(float progress, float start, float end) {
 		var costrp = (-Mth.cos((float) (Math.PI * progress)) + 1F) * 0.5F;
 		
-		return 1 - (float) Math.pow(costrp, 1.5f) * (end - start) + start;
+		return 1 - (float) Math.pow(costrp, 1.1f) * (end - start) + start;
 	}
 
 	public record Config(
