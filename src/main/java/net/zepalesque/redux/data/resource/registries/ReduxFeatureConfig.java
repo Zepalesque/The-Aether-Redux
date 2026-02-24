@@ -76,7 +76,6 @@ import net.zepalesque.zenith.api.block.predicate.InBiomePredicate;
 import net.zepalesque.zenith.api.block.predicate.NoisePredicate;
 import net.zepalesque.zenith.api.world.feature.gen.ExtendableStateListBlockFeature;
 import net.zepalesque.zenith.api.world.feature.gen.LargeRockFeature;
-import net.zepalesque.zenith.api.world.feature.gen.RuleBasedLakeFeature;
 import net.zepalesque.zenith.api.world.tree.trunk.IntProviderTrunkPlacer;
 import net.zepalesque.zenith.core.registry.ZenithFeatures;
 
