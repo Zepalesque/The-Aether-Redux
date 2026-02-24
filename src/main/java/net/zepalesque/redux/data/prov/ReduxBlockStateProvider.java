@@ -39,6 +39,7 @@ import net.zepalesque.unity.data.prov.UnityBlockStateProvider;
 import net.zepalesque.zenith.util.ArrayUtil;
 
 import java.util.Map;
+import java.util.TreeMap;
 
 public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
 
@@ -272,12 +273,12 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
     }
 
     public void metalBars(Block block, String location) {
-        final Map<Direction, BooleanProperty> directionProperties = Map.ofEntries(
+        final Map<Direction, BooleanProperty> directionProperties = new TreeMap<>(Map.ofEntries(
                 Map.entry(Direction.NORTH, IronBarsBlock.NORTH),
                 Map.entry(Direction.SOUTH, IronBarsBlock.SOUTH),
                 Map.entry(Direction.EAST, IronBarsBlock.EAST),
                 Map.entry(Direction.WEST, IronBarsBlock.WEST)
-        );
+        ));
 
         ModelFile cap = this.models().withExistingParent(this.name(block) + "_cap", Redux.loc("block/template/construction/bars/template_bars_cap"))
                 .texture("bars", this.texture(this.name(block), location))

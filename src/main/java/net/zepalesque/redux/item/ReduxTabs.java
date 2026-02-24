@@ -28,7 +28,8 @@ public class ReduxTabs {
         if (TabUtil.isForTab(event, AetherCreativeTabs.AETHER_NATURAL_BLOCKS)) {
             
             TabUtil.putAfter(event, UnityBlocks.SHORT_AETHER_GRASS,
-                ReduxBlocks.WYNDSPROUTS
+                ReduxBlocks.WYNDSPROUTS,
+				ReduxBlocks.TURBO_VERBENA
             );
             
             TabUtil.putAfter(event, AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK,

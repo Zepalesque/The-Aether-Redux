@@ -76,7 +76,6 @@ import net.zepalesque.zenith.api.block.predicate.InBiomePredicate;
 import net.zepalesque.zenith.api.block.predicate.NoisePredicate;
 import net.zepalesque.zenith.api.world.feature.gen.ExtendableStateListBlockFeature;
 import net.zepalesque.zenith.api.world.feature.gen.LargeRockFeature;
-import net.zepalesque.zenith.api.world.feature.gen.RuleBasedLakeFeature;
 import net.zepalesque.zenith.api.world.tree.trunk.IntProviderTrunkPlacer;
 import net.zepalesque.zenith.core.registry.ZenithFeatures;
 
@@ -89,6 +88,9 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 	);
 	public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_CLOVERS_PATCH = createKey(
 		name(ReduxBlocks.GOLDEN_CLOVERS) + "_patch"
+	);
+	public static final ResourceKey<ConfiguredFeature<?, ?>> TURBO_VERBENA_PATCH = createKey(
+		name(ReduxBlocks.TURBO_VERBENA) + "_patch"
 	);
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> CLOUDBED = createKey("cloudbed");
@@ -570,6 +572,12 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			GOLDEN_CLOVERS_PATCH,
 			Feature.FLOWER,
 			patch(24, 7, 3, petals(drops(ReduxBlocks.GOLDEN_CLOVERS)))
+		);
+		FeatureUtils.register(
+			context,
+			TURBO_VERBENA_PATCH,
+			Feature.FLOWER,
+			patch(24, 5, 3, prov(ReduxBlocks.TURBO_VERBENA))
 		);
 
 		FeatureUtils.register(

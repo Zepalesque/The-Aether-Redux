@@ -2,16 +2,13 @@ package net.zepalesque.redux.data.resource.registries;
 
 import com.aetherteam.aether.data.resources.registries.AetherStructures;
 import net.minecraft.core.Holder;
-import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.level.levelgen.structure.Structure;
 import net.neoforged.neoforge.common.world.StructureModifier;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.zenith.api.condition.Condition;
 import net.zepalesque.zenith.api.world.structure.modifier.ConditionalStructureModifier;
 import net.zepalesque.zenith.api.world.structure.modifier.RemoveStructureModifier;
 import net.zepalesque.zenith.core.Zenith;

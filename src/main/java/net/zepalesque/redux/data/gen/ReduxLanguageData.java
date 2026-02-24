@@ -198,7 +198,10 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
         
         addItem(ReduxItems.WILLOW_SPORES);
         addLore(ReduxItems.WILLOW_SPORES, "Spores from the Blightwillow tree. These seem to channel the pure essence of the Blight, and can be used to spread it.");
-        
+
+        addBlock(ReduxBlocks.TURBO_VERBENA, "Turbo Verbena");
+        addLore(ReduxBlocks.TURBO_VERBENA, "A plant that grows on quicksoil. When prepared properly, it can increase your speed when consumed.");
+
         addTooltip("shift_info", "Hold [%s] for more info...");
         addTooltip("infusion_charge", "Infusion Charge: %s");
         addTooltip("infusion_info", "Can be infused by right-clicking the item in your inventory while hovering over it with an Ambrosium Shard");
