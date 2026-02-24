@@ -17,68 +17,73 @@ import net.zepalesque.zenith.api.blockset.type.AbstractFlowerSet;
 import org.jetbrains.annotations.Nullable;
 
 public class ReduxColors {
+	public static class Tints {
+		public static final int GILDED_GRASS_COLOR = 0xFFFFED96;
+		public static final int BLIGHT_GRASS_COLOR = 0xFFBEAEE5;
 
-    public static class Tints {
-        public static final int GILDED_GRASS_COLOR = 0xFFFFED96;
-        public static final int BLIGHT_GRASS_COLOR = 0xFFBEAEE5;
+		public static final int BLEAKMOSS_GRASS_COLOR = 0xFFB79EC1;
+	}
 
-        public static final int BLEAKMOSS_GRASS_COLOR = 0xFFB79EC1;
-    }
-    
-    public static final int REDUX_PURPLE = 0x9384F4;
-    
-    public static final ItemColor ITEM_PERMABLIGHT = (stack, index) -> index == 1 ? Tints.BLIGHT_GRASS_COLOR : 0xFFFFFFFF;
-    
-    public static Integer reduxColors(BlockState state, @Nullable BlockAndTintGetter level, @Nullable BlockPos pos, boolean useBelowProperties) {
-        if (level == null || pos == null) return null;
-        if (useBelowProperties) {
-            var below = pos.below();
-            if (level.getBlockState(below).is(ReduxTags.Blocks.SHORT_AETHER_GRASS_BLEAKMOSS_COLORING))
-                return Tints.BLEAKMOSS_GRASS_COLOR;
-            else if (level.getBlockState(below).is(ReduxTags.Blocks.SHORT_AETHER_GRASS_BLIGHT_COLORING))
-                return Tints.BLIGHT_GRASS_COLOR;
-        }
-        
-        var property = state.getProperties()
-            .stream().filter(
-                p -> CustomTintingProperty.class.isAssignableFrom(p.getValueClass())
-            ).findFirst();
-        
-        return property.map(value -> ((CustomTintingProperty) state.getValue(value)).colorOverride()).orElse(null);
-    }
+	public static final int REDUX_PURPLE = 0x9384F4;
 
-    public static void blockColors(RegisterColorHandlersEvent.Block event) {
-        Redux.LOGGER.debug("Beginning block color registration for the Aether: Redux");
+	public static final ItemColor ITEM_PERMABLIGHT = (stack, index) -> index == 1 ? Tints.BLIGHT_GRASS_COLOR : 0xFFFFFFFF;
 
-        event.register(UnityColors.OVERLAY_INHERITING,
-            AetherBlocks.WHITE_FLOWER.get(),
-            AetherBlocks.POTTED_WHITE_FLOWER.get(),
-            AetherBlocks.PURPLE_FLOWER.get(),
-            AetherBlocks.POTTED_PURPLE_FLOWER.get(),
-            ReduxBlocks.WYNDSPROUTS.get()
-        );
-        
-        event.register(UnityColors.OVERLAY_BASE,
-            ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get()
-        );
-        
-        for (BlockSet set : Redux.BLOCK_SETS)
-            if (set instanceof TintableSet tintable && set instanceof AbstractFlowerSet flowerSet)
-                event.register((state, level, pos, index) -> UnityColors.getColor(state, level, pos, index, i -> i == tintable.getTintIndex(), true), flowerSet.flower().get(), flowerSet.pot().get());
-    }
+	public static Integer reduxColors(BlockState state, @Nullable BlockAndTintGetter level, @Nullable BlockPos pos, boolean useBelowProperties) {
+		if (level == null || pos == null) return null;
+		if (useBelowProperties) {
+			var below = pos.below();
+			if (level.getBlockState(below).is(ReduxTags.Blocks.SHORT_AETHER_GRASS_BLEAKMOSS_COLORING))
+				return Tints.BLEAKMOSS_GRASS_COLOR;
+			else if (level.getBlockState(below).is(ReduxTags.Blocks.SHORT_AETHER_GRASS_BLIGHT_COLORING))
+				return Tints.BLIGHT_GRASS_COLOR;
+		}
+		
+		var property = state.getProperties()
+			.stream().filter(
+				p -> CustomTintingProperty.class.isAssignableFrom(p.getValueClass())
+			).findFirst();
+		
+		return property.map(value -> ((CustomTintingProperty) state.getValue(value)).colorOverride()).orElse(null);
+	}
 
-    public static void itemColors(RegisterColorHandlersEvent.Item event) {
-        Redux.LOGGER.debug("Beginning item color registration for the Aether: Redux");
-        event.register(UnityColors.ITEM_OVERLAY_AETHER,
-                ReduxBlocks.WYNDSPROUTS.get()
-        );
-        
-        event.register(ITEM_PERMABLIGHT,
-            ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get()
-        );
+	public static void blockColors(RegisterColorHandlersEvent.Block event) {
+		Redux.LOGGER.debug("Beginning block color registration for the Aether: Redux");
 
-        for (BlockSet set : Redux.BLOCK_SETS)
-            if (set instanceof TintableSet tintable && set instanceof AbstractFlowerSet flowerSet)
-                event.register((stack, tintIndex) -> tintIndex == tintable.getTintIndex() ? tintable.getDefaultItemTint() : 0xFFFFFFFF, flowerSet.flower().get());
-    }
+		event.register(UnityColors.OVERLAY_INHERITING,
+			AetherBlocks.WHITE_FLOWER.get(),
+			AetherBlocks.POTTED_WHITE_FLOWER.get(),
+			AetherBlocks.PURPLE_FLOWER.get(),
+			AetherBlocks.POTTED_PURPLE_FLOWER.get(),
+			ReduxBlocks.WYNDSPROUTS.get(),
+			ReduxBlocks.TURBO_VERBENA.get()
+		);
+		
+		event.register(UnityColors.OVERLAY_BASE,
+			ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get()
+		);
+		
+		for (BlockSet set : Redux.BLOCK_SETS) {
+			if (set instanceof TintableSet tintable && set instanceof AbstractFlowerSet flowerSet) {
+				event.register((state, level, pos, index) -> UnityColors.getColor(state, level, pos, index, i -> i == tintable.getTintIndex(), true), flowerSet.flower().get(), flowerSet.pot().get());
+			}
+		}
+	}
+
+	public static void itemColors(RegisterColorHandlersEvent.Item event) {
+		Redux.LOGGER.debug("Beginning item color registration for the Aether: Redux");
+		event.register(UnityColors.ITEM_OVERLAY_AETHER,
+			ReduxBlocks.WYNDSPROUTS.get(),
+			ReduxBlocks.TURBO_VERBENA.get()
+		);
+		
+		event.register(ITEM_PERMABLIGHT,
+			ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get()
+		);
+
+		for (BlockSet set : Redux.BLOCK_SETS) {
+			if (set instanceof TintableSet tintable && set instanceof AbstractFlowerSet flowerSet) {
+				event.register((stack, tintIndex) -> tintIndex == tintable.getTintIndex() ? tintable.getDefaultItemTint() : 0xFFFFFFFF, flowerSet.flower().get());
+			}
+		}
+	}
 }

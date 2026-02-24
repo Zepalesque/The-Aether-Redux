@@ -92,6 +92,7 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
 
         this.add(ReduxBlocks.WYNDSPROUTS.get(), shearsOr(ReduxItems.WYND_OATS.get(), 0.25F));
         this.add(ReduxBlocks.SKYSPROUTS.get(), shears());
+		this.dropSelf(ReduxBlocks.TURBO_VERBENA.get());
         this.add(ReduxBlocks.WYNDOATS.get(),
                 this.createCropDrops(
                         ReduxBlocks.WYNDOATS.get(),
