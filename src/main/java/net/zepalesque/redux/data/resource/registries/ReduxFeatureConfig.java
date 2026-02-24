@@ -81,6 +81,9 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_CLOVERS_PATCH = createKey(
 		name(ReduxBlocks.GOLDEN_CLOVERS) + "_patch"
 	);
+	public static final ResourceKey<ConfiguredFeature<?, ?>> TURBO_VERBENA_PATCH = createKey(
+		name(ReduxBlocks.TURBO_VERBENA) + "_patch"
+	);
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> CLOUDBED = createKey("cloudbed");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> LAKES = createKey("lakes");
@@ -515,6 +518,12 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			GOLDEN_CLOVERS_PATCH,
 			Feature.FLOWER,
 			patch(24, 7, 3, petals(drops(ReduxBlocks.GOLDEN_CLOVERS)))
+		);
+		FeatureUtils.register(
+			context,
+			TURBO_VERBENA_PATCH,
+			Feature.FLOWER,
+			patch(24, 5, 3, prov(ReduxBlocks.TURBO_VERBENA))
 		);
 
 		FeatureUtils.register(

@@ -49,6 +49,7 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
     public static final ResourceKey<PlacedFeature> GROVE_TREES = copyKey(ReduxFeatureConfig.GROVE_TREES);
     public static final ResourceKey<PlacedFeature> AURUM_PATCH = copyKey(ReduxFeatureConfig.AURUM_PATCH);
     public static final ResourceKey<PlacedFeature> GOLDEN_CLOVERS_PATCH = copyKey(ReduxFeatureConfig.GOLDEN_CLOVERS_PATCH);
+    public static final ResourceKey<PlacedFeature> TURBO_VERBENA_PATCH = copyKey(ReduxFeatureConfig.TURBO_VERBENA_PATCH);
     public static final ResourceKey<PlacedFeature> AMBROSIUM_ROCK = copyKey(ReduxFeatureConfig.AMBROSIUM_ROCK);
     public static final ResourceKey<PlacedFeature> LUCKY_CLOVER_PATCH = copyKey(ReduxFeatureConfig.LUCKY_CLOVER_PATCH);
 
@@ -187,6 +188,11 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
 
 
         PlacementUtils.register(context, GOLDEN_CLOVERS_PATCH, configs.getOrThrow(ReduxFeatureConfig.GOLDEN_CLOVERS_PATCH),
+                threshold,
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
+                BiomeFilter.biome());
+
+        PlacementUtils.register(context, TURBO_VERBENA_PATCH, configs.getOrThrow(ReduxFeatureConfig.TURBO_VERBENA_PATCH),
                 threshold,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
                 BiomeFilter.biome());
