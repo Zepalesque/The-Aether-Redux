@@ -172,8 +172,8 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				10
 			)
 		);
-		
-		HolderGetter<NormalNoise.NoiseParameters> noises = context.lookup(Registries.NOISE);
+        
+        var noises = context.lookup(Registries.NOISE);
 		double threshold;
 		var lakeFloor = new RuleBasedBlockStateProvider(
 			BlockStateProvider.simple(AetherFeatureStates.AETHER_DIRT), Stream.of(
@@ -194,7 +194,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			
 			new RuleBasedBlockStateProvider.Rule(
 				BlockPredicate.allOf(
-					new NoisePredicate(noises.getOrThrow(Noises.SWAMP), 2743L, -0.3, threshold = 0.1),
+					new NoisePredicate(noises.getOrThrow(Noises.GRAVEL), 2743L, -0.3, threshold = 0.1),
 					BlockPredicate.matchesBlocks(OFFSET_ABOVE, Blocks.WATER)
 				),
 				prov(UnityBlocks.AETHER_MUD)
@@ -204,7 +204,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				BlockPredicate.allOf(
 					// Use same seed, mud will surround clay
 					BlockPredicate.matchesBlocks(OFFSET_ABOVE, Blocks.WATER),
-					new NoisePredicate(noises.getOrThrow(Noises.SWAMP), 2743L, threshold, Double.MAX_VALUE)
+					new NoisePredicate(noises.getOrThrow(Noises.GRAVEL), 2743L, threshold, Double.MAX_VALUE)
 				),
 				prov(UnityBlocks.VALKYRIE_CLAY)
 			),

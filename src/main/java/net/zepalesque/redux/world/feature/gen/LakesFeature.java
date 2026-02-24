@@ -139,7 +139,7 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 	private static float lakeInterp(float progress, float start, float end) {
 		var costrp = (-Mth.cos((float) (Math.PI * progress)) + 1F) * 0.5F;
 		
-		return 1 - costrp * costrp * (end - start) + start;
+		return 1 - (float) Math.pow(costrp, 1.5f) * (end - start) + start;
 	}
 
 	public record Config(
