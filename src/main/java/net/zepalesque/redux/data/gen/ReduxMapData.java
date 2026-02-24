@@ -17,13 +17,12 @@ import net.zepalesque.unity.world.biome.tint.UnityBiomeTints;
 import java.util.concurrent.CompletableFuture;
 
 public class ReduxMapData extends ReduxDataMapProvider {
-
     public ReduxMapData(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
         super(packOutput, lookupProvider);
     }
 
     @Override
-    protected void gather() {
+    protected void gather(HolderLookup.Provider provider) {
         Redux.BLOCK_SETS.forEach(set -> set.mapData(this));
 
         var biomeTints = this.builder(UnityBiomeTints.AETHER_GRASS.get().getDataMap());
