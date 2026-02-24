@@ -7,6 +7,10 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.DensityFunction;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -16,6 +20,12 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.feature.stateproviders.RuleBasedBlockStateProvider;
 import net.minecraft.world.level.material.Fluids;
 import net.zepalesque.zenith.api.world.density.PerlinNoiseFunction;
+import net.zepalesque.zenith.util.function.Consumers;
+import net.zepalesque.zenith.util.function.Functions;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.function.BiFunction;
+import java.util.function.Function;
 
 public class LakesFeature extends Feature<LakesFeature.Config> {
 	private static final int SHORE_DEPTH = -1;
@@ -65,7 +75,7 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 				);
 
 				// Interpolate for some extra smoothness
-				var reallake = lakeInterp((float) Mth.clamp(lakeCalc, 0, 1), 0, 1);
+				var reallake = cosineInterp((float) Mth.clamp(lakeCalc, 0, 1), 0, 1);
 				// Calculate how deep the lake should be
 				var depth = Mth.floor(
 					-(Mth.lerp(reallake, 0F, (float) config.lakeDepth() - 1F) - realOffset)
@@ -80,7 +90,7 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 
 				// Place the quicksoil shores
 				var pos = new BlockPos(xCoord, yLevel, zCoord);
-				if (config.predicate().test(level, pos) && depth == SHORE_DEPTH) {
+				if (config.predicate().test(level, pos) && (depth == SHORE_DEPTH /*|| depth - 1 == SHORE_DEPTH*/)) {
 					this.setBlock(level, pos, config.shore().getState(context.random(), pos));
 				}
 			}
@@ -115,18 +125,34 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 		var level = context.level();
 		var predicate = context.config().predicate();
 		var floor = context.config().floor();
-
+		var shore = context.config().shore();
+		// why must java not allow primitives in generics smh,,,,
+		//  also what the HECK is java type annotation syntax
+		BiFunction<Integer, BlockPos, Functions.@Nullable F3<WorldGenLevel, RandomSource, BlockPos, BlockState>>
+			fun = (i, abv) -> {			   // vv  rus,,,, 🦀
+				if (i == SHORE_DEPTH) return (__, rand, pos) -> shore.getState(rand, pos);
+				else if (predicate.test(level, abv)) return floor::getState;
+				else return null;
+			};
+		
 		if (predicate.test(level, btm)) {
-			this.setBlock(level, btm, floor.getState(context.level(), context.random(), btm));
-			this.setBlock(level, btm.below()	, AetherFeatureStates.HOLYSTONE);
+			var abv = btm.above();
+			// .apply my beloathed
+			var blockFn = fun.apply(depth + 1, abv);
+			if (blockFn != null)
+				this.setBlock(level, abv, blockFn.apply(context.level(), context.random(), btm));
+			this.setBlock(level, btm, AetherFeatureStates.HOLYSTONE);
 		}
 
 		for (var dir : Direction.Plane.HORIZONTAL) {
 			var pos = btm.relative(dir);
 
 			if (predicate.test(level, pos)) {
-				this.setBlock(level, pos, floor.getState(context.level(), context.random(), btm));
-				this.setBlock(level, pos.below(), AetherFeatureStates.HOLYSTONE);
+				var abv = pos.above();
+				var blockFn = fun.apply(depth + 1, abv);
+				if (blockFn != null)
+					this.setBlock(level, abv, blockFn.apply(context.level(), context.random(), btm));
+				this.setBlock(level, pos, AetherFeatureStates.HOLYSTONE);
 			}
 		}
 	}
@@ -134,12 +160,6 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 	// TODO: Modular system for interpolation?
 	private static float cosineInterp(float progress, float start, float end) {
 		return (-Mth.cos((float) (Math.PI * progress)) + 1F) * 0.5F * (end - start) + start;
-	}
-	
-	private static float lakeInterp(float progress, float start, float end) {
-		var costrp = (-Mth.cos((float) (Math.PI * progress)) + 1F) * 0.5F;
-		
-		return 1 - (float) Math.pow(costrp, 1.1f) * (end - start) + start;
 	}
 
 	public record Config(
