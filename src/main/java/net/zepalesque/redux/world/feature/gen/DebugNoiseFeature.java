@@ -4,15 +4,12 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
-import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.levelgen.DensityFunction;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.zepalesque.zenith.api.world.density.PerlinNoiseFunction;
-import net.zepalesque.zenith.util.math.MathUtil;
 
 import java.util.List;
 
@@ -52,7 +49,6 @@ public class DebugNoiseFeature extends Feature<DebugNoiseFeature.Config> {
                 var pos = new BlockPos(xCoord, yCoord, zCoord);
                 this.setBlock(context.level(), pos, gradient.get(index).getState(context.random(), pos));
             }
-            FlowerPotBlock
         }
         return true;
     }
