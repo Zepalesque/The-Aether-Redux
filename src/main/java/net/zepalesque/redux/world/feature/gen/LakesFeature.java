@@ -90,9 +90,8 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 
 				// Place the quicksoil shores
 				var pos = new BlockPos(xCoord, yLevel, zCoord);
-				if (config.predicate().test(level, pos) && (depth == SHORE_DEPTH /*|| depth - 1 == SHORE_DEPTH*/)) {
-					this.setBlock(level, pos, config.shore().getState(context.random(), pos));
-				}
+				if (config.predicate().test(level, pos) && (depth == SHORE_DEPTH /*|| depth - 1 == SHORE_DEPTH*/))
+                    this.setBlock(level, pos, config.shore().getState(context.random(), pos));
 			}
 		}
 		return false;

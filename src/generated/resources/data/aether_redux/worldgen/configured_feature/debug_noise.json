@@ -1,0 +1,39 @@
+{
+  "type": "aether_redux:debug_noise",
+  "config": {
+    "gradient": [
+      {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:black_wool"
+        }
+      },
+      {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:gray_wool"
+        }
+      },
+      {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:cyan_terracotta"
+        }
+      },
+      {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:light_gray_wool"
+        }
+      },
+      {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:white_wool"
+        }
+      }
+    ],
+    "noise": "aether_redux:lakes_noise",
+    "y_level": 0
+  }
+}

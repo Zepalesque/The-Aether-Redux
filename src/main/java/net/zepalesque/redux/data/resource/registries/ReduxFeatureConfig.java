@@ -60,6 +60,7 @@ import net.zepalesque.redux.data.ReduxTags;
 import net.zepalesque.redux.data.resource.builders.ReduxDensityBuilders;
 import net.zepalesque.redux.data.resource.builders.ReduxFeatureBuilders;
 import net.zepalesque.redux.world.feature.gen.CloudbedFeature;
+import net.zepalesque.redux.world.feature.gen.DebugNoiseFeature;
 import net.zepalesque.redux.world.feature.gen.LakesFeature;
 import net.zepalesque.redux.world.feature.gen.ReduxFeatures;
 import net.zepalesque.redux.world.tree.decorator.GoldenVineDecorator;
@@ -95,6 +96,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> CLOUDBED = createKey("cloudbed");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> LAKES = createKey("lakes");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> DEBUG_NOISE = createKey("debug_noise");
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_GILDENROOT_TREE = createKey("small_gildenroot");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_GILDENROOT_TREE = createKey("large_gildenroot");
@@ -233,6 +235,22 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				10,
 				ReduxDensityBuilders.get(functions, ReduxDensityFunctions.LAKES_Y_OFFSET),
 				10
+			)
+		);
+		FeatureUtils.register(
+			context,
+			DEBUG_NOISE,
+			ReduxFeatures.DEBUG_NOISE.get(),
+			new DebugNoiseFeature.Config(
+				List.of(
+					prov(Blocks.BLACK_WOOL.defaultBlockState()),
+					prov(Blocks.GRAY_WOOL.defaultBlockState()),
+					prov(Blocks.CYAN_TERRACOTTA.defaultBlockState()),
+					prov(Blocks.LIGHT_GRAY_WOOL.defaultBlockState()),
+					prov(Blocks.WHITE_WOOL.defaultBlockState())
+				),
+				0,
+				ReduxDensityBuilders.get(functions, ReduxDensityFunctions.LAKES_NOISE)
 			)
 		);
 
