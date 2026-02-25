@@ -249,6 +249,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 					prov(Blocks.LIGHT_GRAY_WOOL.defaultBlockState()),
 					prov(Blocks.WHITE_WOOL.defaultBlockState())
 				),
+				36,
 				0,
 				ReduxDensityBuilders.get(functions, ReduxDensityFunctions.LAKES_NOISE)
 			)

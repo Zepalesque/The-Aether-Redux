@@ -42,27 +42,29 @@ public class DebugNoiseFeature extends Feature<DebugNoiseFeature.Config> {
                 var yCoord = cfg.yLevel();
                 var zCoord = chunkZ + z;
                 
-                var initCalc = noiseFun.compute(new DensityFunction.SinglePointContext(xCoord, yCoord, zCoord));
+                var initCalc = noiseFun.compute(new DensityFunction.SinglePointContext(xCoord, cfg.sampleY(), zCoord));
                 var inverped = MathUtil.clampedInverseLerp(initCalc, -0.5, 0.5);
                 
                 var size = gradient.size();
-                var index = Mth.clamp(Mth.floor(size * inverped), 0, size);
+                var index = Mth.clamp(Mth.floor(size * inverped), 0, size - 1);
                 var pos = new BlockPos(xCoord, yCoord, zCoord);
                 this.setBlock(context.level(), pos, gradient.get(index).getState(context.random(), pos));
             }
         }
-        return false;
+        return true;
     }
     
     public record Config(
         List<BlockStateProvider> gradient,
         int yLevel,
+        int sampleY,
         DensityFunction noise
     ) implements FeatureConfiguration {
         public static final Codec<DebugNoiseFeature.Config> CODEC = RecordCodecBuilder.create(
             builder -> builder.group(
                 BlockStateProvider.CODEC.listOf().fieldOf("gradient").forGetter(DebugNoiseFeature.Config::gradient),
                 Codec.INT.fieldOf("y_level").forGetter(DebugNoiseFeature.Config::yLevel),
+                Codec.INT.fieldOf("sample_y").forGetter(DebugNoiseFeature.Config::yLevel),
                 DensityFunction.HOLDER_HELPER_CODEC.fieldOf("noise").forGetter(DebugNoiseFeature.Config::noise) // lack of trailing commas my beloathed
             ).apply(builder, DebugNoiseFeature.Config::new)
         );
