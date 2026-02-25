@@ -47,7 +47,7 @@ public class DebugNoiseFeature extends Feature<DebugNoiseFeature.Config> {
                 var size = gradient.size();
                 var index = Mth.clamp(Mth.floor(size * inverped), 0, size - 1);
                 var pos = new BlockPos(xCoord, yCoord, zCoord);
-                this.setBlock(context.level(), pos, gradient.get(index).getState(context.random(), pos));
+                context.level().setBlock(pos, gradient.get(index).getState(context.random(), pos), 2);
             }
         }
         return true;
