@@ -8,7 +8,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.DensityFunction;
@@ -20,12 +19,12 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.feature.stateproviders.RuleBasedBlockStateProvider;
 import net.minecraft.world.level.material.Fluids;
 import net.zepalesque.zenith.api.world.density.PerlinNoiseFunction;
-import net.zepalesque.zenith.util.function.Consumers;
 import net.zepalesque.zenith.util.function.Functions;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Optional;
 import java.util.function.BiFunction;
-import java.util.function.Function;
+import java.util.function.Consumer;
 
 public class LakesFeature extends Feature<LakesFeature.Config> {
 	private static final int SHORE_DEPTH = -1;
@@ -126,34 +125,36 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 		var predicate = context.config().predicate();
 		var floor = context.config().floor();
 		var shore = context.config().shore();
+
 		// why must java not allow primitives in generics smh,,,,
-		//  also what the HECK is java type annotation syntax
-		BiFunction<Integer, BlockPos, Functions.@Nullable F3<WorldGenLevel, RandomSource, BlockPos, BlockState>>
-			fun = (i, abv) -> {			   // vv  rus,,,, 🦀
-				if (i == SHORE_DEPTH) return (__, rand, pos) -> shore.getState(rand, pos);
-				else if (predicate.test(level, abv)) return floor::getState;
-				else return null;
+		BiFunction<Integer, BlockPos, Optional<Functions.F3<WorldGenLevel, RandomSource, BlockPos, BlockState>>>
+			fun = (i, abv) -> {
+				if (i == SHORE_DEPTH) {
+					//                  vv rus,,,, 🦀
+					return Optional.of((__, rand, pos) -> shore.getState(rand, pos));
+				} else if (predicate.test(level, abv)) {
+					return Optional.of(floor::getState);
+				}
+				return Optional.empty();
 			};
+
+		Consumer<BlockPos> set = pos -> {
+			if (predicate.test(level, pos)) {
+				var abv = pos.above();
+				var blockFn = fun.apply(depth + 1, abv); // .apply my beloathed
+
+				blockFn.ifPresentOrElse(
+					fn -> this.setBlock(level, abv, fn.apply(context.level(), context.random(), pos)),
+					() -> this.setBlock(level, pos, AetherFeatureStates.HOLYSTONE)
+				);
+			}
+		};
 		
-		if (predicate.test(level, btm)) {
-			var abv = btm.above();
-			// .apply my beloathed
-			var blockFn = fun.apply(depth + 1, abv);
-			if (blockFn != null)
-				this.setBlock(level, abv, blockFn.apply(context.level(), context.random(), btm));
-			this.setBlock(level, btm, AetherFeatureStates.HOLYSTONE);
-		}
+		set.accept(btm);
 
 		for (var dir : Direction.Plane.HORIZONTAL) {
 			var pos = btm.relative(dir);
-
-			if (predicate.test(level, pos)) {
-				var abv = pos.above();
-				var blockFn = fun.apply(depth + 1, abv);
-				if (blockFn != null)
-					this.setBlock(level, abv, blockFn.apply(context.level(), context.random(), btm));
-				this.setBlock(level, pos, AetherFeatureStates.HOLYSTONE);
-			}
+			set.accept(pos);
 		}
 	}
 
