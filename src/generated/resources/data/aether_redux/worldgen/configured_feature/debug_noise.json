@@ -11,7 +11,19 @@
       {
         "type": "minecraft:simple_state_provider",
         "state": {
+          "Name": "minecraft:gray_concrete"
+        }
+      },
+      {
+        "type": "minecraft:simple_state_provider",
+        "state": {
           "Name": "minecraft:gray_wool"
+        }
+      },
+      {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:gray_concrete_powder"
         }
       },
       {
@@ -23,7 +35,55 @@
       {
         "type": "minecraft:simple_state_provider",
         "state": {
+          "Name": "minecraft:tuff"
+        }
+      },
+      {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:light_gray_concrete"
+        }
+      },
+      {
+        "type": "minecraft:simple_state_provider",
+        "state": {
           "Name": "minecraft:light_gray_wool"
+        }
+      },
+      {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:light_gray_concrete_powder"
+        }
+      },
+      {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:light_gray_concrete_powder"
+        }
+      },
+      {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "aether:holystone",
+          "Properties": {
+            "double_drops": "true"
+          }
+        }
+      },
+      {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "aether:icestone"
+        }
+      },
+      {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "aether_unity:valkyrie_clay",
+          "Properties": {
+            "double_drops": "true"
+          }
         }
       },
       {
