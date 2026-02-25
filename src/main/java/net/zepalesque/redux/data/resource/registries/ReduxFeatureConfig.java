@@ -270,7 +270,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 					prov(Blocks.SMOOTH_QUARTZ.defaultBlockState()),
 					prov(Blocks.WHITE_CONCRETE_POWDER.defaultBlockState()),
 					prov(Blocks.WHITE_WOOL.defaultBlockState()),
-					prov(Blocks.SNOW.defaultBlockState())
+					prov(Blocks.SNOW_BLOCK.defaultBlockState())
 				),
 				24,
 				36,
