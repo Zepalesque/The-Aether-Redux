@@ -5,7 +5,37 @@
       {
         "type": "minecraft:simple_state_provider",
         "state": {
+          "Name": "minecraft:black_concrete"
+        }
+      },
+      {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:coal_block"
+        }
+      },
+      {
+        "type": "minecraft:simple_state_provider",
+        "state": {
           "Name": "minecraft:black_wool"
+        }
+      },
+      {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:black_concrete_powder"
+        }
+      },
+      {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:black_terracotta"
+        }
+      },
+      {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:blackstone"
         }
       },
       {
@@ -17,13 +47,34 @@
       {
         "type": "minecraft:simple_state_provider",
         "state": {
+          "Name": "minecraft:netherite_block"
+        }
+      },
+      {
+        "type": "minecraft:simple_state_provider",
+        "state": {
           "Name": "minecraft:gray_wool"
         }
       },
       {
         "type": "minecraft:simple_state_provider",
         "state": {
+          "Name": "minecraft:smooth_basalt"
+        }
+      },
+      {
+        "type": "minecraft:simple_state_provider",
+        "state": {
           "Name": "minecraft:gray_concrete_powder"
+        }
+      },
+      {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:deepslate",
+          "Properties": {
+            "axis": "y"
+          }
         }
       },
       {
@@ -36,6 +87,12 @@
         "type": "minecraft:simple_state_provider",
         "state": {
           "Name": "minecraft:tuff"
+        }
+      },
+      {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:stone"
         }
       },
       {
@@ -80,6 +137,18 @@
       {
         "type": "minecraft:simple_state_provider",
         "state": {
+          "Name": "minecraft:white_concrete"
+        }
+      },
+      {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:calcite"
+        }
+      },
+      {
+        "type": "minecraft:simple_state_provider",
+        "state": {
           "Name": "aether_unity:valkyrie_clay",
           "Properties": {
             "double_drops": "true"
@@ -89,12 +158,33 @@
       {
         "type": "minecraft:simple_state_provider",
         "state": {
+          "Name": "minecraft:smooth_quartz"
+        }
+      },
+      {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:white_concrete_powder"
+        }
+      },
+      {
+        "type": "minecraft:simple_state_provider",
+        "state": {
           "Name": "minecraft:white_wool"
+        }
+      },
+      {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:snow",
+          "Properties": {
+            "layers": "1"
+          }
         }
       }
     ],
     "noise": "aether_redux:lakes_noise",
     "sample_y": 36,
-    "y_level": 16
+    "y_level": 24
   }
 }
