@@ -258,7 +258,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 					prov(UnityBlocks.VALKYRIE_CLAY),
 					prov(Blocks.WHITE_WOOL.defaultBlockState())
 				),
-				0,
+				16,
 				36,
 				ReduxDensityBuilders.get(functions, ReduxDensityFunctions.LAKES_NOISE)
 			)

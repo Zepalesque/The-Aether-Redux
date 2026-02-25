@@ -4,12 +4,16 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.levelgen.DensityFunction;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.zepalesque.zenith.api.world.density.PerlinNoiseFunction;
+import net.zepalesque.zenith.util.math.MathUtil;
 
 import java.util.List;
 
@@ -47,7 +51,8 @@ public class DebugNoiseFeature extends Feature<DebugNoiseFeature.Config> {
                 var size = gradient.size();
                 var index = Mth.clamp(Mth.floor(size * inverped), 0, size - 1);
                 var pos = new BlockPos(xCoord, yCoord, zCoord);
-                context.level().setBlock(pos, gradient.get(index).getState(context.random(), pos), 2);
+                this.setBlock(context.level(), pos, gradient.get(index).getState(context.random(), pos));
+                this.setBlock(context.level(), pos.below(), Blocks.BARRIER.defaultBlockState());
             }
         }
         return true;
@@ -63,7 +68,7 @@ public class DebugNoiseFeature extends Feature<DebugNoiseFeature.Config> {
             builder -> builder.group(
                 BlockStateProvider.CODEC.listOf().fieldOf("gradient").forGetter(DebugNoiseFeature.Config::gradient),
                 Codec.INT.fieldOf("y_level").forGetter(DebugNoiseFeature.Config::yLevel),
-                Codec.INT.fieldOf("sample_y").forGetter(DebugNoiseFeature.Config::yLevel),
+                Codec.INT.fieldOf("sample_y").forGetter(DebugNoiseFeature.Config::sampleY),
                 DensityFunction.HOLDER_HELPER_CODEC.fieldOf("noise").forGetter(DebugNoiseFeature.Config::noise) // lack of trailing commas my beloathed
             ).apply(builder, DebugNoiseFeature.Config::new)
         );
