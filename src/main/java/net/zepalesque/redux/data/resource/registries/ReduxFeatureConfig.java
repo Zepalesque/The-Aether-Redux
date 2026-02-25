@@ -232,6 +232,8 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				BlockPredicate.replaceable(),
 				36,
 				ReduxDensityBuilders.get(functions, ReduxDensityFunctions.LAKES_NOISE),
+				10,
+				ReduxDensityBuilders.get(functions, ReduxDensityFunctions.LAKES_Y_OFFSET),
 				10
 			)
 		);

@@ -41,9 +41,11 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 		var level = context.level();
 
 		var lakeNoise = config.lakeNoise();
+		var yOffsetNoise = config.yOffset();
 		var visitor = PerlinNoiseFunction.createOrGetVisitor(level.getSeed() + 1);
 
 		lakeNoise.mapAll(visitor);
+		yOffsetNoise.mapAll(visitor);
 
 		// The feature should be placed once per chunk as it places one-chunk pieces of the lake
 		var chunkX = context.origin().getX() - context.origin().getX() % 16;
@@ -62,12 +64,21 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 					new DensityFunction.SinglePointContext(xCoord, yLevel, zCoord)
 				);
 
+				// A Y offset is then calculated and applied using a second, smoother and larger noise
+				var offsetCalc = yOffsetNoise.compute(
+					new DensityFunction.SinglePointContext(xCoord, yLevel, zCoord)
+				);
+				var realOffset = cosineInterp(
+					(float) Mth.inverseLerp(offsetCalc, -0.5, 0.5),
+					0F,
+					(float) config.maxYOffset()
+				);
 
 				// Interpolate for some extra smoothness
 				var reallake = cosineInterp((float) Mth.clamp(lakeCalc, 0, 1), 0, 1);
 				// Calculate how deep the lake should be
 				var depth = Mth.floor(
-					-Mth.lerp(reallake, 0F, (float) config.lakeDepth() - 1F)
+					-(Mth.lerp(reallake, 0F, (float) config.lakeDepth() - 1F) - realOffset)
 				);
 
 				if (depth < SHORE_DEPTH) {
@@ -157,8 +168,9 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 		BlockPredicate predicate,
 		int yLevel,
 		DensityFunction lakeNoise,
-		double lakeDepth
-
+		double lakeDepth,
+		DensityFunction yOffset,
+		double maxYOffset
 	) implements FeatureConfiguration {
 		public static final Codec<Config> CODEC = RecordCodecBuilder.create(
 			builder -> builder.group(
@@ -167,7 +179,9 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 				RuleBasedBlockStateProvider.CODEC.fieldOf("floor").forGetter(Config::floor), BlockPredicate.CODEC.fieldOf("predicate").forGetter(Config::predicate),
 				Codec.INT.fieldOf("y_level").forGetter(Config::yLevel),
 				DensityFunction.HOLDER_HELPER_CODEC.fieldOf("lake_noise").forGetter(Config::lakeNoise),
-				Codec.DOUBLE.fieldOf("lake_depth").forGetter(Config::lakeDepth)
+				Codec.DOUBLE.fieldOf("lake_depth").forGetter(Config::lakeDepth),
+				DensityFunction.HOLDER_HELPER_CODEC.fieldOf("offset_noise").forGetter(Config::yOffset),
+				Codec.DOUBLE.fieldOf("offset_max").forGetter(Config::maxYOffset)
 			).apply(builder, Config::new)
 		);
 	}
