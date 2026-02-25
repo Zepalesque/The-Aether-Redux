@@ -111,6 +111,7 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 					level.scheduleTick(pos, Fluids.WATER, 0);
 				}
 
+				// TODO: wait so what is this doing exactly?
 				// Ensure there is grass below the water
 				if (level.getBlockState(pos.below()).is(AetherTags.Blocks.AETHER_DIRT)) {
 					this.setBlock(level, pos.below(), AetherFeatureStates.AETHER_DIRT);
