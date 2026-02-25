@@ -34,7 +34,7 @@
       }
     ],
     "noise": "aether_redux:lakes_noise",
-    "sample_y": 36,
-    "y_level": 36
+    "sample_y": 0,
+    "y_level": 0
   }
 }
