@@ -92,13 +92,13 @@
       {
         "type": "minecraft:simple_state_provider",
         "state": {
-          "Name": "minecraft:stone"
+          "Name": "minecraft:light_gray_concrete"
         }
       },
       {
         "type": "minecraft:simple_state_provider",
         "state": {
-          "Name": "minecraft:light_gray_concrete"
+          "Name": "minecraft:stone"
         }
       },
       {
@@ -176,10 +176,7 @@
       {
         "type": "minecraft:simple_state_provider",
         "state": {
-          "Name": "minecraft:snow_block",
-          "Properties": {
-            "layers": "1"
-          }
+          "Name": "minecraft:snow_block"
         }
       }
     ],
