@@ -5,6 +5,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.levelgen.DensityFunction;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
@@ -43,13 +44,15 @@ public class DebugNoiseFeature extends Feature<DebugNoiseFeature.Config> {
                 var zCoord = chunkZ + z;
                 
                 var initCalc = noiseFun.compute(new DensityFunction.SinglePointContext(xCoord, cfg.sampleY(), zCoord));
-                var inverped = MathUtil.clampedInverseLerp(-0.5, 0.5, initCalc);
+                var inverped = Mth.clamp(Mth.inverseLerp(initCalc, -0.5, 0.5), 0d, 1d);
+//                var clamped = Mth.clamp(initCalc, 0, 1);
                 
                 var size = gradient.size();
                 var index = Mth.clamp(Mth.floor(size * inverped), 0, size - 1);
                 var pos = new BlockPos(xCoord, yCoord, zCoord);
                 this.setBlock(context.level(), pos, gradient.get(index).getState(context.random(), pos));
             }
+            FlowerPotBlock
         }
         return true;
     }

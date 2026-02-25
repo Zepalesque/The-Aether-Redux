@@ -244,9 +244,18 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			new DebugNoiseFeature.Config(
 				List.of(
 					prov(Blocks.BLACK_WOOL.defaultBlockState()),
+					prov(Blocks.GRAY_CONCRETE.defaultBlockState()),
 					prov(Blocks.GRAY_WOOL.defaultBlockState()),
+					prov(Blocks.GRAY_CONCRETE_POWDER.defaultBlockState()),
 					prov(Blocks.CYAN_TERRACOTTA.defaultBlockState()),
+					prov(Blocks.TUFF.defaultBlockState()),
+					prov(Blocks.LIGHT_GRAY_CONCRETE.defaultBlockState()),
 					prov(Blocks.LIGHT_GRAY_WOOL.defaultBlockState()),
+					prov(Blocks.LIGHT_GRAY_CONCRETE_POWDER.defaultBlockState()),
+					prov(Blocks.LIGHT_GRAY_CONCRETE_POWDER.defaultBlockState()),
+					prov(AetherBlocks.HOLYSTONE),
+					prov(AetherBlocks.ICESTONE),
+					prov(UnityBlocks.VALKYRIE_CLAY),
 					prov(Blocks.WHITE_WOOL.defaultBlockState())
 				),
 				0,
