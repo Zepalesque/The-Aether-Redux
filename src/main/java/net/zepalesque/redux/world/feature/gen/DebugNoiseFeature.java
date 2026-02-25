@@ -45,7 +45,7 @@ public class DebugNoiseFeature extends Feature<DebugNoiseFeature.Config> {
                 var zCoord = chunkZ + z;
                 
                 var initCalc = noiseFun.compute(new DensityFunction.SinglePointContext(xCoord, cfg.sampleY(), zCoord));
-                var inverped = Mth.clamp(Mth.inverseLerp(initCalc, -0.5, 0.5), 0d, 1d);
+                var inverped = Mth.clamp(Mth.inverseLerp(initCalc, -1, 1), 0d, 1d);
 //                var clamped = Mth.clamp(initCalc, 0, 1);
                 
                 var size = gradient.size();
