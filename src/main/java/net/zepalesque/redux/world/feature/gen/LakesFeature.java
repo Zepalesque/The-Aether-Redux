@@ -139,7 +139,7 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 			// .apply my beloathed
 			var blockFn = fun.apply(depth + 1, abv);
 			if (blockFn != null)
-				this.setBlock(level, abv, blockFn.apply(context.level(), context.random(), btm));
+				this.setBlock(level, abv, blockFn.apply(context.level(), context.random(), abv));
 			this.setBlock(level, btm, AetherFeatureStates.HOLYSTONE);
 		}
 
@@ -150,7 +150,7 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 				var abv = pos.above();
 				var blockFn = fun.apply(depth + 1, abv);
 				if (blockFn != null)
-					this.setBlock(level, abv, blockFn.apply(context.level(), context.random(), btm));
+					this.setBlock(level, abv, blockFn.apply(context.level(), context.random(), abv));
 				this.setBlock(level, pos, AetherFeatureStates.HOLYSTONE);
 			}
 		}
