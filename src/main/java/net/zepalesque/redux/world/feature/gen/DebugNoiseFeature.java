@@ -32,7 +32,7 @@ public class DebugNoiseFeature extends Feature<DebugNoiseFeature.Config> {
         var visitor = PerlinNoiseFunction.createOrGetVisitor(lvl.getSeed());
         noiseFun.mapAll(visitor);
         // The feature should be placed once per chunk as it places one-chunk pieces of the noise
-        var chunkX = context.origin().getX() - context.origin().getX() % 16;
+        var chunkX = context.origin().getX() - context.origin().getX() % 16; // todo: modulo: is it like, euclidean?
         var chunkZ = context.origin().getZ() - context.origin().getZ() % 16;
         // Place blocks across the entire chunk
         for (var x = 0; x < 16; x++) {
