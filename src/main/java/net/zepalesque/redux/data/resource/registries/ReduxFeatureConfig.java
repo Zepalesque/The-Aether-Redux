@@ -177,53 +177,48 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 		);
         
         var noises = context.lookup(Registries.NOISE);
-		var threshold = 0.1;
-		var seed = 2743l;
+		double threshold;
 		var lakeFloor = new RuleBasedBlockStateProvider(
 			BlockStateProvider.simple(AetherFeatureStates.AETHER_DIRT), Stream.of(
-				new RuleBasedBlockStateProvider.Rule(
-					BlockPredicate.allOf(
-						BlockPredicate.matchesTag(UnityTags.Blocks.AETHER_LAKE_SKIP_REPLACEMENT),
-						BlockPredicate.not(BlockPredicate.solid(OFFSET_ABOVE)),
-						BlockPredicate.not(BlockPredicate.matchesBlocks(OFFSET_ABOVE, Blocks.WATER))
-					),
-					BlockStateProvider.simple(Blocks.AIR)
+			new RuleBasedBlockStateProvider.Rule(
+				BlockPredicate.allOf(
+					BlockPredicate.matchesTag(UnityTags.Blocks.AETHER_LAKE_SKIP_REPLACEMENT),
+					BlockPredicate.not(BlockPredicate.solid(OFFSET_ABOVE)),
+					BlockPredicate.not(BlockPredicate.matchesBlocks(OFFSET_ABOVE, Blocks.WATER))
+				), BlockStateProvider.simple(Blocks.AIR)
+			),
+			
+			new RuleBasedBlockStateProvider.Rule(
+				BlockPredicate.anyOf(
+					BlockPredicate.matchesTag(OFFSET_ABOVE, AetherTags.Blocks.AETHER_DIRT),
+					BlockPredicate.matchesBlocks(OFFSET_ABOVE, AetherBlocks.AETHER_DIRT.get())
+				), prov(AetherBlocks.AETHER_DIRT)
+			),
+			
+			new RuleBasedBlockStateProvider.Rule(
+				BlockPredicate.allOf(
+					new NoisePredicate(noises.getOrThrow(Noises.SWAMP), 2743L, -0.3, threshold = 0.1),
+					BlockPredicate.matchesBlocks(OFFSET_ABOVE, Blocks.WATER)
 				),
-				
-				new RuleBasedBlockStateProvider.Rule(
-					BlockPredicate.anyOf(
-						BlockPredicate.matchesTag(OFFSET_ABOVE, AetherTags.Blocks.AETHER_DIRT),
-						BlockPredicate.matchesBlocks(OFFSET_ABOVE, AetherBlocks.AETHER_DIRT.get())
-					),
-					prov(AetherBlocks.AETHER_DIRT)
+				prov(UnityBlocks.AETHER_MUD)
+			),
+			
+			new RuleBasedBlockStateProvider.Rule(
+				BlockPredicate.allOf(
+					// Use same seed, mud will surround clay
+					BlockPredicate.matchesBlocks(OFFSET_ABOVE, Blocks.WATER),
+					new NoisePredicate(noises.getOrThrow(Noises.SWAMP), 2743L, threshold, Double.MAX_VALUE)
 				),
-				
-				new RuleBasedBlockStateProvider.Rule(
-					BlockPredicate.allOf(
-						new NoisePredicate(noises.getOrThrow(Noises.SWAMP), seed, -0.3, threshold),
-						BlockPredicate.matchesBlocks(OFFSET_ABOVE, Blocks.WATER)
-					),
-					prov(UnityBlocks.AETHER_MUD)
-				),
-				
-				new RuleBasedBlockStateProvider.Rule(
-					BlockPredicate.allOf(
-						// Use same seed, mud will surround clay
-						BlockPredicate.matchesBlocks(OFFSET_ABOVE, Blocks.WATER),
-						new NoisePredicate(noises.getOrThrow(Noises.SWAMP), seed, threshold, Double.MAX_VALUE)
-					),
-					prov(UnityBlocks.VALKYRIE_CLAY)
-				),
-				
-				new RuleBasedBlockStateProvider.Rule(
-					BlockPredicate.allOf(
-						BlockPredicate.matchesTag(UnityTags.Blocks.AETHER_LAKE_SKIP_REPLACEMENT),
-						BlockPredicate.matchesTag(OFFSET_ABOVE, BlockTags.AIR)
-					),
-					BlockStateProvider.simple(Blocks.AIR)
-				)
-			).toList()
-		);
+				prov(UnityBlocks.VALKYRIE_CLAY)
+			),
+			
+			new RuleBasedBlockStateProvider.Rule(
+				BlockPredicate.allOf(
+					BlockPredicate.matchesTag(UnityTags.Blocks.AETHER_LAKE_SKIP_REPLACEMENT),
+					BlockPredicate.matchesTag(OFFSET_ABOVE, BlockTags.AIR)
+				), BlockStateProvider.simple(Blocks.AIR)
+			)
+		).toList());
 		
 		FeatureUtils.register(
 			context,
@@ -238,7 +233,9 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				ReduxDensityBuilders.get(functions, ReduxDensityFunctions.LAKES_NOISE),
 				10,
 				ReduxDensityBuilders.get(functions, ReduxDensityFunctions.LAKES_Y_OFFSET),
-				10
+				10,
+				ReduxDensityBuilders.get(functions, ReduxDensityFunctions.LAKES_THICKNESS),
+				2.5d
 			)
 		);
 		FeatureUtils.register(
@@ -278,7 +275,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				),
 				24,
 				36,
-				ReduxDensityBuilders.get(functions, ReduxDensityFunctions.LAKES_NOISE)
+				ReduxDensityBuilders.get(functions, ReduxDensityFunctions.LAKES_THICKNESS)
 			)
 		);
 
