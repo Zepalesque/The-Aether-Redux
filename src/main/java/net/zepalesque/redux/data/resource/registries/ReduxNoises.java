@@ -12,7 +12,6 @@ public class ReduxNoises extends ReduxNoiseBuilders {
 
     public static final ResourceKey<NoiseParameters> LAKES_NOISE = createKey("lakes_noise");
     public static final ResourceKey<NoiseParameters> LAKES_Y_OFFSET = createKey("lakes_y_offset");
-    public static final ResourceKey<NoiseParameters> LAKES_THICKNESS = createKey("lakes_thickness");
 
     public static void bootstrap(BootstrapContext<NoiseParameters> context) {
         context.register(CLOUDBED_NOISE, new NormalNoise.NoiseParameters(0, 1, 1, 1, 1, 1));
@@ -20,6 +19,5 @@ public class ReduxNoises extends ReduxNoiseBuilders {
 
         context.register(LAKES_NOISE, new NormalNoise.NoiseParameters(0, 1.5, 2, 1, 1));
         context.register(LAKES_Y_OFFSET, new NormalNoise.NoiseParameters(0, 1, 1));
-        context.register(LAKES_THICKNESS, new NormalNoise.NoiseParameters(0, 1.4, 1.1, 0.8));
     }
 }

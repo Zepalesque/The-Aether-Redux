@@ -180,7 +180,7 @@
         }
       }
     ],
-    "noise": "aether_redux:lakes_thickness",
+    "noise": "aether_redux:lakes_noise",
     "sample_y": 36,
     "y_level": 24
   }

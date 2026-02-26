@@ -234,9 +234,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				ReduxDensityBuilders.get(functions, ReduxDensityFunctions.LAKES_NOISE),
 				10,
 				ReduxDensityBuilders.get(functions, ReduxDensityFunctions.LAKES_Y_OFFSET),
-				10,
-				ReduxDensityBuilders.get(functions, ReduxDensityFunctions.LAKES_THICKNESS),
-				2.5d
+				10
 			)
 		);
 		FeatureUtils.register(
@@ -276,7 +274,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				),
 				24,
 				36,
-				ReduxDensityBuilders.get(functions, ReduxDensityFunctions.LAKES_THICKNESS)
+				ReduxDensityBuilders.get(functions, ReduxDensityFunctions.LAKES_NOISE)
 			)
 		);
 

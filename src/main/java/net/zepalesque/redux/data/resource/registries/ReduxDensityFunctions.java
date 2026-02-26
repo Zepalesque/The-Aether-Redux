@@ -14,7 +14,6 @@ public class ReduxDensityFunctions extends ReduxDensityBuilders {
 	public static final ResourceKey<DensityFunction> CLOUDBED_Y_OFFSET = copyKey(ReduxNoises.CLOUDBED_Y_OFFSET);
 	public static final ResourceKey<DensityFunction> LAKES_NOISE = copyKey(ReduxNoises.LAKES_NOISE);
 	public static final ResourceKey<DensityFunction> LAKES_Y_OFFSET = copyKey(ReduxNoises.LAKES_Y_OFFSET);
-	public static final ResourceKey<DensityFunction> LAKES_THICKNESS = copyKey(ReduxNoises.LAKES_THICKNESS);
 
 	public static final ResourceKey<DensityFunction> REDUX_3D_NOISE = createKey("base_3d_noise_redux");
 	public static final ResourceKey<DensityFunction> REDUX_FINAL_DENSITY = createKey("redux_final_density");
@@ -49,13 +48,6 @@ public class ReduxDensityFunctions extends ReduxDensityBuilders {
 			LAKES_Y_OFFSET,
 			DensityFunctions.mul(
 				new PerlinNoiseFunction(noises.getOrThrow(ReduxNoises.LAKES_Y_OFFSET), 0.01D, 0.0D, 2743),
-				DensityFunctions.constant(4D)
-			)
-		);
-		context.register(
-			LAKES_THICKNESS,
-			DensityFunctions.mul(
-				new PerlinNoiseFunction(noises.getOrThrow(ReduxNoises.LAKES_Y_OFFSET), 0.0025D, 0.0D, 1626),
 				DensityFunctions.constant(4D)
 			)
 		);
