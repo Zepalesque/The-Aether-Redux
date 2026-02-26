@@ -4,7 +4,7 @@
   "argument2": {
     "type": "zenith:perlin_noise",
     "noise": "aether_redux:lakes_y_offset",
-    "seed_offset": 95,
+    "seed_offset": 2743,
     "xz_scale": 0.01,
     "y_scale": 0.0
   }

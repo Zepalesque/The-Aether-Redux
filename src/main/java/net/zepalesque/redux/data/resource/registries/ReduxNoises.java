@@ -17,7 +17,7 @@ public class ReduxNoises extends ReduxNoiseBuilders {
         context.register(CLOUDBED_NOISE, new NormalNoise.NoiseParameters(0, 1, 1, 1, 1, 1));
         context.register(CLOUDBED_Y_OFFSET, new NormalNoise.NoiseParameters(0, 1, 1));
 
-        context.register(LAKES_NOISE, new NormalNoise.NoiseParameters(0, 1.5, 2, 1, 1, 1, 1, 0.5, 0.5));
+        context.register(LAKES_NOISE, new NormalNoise.NoiseParameters(0, 1.5, 2, 1, 1));
         context.register(LAKES_Y_OFFSET, new NormalNoise.NoiseParameters(0, 1, 1));
     }
 }

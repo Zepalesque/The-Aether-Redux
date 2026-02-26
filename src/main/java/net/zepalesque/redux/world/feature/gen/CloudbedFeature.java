@@ -21,12 +21,12 @@ public class CloudbedFeature extends Feature<CloudbedFeature.Config> {
 
     @Override
     public boolean place(FeaturePlaceContext<Config> context) {
-        Config config = context.config();
-        WorldGenLevel level = context.level();
+        var config = context.config();
+        var level = context.level();
 
-        //
-        DensityFunction cloudNoise = config.cloudNoise();
-        DensityFunction yOffsetNoise = config.yOffset();
+        // noise stuff :3
+        var cloudNoise = config.cloudNoise();
+        var yOffsetNoise = config.yOffset();
 
         DensityFunction.Visitor visitor = PerlinNoiseFunction.createOrGetVisitor(level.getSeed());
 
@@ -34,34 +34,35 @@ public class CloudbedFeature extends Feature<CloudbedFeature.Config> {
         yOffsetNoise.mapAll(visitor);
 
         // The feature should be placed once per chunk as it places one-chunk pieces of the cloudbed
-        int chunkX = context.origin().getX() - (context.origin().getX() % 16);
-        int chunkZ = context.origin().getZ() - (context.origin().getZ() % 16);
+        var chunkX = context.origin().getX() - context.origin().getX() % 16;
+        var chunkZ = context.origin().getZ() - context.origin().getZ() % 16;
         // Place blocks across the entire chunk
-        for (int x = 0; x < 16; x++) {
-            for (int z = 0; z < 16; z++) {
+        for (var x = 0; x < 16; x++) {
+            for (var z = 0; z < 16; z++) {
                 // calculate new coords based on the for loops' values
-                int xCoord = chunkX + x;
-                int zCoord = chunkZ + z;
+                var xCoord = chunkX + x;
+                var zCoord = chunkZ + z;
                 // The main cloud noise is what is used for the distinction of gaps and non-gaps
-                double cloudCalc = cloudNoise.compute(new DensityFunction.SinglePointContext(xCoord, config.yLevel(), zCoord));
+                // (no need to make multiple of these)
+                var ptCtx = new DensityFunction.SinglePointContext(xCoord, config.yLevel(), zCoord);
+                var cloudCalc = cloudNoise.compute(ptCtx);
                 // A Y offset is then calculated and applied using a second, smoother and larger noise
-                double rollCalc = yOffsetNoise.compute(new DensityFunction.SinglePointContext(xCoord, config.yLevel(), zCoord));
-                float realOffset =  cosineInterp((float) Mth.inverseLerp(rollCalc, -0.5, 0.5), 0F, (float) config.maxYOffset());
+                var rollCalc = yOffsetNoise.compute(ptCtx);
+                var realOffset =  cosineInterp((float) Mth.inverseLerp(rollCalc, -0.5, 0.5), 0F, (float) config.maxYOffset());
                 // We don't need to, and shouldn't, generate anything if the cloud noise value is below zero
                 if (cloudCalc >= 0) {
                     // Interpolate for some extra smoothness
-                    float realCloud = cosineInterp((float) Mth.clamp(cloudCalc, 0, 1), 0, 1);
+                    var realCloud = cosineInterp((float) Mth.clamp(cloudCalc, 0, 1), 0, 1);
                     // Calculate how many blocks up from the main y offset plane should be generated
-                    float blocksUp = Mth.lerp(realCloud, 0F, (float) config.cloudRadius()) + realOffset;
+                    var blocksUp = Mth.lerp(realCloud, 0F, (float) config.cloudRadius()) + realOffset;
                     // Calculate how many blocks down from the main y offset plane should be generated
-                    float blocksDown = Mth.lerp(realCloud, 0F, (float) config.cloudRadius() - 1F) - realOffset;
+                    var blocksDown = Mth.lerp(realCloud, 0F, (float) config.cloudRadius() - 1F) - realOffset;
                     // Floor these values and then place the blocks
-                    for (int i = Mth.floor(-blocksDown); i <= Mth.floor(blocksUp); i++) {
-                        int y = Mth.clamp(config.yLevel() + i, context.level().getMinBuildHeight(), context.level().getMaxBuildHeight());
-                        BlockPos pos = new BlockPos(xCoord, y, zCoord);
-                        if (config.predicate().test(context.level(), pos)) {
+                    for (var i = Mth.floor(-blocksDown); i <= Mth.floor(blocksUp); i++) {
+                        var y = Mth.clamp(config.yLevel() + i, context.level().getMinBuildHeight(), context.level().getMaxBuildHeight());
+                        var pos = new BlockPos(xCoord, y, zCoord);
+                        if (config.predicate().test(context.level(), pos))
                             this.setBlock(context.level(), pos, config.block().getState(context.random(), pos));
-                        }
                     }
                 }
             }

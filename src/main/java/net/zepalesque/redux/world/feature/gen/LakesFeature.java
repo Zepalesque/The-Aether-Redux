@@ -20,7 +20,6 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.RuleBasedBlockS
 import net.minecraft.world.level.material.Fluids;
 import net.zepalesque.zenith.api.world.density.PerlinNoiseFunction;
 import net.zepalesque.zenith.util.function.Functions;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 import java.util.function.BiFunction;
@@ -89,9 +88,8 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 
 				// Place the quicksoil shores
 				var pos = new BlockPos(xCoord, yLevel, zCoord);
-				if (config.predicate().test(level, pos) && (depth == SHORE_DEPTH /*|| depth - 1 == SHORE_DEPTH*/)) {
-					this.setBlock(level, pos, config.shore().getState(context.random(), pos));
-				}
+				if (config.predicate().test(level, pos) && (depth == SHORE_DEPTH /*|| depth - 1 == SHORE_DEPTH*/))
+                    this.setBlock(level, pos, config.shore().getState(context.random(), pos));
 			}
 		}
 		return false;
@@ -111,6 +109,7 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 					level.scheduleTick(pos, Fluids.WATER, 0);
 				}
 
+				// TODO: wait so what is this doing exactly?
 				// Ensure there is grass below the water
 				if (level.getBlockState(pos.below()).is(AetherTags.Blocks.AETHER_DIRT)) {
 					this.setBlock(level, pos.below(), AetherFeatureStates.AETHER_DIRT);

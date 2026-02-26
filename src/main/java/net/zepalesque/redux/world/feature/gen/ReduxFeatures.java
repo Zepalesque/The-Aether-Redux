@@ -22,6 +22,12 @@ public class ReduxFeatures {
 			"cloudbed",
 			() -> new CloudbedFeature(CloudbedFeature.Config.CODEC)
 		);
+	
+	public static final DeferredHolder<Feature<?>, Feature<DebugNoiseFeature.Config>> DEBUG_NOISE =
+		FEATURES.register(
+			"debug_noise",
+			() -> new DebugNoiseFeature(DebugNoiseFeature.Config.CODEC)
+		);
 
 	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> CRYSTAL_ISLAND = 
 		FEATURES.register("crystal_island", ReduxCrystalIslandFeature::new);

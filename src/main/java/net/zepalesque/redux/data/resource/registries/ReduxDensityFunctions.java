@@ -40,14 +40,14 @@ public class ReduxDensityFunctions extends ReduxDensityBuilders {
 		context.register(
 			LAKES_NOISE,
 			DensityFunctions.mul(
-				new PerlinNoiseFunction(noises.getOrThrow(ReduxNoises.LAKES_NOISE), 0.015D, 0.0D, 42),
+				new PerlinNoiseFunction(noises.getOrThrow(ReduxNoises.LAKES_NOISE), 0.015D, 0.0D, 6),
 				DensityFunctions.constant(1.5D)
 			)
 		);
 		context.register(
 			LAKES_Y_OFFSET,
 			DensityFunctions.mul(
-				new PerlinNoiseFunction(noises.getOrThrow(ReduxNoises.LAKES_Y_OFFSET), 0.01D, 0.0D, 95),
+				new PerlinNoiseFunction(noises.getOrThrow(ReduxNoises.LAKES_Y_OFFSET), 0.01D, 0.0D, 2743),
 				DensityFunctions.constant(4D)
 			)
 		);
