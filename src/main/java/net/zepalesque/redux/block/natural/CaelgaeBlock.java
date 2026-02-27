@@ -4,9 +4,11 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -17,6 +19,7 @@ import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
@@ -86,6 +89,8 @@ public class CaelgaeBlock extends Block implements BonemealableBlock {
 	protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
 		if (entity.getType().equals(EntityType.FALLING_BLOCK)) {
 			level.destroyBlock(pos, true);
+		} else if (entity instanceof LivingEntity && !entity.getType().is(EntityTypeTags.AQUATIC)) {
+			entity.makeStuckInBlock(state, new Vec3(0.9375, 0.9375, 0.9375));
 		}
 	}
 	

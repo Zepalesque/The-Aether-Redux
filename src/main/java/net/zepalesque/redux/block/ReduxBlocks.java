@@ -344,7 +344,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 		)
 	);
 	
-	public static final DeferredBlock<CaelgaeBlock> CAELGAE = register(
+	public static final DeferredBlock<CaelgaeBlock> CAELGAE = BLOCKS.register(
 		"caelgae",
 		() -> new CaelgaeBlock(BlockBehaviour.Properties.of()
 			.mapColor(MapColor.TERRACOTTA_GREEN)
