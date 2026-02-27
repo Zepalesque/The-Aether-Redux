@@ -30,7 +30,7 @@ public class ReduxTabs {
             TabUtil.putAfter(event, UnityBlocks.SHORT_AETHER_GRASS,
                 ReduxBlocks.WYNDSPROUTS,
 				ReduxBlocks.TURBO_VERBENA,
-                ReduxItems.CAELGAE
+                ReduxItems.CAELGAE_PATCH
             );
             
             TabUtil.putAfter(event, AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK,
@@ -161,9 +161,11 @@ public class ReduxTabs {
             TabUtil.putAfter(event, AetherBlocks.AMBROSIUM_TORCH, ReduxBlocks.SENTRITE_LANTERN);
         else if (TabUtil.isForTab(event, CreativeModeTabs.REDSTONE_BLOCKS))
             TabUtil.putAfter(event, () -> Items.COMPARATOR, ReduxBlocks.LOGICATOR);
+        else if (TabUtil.isForTab(event, AetherCreativeTabs.AETHER_FOOD_AND_DRINKS))
+            TabUtil.putAfter(event, AetherItems.WHITE_APPLE, ReduxItems.CAELGAE_CLUMP);
         
         
         // SHOULD BE AT THE VERY END
-        sup = null; for (BlockSet set : Redux.BLOCK_SETS) sup = set.addToCreativeTab(event, sup, BlockSet.TabAdditionPhase.AFTER);
+        sup = null; for (var set : Redux.BLOCK_SETS) sup = set.addToCreativeTab(event, sup, BlockSet.TabAdditionPhase.AFTER);
     }
 }

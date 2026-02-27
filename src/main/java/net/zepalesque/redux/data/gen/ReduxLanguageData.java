@@ -202,8 +202,11 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
         addBlock(ReduxBlocks.TURBO_VERBENA, "Turbo Verbena");
         addLore(ReduxBlocks.TURBO_VERBENA, "A plant that grows on Quicksoil. When prepared properly, it can increase your speed when consumed.");
         
-        addBlock(ReduxBlocks.CAELGAE, "Caelgae");
-        addLore(ReduxBlocks.CAELGAE, "The Aether's native algae species. This can be found floating on lakes!");
+        addBlock(ReduxBlocks.CAELGAE_PATCH, "Caelgae Patch");
+        addLore(ReduxBlocks.CAELGAE_PATCH, "A patch of Caelgae. This can be found floating on lakes!");
+        
+        addItem(ReduxItems.CAELGAE_CLUMP, "Caelgae Clump");
+        addLore(ReduxItems.CAELGAE_CLUMP, "The Aether's native algae species. Can be eaten, or crafted into Seaweed Salad.");
 
         addTooltip("shift_info", "Hold [%s] for more info...");
         addTooltip("infusion_charge", "Infusion Charge: %s");

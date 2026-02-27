@@ -57,12 +57,15 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
 
         this.item(ReduxItems.WYND_OAT_PANICLE.get(), "materials/");
         this.item(ReduxItems.WYND_OATS.get(), "food/");
+        
 
         this.itemBlockFlatTintOverlay(ReduxBlocks.WYNDSPROUTS.get(), "natural/");
         this.itemBlockFlatTintOverlay(ReduxBlocks.SKYSPROUTS.get(), "natural/");
 		this.itemBlockFlatTintOverlay(ReduxBlocks.TURBO_VERBENA.get(), "natural/");
-        this.itemBlockFlatCustomTexture(ReduxBlocks.CAELGAE.get(), texture(ReduxBlocks.CAELGAE.get(), "natural/", "_top"));
-
+        this.itemBlockFlatCustomTexture(ReduxBlocks.CAELGAE_PATCH.get(), texture(ReduxBlocks.CAELGAE_PATCH.get(), "natural/", "_top"));
+        
+        this.item(ReduxItems.CAELGAE_CLUMP.get(), "food/");
+        
         this.item(ReduxItems.RAW_VERIDIUM.get(), "materials/");
         this.item(ReduxItems.VERIDIUM_INGOT.get(), "materials/");
         this.item(ReduxItems.VERIDIUM_NUGGET.get(), "materials/");

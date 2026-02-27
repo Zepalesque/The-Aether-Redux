@@ -441,7 +441,7 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
     public void algae(Block block, String location) {
         var model = this.models().withExistingParent(this.name(block), Redux.loc("block/template/algae"))
             .texture("top", this.modLoc("block/" + location + this.name(block) + "_top"))
-            .texture("cross", this.modLoc("block/" + location + this.name(block) + ""))
+            .texture("cross", this.modLoc("block/" + location + this.name(block) + "_side"))
             .renderType(ResourceLocation.withDefaultNamespace("cutout"));
         this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(model));
     }

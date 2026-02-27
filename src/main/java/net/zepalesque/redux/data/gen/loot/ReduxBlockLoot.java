@@ -51,8 +51,7 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
 
         this.add(ReduxBlocks.STORMROOT_LEAF_PILE.get(), shears());
         
-        // TODO: Caelgae clump item could be neat, could even use as and/or in food?
-        this.add(ReduxBlocks.CAELGAE.get(), shears());
+        this.add(ReduxBlocks.CAELGAE_PATCH.get(), shearsOr(ReduxItems.CAELGAE_CLUMP.get(), 0.25F));
 
         this.add(ReduxBlocks.BLIGHTWILLOW_LEAVES.get(),
             leaves -> droppingWithChancesAndSkyrootSticks(
