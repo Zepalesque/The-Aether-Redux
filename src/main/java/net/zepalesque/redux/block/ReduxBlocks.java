@@ -353,7 +353,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 			.noCollission()
 			.replaceable()
 			.pushReaction(PushReaction.DESTROY)
-			.strength(0.05F)
+			.strength(0.1F)
 		)
 	);
 
