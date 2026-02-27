@@ -37,7 +37,7 @@
                   ]
                 }
               ],
-              "name": "aether_redux:caelgae"
+              "name": "aether_redux:caelgae_patch"
             },
             {
               "type": "minecraft:item",
@@ -69,7 +69,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "minecraft:air"
+              "name": "aether_redux:caelgae_clump"
             }
           ]
         }
@@ -77,5 +77,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "aether_redux:blocks/caelgae"
+  "random_sequence": "aether_redux:blocks/caelgae_patch"
 }

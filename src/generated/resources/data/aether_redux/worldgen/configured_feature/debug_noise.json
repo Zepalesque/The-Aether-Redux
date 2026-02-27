@@ -131,7 +131,7 @@
       {
         "type": "minecraft:simple_state_provider",
         "state": {
-          "Name": "aether:icestone"
+          "Name": "minecraft:diorite"
         }
       },
       {

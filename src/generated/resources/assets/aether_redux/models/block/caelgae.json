@@ -1,8 +1,0 @@
-{
-  "parent": "aether_redux:block/template/algae",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "cross": "aether_redux:block/natural/caelgae",
-    "top": "aether_redux:block/natural/caelgae_top"
-  }
-}
