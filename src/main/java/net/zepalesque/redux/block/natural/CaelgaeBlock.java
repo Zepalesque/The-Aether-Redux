@@ -92,7 +92,7 @@ public class CaelgaeBlock extends Block implements BonemealableBlock {
 	@Override
 	protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
 		if (entity.getType().equals(EntityType.FALLING_BLOCK)) level.destroyBlock(pos, true);
-		else if (entity instanceof LivingEntity && !entity.getType().is(EntityTypeTags.AQUATIC) && isEntityIntersecting(state, level, pos, entity))
+		else if (entity instanceof LivingEntity && !entity.getType().is(EntityTypeTags.AQUATIC) && isEntityIntersecting(state, level, pos, entity) && entity.isInWater())
 			entity.setDeltaMovement(entity.getDeltaMovement().multiply(new Vec3(0.85, 0.85, 0.85)));
 	}
 	
