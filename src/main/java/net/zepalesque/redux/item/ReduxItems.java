@@ -54,11 +54,17 @@ public class ReduxItems extends ReduxItemBuilders {
         )
     );
     
-    // TODO: Seaweed salad once more lake plants are added :3
     public static final DeferredItem<Item> CAELGAE_CLUMP = ITEMS.register(
         "caelgae_clump",
         () -> new Item(
             new Item.Properties().food(ReduxFoods.CAELGAE_CLUMP)
+        )
+    );
+    
+    public static final DeferredItem<Item> SEAWEED_SALAD = ITEMS.register(
+        "seaweed_salad",
+        () -> new Item(
+            new Item.Properties().food(ReduxFoods.SEAWEED_SALAD)
         )
     );
     

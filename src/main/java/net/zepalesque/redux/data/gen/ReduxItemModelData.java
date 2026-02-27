@@ -65,6 +65,7 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
         this.itemBlockFlatCustomTexture(ReduxBlocks.CAELGAE_PATCH.get(), texture(ReduxBlocks.CAELGAE_PATCH.get(), "natural/", "_top"));
         
         this.item(ReduxItems.CAELGAE_CLUMP.get(), "food/");
+        this.item(ReduxItems.SEAWEED_SALAD.get(), "food/");
         
         this.item(ReduxItems.RAW_VERIDIUM.get(), "materials/");
         this.item(ReduxItems.VERIDIUM_INGOT.get(), "materials/");

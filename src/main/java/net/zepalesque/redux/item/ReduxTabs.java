@@ -162,7 +162,11 @@ public class ReduxTabs {
         else if (TabUtil.isForTab(event, CreativeModeTabs.REDSTONE_BLOCKS))
             TabUtil.putAfter(event, () -> Items.COMPARATOR, ReduxBlocks.LOGICATOR);
         else if (TabUtil.isForTab(event, AetherCreativeTabs.AETHER_FOOD_AND_DRINKS))
-            TabUtil.putAfter(event, AetherItems.WHITE_APPLE, ReduxItems.CAELGAE_CLUMP);
+            TabUtil.putAfter(event,
+                AetherItems.WHITE_APPLE,
+                ReduxItems.CAELGAE_CLUMP,
+                ReduxItems.SEAWEED_SALAD
+            );
         
         
         // SHOULD BE AT THE VERY END

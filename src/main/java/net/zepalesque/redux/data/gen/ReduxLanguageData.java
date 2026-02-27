@@ -208,6 +208,9 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
         addItem(ReduxItems.CAELGAE_CLUMP, "Caelgae Clump");
         addLore(ReduxItems.CAELGAE_CLUMP, "The Aether's native algae species. Can be eaten, or crafted into Seaweed Salad.");
 
+        addItem(ReduxItems.SEAWEED_SALAD, "Seaweed Salad");
+        addLore(ReduxItems.SEAWEED_SALAD, "A nice dish made from Caelgae and Wynd Oats. Good for exploration!");
+
         addTooltip("shift_info", "Hold [%s] for more info...");
         addTooltip("infusion_charge", "Infusion Charge: %s");
         addTooltip("infusion_info", "Can be infused by right-clicking the item in your inventory while hovering over it with an Ambrosium Shard");
