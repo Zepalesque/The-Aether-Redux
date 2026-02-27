@@ -74,7 +74,7 @@ public class CaelgaeBlock extends Block implements BonemealableBlock {
 			.shuffledCopy(rand)
 			.stream()
 			.map(pos::relative)
-			.filter(p -> mayPlaceOn(lvl, p))
+			.filter(p -> mayPlaceOn(lvl, p.below()))
 			.findFirst();
 	}
 	
@@ -82,7 +82,7 @@ public class CaelgaeBlock extends Block implements BonemealableBlock {
 		return Direction.Plane.HORIZONTAL
 			.stream()
 			.map(pos::relative)
-			.anyMatch(p -> mayPlaceOn(lvl, p));
+			.anyMatch(p -> mayPlaceOn(lvl, p.below()));
 	}
 	
 	@Override
