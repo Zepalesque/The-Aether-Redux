@@ -177,6 +177,7 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 			BlockState block;
 
 			if (state.is(Blocks.AIR)) {
+				// TODO: change to surface rules
 				block = AetherFeatureStates.AETHER_GRASS_BLOCK;
 			} else if (state.is(Blocks.WATER)) {
 				var placer = fn.apply(d, origin);

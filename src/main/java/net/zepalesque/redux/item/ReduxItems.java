@@ -6,9 +6,11 @@ import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.item.PickaxeItem;
+import net.minecraft.world.item.PlaceOnWaterBlockItem;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.zepalesque.redux.Redux;
@@ -30,9 +32,15 @@ public class ReduxItems extends ReduxItemBuilders {
 
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Redux.MODID);
 
-    public static final DeferredItem<Item> WYND_OATS = ITEMS.register("wynd_oats", () -> new ItemNameBlockItem(ReduxBlocks.WYNDOATS.get(), new Item.Properties().food(ReduxFoods.WYND_OATS)));
+    public static final DeferredItem<ItemNameBlockItem> WYND_OATS = ITEMS.register("wynd_oats", () -> new ItemNameBlockItem(ReduxBlocks.WYNDOATS.get(), new Item.Properties().food(ReduxFoods.WYND_OATS)));
     public static final DeferredItem<Item> WYND_OAT_PANICLE = ITEMS.register("wynd_oat_panicle", () -> new Item(new Item.Properties()));
-
+    
+    public static final DeferredItem<PlaceOnWaterBlockItem> CAELGAE = ITEMS.register(
+        "caelgae",
+        () -> new PlaceOnWaterBlockItem(ReduxBlocks.CAELGAE.get(), new Item.Properties())
+    );
+    
+    
     public static final DeferredItem<Item> RAW_VERIDIUM = ITEMS.register("raw_veridium", () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> VERIDIUM_INGOT = ITEMS.register("veridium_ingot", () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> VERIDIUM_NUGGET = ITEMS.register("veridium_nugget", () -> new Item(new Item.Properties()));
@@ -52,7 +60,7 @@ public class ReduxItems extends ReduxItemBuilders {
     public static final DeferredItem<VeridiumSwordItem.Uninfused> VERIDIUM_SWORD = ITEMS.register("veridium_sword", () -> new VeridiumSwordItem.Uninfused(ReduxItemTiers.VERIDIUM, new Item.Properties().attributes(SwordItem.createAttributes(ReduxItemTiers.VERIDIUM, 2, -2.5F))));
     public static final DeferredItem<VeridiumSwordItem> INFUSED_VERIDIUM_SWORD = ITEMS.register("infused_veridium_sword", () -> new VeridiumSwordItem(ReduxItemTiers.INFUSED_VERIDIUM, new Item.Properties().attributes(SwordItem.createAttributes(ReduxItemTiers.VERIDIUM, 4, -2.2F)), VERIDIUM_SWORD));
 
-    public static final DeferredItem<Item> VERIDIUM_DART = ITEMS.register("veridium_dart", () -> new VeridiumDartItem(new Item.Properties()));
+    public static final DeferredItem<VeridiumDartItem> VERIDIUM_DART = ITEMS.register("veridium_dart", () -> new VeridiumDartItem(new Item.Properties()));
     public static final DeferredItem<VeridiumDartShooter.Uninfused> VERIDIUM_DART_SHOOTER = ITEMS.register("veridium_dart_shooter", () -> new VeridiumDartShooter.Uninfused(VERIDIUM_DART, 9, new Item.Properties().stacksTo(1)));
     public static final DeferredItem<VeridiumDartShooter> INFUSED_VERIDIUM_DART_SHOOTER = ITEMS.register("infused_veridium_dart_shooter", () -> new VeridiumDartShooter(VERIDIUM_DART, 7, new Item.Properties().stacksTo(1), ReduxItems.VERIDIUM_DART_SHOOTER));
 

@@ -29,7 +29,8 @@ public class ReduxTabs {
             
             TabUtil.putAfter(event, UnityBlocks.SHORT_AETHER_GRASS,
                 ReduxBlocks.WYNDSPROUTS,
-				ReduxBlocks.TURBO_VERBENA
+				ReduxBlocks.TURBO_VERBENA,
+                ReduxItems.CAELGAE
             );
             
             TabUtil.putAfter(event, AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK,

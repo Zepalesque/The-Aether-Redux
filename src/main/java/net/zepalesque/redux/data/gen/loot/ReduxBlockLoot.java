@@ -50,6 +50,9 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
         this.dropDoubleWithSilk(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(), AetherBlocks.AETHER_DIRT.get());
 
         this.add(ReduxBlocks.STORMROOT_LEAF_PILE.get(), shears());
+        
+        // TODO: Caelgae clump item could be neat, could even use as and/or in food?
+        this.add(ReduxBlocks.CAELGAE.get(), shears());
 
         this.add(ReduxBlocks.BLIGHTWILLOW_LEAVES.get(),
             leaves -> droppingWithChancesAndSkyrootSticks(

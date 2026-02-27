@@ -28,6 +28,7 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.dungeon.DoorwayPillarBlock;
 import net.zepalesque.redux.block.dungeon.RunelightBlock;
 import net.zepalesque.redux.block.dungeon.TrappedPillarBlock;
+import net.zepalesque.redux.block.natural.CaelgaeBlock;
 import net.zepalesque.redux.block.natural.BlightedGrassBlock;
 import net.zepalesque.redux.block.natural.DoubleDropsMossCarpet;
 import net.zepalesque.redux.block.natural.GoldenCloversBlock;
@@ -340,6 +341,19 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 			MobEffects.MOVEMENT_SPEED,
 			3,
 			Properties.ofFullCopy(Blocks.TALL_GRASS).sound(SoundType.WET_GRASS)
+		)
+	);
+	
+	public static final DeferredBlock<CaelgaeBlock> CAELGAE = BLOCKS.register(
+		"caelgae",
+		() -> new CaelgaeBlock(BlockBehaviour.Properties.of()
+			.mapColor(MapColor.TERRACOTTA_GREEN)
+			.sound(SoundType.GLOW_LICHEN)
+			.instabreak()
+			.noOcclusion()
+			.noCollission()
+			.pushReaction(PushReaction.DESTROY)
+			.strength(0.2F)
 		)
 	);
 

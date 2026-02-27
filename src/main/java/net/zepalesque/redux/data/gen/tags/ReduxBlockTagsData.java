@@ -30,8 +30,8 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
         Redux.BLOCK_SETS.forEach(set -> set.blockTagData(this));
 
         // Adds every single Redux block as a block that should be treated as an Aether Block and get the tool debuff
-        IntrinsicTagAppender<Block> tag = this.tag(AetherTags.Blocks.TREATED_AS_AETHER_BLOCK);
-        for (DeferredHolder<Block, ? extends Block> block : ReduxBlocks.BLOCKS.getEntries()) tag.add(block.get());
+	    var tag = this.tag(AetherTags.Blocks.TREATED_AS_AETHER_BLOCK);
+        for (var block : ReduxBlocks.BLOCKS.getEntries()) tag.add(block.get());
 
         this.tag(AetherTags.Blocks.AETHER_ANIMALS_SPAWNABLE_ON).add(
             AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get()
@@ -70,6 +70,10 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
         this.tag(ReduxTags.Blocks.AETHER_GRASS_SPREAD_BLACKLIST).add(
             AetherBlocks.AETHER_GRASS_BLOCK.get(),
             ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get()
+        );
+        
+        this.tag(ReduxTags.Blocks.QUICKSOIL_PLANTS_SURVIVABLE).add(
+            AetherBlocks.QUICKSOIL.get()
         );
 
         this.tag(BlockTags.REPLACEABLE).add(
