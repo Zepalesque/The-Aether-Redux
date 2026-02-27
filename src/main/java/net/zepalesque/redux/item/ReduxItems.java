@@ -64,7 +64,7 @@ public class ReduxItems extends ReduxItemBuilders {
     public static final DeferredItem<Item> SEAWEED_SALAD = ITEMS.register(
         "seaweed_salad",
         () -> new Item(
-            new Item.Properties().food(ReduxFoods.SEAWEED_SALAD)
+            new Item.Properties().food(ReduxFoods.SEAWEED_SALAD).stacksTo(1)
         )
     );
     
