@@ -109,6 +109,7 @@ public class ReduxConfig {
         public final ModConfigSpec.ConfigValue<Boolean> jappafied_textures;
         public final ModConfigSpec.ConfigValue<Boolean> slider_sfx_upgrade;
         public final ModConfigSpec.ConfigValue<Boolean> slider_signal_sfx;
+        public final ModConfigSpec.ConfigValue<Boolean> icestone_retexture;
 
         public Client(ModConfigSpec.Builder builder) {
             builder.push("Visual");
@@ -123,6 +124,9 @@ public class ReduxConfig {
             jappafied_textures = Redux.ASSETS_CONFIG.register(builder
                     .comment("Use textures designed to fit with the Jappafied Aethers resource pack.")
                     .define("Jappafied Textures", false), "jappafied");
+            icestone_retexture = Redux.ASSETS_CONFIG.register(builder
+                    .comment("Use Redux's new Icestone texture.")
+                    .define("Icestone Retexture", true), "icestone_retexture");
 
 
             builder.pop();
