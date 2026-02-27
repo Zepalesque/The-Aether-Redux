@@ -6,13 +6,16 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerChunkCache;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.DensityFunction;
+import net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
+import net.minecraft.world.level.levelgen.carver.CarvingContext;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
@@ -20,6 +23,7 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.feature.stateproviders.RuleBasedBlockStateProvider;
 import net.minecraft.world.level.material.Fluids;
 import net.zepalesque.zenith.api.world.density.PerlinNoiseFunction;
+import net.zepalesque.zenith.mixin.mixins.common.accessor.ChunkAccessAccessor;
 import net.zepalesque.zenith.util.function.Functions;
 
 import java.util.Optional;
@@ -173,12 +177,10 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 
 		BiConsumer<Integer, BlockPos> fun = (d, pos) -> {
 			var state = lvl.getBlockState(pos.above());
-
 			BlockState block;
 
 			if (state.is(Blocks.AIR)) {
-				// TODO: change to surface rules
-				block = AetherFeatureStates.AETHER_GRASS_BLOCK;
+				block = getSurfaceState(lvl, pos);
 			} else if (state.is(Blocks.WATER)) {
 				var placer = fn.apply(d, origin);
 				if (placer.isEmpty()) return;
@@ -210,6 +212,42 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 				}
 			}
 		}
+	}
+
+	private BlockState getSurfaceState(WorldGenLevel level, BlockPos pos) {
+		if (
+			level.getChunkSource() instanceof ServerChunkCache chunkCache 
+			&& chunkCache.getGenerator() instanceof NoiseBasedChunkGenerator generator
+		) {
+			var settingsHolder = generator.generatorSettings().value();
+			var surfaceRule = settingsHolder.surfaceRule();
+			var chunkAccess = level.getChunk(pos);
+			var noiseChunk = ((ChunkAccessAccessor) chunkAccess).getNoiseChunk();
+			
+			if (noiseChunk != null) {
+				var carvingcontext = new CarvingContext(
+					generator,
+					level.registryAccess(),
+					chunkAccess.getHeightAccessorForGeneration(),
+					noiseChunk,
+					chunkCache.randomState(),
+					surfaceRule
+				);
+				@SuppressWarnings("deprecation") // `carvingcontext.topMaterial` is fine to use
+				var state = carvingcontext.topMaterial(
+					level.getBiomeManager()::getNoiseBiomeAtPosition,
+					chunkAccess,
+					pos,
+					false
+				);
+				
+				if (state.isPresent() && state.get().is(AetherTags.Blocks.AETHER_DIRT)) {
+					return state.get();
+				}
+			}
+		}
+
+		return AetherFeatureStates.AETHER_GRASS_BLOCK;
 	}
 
 	// TODO: Modular system for interpolation?
