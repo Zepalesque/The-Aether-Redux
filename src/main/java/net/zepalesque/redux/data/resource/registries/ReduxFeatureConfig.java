@@ -264,7 +264,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 					prov(Blocks.LIGHT_GRAY_CONCRETE_POWDER.defaultBlockState()),
 					prov(Blocks.LIGHT_GRAY_CONCRETE_POWDER.defaultBlockState()),
 					prov(AetherBlocks.HOLYSTONE),
-					prov(AetherBlocks.ICESTONE),
+					prov(Blocks.DIORITE.defaultBlockState()),
 					prov(Blocks.WHITE_CONCRETE.defaultBlockState()),
 					prov(Blocks.CALCITE.defaultBlockState()),
 					prov(UnityBlocks.VALKYRIE_CLAY),
