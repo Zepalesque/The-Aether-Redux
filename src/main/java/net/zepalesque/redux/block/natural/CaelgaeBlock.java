@@ -86,7 +86,7 @@ public class CaelgaeBlock extends Block implements BonemealableBlock {
 	}
 	
 	public boolean canSpreadTo(BlockGetter lvl, BlockPos pos) {
-		return mayPlaceOn(lvl, pos.below()) && !lvl.getBlockState(pos.above()).is(this);
+		return mayPlaceOn(lvl, pos.below()) && !lvl.getBlockState(pos).is(this);
 	}
 	
 	@Override
