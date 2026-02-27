@@ -29,6 +29,8 @@ public class ReduxTags {
         
         public static final TagKey<Block> AETHER_GRASS_SPREAD_BLACKLIST = tag("aether_grass_spread_blacklist");
 
+        public static final TagKey<Block> QUICKSOIL_PLANTS_SURVIVABLE = tag("quicksoil_plants_survivable");
+        
         // NeoForge tags
         public static final TagKey<Block> VERIDIUM_ORES = tag("veridium_ores");
         public static final TagKey<Block> STORAGE_BLOCKS_VERIDIUM = tag("storage_blocks_veridium");

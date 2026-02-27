@@ -111,7 +111,7 @@ public class ReduxCrystalIslandFeature extends Feature<NoneFeatureConfiguration>
 			var surfaceRule = settingsHolder.surfaceRule();
 			var chunkAccess = level.getChunk(pos);
 			var noiseChunk = ((ChunkAccessAccessor) chunkAccess).aether$getNoiseChunk();
-
+			
 			if (noiseChunk != null) {
 				var carvingcontext = new CarvingContext(
 					generator,

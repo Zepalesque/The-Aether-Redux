@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.zepalesque.redux.data.ReduxTags;
 
 public class TurboVerbenaBlock extends FlowerBlock {
 	private static final VoxelShape SHAPE = Block.box(1.0, 0.0, 1.0, 15.0, 9.0, 15.0);
@@ -30,9 +31,9 @@ public class TurboVerbenaBlock extends FlowerBlock {
 		var offset = state.getOffset(level, pos);
 		return SHAPE.move(offset.x, offset.y, offset.z);
 	}
-
+	
 	@Override
 	protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
-		return level.getBlockState(pos.below()).is(AetherBlocks.QUICKSOIL);
+		return level.getBlockState(pos.below()).is(ReduxTags.Blocks.QUICKSOIL_PLANTS_SURVIVABLE);
 	}
 }
