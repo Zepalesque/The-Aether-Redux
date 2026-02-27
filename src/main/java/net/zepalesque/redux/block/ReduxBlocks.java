@@ -348,7 +348,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 		"caelgae",
 		() -> new CaelgaeBlock(BlockBehaviour.Properties.of()
 			.mapColor(MapColor.TERRACOTTA_GREEN)
-			.sound(SoundType.GLOW_LICHEN)
+			.sound(SoundType.SMALL_DRIPLEAF)
 			.instabreak()
 			.noOcclusion()
 			.noCollission()
