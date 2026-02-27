@@ -50,7 +50,7 @@ public class CaelgaeBlock extends Block implements BonemealableBlock {
 	private boolean mayPlaceOn(BlockGetter level, BlockPos pos) {
 		var fluid = level.getFluidState(pos);
 		var above = level.getFluidState(pos.above());
-		return fluid.getType() == Fluids.WATER && above.getType() == Fluids.EMPTY && !level.getBlockState(pos.above()).is(this);
+		return fluid.getType() == Fluids.WATER && above.getType() == Fluids.EMPTY;
 	}
 	
 	@Override
@@ -74,7 +74,7 @@ public class CaelgaeBlock extends Block implements BonemealableBlock {
 			.shuffledCopy(rand)
 			.stream()
 			.map(pos::relative)
-			.filter(p -> mayPlaceOn(lvl, p.below()))
+			.filter(p -> mayPlaceOn(lvl, p.below()) && !lvl.getBlockState(pos.above()).is(this))
 			.findFirst();
 	}
 	
@@ -82,7 +82,7 @@ public class CaelgaeBlock extends Block implements BonemealableBlock {
 		return Direction.Plane.HORIZONTAL
 			.stream()
 			.map(pos::relative)
-			.anyMatch(p -> mayPlaceOn(lvl, p.below()));
+			.anyMatch(p -> mayPlaceOn(lvl, p.below()) && !lvl.getBlockState(pos.above()).is(this));
 	}
 	
 	@Override
