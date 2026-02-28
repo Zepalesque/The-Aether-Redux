@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "aether_redux:block/natural/caelgae_top"
+    "layer0": "aether_redux:block/natural/caelgae_patch_top"
   }
 }

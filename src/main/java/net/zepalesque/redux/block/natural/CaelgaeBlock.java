@@ -47,7 +47,7 @@ public class CaelgaeBlock extends Block implements BonemealableBlock {
 		return mayPlaceOn(level, pos.below());
 	}
 	
-	private static boolean mayPlaceOn(BlockGetter level, BlockPos pos) {
+	private boolean mayPlaceOn(BlockGetter level, BlockPos pos) {
 		var fluid = level.getFluidState(pos);
 		var above = level.getFluidState(pos.above());
 		return fluid.getType() == Fluids.WATER && above.getType() == Fluids.EMPTY;
@@ -74,7 +74,7 @@ public class CaelgaeBlock extends Block implements BonemealableBlock {
 			.shuffledCopy(rand)
 			.stream()
 			.map(pos::relative)
-			.filter(p -> mayPlaceOn(lvl, p))
+			.filter(p -> canSpreadTo(lvl, p))
 			.findFirst();
 	}
 	
@@ -82,16 +82,25 @@ public class CaelgaeBlock extends Block implements BonemealableBlock {
 		return Direction.Plane.HORIZONTAL
 			.stream()
 			.map(pos::relative)
-			.anyMatch(p -> mayPlaceOn(lvl, p));
+			.anyMatch(p -> canSpreadTo(lvl, p));
+	}
+	
+	public boolean canSpreadTo(BlockGetter lvl, BlockPos pos) {
+		return mayPlaceOn(lvl, pos.below()) && !lvl.getBlockState(pos).is(this);
 	}
 	
 	@Override
 	protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-		if (entity.getType().equals(EntityType.FALLING_BLOCK)) {
-			level.destroyBlock(pos, true);
-		} else if (entity instanceof LivingEntity && !entity.getType().is(EntityTypeTags.AQUATIC)) {
+		if (entity.getType().equals(EntityType.FALLING_BLOCK)) level.destroyBlock(pos, true);
+		else if (entity instanceof LivingEntity && !entity.getType().is(EntityTypeTags.AQUATIC) && isEntityIntersecting(state, level, pos, entity) && entity.isInWater())
 			entity.setDeltaMovement(entity.getDeltaMovement().multiply(new Vec3(0.85, 0.85, 0.85)));
-		}
+	}
+	
+	protected boolean isEntityIntersecting(BlockState state, Level level, BlockPos pos, Entity entity) {
+		var entityBox = entity.getBoundingBox();
+		var selfBox = getShape(state, level, pos, CollisionContext.of(entity)).bounds().move(pos);
+		
+		return entityBox.intersects(selfBox);
 	}
 	
 	@Override

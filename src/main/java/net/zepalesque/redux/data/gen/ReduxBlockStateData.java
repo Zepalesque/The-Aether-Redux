@@ -61,7 +61,7 @@ public class ReduxBlockStateData extends ReduxBlockStateProvider {
         this.crossEnchantableOverlay(ReduxBlocks.WYNDSPROUTS.get(), "natural/");
         this.crossTintedOverlay(ReduxBlocks.SKYSPROUTS.get(), "natural/");
 		this.crossTintedOverlay(ReduxBlocks.TURBO_VERBENA.get(), "natural/");
-        this.algae(ReduxBlocks.CAELGAE.get(), "natural/");
+        this.algae(ReduxBlocks.CAELGAE_PATCH.get(), "natural/");
 
         this.cropGrowable(ReduxBlocks.WYNDOATS.get(), "crop/", WyndoatsBlock.AGE);
 

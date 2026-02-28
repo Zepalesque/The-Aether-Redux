@@ -47,13 +47,14 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
     public static final ResourceKey<PlacedFeature> AURUM_PATCH = copyKey(ReduxFeatureConfig.AURUM_PATCH);
     public static final ResourceKey<PlacedFeature> GOLDEN_CLOVERS_PATCH = copyKey(ReduxFeatureConfig.GOLDEN_CLOVERS_PATCH);
     public static final ResourceKey<PlacedFeature> TURBO_VERBENA_PATCH = copyKey(ReduxFeatureConfig.TURBO_VERBENA_PATCH);
+    public static final ResourceKey<PlacedFeature> CAELGAE_PATCH = copyKey(ReduxFeatureConfig.CAELGAE_PATCH);
+    
     public static final ResourceKey<PlacedFeature> AMBROSIUM_ROCK = copyKey(ReduxFeatureConfig.AMBROSIUM_ROCK);
     public static final ResourceKey<PlacedFeature> LUCKY_CLOVER_PATCH = copyKey(ReduxFeatureConfig.LUCKY_CLOVER_PATCH);
 
     public static final ResourceKey<PlacedFeature> MOSSY_HOLYSTONE_ORE = copyKey(ReduxFeatureConfig.MOSSY_HOLYSTONE_ORE);
     public static final ResourceKey<PlacedFeature> GILDED_HOLYSTONE_ORE = copyKey(ReduxFeatureConfig.GILDED_HOLYSTONE_ORE);
     public static final ResourceKey<PlacedFeature> BLEAKMOSS_HOLYSTONE_ORE = copyKey(ReduxFeatureConfig.BLEAKMOSS_HOLYSTONE_ORE);
-
 
     public static final ResourceKey<PlacedFeature> SPARSE_BLUE_AERCLOUD = createKey("sparse_blue_aercloud");
     public static final ResourceKey<PlacedFeature> DENSE_BLUE_AERCLOUD = createKey("dense_blue_aercloud");
@@ -192,6 +193,12 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
         PlacementUtils.register(context, TURBO_VERBENA_PATCH, configs.getOrThrow(ReduxFeatureConfig.TURBO_VERBENA_PATCH),
                 threshold,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
+                BiomeFilter.biome());
+
+        PlacementUtils.register(context, CAELGAE_PATCH, configs.getOrThrow(ReduxFeatureConfig.CAELGAE_PATCH),
+                threshold,
+                CountPlacement.of(11),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.WORLD_SURFACE_WG, UniformInt.of(0, 1), 4),
                 BiomeFilter.biome());
 
         PlacementUtils.register(context, SPARSE_BLUE_AERCLOUD,

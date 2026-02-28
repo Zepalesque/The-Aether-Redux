@@ -344,16 +344,16 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 		)
 	);
 	
-	public static final DeferredBlock<CaelgaeBlock> CAELGAE = BLOCKS.register(
-		"caelgae",
+	public static final DeferredBlock<CaelgaeBlock> CAELGAE_PATCH = BLOCKS.register(
+		"caelgae_patch",
 		() -> new CaelgaeBlock(BlockBehaviour.Properties.of()
 			.mapColor(MapColor.TERRACOTTA_GREEN)
-			.sound(SoundType.GLOW_LICHEN)
-			.instabreak()
+			.sound(SoundType.SMALL_DRIPLEAF)
 			.noOcclusion()
 			.noCollission()
+			.replaceable()
 			.pushReaction(PushReaction.DESTROY)
-			.strength(0.2F)
+			.strength(0.1F)
 		)
 	);
 

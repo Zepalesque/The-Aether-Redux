@@ -9,6 +9,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.Items;
@@ -26,6 +27,9 @@ import net.zepalesque.unity.block.UnityBlocks;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.CompletableFuture;
+
+import static net.zepalesque.redux.data.prov.ReduxRecipeProvider.getHasName;
+import static net.zepalesque.redux.data.prov.ReduxRecipeProvider.has;
 
 public class ReduxRecipeData extends ReduxRecipeProvider {
 
@@ -118,28 +122,35 @@ public class ReduxRecipeData extends ReduxRecipeProvider {
                 .define('#', AetherBlocks.CARVED_STONE.get())
                 .pattern("##")
                 .pattern("##")
-                .unlockedBy(ReduxRecipeProvider.getHasName(AetherBlocks.CARVED_STONE.get()), ReduxRecipeProvider.has(AetherBlocks.CARVED_STONE.get()))
+                .unlockedBy(getHasName(AetherBlocks.CARVED_STONE.get()), has(AetherBlocks.CARVED_STONE.get()))
                 .save(output);
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.CARVED_PILLAR.get(), 6)
                 .define('#', AetherBlocks.CARVED_STONE.get())
                 .pattern("##")
                 .pattern("##")
                 .pattern("##")
-                .unlockedBy(ReduxRecipeProvider.getHasName(AetherBlocks.CARVED_STONE.get()), ReduxRecipeProvider.has(AetherBlocks.CARVED_STONE.get()))
+                .unlockedBy(getHasName(AetherBlocks.CARVED_STONE.get()), has(AetherBlocks.CARVED_STONE.get()))
                 .save(output);
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRY_BASE.get(), 4)
                 .define('#', AetherBlocks.SENTRY_STONE.get())
                 .pattern("##")
                 .pattern("##")
-                .unlockedBy(ReduxRecipeProvider.getHasName(AetherBlocks.SENTRY_STONE.get()), ReduxRecipeProvider.has(AetherBlocks.SENTRY_STONE.get()))
+                .unlockedBy(getHasName(AetherBlocks.SENTRY_STONE.get()), has(AetherBlocks.SENTRY_STONE.get()))
                 .save(output);
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.SENTRY_PILLAR.get(), 6)
                 .define('#', AetherBlocks.SENTRY_STONE.get())
                 .pattern("##")
                 .pattern("##")
                 .pattern("##")
-                .unlockedBy(ReduxRecipeProvider.getHasName(AetherBlocks.SENTRY_STONE.get()), ReduxRecipeProvider.has(AetherBlocks.SENTRY_STONE.get()))
+                .unlockedBy(getHasName(AetherBlocks.SENTRY_STONE.get()), has(AetherBlocks.SENTRY_STONE.get()))
                 .save(output);
+        
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ReduxItems.SEAWEED_SALAD)
+            .requires(Items.BOWL)
+            .requires(ReduxItems.CAELGAE_CLUMP, 3)
+            .requires(ReduxItems.WYND_OATS)
+            .unlockedBy(getHasName(ReduxItems.CAELGAE_CLUMP), has(ReduxItems.CAELGAE_CLUMP))
+            .save(output);
 
         CompoundTag infusionInfo = new CompoundTag();
         infusionInfo.putShort(InfusionRecipe.ADDED_INFUSION, (short) 4);
@@ -269,7 +280,7 @@ public class ReduxRecipeData extends ReduxRecipeProvider {
                 .define('V', ReduxItems.VERIDIUM_INGOT.get())
                 .pattern("RTR")
                 .pattern("SVS")
-                .unlockedBy(ReduxRecipeProvider.getHasName(ReduxItems.VERIDIUM_INGOT.get()), ReduxRecipeProvider.has(ReduxItems.VERIDIUM_INGOT.get()))
+                .unlockedBy(getHasName(ReduxItems.VERIDIUM_INGOT.get()), has(ReduxItems.VERIDIUM_INGOT.get()))
                 .save(output);
 
         oreBlockStorageRecipesRecipesWithCustomUnpacking(output, RecipeCategory.MISC, ReduxItems.VERIDIUM_INGOT.get(), RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.VERIDIUM_BLOCK.get(), "veridium_ingot_from_veridium_block", "veridium_ingot");
