@@ -3,7 +3,6 @@ package net.zepalesque.redux.world.feature.gen;
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.resources.AetherFeatureStates;
-import com.aetherteam.aether.mixin.mixins.common.accessor.ChunkAccessAccessor;
 import com.aetherteam.aether.world.BlockLogicUtil;
 
 import net.minecraft.core.BlockPos;
@@ -21,6 +20,7 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.material.Fluids;
 import net.zepalesque.redux.data.resource.registries.ReduxFeatureConfig;
+import net.zepalesque.zenith.mixin.mixins.common.accessor.ChunkAccessAccessor;
 
 public class ReduxCrystalIslandFeature extends Feature<NoneFeatureConfiguration> {
 	public ReduxCrystalIslandFeature() {
@@ -110,7 +110,7 @@ public class ReduxCrystalIslandFeature extends Feature<NoneFeatureConfiguration>
 			var settingsHolder = generator.generatorSettings().value();
 			var surfaceRule = settingsHolder.surfaceRule();
 			var chunkAccess = level.getChunk(pos);
-			var noiseChunk = ((ChunkAccessAccessor) chunkAccess).aether$getNoiseChunk();
+			var noiseChunk = ((ChunkAccessAccessor) chunkAccess).getNoiseChunk();
 			
 			if (noiseChunk != null) {
 				var carvingcontext = new CarvingContext(
