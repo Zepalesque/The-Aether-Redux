@@ -197,7 +197,7 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
 
         PlacementUtils.register(context, CAELGAE_PATCH, configs.getOrThrow(ReduxFeatureConfig.CAELGAE_PATCH),
                 threshold,
-                CountPlacement.of(4),
+                CountPlacement.of(11),
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.WORLD_SURFACE_WG, UniformInt.of(0, 1), 4),
                 BiomeFilter.biome());
 
