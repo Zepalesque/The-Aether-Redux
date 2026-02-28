@@ -197,8 +197,7 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
 
         PlacementUtils.register(context, CAELGAE_PATCH, configs.getOrThrow(ReduxFeatureConfig.CAELGAE_PATCH),
                 threshold,
-                CountPlacement.of(11),
-                ImprovedLayerPlacementModifier.of(Heightmap.Types.WORLD_SURFACE_WG, UniformInt.of(0, 1), 4),
+                ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 11), 4),
                 BiomeFilter.biome());
 
         PlacementUtils.register(context, SPARSE_BLUE_AERCLOUD,
