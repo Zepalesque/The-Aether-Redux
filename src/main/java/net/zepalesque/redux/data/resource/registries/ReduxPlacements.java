@@ -56,7 +56,6 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
     public static final ResourceKey<PlacedFeature> GILDED_HOLYSTONE_ORE = copyKey(ReduxFeatureConfig.GILDED_HOLYSTONE_ORE);
     public static final ResourceKey<PlacedFeature> BLEAKMOSS_HOLYSTONE_ORE = copyKey(ReduxFeatureConfig.BLEAKMOSS_HOLYSTONE_ORE);
 
-
     public static final ResourceKey<PlacedFeature> SPARSE_BLUE_AERCLOUD = createKey("sparse_blue_aercloud");
     public static final ResourceKey<PlacedFeature> DENSE_BLUE_AERCLOUD = createKey("dense_blue_aercloud");
     public static final ResourceKey<PlacedFeature> SPARSE_ZANITE_ORE = createKey("sparse_zanite_ore");

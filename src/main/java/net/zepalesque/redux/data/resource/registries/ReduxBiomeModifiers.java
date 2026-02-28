@@ -30,7 +30,8 @@ import java.util.Optional;
 public class ReduxBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_CLOUDBED = createKey("add_cloudbed");
 	public static final ResourceKey<BiomeModifier> ADD_LAKES = createKey("add_lakes");
-	public static final ResourceKey<BiomeModifier> ADD_LAKE_FOLIAGE = createKey("add_lake_foliage");
+	public static final ResourceKey<BiomeModifier> ADD_VERBENA = createKey("add_verbena");
+	public static final ResourceKey<BiomeModifier> ADD_CAELGAE = createKey("add_caelgae");
     public static final ResourceKey<BiomeModifier> SKY_COLOR_AETHER = createKey("modify_sky_color");
     public static final ResourceKey<BiomeModifier> WATER_COLOR_AETHER = createKey("modify_water_color");
     public static final ResourceKey<BiomeModifier> MUSIC_MODIFY = createKey("modify_music");
@@ -59,8 +60,11 @@ public class ReduxBiomeModifiers {
                 GenerationStep.Decoration.RAW_GENERATION);
         context.register(ADD_LAKES, new ConditionalBiomeModifier(Holder.direct(lakes), conditions.get(ReduxConditions.LAKES).orElseThrow()));
 
-        context.register(ADD_LAKE_FOLIAGE, new BiomeModifiers.AddFeaturesBiomeModifier(
-                biomes.getOrThrow(ReduxTags.Biomes.HAS_CLOUDBED), HolderSet.direct(features.getOrThrow(ReduxPlacements.TURBO_VERBENA_PATCH)),
+        context.register(ADD_VERBENA, new BiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(ReduxTags.Biomes.HAS_VERBENA), HolderSet.direct(features.getOrThrow(ReduxPlacements.TURBO_VERBENA_PATCH)),
+                GenerationStep.Decoration.VEGETAL_DECORATION));
+        context.register(ADD_CAELGAE, new BiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(ReduxTags.Biomes.HAS_CAELGAE), HolderSet.direct(features.getOrThrow(ReduxPlacements.CAELGAE_PATCH)),
                 GenerationStep.Decoration.VEGETAL_DECORATION));
 
         BiomeModifier sky = new SkiesModifier(
