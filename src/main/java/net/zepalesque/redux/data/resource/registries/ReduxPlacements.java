@@ -195,6 +195,7 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
                 BiomeFilter.biome());
 
+        // TODO: Tweak spawnrate heavily
         PlacementUtils.register(context, CAELGAE_PATCH, configs.getOrThrow(ReduxFeatureConfig.CAELGAE_PATCH),
                 threshold,
                 ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 11), 4),
