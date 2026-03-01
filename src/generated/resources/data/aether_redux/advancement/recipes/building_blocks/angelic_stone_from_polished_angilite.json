@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_angilite": {
+    "has_polished_angilite": {
       "conditions": {
         "items": [
           {
-            "items": "aether_redux:angilite"
+            "items": "aether_redux:polished_angilite"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "aether_redux:angelic_stone_from_angilite"
+        "recipe": "aether_redux:angelic_stone_from_polished_angilite"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_angilite"
+      "has_polished_angilite"
     ]
   ],
   "rewards": {
     "recipes": [
-      "aether_redux:angelic_stone_from_angilite"
+      "aether_redux:angelic_stone_from_polished_angilite"
     ]
   }
 }
