@@ -153,7 +153,6 @@ public class ReduxStoneSets extends ReduxBlockSetBuilders {
 		))
 		// TODO: Idea: glowstone tiles via enchanting angelic stone? Maybe? Could be nice for ceiling lights in the silver dungeons
 		.withLore("A stone type found in the Aether. Angilite is commonly used in Valkyrian structures in its tile/brick form, Angelic Stone. Additionally, when enchanted, it buds into a dazzlingly bright glowing stone!")
-		.craftsInto(AetherBlocks.ANGELIC_STONE, CommonMatrices.SQUARE_2X2)
 		.enchantsInto(Blocks.GLOWSTONE, 0.0F, 200)
 		.stonecutInto(AetherBlocks.ANGELIC_STONE, 1)
 		.stonecutInto(AetherBlocks.ANGELIC_WALL, 1)
@@ -185,6 +184,11 @@ public class ReduxStoneSets extends ReduxBlockSetBuilders {
 			"construction/"
 		))
 		.withLore("The polished form of Angilite. These can be used as a nice building block!")
+		.craftsInto(AetherBlocks.ANGELIC_STONE, CommonMatrices.SQUARE_2X2)
+		.stonecutInto(AetherBlocks.ANGELIC_STONE, 1)
+		.stonecutInto(AetherBlocks.ANGELIC_WALL, 1)
+		.stonecutInto(AetherBlocks.ANGELIC_STAIRS, 1)
+		.stonecutInto(AetherBlocks.ANGELIC_SLAB, 1)
 		.tabAfter(
 			AetherCreativeTabs.AETHER_BUILDING_BLOCKS,
 			lazySetItem(ReduxStoneSets.ANGILITE::wall),
