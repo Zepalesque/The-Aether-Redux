@@ -12,6 +12,9 @@
     "aether_redux:blightwillow_sapling": {
       "chance": 0.3
     },
+    "aether_redux:bloomtail": {
+      "chance": 0.3
+    },
     "aether_redux:caelgae_clump": {
       "chance": 0.65
     },
