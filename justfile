@@ -3,3 +3,7 @@ run:
 
 data:
 	./gradlew rundata
+
+update:
+	git fetch
+	git pull
