@@ -10,229 +10,228 @@ import net.zepalesque.redux.entity.ReduxEntities;
 import net.zepalesque.redux.item.ReduxItems;
 
 public class ReduxLanguageData extends ReduxLanguageProvider {
+	public ReduxLanguageData(PackOutput output) {
+		super(output, Redux.MODID);
+	}
 
-    public ReduxLanguageData(PackOutput output) {
-        super(output, Redux.MODID);
-    }
+	@Override
+	protected void addTranslations() {
+		Redux.BLOCK_SETS.forEach(set -> set.langData(this));
 
-    @Override
-    protected void addTranslations() {
-        Redux.BLOCK_SETS.forEach(set -> set.langData(this));
+		addBlock(ReduxBlocks.GILDENROOT_LEAVES);
+		addLore(ReduxBlocks.GILDENROOT_LEAVES, "Leaves of the Gildenroot tree, a variation of Skyroot that has been touched by Ambrosium but has not fully adapted as Golden Oaks have. These sometimes will drop Gildenroot Saplings");
 
-        addBlock(ReduxBlocks.GILDENROOT_LEAVES);
-        addLore(ReduxBlocks.GILDENROOT_LEAVES, "Leaves of the Gildenroot tree, a variation of Skyroot that has been touched by Ambrosium but has not fully adapted as Golden Oaks have. These sometimes will drop Gildenroot Saplings");
+		addBlock(ReduxBlocks.GILDENROOT_LEAF_PILE);
+		addLore(ReduxBlocks.GILDENROOT_LEAF_PILE, "A pile of Gildenroot Leaves. These can be stacked on top of eachother to make various sizes!");
 
-        addBlock(ReduxBlocks.GILDENROOT_LEAF_PILE);
-        addLore(ReduxBlocks.GILDENROOT_LEAF_PILE, "A pile of Gildenroot Leaves. These can be stacked on top of eachother to make various sizes!");
+		addBlock(ReduxBlocks.STORMROOT_LEAVES);
+		addLore(ReduxBlocks.STORMROOT_LEAVES, "Leaves of the Stormroot tree, a corrupted variation of Skyroot that has been inflicted by the Blight.");
 
-        addBlock(ReduxBlocks.STORMROOT_LEAVES);
-        addLore(ReduxBlocks.STORMROOT_LEAVES, "Leaves of the Stormroot tree, a corrupted variation of Skyroot that has been inflicted by the Blight.");
+		addBlock(ReduxBlocks.STORMROOT_LEAF_PILE);
+		addLore(ReduxBlocks.STORMROOT_LEAF_PILE, "A pile of Stormroot Leaves. These can be stacked on top of eachother to make various sizes!");
 
-        addBlock(ReduxBlocks.STORMROOT_LEAF_PILE);
-        addLore(ReduxBlocks.STORMROOT_LEAF_PILE, "A pile of Stormroot Leaves. These can be stacked on top of eachother to make various sizes!");
+		addBlock(ReduxBlocks.BLIGHTWILLOW_LEAVES);
+		addLore(ReduxBlocks.BLIGHTWILLOW_LEAVES, "Leaves of the Blightwillow tree, The most common tree found in the Blight. Some biologists across the Aether theorize that these may be a blighted form of Golden Oak trees.");
 
-        addBlock(ReduxBlocks.BLIGHTWILLOW_LEAVES);
-        addLore(ReduxBlocks.BLIGHTWILLOW_LEAVES, "Leaves of the Blightwillow tree, The most common tree found in the Blight. Some biologists across the Aether theorize that these may be a blighted form of Golden Oak trees.");
+		addBlock(ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES);
+		addLore(ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES, "Blightwillow leaves that have been inhabited by the very essence of the Blight itself.");
 
-        addBlock(ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES);
-        addLore(ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES, "Blightwillow leaves that have been inhabited by the very essence of the Blight itself.");
+		addBlock(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE);
+		addLore(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE, "A pile of Blightwillow Leaves. These can be stacked on top of eachother to make various sizes!");
 
-        addBlock(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE);
-        addLore(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE, "A pile of Blightwillow Leaves. These can be stacked on top of eachother to make various sizes!");
+		addBlock(ReduxBlocks.GOLDEN_CLOVERS);
+		addLore(ReduxBlocks.GOLDEN_CLOVERS, "A nice patch of clovers that can be found in the Gilded Groves.");
 
-        addBlock(ReduxBlocks.GOLDEN_CLOVERS);
-        addLore(ReduxBlocks.GOLDEN_CLOVERS, "A nice patch of clovers that can be found in the Gilded Groves.");
+		addBlock(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK);
+		addLore(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK, "A block of the Aether's grass which has been corrupted by the Blight.");
 
-        addBlock(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK);
-        addLore(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK, "A block of the Aether's grass which has been corrupted by the Blight.");
+		addBlock(ReduxBlocks.GOLDEN_VINES);
+		addBlock(ReduxBlocks.GOLDEN_VINES_PLANT);
+		addLore(ReduxBlocks.GOLDEN_VINES, "A golden vine that grows in a symbiotic relationship with Golden Oak trees when they are healthy, such as when found in the Gilded Groves");
 
-        addBlock(ReduxBlocks.GOLDEN_VINES);
-        addBlock(ReduxBlocks.GOLDEN_VINES_PLANT);
-        addLore(ReduxBlocks.GOLDEN_VINES, "A golden vine that grows in a symbiotic relationship with Golden Oak trees when they are healthy, such as when found in the Gilded Groves");
+		addBlock(ReduxBlocks.CARVED_PILLAR);
+		addLore(ReduxBlocks.CARVED_PILLAR, "A pillar made of Carved Stone. Pillars look nice for supporting a build, along with giving it nice corners.");
+		addBlock(ReduxBlocks.SENTRY_PILLAR);
+		addLore(ReduxBlocks.SENTRY_PILLAR, "A pillar made of Sentry Stone. Pillars look nice for supporting a build, along with giving it nice corners.");
+		addBlock(ReduxBlocks.CARVED_BASE);
+		addLore(ReduxBlocks.CARVED_BASE, "A nice decorative base block made of Carved Stone. Looks very nice at the bottom of walls!");
+		addBlock(ReduxBlocks.SENTRY_BASE);
+		addLore(ReduxBlocks.SENTRY_BASE, "A nice decorative base block made of Sentry Stone. Looks very nice at the bottom of walls!");
 
-        addBlock(ReduxBlocks.CARVED_PILLAR);
-        addLore(ReduxBlocks.CARVED_PILLAR, "A pillar made of Carved Stone. Pillars look nice for supporting a build, along with giving it nice corners.");
-        addBlock(ReduxBlocks.SENTRY_PILLAR);
-        addLore(ReduxBlocks.SENTRY_PILLAR, "A pillar made of Sentry Stone. Pillars look nice for supporting a build, along with giving it nice corners.");
-        addBlock(ReduxBlocks.CARVED_BASE);
-        addLore(ReduxBlocks.CARVED_BASE, "A nice decorative base block made of Carved Stone. Looks very nice at the bottom of walls!");
-        addBlock(ReduxBlocks.SENTRY_BASE);
-        addLore(ReduxBlocks.SENTRY_BASE, "A nice decorative base block made of Sentry Stone. Looks very nice at the bottom of walls!");
+		addBlock(ReduxBlocks.LOCKED_CARVED_PILLAR);
+		addBlock(ReduxBlocks.LOCKED_SENTRY_PILLAR);
+		addBlock(ReduxBlocks.LOCKED_CARVED_BASE);
+		addBlock(ReduxBlocks.LOCKED_SENTRY_BASE);
 
-        addBlock(ReduxBlocks.LOCKED_CARVED_PILLAR);
-        addBlock(ReduxBlocks.LOCKED_SENTRY_PILLAR);
-        addBlock(ReduxBlocks.LOCKED_CARVED_BASE);
-        addBlock(ReduxBlocks.LOCKED_SENTRY_BASE);
+		addBlock(ReduxBlocks.TRAPPED_CARVED_PILLAR);
+		addBlock(ReduxBlocks.TRAPPED_SENTRY_PILLAR);
+		addBlock(ReduxBlocks.TRAPPED_CARVED_BASE);
+		addBlock(ReduxBlocks.TRAPPED_SENTRY_BASE);
 
-        addBlock(ReduxBlocks.TRAPPED_CARVED_PILLAR);
-        addBlock(ReduxBlocks.TRAPPED_SENTRY_PILLAR);
-        addBlock(ReduxBlocks.TRAPPED_CARVED_BASE);
-        addBlock(ReduxBlocks.TRAPPED_SENTRY_BASE);
+		addBlock(ReduxBlocks.BOSS_DOORWAY_CARVED_PILLAR);
+		addBlock(ReduxBlocks.BOSS_DOORWAY_SENTRY_PILLAR);
+		addBlock(ReduxBlocks.BOSS_DOORWAY_CARVED_BASE);
+		addBlock(ReduxBlocks.BOSS_DOORWAY_SENTRY_BASE);
 
-        addBlock(ReduxBlocks.BOSS_DOORWAY_CARVED_PILLAR);
-        addBlock(ReduxBlocks.BOSS_DOORWAY_SENTRY_PILLAR);
-        addBlock(ReduxBlocks.BOSS_DOORWAY_CARVED_BASE);
-        addBlock(ReduxBlocks.BOSS_DOORWAY_SENTRY_BASE);
+		addBlock(ReduxBlocks.RUNELIGHT);
+		addLore(ReduxBlocks.RUNELIGHT, "A glowing block of circuitry made of Veridium, which can be easily toggled on and off. Found in Bronze Dungeons.");
+		addBlock(ReduxBlocks.LOCKED_RUNELIGHT);
 
-        addBlock(ReduxBlocks.RUNELIGHT);
-        addLore(ReduxBlocks.RUNELIGHT, "A glowing block of circuitry made of Veridium, which can be easily toggled on and off. Found in Bronze Dungeons.");
-        addBlock(ReduxBlocks.LOCKED_RUNELIGHT);
+		addBlock(ReduxBlocks.LOCKED_POLISHED_SENTRITE);
 
-        addBlock(ReduxBlocks.LOCKED_POLISHED_SENTRITE);
+		addBlock(ReduxBlocks.WYNDSPROUTS);
+		addLore(ReduxBlocks.WYNDSPROUTS, "A common plant found in the Aether. They occasionally drop Wynd Oats, the main edible source of grain in the Aether.");
 
+		addBlock(ReduxBlocks.SKYSPROUTS);
+		addLore(ReduxBlocks.SKYSPROUTS, "A relative of the common Wyndsprouts, this flowering grass is found in the Skyfields.");
 
-        addBlock(ReduxBlocks.WYNDSPROUTS);
-        addLore(ReduxBlocks.WYNDSPROUTS, "A common plant found in the Aether. They occasionally drop Wynd Oats, the main edible source of grain in the Aether.");
+		addBlock(ReduxBlocks.BLEAKMOSS_BLOCK);
+		addLore(ReduxBlocks.BLEAKMOSS_BLOCK, "A corrupted, blighted variation of the Aether's Flutemoss. This can be found in the Blight, and occasionally underground.");
+		addBlock(ReduxBlocks.BLEAKMOSS_CARPET);
+		addLore(ReduxBlocks.BLEAKMOSS_CARPET, "A blanket-like, vegetative layer of Bleakmoss. This has the capacity to grow when bonemealed.");
 
-        addBlock(ReduxBlocks.SKYSPROUTS);
-        addLore(ReduxBlocks.SKYSPROUTS, "A relative of the common Wyndsprouts, this flowering grass is found in the Skyfields.");
+		addBlock(ReduxBlocks.GILDENMOSS_BLOCK);
+		addLore(ReduxBlocks.GILDENMOSS_BLOCK, "The enchanted variation of the Aether's Flutemoss. This can be found in the Blight.");
+		addBlock(ReduxBlocks.GILDENMOSS_CARPET);
+		addLore(ReduxBlocks.GILDENMOSS_CARPET, "A blanket-like, vegetative layer of Gildenmoss.");
 
-        addBlock(ReduxBlocks.BLEAKMOSS_BLOCK);
-        addLore(ReduxBlocks.BLEAKMOSS_BLOCK, "A corrupted, blighted variation of the Aether's Flutemoss. This can be found in the Blight, and occasionally underground.");
-        addBlock(ReduxBlocks.BLEAKMOSS_CARPET);
-        addLore(ReduxBlocks.BLEAKMOSS_CARPET, "A blanket-like, vegetative layer of Bleakmoss. This has the capacity to grow when bonemealed.");
+		addItem(ReduxItems.AERBOUND_CAPE);
+		addLore(ReduxItems.AERBOUND_CAPE, "A cape found in the Bronze Dungeon. It allows the wearer to double-jump!");
 
-        addBlock(ReduxBlocks.GILDENMOSS_BLOCK);
-        addLore(ReduxBlocks.GILDENMOSS_BLOCK, "The enchanted variation of the Aether's Flutemoss. This can be found in the Blight.");
-        addBlock(ReduxBlocks.GILDENMOSS_CARPET);
-        addLore(ReduxBlocks.GILDENMOSS_CARPET, "A blanket-like, vegetative layer of Gildenmoss.");
+		addItem(ReduxItems.WYND_OATS);
+		addLore(ReduxItems.WYND_OATS, "A pile of Wynd Oats. These can be grown into the Wynd Oat plant.");
+		addItem(ReduxItems.WYND_OAT_PANICLE);
+		addLore(ReduxItems.WYND_OAT_PANICLE, "A panicle of grown Wynd Oats. This can be used for a variety of recipes.");
+		// TODO: Reimplement said recipes
 
+		//add(ReduxItems.WYND_BAGEL);
+		//addLore(ReduxItems.WYND_BAGEL, "A nice bagel made with some harvested Wynd Oats.");
 
+		//add(ReduxItems.BLUEBERRY_BAGEL);
+		//addLore(ReduxItems.BLUEBERRY_BAGEL, "A bagel made with Blue Berries. This is much more filling than a plain Wynd Bagel");
 
-        addItem(ReduxItems.AERBOUND_CAPE);
-        addLore(ReduxItems.AERBOUND_CAPE, "A cape found in the Bronze Dungeon. It allows the wearer to double-jump!");
+		//add(ReduxItems.OATMEAL);
+		//addLore(ReduxItems.OATMEAL, "A nice bowl of Oatmeal. Specifically, this is Wynd Oatmeal, as it was made with Wynd Oats.");
 
-        addItem(ReduxItems.WYND_OATS);
-        addLore(ReduxItems.WYND_OATS, "A pile of Wynd Oats. These can be grown into the Wynd Oat plant.");
-        addItem(ReduxItems.WYND_OAT_PANICLE);
-        addLore(ReduxItems.WYND_OAT_PANICLE, "A panicle of grown Wynd Oats. This can be used for a variety of recipes.");
-        // TODO: Reimplement said recipes
+		addItem(ReduxItems.VERIDIUM_INGOT);
+		addLore(ReduxItems.VERIDIUM_INGOT, "An bar of pure Veridium, a metal that when coming in contact with ambrosium, takes on a glowing light blue color, strengthening temporarily.");
+		addItem(ReduxItems.VERIDIUM_NUGGET);
+		addLore(ReduxItems.VERIDIUM_NUGGET, "A small chunk of Veridium. This can be crafted to and from Veridium Ingots.");
 
-//        add(ReduxItems.WYND_BAGEL);
-//        addLore(ReduxItems.WYND_BAGEL, "A nice bagel made with some harvested Wynd Oats.");
-//
-//        add(ReduxItems.BLUEBERRY_BAGEL);
-//        addLore(ReduxItems.BLUEBERRY_BAGEL, "A bagel made with Blue Berries. This is much more filling than a plain Wynd Bagel");
-//
-//        add(ReduxItems.OATMEAL);
-//        addLore(ReduxItems.OATMEAL, "A nice bowl of Oatmeal. Specifically, this is Wynd Oatmeal, as it was made with Wynd Oats.");
+		addItem(ReduxItems.RAW_VERIDIUM);
+		addLore(ReduxItems.RAW_VERIDIUM, "A chunk of Raw Veridium. This can be smelted into an ingot.");
 
-        addItem(ReduxItems.VERIDIUM_INGOT);
-        addLore(ReduxItems.VERIDIUM_INGOT, "An bar of pure Veridium, a metal that when coming in contact with ambrosium, takes on a glowing light blue color, strengthening temporarily.");
-        addItem(ReduxItems.VERIDIUM_NUGGET);
-        addLore(ReduxItems.VERIDIUM_NUGGET, "A small chunk of Veridium. This can be crafted to and from Veridium Ingots.");
+		addItem(ReduxItems.MUSIC_DISC_SENTIENCE, "Ancient Sentrite Music Disc");
+		addLore(ReduxItems.MUSIC_DISC_SENTIENCE, "A music disc that plays \"Sentience\" by Emile van Krieken.");
+		addJukeboxSong(ReduxJukeboxSongs.SENTIENCE, "Emile van Krieken - Sentience");
 
-        addItem(ReduxItems.RAW_VERIDIUM);
-        addLore(ReduxItems.RAW_VERIDIUM, "A chunk of Raw Veridium. This can be smelted into an ingot.");
+		addItem(ReduxItems.REFINED_SENTRITE);
+		addLore(ReduxItems.REFINED_SENTRITE, "The purified form of Sentrite. This can be used for a variety of different things, but is commonly found associated with Sentry technology.");
 
-        addItem(ReduxItems.MUSIC_DISC_SENTIENCE, "Ancient Sentrite Music Disc");
-        addLore(ReduxItems.MUSIC_DISC_SENTIENCE, "A music disc that plays \"Sentience\" by Emile van Krieken.");
-        addJukeboxSong(ReduxJukeboxSongs.SENTIENCE, "Emile van Krieken - Sentience");
+		addItem(ReduxItems.SENTRITE_CHUNK);
+		addLore(ReduxItems.SENTRITE_CHUNK, "A chunk of purified Sentrite. These are occasionally dropped from Sentries, and can be crafted into Refined Sentrite.");
 
-        addItem(ReduxItems.REFINED_SENTRITE);
-        addLore(ReduxItems.REFINED_SENTRITE, "The purified form of Sentrite. This can be used for a variety of different things, but is commonly found associated with Sentry technology.");
+		addBlock(ReduxBlocks.SENTRITE_CHAIN);
+		addLore(ReduxBlocks.SENTRITE_CHAIN, "A chain made of purified Sentrite. This is crafted with a piece of Refined Sentrite and two Sentrite Chunks.");
+		addBlock(ReduxBlocks.SENTRITE_LANTERN);
+		addLore(ReduxBlocks.SENTRITE_LANTERN, "A lantern made of purified Sentrite. You can place it on the ground or hang it on the ceiling!");
+		addBlock(ReduxBlocks.SENTRITE_BARS);
+		addLore(ReduxBlocks.SENTRITE_BARS, "Metallic bars of purified Sentrite. These can be used as decorative fences or windows!");
 
-        addItem(ReduxItems.SENTRITE_CHUNK);
-        addLore(ReduxItems.SENTRITE_CHUNK, "A chunk of purified Sentrite. These are occasionally dropped from Sentries, and can be crafted into Refined Sentrite.");
+		addBlock(ReduxBlocks.RUNIC_LANTERN);
+		addLore(ReduxBlocks.RUNIC_LANTERN, "A lantern made with Sentry technology. You can place it on the ground or hang it on the ceiling!");
 
-        addBlock(ReduxBlocks.SENTRITE_CHAIN);
-        addLore(ReduxBlocks.SENTRITE_CHAIN, "A chain made of purified Sentrite. This is crafted with a piece of Refined Sentrite and two Sentrite Chunks.");
-        addBlock(ReduxBlocks.SENTRITE_LANTERN);
-        addLore(ReduxBlocks.SENTRITE_LANTERN, "A lantern made of purified Sentrite. You can place it on the ground or hang it on the ceiling!");
-        addBlock(ReduxBlocks.SENTRITE_BARS);
-        addLore(ReduxBlocks.SENTRITE_BARS, "Metallic bars of purified Sentrite. These can be used as decorative fences or windows!");
+		addItem(ReduxItems.VERIDIUM_PICKAXE);
+		addLore(ReduxItems.VERIDIUM_PICKAXE, "A pickaxe made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it far more powerful for a short time!");
+		addItem(ReduxItems.INFUSED_VERIDIUM_PICKAXE);
+		addLore(ReduxItems.INFUSED_VERIDIUM_PICKAXE, "A pickaxe made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it far more powerful for a short time!");
 
-        addBlock(ReduxBlocks.RUNIC_LANTERN);
-        addLore(ReduxBlocks.RUNIC_LANTERN, "A lantern made with Sentry technology. You can place it on the ground or hang it on the ceiling!");
+		addItem(ReduxItems.VERIDIUM_AXE);
+		addLore(ReduxItems.VERIDIUM_AXE, "A axe made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it far more powerful for a short time!");
+		addItem(ReduxItems.INFUSED_VERIDIUM_AXE);
+		addLore(ReduxItems.INFUSED_VERIDIUM_AXE, "A axe made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it far more powerful for a short time!");
 
-        addItem(ReduxItems.VERIDIUM_PICKAXE);
-        addLore(ReduxItems.VERIDIUM_PICKAXE, "A pickaxe made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it far more powerful for a short time!");
-        addItem(ReduxItems.INFUSED_VERIDIUM_PICKAXE);
-        addLore(ReduxItems.INFUSED_VERIDIUM_PICKAXE, "A pickaxe made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it far more powerful for a short time!");
+		addItem(ReduxItems.VERIDIUM_SHOVEL);
+		addLore(ReduxItems.VERIDIUM_SHOVEL, "A shovel made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it far more powerful for a short time!");
+		addItem(ReduxItems.INFUSED_VERIDIUM_SHOVEL);
+		addLore(ReduxItems.INFUSED_VERIDIUM_SHOVEL, "A shovel made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it far more powerful for a short time!");
 
-        addItem(ReduxItems.VERIDIUM_AXE);
-        addLore(ReduxItems.VERIDIUM_AXE, "A axe made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it far more powerful for a short time!");
-        addItem(ReduxItems.INFUSED_VERIDIUM_AXE);
-        addLore(ReduxItems.INFUSED_VERIDIUM_AXE, "A axe made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it far more powerful for a short time!");
+		addItem(ReduxItems.VERIDIUM_SWORD);
+		addLore(ReduxItems.VERIDIUM_SWORD, "A sword made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it far more powerful for a short time!");
+		addItem(ReduxItems.INFUSED_VERIDIUM_SWORD);
+		addLore(ReduxItems.INFUSED_VERIDIUM_SWORD, "A sword made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it far more powerful for a short time!");
 
-        addItem(ReduxItems.VERIDIUM_SHOVEL);
-        addLore(ReduxItems.VERIDIUM_SHOVEL, "A shovel made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it far more powerful for a short time!");
-        addItem(ReduxItems.INFUSED_VERIDIUM_SHOVEL);
-        addLore(ReduxItems.INFUSED_VERIDIUM_SHOVEL, "A shovel made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it far more powerful for a short time!");
+		addItem(ReduxItems.VERIDIUM_DART_SHOOTER);
+		addLore(ReduxItems.VERIDIUM_DART_SHOOTER, "A dart shooter made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it shoot faster and apply a glowing effect for a short time!");
+		addItem(ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER);
+		addLore(ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER, "A dart shooter made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it shoot faster and apply a glowing effect for a short time!");
+		addItem(ReduxItems.VERIDIUM_DART);
+		addLore(ReduxItems.VERIDIUM_DART, "A dart made of Veridium. This can be used with a Veridium Dart Shooter");
 
-        addItem(ReduxItems.VERIDIUM_SWORD);
-        addLore(ReduxItems.VERIDIUM_SWORD, "A sword made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it far more powerful for a short time!");
-        addItem(ReduxItems.INFUSED_VERIDIUM_SWORD);
-        addLore(ReduxItems.INFUSED_VERIDIUM_SWORD, "A sword made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it far more powerful for a short time!");
+		addItem(ReduxItems.VERIDIUM_HOE);
+		addLore(ReduxItems.VERIDIUM_HOE, "A hoe made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it far more powerful for a short time!");
+		addItem(ReduxItems.INFUSED_VERIDIUM_HOE);
+		addLore(ReduxItems.INFUSED_VERIDIUM_HOE, "A hoe made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it far more powerful for a short time!");
 
-        addItem(ReduxItems.VERIDIUM_DART_SHOOTER);
-        addLore(ReduxItems.VERIDIUM_DART_SHOOTER, "A dart shooter made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it shoot faster and apply a glowing effect for a short time!");
-        addItem(ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER);
-        addLore(ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER, "A dart shooter made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it shoot faster and apply a glowing effect for a short time!");
-        addItem(ReduxItems.VERIDIUM_DART);
-        addLore(ReduxItems.VERIDIUM_DART, "A dart made of Veridium. This can be used with a Veridium Dart Shooter");
+		addEntityType(ReduxEntities.CAT_FISH);
+		addItem(ReduxItems.CAT_FISH_SPAWN_EGG);
 
-        addItem(ReduxItems.VERIDIUM_HOE);
-        addLore(ReduxItems.VERIDIUM_HOE, "A hoe made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it far more powerful for a short time!");
-        addItem(ReduxItems.INFUSED_VERIDIUM_HOE);
-        addLore(ReduxItems.INFUSED_VERIDIUM_HOE, "A hoe made of Veridium. This can be infused by right-clicking with an Ambrosium Shard to make it far more powerful for a short time!");
+		addBlock(ReduxBlocks.VERIDIUM_ORE);
+		addLore(ReduxBlocks.VERIDIUM_ORE, "The ore of Veridium. This can be found around the Aether");
 
-        addBlock(ReduxBlocks.VERIDIUM_ORE);
-        addLore(ReduxBlocks.VERIDIUM_ORE, "The ore of Veridium. This can be found around the Aether");
+		addBlock(ReduxBlocks.RAW_VERIDIUM_BLOCK, "Block of Raw Veridium");
+		addLore(ReduxBlocks.RAW_VERIDIUM_BLOCK, "A block of raw Veridium. This can be crafted from Raw Veridium.");
 
-        addBlock(ReduxBlocks.RAW_VERIDIUM_BLOCK, "Block of Raw Veridium");
-        addLore(ReduxBlocks.RAW_VERIDIUM_BLOCK, "A block of raw Veridium. This can be crafted from Raw Veridium.");
+		addBlock(ReduxBlocks.VERIDIUM_BLOCK, "Block of Veridium");
+		addLore(ReduxBlocks.VERIDIUM_BLOCK, "A block of pure Veridium. This can be crafted from Veridium Ingots.");
 
-        addBlock(ReduxBlocks.VERIDIUM_BLOCK, "Block of Veridium");
-        addLore(ReduxBlocks.VERIDIUM_BLOCK, "A block of pure Veridium. This can be crafted from Veridium Ingots.");
+		addBlock(ReduxBlocks.REFINED_SENTRITE_BLOCK, "Block of Refined Sentrite");
+		addLore(ReduxBlocks.REFINED_SENTRITE_BLOCK, "A block of the refined form of Sentrite, crafted with Refined Sentrite.");
+		
+		addBlock(ReduxBlocks.LOGICATOR, "Redstone Logicator");
+		addLore(ReduxBlocks.LOGICATOR, "A fascinating circuit made with an exotic material not found in the Aether - Redstone. This little diode takes in two inputs on the side, and will perform a logical operation on the two for the output. The operation is controlled by the torch on the top and the back input. The torch controls AND/OR mode, and the back input controls exclusivity (XNOR/XOR).");
 
-        addBlock(ReduxBlocks.REFINED_SENTRITE_BLOCK, "Block of Refined Sentrite");
-        addLore(ReduxBlocks.REFINED_SENTRITE_BLOCK, "A block of the refined form of Sentrite, crafted with Refined Sentrite.");
-        
-        addBlock(ReduxBlocks.LOGICATOR, "Redstone Logicator");
-        addLore(ReduxBlocks.LOGICATOR, "A fascinating circuit made with an exotic material not found in the Aether - Redstone. This little diode takes in two inputs on the side, and will perform a logical operation on the two for the output. The operation is controlled by the torch on the top and the back input. The torch controls AND/OR mode, and the back input controls exclusivity (XNOR/XOR).");
+		addEntityType(ReduxEntities.EMBER);
+		addEntityType(ReduxEntities.VERIDIUM_DART);
+		addEntityType(ReduxEntities.INFUSED_VERIDIUM_DART);
+		
+		addItem(ReduxItems.WILLOW_SPORES);
+		addLore(ReduxItems.WILLOW_SPORES, "Spores from the Blightwillow tree. These seem to channel the pure essence of the Blight, and can be used to spread it.");
 
-        addEntityType(ReduxEntities.EMBER);
-        addEntityType(ReduxEntities.VERIDIUM_DART);
-        addEntityType(ReduxEntities.INFUSED_VERIDIUM_DART);
-        
-        addItem(ReduxItems.WILLOW_SPORES);
-        addLore(ReduxItems.WILLOW_SPORES, "Spores from the Blightwillow tree. These seem to channel the pure essence of the Blight, and can be used to spread it.");
+		addBlock(ReduxBlocks.TURBO_VERBENA, "Turbo Verbena");
+		addLore(ReduxBlocks.TURBO_VERBENA, "A plant that grows on Quicksoil. When prepared properly, it can increase your speed when consumed.");
+		
+		addBlock(ReduxBlocks.CAELGAE_PATCH, "Caelgae Patch");
+		addLore(ReduxBlocks.CAELGAE_PATCH, "A patch of Caelgae. This can be found floating on lakes!");
+		
+		addItem(ReduxItems.CAELGAE_CLUMP, "Caelgae Clump");
+		addLore(ReduxItems.CAELGAE_CLUMP, "The Aether's native algae species. Can be eaten, or crafted into Seaweed Salad.");
 
-        addBlock(ReduxBlocks.TURBO_VERBENA, "Turbo Verbena");
-        addLore(ReduxBlocks.TURBO_VERBENA, "A plant that grows on Quicksoil. When prepared properly, it can increase your speed when consumed.");
-        
-        addBlock(ReduxBlocks.CAELGAE_PATCH, "Caelgae Patch");
-        addLore(ReduxBlocks.CAELGAE_PATCH, "A patch of Caelgae. This can be found floating on lakes!");
-        
-        addItem(ReduxItems.CAELGAE_CLUMP, "Caelgae Clump");
-        addLore(ReduxItems.CAELGAE_CLUMP, "The Aether's native algae species. Can be eaten, or crafted into Seaweed Salad.");
+		addItem(ReduxItems.SEAWEED_SALAD, "Seaweed Salad");
+		addLore(ReduxItems.SEAWEED_SALAD, "A nice dish made from Caelgae and Wynd Oats. Good for exploration!");
 
-        addItem(ReduxItems.SEAWEED_SALAD, "Seaweed Salad");
-        addLore(ReduxItems.SEAWEED_SALAD, "A nice dish made from Caelgae and Wynd Oats. Good for exploration!");
+		addTooltip("shift_info", "Hold [%s] for more info...");
+		addTooltip("infusion_charge", "Infusion Charge: %s");
+		addTooltip("infusion_info", "Can be infused by right-clicking the item in your inventory while hovering over it with an Ambrosium Shard");
+		addTooltip("aerbound_cape_aerjump_ability", "Grants ability to double jump by pressing [%s]");
 
-        addTooltip("shift_info", "Hold [%s] for more info...");
-        addTooltip("infusion_charge", "Infusion Charge: %s");
-        addTooltip("infusion_info", "Can be infused by right-clicking the item in your inventory while hovering over it with an Ambrosium Shard");
-        addTooltip("aerbound_cape_aerjump_ability", "Grants ability to double jump by pressing [%s]");
+		addTooltip("cape_modifier", "When on Back");
 
-        addTooltip("cape_modifier", "When on Back");
+		addPackDescription("mod", "The Aether: Redux Resources");
 
-        addPackDescription("mod", "The Aether: Redux Resources");
+		addPackTitle("bronze_upgrade", "Redux - Bronze Dungeon Upgrade");
+		addPackDescription("bronze_upgrade", "Configurable in config/aether_redux/common.toml");
 
-        addPackTitle("bronze_upgrade", "Redux - Bronze Dungeon Upgrade");
-        addPackDescription("bronze_upgrade", "Configurable in config/aether_redux/common.toml");
+		addSubtitle(ReduxSounds.INFUSE_ITEM, "Item infuses");
+		addSubtitle(ReduxSounds.INFUSION_EXPIRE, "Item infusion runs out");
+		addSubtitle(ReduxSounds.WILLOW_SPORES_CONVERT, "Willow Spores used");
+		addSubtitle(ReduxSounds.LOGICATOR_CLICK, "Logicator clicks");
+		addSubtitle(ReduxSounds.AERJUMP, "Something aerjumps");
+		addSubtitle(ReduxSounds.SLIDER_SIGNAL, "Slider signals");
+		addSubtitle(ReduxSounds.EMBER_BOUNCE_BIG, "Ember shatters");
+		addSubtitle(ReduxSounds.EMBER_BOUNCE_MEDIUM, "Ember crackles");
+		addSubtitle(ReduxSounds.EMBER_BOUNCE_SMALL, "Ember sparks");
 
-        addSubtitle(ReduxSounds.INFUSE_ITEM, "Item infuses");
-        addSubtitle(ReduxSounds.INFUSION_EXPIRE, "Item infusion runs out");
-        addSubtitle(ReduxSounds.WILLOW_SPORES_CONVERT, "Willow Spores used");
-        addSubtitle(ReduxSounds.LOGICATOR_CLICK, "Logicator clicks");
-        addSubtitle(ReduxSounds.AERJUMP, "Something aerjumps");
-        addSubtitle(ReduxSounds.SLIDER_SIGNAL, "Slider signals");
-        addSubtitle(ReduxSounds.EMBER_BOUNCE_BIG, "Ember shatters");
-        addSubtitle(ReduxSounds.EMBER_BOUNCE_MEDIUM, "Ember crackles");
-        addSubtitle(ReduxSounds.EMBER_BOUNCE_SMALL, "Ember sparks");
-
-        addAdvancement("throw_ring_in_lava", "Cast It into the Fire! Destroy It!", "Throw a Golden Ring into lava in the Nether");
-    }
+		addAdvancement("throw_ring_in_lava", "Cast It into the Fire! Destroy It!", "Throw a Golden Ring into lava in the Nether");
+	}
 }

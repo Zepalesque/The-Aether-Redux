@@ -114,5 +114,7 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
 
         this.item(ReduxItems.MUSIC_DISC_SENTIENCE.get(), "misc/");
         this.item(ReduxItems.WILLOW_SPORES.get(), "materials/");
+
+        this.spawnEgg(ReduxItems.CAT_FISH_SPAWN_EGG);
     }
 }
