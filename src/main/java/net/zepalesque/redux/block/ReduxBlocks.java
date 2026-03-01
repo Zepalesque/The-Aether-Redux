@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.ChainBlock;
 import net.minecraft.world.level.block.IronBarsBlock;
 import net.minecraft.world.level.block.LanternBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.SeagrassBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.OffsetType;
@@ -28,6 +29,7 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.dungeon.DoorwayPillarBlock;
 import net.zepalesque.redux.block.dungeon.RunelightBlock;
 import net.zepalesque.redux.block.dungeon.TrappedPillarBlock;
+import net.zepalesque.redux.block.natural.BloomtailBlock;
 import net.zepalesque.redux.block.natural.CaelgaeBlock;
 import net.zepalesque.redux.block.natural.BlightedGrassBlock;
 import net.zepalesque.redux.block.natural.DoubleDropsMossCarpet;
@@ -354,6 +356,19 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 			.replaceable()
 			.pushReaction(PushReaction.DESTROY)
 			.strength(0.1F)
+		)
+	);
+	
+	public static final DeferredBlock<BloomtailBlock> BLOOMTAIL = register(
+		"bloomtail",
+		() -> new BloomtailBlock(
+			BlockBehaviour.Properties.of()
+				.mapColor(MapColor.WATER)
+				.replaceable()
+				.noCollission()
+				.instabreak()
+				.sound(SoundType.WET_GRASS)
+				.pushReaction(PushReaction.DESTROY)
 		)
 	);
 
