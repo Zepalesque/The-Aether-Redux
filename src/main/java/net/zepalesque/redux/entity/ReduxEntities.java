@@ -31,7 +31,8 @@ public class ReduxEntities {
 	public static final DeferredHolder<EntityType<?>, EntityType<CatFish>> CAT_FISH = registerEntity(
 		"cat_fish",
 		EntityType.Builder.of(CatFish::new, MobCategory.WATER_AMBIENT)
-			.sized(0.85F, 0.4F)
+			.sized(0.85F, 0.45F)
+			.eyeHeight(0.2f)
 	);
 
 	public static final DeferredHolder<EntityType<?>, EntityType<Ember>> EMBER = registerEntity(

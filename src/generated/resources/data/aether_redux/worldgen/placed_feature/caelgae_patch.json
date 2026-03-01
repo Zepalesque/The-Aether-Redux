@@ -8,17 +8,13 @@
       "noise_level": -0.8
     },
     {
-      "type": "minecraft:count",
-      "count": 11
-    },
-    {
       "type": "aether:improved_layer_placement",
       "count": {
         "type": "minecraft:uniform",
-        "max_inclusive": 1,
+        "max_inclusive": 11,
         "min_inclusive": 0
       },
-      "heightmap": "WORLD_SURFACE_WG",
+      "heightmap": "MOTION_BLOCKING",
       "verticalBounds": 4
     },
     {

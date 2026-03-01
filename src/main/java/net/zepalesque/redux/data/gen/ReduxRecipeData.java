@@ -28,9 +28,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.CompletableFuture;
 
-import static net.zepalesque.redux.data.prov.ReduxRecipeProvider.getHasName;
-import static net.zepalesque.redux.data.prov.ReduxRecipeProvider.has;
-
 public class ReduxRecipeData extends ReduxRecipeProvider {
 
     public ReduxRecipeData(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
