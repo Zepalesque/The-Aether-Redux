@@ -43,6 +43,7 @@ public class ReduxMapData extends ReduxDataMapProvider {
         this.addCompost(compostables, ReduxBlocks.CAELGAE_PATCH, 0.65F);
         this.addCompost(compostables, ReduxItems.CAELGAE_CLUMP, 0.65F);
         this.addCompost(compostables, ReduxBlocks.TURBO_VERBENA, 0.3F);
+        this.addCompost(compostables, ReduxBlocks.BLOOMTAIL, 0.3F);
 
         var leaves = this.builder(ReduxDataMaps.LEAF_PARTICLES);
         final int crystal;

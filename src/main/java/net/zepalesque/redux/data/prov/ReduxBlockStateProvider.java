@@ -252,6 +252,13 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
     }
 
 
+    public void crop(Block block, String location) {
+        BlockModelBuilder cross = models().withExistingParent(this.name(block), Redux.loc(ModelProvider.BLOCK_FOLDER + "/template/crop/crop"))
+                .texture("plant", this.texture(this.name(block), location)).renderType("cutout");
+        this.crossBlock(block, cross);
+    }
+
+
     public void lantern(Block block, String location) {
         BlockModelBuilder lantern = models().withExistingParent(this.name(block), mcLoc("template_lantern"))
                 .texture("lantern", this.texture(this.name(block), location)).renderType("cutout");
