@@ -110,6 +110,7 @@ public class ReduxConfig {
 		public final ModConfigSpec.ConfigValue<Boolean> slider_sfx_upgrade;
 		public final ModConfigSpec.ConfigValue<Boolean> slider_signal_sfx;
 		public final ModConfigSpec.ConfigValue<Boolean> upgraded_stones;
+		public final ModConfigSpec.ConfigValue<Boolean> upgraded_dungeon_blocks;
 
 		public Client(ModConfigSpec.Builder builder) {
 			builder.push("Visual");
@@ -132,6 +133,12 @@ public class ReduxConfig {
 					.comment("Use Redux's updated Aether stone textures.")
 					.define("Upgraded Stones", true),
 				"upgraded_stones"
+			);
+			upgraded_dungeon_blocks = Redux.ASSETS_CONFIG.register(
+				builder
+					.comment("Use Redux's updated dungeon block textures.")
+					.define("Upgraded Dungeon Blocks", true),
+				"upgraded_dungeon_blocks"
 			);
 
 			builder.pop();
