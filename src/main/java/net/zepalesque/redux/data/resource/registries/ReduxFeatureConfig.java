@@ -630,7 +630,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			context,
 			CAELGAE_PATCH,
 			Feature.RANDOM_PATCH,
-			patch(48, 7, 3, prov(ReduxBlocks.CAELGAE_PATCH))
+			patch(24, 6, 3, prov(ReduxBlocks.CAELGAE_PATCH))
 		);
 
 		FeatureUtils.register(
