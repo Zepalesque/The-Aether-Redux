@@ -53,6 +53,10 @@ public class ReduxTabs {
                 ReduxBlocks.GOLDEN_CLOVERS
             );
             
+            TabUtil.putAfter(event, AetherBlocks.ZANITE_ORE.get(),
+                ReduxBlocks.VERIDIUM_ORE
+            );
+            
             TabUtil.putAfter(event, UnityBlocks.FLUTEMOSS_CARPET,
                 ReduxBlocks.GILDENMOSS_BLOCK,
                 ReduxBlocks.GILDENMOSS_CARPET,
