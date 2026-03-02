@@ -20,7 +20,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class EchysiaBlock extends CustomBoundsBushBlock {
-	protected static final VoxelShape SHAPE = Block.box(1.0, 0.0, 1.0, 15.0, 12.0, 15.0);
+	protected static final VoxelShape SHAPE = Block.box(2.0, 0.0, 2.0, 14.0, 11.0, 14.0);
 	
 	public EchysiaBlock(Properties properties) {
 		super(SHAPE, properties);
