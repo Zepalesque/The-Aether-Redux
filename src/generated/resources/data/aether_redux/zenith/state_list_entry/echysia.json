@@ -1,0 +1,11 @@
+{
+  "fallback": [
+    {
+      "data": {
+        "Name": "aether_redux:echysia"
+      },
+      "weight": 21
+    }
+  ],
+  "parent_state_list": "aether_unity:flutemoss"
+}
