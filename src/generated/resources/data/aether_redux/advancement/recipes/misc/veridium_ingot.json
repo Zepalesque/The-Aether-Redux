@@ -1,24 +1,24 @@
 {
 	"parent": "minecraft:recipes/root",
-	"requirements": [["has_the_recipe", "has_veridium_nugget"]],
 	"criteria": {
+		"has_the_recipe": {
+			"conditions": {
+				"recipe": "aether_redux:veridium_ingot"
+			},
+			"trigger": "minecraft:recipe_unlocked"
+		},
 		"has_veridium_nugget": {
-			"trigger": "minecraft:inventory_changed",
 			"conditions": {
 				"items": [
 					{
 						"items": "aether_redux:veridium_nugget"
 					}
 				]
-			}
-		},
-		"has_the_recipe": {
-			"trigger": "minecraft:recipe_unlocked",
-			"conditions": {
-				"recipe": "aether_redux:veridium_ingot"
-			}
+			},
+			"trigger": "minecraft:inventory_changed"
 		}
 	},
+	"requirements": [["has_the_recipe", "has_veridium_nugget"]],
 	"rewards": {
 		"recipes": ["aether_redux:veridium_ingot"]
 	}

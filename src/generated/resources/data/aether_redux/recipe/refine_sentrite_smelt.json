@@ -1,13 +1,13 @@
 {
-	"result": {
-		"count": 1,
-		"id": "aether_redux:refined_sentrite"
-	},
+	"type": "minecraft:smelting",
+	"category": "misc",
+	"cookingtime": 300,
+	"experience": 0.8,
 	"ingredient": {
 		"item": "aether_redux:sentrite"
 	},
-	"type": "minecraft:smelting",
-	"category": "misc",
-	"experience": 0.8,
-	"cookingtime": 300
+	"result": {
+		"count": 1,
+		"id": "aether_redux:refined_sentrite"
+	}
 }

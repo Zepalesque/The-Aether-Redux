@@ -1,13 +1,13 @@
 {
-	"result": {
-		"count": 1,
-		"id": "minecraft:blaze_powder"
-	},
+	"type": "minecraft:crafting_shapeless",
+	"category": "misc",
 	"ingredients": [
 		{
 			"item": "aether_redux:flareblossom"
 		}
 	],
-	"type": "minecraft:crafting_shapeless",
-	"category": "misc"
+	"result": {
+		"count": 1,
+		"id": "minecraft:blaze_powder"
+	}
 }

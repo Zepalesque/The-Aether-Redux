@@ -1,26 +1,26 @@
 {
+	"type": "zenith:conditional",
 	"modify": {
+		"type": "zenith:water_colors",
 		"default_colors": {
 			"biomes": "#aether_redux:should_modify_water_color",
-			"water": 8764881,
-			"fog": 1581606
-		},
-		"water_map": {
-			"aether:skyroot_woodland": 6984885,
-			"aether:skyroot_meadow": 9554136,
-			"aether:skyroot_forest": 7973060,
-			"aether_redux:gilded_groves": 9028038,
-			"aether_redux:the_blight": 10661080
+			"fog": 1581606,
+			"water": 8764881
 		},
 		"fog_map": {
-			"aether:skyroot_woodland": 1054492,
-			"aether:skyroot_meadow": 1778984,
 			"aether:skyroot_forest": 1317921,
+			"aether:skyroot_meadow": 1778984,
+			"aether:skyroot_woodland": 1054492,
 			"aether_redux:gilded_groves": 1976875,
 			"aether_redux:the_blight": 1842726
 		},
-		"type": "zenith:water_colors"
+		"water_map": {
+			"aether:skyroot_forest": 7973060,
+			"aether:skyroot_meadow": 9554136,
+			"aether:skyroot_woodland": 6984885,
+			"aether_redux:gilded_groves": 9028038,
+			"aether_redux:the_blight": 10661080
+		}
 	},
-	"type": "zenith:conditional",
 	"when": "aether_redux:water_colors"
 }

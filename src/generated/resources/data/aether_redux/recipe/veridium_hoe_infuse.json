@@ -1,13 +1,13 @@
 {
-	"result": {
-		"item": "aether_redux:infused_veridium_hoe"
-	},
+	"type": "aether_redux:infusion",
 	"additional_data": {
 		"added_infusion": 4
 	},
 	"ingredient": {
 		"item": "aether_redux:veridium_hoe"
 	},
-	"sound": "aether_redux:item.generic.infuse",
-	"type": "aether_redux:infusion"
+	"result": {
+		"item": "aether_redux:infused_veridium_hoe"
+	},
+	"sound": "aether_redux:item.generic.infuse"
 }

@@ -1,4 +1,4 @@
 {
-	"random_sequence": "aether_redux:blocks/locked_sentry_pillar",
-	"type": "minecraft:block"
+	"type": "minecraft:block",
+	"random_sequence": "aether_redux:blocks/locked_sentry_pillar"
 }

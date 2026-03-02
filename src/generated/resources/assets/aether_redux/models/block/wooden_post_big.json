@@ -2,56 +2,56 @@
 	"parent": "minecraft:block/block",
 	"elements": [
 		{
-			"from": [4, 0, 4],
-			"to": [12, 16, 12],
 			"faces": {
-				"east": {
-					"texture": "#side"
+				"down": {
+					"cullface": "down",
+					"texture": "#top"
 				},
-				"south": {
+				"east": {
 					"texture": "#side"
 				},
 				"north": {
 					"texture": "#side"
 				},
-				"west": {
+				"south": {
 					"texture": "#side"
 				},
 				"up": {
 					"cullface": "up",
 					"texture": "#top"
 				},
-				"down": {
-					"cullface": "down",
-					"texture": "#top"
+				"west": {
+					"texture": "#side"
 				}
-			}
+			},
+			"from": [4, 0, 4],
+			"to": [12, 16, 12]
 		},
 		{
-			"from": [4, 0, 4],
-			"to": [12, 16, 12],
 			"faces": {
-				"east": {
-					"texture": "#side"
+				"down": {
+					"cullface": "down",
+					"texture": "#top"
 				},
-				"south": {
+				"east": {
 					"texture": "#side"
 				},
 				"north": {
 					"texture": "#side"
 				},
-				"west": {
+				"south": {
 					"texture": "#side"
 				},
 				"up": {
 					"cullface": "up",
 					"texture": "#top"
 				},
-				"down": {
-					"cullface": "down",
-					"texture": "#top"
+				"west": {
+					"texture": "#side"
 				}
-			}
+			},
+			"from": [4, 0, 4],
+			"to": [12, 16, 12]
 		}
 	]
 }

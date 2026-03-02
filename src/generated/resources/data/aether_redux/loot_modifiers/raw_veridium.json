@@ -1,34 +1,22 @@
 {
-	"functions": [
-		{
-			"add": false,
-			"function": "minecraft:set_count",
-			"count": 1
-		},
-		{
-			"enchantment": "minecraft:fortune",
-			"function": "minecraft:apply_bonus",
-			"formula": "minecraft:ore_drops"
-		}
-	],
+	"type": "aether_redux:raw_ores",
 	"added_item": {
 		"count": 1,
 		"id": "aether_redux:raw_veridium"
 	},
-	"removed_item": "aether_redux:veridium_ore",
-	"type": "aether_redux:raw_ores",
 	"conditions": [
 		{
+			"condition": "zenith:when",
 			"inline_condition": {
-				"serializer": "redux_server",
 				"config_path": "[Gameplay, Raw Ores]",
-				"element": "zenith:config_enabled"
-			},
-			"condition": "zenith:when"
+				"element": "zenith:config_enabled",
+				"serializer": "redux_server"
+			}
 		},
 		{
 			"condition": "minecraft:inverted",
 			"term": {
+				"condition": "minecraft:match_tool",
 				"predicate": {
 					"predicates": {
 						"minecraft:enchantments": [
@@ -40,13 +28,25 @@
 							}
 						]
 					}
-				},
-				"condition": "minecraft:match_tool"
+				}
 			}
 		},
 		{
-			"condition": "minecraft:block_state_property",
-			"block": "aether_redux:veridium_ore"
+			"block": "aether_redux:veridium_ore",
+			"condition": "minecraft:block_state_property"
 		}
-	]
+	],
+	"functions": [
+		{
+			"add": false,
+			"count": 1.0,
+			"function": "minecraft:set_count"
+		},
+		{
+			"enchantment": "minecraft:fortune",
+			"formula": "minecraft:ore_drops",
+			"function": "minecraft:apply_bonus"
+		}
+	],
+	"removed_item": "aether_redux:veridium_ore"
 }

@@ -21,22 +21,26 @@ import net.zepalesque.redux.data.resource.registries.ReduxJukeboxSongs;
 import net.zepalesque.redux.data.resource.registries.ReduxNoiseSettings;
 import net.zepalesque.redux.data.resource.registries.ReduxNoises;
 import net.zepalesque.redux.data.resource.registries.ReduxPlacements;
+import net.zepalesque.redux.data.resource.registries.ReduxStateListEntries;
 import net.zepalesque.redux.data.resource.registries.ReduxStructureModifiers;
 import net.zepalesque.zenith.core.Zenith;
 import org.apache.commons.compress.utils.Lists;
 
 public class ReduxRegistrySets extends DatapackBuiltinEntriesProvider {
     public static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
-            .add(Registries.BIOME, ReduxBiomes::bootstrap)
-            .add(Registries.CONFIGURED_CARVER, ReduxCarverConfig::bootstrap)
-            .add(Registries.CONFIGURED_FEATURE, ReduxFeatureConfig::bootstrap)
-            .add(Registries.DENSITY_FUNCTION, ReduxDensityFunctions::bootstrap)
-            .add(Registries.JUKEBOX_SONG, ReduxJukeboxSongs::bootstrap)
-            .add(Registries.NOISE, ReduxNoises::bootstrap)
-            .add(Registries.PLACED_FEATURE, ReduxPlacements::bootstrap)
-            .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ReduxBiomeModifiers::bootstrap)
-            .add(NeoForgeRegistries.Keys.STRUCTURE_MODIFIERS, ReduxStructureModifiers::bootstrap)
-            .add(Zenith.Keys.CONDITION, ReduxConditions::bootstrap);
+        .add(Registries.BIOME, ReduxBiomes::bootstrap)
+        .add(Registries.CONFIGURED_CARVER, ReduxCarverConfig::bootstrap)
+        .add(Registries.CONFIGURED_FEATURE, ReduxFeatureConfig::bootstrap)
+        .add(Registries.DENSITY_FUNCTION, ReduxDensityFunctions::bootstrap)
+        .add(Registries.JUKEBOX_SONG, ReduxJukeboxSongs::bootstrap)
+        .add(Registries.NOISE, ReduxNoises::bootstrap)
+        .add(Registries.PLACED_FEATURE, ReduxPlacements::bootstrap)
+        .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ReduxBiomeModifiers::bootstrap)
+        .add(NeoForgeRegistries.Keys.STRUCTURE_MODIFIERS, ReduxStructureModifiers::bootstrap)
+        .add(Zenith.Keys.CONDITION, ReduxConditions::bootstrap)
+        // TODO: In Zenith, ensure ext. state entry lists are reset after data reload!!
+        .add(Zenith.Keys.EXTENDABLE_STATE_LIST_ENTRY, ReduxStateListEntries::bootstrap)
+    ;
 
     public ReduxRegistrySets(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, String modid, String... otherIds) {
         super(output, registries, BUILDER, buildModidList(modid, otherIds));

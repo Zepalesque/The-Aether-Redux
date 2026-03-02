@@ -10,9 +10,9 @@
 		},
 		{
 			"apply": {
+				"model": "aether_redux:block/sentrite_brick_wall_side",
 				"uvlock": true,
-				"y": 90,
-				"model": "aether_redux:block/sentrite_brick_wall_side"
+				"y": 90
 			},
 			"when": {
 				"east": "low"
@@ -20,9 +20,9 @@
 		},
 		{
 			"apply": {
+				"model": "aether_redux:block/sentrite_brick_wall_side_tall",
 				"uvlock": true,
-				"y": 90,
-				"model": "aether_redux:block/sentrite_brick_wall_side_tall"
+				"y": 90
 			},
 			"when": {
 				"east": "tall"
@@ -30,8 +30,8 @@
 		},
 		{
 			"apply": {
-				"uvlock": true,
-				"model": "aether_redux:block/sentrite_brick_wall_side"
+				"model": "aether_redux:block/sentrite_brick_wall_side",
+				"uvlock": true
 			},
 			"when": {
 				"north": "low"
@@ -39,8 +39,8 @@
 		},
 		{
 			"apply": {
-				"uvlock": true,
-				"model": "aether_redux:block/sentrite_brick_wall_side_tall"
+				"model": "aether_redux:block/sentrite_brick_wall_side_tall",
+				"uvlock": true
 			},
 			"when": {
 				"north": "tall"
@@ -48,9 +48,9 @@
 		},
 		{
 			"apply": {
+				"model": "aether_redux:block/sentrite_brick_wall_side",
 				"uvlock": true,
-				"y": 180,
-				"model": "aether_redux:block/sentrite_brick_wall_side"
+				"y": 180
 			},
 			"when": {
 				"south": "low"
@@ -58,9 +58,9 @@
 		},
 		{
 			"apply": {
+				"model": "aether_redux:block/sentrite_brick_wall_side_tall",
 				"uvlock": true,
-				"y": 180,
-				"model": "aether_redux:block/sentrite_brick_wall_side_tall"
+				"y": 180
 			},
 			"when": {
 				"south": "tall"
@@ -68,9 +68,9 @@
 		},
 		{
 			"apply": {
+				"model": "aether_redux:block/sentrite_brick_wall_side",
 				"uvlock": true,
-				"y": 270,
-				"model": "aether_redux:block/sentrite_brick_wall_side"
+				"y": 270
 			},
 			"when": {
 				"west": "low"
@@ -78,9 +78,9 @@
 		},
 		{
 			"apply": {
+				"model": "aether_redux:block/sentrite_brick_wall_side_tall",
 				"uvlock": true,
-				"y": 270,
-				"model": "aether_redux:block/sentrite_brick_wall_side_tall"
+				"y": 270
 			},
 			"when": {
 				"west": "tall"

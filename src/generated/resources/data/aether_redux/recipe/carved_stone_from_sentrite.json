@@ -1,9 +1,4 @@
 {
-	"result": {
-		"count": 4,
-		"id": "aether:carved_stone"
-	},
-	"pattern": ["#H", "H#"],
 	"type": "minecraft:crafting_shaped",
 	"category": "building",
 	"key": {
@@ -13,5 +8,10 @@
 		"H": {
 			"item": "aether:holystone"
 		}
+	},
+	"pattern": ["#H", "H#"],
+	"result": {
+		"count": 4,
+		"id": "aether:carved_stone"
 	}
 }

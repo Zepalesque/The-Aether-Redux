@@ -1,9 +1,4 @@
 {
-	"result": {
-		"count": 1,
-		"id": "aether_redux:veridium_sword"
-	},
-	"pattern": ["#", "#", "/"],
 	"type": "minecraft:crafting_shaped",
 	"category": "equipment",
 	"key": {
@@ -13,5 +8,10 @@
 		"/": {
 			"tag": "aether:skyroot_stick"
 		}
+	},
+	"pattern": ["#", "#", "/"],
+	"result": {
+		"count": 1,
+		"id": "aether_redux:veridium_sword"
 	}
 }

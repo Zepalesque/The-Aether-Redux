@@ -1,37 +1,37 @@
 {
 	"variants": {
+		"color=constant,snowy=false": [
+			{
+				"model": "aether_redux:block/blighted_aether_grass_block"
+			},
+			{
+				"model": "aether_redux:block/blighted_aether_grass_block",
+				"y": 90
+			},
+			{
+				"model": "aether_redux:block/blighted_aether_grass_block",
+				"y": 180
+			},
+			{
+				"model": "aether_redux:block/blighted_aether_grass_block",
+				"y": 270
+			}
+		],
 		"color=constant,snowy=true": [
 			{
 				"model": "aether_redux:block/blighted_aether_grass_block_snow"
 			},
 			{
-				"y": 90,
-				"model": "aether_redux:block/blighted_aether_grass_block_snow"
+				"model": "aether_redux:block/blighted_aether_grass_block_snow",
+				"y": 90
 			},
 			{
-				"y": 180,
-				"model": "aether_redux:block/blighted_aether_grass_block_snow"
+				"model": "aether_redux:block/blighted_aether_grass_block_snow",
+				"y": 180
 			},
 			{
-				"y": 270,
-				"model": "aether_redux:block/blighted_aether_grass_block_snow"
-			}
-		],
-		"color=tintable,snowy=true": [
-			{
-				"model": "aether_redux:block/blighted_aether_grass_block_snow"
-			},
-			{
-				"y": 90,
-				"model": "aether_redux:block/blighted_aether_grass_block_snow"
-			},
-			{
-				"y": 180,
-				"model": "aether_redux:block/blighted_aether_grass_block_snow"
-			},
-			{
-				"y": 270,
-				"model": "aether_redux:block/blighted_aether_grass_block_snow"
+				"model": "aether_redux:block/blighted_aether_grass_block_snow",
+				"y": 270
 			}
 		],
 		"color=tintable,snowy=false": [
@@ -39,33 +39,33 @@
 				"model": "aether_redux:block/blighted_aether_grass_block"
 			},
 			{
-				"y": 90,
-				"model": "aether_redux:block/blighted_aether_grass_block"
+				"model": "aether_redux:block/blighted_aether_grass_block",
+				"y": 90
 			},
 			{
-				"y": 180,
-				"model": "aether_redux:block/blighted_aether_grass_block"
+				"model": "aether_redux:block/blighted_aether_grass_block",
+				"y": 180
 			},
 			{
-				"y": 270,
-				"model": "aether_redux:block/blighted_aether_grass_block"
+				"model": "aether_redux:block/blighted_aether_grass_block",
+				"y": 270
 			}
 		],
-		"color=constant,snowy=false": [
+		"color=tintable,snowy=true": [
 			{
-				"model": "aether_redux:block/blighted_aether_grass_block"
+				"model": "aether_redux:block/blighted_aether_grass_block_snow"
 			},
 			{
-				"y": 90,
-				"model": "aether_redux:block/blighted_aether_grass_block"
+				"model": "aether_redux:block/blighted_aether_grass_block_snow",
+				"y": 90
 			},
 			{
-				"y": 180,
-				"model": "aether_redux:block/blighted_aether_grass_block"
+				"model": "aether_redux:block/blighted_aether_grass_block_snow",
+				"y": 180
 			},
 			{
-				"y": 270,
-				"model": "aether_redux:block/blighted_aether_grass_block"
+				"model": "aether_redux:block/blighted_aether_grass_block_snow",
+				"y": 270
 			}
 		]
 	}

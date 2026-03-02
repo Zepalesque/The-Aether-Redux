@@ -1,14 +1,14 @@
 {
-	"result": {
-		"count": 9,
-		"id": "aether_redux:refined_sentrite"
-	},
+	"type": "minecraft:crafting_shapeless",
+	"category": "misc",
+	"group": "refined_sentrite",
 	"ingredients": [
 		{
 			"item": "aether_redux:refined_sentrite_block"
 		}
 	],
-	"type": "minecraft:crafting_shapeless",
-	"category": "misc",
-	"group": "refined_sentrite"
+	"result": {
+		"count": 9,
+		"id": "aether_redux:refined_sentrite"
+	}
 }

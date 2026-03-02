@@ -1,11 +1,7 @@
 {
-	"result": {
-		"count": 6,
-		"id": "aether_redux:crystal_hanging_sign"
-	},
-	"pattern": ["X X", "###", "###"],
 	"type": "minecraft:crafting_shaped",
 	"category": "misc",
+	"group": "hanging_sign",
 	"key": {
 		"#": {
 			"item": "aether_redux:stripped_crystal_log"
@@ -14,5 +10,9 @@
 			"item": "minecraft:chain"
 		}
 	},
-	"group": "hanging_sign"
+	"pattern": ["X X", "###", "###"],
+	"result": {
+		"count": 6,
+		"id": "aether_redux:crystal_hanging_sign"
+	}
 }

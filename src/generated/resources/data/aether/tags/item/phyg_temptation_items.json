@@ -1,4 +1,4 @@
 {
-	"values": ["aether_redux:wynd_oats"],
-	"replace": true
+	"replace": true,
+	"values": ["aether_redux:wynd_oats"]
 }

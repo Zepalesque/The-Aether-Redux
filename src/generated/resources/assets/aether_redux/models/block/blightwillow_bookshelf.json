@@ -1,7 +1,7 @@
 {
 	"parent": "minecraft:block/cube_column",
 	"textures": {
-		"side": "aether_redux:block/construction/blightwillow_bookshelf",
-		"end": "aether_redux:block/construction/blightwillow_planks"
+		"end": "aether_redux:block/construction/blightwillow_planks",
+		"side": "aether_redux:block/construction/blightwillow_bookshelf"
 	}
 }

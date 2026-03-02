@@ -50,6 +50,7 @@ import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlac
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
+import net.zepalesque.extstate.ReduxStateLists;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.blockset.flower.ReduxFlowerSets;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
@@ -731,7 +732,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			context,
 			BLEAKMOSS_VEGETATION,
 			ZenithFeatures.EXTENDABLE_STATE_LIST_BLOCK.get(),
-			new ExtendableStateListBlockFeature.Config(UnityStateLists.FLUTEMOSS.get(), Optional.empty())
+			new ExtendableStateListBlockFeature.Config(ReduxStateLists.BLEAKMOSS.get(), Optional.empty())
 		);
 
 		FeatureUtils.register(

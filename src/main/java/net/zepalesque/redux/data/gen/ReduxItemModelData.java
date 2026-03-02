@@ -64,6 +64,7 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
 		this.itemBlockFlatTintOverlay(ReduxBlocks.TURBO_VERBENA.get(), "natural/");
         this.itemBlockFlatCustomTexture(ReduxBlocks.CAELGAE_PATCH.get(), texture(ReduxBlocks.CAELGAE_PATCH.get(), "natural/", "_top"));
         this.item(ReduxBlocks.BLOOMTAIL.get().asItem(), "misc/");
+        this.itemBlock(ReduxBlocks.ECHYSIA.get());
         
         this.item(ReduxItems.CAELGAE_CLUMP.get(), "food/");
         this.item(ReduxItems.SEAWEED_SALAD.get(), "food/");

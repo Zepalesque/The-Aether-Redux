@@ -1,8 +1,7 @@
 {
-	"result": {
-		"count": 1,
-		"id": "aether_redux:blightwillow_chest_boat"
-	},
+	"type": "minecraft:crafting_shapeless",
+	"category": "misc",
+	"group": "chest_boat",
 	"ingredients": [
 		{
 			"item": "minecraft:chest"
@@ -11,7 +10,8 @@
 			"item": "aether_redux:blightwillow_boat"
 		}
 	],
-	"type": "minecraft:crafting_shapeless",
-	"category": "misc",
-	"group": "chest_boat"
+	"result": {
+		"count": 1,
+		"id": "aether_redux:blightwillow_chest_boat"
+	}
 }

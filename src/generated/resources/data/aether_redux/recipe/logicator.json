@@ -1,9 +1,4 @@
 {
-	"result": {
-		"count": 1,
-		"id": "aether_redux:logicator"
-	},
-	"pattern": ["RTR", "SVS"],
 	"type": "minecraft:crafting_shaped",
 	"category": "redstone",
 	"key": {
@@ -19,5 +14,10 @@
 		"V": {
 			"item": "aether_redux:veridium_ingot"
 		}
+	},
+	"pattern": ["RTR", "SVS"],
+	"result": {
+		"count": 1,
+		"id": "aether_redux:logicator"
 	}
 }

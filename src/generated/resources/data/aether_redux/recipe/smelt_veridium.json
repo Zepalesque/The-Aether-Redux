@@ -1,13 +1,13 @@
 {
-	"result": {
-		"count": 1,
-		"id": "aether_redux:veridium_ingot"
-	},
+	"type": "minecraft:smelting",
+	"category": "misc",
+	"cookingtime": 200,
+	"experience": 0.8,
 	"ingredient": {
 		"item": "aether_redux:veridium_ore"
 	},
-	"type": "minecraft:smelting",
-	"category": "misc",
-	"experience": 0.8,
-	"cookingtime": 200
+	"result": {
+		"count": 1,
+		"id": "aether_redux:veridium_ingot"
+	}
 }

@@ -1,14 +1,14 @@
 {
-	"result": {
-		"count": 9,
-		"id": "aether_redux:veridium_nugget"
-	},
+	"type": "minecraft:crafting_shapeless",
+	"category": "misc",
+	"group": "veridium_nugget_to_veridium_ingot",
 	"ingredients": [
 		{
 			"item": "aether_redux:veridium_ingot"
 		}
 	],
-	"type": "minecraft:crafting_shapeless",
-	"category": "misc",
-	"group": "veridium_nugget_to_veridium_ingot"
+	"result": {
+		"count": 9,
+		"id": "aether_redux:veridium_nugget"
+	}
 }

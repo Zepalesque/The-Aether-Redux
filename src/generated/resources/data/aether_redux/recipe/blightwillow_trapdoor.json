@@ -1,15 +1,15 @@
 {
-	"result": {
-		"count": 2,
-		"id": "aether_redux:blightwillow_trapdoor"
-	},
-	"pattern": ["###", "###"],
 	"type": "minecraft:crafting_shaped",
 	"category": "redstone",
+	"group": "wooden_trapdoor",
 	"key": {
 		"#": {
 			"item": "aether_redux:blightwillow_planks"
 		}
 	},
-	"group": "wooden_trapdoor"
+	"pattern": ["###", "###"],
+	"result": {
+		"count": 2,
+		"id": "aether_redux:blightwillow_trapdoor"
+	}
 }

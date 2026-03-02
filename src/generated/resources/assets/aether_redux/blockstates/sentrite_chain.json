@@ -1,28 +1,28 @@
 {
 	"variants": {
-		"axis=x,waterlogged=true": {
+		"axis=x,waterlogged=false": {
+			"model": "aether_redux:block/sentrite_chain",
 			"x": 90,
-			"y": 90,
-			"model": "aether_redux:block/sentrite_chain"
+			"y": 90
 		},
-		"axis=z,waterlogged=false": {
+		"axis=x,waterlogged=true": {
+			"model": "aether_redux:block/sentrite_chain",
 			"x": 90,
+			"y": 90
+		},
+		"axis=y,waterlogged=false": {
 			"model": "aether_redux:block/sentrite_chain"
 		},
 		"axis=y,waterlogged=true": {
 			"model": "aether_redux:block/sentrite_chain"
 		},
+		"axis=z,waterlogged=false": {
+			"model": "aether_redux:block/sentrite_chain",
+			"x": 90
+		},
 		"axis=z,waterlogged=true": {
-			"x": 90,
-			"model": "aether_redux:block/sentrite_chain"
-		},
-		"axis=y,waterlogged=false": {
-			"model": "aether_redux:block/sentrite_chain"
-		},
-		"axis=x,waterlogged=false": {
-			"x": 90,
-			"y": 90,
-			"model": "aether_redux:block/sentrite_chain"
+			"model": "aether_redux:block/sentrite_chain",
+			"x": 90
 		}
 	}
 }

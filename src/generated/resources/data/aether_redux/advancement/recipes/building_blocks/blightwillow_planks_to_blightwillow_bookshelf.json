@@ -1,24 +1,24 @@
 {
 	"parent": "minecraft:recipes/root",
-	"requirements": [["has_the_recipe", "has_book"]],
 	"criteria": {
 		"has_book": {
-			"trigger": "minecraft:inventory_changed",
 			"conditions": {
 				"items": [
 					{
 						"items": "minecraft:book"
 					}
 				]
-			}
+			},
+			"trigger": "minecraft:inventory_changed"
 		},
 		"has_the_recipe": {
-			"trigger": "minecraft:recipe_unlocked",
 			"conditions": {
 				"recipe": "aether_redux:blightwillow_planks_to_blightwillow_bookshelf"
-			}
+			},
+			"trigger": "minecraft:recipe_unlocked"
 		}
 	},
+	"requirements": [["has_the_recipe", "has_book"]],
 	"rewards": {
 		"recipes": ["aether_redux:blightwillow_planks_to_blightwillow_bookshelf"]
 	}

@@ -1,5 +1,53 @@
 {
 	"parent": "minecraft:recipes/root",
+	"criteria": {
+		"has_ambrosium_shard": {
+			"conditions": {
+				"items": [
+					{
+						"items": "aether:ambrosium_shard"
+					}
+				]
+			},
+			"trigger": "minecraft:inventory_changed"
+		},
+		"has_ambrosium_torch": {
+			"conditions": {
+				"items": [
+					{
+						"items": "aether:ambrosium_torch"
+					}
+				]
+			},
+			"trigger": "minecraft:inventory_changed"
+		},
+		"has_refined_sentrite": {
+			"conditions": {
+				"items": [
+					{
+						"items": "aether_redux:refined_sentrite"
+					}
+				]
+			},
+			"trigger": "minecraft:inventory_changed"
+		},
+		"has_sentrite_chunk": {
+			"conditions": {
+				"items": [
+					{
+						"items": "aether_redux:sentrite_chunk"
+					}
+				]
+			},
+			"trigger": "minecraft:inventory_changed"
+		},
+		"has_the_recipe": {
+			"conditions": {
+				"recipe": "aether_redux:sentrite_lantern"
+			},
+			"trigger": "minecraft:recipe_unlocked"
+		}
+	},
 	"requirements": [
 		[
 			"has_the_recipe",
@@ -9,54 +57,6 @@
 			"has_ambrosium_shard"
 		]
 	],
-	"criteria": {
-		"has_sentrite_chunk": {
-			"trigger": "minecraft:inventory_changed",
-			"conditions": {
-				"items": [
-					{
-						"items": "aether_redux:sentrite_chunk"
-					}
-				]
-			}
-		},
-		"has_ambrosium_shard": {
-			"trigger": "minecraft:inventory_changed",
-			"conditions": {
-				"items": [
-					{
-						"items": "aether:ambrosium_shard"
-					}
-				]
-			}
-		},
-		"has_ambrosium_torch": {
-			"trigger": "minecraft:inventory_changed",
-			"conditions": {
-				"items": [
-					{
-						"items": "aether:ambrosium_torch"
-					}
-				]
-			}
-		},
-		"has_refined_sentrite": {
-			"trigger": "minecraft:inventory_changed",
-			"conditions": {
-				"items": [
-					{
-						"items": "aether_redux:refined_sentrite"
-					}
-				]
-			}
-		},
-		"has_the_recipe": {
-			"trigger": "minecraft:recipe_unlocked",
-			"conditions": {
-				"recipe": "aether_redux:sentrite_lantern"
-			}
-		}
-	},
 	"rewards": {
 		"recipes": ["aether_redux:sentrite_lantern"]
 	}

@@ -1,13 +1,13 @@
 {
-	"result": {
-		"count": 1,
-		"id": "aether_redux:gildenroot_sapling"
-	},
+	"type": "aether:enchanting",
+	"category": "enchanting_blocks",
+	"cookingtime": 1000,
+	"experience": 0.1,
 	"ingredient": {
 		"item": "aether:skyroot_sapling"
 	},
-	"type": "aether:enchanting",
-	"category": "enchanting_blocks",
-	"experience": 0.1,
-	"cookingtime": 1000
+	"result": {
+		"count": 1,
+		"id": "aether_redux:gildenroot_sapling"
+	}
 }

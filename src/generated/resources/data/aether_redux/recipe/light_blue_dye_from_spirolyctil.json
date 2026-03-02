@@ -1,13 +1,13 @@
 {
-	"result": {
-		"count": 1,
-		"id": "minecraft:light_blue_dye"
-	},
+	"type": "minecraft:crafting_shapeless",
+	"category": "misc",
 	"ingredients": [
 		{
 			"item": "aether_redux:spirolyctil"
 		}
 	],
-	"type": "minecraft:crafting_shapeless",
-	"category": "misc"
+	"result": {
+		"count": 1,
+		"id": "minecraft:light_blue_dye"
+	}
 }

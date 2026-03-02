@@ -1,10 +1,10 @@
 {
-	"result": {
-		"count": 1,
-		"id": "aether_redux:carved_base"
-	},
+	"type": "minecraft:stonecutting",
 	"ingredient": {
 		"item": "aether:carved_stone"
 	},
-	"type": "minecraft:stonecutting"
+	"result": {
+		"count": 1,
+		"id": "aether_redux:carved_base"
+	}
 }

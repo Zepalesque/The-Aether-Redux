@@ -7,8 +7,8 @@
 		},
 		{
 			"apply": {
-				"uvlock": true,
-				"model": "aether_redux:block/crystal_fence_side"
+				"model": "aether_redux:block/crystal_fence_side",
+				"uvlock": true
 			},
 			"when": {
 				"north": "true"
@@ -16,9 +16,9 @@
 		},
 		{
 			"apply": {
+				"model": "aether_redux:block/crystal_fence_side",
 				"uvlock": true,
-				"y": 180,
-				"model": "aether_redux:block/crystal_fence_side"
+				"y": 180
 			},
 			"when": {
 				"south": "true"
@@ -26,9 +26,9 @@
 		},
 		{
 			"apply": {
+				"model": "aether_redux:block/crystal_fence_side",
 				"uvlock": true,
-				"y": 270,
-				"model": "aether_redux:block/crystal_fence_side"
+				"y": 270
 			},
 			"when": {
 				"west": "true"
@@ -36,9 +36,9 @@
 		},
 		{
 			"apply": {
+				"model": "aether_redux:block/crystal_fence_side",
 				"uvlock": true,
-				"y": 90,
-				"model": "aether_redux:block/crystal_fence_side"
+				"y": 90
 			},
 			"when": {
 				"east": "true"
@@ -51,8 +51,8 @@
 		},
 		{
 			"apply": {
-				"uvlock": true,
-				"model": "aether_redux:block/crystal_fence_side"
+				"model": "aether_redux:block/crystal_fence_side",
+				"uvlock": true
 			},
 			"when": {
 				"north": "true"
@@ -60,9 +60,9 @@
 		},
 		{
 			"apply": {
+				"model": "aether_redux:block/crystal_fence_side",
 				"uvlock": true,
-				"y": 180,
-				"model": "aether_redux:block/crystal_fence_side"
+				"y": 180
 			},
 			"when": {
 				"south": "true"
@@ -70,9 +70,9 @@
 		},
 		{
 			"apply": {
+				"model": "aether_redux:block/crystal_fence_side",
 				"uvlock": true,
-				"y": 270,
-				"model": "aether_redux:block/crystal_fence_side"
+				"y": 270
 			},
 			"when": {
 				"west": "true"
@@ -80,9 +80,9 @@
 		},
 		{
 			"apply": {
+				"model": "aether_redux:block/crystal_fence_side",
 				"uvlock": true,
-				"y": 90,
-				"model": "aether_redux:block/crystal_fence_side"
+				"y": 90
 			},
 			"when": {
 				"east": "true"

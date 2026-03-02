@@ -1,16 +1,16 @@
 {
 	"variants": {
-		"axis=z": {
-			"x": 90,
-			"model": "aether_redux:block/stripped_blightwillow_log_horizontal"
-		},
 		"axis=x": {
+			"model": "aether_redux:block/stripped_blightwillow_log_horizontal",
 			"x": 90,
-			"y": 90,
-			"model": "aether_redux:block/stripped_blightwillow_log_horizontal"
+			"y": 90
 		},
 		"axis=y": {
 			"model": "aether_redux:block/stripped_blightwillow_log"
+		},
+		"axis=z": {
+			"model": "aether_redux:block/stripped_blightwillow_log_horizontal",
+			"x": 90
 		}
 	}
 }

@@ -1,14 +1,14 @@
 {
-	"result": {
-		"count": 1,
-		"id": "aether_redux:blightwillow_button"
-	},
+	"type": "minecraft:crafting_shapeless",
+	"category": "redstone",
+	"group": "wooden_button",
 	"ingredients": [
 		{
 			"item": "aether_redux:blightwillow_planks"
 		}
 	],
-	"type": "minecraft:crafting_shapeless",
-	"category": "redstone",
-	"group": "wooden_button"
+	"result": {
+		"count": 1,
+		"id": "aether_redux:blightwillow_button"
+	}
 }

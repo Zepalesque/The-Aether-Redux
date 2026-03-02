@@ -1,4 +1,5 @@
 {
+	"type": "minecraft:block",
 	"functions": [
 		{
 			"function": "aether:double_drops"
@@ -9,14 +10,16 @@
 	],
 	"pools": [
 		{
+			"bonus_rolls": 0.0,
 			"entries": [
 				{
+					"type": "minecraft:alternatives",
 					"children": [
 						{
-							"name": "aether_redux:blighted_aether_grass_block",
 							"type": "minecraft:item",
 							"conditions": [
 								{
+									"condition": "minecraft:match_tool",
 									"predicate": {
 										"predicates": {
 											"minecraft:enchantments": [
@@ -28,28 +31,25 @@
 												}
 											]
 										}
-									},
-									"condition": "minecraft:match_tool"
+									}
 								}
-							]
+							],
+							"name": "aether_redux:blighted_aether_grass_block"
 						},
 						{
-							"name": "aether:aether_dirt",
 							"type": "minecraft:item",
 							"conditions": [
 								{
 									"condition": "minecraft:survives_explosion"
 								}
-							]
+							],
+							"name": "aether:aether_dirt"
 						}
-					],
-					"type": "minecraft:alternatives"
+					]
 				}
 			],
-			"rolls": 1,
-			"bonus_rolls": 0
+			"rolls": 1.0
 		}
 	],
-	"random_sequence": "aether_redux:blocks/blighted_aether_grass_block",
-	"type": "minecraft:block"
+	"random_sequence": "aether_redux:blocks/blighted_aether_grass_block"
 }

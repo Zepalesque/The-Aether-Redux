@@ -1,31 +1,24 @@
 {
 	"parent": "aether:the_aether",
-	"requirements": [["throw_ring_in_lava"]],
-	"sends_telemetry_event": true,
 	"criteria": {
 		"throw_ring_in_lava": {
-			"trigger": "aether_redux:throw_gold_ring_into_lava",
 			"conditions": {
 				"player": [
 					{
+						"condition": "minecraft:entity_properties",
+						"entity": "this",
 						"predicate": {
 							"location": {
 								"dimension": "minecraft:the_nether"
 							}
-						},
-						"condition": "minecraft:entity_properties",
-						"entity": "this"
+						}
 					}
 				]
-			}
+			},
+			"trigger": "aether_redux:throw_gold_ring_into_lava"
 		}
 	},
 	"display": {
-		"hidden": true,
-		"icon": {
-			"count": 1,
-			"id": "aether:golden_ring"
-		},
 		"description": {
 			"extra": [
 				{
@@ -35,8 +28,15 @@
 			],
 			"translate": "advancement.aether_redux.throw_ring_in_lava.desc"
 		},
+		"hidden": true,
+		"icon": {
+			"count": 1,
+			"id": "aether:golden_ring"
+		},
 		"title": {
 			"translate": "advancement.aether_redux.throw_ring_in_lava"
 		}
-	}
+	},
+	"requirements": [["throw_ring_in_lava"]],
+	"sends_telemetry_event": true
 }

@@ -1,20 +1,20 @@
 {
 	"parent": "minecraft:recipes/root",
-	"requirements": [["has_the_recipe", "in_water"]],
 	"criteria": {
 		"has_the_recipe": {
-			"trigger": "minecraft:recipe_unlocked",
 			"conditions": {
 				"recipe": "aether_redux:crystal_boat"
-			}
+			},
+			"trigger": "minecraft:recipe_unlocked"
 		},
 		"in_water": {
-			"trigger": "minecraft:enter_block",
 			"conditions": {
 				"block": "minecraft:water"
-			}
+			},
+			"trigger": "minecraft:enter_block"
 		}
 	},
+	"requirements": [["has_the_recipe", "in_water"]],
 	"rewards": {
 		"recipes": ["aether_redux:crystal_boat"]
 	}

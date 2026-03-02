@@ -1,6 +1,23 @@
 {
 	"type": "minecraft:random_selector",
 	"config": {
+		"default": {
+			"feature": "aether_redux:blightwillow",
+			"placement": [
+				{
+					"type": "minecraft:block_predicate_filter",
+					"predicate": {
+						"type": "minecraft:would_survive",
+						"state": {
+							"Name": "aether_redux:blightwillow_sapling",
+							"Properties": {
+								"stage": "0"
+							}
+						}
+					}
+				}
+			]
+		},
 		"features": [
 			{
 				"chance": 0.35,
@@ -8,16 +25,16 @@
 					"feature": "aether_redux:small_stormroot",
 					"placement": [
 						{
+							"type": "minecraft:block_predicate_filter",
 							"predicate": {
+								"type": "minecraft:would_survive",
 								"state": {
+									"Name": "aether_redux:stormroot_sapling",
 									"Properties": {
 										"stage": "0"
-									},
-									"Name": "aether_redux:stormroot_sapling"
-								},
-								"type": "minecraft:would_survive"
-							},
-							"type": "minecraft:block_predicate_filter"
+									}
+								}
+							}
 						}
 					]
 				}
@@ -28,65 +45,48 @@
 					"feature": "aether_redux:large_stormroot",
 					"placement": [
 						{
+							"type": "minecraft:block_predicate_filter",
 							"predicate": {
+								"type": "minecraft:would_survive",
 								"state": {
+									"Name": "aether_redux:stormroot_sapling",
 									"Properties": {
 										"stage": "0"
-									},
-									"Name": "aether_redux:stormroot_sapling"
-								},
-								"type": "minecraft:would_survive"
-							},
-							"type": "minecraft:block_predicate_filter"
+									}
+								}
+							}
 						},
 						{
+							"type": "minecraft:block_predicate_filter",
 							"predicate": {
+								"type": "minecraft:all_of",
 								"predicates": [
 									{
+										"type": "minecraft:matching_block_tag",
 										"offset": [0, -1, 0],
-										"tag": "minecraft:dirt",
-										"type": "minecraft:matching_block_tag"
+										"tag": "minecraft:dirt"
 									},
 									{
+										"type": "minecraft:matching_block_tag",
 										"offset": [1, -1, 0],
-										"tag": "minecraft:dirt",
-										"type": "minecraft:matching_block_tag"
+										"tag": "minecraft:dirt"
 									},
 									{
+										"type": "minecraft:matching_block_tag",
 										"offset": [0, -1, 1],
-										"tag": "minecraft:dirt",
-										"type": "minecraft:matching_block_tag"
+										"tag": "minecraft:dirt"
 									},
 									{
+										"type": "minecraft:matching_block_tag",
 										"offset": [1, -1, 1],
-										"tag": "minecraft:dirt",
-										"type": "minecraft:matching_block_tag"
+										"tag": "minecraft:dirt"
 									}
-								],
-								"type": "minecraft:all_of"
-							},
-							"type": "minecraft:block_predicate_filter"
+								]
+							}
 						}
 					]
 				}
 			}
-		],
-		"default": {
-			"feature": "aether_redux:blightwillow",
-			"placement": [
-				{
-					"predicate": {
-						"state": {
-							"Properties": {
-								"stage": "0"
-							},
-							"Name": "aether_redux:blightwillow_sapling"
-						},
-						"type": "minecraft:would_survive"
-					},
-					"type": "minecraft:block_predicate_filter"
-				}
-			]
-		}
+		]
 	}
 }

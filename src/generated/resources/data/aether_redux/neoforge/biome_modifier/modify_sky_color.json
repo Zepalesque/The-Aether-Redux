@@ -1,9 +1,11 @@
 {
+	"type": "zenith:conditional",
 	"modify": {
+		"type": "zenith:sky_colors",
 		"default_colors": {
-			"sky": 10462429,
 			"biomes": "#aether_redux:should_modify_sky_color",
-			"fog": 12502245
+			"fog": 12502245,
+			"sky": 10462429
 		},
 		"fog_map": {
 			"aether_redux:gilded_groves": 14539226,
@@ -12,9 +14,7 @@
 		"sky_map": {
 			"aether_redux:gilded_groves": 12893610,
 			"aether_redux:the_blight": 8158629
-		},
-		"type": "zenith:sky_colors"
+		}
 	},
-	"type": "zenith:conditional",
 	"when": "aether_redux:sky_colors"
 }

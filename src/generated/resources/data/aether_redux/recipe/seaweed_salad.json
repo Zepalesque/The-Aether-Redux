@@ -1,8 +1,6 @@
 {
-	"result": {
-		"count": 1,
-		"id": "aether_redux:seaweed_salad"
-	},
+	"type": "minecraft:crafting_shapeless",
+	"category": "misc",
 	"ingredients": [
 		{
 			"item": "minecraft:bowl"
@@ -20,6 +18,8 @@
 			"item": "aether_redux:wynd_oats"
 		}
 	],
-	"type": "minecraft:crafting_shapeless",
-	"category": "misc"
+	"result": {
+		"count": 1,
+		"id": "aether_redux:seaweed_salad"
+	}
 }

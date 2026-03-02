@@ -1,14 +1,14 @@
 {
-	"result": {
-		"count": 4,
-		"id": "aether_redux:polished_sentrite"
-	},
-	"pattern": ["##", "##"],
 	"type": "minecraft:crafting_shaped",
 	"category": "building",
 	"key": {
 		"#": {
 			"item": "aether_redux:sentrite"
 		}
+	},
+	"pattern": ["##", "##"],
+	"result": {
+		"count": 4,
+		"id": "aether_redux:polished_sentrite"
 	}
 }

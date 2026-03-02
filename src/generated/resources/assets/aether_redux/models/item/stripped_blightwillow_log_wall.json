@@ -1,9 +1,5 @@
 {
 	"parent": "minecraft:block/block",
-	"textures": {
-		"side": "aether_redux:block/natural/stripped_blightwillow_log",
-		"top": "aether_redux:block/natural/stripped_blightwillow_log_top"
-	},
 	"display": {
 		"fixed": {
 			"rotation": [0, 90, 0],
@@ -16,56 +12,60 @@
 	},
 	"elements": [
 		{
-			"from": [4, 0, 4],
-			"to": [12, 16, 12],
 			"faces": {
-				"east": {
-					"texture": "#side"
+				"down": {
+					"cullface": "down",
+					"texture": "#top"
 				},
-				"south": {
+				"east": {
 					"texture": "#side"
 				},
 				"north": {
 					"texture": "#side"
 				},
-				"west": {
+				"south": {
 					"texture": "#side"
 				},
 				"up": {
 					"texture": "#top"
 				},
+				"west": {
+					"texture": "#side"
+				}
+			},
+			"from": [4, 0, 4],
+			"to": [12, 16, 12]
+		},
+		{
+			"faces": {
 				"down": {
 					"cullface": "down",
 					"texture": "#top"
-				}
-			}
-		},
-		{
-			"from": [5, 0, 0],
-			"to": [11, 13, 16],
-			"faces": {
-				"east": {
-					"texture": "#side"
 				},
-				"south": {
-					"cullface": "south",
+				"east": {
 					"texture": "#side"
 				},
 				"north": {
 					"cullface": "north",
 					"texture": "#side"
 				},
-				"west": {
+				"south": {
+					"cullface": "south",
 					"texture": "#side"
 				},
 				"up": {
 					"texture": "#top"
 				},
-				"down": {
-					"cullface": "down",
-					"texture": "#top"
+				"west": {
+					"texture": "#side"
 				}
-			}
+			},
+			"from": [5, 0, 0],
+			"to": [11, 13, 16]
 		}
-	]
+	],
+	"textures": {
+		"side": "aether_redux:block/natural/stripped_blightwillow_log",
+		"top": "aether_redux:block/natural/stripped_blightwillow_log_top"
+	}
 }

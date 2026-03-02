@@ -1,4 +1,4 @@
 {
-	"random_sequence": "aether_redux:blocks/boss_doorway_carved_base",
-	"type": "minecraft:block"
+	"type": "minecraft:block",
+	"random_sequence": "aether_redux:blocks/boss_doorway_carved_base"
 }

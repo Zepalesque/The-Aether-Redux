@@ -212,6 +212,9 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 		
 		addBlock(ReduxBlocks.BLOOMTAIL, "Bloomtail");
 		addLore(ReduxBlocks.BLOOMTAIL, "An aquatic plant found in the Aether's lakes.");
+		
+		addBlock(ReduxBlocks.ECHYSIA, "Echysia");
+		addLore(ReduxBlocks.ECHYSIA, "A leafy cave plant. This can be found growing on Flutemoss patches underground!");
 
 		addTooltip("shift_info", "Hold [%s] for more info...");
 		addTooltip("infusion_charge", "Infusion Charge: %s");

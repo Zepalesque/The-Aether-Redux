@@ -6,10 +6,10 @@
 		"targets": [
 			{
 				"state": {
+					"Name": "aether:mossy_holystone",
 					"Properties": {
 						"double_drops": "true"
-					},
-					"Name": "aether:mossy_holystone"
+					}
 				},
 				"target": {
 					"predicate_type": "minecraft:tag_match",

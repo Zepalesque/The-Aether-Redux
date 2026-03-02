@@ -2,51 +2,51 @@
 	"feature": "aether_redux:ambrosium_rock",
 	"placement": [
 		{
+			"type": "minecraft:noise_threshold_count",
 			"above_noise": 10,
 			"below_noise": 5,
-			"noise_level": -0.8,
-			"type": "minecraft:noise_threshold_count"
+			"noise_level": -0.8
 		},
 		{
-			"heightmap": "MOTION_BLOCKING",
+			"type": "aether:improved_layer_placement",
 			"count": {
 				"type": "minecraft:weighted_list",
 				"distribution": [
 					{
 						"data": {
-							"min_inclusive": 1,
+							"type": "minecraft:uniform",
 							"max_inclusive": 2,
-							"type": "minecraft:uniform"
+							"min_inclusive": 1
 						},
 						"weight": 5
 					},
 					{
 						"data": {
-							"min_inclusive": 1,
+							"type": "minecraft:uniform",
 							"max_inclusive": 4,
-							"type": "minecraft:uniform"
+							"min_inclusive": 1
 						},
 						"weight": 3
 					}
 				]
 			},
-			"type": "aether:improved_layer_placement",
+			"heightmap": "MOTION_BLOCKING",
 			"verticalBounds": 4
 		},
 		{
-			"chance": 24,
-			"type": "minecraft:rarity_filter"
+			"type": "minecraft:rarity_filter",
+			"chance": 24
 		},
 		{
 			"type": "minecraft:in_square"
 		},
 		{
+			"type": "minecraft:block_predicate_filter",
 			"predicate": {
+				"type": "minecraft:matching_block_tag",
 				"offset": [0, -1, 0],
-				"tag": "minecraft:dirt",
-				"type": "minecraft:matching_block_tag"
-			},
-			"type": "minecraft:block_predicate_filter"
+				"tag": "minecraft:dirt"
+			}
 		},
 		{
 			"type": "minecraft:biome"

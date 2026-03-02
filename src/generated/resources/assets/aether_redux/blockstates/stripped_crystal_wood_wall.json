@@ -8,8 +8,8 @@
 				"AND": [
 					{
 						"east": "low",
-						"west": "low",
-						"up": "false"
+						"up": "false",
+						"west": "low"
 					}
 				]
 			}
@@ -22,50 +22,50 @@
 				"AND": [
 					{
 						"east": "tall",
-						"west": "tall",
-						"up": "false"
+						"up": "false",
+						"west": "tall"
 					}
 				]
 			}
 		},
 		{
 			"apply": {
-				"y": 90,
-				"model": "aether_redux:block/stripped_crystal_wood_wall_post_short"
+				"model": "aether_redux:block/stripped_crystal_wood_wall_post_short",
+				"y": 90
 			},
 			"when": {
 				"AND": [
 					{
 						"east": "none",
-						"south": "low",
 						"north": "low",
-						"west": "none",
-						"up": "false"
+						"south": "low",
+						"up": "false",
+						"west": "none"
 					}
 				]
 			}
 		},
 		{
 			"apply": {
-				"y": 90,
-				"model": "aether_redux:block/stripped_crystal_wood_wall_post_tall"
+				"model": "aether_redux:block/stripped_crystal_wood_wall_post_tall",
+				"y": 90
 			},
 			"when": {
 				"AND": [
 					{
 						"east": "none",
-						"south": "tall",
 						"north": "tall",
-						"west": "none",
-						"up": "false"
+						"south": "tall",
+						"up": "false",
+						"west": "none"
 					}
 				]
 			}
 		},
 		{
 			"apply": {
-				"y": 90,
-				"model": "aether_redux:block/stripped_crystal_wood_wall_side"
+				"model": "aether_redux:block/stripped_crystal_wood_wall_side",
+				"y": 90
 			},
 			"when": {
 				"east": "low",
@@ -74,8 +74,8 @@
 		},
 		{
 			"apply": {
-				"y": 90,
-				"model": "aether_redux:block/stripped_crystal_wood_wall_side_tall"
+				"model": "aether_redux:block/stripped_crystal_wood_wall_side_tall",
+				"y": 90
 			},
 			"when": {
 				"east": "tall",
@@ -102,8 +102,8 @@
 		},
 		{
 			"apply": {
-				"y": 180,
-				"model": "aether_redux:block/stripped_crystal_wood_wall_side_alt"
+				"model": "aether_redux:block/stripped_crystal_wood_wall_side_alt",
+				"y": 180
 			},
 			"when": {
 				"south": "low",
@@ -112,8 +112,8 @@
 		},
 		{
 			"apply": {
-				"y": 180,
-				"model": "aether_redux:block/stripped_crystal_wood_wall_side_tall_alt"
+				"model": "aether_redux:block/stripped_crystal_wood_wall_side_tall_alt",
+				"y": 180
 			},
 			"when": {
 				"south": "tall",
@@ -122,22 +122,22 @@
 		},
 		{
 			"apply": {
-				"y": 270,
-				"model": "aether_redux:block/stripped_crystal_wood_wall_side_alt"
+				"model": "aether_redux:block/stripped_crystal_wood_wall_side_alt",
+				"y": 270
 			},
 			"when": {
-				"west": "low",
-				"up": "false"
+				"up": "false",
+				"west": "low"
 			}
 		},
 		{
 			"apply": {
-				"y": 270,
-				"model": "aether_redux:block/stripped_crystal_wood_wall_side_tall_alt"
+				"model": "aether_redux:block/stripped_crystal_wood_wall_side_tall_alt",
+				"y": 270
 			},
 			"when": {
-				"west": "tall",
-				"up": "false"
+				"up": "false",
+				"west": "tall"
 			}
 		},
 		{
@@ -150,8 +150,8 @@
 		},
 		{
 			"apply": {
-				"y": 90,
-				"model": "aether_redux:block/stripped_crystal_wood_wall_side_short"
+				"model": "aether_redux:block/stripped_crystal_wood_wall_side_short",
+				"y": 90
 			},
 			"when": {
 				"east": "low",
@@ -160,8 +160,8 @@
 		},
 		{
 			"apply": {
-				"y": 90,
-				"model": "aether_redux:block/stripped_crystal_wood_wall_side_tall_short"
+				"model": "aether_redux:block/stripped_crystal_wood_wall_side_tall_short",
+				"y": 90
 			},
 			"when": {
 				"east": "tall",
@@ -188,8 +188,8 @@
 		},
 		{
 			"apply": {
-				"y": 180,
-				"model": "aether_redux:block/stripped_crystal_wood_wall_side_alt_short"
+				"model": "aether_redux:block/stripped_crystal_wood_wall_side_alt_short",
+				"y": 180
 			},
 			"when": {
 				"south": "low",
@@ -198,8 +198,8 @@
 		},
 		{
 			"apply": {
-				"y": 180,
-				"model": "aether_redux:block/stripped_crystal_wood_wall_side_tall_alt_short"
+				"model": "aether_redux:block/stripped_crystal_wood_wall_side_tall_alt_short",
+				"y": 180
 			},
 			"when": {
 				"south": "tall",
@@ -208,22 +208,22 @@
 		},
 		{
 			"apply": {
-				"y": 270,
-				"model": "aether_redux:block/stripped_crystal_wood_wall_side_alt_short"
+				"model": "aether_redux:block/stripped_crystal_wood_wall_side_alt_short",
+				"y": 270
 			},
 			"when": {
-				"west": "low",
-				"up": "true"
+				"up": "true",
+				"west": "low"
 			}
 		},
 		{
 			"apply": {
-				"y": 270,
-				"model": "aether_redux:block/stripped_crystal_wood_wall_side_tall_alt_short"
+				"model": "aether_redux:block/stripped_crystal_wood_wall_side_tall_alt_short",
+				"y": 270
 			},
 			"when": {
-				"west": "tall",
-				"up": "true"
+				"up": "true",
+				"west": "tall"
 			}
 		}
 	]

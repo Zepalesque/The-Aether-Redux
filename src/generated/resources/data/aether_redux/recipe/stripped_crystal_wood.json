@@ -1,15 +1,15 @@
 {
-	"result": {
-		"count": 3,
-		"id": "aether_redux:stripped_crystal_wood"
-	},
-	"pattern": ["##", "##"],
 	"type": "minecraft:crafting_shaped",
 	"category": "building",
+	"group": "bark",
 	"key": {
 		"#": {
 			"item": "aether_redux:stripped_crystal_log"
 		}
 	},
-	"group": "bark"
+	"pattern": ["##", "##"],
+	"result": {
+		"count": 3,
+		"id": "aether_redux:stripped_crystal_wood"
+	}
 }

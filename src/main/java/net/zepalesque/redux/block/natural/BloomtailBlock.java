@@ -11,32 +11,26 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.LiquidBlockContainer;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.zepalesque.unity.block.natural.bush.CustomBoundsBushBlock;
 
-public class BloomtailBlock extends BushBlock implements LiquidBlockContainer {
+public class BloomtailBlock extends CustomBoundsBushBlock implements LiquidBlockContainer {
 	public static final MapCodec<BloomtailBlock> CODEC = simpleCodec(BloomtailBlock::new);
 	protected static final VoxelShape SHAPE = Block.box(2.0, 0.0, 2.0, 14.0, 12.0, 14.0);
 	
 	public BloomtailBlock(BlockBehaviour.Properties properties) {
-		super(properties);
+		super(SHAPE, properties);
 	}
 	
 	@Override
 	protected MapCodec<? extends BloomtailBlock> codec() {
 		return CODEC;
-	}
-	
-	@Override
-	protected VoxelShape getShape(BlockState state, BlockGetter lvl, BlockPos pos, CollisionContext ctx) {
-		return SHAPE;
 	}
 	
 	@Override

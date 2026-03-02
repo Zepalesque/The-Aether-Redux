@@ -1,10 +1,10 @@
 {
-	"result": {
-		"count": 1,
-		"id": "aether_redux:sentrite_bricks"
-	},
+	"type": "minecraft:stonecutting",
 	"ingredient": {
 		"item": "aether_redux:sentrite"
 	},
-	"type": "minecraft:stonecutting"
+	"result": {
+		"count": 1,
+		"id": "aether_redux:sentrite_bricks"
+	}
 }

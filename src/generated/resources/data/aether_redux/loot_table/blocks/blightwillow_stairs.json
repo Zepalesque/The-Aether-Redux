@@ -1,21 +1,21 @@
 {
+	"type": "minecraft:block",
 	"pools": [
 		{
-			"entries": [
-				{
-					"name": "aether_redux:blightwillow_stairs",
-					"type": "minecraft:item"
-				}
-			],
+			"bonus_rolls": 0.0,
 			"conditions": [
 				{
 					"condition": "minecraft:survives_explosion"
 				}
 			],
-			"rolls": 1,
-			"bonus_rolls": 0
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "aether_redux:blightwillow_stairs"
+				}
+			],
+			"rolls": 1.0
 		}
 	],
-	"random_sequence": "aether_redux:blocks/blightwillow_stairs",
-	"type": "minecraft:block"
+	"random_sequence": "aether_redux:blocks/blightwillow_stairs"
 }

@@ -1,9 +1,9 @@
 {
-	"result": {
-		"block": "aether_unity:skyroot_leaf_pile"
-	},
+	"type": "aether:ambrosium_enchanting",
 	"ingredient": {
 		"block": "aether_redux:stormroot_leaf_pile"
 	},
-	"type": "aether:ambrosium_enchanting"
+	"result": {
+		"block": "aether_unity:skyroot_leaf_pile"
+	}
 }

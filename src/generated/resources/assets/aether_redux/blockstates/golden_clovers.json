@@ -38,8 +38,8 @@
 		},
 		{
 			"apply": {
-				"y": 90,
-				"model": "aether_redux:block/golden_clovers_1"
+				"model": "aether_redux:block/golden_clovers_1",
+				"y": 90
 			},
 			"when": {
 				"facing": "east",
@@ -48,8 +48,8 @@
 		},
 		{
 			"apply": {
-				"y": 90,
-				"model": "aether_redux:block/golden_clovers_2"
+				"model": "aether_redux:block/golden_clovers_2",
+				"y": 90
 			},
 			"when": {
 				"facing": "east",
@@ -58,8 +58,8 @@
 		},
 		{
 			"apply": {
-				"y": 90,
-				"model": "aether_redux:block/golden_clovers_3"
+				"model": "aether_redux:block/golden_clovers_3",
+				"y": 90
 			},
 			"when": {
 				"facing": "east",
@@ -68,8 +68,8 @@
 		},
 		{
 			"apply": {
-				"y": 90,
-				"model": "aether_redux:block/golden_clovers_4"
+				"model": "aether_redux:block/golden_clovers_4",
+				"y": 90
 			},
 			"when": {
 				"facing": "east",
@@ -78,8 +78,8 @@
 		},
 		{
 			"apply": {
-				"y": 180,
-				"model": "aether_redux:block/golden_clovers_1"
+				"model": "aether_redux:block/golden_clovers_1",
+				"y": 180
 			},
 			"when": {
 				"facing": "south",
@@ -88,8 +88,8 @@
 		},
 		{
 			"apply": {
-				"y": 180,
-				"model": "aether_redux:block/golden_clovers_2"
+				"model": "aether_redux:block/golden_clovers_2",
+				"y": 180
 			},
 			"when": {
 				"facing": "south",
@@ -98,8 +98,8 @@
 		},
 		{
 			"apply": {
-				"y": 180,
-				"model": "aether_redux:block/golden_clovers_3"
+				"model": "aether_redux:block/golden_clovers_3",
+				"y": 180
 			},
 			"when": {
 				"facing": "south",
@@ -108,8 +108,8 @@
 		},
 		{
 			"apply": {
-				"y": 180,
-				"model": "aether_redux:block/golden_clovers_4"
+				"model": "aether_redux:block/golden_clovers_4",
+				"y": 180
 			},
 			"when": {
 				"facing": "south",
@@ -118,8 +118,8 @@
 		},
 		{
 			"apply": {
-				"y": 270,
-				"model": "aether_redux:block/golden_clovers_1"
+				"model": "aether_redux:block/golden_clovers_1",
+				"y": 270
 			},
 			"when": {
 				"facing": "west",
@@ -128,8 +128,8 @@
 		},
 		{
 			"apply": {
-				"y": 270,
-				"model": "aether_redux:block/golden_clovers_2"
+				"model": "aether_redux:block/golden_clovers_2",
+				"y": 270
 			},
 			"when": {
 				"facing": "west",
@@ -138,8 +138,8 @@
 		},
 		{
 			"apply": {
-				"y": 270,
-				"model": "aether_redux:block/golden_clovers_3"
+				"model": "aether_redux:block/golden_clovers_3",
+				"y": 270
 			},
 			"when": {
 				"facing": "west",
@@ -148,8 +148,8 @@
 		},
 		{
 			"apply": {
-				"y": 270,
-				"model": "aether_redux:block/golden_clovers_4"
+				"model": "aether_redux:block/golden_clovers_4",
+				"y": 270
 			},
 			"when": {
 				"facing": "west",

@@ -35,6 +35,7 @@ import net.zepalesque.redux.block.backport.MossyCarpetBlock;
 import net.zepalesque.redux.block.construction.LayeredBookshelfBlock;
 import net.zepalesque.redux.block.dungeon.RunelightBlock;
 import net.zepalesque.redux.block.redstone.LogicatorBlock;
+import net.zepalesque.redux.block.state.ReduxStates;
 import net.zepalesque.redux.block.state.enums.LogicatorMode;
 import net.zepalesque.unity.Unity;
 import net.zepalesque.unity.data.prov.UnityBlockStateProvider;
@@ -443,13 +444,52 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
         }
     }
     
-    // Crop blocks
     public void algae(Block block, String location) {
         var model = this.models().withExistingParent(this.name(block), Redux.loc("block/template/algae"))
             .texture("top", this.modLoc("block/" + location + this.name(block) + "_top"))
             .texture("cross", this.modLoc("block/" + location + this.name(block) + "_side"))
             .renderType(ResourceLocation.withDefaultNamespace("cutout"));
         this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(model));
+    }
+    
+    public void layeredPlant(Block block, String location) {
+        var model = this.models().withExistingParent(this.name(block), Redux.loc("block/template/layered_plant"))
+            .texture("lower", this.modLoc("block/" + location + this.name(block) + "_lower"))
+            .texture("upper", this.modLoc("block/" + location + this.name(block) + "_upper"))
+            .texture("stem", this.modLoc("block/" + location + this.name(block) + "_stem"))
+            .texture("top", this.modLoc("block/" + location + this.name(block) + "_top"))
+            .renderType(ResourceLocation.withDefaultNamespace("cutout"));
+        this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(model));
+    }
+    public void echysia(Block block, String location) {
+        var model = this.models().withExistingParent(this.name(block), Redux.loc("block/template/layered_plant"))
+            .texture("lower", this.modLoc("block/" + location + this.name(block) + "_lower"))
+            .texture("upper", this.modLoc("block/" + location + this.name(block) + "_upper"))
+            .texture("stem", this.modLoc("block/" + location + this.name(block) + "_stem"))
+            .texture("top", this.modLoc("block/" + location + this.name(block) + "_top"))
+            .renderType(ResourceLocation.withDefaultNamespace("cutout"));
+        
+        var gilded = this.models().withExistingParent("gilded_" + this.name(block), Redux.loc("block/template/layered_plant"))
+            .texture("lower", this.modLoc("block/" + location + "gilded_" + this.name(block) + "_lower"))
+            .texture("upper", this.modLoc("block/" + location + "gilded_" + this.name(block) + "_upper"))
+            .texture("stem", this.modLoc("block/" + location + "gilded_" + this.name(block) + "_stem"))
+            .texture("top", this.modLoc("block/" + location + "gilded_" + this.name(block) + "_top"))
+            .renderType(ResourceLocation.withDefaultNamespace("cutout"));
+        var bleak = this.models().withExistingParent("bleak_" + this.name(block), Redux.loc("block/template/layered_plant"))
+            .texture("lower", this.modLoc("block/" + location + "bleak_" + this.name(block) + "_lower"))
+            .texture("upper", this.modLoc("block/" + location + "bleak_" + this.name(block) + "_upper"))
+            .texture("stem", this.modLoc("block/" + location + "bleak_" + this.name(block) + "_stem"))
+            .texture("top", this.modLoc("block/" + location + "bleak_" + this.name(block) + "_top"))
+            .renderType(ResourceLocation.withDefaultNamespace("cutout"));
+        
+        this.getVariantBuilder(block).forAllStates(
+            state -> ConfiguredModel.builder().modelFile(
+                switch (state.getValue(ReduxStates.AETHER_MOSS_TYPE)) {
+                    case FLUTEMOSS -> model;
+                    case BLEAKMOSS -> bleak;
+                    case GILDENMOSS -> gilded;
+                }).build()
+        );
     }
 
 }

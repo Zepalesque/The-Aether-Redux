@@ -2,24 +2,24 @@
 	"feature": "aether_redux:lucky_clover_patch",
 	"placement": [
 		{
+			"type": "minecraft:noise_threshold_count",
 			"above_noise": 10,
 			"below_noise": 5,
-			"noise_level": -0.8,
-			"type": "minecraft:noise_threshold_count"
+			"noise_level": -0.8
 		},
 		{
-			"heightmap": "MOTION_BLOCKING",
-			"count": {
-				"min_inclusive": 0,
-				"max_inclusive": 2,
-				"type": "minecraft:uniform"
-			},
 			"type": "aether:improved_layer_placement",
+			"count": {
+				"type": "minecraft:uniform",
+				"max_inclusive": 2,
+				"min_inclusive": 0
+			},
+			"heightmap": "MOTION_BLOCKING",
 			"verticalBounds": 4
 		},
 		{
-			"chance": 16,
-			"type": "minecraft:rarity_filter"
+			"type": "minecraft:rarity_filter",
+			"chance": 16
 		},
 		{
 			"type": "minecraft:biome"

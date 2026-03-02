@@ -1,15 +1,15 @@
 {
-	"result": {
-		"count": 1,
-		"id": "aether_redux:crystal_boat"
-	},
-	"pattern": ["# #", "###"],
 	"type": "minecraft:crafting_shaped",
 	"category": "misc",
+	"group": "boat",
 	"key": {
 		"#": {
 			"item": "aether_redux:crystal_planks"
 		}
 	},
-	"group": "boat"
+	"pattern": ["# #", "###"],
+	"result": {
+		"count": 1,
+		"id": "aether_redux:crystal_boat"
+	}
 }

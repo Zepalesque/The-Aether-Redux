@@ -2,6 +2,7 @@ package net.zepalesque.redux.block.state;
 
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.zepalesque.redux.block.state.enums.AetherMossType;
 import net.zepalesque.redux.block.state.enums.BlightGrassColor;
 import net.zepalesque.redux.block.state.enums.LogicatorMode;
 
@@ -21,4 +22,8 @@ public class ReduxStates {
     public static final EnumProperty<BlightGrassColor>
         BLIGHT_GRASS_COLOR = EnumProperty
         .create("color", BlightGrassColor.class);
+    
+    public static final EnumProperty<AetherMossType>
+        AETHER_MOSS_TYPE = EnumProperty
+        .create("type", AetherMossType.class);
 }

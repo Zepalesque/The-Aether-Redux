@@ -26,7 +26,6 @@ public abstract class ReduxDataMapProvider extends UnityDataMapProvider {
         map.add(block.get().builtInRegistryHolder().unwrapKey().orElseThrow(), WeightedParticleEntry.of(particle.get(), rarity), false);
     }
     
-    
     @SuppressWarnings("deprecation")
     public void addLeafParticle(DataMapProvider.Builder<WeightedParticleEntry, Block> map, Supplier<? extends Block> block, Supplier<? extends ParticleOptions> particle, float chance) {
         map.add(block.get().builtInRegistryHolder().unwrapKey().orElseThrow(), WeightedParticleEntry.of(particle.get(), chance), false);

@@ -1,182 +1,182 @@
 {
 	"type": "aether_redux:lakes",
 	"config": {
-		"offset_noise": "aether_redux:lakes_y_offset",
+		"floor": {
+			"fallback": {
+				"type": "minecraft:simple_state_provider",
+				"state": {
+					"Name": "aether:aether_dirt",
+					"Properties": {
+						"double_drops": "true"
+					}
+				}
+			},
+			"rules": [
+				{
+					"if_true": {
+						"type": "minecraft:all_of",
+						"predicates": [
+							{
+								"type": "minecraft:matching_block_tag",
+								"tag": "aether_unity:aether_lake_skip_replacement"
+							},
+							{
+								"type": "minecraft:not",
+								"predicate": {
+									"type": "minecraft:solid",
+									"offset": [0, 1, 0]
+								}
+							},
+							{
+								"type": "minecraft:not",
+								"predicate": {
+									"type": "minecraft:matching_blocks",
+									"blocks": "minecraft:water",
+									"offset": [0, 1, 0]
+								}
+							}
+						]
+					},
+					"then": {
+						"type": "minecraft:simple_state_provider",
+						"state": {
+							"Name": "minecraft:air"
+						}
+					}
+				},
+				{
+					"if_true": {
+						"type": "minecraft:any_of",
+						"predicates": [
+							{
+								"type": "minecraft:matching_block_tag",
+								"offset": [0, 1, 0],
+								"tag": "aether:aether_dirt"
+							},
+							{
+								"type": "minecraft:matching_blocks",
+								"blocks": "aether:aether_dirt",
+								"offset": [0, 1, 0]
+							}
+						]
+					},
+					"then": {
+						"type": "minecraft:simple_state_provider",
+						"state": {
+							"Name": "aether:aether_dirt",
+							"Properties": {
+								"double_drops": "true"
+							}
+						}
+					}
+				},
+				{
+					"if_true": {
+						"type": "minecraft:all_of",
+						"predicates": [
+							{
+								"type": "zenith:perlin_noise",
+								"max_threshold": 0.1,
+								"min_threshold": -0.3,
+								"noise": "minecraft:surface_swamp",
+								"seed_offset": 2743
+							},
+							{
+								"type": "minecraft:matching_blocks",
+								"blocks": "minecraft:water",
+								"offset": [0, 1, 0]
+							}
+						]
+					},
+					"then": {
+						"type": "minecraft:simple_state_provider",
+						"state": {
+							"Name": "aether_unity:aether_mud",
+							"Properties": {
+								"double_drops": "true"
+							}
+						}
+					}
+				},
+				{
+					"if_true": {
+						"type": "minecraft:all_of",
+						"predicates": [
+							{
+								"type": "minecraft:matching_blocks",
+								"blocks": "minecraft:water",
+								"offset": [0, 1, 0]
+							},
+							{
+								"type": "zenith:perlin_noise",
+								"max_threshold": 1.7976931348623157e308,
+								"min_threshold": 0.1,
+								"noise": "minecraft:surface_swamp",
+								"seed_offset": 2743
+							}
+						]
+					},
+					"then": {
+						"type": "minecraft:simple_state_provider",
+						"state": {
+							"Name": "aether_unity:valkyrie_clay",
+							"Properties": {
+								"double_drops": "true"
+							}
+						}
+					}
+				},
+				{
+					"if_true": {
+						"type": "minecraft:all_of",
+						"predicates": [
+							{
+								"type": "minecraft:matching_block_tag",
+								"tag": "aether_unity:aether_lake_skip_replacement"
+							},
+							{
+								"type": "minecraft:matching_block_tag",
+								"offset": [0, 1, 0],
+								"tag": "minecraft:air"
+							}
+						]
+					},
+					"then": {
+						"type": "minecraft:simple_state_provider",
+						"state": {
+							"Name": "minecraft:air"
+						}
+					}
+				}
+			]
+		},
+		"fluid": {
+			"type": "minecraft:simple_state_provider",
+			"state": {
+				"Name": "minecraft:water",
+				"Properties": {
+					"level": "0"
+				}
+			}
+		},
+		"lake_depth": 10.0,
 		"lake_noise": "aether_redux:lakes_noise",
-		"offset_max": 10,
+		"offset_max": 10.0,
+		"offset_noise": "aether_redux:lakes_y_offset",
 		"predicate": {
 			"type": "minecraft:replaceable"
 		},
-		"thickness_noise": "aether_redux:lakes_thickness",
-		"thickness_max": 2.5,
 		"shore": {
+			"type": "minecraft:simple_state_provider",
 			"state": {
+				"Name": "aether:quicksoil",
 				"Properties": {
 					"double_drops": "true"
-				},
-				"Name": "aether:quicksoil"
-			},
-			"type": "minecraft:simple_state_provider"
-		},
-		"lake_depth": 10,
-		"fluid": {
-			"state": {
-				"Properties": {
-					"level": "0"
-				},
-				"Name": "minecraft:water"
-			},
-			"type": "minecraft:simple_state_provider"
-		},
-		"floor": {
-			"rules": [
-				{
-					"then": {
-						"state": {
-							"Name": "minecraft:air"
-						},
-						"type": "minecraft:simple_state_provider"
-					},
-					"if_true": {
-						"predicates": [
-							{
-								"tag": "aether_unity:aether_lake_skip_replacement",
-								"type": "minecraft:matching_block_tag"
-							},
-							{
-								"predicate": {
-									"offset": [0, 1, 0],
-									"type": "minecraft:solid"
-								},
-								"type": "minecraft:not"
-							},
-							{
-								"predicate": {
-									"offset": [0, 1, 0],
-									"blocks": "minecraft:water",
-									"type": "minecraft:matching_blocks"
-								},
-								"type": "minecraft:not"
-							}
-						],
-						"type": "minecraft:all_of"
-					}
-				},
-				{
-					"then": {
-						"state": {
-							"Properties": {
-								"double_drops": "true"
-							},
-							"Name": "aether:aether_dirt"
-						},
-						"type": "minecraft:simple_state_provider"
-					},
-					"if_true": {
-						"predicates": [
-							{
-								"offset": [0, 1, 0],
-								"tag": "aether:aether_dirt",
-								"type": "minecraft:matching_block_tag"
-							},
-							{
-								"offset": [0, 1, 0],
-								"blocks": "aether:aether_dirt",
-								"type": "minecraft:matching_blocks"
-							}
-						],
-						"type": "minecraft:any_of"
-					}
-				},
-				{
-					"then": {
-						"state": {
-							"Properties": {
-								"double_drops": "true"
-							},
-							"Name": "aether_unity:aether_mud"
-						},
-						"type": "minecraft:simple_state_provider"
-					},
-					"if_true": {
-						"predicates": [
-							{
-								"max_threshold": 0.1,
-								"min_threshold": -0.3,
-								"seed_offset": 2743,
-								"noise": "minecraft:surface_swamp",
-								"type": "zenith:perlin_noise"
-							},
-							{
-								"offset": [0, 1, 0],
-								"blocks": "minecraft:water",
-								"type": "minecraft:matching_blocks"
-							}
-						],
-						"type": "minecraft:all_of"
-					}
-				},
-				{
-					"then": {
-						"state": {
-							"Properties": {
-								"double_drops": "true"
-							},
-							"Name": "aether_unity:valkyrie_clay"
-						},
-						"type": "minecraft:simple_state_provider"
-					},
-					"if_true": {
-						"predicates": [
-							{
-								"offset": [0, 1, 0],
-								"blocks": "minecraft:water",
-								"type": "minecraft:matching_blocks"
-							},
-							{
-								"max_threshold": 1.7976931348623157e308,
-								"min_threshold": 0.1,
-								"seed_offset": 2743,
-								"noise": "minecraft:surface_swamp",
-								"type": "zenith:perlin_noise"
-							}
-						],
-						"type": "minecraft:all_of"
-					}
-				},
-				{
-					"then": {
-						"state": {
-							"Name": "minecraft:air"
-						},
-						"type": "minecraft:simple_state_provider"
-					},
-					"if_true": {
-						"predicates": [
-							{
-								"tag": "aether_unity:aether_lake_skip_replacement",
-								"type": "minecraft:matching_block_tag"
-							},
-							{
-								"offset": [0, 1, 0],
-								"tag": "minecraft:air",
-								"type": "minecraft:matching_block_tag"
-							}
-						],
-						"type": "minecraft:all_of"
-					}
 				}
-			],
-			"fallback": {
-				"state": {
-					"Properties": {
-						"double_drops": "true"
-					},
-					"Name": "aether:aether_dirt"
-				},
-				"type": "minecraft:simple_state_provider"
 			}
 		},
+		"thickness_max": 2.5,
+		"thickness_noise": "aether_redux:lakes_thickness",
 		"y_level": 36
 	}
 }

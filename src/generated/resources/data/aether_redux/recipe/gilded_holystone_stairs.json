@@ -1,14 +1,14 @@
 {
-	"result": {
-		"count": 4,
-		"id": "aether_redux:gilded_holystone_stairs"
-	},
-	"pattern": ["#  ", "## ", "###"],
 	"type": "minecraft:crafting_shaped",
 	"category": "building",
 	"key": {
 		"#": {
 			"item": "aether_redux:gilded_holystone"
 		}
+	},
+	"pattern": ["#  ", "## ", "###"],
+	"result": {
+		"count": 4,
+		"id": "aether_redux:gilded_holystone_stairs"
 	}
 }

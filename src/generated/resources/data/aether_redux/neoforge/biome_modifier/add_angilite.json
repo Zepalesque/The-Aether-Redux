@@ -1,6 +1,6 @@
 {
-	"features": "aether_redux:angilite_ore",
+	"type": "neoforge:add_features",
 	"biomes": "#aether_redux:has_angilite",
-	"step": "underground_ores",
-	"type": "neoforge:add_features"
+	"features": "aether_redux:angilite_ore",
+	"step": "underground_ores"
 }

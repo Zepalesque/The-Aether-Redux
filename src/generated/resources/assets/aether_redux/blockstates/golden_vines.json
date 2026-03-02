@@ -1,48 +1,18 @@
 {
 	"variants": {
-		"age=24": {
-			"model": "aether_redux:block/golden_vines"
-		},
-		"age=25": {
-			"model": "aether_redux:block/golden_vines"
-		},
-		"age=5": {
-			"model": "aether_redux:block/golden_vines"
-		},
-		"age=4": {
-			"model": "aether_redux:block/golden_vines"
-		},
-		"age=3": {
-			"model": "aether_redux:block/golden_vines"
-		},
-		"age=2": {
+		"age=0": {
 			"model": "aether_redux:block/golden_vines"
 		},
 		"age=1": {
 			"model": "aether_redux:block/golden_vines"
 		},
-		"age=0": {
-			"model": "aether_redux:block/golden_vines"
-		},
-		"age=9": {
-			"model": "aether_redux:block/golden_vines"
-		},
 		"age=10": {
-			"model": "aether_redux:block/golden_vines"
-		},
-		"age=8": {
 			"model": "aether_redux:block/golden_vines"
 		},
 		"age=11": {
 			"model": "aether_redux:block/golden_vines"
 		},
-		"age=7": {
-			"model": "aether_redux:block/golden_vines"
-		},
 		"age=12": {
-			"model": "aether_redux:block/golden_vines"
-		},
-		"age=6": {
 			"model": "aether_redux:block/golden_vines"
 		},
 		"age=13": {
@@ -66,6 +36,9 @@
 		"age=19": {
 			"model": "aether_redux:block/golden_vines"
 		},
+		"age=2": {
+			"model": "aether_redux:block/golden_vines"
+		},
 		"age=20": {
 			"model": "aether_redux:block/golden_vines"
 		},
@@ -76,6 +49,33 @@
 			"model": "aether_redux:block/golden_vines"
 		},
 		"age=23": {
+			"model": "aether_redux:block/golden_vines"
+		},
+		"age=24": {
+			"model": "aether_redux:block/golden_vines"
+		},
+		"age=25": {
+			"model": "aether_redux:block/golden_vines"
+		},
+		"age=3": {
+			"model": "aether_redux:block/golden_vines"
+		},
+		"age=4": {
+			"model": "aether_redux:block/golden_vines"
+		},
+		"age=5": {
+			"model": "aether_redux:block/golden_vines"
+		},
+		"age=6": {
+			"model": "aether_redux:block/golden_vines"
+		},
+		"age=7": {
+			"model": "aether_redux:block/golden_vines"
+		},
+		"age=8": {
+			"model": "aether_redux:block/golden_vines"
+		},
+		"age=9": {
 			"model": "aether_redux:block/golden_vines"
 		}
 	}

@@ -1,14 +1,14 @@
 {
-	"result": {
-		"count": 6,
-		"id": "aether_redux:blightwillow_leaf_pile"
-	},
-	"pattern": ["##"],
 	"type": "minecraft:crafting_shaped",
 	"category": "misc",
 	"key": {
 		"#": {
 			"item": "aether_redux:blightwillow_leaves"
 		}
+	},
+	"pattern": ["##"],
+	"result": {
+		"count": 6,
+		"id": "aether_redux:blightwillow_leaf_pile"
 	}
 }
