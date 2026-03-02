@@ -376,7 +376,6 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 	public static final DeferredBlock<EchysiaBlock> ECHYSIA = register(
 		"echysia",
 		() -> new EchysiaBlock(BlockBehaviour.Properties.of()
-			.mapColor(MapColor.COLOR_LIGHT_GREEN)
 			.noCollission()
 			.instabreak()
 			.sound(SoundType.AZALEA)
