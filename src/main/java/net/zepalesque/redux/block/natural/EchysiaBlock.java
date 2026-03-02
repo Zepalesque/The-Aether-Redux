@@ -42,8 +42,7 @@ public class EchysiaBlock extends CustomBoundsBushBlock {
 	
 	public BlockState setValues(Level level, BlockPos pos, BlockState state) {
 		var below = pos.below();
-		// TODO: This is a unity bug, fix it there too vvvvvvvvvvvvvvvvvvvvvvvvvvvv
-		if (level.getBlockState(below).is(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get()))
+		if (level.getBlockState(below).is(UnityTags.Blocks.SHORT_AETHER_GRASS_STATE_ENCHANTING))
 			return state.setValue(ReduxStates.AETHER_MOSS_TYPE, AetherMossType.GILDENMOSS);
 		if (level.getBlockState(below).is(ReduxTags.Blocks.SHORT_AETHER_GRASS_BLEAKMOSS_COLORING) || level.getBlockState(below).is(ReduxTags.Blocks.SHORT_AETHER_GRASS_BLIGHT_COLORING))
 			return state.setValue(ReduxStates.AETHER_MOSS_TYPE, AetherMossType.BLEAKMOSS);
