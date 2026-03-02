@@ -3,6 +3,7 @@ run:
 
 data:
 	./gradlew rundata
+	./gradlew spotlessApply
 
 update:
 	git fetch

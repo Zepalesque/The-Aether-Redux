@@ -82,6 +82,11 @@ neoForge {
 	}
 }
 
+tasks.register("fmtData") {
+	dependsOn tasks.named("runData")
+	finalizedBy tasks.named("spotlessApply")
+}
+
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 configurations {
