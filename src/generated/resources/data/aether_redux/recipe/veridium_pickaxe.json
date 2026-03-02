@@ -1,21 +1,17 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
-  "key": {
-    "#": {
-      "item": "aether_redux:veridium_ingot"
-    },
-    "/": {
-      "tag": "aether:skyroot_stick"
-    }
-  },
-  "pattern": [
-    "###",
-    " / ",
-    " / "
-  ],
-  "result": {
-    "count": 1,
-    "id": "aether_redux:veridium_pickaxe"
-  }
+	"result": {
+		"count": 1,
+		"id": "aether_redux:veridium_pickaxe"
+	},
+	"pattern": ["###", " / ", " / "],
+	"type": "minecraft:crafting_shaped",
+	"category": "equipment",
+	"key": {
+		"#": {
+			"item": "aether_redux:veridium_ingot"
+		},
+		"/": {
+			"tag": "aether:skyroot_stick"
+		}
+	}
 }

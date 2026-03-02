@@ -1,8 +1,8 @@
 {
-  "parent": "minecraft:block/door_bottom_left",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "bottom": "aether_redux:block/construction/blightwillow_door_bottom",
-    "top": "aether_redux:block/construction/blightwillow_door_top"
-  }
+	"parent": "minecraft:block/door_bottom_left",
+	"textures": {
+		"top": "aether_redux:block/construction/blightwillow_door_top",
+		"bottom": "aether_redux:block/construction/blightwillow_door_bottom"
+	},
+	"render_type": "minecraft:cutout"
 }

@@ -1,32 +1,25 @@
 {
-  "parent": "minecraft:recipes/root",
-  "criteria": {
-    "has_sentrite_bricks": {
-      "conditions": {
-        "items": [
-          {
-            "items": "aether_redux:sentrite_bricks"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "aether_redux:sentrite_brick_slab"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    }
-  },
-  "requirements": [
-    [
-      "has_the_recipe",
-      "has_sentrite_bricks"
-    ]
-  ],
-  "rewards": {
-    "recipes": [
-      "aether_redux:sentrite_brick_slab"
-    ]
-  }
+	"parent": "minecraft:recipes/root",
+	"requirements": [["has_the_recipe", "has_sentrite_bricks"]],
+	"criteria": {
+		"has_sentrite_bricks": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": "aether_redux:sentrite_bricks"
+					}
+				]
+			}
+		},
+		"has_the_recipe": {
+			"trigger": "minecraft:recipe_unlocked",
+			"conditions": {
+				"recipe": "aether_redux:sentrite_brick_slab"
+			}
+		}
+	},
+	"rewards": {
+		"recipes": ["aether_redux:sentrite_brick_slab"]
+	}
 }

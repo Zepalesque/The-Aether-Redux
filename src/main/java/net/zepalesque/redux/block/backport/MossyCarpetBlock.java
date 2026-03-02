@@ -3,6 +3,12 @@ package net.zepalesque.redux.block.backport;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 import com.mojang.serialization.MapCodec;
+import java.util.Map;
+import java.util.Objects;
+import java.util.function.BooleanSupplier;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import javax.annotation.Nullable;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -31,13 +37,6 @@ import net.minecraft.world.level.block.state.properties.WallSide;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-
-import javax.annotation.Nullable;
-import java.util.Map;
-import java.util.Objects;
-import java.util.function.BooleanSupplier;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 public class MossyCarpetBlock extends Block implements BonemealableBlock {
     public static final MapCodec<MossyCarpetBlock> CODEC = simpleCodec(MossyCarpetBlock::new);
@@ -196,8 +195,7 @@ public class MossyCarpetBlock extends Block implements BonemealableBlock {
         return state;
     }
 
-    @Nullable
-    @Override
+    @Nullable @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         return getUpdatedState(this.defaultBlockState(), context.getLevel(), context.getClickedPos(), true);
     }
@@ -292,8 +290,7 @@ public class MossyCarpetBlock extends Block implements BonemealableBlock {
         };
     }
 
-    @Nullable
-    public static EnumProperty<WallSide> getPropertyForFace(Direction direction) {
+    @Nullable public static EnumProperty<WallSide> getPropertyForFace(Direction direction) {
         return PROPERTY_BY_DIRECTION.get(direction);
     }
 

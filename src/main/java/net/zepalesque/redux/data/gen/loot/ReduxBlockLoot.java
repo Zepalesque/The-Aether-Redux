@@ -2,6 +2,10 @@ package net.zepalesque.redux.data.gen.loot;
 
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.mixin.mixins.common.accessor.BlockLootAccessor;
+import java.util.Set;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.flag.FeatureFlags;
@@ -15,11 +19,6 @@ import net.zepalesque.redux.block.natural.crop.WyndoatsBlock;
 import net.zepalesque.redux.blockset.flower.ReduxFlowerSets;
 import net.zepalesque.redux.data.prov.loot.ReduxBlockLootProvider;
 import net.zepalesque.redux.item.ReduxItems;
-
-import java.util.Set;
-import java.util.function.Supplier;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class ReduxBlockLoot extends ReduxBlockLootProvider {
 

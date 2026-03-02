@@ -1,6 +1,3 @@
 {
-  "values": [
-    "aether_redux:crystal_boat",
-    "aether_redux:blightwillow_boat"
-  ]
+	"values": ["aether_redux:crystal_boat", "aether_redux:blightwillow_boat"]
 }

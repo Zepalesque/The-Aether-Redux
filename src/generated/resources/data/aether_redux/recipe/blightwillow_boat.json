@@ -1,18 +1,15 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "misc",
-  "group": "boat",
-  "key": {
-    "#": {
-      "item": "aether_redux:blightwillow_planks"
-    }
-  },
-  "pattern": [
-    "# #",
-    "###"
-  ],
-  "result": {
-    "count": 1,
-    "id": "aether_redux:blightwillow_boat"
-  }
+	"result": {
+		"count": 1,
+		"id": "aether_redux:blightwillow_boat"
+	},
+	"pattern": ["# #", "###"],
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"key": {
+		"#": {
+			"item": "aether_redux:blightwillow_planks"
+		}
+	},
+	"group": "boat"
 }

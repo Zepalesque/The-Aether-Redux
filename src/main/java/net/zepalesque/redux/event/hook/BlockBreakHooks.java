@@ -3,6 +3,7 @@ package net.zepalesque.redux.event.hook;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
+import java.util.Map;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.util.Lazy;
@@ -10,8 +11,6 @@ import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.unity.block.UnityBlocks;
-
-import java.util.Map;
 
 public class BlockBreakHooks {
     

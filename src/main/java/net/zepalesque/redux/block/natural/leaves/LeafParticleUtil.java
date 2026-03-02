@@ -13,8 +13,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class LeafParticleUtil {
 
-    @Nullable
-    @SuppressWarnings("deprecation")
+    @Nullable @SuppressWarnings("deprecation")
     public static WeightedParticleEntry findEntry(Block b) {
         @Nullable WeightedParticleEntry entry = b.builtInRegistryHolder()
             .getData(ReduxDataMaps.LEAF_PARTICLES);

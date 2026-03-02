@@ -1,19 +1,15 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "redstone",
-  "group": "wooden_door",
-  "key": {
-    "#": {
-      "item": "aether_redux:crystal_planks"
-    }
-  },
-  "pattern": [
-    "##",
-    "##",
-    "##"
-  ],
-  "result": {
-    "count": 3,
-    "id": "aether_redux:crystal_door"
-  }
+	"result": {
+		"count": 3,
+		"id": "aether_redux:crystal_door"
+	},
+	"pattern": ["##", "##", "##"],
+	"type": "minecraft:crafting_shaped",
+	"category": "redstone",
+	"key": {
+		"#": {
+			"item": "aether_redux:crystal_planks"
+		}
+	},
+	"group": "wooden_door"
 }

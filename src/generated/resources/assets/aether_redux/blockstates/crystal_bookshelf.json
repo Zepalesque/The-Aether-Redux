@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "aether_redux:block/crystal_bookshelf"
-    }
-  }
+	"variants": {
+		"": {
+			"model": "aether_redux:block/crystal_bookshelf"
+		}
+	}
 }

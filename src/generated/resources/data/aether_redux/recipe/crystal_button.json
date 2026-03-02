@@ -1,14 +1,14 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "category": "redstone",
-  "group": "wooden_button",
-  "ingredients": [
-    {
-      "item": "aether_redux:crystal_planks"
-    }
-  ],
-  "result": {
-    "count": 1,
-    "id": "aether_redux:crystal_button"
-  }
+	"result": {
+		"count": 1,
+		"id": "aether_redux:crystal_button"
+	},
+	"ingredients": [
+		{
+			"item": "aether_redux:crystal_planks"
+		}
+	],
+	"type": "minecraft:crafting_shapeless",
+	"category": "redstone",
+	"group": "wooden_button"
 }

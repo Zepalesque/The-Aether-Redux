@@ -1,10 +1,10 @@
 {
-  "parent": "aether_unity:block/template/tinted_grass_block",
-  "textures": {
-    "bottom": "aether:block/natural/aether_dirt",
-    "overlay": "aether_redux:block/natural/blighted_aether_grass_block_side_overlay",
-    "particle": "aether:block/natural/aether_dirt",
-    "side": "aether_redux:block/natural/blighted_aether_grass_block_side",
-    "top": "aether:block/natural/aether_grass_block_top"
-  }
+	"parent": "aether_unity:block/template/tinted_grass_block",
+	"textures": {
+		"side": "aether_redux:block/natural/blighted_aether_grass_block_side",
+		"overlay": "aether_redux:block/natural/blighted_aether_grass_block_side_overlay",
+		"top": "aether:block/natural/aether_grass_block_top",
+		"bottom": "aether:block/natural/aether_dirt",
+		"particle": "aether:block/natural/aether_dirt"
+	}
 }

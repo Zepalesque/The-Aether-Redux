@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "aether_redux:block/infected_blightwillow_leaves"
-    }
-  }
+	"variants": {
+		"": {
+			"model": "aether_redux:block/infected_blightwillow_leaves"
+		}
+	}
 }

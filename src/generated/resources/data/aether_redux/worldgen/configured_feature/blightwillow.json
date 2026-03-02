@@ -1,87 +1,87 @@
 {
-  "type": "minecraft:tree",
-  "config": {
-    "decorators": [],
-    "dirt_provider": {
-      "type": "minecraft:simple_state_provider",
-      "state": {
-        "Name": "minecraft:dirt"
-      }
-    },
-    "foliage_placer": {
-      "type": "aether_redux:blightwillow_foliage",
-      "offset": 0,
-      "radius": 2
-    },
-    "foliage_provider": {
-      "type": "minecraft:weighted_state_provider",
-      "entries": [
-        {
-          "data": {
-            "Name": "aether_redux:blightwillow_leaves",
-            "Properties": {
-              "distance": "7",
-              "double_drops": "true",
-              "persistent": "false",
-              "waterlogged": "false"
-            }
-          },
-          "weight": 15
-        },
-        {
-          "data": {
-            "Name": "aether_redux:infected_blightwillow_leaves",
-            "Properties": {
-              "distance": "7",
-              "double_drops": "true",
-              "persistent": "false",
-              "waterlogged": "false"
-            }
-          },
-          "weight": 1
-        }
-      ]
-    },
-    "force_dirt": false,
-    "ignore_vines": true,
-    "minimum_size": {
-      "type": "minecraft:two_layers_feature_size",
-      "limit": 7,
-      "lower_size": 0,
-      "upper_size": 3
-    },
-    "root_placer": {
-      "type": "aether_redux:blightwillow_roots",
-      "trunk_offset_y": {
-        "type": "minecraft:uniform",
-        "max_inclusive": 8,
-        "min_inclusive": 6
-      },
-      "wood": {
-        "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "aether_redux:blightwillow_wood",
-          "Properties": {
-            "axis": "y",
-            "double_drops": "true",
-            "natural_gen": "false"
-          }
-        }
-      }
-    },
-    "trunk_placer": {
-      "type": "aether_redux:blightwillow_trunk",
-      "height": 6
-    },
-    "trunk_provider": {
-      "type": "minecraft:simple_state_provider",
-      "state": {
-        "Name": "aether_redux:blightwillow_log",
-        "Properties": {
-          "axis": "y",
-          "double_drops": "true"
-        }
-      }
-    }
-  }
+	"type": "minecraft:tree",
+	"config": {
+		"foliage_provider": {
+			"entries": [
+				{
+					"data": {
+						"Properties": {
+							"waterlogged": "false",
+							"distance": "7",
+							"persistent": "false",
+							"double_drops": "true"
+						},
+						"Name": "aether_redux:blightwillow_leaves"
+					},
+					"weight": 15
+				},
+				{
+					"data": {
+						"Properties": {
+							"waterlogged": "false",
+							"distance": "7",
+							"persistent": "false",
+							"double_drops": "true"
+						},
+						"Name": "aether_redux:infected_blightwillow_leaves"
+					},
+					"weight": 1
+				}
+			],
+			"type": "minecraft:weighted_state_provider"
+		},
+		"decorators": [],
+		"trunk_provider": {
+			"state": {
+				"Properties": {
+					"axis": "y",
+					"double_drops": "true"
+				},
+				"Name": "aether_redux:blightwillow_log"
+			},
+			"type": "minecraft:simple_state_provider"
+		},
+		"minimum_size": {
+			"limit": 7,
+			"type": "minecraft:two_layers_feature_size",
+			"lower_size": 0,
+			"upper_size": 3
+		},
+		"dirt_provider": {
+			"state": {
+				"Name": "minecraft:dirt"
+			},
+			"type": "minecraft:simple_state_provider"
+		},
+		"force_dirt": false,
+		"root_placer": {
+			"wood": {
+				"state": {
+					"Properties": {
+						"natural_gen": "false",
+						"axis": "y",
+						"double_drops": "true"
+					},
+					"Name": "aether_redux:blightwillow_wood"
+				},
+				"type": "minecraft:simple_state_provider"
+			},
+			"type": "aether_redux:blightwillow_roots",
+			"trunk_offset_y": {
+				"min_inclusive": 6,
+				"max_inclusive": 8,
+				"type": "minecraft:uniform"
+			}
+		},
+		"trunk_placer": {
+			"type": "aether_redux:blightwillow_trunk",
+			"height": 6
+		},
+		"foliage_placer": {
+			"offset": 0,
+			"type": "aether_redux:blightwillow_foliage",
+			"radius": 2
+		},
+		"ignore_vines": true
+	}
 }

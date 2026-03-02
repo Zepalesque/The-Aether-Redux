@@ -1,214 +1,228 @@
 import javax.annotation.Nullable
 
 plugins {
-    id 'java-library'
-    id 'eclipse'
-    id 'idea'
-    id 'maven-publish'
-    id 'io.github.0ffz.github-packages' version '[1,2)'
-    id 'net.neoforged.moddev' version "${moddevgradle_version}"
+	id 'java-library'
+	id 'eclipse'
+	id 'idea'
+	id 'maven-publish'
+	id 'io.github.0ffz.github-packages' version '[1,2)'
+	id 'net.neoforged.moddev' version "${moddevgradle_version}"
+	id("com.diffplug.spotless") version "8.2.1"
 }
 
 version = "${minecraft_version}-${mod_version}-neoforge"
 group = "net.zepalesque.redux"
 
 base {
-    archivesName = mod_id
+	archivesName = mod_id
 }
 
 // Mojang ships Java 21 to end users in 1.21+, so your mod should target Java 21.
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
+spotless {
+	// Very minimal settings for Java
+	java {
+		importOrder()
+		removeUnusedImports()
+		formatAnnotations()
+	}
+
+	// Mojang's default json formatting sucks so we gotta fix that
+	json {
+		target("src/main/**/*.json", "src/generated/**/*.json")
+		biome()
+	}
+}
+
 neoForge {
+	version = project.neo_version
+	runs {
+		configureEach {
+			systemProperty 'forge.logging.markers', 'REGISTRIES'
 
-    version = project.neo_version
-    runs {
-        configureEach {
-            systemProperty 'forge.logging.markers', 'REGISTRIES'
+			logLevel = org.slf4j.event.Level.DEBUG
+		}
 
-            logLevel = org.slf4j.event.Level.DEBUG
-        }
+		client {
+			client()
+			systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
 
-        client {
-            client()
-            systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
+			@Nullable String username = System.getenv "MC_USR_DEV";
+			if (username != null) programArguments.addAll '--username', username
 
-            @Nullable String username = System.getenv "MC_USR_DEV";
-            if (username != null) programArguments.addAll '--username', username
+			@Nullable String uuid = System.getenv "MC_UUID_DEV";
+			if (uuid != null) programArguments.addAll '--uuid', uuid
+		}
 
-            @Nullable String uuid = System.getenv "MC_UUID_DEV";
-            if (uuid != null) programArguments.addAll '--uuid', uuid
-        }
+		server {
+			server()
+			systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
+			programArgument '--nogui'
+		}
 
-        server {
-            server()
-            systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
-            programArgument '--nogui'
-        }
+		gameTestServer {
+			type = "gameTestServer"
+			systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
+		}
 
-        gameTestServer {
-            type = "gameTestServer"
-            systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
-        }
-
-        data {
-            data()
-            programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath(), '--existing-mod', 'aether', '--existing-mod', 'zenith', '--existing-mod', 'aether_unity'
-        }
-    }
-    mods {
-        "${mod_id}" {
-            sourceSet(sourceSets.main)
-        }
-    }
-    parchment {
-        minecraftVersion = "${mappings_mc_ver}"
-        mappingsVersion = "${mappings}"
-    }
+		data {
+			data()
+			programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath(), '--existing-mod', 'aether', '--existing-mod', 'zenith', '--existing-mod', 'aether_unity'
+		}
+	}
+	mods {
+		"${mod_id}" {
+			sourceSet(sourceSets.main)
+		}
+	}
+	parchment {
+		minecraftVersion = "${mappings_mc_ver}"
+		mappingsVersion = "${mappings}"
+	}
 }
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 configurations {
-    runtimeClasspath.extendsFrom localRuntime
+	runtimeClasspath.extendsFrom localRuntime
 }
 
 dependencies {
+	implementation "com.aetherteam.aether:aether:${minecraft_version}-${aether_version}-neoforge"
+	implementation "com.aetherteam.nitrogen:nitrogen_internals:${minecraft_version}-${nitrogen_version}-neoforge"
+	implementation "com.aetherteam.cumulus:cumulus_menus:${minecraft_version}-${project.cumulus_version}-neoforge"
+	implementation "net.zepalesque.zenith:zenith:${minecraft_version}-${zenith_version}-neoforge"
+	implementation "net.zepalesque.unity:aether_unity:${minecraft_version}-${unity_version}-neoforge"
+	implementation "io.wispforest:accessories-neoforge:${project.accessories_version}+${project.minecraft_version}"
 
-    implementation "com.aetherteam.aether:aether:${minecraft_version}-${aether_version}-neoforge"
-    implementation "com.aetherteam.nitrogen:nitrogen_internals:${minecraft_version}-${nitrogen_version}-neoforge"
-    implementation "com.aetherteam.cumulus:cumulus_menus:${minecraft_version}-${project.cumulus_version}-neoforge"
-    implementation "net.zepalesque.zenith:zenith:${minecraft_version}-${zenith_version}-neoforge"
-    implementation "net.zepalesque.unity:aether_unity:${minecraft_version}-${unity_version}-neoforge"
-    implementation "io.wispforest:accessories-neoforge:${project.accessories_version}+${project.minecraft_version}"
 
+	implementation "curse.maven:aeroblender-879879:${project.aeroblender_version}"
+	implementation "com.github.glitchfiend:TerraBlender-neoforge:${project.terrablender_version}"
 
-    implementation "curse.maven:aeroblender-879879:${project.aeroblender_version}"
-    implementation "com.github.glitchfiend:TerraBlender-neoforge:${project.terrablender_version}"
+	// Workspace mods + Other Dependencies
+	runtimeOnly "curse.maven:appleskin-248787:${project.appleskin_version}"
+	runtimeOnly "curse.maven:spark-361579:${project.spark_version}"
+	runtimeOnly "curse.maven:cyanide-541676:${project.cyanide_version}"
+	runtimeOnly "curse.maven:configured-457570:${project.configured_version}"
+	implementation "curse.maven:jade-324717:${project.jade_version}"
 
-    // Workspace mods + Other Dependencies
-    runtimeOnly "curse.maven:appleskin-248787:${project.appleskin_version}"
-    runtimeOnly "curse.maven:spark-361579:${project.spark_version}"
-    runtimeOnly "curse.maven:cyanide-541676:${project.cyanide_version}"
-    runtimeOnly "curse.maven:configured-457570:${project.configured_version}"
-    implementation "curse.maven:jade-324717:${project.jade_version}"
+	jarJar("curse.maven:aeroblender-879879:${project.aeroblender_version}") {
+		version {}
+	}
 
-    jarJar("curse.maven:aeroblender-879879:${project.aeroblender_version}") {
-        version {}
-    }
+	jarJar("com.github.glitchfiend:TerraBlender-neoforge:${project.terrablender_version}") {
+		version {
+			strictly "${project.terrablender_version_range}"
+			prefer "${project.terrablender_version}"
+		}
+	}
 
-    jarJar("com.github.glitchfiend:TerraBlender-neoforge:${project.terrablender_version}") {
-        version {
-            strictly "${project.terrablender_version_range}"
-            prefer "${project.terrablender_version}"
-        }
-    }
+	jarJar("net.zepalesque.zenith:zenith:${minecraft_version}-${zenith_version}-neoforge") {
+		version {
+			strictly "[${minecraft_version}-${zenith_version}-neoforge,)"
+			prefer "${minecraft_version}-${zenith_version}-neoforge"
+		}
+	}
 
-    jarJar("net.zepalesque.zenith:zenith:${minecraft_version}-${zenith_version}-neoforge") {
-        version {
-            strictly "[${minecraft_version}-${zenith_version}-neoforge,)"
-            prefer "${minecraft_version}-${zenith_version}-neoforge"
-        }
-    }
-
-    jarJar("net.zepalesque.unity:aether_unity:${minecraft_version}-${unity_version}-neoforge") {
-        version {
-            strictly "[${minecraft_version}-${unity_version}-neoforge,)"
-            prefer "${minecraft_version}-${unity_version}-neoforge"
-        }
-    }
+	jarJar("net.zepalesque.unity:aether_unity:${minecraft_version}-${unity_version}-neoforge") {
+		version {
+			strictly "[${minecraft_version}-${unity_version}-neoforge,)"
+			prefer "${minecraft_version}-${unity_version}-neoforge"
+		}
+	}
 }
 
 repositories {
-    var user = System.getenv("GITHUB_USERNAME");
-    var tok = System.getenv("GITHUB_TOKEN");
+	var user = System.getenv("GITHUB_USERNAME");
+	var tok = System.getenv("GITHUB_TOKEN");
 
-    maven { url 'https://maven.wispforest.io/releases' }
-    maven { url 'https://maven.su5ed.dev/releases' }
-    maven { url 'https://maven.fabricmc.net' }
-    maven { url 'https://maven.shedaniel.me/' }
-    maven { url = "https://jitpack.io" }
-    maven { url = "https://maven.blamejared.com" }
-    maven { url = "https://maven.theillusivec4.top/" }
-    maven { url = "https://gitlab.com/api/v4/projects/21830712/packages/maven" }
-    maven { url = "https://www.cursemaven.com" }
-    maven { url = 'https://maven.minecraftforge.net/' }
-    maven { url = 'https://maven.parchmentmc.org' }
-    maven { url = "https://packages.aether-mod.net/Nitrogen" }
-    maven { url = "https://packages.aether-mod.net/Cumulus" }
-    maven { url = "https://packages.aether-mod.net/The-Aether" }
-    for (txt in [
-        "Zepalesque/Zenith",
-        "The-Aether-Unity"
-    ]) maven {
-        url = uri("https://maven.pkg.github.com/${txt}")
-        credentials { username = user; password = tok }
-    }
+	maven { url = 'https://maven.wispforest.io/releases' }
+	maven { url = 'https://maven.su5ed.dev/releases' }
+	maven { url = 'https://maven.fabricmc.net' }
+	maven { url = 'https://maven.shedaniel.me/' }
+	maven { url = "https://jitpack.io" }
+	maven { url = "https://maven.blamejared.com" }
+	maven { url = "https://maven.theillusivec4.top/" }
+	maven { url = "https://gitlab.com/api/v4/projects/21830712/packages/maven" }
+	maven { url = "https://www.cursemaven.com" }
+	maven { url = 'https://maven.minecraftforge.net/' }
+	maven { url = 'https://maven.parchmentmc.org' }
+	maven { url = "https://packages.aether-mod.net/Nitrogen" }
+	maven { url = "https://packages.aether-mod.net/Cumulus" }
+	maven { url = "https://packages.aether-mod.net/The-Aether" }
+	for (txt in [
+		"Zepalesque/Zenith",
+		"The-Aether-Unity"
+	]) maven {
+		url = uri("https://maven.pkg.github.com/${txt}")
+		credentials { username = user; password = tok }
+	}
 
-    flatDir { dir 'libs' }
+	flatDir { dir 'libs' }
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
-    var replaceProperties = [
-        mod_id : mod_id,
-        mod_name : mod_name,
-        mod_version : mod_version,
-        mod_license : mod_license,
-        mod_url : mod_url,
-        mod_tracker : mod_tracker,
-        mod_credits : mod_credits,
-        mod_authors : mod_authors,
-        mod_description : mod_description,
-        minecraft_version : minecraft_version,
-        minecraft_version_range : minecraft_version_range,
-        neo_version : neo_version,
-        neo_version_range : neo_version_range,
-        loader_version_range : loader_version_range,
-        zenith_version : zenith_version,
-        aether_version : aether_version
-    ]
-    inputs.properties replaceProperties
-    expand replaceProperties
-    from "src/main/templates"
-    into "build/generated/sources/modMetadata"
+	var replaceProperties = [
+		mod_id : mod_id,
+		mod_name : mod_name,
+		mod_version : mod_version,
+		mod_license : mod_license,
+		mod_url : mod_url,
+		mod_tracker : mod_tracker,
+		mod_credits : mod_credits,
+		mod_authors : mod_authors,
+		mod_description : mod_description,
+		minecraft_version : minecraft_version,
+		minecraft_version_range : minecraft_version_range,
+		neo_version : neo_version,
+		neo_version_range : neo_version_range,
+		loader_version_range : loader_version_range,
+		zenith_version : zenith_version,
+		aether_version : aether_version
+	]
+	inputs.properties replaceProperties
+	expand replaceProperties
+	from "src/main/templates"
+	into "build/generated/sources/modMetadata"
 }
 sourceSets.main.resources.srcDir generateModMetadata
 neoForge.ideSyncTask generateModMetadata
 
 
 compileJava {
-    options.incremental = false
+	options.incremental = false
 }
 
 tasks.register('sourceJar', Jar) {
-    dependsOn 'classes'
-    from sourceSets.main.allSource
-    archiveClassifier = 'sources'
+	dependsOn 'classes'
+	from sourceSets.main.allSource
+	archiveClassifier = 'sources'
 }
 
 // TODO: maybe?
 publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifactId project.archivesBaseName
-            artifact project.jar
-            artifact project.sourceJar
-        }
-    }
-    repositories {
-        maven {
-            url "file://${project.projectDir}/repo"
-        }
-    }
+	publications {
+		mavenJava(MavenPublication) {
+			artifactId project.archivesBaseName
+			artifact project.jar
+			artifact project.sourceJar
+		}
+	}
+	repositories {
+		maven {
+			url "file://${project.projectDir}/repo"
+		}
+	}
 }
 
 tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8'
+	options.encoding = 'UTF-8'
 }
 
 idea {
-    module {
-        downloadSources = true
-        downloadJavadoc = true
-    }
+	module {
+		downloadSources = true
+		downloadJavadoc = true
+	}
 }

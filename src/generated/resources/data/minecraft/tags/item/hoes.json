@@ -1,6 +1,3 @@
 {
-  "values": [
-    "aether_redux:veridium_hoe",
-    "aether_redux:infused_veridium_hoe"
-  ]
+	"values": ["aether_redux:veridium_hoe", "aether_redux:infused_veridium_hoe"]
 }

@@ -3,6 +3,7 @@ package net.zepalesque.redux.item.accessories.cape;
 import com.aetherteam.aether.item.accessories.cape.CapeItem;
 import io.wispforest.accessories.api.slot.SlotReference;
 import io.wispforest.accessories.api.slot.SlotType;
+import java.util.List;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
@@ -13,8 +14,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.attachment.ReduxPlayerAttachment;
-
-import java.util.List;
 
 public class AerboundCapeItem extends CapeItem {
     public AerboundCapeItem(Properties properties) {

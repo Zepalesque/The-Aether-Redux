@@ -1,54 +1,54 @@
 {
-  "type": "minecraft:squeeze",
-  "argument": {
-    "type": "minecraft:interpolated",
-    "argument": {
-      "type": "minecraft:blend_density",
-      "argument": {
-        "type": "minecraft:add",
-        "argument1": -0.05,
-        "argument2": {
-          "type": "minecraft:add",
-          "argument1": -0.1,
-          "argument2": {
-            "type": "minecraft:mul",
-            "argument1": {
-              "type": "minecraft:y_clamped_gradient",
-              "from_value": 0.0,
-              "from_y": 8,
-              "to_value": 1.0,
-              "to_y": 40
-            },
-            "argument2": {
-              "type": "minecraft:add",
-              "argument1": 0.1,
-              "argument2": {
-                "type": "minecraft:add",
-                "argument1": -0.2,
-                "argument2": {
-                  "type": "minecraft:mul",
-                  "argument1": {
-                    "type": "minecraft:y_clamped_gradient",
-                    "from_value": 1.0,
-                    "from_y": 56,
-                    "to_value": 0.0,
-                    "to_y": 144
-                  },
-                  "argument2": {
-                    "type": "minecraft:add",
-                    "argument1": 0.2,
-                    "argument2": {
-                      "type": "minecraft:add",
-                      "argument1": -0.13,
-                      "argument2": "aether_redux:base_3d_noise_redux"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+	"argument": {
+		"argument": {
+			"argument": {
+				"argument1": -0.05,
+				"argument2": {
+					"argument1": -0.1,
+					"argument2": {
+						"argument1": {
+							"from_value": 0,
+							"to_y": 40,
+							"to_value": 1,
+							"type": "minecraft:y_clamped_gradient",
+							"from_y": 8
+						},
+						"argument2": {
+							"argument1": 0.1,
+							"argument2": {
+								"argument1": -0.2,
+								"argument2": {
+									"argument1": {
+										"from_value": 1,
+										"to_y": 144,
+										"to_value": 0,
+										"type": "minecraft:y_clamped_gradient",
+										"from_y": 56
+									},
+									"argument2": {
+										"argument1": 0.2,
+										"argument2": {
+											"argument1": -0.13,
+											"argument2": "aether_redux:base_3d_noise_redux",
+											"type": "minecraft:add"
+										},
+										"type": "minecraft:add"
+									},
+									"type": "minecraft:mul"
+								},
+								"type": "minecraft:add"
+							},
+							"type": "minecraft:add"
+						},
+						"type": "minecraft:mul"
+					},
+					"type": "minecraft:add"
+				},
+				"type": "minecraft:add"
+			},
+			"type": "minecraft:blend_density"
+		},
+		"type": "minecraft:interpolated"
+	},
+	"type": "minecraft:squeeze"
 }

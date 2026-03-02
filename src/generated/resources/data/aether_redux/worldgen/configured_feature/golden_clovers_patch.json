@@ -1,205 +1,205 @@
 {
-  "type": "minecraft:flower",
-  "config": {
-    "feature": {
-      "feature": {
-        "type": "minecraft:simple_block",
-        "config": {
-          "to_place": {
-            "type": "minecraft:weighted_state_provider",
-            "entries": [
-              {
-                "data": {
-                  "Name": "aether_redux:golden_clovers",
-                  "Properties": {
-                    "double_drops": "true",
-                    "facing": "north",
-                    "flower_amount": "1"
-                  }
-                },
-                "weight": 1
-              },
-              {
-                "data": {
-                  "Name": "aether_redux:golden_clovers",
-                  "Properties": {
-                    "double_drops": "true",
-                    "facing": "north",
-                    "flower_amount": "2"
-                  }
-                },
-                "weight": 2
-              },
-              {
-                "data": {
-                  "Name": "aether_redux:golden_clovers",
-                  "Properties": {
-                    "double_drops": "true",
-                    "facing": "north",
-                    "flower_amount": "3"
-                  }
-                },
-                "weight": 3
-              },
-              {
-                "data": {
-                  "Name": "aether_redux:golden_clovers",
-                  "Properties": {
-                    "double_drops": "true",
-                    "facing": "north",
-                    "flower_amount": "4"
-                  }
-                },
-                "weight": 4
-              },
-              {
-                "data": {
-                  "Name": "aether_redux:golden_clovers",
-                  "Properties": {
-                    "double_drops": "true",
-                    "facing": "south",
-                    "flower_amount": "1"
-                  }
-                },
-                "weight": 1
-              },
-              {
-                "data": {
-                  "Name": "aether_redux:golden_clovers",
-                  "Properties": {
-                    "double_drops": "true",
-                    "facing": "south",
-                    "flower_amount": "2"
-                  }
-                },
-                "weight": 2
-              },
-              {
-                "data": {
-                  "Name": "aether_redux:golden_clovers",
-                  "Properties": {
-                    "double_drops": "true",
-                    "facing": "south",
-                    "flower_amount": "3"
-                  }
-                },
-                "weight": 3
-              },
-              {
-                "data": {
-                  "Name": "aether_redux:golden_clovers",
-                  "Properties": {
-                    "double_drops": "true",
-                    "facing": "south",
-                    "flower_amount": "4"
-                  }
-                },
-                "weight": 4
-              },
-              {
-                "data": {
-                  "Name": "aether_redux:golden_clovers",
-                  "Properties": {
-                    "double_drops": "true",
-                    "facing": "west",
-                    "flower_amount": "1"
-                  }
-                },
-                "weight": 1
-              },
-              {
-                "data": {
-                  "Name": "aether_redux:golden_clovers",
-                  "Properties": {
-                    "double_drops": "true",
-                    "facing": "west",
-                    "flower_amount": "2"
-                  }
-                },
-                "weight": 2
-              },
-              {
-                "data": {
-                  "Name": "aether_redux:golden_clovers",
-                  "Properties": {
-                    "double_drops": "true",
-                    "facing": "west",
-                    "flower_amount": "3"
-                  }
-                },
-                "weight": 3
-              },
-              {
-                "data": {
-                  "Name": "aether_redux:golden_clovers",
-                  "Properties": {
-                    "double_drops": "true",
-                    "facing": "west",
-                    "flower_amount": "4"
-                  }
-                },
-                "weight": 4
-              },
-              {
-                "data": {
-                  "Name": "aether_redux:golden_clovers",
-                  "Properties": {
-                    "double_drops": "true",
-                    "facing": "east",
-                    "flower_amount": "1"
-                  }
-                },
-                "weight": 1
-              },
-              {
-                "data": {
-                  "Name": "aether_redux:golden_clovers",
-                  "Properties": {
-                    "double_drops": "true",
-                    "facing": "east",
-                    "flower_amount": "2"
-                  }
-                },
-                "weight": 2
-              },
-              {
-                "data": {
-                  "Name": "aether_redux:golden_clovers",
-                  "Properties": {
-                    "double_drops": "true",
-                    "facing": "east",
-                    "flower_amount": "3"
-                  }
-                },
-                "weight": 3
-              },
-              {
-                "data": {
-                  "Name": "aether_redux:golden_clovers",
-                  "Properties": {
-                    "double_drops": "true",
-                    "facing": "east",
-                    "flower_amount": "4"
-                  }
-                },
-                "weight": 4
-              }
-            ]
-          }
-        }
-      },
-      "placement": [
-        {
-          "type": "minecraft:block_predicate_filter",
-          "predicate": {
-            "type": "minecraft:matching_blocks",
-            "blocks": "minecraft:air"
-          }
-        }
-      ]
-    },
-    "tries": 24,
-    "xz_spread": 7,
-    "y_spread": 3
-  }
+	"type": "minecraft:flower",
+	"config": {
+		"xz_spread": 7,
+		"tries": 24,
+		"y_spread": 3,
+		"feature": {
+			"feature": {
+				"type": "minecraft:simple_block",
+				"config": {
+					"to_place": {
+						"entries": [
+							{
+								"data": {
+									"Properties": {
+										"facing": "north",
+										"double_drops": "true",
+										"flower_amount": "1"
+									},
+									"Name": "aether_redux:golden_clovers"
+								},
+								"weight": 1
+							},
+							{
+								"data": {
+									"Properties": {
+										"facing": "north",
+										"double_drops": "true",
+										"flower_amount": "2"
+									},
+									"Name": "aether_redux:golden_clovers"
+								},
+								"weight": 2
+							},
+							{
+								"data": {
+									"Properties": {
+										"facing": "north",
+										"double_drops": "true",
+										"flower_amount": "3"
+									},
+									"Name": "aether_redux:golden_clovers"
+								},
+								"weight": 3
+							},
+							{
+								"data": {
+									"Properties": {
+										"facing": "north",
+										"double_drops": "true",
+										"flower_amount": "4"
+									},
+									"Name": "aether_redux:golden_clovers"
+								},
+								"weight": 4
+							},
+							{
+								"data": {
+									"Properties": {
+										"facing": "south",
+										"double_drops": "true",
+										"flower_amount": "1"
+									},
+									"Name": "aether_redux:golden_clovers"
+								},
+								"weight": 1
+							},
+							{
+								"data": {
+									"Properties": {
+										"facing": "south",
+										"double_drops": "true",
+										"flower_amount": "2"
+									},
+									"Name": "aether_redux:golden_clovers"
+								},
+								"weight": 2
+							},
+							{
+								"data": {
+									"Properties": {
+										"facing": "south",
+										"double_drops": "true",
+										"flower_amount": "3"
+									},
+									"Name": "aether_redux:golden_clovers"
+								},
+								"weight": 3
+							},
+							{
+								"data": {
+									"Properties": {
+										"facing": "south",
+										"double_drops": "true",
+										"flower_amount": "4"
+									},
+									"Name": "aether_redux:golden_clovers"
+								},
+								"weight": 4
+							},
+							{
+								"data": {
+									"Properties": {
+										"facing": "west",
+										"double_drops": "true",
+										"flower_amount": "1"
+									},
+									"Name": "aether_redux:golden_clovers"
+								},
+								"weight": 1
+							},
+							{
+								"data": {
+									"Properties": {
+										"facing": "west",
+										"double_drops": "true",
+										"flower_amount": "2"
+									},
+									"Name": "aether_redux:golden_clovers"
+								},
+								"weight": 2
+							},
+							{
+								"data": {
+									"Properties": {
+										"facing": "west",
+										"double_drops": "true",
+										"flower_amount": "3"
+									},
+									"Name": "aether_redux:golden_clovers"
+								},
+								"weight": 3
+							},
+							{
+								"data": {
+									"Properties": {
+										"facing": "west",
+										"double_drops": "true",
+										"flower_amount": "4"
+									},
+									"Name": "aether_redux:golden_clovers"
+								},
+								"weight": 4
+							},
+							{
+								"data": {
+									"Properties": {
+										"facing": "east",
+										"double_drops": "true",
+										"flower_amount": "1"
+									},
+									"Name": "aether_redux:golden_clovers"
+								},
+								"weight": 1
+							},
+							{
+								"data": {
+									"Properties": {
+										"facing": "east",
+										"double_drops": "true",
+										"flower_amount": "2"
+									},
+									"Name": "aether_redux:golden_clovers"
+								},
+								"weight": 2
+							},
+							{
+								"data": {
+									"Properties": {
+										"facing": "east",
+										"double_drops": "true",
+										"flower_amount": "3"
+									},
+									"Name": "aether_redux:golden_clovers"
+								},
+								"weight": 3
+							},
+							{
+								"data": {
+									"Properties": {
+										"facing": "east",
+										"double_drops": "true",
+										"flower_amount": "4"
+									},
+									"Name": "aether_redux:golden_clovers"
+								},
+								"weight": 4
+							}
+						],
+						"type": "minecraft:weighted_state_provider"
+					}
+				}
+			},
+			"placement": [
+				{
+					"predicate": {
+						"blocks": "minecraft:air",
+						"type": "minecraft:matching_blocks"
+					},
+					"type": "minecraft:block_predicate_filter"
+				}
+			]
+		}
+	}
 }

@@ -1,5 +1,3 @@
 {
-  "values": [
-    "#minecraft:dirt"
-  ]
+	"values": ["#minecraft:dirt"]
 }

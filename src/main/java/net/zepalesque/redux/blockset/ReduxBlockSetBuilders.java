@@ -1,8 +1,7 @@
 package net.zepalesque.redux.blockset;
 
-import net.minecraft.world.level.ItemLike;
-
 import java.util.function.Supplier;
+import net.minecraft.world.level.ItemLike;
 
 public class ReduxBlockSetBuilders {
 

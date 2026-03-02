@@ -1,14 +1,13 @@
 package net.zepalesque.redux.data.gen;
 
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.zepalesque.redux.data.gen.loot.ReduxBlockLoot;
 import net.zepalesque.redux.loot.ReduxLoot;
-
-import java.util.List;
-import java.util.concurrent.CompletableFuture;
 
 public class ReduxLootData {
 

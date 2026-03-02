@@ -2,6 +2,7 @@ package net.zepalesque.redux.world.feature.gen;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import java.util.List;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.block.Blocks;
@@ -11,8 +12,6 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.zepalesque.zenith.api.world.density.PerlinNoiseFunction;
-
-import java.util.List;
 
 public class DebugNoiseFeature extends Feature<DebugNoiseFeature.Config> {
     

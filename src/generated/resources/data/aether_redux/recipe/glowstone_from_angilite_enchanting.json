@@ -1,13 +1,13 @@
 {
-  "type": "aether:enchanting",
-  "category": "enchanting_misc",
-  "cookingtime": 200,
-  "experience": 0.0,
-  "ingredient": {
-    "item": "aether_redux:angilite"
-  },
-  "result": {
-    "count": 1,
-    "id": "minecraft:glowstone"
-  }
+	"result": {
+		"count": 1,
+		"id": "minecraft:glowstone"
+	},
+	"ingredient": {
+		"item": "aether_redux:angilite"
+	},
+	"type": "aether:enchanting",
+	"category": "enchanting_misc",
+	"experience": 0,
+	"cookingtime": 200
 }

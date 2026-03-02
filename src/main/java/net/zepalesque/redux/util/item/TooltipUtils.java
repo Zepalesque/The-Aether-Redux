@@ -2,12 +2,11 @@ package net.zepalesque.redux.util.item;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.platform.InputConstants;
+import java.util.Collection;
+import javax.annotation.Nullable;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
-
-import javax.annotation.Nullable;
-import java.util.Collection;
 
 public class TooltipUtils {
     public static final Component INFO = Component.translatable(
@@ -34,8 +33,7 @@ public class TooltipUtils {
         return shiftDownElse(whenDown, INFO);
     }
 
-    @Nullable
-    public static Component shiftDownElse(Component whenDown, @Nullable Component otherwise) {
+    @Nullable public static Component shiftDownElse(Component whenDown, @Nullable Component otherwise) {
         var mc = Minecraft.getInstance();
         if (InputConstants.isKeyDown(
             mc.getWindow().getWindow(),
@@ -44,8 +42,7 @@ public class TooltipUtils {
         else return otherwise;
     }
 
-    @Nullable
-    public static Collection<Component> shiftDownElseMulti(
+    @Nullable public static Collection<Component> shiftDownElseMulti(
         Collection<Component> whenDown,
         @Nullable Collection<Component> otherwise) {
         var mc = Minecraft.getInstance();

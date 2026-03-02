@@ -1,8 +1,7 @@
 package net.zepalesque.redux.block.state.enums;
 
-import net.minecraft.util.StringRepresentable;
-
 import java.util.function.BinaryOperator;
+import net.minecraft.util.StringRepresentable;
 
 public enum LogicatorMode implements StringRepresentable {
     

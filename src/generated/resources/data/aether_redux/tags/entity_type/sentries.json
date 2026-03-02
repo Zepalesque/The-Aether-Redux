@@ -1,6 +1,3 @@
 {
-  "values": [
-    "aether:slider",
-    "aether:sentry"
-  ]
+	"values": ["aether:slider", "aether:sentry"]
 }

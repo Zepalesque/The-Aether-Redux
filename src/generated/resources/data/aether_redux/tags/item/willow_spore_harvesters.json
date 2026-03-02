@@ -1,9 +1,9 @@
 {
-  "values": [
-    "aether:zanite_hoe",
-    "aether:gravitite_hoe",
-    "aether:valkyrie_hoe",
-    "aether_redux:veridium_hoe",
-    "aether_redux:infused_veridium_hoe"
-  ]
+	"values": [
+		"aether:zanite_hoe",
+		"aether:gravitite_hoe",
+		"aether:valkyrie_hoe",
+		"aether_redux:veridium_hoe",
+		"aether_redux:infused_veridium_hoe"
+	]
 }

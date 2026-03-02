@@ -1,5 +1,3 @@
 {
-  "values": [
-    "aether_redux:raw_veridium"
-  ]
+	"values": ["aether_redux:raw_veridium"]
 }

@@ -1,154 +1,154 @@
 {
-  "multipart": [
-    {
-      "apply": {
-        "model": "aether_redux:block/bleakmoss_carpet"
-      },
-      "when": {
-        "bottom": "true"
-      }
-    },
-    {
-      "apply": {
-        "model": "aether_redux:block/bleakmoss_carpet"
-      },
-      "when": {
-        "bottom": "true",
-        "east": "none",
-        "north": "none",
-        "south": "none",
-        "west": "none"
-      }
-    },
-    {
-      "apply": {
-        "model": "aether_redux:block/bleakmoss_carpet_side_tall"
-      },
-      "when": {
-        "north": "tall"
-      }
-    },
-    {
-      "apply": {
-        "model": "aether_redux:block/bleakmoss_carpet_side_small"
-      },
-      "when": {
-        "north": "low"
-      }
-    },
-    {
-      "apply": {
-        "model": "aether_redux:block/bleakmoss_carpet_side_tall"
-      },
-      "when": {
-        "bottom": "false",
-        "east": "none",
-        "north": "none",
-        "south": "none",
-        "west": "none"
-      }
-    },
-    {
-      "apply": {
-        "model": "aether_redux:block/bleakmoss_carpet_side_tall",
-        "uvlock": true,
-        "y": 180
-      },
-      "when": {
-        "south": "tall"
-      }
-    },
-    {
-      "apply": {
-        "model": "aether_redux:block/bleakmoss_carpet_side_small",
-        "uvlock": true,
-        "y": 180
-      },
-      "when": {
-        "south": "low"
-      }
-    },
-    {
-      "apply": {
-        "model": "aether_redux:block/bleakmoss_carpet_side_tall",
-        "uvlock": true,
-        "y": 180
-      },
-      "when": {
-        "bottom": "false",
-        "east": "none",
-        "north": "none",
-        "south": "none",
-        "west": "none"
-      }
-    },
-    {
-      "apply": {
-        "model": "aether_redux:block/bleakmoss_carpet_side_tall",
-        "uvlock": true,
-        "y": 270
-      },
-      "when": {
-        "west": "tall"
-      }
-    },
-    {
-      "apply": {
-        "model": "aether_redux:block/bleakmoss_carpet_side_small",
-        "uvlock": true,
-        "y": 270
-      },
-      "when": {
-        "west": "low"
-      }
-    },
-    {
-      "apply": {
-        "model": "aether_redux:block/bleakmoss_carpet_side_tall",
-        "uvlock": true,
-        "y": 270
-      },
-      "when": {
-        "bottom": "false",
-        "east": "none",
-        "north": "none",
-        "south": "none",
-        "west": "none"
-      }
-    },
-    {
-      "apply": {
-        "model": "aether_redux:block/bleakmoss_carpet_side_tall",
-        "uvlock": true,
-        "y": 90
-      },
-      "when": {
-        "east": "tall"
-      }
-    },
-    {
-      "apply": {
-        "model": "aether_redux:block/bleakmoss_carpet_side_small",
-        "uvlock": true,
-        "y": 90
-      },
-      "when": {
-        "east": "low"
-      }
-    },
-    {
-      "apply": {
-        "model": "aether_redux:block/bleakmoss_carpet_side_tall",
-        "uvlock": true,
-        "y": 90
-      },
-      "when": {
-        "bottom": "false",
-        "east": "none",
-        "north": "none",
-        "south": "none",
-        "west": "none"
-      }
-    }
-  ]
+	"multipart": [
+		{
+			"apply": {
+				"model": "aether_redux:block/bleakmoss_carpet"
+			},
+			"when": {
+				"bottom": "true"
+			}
+		},
+		{
+			"apply": {
+				"model": "aether_redux:block/bleakmoss_carpet"
+			},
+			"when": {
+				"east": "none",
+				"south": "none",
+				"bottom": "true",
+				"north": "none",
+				"west": "none"
+			}
+		},
+		{
+			"apply": {
+				"model": "aether_redux:block/bleakmoss_carpet_side_tall"
+			},
+			"when": {
+				"north": "tall"
+			}
+		},
+		{
+			"apply": {
+				"model": "aether_redux:block/bleakmoss_carpet_side_small"
+			},
+			"when": {
+				"north": "low"
+			}
+		},
+		{
+			"apply": {
+				"model": "aether_redux:block/bleakmoss_carpet_side_tall"
+			},
+			"when": {
+				"east": "none",
+				"south": "none",
+				"bottom": "false",
+				"north": "none",
+				"west": "none"
+			}
+		},
+		{
+			"apply": {
+				"uvlock": true,
+				"y": 180,
+				"model": "aether_redux:block/bleakmoss_carpet_side_tall"
+			},
+			"when": {
+				"south": "tall"
+			}
+		},
+		{
+			"apply": {
+				"uvlock": true,
+				"y": 180,
+				"model": "aether_redux:block/bleakmoss_carpet_side_small"
+			},
+			"when": {
+				"south": "low"
+			}
+		},
+		{
+			"apply": {
+				"uvlock": true,
+				"y": 180,
+				"model": "aether_redux:block/bleakmoss_carpet_side_tall"
+			},
+			"when": {
+				"east": "none",
+				"south": "none",
+				"bottom": "false",
+				"north": "none",
+				"west": "none"
+			}
+		},
+		{
+			"apply": {
+				"uvlock": true,
+				"y": 270,
+				"model": "aether_redux:block/bleakmoss_carpet_side_tall"
+			},
+			"when": {
+				"west": "tall"
+			}
+		},
+		{
+			"apply": {
+				"uvlock": true,
+				"y": 270,
+				"model": "aether_redux:block/bleakmoss_carpet_side_small"
+			},
+			"when": {
+				"west": "low"
+			}
+		},
+		{
+			"apply": {
+				"uvlock": true,
+				"y": 270,
+				"model": "aether_redux:block/bleakmoss_carpet_side_tall"
+			},
+			"when": {
+				"east": "none",
+				"south": "none",
+				"bottom": "false",
+				"north": "none",
+				"west": "none"
+			}
+		},
+		{
+			"apply": {
+				"uvlock": true,
+				"y": 90,
+				"model": "aether_redux:block/bleakmoss_carpet_side_tall"
+			},
+			"when": {
+				"east": "tall"
+			}
+		},
+		{
+			"apply": {
+				"uvlock": true,
+				"y": 90,
+				"model": "aether_redux:block/bleakmoss_carpet_side_small"
+			},
+			"when": {
+				"east": "low"
+			}
+		},
+		{
+			"apply": {
+				"uvlock": true,
+				"y": 90,
+				"model": "aether_redux:block/bleakmoss_carpet_side_tall"
+			},
+			"when": {
+				"east": "none",
+				"south": "none",
+				"bottom": "false",
+				"north": "none",
+				"west": "none"
+			}
+		}
+	]
 }

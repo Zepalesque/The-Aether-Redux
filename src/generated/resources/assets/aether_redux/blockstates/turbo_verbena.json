@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "aether_redux:block/turbo_verbena"
-    }
-  }
+	"variants": {
+		"": {
+			"model": "aether_redux:block/turbo_verbena"
+		}
+	}
 }

@@ -1,8 +1,8 @@
 {
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "aether_redux:block/construction/polished_angilite",
-    "side": "aether_redux:block/construction/polished_angilite",
-    "top": "aether_redux:block/construction/polished_angilite"
-  }
+	"parent": "minecraft:block/slab",
+	"textures": {
+		"side": "aether_redux:block/construction/polished_angilite",
+		"top": "aether_redux:block/construction/polished_angilite",
+		"bottom": "aether_redux:block/construction/polished_angilite"
+	}
 }

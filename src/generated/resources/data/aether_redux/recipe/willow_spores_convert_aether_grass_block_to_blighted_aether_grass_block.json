@@ -1,9 +1,9 @@
 {
-  "type": "aether_redux:willow_spore_blighting",
-  "ingredient": {
-    "block": "aether:aether_grass_block"
-  },
-  "result": {
-    "block": "aether_redux:blighted_aether_grass_block"
-  }
+	"result": {
+		"block": "aether_redux:blighted_aether_grass_block"
+	},
+	"ingredient": {
+		"block": "aether:aether_grass_block"
+	},
+	"type": "aether_redux:willow_spore_blighting"
 }

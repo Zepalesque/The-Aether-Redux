@@ -20,8 +20,7 @@ public class ReduxEvilWhirlwindRenderer<T extends AbstractWhirlwind> extends Red
     }
 
     @Override
-    @NotNull
-    public ResourceLocation getTextureLocation(@NotNull T whirlwind) {
+    @NotNull public ResourceLocation getTextureLocation(@NotNull T whirlwind) {
         return EVIL_WHIRLWIND;
     }
 

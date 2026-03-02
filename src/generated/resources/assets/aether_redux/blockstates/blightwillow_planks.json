@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "aether_redux:block/blightwillow_planks"
-    }
-  }
+	"variants": {
+		"": {
+			"model": "aether_redux:block/blightwillow_planks"
+		}
+	}
 }

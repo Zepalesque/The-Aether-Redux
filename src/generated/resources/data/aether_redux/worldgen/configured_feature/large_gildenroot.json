@@ -1,54 +1,54 @@
 {
-  "type": "minecraft:tree",
-  "config": {
-    "decorators": [],
-    "dirt_provider": {
-      "type": "minecraft:simple_state_provider",
-      "state": {
-        "Name": "minecraft:dirt"
-      }
-    },
-    "foliage_placer": {
-      "type": "nitrogen_internals:hooked_foliage_placer",
-      "offset": 1,
-      "radius": 2,
-      "trunk_height": 2
-    },
-    "foliage_provider": {
-      "type": "minecraft:simple_state_provider",
-      "state": {
-        "Name": "aether_redux:gildenroot_leaves",
-        "Properties": {
-          "distance": "7",
-          "double_drops": "true",
-          "persistent": "false",
-          "waterlogged": "false"
-        }
-      }
-    },
-    "force_dirt": false,
-    "ignore_vines": true,
-    "minimum_size": {
-      "type": "minecraft:two_layers_feature_size",
-      "limit": 2,
-      "lower_size": 1,
-      "upper_size": 4
-    },
-    "trunk_placer": {
-      "type": "nitrogen_internals:hooked_trunk_placer",
-      "base_height": 8,
-      "height_rand_a": 14,
-      "height_rand_b": 14
-    },
-    "trunk_provider": {
-      "type": "minecraft:simple_state_provider",
-      "state": {
-        "Name": "aether:skyroot_log",
-        "Properties": {
-          "axis": "y",
-          "double_drops": "true"
-        }
-      }
-    }
-  }
+	"type": "minecraft:tree",
+	"config": {
+		"foliage_provider": {
+			"state": {
+				"Properties": {
+					"waterlogged": "false",
+					"distance": "7",
+					"persistent": "false",
+					"double_drops": "true"
+				},
+				"Name": "aether_redux:gildenroot_leaves"
+			},
+			"type": "minecraft:simple_state_provider"
+		},
+		"decorators": [],
+		"trunk_provider": {
+			"state": {
+				"Properties": {
+					"axis": "y",
+					"double_drops": "true"
+				},
+				"Name": "aether:skyroot_log"
+			},
+			"type": "minecraft:simple_state_provider"
+		},
+		"minimum_size": {
+			"limit": 2,
+			"type": "minecraft:two_layers_feature_size",
+			"lower_size": 1,
+			"upper_size": 4
+		},
+		"dirt_provider": {
+			"state": {
+				"Name": "minecraft:dirt"
+			},
+			"type": "minecraft:simple_state_provider"
+		},
+		"force_dirt": false,
+		"trunk_placer": {
+			"height_rand_b": 14,
+			"base_height": 8,
+			"type": "nitrogen_internals:hooked_trunk_placer",
+			"height_rand_a": 14
+		},
+		"foliage_placer": {
+			"offset": 1,
+			"trunk_height": 2,
+			"type": "nitrogen_internals:hooked_foliage_placer",
+			"radius": 2
+		},
+		"ignore_vines": true
+	}
 }

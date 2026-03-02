@@ -1,5 +1,6 @@
 package net.zepalesque.redux.item.tools;
 
+import java.util.Objects;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponentPatch;
@@ -23,8 +24,6 @@ import net.zepalesque.zenith.api.item.CustomStackingBehavior;
 import net.zepalesque.zenith.api.recipe.recipes.AbstractStackingRecipe;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Objects;
-
 public interface VeridiumItem extends CustomStackingBehavior {
 
     int DURABILITY_DMG_MULTIPLIER = 4;
@@ -40,8 +39,7 @@ public interface VeridiumItem extends CustomStackingBehavior {
         return i;
     }
 
-    @Nullable
-    @Override
+    @Nullable @Override
     default ItemStack transformStack(Ingredient ingredient, ItemStack original, RecipeType<? extends AbstractStackingRecipe> type, @Nullable CompoundTag additional) {
         if (additional == null) return original;
 
@@ -64,8 +62,7 @@ public interface VeridiumItem extends CustomStackingBehavior {
     }
 
     // If null is returned, do not change the item in the slot
-    @Nullable
-    default ItemStack deplete(ItemStack stack, @Nullable LivingEntity user, int amount) {
+    @Nullable default ItemStack deplete(ItemStack stack, @Nullable LivingEntity user, int amount) {
         if (user != null && user.level().isClientSide() || user instanceof Player p && p.hasInfiniteMaterials())
             return null;
 

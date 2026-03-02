@@ -1,6 +1,3 @@
 {
-  "values": [
-    "aether_redux:crystal_slab",
-    "aether_redux:blightwillow_slab"
-  ]
+	"values": ["aether_redux:crystal_slab", "aether_redux:blightwillow_slab"]
 }

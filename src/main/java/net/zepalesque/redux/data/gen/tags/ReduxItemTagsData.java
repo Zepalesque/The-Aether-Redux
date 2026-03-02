@@ -2,6 +2,7 @@ package net.zepalesque.redux.data.gen.tags;
 
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.item.AetherItems;
+import java.util.concurrent.CompletableFuture;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.ItemTags;
@@ -14,8 +15,6 @@ import net.zepalesque.redux.data.ReduxTags;
 import net.zepalesque.redux.data.prov.tags.ReduxItemTagsProvider;
 import net.zepalesque.redux.item.ReduxItems;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.concurrent.CompletableFuture;
 
 public class ReduxItemTagsData extends ReduxItemTagsProvider {
 

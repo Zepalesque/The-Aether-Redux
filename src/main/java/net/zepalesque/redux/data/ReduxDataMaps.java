@@ -1,13 +1,12 @@
 package net.zepalesque.redux.data;
 
+import java.util.HashSet;
+import java.util.Set;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.registries.datamaps.DataMapType;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.WeightedParticleEntry;
-
-import java.util.HashSet;
-import java.util.Set;
 
 public class ReduxDataMaps {
     public static final Set<DataMapType<?, ?>> TYPES = new HashSet<>();

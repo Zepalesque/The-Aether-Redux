@@ -5,6 +5,9 @@ import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.natural.AetherLogBlock;
 import com.aetherteam.aether.item.AetherCreativeTabs;
 import com.aetherteam.aether.item.AetherItems;
+import java.util.Map;
+import java.util.function.Supplier;
+import javax.annotation.Nullable;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.core.Direction;
@@ -85,10 +88,6 @@ import net.zepalesque.zenith.core.tile.ZenithSignBlockEntity;
 import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
 import net.zepalesque.zenith.util.data.DatagenUtil;
 import net.zepalesque.zenith.util.item.TabUtil;
-
-import javax.annotation.Nullable;
-import java.util.Map;
-import java.util.function.Supplier;
 
 public class BaseWoodSet extends AbstractWoodSet implements ReduxGeneration {
 
@@ -878,8 +877,7 @@ public class BaseWoodSet extends AbstractWoodSet implements ReduxGeneration {
 
 
     @Override
-    @Nullable
-    public String logSuffix(boolean plural, boolean localized) {
+    @Nullable public String logSuffix(boolean plural, boolean localized) {
         String base = localized ? " Log" : "_log";
 
         return plural ? base + "s" : base;
@@ -897,8 +895,7 @@ public class BaseWoodSet extends AbstractWoodSet implements ReduxGeneration {
     }
 
     @Override
-    @Nullable
-    public ItemLike addToCreativeTab(BuildCreativeModeTabContentsEvent event, @Nullable ItemLike prev, TabAdditionPhase phase) {
+    @Nullable public ItemLike addToCreativeTab(BuildCreativeModeTabContentsEvent event, @Nullable ItemLike prev, TabAdditionPhase phase) {
         if (phase == TabAdditionPhase.BEFORE) {
             if (TabUtil.isForTab(event, AetherCreativeTabs.AETHER_BUILDING_BLOCKS))
                 return this.buildingBlocks(event, prev == null ? AetherBlocks.GOLDEN_OAK_WOOD : prev);

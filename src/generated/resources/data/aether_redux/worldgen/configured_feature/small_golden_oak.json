@@ -1,113 +1,109 @@
 {
-  "type": "minecraft:tree",
-  "config": {
-    "decorators": [
-      {
-        "type": "aether_redux:golden_vines",
-        "length": {
-          "type": "minecraft:uniform",
-          "max_inclusive": 3,
-          "min_inclusive": 1
-        },
-        "plant_body_provider": {
-          "type": "minecraft:simple_state_provider",
-          "state": {
-            "Name": "aether_redux:golden_vines_plant"
-          }
-        },
-        "plant_head_provider": {
-          "type": "minecraft:simple_state_provider",
-          "state": {
-            "Name": "aether_redux:golden_vines",
-            "Properties": {
-              "age": "0"
-            }
-          }
-        },
-        "predicate": {
-          "type": "minecraft:any_of",
-          "predicates": [
-            {
-              "type": "zenith:in_biome",
-              "biomes": "#aether_redux:has_golden_vines"
-            },
-            {
-              "type": "minecraft:matching_block_tag",
-              "offset": [
-                0,
-                -1,
-                0
-              ],
-              "tag": "aether_unity:short_aether_grass_state_enchanting"
-            }
-          ]
-        },
-        "probability": 0.25
-      }
-    ],
-    "dirt_provider": {
-      "type": "minecraft:simple_state_provider",
-      "state": {
-        "Name": "minecraft:dirt"
-      }
-    },
-    "foliage_placer": {
-      "type": "aether_redux:small_golden_oak_foliage",
-      "offset": 0,
-      "radius": 2
-    },
-    "foliage_provider": {
-      "type": "minecraft:simple_state_provider",
-      "state": {
-        "Name": "aether:golden_oak_leaves",
-        "Properties": {
-          "distance": "7",
-          "double_drops": "true",
-          "persistent": "false",
-          "waterlogged": "false"
-        }
-      }
-    },
-    "force_dirt": false,
-    "ignore_vines": true,
-    "minimum_size": {
-      "type": "minecraft:two_layers_feature_size",
-      "limit": 1,
-      "lower_size": 0,
-      "upper_size": 1
-    },
-    "trunk_placer": {
-      "type": "zenith:int_provider_trunk",
-      "height": {
-        "type": "minecraft:uniform",
-        "max_inclusive": 9,
-        "min_inclusive": 7
-      }
-    },
-    "trunk_provider": {
-      "type": "minecraft:weighted_state_provider",
-      "entries": [
-        {
-          "data": {
-            "Name": "aether:golden_oak_log",
-            "Properties": {
-              "axis": "y",
-              "double_drops": "true"
-            }
-          },
-          "weight": 1
-        },
-        {
-          "data": {
-            "Name": "aether:skyroot_log",
-            "Properties": {
-              "axis": "y",
-              "double_drops": "true"
-            }
-          },
-          "weight": 7
-        }
-      ]
-    }
-  }
+	"type": "minecraft:tree",
+	"config": {
+		"foliage_provider": {
+			"state": {
+				"Properties": {
+					"waterlogged": "false",
+					"distance": "7",
+					"persistent": "false",
+					"double_drops": "true"
+				},
+				"Name": "aether:golden_oak_leaves"
+			},
+			"type": "minecraft:simple_state_provider"
+		},
+		"decorators": [
+			{
+				"plant_head_provider": {
+					"state": {
+						"Properties": {
+							"age": "0"
+						},
+						"Name": "aether_redux:golden_vines"
+					},
+					"type": "minecraft:simple_state_provider"
+				},
+				"predicate": {
+					"predicates": [
+						{
+							"biomes": "#aether_redux:has_golden_vines",
+							"type": "zenith:in_biome"
+						},
+						{
+							"offset": [0, -1, 0],
+							"tag": "aether_unity:short_aether_grass_state_enchanting",
+							"type": "minecraft:matching_block_tag"
+						}
+					],
+					"type": "minecraft:any_of"
+				},
+				"plant_body_provider": {
+					"state": {
+						"Name": "aether_redux:golden_vines_plant"
+					},
+					"type": "minecraft:simple_state_provider"
+				},
+				"probability": 0.25,
+				"length": {
+					"min_inclusive": 1,
+					"max_inclusive": 3,
+					"type": "minecraft:uniform"
+				},
+				"type": "aether_redux:golden_vines"
+			}
+		],
+		"trunk_provider": {
+			"entries": [
+				{
+					"data": {
+						"Properties": {
+							"axis": "y",
+							"double_drops": "true"
+						},
+						"Name": "aether:golden_oak_log"
+					},
+					"weight": 1
+				},
+				{
+					"data": {
+						"Properties": {
+							"axis": "y",
+							"double_drops": "true"
+						},
+						"Name": "aether:skyroot_log"
+					},
+					"weight": 7
+				}
+			],
+			"type": "minecraft:weighted_state_provider"
+		},
+		"minimum_size": {
+			"limit": 1,
+			"type": "minecraft:two_layers_feature_size",
+			"lower_size": 0,
+			"upper_size": 1
+		},
+		"dirt_provider": {
+			"state": {
+				"Name": "minecraft:dirt"
+			},
+			"type": "minecraft:simple_state_provider"
+		},
+		"force_dirt": false,
+		"trunk_placer": {
+			"type": "zenith:int_provider_trunk",
+			"height": {
+				"min_inclusive": 7,
+				"max_inclusive": 9,
+				"type": "minecraft:uniform"
+			}
+		},
+		"foliage_placer": {
+			"offset": 0,
+			"type": "aether_redux:small_golden_oak_foliage",
+			"radius": 2
+		},
+		"ignore_vines": true
+	}
 }

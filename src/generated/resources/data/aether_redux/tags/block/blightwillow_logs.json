@@ -1,8 +1,8 @@
 {
-  "values": [
-    "aether_redux:blightwillow_log",
-    "aether_redux:blightwillow_wood",
-    "aether_redux:stripped_blightwillow_log",
-    "aether_redux:stripped_blightwillow_wood"
-  ]
+	"values": [
+		"aether_redux:blightwillow_log",
+		"aether_redux:blightwillow_wood",
+		"aether_redux:stripped_blightwillow_log",
+		"aether_redux:stripped_blightwillow_wood"
+	]
 }

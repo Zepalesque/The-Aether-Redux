@@ -1,187 +1,187 @@
 {
-  "type": "aether_redux:debug_noise",
-  "config": {
-    "gradient": [
-      {
-        "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "minecraft:black_concrete"
-        }
-      },
-      {
-        "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "minecraft:coal_block"
-        }
-      },
-      {
-        "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "minecraft:black_wool"
-        }
-      },
-      {
-        "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "minecraft:black_concrete_powder"
-        }
-      },
-      {
-        "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "minecraft:black_terracotta"
-        }
-      },
-      {
-        "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "minecraft:blackstone"
-        }
-      },
-      {
-        "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "minecraft:gray_concrete"
-        }
-      },
-      {
-        "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "minecraft:netherite_block"
-        }
-      },
-      {
-        "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "minecraft:gray_wool"
-        }
-      },
-      {
-        "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "minecraft:smooth_basalt"
-        }
-      },
-      {
-        "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "minecraft:gray_concrete_powder"
-        }
-      },
-      {
-        "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "minecraft:deepslate",
-          "Properties": {
-            "axis": "y"
-          }
-        }
-      },
-      {
-        "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "minecraft:cyan_terracotta"
-        }
-      },
-      {
-        "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "minecraft:tuff"
-        }
-      },
-      {
-        "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "minecraft:light_gray_concrete"
-        }
-      },
-      {
-        "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "minecraft:stone"
-        }
-      },
-      {
-        "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "minecraft:light_gray_wool"
-        }
-      },
-      {
-        "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "minecraft:light_gray_concrete_powder"
-        }
-      },
-      {
-        "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "minecraft:light_gray_concrete_powder"
-        }
-      },
-      {
-        "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "aether:holystone",
-          "Properties": {
-            "double_drops": "true"
-          }
-        }
-      },
-      {
-        "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "minecraft:diorite"
-        }
-      },
-      {
-        "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "minecraft:white_concrete"
-        }
-      },
-      {
-        "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "minecraft:calcite"
-        }
-      },
-      {
-        "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "aether_unity:valkyrie_clay",
-          "Properties": {
-            "double_drops": "true"
-          }
-        }
-      },
-      {
-        "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "minecraft:smooth_quartz"
-        }
-      },
-      {
-        "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "minecraft:white_concrete_powder"
-        }
-      },
-      {
-        "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "minecraft:white_wool"
-        }
-      },
-      {
-        "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "minecraft:snow_block"
-        }
-      }
-    ],
-    "noise": "aether_redux:lakes_thickness",
-    "sample_y": 36,
-    "y_level": 24
-  }
+	"type": "aether_redux:debug_noise",
+	"config": {
+		"sample_y": 36,
+		"gradient": [
+			{
+				"state": {
+					"Name": "minecraft:black_concrete"
+				},
+				"type": "minecraft:simple_state_provider"
+			},
+			{
+				"state": {
+					"Name": "minecraft:coal_block"
+				},
+				"type": "minecraft:simple_state_provider"
+			},
+			{
+				"state": {
+					"Name": "minecraft:black_wool"
+				},
+				"type": "minecraft:simple_state_provider"
+			},
+			{
+				"state": {
+					"Name": "minecraft:black_concrete_powder"
+				},
+				"type": "minecraft:simple_state_provider"
+			},
+			{
+				"state": {
+					"Name": "minecraft:black_terracotta"
+				},
+				"type": "minecraft:simple_state_provider"
+			},
+			{
+				"state": {
+					"Name": "minecraft:blackstone"
+				},
+				"type": "minecraft:simple_state_provider"
+			},
+			{
+				"state": {
+					"Name": "minecraft:gray_concrete"
+				},
+				"type": "minecraft:simple_state_provider"
+			},
+			{
+				"state": {
+					"Name": "minecraft:netherite_block"
+				},
+				"type": "minecraft:simple_state_provider"
+			},
+			{
+				"state": {
+					"Name": "minecraft:gray_wool"
+				},
+				"type": "minecraft:simple_state_provider"
+			},
+			{
+				"state": {
+					"Name": "minecraft:smooth_basalt"
+				},
+				"type": "minecraft:simple_state_provider"
+			},
+			{
+				"state": {
+					"Name": "minecraft:gray_concrete_powder"
+				},
+				"type": "minecraft:simple_state_provider"
+			},
+			{
+				"state": {
+					"Properties": {
+						"axis": "y"
+					},
+					"Name": "minecraft:deepslate"
+				},
+				"type": "minecraft:simple_state_provider"
+			},
+			{
+				"state": {
+					"Name": "minecraft:cyan_terracotta"
+				},
+				"type": "minecraft:simple_state_provider"
+			},
+			{
+				"state": {
+					"Name": "minecraft:tuff"
+				},
+				"type": "minecraft:simple_state_provider"
+			},
+			{
+				"state": {
+					"Name": "minecraft:light_gray_concrete"
+				},
+				"type": "minecraft:simple_state_provider"
+			},
+			{
+				"state": {
+					"Name": "minecraft:stone"
+				},
+				"type": "minecraft:simple_state_provider"
+			},
+			{
+				"state": {
+					"Name": "minecraft:light_gray_wool"
+				},
+				"type": "minecraft:simple_state_provider"
+			},
+			{
+				"state": {
+					"Name": "minecraft:light_gray_concrete_powder"
+				},
+				"type": "minecraft:simple_state_provider"
+			},
+			{
+				"state": {
+					"Name": "minecraft:light_gray_concrete_powder"
+				},
+				"type": "minecraft:simple_state_provider"
+			},
+			{
+				"state": {
+					"Properties": {
+						"double_drops": "true"
+					},
+					"Name": "aether:holystone"
+				},
+				"type": "minecraft:simple_state_provider"
+			},
+			{
+				"state": {
+					"Name": "minecraft:diorite"
+				},
+				"type": "minecraft:simple_state_provider"
+			},
+			{
+				"state": {
+					"Name": "minecraft:white_concrete"
+				},
+				"type": "minecraft:simple_state_provider"
+			},
+			{
+				"state": {
+					"Name": "minecraft:calcite"
+				},
+				"type": "minecraft:simple_state_provider"
+			},
+			{
+				"state": {
+					"Properties": {
+						"double_drops": "true"
+					},
+					"Name": "aether_unity:valkyrie_clay"
+				},
+				"type": "minecraft:simple_state_provider"
+			},
+			{
+				"state": {
+					"Name": "minecraft:smooth_quartz"
+				},
+				"type": "minecraft:simple_state_provider"
+			},
+			{
+				"state": {
+					"Name": "minecraft:white_concrete_powder"
+				},
+				"type": "minecraft:simple_state_provider"
+			},
+			{
+				"state": {
+					"Name": "minecraft:white_wool"
+				},
+				"type": "minecraft:simple_state_provider"
+			},
+			{
+				"state": {
+					"Name": "minecraft:snow_block"
+				},
+				"type": "minecraft:simple_state_provider"
+			}
+		],
+		"noise": "aether_redux:lakes_thickness",
+		"y_level": 24
+	}
 }

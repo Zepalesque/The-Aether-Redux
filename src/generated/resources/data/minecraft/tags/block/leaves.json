@@ -1,8 +1,8 @@
 {
-  "values": [
-    "aether_redux:gildenroot_leaves",
-    "aether_redux:stormroot_leaves",
-    "aether_redux:blightwillow_leaves",
-    "aether_redux:infected_blightwillow_leaves"
-  ]
+	"values": [
+		"aether_redux:gildenroot_leaves",
+		"aether_redux:stormroot_leaves",
+		"aether_redux:blightwillow_leaves",
+		"aether_redux:infected_blightwillow_leaves"
+	]
 }

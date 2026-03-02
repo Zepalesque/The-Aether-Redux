@@ -1,38 +1,38 @@
 {
-  "type": "zenith:large_rock",
-  "config": {
-    "block": {
-      "type": "minecraft:weighted_state_provider",
-      "entries": [
-        {
-          "data": {
-            "Name": "aether:holystone",
-            "Properties": {
-              "double_drops": "true"
-            }
-          },
-          "weight": 5
-        },
-        {
-          "data": {
-            "Name": "aether_redux:gilded_holystone",
-            "Properties": {
-              "double_drops": "true"
-            }
-          },
-          "weight": 3
-        },
-        {
-          "data": {
-            "Name": "aether:ambrosium_ore",
-            "Properties": {
-              "double_drops": "true"
-            }
-          },
-          "weight": 1
-        }
-      ]
-    },
-    "replaceable_states": "#aether_redux:rock_replaceable"
-  }
+	"type": "zenith:large_rock",
+	"config": {
+		"replaceable_states": "#aether_redux:rock_replaceable",
+		"block": {
+			"entries": [
+				{
+					"data": {
+						"Properties": {
+							"double_drops": "true"
+						},
+						"Name": "aether:holystone"
+					},
+					"weight": 5
+				},
+				{
+					"data": {
+						"Properties": {
+							"double_drops": "true"
+						},
+						"Name": "aether_redux:gilded_holystone"
+					},
+					"weight": 3
+				},
+				{
+					"data": {
+						"Properties": {
+							"double_drops": "true"
+						},
+						"Name": "aether:ambrosium_ore"
+					},
+					"weight": 1
+				}
+			],
+			"type": "minecraft:weighted_state_provider"
+		}
+	}
 }

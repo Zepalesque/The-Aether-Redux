@@ -5,6 +5,8 @@ import com.aetherteam.nitrogen.recipe.BlockPropertyPair;
 import com.aetherteam.nitrogen.recipe.BlockStateIngredient;
 import com.aetherteam.nitrogen.recipe.recipes.AbstractBlockStateRecipe;
 import com.aetherteam.nitrogen.recipe.serializer.BlockStateRecipeSerializer;
+import java.util.Optional;
+import javax.annotation.Nullable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
@@ -14,9 +16,6 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.zepalesque.redux.recipe.ReduxRecipes;
-
-import javax.annotation.Nullable;
-import java.util.Optional;
 
 public class WillowSporeRecipe extends AbstractBlockStateRecipe implements MatchEventRecipe {
     public WillowSporeRecipe(BlockStateIngredient ingredient, BlockPropertyPair result, Optional<ResourceLocation> function) {

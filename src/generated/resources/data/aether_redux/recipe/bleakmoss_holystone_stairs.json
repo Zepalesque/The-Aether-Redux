@@ -1,18 +1,14 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
-  "key": {
-    "#": {
-      "item": "aether_redux:bleakmoss_holystone"
-    }
-  },
-  "pattern": [
-    "#  ",
-    "## ",
-    "###"
-  ],
-  "result": {
-    "count": 4,
-    "id": "aether_redux:bleakmoss_holystone_stairs"
-  }
+	"result": {
+		"count": 4,
+		"id": "aether_redux:bleakmoss_holystone_stairs"
+	},
+	"pattern": ["#  ", "## ", "###"],
+	"type": "minecraft:crafting_shaped",
+	"category": "building",
+	"key": {
+		"#": {
+			"item": "aether_redux:bleakmoss_holystone"
+		}
+	}
 }

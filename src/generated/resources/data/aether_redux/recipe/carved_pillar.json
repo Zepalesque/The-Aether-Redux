@@ -1,18 +1,14 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
-  "key": {
-    "#": {
-      "item": "aether:carved_stone"
-    }
-  },
-  "pattern": [
-    "##",
-    "##",
-    "##"
-  ],
-  "result": {
-    "count": 6,
-    "id": "aether_redux:carved_pillar"
-  }
+	"result": {
+		"count": 6,
+		"id": "aether_redux:carved_pillar"
+	},
+	"pattern": ["##", "##", "##"],
+	"type": "minecraft:crafting_shaped",
+	"category": "building",
+	"key": {
+		"#": {
+			"item": "aether:carved_stone"
+		}
+	}
 }

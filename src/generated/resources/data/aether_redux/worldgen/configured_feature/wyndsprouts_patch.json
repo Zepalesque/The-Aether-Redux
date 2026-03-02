@@ -1,33 +1,33 @@
 {
-  "type": "minecraft:flower",
-  "config": {
-    "feature": {
-      "feature": {
-        "type": "minecraft:simple_block",
-        "config": {
-          "to_place": {
-            "type": "minecraft:simple_state_provider",
-            "state": {
-              "Name": "aether_redux:wyndsprouts",
-              "Properties": {
-                "enchanted": "false"
-              }
-            }
-          }
-        }
-      },
-      "placement": [
-        {
-          "type": "minecraft:block_predicate_filter",
-          "predicate": {
-            "type": "minecraft:matching_blocks",
-            "blocks": "minecraft:air"
-          }
-        }
-      ]
-    },
-    "tries": 24,
-    "xz_spread": 5,
-    "y_spread": 3
-  }
+	"type": "minecraft:flower",
+	"config": {
+		"xz_spread": 5,
+		"tries": 24,
+		"y_spread": 3,
+		"feature": {
+			"feature": {
+				"type": "minecraft:simple_block",
+				"config": {
+					"to_place": {
+						"state": {
+							"Properties": {
+								"enchanted": "false"
+							},
+							"Name": "aether_redux:wyndsprouts"
+						},
+						"type": "minecraft:simple_state_provider"
+					}
+				}
+			},
+			"placement": [
+				{
+					"predicate": {
+						"blocks": "minecraft:air",
+						"type": "minecraft:matching_blocks"
+					},
+					"type": "minecraft:block_predicate_filter"
+				}
+			]
+		}
+	}
 }

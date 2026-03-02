@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "aether_redux:block/potted_flareblossom"
-    }
-  }
+	"variants": {
+		"": {
+			"model": "aether_redux:block/potted_flareblossom"
+		}
+	}
 }

@@ -1,4 +1,4 @@
 {
-  "type": "minecraft:block",
-  "random_sequence": "aether_redux:blocks/locked_carved_base"
+	"random_sequence": "aether_redux:blocks/locked_carved_base",
+	"type": "minecraft:block"
 }

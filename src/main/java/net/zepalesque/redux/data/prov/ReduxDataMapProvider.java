@@ -1,5 +1,7 @@
 package net.zepalesque.redux.data.prov;
 
+import java.util.concurrent.CompletableFuture;
+import java.util.function.Supplier;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.data.PackOutput;
@@ -7,9 +9,6 @@ import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.DataMapProvider;
 import net.zepalesque.redux.api.WeightedParticleEntry;
 import net.zepalesque.unity.data.prov.UnityDataMapProvider;
-
-import java.util.concurrent.CompletableFuture;
-import java.util.function.Supplier;
 
 public abstract class ReduxDataMapProvider extends UnityDataMapProvider {
 

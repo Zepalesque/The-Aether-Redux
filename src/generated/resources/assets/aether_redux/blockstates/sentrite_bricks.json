@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "aether_redux:block/sentrite_bricks"
-    }
-  }
+	"variants": {
+		"": {
+			"model": "aether_redux:block/sentrite_bricks"
+		}
+	}
 }

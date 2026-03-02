@@ -1,35 +1,35 @@
 {
-  "type": "minecraft:block",
-  "pools": [
-    {
-      "bonus_rolls": 0.0,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "conditions": [
-                {
-                  "block": "aether_redux:crystal_slab",
-                  "condition": "minecraft:block_state_property",
-                  "properties": {
-                    "type": "double"
-                  }
-                }
-              ],
-              "count": 2.0,
-              "function": "minecraft:set_count"
-            },
-            {
-              "function": "minecraft:explosion_decay"
-            }
-          ],
-          "name": "aether_redux:crystal_slab"
-        }
-      ],
-      "rolls": 1.0
-    }
-  ],
-  "random_sequence": "aether_redux:blocks/crystal_slab"
+	"pools": [
+		{
+			"entries": [
+				{
+					"functions": [
+						{
+							"add": false,
+							"function": "minecraft:set_count",
+							"count": 2,
+							"conditions": [
+								{
+									"condition": "minecraft:block_state_property",
+									"block": "aether_redux:crystal_slab",
+									"properties": {
+										"type": "double"
+									}
+								}
+							]
+						},
+						{
+							"function": "minecraft:explosion_decay"
+						}
+					],
+					"name": "aether_redux:crystal_slab",
+					"type": "minecraft:item"
+				}
+			],
+			"rolls": 1,
+			"bonus_rolls": 0
+		}
+	],
+	"random_sequence": "aether_redux:blocks/crystal_slab",
+	"type": "minecraft:block"
 }

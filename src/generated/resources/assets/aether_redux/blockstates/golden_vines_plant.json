@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "aether_redux:block/golden_vines_plant"
-    }
-  }
+	"variants": {
+		"": {
+			"model": "aether_redux:block/golden_vines_plant"
+		}
+	}
 }

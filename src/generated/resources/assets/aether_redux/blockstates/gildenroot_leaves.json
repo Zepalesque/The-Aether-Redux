@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "aether_redux:block/gildenroot_leaves"
-    }
-  }
+	"variants": {
+		"": {
+			"model": "aether_redux:block/gildenroot_leaves"
+		}
+	}
 }

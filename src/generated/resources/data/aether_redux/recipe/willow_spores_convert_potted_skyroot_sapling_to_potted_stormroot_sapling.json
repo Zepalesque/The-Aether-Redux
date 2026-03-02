@@ -1,9 +1,9 @@
 {
-  "type": "aether_redux:willow_spore_blighting",
-  "ingredient": {
-    "block": "aether:potted_skyroot_sapling"
-  },
-  "result": {
-    "block": "aether_redux:potted_stormroot_sapling"
-  }
+	"result": {
+		"block": "aether_redux:potted_stormroot_sapling"
+	},
+	"ingredient": {
+		"block": "aether:potted_skyroot_sapling"
+	},
+	"type": "aether_redux:willow_spore_blighting"
 }

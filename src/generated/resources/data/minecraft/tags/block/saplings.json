@@ -1,7 +1,7 @@
 {
-  "values": [
-    "aether_redux:gildenroot_sapling",
-    "aether_redux:stormroot_sapling",
-    "aether_redux:blightwillow_sapling"
-  ]
+	"values": [
+		"aether_redux:gildenroot_sapling",
+		"aether_redux:stormroot_sapling",
+		"aether_redux:blightwillow_sapling"
+	]
 }

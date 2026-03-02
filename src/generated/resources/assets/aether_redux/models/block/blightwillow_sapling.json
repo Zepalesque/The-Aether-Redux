@@ -1,7 +1,7 @@
 {
-  "parent": "minecraft:block/cross",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "cross": "aether_redux:block/natural/blightwillow_sapling"
-  }
+	"parent": "minecraft:block/cross",
+	"textures": {
+		"cross": "aether_redux:block/natural/blightwillow_sapling"
+	},
+	"render_type": "minecraft:cutout"
 }

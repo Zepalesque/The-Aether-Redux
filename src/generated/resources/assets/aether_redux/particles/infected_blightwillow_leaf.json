@@ -1,5 +1,3 @@
 {
-  "textures": [
-    "aether_redux:leaves/infected_blightwillow"
-  ]
+	"textures": ["aether_redux:leaves/infected_blightwillow"]
 }

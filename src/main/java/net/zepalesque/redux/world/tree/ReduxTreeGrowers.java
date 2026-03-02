@@ -1,9 +1,8 @@
 package net.zepalesque.redux.world.tree;
 
+import java.util.Optional;
 import net.minecraft.world.level.block.grower.TreeGrower;
 import net.zepalesque.redux.data.resource.registries.ReduxFeatureConfig;
-
-import java.util.Optional;
 
 public class ReduxTreeGrowers {
 

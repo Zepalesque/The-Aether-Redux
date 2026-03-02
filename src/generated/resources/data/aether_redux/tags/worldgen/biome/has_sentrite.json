@@ -1,8 +1,4 @@
 {
-  "remove": [
-    "aether_redux:gilded_groves"
-  ],
-  "values": [
-    "#aether:is_aether"
-  ]
+	"values": ["#aether:is_aether"],
+	"remove": ["aether_redux:gilded_groves"]
 }

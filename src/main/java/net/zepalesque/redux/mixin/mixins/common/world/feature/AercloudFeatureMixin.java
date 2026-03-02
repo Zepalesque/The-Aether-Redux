@@ -94,8 +94,7 @@ public abstract class AercloudFeatureMixin extends FeatureMixin<AercloudConfigur
         cir.setReturnValue(true);
     }
 
-    @Unique
-    private static Vector3f redux$sampleDirection(RandomSource random, float yRange, Vector3f destination) {
+    @Unique private static Vector3f redux$sampleDirection(RandomSource random, float yRange, Vector3f destination) {
         float thetaXZ = random.nextFloat() * Mth.TWO_PI;
         float sinThetaY = Mth.randomBetween(random, -yRange, yRange);
         float cosThetaY = Mth.sqrt(1.0f - sinThetaY * sinThetaY);

@@ -1,9 +1,9 @@
 {
-  "type": "aether_redux:willow_spore_blighting",
-  "ingredient": {
-    "block": "aether:skyroot_leaves"
-  },
-  "result": {
-    "block": "aether_redux:stormroot_leaves"
-  }
+	"result": {
+		"block": "aether_redux:stormroot_leaves"
+	},
+	"ingredient": {
+		"block": "aether:skyroot_leaves"
+	},
+	"type": "aether_redux:willow_spore_blighting"
 }

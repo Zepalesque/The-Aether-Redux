@@ -2,6 +2,8 @@ package net.zepalesque.redux.data.prov.loot;
 
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether.loot.functions.DoubleDrops;
+import java.util.Set;
+import java.util.function.Function;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
@@ -26,9 +28,6 @@ import net.zepalesque.redux.block.backport.MossyCarpetBlock;
 import net.zepalesque.redux.block.state.ReduxStates;
 import net.zepalesque.redux.data.ReduxTags;
 import net.zepalesque.unity.data.prov.loot.UnityBlockLootProvider;
-
-import java.util.Set;
-import java.util.function.Function;
 
 // Many of these are just public overrides with no differences, as this is used by the BlockSets
 public abstract class ReduxBlockLootProvider extends UnityBlockLootProvider {

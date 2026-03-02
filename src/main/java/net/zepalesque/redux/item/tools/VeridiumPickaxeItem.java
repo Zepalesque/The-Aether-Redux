@@ -1,5 +1,8 @@
 package net.zepalesque.redux.item.tools;
 
+import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -15,13 +18,9 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.zepalesque.redux.data.ReduxTags;
-import net.zepalesque.redux.util.item.TooltipUtils;
 import net.zepalesque.redux.item.components.ReduxDataComponents;
+import net.zepalesque.redux.util.item.TooltipUtils;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.List;
-import java.util.function.Consumer;
-import java.util.function.Supplier;
 
 public class VeridiumPickaxeItem extends PickaxeItem implements VeridiumItem {
     private final Supplier<? extends Item> uninfused;

@@ -1,10 +1,10 @@
 {
-  "values": [
-    "aether_redux:polished_sentrite",
-    "aether_redux:carved_pillar",
-    "aether_redux:sentry_pillar",
-    "aether_redux:carved_base",
-    "aether_redux:sentry_base",
-    "aether_redux:runelight"
-  ]
+	"values": [
+		"aether_redux:polished_sentrite",
+		"aether_redux:carved_pillar",
+		"aether_redux:sentry_pillar",
+		"aether_redux:carved_base",
+		"aether_redux:sentry_base",
+		"aether_redux:runelight"
+	]
 }

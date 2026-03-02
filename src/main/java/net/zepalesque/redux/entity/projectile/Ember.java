@@ -2,6 +2,10 @@
 package net.zepalesque.redux.entity.projectile;
 
 import com.aetherteam.nitrogen.entity.BossMob;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.UUID;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.IntArrayTag;
@@ -30,11 +34,6 @@ import net.zepalesque.redux.client.particle.ReduxParticles;
 import net.zepalesque.redux.entity.ReduxEntities;
 import net.zepalesque.zenith.util.math.VectorUtil;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.UUID;
 
 public class Ember extends Projectile {
     public Ember(EntityType<? extends Ember> entityType, Level level) {
@@ -223,4 +222,3 @@ public class Ember extends Projectile {
         this.setDeltaMovement(dx, dy, dz);
     }
 }
-

@@ -1,18 +1,14 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "misc",
-  "key": {
-    "#": {
-      "item": "aether_redux:veridium_nugget"
-    }
-  },
-  "pattern": [
-    "###",
-    "###",
-    "###"
-  ],
-  "result": {
-    "count": 1,
-    "id": "aether_redux:veridium_ingot"
-  }
+	"result": {
+		"count": 1,
+		"id": "aether_redux:veridium_ingot"
+	},
+	"pattern": ["###", "###", "###"],
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"key": {
+		"#": {
+			"item": "aether_redux:veridium_nugget"
+		}
+	}
 }

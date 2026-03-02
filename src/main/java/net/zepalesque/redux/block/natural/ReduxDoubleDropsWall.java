@@ -2,14 +2,13 @@ package net.zepalesque.redux.block.natural;
 
 import com.aetherteam.aether.block.AetherBlockStateProperties;
 import com.google.common.collect.ImmutableMap;
+import java.util.Map;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.zepalesque.redux.mixin.mixins.common.accessor.WallBlockAccessor;
-
-import java.util.Map;
 
 // TODO: Replace with Nitrogen version
 public class ReduxDoubleDropsWall extends WallBlock {

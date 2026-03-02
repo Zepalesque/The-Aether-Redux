@@ -1,14 +1,13 @@
 package net.zepalesque.redux.block.natural;
 
 import com.google.common.collect.ImmutableMap;
+import java.util.Map;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.zepalesque.redux.block.state.ReduxStates;
 import net.zepalesque.redux.mixin.mixins.common.accessor.WallBlockAccessor;
-
-import java.util.Map;
 
 public class ReduxNaturalWall extends ReduxDoubleDropsWall {
     public ReduxNaturalWall(Properties properties) {

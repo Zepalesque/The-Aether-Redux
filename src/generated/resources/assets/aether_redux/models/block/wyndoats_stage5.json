@@ -1,7 +1,7 @@
 {
-  "parent": "aether_redux:block/template/crop/crop_lowered",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "plant": "aether_redux:block/crop/wyndoats_stage5"
-  }
+	"parent": "aether_redux:block/template/crop/crop_lowered",
+	"textures": {
+		"plant": "aether_redux:block/crop/wyndoats_stage5"
+	},
+	"render_type": "minecraft:cutout"
 }

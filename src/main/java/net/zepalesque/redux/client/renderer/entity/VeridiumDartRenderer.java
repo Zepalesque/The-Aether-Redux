@@ -1,6 +1,7 @@
 package net.zepalesque.redux.client.renderer.entity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import javax.annotation.Nonnull;
 import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.ArrowRenderer;
@@ -8,8 +9,6 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.entity.projectile.VeridiumDart;
-
-import javax.annotation.Nonnull;
 
 public class VeridiumDartRenderer extends ArrowRenderer<VeridiumDart> {
     public static final ResourceLocation INFUSED_TEXTURE = Redux.loc("textures/entity/projectile/dart/infused_veridium_dart.png");

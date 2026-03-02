@@ -1,6 +1,9 @@
 package net.zepalesque.redux.item.combat;
 
 import com.aetherteam.aether.item.combat.DartShooterItem;
+import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -14,10 +17,6 @@ import net.zepalesque.redux.item.components.ReduxDataComponents;
 import net.zepalesque.redux.item.tools.VeridiumItem;
 import net.zepalesque.redux.util.item.TooltipUtils;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.List;
-import java.util.function.Consumer;
-import java.util.function.Supplier;
 
 public class VeridiumDartShooter extends DartShooterItem implements VeridiumItem {
     private final Supplier<? extends Item> uninfused;

@@ -3,6 +3,8 @@ package net.zepalesque.redux.data.prov;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.dungeon.DoorwayBlock;
 import com.google.common.collect.ImmutableMap;
+import java.util.Map;
+import java.util.TreeMap;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
 import net.minecraft.data.PackOutput;
@@ -37,9 +39,6 @@ import net.zepalesque.redux.block.state.enums.LogicatorMode;
 import net.zepalesque.unity.Unity;
 import net.zepalesque.unity.data.prov.UnityBlockStateProvider;
 import net.zepalesque.zenith.util.ArrayUtil;
-
-import java.util.Map;
-import java.util.TreeMap;
 
 public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
 

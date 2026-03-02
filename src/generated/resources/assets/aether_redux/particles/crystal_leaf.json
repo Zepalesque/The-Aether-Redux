@@ -1,5 +1,3 @@
 {
-  "textures": [
-    "aether_redux:leaves/crystal"
-  ]
+	"textures": ["aether_redux:leaves/crystal"]
 }

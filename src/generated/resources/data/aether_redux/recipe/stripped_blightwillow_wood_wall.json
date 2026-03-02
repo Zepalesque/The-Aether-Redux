@@ -1,17 +1,14 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
-  "key": {
-    "#": {
-      "item": "aether_redux:stripped_blightwillow_wood"
-    }
-  },
-  "pattern": [
-    "###",
-    "###"
-  ],
-  "result": {
-    "count": 6,
-    "id": "aether_redux:stripped_blightwillow_wood_wall"
-  }
+	"result": {
+		"count": 6,
+		"id": "aether_redux:stripped_blightwillow_wood_wall"
+	},
+	"pattern": ["###", "###"],
+	"type": "minecraft:crafting_shaped",
+	"category": "building",
+	"key": {
+		"#": {
+			"item": "aether_redux:stripped_blightwillow_wood"
+		}
+	}
 }

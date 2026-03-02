@@ -2,6 +2,7 @@ package net.zepalesque.redux.client.event.listener;
 
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.mojang.blaze3d.vertex.PoseStack;
+import java.util.stream.StreamSupport;
 import net.minecraft.client.Camera;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
@@ -25,8 +26,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.renderer.api.IPostRenderer;
-
-import java.util.stream.StreamSupport;
 
 @EventBusSubscriber(Dist.CLIENT)
 public class RenderListener {

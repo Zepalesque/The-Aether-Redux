@@ -3,6 +3,8 @@ package net.zepalesque.redux;
 import com.google.common.reflect.Reflection;
 import com.mojang.logging.LogUtils;
 import io.github.razordevs.aeroblender.aether.AetherRuleCategory;
+import java.util.ArrayList;
+import java.util.Collection;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -54,9 +56,6 @@ import net.zepalesque.zenith.api.packconfig.PackConfig;
 import org.slf4j.Logger;
 import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
-
-import java.util.ArrayList;
-import java.util.Collection;
 
 @Mod(Redux.MODID)
 public class Redux {

@@ -1,7 +1,6 @@
 package net.zepalesque.redux.data.prov;
 
 import com.aetherteam.aether.Aether;
-
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;

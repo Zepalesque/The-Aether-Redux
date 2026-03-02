@@ -1,6 +1,7 @@
 package net.zepalesque.redux.block.natural;
 
 import com.mojang.serialization.MapCodec;
+import javax.annotation.Nullable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.FluidTags;
@@ -19,8 +20,6 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-
-import javax.annotation.Nullable;
 
 public class BloomtailBlock extends BushBlock implements LiquidBlockContainer {
 	public static final MapCodec<BloomtailBlock> CODEC = simpleCodec(BloomtailBlock::new);
@@ -46,8 +45,7 @@ public class BloomtailBlock extends BushBlock implements LiquidBlockContainer {
 	}
 	
 	// require wabter
-	@Nullable
-	@Override
+	@Nullable @Override
 	public BlockState getStateForPlacement(BlockPlaceContext ctx) {
 		var fluid = ctx.getLevel().getFluidState(ctx.getClickedPos());
 		return fluid.is(FluidTags.WATER) && fluid.getAmount() == 8 ? super.getStateForPlacement(ctx) : null;

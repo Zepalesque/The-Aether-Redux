@@ -1,7 +1,7 @@
 {
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "aether_redux:block/dungeon/carved_pillar_top",
-    "side": "aether_redux:block/dungeon/carved_pillar_side"
-  }
+	"parent": "minecraft:block/cube_column",
+	"textures": {
+		"side": "aether_redux:block/dungeon/carved_pillar_side",
+		"end": "aether_redux:block/dungeon/carved_pillar_top"
+	}
 }

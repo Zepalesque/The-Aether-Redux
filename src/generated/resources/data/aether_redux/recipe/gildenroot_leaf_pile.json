@@ -1,16 +1,14 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "misc",
-  "key": {
-    "#": {
-      "item": "aether_redux:gildenroot_leaves"
-    }
-  },
-  "pattern": [
-    "##"
-  ],
-  "result": {
-    "count": 6,
-    "id": "aether_redux:gildenroot_leaf_pile"
-  }
+	"result": {
+		"count": 6,
+		"id": "aether_redux:gildenroot_leaf_pile"
+	},
+	"pattern": ["##"],
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"key": {
+		"#": {
+			"item": "aether_redux:gildenroot_leaves"
+		}
+	}
 }

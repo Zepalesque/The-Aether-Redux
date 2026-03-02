@@ -1,6 +1,3 @@
 {
-  "values": [
-    "aether_redux:crystal_planks",
-    "aether_redux:blightwillow_planks"
-  ]
+	"values": ["aether_redux:crystal_planks", "aether_redux:blightwillow_planks"]
 }

@@ -1,18 +1,14 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
-  "key": {
-    "#": {
-      "item": "aether:sentry_stone"
-    }
-  },
-  "pattern": [
-    "##",
-    "##",
-    "##"
-  ],
-  "result": {
-    "count": 6,
-    "id": "aether_redux:sentry_pillar"
-  }
+	"result": {
+		"count": 6,
+		"id": "aether_redux:sentry_pillar"
+	},
+	"pattern": ["##", "##", "##"],
+	"type": "minecraft:crafting_shaped",
+	"category": "building",
+	"key": {
+		"#": {
+			"item": "aether:sentry_stone"
+		}
+	}
 }

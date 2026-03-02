@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "aether_redux:block/sentry_base"
-    }
-  }
+	"variants": {
+		"": {
+			"model": "aether_redux:block/sentry_base"
+		}
+	}
 }

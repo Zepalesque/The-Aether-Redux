@@ -29,8 +29,7 @@ public class LayeredBookshelfBlock extends BookshelfBlock {
         builder.add(DOWN);
     }
 
-    @Nullable
-    @Override
+    @Nullable @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         return getState(context.getLevel(), context.getClickedPos());
     }

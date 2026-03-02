@@ -1,6 +1,6 @@
 {
-  "values": [
-    "aether:aether_grass_block",
-    "aether_redux:blighted_aether_grass_block"
-  ]
+	"values": [
+		"aether:aether_grass_block",
+		"aether_redux:blighted_aether_grass_block"
+	]
 }

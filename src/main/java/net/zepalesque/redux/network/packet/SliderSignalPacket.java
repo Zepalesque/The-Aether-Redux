@@ -2,6 +2,7 @@ package net.zepalesque.redux.network.packet;
 
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import com.aetherteam.aether.entity.monster.dungeon.boss.Slider;
+import java.util.Optional;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.Direction;
@@ -14,8 +15,6 @@ import net.neoforged.neoforge.network.handling.IPayloadContext;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.attachment.ReduxDataAttachments;
 import net.zepalesque.redux.attachment.SliderSignalAttachment;
-
-import java.util.Optional;
 
 public class SliderSignalPacket {
 

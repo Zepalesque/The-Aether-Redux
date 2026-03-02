@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "aether_redux:block/gildenmoss_carpet"
-    }
-  }
+	"variants": {
+		"": {
+			"model": "aether_redux:block/gildenmoss_carpet"
+		}
+	}
 }

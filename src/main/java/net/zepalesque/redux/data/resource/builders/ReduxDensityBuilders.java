@@ -3,6 +3,8 @@ package net.zepalesque.redux.data.resource.builders;
 import com.aetherteam.aether.block.AetherBlockStateProperties;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.resources.builders.AetherNoiseBuilders;
+import java.util.List;
+import java.util.Optional;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistryAccess;
@@ -19,9 +21,6 @@ import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.data.resource.registries.ReduxDensityFunctions;
 import net.zepalesque.redux.mixin.mixins.common.accessor.AetherNoiseBuildersMixin;
-
-import java.util.List;
-import java.util.Optional;
 
 public class ReduxDensityBuilders {
 

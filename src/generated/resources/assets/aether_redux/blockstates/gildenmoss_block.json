@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "aether_redux:block/gildenmoss_block"
-    }
-  }
+	"variants": {
+		"": {
+			"model": "aether_redux:block/gildenmoss_block"
+		}
+	}
 }

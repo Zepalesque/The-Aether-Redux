@@ -1,7 +1,7 @@
 {
-  "parent": "minecraft:block/flower_pot_cross",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "plant": "aether_redux:block/natural/enchanted_aurum"
-  }
+	"parent": "minecraft:block/flower_pot_cross",
+	"textures": {
+		"plant": "aether_redux:block/natural/enchanted_aurum"
+	},
+	"render_type": "minecraft:cutout"
 }

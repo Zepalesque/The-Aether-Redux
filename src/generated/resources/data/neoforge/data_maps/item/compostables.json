@@ -1,70 +1,70 @@
 {
-  "values": {
-    "aether_redux:aurum": {
-      "chance": 0.3
-    },
-    "aether_redux:blightwillow_leaf_pile": {
-      "chance": 0.3
-    },
-    "aether_redux:blightwillow_leaves": {
-      "chance": 0.3
-    },
-    "aether_redux:blightwillow_sapling": {
-      "chance": 0.3
-    },
-    "aether_redux:bloomtail": {
-      "chance": 0.3
-    },
-    "aether_redux:caelgae_clump": {
-      "chance": 0.65
-    },
-    "aether_redux:caelgae_patch": {
-      "chance": 0.65
-    },
-    "aether_redux:flareblossom": {
-      "chance": 0.65
-    },
-    "aether_redux:gildenroot_leaf_pile": {
-      "chance": 0.3
-    },
-    "aether_redux:gildenroot_leaves": {
-      "chance": 0.3
-    },
-    "aether_redux:gildenroot_sapling": {
-      "chance": 0.3
-    },
-    "aether_redux:gloomshade": {
-      "chance": 0.65
-    },
-    "aether_redux:infected_blightwillow_leaves": {
-      "chance": 0.5
-    },
-    "aether_redux:lucky_clover": {
-      "chance": 0.65
-    },
-    "aether_redux:spirolyctil": {
-      "chance": 0.65
-    },
-    "aether_redux:stormroot_leaf_pile": {
-      "chance": 0.3
-    },
-    "aether_redux:stormroot_leaves": {
-      "chance": 0.3
-    },
-    "aether_redux:stormroot_sapling": {
-      "chance": 0.3
-    },
-    "aether_redux:turbo_verbena": {
-      "chance": 0.3
-    },
-    "aether_redux:wynd_oat_panicle": {
-      "chance": 0.65
-    },
-    "aether_redux:wynd_oats": {
-      "chance": 0.3
-    },
-    "aether_redux:wyndsprouts": {
-      "chance": 0.3
-    }
-  }
+	"values": {
+		"aether_redux:aurum": {
+			"chance": 0.3
+		},
+		"aether_redux:blightwillow_leaf_pile": {
+			"chance": 0.3
+		},
+		"aether_redux:blightwillow_leaves": {
+			"chance": 0.3
+		},
+		"aether_redux:blightwillow_sapling": {
+			"chance": 0.3
+		},
+		"aether_redux:bloomtail": {
+			"chance": 0.3
+		},
+		"aether_redux:caelgae_clump": {
+			"chance": 0.65
+		},
+		"aether_redux:caelgae_patch": {
+			"chance": 0.65
+		},
+		"aether_redux:flareblossom": {
+			"chance": 0.65
+		},
+		"aether_redux:gildenroot_leaf_pile": {
+			"chance": 0.3
+		},
+		"aether_redux:gildenroot_leaves": {
+			"chance": 0.3
+		},
+		"aether_redux:gildenroot_sapling": {
+			"chance": 0.3
+		},
+		"aether_redux:gloomshade": {
+			"chance": 0.65
+		},
+		"aether_redux:infected_blightwillow_leaves": {
+			"chance": 0.5
+		},
+		"aether_redux:lucky_clover": {
+			"chance": 0.65
+		},
+		"aether_redux:spirolyctil": {
+			"chance": 0.65
+		},
+		"aether_redux:stormroot_leaf_pile": {
+			"chance": 0.3
+		},
+		"aether_redux:stormroot_leaves": {
+			"chance": 0.3
+		},
+		"aether_redux:stormroot_sapling": {
+			"chance": 0.3
+		},
+		"aether_redux:turbo_verbena": {
+			"chance": 0.3
+		},
+		"aether_redux:wynd_oat_panicle": {
+			"chance": 0.65
+		},
+		"aether_redux:wynd_oats": {
+			"chance": 0.3
+		},
+		"aether_redux:wyndsprouts": {
+			"chance": 0.3
+		}
+	}
 }

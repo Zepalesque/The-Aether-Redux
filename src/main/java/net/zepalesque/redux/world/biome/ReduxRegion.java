@@ -3,6 +3,7 @@ package net.zepalesque.redux.world.biome;
 import com.aetherteam.aether.data.resources.registries.AetherBiomes;
 import com.mojang.datafixers.util.Pair;
 import io.github.razordevs.aeroblender.aether.AetherRegionType;
+import java.util.function.Consumer;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -10,8 +11,6 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Climate;
 import net.zepalesque.redux.data.resource.registries.ReduxBiomes;
 import terrablender.api.Region;
-
-import java.util.function.Consumer;
 
 public class ReduxRegion extends Region {
 

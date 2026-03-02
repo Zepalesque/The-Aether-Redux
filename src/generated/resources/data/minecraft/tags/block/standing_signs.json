@@ -1,6 +1,3 @@
 {
-  "values": [
-    "aether_redux:crystal_sign",
-    "aether_redux:blightwillow_sign"
-  ]
+	"values": ["aether_redux:crystal_sign", "aether_redux:blightwillow_sign"]
 }

@@ -1,9 +1,17 @@
 package net.zepalesque.redux.blockset.stone.type;
 
+import static net.zepalesque.redux.data.prov.ReduxRecipeProvider.*;
+
 import com.aetherteam.aether.block.natural.AetherDoubleDropBlock;
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 import com.mojang.datafixers.util.Pair;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Supplier;
+import javax.annotation.Nullable;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
@@ -41,15 +49,6 @@ import net.zepalesque.zenith.api.blockset.type.AbstractStoneSet;
 import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
 import net.zepalesque.zenith.util.data.DatagenUtil;
 import net.zepalesque.zenith.util.item.TabUtil;
-
-import javax.annotation.Nullable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.function.Supplier;
-
-import static net.zepalesque.redux.data.prov.ReduxRecipeProvider.*;
 
 public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGeneration<BaseStoneSet> {
 
@@ -559,8 +558,7 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
 
     // Ignore the prev value, implementation is different here
     @Override
-    @Nullable
-    public ItemLike addToCreativeTab(BuildCreativeModeTabContentsEvent event, @Nullable ItemLike prev, TabAdditionPhase phase) {
+    @Nullable public ItemLike addToCreativeTab(BuildCreativeModeTabContentsEvent event, @Nullable ItemLike prev, TabAdditionPhase phase) {
         for (var triple : this.afterOrdering.cellSet()) {
             var tabToAddTo = triple.getRowKey();
             if (TabUtil.isForTab(event, tabToAddTo)) {
