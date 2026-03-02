@@ -1,7 +1,5 @@
 package net.zepalesque.redux.block.natural;
 
-import com.aetherteam.aether.block.AetherBlocks;
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.world.effect.MobEffect;
