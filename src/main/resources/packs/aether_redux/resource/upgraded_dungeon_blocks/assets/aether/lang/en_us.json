@@ -1,0 +1,20 @@
+{
+  "block.aether.angelic_slab": "Angilite Tile Slab",
+  "block.aether.angelic_stairs": "Angilite Tile Stairs",
+  "block.aether.angelic_stone": "Angilite Tiles",
+  "block.aether.angelic_wall": "Angilite Tile Wall",
+  "block.aether.boss_doorway_angelic_stone": "Boss Doorway Angilite Tiles",
+  "block.aether.boss_doorway_light_angelic_stone": "Boss Doorway Divine Angilite Tiles",
+  "block.aether.light_angelic_stone": "Divine Angilite Tiles",
+  "block.aether.locked_angelic_stone": "Locked Angilite Tiles",
+  "block.aether.locked_light_angelic_stone": "Locked Divine Angilite Tiles",
+  "block.aether.trapped_angelic_stone": "Trapped Angilite Tiles",
+  "block.aether.trapped_light_angelic_stone": "Trapped Divine Angilite Tiles",
+  "block.aether.treasure_doorway_angelic_stone": "Treasure Doorway Angilite Tiles",
+  "block.aether.treasure_doorway_light_angelic_stone": "Treasure Doorway Divine Angilite Tiles",
+  "lore.block.aether.angelic_slab": "Crafted from Angilite Tiles. Slabs are half blocks, versatile for decoration and smooth slopes. Try adding some to a building's roofing!",
+  "lore.block.aether.angelic_stairs": "Crafted from Angilite Tiles. Stairs are useful for adding verticality to builds and are often used for decoration too!",
+  "lore.block.aether.angelic_stone": "Crafted from Polished Angilite. Angilite Tiles are the main block that make up Silver Dungeons. There is a chance some of them can be traps when generated in dungeons, but you cannot collect them as traps. It is unbreakable until you have defeated the boss, but it's worth it for that block.",
+  "lore.block.aether.angelic_wall": "Crafted from Angilite Tiles. Can be used for decorative enclosures and defenses. Great for keeping nasty intruders away!",
+  "lore.block.aether.light_angelic_stone": "The glowing version of Angilite Tiles. It is less common than Angilite Tiles, but it looks really nice as a decorative block."
+}
