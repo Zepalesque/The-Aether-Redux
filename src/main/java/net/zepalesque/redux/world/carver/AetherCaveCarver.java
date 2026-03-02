@@ -19,8 +19,7 @@ public class AetherCaveCarver extends CaveWorldCarver {
         super(codec);
     }
 
-    @Nullable
-    @Override
+    @Nullable @Override
     public BlockState getCarveState(CarvingContext context, CaveCarverConfiguration config, BlockPos pos, Aquifer aquifer) {
         if (isDebugEnabled(config)) return aetherDebugState(config, CAVE_AIR);
         else return CAVE_AIR;

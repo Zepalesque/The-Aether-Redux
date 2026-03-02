@@ -1,5 +1,3 @@
 {
-  "textures": [
-    "aether_redux:leaves/skyroot"
-  ]
+	"textures": ["aether_redux:leaves/skyroot"]
 }

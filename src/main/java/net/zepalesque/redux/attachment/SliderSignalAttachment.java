@@ -1,6 +1,7 @@
 package net.zepalesque.redux.attachment;
 
 import com.aetherteam.aether.entity.monster.dungeon.boss.Slider;
+import java.util.Optional;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
@@ -12,20 +13,16 @@ import net.zepalesque.redux.network.packet.SliderSignalPacket;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Optional;
-
 // Client-Side
 public class SliderSignalAttachment {
 
     protected int signalTick = 0;
 
-    @Nullable
-    protected Direction overrideDirection = null;
+    @Nullable protected Direction overrideDirection = null;
 
     protected boolean hasOverriden = false;
 
-    @Nullable
-    protected Entity target = null;
+    @Nullable protected Entity target = null;
 
 
     public void onUpdate(Slider slider) {
@@ -137,8 +134,7 @@ public class SliderSignalAttachment {
         this.target = entity;
     }
 
-    @Nullable
-    public Entity getTarget(Slider slider) {
+    @Nullable public Entity getTarget(Slider slider) {
         return this.target;
     }
 }

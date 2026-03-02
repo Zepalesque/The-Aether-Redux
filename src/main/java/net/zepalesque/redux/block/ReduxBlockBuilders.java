@@ -1,13 +1,12 @@
 package net.zepalesque.redux.block;
 
 import com.google.common.base.Supplier;
+import java.util.function.Function;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.zepalesque.redux.item.ReduxItems;
-
-import java.util.function.Function;
 
 public class ReduxBlockBuilders {
     

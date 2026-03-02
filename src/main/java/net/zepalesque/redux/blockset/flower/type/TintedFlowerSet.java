@@ -1,9 +1,8 @@
 package net.zepalesque.redux.blockset.flower.type;
 
+import java.util.function.Supplier;
 import net.minecraft.world.level.block.Block;
 import net.zepalesque.redux.blockset.util.TintableSet;
-
-import java.util.function.Supplier;
 
 public abstract class TintedFlowerSet<B extends Block> extends BaseFlowerSet<B> implements TintableSet {
     private final int tintdex, itemTint;

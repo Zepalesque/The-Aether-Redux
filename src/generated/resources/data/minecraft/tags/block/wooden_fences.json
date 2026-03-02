@@ -1,6 +1,3 @@
 {
-  "values": [
-    "aether_redux:crystal_fence",
-    "aether_redux:blightwillow_fence"
-  ]
+	"values": ["aether_redux:crystal_fence", "aether_redux:blightwillow_fence"]
 }

@@ -2,6 +2,10 @@ package net.zepalesque.redux.data.gen;
 
 import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.item.AetherItems;
+import java.util.List;
+import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
+import java.util.function.Consumer;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.advancements.AdvancementType;
@@ -18,11 +22,6 @@ import net.neoforged.neoforge.common.data.AdvancementProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.advancement.ReduxAdvancementTriggers;
-
-import java.util.List;
-import java.util.Optional;
-import java.util.concurrent.CompletableFuture;
-import java.util.function.Consumer;
 
 public class ReduxAdvancementData extends AdvancementProvider {
     

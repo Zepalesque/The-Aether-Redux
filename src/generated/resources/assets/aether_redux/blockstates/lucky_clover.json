@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "aether_redux:block/lucky_clover"
-    }
-  }
+	"variants": {
+		"": {
+			"model": "aether_redux:block/lucky_clover"
+		}
+	}
 }

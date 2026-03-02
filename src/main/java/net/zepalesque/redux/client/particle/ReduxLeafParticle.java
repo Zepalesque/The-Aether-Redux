@@ -1,5 +1,6 @@
 package net.zepalesque.redux.client.particle;
 
+import java.util.List;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.ParticleProvider;
@@ -12,8 +13,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
-
-import java.util.List;
 
 // TODO: Apply horizontal friction to particles touching the SIDE of a block
 @OnlyIn(Dist.CLIENT)

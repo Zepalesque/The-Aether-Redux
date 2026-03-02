@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "aether_redux:block/bleakmoss_holystone"
-    }
-  }
+	"variants": {
+		"": {
+			"model": "aether_redux:block/bleakmoss_holystone"
+		}
+	}
 }

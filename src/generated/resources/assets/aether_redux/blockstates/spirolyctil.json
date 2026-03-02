@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "aether_redux:block/spirolyctil"
-    }
-  }
+	"variants": {
+		"": {
+			"model": "aether_redux:block/spirolyctil"
+		}
+	}
 }

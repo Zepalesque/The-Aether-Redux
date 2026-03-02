@@ -1,9 +1,9 @@
 {
-  "type": "aether_redux:willow_spore_blighting",
-  "ingredient": {
-    "block": "aether_redux:gilded_holystone_wall"
-  },
-  "result": {
-    "block": "aether:mossy_holystone_wall"
-  }
+	"type": "aether_redux:willow_spore_blighting",
+	"ingredient": {
+		"block": "aether_redux:gilded_holystone_wall"
+	},
+	"result": {
+		"block": "aether:mossy_holystone_wall"
+	}
 }

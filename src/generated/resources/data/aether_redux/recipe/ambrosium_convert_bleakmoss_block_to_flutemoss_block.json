@@ -1,9 +1,9 @@
 {
-  "type": "aether:ambrosium_enchanting",
-  "ingredient": {
-    "block": "aether_redux:bleakmoss_block"
-  },
-  "result": {
-    "block": "aether_unity:flutemoss_block"
-  }
+	"type": "aether:ambrosium_enchanting",
+	"ingredient": {
+		"block": "aether_redux:bleakmoss_block"
+	},
+	"result": {
+		"block": "aether_unity:flutemoss_block"
+	}
 }

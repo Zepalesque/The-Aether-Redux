@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "aether_redux:block/skysprouts"
-    }
-  }
+	"variants": {
+		"": {
+			"model": "aether_redux:block/skysprouts"
+		}
+	}
 }

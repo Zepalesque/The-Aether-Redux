@@ -1,9 +1,9 @@
 {
-  "type": "aether:ambrosium_enchanting",
-  "ingredient": {
-    "block": "aether_unity:flutemoss_carpet"
-  },
-  "result": {
-    "block": "aether_redux:gildenmoss_carpet"
-  }
+	"type": "aether:ambrosium_enchanting",
+	"ingredient": {
+		"block": "aether_unity:flutemoss_carpet"
+	},
+	"result": {
+		"block": "aether_redux:gildenmoss_carpet"
+	}
 }

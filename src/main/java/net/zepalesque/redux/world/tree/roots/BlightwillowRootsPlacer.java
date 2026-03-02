@@ -3,6 +3,10 @@ package net.zepalesque.redux.world.tree.roots;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+import java.util.function.BiConsumer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
@@ -19,11 +23,6 @@ import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.zenith.util.ArrayUtil;
 import org.apache.commons.lang3.ArrayUtils;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
-import java.util.function.BiConsumer;
 
 public class BlightwillowRootsPlacer extends RootPlacer {
 

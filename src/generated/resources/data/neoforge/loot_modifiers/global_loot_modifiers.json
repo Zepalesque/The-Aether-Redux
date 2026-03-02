@@ -1,8 +1,8 @@
 {
-  "entries": [
-    "aether_redux:raw_veridium",
-    "aether_redux:aerbound_cape",
-    "aether_redux:sentrite_disc"
-  ],
-  "replace": false
+	"entries": [
+		"aether_redux:raw_veridium",
+		"aether_redux:aerbound_cape",
+		"aether_redux:sentrite_disc"
+	],
+	"replace": false
 }

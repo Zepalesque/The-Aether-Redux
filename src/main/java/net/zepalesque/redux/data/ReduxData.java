@@ -1,6 +1,7 @@
 package net.zepalesque.redux.data;
 
 import com.aetherteam.aether.data.generators.AetherRegistrySets;
+import java.util.Optional;
 import net.minecraft.DetectedVersion;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.metadata.PackMetadataGenerator;
@@ -27,8 +28,6 @@ import net.zepalesque.redux.data.gen.tags.ReduxBiomeTagsData;
 import net.zepalesque.redux.data.gen.tags.ReduxBlockTagsData;
 import net.zepalesque.redux.data.gen.tags.ReduxEntityTagsData;
 import net.zepalesque.redux.data.gen.tags.ReduxItemTagsData;
-
-import java.util.Optional;
 
 public class ReduxData {
     public static void dataSetup(GatherDataEvent event) {

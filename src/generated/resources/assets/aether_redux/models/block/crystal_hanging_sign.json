@@ -1,5 +1,5 @@
 {
-  "textures": {
-    "particle": "aether_redux:block/construction/crystal_planks"
-  }
+	"textures": {
+		"particle": "aether_redux:block/construction/crystal_planks"
+	}
 }

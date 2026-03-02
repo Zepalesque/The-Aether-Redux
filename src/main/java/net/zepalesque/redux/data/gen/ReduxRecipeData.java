@@ -3,6 +3,7 @@ package net.zepalesque.redux.data.gen;
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.item.AetherItems;
+import java.util.concurrent.CompletableFuture;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -25,8 +26,6 @@ import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.recipe.recipes.InfusionRecipe;
 import net.zepalesque.unity.block.UnityBlocks;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.concurrent.CompletableFuture;
 
 public class ReduxRecipeData extends ReduxRecipeProvider {
 

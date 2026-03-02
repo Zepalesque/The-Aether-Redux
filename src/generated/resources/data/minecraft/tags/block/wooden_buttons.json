@@ -1,6 +1,3 @@
 {
-  "values": [
-    "aether_redux:crystal_button",
-    "aether_redux:blightwillow_button"
-  ]
+	"values": ["aether_redux:crystal_button", "aether_redux:blightwillow_button"]
 }

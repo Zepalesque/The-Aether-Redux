@@ -1,6 +1,7 @@
 package net.zepalesque.redux.block.natural;
 
 import com.mojang.serialization.MapCodec;
+import java.util.Optional;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -22,8 +23,6 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-
-import java.util.Optional;
 
 public class CaelgaeBlock extends Block implements BonemealableBlock {
 	public static final MapCodec<CaelgaeBlock> CODEC = simpleCodec(CaelgaeBlock::new);

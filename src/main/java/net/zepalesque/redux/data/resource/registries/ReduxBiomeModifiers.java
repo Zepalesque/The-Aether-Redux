@@ -2,6 +2,7 @@ package net.zepalesque.redux.data.resource.registries;
 
 import com.aetherteam.aether.data.resources.registries.AetherBiomes;
 import com.google.common.collect.ImmutableMap;
+import java.util.Optional;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
@@ -24,8 +25,6 @@ import net.zepalesque.zenith.api.world.biome.modifier.MusicModifier;
 import net.zepalesque.zenith.api.world.biome.modifier.SkiesModifier;
 import net.zepalesque.zenith.api.world.biome.modifier.WaterModifier;
 import net.zepalesque.zenith.core.Zenith;
-
-import java.util.Optional;
 
 public class ReduxBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_CLOUDBED = createKey("add_cloudbed");

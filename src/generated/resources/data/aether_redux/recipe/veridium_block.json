@@ -1,18 +1,14 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
-  "key": {
-    "#": {
-      "item": "aether_redux:veridium_ingot"
-    }
-  },
-  "pattern": [
-    "###",
-    "###",
-    "###"
-  ],
-  "result": {
-    "count": 1,
-    "id": "aether_redux:veridium_block"
-  }
+	"type": "minecraft:crafting_shaped",
+	"category": "building",
+	"key": {
+		"#": {
+			"item": "aether_redux:veridium_ingot"
+		}
+	},
+	"pattern": ["###", "###", "###"],
+	"result": {
+		"count": 1,
+		"id": "aether_redux:veridium_block"
+	}
 }

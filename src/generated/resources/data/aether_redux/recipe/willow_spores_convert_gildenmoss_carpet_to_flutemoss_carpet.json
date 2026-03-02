@@ -1,9 +1,9 @@
 {
-  "type": "aether_redux:willow_spore_blighting",
-  "ingredient": {
-    "block": "aether_redux:gildenmoss_carpet"
-  },
-  "result": {
-    "block": "aether_unity:flutemoss_carpet"
-  }
+	"type": "aether_redux:willow_spore_blighting",
+	"ingredient": {
+		"block": "aether_redux:gildenmoss_carpet"
+	},
+	"result": {
+		"block": "aether_unity:flutemoss_carpet"
+	}
 }

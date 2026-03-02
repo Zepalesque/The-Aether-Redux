@@ -1,6 +1,5 @@
 package net.zepalesque.redux.block.natural;
 
-import com.aetherteam.aether.block.AetherBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -49,15 +48,13 @@ public class EchysiaBlock extends CustomBoundsBushBlock {
 		else return state;
 	}
 	
-	@Nullable
-	@Override
+	@Nullable @Override
 	public BlockState getStateForPlacement(BlockPlaceContext context) {
 		return setValues(context.getLevel(), context.getClickedPos(), super.getStateForPlacement(context));
 	}
 	
 	@Override
-	@NotNull
-	public BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor level, BlockPos currentPos, BlockPos facingPos) {
+	@NotNull public BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor level, BlockPos currentPos, BlockPos facingPos) {
 		var b = super.updateShape(state, facing, facingState, level, currentPos, facingPos);
 		if (b.hasProperty(ReduxStates.AETHER_MOSS_TYPE) && facing == Direction.DOWN) {
 			if (level.getBlockState(facingPos).is(UnityTags.Blocks.SHORT_AETHER_GRASS_STATE_ENCHANTING))

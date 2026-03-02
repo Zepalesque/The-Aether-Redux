@@ -3,6 +3,8 @@ package net.zepalesque.redux.data.gen;
 import com.aetherteam.aether.loot.AetherLoot;
 import com.aetherteam.nitrogen.loot.modifiers.AddDungeonLootModifier;
 import com.aetherteam.nitrogen.loot.modifiers.AddEntityDropsModifier;
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
 import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -31,9 +33,6 @@ import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.loot.modifer.RawOreModifier;
 import net.zepalesque.zenith.api.condition.type.ConfigCondition;
 import net.zepalesque.zenith.api.loot.condition.ConditionLootModule;
-
-import java.util.List;
-import java.util.concurrent.CompletableFuture;
 
 public class ReduxLootModifierData extends ReduxLootModifierProvider {
     public ReduxLootModifierData(PackOutput output, CompletableFuture<HolderLookup.Provider> lookup) {

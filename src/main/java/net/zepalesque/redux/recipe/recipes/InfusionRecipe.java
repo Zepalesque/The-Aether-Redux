@@ -1,5 +1,6 @@
 package net.zepalesque.redux.recipe.recipes;
 
+import java.util.Optional;
 import net.minecraft.core.Holder;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
@@ -9,8 +10,6 @@ import net.zepalesque.redux.recipe.ReduxRecipes;
 import net.zepalesque.zenith.api.item.stack.ItemStackConstructor;
 import net.zepalesque.zenith.api.recipe.recipes.AbstractStackingRecipe;
 import net.zepalesque.zenith.api.recipe.serializer.StackingRecipeSerializer;
-
-import java.util.Optional;
 
 public class InfusionRecipe extends AbstractStackingRecipe {
     public static final String ADDED_INFUSION = "added_infusion";

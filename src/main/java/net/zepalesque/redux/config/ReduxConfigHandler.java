@@ -1,12 +1,11 @@
 package net.zepalesque.redux.config;
 
+import java.nio.file.Files;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.loading.FMLPaths;
 import net.zepalesque.redux.Redux;
-
-import java.nio.file.Files;
 
 // TODO: Proceduralize in Zenith
 // See https://github.com/TelepathicGrunt/Bumblezone/blob/6bbcb628672a77cfa7a2648be9b4d2428d1eeeb7/neoforge/src/main/java/com/telepathicgrunt/the_bumblezone/configs/neoforge/BzConfigHandler.java#L26

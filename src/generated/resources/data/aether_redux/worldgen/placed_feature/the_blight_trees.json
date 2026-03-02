@@ -1,53 +1,53 @@
 {
-  "feature": "aether_redux:the_blight_trees",
-  "placement": [
-    {
-      "type": "minecraft:count",
-      "count": {
-        "type": "minecraft:weighted_list",
-        "distribution": [
-          {
-            "data": 18,
-            "weight": 9
-          },
-          {
-            "data": 14,
-            "weight": 3
-          },
-          {
-            "data": 12,
-            "weight": 5
-          },
-          {
-            "data": 22,
-            "weight": 1
-          }
-        ]
-      }
-    },
-    {
-      "type": "aether:improved_layer_placement",
-      "count": 2,
-      "heightmap": "OCEAN_FLOOR",
-      "verticalBounds": 4
-    },
-    {
-      "type": "minecraft:biome"
-    },
-    {
-      "type": "minecraft:block_predicate_filter",
-      "predicate": {
-        "type": "minecraft:would_survive",
-        "state": {
-          "Name": "aether_redux:stormroot_sapling",
-          "Properties": {
-            "stage": "0"
-          }
-        }
-      }
-    },
-    {
-      "type": "aether:dungeon_blacklist_filter"
-    }
-  ]
+	"feature": "aether_redux:the_blight_trees",
+	"placement": [
+		{
+			"type": "minecraft:count",
+			"count": {
+				"type": "minecraft:weighted_list",
+				"distribution": [
+					{
+						"data": 18,
+						"weight": 9
+					},
+					{
+						"data": 14,
+						"weight": 3
+					},
+					{
+						"data": 12,
+						"weight": 5
+					},
+					{
+						"data": 22,
+						"weight": 1
+					}
+				]
+			}
+		},
+		{
+			"type": "aether:improved_layer_placement",
+			"count": 2,
+			"heightmap": "OCEAN_FLOOR",
+			"verticalBounds": 4
+		},
+		{
+			"type": "minecraft:biome"
+		},
+		{
+			"type": "minecraft:block_predicate_filter",
+			"predicate": {
+				"type": "minecraft:would_survive",
+				"state": {
+					"Name": "aether_redux:stormroot_sapling",
+					"Properties": {
+						"stage": "0"
+					}
+				}
+			}
+		},
+		{
+			"type": "aether:dungeon_blacklist_filter"
+		}
+	]
 }

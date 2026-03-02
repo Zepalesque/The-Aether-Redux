@@ -1,6 +1,7 @@
 package net.zepalesque.redux.data.gen;
 
 import com.aetherteam.aether.block.AetherBlocks;
+import java.util.concurrent.CompletableFuture;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.registries.datamaps.builtin.NeoForgeDataMaps;
@@ -13,8 +14,6 @@ import net.zepalesque.redux.data.prov.ReduxDataMapProvider;
 import net.zepalesque.redux.data.resource.registries.ReduxBiomes;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.unity.world.biome.tint.UnityBiomeTints;
-
-import java.util.concurrent.CompletableFuture;
 
 public class ReduxMapData extends ReduxDataMapProvider {
     public ReduxMapData(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {

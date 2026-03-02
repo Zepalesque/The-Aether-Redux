@@ -1,9 +1,9 @@
 {
-  "parent": "aether_unity:block/template/cross/cross_tinted_dual_gloverlay/glow_particle",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "cross": "aether_redux:block/dungeon/flareblossom",
-    "glow": "aether_redux:block/dungeon/flareblossom_glow",
-    "overlay": "aether_redux:block/dungeon/flareblossom_overlay"
-  }
+	"parent": "aether_unity:block/template/cross/cross_tinted_dual_gloverlay/glow_particle",
+	"render_type": "minecraft:cutout",
+	"textures": {
+		"cross": "aether_redux:block/dungeon/flareblossom",
+		"glow": "aether_redux:block/dungeon/flareblossom_glow",
+		"overlay": "aether_redux:block/dungeon/flareblossom_overlay"
+	}
 }

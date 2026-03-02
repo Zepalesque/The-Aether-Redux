@@ -1,11 +1,10 @@
 package net.zepalesque.redux.blockset.flower.type;
 
+import java.util.function.Supplier;
 import net.minecraft.world.level.block.Block;
 import net.zepalesque.redux.data.prov.ReduxBlockStateProvider;
 import net.zepalesque.redux.data.prov.ReduxItemModelProvider;
 import net.zepalesque.zenith.util.function.Consumers;
-
-import java.util.function.Supplier;
 
 public class UntintedFlowerSet<B extends Block> extends BaseFlowerSet<B> {
     public UntintedFlowerSet(String id, String textureFolder, Supplier<B> constructor) {

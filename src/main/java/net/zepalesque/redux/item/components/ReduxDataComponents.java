@@ -1,5 +1,6 @@
 package net.zepalesque.redux.item.components;
 
+import java.util.function.UnaryOperator;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.codec.ByteBufCodecs;
@@ -7,8 +8,6 @@ import net.minecraft.util.ExtraCodecs;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.zepalesque.redux.Redux;
-
-import java.util.function.UnaryOperator;
 
 public class ReduxDataComponents {
     public static final DeferredRegister<DataComponentType<?>> TYPES = DeferredRegister.create(BuiltInRegistries.DATA_COMPONENT_TYPE, Redux.MODID);

@@ -1,5 +1,6 @@
 package net.zepalesque.redux.item.property;
 
+import java.util.function.Supplier;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Tier;
@@ -8,8 +9,6 @@ import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.util.Lazy;
 import net.zepalesque.redux.item.ReduxItems;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.function.Supplier;
 
 public enum ReduxItemTiers implements Tier {
 
@@ -58,8 +57,7 @@ public enum ReduxItemTiers implements Tier {
     }
 
     @Override
-    @NotNull
-    public Ingredient getRepairIngredient() {
+    @NotNull public Ingredient getRepairIngredient() {
         return this.repairMaterial.get();
     }
 }

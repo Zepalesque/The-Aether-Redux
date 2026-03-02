@@ -1,30 +1,30 @@
 {
-  "type": "minecraft:block",
-  "functions": [
-    {
-      "function": "aether:double_drops"
-    }
-  ],
-  "pools": [
-    {
-      "bonus_rolls": 0.0,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "conditions": [
-            {
-              "block": "aether_redux:bleakmoss_carpet",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "bottom": "true"
-              }
-            }
-          ],
-          "name": "aether_redux:bleakmoss_carpet"
-        }
-      ],
-      "rolls": 1.0
-    }
-  ],
-  "random_sequence": "aether_redux:blocks/bleakmoss_carpet"
+	"type": "minecraft:block",
+	"functions": [
+		{
+			"function": "aether:double_drops"
+		}
+	],
+	"pools": [
+		{
+			"bonus_rolls": 0.0,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"conditions": [
+						{
+							"block": "aether_redux:bleakmoss_carpet",
+							"condition": "minecraft:block_state_property",
+							"properties": {
+								"bottom": "true"
+							}
+						}
+					],
+					"name": "aether_redux:bleakmoss_carpet"
+				}
+			],
+			"rolls": 1.0
+		}
+	],
+	"random_sequence": "aether_redux:blocks/bleakmoss_carpet"
 }

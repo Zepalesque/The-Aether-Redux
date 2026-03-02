@@ -1,9 +1,9 @@
 {
-  "type": "aether:ambrosium_enchanting",
-  "ingredient": {
-    "block": "aether:mossy_holystone_wall"
-  },
-  "result": {
-    "block": "aether_redux:gilded_holystone_wall"
-  }
+	"type": "aether:ambrosium_enchanting",
+	"ingredient": {
+		"block": "aether:mossy_holystone_wall"
+	},
+	"result": {
+		"block": "aether_redux:gilded_holystone_wall"
+	}
 }

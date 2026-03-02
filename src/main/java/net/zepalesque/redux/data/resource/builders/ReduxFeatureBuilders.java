@@ -1,5 +1,6 @@
 package net.zepalesque.redux.data.resource.builders;
 
+import java.util.function.Supplier;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
 import net.minecraft.core.registries.Registries;
@@ -21,8 +22,6 @@ import net.minecraft.world.level.levelgen.placement.PlacementFilter;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.state.ReduxStates;
 import net.zepalesque.unity.data.resource.builders.base.BaseFeatureBuilders;
-
-import java.util.function.Supplier;
 
 public class ReduxFeatureBuilders extends BaseFeatureBuilders {
 

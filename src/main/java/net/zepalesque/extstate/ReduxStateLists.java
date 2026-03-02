@@ -6,7 +6,6 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
-import net.zepalesque.unity.Unity;
 import net.zepalesque.unity.block.UnityBlocks;
 import net.zepalesque.unity.data.resource.builders.base.BaseFeatureBuilders;
 import net.zepalesque.zenith.api.extendablestate.ExtendableStateList;

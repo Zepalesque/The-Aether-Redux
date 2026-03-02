@@ -1,6 +1,7 @@
 package net.zepalesque.redux.entity.projectile;
 
 import com.aetherteam.aether.entity.projectile.dart.AbstractDart;
+import javax.annotation.Nullable;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -10,8 +11,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.zepalesque.redux.entity.ReduxEntities;
 import net.zepalesque.redux.item.ReduxItems;
-
-import javax.annotation.Nullable;
 
 public class VeridiumDart extends AbstractDart {
     

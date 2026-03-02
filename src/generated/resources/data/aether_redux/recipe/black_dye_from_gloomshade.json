@@ -1,13 +1,13 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "category": "misc",
-  "ingredients": [
-    {
-      "item": "aether_redux:gloomshade"
-    }
-  ],
-  "result": {
-    "count": 1,
-    "id": "minecraft:black_dye"
-  }
+	"type": "minecraft:crafting_shapeless",
+	"category": "misc",
+	"ingredients": [
+		{
+			"item": "aether_redux:gloomshade"
+		}
+	],
+	"result": {
+		"count": 1,
+		"id": "minecraft:black_dye"
+	}
 }

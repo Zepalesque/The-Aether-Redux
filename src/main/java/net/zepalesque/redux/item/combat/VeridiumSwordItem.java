@@ -1,5 +1,8 @@
 package net.zepalesque.redux.item.combat;
 
+import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -21,10 +24,6 @@ import net.zepalesque.redux.item.components.ReduxDataComponents;
 import net.zepalesque.redux.item.tools.VeridiumItem;
 import net.zepalesque.redux.util.item.TooltipUtils;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.List;
-import java.util.function.Consumer;
-import java.util.function.Supplier;
 
 public class VeridiumSwordItem extends SwordItem implements VeridiumItem {
     private final Supplier<? extends Item> uninfused;

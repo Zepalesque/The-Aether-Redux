@@ -1,13 +1,12 @@
 package net.zepalesque.redux.loot;
 
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.zepalesque.redux.Redux;
-
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
 
 public class ReduxLoot {
 

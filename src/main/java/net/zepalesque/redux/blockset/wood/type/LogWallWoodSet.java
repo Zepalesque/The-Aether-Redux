@@ -1,5 +1,6 @@
 package net.zepalesque.redux.blockset.wood.type;
 
+import java.util.Map;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.tags.BlockTags;
@@ -30,8 +31,6 @@ import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
 import net.zepalesque.zenith.util.data.DatagenUtil;
 import net.zepalesque.zenith.util.item.TabUtil;
 import net.zepalesque.zenith.util.mod.CompatHelper;
-
-import java.util.Map;
 
 public class LogWallWoodSet extends BaseWoodSet {
 

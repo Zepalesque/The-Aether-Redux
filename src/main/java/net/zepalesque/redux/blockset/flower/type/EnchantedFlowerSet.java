@@ -1,10 +1,9 @@
 package net.zepalesque.redux.blockset.flower.type;
 
+import java.util.function.Supplier;
 import net.minecraft.world.level.block.Block;
 import net.zepalesque.redux.data.prov.ReduxBlockStateProvider;
 import net.zepalesque.redux.data.prov.ReduxItemModelProvider;
-
-import java.util.function.Supplier;
 
 public class EnchantedFlowerSet<B extends Block> extends TintedFlowerSet<B> {
     public EnchantedFlowerSet(

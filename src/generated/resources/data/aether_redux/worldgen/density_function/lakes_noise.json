@@ -1,11 +1,11 @@
 {
-  "type": "minecraft:mul",
-  "argument1": 1.5,
-  "argument2": {
-    "type": "zenith:perlin_noise",
-    "noise": "aether_redux:lakes_noise",
-    "seed_offset": 6,
-    "xz_scale": 0.015,
-    "y_scale": 0.0
-  }
+	"type": "minecraft:mul",
+	"argument1": 1.5,
+	"argument2": {
+		"type": "zenith:perlin_noise",
+		"noise": "aether_redux:lakes_noise",
+		"seed_offset": 6,
+		"xz_scale": 0.015,
+		"y_scale": 0.0
+	}
 }

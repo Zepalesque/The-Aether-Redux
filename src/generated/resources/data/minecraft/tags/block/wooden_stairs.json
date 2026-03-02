@@ -1,6 +1,3 @@
 {
-  "values": [
-    "aether_redux:crystal_stairs",
-    "aether_redux:blightwillow_stairs"
-  ]
+	"values": ["aether_redux:crystal_stairs", "aether_redux:blightwillow_stairs"]
 }

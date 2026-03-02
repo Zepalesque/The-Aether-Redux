@@ -1,16 +1,14 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
-  "key": {
-    "#": {
-      "item": "aether_redux:polished_angilite"
-    }
-  },
-  "pattern": [
-    "###"
-  ],
-  "result": {
-    "count": 6,
-    "id": "aether_redux:polished_angilite_slab"
-  }
+	"type": "minecraft:crafting_shaped",
+	"category": "building",
+	"key": {
+		"#": {
+			"item": "aether_redux:polished_angilite"
+		}
+	},
+	"pattern": ["###"],
+	"result": {
+		"count": 6,
+		"id": "aether_redux:polished_angilite_slab"
+	}
 }

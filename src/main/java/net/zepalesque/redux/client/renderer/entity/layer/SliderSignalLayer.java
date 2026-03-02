@@ -43,8 +43,7 @@ public class SliderSignalLayer extends RenderLayer<Slider, SliderModel> {
         }
     }
 
-    @Nullable
-    public static RenderType renderType(Slider slider) {
+    @Nullable public static RenderType renderType(Slider slider) {
         SliderSignalAttachment attachment = SliderSignalAttachment.get(slider);
         if (!attachment.shouldGlow(slider)) return null;
         else if (slider.isCritical()) return CRITICAL;

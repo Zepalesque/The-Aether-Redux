@@ -18,8 +18,7 @@ public abstract class  ReduxLanguageProvider extends UnityLanguageProvider {
         return generateTips(super.run(cache), cache);
     }*/
     
-    @Nullable
-    protected String remove(String key) {
+    @Nullable protected String remove(String key) {
         return ((LangProviderAccessor) this).redux$getData().remove(key);
     }
     

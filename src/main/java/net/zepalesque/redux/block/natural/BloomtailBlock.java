@@ -1,6 +1,7 @@
 package net.zepalesque.redux.block.natural;
 
 import com.mojang.serialization.MapCodec;
+import javax.annotation.Nullable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.FluidTags;
@@ -10,19 +11,14 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.LiquidBlockContainer;
-import net.minecraft.world.level.block.SeagrassBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.zepalesque.unity.block.natural.bush.CustomBoundsBushBlock;
-
-import javax.annotation.Nullable;
 
 public class BloomtailBlock extends CustomBoundsBushBlock implements LiquidBlockContainer {
 	public static final MapCodec<BloomtailBlock> CODEC = simpleCodec(BloomtailBlock::new);
@@ -43,8 +39,7 @@ public class BloomtailBlock extends CustomBoundsBushBlock implements LiquidBlock
 	}
 	
 	// require wabter
-	@Nullable
-	@Override
+	@Nullable @Override
 	public BlockState getStateForPlacement(BlockPlaceContext ctx) {
 		var fluid = ctx.getLevel().getFluidState(ctx.getClickedPos());
 		return fluid.is(FluidTags.WATER) && fluid.getAmount() == 8 ? super.getStateForPlacement(ctx) : null;

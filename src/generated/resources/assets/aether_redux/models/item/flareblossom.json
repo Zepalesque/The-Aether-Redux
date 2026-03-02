@@ -1,18 +1,18 @@
 {
-  "parent": "minecraft:item/generated",
-  "loader": "neoforge:item_layers",
-  "neoforge_data": {
-    "layers": {
-      "2": {
-        "block_light": 15,
-        "sky_light": 15
-      }
-    }
-  },
-  "render_types": {},
-  "textures": {
-    "layer0": "aether_redux:block/dungeon/flareblossom_overlay",
-    "layer1": "aether_redux:block/dungeon/flareblossom",
-    "layer2": "aether_redux:block/dungeon/flareblossom_glow"
-  }
+	"parent": "minecraft:item/generated",
+	"loader": "neoforge:item_layers",
+	"neoforge_data": {
+		"layers": {
+			"2": {
+				"block_light": 15,
+				"sky_light": 15
+			}
+		}
+	},
+	"render_types": {},
+	"textures": {
+		"layer0": "aether_redux:block/dungeon/flareblossom_overlay",
+		"layer1": "aether_redux:block/dungeon/flareblossom",
+		"layer2": "aether_redux:block/dungeon/flareblossom_glow"
+	}
 }

@@ -1,6 +1,7 @@
 package net.zepalesque.redux.block.dungeon;
 
 import com.aetherteam.aether.block.dungeon.DoorwayBlock;
+import java.util.function.Supplier;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -10,8 +11,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
-
-import java.util.function.Supplier;
 
 public class DoorwayPillarBlock extends DoorwayBlock {
     public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.AXIS;

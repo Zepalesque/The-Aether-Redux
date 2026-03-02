@@ -1,16 +1,16 @@
 {
-  "values": {
-    "aether_redux:blightwillow_bookshelf": {
-      "burn_time": 300
-    },
-    "aether_redux:blightwillow_planks": {
-      "burn_time": 300
-    },
-    "aether_redux:crystal_bookshelf": {
-      "burn_time": 300
-    },
-    "aether_redux:crystal_planks": {
-      "burn_time": 300
-    }
-  }
+	"values": {
+		"aether_redux:blightwillow_bookshelf": {
+			"burn_time": 300
+		},
+		"aether_redux:blightwillow_planks": {
+			"burn_time": 300
+		},
+		"aether_redux:crystal_bookshelf": {
+			"burn_time": 300
+		},
+		"aether_redux:crystal_planks": {
+			"burn_time": 300
+		}
+	}
 }

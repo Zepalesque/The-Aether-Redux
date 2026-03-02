@@ -1,8 +1,4 @@
 {
-  "remove": [
-    "aether:slider"
-  ],
-  "values": [
-    "#aether_redux:sentries"
-  ]
+	"remove": ["aether:slider"],
+	"values": ["#aether_redux:sentries"]
 }

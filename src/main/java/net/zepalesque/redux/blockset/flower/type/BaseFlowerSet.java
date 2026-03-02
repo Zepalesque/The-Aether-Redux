@@ -1,6 +1,12 @@
 package net.zepalesque.redux.blockset.flower.type;
 
 import com.mojang.datafixers.util.Pair;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Supplier;
+import java.util.function.UnaryOperator;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
@@ -37,13 +43,6 @@ import net.zepalesque.zenith.util.item.TabUtil;
 import org.apache.commons.lang3.tuple.Triple;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.function.Supplier;
-import java.util.function.UnaryOperator;
-
 public abstract class BaseFlowerSet<B extends Block> extends AbstractFlowerSet implements MutableLoreGeneration<BaseFlowerSet<B>> {
 
     public final String id, textureFolder;
@@ -65,8 +64,7 @@ public abstract class BaseFlowerSet<B extends Block> extends AbstractFlowerSet i
     protected final Collection<TagKey<Block>> tags = new ArrayList<>();
     protected final Collection<TagKey<Block>> potTags = new ArrayList<>();
     protected final Collection<TagKey<Item>> itemTags = new ArrayList<>();
-    @Nullable
-    protected Pair<Integer, Integer> flammability = Pair.of(60, 100);
+    @Nullable protected Pair<Integer, Integer> flammability = Pair.of(60, 100);
 
     protected final DeferredBlock<B> flower;
     protected final DeferredBlock<FlowerPotBlock> pot;

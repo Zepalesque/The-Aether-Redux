@@ -1,9 +1,9 @@
 {
-  "type": "aether:ambrosium_enchanting",
-  "ingredient": {
-    "block": "aether_redux:bleakmoss_holystone_slab"
-  },
-  "result": {
-    "block": "aether:mossy_holystone_slab"
-  }
+	"type": "aether:ambrosium_enchanting",
+	"ingredient": {
+		"block": "aether_redux:bleakmoss_holystone_slab"
+	},
+	"result": {
+		"block": "aether:mossy_holystone_slab"
+	}
 }

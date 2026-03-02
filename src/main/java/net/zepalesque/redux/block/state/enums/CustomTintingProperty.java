@@ -4,6 +4,5 @@ import javax.annotation.Nullable;
 
 public interface CustomTintingProperty {
     
-    @Nullable
-    Integer colorOverride();
+    @Nullable Integer colorOverride();
 }

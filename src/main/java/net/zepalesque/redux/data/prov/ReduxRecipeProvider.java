@@ -4,6 +4,9 @@ import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.recipe.builder.AetherCookingRecipeBuilder;
 import com.aetherteam.nitrogen.recipe.BlockStateIngredient;
 import com.aetherteam.nitrogen.recipe.builder.BlockStateRecipeBuilder;
+import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
+import java.util.function.Supplier;
 import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.core.HolderLookup;
@@ -27,10 +30,6 @@ import net.zepalesque.redux.recipe.recipes.WillowSporeRecipe;
 import net.zepalesque.unity.data.prov.UnityRecipeProvider;
 import net.zepalesque.zenith.api.item.stack.ItemStackConstructor;
 import net.zepalesque.zenith.api.recipe.builder.StackingRecipeBuilder;
-
-import java.util.Optional;
-import java.util.concurrent.CompletableFuture;
-import java.util.function.Supplier;
 
 public abstract class ReduxRecipeProvider extends UnityRecipeProvider {
 

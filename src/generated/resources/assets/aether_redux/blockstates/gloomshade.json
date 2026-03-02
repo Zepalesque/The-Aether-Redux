@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "aether_redux:block/gloomshade"
-    }
-  }
+	"variants": {
+		"": {
+			"model": "aether_redux:block/gloomshade"
+		}
+	}
 }

@@ -1,6 +1,8 @@
 package net.zepalesque.redux.entity;
 
 import com.aetherteam.aether.entity.monster.dungeon.boss.Slider;
+import java.util.Map;
+import java.util.function.Function;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -20,9 +22,6 @@ import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
 import net.zepalesque.redux.entity.projectile.Ember;
 import net.zepalesque.redux.entity.projectile.VeridiumDart;
-
-import java.util.Map;
-import java.util.function.Function;
 
 @EventBusSubscriber(modid = Redux.MODID)
 public class ReduxEntities {

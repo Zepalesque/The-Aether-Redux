@@ -8,8 +8,7 @@ public enum BlightGrassColor implements CustomTintingProperty, StringRepresentab
     TINTABLE("tintable"), CONSTANT("constant", ReduxColors.Tints.BLIGHT_GRASS_COLOR);
     
     final String name;
-    @Nullable
-    final Integer color;
+    @Nullable final Integer color;
     BlightGrassColor(String name) {
         this.name = name;
         this.color = null;
@@ -20,8 +19,7 @@ public enum BlightGrassColor implements CustomTintingProperty, StringRepresentab
         this.color = color;
     }
     
-    @Nullable
-    @Override
+    @Nullable @Override
     public Integer colorOverride() {
         return this.color;
     }

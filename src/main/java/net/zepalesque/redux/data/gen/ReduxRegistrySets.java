@@ -1,6 +1,10 @@
 package net.zepalesque.redux.data.gen;
 
 import com.aetherteam.aether.Aether;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.CompletableFuture;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
@@ -21,11 +25,6 @@ import net.zepalesque.redux.data.resource.registries.ReduxStateListEntries;
 import net.zepalesque.redux.data.resource.registries.ReduxStructureModifiers;
 import net.zepalesque.zenith.core.Zenith;
 import org.apache.commons.compress.utils.Lists;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
-import java.util.concurrent.CompletableFuture;
 
 public class ReduxRegistrySets extends DatapackBuiltinEntriesProvider {
     public static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()

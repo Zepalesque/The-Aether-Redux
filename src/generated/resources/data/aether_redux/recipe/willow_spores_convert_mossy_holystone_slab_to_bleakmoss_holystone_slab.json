@@ -1,9 +1,9 @@
 {
-  "type": "aether_redux:willow_spore_blighting",
-  "ingredient": {
-    "block": "aether:mossy_holystone_slab"
-  },
-  "result": {
-    "block": "aether_redux:bleakmoss_holystone_slab"
-  }
+	"type": "aether_redux:willow_spore_blighting",
+	"ingredient": {
+		"block": "aether:mossy_holystone_slab"
+	},
+	"result": {
+		"block": "aether_redux:bleakmoss_holystone_slab"
+	}
 }

@@ -4,6 +4,9 @@ import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.data.resources.AetherFeatureStates;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import java.util.Optional;
+import java.util.function.BiConsumer;
+import java.util.function.BiFunction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerChunkCache;
@@ -25,10 +28,6 @@ import net.minecraft.world.level.material.Fluids;
 import net.zepalesque.zenith.api.world.density.PerlinNoiseFunction;
 import net.zepalesque.zenith.mixin.mixins.common.accessor.ChunkAccessAccessor;
 import net.zepalesque.zenith.util.function.Functions;
-
-import java.util.Optional;
-import java.util.function.BiConsumer;
-import java.util.function.BiFunction;
 
 public class LakesFeature extends Feature<LakesFeature.Config> {
 	private static final int SHORE_DEPTH = -1;

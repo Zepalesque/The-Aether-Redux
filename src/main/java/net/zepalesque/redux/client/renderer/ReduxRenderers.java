@@ -2,6 +2,11 @@ package net.zepalesque.redux.client.renderer;
 
 import com.aetherteam.aether.client.renderer.entity.SliderRenderer;
 import com.aetherteam.aether.entity.AetherEntityTypes;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.function.UnaryOperator;
+import java.util.stream.Collectors;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.ModelResourceLocation;
@@ -26,12 +31,6 @@ import net.zepalesque.redux.client.renderer.entity.layer.SliderSignalLayer;
 import net.zepalesque.redux.client.renderer.entity.model.CatFishModel;
 import net.zepalesque.redux.client.renderer.entity.model.WhirlwindModel;
 import net.zepalesque.redux.entity.ReduxEntities;
-
-import java.util.Arrays;
-import java.util.Map;
-import java.util.function.Function;
-import java.util.function.UnaryOperator;
-import java.util.stream.Collectors;
 
 @EventBusSubscriber(modid = Redux.MODID, value = Dist.CLIENT)
 public class ReduxRenderers {
