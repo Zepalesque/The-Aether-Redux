@@ -87,6 +87,37 @@ tasks.register("fmtData") {
 	finalizedBy tasks.named("spotlessApply")
 }
 
+var genInfo = tasks.register('genInfo', ProcessResources) {
+	File root = file('src/main')
+	File java = new File(root, 'java')
+	File template = new File(root, 'meta/package-info-template.java')
+	File genJava = file('src/generated/java')
+
+	genJava.deleteDir()
+
+	int i = 0
+	java.eachDirRecurse { dir ->
+		if (dir == java || dir.parentFile == java) return
+		String relative = dir.absolutePath.replace(java.absolutePath + File.separator, '')
+		String packageName = relative.replace(File.separator, '.')
+
+		if (!packageName) return
+		File genDir = new File(genJava, relative)
+		if (!genDir.exists()) genDir.mkdirs()
+
+		i++
+		if (dir.listFiles((FileFilter) File::isFile).length > 0) {
+			File infoFile = new File(genDir, 'package-info.java')
+			String contents = template.text.replace("\${directory}", packageName)
+			infoFile.text = contents
+		}
+	}
+	println("\nCreated package-info.java in " + i + " subdirectories\n")
+}
+
+sourceSets.main.java.srcDir genInfo
+neoForge.ideSyncTask genInfo
+
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 configurations {
@@ -207,18 +238,23 @@ tasks.register('sourceJar', Jar) {
 
 // TODO: maybe?
 publishing {
-	publications {
-		mavenJava(MavenPublication) {
-			artifactId project.archivesBaseName
-			artifact project.jar
-			artifact project.sourceJar
-		}
-	}
-	repositories {
-		maven {
-			url "file://${project.projectDir}/repo"
-		}
-	}
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId project.archivesBaseName
+            artifact project.jar
+            artifact project.sourceJar
+        }
+    }
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = "https://maven.pkg.github.com/Zepalesque/The-Aether-Redux"
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
 }
 
 tasks.withType(JavaCompile).configureEach {
