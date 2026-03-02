@@ -1,0 +1,10 @@
+{
+  "parent": "aether_redux:block/template/layered_plant",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "lower": "aether_redux:block/natural/bleak_echysia_lower",
+    "stem": "aether_redux:block/natural/bleak_echysia_stem",
+    "top": "aether_redux:block/natural/bleak_echysia_top",
+    "upper": "aether_redux:block/natural/bleak_echysia_upper"
+  }
+}

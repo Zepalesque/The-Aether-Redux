@@ -2,7 +2,10 @@
   "fallback": [
     {
       "data": {
-        "Name": "aether_redux:echysia"
+        "Name": "aether_redux:echysia",
+        "Properties": {
+          "type": "flutemoss"
+        }
       },
       "weight": 21
     }

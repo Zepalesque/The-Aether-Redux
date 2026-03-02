@@ -1,7 +1,13 @@
 {
   "variants": {
-    "": {
+    "type=bleakmoss": {
+      "model": "aether_redux:block/bleak_echysia"
+    },
+    "type=flutemoss": {
       "model": "aether_redux:block/echysia"
+    },
+    "type=gildenmoss": {
+      "model": "aether_redux:block/gilded_echysia"
     }
   }
 }
