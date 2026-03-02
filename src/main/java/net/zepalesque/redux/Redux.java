@@ -18,6 +18,7 @@ import net.neoforged.neoforge.event.AddPackFindersEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.datamaps.RegisterDataMapTypesEvent;
+import net.zepalesque.extstate.ReduxStateLists;
 import net.zepalesque.redux.advancement.ReduxAdvancementTriggers;
 import net.zepalesque.redux.attachment.ReduxDataAttachments;
 import net.zepalesque.redux.block.ReduxBlocks;
@@ -90,24 +91,25 @@ public class Redux {
         Reflection.initialize(ReduxWoodSets.class, ReduxStoneSets.class, ReduxFlowerSets.class);
 
         DeferredRegister<?>[] registers = {
-                ReduxBlocks.BLOCKS,
-                ReduxItems.ITEMS,
-                ReduxEntities.ENTITIES,
-                ReduxTiles.TILES,
-                ReduxFeatures.FEATURES,
-                ReduxFoliagePlacers.FOLIAGE_PLACERS,
-                ReduxTrunkPlacers.TRUNK_PLACERS,
-                ReduxRootPlacers.ROOT_PLACERS,
-                ReduxParticles.PARTICLES,
-                ReduxRecipes.TYPES,
-                ReduxRecipes.Serializers.SERIALIZERS,
-                ReduxSounds.SOUNDS,
-                ReduxLootModifiers.GLOBAL_LOOT_MODIFIERS,
-                ReduxTreeDecorators.TREE_DECORATORS,
-                ReduxDataComponents.TYPES,
-                ReduxDataAttachments.ATTACHMENTS,
-                ReduxCarvers.CARVERS,
-                ReduxAdvancementTriggers.TRIGGERS
+            ReduxBlocks.BLOCKS,
+            ReduxItems.ITEMS,
+            ReduxEntities.ENTITIES,
+            ReduxTiles.TILES,
+            ReduxFeatures.FEATURES,
+            ReduxFoliagePlacers.FOLIAGE_PLACERS,
+            ReduxTrunkPlacers.TRUNK_PLACERS,
+            ReduxRootPlacers.ROOT_PLACERS,
+            ReduxParticles.PARTICLES,
+            ReduxRecipes.TYPES,
+            ReduxRecipes.Serializers.SERIALIZERS,
+            ReduxSounds.SOUNDS,
+            ReduxLootModifiers.GLOBAL_LOOT_MODIFIERS,
+            ReduxTreeDecorators.TREE_DECORATORS,
+            ReduxDataComponents.TYPES,
+            ReduxDataAttachments.ATTACHMENTS,
+            ReduxCarvers.CARVERS,
+            ReduxAdvancementTriggers.TRIGGERS,
+            ReduxStateLists.STATE_LISTS
         };
 
         for (var register : registers) register.register(bus);
