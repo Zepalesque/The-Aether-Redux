@@ -33,6 +33,7 @@ import net.zepalesque.redux.block.natural.BloomtailBlock;
 import net.zepalesque.redux.block.natural.CaelgaeBlock;
 import net.zepalesque.redux.block.natural.BlightedGrassBlock;
 import net.zepalesque.redux.block.natural.DoubleDropsMossCarpet;
+import net.zepalesque.redux.block.natural.EchysiaBlock;
 import net.zepalesque.redux.block.natural.GoldenCloversBlock;
 import net.zepalesque.redux.block.natural.HangingAetherVinesBody;
 import net.zepalesque.redux.block.natural.HangingAetherVinesHead;
@@ -369,6 +370,17 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 				.instabreak()
 				.sound(SoundType.WET_GRASS)
 				.pushReaction(PushReaction.DESTROY)
+		)
+	);
+	
+	public static final DeferredBlock<EchysiaBlock> ECHYSIA = register(
+		"echysia",
+		() -> new EchysiaBlock(BlockBehaviour.Properties.of()
+			.mapColor(MapColor.COLOR_LIGHT_GREEN)
+			.noCollission()
+			.instabreak()
+			.sound(SoundType.AZALEA)
+			.pushReaction(PushReaction.DESTROY)
 		)
 	);
 

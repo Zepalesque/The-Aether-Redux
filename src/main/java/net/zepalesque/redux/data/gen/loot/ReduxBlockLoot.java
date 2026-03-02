@@ -53,6 +53,7 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
         
         this.add(ReduxBlocks.CAELGAE_PATCH.get(), shearsOr(ReduxItems.CAELGAE_CLUMP.get(), 0.25F));
         this.add(ReduxBlocks.BLOOMTAIL.get(), shears());
+        this.add(ReduxBlocks.ECHYSIA.get(), shears());
 
         this.add(ReduxBlocks.BLIGHTWILLOW_LEAVES.get(),
             leaves -> droppingWithChancesAndSkyrootSticks(

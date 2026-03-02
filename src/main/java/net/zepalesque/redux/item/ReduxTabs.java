@@ -58,6 +58,7 @@ public class ReduxTabs {
             );
             
             TabUtil.putAfter(event, UnityBlocks.FLUTEMOSS_CARPET,
+                ReduxBlocks.ECHYSIA,
                 ReduxBlocks.GILDENMOSS_BLOCK,
                 ReduxBlocks.GILDENMOSS_CARPET,
                 ReduxBlocks.BLEAKMOSS_BLOCK,

@@ -444,11 +444,20 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
         }
     }
     
-    // Crop blocks
     public void algae(Block block, String location) {
         var model = this.models().withExistingParent(this.name(block), Redux.loc("block/template/algae"))
             .texture("top", this.modLoc("block/" + location + this.name(block) + "_top"))
             .texture("cross", this.modLoc("block/" + location + this.name(block) + "_side"))
+            .renderType(ResourceLocation.withDefaultNamespace("cutout"));
+        this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(model));
+    }
+    
+    public void layeredPlant(Block block, String location) {
+        var model = this.models().withExistingParent(this.name(block), Redux.loc("block/template/layered_plant"))
+            .texture("lower", this.modLoc("block/" + location + this.name(block) + "_lower"))
+            .texture("upper", this.modLoc("block/" + location + this.name(block) + "_upper"))
+            .texture("stem", this.modLoc("block/" + location + this.name(block) + "_stem"))
+            .texture("top", this.modLoc("block/" + location + this.name(block) + "_top"))
             .renderType(ResourceLocation.withDefaultNamespace("cutout"));
         this.getVariantBuilder(block).partialState().addModels(new ConfiguredModel(model));
     }
