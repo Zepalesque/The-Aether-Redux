@@ -53,7 +53,7 @@ public class ReduxData {
         generator.addProvider(event.includeServer(), registrySets);
         generator.addProvider(event.includeServer(), new ReduxRecipeData(output, lookups));
         generator.addProvider(event.includeServer(), ReduxLootData.create(output, lookups));
-        generator.addProvider(event.includeServer(), new ReduxMapData(output, lookups));
+        generator.addProvider(event.includeServer(), new ReduxMapData(output, registries));
         generator.addProvider(event.includeServer(), new ReduxLootModifierData(output, registries));
         generator.addProvider(event.includeServer(), new ReduxAdvancementData(output, registries, fileHelper, ReduxColors.REDUX_PURPLE));
 

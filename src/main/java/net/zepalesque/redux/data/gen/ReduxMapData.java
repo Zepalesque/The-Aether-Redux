@@ -5,6 +5,8 @@ import com.aetherteam.aether.block.AetherBlocks;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderSet;
 import net.minecraft.data.PackOutput;
@@ -64,8 +66,8 @@ public class ReduxMapData extends ReduxDataMapProvider {
         this.addLeafParticle(leaves, ReduxBlocks.BLIGHTWILLOW_LEAVES, ReduxParticles.BLIGHTWILLOW_LEAF, 20);
         this.addLeafParticle(leaves, ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES, ReduxParticles.INFECTED_BLIGHTWILLOW_LEAF, 25);
         
-        var entries = provider.lookupOrThrow(Zenith.Keys.EXTENDABLE_STATE_LIST_ENTRY);
+        var entries = provider.asGetterLookup().lookup(Zenith.Keys.EXTENDABLE_STATE_LIST_ENTRY);
         var statelistModifs = this.builder(StateLists.STATE_LIST_MODIFIERS);
-        statelistModifs.add(UnityStateLists.FLUTEMOSS.getKey(), HolderSet.direct(entries.getOrThrow(ReduxStateListEntries.ECHYSIA)), false);
+        statelistModifs.add(UnityStateLists.FLUTEMOSS.getKey(), HolderSet.direct(Holder.Reference), false);
     }
 }
