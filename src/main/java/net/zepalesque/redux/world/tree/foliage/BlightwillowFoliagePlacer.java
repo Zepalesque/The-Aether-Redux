@@ -19,7 +19,6 @@ public class BlightwillowFoliagePlacer extends FoliagePlacer {
 		)
 	);
 
-
 	public BlightwillowFoliagePlacer(IntProvider radius, IntProvider offset) {
 		super(radius, offset);
 	}

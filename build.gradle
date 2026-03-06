@@ -82,33 +82,37 @@ neoForge {
 	}
 }
 
+tasks.register("fmtData") {
+	dependsOn tasks.named("runData")
+	finalizedBy tasks.named("spotlessApply")
+}
+
 var genInfo = tasks.register('genInfo', ProcessResources) {
+	File root = file('src/main')
+	File java = new File(root, 'java')
+	File template = new File(root, 'meta/package-info-template.java')
+	File genJava = file('src/generated/java')
 
-    File root = file('src/main')
-    File java = new File(root, 'java')
-    File template = new File(root, 'meta/package-info-template.java')
-    File genJava = file('src/generated/java')
+	genJava.deleteDir()
 
-    genJava.deleteDir()
+	int i = 0
+	java.eachDirRecurse { dir ->
+		if (dir == java || dir.parentFile == java) return
+		String relative = dir.absolutePath.replace(java.absolutePath + File.separator, '')
+		String packageName = relative.replace(File.separator, '.')
 
-    int i = 0
-    java.eachDirRecurse { dir ->
-        if (dir == java || dir.parentFile == java) return
-        String relative = dir.absolutePath.replace(java.absolutePath + File.separator, '')
-        String packageName = relative.replace(File.separator, '.')
+		if (!packageName) return
+		File genDir = new File(genJava, relative)
+		if (!genDir.exists()) genDir.mkdirs()
 
-        if (!packageName) return
-        File genDir = new File(genJava, relative)
-        if (!genDir.exists()) genDir.mkdirs()
-
-        i++
-        if (dir.listFiles((FileFilter) File::isFile).length > 0) {
-            File infoFile = new File(genDir, 'package-info.java')
-            String contents = template.text.replace("\${directory}", packageName)
-            infoFile.text = contents
-        }
-    }
-    println("\nCreated package-info.java in " + i + " subdirectories\n")
+		i++
+		if (dir.listFiles((FileFilter) File::isFile).length > 0) {
+			File infoFile = new File(genDir, 'package-info.java')
+			String contents = template.text.replace("\${directory}", packageName)
+			infoFile.text = contents
+		}
+	}
+	println("\nCreated package-info.java in " + i + " subdirectories\n")
 }
 
 sourceSets.main.java.srcDir genInfo

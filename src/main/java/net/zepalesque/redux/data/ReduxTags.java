@@ -24,6 +24,8 @@ public class ReduxTags {
         // Blocks that should use the Highlands quicksoil system
         public static final TagKey<Block> QUICKSOIL_BEHAVIOR = tag("quicksoil_behavior");
 
+        public static final TagKey<Block> MUSHROOM_CAPS = tag("mushroom_caps");
+
         // Blocks that can be replaced by generated rocks
         public static final TagKey<Block> ROCK_REPLACEABLE = tag("rock_replaceable");
         
