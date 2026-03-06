@@ -9,7 +9,6 @@ import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.level.block.state.BlockState;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.data.resource.builders.ReduxStateListEntryBuilders;
-import net.zepalesque.unity.extstate.UnityStateLists;
 import net.zepalesque.zenith.api.extstate.ExtendableStateList;
 
 public class ReduxStateListEntries extends ReduxStateListEntryBuilders {

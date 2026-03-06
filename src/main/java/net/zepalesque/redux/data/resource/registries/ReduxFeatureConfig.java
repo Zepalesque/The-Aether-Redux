@@ -50,7 +50,6 @@ import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlac
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
-import net.zepalesque.redux.extstate.ReduxStateLists;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.blockset.flower.ReduxFlowerSets;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
@@ -58,6 +57,7 @@ import net.zepalesque.redux.blockset.wood.ReduxWoodSets;
 import net.zepalesque.redux.data.ReduxTags;
 import net.zepalesque.redux.data.resource.builders.ReduxDensityBuilders;
 import net.zepalesque.redux.data.resource.builders.ReduxFeatureBuilders;
+import net.zepalesque.redux.extstate.ReduxStateLists;
 import net.zepalesque.redux.world.feature.gen.CloudbedFeature;
 import net.zepalesque.redux.world.feature.gen.DebugNoiseFeature;
 import net.zepalesque.redux.world.feature.gen.LakesFeature;

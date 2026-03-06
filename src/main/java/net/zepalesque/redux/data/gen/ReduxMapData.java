@@ -1,9 +1,6 @@
 package net.zepalesque.redux.data.gen;
 
 import com.aetherteam.aether.block.AetherBlocks;
-
-import java.util.Collections;
-import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderSet;
