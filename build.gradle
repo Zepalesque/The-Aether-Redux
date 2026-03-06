@@ -166,7 +166,7 @@ dependencies {
 }
 
 repositories {
-	var user = System.getenv("GITHUB_USERNAME");
+	var user = System.getenv("GITHUB_USERNAME"); // TODO: Change to GITHUB_ACTOR
 	var tok = System.getenv("GITHUB_TOKEN");
 
 	maven { url = 'https://maven.wispforest.io/releases' }
@@ -246,7 +246,7 @@ publishing {
             name = "GitHubPackages"
             url = "https://maven.pkg.github.com/Zepalesque/The-Aether-Redux"
             credentials {
-                username = System.getenv("GITHUB_ACTOR")
+                username = System.getenv("GITHUB_USERNAME") // TODO: change to GITHUB_ACTOR
                 password = System.getenv("GITHUB_TOKEN")
             }
         }

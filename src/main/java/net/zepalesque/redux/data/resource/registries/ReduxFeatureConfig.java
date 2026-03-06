@@ -50,7 +50,7 @@ import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlac
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
-import net.zepalesque.extstate.ReduxStateLists;
+import net.zepalesque.redux.extstate.ReduxStateLists;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.blockset.flower.ReduxFlowerSets;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
@@ -71,7 +71,7 @@ import net.zepalesque.redux.world.tree.roots.BlightwillowRootsPlacer;
 import net.zepalesque.redux.world.tree.trunk.BlightwillowTrunkPlacer;
 import net.zepalesque.unity.block.UnityBlocks;
 import net.zepalesque.unity.data.UnityTags;
-import net.zepalesque.unity.extendablestate.UnityStateLists;
+import net.zepalesque.unity.extstate.UnityStateLists;
 import net.zepalesque.zenith.api.block.predicate.InBiomePredicate;
 import net.zepalesque.zenith.api.block.predicate.NoisePredicate;
 import net.zepalesque.zenith.api.world.feature.gen.ExtendableStateListBlockFeature;

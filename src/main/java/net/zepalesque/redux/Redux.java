@@ -20,7 +20,7 @@ import net.neoforged.neoforge.event.AddPackFindersEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.datamaps.RegisterDataMapTypesEvent;
-import net.zepalesque.extstate.ReduxStateLists;
+import net.zepalesque.redux.extstate.ReduxStateLists;
 import net.zepalesque.redux.advancement.ReduxAdvancementTriggers;
 import net.zepalesque.redux.attachment.ReduxDataAttachments;
 import net.zepalesque.redux.block.ReduxBlocks;

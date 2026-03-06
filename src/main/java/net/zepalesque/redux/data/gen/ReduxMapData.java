@@ -1,6 +1,9 @@
 package net.zepalesque.redux.data.gen;
 
 import com.aetherteam.aether.block.AetherBlocks;
+
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -12,8 +15,12 @@ import net.zepalesque.redux.client.particle.ReduxParticles;
 import net.zepalesque.redux.data.ReduxDataMaps;
 import net.zepalesque.redux.data.prov.ReduxDataMapProvider;
 import net.zepalesque.redux.data.resource.registries.ReduxBiomes;
+import net.zepalesque.redux.data.resource.registries.ReduxStateListEntries;
 import net.zepalesque.redux.item.ReduxItems;
+import net.zepalesque.unity.extstate.UnityStateLists;
 import net.zepalesque.unity.world.biome.tint.UnityBiomeTints;
+import net.zepalesque.zenith.core.Zenith;
+import net.zepalesque.zenith.core.registry.StateLists;
 
 public class ReduxMapData extends ReduxDataMapProvider {
     public ReduxMapData(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
@@ -51,9 +58,13 @@ public class ReduxMapData extends ReduxDataMapProvider {
         this.addLeafParticle(leaves, AetherBlocks.CRYSTAL_LEAVES, ReduxParticles.CRYSTAL_LEAF, crystal = 18);
         this.addLeafParticle(leaves, AetherBlocks.CRYSTAL_FRUIT_LEAVES, ReduxParticles.CRYSTAL_LEAF, crystal);
         this.addLeafParticle(leaves, AetherBlocks.GOLDEN_OAK_LEAVES, ReduxParticles.GOLDEN_OAK_LEAF, 14);
-        this.addLeafParticle(leaves, ReduxBlocks.GILDENROOT_LEAVES, ReduxParticles.GILDENROOT_LEAF);
+        this.addLeafParticle(leaves, ReduxBlocks.GILDENROOT_LEAVES, ReduxParticles.GILDENROOsT_LEAF);
         this.addLeafParticle(leaves, ReduxBlocks.STORMROOT_LEAVES, ReduxParticles.STORMROOT_LEAF, 18);
         this.addLeafParticle(leaves, ReduxBlocks.BLIGHTWILLOW_LEAVES, ReduxParticles.BLIGHTWILLOW_LEAF, 20);
         this.addLeafParticle(leaves, ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES, ReduxParticles.INFECTED_BLIGHTWILLOW_LEAF, 25);
+        
+        var entries = provider.lookupOrThrow(Zenith.Keys.EXTENDABLE_STATE_LIST_ENTRY);
+        var statelistModifs = this.builder(StateLists.STATE_LIST_MODIFIERS);
+        statelistModifs.add(UnityStateLists.FLUTEMOSS.getKey(), List.of(entries.getOrThrow(ReduxStateListEntries.ECHYSIA).value()), false);
     }
 }
