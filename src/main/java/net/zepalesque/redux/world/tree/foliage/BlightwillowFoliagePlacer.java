@@ -31,7 +31,8 @@ public class BlightwillowFoliagePlacer extends FoliagePlacer {
 		TreeConfiguration config,
 		int maxHeight,
 		FoliageAttachment attachment,
-		int height, int radius,
+		int height,
+		int radius,
 		int offset
 	) {
 		var origin = attachment.pos();

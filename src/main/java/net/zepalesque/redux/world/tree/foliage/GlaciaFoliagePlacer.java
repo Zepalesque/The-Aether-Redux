@@ -1,17 +1,14 @@
 package net.zepalesque.redux.world.tree.foliage;
 
-import java.util.function.Consumer;
-
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.core.BlockPos;
+import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
-
 
 public class GlaciaFoliagePlacer extends FoliagePlacer {
 	public static final MapCodec<GlaciaFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec(
@@ -22,13 +19,18 @@ public class GlaciaFoliagePlacer extends FoliagePlacer {
 
 	private final IntProvider trunkHeight;
 
-	public GlaciaFoliagePlacer(IntProvider radius, IntProvider offset, IntProvider height) {
+	public GlaciaFoliagePlacer(IntProvider radius, IntProvider offset, IntProvider trunkHeight) {
 		super(radius, offset);
-		this.trunkHeight = height;
+		this.trunkHeight = trunkHeight;
 	}
 
 	protected FoliagePlacerType<?> type() {
 		return ReduxFoliagePlacers.GLACIA.get();
+	}
+
+	@Override
+	public int foliageHeight(RandomSource rand, int i, TreeConfiguration cfg) {
+		return this.trunkHeight.sample(rand) + 1;
 	}
 
 	@Override
@@ -37,186 +39,35 @@ public class GlaciaFoliagePlacer extends FoliagePlacer {
 		FoliageSetter setter,
 		RandomSource rand,
 		TreeConfiguration cfg,
-		int i1,
+		int maxHeight,
 		FoliagePlacer.FoliageAttachment attachment,
-		int foliageMaxHeight,
-		int i2,
-		int i3
+		int height,
+		int radius,
+		int offset
 	) {
-		var pos = attachment.pos();
+		var origin = attachment.pos().above(offset + 1);
 
-		for(int l = rand.nextInt(1, 4); l >= 0; --l) {
-			this.placeLeavesRow(reader, setter, rand, cfg, pos.above(1+l), 0, 1, attachment.doubleTrunk());
+		for (int i = 0; i < height; i++) {
+			this.placeLeavesRow(reader, setter, rand, cfg, origin, radius, -i, false);
 		}
-		int a1 = ((foliageMaxHeight/3)*2) + rand.nextInt(-1,1);
-		int a2 = ((foliageMaxHeight/3)) + rand.nextInt(-1,1);
-
-
-		for(int l = foliageMaxHeight; l >= 0; --l) {
-			if (l == 0) {
-				this.placeLeavesRow(reader, setter, rand, cfg, pos, 1, 1, attachment.doubleTrunk());
-				pos = pos.below(1);
-			}
-			else if(l >= a1) {
-				placeSmallCircle(reader, setter, rand, cfg, pos, attachment);
-				pos = pos.below(1);
-			}
-			else if (l >= a2) {
-				this.placeSquare(reader, setter, rand, cfg, pos);
-				pos = pos.below(1);
-			}
-			else {
-				placeBiggerCircle(reader, setter, rand, cfg, pos, attachment);
-				pos = pos.below(1);
-			}
-		}
-
-	}
-
-	public void placeSquare(
-		LevelSimulatedReader reader,
-		FoliageSetter setter,
-		RandomSource rand,
-		TreeConfiguration cfg,
-		BlockPos blockPos
-	) {
-		var pos = blockPos.above(2);
-		Consumer<BlockPos> placeLeaf = p -> {
-			if(rand.nextInt(4) == 1) tryPlaceLeaf(reader, setter, rand, cfg, p);
-		};
-
-		for (int i = 0; i < 3; ++i) {
-			for (int ii = 0; ii < 3; ++ii) {
-				placeLeaf.accept(pos.north(i-1).east(ii-1));
-			}
-			placeLeaf.accept(pos.north(0).east(2));
-			placeLeaf.accept(pos.north(0).east(-2));
-			placeLeaf.accept(pos.north(2).east(0));
-			placeLeaf.accept(pos.north(-2).east(0));
-
-			placeLeaf.accept(pos.north(1).east(2));
-			placeLeaf.accept(pos.north(1).east(-2));
-			placeLeaf.accept(pos.north(-1).east(2));
-			placeLeaf.accept(pos.north(-1).east(-2));
-			placeLeaf.accept(pos.north(2).east(1));
-			placeLeaf.accept(pos.north(-2).east(1));
-			placeLeaf.accept(pos.north(2).east(-1));
-			placeLeaf.accept(pos.north(-2).east(-1));
-		}
-	}
-
-	public void placeSmallCircle(
-		LevelSimulatedReader reader,
-		FoliageSetter setter,
-		RandomSource rand,
-		TreeConfiguration cfg,
-		BlockPos blockPos,
-		FoliagePlacer.FoliageAttachment attachment
-	) {
-		this.placeLeavesRow(reader, setter, rand, cfg, blockPos, 1, 2, attachment.doubleTrunk());
-
-		var pos = blockPos.above(2);
-		Consumer<BlockPos> placeLeaf = p -> {
-			if(rand.nextInt(4) == 1) tryPlaceLeaf(reader, setter, rand, cfg, p);
-		};
-
-		placeLeaf.accept(pos.north(-1).east(-1));
-		placeLeaf.accept(pos.north(1).east(1));
-		placeLeaf.accept(pos.north(0).east(2));
-		placeLeaf.accept(pos.north(0).east(-2));
-		placeLeaf.accept(pos.north(2).east(0));
-		placeLeaf.accept(pos.north(-2).east(0));
-		placeLeaf.accept(pos.north(-1).east(1));
-		placeLeaf.accept(pos.north(1).east(-1));
-	}
-
-	public void placeBigCircle(
-		LevelSimulatedReader reader,
-		FoliageSetter setter,
-		RandomSource rand,
-		TreeConfiguration cfg,
-		BlockPos blockPos,
-		FoliagePlacer.FoliageAttachment attachment
-	) {
-		this.placeLeavesRow(reader, setter, rand, cfg, blockPos, 2, 2, attachment.doubleTrunk());
-
-		var pos = blockPos.above(2);
-		Consumer<BlockPos> placeLeaf = p -> {
-			if(rand.nextInt(4) == 1) tryPlaceLeaf(reader, setter, rand, cfg, p);
-		};
-
-		placeLeaf.accept(pos.north(0).east(3));
-		placeLeaf.accept(pos.north(0).east(-3));
-		placeLeaf.accept(pos.north(3).east(0));
-		placeLeaf.accept(pos.north(-3).east(0));
-		placeLeaf.accept(pos.north(2).east(2));
-		placeLeaf.accept(pos.north(-2).east(-2));
-		placeLeaf.accept(pos.north(2).east(-2));
-		placeLeaf.accept(pos.north(-2).east(2));
-	}
-
-	public void placeBiggerCircle(
-		LevelSimulatedReader reader,
-		FoliageSetter setter,
-		RandomSource rand,
-		TreeConfiguration cfg,
-		BlockPos blockPos,
-		FoliagePlacer.FoliageAttachment attachment
-	) {
-		this.placeLeavesRow(reader, setter, rand, cfg, blockPos, 2, 2, attachment.doubleTrunk());
-
-		var pos = blockPos.above(2);
-		Consumer<BlockPos> placeLeaf = p -> {
-			if(rand.nextInt(4) == 1) tryPlaceLeaf(reader, setter, rand, cfg, p);
-		};
-
-		placeLeaf.accept(pos.north(0).east(3));
-		placeLeaf.accept(pos.north(0).east(-3));
-		placeLeaf.accept(pos.north(3).east(0));
-		placeLeaf.accept(pos.north(-3).east(0));
-		placeLeaf.accept(pos.north(2).east(2));
-		placeLeaf.accept(pos.north(-2).east(-2));
-		placeLeaf.accept(pos.north(2).east(-2));
-		placeLeaf.accept(pos.north(-2).east(2));
-		placeLeaf.accept(pos.north(1).east(3));
-		placeLeaf.accept(pos.north(-1).east(3));
-		placeLeaf.accept(pos.north(1).east(-3));
-		placeLeaf.accept(pos.north(-1).east(-3));
-		placeLeaf.accept(pos.north(3).east(1));
-		placeLeaf.accept(pos.north(3).east(-1));
-		placeLeaf.accept(pos.north(-3).east(1));
-		placeLeaf.accept(pos.north(-3).east(-1));
-	}
-
-	public int foliageHeight(RandomSource rand, int i, TreeConfiguration cfg) {
-		return Math.max(4, i - this.trunkHeight.sample(rand));
-	}
-
-	protected boolean shouldSkipLocation(RandomSource rand, int a, int b, int c, int d, boolean b1) {
-		return a == d && c == d && d > 0;
 	}
 
 	@Override
-	protected void placeLeavesRow(
-		LevelSimulatedReader reader,
-		FoliageSetter setter,
+	protected boolean shouldSkipLocation(
 		RandomSource rand,
-		TreeConfiguration cfg,
-		BlockPos blockPos,
-		int i1,
-		int i2,
-		boolean b
+		int x,
+		int y,
+		int z,
+		int radius,
+		boolean large
 	) {
-		int i = b ? 1 : 0;
-		var pos = new BlockPos.MutableBlockPos();
+		final var x2 = (float)(x & 1) / 2f;
+		final var z2 = (float)(z & 1) / 2f;
 
-		for (int j = -i1; j <= i1 + i; ++j) {
-			for (int k = -i1; k <= i1 + i; ++k) {
-				if (shouldSkipLocationSigned(rand, j, i2, k, i1, b)) continue;
-
-				pos.setWithOffset(blockPos, j, i2, k);
-				tryPlaceLeaf(reader, setter, rand, cfg, pos);
-			}
-		}
+		final var delta = Math.log(-y) / (y < 4 ? 1 : 2);
+		final var maxDist = Mth.lerp(delta, 0, 1) + (float)rand.nextInt(-4, 4) / 10f;
+		final var dist = Mth.sqrt(Mth.square(x - x2) + Mth.square(z - z2));
+		
+		return dist > maxDist;
 	}
 }

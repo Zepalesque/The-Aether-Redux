@@ -65,6 +65,7 @@ import net.zepalesque.redux.world.feature.gen.ReduxFeatures;
 import net.zepalesque.redux.world.tree.decorator.GoldenVineDecorator;
 import net.zepalesque.redux.world.tree.foliage.BlightwillowFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.CrystalFoliagePlacer;
+import net.zepalesque.redux.world.tree.foliage.GlaciaFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.SkyrootFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.SmallGoldenOakFoliagePlacer;
 import net.zepalesque.redux.world.tree.roots.BlightwillowRootsPlacer;
@@ -109,6 +110,8 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_GOLDEN_OAK_TREE = createKey("large_golden_oak");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_SKYROOT_TREE = createKey("small_skyroot");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_SKYROOT_TREE = createKey("large_skyroot");
+
+	public static final ResourceKey<ConfiguredFeature<?, ?>> GLACIA_TREE = createKey("glacia");
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> SENTRITE_ORE = createKey(
 		name(ReduxStoneSets.SENTRITE.block()) + "_ore"
@@ -368,6 +371,21 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				prov(ReduxBlocks.GILDENROOT_LEAVES),
 				new HookedFoliagePlacer(ConstantInt.of(2), ConstantInt.of(1), ConstantInt.of(2)),
 				new TwoLayersFeatureSize(2, 1, 4)
+			)
+				.ignoreVines()
+				.build()
+		);
+
+		FeatureUtils.register(
+			context,
+			GLACIA_TREE,
+			Feature.TREE,
+			new TreeConfiguration.TreeConfigurationBuilder(
+				BlockStateProvider.simple(AetherFeatureStates.AMBROSIUM_ORE),
+				new StraightTrunkPlacer(8, 1, 1),
+				BlockStateProvider.simple(Blocks.COPPER_GRATE),
+				new GlaciaFoliagePlacer(ConstantInt.of(4), ConstantInt.of(1), UniformInt.of(8, 10)),
+				new TwoLayersFeatureSize(1, 0, 1)
 			)
 				.ignoreVines()
 				.build()
