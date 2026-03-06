@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.HolderSet;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.registries.datamaps.builtin.NeoForgeDataMaps;
 import net.zepalesque.redux.Redux;
@@ -65,6 +66,6 @@ public class ReduxMapData extends ReduxDataMapProvider {
         
         var entries = provider.lookupOrThrow(Zenith.Keys.EXTENDABLE_STATE_LIST_ENTRY);
         var statelistModifs = this.builder(StateLists.STATE_LIST_MODIFIERS);
-        statelistModifs.add(UnityStateLists.FLUTEMOSS.getKey(), List.of(entries.getOrThrow(ReduxStateListEntries.ECHYSIA).value()), false);
+        statelistModifs.add(UnityStateLists.FLUTEMOSS.getKey(), HolderSet.direct(entries.getOrThrow(ReduxStateListEntries.ECHYSIA)), false);
     }
 }
