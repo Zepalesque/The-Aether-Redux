@@ -72,7 +72,8 @@ public class Redux {
     );
     public static final PackConfig DATA_CONFIG = new PackConfig(
         loc("data_overrides"),
-        PackType.SERVER_DATA
+        PackType.SERVER_DATA,
+        false
     );
 
     public Redux(ModContainer mod, IEventBus bus, Dist dist) {
