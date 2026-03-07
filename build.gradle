@@ -1,4 +1,4 @@
-import javax.annotation.Nullable
+import java.util.Optional
 
 plugins {
 	id 'java-library'
@@ -48,11 +48,10 @@ neoForge {
 			client()
 			systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
 
-			@Nullable String username = System.getenv "MC_USR_DEV";
-			if (username != null) programArguments.addAll '--username', username
-
-			@Nullable String uuid = System.getenv "MC_UUID_DEV";
-			if (uuid != null) programArguments.addAll '--uuid', uuid
+			Optional<String> username = Optional.ofNullable(System.getenv "MC_USR_DEV");
+			username.ifPresent { val -> programArguments.addAll '--username', val }
+			Optional<String> uuid = Optional.ofNullable(System.getenv "MC_UUID_DEV");
+			uuid.ifPresent { val -> programArguments.addAll '--uuid', val }
 		}
 
 		server {
