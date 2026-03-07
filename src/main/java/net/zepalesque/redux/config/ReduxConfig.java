@@ -110,7 +110,8 @@ public class ReduxConfig {
 		public final ModConfigSpec.ConfigValue<Boolean> slider_sfx_upgrade;
 		public final ModConfigSpec.ConfigValue<Boolean> slider_signal_sfx;
 		public final ModConfigSpec.ConfigValue<Boolean> upgraded_nature;
-		public final ModConfigSpec.ConfigValue<Boolean> upgraded_dungeon_blocks;
+		public final ModConfigSpec.ConfigValue<Boolean> upgraded_dungeons;
+		public final ModConfigSpec.ConfigValue<Boolean> upgraded_resources;
 
 		public Client(ModConfigSpec.Builder builder) {
 			builder.push("Visual");
@@ -134,11 +135,17 @@ public class ReduxConfig {
 					.define("Upgraded Nature", true),
 				"upgraded_nature"
 			);
-			upgraded_dungeon_blocks = Redux.ASSETS_CONFIG.register(
+			upgraded_dungeons = Redux.ASSETS_CONFIG.register(
 				builder
-					.comment("Use Redux's updated dungeon block textures.")
-					.define("Upgraded Dungeon Blocks", true),
-				"upgraded_dungeon_blocks"
+					.comment("Use Redux's updated dungeon textures.")
+					.define("Upgraded Dungeons", true),
+				"upgraded_dungeons"
+			);
+			upgraded_resources = Redux.ASSETS_CONFIG.register(
+				builder
+					.comment("Use Redux's updated resource textures.")
+					.define("Upgraded Resources", true),
+				"upgraded_resources"
 			);
 
 			builder.pop();
