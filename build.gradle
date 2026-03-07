@@ -144,9 +144,9 @@ dependencies {
 	implementation "curse.maven:jade-324717:${project.jade_version}"
 
 	// Performance mods (hopefully to speed up loading)
-	runtimeOnly "maven.modrinth:ferrite-core:7.0.3-neoforge"
-	runtimeOnly "maven.modrinth:modernfix:5.26.1+mc1.21.1"
-	runtimeOnly "maven.modrinth:lazydfu-reloaded:WHSBfR8W"
+	runtimeOnly "maven.modrinth:ferrite-core:${project.ferrite_core_version}"
+	runtimeOnly "maven.modrinth:modernfix:${project.modernfix_version}"
+	runtimeOnly "maven.modrinth:lazydfu-reloaded:${project.lazydfu_version}"
 
 	jarJar("curse.maven:aeroblender-879879:${project.aeroblender_version}") {
 		version {}
