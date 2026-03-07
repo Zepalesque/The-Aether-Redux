@@ -1,0 +1,14 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "equipment",
+	"key": {
+		"S": {
+			"item": "aether_redux:refined_sentrite"
+		}
+	},
+	"pattern": [" S", "S "],
+	"result": {
+		"count": 1,
+		"id": "aether_redux:sentrite_shears"
+	}
+}
