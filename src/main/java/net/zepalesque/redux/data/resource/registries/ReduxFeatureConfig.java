@@ -13,7 +13,6 @@ import java.util.OptionalInt;
 import java.util.stream.Stream;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
-import net.minecraft.core.Vec3i;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
@@ -73,7 +72,6 @@ import net.zepalesque.redux.world.tree.trunk.BlightwillowTrunkPlacer;
 import net.zepalesque.unity.block.UnityBlocks;
 import net.zepalesque.unity.data.UnityTags;
 import net.zepalesque.unity.extstate.UnityStateLists;
-import net.zepalesque.zenith.api.block.predicate.InBiomePredicate;
 import net.zepalesque.zenith.api.block.predicate.NoisePredicate;
 import net.zepalesque.zenith.api.world.feature.gen.ExtendableStateListBlockFeature;
 import net.zepalesque.zenith.api.world.feature.gen.LargeRockFeature;
@@ -391,13 +389,6 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				.build()
 		);
 
-		BlockPredicate has_golden_vines = InBiomePredicate.inTag(ReduxTags.Biomes.HAS_GOLDEN_VINES);
-		BlockPredicate on_enchanted = BlockPredicate.matchesTag(
-			new Vec3i(0, -1, 0),
-			UnityTags.Blocks.SHORT_AETHER_GRASS_STATE_ENCHANTING
-		);
-		BlockPredicate golden_vine_predicate = BlockPredicate.anyOf(has_golden_vines, on_enchanted);
-
 		FeatureUtils.register(
 			context,
 			SMALL_GOLDEN_OAK_TREE,
@@ -421,7 +412,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 							prov(ReduxBlocks.GOLDEN_VINES_PLANT),
 							prov(ReduxBlocks.GOLDEN_VINES),
 							UniformInt.of(1, 3),
-							Optional.of(golden_vine_predicate)
+							Optional.empty()
 						)
 					)
 				)
@@ -451,7 +442,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 							prov(ReduxBlocks.GOLDEN_VINES_PLANT),
 							prov(ReduxBlocks.GOLDEN_VINES),
 							UniformInt.of(1, 5),
-							Optional.of(golden_vine_predicate)
+							Optional.empty()
 						)
 					)
 				)

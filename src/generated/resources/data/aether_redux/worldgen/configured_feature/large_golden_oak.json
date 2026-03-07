@@ -24,20 +24,6 @@
 						}
 					}
 				},
-				"predicate": {
-					"type": "minecraft:any_of",
-					"predicates": [
-						{
-							"type": "zenith:in_biome",
-							"biomes": "#aether_redux:has_golden_vines"
-						},
-						{
-							"type": "minecraft:matching_block_tag",
-							"offset": [0, -1, 0],
-							"tag": "aether_unity:short_aether_grass_state_enchanting"
-						}
-					]
-				},
 				"probability": 0.25
 			}
 		],
