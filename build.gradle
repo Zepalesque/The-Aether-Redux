@@ -133,7 +133,7 @@ dependencies {
 
 
 	implementation "curse.maven:aeroblender-879879:${project.aeroblender_version}"
-	implementation "com.github.glitchfiend:TerraBlender-neoforge:${project.terrablender_version}"
+	implementation "curse.maven:terrablender-563928:${project.terrablender_version}"
 
 	// Workspace mods + Other Dependencies
 	runtimeOnly "curse.maven:appleskin-248787:${project.appleskin_version}"
@@ -151,11 +151,8 @@ dependencies {
 		version {}
 	}
 
-	jarJar("com.github.glitchfiend:TerraBlender-neoforge:${project.terrablender_version}") {
-		version {
-			strictly "${project.terrablender_version_range}"
-			prefer "${project.terrablender_version}"
-		}
+	jarJar("curse.maven:terrablender-563928:${project.terrablender_version}") {
+		version {}
 	}
 
 	jarJar("net.zepalesque.zenith:zenith:${minecraft_version}-${zenith_version}-neoforge") {
@@ -181,7 +178,7 @@ repositories {
 	maven { url = 'https://maven.su5ed.dev/releases' }
 	maven { url = 'https://maven.fabricmc.net' }
 	maven { url = 'https://maven.shedaniel.me/' }
-	maven { url = "https://jitpack.io" }
+//	maven { url = "https://jitpack.io" }
 	maven { url = "https://maven.blamejared.com" }
 	maven { url = "https://maven.theillusivec4.top/" }
 	maven { url = "https://gitlab.com/api/v4/projects/21830712/packages/maven" }
