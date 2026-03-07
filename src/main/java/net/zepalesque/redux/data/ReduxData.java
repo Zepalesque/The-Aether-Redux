@@ -72,7 +72,7 @@ public class ReduxData {
                 Optional.of(new InclusiveRange<>(0, Integer.MAX_VALUE)))));
         
         
-        var builtinData = output.getOutputFolder().resolve("packs").resolve("data");
+        var builtinData = output.getOutputFolder().resolve("packs").resolve("data").resolve(Redux.MODID);
         
         var noisePack = generator.new PackGenerator(event.includeServer(), "reduxnoise", new PackOutput(builtinData.resolve("redux_noise")));
         final var immLookups = lookups;
