@@ -133,7 +133,7 @@ dependencies {
 
 
 	implementation "curse.maven:aeroblender-879879:${project.aeroblender_version}"
-	implementation "curse.maven:terrablender-563928:${project.terrablender_version}"
+	implementation "maven.modrinth:terrablender:${project.terrablender_version}"
 
 	// Workspace mods + Other Dependencies
 	runtimeOnly "curse.maven:appleskin-248787:${project.appleskin_version}"
@@ -151,7 +151,7 @@ dependencies {
 		version {}
 	}
 
-	jarJar("curse.maven:terrablender-563928:${project.terrablender_version}") {
+	jarJar("maven.modrinth:terrablender:${project.terrablender_version}") {
 		version {}
 	}
 
