@@ -147,6 +147,13 @@ public class ReduxRecipeData extends ReduxRecipeProvider {
             .requires(ReduxItems.WYND_OATS)
             .unlockedBy(getHasName(ReduxItems.CAELGAE_CLUMP), has(ReduxItems.CAELGAE_CLUMP))
             .save(output);
+        
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ReduxItems.SENTRITE_SHEARS)
+            .define('S', ReduxItems.REFINED_SENTRITE)
+            .pattern(" S")
+            .pattern("S ")
+            .unlockedBy(getHasName(ReduxItems.REFINED_SENTRITE), has(ReduxItems.REFINED_SENTRITE))
+            .save(output);
 
         CompoundTag infusionInfo = new CompoundTag();
         infusionInfo.putShort(InfusionRecipe.ADDED_INFUSION, (short) 4);

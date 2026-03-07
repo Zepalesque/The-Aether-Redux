@@ -1,6 +1,7 @@
 package net.zepalesque.redux.item;
 
 import com.aetherteam.aether.item.AetherItems;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
@@ -8,6 +9,7 @@ import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.PlaceOnWaterBlockItem;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.ShearsItem;
 import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.SwordItem;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
@@ -62,6 +64,11 @@ public class ReduxItems extends ReduxItemBuilders {
 
 	public static final DeferredItem<Item> REFINED_SENTRITE = ITEMS.registerSimpleItem("refined_sentrite");
 	public static final DeferredItem<Item> SENTRITE_CHUNK = ITEMS.registerSimpleItem("sentrite_chunk");
+	
+	public static final DeferredItem<ShearsItem> SENTRITE_SHEARS = ITEMS.register(
+		"sentrite_shears",
+		() -> new ShearsItem(new Item.Properties().durability(242).component(DataComponents.TOOL, ShearsItem.createToolProperties()))
+	);
 
 	public static final DeferredItem<VeridiumPickaxeItem.Uninfused> VERIDIUM_PICKAXE = ITEMS.register(
 		"veridium_pickaxe",

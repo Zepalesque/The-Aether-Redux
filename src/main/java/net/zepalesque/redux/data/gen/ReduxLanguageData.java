@@ -131,6 +131,9 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 		addItem(ReduxItems.SENTRITE_CHUNK);
 		addLore(ReduxItems.SENTRITE_CHUNK, "A chunk of purified Sentrite. These are occasionally dropped from Sentries, and can be crafted into Refined Sentrite.");
 
+		addItem(ReduxItems.SENTRITE_SHEARS);
+		addLore(ReduxItems.SENTRITE_SHEARS, "Shears made of Refined Sentrite. These can be used to shear sheep, gather leaves, and more!");
+
 		addBlock(ReduxBlocks.SENTRITE_CHAIN);
 		addLore(ReduxBlocks.SENTRITE_CHAIN, "A chain made of purified Sentrite. This is crafted with a piece of Refined Sentrite and two Sentrite Chunks.");
 		addBlock(ReduxBlocks.SENTRITE_LANTERN);

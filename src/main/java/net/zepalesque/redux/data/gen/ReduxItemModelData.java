@@ -75,6 +75,9 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
 
         this.item(ReduxItems.REFINED_SENTRITE.get(), "materials/");
         this.item(ReduxItems.SENTRITE_CHUNK.get(), "materials/");
+        
+        // why do vanilla shears not use handheld ???? whatever smh my head,,,,
+        this.item(ReduxItems.SENTRITE_SHEARS.get(), "tools/");
 
         this.item(ReduxBlocks.SENTRITE_LANTERN.get().asItem(), "misc/");
         this.item(ReduxBlocks.SENTRITE_CHAIN.get().asItem(), "misc/");

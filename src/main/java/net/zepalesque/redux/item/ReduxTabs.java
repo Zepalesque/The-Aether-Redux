@@ -138,6 +138,8 @@ public class ReduxTabs {
                 ReduxItems.VERIDIUM_DART
             );
             
+            TabUtil.putBefore(event, AetherItems.BOOK_OF_LORE, ReduxItems.SENTRITE_SHEARS);
+            
             TabUtil.putAfter(event, AetherItems.MUSIC_DISC_ASCENDING_DAWN, ReduxItems.MUSIC_DISC_SENTIENCE);
             
             
