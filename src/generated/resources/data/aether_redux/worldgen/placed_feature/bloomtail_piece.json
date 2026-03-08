@@ -2,6 +2,13 @@
 	"feature": "aether_redux:bloomtail_piece",
 	"placement": [
 		{
+			"type": "minecraft:count",
+			"count": 48
+		},
+		{
+			"type": "minecraft:in_square"
+		},
+		{
 			"type": "minecraft:noise_threshold_count",
 			"above_noise": 10,
 			"below_noise": 5,
@@ -16,13 +23,6 @@
 			},
 			"heightmap": "OCEAN_FLOOR_WG",
 			"verticalBounds": 4
-		},
-		{
-			"type": "minecraft:in_square"
-		},
-		{
-			"type": "minecraft:count",
-			"count": 48
 		},
 		{
 			"type": "minecraft:biome"
