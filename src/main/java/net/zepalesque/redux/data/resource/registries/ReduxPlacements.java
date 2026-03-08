@@ -203,9 +203,10 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
             BiomeFilter.biome());
         
         PlacementUtils.register(context, BLOOMTAIL, configs.getOrThrow(ReduxFeatureConfig.BLOOMTAIL),
-            CountPlacement.of(48),
             threshold,
             ImprovedLayerPlacementModifier.of(Heightmap.Types.OCEAN_FLOOR_WG, UniformInt.of(0, 1), 4),
+            CountPlacement.of(48),
+            InSquarePlacement.spread(), // TODO: If crashing, move to after biome filter (bad idea ik shush)
             BiomeFilter.biome());
         
         PlacementUtils.register(context, SPARSE_BLUE_AERCLOUD,
