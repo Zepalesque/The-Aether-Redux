@@ -119,14 +119,12 @@ public class JellyshroomFeature extends Feature<JellyshroomFeature.Config> {
 		BlockStateProvider stem,
 		IntProvider height
 	) implements FeatureConfiguration {
-		public static final Codec<Config> CODEC = RecordCodecBuilder.create(
-			mushroom -> mushroom
+		public static final Codec<Config> CODEC = RecordCodecBuilder.create(builder -> builder
 				.group(
 					BlockStateProvider.CODEC.fieldOf("jelly_block").forGetter(Config::jelly),
 					BlockStateProvider.CODEC.fieldOf("stem_block").forGetter(Config::stem),
 					IntProvider.CODEC.fieldOf("height").forGetter(Config::height)
-				)
-				.apply(mushroom, Config::new)
+				).apply(builder, Config::new)
 		);
 	}
 }

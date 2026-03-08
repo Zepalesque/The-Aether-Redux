@@ -203,8 +203,7 @@ public class CloudcapFeature extends Feature<CloudcapFeature.Config> {
 		IntProvider rootHeight,
 		IntProvider capHeight
 	) implements FeatureConfiguration {
-		public static final Codec<Config> CODEC = RecordCodecBuilder.create(
-			mushroom -> mushroom
+		public static final Codec<Config> CODEC = RecordCodecBuilder.create(builder -> builder
 				.group(
 					BlockStateProvider.CODEC.fieldOf("cap_provider").forGetter(Config::cap),
 					BlockStateProvider.CODEC.fieldOf("spore_provider").forGetter(Config::spore),
@@ -213,8 +212,7 @@ public class CloudcapFeature extends Feature<CloudcapFeature.Config> {
 					IntProvider.CODEC.fieldOf("height").forGetter(Config::height),
 					IntProvider.CODEC.fieldOf("root_height").forGetter(Config::rootHeight),
 					IntProvider.CODEC.fieldOf("cap_height").forGetter(Config::capHeight)
-				)
-				.apply(mushroom, Config::new)
+				).apply(builder, Config::new)
 		);
 	}
 }
