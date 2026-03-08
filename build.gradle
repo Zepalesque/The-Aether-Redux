@@ -119,6 +119,8 @@ neoForge.ideSyncTask genInfo
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
+sourceSets.main.java { srcDir 'src/generated/java' }
+
 configurations {
 	runtimeClasspath.extendsFrom localRuntime
 }
