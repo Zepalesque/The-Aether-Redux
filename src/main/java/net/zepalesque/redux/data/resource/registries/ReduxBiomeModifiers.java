@@ -1,9 +1,7 @@
 package net.zepalesque.redux.data.resource.registries;
 
 import com.aetherteam.aether.data.resources.registries.AetherBiomes;
-import com.aetherteam.nitrogen.world.biomemodifier.AddMobChargeBiomeModifier;
 import com.google.common.collect.ImmutableMap;
-
 import java.util.List;
 import java.util.Optional;
 import net.minecraft.core.Holder;

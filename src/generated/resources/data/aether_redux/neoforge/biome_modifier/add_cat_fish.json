@@ -1,0 +1,14 @@
+{
+	"type": "zenith:conditional",
+	"modify": {
+		"type": "neoforge:add_spawns",
+		"biomes": "#aether_redux:has_cat_fish",
+		"spawners": {
+			"type": "aether_redux:cat_fish",
+			"maxCount": 5,
+			"minCount": 1,
+			"weight": 5
+		}
+	},
+	"when": "aether_redux:lakes"
+}
