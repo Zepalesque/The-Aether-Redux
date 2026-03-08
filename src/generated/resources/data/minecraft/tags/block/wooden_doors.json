@@ -1,3 +1,7 @@
 {
-	"values": ["aether_redux:crystal_door", "aether_redux:blightwillow_door"]
+	"values": [
+		"aether_redux:crystal_door",
+		"aether_redux:blightwillow_door",
+		"aether_redux:glacia_door"
+	]
 }

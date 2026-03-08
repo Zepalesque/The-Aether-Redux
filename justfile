@@ -1,9 +1,11 @@
 run:
 	./gradlew runclient
 
-data:
-	./gradlew rundata
+data: quickdata
 	./gradlew spotlessApply
+
+quickdata:
+	./gradlew rundata
 
 update:
 	git fetch
