@@ -26,3 +26,5 @@ run-data
 *.cache
 
 repo
+
+src/generated/java/**/package-info.java
