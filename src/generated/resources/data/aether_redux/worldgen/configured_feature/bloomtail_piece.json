@@ -1,0 +1,11 @@
+{
+	"type": "aether_redux:water_plant",
+	"config": {
+		"block": {
+			"type": "minecraft:simple_state_provider",
+			"state": {
+				"Name": "aether_redux:bloomtail"
+			}
+		}
+	}
+}
