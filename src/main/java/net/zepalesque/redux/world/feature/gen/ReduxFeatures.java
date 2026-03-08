@@ -23,10 +23,18 @@ public class ReduxFeatures {
 			() -> new CloudbedFeature(CloudbedFeature.Config.CODEC)
 		);
 	
+	// TODO: Move to Zenith
 	public static final DeferredHolder<Feature<?>, Feature<DebugNoiseFeature.Config>> DEBUG_NOISE =
 		FEATURES.register(
 			"debug_noise",
 			() -> new DebugNoiseFeature(DebugNoiseFeature.Config.CODEC)
+		);
+	
+	// TODO: Move to Zenith
+	public static final DeferredHolder<Feature<?>, Feature<WaterPlantFeature.Config>> WATER_PLANT =
+		FEATURES.register(
+			"water_plant",
+			() -> new WaterPlantFeature(WaterPlantFeature.Config.CODEC)
 		);
 
 	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> CRYSTAL_ISLAND = 

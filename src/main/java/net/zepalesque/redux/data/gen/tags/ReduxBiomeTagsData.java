@@ -34,6 +34,8 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
 		this.tag(ReduxTags.Biomes.HAS_VERBENA).addTag(ReduxTags.Biomes.HAS_LAKES);
 
 		this.tag(ReduxTags.Biomes.HAS_CAELGAE).addTag(ReduxTags.Biomes.HAS_LAKES);
+		
+		this.tag(ReduxTags.Biomes.HAS_BLOOMTAIL).addTag(ReduxTags.Biomes.HAS_LAKES);
 
 		this.tag(ReduxTags.Biomes.HAS_CAVES).addTag(AetherTags.Biomes.IS_AETHER);
 

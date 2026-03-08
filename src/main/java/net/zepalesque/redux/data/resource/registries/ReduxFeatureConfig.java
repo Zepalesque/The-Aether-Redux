@@ -61,6 +61,7 @@ import net.zepalesque.redux.world.feature.gen.CloudbedFeature;
 import net.zepalesque.redux.world.feature.gen.DebugNoiseFeature;
 import net.zepalesque.redux.world.feature.gen.LakesFeature;
 import net.zepalesque.redux.world.feature.gen.ReduxFeatures;
+import net.zepalesque.redux.world.feature.gen.WaterPlantFeature;
 import net.zepalesque.redux.world.tree.decorator.GoldenVineDecorator;
 import net.zepalesque.redux.world.tree.foliage.BlightwillowFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.CrystalFoliagePlacer;
@@ -94,6 +95,10 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 	
 	public static final ResourceKey<ConfiguredFeature<?, ?>> CAELGAE_PATCH = createKey(
 		name(ReduxBlocks.CAELGAE_PATCH)
+	);
+	
+	public static final ResourceKey<ConfiguredFeature<?, ?>> BLOOMTAIL = createKey(
+		name(ReduxBlocks.BLOOMTAIL) + "_piece"
 	);
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> CLOUDBED = createKey("cloudbed");
@@ -640,6 +645,13 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			CAELGAE_PATCH,
 			Feature.RANDOM_PATCH,
 			patch(24, 6, 3, prov(ReduxBlocks.CAELGAE_PATCH))
+		);
+		
+		FeatureUtils.register(
+			context,
+			BLOOMTAIL,
+			ReduxFeatures.WATER_PLANT.get(),
+			new WaterPlantFeature.Config(prov(ReduxBlocks.BLOOMTAIL))
 		);
 
 		FeatureUtils.register(

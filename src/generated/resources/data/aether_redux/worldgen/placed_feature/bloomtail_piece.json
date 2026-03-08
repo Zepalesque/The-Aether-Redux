@@ -1,5 +1,5 @@
 {
-	"feature": "aether_redux:caelgae_patch",
+	"feature": "aether_redux:bloomtail_piece",
 	"placement": [
 		{
 			"type": "minecraft:noise_threshold_count",
@@ -8,18 +8,21 @@
 			"noise_level": -0.8
 		},
 		{
-			"type": "minecraft:count",
-			"count": 11
-		},
-		{
 			"type": "aether:improved_layer_placement",
 			"count": {
 				"type": "minecraft:uniform",
 				"max_inclusive": 1,
 				"min_inclusive": 0
 			},
-			"heightmap": "MOTION_BLOCKING",
+			"heightmap": "OCEAN_FLOOR_WG",
 			"verticalBounds": 4
+		},
+		{
+			"type": "minecraft:in_square"
+		},
+		{
+			"type": "minecraft:count",
+			"count": 48
 		},
 		{
 			"type": "minecraft:biome"
