@@ -3,6 +3,6 @@
 @FieldsAreNonnullByDefault
 package net.zepalesque.redux.loot.modifer;
 
-import javax.annotation.ParametersAreNonnullByDefault;
 import net.minecraft.FieldsAreNonnullByDefault;
 import net.minecraft.MethodsReturnNonnullByDefault;
+import javax.annotation.ParametersAreNonnullByDefault;
