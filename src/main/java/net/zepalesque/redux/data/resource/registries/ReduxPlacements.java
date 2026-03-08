@@ -204,7 +204,6 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
         
         PlacementUtils.register(context, BLOOMTAIL, configs.getOrThrow(ReduxFeatureConfig.BLOOMTAIL),
             CountPlacement.of(48),
-            InSquarePlacement.spread(),
             threshold,
             ImprovedLayerPlacementModifier.of(Heightmap.Types.OCEAN_FLOOR_WG, UniformInt.of(0, 1), 4),
             BiomeFilter.biome());
