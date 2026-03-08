@@ -8,9 +8,6 @@
 			"noise_level": -0.8
 		},
 		{
-			"type": "minecraft:in_square"
-		},
-		{
 			"type": "aether:improved_layer_placement",
 			"count": {
 				"type": "minecraft:uniform",
@@ -19,6 +16,9 @@
 			},
 			"heightmap": "OCEAN_FLOOR_WG",
 			"verticalBounds": 4
+		},
+		{
+			"type": "minecraft:in_square"
 		},
 		{
 			"type": "minecraft:count",
