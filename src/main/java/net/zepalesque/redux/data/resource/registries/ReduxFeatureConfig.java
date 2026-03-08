@@ -234,7 +234,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				prov(AetherFeatureStates.QUICKSOIL),
 				lakeFloor,
 				BlockPredicate.replaceable(),
-				36,
+				LakesFeature.Y_LEVEL_DEFAULT,
 				ReduxDensityBuilders.get(functions, ReduxDensityFunctions.LAKES_NOISE),
 				10,
 				ReduxDensityBuilders.get(functions, ReduxDensityFunctions.LAKES_Y_OFFSET),

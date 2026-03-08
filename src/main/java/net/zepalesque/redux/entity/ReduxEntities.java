@@ -81,8 +81,8 @@ public class ReduxEntities {
 		event.register(
 			CAT_FISH.get(),
 			SpawnPlacementTypes.IN_WATER,
-			Heightmap.Types.OCEAN_FLOOR_WG,
-			CatFish::checkSurfaceWaterAnimalSpawnRules,
+			Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+			CatFish::checkCatFishSpawnRules,
 			RegisterSpawnPlacementsEvent.Operation.OR
 		);
 	}
