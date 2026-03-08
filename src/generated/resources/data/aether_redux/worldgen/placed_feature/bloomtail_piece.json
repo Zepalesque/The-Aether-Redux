@@ -14,7 +14,7 @@
 				"max_inclusive": 1,
 				"min_inclusive": 0
 			},
-			"heightmap": "OCEAN_FLOOR_WG",
+			"heightmap": "OCEAN_FLOOR",
 			"verticalBounds": 4
 		},
 		{
