@@ -9,6 +9,11 @@
 		"aether_redux:blightwillow_log_wall",
 		"aether_redux:stripped_blightwillow_log_wall",
 		"aether_redux:blightwillow_wood_wall",
-		"aether_redux:stripped_blightwillow_wood_wall"
+		"aether_redux:stripped_blightwillow_wood_wall",
+		"#aether_redux:glacia_logs",
+		"aether_redux:glacia_log_wall",
+		"aether_redux:stripped_glacia_log_wall",
+		"aether_redux:glacia_wood_wall",
+		"aether_redux:stripped_glacia_wood_wall"
 	]
 }

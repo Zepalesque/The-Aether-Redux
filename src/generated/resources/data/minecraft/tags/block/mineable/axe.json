@@ -29,6 +29,21 @@
 		"aether_redux:stripped_blightwillow_log_wall",
 		"aether_redux:blightwillow_wood_wall",
 		"aether_redux:stripped_blightwillow_wood_wall",
-		"aether_redux:blightwillow_bookshelf"
+		"aether_redux:blightwillow_bookshelf",
+		"aether_redux:glacia_planks",
+		"aether_redux:glacia_stairs",
+		"aether_redux:glacia_slab",
+		"aether_redux:glacia_fence",
+		"aether_redux:glacia_fence_gate",
+		"aether_redux:glacia_door",
+		"aether_redux:glacia_trapdoor",
+		"aether_redux:glacia_sign",
+		"aether_redux:glacia_wall_sign",
+		"#aether_redux:glacia_logs",
+		"aether_redux:glacia_log_wall",
+		"aether_redux:stripped_glacia_log_wall",
+		"aether_redux:glacia_wood_wall",
+		"aether_redux:stripped_glacia_wood_wall",
+		"aether_redux:glacia_bookshelf"
 	]
 }
