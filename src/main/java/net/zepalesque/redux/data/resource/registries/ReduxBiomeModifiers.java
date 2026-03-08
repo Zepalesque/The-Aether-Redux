@@ -1,7 +1,10 @@
 package net.zepalesque.redux.data.resource.registries;
 
 import com.aetherteam.aether.data.resources.registries.AetherBiomes;
+import com.aetherteam.nitrogen.world.biomemodifier.AddMobChargeBiomeModifier;
 import com.google.common.collect.ImmutableMap;
+
+import java.util.List;
 import java.util.Optional;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
@@ -10,6 +13,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
@@ -19,6 +23,7 @@ import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.audio.ReduxMusic;
 import net.zepalesque.redux.data.ReduxTags;
+import net.zepalesque.redux.entity.ReduxEntities;
 import net.zepalesque.zenith.api.condition.Condition;
 import net.zepalesque.zenith.api.world.biome.modifier.ConditionalBiomeModifier;
 import net.zepalesque.zenith.api.world.biome.modifier.MusicModifier;
@@ -29,6 +34,7 @@ import net.zepalesque.zenith.core.Zenith;
 public class ReduxBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_CLOUDBED = createKey("add_cloudbed");
 	public static final ResourceKey<BiomeModifier> ADD_LAKES = createKey("add_lakes");
+	public static final ResourceKey<BiomeModifier> ADD_CAT_FISH = createKey("add_cat_fish");
 	public static final ResourceKey<BiomeModifier> ADD_VERBENA = createKey("add_verbena");
 	public static final ResourceKey<BiomeModifier> ADD_CAELGAE = createKey("add_caelgae");
     public static final ResourceKey<BiomeModifier> SKY_COLOR_AETHER = createKey("modify_sky_color");
@@ -57,8 +63,13 @@ public class ReduxBiomeModifiers {
         BiomeModifier lakes = new BiomeModifiers.AddFeaturesBiomeModifier(
                 biomes.getOrThrow(ReduxTags.Biomes.HAS_LAKES), HolderSet.direct(features.getOrThrow(ReduxPlacements.LAKES)),
                 GenerationStep.Decoration.RAW_GENERATION);
-        context.register(ADD_LAKES, new ConditionalBiomeModifier(Holder.direct(lakes), conditions.get(ReduxConditions.LAKES).orElseThrow()));
+        context.register(ADD_LAKES, new ConditionalBiomeModifier(Holder.direct(lakes), conditions.getOrThrow(ReduxConditions.LAKES)));
 
+        var catfish = new BiomeModifiers.AddSpawnsBiomeModifier(biomes.getOrThrow(ReduxTags.Biomes.HAS_CAT_FISH), List.of(
+            new MobSpawnSettings.SpawnerData(ReduxEntities.CAT_FISH.get(), 5, 1, 5)
+        ));
+        context.register(ADD_CAT_FISH, new ConditionalBiomeModifier(Holder.direct(catfish), conditions.getOrThrow(ReduxConditions.LAKES)));
+        
         context.register(ADD_VERBENA, new BiomeModifiers.AddFeaturesBiomeModifier(
                 biomes.getOrThrow(ReduxTags.Biomes.HAS_VERBENA), HolderSet.direct(features.getOrThrow(ReduxPlacements.TURBO_VERBENA_PATCH)),
                 GenerationStep.Decoration.VEGETAL_DECORATION));

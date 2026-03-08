@@ -13,11 +13,15 @@ public class CatFish extends AbstractSchoolingFish {
 		super(entityType, level);
 	}
 
+	// TODO: Bucket + skyroot bucket
+	
 	@Override
 	public ItemStack getBucketItemStack() {
 		return ItemStack.EMPTY;
 	}
 
+	// TODO: New sounds, some mechanics or something perhaps as well
+	
 	@Override
 	protected SoundEvent getAmbientSound() {
 		return SoundEvents.COD_AMBIENT;

@@ -28,6 +28,8 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
 		this.tag(ReduxTags.Biomes.HAS_CLOUDBED).addTag(AetherTags.Biomes.IS_AETHER);
 
 		this.tag(ReduxTags.Biomes.HAS_LAKES).addTag(AetherTags.Biomes.IS_AETHER);
+		
+		this.tag(ReduxTags.Biomes.HAS_CAT_FISH).addTag(ReduxTags.Biomes.HAS_LAKES);
 
 		this.tag(ReduxTags.Biomes.HAS_VERBENA).addTag(ReduxTags.Biomes.HAS_LAKES);
 
