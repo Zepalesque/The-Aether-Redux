@@ -206,8 +206,8 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
             threshold,
             ImprovedLayerPlacementModifier.of(Heightmap.Types.OCEAN_FLOOR, UniformInt.of(0, 1), 4),
             CountPlacement.of(48),
-            InSquarePlacement.spread(), // TODO: If crashing, move to after biome filter (bad idea ik shush)
-            BiomeFilter.biome());
+            BiomeFilter.biome(),
+            InSquarePlacement.spread());
         
         PlacementUtils.register(context, SPARSE_BLUE_AERCLOUD,
             configs.getOrThrow(AetherConfiguredFeatures.BLUE_AERCLOUD_CONFIGURATION),
