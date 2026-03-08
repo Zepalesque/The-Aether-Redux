@@ -22,10 +22,10 @@
 			"count": 48
 		},
 		{
-			"type": "minecraft:in_square"
+			"type": "minecraft:biome"
 		},
 		{
-			"type": "minecraft:biome"
+			"type": "minecraft:in_square"
 		}
 	]
 }
