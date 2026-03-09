@@ -48,9 +48,9 @@ neoForge {
 			client()
 			systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
 
-			Optional<String> username = Optional.ofNullable(System.getenv "MC_USR_DEV");
+			Optional<String> username = Optional.ofNullable(System.getenv "MC_USR_DEV")
 			username.ifPresent { val -> programArguments.addAll '--username', val }
-			Optional<String> uuid = Optional.ofNullable(System.getenv "MC_UUID_DEV");
+			Optional<String> uuid = Optional.ofNullable(System.getenv "MC_UUID_DEV")
 			uuid.ifPresent { val -> programArguments.addAll '--uuid', val }
 		}
 
@@ -173,8 +173,8 @@ dependencies {
 }
 
 repositories {
-	var user = System.getenv("GITHUB_USERNAME"); // TODO: Change to GITHUB_ACTOR
-	var tok = System.getenv("GITHUB_TOKEN");
+	var user = System.getenv("GITHUB_ACTOR")
+	var tok = System.getenv("GITHUB_TOKEN")
 
 	maven { url = 'https://maven.wispforest.io/releases' }
 	maven { url = 'https://maven.su5ed.dev/releases' }
@@ -254,7 +254,7 @@ publishing {
             name = "GitHubPackages"
             url = "https://maven.pkg.github.com/Zepalesque/The-Aether-Redux"
             credentials {
-                username = System.getenv("GITHUB_USERNAME") // TODO: change to GITHUB_ACTOR
+                username = System.getenv("GITHUB_ACTOR")
                 password = System.getenv("GITHUB_TOKEN")
             }
         }
