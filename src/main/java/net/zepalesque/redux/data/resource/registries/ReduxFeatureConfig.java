@@ -19,8 +19,10 @@ import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.Mth;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.util.valueproviders.UniformFloat;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -66,6 +68,7 @@ import net.zepalesque.redux.world.tree.decorator.GoldenVineDecorator;
 import net.zepalesque.redux.world.tree.foliage.BlightwillowFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.CrystalFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.LegacyGlaciaFoliagePlacer;
+import net.zepalesque.redux.world.tree.foliage.MoonfirFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.SkyrootFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.SmallGoldenOakFoliagePlacer;
 import net.zepalesque.redux.world.tree.roots.BlightwillowRootsPlacer;
@@ -387,11 +390,17 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				prov(ReduxWoodSets.MOONFIR.log()),
 				new StraightTrunkPlacer(8, 1, 1),
 				BlockStateProvider.simple(Blocks.COPPER_GRATE),
-				new LegacyGlaciaFoliagePlacer(ConstantInt.of(4), ConstantInt.of(1), UniformInt.of(8, 10)),
+				new MoonfirFoliagePlacer(
+					ConstantInt.of(4),
+					ConstantInt.of(1),
+					UniformInt.of(8, 10),
+					UniformInt.of(4, 6),
+					UniformFloat.of(0.6f, 1.4f),
+					UniformFloat.of(0.0f, Mth.TWO_PI),
+					UniformFloat.of(0.8f, 1.4f)
+				),
 				new TwoLayersFeatureSize(1, 0, 1)
-			)
-				.ignoreVines()
-				.build()
+			).ignoreVines().build()
 		);
 
 		FeatureUtils.register(
