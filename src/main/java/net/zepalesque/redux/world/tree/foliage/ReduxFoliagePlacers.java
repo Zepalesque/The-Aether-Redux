@@ -38,5 +38,11 @@ public class ReduxFoliagePlacers {
 		GLACIA = FOLIAGE_PLACERS.register(
 			"glacia",
 			() -> new FoliagePlacerType<>(LegacyGlaciaFoliagePlacer.CODEC)
+        );
+	    
+    public static final DeferredHolder<FoliagePlacerType<?>, FoliagePlacerType<MoonfirFoliagePlacer>>
+		MOONFIR = FOLIAGE_PLACERS.register(
+			"moonfir",
+			() -> new FoliagePlacerType<>(MoonfirFoliagePlacer.CODEC)
 		);
 }

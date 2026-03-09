@@ -1,0 +1,14 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "building",
+	"key": {
+		"#": {
+			"item": "aether_redux:moonfir_planks"
+		}
+	},
+	"pattern": ["#  ", "## ", "###"],
+	"result": {
+		"count": 4,
+		"id": "aether_redux:moonfir_stairs"
+	}
+}

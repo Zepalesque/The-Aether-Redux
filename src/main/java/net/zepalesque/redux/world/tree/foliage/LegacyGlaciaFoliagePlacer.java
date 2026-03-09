@@ -25,7 +25,7 @@ public class LegacyGlaciaFoliagePlacer extends FoliagePlacer {
 	}
 
 	protected FoliagePlacerType<?> type() {
-		return ReduxFoliagePlacers.GLACIA.get();
+		return ReduxFoliagePlacers.MOONFIR.get();
 	}
 
 	@Override
