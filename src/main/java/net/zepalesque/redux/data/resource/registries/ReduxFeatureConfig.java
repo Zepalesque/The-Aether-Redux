@@ -65,7 +65,7 @@ import net.zepalesque.redux.world.feature.gen.WaterPlantFeature;
 import net.zepalesque.redux.world.tree.decorator.GoldenVineDecorator;
 import net.zepalesque.redux.world.tree.foliage.BlightwillowFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.CrystalFoliagePlacer;
-import net.zepalesque.redux.world.tree.foliage.GlaciaFoliagePlacer;
+import net.zepalesque.redux.world.tree.foliage.LegacyGlaciaFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.SkyrootFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.SmallGoldenOakFoliagePlacer;
 import net.zepalesque.redux.world.tree.roots.BlightwillowRootsPlacer;
@@ -387,7 +387,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				BlockStateProvider.simple(AetherFeatureStates.AMBROSIUM_ORE),
 				new StraightTrunkPlacer(8, 1, 1),
 				BlockStateProvider.simple(Blocks.COPPER_GRATE),
-				new GlaciaFoliagePlacer(ConstantInt.of(4), ConstantInt.of(1), UniformInt.of(8, 10)),
+				new LegacyGlaciaFoliagePlacer(ConstantInt.of(4), ConstantInt.of(1), UniformInt.of(8, 10)),
 				new TwoLayersFeatureSize(1, 0, 1)
 			)
 				.ignoreVines()

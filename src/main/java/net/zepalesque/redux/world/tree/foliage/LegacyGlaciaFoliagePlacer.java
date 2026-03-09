@@ -10,16 +10,16 @@ import net.minecraft.world.level.levelgen.feature.configurations.TreeConfigurati
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 
-public class GlaciaFoliagePlacer extends FoliagePlacer {
-	public static final MapCodec<GlaciaFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec(
+public class LegacyGlaciaFoliagePlacer extends FoliagePlacer {
+	public static final MapCodec<LegacyGlaciaFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec(
 		builder -> foliagePlacerParts(builder)
 			.and(IntProvider.codec(0, 24).fieldOf("trunk_height").forGetter(f -> f.trunkHeight))
-			.apply(builder, GlaciaFoliagePlacer::new)
+			.apply(builder, LegacyGlaciaFoliagePlacer::new)
 	);
 
 	private final IntProvider trunkHeight;
 
-	public GlaciaFoliagePlacer(IntProvider radius, IntProvider offset, IntProvider trunkHeight) {
+	public LegacyGlaciaFoliagePlacer(IntProvider radius, IntProvider offset, IntProvider trunkHeight) {
 		super(radius, offset);
 		this.trunkHeight = trunkHeight;
 	}
