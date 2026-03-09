@@ -34,9 +34,9 @@ public class ReduxFoliagePlacers {
 			() -> new FoliagePlacerType<>(BlightwillowFoliagePlacer.CODEC)
 		);
 
-    public static final DeferredHolder<FoliagePlacerType<?>, FoliagePlacerType<GlaciaFoliagePlacer>>
-		GLACIA = FOLIAGE_PLACERS.register(
-			"glacia",
-			() -> new FoliagePlacerType<>(GlaciaFoliagePlacer.CODEC)
+    public static final DeferredHolder<FoliagePlacerType<?>, FoliagePlacerType<MoonfirFoliagePlacer>>
+		MOONFIR = FOLIAGE_PLACERS.register(
+			"moonfir",
+			() -> new FoliagePlacerType<>(MoonfirFoliagePlacer.CODEC)
 		);
 }

@@ -1,0 +1,55 @@
+{
+	"type": "minecraft:tree",
+	"config": {
+		"decorators": [],
+		"dirt_provider": {
+			"type": "minecraft:simple_state_provider",
+			"state": {
+				"Name": "minecraft:dirt"
+			}
+		},
+		"foliage_placer": {
+			"type": "aether_redux:moonfir",
+			"offset": 1,
+			"radius": 4,
+			"trunk_height": {
+				"type": "minecraft:uniform",
+				"max_inclusive": 10,
+				"min_inclusive": 8
+			}
+		},
+		"foliage_provider": {
+			"type": "minecraft:simple_state_provider",
+			"state": {
+				"Name": "minecraft:copper_grate",
+				"Properties": {
+					"waterlogged": "false"
+				}
+			}
+		},
+		"force_dirt": false,
+		"ignore_vines": true,
+		"minimum_size": {
+			"type": "minecraft:two_layers_feature_size",
+			"limit": 1,
+			"lower_size": 0,
+			"upper_size": 1
+		},
+		"trunk_placer": {
+			"type": "minecraft:straight_trunk_placer",
+			"base_height": 8,
+			"height_rand_a": 1,
+			"height_rand_b": 1
+		},
+		"trunk_provider": {
+			"type": "minecraft:simple_state_provider",
+			"state": {
+				"Name": "aether_redux:moonfir_log",
+				"Properties": {
+					"axis": "y",
+					"double_drops": "true"
+				}
+			}
+		}
+	}
+}
