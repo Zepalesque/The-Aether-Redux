@@ -87,6 +87,7 @@ public class ReduxLeafParticle extends TextureSheetParticle {
         }
     }
 
+    // TODO: optimization
     @Override
     public void move(double x, double y, double z) {
         double x1 = x;
