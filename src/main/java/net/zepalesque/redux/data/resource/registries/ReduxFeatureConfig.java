@@ -5,8 +5,6 @@ import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.resources.AetherFeatureStates;
 import com.aetherteam.aether.data.resources.registries.AetherConfiguredFeatures;
 import com.aetherteam.aether.world.foliageplacer.GoldenOakFoliagePlacer;
-import com.aetherteam.nitrogen.world.foliageplacer.HookedFoliagePlacer;
-import com.aetherteam.nitrogen.world.trunkplacer.HookedTrunkPlacer;
 import java.util.List;
 import java.util.Optional;
 import java.util.OptionalInt;
@@ -67,11 +65,13 @@ import net.zepalesque.redux.world.feature.gen.WaterPlantFeature;
 import net.zepalesque.redux.world.tree.decorator.GoldenVineDecorator;
 import net.zepalesque.redux.world.tree.foliage.BlightwillowFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.CrystalFoliagePlacer;
+import net.zepalesque.redux.world.tree.foliage.HookedFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.MoonfirFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.SkyrootFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.SmallGoldenOakFoliagePlacer;
 import net.zepalesque.redux.world.tree.roots.BlightwillowRootsPlacer;
 import net.zepalesque.redux.world.tree.trunk.BlightwillowTrunkPlacer;
+import net.zepalesque.redux.world.tree.trunk.HookedTrunkPlacer;
 import net.zepalesque.unity.block.UnityBlocks;
 import net.zepalesque.unity.data.UnityTags;
 import net.zepalesque.unity.extstate.UnityStateLists;
@@ -374,7 +374,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LOG),
 				new HookedTrunkPlacer(8, 14, 14),
 				prov(ReduxBlocks.GILDENROOT_LEAVES),
-				new HookedFoliagePlacer(ConstantInt.of(2), ConstantInt.of(1), ConstantInt.of(2)),
+				new HookedFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0)),
 				new TwoLayersFeatureSize(2, 1, 4)
 			)
 				.ignoreVines()
