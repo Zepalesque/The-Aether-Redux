@@ -34,7 +34,7 @@
 			"upper_size": 4
 		},
 		"trunk_placer": {
-			"type": "minecraft:giant_trunk_placer",
+			"type": "aether_redux:hooked_trunk",
 			"base_height": 8,
 			"height_rand_a": 14,
 			"height_rand_b": 14
