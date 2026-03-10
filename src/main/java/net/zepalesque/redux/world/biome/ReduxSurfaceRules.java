@@ -49,30 +49,11 @@ public class ReduxSurfaceRules {
 			SurfaceRules.ifTrue(
 				SurfaceRules.isBiome(ReduxBiomes.GILDED_GROVES),
 				SurfaceRules.ifTrue(
-					SurfaceRules.ON_FLOOR,
-					SurfaceRules.state(
-						AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get().defaultBlockState()
-					)
-				)
-			),
-			SurfaceRules.ifTrue(
-				SurfaceRules.isBiome(ReduxBiomes.GILDED_GROVES),
-				SurfaceRules.ifTrue(
-					SurfaceRules.ON_FLOOR,
+					SurfaceRules.UNDER_FLOOR,
 					SurfaceRules.ifTrue(
-						SurfaceRules.noiseCondition(Noises.ICE, 0.0, 0.6),
-						SurfaceRules.state(AetherFeatureStates.HOLYSTONE)
-					)
-				)
-			),
-			SurfaceRules.ifTrue(
-				SurfaceRules.isBiome(ReduxBiomes.GILDED_GROVES),
-				SurfaceRules.ifTrue(
-					SurfaceRules.ON_FLOOR,
-					SurfaceRules.ifTrue(
-						SurfaceRules.noiseCondition(Noises.ICE, 0.0, 0.6),
+						SurfaceRules.noiseCondition(Noises.ICE, 0.2, 0.4),
 						SurfaceRules.ifTrue(
-							SurfaceRules.noiseCondition(Noises.SWAMP, 0.3, 0.4),
+							SurfaceRules.noiseCondition(Noises.SWAMP, 0.5, 0.75),
 							SurfaceRules.state(
 								ReduxStoneSets.GILDED_HOLYSTONE
 									.block()
@@ -81,6 +62,25 @@ public class ReduxSurfaceRules {
 									.setValue(AetherBlockStateProperties.DOUBLE_DROPS, true)
 							)
 						)
+					)
+				)
+			),
+			SurfaceRules.ifTrue(
+				SurfaceRules.isBiome(ReduxBiomes.GILDED_GROVES),
+				SurfaceRules.ifTrue(
+					SurfaceRules.UNDER_FLOOR,
+					SurfaceRules.ifTrue(
+						SurfaceRules.noiseCondition(Noises.ICE, 0.2, 0.4),
+						SurfaceRules.state(AetherFeatureStates.HOLYSTONE)
+					)
+				)
+			),
+			SurfaceRules.ifTrue(
+				SurfaceRules.isBiome(ReduxBiomes.GILDED_GROVES),
+				SurfaceRules.ifTrue(
+					SurfaceRules.ON_FLOOR,
+					SurfaceRules.state(
+						AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get().defaultBlockState()
 					)
 				)
 			),
