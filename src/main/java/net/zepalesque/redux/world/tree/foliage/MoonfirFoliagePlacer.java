@@ -55,7 +55,14 @@ public class MoonfirFoliagePlacer extends FoliagePlacer {
 	}
 	
 	@Override
-	protected boolean shouldSkipLocation(RandomSource random, int localX, int localY, int localZ, int range, boolean large) {
+	protected boolean shouldSkipLocation(
+		RandomSource random,
+		int x,
+		int y,
+		int z,
+		int range,
+		boolean large
+	) {
 		return false;
 	}
 	
@@ -76,15 +83,21 @@ public class MoonfirFoliagePlacer extends FoliagePlacer {
 		var start = this.initialAngle.sample(rand);
 		var pointiness = this.pointiness.sample(rand);
 		
-		var origin = attachment.pos().above(offset + 1);
+		offset = offset < 1 ? 1 : offset;
+		var origin = attachment.pos().below(height - offset - 1);
 
-		for (var y = 0; y < height; y++)
-			for (var x = -radius; x <= radius; x++)
-				for (var z = -radius; z <= radius; z++)
-					if (testByHeight(x, y, z, start, rots, arms, height, radius, pointiness)) {
-						var pos = origin.offset(x, y, z);
-						setter.set(pos, cfg.foliageProvider.getState(rand, pos));
+		for (var y = 0; y < height; y++) {
+			for (var x = -radius; x <= radius; x++) {
+				for (var z = -radius; z <= radius; z++) {
+					if (!testByHeight(x, y, z, start, rots, arms, height, radius, pointiness)) {
+						continue;
 					}
+					
+					var pos = origin.offset(x, y, z);
+					tryPlaceLeaf(reader, setter, rand, cfg, pos);
+				}
+			}
+		}
 	}
 	
 	// Ensure parameters are consistent for each block
@@ -102,7 +115,7 @@ public class MoonfirFoliagePlacer extends FoliagePlacer {
 		var rSqr = x*x + z*z;
 		var theta = (float) Mth.atan2(y, x);
 		
-		var perc = y / totalHeight;
+		var perc = Mth.abs(((float) y / (float) totalHeight) - 1);
 		
 		var currRad = maxRad * perc;
 		
@@ -113,5 +126,4 @@ public class MoonfirFoliagePlacer extends FoliagePlacer {
 		
 		return rSqr <= bound*bound;
 	}
-
 }
