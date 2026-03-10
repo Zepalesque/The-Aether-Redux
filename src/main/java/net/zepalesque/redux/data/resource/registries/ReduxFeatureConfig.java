@@ -19,10 +19,8 @@ import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.Mth;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.ConstantInt;
-import net.minecraft.util.valueproviders.UniformFloat;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -67,7 +65,7 @@ import net.zepalesque.redux.world.feature.gen.WaterPlantFeature;
 import net.zepalesque.redux.world.tree.decorator.GoldenVineDecorator;
 import net.zepalesque.redux.world.tree.foliage.BlightwillowFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.CrystalFoliagePlacer;
-import net.zepalesque.redux.world.tree.foliage.MoonfirFoliagePlacer;
+import net.zepalesque.redux.world.tree.foliage.GlaciaFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.SkyrootFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.SmallGoldenOakFoliagePlacer;
 import net.zepalesque.redux.world.tree.roots.BlightwillowRootsPlacer;
@@ -116,7 +114,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_SKYROOT_TREE = createKey("small_skyroot");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_SKYROOT_TREE = createKey("large_skyroot");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> MOONFIR_TREE = createKey("moonfir");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> GLACIA_TREE = createKey("glacia");
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> SENTRITE_ORE = createKey(
 		name(ReduxStoneSets.SENTRITE.block()) + "_ore"
@@ -383,23 +381,17 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 
 		FeatureUtils.register(
 			context,
-			MOONFIR_TREE,
+			GLACIA_TREE,
 			Feature.TREE,
 			new TreeConfiguration.TreeConfigurationBuilder(
-				prov(ReduxWoodSets.MOONFIR.log()),
+				BlockStateProvider.simple(AetherFeatureStates.AMBROSIUM_ORE),
 				new StraightTrunkPlacer(8, 1, 1),
 				BlockStateProvider.simple(Blocks.COPPER_GRATE),
-				new MoonfirFoliagePlacer(
-					ConstantInt.of(4),
-					ConstantInt.of(1),
-					UniformInt.of(8, 10),
-					UniformInt.of(4, 6),
-					UniformFloat.of(0.6f, 1.4f),
-					UniformFloat.of(0.0f, Mth.TWO_PI),
-					UniformFloat.of(0.8f, 1.4f)
-				),
+				new GlaciaFoliagePlacer(ConstantInt.of(4), ConstantInt.of(1), UniformInt.of(8, 10)),
 				new TwoLayersFeatureSize(1, 0, 1)
-			).ignoreVines().build()
+			)
+				.ignoreVines()
+				.build()
 		);
 
 		FeatureUtils.register(
