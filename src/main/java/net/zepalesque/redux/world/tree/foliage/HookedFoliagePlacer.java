@@ -1,6 +1,5 @@
 package net.zepalesque.redux.world.tree.foliage;
 
-import com.aetherteam.aether.data.resources.AetherFeatureStates;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import java.util.function.Consumer;
@@ -87,7 +86,6 @@ public class HookedFoliagePlacer extends FoliagePlacer {
 		RandomSource rand,
 		TreeConfiguration cfg
 	) {
-		setter.set(blockPos, AetherFeatureStates.GRAVITITE_ORE);
 		// TODO: implement
 	}
 

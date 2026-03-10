@@ -12,10 +12,9 @@ import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
-import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer.FoliageAttachment;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.GiantTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
-import net.zepalesque.redux.Redux;
 
 public class HookedTrunkPlacer extends GiantTrunkPlacer {
 	public static final MapCodec<HookedTrunkPlacer> CODEC = RecordCodecBuilder.mapCodec(
@@ -28,7 +27,7 @@ public class HookedTrunkPlacer extends GiantTrunkPlacer {
 	}
 
 	@Override
-	public List<FoliagePlacer.FoliageAttachment> placeTrunk(
+	public List<FoliageAttachment> placeTrunk(
 		LevelSimulatedReader level,
 		BiConsumer<BlockPos, BlockState> setter,
 		RandomSource rand,
@@ -46,7 +45,7 @@ public class HookedTrunkPlacer extends GiantTrunkPlacer {
 		return list;
 	}
 
-	protected List<FoliagePlacer.FoliageAttachment> placeBranches(
+	protected List<FoliageAttachment> placeBranches(
 		TreeConfiguration cfg,
 		RandomSource rand,
 		LevelSimulatedReader level,
@@ -55,6 +54,7 @@ public class HookedTrunkPlacer extends GiantTrunkPlacer {
 		Direction dir,
 		BlockPos blockPos
 	) {
+		var attachments = new ArrayList<FoliageAttachment>(); 
 		var branchHeight = switch (dir) {
 			case Direction.EAST -> 4;
 			case Direction.SOUTH -> 5;
@@ -64,11 +64,8 @@ public class HookedTrunkPlacer extends GiantTrunkPlacer {
 
 		for (; branchHeight < height - 2; branchHeight += 4) {
 			var pos = blockPos.above(branchHeight).mutable();
-			if (pos == null) {
-				Redux.LOGGER.error("pos is null!");
-			}
 
-			for (int i = 0; i < 4; i++) {
+			for (int i = 0; i < 3; i++) {
 				pos = pos.move(dir);
 				this.placeLog(
 					level,
@@ -79,8 +76,16 @@ public class HookedTrunkPlacer extends GiantTrunkPlacer {
 					state -> state.setValue(BlockStateProperties.AXIS, dir.getAxis())
 				);
 			}
+
+			pos.move(dir);
+			this.placeLog(level, setter, rand, pos, cfg);
+			pos.move(Direction.UP);
+			this.placeLog(level, setter, rand, pos, cfg);
+
+			attachments.add(new FoliageAttachment(pos, 0, false));
 		}
-		return List.of();
+
+		return attachments;
 	}
 
 	@Override
