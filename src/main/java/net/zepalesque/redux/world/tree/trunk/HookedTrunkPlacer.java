@@ -65,7 +65,11 @@ public class HookedTrunkPlacer extends GiantTrunkPlacer {
 		for (; branchHeight < height - 2; branchHeight += 4) {
 			var pos = blockPos.above(branchHeight).mutable();
 
-			for (int i = 0; i < 3; i++) {
+			var branchLen = branchHeight < rand.nextInt(6, 9) || branchHeight > height - rand.nextInt(6, 9)
+				? 2
+				: rand.nextInt(4) == 1 ? 4 : 3;
+
+			for (int i = 0; i < branchLen; i++) {
 				pos = pos.move(dir);
 				this.placeLog(
 					level,
