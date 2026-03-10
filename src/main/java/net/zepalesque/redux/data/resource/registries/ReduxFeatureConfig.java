@@ -372,10 +372,10 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			Feature.TREE,
 			new TreeConfiguration.TreeConfigurationBuilder(
 				BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LOG),
-				new HookedTrunkPlacer(8, 14, 14),
+				new HookedTrunkPlacer(10, 12, 12),
 				prov(ReduxBlocks.GILDENROOT_LEAVES),
 				new HookedFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0)),
-				new TwoLayersFeatureSize(2, 1, 4)
+				new TwoLayersFeatureSize(4, 2, 6)
 			)
 				.ignoreVines()
 				.build()
@@ -516,7 +516,8 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				),
 				PlacementUtils.inlinePlaced(
 					configs.getOrThrow(LARGE_GILDENROOT_TREE),
-					PlacementUtils.filteredByBlockSurvival(ReduxFlowerSets.GILDENROOT_SAPLING.flower().get())
+					PlacementUtils.filteredByBlockSurvival(ReduxFlowerSets.GILDENROOT_SAPLING.flower().get()),
+					HAS_TRUNK_SUPPORT_2X2
 				)
 			)
 		);

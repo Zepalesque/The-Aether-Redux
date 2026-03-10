@@ -9,10 +9,10 @@ public class ReduxTreeGrowers {
     public static final TreeGrower GILDENROOT = new TreeGrower(
             "gildenroot",
             0.3F,
-            Optional.empty(),
+            Optional.of(ReduxFeatureConfig.LARGE_GILDENROOT_TREE),
             Optional.empty(),
             Optional.of(ReduxFeatureConfig.SMALL_GILDENROOT_TREE),
-            Optional.of(ReduxFeatureConfig.LARGE_GILDENROOT_TREE),
+            Optional.empty(),
             Optional.empty(),
             Optional.empty()
     );
