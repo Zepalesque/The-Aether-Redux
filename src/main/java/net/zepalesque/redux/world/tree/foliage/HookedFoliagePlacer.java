@@ -2,6 +2,8 @@ package net.zepalesque.redux.world.tree.foliage;
 
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+
+import java.util.List;
 import java.util.function.Consumer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -80,13 +82,43 @@ public class HookedFoliagePlacer extends FoliagePlacer {
 	}
 
 	private void placeSideLeaves(
-		BlockPos blockPos,
+		BlockPos pos,
 		LevelSimulatedReader level,
 		FoliageSetter setter, 
 		RandomSource rand,
 		TreeConfiguration cfg
 	) {
-		// TODO: implement
+		Consumer<BlockPos> place = p -> tryPlaceLeaf(level, setter, rand, cfg, p);
+		Consumer<BlockPos> placeHat = p -> {
+			place.accept(p);
+			for (var dir : Direction.Plane.HORIZONTAL) {
+				place.accept(p.relative(dir));
+			}
+		};
+
+		placeHat.accept(pos.above());
+		placeHat.accept(pos.below());
+		placeHat.accept(pos);
+
+		List.of(
+			pos.north().east(),
+			pos.east().south(),
+			pos.south().west(),
+			pos.west().north()
+		).forEach(p -> {
+			if (rand.nextInt(1, 4) == 1) return;
+			place.accept(p);
+			
+			p = p.below();
+			if (rand.nextBoolean()) return;
+			place.accept(p);
+
+			p = p.below();
+			if (rand.nextBoolean()) return;
+			place.accept(p);
+		});
+
+		if (rand.nextBoolean()) place.accept(pos.below(2));
 	}
 
 	@Override
