@@ -53,7 +53,7 @@ public class MoonfirFoliagePlacer extends FoliagePlacer {
 	public int foliageHeight(RandomSource rand, int i, TreeConfiguration cfg) {
 		return this.trunkHeight.sample(rand) + 1;
 	}
-	
+
 	@Override
 	protected boolean shouldSkipLocation(
 		RandomSource random,
@@ -65,7 +65,7 @@ public class MoonfirFoliagePlacer extends FoliagePlacer {
 	) {
 		return false;
 	}
-	
+
 	@Override
 	protected void createFoliage(
 		LevelSimulatedReader reader,
@@ -82,7 +82,7 @@ public class MoonfirFoliagePlacer extends FoliagePlacer {
 		var rots = this.rotations.sample(rand);
 		var start = this.initialAngle.sample(rand);
 		var pointiness = this.pointiness.sample(rand);
-		
+
 		offset = offset < 1 ? 1 : offset;
 		var origin = attachment.pos().below(height - offset - 1);
 
@@ -92,14 +92,14 @@ public class MoonfirFoliagePlacer extends FoliagePlacer {
 					if (!testByHeight(x, y, z, start, rots, arms, height, radius, pointiness)) {
 						continue;
 					}
-					
+
 					var pos = origin.offset(x, y, z);
 					tryPlaceLeaf(reader, setter, rand, cfg, pos);
 				}
 			}
 		}
 	}
-	
+
 	// Ensure parameters are consistent for each block
 	boolean testByHeight(
 		int x,
@@ -114,16 +114,16 @@ public class MoonfirFoliagePlacer extends FoliagePlacer {
 	) {
 		var rSqr = x*x + z*z;
 		var theta = (float) Mth.atan2(y, x);
-		
+
 		var perc = Mth.abs(((float) y / (float) totalHeight) - 1);
-		
+
 		var currRad = maxRad * perc;
-		
+
 		var sinInput = spiralArms * (theta + startAngle + totalRotations * Mth.TWO_PI * perc);
-		
+
 		var unscaledBound = currRad * Mth.sin(sinInput) + 10 * currRad / pointiness;
 		var bound = unscaledBound / (1 + 10 / pointiness);
-		
+
 		return rSqr <= bound*bound;
 	}
 }
