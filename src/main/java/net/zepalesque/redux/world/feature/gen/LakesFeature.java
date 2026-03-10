@@ -242,7 +242,7 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 					false
 				);
 				
-				if (state.isPresent() && state.get().is(AetherTags.Blocks.AETHER_DIRT)) {
+				if (state.isPresent()) {
 					return state.get();
 				}
 			}
