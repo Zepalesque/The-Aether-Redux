@@ -1,16 +1,19 @@
 package net.zepalesque.redux.world.biome;
 
-import com.aetherteam.aether.block.AetherBlockStateProperties;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.resources.AetherFeatureStates;
 import com.aetherteam.aether.data.resources.registries.AetherDimensions;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator;
 import net.minecraft.world.level.levelgen.Noises;
 import net.minecraft.world.level.levelgen.SurfaceRules;
+import net.minecraft.world.level.levelgen.SurfaceRules.RuleSource;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.server.ServerAboutToStartEvent;
+import net.neoforged.neoforge.registries.DeferredBlock;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.state.ReduxStates;
@@ -23,7 +26,6 @@ import net.zepalesque.zenith.api.world.density.PerlinNoiseFunction;
 
 @EventBusSubscriber(modid = Redux.MODID)
 public class ReduxSurfaceRules {
-
 	@SubscribeEvent
 	public static void onServerAboutToStart(ServerAboutToStartEvent event) {
 		var server = event.getServer();
@@ -46,69 +48,65 @@ public class ReduxSurfaceRules {
 
 	public static SurfaceRules.RuleSource makeRules() {
 		return SurfaceRules.sequence(
-			SurfaceRules.ifTrue(
-				SurfaceRules.isBiome(ReduxBiomes.GILDED_GROVES),
+			inBiome(
+				ReduxBiomes.GILDED_GROVES,
+
 				SurfaceRules.ifTrue(
 					SurfaceRules.UNDER_FLOOR,
 					SurfaceRules.ifTrue(
 						SurfaceRules.noiseCondition(Noises.ICE, 0.2, 0.4),
 						SurfaceRules.ifTrue(
-							SurfaceRules.noiseCondition(Noises.SWAMP, 0.5, 0.75),
-							SurfaceRules.state(
-								ReduxStoneSets.GILDED_HOLYSTONE
-									.block()
-									.get()
-									.defaultBlockState()
-									.setValue(AetherBlockStateProperties.DOUBLE_DROPS, true)
-							)
+							SurfaceRules.noiseCondition(Noises.SWAMP, 0.5, 0.8),
+							surfaceState(ReduxStoneSets.GILDED_HOLYSTONE.block())
 						)
 					)
-				)
-			),
-			SurfaceRules.ifTrue(
-				SurfaceRules.isBiome(ReduxBiomes.GILDED_GROVES),
+				),
 				SurfaceRules.ifTrue(
 					SurfaceRules.UNDER_FLOOR,
 					SurfaceRules.ifTrue(
 						SurfaceRules.noiseCondition(Noises.ICE, 0.2, 0.4),
 						SurfaceRules.state(AetherFeatureStates.HOLYSTONE)
 					)
+				),
+				SurfaceRules.ifTrue(
+					SurfaceRules.ON_FLOOR,
+					surfaceState(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK)
 				)
 			),
-			SurfaceRules.ifTrue(
-				SurfaceRules.isBiome(ReduxBiomes.GILDED_GROVES),
+
+			inBiome(
+				ReduxBiomes.THE_BLIGHT,
+
+				SurfaceRules.ifTrue(
+					SurfaceRules.ON_FLOOR,
+					SurfaceRules.ifTrue(
+						SurfaceRules.noiseCondition(Noises.SWAMP, 0.4),
+						surfaceState(UnityBlocks.COARSE_AETHER_DIRT)
+					)
+				),
 				SurfaceRules.ifTrue(
 					SurfaceRules.ON_FLOOR,
 					SurfaceRules.state(
-						AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get().defaultBlockState()
-					)
-				)
-			),
-			SurfaceRules.ifTrue(
-				SurfaceRules.isBiome(ReduxBiomes.THE_BLIGHT),
-				SurfaceRules.sequence(
-					SurfaceRules.ifTrue(
-						SurfaceRules.ON_FLOOR,
-						SurfaceRules.ifTrue(
-							SurfaceRules.noiseCondition(Noises.SWAMP, 0.4),
-							SurfaceRules.state(
-								UnityFeatureBuilders.drops(UnityBlocks.COARSE_AETHER_DIRT)
-							)
-						)
-					),
-					SurfaceRules.ifTrue(
-						SurfaceRules.ON_FLOOR,
-						SurfaceRules.state(
-							UnityFeatureBuilders.drops(
-								ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get().defaultBlockState()
-							).setValue(
-								ReduxStates.BLIGHT_GRASS_COLOR,
-								BlightGrassColor.TINTABLE
-							)
+						UnityFeatureBuilders.drops(
+							ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get().defaultBlockState()
+						).setValue(
+							ReduxStates.BLIGHT_GRASS_COLOR,
+							BlightGrassColor.TINTABLE
 						)
 					)
 				)
 			)
 		);
+	}
+
+	private static RuleSource inBiome(ResourceKey<Biome> biome, RuleSource... rules) {
+		return SurfaceRules.ifTrue(
+			SurfaceRules.isBiome(biome),
+			SurfaceRules.sequence(rules)
+		);
+	}
+
+	private static RuleSource surfaceState(DeferredBlock<?> block) {
+		return SurfaceRules.state(UnityFeatureBuilders.drops(block));
 	}
 }

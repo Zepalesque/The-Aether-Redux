@@ -2,7 +2,6 @@ package net.zepalesque.redux.world.tree.foliage;
 
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-
 import java.util.List;
 import java.util.function.Consumer;
 import net.minecraft.core.BlockPos;
