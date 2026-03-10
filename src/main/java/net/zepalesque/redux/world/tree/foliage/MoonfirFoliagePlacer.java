@@ -17,8 +17,8 @@ public class MoonfirFoliagePlacer extends FoliagePlacer {
 			.and(IntProvider.codec(0, 24).fieldOf("trunk_height").forGetter(instance -> instance.trunkHeight))
 			.and(IntProvider.codec(1, 10).fieldOf("arms").forGetter(instance -> instance.arms))
 			.and(FloatProvider.CODEC.fieldOf("rotations").forGetter(instance -> instance.rotations))
-			.and(FloatProvider.CODEC.fieldOf("start_angle").forGetter(instance -> instance.initialAngle))
-			.and(FloatProvider.codec(0, 1).fieldOf("pointiness").forGetter(instance -> instance.initialAngle))
+			.and(FloatProvider.codec(0, Mth.TWO_PI).fieldOf("start_angle").forGetter(instance -> instance.initialAngle))
+			.and(FloatProvider.CODEC.fieldOf("pointiness").forGetter(instance -> instance.initialAngle))
 			.apply(builder, MoonfirFoliagePlacer::new)
 	);
 
@@ -45,8 +45,8 @@ public class MoonfirFoliagePlacer extends FoliagePlacer {
 		this.pointiness = pointiness;
 	}
 
-	protected FoliagePlacerType<?> type() {
-		return ReduxFoliagePlacers.GLACIA.get();
+	protected FoliagePlacerType<MoonfirFoliagePlacer> type() {
+		return ReduxFoliagePlacers.MOONFIR.get();
 	}
 
 	@Override

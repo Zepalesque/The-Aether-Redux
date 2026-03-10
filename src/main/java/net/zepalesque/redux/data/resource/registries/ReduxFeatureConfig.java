@@ -67,7 +67,6 @@ import net.zepalesque.redux.world.feature.gen.WaterPlantFeature;
 import net.zepalesque.redux.world.tree.decorator.GoldenVineDecorator;
 import net.zepalesque.redux.world.tree.foliage.BlightwillowFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.CrystalFoliagePlacer;
-import net.zepalesque.redux.world.tree.foliage.LegacyGlaciaFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.MoonfirFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.SkyrootFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.SmallGoldenOakFoliagePlacer;
