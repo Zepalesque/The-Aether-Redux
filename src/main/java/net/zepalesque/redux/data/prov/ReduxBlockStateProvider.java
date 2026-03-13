@@ -1,5 +1,6 @@
 package net.zepalesque.redux.data.prov;
 
+import com.aetherteam.aether.block.AetherBlockStateProperties;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.dungeon.DoorwayBlock;
 import com.google.common.collect.ImmutableMap;
@@ -15,6 +16,7 @@ import net.minecraft.world.level.block.CrossCollisionBlock;
 import net.minecraft.world.level.block.DiodeBlock;
 import net.minecraft.world.level.block.IronBarsBlock;
 import net.minecraft.world.level.block.LanternBlock;
+import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.PinkPetalsBlock;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
@@ -42,7 +44,6 @@ import net.zepalesque.unity.data.prov.UnityBlockStateProvider;
 import net.zepalesque.zenith.util.ArrayUtil;
 
 public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
-
     public ReduxBlockStateProvider(PackOutput output, String id, ExistingFileHelper helper) {
         super(output, id, helper);
     }
@@ -75,7 +76,14 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
         .put(Direction.SOUTH, new Vec3i(270, 0, 0))
         .put(Direction.NORTH, new Vec3i(90, 0, 0))
         .build();
-    
+
+    public void snowableLeaves(Block block, String location) {
+        this.getVariantBuilder(block).forAllStatesExcept(state -> {
+            boolean snowy = state.getValue(BlockStateProperties.SNOWY);
+            return ConfiguredModel.builder().modelFile(snowy ? this.cubeBottomTop(this.name(block) + "_snowy", this.extend(this.texture(this.name(block), location), "_snowy"), this.texture(this.name(block), location), this.mcLoc("blocks/snow")) : this.cubeAll(block, location)).build();
+        }, LeavesBlock.PERSISTENT, LeavesBlock.DISTANCE, LeavesBlock.WATERLOGGED, AetherBlockStateProperties.DOUBLE_DROPS);
+    }
+
     public void createCloudcapBlock(Block block, String loc) {
         this.models().withExistingParent(this.name(block), Unity.loc("block/cube_all_glow")).texture("all", this.texture(this.name(block) + "4", loc)).texture("glow", this.texture(this.name(block) + "4_glow", loc)).renderType("cutout");
         ModelFile[] outer = ArrayUtil.generateContents(new ModelFile[5], value -> {

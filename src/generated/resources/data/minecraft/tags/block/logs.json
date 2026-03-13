@@ -5,15 +5,15 @@
 		"aether_redux:stripped_crystal_log_wall",
 		"aether_redux:crystal_wood_wall",
 		"aether_redux:stripped_crystal_wood_wall",
-		"#aether_redux:blightwillow_logs",
-		"aether_redux:blightwillow_log_wall",
-		"aether_redux:stripped_blightwillow_log_wall",
-		"aether_redux:blightwillow_wood_wall",
-		"aether_redux:stripped_blightwillow_wood_wall",
 		"#aether_redux:moonfir_logs",
 		"aether_redux:moonfir_log_wall",
 		"aether_redux:stripped_moonfir_log_wall",
 		"aether_redux:moonfir_wood_wall",
-		"aether_redux:stripped_moonfir_wood_wall"
+		"aether_redux:stripped_moonfir_wood_wall",
+		"#aether_redux:blightwillow_logs",
+		"aether_redux:blightwillow_log_wall",
+		"aether_redux:stripped_blightwillow_log_wall",
+		"aether_redux:blightwillow_wood_wall",
+		"aether_redux:stripped_blightwillow_wood_wall"
 	]
 }

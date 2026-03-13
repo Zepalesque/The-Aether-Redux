@@ -388,7 +388,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			new TreeConfiguration.TreeConfigurationBuilder(
 				prov(ReduxWoodSets.MOONFIR.log()),
 				new StraightTrunkPlacer(8, 1, 1),
-				BlockStateProvider.simple(Blocks.COPPER_GRATE),
+				prov(ReduxBlocks.MOONFIR_LEAVES),
 				new MoonfirFoliagePlacer(
 					ConstantInt.of(4),
 					ConstantInt.of(1),

@@ -31,7 +31,6 @@ import net.zepalesque.zenith.api.blockset.type.AbstractFlowerSet;
 import net.zepalesque.zenith.util.block.CommonPlantBounds;
 
 public class ReduxFlowerSets {
-
     public static final BaseFlowerSet<CustomBoundsFlowerBlock.Enchanted> AURUM =
         register(new EnchantedFlowerSet<>("aurum", "natural/",
             () -> new CustomBoundsFlowerBlock.Enchanted(CommonPlantBounds.FLOWER,
@@ -59,7 +58,21 @@ public class ReduxFlowerSets {
         .compost(0.3F)
         .withLore("The sapling of the Gildenroot tree. It can be grown by waiting or using Bone Meal."));
 
-    public static final BaseFlowerSet<SaplingBlock> STORMROOT_SAPLING = register(new UntintedFlowerSet<>(
+    public static final BaseFlowerSet<SaplingBlock> MOONFIR_SAPLING = register(new UntintedFlowerSet<>(
+        "moonfir_sapling",
+        "natural/",
+        () -> new SaplingBlock(ReduxTreeGrowers.MOONFIR,
+            Properties.ofFullCopy(Blocks.OAK_SAPLING)
+                .mapColor(MapColor.LAPIS)
+        )).tabAfter(
+            AetherCreativeTabs.AETHER_NATURAL_BLOCKS,
+            () -> ReduxFlowerSets.GILDENROOT_SAPLING.flower().asItem(),
+            BlockSet.TabAdditionPhase.BEFORE
+        ).withFlowerTag(BlockTags.SAPLINGS)
+        .compost(0.3F)
+        .withLore("The sapling of the Moonfir tree. It can be grown by waiting or using Bone Meal."));
+
+        public static final BaseFlowerSet<SaplingBlock> STORMROOT_SAPLING = register(new UntintedFlowerSet<>(
         "stormroot_sapling",
         "natural/",
         () -> new SaplingBlock(ReduxTreeGrowers.STORMROOT,
@@ -67,7 +80,7 @@ public class ReduxFlowerSets {
                 .mapColor(MapColor.TERRACOTTA_PURPLE)
         )).tabAfter(
             AetherCreativeTabs.AETHER_NATURAL_BLOCKS,
-            () -> ReduxFlowerSets.GILDENROOT_SAPLING.flower().asItem(),
+            () -> ReduxFlowerSets.MOONFIR_SAPLING.flower().asItem(),
             BlockSet.TabAdditionPhase.BEFORE
         ).withFlowerTag(BlockTags.SAPLINGS)
         .compost(0.3F)

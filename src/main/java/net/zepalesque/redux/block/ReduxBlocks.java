@@ -40,6 +40,7 @@ import net.zepalesque.redux.block.natural.TurboVerbenaBlock;
 import net.zepalesque.redux.block.natural.crop.WyndoatsBlock;
 import net.zepalesque.redux.block.natural.leaves.InfectedLeavesBlock;
 import net.zepalesque.redux.block.natural.leaves.ShadedLeavesBlock;
+import net.zepalesque.redux.block.natural.leaves.SnowableLeavesBlock;
 import net.zepalesque.redux.block.redstone.LogicatorBlock;
 import net.zepalesque.redux.data.resource.registries.ReduxFeatureConfig;
 import net.zepalesque.unity.block.natural.DoubleDropsCarpet;
@@ -54,21 +55,31 @@ import net.zepalesque.zenith.util.block.CommonPlantBounds;
 public class ReduxBlocks extends ReduxBlockBuilders {
 	public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Redux.MODID);
 
+	public static final DeferredBlock<BlightedGrassBlock> BLIGHTED_AETHER_GRASS_BLOCK = register(
+		"blighted_aether_grass_block",
+		() -> new BlightedGrassBlock(Properties.ofFullCopy(AetherBlocks.AETHER_GRASS_BLOCK.get()))
+	);
+
 	public static final DeferredBlock<AetherDoubleDropsLeaves> GILDENROOT_LEAVES = register(
 		"gildenroot_leaves",
 		() -> new AetherDoubleDropsLeaves(
 			Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get()).mapColor(MapColor.QUARTZ)
 		)
 	);
-
-	public static final DeferredBlock<BlightedGrassBlock> BLIGHTED_AETHER_GRASS_BLOCK = register(
-		"blighted_aether_grass_block",
-		() -> new BlightedGrassBlock(Properties.ofFullCopy(AetherBlocks.AETHER_GRASS_BLOCK.get()))
-	);
-
 	public static final DeferredBlock<LeafPileBlock> GILDENROOT_LEAF_PILE = register(
 		"gildenroot_leaf_pile",
 		() -> new LeafPileBlock(GILDENROOT_LEAVES)
+	);
+
+	public static final DeferredBlock<SnowableLeavesBlock> MOONFIR_LEAVES = register(
+		"moonfir_leaves",
+		() -> new SnowableLeavesBlock(
+			Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get()).mapColor(MapColor.LAPIS)
+		)
+	);
+	public static final DeferredBlock<LeafPileBlock> MOONFIR_LEAF_PILE = register(
+		"moonfir_leaf_pile",
+		() -> new LeafPileBlock(MOONFIR_LEAVES)
 	);
 
 	public static final DeferredBlock<ShadedLeavesBlock> STORMROOT_LEAVES = register(
@@ -80,7 +91,6 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 			)
 		)
 	);
-
 	public static final DeferredBlock<LeafPileBlock> STORMROOT_LEAF_PILE = register(
 		"stormroot_leaf_pile",
 		() -> new LeafPileBlock(STORMROOT_LEAVES)
@@ -95,6 +105,10 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 			)
 		)
 	);
+	public static final DeferredBlock<LeafPileBlock> BLIGHTWILLOW_LEAF_PILE = register(
+		"blightwillow_leaf_pile",
+		() -> new LeafPileBlock(BLIGHTWILLOW_LEAVES)
+	);
 
 	// TODO: custom particles (more, block breaking and stuff) + use real particle other than obsidian????
 	// TODO: Rename, add drip particles, make these work like crystal leaves perhaps (maybe, or just ALWAYS use berry bush like behavior)
@@ -106,11 +120,6 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 				.lightLevel(value -> 7)
 				.strength(0.3F)
 		)
-	);
-
-	public static final DeferredBlock<LeafPileBlock> BLIGHTWILLOW_LEAF_PILE = register(
-		"blightwillow_leaf_pile",
-		() -> new LeafPileBlock(BLIGHTWILLOW_LEAVES)
 	);
 
 	public static final DeferredBlock<GoldenCloversBlock> GOLDEN_CLOVERS = register("golden_clovers", () ->

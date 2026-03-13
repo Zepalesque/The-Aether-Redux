@@ -9,7 +9,6 @@ import net.zepalesque.redux.data.prov.ReduxItemModelProvider;
 import net.zepalesque.redux.item.ReduxItems;
 
 public class ReduxItemModelData extends ReduxItemModelProvider {
-
     public ReduxItemModelData(PackOutput output, ExistingFileHelper helper) {
         super(output, Redux.MODID, helper);
     }
@@ -25,8 +24,10 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
 
         this.itemBlock(ReduxBlocks.STORMROOT_LEAVES.get());
         this.leafPile(ReduxBlocks.STORMROOT_LEAF_PILE.get());
-        
-        
+
+        this.itemBlock(ReduxBlocks.MOONFIR_LEAVES.get());
+        this.leafPile(ReduxBlocks.MOONFIR_LEAF_PILE.get());
+
         this.itemBlock(ReduxBlocks.BLIGHTWILLOW_LEAVES.get());
         this.itemBlock(ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES.get());
         this.leafPile(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get());
@@ -57,11 +58,10 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
 
         this.item(ReduxItems.WYND_OAT_PANICLE.get(), "materials/");
         this.item(ReduxItems.WYND_OATS.get(), "food/");
-        
 
         this.itemBlockFlatTintOverlay(ReduxBlocks.WYNDSPROUTS.get(), "natural/");
         this.itemBlockFlatTintOverlay(ReduxBlocks.SKYSPROUTS.get(), "natural/");
-		this.itemBlockFlatTintOverlay(ReduxBlocks.TURBO_VERBENA.get(), "natural/");
+        this.itemBlockFlatTintOverlay(ReduxBlocks.TURBO_VERBENA.get(), "natural/");
         this.itemBlockFlatCustomTexture(ReduxBlocks.CAELGAE_PATCH.get(), texture(ReduxBlocks.CAELGAE_PATCH.get(), "natural/", "_top"));
         this.item(ReduxBlocks.BLOOMTAIL.get().asItem(), "misc/");
         this.itemBlock(ReduxBlocks.ECHYSIA.get());
