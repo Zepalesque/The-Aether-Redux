@@ -37,14 +37,11 @@ import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureCo
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.VegetationPatchConfiguration;
-import net.minecraft.world.level.levelgen.feature.featuresize.ThreeLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
-import net.minecraft.world.level.levelgen.feature.foliageplacers.DarkOakFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.RuleBasedBlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.CherryTrunkPlacer;
-import net.minecraft.world.level.levelgen.feature.trunkplacers.DarkOakTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
@@ -151,8 +148,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> GILDENMOSS_VEGETATION = createKey("gildenmoss_vegetation");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> GILDENMOSS_BONEMEAL = createKey("gildenmoss_bonemeal");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_STORMROOT_TREE = createKey("small_stormroot");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_STORMROOT_TREE = createKey("large_stormroot");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> STORMFIR_TREE = createKey("stormfir");
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTWILLOW_TREE = createKey("blightwillow");
 
@@ -315,31 +311,14 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 
 		FeatureUtils.register(
 			context,
-			SMALL_STORMROOT_TREE,
+			STORMFIR_TREE,
 			Feature.TREE,
 			new TreeConfiguration.TreeConfigurationBuilder(
-				BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LOG),
+				prov(ReduxWoodSets.MOONFIR.log()),
 				new StraightTrunkPlacer(4, 2, 0),
-				prov(ReduxBlocks.STORMROOT_LEAVES),
+				prov(ReduxBlocks.STORMFIR_LEAVES),
 				new SkyrootFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
 				new TwoLayersFeatureSize(1, 0, 1)
-			)
-				.ignoreVines()
-				.build()
-		);
-
-		FeatureUtils.register(
-			context,
-			LARGE_STORMROOT_TREE,
-			Feature.TREE,
-			new TreeConfiguration.TreeConfigurationBuilder(
-				BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LOG),
-				// TODO
-				new DarkOakTrunkPlacer(7, 2, 1),
-				prov(ReduxBlocks.STORMROOT_LEAVES),
-				// TODO
-				new DarkOakFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0)),
-				new ThreeLayersFeatureSize(1, 1, 0, 1, 2, OptionalInt.empty())
 			)
 				.ignoreVines()
 				.build()
@@ -551,19 +530,10 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				List.of(
 					new WeightedPlacedFeature(
 						PlacementUtils.inlinePlaced(
-							configs.getOrThrow(SMALL_STORMROOT_TREE),
-							PlacementUtils.filteredByBlockSurvival(ReduxFlowerSets.STORMROOT_SAPLING.flower().get())
+							configs.getOrThrow(STORMFIR_TREE),
+							PlacementUtils.filteredByBlockSurvival(ReduxFlowerSets.STORMFIR_SAPLING.flower().get())
 						),
-						0.35F
-					),
-					new WeightedPlacedFeature(
-						PlacementUtils.inlinePlaced(
-							configs.getOrThrow(LARGE_STORMROOT_TREE),
-							PlacementUtils.filteredByBlockSurvival(ReduxFlowerSets.STORMROOT_SAPLING.flower().get()),
-							// TODO: similar to blightwillow? allow up to ONE block of leeway, up or down
-							HAS_TRUNK_SUPPORT_2X2
-						),
-						0.4F
+						0.5F
 					)
 				),
 				PlacementUtils.inlinePlaced(

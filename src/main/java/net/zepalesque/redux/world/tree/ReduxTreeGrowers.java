@@ -16,12 +16,12 @@ public class ReduxTreeGrowers {
 		Optional.empty()
 	);
 
-	public static final TreeGrower STORMROOT = new TreeGrower(
-		"stormroot",
+	public static final TreeGrower STORMFIR = new TreeGrower(
+		"stormfir",
 		0.3F,
-		Optional.of(ReduxFeatureConfig.LARGE_STORMROOT_TREE),
 		Optional.empty(),
-		Optional.of(ReduxFeatureConfig.SMALL_STORMROOT_TREE),
+		Optional.empty(),
+		Optional.of(ReduxFeatureConfig.STORMFIR_TREE),
 		Optional.empty(),
 		Optional.empty(),
 		Optional.empty()
@@ -30,9 +30,9 @@ public class ReduxTreeGrowers {
 	public static final TreeGrower MOONFIR = new TreeGrower(
 		"moonfir",
 		0.3F,
+		Optional.empty(),
+		Optional.empty(),
 		Optional.of(ReduxFeatureConfig.MOONFIR_TREE),
-		Optional.empty(),
-		Optional.empty(),
 		Optional.empty(),
 		Optional.empty(),
 		Optional.empty()

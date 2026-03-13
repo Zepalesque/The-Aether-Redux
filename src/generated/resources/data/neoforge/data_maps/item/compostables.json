@@ -51,13 +51,13 @@
 		"aether_redux:spirolyctil": {
 			"chance": 0.65
 		},
-		"aether_redux:stormroot_leaf_pile": {
+		"aether_redux:stormfir_leaf_pile": {
 			"chance": 0.3
 		},
-		"aether_redux:stormroot_leaves": {
+		"aether_redux:stormfir_leaves": {
 			"chance": 0.3
 		},
-		"aether_redux:stormroot_sapling": {
+		"aether_redux:stormfir_sapling": {
 			"chance": 0.3
 		},
 		"aether_redux:turbo_verbena": {

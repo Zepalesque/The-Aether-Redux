@@ -1,0 +1,9 @@
+{
+	"type": "aether:ambrosium_enchanting",
+	"ingredient": {
+		"block": "aether_redux:stormfir_leaves"
+	},
+	"result": {
+		"block": "aether:skyroot_leaves"
+	}
+}

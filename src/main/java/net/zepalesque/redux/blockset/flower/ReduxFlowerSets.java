@@ -72,10 +72,10 @@ public class ReduxFlowerSets {
         .compost(0.3F)
         .withLore("The sapling of the Moonfir tree. It can be grown by waiting or using Bone Meal."));
 
-        public static final BaseFlowerSet<SaplingBlock> STORMROOT_SAPLING = register(new UntintedFlowerSet<>(
-        "stormroot_sapling",
+        public static final BaseFlowerSet<SaplingBlock> STORMFIR_SAPLING = register(new UntintedFlowerSet<>(
+        "stormfir_sapling",
         "natural/",
-        () -> new SaplingBlock(ReduxTreeGrowers.STORMROOT,
+        () -> new SaplingBlock(ReduxTreeGrowers.STORMFIR,
             Properties.ofFullCopy(Blocks.OAK_SAPLING)
                 .mapColor(MapColor.TERRACOTTA_PURPLE)
         )).tabAfter(
@@ -84,7 +84,7 @@ public class ReduxFlowerSets {
             BlockSet.TabAdditionPhase.BEFORE
         ).withFlowerTag(BlockTags.SAPLINGS)
         .compost(0.3F)
-        .withLore("The sapling of the Stormroot tree. It can be grown by waiting or using Bone Meal."));
+        .withLore("The sapling of the Stormfir tree. It can be grown by waiting or using Bone Meal."));
 
     public static final BaseFlowerSet<SaplingBlock> BLIGHTWILLOW_SAPLING = register(new UntintedFlowerSet<>(
         "blightwillow_sapling",
@@ -94,7 +94,7 @@ public class ReduxFlowerSets {
                 .mapColor(MapColor.COLOR_PURPLE)
         )).tabAfter(
             AetherCreativeTabs.AETHER_NATURAL_BLOCKS,
-            () -> ReduxFlowerSets.STORMROOT_SAPLING.flower().asItem(),
+            () -> ReduxFlowerSets.STORMFIR_SAPLING.flower().asItem(),
             BlockSet.TabAdditionPhase.BEFORE)
         .withFlowerTag(BlockTags.SAPLINGS)
         .compost(0.3F)

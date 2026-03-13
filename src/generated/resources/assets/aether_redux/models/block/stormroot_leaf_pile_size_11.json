@@ -1,7 +1,0 @@
-{
-	"parent": "aether_unity:block/template/layer/layer_size11",
-	"render_type": "minecraft:cutout",
-	"textures": {
-		"block": "aether_redux:block/natural/stormroot_leaves"
-	}
-}

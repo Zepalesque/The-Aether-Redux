@@ -25,8 +25,8 @@
 			"particle": "aether_redux:infected_blightwillow_leaf",
 			"rarity": 25
 		},
-		"aether_redux:stormroot_leaves": {
-			"particle": "aether_redux:stormroot_leaf",
+		"aether_redux:stormfir_leaves": {
+			"particle": "aether_redux:stormfir_leaf",
 			"rarity": 18
 		}
 	}

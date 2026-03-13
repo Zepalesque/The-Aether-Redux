@@ -51,8 +51,8 @@ public class ReduxTabs {
 				ReduxBlocks.GILDENROOT_LEAF_PILE,
 				ReduxBlocks.MOONFIR_LEAVES,
 				ReduxBlocks.MOONFIR_LEAF_PILE,
-				ReduxBlocks.STORMROOT_LEAVES,
-				ReduxBlocks.STORMROOT_LEAF_PILE,
+				ReduxBlocks.STORMFIR_LEAVES,
+				ReduxBlocks.STORMFIR_LEAF_PILE,
 				ReduxBlocks.BLIGHTWILLOW_LEAVES,
 				ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES,
 				ReduxBlocks.BLIGHTWILLOW_LEAF_PILE

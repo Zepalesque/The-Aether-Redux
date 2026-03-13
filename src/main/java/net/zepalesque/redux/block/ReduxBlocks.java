@@ -82,8 +82,8 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 		() -> new LeafPileBlock(MOONFIR_LEAVES)
 	);
 
-	public static final DeferredBlock<ShadedLeavesBlock> STORMROOT_LEAVES = register(
-		"stormroot_leaves",
+	public static final DeferredBlock<ShadedLeavesBlock> STORMFIR_LEAVES = register(
+		"stormfir_leaves",
 		() -> new ShadedLeavesBlock(
 			3,
 			Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get()).mapColor(
@@ -91,9 +91,9 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 			)
 		)
 	);
-	public static final DeferredBlock<LeafPileBlock> STORMROOT_LEAF_PILE = register(
-		"stormroot_leaf_pile",
-		() -> new LeafPileBlock(STORMROOT_LEAVES)
+	public static final DeferredBlock<LeafPileBlock> STORMFIR_LEAF_PILE = register(
+		"stormfir_leaf_pile",
+		() -> new LeafPileBlock(STORMFIR_LEAVES)
 	);
 
 	public static final DeferredBlock<ShadedLeavesBlock> BLIGHTWILLOW_LEAVES = register(

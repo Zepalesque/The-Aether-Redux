@@ -169,7 +169,7 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
                 .build())),
             ImprovedLayerPlacementModifier.of(Heightmap.Types.OCEAN_FLOOR, ConstantInt.of(2), 4),
             BiomeFilter.biome(),
-            PlacementUtils.filteredByBlockSurvival(ReduxFlowerSets.STORMROOT_SAPLING.flower().get()),
+            PlacementUtils.filteredByBlockSurvival(ReduxFlowerSets.STORMFIR_SAPLING.flower().get()),
             blacklist
         );
         

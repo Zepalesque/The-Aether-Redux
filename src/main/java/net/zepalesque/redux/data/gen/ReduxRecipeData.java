@@ -54,22 +54,22 @@ public class ReduxRecipeData extends ReduxRecipeProvider {
             AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get()
         );
         triConversion(output,
-            ReduxBlocks.STORMROOT_LEAVES.get(),
+            ReduxBlocks.STORMFIR_LEAVES.get(),
             AetherBlocks.SKYROOT_LEAVES.get(),
             ReduxBlocks.GILDENROOT_LEAVES.get()
         );
         triConversion(output,
-            ReduxFlowerSets.STORMROOT_SAPLING.flower().get(),
+            ReduxFlowerSets.STORMFIR_SAPLING.flower().get(),
             AetherBlocks.SKYROOT_SAPLING.get(),
             ReduxFlowerSets.GILDENROOT_SAPLING.flower().get()
         );
         triConversion(output,
-            ReduxFlowerSets.STORMROOT_SAPLING.pot().get(),
+            ReduxFlowerSets.STORMFIR_SAPLING.pot().get(),
             AetherBlocks.POTTED_SKYROOT_SAPLING.get(),
             ReduxFlowerSets.GILDENROOT_SAPLING.pot().get()
         );
         triConversion(output,
-            ReduxBlocks.STORMROOT_LEAF_PILE.get(),
+            ReduxBlocks.STORMFIR_LEAF_PILE.get(),
             UnityBlocks.SKYROOT_LEAF_PILE.get(),
             ReduxBlocks.GILDENROOT_LEAF_PILE.get()
         );
@@ -106,7 +106,7 @@ public class ReduxRecipeData extends ReduxRecipeProvider {
         
         
         layerBlock(output, ReduxBlocks.GILDENROOT_LEAF_PILE.get(), ReduxBlocks.GILDENROOT_LEAVES.get(), 6);
-        layerBlock(output, ReduxBlocks.STORMROOT_LEAF_PILE.get(), ReduxBlocks.STORMROOT_LEAVES.get(), 6);
+        layerBlock(output, ReduxBlocks.STORMFIR_LEAF_PILE.get(), ReduxBlocks.STORMFIR_LEAVES.get(), 6);
         layerBlock(output, ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get(), ReduxBlocks.BLIGHTWILLOW_LEAVES.get(), 6);
 
         stonecuttingRecipe(output, RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.CARVED_BASE.get(), AetherBlocks.CARVED_STONE.get());

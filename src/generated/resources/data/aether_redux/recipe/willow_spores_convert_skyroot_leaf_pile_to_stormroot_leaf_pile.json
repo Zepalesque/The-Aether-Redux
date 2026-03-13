@@ -1,9 +1,0 @@
-{
-	"type": "aether_redux:willow_spore_blighting",
-	"ingredient": {
-		"block": "aether_unity:skyroot_leaf_pile"
-	},
-	"result": {
-		"block": "aether_redux:stormroot_leaf_pile"
-	}
-}
