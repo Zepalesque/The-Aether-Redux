@@ -58,7 +58,7 @@ public class CrystalFoliagePlacer extends FoliagePlacer {
 	) {
 		BiDoublePredicate layer = (a, b) -> {
 			var len = Mth.sqrt(x * x + z * z);
-			return !(len < a || (len < b && rand.nextInt(1, 4) == 1));
+			return !(len < a || len < b && rand.nextInt(1, 4) == 1);
 		};
 
 		return switch (y) {
