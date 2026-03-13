@@ -38,9 +38,10 @@ import net.zepalesque.redux.block.natural.HangingAetherVinesBody;
 import net.zepalesque.redux.block.natural.HangingAetherVinesHead;
 import net.zepalesque.redux.block.natural.TurboVerbenaBlock;
 import net.zepalesque.redux.block.natural.crop.WyndoatsBlock;
+import net.zepalesque.redux.block.natural.leaves.BlightwillowLeavesBlock;
 import net.zepalesque.redux.block.natural.leaves.InfectedLeavesBlock;
-import net.zepalesque.redux.block.natural.leaves.ShadedLeavesBlock;
 import net.zepalesque.redux.block.natural.leaves.SnowableLeavesBlock;
+import net.zepalesque.redux.block.natural.leaves.StormfirLeavesBlock;
 import net.zepalesque.redux.block.redstone.LogicatorBlock;
 import net.zepalesque.redux.data.resource.registries.ReduxFeatureConfig;
 import net.zepalesque.unity.block.natural.DoubleDropsCarpet;
@@ -82,9 +83,9 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 		() -> new LeafPileBlock(MOONFIR_LEAVES)
 	);
 
-	public static final DeferredBlock<ShadedLeavesBlock> STORMFIR_LEAVES = register(
+	public static final DeferredBlock<StormfirLeavesBlock> STORMFIR_LEAVES = register(
 		"stormfir_leaves",
-		() -> new ShadedLeavesBlock(
+		() -> new StormfirLeavesBlock(
 			3,
 			Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get()).mapColor(
 				MapColor.TERRACOTTA_PURPLE
@@ -96,9 +97,9 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 		() -> new LeafPileBlock(STORMFIR_LEAVES)
 	);
 
-	public static final DeferredBlock<ShadedLeavesBlock> BLIGHTWILLOW_LEAVES = register(
+	public static final DeferredBlock<BlightwillowLeavesBlock> BLIGHTWILLOW_LEAVES = register(
 		"blightwillow_leaves",
-		() -> new ShadedLeavesBlock(
+		() -> new BlightwillowLeavesBlock(
 			5,
 			Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get()).mapColor(
 				MapColor.TERRACOTTA_PURPLE
@@ -116,6 +117,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 		"infected_blightwillow_leaves",
 		() -> new InfectedLeavesBlock(
 			() -> ParticleTypes.DRIPPING_OBSIDIAN_TEAR,
+			3,
 			Properties.ofFullCopy(BLIGHTWILLOW_LEAVES.get())
 				.lightLevel(value -> 7)
 				.strength(0.3F)

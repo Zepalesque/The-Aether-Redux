@@ -1,7 +1,10 @@
 {
 	"variants": {
-		"": {
+		"snowy=false": {
 			"model": "aether_redux:block/stormfir_leaves"
+		},
+		"snowy=true": {
+			"model": "aether_redux:block/stormfir_leaves_snowy"
 		}
 	}
 }

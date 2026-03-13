@@ -21,6 +21,7 @@
 					"distance": "7",
 					"double_drops": "true",
 					"persistent": "false",
+					"snowy": "false",
 					"waterlogged": "false"
 				}
 			}
