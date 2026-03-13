@@ -1,0 +1,10 @@
+{
+	"variants": {
+		"snowy=false": {
+			"model": "aether_redux:block/moonfir_leaves"
+		},
+		"snowy=true": {
+			"model": "aether_redux:block/moonfir_leaves_snowy"
+		}
+	}
+}
