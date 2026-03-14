@@ -47,8 +47,8 @@ public class ReduxTabs {
 			TabUtil.putAfter(
 				event,
 				UnityBlocks.SKYROOT_LEAF_PILE,
-				ReduxBlocks.GILDENROOT_LEAVES,
-				ReduxBlocks.GILDENROOT_LEAF_PILE,
+				ReduxBlocks.SILVEROOT_LEAVES,
+				ReduxBlocks.SILVEROOT_LEAF_PILE,
 				ReduxBlocks.MOONFIR_LEAVES,
 				ReduxBlocks.MOONFIR_LEAF_PILE,
 				ReduxBlocks.STORMFIR_LEAVES,

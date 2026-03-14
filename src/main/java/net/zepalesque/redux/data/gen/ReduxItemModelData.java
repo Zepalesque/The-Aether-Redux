@@ -19,8 +19,8 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
         
         this.itemBlock(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get());
       
-        this.itemBlock(ReduxBlocks.GILDENROOT_LEAVES.get());
-        this.leafPile(ReduxBlocks.GILDENROOT_LEAF_PILE.get());
+        this.itemBlock(ReduxBlocks.SILVEROOT_LEAVES.get());
+        this.leafPile(ReduxBlocks.SILVEROOT_LEAF_PILE.get());
 
         this.itemBlock(ReduxBlocks.STORMFIR_LEAVES.get());
         this.leafPile(ReduxBlocks.STORMFIR_LEAF_PILE.get());

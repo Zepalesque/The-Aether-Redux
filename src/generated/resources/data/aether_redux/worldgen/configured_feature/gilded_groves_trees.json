@@ -22,14 +22,14 @@
 			{
 				"chance": 0.375,
 				"feature": {
-					"feature": "aether_redux:varied_gildenroot",
+					"feature": "aether_redux:varied_silveroot",
 					"placement": [
 						{
 							"type": "minecraft:block_predicate_filter",
 							"predicate": {
 								"type": "minecraft:would_survive",
 								"state": {
-									"Name": "aether_redux:gildenroot_sapling",
+									"Name": "aether_redux:silveroot_sapling",
 									"Properties": {
 										"stage": "0"
 									}

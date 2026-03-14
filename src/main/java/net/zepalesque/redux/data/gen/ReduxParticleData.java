@@ -16,7 +16,7 @@ public class ReduxParticleData extends ReduxParticleProvider {
 
     @Override
     protected void addDescriptions() {
-        this.spriteSet(ReduxParticles.GILDENROOT_LEAF.get(), Redux.loc("leaves/gildenroot"));
+        this.spriteSet(ReduxParticles.SILVEROOT_LEAF.get(), Redux.loc("leaves/silveroot"));
         this.spriteSet(ReduxParticles.STORMFIR_LEAF.get(), Redux.loc("leaves/stormfir"));
         this.spriteSet(ReduxParticles.BLIGHTWILLOW_LEAF.get(), Redux.loc("leaves/blightwillow"));
         this.spriteSet(ReduxParticles.INFECTED_BLIGHTWILLOW_LEAF.get(), Redux.loc("leaves/infected_blightwillow"));

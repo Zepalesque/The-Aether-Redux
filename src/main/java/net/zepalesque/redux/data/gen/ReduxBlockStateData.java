@@ -28,8 +28,8 @@ public class ReduxBlockStateData extends ReduxBlockStateProvider {
 			AetherBlockStateProperties.DOUBLE_DROPS
 		);
 
-		this.block(ReduxBlocks.GILDENROOT_LEAVES.get(), "natural/");
-		this.leafPile(ReduxBlocks.GILDENROOT_LEAF_PILE.get(), ReduxBlocks.GILDENROOT_LEAVES.get(), "natural/");
+		this.block(ReduxBlocks.SILVEROOT_LEAVES.get(), "natural/");
+		this.leafPile(ReduxBlocks.SILVEROOT_LEAF_PILE.get(), ReduxBlocks.SILVEROOT_LEAVES.get(), "natural/");
 
 		this.snowableLeaves(ReduxBlocks.MOONFIR_LEAVES.get(), "natural/");
 		this.leafPile(ReduxBlocks.MOONFIR_LEAF_PILE.get(), ReduxBlocks.MOONFIR_LEAVES.get(), "natural/");

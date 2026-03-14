@@ -47,8 +47,8 @@ public class ReduxFlowerSets {
             .compost(0.3F)
             .withLore("A golden flower found in the Gilded Groves. Some say it brings good luck!"));
 
-    public static final BaseFlowerSet<SaplingBlock> GILDENROOT_SAPLING = register(new UntintedFlowerSet<>("gildenroot_sapling", "natural/",
-        () -> new SaplingBlock(ReduxTreeGrowers.GILDENROOT,
+    public static final BaseFlowerSet<SaplingBlock> SILVEROOT_SAPLING = register(new UntintedFlowerSet<>("silveroot_sapling", "natural/",
+        () -> new SaplingBlock(ReduxTreeGrowers.SILVEROOT,
             Properties.ofFullCopy(Blocks.OAK_SAPLING)
                 .mapColor(MapColor.QUARTZ)
         )).tabAfter(AetherCreativeTabs.AETHER_NATURAL_BLOCKS,
@@ -56,7 +56,7 @@ public class ReduxFlowerSets {
             BlockSet.TabAdditionPhase.BEFORE
         ).withFlowerTag(BlockTags.SAPLINGS)
         .compost(0.3F)
-        .withLore("The sapling of the Gildenroot tree. It can be grown by waiting or using Bone Meal."));
+        .withLore("The sapling of the Silveroot tree. It can be grown by waiting or using Bone Meal."));
 
     public static final BaseFlowerSet<SaplingBlock> MOONFIR_SAPLING = register(new UntintedFlowerSet<>(
         "moonfir_sapling",
@@ -66,7 +66,7 @@ public class ReduxFlowerSets {
                 .mapColor(MapColor.LAPIS)
         )).tabAfter(
             AetherCreativeTabs.AETHER_NATURAL_BLOCKS,
-            () -> ReduxFlowerSets.GILDENROOT_SAPLING.flower().asItem(),
+            () -> ReduxFlowerSets.SILVEROOT_SAPLING.flower().asItem(),
             BlockSet.TabAdditionPhase.BEFORE
         ).withFlowerTag(BlockTags.SAPLINGS)
         .compost(0.3F)

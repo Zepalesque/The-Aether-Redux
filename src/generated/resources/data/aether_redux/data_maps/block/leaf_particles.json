@@ -20,11 +20,11 @@
 			"particle": "aether_redux:blightwillow_leaf",
 			"rarity": 20
 		},
-		"aether_redux:gildenroot_leaves": "aether_redux:gildenroot_leaf",
 		"aether_redux:infected_blightwillow_leaves": {
 			"particle": "aether_redux:infected_blightwillow_leaf",
 			"rarity": 25
 		},
+		"aether_redux:silveroot_leaves": "aether_redux:silveroot_leaf",
 		"aether_redux:stormfir_leaves": {
 			"particle": "aether_redux:stormfir_leaf",
 			"rarity": 18

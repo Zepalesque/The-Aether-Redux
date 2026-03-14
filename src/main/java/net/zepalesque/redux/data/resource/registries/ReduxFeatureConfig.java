@@ -104,9 +104,9 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> LAKES = createKey("lakes");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> DEBUG_NOISE = createKey("debug_noise");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_GILDENROOT_TREE = createKey("small_gildenroot");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_GILDENROOT_TREE = createKey("large_gildenroot");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> VARIED_GILDENROOT_TREE = createKey("varied_gildenroot");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_SILVEROOT_TREE = createKey("small_silveroot");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_SILVEROOT_TREE = createKey("large_silveroot");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> VARIED_SILVEROOT_TREE = createKey("varied_silveroot");
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_GOLDEN_OAK_TREE = createKey("small_golden_oak");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_GOLDEN_OAK_TREE = createKey("large_golden_oak");
@@ -296,12 +296,12 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 
 		FeatureUtils.register(
 			context,
-			SMALL_GILDENROOT_TREE,
+			SMALL_SILVEROOT_TREE,
 			Feature.TREE,
 			new TreeConfiguration.TreeConfigurationBuilder(
 				BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LOG),
 				new StraightTrunkPlacer(4, 2, 0),
-				prov(ReduxBlocks.GILDENROOT_LEAVES),
+				prov(ReduxBlocks.SILVEROOT_LEAVES),
 				new SkyrootFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
 				new TwoLayersFeatureSize(1, 0, 1)
 			)
@@ -347,12 +347,12 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 
 		FeatureUtils.register(
 			context,
-			LARGE_GILDENROOT_TREE,
+			LARGE_SILVEROOT_TREE,
 			Feature.TREE,
 			new TreeConfiguration.TreeConfigurationBuilder(
 				BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LOG),
 				new HookedTrunkPlacer(10, 12, 12),
-				prov(ReduxBlocks.GILDENROOT_LEAVES),
+				prov(ReduxBlocks.SILVEROOT_LEAVES),
 				new HookedFoliagePlacer(ConstantInt.of(0), ConstantInt.of(0)),
 				new TwoLayersFeatureSize(4, 2, 6)
 			)
@@ -481,21 +481,21 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 
 		FeatureUtils.register(
 			context,
-			VARIED_GILDENROOT_TREE,
+			VARIED_SILVEROOT_TREE,
 			Feature.RANDOM_SELECTOR,
 			new RandomFeatureConfiguration(
 				List.of(
 					new WeightedPlacedFeature(
 						PlacementUtils.inlinePlaced(
-							configs.getOrThrow(SMALL_GILDENROOT_TREE),
-							PlacementUtils.filteredByBlockSurvival(ReduxFlowerSets.GILDENROOT_SAPLING.flower().get())
+							configs.getOrThrow(SMALL_SILVEROOT_TREE),
+							PlacementUtils.filteredByBlockSurvival(ReduxFlowerSets.SILVEROOT_SAPLING.flower().get())
 						),
 						0.60F
 					)
 				),
 				PlacementUtils.inlinePlaced(
-					configs.getOrThrow(LARGE_GILDENROOT_TREE),
-					PlacementUtils.filteredByBlockSurvival(ReduxFlowerSets.GILDENROOT_SAPLING.flower().get()),
+					configs.getOrThrow(LARGE_SILVEROOT_TREE),
+					PlacementUtils.filteredByBlockSurvival(ReduxFlowerSets.SILVEROOT_SAPLING.flower().get()),
 					HAS_TRUNK_SUPPORT_2X2
 				)
 			)
@@ -509,8 +509,8 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				List.of(
 					new WeightedPlacedFeature(
 						PlacementUtils.inlinePlaced(
-							configs.getOrThrow(VARIED_GILDENROOT_TREE),
-							PlacementUtils.filteredByBlockSurvival(ReduxFlowerSets.GILDENROOT_SAPLING.flower().get())
+							configs.getOrThrow(VARIED_SILVEROOT_TREE),
+							PlacementUtils.filteredByBlockSurvival(ReduxFlowerSets.SILVEROOT_SAPLING.flower().get())
 						),
 						0.375F
 					)
