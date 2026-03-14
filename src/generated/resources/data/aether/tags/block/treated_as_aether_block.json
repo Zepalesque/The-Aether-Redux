@@ -163,6 +163,10 @@
 		"aether_redux:flareblossom",
 		"aether_redux:potted_flareblossom",
 		"aether_redux:gloomshade",
-		"aether_redux:potted_gloomshade"
+		"aether_redux:potted_gloomshade",
+		"aether_redux:lumina",
+		"aether_redux:potted_lumina",
+		"aether_redux:daggerbloom",
+		"aether_redux:potted_daggerbloom"
 	]
 }

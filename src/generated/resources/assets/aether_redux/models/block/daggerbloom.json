@@ -1,0 +1,9 @@
+{
+	"parent": "aether_unity:block/template/cross/cross_tinted_dual_gloverlay/overlay_particle",
+	"render_type": "minecraft:cutout",
+	"textures": {
+		"cross": "aether_redux:block/natural/daggerbloom",
+		"glow": "aether_redux:block/natural/daggerbloom_glow",
+		"overlay": "aether_redux:block/natural/daggerbloom_overlay"
+	}
+}
