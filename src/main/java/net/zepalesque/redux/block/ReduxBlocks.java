@@ -88,7 +88,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 		() -> new StormfirLeavesBlock(
 			3,
 			Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get()).mapColor(
-				MapColor.TERRACOTTA_PURPLE
+				MapColor.COLOR_PURPLE
 			)
 		)
 	);

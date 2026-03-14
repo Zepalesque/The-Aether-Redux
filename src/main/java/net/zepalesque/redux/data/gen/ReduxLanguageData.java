@@ -23,7 +23,13 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 
 		addBlock(ReduxBlocks.SILVEROOT_LEAF_PILE);
 		addLore(ReduxBlocks.SILVEROOT_LEAF_PILE, "A pile of Silveroot Leaves. These can be stacked on top of eachother to make various sizes!");
-
+		
+		addBlock(ReduxBlocks.MOONFIR_LEAVES, "Moonfir Leaves");
+		addLore(ReduxBlocks.MOONFIR_LEAVES, "The leaves of the Moonfir tree. These sometimes drop Moonfir Saplings.");
+		
+		addBlock(ReduxBlocks.MOONFIR_LEAF_PILE);
+		addLore(ReduxBlocks.MOONFIR_LEAF_PILE, "A pile of Moonfir Leaves. These can be stacked on top of eachother to make various sizes!");
+		
 		addBlock(ReduxBlocks.STORMFIR_LEAVES);
 		addLore(ReduxBlocks.STORMFIR_LEAVES, "Leaves of the Stormfir tree, a hardy subspecies of moonfir that can withstand even the blight.");
 

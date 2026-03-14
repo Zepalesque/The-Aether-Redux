@@ -18,13 +18,14 @@ public class ReduxParticleData extends ReduxParticleProvider {
     protected void addDescriptions() {
         this.spriteSet(ReduxParticles.SILVEROOT_LEAF.get(), Redux.loc("leaves/silveroot"));
         this.spriteSet(ReduxParticles.STORMFIR_LEAF.get(), Redux.loc("leaves/stormfir"));
+        this.spriteSet(ReduxParticles.MOONFIR_LEAF.get(), Redux.loc("leaves/moonfir"));
         this.spriteSet(ReduxParticles.BLIGHTWILLOW_LEAF.get(), Redux.loc("leaves/blightwillow"));
         this.spriteSet(ReduxParticles.INFECTED_BLIGHTWILLOW_LEAF.get(), Redux.loc("leaves/infected_blightwillow"));
         this.spriteSet(ReduxParticles.CRYSTAL_LEAF.get(), Redux.loc("leaves/crystal"));
         this.spriteSet(ReduxParticles.SKYROOT_LEAF.get(), Redux.loc("leaves/skyroot"));
         this.spriteSet(ReduxParticles.GOLDEN_OAK_LEAF.get(), Redux.loc("leaves/golden_oak"));
-
-        ResourceLocation[] lightningTextures = ArrayUtil.generateContents(new ResourceLocation[10], i -> Redux.loc("lightning/lightning" + i));
+	    
+	    var lightningTextures = ArrayUtil.generateContents(new ResourceLocation[10], i -> Redux.loc("lightning/lightning" + i));
         this.spriteSet(ReduxParticles.WHIRLWIND_LIGHTNING.get(), List.of(lightningTextures));
 
         ResourceLocation[] sparkTextures = ArrayUtil.generateContents(new ResourceLocation[3], i -> Redux.loc("spark/spark" + i));

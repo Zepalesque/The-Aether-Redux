@@ -58,6 +58,7 @@ public class ReduxMapData extends ReduxDataMapProvider {
         this.addLeafParticle(leaves, AetherBlocks.GOLDEN_OAK_LEAVES, ReduxParticles.GOLDEN_OAK_LEAF, 14);
         this.addLeafParticle(leaves, ReduxBlocks.SILVEROOT_LEAVES, ReduxParticles.SILVEROOT_LEAF);
         this.addLeafParticle(leaves, ReduxBlocks.STORMFIR_LEAVES, ReduxParticles.STORMFIR_LEAF, 18);
+        this.addLeafParticle(leaves, ReduxBlocks.MOONFIR_LEAVES, ReduxParticles.MOONFIR_LEAF, 18);
         this.addLeafParticle(leaves, ReduxBlocks.BLIGHTWILLOW_LEAVES, ReduxParticles.BLIGHTWILLOW_LEAF, 20);
         this.addLeafParticle(leaves, ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES, ReduxParticles.INFECTED_BLIGHTWILLOW_LEAF, 25);
         
