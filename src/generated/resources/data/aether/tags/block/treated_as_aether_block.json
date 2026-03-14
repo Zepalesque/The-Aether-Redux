@@ -1,8 +1,8 @@
 {
 	"values": [
 		"aether_redux:blighted_aether_grass_block",
-		"aether_redux:gildenroot_leaves",
-		"aether_redux:gildenroot_leaf_pile",
+		"aether_redux:silveroot_leaves",
+		"aether_redux:silveroot_leaf_pile",
 		"aether_redux:moonfir_leaves",
 		"aether_redux:moonfir_leaf_pile",
 		"aether_redux:stormfir_leaves",
@@ -148,8 +148,8 @@
 		"aether_redux:polished_angilite_wall",
 		"aether_redux:aurum",
 		"aether_redux:potted_aurum",
-		"aether_redux:gildenroot_sapling",
-		"aether_redux:potted_gildenroot_sapling",
+		"aether_redux:silveroot_sapling",
+		"aether_redux:potted_silveroot_sapling",
 		"aether_redux:moonfir_sapling",
 		"aether_redux:potted_moonfir_sapling",
 		"aether_redux:stormfir_sapling",

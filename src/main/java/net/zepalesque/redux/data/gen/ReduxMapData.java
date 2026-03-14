@@ -34,8 +34,8 @@ public class ReduxMapData extends ReduxDataMapProvider {
         biomeTints.add(ReduxBiomes.THE_BLIGHT, ReduxColors.Tints.BLIGHT_GRASS_COLOR, false);
 
         var compostables = this.builder(NeoForgeDataMaps.COMPOSTABLES);
-        this.addCompost(compostables, ReduxBlocks.GILDENROOT_LEAVES, 0.3F);
-        this.addCompost(compostables, ReduxBlocks.GILDENROOT_LEAF_PILE, 0.3F);
+        this.addCompost(compostables, ReduxBlocks.SILVEROOT_LEAVES, 0.3F);
+        this.addCompost(compostables, ReduxBlocks.SILVEROOT_LEAF_PILE, 0.3F);
         this.addCompost(compostables, ReduxBlocks.STORMFIR_LEAVES, 0.3F);
         this.addCompost(compostables, ReduxBlocks.STORMFIR_LEAF_PILE, 0.3F);
         this.addCompost(compostables, ReduxBlocks.BLIGHTWILLOW_LEAVES, 0.3F);
@@ -56,7 +56,7 @@ public class ReduxMapData extends ReduxDataMapProvider {
         this.addLeafParticle(leaves, AetherBlocks.CRYSTAL_LEAVES, ReduxParticles.CRYSTAL_LEAF, crystal = 18);
         this.addLeafParticle(leaves, AetherBlocks.CRYSTAL_FRUIT_LEAVES, ReduxParticles.CRYSTAL_LEAF, crystal);
         this.addLeafParticle(leaves, AetherBlocks.GOLDEN_OAK_LEAVES, ReduxParticles.GOLDEN_OAK_LEAF, 14);
-        this.addLeafParticle(leaves, ReduxBlocks.GILDENROOT_LEAVES, ReduxParticles.GILDENROOT_LEAF);
+        this.addLeafParticle(leaves, ReduxBlocks.SILVEROOT_LEAVES, ReduxParticles.SILVEROOT_LEAF);
         this.addLeafParticle(leaves, ReduxBlocks.STORMFIR_LEAVES, ReduxParticles.STORMFIR_LEAF, 18);
         this.addLeafParticle(leaves, ReduxBlocks.BLIGHTWILLOW_LEAVES, ReduxParticles.BLIGHTWILLOW_LEAF, 20);
         this.addLeafParticle(leaves, ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES, ReduxParticles.INFECTED_BLIGHTWILLOW_LEAF, 25);

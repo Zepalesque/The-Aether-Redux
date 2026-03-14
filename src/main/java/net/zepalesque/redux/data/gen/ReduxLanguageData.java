@@ -18,11 +18,11 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 	protected void addTranslations() {
 		Redux.BLOCK_SETS.forEach(set -> set.langData(this));
 
-		addBlock(ReduxBlocks.GILDENROOT_LEAVES);
-		addLore(ReduxBlocks.GILDENROOT_LEAVES, "Leaves of the Gildenroot tree, a variation of Skyroot that has been touched by Ambrosium but has not fully adapted as Golden Oaks have. These sometimes will drop Gildenroot Saplings");
+		addBlock(ReduxBlocks.SILVEROOT_LEAVES);
+		addLore(ReduxBlocks.SILVEROOT_LEAVES, "Leaves of the Silveroot tree, a variation of Skyroot that has been touched by Ambrosium but has not fully adapted as Golden Oaks have. These sometimes will drop Silveroot Saplings");
 
-		addBlock(ReduxBlocks.GILDENROOT_LEAF_PILE);
-		addLore(ReduxBlocks.GILDENROOT_LEAF_PILE, "A pile of Gildenroot Leaves. These can be stacked on top of eachother to make various sizes!");
+		addBlock(ReduxBlocks.SILVEROOT_LEAF_PILE);
+		addLore(ReduxBlocks.SILVEROOT_LEAF_PILE, "A pile of Silveroot Leaves. These can be stacked on top of eachother to make various sizes!");
 
 		addBlock(ReduxBlocks.STORMFIR_LEAVES);
 		addLore(ReduxBlocks.STORMFIR_LEAVES, "Leaves of the Stormfir tree, a hardy subspecies of moonfir that can withstand even the blight.");

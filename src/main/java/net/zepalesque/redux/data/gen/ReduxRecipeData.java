@@ -46,7 +46,7 @@ public class ReduxRecipeData extends ReduxRecipeProvider {
         smeltingOreRecipe(ReduxItems.REFINED_SENTRITE.get(), ReduxStoneSets.SENTRITE.block().get(), 0.8F, 300).save(output, name("refine_sentrite_smelt"));
         blastingOreRecipe(ReduxItems.REFINED_SENTRITE.get(), ReduxStoneSets.SENTRITE.block().get(), 0.8F, 150).save(output, name("refine_sentrite_blast"));
 
-        enchantingRecipe(RecipeCategory.DECORATIONS, ReduxFlowerSets.GILDENROOT_SAPLING.flower().get(), AetherBlocks.SKYROOT_SAPLING.get(), 0.1F, 1000).save(output);
+        enchantingRecipe(RecipeCategory.DECORATIONS, ReduxFlowerSets.SILVEROOT_SAPLING.flower().get(), AetherBlocks.SKYROOT_SAPLING.get(), 0.1F, 1000).save(output);
 
         triConversion(output,
             ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(),
@@ -56,22 +56,22 @@ public class ReduxRecipeData extends ReduxRecipeProvider {
         triConversion(output,
             ReduxBlocks.STORMFIR_LEAVES.get(),
             AetherBlocks.SKYROOT_LEAVES.get(),
-            ReduxBlocks.GILDENROOT_LEAVES.get()
+            ReduxBlocks.SILVEROOT_LEAVES.get()
         );
         triConversion(output,
             ReduxFlowerSets.STORMFIR_SAPLING.flower().get(),
             AetherBlocks.SKYROOT_SAPLING.get(),
-            ReduxFlowerSets.GILDENROOT_SAPLING.flower().get()
+            ReduxFlowerSets.SILVEROOT_SAPLING.flower().get()
         );
         triConversion(output,
             ReduxFlowerSets.STORMFIR_SAPLING.pot().get(),
             AetherBlocks.POTTED_SKYROOT_SAPLING.get(),
-            ReduxFlowerSets.GILDENROOT_SAPLING.pot().get()
+            ReduxFlowerSets.SILVEROOT_SAPLING.pot().get()
         );
         triConversion(output,
             ReduxBlocks.STORMFIR_LEAF_PILE.get(),
             UnityBlocks.SKYROOT_LEAF_PILE.get(),
-            ReduxBlocks.GILDENROOT_LEAF_PILE.get()
+            ReduxBlocks.SILVEROOT_LEAF_PILE.get()
         );
         triConversion(output,
             ReduxStoneSets.BLEAKMOSS_HOLYSTONE.block().get(),
@@ -105,7 +105,7 @@ public class ReduxRecipeData extends ReduxRecipeProvider {
         );
         
         
-        layerBlock(output, ReduxBlocks.GILDENROOT_LEAF_PILE.get(), ReduxBlocks.GILDENROOT_LEAVES.get(), 6);
+        layerBlock(output, ReduxBlocks.SILVEROOT_LEAF_PILE.get(), ReduxBlocks.SILVEROOT_LEAVES.get(), 6);
         layerBlock(output, ReduxBlocks.STORMFIR_LEAF_PILE.get(), ReduxBlocks.STORMFIR_LEAVES.get(), 6);
         layerBlock(output, ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get(), ReduxBlocks.BLIGHTWILLOW_LEAVES.get(), 6);
 

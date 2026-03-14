@@ -5,12 +5,12 @@ import net.minecraft.world.level.block.grower.TreeGrower;
 import net.zepalesque.redux.data.resource.registries.ReduxFeatureConfig;
 
 public class ReduxTreeGrowers {
-	public static final TreeGrower GILDENROOT = new TreeGrower(
-		"gildenroot",
+	public static final TreeGrower SILVEROOT = new TreeGrower(
+		"silveroot",
 		0.3F,
-		Optional.of(ReduxFeatureConfig.LARGE_GILDENROOT_TREE),
+		Optional.of(ReduxFeatureConfig.LARGE_SILVEROOT_TREE),
 		Optional.empty(),
-		Optional.of(ReduxFeatureConfig.SMALL_GILDENROOT_TREE),
+		Optional.of(ReduxFeatureConfig.SMALL_SILVEROOT_TREE),
 		Optional.empty(),
 		Optional.empty(),
 		Optional.empty()

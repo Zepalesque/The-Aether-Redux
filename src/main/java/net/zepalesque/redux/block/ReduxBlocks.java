@@ -61,15 +61,15 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 		() -> new BlightedGrassBlock(Properties.ofFullCopy(AetherBlocks.AETHER_GRASS_BLOCK.get()))
 	);
 
-	public static final DeferredBlock<AetherDoubleDropsLeaves> GILDENROOT_LEAVES = register(
-		"gildenroot_leaves",
+	public static final DeferredBlock<AetherDoubleDropsLeaves> SILVEROOT_LEAVES = register(
+		"silveroot_leaves",
 		() -> new AetherDoubleDropsLeaves(
 			Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get()).mapColor(MapColor.QUARTZ)
 		)
 	);
-	public static final DeferredBlock<LeafPileBlock> GILDENROOT_LEAF_PILE = register(
-		"gildenroot_leaf_pile",
-		() -> new LeafPileBlock(GILDENROOT_LEAVES)
+	public static final DeferredBlock<LeafPileBlock> SILVEROOT_LEAF_PILE = register(
+		"silveroot_leaf_pile",
+		() -> new LeafPileBlock(SILVEROOT_LEAVES)
 	);
 
 	public static final DeferredBlock<SnowableLeavesBlock> MOONFIR_LEAVES = register(

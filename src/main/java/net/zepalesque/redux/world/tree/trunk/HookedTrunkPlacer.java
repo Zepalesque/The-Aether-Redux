@@ -55,14 +55,17 @@ public class HookedTrunkPlacer extends GiantTrunkPlacer {
 		BlockPos blockPos
 	) {
 		var attachments = new ArrayList<FoliageAttachment>(); 
-		var branchHeight = switch (dir) {
-			case Direction.EAST -> 4;
-			case Direction.SOUTH -> 5;
-			case Direction.WEST -> 6;
-			default -> 3;
-		};
 
-		for (; branchHeight < height - 2; branchHeight += 4) {
+		for (
+			var branchHeight = switch (dir) {
+				case Direction.EAST -> 4;
+				case Direction.SOUTH -> 5;
+				case Direction.WEST -> 6;
+				default -> 3;
+			};
+			branchHeight < height - 2;
+			branchHeight += 4
+		) {
 			var pos = blockPos.above(branchHeight).mutable();
 
 			var branchLen = branchHeight < rand.nextInt(6, 9) || branchHeight > height - rand.nextInt(6, 9)

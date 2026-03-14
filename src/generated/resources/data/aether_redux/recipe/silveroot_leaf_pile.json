@@ -1,0 +1,14 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"key": {
+		"#": {
+			"item": "aether_redux:silveroot_leaves"
+		}
+	},
+	"pattern": ["##"],
+	"result": {
+		"count": 6,
+		"id": "aether_redux:silveroot_leaf_pile"
+	}
+}

@@ -33,8 +33,8 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
 	protected void generate() {
 		Redux.BLOCK_SETS.forEach(set -> set.lootData(this));
 
-		this.leaves(ReduxBlocks.GILDENROOT_LEAVES, ReduxFlowerSets.GILDENROOT_SAPLING.flower());
-		this.add(ReduxBlocks.GILDENROOT_LEAF_PILE.get(), shears());
+		this.leaves(ReduxBlocks.SILVEROOT_LEAVES, ReduxFlowerSets.SILVEROOT_SAPLING.flower());
+		this.add(ReduxBlocks.SILVEROOT_LEAF_PILE.get(), shears());
 
 		this.leaves(ReduxBlocks.STORMFIR_LEAVES, ReduxFlowerSets.STORMFIR_SAPLING.flower());
 		this.add(ReduxBlocks.STORMFIR_LEAF_PILE.get(), shears());
