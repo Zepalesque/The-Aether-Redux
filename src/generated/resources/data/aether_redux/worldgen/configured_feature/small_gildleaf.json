@@ -81,7 +81,7 @@
 				},
 				{
 					"data": {
-						"Name": "aether:skyroot_log",
+						"Name": "aether_redux:gildleaf_log",
 						"Properties": {
 							"axis": "y",
 							"double_drops": "true"

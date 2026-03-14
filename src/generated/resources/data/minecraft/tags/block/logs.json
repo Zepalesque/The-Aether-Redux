@@ -1,5 +1,10 @@
 {
 	"values": [
+		"#aether_redux:gildleaf_logs",
+		"aether_redux:gildleaf_log_wall",
+		"aether_redux:stripped_gildleaf_log_wall",
+		"aether_redux:gildleaf_wood_wall",
+		"aether_redux:stripped_gildleaf_wood_wall",
 		"#aether_redux:crystal_logs",
 		"aether_redux:crystal_log_wall",
 		"aether_redux:stripped_crystal_log_wall",

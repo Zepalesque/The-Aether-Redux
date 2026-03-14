@@ -2,7 +2,7 @@
 	"type": "minecraft:random_selector",
 	"config": {
 		"default": {
-			"feature": "aether_redux:large_golden_oak",
+			"feature": "aether_redux:large_gildleaf",
 			"placement": [
 				{
 					"type": "minecraft:block_predicate_filter",
@@ -22,7 +22,7 @@
 			{
 				"chance": 0.35,
 				"feature": {
-					"feature": "aether_redux:small_golden_oak",
+					"feature": "aether_redux:small_gildleaf",
 					"placement": [
 						{
 							"type": "minecraft:block_predicate_filter",
