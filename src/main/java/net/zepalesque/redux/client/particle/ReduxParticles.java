@@ -29,6 +29,7 @@ public class ReduxParticles {
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType>
             SILVEROOT_LEAF = PARTICLES.register("silveroot_leaf", () -> new SimpleParticleType(false)),
             STORMFIR_LEAF = PARTICLES.register("stormfir_leaf", () -> new SimpleParticleType(false)),
+            MOONFIR_LEAF = PARTICLES.register("moonfir_leaf", () -> new SimpleParticleType(false)),
             BLIGHTWILLOW_LEAF = PARTICLES.register("blightwillow_leaf", () -> new SimpleParticleType(false)),
             INFECTED_BLIGHTWILLOW_LEAF = PARTICLES.register("infected_blightwillow_leaf", () -> new SimpleParticleType(false)),
             CRYSTAL_LEAF = PARTICLES.register("crystal_leaf", () -> new SimpleParticleType(false)),
@@ -43,6 +44,7 @@ public class ReduxParticles {
     public static void registerParticleFactories(RegisterParticleProvidersEvent event) {
         event.registerSpriteSet(SILVEROOT_LEAF.get(), ReduxLeafParticle.Provider::new);
         event.registerSpriteSet(STORMFIR_LEAF.get(), ReduxLeafParticle.Provider::new);
+        event.registerSpriteSet(MOONFIR_LEAF.get(), ReduxLeafParticle.Provider::new);
         event.registerSpriteSet(BLIGHTWILLOW_LEAF.get(), ReduxLeafParticle.Provider::new);
         event.registerSpriteSet(INFECTED_BLIGHTWILLOW_LEAF.get(), ReduxLeafParticle.Provider::new);
         event.registerSpriteSet(CRYSTAL_LEAF.get(), ReduxLeafParticle.Provider::new);
