@@ -72,6 +72,8 @@ public class HangingAetherVinesHead extends GrowingPlantHeadBlock {
                     || state.is(this.getBodyBlock())
             )) i++;
         return i;
+        
+   
     }
 
     @Override

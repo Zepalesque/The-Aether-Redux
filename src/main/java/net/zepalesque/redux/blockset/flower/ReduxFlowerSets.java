@@ -146,8 +146,41 @@ public class ReduxFlowerSets {
         ).craftsIntoShapeless(1, () -> Items.BLACK_DYE, 1, RecipeCategory.MISC)
         .withFlowerTag(BlockTags.FLOWERS)
         .withLore("Dark purple flowers found in the Blight. These release a gas that limits their target's vision."));
-
-
+    
+    public static final BaseFlowerSet<CustomBoundsFlowerBlock> LUMINA = register(
+        new DualGlowingFlowerSet<>("lumina", "natural/",
+        () -> new CustomBoundsFlowerBlock(CommonPlantBounds.FLOWER,
+            MobEffects.NIGHT_VISION, 60,
+            Properties.ofFullCopy(Blocks.POPPY)
+                .lightLevel(state -> 9)
+                .mapColor(MapColor.WOOL)),
+        1, ReduxColors.Tints.FROSTED_GRASS_COLOR)
+            .tabAfter(
+                AetherCreativeTabs.AETHER_NATURAL_BLOCKS,
+                ReduxFlowerSets.GLOOMSHADE.flower(),
+                BlockSet.TabAdditionPhase.BEFORE
+            ).craftsIntoShapeless(1, () -> Items.BLACK_DYE, 1, RecipeCategory.MISC)
+            .withFlowerTag(BlockTags.FLOWERS)
+            // aura (brainrot) :anguish:
+            .withLore("A flower found in the Frosted Forests. It has a subtle luminant aura (hence the name), lighting the area around it."));
+    
+    public static final BaseFlowerSet<CustomBoundsFlowerBlock> DAGGERBLOOM = register(
+        new DualGlowingFlowerSet<>("lumina", "natural/",
+        () -> new CustomBoundsFlowerBlock(CommonPlantBounds.FERN,
+            MobEffects.MOVEMENT_SLOWDOWN, 60,
+            Properties.ofFullCopy(Blocks.POPPY)
+                .mapColor(MapColor.ICE)),
+        1, ReduxColors.Tints.FROSTED_GRASS_COLOR)
+            .tabAfter(
+                AetherCreativeTabs.AETHER_NATURAL_BLOCKS,
+                ReduxFlowerSets.LUMINA.flower(),
+                BlockSet.TabAdditionPhase.BEFORE
+            ).craftsIntoShapeless(1, () -> Items.WHITE_DYE, 1, RecipeCategory.MISC)
+            .withFlowerTag(BlockTags.FLOWERS)
+            // aura (brainrot) :anguish:
+            .withLore("A flower found in the Frosted Forests. Its pointed petals are as cold as ice."));
+    
+    
     public static <T extends AbstractFlowerSet> T register(T set) {
         Redux.BLOCK_SETS.add(set);
         return set;

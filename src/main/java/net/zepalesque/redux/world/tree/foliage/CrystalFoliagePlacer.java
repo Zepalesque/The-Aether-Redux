@@ -41,7 +41,7 @@ public class CrystalFoliagePlacer extends FoliagePlacer {
 		var origin = attachment.pos();
 
 		// Place main piece
-		int[] layers = { 2, 1, 0, -1, -2, -3, -4, -5, -6, };
+		var layers = new int[]{2, 1, 0, -1, -2, -3, -4, -5, -6,};
 		for (var y : layers) {
 			placeLeavesRow(level, setter, rand, config, origin, radius, y, false);
 		}
@@ -63,16 +63,15 @@ public class CrystalFoliagePlacer extends FoliagePlacer {
 
 		return switch (y) {
 			case -6 -> layer.test(1.25, 1.5);
-			case -5 -> layer.test(1.75, 2.0);
+			case -5, -3 -> layer.test(1.75, 2.0);
 			case -4 -> layer.test(2.00, 2.5);
-			case -3 -> layer.test(1.75, 2.0);
 			case -2 -> layer.test(1.25, 2.0);
 			case -1 -> layer.test(1.25, 1.0);
 			case 0 -> layer.test(0.75, 1.0);
 			case 1 -> layer.test(0.75, 0.5);
 			case 2 -> layer.test(0.00, 0.5);
 			default -> {
-				LOGGER.error("Invalid y: " + y);
+				LOGGER.error("Invalid y: {}", y);
 				yield true;
 			}
 		}; 
