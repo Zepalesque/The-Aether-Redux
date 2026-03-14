@@ -165,7 +165,7 @@ public class ReduxFlowerSets {
             .withLore("A flower found in the Frosted Forests. It has a subtle luminant aura (hence the name), lighting the area around it."));
     
     public static final BaseFlowerSet<CustomBoundsFlowerBlock> DAGGERBLOOM = register(
-        new DualGlowingFlowerSet<>("daggerbloom", "natural/",
+        new AetherFlowerSet<>("daggerbloom", "natural/",
         () -> new CustomBoundsFlowerBlock(CommonPlantBounds.FERN,
             MobEffects.MOVEMENT_SLOWDOWN, 60,
             Properties.ofFullCopy(Blocks.POPPY)
