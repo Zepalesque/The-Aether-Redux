@@ -1,8 +1,7 @@
 package net.zepalesque.redux.blockset.util;
 
 public interface TintableSet {
+	int getTintIndex();
 
-    int getTintIndex();
-
-    int getDefaultItemTint();
+	int getDefaultItemTint();
 }

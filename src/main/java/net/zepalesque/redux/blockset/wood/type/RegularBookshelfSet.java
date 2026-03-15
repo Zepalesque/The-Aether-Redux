@@ -12,27 +12,36 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.zepalesque.redux.data.prov.ReduxBlockStateProvider;
 
 public class RegularBookshelfSet extends AbstractBookshelfSet<BookshelfBlock> {
+	public RegularBookshelfSet(String id, MapColor woodColor, MapColor barkColor, SoundType sound) {
+		super(id, woodColor, barkColor, sound);
+	}
 
-    public RegularBookshelfSet(String id, MapColor woodColor, MapColor barkColor, SoundType sound) {
-        super(id, woodColor, barkColor, sound);
-    }
+	protected DeferredBlock<BookshelfBlock> bookshelf(
+		DeferredRegister.Blocks registry,
+		DeferredRegister.Items items,
+		String id,
+		MapColor color,
+		SoundType soundType
+	) {
+		var block = registry.register(id + "_bookshelf", () ->
+			new BookshelfBlock(
+				BlockBehaviour.Properties.of()
+					.mapColor(color)
+					.instrument(NoteBlockInstrument.BASS)
+					.ignitedByLava()
+					.strength(1.5F)
+					.sound(soundType)
+			)
+		);
+		items.register(block.getId().getPath(), () ->
+			new BlockItem(block.get(), new Item.Properties())
+		);
+		return block;
+	}
 
-
-    protected DeferredBlock<BookshelfBlock> bookshelf(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, MapColor color, SoundType soundType) {
-        var block = registry.register(id + "_bookshelf", () -> new BookshelfBlock(BlockBehaviour.Properties.of()
-                .mapColor(color)
-                .instrument(NoteBlockInstrument.BASS)
-                .ignitedByLava()
-                .strength(1.5F)
-                .sound(soundType)
-        ));
-        items.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
-        return block;
-    }
-
-    @Override
-    public void blockData(ReduxBlockStateProvider data) {
-        super.blockData(data);
-        data.bookshelf(this.bookshelf().get(), this.planks().get());
-    }
+	@Override
+	public void blockData(ReduxBlockStateProvider data) {
+		super.blockData(data);
+		data.bookshelf(this.bookshelf().get(), this.planks().get());
+	}
 }

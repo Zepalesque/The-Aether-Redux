@@ -21,66 +21,65 @@ import net.zepalesque.redux.data.prov.tags.ReduxItemTagsProvider;
 import net.zepalesque.zenith.api.blockset.BlockSet;
 
 public interface ReduxGeneration extends BlockSet {
+	@Override
+	default void blockData(BlockStateProvider provider) {
+		if (provider instanceof ReduxBlockStateProvider data) this.blockData(data);
+	}
 
-    @Override
-    default void blockData(BlockStateProvider provider) {
-        if (provider instanceof ReduxBlockStateProvider data) this.blockData(data);
-    }
-
-    void blockData(ReduxBlockStateProvider data);
-
-
-    @Override
-    default void itemData(ItemModelProvider provider) {
-        if (provider instanceof ReduxItemModelProvider data) this.itemData(data);
-    }
-
-    void itemData(ReduxItemModelProvider data);
+	void blockData(ReduxBlockStateProvider data);
 
 
-    @Override
-    default void langData(LanguageProvider provider) {
-        if (provider instanceof ReduxLanguageProvider data) this.langData(data);
-    }
+	@Override
+	default void itemData(ItemModelProvider provider) {
+		if (provider instanceof ReduxItemModelProvider data) this.itemData(data);
+	}
+
+	void itemData(ReduxItemModelProvider data);
 
 
-    void langData(ReduxLanguageProvider data);
-
-    @Override
-    default void recipeData(RecipeProvider provider, RecipeOutput output, HolderLookup.Provider lookup) {
-        if (provider instanceof ReduxRecipeProvider data) this.recipeData(data, output, lookup);
-    }
-
-    void recipeData(ReduxRecipeProvider data, RecipeOutput consumer, HolderLookup.Provider lookup);
+	@Override
+	default void langData(LanguageProvider provider) {
+		if (provider instanceof ReduxLanguageProvider data) this.langData(data);
+	}
 
 
-    @Override
-    default void blockTagData(BlockTagsProvider provider) {
-        if (provider instanceof ReduxBlockTagsProvider data) this.blockTagData(data);
-    }
+	void langData(ReduxLanguageProvider data);
 
-    void blockTagData(ReduxBlockTagsProvider data);
+	@Override
+	default void recipeData(RecipeProvider provider, RecipeOutput output, HolderLookup.Provider lookup) {
+		if (provider instanceof ReduxRecipeProvider data) this.recipeData(data, output, lookup);
+	}
 
-
-    @Override
-    default void itemTagData(ItemTagsProvider provider) {
-        if (provider instanceof ReduxItemTagsProvider data) this.itemTagData(data);
-    }
-
-    void itemTagData(ReduxItemTagsProvider data);
+	void recipeData(ReduxRecipeProvider data, RecipeOutput consumer, HolderLookup.Provider lookup);
 
 
-    @Override
-    default void lootData(BlockLootSubProvider provider) {
-        if (provider instanceof ReduxBlockLootProvider data) this.lootData(data);
-    }
+	@Override
+	default void blockTagData(BlockTagsProvider provider) {
+		if (provider instanceof ReduxBlockTagsProvider data) this.blockTagData(data);
+	}
 
-    void lootData(ReduxBlockLootProvider data);
+	void blockTagData(ReduxBlockTagsProvider data);
 
-    @Override
-    default void mapData(DataMapProvider provider) {
-        if (provider instanceof ReduxDataMapProvider data) this.mapData(data);
-    }
 
-    void mapData(ReduxDataMapProvider data);
+	@Override
+	default void itemTagData(ItemTagsProvider provider) {
+		if (provider instanceof ReduxItemTagsProvider data) this.itemTagData(data);
+	}
+
+	void itemTagData(ReduxItemTagsProvider data);
+
+
+	@Override
+	default void lootData(BlockLootSubProvider provider) {
+		if (provider instanceof ReduxBlockLootProvider data) this.lootData(data);
+	}
+
+	void lootData(ReduxBlockLootProvider data);
+
+	@Override
+	default void mapData(DataMapProvider provider) {
+		if (provider instanceof ReduxDataMapProvider data) this.mapData(data);
+	}
+
+	void mapData(ReduxDataMapProvider data);
 }
