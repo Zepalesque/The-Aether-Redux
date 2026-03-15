@@ -1,7 +1,7 @@
 {
 	"parent": "minecraft:block/cube_column",
 	"textures": {
-		"end": "aether_redux:block/natural/gildleaf_amber_log_top",
+		"end": "aether_redux:block/natural/gildleaf_log_top",
 		"side": "aether_redux:block/natural/gildleaf_amber_log"
 	}
 }

@@ -40,7 +40,7 @@ public class ReduxBlockStateData extends ReduxBlockStateProvider {
 		this.cubeAllGlow(ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES.get(), "natural/");
 		this.leafPile(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get(), ReduxBlocks.BLIGHTWILLOW_LEAVES.get(), "natural/");
 
-		this.log(ReduxBlocks.GILDLEAF_AMBER_LOG.get());
+		this.axisBlock(ReduxBlocks.GILDLEAF_AMBER_LOG.get(), modLoc("block/natural/gildleaf_amber_log"), modLoc("block/natural/gildleaf_log_top"));
 		this.wood(ReduxBlocks.GILDLEAF_AMBER_WOOD.get(), ReduxBlocks.GILDLEAF_AMBER_LOG.get());
 
 		this.pillar(ReduxBlocks.CARVED_PILLAR.get(), "dungeon/");
