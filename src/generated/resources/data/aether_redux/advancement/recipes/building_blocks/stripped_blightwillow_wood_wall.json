@@ -1,4 +1,10 @@
 {
+	"neoforge:conditions": [
+		{
+			"type": "zenith:when",
+			"condition": "aether_redux:aether_genesis"
+		}
+	],
 	"parent": "minecraft:recipes/root",
 	"criteria": {
 		"has_stripped_blightwillow_wood": {
