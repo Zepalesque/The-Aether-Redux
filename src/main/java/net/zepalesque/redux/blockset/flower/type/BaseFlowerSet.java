@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
+
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
@@ -239,7 +241,7 @@ public abstract class BaseFlowerSet<B extends Block> extends AbstractFlowerSet i
     }
 
     @Override
-    public void recipeData(ReduxRecipeProvider data, RecipeOutput consumer) {
+    public void recipeData(ReduxRecipeProvider data, RecipeOutput consumer, HolderLookup.Provider lookup) {
         this.crafted.forEach(
             (matrix, result) -> matrix.apply(
                 ShapedRecipeBuilder

@@ -34,7 +34,7 @@ public class ReduxRecipeData extends ReduxRecipeProvider {
 	}
 
 	@Override
-	protected void buildRecipes(@NotNull RecipeOutput output) {
+	protected void buildRecipes(@NotNull RecipeOutput output, HolderLookup.Provider holderLookup) {
 		Redux.BLOCK_SETS.forEach(set -> set.recipeData(this, output));
 
 		oreBlockStorageRecipesRecipesWithCustomUnpacking(

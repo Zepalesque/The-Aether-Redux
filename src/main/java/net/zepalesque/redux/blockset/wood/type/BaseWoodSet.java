@@ -11,6 +11,7 @@ import javax.annotation.Nullable;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.core.Direction;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
@@ -722,7 +723,7 @@ public class BaseWoodSet extends AbstractWoodSet implements ReduxGeneration {
 
     }
 
-    public void recipeData(ReduxRecipeProvider data, RecipeOutput consumer) {
+    public void recipeData(ReduxRecipeProvider data, RecipeOutput consumer, HolderLookup.Provider lookup) {
 
         ReduxRecipeProvider.woodFromLogs(consumer, this.wood().get(), this.log().get());
 

@@ -1,6 +1,8 @@
 package net.zepalesque.redux.blockset.wood.type;
 
 import java.util.Map;
+
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.tags.BlockTags;
@@ -14,6 +16,8 @@ import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.client.model.generators.ModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
+import net.neoforged.neoforge.common.conditions.ICondition;
+import net.neoforged.neoforge.common.crafting.ConditionalRecipeOutput;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -26,7 +30,9 @@ import net.zepalesque.redux.data.prov.ReduxLanguageProvider;
 import net.zepalesque.redux.data.prov.ReduxRecipeProvider;
 import net.zepalesque.redux.data.prov.loot.ReduxBlockLootProvider;
 import net.zepalesque.redux.data.prov.tags.ReduxBlockTagsProvider;
+import net.zepalesque.redux.data.resource.registries.ReduxConditions;
 import net.zepalesque.redux.item.ReduxItems;
+import net.zepalesque.zenith.api.recipe.condition.ConditionRecipeModule;
 import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
 import net.zepalesque.zenith.util.data.DatagenUtil;
 import net.zepalesque.zenith.util.item.TabUtil;
@@ -173,12 +179,15 @@ public class LogWallWoodSet extends BaseWoodSet {
     }
 
     @Override
-    public void recipeData(ReduxRecipeProvider data, RecipeOutput consumer) {
-        super.recipeData(data, consumer);
-        ReduxRecipeProvider.wall(consumer, RecipeCategory.BUILDING_BLOCKS, this.logWall().get(), this.log().get());
-        ReduxRecipeProvider.wall(consumer, RecipeCategory.BUILDING_BLOCKS, this.strippedLogWall().get(), this.strippedLog().get());
-        ReduxRecipeProvider.wall(consumer, RecipeCategory.BUILDING_BLOCKS, this.woodWall().get(), this.wood().get());
-        ReduxRecipeProvider.wall(consumer, RecipeCategory.BUILDING_BLOCKS, this.strippedWoodWall().get(), this.strippedWood().get());
+    public void recipeData(ReduxRecipeProvider data, RecipeOutput consumer, HolderLookup.Provider lookup) {
+        super.recipeData(data, consumer, lookup);
+        
+        var conditional = consumer.withConditions(new ConditionRecipeModule(lookup.holderOrThrow(ReduxConditions.GENESIS)));
+        
+        ReduxRecipeProvider.wall(conditional, RecipeCategory.BUILDING_BLOCKS, this.logWall().get(), this.log().get());
+        ReduxRecipeProvider.wall(conditional, RecipeCategory.BUILDING_BLOCKS, this.strippedLogWall().get(), this.strippedLog().get());
+        ReduxRecipeProvider.wall(conditional, RecipeCategory.BUILDING_BLOCKS, this.woodWall().get(), this.wood().get());
+        ReduxRecipeProvider.wall(conditional, RecipeCategory.BUILDING_BLOCKS, this.strippedWoodWall().get(), this.strippedWood().get());
     }
 
     @Override
@@ -225,8 +234,11 @@ public class LogWallWoodSet extends BaseWoodSet {
     @Override
     protected ItemLike buildingBlocks(BuildCreativeModeTabContentsEvent event, ItemLike prev) {
         ItemLike superPrev = super.buildingBlocks(event, prev);
-        TabUtil.putAfter(event, superPrev, this.logWall(), this.woodWall(), this.strippedLogWall(), this.strippedWoodWall());
-        return this.strippedWoodWall();
+        if (CompatHelper.loaded("aether_genesis")) {
+            TabUtil.putAfter(event, superPrev, this.logWall(), this.woodWall(), this.strippedLogWall(), this.strippedWoodWall());
+            return this.strippedWoodWall();
+        }
+        else return superPrev;
     }
 
     @Override

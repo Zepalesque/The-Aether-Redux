@@ -1,6 +1,7 @@
 package net.zepalesque.redux.blockset.wood.type;
 
 import com.aetherteam.aether.block.construction.BookshelfBlock;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Items;
@@ -61,8 +62,8 @@ public abstract class AbstractBookshelfSet<B extends BookshelfBlock> extends Log
     }
 
     @Override
-    public void recipeData(ReduxRecipeProvider data, RecipeOutput consumer) {
-        super.recipeData(data, consumer);
+    public void recipeData(ReduxRecipeProvider data, RecipeOutput consumer, HolderLookup.Provider lookup) {
+        super.recipeData(data, consumer, lookup);
         data.bookshelf(consumer, this.planks(), this.bookshelf());
     }
 

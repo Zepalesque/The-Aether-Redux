@@ -1,5 +1,6 @@
 package net.zepalesque.redux.blockset.util;
 
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
@@ -46,11 +47,11 @@ public interface ReduxGeneration extends BlockSet {
     void langData(ReduxLanguageProvider data);
 
     @Override
-    default void recipeData(RecipeProvider provider, RecipeOutput output) {
-        if (provider instanceof ReduxRecipeProvider data) this.recipeData(data, output);
+    default void recipeData(RecipeProvider provider, RecipeOutput output, HolderLookup.Provider lookup) {
+        if (provider instanceof ReduxRecipeProvider data) this.recipeData(data, output, lookup);
     }
 
-    void recipeData(ReduxRecipeProvider data, RecipeOutput consumer);
+    void recipeData(ReduxRecipeProvider data, RecipeOutput consumer, HolderLookup.Provider lookup);
 
 
     @Override
