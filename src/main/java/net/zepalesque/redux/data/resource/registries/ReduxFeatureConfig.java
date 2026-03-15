@@ -108,8 +108,8 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_SILVEROOT_TREE = createKey("large_silveroot");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> VARIED_SILVEROOT_TREE = createKey("varied_silveroot");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_GOLDEN_OAK_TREE = createKey("small_golden_oak");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_GOLDEN_OAK_TREE = createKey("large_golden_oak");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_GILDLEAF_TREE = createKey("small_gildleaf");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_GILDLEAF_TREE = createKey("large_gildleaf");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_SKYROOT_TREE = createKey("small_skyroot");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_SKYROOT_TREE = createKey("large_skyroot");
 
@@ -383,13 +383,13 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 
 		FeatureUtils.register(
 			context,
-			SMALL_GOLDEN_OAK_TREE,
+			SMALL_GILDLEAF_TREE,
 			Feature.TREE,
 			new TreeConfiguration.TreeConfigurationBuilder(
 				new WeightedStateProvider(
 					new SimpleWeightedRandomList.Builder<BlockState>()
 						.add(AetherFeatureStates.GOLDEN_OAK_LOG, 1)
-						.add(AetherFeatureStates.SKYROOT_LOG, 7)
+						.add(drops(ReduxWoodSets.GILDLEAF.log()), 7)
 				),
 				new IntProviderTrunkPlacer(UniformInt.of(7, 9)),
 				BlockStateProvider.simple(AetherFeatureStates.GOLDEN_OAK_LEAVES),
@@ -413,13 +413,13 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 
 		FeatureUtils.register(
 			context,
-			LARGE_GOLDEN_OAK_TREE,
+			LARGE_GILDLEAF_TREE,
 			Feature.TREE,
 			new TreeConfiguration.TreeConfigurationBuilder(
 				new WeightedStateProvider(
 					new SimpleWeightedRandomList.Builder<BlockState>()
 						.add(AetherFeatureStates.GOLDEN_OAK_LOG, 1)
-						.add(AetherFeatureStates.SKYROOT_LOG, 3)
+						.add(drops(ReduxWoodSets.GILDLEAF.log()), 3)
 				),
 				new IntProviderTrunkPlacer(UniformInt.of(11, 14)),
 				BlockStateProvider.simple(AetherFeatureStates.GOLDEN_OAK_LEAVES),
@@ -699,14 +699,14 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				List.of(
 					new WeightedPlacedFeature(
 						PlacementUtils.inlinePlaced(
-							configs.getOrThrow(SMALL_GOLDEN_OAK_TREE),
+							configs.getOrThrow(SMALL_GILDLEAF_TREE),
 							PlacementUtils.filteredByBlockSurvival(AetherBlocks.GOLDEN_OAK_SAPLING.get())
 						),
 						0.35F
 					)
 				),
 				PlacementUtils.inlinePlaced(
-					configs.getOrThrow(LARGE_GOLDEN_OAK_TREE),
+					configs.getOrThrow(LARGE_GILDLEAF_TREE),
 					PlacementUtils.filteredByBlockSurvival(AetherBlocks.GOLDEN_OAK_SAPLING.get())
 				)
 			)

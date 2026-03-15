@@ -1,0 +1,18 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"group": "hanging_sign",
+	"key": {
+		"#": {
+			"item": "aether_redux:stripped_gildleaf_log"
+		},
+		"X": {
+			"item": "minecraft:chain"
+		}
+	},
+	"pattern": ["X X", "###", "###"],
+	"result": {
+		"count": 6,
+		"id": "aether_redux:gildleaf_hanging_sign"
+	}
+}

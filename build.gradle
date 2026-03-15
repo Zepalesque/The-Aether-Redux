@@ -133,11 +133,11 @@ dependencies {
 	implementation "net.zepalesque.unity:aether_unity:${minecraft_version}-${unity_version}-neoforge"
 	implementation "io.wispforest:accessories-neoforge:${project.accessories_version}+${project.minecraft_version}"
 
-
 	implementation "curse.maven:aeroblender-879879:${project.aeroblender_version}"
 	implementation "maven.modrinth:terrablender:${project.terrablender_version}"
 
 	// Workspace mods + Other Dependencies
+	runtimeOnly "maven.modrinth:jei:${project.jei_version}"
 	runtimeOnly "curse.maven:appleskin-248787:${project.appleskin_version}"
 	runtimeOnly "curse.maven:spark-361579:${project.spark_version}"
 	runtimeOnly "curse.maven:cyanide-541676:${project.cyanide_version}"
@@ -180,7 +180,6 @@ repositories {
 	maven { url = 'https://maven.su5ed.dev/releases' }
 	maven { url = 'https://maven.fabricmc.net' }
 	maven { url = 'https://maven.shedaniel.me/' }
-//	maven { url = "https://jitpack.io" }
 	maven { url = "https://maven.blamejared.com" }
 	maven { url = "https://maven.theillusivec4.top/" }
 	maven { url = "https://gitlab.com/api/v4/projects/21830712/packages/maven" }
