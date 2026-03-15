@@ -27,6 +27,7 @@ public class ReduxTabs {
 			sup = set.addToCreativeTab(event, sup, BlockSet.TabAdditionPhase.BEFORE);
 
 		new TabBuilder(event, AetherCreativeTabs.AETHER_NATURAL_BLOCKS.getKey())
+			.replace(AetherBlocks.GOLDEN_OAK_LOG, ReduxBlocks.GILDLEAF_AMBER_LOG)
 			.putAfter(
 				UnityBlocks.SHORT_AETHER_GRASS,
 				ReduxBlocks.WYNDSPROUTS,
@@ -110,6 +111,8 @@ public class ReduxTabs {
 			);
 
 		new TabBuilder(event, AetherCreativeTabs.AETHER_BUILDING_BLOCKS.getKey())
+			.replace(AetherBlocks.GOLDEN_OAK_LOG, ReduxBlocks.GILDLEAF_AMBER_LOG)
+			.replace(AetherBlocks.GOLDEN_OAK_WOOD, ReduxBlocks.GILDLEAF_AMBER_WOOD)
 			.putAfter(
 				AetherBlocks.ZANITE_BLOCK,
 				ReduxBlocks.RAW_VERIDIUM_BLOCK,
