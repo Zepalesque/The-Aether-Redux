@@ -51,7 +51,7 @@ public class ReduxData {
         // Use for structure and damage type data, plus any custom ones that need to access the condition registry
         var registries = registrySets.getRegistryProvider();
         generator.addProvider(event.includeServer(), registrySets);
-        generator.addProvider(event.includeServer(), new ReduxRecipeData(output, lookups));
+        generator.addProvider(event.includeServer(), new ReduxRecipeData(output, registries));
         generator.addProvider(event.includeServer(), ReduxLootData.create(output, lookups));
         generator.addProvider(event.includeServer(), new ReduxMapData(output, registries));
         generator.addProvider(event.includeServer(), new ReduxLootModifierData(output, registries));
