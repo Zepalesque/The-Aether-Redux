@@ -388,7 +388,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			new TreeConfiguration.TreeConfigurationBuilder(
 				new WeightedStateProvider(
 					new SimpleWeightedRandomList.Builder<BlockState>()
-						.add(AetherFeatureStates.GOLDEN_OAK_LOG, 1)
+						.add(drops(ReduxBlocks.GILDLEAF_AMBER_LOG), 1)
 						.add(drops(ReduxWoodSets.GILDLEAF.log()), 7)
 				),
 				new IntProviderTrunkPlacer(UniformInt.of(7, 9)),
@@ -418,7 +418,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			new TreeConfiguration.TreeConfigurationBuilder(
 				new WeightedStateProvider(
 					new SimpleWeightedRandomList.Builder<BlockState>()
-						.add(AetherFeatureStates.GOLDEN_OAK_LOG, 1)
+						.add(drops(ReduxBlocks.GILDLEAF_AMBER_LOG), 1)
 						.add(drops(ReduxWoodSets.GILDLEAF.log()), 3)
 				),
 				new IntProviderTrunkPlacer(UniformInt.of(11, 14)),

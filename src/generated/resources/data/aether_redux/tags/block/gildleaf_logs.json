@@ -3,6 +3,8 @@
 		"aether_redux:gildleaf_log",
 		"aether_redux:gildleaf_wood",
 		"aether_redux:stripped_gildleaf_log",
-		"aether_redux:stripped_gildleaf_wood"
+		"aether_redux:stripped_gildleaf_wood",
+		"aether_redux:gildleaf_amber_log",
+		"aether_redux:gildleaf_amber_wood"
 	]
 }

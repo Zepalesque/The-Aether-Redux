@@ -5,6 +5,7 @@ import com.aetherteam.aether.block.dungeon.DoorwayBlock;
 import com.aetherteam.aether.block.dungeon.TrappedBlock;
 import com.aetherteam.aether.block.natural.AetherDoubleDropBlock;
 import com.aetherteam.aether.block.natural.AetherDoubleDropsLeaves;
+import com.aetherteam.aether.block.natural.AetherLogBlock;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.tags.BlockTags;
@@ -122,6 +123,15 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 				.lightLevel(value -> 7)
 				.strength(0.3F)
 		)
+	);
+
+	public static final DeferredBlock<AetherLogBlock> GILDLEAF_AMBER_LOG = register(
+		"gildleaf_amber_log",
+		() -> new AetherLogBlock(Properties.ofFullCopy(AetherBlocks.GOLDEN_OAK_LOG.get()))
+	);
+	public static final DeferredBlock<AetherLogBlock> GILDLEAF_AMBER_WOOD = register(
+		"gildleaf_amber_wood",
+		() -> new AetherLogBlock(Properties.ofFullCopy(AetherBlocks.GOLDEN_OAK_WOOD.get()))
 	);
 
 	public static final DeferredBlock<GoldenCloversBlock> GOLDEN_CLOVERS = register("golden_clovers", () ->

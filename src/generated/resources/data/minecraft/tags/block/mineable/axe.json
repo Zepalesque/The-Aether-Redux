@@ -59,6 +59,8 @@
 		"aether_redux:stripped_blightwillow_log_wall",
 		"aether_redux:blightwillow_wood_wall",
 		"aether_redux:stripped_blightwillow_wood_wall",
-		"aether_redux:blightwillow_bookshelf"
+		"aether_redux:blightwillow_bookshelf",
+		"aether_redux:gildleaf_amber_log",
+		"aether_redux:gildleaf_amber_wood"
 	]
 }

@@ -18,6 +18,11 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 	protected void addTranslations() {
 		Redux.BLOCK_SETS.forEach(set -> set.langData(this));
 
+		addBlock(ReduxBlocks.GILDLEAF_AMBER_LOG);
+		addLore(ReduxBlocks.GILDLEAF_AMBER_LOG, "TODO");
+		addBlock(ReduxBlocks.GILDLEAF_AMBER_WOOD);
+		addLore(ReduxBlocks.GILDLEAF_AMBER_WOOD, "TODO");
+
 		addBlock(ReduxBlocks.SILVEROOT_LEAVES);
 		addLore(ReduxBlocks.SILVEROOT_LEAVES, "Leaves of the Silveroot tree, a variation of Skyroot that has been touched by Ambrosium but has not fully adapted as Golden Oaks have. These sometimes will drop Silveroot Saplings");
 

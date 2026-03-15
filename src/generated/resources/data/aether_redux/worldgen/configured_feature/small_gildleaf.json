@@ -71,7 +71,7 @@
 			"entries": [
 				{
 					"data": {
-						"Name": "aether:golden_oak_log",
+						"Name": "aether_redux:gildleaf_amber_log",
 						"Properties": {
 							"axis": "y",
 							"double_drops": "true"

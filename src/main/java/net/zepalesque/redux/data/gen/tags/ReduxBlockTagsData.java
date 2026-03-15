@@ -10,6 +10,7 @@ import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.blockset.wood.ReduxWoodSets;
 import net.zepalesque.redux.data.ReduxTags;
 import net.zepalesque.redux.data.prov.tags.ReduxBlockTagsProvider;
 import net.zepalesque.unity.data.UnityTags;
@@ -94,6 +95,31 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
 			ReduxBlocks.WYNDSPROUTS.get(),
 			ReduxBlocks.SKYSPROUTS.get(),
 			ReduxBlocks.WYNDOATS.get()
+		);
+
+		this.tag(BlockTags.LAVA_POOL_STONE_CANNOT_REPLACE).add(
+			ReduxBlocks.GILDLEAF_AMBER_LOG.get(),
+			ReduxBlocks.GILDLEAF_AMBER_WOOD.get()
+		);
+		this.tag(BlockTags.PARROTS_SPAWNABLE_ON).add(
+			ReduxBlocks.GILDLEAF_AMBER_LOG.get(),
+			ReduxBlocks.GILDLEAF_AMBER_WOOD.get()
+		);
+		this.tag(BlockTags.LOGS).add(
+			ReduxBlocks.GILDLEAF_AMBER_LOG.get(),
+			ReduxBlocks.GILDLEAF_AMBER_WOOD.get()
+		);
+		this.tag(BlockTags.COMPLETES_FIND_TREE_TUTORIAL).add(
+			ReduxBlocks.GILDLEAF_AMBER_LOG.get(),
+			ReduxBlocks.GILDLEAF_AMBER_WOOD.get()
+		);
+		this.tag(BlockTags.MINEABLE_WITH_AXE).add(
+			ReduxBlocks.GILDLEAF_AMBER_LOG.get(),
+			ReduxBlocks.GILDLEAF_AMBER_WOOD.get()
+		);
+		this.tag(ReduxWoodSets.GILDLEAF.logsBlockTag()).add(
+			ReduxBlocks.GILDLEAF_AMBER_LOG.get(),
+			ReduxBlocks.GILDLEAF_AMBER_WOOD.get()
 		);
 
 		this.tag(ReduxTags.Blocks.SHORT_AETHER_GRASS_BLEAKMOSS_COLORING).add(

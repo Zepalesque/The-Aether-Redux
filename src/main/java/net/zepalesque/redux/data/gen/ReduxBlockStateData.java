@@ -11,7 +11,6 @@ import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
 import net.zepalesque.redux.data.prov.ReduxBlockStateProvider;
 
 public class ReduxBlockStateData extends ReduxBlockStateProvider {
-
 	public ReduxBlockStateData(PackOutput output, ExistingFileHelper helper) {
 		super(output, Redux.MODID, helper);
 	}
@@ -40,6 +39,9 @@ public class ReduxBlockStateData extends ReduxBlockStateProvider {
 		this.block(ReduxBlocks.BLIGHTWILLOW_LEAVES.get(), "natural/");
 		this.cubeAllGlow(ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES.get(), "natural/");
 		this.leafPile(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get(), ReduxBlocks.BLIGHTWILLOW_LEAVES.get(), "natural/");
+
+		this.log(ReduxBlocks.GILDLEAF_AMBER_LOG.get());
+		this.wood(ReduxBlocks.GILDLEAF_AMBER_WOOD.get(), ReduxBlocks.GILDLEAF_AMBER_LOG.get());
 
 		this.pillar(ReduxBlocks.CARVED_PILLAR.get(), "dungeon/");
 		this.pillar(ReduxBlocks.SENTRY_PILLAR.get(), "dungeon/");

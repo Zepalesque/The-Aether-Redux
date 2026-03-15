@@ -32,7 +32,10 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
         this.itemBlock(ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES.get());
         this.leafPile(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get());
 
-        this.itemBlock(ReduxBlocks.CARVED_BASE.get());
+        this.itemBlock(ReduxBlocks.GILDLEAF_AMBER_LOG.get());
+		this.itemBlock(ReduxBlocks.GILDLEAF_AMBER_WOOD.get());
+		
+		this.itemBlock(ReduxBlocks.CARVED_BASE.get());
         this.itemBlock(ReduxBlocks.CARVED_PILLAR.get());
         this.itemBlock(ReduxBlocks.SENTRY_BASE.get());
         this.itemBlock(ReduxBlocks.SENTRY_PILLAR.get());

@@ -1,6 +1,7 @@
 package net.zepalesque.redux.data.gen.loot;
 
 import com.aetherteam.aether.block.AetherBlocks;
+import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.aether.mixin.mixins.common.accessor.BlockLootAccessor;
 import java.util.Set;
 import java.util.function.Supplier;
@@ -17,6 +18,7 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.natural.crop.WyndoatsBlock;
 import net.zepalesque.redux.blockset.flower.ReduxFlowerSets;
+import net.zepalesque.redux.blockset.wood.ReduxWoodSets;
 import net.zepalesque.redux.data.prov.loot.ReduxBlockLootProvider;
 import net.zepalesque.redux.item.ReduxItems;
 
@@ -53,6 +55,17 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
 				BlockLootAccessor.aether$getNormalLeavesSaplingChances()
 			)
 		);
+
+		this.add(ReduxBlocks.GILDLEAF_AMBER_LOG.get(), lgo -> droppingDoubleGoldenOak(
+			lgo,
+			ReduxWoodSets.GILDLEAF.log().get(),
+			AetherItems.GOLDEN_AMBER.get()
+		));
+		this.add(ReduxBlocks.GILDLEAF_AMBER_WOOD.get(), wod -> droppingDoubleGoldenOak(
+			wod,
+			ReduxWoodSets.GILDLEAF.wood().get(),
+			AetherItems.GOLDEN_AMBER.get()
+		));
 
 		this.dropDoubleWithSilk(
 			ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(),
