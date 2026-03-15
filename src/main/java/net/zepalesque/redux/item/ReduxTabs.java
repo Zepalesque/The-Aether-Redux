@@ -16,7 +16,7 @@ import net.zepalesque.redux.blockset.flower.ReduxFlowerSets;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
 import net.zepalesque.unity.block.UnityBlocks;
 import net.zepalesque.zenith.api.blockset.BlockSet;
-import net.zepalesque.zenith.util.item.TabUtil;
+import net.zepalesque.zenith.util.item.TabBuilder;
 
 @EventBusSubscriber(modid = Redux.MODID)
 public class ReduxTabs {
@@ -26,26 +26,20 @@ public class ReduxTabs {
 		for (BlockSet set : Redux.BLOCK_SETS)
 			sup = set.addToCreativeTab(event, sup, BlockSet.TabAdditionPhase.BEFORE);
 
-		if (TabUtil.isForTab(event, AetherCreativeTabs.AETHER_NATURAL_BLOCKS)) {
-			TabUtil.putAfter(
-				event,
+		new TabBuilder(event, AetherCreativeTabs.AETHER_NATURAL_BLOCKS.getKey())
+			.putAfter(
 				UnityBlocks.SHORT_AETHER_GRASS,
 				ReduxBlocks.WYNDSPROUTS,
 				ReduxBlocks.TURBO_VERBENA,
 				ReduxItems.CAELGAE_PATCH,
 				ReduxBlocks.BLOOMTAIL
-			);
-
-			TabUtil.putAfter(
-				event,
+			)
+			.putAfter(
 				AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK,
-				ReduxBlocks
-					.BLIGHTED_AETHER_GRASS_BLOCK
-					// AVELIUM
-			);
-
-			TabUtil.putAfter(
-				event,
+				ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK
+				// AVELIUM
+			)
+			.putAfter(
 				UnityBlocks.SKYROOT_LEAF_PILE,
 				ReduxBlocks.SILVEROOT_LEAVES,
 				ReduxBlocks.SILVEROOT_LEAF_PILE,
@@ -56,14 +50,10 @@ public class ReduxTabs {
 				ReduxBlocks.BLIGHTWILLOW_LEAVES,
 				ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES,
 				ReduxBlocks.BLIGHTWILLOW_LEAF_PILE
-			);
-
-			TabUtil.putAfter(event, ReduxFlowerSets.AURUM.flower(), ReduxBlocks.GOLDEN_CLOVERS);
-
-			TabUtil.putAfter(event, AetherBlocks.ZANITE_ORE.get(), ReduxBlocks.VERIDIUM_ORE);
-
-			TabUtil.putAfter(
-				event,
+			)
+			.putAfter(ReduxFlowerSets.AURUM.flower(), ReduxBlocks.GOLDEN_CLOVERS)
+			.putAfter(AetherBlocks.ZANITE_ORE.get(), ReduxBlocks.VERIDIUM_ORE)
+			.putAfter(
 				UnityBlocks.FLUTEMOSS_CARPET,
 				ReduxBlocks.ECHYSIA,
 				ReduxBlocks.GILDENMOSS_BLOCK,
@@ -71,53 +61,44 @@ public class ReduxTabs {
 				ReduxBlocks.BLEAKMOSS_BLOCK,
 				ReduxBlocks.BLEAKMOSS_CARPET
 			);
-		} else if (TabUtil.isForTab(event, AetherCreativeTabs.AETHER_DUNGEON_BLOCKS)) {
-			TabUtil.putAfter(
-				event,
+
+		new TabBuilder(event, AetherCreativeTabs.AETHER_DUNGEON_BLOCKS.getKey())
+			.putAfter(
 				AetherBlocks.CARVED_STONE,
 				ReduxBlocks.CARVED_BASE,
 				ReduxBlocks.CARVED_PILLAR
-			);
-
-			TabUtil.putAfter(
-				event,
+			)
+			.putAfter(
 				AetherBlocks.LOCKED_CARVED_STONE,
 				ReduxBlocks.LOCKED_CARVED_BASE,
 				ReduxBlocks.LOCKED_CARVED_PILLAR
-			);
-
-			TabUtil.putAfter(event, AetherBlocks.TRAPPED_CARVED_STONE, ReduxBlocks.TRAPPED_CARVED_PILLAR);
-
-			TabUtil.putAfter(
-				event,
+			)
+			.putAfter(
+				AetherBlocks.TRAPPED_CARVED_STONE,
+				ReduxBlocks.TRAPPED_CARVED_BASE,
+				ReduxBlocks.TRAPPED_CARVED_PILLAR
+			)
+			.putAfter(
 				AetherBlocks.BOSS_DOORWAY_CARVED_STONE,
 				ReduxBlocks.BOSS_DOORWAY_CARVED_BASE,
 				ReduxBlocks.BOSS_DOORWAY_CARVED_PILLAR
-			);
-
-			TabUtil.putAfter(
-				event,
+			)
+			.putAfter(
 				AetherBlocks.SENTRY_STONE,
 				ReduxBlocks.SENTRY_BASE,
 				ReduxBlocks.SENTRY_PILLAR
-			);
-
-			TabUtil.putAfter(
-				event,
+			)
+			.putAfter(
 				AetherBlocks.LOCKED_SENTRY_STONE,
 				ReduxBlocks.LOCKED_SENTRY_BASE,
 				ReduxBlocks.LOCKED_SENTRY_PILLAR
-			);
-
-			TabUtil.putAfter(
-				event,
+			)
+			.putAfter(
 				AetherBlocks.TRAPPED_SENTRY_STONE,
 				ReduxBlocks.TRAPPED_SENTRY_BASE,
 				ReduxBlocks.TRAPPED_SENTRY_PILLAR
-			);
-
-			TabUtil.putAfter(
-				event,
+			)
+			.putAfter(
 				AetherBlocks.BOSS_DOORWAY_SENTRY_STONE,
 				ReduxBlocks.BOSS_DOORWAY_SENTRY_BASE,
 				ReduxBlocks.BOSS_DOORWAY_SENTRY_PILLAR,
@@ -127,19 +108,18 @@ public class ReduxTabs {
 				ReduxBlocks.LOCKED_RUNELIGHT,
 				ReduxBlocks.RUNIC_LANTERN
 			);
-		} else if (TabUtil.isForTab(event, AetherCreativeTabs.AETHER_BUILDING_BLOCKS)) {
-			TabUtil.putAfter(
-				event,
+
+		new TabBuilder(event, AetherCreativeTabs.AETHER_BUILDING_BLOCKS.getKey())
+			.putAfter(
 				AetherBlocks.ZANITE_BLOCK,
 				ReduxBlocks.RAW_VERIDIUM_BLOCK,
 				ReduxBlocks.VERIDIUM_BLOCK,
 				ReduxBlocks.REFINED_SENTRITE_BLOCK
-			);
-
-			TabUtil.put(event, ReduxBlocks.SENTRITE_CHAIN, ReduxBlocks.SENTRITE_BARS);
-		} else if (TabUtil.isForTab(event, AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES)) {
-			TabUtil.putBefore(
-				event,
+			)
+			.put(ReduxBlocks.SENTRITE_CHAIN, ReduxBlocks.SENTRITE_BARS);
+		
+		new TabBuilder(event, AetherCreativeTabs.AETHER_EQUIPMENT_AND_UTILITIES.getKey())
+			.putBefore(
 				AetherItems.GRAVITITE_SWORD,
 				ReduxItems.INFUSED_VERIDIUM_HOE,
 				ReduxItems.INFUSED_VERIDIUM_AXE,
@@ -151,65 +131,53 @@ public class ReduxTabs {
 				ReduxItems.VERIDIUM_PICKAXE,
 				ReduxItems.VERIDIUM_SHOVEL,
 				ReduxItems.VERIDIUM_SWORD
-			);
-
-			TabUtil.putAfter(
-				event,
+			)
+			.putAfter(
 				AetherItems.ENCHANTED_DART,
 				ReduxItems.VERIDIUM_DART_SHOOTER,
 				ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER,
 				ReduxItems.VERIDIUM_DART
-			);
-
-			TabUtil.putBefore(event, AetherItems.BOOK_OF_LORE, ReduxItems.SENTRITE_SHEARS);
-
-			TabUtil.putAfter(
-				event,
+			)
+			.putBefore(AetherItems.BOOK_OF_LORE, ReduxItems.SENTRITE_SHEARS)
+			.putAfter(
 				AetherItems.MUSIC_DISC_ASCENDING_DAWN,
 				ReduxItems.MUSIC_DISC_SENTIENCE
 			);
-		} else if (TabUtil.isForTab(event, AetherCreativeTabs.AETHER_INGREDIENTS)) {
-			TabUtil.putAfter(
-				event,
+		
+		new TabBuilder(event, AetherCreativeTabs.AETHER_INGREDIENTS.getKey())
+			.putAfter(
 				AetherItems.ZANITE_GEMSTONE,
 				ReduxItems.RAW_VERIDIUM,
 				ReduxItems.VERIDIUM_INGOT,
 				ReduxItems.VERIDIUM_NUGGET,
 				ReduxItems.REFINED_SENTRITE,
 				ReduxItems.SENTRITE_CHUNK
-			);
-
-			TabUtil.putAfter(event, AetherItems.SKYROOT_STICK, ReduxItems.WILLOW_SPORES);
-
-			TabUtil.putAfter(
-				event,
+			)
+			.putAfter(AetherItems.SKYROOT_STICK, ReduxItems.WILLOW_SPORES)
+			.putAfter(
 				AetherItems.AECHOR_PETAL,
 				ReduxItems.WYND_OATS,
 				ReduxItems.WYND_OAT_PANICLE
 			);
-		} else if (TabUtil.isForTab(event, AetherCreativeTabs.AETHER_REDSTONE_BLOCKS)) TabUtil.put(
-			event,
-			ReduxBlocks.LOGICATOR
-		);
-		else if (
-			TabUtil.isForTab(event, AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES)
-		) TabUtil.putAfter(event, AetherItems.SWET_CAPE, ReduxItems.AERBOUND_CAPE);
-		else if (TabUtil.isForTab(event, AetherCreativeTabs.AETHER_FUNCTIONAL_BLOCKS)) TabUtil.putAfter(
-			event,
-			AetherBlocks.AMBROSIUM_TORCH,
-			ReduxBlocks.SENTRITE_LANTERN
-		);
-		else if (TabUtil.isForTab(event, CreativeModeTabs.REDSTONE_BLOCKS)) TabUtil.putAfter(
-			event,
-			() -> Items.COMPARATOR,
-			ReduxBlocks.LOGICATOR
-		);
-		else if (TabUtil.isForTab(event, AetherCreativeTabs.AETHER_FOOD_AND_DRINKS)) TabUtil.putAfter(
-			event,
-			AetherItems.WHITE_APPLE,
-			ReduxItems.CAELGAE_CLUMP,
-			ReduxItems.SEAWEED_SALAD
-		);
+		
+		new TabBuilder(event, AetherCreativeTabs.AETHER_REDSTONE_BLOCKS.getKey())
+			.put(ReduxBlocks.LOGICATOR);
+
+		new TabBuilder(event, AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES.getKey())
+			.putAfter(AetherItems.SWET_CAPE, ReduxItems.AERBOUND_CAPE);
+
+		new TabBuilder(event, AetherCreativeTabs.AETHER_FUNCTIONAL_BLOCKS.getKey())
+			.putAfter(AetherBlocks.AMBROSIUM_TORCH, ReduxBlocks.SENTRITE_LANTERN);
+		
+		new TabBuilder(event, AetherCreativeTabs.AETHER_FOOD_AND_DRINKS.getKey())
+			.putAfter(
+				AetherItems.WHITE_APPLE,
+				ReduxItems.CAELGAE_CLUMP,
+				ReduxItems.SEAWEED_SALAD
+			);
+		
+		new TabBuilder(event, CreativeModeTabs.REDSTONE_BLOCKS)
+			.putAfter(Items.COMPARATOR, ReduxBlocks.LOGICATOR);
 
 		// SHOULD BE AT THE VERY END
 		sup = null;
