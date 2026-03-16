@@ -1,6 +1,12 @@
 package net.zepalesque.redux.blockset.leaf.type;
 
 import com.mojang.datafixers.util.Pair;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.function.Supplier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -9,17 +15,12 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.SaplingBlock;
-import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.grower.TreeGrower;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
-import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.datamaps.builtin.NeoForgeDataMaps;
 import net.zepalesque.redux.block.ReduxBlocks;
-import net.zepalesque.redux.block.natural.ReduxNaturalWall;
 import net.zepalesque.redux.data.prov.ReduxBlockStateProvider;
 import net.zepalesque.redux.data.prov.ReduxDataMapProvider;
 import net.zepalesque.redux.data.prov.ReduxItemModelProvider;
@@ -31,13 +32,6 @@ import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.unity.block.natural.leaves.LeafPileBlock;
 import net.zepalesque.zenith.util.item.TabUtil;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.function.Function;
-import java.util.function.Supplier;
 
 public abstract class BaseLeafPileSet<L extends LeavesBlock, S extends SaplingBlock, Self extends BaseLeafPileSet<L, S, Self>> extends BaseLeafSet<L, S, Self> {
 	
@@ -164,8 +158,7 @@ public abstract class BaseLeafPileSet<L extends LeavesBlock, S extends SaplingBl
 	
 	
 	@Override
-	@Nullable
-	public ItemLike addToCreativeTab(BuildCreativeModeTabContentsEvent event, ItemLike prev, TabAdditionPhase phase) {
+	@Nullable public ItemLike addToCreativeTab(BuildCreativeModeTabContentsEvent event, ItemLike prev, TabAdditionPhase phase) {
 		var p = super.addToCreativeTab(event, prev, phase);
 		
 		for (var entry : this.pileAfterOrdering.entrySet()) {

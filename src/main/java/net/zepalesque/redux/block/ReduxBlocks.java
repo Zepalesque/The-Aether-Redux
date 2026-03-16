@@ -41,7 +41,6 @@ import net.zepalesque.redux.block.natural.TurboVerbenaBlock;
 import net.zepalesque.redux.block.natural.crop.WyndoatsBlock;
 import net.zepalesque.redux.block.natural.leaves.BlightwillowLeavesBlock;
 import net.zepalesque.redux.block.natural.leaves.InfectedLeavesBlock;
-import net.zepalesque.redux.block.natural.leaves.SnowableLeavesBlock;
 import net.zepalesque.redux.block.natural.leaves.StormfirLeavesBlock;
 import net.zepalesque.redux.block.redstone.LogicatorBlock;
 import net.zepalesque.redux.data.resource.registries.ReduxFeatureConfig;

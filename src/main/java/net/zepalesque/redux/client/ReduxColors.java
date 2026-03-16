@@ -8,7 +8,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
-import net.zepalesque.redux.block.natural.BlightedGrassBlock;
 import net.zepalesque.redux.block.state.ReduxStates;
 import net.zepalesque.redux.block.state.enums.BlightGrassColor;
 import net.zepalesque.redux.block.state.enums.CustomTintingProperty;

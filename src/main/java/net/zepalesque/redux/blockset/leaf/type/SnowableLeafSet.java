@@ -1,7 +1,6 @@
 package net.zepalesque.redux.blockset.leaf.type;
 
 import com.aetherteam.aether.block.AetherBlocks;
-import com.aetherteam.aether.block.natural.AetherDoubleDropsLeaves;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.world.level.block.SaplingBlock;
