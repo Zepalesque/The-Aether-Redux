@@ -49,26 +49,12 @@ public class ReduxSurfaceRules {
 
 	public static SurfaceRules.RuleSource makeRules() {
 		return SurfaceRules.sequence(
+			scars(ReduxBiomes.GILDED_GROVES, ReduxStoneSets.GILDED_HOLYSTONE.block()),
+			scars(ReduxBiomes.THE_BLIGHT, ReduxStoneSets.BLEAKMOSS_HOLYSTONE.block()),
+
 			inBiome(
 				ReduxBiomes.GILDED_GROVES,
 
-				SurfaceRules.ifTrue(
-					SurfaceRules.UNDER_FLOOR,
-					SurfaceRules.ifTrue(
-						SurfaceRules.noiseCondition(Noises.ICE, 0.2, 0.4),
-						SurfaceRules.ifTrue(
-							SurfaceRules.noiseCondition(Noises.SWAMP, 0.5, 0.8),
-							surfaceState(ReduxStoneSets.GILDED_HOLYSTONE.block())
-						)
-					)
-				),
-				SurfaceRules.ifTrue(
-					SurfaceRules.UNDER_FLOOR,
-					SurfaceRules.ifTrue(
-						SurfaceRules.noiseCondition(Noises.ICE, 0.2, 0.4),
-						SurfaceRules.state(AetherFeatureStates.HOLYSTONE)
-					)
-				),
 				SurfaceRules.ifTrue(
 					SurfaceRules.ON_FLOOR,
 					surfaceState(AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK)
@@ -77,7 +63,7 @@ public class ReduxSurfaceRules {
 
 			inBiome(
 				ReduxBiomes.THE_BLIGHT,
-				
+
 				SurfaceRules.ifTrue(
 					SurfaceRules.UNDER_FLOOR,
 					SurfaceRules.ifTrue(
@@ -86,13 +72,6 @@ public class ReduxSurfaceRules {
 							SurfaceRules.noiseCondition(Noises.SWAMP, 0.5, 0.8),
 							surfaceState(ReduxBlocks.BLEAKMOSS_BLOCK)
 						)
-					)
-				),
-				SurfaceRules.ifTrue(
-					SurfaceRules.UNDER_FLOOR,
-					SurfaceRules.ifTrue(
-						SurfaceRules.noiseCondition(Noises.ICE, 0.2, 0.4),
-						surfaceState(ReduxStoneSets.BLEAKMOSS_HOLYSTONE.block())
 					)
 				),
 				SurfaceRules.ifTrue(
@@ -114,8 +93,10 @@ public class ReduxSurfaceRules {
 					)
 				)
 			),
+
 			inBiome(
 				ReduxBiomes.FROSTED_FORESTS,
+
 				SurfaceRules.ifTrue(
 					SurfaceRules.isBiome(
 						ReduxBiomes.FROSTED_FORESTS
@@ -141,6 +122,29 @@ public class ReduxSurfaceRules {
 						),
 						surfaceState(UnityBlocks.COARSE_AETHER_DIRT)
 					)
+				)
+			)
+		);
+	}
+
+	private static RuleSource scars(ResourceKey<Biome> biome, DeferredBlock<?> mossy) {
+		return inBiome(
+			biome,
+			SurfaceRules.ifTrue(
+				SurfaceRules.UNDER_FLOOR,
+				SurfaceRules.ifTrue(
+					SurfaceRules.noiseCondition(Noises.ICE, 0.2, 0.4),
+					SurfaceRules.ifTrue(
+						SurfaceRules.noiseCondition(Noises.SWAMP, 0.4, 0.8),
+						surfaceState(mossy)
+					)
+				)
+			),
+			SurfaceRules.ifTrue(
+				SurfaceRules.UNDER_FLOOR,
+				SurfaceRules.ifTrue(
+					SurfaceRules.noiseCondition(Noises.ICE, 0.2, 0.4),
+					SurfaceRules.state(AetherFeatureStates.HOLYSTONE)
 				)
 			)
 		);
