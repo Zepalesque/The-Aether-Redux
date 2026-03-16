@@ -192,7 +192,7 @@ implements
 
 	@Override
 	public BaseFlowerSet<B> withPotProperties(UnaryOperator<Properties> prop) {
-		UnaryOperator<Properties> old = this.potProperties;
+		var old = this.potProperties;
 		this.potProperties = original -> prop.apply(old.apply(original));
 		return this;
 	}

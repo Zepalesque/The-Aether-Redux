@@ -8,6 +8,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
+import net.zepalesque.redux.block.natural.BlightedGrassBlock;
+import net.zepalesque.redux.block.state.ReduxStates;
+import net.zepalesque.redux.block.state.enums.BlightGrassColor;
 import net.zepalesque.redux.block.state.enums.CustomTintingProperty;
 import net.zepalesque.redux.blockset.util.TintableSet;
 import net.zepalesque.redux.data.ReduxTags;
@@ -35,9 +38,10 @@ public class ReduxColors {
 		if (level == null || pos == null) return null;
 		if (useBelowProperties) {
 			var below = pos.below();
-			if (level.getBlockState(below).is(ReduxTags.Blocks.SHORT_AETHER_GRASS_BLEAKMOSS_COLORING))
+			var belowState = level.getBlockState(below);
+			if (belowState.is(ReduxTags.Blocks.SHORT_AETHER_GRASS_BLEAKMOSS_COLORING))
 				return Tints.BLEAKMOSS_GRASS_COLOR;
-			else if (level.getBlockState(below).is(ReduxTags.Blocks.SHORT_AETHER_GRASS_BLIGHT_COLORING))
+			else if (belowState.is(ReduxTags.Blocks.SHORT_AETHER_GRASS_BLIGHT_COLORING) || belowState.getOptionalValue(ReduxStates.BLIGHT_GRASS_COLOR).map(color -> color == BlightGrassColor.CONSTANT).orElse(false))
 				return Tints.BLIGHT_GRASS_COLOR;
 		}
 		
