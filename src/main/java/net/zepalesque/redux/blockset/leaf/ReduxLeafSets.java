@@ -14,7 +14,6 @@ import net.zepalesque.zenith.api.blockset.BlockSet;
 import net.zepalesque.zenith.api.blockset.type.AbstractLeafSet;
 
 public class ReduxLeafSets {
-	
 	public static final SnowableLeafSet MOONFIR = register(
 		new SnowableLeafSet(
 			"moonfir",
@@ -49,20 +48,7 @@ public class ReduxLeafSets {
 		.withPileTag(BlockTags.MINEABLE_WITH_HOE)
 		.withPileLore("A pile of Moonfir Leaves. These can be stacked on top of eachother to make various sizes!")
 	);
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	public static <T extends AbstractLeafSet<T>> T register(T set) {
 		Redux.BLOCK_SETS.add(set);
 		return set;
