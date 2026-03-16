@@ -58,6 +58,7 @@ public class ReduxColors {
 			AetherBlocks.PURPLE_FLOWER.get(),
 			AetherBlocks.POTTED_PURPLE_FLOWER.get(),
 			ReduxBlocks.WYNDSPROUTS.get(),
+			ReduxBlocks.LUXWEED.get(),
 			ReduxBlocks.TURBO_VERBENA.get()
 		);
 		

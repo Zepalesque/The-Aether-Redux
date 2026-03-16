@@ -93,6 +93,9 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 		addBlock(ReduxBlocks.WYNDSPROUTS);
 		addLore(ReduxBlocks.WYNDSPROUTS, "A common plant found in the Aether. They occasionally drop Wynd Oats, the main edible source of grain in the Aether.");
 
+		addBlock(ReduxBlocks.LUXWEED);
+		addLore(ReduxBlocks.LUXWEED, "A blighted relative of Wyndsprouts. It gives off a subtle glow, lighting the area around it.");
+
 		addBlock(ReduxBlocks.SKYSPROUTS);
 		addLore(ReduxBlocks.SKYSPROUTS, "A relative of the common Wyndsprouts, this flowering grass is found in the Skyfields.");
 

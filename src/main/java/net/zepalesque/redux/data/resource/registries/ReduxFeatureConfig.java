@@ -4,6 +4,8 @@ import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.resources.AetherFeatureStates;
 import com.aetherteam.aether.data.resources.registries.AetherConfiguredFeatures;
+import com.aetherteam.aether.world.configuration.ShelfConfiguration;
+import com.aetherteam.aether.world.feature.AetherFeatures;
 import com.aetherteam.aether.world.foliageplacer.GoldenOakFoliagePlacer;
 import java.util.List;
 import java.util.Optional;
@@ -11,6 +13,7 @@ import java.util.OptionalInt;
 import java.util.stream.Stream;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
+import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
@@ -19,6 +22,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.valueproviders.ConstantFloat;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformFloat;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -135,11 +139,23 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> GROVE_TREES = createKey("gilded_groves_trees");
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHT_TREES = createKey("the_blight_trees");
-
+	
+	public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTED_TREES = createKey("frosted_forests_trees");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> GLACIAL_TREES = createKey("glacial_tundra_trees");
+	
 	public static final ResourceKey<ConfiguredFeature<?, ?>> AMBROSIUM_ROCK = createKey("ambrosium_rock");
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> WYNDSPROUTS_PATCH = createKey(
 		name(ReduxBlocks.WYNDSPROUTS) + "_patch"
+	);
+	public static final ResourceKey<ConfiguredFeature<?, ?>> LUXWEED_PATCH = createKey(
+		name(ReduxBlocks.LUXWEED) + "_patch"
+	);
+	public static final ResourceKey<ConfiguredFeature<?, ?>> SPIROLYCTIL_PATCH = createKey(
+		name(ReduxFlowerSets.SPIROLYCTIL.flower()) + "_patch"
+	);
+	public static final ResourceKey<ConfiguredFeature<?, ?>> GLOOMSHADE_PATCH = createKey(
+		name(ReduxFlowerSets.GLOOMSHADE.flower()) + "_patch"
 	);
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> BLEAKMOSS_VEGETATION = createKey("bleakmoss_vegetation");
@@ -151,7 +167,37 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> STORMFIR_TREE = createKey("stormfir");
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTWILLOW_TREE = createKey("blightwillow");
+	
+	public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_ICESTONE_ORE = createKey(
+		"large_" + name(AetherBlocks.ICESTONE) + "_ore"
+	);
+	
+	public static final ResourceKey<ConfiguredFeature<?, ?>> ICESTONE_ROCK = createKey(
+		name(AetherBlocks.ICESTONE) + "_rock"
+	);
+	
+	public static final ResourceKey<ConfiguredFeature<?, ?>> AEROGEL_DISK = createKey(
+		name(AetherBlocks.AEROGEL) + "_disk"
+	);
+	
+	public static final ResourceKey<ConfiguredFeature<?, ?>> LUMINA_PATCH  = createKey(
+		name(ReduxFlowerSets.LUMINA.flower()) + "_patch"
+	);
+	
+	public static final ResourceKey<ConfiguredFeature<?, ?>> DAGGERBLOOM_PATCH = createKey(
+		name(ReduxFlowerSets.DAGGERBLOOM.flower()) + "_patch"
+	);
+	
+	public static final ResourceKey<ConfiguredFeature<?, ?>> SPARSE_PURPLE_FLOWER_PATCH = createKey(
+		"sparse_" + name(AetherBlocks.PURPLE_FLOWER) + "_patch"
+	);
+	
+	public static final ResourceKey<ConfiguredFeature<?, ?>> SKYFERN_PATCH = createKey(
+		name(UnityBlocks.SKYFERN) + "_patch"
+	);
+	
 
+	
 	// Overrides
 	public static final ResourceKey<ConfiguredFeature<?, ?>> SKYROOT_TREE =
 		AetherConfiguredFeatures.SKYROOT_TREE_CONFIGURATION;
@@ -566,6 +612,17 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				0.0F
 			)
 		);
+		
+		register(context,
+			LARGE_ICESTONE_ORE,
+			Feature.ORE,
+			new OreConfiguration(
+				new TagMatchTest(AetherTags.Blocks.HOLYSTONE),
+				drops(AetherBlocks.ICESTONE),
+				48,
+				0.0F
+			)
+		);
 
 		FeatureUtils.register(
 			context,
@@ -648,7 +705,32 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				Optional.empty()
 			)
 		);
-
+		
+		register(context,
+			ICESTONE_ROCK,
+			ZenithFeatures.LARGE_ROCK.get(),
+			new LargeRockFeature.Config(
+				prov(AetherFeatureStates.ICESTONE),
+				Optional.of(blocks.getOrThrow(ReduxTags.Blocks.ROCK_REPLACEABLE)),
+				Optional.empty()
+			)
+		);
+		
+		register(context,
+			AEROGEL_DISK,
+			AetherFeatures.SHELF.get(),
+			new ShelfConfiguration(
+				prov(AetherBlocks.AEROGEL),
+				ConstantFloat.of(3.5F),
+				UniformInt.of(0, 48),
+				HolderSet.direct(
+					AetherBlocks.AETHER_GRASS_BLOCK,
+					UnityBlocks.COARSE_AETHER_DIRT
+				)
+			)
+		);
+		
+		
 		// Overrides
 		FeatureUtils.register(
 			context,
@@ -712,7 +794,44 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			)
 		);
 
-		FeatureUtils.register(context, WYNDSPROUTS_PATCH, Feature.FLOWER, patch(24, 5, 3, prov(ReduxBlocks.WYNDSPROUTS)));
+		FeatureUtils.register(context, WYNDSPROUTS_PATCH,
+			Feature.FLOWER,
+			patch(
+				24,
+				5,
+				3,
+				prov(ReduxBlocks.WYNDSPROUTS)
+			)
+		);
+		
+		FeatureUtils.register(context, LUXWEED_PATCH,
+			Feature.FLOWER,
+			patch(
+				24,
+				5,
+				3,
+				prov(ReduxBlocks.LUXWEED)
+			)
+		);
+		
+		
+		register(context, SPIROLYCTIL_PATCH, Feature.FLOWER,
+			patch(
+				16,
+				7,
+				3,
+				prov(ReduxFlowerSets.SPIROLYCTIL.flower())
+			)
+		);
+
+		register(context, GLOOMSHADE_PATCH, Feature.FLOWER,
+			patch(
+				12,
+				7,
+				3,
+				prov(ReduxFlowerSets.GLOOMSHADE.flower())
+			)
+		);
 
 		FeatureUtils.register(
 			context,
@@ -778,5 +897,58 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				0.75F
 			)
 		);
+		
+		register(context, FROSTED_TREES, Feature.RANDOM_SELECTOR,
+			new RandomFeatureConfiguration(
+				List.of(
+					new WeightedPlacedFeature(
+						PlacementUtils.inlinePlaced(
+							configs.getOrThrow(STORMFIR_TREE),
+							PlacementUtils.filteredByBlockSurvival(
+								ReduxFlowerSets.STORMFIR_SAPLING.flower().get()
+							)
+						), 0.25F
+					)
+				),
+				PlacementUtils.inlinePlaced(
+					configs.getOrThrow(MOONFIR_TREE),
+					PlacementUtils.filteredByBlockSurvival(
+						ReduxFlowerSets.MOONFIR_SAPLING.flower().get()
+					)
+				)
+			)
+		);
+		
+		register(context, GLACIAL_TREES, Feature.RANDOM_SELECTOR,
+			new RandomFeatureConfiguration(
+				List.of(
+					new WeightedPlacedFeature(
+						PlacementUtils.inlinePlaced(
+							configs.getOrThrow(MOONFIR_TREE),
+							PlacementUtils.filteredByBlockSurvival(
+								ReduxFlowerSets.MOONFIR_SAPLING.flower().get()
+							)
+						), 0.05F)
+				),
+				PlacementUtils.inlinePlaced(
+					configs.getOrThrow(STORMFIR_TREE),
+					PlacementUtils.filteredByBlockSurvival(
+						ReduxFlowerSets.STORMFIR_SAPLING.flower().get()
+					)
+				)
+			)
+		);
+		
+		register(context, LUMINA_PATCH, Feature.FLOWER,
+			patch(10, 7, 3, prov(ReduxFlowerSets.LUMINA.flower())));
+		
+		register(context, DAGGERBLOOM_PATCH, Feature.FLOWER,
+			patch(12, 7, 3, prov(ReduxFlowerSets.DAGGERBLOOM.flower())));
+		
+		register(context, SPARSE_PURPLE_FLOWER_PATCH, Feature.FLOWER,
+			patch(16, 7, 3, prov(ReduxFlowerSets.DAGGERBLOOM.flower())));
+		
+		register(context, SKYFERN_PATCH, Feature.FLOWER,
+			patch(24, 9, 3, prov(UnityBlocks.SKYFERN)));
 	}
 }

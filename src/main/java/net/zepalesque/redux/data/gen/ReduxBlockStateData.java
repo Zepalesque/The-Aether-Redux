@@ -75,6 +75,7 @@ public class ReduxBlockStateData extends ReduxBlockStateProvider {
 		this.crossEnchantableOverlay(ReduxBlocks.WYNDSPROUTS.get(), "natural/");
 		this.crossTintedOverlay(ReduxBlocks.SKYSPROUTS.get(), "natural/");
 		this.crossTintedOverlay(ReduxBlocks.TURBO_VERBENA.get(), "natural/");
+		this.crossTintedGlow(ReduxBlocks.LUXWEED.get(), "natural/");
 		this.algae(ReduxBlocks.CAELGAE_PATCH.get(), "natural/");
 		this.crop(ReduxBlocks.BLOOMTAIL.get(), "natural/");
 		this.echysia(ReduxBlocks.ECHYSIA.get(), "natural/");

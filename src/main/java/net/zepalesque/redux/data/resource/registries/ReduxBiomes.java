@@ -5,6 +5,7 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.data.resource.builders.biome.FrostedForests;
 import net.zepalesque.redux.data.resource.builders.biome.GildedGroves;
 import net.zepalesque.redux.data.resource.builders.biome.TheBlight;
 
@@ -30,5 +31,6 @@ public class ReduxBiomes {
     public static void bootstrap(BootstrapContext<Biome> context) {
         context.register(GILDED_GROVES, GildedGroves.generate(context));
         context.register(THE_BLIGHT, TheBlight.generate(context));
+        context.register(FROSTED_FORESTS, FrostedForests.generate(context));
     }
 }

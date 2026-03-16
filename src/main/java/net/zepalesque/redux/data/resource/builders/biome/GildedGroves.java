@@ -21,8 +21,8 @@ import net.zepalesque.redux.data.resource.registries.ReduxPlacements;
 public class GildedGroves {
 
     public static Biome generate(BootstrapContext<Biome> context) {
-        HolderGetter<PlacedFeature> placed = context.lookup(Registries.PLACED_FEATURE);
-        HolderGetter<ConfiguredWorldCarver<?>> carvers = context.lookup(Registries.CONFIGURED_CARVER);
+	    var placed = context.lookup(Registries.PLACED_FEATURE);
+	    var carvers = context.lookup(Registries.CONFIGURED_CARVER);
         return new Biome.BiomeBuilder()
                 .hasPrecipitation(false)
                 .temperature(0.8F)

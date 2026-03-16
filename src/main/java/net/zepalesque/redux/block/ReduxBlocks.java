@@ -345,7 +345,21 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 				.hasPostProcess((s, l, p) -> true)
 		)
 	);
-
+	
+	public static DeferredBlock<CustomBoundsBushBlock> LUXWEED = register("luxweed",
+		() -> new CustomBoundsBushBlock(
+			CommonPlantBounds.BUSH,
+			BlockBehaviour.Properties.of()
+				.noCollission()
+				.instabreak()
+				.sound(SoundType.CHERRY_SAPLING)
+				.offsetType(BlockBehaviour.OffsetType.XZ)
+				.lightLevel(state -> 5)
+				.mapColor(MapColor.COLOR_CYAN)
+		)
+	);
+	
+	
 	public static final DeferredBlock<Block> SKYSPROUTS = register("skysprouts", () ->
 		new CustomBoundsBushBlock(
 			CommonPlantBounds.BUSH,

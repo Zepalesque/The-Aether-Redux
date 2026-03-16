@@ -26,10 +26,12 @@ import net.minecraft.world.level.levelgen.placement.BiomeFilter;
 import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.levelgen.placement.CountPlacement;
 import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
+import net.minecraft.world.level.levelgen.placement.HeightmapPlacement;
 import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraft.world.level.levelgen.placement.NoiseThresholdCountPlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.RarityFilter;
+import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.blockset.flower.ReduxFlowerSets;
 import net.zepalesque.redux.data.resource.builders.ReduxPlacementBuilders;
 import net.zepalesque.zenith.api.world.feature.placement.ConditionPlacementModule;
@@ -42,6 +44,7 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
     public static final ResourceKey<PlacedFeature> SENTRITE_ORE = copyKey(ReduxFeatureConfig.SENTRITE_ORE);
     public static final ResourceKey<PlacedFeature> SPARSE_SENTRITE_ORE = copyKey(SENTRITE_ORE, "sparse_%s");
     public static final ResourceKey<PlacedFeature> ANGILITE_ORE = copyKey(ReduxFeatureConfig.ANGILITE_ORE);
+    public static final ResourceKey<PlacedFeature> LARGE_ICESTONE_ORE = copyKey(ReduxFeatureConfig.LARGE_ICESTONE_ORE);
     public static final ResourceKey<PlacedFeature> DENSE_ANGILITE_ORE = copyKey(ANGILITE_ORE, "dense_%s");
     public static final ResourceKey<PlacedFeature> GROVE_TREES = copyKey(ReduxFeatureConfig.GROVE_TREES);
     public static final ResourceKey<PlacedFeature> AURUM_PATCH = copyKey(ReduxFeatureConfig.AURUM_PATCH);
@@ -64,12 +67,26 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
     public static final ResourceKey<PlacedFeature> DENSE_ZANITE_ORE = createKey("dense_zanite_ore");
     public static final ResourceKey<PlacedFeature> DENSE_AMBROSIUM_ORE = createKey("dense_ambrosium_ore");
     public static final ResourceKey<PlacedFeature> WYNDSPROUTS_PATCH = copyKey(ReduxFeatureConfig.WYNDSPROUTS_PATCH);
-    
+    public static final ResourceKey<PlacedFeature> LUXWEED_PATCH = copyKey(ReduxFeatureConfig.LUXWEED_PATCH);
+    public static final ResourceKey<PlacedFeature> SPIROLYCTIL_PATCH = copyKey(ReduxFeatureConfig.SPIROLYCTIL_PATCH);
+    public static final ResourceKey<PlacedFeature> GLOOMSHADE_PATCH = copyKey(ReduxFeatureConfig.GLOOMSHADE_PATCH);
     
     public static final ResourceKey<PlacedFeature> BLIGHT_TREES = copyKey(ReduxFeatureConfig.BLIGHT_TREES);
     
     
     public static final ResourceKey<PlacedFeature> SPARSE_WYNDSPROUTS_PATCH = copyKey(ReduxFeatureConfig.WYNDSPROUTS_PATCH, "sparse_%s");
+    
+    public static final ResourceKey<PlacedFeature> ICESTONE_ROCK  = copyKey(ReduxFeatureConfig.ICESTONE_ROCK);
+    public static final ResourceKey<PlacedFeature> AEROGEL_DISK = copyKey(ReduxFeatureConfig.AEROGEL_DISK);
+    
+    public static final ResourceKey<PlacedFeature> FROSTED_TREES = copyKey(ReduxFeatureConfig.FROSTED_TREES);
+    public static final ResourceKey<PlacedFeature> GLACIAL_TREES = copyKey(ReduxFeatureConfig.GLACIAL_TREES);
+    
+    public static final ResourceKey<PlacedFeature> LUMINA_PATCH = copyKey(ReduxFeatureConfig.LUMINA_PATCH);
+    public static final ResourceKey<PlacedFeature> DAGGERBLOOM_PATCH = copyKey(ReduxFeatureConfig.DAGGERBLOOM_PATCH);
+    public static final ResourceKey<PlacedFeature> SPARSE_PURPLE_FLOWER_PATCH = copyKey(ReduxFeatureConfig.SPARSE_PURPLE_FLOWER_PATCH);
+    public static final ResourceKey<PlacedFeature> SKYFERN_PATCH = copyKey(ReduxFeatureConfig.SKYFERN_PATCH);
+    
     
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
         var configs = context.lookup(Registries.CONFIGURED_FEATURE);
@@ -107,10 +124,51 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
             BiomeFilter.biome()
         );
         
-        PlacementUtils.register(context, WYNDSPROUTS_PATCH, configs.getOrThrow(ReduxFeatureConfig.WYNDSPROUTS_PATCH),
+        register(context, LARGE_ICESTONE_ORE, configs.getOrThrow(ReduxFeatureConfig.LARGE_ICESTONE_ORE),
+            CountPlacement.of(12),
+            InSquarePlacement.spread(),
+            HeightRangePlacement.of(UniformHeight.of(VerticalAnchor.BOTTOM, VerticalAnchor.absolute(128))),
+            BiomeFilter.biome()
+        );
+        
+        PlacementUtils.register(
+            context,
+            WYNDSPROUTS_PATCH,
+            configs.getOrThrow(ReduxFeatureConfig.WYNDSPROUTS_PATCH),
             threshold,
             ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
             RarityFilter.onAverageOnceEvery(4),
+            BiomeFilter.biome()
+        );
+        
+        PlacementUtils.register(
+            context,
+            LUXWEED_PATCH,
+            configs.getOrThrow(ReduxFeatureConfig.LUXWEED_PATCH),
+            threshold,
+            ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 1), 4),
+            RarityFilter.onAverageOnceEvery(4),
+            BiomeFilter.biome()
+        );
+        
+        PlacementUtils.register(
+            context,
+            SPIROLYCTIL_PATCH,
+            configs.getOrThrow(ReduxFeatureConfig.SPIROLYCTIL_PATCH),
+            threshold,
+            ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(1, 3), 4),
+            RarityFilter.onAverageOnceEvery(12),
+            BiomeFilter.biome()
+        );
+        
+        
+        PlacementUtils.register(
+            context,
+            GLOOMSHADE_PATCH,
+            configs.getOrThrow(ReduxFeatureConfig.GLOOMSHADE_PATCH),
+            threshold,
+            ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(1, 3), 4),
+            RarityFilter.onAverageOnceEvery(16),
             BiomeFilter.biome()
         );
         
@@ -120,8 +178,6 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
             RarityFilter.onAverageOnceEvery(8),
             BiomeFilter.biome()
         );
-        
-        
         
         PlacementUtils.register(context, MOSSY_HOLYSTONE_ORE, configs.getOrThrow(ReduxFeatureConfig.MOSSY_HOLYSTONE_ORE),
             CountPlacement.of(24),
@@ -239,6 +295,96 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
             RarityFilter.onAverageOnceEvery(24),
             InSquarePlacement.spread(),
             BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(new Vec3i(0, -1, 0), BlockTags.DIRT)),
+            BiomeFilter.biome()
+        );
+        
+        
+        
+        register(context, ICESTONE_ROCK, configs.getOrThrow(ReduxFeatureConfig.ICESTONE_ROCK),
+            threshold,
+            ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING,
+                new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
+                    .add(ConstantInt.of(0), 7)
+                    .add(UniformInt.of(1, 2), 5)
+                    .add(UniformInt.of(1, 3), 3)
+                    .build()), 4),
+            RarityFilter.onAverageOnceEvery(16),
+            InSquarePlacement.spread(),
+            BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(new Vec3i(0, -1, 0), BlockTags.DIRT)),
+            BiomeFilter.biome()
+        );
+        
+        register(context, AEROGEL_DISK, configs.getOrThrow(ReduxFeatureConfig.AEROGEL_DISK),
+            RarityFilter.onAverageOnceEvery(5),
+            PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+            BiomeFilter.biome(),
+            blacklist
+        );
+        
+        register(context,
+            FROSTED_TREES,
+            configs.getOrThrow(ReduxFeatureConfig.FROSTED_TREES),
+            CountPlacement.of(
+                new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
+                    .add(ConstantInt.of(24), 9)
+                    .add(ConstantInt.of(16), 1)
+                    .build()
+                )
+            ), ImprovedLayerPlacementModifier.of(
+                Heightmap.Types.OCEAN_FLOOR,
+                UniformInt.of(0, 1),
+                4
+            ), BiomeFilter.biome(),
+            blacklist,
+            PlacementUtils.filteredByBlockSurvival(
+                ReduxFlowerSets.MOONFIR_SAPLING.flower().get()
+            )
+        );
+        
+        register(context,
+            GLACIAL_TREES,
+            configs.getOrThrow(ReduxFeatureConfig.GLACIAL_TREES),
+            CountPlacement.of(
+                new WeightedListInt(
+                    SimpleWeightedRandomList.<IntProvider>builder()
+                        .add(ConstantInt.of(8), 9)
+                        .add(ConstantInt.of(6), 1)
+                        .build()
+                )
+            ), ImprovedLayerPlacementModifier.of(
+                Heightmap.Types.OCEAN_FLOOR,
+                UniformInt.of(0, 1), 4
+            ), BiomeFilter.biome(),
+            blacklist,
+            PlacementUtils.filteredByBlockSurvival(
+                ReduxFlowerSets.STORMFIR_SAPLING.flower().get()
+            )
+        );
+        
+        register(context, LUMINA_PATCH, configs.getOrThrow(ReduxFeatureConfig.LUMINA_PATCH),
+            threshold,
+            ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(1, 2), 4),
+            RarityFilter.onAverageOnceEvery(7),
+            BiomeFilter.biome());
+        
+        register(context, DAGGERBLOOM_PATCH, configs.getOrThrow(ReduxFeatureConfig.DAGGERBLOOM_PATCH),
+            threshold,
+            ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 2), 4),
+            RarityFilter.onAverageOnceEvery(10),
+            BiomeFilter.biome()
+        );
+        
+        register(context, SPARSE_PURPLE_FLOWER_PATCH, configs.getOrThrow(ReduxFeatureConfig.SPARSE_PURPLE_FLOWER_PATCH),
+            threshold,
+            ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 2), 4),
+            RarityFilter.onAverageOnceEvery(13),
+            BiomeFilter.biome()
+        );
+        
+        register(context, SKYFERN_PATCH, configs.getOrThrow(ReduxFeatureConfig.SPARSE_PURPLE_FLOWER_PATCH),
+            threshold,
+            ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 3), 4),
+            RarityFilter.onAverageOnceEvery(7),
             BiomeFilter.biome()
         );
     }

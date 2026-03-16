@@ -141,7 +141,7 @@ public class ReduxFlowerSets {
 				"A large four-leaved clover found in the Gilded Groves. Makes a nice decoration, and can be placed in a flower pot!"
 			)
 	);
-
+	
 	public static final BaseFlowerSet<CustomBoundsFlowerBlock> SPIROLYCTIL = register(
 		new AetherFlowerSet<>(
 			"spirolyctil",

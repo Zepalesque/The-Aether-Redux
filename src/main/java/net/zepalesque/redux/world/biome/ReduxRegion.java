@@ -41,7 +41,7 @@ public class ReduxRegion extends Region {
 			0
 		);
 
-		//var frosted = ReduxConfig.COMMON.enable_snowy_biomes.get() ? ReduxBiomes.FROSTED_FORESTS : AetherBiomes.SKYROOT_FOREST;
+		var frosted = /*ReduxConfig.COMMON.enable_snowy_biomes.get() ?*/ ReduxBiomes.FROSTED_FORESTS /*: AetherBiomes.SKYROOT_FOREST*/;
 		//var glaical = ReduxConfig.COMMON.enable_snowy_biomes.get() ? ReduxBiomes.GLACIAL_TUNDRA : AetherBiomes.SKYROOT_FOREST;
 		//var cloudcaps = ReduxConfig.COMMON.enable_cloudcaps.get() ? ReduxBiomes.CLOUDCAPS : AetherBiomes.SKYROOT_GROVE;
 		var blight = /*ReduxConfig.COMMON.enable_the_blight.get() ?*/ ReduxBiomes.THE_BLIGHT /*: AetherBiomes.SKYROOT_WOODLAND*/;
@@ -50,27 +50,28 @@ public class ReduxRegion extends Region {
 		var grove = /*ReduxConfig.COMMON.enable_gilded_biomes.get() ?*/ ReduxBiomes.GILDED_GROVES /*: AetherBiomes.SKYROOT_GROVE*/;
 		//var grasslands = ReduxConfig.COMMON.enable_gilded_biomes.get() ? ReduxBiomes.GILDED_GRASSLANDS : AetherBiomes.SKYROOT_MEADOW;
 		
-		//var temp1 = span(-1.5F, -0.5F);
+		var temp1 = span(-1.5F, -0.5F);
 		var temp2 = span(-0.5F, -0.2F);
 		var temp3 = span(-0.2F, 0.2F);
 		var temp4 = span(0.2F, 0.5F);
 		var temp5 = span(0.5F, 1.5F);
 
-		/* addBiome(
+		 addBiome(
 			mapper,
-			parameterPoint.apply(temp1, span(-1.0F, -0.3F)),
+			// TODO: revert biome params after readding glacial tundra
+			parameterPoint.apply(temp1, span(/*-1.0F, -0.3F*/ -0.3F, 0.3F)),
 			frosted
 		);
-		addBiome(
-			mapper,
-			parameterPoint.apply(temp1, span(-0.3F, 0.3F)),
-			glaical
-		); */
+		/*
+	    addBiome(
+	    	mapper,
+	    	parameterPoint.apply(temp1, span(-0.3F, 0.3F)),
+	    	glaical
+	    ); */
 		/* addBiome(
-			mapper,
-			parameterPoint.apply(temp1, span(0.3F, 1.0F)),
-			cloudcaps
-		); */
+	    	mapper,
+	    	parameterPoint.apply(temp1, span(0.3F, 1.0F)),
+	    ); */
 
 		addBiome(
 			mapper,

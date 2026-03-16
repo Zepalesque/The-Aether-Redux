@@ -6,6 +6,7 @@ import com.aetherteam.aether.data.resources.registries.AetherDimensions;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator;
 import net.minecraft.world.level.levelgen.Noises;
 import net.minecraft.world.level.levelgen.SurfaceRules;
@@ -92,6 +93,36 @@ public class ReduxSurfaceRules {
 						).setValue(
 							ReduxStates.BLIGHT_GRASS_COLOR,
 							BlightGrassColor.TINTABLE
+						)
+					)
+				)
+			),
+			inBiome(
+				ReduxBiomes.FROSTED_FORESTS,
+				SurfaceRules.ifTrue(
+					SurfaceRules.isBiome(
+						ReduxBiomes.FROSTED_FORESTS
+					), SurfaceRules.ifTrue(
+						SurfaceRules.ON_FLOOR, SurfaceRules.ifTrue(
+							SurfaceRules.noiseCondition(
+								Noises.POWDER_SNOW,
+								0.35D,
+								0.45D
+							), SurfaceRules.state(
+								Blocks.POWDER_SNOW.defaultBlockState()
+							)
+						)
+					)
+				),
+				SurfaceRules.ifTrue(
+					SurfaceRules.ON_FLOOR,
+					SurfaceRules.ifTrue(
+						SurfaceRules.noiseCondition(
+							Noises.ICE,
+							0.0,
+							0.4
+						), SurfaceRules.state(
+							Blocks.SNOW_BLOCK.defaultBlockState()
 						)
 					)
 				)

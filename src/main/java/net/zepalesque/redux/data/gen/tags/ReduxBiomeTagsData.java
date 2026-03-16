@@ -40,6 +40,10 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
 		this.tag(ReduxTags.Biomes.BLOOMTAIL_BONEMEAL).addTag(AetherTags.Biomes.IS_AETHER);
 
 		this.tag(ReduxTags.Biomes.HAS_CAVES).addTag(AetherTags.Biomes.IS_AETHER);
+		
+		this.tag(ReduxTags.Biomes.IS_FROSTED).add(
+			ReduxBiomes.FROSTED_FORESTS
+		);
 
 		this.tag(ReduxTags.Biomes.MODIFY_MUSIC).addTag(AetherTags.Biomes.IS_AETHER);
 
@@ -60,7 +64,8 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
 		this.tag(ReduxTags.Biomes.HAS_WYNDSPROUTS).add(
 			AetherBiomes.SKYROOT_GROVE,
 			AetherBiomes.SKYROOT_MEADOW,
-			AetherBiomes.SKYROOT_WOODLAND
+			AetherBiomes.SKYROOT_WOODLAND,
+			ReduxBiomes.GILDED_GROVES
 		);
 	}
 }

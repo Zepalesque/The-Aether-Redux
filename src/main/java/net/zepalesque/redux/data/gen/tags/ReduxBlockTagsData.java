@@ -93,6 +93,7 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
 			ReduxBlocks.GILDENMOSS_BLOCK.get(),
 			ReduxBlocks.GILDENMOSS_CARPET.get(),
 			ReduxBlocks.WYNDSPROUTS.get(),
+			ReduxBlocks.LUXWEED.get(),
 			ReduxBlocks.SKYSPROUTS.get(),
 			ReduxBlocks.WYNDOATS.get()
 		);

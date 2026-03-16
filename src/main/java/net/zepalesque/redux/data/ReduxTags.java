@@ -77,7 +77,9 @@ public class ReduxTags {
 		public static final TagKey<Biome> HAS_VERBENA = tag("has_verbena");
 		public static final TagKey<Biome> HAS_CAELGAE = tag("has_caelgae");
 		public static final TagKey<Biome> HAS_BLOOMTAIL = tag("has_bloomtail");
-		public static final TagKey<Biome> HAS_CAVES = tag("has_wyndsprouts");
+		public static final TagKey<Biome> HAS_CAVES = tag("has_caves");
+		
+		public static final TagKey<Biome> IS_FROSTED = tag("has_caves");
 		
 		public static final TagKey<Biome> BLOOMTAIL_BONEMEAL = tag("bloomtail_bonemeal");
 		
