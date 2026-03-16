@@ -10,8 +10,9 @@
 		},
 		"foliage_placer": {
 			"type": "aether_redux:blightwillow_foliage",
-			"offset": 0,
-			"radius": 2
+			"offset": 1,
+			"radius": 3,
+			"trunk_height": 10
 		},
 		"foliage_provider": {
 			"type": "minecraft:weighted_state_provider",
