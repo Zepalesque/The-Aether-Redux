@@ -82,7 +82,7 @@ public class ReduxFlowerSets {
 		)
 			.tabAfter(
 				AetherCreativeTabs.AETHER_NATURAL_BLOCKS,
-				() -> ReduxLeafSets.MOONFIR.sapling().asItem(),
+				() -> ReduxFlowerSets.SILVEROOT_SAPLING.flower().asItem(),
 				BlockSet.TabAdditionPhase.BEFORE
 			)
 			.withFlowerTag(BlockTags.SAPLINGS)
