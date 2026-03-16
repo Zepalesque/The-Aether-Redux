@@ -24,6 +24,7 @@ import net.zepalesque.redux.advancement.ReduxAdvancementTriggers;
 import net.zepalesque.redux.attachment.ReduxDataAttachments;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.blockset.flower.ReduxFlowerSets;
+import net.zepalesque.redux.blockset.leaf.ReduxLeafSets;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
 import net.zepalesque.redux.blockset.wood.ReduxWoodSets;
 import net.zepalesque.redux.client.ReduxClient;
@@ -88,7 +89,12 @@ public class Redux {
             bus.addListener(ReduxColors::itemColors);
         }
 
-        Reflection.initialize(ReduxWoodSets.class, ReduxStoneSets.class, ReduxFlowerSets.class);
+        Reflection.initialize(
+            ReduxWoodSets.class,
+            ReduxStoneSets.class,
+            ReduxFlowerSets.class,
+            ReduxLeafSets.class
+        );
 
         DeferredRegister<?>[] registers = {
             ReduxBlocks.BLOCKS,
