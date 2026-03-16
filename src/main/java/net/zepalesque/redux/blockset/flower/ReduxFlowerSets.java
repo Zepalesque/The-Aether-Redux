@@ -21,6 +21,7 @@ import net.zepalesque.redux.blockset.flower.type.CloverSet;
 import net.zepalesque.redux.blockset.flower.type.DualGlowingFlowerSet;
 import net.zepalesque.redux.blockset.flower.type.EnchantedFlowerSet;
 import net.zepalesque.redux.blockset.flower.type.UntintedFlowerSet;
+import net.zepalesque.redux.blockset.leaf.ReduxLeafSets;
 import net.zepalesque.redux.client.ReduxColors;
 import net.zepalesque.redux.world.tree.ReduxTreeGrowers;
 import net.zepalesque.unity.block.natural.bush.CustomBoundsBushBlock;
@@ -72,23 +73,6 @@ public class ReduxFlowerSets {
 			.withLore("The sapling of the Silveroot tree. It can be grown by waiting or using Bone Meal.")
 	);
 
-	public static final BaseFlowerSet<SaplingBlock> MOONFIR_SAPLING = register(
-		new UntintedFlowerSet<>("moonfir_sapling", "natural/", () ->
-			new SaplingBlock(
-				ReduxTreeGrowers.MOONFIR,
-				Properties.ofFullCopy(Blocks.OAK_SAPLING).mapColor(MapColor.LAPIS)
-			)
-		)
-			.tabAfter(
-				AetherCreativeTabs.AETHER_NATURAL_BLOCKS,
-				() -> ReduxFlowerSets.SILVEROOT_SAPLING.flower().asItem(),
-				BlockSet.TabAdditionPhase.BEFORE
-			)
-			.withFlowerTag(BlockTags.SAPLINGS)
-			.compost(0.3F)
-			.withLore("The sapling of the Moonfir tree. It can be grown by waiting or using Bone Meal.")
-	);
-
 	public static final BaseFlowerSet<SaplingBlock> STORMFIR_SAPLING = register(
 		new UntintedFlowerSet<>("stormfir_sapling", "natural/", () ->
 			new SaplingBlock(
@@ -98,7 +82,7 @@ public class ReduxFlowerSets {
 		)
 			.tabAfter(
 				AetherCreativeTabs.AETHER_NATURAL_BLOCKS,
-				() -> ReduxFlowerSets.MOONFIR_SAPLING.flower().asItem(),
+				() -> ReduxLeafSets.MOONFIR.sapling().asItem(),
 				BlockSet.TabAdditionPhase.BEFORE
 			)
 			.withFlowerTag(BlockTags.SAPLINGS)

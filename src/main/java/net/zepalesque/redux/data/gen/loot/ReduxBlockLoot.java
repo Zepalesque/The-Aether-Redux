@@ -41,9 +41,6 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
 		this.leaves(ReduxBlocks.STORMFIR_LEAVES, ReduxFlowerSets.STORMFIR_SAPLING.flower());
 		this.add(ReduxBlocks.STORMFIR_LEAF_PILE.get(), shears());
 
-		this.leaves(ReduxBlocks.MOONFIR_LEAVES, ReduxFlowerSets.MOONFIR_SAPLING.flower());
-		this.add(ReduxBlocks.MOONFIR_LEAF_PILE.get(), shears());
-
 		this.leaves(ReduxBlocks.BLIGHTWILLOW_LEAVES, ReduxFlowerSets.BLIGHTWILLOW_SAPLING.flower());
 		this.add(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get(), shears());
 

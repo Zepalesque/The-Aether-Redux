@@ -24,10 +24,7 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
 
         this.itemBlock(ReduxBlocks.STORMFIR_LEAVES.get());
         this.leafPile(ReduxBlocks.STORMFIR_LEAF_PILE.get());
-
-        this.itemBlock(ReduxBlocks.MOONFIR_LEAVES.get());
-        this.leafPile(ReduxBlocks.MOONFIR_LEAF_PILE.get());
-
+        
         this.itemBlock(ReduxBlocks.BLIGHTWILLOW_LEAVES.get());
         this.itemBlock(ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES.get());
         this.leafPile(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get());

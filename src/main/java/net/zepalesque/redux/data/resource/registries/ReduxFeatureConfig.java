@@ -53,6 +53,7 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.blockset.flower.ReduxFlowerSets;
+import net.zepalesque.redux.blockset.leaf.ReduxLeafSets;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
 import net.zepalesque.redux.blockset.wood.ReduxWoodSets;
 import net.zepalesque.redux.data.ReduxTags;
@@ -426,7 +427,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			new TreeConfiguration.TreeConfigurationBuilder(
 				prov(ReduxWoodSets.MOONFIR.log()),
 				new StraightTrunkPlacer(8, 1, 1),
-				prov(ReduxBlocks.MOONFIR_LEAVES),
+				prov(ReduxLeafSets.MOONFIR.leaves()),
 				new MoonfirFoliagePlacer(
 					ConstantInt.of(4),
 					ConstantInt.of(1),

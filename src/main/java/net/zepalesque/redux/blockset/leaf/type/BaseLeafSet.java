@@ -166,6 +166,12 @@ public abstract class BaseLeafSet<L extends LeavesBlock, S extends SaplingBlock,
 	}
 	
 	@Override
+	public Self withLeafTag(TagKey<Block> tag) {
+		this.leafTags.getSecond().add(tag);
+		return self();
+	}
+	
+	@Override
 	public Self withSaplingTag(TagKey<Block> tag) {
 		this.saplingTags.getSecond().add(tag);
 		return self();
@@ -174,12 +180,6 @@ public abstract class BaseLeafSet<L extends LeavesBlock, S extends SaplingBlock,
 	@Override
 	public Self withPotTag(TagKey<Block> tag) {
 		this.potTags.add(tag);
-		return self();
-	}
-	
-	@Override
-	public Self withLeafTag(TagKey<Block> tag) {
-		this.leafTags.getSecond().add(tag);
 		return self();
 	}
 	

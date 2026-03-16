@@ -30,8 +30,6 @@ public class ReduxBlockStateData extends ReduxBlockStateProvider {
 		this.block(ReduxBlocks.SILVEROOT_LEAVES.get(), "natural/");
 		this.leafPile(ReduxBlocks.SILVEROOT_LEAF_PILE.get(), ReduxBlocks.SILVEROOT_LEAVES.get(), "natural/");
 
-		this.snowableLeaves(ReduxBlocks.MOONFIR_LEAVES.get(), "natural/");
-		this.leafPile(ReduxBlocks.MOONFIR_LEAF_PILE.get(), ReduxBlocks.MOONFIR_LEAVES.get(), "natural/");
 
 		this.snowableLeaves(ReduxBlocks.STORMFIR_LEAVES.get(), "natural/");
 		this.leafPile(ReduxBlocks.STORMFIR_LEAF_PILE.get(), ReduxBlocks.STORMFIR_LEAVES.get(), "natural/");

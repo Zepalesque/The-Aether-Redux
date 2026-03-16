@@ -44,8 +44,6 @@ public class ReduxTabs {
 				UnityBlocks.SKYROOT_LEAF_PILE,
 				ReduxBlocks.SILVEROOT_LEAVES,
 				ReduxBlocks.SILVEROOT_LEAF_PILE,
-				ReduxBlocks.MOONFIR_LEAVES,
-				ReduxBlocks.MOONFIR_LEAF_PILE,
 				ReduxBlocks.STORMFIR_LEAVES,
 				ReduxBlocks.STORMFIR_LEAF_PILE,
 				ReduxBlocks.BLIGHTWILLOW_LEAVES,
