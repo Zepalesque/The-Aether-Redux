@@ -21,7 +21,6 @@ import net.zepalesque.redux.blockset.flower.type.CloverSet;
 import net.zepalesque.redux.blockset.flower.type.DualGlowingFlowerSet;
 import net.zepalesque.redux.blockset.flower.type.EnchantedFlowerSet;
 import net.zepalesque.redux.blockset.flower.type.UntintedFlowerSet;
-import net.zepalesque.redux.blockset.leaf.ReduxLeafSets;
 import net.zepalesque.redux.client.ReduxColors;
 import net.zepalesque.redux.world.tree.ReduxTreeGrowers;
 import net.zepalesque.unity.block.natural.bush.CustomBoundsBushBlock;
