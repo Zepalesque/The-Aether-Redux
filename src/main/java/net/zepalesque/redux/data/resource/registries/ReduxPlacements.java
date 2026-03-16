@@ -31,6 +31,7 @@ import net.minecraft.world.level.levelgen.placement.NoiseThresholdCountPlacement
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.RarityFilter;
 import net.zepalesque.redux.blockset.flower.ReduxFlowerSets;
+import net.zepalesque.redux.blockset.leaf.ReduxLeafSets;
 import net.zepalesque.redux.data.resource.builders.ReduxPlacementBuilders;
 import net.zepalesque.zenith.api.world.feature.placement.ConditionPlacementModule;
 import net.zepalesque.zenith.core.Zenith;
@@ -337,7 +338,7 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
             ), BiomeFilter.biome(),
             blacklist,
             PlacementUtils.filteredByBlockSurvival(
-                ReduxFlowerSets.MOONFIR_SAPLING.flower().get()
+                ReduxLeafSets.MOONFIR.sapling().get()
             )
         );
         

@@ -927,7 +927,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				PlacementUtils.inlinePlaced(
 					configs.getOrThrow(MOONFIR_TREE),
 					PlacementUtils.filteredByBlockSurvival(
-						ReduxFlowerSets.MOONFIR_SAPLING.flower().get()
+						ReduxLeafSets.MOONFIR.sapling().get()
 					)
 				)
 			)
@@ -940,7 +940,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 						PlacementUtils.inlinePlaced(
 							configs.getOrThrow(MOONFIR_TREE),
 							PlacementUtils.filteredByBlockSurvival(
-								ReduxFlowerSets.MOONFIR_SAPLING.flower().get()
+								ReduxLeafSets.MOONFIR.sapling().get()
 							)
 						), 0.05F)
 				),
