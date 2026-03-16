@@ -13,13 +13,12 @@ import net.zepalesque.redux.data.prov.ReduxDataMapProvider;
 
 public abstract class BaseReduxLeafSet<L extends LeavesBlock, S extends SaplingBlock, Self extends BaseReduxLeafSet<L, S, Self>> extends BaseLeafPileSet<L, S, Self> {
 	private final DeferredHolder<ParticleType<?>, SimpleParticleType> particle;
-	
-	
+
 	public BaseReduxLeafSet(String id, String saplTexFold, String leafTexFold, TreeGrower grower, Supplier<L> leaves, Function<TreeGrower, S> sapling, DeferredHolder<ParticleType<?>, SimpleParticleType> particle) {
 		super(id, saplTexFold, leafTexFold, grower, leaves, sapling);
 		this.particle = particle;
 	}
-	
+
 	@Override
 	public void mapData(ReduxDataMapProvider data) {
 		super.mapData(data);

@@ -13,38 +13,45 @@ import net.zepalesque.redux.data.prov.ReduxBlockStateProvider;
 import net.zepalesque.redux.data.prov.ReduxItemModelProvider;
 
 public class SnowableLeafSet extends BaseReduxLeafSet<SnowableLeavesBlock, SaplingBlock, SnowableLeafSet> {
-	public SnowableLeafSet(String id, String saplTexFold, String leafTexFold, TreeGrower grower, MapColor leafColor, MapColor saplingColor, DeferredHolder<ParticleType<?>, SimpleParticleType> particle) {
+	public SnowableLeafSet(
+		String id,
+		String saplTexFold,
+		String leafTexFold,
+		TreeGrower grower,
+		MapColor leafColor,
+		MapColor saplingColor,
+		DeferredHolder<ParticleType<?>, SimpleParticleType> particle
+	) {
 		super(
 			id,
 			saplTexFold,
 			leafTexFold,
 			grower,
 			() -> new SnowableLeavesBlock(
-				BlockBehaviour.Properties.ofFullCopy(
-					AetherBlocks.SKYROOT_LEAVES.get()
-				).mapColor(leafColor)
-			), treeGrower -> new SaplingBlock(
+				BlockBehaviour.Properties
+					.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get())
+					.mapColor(leafColor)
+			),
+			treeGrower -> new SaplingBlock(
 				treeGrower,
-				BlockBehaviour.Properties.ofFullCopy(
-					AetherBlocks.SKYROOT_SAPLING.get()
-				).mapColor(saplingColor)
+				BlockBehaviour.Properties
+					.ofFullCopy(AetherBlocks.SKYROOT_SAPLING.get())
+					.mapColor(saplingColor)
 			),
 			particle
 		);
 	}
-	
+
 	@Override
 	public void mainBlockData(ReduxBlockStateProvider data) {
 		data.crossBlock(this.sapling().get(), this.saplTexFold);
 		data.pottedPlant(this.pot().get(), this.sapling().get(), this.saplTexFold);
 		data.snowableLeaves(this.leaves().get(), this.leafTexFold);
 	}
-	
+
 	@Override
 	public void mainItemData(ReduxItemModelProvider data) {
 		data.itemBlockFlat(this.sapling().get(), this.saplTexFold);
 		data.itemBlock(this.leaves().get());
 	}
-	
-	
 }

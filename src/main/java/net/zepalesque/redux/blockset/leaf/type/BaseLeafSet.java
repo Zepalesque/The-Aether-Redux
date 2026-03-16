@@ -43,8 +43,8 @@ import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
 import net.zepalesque.zenith.util.item.TabUtil;
 import org.jetbrains.annotations.Nullable;
 
-public abstract class BaseLeafSet<L extends LeavesBlock, S extends SaplingBlock, Self extends BaseLeafSet<L, S, Self>>  extends AbstractLeafSet<Self>
-	implements
+public abstract class BaseLeafSet<L extends LeavesBlock, S extends SaplingBlock, Self extends BaseLeafSet<L, S, Self>> extends AbstractLeafSet<Self>
+implements
 	ReduxGeneration
 {
 	public final String id, saplTexFold, leafTexFold;
@@ -56,7 +56,7 @@ public abstract class BaseLeafSet<L extends LeavesBlock, S extends SaplingBlock,
 	protected final Collection<TagKey<Block>> potTags = new ArrayList<>();
 	protected float leafCompost = 0.3F;
 	protected float saplingCompost = 0.65F;
-	
+
 	public BaseLeafSet(String id, String saplTexFold, String leafTexFold, TreeGrower grower, Supplier<L> leaves, Function<TreeGrower, S> sapling) {
 		this.id = id;
 		var blocks = ReduxBlocks.BLOCKS;
@@ -69,32 +69,28 @@ public abstract class BaseLeafSet<L extends LeavesBlock, S extends SaplingBlock,
 		this.pot = pot(blocks, id);
 		potTags.add(BlockTags.FLOWER_POTS);
 	}
-	
+
 	protected final Map<Supplier<CreativeModeTab>, Pair<ItemLike, TabAdditionPhase>> leafBeforeOrdering =
 		new HashMap<>();
 	protected final Map<Supplier<CreativeModeTab>, Pair<ItemLike, TabAdditionPhase>> leafAfterOrdering =
 		new HashMap<>();
 	protected final Map<Supplier<CreativeModeTab>, TabAdditionPhase> leafAppended = new HashMap<>();
 	@Nullable protected Pair<Integer, Integer> leafFlammability = Pair.of(60, 100);
-	
-	
-	
+
 	protected final Map<Supplier<CreativeModeTab>, Pair<ItemLike, TabAdditionPhase>> saplingBeforeOrdering =
 		new HashMap<>();
 	protected final Map<Supplier<CreativeModeTab>, Pair<ItemLike, TabAdditionPhase>> saplingAfterOrdering =
 		new HashMap<>();
 	protected final Map<Supplier<CreativeModeTab>, TabAdditionPhase> saplingAppended = new HashMap<>();
 	@Nullable protected Pair<Integer, Integer> saplingFlammability = Pair.of(60, 100);
-	
+
 	protected final DeferredBlock<S> sapling;
 	protected final DeferredBlock<L> leaves;
 	protected final DeferredBlock<FlowerPotBlock> pot;
 	protected final TreeGrower grower;
 	protected UnaryOperator<BlockBehaviour.Properties> potProperties = UnaryOperator.identity();
 	protected UnaryOperator<BlockBehaviour.Properties> leafProperties = UnaryOperator.identity();
-	
 
-	
 	@Override
 	protected <T extends Block> DeferredBlock<T> leaves(DeferredRegister.Blocks registry, DeferredRegister.Items items, String id, Supplier<T> constructor) {
 		var leaves = registry.register(id + "_leaves", constructor);
@@ -103,12 +99,12 @@ public abstract class BaseLeafSet<L extends LeavesBlock, S extends SaplingBlock,
 		);
 		return leaves;
 	}
-	
+
 	@Override
 	public DeferredBlock<? extends LeavesBlock> leaves() {
 		return this.leaves;
 	}
-	
+
 	@Override
 	protected <T extends Block> DeferredBlock<T> sapling(
 		DeferredRegister.Blocks registry,
@@ -122,12 +118,12 @@ public abstract class BaseLeafSet<L extends LeavesBlock, S extends SaplingBlock,
 		);
 		return sapling;
 	}
-	
+
 	@Override
 	public DeferredBlock<? extends SaplingBlock> sapling() {
 		return this.sapling;
 	}
-	
+
 	@Override
 	protected DeferredBlock<FlowerPotBlock> pot(DeferredRegister.Blocks registry, String id) {
 		return registry.register("potted_" + id + "_sapling", () ->
@@ -139,43 +135,42 @@ public abstract class BaseLeafSet<L extends LeavesBlock, S extends SaplingBlock,
 			)
 		);
 	}
-	
+
 	@Override
 	public DeferredBlock<FlowerPotBlock> pot() {
 		return this.pot;
 	}
 
-	
 	@Override
 	public Self withSaplingItemTag(TagKey<Item> tag) {
 		this.saplingTags.getFirst().add(tag);
 		return self();
 	}
-	
+
 	@Override
 	public Self withLeafItemTag(TagKey<Item> tag) {
 		this.leafTags.getFirst().add(tag);
 		return self();
 	}
-	
+
 	@Override
 	public Self withLeafTag(TagKey<Block> tag) {
 		this.leafTags.getSecond().add(tag);
 		return self();
 	}
-	
+
 	@Override
 	public Self withSaplingTag(TagKey<Block> tag) {
 		this.saplingTags.getSecond().add(tag);
 		return self();
 	}
-	
+
 	@Override
 	public Self withPotTag(TagKey<Block> tag) {
 		this.potTags.add(tag);
 		return self();
 	}
-	
+
 	@Override
 	public Self leafTabAfter(
 		Supplier<CreativeModeTab> tab,
@@ -185,89 +180,92 @@ public abstract class BaseLeafSet<L extends LeavesBlock, S extends SaplingBlock,
 		this.leafAfterOrdering.put(tab, Pair.of(placeAfter, phase));
 		return self();
 	}
-	
+
 	@Override
 	public Self leafTabBefore(Supplier<CreativeModeTab> tab, ItemLike placeBefore, TabAdditionPhase phase) {
 		this.leafBeforeOrdering.put(tab, Pair.of(placeBefore, phase));
 		return self();
 	}
-	
+
 	@Override
 	public Self leafTabAppend(Supplier<CreativeModeTab> tab, TabAdditionPhase phase) {
 		this.leafAppended.put(tab, phase);
 		return self();
 	}
-	
+
 	@Override
 	public Self saplingTabAfter(Supplier<CreativeModeTab> tab, ItemLike placeAfter, TabAdditionPhase phase) {
 		this.saplingAfterOrdering.put(tab, Pair.of(placeAfter, phase));
 		return self();
 	}
-	
+
 	@Override
 	public Self saplingTabBefore(Supplier<CreativeModeTab> tab, ItemLike placeBefore, TabAdditionPhase phase) {
 		this.saplingBeforeOrdering.put(tab, Pair.of(placeBefore, phase));
 		return self();
 	}
-	
+
 	@Override
 	public Self saplingTabAppend(Supplier<CreativeModeTab> tab, TabAdditionPhase phase) {
 		this.saplingAppended.put(tab, phase);
 		return self();
 	}
-	
+
 	@Override
 	public Self leafCompost(float amount) {
 		this.leafCompost = amount;
 		return self();
 	}
-	
+
 	@Override
 	public Self saplingCompost(float amount) {
 		this.saplingCompost = amount;
 		return self();
 	}
-	
+
 	@Override
 	public Self leafFlammable(int encouragement, int flammability) {
 		this.leafFlammability = Pair.of(encouragement, flammability);
 		return self();
 	}
+
 	@Override
 	public Self saplingFlammable(int encouragement, int flammability) {
 		this.saplingFlammability = Pair.of(encouragement, flammability);
 		return self();
 	}
+
 	@Override
 	public Self leafInflammable() {
 		this.leafFlammability = null;
 		return self();
 	}
+
 	@Override
 	public Self saplingInflammable() {
 		this.saplingFlammability = null;
 		return self();
 	}
-	
+
 	@Override
 	public TreeGrower grower() {
 		return this.grower;
 	}
-	
+
 	@Override
 	public Self withPotProperties(UnaryOperator<BlockBehaviour.Properties> prop) {
 		var old = this.potProperties;
 		this.potProperties = original -> prop.apply(old.apply(original));
 		return self();
 	}
-	
+
 	@Override
 	public Self withLeafProperties(UnaryOperator<BlockBehaviour.Properties> prop) {
 		var old = this.leafProperties;
 		this.leafProperties = original -> prop.apply(old.apply(original));
 		return self();
 	}
-	
+
 	@Override
 	public void flammables(FireAccessor fire) {
 		if (this.leafFlammability != null) fire.callSetFlammable(
@@ -280,12 +278,12 @@ public abstract class BaseLeafSet<L extends LeavesBlock, S extends SaplingBlock,
 			this.saplingFlammability.getFirst(),
 			this.saplingFlammability.getSecond()
 		);
-		
+
 		// Do pot stuff while we're at it
 		var pot = (FlowerPotBlock) Blocks.FLOWER_POT;
 		addFlower(pot, this.sapling, this.pot);
 	}
-	
+
 	protected void addFlower(
 		FlowerPotBlock base,
 		Supplier<? extends Block> sapling,
@@ -293,14 +291,17 @@ public abstract class BaseLeafSet<L extends LeavesBlock, S extends SaplingBlock,
 	) {
 		base.addPlant(BuiltInRegistries.BLOCK.getKey(sapling.get()), pot);
 	}
-	
+
 	@Override
 	public void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {}
-	
+
 	// Ignore the prev value, implementation is different here
 	@Override
-	public @Nullable ItemLike addToCreativeTab(BuildCreativeModeTabContentsEvent event, ItemLike prev, TabAdditionPhase phase) {
-		
+	public @Nullable ItemLike addToCreativeTab(
+		BuildCreativeModeTabContentsEvent event,
+		ItemLike prev,
+		TabAdditionPhase phase
+	) {
 		for (var entry : this.leafAfterOrdering.entrySet()) {
 			var tabToAddTo = entry.getKey();
 			if (TabUtil.isForTab(event, tabToAddTo)) {
@@ -345,15 +346,12 @@ public abstract class BaseLeafSet<L extends LeavesBlock, S extends SaplingBlock,
 		}
 		return null;
 	}
-	
+
 	@Override
 	public String getID() {
 		return this.id;
 	}
 
-	
-
-	
 	@Override
 	public void langData(ReduxLanguageProvider data) {
 		data.addBlock(this.leaves());
@@ -362,50 +360,47 @@ public abstract class BaseLeafSet<L extends LeavesBlock, S extends SaplingBlock,
 		if (this.saplingLore != null) data.addLore(this.sapling(), this.saplingLore);
 		data.addBlock(this.pot());
 	}
-	
+
 	@Override
-	public void recipeData(ReduxRecipeProvider data, RecipeOutput consumer, HolderLookup.Provider lookup) {
-	
-	}
-	
+	public void recipeData(ReduxRecipeProvider data, RecipeOutput consumer, HolderLookup.Provider lookup) {}
+
 	@Override
 	public void blockTagData(ReduxBlockTagsProvider data) {
 		this.leafTags.getSecond().forEach(tag -> data.tag(tag).add(this.leaves().get()));
 		this.saplingTags.getSecond().forEach(tag -> data.tag(tag).add(this.sapling().get()));
 		this.potTags.forEach(tag -> data.tag(tag).add(this.pot().get()));
 	}
-	
+
 	@Override
 	public void itemTagData(ReduxItemTagsProvider data) {
 		this.leafTags.getFirst().forEach(tag -> data.tag(tag).add(this.leaves().asItem()));
 		this.saplingTags.getFirst().forEach(tag -> data.tag(tag).add(this.sapling().asItem()));
 	}
-	
+
 	@Override
 	public void lootData(ReduxBlockLootProvider data) {
 		data.dropSelf(this.sapling().get());
 		data.leaves(this.leaves(), this.sapling());
 		data.dropPottedContents(this.pot.get());
 	}
-	
+
 	@Override
 	public void mapData(ReduxDataMapProvider data) {
 		var compostables = data.builder(NeoForgeDataMaps.COMPOSTABLES);
 		data.addCompost(compostables, this.sapling(), this.saplingCompost);
 		data.addCompost(compostables, this.leaves(), this.leafCompost);
 	}
-	
+
 	public Self withLeafLore(String lore) {
 		this.leafLore = lore;
 		return self();
 	}
-	
-	
+
 	public Self withSaplingLore(String lore) {
 		this.saplingLore = lore;
 		return self();
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	protected Self self() {
 		return (Self) this;
