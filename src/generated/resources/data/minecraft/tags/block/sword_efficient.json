@@ -2,6 +2,8 @@
 	"values": [
 		"aether_redux:golden_clovers",
 		"aether_redux:golden_vines",
-		"aether_redux:golden_vines_plant"
+		"aether_redux:golden_vines_plant",
+		"aether_redux:shaded_vines",
+		"aether_redux:shaded_vines_plant"
 	]
 }

@@ -30,6 +30,15 @@
 		"aether_redux:flareblossom": {
 			"chance": 0.65
 		},
+		"aether_redux:gildleaf_leaf_pile": {
+			"chance": 0.3
+		},
+		"aether_redux:gildleaf_leaves": {
+			"chance": 0.3
+		},
+		"aether_redux:gildleaf_sapling": {
+			"chance": 0.3
+		},
 		"aether_redux:gloomshade": {
 			"chance": 0.65
 		},

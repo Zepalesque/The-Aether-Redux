@@ -42,7 +42,7 @@
 		"foliage_provider": {
 			"type": "minecraft:simple_state_provider",
 			"state": {
-				"Name": "aether:golden_oak_leaves",
+				"Name": "aether_redux:gildleaf_leaves",
 				"Properties": {
 					"distance": "7",
 					"double_drops": "true",

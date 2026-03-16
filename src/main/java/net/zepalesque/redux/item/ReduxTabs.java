@@ -3,6 +3,7 @@ package net.zepalesque.redux.item;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.item.AetherCreativeTabs;
 import com.aetherteam.aether.item.AetherItems;
+import net.minecraft.world.item.CreativeModeTab.TabVisibility;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
@@ -27,6 +28,12 @@ public class ReduxTabs {
 			sup = set.addToCreativeTab(event, sup, BlockSet.TabAdditionPhase.BEFORE);
 
 		new TabBuilder(event, AetherCreativeTabs.AETHER_NATURAL_BLOCKS.getKey())
+			.remove(
+				TabVisibility.PARENT_AND_SEARCH_TABS,
+				AetherBlocks.GOLDEN_OAK_LEAVES,
+				AetherBlocks.GOLDEN_OAK_SAPLING,
+				UnityBlocks.GOLDEN_OAK_LEAF_PILE
+			)
 			.replace(AetherBlocks.GOLDEN_OAK_LOG, ReduxBlocks.GILDLEAF_AMBER_LOG)
 			.putAfter(
 				UnityBlocks.SHORT_AETHER_GRASS,

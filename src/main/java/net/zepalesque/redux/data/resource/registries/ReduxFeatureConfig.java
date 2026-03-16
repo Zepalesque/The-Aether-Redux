@@ -459,7 +459,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 						.add(drops(ReduxWoodSets.GILDLEAF.log()), 7)
 				),
 				new IntProviderTrunkPlacer(UniformInt.of(7, 9)),
-				BlockStateProvider.simple(AetherFeatureStates.GOLDEN_OAK_LEAVES),
+				prov(ReduxLeafSets.GILDLEAF.leaves()),
 				new SmallGoldenOakFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
 				new TwoLayersFeatureSize(1, 0, 1)
 			)
@@ -489,7 +489,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 						.add(drops(ReduxWoodSets.GILDLEAF.log()), 3)
 				),
 				new IntProviderTrunkPlacer(UniformInt.of(11, 14)),
-				BlockStateProvider.simple(AetherFeatureStates.GOLDEN_OAK_LEAVES),
+				prov(ReduxLeafSets.GILDLEAF.leaves()),
 				new GoldenOakFoliagePlacer(ConstantInt.of(3), ConstantInt.of(1), ConstantInt.of(10)),
 				new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(13))
 			)
