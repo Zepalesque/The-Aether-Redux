@@ -1,3 +1,7 @@
 {
-	"values": ["aether_redux:gilded_groves", "aether_redux:the_blight"]
+	"values": [
+		"aether_redux:gilded_groves",
+		"aether_redux:the_blight",
+		"aether_redux:frosted_forests"
+	]
 }
