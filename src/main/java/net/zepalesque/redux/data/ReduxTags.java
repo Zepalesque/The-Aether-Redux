@@ -80,7 +80,7 @@ public class ReduxTags {
 		public static final TagKey<Biome> HAS_CAVES = tag("has_caves");
 		public static final TagKey<Biome> HAS_CONDITIONAL_SNOW = tag("has_conditional_snow");
 		
-		public static final TagKey<Biome> IS_FROSTED = tag("has_caves");
+		public static final TagKey<Biome> IS_FROSTED = tag("is_frosted");
 		
 		public static final TagKey<Biome> BLOOMTAIL_BONEMEAL = tag("bloomtail_bonemeal");
 		
