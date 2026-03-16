@@ -374,7 +374,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			Feature.TREE,
 			new TreeConfiguration.TreeConfigurationBuilder(
 				prov(ReduxWoodSets.MOONFIR.log()),
-				new StraightTrunkPlacer(4, 2, 0),
+				new StraightTrunkPlacer(5, 2, 1),
 				prov(ReduxBlocks.STORMFIR_LEAVES),
 				new SkyrootFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
 				new TwoLayersFeatureSize(1, 0, 1)

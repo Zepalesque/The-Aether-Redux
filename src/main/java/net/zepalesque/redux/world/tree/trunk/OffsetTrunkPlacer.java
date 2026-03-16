@@ -49,7 +49,7 @@ public class OffsetTrunkPlacer extends TrunkPlacer {
 		var height = this.height.sample(rand);
 		var pos = blockPos.mutable();
 		var dir = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
-		var offsetHeight = rand.nextInt((int)(height / 2.25), (int)(height / 1.5));
+		var offsetHeight = rand.nextInt((int)(height * 0.25), (int)(height * 0.75));
 
 		// place log at starting position
 		placeLog(level, setter, rand, pos, cfg);

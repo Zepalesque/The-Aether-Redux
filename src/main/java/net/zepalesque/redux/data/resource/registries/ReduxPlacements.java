@@ -218,10 +218,10 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
         
         PlacementUtils.register(context, BLIGHT_TREES, configs.getOrThrow(ReduxFeatureConfig.BLIGHT_TREES),
             CountPlacement.of(new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
-                .add(ConstantInt.of(18), 9)
-                .add(ConstantInt.of(14), 3)
-                .add(ConstantInt.of(12), 5)
-                .add(ConstantInt.of(22), 1)
+                .add(ConstantInt.of(8), 9)
+                .add(ConstantInt.of(6), 3)
+                .add(ConstantInt.of(4), 5)
+                .add(ConstantInt.of(12), 1)
                 .build())),
             ImprovedLayerPlacementModifier.of(Heightmap.Types.OCEAN_FLOOR, ConstantInt.of(2), 4),
             BiomeFilter.biome(),
