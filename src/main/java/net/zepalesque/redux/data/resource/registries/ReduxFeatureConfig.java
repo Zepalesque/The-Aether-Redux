@@ -946,7 +946,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			patch(12, 7, 3, prov(ReduxFlowerSets.DAGGERBLOOM.flower())));
 		
 		register(context, SPARSE_PURPLE_FLOWER_PATCH, Feature.FLOWER,
-			patch(16, 7, 3, prov(ReduxFlowerSets.DAGGERBLOOM.flower())));
+			patch(16, 7, 3, prov(AetherBlocks.PURPLE_FLOWER)));
 		
 		register(context, SKYFERN_PATCH, Feature.FLOWER,
 			patch(24, 9, 3, prov(UnityBlocks.SKYFERN)));

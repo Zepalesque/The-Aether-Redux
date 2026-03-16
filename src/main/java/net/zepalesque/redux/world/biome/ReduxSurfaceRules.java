@@ -137,10 +137,9 @@ public class ReduxSurfaceRules {
 						SurfaceRules.noiseCondition(
 							Noises.ICE,
 							0.0,
-							0.4
-						), SurfaceRules.state(
-							Blocks.SNOW_BLOCK.defaultBlockState()
-						)
+							0.3
+						),
+						surfaceState(UnityBlocks.COARSE_AETHER_DIRT)
 					)
 				)
 			)
