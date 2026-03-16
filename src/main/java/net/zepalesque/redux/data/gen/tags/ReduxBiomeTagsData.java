@@ -23,7 +23,11 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
 
 	@Override
 	public void addTags(HolderLookup.Provider provider) {
-		this.tag(AetherTags.Biomes.IS_AETHER).add(ReduxBiomes.GILDED_GROVES, ReduxBiomes.THE_BLIGHT);
+		this.tag(AetherTags.Biomes.IS_AETHER).add(
+			ReduxBiomes.GILDED_GROVES,
+			ReduxBiomes.THE_BLIGHT,
+			ReduxBiomes.FROSTED_FORESTS
+		);
 
 		this.tag(ReduxTags.Biomes.HAS_CLOUDBED).addTag(AetherTags.Biomes.IS_AETHER);
 
