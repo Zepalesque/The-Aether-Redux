@@ -89,14 +89,12 @@ public class ReduxBiomeModifiers {
             ImmutableMap.<Holder<Biome>, Integer>builder() // sky
                 .put(biomes.getOrThrow(ReduxBiomes.GILDED_GROVES), 0xC4BDAA)
                 .put(biomes.getOrThrow(ReduxBiomes.THE_BLIGHT), 0x7C7DA5)
-                .putAll(biomes.getOrThrow(ReduxTags.Biomes.IS_FROSTED).stream().map(holder ->
-                    Pair.of(holder, 0xB3B3E5)).collect(Collectors.toMap(Pair::first, Pair::second)))
+                .put(biomes.getOrThrow(ReduxBiomes.FROSTED_FORESTS), 0xB3B3E5)
                 .build(),
             ImmutableMap.<Holder<Biome>, Integer>builder() // fog
                 .put(biomes.getOrThrow(ReduxBiomes.GILDED_GROVES), 0xDDD9DA)
                 .put(biomes.getOrThrow(ReduxBiomes.THE_BLIGHT), 0xADAED3)
-                .putAll(biomes.getOrThrow(ReduxTags.Biomes.IS_FROSTED).stream().map(holder ->
-                    Pair.of(holder, 0xD0D2E5)).collect(Collectors.toMap(Pair::first, Pair::second)))
+                .put(biomes.getOrThrow(ReduxBiomes.FROSTED_FORESTS), 0xD0D2E5)
                 .build());
         context.register(SKY_COLOR_AETHER, new ConditionalBiomeModifier(Holder.direct(sky), conditions.get(ReduxConditions.SKY_COLORS).orElseThrow()));
         
@@ -108,8 +106,7 @@ public class ReduxBiomeModifiers {
                 .put(biomes.getOrThrow(AetherBiomes.SKYROOT_WOODLAND), 0x6A94B5)
                 .put(biomes.getOrThrow(ReduxBiomes.GILDED_GROVES), 0x89C1C6)
                 .put(biomes.getOrThrow(ReduxBiomes.THE_BLIGHT), 0xA2ACD8)
-                .putAll(biomes.getOrThrow(ReduxTags.Biomes.IS_FROSTED).stream().map(holder ->
-                    Pair.of(holder, 0xA2C3D8)).collect(Collectors.toMap(Pair::first, Pair::second)))
+                .put(biomes.getOrThrow(ReduxBiomes.FROSTED_FORESTS), 0xA2C3D8)
                 .build(),
             ImmutableMap.<Holder<Biome>, Integer>builder() // fog
                 .put(biomes.getOrThrow(AetherBiomes.SKYROOT_MEADOW), 0x1B2528)
@@ -117,8 +114,7 @@ public class ReduxBiomeModifiers {
                 .put(biomes.getOrThrow(AetherBiomes.SKYROOT_WOODLAND), 0x10171C)
                 .put(biomes.getOrThrow(ReduxBiomes.GILDED_GROVES), 0x1E2A2B)
                 .put(biomes.getOrThrow(ReduxBiomes.THE_BLIGHT), 0x1C1E26)
-                .putAll(biomes.getOrThrow(ReduxTags.Biomes.IS_FROSTED).stream().map(holder ->
-                    Pair.of(holder, 0x1A2023)).collect(Collectors.toMap(Pair::first, Pair::second)))
+                .put(biomes.getOrThrow(ReduxBiomes.FROSTED_FORESTS), 0x1A2023)
                 .build());
         context.register(WATER_COLOR_AETHER, new ConditionalBiomeModifier(Holder.direct(water), conditions.get(ReduxConditions.WATER_COLORS).orElseThrow()));
         
