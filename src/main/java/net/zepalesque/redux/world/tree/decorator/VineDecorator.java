@@ -17,22 +17,42 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 import net.zepalesque.redux.Redux;
 
-public class GoldenVineDecorator extends TreeDecorator {
+public class VineDecorator extends TreeDecorator {
 
-    public static final MapCodec<GoldenVineDecorator> CODEC = RecordCodecBuilder.mapCodec(builder ->
-            builder.group(Codec.floatRange(0.0F, 1.0F).fieldOf("probability").forGetter(instance -> instance.probability),
-                            BlockStateProvider.CODEC.fieldOf("plant_body_provider").forGetter(instance -> instance.bodyBlock),
-                            BlockStateProvider.CODEC.fieldOf("plant_head_provider").forGetter(instance -> instance.headBlock),
-                            IntProvider.codec(1,128).fieldOf("length").forGetter(instance -> instance.length),
-                            BlockPredicate.CODEC.optionalFieldOf("predicate").forGetter(instance -> instance.predicate))
-                                    .apply(builder, GoldenVineDecorator::new));
+    public static final MapCodec<VineDecorator> CODEC = RecordCodecBuilder.mapCodec(
+        builder -> builder.group(
+            Codec.floatRange(
+                0.0F, 1.0F
+            ).fieldOf(
+                "probability"
+            ).forGetter(
+                instance -> instance.probability
+            ), BlockStateProvider.CODEC.fieldOf(
+                "plant_body_provider"
+            ).forGetter(
+                instance -> instance.bodyBlock
+            ), BlockStateProvider.CODEC.fieldOf(
+                "plant_head_provider"
+            ).forGetter(
+                instance -> instance.headBlock
+            ), IntProvider.codec(
+                1,128
+            ).fieldOf(
+                "length"
+            ).forGetter(instance -> instance.length),
+            BlockPredicate.CODEC.optionalFieldOf(
+                "predicate"
+            ).forGetter(
+                instance -> instance.predicate
+            )
+        ).apply(builder, VineDecorator::new));
     private final float probability;
     private final BlockStateProvider bodyBlock;
     private final BlockStateProvider headBlock;
     private final IntProvider length;
     private final Optional<BlockPredicate> predicate;
 
-    public GoldenVineDecorator(float vineProbability, BlockStateProvider bodyBlock, BlockStateProvider headBlock, IntProvider vineLength, Optional<BlockPredicate> predicate) {
+    public VineDecorator(float vineProbability, BlockStateProvider bodyBlock, BlockStateProvider headBlock, IntProvider vineLength, Optional<BlockPredicate> predicate) {
         this.probability = vineProbability;
         this.bodyBlock = bodyBlock;
         this.headBlock = headBlock;

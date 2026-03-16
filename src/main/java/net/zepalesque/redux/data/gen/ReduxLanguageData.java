@@ -52,7 +52,11 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 
 		addBlock(ReduxBlocks.GOLDEN_VINES);
 		addBlock(ReduxBlocks.GOLDEN_VINES_PLANT);
-		addLore(ReduxBlocks.GOLDEN_VINES, "A golden vine that grows in a symbiotic relationship with Golden Oak trees when they are healthy, such as when found in the Gilded Groves");
+		addLore(ReduxBlocks.GOLDEN_VINES, "A golden vine that grows in a symbiotic relationship with Golden Oak trees.");
+
+		addBlock(ReduxBlocks.SHADED_VINES);
+		addBlock(ReduxBlocks.SHADED_VINES_PLANT);
+		addLore(ReduxBlocks.SHADED_VINES, "A purple relative to Golden Vines. These will oftentimes grow on Blightwillow trees in the Blight.");
 
 		addBlock(ReduxBlocks.CARVED_PILLAR);
 		addLore(ReduxBlocks.CARVED_PILLAR, "A pillar made of Carved Stone. Pillars look nice for supporting a build, along with giving it nice corners.");

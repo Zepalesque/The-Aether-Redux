@@ -476,9 +476,10 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 				.sound(SoundType.NETHERITE_BLOCK)
 		)
 	);
-
-	public static final DeferredBlock<HangingAetherVinesHead> GOLDEN_VINES = register("golden_vines", () ->
-		new HangingAetherVinesHead(
+	
+	public static final DeferredBlock<HangingAetherVinesHead> GOLDEN_VINES = register(
+		"golden_vines",
+		() -> new HangingAetherVinesHead(
 			BlockBehaviour.Properties.ofFullCopy(Blocks.WEEPING_VINES)
 				.mapColor(MapColor.GOLD)
 				.sound(SoundType.CAVE_VINES),
@@ -486,7 +487,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 			ReduxBlocks.GOLDEN_VINES_PLANT
 		)
 	);
-
+	
 	public static final DeferredBlock<HangingAetherVinesBody> GOLDEN_VINES_PLANT = BLOCKS.register(
 		"golden_vines_plant",
 		() -> new HangingAetherVinesBody(
@@ -495,6 +496,28 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 				.sound(SoundType.CAVE_VINES),
 			BlockTags.LEAVES,
 			ReduxBlocks.GOLDEN_VINES
+		)
+	);
+	
+	public static final DeferredBlock<HangingAetherVinesHead> SHADED_VINES = register(
+		"shaded_vines",
+		() -> new HangingAetherVinesHead(
+			BlockBehaviour.Properties.ofFullCopy(Blocks.WEEPING_VINES)
+				.mapColor(MapColor.TERRACOTTA_PURPLE)
+				.sound(SoundType.CAVE_VINES),
+			BlockTags.LEAVES,
+			ReduxBlocks.SHADED_VINES_PLANT
+		)
+	);
+	
+	public static final DeferredBlock<HangingAetherVinesBody> SHADED_VINES_PLANT = BLOCKS.register(
+		"shaded_vines_plant",
+		() -> new HangingAetherVinesBody(
+			BlockBehaviour.Properties.ofFullCopy(Blocks.WEEPING_VINES_PLANT)
+				.mapColor(MapColor.GOLD)
+				.sound(SoundType.CAVE_VINES),
+			BlockTags.LEAVES,
+			ReduxBlocks.SHADED_VINES
 		)
 	);
 

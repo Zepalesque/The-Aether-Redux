@@ -108,6 +108,7 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
 
         this.item(ReduxBlocks.GOLDEN_CLOVERS.get().asItem(), "misc/");
         this.itemBlockFlatOther(ReduxBlocks.GOLDEN_VINES.get(), ReduxBlocks.GOLDEN_VINES_PLANT.get(), "natural/");
+        this.itemBlockFlatOther(ReduxBlocks.SHADED_VINES.get(), ReduxBlocks.SHADED_VINES_PLANT.get(), "natural/");
 
         this.item(ReduxBlocks.LOGICATOR.get().asItem(), "misc/");
 

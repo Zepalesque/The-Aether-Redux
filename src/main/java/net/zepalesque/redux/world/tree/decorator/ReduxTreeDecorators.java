@@ -10,11 +10,11 @@ public class ReduxTreeDecorators {
     public static final DeferredRegister<TreeDecoratorType<?>>
         TREE_DECORATORS = Redux.reg(BuiltInRegistries.TREE_DECORATOR_TYPE);
 
-    public static final DeferredHolder<TreeDecoratorType<?>, TreeDecoratorType<GoldenVineDecorator>>
+    public static final DeferredHolder<TreeDecoratorType<?>, TreeDecoratorType<VineDecorator>>
         GOLDEN_VINES = TREE_DECORATORS.register(
             "golden_vines",
             () -> new TreeDecoratorType<>(
-                GoldenVineDecorator.CODEC
+                VineDecorator.CODEC
             ));
     public static final DeferredHolder<TreeDecoratorType<?>, TreeDecoratorType<BranchLeavesDecorator>>
         BRANCH_LEAVES = TREE_DECORATORS.register(

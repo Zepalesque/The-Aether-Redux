@@ -132,7 +132,9 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
 		this.tag(BlockTags.SWORD_EFFICIENT).add(
 			ReduxBlocks.GOLDEN_CLOVERS.get(),
 			ReduxBlocks.GOLDEN_VINES.get(),
-			ReduxBlocks.GOLDEN_VINES_PLANT.get()
+			ReduxBlocks.GOLDEN_VINES_PLANT.get(),
+			ReduxBlocks.SHADED_VINES.get(),
+			ReduxBlocks.SHADED_VINES_PLANT.get()
 		);
 
 		this.tag(BlockTags.CLIMBABLE).add(ReduxBlocks.GOLDEN_VINES_PLANT.get());

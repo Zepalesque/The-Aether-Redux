@@ -65,7 +65,7 @@ import net.zepalesque.redux.world.feature.gen.DebugNoiseFeature;
 import net.zepalesque.redux.world.feature.gen.LakesFeature;
 import net.zepalesque.redux.world.feature.gen.ReduxFeatures;
 import net.zepalesque.redux.world.feature.gen.WaterPlantFeature;
-import net.zepalesque.redux.world.tree.decorator.GoldenVineDecorator;
+import net.zepalesque.redux.world.tree.decorator.VineDecorator;
 import net.zepalesque.redux.world.tree.foliage.BlightwillowFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.CrystalFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.HookedFoliagePlacer;
@@ -400,9 +400,16 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				new BlightwillowFoliagePlacer(ConstantInt.of(3), ConstantInt.of(1), ConstantInt.of(10)),
 				Optional.empty(),
 				new TwoLayersFeatureSize(7, 0, 3)
-			)
-				.ignoreVines()
-				.build()
+			).ignoreVines()
+			.decorators(List.of(
+				new VineDecorator(
+					0.25F,
+					prov(ReduxBlocks.SHADED_VINES_PLANT),
+					prov(ReduxBlocks.SHADED_VINES),
+					UniformInt.of(1, 3),
+					Optional.empty()
+				)
+			)).build()
 		);
 
 		FeatureUtils.register(
@@ -459,7 +466,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				.ignoreVines()
 				.decorators(
 					List.of(
-						new GoldenVineDecorator(
+						new VineDecorator(
 							0.25F,
 							prov(ReduxBlocks.GOLDEN_VINES_PLANT),
 							prov(ReduxBlocks.GOLDEN_VINES),
@@ -489,7 +496,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				.ignoreVines()
 				.decorators(
 					List.of(
-						new GoldenVineDecorator(
+						new VineDecorator(
 							0.25F,
 							prov(ReduxBlocks.GOLDEN_VINES_PLANT),
 							prov(ReduxBlocks.GOLDEN_VINES),
