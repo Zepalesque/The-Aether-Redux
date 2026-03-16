@@ -77,7 +77,24 @@ public class ReduxSurfaceRules {
 
 			inBiome(
 				ReduxBiomes.THE_BLIGHT,
-
+				
+				SurfaceRules.ifTrue(
+					SurfaceRules.UNDER_FLOOR,
+					SurfaceRules.ifTrue(
+						SurfaceRules.noiseCondition(Noises.ICE, 0.2, 0.4),
+						SurfaceRules.ifTrue(
+							SurfaceRules.noiseCondition(Noises.SWAMP, 0.5, 0.8),
+							surfaceState(ReduxBlocks.BLEAKMOSS_BLOCK)
+						)
+					)
+				),
+				SurfaceRules.ifTrue(
+					SurfaceRules.UNDER_FLOOR,
+					SurfaceRules.ifTrue(
+						SurfaceRules.noiseCondition(Noises.ICE, 0.2, 0.4),
+						surfaceState(ReduxStoneSets.BLEAKMOSS_HOLYSTONE.block())
+					)
+				),
 				SurfaceRules.ifTrue(
 					SurfaceRules.ON_FLOOR,
 					SurfaceRules.ifTrue(
