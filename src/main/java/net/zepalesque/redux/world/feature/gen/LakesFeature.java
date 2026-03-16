@@ -42,12 +42,12 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 	@Override
 	public boolean place(FeaturePlaceContext<Config> context) {
 		var config = context.config();
-		var level = context.level();
+		var lvl = context.level();
 		var rand = context.random();
 
 		var lakeNoise = config.lakeNoise();
 		var yOffsetNoise = config.yOffset();
-		var visitor = PerlinNoiseFunction.createOrGetVisitor(level.getSeed() + 1);
+		var visitor = PerlinNoiseFunction.createOrGetVisitor(lvl.getSeed() + 1);
 
 		lakeNoise.mapAll(visitor);
 		yOffsetNoise.mapAll(visitor);
@@ -56,22 +56,22 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 		var chunkX = context.origin().getX() - context.origin().getX() % 16;
 		var chunkZ = context.origin().getZ() - context.origin().getZ() % 16;
 
-		var yLevel = config.yLevel();
+		var y = config.yLevel();
 
 		// Place blocks across the entire chunk
-		for (var x = 0; x < 16; x++)
-			for (var z = 0; z < 16; z++) {
+		for (var inChunkX = 0; inChunkX < 16; inChunkX++)
+			for (var inChunkZ = 0; inChunkZ < 16; inChunkZ++) {
 				// calculate new coords based on the for loops' values
-				var xCoord = chunkX + x;
-				var zCoord = chunkZ + z;
+				var x = chunkX + inChunkX;
+				var z = chunkZ + inChunkZ;
 				// The main lake noise is what is used for the distinction of gaps and non-gaps
 				var lakeCalc = lakeNoise.compute(
-					new DensityFunction.SinglePointContext(xCoord, yLevel, zCoord)
+					new DensityFunction.SinglePointContext(x, y, z)
 				);
 				
 				// A Y offset is then calculated and applied using a second, smoother and larger noise
 				var offsetCalc = yOffsetNoise.compute(
-					new DensityFunction.SinglePointContext(xCoord, yLevel, zCoord)
+					new DensityFunction.SinglePointContext(x, y, z)
 				);
 				var realOffset = cosineInterp(
 					(float) Mth.inverseLerp(offsetCalc, -0.5, 0.5),
@@ -87,21 +87,21 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 				);
 				
 				// Place the quicksoil shores
-				var pos = new BlockPos(xCoord, yLevel, zCoord);
-				if (config.predicate().test(level, pos) && (depth == SHORE_DEPTH)) {
-					this.setBlock(level, pos, config.shore().getState(rand, pos));
+				var pos = new BlockPos(x, y, z);
+				if (config.predicate().test(lvl, pos) && (depth == SHORE_DEPTH)) {
+					this.setBlock(lvl, pos, config.shore().getState(lvl, rand, pos));
 
 					var below = pos.below();
-					if (level.getBlockState(below).is(AetherTags.Blocks.AETHER_DIRT)) {
-						this.setBlock(level, below, context.config().floor().getState(level, rand, below));
+					if (lvl.getBlockState(below).is(AetherTags.Blocks.AETHER_DIRT)) {
+						this.setBlock(lvl, below, context.config().floor().getState(lvl, rand, below));
 					}
 				}
 
 				if (depth < SHORE_DEPTH) {
 					// Place the water itself
-					placeWater(context, xCoord, yLevel, zCoord, depth);
+					placeWater(context, x, y, z, depth);
 					// Place stone underneath the water
-					placeBottom(context, xCoord, yLevel, zCoord, depth, visitor);
+					placeBottom(context, x, y, z, depth, visitor);
 				}
 			}
 		return false;
@@ -137,8 +137,8 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 		var shore = context.config().shore();
 		// why must java not allow primitives in generics smh,,,,
 		BiFunction<Integer, BlockPos, Optional<Functions.F3<WorldGenLevel, RandomSource, BlockPos, BlockState>>>
-			fun = (i, p) -> {						   // vv  rus,,,, 🦀
-				if (i == SHORE_DEPTH) return Optional.of((__, rand, pos) -> shore.getState(rand, pos));
+			fun = (i, p) -> {						   // vvv  used to be rus,,,, 🦀
+				if (i == SHORE_DEPTH) return Optional.of((lvl, rand, pos) -> shore.getState(lvl, rand, pos));
 				else if (predicate.test(level, p)) return Optional.of(floor::getState);
 				else return Optional.empty();
 			};
@@ -258,7 +258,7 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 
 	public record Config(
 		BlockStateProvider fluid,
-		BlockStateProvider shore,
+		RuleBasedBlockStateProvider shore,
 		RuleBasedBlockStateProvider floor,
 		BlockPredicate predicate,
 		int yLevel,
@@ -272,7 +272,7 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 		public static final Codec<Config> CODEC = RecordCodecBuilder.create(
 			builder -> builder.group(
 				BlockStateProvider.CODEC.fieldOf("fluid").forGetter(Config::fluid),
-				BlockStateProvider.CODEC.fieldOf("shore").forGetter(Config::shore),
+				RuleBasedBlockStateProvider.CODEC.fieldOf("shore").forGetter(Config::shore),
 				RuleBasedBlockStateProvider.CODEC.fieldOf("floor").forGetter(Config::floor), BlockPredicate.CODEC.fieldOf("predicate").forGetter(Config::predicate),
 				Codec.INT.fieldOf("y_level").forGetter(Config::yLevel),
 				DensityFunction.HOLDER_HELPER_CODEC.fieldOf("lake_noise").forGetter(Config::lakeNoise),

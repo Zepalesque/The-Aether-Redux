@@ -85,6 +85,8 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
     public static final ResourceKey<PlacedFeature> SPARSE_PURPLE_FLOWER_PATCH = copyKey(ReduxFeatureConfig.SPARSE_PURPLE_FLOWER_PATCH);
     public static final ResourceKey<PlacedFeature> SKYFERN_PATCH = copyKey(ReduxFeatureConfig.SKYFERN_PATCH);
     
+    public static final ResourceKey<PlacedFeature> AETHER_SNOW_LAYER = copyKey(ReduxFeatureConfig.AETHER_SNOW_LAYER);
+    
     
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
         var configs = context.lookup(Registries.CONFIGURED_FEATURE);
@@ -384,6 +386,12 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
             ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 3), 4),
             RarityFilter.onAverageOnceEvery(7),
             BiomeFilter.biome()
+        );
+        
+        register(
+            context,
+            AETHER_SNOW_LAYER,
+            configs.getOrThrow(ReduxFeatureConfig.AETHER_SNOW_LAYER)
         );
     }
     

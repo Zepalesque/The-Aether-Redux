@@ -22,9 +22,9 @@ public class FrostedForests {
 		var placed = context.lookup(Registries.PLACED_FEATURE);
 		var carvers = context.lookup(Registries.CONFIGURED_CARVER);
 		return new Biome.BiomeBuilder()
-			.hasPrecipitation(false)
-			.temperature(0.8F)
-			.downfall(0.0F)
+			.hasPrecipitation(true)
+			.temperature(-1.6F)
+			.downfall(0.4F)
 			.specialEffects(
 				new BiomeSpecialEffects.Builder()
 					.fogColor(0x93_93_bc)

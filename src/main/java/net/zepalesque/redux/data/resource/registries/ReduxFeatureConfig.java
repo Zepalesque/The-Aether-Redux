@@ -35,6 +35,7 @@ import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
@@ -76,6 +77,7 @@ import net.zepalesque.redux.world.tree.trunk.HookedTrunkPlacer;
 import net.zepalesque.unity.block.UnityBlocks;
 import net.zepalesque.unity.data.UnityTags;
 import net.zepalesque.unity.extstate.UnityStateLists;
+import net.zepalesque.zenith.api.block.predicate.InBiomePredicate;
 import net.zepalesque.zenith.api.block.predicate.NoisePredicate;
 import net.zepalesque.zenith.api.world.feature.gen.ExtendableStateListBlockFeature;
 import net.zepalesque.zenith.api.world.feature.gen.LargeRockFeature;
@@ -196,7 +198,10 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 		name(UnityBlocks.SKYFERN) + "_patch"
 	);
 	
-
+	public static final ResourceKey<ConfiguredFeature<?, ?>> AETHER_SNOW_LAYER = createKey("aether_snow_layer");
+	
+	
+	
 	
 	// Overrides
 	public static final ResourceKey<ConfiguredFeature<?, ?>> SKYROOT_TREE =
@@ -274,13 +279,22 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			)
 		).toList());
 		
+		var shore = new RuleBasedBlockStateProvider(prov(AetherBlocks.QUICKSOIL),
+			List.of(
+				new RuleBasedBlockStateProvider.Rule(
+					InBiomePredicate.inTag(ReduxTags.Biomes.IS_FROSTED),
+					prov(AetherBlocks.AEROGEL)
+				)
+			)
+		);
+		
 		FeatureUtils.register(
 			context,
 			LAKES,
 			ReduxFeatures.LAKES.get(),
 			new LakesFeature.Config(
 				prov(Blocks.WATER.defaultBlockState()),
-				prov(AetherFeatureStates.QUICKSOIL),
+				shore,
 				lakeFloor,
 				BlockPredicate.replaceable(),
 				LakesFeature.Y_LEVEL_DEFAULT,
@@ -950,5 +964,11 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 		
 		register(context, SKYFERN_PATCH, Feature.FLOWER,
 			patch(24, 9, 3, prov(UnityBlocks.SKYFERN)));
+		
+		register(context,
+			AETHER_SNOW_LAYER,
+			ReduxFeatures.TREE_AWARE_SNOW.get(),
+			FeatureConfiguration.NONE
+		);
 	}
 }
