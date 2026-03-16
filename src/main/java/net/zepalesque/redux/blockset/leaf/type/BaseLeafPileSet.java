@@ -24,6 +24,7 @@ import net.zepalesque.redux.data.prov.ReduxBlockStateProvider;
 import net.zepalesque.redux.data.prov.ReduxDataMapProvider;
 import net.zepalesque.redux.data.prov.ReduxItemModelProvider;
 import net.zepalesque.redux.data.prov.ReduxLanguageProvider;
+import net.zepalesque.redux.data.prov.loot.ReduxBlockLootProvider;
 import net.zepalesque.redux.data.prov.tags.ReduxBlockTagsProvider;
 import net.zepalesque.redux.data.prov.tags.ReduxItemTagsProvider;
 import net.zepalesque.redux.item.ReduxItems;
@@ -190,5 +191,11 @@ public abstract class BaseLeafPileSet<L extends LeavesBlock, S extends SaplingBl
 		}
 		
 		return null;
+	}
+	
+	@Override
+	public void lootData(ReduxBlockLootProvider data) {
+		super.lootData(data);
+		data.add(this.pile().get(), data.shears());
 	}
 }
