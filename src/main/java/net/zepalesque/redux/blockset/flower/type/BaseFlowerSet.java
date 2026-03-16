@@ -66,8 +66,7 @@ implements
 	protected final Collection<TagKey<Block>> potTags = new ArrayList<>();
 	protected final Collection<TagKey<Item>> itemTags = new ArrayList<>();
 
-	@Nullable
-	protected Pair<Integer, Integer> flammability = Pair.of(60, 100);
+	@Nullable protected Pair<Integer, Integer> flammability = Pair.of(60, 100);
 
 	protected final DeferredBlock<B> flower;
 	protected final DeferredBlock<FlowerPotBlock> pot;

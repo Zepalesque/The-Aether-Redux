@@ -42,6 +42,9 @@
 		"aether_redux:lumina": {
 			"chance": 0.65
 		},
+		"aether_redux:luxweed": {
+			"chance": 0.3
+		},
 		"aether_redux:moonfir_sapling": {
 			"chance": 0.3
 		},

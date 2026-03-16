@@ -1268,8 +1268,7 @@ implements
 	}
 
 	@Override
-	@Nullable
-	public String logSuffix(boolean plural, boolean localized) {
+	@Nullable public String logSuffix(boolean plural, boolean localized) {
 		String base = localized ? " Log" : "_log";
 
 		return plural ? base + "s" : base;
@@ -1286,8 +1285,7 @@ implements
 	}
 
 	@Override
-	@Nullable
-	public ItemLike addToCreativeTab(
+	@Nullable public ItemLike addToCreativeTab(
 		BuildCreativeModeTabContentsEvent event,
 		@Nullable ItemLike prev,
 		TabAdditionPhase phase

@@ -1,8 +1,8 @@
 {
 	"values": [
-		"#aether:is_aether",
 		"aether:skyroot_grove",
 		"aether:skyroot_meadow",
-		"aether:skyroot_woodland"
+		"aether:skyroot_woodland",
+		"aether_redux:gilded_groves"
 	]
 }

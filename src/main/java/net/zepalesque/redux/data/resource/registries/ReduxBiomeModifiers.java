@@ -3,11 +3,7 @@ package net.zepalesque.redux.data.resource.registries;
 import com.aetherteam.aether.data.resources.registries.AetherBiomes;
 import com.google.common.collect.ImmutableMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
-import java.util.stream.Collectors;
-
-import it.unimi.dsi.fastutil.Pair;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;

@@ -1,0 +1,12 @@
+{
+	"type": "zenith:large_rock",
+	"config": {
+		"block": {
+			"type": "minecraft:simple_state_provider",
+			"state": {
+				"Name": "aether:icestone"
+			}
+		},
+		"replaceable_states": "#aether_redux:rock_replaceable"
+	}
+}

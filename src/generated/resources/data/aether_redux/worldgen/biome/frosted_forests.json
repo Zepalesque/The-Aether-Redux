@@ -17,38 +17,34 @@
 		"water_fog_color": 329011
 	},
 	"features": [
-		["aether:quicksoil_shelf"],
+		["aether_redux:aerogel_disk"],
 		["aether:water_lake"],
 		[],
 		[],
-		[],
+		["aether_redux:icestone_rock"],
 		[],
 		[
 			"aether:aether_dirt_ore",
+			"aether_redux:large_icestone_ore",
 			"aether:icestone_ore",
-			"aether_redux:sparse_ambrosium_ore",
-			"aether_redux:dense_zanite_ore",
+			"aether:ambrosium_ore",
+			"aether:zanite_ore",
 			"aether:gravitite_ore_buried",
 			"aether:gravitite_ore"
 		],
 		[],
 		["aether:water_spring"],
 		[
-			"aether_redux:the_blight_trees",
+			"aether_redux:frosted_forests_trees",
 			"aether:holiday_tree",
 			"aether:grass_patch",
 			"aether:tall_grass_patch",
-			"aether_redux:luxweed_patch",
-			"aether_redux:spirolyctil_patch",
-			"aether_redux:gloomshade_patch",
+			"aether_redux:lumina_patch",
+			"aether_redux:sparse_purple_flower_patch",
+			"aether_redux:daggerbloom_patch",
 			"aether_redux:skyfern_patch"
 		],
-		[
-			"aether:crystal_island",
-			"aether:cold_aercloud",
-			"aether:blue_aercloud",
-			"aether:golden_aercloud"
-		]
+		["aether:cold_aercloud", "aether:blue_aercloud", "aether:golden_aercloud"]
 	],
 	"has_precipitation": false,
 	"spawn_costs": {
@@ -149,31 +145,31 @@
 				"type": "aether:phyg",
 				"maxCount": 4,
 				"minCount": 3,
-				"weight": 10
+				"weight": 15
 			},
 			{
 				"type": "aether:sheepuff",
 				"maxCount": 4,
 				"minCount": 3,
-				"weight": 12
+				"weight": 13
 			},
 			{
 				"type": "aether:flying_cow",
 				"maxCount": 5,
 				"minCount": 2,
-				"weight": 12
+				"weight": 8
 			},
 			{
 				"type": "aether:aerbunny",
 				"maxCount": 3,
 				"minCount": 3,
-				"weight": 11
+				"weight": 13
 			},
 			{
 				"type": "aether:moa",
 				"maxCount": 3,
 				"minCount": 1,
-				"weight": 8
+				"weight": 6
 			}
 		],
 		"misc": [],
