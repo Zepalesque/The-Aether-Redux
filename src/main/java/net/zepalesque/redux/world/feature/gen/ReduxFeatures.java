@@ -39,4 +39,11 @@ public class ReduxFeatures {
 
 	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> CRYSTAL_ISLAND = 
 		FEATURES.register("crystal_island", ReduxCrystalIslandFeature::new);
+	
+	// TODO: Move to Zenith
+	public static DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> TREE_AWARE_SNOW =
+		FEATURES.register("tree_aware_snow",
+			() -> new TreeAwareSnowLayerFeature(NoneFeatureConfiguration.CODEC)
+		);
+	
 }

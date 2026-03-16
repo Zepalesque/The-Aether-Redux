@@ -45,6 +45,8 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
 
 		this.tag(ReduxTags.Biomes.HAS_CAVES).addTag(AetherTags.Biomes.IS_AETHER);
 		
+		this.tag(ReduxTags.Biomes.HAS_CONDITIONAL_SNOW).addTag(AetherTags.Biomes.IS_AETHER);
+		
 		this.tag(ReduxTags.Biomes.IS_FROSTED).add(
 			ReduxBiomes.FROSTED_FORESTS
 		);

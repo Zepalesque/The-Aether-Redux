@@ -43,6 +43,7 @@ public class ReduxBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_ANGILITE = createKey("add_angilite");
     public static final ResourceKey<BiomeModifier> ADD_WYNDSPROUTS = createKey("add_wyndsprouts");
     public static final ResourceKey<BiomeModifier> ADD_CAVES = createKey("add_caves");
+    public static final ResourceKey<BiomeModifier> ADD_CONDITIONAL_SNOW = createKey("add_conditional_snow");
     
     private static ResourceKey<BiomeModifier> createKey(String name) {
         return ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, Redux.loc(name));
@@ -132,5 +133,13 @@ public class ReduxBiomeModifiers {
         
         context.register(ADD_CAVES, new BiomeModifiers.AddCarversBiomeModifier(
             biomes.getOrThrow(ReduxTags.Biomes.HAS_CAVES), HolderSet.direct(carvers.getOrThrow(ReduxCarverConfig.AETHER_CAVES)), GenerationStep.Carving.AIR));
+        
+        context.register(
+            ADD_CONDITIONAL_SNOW,
+            new BiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(ReduxTags.Biomes.HAS_CAVES), HolderSet.direct(features.getOrThrow(ReduxPlacements.AETHER_SNOW_LAYER)),
+                GenerationStep.Decoration.TOP_LAYER_MODIFICATION
+            )
+        );
     }
 }
