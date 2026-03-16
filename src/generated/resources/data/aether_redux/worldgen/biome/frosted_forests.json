@@ -1,7 +1,7 @@
 {
 	"carvers": {},
 	"creature_spawn_probability": 0.25,
-	"downfall": 0.0,
+	"downfall": 0.4,
 	"effects": {
 		"fog_color": 9671612,
 		"foliage_color": 11665355,
@@ -46,7 +46,7 @@
 		],
 		["aether:cold_aercloud", "aether:blue_aercloud", "aether:golden_aercloud"]
 	],
-	"has_precipitation": false,
+	"has_precipitation": true,
 	"spawn_costs": {
 		"aether:aechor_plant": {
 			"charge": 0.4,
@@ -178,5 +178,5 @@
 		"water_ambient": [],
 		"water_creature": []
 	},
-	"temperature": 0.8
+	"temperature": -1.6
 }

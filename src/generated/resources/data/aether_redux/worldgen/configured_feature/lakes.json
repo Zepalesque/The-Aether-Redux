@@ -167,13 +167,29 @@
 			"type": "minecraft:replaceable"
 		},
 		"shore": {
-			"type": "minecraft:simple_state_provider",
-			"state": {
-				"Name": "aether:quicksoil",
-				"Properties": {
-					"double_drops": "true"
+			"fallback": {
+				"type": "minecraft:simple_state_provider",
+				"state": {
+					"Name": "aether:quicksoil",
+					"Properties": {
+						"double_drops": "true"
+					}
 				}
-			}
+			},
+			"rules": [
+				{
+					"if_true": {
+						"type": "zenith:in_biome",
+						"biomes": "#aether_redux:has_caves"
+					},
+					"then": {
+						"type": "minecraft:simple_state_provider",
+						"state": {
+							"Name": "aether:aerogel"
+						}
+					}
+				}
+			]
 		},
 		"thickness_max": 2.5,
 		"thickness_noise": "aether_redux:lakes_thickness",
