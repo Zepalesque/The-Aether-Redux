@@ -70,9 +70,8 @@ import net.zepalesque.redux.world.tree.foliage.HookedFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.MoonfirFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.SkyrootFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.SmallGoldenOakFoliagePlacer;
-import net.zepalesque.redux.world.tree.roots.BlightwillowRootsPlacer;
-import net.zepalesque.redux.world.tree.trunk.BlightwillowTrunkPlacer;
 import net.zepalesque.redux.world.tree.trunk.HookedTrunkPlacer;
+import net.zepalesque.redux.world.tree.trunk.OffsetTrunkPlacer;
 import net.zepalesque.unity.block.UnityBlocks;
 import net.zepalesque.unity.data.UnityTags;
 import net.zepalesque.unity.extstate.UnityStateLists;
@@ -376,7 +375,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			Feature.TREE,
 			new TreeConfiguration.TreeConfigurationBuilder(
 				prov(ReduxWoodSets.BLIGHTWILLOW.log()),
-				new BlightwillowTrunkPlacer(ConstantInt.of(6)),
+				new OffsetTrunkPlacer(UniformInt.of(7, 9)),
 				new WeightedStateProvider(
 					SimpleWeightedRandomList.<BlockState>builder()
 						.add(drops(ReduxBlocks.BLIGHTWILLOW_LEAVES), 15)
@@ -384,7 +383,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 						.build()
 				),
 				new BlightwillowFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
-				Optional.of(new BlightwillowRootsPlacer(UniformInt.of(6, 8), 2, prov(ReduxWoodSets.BLIGHTWILLOW.wood()))),
+				Optional.empty(),
 				new TwoLayersFeatureSize(7, 0, 3)
 			)
 				.ignoreVines()
