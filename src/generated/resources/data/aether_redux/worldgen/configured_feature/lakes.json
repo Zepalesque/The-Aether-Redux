@@ -180,7 +180,7 @@
 				{
 					"if_true": {
 						"type": "zenith:in_biome",
-						"biomes": "#aether_redux:has_caves"
+						"biomes": "#aether_redux:is_frosted"
 					},
 					"then": {
 						"type": "minecraft:simple_state_provider",
