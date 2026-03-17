@@ -188,6 +188,21 @@
 							"Name": "aether:aerogel"
 						}
 					}
+				},
+				{
+					"if_true": {
+						"type": "zenith:in_biome",
+						"biomes": "aether_redux:the_blight"
+					},
+					"then": {
+						"type": "minecraft:simple_state_provider",
+						"state": {
+							"Name": "aether_redux:holysilt",
+							"Properties": {
+								"double_drops": "true"
+							}
+						}
+					}
 				}
 			]
 		},

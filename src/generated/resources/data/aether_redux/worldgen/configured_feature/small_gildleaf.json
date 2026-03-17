@@ -24,9 +24,6 @@
 						}
 					}
 				},
-				"predicate": {
-					"type": "minecraft:replaceable"
-				},
 				"probability": 0.25
 			}
 		],

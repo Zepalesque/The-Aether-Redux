@@ -17,7 +17,7 @@
 		"water_fog_color": 329011
 	},
 	"features": [
-		["aether:quicksoil_shelf"],
+		["aether_redux:holysilt_disk"],
 		["aether:water_lake"],
 		[],
 		[],
