@@ -104,6 +104,7 @@ public class VineDecorator extends TreeDecorator {
     }
 
     private void addVine(BlockPos pos, TreeDecorator.Context ctx, int length) {
+        if (!ctx.isAir(pos)) return;
         for (var i = 1; i <= length; i++) {
             var offset = pos.offset(0, 1 - i, 0);
             var notAirBelow = !ctx.isAir(offset.below());
