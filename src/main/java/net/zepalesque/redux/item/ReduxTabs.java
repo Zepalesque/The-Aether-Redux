@@ -57,6 +57,10 @@ public class ReduxTabs {
 				ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES,
 				ReduxBlocks.BLIGHTWILLOW_LEAF_PILE
 			)
+			.putAfter(
+				UnityBlocks.VALKYRIE_CLAY,
+				ReduxBlocks.HOLYSILT
+			)
 			.putAfter(ReduxFlowerSets.AURUM.flower(), ReduxBlocks.GOLDEN_CLOVERS)
 			.putAfter(AetherBlocks.ZANITE_ORE.get(), ReduxBlocks.VERIDIUM_ORE)
 			.putAfter(

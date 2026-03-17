@@ -407,7 +407,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 					prov(ReduxBlocks.SHADED_VINES_PLANT),
 					prov(ReduxBlocks.SHADED_VINES),
 					UniformInt.of(1, 3),
-					Optional.empty()
+					Optional.of(BlockPredicate.replaceable())
 				)
 			)).build()
 		);
@@ -471,7 +471,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 							prov(ReduxBlocks.GOLDEN_VINES_PLANT),
 							prov(ReduxBlocks.GOLDEN_VINES),
 							UniformInt.of(1, 3),
-							Optional.empty()
+							Optional.of(BlockPredicate.replaceable())
 						)
 					)
 				)
@@ -501,11 +501,10 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 							prov(ReduxBlocks.GOLDEN_VINES_PLANT),
 							prov(ReduxBlocks.GOLDEN_VINES),
 							UniformInt.of(1, 5),
-							Optional.empty()
+							Optional.of(BlockPredicate.replaceable())
 						)
 					)
-				)
-				.build()
+				).build()
 		);
 
 		FeatureUtils.register(

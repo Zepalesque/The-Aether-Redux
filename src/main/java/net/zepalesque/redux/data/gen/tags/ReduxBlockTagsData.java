@@ -118,6 +118,12 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
 			ReduxBlocks.GILDLEAF_AMBER_LOG.get(),
 			ReduxBlocks.GILDLEAF_AMBER_WOOD.get()
 		);
+		this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
+			ReduxBlocks.HOLYSILT.get()
+		);
+		this.tag(Tags.Blocks.GRAVELS).add(
+			ReduxBlocks.HOLYSILT.get()
+		);
 		this.tag(ReduxWoodSets.GILDLEAF.logsBlockTag()).add(
 			ReduxBlocks.GILDLEAF_AMBER_LOG.get(),
 			ReduxBlocks.GILDLEAF_AMBER_WOOD.get()

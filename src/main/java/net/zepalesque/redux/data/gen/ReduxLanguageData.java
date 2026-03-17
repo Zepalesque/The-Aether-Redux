@@ -206,6 +206,9 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 		addBlock(ReduxBlocks.LOGICATOR, "Redstone Logicator");
 		addLore(ReduxBlocks.LOGICATOR, "A fascinating circuit made with an exotic material not found in the Aether - Redstone. This little diode takes in two inputs on the side, and will perform a logical operation on the two for the output. The operation is controlled by the torch on the top and the back input. The torch controls AND/OR mode, and the back input controls exclusivity (XNOR/XOR).");
 
+		addBlock(ReduxBlocks.HOLYSILT);
+		addLore(ReduxBlocks.HOLYSILT, "A fine gravel made of Holystone, among other minerals. It supports its own weight when found naturally, but be careful as stepping on it may destabilize it!");
+
 		addEntityType(ReduxEntities.EMBER);
 		addEntityType(ReduxEntities.VERIDIUM_DART);
 		addEntityType(ReduxEntities.INFUSED_VERIDIUM_DART);

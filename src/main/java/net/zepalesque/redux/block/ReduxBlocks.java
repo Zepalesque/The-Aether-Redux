@@ -37,6 +37,7 @@ import net.zepalesque.redux.block.natural.EchysiaBlock;
 import net.zepalesque.redux.block.natural.GoldenCloversBlock;
 import net.zepalesque.redux.block.natural.HangingAetherVinesBody;
 import net.zepalesque.redux.block.natural.HangingAetherVinesHead;
+import net.zepalesque.redux.block.natural.HolysiltBlock;
 import net.zepalesque.redux.block.natural.TurboVerbenaBlock;
 import net.zepalesque.redux.block.natural.crop.WyndoatsBlock;
 import net.zepalesque.redux.block.natural.leaves.BlightwillowLeavesBlock;
@@ -527,6 +528,17 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 				.instabreak()
 				.sound(SoundType.STONE)
 				.pushReaction(PushReaction.DESTROY)
+		)
+	);
+	
+	public static final DeferredBlock<HolysiltBlock> HOLYSILT = register(
+		"holysilt",
+		() -> new HolysiltBlock(
+			BlockBehaviour.Properties.of()
+				.mapColor(MapColor.COLOR_LIGHT_GRAY)
+				.strength(0.5F)
+				.sound(SoundType.SAND)
+				.instrument(NoteBlockInstrument.BASEDRUM)
 		)
 	);
 
