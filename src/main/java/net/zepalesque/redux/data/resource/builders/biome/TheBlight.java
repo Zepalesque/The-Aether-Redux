@@ -71,7 +71,7 @@ public class TheBlight {
             .generationSettings(
                 new BiomeGenerationSettings.Builder(placed, carvers)
                     
-                    .addFeature(GenerationStep.Decoration.RAW_GENERATION, AetherPlacedFeatures.QUICKSOIL_SHELF_PLACEMENT)
+                    .addFeature(GenerationStep.Decoration.RAW_GENERATION, ReduxPlacements.HOLYSILT_DISK)
                     
                     .addFeature(GenerationStep.Decoration.LAKES, AetherPlacedFeatures.WATER_LAKE_PLACEMENT)
                     

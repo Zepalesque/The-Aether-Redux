@@ -81,6 +81,8 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
     public static final ResourceKey<PlacedFeature> FROSTED_TREES = copyKey(ReduxFeatureConfig.FROSTED_TREES);
     public static final ResourceKey<PlacedFeature> GLACIAL_TREES = copyKey(ReduxFeatureConfig.GLACIAL_TREES);
     
+    public static final ResourceKey<PlacedFeature> HOLYSILT_DISK = copyKey(ReduxFeatureConfig.HOLYSILT_DISK);
+    
     public static final ResourceKey<PlacedFeature> LUMINA_PATCH = copyKey(ReduxFeatureConfig.LUMINA_PATCH);
     public static final ResourceKey<PlacedFeature> DAGGERBLOOM_PATCH = copyKey(ReduxFeatureConfig.DAGGERBLOOM_PATCH);
     public static final ResourceKey<PlacedFeature> SPARSE_PURPLE_FLOWER_PATCH = copyKey(ReduxFeatureConfig.SPARSE_PURPLE_FLOWER_PATCH);
@@ -316,6 +318,13 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
         );
         
         register(context, AEROGEL_DISK, configs.getOrThrow(ReduxFeatureConfig.AEROGEL_DISK),
+            RarityFilter.onAverageOnceEvery(5),
+            PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+            BiomeFilter.biome(),
+            blacklist
+        );
+        
+        register(context, HOLYSILT_DISK, configs.getOrThrow(ReduxFeatureConfig.HOLYSILT_DISK),
             RarityFilter.onAverageOnceEvery(5),
             PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
             BiomeFilter.biome(),

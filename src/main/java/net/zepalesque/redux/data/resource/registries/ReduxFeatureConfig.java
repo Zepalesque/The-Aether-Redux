@@ -182,6 +182,10 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 		name(AetherBlocks.AEROGEL) + "_disk"
 	);
 	
+	public static final ResourceKey<ConfiguredFeature<?, ?>> HOLYSILT_DISK = createKey(
+		name(ReduxBlocks.HOLYSILT) + "_disk"
+	);
+	
 	public static final ResourceKey<ConfiguredFeature<?, ?>> LUMINA_PATCH  = createKey(
 		name(ReduxFlowerSets.LUMINA.flower()) + "_patch"
 	);
@@ -215,9 +219,10 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 
 	// rip bootstap :pensive:
 	public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
-		HolderGetter<ConfiguredFeature<?, ?>> configs = context.lookup(Registries.CONFIGURED_FEATURE);
-		HolderGetter<DensityFunction> functions = context.lookup(Registries.DENSITY_FUNCTION);
-		HolderGetter<Block> blocks = context.lookup(Registries.BLOCK);
+		var configs = context.lookup(Registries.CONFIGURED_FEATURE);
+		var functions = context.lookup(Registries.DENSITY_FUNCTION);
+		var blocks = context.lookup(Registries.BLOCK);
+		var biomes = context.lookup(Registries.BIOME);
 		//        HolderGetter<NormalNoise.NoiseParameters> noises = context.lookup(Registries.NOISE);
 
 		FeatureUtils.register(
@@ -284,6 +289,10 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				new RuleBasedBlockStateProvider.Rule(
 					InBiomePredicate.inTag(ReduxTags.Biomes.IS_FROSTED),
 					prov(AetherBlocks.AEROGEL)
+				),
+				new RuleBasedBlockStateProvider.Rule(
+					InBiomePredicate.inSet(HolderSet.direct(biomes.getOrThrow(ReduxBiomes.THE_BLIGHT))),
+					prov(ReduxBlocks.HOLYSILT)
 				)
 			)
 		);
@@ -745,6 +754,21 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				UniformInt.of(0, 48),
 				HolderSet.direct(
 					AetherBlocks.AETHER_GRASS_BLOCK,
+					UnityBlocks.COARSE_AETHER_DIRT
+				)
+			)
+		);
+		
+		register(context,
+			HOLYSILT_DISK,
+			AetherFeatures.SHELF.get(),
+			new ShelfConfiguration(
+				prov(ReduxBlocks.HOLYSILT),
+				ConstantFloat.of(3.5F),
+				UniformInt.of(0, 48),
+				HolderSet.direct(
+					AetherBlocks.AETHER_GRASS_BLOCK,
+					ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK,
 					UnityBlocks.COARSE_AETHER_DIRT
 				)
 			)
