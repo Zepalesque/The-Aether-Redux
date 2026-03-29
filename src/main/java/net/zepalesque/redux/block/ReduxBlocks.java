@@ -335,7 +335,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 		)
 	);
 	
-	public static DeferredBlock<CustomBoundsBushBlock> LUXWEED = register("luxweed",
+	public static final DeferredBlock<CustomBoundsBushBlock> LUXWEED = register("luxweed",
 		() -> new CustomBoundsBushBlock(
 			CommonPlantBounds.BUSH,
 			BlockBehaviour.Properties.of()

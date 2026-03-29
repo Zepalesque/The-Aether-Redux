@@ -82,30 +82,65 @@ import net.zepalesque.zenith.api.world.tree.trunk.IntProviderTrunkPlacer;
 import net.zepalesque.zenith.core.registry.ZenithFeatures;
 
 public class ReduxFeatureConfig extends ReduxFeatureBuilders {
-	public static final ResourceKey<ConfiguredFeature<?, ?>> AURUM_PATCH = createKey(
-		name(ReduxFlowerSets.AURUM.flower()) + "_patch"
-	);
-	public static final ResourceKey<ConfiguredFeature<?, ?>> LUCKY_CLOVER_PATCH = createKey(
-		name(ReduxFlowerSets.LUCKY_CLOVER.flower()) + "_patch"
-	);
-	public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_CLOVERS_PATCH = createKey(
-		name(ReduxBlocks.GOLDEN_CLOVERS) + "_patch"
-	);
-	public static final ResourceKey<ConfiguredFeature<?, ?>> TURBO_VERBENA_PATCH = createKey(
-		name(ReduxBlocks.TURBO_VERBENA) + "_patch"
-	);
-	
-	public static final ResourceKey<ConfiguredFeature<?, ?>> CAELGAE_PATCH = createKey(
-		name(ReduxBlocks.CAELGAE_PATCH)
-	);
-	
-	public static final ResourceKey<ConfiguredFeature<?, ?>> BLOOMTAIL = createKey(
-		name(ReduxBlocks.BLOOMTAIL) + "_piece"
-	);
+	public static final ResourceKey<ConfiguredFeature<?, ?>> AURUM_PATCH =
+		createKey(asPatch(ReduxFlowerSets.AURUM.flower()));
+	public static final ResourceKey<ConfiguredFeature<?, ?>> LUCKY_CLOVER_PATCH =
+		createKey(asPatch(ReduxFlowerSets.LUCKY_CLOVER.flower()));
+	public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_CLOVERS_PATCH =
+		createKey(asPatch(ReduxBlocks.GOLDEN_CLOVERS));
+	public static final ResourceKey<ConfiguredFeature<?, ?>> TURBO_VERBENA_PATCH =
+		createKey(asPatch(ReduxBlocks.TURBO_VERBENA));
+	public static final ResourceKey<ConfiguredFeature<?, ?>> CAELGAE_PATCH =
+		createKey(name(ReduxBlocks.CAELGAE_PATCH));
+	public static final ResourceKey<ConfiguredFeature<?, ?>> BLOOMTAIL =
+		createKey(name(ReduxBlocks.BLOOMTAIL) + "_piece");
+
+	public static final ResourceKey<ConfiguredFeature<?, ?>> WYNDSPROUTS_PATCH =
+		createKey(asPatch(ReduxBlocks.WYNDSPROUTS));
+	public static final ResourceKey<ConfiguredFeature<?, ?>> LUXWEED_PATCH =
+		createKey(asPatch(ReduxBlocks.LUXWEED));
+	public static final ResourceKey<ConfiguredFeature<?, ?>> SPIROLYCTIL_PATCH =
+		createKey(asPatch(ReduxFlowerSets.SPIROLYCTIL.flower()));
+	public static final ResourceKey<ConfiguredFeature<?, ?>> GLOOMSHADE_PATCH =
+		createKey(asPatch(ReduxFlowerSets.GLOOMSHADE.flower()));
+
+	public static final ResourceKey<ConfiguredFeature<?, ?>> LUMINA_PATCH =
+		createKey(asPatch(ReduxFlowerSets.LUMINA.flower()));
+	public static final ResourceKey<ConfiguredFeature<?, ?>> DAGGERBLOOM_PATCH =
+		createKey(asPatch(ReduxFlowerSets.DAGGERBLOOM.flower()));
+	public static final ResourceKey<ConfiguredFeature<?, ?>> SPARSE_PURPLE_FLOWER_PATCH =
+		createKey("sparse_" + asPatch(AetherBlocks.PURPLE_FLOWER));
+	public static final ResourceKey<ConfiguredFeature<?, ?>> SKYFERN_PATCH =
+		createKey(asPatch(UnityBlocks.SKYFERN));
+
+	public static final ResourceKey<ConfiguredFeature<?, ?>> AETHER_SNOW_LAYER = createKey("aether_snow_layer");
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> CLOUDBED = createKey("cloudbed");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> LAKES = createKey("lakes");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> DEBUG_NOISE = createKey("debug_noise");
+
+	public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_ICESTONE_ORE =
+		createKey("large_" + asOre(AetherBlocks.ICESTONE));
+	public static final ResourceKey<ConfiguredFeature<?, ?>> ICESTONE_ROCK =
+		createKey(name(AetherBlocks.ICESTONE) + "_rock");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> AEROGEL_DISK =
+		createKey(name(AetherBlocks.AEROGEL) + "_disk");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> HOLYSILT_DISK =
+		createKey(name(ReduxBlocks.HOLYSILT) + "_disk");
+
+	public static final ResourceKey<ConfiguredFeature<?, ?>> SENTRITE_ORE =
+		createKey(asOre(ReduxStoneSets.SENTRITE.block()));
+	public static final ResourceKey<ConfiguredFeature<?, ?>> ANGILITE_ORE =
+		createKey(asOre(ReduxStoneSets.ANGILITE.block()));
+
+	public static final ResourceKey<ConfiguredFeature<?, ?>> MOSSY_HOLYSTONE_ORE =
+		createKey(asOre(AetherBlocks.MOSSY_HOLYSTONE));
+	public static final ResourceKey<ConfiguredFeature<?, ?>> GILDED_HOLYSTONE_ORE =
+		createKey(asOre(ReduxStoneSets.GILDED_HOLYSTONE.block()));
+	public static final ResourceKey<ConfiguredFeature<?, ?>> BLEAKMOSS_HOLYSTONE_ORE =
+		createKey(asOre(ReduxStoneSets.BLEAKMOSS_HOLYSTONE.block()));
+
+	public static final ResourceKey<ConfiguredFeature<?, ?>> AMBROSIUM_ROCK = createKey("ambrosium_rock");
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_SILVEROOT_TREE = createKey("small_silveroot");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_SILVEROOT_TREE = createKey("large_silveroot");
@@ -117,45 +152,14 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_SKYROOT_TREE = createKey("large_skyroot");
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> MOONFIR_TREE = createKey("moonfir");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> STORMFIR_TREE = createKey("stormfir");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> SENTRITE_ORE = createKey(
-		name(ReduxStoneSets.SENTRITE.block()) + "_ore"
-	);
-	public static final ResourceKey<ConfiguredFeature<?, ?>> ANGILITE_ORE = createKey(
-		name(ReduxStoneSets.ANGILITE.block()) + "_ore"
-	);
-
-	public static final ResourceKey<ConfiguredFeature<?, ?>> MOSSY_HOLYSTONE_ORE = createKey(
-		name(AetherBlocks.MOSSY_HOLYSTONE) + "_ore"
-	);
-	public static final ResourceKey<ConfiguredFeature<?, ?>> GILDED_HOLYSTONE_ORE = createKey(
-		name(ReduxStoneSets.GILDED_HOLYSTONE.block()) + "_ore"
-	);
-	public static final ResourceKey<ConfiguredFeature<?, ?>> BLEAKMOSS_HOLYSTONE_ORE = createKey(
-		name(ReduxStoneSets.BLEAKMOSS_HOLYSTONE.block()) + "_ore"
-	);
+	public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTWILLOW_TREE = createKey("blightwillow");
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> GROVE_TREES = createKey("gilded_groves_trees");
-
 	public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHT_TREES = createKey("the_blight_trees");
-	
 	public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTED_TREES = createKey("frosted_forests_trees");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> GLACIAL_TREES = createKey("glacial_tundra_trees");
-	
-	public static final ResourceKey<ConfiguredFeature<?, ?>> AMBROSIUM_ROCK = createKey("ambrosium_rock");
-
-	public static final ResourceKey<ConfiguredFeature<?, ?>> WYNDSPROUTS_PATCH = createKey(
-		name(ReduxBlocks.WYNDSPROUTS) + "_patch"
-	);
-	public static final ResourceKey<ConfiguredFeature<?, ?>> LUXWEED_PATCH = createKey(
-		name(ReduxBlocks.LUXWEED) + "_patch"
-	);
-	public static final ResourceKey<ConfiguredFeature<?, ?>> SPIROLYCTIL_PATCH = createKey(
-		name(ReduxFlowerSets.SPIROLYCTIL.flower()) + "_patch"
-	);
-	public static final ResourceKey<ConfiguredFeature<?, ?>> GLOOMSHADE_PATCH = createKey(
-		name(ReduxFlowerSets.GLOOMSHADE.flower()) + "_patch"
-	);
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> BLEAKMOSS_VEGETATION = createKey("bleakmoss_vegetation");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> BLEAKMOSS_BONEMEAL = createKey("bleakmoss_bonemeal");
@@ -163,47 +167,6 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> GILDENMOSS_VEGETATION = createKey("gildenmoss_vegetation");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> GILDENMOSS_BONEMEAL = createKey("gildenmoss_bonemeal");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> STORMFIR_TREE = createKey("stormfir");
-
-	public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTWILLOW_TREE = createKey("blightwillow");
-	
-	public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_ICESTONE_ORE = createKey(
-		"large_" + name(AetherBlocks.ICESTONE) + "_ore"
-	);
-	
-	public static final ResourceKey<ConfiguredFeature<?, ?>> ICESTONE_ROCK = createKey(
-		name(AetherBlocks.ICESTONE) + "_rock"
-	);
-	
-	public static final ResourceKey<ConfiguredFeature<?, ?>> AEROGEL_DISK = createKey(
-		name(AetherBlocks.AEROGEL) + "_disk"
-	);
-	
-	public static final ResourceKey<ConfiguredFeature<?, ?>> HOLYSILT_DISK = createKey(
-		name(ReduxBlocks.HOLYSILT) + "_disk"
-	);
-	
-	public static final ResourceKey<ConfiguredFeature<?, ?>> LUMINA_PATCH  = createKey(
-		name(ReduxFlowerSets.LUMINA.flower()) + "_patch"
-	);
-	
-	public static final ResourceKey<ConfiguredFeature<?, ?>> DAGGERBLOOM_PATCH = createKey(
-		name(ReduxFlowerSets.DAGGERBLOOM.flower()) + "_patch"
-	);
-	
-	public static final ResourceKey<ConfiguredFeature<?, ?>> SPARSE_PURPLE_FLOWER_PATCH = createKey(
-		"sparse_" + name(AetherBlocks.PURPLE_FLOWER) + "_patch"
-	);
-	
-	public static final ResourceKey<ConfiguredFeature<?, ?>> SKYFERN_PATCH = createKey(
-		name(UnityBlocks.SKYFERN) + "_patch"
-	);
-	
-	public static final ResourceKey<ConfiguredFeature<?, ?>> AETHER_SNOW_LAYER = createKey("aether_snow_layer");
-	
-	
-	
-	
 	// Overrides
 	public static final ResourceKey<ConfiguredFeature<?, ?>> SKYROOT_TREE =
 		AetherConfiguredFeatures.SKYROOT_TREE_CONFIGURATION;
@@ -220,7 +183,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 		var functions = context.lookup(Registries.DENSITY_FUNCTION);
 		var blocks = context.lookup(Registries.BLOCK);
 		var biomes = context.lookup(Registries.BIOME);
-		//        HolderGetter<NormalNoise.NoiseParameters> noises = context.lookup(Registries.NOISE);
+		//HolderGetter<NormalNoise.NoiseParameters> noises = context.lookup(Registries.NOISE);
 
 		FeatureUtils.register(
 			context,
@@ -236,8 +199,8 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				10
 			)
 		);
-        
-        var noises = context.lookup(Registries.NOISE);
+
+		var noises = context.lookup(Registries.NOISE);
 		double threshold;
 		var lakeFloor = new RuleBasedBlockStateProvider(
 			BlockStateProvider.simple(AetherFeatureStates.AETHER_DIRT), Stream.of(
@@ -248,14 +211,14 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 					BlockPredicate.not(BlockPredicate.matchesBlocks(OFFSET_ABOVE, Blocks.WATER))
 				), BlockStateProvider.simple(Blocks.AIR)
 			),
-			
+
 			new RuleBasedBlockStateProvider.Rule(
 				BlockPredicate.anyOf(
 					BlockPredicate.matchesTag(OFFSET_ABOVE, AetherTags.Blocks.AETHER_DIRT),
 					BlockPredicate.matchesBlocks(OFFSET_ABOVE, AetherBlocks.AETHER_DIRT.get())
 				), prov(AetherBlocks.AETHER_DIRT)
 			),
-			
+
 			new RuleBasedBlockStateProvider.Rule(
 				BlockPredicate.allOf(
 					new NoisePredicate(noises.getOrThrow(Noises.SWAMP), 2743L, -0.3, threshold = 0.1),
@@ -263,7 +226,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				),
 				prov(UnityBlocks.AETHER_MUD)
 			),
-			
+
 			new RuleBasedBlockStateProvider.Rule(
 				BlockPredicate.allOf(
 					// Use same seed, mud will surround clay
@@ -272,7 +235,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				),
 				prov(UnityBlocks.VALKYRIE_CLAY)
 			),
-			
+
 			new RuleBasedBlockStateProvider.Rule(
 				BlockPredicate.allOf(
 					BlockPredicate.matchesTag(UnityTags.Blocks.AETHER_LAKE_SKIP_REPLACEMENT),
@@ -280,7 +243,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				), BlockStateProvider.simple(Blocks.AIR)
 			)
 		).toList());
-		
+
 		var shore = new RuleBasedBlockStateProvider(prov(AetherBlocks.QUICKSOIL),
 			List.of(
 				new RuleBasedBlockStateProvider.Rule(
@@ -293,7 +256,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				)
 			)
 		);
-		
+
 		FeatureUtils.register(
 			context,
 			LAKES,
@@ -708,7 +671,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			Feature.RANDOM_PATCH,
 			patch(24, 6, 3, prov(ReduxBlocks.CAELGAE_PATCH))
 		);
-		
+
 		FeatureUtils.register(
 			context,
 			BLOOMTAIL,
@@ -731,7 +694,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				Optional.empty()
 			)
 		);
-		
+
 		register(context,
 			ICESTONE_ROCK,
 			ZenithFeatures.LARGE_ROCK.get(),
@@ -741,7 +704,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				Optional.empty()
 			)
 		);
-		
+
 		register(context,
 			AEROGEL_DISK,
 			AetherFeatures.SHELF.get(),
@@ -755,7 +718,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				)
 			)
 		);
-		
+
 		register(context,
 			HOLYSILT_DISK,
 			AetherFeatures.SHELF.get(),
@@ -770,8 +733,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				)
 			)
 		);
-		
-		
+
 		// Overrides
 		FeatureUtils.register(
 			context,
@@ -844,7 +806,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				prov(ReduxBlocks.WYNDSPROUTS)
 			)
 		);
-		
+
 		FeatureUtils.register(context, LUXWEED_PATCH,
 			Feature.FLOWER,
 			patch(
@@ -854,8 +816,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				prov(ReduxBlocks.LUXWEED)
 			)
 		);
-		
-		
+
 		register(context, SPIROLYCTIL_PATCH, Feature.FLOWER,
 			patch(
 				16,
@@ -938,7 +899,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				0.75F
 			)
 		);
-		
+
 		register(context, FROSTED_TREES, Feature.RANDOM_SELECTOR,
 			new RandomFeatureConfiguration(
 				List.of(
@@ -959,7 +920,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				)
 			)
 		);
-		
+
 		register(context, GLACIAL_TREES, Feature.RANDOM_SELECTOR,
 			new RandomFeatureConfiguration(
 				List.of(
@@ -979,19 +940,19 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				)
 			)
 		);
-		
+
 		register(context, LUMINA_PATCH, Feature.FLOWER,
 			patch(10, 7, 3, prov(ReduxFlowerSets.LUMINA.flower())));
-		
+
 		register(context, DAGGERBLOOM_PATCH, Feature.FLOWER,
 			patch(12, 7, 3, prov(ReduxFlowerSets.DAGGERBLOOM.flower())));
-		
+
 		register(context, SPARSE_PURPLE_FLOWER_PATCH, Feature.FLOWER,
 			patch(16, 7, 3, prov(AetherBlocks.PURPLE_FLOWER)));
-		
+
 		register(context, SKYFERN_PATCH, Feature.FLOWER,
 			patch(24, 9, 3, prov(UnityBlocks.SKYFERN)));
-		
+
 		register(context,
 			AETHER_SNOW_LAYER,
 			ReduxFeatures.TREE_AWARE_SNOW.get(),
