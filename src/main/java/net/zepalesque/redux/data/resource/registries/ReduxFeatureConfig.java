@@ -44,6 +44,7 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.feature.stateproviders.RuleBasedBlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.CherryTrunkPlacer;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.GiantTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
@@ -64,6 +65,7 @@ import net.zepalesque.redux.world.feature.gen.ReduxFeatures;
 import net.zepalesque.redux.world.feature.gen.WaterPlantFeature;
 import net.zepalesque.redux.world.tree.decorator.VineDecorator;
 import net.zepalesque.redux.world.tree.foliage.BlightwillowFoliagePlacer;
+import net.zepalesque.redux.world.tree.foliage.CloudcapFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.CrystalFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.HookedFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.MoonfirFoliagePlacer;
@@ -153,6 +155,8 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> MOONFIR_TREE = createKey("moonfir");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> STORMFIR_TREE = createKey("stormfir");
+
+	public static final ResourceKey<ConfiguredFeature<?, ?>> CLOUDCAP_MUSHROOM = createKey("cloudcap_mushroom");
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTWILLOW_TREE = createKey("blightwillow");
 
@@ -348,6 +352,27 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				prov(ReduxBlocks.STORMFIR_LEAVES),
 				new SkyrootFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
 				new TwoLayersFeatureSize(1, 0, 1)
+			)
+				.ignoreVines()
+				.build()
+		);
+
+		FeatureUtils.register(
+			context,
+			CLOUDCAP_MUSHROOM,
+			Feature.TREE,
+			new TreeConfiguration.TreeConfigurationBuilder(
+				prov(ReduxWoodSets.BLIGHTWILLOW.log()),
+				new GiantTrunkPlacer(14, 4, 4),
+				new WeightedStateProvider(
+					SimpleWeightedRandomList.<BlockState>builder()
+						.add(drops(ReduxBlocks.BLIGHTWILLOW_LEAVES), 15)
+						.add(drops(ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES), 1)
+						.build()
+				),
+				new CloudcapFoliagePlacer(UniformInt.of(7, 9)),
+				Optional.empty(),
+				new TwoLayersFeatureSize(7, 0, 3)
 			)
 				.ignoreVines()
 				.build()

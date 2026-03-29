@@ -28,6 +28,13 @@ public class ReduxFoliagePlacers {
 			() -> new FoliagePlacerType<>(HookedFoliagePlacer.CODEC)
 		);
 
+	public static final DeferredHolder<FoliagePlacerType<?>, FoliagePlacerType<CloudcapFoliagePlacer>>
+		CLOUDCAP_FOLIAGE = FOLIAGE_PLACERS.register(
+			"cloudcap_foliage",
+			() -> new FoliagePlacerType<>(CloudcapFoliagePlacer.CODEC)
+		);
+
+
 	public static final DeferredHolder<FoliagePlacerType<?>, FoliagePlacerType<SmallGoldenOakFoliagePlacer>>
 		SMALL_GOLDEN_OAK_FOLIAGE = FOLIAGE_PLACERS.register(
 			"small_golden_oak_foliage",
