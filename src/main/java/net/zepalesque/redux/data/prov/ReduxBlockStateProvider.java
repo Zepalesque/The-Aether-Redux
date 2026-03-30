@@ -36,6 +36,7 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.backport.MossyCarpetBlock;
 import net.zepalesque.redux.block.construction.LayeredBookshelfBlock;
 import net.zepalesque.redux.block.dungeon.RunelightBlock;
+import net.zepalesque.redux.block.natural.CloudCapBlock;
 import net.zepalesque.redux.block.redstone.LogicatorBlock;
 import net.zepalesque.redux.block.state.ReduxStates;
 import net.zepalesque.redux.block.state.enums.LogicatorMode;
@@ -83,45 +84,35 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
             return ConfiguredModel.builder().modelFile(snowy ? this.cubeBottomTop(this.name(block) + "_snowy", this.extend(this.texture(this.name(block), location), "_snowy"), this.texture(this.name(block), location), this.mcLoc("blocks/snow")) : this.cubeAll(block, location)).build();
         }, LeavesBlock.PERSISTENT, LeavesBlock.DISTANCE, LeavesBlock.WATERLOGGED, AetherBlockStateProperties.DOUBLE_DROPS);
     }
-
-    public void createCloudcapBlock(Block block, String loc) {
+    
+    private void createCloudcapBlock(Block block, String loc) {
         this.models().withExistingParent(this.name(block), Unity.loc("block/cube_all_glow")).texture("all", this.texture(this.name(block) + "4", loc)).texture("glow", this.texture(this.name(block) + "4_glow", loc)).renderType("cutout");
-        ModelFile[] outer = ArrayUtil.generateContents(new ModelFile[5], value -> {
-            if (value == 0) return this.models().singleTexture(this.name(block) + value, mcLoc("block/template_single_face"), this.texture(block, loc).withSuffix(String.valueOf(value))).renderType("cutout");
-            else return this.models().withExistingParent(this.name(block) + value, Unity.loc("block/template_single_face_gloverlay")).texture("texture", this.texture(block, loc).withSuffix(String.valueOf(value))).texture("glow", this.texture(block, loc).withSuffix(value + "_glow")).renderType("cutout");
-        });
-        
-        int[] weights = new int[] {
-            10,
-            7,
-            5,
-            5,
-            3
-        };
-        
+        var out = ArrayUtil.generateContents(new ModelFile[5],
+            i -> i == 0 ?
+                this.models()
+                    .singleTexture(this.name(block) + i, mcLoc("block/template_single_face"), this.texture(block, loc).withSuffix(String.valueOf(i)))
+                    .renderType("cutout")
+                : this.models().withExistingParent(this.name(block) + i, Redux.loc("block/template_single_face_gloverlay"))
+                    .texture("texture", this.texture(block, loc).withSuffix(String.valueOf(i)))
+                    .texture("glow", this.texture(block, loc).withSuffix(i + "_glow"))
+                    .renderType("cutout"));
         ModelFile in = this.models().singleTexture(this.name(block) + "_inside", mcLoc("block/template_single_face"), this.texture(block, loc).withSuffix("_inside")).renderType("cutout");
-        MultiPartBlockStateBuilder builder = this.getMultipartBuilder(block);
-        for (Direction direction : Direction.values()) {
-            Vec3i rotVec = DIRECTION_TO_ROTATION.get(direction);
-            
-            ConfiguredModel.Builder<PartBuilder> part = builder.part();
-            
+        var builder = this.getMultipartBuilder(block);
+        
+        for (var d : Direction.values()) {
+            var vec = DIRECTION_TO_ROTATION.get(d);
             // exterior
-            for (int i = 1; i < 5; i++) {
-                var v = part.modelFile(outer[0])
-                    .weight(weights[0])
-                    .rotationX(rotVec.getX())
-                    .rotationY(rotVec.getY());
-                if (i < 4) part = v.nextModel();
-            }
-            part.addModel().condition(DIRECTION_TO_PROPERTY.get(direction), true).end();
-            
+            for (var i = 0; i < out.length; i++)
+                builder.part()
+                    .modelFile(out[i]).rotationX(vec.getX()).rotationY(vec.getY()).addModel()
+                    .condition(DIRECTION_TO_PROPERTY.get(d), true).condition(ReduxStates.CLOUDCAP_VARIANT, i).end();
             // interior
-            builder.part().modelFile(in)
-                .rotationX(rotVec.getX())
-                .rotationY(rotVec.getY())
+            builder.part()
+                .modelFile(in)
+                .rotationX(vec.getX())
+                .rotationY(vec.getY())
                 .addModel()
-                .condition(DIRECTION_TO_PROPERTY.get(direction), false)
+                .condition(DIRECTION_TO_PROPERTY.get(d), false)
                 .end();
         }
     }
@@ -499,5 +490,7 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
                 }).build()
         );
     }
-
+    
+    
+    
 }
