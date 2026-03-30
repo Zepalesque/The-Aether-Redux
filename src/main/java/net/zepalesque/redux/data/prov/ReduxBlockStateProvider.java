@@ -92,7 +92,7 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
                 this.models()
                     .singleTexture(this.name(block) + i, mcLoc("block/template_single_face"), this.texture(block, loc).withSuffix(String.valueOf(i)))
                     .renderType("cutout")
-                : this.models().withExistingParent(this.name(block) + i, Redux.loc("block/template_single_face_gloverlay"))
+                : this.models().withExistingParent(this.name(block) + i, Redux.loc("block/template/single_face_gloverlay"))
                     .texture("texture", this.texture(block, loc).withSuffix(String.valueOf(i)))
                     .texture("glow", this.texture(block, loc).withSuffix(i + "_glow"))
                     .renderType("cutout"));
