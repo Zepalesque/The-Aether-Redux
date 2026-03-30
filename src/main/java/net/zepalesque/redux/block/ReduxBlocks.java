@@ -32,6 +32,7 @@ import net.zepalesque.redux.block.dungeon.TrappedPillarBlock;
 import net.zepalesque.redux.block.natural.BlightedGrassBlock;
 import net.zepalesque.redux.block.natural.BloomtailBlock;
 import net.zepalesque.redux.block.natural.CaelgaeBlock;
+import net.zepalesque.redux.block.natural.CloudCapBlock;
 import net.zepalesque.redux.block.natural.DoubleDropsMossCarpet;
 import net.zepalesque.redux.block.natural.EchysiaBlock;
 import net.zepalesque.redux.block.natural.GoldenCloversBlock;
@@ -44,6 +45,7 @@ import net.zepalesque.redux.block.natural.leaves.BlightwillowLeavesBlock;
 import net.zepalesque.redux.block.natural.leaves.InfectedLeavesBlock;
 import net.zepalesque.redux.block.natural.leaves.StormfirLeavesBlock;
 import net.zepalesque.redux.block.redstone.LogicatorBlock;
+import net.zepalesque.redux.block.state.ReduxStates;
 import net.zepalesque.redux.data.resource.registries.ReduxFeatureConfig;
 import net.zepalesque.unity.block.natural.DoubleDropsCarpet;
 import net.zepalesque.unity.block.natural.DoubleDropsGrowthBlock;
@@ -53,6 +55,8 @@ import net.zepalesque.unity.event.hook.BlockHooks;
 import net.zepalesque.zenith.api.blockset.type.AbstractWoodSet;
 import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
 import net.zepalesque.zenith.util.block.CommonPlantBounds;
+
+import static net.zepalesque.redux.util.MiscUtil.unreachable;
 
 public class ReduxBlocks extends ReduxBlockBuilders {
 	public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Redux.MODID);
@@ -125,7 +129,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 
 	public static final DeferredBlock<GoldenCloversBlock> GOLDEN_CLOVERS = register("golden_clovers", () ->
 		new GoldenCloversBlock(
-			BlockBehaviour.Properties.of()
+			Properties.of()
 				.mapColor(MapColor.GOLD)
 				.noCollission()
 				.sound(SoundType.PINK_PETALS)
@@ -338,11 +342,11 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 	public static final DeferredBlock<CustomBoundsBushBlock> LUXWEED = register("luxweed",
 		() -> new CustomBoundsBushBlock(
 			CommonPlantBounds.BUSH,
-			BlockBehaviour.Properties.of()
+			Properties.of()
 				.noCollission()
 				.instabreak()
 				.sound(SoundType.CHERRY_SAPLING)
-				.offsetType(BlockBehaviour.OffsetType.XZ)
+				.offsetType(OffsetType.XZ)
 				.lightLevel(state -> 5)
 				.mapColor(MapColor.COLOR_CYAN)
 		)
@@ -372,7 +376,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 	
 	public static final DeferredBlock<CaelgaeBlock> CAELGAE_PATCH = BLOCKS.register(
 		"caelgae_patch",
-		() -> new CaelgaeBlock(BlockBehaviour.Properties.of()
+		() -> new CaelgaeBlock(Properties.of()
 			.mapColor(MapColor.TERRACOTTA_GREEN)
 			.sound(SoundType.SMALL_DRIPLEAF)
 			.noOcclusion()
@@ -386,7 +390,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 	public static final DeferredBlock<BloomtailBlock> BLOOMTAIL = register(
 		"bloomtail",
 		() -> new BloomtailBlock(
-			BlockBehaviour.Properties.of()
+			Properties.of()
 				.mapColor(MapColor.WATER)
 				.replaceable()
 				.noCollission()
@@ -398,7 +402,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 	
 	public static final DeferredBlock<EchysiaBlock> ECHYSIA = register(
 		"echysia",
-		() -> new EchysiaBlock(BlockBehaviour.Properties.of()
+		() -> new EchysiaBlock(Properties.of()
 			.noCollission()
 			.instabreak()
 			.sound(SoundType.AZALEA)
@@ -407,12 +411,12 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 	);
 
 	public static final DeferredBlock<Block> SENTRITE_CHAIN = register("sentrite_chain", () ->
-		new ChainBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CHAIN))
+		new ChainBlock(Properties.ofFullCopy(Blocks.CHAIN))
 	);
 
 	public static final DeferredBlock<Block> SENTRITE_LANTERN = register("sentrite_lantern", () ->
 		new LanternBlock(
-			BlockBehaviour.Properties.ofFullCopy(Blocks.LANTERN)
+			Properties.ofFullCopy(Blocks.LANTERN)
 				.mapColor(MapColor.DEEPSLATE)
 				.lightLevel(state -> 13)
 		)
@@ -420,7 +424,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 
 	public static final DeferredBlock<Block> SENTRITE_BARS = register("sentrite_bars", () ->
 		new IronBarsBlock(
-			BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BARS).mapColor(MapColor.DEEPSLATE)
+			Properties.ofFullCopy(Blocks.IRON_BARS).mapColor(MapColor.DEEPSLATE)
 		)
 	);
 
@@ -428,7 +432,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 		// misread this as rustc, the rust brainrot is real
 		"runic_lantern",
 		() -> new LanternBlock(
-			BlockBehaviour.Properties.ofFullCopy(Blocks.LANTERN)
+			Properties.ofFullCopy(Blocks.LANTERN)
 				.mapColor(MapColor.DEEPSLATE)
 				.lightLevel(state -> 8)
 		)
@@ -436,7 +440,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 
 	public static final DeferredBlock<Block> VERIDIUM_ORE = register("veridium_ore", () ->
 		new AetherDoubleDropBlock(
-			Block.Properties.of()
+			Properties.of()
 				.mapColor(MapColor.WOOL)
 				.instrument(NoteBlockInstrument.BASEDRUM)
 				.strength(3.0F)
@@ -446,7 +450,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 
 	public static final DeferredBlock<Block> RAW_VERIDIUM_BLOCK = register("raw_veridium_block", () ->
 		new Block(
-			BlockBehaviour.Properties.of()
+			Properties.of()
 				.mapColor(MapColor.LAPIS)
 				.instrument(NoteBlockInstrument.BASEDRUM)
 				.requiresCorrectToolForDrops()
@@ -457,7 +461,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 
 	public static final DeferredBlock<Block> VERIDIUM_BLOCK = register("veridium_block", () ->
 		new Block(
-			BlockBehaviour.Properties.of()
+			Properties.of()
 				.mapColor(MapColor.LAPIS)
 				//.instrument(NoteBlockInstrument.)
 				.requiresCorrectToolForDrops()
@@ -469,7 +473,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 	public static final DeferredBlock<Block> REFINED_SENTRITE_BLOCK = register(
 		"refined_sentrite_block",
 		() -> new Block(
-			BlockBehaviour.Properties.of()
+			Properties.of()
 				.mapColor(MapColor.COLOR_GRAY)
 				//.instrument(NoteBlockInstrument.IRON_XYLOPHONE)
 				.requiresCorrectToolForDrops()
@@ -481,7 +485,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 	public static final DeferredBlock<HangingAetherVinesHead> GOLDEN_VINES = register(
 		"golden_vines",
 		() -> new HangingAetherVinesHead(
-			BlockBehaviour.Properties.ofFullCopy(Blocks.WEEPING_VINES)
+			Properties.ofFullCopy(Blocks.WEEPING_VINES)
 				.mapColor(MapColor.GOLD)
 				.sound(SoundType.CAVE_VINES),
 			BlockTags.LEAVES,
@@ -492,7 +496,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 	public static final DeferredBlock<HangingAetherVinesBody> GOLDEN_VINES_PLANT = BLOCKS.register(
 		"golden_vines_plant",
 		() -> new HangingAetherVinesBody(
-			BlockBehaviour.Properties.ofFullCopy(Blocks.WEEPING_VINES_PLANT)
+			Properties.ofFullCopy(Blocks.WEEPING_VINES_PLANT)
 				.mapColor(MapColor.GOLD)
 				.sound(SoundType.CAVE_VINES),
 			BlockTags.LEAVES,
@@ -503,7 +507,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 	public static final DeferredBlock<HangingAetherVinesHead> SHADED_VINES = register(
 		"shaded_vines",
 		() -> new HangingAetherVinesHead(
-			BlockBehaviour.Properties.ofFullCopy(Blocks.WEEPING_VINES)
+			Properties.ofFullCopy(Blocks.WEEPING_VINES)
 				.mapColor(MapColor.TERRACOTTA_PURPLE)
 				.sound(SoundType.CAVE_VINES),
 			BlockTags.LEAVES,
@@ -514,7 +518,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 	public static final DeferredBlock<HangingAetherVinesBody> SHADED_VINES_PLANT = BLOCKS.register(
 		"shaded_vines_plant",
 		() -> new HangingAetherVinesBody(
-			BlockBehaviour.Properties.ofFullCopy(Blocks.WEEPING_VINES_PLANT)
+			Properties.ofFullCopy(Blocks.WEEPING_VINES_PLANT)
 				.mapColor(MapColor.GOLD)
 				.sound(SoundType.CAVE_VINES),
 			BlockTags.LEAVES,
@@ -524,7 +528,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 
 	public static final DeferredBlock<LogicatorBlock> LOGICATOR = register("logicator", () ->
 		new LogicatorBlock(
-			BlockBehaviour.Properties.of()
+			Properties.of()
 				.instabreak()
 				.sound(SoundType.STONE)
 				.pushReaction(PushReaction.DESTROY)
@@ -534,14 +538,32 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 	public static final DeferredBlock<HolysiltBlock> HOLYSILT = register(
 		"holysilt",
 		() -> new HolysiltBlock(
-			BlockBehaviour.Properties.of()
+			Properties.of()
 				.mapColor(MapColor.COLOR_LIGHT_GRAY)
 				.strength(0.5F)
 				.sound(SoundType.SAND)
 				.instrument(NoteBlockInstrument.BASEDRUM)
 		)
 	);
-
+	
+	public static DeferredBlock<Block> CLOUD_CAP_BLOCK = register("cloud_cap_block",
+		() -> new CloudCapBlock(
+			Properties.of()
+				.mapColor(MapColor.LAPIS)
+				.strength(0.5F)
+				.sound(SoundType.FUNGUS)
+				.lightLevel(value -> switch (value.getValue(ReduxStates.CLOUDCAP_VARIANT)) {
+					case 0 -> 0;
+					case 1 -> 1;
+					case 2 -> 4;
+					case 3 -> 3;
+					case 4 -> 7;
+					default -> throw unreachable();
+				})
+		)
+	);
+	
+	
 	public static void registerFlammability() {
 		var fire = (FireAccessor) Blocks.FIRE;
 		Redux.BLOCK_SETS.forEach(set -> set.flammables(fire));

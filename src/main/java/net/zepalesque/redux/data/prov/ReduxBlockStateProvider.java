@@ -59,7 +59,7 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
         return super.makeWallSideModel(length, height, name, faceRotation, u1, u2);
     }
     
-    private static final Map<Direction, BooleanProperty> DIRECTION_TO_PROPERTY = ImmutableMap.<Direction, BooleanProperty>builder()
+    protected static final Map<Direction, BooleanProperty> DIRECTION_TO_PROPERTY = ImmutableMap.<Direction, BooleanProperty>builder()
         .put(Direction.DOWN, BlockStateProperties.DOWN)
         .put(Direction.UP, BlockStateProperties.UP)
         .put(Direction.WEST, BlockStateProperties.WEST)
@@ -69,7 +69,7 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
         .build();
     
     // Degrees!!!!!
-    private static final Map<Direction, Vec3i> DIRECTION_TO_ROTATION = ImmutableMap.<Direction, Vec3i>builder()
+    protected static final Map<Direction, Vec3i> DIRECTION_TO_ROTATION = ImmutableMap.<Direction, Vec3i>builder()
         .put(Direction.DOWN, new Vec3i(0, 0, 0))
         .put(Direction.UP, new Vec3i(0, 90, 0))
         .put(Direction.WEST, new Vec3i(0, 180, 0))
@@ -85,7 +85,7 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
         }, LeavesBlock.PERSISTENT, LeavesBlock.DISTANCE, LeavesBlock.WATERLOGGED, AetherBlockStateProperties.DOUBLE_DROPS);
     }
     
-    private void createCloudcapBlock(Block block, String loc) {
+    public void createCloudcapBlock(Block block, String loc) {
         this.models().withExistingParent(this.name(block), Unity.loc("block/cube_all_glow")).texture("all", this.texture(this.name(block) + "4", loc)).texture("glow", this.texture(this.name(block) + "4_glow", loc)).renderType("cutout");
         var out = ArrayUtil.generateContents(new ModelFile[5],
             i -> i == 0 ?

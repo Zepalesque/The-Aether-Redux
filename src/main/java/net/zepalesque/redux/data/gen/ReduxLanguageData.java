@@ -209,6 +209,9 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 		addBlock(ReduxBlocks.HOLYSILT);
 		addLore(ReduxBlocks.HOLYSILT, "A fine gravel made of Holystone, among other minerals. It supports its own weight when found naturally, but be careful as stepping on it may destabilize it!");
 
+		addBlock(ReduxBlocks.CLOUD_CAP_BLOCK);
+		addLore(ReduxBlocks.CLOUD_CAP_BLOCK, "The cap of the large Cloudcap Mushrooms, found in the Cloudcaps.");
+
 		addEntityType(ReduxEntities.EMBER);
 		addEntityType(ReduxEntities.VERIDIUM_DART);
 		addEntityType(ReduxEntities.INFUSED_VERIDIUM_DART);

@@ -104,5 +104,6 @@ public class ReduxBlockStateData extends ReduxBlockStateProvider {
 		this.block(ReduxBlocks.GILDENMOSS_BLOCK.get(), "natural/");
 		this.carpet(ReduxBlocks.GILDENMOSS_CARPET.get(), ReduxBlocks.GILDENMOSS_BLOCK.get(), "natural/");
 		this.block(ReduxBlocks.HOLYSILT.get(), "natural/");
+		this.createCloudcapBlock(ReduxBlocks.CLOUD_CAP_BLOCK.get(), "natural/");
 	}
 }

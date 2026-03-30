@@ -120,6 +120,7 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
         this.itemBlock(ReduxBlocks.GILDENMOSS_CARPET.get());
         
         this.itemBlock(ReduxBlocks.HOLYSILT.get());
+        this.itemBlock(ReduxBlocks.CLOUD_CAP_BLOCK.get());
 
         this.item(ReduxItems.MUSIC_DISC_SENTIENCE.get(), "misc/");
         this.item(ReduxItems.WILLOW_SPORES.get(), "materials/");

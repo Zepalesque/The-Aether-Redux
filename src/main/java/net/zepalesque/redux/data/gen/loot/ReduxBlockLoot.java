@@ -128,7 +128,8 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
 		this.dropSelf(ReduxBlocks.RAW_VERIDIUM_BLOCK.get());
 		
 		this.dropSelf(ReduxBlocks.HOLYSILT.get());
-
+		this.dropSelf(ReduxBlocks.CLOUD_CAP_BLOCK.get());
+		
 		this.add(ReduxBlocks.GOLDEN_CLOVERS.get(), this::createPetalsDrops);
 		this.add(ReduxBlocks.GOLDEN_VINES.get(), shears());
 		this.add(ReduxBlocks.GOLDEN_VINES_PLANT.get(), shears().apply(ReduxBlocks.GOLDEN_VINES.get()));
