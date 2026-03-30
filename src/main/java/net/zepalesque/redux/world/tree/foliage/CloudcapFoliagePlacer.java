@@ -1,9 +1,8 @@
 package net.zepalesque.redux.world.tree.foliage;
 
-import java.util.function.IntFunction;
-
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import java.util.function.IntFunction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockPos.MutableBlockPos;
 import net.minecraft.core.Direction;
