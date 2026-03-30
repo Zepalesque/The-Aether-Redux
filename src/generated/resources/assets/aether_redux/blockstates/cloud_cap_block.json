@@ -1,352 +1,352 @@
 {
-	"multipart": [
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block0"
-			},
-			"when": {
-				"cloudcap_variant": "0",
-				"down": "true"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block1"
-			},
-			"when": {
-				"cloudcap_variant": "1",
-				"down": "true"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block2"
-			},
-			"when": {
-				"cloudcap_variant": "2",
-				"down": "true"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block3"
-			},
-			"when": {
-				"cloudcap_variant": "3",
-				"down": "true"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block4"
-			},
-			"when": {
-				"cloudcap_variant": "4",
-				"down": "true"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block_inside"
-			},
-			"when": {
-				"down": "false"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block0",
-				"y": 90
-			},
-			"when": {
-				"cloudcap_variant": "0",
-				"up": "true"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block1",
-				"y": 90
-			},
-			"when": {
-				"cloudcap_variant": "1",
-				"up": "true"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block2",
-				"y": 90
-			},
-			"when": {
-				"cloudcap_variant": "2",
-				"up": "true"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block3",
-				"y": 90
-			},
-			"when": {
-				"cloudcap_variant": "3",
-				"up": "true"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block4",
-				"y": 90
-			},
-			"when": {
-				"cloudcap_variant": "4",
-				"up": "true"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block_inside",
-				"y": 90
-			},
-			"when": {
-				"up": "false"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block0",
-				"x": 90
-			},
-			"when": {
-				"cloudcap_variant": "0",
-				"north": "true"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block1",
-				"x": 90
-			},
-			"when": {
-				"cloudcap_variant": "1",
-				"north": "true"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block2",
-				"x": 90
-			},
-			"when": {
-				"cloudcap_variant": "2",
-				"north": "true"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block3",
-				"x": 90
-			},
-			"when": {
-				"cloudcap_variant": "3",
-				"north": "true"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block4",
-				"x": 90
-			},
-			"when": {
-				"cloudcap_variant": "4",
-				"north": "true"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block_inside",
-				"x": 90
-			},
-			"when": {
-				"north": "false"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block0",
-				"x": 270
-			},
-			"when": {
-				"cloudcap_variant": "0",
-				"south": "true"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block1",
-				"x": 270
-			},
-			"when": {
-				"cloudcap_variant": "1",
-				"south": "true"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block2",
-				"x": 270
-			},
-			"when": {
-				"cloudcap_variant": "2",
-				"south": "true"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block3",
-				"x": 270
-			},
-			"when": {
-				"cloudcap_variant": "3",
-				"south": "true"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block4",
-				"x": 270
-			},
-			"when": {
-				"cloudcap_variant": "4",
-				"south": "true"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block_inside",
-				"x": 270
-			},
-			"when": {
-				"south": "false"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block0",
-				"y": 180
-			},
-			"when": {
-				"cloudcap_variant": "0",
-				"west": "true"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block1",
-				"y": 180
-			},
-			"when": {
-				"cloudcap_variant": "1",
-				"west": "true"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block2",
-				"y": 180
-			},
-			"when": {
-				"cloudcap_variant": "2",
-				"west": "true"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block3",
-				"y": 180
-			},
-			"when": {
-				"cloudcap_variant": "3",
-				"west": "true"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block4",
-				"y": 180
-			},
-			"when": {
-				"cloudcap_variant": "4",
-				"west": "true"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block_inside",
-				"y": 180
-			},
-			"when": {
-				"west": "false"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block0",
-				"y": 270
-			},
-			"when": {
-				"cloudcap_variant": "0",
-				"east": "true"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block1",
-				"y": 270
-			},
-			"when": {
-				"cloudcap_variant": "1",
-				"east": "true"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block2",
-				"y": 270
-			},
-			"when": {
-				"cloudcap_variant": "2",
-				"east": "true"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block3",
-				"y": 270
-			},
-			"when": {
-				"cloudcap_variant": "3",
-				"east": "true"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block4",
-				"y": 270
-			},
-			"when": {
-				"cloudcap_variant": "4",
-				"east": "true"
-			}
-		},
-		{
-			"apply": {
-				"model": "aether_redux:block/cloud_cap_block_inside",
-				"y": 270
-			},
-			"when": {
-				"east": "false"
-			}
-		}
-	]
+  "multipart": [
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block0",
+        "x": 90
+      },
+      "when": {
+        "cloudcap_variant": "0",
+        "down": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block1",
+        "x": 90
+      },
+      "when": {
+        "cloudcap_variant": "1",
+        "down": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block2",
+        "x": 90
+      },
+      "when": {
+        "cloudcap_variant": "2",
+        "down": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block3",
+        "x": 90
+      },
+      "when": {
+        "cloudcap_variant": "3",
+        "down": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block4",
+        "x": 90
+      },
+      "when": {
+        "cloudcap_variant": "4",
+        "down": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block_inside",
+        "x": 90
+      },
+      "when": {
+        "down": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block0",
+        "x": 270
+      },
+      "when": {
+        "cloudcap_variant": "0",
+        "up": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block1",
+        "x": 270
+      },
+      "when": {
+        "cloudcap_variant": "1",
+        "up": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block2",
+        "x": 270
+      },
+      "when": {
+        "cloudcap_variant": "2",
+        "up": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block3",
+        "x": 270
+      },
+      "when": {
+        "cloudcap_variant": "3",
+        "up": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block4",
+        "x": 270
+      },
+      "when": {
+        "cloudcap_variant": "4",
+        "up": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block_inside",
+        "x": 270
+      },
+      "when": {
+        "up": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block0"
+      },
+      "when": {
+        "cloudcap_variant": "0",
+        "north": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block1"
+      },
+      "when": {
+        "cloudcap_variant": "1",
+        "north": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block2"
+      },
+      "when": {
+        "cloudcap_variant": "2",
+        "north": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block3"
+      },
+      "when": {
+        "cloudcap_variant": "3",
+        "north": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block4"
+      },
+      "when": {
+        "cloudcap_variant": "4",
+        "north": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block_inside"
+      },
+      "when": {
+        "north": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block0",
+        "y": 180
+      },
+      "when": {
+        "cloudcap_variant": "0",
+        "south": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block1",
+        "y": 180
+      },
+      "when": {
+        "cloudcap_variant": "1",
+        "south": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block2",
+        "y": 180
+      },
+      "when": {
+        "cloudcap_variant": "2",
+        "south": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block3",
+        "y": 180
+      },
+      "when": {
+        "cloudcap_variant": "3",
+        "south": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block4",
+        "y": 180
+      },
+      "when": {
+        "cloudcap_variant": "4",
+        "south": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block_inside",
+        "y": 180
+      },
+      "when": {
+        "south": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block0",
+        "y": 270
+      },
+      "when": {
+        "cloudcap_variant": "0",
+        "west": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block1",
+        "y": 270
+      },
+      "when": {
+        "cloudcap_variant": "1",
+        "west": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block2",
+        "y": 270
+      },
+      "when": {
+        "cloudcap_variant": "2",
+        "west": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block3",
+        "y": 270
+      },
+      "when": {
+        "cloudcap_variant": "3",
+        "west": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block4",
+        "y": 270
+      },
+      "when": {
+        "cloudcap_variant": "4",
+        "west": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block_inside",
+        "y": 270
+      },
+      "when": {
+        "west": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block0",
+        "y": 90
+      },
+      "when": {
+        "cloudcap_variant": "0",
+        "east": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block1",
+        "y": 90
+      },
+      "when": {
+        "cloudcap_variant": "1",
+        "east": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block2",
+        "y": 90
+      },
+      "when": {
+        "cloudcap_variant": "2",
+        "east": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block3",
+        "y": 90
+      },
+      "when": {
+        "cloudcap_variant": "3",
+        "east": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block4",
+        "y": 90
+      },
+      "when": {
+        "cloudcap_variant": "4",
+        "east": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "aether_redux:block/cloud_cap_block_inside",
+        "y": 90
+      },
+      "when": {
+        "east": "false"
+      }
+    }
+  ]
 }
