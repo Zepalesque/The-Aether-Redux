@@ -364,13 +364,8 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			new TreeConfiguration.TreeConfigurationBuilder(
 				prov(ReduxWoodSets.BLIGHTWILLOW.log()),
 				new GiantTrunkPlacer(14, 4, 4),
-				new WeightedStateProvider(
-					SimpleWeightedRandomList.<BlockState>builder()
-						.add(drops(ReduxBlocks.BLIGHTWILLOW_LEAVES), 15)
-						.add(drops(ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES), 1)
-						.build()
-				),
-				new CloudcapFoliagePlacer(UniformInt.of(7, 9)),
+				prov(ReduxBlocks.BLEAKMOSS_BLOCK),
+				new CloudcapFoliagePlacer(UniformInt.of(7, 9), prov(() -> Blocks.WHITE_CONCRETE)),
 				Optional.empty(),
 				new TwoLayersFeatureSize(7, 0, 3)
 			)
