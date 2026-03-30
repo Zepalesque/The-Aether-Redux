@@ -86,7 +86,7 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
     }
     
     public void createCloudcapBlock(Block block, String loc) {
-        this.models().withExistingParent(this.name(block), Unity.loc("block/cube_all_glow")).texture("all", this.texture(this.name(block) + "4", loc)).texture("glow", this.texture(this.name(block) + "4_glow", loc)).renderType("cutout");
+        this.models().withExistingParent(this.name(block), Unity.loc("block/template/cube/cube_all_glow")).texture("all", this.texture(this.name(block) + "4", loc)).texture("glow", this.texture(this.name(block) + "4_glow", loc)).renderType("cutout");
         var out = ArrayUtil.generateContents(new ModelFile[5],
             i -> i == 0 ?
                 this.models()
