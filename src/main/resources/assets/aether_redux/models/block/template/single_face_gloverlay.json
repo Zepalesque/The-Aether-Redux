@@ -17,7 +17,7 @@
 				"north": {
 					"texture": "#glow",
 					"cullface": "north",
-					"forge_data": { "block_light": 15, "sky_light": 15 }
+					"neoforge_data": { "block_light": 15, "sky_light": 15 }
 				}
 			}
 		}
