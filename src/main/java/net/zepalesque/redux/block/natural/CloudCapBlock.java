@@ -1,5 +1,7 @@
 package net.zepalesque.redux.block.natural;
 
+import static net.zepalesque.redux.block.state.ReduxStates.CLOUDCAP_VARIANT;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -8,8 +10,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.zepalesque.redux.util.world.PureRand;
-
-import static net.zepalesque.redux.block.state.ReduxStates.CLOUDCAP_VARIANT;
 
 public class CloudCapBlock extends HugeAetherMushroomBlock {
 	public CloudCapBlock(Properties properties) {
@@ -44,4 +44,3 @@ public class CloudCapBlock extends HugeAetherMushroomBlock {
 		return original.setValue(CLOUDCAP_VARIANT, val);
 	}
 }
-

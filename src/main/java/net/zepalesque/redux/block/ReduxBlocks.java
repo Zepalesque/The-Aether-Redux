@@ -1,5 +1,7 @@
 package net.zepalesque.redux.block;
 
+import static net.zepalesque.redux.util.MiscUtil.unreachable;
+
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.dungeon.DoorwayBlock;
 import com.aetherteam.aether.block.dungeon.TrappedBlock;
@@ -17,7 +19,6 @@ import net.minecraft.world.level.block.IronBarsBlock;
 import net.minecraft.world.level.block.LanternBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.OffsetType;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -55,8 +56,6 @@ import net.zepalesque.unity.event.hook.BlockHooks;
 import net.zepalesque.zenith.api.blockset.type.AbstractWoodSet;
 import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
 import net.zepalesque.zenith.util.block.CommonPlantBounds;
-
-import static net.zepalesque.redux.util.MiscUtil.unreachable;
 
 public class ReduxBlocks extends ReduxBlockBuilders {
 	public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Redux.MODID);

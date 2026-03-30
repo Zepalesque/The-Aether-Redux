@@ -36,7 +36,6 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.backport.MossyCarpetBlock;
 import net.zepalesque.redux.block.construction.LayeredBookshelfBlock;
 import net.zepalesque.redux.block.dungeon.RunelightBlock;
-import net.zepalesque.redux.block.natural.CloudCapBlock;
 import net.zepalesque.redux.block.redstone.LogicatorBlock;
 import net.zepalesque.redux.block.state.ReduxStates;
 import net.zepalesque.redux.block.state.enums.LogicatorMode;
