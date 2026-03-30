@@ -1,5 +1,7 @@
 package net.zepalesque.redux.world.tree.foliage;
 
+import java.util.function.IntFunction;
+
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
@@ -55,6 +57,8 @@ public class CloudcapFoliagePlacer extends FoliagePlacer {
 			attachment.pos().south().east(),
 			attachment.pos().south(),
 		};
+		final var dirsToCut = rand.nextBoolean();
+		final IntFunction<Integer> cutAmount = i -> (i % 2 == 0) ^ dirsToCut ? 0 : 1;
 
 		for (var pos : positions) {
 			for (var dir : Direction.Plane.HORIZONTAL) {
@@ -63,16 +67,19 @@ public class CloudcapFoliagePlacer extends FoliagePlacer {
 				tryPlaceLeaf(level, setter, rand, cfg, offsetPos);
 				tryPlaceLeaf(level, setter, rand, cfg, offsetPos.move(Direction.DOWN));
 
-				for (var i = 0; i <= rand.nextInt(height, height + 2); i++) {
-					tryPlaceNetting(level, setter, rand, offsetPos.relative(Direction.DOWN, i));
+				for (var j = 0; j <= rand.nextInt(height - 1, height + 1); j++) {
+					tryPlaceNetting(level, setter, rand, offsetPos.move(Direction.DOWN));
 				}
 			}
 		}
-		for (var pos : positions) {
+		for (var i = 0; i < positions.length; i++) {
+			var pos = positions[i];
+			var h = height - cutAmount.apply(i);
+
 			for (var dir : Direction.Plane.HORIZONTAL) {
 				var offsetPos = pos.mutable().move(dir, 2);
 
-				for (var i = 0; i < height; i++) {
+				for (var j = 0; j < h; j++) {
 					tryPlaceLeaf(level, setter, rand, cfg, offsetPos.move(Direction.DOWN));
 				}
 			}
@@ -83,8 +90,11 @@ public class CloudcapFoliagePlacer extends FoliagePlacer {
 		positions[2] = positions[2].below().south().east().mutable();
 		positions[3] = positions[3].below().south().west().mutable();
 
-		for (var pos : positions) {
-			for (var i = 0; i < height - 1; i++) {
+		for (var i = 0; i < positions.length; i++) {
+			var pos = positions[i];
+			var h = height - cutAmount.apply(i);
+
+			for (var j = 0; j < h - 1; j++) {
 				tryPlaceLeaf(level, setter, rand, cfg, ((MutableBlockPos)pos).move(Direction.DOWN));
 			}
 		}
