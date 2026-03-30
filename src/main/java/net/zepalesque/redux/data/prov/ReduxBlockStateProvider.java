@@ -69,12 +69,12 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
     
     // Degrees!!!!!
     protected static final Map<Direction, Vec3i> DIRECTION_TO_ROTATION = ImmutableMap.<Direction, Vec3i>builder()
-        .put(Direction.DOWN, new Vec3i(0, 0, 0))
-        .put(Direction.UP, new Vec3i(0, 90, 0))
-        .put(Direction.WEST, new Vec3i(0, 180, 0))
-        .put(Direction.EAST, new Vec3i(0, 270, 0))
-        .put(Direction.SOUTH, new Vec3i(270, 0, 0))
-        .put(Direction.NORTH, new Vec3i(90, 0, 0))
+        .put(Direction.DOWN, new Vec3i(90, 0, 0))
+        .put(Direction.UP, new Vec3i(270, 0, 0))
+        .put(Direction.WEST, new Vec3i(0, 270, 0))
+        .put(Direction.EAST, new Vec3i(0, 90, 0))
+        .put(Direction.SOUTH, new Vec3i(0, 180, 0))
+        .put(Direction.NORTH, new Vec3i(0, 0, 0))
         .build();
 
     public void snowableLeaves(Block block, String location) {
