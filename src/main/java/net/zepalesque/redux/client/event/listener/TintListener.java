@@ -22,15 +22,18 @@ public class TintListener {
 				// - Convert to a byte
 				// - Add 128, to account for signedness
 				var r = (byte)(Math.sin(dist) * 128) + 128;
-				var g = (byte)(Math.cos(dist) * 128) + 128;
-				var b1 = (byte)(-Math.sin(dist) * 128) + 128;
+				var g = (byte)(-Math.sin(dist) * 128) + 128;
+				var b1 = (byte)(Math.cos(dist) * 128) + 128;
 				var b2 = (byte)(-Math.cos(dist) * 128) + 128;
 				var b = Math.max(b1, b2);
 
 				// Clamping the values to create a pastel look
-				r = Math.clamp(r, 128, 256);
-				g = Math.clamp(g, 128, 256);
-				b = Math.clamp(b, 128, 256);
+				r = Math.clamp(r, 156, 240);
+				g = Math.clamp(g, 156, 240);
+				b = Math.clamp(b, 192, 230);
+				r += 15;
+				g += 10;
+				b += 25;
 
 				// Creating the final tint, using bitor to set the channels 
 				var tint = 0xFF000000;
