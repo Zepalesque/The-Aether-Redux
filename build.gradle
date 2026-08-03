@@ -147,7 +147,6 @@ dependencies {
 	// Performance mods (hopefully to speed up loading)
 	runtimeOnly "maven.modrinth:ferrite-core:${project.ferrite_core_version}"
 	runtimeOnly "maven.modrinth:modernfix:${project.modernfix_version}"
-	runtimeOnly "maven.modrinth:lazydfu-reloaded:${project.lazydfu_version}"
 
 	jarJar("curse.maven:aeroblender-879879:${project.aeroblender_version}") {
 		version {}
