@@ -28,16 +28,16 @@ public class TintListener {
 				var b = Math.max(b1, b2);
 
 				// Clamping the values to create a pastel look
-				r = Math.clamp(r, 192, 256);
-				g = Math.clamp(g, 160, 256);
+				r = Math.clamp(r, 128, 256);
+				g = Math.clamp(g, 128, 256);
 				b = Math.clamp(b, 128, 256);
 
 				// Creating the final tint, using bitor to set the channels 
 				var tint = 0xFF000000;
-				tint |= r;
+				tint |= r << 16;
 				tint |= g << 8;
-				tint |= b << 16;
-			
+				tint |= b;
+
 				return tint;
 			},
 			ReduxBlocks.PRISMA_LEAVES.get(),
