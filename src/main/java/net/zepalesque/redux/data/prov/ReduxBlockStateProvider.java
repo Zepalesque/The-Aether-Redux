@@ -124,7 +124,19 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
         ResourceLocation snow = texture(block, location, "_side_snow");
         tintableGrassBlock(block, bottom, top, overlay, side, models().cubeBottomTop(nameID(block, "%s_snow"), snow, bottom, top), ignored);
     }
-    
+
+    public void partialTintedLeaves(Block block, String loc) {
+    	var base = texture(block, loc, "_base");
+     	var overlay = texture(block, loc, "_overlay");
+
+      var model = models().leaves(nameID(block), base);
+
+      	this.getMultipartBuilder(block)
+       		.part()
+         	.modelFile(model)
+          	.addModel()
+           .end();
+    }
     
     public void layeredBookshelf(Block block, Block endBlock) {
         ModelFile bookshelf = this.models().cubeColumn(this.name(block), this.texture(this.name(block), "construction/"), this.texture(this.name(endBlock), "construction/"));
@@ -402,8 +414,6 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
                 });
     }
 
-
-
     public void mossyCarpet(Block block, Block base, String location) {
         MultiPartBlockStateBuilder builder = this.getMultipartBuilder(block);
 
@@ -489,7 +499,4 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
                 }).build()
         );
     }
-    
-    
-    
 }

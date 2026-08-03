@@ -1,0 +1,6 @@
+{
+	"parent": "minecraft:block/leaves",
+	"textures": {
+		"all": "aether_redux:block/natural/prisma_leaf_pile_base"
+	}
+}

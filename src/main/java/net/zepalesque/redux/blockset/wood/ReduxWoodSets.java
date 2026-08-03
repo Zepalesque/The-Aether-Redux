@@ -11,6 +11,7 @@ public class ReduxWoodSets {
 	public static final LogWallWoodSet GILDLEAF = register(new RegularBookshelfSet("gildleaf", MapColor.TERRACOTTA_ORANGE, MapColor.TERRACOTTA_RED, SoundType.CHERRY_WOOD));
 	public static final LogWallWoodSet CRYSTAL = register(new RegularBookshelfSet("crystal", MapColor.COLOR_LIGHT_BLUE, MapColor.TERRACOTTA_CYAN, SoundType.WOOD));
 	public static final LogWallWoodSet MOONFIR = register(new RegularBookshelfSet("moonfir", MapColor.TERRACOTTA_BLACK, MapColor.TERRACOTTA_LIGHT_GRAY, SoundType.WOOD));
+	public static final LogWallWoodSet PRISMA = register(new RegularBookshelfSet("prisma", MapColor.DIAMOND, MapColor.TERRACOTTA_BROWN, SoundType.WOOD));
 	public static final LogWallWoodSet BLIGHTWILLOW = register(new RegularBookshelfSet("blightwillow", MapColor.COLOR_GREEN, MapColor.COLOR_GRAY, SoundType.CHERRY_WOOD));
 
 	public static <T extends AbstractWoodSet> T register(T set) {

@@ -72,6 +72,23 @@ public class ReduxFlowerSets {
 			.withLore("The sapling of the Silveroot tree. It can be grown by waiting or using Bone Meal.")
 	);
 
+	public static final BaseFlowerSet<SaplingBlock> PRISMA_SAPLING = register(
+		new UntintedFlowerSet<>("prisma_sapling", "natural/", () ->
+			new SaplingBlock(
+				ReduxTreeGrowers.SILVEROOT,
+				Properties.ofFullCopy(Blocks.OAK_SAPLING).mapColor(MapColor.DIAMOND)
+			)
+		)
+			.tabAfter(
+				AetherCreativeTabs.AETHER_NATURAL_BLOCKS,
+				AetherBlocks.SKYROOT_SAPLING,
+				BlockSet.TabAdditionPhase.BEFORE
+			)
+			.withFlowerTag(BlockTags.SAPLINGS)
+			.compost(0.3F)
+			.withLore("The sapling of the Prisma tree. It can be grown by waiting or using Bone Meal.")
+	);
+
 	public static final BaseFlowerSet<SaplingBlock> STORMFIR_SAPLING = register(
 		new UntintedFlowerSet<>("stormfir_sapling", "natural/", () ->
 			new SaplingBlock(
