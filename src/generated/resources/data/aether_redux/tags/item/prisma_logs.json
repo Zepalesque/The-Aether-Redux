@@ -1,0 +1,8 @@
+{
+	"values": [
+		"aether_redux:prisma_log",
+		"aether_redux:prisma_wood",
+		"aether_redux:stripped_prisma_log",
+		"aether_redux:stripped_prisma_wood"
+	]
+}

@@ -3,6 +3,7 @@
 		"aether_redux:gildleaf_bookshelf",
 		"aether_redux:crystal_bookshelf",
 		"aether_redux:moonfir_bookshelf",
+		"aether_redux:prisma_bookshelf",
 		"aether_redux:blightwillow_bookshelf"
 	]
 }

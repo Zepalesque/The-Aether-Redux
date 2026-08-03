@@ -1,0 +1,9 @@
+{
+	"multipart": [
+		{
+			"apply": {
+				"model": "aether_redux:block/prisma_leaf_pile"
+			}
+		}
+	]
+}

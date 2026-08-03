@@ -90,6 +90,19 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 		() -> new LeafPileBlock(STORMFIR_LEAVES)
 	);
 
+	public static final DeferredBlock<AetherDoubleDropsLeaves> PRISMA_LEAVES = register(
+		"prisma_leaves",
+		() -> new AetherDoubleDropsLeaves(
+			Properties.ofFullCopy(AetherBlocks.SKYROOT_LEAVES.get()).mapColor(
+				MapColor.DIAMOND
+			)
+		)
+	);
+	public static final DeferredBlock<LeafPileBlock> PRISMA_LEAF_PILE = register(
+		"prisma_leaf_pile",
+		() -> new LeafPileBlock(PRISMA_LEAVES)
+	);
+
 	public static final DeferredBlock<BlightwillowLeavesBlock> BLIGHTWILLOW_LEAVES = register(
 		"blightwillow_leaves",
 		() -> new BlightwillowLeavesBlock(

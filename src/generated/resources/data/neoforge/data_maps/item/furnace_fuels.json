@@ -23,6 +23,12 @@
 		},
 		"aether_redux:moonfir_planks": {
 			"burn_time": 300
+		},
+		"aether_redux:prisma_bookshelf": {
+			"burn_time": 300
+		},
+		"aether_redux:prisma_planks": {
+			"burn_time": 300
 		}
 	}
 }

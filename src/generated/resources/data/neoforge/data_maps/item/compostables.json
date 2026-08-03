@@ -63,6 +63,9 @@
 		"aether_redux:moonfir_sapling": {
 			"chance": 0.3
 		},
+		"aether_redux:prisma_sapling": {
+			"chance": 0.3
+		},
 		"aether_redux:silveroot_leaf_pile": {
 			"chance": 0.3
 		},
