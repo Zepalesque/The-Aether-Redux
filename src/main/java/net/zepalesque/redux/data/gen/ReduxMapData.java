@@ -33,6 +33,7 @@ public class ReduxMapData extends ReduxDataMapProvider {
         biomeTints.add(ReduxBiomes.GILDED_GROVES, ReduxColors.Tints.GILDED_GRASS_COLOR, false);
         biomeTints.add(ReduxBiomes.THE_BLIGHT, ReduxColors.Tints.BLIGHT_GRASS_COLOR, false);
         biomeTints.add(ReduxBiomes.FROSTED_FORESTS, ReduxColors.Tints.FROSTED_GRASS_COLOR, false);
+        biomeTints.add(ReduxBiomes.SKYFIELDS, ReduxColors.Tints.SKYFIELDS_GRASS_COLOR, false);
 
         var compostables = this.builder(NeoForgeDataMaps.COMPOSTABLES);
         this.addCompost(compostables, ReduxBlocks.SILVEROOT_LEAVES, 0.3F);

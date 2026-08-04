@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.BiomeTagsProvider;
+import net.minecraft.resources.ResourceKey;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.data.ReduxTags;
@@ -23,10 +24,11 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
 
 	@Override
 	public void addTags(HolderLookup.Provider provider) {
-		this.tag(AetherTags.Biomes.IS_AETHER).add(
-			ReduxBiomes.GILDED_GROVES,
+		this.tag(AetherTags.Biomes.IS_AETHER).add(ReduxBiomes.GILDED_GROVES,
 			ReduxBiomes.THE_BLIGHT,
-			ReduxBiomes.FROSTED_FORESTS
+			ReduxBiomes.FROSTED_FORESTS,
+			ReduxBiomes.SKYFIELDS
+			// java needs trailing commas
 		);
 
 		this.tag(ReduxTags.Biomes.HAS_CLOUDBED).addTag(AetherTags.Biomes.IS_AETHER);
@@ -67,11 +69,11 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
 			.addTag(AetherTags.Biomes.IS_AETHER)
 			.remove(ReduxBiomes.GILDED_GROVES);
 
-		this.tag(ReduxTags.Biomes.HAS_WYNDSPROUTS).add(
-			AetherBiomes.SKYROOT_GROVE,
+		this.tag(ReduxTags.Biomes.HAS_WYNDSPROUTS).add(AetherBiomes.SKYROOT_GROVE,
 			AetherBiomes.SKYROOT_MEADOW,
 			AetherBiomes.SKYROOT_WOODLAND,
-			ReduxBiomes.GILDED_GROVES
+			ReduxBiomes.GILDED_GROVES,
+			ReduxBiomes.SKYFIELDS
 		);
 	}
 }

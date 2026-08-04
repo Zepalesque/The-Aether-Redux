@@ -87,11 +87,13 @@ public class ReduxBiomeModifiers {
                 .put(biomes.getOrThrow(ReduxBiomes.GILDED_GROVES), 0xC4BDAA)
                 .put(biomes.getOrThrow(ReduxBiomes.THE_BLIGHT), 0x7C7DA5)
                 .put(biomes.getOrThrow(ReduxBiomes.FROSTED_FORESTS), 0xB3B3E5)
+                .put(biomes.getOrThrow(ReduxBiomes.SKYFIELDS), 0xACBAE6)
                 .build(),
             ImmutableMap.<Holder<Biome>, Integer>builder() // fog
                 .put(biomes.getOrThrow(ReduxBiomes.GILDED_GROVES), 0xDDD9DA)
                 .put(biomes.getOrThrow(ReduxBiomes.THE_BLIGHT), 0xADAED3)
                 .put(biomes.getOrThrow(ReduxBiomes.FROSTED_FORESTS), 0xD0D2E5)
+                .put(biomes.getOrThrow(ReduxBiomes.SKYFIELDS), 0xCED5EB)
                 .build());
         context.register(SKY_COLOR_AETHER, new ConditionalBiomeModifier(Holder.direct(sky), conditions.get(ReduxConditions.SKY_COLORS).orElseThrow()));
         
@@ -104,6 +106,7 @@ public class ReduxBiomeModifiers {
                 .put(biomes.getOrThrow(ReduxBiomes.GILDED_GROVES), 0x89C1C6)
                 .put(biomes.getOrThrow(ReduxBiomes.THE_BLIGHT), 0xA2ACD8)
                 .put(biomes.getOrThrow(ReduxBiomes.FROSTED_FORESTS), 0xA2C3D8)
+                .put(biomes.getOrThrow(ReduxBiomes.SKYFIELDS), 0x94D2EF)
                 .build(),
             ImmutableMap.<Holder<Biome>, Integer>builder() // fog
                 .put(biomes.getOrThrow(AetherBiomes.SKYROOT_MEADOW), 0x1B2528)
@@ -112,6 +115,7 @@ public class ReduxBiomeModifiers {
                 .put(biomes.getOrThrow(ReduxBiomes.GILDED_GROVES), 0x1E2A2B)
                 .put(biomes.getOrThrow(ReduxBiomes.THE_BLIGHT), 0x1C1E26)
                 .put(biomes.getOrThrow(ReduxBiomes.FROSTED_FORESTS), 0x1A2023)
+                .put(biomes.getOrThrow(ReduxBiomes.SKYFIELDS), 0x192328)
                 .build());
         context.register(WATER_COLOR_AETHER, new ConditionalBiomeModifier(Holder.direct(water), conditions.get(ReduxConditions.WATER_COLORS).orElseThrow()));
         
