@@ -349,7 +349,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			PRISMA_TREE,
 			Feature.TREE,
 			new TreeConfiguration.TreeConfigurationBuilder(
-				BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LOG),
+				prov(ReduxWoodSets.PRISMA.log()),
 				new CherryTrunkPlacer(
 					8,
 					1,
