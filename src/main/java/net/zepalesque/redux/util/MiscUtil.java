@@ -4,6 +4,6 @@ public class MiscUtil {
 	
 	// rus reference (&🦀)
 	public static IllegalStateException unreachable() {
-		return new IllegalStateException("Encountered unreachable code");
+		return new IllegalStateException("Encountered unreachable code! This is a bug!");
 	}
 }
