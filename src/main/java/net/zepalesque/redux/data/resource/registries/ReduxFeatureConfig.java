@@ -73,6 +73,7 @@ import net.zepalesque.redux.world.tree.foliage.SkyrootFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.SmallGoldenOakFoliagePlacer;
 import net.zepalesque.redux.world.tree.trunk.HookedTrunkPlacer;
 import net.zepalesque.redux.world.tree.trunk.OffsetTrunkPlacer;
+import net.zepalesque.redux.world.tree.trunk.PrismaTrunkPlacer;
 import net.zepalesque.unity.block.UnityBlocks;
 import net.zepalesque.unity.data.UnityTags;
 import net.zepalesque.unity.extstate.UnityStateLists;
@@ -351,18 +352,10 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			Feature.TREE,
 			new TreeConfiguration.TreeConfigurationBuilder(
 				prov(ReduxWoodSets.PRISMA.log()),
-				new CherryTrunkPlacer(
-					8,
-					1,
-					1,
-					UniformInt.of(2, 3),
-					UniformInt.of(2, 3),
-					UniformInt.of(-4, -3),
-					UniformInt.of(-1, 0)
-				),
+				new PrismaTrunkPlacer(UniformInt.of(8, 10), UniformInt.of(1, 2), UniformInt.of(2, 3)),
 				prov(ReduxBlocks.PRISMA_LEAVES),
-				new SkyrootFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
-				new TwoLayersFeatureSize(1, 0, 1)
+				new BlightwillowFoliagePlacer(ConstantInt.of(3), ConstantInt.of(1), ConstantInt.of(10)),
+				new TwoLayersFeatureSize(1, 2, 3)
 			)
 				.ignoreVines()
 				.build()

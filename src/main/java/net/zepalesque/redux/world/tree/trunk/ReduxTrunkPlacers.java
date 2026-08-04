@@ -10,7 +10,13 @@ public class ReduxTrunkPlacers {
 	public static final DeferredRegister<TrunkPlacerType<?>> TRUNK_PLACERS = 
 		Redux.reg(BuiltInRegistries.TRUNK_PLACER_TYPE);
 
-	public static final DeferredHolder<TrunkPlacerType<?>, TrunkPlacerType<OffsetTrunkPlacer>>
+		public static final DeferredHolder<TrunkPlacerType<?>, TrunkPlacerType<PrismaTrunkPlacer>>
+			PRISMA_TRUNK = TRUNK_PLACERS.register(
+				"prisma_trunk",
+				() -> new TrunkPlacerType<>(PrismaTrunkPlacer.CODEC)
+			);
+	
+		public static final DeferredHolder<TrunkPlacerType<?>, TrunkPlacerType<OffsetTrunkPlacer>>
 		OFFSET_TRUNK = TRUNK_PLACERS.register(
 			"offset_trunk",
 			() -> new TrunkPlacerType<>(OffsetTrunkPlacer.CODEC)
