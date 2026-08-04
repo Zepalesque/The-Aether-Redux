@@ -16,6 +16,17 @@ public class ReduxTreeGrowers {
 		Optional.empty()
 	);
 
+	public static final TreeGrower PRISMA = new TreeGrower(
+		"prisma",
+		0.3F,
+		Optional.empty(),
+		Optional.empty(),
+		Optional.of(ReduxFeatureConfig.PRISMA_TREE),
+		Optional.empty(),
+		Optional.empty(),
+		Optional.empty()
+	);
+	
 	public static final TreeGrower STORMFIR = new TreeGrower(
 		"stormfir",
 		0.3F,

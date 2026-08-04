@@ -156,6 +156,8 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> MOONFIR_TREE = createKey("moonfir");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> STORMFIR_TREE = createKey("stormfir");
 
+	public static final ResourceKey<ConfiguredFeature<?, ?>> PRISMA_TREE = createKey("prisma");
+	
 	public static final ResourceKey<ConfiguredFeature<?, ?>> CLOUDCAP_MUSHROOM = createKey("cloudcap_mushroom");
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTWILLOW_TREE = createKey("blightwillow");
@@ -335,6 +337,29 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LOG),
 				new StraightTrunkPlacer(4, 2, 0),
 				prov(ReduxBlocks.SILVEROOT_LEAVES),
+				new SkyrootFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
+				new TwoLayersFeatureSize(1, 0, 1)
+			)
+				.ignoreVines()
+				.build()
+		);
+
+		FeatureUtils.register(
+			context,
+			PRISMA_TREE,
+			Feature.TREE,
+			new TreeConfiguration.TreeConfigurationBuilder(
+				BlockStateProvider.simple(AetherFeatureStates.SKYROOT_LOG),
+				new CherryTrunkPlacer(
+					8,
+					1,
+					1,
+					UniformInt.of(2, 3),
+					UniformInt.of(2, 3),
+					UniformInt.of(-4, -3),
+					UniformInt.of(-1, 0)
+				),
+				prov(ReduxBlocks.PRISMA_LEAVES),
 				new SkyrootFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
 				new TwoLayersFeatureSize(1, 0, 1)
 			)

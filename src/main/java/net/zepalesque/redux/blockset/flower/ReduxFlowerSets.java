@@ -75,7 +75,7 @@ public class ReduxFlowerSets {
 	public static final BaseFlowerSet<SaplingBlock> PRISMA_SAPLING = register(
 		new UntintedFlowerSet<>("prisma_sapling", "natural/", () ->
 			new SaplingBlock(
-				ReduxTreeGrowers.SILVEROOT,
+				ReduxTreeGrowers.PRISMA,
 				Properties.ofFullCopy(Blocks.OAK_SAPLING).mapColor(MapColor.DIAMOND)
 			)
 		)
