@@ -194,20 +194,11 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
 		);
 	}
 
-	public void partialTintedLeaves(Block block, String loc) {
-		var base = texture(block, loc, "_base");
-		var overlay = texture(block, loc, "_overlay");
+	public void leaves(Block block, String loc) {
+		var texture = texture(block, loc);
 
 		var model = models()
-			.leaves(nameID(block), base)
-			.texture("overlay", overlay)
-			.element()
-			.cube("#overlay")
-			.end()
-			.element()
-			.cube("#all")
-			.allFaces((dir, face) -> face.tintindex(0).end())
-			.end();
+			.leaves(nameID(block), texture);
 
 		this.getMultipartBuilder(block)
 			.part()
