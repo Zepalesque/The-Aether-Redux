@@ -1,0 +1,44 @@
+{
+	"type": "minecraft:random_selector",
+	"config": {
+		"default": {
+			"feature": "aether_redux:prisma",
+			"placement": [
+				{
+					"type": "minecraft:block_predicate_filter",
+					"predicate": {
+						"type": "minecraft:would_survive",
+						"state": {
+							"Name": "aether:skyroot_sapling",
+							"Properties": {
+								"stage": "0"
+							}
+						}
+					}
+				}
+			]
+		},
+		"features": [
+			{
+				"chance": 0.25,
+				"feature": {
+					"feature": "aether:crystal_tree",
+					"placement": [
+						{
+							"type": "minecraft:block_predicate_filter",
+							"predicate": {
+								"type": "minecraft:would_survive",
+								"state": {
+									"Name": "aether:skyroot_sapling",
+									"Properties": {
+										"stage": "0"
+									}
+								}
+							}
+						}
+					]
+				}
+			}
+		]
+	}
+}

@@ -23,7 +23,7 @@ public class ReduxColors {
 		public static final int GILDED_GRASS_COLOR = 0xFFFFED96;
 		public static final int BLIGHT_GRASS_COLOR = 0xFFBEAEE5;
 		public static final int FROSTED_GRASS_COLOR = 0xCCF7FF;
-		public static final int SKYFIELDS_GRASS_COLOR = 0xBFFFEC;
+		public static final int SKYFIELDS_GRASS_COLOR = 0xbffaff;
 		public static final int CLOUDCAP_GRASS_COLOR = 0xC6E5FF;
 
 		public static final int BLEAKMOSS_GRASS_COLOR = 0xFFB79EC1;

@@ -163,6 +163,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHTWILLOW_TREE = createKey("blightwillow");
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> GROVE_TREES = createKey("gilded_groves_trees");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> SKYFIELDS_TREES = createKey("skyfields_trees");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHT_TREES = createKey("the_blight_trees");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTED_TREES = createKey("frosted_forests_trees");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> GLACIAL_TREES = createKey("glacial_tundra_trees");
@@ -598,6 +599,27 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				PlacementUtils.inlinePlaced(
 					configs.getOrThrow(GOLDEN_OAK_TREE),
 					PlacementUtils.filteredByBlockSurvival(AetherBlocks.GOLDEN_OAK_SAPLING.get())
+				)
+			)
+		);
+
+		FeatureUtils.register(
+			context,
+			SKYFIELDS_TREES,
+			Feature.RANDOM_SELECTOR,
+			new RandomFeatureConfiguration(
+				List.of(
+					new WeightedPlacedFeature(
+						PlacementUtils.inlinePlaced(
+							configs.getOrThrow(CRYSTAL_TREE),
+							PlacementUtils.filteredByBlockSurvival(AetherBlocks.SKYROOT_SAPLING.get())
+						),
+						0.25F
+					)
+				),
+				PlacementUtils.inlinePlaced(
+					configs.getOrThrow(PRISMA_TREE),
+					PlacementUtils.filteredByBlockSurvival(AetherBlocks.SKYROOT_SAPLING.get())
 				)
 			)
 		);

@@ -15,8 +15,6 @@ import net.zepalesque.redux.client.audio.ReduxMusic;
 import net.zepalesque.redux.data.resource.registries.ReduxPlacements;
 
 public class Skyfields {
-
-
     public static Biome generate(BootstrapContext<Biome> context) {
 	    var placed = context.lookup(Registries.PLACED_FEATURE);
 	    var carvers = context.lookup(Registries.CONFIGURED_CARVER);
@@ -78,7 +76,7 @@ public class Skyfields {
 
             .addFeature(GenerationStep.Decoration.FLUID_SPRINGS, AetherPlacedFeatures.WATER_SPRING_PLACEMENT)
 
-//            .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.SKYFIELDS_TREES)
+            .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.SKYFIELDS_TREES)
             .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.HOLIDAY_TREE_PLACEMENT)
             .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.GRASS_PATCH_PLACEMENT)
             .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.TALL_GRASS_PATCH_PLACEMENT)
