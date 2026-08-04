@@ -1,5 +1,6 @@
 package net.zepalesque.redux.client.event.listener;
 
+import net.minecraft.core.BlockPos;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -12,7 +13,7 @@ public class TintListener {
 	public static void registerTintHandlers(RegisterColorHandlersEvent.Block event) {
 		event.register(
 			(state, level, pos, tintIndex) -> {
-				// TODO: null check level and pos which by the signature of BlockColor#getColor may be null
+				pos = pos == null ? BlockPos.ZERO : pos;
 				// Distance from 0, 0 using pythagorean theorem
 				var dist = Math.sqrt(Math.pow(pos.getX(), 2) + Math.pow(pos.getZ(), 2));
 
