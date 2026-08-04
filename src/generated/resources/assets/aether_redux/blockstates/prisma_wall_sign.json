@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "aether_redux:block/prisma_sign"
-    }
-  }
+	"variants": {
+		"": {
+			"model": "aether_redux:block/prisma_sign"
+		}
+	}
 }

@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/button_pressed",
-  "textures": {
-    "texture": "aether_redux:block/construction/prisma_planks"
-  }
+	"parent": "minecraft:block/button_pressed",
+	"textures": {
+		"texture": "aether_redux:block/construction/prisma_planks"
+	}
 }

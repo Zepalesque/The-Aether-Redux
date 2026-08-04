@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "aether_redux:block/construction/prisma_planks"
-  }
+	"parent": "minecraft:block/cube_all",
+	"textures": {
+		"all": "aether_redux:block/construction/prisma_planks"
+	}
 }

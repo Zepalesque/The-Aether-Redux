@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "aether_redux:block/prisma_bookshelf"
-    }
-  }
+	"variants": {
+		"": {
+			"model": "aether_redux:block/prisma_bookshelf"
+		}
+	}
 }

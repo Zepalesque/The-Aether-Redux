@@ -1,9 +1,9 @@
 {
-  "multipart": [
-    {
-      "apply": {
-        "model": "aether_redux:block/prisma_leaves"
-      }
-    }
-  ]
+	"multipart": [
+		{
+			"apply": {
+				"model": "aether_redux:block/prisma_leaves"
+			}
+		}
+	]
 }

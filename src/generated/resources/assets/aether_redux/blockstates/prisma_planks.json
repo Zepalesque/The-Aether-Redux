@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "": {
-      "model": "aether_redux:block/prisma_planks"
-    }
-  }
+	"variants": {
+		"": {
+			"model": "aether_redux:block/prisma_planks"
+		}
+	}
 }
