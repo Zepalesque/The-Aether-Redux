@@ -25,7 +25,7 @@ public class ReduxMapData extends ReduxDataMapProvider {
         super(packOutput, lookupProvider);
     }
 
-    @Override                
+    @Override
     protected void gather(HolderLookup.Provider provider) {
         Redux.BLOCK_SETS.forEach(set -> set.mapData(this));
 
