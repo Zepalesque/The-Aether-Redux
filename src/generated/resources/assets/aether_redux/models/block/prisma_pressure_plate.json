@@ -1,6 +1,6 @@
 {
-	"parent": "minecraft:block/pressure_plate_up",
-	"textures": {
-		"texture": "aether_redux:block/construction/prisma_planks"
-	}
+  "parent": "minecraft:block/pressure_plate_up",
+  "textures": {
+    "texture": "aether_redux:block/construction/prisma_planks"
+  }
 }

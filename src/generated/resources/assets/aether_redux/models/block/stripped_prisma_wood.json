@@ -1,7 +1,7 @@
 {
-	"parent": "minecraft:block/cube_column",
-	"textures": {
-		"end": "aether_redux:block/natural/stripped_prisma_log",
-		"side": "aether_redux:block/natural/stripped_prisma_log"
-	}
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "aether_redux:block/natural/stripped_prisma_log",
+    "side": "aether_redux:block/natural/stripped_prisma_log"
+  }
 }

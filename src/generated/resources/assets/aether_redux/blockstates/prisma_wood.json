@@ -1,16 +1,16 @@
 {
-	"variants": {
-		"axis=x": {
-			"model": "aether_redux:block/prisma_wood_horizontal",
-			"x": 90,
-			"y": 90
-		},
-		"axis=y": {
-			"model": "aether_redux:block/prisma_wood"
-		},
-		"axis=z": {
-			"model": "aether_redux:block/prisma_wood_horizontal",
-			"x": 90
-		}
-	}
+  "variants": {
+    "axis=x": {
+      "model": "aether_redux:block/prisma_wood_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "aether_redux:block/prisma_wood"
+    },
+    "axis=z": {
+      "model": "aether_redux:block/prisma_wood_horizontal",
+      "x": 90
+    }
+  }
 }
