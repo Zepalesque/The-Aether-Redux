@@ -185,6 +185,15 @@ public class ReduxItems extends ReduxItemBuilders {
 		() -> new AerboundCapeItem(new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT))
 	);
 
+	public static final DeferredItem<DeferredSpawnEggItem> ARTEMID_SPAWN_EGG = ITEMS.register(
+		"artemid_spawn_egg",
+		() -> new DeferredSpawnEggItem(
+			ReduxEntities.ARTEMID,
+			0x595d66,
+			0xa8bddd,
+			new Item.Properties()
+		)
+	);
 	public static final DeferredItem<DeferredSpawnEggItem> CAT_FISH_SPAWN_EGG = ITEMS.register(
 		"cat_fish_spawn_egg",
 		() -> new DeferredSpawnEggItem(

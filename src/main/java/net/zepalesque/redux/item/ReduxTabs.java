@@ -168,7 +168,7 @@ public class ReduxTabs {
 				ReduxItems.REFINED_SENTRITE,
 				ReduxItems.SENTRITE_CHUNK
 			)
-			.putAfter(AetherItems.SKYROOT_STICK, ReduxItems.WILLOW_SPORES)
+				.putAfter(AetherItems.SKYROOT_STICK, ReduxItems.WILLOW_SPORES)
 			.putAfter(
 				AetherItems.AECHOR_PETAL,
 				ReduxItems.WYND_OATS,
@@ -189,6 +189,16 @@ public class ReduxTabs {
 				AetherItems.WHITE_APPLE,
 				ReduxItems.CAELGAE_CLUMP,
 				ReduxItems.SEAWEED_SALAD
+			);
+
+		new TabBuilder(event, AetherCreativeTabs.AETHER_SPAWN_EGGS.getKey())
+			.putAfter(
+				AetherItems.AERWHALE_SPAWN_EGG,
+				ReduxItems.ARTEMID_SPAWN_EGG
+			)
+			.putAfter(
+				AetherItems.BLUE_SWET_SPAWN_EGG,
+				ReduxItems.CAT_FISH_SPAWN_EGG
 			);
 		
 		new TabBuilder(event, CreativeModeTabs.REDSTONE_BLOCKS)

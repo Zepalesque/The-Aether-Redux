@@ -4,11 +4,9 @@ package net.zepalesque.redux.client.renderer.entity.model;
 // Exported for Minecraft version 1.17 or later with Mojang mappings
 // Paste this class into your mod and generate all required imports
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-
+import javax.annotation.ParametersAreNonnullByDefault;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;

@@ -1,7 +1,6 @@
 package net.zepalesque.redux.client.renderer.entity;
 
 import javax.annotation.ParametersAreNonnullByDefault;
-
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;

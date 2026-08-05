@@ -195,6 +195,9 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 		addEntityType(ReduxEntities.CAT_FISH);
 		addItem(ReduxItems.CAT_FISH_SPAWN_EGG);
 
+		addEntityType(ReduxEntities.ARTEMID);
+		addItem(ReduxItems.ARTEMID_SPAWN_EGG);
+
 		addBlock(ReduxBlocks.VERIDIUM_ORE);
 		addLore(ReduxBlocks.VERIDIUM_ORE, "The ore of Veridium. This can be found around the Aether");
 

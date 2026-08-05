@@ -1,9 +1,7 @@
 package net.zepalesque.redux.client.renderer.entity.layer;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 import com.mojang.blaze3d.vertex.PoseStack;
-
+import javax.annotation.ParametersAreNonnullByDefault;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;

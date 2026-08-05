@@ -2,7 +2,6 @@ package net.zepalesque.redux.entity;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
-
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -136,28 +135,24 @@ public class Artemid extends Animal {
 	}
 
 	@Override
-	@Nullable
-	public AgeableMob getBreedOffspring(ServerLevel level, AgeableMob otherParent) {
+	@Nullable public AgeableMob getBreedOffspring(ServerLevel level, AgeableMob otherParent) {
 		return ReduxEntities.ARTEMID.get().create(level);
 	}
 
 	@Override
-	@Nullable
-	protected SoundEvent getAmbientSound() {
+	@Nullable protected SoundEvent getAmbientSound() {
 		// todo
 		return null;
 	}
 
 	@Override
-	@Nullable
-	protected SoundEvent getHurtSound(DamageSource damageSource) {
+	@Nullable protected SoundEvent getHurtSound(DamageSource damageSource) {
 		// todo
 		return null;
 	}
 
 	@Override
-	@Nullable
-	protected SoundEvent getDeathSound() {
+	@Nullable protected SoundEvent getDeathSound() {
 		// todo
 		return null;
 	}
