@@ -1,4 +1,4 @@
-package net.zepalesque.redux.client.renderer.entity.model;
+package net.zepalesque.redux.client.renderer.entity.artemid;
 
 // Made with Blockbench 4.12.6
 // Exported for Minecraft version 1.17 or later with Mojang mappings
@@ -19,7 +19,6 @@ import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.AnimationState;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.client.renderer.entity.anim.ArtemidAnimation;
 import net.zepalesque.redux.entity.Artemid;
 
 @ParametersAreNonnullByDefault

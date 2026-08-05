@@ -1,4 +1,4 @@
-package net.zepalesque.redux.client.renderer.entity.layer;
+package net.zepalesque.redux.client.renderer.entity.slider;
 
 import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.client.renderer.entity.model.SliderModel;

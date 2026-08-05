@@ -1,4 +1,4 @@
-package net.zepalesque.redux.client.renderer.entity.layer;
+package net.zepalesque.redux.client.renderer.entity.artemid;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -8,7 +8,6 @@ import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.client.renderer.entity.model.ArtemidModel;
 import net.zepalesque.redux.entity.Artemid;
 
 @ParametersAreNonnullByDefault

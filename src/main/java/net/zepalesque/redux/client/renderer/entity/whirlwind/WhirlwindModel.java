@@ -1,4 +1,4 @@
-package net.zepalesque.redux.client.renderer.entity.model;
+package net.zepalesque.redux.client.renderer.entity.whirlwind;
 
 
 import com.aetherteam.aether.entity.AetherEntityTypes;

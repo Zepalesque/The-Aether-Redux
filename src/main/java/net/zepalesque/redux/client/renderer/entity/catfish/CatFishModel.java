@@ -1,4 +1,4 @@
-package net.zepalesque.redux.client.renderer.entity.model;
+package net.zepalesque.redux.client.renderer.entity.catfish;
 
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelPart;

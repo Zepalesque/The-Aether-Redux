@@ -1,12 +1,10 @@
-package net.zepalesque.redux.client.renderer.entity;
+package net.zepalesque.redux.client.renderer.entity.artemid;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.client.renderer.entity.layer.Antlers;
-import net.zepalesque.redux.client.renderer.entity.model.ArtemidModel;
 import net.zepalesque.redux.entity.Artemid;
 
 @ParametersAreNonnullByDefault

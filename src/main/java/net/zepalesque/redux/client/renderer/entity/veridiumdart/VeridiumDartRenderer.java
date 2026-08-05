@@ -1,4 +1,4 @@
-package net.zepalesque.redux.client.renderer.entity;
+package net.zepalesque.redux.client.renderer.entity.veridiumdart;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import javax.annotation.Nonnull;

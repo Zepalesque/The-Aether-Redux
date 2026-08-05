@@ -1,4 +1,4 @@
-package net.zepalesque.redux.client.renderer.entity;
+package net.zepalesque.redux.client.renderer.entity.catfish;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
@@ -8,7 +8,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.renderer.ReduxRenderers;
-import net.zepalesque.redux.client.renderer.entity.model.CatFishModel;
 import net.zepalesque.redux.entity.CatFish;
 
 public class CatFishRenderer extends MobRenderer<CatFish, CatFishModel<CatFish>> {

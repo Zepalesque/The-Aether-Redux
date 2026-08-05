@@ -22,16 +22,16 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.client.renderer.block.model.baked.AmbientOcclusionLightModel;
-import net.zepalesque.redux.client.renderer.entity.ArtemidRenderer;
-import net.zepalesque.redux.client.renderer.entity.CatFishRenderer;
-import net.zepalesque.redux.client.renderer.entity.EmberRenderer;
-import net.zepalesque.redux.client.renderer.entity.ReduxEvilWhirlwindRenderer;
-import net.zepalesque.redux.client.renderer.entity.ReduxWhirlwindRenderer;
-import net.zepalesque.redux.client.renderer.entity.VeridiumDartRenderer;
-import net.zepalesque.redux.client.renderer.entity.layer.SliderSignalLayer;
-import net.zepalesque.redux.client.renderer.entity.model.ArtemidModel;
-import net.zepalesque.redux.client.renderer.entity.model.CatFishModel;
-import net.zepalesque.redux.client.renderer.entity.model.WhirlwindModel;
+import net.zepalesque.redux.client.renderer.entity.artemid.ArtemidModel;
+import net.zepalesque.redux.client.renderer.entity.artemid.ArtemidRenderer;
+import net.zepalesque.redux.client.renderer.entity.catfish.CatFishModel;
+import net.zepalesque.redux.client.renderer.entity.catfish.CatFishRenderer;
+import net.zepalesque.redux.client.renderer.entity.ember.EmberRenderer;
+import net.zepalesque.redux.client.renderer.entity.slider.SliderSignalLayer;
+import net.zepalesque.redux.client.renderer.entity.veridiumdart.VeridiumDartRenderer;
+import net.zepalesque.redux.client.renderer.entity.whirlwind.ReduxEvilWhirlwindRenderer;
+import net.zepalesque.redux.client.renderer.entity.whirlwind.ReduxWhirlwindRenderer;
+import net.zepalesque.redux.client.renderer.entity.whirlwind.WhirlwindModel;
 import net.zepalesque.redux.entity.ReduxEntities;
 
 @EventBusSubscriber(modid = Redux.MODID, value = Dist.CLIENT)

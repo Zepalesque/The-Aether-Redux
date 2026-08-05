@@ -1,4 +1,4 @@
-package net.zepalesque.redux.client.renderer.entity;
+package net.zepalesque.redux.client.renderer.entity.whirlwind;
 
 import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.entity.monster.AbstractWhirlwind;
@@ -12,7 +12,6 @@ import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.zepalesque.redux.client.renderer.ReduxRenderers;
-import net.zepalesque.redux.client.renderer.entity.model.WhirlwindModel;
 import net.zepalesque.redux.config.ReduxConfig;
 import org.jetbrains.annotations.NotNull;
 

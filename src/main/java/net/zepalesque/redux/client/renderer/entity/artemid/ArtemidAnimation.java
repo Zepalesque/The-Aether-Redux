@@ -1,4 +1,4 @@
-package net.zepalesque.redux.client.renderer.entity.anim;
+package net.zepalesque.redux.client.renderer.entity.artemid;
 
 import net.minecraft.client.animation.AnimationChannel;
 import net.minecraft.client.animation.AnimationDefinition;
