@@ -30,7 +30,7 @@ public class Antlers extends RenderLayer<Artemid, ArtemidModel<Artemid>> {
 		float netHeadYaw,
 		float headPitch
 	) {
-		if (artemid.isBaby() || artemid.isInvisible() || !artemid.getHasAntlers()) {
+		if (artemid.isBaby() || artemid.isInvisible()) {
 			return;
 		}
 		

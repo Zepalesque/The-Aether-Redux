@@ -37,12 +37,6 @@ import net.neoforged.neoforge.common.Tags;
 
 @ParametersAreNonnullByDefault
 public class Artemid extends Animal {
-	private static final String hasAntlers = "hasAntlers";
-	private static final EntityDataAccessor<Boolean> DATA_ANTLERS_ID = SynchedEntityData.defineId(
-		Artemid.class,
-		EntityDataSerializers.BOOLEAN
-	);
-
 	public Artemid(EntityType<? extends Artemid> entityType, Level level) {
 		super(entityType, level);
 	}
@@ -72,61 +66,6 @@ public class Artemid extends Animal {
 			.add(Attributes.MOVEMENT_SPEED, 0.3)
 			.add(Attributes.MAX_HEALTH, 10)
 			.add(Attributes.FOLLOW_RANGE, 6);
-	}
-
-	@Override
-	protected void defineSynchedData(Builder builder) {
-		super.defineSynchedData(builder);
-		builder.define(DATA_ANTLERS_ID, true);
-	}
-
-	@Override
-	public void addAdditionalSaveData(CompoundTag compound) {
-		super.addAdditionalSaveData(compound);
-		compound.putBoolean(hasAntlers, getHasAntlers());
-	}
-
-	@Override
-	public void readAdditionalSaveData(CompoundTag compound) {
-		super.readAdditionalSaveData(compound);
-		if (compound.contains(hasAntlers)) {
-			this.setHasAntlers(compound.getBoolean(hasAntlers));
-		}
-	}
-
-	public ItemStack getAntlerDrop() {
-		// TODO
-		return new ItemStack(Items.DIRT);
-	}
-
-	@Override
-	public InteractionResult mobInteract(Player player, InteractionHand hand) {
-		if (level().isClientSide || this.isBaby() || !this.getHasAntlers()) {
-			return super.mobInteract(player, hand);
-		}
-
-		var item = player.getItemInHand(hand);
-		if (!item.is(ItemTags.AXES)) {
-			return super.mobInteract(player, hand);
-		}
-
-		if (item.isDamageableItem()) {
-			item.hurtAndBreak(1, player, getSlotForHand(hand));
-		}
-
-		this.level().playSound(null, this, SoundEvents.SHEEP_SHEAR, SoundSource.PLAYERS, 1.0F, 1.0F);
-		this.spawnAtLocation(this.getAntlerDrop(), 1.5F);
-		this.setHasAntlers(false);
-
-		return InteractionResult.SUCCESS;
-	}
-
-	public boolean getHasAntlers() {
-		return this.entityData.get(DATA_ANTLERS_ID);
-	}
-
-	public void setHasAntlers(boolean bool) {
-		this.entityData.set(DATA_ANTLERS_ID, bool);
 	}
 
 	@Override
