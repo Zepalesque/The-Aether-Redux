@@ -37,14 +37,14 @@ import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.common.Tags;
 
 @ParametersAreNonnullByDefault
-public class Deer extends Animal {
+public class Artemid extends Animal {
 	private static final String hasAntlers = "hasAntlers";
 	private static final EntityDataAccessor<Boolean> DATA_ANTLERS_ID = SynchedEntityData.defineId(
-		Deer.class,
+		Artemid.class,
 		EntityDataSerializers.BOOLEAN
 	);
 
-	public Deer(EntityType<? extends Deer> entityType, Level level) {
+	public Artemid(EntityType<? extends Artemid> entityType, Level level) {
 		super(entityType, level);
 	}
 
@@ -138,7 +138,7 @@ public class Deer extends Animal {
 	@Override
 	@Nullable
 	public AgeableMob getBreedOffspring(ServerLevel level, AgeableMob otherParent) {
-		return ReduxEntities.DEER.get().create(level);
+		return ReduxEntities.ARTEMID.get().create(level);
 	}
 
 	@Override

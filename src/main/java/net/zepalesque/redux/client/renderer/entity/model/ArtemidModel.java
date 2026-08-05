@@ -21,14 +21,14 @@ import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.AnimationState;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.client.renderer.entity.anim.DeerAnimation;
-import net.zepalesque.redux.entity.Deer;
+import net.zepalesque.redux.client.renderer.entity.anim.ArtemidAnimation;
+import net.zepalesque.redux.entity.Artemid;
 
 @ParametersAreNonnullByDefault
 @SuppressWarnings("unused")
-public class DeerModel<T extends Deer> extends HierarchicalModel<T> {
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(Redux.loc("deer"), "main");
-	public static final ModelLayerLocation ANTLERS_LAYER = new ModelLayerLocation(Redux.loc("deer_antlers"), "antlers");
+public class ArtemidModel<T extends Artemid> extends HierarchicalModel<T> {
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(Redux.loc("artemid"), "main");
+	public static final ModelLayerLocation ANTLERS_LAYER = new ModelLayerLocation(Redux.loc("artemid_antlers"), "antlers");
 
 	private final ModelPart root;
 	private final ModelPart head;
@@ -42,7 +42,7 @@ public class DeerModel<T extends Deer> extends HierarchicalModel<T> {
 
 	final AnimationState idleAnimationState = new AnimationState();
 
-	public DeerModel(ModelPart root) {
+	public ArtemidModel(ModelPart root) {
 		this.root = root.getChild("root");
 		this.head = this.root.getChild("head");
 		this.body = this.root.getChild("body");
@@ -104,8 +104,8 @@ public class DeerModel<T extends Deer> extends HierarchicalModel<T> {
 
 		this.idleAnimationState.startIfStopped(entity.tickCount);
 
-		this.animateWalk(DeerAnimation.WALK, limbSwing, limbSwingAmount, 1.5f, 2f);
-		this.animate(this.idleAnimationState, DeerAnimation.IDLE, ageInTicks);
+		this.animateWalk(ArtemidAnimation.WALK, limbSwing, limbSwingAmount, 1.5f, 2f);
+		this.animate(this.idleAnimationState, ArtemidAnimation.IDLE, ageInTicks);
 	}
 
 	protected void applyHeadRotation(float headYaw, float headPitch) {

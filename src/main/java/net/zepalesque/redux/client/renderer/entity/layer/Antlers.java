@@ -10,12 +10,12 @@ import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.client.renderer.entity.model.DeerModel;
-import net.zepalesque.redux.entity.Deer;
+import net.zepalesque.redux.client.renderer.entity.model.ArtemidModel;
+import net.zepalesque.redux.entity.Artemid;
 
 @ParametersAreNonnullByDefault
-public class Antlers extends RenderLayer<Deer, DeerModel<Deer>> {
-	public Antlers(RenderLayerParent<Deer, DeerModel<Deer>> parent) {
+public class Antlers extends RenderLayer<Artemid, ArtemidModel<Artemid>> {
+	public Antlers(RenderLayerParent<Artemid, ArtemidModel<Artemid>> parent) {
 		super(parent);
 	}
 
@@ -24,7 +24,7 @@ public class Antlers extends RenderLayer<Deer, DeerModel<Deer>> {
 		PoseStack poseStack,
 		MultiBufferSource buffer,
 		int packedLight,
-		Deer deer,
+		Artemid artemid,
 		float limbSwing,
 		float limbSwingAmount,
 		float partialTick,
@@ -32,13 +32,13 @@ public class Antlers extends RenderLayer<Deer, DeerModel<Deer>> {
 		float netHeadYaw,
 		float headPitch
 	) {
-		if (deer.isBaby() || deer.isInvisible() || !deer.getHasAntlers()) {
+		if (artemid.isBaby() || artemid.isInvisible() || !artemid.getHasAntlers()) {
 			return;
 		}
 		
-		var antlers = Redux.loc("textures/entity/deer/antlers.png");
+		var antlers = Redux.loc("textures/entity/artemid/antlers.png");
 		var vertexConsumer = buffer.getBuffer(RenderType.entityTranslucent(antlers));
-		var overlayCoords = LivingEntityRenderer.getOverlayCoords(deer, 0.0F);
+		var overlayCoords = LivingEntityRenderer.getOverlayCoords(artemid, 0.0F);
 
 		this
 			.getParentModel()

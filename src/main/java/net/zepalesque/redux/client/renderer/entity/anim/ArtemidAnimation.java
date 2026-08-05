@@ -10,7 +10,7 @@ import net.minecraft.client.animation.KeyframeAnimations;
  * Exported for Minecraft version 1.19 or later with Mojang mappings
  * @author Author
  */
-public class DeerAnimation {
+public class ArtemidAnimation {
 	public static final AnimationDefinition IDLE = AnimationDefinition.Builder.withLength(1.5F).looping()
 		.addAnimation("head", new AnimationChannel(AnimationChannel.Targets.ROTATION, 
 			new Keyframe(0.0F, KeyframeAnimations.degreeVec(0.0F, 0.0F, 0.0F), AnimationChannel.Interpolations.LINEAR),

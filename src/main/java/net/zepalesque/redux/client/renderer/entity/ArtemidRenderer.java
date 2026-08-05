@@ -7,27 +7,27 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.renderer.entity.layer.Antlers;
-import net.zepalesque.redux.client.renderer.entity.model.DeerModel;
-import net.zepalesque.redux.entity.Deer;
+import net.zepalesque.redux.client.renderer.entity.model.ArtemidModel;
+import net.zepalesque.redux.entity.Artemid;
 
 @ParametersAreNonnullByDefault
-public class DeerRenderer extends MobRenderer<Deer, DeerModel<Deer>> {
-	public DeerRenderer(EntityRendererProvider.Context context) {
+public class ArtemidRenderer extends MobRenderer<Artemid, ArtemidModel<Artemid>> {
+	public ArtemidRenderer(EntityRendererProvider.Context context) {
 		super(
 			context,
-			new DeerModel<>(context.bakeLayer(DeerModel.LAYER_LOCATION)),
+			new ArtemidModel<>(context.bakeLayer(ArtemidModel.LAYER_LOCATION)),
 			0.75F
 		);
 		this.addLayer(new Antlers(this));
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(Deer deer) {
-		return Redux.loc("textures/entity/deer/deer.png");
+	public ResourceLocation getTextureLocation(Artemid artemid) {
+		return Redux.loc("textures/entity/artemid/artemid.png");
 	}
 
 	@Override
-	protected float getFlipDegrees(Deer deer) {
+	protected float getFlipDegrees(Artemid artemid) {
 		return 180F;
 	}
 }
