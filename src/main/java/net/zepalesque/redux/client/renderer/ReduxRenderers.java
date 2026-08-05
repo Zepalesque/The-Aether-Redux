@@ -23,12 +23,14 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.client.renderer.block.model.baked.AmbientOcclusionLightModel;
 import net.zepalesque.redux.client.renderer.entity.CatFishRenderer;
+import net.zepalesque.redux.client.renderer.entity.DeerRenderer;
 import net.zepalesque.redux.client.renderer.entity.EmberRenderer;
 import net.zepalesque.redux.client.renderer.entity.ReduxEvilWhirlwindRenderer;
 import net.zepalesque.redux.client.renderer.entity.ReduxWhirlwindRenderer;
 import net.zepalesque.redux.client.renderer.entity.VeridiumDartRenderer;
 import net.zepalesque.redux.client.renderer.entity.layer.SliderSignalLayer;
 import net.zepalesque.redux.client.renderer.entity.model.CatFishModel;
+import net.zepalesque.redux.client.renderer.entity.model.DeerModel;
 import net.zepalesque.redux.client.renderer.entity.model.WhirlwindModel;
 import net.zepalesque.redux.entity.ReduxEntities;
 
@@ -38,6 +40,8 @@ public class ReduxRenderers {
 	public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
 		event.registerLayerDefinition(ModelLayers.WHIRLWIND, WhirlwindModel::createBodyLayer);
 		event.registerLayerDefinition(ModelLayers.CAT_FISH, CatFishModel::createBodyLayer);
+		event.registerLayerDefinition(DeerModel.LAYER_LOCATION, DeerModel::createBodyLayer);
+		event.registerLayerDefinition(DeerModel.ANTLERS_LAYER, DeerModel::createBodyLayer);
 	}
 
 	@SubscribeEvent
@@ -46,6 +50,7 @@ public class ReduxRenderers {
 		event.registerEntityRenderer(AetherEntityTypes.WHIRLWIND.get(), ReduxWhirlwindRenderer::new);
 		event.registerEntityRenderer(AetherEntityTypes.EVIL_WHIRLWIND.get(), ReduxEvilWhirlwindRenderer::new);
 		event.registerEntityRenderer(ReduxEntities.CAT_FISH.get(), CatFishRenderer::new);
+		event.registerEntityRenderer(ReduxEntities.DEER.get(), DeerRenderer::new);
 		event.registerEntityRenderer(ReduxEntities.EMBER.get(), EmberRenderer::new);
 		event.registerEntityRenderer(ReduxEntities.INFUSED_VERIDIUM_DART.get(), VeridiumDartRenderer::new);
 		event.registerEntityRenderer(ReduxEntities.VERIDIUM_DART.get(), VeridiumDartRenderer.Uninfused::new);

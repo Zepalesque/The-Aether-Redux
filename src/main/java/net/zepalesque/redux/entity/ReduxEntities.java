@@ -34,6 +34,12 @@ public class ReduxEntities {
 			.eyeHeight(0.2f)
 	);
 
+	public static final DeferredHolder<EntityType<?>, EntityType<Deer>> DEER = registerEntity(
+		"deer",
+		EntityType.Builder.of(Deer::new, MobCategory.CREATURE)
+			.sized(1.45f, 1.5f)
+	);
+
 	public static final DeferredHolder<EntityType<?>, EntityType<Ember>> EMBER = registerEntity(
 		"ember",
 		EntityType.Builder.<Ember>of(Ember::new, MobCategory.MISC)
@@ -73,6 +79,10 @@ public class ReduxEntities {
 		event.put(
 			CAT_FISH.get(),
 			CatFish.createAttributes().build()
+		);
+		event.put(
+			DEER.get(),
+			Deer.createAttributes().build()
 		);
 	}
 
