@@ -16,6 +16,12 @@ public class ReduxFoliagePlacers {
 			() -> new FoliagePlacerType<>(SkyrootFoliagePlacer.CODEC)
 		);
 
+	public static final DeferredHolder<FoliagePlacerType<?>, FoliagePlacerType<PrismaFoliagePlacer>>
+		PRISMA_FOLIAGE = FOLIAGE_PLACERS.register(
+			"prisma_foliage",
+			() -> new FoliagePlacerType<>(PrismaFoliagePlacer.CODEC)
+		);
+
 	public static final DeferredHolder<FoliagePlacerType<?>, FoliagePlacerType<CrystalFoliagePlacer>>
 		CRYSTAL_FOLIAGE = FOLIAGE_PLACERS.register(
 			"crystal_foliage",

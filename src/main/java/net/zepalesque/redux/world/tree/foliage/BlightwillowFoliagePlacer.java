@@ -12,17 +12,14 @@ import net.minecraft.world.level.levelgen.feature.configurations.TreeConfigurati
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 
 public class BlightwillowFoliagePlacer extends GoldenOakFoliagePlacer {
-	protected final IntProvider trunkHeight;
-
 	public static final MapCodec<BlightwillowFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec(
 		builder -> foliagePlacerParts(builder)
-			.and(IntProvider.codec(0, 24).fieldOf("trunk_height").forGetter(i -> i.trunkHeight))
 			.apply(builder, BlightwillowFoliagePlacer::new)
 	);
 
-	public BlightwillowFoliagePlacer(IntProvider radius, IntProvider offset, IntProvider height) {
-		super(radius, offset, height);
-		this.trunkHeight = height;
+	public BlightwillowFoliagePlacer(IntProvider radius, IntProvider offset) {
+		// GoldenOakFoliagePlacer does not seem to make use of the trunkHeight field
+		super(radius, offset, null);
 	}
 
 	@Override

@@ -69,6 +69,7 @@ import net.zepalesque.redux.world.tree.foliage.CloudcapFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.CrystalFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.HookedFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.MoonfirFoliagePlacer;
+import net.zepalesque.redux.world.tree.foliage.PrismaFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.SkyrootFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.SmallGoldenOakFoliagePlacer;
 import net.zepalesque.redux.world.tree.trunk.HookedTrunkPlacer;
@@ -354,7 +355,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				prov(ReduxWoodSets.PRISMA.log()),
 				new PrismaTrunkPlacer(UniformInt.of(8, 10), UniformInt.of(1, 2), UniformInt.of(2, 3)),
 				prov(ReduxBlocks.PRISMA_LEAVES),
-				new BlightwillowFoliagePlacer(ConstantInt.of(3), ConstantInt.of(1), ConstantInt.of(10)),
+				new PrismaFoliagePlacer(ConstantInt.of(4), ConstantInt.of(1)),
 				new TwoLayersFeatureSize(1, 2, 3)
 			)
 				.ignoreVines()
@@ -405,7 +406,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 						.add(drops(ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES), 1)
 						.build()
 				),
-				new BlightwillowFoliagePlacer(ConstantInt.of(3), ConstantInt.of(1), ConstantInt.of(10)),
+				new BlightwillowFoliagePlacer(ConstantInt.of(3), ConstantInt.of(1)),
 				Optional.empty(),
 				new TwoLayersFeatureSize(7, 0, 3)
 			).ignoreVines()
