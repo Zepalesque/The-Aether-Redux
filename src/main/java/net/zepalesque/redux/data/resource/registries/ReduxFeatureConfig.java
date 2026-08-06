@@ -510,9 +510,10 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 						UniformInt.of(1, 5),
 						Optional.empty()
 					), new PatchTreeDecorator(
-						createLeafPileLayers(
-							UnityBlocks.GOLDEN_OAK_LEAF_PILE
-						), 7, 3, 32
+						createLeafPileLayers(UnityBlocks.GOLDEN_OAK_LEAF_PILE),
+						4,
+						3,
+						32
 					)
 				)).build()
 		);

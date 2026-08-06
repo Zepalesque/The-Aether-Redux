@@ -2,7 +2,9 @@ package net.zepalesque.redux.data.resource.builders;
 
 import static net.zepalesque.unity.block.state.UnityStates.LEAF_LAYERS;
 
+import it.unimi.dsi.fastutil.ints.IntIntPair;
 import java.util.function.Supplier;
+import java.util.stream.IntStream;
 import net.minecraft.core.Vec3i;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -26,6 +28,7 @@ import net.zepalesque.redux.block.state.ReduxStates;
 import net.zepalesque.unity.data.resource.builders.base.BaseFeatureBuilders;
 
 public class ReduxFeatureBuilders extends BaseFeatureBuilders {
+
 	protected static final PlacementFilter HAS_TRUNK_SUPPORT_2X2 = BlockPredicateFilter.forPredicate(
 		BlockPredicate.allOf(
 			BlockPredicate.matchesTag(new Vec3i(0, -1, 0), BlockTags.DIRT),
@@ -58,7 +61,7 @@ public class ReduxFeatureBuilders extends BaseFeatureBuilders {
 
 	protected static BlockState naturalDrops(Supplier<? extends Block> block) {
 		var state = block.get().defaultBlockState();
-		
+
 		return state.hasProperty(ReduxStates.NATURAL_GEN)
 			? drops(state.setValue(ReduxStates.NATURAL_GEN, true))
 			: drops(state);
@@ -69,28 +72,31 @@ public class ReduxFeatureBuilders extends BaseFeatureBuilders {
 
 		for (var d : PinkPetalsBlock.FACING.getPossibleValues()) {
 			var temp = state.setValue(PinkPetalsBlock.FACING, d);
-			
+
 			for (int i : PinkPetalsBlock.AMOUNT.getPossibleValues())
 				builder.add(temp.setValue(PinkPetalsBlock.AMOUNT, i), i);
 		}
 
 		return new WeightedStateProvider(builder);
 	}
-	
+
 	protected static BlockStateProvider createLeafPileLayers(Supplier<? extends Block> block) {
 		return createLeafPileLayers(drops(block));
 	}
-	
+
 	protected static BlockStateProvider createLeafPileLayers(BlockState state) {
+		final var maxSize = 8;
+		final var iter = IntStream.range(1, maxSize + 1)
+			.mapToObj(i -> IntIntPair.of(i, maxSize - i + 1))
+			.toList();
+		
+		var builder = SimpleWeightedRandomList.<BlockState>builder();
+		for (var pair : iter) {
+			builder = builder.add(state.setValue(LEAF_LAYERS, pair.leftInt()), pair.rightInt());
+		}
+
 		return state.hasProperty(LEAF_LAYERS)
-			? new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-				// surely theres a more idiomatic way to code this?
-				.add(state.setValue(LEAF_LAYERS, 1), 6)
-				.add(state.setValue(LEAF_LAYERS, 2), 5)
-				.add(state.setValue(LEAF_LAYERS, 3), 4)
-				.add(state.setValue(LEAF_LAYERS, 4), 3)
-				.add(state.setValue(LEAF_LAYERS, 5), 2)
-				.add(state.setValue(LEAF_LAYERS, 6), 1)
-			) : BlockStateProvider.simple(state);
+			? new WeightedStateProvider(builder)
+			: BlockStateProvider.simple(state);
 	}
 }

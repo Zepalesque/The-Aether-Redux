@@ -38,7 +38,7 @@
 									"layers": "1"
 								}
 							},
-							"weight": 6
+							"weight": 8
 						},
 						{
 							"data": {
@@ -47,7 +47,7 @@
 									"layers": "2"
 								}
 							},
-							"weight": 5
+							"weight": 7
 						},
 						{
 							"data": {
@@ -56,7 +56,7 @@
 									"layers": "3"
 								}
 							},
-							"weight": 4
+							"weight": 6
 						},
 						{
 							"data": {
@@ -65,7 +65,7 @@
 									"layers": "4"
 								}
 							},
-							"weight": 3
+							"weight": 5
 						},
 						{
 							"data": {
@@ -74,13 +74,31 @@
 									"layers": "5"
 								}
 							},
-							"weight": 2
+							"weight": 4
 						},
 						{
 							"data": {
 								"Name": "aether_unity:golden_oak_leaf_pile",
 								"Properties": {
 									"layers": "6"
+								}
+							},
+							"weight": 3
+						},
+						{
+							"data": {
+								"Name": "aether_unity:golden_oak_leaf_pile",
+								"Properties": {
+									"layers": "7"
+								}
+							},
+							"weight": 2
+						},
+						{
+							"data": {
+								"Name": "aether_unity:golden_oak_leaf_pile",
+								"Properties": {
+									"layers": "8"
 								}
 							},
 							"weight": 1
