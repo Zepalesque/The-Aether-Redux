@@ -16,10 +16,18 @@ public class ReduxTreeDecorators {
             () -> new TreeDecoratorType<>(
                 VineDecorator.CODEC
             ));
+    
     public static final DeferredHolder<TreeDecoratorType<?>, TreeDecoratorType<BranchLeavesDecorator>>
         BRANCH_LEAVES = TREE_DECORATORS.register(
             "branch_leaves",
             () -> new TreeDecoratorType<>(
                 BranchLeavesDecorator.CODEC
+            ));
+    
+    public static final DeferredHolder<TreeDecoratorType<?>, TreeDecoratorType<PatchTreeDecorator>>
+        PATCH = TREE_DECORATORS.register(
+            "patch",
+            () -> new TreeDecoratorType<>(
+                PatchTreeDecorator.CODEC
             ));
 }
