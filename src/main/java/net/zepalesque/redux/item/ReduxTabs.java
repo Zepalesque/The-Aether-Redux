@@ -24,7 +24,7 @@ public class ReduxTabs {
 	@SubscribeEvent(priority = EventPriority.LOWEST)
 	public static void buildCreativeModeTabs(BuildCreativeModeTabContentsEvent event) {
 		ItemLike sup = null;
-		for (BlockSet set : Redux.BLOCK_SETS)
+		for (var set : Redux.BLOCK_SETS)
 			sup = set.addToCreativeTab(event, sup, BlockSet.TabAdditionPhase.BEFORE);
 
 		new TabBuilder(event, AetherCreativeTabs.AETHER_NATURAL_BLOCKS.getKey())
