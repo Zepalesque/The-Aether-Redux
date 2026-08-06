@@ -8,6 +8,7 @@ import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredItem;
+import net.zepalesque.unity.Unity;
 import net.zepalesque.unity.data.prov.UnityItemModelProvider;
 
 public abstract class ReduxItemModelProvider extends UnityItemModelProvider {
@@ -82,7 +83,13 @@ public abstract class ReduxItemModelProvider extends UnityItemModelProvider {
 	}
 	
 	public void itemBlockCustomTexture(Block block, String loc, String name) {
-		this.withExistingParent(itemName(block  .asItem()), "block/cube_all")
+		this.withExistingParent(itemName(block.asItem()), "block/cube_all")
 			.texture("all", modLoc("block/" + loc + name));
+	}
+	
+	
+	public void leafPileCustomTexture(Block block, String loc, String name) {
+		this.withExistingParent(itemName(block.asItem()), Unity.loc("block/template/layer/layer_size1"))
+			.texture("block", modLoc("block/" + loc + name));
 	}
 }
