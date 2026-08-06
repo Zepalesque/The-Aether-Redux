@@ -1,6 +1,6 @@
 {
 	"parent": "aether_unity:block/template/layer/layer_size1",
 	"textures": {
-		"block": "aether_redux:block/naturalprisma_leaves_item"
+		"block": "aether_redux:block/natural/prisma_leaves_item"
 	}
 }

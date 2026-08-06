@@ -1,6 +1,6 @@
 {
 	"parent": "minecraft:block/cube_all",
 	"textures": {
-		"all": "aether_redux:block/naturalprisma_leaves_item"
+		"all": "aether_redux:block/natural/prisma_leaves_item"
 	}
 }
