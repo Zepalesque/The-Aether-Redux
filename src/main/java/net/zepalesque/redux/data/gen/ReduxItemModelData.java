@@ -22,7 +22,7 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
         this.itemBlock(ReduxBlocks.SILVEROOT_LEAVES.get());
         this.leafPile(ReduxBlocks.SILVEROOT_LEAF_PILE.get());
 
-        this.itemBlock(ReduxBlocks.PRISMA_LEAVES.get(), "_item");
+        this.itemBlockCustomTexture(ReduxBlocks.PRISMA_LEAVES.get(), "natural", "prisma_leaves_item");
         this.leafPile(ReduxBlocks.PRISMA_LEAF_PILE.get());
         
         this.itemBlock(ReduxBlocks.STORMFIR_LEAVES.get());

@@ -80,4 +80,9 @@ public abstract class ReduxItemModelProvider extends UnityItemModelProvider {
 			mcLoc("item/template_spawn_egg")
 		);
 	}
+	
+	public void itemBlockCustomTexture(Block block, String loc, String name) {
+		this.withExistingParent(itemName(block  .asItem()), "block/cube_all")
+			.texture("all", modLoc("block/" + loc + name));
+	}
 }
