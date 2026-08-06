@@ -1,5 +1,7 @@
 package net.zepalesque.redux.data.resource.builders;
 
+import static net.zepalesque.unity.block.state.UnityStates.LEAF_LAYERS;
+
 import java.util.function.Supplier;
 import net.minecraft.core.Vec3i;
 import net.minecraft.core.registries.Registries;
@@ -21,9 +23,7 @@ import net.minecraft.world.level.levelgen.placement.PlacementFilter;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.state.ReduxStates;
-import net.zepalesque.unity.block.state.UnityStates;
 import net.zepalesque.unity.data.resource.builders.base.BaseFeatureBuilders;
-import static net.zepalesque.unity.block.state.UnityStates.LEAF_LAYERS;
 
 public class ReduxFeatureBuilders extends BaseFeatureBuilders {
 	protected static final PlacementFilter HAS_TRUNK_SUPPORT_2X2 = BlockPredicateFilter.forPredicate(

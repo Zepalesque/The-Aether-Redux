@@ -25,6 +25,71 @@
 					}
 				},
 				"probability": 0.25
+			},
+			{
+				"type": "aether_redux:patch",
+				"provider": {
+					"type": "minecraft:weighted_state_provider",
+					"entries": [
+						{
+							"data": {
+								"Name": "aether_unity:golden_oak_leaf_pile",
+								"Properties": {
+									"layers": "1"
+								}
+							},
+							"weight": 6
+						},
+						{
+							"data": {
+								"Name": "aether_unity:golden_oak_leaf_pile",
+								"Properties": {
+									"layers": "2"
+								}
+							},
+							"weight": 5
+						},
+						{
+							"data": {
+								"Name": "aether_unity:golden_oak_leaf_pile",
+								"Properties": {
+									"layers": "3"
+								}
+							},
+							"weight": 4
+						},
+						{
+							"data": {
+								"Name": "aether_unity:golden_oak_leaf_pile",
+								"Properties": {
+									"layers": "4"
+								}
+							},
+							"weight": 3
+						},
+						{
+							"data": {
+								"Name": "aether_unity:golden_oak_leaf_pile",
+								"Properties": {
+									"layers": "5"
+								}
+							},
+							"weight": 2
+						},
+						{
+							"data": {
+								"Name": "aether_unity:golden_oak_leaf_pile",
+								"Properties": {
+									"layers": "6"
+								}
+							},
+							"weight": 1
+						}
+					]
+				},
+				"tries": 32,
+				"xz_spread": 7,
+				"y_spread": 3
 			}
 		],
 		"dirt_provider": {
