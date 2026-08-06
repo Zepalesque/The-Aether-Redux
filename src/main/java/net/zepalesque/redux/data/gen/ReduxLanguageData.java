@@ -29,7 +29,7 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 		addLore(ReduxBlocks.SILVEROOT_LEAF_PILE, "A pile of Silveroot Leaves. These can be stacked on top of eachother to make various sizes!");
 
 		addBlock(ReduxBlocks.PRISMA_LEAVES);
-		addLore(ReduxBlocks.PRISMA_LEAVES, "Leaves of the Prisma tree");
+		addLore(ReduxBlocks.PRISMA_LEAVES, "Leaves of the Prisma tree, a flowering relative of the Aether's rare Crystal trees! These sometimes will drop Prisma Saplings.");
 		addBlock(ReduxBlocks.PRISMA_LEAF_PILE);
 		addLore(ReduxBlocks.PRISMA_LEAF_PILE, "A pile of Prisma Leaves. These can be stacked on top of eachother to make various sizes!");
 		
