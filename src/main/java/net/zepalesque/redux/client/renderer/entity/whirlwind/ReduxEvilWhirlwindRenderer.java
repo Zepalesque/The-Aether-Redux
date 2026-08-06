@@ -9,7 +9,6 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.zepalesque.redux.client.renderer.ReduxRenderTypes;
 import net.zepalesque.redux.client.renderer.api.IPostRenderer;
-
 import org.jetbrains.annotations.NotNull;
 
 public class ReduxEvilWhirlwindRenderer<T extends AbstractWhirlwind> extends ReduxWhirlwindRenderer<T> implements IPostRenderer<T> {

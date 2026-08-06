@@ -1,3 +1,6 @@
 {
-	"parent": "aether_redux:block/prisma_leaf_pile_size_1"
+	"parent": "aether_unity:block/template/layer/layer_size1",
+	"textures": {
+		"block": "aether_redux:block/naturalprisma_leaves_item"
+	}
 }
