@@ -63,6 +63,7 @@ import net.zepalesque.redux.world.feature.gen.DebugNoiseFeature;
 import net.zepalesque.redux.world.feature.gen.LakesFeature;
 import net.zepalesque.redux.world.feature.gen.ReduxFeatures;
 import net.zepalesque.redux.world.feature.gen.WaterPlantFeature;
+import net.zepalesque.redux.world.tree.decorator.PatchTreeDecorator;
 import net.zepalesque.redux.world.tree.decorator.VineDecorator;
 import net.zepalesque.redux.world.tree.foliage.BlightwillowFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.CloudcapFoliagePlacer;
@@ -471,20 +472,19 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				prov(ReduxLeafSets.GILDLEAF.leaves()),
 				new SmallGoldenOakFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0)),
 				new TwoLayersFeatureSize(1, 0, 1)
-			)
-				.ignoreVines()
-				.decorators(
-					List.of(
-						new VineDecorator(
-							0.25F,
-							prov(ReduxBlocks.GOLDEN_VINES_PLANT),
-							prov(ReduxBlocks.GOLDEN_VINES),
-							UniformInt.of(1, 3),
-							Optional.empty()
-						)
-					)
+			).ignoreVines().decorators(List.of(
+				new VineDecorator(
+					0.25F,
+					prov(ReduxBlocks.GOLDEN_VINES_PLANT),
+					prov(ReduxBlocks.GOLDEN_VINES),
+					UniformInt.of(1, 3),
+					Optional.empty()
+				), new PatchTreeDecorator(
+					createLeafPileLayers(
+						UnityBlocks.GOLDEN_OAK_LEAF_PILE
+					), 7, 3, 32
 				)
-				.build()
+			)).build()
 		);
 
 		FeatureUtils.register(
@@ -501,19 +501,20 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				prov(ReduxLeafSets.GILDLEAF.leaves()),
 				new GoldenOakFoliagePlacer(ConstantInt.of(3), ConstantInt.of(1), ConstantInt.of(10)),
 				new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(13))
-			)
-				.ignoreVines()
-				.decorators(
-					List.of(
-						new VineDecorator(
-							0.25F,
-							prov(ReduxBlocks.GOLDEN_VINES_PLANT),
-							prov(ReduxBlocks.GOLDEN_VINES),
-							UniformInt.of(1, 5),
-							Optional.empty()
-						)
+			).ignoreVines().decorators(
+				List.of(
+					new VineDecorator(
+						0.25F,
+						prov(ReduxBlocks.GOLDEN_VINES_PLANT),
+						prov(ReduxBlocks.GOLDEN_VINES),
+						UniformInt.of(1, 5),
+						Optional.empty()
+					), new PatchTreeDecorator(
+						createLeafPileLayers(
+							UnityBlocks.GOLDEN_OAK_LEAF_PILE
+						), 7, 3, 32
 					)
-				).build()
+				)).build()
 		);
 
 		FeatureUtils.register(

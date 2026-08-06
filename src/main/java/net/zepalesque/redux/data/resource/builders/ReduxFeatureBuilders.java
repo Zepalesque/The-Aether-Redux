@@ -21,7 +21,9 @@ import net.minecraft.world.level.levelgen.placement.PlacementFilter;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.state.ReduxStates;
+import net.zepalesque.unity.block.state.UnityStates;
 import net.zepalesque.unity.data.resource.builders.base.BaseFeatureBuilders;
+import static net.zepalesque.unity.block.state.UnityStates.LEAF_LAYERS;
 
 public class ReduxFeatureBuilders extends BaseFeatureBuilders {
 	protected static final PlacementFilter HAS_TRUNK_SUPPORT_2X2 = BlockPredicateFilter.forPredicate(
@@ -68,11 +70,27 @@ public class ReduxFeatureBuilders extends BaseFeatureBuilders {
 		for (var d : PinkPetalsBlock.FACING.getPossibleValues()) {
 			var temp = state.setValue(PinkPetalsBlock.FACING, d);
 			
-			for (int i : PinkPetalsBlock.AMOUNT.getPossibleValues()) {
+			for (int i : PinkPetalsBlock.AMOUNT.getPossibleValues())
 				builder.add(temp.setValue(PinkPetalsBlock.AMOUNT, i), i);
-			}
 		}
 
 		return new WeightedStateProvider(builder);
+	}
+	
+	protected static BlockStateProvider createLeafPileLayers(Supplier<? extends Block> block) {
+		return createLeafPileLayers(drops(block));
+	}
+	
+	protected static BlockStateProvider createLeafPileLayers(BlockState state) {
+		return state.hasProperty(LEAF_LAYERS)
+			? new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+				// surely theres a more idiomatic way to code this?
+				.add(state.setValue(LEAF_LAYERS, 1), 6)
+				.add(state.setValue(LEAF_LAYERS, 2), 5)
+				.add(state.setValue(LEAF_LAYERS, 3), 4)
+				.add(state.setValue(LEAF_LAYERS, 4), 3)
+				.add(state.setValue(LEAF_LAYERS, 5), 2)
+				.add(state.setValue(LEAF_LAYERS, 6), 1)
+			) : BlockStateProvider.simple(state);
 	}
 }
