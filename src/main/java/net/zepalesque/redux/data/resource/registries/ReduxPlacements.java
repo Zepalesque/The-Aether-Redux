@@ -89,6 +89,7 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
 	public static final ResourceKey<PlacedFeature> DAGGERBLOOM_PATCH = copyKey(ReduxFeatureConfig.DAGGERBLOOM_PATCH);
 	public static final ResourceKey<PlacedFeature> SPARSE_PURPLE_FLOWER_PATCH = copyKey(ReduxFeatureConfig.SPARSE_PURPLE_FLOWER_PATCH);
 	public static final ResourceKey<PlacedFeature> SKYFERN_PATCH = copyKey(ReduxFeatureConfig.SKYFERN_PATCH);
+	public static final ResourceKey<PlacedFeature> LUNAERA_PATCH = copyKey(ReduxFeatureConfig.LUNAERA_PATCH);
 
 	public static final ResourceKey<PlacedFeature> AETHER_SNOW_LAYER = copyKey(ReduxFeatureConfig.AETHER_SNOW_LAYER);
 
@@ -535,6 +536,16 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
 			threshold,
 			ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 3), 4),
 			RarityFilter.onAverageOnceEvery(7),
+			BiomeFilter.biome()
+		);
+
+		register(
+			context,
+			LUNAERA_PATCH,
+			configs.getOrThrow(ReduxFeatureConfig.LUNAERA_PATCH),
+			threshold,
+			ImprovedLayerPlacementModifier.of(Heightmap.Types.MOTION_BLOCKING, UniformInt.of(0, 3), 4),
+			RarityFilter.onAverageOnceEvery(5),
 			BiomeFilter.biome()
 		);
 
