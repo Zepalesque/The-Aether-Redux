@@ -100,6 +100,8 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
 		this.dropNone(ReduxBlocks.LOCKED_RUNELIGHT.get());
 		this.dropNone(ReduxBlocks.LOCKED_POLISHED_SENTRITE.get());
 
+		this.dropSelfDouble(ReduxBlocks.LUNAERA.get());
+
 		this.add(ReduxBlocks.WYNDSPROUTS.get(), shearsOr(ReduxItems.WYND_OATS.get(), 0.25F));
 		this.add(ReduxBlocks.LUXWEED.get(), shears());
 		this.add(ReduxBlocks.SKYSPROUTS.get(), shears());

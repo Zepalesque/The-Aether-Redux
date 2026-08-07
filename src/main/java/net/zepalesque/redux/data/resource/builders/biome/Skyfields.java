@@ -82,6 +82,7 @@ public class Skyfields {
             .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.TALL_GRASS_PATCH_PLACEMENT)
             .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.WHITE_FLOWER_PATCH_PLACEMENT)
             .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.PURPLE_FLOWER_PATCH_PLACEMENT)
+            .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.LUNAERA_PATCH)
 //            .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.SKYSPROUTS_PATCH)
 //            .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.IRIDIA_PATCH)
 //            .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.XAELIA_PATCH)

@@ -39,7 +39,8 @@
 			"aether:grass_patch",
 			"aether:tall_grass_patch",
 			"aether:white_flower_patch",
-			"aether:purple_flower_patch"
+			"aether:purple_flower_patch",
+			"aether_redux:lunaera_patch"
 		],
 		[
 			"aether:crystal_island",

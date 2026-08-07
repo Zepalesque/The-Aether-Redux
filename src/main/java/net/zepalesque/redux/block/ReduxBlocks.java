@@ -15,6 +15,7 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ChainBlock;
+import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.IronBarsBlock;
 import net.minecraft.world.level.block.LanternBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
@@ -549,6 +550,14 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 		)
 	);
 
+	public static final DeferredBlock<DoublePlantBlock> LUNAERA = register(
+		"lunaera",
+		() -> new DoublePlantBlock(
+			Properties.ofFullCopy(Blocks.ROSE_BUSH)
+				.mapColor(MapColor.DIAMOND)
+		)
+	);
+	
 	public static final DeferredBlock<LogicatorBlock> LOGICATOR = register("logicator", () ->
 		new LogicatorBlock(
 			Properties.of()
