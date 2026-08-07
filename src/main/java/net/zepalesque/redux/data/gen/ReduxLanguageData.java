@@ -244,6 +244,9 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 		addBlock(ReduxBlocks.ECHYSIA, "Echysia");
 		addLore(ReduxBlocks.ECHYSIA, "A leafy cave plant. This can be found growing on Flutemoss patches underground!");
 
+		addBlock(ReduxBlocks.LUNAERA, "Lunaera");
+		addLore(ReduxBlocks.LUNAERA, "A flowering grass found in the skyfields. It absorbs moonlight, making it slightly bioluminescent.");
+
 		addTooltip("shift_info", "Hold [%s] for more info...");
 		addTooltip("infusion_charge", "Infusion Charge: %s");
 		addTooltip("infusion_info", "Can be infused by right-clicking the item in your inventory while hovering over it with an Ambrosium Shard");

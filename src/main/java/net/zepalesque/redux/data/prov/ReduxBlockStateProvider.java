@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ChainBlock;
 import net.minecraft.world.level.block.CrossCollisionBlock;
 import net.minecraft.world.level.block.DiodeBlock;
+import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.IronBarsBlock;
 import net.minecraft.world.level.block.LanternBlock;
 import net.minecraft.world.level.block.LeavesBlock;
@@ -433,6 +434,23 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
 			.texture("plant", this.texture(this.name(block), location))
 			.renderType("cutout");
 		this.crossBlock(block, cross);
+	}
+
+	public void doublePlant(DoublePlantBlock block, String location) {
+		this.getVariantBuilder(block).forAllStates(state -> {
+			var suffix = switch (state.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF)) {
+				case LOWER -> "_lower";
+				case UPPER -> "_upper";
+			};
+			var texture = texture(block, location, suffix);
+			var model = models()
+				.cross(this.name(block) + suffix, texture)
+				.renderType(ResourceLocation.withDefaultNamespace("cutout"));
+
+			return ConfiguredModel.builder()
+				.modelFile(model)
+				.build();
+		});
 	}
 
 	public void lantern(Block block, String location) {
