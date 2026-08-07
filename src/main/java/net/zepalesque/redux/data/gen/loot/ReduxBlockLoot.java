@@ -71,6 +71,10 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
 			ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(),
 			AetherBlocks.AETHER_DIRT.get()
 		);
+		this.dropDoubleWithSilk(
+			ReduxBlocks.AVELIUM_PEAT.get(),
+			AetherBlocks.AETHER_DIRT.get()
+		);
 
 		this.add(ReduxBlocks.CAELGAE_PATCH.get(), shearsOr(ReduxItems.CAELGAE_CLUMP.get(), 0.25F));
 		this.add(ReduxBlocks.BLOOMTAIL.get(), shears());
