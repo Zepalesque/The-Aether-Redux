@@ -52,8 +52,10 @@ public class RenderListener {
             double z = vec3.z();
 
             PoseStack posestack = event.getPoseStack();
-	        
-	        var allEntities = level.entitiesForRendering();
+            
+            // TODO: optimize this stuff cuz the sparkc profiler says its unoptimized
+            
+            var allEntities = level.entitiesForRendering();
             var stream = StreamSupport.stream(allEntities.spliterator(), true)
                 .filter(e -> e.getType() == AetherEntityTypes.EVIL_WHIRLWIND.get());
             Iterable<Entity> whirlwinds = stream::iterator;
