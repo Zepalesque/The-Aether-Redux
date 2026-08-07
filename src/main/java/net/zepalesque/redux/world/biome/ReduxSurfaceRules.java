@@ -49,6 +49,14 @@ public class ReduxSurfaceRules {
 
 	public static SurfaceRules.RuleSource makeRules() {
 		return SurfaceRules.sequence(
+			/*SurfaceRules.ifTrue(
+				SurfaceRules.steep(),
+				SurfaceRules.ifTrue(
+					SurfaceRules.UNDER_FLOOR,
+					surfaceState(AetherBlocks.HOLYSTONE)
+				)
+			),*/
+
 			scars(ReduxBiomes.GILDED_GROVES, ReduxStoneSets.GILDED_HOLYSTONE.block()),
 			scars(ReduxBiomes.THE_BLIGHT, ReduxStoneSets.BLEAKMOSS_HOLYSTONE.block()),
 
