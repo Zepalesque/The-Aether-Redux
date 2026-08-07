@@ -34,7 +34,7 @@
 									}
 								}
 							],
-							"name": "aether_redux:avelium_peat"
+							"name": "aether_redux:avelium"
 						},
 						{
 							"type": "minecraft:item",
@@ -51,5 +51,5 @@
 			"rolls": 1.0
 		}
 	],
-	"random_sequence": "aether_redux:blocks/avelium_peat"
+	"random_sequence": "aether_redux:blocks/avelium"
 }
