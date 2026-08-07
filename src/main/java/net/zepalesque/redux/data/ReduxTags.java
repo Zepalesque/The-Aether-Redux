@@ -26,6 +26,7 @@ public class ReduxTags {
 		// Blocks that can be replaced by generated rocks
 		public static final TagKey<Block> ROCK_REPLACEABLE = tag("rock_replaceable");
 		
+		// TODO: what was this used for?
 		public static final TagKey<Block> AETHER_GRASS_SPREAD_BLACKLIST = tag("aether_grass_spread_blacklist");
 
 		public static final TagKey<Block> QUICKSOIL_PLANTS_SURVIVABLE = tag("quicksoil_plants_survivable");

@@ -45,11 +45,13 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
 		this.tag(AetherTags.Blocks.AETHER_DIRT).add(
 			ReduxBlocks.BLEAKMOSS_BLOCK.get(),
 			ReduxBlocks.GILDENMOSS_BLOCK.get(),
-			ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get()
+			ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(),
+			ReduxBlocks.AVELIUM.get()
 		);
 
 		this.tag(UnityTags.Blocks.AETHER_LAKE_SKIP_REPLACEMENT).add(
-			AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get()
+			AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get(),
+			ReduxBlocks.AVELIUM.get()
 		);
 
 		this.tag(UnityTags.Blocks.SHORT_AETHER_GRASS_STATE_ENCHANTING).add(
@@ -66,7 +68,8 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
 
 		this.tag(ReduxTags.Blocks.AETHER_GRASS_SPREAD_BLACKLIST).add(
 			AetherBlocks.AETHER_GRASS_BLOCK.get(),
-			ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get()
+			ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(),
+			ReduxBlocks.AVELIUM.get()
 		);
 
 		this.tag(ReduxTags.Blocks.QUICKSOIL_PLANTS_SURVIVABLE).add(AetherBlocks.QUICKSOIL.get());

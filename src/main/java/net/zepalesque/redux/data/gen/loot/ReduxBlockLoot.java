@@ -72,7 +72,7 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
 			AetherBlocks.AETHER_DIRT.get()
 		);
 		this.dropDoubleWithSilk(
-			ReduxBlocks.AVELIUM_PEAT.get(),
+			ReduxBlocks.AVELIUM.get(),
 			AetherBlocks.AETHER_DIRT.get()
 		);
 

@@ -44,8 +44,8 @@ public class ReduxTabs {
 			)
 			.putAfter(
 				AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK,
-				ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK
-				// AVELIUM
+				ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK,
+				ReduxBlocks.AVELIUM
 			)
 			.putAfter(
 				UnityBlocks.SKYROOT_LEAF_PILE,
