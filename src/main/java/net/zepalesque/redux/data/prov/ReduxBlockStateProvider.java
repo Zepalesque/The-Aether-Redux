@@ -4,10 +4,9 @@ import com.aetherteam.aether.block.AetherBlockStateProperties;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.dungeon.DoorwayBlock;
 import com.google.common.collect.ImmutableMap;
-import java.util.Map;
-import java.util.TreeMap;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
@@ -19,6 +18,7 @@ import net.minecraft.world.level.block.IronBarsBlock;
 import net.minecraft.world.level.block.LanternBlock;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.PinkPetalsBlock;
+import net.minecraft.world.level.block.SnowyDirtBlock;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
@@ -43,6 +43,9 @@ import net.zepalesque.redux.block.state.enums.LogicatorMode;
 import net.zepalesque.unity.Unity;
 import net.zepalesque.unity.data.prov.UnityBlockStateProvider;
 import net.zepalesque.zenith.util.ArrayUtil;
+
+import java.util.Map;
+import java.util.TreeMap;
 
 public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
 	public ReduxBlockStateProvider(PackOutput output, String id, ExistingFileHelper helper) {
@@ -820,5 +823,34 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
 				)
 				.build()
 		);
+	}
+	
+	public ResourceLocation foreignTexture(String namespace, String name, String location) {
+		return ResourceLocation.fromNamespaceAndPath(namespace, "block/" + location + name);
+	}
+	
+	public String namespace(Block block) {
+		return BuiltInRegistries.BLOCK.getKey(block).getNamespace();
+	}
+	
+	@Override
+	public void grassBlock(Block block, Block snow, Block dirt) {
+		var grass = this.grassBlock(block, dirt);
+		var grassSnowed = this.cubeBottomTop(this.name(snow) + "_snow",
+			this.extend(this.texture(this.name(snow), "natural/"), "_snow"),
+			this.foreignTexture(this.namespace(dirt), this.name(dirt), "natural/"),
+			this.extend(this.texture(this.name(block), "natural/"), "_top"));
+		this.getVariantBuilder(block).forAllStatesExcept(state -> {
+			boolean snowy = state.getValue(SnowyDirtBlock.SNOWY);
+			return ConfiguredModel.allYRotations(snowy ? grassSnowed : grass, 0, false);
+		}, AetherBlockStateProperties.DOUBLE_DROPS);
+	}
+	
+	@Override
+	public ModelFile grassBlock(Block block, Block dirt) {
+		return this.cubeBottomTop(this.name(block),
+			this.extend(this.texture(this.name(block), "natural/"), "_side"),
+			this.foreignTexture(this.namespace(dirt), this.name(dirt), "natural/"),
+			this.extend(this.texture(this.name(block), "natural/"), "_top"));
 	}
 }
