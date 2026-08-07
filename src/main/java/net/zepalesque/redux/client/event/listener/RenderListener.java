@@ -52,9 +52,9 @@ public class RenderListener {
             double z = vec3.z();
 
             PoseStack posestack = event.getPoseStack();
-
-            Iterable<Entity> allEntities = level.entitiesForRendering();
-            Iterable<Entity> whirlwinds = () -> StreamSupport.stream(allEntities.spliterator(), false)
+	        
+	        var allEntities = level.entitiesForRendering();
+            Iterable<Entity> whirlwinds = () -> StreamSupport.stream(allEntities.spliterator(), true)
                     .filter(e -> e.getType() == AetherEntityTypes.EVIL_WHIRLWIND.get()).iterator();
 
             for (Entity entity : whirlwinds)
