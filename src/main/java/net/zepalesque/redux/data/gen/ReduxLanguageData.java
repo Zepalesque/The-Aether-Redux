@@ -54,6 +54,9 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 		addBlock(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK);
 		addLore(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK, "A block of the Aether's grass which has been corrupted by the Blight.");
 
+		addBlock(ReduxBlocks.AVELIUM);
+		addLore(ReduxBlocks.AVELIUM, "A grassy mold inhabiting some Aether Dirt. Can be found in the Cloudcaps!");
+
 		addBlock(ReduxBlocks.GOLDEN_VINES);
 		addBlock(ReduxBlocks.GOLDEN_VINES_PLANT);
 		addLore(ReduxBlocks.GOLDEN_VINES, "A golden vine that grows in a symbiotic relationship with Golden Oak trees.");
