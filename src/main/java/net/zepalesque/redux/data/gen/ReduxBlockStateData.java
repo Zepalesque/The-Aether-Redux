@@ -26,6 +26,12 @@ public class ReduxBlockStateData extends ReduxBlockStateProvider {
 			"natural/",
 			AetherBlockStateProperties.DOUBLE_DROPS
 		);
+		
+		this.grass(
+			ReduxBlocks.AVELIUM_PEAT.get(),
+			AetherBlocks.AETHER_DIRT.get()
+		);
+		
 
 		this.block(ReduxBlocks.SILVEROOT_LEAVES.get(), "natural/");
 		this.leafPile(ReduxBlocks.SILVEROOT_LEAF_PILE.get(), ReduxBlocks.SILVEROOT_LEAVES.get(), "natural/");

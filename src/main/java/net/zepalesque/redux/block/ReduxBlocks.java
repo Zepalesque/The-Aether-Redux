@@ -30,6 +30,7 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.dungeon.DoorwayPillarBlock;
 import net.zepalesque.redux.block.dungeon.RunelightBlock;
 import net.zepalesque.redux.block.dungeon.TrappedPillarBlock;
+import net.zepalesque.redux.block.natural.AveliumBlock;
 import net.zepalesque.redux.block.natural.BlightedGrassBlock;
 import net.zepalesque.redux.block.natural.BloomtailBlock;
 import net.zepalesque.redux.block.natural.CaelgaeBlock;
@@ -63,6 +64,16 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 	public static final DeferredBlock<BlightedGrassBlock> BLIGHTED_AETHER_GRASS_BLOCK = register(
 		"blighted_aether_grass_block",
 		() -> new BlightedGrassBlock(Properties.ofFullCopy(AetherBlocks.AETHER_GRASS_BLOCK.get()))
+	);
+	
+	// unpeatable
+	public static final DeferredBlock<AveliumBlock> AVELIUM_PEAT = register(
+		"avelium_peat",
+		() -> new AveliumBlock(
+			Properties.ofFullCopy(AetherBlocks.AETHER_GRASS_BLOCK.get())
+				.mapColor(MapColor.TERRACOTTA_LIGHT_BLUE)
+				.sound(SoundType.ROOTED_DIRT)
+		)
 	);
 
 	public static final DeferredBlock<AetherDoubleDropsLeaves> SILVEROOT_LEAVES = register(

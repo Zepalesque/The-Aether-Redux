@@ -178,11 +178,11 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
 		String dirtLocation,
 		Property<?>... ignored
 	) {
-		ResourceLocation bottom = texture(dirt, dirtLocation);
-		ResourceLocation top = texture(AetherBlocks.AETHER_GRASS_BLOCK.get(), "natural/", "_top");
-		ResourceLocation overlay = texture(block, location, "_side_overlay");
-		ResourceLocation side = texture(block, location, "_side");
-		ResourceLocation snow = texture(block, location, "_side_snow");
+		var bottom = texture(dirt, dirtLocation);
+		var top = texture(AetherBlocks.AETHER_GRASS_BLOCK.get(), "natural/", "_top");
+		var overlay = texture(block, location, "_side_overlay");
+		var side = texture(block, location, "_side");
+		var snow = texture(block, location, "_side_snow");
 		tintableGrassBlock(
 			block,
 			bottom,
