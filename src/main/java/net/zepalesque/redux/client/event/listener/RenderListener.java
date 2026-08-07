@@ -52,11 +52,14 @@ public class RenderListener {
             double z = vec3.z();
 
             PoseStack posestack = event.getPoseStack();
-
-            Iterable<Entity> allEntities = level.entitiesForRendering();
-            Iterable<Entity> whirlwinds = () -> StreamSupport.stream(allEntities.spliterator(), false)
-                    .filter(e -> e.getType() == AetherEntityTypes.EVIL_WHIRLWIND.get()).iterator();
-
+            
+            // TODO: optimize this stuff cuz the sparkc profiler says its unoptimized
+            
+            var allEntities = level.entitiesForRendering();
+            var stream = StreamSupport.stream(allEntities.spliterator(), true)
+                .filter(e -> e.getType() == AetherEntityTypes.EVIL_WHIRLWIND.get());
+            Iterable<Entity> whirlwinds = stream::iterator;
+            
             for (Entity entity : whirlwinds)
                 if (dispatch.shouldRender(entity, frustum, x, y, z) || entity.hasIndirectPassenger(player)) {
                     BlockPos blockpos = entity.blockPosition();
@@ -74,6 +77,8 @@ public class RenderListener {
                         renderEntity(entity, x, y, z, f2, posestack, multibuffersource, dispatch);
                     }
                 }
+            
+            stream.close();
         }
     }
 
