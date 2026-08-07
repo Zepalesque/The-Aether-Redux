@@ -11,7 +11,6 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 
 public class PatchTreeDecorator extends TreeDecorator {
-    
     public static final MapCodec<PatchTreeDecorator>
         CODEC = RecordCodecBuilder.mapCodec(
             builder -> builder.group(
@@ -20,7 +19,7 @@ public class PatchTreeDecorator extends TreeDecorator {
                     .forGetter(instance -> instance.provider),
                 ExtraCodecs.NON_NEGATIVE_INT
                     .fieldOf("xz_spread")
-                    .orElse(7)
+                    .orElse(4)
                     .forGetter(instance -> instance.xzSpread),
                 ExtraCodecs.NON_NEGATIVE_INT
                     .fieldOf("y_spread")

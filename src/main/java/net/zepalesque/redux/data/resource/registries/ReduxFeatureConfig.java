@@ -360,6 +360,14 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				new TwoLayersFeatureSize(1, 2, 3)
 			)
 				.ignoreVines()
+				.decorators(List.of(
+					new PatchTreeDecorator(
+						createLeafPileLayers(ReduxBlocks.PRISMA_LEAF_PILE),
+						4,
+						3,
+						32
+					)
+				))
 				.build()
 		);
 
@@ -410,16 +418,24 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				new BlightwillowFoliagePlacer(ConstantInt.of(3), ConstantInt.of(1)),
 				Optional.empty(),
 				new TwoLayersFeatureSize(7, 0, 3)
-			).ignoreVines()
-			.decorators(List.of(
-				new VineDecorator(
-					0.25F,
-					prov(ReduxBlocks.SHADED_VINES_PLANT),
-					prov(ReduxBlocks.SHADED_VINES),
-					UniformInt.of(1, 3),
-					Optional.empty()
-				)
-			)).build()
+			)
+				.ignoreVines()
+				.decorators(List.of(
+					new VineDecorator(
+						0.25F,
+						prov(ReduxBlocks.SHADED_VINES_PLANT),
+						prov(ReduxBlocks.SHADED_VINES),
+						UniformInt.of(1, 3),
+						Optional.empty()
+					),
+					new PatchTreeDecorator(
+						createLeafPileLayers(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE),
+						4,
+						3,
+						32
+					)
+				))
+				.build()
 		);
 
 		FeatureUtils.register(
@@ -501,20 +517,24 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				prov(ReduxLeafSets.GILDLEAF.leaves()),
 				new GoldenOakFoliagePlacer(ConstantInt.of(3), ConstantInt.of(1), ConstantInt.of(10)),
 				new TwoLayersFeatureSize(0, 0, 0, OptionalInt.of(13))
-			).ignoreVines().decorators(
-				List.of(
+			)
+				.ignoreVines()
+				.decorators(List.of(
 					new VineDecorator(
 						0.25F,
 						prov(ReduxBlocks.GOLDEN_VINES_PLANT),
 						prov(ReduxBlocks.GOLDEN_VINES),
 						UniformInt.of(1, 5),
 						Optional.empty()
-					), new PatchTreeDecorator(
-						createLeafPileLayers(
-							UnityBlocks.GOLDEN_OAK_LEAF_PILE
-						), 7, 3, 32
+					),
+					new PatchTreeDecorator(
+						createLeafPileLayers(UnityBlocks.GOLDEN_OAK_LEAF_PILE),
+						4,
+						3,
+						32
 					)
-				)).build()
+				))
+				.build()
 		);
 
 		FeatureUtils.register(
@@ -552,6 +572,14 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				new TwoLayersFeatureSize(1, 0, 1)
 			)
 				.ignoreVines()
+				.decorators(List.of(
+					new PatchTreeDecorator(
+						createLeafPileLayers(UnityBlocks.SKYROOT_LEAF_PILE),
+						4,
+						3,
+						32
+					)
+				))
 				.build()
 		);
 
