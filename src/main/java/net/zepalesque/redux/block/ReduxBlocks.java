@@ -67,9 +67,11 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 		() -> new BlightedGrassBlock(Properties.ofFullCopy(AetherBlocks.AETHER_GRASS_BLOCK.get()))
 	);
 	
-	// unpeatable
-	public static final DeferredBlock<AveliumBlock> AVELIUM_PEAT = register(
-		"avelium_peat",
+	// todo: unpeatable block
+	
+	
+	public static final DeferredBlock<AveliumBlock> AVELIUM = register(
+		"avelium",
 		() -> new AveliumBlock(
 			Properties.ofFullCopy(AetherBlocks.AETHER_GRASS_BLOCK.get())
 				.mapColor(MapColor.TERRACOTTA_LIGHT_BLUE)

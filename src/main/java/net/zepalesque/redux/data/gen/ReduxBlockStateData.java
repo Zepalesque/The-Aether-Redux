@@ -28,7 +28,7 @@ public class ReduxBlockStateData extends ReduxBlockStateProvider {
 		);
 		
 		this.grass(
-			ReduxBlocks.AVELIUM_PEAT.get(),
+			ReduxBlocks.AVELIUM.get(),
 			AetherBlocks.AETHER_DIRT.get()
 		);
 		
