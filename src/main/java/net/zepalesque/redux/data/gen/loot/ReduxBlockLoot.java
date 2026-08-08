@@ -36,19 +36,19 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
 		Redux.BLOCK_SETS.forEach(set -> set.lootData(this));
 
 		this.leaves(ReduxBlocks.SILVEROOT_LEAVES, ReduxFlowerSets.SILVEROOT_SAPLING.flower());
-		this.add(ReduxBlocks.SILVEROOT_LEAF_PILE.get(), shears());
+		this.add(ReduxBlocks.SILVEROOT_LEAF_PILE.get(), this.shears());
 
 		this.leaves(ReduxBlocks.PRISMA_LEAVES, ReduxFlowerSets.PRISMA_SAPLING.flower());
-		this.add(ReduxBlocks.PRISMA_LEAF_PILE.get(), shears());
+		this.add(ReduxBlocks.PRISMA_LEAF_PILE.get(), this.shears());
 
 		this.leaves(ReduxBlocks.STORMFIR_LEAVES, ReduxFlowerSets.STORMFIR_SAPLING.flower());
-		this.add(ReduxBlocks.STORMFIR_LEAF_PILE.get(), shears());
+		this.add(ReduxBlocks.STORMFIR_LEAF_PILE.get(), this.shears());
 
 		this.leaves(ReduxBlocks.BLIGHTWILLOW_LEAVES, ReduxFlowerSets.BLIGHTWILLOW_SAPLING.flower());
-		this.add(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get(), shears());
+		this.add(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get(), this.shears());
 
 		this.add(ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES.get(), leaves ->
-			infectedBlightwillow(
+			this.infectedBlightwillow(
 				leaves,
 				ReduxFlowerSets.BLIGHTWILLOW_SAPLING.flower().get(),
 				ReduxItems.WILLOW_SPORES.get(),
@@ -56,12 +56,12 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
 			)
 		);
 
-		this.add(ReduxBlocks.GILDLEAF_AMBER_LOG.get(), lgo -> droppingDoubleGoldenOak(
+		this.add(ReduxBlocks.GILDLEAF_AMBER_LOG.get(), lgo -> this.droppingDoubleGoldenOak(
 			lgo,
 			ReduxWoodSets.GILDLEAF.log().get(),
 			AetherItems.GOLDEN_AMBER.get()
 		));
-		this.add(ReduxBlocks.GILDLEAF_AMBER_WOOD.get(), wod -> droppingDoubleGoldenOak(
+		this.add(ReduxBlocks.GILDLEAF_AMBER_WOOD.get(), wod -> this.droppingDoubleGoldenOak(
 			wod,
 			ReduxWoodSets.GILDLEAF.wood().get(),
 			AetherItems.GOLDEN_AMBER.get()
@@ -76,9 +76,9 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
 			AetherBlocks.AETHER_DIRT.get()
 		);
 
-		this.add(ReduxBlocks.CAELGAE_PATCH.get(), shearsOr(ReduxItems.CAELGAE_CLUMP.get(), 0.25F));
-		this.add(ReduxBlocks.BLOOMTAIL.get(), shears());
-		this.add(ReduxBlocks.ECHYSIA.get(), shears());
+		this.add(ReduxBlocks.CAELGAE_PATCH.get(), this.shearsOr(ReduxItems.CAELGAE_CLUMP.get(), 0.25F));
+		this.add(ReduxBlocks.BLOOMTAIL.get(), this.shears());
+		this.add(ReduxBlocks.ECHYSIA.get(), this.shears());
 
 		this.dropSelf(ReduxBlocks.CARVED_PILLAR.get());
 		this.dropSelf(ReduxBlocks.SENTRY_PILLAR.get());
@@ -106,10 +106,12 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
 
 		this.dropSelfDouble(ReduxBlocks.LUNAERA.get());
 
-		this.add(ReduxBlocks.WYNDSPROUTS.get(), shearsOr(ReduxItems.WYND_OATS.get(), 0.25F));
-		this.add(ReduxBlocks.LUXWEED.get(), shears());
-		this.add(ReduxBlocks.SKYSPROUTS.get(), shears());
-		this.dropSelf(ReduxBlocks.TURBO_VERBENA.get());
+		this.add(ReduxBlocks.WYNDSPROUTS.get(), this.shearsOr(ReduxItems.WYND_OATS.get(), 0.25F));
+		this.add(ReduxBlocks.LUXWEED.get(), this.shears());
+		this.add(ReduxBlocks.SKYSPROUTS.get(), this.shears());
+		this.dropSelf(ReduxBlocks.VERBENA_CLUSTER.get());
+		this.add(ReduxBlocks.VERBENA_CLUSTER.get(), this.shearsOr(ReduxItems.TURBO_VERBENA, 0.7f, 0, 1));
+		
 		this.add(
 			ReduxBlocks.WYNDOATS.get(),
 			this.createCropDrops(
@@ -140,11 +142,11 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
 		this.dropSelf(ReduxBlocks.CLOUD_CAP_BLOCK.get());
 		
 		this.add(ReduxBlocks.GOLDEN_CLOVERS.get(), this::createPetalsDrops);
-		this.add(ReduxBlocks.GOLDEN_VINES.get(), shears());
-		this.add(ReduxBlocks.GOLDEN_VINES_PLANT.get(), shears().apply(ReduxBlocks.GOLDEN_VINES.get()));
+		this.add(ReduxBlocks.GOLDEN_VINES.get(), this.shears());
+		this.add(ReduxBlocks.GOLDEN_VINES_PLANT.get(), this.shears().apply(ReduxBlocks.GOLDEN_VINES.get()));
 
-		this.add(ReduxBlocks.SHADED_VINES.get(), shears());
-		this.add(ReduxBlocks.SHADED_VINES_PLANT.get(), shears().apply(ReduxBlocks.SHADED_VINES.get()));
+		this.add(ReduxBlocks.SHADED_VINES.get(), this.shears());
+		this.add(ReduxBlocks.SHADED_VINES_PLANT.get(), this.shears().apply(ReduxBlocks.SHADED_VINES.get()));
 
 		this.dropSelf(ReduxBlocks.BLEAKMOSS_BLOCK.get());
 		this.mossyCarpet(ReduxBlocks.BLEAKMOSS_CARPET.get());

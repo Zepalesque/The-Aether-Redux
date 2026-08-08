@@ -11,7 +11,6 @@ import com.aetherteam.aether.block.natural.AetherLogBlock;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ChainBlock;
@@ -42,7 +41,7 @@ import net.zepalesque.redux.block.natural.GoldenCloversBlock;
 import net.zepalesque.redux.block.natural.HangingAetherVinesBody;
 import net.zepalesque.redux.block.natural.HangingAetherVinesHead;
 import net.zepalesque.redux.block.natural.HolysiltBlock;
-import net.zepalesque.redux.block.natural.TurboVerbenaBlock;
+import net.zepalesque.redux.block.natural.VerbenaClusterBlock;
 import net.zepalesque.redux.block.natural.crop.WyndoatsBlock;
 import net.zepalesque.redux.block.natural.leaves.BlightwillowLeavesBlock;
 import net.zepalesque.redux.block.natural.leaves.InfectedLeavesBlock;
@@ -391,10 +390,8 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 		new WyndoatsBlock(Properties.ofFullCopy(Blocks.WHEAT))
 	);
 
-	public static final DeferredBlock<Block> TURBO_VERBENA = register("turbo_verbena", () ->
-		new TurboVerbenaBlock(
-			MobEffects.MOVEMENT_SPEED,
-			3,
+	public static final DeferredBlock<Block> VERBENA_CLUSTER = register("verbena_cluster", () ->
+		new VerbenaClusterBlock(
 			Properties.ofFullCopy(Blocks.TALL_GRASS).sound(SoundType.WET_GRASS)
 		)
 	);

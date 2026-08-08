@@ -11,7 +11,7 @@ public class BlightedGrassBlock extends AetherGrassBlock {
     public BlightedGrassBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(
-            this.defaultBlockState()
+	        this.defaultBlockState()
                 .setValue(ReduxStates.BLIGHT_GRASS_COLOR,
                     BlightGrassColor.CONSTANT
                 ));

@@ -62,7 +62,7 @@ public class ReduxColors {
 			AetherBlocks.POTTED_PURPLE_FLOWER.get(),
 			ReduxBlocks.WYNDSPROUTS.get(),
 			ReduxBlocks.LUXWEED.get(),
-			ReduxBlocks.TURBO_VERBENA.get()
+			ReduxBlocks.VERBENA_CLUSTER.get()
 		);
 		
 		event.register(UnityColors.OVERLAY_BASE,
@@ -80,7 +80,7 @@ public class ReduxColors {
 		Redux.LOGGER.debug("Beginning item color registration for the Aether: Redux");
 		event.register(UnityColors.ITEM_OVERLAY_AETHER,
 			ReduxBlocks.WYNDSPROUTS.get(),
-			ReduxBlocks.TURBO_VERBENA.get()
+			ReduxBlocks.VERBENA_CLUSTER.get()
 		);
 		
 		event.register(ITEM_PERMABLIGHT,

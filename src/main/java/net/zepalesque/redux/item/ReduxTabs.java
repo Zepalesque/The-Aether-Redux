@@ -38,7 +38,7 @@ public class ReduxTabs {
 			.putAfter(
 				UnityBlocks.SHORT_AETHER_GRASS,
 				ReduxBlocks.WYNDSPROUTS,
-				ReduxBlocks.TURBO_VERBENA,
+				ReduxBlocks.VERBENA_CLUSTER,
 				ReduxItems.CAELGAE_PATCH,
 				ReduxBlocks.BLOOMTAIL
 			)

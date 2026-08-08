@@ -179,6 +179,14 @@ public class ReduxItems extends ReduxItemBuilders {
 		"willow_spores",
 		() -> new WillowSporesItem(new Item.Properties())
 	);
+	
+	public static final DeferredItem<Item> TURBO_VERBENA = ITEMS.register(
+		"turbo_verbena",
+		() -> new Item(
+			new Item.Properties()
+				.food(ReduxFoods.TURBO_VERBENA)
+		)
+	);
 
 	public static final DeferredItem<AerboundCapeItem> AERBOUND_CAPE = ITEMS.register(
 		"aerbound_cape",

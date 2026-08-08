@@ -43,7 +43,7 @@ public class CaelgaeBlock extends Block implements BonemealableBlock {
 	
 	@Override
 	protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
-		return mayPlaceOn(level, pos.below());
+		return this.mayPlaceOn(level, pos.below());
 	}
 	
 	private boolean mayPlaceOn(BlockGetter level, BlockPos pos) {
@@ -54,7 +54,7 @@ public class CaelgaeBlock extends Block implements BonemealableBlock {
 	
 	@Override
 	public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
-		return anySpreadPos(level, pos);
+		return this.anySpreadPos(level, pos);
 	}
 	
 	@Override
@@ -64,7 +64,7 @@ public class CaelgaeBlock extends Block implements BonemealableBlock {
 	
 	@Override
 	public void performBonemeal(ServerLevel lvl, RandomSource rand, BlockPos pos, BlockState state) {
-		var spreadTo = findSpreadPos(lvl, pos, rand);
+		var spreadTo = this.findSpreadPos(lvl, pos, rand);
 		spreadTo.ifPresent(p -> lvl.setBlock(p, this.defaultBlockState(), 3));
 	}
 	
@@ -73,7 +73,7 @@ public class CaelgaeBlock extends Block implements BonemealableBlock {
 			.shuffledCopy(rand)
 			.stream()
 			.map(pos::relative)
-			.filter(p -> canSpreadTo(lvl, p))
+			.filter(p -> this.canSpreadTo(lvl, p))
 			.findFirst();
 	}
 	
@@ -81,23 +81,23 @@ public class CaelgaeBlock extends Block implements BonemealableBlock {
 		return Direction.Plane.HORIZONTAL
 			.stream()
 			.map(pos::relative)
-			.anyMatch(p -> canSpreadTo(lvl, p));
+			.anyMatch(p -> this.canSpreadTo(lvl, p));
 	}
 	
 	public boolean canSpreadTo(BlockGetter lvl, BlockPos pos) {
-		return mayPlaceOn(lvl, pos.below()) && !lvl.getBlockState(pos).is(this);
+		return this.mayPlaceOn(lvl, pos.below()) && !lvl.getBlockState(pos).is(this);
 	}
 	
 	@Override
 	protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
 		if (entity.getType().equals(EntityType.FALLING_BLOCK)) level.destroyBlock(pos, true);
-		else if (entity instanceof LivingEntity && !entity.getType().is(EntityTypeTags.AQUATIC) && isEntityIntersecting(state, level, pos, entity) && entity.isInWater())
+		else if (entity instanceof LivingEntity && !entity.getType().is(EntityTypeTags.AQUATIC) && this.isEntityIntersecting(state, level, pos, entity) && entity.isInWater())
 			entity.setDeltaMovement(entity.getDeltaMovement().multiply(new Vec3(0.85, 0.85, 0.85)));
 	}
 	
 	protected boolean isEntityIntersecting(BlockState state, Level level, BlockPos pos, Entity entity) {
 		var entityBox = entity.getBoundingBox();
-		var selfBox = getShape(state, level, pos, CollisionContext.of(entity)).bounds().move(pos);
+		var selfBox = this.getShape(state, level, pos, CollisionContext.of(entity)).bounds().move(pos);
 		
 		return entityBox.intersects(selfBox);
 	}

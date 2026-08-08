@@ -12,22 +12,14 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.zepalesque.redux.data.ReduxTags;
+import net.zepalesque.unity.block.natural.bush.CustomBoundsBushBlock;
+import net.zepalesque.unity.block.natural.bush.CustomBoundsFlowerBlock;
 
-public class TurboVerbenaBlock extends FlowerBlock {
+public class VerbenaClusterBlock extends CustomBoundsBushBlock {
 	private static final VoxelShape SHAPE = Block.box(1.0, 0.0, 1.0, 15.0, 9.0, 15.0);
 
-	public TurboVerbenaBlock(Holder<MobEffect> effect, float seconds, BlockBehaviour.Properties properties) {
-		super(effect, seconds, properties);
-	}
-
-	protected VoxelShape getShape(
-		BlockState state,
-		BlockGetter level,
-		BlockPos pos,
-		CollisionContext context
-	) {
-		var offset = state.getOffset(level, pos);
-		return SHAPE.move(offset.x, offset.y, offset.z);
+	public VerbenaClusterBlock(BlockBehaviour.Properties properties) {
+		super(SHAPE, properties);
 	}
 	
 	@Override

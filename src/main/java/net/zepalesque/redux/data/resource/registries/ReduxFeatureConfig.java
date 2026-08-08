@@ -94,7 +94,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_CLOVERS_PATCH =
 		createKey(asPatch(ReduxBlocks.GOLDEN_CLOVERS));
 	public static final ResourceKey<ConfiguredFeature<?, ?>> TURBO_VERBENA_PATCH =
-		createKey(asPatch(ReduxBlocks.TURBO_VERBENA));
+		createKey(asPatch(ReduxBlocks.VERBENA_CLUSTER));
 	public static final ResourceKey<ConfiguredFeature<?, ?>> CAELGAE_PATCH =
 		createKey(name(ReduxBlocks.CAELGAE_PATCH));
 	public static final ResourceKey<ConfiguredFeature<?, ?>> BLOOMTAIL =
@@ -755,7 +755,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			context,
 			TURBO_VERBENA_PATCH,
 			Feature.FLOWER,
-			patch(24, 5, 3, prov(ReduxBlocks.TURBO_VERBENA))
+			patch(24, 5, 3, prov(ReduxBlocks.VERBENA_CLUSTER))
 		);
 		FeatureUtils.register(
 			context,

@@ -229,25 +229,28 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 		addItem(ReduxItems.WILLOW_SPORES);
 		addLore(ReduxItems.WILLOW_SPORES, "Spores from the Blightwillow tree. These seem to channel the pure essence of the Blight, and can be used to spread it.");
 
-		addBlock(ReduxBlocks.TURBO_VERBENA, "Turbo Verbena");
-		addLore(ReduxBlocks.TURBO_VERBENA, "A plant that grows on Quicksoil. When prepared properly, it can increase your speed when consumed.");
+		addBlock(ReduxBlocks.VERBENA_CLUSTER);
+		addLore(ReduxBlocks.VERBENA_CLUSTER, "A plant that grows on Quicksoil. When prepared properly, it can increase your speed when consumed.");
 		
-		addBlock(ReduxBlocks.CAELGAE_PATCH, "Caelgae Patch");
+		addItem(ReduxItems.TURBO_VERBENA);
+		addLore(ReduxItems.TURBO_VERBENA, "A piece of Turbo Verbena, a succulent which grows on quicksoil. Eating it gives you a very short speed boost!");
+		
+		addBlock(ReduxBlocks.CAELGAE_PATCH);
 		addLore(ReduxBlocks.CAELGAE_PATCH, "A patch of Caelgae. This can be found floating on lakes!");
 		
-		addItem(ReduxItems.CAELGAE_CLUMP, "Caelgae Clump");
+		addItem(ReduxItems.CAELGAE_CLUMP);
 		addLore(ReduxItems.CAELGAE_CLUMP, "The Aether's native algae species. Can be eaten, or crafted into Seaweed Salad.");
 		
-		addItem(ReduxItems.SEAWEED_SALAD, "Seaweed Salad");
+		addItem(ReduxItems.SEAWEED_SALAD);
 		addLore(ReduxItems.SEAWEED_SALAD, "A nice dish made from Caelgae and Wynd Oats. Good for exploration!");
 		
-		addBlock(ReduxBlocks.BLOOMTAIL, "Bloomtail");
+		addBlock(ReduxBlocks.BLOOMTAIL);
 		addLore(ReduxBlocks.BLOOMTAIL, "An aquatic plant found in the Aether's lakes.");
 		
-		addBlock(ReduxBlocks.ECHYSIA, "Echysia");
+		addBlock(ReduxBlocks.ECHYSIA);
 		addLore(ReduxBlocks.ECHYSIA, "A leafy cave plant. This can be found growing on Flutemoss patches underground!");
 
-		addBlock(ReduxBlocks.LUNAERA, "Lunaera");
+		addBlock(ReduxBlocks.LUNAERA);
 		addLore(ReduxBlocks.LUNAERA, "A flowering grass found in the skyfields. It absorbs moonlight, making it slightly bioluminescent.");
 
 		addTooltip("shift_info", "Hold [%s] for more info...");

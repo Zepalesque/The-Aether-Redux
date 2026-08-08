@@ -131,9 +131,9 @@ public class LogicatorBlock extends DiodeBlock {
     protected void refreshOutputState(Level level, BlockState state, BlockPos pos) {
         if (!this.isLocked(level, pos, state)) {
             var prev = state;
-            var l = shouldHaveLeftInput(level, pos, state);
-            var r = shouldHaveRightInput(level, pos, state);
-            var exclusive = shouldBeExclusive(level, pos, state);
+            var l = this.shouldHaveLeftInput(level, pos, state);
+            var r = this.shouldHaveRightInput(level, pos, state);
+            var exclusive = this.shouldBeExclusive(level, pos, state);
             var or = state.getValue(MODE).isOr();
             var powered = this.shouldTurnOn(level, pos, state);
 
@@ -157,11 +157,11 @@ public class LogicatorBlock extends DiodeBlock {
             boolean wasOn = state.getValue(POWERED);
             var shouldTurnOn = this.shouldTurnOn(level, pos, state);
             boolean hadInputL = state.getValue(LEFT);
-            var shouldHaveInputL = shouldHaveLeftInput(level, pos, state);
+            var shouldHaveInputL = this.shouldHaveLeftInput(level, pos, state);
             boolean hadInputR = state.getValue(RIGHT);
-            var shouldHaveInputR = shouldHaveRightInput(level, pos, state);
+            var shouldHaveInputR = this.shouldHaveRightInput(level, pos, state);
             var wasExclusive = state.getValue(MODE).isExclusive();
-            var shouldBeExclusive = shouldBeExclusive(level, pos, state);
+            var shouldBeExclusive = this.shouldBeExclusive(level, pos, state);
             if ((wasOn != shouldTurnOn
                 || hadInputL != shouldHaveInputL
                 || hadInputR != shouldHaveInputR
@@ -183,7 +183,7 @@ public class LogicatorBlock extends DiodeBlock {
 
     @Override
     protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        refreshOutputState(level, state, pos);
+        this.refreshOutputState(level, state, pos);
     }
 
     @Override
