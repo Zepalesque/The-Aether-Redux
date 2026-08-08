@@ -23,6 +23,7 @@
 		"common.item.ItemMixin",
 		"common.item.PickaxeItemMixin",
 		"common.item.RingItemMixin",
+		"common.world.SteepConditionMixin",
 		"common.world.feature.AercloudFeatureMixin",
 		"common.world.feature.FeatureMixin",
 		"common.world.structure.AetherTemplateStructurePieceMixin",
