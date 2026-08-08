@@ -16,7 +16,7 @@ public class WillowSporesItem extends Item implements ItemUseConversion<WillowSp
     
     @Override
     public InteractionResult useOn(UseOnContext context) {
-        InteractionResult result = this.convertBlock(ReduxRecipes.WILLOW_SPORES.get(), context);
+	    var result = this.convertBlock(ReduxRecipes.WILLOW_SPORES.get(), context);
         if (context.getLevel().isClientSide() && result == InteractionResult.SUCCESS)
             context.getLevel().playSound(
                 context.getPlayer(), context.getClickedPos(),
