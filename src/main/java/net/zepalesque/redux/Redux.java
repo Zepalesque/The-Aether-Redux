@@ -16,6 +16,8 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.client.gui.ConfigurationScreen;
+import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.event.AddPackFindersEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -87,6 +89,8 @@ public class Redux {
         if (dist == Dist.CLIENT) {
             bus.addListener(EventPriority.LOWEST, ReduxColors::blockColors);
             bus.addListener(ReduxColors::itemColors);
+            // TODO: custom config screen?
+            mod.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
         }
 
         Reflection.initialize(

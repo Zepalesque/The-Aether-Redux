@@ -32,7 +32,7 @@ public class ReduxColors {
 	public static final int REDUX_PURPLE = 0x9384F4;
 
 	public static final ItemColor ITEM_PERMABLIGHT = (stack, index) -> index == 1 ? Tints.BLIGHT_GRASS_COLOR : 0xFFFFFFFF;
-
+	
 	public static Integer reduxColors(BlockState state, @Nullable BlockAndTintGetter level, @Nullable BlockPos pos, boolean useBelowProperties) {
 		if (level == null || pos == null) return null;
 		if (useBelowProperties) {
@@ -75,6 +75,7 @@ public class ReduxColors {
 			}
 		}
 	}
+	
 
 	public static void itemColors(RegisterColorHandlersEvent.Item event) {
 		Redux.LOGGER.debug("Beginning item color registration for the Aether: Redux");
@@ -84,13 +85,12 @@ public class ReduxColors {
 		);
 		
 		event.register(ITEM_PERMABLIGHT,
-			ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get()
+			ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(),
+			ReduxBlocks.LUXWEED.get()
 		);
 
-		for (BlockSet set : Redux.BLOCK_SETS) {
-			if (set instanceof TintableSet tintable && set instanceof AbstractFlowerSet flowerSet) {
+		for (var set : Redux.BLOCK_SETS)
+			if (set instanceof TintableSet tintable && set instanceof AbstractFlowerSet flowerSet)
 				event.register((stack, tintIndex) -> tintIndex == tintable.getTintIndex() ? tintable.getDefaultItemTint() : 0xFFFFFFFF, flowerSet.flower().get());
-			}
-		}
 	}
 }
