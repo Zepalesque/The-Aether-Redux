@@ -1,5 +1,5 @@
 {
-	"feature": "aether_redux:turbo_verbena_patch",
+	"feature": "aether_redux:verbena_cluster_patch",
 	"placement": [
 		{
 			"type": "minecraft:noise_threshold_count",

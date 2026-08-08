@@ -5,7 +5,6 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.config.enums.AACompatFeature;
 import net.zepalesque.redux.config.enums.ConditionalConfig;
 import net.zepalesque.zenith.api.serialization.config.DataSerializableConfig;
-import org.apache.commons.lang3.tuple.Pair;
 
 public class ReduxConfig {
 	public static class Server extends DataSerializableConfig {

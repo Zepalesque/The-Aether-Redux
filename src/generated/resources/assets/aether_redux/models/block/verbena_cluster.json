@@ -2,7 +2,7 @@
 	"parent": "aether_unity:block/template/cross/cross_tinted_overlay",
 	"render_type": "minecraft:cutout",
 	"textures": {
-		"cross": "aether_redux:block/natural/turbo_verbena",
-		"overlay": "aether_redux:block/natural/turbo_verbena_overlay"
+		"cross": "aether_redux:block/natural/verbena_cluster",
+		"overlay": "aether_redux:block/natural/verbena_cluster_overlay"
 	}
 }
