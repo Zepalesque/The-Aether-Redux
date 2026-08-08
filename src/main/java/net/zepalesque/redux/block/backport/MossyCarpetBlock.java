@@ -197,7 +197,7 @@ public class MossyCarpetBlock extends Block implements BonemealableBlock {
 
     @Nullable @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        return getUpdatedState(this.defaultBlockState(), context.getLevel(), context.getClickedPos(), true);
+        return this.getUpdatedState(this.defaultBlockState(), context.getLevel(), context.getClickedPos(), true);
     }
     
 
@@ -207,9 +207,9 @@ public class MossyCarpetBlock extends Block implements BonemealableBlock {
     @SuppressWarnings("unused") // TODO: remove annotation
     public void placeAt(LevelAccessor level, BlockPos pos, RandomSource random, int flags) {
         BlockState blockstate = this.defaultBlockState();
-        BlockState blockstate1 = getUpdatedState(blockstate, level, pos, true);
+        BlockState blockstate1 = this.getUpdatedState(blockstate, level, pos, true);
         level.setBlock(pos, blockstate1, 3);
-        BlockState blockstate2 = createTopperWithSideChance(level, pos, random::nextBoolean);
+        BlockState blockstate2 = this.createTopperWithSideChance(level, pos, random::nextBoolean);
         if (!blockstate2.isAir()) level.setBlock(pos.above(), blockstate2, flags);
     }
 
@@ -217,7 +217,7 @@ public class MossyCarpetBlock extends Block implements BonemealableBlock {
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity entity, ItemStack stack) {
         if (!level.isClientSide) {
             RandomSource randomsource = level.getRandom();
-            BlockState blockstate = createTopperWithSideChance(level, pos, randomsource::nextBoolean);
+            BlockState blockstate = this.createTopperWithSideChance(level, pos, randomsource::nextBoolean);
             if (!blockstate.isAir()) level.setBlock(pos.above(), blockstate, 3);
         }
     }
@@ -228,7 +228,7 @@ public class MossyCarpetBlock extends Block implements BonemealableBlock {
         boolean flag = blockstate.is(this);
         if ((!flag || !blockstate.getValue(BASE)) && (flag || blockstate.canBeReplaced())) {
             BlockState blockstate1 = this.defaultBlockState().setValue(BASE, true);
-            BlockState blockstate2 = getUpdatedState(blockstate1, level, pos.above(), true);
+            BlockState blockstate2 = this.getUpdatedState(blockstate1, level, pos.above(), true);
 
             for (Direction direction : Direction.Plane.HORIZONTAL) {
                 EnumProperty<WallSide> enumproperty = getPropertyForFace(direction);
@@ -246,7 +246,7 @@ public class MossyCarpetBlock extends Block implements BonemealableBlock {
     protected BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
         if (!state.canSurvive(level, pos)) return Blocks.AIR.defaultBlockState();
         else {
-            BlockState blockstate = getUpdatedState(state, level, pos, false);
+            BlockState blockstate = this.getUpdatedState(state, level, pos, false);
             return !hasFaces(blockstate) ? Blocks.AIR.defaultBlockState() : blockstate;
         }
     }
@@ -296,7 +296,7 @@ public class MossyCarpetBlock extends Block implements BonemealableBlock {
 
     @Override
     public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
-        return state.getValue(BASE) && !createTopperWithSideChance(level, pos, () -> true).isAir();
+        return state.getValue(BASE) && !this.createTopperWithSideChance(level, pos, () -> true).isAir();
     }
 
     @Override
@@ -306,7 +306,7 @@ public class MossyCarpetBlock extends Block implements BonemealableBlock {
 
     @Override
     public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
-        BlockState blockstate = createTopperWithSideChance(level, pos, () -> true);
+        BlockState blockstate = this.createTopperWithSideChance(level, pos, () -> true);
         if (!blockstate.isAir()) level.setBlock(pos.above(), blockstate, 3);
     }
 }

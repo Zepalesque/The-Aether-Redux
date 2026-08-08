@@ -82,6 +82,6 @@ public class CatFishModel<T extends Entity> extends HierarchicalModel<T> {
 
 	@Override
 	public ModelPart root() {
-		return body;
+		return this.body;
 	}
 }

@@ -35,7 +35,7 @@ public class CloudcapFoliagePlacer extends FoliagePlacer {
 
 	@Override
 	public int foliageHeight(RandomSource rand, int a, TreeConfiguration b) {
-		return height.sample(rand);
+		return this.height.sample(rand);
 	}
 
 	@Override
@@ -67,7 +67,7 @@ public class CloudcapFoliagePlacer extends FoliagePlacer {
 				tryPlaceLeaf(level, setter, rand, cfg, offsetPos.move(Direction.DOWN));
 
 				for (var j = 0; j <= rand.nextInt(height - 1, height + 1); j++) {
-					tryPlaceNetting(level, setter, rand, offsetPos.move(Direction.DOWN));
+					this.tryPlaceNetting(level, setter, rand, offsetPos.move(Direction.DOWN));
 				}
 			}
 		}

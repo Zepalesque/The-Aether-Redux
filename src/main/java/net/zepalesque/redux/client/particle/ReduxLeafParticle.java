@@ -71,9 +71,9 @@ public class ReduxLeafParticle extends TextureSheetParticle {
 
             if (this.onGroundTime < 0) this.remove();
 
-            if (onGroundTime <= 20 && this.age >= this.lifetime - 20)
+            if (this.onGroundTime <= 20 && this.age >= this.lifetime - 20)
                 this.alpha = (this.onGroundTime * (this.lifetime - this.age)) / 400F;
-            else if (onGroundTime <= 20)
+            else if (this.onGroundTime <= 20)
                 this.alpha = this.onGroundTime / 20F;
             else if (this.age >= this.lifetime - 20)
                 this.alpha = (this.lifetime - this.age) / 20F;

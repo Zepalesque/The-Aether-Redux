@@ -64,10 +64,10 @@ implements
 		this.saplTexFold = saplTexFold;
 		this.leafTexFold = leafTexFold;
 		this.grower = grower;
-		this.leaves = leaves(blocks, items, id, leaves);
-		this.sapling = sapling(blocks, items, id, () -> sapling.apply(grower));
-		this.pot = pot(blocks, id);
-		potTags.add(BlockTags.FLOWER_POTS);
+		this.leaves = this.leaves(blocks, items, id, leaves);
+		this.sapling = this.sapling(blocks, items, id, () -> sapling.apply(grower));
+		this.pot = this.pot(blocks, id);
+		this.potTags.add(BlockTags.FLOWER_POTS);
 	}
 
 	protected final Map<Supplier<CreativeModeTab>, Pair<ItemLike, TabAdditionPhase>> leafBeforeOrdering =
@@ -144,31 +144,31 @@ implements
 	@Override
 	public Self withSaplingItemTag(TagKey<Item> tag) {
 		this.saplingTags.getFirst().add(tag);
-		return self();
+		return this.self();
 	}
 
 	@Override
 	public Self withLeafItemTag(TagKey<Item> tag) {
 		this.leafTags.getFirst().add(tag);
-		return self();
+		return this.self();
 	}
 
 	@Override
 	public Self withLeafTag(TagKey<Block> tag) {
 		this.leafTags.getSecond().add(tag);
-		return self();
+		return this.self();
 	}
 
 	@Override
 	public Self withSaplingTag(TagKey<Block> tag) {
 		this.saplingTags.getSecond().add(tag);
-		return self();
+		return this.self();
 	}
 
 	@Override
 	public Self withPotTag(TagKey<Block> tag) {
 		this.potTags.add(tag);
-		return self();
+		return this.self();
 	}
 
 	@Override
@@ -178,73 +178,73 @@ implements
 		TabAdditionPhase phase
 	) {
 		this.leafAfterOrdering.put(tab, Pair.of(placeAfter, phase));
-		return self();
+		return this.self();
 	}
 
 	@Override
 	public Self leafTabBefore(Supplier<CreativeModeTab> tab, ItemLike placeBefore, TabAdditionPhase phase) {
 		this.leafBeforeOrdering.put(tab, Pair.of(placeBefore, phase));
-		return self();
+		return this.self();
 	}
 
 	@Override
 	public Self leafTabAppend(Supplier<CreativeModeTab> tab, TabAdditionPhase phase) {
 		this.leafAppended.put(tab, phase);
-		return self();
+		return this.self();
 	}
 
 	@Override
 	public Self saplingTabAfter(Supplier<CreativeModeTab> tab, ItemLike placeAfter, TabAdditionPhase phase) {
 		this.saplingAfterOrdering.put(tab, Pair.of(placeAfter, phase));
-		return self();
+		return this.self();
 	}
 
 	@Override
 	public Self saplingTabBefore(Supplier<CreativeModeTab> tab, ItemLike placeBefore, TabAdditionPhase phase) {
 		this.saplingBeforeOrdering.put(tab, Pair.of(placeBefore, phase));
-		return self();
+		return this.self();
 	}
 
 	@Override
 	public Self saplingTabAppend(Supplier<CreativeModeTab> tab, TabAdditionPhase phase) {
 		this.saplingAppended.put(tab, phase);
-		return self();
+		return this.self();
 	}
 
 	@Override
 	public Self leafCompost(float amount) {
 		this.leafCompost = amount;
-		return self();
+		return this.self();
 	}
 
 	@Override
 	public Self saplingCompost(float amount) {
 		this.saplingCompost = amount;
-		return self();
+		return this.self();
 	}
 
 	@Override
 	public Self leafFlammable(int encouragement, int flammability) {
 		this.leafFlammability = Pair.of(encouragement, flammability);
-		return self();
+		return this.self();
 	}
 
 	@Override
 	public Self saplingFlammable(int encouragement, int flammability) {
 		this.saplingFlammability = Pair.of(encouragement, flammability);
-		return self();
+		return this.self();
 	}
 
 	@Override
 	public Self leafInflammable() {
 		this.leafFlammability = null;
-		return self();
+		return this.self();
 	}
 
 	@Override
 	public Self saplingInflammable() {
 		this.saplingFlammability = null;
-		return self();
+		return this.self();
 	}
 
 	@Override
@@ -256,14 +256,14 @@ implements
 	public Self withPotProperties(UnaryOperator<BlockBehaviour.Properties> prop) {
 		var old = this.potProperties;
 		this.potProperties = original -> prop.apply(old.apply(original));
-		return self();
+		return this.self();
 	}
 
 	@Override
 	public Self withLeafProperties(UnaryOperator<BlockBehaviour.Properties> prop) {
 		var old = this.leafProperties;
 		this.leafProperties = original -> prop.apply(old.apply(original));
-		return self();
+		return this.self();
 	}
 
 	@Override
@@ -281,7 +281,7 @@ implements
 
 		// Do pot stuff while we're at it
 		var pot = (FlowerPotBlock) Blocks.FLOWER_POT;
-		addFlower(pot, this.sapling, this.pot);
+		this.addFlower(pot, this.sapling, this.pot);
 	}
 
 	protected void addFlower(
@@ -393,12 +393,12 @@ implements
 
 	public Self withLeafLore(String lore) {
 		this.leafLore = lore;
-		return self();
+		return this.self();
 	}
 
 	public Self withSaplingLore(String lore) {
 		this.saplingLore = lore;
-		return self();
+		return this.self();
 	}
 
 	@SuppressWarnings("unchecked")

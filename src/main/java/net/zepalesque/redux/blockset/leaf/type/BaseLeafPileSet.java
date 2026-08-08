@@ -57,7 +57,7 @@ public abstract class BaseLeafPileSet<L extends LeavesBlock, S extends SaplingBl
 		super(id, saplTexFold, leafTexFold, grower, leaves, sapling);
 		var blocks = ReduxBlocks.BLOCKS;
 		var items = ReduxItems.ITEMS;
-		this.pile = pile(blocks, items, id);
+		this.pile = this.pile(blocks, items, id);
 	}
 
 	protected DeferredBlock<LeafPileBlock> pile(
@@ -80,7 +80,7 @@ public abstract class BaseLeafPileSet<L extends LeavesBlock, S extends SaplingBl
 
 	public Self pileCompost(float amount) {
 		this.pileCompost = amount;
-		return self();
+		return this.self();
 	}
 
 	@Override
@@ -108,12 +108,12 @@ public abstract class BaseLeafPileSet<L extends LeavesBlock, S extends SaplingBl
 
 	public Self withPileItemTag(TagKey<Item> tag) {
 		this.pileTags.getFirst().add(tag);
-		return self();
+		return this.self();
 	}
 
 	public Self withPileTag(TagKey<Block> tag) {
 		this.pileTags.getSecond().add(tag);
-		return self();
+		return this.self();
 	}
 
 	@Override
@@ -130,7 +130,7 @@ public abstract class BaseLeafPileSet<L extends LeavesBlock, S extends SaplingBl
 
 	public Self withPileLore(String lore) {
 		this.pileLore = lore;
-		return self();
+		return this.self();
 	}
 
 	@Override
@@ -146,7 +146,7 @@ public abstract class BaseLeafPileSet<L extends LeavesBlock, S extends SaplingBl
 		TabAdditionPhase phase
 	) {
 		this.pileAfterOrdering.put(tab, Pair.of(placeAfter, phase));
-		return self();
+		return this.self();
 	}
 
 	public Self pileTabBefore(
@@ -155,12 +155,12 @@ public abstract class BaseLeafPileSet<L extends LeavesBlock, S extends SaplingBl
 		TabAdditionPhase phase
 	) {
 		this.pileBeforeOrdering.put(tab, Pair.of(placeBefore, phase));
-		return self();
+		return this.self();
 	}
 
 	public Self pileTabAppend(Supplier<CreativeModeTab> tab, TabAdditionPhase phase) {
 		this.pileAppended.put(tab, phase);
-		return self();
+		return this.self();
 	}
 
 	@Override

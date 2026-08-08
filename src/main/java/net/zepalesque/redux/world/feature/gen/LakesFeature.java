@@ -99,9 +99,9 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 
 				if (depth < SHORE_DEPTH) {
 					// Place the water itself
-					placeWater(context, x, y, z, depth);
+					this.placeWater(context, x, y, z, depth);
 					// Place stone underneath the water
-					placeBottom(context, x, y, z, depth, visitor);
+					this.placeBottom(context, x, y, z, depth, visitor);
 				}
 			}
 		return false;
@@ -143,12 +143,12 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 				else return Optional.empty();
 			};
 		
-		placeBlob(context, btm, fun, depth, visitor);
+		this.placeBlob(context, btm, fun, depth, visitor);
 
 		for (var dir : Direction.Plane.HORIZONTAL) {
 			var pos = btm.relative(dir);
 			
-			placeBlob(context, pos, fun, depth, visitor);
+			this.placeBlob(context, pos, fun, depth, visitor);
 		}
 	}
 	
@@ -181,7 +181,7 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 			BlockState block;
 
 			if (state.is(Blocks.AIR)) {
-				block = getSurfaceState(lvl, pos);
+				block = this.getSurfaceState(lvl, pos);
 			} else if (state.is(Blocks.WATER)) {
 				var placer = fn.apply(d, origin);
 				if (placer.isEmpty()) return;

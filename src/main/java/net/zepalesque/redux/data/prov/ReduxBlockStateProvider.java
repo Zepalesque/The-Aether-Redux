@@ -128,7 +128,7 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
 				? this.models()
 						.singleTexture(
 							this.name(block) + i,
-							mcLoc("block/template_single_face"),
+							this.mcLoc("block/template_single_face"),
 							this.texture(block, loc).withSuffix(String.valueOf(i))
 						)
 						.renderType("cutout")
@@ -144,7 +144,7 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
 		ModelFile in = this.models()
 			.singleTexture(
 				this.name(block) + "_inside",
-				mcLoc("block/template_single_face"),
+				this.mcLoc("block/template_single_face"),
 				this.texture(block, loc).withSuffix("_inside")
 			)
 			.renderType("cutout");
@@ -181,27 +181,27 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
 		String dirtLocation,
 		Property<?>... ignored
 	) {
-		var bottom = texture(dirt, dirtLocation);
-		var top = texture(AetherBlocks.AETHER_GRASS_BLOCK.get(), "natural/", "_top");
-		var overlay = texture(block, location, "_side_overlay");
-		var side = texture(block, location, "_side");
-		var snow = texture(block, location, "_side_snow");
-		tintableGrassBlock(
+		var bottom = this.texture(dirt, dirtLocation);
+		var top = this.texture(AetherBlocks.AETHER_GRASS_BLOCK.get(), "natural/", "_top");
+		var overlay = this.texture(block, location, "_side_overlay");
+		var side = this.texture(block, location, "_side");
+		var snow = this.texture(block, location, "_side_snow");
+		this.tintableGrassBlock(
 			block,
 			bottom,
 			top,
 			overlay,
 			side,
-			models().cubeBottomTop(nameID(block, "%s_snow"), snow, bottom, top),
+			this.models().cubeBottomTop(this.nameID(block, "%s_snow"), snow, bottom, top),
 			ignored
 		);
 	}
 
 	public void leaves(Block block, String loc) {
-		var texture = texture(block, loc);
+		var texture = this.texture(block, loc);
 
-		var model = models()
-			.leaves(nameID(block), texture);
+		var model = this.models()
+			.leaves(this.nameID(block), texture);
 
 		this.getMultipartBuilder(block)
 			.part()
@@ -254,15 +254,15 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
 	}
 
 	public void axisBlock(Block block, Block other, ResourceLocation side, ResourceLocation end) {
-		axisBlock(
+		this.axisBlock(
 			block,
-			models().cubeColumn(name(other), side, end),
-			models().cubeColumnHorizontal(name(other) + "_horizontal", side, end)
+			this.models().cubeColumn(this.name(other), side, end),
+			this.models().cubeColumnHorizontal(this.name(other) + "_horizontal", side, end)
 		);
 	}
 
 	public void axisBlock(Block block, ModelFile vertical, ModelFile horizontal) {
-		getVariantBuilder(block)
+		this.getVariantBuilder(block)
 			.partialState()
 			.with(BlockStateProperties.AXIS, Direction.Axis.Y)
 			.modelForState()
@@ -316,10 +316,10 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
 	public void invisiblePillar(Block block, Block other, String location) {
 		ResourceLocation side = this.extend(this.texture(this.name(other), location), "_side");
 		ResourceLocation end = this.extend(this.texture(this.name(other), location), "_top");
-		ModelFile vertical = models().cubeColumn(name(other), side, end);
-		ModelFile horizontal = models().cubeColumnHorizontal(name(block) + "_horizontal", side, end);
+		ModelFile vertical = this.models().cubeColumn(this.name(other), side, end);
+		ModelFile horizontal = this.models().cubeColumnHorizontal(this.name(block) + "_horizontal", side, end);
 		ModelFile invisible = this.models().getBuilder(this.name(block));
-		getVariantBuilder(block)
+		this.getVariantBuilder(block)
 			.partialState()
 			.with(BlockStateProperties.AXIS, Direction.Axis.Y)
 			.with(DoorwayBlock.INVISIBLE, false)
@@ -405,7 +405,7 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
 	public void cropGrowable(Block block, String location, IntegerProperty ageProperty) {
 		this.getVariantBuilder(block).forAllStates((state) -> {
 			int stage = state.getValue(ageProperty);
-			BlockModelBuilder cross = models()
+			BlockModelBuilder cross = this.models()
 				.withExistingParent(
 					this.name(block) + "_stage" + stage,
 					Redux.loc(ModelProvider.BLOCK_FOLDER + "/template/crop/crop_lowered")
@@ -417,7 +417,7 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
 	}
 
 	public void cropOccluded(Block block, String location) {
-		BlockModelBuilder cross = models()
+		BlockModelBuilder cross = this.models()
 			.withExistingParent(
 				this.name(block),
 				Redux.loc(ModelProvider.BLOCK_FOLDER + "/template/crop/crop_occluded")
@@ -428,7 +428,7 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
 	}
 
 	public void crop(Block block, String location) {
-		BlockModelBuilder cross = models()
+		BlockModelBuilder cross = this.models()
 			.withExistingParent(
 				this.name(block),
 				Redux.loc(ModelProvider.BLOCK_FOLDER + "/template/crop/crop")
@@ -444,8 +444,8 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
 				case LOWER -> "_lower";
 				case UPPER -> "_upper";
 			};
-			var texture = texture(block, location, suffix);
-			var model = models()
+			var texture = this.texture(block, location, suffix);
+			var model = this.models()
 				.cross(this.name(block) + suffix, texture)
 				.renderType(ResourceLocation.withDefaultNamespace("cutout"));
 
@@ -456,12 +456,12 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
 	}
 
 	public void lantern(Block block, String location) {
-		BlockModelBuilder lantern = models()
-			.withExistingParent(this.name(block), mcLoc("template_lantern"))
+		BlockModelBuilder lantern = this.models()
+			.withExistingParent(this.name(block), this.mcLoc("template_lantern"))
 			.texture("lantern", this.texture(this.name(block), location))
 			.renderType("cutout");
-		BlockModelBuilder hangingLantern = models()
-			.withExistingParent("hanging_" + this.name(block), mcLoc("template_hanging_lantern"))
+		BlockModelBuilder hangingLantern = this.models()
+			.withExistingParent("hanging_" + this.name(block), this.mcLoc("template_hanging_lantern"))
 			.texture("lantern", this.texture(this.name(block), location))
 			.renderType("cutout");
 		this.getVariantBuilder(block).forAllStates((state) ->
@@ -472,7 +472,7 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
 	}
 
 	public void chain(Block block, String location) {
-		BlockModelBuilder chain = models()
+		BlockModelBuilder chain = this.models()
 			.withExistingParent(this.name(block), Redux.loc("block/template/construction/chain"))
 			.texture("chain", this.texture(this.name(block), location))
 			.renderType("cutout");
@@ -580,22 +580,22 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
 
 	public void flowerbed(Block block, String location) {
 		ModelFile flowerbed1 = this.models()
-			.withExistingParent(this.name(block) + "_1", mcLoc("flowerbed_1"))
+			.withExistingParent(this.name(block) + "_1", this.mcLoc("flowerbed_1"))
 			.texture("flowerbed", this.texture(this.name(block), location))
 			.texture("stem", this.extend(this.texture(this.name(block), location), "_stem"))
 			.renderType("cutout");
 		ModelFile flowerbed2 = this.models()
-			.withExistingParent(this.name(block) + "_2", mcLoc("flowerbed_2"))
+			.withExistingParent(this.name(block) + "_2", this.mcLoc("flowerbed_2"))
 			.texture("flowerbed", this.texture(this.name(block), location))
 			.texture("stem", this.extend(this.texture(this.name(block), location), "_stem"))
 			.renderType("cutout");
 		ModelFile flowerbed3 = this.models()
-			.withExistingParent(this.name(block) + "_3", mcLoc("flowerbed_3"))
+			.withExistingParent(this.name(block) + "_3", this.mcLoc("flowerbed_3"))
 			.texture("flowerbed", this.texture(this.name(block), location))
 			.texture("stem", this.extend(this.texture(this.name(block), location), "_stem"))
 			.renderType("cutout");
 		ModelFile flowerbed4 = this.models()
-			.withExistingParent(this.name(block) + "_4", mcLoc("flowerbed_4"))
+			.withExistingParent(this.name(block) + "_4", this.mcLoc("flowerbed_4"))
 			.texture("flowerbed", this.texture(this.name(block), location))
 			.texture("stem", this.extend(this.texture(this.name(block), location), "_stem"))
 			.renderType("cutout");
@@ -701,7 +701,7 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
 
 		ModelFile carpet = this.models().singleTexture(
 			this.name(block),
-			mcLoc("block/carpet"),
+			this.mcLoc("block/carpet"),
 			"wool",
 			this.texture(this.name(base), location)
 		);

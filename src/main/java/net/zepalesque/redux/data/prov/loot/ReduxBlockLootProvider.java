@@ -49,7 +49,7 @@ public abstract class ReduxBlockLootProvider extends UnityBlockLootProvider {
 			.withPool(
 				LootPool.lootPool()
 					.setRolls(ConstantValue.exactly(1.0F))
-					.add(applyExplosionDecay(other, LootItem.lootTableItem(other)))
+					.add(this.applyExplosionDecay(other, LootItem.lootTableItem(other)))
 					.when(
 						LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(
 							StatePropertiesPredicate.Builder.properties().hasProperty(
@@ -63,7 +63,7 @@ public abstract class ReduxBlockLootProvider extends UnityBlockLootProvider {
 			.withPool(
 				LootPool.lootPool()
 					.setRolls(ConstantValue.exactly(1.0F))
-					.add(applyExplosionDecay(other, LootItem.lootTableItem(block)))
+					.add(this.applyExplosionDecay(other, LootItem.lootTableItem(block)))
 					.when(
 						LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(
 							StatePropertiesPredicate.Builder.properties().hasProperty(
@@ -77,7 +77,7 @@ public abstract class ReduxBlockLootProvider extends UnityBlockLootProvider {
 	}
 
 	public void naturalDrop(Block block, ItemLike other) {
-		this.add(block, naturalDropBase(block, other));
+		this.add(block, this.naturalDropBase(block, other));
 	}
 
 	@Override
@@ -126,7 +126,7 @@ public abstract class ReduxBlockLootProvider extends UnityBlockLootProvider {
 		DeferredBlock<? extends LeavesBlock> leaves,
 		DeferredBlock<? extends SaplingBlock> sapling
 	) {
-		this.add(leaves.get(), l -> droppingWithChancesAndSkyrootSticks(
+		this.add(leaves.get(), l -> this.droppingWithChancesAndSkyrootSticks(
 			l,
 			sapling.get(),
 			BlockLootAccessor.aether$getNormalLeavesSaplingChances()
@@ -168,7 +168,7 @@ public abstract class ReduxBlockLootProvider extends UnityBlockLootProvider {
 		Item item,
 		float... chances
 	) {
-		return createForgeSilkTouchOrShearsDispatchTable(
+		return this.createForgeSilkTouchOrShearsDispatchTable(
 			block,
 			this.applyExplosionCondition(block, LootItem.lootTableItem(sapling)).when(
 				BonusLevelTableCondition.bonusLevelFlatChance(

@@ -33,11 +33,11 @@ public class ReduxDoubleDropsWall extends WallBlock {
         var acc = (WallBlockAccessor) this;
         var shapeByIndex = acc
             .redux$getShapeByIndex();
-        shapeByIndex = fixShapeMap(shapeByIndex);
+        shapeByIndex = this.fixShapeMap(shapeByIndex);
         acc.redux$setShapeByIndex(shapeByIndex);
         
         var collisionShapeByIndex = acc.redux$getCollisionShapeByIndex();
-        collisionShapeByIndex = fixShapeMap(collisionShapeByIndex);
+        collisionShapeByIndex = this.fixShapeMap(collisionShapeByIndex);
         acc.redux$setCollisionShapeByIndex(collisionShapeByIndex);
     }
 

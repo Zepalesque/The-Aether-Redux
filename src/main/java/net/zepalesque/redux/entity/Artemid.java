@@ -45,7 +45,7 @@ public class Artemid extends Animal {
 
 		var priority = 0;
 		for (var goal : goals) {
-			goalSelector.addGoal(priority, goal);
+			this.goalSelector.addGoal(priority, goal);
 			priority++;
 		}
 	}

@@ -312,9 +312,9 @@ public abstract class ReduxRecipeProvider extends UnityRecipeProvider {
 		Block result,
 		Block ingredient
 	) {
-		ambrosiumEnchanting(result, ingredient).save(
+		this.ambrosiumEnchanting(result, ingredient).save(
 			output,
-			name(
+			this.name(
 				String.format(
 					"ambrosium_convert_%s_to_%s",
 					getBlockName(ingredient),
@@ -340,9 +340,9 @@ public abstract class ReduxRecipeProvider extends UnityRecipeProvider {
 		Block result,
 		Block ingredient
 	) {
-		sporeBlighting(result, ingredient).save(
+		this.sporeBlighting(result, ingredient).save(
 			output,
-			name(
+			this.name(
 				String.format(
 					"willow_spores_convert_%s_to_%s",
 					getBlockName(ingredient),
@@ -358,13 +358,13 @@ public abstract class ReduxRecipeProvider extends UnityRecipeProvider {
 		Block base,
 		Block enchanted
 	) {
-		ambrosiumEnchanting(output, base, blighted);
+		this.ambrosiumEnchanting(output, base, blighted);
 		if (
 			base != AetherBlocks.AETHER_GRASS_BLOCK.get() &&
 			enchanted != AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get()
-		) ambrosiumEnchanting(output, enchanted, base);
-		sporeBlighting(output, blighted, base);
-		sporeBlighting(output, base, enchanted);
+		) this.ambrosiumEnchanting(output, enchanted, base);
+		this.sporeBlighting(output, blighted, base);
+		this.sporeBlighting(output, base, enchanted);
 	}
 
 	public static String getBlockName(Block block) {

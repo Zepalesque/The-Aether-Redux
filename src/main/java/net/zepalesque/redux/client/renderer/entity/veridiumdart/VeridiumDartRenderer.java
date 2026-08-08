@@ -21,10 +21,10 @@ public class VeridiumDartRenderer extends ArrowRenderer<VeridiumDart> {
     @Override
     public void render(VeridiumDart entity, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight) {
         super.render(entity, entityYaw, partialTicks, poseStack, buffer, packedLight);
-        glowStep = true;
+	    this.glowStep = true;
         // Render glow texture in fullbright
         super.render(entity, entityYaw, partialTicks, poseStack, buffer, FULLBRIGHT);
-        glowStep = false;
+	    this.glowStep = false;
     }
 
     public VeridiumDartRenderer(EntityRendererProvider.Context context) {
@@ -33,7 +33,7 @@ public class VeridiumDartRenderer extends ArrowRenderer<VeridiumDart> {
 
     @Nonnull
     public ResourceLocation getTextureLocation(VeridiumDart dart) {
-        return glowStep ? INFUSED_OVERLAY : INFUSED_TEXTURE;
+        return this.glowStep ? INFUSED_OVERLAY : INFUSED_TEXTURE;
     }
 
     public static class Uninfused extends ArrowRenderer<VeridiumDart.Uninfused> {

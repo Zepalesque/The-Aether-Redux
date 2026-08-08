@@ -100,7 +100,7 @@ public class VeridiumAxeItem extends AxeItem implements VeridiumItem {
 
     @Override
     public ItemStack getDefaultInstance() {
-        return creativeStack(super.getDefaultInstance());
+        return this.creativeStack(super.getDefaultInstance());
     }
 
     public static class Uninfused extends AxeItem {

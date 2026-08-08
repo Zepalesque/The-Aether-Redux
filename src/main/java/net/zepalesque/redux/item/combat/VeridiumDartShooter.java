@@ -65,7 +65,7 @@ public class VeridiumDartShooter extends DartShooterItem implements VeridiumItem
 
     @Override
     public ItemStack getDefaultInstance() {
-        return creativeStack(super.getDefaultInstance());
+        return this.creativeStack(super.getDefaultInstance());
     }
 
     public static class Uninfused extends DartShooterItem {

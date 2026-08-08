@@ -36,8 +36,8 @@ public class ReduxRecipeData extends ReduxRecipeProvider {
 	@Override
 	protected void buildRecipes(@NotNull RecipeOutput output, HolderLookup.Provider holderLookup) {
 		Redux.BLOCK_SETS.forEach(set -> set.recipeData(this, output, holderLookup));
-
-		oreBlockStorageRecipesRecipesWithCustomUnpacking(
+		
+		this.oreBlockStorageRecipesRecipesWithCustomUnpacking(
 			output,
 			RecipeCategory.MISC,
 			ReduxItems.VERIDIUM_NUGGET.get(),
@@ -46,7 +46,7 @@ public class ReduxRecipeData extends ReduxRecipeProvider {
 			"veridium_nugget",
 			"veridium_nugget_to_veridium_ingot"
 		);
-		oreBlockStorageRecipesRecipesWithCustomUnpacking(
+		this.oreBlockStorageRecipesRecipesWithCustomUnpacking(
 			output,
 			RecipeCategory.MISC,
 			ReduxItems.SENTRITE_CHUNK.get(),
@@ -55,100 +55,100 @@ public class ReduxRecipeData extends ReduxRecipeProvider {
 			"sentrite_chunk",
 			"sentrite_chunk_to_refined_sentrite"
 		);
-		smeltingOreRecipe(ReduxItems.VERIDIUM_INGOT.get(), ReduxBlocks.VERIDIUM_ORE.get(), 0.8F).save(
+		this.smeltingOreRecipe(ReduxItems.VERIDIUM_INGOT.get(), ReduxBlocks.VERIDIUM_ORE.get(), 0.8F).save(
 			output,
-			name("smelt_veridium")
+			this.name("smelt_veridium")
 		);
-		blastingOreRecipe(ReduxItems.VERIDIUM_INGOT.get(), ReduxBlocks.VERIDIUM_ORE.get(), 0.8F).save(
+		this.blastingOreRecipe(ReduxItems.VERIDIUM_INGOT.get(), ReduxBlocks.VERIDIUM_ORE.get(), 0.8F).save(
 			output,
-			name("blast_veridium")
+			this.name("blast_veridium")
 		);
-		smeltingOreRecipe(ReduxItems.VERIDIUM_INGOT.get(), ReduxItems.RAW_VERIDIUM.get(), 0.8F).save(
+		this.smeltingOreRecipe(ReduxItems.VERIDIUM_INGOT.get(), ReduxItems.RAW_VERIDIUM.get(), 0.8F).save(
 			output,
-			name("smelt_raw_veridium")
+			this.name("smelt_raw_veridium")
 		);
-		blastingOreRecipe(ReduxItems.VERIDIUM_INGOT.get(), ReduxItems.RAW_VERIDIUM.get(), 0.8F).save(
+		this.blastingOreRecipe(ReduxItems.VERIDIUM_INGOT.get(), ReduxItems.RAW_VERIDIUM.get(), 0.8F).save(
 			output,
-			name("blast_raw_veridium")
+			this.name("blast_raw_veridium")
 		);
-		smeltingOreRecipe(ReduxItems.REFINED_SENTRITE.get(), ReduxStoneSets.SENTRITE.block().get(), 0.8F, 300).save(
+		this.smeltingOreRecipe(ReduxItems.REFINED_SENTRITE.get(), ReduxStoneSets.SENTRITE.block().get(), 0.8F, 300).save(
 			output,
-			name("refine_sentrite_smelt")
+			this.name("refine_sentrite_smelt")
 		);
-		blastingOreRecipe(ReduxItems.REFINED_SENTRITE.get(), ReduxStoneSets.SENTRITE.block().get(), 0.8F, 150).save(
+		this.blastingOreRecipe(ReduxItems.REFINED_SENTRITE.get(), ReduxStoneSets.SENTRITE.block().get(), 0.8F, 150).save(
 			output,
-			name("refine_sentrite_blast")
+			this.name("refine_sentrite_blast")
 		);
-
-		enchantingRecipe(
+		
+		this.enchantingRecipe(
 			RecipeCategory.DECORATIONS,
 			ReduxFlowerSets.SILVEROOT_SAPLING.flower().get(),
 			AetherBlocks.SKYROOT_SAPLING.get(),
 			0.1F,
 			1000
 		).save(output);
-
-		triConversion(
+		
+		this.triConversion(
 			output,
 			ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get(),
 			AetherBlocks.AETHER_GRASS_BLOCK.get(),
 			AetherBlocks.ENCHANTED_AETHER_GRASS_BLOCK.get()
 		);
-		triConversion(
+		this.triConversion(
 			output,
 			ReduxBlocks.STORMFIR_LEAVES.get(),
 			AetherBlocks.SKYROOT_LEAVES.get(),
 			ReduxBlocks.SILVEROOT_LEAVES.get()
 		);
-		triConversion(
+		this.triConversion(
 			output,
 			ReduxFlowerSets.STORMFIR_SAPLING.flower().get(),
 			AetherBlocks.SKYROOT_SAPLING.get(),
 			ReduxFlowerSets.SILVEROOT_SAPLING.flower().get()
 		);
-		triConversion(
+		this.triConversion(
 			output,
 			ReduxFlowerSets.STORMFIR_SAPLING.pot().get(),
 			AetherBlocks.POTTED_SKYROOT_SAPLING.get(),
 			ReduxFlowerSets.SILVEROOT_SAPLING.pot().get()
 		);
-		triConversion(
+		this.triConversion(
 			output,
 			ReduxBlocks.STORMFIR_LEAF_PILE.get(),
 			UnityBlocks.SKYROOT_LEAF_PILE.get(),
 			ReduxBlocks.SILVEROOT_LEAF_PILE.get()
 		);
-		triConversion(
+		this.triConversion(
 			output,
 			ReduxStoneSets.BLEAKMOSS_HOLYSTONE.block().get(),
 			AetherBlocks.MOSSY_HOLYSTONE.get(),
 			ReduxStoneSets.GILDED_HOLYSTONE.block().get()
 		);
-		triConversion(
+		this.triConversion(
 			output,
 			ReduxStoneSets.BLEAKMOSS_HOLYSTONE.slab().get(),
 			AetherBlocks.MOSSY_HOLYSTONE_SLAB.get(),
 			ReduxStoneSets.GILDED_HOLYSTONE.slab().get()
 		);
-		triConversion(
+		this.triConversion(
 			output,
 			ReduxStoneSets.BLEAKMOSS_HOLYSTONE.stairs().get(),
 			AetherBlocks.MOSSY_HOLYSTONE_STAIRS.get(),
 			ReduxStoneSets.GILDED_HOLYSTONE.stairs().get()
 		);
-		triConversion(
+		this.triConversion(
 			output,
 			ReduxStoneSets.BLEAKMOSS_HOLYSTONE.wall().get(),
 			AetherBlocks.MOSSY_HOLYSTONE_WALL.get(),
 			ReduxStoneSets.GILDED_HOLYSTONE.wall().get()
 		);
-		triConversion(
+		this.triConversion(
 			output,
 			ReduxBlocks.BLEAKMOSS_BLOCK.get(),
 			UnityBlocks.FLUTEMOSS_BLOCK.get(),
 			ReduxBlocks.GILDENMOSS_BLOCK.get()
 		);
-		triConversion(
+		this.triConversion(
 			output,
 			ReduxBlocks.BLEAKMOSS_CARPET.get(),
 			UnityBlocks.FLUTEMOSS_CARPET.get(),
@@ -160,26 +160,26 @@ public class ReduxRecipeData extends ReduxRecipeProvider {
 		layerBlock(output, ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get(), ReduxBlocks.BLIGHTWILLOW_LEAVES.get(), 6);
 
 		woodFromLogs(output, ReduxBlocks.GILDLEAF_AMBER_WOOD, ReduxBlocks.GILDLEAF_AMBER_LOG);
-
-		stonecuttingRecipe(
+		
+		this.stonecuttingRecipe(
 			output,
 			RecipeCategory.BUILDING_BLOCKS,
 			ReduxBlocks.CARVED_BASE.get(),
 			AetherBlocks.CARVED_STONE.get()
 		);
-		stonecuttingRecipe(
+		this.stonecuttingRecipe(
 			output,
 			RecipeCategory.BUILDING_BLOCKS,
 			ReduxBlocks.CARVED_PILLAR.get(),
 			AetherBlocks.CARVED_STONE.get()
 		);
-		stonecuttingRecipe(
+		this.stonecuttingRecipe(
 			output,
 			RecipeCategory.BUILDING_BLOCKS,
 			ReduxBlocks.SENTRY_BASE.get(),
 			AetherBlocks.SENTRY_STONE.get()
 		);
-		stonecuttingRecipe(
+		this.stonecuttingRecipe(
 			output,
 			RecipeCategory.BUILDING_BLOCKS,
 			ReduxBlocks.SENTRY_PILLAR.get(),
@@ -230,72 +230,72 @@ public class ReduxRecipeData extends ReduxRecipeProvider {
 		CompoundTag infusionInfo = new CompoundTag();
 		infusionInfo.putShort(InfusionRecipe.ADDED_INFUSION, (short) 4);
 		Holder<SoundEvent> infusionSound = ReduxSounds.INFUSE_ITEM;
-
-		infuse(ReduxItems.INFUSED_VERIDIUM_PICKAXE.get(), ReduxItems.VERIDIUM_PICKAXE.get())
+		
+		this.infuse(ReduxItems.INFUSED_VERIDIUM_PICKAXE.get(), ReduxItems.VERIDIUM_PICKAXE.get())
 			.withSound(infusionSound)
 			.withExtra(infusionInfo)
 			.save(output, Redux.loc("veridium_pickaxe_infuse"));
-
-		infuse(ReduxItems.INFUSED_VERIDIUM_PICKAXE.get(), ReduxItems.INFUSED_VERIDIUM_PICKAXE.get())
+		
+		this.infuse(ReduxItems.INFUSED_VERIDIUM_PICKAXE.get(), ReduxItems.INFUSED_VERIDIUM_PICKAXE.get())
 			.withSound(infusionSound)
 			.withExtra(infusionInfo)
 			.save(output, Redux.loc("veridium_pickaxe_increase_infusion"));
-
-		infuse(ReduxItems.INFUSED_VERIDIUM_AXE.get(), ReduxItems.VERIDIUM_AXE.get())
+		
+		this.infuse(ReduxItems.INFUSED_VERIDIUM_AXE.get(), ReduxItems.VERIDIUM_AXE.get())
 			.withSound(infusionSound)
 			.withExtra(infusionInfo)
 			.save(output, Redux.loc("veridium_axe_infuse"));
-
-		infuse(ReduxItems.INFUSED_VERIDIUM_AXE.get(), ReduxItems.INFUSED_VERIDIUM_AXE.get())
+		
+		this.infuse(ReduxItems.INFUSED_VERIDIUM_AXE.get(), ReduxItems.INFUSED_VERIDIUM_AXE.get())
 			.withSound(infusionSound)
 			.withExtra(infusionInfo)
 			.save(output, Redux.loc("veridium_axe_increase_infusion"));
-
-		infuse(ReduxItems.INFUSED_VERIDIUM_SHOVEL.get(), ReduxItems.VERIDIUM_SHOVEL.get())
+		
+		this.infuse(ReduxItems.INFUSED_VERIDIUM_SHOVEL.get(), ReduxItems.VERIDIUM_SHOVEL.get())
 			.withSound(infusionSound)
 			.withExtra(infusionInfo)
 			.save(output, Redux.loc("veridium_shovel_infuse"));
-
-		infuse(ReduxItems.INFUSED_VERIDIUM_SHOVEL.get(), ReduxItems.INFUSED_VERIDIUM_SHOVEL.get())
+		
+		this.infuse(ReduxItems.INFUSED_VERIDIUM_SHOVEL.get(), ReduxItems.INFUSED_VERIDIUM_SHOVEL.get())
 			.withSound(infusionSound)
 			.withExtra(infusionInfo)
 			.save(output, Redux.loc("veridium_shovel_increase_infusion"));
-
-		infuse(ReduxItems.INFUSED_VERIDIUM_HOE.get(), ReduxItems.VERIDIUM_HOE.get())
+		
+		this.infuse(ReduxItems.INFUSED_VERIDIUM_HOE.get(), ReduxItems.VERIDIUM_HOE.get())
 			.withSound(infusionSound)
 			.withExtra(infusionInfo)
 			.save(output, Redux.loc("veridium_hoe_infuse"));
-
-		infuse(ReduxItems.INFUSED_VERIDIUM_HOE.get(), ReduxItems.INFUSED_VERIDIUM_HOE.get())
+		
+		this.infuse(ReduxItems.INFUSED_VERIDIUM_HOE.get(), ReduxItems.INFUSED_VERIDIUM_HOE.get())
 			.withSound(infusionSound)
 			.withExtra(infusionInfo)
 			.save(output, Redux.loc("veridium_hoe_increase_infusion"));
-
-		infuse(ReduxItems.INFUSED_VERIDIUM_SWORD.get(), ReduxItems.VERIDIUM_SWORD.get())
+		
+		this.infuse(ReduxItems.INFUSED_VERIDIUM_SWORD.get(), ReduxItems.VERIDIUM_SWORD.get())
 			.withSound(infusionSound)
 			.withExtra(infusionInfo)
 			.save(output, Redux.loc("veridium_sword_infuse"));
-
-		infuse(ReduxItems.INFUSED_VERIDIUM_SWORD.get(), ReduxItems.INFUSED_VERIDIUM_SWORD.get())
+		
+		this.infuse(ReduxItems.INFUSED_VERIDIUM_SWORD.get(), ReduxItems.INFUSED_VERIDIUM_SWORD.get())
 			.withSound(infusionSound)
 			.withExtra(infusionInfo)
 			.save(output, Redux.loc("veridium_sword_increase_infusion"));
-
-		infuse(ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER.get(), ReduxItems.VERIDIUM_DART_SHOOTER.get())
+		
+		this.infuse(ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER.get(), ReduxItems.VERIDIUM_DART_SHOOTER.get())
 			.withSound(infusionSound)
 			.withExtra(infusionInfo)
 			.save(output, Redux.loc("veridium_dart_shooter_infuse"));
-
-		infuse(ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER.get(), ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER.get())
+		
+		this.infuse(ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER.get(), ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER.get())
 			.withSound(infusionSound)
 			.withExtra(infusionInfo)
 			.save(output, Redux.loc("veridium_dart_shooter_increase_infusion"));
-
-		makePickaxe(ReduxItems.VERIDIUM_PICKAXE, ReduxItems.VERIDIUM_INGOT).save(output);
-		makeShovel(ReduxItems.VERIDIUM_SHOVEL, ReduxItems.VERIDIUM_INGOT).save(output);
-		makeAxe(ReduxItems.VERIDIUM_AXE, ReduxItems.VERIDIUM_INGOT).save(output);
-		makeHoe(ReduxItems.VERIDIUM_HOE, ReduxItems.VERIDIUM_INGOT).save(output);
-		makeSword(ReduxItems.VERIDIUM_SWORD, ReduxItems.VERIDIUM_INGOT).save(output);
+		
+		this.makePickaxe(ReduxItems.VERIDIUM_PICKAXE, ReduxItems.VERIDIUM_INGOT).save(output);
+		this.makeShovel(ReduxItems.VERIDIUM_SHOVEL, ReduxItems.VERIDIUM_INGOT).save(output);
+		this.makeAxe(ReduxItems.VERIDIUM_AXE, ReduxItems.VERIDIUM_INGOT).save(output);
+		this.makeHoe(ReduxItems.VERIDIUM_HOE, ReduxItems.VERIDIUM_INGOT).save(output);
+		this.makeSword(ReduxItems.VERIDIUM_SWORD, ReduxItems.VERIDIUM_INGOT).save(output);
 
 		ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ReduxItems.VERIDIUM_DART.get(), 4)
 			.define('F', Tags.Items.FEATHERS)
@@ -356,8 +356,8 @@ public class ReduxRecipeData extends ReduxRecipeProvider {
 			.pattern("SVS")
 			.unlockedBy(getHasName(ReduxItems.VERIDIUM_INGOT.get()), has(ReduxItems.VERIDIUM_INGOT.get()))
 			.save(output);
-
-		oreBlockStorageRecipesRecipesWithCustomUnpacking(
+		
+		this.oreBlockStorageRecipesRecipesWithCustomUnpacking(
 			output,
 			RecipeCategory.MISC,
 			ReduxItems.VERIDIUM_INGOT.get(),
@@ -366,7 +366,7 @@ public class ReduxRecipeData extends ReduxRecipeProvider {
 			"veridium_ingot_from_veridium_block",
 			"veridium_ingot"
 		);
-		oreBlockStorageRecipesRecipesWithCustomUnpacking(
+		this.oreBlockStorageRecipesRecipesWithCustomUnpacking(
 			output,
 			RecipeCategory.MISC,
 			ReduxItems.RAW_VERIDIUM.get(),
@@ -375,8 +375,8 @@ public class ReduxRecipeData extends ReduxRecipeProvider {
 			"raw_veridium_from_raw_veridium_block",
 			"raw_veridium"
 		);
-
-		oreBlockStorageRecipesRecipesWithCustomUnpacking(
+		
+		this.oreBlockStorageRecipesRecipesWithCustomUnpacking(
 			output,
 			RecipeCategory.MISC,
 			ReduxItems.REFINED_SENTRITE.get(),

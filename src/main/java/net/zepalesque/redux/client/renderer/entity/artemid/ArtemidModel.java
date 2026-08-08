@@ -135,6 +135,6 @@ public class ArtemidModel<T extends Artemid> extends HierarchicalModel<T> {
 
 	@Override
 	public ModelPart root() {
-		return root;
+		return this.root;
 	}
 }

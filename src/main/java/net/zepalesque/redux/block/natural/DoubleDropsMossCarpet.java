@@ -31,7 +31,7 @@ public class DoubleDropsMossCarpet extends MossyCarpetBlock {
     protected void fixShapeMaps() {
         var mossyCarpetAccessor = (MossyCarpetAccessor) this;
         var shapesCache = mossyCarpetAccessor.redux$getShapesCache();
-        shapesCache = fixShapeMap(shapesCache);
+        shapesCache = this.fixShapeMap(shapesCache);
         mossyCarpetAccessor.redux$setShapesCache(shapesCache);
 
     }

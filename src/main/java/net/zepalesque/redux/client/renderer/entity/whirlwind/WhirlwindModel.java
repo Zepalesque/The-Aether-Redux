@@ -43,28 +43,28 @@ public class WhirlwindModel<T extends AbstractWhirlwind> extends EntityModel<T> 
 	}
 
 	public static LayerDefinition createBodyLayer() {
-		MeshDefinition meshdefinition = new MeshDefinition();
-		PartDefinition partdefinition = meshdefinition.getRoot();
-
-		PartDefinition whirl_body = partdefinition.addOrReplaceChild("whirl_body", CubeListBuilder.create(), PartPose.offset(0.0F, 24.0F, 0.0F));
-
-		PartDefinition whirl_bottom = whirl_body.addOrReplaceChild("whirl_bottom", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
+		var meshdefinition = new MeshDefinition();
+		var partdefinition = meshdefinition.getRoot();
+		
+		var whirl_body = partdefinition.addOrReplaceChild("whirl_body", CubeListBuilder.create(), PartPose.offset(0.0F, 24.0F, 0.0F));
+		
+		var whirl_bottom = whirl_body.addOrReplaceChild("whirl_bottom", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
 
 		whirl_bottom.addOrReplaceChild("bottom_render", CubeListBuilder.create().texOffs(0, 126).addBox(-3.5F, -18.0F, -3.5F, 7.0F, 18.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
-
-		PartDefinition whirl_lower = whirl_bottom.addOrReplaceChild("whirl_lower", CubeListBuilder.create(), PartPose.offset(0.0F, -7.0F, 0.0F));
+		
+		var whirl_lower = whirl_bottom.addOrReplaceChild("whirl_lower", CubeListBuilder.create(), PartPose.offset(0.0F, -7.0F, 0.0F));
 
 		whirl_lower.addOrReplaceChild("lower_render", CubeListBuilder.create().texOffs(228, 103).addBox(-3.5F, -27.0F, -3.5F, 7.0F, 16.0F, 7.0F, new CubeDeformation(0.0F))
 				.texOffs(116, 98).addBox(-6.0F, -27.0F, -6.0F, 12.0F, 16.0F, 12.0F, new CubeDeformation(0.0F))
 				.texOffs(0, 92).addBox(-9.0F, -27.0F, -9.0F, 18.0F, 16.0F, 18.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
-
-		PartDefinition whirl_upper = whirl_lower.addOrReplaceChild("whirl_upper", CubeListBuilder.create(), PartPose.offset(0.0F, -6.0F, 0.0F));
+		
+		var whirl_upper = whirl_lower.addOrReplaceChild("whirl_upper", CubeListBuilder.create(), PartPose.offset(0.0F, -6.0F, 0.0F));
 
 		whirl_upper.addOrReplaceChild("upper_render", CubeListBuilder.create().texOffs(208, 60).addBox(-6.0F, -41.0F, -6.0F, 12.0F, 20.0F, 12.0F, new CubeDeformation(0.0F))
 				.texOffs(116, 54).addBox(-9.0F, -41.0F, -9.0F, 18.0F, 20.0F, 18.0F, new CubeDeformation(0.0F))
 				.texOffs(0, 48).addBox(-12.0F, -41.0F, -12.0F, 24.0F, 20.0F, 24.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
-
-		PartDefinition whirl_top = whirl_upper.addOrReplaceChild("whirl_top", CubeListBuilder.create(), PartPose.offset(0.0F, -20.0F, 0.0F));
+		
+		var whirl_top = whirl_upper.addOrReplaceChild("whirl_top", CubeListBuilder.create(), PartPose.offset(0.0F, -20.0F, 0.0F));
 
 		whirl_top.addOrReplaceChild("top_render", CubeListBuilder.create().texOffs(116, 18).addBox(-9.0F, -53.0F, -9.0F, 18.0F, 12.0F, 18.0F, new CubeDeformation(0.0F))
 				.texOffs(160, 12).addBox(-12.0F, -53.0F, -12.0F, 24.0F, 12.0F, 24.0F, new CubeDeformation(0.0F))
@@ -75,37 +75,37 @@ public class WhirlwindModel<T extends AbstractWhirlwind> extends EntityModel<T> 
 
 	@Override
 	public void setupAnim(@NotNull T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		final int mask = 0xffffff;
-		final int offset = 3;
-		final int length = 11;
-		final int total = length + offset * 3;
+		final var mask = 0xffffff;
+		final var offset = 3;
+		final var length = 11;
+		final var total = length + offset * 3;
 		if (ageInTicks < total)
-			for (int i = 0; i < 4; i++) {
+			for (var i = 0; i < 4; i++) {
 				// holy progesterone real
-				float prog = Math.clamp(ageInTicks - 1 - offset * i, 0, length) / length;
-				int a = Math.round(255F * EasingUtil.Sinusoidal.inOut(prog)) << 24 | mask;
-				alpha[i] = a;
+				var prog = Math.clamp(ageInTicks - 1 - offset * i, 0, length) / length;
+				var a = Math.round(255F * EasingUtil.Sinusoidal.inOut(prog)) << 24 | mask;
+				this.alpha[i] = a;
 			}
 		else if (entity.deathTime < total && entity.deathTime > 0)
-			for (int i = 0; i < 4; i++) {
-				float prog = 1F - Math.clamp(entity.deathTime + ageInTicks % 1 - offset * i, 0, length) / length;
-				int a = Math.round(255F * EasingUtil.Sinusoidal.inOut(prog)) << 24 | mask;
-				alpha[i] = a;
+			for (var i = 0; i < 4; i++) {
+				var prog = 1F - Math.clamp(entity.deathTime + ageInTicks % 1 - offset * i, 0, length) / length;
+				var a = Math.round(255F * EasingUtil.Sinusoidal.inOut(prog)) << 24 | mask;
+				this.alpha[i] = a;
 			}
 		if (entity.deathTime >= total) {
-			alpha[0] = mask;
-			alpha[1] = mask;
-			alpha[2] = mask;
-			alpha[3] = mask;
+			this.alpha[0] = mask;
+			this.alpha[1] = mask;
+			this.alpha[2] = mask;
+			this.alpha[3] = mask;
 		}
 		
-		boolean flag = entity.getType() == AetherEntityTypes.EVIL_WHIRLWIND.get();
-
-		float speedModif = flag ? -0.075F : -0.1F;
-		float amountModif = flag ? 4.0F : 3.0F;
+		var flag = entity.getType() == AetherEntityTypes.EVIL_WHIRLWIND.get();
+		
+		var speedModif = flag ? -0.075F : -0.1F;
+		var amountModif = flag ? 4.0F : 3.0F;
 
 		this.whirl_body.getAllParts().forEach(ModelPart::resetPose);
-		float f = ageInTicks * (float) Math.PI * speedModif;
+		var f = ageInTicks * (float) Math.PI * speedModif;
 		this.bottom_render.x = Mth.cos(f) * -0.25F * 1.0F * amountModif;
 		this.bottom_render.z = Mth.sin(f) * -0.25F * 1.0F * amountModif;
 
@@ -121,14 +121,14 @@ public class WhirlwindModel<T extends AbstractWhirlwind> extends EntityModel<T> 
 
 	@Override
 	public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, int color) {
-		bottom_render.render(poseStack, buffer, packedLight, packedOverlay, color & alpha[0]);
-		lower_render.render(poseStack, buffer, packedLight, packedOverlay, color & alpha[1]);
-		upper_render.render(poseStack, buffer, packedLight, packedOverlay, color & alpha[2]);
-		top_render.render(poseStack, buffer, packedLight, packedOverlay, color & alpha[3]);
+		this.bottom_render.render(poseStack, buffer, packedLight, packedOverlay, color & this.alpha[0]);
+		this.lower_render.render(poseStack, buffer, packedLight, packedOverlay, color & this.alpha[1]);
+		this.upper_render.render(poseStack, buffer, packedLight, packedOverlay, color & this.alpha[2]);
+		this.top_render.render(poseStack, buffer, packedLight, packedOverlay, color & this.alpha[3]);
 		
-		alpha[0] = 0xffffffff;
-		alpha[1] = 0xffffffff;
-		alpha[2] = 0xffffffff;
-		alpha[3] = 0xffffffff;
+		this.alpha[0] = 0xffffffff;
+		this.alpha[1] = 0xffffffff;
+		this.alpha[2] = 0xffffffff;
+		this.alpha[3] = 0xffffffff;
 	}
 }

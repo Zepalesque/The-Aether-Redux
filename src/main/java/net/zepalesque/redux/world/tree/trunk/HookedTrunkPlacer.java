@@ -37,10 +37,10 @@ public class HookedTrunkPlacer extends GiantTrunkPlacer {
 	) {
 		var list = new ArrayList<>(super.placeTrunk(level, setter, rand, height, pos, cfg));
 
-		list.addAll(placeBranches(cfg, rand, level, setter, height, Direction.NORTH, pos));
-		list.addAll(placeBranches(cfg, rand, level, setter, height, Direction.EAST, pos.east()));
-		list.addAll(placeBranches(cfg, rand, level, setter, height, Direction.SOUTH, pos.south().east()));
-		list.addAll(placeBranches(cfg, rand, level, setter, height, Direction.WEST, pos.south()));
+		list.addAll(this.placeBranches(cfg, rand, level, setter, height, Direction.NORTH, pos));
+		list.addAll(this.placeBranches(cfg, rand, level, setter, height, Direction.EAST, pos.east()));
+		list.addAll(this.placeBranches(cfg, rand, level, setter, height, Direction.SOUTH, pos.south().east()));
+		list.addAll(this.placeBranches(cfg, rand, level, setter, height, Direction.WEST, pos.south()));
 
 		return list;
 	}

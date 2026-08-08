@@ -89,7 +89,7 @@ public class MoonfirFoliagePlacer extends FoliagePlacer {
 		for (var y = 0; y < height; y++) {
 			for (var x = -radius; x <= radius; x++) {
 				for (var z = -radius; z <= radius; z++) {
-					if (!testByHeight(x, y, z, start, rots, arms, height, radius, pointiness)) {
+					if (!this.testByHeight(x, y, z, start, rots, arms, height, radius, pointiness)) {
 						continue;
 					}
 

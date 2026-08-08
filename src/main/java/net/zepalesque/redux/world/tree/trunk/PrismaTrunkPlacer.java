@@ -60,21 +60,21 @@ public class PrismaTrunkPlacer extends TrunkPlacer {
 		var offset2 = this.offset2.sample(rand);
 
 		// place log at starting position
-		placeLog(level, setter, rand, pos, cfg);
+		this.placeLog(level, setter, rand, pos, cfg);
 
 		// place logs up until first bend
 		for (int i = 0; i <= height; i++) {
 			pos.move(Direction.UP);
-			placeLog(level, setter, rand, pos, cfg);
+			this.placeLog(level, setter, rand, pos, cfg);
 		}
 
 		// Bends
-		doBend(level, setter, rand, pos, cfg, dir, offset1);
-		doBend(level, setter, rand, pos, cfg, dir.getOpposite(), offset1 + offset2 + 1);
-		doBend(level, setter, rand, pos, cfg, dir, offset2);
+		this.doBend(level, setter, rand, pos, cfg, dir, offset1);
+		this.doBend(level, setter, rand, pos, cfg, dir.getOpposite(), offset1 + offset2 + 1);
+		this.doBend(level, setter, rand, pos, cfg, dir, offset2);
 
 		pos.move(Direction.UP);
-		placeLog(level, setter, rand, pos, cfg);
+		this.placeLog(level, setter, rand, pos, cfg);
 		pos.move(Direction.UP);
 		return List.of(new FoliageAttachment(pos, 0, false));
 	}
@@ -90,7 +90,7 @@ public class PrismaTrunkPlacer extends TrunkPlacer {
 	) {
 		for (int i = 0; i < amount; i++) {
 			pos.move(dir);
-			placeLog(
+			this.placeLog(
 				level,
 				setter,
 				rand,
@@ -101,7 +101,7 @@ public class PrismaTrunkPlacer extends TrunkPlacer {
 		}
 		for (int i = 0; i < 2; i++) {
 			pos.move(Direction.UP);
-			placeLog(level, setter, rand, pos, cfg);
+			this.placeLog(level, setter, rand, pos, cfg);
 		};
 	}
 }

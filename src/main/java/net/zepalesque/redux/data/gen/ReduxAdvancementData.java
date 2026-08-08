@@ -51,9 +51,9 @@ public class ReduxAdvancementData extends AdvancementProvider {
                 .parent(aether)
                 .display(
                     AetherItems.GOLDEN_RING.get(),
-                    Component.translatable("advancement." + modid + ".throw_ring_in_lava"),
-                    Component.translatable("advancement." + modid + ".throw_ring_in_lava.desc")
-                        .append(Component.translatable("gui." + modid + ".advancement_suffix").withStyle(style -> style.withColor(this.suffixColor))),
+                    Component.translatable("advancement." + this.modid + ".throw_ring_in_lava"),
+                    Component.translatable("advancement." + this.modid + ".throw_ring_in_lava.desc")
+                        .append(Component.translatable("gui." + this.modid + ".advancement_suffix").withStyle(style -> style.withColor(this.suffixColor))),
                     null,
                     AdvancementType.TASK, true, true, true)
                 .addCriterion("throw_ring_in_lava",

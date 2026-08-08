@@ -50,7 +50,7 @@ public class EchysiaBlock extends CustomBoundsBushBlock {
 	
 	@Nullable @Override
 	public BlockState getStateForPlacement(BlockPlaceContext context) {
-		return setValues(context.getLevel(), context.getClickedPos(), super.getStateForPlacement(context));
+		return this.setValues(context.getLevel(), context.getClickedPos(), super.getStateForPlacement(context));
 	}
 	
 	@Override

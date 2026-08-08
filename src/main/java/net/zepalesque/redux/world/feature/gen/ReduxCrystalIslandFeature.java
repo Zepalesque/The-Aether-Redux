@@ -40,8 +40,8 @@ public class ReduxCrystalIslandFeature extends Feature<NoneFeatureConfiguration>
 		if (!feature.place(level, context.chunkGenerator(), context.random(), pos.above())) {
 			return false;
 		}
-
-		placeSphere(level, pos);
+		
+		this.placeSphere(level, pos);
 
 		for (int i = 0; i < 2; i++) {
 			var x = rand.nextInt(-1, 1);
@@ -49,8 +49,8 @@ public class ReduxCrystalIslandFeature extends Feature<NoneFeatureConfiguration>
 			var z = rand.nextInt(-1, 1);
 
 			if ((x | z) == 0) continue;
-
-			placeSphere(level, pos.offset(x, y, z));
+			
+			this.placeSphere(level, pos.offset(x, y, z));
 		}
 
 		return true;
@@ -81,7 +81,7 @@ public class ReduxCrystalIslandFeature extends Feature<NoneFeatureConfiguration>
 		// If the block is a log, return immediately.
 		if (level.getBlockState(pos).is(BlockTags.LOGS)) return;
 
-		var state = chooseState(level, pos, testState);
+		var state = this.chooseState(level, pos, testState);
 		this.setBlock(level, pos, state);
 
 		// Ensure island doesn't leave grass beneath it

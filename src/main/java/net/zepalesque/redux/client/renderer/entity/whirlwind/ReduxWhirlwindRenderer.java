@@ -32,7 +32,7 @@ public class ReduxWhirlwindRenderer<T extends AbstractWhirlwind> extends LivingE
     public void render(@NotNull T entity, float entityYaw, float partialTicks, @NotNull PoseStack poseStack, @NotNull MultiBufferSource buffer, int packedLight) {
         if (ReduxConfig.CLIENT.improved_whirlwinds.get()) {
             float age = this.getBob(entity, partialTicks);
-            VertexConsumer vertexconsumer = buffer.getBuffer(renderType(getTextureLocation(entity), this.xOffset(age) % 1.0F));
+            VertexConsumer vertexconsumer = buffer.getBuffer(this.renderType(this.getTextureLocation(entity), this.xOffset(age) % 1.0F));
             poseStack.pushPose();
             this.model.setupAnim(entity, 0.0F, 0.0F, age, 0.0F, 0.0F);
             poseStack.mulPose(Axis.ZP.rotationDegrees(180.0F));

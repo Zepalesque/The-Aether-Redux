@@ -99,7 +99,7 @@ public class VeridiumShovelItem extends ShovelItem implements VeridiumItem {
 
     @Override
     public ItemStack getDefaultInstance() {
-        return creativeStack(super.getDefaultInstance());
+        return this.creativeStack(super.getDefaultInstance());
     }
 
     public static class Uninfused extends ShovelItem {

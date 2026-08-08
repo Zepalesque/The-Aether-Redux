@@ -32,7 +32,7 @@ public class SparkParticle extends TextureSheetParticle {
         this.yd *= 0.8F;
         this.zd *= 0.8F;
         this.quadSize = 0.125F;
-        this.scale(random.nextFloat() * 0.2F + 0.4F);
+        this.scale(this.random.nextFloat() * 0.2F + 0.4F);
         this.lifetime = (int)(32.0D / (Math.random() * 0.6D + 0.4D));
     }
 

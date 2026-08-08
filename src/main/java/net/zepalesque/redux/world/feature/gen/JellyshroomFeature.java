@@ -89,7 +89,7 @@ public class JellyshroomFeature extends Feature<JellyshroomFeature.Config> {
 		}
 
 		for (Map.Entry<BlockPos, BlockState> entry : toPlace.entrySet()) {
-			if (!canPlaceBlockHere(context.level(), entry.getKey())) {
+			if (!this.canPlaceBlockHere(context.level(), entry.getKey())) {
 				return false;
 			}
 		}

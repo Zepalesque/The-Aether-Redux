@@ -31,7 +31,7 @@ public class LayeredBookshelfBlock extends BookshelfBlock {
 
     @Nullable @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        return getState(context.getLevel(), context.getClickedPos());
+        return this.getState(context.getLevel(), context.getClickedPos());
     }
 
     private BlockState getState(LevelAccessor level, BlockPos pos) {
@@ -51,6 +51,6 @@ public class LayeredBookshelfBlock extends BookshelfBlock {
         LevelAccessor level,
         BlockPos pos,
         BlockPos neighborPos) {
-        return getState(level, pos);
+        return this.getState(level, pos);
     }
 }

@@ -90,11 +90,11 @@ public class BlightwillowRootsPlacer extends RootPlacer {
             
             var min = 0;
 
-            for (var i = -1; i > -2 - maxRootDepth; i--) {
+            for (var i = -1; i > -2 - this.maxRootDepth; i--) {
                 var testPos = rootStartPos.above(i);
                 if (this.validRootPos(level, testPos))
-                    if (i < -maxRootDepth) {
-                        unshuffle();
+                    if (i < -this.maxRootDepth) {
+	                    this.unshuffle();
                         return false;
                     } else continue;
                 min = i + 1;
@@ -103,13 +103,13 @@ public class BlightwillowRootsPlacer extends RootPlacer {
 
             for (var i = min; i < rootSize; i++) {
                 var pos = rootStartPos.above(i);
-                this.placements.put(pos, !(i < rootSize - 1 && validRootPos(level, pos.above())));
+                this.placements.put(pos, !(i < rootSize - 1 && this.validRootPos(level, pos.above())));
             }
         }
+	    
+	    this.unshuffle();
 
-        unshuffle();
-
-        if (validateAll(level, this.placements)) {
+        if (this.validateAll(level, this.placements)) {
             this.placements.forEach((pos, useWood) -> setter.accept(pos, !useWood || !ReduxConfig.SERVER.use_wood_blocks.get() ? treeConfig.trunkProvider.getState(random, pos) : this.wood.getState(random, pos)));
             TrunkPlacer.setDirtAt(level, setter, random, origin.below(), treeConfig);
 

@@ -63,7 +63,7 @@ public class AACompatFeature {
 
         @Override
         public String toString() {
-            return serialized;
+            return this.serialized;
         }
 
         @Override

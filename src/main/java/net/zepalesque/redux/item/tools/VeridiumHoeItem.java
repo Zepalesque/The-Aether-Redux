@@ -99,7 +99,7 @@ public class VeridiumHoeItem extends HoeItem implements VeridiumItem {
 
     @Override
     public ItemStack getDefaultInstance() {
-        return creativeStack(super.getDefaultInstance());
+        return this.creativeStack(super.getDefaultInstance());
     }
 
     public static class Uninfused extends HoeItem {

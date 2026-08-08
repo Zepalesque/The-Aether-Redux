@@ -50,7 +50,7 @@ public class ReduxLootModifierData extends ReduxLootModifierProvider {
                 },
                 new LootItemCondition[] {
                         new ConditionLootModule(new ConfigCondition(ReduxConfig.SERVER.serializerID(), ReduxConfig.SERVER.raw_ores)),
-                        hasSilkTouch().invert().build(),
+	                this.hasSilkTouch().invert().build(),
                         LootItemBlockStatePropertyCondition.hasBlockStateProperties(ReduxBlocks.VERIDIUM_ORE.get()).build()}));
 
         this.add("aerbound_cape", new AddDungeonLootModifier(

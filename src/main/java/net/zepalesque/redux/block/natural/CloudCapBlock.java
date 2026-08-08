@@ -14,7 +14,7 @@ import net.zepalesque.redux.util.world.PureRand;
 public class CloudCapBlock extends HugeAetherMushroomBlock {
 	public CloudCapBlock(Properties properties) {
 		super(properties);
-		registerDefaultState(this.defaultBlockState().setValue(CLOUDCAP_VARIANT, 0));
+		this.registerDefaultState(this.defaultBlockState().setValue(CLOUDCAP_VARIANT, 0));
 	}
 	
 	@Override
@@ -25,16 +25,16 @@ public class CloudCapBlock extends HugeAetherMushroomBlock {
 	
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext context) {
-		return transform(super.getStateForPlacement(context), context.getClickedPos());
+		return this.transform(super.getStateForPlacement(context), context.getClickedPos());
 	}
 	
 	@Override
 	protected BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor level, BlockPos currentPos, BlockPos facingPos) {
-		return transform(super.updateShape(state, facing, facingState, level, currentPos, facingPos), currentPos);
+		return this.transform(super.updateShape(state, facing, facingState, level, currentPos, facingPos), currentPos);
 	}
 	
 	public BlockState transform(BlockState original, BlockPos pos) {
-		var seed = getSeed(original, pos);
+		var seed = this.getSeed(original, pos);
 		var f = PureRand.getInt(seed, 30);
 		var val = f < 10
 			? 0 : f < 17

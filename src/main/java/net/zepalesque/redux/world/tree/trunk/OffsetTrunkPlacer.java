@@ -52,17 +52,17 @@ public class OffsetTrunkPlacer extends TrunkPlacer {
 		var offsetHeight = rand.nextInt((int)(height * 0.25), (int)(height * 0.75));
 
 		// place log at starting position
-		placeLog(level, setter, rand, pos, cfg);
+		this.placeLog(level, setter, rand, pos, cfg);
 
 		// place logs up until offset
 		for (int i = 0; i <= offsetHeight; i++) {
 			pos.move(Direction.UP);
-			placeLog(level, setter, rand, pos, cfg);
+			this.placeLog(level, setter, rand, pos, cfg);
 		}
 
 		// perform offset
 		pos.move(dir);
-		placeLog(
+		this.placeLog(
 			level,
 			setter,
 			rand,
@@ -74,7 +74,7 @@ public class OffsetTrunkPlacer extends TrunkPlacer {
 		// place remainder of logs
 		for (int i = offsetHeight; i <= height; i++) {
 			pos.move(Direction.UP);
-			placeLog(level, setter, rand, pos, cfg);
+			this.placeLog(level, setter, rand, pos, cfg);
 		}
 
 		pos.move(Direction.UP);

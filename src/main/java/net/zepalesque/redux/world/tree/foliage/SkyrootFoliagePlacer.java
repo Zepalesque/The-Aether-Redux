@@ -36,11 +36,11 @@ public class SkyrootFoliagePlacer extends FoliagePlacer {
 		var origin = attachment.pos();
 
 		// Place main piece
-		placeLeavesRow(level, setter, rand, config, origin, radius - 1, 0, false);
-		placeLeavesRow(level, setter, rand, config, origin, radius, -1, false);
-		placeLeavesRow(level, setter, rand, config, origin, radius, -2, false);
-		placeLeavesRow(level, setter, rand, config, origin, radius, -3, false);
-		placeLeavesRow(level, setter, rand, config, origin, radius - 1, -4, false);
+		this.placeLeavesRow(level, setter, rand, config, origin, radius - 1, 0, false);
+		this.placeLeavesRow(level, setter, rand, config, origin, radius, -1, false);
+		this.placeLeavesRow(level, setter, rand, config, origin, radius, -2, false);
+		this.placeLeavesRow(level, setter, rand, config, origin, radius, -3, false);
+		this.placeLeavesRow(level, setter, rand, config, origin, radius - 1, -4, false);
 	}
 
 	@Override

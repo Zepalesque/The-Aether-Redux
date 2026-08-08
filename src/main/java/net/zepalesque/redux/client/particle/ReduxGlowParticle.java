@@ -50,7 +50,7 @@ public class ReduxGlowParticle extends TextureSheetParticle {
    @Override
    public void tick() {
       super.tick();
-      if (this.animated) this.setSpriteFromAge(sprites);
+      if (this.animated) this.setSpriteFromAge(this.sprites);
    }
 
    @OnlyIn(Dist.CLIENT)

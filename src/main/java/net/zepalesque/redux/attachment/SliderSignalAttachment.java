@@ -31,7 +31,7 @@ public class SliderSignalAttachment {
 
     protected void tickSignal(Slider slider) {
         if (this.signalTick > 0 && slider.level().isClientSide()) {
-            if (this.signalTick == 2) playSound(slider);
+            if (this.signalTick == 2) this.playSound(slider);
             else if (this.signalTick == 1)
                 this.overrideDirection = null;
             this.signalTick--;
@@ -89,7 +89,7 @@ public class SliderSignalAttachment {
         if (this.getSignalTick() <= 2) {
             if (!this.hasOverriden) this.overrideDirection = null;
             this.setSignalTick(8);
-            playSound(slider);
+	        this.playSound(slider);
         }
     }
 
@@ -109,7 +109,7 @@ public class SliderSignalAttachment {
     }
 
     public int getSignalTick() {
-        return signalTick;
+        return this.signalTick;
     }
 
     public void setSignalTick(int signalTick) {

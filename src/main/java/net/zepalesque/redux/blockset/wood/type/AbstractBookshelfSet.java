@@ -35,7 +35,7 @@ public abstract class AbstractBookshelfSet<B extends BookshelfBlock> extends Log
 		DeferredRegister.Blocks blocks = ReduxBlocks.BLOCKS;
 		DeferredRegister.Items items = ReduxItems.ITEMS;
 
-		this.bookshelf = bookshelf(blocks, items, id, woodColor, sound);
+		this.bookshelf = this.bookshelf(blocks, items, id, woodColor, sound);
 	}
 
 	protected abstract DeferredBlock<B> bookshelf(

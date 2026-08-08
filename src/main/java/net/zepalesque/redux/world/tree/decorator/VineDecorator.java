@@ -96,7 +96,7 @@ public class VineDecorator extends TreeDecorator {
         for (var leafPos : LOWEST_BY_XZ.cellSet()) {
             var pos = new BlockPos(leafPos.getRowKey(), leafPos.getValue(), leafPos.getColumnKey());
             var length = this.length.sample(rand);
-            if (rand.nextFloat() < probability) {
+            if (rand.nextFloat() < this.probability) {
                 var below = pos.below();
                 if (context.isAir(below)) this.addVine(below, context, length);
             }

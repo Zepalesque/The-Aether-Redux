@@ -77,9 +77,9 @@ implements
 		var blocks = ReduxBlocks.BLOCKS;
 		var items = ReduxItems.ITEMS;
 		this.textureFolder = textureFolder;
-		this.flower = flower(blocks, items, id, constructor);
-		this.pot = pot(blocks, id);
-		potTags.add(BlockTags.FLOWER_POTS);
+		this.flower = this.flower(blocks, items, id, constructor);
+		this.pot = this.pot(blocks, id);
+		this.potTags.add(BlockTags.FLOWER_POTS);
 	}
 
 	@Override
@@ -219,13 +219,13 @@ implements
 	public void flammables(FireAccessor fire) {
 		if (this.flammability != null) fire.callSetFlammable(
 			this.flower().get(),
-			flammability.getFirst(),
-			flammability.getSecond()
+			this.flammability.getFirst(),
+			this.flammability.getSecond()
 		);
 
 		// Do pot stuff while we're at it
 		var pot = (FlowerPotBlock) Blocks.FLOWER_POT;
-		addFlower(pot, this.flower, this.pot);
+		this.addFlower(pot, this.flower, this.pot);
 	}
 
 	protected void addFlower(

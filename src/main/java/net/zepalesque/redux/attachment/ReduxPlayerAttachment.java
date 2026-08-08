@@ -89,8 +89,8 @@ public class ReduxPlayerAttachment implements INBTSynchable {
     }
 
     protected int calcAerjumpMax() {
-        var calc = baseAerjumps;
-        for (int i : aerjumpCountModifiers.values())
+        var calc = this.baseAerjumps;
+        for (int i : this.aerjumpCountModifiers.values())
             calc += i;
         return calc;
     }
@@ -99,7 +99,7 @@ public class ReduxPlayerAttachment implements INBTSynchable {
         var hadModifier = this.aerjumpCountModifiers.containsKey(name);
         this.aerjumpCountModifiers.putIfAbsent(name, addend);
         if (!hadModifier) {
-            var i = calcAerjumpMax();
+            var i = this.calcAerjumpMax();
             if (this.maxAerjumps != i)
                 this.setSynched(
                     player.getId(),
@@ -113,7 +113,7 @@ public class ReduxPlayerAttachment implements INBTSynchable {
         var hadModifier = this.aerjumpCountModifiers.containsKey(name);
         this.aerjumpCountModifiers.remove(name);
         if (hadModifier) {
-            var i = calcAerjumpMax();
+            var i = this.calcAerjumpMax();
             if (this.maxAerjumps != i)
                 this.setSynched(
                     player.getId(),
@@ -136,7 +136,7 @@ public class ReduxPlayerAttachment implements INBTSynchable {
     }
 
     public int getPrevPerformedAerjumps() {
-        return prevPerformedAerjumps;
+        return this.prevPerformedAerjumps;
     }
 
     private void setMaxAerjumps(int maxAerjumps) {
@@ -152,7 +152,7 @@ public class ReduxPlayerAttachment implements INBTSynchable {
     }
 
     public int getAirTime() {
-        return airTime;
+        return this.airTime;
     }
 
     public void onUpdate(Player player) {
@@ -161,14 +161,14 @@ public class ReduxPlayerAttachment implements INBTSynchable {
     }
 
     private Map<ResourceLocation, Integer> getAerjumpCountModifiers() {
-        return aerjumpCountModifiers;
+        return this.aerjumpCountModifiers;
     }
 
     private void tickAirTime(Player player) {
         if (player.onGround()) {
-            airTime = 0;
+	        this.airTime = 0;
         } else {
-            if (airTime < 3) airTime++;
+            if (this.airTime < 3) this.airTime++;
         }
     }
 
@@ -208,9 +208,9 @@ public class ReduxPlayerAttachment implements INBTSynchable {
     }
 
     public boolean tryAerjump(Player player, int jumpIndex) {
-        if (canAerjump(player)) {
-            prepareAerjump(player);
-            doAerjumpMovement(player, jumpIndex);
+        if (this.canAerjump(player)) {
+	        this.prepareAerjump(player);
+	        this.doAerjumpMovement(player, jumpIndex);
             return true;
         }
         return false;
@@ -256,7 +256,7 @@ public class ReduxPlayerAttachment implements INBTSynchable {
     
     @Override
     public Map<String, Triple<Type, Consumer<Object>, Supplier<Object>>> getSynchableFunctions() {
-        return synchableFunctions;
+        return this.synchableFunctions;
     }
 
     @Override

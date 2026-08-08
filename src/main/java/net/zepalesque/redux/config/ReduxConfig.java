@@ -27,47 +27,47 @@ public class ReduxConfig {
 			super(() -> SERVER_SPEC, "redux_server");
 			builder.push("Worldgen");
 			builder.push("Tweaks");
-			redux_sky_colors = builder
+			this.redux_sky_colors = builder
 				.worldRestart()
 				.comment("Use Redux's alternative sky colors for the Aether")
 				.define("Redux Sky Colors", true);
-			redux_water_colors = builder
+			this.redux_water_colors = builder
 				.comment("Use Redux's alternative water colors for the Aether")
 				.worldRestart()
 				.define("Redux Water Colors", true);
-			cloudbed = builder
+			this.cloudbed = builder
 				.comment("Replace the Aether's large Aercloud features with a noise-based cloudbed")
 				.worldRestart()
 				.define("Cloudbed", true);
-			lakes = builder.comment("Add large lakes to the Aether").worldRestart().define("Lakes", true);
-			mossy_holystone_gen = builder
+			this.lakes = builder.comment("Add large lakes to the Aether").worldRestart().define("Lakes", true);
+			this.mossy_holystone_gen = builder
 				.comment("Enables the natural spawning of Mossy Holystone, alongside Gilded and Bleakmoss Holystone in their respective biomes.")
 				.worldRestart()
 				.define("Mossy Holystone Generation", true);
 			builder.pop();
-
-			use_wood_blocks = builder
+			
+			this.use_wood_blocks = builder
 				.comment("Allow generation of wood blocks (6-sided log block) in certain tree generators in order to make more natural-looking trees")
 				.worldRestart()
 				.define("Use Wood Blocks in Tree Generation", true);
 			builder.pop();
 
 			builder.push("Gameplay");
-
-			max_veridium_tool_infusion = builder
+			
+			this.max_veridium_tool_infusion = builder
 				.comment("The maximum amount of infusion a Veridium tool is able to carry. Note that by default, a tools infusion level is increased by 4 when it is infused with a single Ambrosium Shard.")
 				.defineInRange("Max Veridium Tool Infusion", 64, 1, Short.MAX_VALUE);
-			revamped_quicksoil_movement = builder
+			this.revamped_quicksoil_movement = builder
 				.comment("Changes quicksoil to make it use a better movement system, based on the way it worked in the Aether II: Highlands in 1.12")
 				.define("Revamped Quicksoil Movement", true);
-			consistent_break_speeds = builder
+			this.consistent_break_speeds = builder
 				.comment("Slows down the mining speeds of some Aether blocks, to be more vanilla-consistent")
 				.define("Consistent Break Speeds", false);
-			raw_ores = builder
+			this.raw_ores = builder
 				.comment("Use raw ores like modern vanilla versions, instead of just getting the ore block when mining it")
 				.worldRestart()
 				.define("Raw Ores", true);
-			gummy_swet_nerf = builder
+			this.gummy_swet_nerf = builder
 				.comment("Nerfs Gummy Swets and makes them craftable.")
 				.worldRestart()
 				.define("Gummy Swet Nerf", true);
@@ -83,7 +83,7 @@ public class ReduxConfig {
 		public Common(ModConfigSpec.Builder builder) {
 			super(() -> COMMON_SPEC, "redux_common");
 			builder.push("Datapack Registration");
-			redux_noise = Redux.DATA_CONFIG.register(
+			this.redux_noise = Redux.DATA_CONFIG.register(
 				builder
 					.comment("Uses an alternative noise for the Aether. By default, this is disabled with the Ancient Aether mod installed.")
 					.worldRestart()
@@ -91,7 +91,7 @@ public class ReduxConfig {
 				"redux_noise",
 				ConditionalConfig::enabled
 			);
-			bronze_dungeon_upgrade = Redux.DATA_CONFIG.register(
+			this.bronze_dungeon_upgrade = Redux.DATA_CONFIG.register(
 				builder
 					.comment("Upgrades the Bronze Dungeon structure with new blocks and more depth")
 					.worldRestart()
@@ -115,33 +115,33 @@ public class ReduxConfig {
 
 		public Client(ModConfigSpec.Builder builder) {
 			builder.push("Visual");
-
-			leaf_particles = builder
+			
+			this.leaf_particles = builder
 				.comment("Use nice falling leaf particles for Aether leaf blocks")
 				.define("Leaf Particles", true);
-			improved_whirlwinds = builder
+			this.improved_whirlwinds = builder
 				.comment("Gives Whirlwinds a new design, based on Minecraft 1.21's new Breeze mob")
 				.define("Improved Whirlwinds", true);
-
-			jappafied_textures = Redux.ASSETS_CONFIG.register(
+			
+			this.jappafied_textures = Redux.ASSETS_CONFIG.register(
 				builder
 					.comment("Use textures designed to fit with the Jappafied Aethers resource pack.")
 					.define("Jappafied Textures", false),
 				"jappafied"
 			);
-			upgraded_nature = Redux.ASSETS_CONFIG.register(
+			this.upgraded_nature = Redux.ASSETS_CONFIG.register(
 				builder
 					.comment("Use Redux's updated Aether nature textures.")
 					.define("Upgraded Nature", true),
 				"upgraded_nature"
 			);
-			upgraded_dungeons = Redux.ASSETS_CONFIG.register(
+			this.upgraded_dungeons = Redux.ASSETS_CONFIG.register(
 				builder
 					.comment("Use Redux's updated dungeon textures.")
 					.define("Upgraded Dungeons", true),
 				"upgraded_dungeons"
 			);
-			upgraded_resources = Redux.ASSETS_CONFIG.register(
+			this.upgraded_resources = Redux.ASSETS_CONFIG.register(
 				builder
 					.comment("Use Redux's updated resource textures.")
 					.define("Upgraded Resources", true),
@@ -152,16 +152,16 @@ public class ReduxConfig {
 
 			builder.push("Audio");
 			builder.push("Slider");
-
-			slider_sfx_upgrade = Redux.ASSETS_CONFIG.register(
+			
+			this.slider_sfx_upgrade = Redux.ASSETS_CONFIG.register(
 				builder
 					.comment("Improve the hurt, death, and ambient sounds of the Slider.")
 					.define("Slider SFX Upgrades", true),
 				"sfx/",
 				"slider"
 			);
-
-			slider_signal_sfx = builder
+			
+			this.slider_signal_sfx = builder
 				.comment("Gives the Slider a subtle signal effect before sliding.")
 				.define("Slider Movement Signal", true);
 
@@ -175,15 +175,15 @@ public class ReduxConfig {
 	public static final Client CLIENT;
 
 	static {
-		final Pair<Server, ModConfigSpec> server = new ModConfigSpec.Builder().configure(Server::new);
+		final var server = new ModConfigSpec.Builder().configure(Server::new);
 		SERVER_SPEC = server.getRight();
 		SERVER = server.getLeft();
 
-		final Pair<Common, ModConfigSpec> common = new ModConfigSpec.Builder().configure(Common::new);
+		final var common = new ModConfigSpec.Builder().configure(Common::new);
 		COMMON_SPEC = common.getRight();
 		COMMON = common.getLeft();
 
-		final Pair<Client, ModConfigSpec> client = new ModConfigSpec.Builder().configure(Client::new);
+		final var client = new ModConfigSpec.Builder().configure(Client::new);
 		CLIENT_SPEC = client.getRight();
 		CLIENT = client.getLeft();
 	}

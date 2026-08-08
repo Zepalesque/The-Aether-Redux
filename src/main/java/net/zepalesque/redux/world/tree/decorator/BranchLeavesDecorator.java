@@ -49,8 +49,8 @@ public class BranchLeavesDecorator extends TreeDecorator {
             if (context.random().nextFloat() < this.probability) {
                 var radius = this.radius.sample(context.random());
                 var dir = Direction.Plane.HORIZONTAL.getRandomDirection(context.random());
-                placeBlob(pos, context, radius);
-                placeBlob(pos.relative(dir), context, radius);
+	            this.placeBlob(pos, context, radius);
+	            this.placeBlob(pos.relative(dir), context, radius);
             }
         }
     }

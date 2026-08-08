@@ -76,20 +76,20 @@ public abstract class ReduxItemModelProvider extends UnityItemModelProvider {
 	}
 
 	public void spawnEgg(DeferredItem<?> item) {
-		withExistingParent(
+		this.withExistingParent(
 			item.getId().getPath(),
-			mcLoc("item/template_spawn_egg")
+			this.mcLoc("item/template_spawn_egg")
 		);
 	}
 	
 	public void itemBlockCustomTexture(Block block, String loc, String name) {
-		this.withExistingParent(itemName(block.asItem()), "block/cube_all")
-			.texture("all", modLoc("block/" + loc + name));
+		this.withExistingParent(this.itemName(block.asItem()), "block/cube_all")
+			.texture("all", this.modLoc("block/" + loc + name));
 	}
 	
 	
 	public void leafPileCustomTexture(Block block, String loc, String name) {
-		this.withExistingParent(itemName(block.asItem()), Unity.loc("block/template/layer/layer_size1"))
-			.texture("block", modLoc("block/" + loc + name));
+		this.withExistingParent(this.itemName(block.asItem()), Unity.loc("block/template/layer/layer_size1"))
+			.texture("block", this.modLoc("block/" + loc + name));
 	}
 }

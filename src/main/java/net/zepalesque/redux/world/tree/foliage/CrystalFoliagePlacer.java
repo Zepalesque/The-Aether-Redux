@@ -43,7 +43,7 @@ public class CrystalFoliagePlacer extends FoliagePlacer {
 		// Place main piece
 		var layers = new int[]{2, 1, 0, -1, -2, -3, -4, -5, -6,};
 		for (var y : layers) {
-			placeLeavesRow(level, setter, rand, config, origin, radius, y, false);
+			this.placeLeavesRow(level, setter, rand, config, origin, radius, y, false);
 		}
 	}
 

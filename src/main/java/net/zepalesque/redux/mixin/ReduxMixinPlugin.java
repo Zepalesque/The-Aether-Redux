@@ -16,7 +16,7 @@ public final class ReduxMixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        return OVERRIDES.containsKey(mixinClassName) ? OVERRIDES.get(mixinClassName).get() : true;
+        return this.OVERRIDES.containsKey(mixinClassName) ? this.OVERRIDES.get(mixinClassName).get() : true;
     }
 
     @Override

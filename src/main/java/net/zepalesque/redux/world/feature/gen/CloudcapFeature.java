@@ -150,7 +150,7 @@ public class CloudcapFeature extends Feature<CloudcapFeature.Config> {
 			}
 		}
 		for (Map.Entry<BlockPos, BlockState> entry : toPlace.entrySet()) {
-			if (!canPlaceBlockHere(context.level(), entry.getKey())) {
+			if (!this.canPlaceBlockHere(context.level(), entry.getKey())) {
 				return false;
 			}
 		}
@@ -164,7 +164,7 @@ public class CloudcapFeature extends Feature<CloudcapFeature.Config> {
 				Map<BlockPos, BlockState> map = roots.get(d);
 				boolean flag = false;
 				for (Map.Entry<BlockPos, BlockState> entry : map.entrySet()) {
-					if (canPlaceBlockHere(context.level(), entry.getKey())) continue;
+					if (this.canPlaceBlockHere(context.level(), entry.getKey())) continue;
 
 					flag = true;
 					break;
