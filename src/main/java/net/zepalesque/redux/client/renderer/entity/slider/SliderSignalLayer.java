@@ -25,8 +25,8 @@ public class SliderSignalLayer extends RenderLayer<Slider, SliderModel> {
             RenderType.eyes(ResourceLocation.fromNamespaceAndPath(Aether.MODID, "textures/entity/mobs/slider/slider_signal_" + Direction.values()[i].getName() + ".png")));
 
 
-    private static final RenderType NORMAL = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(Aether.MODID, "textures/entity/mobs/slider/slider_awake_critical_glow.png"));
-    private static final RenderType CRITICAL = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(Aether.MODID, "textures/entity/mobs/slider/slider_awake_glow.png"));
+    private static final RenderType NORMAL = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(Aether.MODID, "textures/entity/mobs/slider/slider_signal.png"));
+    private static final RenderType CRITICAL = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(Aether.MODID, "textures/entity/mobs/slider/slider_signal_critical.png"));
 
     public SliderSignalLayer(RenderLayerParent<Slider, SliderModel> pRenderer) {
         super(pRenderer);
