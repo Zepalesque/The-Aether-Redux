@@ -7,11 +7,20 @@ import net.zepalesque.redux.config.enums.ConditionalConfig;
 import net.zepalesque.zenith.api.serialization.config.DataSerializableConfig;
 
 public class ReduxConfig {
+	public static <T> T getOrDefault(ModConfigSpec.ConfigValue<T> val) {
+		try {
+			return val.get();
+		} catch(Exception e) {
+			return val.getDefault();
+		}
+	}
+	
 	public static class Server extends DataSerializableConfig {
 		public final ModConfigSpec.ConfigValue<Boolean> redux_sky_colors;
 		public final ModConfigSpec.ConfigValue<Boolean> redux_water_colors;
 		public final ModConfigSpec.ConfigValue<Boolean> cloudbed;
 		public final ModConfigSpec.ConfigValue<Boolean> lakes;
+		public final ModConfigSpec.ConfigValue<Boolean> patch_steep;
 		public final ModConfigSpec.ConfigValue<Boolean> use_wood_blocks;
 		public final ModConfigSpec.ConfigValue<Boolean> revamped_quicksoil_movement;
 		// TODO: Item component?
@@ -43,6 +52,13 @@ public class ReduxConfig {
 				.comment("Enables the natural spawning of Mossy Holystone, alongside Gilded and Bleakmoss Holystone in their respective biomes.")
 				.worldRestart()
 				.define("Mossy Holystone Generation", true);
+			builder.pop();
+
+			builder.push("Cliffs");
+			this.patch_steep = builder
+				.comment("Fix MC-258859, allowing the `steep` surface rule to work on all slope faces.")
+				.worldRestart()
+				.define("Patch `steep` Surface Rule", true);
 			builder.pop();
 			
 			this.use_wood_blocks = builder

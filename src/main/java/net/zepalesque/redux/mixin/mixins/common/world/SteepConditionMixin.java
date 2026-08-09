@@ -4,6 +4,8 @@ import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.SurfaceRules;
+import net.zepalesque.redux.config.ReduxConfig;
+
 import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(targets = "net.minecraft.world.level.levelgen.SurfaceRules$Context$SteepMaterialCondition")
@@ -14,6 +16,8 @@ public abstract class SteepConditionMixin extends SurfaceRules.LazyXZCondition {
 
 	@WrapMethod(method = "compute")
 	private boolean redux$compute(Operation<Boolean> og) {
+		if (!ReduxConfig.getOrDefault(ReduxConfig.SERVER.patch_steep)) return og.call();
+
 		var chunkaccess = this.context.chunk;
 
 		int xInChunk = this.context.blockX & 15;
