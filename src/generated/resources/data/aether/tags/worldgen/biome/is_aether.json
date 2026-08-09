@@ -1,8 +1,9 @@
 {
-	"values": [
-		"aether_redux:gilded_groves",
-		"aether_redux:the_blight",
-		"aether_redux:frosted_forests",
-		"aether_redux:skyfields"
-	]
+  "values": [
+    "aether_redux:gilded_groves",
+    "aether_redux:the_blight",
+    "aether_redux:frosted_forests",
+    "aether_redux:skyfields",
+    "aether_redux:cloudcaps"
+  ]
 }
