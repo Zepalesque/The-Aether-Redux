@@ -1,5 +1,6 @@
 package net.zepalesque.redux.world.biome;
 
+import com.aetherteam.aether.block.AetherBlockStateProperties;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.resources.AetherFeatureStates;
 import com.aetherteam.aether.data.resources.registries.AetherDimensions;
@@ -130,6 +131,20 @@ public class ReduxSurfaceRules {
 						),
 						surfaceState(UnityBlocks.COARSE_AETHER_DIRT)
 					)
+				)
+			),
+			
+			inBiome(
+				ReduxBiomes.CLOUDCAPS,
+				SurfaceRules.ifTrue(
+					SurfaceRules.ON_FLOOR,
+					SurfaceRules.ifTrue(
+						SurfaceRules.noiseCondition(Noises.ICE, 0.0, 0.2),
+						surfaceState(UnityBlocks.COARSE_AETHER_DIRT)
+					)
+				), SurfaceRules.ifTrue(
+					SurfaceRules.ON_FLOOR,
+					surfaceState(ReduxBlocks.AVELIUM)
 				)
 			)
 		);

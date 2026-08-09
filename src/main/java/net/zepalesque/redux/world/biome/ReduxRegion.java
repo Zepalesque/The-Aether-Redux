@@ -27,6 +27,7 @@ public class ReduxRegion extends Region {
 		Registry<Biome> registry,
 		Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper
 	) {
+		// TODO: maybe this could be a static final value? over a lambda that afaict is used only in a temporary scope (god i wish java had value types :anguish:)
 		var fullRange = Climate.Parameter.span(-1.5F, 1.5F);
 
 		BiFunction<Parameter, Parameter, ParameterPoint> parameterPoint = (temp, span) -> new Climate.ParameterPoint(
@@ -41,13 +42,14 @@ public class ReduxRegion extends Region {
 
 		var frosted = /*ReduxConfig.COMMON.enable_snowy_biomes.get() ?*/ ReduxBiomes.FROSTED_FORESTS /*: AetherBiomes.SKYROOT_FOREST*/;
 		//var glaical = ReduxConfig.COMMON.enable_snowy_biomes.get() ? ReduxBiomes.GLACIAL_TUNDRA : AetherBiomes.SKYROOT_FOREST;
-		//var cloudcaps = ReduxConfig.COMMON.enable_cloudcaps.get() ? ReduxBiomes.CLOUDCAPS : AetherBiomes.SKYROOT_GROVE;
+		var cloudcaps = /*ReduxConfig.COMMON.enable_cloudcaps.get() ?*/ ReduxBiomes.CLOUDCAPS /*: AetherBiomes.SKYROOT_GROVE*/;
 		var blight = /*ReduxConfig.COMMON.enable_the_blight.get() ?*/ ReduxBiomes.THE_BLIGHT /*: AetherBiomes.SKYROOT_WOODLAND*/;
 		var highfields = /*ReduxConfig.COMMON.enable_skyfields.get() ?*/ ReduxBiomes.SKYFIELDS /*: AetherBiomes.SKYROOT_MEADOW*/;
 		//var shrublands = ReduxConfig.COMMON.enable_skyroot_shrublands.get() ? ReduxBiomes.SKYROOT_SHRUBLANDS : AetherBiomes.SKYROOT_MEADOW;
 		var grove = /*ReduxConfig.COMMON.enable_gilded_biomes.get() ?*/ ReduxBiomes.GILDED_GROVES /*: AetherBiomes.SKYROOT_GROVE*/;
 		//var grasslands = ReduxConfig.COMMON.enable_gilded_biomes.get() ? ReduxBiomes.GILDED_GRASSLANDS : AetherBiomes.SKYROOT_MEADOW;
 		
+		// TODO: static final value ,,,, :3:3
 		var temp1 = span(-1.5F, -0.5F);
 		var temp2 = span(-0.5F, -0.2F);
 		var temp3 = span(-0.2F, 0.2F);
@@ -66,10 +68,11 @@ public class ReduxRegion extends Region {
 	    	parameterPoint.apply(temp1, span(-0.3F, 0.3F)),
 	    	glaical
 	    ); */
-		/* addBiome(
+		this.addBiome(
 	    	mapper,
 	    	parameterPoint.apply(temp1, span(0.3F, 1.0F)),
-	    ); */
+	    	cloudcaps
+	    );
 		
 		this.addBiome(
 			mapper,
@@ -106,12 +109,13 @@ public class ReduxRegion extends Region {
 			parameterPoint.apply(temp3, span(-0.1F, 0.2F)),
 			AetherBiomes.SKYROOT_MEADOW
 		);
-		/* addBiome(
+		this.addBiome(
 			mapper,
 			parameterPoint.apply(temp3, span(0.2F, 0.5F)),
 			ReduxBiomes.SKYFIELDS
 		);
-		addBiome(
+		
+		/* addBiome(
 			mapper,
 			parameterPoint.apply(temp3, span(0.5F, 1.0F)),
 			shrublands

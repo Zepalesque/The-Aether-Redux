@@ -26,7 +26,8 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
 		this.tag(AetherTags.Biomes.IS_AETHER).add(ReduxBiomes.GILDED_GROVES,
 			ReduxBiomes.THE_BLIGHT,
 			ReduxBiomes.FROSTED_FORESTS,
-			ReduxBiomes.SKYFIELDS
+			ReduxBiomes.SKYFIELDS,
+			ReduxBiomes.CLOUDCAPS
 			// java needs trailing commas
 		);
 

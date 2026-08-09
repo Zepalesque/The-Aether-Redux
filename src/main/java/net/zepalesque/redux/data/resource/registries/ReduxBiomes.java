@@ -5,6 +5,7 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.data.resource.builders.biome.Cloudcaps;
 import net.zepalesque.redux.data.resource.builders.biome.FrostedForests;
 import net.zepalesque.redux.data.resource.builders.biome.GildedGroves;
 import net.zepalesque.redux.data.resource.builders.biome.Skyfields;
@@ -34,5 +35,6 @@ public class ReduxBiomes {
         context.register(THE_BLIGHT, TheBlight.generate(context));
         context.register(FROSTED_FORESTS, FrostedForests.generate(context));
         context.register(SKYFIELDS, Skyfields.generate(context));
+        context.register(CLOUDCAPS, Cloudcaps.generate(context));
     }
 }
