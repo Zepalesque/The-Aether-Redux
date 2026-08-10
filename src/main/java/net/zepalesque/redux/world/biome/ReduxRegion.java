@@ -21,24 +21,25 @@ public class ReduxRegion extends Region {
 	public ReduxRegion(ResourceLocation name, int weight) {
 		super(name, AetherRegionType.THE_AETHER, weight);
 	}
-
+	
+	private static final Climate.Parameter FULL = Climate.Parameter.span(-1.5F, 1.5F);
+	private static ParameterPoint parameterPoint(Parameter temp, Parameter span) {
+		return new Climate.ParameterPoint(
+			temp,
+			span,
+			FULL,
+			FULL,
+			FULL,
+			FULL,
+			0
+		);
+	}
+	
 	@Override
 	public void addBiomes(
 		Registry<Biome> registry,
 		Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper
 	) {
-		// TODO: maybe this could be a static final value? over a lambda that afaict is used only in a temporary scope (god i wish java had value types :anguish:)
-		var fullRange = Climate.Parameter.span(-1.5F, 1.5F);
-
-		BiFunction<Parameter, Parameter, ParameterPoint> parameterPoint = (temp, span) -> new Climate.ParameterPoint(
-			temp,
-			span,
-			fullRange,
-			fullRange,
-			fullRange,
-			fullRange,
-			0
-		);
 
 		var frosted = /*ReduxConfig.COMMON.enable_snowy_biomes.get() ?*/ ReduxBiomes.FROSTED_FORESTS /*: AetherBiomes.SKYROOT_FOREST*/;
 		//var glaical = ReduxConfig.COMMON.enable_snowy_biomes.get() ? ReduxBiomes.GLACIAL_TUNDRA : AetherBiomes.SKYROOT_FOREST;
@@ -59,71 +60,71 @@ public class ReduxRegion extends Region {
 		this.addBiome(
 			mapper,
 			// TODO: revert biome params after readding glacial tundra
-			parameterPoint.apply(temp1, span(/*-1.0F, -0.3F*/ -0.3F, 0.3F)),
+			parameterPoint(temp1, span(/*-1.0F, -0.3F*/ -0.3F, 0.3F)),
 			frosted
 		);
 		/*
 	    addBiome(
 	    	mapper,
-	    	parameterPoint.apply(temp1, span(-0.3F, 0.3F)),
+	    	parameterPoint(temp1, span(-0.3F, 0.3F)),
 	    	glaical
 	    ); */
 		this.addBiome(
 	    	mapper,
-	    	parameterPoint.apply(temp1, span(0.3F, 1.0F)),
+	    	parameterPoint(temp1, span(0.3F, 1.0F)),
 	    	cloudcaps
 	    );
 		
 		this.addBiome(
 			mapper,
-			parameterPoint.apply(temp2, span(-1f, -0.4f)),
+			parameterPoint(temp2, span(-1f, -0.4f)),
 			blight
 		);
 		this.addBiome(
 			mapper,
-			parameterPoint.apply(temp2, span(-0.4F, -0.15F)),
+			parameterPoint(temp2, span(-0.4F, -0.15F)),
 			AetherBiomes.SKYROOT_FOREST
 		);
 		this.addBiome(
 			mapper,
-			parameterPoint.apply(temp2, span(-0.15F, 0.0F)),
+			parameterPoint(temp2, span(-0.15F, 0.0F)),
 			AetherBiomes.SKYROOT_MEADOW
 		);
 		this.addBiome(
 			mapper,
-			parameterPoint.apply(temp2, span(0.0F, 0.2F)),
+			parameterPoint(temp2, span(0.0F, 0.2F)),
 			AetherBiomes.SKYROOT_WOODLAND
 		);
-		this.addBiome(mapper, new Climate.ParameterPoint(temp2, Climate.Parameter.span(0.2F, 1.0F), fullRange, fullRange, fullRange, fullRange, 0),
+		this.addBiome(mapper, new Climate.ParameterPoint(temp2, Climate.Parameter.span(0.2F, 1.0F), FULL, FULL, FULL, FULL, 0),
 				highfields); //ReduxBiomes.SHIMMERING_HILLS);
 		
-		this.addBiome(mapper, new Climate.ParameterPoint(temp3, Climate.Parameter.span(-1.0F, -0.3F), fullRange, fullRange, fullRange, fullRange, 0),
+		this.addBiome(mapper, new Climate.ParameterPoint(temp3, Climate.Parameter.span(-1.0F, -0.3F), FULL, FULL, FULL, FULL, 0),
 				highfields);
 		this.addBiome(
 			mapper,
-			parameterPoint.apply(temp3, span(-0.3F, -0.1F)),
+			parameterPoint(temp3, span(-0.3F, -0.1F)),
 			AetherBiomes.SKYROOT_FOREST
 		);
 		this.addBiome(
 			mapper,
-			parameterPoint.apply(temp3, span(-0.1F, 0.2F)),
+			parameterPoint(temp3, span(-0.1F, 0.2F)),
 			AetherBiomes.SKYROOT_MEADOW
 		);
 		this.addBiome(
 			mapper,
-			parameterPoint.apply(temp3, span(0.2F, 0.5F)),
+			parameterPoint(temp3, span(0.2F, 0.5F)),
 			ReduxBiomes.SKYFIELDS
 		);
 		
 		/* addBiome(
 			mapper,
-			parameterPoint.apply(temp3, span(0.5F, 1.0F)),
+			parameterPoint(temp3, span(0.5F, 1.0F)),
 			shrublands
 		); */
 		
 		this.addBiome(
 			mapper,
-			parameterPoint.apply(temp4, span(-1.0F, -0.6F)),
+			parameterPoint(temp4, span(-1.0F, -0.6F)),
 			AetherBiomes.SKYROOT_MEADOW
 		);
 	/*        addBiome(mapper, new Climate.ParameterPoint(temp4, Climate.Parameter.span(-0.6F, -0.3F), fullRange, fullRange, fullRange, fullRange, 0),
@@ -141,12 +142,12 @@ public class ReduxRegion extends Region {
 				ReduxBiomes.GILDED_GRASSLANDS);*/
 		this.addBiome(
 			mapper,
-			parameterPoint.apply(temp5, span(-0.4F, 0.3F)),
+			parameterPoint(temp5, span(-0.4F, 0.3F)),
 			grove
 		);
 		/* addBiome(
 			mapper,
-			parameterPoint.apply(temp5, span(0.3F, 1.0F)),
+			parameterPoint(temp5, span(0.3F, 1.0F)),
 			grasslands
 		); */
 	}

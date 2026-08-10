@@ -87,14 +87,14 @@ public class ReduxLeafParticle extends TextureSheetParticle {
         }
     }
 
-    // TODO: optimization
     @Override
     public void move(double x, double y, double z) {
-        double x1 = x;
-        double y1 = y;
-        double z1 = z;
+	    var x1 = x;
+	    var y1 = y;
+	    var z1 = z;
         if (this.hasPhysics && (x != 0.0D || y != 0.0D || z != 0.0D) && x * x + y * y + z * z < MAXIMUM_COLLISION_VELOCITY_SQUARED) {
-            Vec3 vec3 = Entity.collideBoundingBox(null, new Vec3(x, y, z), this.getBoundingBox(), this.level, List.of());
+            // TODO: optimization
+	        var vec3 = Entity.collideBoundingBox(null, new Vec3(x, y, z), this.getBoundingBox(), this.level, List.of());
             x = vec3.x;
             y = vec3.y;
             z = vec3.z;
@@ -111,7 +111,7 @@ public class ReduxLeafParticle extends TextureSheetParticle {
     }
 
     @OnlyIn(Dist.CLIENT)
-    public static class Provider implements ParticleProvider<SimpleParticleType> {
+    public static final class Provider implements ParticleProvider<SimpleParticleType> {
         private final SpriteSet spriteSet;
 
         public Provider(SpriteSet spriteSetIn) {
@@ -119,7 +119,7 @@ public class ReduxLeafParticle extends TextureSheetParticle {
         }
 
         public Particle createParticle(SimpleParticleType typeIn, ClientLevel worldIn, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
-            ReduxLeafParticle leavesParticle = new ReduxLeafParticle(worldIn, x, y, z);
+	        var leavesParticle = new ReduxLeafParticle(worldIn, x, y, z);
             leavesParticle.pickSprite(this.spriteSet);
             return leavesParticle;
         }

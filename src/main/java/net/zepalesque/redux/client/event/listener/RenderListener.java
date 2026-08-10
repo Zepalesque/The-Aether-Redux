@@ -38,47 +38,50 @@ public class RenderListener {
             LocalPlayer player = minecraft.player;
             ClientLevel level = minecraft.level;
             if (level == null || player == null) return;
-            Frustum frustum = event.getFrustum();
-            Camera camera = event.getCamera();
-            EntityRenderDispatcher dispatch = minecraft.getEntityRenderDispatcher();
-            DeltaTracker deltaTracker = minecraft.getTimer();
-            TickRateManager tickratemanager = level.tickRateManager();
-            RenderBuffers buffers = minecraft.renderBuffers();
-
-
-            Vec3 vec3 = camera.getPosition();
-            double x = vec3.x();
-            double y = vec3.y();
-            double z = vec3.z();
-
-            PoseStack posestack = event.getPoseStack();
+	        var frustum = event.getFrustum();
+	        var cam = event.getCamera();
+	        var renderDisp = minecraft.getEntityRenderDispatcher();
+	        var timer = minecraft.getTimer();
+	        var ticker = level.tickRateManager();
+	        var bufs = minecraft.renderBuffers();
+	        
+	        
+	        var camPos = cam.getPosition();
+	        var x = camPos.x();
+	        var y = camPos.y();
+	        var z = camPos.z();
+	        
+	        var stack = event.getPoseStack();
             
-            // TODO: optimize this stuff cuz the sparkc profiler says its unoptimized
+			// TODO: find more optimized way to do this while still letting it be functional and stuff
+	        //  (THIS IS WHY I WANT STRUCTS IN JAVA ffs even closures are expensive like they could be trivial with monomorphization and structs)
+            var entities = level.entitiesForRendering();
+//            var stream = StreamSupport.stream(entities.spliterator(), true)
+//                .filter(e -> e.getType() == AetherEntityTypes.EVIL_WHIRLWIND.get());
+//            Iterable<Entity> whirlwinds = stream::iterator;
+			
+            for (var entity : entities) {
+				if (entity.getType() != AetherEntityTypes.EVIL_WHIRLWIND.get())
+					break;
+             
+	            if (renderDisp.shouldRender(entity, frustum, x, y, z) || entity.hasIndirectPassenger(player)) {
+		            var pos = entity.blockPosition();
+	                if ((level.isOutsideBuildHeight(pos.getY()) || renderer.isSectionCompiled(pos))
+		                && (
+							entity != cam.getEntity() || cam.isDetached()
+								|| cam.getEntity() instanceof LivingEntity living && living.isSleeping()
+	                )) {
+		                
+		                var buf = bufs.bufferSource();
+		                
+		                
+		                var partial = timer.getGameTimeDeltaPartialTick(!ticker.isEntityFrozen(entity));
+	                    renderEntity(entity, x, y, z, partial, stack, buf, renderDisp);
+	                }
+	            }
+            }
             
-            var allEntities = level.entitiesForRendering();
-            var stream = StreamSupport.stream(allEntities.spliterator(), true)
-                .filter(e -> e.getType() == AetherEntityTypes.EVIL_WHIRLWIND.get());
-            Iterable<Entity> whirlwinds = stream::iterator;
-            
-            for (Entity entity : whirlwinds)
-                if (dispatch.shouldRender(entity, frustum, x, y, z) || entity.hasIndirectPassenger(player)) {
-                    BlockPos blockpos = entity.blockPosition();
-                    if ((level.isOutsideBuildHeight(blockpos.getY()) || renderer.isSectionCompiled(blockpos))
-                        && (
-                    entity != camera.getEntity()
-                    || camera.isDetached()
-                    || camera.getEntity() instanceof LivingEntity && ((LivingEntity) camera.getEntity()).isSleeping()
-                    )) {
-                        
-                        MultiBufferSource.BufferSource multibuffersource = buffers.bufferSource();
-                        
-                        
-                        float f2 = deltaTracker.getGameTimeDeltaPartialTick(!tickratemanager.isEntityFrozen(entity));
-                        renderEntity(entity, x, y, z, f2, posestack, multibuffersource, dispatch);
-                    }
-                }
-            
-            stream.close();
+//            stream.close();
         }
     }
 
@@ -91,15 +94,15 @@ public class RenderListener {
     }
 
     private static <E extends Entity> void render(
-            E entity,
-            double x,
-            double y,
-            double z,
-            float rotationYaw,
-            float partialTicks,
-            PoseStack poseStack,
-            MultiBufferSource.BufferSource buffer,
-            EntityRenderDispatcher dispatcher) {
+	    E entity,
+	    double x,
+	    double y,
+	    double z,
+	    float rotationYaw,
+	    float partialTicks,
+	    PoseStack poseStack,
+	    MultiBufferSource.BufferSource buffer,
+	    EntityRenderDispatcher dispatcher) {
 
         EntityRenderer<? super E> entityrenderer = dispatcher.getRenderer(entity);
 

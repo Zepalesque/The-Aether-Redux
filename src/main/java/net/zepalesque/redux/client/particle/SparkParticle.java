@@ -125,13 +125,13 @@ public class SparkParticle extends TextureSheetParticle {
 
 
     private static HitResult getHitResult(Vec3 startVec, Vec3 endVecOffset, Level level) {
-        Vec3 vec3 = startVec.add(endVecOffset);
+	    var vec3 = startVec.add(endVecOffset);
         return level.clip(new ClipContext(startVec, vec3, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, CollisionContext.empty()));
     }
 
 
     @OnlyIn(Dist.CLIENT)
-    public static class Provider implements ParticleProvider<SimpleParticleType> {
+    public static final class Provider implements ParticleProvider<SimpleParticleType> {
         private final SpriteSet sprite;
 
 
@@ -140,7 +140,7 @@ public class SparkParticle extends TextureSheetParticle {
         }
 
         public Particle createParticle(SimpleParticleType pType, ClientLevel pLevel, double pX, double pY, double pZ, double pXSpeed, double pYSpeed, double pZSpeed) {
-            SparkParticle particle = new SparkParticle(pLevel, pX, pY, pZ);
+	        var particle = new SparkParticle(pLevel, pX, pY, pZ);
             particle.pickSprite(this.sprite);
             return particle;
         }

@@ -62,7 +62,7 @@ import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
 
 @Mod(Redux.MODID)
-public class Redux {
+public final class Redux {
     public static final String MODID = "aether_redux";
     public static final Logger LOGGER = LogUtils.getLogger();
 
@@ -192,7 +192,7 @@ public class Redux {
         ReduxDataMaps.TYPES.forEach(event::register);
     }
 
-    public  void packSetup(AddPackFindersEvent event) {
+    public void packSetup(AddPackFindersEvent event) {
         var packCfg = event.getPackType() == PackType.CLIENT_RESOURCES
             ? ASSETS_CONFIG
             : DATA_CONFIG;

@@ -10,7 +10,7 @@ import net.neoforged.neoforge.common.util.TriState;
 /**
  * CODE COPY - <a href="https://github.com/The-Aether-Team/The-Aether-II/blob/1.21.1-develop/src/main/java/com/aetherteam/aetherii/client/renderer/block/model/baked/AmbientOcclusionLightModel.java">Aether II - src.main.java.com.aetherteam.aetherii.client.renderer.block.model.baked.AmbientOcclusionLightModel</a>
  */
-public class AmbientOcclusionLightModel extends BakedModelWrapper<BakedModel> {
+public final class AmbientOcclusionLightModel extends BakedModelWrapper<BakedModel> {
     public AmbientOcclusionLightModel(BakedModel originalModel) {
         super(originalModel);
     }

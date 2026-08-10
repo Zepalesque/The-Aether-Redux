@@ -20,7 +20,7 @@ import net.zepalesque.zenith.api.serialization.codec.type.UnboundedHashMapCodec;
 import org.apache.commons.lang3.tuple.Triple;
 import org.jetbrains.annotations.NotNull;
 
-public class ReduxPlayerAttachment implements INBTSynchable {
+public final class ReduxPlayerAttachment implements INBTSynchable {
 
     // TODO: Investigate, do any of these values actually NEED to be synchronized?
     private final Map<String, Triple<Type, Consumer<Object>, Supplier<Object>>> synchableFunctions =

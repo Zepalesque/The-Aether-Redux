@@ -8,6 +8,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.zepalesque.redux.mixin.ReduxCloudMath;
 import org.joml.Vector3f;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -21,34 +22,26 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(AercloudFeature.class)
 public abstract class AercloudFeatureMixin extends FeatureMixin<AercloudConfiguration> {
 
-    private @Unique static final float DIRECTION_MAX_Y = 0.27f;
-    private @Unique static final float TILT_RADIANS = 0.3f;
-    private @Unique static final float DIRECTION_DISPLACEMENT_AMOUNT = 0.5f;
-    private @Unique static final float RADIUS_XZ_MIN = 1.5f;
-    private @Unique static final float RADIUS_XZ_MAX = 2.7f;
-    private @Unique static final float RADIUS_Y_MIN = 1.1f;
-    private @Unique static final float RADIUS_Y_MAX = 1.5f;
-    private @Unique static final float Y_FLATTENING_CUTOFF_RATIO = 0.9f;
-
     // TODO: Decipher how the heck this works via reverse-engineering idk
     @Inject(
-            method = "place",
-            at = @At("HEAD"),
-            cancellable = true)
+        method = "place",
+        at = @At("HEAD"),
+        cancellable = true
+    )
     private void redux$place(FeaturePlaceContext<AercloudConfiguration> context, CallbackInfoReturnable<Boolean> cir) {
 
         WorldGenLevel level = context.level();
         RandomSource random = context.random();
-        Vector3f direction = redux$sampleDirection(random, DIRECTION_MAX_Y, new Vector3f());
-        Vector3f binormal = new Vector3f(0, random.nextBoolean() ? -1 : 1, 0).cross(direction).normalize();
-        Vector3f normal = binormal.cross(direction, new Vector3f());
-        Vector3f tiltedNormal = new Vector3f(normal).mul(Mth.cos(TILT_RADIANS)).add(new Vector3f(binormal).mul(Mth.sin(TILT_RADIANS)));
-        Vector3f tiltedBinormal = direction.cross(tiltedNormal, new Vector3f());
+        Vector3f dir = ReduxCloudMath.sampleDirection(random, ReduxCloudMath.DIRECTION_MAX_Y, new Vector3f());
+        Vector3f binormal = new Vector3f(0, random.nextBoolean() ? -1 : 1, 0).cross(dir).normalize();
+        Vector3f normal = binormal.cross(dir, new Vector3f());
+        Vector3f tiltedNormal = new Vector3f(normal).mul(Mth.cos(ReduxCloudMath.TILT_RADIANS)).add(new Vector3f(binormal).mul(Mth.sin(ReduxCloudMath.TILT_RADIANS)));
+        Vector3f tiltedBinormal = dir.cross(tiltedNormal, new Vector3f());
 
         AercloudConfiguration config = context.config();
 
         // TODO (was in original, see link in class javadoc):  the purpose of the counterpart to this in the original code seems to have been to keep the cloud in the feature gen range. Try a more directed approach.
-        Vector3f blockPosRelative = new Vector3f(direction).negate().mul(config.bounds() / 2.0f);
+        Vector3f blockPosRelative = new Vector3f(dir).negate().mul(config.bounds() / 2.0f);
 
         BlockState blockState = config.block().getState(random, context.origin());
 
@@ -60,19 +53,19 @@ public abstract class AercloudFeatureMixin extends FeatureMixin<AercloudConfigur
 
 
         for (int amount = 0; amount < config.bounds(); ++amount) {
-            redux$sampleDirection(random, 1.0f, iterationDisplacement);
-            iterationDisplacement.mul(DIRECTION_DISPLACEMENT_AMOUNT);
-            iterationDisplacement.add(direction);
+            ReduxCloudMath.sampleDirection(random, 1.0f, iterationDisplacement);
+            iterationDisplacement.mul(ReduxCloudMath.DIRECTION_DISPLACEMENT_AMOUNT);
+            iterationDisplacement.add(dir);
 
             blockPosRelative.add(iterationDisplacement);
 
-            float radiusXZ = Mth.randomBetween(random, RADIUS_XZ_MIN, RADIUS_XZ_MAX);
-            float radiusY = Mth.randomBetween(random,  RADIUS_Y_MIN, RADIUS_Y_MAX);
-            float rangeX = Mth.sqrt(Mth.square(direction.x() * radiusXZ) + Mth.square(tiltedNormal.x() * radiusY) + Mth.square(tiltedBinormal.x() * radiusXZ));
-            float rangeY = Mth.sqrt(Mth.square(direction.y() * radiusXZ) + Mth.square(tiltedNormal.y() * radiusY) + Mth.square(tiltedBinormal.y() * radiusXZ));
-            float rangeZ = Mth.sqrt(Mth.square(direction.z() * radiusXZ) + Mth.square(tiltedNormal.z() * radiusY) + Mth.square(tiltedBinormal.z() * radiusXZ));
-            float rangeYWithCutoff = rangeY * Y_FLATTENING_CUTOFF_RATIO;
-            direction.mul(1.0f / radiusXZ, scaledDirection);
+            float radiusXZ = Mth.randomBetween(random, ReduxCloudMath.RADIUS_XZ_MIN, ReduxCloudMath.RADIUS_XZ_MAX);
+            float radiusY = Mth.randomBetween(random,  ReduxCloudMath.RADIUS_Y_MIN, ReduxCloudMath.RADIUS_Y_MAX);
+            float rangeX = Mth.sqrt(Mth.square(dir.x() * radiusXZ) + Mth.square(tiltedNormal.x() * radiusY) + Mth.square(tiltedBinormal.x() * radiusXZ));
+            float rangeY = Mth.sqrt(Mth.square(dir.y() * radiusXZ) + Mth.square(tiltedNormal.y() * radiusY) + Mth.square(tiltedBinormal.y() * radiusXZ));
+            float rangeZ = Mth.sqrt(Mth.square(dir.z() * radiusXZ) + Mth.square(tiltedNormal.z() * radiusY) + Mth.square(tiltedBinormal.z() * radiusXZ));
+            float rangeYWithCutoff = rangeY * ReduxCloudMath.Y_FLATTENING_CUTOFF_RATIO;
+            dir.mul(1.0f / radiusXZ, scaledDirection);
             tiltedNormal.mul(1.0f / radiusY, scaledTiltedNormal);
             tiltedBinormal.mul(1.0f / radiusXZ, scaledTiltedBinormal);
             for (int dz = Mth.ceil(blockPosRelative.z() - rangeZ); dz <= Mth.floor(blockPosRelative.z() + rangeZ); dz++) {
@@ -93,17 +86,5 @@ public abstract class AercloudFeatureMixin extends FeatureMixin<AercloudConfigur
 
         cir.setReturnValue(true);
     }
-
-    @Unique private static Vector3f redux$sampleDirection(RandomSource random, float yRange, Vector3f destination) {
-        float thetaXZ = random.nextFloat() * Mth.TWO_PI;
-        float sinThetaY = Mth.randomBetween(random, -yRange, yRange);
-        float cosThetaY = Mth.sqrt(1.0f - sinThetaY * sinThetaY);
-        destination.set(
-                Mth.sin(thetaXZ) * cosThetaY,
-                sinThetaY,
-                Mth.cos(thetaXZ) * cosThetaY
-        );
-        return destination;
-    }
-
+    
 }

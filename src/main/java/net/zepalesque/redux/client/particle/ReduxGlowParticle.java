@@ -54,7 +54,7 @@ public class ReduxGlowParticle extends TextureSheetParticle {
    }
 
    @OnlyIn(Dist.CLIENT)
-   public static class Shimmerstar implements ParticleProvider<SimpleParticleType> {
+   public static final class Shimmerstar implements ParticleProvider<SimpleParticleType> {
       private final SpriteSet sprite;
 
       public Shimmerstar(SpriteSet sprites) {
@@ -62,7 +62,7 @@ public class ReduxGlowParticle extends TextureSheetParticle {
       }
 
       public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
-         ReduxGlowParticle shimmerstar = new ReduxGlowParticle(level, x, y, z, 0.5D - ReduxGlowParticle.RANDOM.nextDouble(), ySpeed, 0.5D - ReduxGlowParticle.RANDOM.nextDouble(), this.sprite, false);
+	      var shimmerstar = new ReduxGlowParticle(level, x, y, z, 0.5D - ReduxGlowParticle.RANDOM.nextDouble(), ySpeed, 0.5D - ReduxGlowParticle.RANDOM.nextDouble(), this.sprite, false);
          shimmerstar.pickSprite(this.sprite);
          shimmerstar.yd *= 0.05F;
          if (xSpeed == 0.0D && zSpeed == 0.0D) {
@@ -75,7 +75,7 @@ public class ReduxGlowParticle extends TextureSheetParticle {
    }
 
    @OnlyIn(Dist.CLIENT)
-   public static class Lightning implements ParticleProvider<SimpleParticleType> {
+   public static final class Lightning implements ParticleProvider<SimpleParticleType> {
       private final SpriteSet sprite;
 
       public Lightning(SpriteSet sprites) {
@@ -83,7 +83,7 @@ public class ReduxGlowParticle extends TextureSheetParticle {
       }
 
       public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
-         ReduxGlowParticle lightning = new ReduxGlowParticle(level, x, y, z, 0.5D - ReduxGlowParticle.RANDOM.nextDouble(), ySpeed, 0.5D - ReduxGlowParticle.RANDOM.nextDouble(), this.sprite, true);
+	      var lightning = new ReduxGlowParticle(level, x, y, z, 0.5D - ReduxGlowParticle.RANDOM.nextDouble(), ySpeed, 0.5D - ReduxGlowParticle.RANDOM.nextDouble(), this.sprite, true);
          lightning.yd *= 0.0125F;
          if (xSpeed == 0.0D && zSpeed == 0.0D) {
             lightning.xd *= 0.0125F;
