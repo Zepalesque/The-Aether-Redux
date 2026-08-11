@@ -3,7 +3,6 @@ package net.zepalesque.redux.mixin;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import org.joml.Vector3f;
-import org.spongepowered.asm.mixin.Unique;
 
 public final class ReduxCloudMath {
 	public static final float DIRECTION_MAX_Y = 0.27f;

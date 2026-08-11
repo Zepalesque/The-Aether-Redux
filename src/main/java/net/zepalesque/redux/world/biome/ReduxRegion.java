@@ -70,7 +70,7 @@ public class ReduxRegion extends Region {
 	    ); */
 		this.addBiome(
 	    	mapper,
-	    	parameterPoint(temp1, span(0.3F, 1.0F)),
+	    	parameterPoint(temp5, span(0.3F, 1.0F)),
 	    	cloudcaps
 	    );
 		
