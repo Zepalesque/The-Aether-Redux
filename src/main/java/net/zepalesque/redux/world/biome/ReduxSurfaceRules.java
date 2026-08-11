@@ -1,6 +1,5 @@
 package net.zepalesque.redux.world.biome;
 
-import com.aetherteam.aether.block.AetherBlockStateProperties;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.resources.AetherFeatureStates;
 import com.aetherteam.aether.data.resources.registries.AetherDimensions;
@@ -138,13 +137,21 @@ public class ReduxSurfaceRules {
 				ReduxBiomes.CLOUDCAPS,
 				SurfaceRules.ifTrue(
 					SurfaceRules.ON_FLOOR,
-					SurfaceRules.ifTrue(
-						SurfaceRules.noiseCondition(Noises.ICE, 0.0, 0.2),
-						surfaceState(UnityBlocks.COARSE_AETHER_DIRT)
+					SurfaceRules.sequence(
+						SurfaceRules.ifTrue(
+							SurfaceRules.noiseCondition(Noises.ICE, 0.0, 0.2),
+							surfaceState(UnityBlocks.COARSE_AETHER_DIRT)
+						),
+						SurfaceRules.ifTrue(
+							SurfaceRules.noiseCondition(Noises.ICE, 0.2, 0.4),
+							surfaceState(ReduxBlocks.AVELIUM)
+						),
+						SurfaceRules.ifTrue(
+							SurfaceRules.noiseCondition(Noises.ICE, 0.4, 0.6),
+							surfaceState(UnityBlocks.COARSE_AETHER_DIRT)
+						),
+						surfaceState(AetherBlocks.AETHER_GRASS_BLOCK)
 					)
-				), SurfaceRules.ifTrue(
-					SurfaceRules.ON_FLOOR,
-					surfaceState(ReduxBlocks.AVELIUM)
 				)
 			)
 		);
@@ -176,7 +183,7 @@ public class ReduxSurfaceRules {
 	private static RuleSource inBiome(ResourceKey<Biome> biome, RuleSource... rules) {
 		return SurfaceRules.ifTrue(
 			SurfaceRules.isBiome(biome),
-			SurfaceRules.sequence(rules)
+			rules.length == 1 ? rules[0] : SurfaceRules.sequence(rules)
 		);
 	}
 

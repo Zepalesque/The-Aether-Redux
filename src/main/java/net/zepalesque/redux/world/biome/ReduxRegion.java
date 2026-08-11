@@ -5,7 +5,6 @@ import static net.minecraft.world.level.biome.Climate.Parameter.span;
 import com.aetherteam.aether.data.resources.registries.AetherBiomes;
 import com.mojang.datafixers.util.Pair;
 import io.github.razordevs.aeroblender.aether.AetherRegionType;
-import java.util.function.BiFunction;
 import java.util.function.Consumer;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
