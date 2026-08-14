@@ -80,6 +80,8 @@ public class Cloudcaps {
 //					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.CLOUDCAP_MUSHLING_PATCH)
 //					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.JELLYSHROOM_PATCH)
 //					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.GLIMMERSTOOL_PATCH)
+
+					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.CLOUDCAP_TREES)
 					
 					.addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.COLD_AERCLOUD_PLACEMENT)
 					.addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.BLUE_AERCLOUD_PLACEMENT)

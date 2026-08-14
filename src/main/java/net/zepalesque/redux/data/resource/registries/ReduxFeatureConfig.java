@@ -172,6 +172,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> BLIGHT_TREES = createKey("the_blight_trees");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> FROSTED_TREES = createKey("frosted_forests_trees");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> GLACIAL_TREES = createKey("glacial_tundra_trees");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> CLOUDCAP_TREES = createKey("cloudcap_trees");
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> BLEAKMOSS_VEGETATION = createKey("bleakmoss_vegetation");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> BLEAKMOSS_BONEMEAL = createKey("bleakmoss_bonemeal");
@@ -1022,12 +1023,34 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 							PlacementUtils.filteredByBlockSurvival(
 								ReduxLeafSets.MOONFIR.sapling().get()
 							)
-						), 0.05F)
+						), 0.05F
+					)
 				),
 				PlacementUtils.inlinePlaced(
 					configs.getOrThrow(STORMFIR_TREE),
 					PlacementUtils.filteredByBlockSurvival(
 						ReduxFlowerSets.STORMFIR_SAPLING.flower().get()
+					)
+				)
+			)
+		);
+
+		register(context, CLOUDCAP_TREES, Feature.RANDOM_SELECTOR,
+			new RandomFeatureConfiguration(
+				List.of(
+					new WeightedPlacedFeature(
+						PlacementUtils.inlinePlaced(
+							configs.getOrThrow(MOONFIR_TREE),
+							PlacementUtils.filteredByBlockSurvival(
+								ReduxLeafSets.MOONFIR.sapling().get()
+							)
+						), 0.05F
+					)
+				),
+				PlacementUtils.inlinePlaced(
+					configs.getOrThrow(MOONFIR_TREE),
+					PlacementUtils.filteredByBlockSurvival(
+						ReduxLeafSets.MOONFIR.sapling().get()
 					)
 				)
 			)

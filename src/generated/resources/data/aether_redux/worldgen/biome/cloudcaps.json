@@ -33,7 +33,7 @@
 		],
 		[],
 		["aether:water_spring"],
-		[],
+		["aether_redux:cloudcap_trees"],
 		["aether:cold_aercloud", "aether:blue_aercloud", "aether:golden_aercloud"]
 	],
 	"has_precipitation": false,

@@ -82,6 +82,7 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
 
 	public static final ResourceKey<PlacedFeature> FROSTED_TREES = copyKey(ReduxFeatureConfig.FROSTED_TREES);
 	public static final ResourceKey<PlacedFeature> GLACIAL_TREES = copyKey(ReduxFeatureConfig.GLACIAL_TREES);
+	public static final ResourceKey<PlacedFeature> CLOUDCAP_TREES = copyKey(ReduxFeatureConfig.CLOUDCAP_TREES);
 
 	public static final ResourceKey<PlacedFeature> HOLYSILT_DISK = copyKey(ReduxFeatureConfig.HOLYSILT_DISK);
 
@@ -497,6 +498,24 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
 			BiomeFilter.biome(),
 			blacklist,
 			PlacementUtils.filteredByBlockSurvival(ReduxFlowerSets.STORMFIR_SAPLING.flower().get())
+		);
+
+		register(
+			context,
+			CLOUDCAP_TREES,
+			configs.getOrThrow(ReduxFeatureConfig.CLOUDCAP_TREES),
+			CountPlacement.of(
+				new WeightedListInt(
+					SimpleWeightedRandomList.<IntProvider>builder()
+						.add(ConstantInt.of(6), 5)
+						.add(ConstantInt.of(4), 3)
+						.build()
+				)
+			),
+			ImprovedLayerPlacementModifier.of(Heightmap.Types.OCEAN_FLOOR, UniformInt.of(0, 1), 4),
+			BiomeFilter.biome(),
+			blacklist,
+			PlacementUtils.filteredByBlockSurvival(ReduxLeafSets.MOONFIR.sapling().get())
 		);
 
 		register(
