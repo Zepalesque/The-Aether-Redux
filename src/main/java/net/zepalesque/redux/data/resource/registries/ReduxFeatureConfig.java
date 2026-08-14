@@ -395,7 +395,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			new TreeConfiguration.TreeConfigurationBuilder(
 				prov(ReduxWoodSets.BLIGHTWILLOW.log()),
 				new StraightTrunkPlacer(14, 4, 4),
-				prov(ReduxBlocks.BLEAKMOSS_BLOCK),
+				prov(ReduxBlocks.CLOUD_CAP_BLOCK),
 
 				new CloudcapFoliagePlacer(UniformInt.of(5, 7), prov(() -> Blocks.WHITE_CONCRETE)),
 				Optional.empty(),
