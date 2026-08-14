@@ -395,11 +395,11 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			CLOUDCAP_MUSHROOM,
 			Feature.TREE,
 			new TreeConfiguration.TreeConfigurationBuilder(
-				prov(ReduxWoodSets.BLIGHTWILLOW.log()),
+				prov(ReduxWoodSets.CLOUDCAP.log()),
 				new StraightTrunkPlacer(14, 4, 4),
 				prov(ReduxBlocks.CLOUD_CAP_BLOCK),
 
-				new CloudcapFoliagePlacer(UniformInt.of(5, 7), prov(() -> Blocks.WHITE_CONCRETE)),
+				new CloudcapFoliagePlacer(UniformInt.of(5, 7), prov(() -> ReduxBlocks.SHADED_VINES_PLANT.get())),
 				Optional.empty(),
 				new TwoLayersFeatureSize(7, 0, 3)
 			)
