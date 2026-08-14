@@ -6,6 +6,12 @@
 		"aether_redux:blightwillow_planks": {
 			"burn_time": 300
 		},
+		"aether_redux:cloudcap_bookshelf": {
+			"burn_time": 300
+		},
+		"aether_redux:cloudcap_planks": {
+			"burn_time": 300
+		},
 		"aether_redux:crystal_bookshelf": {
 			"burn_time": 300
 		},

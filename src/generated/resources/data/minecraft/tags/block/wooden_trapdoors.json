@@ -4,6 +4,7 @@
 		"aether_redux:crystal_trapdoor",
 		"aether_redux:moonfir_trapdoor",
 		"aether_redux:prisma_trapdoor",
-		"aether_redux:blightwillow_trapdoor"
+		"aether_redux:blightwillow_trapdoor",
+		"aether_redux:cloudcap_trapdoor"
 	]
 }

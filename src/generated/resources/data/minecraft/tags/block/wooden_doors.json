@@ -4,6 +4,7 @@
 		"aether_redux:crystal_door",
 		"aether_redux:moonfir_door",
 		"aether_redux:prisma_door",
-		"aether_redux:blightwillow_door"
+		"aether_redux:blightwillow_door",
+		"aether_redux:cloudcap_door"
 	]
 }

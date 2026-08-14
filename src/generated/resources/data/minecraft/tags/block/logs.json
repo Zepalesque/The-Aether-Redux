@@ -25,6 +25,11 @@
 		"aether_redux:stripped_blightwillow_log_wall",
 		"aether_redux:blightwillow_wood_wall",
 		"aether_redux:stripped_blightwillow_wood_wall",
+		"#aether_redux:cloudcap_stems",
+		"aether_redux:cloudcap_stem_wall",
+		"aether_redux:stripped_cloudcap_stem_wall",
+		"aether_redux:cloudcap_hyphae_wall",
+		"aether_redux:stripped_cloudcap_hyphae_wall",
 		"aether_redux:gildleaf_amber_log",
 		"aether_redux:gildleaf_amber_wood"
 	]

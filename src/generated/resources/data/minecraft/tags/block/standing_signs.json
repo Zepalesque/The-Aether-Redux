@@ -4,6 +4,7 @@
 		"aether_redux:crystal_sign",
 		"aether_redux:moonfir_sign",
 		"aether_redux:prisma_sign",
-		"aether_redux:blightwillow_sign"
+		"aether_redux:blightwillow_sign",
+		"aether_redux:cloudcap_sign"
 	]
 }

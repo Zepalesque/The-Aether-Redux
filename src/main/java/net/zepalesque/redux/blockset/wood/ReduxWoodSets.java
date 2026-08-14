@@ -13,6 +13,19 @@ public class ReduxWoodSets {
 	public static final LogWallWoodSet MOONFIR = register(new RegularBookshelfSet("moonfir", MapColor.TERRACOTTA_BLACK, MapColor.TERRACOTTA_LIGHT_GRAY, SoundType.WOOD));
 	public static final LogWallWoodSet PRISMA = register(new RegularBookshelfSet("prisma", MapColor.DIAMOND, MapColor.TERRACOTTA_BROWN, SoundType.WOOD));
 	public static final LogWallWoodSet BLIGHTWILLOW = register(new RegularBookshelfSet("blightwillow", MapColor.COLOR_GREEN, MapColor.COLOR_GRAY, SoundType.CHERRY_WOOD));
+	public static final LogWallWoodSet CLOUDCAP = register(new RegularBookshelfSet("cloudcap", MapColor.COLOR_BLUE, MapColor.COLOR_GRAY, SoundType.NETHER_WOOD) {
+		@Override
+		public String logSuffix(boolean plural, boolean localized) {
+			String base = localized ? " Stem" : "_stem";
+
+			return plural ? base + "s" : base;
+		};
+
+		@Override
+		public String woodSuffix(boolean plural, boolean localized) {
+			return localized ? " Hyphae" : "_hyphae";
+		}
+	});
 
 	public static <T extends AbstractWoodSet> T register(T set) {
 		Redux.BLOCK_SETS.add(set);
