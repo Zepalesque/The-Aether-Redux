@@ -118,6 +118,8 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 		createKey(asPatch(UnityBlocks.SKYFERN));
 	public static final ResourceKey<ConfiguredFeature<?, ?>> LUNAERA_PATCH =
 		createKey(asPatch(ReduxBlocks.LUNAERA));
+	public static final ResourceKey<ConfiguredFeature<?, ?>> AVELIUM_ROOTS_PATCH =
+		createKey(asPatch(ReduxBlocks.AVELIUM_ROOTS));
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> AETHER_SNOW_LAYER = createKey("aether_snow_layer");
 
@@ -1070,6 +1072,9 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 
 		register(context, LUNAERA_PATCH, Feature.FLOWER,
 			patch(32, 7, 3, prov(ReduxBlocks.LUNAERA)));
+
+		register(context, AVELIUM_ROOTS_PATCH, Feature.FLOWER,
+			patch(24, 7, 3, prov(ReduxBlocks.AVELIUM_ROOTS)));
 
 		register(context,
 			AETHER_SNOW_LAYER,

@@ -31,6 +31,7 @@ import net.zepalesque.redux.block.dungeon.DoorwayPillarBlock;
 import net.zepalesque.redux.block.dungeon.RunelightBlock;
 import net.zepalesque.redux.block.dungeon.TrappedPillarBlock;
 import net.zepalesque.redux.block.natural.AveliumBlock;
+import net.zepalesque.redux.block.natural.AveliumRootsBlock;
 import net.zepalesque.redux.block.natural.BlightedGrassBlock;
 import net.zepalesque.redux.block.natural.BloomtailBlock;
 import net.zepalesque.redux.block.natural.CaelgaeBlock;
@@ -553,6 +554,13 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 		() -> new DoublePlantBlock(
 			Properties.ofFullCopy(Blocks.ROSE_BUSH)
 				.mapColor(MapColor.DIAMOND)
+		)
+	);
+
+	public static final DeferredBlock<AveliumRootsBlock> AVELIUM_ROOTS = register(
+		"avelium_roots",
+		() -> new AveliumRootsBlock(
+			Properties.ofFullCopy(Blocks.WARPED_ROOTS)
 		)
 	);
 	

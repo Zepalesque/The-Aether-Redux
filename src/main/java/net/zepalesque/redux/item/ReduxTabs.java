@@ -28,6 +28,11 @@ public class ReduxTabs {
 			sup = set.addToCreativeTab(event, sup, BlockSet.TabAdditionPhase.BEFORE);
 
 		new TabBuilder(event, AetherCreativeTabs.AETHER_NATURAL_BLOCKS.getKey())
+			.putAfter(
+				UnityBlocks.SKYFERN,
+				ReduxBlocks.AVELIUM_ROOTS,
+				ReduxBlocks.LUNAERA
+			)
 			.remove(
 				TabVisibility.PARENT_AND_SEARCH_TABS,
 				AetherBlocks.GOLDEN_OAK_LEAVES,

@@ -85,6 +85,7 @@ public class ReduxBlockStateData extends ReduxBlockStateProvider {
 		this.algae(ReduxBlocks.CAELGAE_PATCH.get(), "natural/");
 		this.crop(ReduxBlocks.BLOOMTAIL.get(), "natural/");
 		this.echysia(ReduxBlocks.ECHYSIA.get(), "natural/");
+		this.crossBlock(ReduxBlocks.AVELIUM_ROOTS.get(), "natural/");
 
 		this.cropGrowable(ReduxBlocks.WYNDOATS.get(), "crop/", WyndoatsBlock.AGE);
 
