@@ -2,7 +2,7 @@ package net.zepalesque.redux.world.tree.foliage;
 
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import java.util.function.IntFunction;
+import java.util.function.IntUnaryOperator;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockPos.MutableBlockPos;
 import net.minecraft.core.Direction;
@@ -50,51 +50,46 @@ public class CloudcapFoliagePlacer extends FoliagePlacer {
 		int radius,
 		int offset
 	) {
-		BlockPos[] positions = {
-			attachment.pos(),
-			attachment.pos().east(),
-			attachment.pos().south().east(),
-			attachment.pos().south(),
-		};
+		var pos = attachment.pos().mutable();
+		tryPlaceLeaf(level, setter, rand, cfg, pos);
+
 		final var dirsToCut = rand.nextBoolean();
-		final IntFunction<Integer> cutAmount = i -> (i % 2 == 0) ^ dirsToCut ? 0 : 1;
 
-		for (var pos : positions) {
-			for (var dir : Direction.Plane.HORIZONTAL) {
-				var offsetPos = pos.mutable().move(dir);
+		final IntUnaryOperator cutAmount = i -> (i % 2 == 0) ^ dirsToCut ? 0 : 1;
 
-				tryPlaceLeaf(level, setter, rand, cfg, offsetPos);
+		for (var dir : Direction.Plane.HORIZONTAL) {
+			var offsetPos = pos.mutable().move(dir);
+
+			tryPlaceLeaf(level, setter, rand, cfg, offsetPos);
+			tryPlaceLeaf(level, setter, rand, cfg, offsetPos.move(Direction.DOWN));
+
+			for (var j = 0; j <= rand.nextInt(height - 1, height + 1); j++) {
+				this.tryPlaceNetting(level, setter, rand, offsetPos.move(Direction.DOWN));
+			}
+		}
+
+		for (var dir : Direction.Plane.HORIZONTAL) {
+			var h = height - cutAmount.applyAsInt(dir.ordinal());
+			var offsetPos = pos.mutable().move(dir, 2);
+
+			for (var j = 0; j < h; j++) {
 				tryPlaceLeaf(level, setter, rand, cfg, offsetPos.move(Direction.DOWN));
-
-				for (var j = 0; j <= rand.nextInt(height - 1, height + 1); j++) {
-					this.tryPlaceNetting(level, setter, rand, offsetPos.move(Direction.DOWN));
-				}
-			}
-		}
-		for (var i = 0; i < positions.length; i++) {
-			var pos = positions[i];
-			var h = height - cutAmount.apply(i);
-
-			for (var dir : Direction.Plane.HORIZONTAL) {
-				var offsetPos = pos.mutable().move(dir, 2);
-
-				for (var j = 0; j < h; j++) {
-					tryPlaceLeaf(level, setter, rand, cfg, offsetPos.move(Direction.DOWN));
-				}
 			}
 		}
 
-		positions[0] = positions[0].below().north().west().mutable();
-		positions[1] = positions[1].below().north().east().mutable();
-		positions[2] = positions[2].below().south().east().mutable();
-		positions[3] = positions[3].below().south().west().mutable();
+		MutableBlockPos[] positions = {
+			pos.below().north().west().mutable(),
+			pos.below().north().east().mutable(),
+			pos.below().south().east().mutable(),
+			pos.below().south().west().mutable(),
+		};
 
-		for (var i = 0; i < positions.length; i++) {
-			var pos = positions[i];
-			var h = height - cutAmount.apply(i);
+		for (var i = 0; i < positions.length; ++i) {
+			var h = height - cutAmount.applyAsInt(i);
+			var otherPos = positions[i];
 
 			for (var j = 0; j < h - 1; j++) {
-				tryPlaceLeaf(level, setter, rand, cfg, ((MutableBlockPos)pos).move(Direction.DOWN));
+				tryPlaceLeaf(level, setter, rand, cfg, otherPos.move(Direction.DOWN));
 			}
 		}
 	}

@@ -20,9 +20,9 @@
 		},
 		"features": [
 			{
-				"chance": 0.05,
+				"chance": 0.2,
 				"feature": {
-					"feature": "aether_redux:moonfir",
+					"feature": "aether_redux:cloudcap_mushroom",
 					"placement": [
 						{
 							"type": "minecraft:block_predicate_filter",

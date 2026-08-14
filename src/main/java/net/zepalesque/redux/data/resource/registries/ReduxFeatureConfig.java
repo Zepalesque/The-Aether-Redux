@@ -44,7 +44,6 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.feature.stateproviders.RuleBasedBlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.CherryTrunkPlacer;
-import net.minecraft.world.level.levelgen.feature.trunkplacers.GiantTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
@@ -395,9 +394,10 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			Feature.TREE,
 			new TreeConfiguration.TreeConfigurationBuilder(
 				prov(ReduxWoodSets.BLIGHTWILLOW.log()),
-				new GiantTrunkPlacer(14, 4, 4),
+				new StraightTrunkPlacer(14, 4, 4),
 				prov(ReduxBlocks.BLEAKMOSS_BLOCK),
-				new CloudcapFoliagePlacer(UniformInt.of(7, 9), prov(() -> Blocks.WHITE_CONCRETE)),
+
+				new CloudcapFoliagePlacer(UniformInt.of(5, 7), prov(() -> Blocks.WHITE_CONCRETE)),
 				Optional.empty(),
 				new TwoLayersFeatureSize(7, 0, 3)
 			)
@@ -1040,11 +1040,11 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				List.of(
 					new WeightedPlacedFeature(
 						PlacementUtils.inlinePlaced(
-							configs.getOrThrow(MOONFIR_TREE),
+							configs.getOrThrow(CLOUDCAP_MUSHROOM),
 							PlacementUtils.filteredByBlockSurvival(
 								ReduxLeafSets.MOONFIR.sapling().get()
 							)
-						), 0.05F
+						), 0.2F
 					)
 				),
 				PlacementUtils.inlinePlaced(
