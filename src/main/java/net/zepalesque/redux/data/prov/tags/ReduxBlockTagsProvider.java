@@ -10,13 +10,17 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 
 public abstract class ReduxBlockTagsProvider extends BlockTagsProvider {
+	public ReduxBlockTagsProvider(
+		PackOutput output,
+		CompletableFuture<HolderLookup.Provider> lookupProvider,
+		String modId,
+		@Nullable ExistingFileHelper existingFileHelper
+	) {
+		super(output, lookupProvider, modId, existingFileHelper);
+	}
 
-    public ReduxBlockTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, String modId, @Nullable ExistingFileHelper existingFileHelper) {
-        super(output, lookupProvider, modId, existingFileHelper);
-    }
-
-    @Override
-    public IntrinsicTagAppender<Block> tag(TagKey<Block> tag) {
-        return super.tag(tag);
-    }
+	@Override
+	public IntrinsicTagAppender<Block> tag(TagKey<Block> tag) {
+		return super.tag(tag);
+	}
 }

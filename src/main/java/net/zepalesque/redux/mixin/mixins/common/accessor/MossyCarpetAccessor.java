@@ -10,17 +10,17 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 
 @Mixin(MossyCarpetBlock.class)
 public interface MossyCarpetAccessor {
-    @Accessor("shapesCache")
-    Map<BlockState, VoxelShape> redux$getShapesCache();
+	@Accessor("shapesCache")
+	Map<BlockState, VoxelShape> redux$getShapesCache();
 
-    @Mutable
-    @Accessor("shapesCache")
-    void redux$setShapesCache(Map<BlockState, VoxelShape> shapeByIndex);
-/*
-    @Accessor("collisionShapeByIndex")
-    Map<BlockState, VoxelShape> redux$getCollisionShapeByIndex();
+	@Mutable
+	@Accessor("shapesCache")
+	void redux$setShapesCache(Map<BlockState, VoxelShape> shapeByIndex);
 
-    @Mutable
-    @Accessor("collisionShapeByIndex")
-    void redux$setCollisionShapeByIndex(Map<BlockState, VoxelShape> collisionShapeByIndex);*/
+	/*@Accessor("collisionShapeByIndex")
+	Map<BlockState, VoxelShape> redux$getCollisionShapeByIndex();
+
+	@Mutable
+	@Accessor("collisionShapeByIndex")
+	void redux$setCollisionShapeByIndex(Map<BlockState, VoxelShape> collisionShapeByIndex);*/
 }

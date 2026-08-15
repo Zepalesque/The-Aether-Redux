@@ -14,17 +14,25 @@ import net.zepalesque.zenith.api.world.structure.modifier.RemoveStructureModifie
 import net.zepalesque.zenith.core.Zenith;
 
 public class ReduxStructureModifiers {
-    public static final ResourceKey<StructureModifier> REMOVE_LARGE_CLOUDS = createKey("remove_large_clouds");
+	public static final ResourceKey<StructureModifier> REMOVE_LARGE_CLOUDS = createKey("remove_large_clouds");
 
-    private static ResourceKey<StructureModifier> createKey(String name) {
-        return ResourceKey.create(NeoForgeRegistries.Keys.STRUCTURE_MODIFIERS, Redux.loc(name));
-    }
+	private static ResourceKey<StructureModifier> createKey(String name) {
+		return ResourceKey.create(NeoForgeRegistries.Keys.STRUCTURE_MODIFIERS, Redux.loc(name));
+	}
 
-    public static void bootstrap(BootstrapContext<StructureModifier> context) {
-        var structures = context.lookup(Registries.STRUCTURE);
-        var conditions = context.lookup(Zenith.Keys.CONDITION);
+	public static void bootstrap(BootstrapContext<StructureModifier> context) {
+		var structures = context.lookup(Registries.STRUCTURE);
+		var conditions = context.lookup(Zenith.Keys.CONDITION);
 
-        StructureModifier largeCloud = new RemoveStructureModifier(HolderSet.direct(structures.getOrThrow(AetherStructures.LARGE_AERCLOUD)));
-        context.register(REMOVE_LARGE_CLOUDS, new ConditionalStructureModifier(Holder.direct(largeCloud), conditions.get(ReduxConditions.CLOUDBED).orElseThrow()));
-    }
+		StructureModifier largeCloud = new RemoveStructureModifier(
+			HolderSet.direct(structures.getOrThrow(AetherStructures.LARGE_AERCLOUD))
+		);
+		context.register(
+			REMOVE_LARGE_CLOUDS,
+			new ConditionalStructureModifier(
+				Holder.direct(largeCloud),
+				conditions.get(ReduxConditions.CLOUDBED).orElseThrow()
+			)
+		);
+	}
 }

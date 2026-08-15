@@ -6,7 +6,7 @@ import net.minecraft.client.ToggleKeyMapping;
 import net.minecraft.world.entity.Entity;
 
 public class KeyHooks {
-    public static void cancelKey(final Entity entity, KeyMapping key) {
-        if (entity == Minecraft.getInstance().player) ToggleKeyMapping.set(key.getKey(), false);
-    }
+	public static void cancelKey(final Entity entity, KeyMapping key) {
+		if (entity == Minecraft.getInstance().player) ToggleKeyMapping.set(key.getKey(), false);
+	}
 }

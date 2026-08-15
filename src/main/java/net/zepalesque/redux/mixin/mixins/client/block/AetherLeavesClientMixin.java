@@ -13,12 +13,20 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(AetherDoubleDropsLeaves.class)
 public class AetherLeavesClientMixin extends LeafBlockClientMixin {
+	@Override
+	protected void animateTick(
+		BlockState state,
+		Level level,
+		BlockPos pos,
+		RandomSource random,
+		CallbackInfo ci
+	) {
+		super.animateTick(state, level, pos, random, ci);
 
-    @Override
-    protected void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random, CallbackInfo ci) {
-        super.animateTick(state, level, pos, random, ci);
-
-        @Nullable WeightedParticleEntry entry = LeafParticleUtil.findEntry((AetherDoubleDropsLeaves) (Object) this);
-        if (entry != null) LeafParticleUtil.createParticle(state, level, pos, random, entry);
-    }
+		@Nullable
+		WeightedParticleEntry entry = LeafParticleUtil.findEntry(
+			(AetherDoubleDropsLeaves) (Object) this
+		);
+		if (entry != null) LeafParticleUtil.createParticle(state, level, pos, random, entry);
+	}
 }

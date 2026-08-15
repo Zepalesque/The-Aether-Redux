@@ -16,35 +16,55 @@ import net.neoforged.neoforge.common.loot.IGlobalLootModifier;
 import net.neoforged.neoforge.common.loot.LootModifier;
 
 public class RawOreModifier extends LootModifier {
-    private static final Codec<LootItemFunction[]> LOOT_FUNCTIONS_CODEC = LootItemFunctions.ROOT_CODEC.listOf().xmap(list -> list.toArray(LootItemFunction[]::new), List::of);
-    public static final MapCodec<RawOreModifier> CODEC = RecordCodecBuilder.mapCodec(builder -> builder.group(
-            BuiltInRegistries.ITEM.byNameCodec().fieldOf("removed_item").forGetter(instance -> instance.toRemove),
-            ItemStack.CODEC.fieldOf("added_item").forGetter(instance -> instance.rawOre),
-            LOOT_FUNCTIONS_CODEC.fieldOf("functions").forGetter(instance -> instance.functions),
-            LootModifier.LOOT_CONDITIONS_CODEC.fieldOf("conditions").forGetter(instance -> instance.conditions)
-    ).apply(builder, RawOreModifier::new));
+	private static final Codec<LootItemFunction[]> LOOT_FUNCTIONS_CODEC =
+		LootItemFunctions.ROOT_CODEC.listOf().xmap(
+			(list) -> list.toArray(LootItemFunction[]::new),
+			List::of
+		);
+	public static final MapCodec<RawOreModifier> CODEC = RecordCodecBuilder.mapCodec((builder) ->
+		builder
+			.group(
+				BuiltInRegistries.ITEM.byNameCodec()
+					.fieldOf("removed_item")
+					.forGetter((instance) -> instance.toRemove),
+				ItemStack.CODEC.fieldOf("added_item").forGetter((instance) -> instance.rawOre),
+				LOOT_FUNCTIONS_CODEC.fieldOf("functions").forGetter((instance) -> instance.functions),
+				LootModifier.LOOT_CONDITIONS_CODEC.fieldOf("conditions").forGetter(
+					(instance) -> instance.conditions
+				)
+			)
+			.apply(builder, RawOreModifier::new)
+	);
 
-    private final Item toRemove;
-    private final LootItemFunction[] functions;
-    private final ItemStack rawOre;
+	private final Item toRemove;
+	private final LootItemFunction[] functions;
+	private final ItemStack rawOre;
 
-    public RawOreModifier(Item toRemove, ItemStack rawOre, LootItemFunction[] functions, LootItemCondition[] conditions) {
-        super(conditions);
-        this.toRemove = toRemove;
-        this.rawOre = rawOre;
-        this.functions = functions;
-    }
+	public RawOreModifier(
+		Item toRemove,
+		ItemStack rawOre,
+		LootItemFunction[] functions,
+		LootItemCondition[] conditions
+	) {
+		super(conditions);
+		this.toRemove = toRemove;
+		this.rawOre = rawOre;
+		this.functions = functions;
+	}
 
-    public ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> lootStacks, LootContext context) {
-        lootStacks.removeIf(itemStack -> itemStack.is(this.toRemove));
-        ItemStack i = this.rawOre;
-        for (LootItemFunction function : this.functions) i = function.apply(this.rawOre, context);
-        lootStacks.add(i);
-        return lootStacks;
-    }
+	public ObjectArrayList<ItemStack> doApply(
+		ObjectArrayList<ItemStack> lootStacks,
+		LootContext context
+	) {
+		lootStacks.removeIf((itemStack) -> itemStack.is(this.toRemove));
+		ItemStack i = this.rawOre;
+		for (LootItemFunction function : this.functions) i = function.apply(this.rawOre, context);
+		lootStacks.add(i);
+		return lootStacks;
+	}
 
-    @Override
-    public MapCodec<? extends IGlobalLootModifier> codec() {
-        return CODEC;
-    }
+	@Override
+	public MapCodec<? extends IGlobalLootModifier> codec() {
+		return CODEC;
+	}
 }

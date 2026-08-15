@@ -9,9 +9,9 @@ import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import net.zepalesque.redux.Redux;
 
 public class ReduxLootModifiers {
-    public static final DeferredRegister<MapCodec<? extends IGlobalLootModifier>>
-        GLOBAL_LOOT_MODIFIERS = Redux.reg(NeoForgeRegistries.GLOBAL_LOOT_MODIFIER_SERIALIZERS);
+	public static final DeferredRegister<MapCodec<? extends IGlobalLootModifier>>
+		GLOBAL_LOOT_MODIFIERS = Redux.reg(NeoForgeRegistries.GLOBAL_LOOT_MODIFIER_SERIALIZERS);
 
-    public static final DeferredHolder<MapCodec<? extends IGlobalLootModifier>, MapCodec<RawOreModifier>> RAW_ORES =
-            GLOBAL_LOOT_MODIFIERS.register("raw_ores", () -> RawOreModifier.CODEC);
+	public static final DeferredHolder<MapCodec<? extends IGlobalLootModifier>, MapCodec<RawOreModifier>>
+		RAW_ORES = GLOBAL_LOOT_MODIFIERS.register("raw_ores", () -> RawOreModifier.CODEC);
 }

@@ -4,15 +4,15 @@ import net.minecraft.util.StringRepresentable;
 
 // TODO: Wasn't this moved to Unity?
 public enum GrassSize implements StringRepresentable {
-    SHORT("short"), MEDIUM("medium"), TALL("tall");
+	SHORT("short"), MEDIUM("medium"), TALL("tall");
 
-    final String name;
-    GrassSize(String name) {
-        this.name = name;
-    }
+	final String name;
+	GrassSize(String name) {
+		this.name = name;
+	}
 
-    @Override
-    public String getSerializedName() {
-        return this.name;
-    }
+	@Override
+	public String getSerializedName() {
+		return this.name;
+	}
 }

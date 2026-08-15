@@ -12,19 +12,26 @@ import net.zepalesque.zenith.api.recipe.recipes.AbstractStackingRecipe;
 import net.zepalesque.zenith.api.recipe.serializer.StackingRecipeSerializer;
 
 public class InfusionRecipe extends AbstractStackingRecipe {
-    public static final String ADDED_INFUSION = "added_infusion";
-    public InfusionRecipe(Ingredient ingredient, ItemStackConstructor result, Optional<CompoundTag> additional, Optional<Holder<SoundEvent>> sound) {
-        super(ReduxRecipes.INFUSION.get(), ingredient, result, additional, sound);
-    }
+	public static final String ADDED_INFUSION = "added_infusion";
 
-    @Override
-    public RecipeSerializer<?> getSerializer() {
-        return ReduxRecipes.Serializers.INFUSION.get();
-    }
+	public InfusionRecipe(
+		Ingredient ingredient,
+		ItemStackConstructor result,
+		Optional<CompoundTag> additional,
+		Optional<Holder<SoundEvent>> sound
+	) {
+		super(ReduxRecipes.INFUSION.get(), ingredient, result, additional, sound);
+	}
 
-    public static class Serializer extends StackingRecipeSerializer<InfusionRecipe> {
-        public Serializer() {
-            super(InfusionRecipe::new);
-        }
-    }
+	@Override
+	public RecipeSerializer<?> getSerializer() {
+		return ReduxRecipes.Serializers.INFUSION.get();
+	}
+
+	public static class Serializer extends StackingRecipeSerializer<InfusionRecipe> {
+
+		public Serializer() {
+			super(InfusionRecipe::new);
+		}
+	}
 }

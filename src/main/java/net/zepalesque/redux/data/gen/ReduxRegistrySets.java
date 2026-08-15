@@ -27,39 +27,51 @@ import net.zepalesque.zenith.core.Zenith;
 import org.apache.commons.compress.utils.Lists;
 
 public class ReduxRegistrySets extends DatapackBuiltinEntriesProvider {
-    public static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
-        .add(Registries.BIOME, ReduxBiomes::bootstrap)
-        .add(Registries.CONFIGURED_CARVER, ReduxCarverConfig::bootstrap)
-        .add(Registries.CONFIGURED_FEATURE, ReduxFeatureConfig::bootstrap)
-        .add(Registries.DENSITY_FUNCTION, ReduxDensityFunctions::bootstrap)
-        .add(Registries.JUKEBOX_SONG, ReduxJukeboxSongs::bootstrap)
-        .add(Registries.NOISE, ReduxNoises::bootstrap)
-        .add(Registries.PLACED_FEATURE, ReduxPlacements::bootstrap)
-        .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ReduxBiomeModifiers::bootstrap)
-        .add(NeoForgeRegistries.Keys.STRUCTURE_MODIFIERS, ReduxStructureModifiers::bootstrap)
-        .add(Zenith.Keys.CONDITION, ReduxConditions::bootstrap)
-        // TODO: In Zenith, ensure ext. state entry lists are reset after data reload!!
-        .add(Zenith.Keys.EXTENDABLE_STATE_LIST_ENTRY, ReduxStateListEntries::bootstrap)
-    ;
+	public static final RegistrySetBuilder BUILDER =
+		new RegistrySetBuilder()
+			.add(Registries.BIOME, ReduxBiomes::bootstrap)
+			.add(Registries.CONFIGURED_CARVER, ReduxCarverConfig::bootstrap)
+			.add(Registries.CONFIGURED_FEATURE, ReduxFeatureConfig::bootstrap)
+			.add(Registries.DENSITY_FUNCTION, ReduxDensityFunctions::bootstrap)
+			.add(Registries.JUKEBOX_SONG, ReduxJukeboxSongs::bootstrap)
+			.add(Registries.NOISE, ReduxNoises::bootstrap)
+			.add(Registries.PLACED_FEATURE, ReduxPlacements::bootstrap)
+			.add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ReduxBiomeModifiers::bootstrap)
+			.add(NeoForgeRegistries.Keys.STRUCTURE_MODIFIERS, ReduxStructureModifiers::bootstrap)
+			.add(Zenith.Keys.CONDITION, ReduxConditions::bootstrap)
+			// TODO: In Zenith, ensure ext. state entry lists are reset after data reload!!
+			.add(Zenith.Keys.EXTENDABLE_STATE_LIST_ENTRY, ReduxStateListEntries::bootstrap);
 
-    public ReduxRegistrySets(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, String modid, String... otherIds) {
-        super(output, registries, BUILDER, buildModidList(modid, otherIds));
-    }
-    public static Set<String> buildModidList(String modid, String... otherIds) {
-        List<String> list = Lists.newArrayList();
-        list.add(Aether.MODID);
-        list.add(modid);
-        list.addAll(Arrays.stream(otherIds).toList());
-        return Set.copyOf(list);
-    }
+	public ReduxRegistrySets(
+		PackOutput output,
+		CompletableFuture<HolderLookup.Provider> registries,
+		String modid,
+		String... otherIds
+	) {
+		super(output, registries, BUILDER, buildModidList(modid, otherIds));
+	}
 
-    public static class NoisePack extends DatapackBuiltinEntriesProvider {
-        public static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
-                .add(Registries.NOISE_SETTINGS, ReduxNoiseSettings.NoisePack::bootstrap);
+	public static Set<String> buildModidList(String modid, String... otherIds) {
+		List<String> list = Lists.newArrayList();
+		list.add(Aether.MODID);
+		list.add(modid);
+		list.addAll(Arrays.stream(otherIds).toList());
+		return Set.copyOf(list);
+	}
 
-        public NoisePack(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, String modid, String... otherIds) {
-            super(output, registries, BUILDER, buildModidList(modid, otherIds));
-        }
-    }
+	public static class NoisePack extends DatapackBuiltinEntriesProvider {
+		public static final RegistrySetBuilder BUILDER = new RegistrySetBuilder().add(
+			Registries.NOISE_SETTINGS,
+			ReduxNoiseSettings.NoisePack::bootstrap
+		);
 
+		public NoisePack(
+			PackOutput output,
+			CompletableFuture<HolderLookup.Provider> registries,
+			String modid,
+			String... otherIds
+		) {
+			super(output, registries, BUILDER, buildModidList(modid, otherIds));
+		}
+	}
 }

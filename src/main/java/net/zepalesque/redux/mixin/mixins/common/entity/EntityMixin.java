@@ -7,5 +7,5 @@ import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(Entity.class)
 public abstract class EntityMixin {
-    @Shadow public abstract RandomSource getRandom();
+	@Shadow public abstract RandomSource getRandom();
 }

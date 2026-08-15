@@ -13,44 +13,43 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import org.jetbrains.annotations.Nullable;
 
 public class LayeredBookshelfBlock extends BookshelfBlock {
+	public static final BooleanProperty UP = BlockStateProperties.UP;
+	public static final BooleanProperty DOWN = BlockStateProperties.DOWN;
 
-    public static final BooleanProperty UP = BlockStateProperties.UP;
-    public static final BooleanProperty DOWN = BlockStateProperties.DOWN;
+	public LayeredBookshelfBlock(Properties properties) {
+		super(properties);
+		this.registerDefaultState(this.defaultBlockState().setValue(UP, true).setValue(DOWN, true));
+	}
 
-    public LayeredBookshelfBlock(Properties properties) {
-        super(properties);
-        this.registerDefaultState(this.defaultBlockState().setValue(UP, true).setValue(DOWN, true));
-    }
+	@Override
+	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+		super.createBlockStateDefinition(builder);
+		builder.add(UP);
+		builder.add(DOWN);
+	}
 
-    @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        super.createBlockStateDefinition(builder);
-        builder.add(UP);
-        builder.add(DOWN);
-    }
+	@Nullable
+	@Override
+	public BlockState getStateForPlacement(BlockPlaceContext context) {
+		return this.getState(context.getLevel(), context.getClickedPos());
+	}
 
-    @Nullable @Override
-    public BlockState getStateForPlacement(BlockPlaceContext context) {
-        return this.getState(context.getLevel(), context.getClickedPos());
-    }
+	private BlockState getState(LevelAccessor level, BlockPos pos) {
+		var state = this.defaultBlockState();
+		if (level.getBlockState(pos.above()).is(this)) state = state.setValue(UP, false);
+		if (level.getBlockState(pos.below()).is(this)) state = state.setValue(DOWN, false);
+		return state;
+	}
 
-    private BlockState getState(LevelAccessor level, BlockPos pos) {
-        var state = this.defaultBlockState();
-        if (level.getBlockState(pos.above()).is(this))
-            state = state.setValue(UP, false);
-        if (level.getBlockState(pos.below()).is(this))
-            state = state.setValue(DOWN, false);
-        return state;
-    }
-
-    @Override
-    public BlockState updateShape(
-        BlockState state,
-        Direction direction,
-        BlockState neighborState,
-        LevelAccessor level,
-        BlockPos pos,
-        BlockPos neighborPos) {
-        return this.getState(level, pos);
-    }
+	@Override
+	public BlockState updateShape(
+		BlockState state,
+		Direction direction,
+		BlockState neighborState,
+		LevelAccessor level,
+		BlockPos pos,
+		BlockPos neighborPos
+	) {
+		return this.getState(level, pos);
+	}
 }

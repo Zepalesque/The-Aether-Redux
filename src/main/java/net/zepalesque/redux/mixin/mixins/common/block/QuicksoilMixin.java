@@ -15,22 +15,31 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(QuicksoilBlock.class)
 public class QuicksoilMixin extends BlockBehaviorMixin {
+	@Override
+	public void redux$pathFindable(
+		BlockState state,
+		PathComputationType type,
+		CallbackInfoReturnable<Boolean> cir
+	) {
+		if (
+			ReduxConfig.SERVER.revamped_quicksoil_movement.get() && type == PathComputationType.LAND
+		) cir.setReturnValue(false);
+	}
 
-    @Override
-    public void redux$pathFindable(BlockState state, PathComputationType type, CallbackInfoReturnable<Boolean> cir) {
-        if (ReduxConfig.SERVER.revamped_quicksoil_movement.get() && type == PathComputationType.LAND)
-            cir.setReturnValue(false);
-    }
-
-
-    @Inject(method = "getFriction", at = @At("HEAD"), cancellable = true)
-    public void redux$getFriction(BlockState state, LevelReader level, BlockPos pos, Entity entity, CallbackInfoReturnable<Float> cir) {
-        if (ReduxConfig.SERVER.revamped_quicksoil_movement.get()) {
-            if (entity instanceof Boat) {
-                cir.setReturnValue(0.8F);
-                return;
-            }
-            cir.setReturnValue(0.6F);
-        }
-    }
+	@Inject(method = "getFriction", at = @At("HEAD"), cancellable = true)
+	public void redux$getFriction(
+		BlockState state,
+		LevelReader level,
+		BlockPos pos,
+		Entity entity,
+		CallbackInfoReturnable<Float> cir
+	) {
+		if (ReduxConfig.SERVER.revamped_quicksoil_movement.get()) {
+			if (entity instanceof Boat) {
+				cir.setReturnValue(0.8F);
+				return;
+			}
+			cir.setReturnValue(0.6F);
+		}
+	}
 }

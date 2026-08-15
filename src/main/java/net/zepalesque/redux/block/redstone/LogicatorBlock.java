@@ -28,188 +28,197 @@ import net.zepalesque.redux.client.audio.ReduxSounds;
 import net.zepalesque.zenith.util.block.StateUtil;
 
 public class LogicatorBlock extends DiodeBlock {
-    public static final MapCodec<LogicatorBlock> CODEC = simpleCodec(LogicatorBlock::new);
-    public static final EnumProperty<LogicatorMode> MODE = ReduxStates.MODE_LOGICATOR;
-    public static final BooleanProperty LEFT = ReduxStates.LEFT_INPUT, RIGHT = ReduxStates.RIGHT_INPUT;
+	public static final MapCodec<LogicatorBlock> CODEC = simpleCodec(LogicatorBlock::new);
+	public static final EnumProperty<LogicatorMode> MODE = ReduxStates.MODE_LOGICATOR;
+	public static final BooleanProperty LEFT = ReduxStates.LEFT_INPUT,
+		RIGHT = ReduxStates.RIGHT_INPUT;
 
-    public LogicatorBlock(Properties properties) {
-        super(properties);
-        var state = this.defaultBlockState()
-                .setValue(FACING, Direction.NORTH)
-                .setValue(POWERED, false)
-                .setValue(LEFT, false).setValue(RIGHT, false)
-                .setValue(MODE, LogicatorMode.AND);
-        this.registerDefaultState(state);
-    }
+	public LogicatorBlock(Properties properties) {
+		super(properties);
+		var state = this.defaultBlockState()
+			.setValue(FACING, Direction.NORTH)
+			.setValue(POWERED, false)
+			.setValue(LEFT, false)
+			.setValue(RIGHT, false)
+			.setValue(MODE, LogicatorMode.AND);
+		this.registerDefaultState(state);
+	}
 
-    @Override
-    protected InteractionResult useWithoutItem(
-        BlockState state,
-        Level level,
-        BlockPos pos,
-        Player player,
-        BlockHitResult hitResult) {
-        if (!player.getAbilities().mayBuild) return InteractionResult.PASS;
-        else {
-            state = StateUtil.mapValue(state, MODE, LogicatorMode::flipOperationType);
-            var f = state.getValue(MODE).isOr() ? 0.55F : 0.5F;
-            level.playSound(
-                player,
-                pos,
-                ReduxSounds.LOGICATOR_CLICK.get(),
-                SoundSource.BLOCKS,
-                0.3F,
-                f
-            );
-            level.setBlock(pos, state, 2);
-            this.refreshOutputState(level, state, pos);
-            return InteractionResult.sidedSuccess(level.isClientSide);
-        }
-    }
+	@Override
+	protected InteractionResult useWithoutItem(
+		BlockState state,
+		Level level,
+		BlockPos pos,
+		Player player,
+		BlockHitResult hitResult
+	) {
+		if (!player.getAbilities().mayBuild) return InteractionResult.PASS;
+		else {
+			state = StateUtil.mapValue(state, MODE, LogicatorMode::flipOperationType);
+			var f = state.getValue(MODE).isOr() ? 0.55F : 0.5F;
+			level.playSound(player, pos, ReduxSounds.LOGICATOR_CLICK.get(), SoundSource.BLOCKS, 0.3F, f);
+			level.setBlock(pos, state, 2);
+			this.refreshOutputState(level, state, pos);
+			return InteractionResult.sidedSuccess(level.isClientSide);
+		}
+	}
 
-    protected static int getLeftInput(SignalGetter level, BlockPos pos, BlockState state) {
-        var face = state.getValue(FACING);
-        // Counterintuitive, but DiodeBlocks are placed backwards
-        var cw = face.getClockWise();
-        return level.getSignal(pos.relative(cw), cw);
-    }
+	protected static int getLeftInput(SignalGetter level, BlockPos pos, BlockState state) {
+		var face = state.getValue(FACING);
+		// Counterintuitive, but DiodeBlocks are placed backwards
+		var cw = face.getClockWise();
+		return level.getSignal(pos.relative(cw), cw);
+	}
 
-    protected static int getRightInput(SignalGetter level, BlockPos pos, BlockState state) {
-        var face = state.getValue(FACING);
-        // Counterintuitive, but DiodeBlocks are placed backwards
-        var ccw = face.getCounterClockWise();
-        return level.getSignal(pos.relative(ccw), ccw);
-    }
+	protected static int getRightInput(SignalGetter level, BlockPos pos, BlockState state) {
+		var face = state.getValue(FACING);
+		// Counterintuitive, but DiodeBlocks are placed backwards
+		var ccw = face.getCounterClockWise();
+		return level.getSignal(pos.relative(ccw), ccw);
+	}
 
-    protected static int getBackInput(SignalGetter level, BlockPos pos, BlockState state) {
-        var dir = state.getValue(FACING);
-        // Counterintuitive, but DiodeBlocks are placed backwards
-        return level.getSignal(pos.relative(dir), dir);
-    }
+	protected static int getBackInput(SignalGetter level, BlockPos pos, BlockState state) {
+		var dir = state.getValue(FACING);
+		// Counterintuitive, but DiodeBlocks are placed backwards
+		return level.getSignal(pos.relative(dir), dir);
+	}
 
-    protected boolean shouldHaveLeftInput(SignalGetter level, BlockPos pos, BlockState state) {
-        return getLeftInput(level, pos, state) > 0;
-    }
-    protected boolean shouldHaveRightInput(SignalGetter level, BlockPos pos, BlockState state) {
-        return getRightInput(level, pos, state) > 0;
-    }
-    protected boolean shouldBeExclusive(SignalGetter level, BlockPos pos, BlockState state) {
-        return getBackInput(level, pos, state) > 0;
-    }
+	protected boolean shouldHaveLeftInput(SignalGetter level, BlockPos pos, BlockState state) {
+		return getLeftInput(level, pos, state) > 0;
+	}
 
+	protected boolean shouldHaveRightInput(SignalGetter level, BlockPos pos, BlockState state) {
+		return getRightInput(level, pos, state) > 0;
+	}
 
-    @Override
-    public void setPlacedBy(
-        Level level,
-        BlockPos pos,
-        BlockState state,
-        LivingEntity placer,
-        ItemStack stack) {
-        
-        if (this.shouldUpdateOnPlacement(level, pos, state))
-            level.scheduleTick(pos, this, 1);
-    }
+	protected boolean shouldBeExclusive(SignalGetter level, BlockPos pos, BlockState state) {
+		return getBackInput(level, pos, state) > 0;
+	}
 
-    @Override
-    protected boolean shouldTurnOn(Level level, BlockPos pos, BlockState state) {
-        var mode = state.getValue(MODE);
-        var l = this.shouldHaveLeftInput(level, pos, state);
-        var r = this.shouldHaveRightInput(level, pos, state);
-        return mode.operate(l, r);
-    }
+	@Override
+	public void setPlacedBy(
+		Level level,
+		BlockPos pos,
+		BlockState state,
+		LivingEntity placer,
+		ItemStack stack
+	) {
+		if (this.shouldUpdateOnPlacement(level, pos, state)) level.scheduleTick(pos, this, 1);
+	}
 
-    protected boolean shouldUpdateOnPlacement(Level level, BlockPos pos, BlockState state) {
-        var base = state.getValue(MODE);
-        var exclusive = this.shouldBeExclusive(level, pos, state);
-        var mode = base.withExclusivity(exclusive);
-        var l = this.shouldHaveLeftInput(level, pos, state);
-        var r = this.shouldHaveRightInput(level, pos, state);
-        return mode != base || l || r /*|| mode.operate(l, r) l and r are both false by here */
-            || mode.operate(false, false);
-    }
+	@Override
+	protected boolean shouldTurnOn(Level level, BlockPos pos, BlockState state) {
+		var mode = state.getValue(MODE);
+		var l = this.shouldHaveLeftInput(level, pos, state);
+		var r = this.shouldHaveRightInput(level, pos, state);
+		return mode.operate(l, r);
+	}
 
-    protected void refreshOutputState(Level level, BlockState state, BlockPos pos) {
-        if (!this.isLocked(level, pos, state)) {
-            var prev = state;
-            var l = this.shouldHaveLeftInput(level, pos, state);
-            var r = this.shouldHaveRightInput(level, pos, state);
-            var exclusive = this.shouldBeExclusive(level, pos, state);
-            var or = state.getValue(MODE).isOr();
-            var powered = this.shouldTurnOn(level, pos, state);
+	protected boolean shouldUpdateOnPlacement(Level level, BlockPos pos, BlockState state) {
+		var base = state.getValue(MODE);
+		var exclusive = this.shouldBeExclusive(level, pos, state);
+		var mode = base.withExclusivity(exclusive);
+		var l = this.shouldHaveLeftInput(level, pos, state);
+		var r = this.shouldHaveRightInput(level, pos, state);
+		return (
+			mode != base ||
+			l ||
+			r || /*|| mode.operate(l, r) l and r are both false by here */
+			mode.operate(false, false)
+		);
+	}
 
-            state = state
-                    .setValue(MODE, LogicatorMode.getMode(exclusive, or))
-                    .setValue(LEFT, l)
-                    .setValue(RIGHT, r)
-                    .setValue(POWERED, powered);
+	protected void refreshOutputState(Level level, BlockState state, BlockPos pos) {
+		if (!this.isLocked(level, pos, state)) {
+			var prev = state;
+			var l = this.shouldHaveLeftInput(level, pos, state);
+			var r = this.shouldHaveRightInput(level, pos, state);
+			var exclusive = this.shouldBeExclusive(level, pos, state);
+			var or = state.getValue(MODE).isOr();
+			var powered = this.shouldTurnOn(level, pos, state);
 
-            if (state != prev) {
-                level.setBlock(pos, state, 2);
-                level.scheduleTick(pos, this, this.getDelay(state), TickPriority.VERY_HIGH);
-                this.updateNeighborsInFront(level, pos, state);
-            }
-        }
-    }
+			state = state
+				.setValue(MODE, LogicatorMode.getMode(exclusive, or))
+				.setValue(LEFT, l)
+				.setValue(RIGHT, r)
+				.setValue(POWERED, powered);
 
-    @Override
-    protected void checkTickOnNeighbor(Level level, BlockPos pos, BlockState state) {
-        if (!this.isLocked(level, pos, state)) {
-            boolean wasOn = state.getValue(POWERED);
-            var shouldTurnOn = this.shouldTurnOn(level, pos, state);
-            boolean hadInputL = state.getValue(LEFT);
-            var shouldHaveInputL = this.shouldHaveLeftInput(level, pos, state);
-            boolean hadInputR = state.getValue(RIGHT);
-            var shouldHaveInputR = this.shouldHaveRightInput(level, pos, state);
-            var wasExclusive = state.getValue(MODE).isExclusive();
-            var shouldBeExclusive = this.shouldBeExclusive(level, pos, state);
-            if ((wasOn != shouldTurnOn
-                || hadInputL != shouldHaveInputL
-                || hadInputR != shouldHaveInputR
-                || wasExclusive != shouldBeExclusive)
-                && !level.getBlockTicks().willTickThisTick(pos, this)) {
-                var tickpriority = TickPriority.HIGH;
-                if (this.shouldPrioritize(level, pos, state)) tickpriority = TickPriority.EXTREMELY_HIGH;
-                else if (wasOn) tickpriority = TickPriority.VERY_HIGH;
+			if (state != prev) {
+				level.setBlock(pos, state, 2);
+				level.scheduleTick(pos, this, this.getDelay(state), TickPriority.VERY_HIGH);
+				this.updateNeighborsInFront(level, pos, state);
+			}
+		}
+	}
 
-                level.scheduleTick(pos, this, this.getDelay(state), tickpriority);
-            }
-        }
-    }
+	@Override
+	protected void checkTickOnNeighbor(Level level, BlockPos pos, BlockState state) {
+		if (!this.isLocked(level, pos, state)) {
+			boolean wasOn = state.getValue(POWERED);
+			var shouldTurnOn = this.shouldTurnOn(level, pos, state);
+			boolean hadInputL = state.getValue(LEFT);
+			var shouldHaveInputL = this.shouldHaveLeftInput(level, pos, state);
+			boolean hadInputR = state.getValue(RIGHT);
+			var shouldHaveInputR = this.shouldHaveRightInput(level, pos, state);
+			var wasExclusive = state.getValue(MODE).isExclusive();
+			var shouldBeExclusive = this.shouldBeExclusive(level, pos, state);
+			if (
+				(wasOn != shouldTurnOn ||
+					hadInputL != shouldHaveInputL ||
+					hadInputR != shouldHaveInputR ||
+					wasExclusive != shouldBeExclusive) &&
+				!level.getBlockTicks().willTickThisTick(pos, this)
+			) {
+				var tickpriority = TickPriority.HIGH;
+				if (this.shouldPrioritize(level, pos, state)) tickpriority = TickPriority.EXTREMELY_HIGH;
+				else if (wasOn) tickpriority = TickPriority.VERY_HIGH;
 
-    @Override
-    public boolean getWeakChanges(BlockState state, LevelReader level, BlockPos pos) {
-        return super.getWeakChanges(state, level, pos);
-    }
+				level.scheduleTick(pos, this, this.getDelay(state), tickpriority);
+			}
+		}
+	}
 
-    @Override
-    protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        this.refreshOutputState(level, state, pos);
-    }
+	@Override
+	public boolean getWeakChanges(BlockState state, LevelReader level, BlockPos pos) {
+		return super.getWeakChanges(state, level, pos);
+	}
 
-    @Override
-    protected MapCodec<? extends DiodeBlock> codec() {
-        return CODEC;
-    }
+	@Override
+	protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+		this.refreshOutputState(level, state, pos);
+	}
 
-    @Override
-    protected int getDelay(BlockState state) {
-        return 2;
-    }
+	@Override
+	protected MapCodec<? extends DiodeBlock> codec() {
+		return CODEC;
+	}
 
-    @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(FACING, MODE, LEFT, RIGHT, POWERED);
-    }
+	@Override
+	protected int getDelay(BlockState state) {
+		return 2;
+	}
 
-    @Override
-    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
-        if (state.getValue(MODE).isOr()) {
-            var x = (double)pos.getX() + 0.5 + (random.nextDouble() - 0.5) * 0.2;
-            var y = (double)pos.getY() + 0.4 + (random.nextDouble() - 0.5) * 0.2;
-            var z = (double)pos.getZ() + 0.5 + (random.nextDouble() - 0.5) * 0.2;
+	@Override
+	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+		builder.add(FACING, MODE, LEFT, RIGHT, POWERED);
+	}
 
-            if (random.nextBoolean())
-                level.addParticle(DustParticleOptions.REDSTONE, x, y, z, 0.0, 0.0, 0.0);
-        }
-    }
+	@Override
+	public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
+		if (state.getValue(MODE).isOr()) {
+			var x = (double) pos.getX() + 0.5 + (random.nextDouble() - 0.5) * 0.2;
+			var y = (double) pos.getY() + 0.4 + (random.nextDouble() - 0.5) * 0.2;
+			var z = (double) pos.getZ() + 0.5 + (random.nextDouble() - 0.5) * 0.2;
+
+			if (random.nextBoolean()) level.addParticle(
+				DustParticleOptions.REDSTONE,
+				x,
+				y,
+				z,
+				0.0,
+				0.0,
+				0.0
+			);
+		}
+	}
 }

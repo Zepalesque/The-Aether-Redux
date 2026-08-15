@@ -20,50 +20,82 @@ import net.zepalesque.zenith.util.ArrayUtil;
 import org.jetbrains.annotations.Nullable;
 
 public class SliderSignalLayer extends RenderLayer<Slider, SliderModel> {
+	private static final RenderType[] DIRECTIONAL = ArrayUtil.generateContents(
+		new RenderType[6],
+		(i) -> RenderType.eyes(
+			ResourceLocation.fromNamespaceAndPath(
+				Aether.MODID,
+				"textures/entity/mobs/slider/slider_signal_" + Direction.values()[i].getName() + ".png"
+			)
+		)
+	);
 
-    private static final RenderType[] DIRECTIONAL = ArrayUtil.generateContents(new RenderType[6], i ->
-            RenderType.eyes(ResourceLocation.fromNamespaceAndPath(Aether.MODID, "textures/entity/mobs/slider/slider_signal_" + Direction.values()[i].getName() + ".png")));
+	private static final RenderType NORMAL = RenderType.eyes(
+		ResourceLocation.fromNamespaceAndPath(
+			Aether.MODID,
+			"textures/entity/mobs/slider/slider_signal.png"
+		)
+	);
+	private static final RenderType CRITICAL = RenderType.eyes(
+		ResourceLocation.fromNamespaceAndPath(
+			Aether.MODID,
+			"textures/entity/mobs/slider/slider_signal_critical.png"
+		)
+	);
 
+	public SliderSignalLayer(RenderLayerParent<Slider, SliderModel> pRenderer) {
+		super(pRenderer);
+	}
 
-    private static final RenderType NORMAL = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(Aether.MODID, "textures/entity/mobs/slider/slider_signal.png"));
-    private static final RenderType CRITICAL = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(Aether.MODID, "textures/entity/mobs/slider/slider_signal_critical.png"));
+	@Override
+	public void render(
+		PoseStack poseStack,
+		MultiBufferSource buffer,
+		int packedLight,
+		Slider slider,
+		float limbSwing,
+		float limbSwingAmount,
+		float partialTicks,
+		float ageInTicks,
+		float netHeadYaw,
+		float headPitch
+	) {
+		if (ReduxConfig.CLIENT.slider_signal_sfx.get() && slider.isAwake()) {
+			RenderType renderType = renderType(slider);
+			if (renderType != null) {
+				VertexConsumer consumer = buffer.getBuffer(renderType);
+				this.getParentModel().renderToBuffer(
+					poseStack,
+					consumer,
+					15728640,
+					OverlayTexture.NO_OVERLAY
+				);
+			}
+		}
+	}
 
-    public SliderSignalLayer(RenderLayerParent<Slider, SliderModel> pRenderer) {
-        super(pRenderer);
-    }
-
-    @Override
-    public void render(PoseStack poseStack, MultiBufferSource buffer, int packedLight, Slider slider, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
-        if (ReduxConfig.CLIENT.slider_signal_sfx.get() && slider.isAwake()) {
-            RenderType renderType = renderType(slider);
-            if (renderType != null) {
-                VertexConsumer consumer = buffer.getBuffer(renderType);
-                this.getParentModel().renderToBuffer(poseStack, consumer, 15728640, OverlayTexture.NO_OVERLAY);
-            }
-        }
-    }
-
-    @Nullable public static RenderType renderType(Slider slider) {
-        SliderSignalAttachment attachment = SliderSignalAttachment.get(slider);
-        if (!attachment.shouldGlow(slider)) return null;
-        else if (slider.isCritical()) return CRITICAL;
-        else {
-            @Nullable Direction d = attachment.getOverrideDirection(slider);
-            if (d == null) {
-                @Nullable Entity target = attachment.getTarget(slider);
-                if (target == null) {
-                    Redux.LOGGER.debug("Slider has no target! Using all-side signal texture...");
-                    return NORMAL;
-                } else {
-                    double x = target.getX() - slider.getX();
-                    double y = target.getY() - slider.getY();
-                    double z = target.getZ() - slider.getZ();
-                    Direction toTarget = Slider.calculateDirection(x, y, z);
-                    return DIRECTIONAL[toTarget.ordinal()];
-                }
-            } else return DIRECTIONAL[d.ordinal()];
-        }
-    }
-
-
+	@Nullable
+	public static RenderType renderType(Slider slider) {
+		SliderSignalAttachment attachment = SliderSignalAttachment.get(slider);
+		if (!attachment.shouldGlow(slider)) return null;
+		else if (slider.isCritical()) return CRITICAL;
+		else {
+			@Nullable
+			Direction d = attachment.getOverrideDirection(slider);
+			if (d == null) {
+				@Nullable
+				Entity target = attachment.getTarget(slider);
+				if (target == null) {
+					Redux.LOGGER.debug("Slider has no target! Using all-side signal texture...");
+					return NORMAL;
+				} else {
+					double x = target.getX() - slider.getX();
+					double y = target.getY() - slider.getY();
+					double z = target.getZ() - slider.getZ();
+					Direction toTarget = Slider.calculateDirection(x, y, z);
+					return DIRECTIONAL[toTarget.ordinal()];
+				}
+			} else return DIRECTIONAL[d.ordinal()];
+		}
+	}
 }

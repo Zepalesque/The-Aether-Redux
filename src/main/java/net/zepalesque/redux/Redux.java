@@ -63,153 +63,153 @@ import terrablender.api.SurfaceRuleManager;
 
 @Mod(Redux.MODID)
 public final class Redux {
-    public static final String MODID = "aether_redux";
-    public static final Logger LOGGER = LogUtils.getLogger();
+	public static final String MODID = "aether_redux";
+	public static final Logger LOGGER = LogUtils.getLogger();
 
-    public static final Collection<BlockSet> BLOCK_SETS = new ArrayList<>();
+	public static final Collection<BlockSet> BLOCK_SETS = new ArrayList<>();
 
-    public static final PackConfig ASSETS_CONFIG = new PackConfig(
-        loc("asset_overrides"),
-        PackType.CLIENT_RESOURCES,
-        false
-    );
-    public static final PackConfig DATA_CONFIG = new PackConfig(
-        loc("data_overrides"),
-        PackType.SERVER_DATA,
-        false
-    );
+	public static final PackConfig ASSETS_CONFIG = new PackConfig(
+		loc("asset_overrides"),
+		PackType.CLIENT_RESOURCES,
+		false
+	);
+	public static final PackConfig DATA_CONFIG = new PackConfig(
+		loc("data_overrides"),
+		PackType.SERVER_DATA,
+		false
+	);
 
-    public Redux(ModContainer mod, IEventBus bus, Dist dist) {
-        bus.addListener(EventPriority.LOWEST, ReduxData::dataSetup);
-        bus.addListener(this::commonSetup);
-        bus.addListener(this::clientSetup);
-        bus.addListener(this::registerDataMaps);
-        bus.addListener(this::packSetup);
-        bus.addListener(this::registerPackets);
-        if (dist == Dist.CLIENT) {
-            bus.addListener(EventPriority.LOWEST, ReduxColors::blockColors);
-            bus.addListener(ReduxColors::itemColors);
-            // TODO: custom config screen?
-            mod.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
-        }
+	public Redux(ModContainer mod, IEventBus bus, Dist dist) {
+		bus.addListener(EventPriority.LOWEST, ReduxData::dataSetup);
+		bus.addListener(this::commonSetup);
+		bus.addListener(this::clientSetup);
+		bus.addListener(this::registerDataMaps);
+		bus.addListener(this::packSetup);
+		bus.addListener(this::registerPackets);
+		if (dist == Dist.CLIENT) {
+			bus.addListener(EventPriority.LOWEST, ReduxColors::blockColors);
+			bus.addListener(ReduxColors::itemColors);
+			// TODO: custom config screen?
+			mod.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
+		}
 
-        Reflection.initialize(
-            ReduxWoodSets.class,
-            ReduxStoneSets.class,
-            ReduxFlowerSets.class,
-            ReduxLeafSets.class
-        );
+		Reflection.initialize(
+			ReduxWoodSets.class,
+			ReduxStoneSets.class,
+			ReduxFlowerSets.class,
+			ReduxLeafSets.class
+		);
 
-        DeferredRegister<?>[] registers = {
-            ReduxBlocks.BLOCKS,
-            ReduxItems.ITEMS,
-            ReduxEntities.ENTITIES,
-            ReduxTiles.TILES,
-            ReduxFeatures.FEATURES,
-            ReduxFoliagePlacers.FOLIAGE_PLACERS,
-            ReduxTrunkPlacers.TRUNK_PLACERS,
-            ReduxRootPlacers.ROOT_PLACERS,
-            ReduxParticles.PARTICLES,
-            ReduxRecipes.TYPES,
-            ReduxRecipes.Serializers.SERIALIZERS,
-            ReduxSounds.SOUNDS,
-            ReduxLootModifiers.GLOBAL_LOOT_MODIFIERS,
-            ReduxTreeDecorators.TREE_DECORATORS,
-            ReduxDataComponents.TYPES,
-            ReduxDataAttachments.ATTACHMENTS,
-            ReduxCarvers.CARVERS,
-            ReduxAdvancementTriggers.TRIGGERS,
-            ReduxStateLists.STATE_LISTS
-        };
+		DeferredRegister<?>[] registers = {
+			ReduxBlocks.BLOCKS,
+			ReduxItems.ITEMS,
+			ReduxEntities.ENTITIES,
+			ReduxTiles.TILES,
+			ReduxFeatures.FEATURES,
+			ReduxFoliagePlacers.FOLIAGE_PLACERS,
+			ReduxTrunkPlacers.TRUNK_PLACERS,
+			ReduxRootPlacers.ROOT_PLACERS,
+			ReduxParticles.PARTICLES,
+			ReduxRecipes.TYPES,
+			ReduxRecipes.Serializers.SERIALIZERS,
+			ReduxSounds.SOUNDS,
+			ReduxLootModifiers.GLOBAL_LOOT_MODIFIERS,
+			ReduxTreeDecorators.TREE_DECORATORS,
+			ReduxDataComponents.TYPES,
+			ReduxDataAttachments.ATTACHMENTS,
+			ReduxCarvers.CARVERS,
+			ReduxAdvancementTriggers.TRIGGERS,
+			ReduxStateLists.STATE_LISTS
+		};
 
-        for (var register : registers) register.register(bus);
+		for (var register : registers) register.register(bus);
 
-        ReduxConfigHandler.setup(mod, bus);
+		ReduxConfigHandler.setup(mod, bus);
 
-        ReduxConfig.SERVER.registerSerializer();
-        ReduxConfig.COMMON.registerSerializer();
-    }
+		ReduxConfig.SERVER.registerSerializer();
+		ReduxConfig.COMMON.registerSerializer();
+	}
 
-    private void commonSetup(final FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> {
-            Regions.register(new ReduxRegion(loc("aether_redux_region"),
-                /*ReduxConfig.COMMON.region_size.get()*/ 20
-            ));
-            SurfaceRuleManager.addSurfaceRules(AetherRuleCategory.THE_AETHER,
-                "aether_redux", ReduxSurfaceRules.makeRules()
-            );
-            ReduxBlocks.registerFlammability();
-            ReduxBlocks.registerToolConversions();
-            ReduxItems.registerAccessories();
-            ReduxEntities.addBossConversions();
-        });
-    }
+	private void commonSetup(final FMLCommonSetupEvent event) {
+		event.enqueueWork(() -> {
+			Regions.register(new ReduxRegion(loc("aether_redux_region"),
+				/*ReduxConfig.COMMON.region_size.get()*/ 20
+			));
+			SurfaceRuleManager.addSurfaceRules(AetherRuleCategory.THE_AETHER,
+				"aether_redux", ReduxSurfaceRules.makeRules()
+			);
+			ReduxBlocks.registerFlammability();
+			ReduxBlocks.registerToolConversions();
+			ReduxItems.registerAccessories();
+			ReduxEntities.addBossConversions();
+		});
+	}
 
-    private void clientSetup(final FMLClientSetupEvent event) {
-        event.enqueueWork(ReduxClient::registerTintOverrides);
-    }
+	private void clientSetup(final FMLClientSetupEvent event) {
+		event.enqueueWork(ReduxClient::registerTintOverrides);
+	}
 
-    public void registerPackets(RegisterPayloadHandlersEvent event) {
-        var registrar = event.registrar(MODID).versioned("1.0.0").optional();
-        registrar.playToServer(
-            AerjumpPacket.Request.TYPE,
-            AerjumpPacket.Request.STREAM_CODEC,
-            AerjumpPacket.Request::execute
-        );
-        registrar.playToClient(
-            AerjumpPacket.Accepted.TYPE,
-            AerjumpPacket.Accepted.STREAM_CODEC,
-            AerjumpPacket.Accepted::execute
-        );
-        registrar.playToClient(
-            AerjumpPacket.Particles.TYPE,
-            AerjumpPacket.Particles.STREAM_CODEC,
-            AerjumpPacket.Particles::execute
-        );
-        registrar.playBidirectional(
-            ReduxPlayerSyncPacket.TYPE,
-            ReduxPlayerSyncPacket.STREAM_CODEC,
-            ReduxPlayerSyncPacket::execute
-        );
-        registrar.playToClient(
-            SliderSignalPacket.Signal.TYPE,
-            SliderSignalPacket.Signal.STREAM_CODEC,
-            SliderSignalPacket.Signal::execute
-        );
-        registrar.playToClient(
-            SliderSignalPacket.DirectionOverride.TYPE,
-            SliderSignalPacket.DirectionOverride.STREAM_CODEC,
-            SliderSignalPacket.DirectionOverride::execute
-        );
-        registrar.playToClient(
-            SliderSignalPacket.SyncTarget.TYPE,
-            SliderSignalPacket.SyncTarget.STREAM_CODEC,
-            SliderSignalPacket.SyncTarget::execute
-        );
-    }
+	public void registerPackets(RegisterPayloadHandlersEvent event) {
+		var registrar = event.registrar(MODID).versioned("1.0.0").optional();
+		registrar.playToServer(
+			AerjumpPacket.Request.TYPE,
+			AerjumpPacket.Request.STREAM_CODEC,
+			AerjumpPacket.Request::execute
+		);
+		registrar.playToClient(
+			AerjumpPacket.Accepted.TYPE,
+			AerjumpPacket.Accepted.STREAM_CODEC,
+			AerjumpPacket.Accepted::execute
+		);
+		registrar.playToClient(
+			AerjumpPacket.Particles.TYPE,
+			AerjumpPacket.Particles.STREAM_CODEC,
+			AerjumpPacket.Particles::execute
+		);
+		registrar.playBidirectional(
+			ReduxPlayerSyncPacket.TYPE,
+			ReduxPlayerSyncPacket.STREAM_CODEC,
+			ReduxPlayerSyncPacket::execute
+		);
+		registrar.playToClient(
+			SliderSignalPacket.Signal.TYPE,
+			SliderSignalPacket.Signal.STREAM_CODEC,
+			SliderSignalPacket.Signal::execute
+		);
+		registrar.playToClient(
+			SliderSignalPacket.DirectionOverride.TYPE,
+			SliderSignalPacket.DirectionOverride.STREAM_CODEC,
+			SliderSignalPacket.DirectionOverride::execute
+		);
+		registrar.playToClient(
+			SliderSignalPacket.SyncTarget.TYPE,
+			SliderSignalPacket.SyncTarget.STREAM_CODEC,
+			SliderSignalPacket.SyncTarget::execute
+		);
+	}
 
-    private void registerDataMaps(RegisterDataMapTypesEvent event) {
-        ReduxDataMaps.TYPES.forEach(event::register);
-    }
+	private void registerDataMaps(RegisterDataMapTypesEvent event) {
+		ReduxDataMaps.TYPES.forEach(event::register);
+	}
 
-    public void packSetup(AddPackFindersEvent event) {
-        var packCfg = event.getPackType() == PackType.CLIENT_RESOURCES
-            ? ASSETS_CONFIG
-            : DATA_CONFIG;
-        packCfg.setup(event);
-    }
+	public void packSetup(AddPackFindersEvent event) {
+		var packCfg = event.getPackType() == PackType.CLIENT_RESOURCES
+			? ASSETS_CONFIG
+			: DATA_CONFIG;
+		packCfg.setup(event);
+	}
 
-    public static ResourceLocation loc(String path) {
-        return ResourceLocation.fromNamespaceAndPath(MODID, path);
-    }
-    
-    // courtesy of juni(deergirl) :3
-    //  tis peak, like her,,
-    public static <T> DeferredRegister<T> reg(Registry<T> type) {
-        return DeferredRegister.create(type, MODID);
-    }
-    
-    public static <T> DeferredRegister<T> reg(ResourceKey<? extends Registry<T>> type) {
-        return DeferredRegister.create(type, MODID);
-    }
+	public static ResourceLocation loc(String path) {
+		return ResourceLocation.fromNamespaceAndPath(MODID, path);
+	}
+
+	// courtesy of juni(deergirl) :3
+	//  tis peak, like her,,
+	public static <T> DeferredRegister<T> reg(Registry<T> type) {
+		return DeferredRegister.create(type, MODID);
+	}
+
+	public static <T> DeferredRegister<T> reg(ResourceKey<? extends Registry<T>> type) {
+		return DeferredRegister.create(type, MODID);
+	}
 }

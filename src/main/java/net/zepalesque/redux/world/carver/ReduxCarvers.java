@@ -8,14 +8,10 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.zepalesque.redux.Redux;
 
 public class ReduxCarvers {
-    public static final DeferredRegister<WorldCarver<?>>
-        CARVERS = Redux.reg(BuiltInRegistries.CARVER);
+	public static final DeferredRegister<WorldCarver<?>> CARVERS = Redux.reg(
+		BuiltInRegistries.CARVER
+	);
 
-    public static final DeferredHolder<WorldCarver<?>, AetherCaveCarver>
-        AETHER_CAVE = CARVERS.register(
-            "aether_cave",
-            () -> new AetherCaveCarver(
-                CaveCarverConfiguration.CODEC
-            ));
-    
+	public static final DeferredHolder<WorldCarver<?>, AetherCaveCarver> AETHER_CAVE =
+		CARVERS.register("aether_cave", () -> new AetherCaveCarver(CaveCarverConfiguration.CODEC));
 }

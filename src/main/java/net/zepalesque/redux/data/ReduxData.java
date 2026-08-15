@@ -30,52 +30,84 @@ import net.zepalesque.redux.data.gen.tags.ReduxEntityTagsData;
 import net.zepalesque.redux.data.gen.tags.ReduxItemTagsData;
 
 public class ReduxData {
-    public static void dataSetup(GatherDataEvent event) {
-        var generator = event.getGenerator();
-        var fileHelper = event.getExistingFileHelper();
-        var lookups = event.getLookupProvider();
-        var output = generator.getPackOutput();
+	public static void dataSetup(GatherDataEvent event) {
+		var generator = event.getGenerator();
+		var fileHelper = event.getExistingFileHelper();
+		var lookups = event.getLookupProvider();
+		var output = generator.getPackOutput();
 
-        // Client Data
-        generator.addProvider(event.includeClient(), new ReduxBlockStateData(output, fileHelper));
-        generator.addProvider(event.includeClient(), new ReduxItemModelData(output, fileHelper));
-        generator.addProvider(event.includeClient(), new ReduxLanguageData(output));
-        generator.addProvider(event.includeClient(), new ReduxParticleData(output, fileHelper));
-        generator.addProvider(event.includeClient(), new ReduxSoundsData(output, fileHelper));
-        
-        var patch = new AetherRegistrySets(output, lookups);
-        lookups = patch.getRegistryProvider();
+		// Client Data
+		generator.addProvider(event.includeClient(), new ReduxBlockStateData(output, fileHelper));
+		generator.addProvider(event.includeClient(), new ReduxItemModelData(output, fileHelper));
+		generator.addProvider(event.includeClient(), new ReduxLanguageData(output));
+		generator.addProvider(event.includeClient(), new ReduxParticleData(output, fileHelper));
+		generator.addProvider(event.includeClient(), new ReduxSoundsData(output, fileHelper));
 
-        // Server Data
-        DatapackBuiltinEntriesProvider registrySets = new ReduxRegistrySets(output, lookups, Redux.MODID);
-        // Use for structure and damage type data, plus any custom ones that need to access the condition registry
-        var registries = registrySets.getRegistryProvider();
-        generator.addProvider(event.includeServer(), registrySets);
-        generator.addProvider(event.includeServer(), new ReduxRecipeData(output, registries));
-        generator.addProvider(event.includeServer(), ReduxLootData.create(output, lookups));
-        generator.addProvider(event.includeServer(), new ReduxMapData(output, registries));
-        generator.addProvider(event.includeServer(), new ReduxLootModifierData(output, registries));
-        generator.addProvider(event.includeServer(), new ReduxAdvancementData(output, registries, fileHelper, ReduxColors.REDUX_PURPLE));
+		var patch = new AetherRegistrySets(output, lookups);
+		lookups = patch.getRegistryProvider();
 
-        // Tags
-        var blockTags = new ReduxBlockTagsData(output, lookups, fileHelper);
-        generator.addProvider(event.includeServer(), blockTags);
-        generator.addProvider(event.includeServer(), new ReduxItemTagsData(output, lookups, blockTags.contentsGetter(), fileHelper));
-        generator.addProvider(event.includeServer(), new ReduxEntityTagsData(output, lookups, fileHelper));
+		// Server Data
+		DatapackBuiltinEntriesProvider registrySets = new ReduxRegistrySets(
+			output,
+			lookups,
+			Redux.MODID
+		);
+		// Use for structure and damage type data, plus any custom ones that need to access the condition registry
+		var registries = registrySets.getRegistryProvider();
+		generator.addProvider(event.includeServer(), registrySets);
+		generator.addProvider(event.includeServer(), new ReduxRecipeData(output, registries));
+		generator.addProvider(event.includeServer(), ReduxLootData.create(output, lookups));
+		generator.addProvider(event.includeServer(), new ReduxMapData(output, registries));
+		generator.addProvider(event.includeServer(), new ReduxLootModifierData(output, registries));
+		generator.addProvider(
+			event.includeServer(),
+			new ReduxAdvancementData(output, registries, fileHelper, ReduxColors.REDUX_PURPLE)
+		);
 
-        generator.addProvider(event.includeServer(), new ReduxBiomeTagsData(output, registries, fileHelper));
+		// Tags
+		var blockTags = new ReduxBlockTagsData(output, lookups, fileHelper);
+		generator.addProvider(event.includeServer(), blockTags);
+		generator.addProvider(
+			event.includeServer(),
+			new ReduxItemTagsData(output, lookups, blockTags.contentsGetter(), fileHelper)
+		);
+		generator.addProvider(
+			event.includeServer(),
+			new ReduxEntityTagsData(output, lookups, fileHelper)
+		);
 
-        // pack.mcmeta
-        generator.addProvider(true, new PackMetadataGenerator(output).add(PackMetadataSection.TYPE, new PackMetadataSection(
-                Component.translatable("pack.aether_redux.mod.description"),
-                DetectedVersion.BUILT_IN.getPackVersion(PackType.SERVER_DATA),
-                Optional.of(new InclusiveRange<>(0, Integer.MAX_VALUE)))));
-        
-        
-        var builtinData = output.getOutputFolder().resolve("packs").resolve("data").resolve(Redux.MODID);
-        
-        var noisePack = generator.new PackGenerator(event.includeServer(), "reduxnoise", new PackOutput(builtinData.resolve("redux_noise")));
-        final var immLookups = lookups;
-        noisePack.addProvider(output1 -> new ReduxRegistrySets.NoisePack(output1, immLookups, Redux.MODID));
-    }
+		generator.addProvider(
+			event.includeServer(),
+			new ReduxBiomeTagsData(output, registries, fileHelper)
+		);
+
+		// pack.mcmeta
+		generator.addProvider(
+			true,
+			new PackMetadataGenerator(output).add(
+				PackMetadataSection.TYPE,
+				new PackMetadataSection(
+					Component.translatable("pack.aether_redux.mod.description"),
+					DetectedVersion.BUILT_IN.getPackVersion(PackType.SERVER_DATA),
+					Optional.of(new InclusiveRange<>(0, Integer.MAX_VALUE))
+				)
+			)
+		);
+
+		var builtinData = output
+			.getOutputFolder()
+			.resolve("packs")
+			.resolve("data")
+			.resolve(Redux.MODID);
+
+		var noisePack = generator.new PackGenerator(
+			event.includeServer(),
+			"reduxnoise",
+			new PackOutput(builtinData.resolve("redux_noise"))
+		);
+		final var immLookups = lookups;
+		noisePack.addProvider((output1) ->
+			new ReduxRegistrySets.NoisePack(output1, immLookups, Redux.MODID)
+		);
+	}
 }

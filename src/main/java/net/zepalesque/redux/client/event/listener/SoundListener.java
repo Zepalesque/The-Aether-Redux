@@ -10,12 +10,11 @@ import net.zepalesque.zenith.api.client.audio.WrappedDefaultsSoundInstance;
 
 @EventBusSubscriber(Dist.CLIENT)
 public class SoundListener {
-
-    @SubscribeEvent
-    public static void onPlaySound(PlaySoundEvent event) {
-        if (SoundHooks.shouldNormalizePitch(event.getSound())) {
-            SoundInstance normalized = WrappedDefaultsSoundInstance.create(event.getSound(), 32);
-            event.setSound(normalized);
-        }
-    }
+	@SubscribeEvent
+	public static void onPlaySound(PlaySoundEvent event) {
+		if (SoundHooks.shouldNormalizePitch(event.getSound())) {
+			SoundInstance normalized = WrappedDefaultsSoundInstance.create(event.getSound(), 32);
+			event.setSound(normalized);
+		}
+	}
 }

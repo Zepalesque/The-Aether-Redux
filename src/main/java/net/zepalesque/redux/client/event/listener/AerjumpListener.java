@@ -13,20 +13,19 @@ import net.zepalesque.redux.network.packet.AerjumpPacket;
 
 @EventBusSubscriber(modid = Redux.MODID, value = Dist.CLIENT)
 public class AerjumpListener {
+	private static boolean prevJumpBindState = false;
 
-    private static boolean prevJumpBindState = false;
+	@SubscribeEvent
+	public static void onClientTick(ClientTickEvent.Post event) {
+		Minecraft mc = Minecraft.getInstance();
+		Level level = Minecraft.getInstance().level;
+		Player player = mc.player;
 
-    @SubscribeEvent
-    public static void onClientTick(ClientTickEvent.Post event) {
-        Minecraft mc = Minecraft.getInstance();
-        Level level = Minecraft.getInstance().level;
-        Player player = mc.player;
-
-        if (level != null && player != null) {
-            boolean jumpPressed = mc.options.keyJump.isDown();
-            if (jumpPressed && !prevJumpBindState)
-                PacketDistributor.sendToServer(new AerjumpPacket.Request(player.getId()));
-            prevJumpBindState = jumpPressed;
-        }
-    }
+		if (level != null && player != null) {
+			boolean jumpPressed = mc.options.keyJump.isDown();
+			if (jumpPressed && !prevJumpBindState)
+				PacketDistributor.sendToServer(new AerjumpPacket.Request(player.getId()));
+			prevJumpBindState = jumpPressed;
+		}
+	}
 }

@@ -9,6 +9,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Item.class)
 public class ItemMixin {
-    @Inject(method = "onDestroyed", at = @At("HEAD"))
-    protected void redux$OnDestroyed(ItemEntity itemEntity, CallbackInfo ci) {}
+	@Inject(method = "onDestroyed", at = @At("HEAD"))
+	protected void redux$OnDestroyed(ItemEntity itemEntity, CallbackInfo ci) {}
 }

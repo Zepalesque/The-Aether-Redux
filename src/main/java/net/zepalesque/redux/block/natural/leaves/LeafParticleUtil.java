@@ -12,27 +12,31 @@ import net.zepalesque.redux.data.ReduxDataMaps;
 import org.jetbrains.annotations.Nullable;
 
 public class LeafParticleUtil {
+	@Nullable
+	@SuppressWarnings("deprecation")
+	public static WeightedParticleEntry findEntry(Block b) {
+		@Nullable
+		WeightedParticleEntry entry = b.builtInRegistryHolder().getData(ReduxDataMaps.LEAF_PARTICLES);
 
-    @Nullable @SuppressWarnings("deprecation")
-    public static WeightedParticleEntry findEntry(Block b) {
-        @Nullable WeightedParticleEntry entry = b.builtInRegistryHolder()
-            .getData(ReduxDataMaps.LEAF_PARTICLES);
+		return ReduxConfig.CLIENT.leaf_particles.get() ? entry : null;
+	}
 
-        return ReduxConfig.CLIENT.leaf_particles.get() ? entry : null;
-    }
-
-    public static void createParticle(
-        BlockState state,
-        Level level,
-        BlockPos pos,
-        RandomSource rand,
-        WeightedParticleEntry entry) {
-        if (entry.success(rand)) {
-            var below = pos.below();
-            var blockstate = level.getBlockState(below);
-            if (!blockstate.isCollisionShapeFullBlock(level, below))
-                ParticleUtils.spawnParticleBelow(level, pos, rand, entry.particle());
-        }
-    }
-
+	public static void createParticle(
+		BlockState state,
+		Level level,
+		BlockPos pos,
+		RandomSource rand,
+		WeightedParticleEntry entry
+	) {
+		if (entry.success(rand)) {
+			var below = pos.below();
+			var blockstate = level.getBlockState(below);
+			if (!blockstate.isCollisionShapeFullBlock(level, below)) ParticleUtils.spawnParticleBelow(
+				level,
+				pos,
+				rand,
+				entry.particle()
+			);
+		}
+	}
 }

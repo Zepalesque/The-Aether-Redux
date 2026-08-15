@@ -6,7 +6,6 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.zepalesque.redux.Redux;
 
 public class ReduxTiles {
-
-    public static final DeferredRegister<BlockEntityType<?>>
-        TILES = Redux.reg(BuiltInRegistries.BLOCK_ENTITY_TYPE);
+	public static final DeferredRegister<BlockEntityType<?>>
+		TILES = Redux.reg(BuiltInRegistries.BLOCK_ENTITY_TYPE);
 }

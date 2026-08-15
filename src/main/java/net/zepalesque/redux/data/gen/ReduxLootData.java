@@ -10,10 +10,17 @@ import net.zepalesque.redux.data.gen.loot.ReduxBlockLoot;
 import net.zepalesque.redux.loot.ReduxLoot;
 
 public class ReduxLootData {
-
-    public static LootTableProvider create(PackOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
-        return new LootTableProvider(output, ReduxLoot.IMMUTABLE_LOOT_TABLES, List.of(
-                new LootTableProvider.SubProviderEntry(ReduxBlockLoot::new, LootContextParamSets.BLOCK)
-        ), lookup);
-    }
+	public static LootTableProvider create(
+		PackOutput output,
+		CompletableFuture<HolderLookup.Provider> lookup
+	) {
+		return new LootTableProvider(
+			output,
+			ReduxLoot.IMMUTABLE_LOOT_TABLES,
+			List.of(
+				new LootTableProvider.SubProviderEntry(ReduxBlockLoot::new, LootContextParamSets.BLOCK)
+			),
+			lookup
+		);
+	}
 }

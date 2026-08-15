@@ -10,5 +10,5 @@ import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(Feature.class)
 public abstract class FeatureMixin<FC extends FeatureConfiguration> {
-    @Shadow protected abstract void setBlock(LevelWriter level, BlockPos pos, BlockState state);
+	@Shadow protected abstract void setBlock(LevelWriter level, BlockPos pos, BlockState state);
 }

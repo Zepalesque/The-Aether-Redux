@@ -17,110 +17,118 @@ import net.zepalesque.redux.attachment.ReduxDataAttachments;
 import net.zepalesque.redux.attachment.SliderSignalAttachment;
 
 public class SliderSignalPacket {
+	public record Signal(int mobID) implements CustomPacketPayload {
+		public static final Type<Signal> TYPE = new Type<>(Redux.loc("slider_signal"));
 
-    public record Signal(int mobID) implements CustomPacketPayload {
+		public static final StreamCodec<RegistryFriendlyByteBuf, Signal> STREAM_CODEC =
+			CustomPacketPayload.codec(Signal::write, Signal::decode);
 
-        public static final Type<Signal> TYPE = new Type<>(Redux.loc("slider_signal"));
+		public void write(FriendlyByteBuf buf) {
+			buf.writeInt(this.mobID());
+		}
 
-        public static final StreamCodec<RegistryFriendlyByteBuf, Signal> STREAM_CODEC = CustomPacketPayload.codec(
-                Signal::write,
-                Signal::decode);
+		public static Signal decode(FriendlyByteBuf buf) {
+			int mobID = buf.readInt();
+			return new Signal(mobID);
+		}
 
-        public void write(FriendlyByteBuf buf) {
-            buf.writeInt(this.mobID());
-        }
+		@Override
+		public Type<? extends CustomPacketPayload> type() {
+			return TYPE;
+		}
 
-        public static Signal decode(FriendlyByteBuf buf) {
-            int mobID = buf.readInt();
-            return new Signal(mobID);
-        }
+		public static void execute(Signal payload, IPayloadContext context) {
+			ClientLevel level = Minecraft.getInstance().level;
+			if (level != null) {
+				Entity entity = level.getEntity(payload.mobID());
+				if (
+					entity != null &&
+					entity.hasData(ReduxDataAttachments.SLIDER_SIGNAL.get()) &&
+					entity.getType() == AetherEntityTypes.SLIDER.get()
+				) {
+					SliderSignalAttachment.get((Slider) entity).beginSignal((Slider) entity);
+				}
+			}
+		}
+	}
 
-        @Override
-        public Type<? extends CustomPacketPayload> type() {
-            return TYPE;
-        }
+	public record DirectionOverride(int mobID, Direction direction) implements CustomPacketPayload {
+		public static final Type<DirectionOverride> TYPE = new Type<>(
+			Redux.loc("slider_signal_direction_override")
+		);
 
-        public static void execute(Signal payload, IPayloadContext context) {
-            ClientLevel level = Minecraft.getInstance().level;
-            if (level != null) {
-                Entity entity = level.getEntity(payload.mobID());
-                if (entity != null && entity.hasData(ReduxDataAttachments.SLIDER_SIGNAL.get()) && entity.getType() == AetherEntityTypes.SLIDER.get()) {
-                    SliderSignalAttachment.get((Slider) entity).beginSignal((Slider) entity);
-                }
-            }
-        }
-    }
+		public static final StreamCodec<RegistryFriendlyByteBuf, DirectionOverride> STREAM_CODEC =
+			CustomPacketPayload.codec(DirectionOverride::write, DirectionOverride::decode);
 
-    public record DirectionOverride(int mobID, Direction direction) implements CustomPacketPayload {
+		public void write(FriendlyByteBuf buf) {
+			buf.writeInt(this.mobID());
+			buf.writeEnum(this.direction());
+		}
 
-        public static final Type<DirectionOverride> TYPE = new Type<>(Redux.loc("slider_signal_direction_override"));
+		public static DirectionOverride decode(FriendlyByteBuf buf) {
+			int mobID = buf.readInt();
+			Direction direction = buf.readEnum(Direction.class);
+			return new DirectionOverride(mobID, direction);
+		}
 
-        public static final StreamCodec<RegistryFriendlyByteBuf, DirectionOverride> STREAM_CODEC = CustomPacketPayload.codec(
-                DirectionOverride::write,
-                DirectionOverride::decode);
+		@Override
+		public Type<? extends CustomPacketPayload> type() {
+			return TYPE;
+		}
 
-        public void write(FriendlyByteBuf buf) {
-            buf.writeInt(this.mobID());
-            buf.writeEnum(this.direction());
-        }
+		public static void execute(DirectionOverride payload, IPayloadContext context) {
+			ClientLevel level = Minecraft.getInstance().level;
+			if (level != null) {
+				Entity entity = level.getEntity(payload.mobID());
+				if (
+					entity != null &&
+					entity.hasData(ReduxDataAttachments.SLIDER_SIGNAL.get()) &&
+					entity.getType() == AetherEntityTypes.SLIDER.get()
+				) {
+					SliderSignalAttachment.get((Slider) entity).setOverrideDirection(
+						(Slider) entity,
+						payload.direction()
+					);
+				}
+			}
+		}
+	}
 
-        public static DirectionOverride decode(FriendlyByteBuf buf) {
-            int mobID = buf.readInt();
-            Direction direction = buf.readEnum(Direction.class);
-            return new DirectionOverride(mobID, direction);
-        }
+	public record SyncTarget(int mobID, Optional<Integer> target) implements CustomPacketPayload {
+		public static final Type<SyncTarget> TYPE = new Type<>(Redux.loc("slider_signal_target_sync"));
 
-        @Override
-        public Type<? extends CustomPacketPayload> type() {
-            return TYPE;
-        }
+		public static final StreamCodec<RegistryFriendlyByteBuf, SyncTarget> STREAM_CODEC =
+			CustomPacketPayload.codec(SyncTarget::write, SyncTarget::decode);
 
+		public void write(FriendlyByteBuf buf) {
+			buf.writeInt(this.mobID());
+			buf.writeOptional(this.target(), FriendlyByteBuf::writeInt);
+		}
 
-        public static void execute(DirectionOverride payload, IPayloadContext context) {
-            ClientLevel level = Minecraft.getInstance().level;
-            if (level != null) {
-                Entity entity = level.getEntity(payload.mobID());
-                if (entity != null && entity.hasData(ReduxDataAttachments.SLIDER_SIGNAL.get()) && entity.getType() == AetherEntityTypes.SLIDER.get()) {
-                    SliderSignalAttachment.get((Slider) entity).setOverrideDirection((Slider) entity, payload.direction());
-                }
-            }
-        }
-    }
+		public static SyncTarget decode(FriendlyByteBuf buf) {
+			int mobID = buf.readInt();
+			Optional<Integer> mob = buf.readOptional(FriendlyByteBuf::readInt);
+			return new SyncTarget(mobID, mob);
+		}
 
-    public record SyncTarget(int mobID, Optional<Integer> target) implements CustomPacketPayload {
+		@Override
+		public Type<? extends CustomPacketPayload> type() {
+			return TYPE;
+		}
 
-        public static final Type<SyncTarget> TYPE = new Type<>(Redux.loc("slider_signal_target_sync"));
-
-        public static final StreamCodec<RegistryFriendlyByteBuf, SyncTarget> STREAM_CODEC = CustomPacketPayload.codec(
-                SyncTarget::write,
-                SyncTarget::decode);
-
-        public void write(FriendlyByteBuf buf) {
-            buf.writeInt(this.mobID());
-            buf.writeOptional(this.target(), FriendlyByteBuf::writeInt);
-        }
-
-        public static SyncTarget decode(FriendlyByteBuf buf) {
-            int mobID = buf.readInt();
-            Optional<Integer> mob = buf.readOptional(FriendlyByteBuf::readInt);
-            return new SyncTarget(mobID, mob);
-        }
-
-        @Override
-        public Type<? extends CustomPacketPayload> type() {
-            return TYPE;
-        }
-
-
-        public static void execute(SyncTarget payload, IPayloadContext context) {
-            ClientLevel level = Minecraft.getInstance().level;
-            if (level != null) {
-                Entity entity = level.getEntity(payload.mobID());
-                if (entity != null && entity.hasData(ReduxDataAttachments.SLIDER_SIGNAL.get()) && entity.getType() == AetherEntityTypes.SLIDER.get()) {
-                    Optional<Entity> mob = payload.target().map(level::getEntity);
-                    SliderSignalAttachment.get((Slider) entity).setTarget((Slider) entity, mob.orElse(null));
-                }
-            }
-        }
-    }
+		public static void execute(SyncTarget payload, IPayloadContext context) {
+			ClientLevel level = Minecraft.getInstance().level;
+			if (level != null) {
+				Entity entity = level.getEntity(payload.mobID());
+				if (
+					entity != null &&
+					entity.hasData(ReduxDataAttachments.SLIDER_SIGNAL.get()) &&
+					entity.getType() == AetherEntityTypes.SLIDER.get()
+				) {
+					Optional<Entity> mob = payload.target().map(level::getEntity);
+					SliderSignalAttachment.get((Slider) entity).setTarget((Slider) entity, mob.orElse(null));
+				}
+			}
+		}
+	}
 }

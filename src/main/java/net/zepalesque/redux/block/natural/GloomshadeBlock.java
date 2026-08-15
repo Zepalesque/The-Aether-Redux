@@ -7,8 +7,7 @@ import net.zepalesque.unity.block.natural.bush.CustomBoundsFlowerBlock;
 
 // TODO: Particles
 public class GloomshadeBlock extends CustomBoundsFlowerBlock {
-
-    public GloomshadeBlock(VoxelShape shape, Holder<MobEffect> effect, int duration, Properties properties) {
-        super(shape, effect, duration, properties);
-    }
+	public GloomshadeBlock(VoxelShape shape, Holder<MobEffect> effect, int duration, Properties properties) {
+		super(shape, effect, duration, properties);
+	}
 }

@@ -15,39 +15,38 @@ import net.zepalesque.redux.event.hook.QuicksoilHooks;
 
 @EventBusSubscriber(modid = Redux.MODID)
 public class MobListener {
+	@SubscribeEvent
+	public static void onTick(EntityTickEvent.Post event) {
+		final Entity entity = event.getEntity();
 
-    @SubscribeEvent
-    public static void onTick(EntityTickEvent.Post event) {
-        final Entity entity = event.getEntity();
+		if (ReduxConfig.SERVER.revamped_quicksoil_movement.get() && QuicksoilHooks.shouldAlterMovement(entity))
+			QuicksoilHooks.alterMovement(entity);
 
-        if (ReduxConfig.SERVER.revamped_quicksoil_movement.get() && QuicksoilHooks.shouldAlterMovement(entity))
-            QuicksoilHooks.alterMovement(entity);
+		if (entity instanceof Player player) {
+			ReduxPlayerAttachment attachment = ReduxPlayerAttachment.get(player);
+			attachment.onUpdate(player);
+		} else if (entity instanceof Slider slider && entity.level().isClientSide()) {
+			SliderSignalAttachment attachment = SliderSignalAttachment.get(slider);
+			attachment.onUpdate(slider);
+		}
+	}
 
-        if (entity instanceof Player player) {
-            ReduxPlayerAttachment attachment = ReduxPlayerAttachment.get(player);
-            attachment.onUpdate(player);
-        } else if (entity instanceof Slider slider && entity.level().isClientSide()) {
-            SliderSignalAttachment attachment = SliderSignalAttachment.get(slider);
-            attachment.onUpdate(slider);
-        }
-    }
+	@SubscribeEvent
+	public static void onFall(LivingFallEvent event) {
+		if (event.getEntity() instanceof Player player) {
+			ReduxPlayerAttachment attachment = ReduxPlayerAttachment.get(player);
+			int jumps = attachment.getPrevPerformedAerjumps();
+			if (attachment.getPrevPerformedAerjumps() > 0) {
+				float distance = event.getDistance() - jumps - 1F;
+				event.setDistance(distance);
+			}
+		}
+	}
 
-    @SubscribeEvent
-    public static void onFall(LivingFallEvent event) {
-        if (event.getEntity() instanceof Player player) {
-            ReduxPlayerAttachment attachment = ReduxPlayerAttachment.get(player);
-            int jumps = attachment.getPrevPerformedAerjumps();
-            if (attachment.getPrevPerformedAerjumps() > 0) {
-                float distance = event.getDistance() - jumps - 1F;
-                event.setDistance(distance);
-            }
-        }
-    }
-
-/*    @SubscribeEvent
-    public static void initializeBoundingBoxes(EntityEvent.Size event) {
-        if (event.getEntity().getType().equals(AetherEntityTypes.WHIRLWIND.get())) {
-            event.setNewSize(EntityDimensions.fixed(2.25F, 4.125F));
-        }
-    }*/
+	/*@SubscribeEvent
+	public static void initializeBoundingBoxes(EntityEvent.Size event) {
+		if (event.getEntity().getType().equals(AetherEntityTypes.WHIRLWIND.get())) {
+			event.setNewSize(EntityDimensions.fixed(2.25F, 4.125F));
+		}
+	}*/
 }

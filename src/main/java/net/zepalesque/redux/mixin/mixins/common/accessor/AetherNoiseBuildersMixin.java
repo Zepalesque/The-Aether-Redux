@@ -10,9 +10,12 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 
 @Mixin(AetherNoiseBuilders.class)
 public interface AetherNoiseBuildersMixin {
-
-    @Invoker
-    static NoiseRouter callCreateNoiseRouter(HolderGetter<DensityFunction> densityFunctions, HolderGetter<NormalNoise.NoiseParameters> noise, DensityFunction finalDensity) {
-        throw new AssertionError();
-    }
+	@Invoker
+	static NoiseRouter callCreateNoiseRouter(
+		HolderGetter<DensityFunction> densityFunctions,
+		HolderGetter<NormalNoise.NoiseParameters> noise,
+		DensityFunction finalDensity
+	) {
+		throw new AssertionError();
+	}
 }

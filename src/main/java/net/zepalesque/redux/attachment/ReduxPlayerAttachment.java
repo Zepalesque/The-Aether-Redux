@@ -21,250 +21,258 @@ import org.apache.commons.lang3.tuple.Triple;
 import org.jetbrains.annotations.NotNull;
 
 public final class ReduxPlayerAttachment implements INBTSynchable {
+	// TODO: Investigate, do any of these values actually NEED to be synchronized?
+	private final Map<String, Triple<Type, Consumer<Object>, Supplier<Object>>> synchableFunctions =
+		Map.ofEntries(
+			Map.entry(
+				"max_aerjumps",
+				Triple.of(Type.INT, (val) -> this.setMaxAerjumps((int) val), this::getMaxAerjumps)
+			),
+			Map.entry(
+				"base_aerjumps",
+				Triple.of(Type.INT, (val) -> this.setBaseAerjumps((int) val), this::getBaseAerjumps)
+			),
+			Map.entry(
+				"performed_aerjumps",
+				Triple.of(
+					Type.INT,
+					(val) -> this.setPerformedAerjumps((int) val),
+					this::getPerformedAerjumps
+				)
+			)
+		);
 
-    // TODO: Investigate, do any of these values actually NEED to be synchronized?
-    private final Map<String, Triple<Type, Consumer<Object>, Supplier<Object>>> synchableFunctions =
-        Map.ofEntries(
-            Map.entry("max_aerjumps",
-                Triple.of(
-                    Type.INT,
-                    val -> this.setMaxAerjumps((int) val),
-                    this::getMaxAerjumps)),
-            Map.entry("base_aerjumps",
-                Triple.of(
-                    Type.INT,
-                    val -> this.setBaseAerjumps((int) val),
-                    this::getBaseAerjumps)),
-            Map.entry("performed_aerjumps",
-                Triple.of(
-                    Type.INT,
-                    val -> this.setPerformedAerjumps((int) val),
-                    this::getPerformedAerjumps))
-        );
+	// TODO: Flesh out into bigger system in Zenith? Add registerable operators?
+	private final Map<ResourceLocation, Integer> aerjumpCountModifiers;
 
+	private int performedAerjumps = 0,
+		baseAerjumps = 0,
+		airTime = 0,
+		prevPerformedAerjumps = 0;
 
-    // TODO: Flesh out into bigger system in Zenith? Add registerable operators?
-    private final Map<ResourceLocation, Integer> aerjumpCountModifiers;
+	// cached value, updated when modifiers are added/removed
+	private int maxAerjumps = 0;
 
-    private int performedAerjumps = 0, baseAerjumps = 0, airTime = 0, prevPerformedAerjumps = 0;
+	public ReduxPlayerAttachment() {
+		this.aerjumpCountModifiers = new HashMap<>();
+	}
 
-    // cached value, updated when modifiers are added/removed
-    private int maxAerjumps = 0;
+	public static final Codec<ReduxPlayerAttachment> CODEC = RecordCodecBuilder.create((builder) ->
+		builder
+			.group(
+				UnboundedHashMapCodec.of(ResourceLocation.CODEC, Codec.INT)
+					.fieldOf("aerjump_count_modifiers")
+					.forGetter(ReduxPlayerAttachment::getAerjumpCountModifiers),
+				Codec.INT.fieldOf("base_aerjumps").forGetter(ReduxPlayerAttachment::getBaseAerjumps),
+				Codec.INT.fieldOf("performed_aerjumps").forGetter(
+					ReduxPlayerAttachment::getPerformedAerjumps
+				),
+				Codec.INT.fieldOf("performed_aerjumps_last_tick").forGetter(
+					ReduxPlayerAttachment::getPrevPerformedAerjumps
+				),
+				Codec.intRange(0, 3)
+					.fieldOf("aerjump_air_time")
+					.forGetter(ReduxPlayerAttachment::getAirTime)
+			)
+			.apply(builder, ReduxPlayerAttachment::new)
+	);
 
+	private ReduxPlayerAttachment(
+		Map<ResourceLocation, Integer> aerjumpCountModifiers,
+		int baseAerjumps,
+		int performedAerjumps,
+		int prevPerformedAerjumps,
+		int airTime
+	) {
+		this.aerjumpCountModifiers = aerjumpCountModifiers;
+		this.baseAerjumps = baseAerjumps;
+		this.performedAerjumps = performedAerjumps;
+		this.prevPerformedAerjumps = prevPerformedAerjumps;
+		this.airTime = airTime;
+		this.maxAerjumps = aerjumpCountModifiers.isEmpty() ? baseAerjumps : this.calcAerjumpMax();
+	}
 
-    public ReduxPlayerAttachment() {
-        this.aerjumpCountModifiers = new HashMap<>();
-    }
+	protected int calcAerjumpMax() {
+		var calc = this.baseAerjumps;
+		for (int i : this.aerjumpCountModifiers.values()) calc += i;
+		return calc;
+	}
 
-    public static final Codec<ReduxPlayerAttachment> CODEC = RecordCodecBuilder.create(
-        builder -> builder.group(
-            UnboundedHashMapCodec.of(ResourceLocation.CODEC, Codec.INT).fieldOf("aerjump_count_modifiers").forGetter(ReduxPlayerAttachment::getAerjumpCountModifiers),
-            Codec.INT
-                .fieldOf("base_aerjumps")
-                .forGetter(ReduxPlayerAttachment::getBaseAerjumps),
-            Codec.INT
-                .fieldOf("performed_aerjumps")
-                .forGetter(ReduxPlayerAttachment::getPerformedAerjumps),
-            Codec.INT
-                .fieldOf("performed_aerjumps_last_tick")
-                .forGetter(ReduxPlayerAttachment::getPrevPerformedAerjumps),
-            Codec.intRange(0, 3)
-                .fieldOf("aerjump_air_time")
-                .forGetter(ReduxPlayerAttachment::getAirTime)
-        ).apply(builder, ReduxPlayerAttachment::new));
+	public void addAerjumpModifier(Player player, ResourceLocation name, int addend) {
+		var hadModifier = this.aerjumpCountModifiers.containsKey(name);
+		this.aerjumpCountModifiers.putIfAbsent(name, addend);
+		if (!hadModifier) {
+			var i = this.calcAerjumpMax();
+			if (this.maxAerjumps != i) this.setSynched(
+				player.getId(),
+				Direction.CLIENT,
+				"max_aerjumps",
+				i
+			);
+		}
+	}
 
-    private ReduxPlayerAttachment(
-        Map<ResourceLocation, Integer> aerjumpCountModifiers,
-        int baseAerjumps,
-        int performedAerjumps,
-        int prevPerformedAerjumps,
-        int airTime) {
-        
-        this.aerjumpCountModifiers = aerjumpCountModifiers;
-        this.baseAerjumps = baseAerjumps;
-        this.performedAerjumps = performedAerjumps;
-        this.prevPerformedAerjumps = prevPerformedAerjumps;
-        this.airTime = airTime;
-        this.maxAerjumps = aerjumpCountModifiers.isEmpty() ? baseAerjumps : this.calcAerjumpMax();
-    }
+	public void removeAerjumpModifier(Player player, ResourceLocation name) {
+		var hadModifier = this.aerjumpCountModifiers.containsKey(name);
+		this.aerjumpCountModifiers.remove(name);
+		if (hadModifier) {
+			var i = this.calcAerjumpMax();
+			if (this.maxAerjumps != i) this.setSynched(
+				player.getId(),
+				Direction.CLIENT,
+				"max_aerjumps",
+				i
+			);
+		}
+	}
 
-    protected int calcAerjumpMax() {
-        var calc = this.baseAerjumps;
-        for (int i : this.aerjumpCountModifiers.values())
-            calc += i;
-        return calc;
-    }
+	public int getMaxAerjumps() {
+		return this.maxAerjumps;
+	}
 
-    public void addAerjumpModifier(Player player, ResourceLocation name, int addend) {
-        var hadModifier = this.aerjumpCountModifiers.containsKey(name);
-        this.aerjumpCountModifiers.putIfAbsent(name, addend);
-        if (!hadModifier) {
-            var i = this.calcAerjumpMax();
-            if (this.maxAerjumps != i)
-                this.setSynched(
-                    player.getId(),
-                    Direction.CLIENT,
-                    "max_aerjumps", i
-                );
-        }
-    }
+	public int getBaseAerjumps() {
+		return this.baseAerjumps;
+	}
 
-    public void removeAerjumpModifier(Player player, ResourceLocation name) {
-        var hadModifier = this.aerjumpCountModifiers.containsKey(name);
-        this.aerjumpCountModifiers.remove(name);
-        if (hadModifier) {
-            var i = this.calcAerjumpMax();
-            if (this.maxAerjumps != i)
-                this.setSynched(
-                    player.getId(),
-                    Direction.CLIENT,
-                    "max_aerjumps", i
-                );
-        }
-    }
+	public int getPerformedAerjumps() {
+		return this.performedAerjumps;
+	}
 
-    public int getMaxAerjumps() {
-        return this.maxAerjumps;
-    }
+	public int getPrevPerformedAerjumps() {
+		return this.prevPerformedAerjumps;
+	}
 
-    public int getBaseAerjumps() {
-        return this.baseAerjumps;
-    }
+	private void setMaxAerjumps(int maxAerjumps) {
+		this.maxAerjumps = maxAerjumps;
+	}
 
-    public int getPerformedAerjumps() {
-        return this.performedAerjumps;
-    }
+	private void setBaseAerjumps(int baseAerjumps) {
+		this.baseAerjumps = baseAerjumps;
+	}
 
-    public int getPrevPerformedAerjumps() {
-        return this.prevPerformedAerjumps;
-    }
+	private void setPerformedAerjumps(int performedAerjumps) {
+		this.performedAerjumps = performedAerjumps;
+	}
 
-    private void setMaxAerjumps(int maxAerjumps) {
-        this.maxAerjumps = maxAerjumps;
-    }
+	public int getAirTime() {
+		return this.airTime;
+	}
 
-    private void setBaseAerjumps(int baseAerjumps) {
-        this.baseAerjumps = baseAerjumps;
-    }
+	public void onUpdate(Player player) {
+		this.tickAirTime(player);
+		this.tickAerjumps(player);
+	}
 
-    private void setPerformedAerjumps(int performedAerjumps) {
-        this.performedAerjumps = performedAerjumps;
-    }
+	private Map<ResourceLocation, Integer> getAerjumpCountModifiers() {
+		return this.aerjumpCountModifiers;
+	}
 
-    public int getAirTime() {
-        return this.airTime;
-    }
+	private void tickAirTime(Player player) {
+		if (player.onGround()) {
+			this.airTime = 0;
+		} else {
+			if (this.airTime < 3) this.airTime++;
+		}
+	}
 
-    public void onUpdate(Player player) {
-        this.tickAirTime(player);
-        this.tickAerjumps(player);
-    }
+	private void tickAerjumps(Player player) {
+		this.prevPerformedAerjumps = this.getPerformedAerjumps();
+		if (!player.level().isClientSide() && player.onGround() && this.performedAerjumps != 0) {
+			this.setSynched(player.getId(), Direction.CLIENT, "performed_aerjumps", 0);
+		}
+	}
 
-    private Map<ResourceLocation, Integer> getAerjumpCountModifiers() {
-        return this.aerjumpCountModifiers;
-    }
+	private boolean aerjumpsOnCooldown(Player player) {
+		return player.getCooldowns().isOnCooldown(ReduxItems.AERBOUND_CAPE.get());
+	}
 
-    private void tickAirTime(Player player) {
-        if (player.onGround()) {
-	        this.airTime = 0;
-        } else {
-            if (this.airTime < 3) this.airTime++;
-        }
-    }
+	private void setAerjumpCooldown(Player player, int ticks) {
+		player.getCooldowns().addCooldown(ReduxItems.AERBOUND_CAPE.get(), ticks);
+	}
 
-    private void tickAerjumps(Player player) {
-        this.prevPerformedAerjumps = this.getPerformedAerjumps();
-        if (!player.level().isClientSide() && player.onGround() && this.performedAerjumps != 0) {
-            this.setSynched(player.getId(), Direction.CLIENT, "performed_aerjumps", 0);
-        }
-    }
+	public boolean canAerjump(Player player) {
+		return (
+			!this.aerjumpsOnCooldown(player) &&
+			this.getPerformedAerjumps() < this.getMaxAerjumps() &&
+			!player.isInWater() &&
+			this.getAirTime() >= 3 &&
+			!player.mayFly() &&
+			!player.isSpectator() &&
+			!player.isPassenger()
+		);
+	}
 
-    private boolean aerjumpsOnCooldown(Player player) {
-        return player.getCooldowns().isOnCooldown(ReduxItems.AERBOUND_CAPE.get());
-    }
+	public void prepareAerjump(Player player) {
+		this.setSynched(
+			player.getId(),
+			Direction.CLIENT,
+			"performed_aerjumps",
+			this.getPerformedAerjumps() + 1
+		);
+		this.setAerjumpCooldown(player, 4);
+	}
 
-    private void setAerjumpCooldown(Player player, int ticks) {
-        player.getCooldowns().addCooldown(ReduxItems.AERBOUND_CAPE.get(), ticks);
-    }
+	public boolean tryAerjump(Player player, int jumpIndex) {
+		if (this.canAerjump(player)) {
+			this.prepareAerjump(player);
+			this.doAerjumpMovement(player, jumpIndex);
+			return true;
+		}
+		return false;
+	}
 
-    public boolean canAerjump(Player player) {
-        return !this.aerjumpsOnCooldown(player)
-            && this.getPerformedAerjumps() < this.getMaxAerjumps()
-            && !player.isInWater()
-            && this.getAirTime() >= 3
-            && !player.mayFly()
-            && !player.isSpectator()
-            && !player.isPassenger();
-    }
+	public void doAerjumpMovement(Player player, int jumpIndex) {
+		var dx = player.getDeltaMovement().x() * 1.4D;
+		var dy = 0.35D + (jumpIndex == 0 ? 0.1D : 0.5D);
+		var dz = player.getDeltaMovement().z() * 1.4D;
+		player.setDeltaMovement(dx, dy, dz);
+		player
+			.level()
+			.playSound(
+				null,
+				player.getX(),
+				player.getY(),
+				player.getZ(),
+				ReduxSounds.AERJUMP.get(),
+				SoundSource.PLAYERS,
+				0.4f,
+				0.9F + player.level().random.nextFloat() * 0.2F
+			);
+	}
 
-    public void prepareAerjump(Player player) {
-        this.setSynched(
-            player.getId(),
-            Direction.CLIENT,
-            "performed_aerjumps",
-            this.getPerformedAerjumps() + 1
-        );
-        this.setAerjumpCooldown(player, 4);
-    }
+	public static void spawnAerjumpParticles(Level level, double x, double y, double z) {
+		if (level != null) {
+			var rand = level.getRandom();
+			var radius = 1.25D;
+			var height = 0.3D;
+			for (var i = 0; i < 12; i++) {
+				var x2 = x + rand.nextDouble() * radius - radius * 0.5D;
+				var y2 = y + rand.nextDouble() * height;
+				var z2 = z + rand.nextDouble() * radius - radius * 0.5D;
+				level.addParticle(
+					ReduxParticles.SHINY_CLOUD,
+					x2,
+					y2,
+					z2,
+					0D,
+					rand.nextDouble() * -0.1D,
+					0D
+				);
+			}
+		}
+	}
 
-    public boolean tryAerjump(Player player, int jumpIndex) {
-        if (this.canAerjump(player)) {
-	        this.prepareAerjump(player);
-	        this.doAerjumpMovement(player, jumpIndex);
-            return true;
-        }
-        return false;
-    }
+	@Override
+	public Map<String, Triple<Type, Consumer<Object>, Supplier<Object>>> getSynchableFunctions() {
+		return this.synchableFunctions;
+	}
 
+	@Override
+	public SyncPacket getSyncPacket(int playerID, String key, Type type, Object value) {
+		return new ReduxPlayerSyncPacket(playerID, key, type, value);
+	}
 
-    public void doAerjumpMovement(Player player, int jumpIndex) {
-        var dx = player.getDeltaMovement().x() * 1.4D;
-        var dy = 0.35D + (jumpIndex == 0 ? 0.1D : 0.5D);
-        var dz = player.getDeltaMovement().z() * 1.4D;
-        player.setDeltaMovement(dx, dy, dz);
-        player.level().playSound(
-            null,
-            player.getX(),
-            player.getY(),
-            player.getZ(),
-            ReduxSounds.AERJUMP.get(),
-            SoundSource.PLAYERS, 0.4f,
-            0.9F + player.level().random.nextFloat() * 0.2F
-        );
-    }
-
-
-    public static void spawnAerjumpParticles(Level level, double x, double y, double z) {
-        if (level != null) {
-            var rand = level.getRandom();
-            var radius = 1.25D;
-            var height = 0.3D;
-            for (var i = 0; i < 12; i++) {
-                var x2 = x + rand.nextDouble() * radius - radius * 0.5D;
-                var y2 = y + rand.nextDouble() * height;
-                var z2 = z + rand.nextDouble() * radius - radius * 0.5D;
-                level.addParticle(
-                    ReduxParticles.SHINY_CLOUD,
-                    x2, y2, z2,
-                    0D,
-                    rand.nextDouble() * -0.1D,
-                    0D
-                );
-            }
-        }
-    }
-    
-    @Override
-    public Map<String, Triple<Type, Consumer<Object>, Supplier<Object>>> getSynchableFunctions() {
-        return this.synchableFunctions;
-    }
-
-    @Override
-    public SyncPacket getSyncPacket(int playerID, String key, Type type, Object value) {
-        return new ReduxPlayerSyncPacket(playerID, key, type, value);
-    }
-
-    public static @NotNull ReduxPlayerAttachment get(@NotNull Player player) {
-        return player.getData(ReduxDataAttachments.REDUX_PLAYER.get());
-    }
+	public static @NotNull ReduxPlayerAttachment get(@NotNull Player player) {
+		return player.getData(ReduxDataAttachments.REDUX_PLAYER.get());
+	}
 }

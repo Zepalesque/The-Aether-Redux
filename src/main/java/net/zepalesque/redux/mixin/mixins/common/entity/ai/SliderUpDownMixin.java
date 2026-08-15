@@ -9,14 +9,16 @@ import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(SetPathUpOrDownGoal.class)
 public class SliderUpDownMixin {
+	// Overrides the specific tick to perform this goal
+	@WrapOperation(
+		method = "canUse",
+		at = @At(value = "INVOKE", target = "Lcom/aetherteam/aether/entity/monster/dungeon/boss/Slider;getMoveDelay()I")
+	)
+	protected int redux$canUse(Slider slider, Operation<Integer> original) {
+		int old = original.call(slider), newVal;
+		if (old == (slider.isCritical() ? 3 : 7)) newVal = 1;
+		else newVal = 0;
 
-    // Overrides the specific tick to perform this goal
-    @WrapOperation(method = "canUse", at = @At(value = "INVOKE", target = "Lcom/aetherteam/aether/entity/monster/dungeon/boss/Slider;getMoveDelay()I"))
-    protected int redux$canUse(Slider slider, Operation<Integer> original) {
-        int old = original.call(slider), newVal;
-        if (old == (slider.isCritical() ? 3 : 7)) newVal = 1;
-        else newVal = 0;
-
-        return newVal;
-    }
+		return newVal;
+	}
 }

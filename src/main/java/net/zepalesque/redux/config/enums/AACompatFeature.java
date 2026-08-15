@@ -6,75 +6,88 @@ import org.jetbrains.annotations.Nullable;
 
 // me when charsequence wrappers
 public class AACompatFeature {
-    public enum Overridden implements ConditionalConfig {
-        ALWAYS_TRUE("always_true", true), ALWAYS_FALSE("always_false", false), WITHOUT_ANCIENT_AETHER("without_ancient_aethe    r", () -> !CompatHelper.loaded("ancient_aether"));
+	public enum Overridden implements ConditionalConfig {
+		ALWAYS_TRUE("always_true", true),
+		ALWAYS_FALSE("always_false", false),
+		WITHOUT_ANCIENT_AETHER(
+			"without_ancient_aether",
+			() -> !CompatHelper.loaded("ancient_aether")
+		);
 
-        private final String serialized;
-        @Nullable private final Supplier<Boolean> supplier;
-        private final boolean value;
+		private final String serialized;
 
-        Overridden(String serialized, Supplier<Boolean> value) {
-            this.serialized = serialized;
-            this.value = false;
-            this.supplier = value;
-        }
+		@Nullable
+		private final Supplier<Boolean> supplier;
 
-        Overridden(String serialized, boolean value) {
-            this.serialized = serialized;
-            this.value = value;
-            this.supplier = null;
-        }
+		private final boolean value;
 
-        @Override
-        public String toString() {
-            return this.serialized;
-        }
+		Overridden(String serialized, Supplier<Boolean> value) {
+			this.serialized = serialized;
+			this.value = false;
+			this.supplier = value;
+		}
 
-        @Override
-        public boolean enabled() {
-            if (this.supplier == null) return this.value;
-            else return this.supplier.get();
-        }
+		Overridden(String serialized, boolean value) {
+			this.serialized = serialized;
+			this.value = value;
+			this.supplier = null;
+		}
 
-        @Override
-        public String serialized() {
-            return this.toString();
-        }
-    }
+		@Override
+		public String toString() {
+			return this.serialized;
+		}
 
-    public enum Compat implements ConditionalConfig {
-        ALWAYS_TRUE("always_true", true), ALWAYS_FALSE("always_false", false), WITH_ANCIENT_AETHER("with_ancient_aether", () -> CompatHelper.loaded("ancient_aether"));
+		@Override
+		public boolean enabled() {
+			if (this.supplier == null) return this.value;
+			else return this.supplier.get();
+		}
 
-        private final String serialized;
-        @Nullable private final Supplier<Boolean> supplier;
-        private final boolean value;
+		@Override
+		public String serialized() {
+			return this.toString();
+		}
+	}
 
-        Compat(String serialized, Supplier<Boolean> value) {
-            this.serialized = serialized;
-            this.value = false;
-            this.supplier = value;
-        }
+	public enum Compat implements ConditionalConfig {
+		ALWAYS_TRUE("always_true", true),
+		ALWAYS_FALSE("always_false", false),
+		WITH_ANCIENT_AETHER("with_ancient_aether", () -> CompatHelper.loaded("ancient_aether"));
 
-        Compat(String serialized, boolean value) {
-            this.serialized = serialized;
-            this.value = value;
-            this.supplier = null;
-        }
+		private final String serialized;
 
-        @Override
-        public String toString() {
-            return this.serialized;
-        }
+		@Nullable
+		private final Supplier<Boolean> supplier;
 
-        @Override
-        public boolean enabled() {
-            if (this.supplier == null) return this.value;
-            else return this.supplier.get();
-        }
+		private final boolean value;
 
-        @Override
-        public String serialized() {
-            return this.toString();
-        }
-    }
+		Compat(String serialized, Supplier<Boolean> value) {
+			this.serialized = serialized;
+			this.value = false;
+			this.supplier = value;
+		}
+
+		Compat(String serialized, boolean value) {
+			this.serialized = serialized;
+			this.value = value;
+			this.supplier = null;
+		}
+
+		@Override
+		public String toString() {
+			return this.serialized;
+		}
+
+		@Override
+		public boolean enabled() {
+			if (this.supplier == null) return this.value;
+			else return this.supplier.get();
+		}
+
+		@Override
+		public String serialized() {
+			return this.toString();
+		}
+	}
 }

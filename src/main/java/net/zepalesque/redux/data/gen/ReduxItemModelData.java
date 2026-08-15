@@ -9,132 +9,218 @@ import net.zepalesque.redux.data.prov.ReduxItemModelProvider;
 import net.zepalesque.redux.item.ReduxItems;
 
 public class ReduxItemModelData extends ReduxItemModelProvider {
-    public ReduxItemModelData(PackOutput output, ExistingFileHelper helper) {
-        super(output, Redux.MODID, helper);
-    }
+	public ReduxItemModelData(PackOutput output, ExistingFileHelper helper) {
+		super(output, Redux.MODID, helper);
+	}
 
-    @Override
-    protected void registerModels() {
-        Redux.BLOCK_SETS.forEach(set -> set.itemData(this));
-        
-        this.itemBlock(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get());
-        this.itemBlock(ReduxBlocks.AVELIUM.get());
-      
-        this.itemBlock(ReduxBlocks.SILVEROOT_LEAVES.get());
-        this.leafPile(ReduxBlocks.SILVEROOT_LEAF_PILE.get());
+	@Override
+	protected void registerModels() {
+		Redux.BLOCK_SETS.forEach((set) -> set.itemData(this));
 
-        this.itemBlockCustomTexture(ReduxBlocks.PRISMA_LEAVES.get(), "natural/", "prisma_leaves_item");
-        this.leafPileCustomTexture(ReduxBlocks.PRISMA_LEAF_PILE.get(), "natural/", "prisma_leaves_item");
-        
-        this.itemBlock(ReduxBlocks.STORMFIR_LEAVES.get());
-        this.leafPile(ReduxBlocks.STORMFIR_LEAF_PILE.get());
-        
-        this.itemBlock(ReduxBlocks.BLIGHTWILLOW_LEAVES.get());
-        this.itemBlock(ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES.get());
-        this.leafPile(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get());
+		this.itemBlock(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get());
+		this.itemBlock(ReduxBlocks.AVELIUM.get());
 
-        this.itemBlock(ReduxBlocks.GILDLEAF_AMBER_LOG.get());
+		this.itemBlock(ReduxBlocks.SILVEROOT_LEAVES.get());
+		this.leafPile(ReduxBlocks.SILVEROOT_LEAF_PILE.get());
+
+		this.itemBlockCustomTexture(ReduxBlocks.PRISMA_LEAVES.get(), "natural/", "prisma_leaves_item");
+		this.leafPileCustomTexture(
+			ReduxBlocks.PRISMA_LEAF_PILE.get(),
+			"natural/",
+			"prisma_leaves_item"
+		);
+
+		this.itemBlock(ReduxBlocks.STORMFIR_LEAVES.get());
+		this.leafPile(ReduxBlocks.STORMFIR_LEAF_PILE.get());
+
+		this.itemBlock(ReduxBlocks.BLIGHTWILLOW_LEAVES.get());
+		this.itemBlock(ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES.get());
+		this.leafPile(ReduxBlocks.BLIGHTWILLOW_LEAF_PILE.get());
+
+		this.itemBlock(ReduxBlocks.GILDLEAF_AMBER_LOG.get());
 		this.itemBlock(ReduxBlocks.GILDLEAF_AMBER_WOOD.get());
-		
+
 		this.itemBlock(ReduxBlocks.CARVED_BASE.get());
-        this.itemBlock(ReduxBlocks.CARVED_PILLAR.get());
-        this.itemBlock(ReduxBlocks.SENTRY_BASE.get());
-        this.itemBlock(ReduxBlocks.SENTRY_PILLAR.get());
+		this.itemBlock(ReduxBlocks.CARVED_PILLAR.get());
+		this.itemBlock(ReduxBlocks.SENTRY_BASE.get());
+		this.itemBlock(ReduxBlocks.SENTRY_PILLAR.get());
 
-        this.itemOverlayColumn(ReduxBlocks.LOCKED_CARVED_BASE.get(), ReduxBlocks.CARVED_BASE.get(), "dungeon/lock", "dungeon/");
-        this.itemOverlayColumn(ReduxBlocks.LOCKED_CARVED_PILLAR.get(), ReduxBlocks.CARVED_PILLAR.get(), "dungeon/lock", "dungeon/");
-        this.itemOverlayColumn(ReduxBlocks.LOCKED_SENTRY_BASE.get(), ReduxBlocks.SENTRY_BASE.get(), "dungeon/lock", "dungeon/");
-        this.itemOverlayColumn(ReduxBlocks.LOCKED_SENTRY_PILLAR.get(), ReduxBlocks.SENTRY_PILLAR.get(), "dungeon/lock", "dungeon/");
+		this.itemOverlayColumn(
+			ReduxBlocks.LOCKED_CARVED_BASE.get(),
+			ReduxBlocks.CARVED_BASE.get(),
+			"dungeon/lock",
+			"dungeon/"
+		);
+		this.itemOverlayColumn(
+			ReduxBlocks.LOCKED_CARVED_PILLAR.get(),
+			ReduxBlocks.CARVED_PILLAR.get(),
+			"dungeon/lock",
+			"dungeon/"
+		);
+		this.itemOverlayColumn(
+			ReduxBlocks.LOCKED_SENTRY_BASE.get(),
+			ReduxBlocks.SENTRY_BASE.get(),
+			"dungeon/lock",
+			"dungeon/"
+		);
+		this.itemOverlayColumn(
+			ReduxBlocks.LOCKED_SENTRY_PILLAR.get(),
+			ReduxBlocks.SENTRY_PILLAR.get(),
+			"dungeon/lock",
+			"dungeon/"
+		);
 
-        this.itemOverlayColumn(ReduxBlocks.TRAPPED_CARVED_BASE.get(), ReduxBlocks.CARVED_BASE.get(), "dungeon/exclamation", "dungeon/");
-        this.itemOverlayColumn(ReduxBlocks.TRAPPED_CARVED_PILLAR.get(), ReduxBlocks.CARVED_PILLAR.get(), "dungeon/exclamation", "dungeon/");
-        this.itemOverlayColumn(ReduxBlocks.TRAPPED_SENTRY_BASE.get(), ReduxBlocks.SENTRY_BASE.get(), "dungeon/exclamation", "dungeon/");
-        this.itemOverlayColumn(ReduxBlocks.TRAPPED_SENTRY_PILLAR.get(), ReduxBlocks.SENTRY_PILLAR.get(), "dungeon/exclamation", "dungeon/");
+		this.itemOverlayColumn(
+			ReduxBlocks.TRAPPED_CARVED_BASE.get(),
+			ReduxBlocks.CARVED_BASE.get(),
+			"dungeon/exclamation",
+			"dungeon/"
+		);
+		this.itemOverlayColumn(
+			ReduxBlocks.TRAPPED_CARVED_PILLAR.get(),
+			ReduxBlocks.CARVED_PILLAR.get(),
+			"dungeon/exclamation",
+			"dungeon/"
+		);
+		this.itemOverlayColumn(
+			ReduxBlocks.TRAPPED_SENTRY_BASE.get(),
+			ReduxBlocks.SENTRY_BASE.get(),
+			"dungeon/exclamation",
+			"dungeon/"
+		);
+		this.itemOverlayColumn(
+			ReduxBlocks.TRAPPED_SENTRY_PILLAR.get(),
+			ReduxBlocks.SENTRY_PILLAR.get(),
+			"dungeon/exclamation",
+			"dungeon/"
+		);
 
-        this.itemOverlayColumn(ReduxBlocks.BOSS_DOORWAY_CARVED_BASE.get(), ReduxBlocks.CARVED_BASE.get(), "dungeon/door", "dungeon/");
-        this.itemOverlayColumn(ReduxBlocks.BOSS_DOORWAY_CARVED_PILLAR.get(), ReduxBlocks.CARVED_PILLAR.get(), "dungeon/door", "dungeon/");
-        this.itemOverlayColumn(ReduxBlocks.BOSS_DOORWAY_SENTRY_BASE.get(), ReduxBlocks.SENTRY_BASE.get(), "dungeon/door", "dungeon/");
-        this.itemOverlayColumn(ReduxBlocks.BOSS_DOORWAY_SENTRY_PILLAR.get(), ReduxBlocks.SENTRY_PILLAR.get(), "dungeon/door", "dungeon/");
+		this.itemOverlayColumn(
+			ReduxBlocks.BOSS_DOORWAY_CARVED_BASE.get(),
+			ReduxBlocks.CARVED_BASE.get(),
+			"dungeon/door",
+			"dungeon/"
+		);
+		this.itemOverlayColumn(
+			ReduxBlocks.BOSS_DOORWAY_CARVED_PILLAR.get(),
+			ReduxBlocks.CARVED_PILLAR.get(),
+			"dungeon/door",
+			"dungeon/"
+		);
+		this.itemOverlayColumn(
+			ReduxBlocks.BOSS_DOORWAY_SENTRY_BASE.get(),
+			ReduxBlocks.SENTRY_BASE.get(),
+			"dungeon/door",
+			"dungeon/"
+		);
+		this.itemOverlayColumn(
+			ReduxBlocks.BOSS_DOORWAY_SENTRY_PILLAR.get(),
+			ReduxBlocks.SENTRY_PILLAR.get(),
+			"dungeon/door",
+			"dungeon/"
+		);
 
-        this.itemBlock(ReduxBlocks.RUNELIGHT.get(), "_on");
-        this.itemOverlayDungeonBlock(ReduxBlocks.LOCKED_RUNELIGHT.get(), ReduxBlocks.RUNELIGHT.get(), "lock", "dungeon/", "_on");
-        this.itemOverlayDungeonBlock(ReduxBlocks.LOCKED_POLISHED_SENTRITE.get(), ReduxStoneSets.POLISHED_SENTRITE.block().get(), "construction/", "lock");
+		this.itemBlock(ReduxBlocks.RUNELIGHT.get(), "_on");
+		this.itemOverlayDungeonBlock(
+			ReduxBlocks.LOCKED_RUNELIGHT.get(),
+			ReduxBlocks.RUNELIGHT.get(),
+			"lock",
+			"dungeon/",
+			"_on"
+		);
+		this.itemOverlayDungeonBlock(
+			ReduxBlocks.LOCKED_POLISHED_SENTRITE.get(),
+			ReduxStoneSets.POLISHED_SENTRITE.block().get(),
+			"construction/",
+			"lock"
+		);
 
-        this.item(ReduxItems.WYND_OAT_PANICLE.get(), "materials/");
-        this.item(ReduxItems.WYND_OATS.get(), "food/");
+		this.item(ReduxItems.WYND_OAT_PANICLE.get(), "materials/");
+		this.item(ReduxItems.WYND_OATS.get(), "food/");
 
-        this.itemBlockFlatTintOverlay(ReduxBlocks.WYNDSPROUTS.get(), "natural/");
-        this.itemBlockFlatTintGlow(ReduxBlocks.LUXWEED.get(), "natural/");
-        this.itemBlockFlatTintOverlay(ReduxBlocks.SKYSPROUTS.get(), "natural/");
-        this.itemBlockFlatTintOverlay(ReduxBlocks.VERBENA_CLUSTER.get(), "natural/");
-        this.itemBlockFlatCustomTexture(ReduxBlocks.CAELGAE_PATCH.get(), this.texture(ReduxBlocks.CAELGAE_PATCH.get(), "natural/", "_top"));
-        this.item(ReduxBlocks.BLOOMTAIL.get().asItem(), "misc/");
-        this.itemBlock(ReduxBlocks.ECHYSIA.get());
-        
-        this.item(ReduxItems.CAELGAE_CLUMP.get(), "food/");
-        this.item(ReduxItems.SEAWEED_SALAD.get(), "food/");
-        
-        this.item(ReduxItems.RAW_VERIDIUM.get(), "materials/");
-        this.item(ReduxItems.VERIDIUM_INGOT.get(), "materials/");
-        this.item(ReduxItems.VERIDIUM_NUGGET.get(), "materials/");
+		this.itemBlockFlatTintOverlay(ReduxBlocks.WYNDSPROUTS.get(), "natural/");
+		this.itemBlockFlatTintGlow(ReduxBlocks.LUXWEED.get(), "natural/");
+		this.itemBlockFlatTintOverlay(ReduxBlocks.SKYSPROUTS.get(), "natural/");
+		this.itemBlockFlatTintOverlay(ReduxBlocks.VERBENA_CLUSTER.get(), "natural/");
+		this.itemBlockFlatCustomTexture(
+			ReduxBlocks.CAELGAE_PATCH.get(),
+			this.texture(ReduxBlocks.CAELGAE_PATCH.get(), "natural/", "_top")
+		);
+		this.item(ReduxBlocks.BLOOMTAIL.get().asItem(), "misc/");
+		this.itemBlock(ReduxBlocks.ECHYSIA.get());
 
-        this.item(ReduxItems.REFINED_SENTRITE.get(), "materials/");
-        this.item(ReduxItems.SENTRITE_CHUNK.get(), "materials/");
-        
-        // why do vanilla shears not use handheld ???? whatever smh my head,,,,
-        this.item(ReduxItems.SENTRITE_SHEARS.get(), "tools/");
+		this.item(ReduxItems.CAELGAE_CLUMP.get(), "food/");
+		this.item(ReduxItems.SEAWEED_SALAD.get(), "food/");
 
-        this.item(ReduxBlocks.SENTRITE_LANTERN.get().asItem(), "misc/");
-        this.item(ReduxBlocks.SENTRITE_CHAIN.get().asItem(), "misc/");
-        this.item(ReduxBlocks.SENTRITE_BARS.get().asItem(), "misc/");
-        this.item(ReduxBlocks.RUNIC_LANTERN.get().asItem(), "misc/");
+		this.item(ReduxItems.RAW_VERIDIUM.get(), "materials/");
+		this.item(ReduxItems.VERIDIUM_INGOT.get(), "materials/");
+		this.item(ReduxItems.VERIDIUM_NUGGET.get(), "materials/");
 
-        this.handheldItem(ReduxItems.VERIDIUM_PICKAXE.get(), "tools/");
-        this.handheldGlow(ReduxItems.INFUSED_VERIDIUM_PICKAXE.get(), "tools/");
-        this.handheldItem(ReduxItems.VERIDIUM_AXE.get(), "tools/");
-        this.handheldGlow(ReduxItems.INFUSED_VERIDIUM_AXE.get(), "tools/");
-        this.handheldItem(ReduxItems.VERIDIUM_SHOVEL.get(), "tools/");
-        this.handheldGlow(ReduxItems.INFUSED_VERIDIUM_SHOVEL.get(), "tools/");
-        this.handheldItem(ReduxItems.VERIDIUM_HOE.get(), "tools/");
-        this.handheldGlow(ReduxItems.INFUSED_VERIDIUM_HOE.get(), "tools/");
+		this.item(ReduxItems.REFINED_SENTRITE.get(), "materials/");
+		this.item(ReduxItems.SENTRITE_CHUNK.get(), "materials/");
 
-        this.handheldItem(ReduxItems.VERIDIUM_SWORD.get(), "weapons/");
-        this.handheldGlow(ReduxItems.INFUSED_VERIDIUM_SWORD.get(), "weapons/");
+		// why do vanilla shears not use handheld ???? whatever smh my head,,,,
+		this.item(ReduxItems.SENTRITE_SHEARS.get(), "tools/");
 
-        this.item(ReduxItems.VERIDIUM_DART.get(), "weapons/");
-        this.dartShooterItem(ReduxItems.VERIDIUM_DART_SHOOTER.get(), "weapons/");
-        this.dartShooterGlow(ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER.get(), "weapons/");
+		this.item(ReduxBlocks.SENTRITE_LANTERN.get().asItem(), "misc/");
+		this.item(ReduxBlocks.SENTRITE_CHAIN.get().asItem(), "misc/");
+		this.item(ReduxBlocks.SENTRITE_BARS.get().asItem(), "misc/");
+		this.item(ReduxBlocks.RUNIC_LANTERN.get().asItem(), "misc/");
 
-        this.itemBlock(ReduxBlocks.VERIDIUM_ORE.get());
-        this.itemBlock(ReduxBlocks.RAW_VERIDIUM_BLOCK.get());
-        this.itemBlock(ReduxBlocks.VERIDIUM_BLOCK.get());
-        this.itemBlock(ReduxBlocks.REFINED_SENTRITE_BLOCK.get());
+		this.handheldItem(ReduxItems.VERIDIUM_PICKAXE.get(), "tools/");
+		this.handheldGlow(ReduxItems.INFUSED_VERIDIUM_PICKAXE.get(), "tools/");
+		this.handheldItem(ReduxItems.VERIDIUM_AXE.get(), "tools/");
+		this.handheldGlow(ReduxItems.INFUSED_VERIDIUM_AXE.get(), "tools/");
+		this.handheldItem(ReduxItems.VERIDIUM_SHOVEL.get(), "tools/");
+		this.handheldGlow(ReduxItems.INFUSED_VERIDIUM_SHOVEL.get(), "tools/");
+		this.handheldItem(ReduxItems.VERIDIUM_HOE.get(), "tools/");
+		this.handheldGlow(ReduxItems.INFUSED_VERIDIUM_HOE.get(), "tools/");
 
-        this.item(ReduxBlocks.GOLDEN_CLOVERS.get().asItem(), "misc/");
-        this.itemBlockFlatOther(ReduxBlocks.GOLDEN_VINES.get(), ReduxBlocks.GOLDEN_VINES_PLANT.get(), "natural/");
-        this.itemBlockFlatOther(ReduxBlocks.SHADED_VINES.get(), ReduxBlocks.SHADED_VINES_PLANT.get(), "natural/");
+		this.handheldItem(ReduxItems.VERIDIUM_SWORD.get(), "weapons/");
+		this.handheldGlow(ReduxItems.INFUSED_VERIDIUM_SWORD.get(), "weapons/");
+
+		this.item(ReduxItems.VERIDIUM_DART.get(), "weapons/");
+		this.dartShooterItem(ReduxItems.VERIDIUM_DART_SHOOTER.get(), "weapons/");
+		this.dartShooterGlow(ReduxItems.INFUSED_VERIDIUM_DART_SHOOTER.get(), "weapons/");
+
+		this.itemBlock(ReduxBlocks.VERIDIUM_ORE.get());
+		this.itemBlock(ReduxBlocks.RAW_VERIDIUM_BLOCK.get());
+		this.itemBlock(ReduxBlocks.VERIDIUM_BLOCK.get());
+		this.itemBlock(ReduxBlocks.REFINED_SENTRITE_BLOCK.get());
+
+		this.item(ReduxBlocks.GOLDEN_CLOVERS.get().asItem(), "misc/");
+		this.itemBlockFlatOther(
+			ReduxBlocks.GOLDEN_VINES.get(),
+			ReduxBlocks.GOLDEN_VINES_PLANT.get(),
+			"natural/"
+		);
+		this.itemBlockFlatOther(
+			ReduxBlocks.SHADED_VINES.get(),
+			ReduxBlocks.SHADED_VINES_PLANT.get(),
+			"natural/"
+		);
 		this.itemBlockFlat(ReduxBlocks.CLOUDCAP_NETTING.get(), "natural/");
 
-        this.item(ReduxBlocks.LUNAERA.get().asItem(), "misc/");
+		this.item(ReduxBlocks.LUNAERA.get().asItem(), "misc/");
 		this.itemBlockFlat(ReduxBlocks.AVELIUM_ROOTS.get(), "natural/");
-        this.item(ReduxBlocks.LOGICATOR.get().asItem(), "misc/");
+		this.item(ReduxBlocks.LOGICATOR.get().asItem(), "misc/");
 
-        this.item(ReduxItems.AERBOUND_CAPE.get(), "accessories/");
+		this.item(ReduxItems.AERBOUND_CAPE.get(), "accessories/");
 
-        this.itemBlock(ReduxBlocks.BLEAKMOSS_BLOCK.get());
-        this.itemBlock(ReduxBlocks.BLEAKMOSS_CARPET.get());
-        this.itemBlock(ReduxBlocks.GILDENMOSS_BLOCK.get());
-        this.itemBlock(ReduxBlocks.GILDENMOSS_CARPET.get());
-        
-        this.itemBlock(ReduxBlocks.HOLYSILT.get());
-        this.itemBlock(ReduxBlocks.CLOUD_CAP_BLOCK.get());
+		this.itemBlock(ReduxBlocks.BLEAKMOSS_BLOCK.get());
+		this.itemBlock(ReduxBlocks.BLEAKMOSS_CARPET.get());
+		this.itemBlock(ReduxBlocks.GILDENMOSS_BLOCK.get());
+		this.itemBlock(ReduxBlocks.GILDENMOSS_CARPET.get());
 
-        this.item(ReduxItems.MUSIC_DISC_SENTIENCE.get(), "misc/");
-        this.item(ReduxItems.WILLOW_SPORES.get(), "materials/");
-        
-        this.item(ReduxItems.TURBO_VERBENA.get(), "materials/");
+		this.itemBlock(ReduxBlocks.HOLYSILT.get());
+		this.itemBlock(ReduxBlocks.CLOUD_CAP_BLOCK.get());
 
-        this.spawnEgg(ReduxItems.CAT_FISH_SPAWN_EGG);
-        this.spawnEgg(ReduxItems.ARTEMID_SPAWN_EGG);
-    }
+		this.item(ReduxItems.MUSIC_DISC_SENTIENCE.get(), "misc/");
+		this.item(ReduxItems.WILLOW_SPORES.get(), "materials/");
+
+		this.item(ReduxItems.TURBO_VERBENA.get(), "materials/");
+
+		this.spawnEgg(ReduxItems.CAT_FISH_SPAWN_EGG);
+		this.spawnEgg(ReduxItems.ARTEMID_SPAWN_EGG);
+	}
 }

@@ -7,20 +7,33 @@ import net.zepalesque.redux.Redux;
 import org.jetbrains.annotations.NotNull;
 
 public interface IPostRenderer<T extends Entity> {
+	void internalRender(
+		@NotNull T entity,
+		float entityYaw,
+		float partialTicks,
+		PoseStack poseStack,
+		MultiBufferSource buffer,
+		int packedLight
+	);
 
-    void internalRender(@NotNull T entity, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight);
-
-    // TODO: Funny java generics magic to make this unnecessary if possible
-    @SuppressWarnings("unchecked")
-    default boolean actuallyRender(Entity entity, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight) {
-        try {
-	        var t = (T) entity;
-	        this.internalRender(t, entityYaw, partialTicks, poseStack, buffer, packedLight);
-            return true;
-        } catch (ClassCastException e) {
-            Redux.LOGGER.error("Cannot post-render Entity {}, skipping", entity.getStringUUID());
-            Redux.LOGGER.error("Class cast failed", e);
-            return false;
-        }
-    }
+	// TODO: Funny java generics magic to make this unnecessary if possible
+	@SuppressWarnings("unchecked")
+	default boolean actuallyRender(
+		Entity entity,
+		float entityYaw,
+		float partialTicks,
+		PoseStack poseStack,
+		MultiBufferSource buffer,
+		int packedLight
+	) {
+		try {
+			var t = (T) entity;
+			this.internalRender(t, entityYaw, partialTicks, poseStack, buffer, packedLight);
+			return true;
+		} catch (ClassCastException e) {
+			Redux.LOGGER.error("Cannot post-render Entity {}, skipping", entity.getStringUUID());
+			Redux.LOGGER.error("Class cast failed", e);
+			return false;
+		}
+	}
 }

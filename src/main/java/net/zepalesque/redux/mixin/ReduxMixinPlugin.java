@@ -10,42 +10,44 @@ import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
 
 public final class ReduxMixinPlugin implements IMixinConfigPlugin {
+	Map<String, Supplier<Boolean>> OVERRIDES = ImmutableMap.<String, Supplier<Boolean>>builder().build();
 
-    Map<String, Supplier<Boolean>> OVERRIDES = ImmutableMap.<String, Supplier<Boolean>>builder()
-  .build();
+	@Override
+	public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
+		return this.OVERRIDES.containsKey(mixinClassName)
+			? this.OVERRIDES.get(mixinClassName).get()
+			: true;
+	}
 
-    @Override
-    public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        return this.OVERRIDES.containsKey(mixinClassName) ? this.OVERRIDES.get(mixinClassName).get() : true;
-    }
+	@Override
+	public void onLoad(String mixinPackage) {}
 
-    @Override
-    public void onLoad(String mixinPackage) {
+	@Override
+	public String getRefMapperConfig() {
+		return null;
+	}
 
-    }
+	@Override
+	public void acceptTargets(Set<String> myTargets, Set<String> otherTargets) {}
 
-    @Override
-    public String getRefMapperConfig() {
-        return null;
-    }
+	@Override
+	public List<String> getMixins() {
+		return null;
+	}
 
-    @Override
-    public void acceptTargets(Set<String> myTargets, Set<String> otherTargets) {
+	@Override
+	public void preApply(
+		String targetClassName,
+		ClassNode targetClass,
+		String mixinClassName,
+		IMixinInfo mixinInfo
+	) {}
 
-    }
-
-    @Override
-    public List<String> getMixins() {
-        return null;
-    }
-
-    @Override
-    public void preApply(String targetClassName, ClassNode targetClass, String mixinClassName, IMixinInfo mixinInfo) {
-
-    }
-
-    @Override
-    public void postApply(String targetClassName, ClassNode targetClass, String mixinClassName, IMixinInfo mixinInfo) {
-
-    }
+	@Override
+	public void postApply(
+		String targetClassName,
+		ClassNode targetClass,
+		String mixinClassName,
+		IMixinInfo mixinInfo
+	) {}
 }

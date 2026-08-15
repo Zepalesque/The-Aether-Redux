@@ -14,25 +14,29 @@ import org.jetbrains.annotations.Nullable;
 
 // TODO: Custom air block? Or not, vanilla lava lakes use cave air so the mismatch may be fine
 public class AetherCaveCarver extends CaveWorldCarver {
+	public AetherCaveCarver(Codec<CaveCarverConfiguration> codec) {
+		super(codec);
+	}
 
-    public AetherCaveCarver(Codec<CaveCarverConfiguration> codec) {
-        super(codec);
-    }
+	@Nullable
+	@Override
+	public BlockState getCarveState(
+		CarvingContext context,
+		CaveCarverConfiguration config,
+		BlockPos pos,
+		Aquifer aquifer
+	) {
+		if (isDebugEnabled(config)) return aetherDebugState(config, CAVE_AIR);
+		else return CAVE_AIR;
+	}
 
-    @Nullable @Override
-    public BlockState getCarveState(CarvingContext context, CaveCarverConfiguration config, BlockPos pos, Aquifer aquifer) {
-        if (isDebugEnabled(config)) return aetherDebugState(config, CAVE_AIR);
-        else return CAVE_AIR;
-    }
-
-    private static BlockState aetherDebugState(CarverConfiguration config, BlockState state) {
-        if (state.is(Blocks.CAVE_AIR))
-            return config.debugSettings.getAirState();
-        else if (state.is(Blocks.WATER)) {
-            var water = config.debugSettings.getWaterState();
-            return water.hasProperty(BlockStateProperties.WATERLOGGED)
-                ? water.setValue(BlockStateProperties.WATERLOGGED, true)
-                : water;
-        } else return state;
-    }
+	private static BlockState aetherDebugState(CarverConfiguration config, BlockState state) {
+		if (state.is(Blocks.CAVE_AIR)) return config.debugSettings.getAirState();
+		else if (state.is(Blocks.WATER)) {
+			var water = config.debugSettings.getWaterState();
+			return water.hasProperty(BlockStateProperties.WATERLOGGED)
+				? water.setValue(BlockStateProperties.WATERLOGGED, true)
+				: water;
+		} else return state;
+	}
 }

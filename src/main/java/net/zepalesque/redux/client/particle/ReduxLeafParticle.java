@@ -17,111 +17,131 @@ import net.neoforged.api.distmarker.OnlyIn;
 // TODO: Apply horizontal friction to particles touching the SIDE of a block
 @OnlyIn(Dist.CLIENT)
 public class ReduxLeafParticle extends TextureSheetParticle {
-    private float rotSpeed;
-    private final float particleRandom;
-    private final float spinAcceleration;
-    private int onGroundTime = 40;
-    protected static final double MAXIMUM_COLLISION_VELOCITY_SQUARED = Mth.square(100.0D);
+	private float rotSpeed;
+	private final float particleRandom;
+	private final float spinAcceleration;
+	private int onGroundTime = 40;
+	protected static final double MAXIMUM_COLLISION_VELOCITY_SQUARED = Mth.square(100.0D);
 
-    protected ReduxLeafParticle(ClientLevel level, double x, double y, double z) {
-        super(level, x, y, z);
-        this.rotSpeed = (float)Math.toRadians(this.random.nextBoolean() ? -30.0D : 30.0D);
-        this.roll = this.random.nextFloat() * 360F * Mth.DEG_TO_RAD;
-        this.oRoll = this.roll;
-        this.particleRandom = this.random.nextFloat();
-        this.spinAcceleration = (float)Math.toRadians(this.random.nextBoolean() ? -5.0D : 5.0D);
-        this.lifetime = 300;
-        this.gravity = 7.5E-4F;
-        float f = this.random.nextBoolean() ? 0.05F : 0.075F;
-        this.quadSize = f;
-        this.setSize(f, f);
-        this.friction = 1.0F;
-    }
+	protected ReduxLeafParticle(ClientLevel level, double x, double y, double z) {
+		super(level, x, y, z);
+		this.rotSpeed = (float) Math.toRadians(this.random.nextBoolean() ? -30.0D : 30.0D);
+		this.roll = this.random.nextFloat() * 360F * Mth.DEG_TO_RAD;
+		this.oRoll = this.roll;
+		this.particleRandom = this.random.nextFloat();
+		this.spinAcceleration = (float) Math.toRadians(this.random.nextBoolean() ? -5.0D : 5.0D);
+		this.lifetime = 300;
+		this.gravity = 7.5E-4F;
+		float f = this.random.nextBoolean() ? 0.05F : 0.075F;
+		this.quadSize = f;
+		this.setSize(f, f);
+		this.friction = 1.0F;
+	}
 
-    public ParticleRenderType getRenderType() {
-        return ParticleRenderType.PARTICLE_SHEET_TRANSLUCENT;
-    }
+	public ParticleRenderType getRenderType() {
+		return ParticleRenderType.PARTICLE_SHEET_TRANSLUCENT;
+	}
 
-    public void tick() {
-        this.xo = this.x;
-        this.yo = this.y;
-        this.zo = this.z;
+	public void tick() {
+		this.xo = this.x;
+		this.yo = this.y;
+		this.zo = this.z;
 
-        if (this.age++ >= this.lifetime) this.remove();
+		if (this.age++ >= this.lifetime) this.remove();
 
-        if (!this.removed) {
-            float f = (float)this.age;
-            float f1 = Math.min(f / 300.0F, 1.0F);
-            double d0 = Math.cos(Math.toRadians(this.particleRandom * 60.0F)) * 2.0D * Math.pow(f1, 1.25D);
-            double d1 = Math.sin(Math.toRadians(this.particleRandom * 60.0F)) * 2.0D * Math.pow(f1, 1.25D);
-            this.oRoll = this.roll;
-            if (!(this.onGround || this.onGroundTime < 40)) {
-                this.xd += d0 * (double) 0.0025F;
-                this.zd += d1 * (double) 0.0025F;
-                this.yd -= this.gravity;
-                this.rotSpeed += this.spinAcceleration / 20.0F;
-                this.roll += this.rotSpeed / 20.0F;
-            }
-            this.move(this.xd, this.yd, this.zd);
-            if ((this.onGround || this.onGroundTime < 40) && this.age > 1) {
-                this.onGroundTime--;
-                this.xd = 0.0D;
-                this.zd = 0.0D;
-            }
+		if (!this.removed) {
+			float f = (float) this.age;
+			float f1 = Math.min(f / 300.0F, 1.0F);
+			double d0 =
+				Math.cos(Math.toRadians(this.particleRandom * 60.0F)) * 2.0D * Math.pow(f1, 1.25D);
+			double d1 =
+				Math.sin(Math.toRadians(this.particleRandom * 60.0F)) * 2.0D * Math.pow(f1, 1.25D);
+			this.oRoll = this.roll;
+			if (!(this.onGround || this.onGroundTime < 40)) {
+				this.xd += d0 * (double) 0.0025F;
+				this.zd += d1 * (double) 0.0025F;
+				this.yd -= this.gravity;
+				this.rotSpeed += this.spinAcceleration / 20.0F;
+				this.roll += this.rotSpeed / 20.0F;
+			}
+			this.move(this.xd, this.yd, this.zd);
+			if ((this.onGround || this.onGroundTime < 40) && this.age > 1) {
+				this.onGroundTime--;
+				this.xd = 0.0D;
+				this.zd = 0.0D;
+			}
 
-            if (this.onGroundTime < 0) this.remove();
+			if (this.onGroundTime < 0) this.remove();
 
-            if (this.onGroundTime <= 20 && this.age >= this.lifetime - 20)
-                this.alpha = (this.onGroundTime * (this.lifetime - this.age)) / 400F;
-            else if (this.onGroundTime <= 20)
-                this.alpha = this.onGroundTime / 20F;
-            else if (this.age >= this.lifetime - 20)
-                this.alpha = (this.lifetime - this.age) / 20F;
-            else this.alpha = 1.0F;
+			if (this.onGroundTime <= 20 && this.age >= this.lifetime - 20) this.alpha =
+				(this.onGroundTime * (this.lifetime - this.age)) / 400F;
+			else if (this.onGroundTime <= 20) this.alpha = this.onGroundTime / 20F;
+			else if (this.age >= this.lifetime - 20) this.alpha = (this.lifetime - this.age) / 20F;
+			else this.alpha = 1.0F;
 
-            if (!this.removed) {
-                this.xd *= this.friction;
-                this.yd *= this.friction;
-                this.zd *= this.friction;
-            }
-        }
-    }
+			if (!this.removed) {
+				this.xd *= this.friction;
+				this.yd *= this.friction;
+				this.zd *= this.friction;
+			}
+		}
+	}
 
-    @Override
-    public void move(double x, double y, double z) {
-	    var x1 = x;
-	    var y1 = y;
-	    var z1 = z;
-        if (this.hasPhysics && (x != 0.0D || y != 0.0D || z != 0.0D) && x * x + y * y + z * z < MAXIMUM_COLLISION_VELOCITY_SQUARED) {
-            // TODO: optimization
-	        var vec3 = Entity.collideBoundingBox(null, new Vec3(x, y, z), this.getBoundingBox(), this.level, List.of());
-            x = vec3.x;
-            y = vec3.y;
-            z = vec3.z;
-        }
-        if (x != 0.0D || y != 0.0D || z != 0.0D) {
-            this.setBoundingBox(this.getBoundingBox().move(x, y, z));
-            this.setLocationFromBoundingbox();
-        }
-        this.onGround = y1 != y && y1 < 0.0D;
+	@Override
+	public void move(double x, double y, double z) {
+		var x1 = x;
+		var y1 = y;
+		var z1 = z;
+		if (
+			this.hasPhysics &&
+			(x != 0.0D || y != 0.0D || z != 0.0D) &&
+			x * x + y * y + z * z < MAXIMUM_COLLISION_VELOCITY_SQUARED
+		) {
+			// TODO: optimization
+			var vec3 = Entity.collideBoundingBox(
+				null,
+				new Vec3(x, y, z),
+				this.getBoundingBox(),
+				this.level,
+				List.of()
+			);
+			x = vec3.x;
+			y = vec3.y;
+			z = vec3.z;
+		}
+		if (x != 0.0D || y != 0.0D || z != 0.0D) {
+			this.setBoundingBox(this.getBoundingBox().move(x, y, z));
+			this.setLocationFromBoundingbox();
+		}
+		this.onGround = y1 != y && y1 < 0.0D;
 
-        if (x1 != x) this.xd = 0.0D;
+		if (x1 != x) this.xd = 0.0D;
 
-        if (z1 != z) this.zd = 0.0D;
-    }
+		if (z1 != z) this.zd = 0.0D;
+	}
 
-    @OnlyIn(Dist.CLIENT)
-    public static final class Provider implements ParticleProvider<SimpleParticleType> {
-        private final SpriteSet spriteSet;
+	@OnlyIn(Dist.CLIENT)
+	public static final class Provider implements ParticleProvider<SimpleParticleType> {
 
-        public Provider(SpriteSet spriteSetIn) {
-            this.spriteSet = spriteSetIn;
-        }
+		private final SpriteSet spriteSet;
 
-        public Particle createParticle(SimpleParticleType typeIn, ClientLevel worldIn, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
-	        var leavesParticle = new ReduxLeafParticle(worldIn, x, y, z);
-            leavesParticle.pickSprite(this.spriteSet);
-            return leavesParticle;
-        }
-    }
+		public Provider(SpriteSet spriteSetIn) {
+			this.spriteSet = spriteSetIn;
+		}
+
+		public Particle createParticle(
+			SimpleParticleType typeIn,
+			ClientLevel worldIn,
+			double x,
+			double y,
+			double z,
+			double xSpeed,
+			double ySpeed,
+			double zSpeed
+		) {
+			var leavesParticle = new ReduxLeafParticle(worldIn, x, y, z);
+			leavesParticle.pickSprite(this.spriteSet);
+			return leavesParticle;
+		}
+	}
 }

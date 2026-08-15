@@ -11,11 +11,15 @@ import net.zepalesque.zenith.util.recipe.StackingRecipeHelper;
 
 @EventBusSubscriber(modid = Redux.MODID)
 public class RecipeListener {
-
-    @SubscribeEvent
-    public static void onStackItem(ItemStackedOnOtherEvent event) {
-        if (event.getClickAction() == ClickAction.SECONDARY
-                && StackingRecipeHelper.stack(event, stack -> stack.is(AetherItems.AMBROSIUM_SHARD), ReduxRecipes.INFUSION.get()))
-            event.setCanceled(true);
-    }
+	@SubscribeEvent
+	public static void onStackItem(ItemStackedOnOtherEvent event) {
+		if (
+			event.getClickAction() == ClickAction.SECONDARY &&
+			StackingRecipeHelper.stack(
+				event,
+				(stack) -> stack.is(AetherItems.AMBROSIUM_SHARD),
+				ReduxRecipes.INFUSION.get()
+			)
+		) event.setCanceled(true);
+	}
 }

@@ -35,44 +35,70 @@ import net.zepalesque.zenith.api.condition.type.ConfigCondition;
 import net.zepalesque.zenith.api.loot.condition.ConditionLootModule;
 
 public class ReduxLootModifierData extends ReduxLootModifierProvider {
-    public ReduxLootModifierData(PackOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
-        super(output, Redux.MODID, lookup);
-    }
+	public ReduxLootModifierData(PackOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
+		super(output, Redux.MODID, lookup);
+	}
 
-    @Override
-    protected void start() {
+	@Override
+	protected void start() {
+		HolderLookup.RegistryLookup<Enchantment> registrylookup = this.registries.lookupOrThrow(
+			Registries.ENCHANTMENT
+		);
+		this.add(
+			"raw_veridium",
+			new RawOreModifier(
+				ReduxBlocks.VERIDIUM_ORE.get().asItem(),
+				new ItemStack(ReduxItems.RAW_VERIDIUM.get()),
+				new LootItemFunction[] {
+					SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)).build(),
+					ApplyBonusCount.addOreBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE)).build(),
+				},
+				new LootItemCondition[] {
+					new ConditionLootModule(
+						new ConfigCondition(ReduxConfig.SERVER.serializerID(), ReduxConfig.SERVER.raw_ores)
+					),
+					this.hasSilkTouch().invert().build(),
+					LootItemBlockStatePropertyCondition.hasBlockStateProperties(
+						ReduxBlocks.VERIDIUM_ORE.get()
+					).build(),
+				}
+			)
+		);
 
-        HolderLookup.RegistryLookup<Enchantment> registrylookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
-        this.add("raw_veridium", new RawOreModifier(ReduxBlocks.VERIDIUM_ORE.get().asItem(), new ItemStack(ReduxItems.RAW_VERIDIUM.get()),
-                new LootItemFunction[] {
-                        SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)).build(),
-                        ApplyBonusCount.addOreBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE)).build()
-                },
-                new LootItemCondition[] {
-                        new ConditionLootModule(new ConfigCondition(ReduxConfig.SERVER.serializerID(), ReduxConfig.SERVER.raw_ores)),
-	                this.hasSilkTouch().invert().build(),
-                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(ReduxBlocks.VERIDIUM_ORE.get()).build()}));
+		this.add(
+			"aerbound_cape",
+			new AddDungeonLootModifier(
+				new LootItemCondition[] {
+					LootTableIdCondition
+						.builder(
+							AetherLoot.BRONZE_DUNGEON_REWARD.location()
+						) /*.or(LootTableIdCondition.builder(AncientAetherLoot.CHESTS_DUNGEON_BRONZE_DUNGEON_REWARD))*/
+						.build(),
+					LootItemRandomChanceCondition.randomChance(0.75F).build(),
+				},
+				List.of(WeightedEntry.wrap(new ItemStack(ReduxItems.AERBOUND_CAPE.get()), 1)),
+				ConstantInt.of(1)
+			)
+		);
 
-        this.add("aerbound_cape", new AddDungeonLootModifier(
-                new LootItemCondition[] {
-                        LootTableIdCondition.builder(AetherLoot.BRONZE_DUNGEON_REWARD.location())/*.or(LootTableIdCondition.builder(AncientAetherLoot.CHESTS_DUNGEON_BRONZE_DUNGEON_REWARD))*/.build(),
-                        LootItemRandomChanceCondition.randomChance(0.75F).build()
-                },
-                List.of(
-                        WeightedEntry.wrap(new ItemStack(ReduxItems.AERBOUND_CAPE.get()), 1)
-                ),
-                ConstantInt.of(1)
-        ));
-
-        this.add("sentrite_disc", new AddEntityDropsModifier(new ItemStack(ReduxItems.MUSIC_DISC_SENTIENCE.get()),
-                new LootItemFunction[] {
-                        SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)).build()
-                },
-                new LootItemCondition[] {
-                        LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, new EntityPredicate.Builder().of(ReduxTags.Entities.SENTRITE_MUSIC_DISC_DROPPING)).build(),
-                        LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.ATTACKER, EntityPredicate.Builder.entity().of(ReduxTags.Entities.SENTRITE_MUSIC_DISC_DROPPING)).build()
-                }));
-    }
-
-
+		this.add(
+			"sentrite_disc",
+			new AddEntityDropsModifier(
+				new ItemStack(ReduxItems.MUSIC_DISC_SENTIENCE.get()),
+				new LootItemFunction[] {
+					SetItemCountFunction.setCount(ConstantValue.exactly(1.0F)).build(),
+				},
+				new LootItemCondition[] {
+					LootItemEntityPropertyCondition.hasProperties(
+						LootContext.EntityTarget.THIS,
+						new EntityPredicate.Builder().of(ReduxTags.Entities.SENTRITE_MUSIC_DISC_DROPPING)
+					).build(),
+					LootItemEntityPropertyCondition.hasProperties(
+						LootContext.EntityTarget.ATTACKER,
+						EntityPredicate.Builder.entity().of(ReduxTags.Entities.SENTRITE_MUSIC_DISC_DROPPING)
+					).build(),
+				}
+			)
+		);
+	}
 }

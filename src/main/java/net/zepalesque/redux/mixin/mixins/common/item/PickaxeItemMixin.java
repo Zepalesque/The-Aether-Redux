@@ -11,12 +11,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PickaxeItem.class)
 public class PickaxeItemMixin extends DiggerItemMixin {
-
-    @Override
-    protected void postHurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker, CallbackInfo ci) {
-        if (target.getType().is(Entities.VALID_PICKAXE_TARGETS) && stack.is(AetherTags.Items.SLIDER_DAMAGING_ITEMS)) {
-            stack.hurtAndBreak(1, attacker, EquipmentSlot.MAINHAND);
-            ci.cancel();
-        }
-    }
+	@Override
+	protected void postHurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker, CallbackInfo ci) {
+		if (target.getType().is(Entities.VALID_PICKAXE_TARGETS) && stack.is(AetherTags.Items.SLIDER_DAMAGING_ITEMS)) {
+			stack.hurtAndBreak(1, attacker, EquipmentSlot.MAINHAND);
+			ci.cancel();
+		}
+	}
 }

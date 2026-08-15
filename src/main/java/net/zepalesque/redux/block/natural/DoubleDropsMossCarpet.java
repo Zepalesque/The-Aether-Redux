@@ -11,37 +11,36 @@ import net.zepalesque.redux.block.backport.MossyCarpetBlock;
 import net.zepalesque.redux.mixin.mixins.common.accessor.MossyCarpetAccessor;
 
 public class DoubleDropsMossCarpet extends MossyCarpetBlock {
-    public DoubleDropsMossCarpet(Properties properties) {
-        super(properties);
-        this.registerDefaultState(this.defaultBlockState().setValue(
-            AetherBlockStateProperties.DOUBLE_DROPS, false
-        ));
-        this.fixShapeMaps();
-    }
+	public DoubleDropsMossCarpet(Properties properties) {
+		super(properties);
+		this.registerDefaultState(
+			this.defaultBlockState().setValue(AetherBlockStateProperties.DOUBLE_DROPS, false)
+		);
+		this.fixShapeMaps();
+	}
 
-    @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        super.createBlockStateDefinition(builder);
-        builder.add(AetherBlockStateProperties.DOUBLE_DROPS);
-    }
+	@Override
+	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+		super.createBlockStateDefinition(builder);
+		builder.add(AetherBlockStateProperties.DOUBLE_DROPS);
+	}
 
-    /**
-     * Based on the Framed Blocks mod's shape map fix for implementing a wall with additional block properties.
-     */
-    protected void fixShapeMaps() {
-        var mossyCarpetAccessor = (MossyCarpetAccessor) this;
-        var shapesCache = mossyCarpetAccessor.redux$getShapesCache();
-        shapesCache = this.fixShapeMap(shapesCache);
-        mossyCarpetAccessor.redux$setShapesCache(shapesCache);
+	/**
+	 * Based on the Framed Blocks mod's shape map fix for implementing a wall with additional block properties.
+	 */
+	protected void fixShapeMaps() {
+		var mossyCarpetAccessor = (MossyCarpetAccessor) this;
+		var shapesCache = mossyCarpetAccessor.redux$getShapesCache();
+		shapesCache = this.fixShapeMap(shapesCache);
+		mossyCarpetAccessor.redux$setShapesCache(shapesCache);
+	}
 
-    }
+	protected ImmutableMap<BlockState, VoxelShape> fixShapeMap(Map<BlockState, VoxelShape> map) {
+		ImmutableMap.Builder<BlockState, VoxelShape> builder = ImmutableMap.builder();
+		builder.putAll(map);
+		for (var state : map.keySet())
+			builder.put(state.cycle(AetherBlockStateProperties.DOUBLE_DROPS), map.get(state));
 
-    protected ImmutableMap<BlockState, VoxelShape> fixShapeMap(Map<BlockState, VoxelShape> map) {
-        ImmutableMap.Builder<BlockState, VoxelShape> builder = ImmutableMap.builder();
-        builder.putAll(map);
-        for (var state : map.keySet())
-            builder.put(state.cycle(AetherBlockStateProperties.DOUBLE_DROPS), map.get(state));
-
-        return builder.buildKeepingLast();
-    }
+		return builder.buildKeepingLast();
+	}
 }

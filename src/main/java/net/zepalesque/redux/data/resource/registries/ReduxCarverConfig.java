@@ -9,12 +9,11 @@ import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.zepalesque.redux.data.resource.builders.ReduxCarverBuilders;
 
 public class ReduxCarverConfig extends ReduxCarverBuilders {
+	public static final ResourceKey<ConfiguredWorldCarver<?>> AETHER_CAVES = createKey("aether_caves");
 
-    public static final ResourceKey<ConfiguredWorldCarver<?>> AETHER_CAVES = createKey("aether_caves");
+	public static void bootstrap(BootstrapContext<ConfiguredWorldCarver<?>> context) {
+		HolderGetter<Block> blocks = context.lookup(Registries.BLOCK);
 
-    public static void bootstrap(BootstrapContext<ConfiguredWorldCarver<?>> context) {
-        HolderGetter<Block> blocks = context.lookup(Registries.BLOCK);
-
-        context.register(AETHER_CAVES, createAetherCave(blocks));
-    }
+		context.register(AETHER_CAVES, createAetherCave(blocks));
+	}
 }

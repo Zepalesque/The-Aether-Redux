@@ -10,17 +10,17 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 
 @Mixin(WallBlock.class)
 public interface WallBlockAccessor {
-    @Accessor("shapeByIndex")
-    Map<BlockState, VoxelShape> redux$getShapeByIndex();
+	@Accessor("shapeByIndex")
+	Map<BlockState, VoxelShape> redux$getShapeByIndex();
 
-    @Mutable
-    @Accessor("shapeByIndex")
-    void redux$setShapeByIndex(Map<BlockState, VoxelShape> shapeByIndex);
+	@Mutable
+	@Accessor("shapeByIndex")
+	void redux$setShapeByIndex(Map<BlockState, VoxelShape> shapeByIndex);
 
-    @Accessor("collisionShapeByIndex")
-    Map<BlockState, VoxelShape> redux$getCollisionShapeByIndex();
+	@Accessor("collisionShapeByIndex")
+	Map<BlockState, VoxelShape> redux$getCollisionShapeByIndex();
 
-    @Mutable
-    @Accessor("collisionShapeByIndex")
-    void redux$setCollisionShapeByIndex(Map<BlockState, VoxelShape> collisionShapeByIndex);
+	@Mutable
+	@Accessor("collisionShapeByIndex")
+	void redux$setCollisionShapeByIndex(Map<BlockState, VoxelShape> collisionShapeByIndex);
 }

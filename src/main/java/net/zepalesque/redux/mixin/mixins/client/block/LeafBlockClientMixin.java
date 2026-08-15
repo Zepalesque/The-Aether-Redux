@@ -12,6 +12,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(LeavesBlock.class)
 public class LeafBlockClientMixin {
-    @Inject(method = "animateTick", at = @At("RETURN"))
-    protected void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom, CallbackInfo ci) {    }
+	@Inject(method = "animateTick", at = @At("RETURN"))
+	protected void animateTick(
+		BlockState pState,
+		Level pLevel,
+		BlockPos pPos,
+		RandomSource pRandom,
+		CallbackInfo ci
+	) {}
 }

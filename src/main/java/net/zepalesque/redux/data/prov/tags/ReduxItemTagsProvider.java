@@ -11,18 +11,23 @@ import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public abstract class ReduxItemTagsProvider extends ItemTagsProvider {
+	public ReduxItemTagsProvider(
+		PackOutput output,
+		CompletableFuture<HolderLookup.Provider> registries,
+		CompletableFuture<TagLookup<Block>> blockTags,
+		String id,
+		@Nullable ExistingFileHelper helper
+	) {
+		super(output, registries, blockTags, id, helper);
+	}
 
-    public ReduxItemTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, CompletableFuture<TagLookup<Block>> blockTags, String id, @Nullable ExistingFileHelper helper) {
-        super(output, registries, blockTags, id, helper);
-    }
+	@Override
+	public IntrinsicTagAppender<Item> tag(TagKey<Item> tag) {
+		return super.tag(tag);
+	}
 
-    @Override
-    public IntrinsicTagAppender<Item> tag(TagKey<Item> tag) {
-        return super.tag(tag);
-    }
-
-    @Override
-    public void copy(TagKey<Block> blockTag, TagKey<Item> itemTag) {
-        super.copy(blockTag, itemTag);
-    }
+	@Override
+	public void copy(TagKey<Block> blockTag, TagKey<Item> itemTag) {
+		super.copy(blockTag, itemTag);
+	}
 }

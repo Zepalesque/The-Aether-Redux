@@ -53,8 +53,8 @@ public class Cloudcaps {
 					.addSpawn(AetherMobCategory.AETHER_AERWHALE, new MobSpawnSettings.SpawnerData(AetherEntityTypes.AERWHALE.get(), 10, 1, 1))
 					
 					.creatureGenerationProbability(0.5F)
-//                        .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ReduxEntities.SHIMMERCOW.get(), 18, 2, 5))
-//                        .addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ReduxEntities.MYKAPOD.get(), 16, 1, 3))
+						//.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ReduxEntities.SHIMMERCOW.get(), 18, 2, 5))
+						//.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ReduxEntities.MYKAPOD.get(), 16, 1, 3))
 					.build())
 			.generationSettings(
 				new BiomeGenerationSettings.Builder(placed, carvers)
@@ -62,7 +62,7 @@ public class Cloudcaps {
 					.addFeature(GenerationStep.Decoration.RAW_GENERATION, ReduxPlacements.AEROGEL_DISK)
 					
 					.addFeature(GenerationStep.Decoration.LAKES, AetherPlacedFeatures.WATER_LAKE_PLACEMENT)
-//					.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, ReduxPlacements.GLIMMERSTOOL_ROCK)
+					//.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, ReduxPlacements.GLIMMERSTOOL_ROCK)
 					
 					.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_AETHER_DIRT_PLACEMENT)
 					.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_ICESTONE_PLACEMENT)

@@ -12,19 +12,18 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(LivingEntity.class)
 @SuppressWarnings("CancellableInjectionUsage")
 public abstract class LivingEntityMixin extends EntityMixin {
+	@Inject(method = "makePoofParticles", at = @At("HEAD"), cancellable = true)
+	protected void redux$poof(CallbackInfo ci) {}
 
-    @Inject(method = "makePoofParticles", at = @At("HEAD"), cancellable = true)
-    protected void redux$poof(CallbackInfo ci) {}
+	@Inject(method = "isPushable", at = @At("HEAD"), cancellable = true)
+	protected void redux$isPushable(CallbackInfoReturnable<Boolean> cir) {}
 
-    @Inject(method = "isPushable", at = @At("HEAD"), cancellable = true)
-    protected void redux$isPushable(CallbackInfoReturnable<Boolean> cir) {}
+	@Inject(method = "doPush", at = @At("HEAD"), cancellable = true)
+	protected void redux$doPush(Entity entity, CallbackInfo ci) {}
 
-    @Inject(method = "doPush", at = @At("HEAD"), cancellable = true)
-    protected void redux$doPush(Entity entity, CallbackInfo ci) {}
+	@Inject(method = "pushEntities", at = @At("HEAD"), cancellable = true)
+	protected void redux$pushEntities(CallbackInfo ci) {}
 
-    @Inject(method = "pushEntities", at = @At("HEAD"), cancellable = true)
-    protected void redux$pushEntities(CallbackInfo ci) {}
-
-    @Inject(method = "getBoundingBoxForCulling", at = @At("HEAD"), cancellable = true)
-    protected void redux$cullBox(CallbackInfoReturnable<AABB> cir) {}
+	@Inject(method = "getBoundingBoxForCulling", at = @At("HEAD"), cancellable = true)
+	protected void redux$cullBox(CallbackInfoReturnable<AABB> cir) {}
 }

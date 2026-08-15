@@ -17,35 +17,36 @@ import oshi.util.tuples.Quartet;
  * Sync packet for values in the {@link ReduxPlayerAttachment} class.
  */
 public class ReduxPlayerSyncPacket extends SyncEntityPacket<ReduxPlayerAttachment> {
-    public static final Type<ReduxPlayerSyncPacket> TYPE = new Type<>(Redux.loc("sync_redux_player_attachment"));
+	public static final Type<ReduxPlayerSyncPacket> TYPE = new Type<>(
+		Redux.loc("sync_redux_player_attachment")
+	);
 
-    public static final StreamCodec<RegistryFriendlyByteBuf, ReduxPlayerSyncPacket> STREAM_CODEC = CustomPacketPayload.codec(
-        ReduxPlayerSyncPacket::write,
-        ReduxPlayerSyncPacket::decode);
+	public static final StreamCodec<RegistryFriendlyByteBuf, ReduxPlayerSyncPacket> STREAM_CODEC =
+		CustomPacketPayload.codec(ReduxPlayerSyncPacket::write, ReduxPlayerSyncPacket::decode);
 
-    public ReduxPlayerSyncPacket(Quartet<Integer, String, INBTSynchable.Type, Object> values) {
-        super(values);
-    }
+	public ReduxPlayerSyncPacket(Quartet<Integer, String, INBTSynchable.Type, Object> values) {
+		super(values);
+	}
 
-    public ReduxPlayerSyncPacket(int playerID, String key, INBTSynchable.Type type, Object value) {
-        super(playerID, key, type, value);
-    }
+	public ReduxPlayerSyncPacket(int playerID, String key, INBTSynchable.Type type, Object value) {
+		super(playerID, key, type, value);
+	}
 
-    @Override
-    public Type<ReduxPlayerSyncPacket> type() {
-        return TYPE;
-    }
+	@Override
+	public Type<ReduxPlayerSyncPacket> type() {
+		return TYPE;
+	}
 
-    public static ReduxPlayerSyncPacket decode(RegistryFriendlyByteBuf buf) {
-        return new ReduxPlayerSyncPacket(SyncEntityPacket.decodeEntityValues(buf));
-    }
+	public static ReduxPlayerSyncPacket decode(RegistryFriendlyByteBuf buf) {
+		return new ReduxPlayerSyncPacket(SyncEntityPacket.decodeEntityValues(buf));
+	}
 
-    @Override
-    public Supplier<AttachmentType<ReduxPlayerAttachment>> getAttachment() {
-        return ReduxDataAttachments.REDUX_PLAYER;
-    }
+	@Override
+	public Supplier<AttachmentType<ReduxPlayerAttachment>> getAttachment() {
+		return ReduxDataAttachments.REDUX_PLAYER;
+	}
 
-    public static void execute(ReduxPlayerSyncPacket payload, IPayloadContext context) {
-        SyncEntityPacket.execute(payload, context.player());
-    }
+	public static void execute(ReduxPlayerSyncPacket payload, IPayloadContext context) {
+		SyncEntityPacket.execute(payload, context.player());
+	}
 }

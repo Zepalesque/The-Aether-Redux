@@ -17,12 +17,30 @@ import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.neoforged.neoforge.common.data.GlobalLootModifierProvider;
 
 public abstract class ReduxLootModifierProvider extends GlobalLootModifierProvider {
-    public ReduxLootModifierProvider(PackOutput output, String modid, CompletableFuture<HolderLookup.Provider> lookup) {
-        super(output, lookup, modid);
-    }
+	public ReduxLootModifierProvider(
+		PackOutput output,
+		String modid,
+		CompletableFuture<HolderLookup.Provider> lookup
+	) {
+		super(output, lookup, modid);
+	}
 
-    protected LootItemCondition.Builder hasSilkTouch() {
-        HolderLookup.RegistryLookup<Enchantment> registrylookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
-        return MatchTool.toolMatches(ItemPredicate.Builder.item().withSubPredicate(ItemSubPredicates.ENCHANTMENTS, ItemEnchantmentsPredicate.enchantments(List.of(new EnchantmentPredicate(registrylookup.getOrThrow(Enchantments.SILK_TOUCH), MinMaxBounds.Ints.atLeast(1))))));
-    }
+	protected LootItemCondition.Builder hasSilkTouch() {
+		HolderLookup.RegistryLookup<Enchantment> registrylookup = this.registries.lookupOrThrow(
+			Registries.ENCHANTMENT
+		);
+		return MatchTool.toolMatches(
+			ItemPredicate.Builder.item().withSubPredicate(
+				ItemSubPredicates.ENCHANTMENTS,
+				ItemEnchantmentsPredicate.enchantments(
+					List.of(
+						new EnchantmentPredicate(
+							registrylookup.getOrThrow(Enchantments.SILK_TOUCH),
+							MinMaxBounds.Ints.atLeast(1)
+						)
+					)
+				)
+			)
+		);
+	}
 }

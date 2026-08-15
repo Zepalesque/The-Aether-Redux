@@ -18,23 +18,39 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.zepalesque.redux.recipe.ReduxRecipes;
 
 public class WillowSporeRecipe extends AbstractBlockStateRecipe implements MatchEventRecipe {
-    public WillowSporeRecipe(BlockStateIngredient ingredient, BlockPropertyPair result, Optional<ResourceLocation> function) {
-        super(ReduxRecipes.WILLOW_SPORES.get(), ingredient, result, function);
-    }
-    
-    @Override
-    public boolean matches(@Nullable Player player, Level level, BlockPos pos, @Nullable ItemStack stack, BlockState oldState, BlockState newState, RecipeType<?> recipeType) {
-        return this.matches(level, pos, oldState) && MatchEventRecipe.super.matches(player, level, pos, stack, oldState, newState, recipeType);
-    }
-    
-    @Override
-    public RecipeSerializer<?> getSerializer() {
-        return ReduxRecipes.Serializers.WILLOW_SPORES.get();
-    }
-    
-    public static class Serializer extends BlockStateRecipeSerializer<WillowSporeRecipe> {
-        public Serializer() {
-            super(WillowSporeRecipe::new);
-        }
-    }
+	public WillowSporeRecipe(
+		BlockStateIngredient ingredient,
+		BlockPropertyPair result,
+		Optional<ResourceLocation> function
+	) {
+		super(ReduxRecipes.WILLOW_SPORES.get(), ingredient, result, function);
+	}
+
+	@Override
+	public boolean matches(
+		@Nullable Player player,
+		Level level,
+		BlockPos pos,
+		@Nullable ItemStack stack,
+		BlockState oldState,
+		BlockState newState,
+		RecipeType<?> recipeType
+	) {
+		return (
+			this.matches(level, pos, oldState) &&
+			MatchEventRecipe.super.matches(player, level, pos, stack, oldState, newState, recipeType)
+		);
+	}
+
+	@Override
+	public RecipeSerializer<?> getSerializer() {
+		return ReduxRecipes.Serializers.WILLOW_SPORES.get();
+	}
+
+	public static class Serializer extends BlockStateRecipeSerializer<WillowSporeRecipe> {
+
+		public Serializer() {
+			super(WillowSporeRecipe::new);
+		}
+	}
 }

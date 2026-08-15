@@ -15,41 +15,66 @@ import net.zepalesque.redux.client.renderer.ReduxRenderers;
 import net.zepalesque.redux.config.ReduxConfig;
 import org.jetbrains.annotations.NotNull;
 
-public class ReduxWhirlwindRenderer<T extends AbstractWhirlwind> extends LivingEntityRenderer<T, WhirlwindModel<T>> {
+public class ReduxWhirlwindRenderer<T extends AbstractWhirlwind>
+	extends LivingEntityRenderer<T, WhirlwindModel<T>>
+{
+	private static final ResourceLocation WHIRLWIND = ResourceLocation.fromNamespaceAndPath(
+		Aether.MODID,
+		"textures/entity/mobs/whirlwind/whirlwind.png"
+	);
 
-    private static final ResourceLocation WHIRLWIND = ResourceLocation.fromNamespaceAndPath(Aether.MODID, "textures/entity/mobs/whirlwind/whirlwind.png");
+	public ReduxWhirlwindRenderer(EntityRendererProvider.Context context) {
+		super(
+			context,
+			new WhirlwindModel<>(context.bakeLayer(ReduxRenderers.ModelLayers.WHIRLWIND)),
+			0.0F
+		);
+	}
 
-    public ReduxWhirlwindRenderer(EntityRendererProvider.Context context) {
-        super(context, new WhirlwindModel<>(context.bakeLayer(ReduxRenderers.ModelLayers.WHIRLWIND)), 0.0F);
-    }
+	@Override
+	@NotNull
+	public ResourceLocation getTextureLocation(@NotNull T whirlwind) {
+		return WHIRLWIND;
+	}
 
-    @Override
-    @NotNull public ResourceLocation getTextureLocation(@NotNull T whirlwind) {
-        return WHIRLWIND;
-    }
+	@Override
+	public void render(
+		@NotNull T entity,
+		float entityYaw,
+		float partialTicks,
+		@NotNull PoseStack poseStack,
+		@NotNull MultiBufferSource buffer,
+		int packedLight
+	) {
+		if (ReduxConfig.CLIENT.improved_whirlwinds.get()) {
+			float age = this.getBob(entity, partialTicks);
+			VertexConsumer vertexconsumer = buffer.getBuffer(
+				this.renderType(this.getTextureLocation(entity), this.xOffset(age) % 1.0F)
+			);
+			poseStack.pushPose();
+			this.model.setupAnim(entity, 0.0F, 0.0F, age, 0.0F, 0.0F);
+			poseStack.mulPose(Axis.ZP.rotationDegrees(180.0F));
+			this.scale(entity, poseStack, partialTicks);
+			this.model.renderToBuffer(poseStack, vertexconsumer, packedLight, OverlayTexture.NO_OVERLAY);
+			poseStack.popPose();
+		}
+	}
 
-    @Override
-    public void render(@NotNull T entity, float entityYaw, float partialTicks, @NotNull PoseStack poseStack, @NotNull MultiBufferSource buffer, int packedLight) {
-        if (ReduxConfig.CLIENT.improved_whirlwinds.get()) {
-            float age = this.getBob(entity, partialTicks);
-            VertexConsumer vertexconsumer = buffer.getBuffer(this.renderType(this.getTextureLocation(entity), this.xOffset(age) % 1.0F));
-            poseStack.pushPose();
-            this.model.setupAnim(entity, 0.0F, 0.0F, age, 0.0F, 0.0F);
-            poseStack.mulPose(Axis.ZP.rotationDegrees(180.0F));
-            this.scale(entity, poseStack, partialTicks);
-            this.model.renderToBuffer(poseStack, vertexconsumer, packedLight, OverlayTexture.NO_OVERLAY);
-            poseStack.popPose();
-        }
-    }
+	protected RenderType renderType(ResourceLocation texture, float xOffset) {
+		return RenderType.breezeWind(texture, xOffset, 0.0F);
+	}
 
-    protected RenderType renderType(ResourceLocation texture, float xOffset) {
-        return RenderType.breezeWind(texture, xOffset, 0.0F);
-    }
+	protected float xOffset(float tickCount) {
+		return tickCount * 0.01F;
+	}
 
-    protected float xOffset(float tickCount) {
-        return tickCount * 0.01F;
-    }
-
-    @Override
-    protected void setupRotations(@NotNull AbstractWhirlwind entity, @NotNull PoseStack poseStack, float bob, float yBodyRot, float partialTick, float scale) {}
+	@Override
+	protected void setupRotations(
+		@NotNull AbstractWhirlwind entity,
+		@NotNull PoseStack poseStack,
+		float bob,
+		float yBodyRot,
+		float partialTick,
+		float scale
+	) {}
 }

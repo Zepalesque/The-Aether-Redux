@@ -9,15 +9,20 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.api.WeightedParticleEntry;
 
 public class ReduxDataMaps {
-    public static final Set<DataMapType<?, ?>> TYPES = new HashSet<>();
+	public static final Set<DataMapType<?, ?>> TYPES = new HashSet<>();
 
-    public static final DataMapType<Block, WeightedParticleEntry> LEAF_PARTICLES = register(
-            DataMapType.builder(Redux.loc("leaf_particles"), Registries.BLOCK, WeightedParticleEntry.COMPRESSABLE_CODEC).synced(WeightedParticleEntry.CODEC, false).build()
-    );
+	public static final DataMapType<Block, WeightedParticleEntry> LEAF_PARTICLES = register(
+		DataMapType.builder(
+			Redux.loc("leaf_particles"),
+			Registries.BLOCK,
+			WeightedParticleEntry.COMPRESSABLE_CODEC
+		)
+			.synced(WeightedParticleEntry.CODEC, false)
+			.build()
+	);
 
-    public static <A, B> DataMapType<A, B> register(DataMapType<A, B> map) {
-        TYPES.add(map);
-        return map;
-    }
-
+	public static <A, B> DataMapType<A, B> register(DataMapType<A, B> map) {
+		TYPES.add(map);
+		return map;
+	}
 }

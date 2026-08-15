@@ -14,38 +14,38 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Slider.class)
 public abstract class SliderMixin extends MobMixin {
-    @Shadow public abstract boolean isCritical();
+	@Shadow public abstract boolean isCritical();
 
-    @Shadow private int moveDelay;
-    
-    @Shadow public abstract int getMoveDelay();
+	@Shadow private int moveDelay;
 
-    @Inject(method = "getAmbientSound", at = @At("RETURN"), cancellable = true)
-    protected void redux$getAmbientSound(CallbackInfoReturnable<SoundEvent> cir) {
-        if (((Slider) (Object) this).isAwake()) cir.setReturnValue(null);
-    }
+	@Shadow public abstract int getMoveDelay();
 
-    @Inject(method = "calculateMoveDelay", at = @At("HEAD"), cancellable = true)
-    protected void redux$calculateMoveDelay(CallbackInfoReturnable<Integer> cir) {
-        int rand = this.getRandom().nextInt(7);
-        int adjusted = (this.isCritical() ? 3 : 7) + rand;
-        cir.setReturnValue(adjusted);
-    }
+	@Inject(method = "getAmbientSound", at = @At("RETURN"), cancellable = true)
+	protected void redux$getAmbientSound(CallbackInfoReturnable<SoundEvent> cir) {
+		if (((Slider) (Object) this).isAwake()) cir.setReturnValue(null);
+	}
 
-    @Inject(method = "customServerAiStep", at = @At("HEAD"))
-    protected void redux$customServerAiStep(CallbackInfo ci) {
-        if (!this.isCritical() && this.moveDelay == 7 || this.isCritical() && this.moveDelay == 3)
-            SliderSignalAttachment.sendSignal((Slider) (Object) this);
-    }
+	@Inject(method = "calculateMoveDelay", at = @At("HEAD"), cancellable = true)
+	protected void redux$calculateMoveDelay(CallbackInfoReturnable<Integer> cir) {
+		int rand = this.getRandom().nextInt(7);
+		int adjusted = (this.isCritical() ? 3 : 7) + rand;
+		cir.setReturnValue(adjusted);
+	}
 
-    @Inject(method = "setMoveDirection", at = @At("HEAD"))
-    protected void redux$setMoveDirection(Direction moveDirection, CallbackInfo ci) {
-        if (moveDirection != null && !this.isCritical() && this.getMoveDelay() > 0)
-            SliderSignalAttachment.syncDirection((Slider) (Object) this, moveDirection);
-    }
+	@Inject(method = "customServerAiStep", at = @At("HEAD"))
+	protected void redux$customServerAiStep(CallbackInfo ci) {
+		if (!this.isCritical() && this.moveDelay == 7 || this.isCritical() && this.moveDelay == 3)
+			SliderSignalAttachment.sendSignal((Slider) (Object) this);
+	}
 
-    @Override
-    protected void redux$setTarget(LivingEntity target, CallbackInfo ci) {
-        SliderSignalAttachment.syncTarget((Slider) (Object) this, target);
-    }
+	@Inject(method = "setMoveDirection", at = @At("HEAD"))
+	protected void redux$setMoveDirection(Direction moveDirection, CallbackInfo ci) {
+		if (moveDirection != null && !this.isCritical() && this.getMoveDelay() > 0)
+			SliderSignalAttachment.syncDirection((Slider) (Object) this, moveDirection);
+	}
+
+	@Override
+	protected void redux$setTarget(LivingEntity target, CallbackInfo ci) {
+		SliderSignalAttachment.syncTarget((Slider) (Object) this, target);
+	}
 }
