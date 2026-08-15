@@ -399,7 +399,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				new StraightTrunkPlacer(14, 4, 4),
 				prov(ReduxBlocks.CLOUD_CAP_BLOCK),
 
-				new CloudcapFoliagePlacer(UniformInt.of(5, 7), prov(() -> ReduxBlocks.SHADED_VINES_PLANT.get())),
+				new CloudcapFoliagePlacer(UniformInt.of(5, 7), prov(() -> ReduxBlocks.CLOUDCAP_NETTING.get())),
 				Optional.empty(),
 				new TwoLayersFeatureSize(7, 0, 3)
 			)

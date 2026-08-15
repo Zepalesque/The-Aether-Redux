@@ -10,6 +10,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.LevelSimulatedReader;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
@@ -63,9 +64,11 @@ public class CloudcapFoliagePlacer extends FoliagePlacer {
 			tryPlaceLeaf(level, setter, rand, cfg, offsetPos);
 			tryPlaceLeaf(level, setter, rand, cfg, offsetPos.move(Direction.DOWN));
 
-			for (var j = 0; j <= rand.nextInt(height - 1, height + 1); j++) {
-				this.tryPlaceNetting(level, setter, rand, offsetPos.move(Direction.DOWN));
+			var nettingHeight = rand.nextInt(height - 1, height + 1);
+			for (var j = 0; j < nettingHeight; j++) {
+				this.tryPlaceNetting(level, setter, rand, offsetPos.move(Direction.DOWN), false);
 			}
+			this.tryPlaceNetting(level, setter, rand, offsetPos.move(Direction.DOWN), true);
 		}
 
 		for (var dir : Direction.Plane.HORIZONTAL) {
@@ -98,13 +101,18 @@ public class CloudcapFoliagePlacer extends FoliagePlacer {
 		LevelSimulatedReader level,
 		FoliageSetter foliageSetter,
 		RandomSource random,
-		BlockPos pos
+		BlockPos pos,
+		boolean bottom
 	) {
 		if (!level.isStateAtPosition(pos, state -> state.isAir())) {
 			return false;
 		}
 
 		var state = this.netting.getState(random, pos);
+		if (state.hasProperty(BlockStateProperties.BOTTOM)) {
+			state = state.setValue(BlockStateProperties.BOTTOM, bottom);
+		}
+
 		foliageSetter.set(pos, state);
 		return true;
 	}

@@ -39,6 +39,7 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.backport.MossyCarpetBlock;
 import net.zepalesque.redux.block.construction.LayeredBookshelfBlock;
 import net.zepalesque.redux.block.dungeon.RunelightBlock;
+import net.zepalesque.redux.block.natural.CloudcapNettingBlock;
 import net.zepalesque.redux.block.redstone.LogicatorBlock;
 import net.zepalesque.redux.block.state.ReduxStates;
 import net.zepalesque.redux.block.state.enums.LogicatorMode;
@@ -436,6 +437,26 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
 			.texture("plant", this.texture(this.name(block), location))
 			.renderType("cutout");
 		this.crossBlock(block, cross);
+	}
+
+	public void netting(CloudcapNettingBlock block, String location) {
+		this.getVariantBuilder(block).forAllStates(state -> ConfiguredModel.builder().modelFile(
+			state.getValue(BlockStateProperties.BOTTOM)
+				? this.models()
+					.withExistingParent(
+						this.name(block) + "_bottom",
+						Redux.loc(ModelProvider.BLOCK_FOLDER + "/template/crop/crop_occluded")
+					)
+					.texture("plant", this.texture(this.name(block), location, "_bottom"))
+					.renderType("cutout")
+				: this.models()
+					.withExistingParent(
+						this.name(block),
+						Redux.loc(ModelProvider.BLOCK_FOLDER + "/template/crop/crop_occluded")
+					)
+					.texture("plant", this.texture(this.name(block), location))
+					.renderType("cutout")
+		).build());
 	}
 
 	public void doublePlant(DoublePlantBlock block, String location) {

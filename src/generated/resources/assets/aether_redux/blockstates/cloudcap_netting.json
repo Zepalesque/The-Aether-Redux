@@ -1,0 +1,10 @@
+{
+	"variants": {
+		"bottom=false": {
+			"model": "aether_redux:block/cloudcap_netting"
+		},
+		"bottom=true": {
+			"model": "aether_redux:block/cloudcap_netting_bottom"
+		}
+	}
+}

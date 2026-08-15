@@ -18,7 +18,10 @@
 			"netting": {
 				"type": "minecraft:simple_state_provider",
 				"state": {
-					"Name": "aether_redux:shaded_vines_plant"
+					"Name": "aether_redux:cloudcap_netting",
+					"Properties": {
+						"bottom": "true"
+					}
 				}
 			}
 		},

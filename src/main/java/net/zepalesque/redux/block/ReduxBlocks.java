@@ -36,6 +36,7 @@ import net.zepalesque.redux.block.natural.BlightedGrassBlock;
 import net.zepalesque.redux.block.natural.BloomtailBlock;
 import net.zepalesque.redux.block.natural.CaelgaeBlock;
 import net.zepalesque.redux.block.natural.CloudCapBlock;
+import net.zepalesque.redux.block.natural.CloudcapNettingBlock;
 import net.zepalesque.redux.block.natural.DoubleDropsMossCarpet;
 import net.zepalesque.redux.block.natural.EchysiaBlock;
 import net.zepalesque.redux.block.natural.GoldenCloversBlock;
@@ -535,6 +536,14 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 				.sound(SoundType.CAVE_VINES),
 			BlockTags.LEAVES,
 			ReduxBlocks.SHADED_VINES_PLANT
+		)
+	);
+
+	public static final DeferredBlock<CloudcapNettingBlock> CLOUDCAP_NETTING = register(
+		"cloudcap_netting",
+		() -> new CloudcapNettingBlock(
+			Properties.ofFullCopy(SHADED_VINES.get())
+				.mapColor(MapColor.GLOW_LICHEN)
 		)
 	);
 	

@@ -256,6 +256,9 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 		this.addBlock(ReduxBlocks.AVELIUM_ROOTS);
 		this.addLore(ReduxBlocks.AVELIUM_ROOTS, "Roots from a patch of avelium.");
 
+		this.addBlock(ReduxBlocks.CLOUDCAP_NETTING);
+		this.addLore(ReduxBlocks.CLOUDCAP_NETTING, "Netting of a huge Cloudcap mushroom.");
+
 		this.addTooltip("shift_info", "Hold [%s] for more info...");
 		this.addTooltip("infusion_charge", "Infusion Charge: %s");
 		this.addTooltip("infusion_info", "Can be infused by right-clicking the item in your inventory while hovering over it with an Ambrosium Shard");

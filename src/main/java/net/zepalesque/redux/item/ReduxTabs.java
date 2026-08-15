@@ -77,7 +77,10 @@ public class ReduxTabs {
 				ReduxBlocks.GILDENMOSS_BLOCK,
 				ReduxBlocks.GILDENMOSS_CARPET,
 				ReduxBlocks.BLEAKMOSS_BLOCK,
-				ReduxBlocks.BLEAKMOSS_CARPET
+				ReduxBlocks.BLEAKMOSS_CARPET,
+				ReduxBlocks.GOLDEN_VINES,
+				ReduxBlocks.SHADED_VINES,
+				ReduxBlocks.CLOUDCAP_NETTING
 			);
 
 		new TabBuilder(event, AetherCreativeTabs.AETHER_DUNGEON_BLOCKS.getKey())
