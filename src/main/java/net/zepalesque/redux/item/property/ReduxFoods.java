@@ -12,6 +12,6 @@ public class ReduxFoods {
     public static final FoodProperties GUMMY_SWET_NERF = new Builder().fast().nutrition(7).saturationModifier(0.6F).build();
     public static final FoodProperties CAELGAE_CLUMP = new Builder().fast().nutrition(1).saturationModifier(0.1F).build();
     public static final FoodProperties SEAWEED_SALAD = new Builder().nutrition(5).saturationModifier(0.4F).usingConvertsTo(Items.BOWL).build();
-    public static final FoodProperties TURBO_VERBENA = new Builder().nutrition(1).saturationModifier(0.1F).effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 10, 0), 1f).build();
+    public static final FoodProperties TURBO_VERBENA = new Builder().nutrition(1).saturationModifier(0.1F).effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 0), 1f).build();
 
 }
