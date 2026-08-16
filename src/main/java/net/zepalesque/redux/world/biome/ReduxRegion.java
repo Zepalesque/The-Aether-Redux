@@ -38,7 +38,7 @@ public class ReduxRegion extends Region {
 		//var glaical = ReduxConfig.COMMON.enable_snowy_biomes.get() ? ReduxBiomes.GLACIAL_TUNDRA : AetherBiomes.SKYROOT_FOREST;
 		var cloudcaps =
 			ReduxBiomes
-				/*ReduxConfig.COMMON.enable_cloudcaps.get() ?*/ .CLOUDCAPS /*: AetherBiomes.SKYROOT_GROVE*/;
+				/*ReduxConfig.COMMON.enable_cloudcaps.get() ?*/ .CLOUDCAP_RIDGE /*: AetherBiomes.SKYROOT_GROVE*/;
 		var blight =
 			ReduxBiomes
 				/*ReduxConfig.COMMON.enable_the_blight.get() ?*/ .THE_BLIGHT /*: AetherBiomes.SKYROOT_WOODLAND*/;

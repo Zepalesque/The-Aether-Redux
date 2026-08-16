@@ -8,14 +8,14 @@
 			"sky": 10462429
 		},
 		"fog_map": {
-			"aether_redux:cloudcaps": 12567807,
+			"aether_redux:cloudcap_ridge": 12567807,
 			"aether_redux:frosted_forests": 13685477,
 			"aether_redux:gilded_groves": 14539226,
 			"aether_redux:skyfields": 13555179,
 			"aether_redux:the_blight": 11382483
 		},
 		"sky_map": {
-			"aether_redux:cloudcaps": 9938164,
+			"aether_redux:cloudcap_ridge": 9938164,
 			"aether_redux:frosted_forests": 11776997,
 			"aether_redux:gilded_groves": 12893610,
 			"aether_redux:skyfields": 11320038,

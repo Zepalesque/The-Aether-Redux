@@ -134,7 +134,7 @@ public class ReduxSurfaceRules {
 			),
 			
 			inBiome(
-				ReduxBiomes.CLOUDCAPS,
+				ReduxBiomes.CLOUDCAP_RIDGE,
 				SurfaceRules.ifTrue(
 					SurfaceRules.ON_FLOOR,
 					SurfaceRules.sequence(

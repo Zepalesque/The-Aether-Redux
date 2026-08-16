@@ -129,7 +129,7 @@ public class ReduxBiomeModifiers {
 				.put(biomes.getOrThrow(ReduxBiomes.THE_BLIGHT), 0x7C7DA5)
 				.put(biomes.getOrThrow(ReduxBiomes.FROSTED_FORESTS), 0xB3B3E5)
 				.put(biomes.getOrThrow(ReduxBiomes.SKYFIELDS), 0xACBAE6)
-				.put(biomes.getOrThrow(ReduxBiomes.CLOUDCAPS), 0x97A4F4)
+				.put(biomes.getOrThrow(ReduxBiomes.CLOUDCAP_RIDGE), 0x97A4F4)
 				.build(),
 			ImmutableMap
 				.<Holder<Biome>, Integer>builder() // fog
@@ -137,7 +137,7 @@ public class ReduxBiomeModifiers {
 				.put(biomes.getOrThrow(ReduxBiomes.THE_BLIGHT), 0xADAED3)
 				.put(biomes.getOrThrow(ReduxBiomes.FROSTED_FORESTS), 0xD0D2E5)
 				.put(biomes.getOrThrow(ReduxBiomes.SKYFIELDS), 0xCED5EB)
-				.put(biomes.getOrThrow(ReduxBiomes.CLOUDCAPS), 0xBFC4FF)
+				.put(biomes.getOrThrow(ReduxBiomes.CLOUDCAP_RIDGE), 0xBFC4FF)
 				.build()
 		);
 		context.register(
@@ -165,7 +165,7 @@ public class ReduxBiomeModifiers {
 				.put(biomes.getOrThrow(ReduxBiomes.THE_BLIGHT), 0xA2ACD8)
 				.put(biomes.getOrThrow(ReduxBiomes.FROSTED_FORESTS), 0xA2C3D8)
 				.put(biomes.getOrThrow(ReduxBiomes.SKYFIELDS), 0x94D2EF)
-				.put(biomes.getOrThrow(ReduxBiomes.CLOUDCAPS), 0x9DBDEA)
+				.put(biomes.getOrThrow(ReduxBiomes.CLOUDCAP_RIDGE), 0x9DBDEA)
 				.build(),
 			ImmutableMap
 				.<Holder<Biome>, Integer>builder() // fog
@@ -176,7 +176,7 @@ public class ReduxBiomeModifiers {
 				.put(biomes.getOrThrow(ReduxBiomes.THE_BLIGHT), 0x1C1E26)
 				.put(biomes.getOrThrow(ReduxBiomes.FROSTED_FORESTS), 0x1A2023)
 				.put(biomes.getOrThrow(ReduxBiomes.SKYFIELDS), 0x192328)
-				.put(biomes.getOrThrow(ReduxBiomes.CLOUDCAPS), 0x1B2128)
+				.put(biomes.getOrThrow(ReduxBiomes.CLOUDCAP_RIDGE), 0x1B2128)
 				.build()
 		);
 		context.register(

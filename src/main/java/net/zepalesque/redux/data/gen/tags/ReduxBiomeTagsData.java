@@ -27,7 +27,7 @@ public class ReduxBiomeTagsData extends BiomeTagsProvider {
 			ReduxBiomes.THE_BLIGHT,
 			ReduxBiomes.FROSTED_FORESTS,
 			ReduxBiomes.SKYFIELDS,
-			ReduxBiomes.CLOUDCAPS
+			ReduxBiomes.CLOUDCAP_RIDGE
 			// java needs trailing commas
 		);
 

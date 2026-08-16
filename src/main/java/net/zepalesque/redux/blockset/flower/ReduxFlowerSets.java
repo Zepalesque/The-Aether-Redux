@@ -146,7 +146,7 @@ public class ReduxFlowerSets {
 			.withFlowerTag(BlockTags.SAPLINGS)
 			.compost(0.3F)
 			.withLore(
-				"A mushroom found commonly in the Cloudcaps. It gives off a faint glow, and can be grown into a larger variation."
+				"A mushroom found commonly in the Cloudcap Ridges. It gives off a faint glow, and can be grown into a larger variation."
 			)
 	);
 

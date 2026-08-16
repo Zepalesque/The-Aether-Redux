@@ -13,7 +13,7 @@ import net.minecraft.world.level.levelgen.GenerationStep;
 import net.zepalesque.redux.client.audio.ReduxMusic;
 import net.zepalesque.redux.data.resource.registries.ReduxPlacements;
 
-public class Cloudcaps {
+public class CloudcapRidge {
 	public static Biome generate(BootstrapContext<Biome> context) {
 		var placed = context.lookup(Registries.PLACED_FEATURE);
 		var carvers = context.lookup(Registries.CONFIGURED_CARVER);

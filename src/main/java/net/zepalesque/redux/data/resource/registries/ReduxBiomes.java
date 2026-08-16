@@ -5,7 +5,7 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.data.resource.builders.biome.Cloudcaps;
+import net.zepalesque.redux.data.resource.builders.biome.CloudcapRidge;
 import net.zepalesque.redux.data.resource.builders.biome.FrostedForests;
 import net.zepalesque.redux.data.resource.builders.biome.GildedGroves;
 import net.zepalesque.redux.data.resource.builders.biome.Skyfields;
@@ -18,7 +18,7 @@ public class ReduxBiomes {
 	public static final ResourceKey<Biome> GILDED_GROVES = createKey("gilded_groves");
 	public static final ResourceKey<Biome> GILDED_GRASSLANDS = createKey("gilded_grasslands");
 	public static final ResourceKey<Biome> SKYFIELDS = createKey("skyfields");
-	public static final ResourceKey<Biome> CLOUDCAPS = createKey("cloudcaps");
+	public static final ResourceKey<Biome> CLOUDCAP_RIDGE = createKey("cloudcap_ridge");
 	public static final ResourceKey<Biome> SKYROOT_SHRUBLANDS = createKey("skyroot_shrublands");
 
 	// TODO: Add to 3.1
@@ -35,6 +35,6 @@ public class ReduxBiomes {
 		context.register(THE_BLIGHT, TheBlight.generate(context));
 		context.register(FROSTED_FORESTS, FrostedForests.generate(context));
 		context.register(SKYFIELDS, Skyfields.generate(context));
-		context.register(CLOUDCAPS, Cloudcaps.generate(context));
+		context.register(CLOUDCAP_RIDGE, CloudcapRidge.generate(context));
 	}
 }
