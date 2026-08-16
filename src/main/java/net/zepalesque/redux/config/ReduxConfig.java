@@ -120,6 +120,7 @@ public class ReduxConfig {
 	public static class Client {
 		public final ModConfigSpec.ConfigValue<Boolean> leaf_particles;
 		public final ModConfigSpec.ConfigValue<Boolean> improved_whirlwinds;
+		public final ModConfigSpec.ConfigValue<Boolean> move_clouds;
 
 		public final ModConfigSpec.ConfigValue<Boolean> jappafied_textures;
 		public final ModConfigSpec.ConfigValue<Boolean> slider_sfx_upgrade;
@@ -137,6 +138,10 @@ public class ReduxConfig {
 			this.improved_whirlwinds = builder
 				.comment("Gives Whirlwinds a new design, based on Minecraft 1.21's new Breeze mob")
 				.define("Improved Whirlwinds", true);
+			this.move_clouds = builder
+				.comment("Move the clouds in the Aether to above the islands")
+				.gameRestart()
+				.define("Move Clouds", true);
 			
 			this.jappafied_textures = Redux.ASSETS_CONFIG.register(
 				builder
