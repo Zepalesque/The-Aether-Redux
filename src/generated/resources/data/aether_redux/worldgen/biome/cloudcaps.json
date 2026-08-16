@@ -37,6 +37,7 @@
 			"aether:grass_patch",
 			"aether:tall_grass_patch",
 			"aether_redux:avelium_roots_patch",
+			"aether_redux:cloudcap_mushling_patch",
 			"aether_redux:cloudcap_trees"
 		],
 		["aether:cold_aercloud", "aether:blue_aercloud", "aether:golden_aercloud"]

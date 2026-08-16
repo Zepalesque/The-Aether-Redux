@@ -75,11 +75,10 @@ public class Cloudcaps {
 					
 					.addFeature(GenerationStep.Decoration.FLUID_SPRINGS, AetherPlacedFeatures.WATER_SPRING_PLACEMENT)
 					
-//					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.LARGE_MUSHROOMS)
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.GRASS_PATCH_PLACEMENT)
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.TALL_GRASS_PATCH_PLACEMENT)
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.AVELIUM_ROOTS_PATCH)
-//					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.CLOUDCAP_MUSHLING_PATCH)
+					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.CLOUDCAP_MUSHLING_PATCH)
 //					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.JELLYSHROOM_PATCH)
 //					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.GLIMMERSTOOL_PATCH)
 
