@@ -1070,7 +1070,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			patch(16, 7, 3, prov(AetherBlocks.PURPLE_FLOWER)));
 
 		register(context, SKYFERN_PATCH, Feature.FLOWER,
-			patch(24, 9, 3, prov(UnityBlocks.SKYFERN)));
+			patch(24, 9, 3, prov(UnityBlocks.SKYFERN), CANNOT_SPAWN_AETHER_GRASS.get()));
 
 		register(context, LUNAERA_PATCH, Feature.FLOWER,
 			patch(32, 7, 3, prov(ReduxBlocks.LUNAERA)));

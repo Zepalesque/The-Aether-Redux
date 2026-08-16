@@ -79,8 +79,9 @@ public class CloudcapRidge {
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.TALL_GRASS_PATCH_PLACEMENT)
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.AVELIUM_ROOTS_PATCH)
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.CLOUDCAP_MUSHLING_PATCH)
-//					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.JELLYSHROOM_PATCH)
-//					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.GLIMMERSTOOL_PATCH)
+					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.SPARSE_PURPLE_FLOWER_PATCH)
+					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.DAGGERBLOOM_PATCH)
+					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.SKYFERN_PATCH)
 
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.CLOUDCAP_TREES)
 					

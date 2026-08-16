@@ -48,9 +48,9 @@ neoForge {
 			client()
 			systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
 
-			Optional<String> username = Optional.ofNullable(System.getenv "MC_USR_DEV")
+			Optional<String> username = Optional.ofNullable(System.getenv("MC_USR_DEV"))
 			username.ifPresent { val -> programArguments.addAll '--username', val }
-			Optional<String> uuid = Optional.ofNullable(System.getenv "MC_UUID_DEV")
+			Optional<String> uuid = Optional.ofNullable(System.getenv("MC_UUID_DEV"))
 			uuid.ifPresent { val -> programArguments.addAll '--uuid', val }
 		}
 

@@ -58,6 +58,10 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
 			ReduxBlocks.GILDENMOSS_BLOCK.get()
 		);
 
+		this.tag(UnityTags.Blocks.CANNOT_SPAWN_AETHER_GRASS).add(
+			ReduxBlocks.AVELIUM.get()
+		);
+
 		this.tag(ReduxTags.Blocks.SHORT_AETHER_GRASS_BLIGHT_COLORING).add(
 			ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK.get()
 		);
