@@ -23,8 +23,7 @@ public class AetherLeavesClientMixin extends LeafBlockClientMixin {
 	) {
 		super.animateTick(state, level, pos, random, ci);
 
-		@Nullable
-		WeightedParticleEntry entry = LeafParticleUtil.findEntry(
+		@Nullable WeightedParticleEntry entry = LeafParticleUtil.findEntry(
 			(AetherDoubleDropsLeaves) (Object) this
 		);
 		if (entry != null) LeafParticleUtil.createParticle(state, level, pos, random, entry);

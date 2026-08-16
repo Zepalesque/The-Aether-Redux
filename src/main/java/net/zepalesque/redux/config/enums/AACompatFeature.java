@@ -16,8 +16,7 @@ public class AACompatFeature {
 
 		private final String serialized;
 
-		@Nullable
-		private final Supplier<Boolean> supplier;
+		@Nullable private final Supplier<Boolean> supplier;
 
 		private final boolean value;
 
@@ -57,8 +56,7 @@ public class AACompatFeature {
 
 		private final String serialized;
 
-		@Nullable
-		private final Supplier<Boolean> supplier;
+		@Nullable private final Supplier<Boolean> supplier;
 
 		private final boolean value;
 

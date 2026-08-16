@@ -32,8 +32,7 @@ public class ReduxWhirlwindRenderer<T extends AbstractWhirlwind>
 	}
 
 	@Override
-	@NotNull
-	public ResourceLocation getTextureLocation(@NotNull T whirlwind) {
+	@NotNull public ResourceLocation getTextureLocation(@NotNull T whirlwind) {
 		return WHIRLWIND;
 	}
 

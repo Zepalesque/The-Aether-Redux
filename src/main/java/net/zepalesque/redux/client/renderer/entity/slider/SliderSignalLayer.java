@@ -74,17 +74,14 @@ public class SliderSignalLayer extends RenderLayer<Slider, SliderModel> {
 		}
 	}
 
-	@Nullable
-	public static RenderType renderType(Slider slider) {
+	@Nullable public static RenderType renderType(Slider slider) {
 		SliderSignalAttachment attachment = SliderSignalAttachment.get(slider);
 		if (!attachment.shouldGlow(slider)) return null;
 		else if (slider.isCritical()) return CRITICAL;
 		else {
-			@Nullable
-			Direction d = attachment.getOverrideDirection(slider);
+			@Nullable Direction d = attachment.getOverrideDirection(slider);
 			if (d == null) {
-				@Nullable
-				Entity target = attachment.getTarget(slider);
+				@Nullable Entity target = attachment.getTarget(slider);
 				if (target == null) {
 					Redux.LOGGER.debug("Slider has no target! Using all-side signal texture...");
 					return NORMAL;

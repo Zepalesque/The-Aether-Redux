@@ -3,11 +3,9 @@ package net.zepalesque.redux.world.tree.foliage;
 import com.ibm.icu.impl.Pair;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.IntUnaryOperator;
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockPos.MutableBlockPos;
 import net.minecraft.core.Direction;

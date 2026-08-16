@@ -30,8 +30,7 @@ public class TooltipUtils {
 		return shiftDownElse(whenDown, INFO);
 	}
 
-	@Nullable
-	public static Component shiftDownElse(Component whenDown, @Nullable Component otherwise) {
+	@Nullable public static Component shiftDownElse(Component whenDown, @Nullable Component otherwise) {
 		var mc = Minecraft.getInstance();
 		if (
 			InputConstants.isKeyDown(mc.getWindow().getWindow(), mc.options.keyShift.getKey().getValue())
@@ -39,8 +38,7 @@ public class TooltipUtils {
 		else return otherwise;
 	}
 
-	@Nullable
-	public static Collection<Component> shiftDownElseMulti(
+	@Nullable public static Collection<Component> shiftDownElseMulti(
 		Collection<Component> whenDown,
 		@Nullable Collection<Component> otherwise
 	) {

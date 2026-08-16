@@ -590,8 +590,7 @@ public class BaseStoneSet extends AbstractStoneSet implements MutableLoreGenerat
 
 	// Ignore the prev value, implementation is different here
 	@Override
-	@Nullable
-	public ItemLike addToCreativeTab(
+	@Nullable public ItemLike addToCreativeTab(
 		BuildCreativeModeTabContentsEvent event,
 		@Nullable ItemLike prev,
 		TabAdditionPhase phase

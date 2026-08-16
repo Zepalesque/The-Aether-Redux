@@ -21,6 +21,9 @@
 		"aether_redux:caelgae_patch": {
 			"chance": 0.65
 		},
+		"aether_redux:cloudcap_mushling": {
+			"chance": 0.3
+		},
 		"aether_redux:daggerbloom": {
 			"chance": 0.65
 		},

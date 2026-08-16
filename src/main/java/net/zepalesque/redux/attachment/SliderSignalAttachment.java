@@ -17,13 +17,11 @@ import org.jetbrains.annotations.Nullable;
 public class SliderSignalAttachment {
 	protected int signalTick = 0;
 
-	@Nullable
-	protected Direction overrideDirection = null;
+	@Nullable protected Direction overrideDirection = null;
 
 	protected boolean hasOverriden = false;
 
-	@Nullable
-	protected Entity target = null;
+	@Nullable protected Entity target = null;
 
 	public void onUpdate(Slider slider) {
 		this.tickSignal(slider);
@@ -124,8 +122,7 @@ public class SliderSignalAttachment {
 		this.target = entity;
 	}
 
-	@Nullable
-	public Entity getTarget(Slider slider) {
+	@Nullable public Entity getTarget(Slider slider) {
 		return this.target;
 	}
 }

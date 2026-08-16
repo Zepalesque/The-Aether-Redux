@@ -6,35 +6,26 @@ import net.zepalesque.redux.data.prov.ReduxBlockStateProvider;
 import net.zepalesque.redux.data.prov.ReduxItemModelProvider;
 import net.zepalesque.zenith.util.function.Consumers;
 
-public class DualGlowingFlowerSet<B extends Block> extends TintedFlowerSet<B> {
-	private boolean glowAsParticle;
-
-	public DualGlowingFlowerSet(
+public class GlowingFlowerSet<B extends Block> extends UntintedFlowerSet<B> {
+	public GlowingFlowerSet(
 		String id,
 		String textureFolder,
-		Supplier<B> constructor,
-		int tintdex,
-		int itemTint
+		Supplier<B> constructor
 	) {
-		super(id, textureFolder, constructor, tintdex, itemTint);
+		super(id, textureFolder, constructor);
 	}
 
 	@Override
 	public void blockData(ReduxBlockStateProvider data) {
-		data.crossTintedDualGloverlay(this.flower().get(), this.textureFolder, this.glowAsParticle);
+		data.crossGlowOverlay(this.flower().get(), this.textureFolder);
 		Consumers.C3<Block, Block, String> pot = this.usePottedPrefix
-			? data::tintedPotOverlayAlt
-			: data::tintedPotOverlay;
+			? data::tintedPotGlowOverlayAlt
+			: data::tintedPotGlowOverlay;
 		pot.accept(this.pot().get(), this.flower().get(), this.textureFolder);
 	}
 
 	@Override
 	public void itemData(ReduxItemModelProvider data) {
-		data.itemBlockFlatTintGlowOverlay(this.flower().get(), this.textureFolder);
-	}
-
-	public DualGlowingFlowerSet<B> useGlowAsParticle() {
-		this.glowAsParticle = true;
-		return this;
+		data.itemBlockFlatGlow(this.flower().get(), this.textureFolder);
 	}
 }

@@ -14,14 +14,17 @@ import net.minecraft.world.level.material.MapColor;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.block.dungeon.Flareblossom;
+import net.zepalesque.redux.block.natural.AetherMushroom;
 import net.zepalesque.redux.block.natural.GloomshadeBlock;
 import net.zepalesque.redux.blockset.flower.type.AetherFlowerSet;
 import net.zepalesque.redux.blockset.flower.type.BaseFlowerSet;
 import net.zepalesque.redux.blockset.flower.type.CloverSet;
 import net.zepalesque.redux.blockset.flower.type.DualGlowingFlowerSet;
 import net.zepalesque.redux.blockset.flower.type.EnchantedFlowerSet;
+import net.zepalesque.redux.blockset.flower.type.GlowingFlowerSet;
 import net.zepalesque.redux.blockset.flower.type.UntintedFlowerSet;
 import net.zepalesque.redux.client.ReduxColors;
+import net.zepalesque.redux.data.resource.registries.ReduxFeatureConfig;
 import net.zepalesque.redux.world.tree.ReduxTreeGrowers;
 import net.zepalesque.unity.block.natural.bush.CustomBoundsBushBlock;
 import net.zepalesque.unity.block.natural.bush.CustomBoundsFlowerBlock;
@@ -115,7 +118,7 @@ public class ReduxFlowerSets {
 		)
 			.tabAfter(
 				AetherCreativeTabs.AETHER_NATURAL_BLOCKS,
-				() -> ReduxFlowerSets.STORMFIR_SAPLING.flower().asItem(),
+				ReduxFlowerSets.STORMFIR_SAPLING.flower(),
 				BlockSet.TabAdditionPhase.BEFORE
 			)
 			.withFlowerTag(BlockTags.SAPLINGS)
@@ -124,6 +127,29 @@ public class ReduxFlowerSets {
 				"The sapling of the Blightwillow tree. It can be grown by waiting or using Bone Meal."
 			)
 	);
+
+	public static final BaseFlowerSet<AetherMushroom> CLOUDCAP_MUSHLING = register(
+		new GlowingFlowerSet<>(
+			"cloudcap_mushling",
+			"natural/",
+			() -> new AetherMushroom(
+				Block.box(4.0D, 0.0D, 4.0D, 12.0D, 12.0D, 12.0D),
+				Properties.ofFullCopy(Blocks.NETHER_SPROUTS).lightLevel($ -> 6),
+				ReduxFeatureConfig.CLOUDCAP_MUSHROOM
+			)
+		)
+			.tabAfter(
+				AetherCreativeTabs.AETHER_NATURAL_BLOCKS,
+				ReduxFlowerSets.BLIGHTWILLOW_SAPLING.flower(),
+				BlockSet.TabAdditionPhase.BEFORE
+			)
+			.withFlowerTag(BlockTags.SAPLINGS)
+			.compost(0.3F)
+			.withLore(
+				"A mushroom found commonly in the Cloudcaps. It gives off a faint glow, and can be grown into a larger variation."
+			)
+	);
+
 
 	public static final BaseFlowerSet<CustomBoundsBushBlock> LUCKY_CLOVER = register(
 		new CloverSet<>("lucky_clover", "natural/", () ->

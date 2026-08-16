@@ -18,8 +18,7 @@ public class AetherCaveCarver extends CaveWorldCarver {
 		super(codec);
 	}
 
-	@Nullable
-	@Override
+	@Nullable @Override
 	public BlockState getCarveState(
 		CarvingContext context,
 		CaveCarverConfiguration config,

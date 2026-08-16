@@ -30,8 +30,8 @@ public class ReduxTabs {
 		new TabBuilder(event, AetherCreativeTabs.AETHER_NATURAL_BLOCKS.getKey())
 			.putAfter(
 				UnityBlocks.SKYFERN,
-				ReduxBlocks.AVELIUM_ROOTS,
-				ReduxBlocks.LUNAERA
+				ReduxBlocks.LUNAERA,
+				ReduxBlocks.AVELIUM_ROOTS
 			)
 			.remove(
 				TabVisibility.PARENT_AND_SEARCH_TABS,

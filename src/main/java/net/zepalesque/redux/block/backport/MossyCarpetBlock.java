@@ -262,8 +262,7 @@ public class MossyCarpetBlock extends Block implements BonemealableBlock {
 		return state;
 	}
 
-	@Nullable
-	@Override
+	@Nullable @Override
 	public BlockState getStateForPlacement(BlockPlaceContext context) {
 		return this.getUpdatedState(
 			this.defaultBlockState(),
@@ -388,8 +387,7 @@ public class MossyCarpetBlock extends Block implements BonemealableBlock {
 		};
 	}
 
-	@Nullable
-	public static EnumProperty<WallSide> getPropertyForFace(Direction direction) {
+	@Nullable public static EnumProperty<WallSide> getPropertyForFace(Direction direction) {
 		return PROPERTY_BY_DIRECTION.get(direction);
 	}
 

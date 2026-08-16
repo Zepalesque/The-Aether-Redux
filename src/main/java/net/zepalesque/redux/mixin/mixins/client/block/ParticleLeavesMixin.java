@@ -28,8 +28,7 @@ public class ParticleLeavesMixin {
 		RandomSource random,
 		CallbackInfo ci
 	) {
-		@Nullable
-		WeightedParticleEntry entry = LeafParticleUtil.findEntry(
+		@Nullable WeightedParticleEntry entry = LeafParticleUtil.findEntry(
 			(LeavesWithParticlesBlock) (Object) this
 		);
 		if (entry != null) {
