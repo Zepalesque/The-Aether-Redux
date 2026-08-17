@@ -192,6 +192,8 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 		AetherConfiguredFeatures.CRYSTAL_TREE_CONFIGURATION;
 	public static final ResourceKey<ConfiguredFeature<?, ?>> CRYSTAL_ISLAND =
 		AetherConfiguredFeatures.CRYSTAL_ISLAND_CONFIGURATION;
+	public static final ResourceKey<ConfiguredFeature<?, ?>> QUICKSOIL_SHELF =
+		AetherConfiguredFeatures.QUICKSOIL_SHELF_CONFIGURATION;
 
 	// rip bootstap :pensive:
 	public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
@@ -806,13 +808,16 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			)
 		);
 
+		var shelfRadius = ConstantFloat.of(3.5F);
+		var shelfRange = UniformInt.of(0, 80);
+
 		register(context,
 			AEROGEL_DISK,
 			AetherFeatures.SHELF.get(),
 			new ShelfConfiguration(
 				prov(AetherBlocks.AEROGEL),
-				ConstantFloat.of(3.5F),
-				UniformInt.of(0, 48),
+				shelfRadius,
+				shelfRange,
 				HolderSet.direct(
 					AetherBlocks.AETHER_GRASS_BLOCK,
 					UnityBlocks.COARSE_AETHER_DIRT
@@ -825,8 +830,8 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			AetherFeatures.SHELF.get(),
 			new ShelfConfiguration(
 				prov(ReduxBlocks.HOLYSILT),
-				ConstantFloat.of(3.5F),
-				UniformInt.of(0, 48),
+				shelfRadius,
+				shelfRange,
 				HolderSet.direct(
 					AetherBlocks.AETHER_GRASS_BLOCK,
 					ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK,
@@ -836,6 +841,21 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 		);
 
 		// Overrides
+		FeatureUtils.register(
+			context,
+			QUICKSOIL_SHELF,
+			AetherFeatures.SHELF.get(),
+			new ShelfConfiguration(
+				prov(AetherBlocks.QUICKSOIL),
+				shelfRadius,
+				shelfRange,
+				HolderSet.direct(
+					AetherBlocks.AETHER_GRASS_BLOCK,
+					UnityBlocks.COARSE_AETHER_DIRT
+				)
+			)
+		);
+		
 		FeatureUtils.register(
 			context,
 			CRYSTAL_TREE,

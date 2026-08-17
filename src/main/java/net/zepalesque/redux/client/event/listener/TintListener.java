@@ -1,5 +1,6 @@
 package net.zepalesque.redux.client.event.listener;
 
+import java.util.stream.IntStream;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.levelgen.XoroshiroRandomSource;
 import net.minecraft.world.level.levelgen.synth.PerlinNoise;
@@ -8,8 +9,6 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.zepalesque.redux.block.ReduxBlocks;
-
-import java.util.stream.IntStream;
 
 @EventBusSubscriber(Dist.CLIENT)
 public class TintListener {

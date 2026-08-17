@@ -4,7 +4,10 @@
 		"block": {
 			"type": "minecraft:simple_state_provider",
 			"state": {
-				"Name": "aether:aerogel"
+				"Name": "aether:quicksoil",
+				"Properties": {
+					"double_drops": "true"
+				}
 			}
 		},
 		"radius": 3.5,
