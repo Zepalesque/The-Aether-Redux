@@ -33,7 +33,7 @@ public class LakesFeature extends Feature<LakesFeature.Config> {
 	private static final int SHORE_DEPTH = -1;
 	private static final int WATER_DEPTH = SHORE_DEPTH - 1;
 	
-	public static final int Y_LEVEL_DEFAULT = 36;
+	public static final int Y_LEVEL_DEFAULT = 44;
 
 	public LakesFeature(Codec<Config> codec) {
 		super(codec);

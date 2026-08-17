@@ -1,13 +1,11 @@
 package net.zepalesque.redux.mixin.mixins.client;
 
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-
 import com.aetherteam.aether.client.renderer.level.AetherSkyRenderEffects;
 import com.llamalad7.mixinextras.expression.Expression;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
-
 import net.zepalesque.redux.config.ReduxConfig;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(AetherSkyRenderEffects.class)
 public abstract class AetherSkyEffectsMixin {
