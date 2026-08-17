@@ -25,6 +25,7 @@ import net.minecraft.world.level.block.SnowyDirtBlock;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.block.state.properties.WallSide;
@@ -442,7 +443,7 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
 
 	public void netting(Block block, String location) {
 		this.getVariantBuilder(block).forAllStates(state -> ConfiguredModel.builder().modelFile(
-			state.getValue(BlockStateProperties.BOTTOM)
+			state.getValue(BlockStateProperties.HALF) == Half.BOTTOM
 				? this.models()
 					.withExistingParent(
 						this.name(block) + "_lower",
