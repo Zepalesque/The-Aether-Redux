@@ -104,7 +104,7 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
 			ReduxBlocks.SKYSPROUTS.get(),
 			ReduxBlocks.WYNDOATS.get(),
 			ReduxBlocks.CLOUD_CAP.get(),
-			ReduxBlocks.CLOUDCAP_GILL.get()
+			ReduxBlocks.CLOUDCAP_GILL_BLOCK.get()
 		);
 
 		this.tag(BlockTags.LAVA_POOL_STONE_CANNOT_REPLACE).add(

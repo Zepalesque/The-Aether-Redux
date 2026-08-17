@@ -223,8 +223,8 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 		this.addBlock(ReduxBlocks.CLOUD_CAP);
 		this.addLore(ReduxBlocks.CLOUD_CAP, "The cap of the large Cloudcap Mushrooms, found in the Cloudcap Ridge.");
 		
-		this.addBlock(ReduxBlocks.CLOUDCAP_GILL);
-		this.addLore(ReduxBlocks.CLOUDCAP_GILL, "The ribbed, spore-producing undersides of the caps of Cloudcap Mushrooms, found in the Cloudcap Ridge.");
+		this.addBlock(ReduxBlocks.CLOUDCAP_GILL_BLOCK);
+		this.addLore(ReduxBlocks.CLOUDCAP_GILL_BLOCK, "The ribbed, spore-producing undersides of the caps of Cloudcap Mushrooms, found in the Cloudcap Ridge.");
 		
 		this.addEntityType(ReduxEntities.EMBER);
 		this.addEntityType(ReduxEntities.VERIDIUM_DART);

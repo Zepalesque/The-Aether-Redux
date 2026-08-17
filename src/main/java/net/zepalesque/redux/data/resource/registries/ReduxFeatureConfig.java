@@ -407,7 +407,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 					UniformInt.of(5, 7),
 					prov(ReduxBlocks.CLOUDCAP_NETTING_PLANT),
 					prov(ReduxBlocks.CLOUDCAP_NETTING),
-					prov(ReduxBlocks.CLOUDCAP_GILL)
+					prov(ReduxBlocks.CLOUDCAP_GILL_BLOCK)
 				), Optional.empty(),
 				new TwoLayersFeatureSize(7, 0, 3)
 			)
