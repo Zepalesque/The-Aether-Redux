@@ -36,10 +36,12 @@
 	"plugin": "net.zepalesque.redux.mixin.ReduxMixinPlugin",
 	"compatibilityLevel": "JAVA_21",
 	"client": [
+		"client.AetherSkyEffectsMixin",
 		"client.block.AetherLeavesClientMixin",
 		"client.block.LeafBlockClientMixin",
 		"client.block.ParticleLeavesMixin"
 	],
 	"required": true,
-	"refmap": "aether_redux.refmap.json"
+	"refmap": "aether_redux.refmap.json",
+	"mixinextras": { "minVersion": "0.5.0" }
 }

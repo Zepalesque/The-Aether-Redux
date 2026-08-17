@@ -208,6 +208,6 @@
 		},
 		"thickness_max": 2.5,
 		"thickness_noise": "aether_redux:lakes_thickness",
-		"y_level": 36
+		"y_level": 44
 	}
 }
