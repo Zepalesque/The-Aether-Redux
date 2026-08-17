@@ -20,6 +20,7 @@
 		"aether_redux:luxweed",
 		"aether_redux:skysprouts",
 		"aether_redux:wyndoats",
-		"aether_redux:cloud_cap_block"
+		"aether_redux:cloud_cap",
+		"aether_redux:cloudcap_gill"
 	]
 }

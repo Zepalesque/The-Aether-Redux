@@ -10,17 +10,37 @@
 		},
 		"foliage_placer": {
 			"type": "aether_redux:cloudcap_foliage",
+			"gill": {
+				"type": "minecraft:simple_state_provider",
+				"state": {
+					"Name": "aether_redux:cloudcap_gill",
+					"Properties": {
+						"double_drops": "true",
+						"facing": "up"
+					}
+				}
+			},
 			"height": {
 				"type": "minecraft:uniform",
 				"max_inclusive": 7,
 				"min_inclusive": 5
 			},
-			"netting": {
+			"netting_body": {
+				"type": "minecraft:simple_state_provider",
+				"state": {
+					"Name": "aether_redux:cloudcap_netting_plant",
+					"Properties": {
+						"half": "bottom"
+					}
+				}
+			},
+			"netting_head": {
 				"type": "minecraft:simple_state_provider",
 				"state": {
 					"Name": "aether_redux:cloudcap_netting",
 					"Properties": {
-						"bottom": "true"
+						"age": "0",
+						"half": "bottom"
 					}
 				}
 			}
@@ -28,7 +48,7 @@
 		"foliage_provider": {
 			"type": "minecraft:simple_state_provider",
 			"state": {
-				"Name": "aether_redux:cloud_cap_block",
+				"Name": "aether_redux:cloud_cap",
 				"Properties": {
 					"cloudcap_variant": "0",
 					"double_drops": "true",

@@ -9,6 +9,7 @@ import com.aetherteam.aether.block.natural.AetherDoubleDropBlock;
 import com.aetherteam.aether.block.natural.AetherDoubleDropsLeaves;
 import com.aetherteam.aether.block.natural.AetherLogBlock;
 import com.aetherteam.aether.entity.AetherEntityTypes;
+import java.util.Optional;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
@@ -61,8 +62,6 @@ import net.zepalesque.unity.event.hook.BlockHooks;
 import net.zepalesque.zenith.api.blockset.type.AbstractWoodSet;
 import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
 import net.zepalesque.zenith.util.block.CommonPlantBounds;
-
-import java.util.Optional;
 
 public class ReduxBlocks extends ReduxBlockBuilders {
 	public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Redux.MODID);

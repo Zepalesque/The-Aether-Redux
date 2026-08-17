@@ -16,11 +16,11 @@
 			"entries": [
 				{
 					"type": "minecraft:item",
-					"name": "aether_redux:cloud_cap_block"
+					"name": "aether_redux:cloud_cap"
 				}
 			],
 			"rolls": 1.0
 		}
 	],
-	"random_sequence": "aether_redux:blocks/cloud_cap_block"
+	"random_sequence": "aether_redux:blocks/cloud_cap"
 }

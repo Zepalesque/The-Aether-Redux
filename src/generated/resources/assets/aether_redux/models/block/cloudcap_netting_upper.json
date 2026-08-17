@@ -2,6 +2,6 @@
 	"parent": "aether_redux:block/template/crop/crop_occluded",
 	"render_type": "minecraft:cutout",
 	"textures": {
-		"plant": "aether_redux:block/natural/cloudcap_netting_bottom"
+		"plant": "aether_redux:block/natural/cloudcap_netting_upper"
 	}
 }

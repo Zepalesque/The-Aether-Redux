@@ -1,10 +1,160 @@
 {
 	"variants": {
-		"bottom=false": {
-			"model": "aether_redux:block/cloudcap_netting"
+		"age=0,half=bottom": {
+			"model": "aether_redux:block/cloudcap_netting_lower"
 		},
-		"bottom=true": {
-			"model": "aether_redux:block/cloudcap_netting_bottom"
+		"age=0,half=top": {
+			"model": "aether_redux:block/cloudcap_netting_upper"
+		},
+		"age=1,half=bottom": {
+			"model": "aether_redux:block/cloudcap_netting_lower"
+		},
+		"age=1,half=top": {
+			"model": "aether_redux:block/cloudcap_netting_upper"
+		},
+		"age=10,half=bottom": {
+			"model": "aether_redux:block/cloudcap_netting_lower"
+		},
+		"age=10,half=top": {
+			"model": "aether_redux:block/cloudcap_netting_upper"
+		},
+		"age=11,half=bottom": {
+			"model": "aether_redux:block/cloudcap_netting_lower"
+		},
+		"age=11,half=top": {
+			"model": "aether_redux:block/cloudcap_netting_upper"
+		},
+		"age=12,half=bottom": {
+			"model": "aether_redux:block/cloudcap_netting_lower"
+		},
+		"age=12,half=top": {
+			"model": "aether_redux:block/cloudcap_netting_upper"
+		},
+		"age=13,half=bottom": {
+			"model": "aether_redux:block/cloudcap_netting_lower"
+		},
+		"age=13,half=top": {
+			"model": "aether_redux:block/cloudcap_netting_upper"
+		},
+		"age=14,half=bottom": {
+			"model": "aether_redux:block/cloudcap_netting_lower"
+		},
+		"age=14,half=top": {
+			"model": "aether_redux:block/cloudcap_netting_upper"
+		},
+		"age=15,half=bottom": {
+			"model": "aether_redux:block/cloudcap_netting_lower"
+		},
+		"age=15,half=top": {
+			"model": "aether_redux:block/cloudcap_netting_upper"
+		},
+		"age=16,half=bottom": {
+			"model": "aether_redux:block/cloudcap_netting_lower"
+		},
+		"age=16,half=top": {
+			"model": "aether_redux:block/cloudcap_netting_upper"
+		},
+		"age=17,half=bottom": {
+			"model": "aether_redux:block/cloudcap_netting_lower"
+		},
+		"age=17,half=top": {
+			"model": "aether_redux:block/cloudcap_netting_upper"
+		},
+		"age=18,half=bottom": {
+			"model": "aether_redux:block/cloudcap_netting_lower"
+		},
+		"age=18,half=top": {
+			"model": "aether_redux:block/cloudcap_netting_upper"
+		},
+		"age=19,half=bottom": {
+			"model": "aether_redux:block/cloudcap_netting_lower"
+		},
+		"age=19,half=top": {
+			"model": "aether_redux:block/cloudcap_netting_upper"
+		},
+		"age=2,half=bottom": {
+			"model": "aether_redux:block/cloudcap_netting_lower"
+		},
+		"age=2,half=top": {
+			"model": "aether_redux:block/cloudcap_netting_upper"
+		},
+		"age=20,half=bottom": {
+			"model": "aether_redux:block/cloudcap_netting_lower"
+		},
+		"age=20,half=top": {
+			"model": "aether_redux:block/cloudcap_netting_upper"
+		},
+		"age=21,half=bottom": {
+			"model": "aether_redux:block/cloudcap_netting_lower"
+		},
+		"age=21,half=top": {
+			"model": "aether_redux:block/cloudcap_netting_upper"
+		},
+		"age=22,half=bottom": {
+			"model": "aether_redux:block/cloudcap_netting_lower"
+		},
+		"age=22,half=top": {
+			"model": "aether_redux:block/cloudcap_netting_upper"
+		},
+		"age=23,half=bottom": {
+			"model": "aether_redux:block/cloudcap_netting_lower"
+		},
+		"age=23,half=top": {
+			"model": "aether_redux:block/cloudcap_netting_upper"
+		},
+		"age=24,half=bottom": {
+			"model": "aether_redux:block/cloudcap_netting_lower"
+		},
+		"age=24,half=top": {
+			"model": "aether_redux:block/cloudcap_netting_upper"
+		},
+		"age=25,half=bottom": {
+			"model": "aether_redux:block/cloudcap_netting_lower"
+		},
+		"age=25,half=top": {
+			"model": "aether_redux:block/cloudcap_netting_upper"
+		},
+		"age=3,half=bottom": {
+			"model": "aether_redux:block/cloudcap_netting_lower"
+		},
+		"age=3,half=top": {
+			"model": "aether_redux:block/cloudcap_netting_upper"
+		},
+		"age=4,half=bottom": {
+			"model": "aether_redux:block/cloudcap_netting_lower"
+		},
+		"age=4,half=top": {
+			"model": "aether_redux:block/cloudcap_netting_upper"
+		},
+		"age=5,half=bottom": {
+			"model": "aether_redux:block/cloudcap_netting_lower"
+		},
+		"age=5,half=top": {
+			"model": "aether_redux:block/cloudcap_netting_upper"
+		},
+		"age=6,half=bottom": {
+			"model": "aether_redux:block/cloudcap_netting_lower"
+		},
+		"age=6,half=top": {
+			"model": "aether_redux:block/cloudcap_netting_upper"
+		},
+		"age=7,half=bottom": {
+			"model": "aether_redux:block/cloudcap_netting_lower"
+		},
+		"age=7,half=top": {
+			"model": "aether_redux:block/cloudcap_netting_upper"
+		},
+		"age=8,half=bottom": {
+			"model": "aether_redux:block/cloudcap_netting_lower"
+		},
+		"age=8,half=top": {
+			"model": "aether_redux:block/cloudcap_netting_upper"
+		},
+		"age=9,half=bottom": {
+			"model": "aether_redux:block/cloudcap_netting_lower"
+		},
+		"age=9,half=top": {
+			"model": "aether_redux:block/cloudcap_netting_upper"
 		}
 	}
 }

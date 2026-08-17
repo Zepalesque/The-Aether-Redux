@@ -2,7 +2,7 @@
 	"parent": "aether_redux:block/template/single_face_gloverlay",
 	"render_type": "minecraft:cutout",
 	"textures": {
-		"glow": "aether_redux:block/natural/cloud_cap_block3_glow",
-		"texture": "aether_redux:block/natural/cloud_cap_block3"
+		"glow": "aether_redux:block/natural/cloud_cap3_glow",
+		"texture": "aether_redux:block/natural/cloud_cap3"
 	}
 }

@@ -1,6 +1,6 @@
 {
 	"parent": "minecraft:item/generated",
 	"textures": {
-		"layer0": "aether_redux:block/natural/cloudcap_netting"
+		"layer0": "aether_redux:block/natural/cloudcap_netting_plant_upper"
 	}
 }

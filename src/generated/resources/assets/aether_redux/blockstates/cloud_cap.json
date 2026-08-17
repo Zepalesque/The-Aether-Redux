@@ -2,7 +2,7 @@
 	"multipart": [
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block0",
+				"model": "aether_redux:block/cloud_cap0",
 				"x": 90
 			},
 			"when": {
@@ -12,7 +12,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block1",
+				"model": "aether_redux:block/cloud_cap1",
 				"x": 90
 			},
 			"when": {
@@ -22,7 +22,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block2",
+				"model": "aether_redux:block/cloud_cap2",
 				"x": 90
 			},
 			"when": {
@@ -32,7 +32,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block3",
+				"model": "aether_redux:block/cloud_cap3",
 				"x": 90
 			},
 			"when": {
@@ -42,7 +42,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block4",
+				"model": "aether_redux:block/cloud_cap4",
 				"x": 90
 			},
 			"when": {
@@ -52,7 +52,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block_inside",
+				"model": "aether_redux:block/cloud_cap_inside",
 				"x": 90
 			},
 			"when": {
@@ -61,7 +61,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block0",
+				"model": "aether_redux:block/cloud_cap0",
 				"x": 270
 			},
 			"when": {
@@ -71,7 +71,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block1",
+				"model": "aether_redux:block/cloud_cap1",
 				"x": 270
 			},
 			"when": {
@@ -81,7 +81,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block2",
+				"model": "aether_redux:block/cloud_cap2",
 				"x": 270
 			},
 			"when": {
@@ -91,7 +91,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block3",
+				"model": "aether_redux:block/cloud_cap3",
 				"x": 270
 			},
 			"when": {
@@ -101,7 +101,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block4",
+				"model": "aether_redux:block/cloud_cap4",
 				"x": 270
 			},
 			"when": {
@@ -111,7 +111,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block_inside",
+				"model": "aether_redux:block/cloud_cap_inside",
 				"x": 270
 			},
 			"when": {
@@ -120,7 +120,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block0"
+				"model": "aether_redux:block/cloud_cap0"
 			},
 			"when": {
 				"cloudcap_variant": "0",
@@ -129,7 +129,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block1"
+				"model": "aether_redux:block/cloud_cap1"
 			},
 			"when": {
 				"cloudcap_variant": "1",
@@ -138,7 +138,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block2"
+				"model": "aether_redux:block/cloud_cap2"
 			},
 			"when": {
 				"cloudcap_variant": "2",
@@ -147,7 +147,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block3"
+				"model": "aether_redux:block/cloud_cap3"
 			},
 			"when": {
 				"cloudcap_variant": "3",
@@ -156,7 +156,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block4"
+				"model": "aether_redux:block/cloud_cap4"
 			},
 			"when": {
 				"cloudcap_variant": "4",
@@ -165,7 +165,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block_inside"
+				"model": "aether_redux:block/cloud_cap_inside"
 			},
 			"when": {
 				"north": "false"
@@ -173,7 +173,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block0",
+				"model": "aether_redux:block/cloud_cap0",
 				"y": 180
 			},
 			"when": {
@@ -183,7 +183,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block1",
+				"model": "aether_redux:block/cloud_cap1",
 				"y": 180
 			},
 			"when": {
@@ -193,7 +193,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block2",
+				"model": "aether_redux:block/cloud_cap2",
 				"y": 180
 			},
 			"when": {
@@ -203,7 +203,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block3",
+				"model": "aether_redux:block/cloud_cap3",
 				"y": 180
 			},
 			"when": {
@@ -213,7 +213,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block4",
+				"model": "aether_redux:block/cloud_cap4",
 				"y": 180
 			},
 			"when": {
@@ -223,7 +223,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block_inside",
+				"model": "aether_redux:block/cloud_cap_inside",
 				"y": 180
 			},
 			"when": {
@@ -232,7 +232,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block0",
+				"model": "aether_redux:block/cloud_cap0",
 				"y": 270
 			},
 			"when": {
@@ -242,7 +242,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block1",
+				"model": "aether_redux:block/cloud_cap1",
 				"y": 270
 			},
 			"when": {
@@ -252,7 +252,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block2",
+				"model": "aether_redux:block/cloud_cap2",
 				"y": 270
 			},
 			"when": {
@@ -262,7 +262,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block3",
+				"model": "aether_redux:block/cloud_cap3",
 				"y": 270
 			},
 			"when": {
@@ -272,7 +272,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block4",
+				"model": "aether_redux:block/cloud_cap4",
 				"y": 270
 			},
 			"when": {
@@ -282,7 +282,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block_inside",
+				"model": "aether_redux:block/cloud_cap_inside",
 				"y": 270
 			},
 			"when": {
@@ -291,7 +291,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block0",
+				"model": "aether_redux:block/cloud_cap0",
 				"y": 90
 			},
 			"when": {
@@ -301,7 +301,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block1",
+				"model": "aether_redux:block/cloud_cap1",
 				"y": 90
 			},
 			"when": {
@@ -311,7 +311,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block2",
+				"model": "aether_redux:block/cloud_cap2",
 				"y": 90
 			},
 			"when": {
@@ -321,7 +321,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block3",
+				"model": "aether_redux:block/cloud_cap3",
 				"y": 90
 			},
 			"when": {
@@ -331,7 +331,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block4",
+				"model": "aether_redux:block/cloud_cap4",
 				"y": 90
 			},
 			"when": {
@@ -341,7 +341,7 @@
 		},
 		{
 			"apply": {
-				"model": "aether_redux:block/cloud_cap_block_inside",
+				"model": "aether_redux:block/cloud_cap_inside",
 				"y": 90
 			},
 			"when": {

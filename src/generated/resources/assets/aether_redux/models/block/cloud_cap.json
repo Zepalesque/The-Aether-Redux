@@ -2,7 +2,7 @@
 	"parent": "aether_unity:block/template/cube/cube_all_glow",
 	"render_type": "minecraft:cutout",
 	"textures": {
-		"all": "aether_redux:block/natural/cloud_cap_block4",
-		"glow": "aether_redux:block/natural/cloud_cap_block4_glow"
+		"all": "aether_redux:block/natural/cloud_cap4",
+		"glow": "aether_redux:block/natural/cloud_cap4_glow"
 	}
 }

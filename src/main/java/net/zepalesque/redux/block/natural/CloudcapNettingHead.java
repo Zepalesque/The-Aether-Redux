@@ -1,5 +1,6 @@
 package net.zepalesque.redux.block.natural;
 
+import java.util.Optional;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
@@ -11,8 +12,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.Half;
 import net.zepalesque.redux.util.world.PureRand;
-
-import java.util.Optional;
 
 public class CloudcapNettingHead extends HangingAetherVinesHead {
 	public CloudcapNettingHead(Properties properties, Holder<Block> body) {

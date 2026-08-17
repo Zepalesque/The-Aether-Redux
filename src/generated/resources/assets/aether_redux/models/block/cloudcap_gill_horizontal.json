@@ -1,0 +1,8 @@
+{
+	"parent": "aether_redux:block/template/cube_bottom_top_horizontal",
+	"textures": {
+		"bottom": "aether_redux:block/natural/cloudcap_gill_bottom",
+		"side": "aether_redux:block/natural/cloudcap_gill",
+		"top": "aether_redux:block/natural/cloudcap_gill_top"
+	}
+}
