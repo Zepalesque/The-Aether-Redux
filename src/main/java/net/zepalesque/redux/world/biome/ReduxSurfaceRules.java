@@ -104,22 +104,7 @@ public class ReduxSurfaceRules {
 
 			inBiome(
 				ReduxBiomes.FROSTED_FORESTS,
-
-				SurfaceRules.ifTrue(
-					SurfaceRules.isBiome(
-						ReduxBiomes.FROSTED_FORESTS
-					), SurfaceRules.ifTrue(
-						SurfaceRules.ON_FLOOR, SurfaceRules.ifTrue(
-							SurfaceRules.noiseCondition(
-								Noises.POWDER_SNOW,
-								0.35D,
-								0.45D
-							), SurfaceRules.state(
-								Blocks.POWDER_SNOW.defaultBlockState()
-							)
-						)
-					)
-				),
+				
 				SurfaceRules.ifTrue(
 					SurfaceRules.ON_FLOOR,
 					SurfaceRules.ifTrue(
