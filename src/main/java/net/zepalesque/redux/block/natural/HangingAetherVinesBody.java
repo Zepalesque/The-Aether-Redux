@@ -39,7 +39,7 @@ public class HangingAetherVinesBody extends GrowingPlantBodyBlock {
 	}
 	
 	protected boolean checkAboveState(BlockState state) {
-		return this.leafTag.isEmpty() || state.is(this.leafTag.get());
+		return this.leafTag.map(state::is).orElse(false);
 	}
 
 	@Override
