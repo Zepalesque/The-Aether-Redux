@@ -135,6 +135,7 @@ public class CloudcapFoliagePlacer extends FoliagePlacer {
 		if (state.hasProperty(BlockStateProperties.HALF)) {
 			var seed = Mth.getSeed(pos.atY(0));
 			var i = PureRand.getInt(seed);
+			if ((pos.getY() & 1) == 0) i ^= 1;
 			state = state.setValue(BlockStateProperties.HALF, Half.values()[i & 1]);
 		}
 

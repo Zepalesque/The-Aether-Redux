@@ -41,6 +41,7 @@ public class CloudcapNettingBody extends HangingAetherVinesBody {
 	public BlockState transform(BlockState original, BlockPos pos) {
 		var seed = this.getSeed(original, pos.atY(0));
 		var i = PureRand.getInt(seed);
+		if ((pos.getY() & 1) == 0) i ^= 1;
 		return original.setValue(BlockStateProperties.HALF, Half.values()[i & 1]);
 	}
 }
