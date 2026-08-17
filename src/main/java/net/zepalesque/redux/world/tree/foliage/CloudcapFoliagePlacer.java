@@ -29,10 +29,10 @@ import net.zepalesque.redux.util.world.PureRand;
 public class CloudcapFoliagePlacer extends FoliagePlacer {
 	public static final MapCodec<CloudcapFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec(builder -> builder.group(
 			IntProvider.codec(3, 12).fieldOf("height").forGetter(instance -> instance.height),
-			BlockStateProvider.CODEC.fieldOf("netting_body").forGetter(instance -> instance.nettingBody)
-			BlockStateProvider.CODEC.fieldOf("netting_head").forGetter(instance -> instance.nettingHead)
+			BlockStateProvider.CODEC.fieldOf("netting_body").forGetter(instance -> instance.nettingBody),
+			BlockStateProvider.CODEC.fieldOf("netting_head").forGetter(instance -> instance.nettingHead),
 			BlockStateProvider.CODEC.fieldOf("gill").forGetter(instance -> instance.gill)
-).apply(builder, CloudcapFoliagePlacer::new)
+		).apply(builder, CloudcapFoliagePlacer::new)
 	);
 
 	protected final IntProvider height;
