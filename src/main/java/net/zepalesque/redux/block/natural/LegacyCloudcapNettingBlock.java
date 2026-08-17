@@ -14,11 +14,11 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class CloudcapNettingBlock extends Block {
+public class LegacyCloudcapNettingBlock extends Block {
 	protected static final VoxelShape SHAPE_HEAD = Block.box(2.0D, 10.0D, 2.0D, 14.0D, 16.0D, 14.0D);
 	protected static final VoxelShape SHAPE_BODY = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
-	public CloudcapNettingBlock(Properties properties) {
+	public LegacyCloudcapNettingBlock(Properties properties) {
 		super(properties);
 		this.registerDefaultState(
 			this.defaultBlockState().setValue(BlockStateProperties.BOTTOM, true)

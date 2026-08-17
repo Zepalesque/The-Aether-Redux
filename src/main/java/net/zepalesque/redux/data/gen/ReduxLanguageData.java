@@ -5,6 +5,7 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.client.audio.ReduxSounds;
 import net.zepalesque.redux.data.prov.ReduxLanguageProvider;
+import net.zepalesque.redux.data.resource.registries.ReduxBiomes;
 import net.zepalesque.redux.data.resource.registries.ReduxJukeboxSongs;
 import net.zepalesque.redux.entity.ReduxEntities;
 import net.zepalesque.redux.item.ReduxItems;
@@ -55,7 +56,7 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 		this.addLore(ReduxBlocks.BLIGHTED_AETHER_GRASS_BLOCK, "A block of the Aether's grass which has been corrupted by the Blight.");
 		
 		this.addBlock(ReduxBlocks.AVELIUM);
-		this.addLore(ReduxBlocks.AVELIUM, "A grassy mold inhabiting some Aether Dirt. Can be found in the Cloudcaps!");
+		this.addLore(ReduxBlocks.AVELIUM, "A grassy mold inhabiting some Aether Dirt. Can be found in the Cloudcap Ridge!");
 		
 		this.addBlock(ReduxBlocks.GOLDEN_VINES);
 		this.addBlock(ReduxBlocks.GOLDEN_VINES_PLANT);
@@ -202,7 +203,7 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 		this.addItem(ReduxItems.ARTEMID_SPAWN_EGG);
 		
 		this.addBlock(ReduxBlocks.VERIDIUM_ORE);
-		this.addLore(ReduxBlocks.VERIDIUM_ORE, "The ore of Veridium. This can be found around the Aether");
+		this.addLore(ReduxBlocks.VERIDIUM_ORE, "The ore of Veridium. This can be found around the Aether's caves.");
 		
 		this.addBlock(ReduxBlocks.RAW_VERIDIUM_BLOCK, "Block of Raw Veridium");
 		this.addLore(ReduxBlocks.RAW_VERIDIUM_BLOCK, "A block of raw Veridium. This can be crafted from Raw Veridium.");
@@ -219,8 +220,11 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 		this.addBlock(ReduxBlocks.HOLYSILT);
 		this.addLore(ReduxBlocks.HOLYSILT, "A fine gravel made of Holystone, among other minerals. It supports its own weight when found naturally, but be careful as stepping on it may destabilize it!");
 		
-		this.addBlock(ReduxBlocks.CLOUD_CAP_BLOCK);
-		this.addLore(ReduxBlocks.CLOUD_CAP_BLOCK, "The cap of the large Cloudcap Mushrooms, found in the Cloudcaps.");
+		this.addBlock(ReduxBlocks.CLOUD_CAP);
+		this.addLore(ReduxBlocks.CLOUD_CAP, "The cap of the large Cloudcap Mushrooms, found in the Cloudcap Ridge.");
+		
+		this.addBlock(ReduxBlocks.CLOUDCAP_GILL);
+		this.addLore(ReduxBlocks.CLOUDCAP_GILL, "The ribbed, spore-producing undersides of the caps of Cloudcap Mushrooms, found in the Cloudcap Ridge.");
 		
 		this.addEntityType(ReduxEntities.EMBER);
 		this.addEntityType(ReduxEntities.VERIDIUM_DART);
@@ -254,10 +258,10 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 		this.addLore(ReduxBlocks.LUNAERA, "A flowering grass found in the skyfields. It absorbs moonlight, making it slightly bioluminescent.");
 
 		this.addBlock(ReduxBlocks.AVELIUM_ROOTS);
-		this.addLore(ReduxBlocks.AVELIUM_ROOTS, "Roots from a patch of avelium.");
+		this.addLore(ReduxBlocks.AVELIUM_ROOTS, "Sprouting roots that grow on Avelium in the Cloudcap Ridge.");
 
 		this.addBlock(ReduxBlocks.CLOUDCAP_NETTING);
-		this.addLore(ReduxBlocks.CLOUDCAP_NETTING, "Netting of a huge Cloudcap mushroom.");
+		this.addLore(ReduxBlocks.CLOUDCAP_NETTING, "The silky, weblike netting of a huge Cloudcap Mushroom. Can be found in the Cloudcap Ridge!");
 
 		this.addTooltip("shift_info", "Hold [%s] for more info...");
 		this.addTooltip("infusion_charge", "Infusion Charge: %s");
@@ -280,6 +284,12 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 		this.addSubtitle(ReduxSounds.EMBER_BOUNCE_BIG, "Ember shatters");
 		this.addSubtitle(ReduxSounds.EMBER_BOUNCE_MEDIUM, "Ember crackles");
 		this.addSubtitle(ReduxSounds.EMBER_BOUNCE_SMALL, "Ember sparks");
+		
+		this.addBiome(ReduxBiomes.GILDED_GROVES, "Gilded Groves");
+		this.addBiome(ReduxBiomes.THE_BLIGHT, "The Blight");
+		this.addBiome(ReduxBiomes.FROSTED_FORESTS, "Frosted Forests");
+		this.addBiome(ReduxBiomes.SKYFIELDS, "Skyfields");
+		this.addBiome(ReduxBiomes.CLOUDCAP_RIDGE, "Cloudcap Ridge");
 		
 		this.addAdvancement("throw_ring_in_lava", "Cast It into the Fire! Destroy It!", "Throw a Golden Ring into lava in the Nether");
 	}

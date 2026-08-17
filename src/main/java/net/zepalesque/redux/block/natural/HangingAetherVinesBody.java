@@ -15,13 +15,15 @@ import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import java.util.Optional;
+
 public class HangingAetherVinesBody extends GrowingPlantBodyBlock {
 	public static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
-	private final TagKey<Block> leafTag;
+	private final Optional<TagKey<Block>> leafTag;
 	private final Holder<Block> head;
 
-	public HangingAetherVinesBody(Properties properties, TagKey<Block> leafTag, Holder<Block> head) {
+	public HangingAetherVinesBody(Properties properties, Optional<TagKey<Block>> leafTag, Holder<Block> head) {
 		super(properties, Direction.DOWN, SHAPE, false);
 		this.leafTag = leafTag;
 		this.head = head;
@@ -34,7 +36,11 @@ public class HangingAetherVinesBody extends GrowingPlantBodyBlock {
 		return !this.canAttachTo(relState)
 			? super.canSurvive(state, lvl, pos)
 			: super.canSurvive(state, lvl, pos)
-				|| relState.is(this.leafTag);
+				|| this.checkAboveState(relState);
+	}
+	
+	protected boolean checkAboveState(BlockState state) {
+		return this.leafTag.isEmpty() || state.is(this.leafTag.get());
 	}
 
 	@Override
@@ -51,7 +57,7 @@ public class HangingAetherVinesBody extends GrowingPlantBodyBlock {
 		builder -> builder.group(
 			propertiesCodec(),
 			TagKey.codec(Registries.BLOCK)
-				.fieldOf("leaf_tag")
+				.optionalFieldOf("leaf_tag")
 				.forGetter(instance -> instance.leafTag),
 			BuiltInRegistries.BLOCK
 				.holderByNameCodec()

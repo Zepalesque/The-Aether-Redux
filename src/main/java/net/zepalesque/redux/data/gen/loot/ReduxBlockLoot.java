@@ -76,7 +76,9 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
 			AetherBlocks.AETHER_DIRT.get()
 		);
 		this.dropWhenSilkTouch(ReduxBlocks.AVELIUM_ROOTS.get());
-		this.dropWhenSilkTouch(ReduxBlocks.CLOUDCAP_NETTING.get());
+		
+		this.add(ReduxBlocks.CLOUDCAP_NETTING.get(), this.shears());
+		this.add(ReduxBlocks.CLOUDCAP_NETTING_PLANT.get(), this.shears().apply(ReduxBlocks.CLOUDCAP_NETTING.get()));
 
 		this.add(ReduxBlocks.CAELGAE_PATCH.get(), this.shearsOr(ReduxItems.CAELGAE_CLUMP.get(), 0.25F));
 		this.add(ReduxBlocks.BLOOMTAIL.get(), this.shears());
@@ -141,7 +143,8 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
 		this.dropSelf(ReduxBlocks.RAW_VERIDIUM_BLOCK.get());
 		
 		this.dropSelf(ReduxBlocks.HOLYSILT.get());
-		this.dropSelf(ReduxBlocks.CLOUD_CAP_BLOCK.get());
+		this.dropSelf(ReduxBlocks.CLOUD_CAP.get());
+		this.dropSelf(ReduxBlocks.CLOUDCAP_GILL.get());
 		
 		this.add(ReduxBlocks.GOLDEN_CLOVERS.get(), this::createPetalsDrops);
 		this.add(ReduxBlocks.GOLDEN_VINES.get(), this.shears());

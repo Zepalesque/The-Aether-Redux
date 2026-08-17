@@ -39,5 +39,9 @@ public class ReduxParticleData extends ReduxParticleProvider {
 		this.spriteSet(ReduxParticles.SPARK.get(), List.of(sparkTextures));
 
 		this.spriteSet(ReduxParticles.BLOSSOM_FLARE.get(), Redux.loc("blossom_flare"));
+		
+		this.spriteSet(ReduxParticles.CLOUDCAP_AIR_SPORE.get(), Redux.loc("cloudcap_spore"));
+		this.spriteSet(ReduxParticles.FALLING_CLOUDCAP_SPORE.get(), Redux.loc("cloudcap_spore"));
+		this.spriteSet(ReduxParticles.LANDING_CLOUDCAP_SPORE.get(), Redux.loc("cloudcap_spore"));
 	}
 }

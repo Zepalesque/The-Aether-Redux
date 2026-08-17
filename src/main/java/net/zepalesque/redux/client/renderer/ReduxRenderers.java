@@ -68,7 +68,7 @@ public class ReduxRenderers {
 	@SubscribeEvent
 	public static void registerBakedModels(ModelEvent.ModifyBakingResult event) {
 		modifyModels(event.getModels(), AmbientOcclusionLightModel::new, ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES);
-		modifyModels(event.getModels(), AmbientOcclusionLightModel::new, ReduxBlocks.CLOUD_CAP_BLOCK);
+		modifyModels(event.getModels(), AmbientOcclusionLightModel::new, ReduxBlocks.CLOUD_CAP);
 	}
 
 	@SafeVarargs

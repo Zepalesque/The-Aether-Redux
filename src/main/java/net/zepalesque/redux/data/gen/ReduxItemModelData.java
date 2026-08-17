@@ -199,7 +199,10 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
 			ReduxBlocks.SHADED_VINES_PLANT.get(),
 			"natural/"
 		);
-		this.itemBlockFlat(ReduxBlocks.CLOUDCAP_NETTING.get(), "natural/");
+		this.itemBlockFlatCustomTexture(
+			ReduxBlocks.CLOUDCAP_NETTING.get(),
+			Redux.loc("block/natural/cloudcap_netting_plant_upper")
+		);
 
 		this.item(ReduxBlocks.LUNAERA.get().asItem(), "misc/");
 		this.itemBlockFlat(ReduxBlocks.AVELIUM_ROOTS.get(), "natural/");
@@ -213,7 +216,8 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
 		this.itemBlock(ReduxBlocks.GILDENMOSS_CARPET.get());
 
 		this.itemBlock(ReduxBlocks.HOLYSILT.get());
-		this.itemBlock(ReduxBlocks.CLOUD_CAP_BLOCK.get());
+		this.itemBlock(ReduxBlocks.CLOUD_CAP.get());
+		this.itemBlock(ReduxBlocks.CLOUDCAP_GILL.get());
 
 		this.item(ReduxItems.MUSIC_DISC_SENTIENCE.get(), "misc/");
 		this.item(ReduxItems.WILLOW_SPORES.get(), "materials/");

@@ -74,7 +74,7 @@ public class PureRand {
 		return (double) getBits(seed, 53) * 1.110223E-16F;
 	}
 	
-	public boolean getBool(long seed) {
+	public static boolean getBool(long seed) {
 		return (getLong(seed) & 1L) != 0L;
 	}
 }

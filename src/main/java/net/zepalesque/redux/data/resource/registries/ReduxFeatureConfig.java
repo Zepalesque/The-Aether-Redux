@@ -399,10 +399,14 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			new TreeConfiguration.TreeConfigurationBuilder(
 				prov(ReduxWoodSets.CLOUDCAP.log()),
 				new StraightTrunkPlacer(14, 4, 4),
-				prov(ReduxBlocks.CLOUD_CAP_BLOCK),
+				prov(ReduxBlocks.CLOUD_CAP),
 
-				new CloudcapFoliagePlacer(UniformInt.of(5, 7), prov(() -> ReduxBlocks.CLOUDCAP_NETTING.get())),
-				Optional.empty(),
+				new CloudcapFoliagePlacer(
+					UniformInt.of(5, 7),
+					prov(ReduxBlocks.CLOUDCAP_NETTING_PLANT),
+					prov(ReduxBlocks.CLOUDCAP_NETTING),
+					prov(ReduxBlocks.CLOUDCAP_GILL)
+				), Optional.empty(),
 				new TwoLayersFeatureSize(7, 0, 3)
 			)
 				.ignoreVines()

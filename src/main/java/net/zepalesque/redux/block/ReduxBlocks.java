@@ -36,7 +36,9 @@ import net.zepalesque.redux.block.natural.BlightedGrassBlock;
 import net.zepalesque.redux.block.natural.BloomtailBlock;
 import net.zepalesque.redux.block.natural.CaelgaeBlock;
 import net.zepalesque.redux.block.natural.CloudCapBlock;
-import net.zepalesque.redux.block.natural.CloudcapNettingBlock;
+import net.zepalesque.redux.block.natural.CloudcapGillBlock;
+import net.zepalesque.redux.block.natural.CloudcapNettingBody;
+import net.zepalesque.redux.block.natural.CloudcapNettingHead;
 import net.zepalesque.redux.block.natural.DoubleDropsMossCarpet;
 import net.zepalesque.redux.block.natural.EchysiaBlock;
 import net.zepalesque.redux.block.natural.GoldenCloversBlock;
@@ -59,6 +61,8 @@ import net.zepalesque.unity.event.hook.BlockHooks;
 import net.zepalesque.zenith.api.blockset.type.AbstractWoodSet;
 import net.zepalesque.zenith.mixin.mixins.common.accessor.FireAccessor;
 import net.zepalesque.zenith.util.block.CommonPlantBounds;
+
+import java.util.Optional;
 
 public class ReduxBlocks extends ReduxBlockBuilders {
 	public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Redux.MODID);
@@ -512,7 +516,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 			Properties.ofFullCopy(Blocks.WEEPING_VINES)
 				.mapColor(MapColor.GOLD)
 				.sound(SoundType.CAVE_VINES),
-			BlockTags.LEAVES,
+			Optional.of(BlockTags.LEAVES),
 			ReduxBlocks.GOLDEN_VINES_PLANT
 		)
 	);
@@ -523,7 +527,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 			Properties.ofFullCopy(Blocks.WEEPING_VINES_PLANT)
 				.mapColor(MapColor.GOLD)
 				.sound(SoundType.CAVE_VINES),
-			BlockTags.LEAVES,
+			Optional.of(BlockTags.LEAVES),
 			ReduxBlocks.GOLDEN_VINES
 		)
 	);
@@ -534,16 +538,8 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 			Properties.ofFullCopy(Blocks.WEEPING_VINES)
 				.mapColor(MapColor.TERRACOTTA_PURPLE)
 				.sound(SoundType.CAVE_VINES),
-			BlockTags.LEAVES,
+			Optional.of(BlockTags.LEAVES),
 			ReduxBlocks.SHADED_VINES_PLANT
-		)
-	);
-
-	public static final DeferredBlock<CloudcapNettingBlock> CLOUDCAP_NETTING = register(
-		"cloudcap_netting",
-		() -> new CloudcapNettingBlock(
-			Properties.ofFullCopy(SHADED_VINES.get())
-				.mapColor(MapColor.GLOW_LICHEN)
 		)
 	);
 	
@@ -553,8 +549,28 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 			Properties.ofFullCopy(Blocks.WEEPING_VINES_PLANT)
 				.mapColor(MapColor.GOLD)
 				.sound(SoundType.CAVE_VINES),
-			BlockTags.LEAVES,
+			Optional.of(BlockTags.LEAVES),
 			ReduxBlocks.SHADED_VINES
+		)
+	);
+	
+	public static final DeferredBlock<HangingAetherVinesHead> CLOUDCAP_NETTING = register(
+		"cloudcap_netting",
+		() -> new CloudcapNettingHead(
+			Properties.ofFullCopy(Blocks.WEEPING_VINES)
+				.mapColor(MapColor.GLOW_LICHEN)
+				.sound(SoundType.CAVE_VINES),
+			ReduxBlocks.CLOUDCAP_NETTING_PLANT
+		)
+	);
+	
+	public static final DeferredBlock<HangingAetherVinesBody> CLOUDCAP_NETTING_PLANT = BLOCKS.register(
+		"cloudcap_netting_plant",
+		() -> new CloudcapNettingBody(
+			Properties.ofFullCopy(Blocks.WEEPING_VINES_PLANT)
+				.mapColor(MapColor.GLOW_LICHEN)
+				.sound(SoundType.CAVE_VINES),
+			ReduxBlocks.CLOUDCAP_NETTING
 		)
 	);
 
@@ -593,7 +609,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 		)
 	);
 	
-	public static DeferredBlock<Block> CLOUD_CAP_BLOCK = register("cloud_cap_block",
+	public static DeferredBlock<CloudCapBlock> CLOUD_CAP = register("cloud_cap",
 		() -> new CloudCapBlock(
 			Properties.of()
 				.mapColor(MapColor.LAPIS)
@@ -607,6 +623,16 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 					case 4 -> 7;
 					default -> throw unreachable();
 				})
+		)
+	);
+	
+	public static DeferredBlock<CloudcapGillBlock> CLOUDCAP_GILL = register("cloudcap_gill",
+		() -> new CloudcapGillBlock(
+			Properties.of()
+				.mapColor(MapColor.GLOW_LICHEN)
+				.strength(0.3F)
+				.sound(SoundType.WART_BLOCK)
+				.lightLevel(state -> 15)
 		)
 	);
 	

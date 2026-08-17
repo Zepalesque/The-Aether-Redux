@@ -63,7 +63,8 @@ public class ReduxTabs {
 				ReduxBlocks.BLIGHTWILLOW_LEAVES,
 				ReduxBlocks.INFECTED_BLIGHTWILLOW_LEAVES,
 				ReduxBlocks.BLIGHTWILLOW_LEAF_PILE,
-				ReduxBlocks.CLOUD_CAP_BLOCK
+				ReduxBlocks.CLOUD_CAP,
+				ReduxBlocks.CLOUDCAP_GILL
 			)
 			.putAfter(
 				UnityBlocks.VALKYRIE_CLAY,

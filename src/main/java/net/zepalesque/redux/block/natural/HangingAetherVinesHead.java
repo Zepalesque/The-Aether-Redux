@@ -18,31 +18,30 @@ import net.minecraft.world.level.block.NetherVines;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import java.util.Optional;
+
 public class HangingAetherVinesHead extends GrowingPlantHeadBlock {
 	protected static final VoxelShape SHAPE = Block.box(2.0D, 10.0D, 2.0D, 14.0D, 16.0D, 14.0D);
 
-	private final TagKey<Block> leafTag;
+	private final Optional<TagKey<Block>> leafTag;
 	private final Holder<Block> body;
 
-	public HangingAetherVinesHead(Properties properties, TagKey<Block> leafTag, Holder<Block> body) {
+	public HangingAetherVinesHead(Properties properties, Optional<TagKey<Block>> leafTag, Holder<Block> body) {
 		super(properties, Direction.DOWN, SHAPE, false, 0.1D);
 		this.leafTag = leafTag;
 		this.body = body;
 	}
 
-	public static final MapCodec<HangingAetherVinesHead> CODEC = RecordCodecBuilder.mapCodec(
-		(builder) ->
-			builder
-				.group(
-					propertiesCodec(),
-					TagKey.codec(Registries.BLOCK)
-						.fieldOf("leaf_tag")
-						.forGetter((instance) -> instance.leafTag),
-					BuiltInRegistries.BLOCK.holderByNameCodec()
-						.fieldOf("body_block")
-						.forGetter((instance) -> instance.body)
-				)
-				.apply(builder, HangingAetherVinesHead::new)
+	public static final MapCodec<HangingAetherVinesHead> CODEC = RecordCodecBuilder
+		.mapCodec(builder -> builder.group(
+			propertiesCodec(),
+			TagKey.codec(Registries.BLOCK)
+				.optionalFieldOf("leaf_tag")
+				.forGetter(instance -> instance.leafTag),
+			BuiltInRegistries.BLOCK.holderByNameCodec()
+				.fieldOf("body_block")
+				.forGetter(instance -> instance.body)
+		).apply(builder, HangingAetherVinesHead::new)
 	);
 
 	@Override
@@ -84,9 +83,14 @@ public class HangingAetherVinesHead extends GrowingPlantHeadBlock {
 		var relState = lvl.getBlockState(relative);
 		return !this.canAttachTo(relState)
 			? super.canSurvive(state, lvl, pos)
-			: super.canSurvive(state, lvl, pos) || relState.is(this.leafTag);
+			: super.canSurvive(state, lvl, pos) || this.checkAboveState(relState);
 	}
-
+	
+	protected boolean checkAboveState(BlockState state) {
+		return this.leafTag.isEmpty() || state.is(this.leafTag.get());
+	}
+	
+	
 	@Override
 	public void randomTick(
 		BlockState pState,

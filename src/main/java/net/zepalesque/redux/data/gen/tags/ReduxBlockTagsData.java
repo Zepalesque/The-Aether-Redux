@@ -103,7 +103,8 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
 			ReduxBlocks.LUXWEED.get(),
 			ReduxBlocks.SKYSPROUTS.get(),
 			ReduxBlocks.WYNDOATS.get(),
-			ReduxBlocks.CLOUD_CAP_BLOCK.get()
+			ReduxBlocks.CLOUD_CAP.get(),
+			ReduxBlocks.CLOUDCAP_GILL.get()
 		);
 
 		this.tag(BlockTags.LAVA_POOL_STONE_CANNOT_REPLACE).add(
@@ -253,7 +254,7 @@ public class ReduxBlockTagsData extends ReduxBlockTagsProvider {
 			ReduxBlocks.REFINED_SENTRITE_BLOCK.get()
 		);
 		this.tag(ReduxTags.Blocks.MUSHROOM_CAPS).add(
-			ReduxBlocks.CLOUD_CAP_BLOCK.get()
+			ReduxBlocks.CLOUD_CAP.get()
 		);
 	}
 }

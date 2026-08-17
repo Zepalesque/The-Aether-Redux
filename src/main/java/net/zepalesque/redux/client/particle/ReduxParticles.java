@@ -40,6 +40,9 @@ public class ReduxParticles {
 		GOLDEN_OAK_LEAF = PARTICLES.register("golden_oak_leaf", () -> new SimpleParticleType(false)),
 		WHIRLWIND_LIGHTNING = PARTICLES.register("whirlwind_lightning", () -> new SimpleParticleType(false)),
 		SPARK = PARTICLES.register("spark", () -> new SimpleParticleType(false)),
+		FALLING_CLOUDCAP_SPORE = PARTICLES.register("falling_cloudcap_spore", () -> new SimpleParticleType(false)),
+		LANDING_CLOUDCAP_SPORE = PARTICLES.register("landing_cloudcap_spore", () -> new SimpleParticleType(false)),
+		CLOUDCAP_AIR_SPORE = PARTICLES.register("cloudcap_air_spore", () -> new SimpleParticleType(false)),
 		BLOSSOM_FLARE = PARTICLES.register("blossom_flare", () -> new SimpleParticleType(false));
 
 	@SubscribeEvent
@@ -56,6 +59,10 @@ public class ReduxParticles {
 
 		event.registerSpriteSet(WHIRLWIND_LIGHTNING.get(), ReduxGlowParticle.Lightning::new);
 		event.registerSpriteSet(SPARK.get(), SparkParticle.Provider::new);
+		event.registerSpriteSet(BLOSSOM_FLARE.get(), FlameParticle.Provider::new);
+		event.registerSpriteSet(FALLING_CLOUDCAP_SPORE.get(), CloudcapSporeParticle.Falling::new);
+		event.registerSpriteSet(LANDING_CLOUDCAP_SPORE.get(), CloudcapSporeParticle.Landing::new);
+		event.registerSpriteSet(CLOUDCAP_AIR_SPORE.get(), CloudcapAirSporeParticle.Provider::new);
 		event.registerSpriteSet(BLOSSOM_FLARE.get(), FlameParticle.Provider::new);
 	}
 }

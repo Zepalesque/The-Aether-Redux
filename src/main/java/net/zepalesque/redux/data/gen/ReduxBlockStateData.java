@@ -106,6 +106,8 @@ public class ReduxBlockStateData extends ReduxBlockStateProvider {
 		this.cropOccluded(ReduxBlocks.SHADED_VINES.get(), "natural/");
 		this.cropOccluded(ReduxBlocks.SHADED_VINES_PLANT.get(), "natural/");
 		this.netting(ReduxBlocks.CLOUDCAP_NETTING.get(), "natural/");
+		this.netting(ReduxBlocks.CLOUDCAP_NETTING_PLANT.get(), "natural/");
+		this.gill(ReduxBlocks.CLOUDCAP_GILL.get(), "natural/");
 
 		this.doublePlant(ReduxBlocks.LUNAERA.get(), "natural/");
 		this.logicator(ReduxBlocks.LOGICATOR.get(), "redstone/");
@@ -115,6 +117,6 @@ public class ReduxBlockStateData extends ReduxBlockStateProvider {
 		this.block(ReduxBlocks.GILDENMOSS_BLOCK.get(), "natural/");
 		this.carpet(ReduxBlocks.GILDENMOSS_CARPET.get(), ReduxBlocks.GILDENMOSS_BLOCK.get(), "natural/");
 		this.block(ReduxBlocks.HOLYSILT.get(), "natural/");
-		this.createCloudcapBlock(ReduxBlocks.CLOUD_CAP_BLOCK.get(), "natural/");
+		this.createCloudcapBlock(ReduxBlocks.CLOUD_CAP.get(), "natural/");
 	}
 }

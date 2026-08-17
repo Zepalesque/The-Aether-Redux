@@ -3,6 +3,7 @@ package net.zepalesque.redux.data.prov;
 import com.aetherteam.aether.block.AetherBlockStateProperties;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.dungeon.DoorwayBlock;
+import com.aetherteam.aether.block.miscellaneous.FacingPillarBlock;
 import com.google.common.collect.ImmutableMap;
 import java.util.Map;
 import java.util.TreeMap;
@@ -39,7 +40,7 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.backport.MossyCarpetBlock;
 import net.zepalesque.redux.block.construction.LayeredBookshelfBlock;
 import net.zepalesque.redux.block.dungeon.RunelightBlock;
-import net.zepalesque.redux.block.natural.CloudcapNettingBlock;
+import net.zepalesque.redux.block.natural.LegacyCloudcapNettingBlock;
 import net.zepalesque.redux.block.redstone.LogicatorBlock;
 import net.zepalesque.redux.block.state.ReduxStates;
 import net.zepalesque.redux.block.state.enums.LogicatorMode;
@@ -439,22 +440,22 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
 		this.crossBlock(block, cross);
 	}
 
-	public void netting(CloudcapNettingBlock block, String location) {
+	public void netting(Block block, String location) {
 		this.getVariantBuilder(block).forAllStates(state -> ConfiguredModel.builder().modelFile(
 			state.getValue(BlockStateProperties.BOTTOM)
 				? this.models()
 					.withExistingParent(
-						this.name(block) + "_bottom",
+						this.name(block) + "_lower",
 						Redux.loc(ModelProvider.BLOCK_FOLDER + "/template/crop/crop_occluded")
 					)
-					.texture("plant", this.texture(this.name(block), location, "_bottom"))
+					.texture("plant", this.texture(this.name(block), location, "_lower"))
 					.renderType("cutout")
 				: this.models()
 					.withExistingParent(
-						this.name(block),
+						this.name(block) + "_upper",
 						Redux.loc(ModelProvider.BLOCK_FOLDER + "/template/crop/crop_occluded")
 					)
-					.texture("plant", this.texture(this.name(block), location))
+					.texture("plant", this.texture(this.name(block), location, "_upper"))
 					.renderType("cutout")
 		).build());
 	}
@@ -872,5 +873,20 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
 			this.extend(this.texture(this.name(block), "natural/"), "_side"),
 			this.foreignTexture(this.namespace(dirt), this.name(dirt), "natural/"),
 			this.extend(this.texture(this.name(block), "natural/"), "_top"));
+	}
+	
+	public void gill(FacingPillarBlock block, String loc) {
+		var side = this.texture(block, loc);
+		var top = this.texture(block, loc, "_top");
+		var bottom = this.texture(block, loc, "_bottom");
+		ModelFile vertical = this.models().cubeBottomTop(this.name(block), side, bottom, top);
+		ModelFile horizontal = this.models().withExistingParent(this.name(block) + "_horizontal", Redux.loc("block/template/cube_bottom_top_horizontal")).texture("side", side).texture("bottom", bottom).texture("top", top);
+		this.getVariantBuilder(block)
+			.partialState().with(FacingPillarBlock.FACING, Direction.DOWN).modelForState().modelFile(vertical).rotationX(180).addModel()
+			.partialState().with(FacingPillarBlock.FACING, Direction.EAST).modelForState().modelFile(horizontal).rotationX(90).rotationY(90).addModel()
+			.partialState().with(FacingPillarBlock.FACING, Direction.NORTH).modelForState().modelFile(horizontal).rotationX(90).addModel()
+			.partialState().with(FacingPillarBlock.FACING, Direction.SOUTH).modelForState().modelFile(horizontal).rotationX(90).rotationY(180).addModel()
+			.partialState().with(FacingPillarBlock.FACING, Direction.UP).modelForState().modelFile(vertical).addModel()
+			.partialState().with(FacingPillarBlock.FACING, Direction.WEST).modelForState().modelFile(horizontal).rotationX(90).rotationY(270).addModel();
 	}
 }
