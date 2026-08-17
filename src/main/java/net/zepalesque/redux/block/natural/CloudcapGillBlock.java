@@ -30,7 +30,7 @@ public class CloudcapGillBlock extends FacingPillarBlock {
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext context) {
 		var state = super.getStateForPlacement(context);
-		if (context.getPlayer() != null && context.getPlayer().isCrouching() && state != null)
+		if (context.getPlayer() != null && context.getPlayer().isShiftKeyDown() && state != null)
 			state = state.setValue(FACING, state.getValue(FACING).getOpposite());
 		
 		return state;
