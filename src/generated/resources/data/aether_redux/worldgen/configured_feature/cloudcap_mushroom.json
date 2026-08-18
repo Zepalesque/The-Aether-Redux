@@ -13,7 +13,7 @@
 			"gill": {
 				"type": "minecraft:simple_state_provider",
 				"state": {
-					"Name": "aether_redux:cloudcap_gill",
+					"Name": "aether_redux:cloudcap_gill_block",
 					"Properties": {
 						"double_drops": "true",
 						"facing": "up"
