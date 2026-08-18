@@ -210,7 +210,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			new CloudbedFeature.Config(
 				prov(AetherFeatureStates.COLD_AERCLOUD),
 				BlockPredicate.ONLY_IN_AIR_PREDICATE,
-				8,
+				16,
 				ReduxDensityBuilders.get(functions, ReduxDensityFunctions.CLOUDBED_NOISE),
 				10,
 				ReduxDensityBuilders.get(functions, ReduxDensityFunctions.CLOUDBED_Y_OFFSET),
