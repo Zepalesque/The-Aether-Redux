@@ -625,7 +625,7 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 		)
 	);
 	
-	public static DeferredBlock<CloudcapGillBlock> CLOUDCAP_GILL = register("cloudcap_gill",
+	public static DeferredBlock<CloudcapGillBlock> CLOUDCAP_GILL_BLOCK = register("cloudcap_gill_block",
 		() -> new CloudcapGillBlock(
 			Properties.of()
 				.mapColor(MapColor.GLOW_LICHEN)

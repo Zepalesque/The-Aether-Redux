@@ -107,7 +107,7 @@ public class ReduxBlockStateData extends ReduxBlockStateProvider {
 		this.cropOccluded(ReduxBlocks.SHADED_VINES_PLANT.get(), "natural/");
 		this.netting(ReduxBlocks.CLOUDCAP_NETTING.get(), "natural/");
 		this.netting(ReduxBlocks.CLOUDCAP_NETTING_PLANT.get(), "natural/");
-		this.gill(ReduxBlocks.CLOUDCAP_GILL.get(), "natural/");
+		this.gill(ReduxBlocks.CLOUDCAP_GILL_BLOCK.get(), "natural/");
 
 		this.doublePlant(ReduxBlocks.LUNAERA.get(), "natural/");
 		this.logicator(ReduxBlocks.LOGICATOR.get(), "redstone/");

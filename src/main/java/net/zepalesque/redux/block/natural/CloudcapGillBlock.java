@@ -6,6 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -24,6 +25,15 @@ public class CloudcapGillBlock extends FacingPillarBlock {
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		super.createBlockStateDefinition(builder);
 		builder.add(AetherBlockStateProperties.DOUBLE_DROPS);
+	}
+	
+	@Override
+	public BlockState getStateForPlacement(BlockPlaceContext context) {
+		var state = super.getStateForPlacement(context);
+		if (context.getPlayer() != null && context.getPlayer().isShiftKeyDown() && state != null)
+			state = state.setValue(FACING, state.getValue(FACING).getOpposite());
+		
+		return state;
 	}
 	
 	public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
