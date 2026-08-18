@@ -65,12 +65,15 @@
 													"to_y": 156
 												},
 												"argument2": {
-													"type": "minecraft:add",
-													"argument1": 0.2,
-													"argument2": {
+													"type": "minecraft:cache_once",
+													"argument": {
 														"type": "minecraft:add",
-														"argument1": -0.13,
-														"argument2": "aether:base_3d_noise_aether"
+														"argument1": 0.2,
+														"argument2": {
+															"type": "minecraft:add",
+															"argument1": -0.13,
+															"argument2": "aether:base_3d_noise_aether"
+														}
 													}
 												}
 											}
@@ -84,15 +87,15 @@
 							"argument1": -0.0495,
 							"argument2": {
 								"type": "minecraft:add",
-								"argument1": -0.1,
+								"argument1": -0.075,
 								"argument2": {
 									"type": "minecraft:mul",
 									"argument1": {
 										"type": "minecraft:y_clamped_gradient",
 										"from_value": 0.0,
 										"from_y": 80,
-										"to_value": 0.645,
-										"to_y": 128
+										"to_value": 0.67,
+										"to_y": 100
 									},
 									"argument2": {
 										"type": "minecraft:add",
@@ -104,18 +107,22 @@
 												"type": "minecraft:mul",
 												"argument1": {
 													"type": "minecraft:y_clamped_gradient",
-													"from_value": 0.645,
-													"from_y": 156,
+													"from_value": 0.67,
+													"from_y": 140,
 													"to_value": 0.0,
 													"to_y": 232
 												},
 												"argument2": {
-													"type": "minecraft:add",
-													"argument1": 0.2,
+													"type": "minecraft:mul",
+													"argument1": -1,
 													"argument2": {
 														"type": "minecraft:add",
-														"argument1": -0.13,
-														"argument2": "aether:base_3d_noise_aether"
+														"argument1": 0.2,
+														"argument2": {
+															"type": "minecraft:add",
+															"argument1": -0.13,
+															"argument2": "aether:base_3d_noise_aether"
+														}
 													}
 												}
 											}
