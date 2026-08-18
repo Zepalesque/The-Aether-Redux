@@ -13,6 +13,8 @@ import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.DoublePlantBlock;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
@@ -108,7 +110,7 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
 		this.dropNone(ReduxBlocks.LOCKED_RUNELIGHT.get());
 		this.dropNone(ReduxBlocks.LOCKED_POLISHED_SENTRITE.get());
 
-		this.dropSelfDouble(ReduxBlocks.LUNAERA.get());
+		this.add(ReduxBlocks.LUNAERA.get(), block -> this.createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
 
 		this.add(ReduxBlocks.WYNDSPROUTS.get(), this.shearsOr(ReduxItems.WYND_OATS.get(), 0.25F));
 		this.add(ReduxBlocks.LUXWEED.get(), this.shears());
