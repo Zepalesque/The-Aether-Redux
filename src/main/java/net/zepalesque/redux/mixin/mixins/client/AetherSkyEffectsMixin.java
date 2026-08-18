@@ -13,7 +13,7 @@ public abstract class AetherSkyEffectsMixin {
 	@ModifyExpressionValue(method = "<init>", at = @At("MIXINEXTRAS:EXPRESSION"))
 	private static float redux$setCloudLevel(float og) {
 		return ReduxConfig.getOrDefault(ReduxConfig.CLIENT.move_clouds)
-			? 150f
+			? 176f
 			: og;
 	}
 }
