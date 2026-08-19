@@ -265,7 +265,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 		var shore = new RuleBasedBlockStateProvider(prov(AetherBlocks.QUICKSOIL),
 			List.of(
 				new RuleBasedBlockStateProvider.Rule(
-					InBiomePredicate.inTag(ReduxTags.Biomes.IS_FROSTED),
+					InBiomePredicate.inTag(ReduxTags.Biomes.AEROGEL_LAKE_MATERIAL),
 					prov(AetherBlocks.AEROGEL)
 				),
 				new RuleBasedBlockStateProvider.Rule(
