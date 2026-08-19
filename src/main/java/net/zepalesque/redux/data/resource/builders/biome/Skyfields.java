@@ -12,7 +12,7 @@ import net.minecraft.world.level.biome.BiomeSpecialEffects;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.zepalesque.redux.client.audio.ReduxMusic;
-import net.zepalesque.redux.data.resource.registries.ReduxPlacements;
+import net.zepalesque.redux.data.resource.registries.ReduxFeaturePlacements;
 
 public class Skyfields {
 	public static Biome generate(BootstrapContext<Biome> context) {
@@ -138,7 +138,7 @@ public class Skyfields {
 						AetherPlacedFeatures.WATER_SPRING_PLACEMENT
 					)
 
-					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.SKYFIELDS_TREES)
+					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxFeaturePlacements.SKYFIELDS_TREES)
 					.addFeature(
 						GenerationStep.Decoration.VEGETAL_DECORATION,
 						AetherPlacedFeatures.HOLIDAY_TREE_PLACEMENT
@@ -159,7 +159,7 @@ public class Skyfields {
 						GenerationStep.Decoration.VEGETAL_DECORATION,
 						AetherPlacedFeatures.PURPLE_FLOWER_PATCH_PLACEMENT
 					)
-					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.LUNAERA_PATCH)
+					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxFeaturePlacements.LUNAERA_PATCH)
 					//.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.SKYSPROUTS_PATCH)
 					//.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.IRIDIA_PATCH)
 					//.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.XAELIA_PATCH)
@@ -174,7 +174,7 @@ public class Skyfields {
 					)
 					.addFeature(
 						GenerationStep.Decoration.TOP_LAYER_MODIFICATION,
-						ReduxPlacements.DENSE_BLUE_AERCLOUD
+						ReduxFeaturePlacements.DENSE_BLUE_AERCLOUD
 					)
 					.addFeature(
 						GenerationStep.Decoration.TOP_LAYER_MODIFICATION,

@@ -12,7 +12,7 @@ import net.minecraft.world.level.biome.BiomeSpecialEffects;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.zepalesque.redux.client.audio.ReduxMusic;
-import net.zepalesque.redux.data.resource.registries.ReduxPlacements;
+import net.zepalesque.redux.data.resource.registries.ReduxFeaturePlacements;
 
 @SuppressWarnings({"DuplicatedCode", "unused"})
 public class FrostedForests {
@@ -66,14 +66,14 @@ public class FrostedForests {
 			.generationSettings(
 				new BiomeGenerationSettings.Builder(placed, carvers)
 					
-					.addFeature(GenerationStep.Decoration.RAW_GENERATION, ReduxPlacements.AEROGEL_DISK)
+					.addFeature(GenerationStep.Decoration.RAW_GENERATION, ReduxFeaturePlacements.AEROGEL_DISK)
 					
 					.addFeature(GenerationStep.Decoration.LAKES, AetherPlacedFeatures.WATER_LAKE_PLACEMENT)
 					
-					.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, ReduxPlacements.ICESTONE_ROCK)
+					.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, ReduxFeaturePlacements.ICESTONE_ROCK)
 					
 					.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_AETHER_DIRT_PLACEMENT)
-					.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ReduxPlacements.LARGE_ICESTONE_ORE)
+					.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ReduxFeaturePlacements.LARGE_ICESTONE_ORE)
 					.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_ICESTONE_PLACEMENT)
 					.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_AMBROSIUM_PLACEMENT)
 					.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, AetherPlacedFeatures.ORE_ZANITE_PLACEMENT)
@@ -82,14 +82,14 @@ public class FrostedForests {
 					
 					.addFeature(GenerationStep.Decoration.FLUID_SPRINGS, AetherPlacedFeatures.WATER_SPRING_PLACEMENT)
 					
-					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.FROSTED_TREES)
+					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxFeaturePlacements.FROSTED_TREES)
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.HOLIDAY_TREE_PLACEMENT)
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.GRASS_PATCH_PLACEMENT)
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.TALL_GRASS_PATCH_PLACEMENT)
-					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.LUMINA_PATCH)
-					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.SPARSE_PURPLE_FLOWER_PATCH)
-					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.DAGGERBLOOM_PATCH)
-					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.SKYFERN_PATCH)
+					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxFeaturePlacements.LUMINA_PATCH)
+					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxFeaturePlacements.SPARSE_PURPLE_FLOWER_PATCH)
+					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxFeaturePlacements.DAGGERBLOOM_PATCH)
+					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxFeaturePlacements.SKYFERN_PATCH)
 					
 //					.addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.CRYSTAL_ISLAND_PLACEMENT)
 					.addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.COLD_AERCLOUD_PLACEMENT)

@@ -15,7 +15,7 @@ import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.zepalesque.redux.client.audio.ReduxMusic;
-import net.zepalesque.redux.data.resource.registries.ReduxPlacements;
+import net.zepalesque.redux.data.resource.registries.ReduxFeaturePlacements;
 
 @SuppressWarnings("DuplicatedCode")
 public class TheBlight {
@@ -110,7 +110,7 @@ public class TheBlight {
 			.generationSettings(
 				new BiomeGenerationSettings.Builder(placed, carvers)
 
-					.addFeature(GenerationStep.Decoration.RAW_GENERATION, ReduxPlacements.HOLYSILT_DISK)
+					.addFeature(GenerationStep.Decoration.RAW_GENERATION, ReduxFeaturePlacements.HOLYSILT_DISK)
 
 					.addFeature(GenerationStep.Decoration.LAKES, AetherPlacedFeatures.WATER_LAKE_PLACEMENT)
 
@@ -125,9 +125,9 @@ public class TheBlight {
 					)
 					.addFeature(
 						GenerationStep.Decoration.UNDERGROUND_ORES,
-						ReduxPlacements.SPARSE_AMBROSIUM_ORE
+						ReduxFeaturePlacements.SPARSE_AMBROSIUM_ORE
 					)
-					.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ReduxPlacements.DENSE_ZANITE_ORE)
+					.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ReduxFeaturePlacements.DENSE_ZANITE_ORE)
 					.addFeature(
 						GenerationStep.Decoration.UNDERGROUND_ORES,
 						AetherPlacedFeatures.ORE_GRAVITITE_BURIED_PLACEMENT
@@ -143,7 +143,7 @@ public class TheBlight {
 					)
 
 					// TODO: Blight plants
-					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.BLIGHT_TREES)
+					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxFeaturePlacements.BLIGHT_TREES)
 					.addFeature(
 						GenerationStep.Decoration.VEGETAL_DECORATION,
 						AetherPlacedFeatures.HOLIDAY_TREE_PLACEMENT
@@ -157,16 +157,16 @@ public class TheBlight {
 						GenerationStep.Decoration.VEGETAL_DECORATION,
 						AetherPlacedFeatures.TALL_GRASS_PATCH_PLACEMENT
 					)
-					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.LUXWEED_PATCH)
+					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxFeaturePlacements.LUXWEED_PATCH)
 					.addFeature(
 						GenerationStep.Decoration.VEGETAL_DECORATION,
-						ReduxPlacements.SPIROLYCTIL_PATCH
+						ReduxFeaturePlacements.SPIROLYCTIL_PATCH
 					)
 					.addFeature(
 						GenerationStep.Decoration.VEGETAL_DECORATION,
-						ReduxPlacements.GLOOMSHADE_PATCH
+						ReduxFeaturePlacements.GLOOMSHADE_PATCH
 					)
-					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.SKYFERN_PATCH)
+					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxFeaturePlacements.SKYFERN_PATCH)
 					//.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.BLEAKMOSS_VEGETATION)
 
 					// TODO: Aercloud balancing

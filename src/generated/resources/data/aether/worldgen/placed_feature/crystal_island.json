@@ -1,0 +1,30 @@
+{
+	"feature": "aether:crystal_island",
+	"placement": [
+		{
+			"type": "minecraft:rarity_filter",
+			"chance": 50
+		},
+		{
+			"type": "minecraft:in_square"
+		},
+		{
+			"type": "minecraft:height_range",
+			"height": {
+				"type": "minecraft:uniform",
+				"max_inclusive": {
+					"absolute": 148
+				},
+				"min_inclusive": {
+					"absolute": 64
+				}
+			}
+		},
+		{
+			"type": "minecraft:biome"
+		},
+		{
+			"type": "aether:dungeon_blacklist_filter"
+		}
+	]
+}
