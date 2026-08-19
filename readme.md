@@ -22,3 +22,6 @@ The assets for this mod are licenced under [***CC BY-NC-SA 4.0***](https://creat
 The code for the mod is licensed under [***LGPL v3.0***](https://www.gnu.org/licenses/lgpl-3.0).
 # Credits (WIP)
 Issue templates for this repository were created using [Issue Forms Creator](https://issue-forms-creator.netlify.app/new)
+
+# On LLMs and AI
+The Aether Redux has a **zero-AI policy** on all code and assets.
