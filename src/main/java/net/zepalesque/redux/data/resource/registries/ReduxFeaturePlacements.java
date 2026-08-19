@@ -101,6 +101,9 @@ public class ReduxFeaturePlacements extends ReduxPlacementBuilders {
 
 	public static final ResourceKey<PlacedFeature> CRYSTAL_ISLAND = AetherPlacedFeatures.CRYSTAL_ISLAND_PLACEMENT;
 
+	public static final ResourceKey<PlacedFeature> GRAVITITE = AetherPlacedFeatures.ORE_GRAVITITE_PLACEMENT;
+	public static final ResourceKey<PlacedFeature> GRAVITITE_BURIED = AetherPlacedFeatures.ORE_GRAVITITE_BURIED_PLACEMENT;
+
 	public static void bootstrap(BootstrapContext<PlacedFeature> context) {
 		var configs = context.lookup(Registries.CONFIGURED_FEATURE);
 		var conditions = context.lookup(Zenith.Keys.CONDITION);
@@ -626,6 +629,25 @@ public class ReduxFeaturePlacements extends ReduxPlacementBuilders {
 			HeightRangePlacement.uniform(VerticalAnchor.absolute(64), VerticalAnchor.absolute(148)),
 			BiomeFilter.biome(),
 			new DungeonBlacklistFilter()
+		);
+
+		register(
+			context,
+			GRAVITITE_BURIED,
+			configs.getOrThrow(AetherConfiguredFeatures.ORE_GRAVITITE_BURIED_CONFIGURATION),
+			NitrogenPlacedFeatureBuilders.commonOrePlacement(
+				6,
+				HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(95), VerticalAnchor.aboveBottom(176))
+			)
+		);
+		register(
+			context,
+			GRAVITITE,
+			configs.getOrThrow(AetherConfiguredFeatures.ORE_GRAVITITE_CONFIGURATION),
+			NitrogenPlacedFeatureBuilders.commonOrePlacement(
+				8,
+				HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(95), VerticalAnchor.aboveBottom(200))
+			)
 		);
 	}
 }
