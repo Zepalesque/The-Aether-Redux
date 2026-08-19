@@ -99,6 +99,8 @@ public class ReduxFeaturePlacements extends ReduxPlacementBuilders {
 	public static final ResourceKey<PlacedFeature> BLUE_AERCLOUD = AetherPlacedFeatures.BLUE_AERCLOUD_PLACEMENT;
 	public static final ResourceKey<PlacedFeature> GOLDEN_AERCLOUD = AetherPlacedFeatures.GOLDEN_AERCLOUD_PLACEMENT;
 
+	public static final ResourceKey<PlacedFeature> CRYSTAL_ISLAND = AetherPlacedFeatures.CRYSTAL_ISLAND_PLACEMENT;
+
 	public static void bootstrap(BootstrapContext<PlacedFeature> context) {
 		var configs = context.lookup(Registries.CONFIGURED_FEATURE);
 		var conditions = context.lookup(Zenith.Keys.CONDITION);
@@ -613,6 +615,17 @@ public class ReduxFeaturePlacements extends ReduxPlacementBuilders {
 			GOLDEN_AERCLOUD,
 			configs.getOrThrow(AetherConfiguredFeatures.GOLDEN_AERCLOUD_CONFIGURATION),
 			AetherPlacedFeatureBuilders.aercloudPlacement(128, 48, 75)
+		);
+
+		register(
+			context,
+			CRYSTAL_ISLAND,
+			configs.getOrThrow(ReduxFeatureConfig.CRYSTAL_ISLAND),
+			RarityFilter.onAverageOnceEvery(50),
+			InSquarePlacement.spread(),
+			HeightRangePlacement.uniform(VerticalAnchor.absolute(64), VerticalAnchor.absolute(148)),
+			BiomeFilter.biome(),
+			new DungeonBlacklistFilter()
 		);
 	}
 }
