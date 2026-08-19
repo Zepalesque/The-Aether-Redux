@@ -53,7 +53,7 @@ public class ReduxBiomeModifiers {
 
 		var cloudbed = new BiomeModifiers.AddFeaturesBiomeModifier(
 			biomes.getOrThrow(ReduxTags.Biomes.HAS_CLOUDBED),
-			HolderSet.direct(features.getOrThrow(ReduxPlacements.CLOUDBED)),
+			HolderSet.direct(features.getOrThrow(ReduxFeaturePlacements.CLOUDBED)),
 			GenerationStep.Decoration.RAW_GENERATION
 		);
 		context.register(
@@ -66,7 +66,7 @@ public class ReduxBiomeModifiers {
 
 		var lakes = new BiomeModifiers.AddFeaturesBiomeModifier(
 			biomes.getOrThrow(ReduxTags.Biomes.HAS_LAKES),
-			HolderSet.direct(features.getOrThrow(ReduxPlacements.LAKES)),
+			HolderSet.direct(features.getOrThrow(ReduxFeaturePlacements.LAKES)),
 			GenerationStep.Decoration.RAW_GENERATION
 		);
 		context.register(
@@ -93,7 +93,7 @@ public class ReduxBiomeModifiers {
 			ADD_VERBENA,
 			new BiomeModifiers.AddFeaturesBiomeModifier(
 				biomes.getOrThrow(ReduxTags.Biomes.HAS_VERBENA),
-				HolderSet.direct(features.getOrThrow(ReduxPlacements.TURBO_VERBENA_PATCH)),
+				HolderSet.direct(features.getOrThrow(ReduxFeaturePlacements.TURBO_VERBENA_PATCH)),
 				GenerationStep.Decoration.VEGETAL_DECORATION
 			)
 		);
@@ -101,7 +101,7 @@ public class ReduxBiomeModifiers {
 			ADD_CAELGAE,
 			new BiomeModifiers.AddFeaturesBiomeModifier(
 				biomes.getOrThrow(ReduxTags.Biomes.HAS_CAELGAE),
-				HolderSet.direct(features.getOrThrow(ReduxPlacements.CAELGAE_PATCH)),
+				HolderSet.direct(features.getOrThrow(ReduxFeaturePlacements.CAELGAE_PATCH)),
 				GenerationStep.Decoration.VEGETAL_DECORATION
 			)
 		);
@@ -110,7 +110,7 @@ public class ReduxBiomeModifiers {
 			ADD_BLOOMTAIL,
 			new BiomeModifiers.AddFeaturesBiomeModifier(
 				biomes.getOrThrow(ReduxTags.Biomes.HAS_CAELGAE),
-				HolderSet.direct(features.getOrThrow(ReduxPlacements.BLOOMTAIL)),
+				HolderSet.direct(features.getOrThrow(ReduxFeaturePlacements.BLOOMTAIL)),
 				GenerationStep.Decoration.VEGETAL_DECORATION
 			)
 		);
@@ -205,7 +205,7 @@ public class ReduxBiomeModifiers {
 			ADD_SENTRITE,
 			new BiomeModifiers.AddFeaturesBiomeModifier(
 				biomes.getOrThrow(ReduxTags.Biomes.HAS_SENTRITE),
-				HolderSet.direct(features.getOrThrow(ReduxPlacements.SENTRITE_ORE)),
+				HolderSet.direct(features.getOrThrow(ReduxFeaturePlacements.SENTRITE_ORE)),
 				GenerationStep.Decoration.UNDERGROUND_ORES
 			)
 		);
@@ -214,7 +214,7 @@ public class ReduxBiomeModifiers {
 			ADD_ANGILITE,
 			new BiomeModifiers.AddFeaturesBiomeModifier(
 				biomes.getOrThrow(ReduxTags.Biomes.HAS_ANGILITE),
-				HolderSet.direct(features.getOrThrow(ReduxPlacements.ANGILITE_ORE)),
+				HolderSet.direct(features.getOrThrow(ReduxFeaturePlacements.ANGILITE_ORE)),
 				GenerationStep.Decoration.UNDERGROUND_ORES
 			)
 		);
@@ -223,7 +223,7 @@ public class ReduxBiomeModifiers {
 			ADD_WYNDSPROUTS,
 			new BiomeModifiers.AddFeaturesBiomeModifier(
 				biomes.getOrThrow(ReduxTags.Biomes.HAS_WYNDSPROUTS),
-				HolderSet.direct(features.getOrThrow(ReduxPlacements.WYNDSPROUTS_PATCH)),
+				HolderSet.direct(features.getOrThrow(ReduxFeaturePlacements.WYNDSPROUTS_PATCH)),
 				GenerationStep.Decoration.VEGETAL_DECORATION
 			)
 		);
@@ -241,7 +241,7 @@ public class ReduxBiomeModifiers {
 			ADD_CONDITIONAL_SNOW,
 			new BiomeModifiers.AddFeaturesBiomeModifier(
 				biomes.getOrThrow(ReduxTags.Biomes.HAS_CAVES),
-				HolderSet.direct(features.getOrThrow(ReduxPlacements.AETHER_SNOW_LAYER)),
+				HolderSet.direct(features.getOrThrow(ReduxFeaturePlacements.AETHER_SNOW_LAYER)),
 				GenerationStep.Decoration.TOP_LAYER_MODIFICATION
 			)
 		);

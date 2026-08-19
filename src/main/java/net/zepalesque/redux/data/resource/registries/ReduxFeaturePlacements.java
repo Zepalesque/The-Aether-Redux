@@ -3,6 +3,7 @@ package net.zepalesque.redux.data.resource.registries;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.resources.builders.AetherPlacedFeatureBuilders;
 import com.aetherteam.aether.data.resources.registries.AetherConfiguredFeatures;
+import com.aetherteam.aether.data.resources.registries.AetherPlacedFeatures;
 import com.aetherteam.aether.world.placementmodifier.DungeonBlacklistFilter;
 import com.aetherteam.aether.world.placementmodifier.ImprovedLayerPlacementModifier;
 import com.aetherteam.nitrogen.data.resources.builders.NitrogenPlacedFeatureBuilders;
@@ -36,7 +37,7 @@ import net.zepalesque.redux.data.resource.builders.ReduxPlacementBuilders;
 import net.zepalesque.zenith.api.world.feature.placement.ConditionPlacementModule;
 import net.zepalesque.zenith.core.Zenith;
 
-public class ReduxPlacements extends ReduxPlacementBuilders {
+public class ReduxFeaturePlacements extends ReduxPlacementBuilders {
 	public static final ResourceKey<PlacedFeature> CLOUDBED = copyKey(ReduxFeatureConfig.CLOUDBED);
 	public static final ResourceKey<PlacedFeature> LAKES = copyKey(ReduxFeatureConfig.LAKES);
 	public static final ResourceKey<PlacedFeature> SENTRITE_ORE = copyKey(ReduxFeatureConfig.SENTRITE_ORE);
@@ -72,10 +73,7 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
 	public static final ResourceKey<PlacedFeature> SKYFIELDS_TREES = copyKey(ReduxFeatureConfig.SKYFIELDS_TREES);
 	public static final ResourceKey<PlacedFeature> BLIGHT_TREES = copyKey(ReduxFeatureConfig.BLIGHT_TREES);
 
-	public static final ResourceKey<PlacedFeature> SPARSE_WYNDSPROUTS_PATCH = copyKey(
-		ReduxFeatureConfig.WYNDSPROUTS_PATCH,
-		"sparse_%s"
-	);
+	public static final ResourceKey<PlacedFeature> SPARSE_WYNDSPROUTS_PATCH = copyKey(ReduxFeatureConfig.WYNDSPROUTS_PATCH, "sparse_%s");
 
 	public static final ResourceKey<PlacedFeature> ICESTONE_ROCK = copyKey(ReduxFeatureConfig.ICESTONE_ROCK);
 	public static final ResourceKey<PlacedFeature> AEROGEL_DISK = copyKey(ReduxFeatureConfig.AEROGEL_DISK);
@@ -95,6 +93,11 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
 	public static final ResourceKey<PlacedFeature> CLOUDCAP_MUSHLING_PATCH = copyKey(ReduxFeatureConfig.CLOUDCAP_MUSHLING_PATCH);
 
 	public static final ResourceKey<PlacedFeature> AETHER_SNOW_LAYER = copyKey(ReduxFeatureConfig.AETHER_SNOW_LAYER);
+
+	// Overrides
+	public static final ResourceKey<PlacedFeature> COLD_AERCLOUD = AetherPlacedFeatures.COLD_AERCLOUD_PLACEMENT;
+	public static final ResourceKey<PlacedFeature> BLUE_AERCLOUD = AetherPlacedFeatures.BLUE_AERCLOUD_PLACEMENT;
+	public static final ResourceKey<PlacedFeature> GOLDEN_AERCLOUD = AetherPlacedFeatures.GOLDEN_AERCLOUD_PLACEMENT;
 
 	public static void bootstrap(BootstrapContext<PlacedFeature> context) {
 		var configs = context.lookup(Registries.CONFIGURED_FEATURE);
@@ -591,5 +594,25 @@ public class ReduxPlacements extends ReduxPlacementBuilders {
 		);
 
 		register(context, AETHER_SNOW_LAYER, configs.getOrThrow(ReduxFeatureConfig.AETHER_SNOW_LAYER));
+
+		// Overrides
+		register(
+			context,
+			COLD_AERCLOUD,
+			configs.getOrThrow(AetherConfiguredFeatures.COLD_AERCLOUD_CONFIGURATION),
+			AetherPlacedFeatureBuilders.aercloudPlacement(48, 64, 7)
+		);
+		register(
+			context,
+			BLUE_AERCLOUD,
+			configs.getOrThrow(AetherConfiguredFeatures.BLUE_AERCLOUD_CONFIGURATION),
+			AetherPlacedFeatureBuilders.aercloudPlacement(80, 48, 24)
+		);
+		register(
+			context,
+			GOLDEN_AERCLOUD,
+			configs.getOrThrow(AetherConfiguredFeatures.GOLDEN_AERCLOUD_CONFIGURATION),
+			AetherPlacedFeatureBuilders.aercloudPlacement(128, 48, 75)
+		);
 	}
 }

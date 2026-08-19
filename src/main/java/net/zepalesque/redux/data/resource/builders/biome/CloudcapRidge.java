@@ -11,7 +11,7 @@ import net.minecraft.world.level.biome.BiomeSpecialEffects;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.zepalesque.redux.client.audio.ReduxMusic;
-import net.zepalesque.redux.data.resource.registries.ReduxPlacements;
+import net.zepalesque.redux.data.resource.registries.ReduxFeaturePlacements;
 
 public class CloudcapRidge {
 	public static Biome generate(BootstrapContext<Biome> context) {
@@ -59,7 +59,7 @@ public class CloudcapRidge {
 			.generationSettings(
 				new BiomeGenerationSettings.Builder(placed, carvers)
 					
-					.addFeature(GenerationStep.Decoration.RAW_GENERATION, ReduxPlacements.AEROGEL_DISK)
+					.addFeature(GenerationStep.Decoration.RAW_GENERATION, ReduxFeaturePlacements.AEROGEL_DISK)
 					
 					.addFeature(GenerationStep.Decoration.LAKES, AetherPlacedFeatures.WATER_LAKE_PLACEMENT)
 					//.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, ReduxPlacements.GLIMMERSTOOL_ROCK)
@@ -77,13 +77,13 @@ public class CloudcapRidge {
 					
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.GRASS_PATCH_PLACEMENT)
 					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AetherPlacedFeatures.TALL_GRASS_PATCH_PLACEMENT)
-					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.AVELIUM_ROOTS_PATCH)
-					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.CLOUDCAP_MUSHLING_PATCH)
-					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.SPARSE_PURPLE_FLOWER_PATCH)
-					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.DAGGERBLOOM_PATCH)
-					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.SKYFERN_PATCH)
+					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxFeaturePlacements.AVELIUM_ROOTS_PATCH)
+					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxFeaturePlacements.CLOUDCAP_MUSHLING_PATCH)
+					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxFeaturePlacements.SPARSE_PURPLE_FLOWER_PATCH)
+					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxFeaturePlacements.DAGGERBLOOM_PATCH)
+					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxFeaturePlacements.SKYFERN_PATCH)
 
-					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.CLOUDCAP_TREES)
+					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxFeaturePlacements.CLOUDCAP_TREES)
 					
 					.addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.COLD_AERCLOUD_PLACEMENT)
 					.addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, AetherPlacedFeatures.BLUE_AERCLOUD_PLACEMENT)

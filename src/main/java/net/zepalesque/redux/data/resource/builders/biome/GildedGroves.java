@@ -12,7 +12,7 @@ import net.minecraft.world.level.biome.BiomeSpecialEffects;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.zepalesque.redux.client.audio.ReduxMusic;
-import net.zepalesque.redux.data.resource.registries.ReduxPlacements;
+import net.zepalesque.redux.data.resource.registries.ReduxFeaturePlacements;
 
 @SuppressWarnings("DuplicatedCode")
 public class GildedGroves {
@@ -113,7 +113,7 @@ public class GildedGroves {
 
 					.addFeature(GenerationStep.Decoration.LAKES, AetherPlacedFeatures.WATER_LAKE_PLACEMENT)
 
-					.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, ReduxPlacements.AMBROSIUM_ROCK)
+					.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, ReduxFeaturePlacements.AMBROSIUM_ROCK)
 
 					.addFeature(
 						GenerationStep.Decoration.UNDERGROUND_ORES,
@@ -125,9 +125,9 @@ public class GildedGroves {
 					)
 					.addFeature(
 						GenerationStep.Decoration.UNDERGROUND_ORES,
-						ReduxPlacements.DENSE_AMBROSIUM_ORE
+						ReduxFeaturePlacements.DENSE_AMBROSIUM_ORE
 					)
-					.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ReduxPlacements.SPARSE_ZANITE_ORE)
+					.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ReduxFeaturePlacements.SPARSE_ZANITE_ORE)
 					.addFeature(
 						GenerationStep.Decoration.UNDERGROUND_ORES,
 						AetherPlacedFeatures.ORE_GRAVITITE_BURIED_PLACEMENT
@@ -138,11 +138,11 @@ public class GildedGroves {
 					)
 					.addFeature(
 						GenerationStep.Decoration.UNDERGROUND_ORES,
-						ReduxPlacements.DENSE_ANGILITE_ORE
+						ReduxFeaturePlacements.DENSE_ANGILITE_ORE
 					)
 					.addFeature(
 						GenerationStep.Decoration.UNDERGROUND_ORES,
-						ReduxPlacements.SPARSE_SENTRITE_ORE
+						ReduxFeaturePlacements.SPARSE_SENTRITE_ORE
 					)
 
 					.addFeature(
@@ -150,7 +150,7 @@ public class GildedGroves {
 						AetherPlacedFeatures.WATER_SPRING_PLACEMENT
 					)
 
-					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.GROVE_TREES)
+					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxFeaturePlacements.GROVE_TREES)
 					.addFeature(
 						GenerationStep.Decoration.VEGETAL_DECORATION,
 						AetherPlacedFeatures.HOLIDAY_TREE_PLACEMENT
@@ -159,18 +159,18 @@ public class GildedGroves {
 						GenerationStep.Decoration.VEGETAL_DECORATION,
 						AetherPlacedFeatures.GRASS_PATCH_PLACEMENT
 					)
-					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxPlacements.AURUM_PATCH)
+					.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ReduxFeaturePlacements.AURUM_PATCH)
 					.addFeature(
 						GenerationStep.Decoration.VEGETAL_DECORATION,
-						ReduxPlacements.GOLDEN_CLOVERS_PATCH
+						ReduxFeaturePlacements.GOLDEN_CLOVERS_PATCH
 					)
 					.addFeature(
 						GenerationStep.Decoration.VEGETAL_DECORATION,
-						ReduxPlacements.LUCKY_CLOVER_PATCH
+						ReduxFeaturePlacements.LUCKY_CLOVER_PATCH
 					)
 					.addFeature(
 						GenerationStep.Decoration.VEGETAL_DECORATION,
-						ReduxPlacements.SPARSE_WYNDSPROUTS_PATCH
+						ReduxFeaturePlacements.SPARSE_WYNDSPROUTS_PATCH
 					)
 
 					.addFeature(
@@ -179,7 +179,7 @@ public class GildedGroves {
 					)
 					.addFeature(
 						GenerationStep.Decoration.TOP_LAYER_MODIFICATION,
-						ReduxPlacements.SPARSE_BLUE_AERCLOUD
+						ReduxFeaturePlacements.SPARSE_BLUE_AERCLOUD
 					)
 					.addFeature(
 						GenerationStep.Decoration.TOP_LAYER_MODIFICATION,
