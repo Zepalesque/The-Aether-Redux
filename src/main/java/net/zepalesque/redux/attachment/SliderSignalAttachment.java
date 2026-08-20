@@ -1,6 +1,8 @@
 package net.zepalesque.redux.attachment;
 
 import com.aetherteam.aether.entity.monster.dungeon.boss.Slider;
+
+import java.util.Objects;
 import java.util.Optional;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -14,20 +16,22 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 // Client-Side
-public class SliderSignalAttachment {
-	protected int signalTick = 0;
+public final class SliderSignalAttachment {
+	private int signalTick = 0;
 
-	@Nullable protected Direction overrideDirection = null;
+	@Nullable
+	private Direction overrideDirection = null;
 
-	protected boolean hasOverriden = false;
+	private boolean hasOverriden = false;
 
-	@Nullable protected Entity target = null;
+	@Nullable
+	private Entity target = null;
 
 	public void onUpdate(Slider slider) {
 		this.tickSignal(slider);
 	}
 
-	protected void tickSignal(Slider slider) {
+	private void tickSignal(Slider slider) {
 		if (this.signalTick > 0 && slider.level().isClientSide()) {
 			if (this.signalTick == 2) this.playSound(slider);
 			else if (this.signalTick == 1) this.overrideDirection = null;
@@ -36,9 +40,10 @@ public class SliderSignalAttachment {
 	}
 
 	public boolean shouldGlow(Slider slider) {
-		return (
-			this.signalTick == 8 || this.signalTick == 7 || this.signalTick == 2 || this.signalTick == 1
-		);
+		return this.signalTick == 8
+			|| this.signalTick == 7
+			|| this.signalTick == 2
+			|| this.signalTick == 1;
 	}
 
 	public static void sendSignal(Slider slider) {
@@ -88,7 +93,7 @@ public class SliderSignalAttachment {
 		}
 	}
 
-	protected void playSound(Slider slider) {
+	private void playSound(Slider slider) {
 		if (ReduxConfig.CLIENT.slider_signal_sfx.get()) slider
 			.level()
 			.playLocalSound(slider, ReduxSounds.SLIDER_SIGNAL.get(), SoundSource.HOSTILE, 1F, 1F);
@@ -97,7 +102,6 @@ public class SliderSignalAttachment {
 	public static @NotNull SliderSignalAttachment get(@NotNull Slider slider) {
 		return slider.getData(ReduxDataAttachments.SLIDER_SIGNAL.get());
 	}
-
 	public int getSignalTick() {
 		return this.signalTick;
 	}
@@ -107,9 +111,8 @@ public class SliderSignalAttachment {
 	}
 
 	public void setOverrideDirection(Slider slider, Direction direction) {
-		if (
-			(direction == null && !this.hasOverriden) || (direction == null && this.signalTick == 0)
-		) return;
+		if (direction == null && !this.hasOverriden || direction == null && this.signalTick == 0)
+			return;
 		this.overrideDirection = direction;
 		this.hasOverriden = true;
 	}
@@ -124,5 +127,31 @@ public class SliderSignalAttachment {
 
 	@Nullable public Entity getTarget(Slider slider) {
 		return this.target;
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.signalTick, this.hasOverriden, this.overrideDirection, this.target);
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == this) return true;
+		if (obj == null || obj.getClass() != this.getClass()) return false;
+		var that = (SliderSignalAttachment) obj;
+		return this.hasOverriden == that.hasOverriden
+			&& this.signalTick == that.signalTick
+			&& this.overrideDirection == that.overrideDirection
+			&& this.target == that.target;
+	}
+	
+	@Override
+	public String toString() {
+		return "SliderSignalAttachment[" +
+			"signalTick=" + this.signalTick +
+			", overrideDirection=" + this.overrideDirection +
+			", hasOverriden=" + this.hasOverriden +
+			", target=" + this.target +
+			']';
 	}
 }

@@ -30,6 +30,7 @@ import net.zepalesque.redux.client.renderer.entity.catfish.CatFishModel;
 import net.zepalesque.redux.client.renderer.entity.catfish.CatFishRenderer;
 import net.zepalesque.redux.client.renderer.entity.ember.EmberRenderer;
 import net.zepalesque.redux.client.renderer.entity.sheepuff.SheepuffReduxLayer;
+import net.zepalesque.redux.client.renderer.entity.sheepuff.SheepuffReduxModel;
 import net.zepalesque.redux.client.renderer.entity.slider.SliderSignalLayer;
 import net.zepalesque.redux.client.renderer.entity.veridiumdart.VeridiumDartRenderer;
 import net.zepalesque.redux.client.renderer.entity.whirlwind.ReduxEvilWhirlwindRenderer;
@@ -43,6 +44,7 @@ public class ReduxRenderers {
 	public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
 		event.registerLayerDefinition(ModelLayers.WHIRLWIND, WhirlwindModel::createBodyLayer);
 		event.registerLayerDefinition(ModelLayers.CAT_FISH, CatFishModel::createBodyLayer);
+		event.registerLayerDefinition(ModelLayers.SHEEPUFF, SheepuffReduxModel::createBodyLayer);
 		event.registerLayerDefinition(ArtemidModel.LAYER_LOCATION, ArtemidModel::createBodyLayer);
 		event.registerLayerDefinition(ArtemidModel.ANTLERS_LAYER, ArtemidModel::createBodyLayer);
 	}

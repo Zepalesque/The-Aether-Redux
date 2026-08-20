@@ -6,6 +6,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 import net.minecraft.resources.ResourceLocation;
@@ -26,23 +27,24 @@ public final class ReduxPlayerAttachment implements INBTSynchable {
 		Map.ofEntries(
 			Map.entry(
 				"max_aerjumps",
-				Triple.of(Type.INT, (val) -> this.setMaxAerjumps((int) val), this::getMaxAerjumps)
+				Triple.of(Type.INT, val -> this.setMaxAerjumps((int) val), this::getMaxAerjumps)
 			),
 			Map.entry(
 				"base_aerjumps",
-				Triple.of(Type.INT, (val) -> this.setBaseAerjumps((int) val), this::getBaseAerjumps)
+				Triple.of(Type.INT, val -> this.setBaseAerjumps((int) val), this::getBaseAerjumps)
 			),
 			Map.entry(
 				"performed_aerjumps",
 				Triple.of(
 					Type.INT,
-					(val) -> this.setPerformedAerjumps((int) val),
+					val -> this.setPerformedAerjumps((int) val),
 					this::getPerformedAerjumps
 				)
 			)
 		);
 
 	// TODO: Flesh out into bigger system in Zenith? Add registerable operators?
+	// TODO II: what even is the "integer" here guh this is why java needs type aliases idek what this is for
 	private final Map<ResourceLocation, Integer> aerjumpCountModifiers;
 
 	private int performedAerjumps = 0,
@@ -57,8 +59,7 @@ public final class ReduxPlayerAttachment implements INBTSynchable {
 		this.aerjumpCountModifiers = new HashMap<>();
 	}
 
-	public static final Codec<ReduxPlayerAttachment> CODEC = RecordCodecBuilder.create((builder) ->
-		builder
+	public static final Codec<ReduxPlayerAttachment> CODEC = RecordCodecBuilder.create(builder -> builder
 			.group(
 				UnboundedHashMapCodec.of(ResourceLocation.CODEC, Codec.INT)
 					.fieldOf("aerjump_count_modifiers")
@@ -73,8 +74,7 @@ public final class ReduxPlayerAttachment implements INBTSynchable {
 				Codec.intRange(0, 3)
 					.fieldOf("aerjump_air_time")
 					.forGetter(ReduxPlayerAttachment::getAirTime)
-			)
-			.apply(builder, ReduxPlayerAttachment::new)
+).apply(builder, ReduxPlayerAttachment::new)
 	);
 
 	private ReduxPlayerAttachment(
@@ -191,15 +191,13 @@ public final class ReduxPlayerAttachment implements INBTSynchable {
 	}
 
 	public boolean canAerjump(Player player) {
-		return (
-			!this.aerjumpsOnCooldown(player) &&
-			this.getPerformedAerjumps() < this.getMaxAerjumps() &&
-			!player.isInWater() &&
-			this.getAirTime() >= 3 &&
-			!player.mayFly() &&
-			!player.isSpectator() &&
-			!player.isPassenger()
-		);
+		return !this.aerjumpsOnCooldown(player) &&
+		this.getPerformedAerjumps() < this.getMaxAerjumps() &&
+		!player.isInWater() &&
+		this.getAirTime() >= 3 &&
+		!player.mayFly() &&
+		!player.isSpectator() &&
+		!player.isPassenger();
 	}
 
 	public void prepareAerjump(Player player) {
@@ -274,5 +272,30 @@ public final class ReduxPlayerAttachment implements INBTSynchable {
 
 	public static @NotNull ReduxPlayerAttachment get(@NotNull Player player) {
 		return player.getData(ReduxDataAttachments.REDUX_PLAYER.get());
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if (o == null || this.getClass() != o.getClass()) return false;
+		var that = (ReduxPlayerAttachment) o;
+		return this.performedAerjumps == that.performedAerjumps && this.baseAerjumps == that.baseAerjumps && this.airTime == that.airTime && this.prevPerformedAerjumps == that.prevPerformedAerjumps && this.maxAerjumps == that.maxAerjumps && Objects.equals(this.synchableFunctions, that.synchableFunctions) && Objects.equals(this.aerjumpCountModifiers, that.aerjumpCountModifiers);
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.synchableFunctions, this.aerjumpCountModifiers, this.performedAerjumps, this.baseAerjumps, this.airTime, this.prevPerformedAerjumps, this.maxAerjumps);
+	}
+	
+	@Override
+	public String toString() {
+		return "ReduxPlayerAttachment[" +
+			"synchableFunctions=" + this.synchableFunctions +
+			", aerjumpCountModifiers=" + this.aerjumpCountModifiers +
+			", performedAerjumps=" + this.performedAerjumps +
+			", baseAerjumps=" + this.baseAerjumps +
+			", airTime=" + this.airTime +
+			", prevPerformedAerjumps=" + this.prevPerformedAerjumps +
+			", maxAerjumps=" + this.maxAerjumps +
+			']';
 	}
 }
