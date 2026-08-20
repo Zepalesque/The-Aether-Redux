@@ -130,6 +130,7 @@ public class ReduxConfig {
 		public final ModConfigSpec.BooleanValue upgraded_nature;
 		public final ModConfigSpec.BooleanValue upgraded_dungeons;
 		public final ModConfigSpec.BooleanValue upgraded_resources;
+		public final ModConfigSpec.BooleanValue upgraded_tools;
 
 		public Client(ModConfigSpec.Builder builder) {
 			builder.push("Visual");
@@ -174,6 +175,12 @@ public class ReduxConfig {
 					.comment("Use Redux's updated resource textures.")
 					.define("Upgraded Resources", true),
 				"upgraded_resources"
+			);
+			this.upgraded_tools = Redux.ASSETS_CONFIG.register(
+				builder
+					.comment("Use Redux's updated tool textures.")
+					.define("Upgraded Tools", true),
+				"upgraded_tools"
 			);
 
 			builder.pop();
