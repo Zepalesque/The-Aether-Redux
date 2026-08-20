@@ -1,5 +1,6 @@
 package net.zepalesque.redux.client.renderer;
 
+import com.aetherteam.aether.client.renderer.entity.SheepuffRenderer;
 import com.aetherteam.aether.client.renderer.entity.SliderRenderer;
 import com.aetherteam.aether.entity.AetherEntityTypes;
 import java.util.Arrays;
@@ -7,6 +8,8 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
+
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.ModelResourceLocation;
@@ -27,6 +30,8 @@ import net.zepalesque.redux.client.renderer.entity.artemid.ArtemidRenderer;
 import net.zepalesque.redux.client.renderer.entity.catfish.CatFishModel;
 import net.zepalesque.redux.client.renderer.entity.catfish.CatFishRenderer;
 import net.zepalesque.redux.client.renderer.entity.ember.EmberRenderer;
+import net.zepalesque.redux.client.renderer.entity.sheepuff.SheepuffReduxLayer;
+import net.zepalesque.redux.client.renderer.entity.sheepuff.SheepuffReduxModel;
 import net.zepalesque.redux.client.renderer.entity.slider.SliderSignalLayer;
 import net.zepalesque.redux.client.renderer.entity.veridiumdart.VeridiumDartRenderer;
 import net.zepalesque.redux.client.renderer.entity.whirlwind.ReduxEvilWhirlwindRenderer;
@@ -58,8 +63,12 @@ public class ReduxRenderers {
 
 	@SubscribeEvent
 	public static void addRenderLayers(EntityRenderersEvent.AddLayers event) {
+		var mc = Minecraft.getInstance();
 		if (event.getRenderer(AetherEntityTypes.SLIDER.get()) instanceof SliderRenderer renderer) {
 			renderer.addLayer(new SliderSignalLayer(renderer));
+		}
+		if (event.getRenderer(AetherEntityTypes.SHEEPUFF.get()) instanceof SheepuffRenderer sheepuff) {
+			sheepuff.addLayer(new SheepuffReduxLayer(sheepuff, event.getContext()));
 		}
 	}
 
@@ -98,6 +107,7 @@ public class ReduxRenderers {
 	public static class ModelLayers {
 		public static final ModelLayerLocation WHIRLWIND = register("whirlwind");
 		public static final ModelLayerLocation CAT_FISH = register("cat_fish");
+		public static final ModelLayerLocation SHEEPUFF = register("redux_sheepuff");
 
 		private static ModelLayerLocation register(String name) {
 			return register(name, "main");

@@ -16,20 +16,20 @@ public class ReduxConfig {
 	}
 	
 	public static class Server extends DataSerializableConfig {
-		public final ModConfigSpec.ConfigValue<Boolean> redux_sky_colors;
-		public final ModConfigSpec.ConfigValue<Boolean> redux_water_colors;
-		public final ModConfigSpec.ConfigValue<Boolean> cloudbed;
-		public final ModConfigSpec.ConfigValue<Boolean> lakes;
-		public final ModConfigSpec.ConfigValue<Boolean> patch_steep;
-		public final ModConfigSpec.ConfigValue<Boolean> use_wood_blocks;
-		public final ModConfigSpec.ConfigValue<Boolean> revamped_quicksoil_movement;
+		public final ModConfigSpec.BooleanValue redux_sky_colors;
+		public final ModConfigSpec.BooleanValue redux_water_colors;
+		public final ModConfigSpec.BooleanValue cloudbed;
+		public final ModConfigSpec.BooleanValue lakes;
+		public final ModConfigSpec.BooleanValue patch_steep;
+		public final ModConfigSpec.BooleanValue use_wood_blocks;
+		public final ModConfigSpec.BooleanValue revamped_quicksoil_movement;
 		// TODO: Item component?
 		public final ModConfigSpec.IntValue max_veridium_tool_infusion;
-		public final ModConfigSpec.ConfigValue<Boolean> consistent_break_speeds;
+		public final ModConfigSpec.BooleanValue consistent_break_speeds;
 		// TODO: Other Ores
-		public final ModConfigSpec.ConfigValue<Boolean> raw_ores;
-		public final ModConfigSpec.ConfigValue<Boolean> gummy_swet_nerf;
-		public final ModConfigSpec.ConfigValue<Boolean> mossy_holystone_gen;
+		public final ModConfigSpec.BooleanValue raw_ores;
+		public final ModConfigSpec.BooleanValue gummy_swet_nerf;
+		public final ModConfigSpec.BooleanValue mossy_holystone_gen;
 
 		public Server(ModConfigSpec.Builder builder) {
 			super(() -> SERVER_SPEC, "redux_server");
@@ -92,7 +92,7 @@ public class ReduxConfig {
 	}
 
 	public static class Common extends DataSerializableConfig {
-		public final ModConfigSpec.ConfigValue<Boolean> bronze_dungeon_upgrade;
+		public final ModConfigSpec.BooleanValue bronze_dungeon_upgrade;
 		public final ModConfigSpec.EnumValue<AACompatFeature.Overridden> redux_noise;
 
 		public Common(ModConfigSpec.Builder builder) {
@@ -118,16 +118,17 @@ public class ReduxConfig {
 	}
 
 	public static class Client {
-		public final ModConfigSpec.ConfigValue<Boolean> leaf_particles;
-		public final ModConfigSpec.ConfigValue<Boolean> improved_whirlwinds;
-		public final ModConfigSpec.ConfigValue<Boolean> move_clouds;
+		public final ModConfigSpec.BooleanValue leaf_particles;
+		public final ModConfigSpec.BooleanValue improved_whirlwinds;
+		public final ModConfigSpec.BooleanValue improved_sheepuffs;
+		public final ModConfigSpec.BooleanValue move_clouds;
 
-		public final ModConfigSpec.ConfigValue<Boolean> jappafied_textures;
-		public final ModConfigSpec.ConfigValue<Boolean> slider_sfx_upgrade;
-		public final ModConfigSpec.ConfigValue<Boolean> slider_signal_sfx;
-		public final ModConfigSpec.ConfigValue<Boolean> upgraded_nature;
-		public final ModConfigSpec.ConfigValue<Boolean> upgraded_dungeons;
-		public final ModConfigSpec.ConfigValue<Boolean> upgraded_resources;
+		public final ModConfigSpec.BooleanValue jappafied_textures;
+		public final ModConfigSpec.BooleanValue slider_sfx_upgrade;
+		public final ModConfigSpec.BooleanValue slider_signal_sfx;
+		public final ModConfigSpec.BooleanValue upgraded_nature;
+		public final ModConfigSpec.BooleanValue upgraded_dungeons;
+		public final ModConfigSpec.BooleanValue upgraded_resources;
 
 		public Client(ModConfigSpec.Builder builder) {
 			builder.push("Visual");
@@ -138,6 +139,9 @@ public class ReduxConfig {
 			this.improved_whirlwinds = builder
 				.comment("Gives Whirlwinds a new design, based on Minecraft 1.21's new Breeze mob")
 				.define("Improved Whirlwinds", true);
+			this.improved_sheepuffs = builder
+				.comment("Enables Redux's updated Sheepuff model")
+				.define("Improved Sheepuffs", true);
 			this.move_clouds = builder
 				.comment("Move the clouds in the Aether to above the islands")
 				.gameRestart()

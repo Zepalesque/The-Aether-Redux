@@ -24,4 +24,4 @@ The code for the mod is licensed under [***LGPL v3.0***](https://www.gnu.org/lic
 Issue templates for this repository were created using [Issue Forms Creator](https://issue-forms-creator.netlify.app/new)
 
 # On LLMs and AI
-The Aether Redux has a **zero-AI policy** on all code and assets.
+The Aether: Redux has a **zero-AI policy** on all code and assets.

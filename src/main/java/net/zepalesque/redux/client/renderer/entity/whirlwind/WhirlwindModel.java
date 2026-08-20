@@ -18,27 +18,23 @@ import org.jetbrains.annotations.NotNull;
 
 public class WhirlwindModel<T extends AbstractWhirlwind> extends EntityModel<T> {
 	private final ModelPart whirl_body;
-	private final ModelPart whirl_bottom;
 	private final ModelPart bottom_render;
-	private final ModelPart whirl_lower;
 	private final ModelPart lower_render;
-	private final ModelPart whirl_upper;
 	private final ModelPart upper_render;
-	private final ModelPart whirl_top;
 	private final ModelPart top_render;
 
 	private final int[] alpha = {-1, -1, -1, -1};
 
 	public WhirlwindModel(ModelPart root) {
 		this.whirl_body = root.getChild("whirl_body");
-		this.whirl_bottom = this.whirl_body.getChild("whirl_bottom");
-		this.bottom_render = this.whirl_bottom.getChild("bottom_render");
-		this.whirl_lower = this.whirl_bottom.getChild("whirl_lower");
-		this.lower_render = this.whirl_lower.getChild("lower_render");
-		this.whirl_upper = this.whirl_lower.getChild("whirl_upper");
-		this.upper_render = this.whirl_upper.getChild("upper_render");
-		this.whirl_top = this.whirl_upper.getChild("whirl_top");
-		this.top_render = this.whirl_top.getChild("top_render");
+		var whirl_bottom = this.whirl_body.getChild("whirl_bottom");
+		this.bottom_render = whirl_bottom.getChild("bottom_render");
+		var whirl_lower = whirl_bottom.getChild("whirl_lower");
+		this.lower_render = whirl_lower.getChild("lower_render");
+		var whirl_upper = whirl_lower.getChild("whirl_upper");
+		this.upper_render = whirl_upper.getChild("upper_render");
+		var whirl_top = whirl_upper.getChild("whirl_top");
+		this.top_render = whirl_top.getChild("top_render");
 	}
 
 	public static LayerDefinition createBodyLayer() {
