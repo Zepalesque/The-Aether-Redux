@@ -8,7 +8,6 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.resources.model.BakedModel;
@@ -31,7 +30,6 @@ import net.zepalesque.redux.client.renderer.entity.catfish.CatFishModel;
 import net.zepalesque.redux.client.renderer.entity.catfish.CatFishRenderer;
 import net.zepalesque.redux.client.renderer.entity.ember.EmberRenderer;
 import net.zepalesque.redux.client.renderer.entity.sheepuff.SheepuffReduxLayer;
-import net.zepalesque.redux.client.renderer.entity.sheepuff.SheepuffReduxModel;
 import net.zepalesque.redux.client.renderer.entity.slider.SliderSignalLayer;
 import net.zepalesque.redux.client.renderer.entity.veridiumdart.VeridiumDartRenderer;
 import net.zepalesque.redux.client.renderer.entity.whirlwind.ReduxEvilWhirlwindRenderer;

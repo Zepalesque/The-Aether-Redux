@@ -180,7 +180,7 @@
 				{
 					"if_true": {
 						"type": "zenith:in_biome",
-						"biomes": "#aether_redux:is_frosted"
+						"biomes": "#aether_redux:aerogel_lake_material"
 					},
 					"then": {
 						"type": "minecraft:simple_state_provider",
