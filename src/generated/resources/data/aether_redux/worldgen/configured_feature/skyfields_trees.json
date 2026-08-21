@@ -22,7 +22,7 @@
 			{
 				"chance": 0.25,
 				"feature": {
-					"feature": "aether:crystal_tree",
+					"feature": "aether_redux:crystal_bare",
 					"placement": [
 						{
 							"type": "minecraft:block_predicate_filter",

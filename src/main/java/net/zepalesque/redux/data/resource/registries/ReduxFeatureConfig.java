@@ -10,6 +10,7 @@ import com.aetherteam.aether.world.foliageplacer.GoldenOakFoliagePlacer;
 import java.util.List;
 import java.util.Optional;
 import java.util.OptionalInt;
+import java.util.function.BiConsumer;
 import java.util.stream.Stream;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
@@ -167,6 +168,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> STORMFIR_TREE = createKey("stormfir");
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> PRISMA_TREE = createKey("prisma");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> CRYSTAL_TREE_BARE = createKey("crystal_bare");
 	
 	public static final ResourceKey<ConfiguredFeature<?, ?>> CLOUDCAP_MUSHROOM = createKey("cloudcap_mushroom");
 
@@ -649,7 +651,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				List.of(
 					new WeightedPlacedFeature(
 						PlacementUtils.inlinePlaced(
-							configs.getOrThrow(CRYSTAL_TREE),
+							configs.getOrThrow(CRYSTAL_TREE_BARE),
 							PlacementUtils.filteredByBlockSurvival(AetherBlocks.SKYROOT_SAPLING.get())
 						),
 						0.25F
@@ -869,26 +871,31 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				)
 			)
 		);
-		
-		FeatureUtils.register(
-			context,
+
+		final BiConsumer<ResourceKey<ConfiguredFeature<?, ?>>, BlockStateProvider> crystal_tree =
+			(tree, leaves) -> FeatureUtils.register(
+				context,
+				tree,
+				Feature.TREE,
+				new TreeConfiguration.TreeConfigurationBuilder(
+					prov(ReduxWoodSets.CRYSTAL.log()),
+					new StraightTrunkPlacer(7, 0, 0),
+					leaves,
+					new CrystalFoliagePlacer(ConstantInt.of(4), ConstantInt.of(0)),
+					new TwoLayersFeatureSize(1, 0, 1)
+				)
+					.ignoreVines()
+					.build()
+			);
+		crystal_tree.accept(
 			CRYSTAL_TREE,
-			Feature.TREE,
-			new TreeConfiguration.TreeConfigurationBuilder(
-				prov(ReduxWoodSets.CRYSTAL.log()),
-				new StraightTrunkPlacer(7, 0, 0),
-				new WeightedStateProvider(
-					new SimpleWeightedRandomList.Builder<BlockState>()
-						.add(AetherFeatureStates.CRYSTAL_LEAVES, 4)
-						.add(AetherFeatureStates.CRYSTAL_FRUIT_LEAVES, 1)
-						.build()
-				),
-				new CrystalFoliagePlacer(ConstantInt.of(4), ConstantInt.of(0)),
-				new TwoLayersFeatureSize(1, 0, 1)
-			)
-				.ignoreVines()
+			new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+				.add(AetherFeatureStates.CRYSTAL_LEAVES, 4)
+				.add(AetherFeatureStates.CRYSTAL_FRUIT_LEAVES, 1)
 				.build()
+			)
 		);
+		crystal_tree.accept(CRYSTAL_TREE_BARE, prov(AetherBlocks.CRYSTAL_LEAVES));
 
 		FeatureUtils.register(
 			context,
