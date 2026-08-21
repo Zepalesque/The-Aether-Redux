@@ -34,6 +34,27 @@ import net.zepalesque.redux.item.tools.VeridiumShovelItem;
 public class ReduxItems extends ReduxItemBuilders {
 	public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Redux.MODID);
 
+	public static final DeferredItem<Item> BLUEBERRY_PIE = ITEMS.register(
+		"blueberry_pie",
+		() -> new Item(new Item.Properties().food(ReduxFoods.BLUEBERRY_PIE))
+	);
+	public static final DeferredItem<Item> ENCHANTED_BLUEBERRY_PIE = ITEMS.register(
+		"enchanted_blueberry_pie",
+		() -> new Item(new Item.Properties().food(ReduxFoods.ENCHANTED_BLUEBERRY_PIE))
+	);
+	public static final DeferredItem<Item> WYND_BAGEL = ITEMS.register(
+		"wynd_bagel",
+		() -> new Item(new Item.Properties().food(ReduxFoods.WYND_BAGEL))
+	);
+	public static final DeferredItem<Item> BLUEBERRY_BAGEL = ITEMS.register(
+		"blueberry_bagel",
+		() -> new Item(new Item.Properties().food(ReduxFoods.BLUEBERRY_BAGEL))
+	);
+	public static final DeferredItem<Item> OATMEAL = ITEMS.register(
+		"oatmeal",
+		() -> new Item(new Item.Properties().food(ReduxFoods.OATMEAL).stacksTo(1))
+	);
+
 	public static final DeferredItem<ItemNameBlockItem> WYND_OATS = ITEMS.register("wynd_oats", () ->
 		new ItemNameBlockItem(
 			ReduxBlocks.WYNDOATS.get(),

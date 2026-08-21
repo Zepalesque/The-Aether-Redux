@@ -7,11 +7,53 @@ import net.minecraft.world.food.FoodProperties.Builder;
 import net.minecraft.world.item.Items;
 
 public class ReduxFoods {
-
-    public static final FoodProperties WYND_OATS = new Builder().fast().nutrition(1).saturationModifier(0F).build();
-    public static final FoodProperties GUMMY_SWET_NERF = new Builder().fast().nutrition(7).saturationModifier(0.6F).build();
-    public static final FoodProperties CAELGAE_CLUMP = new Builder().fast().nutrition(1).saturationModifier(0.1F).build();
-    public static final FoodProperties SEAWEED_SALAD = new Builder().nutrition(5).saturationModifier(0.4F).usingConvertsTo(Items.BOWL).build();
-    public static final FoodProperties TURBO_VERBENA = new Builder().nutrition(1).saturationModifier(0.1F).effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 0), 1f).build();
-
+	public static final FoodProperties BLUEBERRY_PIE = new Builder()
+		.nutrition(9)
+		.saturationModifier(0.3F)
+		.build();
+	public static final FoodProperties ENCHANTED_BLUEBERRY_PIE = new Builder()
+		.nutrition(11)
+		.saturationModifier(0.4F)
+		.effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 100, 0), 1F)
+		.build();
+	public static final FoodProperties WYND_OATS = new Builder()
+		.fast()
+		.nutrition(1)
+		.saturationModifier(0F)
+		.build();
+	public static final FoodProperties WYND_BAGEL = new Builder()
+		.nutrition(5)
+		.saturationModifier(0.2F)
+		.build();
+	public static final FoodProperties BLUEBERRY_BAGEL = new Builder()
+		.nutrition(4)
+		.saturationModifier(0.2F)
+		.effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 1200, 0), 1.0F)
+		.alwaysEdible()
+		.build();
+    public static final FoodProperties OATMEAL = new Builder()
+		.nutrition(4)
+		.saturationModifier(0.7F)
+		.usingConvertsTo(Items.BOWL)
+		.build();
+	public static final FoodProperties GUMMY_SWET_NERF = new Builder()
+		.fast()
+		.nutrition(7)
+		.saturationModifier(0.6F)
+		.build();
+	public static final FoodProperties CAELGAE_CLUMP = new Builder()
+		.fast()
+		.nutrition(1)
+		.saturationModifier(0.1F)
+		.build();
+	public static final FoodProperties SEAWEED_SALAD = new Builder()
+		.nutrition(5)
+		.saturationModifier(0.4F)
+		.usingConvertsTo(Items.BOWL)
+		.build();
+	public static final FoodProperties TURBO_VERBENA = new Builder()
+		.nutrition(1)
+		.saturationModifier(0.1F)
+		.effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 0), 1f)
+		.build();
 }

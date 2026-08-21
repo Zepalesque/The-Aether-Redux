@@ -4,6 +4,7 @@ import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.item.AetherItems;
 import java.util.concurrent.CompletableFuture;
+import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -211,6 +212,51 @@ public class ReduxRecipeData extends ReduxRecipeProvider {
 			.pattern("##")
 			.pattern("##")
 			.unlockedBy(getHasName(AetherBlocks.SENTRY_STONE.get()), has(AetherBlocks.SENTRY_STONE.get()))
+			.save(output);
+
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ReduxItems.BLUEBERRY_PIE.get())
+			.requires(ReduxItems.WYND_OAT_PANICLE.get())
+			.requires(AetherItems.BLUE_BERRY.get())
+			.requires(Tags.Items.EGGS)
+			.requires(Items.SUGAR)
+			.unlockedBy("has_blue_berry", inventoryTrigger(
+				ItemPredicate.Builder.item().of(AetherItems.BLUE_BERRY.get()).build()
+			))
+			.unlockedBy("has_oats", inventoryTrigger(
+				ItemPredicate.Builder.item().of(ReduxItems.WYND_OAT_PANICLE.get()).build()
+			))
+			.save(output);
+		enchantingRecipe(
+			RecipeCategory.FOOD,
+			ReduxItems.ENCHANTED_BLUEBERRY_PIE.get(),
+			ReduxItems.BLUEBERRY_PIE.get(),
+			0.35f,
+			250
+		)
+			.save(output, name("enchanted_blueberry_pie_enchanting"));
+
+		ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ReduxItems.WYND_BAGEL.get(), 1)
+			.define('O', ReduxItems.WYND_OAT_PANICLE.get())
+			.pattern(" O ")
+			.pattern("O O")
+			.pattern(" O ")
+			.unlockedBy(getHasName(ReduxItems.WYND_OATS.get()), has(ReduxItems.WYND_OATS.get()))
+			.save(output);
+
+		ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ReduxItems.BLUEBERRY_BAGEL.get(), 1)
+			.define('O', ReduxItems.WYND_OAT_PANICLE.get())
+			.define('B', AetherItems.BLUE_BERRY.get())
+			.pattern(" O ")
+			.pattern("OBO")
+			.pattern(" O ")
+			.unlockedBy(getHasName(ReduxItems.WYND_OATS.get()), has(ReduxItems.WYND_OATS.get()))
+			.unlockedBy(getHasName(AetherItems.BLUE_BERRY.get()), has(AetherItems.BLUE_BERRY.get()))
+			.save(output);
+
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ReduxItems.OATMEAL.get(), 1)
+			.requires(Items.BOWL)
+			.requires(ReduxItems.WYND_OATS.get(), 3)
+			.unlockedBy(getHasName(ReduxItems.WYND_OATS.get()), has(ReduxItems.WYND_OATS.get()))
 			.save(output);
 
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ReduxItems.SEAWEED_SALAD)

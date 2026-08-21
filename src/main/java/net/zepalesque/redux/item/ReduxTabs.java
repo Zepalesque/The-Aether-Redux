@@ -197,6 +197,15 @@ public class ReduxTabs {
 		
 		new TabBuilder(event, AetherCreativeTabs.AETHER_FOOD_AND_DRINKS.getKey())
 			.putAfter(
+				AetherItems.ENCHANTED_BERRY,
+				ReduxItems.BLUEBERRY_PIE,
+				ReduxItems.ENCHANTED_BLUEBERRY_PIE,
+				ReduxItems.WYND_BAGEL,
+				ReduxItems.BLUEBERRY_BAGEL,
+				ReduxItems.WYND_OATS,
+				ReduxItems.OATMEAL
+			)
+			.putAfter(
 				AetherItems.WHITE_APPLE,
 				ReduxItems.SEAWEED_SALAD
 			);

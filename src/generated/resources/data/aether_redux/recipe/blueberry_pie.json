@@ -1,0 +1,22 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"category": "misc",
+	"ingredients": [
+		{
+			"item": "aether_redux:wynd_oat_panicle"
+		},
+		{
+			"item": "aether:blue_berry"
+		},
+		{
+			"tag": "c:eggs"
+		},
+		{
+			"item": "minecraft:sugar"
+		}
+	],
+	"result": {
+		"count": 1,
+		"id": "aether_redux:blueberry_pie"
+	}
+}

@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"key": {
+		"B": {
+			"item": "aether:blue_berry"
+		},
+		"O": {
+			"item": "aether_redux:wynd_oat_panicle"
+		}
+	},
+	"pattern": [" O ", "OBO", " O "],
+	"result": {
+		"count": 1,
+		"id": "aether_redux:blueberry_bagel"
+	}
+}

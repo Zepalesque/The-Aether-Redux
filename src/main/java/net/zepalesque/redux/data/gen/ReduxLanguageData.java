@@ -122,16 +122,19 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 		this.addLore(ReduxItems.WYND_OATS, "A pile of Wynd Oats. These can be grown into the Wynd Oat plant.");
 		this.addItem(ReduxItems.WYND_OAT_PANICLE);
 		this.addLore(ReduxItems.WYND_OAT_PANICLE, "A panicle of grown Wynd Oats. This can be used for a variety of recipes.");
-		// TODO: Reimplement said recipes
 
-		//add(ReduxItems.WYND_BAGEL);
-		//addLore(ReduxItems.WYND_BAGEL, "A nice bagel made with some harvested Wynd Oats.");
+		this.addItem(ReduxItems.BLUEBERRY_PIE, "Blueberry Pie");
+		this.addLore(ReduxItems.BLUEBERRY_PIE, "A pie made of the Aether's native blue berries. These delicious treats can make a great gift for a friend.");
+		this.addItem(ReduxItems.ENCHANTED_BLUEBERRY_PIE, "Enchanted Blueberry Pie");
+		this.addLore(ReduxItems.ENCHANTED_BLUEBERRY_PIE, "An enchanted variant of the Blueberry Pie. This fancy pastry gives you a short regeneration effect!");
 
-		//add(ReduxItems.BLUEBERRY_BAGEL);
-		//addLore(ReduxItems.BLUEBERRY_BAGEL, "A bagel made with Blue Berries. This is much more filling than a plain Wynd Bagel");
+		this.addItem(ReduxItems.WYND_BAGEL);
+		this.addLore(ReduxItems.WYND_BAGEL, "A nice bagel made with some harvested Wynd Oats.");
+		this.addItem(ReduxItems.BLUEBERRY_BAGEL);
+		this.addLore(ReduxItems.BLUEBERRY_BAGEL, "A bagel made with Blue Berries. This is much more filling than a plain Wynd Bagel");
 
-		//add(ReduxItems.OATMEAL);
-		//addLore(ReduxItems.OATMEAL, "A nice bowl of Oatmeal. Specifically, this is Wynd Oatmeal, as it was made with Wynd Oats.");
+		this.addItem(ReduxItems.OATMEAL);
+		this.addLore(ReduxItems.OATMEAL, "A nice bowl of Oatmeal. Specifically, this is Wynd Oatmeal, as it was made with Wynd Oats.");
 		
 		this.addItem(ReduxItems.VERIDIUM_INGOT);
 		this.addLore(ReduxItems.VERIDIUM_INGOT, "An bar of pure Veridium, a metal that when coming in contact with ambrosium, takes on a glowing light blue color, strengthening temporarily.");
