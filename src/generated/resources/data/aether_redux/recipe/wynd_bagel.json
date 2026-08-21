@@ -1,0 +1,14 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"key": {
+		"O": {
+			"item": "aether_redux:wynd_oat_panicle"
+		}
+	},
+	"pattern": [" O ", "O O", " O "],
+	"result": {
+		"count": 1,
+		"id": "aether_redux:wynd_bagel"
+	}
+}

@@ -137,6 +137,10 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
 
 		this.item(ReduxItems.BLUEBERRY_PIE.get(), "food/");
 		this.item(ReduxItems.ENCHANTED_BLUEBERRY_PIE.get(), "food/");
+		this.item(ReduxItems.WYND_BAGEL.get(), "food/");
+		this.item(ReduxItems.BLUEBERRY_BAGEL.get(), "food/");
+
+		this.item(ReduxItems.OATMEAL.get(), "food/");
 
 		this.item(ReduxItems.WYND_OAT_PANICLE.get(), "materials/");
 		this.item(ReduxItems.WYND_OATS.get(), "food/");

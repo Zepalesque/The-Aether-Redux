@@ -235,6 +235,30 @@ public class ReduxRecipeData extends ReduxRecipeProvider {
 		)
 			.save(output, name("enchanted_blueberry_pie_enchanting"));
 
+		ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ReduxItems.WYND_BAGEL.get(), 1)
+			.define('O', ReduxItems.WYND_OAT_PANICLE.get())
+			.pattern(" O ")
+			.pattern("O O")
+			.pattern(" O ")
+			.unlockedBy(getHasName(ReduxItems.WYND_OATS.get()), has(ReduxItems.WYND_OATS.get()))
+			.save(output);
+
+		ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ReduxItems.BLUEBERRY_BAGEL.get(), 1)
+			.define('O', ReduxItems.WYND_OAT_PANICLE.get())
+			.define('B', AetherItems.BLUE_BERRY.get())
+			.pattern(" O ")
+			.pattern("OBO")
+			.pattern(" O ")
+			.unlockedBy(getHasName(ReduxItems.WYND_OATS.get()), has(ReduxItems.WYND_OATS.get()))
+			.unlockedBy(getHasName(AetherItems.BLUE_BERRY.get()), has(AetherItems.BLUE_BERRY.get()))
+			.save(output);
+
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ReduxItems.OATMEAL.get(), 1)
+			.requires(Items.BOWL)
+			.requires(ReduxItems.WYND_OATS.get(), 3)
+			.unlockedBy(getHasName(ReduxItems.WYND_OATS.get()), has(ReduxItems.WYND_OATS.get()))
+			.save(output);
+
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ReduxItems.SEAWEED_SALAD)
 			.requires(Items.BOWL)
 			.requires(ReduxItems.CAELGAE_CLUMP, 3)

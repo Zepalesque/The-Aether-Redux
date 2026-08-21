@@ -1,0 +1,25 @@
+{
+	"parent": "minecraft:recipes/root",
+	"criteria": {
+		"has_the_recipe": {
+			"conditions": {
+				"recipe": "aether_redux:oatmeal"
+			},
+			"trigger": "minecraft:recipe_unlocked"
+		},
+		"has_wynd_oats": {
+			"conditions": {
+				"items": [
+					{
+						"items": "aether_redux:wynd_oats"
+					}
+				]
+			},
+			"trigger": "minecraft:inventory_changed"
+		}
+	},
+	"requirements": [["has_the_recipe", "has_wynd_oats"]],
+	"rewards": {
+		"recipes": ["aether_redux:oatmeal"]
+	}
+}

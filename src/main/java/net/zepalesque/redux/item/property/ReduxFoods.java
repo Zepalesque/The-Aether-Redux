@@ -21,6 +21,21 @@ public class ReduxFoods {
 		.nutrition(1)
 		.saturationModifier(0F)
 		.build();
+	public static final FoodProperties WYND_BAGEL = new Builder()
+		.nutrition(5)
+		.saturationModifier(0.2F)
+		.build();
+	public static final FoodProperties BLUEBERRY_BAGEL = new Builder()
+		.nutrition(4)
+		.saturationModifier(0.2F)
+		.effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 1200, 0), 1.0F)
+		.alwaysEdible()
+		.build();
+    public static final FoodProperties OATMEAL = new Builder()
+		.nutrition(4)
+		.saturationModifier(0.7F)
+		.usingConvertsTo(Items.BOWL)
+		.build();
 	public static final FoodProperties GUMMY_SWET_NERF = new Builder()
 		.fast()
 		.nutrition(7)

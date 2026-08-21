@@ -1,0 +1,22 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"category": "misc",
+	"ingredients": [
+		{
+			"item": "minecraft:bowl"
+		},
+		{
+			"item": "aether_redux:wynd_oats"
+		},
+		{
+			"item": "aether_redux:wynd_oats"
+		},
+		{
+			"item": "aether_redux:wynd_oats"
+		}
+	],
+	"result": {
+		"count": 1,
+		"id": "aether_redux:oatmeal"
+	}
+}
