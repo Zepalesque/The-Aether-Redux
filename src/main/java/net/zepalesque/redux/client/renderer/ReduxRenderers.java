@@ -1,5 +1,6 @@
 package net.zepalesque.redux.client.renderer;
 
+import com.aetherteam.aether.client.renderer.entity.MoaRenderer;
 import com.aetherteam.aether.client.renderer.entity.SheepuffRenderer;
 import com.aetherteam.aether.client.renderer.entity.SliderRenderer;
 import com.aetherteam.aether.entity.AetherEntityTypes;
@@ -24,11 +25,15 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.client.renderer.block.model.baked.AmbientOcclusionLightModel;
+import net.zepalesque.redux.client.renderer.entity.aerbunny.ReduxAerbunnyModel;
+import net.zepalesque.redux.client.renderer.entity.aerbunny.ReduxAerbunnyRenderer;
 import net.zepalesque.redux.client.renderer.entity.artemid.ArtemidModel;
 import net.zepalesque.redux.client.renderer.entity.artemid.ArtemidRenderer;
 import net.zepalesque.redux.client.renderer.entity.catfish.CatFishModel;
 import net.zepalesque.redux.client.renderer.entity.catfish.CatFishRenderer;
 import net.zepalesque.redux.client.renderer.entity.ember.EmberRenderer;
+import net.zepalesque.redux.client.renderer.entity.moa.MoaReduxLayer;
+import net.zepalesque.redux.client.renderer.entity.moa.MoaReduxModel;
 import net.zepalesque.redux.client.renderer.entity.sheepuff.SheepuffReduxLayer;
 import net.zepalesque.redux.client.renderer.entity.sheepuff.SheepuffReduxModel;
 import net.zepalesque.redux.client.renderer.entity.slider.SliderSignalLayer;
@@ -43,10 +48,12 @@ public class ReduxRenderers {
 	@SubscribeEvent
 	public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
 		event.registerLayerDefinition(ModelLayers.WHIRLWIND, WhirlwindModel::createBodyLayer);
+		event.registerLayerDefinition(ModelLayers.MOA, MoaReduxModel::createBodyLayer);
 		event.registerLayerDefinition(ModelLayers.CAT_FISH, CatFishModel::createBodyLayer);
 		event.registerLayerDefinition(ModelLayers.SHEEPUFF, SheepuffReduxModel::createBodyLayer);
 		event.registerLayerDefinition(ArtemidModel.LAYER_LOCATION, ArtemidModel::createBodyLayer);
 		event.registerLayerDefinition(ArtemidModel.ANTLERS_LAYER, ArtemidModel::createBodyLayer);
+		event.registerLayerDefinition(ModelLayers.AERBUNNY, ReduxAerbunnyModel::createBodyLayer);
 	}
 
 	@SubscribeEvent
@@ -59,17 +66,18 @@ public class ReduxRenderers {
 		event.registerEntityRenderer(ReduxEntities.EMBER.get(), EmberRenderer::new);
 		event.registerEntityRenderer(ReduxEntities.INFUSED_VERIDIUM_DART.get(), VeridiumDartRenderer::new);
 		event.registerEntityRenderer(ReduxEntities.VERIDIUM_DART.get(), VeridiumDartRenderer.Uninfused::new);
+		event.registerEntityRenderer(AetherEntityTypes.AERBUNNY.get(), ReduxAerbunnyRenderer::new);
 	}
 
 	@SubscribeEvent
 	public static void addRenderLayers(EntityRenderersEvent.AddLayers event) {
-		var mc = Minecraft.getInstance();
-		if (event.getRenderer(AetherEntityTypes.SLIDER.get()) instanceof SliderRenderer renderer) {
+		var ctx = event.getContext();
+		if (event.getRenderer(AetherEntityTypes.SLIDER.get()) instanceof SliderRenderer renderer)
 			renderer.addLayer(new SliderSignalLayer(renderer));
-		}
-		if (event.getRenderer(AetherEntityTypes.SHEEPUFF.get()) instanceof SheepuffRenderer sheepuff) {
-			sheepuff.addLayer(new SheepuffReduxLayer(sheepuff, event.getContext()));
-		}
+		if (event.getRenderer(AetherEntityTypes.SHEEPUFF.get()) instanceof SheepuffRenderer sheepuff)
+			sheepuff.addLayer(new SheepuffReduxLayer(sheepuff, ctx));
+		if (event.getRenderer(AetherEntityTypes.MOA.get()) instanceof MoaRenderer moa)
+			moa.addLayer(new MoaReduxLayer(moa, ctx));
 	}
 
 	public static void registerAccessoryRenderers() {}
@@ -105,9 +113,11 @@ public class ReduxRenderers {
 
 
 	public static class ModelLayers {
+		public static final ModelLayerLocation AERBUNNY = register("aerbunny");
 		public static final ModelLayerLocation WHIRLWIND = register("whirlwind");
 		public static final ModelLayerLocation CAT_FISH = register("cat_fish");
-		public static final ModelLayerLocation SHEEPUFF = register("redux_sheepuff");
+		public static final ModelLayerLocation SHEEPUFF = register("sheepuff");
+		public static final ModelLayerLocation MOA = register("moa");
 
 		private static ModelLayerLocation register(String name) {
 			return register(name, "main");

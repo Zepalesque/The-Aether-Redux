@@ -8,11 +8,13 @@ import java.util.concurrent.ConcurrentHashMap;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.zepalesque.redux.attachment.anim.MoaAnimAttachment;
+import net.zepalesque.redux.client.renderer.ReduxRenderers;
 import net.zepalesque.redux.util.LegacyAnimUtil;
 import net.zepalesque.zenith.util.math.EasingUtil;
 import org.jetbrains.annotations.NotNull;
@@ -25,9 +27,9 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
 	// concurrent because static final (memory safety !!!! :3)
 	private static final ConcurrentHashMap<ResourceLocation, ResourceLocation> TRANSLATION_MAP = new ConcurrentHashMap<>();
 
-	public MoaReduxLayer(MoaRenderer renderer, MoaReduxModel model) {
+	public MoaReduxLayer(MoaRenderer renderer, EntityRendererProvider.Context ctx) {
 		super(renderer);
-		this.model = model;
+		this.model = new MoaReduxModel(ctx.bakeLayer(ReduxRenderers.ModelLayers.MOA));
 		this.parent = renderer;
 	}
 

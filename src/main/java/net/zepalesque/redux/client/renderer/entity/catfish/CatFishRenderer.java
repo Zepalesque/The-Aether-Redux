@@ -14,7 +14,7 @@ public class CatFishRenderer extends MobRenderer<CatFish, CatFishModel<CatFish>>
 	private static final ResourceLocation TEXTURE = Redux.loc("textures/entity/cat_fish.png");
 
 	public CatFishRenderer(EntityRendererProvider.Context context) {
-		super(context, new CatFishModel<CatFish>(context.bakeLayer(ReduxRenderers.ModelLayers.CAT_FISH)), 0.3F);
+		super(context, new CatFishModel<>(context.bakeLayer(ReduxRenderers.ModelLayers.CAT_FISH)), 0.3F);
 	}
 
 	public ResourceLocation getTextureLocation(CatFish entity) {

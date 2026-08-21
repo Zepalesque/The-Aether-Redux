@@ -392,7 +392,7 @@ public class MoaReduxModel extends EntityModel<Moa> {
 		return LayerDefinition.create(meshdefinition, 128, 64);
 	}*/
 
-	public static LayerDefinition createRefreshedLayer() {
+	public static LayerDefinition createBodyLayer() {
 		var meshdefinition = new MeshDefinition();
 		var partdefinition = meshdefinition.getRoot();
 		

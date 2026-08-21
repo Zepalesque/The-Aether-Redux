@@ -25,17 +25,17 @@ public class RenderListener {
 	@SubscribeEvent
 	public static void renderPost(RenderLevelStageEvent event) {
 		if (event.getStage() == RenderLevelStageEvent.Stage.AFTER_WEATHER) {
-			LevelRenderer renderer = event.getLevelRenderer();
-			Minecraft minecraft = Minecraft.getInstance();
-			LocalPlayer player = minecraft.player;
-			ClientLevel level = minecraft.level;
-			if (level == null || player == null) return;
+			var lvlRend = event.getLevelRenderer();
+			var mc = Minecraft.getInstance();
+			var player = mc.player;
+			var lvl = mc.level;
+			if (lvl == null || player == null) return;
 			var frustum = event.getFrustum();
 			var cam = event.getCamera();
-			var renderDisp = minecraft.getEntityRenderDispatcher();
-			var timer = minecraft.getTimer();
-			var ticker = level.tickRateManager();
-			var bufs = minecraft.renderBuffers();
+			var disp = mc.getEntityRenderDispatcher();
+			var timer = mc.getTimer();
+			var ticker = lvl.tickRateManager();
+			var bufs = mc.renderBuffers();
 
 			var camPos = cam.getPosition();
 			var x = camPos.x();
@@ -46,7 +46,8 @@ public class RenderListener {
 
 			// TODO: find more optimized way to do this while still letting it be functional and stuff
 			//  (THIS IS WHY I WANT STRUCTS IN JAVA ffs even closures are expensive like they could be trivial with monomorphization and structs)
-			var entities = level.entitiesForRendering();
+			//  when i (zepalesque) take an advanced java class w/ multithreading maybe
+			var entities = lvl.entitiesForRendering();
 			//var stream = StreamSupport.stream(entities.spliterator(), true)
 			//	.filter(e -> e.getType() == AetherEntityTypes.EVIL_WHIRLWIND.get());
 			//Iterable<Entity> whirlwinds = stream::iterator;
@@ -54,20 +55,26 @@ public class RenderListener {
 			for (var entity : entities) {
 				if (entity.getType() != AetherEntityTypes.EVIL_WHIRLWIND.get()) break;
 
-				if (
-					renderDisp.shouldRender(entity, frustum, x, y, z) || entity.hasIndirectPassenger(player)
+				if (disp
+					.shouldRender(
+						entity,
+						frustum,
+						x,
+						y,
+						z) || entity.hasIndirectPassenger(player)
 				) {
 					var pos = entity.blockPosition();
-					if (
-						(level.isOutsideBuildHeight(pos.getY()) || renderer.isSectionCompiled(pos)) &&
-						(entity != cam.getEntity() ||
-							cam.isDetached() ||
-							(cam.getEntity() instanceof LivingEntity living && living.isSleeping()))
-					) {
+					if ((lvl.isOutsideBuildHeight(pos.getY())
+						|| lvlRend.isSectionCompiled(pos)
+					) && (entity != cam.getEntity()
+						|| cam.isDetached()
+						|| cam.getEntity() instanceof LivingEntity living
+						&& living.isSleeping()
+					)) {
 						var buf = bufs.bufferSource();
 
 						var partial = timer.getGameTimeDeltaPartialTick(!ticker.isEntityFrozen(entity));
-						renderEntity(entity, x, y, z, partial, stack, buf, renderDisp);
+						renderEntity(entity, x, y, z, partial, stack, buf, disp);
 					}
 				}
 			}
