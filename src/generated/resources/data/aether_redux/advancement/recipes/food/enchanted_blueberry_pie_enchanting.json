@@ -1,0 +1,25 @@
+{
+	"parent": "minecraft:recipes/root",
+	"criteria": {
+		"has_blueberry_pie": {
+			"conditions": {
+				"items": [
+					{
+						"items": "aether_redux:blueberry_pie"
+					}
+				]
+			},
+			"trigger": "minecraft:inventory_changed"
+		},
+		"has_the_recipe": {
+			"conditions": {
+				"recipe": "aether_redux:enchanted_blueberry_pie_enchanting"
+			},
+			"trigger": "minecraft:recipe_unlocked"
+		}
+	},
+	"requirements": [["has_the_recipe", "has_blueberry_pie"]],
+	"rewards": {
+		"recipes": ["aether_redux:enchanted_blueberry_pie_enchanting"]
+	}
+}

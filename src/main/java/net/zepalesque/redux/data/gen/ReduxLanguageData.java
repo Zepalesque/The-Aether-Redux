@@ -122,6 +122,13 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 		this.addLore(ReduxItems.WYND_OATS, "A pile of Wynd Oats. These can be grown into the Wynd Oat plant.");
 		this.addItem(ReduxItems.WYND_OAT_PANICLE);
 		this.addLore(ReduxItems.WYND_OAT_PANICLE, "A panicle of grown Wynd Oats. This can be used for a variety of recipes.");
+
+		this.addItem(ReduxItems.BLUEBERRY_PIE, "Blueberry Pie");
+		this.addLore(ReduxItems.BLUEBERRY_PIE, "A pie made of the Aether's native blue berries. These delicious treats can make a great gift for a friend.");
+		this.addItem(ReduxItems.ENCHANTED_BLUEBERRY_PIE, "Enchanted Blueberry Pie");
+		this.addLore(ReduxItems.ENCHANTED_BLUEBERRY_PIE, "An enchanted variant of the Blueberry Pie. This fancy pastry gives you a short regeneration effect!");
+
+		
 		// TODO: Reimplement said recipes
 
 		//add(ReduxItems.WYND_BAGEL);
