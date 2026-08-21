@@ -39,10 +39,11 @@ public class MoaModelMixin extends BipedBirdModelMixin<Moa> {
 	        var swingCalc = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
 
             var attachment = MoaAnimAttachment.get(moa);
-            var progress = Mth.lerp(partial, attachment.getPrevLegAnim(moa), attachment.getLegAnim(moa)) * 0.2F;
+            var progress = attachment.getLegAnim(moa, partial);
 
-            this.rightLeg.xRot = EasingUtil.Sinusoidal.inOut(Mth.lerp(progress, swingCalc, 0.6F));
-            this.leftLeg.xRot = EasingUtil.Sinusoidal.inOut(Mth.lerp(progress, -swingCalc, 0.6F));
+            var sin = EasingUtil.Sinusoidal.inOut(progress);
+            this.rightLeg.xRot = Mth.lerp(sin, swingCalc, 0.6F);
+            this.leftLeg.xRot = Mth.lerp(sin, -swingCalc, 0.6F);
         }
     }
 

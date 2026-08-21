@@ -115,13 +115,13 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
 			var swingCalc = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
 
 			var attachment = MoaAnimAttachment.get(moa);
-			var progress/* = moa.isEntityOnGround() ? 0 : 1;
-			progress*/ = Mth.lerp(partialTicks, attachment.getPrevLegAnim(moa), attachment.getLegAnim(moa)) * 0.2F;
+			var progress = attachment.getLegAnim(moa, partialTicks);
 			
 			model.leg1.skipDraw = true;
 			model.leg2.skipDraw = true;
-			this.getParentModel().rightLeg.xRot = EasingUtil.Sinusoidal.inOut(Mth.lerp(progress, swingCalc, 0.6F));
-			this.getParentModel().leftLeg.xRot = EasingUtil.Sinusoidal.inOut(Mth.lerp(progress, -swingCalc, 0.6F));
+			var sin = EasingUtil.Sinusoidal.inOut(progress);
+			this.getParentModel().rightLeg.xRot = Mth.lerp(sin, swingCalc, 0.6F);
+			this.getParentModel().leftLeg.xRot = Mth.lerp(sin, -swingCalc, 0.6F);
 			
 //			if (Redux.protectCompat()) {
 //				this.doHeadFeathersArmorStuff(moa, model);

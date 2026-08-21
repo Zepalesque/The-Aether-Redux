@@ -2,11 +2,14 @@ package net.zepalesque.redux.attachment.anim;
 
 import com.aetherteam.aether.entity.passive.Moa;
 import java.util.Objects;
+
+import net.minecraft.util.Mth;
 import net.zepalesque.redux.attachment.ReduxDataAttachments;
 import org.jetbrains.annotations.NotNull;
 
 public final class MoaAnimAttachment {
 
+    // 0 to 5
     private byte legAnim;
     private byte prevLegAnim;
 
@@ -17,12 +20,16 @@ public final class MoaAnimAttachment {
         return moa.getData(ReduxDataAttachments.MOA_ANIM.get());
     }
 
-    public byte getLegAnim(Moa moa) {
+    public byte getLegAnimByte(Moa moa) {
         return this.legAnim;
     }
 
-    public byte getPrevLegAnim(Moa moa) {
+    public byte getPrevLegAnimByte(Moa moa) {
         return this.prevLegAnim;
+    }
+    
+    public float getLegAnim(Moa moa, float partial) {
+        return Mth.lerp(partial, this.prevLegAnim, this.legAnim) * 0.2f;
     }
 
     public void onUpdate(Moa moa) {
