@@ -51,6 +51,7 @@ import net.zepalesque.redux.world.biome.ReduxRegion;
 import net.zepalesque.redux.world.biome.ReduxSurfaceRules;
 import net.zepalesque.redux.world.carver.ReduxCarvers;
 import net.zepalesque.redux.world.feature.gen.ReduxFeatures;
+import net.zepalesque.redux.world.predicate.ReduxBlockPredicates;
 import net.zepalesque.redux.world.tree.decorator.ReduxTreeDecorators;
 import net.zepalesque.redux.world.tree.foliage.ReduxFoliagePlacers;
 import net.zepalesque.redux.world.tree.roots.ReduxRootPlacers;
@@ -119,7 +120,8 @@ public final class Redux {
 			ReduxDataAttachments.ATTACHMENTS,
 			ReduxCarvers.CARVERS,
 			ReduxAdvancementTriggers.TRIGGERS,
-			ReduxStateLists.STATE_LISTS
+			ReduxStateLists.STATE_LISTS,
+			ReduxBlockPredicates.BLOCK_PREDICATES,
 		};
 
 		for (var register : registers) register.register(bus);

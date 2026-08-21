@@ -4,6 +4,7 @@ import com.aetherteam.aether.client.renderer.entity.MoaRenderer;
 import com.aetherteam.aether.client.renderer.entity.model.MoaModel;
 import com.aetherteam.aether.entity.passive.Moa;
 import com.mojang.blaze3d.vertex.PoseStack;
+import java.util.concurrent.ConcurrentHashMap;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -15,8 +16,6 @@ import net.zepalesque.redux.attachment.anim.MoaAnimAttachment;
 import net.zepalesque.redux.util.LegacyAnimUtil;
 import net.zepalesque.zenith.util.math.EasingUtil;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.concurrent.ConcurrentHashMap;
 
 public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
 
@@ -143,8 +142,7 @@ public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
 //		});
 //	}
 
-	@NotNull
-	@Override
+	@NotNull @Override
 	public ResourceLocation getTextureLocation(@NotNull Moa moa) {
 		var key = this.parent.getTextureLocation(moa);
 		

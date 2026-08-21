@@ -36,6 +36,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfigur
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.VegetationPatchConfiguration;
@@ -62,6 +63,7 @@ import net.zepalesque.redux.world.feature.gen.DebugNoiseFeature;
 import net.zepalesque.redux.world.feature.gen.LakesFeature;
 import net.zepalesque.redux.world.feature.gen.ReduxFeatures;
 import net.zepalesque.redux.world.feature.gen.WaterPlantFeature;
+import net.zepalesque.redux.world.predicate.ColdPredicate;
 import net.zepalesque.redux.world.tree.decorator.PatchTreeDecorator;
 import net.zepalesque.redux.world.tree.decorator.VineDecorator;
 import net.zepalesque.redux.world.tree.foliage.BlightwillowFoliagePlacer;
@@ -772,7 +774,19 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			context,
 			CAELGAE_PATCH,
 			Feature.RANDOM_PATCH,
-			patch(24, 6, 3, prov(ReduxBlocks.CAELGAE_PATCH))
+			new RandomPatchConfiguration(
+				24,
+				6,
+				3,
+				PlacementUtils.filtered(
+					Feature.SIMPLE_BLOCK,
+					new SimpleBlockConfiguration(prov(ReduxBlocks.CAELGAE_PATCH)),
+					BlockPredicate.allOf(
+						BlockPredicate.ONLY_IN_AIR_PREDICATE,
+						BlockPredicate.not(new ColdPredicate())
+					)
+				)
+			)
 		);
 
 		FeatureUtils.register(

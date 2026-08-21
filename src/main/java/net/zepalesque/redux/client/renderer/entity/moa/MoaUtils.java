@@ -3,11 +3,10 @@ package net.zepalesque.redux.client.renderer.entity.moa;
 import com.aetherteam.aether.client.gui.screen.perks.MoaSkinsScreen;
 import com.aetherteam.aether.entity.passive.Moa;
 import com.aetherteam.aether.perk.data.ClientMoaSkinPerkData;
+import java.util.Objects;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.zepalesque.redux.config.ReduxConfig;
-
-import java.util.Objects;
 
 public final class MoaUtils {
 

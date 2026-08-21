@@ -1,12 +1,9 @@
 package net.zepalesque.redux.attachment.anim;
 
-import com.aetherteam.aether.entity.monster.dungeon.boss.Slider;
 import com.aetherteam.aether.entity.passive.Moa;
-import net.zepalesque.redux.attachment.ReduxDataAttachments;
-import net.zepalesque.redux.attachment.SliderSignalAttachment;
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Objects;
+import net.zepalesque.redux.attachment.ReduxDataAttachments;
+import org.jetbrains.annotations.NotNull;
 
 public final class MoaAnimAttachment {
 

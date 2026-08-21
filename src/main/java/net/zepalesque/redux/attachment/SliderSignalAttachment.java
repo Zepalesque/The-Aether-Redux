@@ -1,7 +1,6 @@
 package net.zepalesque.redux.attachment;
 
 import com.aetherteam.aether.entity.monster.dungeon.boss.Slider;
-
 import java.util.Objects;
 import java.util.Optional;
 import net.minecraft.core.Direction;
@@ -19,13 +18,11 @@ import org.jetbrains.annotations.Nullable;
 public final class SliderSignalAttachment {
 	private int signalTick = 0;
 
-	@Nullable
-	private Direction overrideDirection = null;
+	@Nullable private Direction overrideDirection = null;
 
 	private boolean hasOverriden = false;
 
-	@Nullable
-	private Entity target = null;
+	@Nullable private Entity target = null;
 
 	public void onUpdate(Slider slider) {
 		this.tickSignal(slider);
