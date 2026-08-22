@@ -14,7 +14,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.zepalesque.redux.Redux;
-import net.zepalesque.redux.attachment.SliderSignalAttachment;
+import net.zepalesque.redux.attachment.anim.SliderSignalAttachment;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.zenith.util.ArrayUtil;
 import org.jetbrains.annotations.Nullable;

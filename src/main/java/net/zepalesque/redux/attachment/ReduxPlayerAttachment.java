@@ -27,13 +27,19 @@ public final class ReduxPlayerAttachment implements INBTSynchable {
 		Map.ofEntries(
 			Map.entry(
 				"max_aerjumps",
-				Triple.of(Type.INT, val -> this.setMaxAerjumps((int) val), this::getMaxAerjumps)
-			),
-			Map.entry(
+				Triple.of(
+					Type.INT,
+					val -> this.setMaxAerjumps((int) val),
+					this::getMaxAerjumps
+				)
+			), Map.entry(
 				"base_aerjumps",
-				Triple.of(Type.INT, val -> this.setBaseAerjumps((int) val), this::getBaseAerjumps)
-			),
-			Map.entry(
+				Triple.of(
+					Type.INT,
+					val -> this.setBaseAerjumps((int) val),
+					this::getBaseAerjumps
+				)
+			), Map.entry(
 				"performed_aerjumps",
 				Triple.of(
 					Type.INT,
@@ -74,7 +80,7 @@ public final class ReduxPlayerAttachment implements INBTSynchable {
 				Codec.intRange(0, 3)
 					.fieldOf("aerjump_air_time")
 					.forGetter(ReduxPlayerAttachment::getAirTime)
-).apply(builder, ReduxPlayerAttachment::new)
+			).apply(builder, ReduxPlayerAttachment::new)
 	);
 
 	private ReduxPlayerAttachment(

@@ -205,7 +205,7 @@ public final class ReduxConfig {
 				.translation(trans.transKey(builder, "improved_whirlwinds"))
 				.define("Improved Whirlwinds", true));
 			this.defer_whirlwind_rendering = trans.add(builder
-				.comment("Defers Evil Whirlwind rendering to after particles are rendered, in order to fix some transparency sorting issues.")
+				.comment("Defers Evil Whirlwind body rendering to after particles are rendered, in order to fix some transparency sorting issues.")
 				.translation(trans.transKey(builder, "defer_whirlwind_rendering"))
 				.define("Defer Whirlwind Rendering", true));
 			builder.pop();

@@ -1,4 +1,4 @@
-package net.zepalesque.redux.attachment;
+package net.zepalesque.redux.attachment.anim;
 
 import com.aetherteam.aether.entity.monster.dungeon.boss.Slider;
 import java.util.Objects;
@@ -8,6 +8,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
 import net.neoforged.neoforge.network.PacketDistributor;
+import net.zepalesque.redux.attachment.ReduxDataAttachments;
 import net.zepalesque.redux.client.audio.ReduxSounds;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.network.packet.SliderSignalPacket;

@@ -10,8 +10,9 @@ import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.living.LivingFallEvent;
 import net.neoforged.neoforge.event.tick.EntityTickEvent;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.attachment.CockatriceShootingAttachment;
 import net.zepalesque.redux.attachment.ReduxPlayerAttachment;
-import net.zepalesque.redux.attachment.SliderSignalAttachment;
+import net.zepalesque.redux.attachment.anim.SliderSignalAttachment;
 import net.zepalesque.redux.attachment.anim.MoaAnimAttachment;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.event.hook.MobHooks;
@@ -35,6 +36,7 @@ public class MobListener {
 		
 		var client = entity.level().isClientSide();
 		
+		// meanwhile in another universe: `match entity { player: Player => { .. }, .. }`
 		switch (entity) {
 			case Player player -> {
 				var attachment = ReduxPlayerAttachment.get(player);
@@ -45,8 +47,14 @@ public class MobListener {
 			} case Moa moa when client -> {
 				var attachment = MoaAnimAttachment.get(moa);
 				attachment.onUpdate(moa);
-			}
-			default -> {}
+			} case Cockatrice cockatrice -> {
+				if (!client) {
+					var att = CockatriceShootingAttachment.get(cockatrice);
+					att.serverTick(cockatrice);
+				} else {
+					// TODO: leg and shooting ANIMATION attachment
+				}
+			} default -> {}
 		}
 	}
 

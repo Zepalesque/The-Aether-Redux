@@ -10,7 +10,7 @@ import net.zepalesque.redux.event.hook.BlockBreakHooks;
 public class BlockBreakListener {
 	@SubscribeEvent
 	public static void modifyMiningSpeed(PlayerEvent.BreakSpeed event) {
-		float modifiedSpeed = BlockBreakHooks.modify(event.getState().getBlock(), event.getNewSpeed());
+		var modifiedSpeed = BlockBreakHooks.modify(event.getState().getBlock(), event.getNewSpeed());
 		if (modifiedSpeed != event.getNewSpeed()) event.setNewSpeed(modifiedSpeed);
 	}
 }

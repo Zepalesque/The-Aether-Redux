@@ -1,6 +1,7 @@
 package net.zepalesque.redux.entity.ai.goal;
 
 import com.aetherteam.aether.entity.monster.Cockatrice;
+import net.zepalesque.redux.attachment.CockatriceShootingAttachment;
 
 public class CockatriceRangedStrafeGoal
 	extends RangedStrafeAttackGoal<Cockatrice>
@@ -39,9 +40,10 @@ public class CockatriceRangedStrafeGoal
 	public boolean canContinueToUse() {
 		return super.canContinueToUse() && this.isShooting();
 	}
-
+	
 	protected boolean isShooting() {
-		// TODO: implement capability or whatever neoforge changed it to
-		return false;
+		var cock = (Cockatrice) this.mob;
+		var attach = CockatriceShootingAttachment.get(cock);
+		return attach.isShooting();
 	}
 }

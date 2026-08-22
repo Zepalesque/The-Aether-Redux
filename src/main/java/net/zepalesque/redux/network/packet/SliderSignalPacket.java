@@ -14,7 +14,7 @@ import net.minecraft.world.entity.Entity;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.attachment.ReduxDataAttachments;
-import net.zepalesque.redux.attachment.SliderSignalAttachment;
+import net.zepalesque.redux.attachment.anim.SliderSignalAttachment;
 
 public class SliderSignalPacket {
 	public record Signal(int mobID) implements CustomPacketPayload {

@@ -63,25 +63,21 @@ public class RangedStrafeAttackGoal<
 	 * method as well.
 	 */
 	public boolean canUse() {
-		LivingEntity livingentity = this.mob.getTarget();
+		var livingentity = this.mob.getTarget();
 		if (livingentity != null && livingentity.isAlive()) {
 			this.target = livingentity;
 			return true;
-		} else {
-			return false;
-		}
+		} else return false;
 	}
 
 	/**
 	 * Returns whether an in-progress EntityAIBase should continue executing
 	 */
 	public boolean canContinueToUse() {
-		return (
-			this.canUse() ||
-			(this.target != null &&
-				this.target.isAlive() &&
-				!this.mob.getNavigation().isDone())
-		);
+		return this.canUse()
+			|| this.target != null
+			&& this.target.isAlive()
+			&& !this.mob.getNavigation().isDone();
 	}
 
 	/**
@@ -109,51 +105,41 @@ public class RangedStrafeAttackGoal<
 	 * Keep ticking a continuous task that has already been started
 	 */
 	public void tick() {
-		LivingEntity livingentity = this.mob.getTarget();
-		if (livingentity != null) {
-			double d0 = this.mob.distanceToSqr(
-				livingentity.getX(),
-				livingentity.getY(),
-				livingentity.getZ()
+		var entity = this.mob.getTarget();
+		if (entity != null) {
+			var dist = this.mob.distanceToSqr(
+				entity.getX(),
+				entity.getY(),
+				entity.getZ()
 			);
-			boolean flag = this.mob.getSensing().hasLineOfSight(livingentity);
-			boolean flag1 = this.seeTime > 0;
-			if (flag != flag1) {
-				this.seeTime = 0;
-			}
+			var canSee = this.mob.getSensing().hasLineOfSight(entity);
+			var hasSeen = this.seeTime > 0;
+			if (canSee != hasSeen) this.seeTime = 0;
 
-			if (flag) {
-				++this.seeTime;
-			} else {
-				--this.seeTime;
-			}
+			if (canSee) ++this.seeTime;
+			else --this.seeTime;
 
-			if (!(d0 > (double) this.attackRadiusSqr) && this.seeTime >= 20) {
+			if (!(dist > (double) this.attackRadiusSqr) && this.seeTime >= 20) {
 				this.mob.getNavigation().stop();
 				++this.strafingTime;
 			} else {
-				this.mob.getNavigation().moveTo(livingentity, this.speedModifier);
+				this.mob.getNavigation().moveTo(entity, this.speedModifier);
 				this.strafingTime = -1;
 			}
 
 			if (this.strafingTime >= 20) {
-				if ((double) this.mob.getRandom().nextFloat() < 0.3D) {
+				if ((double) this.mob.getRandom().nextFloat() < 0.3D)
 					this.strafingClockwise = !this.strafingClockwise;
-				}
 
-				if ((double) this.mob.getRandom().nextFloat() < 0.3D) {
+				if ((double) this.mob.getRandom().nextFloat() < 0.3D)
 					this.strafingBackwards = !this.strafingBackwards;
-				}
 
 				this.strafingTime = 0;
 			}
 
 			if (this.strafingTime > -1) {
-				if (d0 > (double) (this.attackRadiusSqr * 0.75F)) {
-					this.strafingBackwards = false;
-				} else if (d0 < (double) (this.attackRadiusSqr * 0.25F)) {
-					this.strafingBackwards = true;
-				}
+				if (dist > (double) (this.attackRadiusSqr * 0.75F)) this.strafingBackwards = false;
+				else if (dist < (double) (this.attackRadiusSqr * 0.25F)) this.strafingBackwards = true;
 
 				this.mob
 					.getMoveControl()
@@ -161,32 +147,26 @@ public class RangedStrafeAttackGoal<
 						this.strafingBackwards ? -0.5F : 0.5F,
 						this.strafingClockwise ? 0.5F : -0.5F
 					);
-				this.mob.lookAt(livingentity, 30.0F, 30.0F);
-			} else {
-				this.mob.getLookControl().setLookAt(livingentity, 30.0F, 30.0F);
-			}
+				this.mob.lookAt(entity, 30.0F, 30.0F);
+			} else this.mob.getLookControl().setLookAt(entity, 30.0F, 30.0F);
 
 			if (--this.attackTime == 0) {
-				if (!flag) {
-					return;
-				}
-
-				float f = (float) Math.sqrt(d0) / this.attackRadius;
-				float f1 = Mth.clamp(f, 0.1F, 1.0F);
+				if (!canSee) return;
+				
+				var f = (float) Math.sqrt(dist) / this.attackRadius;
+				var f1 = Mth.clamp(f, 0.1F, 1.0F);
 				this.mob.performRangedAttack(this.target, f1);
 				this.attackTime = Mth.floor(
 					f * (float) (this.attackIntervalMax - this.attackIntervalMin) +
 						(float) this.attackIntervalMin
 				);
-			} else if (this.attackTime < 0) {
-				this.attackTime = Mth.floor(
-					Mth.lerp(
-						Math.sqrt(d0) / (double) this.attackRadius,
-						this.attackIntervalMin,
-						this.attackIntervalMax
-					)
-				);
-			}
+			} else if (this.attackTime < 0) this.attackTime = Mth.floor(
+				Mth.lerp(
+					Math.sqrt(dist) / (double) this.attackRadius,
+					this.attackIntervalMin,
+					this.attackIntervalMax
+				)
+			);
 		}
 	}
 }

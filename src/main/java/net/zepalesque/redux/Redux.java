@@ -43,6 +43,7 @@ import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.item.components.ReduxDataComponents;
 import net.zepalesque.redux.loot.modifer.ReduxLootModifiers;
 import net.zepalesque.redux.network.packet.AerjumpPacket;
+import net.zepalesque.redux.network.packet.CockatriceShootPacket;
 import net.zepalesque.redux.network.packet.ReduxPlayerSyncPacket;
 import net.zepalesque.redux.network.packet.SliderSignalPacket;
 import net.zepalesque.redux.recipe.ReduxRecipes;
@@ -152,7 +153,11 @@ public final class Redux {
 	}
 
 	public void registerPackets(RegisterPayloadHandlersEvent event) {
-		var registrar = event.registrar(MODID).versioned("1.0.0").optional();
+		var registrar = event
+			.registrar(MODID)
+			// TODO: should this be the mod version?
+			.versioned("1.0.0")
+			.optional();
 		registrar.playToServer(
 			AerjumpPacket.Request.TYPE,
 			AerjumpPacket.Request.STREAM_CODEC,
@@ -187,6 +192,11 @@ public final class Redux {
 			SliderSignalPacket.SyncTarget.TYPE,
 			SliderSignalPacket.SyncTarget.STREAM_CODEC,
 			SliderSignalPacket.SyncTarget::execute
+		);
+		registrar.playToClient(
+			CockatriceShootPacket.TYPE,
+			CockatriceShootPacket.STREAM_CODEC,
+			CockatriceShootPacket::execute
 		);
 	}
 
