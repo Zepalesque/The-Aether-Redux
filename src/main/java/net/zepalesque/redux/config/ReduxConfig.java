@@ -2,13 +2,11 @@ package net.zepalesque.redux.config;
 
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.ConcurrentMap;
 import java.util.stream.Collectors;
-
 import net.neoforged.neoforge.common.ModConfigSpec;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.config.enums.AACompatFeature;
@@ -311,6 +309,18 @@ public final class ReduxConfig {
 			return b.toString();
 		}
 		
+		private String catTransKey(ModConfigSpec.Builder builder, String name) {
+			var b = new StringBuilder("config." + Redux.MODID + ".category." + this.kind + ".");
+			for (var entry : ((CfgBuilderAccessor) builder).redux$currentPath())  {
+				b.append(DatagenUtil.unlocalize(entry));
+				b.append('.');
+			}
+			
+			b.append(name);
+			
+			return b.toString();
+		}
+		
 		public CfgTranslations build() {
 			return new CfgTranslations(
 				this.cfgs.parallelStream().collect(Collectors.toUnmodifiableSet()),
@@ -327,7 +337,7 @@ public final class ReduxConfig {
 		}
 		
 		public void push(ModConfigSpec.Builder builder, String name) {
-			var key = this.transKey(builder, DatagenUtil.unlocalize(name));
+			var key = this.catTransKey(builder, DatagenUtil.unlocalize(name));
 			builder.translation(key);
 			
 			builder.push(name);

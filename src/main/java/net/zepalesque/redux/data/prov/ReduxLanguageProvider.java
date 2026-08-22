@@ -5,9 +5,6 @@ import net.neoforged.neoforge.common.ModConfigSpec;
 import net.zepalesque.redux.mixin.mixins.common.accessor.LangProviderAccessor;
 import net.zepalesque.unity.data.prov.UnityLanguageProvider;
 import org.jetbrains.annotations.Nullable;
-import org.jetbrains.annotations.Unmodifiable;
-
-import java.util.List;
 
 public abstract class ReduxLanguageProvider extends UnityLanguageProvider {
 	//protected final Map<String, String> TIPS = new HashMap<>();
