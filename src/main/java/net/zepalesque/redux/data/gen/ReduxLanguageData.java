@@ -1,9 +1,11 @@
 package net.zepalesque.redux.data.gen;
 
 import net.minecraft.data.PackOutput;
+import net.neoforged.neoforge.common.ModConfigSpec;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.client.audio.ReduxSounds;
+import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.data.prov.ReduxLanguageProvider;
 import net.zepalesque.redux.data.resource.registries.ReduxBiomes;
 import net.zepalesque.redux.data.resource.registries.ReduxJukeboxSongs;
@@ -16,6 +18,7 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 	}
 
 	@Override
+	@SuppressWarnings("deprecation")
 	protected void addTranslations() {
 		Redux.BLOCK_SETS.forEach(set -> set.langData(this));
 		
@@ -293,6 +296,10 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 		this.addBiome(ReduxBiomes.FROSTED_FORESTS, "Frosted Forests");
 		this.addBiome(ReduxBiomes.SKYFIELDS, "Skyfields");
 		this.addBiome(ReduxBiomes.CLOUDCAP_RIDGE, "Cloudcap Ridge");
+		
+		for (var cfg : ReduxConfig.CLIENT.values) this.addCfg(cfg);
+		for (var cfg : ReduxConfig.COMMON.values) this.addCfg(cfg);
+		for (var cfg : ReduxConfig.SERVER.values) this.addCfg(cfg);
 		
 		this.addAdvancement("throw_ring_in_lava", "Cast It into the Fire! Destroy It!", "Throw a Golden Ring into lava in the Nether");
 	}

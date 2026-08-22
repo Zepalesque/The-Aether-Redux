@@ -1,6 +1,7 @@
 package net.zepalesque.redux.data.prov;
 
 import net.minecraft.data.PackOutput;
+import net.neoforged.neoforge.common.ModConfigSpec;
 import net.zepalesque.redux.mixin.mixins.common.accessor.LangProviderAccessor;
 import net.zepalesque.unity.data.prov.UnityLanguageProvider;
 import org.jetbrains.annotations.Nullable;
@@ -19,6 +20,12 @@ public abstract class ReduxLanguageProvider extends UnityLanguageProvider {
 
 	@Nullable protected String remove(String key) {
 		return ((LangProviderAccessor) this).redux$getData().remove(key);
+	}
+	
+	protected <T> void addCfg(ModConfigSpec.ConfigValue<T> cfg) {
+		var key = cfg.getSpec().getTranslationKey();
+		if (key == null) return;
+		this.add(key, cfg.getPath().getLast());
 	}
 
 	/*private CompletableFuture<?> generateTips(CompletableFuture<?> languageGen, CachedOutput cache) {
