@@ -2,7 +2,6 @@ package net.zepalesque.redux.attachment.anim;
 
 import com.aetherteam.aether.entity.passive.Moa;
 import java.util.Objects;
-
 import net.minecraft.util.Mth;
 import net.zepalesque.redux.attachment.ReduxDataAttachments;
 import org.jetbrains.annotations.NotNull;

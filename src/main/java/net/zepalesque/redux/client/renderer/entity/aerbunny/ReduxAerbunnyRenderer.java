@@ -2,7 +2,6 @@ package net.zepalesque.redux.client.renderer.entity.aerbunny;
 
 import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.client.renderer.AetherModelLayers;
-import com.aetherteam.aether.client.renderer.entity.AerbunnyRenderer;
 import com.aetherteam.aether.client.renderer.entity.model.AerbunnyModel;
 import com.aetherteam.aether.entity.passive.Aerbunny;
 import com.mojang.blaze3d.vertex.PoseStack;

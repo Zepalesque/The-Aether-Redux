@@ -2,14 +2,13 @@ package net.zepalesque.redux.client.renderer.entity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import java.util.Objects;
+import java.util.function.Function;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.neoforged.neoforge.common.ModConfigSpec;
-
-import java.util.Objects;
-import java.util.function.Function;
 
 public class ConditionalModel<E extends Entity, T extends EntityModel<E>, F extends EntityModel<E>> extends EntityModel<E> {
 	final T modelTrue;

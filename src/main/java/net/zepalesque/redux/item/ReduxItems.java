@@ -1,6 +1,10 @@
 package net.zepalesque.redux.item;
 
 import com.aetherteam.aether.item.AetherItems;
+import com.aetherteam.aether.item.accessories.AccessoryItem;
+import io.wispforest.accessories.api.AccessoriesAPI;
+import java.util.ArrayList;
+import java.util.function.Supplier;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.HoeItem;
@@ -19,6 +23,7 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.data.resource.registries.ReduxJukeboxSongs;
 import net.zepalesque.redux.entity.ReduxEntities;
+import net.zepalesque.redux.item.accessories.AbilityTooltipRingItem;
 import net.zepalesque.redux.item.accessories.cape.AerboundCapeItem;
 import net.zepalesque.redux.item.combat.VeridiumDartItem;
 import net.zepalesque.redux.item.combat.VeridiumDartShooter;
@@ -33,6 +38,7 @@ import net.zepalesque.redux.item.tools.VeridiumShovelItem;
 
 public class ReduxItems extends ReduxItemBuilders {
 	public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Redux.MODID);
+	public static final AccessoriesManager ACCESSORIES = new AccessoriesManager();
 
 	public static final DeferredItem<Item> BLUEBERRY_PIE = ITEMS.register(
 		"blueberry_pie",
@@ -209,9 +215,13 @@ public class ReduxItems extends ReduxItemBuilders {
 		)
 	);
 
-	public static final DeferredItem<AerboundCapeItem> AERBOUND_CAPE = ITEMS.register(
+	public static final DeferredItem<AerboundCapeItem> AERBOUND_CAPE = ACCESSORIES.register(
 		"aerbound_cape",
 		() -> new AerboundCapeItem(new Item.Properties().stacksTo(1).rarity(AetherItems.AETHER_LOOT))
+	);
+    public static final DeferredItem<AbilityTooltipRingItem> SENTRY_RING = ACCESSORIES.register(
+		"sentry_ring",
+		() -> new AbilityTooltipRingItem(null, new Item.Properties().stacksTo(1), "sentry_ring_embers")
 	);
 
 	public static final DeferredItem<DeferredSpawnEggItem> ARTEMID_SPAWN_EGG = ITEMS.register(
@@ -233,7 +243,18 @@ public class ReduxItems extends ReduxItemBuilders {
 		)
 	);
 
-	public static void registerAccessories() {
-		registerAccessory(AERBOUND_CAPE.get());
+	public static class AccessoriesManager {
+		private final ArrayList<DeferredItem<? extends AccessoryItem>> LIST = new ArrayList<>();
+		
+		public <T extends AccessoryItem> DeferredItem<T> register(String name, Supplier<T> item) {
+			var def = ITEMS.register(name, item);
+			LIST.add(def);
+			return def;
+		}
+
+		public void registerAccessories() {
+			LIST.stream().map(Supplier::get).forEach(i -> AccessoriesAPI.registerAccessory(i, i));
+			LIST.clear();
+		}
 	}
 }
