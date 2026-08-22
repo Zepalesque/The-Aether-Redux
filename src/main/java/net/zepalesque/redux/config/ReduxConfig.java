@@ -281,8 +281,7 @@ public final class ReduxConfig {
 		CLIENT = client.getLeft();
 	}
 	
-
-	
+	// TODO: refactor into a wrapper around ModConfigSpec.Builder
 	private static final class TranslationsBuilder {
 		private final HashSet<ModConfigSpec.ConfigValue<?>> cfgs = new HashSet<>();
 		private final HashMap<String, String> cats = new HashMap<>();
