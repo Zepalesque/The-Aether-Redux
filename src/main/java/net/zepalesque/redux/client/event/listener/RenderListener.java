@@ -16,12 +16,13 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.renderer.api.IPostRenderer;
+import net.zepalesque.redux.config.ReduxConfig;
 
 @EventBusSubscriber(Dist.CLIENT)
 public class RenderListener {
 	@SubscribeEvent
 	public static void renderPost(RenderLevelStageEvent event) {
-		if (event.getStage() == RenderLevelStageEvent.Stage.AFTER_WEATHER) {
+		if (event.getStage() == RenderLevelStageEvent.Stage.AFTER_WEATHER && ReduxConfig.CLIENT.defer_whirlwind_rendering.getAsBoolean()) {
 			var lvlRend = event.getLevelRenderer();
 			var mc = Minecraft.getInstance();
 			var player = mc.player;

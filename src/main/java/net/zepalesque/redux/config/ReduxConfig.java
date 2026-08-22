@@ -163,6 +163,7 @@ public final class ReduxConfig {
 		
 		public final ModConfigSpec.BooleanValue leaf_particles;
 		public final ModConfigSpec.BooleanValue improved_whirlwinds;
+		public final ModConfigSpec.BooleanValue defer_whirlwind_rendering;
 		public final ModConfigSpec.BooleanValue improved_sheepuffs;
 		public final ModConfigSpec.BooleanValue improved_moas;
 		public final ModConfigSpec.BooleanValue improved_aerbunnies;
@@ -185,10 +186,16 @@ public final class ReduxConfig {
 				.comment("Use nice falling leaf particles for Aether leaf blocks")
 				.translation(trans.transKey(builder, "leaf_particles"))
 				.define("Leaf Particles", true));
+			trans.push(builder, "Whirlwind");
 			this.improved_whirlwinds = trans.add(builder
 				.comment("Gives Whirlwinds a new design, based on Minecraft 1.21's new Breeze mob")
 				.translation(trans.transKey(builder, "improved_whirlwinds"))
 				.define("Improved Whirlwinds", true));
+			this.defer_whirlwind_rendering = trans.add(builder
+				.comment("Defers Evil Whirlwind rendering to after particles are rendered, in order to fix some transparency sorting issues.")
+				.translation(trans.transKey(builder, "defer_whirlwind_rendering"))
+				.define("Defer Whirlwind Rendering", true));
+			builder.pop();
 			this.improved_sheepuffs = trans.add(builder
 				.comment("Enables Redux's updated Sheepuff model")
 				.translation(trans.transKey(builder, "improved_sheepuffs"))

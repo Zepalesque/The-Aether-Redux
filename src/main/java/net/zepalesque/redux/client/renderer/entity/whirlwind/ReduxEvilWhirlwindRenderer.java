@@ -9,6 +9,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.zepalesque.redux.client.renderer.ReduxRenderTypes;
 import net.zepalesque.redux.client.renderer.api.IPostRenderer;
+import net.zepalesque.redux.config.ReduxConfig;
 import org.jetbrains.annotations.NotNull;
 
 public class ReduxEvilWhirlwindRenderer<T extends AbstractWhirlwind>
@@ -37,7 +38,10 @@ public class ReduxEvilWhirlwindRenderer<T extends AbstractWhirlwind>
 		@NotNull PoseStack poseStack,
 		@NotNull MultiBufferSource buffer,
 		int packedLight
-	) {}
+	) {
+		if (!ReduxConfig.CLIENT.defer_whirlwind_rendering.getAsBoolean())
+			this.internalRender(entity, entityYaw, partialTicks, poseStack, buffer, packedLight);
+	}
 
 	@Override
 	public void internalRender(
@@ -48,6 +52,7 @@ public class ReduxEvilWhirlwindRenderer<T extends AbstractWhirlwind>
 		MultiBufferSource buffer,
 		int packedLight
 	) {
+		this.model.whirl_body.skipDraw = !ReduxConfig.CLIENT.improved_whirlwinds.getAsBoolean();
 		super.render(entity, entityYaw, partialTicks, poseStack, buffer, packedLight);
 	}
 

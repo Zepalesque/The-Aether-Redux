@@ -17,7 +17,7 @@ import net.zepalesque.zenith.util.math.EasingUtil;
 import org.jetbrains.annotations.NotNull;
 
 public class WhirlwindModel<T extends AbstractWhirlwind> extends EntityModel<T> {
-	private final ModelPart whirl_body;
+	public final ModelPart whirl_body;
 	private final ModelPart bottom_render;
 	private final ModelPart lower_render;
 	private final ModelPart upper_render;
