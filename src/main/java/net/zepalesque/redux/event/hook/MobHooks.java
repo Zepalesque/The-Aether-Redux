@@ -12,7 +12,6 @@ import net.zepalesque.redux.entity.ai.goal.CockatriceRangedStrafeGoal;
 import net.zepalesque.redux.entity.ai.target.HurtByOtherTypeTargetGoal;
 
 import java.util.Objects;
-import java.util.Optional;
 
 public class MobHooks {
 
@@ -25,6 +24,7 @@ public class MobHooks {
 			1,
 			new CockatriceMeleeAttackGoal(cockatrice, 1.5, false)
 		);
+		
 		final var ref = new GoalsRef();
 		
 		cockatrice.targetSelector.getAvailableGoals().forEach(goal -> {
@@ -36,7 +36,7 @@ public class MobHooks {
 		if (ref.target != null) {
 			cockatrice.targetSelector
 				.getAvailableGoals()
-				.removeIf(wrappedGoal -> wrappedGoal == ref.target);
+				.remove(ref.target);
 			cockatrice.targetSelector.addGoal(
 				1,
 				new HurtByOtherTypeTargetGoal(cockatrice)
@@ -51,14 +51,12 @@ public class MobHooks {
 			if (
 				goal.getGoal().getClass().equals(RangedAttackGoal.class) &&
 				goal.getPriority() == 2
-			) {
-				ref.goal = goal;
-			}
+			) ref.goal = goal;
 		});
 		if (ref.goal != null) {
 			cockatrice.goalSelector
 				.getAvailableGoals()
-				.removeIf(wrappedGoal -> wrappedGoal == ref.goal);
+				.remove(ref.goal);
 			cockatrice.goalSelector.addGoal(
 				2,
 				new CockatriceRangedStrafeGoal(cockatrice, 1.0, 60, 10.0F)
@@ -66,6 +64,7 @@ public class MobHooks {
 		}
 	}
 	
+	// if only java actually had &T
 	private static final class GoalsRef {
 		WrappedGoal target = null;
 		WrappedGoal goal = null;
