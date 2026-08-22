@@ -19,9 +19,9 @@ import net.zepalesque.redux.util.LegacyAnimUtil;
 import net.zepalesque.zenith.util.math.EasingUtil;
 import org.jetbrains.annotations.NotNull;
 
-public class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
+public final class MoaReduxLayer extends RenderLayer<Moa, MoaModel> {
 
-	protected final MoaRenderer parent;
+	private final MoaRenderer parent;
 	private final MoaReduxModel model;
 
 	// concurrent because static final (memory safety !!!! :3)

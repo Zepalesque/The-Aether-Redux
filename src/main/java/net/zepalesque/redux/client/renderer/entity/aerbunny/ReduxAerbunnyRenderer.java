@@ -11,20 +11,32 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
+import net.neoforged.neoforge.common.ModConfigSpec;
 import net.zepalesque.redux.client.renderer.ReduxRenderers;
+import net.zepalesque.redux.client.renderer.entity.ConditionalModel;
+import net.zepalesque.redux.config.ReduxConfig;
 
-// TODO: implement switching between models and base aether model usage and whatnot
-public final class ReduxAerbunnyRenderer extends MobRenderer<Aerbunny, ReduxAerbunnyModel> {
+// cursed af ngl
+public final class ReduxAerbunnyRenderer extends MobRenderer<Aerbunny, ConditionalModel<Aerbunny, ReduxAerbunnyModel, AerbunnyModel>> {
+	private static final ResourceLocation AERBUNNY_TEXTURE = ResourceLocation.fromNamespaceAndPath(Aether.MODID, "textures/entity/mobs/aerbunny/aerbunny.png");
 	private static final ResourceLocation REDUX_AERBUNNY_TEXTURE = ResourceLocation.fromNamespaceAndPath(Aether.MODID, "textures/entity/mobs/aerbunny/aerbunny_redux.png");
 	
+	private static final ModConfigSpec.BooleanValue CFG = ReduxConfig.CLIENT.improved_aerbunnies;
+	
 	public ReduxAerbunnyRenderer(EntityRendererProvider.Context context) {
-		super(context, new ReduxAerbunnyModel(context.bakeLayer(ReduxRenderers.ModelLayers.AERBUNNY)), 0.3F);
+		super(context,
+			new ConditionalModel<>(
+				new ReduxAerbunnyModel(context.bakeLayer(ReduxRenderers.ModelLayers.AERBUNNY)),
+				new AerbunnyModel(context.bakeLayer(AetherModelLayers.AERBUNNY)),
+				CFG
+			), 0.3F);
 	}
 	
 	@Override
 	protected void scale(Aerbunny aerbunny, PoseStack poseStack, float partialTicks) {
 		if (aerbunny.isBaby()) poseStack.scale(0.5F, 0.5F, 0.5F);
-//		poseStack.translate(0.0, 0.2, 0.0);
+		if (!CFG.getAsBoolean())
+			poseStack.translate(0.0, 0.2, 0.0);
 	}
 	
 	@Override
@@ -40,6 +52,6 @@ public final class ReduxAerbunnyRenderer extends MobRenderer<Aerbunny, ReduxAerb
 	
 	@Override
 	public ResourceLocation getTextureLocation(Aerbunny aerbunny) {
-		return REDUX_AERBUNNY_TEXTURE;
+		return CFG.getAsBoolean() ? REDUX_AERBUNNY_TEXTURE : AERBUNNY_TEXTURE;
 	}
 }

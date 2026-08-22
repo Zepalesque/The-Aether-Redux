@@ -7,6 +7,7 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
+import net.minecraft.resources.ResourceLocation;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.entity.Artemid;
 
@@ -16,6 +17,8 @@ public class Antlers extends RenderLayer<Artemid, ArtemidModel<Artemid>> {
 		super(parent);
 	}
 
+	public static final ResourceLocation ANTLERS = Redux.loc("textures/entity/artemid/antlers.png");
+	
 	@Override
 	public void render(
 		PoseStack poseStack,
@@ -29,12 +32,9 @@ public class Antlers extends RenderLayer<Artemid, ArtemidModel<Artemid>> {
 		float netHeadYaw,
 		float headPitch
 	) {
-		if (artemid.isBaby() || artemid.isInvisible()) {
-			return;
-		}
+		if (artemid.isBaby() || artemid.isInvisible()) return;
 		
-		var antlers = Redux.loc("textures/entity/artemid/antlers.png");
-		var vertexConsumer = buffer.getBuffer(RenderType.entityTranslucent(antlers));
+		var vertexConsumer = buffer.getBuffer(RenderType.entityTranslucent(ANTLERS));
 		var overlayCoords = LivingEntityRenderer.getOverlayCoords(artemid, 0.0F);
 
 		this

@@ -122,6 +122,7 @@ public class ReduxConfig {
 		public final ModConfigSpec.BooleanValue improved_whirlwinds;
 		public final ModConfigSpec.BooleanValue improved_sheepuffs;
 		public final ModConfigSpec.BooleanValue improved_moas;
+		public final ModConfigSpec.BooleanValue improved_aerbunnies;
 		public final ModConfigSpec.BooleanValue move_clouds;
 
 		public final ModConfigSpec.BooleanValue jappafied_textures;
@@ -147,6 +148,9 @@ public class ReduxConfig {
 			this.improved_moas = builder
 				.comment("Enables Redux's updated Moa model")
 				.define("Improved Moas", true);
+			this.improved_aerbunnies = builder
+				.comment("Enables Redux's updated Aerbunny model")
+				.define("Improved Aerbunnies", true);
 			this.move_clouds = builder
 				.comment("Move the clouds in the Aether to above the islands")
 				.gameRestart()
