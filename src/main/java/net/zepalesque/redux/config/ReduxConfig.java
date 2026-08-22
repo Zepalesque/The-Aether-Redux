@@ -124,7 +124,6 @@ public class ReduxConfig {
 		public final ModConfigSpec.BooleanValue improved_moas;
 		public final ModConfigSpec.BooleanValue move_clouds;
 
-		public final ModConfigSpec.BooleanValue jappafied_textures;
 		public final ModConfigSpec.BooleanValue slider_sfx_upgrade;
 		public final ModConfigSpec.BooleanValue slider_signal_sfx;
 		public final ModConfigSpec.BooleanValue upgraded_nature;
@@ -151,13 +150,7 @@ public class ReduxConfig {
 				.comment("Move the clouds in the Aether to above the islands")
 				.gameRestart()
 				.define("Move Clouds", true);
-			
-			this.jappafied_textures = Redux.ASSETS_CONFIG.register(
-				builder
-					.comment("Use textures designed to fit with the Jappafied Aethers resource pack.")
-					.define("Jappafied Textures", false),
-				"jappafied"
-			);
+
 			this.upgraded_nature = Redux.ASSETS_CONFIG.register(
 				builder
 					.comment("Use Redux's updated Aether nature textures.")
