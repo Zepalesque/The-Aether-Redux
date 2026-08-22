@@ -44,6 +44,8 @@ public final class ReduxConfig {
 		public final ModConfigSpec.BooleanValue raw_ores;
 		public final ModConfigSpec.BooleanValue gummy_swet_nerf;
 		public final ModConfigSpec.BooleanValue mossy_holystone_gen;
+		public final ModConfigSpec.BooleanValue improved_cockatrice_behavior;
+		public final ModConfigSpec.BooleanValue cockatrice_burn_in_daylight;
 
 		public Server(ModConfigSpec.Builder builder) {
 			super(() -> SERVER_SPEC, "redux_server");
@@ -118,7 +120,18 @@ public final class ReduxConfig {
 				.comment("Nerfs Gummy Swets and makes them craftable.")
 				.worldRestart()
 				.define("Gummy Swet Nerf", true));
-
+			this.improved_cockatrice_behavior = trans.add(builder
+				.comment("Makes Cockatrices shoot at you and chase you if they hit you. Requires world restart to refresh existing mob AI.")
+				.translation(trans.transKey(builder, "improved_cockatrice_behavior"))
+				.worldRestart()
+				.define("Improved Cockatrice Behavior", true));
+			this.cockatrice_burn_in_daylight = trans.add(builder
+				.comment("Makes Cockatrices burn in daylight. Requires world restart to refresh existing mob AI.")
+				.translation(trans.transKey(builder, "cockatrice_burn_in_daylight"))
+				.worldRestart()
+				.define("Cockatrices burn in daylight", false));
+			
+			
 			builder.pop();
 			
 			this.trans = trans.build();
@@ -128,8 +141,6 @@ public final class ReduxConfig {
 	public static class Common extends DataSerializableConfig {
 		public final CfgTranslations trans;
 		
-		public final ModConfigSpec.BooleanValue improved_cockatrice_behavior;
-		public final ModConfigSpec.BooleanValue cockatrice_burn_in_daylight;
 		public final ModConfigSpec.BooleanValue bronze_dungeon_upgrade;
 		public final ModConfigSpec.EnumValue<AACompatFeature.Overridden> redux_noise;
 
@@ -137,11 +148,6 @@ public final class ReduxConfig {
 			super(() -> COMMON_SPEC, "redux_common");
 			
 			var trans = new TranslationsBuilder("common");
-
-			builder.push("Gameplay Changes");
-            this.improved_cockatrice_behavior = builder.comment("Makes Cockatrices shoot at you and chase you if they hit you. Also disables Cockatrice spawns in the Blight. Requires world restart to refresh existing mob AI.").worldRestart().define("Improved Cockatrice Behavior", true);
-            this.cockatrice_burn_in_daylight = builder.comment("Makes Cockatrices burn in daylight. Requires world restart to refresh existing mob AI.").worldRestart().define("Cockatrices burn in daylight", false);
-			builder.pop();
 			
 			trans.push(builder, "Datapack Registration");
 			this.redux_noise = trans.add(Redux.DATA_CONFIG.register(
