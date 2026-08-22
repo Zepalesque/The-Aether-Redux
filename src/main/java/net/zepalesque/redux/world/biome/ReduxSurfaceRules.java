@@ -1,11 +1,16 @@
 package net.zepalesque.redux.world.biome;
 
+import java.util.function.Supplier;
+
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.resources.AetherFeatureStates;
 import com.aetherteam.aether.data.resources.registries.AetherDimensions;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.data.worldgen.SurfaceRuleData;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator;
 import net.minecraft.world.level.levelgen.Noises;
 import net.minecraft.world.level.levelgen.SurfaceRules;
@@ -103,7 +108,21 @@ public class ReduxSurfaceRules {
 
 			inBiome(
 				ReduxBiomes.FROSTED_FORESTS,
-				
+
+				SurfaceRules.ifTrue(
+					SurfaceRules.UNDER_FLOOR,
+					SurfaceRules.ifTrue(
+						SurfaceRules.noiseCondition(Noises.POWDER_SNOW, 0.45, 0.58),
+						surfaceState(() -> Blocks.POWDER_SNOW)
+					)
+				),
+				SurfaceRules.ifTrue(
+					SurfaceRules.UNDER_FLOOR,
+					SurfaceRules.ifTrue(
+						SurfaceRules.noiseCondition(Noises.POWDER_SNOW, 0.35, 0.6),
+						surfaceState(() -> Blocks.POWDER_SNOW)
+					)
+				),
 				SurfaceRules.ifTrue(
 					SurfaceRules.ON_FLOOR,
 					SurfaceRules.ifTrue(
@@ -171,7 +190,7 @@ public class ReduxSurfaceRules {
 		);
 	}
 
-	private static RuleSource surfaceState(DeferredBlock<?> block) {
+	private static RuleSource surfaceState(Supplier<? extends Block> block) {
 		return SurfaceRules.state(UnityFeatureBuilders.drops(block));
 	}
 }
