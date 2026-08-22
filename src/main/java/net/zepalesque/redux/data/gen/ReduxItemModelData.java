@@ -216,6 +216,7 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
 		this.item(ReduxBlocks.LOGICATOR.get().asItem(), "misc/");
 
 		this.item(ReduxItems.AERBOUND_CAPE.get(), "accessories/");
+		this.item(ReduxItems.SENTRY_RING.get(), "accessories/");
 
 		this.itemBlock(ReduxBlocks.BLEAKMOSS_BLOCK.get());
 		this.itemBlock(ReduxBlocks.BLEAKMOSS_CARPET.get());

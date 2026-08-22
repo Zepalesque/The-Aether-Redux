@@ -1,10 +1,12 @@
 package net.zepalesque.redux.event.listener;
 
+import com.aetherteam.aether.entity.monster.Cockatrice;
 import com.aetherteam.aether.entity.monster.dungeon.boss.Slider;
 import com.aetherteam.aether.entity.passive.Moa;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.living.LivingFallEvent;
 import net.neoforged.neoforge.event.tick.EntityTickEvent;
 import net.zepalesque.redux.Redux;
@@ -12,10 +14,18 @@ import net.zepalesque.redux.attachment.ReduxPlayerAttachment;
 import net.zepalesque.redux.attachment.SliderSignalAttachment;
 import net.zepalesque.redux.attachment.anim.MoaAnimAttachment;
 import net.zepalesque.redux.config.ReduxConfig;
+import net.zepalesque.redux.event.hook.MobHooks;
 import net.zepalesque.redux.event.hook.QuicksoilHooks;
 
 @EventBusSubscriber(modid = Redux.MODID)
 public class MobListener {
+	@SubscribeEvent
+	public static void modifyAI(EntityJoinLevelEvent event) {
+		if (event.getEntity() instanceof Cockatrice cockatrice && ReduxConfig.COMMON.improved_cockatrice_behavior.get()) {
+			MobHooks.modifyCockatriceAI(cockatrice);
+		}
+	}
+
 	@SubscribeEvent
 	public static void onTick(EntityTickEvent.Post event) {
 		final var entity = event.getEntity();

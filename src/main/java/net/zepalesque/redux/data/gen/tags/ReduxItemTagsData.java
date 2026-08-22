@@ -99,10 +99,14 @@ public class ReduxItemTagsData extends ReduxItemTagsProvider {
 		);
 
 		this.tag(AetherTags.Items.BRONZE_DUNGEON_LOOT).add(
-			ReduxItems.AERBOUND_CAPE.get()
+			ReduxItems.AERBOUND_CAPE.get(),
+			ReduxItems.SENTRY_RING.get()
 		);
 		this.tag(AetherTags.Items.ACCESSORIES_CAPES).add(
 			ReduxItems.AERBOUND_CAPE.get()
+		);
+		this.tag(AetherTags.Items.ACCESSORIES_RINGS).add(
+			ReduxItems.SENTRY_RING.get()
 		);
 
 		this.tag(AetherTags.Items.TREATED_AS_AETHER_ITEM).add(

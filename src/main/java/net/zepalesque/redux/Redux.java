@@ -142,7 +142,7 @@ public final class Redux {
 			);
 			ReduxBlocks.registerFlammability();
 			ReduxBlocks.registerToolConversions();
-			ReduxItems.registerAccessories();
+			ReduxItems.ACCESSORIES.registerAccessories();
 			ReduxEntities.addBossConversions();
 		});
 	}

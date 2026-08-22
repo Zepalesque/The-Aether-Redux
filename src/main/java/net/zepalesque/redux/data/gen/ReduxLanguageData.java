@@ -119,7 +119,9 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 		
 		this.addItem(ReduxItems.AERBOUND_CAPE);
 		this.addLore(ReduxItems.AERBOUND_CAPE, "A cape found in the Bronze Dungeon. It allows the wearer to double-jump!");
-		
+	    this.addItem(ReduxItems.SENTRY_RING, "Sentry Ring");
+        this.addLore(ReduxItems.SENTRY_RING, "One of many different variations of the enchanted ring. When worn, hitting mobs will release buring blue embers that can strike nearby mobs!");
+
 		this.addItem(ReduxItems.WYND_OATS);
 		this.addLore(ReduxItems.WYND_OATS, "A pile of Wynd Oats. These can be grown into the Wynd Oat plant.");
 		this.addItem(ReduxItems.WYND_OAT_PANICLE);
@@ -295,6 +297,8 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 		this.addBiome(ReduxBiomes.FROSTED_FORESTS, "Frosted Forests");
 		this.addBiome(ReduxBiomes.SKYFIELDS, "Skyfields");
 		this.addBiome(ReduxBiomes.CLOUDCAP_RIDGE, "Cloudcap Ridge");
+
+		this.addGuiText("sentry_ring_embers", "Targets of melee attacks release burning embers");
 		
 		for (var cfg : ReduxConfig.CLIENT.trans.cfgs()) this.addCfg(cfg);
 		for (var cfg : ReduxConfig.COMMON.trans.cfgs()) this.addCfg(cfg);
