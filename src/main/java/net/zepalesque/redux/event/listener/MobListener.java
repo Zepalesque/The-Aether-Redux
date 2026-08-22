@@ -21,7 +21,7 @@ import net.zepalesque.redux.event.hook.QuicksoilHooks;
 public class MobListener {
 	@SubscribeEvent
 	public static void modifyAI(EntityJoinLevelEvent event) {
-		if (event.getEntity() instanceof Cockatrice cockatrice && ReduxConfig.COMMON.improved_cockatrice_behavior.get()) {
+		if (event.getEntity() instanceof Cockatrice cockatrice && ReduxConfig.SERVER.improved_cockatrice_behavior.get()) {
 			MobHooks.modifyCockatriceAI(cockatrice);
 		}
 	}

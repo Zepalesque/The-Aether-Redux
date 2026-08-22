@@ -1,21 +1,6 @@
 /*
 package net.zepalesque.redux.client.renderer.entity;
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.client.gui.Font;
-import net.minecraft.client.model.EntityModel;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.culling.Frustum;
-import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.phys.Vec3;
-import net.neoforged.neoforge.common.ModConfigSpec;
-import org.jetbrains.annotations.Nullable;
 
 public class ConditionalMobRenderer<E extends Mob, TM extends EntityModel<E>, FM extends EntityModel<E>, TR extends MobRenderer<E, TM>, FR extends MobRenderer<E, FM>> extends MobRenderer<E, ConditionalModel<E, TM, FM>>{
 	final TR trueRend;
@@ -111,8 +96,7 @@ public class ConditionalMobRenderer<E extends Mob, TM extends EntityModel<E>, FM
 			: this.falseRend.getSkyLightLevel(entity, pos);
 	}
 	
-	@Nullable
-	@Override
+	@Nullable @Override
 	protected RenderType getRenderType(E livingEntity, boolean bodyVisible, boolean translucent, boolean glowing) {
 		return this.cfg.getAsBoolean()
 			? this.trueRend.getRenderType(livingEntity, bodyVisible, translucent, glowing)

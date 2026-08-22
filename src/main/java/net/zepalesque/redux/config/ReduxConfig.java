@@ -7,8 +7,6 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.ConcurrentMap;
 import java.util.stream.Collectors;
-
-import net.neoforged.fml.config.ModConfigs;
 import net.neoforged.neoforge.common.ModConfigSpec;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.config.enums.AACompatFeature;

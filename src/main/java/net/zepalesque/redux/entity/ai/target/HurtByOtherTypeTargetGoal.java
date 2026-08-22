@@ -1,14 +1,13 @@
 package net.zepalesque.redux.entity.ai.target;
 
+import java.util.EnumSet;
+import javax.annotation.Nullable;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.TargetGoal;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.phys.AABB;
-
-import javax.annotation.Nullable;
-import java.util.EnumSet;
 
 /** Identical to {@link HurtByTargetGoal}, but does not target Entities of the same EntityType.*/
 public class HurtByOtherTypeTargetGoal extends TargetGoal {
@@ -18,8 +17,7 @@ public class HurtByOtherTypeTargetGoal extends TargetGoal {
 	/** Store the previous revengeTimer value */
 	private int timestamp;
 	private final Class<?>[] toIgnoreDamage;
-	@Nullable
-	private Class<?>[] toIgnoreAlert;
+	@Nullable private Class<?>[] toIgnoreAlert;
 
 	public HurtByOtherTypeTargetGoal(PathfinderMob pMob, Class<?>... pToIgnoreDamage) {
 		super(pMob, true);
