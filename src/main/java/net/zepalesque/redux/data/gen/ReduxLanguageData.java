@@ -296,9 +296,13 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 		this.addBiome(ReduxBiomes.SKYFIELDS, "Skyfields");
 		this.addBiome(ReduxBiomes.CLOUDCAP_RIDGE, "Cloudcap Ridge");
 		
-		for (var cfg : ReduxConfig.CLIENT.values) this.addCfg(cfg);
-		for (var cfg : ReduxConfig.COMMON.values) this.addCfg(cfg);
-		for (var cfg : ReduxConfig.SERVER.values) this.addCfg(cfg);
+		for (var cfg : ReduxConfig.CLIENT.trans.cfgs()) this.addCfg(cfg);
+		for (var cfg : ReduxConfig.COMMON.trans.cfgs()) this.addCfg(cfg);
+		for (var cfg : ReduxConfig.SERVER.trans.cfgs()) this.addCfg(cfg);
+		
+		for (var cat : ReduxConfig.CLIENT.trans.cats().entrySet()) this.add(cat.getKey(), cat.getValue());
+		for (var cat : ReduxConfig.COMMON.trans.cats().entrySet()) this.add(cat.getKey(), cat.getValue());
+		for (var cat : ReduxConfig.SERVER.trans.cats().entrySet()) this.add(cat.getKey(), cat.getValue());
 		
 		this.addAdvancement("throw_ring_in_lava", "Cast It into the Fire! Destroy It!", "Throw a Golden Ring into lava in the Nether");
 	}
