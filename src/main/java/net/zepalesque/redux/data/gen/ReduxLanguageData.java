@@ -1,7 +1,6 @@
 package net.zepalesque.redux.data.gen;
 
 import net.minecraft.data.PackOutput;
-import net.neoforged.neoforge.common.ModConfigSpec;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.client.audio.ReduxSounds;

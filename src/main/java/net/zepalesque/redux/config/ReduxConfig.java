@@ -1,6 +1,9 @@
 package net.zepalesque.redux.config;
 
-import com.google.common.collect.ImmutableSet;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.stream.Collectors;
 import net.neoforged.neoforge.common.ModConfigSpec;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.config.enums.AACompatFeature;
@@ -8,11 +11,6 @@ import net.zepalesque.redux.config.enums.ConditionalConfig;
 import net.zepalesque.redux.mixin.mixins.common.accessor.CfgBuilderAccessor;
 import net.zepalesque.zenith.api.serialization.config.DataSerializableConfig;
 import net.zepalesque.zenith.util.data.DatagenUtil;
-
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 public final class ReduxConfig {
 	public static <T> T getOrDefault(ModConfigSpec.ConfigValue<T> val) {
