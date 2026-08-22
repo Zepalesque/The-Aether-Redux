@@ -4,6 +4,7 @@ import net.minecraft.data.PackOutput;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.client.audio.ReduxSounds;
+import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.data.prov.ReduxLanguageProvider;
 import net.zepalesque.redux.data.resource.registries.ReduxBiomes;
 import net.zepalesque.redux.data.resource.registries.ReduxJukeboxSongs;
@@ -16,6 +17,7 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 	}
 
 	@Override
+	@SuppressWarnings("deprecation")
 	protected void addTranslations() {
 		Redux.BLOCK_SETS.forEach(set -> set.langData(this));
 		
@@ -297,6 +299,14 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 		this.addBiome(ReduxBiomes.CLOUDCAP_RIDGE, "Cloudcap Ridge");
 
 		this.addGuiText("sentry_ring_embers", "Targets of melee attacks release burning embers");
+		
+		for (var cfg : ReduxConfig.CLIENT.trans.cfgs()) this.addCfg(cfg);
+		for (var cfg : ReduxConfig.COMMON.trans.cfgs()) this.addCfg(cfg);
+		for (var cfg : ReduxConfig.SERVER.trans.cfgs()) this.addCfg(cfg);
+		
+		for (var cat : ReduxConfig.CLIENT.trans.cats().entrySet()) this.add(cat.getKey(), cat.getValue());
+		for (var cat : ReduxConfig.COMMON.trans.cats().entrySet()) this.add(cat.getKey(), cat.getValue());
+		for (var cat : ReduxConfig.SERVER.trans.cats().entrySet()) this.add(cat.getKey(), cat.getValue());
 		
 		this.addAdvancement("throw_ring_in_lava", "Cast It into the Fire! Destroy It!", "Throw a Golden Ring into lava in the Nether");
 	}
