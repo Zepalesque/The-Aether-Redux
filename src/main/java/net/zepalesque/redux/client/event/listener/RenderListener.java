@@ -51,7 +51,7 @@ public class RenderListener {
 			//Iterable<Entity> whirlwinds = stream::iterator;
 
 			for (var entity : entities) {
-				if (entity.getType() != AetherEntityTypes.EVIL_WHIRLWIND.get()) break;
+				if (entity.getType() != AetherEntityTypes.EVIL_WHIRLWIND.get()) continue;
 
 				if (disp
 					.shouldRender(
@@ -109,7 +109,7 @@ public class RenderListener {
 		MultiBufferSource.BufferSource buffer,
 		EntityRenderDispatcher dispatcher
 	) {
-		EntityRenderer<? super E> entityrenderer = dispatcher.getRenderer(entity);
+		var entityrenderer = dispatcher.getRenderer(entity);
 
 		if (entityrenderer instanceof IPostRenderer<?> post) {
 			Vec3 vec3 = entityrenderer.getRenderOffset(entity, partialTicks);
