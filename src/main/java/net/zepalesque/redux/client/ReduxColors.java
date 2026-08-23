@@ -1,10 +1,13 @@
 package net.zepalesque.redux.client;
 
 import com.aetherteam.aether.block.AetherBlocks;
+import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
@@ -35,6 +38,8 @@ public class ReduxColors {
 	
 	public static Integer reduxColors(BlockState state, @Nullable BlockAndTintGetter level, @Nullable BlockPos pos, boolean useBelowProperties) {
 		if (level == null || pos == null) return null;
+		if (state.hasProperty(BlockStateProperties.DOUBLE_BLOCK_HALF) && state.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.UPPER)
+			pos = pos.below();
 		if (useBelowProperties) {
 			var below = pos.below();
 			var belowState = level.getBlockState(below);
@@ -51,6 +56,7 @@ public class ReduxColors {
 		
 		return property.map(value -> ((CustomTintingProperty) state.getValue(value)).colorOverride()).orElse(null);
 	}
+	public static final BlockColor OVERLAY_INHERITING_DOUBLE = (state, level, pos, index) -> UnityColors.getColor(state, level, pos, index, i -> i == 1, true);
 
 	public static void blockColors(RegisterColorHandlersEvent.Block event) {
 		Redux.LOGGER.debug("Beginning block color registration for the Aether: Redux");

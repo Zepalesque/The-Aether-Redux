@@ -897,7 +897,7 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
 				case UPPER -> "_upper";
 			};
 			var model = this.models()
-				.withExistingParent(this.nameID(block),
+				.withExistingParent(this.nameID(block) + suffix,
 					Unity.loc(ModelProvider.BLOCK_FOLDER + "/template/cross/cross_tinted_overlay"))
 				.texture("cross", this.texture(block, location, suffix))
 				.texture("overlay", this.texture(block, location, suffix + "_overlay")).renderType("cutout");
