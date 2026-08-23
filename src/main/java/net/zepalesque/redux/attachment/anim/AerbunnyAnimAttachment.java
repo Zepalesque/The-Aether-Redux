@@ -168,7 +168,7 @@ public class AerbunnyAnimAttachment implements INBTSynchable {
 			this.twitchTimeout = randTwitchTimeout(bnuuy);
 		else if (this.twitchTimeout <= 0) {
 			this.twitchTimeout = randTwitchTimeout(bnuuy);
-			PacketDistributor.sendToPlayersNear(
+			if (!this.isInPoseTransition(bnuuy)) PacketDistributor.sendToPlayersNear(
 				(ServerLevel) bnuuy.level(),
 				null,
 				bnuuy.getX(),
@@ -177,7 +177,7 @@ public class AerbunnyAnimAttachment implements INBTSynchable {
 				127D,
 				new AerbunnyAnimTriggerPacket.TwitchAnim(bnuuy.getId())
 			);
-		} else if (bnuuy.onGround() && this.onGroundTime >= ReduxAerbunnyAnimations.LAND_TICKS || bnuuy.getVehicle() instanceof Player) --this.twitchTimeout;
+		} else if (this.onGroundState(bnuuy)) --this.twitchTimeout;
 	}
 	
 	public void onClientHurt(Aerbunny bnuuy) {
