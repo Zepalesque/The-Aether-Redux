@@ -177,7 +177,7 @@ public class AerbunnyAnimAttachment implements INBTSynchable {
 				127D,
 				new AerbunnyAnimTriggerPacket.TwitchAnim(bnuuy.getId())
 			);
-		} else if (bnuuy.onGround() && this.onGroundTime >= ReduxAerbunnyAnimations.LAND_TICKS) --this.twitchTimeout;
+		} else if (bnuuy.onGround() && this.onGroundTime >= ReduxAerbunnyAnimations.LAND_TICKS || bnuuy.getVehicle() instanceof Player) --this.twitchTimeout;
 	}
 	
 	public void onClientHurt(Aerbunny bnuuy) {
