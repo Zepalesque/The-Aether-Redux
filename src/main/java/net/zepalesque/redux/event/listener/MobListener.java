@@ -17,13 +17,12 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.attachment.CockatriceShootingAttachment;
 import net.zepalesque.redux.attachment.ReduxPlayerAttachment;
 import net.zepalesque.redux.attachment.anim.AerbunnyAnimAttachment;
-import net.zepalesque.redux.attachment.anim.SliderSignalAttachment;
 import net.zepalesque.redux.attachment.anim.MoaAnimAttachment;
+import net.zepalesque.redux.attachment.anim.SliderSignalAttachment;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.event.hook.MobHooks;
 import net.zepalesque.redux.event.hook.QuicksoilHooks;
-import net.zepalesque.redux.network.packet.AerbunnyHurtAnimPacket;
-import net.zepalesque.redux.network.packet.SliderSignalPacket;
+import net.zepalesque.redux.network.packet.AerbunnyAnimTriggerPacket;
 
 @EventBusSubscriber(modid = Redux.MODID)
 public class MobListener {
@@ -71,7 +70,6 @@ public class MobListener {
 	
 	@SubscribeEvent
 	public static void onHurt(LivingDamageEvent.Post event) {
-//		System.out.printf("DEBUG: hello from %s :3\n", event.getEntity().level().isClientSide() ? "client" : "server");
 		if (event.getEntity() instanceof Aerbunny bnuuy && !bnuuy.level().isClientSide())
 			PacketDistributor.sendToPlayersNear(
 				(ServerLevel) bnuuy.level(),
@@ -80,7 +78,7 @@ public class MobListener {
 				bnuuy.getY(),
 				bnuuy.getZ(),
 				127D,
-				new AerbunnyHurtAnimPacket(bnuuy.getId())
+				new AerbunnyAnimTriggerPacket.HurtAnim(bnuuy.getId())
 			);
 	}
 

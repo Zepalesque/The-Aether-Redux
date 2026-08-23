@@ -3,8 +3,6 @@ package net.zepalesque.redux;
 import com.google.common.reflect.Reflection;
 import com.mojang.logging.LogUtils;
 import io.github.razordevs.aeroblender.aether.AetherRuleCategory;
-import java.util.ArrayList;
-import java.util.Collection;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -42,7 +40,7 @@ import net.zepalesque.redux.extstate.ReduxStateLists;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.item.components.ReduxDataComponents;
 import net.zepalesque.redux.loot.modifer.ReduxLootModifiers;
-import net.zepalesque.redux.network.packet.AerbunnyHurtAnimPacket;
+import net.zepalesque.redux.network.packet.AerbunnyAnimTriggerPacket;
 import net.zepalesque.redux.network.packet.AerbunnySyncPacket;
 import net.zepalesque.redux.network.packet.AerjumpPacket;
 import net.zepalesque.redux.network.packet.CockatriceShootPacket;
@@ -64,6 +62,9 @@ import net.zepalesque.zenith.api.packconfig.PackConfig;
 import org.slf4j.Logger;
 import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 @Mod(Redux.MODID)
 public final class Redux {
@@ -206,9 +207,14 @@ public final class Redux {
 			AerbunnySyncPacket::execute
 		);
 		registrar.playToClient(
-			AerbunnyHurtAnimPacket.TYPE,
-			AerbunnyHurtAnimPacket.STREAM_CODEC,
-			AerbunnyHurtAnimPacket::execute
+			AerbunnyAnimTriggerPacket.HurtAnim.TYPE,
+			AerbunnyAnimTriggerPacket.HurtAnim.STREAM_CODEC,
+			AerbunnyAnimTriggerPacket.HurtAnim::execute
+		);
+		registrar.playToClient(
+			AerbunnyAnimTriggerPacket.TwitchAnim.TYPE,
+			AerbunnyAnimTriggerPacket.TwitchAnim.STREAM_CODEC,
+			AerbunnyAnimTriggerPacket.TwitchAnim::execute
 		);
 	}
 

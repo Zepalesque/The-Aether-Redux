@@ -5,12 +5,15 @@ import com.aetherteam.nitrogen.attachment.INBTSynchable;
 import com.aetherteam.nitrogen.network.packet.SyncPacket;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.neoforge.attachment.IAttachmentHolder;
+import net.neoforged.neoforge.network.PacketDistributor;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.attachment.ReduxDataAttachments;
 import net.zepalesque.redux.client.renderer.entity.aerbunny.ReduxAerbunnyAnimations;
+import net.zepalesque.redux.network.packet.AerbunnyAnimTriggerPacket;
 import net.zepalesque.redux.network.packet.AerbunnySyncPacket;
 import net.zepalesque.redux.util.MiscUtil;
 import org.apache.commons.lang3.tuple.Triple;
@@ -27,8 +30,10 @@ public class AerbunnyAnimAttachment implements INBTSynchable {
 	// server to client
 	byte state = LAND_STATE;
 	
-	// server only (?)
+	// server only
 	int twitchTimeout = Integer.MIN_VALUE;
+	// server only
+	int onGroundTime = ReduxAerbunnyAnimations.LAND_TICKS;
 	
 	private AerbunnyAnimAttachment(long lastStateChange, byte state, int twitchTimeout) {
 		this.lastStateChange = lastStateChange;
@@ -150,27 +155,41 @@ public class AerbunnyAnimAttachment implements INBTSynchable {
 	
 	public void serverTick(Aerbunny bnuuy) {
 		var vehicle = bnuuy.getVehicle();
+		if (bnuuy.onGround()) ++this.onGroundTime;
+		else this.onGroundTime = 0;
 		
 		if (this.state != LAND_STATE && (bnuuy.onGround() || vehicle instanceof Player)) {
 			this.changeState(bnuuy, LAND_STATE);
 		}
 		else if (this.state == LAND_STATE && !bnuuy.onGround() && !(vehicle instanceof Player))
 			this.changeState(bnuuy, FALL_STATE);
+		
+		if (this.twitchTimeout == Integer.MIN_VALUE)
+			this.twitchTimeout = randTwitchTimeout(bnuuy);
+		else if (this.twitchTimeout <= 0) {
+			this.twitchTimeout = randTwitchTimeout(bnuuy);
+			PacketDistributor.sendToPlayersNear(
+				(ServerLevel) bnuuy.level(),
+				null,
+				bnuuy.getX(),
+				bnuuy.getY(),
+				bnuuy.getZ(),
+				127D,
+				new AerbunnyAnimTriggerPacket.TwitchAnim(bnuuy.getId())
+			);
+		} else if (bnuuy.onGround() && this.onGroundTime >= ReduxAerbunnyAnimations.LAND_TICKS) --this.twitchTimeout;
 	}
 	
 	public void onClientHurt(Aerbunny bnuuy) {
 		this.hurtAnim.start(bnuuy.tickCount);
 	}
 	
+	public void doTwitchAnim(Aerbunny bnuuy) {
+		this.twitchAnim.start(bnuuy.tickCount);
+	}
+	
 	public void clientTick(Aerbunny bnuuy) {
 		this.idleAnim.startIfStopped(bnuuy.tickCount);
-		if (this.twitchTimeout == Integer.MIN_VALUE)
-			this.twitchTimeout = randTwitchTimeout(bnuuy);
-		else if (this.twitchTimeout <= 0) {
-			this.twitchTimeout = randTwitchTimeout(bnuuy);
-			// TODO: figure out why this thinks the animation is still going (look at camel animation stuff for reference)
-			if (!this.isInPoseTransition(bnuuy)) this.twitchAnim.start(bnuuy.tickCount);
-		} else if (this.onGroundState(bnuuy)) --this.twitchTimeout;
 		
 		if (!this.isInPoseTransition(bnuuy)) switch (this.state) {
 			case FALL_STATE, JUMP_STATE -> {
