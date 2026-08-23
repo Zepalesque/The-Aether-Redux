@@ -15,10 +15,10 @@ import java.util.Objects;
 public class MobHooks {
 
 	public static void modifyCockatriceAI(Cockatrice cockatrice) {
-		if (ReduxConfig.SERVER.cockatrice_burn_in_daylight.get()) {
-			cockatrice.goalSelector.addGoal(2, new RestrictSunGoal(cockatrice));
-			cockatrice.goalSelector.addGoal(3, new FleeSunGoal(cockatrice, 1.0D));
-		}
+//		if (ReduxConfig.SERVER.cockatrice_burn_in_daylight.get()) {
+//			cockatrice.goalSelector.addGoal(2, new RestrictSunGoal(cockatrice));
+//			cockatrice.goalSelector.addGoal(3, new FleeSunGoal(cockatrice, 1.0D));
+//		}
 		cockatrice.goalSelector.addGoal(
 			1,
 			new CockatriceMeleeAttackGoal(cockatrice, 1.5, false)

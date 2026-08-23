@@ -43,7 +43,7 @@ public final class ReduxConfig {
 		public final ModConfigSpec.BooleanValue gummy_swet_nerf;
 		public final ModConfigSpec.BooleanValue mossy_holystone_gen;
 		public final ModConfigSpec.BooleanValue improved_cockatrice_behavior;
-		public final ModConfigSpec.BooleanValue cockatrice_burn_in_daylight;
+//		public final ModConfigSpec.BooleanValue cockatrice_burn_in_daylight;
 
 		public Server(ModConfigSpec.Builder builder) {
 			super(() -> SERVER_SPEC, "redux_server");
@@ -123,11 +123,11 @@ public final class ReduxConfig {
 				.translation(trans.transKey(builder, "improved_cockatrice_behavior"))
 				.worldRestart()
 				.define("Improved Cockatrice Behavior", true));
-			this.cockatrice_burn_in_daylight = trans.add(builder
-				.comment("Makes Cockatrices burn in daylight. Requires world restart to refresh existing mob AI.")
-				.translation(trans.transKey(builder, "cockatrice_burn_in_daylight"))
-				.worldRestart()
-				.define("Cockatrices burn in daylight", false));
+//			this.cockatrice_burn_in_daylight = trans.add(builder
+//				.comment("Makes Cockatrices burn in daylight. Requires world restart to refresh existing mob AI.")
+//				.translation(trans.transKey(builder, "cockatrice_burn_in_daylight"))
+//				.worldRestart()
+//				.define("Cockatrices burn in daylight", false));
 			
 			
 			builder.pop();
