@@ -10,20 +10,25 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 
-public class ConditionalModel<E extends Entity, T extends EntityModel<E>, F extends EntityModel<E>, C extends BooleanSupplier> extends EntityModel<E> {
-	final T modelTrue;
-	final F modelFalse;
-	final C predicate;
+public sealed class ConditionalModel<E extends Entity, T extends EntityModel<E>, F extends EntityModel<E>, C extends BooleanSupplier>
+	extends EntityModel<E>
+	permits ConditionalBabyModel {
+	protected final T modelTrue;
+	protected final F modelFalse;
+	protected final C predicate;
 	
 	public ConditionalModel(T modelTrue, F modelFalse, C predicate) {
-		super(new CondFun<>(modelTrue, modelFalse, predicate));
+		this(modelTrue, modelFalse, predicate, new CondFun<>(modelTrue, modelFalse, predicate));
+	}
+	protected ConditionalModel(T modelTrue, F modelFalse, C predicate, Function<ResourceLocation, RenderType> fn) {
+		super(fn);
 		
 		this.modelTrue = modelTrue;
 		this.modelFalse = modelFalse;
 		this.predicate = predicate;
 	}
 	
-	private record CondFun<E extends Entity, T extends EntityModel<E>, F extends EntityModel<E>, C extends BooleanSupplier>(T modelTrue, F modelFalse, C predicate) implements Function<ResourceLocation, RenderType> {
+	protected record CondFun<E extends Entity, T extends EntityModel<E>, F extends EntityModel<E>, C extends BooleanSupplier>(T modelTrue, F modelFalse, C predicate) implements Function<ResourceLocation, RenderType> {
 		@Override
 		public RenderType apply(ResourceLocation loc) {
 			return this.predicate.getAsBoolean() ? this.modelTrue.renderType(loc) : this.modelFalse.renderType(loc);

@@ -52,7 +52,8 @@ public class ReduxRenderers {
 		event.registerLayerDefinition(ModelLayers.SHEEPUFF, SheepuffReduxModel::createBodyLayer);
 		event.registerLayerDefinition(ArtemidModel.LAYER_LOCATION, ArtemidModel::createBodyLayer);
 		event.registerLayerDefinition(ArtemidModel.ANTLERS_LAYER, ArtemidModel::createBodyLayer);
-		event.registerLayerDefinition(ModelLayers.AERBUNNY, ReduxAerbunnyModel::createBodyLayer);
+		event.registerLayerDefinition(ModelLayers.AERBUNNY, ReduxAerbunnyModel::adult);
+		event.registerLayerDefinition(ModelLayers.BABY_AERBUNNY, ReduxAerbunnyModel::baby);
 	}
 
 	@SubscribeEvent
@@ -113,6 +114,7 @@ public class ReduxRenderers {
 
 	public static class ModelLayers {
 		public static final ModelLayerLocation AERBUNNY = register("aerbunny");
+		public static final ModelLayerLocation BABY_AERBUNNY = register("baby_aerbunny");
 		public static final ModelLayerLocation WHIRLWIND = register("whirlwind");
 		public static final ModelLayerLocation CAT_FISH = register("cat_fish");
 		public static final ModelLayerLocation SHEEPUFF = register("sheepuff");

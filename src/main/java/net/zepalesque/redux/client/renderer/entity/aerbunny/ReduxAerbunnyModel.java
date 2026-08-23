@@ -3,7 +3,6 @@ package net.zepalesque.redux.client.renderer.entity.aerbunny;
 import com.aetherteam.aether.entity.passive.Aerbunny;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
@@ -11,7 +10,6 @@ import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
-import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.util.Mth;
 import net.zepalesque.redux.attachment.anim.AerbunnyAnimAttachment;
 
@@ -31,8 +29,9 @@ public final class ReduxAerbunnyModel extends HierarchicalModel<Aerbunny> {
 	private final ModelPart backRightLeg;
 	private final ModelPart backLeftLeg;
 	public float puffiness;
+	private final boolean isBabyModel;
 	
-	public ReduxAerbunnyModel(ModelPart root) {
+	public ReduxAerbunnyModel(ModelPart root, boolean isBabyModel) {
 		this.root = root.getChild("root");
 		this.body = this.root.getChild("body");
 		this.bodyRot = this.body.getChild("body_rot");
@@ -47,9 +46,11 @@ public final class ReduxAerbunnyModel extends HierarchicalModel<Aerbunny> {
 		this.frontLeftLeg = this.body.getChild("front_left_leg");
 		this.backRightLeg = this.body.getChild("back_right_leg");
 		this.backLeftLeg = this.body.getChild("back_left_leg");
+		
+		this.isBabyModel = isBabyModel;
 	}
 	
-	public static LayerDefinition createBodyLayer() {
+	public static LayerDefinition adult() {
 		var mesh = new MeshDefinition();
 		var part = mesh.getRoot();
 		
@@ -84,7 +85,7 @@ public final class ReduxAerbunnyModel extends HierarchicalModel<Aerbunny> {
 		return LayerDefinition.create(mesh, 64, 32);
 	}
 	
-	public static LayerDefinition createBabyLayer() {
+	public static LayerDefinition baby() {
 		var mesh = new MeshDefinition();
 		var part = mesh.getRoot();
 		
@@ -140,14 +141,25 @@ public final class ReduxAerbunnyModel extends HierarchicalModel<Aerbunny> {
 		this.backRightLeg.xRot = Mth.cos(limbSwing * 0.6662F + Mth.PI) * 1.2F * limbSwingAmount * SWING_MULT;
 		this.backLeftLeg.xRot = Mth.cos(limbSwing * 0.6662F + Mth.PI) * 1.2F * limbSwingAmount * SWING_MULT;
 		var att = AerbunnyAnimAttachment.get(aerbunny);
-		this.animate(att.hurtAnim, ReduxAerbunnyAnimations.HURT, ageInTicks);
-		this.animate(att.jumpAnim, ReduxAerbunnyAnimations.START_JUMP, ageInTicks);
-		this.animate(att.inAirAnim, ReduxAerbunnyAnimations.IN_AIR, ageInTicks);
-		this.animate(att.idleAnim, ReduxAerbunnyAnimations.IDLE, ageInTicks);
-		this.animate(att.twitchAnim, ReduxAerbunnyAnimations.TWITCH, ageInTicks);
-		this.animate(att.fallAnim, ReduxAerbunnyAnimations.FALL, ageInTicks);
-		this.animate(att.landAnim, ReduxAerbunnyAnimations.LAND, ageInTicks);
-		this.animate(att.puffAnim, ReduxAerbunnyAnimations.PUFF, ageInTicks);
+		if (this.isBabyModel) {
+			this.animate(att.hurtAnim, ReduxAerbunnyAnimations.HURT_BABY, ageInTicks);
+			this.animate(att.jumpAnim, ReduxAerbunnyAnimations.START_JUMP_BABY, ageInTicks);
+			this.animate(att.inAirAnim, ReduxAerbunnyAnimations.IN_AIR_BABY, ageInTicks);
+			this.animate(att.idleAnim, ReduxAerbunnyAnimations.IDLE_BABY, ageInTicks);
+			this.animate(att.twitchAnim, ReduxAerbunnyAnimations.TWITCH_BABY, ageInTicks);
+			this.animate(att.fallAnim, ReduxAerbunnyAnimations.FALL_BABY, ageInTicks);
+			this.animate(att.landAnim, ReduxAerbunnyAnimations.LAND_BABY, ageInTicks);
+			this.animate(att.puffAnim, ReduxAerbunnyAnimations.PUFF_BABY, ageInTicks);
+		} else {
+			this.animate(att.hurtAnim, ReduxAerbunnyAnimations.HURT, ageInTicks);
+			this.animate(att.jumpAnim, ReduxAerbunnyAnimations.START_JUMP, ageInTicks);
+			this.animate(att.inAirAnim, ReduxAerbunnyAnimations.IN_AIR, ageInTicks);
+			this.animate(att.idleAnim, ReduxAerbunnyAnimations.IDLE, ageInTicks);
+			this.animate(att.twitchAnim, ReduxAerbunnyAnimations.TWITCH, ageInTicks);
+			this.animate(att.fallAnim, ReduxAerbunnyAnimations.FALL, ageInTicks);
+			this.animate(att.landAnim, ReduxAerbunnyAnimations.LAND, ageInTicks);
+			this.animate(att.puffAnim, ReduxAerbunnyAnimations.PUFF, ageInTicks);
+		}
 	}
 	
 	@Override

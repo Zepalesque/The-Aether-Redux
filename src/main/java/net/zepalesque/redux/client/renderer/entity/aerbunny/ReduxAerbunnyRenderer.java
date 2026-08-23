@@ -12,20 +12,23 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.neoforged.neoforge.common.ModConfigSpec;
 import net.zepalesque.redux.client.renderer.ReduxRenderers;
+import net.zepalesque.redux.client.renderer.entity.ConditionalBabyModel;
 import net.zepalesque.redux.client.renderer.entity.ConditionalModel;
 import net.zepalesque.redux.config.ReduxConfig;
 
 // cursed af ngl
-public final class ReduxAerbunnyRenderer extends MobRenderer<Aerbunny, ConditionalModel<Aerbunny, ReduxAerbunnyModel, AerbunnyModel, ModConfigSpec.BooleanValue>> {
+public final class ReduxAerbunnyRenderer extends MobRenderer<Aerbunny, ConditionalBabyModel<Aerbunny, ReduxAerbunnyModel, AerbunnyModel, ModConfigSpec.BooleanValue>> {
 	private static final ResourceLocation AERBUNNY_TEXTURE = ResourceLocation.fromNamespaceAndPath(Aether.MODID, "textures/entity/mobs/aerbunny/aerbunny.png");
 	private static final ResourceLocation REDUX_AERBUNNY_TEXTURE = ResourceLocation.fromNamespaceAndPath(Aether.MODID, "textures/entity/mobs/aerbunny/aerbunny_redux.png");
+	private static final ResourceLocation REDUX_BABY_AERBUNNY_TEXTURE = ResourceLocation.fromNamespaceAndPath(Aether.MODID, "textures/entity/mobs/aerbunny/baby_aerbunny_redux.png");
 	
 	private static final ModConfigSpec.BooleanValue CFG = ReduxConfig.CLIENT.improved_aerbunnies;
 	
 	public ReduxAerbunnyRenderer(EntityRendererProvider.Context context) {
 		super(context,
-			new ConditionalModel<>(
-				new ReduxAerbunnyModel(context.bakeLayer(ReduxRenderers.ModelLayers.AERBUNNY)),
+			new ConditionalBabyModel<>(
+				new ReduxAerbunnyModel(context.bakeLayer(ReduxRenderers.ModelLayers.AERBUNNY), false),
+				new ReduxAerbunnyModel(context.bakeLayer(ReduxRenderers.ModelLayers.BABY_AERBUNNY), true),
 				new AerbunnyModel(context.bakeLayer(AetherModelLayers.AERBUNNY)),
 				CFG
 			), 0.3F);
@@ -33,9 +36,10 @@ public final class ReduxAerbunnyRenderer extends MobRenderer<Aerbunny, Condition
 	
 	@Override
 	protected void scale(Aerbunny aerbunny, PoseStack poseStack, float partialTicks) {
-		if (aerbunny.isBaby()) poseStack.scale(0.5F, 0.5F, 0.5F);
-		if (!CFG.getAsBoolean())
+		if (!CFG.getAsBoolean()) {
+			if (aerbunny.isBaby()) poseStack.scale(0.5F, 0.5F, 0.5F);
 			poseStack.translate(0.0, 0.2, 0.0);
+		}
 	}
 	
 	@Override
@@ -54,6 +58,6 @@ public final class ReduxAerbunnyRenderer extends MobRenderer<Aerbunny, Condition
 	
 	@Override
 	public ResourceLocation getTextureLocation(Aerbunny aerbunny) {
-		return CFG.getAsBoolean() ? REDUX_AERBUNNY_TEXTURE : AERBUNNY_TEXTURE;
+		return CFG.getAsBoolean() ? aerbunny.isBaby() ? REDUX_BABY_AERBUNNY_TEXTURE : REDUX_AERBUNNY_TEXTURE : AERBUNNY_TEXTURE;
 	}
 }
