@@ -5,6 +5,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import net.zepalesque.redux.Redux;
+import net.zepalesque.redux.attachment.anim.AerbunnyAnimAttachment;
 import net.zepalesque.redux.attachment.anim.MoaAnimAttachment;
 import net.zepalesque.redux.attachment.anim.SliderSignalAttachment;
 
@@ -40,6 +41,15 @@ public class ReduxDataAttachments {
 			"cockatrice_shooting",
 			() -> AttachmentType
 				.builder(CockatriceShootingAttachment::new)
+				.serialize(CockatriceShootingAttachment.CODEC)
+				.build()
+		);
+	public static final DeferredHolder<AttachmentType<?>, AttachmentType<AerbunnyAnimAttachment>>
+		AERBUNNY_ANIM = ATTACHMENTS.register(
+			"aerbunny_anim",
+			() -> AttachmentType
+				.builder(AerbunnyAnimAttachment::new)
+				.serialize(AerbunnyAnimAttachment.CODEC)
 				.build()
 		);
 }
