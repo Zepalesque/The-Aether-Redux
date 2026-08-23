@@ -13,7 +13,6 @@ import net.minecraft.util.Mth;
 import net.neoforged.neoforge.common.ModConfigSpec;
 import net.zepalesque.redux.client.renderer.ReduxRenderers;
 import net.zepalesque.redux.client.renderer.entity.ConditionalBabyModel;
-import net.zepalesque.redux.client.renderer.entity.ConditionalModel;
 import net.zepalesque.redux.config.ReduxConfig;
 
 // cursed af ngl

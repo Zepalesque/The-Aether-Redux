@@ -889,4 +889,22 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
 			.partialState().with(FacingPillarBlock.FACING, Direction.UP).modelForState().modelFile(vertical).addModel()
 			.partialState().with(FacingPillarBlock.FACING, Direction.WEST).modelForState().modelFile(horizontal).rotationX(90).rotationY(270).addModel();
 	}
+	
+	public void doublePlantTintedOverlay(DoublePlantBlock block, String location) {
+		this.getVariantBuilder(block).forAllStates(state -> {
+			var suffix = switch (state.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF)) {
+				case LOWER -> "_lower";
+				case UPPER -> "_upper";
+			};
+			var model = this.models()
+				.withExistingParent(this.nameID(block),
+					Unity.loc(ModelProvider.BLOCK_FOLDER + "/template/cross/cross_tinted_overlay"))
+				.texture("cross", this.texture(block, location, suffix))
+				.texture("overlay", this.texture(block, location, suffix + "_overlay")).renderType("cutout");
+			
+			return ConfiguredModel.builder()
+				.modelFile(model)
+				.build();
+		});
+	}
 }

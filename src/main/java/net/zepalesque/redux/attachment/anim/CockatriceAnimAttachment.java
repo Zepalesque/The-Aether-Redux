@@ -1,13 +1,8 @@
 package net.zepalesque.redux.attachment.anim;
 
-import com.aetherteam.aether.effect.AetherEffects;
 import com.aetherteam.aether.entity.monster.Cockatrice;
-import com.aetherteam.aether.item.EquipmentUtil;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.api.distmarker.OnlyIn;
 import net.zepalesque.redux.attachment.CockatriceShootingAttachment;
 import net.zepalesque.redux.config.ReduxConfig;
-import net.zepalesque.redux.item.ReduxItems;
 
 public class CockatriceAnimAttachment {
 	// All of these are client-only

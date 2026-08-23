@@ -1,16 +1,12 @@
 package net.zepalesque.redux.event.hook;
 
 import com.aetherteam.aether.entity.monster.Cockatrice;
-import net.minecraft.world.entity.ai.goal.FleeSunGoal;
+import java.util.Objects;
 import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
-import net.minecraft.world.entity.ai.goal.RestrictSunGoal;
 import net.minecraft.world.entity.ai.goal.WrappedGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
-import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.entity.ai.goal.CockatriceMeleeAttackGoal;
 import net.zepalesque.redux.entity.ai.goal.CockatriceRangedStrafeGoal;
-
-import java.util.Objects;
 
 public class MobHooks {
 

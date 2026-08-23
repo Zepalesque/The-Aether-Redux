@@ -1,12 +1,10 @@
 package net.zepalesque.redux.world.biome;
 
-import java.util.function.Supplier;
-
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.data.resources.AetherFeatureStates;
 import com.aetherteam.aether.data.resources.registries.AetherDimensions;
+import java.util.function.Supplier;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.SurfaceRuleData;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;

@@ -2,15 +2,14 @@ package net.zepalesque.redux.client.renderer.entity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import java.util.Objects;
+import java.util.function.BooleanSupplier;
+import java.util.function.Function;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import net.zepalesque.redux.util.BoolCell;
-
-import java.util.Objects;
-import java.util.function.BooleanSupplier;
-import java.util.function.Function;
 
 public final class ConditionalBabyModel<E extends LivingEntity, T extends EntityModel<E>, F extends EntityModel<E>, C extends BooleanSupplier> extends ConditionalModel<E, T, F, C> {
 	final T babyModelTrue;

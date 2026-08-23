@@ -5,12 +5,15 @@ import com.aetherteam.nitrogen.attachment.INBTSynchable;
 import com.aetherteam.nitrogen.network.packet.SyncPacket;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import java.util.Map;
+import java.util.UUID;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.neoforge.attachment.IAttachmentHolder;
 import net.neoforged.neoforge.network.PacketDistributor;
-import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.attachment.ReduxDataAttachments;
 import net.zepalesque.redux.client.renderer.entity.aerbunny.ReduxAerbunnyAnimations;
 import net.zepalesque.redux.network.packet.AerbunnyAnimTriggerPacket;
@@ -18,11 +21,6 @@ import net.zepalesque.redux.network.packet.AerbunnySyncPacket;
 import net.zepalesque.redux.util.MiscUtil;
 import org.apache.commons.lang3.tuple.Triple;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.Map;
-import java.util.UUID;
-import java.util.function.Consumer;
-import java.util.function.Supplier;
 
 public class AerbunnyAnimAttachment implements INBTSynchable {
 	// server to client

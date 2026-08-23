@@ -2,6 +2,7 @@ package net.zepalesque.redux.network.packet;
 
 import com.aetherteam.nitrogen.attachment.INBTSynchable;
 import com.aetherteam.nitrogen.network.packet.SyncEntityPacket;
+import java.util.function.Supplier;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
@@ -12,8 +13,6 @@ import net.zepalesque.redux.attachment.CockatriceShootingAttachment;
 import net.zepalesque.redux.attachment.ReduxDataAttachments;
 import net.zepalesque.redux.attachment.ReduxPlayerAttachment;
 import oshi.util.tuples.Quartet;
-
-import java.util.function.Supplier;
 
 /**
  * Sync packet for values in the {@link ReduxPlayerAttachment} class.

@@ -7,14 +7,13 @@ import com.aetherteam.nitrogen.attachment.INBTSynchable;
 import com.aetherteam.nitrogen.network.packet.SyncPacket;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import java.util.Map;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.network.packet.CockatriceShootPacket;
 import org.apache.commons.lang3.tuple.Triple;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.Map;
-import java.util.function.Consumer;
-import java.util.function.Supplier;
 
 public final class CockatriceShootingAttachment implements INBTSynchable {
 	

@@ -1,9 +1,6 @@
 package net.zepalesque.redux.util;
 
 import com.mojang.serialization.Codec;
-import com.mojang.serialization.DataResult;
-
-import java.util.function.Function;
 
 // TODO: move to zenith
 public class MiscUtil {
