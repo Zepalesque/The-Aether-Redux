@@ -168,8 +168,6 @@ public class AerbunnyAnimAttachment implements INBTSynchable {
 			this.twitchTimeout = randTwitchTimeout(bnuuy);
 		else if (this.twitchTimeout <= 0) {
 			this.twitchTimeout = randTwitchTimeout(bnuuy);
-			if (DEBUG) {
-				Redux.LOGGER.debug("CLIENT DEBUG: bnuuy is twitchy,,");
 				Redux.LOGGER.debug("animation is {}", this.twitchAnim.isStarted() ? "already started (anguish)" : "not yet started (peak af)");
 				Redux.LOGGER.debug("animation has time of {}", this.twitchAnim.getAccumulatedTime());
 			}
