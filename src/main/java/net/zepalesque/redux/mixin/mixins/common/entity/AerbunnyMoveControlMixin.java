@@ -15,7 +15,13 @@ public class AerbunnyMoveControlMixin {
 	@Shadow
 	private Aerbunny aerbunny;
 	
-	@Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/ai/control/JumpControl;jump()V"), cancellable = true, remap = false)
+	@Inject(
+		method = "tick",
+		at = @At(
+			value = "INVOKE",
+			target = "Lnet/minecraft/world/entity/ai/control/JumpControl;jump()V"
+		)
+	)
 	protected void redux$tick(CallbackInfo ci) {
 		AerbunnyAnimAttachment.get(this.aerbunny).serverJump(this.aerbunny);
 	}

@@ -13,6 +13,7 @@ import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.util.Mth;
+import net.zepalesque.redux.attachment.anim.AerbunnyAnimAttachment;
 
 public final class ReduxAerbunnyModel extends HierarchicalModel<Aerbunny> {
 	private final ModelPart root;
@@ -91,21 +92,31 @@ public final class ReduxAerbunnyModel extends HierarchicalModel<Aerbunny> {
 	
 	@Override
 	public void setupAnim(Aerbunny aerbunny, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.root().getAllParts().forEach(ModelPart::resetPose);
 		this.head.xRot = headPitch * Mth.DEG_TO_RAD;
 		this.head.yRot = netHeadYaw * Mth.DEG_TO_RAD;
-		this.frontRightLeg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.0F * limbSwingAmount - this.body.xRot;
-		this.frontLeftLeg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.0F * limbSwingAmount - this.body.xRot;
-		this.backRightLeg.xRot = Mth.cos(limbSwing * 0.6662F + Mth.PI) * 1.2F * limbSwingAmount - this.body.xRot;
-		this.backLeftLeg.xRot = Mth.cos(limbSwing * 0.6662F + Mth.PI) * 1.2F * limbSwingAmount - this.body.xRot;
+//		this.frontRightLeg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.0F * limbSwingAmount - this.body.xRot;
+//		this.frontLeftLeg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.0F * limbSwingAmount - this.body.xRot;
+//		this.backRightLeg.xRot = Mth.cos(limbSwing * 0.6662F + Mth.PI) * 1.2F * limbSwingAmount - this.body.xRot;
+//		this.backLeftLeg.xRot = Mth.cos(limbSwing * 0.6662F + Mth.PI) * 1.2F * limbSwingAmount - this.body.xRot;
+		var att = AerbunnyAnimAttachment.get(aerbunny);
+		this.animate(att.hurtAnim, ReduxAerbunnyAnimations.HURT, ageInTicks);
+		this.animate(att.jumpAnim, ReduxAerbunnyAnimations.START_JUMP, ageInTicks);
+		this.animate(att.inAirAnim, ReduxAerbunnyAnimations.IN_AIR, ageInTicks);
+		this.animate(att.idleAnim, ReduxAerbunnyAnimations.IDLE, ageInTicks);
+		this.animate(att.twitchAnim, ReduxAerbunnyAnimations.TWITCH, ageInTicks);
+		this.animate(att.fallAnim, ReduxAerbunnyAnimations.FALL, ageInTicks);
+		this.animate(att.landAnim, ReduxAerbunnyAnimations.LAND, ageInTicks);
+		this.animate(att.puffAnim, ReduxAerbunnyAnimations.PUFF, ageInTicks);
 	}
 	
 	@Override
 	public void renderToBuffer(PoseStack stack, VertexConsumer vertices, int light, int overlay, int color) {
-		var a = 1.0F + this.puffiness * 0.5F;
-		this.puff.xScale = a;
-		this.puff.yScale = a;
-		this.puff.zScale = a;
-		this.body.render(stack, vertices, light, overlay, color);
+//		var a = 1.0F + this.puffiness * 0.5F;
+//		this.puff.xScale = a;
+//		this.puff.yScale = a;
+//		this.puff.zScale = a;
+		this.root.render(stack, vertices, light, overlay, color);
 	}
 	
 	@Override

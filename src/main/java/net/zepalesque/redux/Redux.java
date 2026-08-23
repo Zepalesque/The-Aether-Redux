@@ -42,6 +42,7 @@ import net.zepalesque.redux.extstate.ReduxStateLists;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.item.components.ReduxDataComponents;
 import net.zepalesque.redux.loot.modifer.ReduxLootModifiers;
+import net.zepalesque.redux.network.packet.AerbunnyHurtAnimPacket;
 import net.zepalesque.redux.network.packet.AerbunnySyncPacket;
 import net.zepalesque.redux.network.packet.AerjumpPacket;
 import net.zepalesque.redux.network.packet.CockatriceShootPacket;
@@ -203,6 +204,11 @@ public final class Redux {
 			AerbunnySyncPacket.TYPE,
 			AerbunnySyncPacket.STREAM_CODEC,
 			AerbunnySyncPacket::execute
+		);
+		registrar.playToClient(
+			AerbunnyHurtAnimPacket.TYPE,
+			AerbunnyHurtAnimPacket.STREAM_CODEC,
+			AerbunnyHurtAnimPacket::execute
 		);
 	}
 

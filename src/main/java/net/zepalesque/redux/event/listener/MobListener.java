@@ -4,6 +4,7 @@ import com.aetherteam.aether.entity.monster.Cockatrice;
 import com.aetherteam.aether.entity.monster.dungeon.boss.Slider;
 import com.aetherteam.aether.entity.passive.Aerbunny;
 import com.aetherteam.aether.entity.passive.Moa;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -11,6 +12,7 @@ import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingFallEvent;
 import net.neoforged.neoforge.event.tick.EntityTickEvent;
+import net.neoforged.neoforge.network.PacketDistributor;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.attachment.CockatriceShootingAttachment;
 import net.zepalesque.redux.attachment.ReduxPlayerAttachment;
@@ -20,6 +22,8 @@ import net.zepalesque.redux.attachment.anim.MoaAnimAttachment;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.event.hook.MobHooks;
 import net.zepalesque.redux.event.hook.QuicksoilHooks;
+import net.zepalesque.redux.network.packet.AerbunnyHurtAnimPacket;
+import net.zepalesque.redux.network.packet.SliderSignalPacket;
 
 @EventBusSubscriber(modid = Redux.MODID)
 public class MobListener {
@@ -65,12 +69,19 @@ public class MobListener {
 		}
 	}
 	
+	@SubscribeEvent
 	public static void onHurt(LivingDamageEvent.Post event) {
-		if (event.getEntity() instanceof Aerbunny bnuuy && bnuuy.level().isClientSide()) {
-			var att = AerbunnyAnimAttachment.get(bnuuy);
-		
-			att.onClientHurt(bnuuy);
-		}
+//		System.out.printf("DEBUG: hello from %s :3\n", event.getEntity().level().isClientSide() ? "client" : "server");
+		if (event.getEntity() instanceof Aerbunny bnuuy && !bnuuy.level().isClientSide())
+			PacketDistributor.sendToPlayersNear(
+				(ServerLevel) bnuuy.level(),
+				null,
+				bnuuy.getX(),
+				bnuuy.getY(),
+				bnuuy.getZ(),
+				127D,
+				new AerbunnyHurtAnimPacket(bnuuy.getId())
+			);
 	}
 
 	@SubscribeEvent

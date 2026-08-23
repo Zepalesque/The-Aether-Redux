@@ -7,6 +7,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.player.Player;
+import net.neoforged.neoforge.attachment.IAttachmentHolder;
 import net.zepalesque.redux.attachment.ReduxDataAttachments;
 import net.zepalesque.redux.client.renderer.entity.aerbunny.ReduxAerbunnyAnimations;
 import net.zepalesque.redux.network.packet.AerbunnySyncPacket;
@@ -19,15 +20,13 @@ import java.util.UUID;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-import static net.zepalesque.redux.util.MiscUtil.unreachable;
-
 public class AerbunnyAnimAttachment implements INBTSynchable {
 	// server to client
 	long lastStateChange = -ReduxAerbunnyAnimations.LAND_TICKS;
 	// server to client
 	byte state = LAND_STATE;
 	
-	// server only
+	// server only (?)
 	int twitchTimeout = Integer.MIN_VALUE;
 	
 	private AerbunnyAnimAttachment(long lastStateChange, byte state, int twitchTimeout) {
@@ -36,10 +35,12 @@ public class AerbunnyAnimAttachment implements INBTSynchable {
 		this.twitchTimeout = twitchTimeout;
 	}
 	
-	public AerbunnyAnimAttachment() {}
+	public AerbunnyAnimAttachment(IAttachmentHolder holder) {
+		if (holder instanceof Aerbunny bnuuy) bnuuy.setOnGround(true);
+		else throw new ClassCastException("Holder had type `%s`, was expecting subtype of `%s`".formatted(holder.getClass().getName(), Aerbunny.class.getName()));
+	}
 	
 	public final AnimationState fallAnim = new AnimationState();
-	public final AnimationState onGroundAnim = new AnimationState();
 	public final AnimationState jumpAnim = new AnimationState();
 	public final AnimationState inAirAnim = new AnimationState();
 	public final AnimationState landAnim = new AnimationState();
@@ -51,6 +52,8 @@ public class AerbunnyAnimAttachment implements INBTSynchable {
 	private static final byte LAND_STATE = 0;
 	private static final byte FALL_STATE = 1;
 	private static final byte JUMP_STATE = 2;
+	
+	private static final String POSE_DATA_ID = "pose_data";
 	
 	public static final Codec<AerbunnyAnimAttachment> CODEC = RecordCodecBuilder.create(
 		builder -> builder.group(
@@ -66,7 +69,7 @@ public class AerbunnyAnimAttachment implements INBTSynchable {
 		).apply(builder, AerbunnyAnimAttachment::new)
 	);
 	
-	private static int transitionTime(byte state) {
+	private static long transitionTime(byte state) {
 		return switch (state) {
 			case LAND_STATE -> ReduxAerbunnyAnimations.LAND_TICKS;
 			case FALL_STATE -> ReduxAerbunnyAnimations.FALL_TICKS;
@@ -78,7 +81,7 @@ public class AerbunnyAnimAttachment implements INBTSynchable {
 	private final Map<String, Triple<INBTSynchable.Type, Consumer<Object>, Supplier<Object>>> synchableFunctions =
 		Map.ofEntries(
 			Map.entry(
-				"pose_data",
+				POSE_DATA_ID,
 				Triple.of(
 					Type.UUID,
 					val -> this.setPoseData((UUID) val),
@@ -91,32 +94,6 @@ public class AerbunnyAnimAttachment implements INBTSynchable {
 		this.setPoseInfo(bnuuy, bnuuy.level().getGameTime(), JUMP_STATE);
 	}
 	
-	public void serverFall(Aerbunny bnuuy) {
-		if (this.onGroundState(bnuuy)) {
-			this.setPoseInfo(bnuuy, bnuuy.level().getGameTime(), FALL_STATE);
-		}
-	}
-	
-	public void serverLand(Aerbunny bnuuy) {
-		if (this.inAirState(bnuuy)) this.setPoseChangeTick(bnuuy, bnuuy.level().getGameTime());
-	}
-	
-	private AnimationState transState(byte state) {
-		return switch (state) {
-			case JUMP_STATE -> this.jumpAnim;
-			case FALL_STATE -> this.fallAnim;
-			case LAND_STATE -> this.landAnim;
-			default -> throw unreachable();
-		};
-	}
-	private AnimationState nonTransState(byte state) {
-		return switch (state) {
-			case JUMP_STATE, FALL_STATE -> this.inAirAnim;
-			case LAND_STATE -> this.onGroundAnim;
-			default -> throw unreachable();
-		};
-	}
-	
 	public boolean inAirState(Aerbunny bnuuy) {
 		return this.state > 0;
 	}
@@ -126,16 +103,12 @@ public class AerbunnyAnimAttachment implements INBTSynchable {
 	}
 	
 	private void changeState(Aerbunny bnuuy, byte state) {
-		this.setSynched(bnuuy.getId(), Direction.CLIENT, "pose_change_tick", makePoseData(bnuuy.level().getGameTime(), state));
+		if (state != this.state)
+			this.setPoseInfo(bnuuy, bnuuy.level().getGameTime(), state);
 	}
-	
-	private void setPoseChangeTick(Aerbunny bnuuy, long tick) {
-		this.setSynched(bnuuy.getId(), Direction.CLIENT, "pose_change_tick", makePoseData(tick, this.state));
-	}
-	
 	
 	private void setPoseInfo(Aerbunny bnuuy, long tick, byte state) {
-		this.setSynched(bnuuy.getId(), Direction.CLIENT, "pose_change_tick", makePoseData(tick, state));
+		this.setSynched(bnuuy.getId(), Direction.CLIENT, POSE_DATA_ID, makePoseData(tick, state));
 	}
 	
 	public long getLastStateChange() {
@@ -178,11 +151,9 @@ public class AerbunnyAnimAttachment implements INBTSynchable {
 		var vehicle = bnuuy.getVehicle();
 		
 		if (this.state != LAND_STATE && (bnuuy.onGround() || vehicle instanceof Player)) {
-			if (DEBUG) System.out.println("server bnuuy: landing");
 			this.changeState(bnuuy, LAND_STATE);
 		}
 		else if (this.state == LAND_STATE && !bnuuy.onGround() && !(vehicle instanceof Player))
-			if (DEBUG) System.out.println("server bnuuy: falling");
 			this.changeState(bnuuy, FALL_STATE);
 	}
 	
@@ -203,48 +174,38 @@ public class AerbunnyAnimAttachment implements INBTSynchable {
 		if (!this.isInPoseTransition(bnuuy)) switch (this.state) {
 			case FALL_STATE, JUMP_STATE -> {
 				this.inAirAnim.startIfStopped(bnuuy.tickCount);
-				this.onGroundAnim.stop();
 				this.fallAnim.stop();
 				this.jumpAnim.stop();
 				this.landAnim.stop();
-				if (DEBUG) System.out.println("client bnuuy: in air");
 			}
 			case LAND_STATE -> {
-				this.onGroundAnim.startIfStopped(bnuuy.tickCount);
 				this.inAirAnim.stop();
 				this.fallAnim.stop();
 				this.jumpAnim.stop();
 				this.landAnim.stop();
-				if (DEBUG) System.out.println("client bnuuy: on ground");
 			}
 		} else switch (this.state) {
 			case FALL_STATE -> {
-				if (DEBUG) System.out.println("client bnuuy: falling");
 				this.fallAnim.startIfStopped(bnuuy.tickCount);
-				this.onGroundAnim.stop();
 				this.inAirAnim.stop();
 				this.jumpAnim.stop();
 				this.landAnim.stop();
 			} case LAND_STATE -> {
-				if (DEBUG) System.out.println("client bnuuy: landing");
 				this.landAnim.startIfStopped(bnuuy.tickCount);
 				this.inAirAnim.stop();
 				this.fallAnim.stop();
 				this.jumpAnim.stop();
-				this.onGroundAnim.stop();
 			} case JUMP_STATE -> {
-				if (DEBUG) System.out.println("client bnuuy: jumping");
 				this.jumpAnim.startIfStopped(bnuuy.tickCount);
 				this.inAirAnim.stop();
 				this.fallAnim.stop();
 				this.landAnim.stop();
-				this.onGroundAnim.stop();
 			}
 		}
 	}
 	
 	private static int randTwitchTimeout(Aerbunny bnuuy) {
-		return bnuuy.getRandom().nextInt(400) + ReduxAerbunnyAnimations.TWITCH_TICKS;
+		return bnuuy.getRandom().nextInt(200) + ReduxAerbunnyAnimations.TWITCH_TICKS;
 	}
 	
 	public boolean isInPoseTransition(Aerbunny bnuuy) {

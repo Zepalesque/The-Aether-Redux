@@ -41,12 +41,15 @@ public final class ReduxAerbunnyRenderer extends MobRenderer<Aerbunny, Condition
 	@Override
 	protected void setupRotations(Aerbunny aerbunny, PoseStack poseStack, float bob, float yBodyRot, float partialTick, float scale) {
 		super.setupRotations(aerbunny, poseStack, bob, yBodyRot, partialTick, scale);
-		if (!aerbunny.onGround()) if (aerbunny.getDeltaMovement().y() > 0.5)
-			poseStack.mulPose(Axis.XN.rotationDegrees(Mth.rotLerp(partialTick, 0.0F, 15.0F)));
-		else if (aerbunny.getDeltaMovement().y() < -0.5)
-			poseStack.mulPose(Axis.XN.rotationDegrees(Mth.rotLerp(partialTick, 0.0F, -15.0F)));
-		else
-			poseStack.mulPose(Axis.XN.rotationDegrees((float) (aerbunny.getDeltaMovement().y() * 30.0)));
+		if (!CFG.getAsBoolean()) {
+			if (!aerbunny.onGround()) if (aerbunny.getDeltaMovement().y() > 0.5)
+				poseStack.mulPose(Axis.XN.rotationDegrees(Mth.rotLerp(partialTick, 0.0F, 15.0F)));
+			else if (aerbunny.getDeltaMovement().y() < -0.5)
+				poseStack.mulPose(Axis.XN.rotationDegrees(Mth.rotLerp(partialTick, 0.0F, -15.0F)));
+			else
+				poseStack.mulPose(Axis.XN.rotationDegrees((float) (aerbunny.getDeltaMovement().y() * 30.0)));
+			
+		}
 	}
 	
 	@Override
