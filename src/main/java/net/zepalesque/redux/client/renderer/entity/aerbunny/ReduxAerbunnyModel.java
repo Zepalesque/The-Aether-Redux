@@ -90,15 +90,19 @@ public final class ReduxAerbunnyModel extends HierarchicalModel<Aerbunny> {
 		this.puffiness = Mth.lerp(partialTicks, aerbunny.getPuffiness(), aerbunny.getPuffiness() - aerbunny.getPuffSubtract()) / 20.0F;
 	}
 	
+	private static final float SWING_MULT = 0.1f;
+	
 	@Override
 	public void setupAnim(Aerbunny aerbunny, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		// comment this line out for utter insanity
 		this.root().getAllParts().forEach(ModelPart::resetPose);
 		this.head.xRot = headPitch * Mth.DEG_TO_RAD;
 		this.head.yRot = netHeadYaw * Mth.DEG_TO_RAD;
-//		this.frontRightLeg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.0F * limbSwingAmount - this.body.xRot;
-//		this.frontLeftLeg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.0F * limbSwingAmount - this.body.xRot;
-//		this.backRightLeg.xRot = Mth.cos(limbSwing * 0.6662F + Mth.PI) * 1.2F * limbSwingAmount - this.body.xRot;
-//		this.backLeftLeg.xRot = Mth.cos(limbSwing * 0.6662F + Mth.PI) * 1.2F * limbSwingAmount - this.body.xRot;
+		
+		this.frontRightLeg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.0F * limbSwingAmount * SWING_MULT;
+		this.frontLeftLeg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.0F * limbSwingAmount * SWING_MULT;
+		this.backRightLeg.xRot = Mth.cos(limbSwing * 0.6662F + Mth.PI) * 1.2F * limbSwingAmount * SWING_MULT;
+		this.backLeftLeg.xRot = Mth.cos(limbSwing * 0.6662F + Mth.PI) * 1.2F * limbSwingAmount * SWING_MULT;
 		var att = AerbunnyAnimAttachment.get(aerbunny);
 		this.animate(att.hurtAnim, ReduxAerbunnyAnimations.HURT, ageInTicks);
 		this.animate(att.jumpAnim, ReduxAerbunnyAnimations.START_JUMP, ageInTicks);
