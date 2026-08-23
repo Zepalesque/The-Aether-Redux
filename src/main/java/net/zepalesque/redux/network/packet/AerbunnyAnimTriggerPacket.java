@@ -51,7 +51,7 @@ public final class AerbunnyAnimTriggerPacket {
 	}
 	
 	public record TwitchAnim(int mobID) implements CustomPacketPayload {
-		public static final Type<TwitchAnim> TYPE = new Type<>(Redux.loc("aerbunny_hurt_anim"));
+		public static final Type<TwitchAnim> TYPE = new Type<>(Redux.loc("aerbunny_twitch_anim"));
 		
 		public static final StreamCodec<RegistryFriendlyByteBuf, TwitchAnim> STREAM_CODEC =
 			CustomPacketPayload.codec(TwitchAnim::write, TwitchAnim::decode);
