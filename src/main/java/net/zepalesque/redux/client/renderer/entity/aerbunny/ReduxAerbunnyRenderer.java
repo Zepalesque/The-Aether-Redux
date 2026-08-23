@@ -16,7 +16,7 @@ import net.zepalesque.redux.client.renderer.entity.ConditionalModel;
 import net.zepalesque.redux.config.ReduxConfig;
 
 // cursed af ngl
-public final class ReduxAerbunnyRenderer extends MobRenderer<Aerbunny, ConditionalModel<Aerbunny, ReduxAerbunnyModel, AerbunnyModel>> {
+public final class ReduxAerbunnyRenderer extends MobRenderer<Aerbunny, ConditionalModel<Aerbunny, ReduxAerbunnyModel, AerbunnyModel, ModConfigSpec.BooleanValue>> {
 	private static final ResourceLocation AERBUNNY_TEXTURE = ResourceLocation.fromNamespaceAndPath(Aether.MODID, "textures/entity/mobs/aerbunny/aerbunny.png");
 	private static final ResourceLocation REDUX_AERBUNNY_TEXTURE = ResourceLocation.fromNamespaceAndPath(Aether.MODID, "textures/entity/mobs/aerbunny/aerbunny_redux.png");
 	
