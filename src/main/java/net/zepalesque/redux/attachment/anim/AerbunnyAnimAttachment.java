@@ -8,6 +8,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.neoforge.attachment.IAttachmentHolder;
+import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.attachment.ReduxDataAttachments;
 import net.zepalesque.redux.client.renderer.entity.aerbunny.ReduxAerbunnyAnimations;
 import net.zepalesque.redux.network.packet.AerbunnySyncPacket;
@@ -158,7 +159,6 @@ public class AerbunnyAnimAttachment implements INBTSynchable {
 	}
 	
 	public void onClientHurt(Aerbunny bnuuy) {
-		if (DEBUG) System.out.println("client bnuuy: owie");
 		this.hurtAnim.start(bnuuy.tickCount);
 	}
 	
@@ -168,6 +168,12 @@ public class AerbunnyAnimAttachment implements INBTSynchable {
 			this.twitchTimeout = randTwitchTimeout(bnuuy);
 		else if (this.twitchTimeout <= 0) {
 			this.twitchTimeout = randTwitchTimeout(bnuuy);
+			if (DEBUG) {
+				Redux.LOGGER.debug("CLIENT DEBUG: bnuuy is twitchy,,");
+				Redux.LOGGER.debug("animation is {}", this.twitchAnim.isStarted() ? "already started (anguish)" : "not yet started (peak af)");
+				Redux.LOGGER.debug("animation has time of {}", this.twitchAnim.getAccumulatedTime());
+			}
+			
 			this.twitchAnim.animateWhen(!this.isInPoseTransition(bnuuy), bnuuy.tickCount);
 		} else if (this.onGroundState(bnuuy)) --this.twitchTimeout;
 		
