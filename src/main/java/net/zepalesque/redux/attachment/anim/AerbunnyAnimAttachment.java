@@ -168,11 +168,8 @@ public class AerbunnyAnimAttachment implements INBTSynchable {
 			this.twitchTimeout = randTwitchTimeout(bnuuy);
 		else if (this.twitchTimeout <= 0) {
 			this.twitchTimeout = randTwitchTimeout(bnuuy);
-				Redux.LOGGER.debug("animation is {}", this.twitchAnim.isStarted() ? "already started (anguish)" : "not yet started (peak af)");
-				Redux.LOGGER.debug("animation has time of {}", this.twitchAnim.getAccumulatedTime());
-			}
-			
-			this.twitchAnim.animateWhen(!this.isInPoseTransition(bnuuy), bnuuy.tickCount);
+			// TODO: figure out why this thinks the animation is still going (look at camel animation stuff for reference)
+			if (!this.isInPoseTransition(bnuuy)) this.twitchAnim.start(bnuuy.tickCount);
 		} else if (this.onGroundState(bnuuy)) --this.twitchTimeout;
 		
 		if (!this.isInPoseTransition(bnuuy)) switch (this.state) {
@@ -209,7 +206,7 @@ public class AerbunnyAnimAttachment implements INBTSynchable {
 	}
 	
 	private static int randTwitchTimeout(Aerbunny bnuuy) {
-		return bnuuy.getRandom().nextInt(200) + ReduxAerbunnyAnimations.TWITCH_TICKS;
+		return bnuuy.getRandom().nextInt(1600) + ReduxAerbunnyAnimations.TWITCH_TICKS + 400;
 	}
 	
 	public boolean isInPoseTransition(Aerbunny bnuuy) {
