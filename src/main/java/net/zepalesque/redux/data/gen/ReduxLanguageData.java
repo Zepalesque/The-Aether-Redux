@@ -160,7 +160,10 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 		
 		this.addItem(ReduxItems.SENTRITE_SHEARS);
 		this.addLore(ReduxItems.SENTRITE_SHEARS, "Shears made of Refined Sentrite. These can be used to shear sheep, gather leaves, and more!");
-		
+
+		this.addItem(ReduxItems.SENTRY_CIRCUIT, "Sentry Circuit");
+		this.addLore(ReduxItems.SENTRY_CIRCUIT, "A fragment of the mechanical inner workings of a Sentry. Nobody knows who created these, just that the Valkyries have utilized them for all of recorded history.");
+
 		this.addBlock(ReduxBlocks.SENTRITE_CHAIN);
 		this.addLore(ReduxBlocks.SENTRITE_CHAIN, "A chain made of purified Sentrite. This is crafted with a piece of Refined Sentrite and two Sentrite Chunks.");
 		this.addBlock(ReduxBlocks.SENTRITE_LANTERN);

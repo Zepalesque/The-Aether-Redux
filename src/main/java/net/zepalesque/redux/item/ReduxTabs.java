@@ -175,7 +175,8 @@ public class ReduxTabs {
 				ReduxItems.VERIDIUM_INGOT,
 				ReduxItems.VERIDIUM_NUGGET,
 				ReduxItems.REFINED_SENTRITE,
-				ReduxItems.SENTRITE_CHUNK
+				ReduxItems.SENTRITE_CHUNK,
+				ReduxItems.SENTRY_CIRCUIT
 			)
 			.putAfter(AetherItems.SKYROOT_STICK, ReduxItems.WILLOW_SPORES)
 			.putAfter(

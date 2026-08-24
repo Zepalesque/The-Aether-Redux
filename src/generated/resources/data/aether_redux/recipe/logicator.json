@@ -12,7 +12,7 @@
 			"item": "minecraft:redstone_torch"
 		},
 		"V": {
-			"item": "aether_redux:veridium_ingot"
+			"item": "aether_redux:sentry_circuit"
 		}
 	},
 	"pattern": ["RTR", "SVS"],

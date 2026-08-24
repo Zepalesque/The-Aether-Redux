@@ -1,9 +1,6 @@
 package net.zepalesque.redux.client.event.listener;
 
-import java.util.stream.IntStream;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.levelgen.XoroshiroRandomSource;
-import net.minecraft.world.level.levelgen.synth.PerlinNoise;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
