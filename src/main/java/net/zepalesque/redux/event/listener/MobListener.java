@@ -46,7 +46,7 @@ public class MobListener {
 		
 		var client = entity.level().isClientSide();
 		
-		// meanwhile in another universe: `match entity { player: Player => { .. }, .. }`
+		// meanwhile in another universe: `match entity { some Player as player => { .. }, .. }`
 		switch (entity) {
 			case Player player -> {
 				var att = ReduxPlayerAttachment.get(player);

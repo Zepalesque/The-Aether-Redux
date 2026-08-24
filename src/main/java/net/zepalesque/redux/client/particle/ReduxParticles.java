@@ -77,6 +77,7 @@ public class ReduxParticles {
 		event.registerSpriteSet(LANDING_CLOUDCAP_SPORE.get(), CloudcapSporeParticle.Landing::new);
 		event.registerSpriteSet(CLOUDCAP_AIR_SPORE.get(), CloudcapAirSporeParticle.Provider::new);
 		event.registerSpriteSet(BLOSSOM_FLARE.get(), FlameParticle.Provider::new);
+		event.registerSpriteSet(RANDOM_MOVEMENT_ITEM.get(), RandomMovementItemParticle.Provider::new);
 	}
 	
 	private static <T extends ParticleOptions> DeferredHolder<ParticleType<?>, ParticleType<T>> register(

@@ -50,14 +50,16 @@ public abstract class SwetMixin extends SlimeMixin {
         else super.redux$doPush(entity, ci);
     }
 
+    // TODO: can this not be in the event..?
     @WrapOperation(method = "createMobAttributes", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Mob;createMobAttributes()Lnet/minecraft/world/entity/ai/attributes/AttributeSupplier$Builder;"))
     private static AttributeSupplier.Builder attributes(Operation<AttributeSupplier.Builder> original) {
         return original.call().add(Attributes.ATTACK_DAMAGE, 0.5D).add(Attributes.ATTACK_KNOCKBACK, 0.0D);
     }
+    
     @WrapOperation(method = "getPassengerRidingPosition", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/phys/Vec3;add(DDD)Lnet/minecraft/world/phys/Vec3;"))
     public Vec3 redux$offset(Vec3 instance, double x, double y, double z, Operation<Vec3> original) {
         if (ReduxConfig.SERVER.pl_swet_behavior.get()) {
-            var height = (double) this.getDefaultDimensions(Pose.STANDING).height() * 0.75D * 0.5;
+            var height = (double) this.getDefaultDimensions(Pose.STANDING).height() * 0.75D * 0.25D;
             return original.call(instance, 0d, height, 0d);
         } else return original.call(instance, x, y, z);
     }

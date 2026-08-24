@@ -1,0 +1,71 @@
+package net.zepalesque.redux.client.particle;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.client.particle.Particle;
+import net.minecraft.client.particle.ParticleProvider;
+import net.minecraft.client.particle.ParticleRenderType;
+import net.minecraft.client.particle.SpriteSet;
+import net.minecraft.client.particle.TextureSheetParticle;
+import net.minecraft.core.particles.ItemParticleOption;
+import net.minecraft.world.item.ItemStack;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
+import net.neoforged.neoforge.client.model.data.ModelData;
+
+import javax.annotation.Nullable;
+
+@OnlyIn(Dist.CLIENT)
+public class RandomMovementItemParticle extends TextureSheetParticle {
+   private final float uo;
+   private final float vo;
+   
+   public ParticleRenderType getRenderType() {
+      return ParticleRenderType.TERRAIN_SHEET;
+   }
+
+   protected RandomMovementItemParticle(ClientLevel level, double x, double y, double z, ItemStack stack) {
+      super(level, x, y, z, 0.0D, 0.0D, 0.0D);
+      var model = Minecraft.getInstance().getItemRenderer().getModel(stack, level, null, 0);
+      this.setSprite(model.getOverrides().resolve(model, stack, level, null, 0).getParticleIcon(net.neoforged.neoforge.client.model.data.ModelData.EMPTY));
+      this.gravity = 1.0F;
+      this.quadSize /= 2.0F;
+      this.uo = this.random.nextFloat() * 3.0F;
+      this.vo = this.random.nextFloat() * 3.0F;
+   }
+   
+   @Override
+   protected float getU0() {
+      return this.sprite.getU((this.uo + 1.0F) / 4.0F);
+   }
+   
+   @Override
+   protected float getU1() {
+      return this.sprite.getU(this.uo / 4.0F);
+   }
+   
+   @Override
+   protected float getV0() {
+      return this.sprite.getV(this.vo / 4.0F);
+   }
+   
+   @Override
+   protected float getV1() {
+      return this.sprite.getV((this.vo + 1.0F) / 4.0F);
+   }
+
+   @OnlyIn(Dist.CLIENT)
+   public static class Provider implements ParticleProvider<ItemParticleOption> {
+      Provider(@Nullable SpriteSet ignored) {
+         this();
+      }
+      
+      Provider() {
+      
+      }
+      
+      public Particle createParticle(ItemParticleOption type, ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
+         return new RandomMovementItemParticle(level, x, y, z, type.getItem());
+      }
+   }
+}
