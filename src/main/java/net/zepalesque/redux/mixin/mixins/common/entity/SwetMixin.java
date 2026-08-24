@@ -4,6 +4,7 @@ import com.aetherteam.aether.entity.monster.Swet;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import javax.annotation.Nullable;
+
 import net.minecraft.util.Mth;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
@@ -27,6 +28,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 @Mixin(Swet.class)
 public abstract class SwetMixin extends SlimeMixin {
@@ -42,6 +44,13 @@ public abstract class SwetMixin extends SlimeMixin {
     @Shadow
     public abstract EntityDimensions getDefaultDimensions(Pose pose);
     
+    @Shadow
+    public abstract int getJumpTimer();
+    
+    @Shadow
+    private float swetHeight;
+    @Shadow
+    private float swetWidth;
     @Unique private static final EntityDimensions redux$dimensions = EntityDimensions.scalable(2.04F, 2.04F);
 
     @Override
@@ -57,10 +66,9 @@ public abstract class SwetMixin extends SlimeMixin {
     }
     
     @WrapOperation(method = "getPassengerRidingPosition", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/phys/Vec3;add(DDD)Lnet/minecraft/world/phys/Vec3;"))
-    public Vec3 redux$offset(Vec3 instance, double x, double y, double z, Operation<Vec3> original) {
+    public Vec3 redux$ridePos(Vec3 instance, double x, double y, double z, Operation<Vec3> original) {
         if (ReduxConfig.SERVER.pl_swet_behavior.get()) {
-            var height = (double) this.getDefaultDimensions(Pose.STANDING).height() * 0.75D * 0.25D;
-            return original.call(instance, 0d, height, 0d);
+            return this.position().add(0, (double) this.getDefaultDimensions(Pose.STANDING).height() * 0.75D, 0);
         } else return original.call(instance, x, y, z);
     }
     @Inject(method = "mobInteract", at = @At("HEAD"), cancellable = true)
@@ -94,6 +102,23 @@ public abstract class SwetMixin extends SlimeMixin {
 		    }
 	    }
     }
+    
+    @WrapOperation(method = "tick", at = @At(value = "INVOKE", target = "Lcom/aetherteam/aether/entity/monster/Swet;setDeltaMovement(DDD)V"))
+    public void redux$cancelFloaty(Swet instance, double x, double y, double z, Operation<Void> original) {
+        if (!ReduxConfig.SERVER.pl_swet_behavior.get()) original.call(instance, x, y, z);
+    }
+    
+    @Inject(
+        method = "tick",
+        at = @At(value = "INVOKE", target = "Lcom/aetherteam/aether/entity/monster/Swet;getJumpTimer()I", ordinal = 3),
+        locals = LocalCapture.CAPTURE_FAILSOFT
+    )
+    public void redux$alterSize(CallbackInfo ci, float scale) {
+        if (!ReduxConfig.SERVER.pl_swet_behavior.get() && this.getJumpTimer() < 3) {
+            this.swetHeight -= 0.03F * scale;
+            this.swetWidth += 0.03F * scale;
+        }
+    }
 
     @Inject(method = "getMountJumpStrength", at = @At("HEAD"), cancellable = true, remap = false)
     public void getMountJumpStrength(CallbackInfoReturnable<Double> cir) {
@@ -118,8 +143,10 @@ public abstract class SwetMixin extends SlimeMixin {
         if (ReduxConfig.SERVER.pl_swet_behavior.get()) cir.setReturnValue(false);
     }
 
-
-
+    @Inject(method = "getJumpPower", at = @At("HEAD"), cancellable = true, remap = false)
+    public void redux$getJumpPower(CallbackInfoReturnable<Float> cir) {
+        if (ReduxConfig.SERVER.pl_swet_behavior.get()) cir.setReturnValue(0.5f);
+    }
 
     @Inject(method = "setSize", at = @At("HEAD"))
     protected void redux$setSize(int size, boolean resetHealth, CallbackInfo ci) {

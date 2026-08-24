@@ -5,6 +5,8 @@ import com.aetherteam.aether.entity.monster.Swet;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 import javax.annotation.Nullable;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleOptions;
@@ -90,7 +92,11 @@ public class SwetHooks {
     }
 
     public static boolean canGrow(Swet swet, ItemStack stack) {
-        return stack.is(AetherTags.Items.SWET_BALLS) ? swet.getSize() < 8 : stack.getItem() instanceof SpawnEggItem egg && egg.getType(stack) == swet.getType() && swet.getSize() < 16;
+        return stack.is(AetherTags.Items.SWET_BALLS)
+            ? swet.getSize() < 8
+            : stack.getItem() instanceof SpawnEggItem egg
+              && egg.getType(stack) == swet.getType()
+              && swet.getSize() < 16;
     }
 
     public static boolean canBeControlled(Swet swet) {
@@ -98,10 +104,13 @@ public class SwetHooks {
     }
 
     public static float getDamage(Swet swet) {
-        return (swet.getSize() + Mth.sqrt(swet.getSize())) * 0.25F * (1F - swet.getWaterDamageScale());
+        return (swet.getSize()
+            + Mth.sqrt(swet.getSize())
+        ) * 0.25F * (1F - swet.getWaterDamageScale());
     }
     
-    protected static Map<EntityType<?>, Item> PARTICLE_ITEM_MAP = new HashMap<>();
+    protected static ConcurrentMap<EntityType<?>, Item> PARTICLE_ITEM_MAP =
+        new ConcurrentHashMap<>();
     
     /** Should be called in {@link net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent#enqueueWork(Runnable)} */
     public static void registerParticle(EntityType<?> type, Item particle) {
