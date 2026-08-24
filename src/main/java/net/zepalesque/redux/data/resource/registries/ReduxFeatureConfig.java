@@ -196,6 +196,8 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 		AetherConfiguredFeatures.CRYSTAL_ISLAND_CONFIGURATION;
 	public static final ResourceKey<ConfiguredFeature<?, ?>> QUICKSOIL_SHELF =
 		AetherConfiguredFeatures.QUICKSOIL_SHELF_CONFIGURATION;
+	public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_HIGHLANDS =
+		AetherConfiguredFeatures.TREES_SKYROOT_AND_GOLDEN_OAK_CONFIGURATION;
 
 	// rip bootstap :pensive:
 	public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
@@ -895,6 +897,40 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 			)
 		);
 		crystal_tree.accept(CRYSTAL_TREE_BARE, prov(AetherBlocks.CRYSTAL_LEAVES));
+
+		register(
+			context,
+			TREES_HIGHLANDS,
+			Feature.RANDOM_SELECTOR,
+			new RandomFeatureConfiguration(
+				List.of(
+					new WeightedPlacedFeature(
+						PlacementUtils.inlinePlaced(
+							configs.getOrThrow(GOLDEN_OAK_TREE),
+							PlacementUtils.filteredByBlockSurvival(
+								AetherBlocks.GOLDEN_OAK_SAPLING.get()
+							)
+						),
+						0.01F
+					),
+					new WeightedPlacedFeature(
+						PlacementUtils.inlinePlaced(
+							configs.getOrThrow(MOONFIR_TREE),
+							PlacementUtils.filteredByBlockSurvival(
+								ReduxFlowerSets.STORMFIR_SAPLING.flower().get()
+							)
+						),
+						0.05F
+					)
+				),
+				PlacementUtils.inlinePlaced(
+					configs.getOrThrow(SKYROOT_TREE),
+					PlacementUtils.filteredByBlockSurvival(
+						AetherBlocks.SKYROOT_SAPLING.get()
+					)
+				)
+			)
+		);
 
 		FeatureUtils.register(
 			context,
