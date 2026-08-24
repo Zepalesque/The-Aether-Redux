@@ -1,7 +1,9 @@
 package net.zepalesque.redux.client.renderer;
 
 import com.aetherteam.aether.client.renderer.entity.CockatriceRenderer;
+import com.aetherteam.aether.client.renderer.entity.FlyingCowRenderer;
 import com.aetherteam.aether.client.renderer.entity.MoaRenderer;
+import com.aetherteam.aether.client.renderer.entity.PhygRenderer;
 import com.aetherteam.aether.client.renderer.entity.SheepuffRenderer;
 import com.aetherteam.aether.client.renderer.entity.SliderRenderer;
 import com.aetherteam.aether.entity.AetherEntityTypes;
@@ -34,9 +36,12 @@ import net.zepalesque.redux.client.renderer.entity.catfish.CatFishRenderer;
 import net.zepalesque.redux.client.renderer.entity.cockatrice.CockatriceReduxLayer;
 import net.zepalesque.redux.client.renderer.entity.cockatrice.CockatriceReduxModel;
 import net.zepalesque.redux.client.renderer.entity.ember.EmberRenderer;
+import net.zepalesque.redux.client.renderer.entity.flying_cow.FlyingCowReduxLayer;
 import net.zepalesque.redux.client.renderer.entity.flying_cow.FlyingCowReduxModel;
 import net.zepalesque.redux.client.renderer.entity.moa.MoaReduxLayer;
 import net.zepalesque.redux.client.renderer.entity.moa.MoaReduxModel;
+import net.zepalesque.redux.client.renderer.entity.phyg.PhygReduxLayer;
+import net.zepalesque.redux.client.renderer.entity.phyg.PhygReduxModel;
 import net.zepalesque.redux.client.renderer.entity.sheepuff.SheepuffReduxLayer;
 import net.zepalesque.redux.client.renderer.entity.sheepuff.SheepuffReduxModel;
 import net.zepalesque.redux.client.renderer.entity.slider.SliderSignalLayer;
@@ -54,6 +59,7 @@ public class ReduxRenderers {
 		event.registerLayerDefinition(ModelLayers.MOA, MoaReduxModel::createBodyLayer);
 		event.registerLayerDefinition(ModelLayers.COCKATRICE, CockatriceReduxModel::createRefreshedLayer);
 		event.registerLayerDefinition(ModelLayers.FLYING_COW, FlyingCowReduxModel::createBodyLayer);
+		event.registerLayerDefinition(ModelLayers.PHYG, PhygReduxModel::createBodyLayer);
 		event.registerLayerDefinition(ModelLayers.CAT_FISH, CatFishModel::createBodyLayer);
 		event.registerLayerDefinition(ModelLayers.SHEEPUFF, SheepuffReduxModel::createBodyLayer);
 		event.registerLayerDefinition(ArtemidModel.LAYER_LOCATION, ArtemidModel::createBodyLayer);
@@ -78,14 +84,18 @@ public class ReduxRenderers {
 	@SubscribeEvent
 	public static void addRenderLayers(EntityRenderersEvent.AddLayers event) {
 		var ctx = event.getContext();
-		if (event.getRenderer(AetherEntityTypes.SLIDER.get()) instanceof SliderRenderer renderer)
-			renderer.addLayer(new SliderSignalLayer(renderer));
-		if (event.getRenderer(AetherEntityTypes.SHEEPUFF.get()) instanceof SheepuffRenderer sheepuff)
-			sheepuff.addLayer(new SheepuffReduxLayer(sheepuff, ctx));
-		if (event.getRenderer(AetherEntityTypes.MOA.get()) instanceof MoaRenderer moa)
-			moa.addLayer(new MoaReduxLayer(moa, ctx));
-		if (event.getRenderer(AetherEntityTypes.COCKATRICE.get()) instanceof CockatriceRenderer cockatrice)
-			cockatrice.addLayer(new CockatriceReduxLayer(cockatrice, ctx));
+		if (event.getRenderer(AetherEntityTypes.SLIDER.get()) instanceof SliderRenderer rend)
+			rend.addLayer(new SliderSignalLayer(rend));
+		if (event.getRenderer(AetherEntityTypes.SHEEPUFF.get()) instanceof SheepuffRenderer rend)
+			rend.addLayer(new SheepuffReduxLayer(rend, ctx));
+		if (event.getRenderer(AetherEntityTypes.MOA.get()) instanceof MoaRenderer rend)
+			rend.addLayer(new MoaReduxLayer(rend, ctx));
+		if (event.getRenderer(AetherEntityTypes.COCKATRICE.get()) instanceof CockatriceRenderer rend)
+			rend.addLayer(new CockatriceReduxLayer(rend, ctx));
+		if (event.getRenderer(AetherEntityTypes.FLYING_COW.get()) instanceof FlyingCowRenderer rend)
+			rend.addLayer(new FlyingCowReduxLayer(rend, ctx));
+		if (event.getRenderer(AetherEntityTypes.PHYG.get()) instanceof PhygRenderer rend)
+			rend.addLayer(new PhygReduxLayer(rend, ctx));
 	}
 
 	public static void registerAccessoryRenderers() {}
@@ -129,6 +139,7 @@ public class ReduxRenderers {
 		public static final ModelLayerLocation MOA = register("moa");
 		public static final ModelLayerLocation COCKATRICE = register("cockatrice");
 		public static final ModelLayerLocation FLYING_COW = register("flying_cow");
+		public static final ModelLayerLocation PHYG = register("phyg");
 
 		private static ModelLayerLocation register(String name) {
 			return register(name, "main");
