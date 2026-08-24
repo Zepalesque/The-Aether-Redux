@@ -26,9 +26,7 @@ public class MoaModelMixin extends BipedBirdModelMixin<Moa> {
 
     @Inject(method = "setupAnim(Lcom/aetherteam/aether/entity/passive/Moa;FFFFF)V", at = @At(value = "TAIL"), remap = false)
     public void setupAnim(Moa moa, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, CallbackInfo ci) {
-        if (this.useNewModel && !moa.isSitting()) {
-            this.jaw.xRot = 0.15F;
-        }
+        if (this.useNewModel && !moa.isSitting()) this.jaw.xRot = 0.15F;
         
         var mc = Minecraft.getInstance();
         var ticker = moa.level().tickRateManager();
@@ -40,7 +38,7 @@ public class MoaModelMixin extends BipedBirdModelMixin<Moa> {
 
             var attachment = MoaAnimAttachment.get(moa);
             var progress = attachment.getLegAnim(moa, partial);
-
+            
             var sin = EasingUtil.Sinusoidal.inOut(progress);
             this.rightLeg.xRot = Mth.lerp(sin, swingCalc, 0.6F);
             this.leftLeg.xRot = Mth.lerp(sin, -swingCalc, 0.6F);

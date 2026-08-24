@@ -19,14 +19,6 @@ public final class MoaAnimAttachment {
         return moa.getData(ReduxDataAttachments.MOA_ANIM.get());
     }
 
-    public byte getLegAnimByte(Moa moa) {
-        return this.legAnim;
-    }
-
-    public byte getPrevLegAnimByte(Moa moa) {
-        return this.prevLegAnim;
-    }
-    
     public float getLegAnim(Moa moa, float partial) {
         return Mth.lerp(partial, this.prevLegAnim, this.legAnim) * 0.2f;
     }

@@ -179,6 +179,7 @@ public final class ReduxConfig {
 		public final ModConfigSpec.BooleanValue defer_whirlwind_rendering;
 		public final ModConfigSpec.BooleanValue improved_sheepuffs;
 		public final ModConfigSpec.BooleanValue improved_moas;
+		public final ModConfigSpec.BooleanValue improved_cockatrices;
 		public final ModConfigSpec.BooleanValue improved_aerbunnies;
 		public final ModConfigSpec.BooleanValue move_clouds;
 
@@ -217,6 +218,10 @@ public final class ReduxConfig {
 				.comment("Enables Redux's updated Moa model")
 				.translation(trans.transKey(builder, "improved_moas"))
 				.define("Improved Moas", true));
+			this.improved_cockatrices = trans.add(builder
+				.comment("Enables Redux's updated Cockatrice model")
+				.translation(trans.transKey(builder, "improved_cockatrices"))
+				.define("Improved Cockatrices", true));
 			this.improved_aerbunnies = trans.add(builder
 				.comment("Enables Redux's updated Aerbunny model")
 				.translation(trans.transKey(builder, "improved_aerbunnies"))

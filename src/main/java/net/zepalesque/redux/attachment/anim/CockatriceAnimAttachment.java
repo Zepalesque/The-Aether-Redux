@@ -1,8 +1,12 @@
 package net.zepalesque.redux.attachment.anim;
 
 import com.aetherteam.aether.entity.monster.Cockatrice;
+import com.aetherteam.aether.entity.passive.Moa;
+import net.minecraft.util.Mth;
 import net.zepalesque.redux.attachment.CockatriceShootingAttachment;
+import net.zepalesque.redux.attachment.ReduxDataAttachments;
 import net.zepalesque.redux.config.ReduxConfig;
+import org.jetbrains.annotations.NotNull;
 
 public class CockatriceAnimAttachment {
 	// All of these are client-only
@@ -10,6 +14,10 @@ public class CockatriceAnimAttachment {
 	byte prevTargetAnim;
 	byte legAnim;
 	byte prevLegAnim;
+	
+	public static @NotNull CockatriceAnimAttachment get(@NotNull Cockatrice birb) {
+		return birb.getData(ReduxDataAttachments.COCKATRICE_ANIM.get());
+	}
 	
 	public byte getTargetAnim() {
 		return this.targetAnim;
@@ -19,12 +27,13 @@ public class CockatriceAnimAttachment {
 		return this.prevTargetAnim;
 	}
 	
-	public byte getLegAnim() {
-		return this.legAnim;
+	
+	public float getTargetAnim(Cockatrice birb, float partial) {
+		return Mth.lerp(partial, this.prevTargetAnim, this.targetAnim) * 0.1F;
 	}
 	
-	public byte getPrevLegAnim() {
-		return this.prevLegAnim;
+	public float getLegAnim(Cockatrice birb, float partial) {
+		return Mth.lerp(partial, this.prevLegAnim, this.legAnim) * 0.2f;
 	}
 	
 	public void clientTick(Cockatrice birb) {

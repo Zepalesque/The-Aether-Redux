@@ -1,5 +1,6 @@
 package net.zepalesque.redux.client.renderer;
 
+import com.aetherteam.aether.client.renderer.entity.CockatriceRenderer;
 import com.aetherteam.aether.client.renderer.entity.MoaRenderer;
 import com.aetherteam.aether.client.renderer.entity.SheepuffRenderer;
 import com.aetherteam.aether.client.renderer.entity.SliderRenderer;
@@ -30,6 +31,8 @@ import net.zepalesque.redux.client.renderer.entity.artemid.ArtemidModel;
 import net.zepalesque.redux.client.renderer.entity.artemid.ArtemidRenderer;
 import net.zepalesque.redux.client.renderer.entity.catfish.CatFishModel;
 import net.zepalesque.redux.client.renderer.entity.catfish.CatFishRenderer;
+import net.zepalesque.redux.client.renderer.entity.cockatrice.CockatriceReduxLayer;
+import net.zepalesque.redux.client.renderer.entity.cockatrice.CockatriceReduxModel;
 import net.zepalesque.redux.client.renderer.entity.ember.EmberRenderer;
 import net.zepalesque.redux.client.renderer.entity.moa.MoaReduxLayer;
 import net.zepalesque.redux.client.renderer.entity.moa.MoaReduxModel;
@@ -48,6 +51,7 @@ public class ReduxRenderers {
 	public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
 		event.registerLayerDefinition(ModelLayers.WHIRLWIND, WhirlwindModel::createBodyLayer);
 		event.registerLayerDefinition(ModelLayers.MOA, MoaReduxModel::createBodyLayer);
+		event.registerLayerDefinition(ModelLayers.COCKATRICE, CockatriceReduxModel::createRefreshedLayer);
 		event.registerLayerDefinition(ModelLayers.CAT_FISH, CatFishModel::createBodyLayer);
 		event.registerLayerDefinition(ModelLayers.SHEEPUFF, SheepuffReduxModel::createBodyLayer);
 		event.registerLayerDefinition(ArtemidModel.LAYER_LOCATION, ArtemidModel::createBodyLayer);
@@ -78,6 +82,8 @@ public class ReduxRenderers {
 			sheepuff.addLayer(new SheepuffReduxLayer(sheepuff, ctx));
 		if (event.getRenderer(AetherEntityTypes.MOA.get()) instanceof MoaRenderer moa)
 			moa.addLayer(new MoaReduxLayer(moa, ctx));
+		if (event.getRenderer(AetherEntityTypes.COCKATRICE.get()) instanceof CockatriceRenderer cockatrice)
+			cockatrice.addLayer(new CockatriceReduxLayer(cockatrice, ctx));
 	}
 
 	public static void registerAccessoryRenderers() {}
@@ -119,6 +125,7 @@ public class ReduxRenderers {
 		public static final ModelLayerLocation CAT_FISH = register("cat_fish");
 		public static final ModelLayerLocation SHEEPUFF = register("sheepuff");
 		public static final ModelLayerLocation MOA = register("moa");
+		public static final ModelLayerLocation COCKATRICE = register("cockatrice");
 
 		private static ModelLayerLocation register(String name) {
 			return register(name, "main");
