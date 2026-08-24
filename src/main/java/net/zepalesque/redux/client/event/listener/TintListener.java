@@ -12,20 +12,20 @@ import net.zepalesque.redux.block.ReduxBlocks;
 
 @EventBusSubscriber(Dist.CLIENT)
 public class TintListener {
-	
-	public static final PerlinNoise PRISMA_NOISE = PerlinNoise.create(new XoroshiroRandomSource(2743), IntStream.of(0));
+	//public static final PerlinNoise PRISMA_NOISE = PerlinNoise.create(new XoroshiroRandomSource(2743), IntStream.of(0));
 	
 	@SubscribeEvent
 	public static void registerTintHandlers(RegisterColorHandlersEvent.Block event) {
 		event.register(
 			(state, level, pos, tintIndex) -> {
 				pos = pos == null ? BlockPos.ZERO : pos;
-				final var posScale = 50d;
-				final var sampleScale = 65d;
-				var noise = PRISMA_NOISE.getValue(pos.getX() / posScale, pos.getY() / posScale, pos.getZ() / posScale) * sampleScale;
+				//final var posScale = 50d;
+				//final var sampleScale = 65d;
+				//var noise = PRISMA_NOISE.getValue(pos.getX() / posScale, pos.getY() / posScale, pos.getZ() / posScale) * sampleScale;
 				
 				// Distance from 0, 0 using pythagorean theorem
-//				var dist = Math.sqrt(Math.pow(pos.getX(), 2) + Math.pow(pos.getZ(), 2));
+				var dist = Math.sqrt(Math.pow(pos.getX(), 2) + Math.pow(pos.getZ(), 2));
+				dist /= 2.5;
 				
 				// Creating the color channels using the sine of the dist.
 				// The steps are:
@@ -33,10 +33,10 @@ public class TintListener {
 				// - Multiply the result by 128, so they go from -128:128 (range of a signed byte)
 				// - Convert to a byte
 				// - Add 128, to account for signedness
-				var r = (byte)(Math.sin(noise) * 128) + 128;
-				var g = (byte)(-Math.sin(noise) * 128) + 128;
-				var b1 = (byte)(Math.cos(noise) * 128) + 128;
-				var b2 = (byte)(-Math.cos(noise) * 128) + 128;
+				var r = (byte)(Math.sin(dist) * 128) + 128;
+				var g = (byte)(-Math.sin(dist) * 128) + 128;
+				var b1 = (byte)(Math.cos(dist) * 128) + 128;
+				var b2 = (byte)(-Math.cos(dist) * 128) + 128;
 				var b = Math.max(b1, b2);
 				
 				// Clamping the values to create a pastel look
