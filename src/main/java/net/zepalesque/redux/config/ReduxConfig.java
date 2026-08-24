@@ -181,6 +181,7 @@ public final class ReduxConfig {
 		public final ModConfigSpec.BooleanValue improved_moas;
 		public final ModConfigSpec.BooleanValue improved_cockatrices;
 		public final ModConfigSpec.BooleanValue improved_aerbunnies;
+		public final ModConfigSpec.BooleanValue improved_flying_cows;
 		public final ModConfigSpec.BooleanValue move_clouds;
 
 		public final ModConfigSpec.BooleanValue slider_sfx_upgrade;
@@ -226,6 +227,10 @@ public final class ReduxConfig {
 				.comment("Enables Redux's updated Aerbunny model")
 				.translation(trans.transKey(builder, "improved_aerbunnies"))
 				.define("Improved Aerbunnies", true));
+			this.improved_flying_cows = trans.add(builder
+				.comment("Enables Redux's updated Flying Cow model")
+				.translation(trans.transKey(builder, "improved_flying_cows"))
+				.define("Improved Flying Cow", true));
 			this.move_clouds = trans.add(builder
 				.comment("Move the clouds in the Aether to above the islands")
 				.translation(trans.transKey(builder, "move_clouds"))

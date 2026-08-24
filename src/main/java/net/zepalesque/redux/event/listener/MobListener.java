@@ -17,6 +17,7 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.attachment.CockatriceShootingAttachment;
 import net.zepalesque.redux.attachment.ReduxPlayerAttachment;
 import net.zepalesque.redux.attachment.anim.AerbunnyAnimAttachment;
+import net.zepalesque.redux.attachment.anim.CockatriceAnimAttachment;
 import net.zepalesque.redux.attachment.anim.MoaAnimAttachment;
 import net.zepalesque.redux.attachment.anim.SliderSignalAttachment;
 import net.zepalesque.redux.config.ReduxConfig;
@@ -45,20 +46,21 @@ public class MobListener {
 		// meanwhile in another universe: `match entity { player: Player => { .. }, .. }`
 		switch (entity) {
 			case Player player -> {
-				var attachment = ReduxPlayerAttachment.get(player);
-				attachment.onUpdate(player);
+				var att = ReduxPlayerAttachment.get(player);
+				att.onUpdate(player);
 			} case Slider slider when client -> {
-				var attachment = SliderSignalAttachment.get(slider);
-				attachment.onUpdate(slider);
+				var att = SliderSignalAttachment.get(slider);
+				att.onUpdate(slider);
 			} case Moa moa when client -> {
-				var attachment = MoaAnimAttachment.get(moa);
-				attachment.onUpdate(moa);
+				var att = MoaAnimAttachment.get(moa);
+				att.onUpdate(moa);
 			} case Cockatrice cockatrice -> {
 				if (!client) {
 					var att = CockatriceShootingAttachment.get(cockatrice);
 					att.serverTick(cockatrice);
 				} else {
-					// TODO: leg and shooting ANIMATION attachment
+					var att = CockatriceAnimAttachment.get(cockatrice);
+					att.clientTick(cockatrice);
 				}
 			} case Aerbunny bnuuy -> {
 				var att = AerbunnyAnimAttachment.get(bnuuy);

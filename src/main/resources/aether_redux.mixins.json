@@ -47,6 +47,7 @@
     "client.renderer.CockatriceModelMixin",
     "client.renderer.EntityModelMixin",
     "client.renderer.EntityRendererMixin",
+    "client.renderer.FlyingCowModelMixin",
     "client.renderer.LivingEntityRendererMixin",
     "client.renderer.MoaModelMixin",
     "client.renderer.MoaRendererMixin",

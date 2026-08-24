@@ -72,7 +72,7 @@ public final class CockatriceShootingAttachment implements INBTSynchable {
 	private static final int REFRESH_RESET = 200;
 	private static final int GROUP_THRESHOLD = 3;
 	
-	// SAFETY: must be done on server only
+	/// SAFETY: must be done on server only
 	public void serverTick(Cockatrice birb) {
 		if (ReduxConfig.SERVER.improved_cockatrice_behavior.get()) {
 			var target = birb.getTarget();

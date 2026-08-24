@@ -19,15 +19,6 @@ public class CockatriceAnimAttachment {
 		return birb.getData(ReduxDataAttachments.COCKATRICE_ANIM.get());
 	}
 	
-	public byte getTargetAnim() {
-		return this.targetAnim;
-	}
-	
-	public byte getPrevTargetAnim() {
-		return this.prevTargetAnim;
-	}
-	
-	
 	public float getTargetAnim(Cockatrice birb, float partial) {
 		return Mth.lerp(partial, this.prevTargetAnim, this.targetAnim) * 0.1F;
 	}

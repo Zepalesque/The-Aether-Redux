@@ -34,6 +34,7 @@ import net.zepalesque.redux.client.renderer.entity.catfish.CatFishRenderer;
 import net.zepalesque.redux.client.renderer.entity.cockatrice.CockatriceReduxLayer;
 import net.zepalesque.redux.client.renderer.entity.cockatrice.CockatriceReduxModel;
 import net.zepalesque.redux.client.renderer.entity.ember.EmberRenderer;
+import net.zepalesque.redux.client.renderer.entity.flying_cow.FlyingCowReduxModel;
 import net.zepalesque.redux.client.renderer.entity.moa.MoaReduxLayer;
 import net.zepalesque.redux.client.renderer.entity.moa.MoaReduxModel;
 import net.zepalesque.redux.client.renderer.entity.sheepuff.SheepuffReduxLayer;
@@ -52,6 +53,7 @@ public class ReduxRenderers {
 		event.registerLayerDefinition(ModelLayers.WHIRLWIND, WhirlwindModel::createBodyLayer);
 		event.registerLayerDefinition(ModelLayers.MOA, MoaReduxModel::createBodyLayer);
 		event.registerLayerDefinition(ModelLayers.COCKATRICE, CockatriceReduxModel::createRefreshedLayer);
+		event.registerLayerDefinition(ModelLayers.FLYING_COW, FlyingCowReduxModel::createBodyLayer);
 		event.registerLayerDefinition(ModelLayers.CAT_FISH, CatFishModel::createBodyLayer);
 		event.registerLayerDefinition(ModelLayers.SHEEPUFF, SheepuffReduxModel::createBodyLayer);
 		event.registerLayerDefinition(ArtemidModel.LAYER_LOCATION, ArtemidModel::createBodyLayer);
@@ -126,6 +128,7 @@ public class ReduxRenderers {
 		public static final ModelLayerLocation SHEEPUFF = register("sheepuff");
 		public static final ModelLayerLocation MOA = register("moa");
 		public static final ModelLayerLocation COCKATRICE = register("cockatrice");
+		public static final ModelLayerLocation FLYING_COW = register("flying_cow");
 
 		private static ModelLayerLocation register(String name) {
 			return register(name, "main");
