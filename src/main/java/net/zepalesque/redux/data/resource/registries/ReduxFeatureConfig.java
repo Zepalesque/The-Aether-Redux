@@ -20,11 +20,9 @@ import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.Mth;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.ConstantFloat;
 import net.minecraft.util.valueproviders.ConstantInt;
-import net.minecraft.util.valueproviders.UniformFloat;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -42,6 +40,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConf
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.VegetationPatchConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.SpruceFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.RuleBasedBlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
@@ -71,7 +70,6 @@ import net.zepalesque.redux.world.tree.foliage.BlightwillowFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.CloudcapFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.CrystalFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.HookedFoliagePlacer;
-import net.zepalesque.redux.world.tree.foliage.MoonfirFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.PrismaFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.SkyrootFoliagePlacer;
 import net.zepalesque.redux.world.tree.foliage.SmallGoldenOakFoliagePlacer;
@@ -478,7 +476,8 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 				prov(ReduxWoodSets.MOONFIR.log()),
 				new StraightTrunkPlacer(8, 1, 1),
 				prov(ReduxLeafSets.MOONFIR.leaves()),
-				new MoonfirFoliagePlacer(
+				new SpruceFoliagePlacer(UniformInt.of(2, 3), ConstantInt.of(1), ConstantInt.of(9)),
+/* 				new MoonfirFoliagePlacer(
 					ConstantInt.of(4),
 					ConstantInt.of(1),
 					UniformInt.of(8, 10),
@@ -486,7 +485,7 @@ public class ReduxFeatureConfig extends ReduxFeatureBuilders {
 					UniformFloat.of(0.6f, 1.4f),
 					UniformFloat.of(0.0f, Mth.TWO_PI),
 					UniformFloat.of(0.8f, 1.4f)
-				),
+				), */
 				new TwoLayersFeatureSize(1, 0, 1)
 			).ignoreVines().build()
 		);
