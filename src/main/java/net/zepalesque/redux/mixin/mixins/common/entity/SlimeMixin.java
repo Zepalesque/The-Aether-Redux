@@ -1,6 +1,5 @@
 package net.zepalesque.redux.mixin.mixins.common.entity;
 
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.EntityType;
@@ -36,8 +35,7 @@ public abstract class SlimeMixin extends MobMixin {
     @Inject(method = "finalizeSpawn", at = @At("TAIL"))
     protected void redux$finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType spawnType, SpawnGroupData spawnGroupData, CallbackInfoReturnable<SpawnGroupData> cir) {}
 
-    @Unique
-    protected EntityDataAccessor<Integer> getIdSize() {
+    @Unique protected EntityDataAccessor<Integer> getIdSize() {
         return ID_SIZE;
     }
 }

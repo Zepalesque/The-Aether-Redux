@@ -2,6 +2,10 @@ package net.zepalesque.redux.event.hook;
 
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.entity.monster.Swet;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+import javax.annotation.Nullable;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.util.Mth;
@@ -11,15 +15,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SpawnEggItem;
-import net.zepalesque.redux.attachment.SwetMassAttaachment;
 import net.zepalesque.redux.client.particle.ReduxParticles;
 import net.zepalesque.redux.entity.ai.goal.HuntNoConsumeGoal;
 import net.zepalesque.redux.entity.ai.target.FollowUnabsorbedTargetGoal;
-
-import javax.annotation.Nullable;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
 
 public class SwetHooks {
     public static void modifySwetAI(Swet swet) {

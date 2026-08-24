@@ -1,7 +1,6 @@
 package net.zepalesque.redux.attachment.anim;
 
 import com.aetherteam.aether.entity.monster.Cockatrice;
-import com.aetherteam.aether.entity.passive.Moa;
 import net.minecraft.util.Mth;
 import net.zepalesque.redux.attachment.CockatriceShootingAttachment;
 import net.zepalesque.redux.attachment.ReduxDataAttachments;

@@ -4,6 +4,7 @@ import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.client.renderer.entity.model.CockatriceModel;
 import com.aetherteam.aether.entity.monster.Cockatrice;
 import com.mojang.blaze3d.vertex.PoseStack;
+import javax.annotation.Nonnull;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -19,8 +20,6 @@ import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.util.LegacyAnimUtil;
 import net.zepalesque.zenith.util.math.EasingUtil;
 import org.jetbrains.annotations.NotNull;
-
-import javax.annotation.Nonnull;
 
 public class CockatriceReduxLayer extends RenderLayer<Cockatrice, CockatriceModel> {
     private final CockatriceReduxModel model;

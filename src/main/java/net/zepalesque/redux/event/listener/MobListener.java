@@ -25,7 +25,6 @@ import net.zepalesque.redux.attachment.anim.SliderSignalAttachment;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.event.hook.MobHooks;
 import net.zepalesque.redux.event.hook.QuicksoilHooks;
-import net.zepalesque.redux.event.hook.SwetHooks;
 import net.zepalesque.redux.network.packet.AerbunnyAnimTriggerPacket;
 
 @EventBusSubscriber(modid = Redux.MODID)

@@ -1,13 +1,12 @@
 package net.zepalesque.redux.entity.ai.target;
 
+import java.util.function.Predicate;
+import javax.annotation.Nullable;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.player.Player;
-
-import javax.annotation.Nullable;
-import java.util.function.Predicate;
 
 public class FollowUnabsorbedTargetGoal<T extends LivingEntity> extends NearestAttackableTargetGoal<T> {
     public FollowUnabsorbedTargetGoal(Mob mob, Class<T> targetClass, int reciprocalChance, boolean checkVisibility, boolean checkCanNavigate, @Nullable Predicate<LivingEntity> targetPredicate) {

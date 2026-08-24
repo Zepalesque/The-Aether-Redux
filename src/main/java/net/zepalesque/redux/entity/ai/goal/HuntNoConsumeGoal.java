@@ -1,10 +1,9 @@
 package net.zepalesque.redux.entity.ai.goal;
 
 import com.aetherteam.aether.entity.monster.Swet;
+import java.util.EnumSet;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.player.Player;
-
-import java.util.EnumSet;
 
 public class HuntNoConsumeGoal extends Goal {
     private final Swet swet;

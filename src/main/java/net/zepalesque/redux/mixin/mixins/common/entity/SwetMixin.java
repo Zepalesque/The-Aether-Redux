@@ -3,6 +3,7 @@ package net.zepalesque.redux.mixin.mixins.common.entity;
 import com.aetherteam.aether.entity.monster.Swet;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import javax.annotation.Nullable;
 import net.minecraft.util.Mth;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
@@ -27,8 +28,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import javax.annotation.Nullable;
-
 @Mixin(Swet.class)
 public abstract class SwetMixin extends SlimeMixin {
 
@@ -43,8 +42,7 @@ public abstract class SwetMixin extends SlimeMixin {
     @Shadow
     public abstract EntityDimensions getDefaultDimensions(Pose pose);
     
-    @Unique
-    private static final EntityDimensions redux$dimensions = EntityDimensions.scalable(2.04F, 2.04F);
+    @Unique private static final EntityDimensions redux$dimensions = EntityDimensions.scalable(2.04F, 2.04F);
 
     @Override
     protected void redux$doPush(Entity entity, CallbackInfo ci) {

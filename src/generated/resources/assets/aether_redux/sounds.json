@@ -19,6 +19,10 @@
 		"sounds": ["aether_redux:entity/slider/signal"],
 		"subtitle": "subtitles.aether_redux.entity.slider.signal"
 	},
+	"entity.swet.attack": {
+		"sounds": ["mob/slime/attack1", "mob/slime/attack2"],
+		"subtitle": "subtitles.aether_redux.entity.swet.attack"
+	},
 	"item.aerbound_cape.aerjump": {
 		"sounds": ["aether_redux:item/aerbound_cape/aerjump"],
 		"subtitle": "subtitles.aether_redux.item.aerbound_cape.aerjump"

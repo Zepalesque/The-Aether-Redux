@@ -1,5 +1,6 @@
 package net.zepalesque.redux.data.resource.registries;
 
+import javax.annotation.Nullable;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
@@ -10,8 +11,6 @@ import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.zepalesque.redux.Redux;
-
-import javax.annotation.Nullable;
 
 public final class ReduxDamages {
 	public static final ResourceKey<DamageType> EMBER = createKey("ember");

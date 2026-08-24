@@ -1,7 +1,7 @@
 package net.zepalesque.redux.client.particle;
 
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
+import java.util.function.Function;
 import net.minecraft.client.particle.FlameParticle;
 import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.core.particles.ItemParticleOption;
@@ -21,8 +21,6 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.zepalesque.redux.Redux;
 import org.joml.Vector3f;
-
-import java.util.function.Function;
 
 @EventBusSubscriber(modid = Redux.MODID, value = Dist.CLIENT)
 public class ReduxParticles {

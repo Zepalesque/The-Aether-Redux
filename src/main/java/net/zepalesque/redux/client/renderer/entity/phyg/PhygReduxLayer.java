@@ -3,7 +3,6 @@ package net.zepalesque.redux.client.renderer.entity.phyg;
 import com.aetherteam.aether.Aether;
 import com.aetherteam.aether.entity.passive.Phyg;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.PigModel;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -13,9 +12,7 @@ import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.resources.ResourceLocation;
-import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.client.renderer.ReduxRenderers;
-import net.zepalesque.redux.client.renderer.entity.flying_cow.FlyingCowReduxModel;
 import net.zepalesque.redux.config.ReduxConfig;
 import org.jetbrains.annotations.NotNull;
 

@@ -1,5 +1,6 @@
 package net.zepalesque.redux.mixin.mixins.common.entity;
 
+import javax.annotation.Nullable;
 import net.minecraft.core.Holder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -14,8 +15,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import javax.annotation.Nullable;
-
 @Mixin(LivingEntity.class)
 @SuppressWarnings("CancellableInjectionUsage")
 public abstract class LivingEntityMixin extends EntityMixin {
@@ -23,8 +22,7 @@ public abstract class LivingEntityMixin extends EntityMixin {
 	public abstract float getSpeed();
 	
 	@Shadow
-	@Nullable
-	public abstract AttributeInstance getAttribute(Holder<Attribute> attribute);
+	@Nullable public abstract AttributeInstance getAttribute(Holder<Attribute> attribute);
 	
 	@Shadow
 	public abstract void setHealth(float health);
