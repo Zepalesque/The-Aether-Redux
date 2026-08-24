@@ -6,6 +6,8 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.EntityTypeTagsProvider;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EntityType;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.data.ReduxTags;
@@ -32,5 +34,13 @@ public class ReduxEntityTagsData extends EntityTypeTagsProvider {
 		this.tag(ReduxTags.Entities.SENTRITE_MUSIC_DISC_DROPPING)
 			.addTag(ReduxTags.Entities.SENTRIES)
 			.remove(AetherEntityTypes.SLIDER.get());
+		
+		this.tag(ReduxTags.Entities.SWET_PASSTHROUGH).add(
+			EntityType.SLIME,
+			AetherEntityTypes.ZEPHYR.get(),
+			AetherEntityTypes.MOA.get(),
+			AetherEntityTypes.COCKATRICE.get(),
+			AetherEntityTypes.AECHOR_PLANT.get()
+		).addOptional(ResourceLocation.fromNamespaceAndPath("aether_genesis", "tempest"));
 	}
 }

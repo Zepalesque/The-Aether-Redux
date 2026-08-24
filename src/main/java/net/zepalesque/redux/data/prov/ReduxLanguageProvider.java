@@ -1,6 +1,8 @@
 package net.zepalesque.redux.data.prov;
 
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.damagesource.DamageType;
 import net.neoforged.neoforge.common.ModConfigSpec;
 import net.zepalesque.redux.mixin.mixins.common.accessor.LangProviderAccessor;
 import net.zepalesque.unity.data.prov.UnityLanguageProvider;
@@ -26,6 +28,14 @@ public abstract class ReduxLanguageProvider extends UnityLanguageProvider {
 		var key = cfg.getSpec().getTranslationKey();
 		if (key == null) return;
 		this.add(key, cfg.getPath().getLast());
+	}
+	
+	protected void addDeath(ResourceKey<DamageType> key, String name) {
+		this.add("death.attack." + this.id + "." + key.location().getPath(), name);
+	}
+	
+	protected void addDeathByPlayer(ResourceKey<DamageType> key, String name) {
+		this.add("death.attack." + this.id + "." + key.location().getPath() + ".player", name);
 	}
 
 	/*private CompletableFuture<?> generateTips(CompletableFuture<?> languageGen, CachedOutput cache) {

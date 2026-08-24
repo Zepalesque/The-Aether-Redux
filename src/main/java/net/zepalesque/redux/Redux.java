@@ -1,5 +1,7 @@
 package net.zepalesque.redux;
 
+import com.aetherteam.aether.entity.AetherEntityTypes;
+import com.aetherteam.aether.item.AetherItems;
 import com.google.common.reflect.Reflection;
 import com.mojang.logging.LogUtils;
 import io.github.razordevs.aeroblender.aether.AetherRuleCategory;
@@ -38,6 +40,7 @@ import net.zepalesque.redux.config.ReduxConfigHandler;
 import net.zepalesque.redux.data.ReduxData;
 import net.zepalesque.redux.data.ReduxDataMaps;
 import net.zepalesque.redux.entity.ReduxEntities;
+import net.zepalesque.redux.event.hook.SwetHooks;
 import net.zepalesque.redux.extstate.ReduxStateLists;
 import net.zepalesque.redux.item.ReduxItems;
 import net.zepalesque.redux.item.components.ReduxDataComponents;
@@ -147,6 +150,9 @@ public final class Redux {
 			ReduxBlocks.registerToolConversions();
 			ReduxItems.ACCESSORIES.registerAccessories();
 			ReduxEntities.addBossConversions();
+			
+			// TODO
+			SwetHooks.registerParticle(AetherEntityTypes.BLUE_SWET.get(), AetherItems.SWET_BALL.get());
 		});
 	}
 

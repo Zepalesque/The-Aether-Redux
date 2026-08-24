@@ -35,6 +35,9 @@ public class ReduxSounds {
 	public static final DeferredHolder<SoundEvent, SoundEvent>
 		SLIDER_SIGNAL = register("entity.slider.signal");
 
+	public static final DeferredHolder<SoundEvent, SoundEvent>
+		SWET_ATTACK = register("entity.swet.attack");
+
 	private static DeferredHolder<SoundEvent, SoundEvent> register(String location) {
 		return SOUNDS.register(location, () ->
 			SoundEvent.createVariableRangeEvent(Redux.loc(location))

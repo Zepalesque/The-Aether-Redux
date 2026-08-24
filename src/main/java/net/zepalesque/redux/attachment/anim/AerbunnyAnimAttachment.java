@@ -22,7 +22,7 @@ import net.zepalesque.redux.util.MiscUtil;
 import org.apache.commons.lang3.tuple.Triple;
 import org.jetbrains.annotations.NotNull;
 
-public class AerbunnyAnimAttachment implements INBTSynchable {
+public final class AerbunnyAnimAttachment implements INBTSynchable {
 	// server to client
 	long lastStateChange = -ReduxAerbunnyAnimations.LAND_TICKS;
 	// server to client

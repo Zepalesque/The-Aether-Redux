@@ -59,6 +59,8 @@ public class ReduxTags {
 
 		public static final TagKey<EntityType<?>> SENTRITE_MUSIC_DISC_DROPPING = tag("sentrite_music_disc_dropping");
 
+		public static final TagKey<EntityType<?>> SWET_PASSTHROUGH = tag("swet_passthrough");
+		
 		private static TagKey<EntityType<?>> tag(String name) {
 			return TagKey.create(Registries.ENTITY_TYPE, Redux.loc(name));
 		}

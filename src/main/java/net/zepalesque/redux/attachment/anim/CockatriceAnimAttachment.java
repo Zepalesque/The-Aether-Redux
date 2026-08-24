@@ -8,7 +8,7 @@ import net.zepalesque.redux.attachment.ReduxDataAttachments;
 import net.zepalesque.redux.config.ReduxConfig;
 import org.jetbrains.annotations.NotNull;
 
-public class CockatriceAnimAttachment {
+public final class CockatriceAnimAttachment {
 	// All of these are client-only
 	byte targetAnim;
 	byte prevTargetAnim;

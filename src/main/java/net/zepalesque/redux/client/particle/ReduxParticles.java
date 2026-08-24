@@ -1,10 +1,16 @@
 package net.zepalesque.redux.client.particle;
 
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.client.particle.FlameParticle;
 import net.minecraft.core.particles.DustParticleOptions;
+import net.minecraft.core.particles.ItemParticleOption;
+import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
@@ -15,6 +21,8 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.zepalesque.redux.Redux;
 import org.joml.Vector3f;
+
+import java.util.function.Function;
 
 @EventBusSubscriber(modid = Redux.MODID, value = Dist.CLIENT)
 public class ReduxParticles {
@@ -44,6 +52,13 @@ public class ReduxParticles {
 		LANDING_CLOUDCAP_SPORE = PARTICLES.register("landing_cloudcap_spore", () -> new SimpleParticleType(false)),
 		CLOUDCAP_AIR_SPORE = PARTICLES.register("cloudcap_air_spore", () -> new SimpleParticleType(false)),
 		BLOSSOM_FLARE = PARTICLES.register("blossom_flare", () -> new SimpleParticleType(false));
+	
+	public static final DeferredHolder<ParticleType<?>, ParticleType<ItemParticleOption>> RANDOM_MOVEMENT_ITEM = register(
+		"random_movement_item",
+		false,
+		ItemParticleOption::codec,
+		ItemParticleOption::streamCodec
+	);
 
 	@SubscribeEvent
 	@OnlyIn(Dist.CLIENT)
@@ -64,5 +79,24 @@ public class ReduxParticles {
 		event.registerSpriteSet(LANDING_CLOUDCAP_SPORE.get(), CloudcapSporeParticle.Landing::new);
 		event.registerSpriteSet(CLOUDCAP_AIR_SPORE.get(), CloudcapAirSporeParticle.Provider::new);
 		event.registerSpriteSet(BLOSSOM_FLARE.get(), FlameParticle.Provider::new);
+	}
+	
+	private static <T extends ParticleOptions> DeferredHolder<ParticleType<?>, ParticleType<T>> register(
+		String name,
+		boolean overrideLimitter,
+		final Function<ParticleType<T>, MapCodec<T>> codecGetter,
+		final Function<ParticleType<T>, StreamCodec<? super RegistryFriendlyByteBuf, T>> streamCodecGetter
+	) {
+		return PARTICLES.register(name, () -> new ParticleType<T>(overrideLimitter) {
+			@Override
+			public MapCodec<T> codec() {
+				return codecGetter.apply(this);
+			}
+			
+			@Override
+			public StreamCodec<? super RegistryFriendlyByteBuf, T> streamCodec() {
+				return streamCodecGetter.apply(this);
+			}
+		});
 	}
 }

@@ -15,6 +15,7 @@ import net.zepalesque.redux.data.resource.registries.ReduxBiomeModifiers;
 import net.zepalesque.redux.data.resource.registries.ReduxBiomes;
 import net.zepalesque.redux.data.resource.registries.ReduxCarverConfig;
 import net.zepalesque.redux.data.resource.registries.ReduxConditions;
+import net.zepalesque.redux.data.resource.registries.ReduxDamages;
 import net.zepalesque.redux.data.resource.registries.ReduxDensityFunctions;
 import net.zepalesque.redux.data.resource.registries.ReduxFeatureConfig;
 import net.zepalesque.redux.data.resource.registries.ReduxFeaturePlacements;
@@ -36,6 +37,7 @@ public class ReduxRegistrySets extends DatapackBuiltinEntriesProvider {
 			.add(Registries.JUKEBOX_SONG, ReduxJukeboxSongs::bootstrap)
 			.add(Registries.NOISE, ReduxNoises::bootstrap)
 			.add(Registries.PLACED_FEATURE, ReduxFeaturePlacements::bootstrap)
+			.add(Registries.DAMAGE_TYPE, ReduxDamages::bootstrap)
 			.add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ReduxBiomeModifiers::bootstrap)
 			.add(NeoForgeRegistries.Keys.STRUCTURE_MODIFIERS, ReduxStructureModifiers::bootstrap)
 			.add(Zenith.Keys.CONDITION, ReduxConditions::bootstrap)

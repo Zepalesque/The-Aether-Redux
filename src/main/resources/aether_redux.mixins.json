@@ -17,6 +17,8 @@
     "common.entity.MobMixin",
     "common.entity.PassiveWhirlwindMixin",
     "common.entity.SliderMixin",
+    "common.entity.SlimeMixin",
+    "common.entity.SwetMixin",
     "common.entity.ai.SliderAvoidanceMixin",
     "common.entity.ai.SliderBackOffMixin",
     "common.entity.ai.SliderUpDownMixin",
@@ -52,7 +54,8 @@
     "client.renderer.MoaModelMixin",
     "client.renderer.MoaRendererMixin",
     "client.renderer.QuadrupedModelMixin",
-    "client.renderer.SheepuffModelMixin"
+    "client.renderer.SheepuffModelMixin",
+    "client.renderer.SwetRendererMixin"
   ],
   "required": true,
   "refmap": "aether_redux.refmap.json",

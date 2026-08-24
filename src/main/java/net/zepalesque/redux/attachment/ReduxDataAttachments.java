@@ -60,4 +60,11 @@ public class ReduxDataAttachments {
 				.serialize(AerbunnyAnimAttachment.CODEC)
 				.build()
 		);
+	public static final DeferredHolder<AttachmentType<?>, AttachmentType<SwetMassAttaachment>>
+		SWET_MASS = ATTACHMENTS.register(
+		"swet_mass",
+		() -> AttachmentType
+			.builder(SwetMassAttaachment::new)
+			.build()
+	);
 }

@@ -7,6 +7,7 @@ import net.zepalesque.redux.client.audio.ReduxSounds;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.data.prov.ReduxLanguageProvider;
 import net.zepalesque.redux.data.resource.registries.ReduxBiomes;
+import net.zepalesque.redux.data.resource.registries.ReduxDamages;
 import net.zepalesque.redux.data.resource.registries.ReduxJukeboxSongs;
 import net.zepalesque.redux.entity.ReduxEntities;
 import net.zepalesque.redux.item.ReduxItems;
@@ -17,7 +18,6 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 	}
 
 	@Override
-	@SuppressWarnings("deprecation")
 	protected void addTranslations() {
 		Redux.BLOCK_SETS.forEach(set -> set.langData(this));
 		
@@ -288,6 +288,7 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 		this.addSubtitle(ReduxSounds.LOGICATOR_CLICK, "Logicator clicks");
 		this.addSubtitle(ReduxSounds.AERJUMP, "Something aerjumps");
 		this.addSubtitle(ReduxSounds.SLIDER_SIGNAL, "Slider signals");
+		this.addSubtitle(ReduxSounds.SWET_ATTACK, "Swet attacks");
 		this.addSubtitle(ReduxSounds.EMBER_BOUNCE_BIG, "Ember shatters");
 		this.addSubtitle(ReduxSounds.EMBER_BOUNCE_MEDIUM, "Ember crackles");
 		this.addSubtitle(ReduxSounds.EMBER_BOUNCE_SMALL, "Ember sparks");
@@ -307,6 +308,9 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 		for (var cat : ReduxConfig.CLIENT.trans.cats().entrySet()) this.add(cat.getKey(), cat.getValue());
 		for (var cat : ReduxConfig.COMMON.trans.cats().entrySet()) this.add(cat.getKey(), cat.getValue());
 		for (var cat : ReduxConfig.SERVER.trans.cats().entrySet()) this.add(cat.getKey(), cat.getValue());
+		
+		this.addDeath(ReduxDamages.SWET, "%1$s was absorbed by %2$s");
+//		this.addDeathByPlayer(ReduxDamages.SWET, "%1$s was absorbed by %2$s");
 		
 		this.addAdvancement("throw_ring_in_lava", "Cast It into the Fire! Destroy It!", "Throw a Golden Ring into lava in the Nether");
 	}

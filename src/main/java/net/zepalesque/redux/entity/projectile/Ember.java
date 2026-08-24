@@ -30,6 +30,7 @@ import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.event.EventHooks;
 import net.zepalesque.redux.client.audio.ReduxSounds;
 import net.zepalesque.redux.client.particle.ReduxParticles;
+import net.zepalesque.redux.data.resource.registries.ReduxDamages;
 import net.zepalesque.redux.entity.ReduxEntities;
 import net.zepalesque.zenith.util.math.VectorUtil;
 import org.jetbrains.annotations.Nullable;
@@ -175,7 +176,7 @@ public class Ember extends Projectile {
 			!(livingentity instanceof BossMob<?>)
 		) {
 			// TODO
-			// livingentity.hurt(ReduxDamageTypes.entitySource(this.level(), ReduxDamageTypes.EMBER, this.getOwner()), 1.0F);
+			 livingentity.hurt(ReduxDamages.entitySource(this.level(), ReduxDamages.EMBER, this.getOwner()), 1.0F);
 			this.hit(livingentity);
 		}
 	}
