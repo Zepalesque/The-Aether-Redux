@@ -25,15 +25,17 @@ import net.zepalesque.redux.attachment.anim.SliderSignalAttachment;
 import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.redux.event.hook.MobHooks;
 import net.zepalesque.redux.event.hook.QuicksoilHooks;
+import net.zepalesque.redux.event.hook.SwetHooks;
 import net.zepalesque.redux.network.packet.AerbunnyAnimTriggerPacket;
 
 @EventBusSubscriber(modid = Redux.MODID)
 public class MobListener {
 	@SubscribeEvent
 	public static void modifyAI(EntityJoinLevelEvent event) {
-		if (event.getEntity() instanceof Cockatrice cockatrice && ReduxConfig.SERVER.improved_cockatrice_behavior.get()) {
+		if (event.getEntity() instanceof Cockatrice cockatrice && ReduxConfig.SERVER.improved_cockatrice_behavior.get())
 			MobHooks.modifyCockatriceAI(cockatrice);
-		}
+		else if (event.getEntity() instanceof Swet swet && ReduxConfig.SERVER.pl_swet_behavior.get())
+			SwetHooks.modifySwetAI(swet);
 	}
 
 	@SubscribeEvent
