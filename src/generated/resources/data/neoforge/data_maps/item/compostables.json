@@ -104,6 +104,9 @@
 		},
 		"aether_redux:wyndsprouts": {
 			"chance": 0.3
+		},
+		"aether_redux:xaelia_cluster": {
+			"chance": 0.65
 		}
 	}
 }

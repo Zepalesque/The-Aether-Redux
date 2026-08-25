@@ -1,0 +1,25 @@
+{
+	"parent": "minecraft:recipes/root",
+	"criteria": {
+		"has_the_recipe": {
+			"conditions": {
+				"recipe": "aether_redux:pink_dye_from_xaelia_cluster"
+			},
+			"trigger": "minecraft:recipe_unlocked"
+		},
+		"has_xaelia_cluster": {
+			"conditions": {
+				"items": [
+					{
+						"items": "aether_redux:xaelia_cluster"
+					}
+				]
+			},
+			"trigger": "minecraft:inventory_changed"
+		}
+	},
+	"requirements": [["has_the_recipe", "has_xaelia_cluster"]],
+	"rewards": {
+		"recipes": ["aether_redux:pink_dye_from_xaelia_cluster"]
+	}
+}
