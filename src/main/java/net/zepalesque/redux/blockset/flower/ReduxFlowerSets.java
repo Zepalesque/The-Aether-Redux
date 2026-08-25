@@ -300,6 +300,31 @@ public class ReduxFlowerSets {
 			// aura (brainrot) :anguish:
 			.withLore("A flower found in the Frosted Forests. Its pointed petals are as cold as ice.")
 	);
+	
+	public static final BaseFlowerSet<CustomBoundsFlowerBlock> IRIDIA = register(
+		new AetherFlowerSet<>(
+			"iridia",
+			"natural/",
+			() -> new CustomBoundsFlowerBlock(
+				CommonPlantBounds.FLOWER,
+				MobEffects.HEAL,
+				4,
+				Properties.ofFullCopy(Blocks.DANDELION).mapColor(MapColor.QUARTZ)
+			),
+			1,
+			ReduxColors.Tints.BLIGHT_GRASS_COLOR
+		)
+			.tabAfter(
+				AetherCreativeTabs.AETHER_NATURAL_BLOCKS,
+				ReduxFlowerSets.DAGGERBLOOM.flower(),
+				BlockSet.TabAdditionPhase.BEFORE
+			)
+			.craftsIntoShapeless(1, () -> Items.PINK_DYE, 1, RecipeCategory.MISC)
+			.withFlowerTag(BlockTags.FLOWERS)
+			.withLore(
+				"An iridescent flower found in the Skyfields."
+			)
+	);
 
 	public static <T extends AbstractFlowerSet> T register(T set) {
 		Redux.BLOCK_SETS.add(set);
