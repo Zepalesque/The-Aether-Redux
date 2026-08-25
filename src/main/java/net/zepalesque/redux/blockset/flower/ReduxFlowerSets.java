@@ -312,7 +312,7 @@ public class ReduxFlowerSets {
 				Properties.ofFullCopy(Blocks.DANDELION).mapColor(MapColor.QUARTZ)
 			),
 			1,
-			ReduxColors.Tints.BLIGHT_GRASS_COLOR
+			ReduxColors.Tints.SKYFIELDS_GRASS_COLOR
 		)
 			.tabAfter(
 				AetherCreativeTabs.AETHER_NATURAL_BLOCKS,
@@ -323,6 +323,31 @@ public class ReduxFlowerSets {
 			.withFlowerTag(BlockTags.FLOWERS)
 			.withLore(
 				"An iridescent flower found in the Skyfields."
+			)
+	);
+	
+	public static final BaseFlowerSet<CustomBoundsFlowerBlock> XAELIA_CLUSTER = register(
+		new AetherFlowerSet<>(
+			"xaelia_cluster",
+			"natural/",
+			() -> new CustomBoundsFlowerBlock(
+				CommonPlantBounds.FLOWER_CLUSTER,
+				MobEffects.DIG_SPEED,
+				60,
+				Properties.ofFullCopy(Blocks.DANDELION).mapColor(MapColor.COLOR_LIGHT_GRAY)
+			),
+			1,
+			ReduxColors.Tints.SKYFIELDS_GRASS_COLOR
+		)
+			.tabAfter(
+				AetherCreativeTabs.AETHER_NATURAL_BLOCKS,
+				ReduxFlowerSets.IRIDIA.flower(),
+				BlockSet.TabAdditionPhase.BEFORE
+			)
+			.craftsIntoShapeless(1, () -> Items.PINK_DYE, 1, RecipeCategory.MISC)
+			.withFlowerTag(BlockTags.FLOWERS)
+			.withLore(
+				"A small patch of some chrome flowers found in the Skyfields."
 			)
 	);
 
