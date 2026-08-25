@@ -2,8 +2,6 @@ package net.zepalesque.redux.event.hook;
 
 import com.aetherteam.aether.AetherTags;
 import com.aetherteam.aether.entity.monster.Swet;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;

@@ -1,5 +1,6 @@
 package net.zepalesque.redux.client.particle;
 
+import javax.annotation.Nullable;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.Particle;
@@ -11,9 +12,6 @@ import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
-import net.neoforged.neoforge.client.model.data.ModelData;
-
-import javax.annotation.Nullable;
 
 @OnlyIn(Dist.CLIENT)
 public class RandomMovementItemParticle extends TextureSheetParticle {

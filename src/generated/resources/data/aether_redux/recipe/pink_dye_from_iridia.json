@@ -1,0 +1,13 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"category": "misc",
+	"ingredients": [
+		{
+			"item": "aether_redux:iridia"
+		}
+	],
+	"result": {
+		"count": 1,
+		"id": "minecraft:pink_dye"
+	}
+}
