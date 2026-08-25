@@ -13,13 +13,13 @@
 		},
 		"has_the_recipe": {
 			"conditions": {
-				"recipe": "aether_redux:logicator"
+				"recipe": "aether_redux:runelight"
 			},
 			"trigger": "minecraft:recipe_unlocked"
 		}
 	},
 	"requirements": [["has_the_recipe", "has_sentry_circuit"]],
 	"rewards": {
-		"recipes": ["aether_redux:logicator"]
+		"recipes": ["aether_redux:runelight"]
 	}
 }

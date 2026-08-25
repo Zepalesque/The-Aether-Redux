@@ -91,6 +91,8 @@ public class ReduxItems extends ReduxItemBuilders {
 
 	public static final DeferredItem<Item> REFINED_SENTRITE = ITEMS.registerSimpleItem("refined_sentrite");
 	public static final DeferredItem<Item> SENTRITE_CHUNK = ITEMS.registerSimpleItem("sentrite_chunk");
+
+	public static final DeferredItem<Item> SENTRY_CIRCUIT = ITEMS.registerSimpleItem("sentry_circuit");
 	
 	public static final DeferredItem<ShearsItem> SENTRITE_SHEARS = ITEMS.register(
 		"sentrite_shears",

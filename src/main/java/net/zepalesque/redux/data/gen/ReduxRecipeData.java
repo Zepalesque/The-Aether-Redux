@@ -187,6 +187,15 @@ public class ReduxRecipeData extends ReduxRecipeProvider {
 			AetherBlocks.SENTRY_STONE.get()
 		);
 
+		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.RUNELIGHT.get(), 2)
+			.define('V', AetherBlocks.CARVED_STONE.get())
+			.define('C', ReduxItems.SENTRY_CIRCUIT.get())
+			.pattern("VVV")
+			.pattern("VCV")
+			.pattern("VVV")
+			.unlockedBy(getHasName(ReduxItems.SENTRY_CIRCUIT.get()), has(ReduxItems.SENTRY_CIRCUIT.get()))
+			.save(output);
+
 		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ReduxBlocks.CARVED_BASE.get(), 4)
 			.define('#', AetherBlocks.CARVED_STONE.get())
 			.pattern("##")
@@ -396,11 +405,10 @@ public class ReduxRecipeData extends ReduxRecipeProvider {
 			.define('S', Blocks.STONE)
 			.define('R', Items.REDSTONE)
 			.define('T', Blocks.REDSTONE_TORCH)
-			// TODO: switch this to Sentry Chip/Circuit
-			.define('V', ReduxItems.VERIDIUM_INGOT.get())
+			.define('V', ReduxItems.SENTRY_CIRCUIT.get())
 			.pattern("RTR")
 			.pattern("SVS")
-			.unlockedBy(getHasName(ReduxItems.VERIDIUM_INGOT.get()), has(ReduxItems.VERIDIUM_INGOT.get()))
+			.unlockedBy(getHasName(ReduxItems.SENTRY_CIRCUIT.get()), has(ReduxItems.SENTRY_CIRCUIT.get()))
 			.save(output);
 		
 		this.oreBlockStorageRecipesRecipesWithCustomUnpacking(
