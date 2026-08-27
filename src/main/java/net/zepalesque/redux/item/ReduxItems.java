@@ -89,6 +89,10 @@ public class ReduxItems extends ReduxItemBuilders {
 	public static final DeferredItem<Item> VERIDIUM_INGOT = ITEMS.registerSimpleItem("veridium_ingot");
 	public static final DeferredItem<Item> VERIDIUM_NUGGET = ITEMS.registerSimpleItem("veridium_nugget");
 
+	public static final DeferredItem<Item> RAW_GRAVITITE = ITEMS.registerSimpleItem("raw_gravitite");
+	public static final DeferredItem<Item> GRAVITITE_INGOT = ITEMS.registerSimpleItem("gravitite_ingot");
+	public static final DeferredItem<Item> GRAVITITE_NUGGET = ITEMS.registerSimpleItem("gravitite_nugget");
+
 	public static final DeferredItem<Item> REFINED_SENTRITE = ITEMS.registerSimpleItem("refined_sentrite");
 	public static final DeferredItem<Item> SENTRITE_CHUNK = ITEMS.registerSimpleItem("sentrite_chunk");
 

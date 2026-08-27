@@ -2,6 +2,7 @@ package net.zepalesque.redux.block;
 
 import com.google.common.base.Supplier;
 import java.util.function.Function;
+import java.util.function.UnaryOperator;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -36,4 +37,16 @@ public class ReduxBlockBuilders {
 				)
 		);
 	}
+
+    public static <T extends Block> DeferredBlock<T> registerWithProperties(
+		final String name,
+		final Supplier<? extends T> block,
+		UnaryOperator<Item.Properties> propertyModifier
+	) {
+        return register(
+			name,
+			block,
+			object -> () -> new BlockItem(object.get(), propertyModifier.apply(new Item.Properties()))
+		);
+    }
 }

@@ -143,6 +143,9 @@ public class ReduxBlockLoot extends ReduxBlockLootProvider {
 		this.dropSelf(ReduxBlocks.VERIDIUM_ORE.get());
 		this.dropSelf(ReduxBlocks.VERIDIUM_BLOCK.get());
 		this.dropSelf(ReduxBlocks.RAW_VERIDIUM_BLOCK.get());
+
+		this.dropSelf(ReduxBlocks.GRAVITITE_BLOCK.get());
+		this.dropSelf(ReduxBlocks.RAW_GRAVITITE_BLOCK.get());
 		
 		this.dropSelf(ReduxBlocks.HOLYSILT.get());
 		this.dropSelf(ReduxBlocks.CLOUD_CAP.get());

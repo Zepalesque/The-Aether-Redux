@@ -99,6 +99,9 @@ public class ReduxBlockStateData extends ReduxBlockStateProvider {
 		this.block(ReduxBlocks.RAW_VERIDIUM_BLOCK.get(), "construction/");
 		this.block(ReduxBlocks.VERIDIUM_BLOCK.get(), "construction/");
 
+        this.other(ReduxBlocks.GRAVITITE_BLOCK.get(), AetherBlocks.ENCHANTED_GRAVITITE.get(), "construction/");
+        this.block(ReduxBlocks.RAW_GRAVITITE_BLOCK.get(), "construction/");
+
 		this.flowerbed(ReduxBlocks.GOLDEN_CLOVERS.get(), "natural/");
 
 		this.cropOccluded(ReduxBlocks.GOLDEN_VINES.get(), "natural/");

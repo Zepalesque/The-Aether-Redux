@@ -15,6 +15,7 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.blockset.flower.ReduxFlowerSets;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
+import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.unity.block.UnityBlocks;
 import net.zepalesque.zenith.api.blockset.BlockSet;
 import net.zepalesque.zenith.util.item.TabBuilder;
@@ -186,7 +187,7 @@ public class ReduxTabs {
 				ReduxItems.CAELGAE_CLUMP,
 				ReduxItems.TURBO_VERBENA
 			);
-		
+
 		new TabBuilder(event, AetherCreativeTabs.AETHER_REDSTONE_BLOCKS.getKey())
 			.put(ReduxBlocks.LOGICATOR);
 
@@ -223,6 +224,31 @@ public class ReduxTabs {
 		
 		new TabBuilder(event, CreativeModeTabs.REDSTONE_BLOCKS)
 			.putAfter(Items.COMPARATOR, ReduxBlocks.LOGICATOR);
+
+		if (ReduxConfig.COMMON.gravitite_ingot.getAsBoolean()) {
+			final var vis = TabVisibility.PARENT_AND_SEARCH_TABS;
+
+			new TabBuilder(event, AetherCreativeTabs.AETHER_BUILDING_BLOCKS.getKey())
+				.putBefore(
+					AetherBlocks.ENCHANTED_GRAVITITE,
+					ReduxBlocks.GRAVITITE_BLOCK,
+					ReduxBlocks.RAW_GRAVITITE_BLOCK
+				)
+				.remove(vis, AetherBlocks.ENCHANTED_GRAVITITE);
+
+			new TabBuilder(event, AetherCreativeTabs.AETHER_REDSTONE_BLOCKS.getKey())
+				.putBefore(AetherBlocks.ENCHANTED_GRAVITITE, ReduxBlocks.GRAVITITE_BLOCK)
+				.remove(vis, AetherBlocks.ENCHANTED_GRAVITITE);
+
+			new TabBuilder(event, AetherCreativeTabs.AETHER_INGREDIENTS.getKey())
+				.putBefore(
+					AetherBlocks.ENCHANTED_GRAVITITE,
+					ReduxItems.GRAVITITE_NUGGET,
+					ReduxItems.GRAVITITE_INGOT,
+					ReduxItems.RAW_GRAVITITE
+				)
+				.remove(vis, AetherBlocks.ENCHANTED_GRAVITITE);
+		}
 
 		// SHOULD BE AT THE VERY END
 		sup = null;

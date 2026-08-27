@@ -95,6 +95,11 @@ public abstract class ReduxBlockStateProvider extends UnityBlockStateProvider {
 		.put(Direction.NORTH, new Vec3i(0, 0, 0))
 		.build();
 
+
+    public void other(Block block, Block other, String location) {
+        simpleBlock(block, models().cubeAll(name(block), texture(other, location)));
+    }
+
 	public void snowableLeaves(Block block, String location) {
 		this.getVariantBuilder(block).forAllStatesExcept(
 			(state) -> {

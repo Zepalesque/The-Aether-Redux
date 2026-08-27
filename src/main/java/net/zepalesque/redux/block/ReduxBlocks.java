@@ -5,6 +5,7 @@ import static net.zepalesque.redux.util.MiscUtil.unreachable;
 import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.block.dungeon.DoorwayBlock;
 import com.aetherteam.aether.block.dungeon.TrappedBlock;
+import com.aetherteam.aether.block.miscellaneous.FloatingBlock;
 import com.aetherteam.aether.block.natural.AetherDoubleDropBlock;
 import com.aetherteam.aether.block.natural.AetherDoubleDropsLeaves;
 import com.aetherteam.aether.block.natural.AetherLogBlock;
@@ -12,6 +13,7 @@ import com.aetherteam.aether.entity.AetherEntityTypes;
 import java.util.Optional;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ChainBlock;
@@ -20,6 +22,7 @@ import net.minecraft.world.level.block.IronBarsBlock;
 import net.minecraft.world.level.block.LanternBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.OffsetType;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -495,6 +498,21 @@ public class ReduxBlocks extends ReduxBlockBuilders {
 				.strength(5.0F, 6.0F)
 				.sound(SoundType.METAL)
 		)
+	);
+
+    public static final DeferredBlock<Block> RAW_GRAVITITE_BLOCK = register("raw_gravitite_block", () ->
+		new FloatingBlock(
+			false,
+			BlockBehaviour.Properties.ofFullCopy(AetherBlocks.ENCHANTED_GRAVITITE.get())
+		)
+	);
+    
+    public static final DeferredBlock<Block> GRAVITITE_BLOCK = registerWithProperties("gravitite_block", () ->
+		new FloatingBlock(
+			true,
+			BlockBehaviour.Properties.ofFullCopy(AetherBlocks.ENCHANTED_GRAVITITE.get())
+		),
+		properties -> properties.rarity(Rarity.RARE)
 	);
 
 	public static final DeferredBlock<Block> REFINED_SENTRITE_BLOCK = register(

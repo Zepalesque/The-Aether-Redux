@@ -144,15 +144,20 @@ public final class ReduxConfig {
 
 	public static class Common extends DataSerializableConfig {
 		public final CfgTranslations trans;
-		
+
+		public final ModConfigSpec.BooleanValue gravitite_ingot;
 		public final ModConfigSpec.BooleanValue bronze_dungeon_upgrade;
 		public final ModConfigSpec.EnumValue<AACompatFeature.Overridden> redux_noise;
 
 		public Common(ModConfigSpec.Builder builder) {
 			super(() -> COMMON_SPEC, "redux_common");
 			
+			this.gravitite_ingot = builder
+				.comment("Replaces Enchanted Gravitite with Gravitite Ingots. The blocks of this have the original floating behavior.")
+				.worldRestart()
+				.define("Gravitite Ingots", true);
+
 			var trans = new TranslationsBuilder("common");
-			
 			trans.push(builder, "Datapack Registration");
 			this.redux_noise = trans.add(Redux.DATA_CONFIG.register(
 				builder
