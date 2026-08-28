@@ -198,6 +198,8 @@ public final class ReduxConfig {
 
 		public final ModConfigSpec.BooleanValue slider_sfx_upgrade;
 		public final ModConfigSpec.BooleanValue slider_signal_sfx;
+
+		public final ModConfigSpec.BooleanValue upgraded_construction;
 		public final ModConfigSpec.BooleanValue upgraded_nature;
 		public final ModConfigSpec.BooleanValue upgraded_dungeons;
 		public final ModConfigSpec.BooleanValue upgraded_resources;
@@ -253,6 +255,13 @@ public final class ReduxConfig {
 				.gameRestart()
 				.define("Move Clouds", true));
 
+			this.upgraded_construction = trans.add(Redux.ASSETS_CONFIG.register(
+				builder
+					.comment("Use Redux's updated Aether contruction textures.")
+					.translation(trans.transKey(builder, "upgraded_contruction"))
+					.define("Upgraded Construction", true),
+				"upgraded_construction"
+			));
 			this.upgraded_nature = trans.add(Redux.ASSETS_CONFIG.register(
 				builder
 					.comment("Use Redux's updated Aether nature textures.")
