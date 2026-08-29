@@ -40,7 +40,9 @@ public class ReduxTabs {
 				AetherBlocks.GOLDEN_OAK_SAPLING,
 				UnityBlocks.GOLDEN_OAK_LEAF_PILE
 			)
-			.replace(AetherBlocks.GOLDEN_OAK_LOG, ReduxBlocks.GILDLEAF_AMBER_LOG)
+			.putAfter(AetherBlocks.GOLDEN_OAK_LOG, ReduxBlocks.GILDLEAF_AMBER_LOG)
+			.remove(TabVisibility.PARENT_AND_SEARCH_TABS, AetherBlocks.GOLDEN_OAK_LOG)
+			//.replace(AetherBlocks.GOLDEN_OAK_LOG, ReduxBlocks.GILDLEAF_AMBER_LOG)
 			.putAfter(
 				UnityBlocks.SHORT_AETHER_GRASS,
 				ReduxBlocks.WYNDSPROUTS,
@@ -133,8 +135,12 @@ public class ReduxTabs {
 			);
 
 		new TabBuilder(event, AetherCreativeTabs.AETHER_BUILDING_BLOCKS.getKey())
-			.replace(AetherBlocks.GOLDEN_OAK_LOG, ReduxBlocks.GILDLEAF_AMBER_LOG)
-			.replace(AetherBlocks.GOLDEN_OAK_WOOD, ReduxBlocks.GILDLEAF_AMBER_WOOD)
+			.putAfter(AetherBlocks.GOLDEN_OAK_LOG, ReduxBlocks.GILDLEAF_AMBER_LOG)
+			.remove(TabVisibility.PARENT_AND_SEARCH_TABS, AetherBlocks.GOLDEN_OAK_LOG)
+			//.replace(AetherBlocks.GOLDEN_OAK_LOG, ReduxBlocks.GILDLEAF_AMBER_LOG)
+			.putAfter(AetherBlocks.GOLDEN_OAK_WOOD, ReduxBlocks.GILDLEAF_AMBER_WOOD)
+			.remove(TabVisibility.PARENT_AND_SEARCH_TABS, AetherBlocks.GOLDEN_OAK_WOOD)
+			//.replace(AetherBlocks.GOLDEN_OAK_WOOD, ReduxBlocks.GILDLEAF_AMBER_WOOD)
 			.putAfter(
 				AetherBlocks.ZANITE_BLOCK,
 				ReduxBlocks.RAW_VERIDIUM_BLOCK,

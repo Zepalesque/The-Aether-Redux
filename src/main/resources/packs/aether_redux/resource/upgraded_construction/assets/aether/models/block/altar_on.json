@@ -1,7 +1,6 @@
 {
-	"parent": "minecraft:block/cube_bottom_top",
+	"parent": "aether:block/altar_base",
 	"textures": {
-		"bottom": "aether:block/utility/altar_bottom",
 		"side": "aether:block/utility/altar_side_on",
 		"top": "aether:block/utility/altar_top_on"
 	}
