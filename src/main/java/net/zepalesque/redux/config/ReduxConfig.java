@@ -38,6 +38,7 @@ public final class ReduxConfig {
 		// TODO: Item component?
 		public final ModConfigSpec.IntValue max_veridium_tool_infusion;
 		public final ModConfigSpec.BooleanValue consistent_break_speeds;
+		public final ModConfigSpec.BooleanValue improved_gravitite;
 		// TODO: Other Ores
 		public final ModConfigSpec.BooleanValue raw_ores;
 		public final ModConfigSpec.BooleanValue gummy_swet_nerf;
@@ -109,6 +110,10 @@ public final class ReduxConfig {
 				.comment("Slows down the mining speeds of some Aether blocks, to be more vanilla-consistent")
 				.translation(trans.transKey(builder, "consistent_break_speeds"))
 				.define("Consistent Break Speeds", false));
+			this.improved_gravitite = trans.add(builder
+				.comment("Upgrades gravitite tool abilities, to be more useful during normal gameplay")
+				.translation(trans.transKey(builder, "improved_gravitite"))
+				.define("Improved Gravitite", true));
 			this.raw_ores = trans.add(builder
 				.comment("Use raw ores like modern vanilla versions, instead of just getting the ore block when mining it")
 				.translation(trans.transKey(builder, "raw_ores"))

@@ -2,11 +2,14 @@ package net.zepalesque.redux.mixin.mixins.common.entity;
 
 import javax.annotation.Nullable;
 import net.minecraft.core.Holder;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.phys.AABB;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -14,6 +17,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+import com.aetherteam.aether.item.combat.abilities.weapon.GravititeWeapon;
+import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 
 @Mixin(LivingEntity.class)
 @SuppressWarnings("CancellableInjectionUsage")
@@ -47,4 +54,10 @@ public abstract class LivingEntityMixin extends EntityMixin {
 	
 	@Inject(method = "getRiddenSpeed", at = @At("HEAD"), cancellable = true)
 	protected void redux$getRiddenSpeed(Player player, CallbackInfoReturnable<Float> cir) {}
+
+	@WrapMethod(method = "getKnockback")
+	protected float getKnockback(Entity attacker, DamageSource src, Operation<Float> og) {
+		var gravKnockback = src.getWeaponItem().getItem() instanceof GravititeWeapon ? 1 : 0;
+		return og.call(attacker, src) + gravKnockback;
+	}
 }
