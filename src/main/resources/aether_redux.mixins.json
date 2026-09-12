@@ -2,6 +2,7 @@
 	"mixins": [
 		"common.accessor.AetherNoiseBuildersMixin",
 		"common.accessor.CfgBuilderAccessor",
+		"common.accessor.CfgValueAccessor",
 		"common.accessor.EntityAccessor",
 		"common.accessor.LangProviderAccessor",
 		"common.accessor.MossyCarpetAccessor",

@@ -245,7 +245,7 @@ public class ReduxFlowerSets {
 			.craftsIntoShapeless(1, () -> Items.BLACK_DYE, 1, RecipeCategory.MISC)
 			.withFlowerTag(BlockTags.FLOWERS)
 			.withLore(
-				"Dark purple flowers found in the Blight. These release a gas that limits their target's vision."
+				"Dark purple flowers found in the Blight. They are highly toxic and should not be ingested."
 			)
 	);
 
@@ -271,9 +271,8 @@ public class ReduxFlowerSets {
 			)
 			.craftsIntoShapeless(1, () -> Items.BLACK_DYE, 1, RecipeCategory.MISC)
 			.withFlowerTag(BlockTags.FLOWERS)
-			// aura (brainrot) :anguish:
 			.withLore(
-				"A flower found in the Frosted Forests. It has a subtle luminant aura (hence the name), lighting the area around it."
+				"A flower found in the Frosted Forests. It has a subtle luminance, and acts as a faint beacon for wanderers in the dark."
 			)
 	);
 
@@ -297,7 +296,6 @@ public class ReduxFlowerSets {
 			)
 			.craftsIntoShapeless(1, () -> Items.WHITE_DYE, 1, RecipeCategory.MISC)
 			.withFlowerTag(BlockTags.FLOWERS)
-			// aura (brainrot) :anguish:
 			.withLore("A flower found in the Frosted Forests. Its pointed petals are as cold as ice.")
 	);
 	
@@ -306,7 +304,7 @@ public class ReduxFlowerSets {
 			"iridia",
 			"natural/",
 			() -> new CustomBoundsFlowerBlock(
-				CommonPlantBounds.FLOWER,
+				CommonPlantBounds.BUSH,
 				MobEffects.HEAL,
 				4,
 				Properties.ofFullCopy(Blocks.DANDELION).mapColor(MapColor.QUARTZ)

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 import java.util.concurrent.ConcurrentMap;
 import java.util.stream.Collectors;
@@ -12,17 +13,48 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.config.enums.AACompatFeature;
 import net.zepalesque.redux.config.enums.ConditionalConfig;
 import net.zepalesque.redux.mixin.mixins.common.accessor.CfgBuilderAccessor;
+import net.zepalesque.redux.mixin.mixins.common.accessor.CfgValueAccessor;
 import net.zepalesque.zenith.api.serialization.config.DataSerializableConfig;
 import net.zepalesque.zenith.util.data.DatagenUtil;
 import org.jetbrains.annotations.Unmodifiable;
 
 public final class ReduxConfig {
+/*	// TODO: this is stupid. a try/catch can easily be avoided.
 	public static <T> T getOrDefault(ModConfigSpec.ConfigValue<T> val) {
 		try {
 			return val.get();
 		} catch(Exception e) {
 			return val.getDefault();
 		}
+	}*/
+	
+	public static <T, C extends ModConfigSpec.ConfigValue<T>> Optional<T> get(C cfg) {
+		return ((CfgValueAccessor<?>) cfg).redux$spec() == null
+			? Optional.empty()
+			: Optional.of(cfg.get());
+	}
+	
+	public static <T, C extends ModConfigSpec.ConfigValue<? super T>> boolean set(C cfg, T value) {
+		if (((CfgValueAccessor<?>) cfg).redux$spec() == null) return false;
+		else {
+			cfg.set(value);
+			return true;
+		}
+	}
+	
+	public static <T, U extends T, C extends ModConfigSpec.ConfigValue<T>> Optional<? extends T> swap(C cfg, U value) {
+		if (((CfgValueAccessor<?>) cfg).redux$spec() == null) return Optional.empty();
+		else {
+			var val = cfg.get();
+			cfg.set(value);
+			return Optional.of(val);
+		}
+	}
+	
+	public static <T, C extends ModConfigSpec.ConfigValue<? extends T>> T getOrDefault(C cfg) {
+		return ((CfgValueAccessor<?>) cfg).redux$spec() == null
+			? cfg.getDefault()
+			: cfg.get();
 	}
 	
 	public static class Server extends DataSerializableConfig {

@@ -84,7 +84,7 @@ public interface VeridiumItem extends CustomStackingBehavior {
     }
 
     default ItemStack creativeStack(ItemStack stack) {
-        stack.set(ReduxDataComponents.INFUSION, ReduxConfig.SERVER.max_veridium_tool_infusion.get());
+        stack.set(ReduxDataComponents.INFUSION, ReduxConfig.getOrDefault(ReduxConfig.SERVER.max_veridium_tool_infusion));
         return stack;
     }
 }
