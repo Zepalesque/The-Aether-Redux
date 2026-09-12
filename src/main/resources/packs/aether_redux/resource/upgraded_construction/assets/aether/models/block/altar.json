@@ -1,0 +1,7 @@
+{
+	"parent": "aether:block/altar_base",
+	"textures": {
+		"side": "aether:block/utility/altar_side",
+		"top": "aether:block/utility/altar_top"
+	}
+}

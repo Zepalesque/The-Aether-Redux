@@ -15,6 +15,7 @@ import net.zepalesque.redux.Redux;
 import net.zepalesque.redux.block.ReduxBlocks;
 import net.zepalesque.redux.blockset.flower.ReduxFlowerSets;
 import net.zepalesque.redux.blockset.stone.ReduxStoneSets;
+import net.zepalesque.redux.config.ReduxConfig;
 import net.zepalesque.unity.block.UnityBlocks;
 import net.zepalesque.zenith.api.blockset.BlockSet;
 import net.zepalesque.zenith.util.item.TabBuilder;
@@ -39,7 +40,9 @@ public class ReduxTabs {
 				AetherBlocks.GOLDEN_OAK_SAPLING,
 				UnityBlocks.GOLDEN_OAK_LEAF_PILE
 			)
-			.replace(AetherBlocks.GOLDEN_OAK_LOG, ReduxBlocks.GILDLEAF_AMBER_LOG)
+			.putAfter(AetherBlocks.GOLDEN_OAK_LOG, ReduxBlocks.GILDLEAF_AMBER_LOG)
+			.remove(TabVisibility.PARENT_AND_SEARCH_TABS, AetherBlocks.GOLDEN_OAK_LOG)
+			//.replace(AetherBlocks.GOLDEN_OAK_LOG, ReduxBlocks.GILDLEAF_AMBER_LOG)
 			.putAfter(
 				UnityBlocks.SHORT_AETHER_GRASS,
 				ReduxBlocks.WYNDSPROUTS,
@@ -132,8 +135,12 @@ public class ReduxTabs {
 			);
 
 		new TabBuilder(event, AetherCreativeTabs.AETHER_BUILDING_BLOCKS.getKey())
-			.replace(AetherBlocks.GOLDEN_OAK_LOG, ReduxBlocks.GILDLEAF_AMBER_LOG)
-			.replace(AetherBlocks.GOLDEN_OAK_WOOD, ReduxBlocks.GILDLEAF_AMBER_WOOD)
+			.putAfter(AetherBlocks.GOLDEN_OAK_LOG, ReduxBlocks.GILDLEAF_AMBER_LOG)
+			.remove(TabVisibility.PARENT_AND_SEARCH_TABS, AetherBlocks.GOLDEN_OAK_LOG)
+			//.replace(AetherBlocks.GOLDEN_OAK_LOG, ReduxBlocks.GILDLEAF_AMBER_LOG)
+			.putAfter(AetherBlocks.GOLDEN_OAK_WOOD, ReduxBlocks.GILDLEAF_AMBER_WOOD)
+			.remove(TabVisibility.PARENT_AND_SEARCH_TABS, AetherBlocks.GOLDEN_OAK_WOOD)
+			//.replace(AetherBlocks.GOLDEN_OAK_WOOD, ReduxBlocks.GILDLEAF_AMBER_WOOD)
 			.putAfter(
 				AetherBlocks.ZANITE_BLOCK,
 				ReduxBlocks.RAW_VERIDIUM_BLOCK,
@@ -186,7 +193,7 @@ public class ReduxTabs {
 				ReduxItems.CAELGAE_CLUMP,
 				ReduxItems.TURBO_VERBENA
 			);
-		
+
 		new TabBuilder(event, AetherCreativeTabs.AETHER_REDSTONE_BLOCKS.getKey())
 			.put(ReduxBlocks.LOGICATOR);
 
@@ -223,6 +230,31 @@ public class ReduxTabs {
 		
 		new TabBuilder(event, CreativeModeTabs.REDSTONE_BLOCKS)
 			.putAfter(Items.COMPARATOR, ReduxBlocks.LOGICATOR);
+
+		if (ReduxConfig.COMMON.gravitite_ingot.getAsBoolean()) {
+			final var vis = TabVisibility.PARENT_AND_SEARCH_TABS;
+
+			new TabBuilder(event, AetherCreativeTabs.AETHER_BUILDING_BLOCKS.getKey())
+				.putBefore(
+					AetherBlocks.ENCHANTED_GRAVITITE,
+					ReduxBlocks.GRAVITITE_BLOCK,
+					ReduxBlocks.RAW_GRAVITITE_BLOCK
+				)
+				.remove(vis, AetherBlocks.ENCHANTED_GRAVITITE);
+
+			new TabBuilder(event, AetherCreativeTabs.AETHER_REDSTONE_BLOCKS.getKey())
+				.putBefore(AetherBlocks.ENCHANTED_GRAVITITE, ReduxBlocks.GRAVITITE_BLOCK)
+				.remove(vis, AetherBlocks.ENCHANTED_GRAVITITE);
+
+			new TabBuilder(event, AetherCreativeTabs.AETHER_INGREDIENTS.getKey())
+				.putBefore(
+					AetherBlocks.ENCHANTED_GRAVITITE,
+					ReduxItems.GRAVITITE_NUGGET,
+					ReduxItems.GRAVITITE_INGOT,
+					ReduxItems.RAW_GRAVITITE
+				)
+				.remove(vis, AetherBlocks.ENCHANTED_GRAVITITE);
+		}
 
 		// SHOULD BE AT THE VERY END
 		sup = null;

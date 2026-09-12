@@ -144,10 +144,16 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 		this.addLore(ReduxItems.VERIDIUM_INGOT, "An bar of pure Veridium, a metal that when coming in contact with ambrosium, takes on a glowing light blue color, strengthening temporarily.");
 		this.addItem(ReduxItems.VERIDIUM_NUGGET);
 		this.addLore(ReduxItems.VERIDIUM_NUGGET, "A small chunk of Veridium. This can be crafted to and from Veridium Ingots.");
-		
 		this.addItem(ReduxItems.RAW_VERIDIUM);
 		this.addLore(ReduxItems.RAW_VERIDIUM, "A chunk of Raw Veridium. This can be smelted into an ingot.");
-		
+
+		this.addItem(ReduxItems.GRAVITITE_INGOT);
+		this.addLore(ReduxItems.GRAVITITE_INGOT, "After putting Gravitite Ore into an Altar and enchanting it, you get a Gravitite Ingot. This can be made into gravitite tools and armor.");
+		this.addItem(ReduxItems.GRAVITITE_NUGGET);
+		this.addLore(ReduxItems.GRAVITITE_NUGGET, "A small chunk of Gravitite. This can be crafted to and from Gravitite Ingots.");
+		this.addItem(ReduxItems.RAW_GRAVITITE);
+		this.addLore(ReduxItems.RAW_GRAVITITE, "A chunk of the Aether's pink Gravitite. This can be enchanted at an Altar, and turned into armor and tools with gravity-based abilities!");
+
 		this.addItem(ReduxItems.MUSIC_DISC_SENTIENCE, "Ancient Sentrite Music Disc");
 		this.addLore(ReduxItems.MUSIC_DISC_SENTIENCE, "A music disc that plays \"Sentience\" by Emile van Krieken.");
 		this.addJukeboxSong(ReduxJukeboxSongs.SENTIENCE, "Emile van Krieken - Sentience");
@@ -217,10 +223,14 @@ public class ReduxLanguageData extends ReduxLanguageProvider {
 		
 		this.addBlock(ReduxBlocks.RAW_VERIDIUM_BLOCK, "Block of Raw Veridium");
 		this.addLore(ReduxBlocks.RAW_VERIDIUM_BLOCK, "A block of raw Veridium. This can be crafted from Raw Veridium.");
-		
 		this.addBlock(ReduxBlocks.VERIDIUM_BLOCK, "Block of Veridium");
 		this.addLore(ReduxBlocks.VERIDIUM_BLOCK, "A block of pure Veridium. This can be crafted from Veridium Ingots.");
-		
+
+		this.addBlock(ReduxBlocks.RAW_GRAVITITE_BLOCK, "Block of Raw Gravitite");
+		this.addLore(ReduxBlocks.RAW_GRAVITITE_BLOCK, "A block of raw Gravitite. This can be crafted from Raw Gravitite.");
+		this.addBlock(ReduxBlocks.GRAVITITE_BLOCK, "Block of Gravitite");
+		this.addLore(ReduxBlocks.GRAVITITE_BLOCK, "A block of solid Gravitite. When powered with redstone, this will float!");
+
 		this.addBlock(ReduxBlocks.REFINED_SENTRITE_BLOCK, "Block of Refined Sentrite");
 		this.addLore(ReduxBlocks.REFINED_SENTRITE_BLOCK, "A block of the refined form of Sentrite, crafted with Refined Sentrite.");
 		

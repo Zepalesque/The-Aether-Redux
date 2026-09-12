@@ -1,0 +1,10 @@
+{
+	"variants": {
+		"lit=false": {
+			"model": "aether:block/altar"
+		},
+		"lit=true": {
+			"model": "aether:block/altar_on"
+		}
+	}
+}

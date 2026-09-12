@@ -1,7 +1,11 @@
 package net.zepalesque.redux.mixin.mixins.common.entity;
 
+import com.aetherteam.aether.item.combat.abilities.weapon.GravititeWeapon;
+import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import javax.annotation.Nullable;
 import net.minecraft.core.Holder;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -47,4 +51,10 @@ public abstract class LivingEntityMixin extends EntityMixin {
 	
 	@Inject(method = "getRiddenSpeed", at = @At("HEAD"), cancellable = true)
 	protected void redux$getRiddenSpeed(Player player, CallbackInfoReturnable<Float> cir) {}
+
+	@WrapMethod(method = "getKnockback")
+	protected float getKnockback(Entity attacker, DamageSource src, Operation<Float> og) {
+		var gravKnockback = src.getWeaponItem().getItem() instanceof GravititeWeapon ? 1 : 0;
+		return og.call(attacker, src) + gravKnockback;
+	}
 }

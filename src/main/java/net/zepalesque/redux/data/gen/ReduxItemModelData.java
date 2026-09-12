@@ -163,6 +163,10 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
 		this.item(ReduxItems.VERIDIUM_INGOT.get(), "materials/");
 		this.item(ReduxItems.VERIDIUM_NUGGET.get(), "materials/");
 
+		this.item(ReduxItems.RAW_GRAVITITE.get(), "materials/");
+		this.item(ReduxItems.GRAVITITE_INGOT.get(), "materials/");
+		this.item(ReduxItems.GRAVITITE_NUGGET.get(), "materials/");
+
 		this.item(ReduxItems.REFINED_SENTRITE.get(), "materials/");
 		this.item(ReduxItems.SENTRITE_CHUNK.get(), "materials/");
 
@@ -195,6 +199,8 @@ public class ReduxItemModelData extends ReduxItemModelProvider {
 		this.itemBlock(ReduxBlocks.VERIDIUM_ORE.get());
 		this.itemBlock(ReduxBlocks.RAW_VERIDIUM_BLOCK.get());
 		this.itemBlock(ReduxBlocks.VERIDIUM_BLOCK.get());
+		this.itemBlock(ReduxBlocks.RAW_GRAVITITE_BLOCK.get());
+		this.itemBlock(ReduxBlocks.GRAVITITE_BLOCK.get());
 		this.itemBlock(ReduxBlocks.REFINED_SENTRITE_BLOCK.get());
 
 		this.item(ReduxBlocks.GOLDEN_CLOVERS.get().asItem(), "misc/");

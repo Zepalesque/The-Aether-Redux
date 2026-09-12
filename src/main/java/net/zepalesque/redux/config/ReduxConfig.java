@@ -70,6 +70,7 @@ public final class ReduxConfig {
 		// TODO: Item component?
 		public final ModConfigSpec.IntValue max_veridium_tool_infusion;
 		public final ModConfigSpec.BooleanValue consistent_break_speeds;
+		public final ModConfigSpec.BooleanValue improved_gravitite;
 		// TODO: Other Ores
 		public final ModConfigSpec.BooleanValue raw_ores;
 		public final ModConfigSpec.BooleanValue gummy_swet_nerf;
@@ -141,6 +142,10 @@ public final class ReduxConfig {
 				.comment("Slows down the mining speeds of some Aether blocks, to be more vanilla-consistent")
 				.translation(trans.transKey(builder, "consistent_break_speeds"))
 				.define("Consistent Break Speeds", false));
+			this.improved_gravitite = trans.add(builder
+				.comment("Upgrades gravitite tool abilities, to be more useful during normal gameplay")
+				.translation(trans.transKey(builder, "improved_gravitite"))
+				.define("Improved Gravitite", true));
 			this.raw_ores = trans.add(builder
 				.comment("Use raw ores like modern vanilla versions, instead of just getting the ore block when mining it")
 				.translation(trans.transKey(builder, "raw_ores"))
@@ -176,15 +181,20 @@ public final class ReduxConfig {
 
 	public static class Common extends DataSerializableConfig {
 		public final CfgTranslations trans;
-		
+
+		public final ModConfigSpec.BooleanValue gravitite_ingot;
 		public final ModConfigSpec.BooleanValue bronze_dungeon_upgrade;
 		public final ModConfigSpec.EnumValue<AACompatFeature.Overridden> redux_noise;
 
 		public Common(ModConfigSpec.Builder builder) {
 			super(() -> COMMON_SPEC, "redux_common");
 			
+			this.gravitite_ingot = builder
+				.comment("Replaces Enchanted Gravitite with Gravitite Ingots. The blocks of this have the original floating behavior.")
+				.worldRestart()
+				.define("Gravitite Ingots", true);
+
 			var trans = new TranslationsBuilder("common");
-			
 			trans.push(builder, "Datapack Registration");
 			this.redux_noise = trans.add(Redux.DATA_CONFIG.register(
 				builder
@@ -225,6 +235,8 @@ public final class ReduxConfig {
 
 		public final ModConfigSpec.BooleanValue slider_sfx_upgrade;
 		public final ModConfigSpec.BooleanValue slider_signal_sfx;
+
+		public final ModConfigSpec.BooleanValue upgraded_construction;
 		public final ModConfigSpec.BooleanValue upgraded_nature;
 		public final ModConfigSpec.BooleanValue upgraded_dungeons;
 		public final ModConfigSpec.BooleanValue upgraded_resources;
@@ -280,6 +292,13 @@ public final class ReduxConfig {
 				.gameRestart()
 				.define("Move Clouds", true));
 
+			this.upgraded_construction = trans.add(Redux.ASSETS_CONFIG.register(
+				builder
+					.comment("Use Redux's updated Aether contruction textures.")
+					.translation(trans.transKey(builder, "upgraded_contruction"))
+					.define("Upgraded Construction", true),
+				"upgraded_construction"
+			));
 			this.upgraded_nature = trans.add(Redux.ASSETS_CONFIG.register(
 				builder
 					.comment("Use Redux's updated Aether nature textures.")
